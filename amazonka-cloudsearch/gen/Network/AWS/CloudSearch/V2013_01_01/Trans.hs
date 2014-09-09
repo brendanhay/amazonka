@@ -22,58 +22,104 @@
 module Network.AWS.CloudSearch.V2013_01_01.Trans
     (
     -- * BuildSuggesters
+    -- $BuildSuggesters
       buildSuggesters
+
     -- * CreateDomain
+    -- $CreateDomain
     , createDomain
+
     -- * DefineAnalysisScheme
+    -- $DefineAnalysisScheme
     , defineAnalysisScheme
+
     -- * DefineExpression
+    -- $DefineExpression
     , defineExpression
+
     -- * DefineIndexField
+    -- $DefineIndexField
     , defineIndexField
+
     -- * DefineSuggester
+    -- $DefineSuggester
     , defineSuggester
+
     -- * DeleteAnalysisScheme
+    -- $DeleteAnalysisScheme
     , deleteAnalysisScheme
+
     -- * DeleteDomain
+    -- $DeleteDomain
     , deleteDomain
+
     -- * DeleteExpression
+    -- $DeleteExpression
     , deleteExpression
+
     -- * DeleteIndexField
+    -- $DeleteIndexField
     , deleteIndexField
+
     -- * DeleteSuggester
+    -- $DeleteSuggester
     , deleteSuggester
+
     -- * DescribeAnalysisSchemes
+    -- $DescribeAnalysisSchemes
     , describeAnalysisSchemes
+
     -- * DescribeAvailabilityOptions
+    -- $DescribeAvailabilityOptions
     , describeAvailabilityOptions
+
     -- * DescribeDomains
+    -- $DescribeDomains
     , describeDomains
+
     -- * DescribeExpressions
+    -- $DescribeExpressions
     , describeExpressions
+
     -- * DescribeIndexFields
+    -- $DescribeIndexFields
     , describeIndexFields
+
     -- * DescribeScalingParameters
+    -- $DescribeScalingParameters
     , describeScalingParameters
+
     -- * DescribeServiceAccessPolicies
+    -- $DescribeServiceAccessPolicies
     , describeServiceAccessPolicies
+
     -- * DescribeSuggesters
+    -- $DescribeSuggesters
     , describeSuggesters
+
     -- * IndexDocuments
+    -- $IndexDocuments
     , indexDocuments
+
     -- * ListDomainNames
+    -- $ListDomainNames
     , listDomainNames
+
     -- * UpdateAvailabilityOptions
+    -- $UpdateAvailabilityOptions
     , updateAvailabilityOptions
+
     -- * UpdateScalingParameters
+    -- $UpdateScalingParameters
     , updateScalingParameters
+
     -- * UpdateServiceAccessPolicies
+    -- $UpdateServiceAccessPolicies
     , updateServiceAccessPolicies
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.CloudSearch.V2013_01_01
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -84,9 +130,11 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CloudSearch.V2013_01_01
 
--- | Indexes the search suggestions.
+-- $BuildSuggesters
+-- Indexes the search suggestions.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.BuildSuggesters'
+
 buildSuggesters :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -98,10 +146,12 @@ buildSuggesters :: ( MonadCatch m
 buildSuggesters p1 s =
     send $ (mkBuildSuggesters p1) &~ s
 
--- | Creates a new search domain. For more information, see Creating a Search
+-- $CreateDomain
+-- Creates a new search domain. For more information, see Creating a Search
 -- Domain in the Amazon CloudSearch Developer Guide.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.CreateDomain'
+
 createDomain :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -113,12 +163,14 @@ createDomain :: ( MonadCatch m
 createDomain p1 s =
     send $ (mkCreateDomain p1) &~ s
 
--- | Configures an analysis scheme that can be applied to a text or text-array
+-- $DefineAnalysisScheme
+-- Configures an analysis scheme that can be applied to a text or text-array
 -- field to define language-specific text processing options. For more
 -- information, see Configuring Analysis Schemes in the Amazon CloudSearch
 -- Developer Guide.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DefineAnalysisScheme'
+
 defineAnalysisScheme :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -131,12 +183,14 @@ defineAnalysisScheme :: ( MonadCatch m
 defineAnalysisScheme p1 p2 s =
     send $ (mkDefineAnalysisScheme p1 p2) &~ s
 
--- | Configures an Expression for the search domain. Used to create new
+-- $DefineExpression
+-- Configures an Expression for the search domain. Used to create new
 -- expressions and modify existing ones. If the expression exists, the new
 -- configuration replaces the old one. For more information, see Configuring
 -- Expressions in the Amazon CloudSearch Developer Guide.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DefineExpression'
+
 defineExpression :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -149,7 +203,8 @@ defineExpression :: ( MonadCatch m
 defineExpression p1 p2 s =
     send $ (mkDefineExpression p1 p2) &~ s
 
--- | Configures an IndexField for the search domain. Used to create new fields
+-- $DefineIndexField
+-- Configures an IndexField for the search domain. Used to create new fields
 -- and modify existing ones. You must specify the name of the domain you are
 -- configuring and an index field configuration. The index field configuration
 -- specifies a unique name, the index field type, and the options you want to
@@ -159,6 +214,7 @@ defineExpression p1 p2 s =
 -- CloudSearch Developer Guide.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DefineIndexField'
+
 defineIndexField :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -171,7 +227,8 @@ defineIndexField :: ( MonadCatch m
 defineIndexField p1 p2 s =
     send $ (mkDefineIndexField p1 p2) &~ s
 
--- | Configures a suggester for a domain. A suggester enables you to display
+-- $DefineSuggester
+-- Configures a suggester for a domain. A suggester enables you to display
 -- possible matches before users finish typing their queries. When you
 -- configure a suggester, you must specify the name of the text field you want
 -- to search for possible matches and a unique name for the suggester. For
@@ -179,6 +236,7 @@ defineIndexField p1 p2 s =
 -- Developer Guide.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DefineSuggester'
+
 defineSuggester :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -191,10 +249,12 @@ defineSuggester :: ( MonadCatch m
 defineSuggester p1 p2 s =
     send $ (mkDefineSuggester p1 p2) &~ s
 
--- | Deletes an analysis scheme. For more information, see Configuring Analysis
+-- $DeleteAnalysisScheme
+-- Deletes an analysis scheme. For more information, see Configuring Analysis
 -- Schemes in the Amazon CloudSearch Developer Guide.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DeleteAnalysisScheme'
+
 deleteAnalysisScheme :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -207,11 +267,13 @@ deleteAnalysisScheme :: ( MonadCatch m
 deleteAnalysisScheme p1 p2 s =
     send $ (mkDeleteAnalysisScheme p1 p2) &~ s
 
--- | Permanently deletes a search domain and all of its data. Once a domain has
+-- $DeleteDomain
+-- Permanently deletes a search domain and all of its data. Once a domain has
 -- been deleted, it cannot be recovered. For more information, see Deleting a
 -- Search Domain in the Amazon CloudSearch Developer Guide.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DeleteDomain'
+
 deleteDomain :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -223,10 +285,12 @@ deleteDomain :: ( MonadCatch m
 deleteDomain p1 s =
     send $ (mkDeleteDomain p1) &~ s
 
--- | Removes an Expression from the search domain. For more information, see
+-- $DeleteExpression
+-- Removes an Expression from the search domain. For more information, see
 -- Configuring Expressions in the Amazon CloudSearch Developer Guide.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DeleteExpression'
+
 deleteExpression :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -239,10 +303,12 @@ deleteExpression :: ( MonadCatch m
 deleteExpression p1 p2 s =
     send $ (mkDeleteExpression p1 p2) &~ s
 
--- | Removes an IndexField from the search domain. For more information, see
+-- $DeleteIndexField
+-- Removes an IndexField from the search domain. For more information, see
 -- Configuring Index Fields in the Amazon CloudSearch Developer Guide.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DeleteIndexField'
+
 deleteIndexField :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -255,10 +321,12 @@ deleteIndexField :: ( MonadCatch m
 deleteIndexField p1 p2 s =
     send $ (mkDeleteIndexField p1 p2) &~ s
 
--- | Deletes a suggester. For more information, see Getting Search Suggestions
+-- $DeleteSuggester
+-- Deletes a suggester. For more information, see Getting Search Suggestions
 -- in the Amazon CloudSearch Developer Guide.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DeleteSuggester'
+
 deleteSuggester :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -271,7 +339,8 @@ deleteSuggester :: ( MonadCatch m
 deleteSuggester p1 p2 s =
     send $ (mkDeleteSuggester p1 p2) &~ s
 
--- | Gets the analysis schemes configured for a domain. An analysis scheme
+-- $DescribeAnalysisSchemes
+-- Gets the analysis schemes configured for a domain. An analysis scheme
 -- defines language-specific text processing options for a text field. Can be
 -- limited to specific analysis schemes by name. By default, shows all
 -- analysis schemes and includes any pending changes to the configuration. Set
@@ -280,6 +349,7 @@ deleteSuggester p1 p2 s =
 -- the Amazon CloudSearch Developer Guide.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DescribeAnalysisSchemes'
+
 describeAnalysisSchemes :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -291,13 +361,15 @@ describeAnalysisSchemes :: ( MonadCatch m
 describeAnalysisSchemes p1 s =
     send $ (mkDescribeAnalysisSchemes p1) &~ s
 
--- | Gets the availability options configured for a domain. By default, shows
+-- $DescribeAvailabilityOptions
+-- Gets the availability options configured for a domain. By default, shows
 -- the configuration with any pending changes. Set the Deployed option to true
 -- to show the active configuration and exclude pending changes. For more
 -- information, see Configuring Availability Options in the Amazon CloudSearch
 -- Developer Guide.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DescribeAvailabilityOptions'
+
 describeAvailabilityOptions :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -309,7 +381,8 @@ describeAvailabilityOptions :: ( MonadCatch m
 describeAvailabilityOptions p1 s =
     send $ (mkDescribeAvailabilityOptions p1) &~ s
 
--- | Gets information about the search domains owned by this account. Can be
+-- $DescribeDomains
+-- Gets information about the search domains owned by this account. Can be
 -- limited to specific domains. Shows all domains by default. To get the
 -- number of searchable documents in a domain, use the console or submit a
 -- matchall request to your domain's search endpoint:
@@ -318,6 +391,7 @@ describeAvailabilityOptions p1 s =
 -- Developer Guide.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DescribeDomains'
+
 describeDomains :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -328,7 +402,8 @@ describeDomains :: ( MonadCatch m
 describeDomains s =
     send (mkDescribeDomains &~ s)
 
--- | Gets the expressions configured for the search domain. Can be limited to
+-- $DescribeExpressions
+-- Gets the expressions configured for the search domain. Can be limited to
 -- specific expressions by name. By default, shows all expressions and
 -- includes any pending changes to the configuration. Set the Deployed option
 -- to true to show the active configuration and exclude pending changes. For
@@ -336,6 +411,7 @@ describeDomains s =
 -- Developer Guide.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DescribeExpressions'
+
 describeExpressions :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -347,7 +423,8 @@ describeExpressions :: ( MonadCatch m
 describeExpressions p1 s =
     send $ (mkDescribeExpressions p1) &~ s
 
--- | Gets information about the index fields configured for the search domain.
+-- $DescribeIndexFields
+-- Gets information about the index fields configured for the search domain.
 -- Can be limited to specific fields by name. By default, shows all fields and
 -- includes any pending changes to the configuration. Set the Deployed option
 -- to true to show the active configuration and exclude pending changes. For
@@ -355,6 +432,7 @@ describeExpressions p1 s =
 -- Developer Guide.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DescribeIndexFields'
+
 describeIndexFields :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -366,12 +444,14 @@ describeIndexFields :: ( MonadCatch m
 describeIndexFields p1 s =
     send $ (mkDescribeIndexFields p1) &~ s
 
--- | Gets the scaling parameters configured for a domain. A domain's scaling
+-- $DescribeScalingParameters
+-- Gets the scaling parameters configured for a domain. A domain's scaling
 -- parameters specify the desired search instance type and replication count.
 -- For more information, see Configuring Scaling Options in the Amazon
 -- CloudSearch Developer Guide.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DescribeScalingParameters'
+
 describeScalingParameters :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -383,7 +463,8 @@ describeScalingParameters :: ( MonadCatch m
 describeScalingParameters p1 s =
     send $ (mkDescribeScalingParameters p1) &~ s
 
--- | Gets information about the access policies that control access to the
+-- $DescribeServiceAccessPolicies
+-- Gets information about the access policies that control access to the
 -- domain's document and search endpoints. By default, shows the configuration
 -- with any pending changes. Set the Deployed option to true to show the
 -- active configuration and exclude pending changes. For more information, see
@@ -391,6 +472,7 @@ describeScalingParameters p1 s =
 -- Guide.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DescribeServiceAccessPolicies'
+
 describeServiceAccessPolicies :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
@@ -402,7 +484,8 @@ describeServiceAccessPolicies :: ( MonadCatch m
 describeServiceAccessPolicies p1 s =
     send $ (mkDescribeServiceAccessPolicies p1) &~ s
 
--- | Gets the suggesters configured for a domain. A suggester enables you to
+-- $DescribeSuggesters
+-- Gets the suggesters configured for a domain. A suggester enables you to
 -- display possible matches before users finish typing their queries. Can be
 -- limited to specific suggesters by name. By default, shows all suggesters
 -- and includes any pending changes to the configuration. Set the Deployed
@@ -411,6 +494,7 @@ describeServiceAccessPolicies p1 s =
 -- CloudSearch Developer Guide.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.DescribeSuggesters'
+
 describeSuggesters :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -422,11 +506,13 @@ describeSuggesters :: ( MonadCatch m
 describeSuggesters p1 s =
     send $ (mkDescribeSuggesters p1) &~ s
 
--- | Tells the search domain to start indexing its documents using the latest
+-- $IndexDocuments
+-- Tells the search domain to start indexing its documents using the latest
 -- indexing options. This operation must be invoked to activate options whose
 -- OptionStatus is RequiresIndexDocuments.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.IndexDocuments'
+
 indexDocuments :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -438,9 +524,11 @@ indexDocuments :: ( MonadCatch m
 indexDocuments p1 s =
     send $ (mkIndexDocuments p1) &~ s
 
--- | Lists all search domains owned by an account.
+-- $ListDomainNames
+-- Lists all search domains owned by an account.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.ListDomainNames'
+
 listDomainNames :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -451,7 +539,8 @@ listDomainNames :: ( MonadCatch m
 listDomainNames s =
     send (mkListDomainNames &~ s)
 
--- | Configures the availability options for a domain. Enabling the Multi-AZ
+-- $UpdateAvailabilityOptions
+-- Configures the availability options for a domain. Enabling the Multi-AZ
 -- option expands an Amazon CloudSearch domain to an additional Availability
 -- Zone in the same Region to increase fault tolerance in the event of a
 -- service disruption. Changes to the Multi-AZ option can take about half an
@@ -459,6 +548,7 @@ listDomainNames s =
 -- Options in the Amazon CloudSearch Developer Guide.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.UpdateAvailabilityOptions'
+
 updateAvailabilityOptions :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -471,7 +561,8 @@ updateAvailabilityOptions :: ( MonadCatch m
 updateAvailabilityOptions p1 p2 s =
     send $ (mkUpdateAvailabilityOptions p1 p2) &~ s
 
--- | Configures scaling parameters for a domain. A domain's scaling parameters
+-- $UpdateScalingParameters
+-- Configures scaling parameters for a domain. A domain's scaling parameters
 -- specify the desired search instance type and replication count. Amazon
 -- CloudSearch will still automatically scale your domain based on the volume
 -- of data and traffic, but not below the desired instance type and
@@ -480,6 +571,7 @@ updateAvailabilityOptions p1 p2 s =
 -- Configuring Scaling Options in the Amazon CloudSearch Developer Guide.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.UpdateScalingParameters'
+
 updateScalingParameters :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -492,11 +584,13 @@ updateScalingParameters :: ( MonadCatch m
 updateScalingParameters p1 p2 s =
     send $ (mkUpdateScalingParameters p1 p2) &~ s
 
--- | Configures the access rules that control access to the domain's document
+-- $UpdateServiceAccessPolicies
+-- Configures the access rules that control access to the domain's document
 -- and search endpoints. For more information, see Configuring Access for an
 -- Amazon CloudSearch Domain.
 --
 -- See: 'Network.AWS.CloudSearch.V2013_01_01.UpdateServiceAccessPolicies'
+
 updateServiceAccessPolicies :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m

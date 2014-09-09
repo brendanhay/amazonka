@@ -28,78 +28,144 @@
 module Network.AWS.ElastiCache.V2014_07_15.Trans
     (
     -- * AuthorizeCacheSecurityGroupIngress
+    -- $AuthorizeCacheSecurityGroupIngress
       authorizeCacheSecurityGroupIngress
+
     -- * CopySnapshot
+    -- $CopySnapshot
     , copySnapshot
+
     -- * CreateCacheCluster
+    -- $CreateCacheCluster
     , createCacheCluster
+
     -- * CreateCacheParameterGroup
+    -- $CreateCacheParameterGroup
     , createCacheParameterGroup
+
     -- * CreateCacheSecurityGroup
+    -- $CreateCacheSecurityGroup
     , createCacheSecurityGroup
+
     -- * CreateCacheSubnetGroup
+    -- $CreateCacheSubnetGroup
     , createCacheSubnetGroup
+
     -- * CreateReplicationGroup
+    -- $CreateReplicationGroup
     , createReplicationGroup
+
     -- * CreateSnapshot
+    -- $CreateSnapshot
     , createSnapshot
+
     -- * DeleteCacheCluster
+    -- $DeleteCacheCluster
     , deleteCacheCluster
+
     -- * DeleteCacheParameterGroup
+    -- $DeleteCacheParameterGroup
     , deleteCacheParameterGroup
+
     -- * DeleteCacheSecurityGroup
+    -- $DeleteCacheSecurityGroup
     , deleteCacheSecurityGroup
+
     -- * DeleteCacheSubnetGroup
+    -- $DeleteCacheSubnetGroup
     , deleteCacheSubnetGroup
+
     -- * DeleteReplicationGroup
+    -- $DeleteReplicationGroup
     , deleteReplicationGroup
+
     -- * DeleteSnapshot
+    -- $DeleteSnapshot
     , deleteSnapshot
+
     -- * DescribeCacheClusters
+    -- $DescribeCacheClusters
     , describeCacheClusters
+
     -- * DescribeCacheEngineVersions
+    -- $DescribeCacheEngineVersions
     , describeCacheEngineVersions
+
     -- * DescribeCacheParameterGroups
+    -- $DescribeCacheParameterGroups
     , describeCacheParameterGroups
+
     -- * DescribeCacheParameters
+    -- $DescribeCacheParameters
     , describeCacheParameters
+
     -- * DescribeCacheSecurityGroups
+    -- $DescribeCacheSecurityGroups
     , describeCacheSecurityGroups
+
     -- * DescribeCacheSubnetGroups
+    -- $DescribeCacheSubnetGroups
     , describeCacheSubnetGroups
+
     -- * DescribeEngineDefaultParameters
+    -- $DescribeEngineDefaultParameters
     , describeEngineDefaultParameters
+
     -- * DescribeEvents
+    -- $DescribeEvents
     , describeEvents
+
     -- * DescribeReplicationGroups
+    -- $DescribeReplicationGroups
     , describeReplicationGroups
+
     -- * DescribeReservedCacheNodes
+    -- $DescribeReservedCacheNodes
     , describeReservedCacheNodes
+
     -- * DescribeReservedCacheNodesOfferings
+    -- $DescribeReservedCacheNodesOfferings
     , describeReservedCacheNodesOfferings
+
     -- * DescribeSnapshots
+    -- $DescribeSnapshots
     , describeSnapshots
+
     -- * ModifyCacheCluster
+    -- $ModifyCacheCluster
     , modifyCacheCluster
+
     -- * ModifyCacheParameterGroup
+    -- $ModifyCacheParameterGroup
     , modifyCacheParameterGroup
+
     -- * ModifyCacheSubnetGroup
+    -- $ModifyCacheSubnetGroup
     , modifyCacheSubnetGroup
+
     -- * ModifyReplicationGroup
+    -- $ModifyReplicationGroup
     , modifyReplicationGroup
+
     -- * PurchaseReservedCacheNodesOffering
+    -- $PurchaseReservedCacheNodesOffering
     , purchaseReservedCacheNodesOffering
+
     -- * RebootCacheCluster
+    -- $RebootCacheCluster
     , rebootCacheCluster
+
     -- * ResetCacheParameterGroup
+    -- $ResetCacheParameterGroup
     , resetCacheParameterGroup
+
     -- * RevokeCacheSecurityGroupIngress
+    -- $RevokeCacheSecurityGroupIngress
     , revokeCacheSecurityGroupIngress
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.ElastiCache.V2014_07_15
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -110,7 +176,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.ElastiCache.V2014_07_15
 
--- | The AuthorizeCacheSecurityGroupIngress operation allows network ingress to
+-- $AuthorizeCacheSecurityGroupIngress
+-- The AuthorizeCacheSecurityGroupIngress operation allows network ingress to
 -- a cache security group. Applications using ElastiCache must be running on
 -- Amazon EC2, and Amazon EC2 security groups are used as the authorization
 -- mechanism. You cannot authorize ingress from an Amazon EC2 security group
@@ -124,6 +191,7 @@ import Network.AWS.ElastiCache.V2014_07_15
 -- 817fa999-3647-11e0-ae57-f96cfe56749c.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.AuthorizeCacheSecurityGroupIngress'
+
 authorizeCacheSecurityGroupIngress :: ( MonadCatch m
                                       , MonadResource m
                                       , MonadError AWS.Error m
@@ -137,9 +205,11 @@ authorizeCacheSecurityGroupIngress :: ( MonadCatch m
 authorizeCacheSecurityGroupIngress p1 p2 p3 s =
     send $ (mkAuthorizeCacheSecurityGroupIngress p1 p2 p3) &~ s
 
--- | The CopySnapshot operation makes a copy of an existing snapshot.
+-- $CopySnapshot
+-- The CopySnapshot operation makes a copy of an existing snapshot.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.CopySnapshot'
+
 copySnapshot :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -152,7 +222,8 @@ copySnapshot :: ( MonadCatch m
 copySnapshot p1 p2 s =
     send $ (mkCopySnapshot p1 p2) &~ s
 
--- | The CreateCacheCluster operation creates a new cache cluster. All nodes in
+-- $CreateCacheCluster
+-- The CreateCacheCluster operation creates a new cache cluster. All nodes in
 -- the cache cluster run the same protocol-compliant cache engine software -
 -- either Memcached or Redis. https://elasticache.us-east-1.amazonaws.com/
 -- ?Action=CreateCacheCluster &CacheClusterId=myMemcachedCluster
@@ -171,6 +242,7 @@ copySnapshot p1 p2 s =
 -- aaf2e796-363f-11e0-a564-8f11342c56b0 ]]> -->.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.CreateCacheCluster'
+
 createCacheCluster :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -182,7 +254,8 @@ createCacheCluster :: ( MonadCatch m
 createCacheCluster p1 s =
     send $ (mkCreateCacheCluster p1) &~ s
 
--- | The CreateCacheParameterGroup operation creates a new cache parameter
+-- $CreateCacheParameterGroup
+-- The CreateCacheParameterGroup operation creates a new cache parameter
 -- group. A cache parameter group is a collection of parameters that you apply
 -- to all of the nodes in a cache cluster.
 -- https://elasticache.us-east-1.amazonaws.com/
@@ -195,6 +268,7 @@ createCacheCluster p1 s =
 -- parameter group 05699541-b7f9-11e0-9326-b7275b9d4a6c.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.CreateCacheParameterGroup'
+
 createCacheParameterGroup :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -208,7 +282,8 @@ createCacheParameterGroup :: ( MonadCatch m
 createCacheParameterGroup p1 p2 p3 s =
     send $ (mkCreateCacheParameterGroup p1 p2 p3) &~ s
 
--- | The CreateCacheSecurityGroup operation creates a new cache security group.
+-- $CreateCacheSecurityGroup
+-- The CreateCacheSecurityGroup operation creates a new cache security group.
 -- Use a cache security group to control access to one or more cache clusters.
 -- Cache security groups are only used when you are creating a cluster outside
 -- of an Amazon Virtual Private Cloud (VPC). If you are creating a cluster
@@ -222,6 +297,7 @@ createCacheParameterGroup p1 p2 p3 s =
 -- group 2b1c8035-b7fa-11e0-9326-b7275b9d4a6c.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.CreateCacheSecurityGroup'
+
 createCacheSecurityGroup :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -234,7 +310,8 @@ createCacheSecurityGroup :: ( MonadCatch m
 createCacheSecurityGroup p1 p2 s =
     send $ (mkCreateCacheSecurityGroup p1 p2) &~ s
 
--- | The CreateCacheSubnetGroup operation creates a new cache subnet group. Use
+-- $CreateCacheSubnetGroup
+-- The CreateCacheSubnetGroup operation creates a new cache subnet group. Use
 -- this parameter only when you are creating a cluster in an Amazon Virtual
 -- Private Cloud (VPC). https://elasticache.amazonaws.com/
 -- ?Action=CreateCacheSubnetGroup &CacheSubnetGroupName=myCachesubnetgroup
@@ -246,6 +323,7 @@ createCacheSecurityGroup p1 p2 s =
 -- ed662948-a57b-11df-9e38-7ffab86c801f.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.CreateCacheSubnetGroup'
+
 createCacheSubnetGroup :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -259,7 +337,8 @@ createCacheSubnetGroup :: ( MonadCatch m
 createCacheSubnetGroup p1 p2 p3 s =
     send $ (mkCreateCacheSubnetGroup p1 p2 p3) &~ s
 
--- | The CreateReplicationGroup operation creates a replication group. A
+-- $CreateReplicationGroup
+-- The CreateReplicationGroup operation creates a replication group. A
 -- replication group is a collection of cache clusters, where one of the
 -- clusters is a read/write primary and the other clusters are read-only
 -- replicas. Writes to the primary are automatically propagated to the
@@ -276,6 +355,7 @@ createCacheSubnetGroup p1 p2 p3 s =
 -- f3b7b32d-b9d2-11e3-8a16-7978bb24ffdf.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.CreateReplicationGroup'
+
 createReplicationGroup :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -289,7 +369,8 @@ createReplicationGroup :: ( MonadCatch m
 createReplicationGroup p1 p2 p3 s =
     send $ (mkCreateReplicationGroup p1 p2 p3) &~ s
 
--- | The CreateSnapshot operation creates a copy of an entire cache cluster at a
+-- $CreateSnapshot
+-- The CreateSnapshot operation creates a copy of an entire cache cluster at a
 -- specific moment in time. https://elasticache.us-east-1.amazonaws.com/
 -- ?Action=CreateSnapshot &CacheClusterId=my-redis-primary
 -- &SnapshotName=my-manual-snapshot &Version=2014-03-24 &SignatureVersion=4
@@ -300,6 +381,7 @@ createReplicationGroup p1 p2 p3 s =
 -- faf5a232-b9ce-11e3-8a16-7978bb24ffdf.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.CreateSnapshot'
+
 createSnapshot :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -312,7 +394,8 @@ createSnapshot :: ( MonadCatch m
 createSnapshot p1 p2 s =
     send $ (mkCreateSnapshot p1 p2) &~ s
 
--- | The DeleteCacheCluster operation deletes a previously provisioned cache
+-- $DeleteCacheCluster
+-- The DeleteCacheCluster operation deletes a previously provisioned cache
 -- cluster. DeleteCacheCluster deletes all associated cache nodes, node
 -- endpoints and the cache cluster itself. When you receive a successful
 -- response from this operation, Amazon ElastiCache immediately begins
@@ -326,6 +409,7 @@ createSnapshot p1 p2 s =
 -- active 3 ab84aa7e-b7fa-11e0-9b0b-a9261be2b354.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DeleteCacheCluster'
+
 deleteCacheCluster :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -337,7 +421,8 @@ deleteCacheCluster :: ( MonadCatch m
 deleteCacheCluster p1 s =
     send $ (mkDeleteCacheCluster p1) &~ s
 
--- | The DeleteCacheParameterGroup operation deletes the specified cache
+-- $DeleteCacheParameterGroup
+-- The DeleteCacheParameterGroup operation deletes the specified cache
 -- parameter group. You cannot delete a cache parameter group if it is
 -- associated with any cache clusters.
 -- https://elasticache.us-east-1.amazonaws.com/
@@ -347,6 +432,7 @@ deleteCacheCluster p1 s =
 -- d0a417cb-575b-11e0-8869-cd22b4f9d96f.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DeleteCacheParameterGroup'
+
 deleteCacheParameterGroup :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -358,7 +444,8 @@ deleteCacheParameterGroup :: ( MonadCatch m
 deleteCacheParameterGroup p1 s =
     send $ (mkDeleteCacheParameterGroup p1) &~ s
 
--- | The DeleteCacheSecurityGroup operation deletes a cache security group. You
+-- $DeleteCacheSecurityGroup
+-- The DeleteCacheSecurityGroup operation deletes a cache security group. You
 -- cannot delete a cache security group if it is associated with any cache
 -- clusters. https://elasticache.us-east-1.amazonaws.com/
 -- ?Action=DeleteCacheSecurityGroup
@@ -367,6 +454,7 @@ deleteCacheParameterGroup p1 s =
 -- &X-Amz-Credential= c130cfb7-3650-11e0-ae57-f96cfe56749c.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DeleteCacheSecurityGroup'
+
 deleteCacheSecurityGroup :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -378,7 +466,8 @@ deleteCacheSecurityGroup :: ( MonadCatch m
 deleteCacheSecurityGroup p1 s =
     send $ (mkDeleteCacheSecurityGroup p1) &~ s
 
--- | The DeleteCacheSubnetGroup operation deletes a cache subnet group. You
+-- $DeleteCacheSubnetGroup
+-- The DeleteCacheSubnetGroup operation deletes a cache subnet group. You
 -- cannot delete a cache subnet group if it is associated with any cache
 -- clusters. https://elasticache.amazonaws.com/ ?Action=DeleteCacheSubnetGroup
 -- &CacheSubnetGroupName=mysubnetgroup &Version=2014-03-24 &SignatureVersion=4
@@ -386,6 +475,7 @@ deleteCacheSecurityGroup p1 s =
 -- 5d013245-4172-11df-8520-e7e1e602a915.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DeleteCacheSubnetGroup'
+
 deleteCacheSubnetGroup :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -397,7 +487,8 @@ deleteCacheSubnetGroup :: ( MonadCatch m
 deleteCacheSubnetGroup p1 s =
     send $ (mkDeleteCacheSubnetGroup p1) &~ s
 
--- | The DeleteReplicationGroup operation deletes an existing replication group.
+-- $DeleteReplicationGroup
+-- The DeleteReplicationGroup operation deletes an existing replication group.
 -- By default, this operation deletes the entire replication group, including
 -- the primary cache cluster and all of the read replicas. You can optionally
 -- delete only the read replicas, while retaining the primary cache cluster.
@@ -412,6 +503,7 @@ deleteCacheSubnetGroup p1 s =
 -- 93eb37db-b9d7-11e3-8a16-7978bb24ffdf.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DeleteReplicationGroup'
+
 deleteReplicationGroup :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -423,7 +515,8 @@ deleteReplicationGroup :: ( MonadCatch m
 deleteReplicationGroup p1 s =
     send $ (mkDeleteReplicationGroup p1) &~ s
 
--- | The DeleteSnapshot operation deletes an existing snapshot. When you receive
+-- $DeleteSnapshot
+-- The DeleteSnapshot operation deletes an existing snapshot. When you receive
 -- a successful response from this operation, ElastiCache immediately begins
 -- deleting the snapshot; you cannot cancel or revert this operation.
 -- https://elasticache.us-east-1.amazonaws.com/ ?Action=DeleteSnapshot
@@ -435,6 +528,7 @@ deleteReplicationGroup p1 s =
 -- MB deleting 1 07:30-08:30 694d7017-b9d2-11e3-8a16-7978bb24ffdf.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DeleteSnapshot'
+
 deleteSnapshot :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -446,7 +540,8 @@ deleteSnapshot :: ( MonadCatch m
 deleteSnapshot p1 s =
     send $ (mkDeleteSnapshot p1) &~ s
 
--- | The DescribeCacheClusters operation returns information about all
+-- $DescribeCacheClusters
+-- The DescribeCacheClusters operation returns information about all
 -- provisioned cache clusters if no cache cluster identifier is specified, or
 -- about a specific cache cluster if a cache cluster identifier is supplied.
 -- By default, abbreviated information about the cache clusters(s) will be
@@ -474,6 +569,7 @@ deleteSnapshot p1 s =
 -- f270d58f-b7fb-11e0-9326-b7275b9d4a6c.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeCacheClusters'
+
 describeCacheClusters :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -484,7 +580,8 @@ describeCacheClusters :: ( MonadCatch m
 describeCacheClusters s =
     paginate (mkDescribeCacheClusters &~ s)
 
--- | The DescribeCacheEngineVersions operation returns a list of the available
+-- $DescribeCacheEngineVersions
+-- The DescribeCacheEngineVersions operation returns a list of the available
 -- cache engines and their versions.
 -- https://elasticache.us-east-1.amazonaws.com/
 -- ?Action=DescribeCacheEngineVersions &MaxRecords=100 &Version=2014-03-24
@@ -494,6 +591,7 @@ describeCacheClusters s =
 -- 1.4.5 a6ac9ad2-f8a4-11e1-a4d1-a345e5370093.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeCacheEngineVersions'
+
 describeCacheEngineVersions :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -504,7 +602,8 @@ describeCacheEngineVersions :: ( MonadCatch m
 describeCacheEngineVersions s =
     paginate (mkDescribeCacheEngineVersions &~ s)
 
--- | The DescribeCacheParameterGroups operation returns a list of cache
+-- $DescribeCacheParameterGroups
+-- The DescribeCacheParameterGroups operation returns a list of cache
 -- parameter group descriptions. If a cache parameter group name is specified,
 -- the list will contain only the descriptions for that group.
 -- https://elasticache.us-east-1.amazonaws.com/
@@ -517,6 +616,7 @@ describeCacheEngineVersions s =
 -- parameter group 7193fbb8-b7fc-11e0-9b0b-a9261be2b354.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeCacheParameterGroups'
+
 describeCacheParameterGroups :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
@@ -527,7 +627,8 @@ describeCacheParameterGroups :: ( MonadCatch m
 describeCacheParameterGroups s =
     paginate (mkDescribeCacheParameterGroups &~ s)
 
--- | The DescribeCacheParameters operation returns the detailed parameter list
+-- $DescribeCacheParameters
+-- The DescribeCacheParameters operation returns the detailed parameter list
 -- for a particular cache parameter group. Some of the output has been omitted
 -- for brevity. https://elasticache.us-east-1.amazonaws.com/
 -- ?Action=DescribeCacheParameters
@@ -541,6 +642,7 @@ describeCacheParameterGroups s =
 -- omitted...) 0c507368-b7fe-11e0-9326-b7275b9d4a6c.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeCacheParameters'
+
 describeCacheParameters :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -552,7 +654,8 @@ describeCacheParameters :: ( MonadCatch m
 describeCacheParameters p1 s =
     paginate $ (mkDescribeCacheParameters p1) &~ s
 
--- | The DescribeCacheSecurityGroups operation returns a list of cache security
+-- $DescribeCacheSecurityGroups
+-- The DescribeCacheSecurityGroups operation returns a list of cache security
 -- group descriptions. If a cache security group name is specified, the list
 -- will contain only the description of that group.
 -- https://elasticache.us-east-1.amazonaws.com/
@@ -562,6 +665,7 @@ describeCacheParameters p1 s =
 -- 123456789012 My Security Group a95360ae-b7fc-11e0-9326-b7275b9d4a6c.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeCacheSecurityGroups'
+
 describeCacheSecurityGroups :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -572,7 +676,8 @@ describeCacheSecurityGroups :: ( MonadCatch m
 describeCacheSecurityGroups s =
     paginate (mkDescribeCacheSecurityGroups &~ s)
 
--- | The DescribeCacheSubnetGroups operation returns a list of cache subnet
+-- $DescribeCacheSubnetGroups
+-- The DescribeCacheSubnetGroups operation returns a list of cache subnet
 -- group descriptions. If a subnet group name is specified, the list will
 -- contain only the description of that group. Some of the output has been
 -- omitted for brevity. https://elasticache.amazonaws.com/
@@ -583,6 +688,7 @@ describeCacheSecurityGroups s =
 -- (...output omitted...) 31d0faee-229b-11e1-81f1-df3a2a803dad.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeCacheSubnetGroups'
+
 describeCacheSubnetGroups :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -593,7 +699,8 @@ describeCacheSubnetGroups :: ( MonadCatch m
 describeCacheSubnetGroups s =
     paginate (mkDescribeCacheSubnetGroups &~ s)
 
--- | The DescribeEngineDefaultParameters operation returns the default engine
+-- $DescribeEngineDefaultParameters
+-- The DescribeEngineDefaultParameters operation returns the default engine
 -- and system parameter information for the specified cache engine. Some of
 -- the output has been omitted for brevity.
 -- https://elasticache.us-east-1.amazonaws.com/
@@ -608,6 +715,7 @@ describeCacheSubnetGroups s =
 -- 061282fe-b7fd-11e0-9326-b7275b9d4a6c.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeEngineDefaultParameters'
+
 describeEngineDefaultParameters :: ( MonadCatch m
                                    , MonadResource m
                                    , MonadError AWS.Error m
@@ -619,7 +727,8 @@ describeEngineDefaultParameters :: ( MonadCatch m
 describeEngineDefaultParameters p1 s =
     paginate $ (mkDescribeEngineDefaultParameters p1) &~ s
 
--- | The DescribeEvents operation returns events related to cache clusters,
+-- $DescribeEvents
+-- The DescribeEvents operation returns events related to cache clusters,
 -- cache security groups, and cache parameter groups. You can obtain events
 -- specific to a particular cache cluster, cache security group, or cache
 -- parameter group by providing the name as a parameter. By default, only the
@@ -633,6 +742,7 @@ describeEngineDefaultParameters p1 s =
 -- e21c81b4-b9cd-11e3-8a16-7978bb24ffdf.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeEvents'
+
 describeEvents :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -643,7 +753,8 @@ describeEvents :: ( MonadCatch m
 describeEvents s =
     paginate (mkDescribeEvents &~ s)
 
--- | The DescribeReplicationGroups operation returns information about a
+-- $DescribeReplicationGroups
+-- The DescribeReplicationGroups operation returns information about a
 -- particular replication group. If no identifier is specified,
 -- DescribeReplicationGroups returns information about all replication groups.
 -- https://elasticache.us-east-1.amazonaws.com/
@@ -657,6 +768,7 @@ describeEvents s =
 -- 144745b0-b9d3-11e3-8a16-7978bb24ffdf.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeReplicationGroups'
+
 describeReplicationGroups :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -667,7 +779,8 @@ describeReplicationGroups :: ( MonadCatch m
 describeReplicationGroups s =
     paginate (mkDescribeReplicationGroups &~ s)
 
--- | The DescribeReservedCacheNodes operation returns information about reserved
+-- $DescribeReservedCacheNodes
+-- The DescribeReservedCacheNodes operation returns information about reserved
 -- cache nodes for this account, or about a specified reserved cache node.
 -- https://elasticache.amazonaws.com/ ?Action=DescribeReservedCacheNodes
 -- &ReservedCacheNodeId=customerSpecifiedID &Version=2014-03-24
@@ -678,6 +791,7 @@ describeReplicationGroups s =
 -- c695119b-2961-11e1-bd06-6fe008f046c3.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeReservedCacheNodes'
+
 describeReservedCacheNodes :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -688,7 +802,8 @@ describeReservedCacheNodes :: ( MonadCatch m
 describeReservedCacheNodes s =
     paginate (mkDescribeReservedCacheNodes &~ s)
 
--- | The DescribeReservedCacheNodesOfferings operation lists available reserved
+-- $DescribeReservedCacheNodesOfferings
+-- The DescribeReservedCacheNodesOfferings operation lists available reserved
 -- cache node offerings. https://elasticache.amazonaws.com/
 -- ?Action=DescribeReservedCacheNodesOfferings
 -- &ReservedCacheNodesOfferingId=438012d3-4052-4cc7-b2e3-8d3372e0e706
@@ -698,6 +813,7 @@ describeReservedCacheNodes s =
 -- 521b420a-2961-11e1-bd06-6fe008f046c3.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeReservedCacheNodesOfferings'
+
 describeReservedCacheNodesOfferings :: ( MonadCatch m
                                        , MonadResource m
                                        , MonadError AWS.Error m
@@ -708,7 +824,8 @@ describeReservedCacheNodesOfferings :: ( MonadCatch m
 describeReservedCacheNodesOfferings s =
     paginate (mkDescribeReservedCacheNodesOfferings &~ s)
 
--- | The DescribeSnapshots operation returns information about cache cluster
+-- $DescribeSnapshots
+-- The DescribeSnapshots operation returns information about cache cluster
 -- snapshots. By default, DescribeSnapshots lists all of your snapshots; it
 -- can optionally describe a single snapshot, or just the snapshots associated
 -- with a particular cache cluster.
@@ -721,6 +838,7 @@ describeReservedCacheNodesOfferings s =
 -- MB creating 1 07:30-08:30 51b0b25e-b9cf-11e3-8a16-7978bb24ffdf.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.DescribeSnapshots'
+
 describeSnapshots :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -731,7 +849,8 @@ describeSnapshots :: ( MonadCatch m
 describeSnapshots s =
     send (mkDescribeSnapshots &~ s)
 
--- | The ModifyCacheCluster operation modifies the settings for a cache cluster.
+-- $ModifyCacheCluster
+-- The ModifyCacheCluster operation modifies the settings for a cache cluster.
 -- You can use this operation to change one or more cluster configuration
 -- parameters by specifying the parameters and the new values.
 -- https://elasticache.us-east-1.amazonaws.com/ ?Action=ModifyCacheCluster
@@ -743,6 +862,7 @@ describeSnapshots s =
 -- fri:04:30-fri:05:00 default active 3 d5786c6d-b7fe-11e0-9326-b7275b9d4a6c.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.ModifyCacheCluster'
+
 modifyCacheCluster :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -754,7 +874,8 @@ modifyCacheCluster :: ( MonadCatch m
 modifyCacheCluster p1 s =
     send $ (mkModifyCacheCluster p1) &~ s
 
--- | The ModifyCacheParameterGroup operation modifies the parameters of a cache
+-- $ModifyCacheParameterGroup
+-- The ModifyCacheParameterGroup operation modifies the parameters of a cache
 -- parameter group. You can modify up to 20 parameters in a single request by
 -- submitting a list parameter name and value pairs.
 -- https://elasticache.us-east-1.amazonaws.com/
@@ -767,6 +888,7 @@ modifyCacheCluster p1 s =
 -- fcedeef2-b7ff-11e0-9326-b7275b9d4a6c.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.ModifyCacheParameterGroup'
+
 modifyCacheParameterGroup :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -779,7 +901,8 @@ modifyCacheParameterGroup :: ( MonadCatch m
 modifyCacheParameterGroup p1 p2 s =
     send $ (mkModifyCacheParameterGroup p1 p2) &~ s
 
--- | The ModifyCacheSubnetGroup operation modifies an existing cache subnet
+-- $ModifyCacheSubnetGroup
+-- The ModifyCacheSubnetGroup operation modifies an existing cache subnet
 -- group. https://elasticache.amazonaws.com/ ?Action=ModifyCacheSubnetGroup
 -- &CacheSubnetGroupName=myCachesubnetgroup
 -- &CacheSubnetGroupDescription=My%20modified%20CacheSubnetGroup
@@ -790,6 +913,7 @@ modifyCacheParameterGroup p1 p2 s =
 -- ed662948-a57b-11df-9e38-7ffab86c801f.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.ModifyCacheSubnetGroup'
+
 modifyCacheSubnetGroup :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -801,7 +925,8 @@ modifyCacheSubnetGroup :: ( MonadCatch m
 modifyCacheSubnetGroup p1 s =
     send $ (mkModifyCacheSubnetGroup p1) &~ s
 
--- | The ModifyReplicationGroup operation modifies the settings for a
+-- $ModifyReplicationGroup
+-- The ModifyReplicationGroup operation modifies the settings for a
 -- replication group. https://elasticache.us-east-1.amazonaws.com/
 -- ?Action=ModifyReplicationGroup &ApplyImmediately=false
 -- &ReplicationGroupId=my-repgroup &PrimaryClusterId=my-replica-1
@@ -817,6 +942,7 @@ modifyCacheSubnetGroup p1 s =
 -- 6fd0aad6-b9d7-11e3-8a16-7978bb24ffdf.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.ModifyReplicationGroup'
+
 modifyReplicationGroup :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -828,7 +954,8 @@ modifyReplicationGroup :: ( MonadCatch m
 modifyReplicationGroup p1 s =
     send $ (mkModifyReplicationGroup p1) &~ s
 
--- | The PurchaseReservedCacheNodesOffering operation allows you to purchase a
+-- $PurchaseReservedCacheNodesOffering
+-- The PurchaseReservedCacheNodesOffering operation allows you to purchase a
 -- reserved cache node offering. https://elasticache.amazonaws.com/
 -- ?Action=PurchaseReservedCacheNodesOffering
 -- &ReservedCacheNodeId=myreservationID
@@ -840,6 +967,7 @@ modifyReplicationGroup p1 s =
 -- 0.123 cache.m1.small 7f099901-29cf-11e1-bd06-6fe008f046c3.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.PurchaseReservedCacheNodesOffering'
+
 purchaseReservedCacheNodesOffering :: ( MonadCatch m
                                       , MonadResource m
                                       , MonadError AWS.Error m
@@ -851,7 +979,8 @@ purchaseReservedCacheNodesOffering :: ( MonadCatch m
 purchaseReservedCacheNodesOffering p1 s =
     send $ (mkPurchaseReservedCacheNodesOffering p1) &~ s
 
--- | The RebootCacheCluster operation reboots some, or all, of the cache nodes
+-- $RebootCacheCluster
+-- The RebootCacheCluster operation reboots some, or all, of the cache nodes
 -- within a provisioned cache cluster. This API will apply any modified cache
 -- parameter groups to the cache cluster. The reboot action takes place as
 -- soon as possible, and results in a momentary outage to the cache cluster.
@@ -870,6 +999,7 @@ purchaseReservedCacheNodesOffering p1 s =
 -- active 3 cf7e6fc4-b9d1-11e3-8a16-7978bb24ffdf.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.RebootCacheCluster'
+
 rebootCacheCluster :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -882,7 +1012,8 @@ rebootCacheCluster :: ( MonadCatch m
 rebootCacheCluster p1 p2 s =
     send $ (mkRebootCacheCluster p1 p2) &~ s
 
--- | The ResetCacheParameterGroup operation modifies the parameters of a cache
+-- $ResetCacheParameterGroup
+-- The ResetCacheParameterGroup operation modifies the parameters of a cache
 -- parameter group to the engine or system default value. You can reset
 -- specific parameters by submitting a list of parameter names. To reset the
 -- entire cache parameter group, specify the ResetAllParameters and
@@ -895,6 +1026,7 @@ rebootCacheCluster p1 p2 s =
 -- cb7cc855-b9d2-11e3-8a16-7978bb24ffdf.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.ResetCacheParameterGroup'
+
 resetCacheParameterGroup :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -907,7 +1039,8 @@ resetCacheParameterGroup :: ( MonadCatch m
 resetCacheParameterGroup p1 p3 s =
     send $ (mkResetCacheParameterGroup p1 p3) &~ s
 
--- | The RevokeCacheSecurityGroupIngress operation revokes ingress from a cache
+-- $RevokeCacheSecurityGroupIngress
+-- The RevokeCacheSecurityGroupIngress operation revokes ingress from a cache
 -- security group. Use this operation to disallow access from an Amazon EC2
 -- security group that had been previously authorized.
 -- https://elasticache.us-east-1.amazonaws.com/
@@ -919,6 +1052,7 @@ resetCacheParameterGroup p1 p3 s =
 -- 02ae3699-3650-11e0-a564-8f11342c56b0.
 --
 -- See: 'Network.AWS.ElastiCache.V2014_07_15.RevokeCacheSecurityGroupIngress'
+
 revokeCacheSecurityGroupIngress :: ( MonadCatch m
                                    , MonadResource m
                                    , MonadError AWS.Error m

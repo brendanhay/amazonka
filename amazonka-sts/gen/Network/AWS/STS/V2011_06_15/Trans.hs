@@ -21,22 +21,32 @@
 module Network.AWS.STS.V2011_06_15.Trans
     (
     -- * AssumeRole
+    -- $AssumeRole
       assumeRole
+
     -- * AssumeRoleWithSAML
+    -- $AssumeRoleWithSAML
     , assumeRoleWithSAML
+
     -- * AssumeRoleWithWebIdentity
+    -- $AssumeRoleWithWebIdentity
     , assumeRoleWithWebIdentity
+
     -- * DecodeAuthorizationMessage
+    -- $DecodeAuthorizationMessage
     , decodeAuthorizationMessage
+
     -- * GetFederationToken
+    -- $GetFederationToken
     , getFederationToken
+
     -- * GetSessionToken
+    -- $GetSessionToken
     , getSessionToken
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.STS.V2011_06_15
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -47,7 +57,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.STS.V2011_06_15
 
--- | Returns a set of temporary security credentials (consisting of an access
+-- $AssumeRole
+-- Returns a set of temporary security credentials (consisting of an access
 -- key ID, a secret access key, and a security token) that you can use to
 -- access AWS resources that you might not normally have access to. Typically,
 -- you use AssumeRole for cross-account access or federation. Important: You
@@ -117,6 +128,7 @@ import Network.AWS.STS.V2011_06_15
 -- ARO123EXAMPLE123:Bob 6 c6104cbe-af31-11e0-8154-cbc7ccf896c7.
 --
 -- See: 'Network.AWS.STS.V2011_06_15.AssumeRole'
+
 assumeRole :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -129,7 +141,8 @@ assumeRole :: ( MonadCatch m
 assumeRole p1 p2 s =
     send $ (mkAssumeRole p1 p2) &~ s
 
--- | Returns a set of temporary security credentials for users who have been
+-- $AssumeRoleWithSAML
+-- Returns a set of temporary security credentials for users who have been
 -- authenticated via a SAML authentication response. This operation provides a
 -- mechanism for tying an enterprise identity store or directory to role-based
 -- AWS access without user-specific credentials or configuration. The
@@ -168,6 +181,7 @@ assumeRole p1 p2 s =
 -- Federation in Using IAM.
 --
 -- See: 'Network.AWS.STS.V2011_06_15.AssumeRoleWithSAML'
+
 assumeRoleWithSAML :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -181,7 +195,8 @@ assumeRoleWithSAML :: ( MonadCatch m
 assumeRoleWithSAML p1 p2 p3 s =
     send $ (mkAssumeRoleWithSAML p1 p2 p3) &~ s
 
--- | Returns a set of temporary security credentials for users who have been
+-- $AssumeRoleWithWebIdentity
+-- Returns a set of temporary security credentials for users who have been
 -- authenticated in a mobile or web application with a web identity provider,
 -- such as Login with Amazon, Facebook, or Google. Calling
 -- AssumeRoleWithWebIdentity does not require the use of AWS security
@@ -245,6 +260,7 @@ assumeRoleWithSAML p1 p2 p3 s =
 -- ad4156e9-bce1-11e2-82e6-6b6ef249e618.
 --
 -- See: 'Network.AWS.STS.V2011_06_15.AssumeRoleWithWebIdentity'
+
 assumeRoleWithWebIdentity :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -258,7 +274,8 @@ assumeRoleWithWebIdentity :: ( MonadCatch m
 assumeRoleWithWebIdentity p1 p2 p3 s =
     send $ (mkAssumeRoleWithWebIdentity p1 p2 p3) &~ s
 
--- | Decodes additional information about the authorization status of a request
+-- $DecodeAuthorizationMessage
+-- Decodes additional information about the authorization status of a request
 -- from an encoded message returned in response to an AWS request. For
 -- example, if a user is not authorized to perform an action that he or she
 -- has requested, the request returns a Client.UnauthorizedOperation response
@@ -292,6 +309,7 @@ assumeRoleWithWebIdentity p1 p2 p3 s =
 -- ["Default-Environment"] } }, (Additional items ...) ] } }.
 --
 -- See: 'Network.AWS.STS.V2011_06_15.DecodeAuthorizationMessage'
+
 decodeAuthorizationMessage :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -303,7 +321,8 @@ decodeAuthorizationMessage :: ( MonadCatch m
 decodeAuthorizationMessage p1 s =
     send $ (mkDecodeAuthorizationMessage p1) &~ s
 
--- | Returns a set of temporary security credentials (consisting of an access
+-- $GetFederationToken
+-- Returns a set of temporary security credentials (consisting of an access
 -- key ID, a secret access key, and a security token) for a federated user. A
 -- typical use is in a proxy application that gets temporary security
 -- credentials on behalf of distributed applications inside a corporate
@@ -367,6 +386,7 @@ decodeAuthorizationMessage p1 s =
 -- 123456789012:Bob 6 c6104cbe-af31-11e0-8154-cbc7ccf896c7.
 --
 -- See: 'Network.AWS.STS.V2011_06_15.GetFederationToken'
+
 getFederationToken :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -378,7 +398,8 @@ getFederationToken :: ( MonadCatch m
 getFederationToken p1 s =
     send $ (mkGetFederationToken p1) &~ s
 
--- | Returns a set of temporary credentials for an AWS account or IAM user. The
+-- $GetSessionToken
+-- Returns a set of temporary credentials for an AWS account or IAM user. The
 -- credentials consist of an access key ID, a secret access key, and a
 -- security token. Typically, you use GetSessionToken if you want to use MFA
 -- to protect programmatic calls to specific AWS APIs like Amazon EC2
@@ -415,6 +436,7 @@ getFederationToken p1 s =
 -- AKIAIOSFODNN7EXAMPLE 58c5dbae-abef-11e0-8cfe-09039844ac7d.
 --
 -- See: 'Network.AWS.STS.V2011_06_15.GetSessionToken'
+
 getSessionToken :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m

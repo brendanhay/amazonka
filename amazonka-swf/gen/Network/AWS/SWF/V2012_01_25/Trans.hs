@@ -26,72 +26,132 @@
 module Network.AWS.SWF.V2012_01_25.Trans
     (
     -- * CountClosedWorkflowExecutions
+    -- $CountClosedWorkflowExecutions
       countClosedWorkflowExecutions
+
     -- * CountOpenWorkflowExecutions
+    -- $CountOpenWorkflowExecutions
     , countOpenWorkflowExecutions
+
     -- * CountPendingActivityTasks
+    -- $CountPendingActivityTasks
     , countPendingActivityTasks
+
     -- * CountPendingDecisionTasks
+    -- $CountPendingDecisionTasks
     , countPendingDecisionTasks
+
     -- * DeprecateActivityType
+    -- $DeprecateActivityType
     , deprecateActivityType
+
     -- * DeprecateDomain
+    -- $DeprecateDomain
     , deprecateDomain
+
     -- * DeprecateWorkflowType
+    -- $DeprecateWorkflowType
     , deprecateWorkflowType
+
     -- * DescribeActivityType
+    -- $DescribeActivityType
     , describeActivityType
+
     -- * DescribeDomain
+    -- $DescribeDomain
     , describeDomain
+
     -- * DescribeWorkflowExecution
+    -- $DescribeWorkflowExecution
     , describeWorkflowExecution
+
     -- * DescribeWorkflowType
+    -- $DescribeWorkflowType
     , describeWorkflowType
+
     -- * GetWorkflowExecutionHistory
+    -- $GetWorkflowExecutionHistory
     , getWorkflowExecutionHistory
+
     -- * ListActivityTypes
+    -- $ListActivityTypes
     , listActivityTypes
+
     -- * ListClosedWorkflowExecutions
+    -- $ListClosedWorkflowExecutions
     , listClosedWorkflowExecutions
+
     -- * ListDomains
+    -- $ListDomains
     , listDomains
+
     -- * ListOpenWorkflowExecutions
+    -- $ListOpenWorkflowExecutions
     , listOpenWorkflowExecutions
+
     -- * ListWorkflowTypes
+    -- $ListWorkflowTypes
     , listWorkflowTypes
+
     -- * PollForActivityTask
+    -- $PollForActivityTask
     , pollForActivityTask
+
     -- * PollForDecisionTask
+    -- $PollForDecisionTask
     , pollForDecisionTask
+
     -- * RecordActivityTaskHeartbeat
+    -- $RecordActivityTaskHeartbeat
     , recordActivityTaskHeartbeat
+
     -- * RegisterActivityType
+    -- $RegisterActivityType
     , registerActivityType
+
     -- * RegisterDomain
+    -- $RegisterDomain
     , registerDomain
+
     -- * RegisterWorkflowType
+    -- $RegisterWorkflowType
     , registerWorkflowType
+
     -- * RequestCancelWorkflowExecution
+    -- $RequestCancelWorkflowExecution
     , requestCancelWorkflowExecution
+
     -- * RespondActivityTaskCanceled
+    -- $RespondActivityTaskCanceled
     , respondActivityTaskCanceled
+
     -- * RespondActivityTaskCompleted
+    -- $RespondActivityTaskCompleted
     , respondActivityTaskCompleted
+
     -- * RespondActivityTaskFailed
+    -- $RespondActivityTaskFailed
     , respondActivityTaskFailed
+
     -- * RespondDecisionTaskCompleted
+    -- $RespondDecisionTaskCompleted
     , respondDecisionTaskCompleted
+
     -- * SignalWorkflowExecution
+    -- $SignalWorkflowExecution
     , signalWorkflowExecution
+
     -- * StartWorkflowExecution
+    -- $StartWorkflowExecution
     , startWorkflowExecution
+
     -- * TerminateWorkflowExecution
+    -- $TerminateWorkflowExecution
     , terminateWorkflowExecution
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.SWF.V2012_01_25
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -102,7 +162,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.SWF.V2012_01_25
 
--- | Returns the number of closed workflow executions within the given domain
+-- $CountClosedWorkflowExecutions
+-- Returns the number of closed workflow executions within the given domain
 -- that meet the specified filtering criteria. This operation is eventually
 -- consistent. The results are best effort and may not exactly reflect recent
 -- updates and changes. Access Control You can use IAM policies to control
@@ -136,6 +197,7 @@ import Network.AWS.SWF.V2012_01_25
 -- 9bfad387-3f22-11e1-9914-a356b6ea8bdf { "count":3, "truncated":false }.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.CountClosedWorkflowExecutions'
+
 countClosedWorkflowExecutions :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
@@ -147,7 +209,8 @@ countClosedWorkflowExecutions :: ( MonadCatch m
 countClosedWorkflowExecutions p1 s =
     send $ (mkCountClosedWorkflowExecutions p1) &~ s
 
--- | Returns the number of open workflow executions within the given domain that
+-- $CountOpenWorkflowExecutions
+-- Returns the number of open workflow executions within the given domain that
 -- meet the specified filtering criteria. This operation is eventually
 -- consistent. The results are best effort and may not exactly reflect recent
 -- updates and changes. Access Control You can use IAM policies to control
@@ -181,6 +244,7 @@ countClosedWorkflowExecutions p1 s =
 -- 5ea6789e-3f05-11e1-9e8f-57bb03e21482 {"count":1,"truncated":false}.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.CountOpenWorkflowExecutions'
+
 countOpenWorkflowExecutions :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -193,7 +257,8 @@ countOpenWorkflowExecutions :: ( MonadCatch m
 countOpenWorkflowExecutions p1 p2 s =
     send $ (mkCountOpenWorkflowExecutions p1 p2) &~ s
 
--- | Returns the estimated number of activity tasks in the specified task list.
+-- $CountPendingActivityTasks
+-- Returns the estimated number of activity tasks in the specified task list.
 -- The count returned is an approximation and is not guaranteed to be exact.
 -- If you specify a task list that no activity task was ever scheduled in then
 -- 0 will be returned. Access Control You can use IAM policies to control this
@@ -224,6 +289,7 @@ countOpenWorkflowExecutions p1 p2 s =
 -- 4b977c76-3ff2-11e1-a23a-99d60383ae71 {"count":1,"truncated":false}.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.CountPendingActivityTasks'
+
 countPendingActivityTasks :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -236,7 +302,8 @@ countPendingActivityTasks :: ( MonadCatch m
 countPendingActivityTasks p1 p2 s =
     send $ (mkCountPendingActivityTasks p1 p2) &~ s
 
--- | Returns the estimated number of decision tasks in the specified task list.
+-- $CountPendingDecisionTasks
+-- Returns the estimated number of decision tasks in the specified task list.
 -- The count returned is an approximation and is not guaranteed to be exact.
 -- If you specify a task list that no decision task was ever scheduled in then
 -- 0 will be returned. Access Control You can use IAM policies to control this
@@ -267,6 +334,7 @@ countPendingActivityTasks p1 p2 s =
 -- 4718a364-3fd0-11e1-9914-a356b6ea8bdf {"count": 2, "truncated": false}.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.CountPendingDecisionTasks'
+
 countPendingDecisionTasks :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -279,7 +347,8 @@ countPendingDecisionTasks :: ( MonadCatch m
 countPendingDecisionTasks p1 p2 s =
     send $ (mkCountPendingDecisionTasks p1 p2) &~ s
 
--- | Deprecates the specified activity type. After an activity type has been
+-- $DeprecateActivityType
+-- Deprecates the specified activity type. After an activity type has been
 -- deprecated, you cannot create new tasks of that activity type. Tasks of
 -- this type that were scheduled before the type was deprecated will continue
 -- to run. This operation is eventually consistent. The results are best
@@ -312,6 +381,7 @@ countPendingDecisionTasks p1 p2 s =
 -- x-amzn-RequestId: 191ee17e-3fff-11e1-a23a-99d60383ae71.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.DeprecateActivityType'
+
 deprecateActivityType :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -324,7 +394,8 @@ deprecateActivityType :: ( MonadCatch m
 deprecateActivityType p1 p2 s =
     send $ (mkDeprecateActivityType p1 p2) &~ s
 
--- | Deprecates the specified domain. After a domain has been deprecated it
+-- $DeprecateDomain
+-- Deprecates the specified domain. After a domain has been deprecated it
 -- cannot be used to create new workflow executions or register new types.
 -- However, you can still use visibility actions on this domain. Deprecating a
 -- domain also deprecates all activity and workflow types registered in the
@@ -356,6 +427,7 @@ deprecateActivityType p1 p2 s =
 -- application/json x-amzn-RequestId: 0800c01a-4000-11e1-9914-a356b6ea8bdf.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.DeprecateDomain'
+
 deprecateDomain :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -367,7 +439,8 @@ deprecateDomain :: ( MonadCatch m
 deprecateDomain p1 s =
     send $ (mkDeprecateDomain p1) &~ s
 
--- | Deprecates the specified workflow type. After a workflow type has been
+-- $DeprecateWorkflowType
+-- Deprecates the specified workflow type. After a workflow type has been
 -- deprecated, you cannot create new executions of that type. Executions that
 -- were started before the type was deprecated will continue to run. A
 -- deprecated workflow type may still be used when calling visibility actions.
@@ -401,6 +474,7 @@ deprecateDomain p1 s =
 -- x-amzn-RequestId: 9c8d6d3b-3fff-11e1-9e8f-57bb03e21482.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.DeprecateWorkflowType'
+
 deprecateWorkflowType :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -413,7 +487,8 @@ deprecateWorkflowType :: ( MonadCatch m
 deprecateWorkflowType p1 p2 s =
     send $ (mkDeprecateWorkflowType p1 p2) &~ s
 
--- | Returns information about the specified activity type. This includes
+-- $DescribeActivityType
+-- Returns information about the specified activity type. This includes
 -- configuration settings provided at registration time as well as other
 -- general information about the type. Access Control You can use IAM policies
 -- to control this action's access to Amazon SWF resources as follows: Use a
@@ -451,6 +526,7 @@ deprecateWorkflowType p1 p2 s =
 -- "REGISTERED"} }.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.DescribeActivityType'
+
 describeActivityType :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -463,7 +539,8 @@ describeActivityType :: ( MonadCatch m
 describeActivityType p1 p2 s =
     send $ (mkDescribeActivityType p1 p2) &~ s
 
--- | Returns information about the specified domain including description and
+-- $DescribeDomain
+-- Returns information about the specified domain including description and
 -- status. Access Control You can use IAM policies to control this action's
 -- access to Amazon SWF resources as follows: Use a Resource element with the
 -- domain name to limit the action to only specified domains. Use an Action
@@ -492,6 +569,7 @@ describeActivityType p1 p2 s =
 -- "REGISTERED"} }.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.DescribeDomain'
+
 describeDomain :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -503,7 +581,8 @@ describeDomain :: ( MonadCatch m
 describeDomain p1 s =
     send $ (mkDescribeDomain p1) &~ s
 
--- | Returns information about the specified workflow execution including its
+-- $DescribeWorkflowExecution
+-- Returns information about the specified workflow execution including its
 -- type and some statistics. This operation is eventually consistent. The
 -- results are best effort and may not exactly reflect recent updates and
 -- changes. Access Control You can use IAM policies to control this action's
@@ -542,6 +621,7 @@ describeDomain p1 s =
 -- "openDecisionTasks": 1, "openTimers": 0} }.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.DescribeWorkflowExecution'
+
 describeWorkflowExecution :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -554,7 +634,8 @@ describeWorkflowExecution :: ( MonadCatch m
 describeWorkflowExecution p1 p2 s =
     send $ (mkDescribeWorkflowExecution p1 p2) &~ s
 
--- | Returns information about the specified workflow type. This includes
+-- $DescribeWorkflowType
+-- Returns information about the specified workflow type. This includes
 -- configuration settings specified when the type was registered and other
 -- information such as creation date, current status, etc. Access Control You
 -- can use IAM policies to control this action's access to Amazon SWF
@@ -591,6 +672,7 @@ describeWorkflowExecution p1 p2 s =
 -- "1.0"} } }.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.DescribeWorkflowType'
+
 describeWorkflowType :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -603,7 +685,8 @@ describeWorkflowType :: ( MonadCatch m
 describeWorkflowType p1 p2 s =
     send $ (mkDescribeWorkflowType p1 p2) &~ s
 
--- | Returns the history of the specified workflow execution. The results may be
+-- $GetWorkflowExecutionHistory
+-- Returns the history of the specified workflow execution. The results may be
 -- split into multiple pages. To retrieve subsequent pages, make the call
 -- again using the nextPageToken returned by the initial call. This operation
 -- is eventually consistent. The results are best effort and may not exactly
@@ -672,6 +755,7 @@ describeWorkflowType p1 p2 s =
 -- 
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.GetWorkflowExecutionHistory'
+
 getWorkflowExecutionHistory :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -684,7 +768,8 @@ getWorkflowExecutionHistory :: ( MonadCatch m
 getWorkflowExecutionHistory p1 p2 s =
     paginate $ (mkGetWorkflowExecutionHistory p1 p2) &~ s
 
--- | Returns information about all activities registered in the specified domain
+-- $ListActivityTypes
+-- Returns information about all activities registered in the specified domain
 -- that match the specified name and registration status. The result includes
 -- information like creation date, current status of the activity, etc. The
 -- results may be split into multiple pages. To retrieve subsequent pages,
@@ -707,6 +792,7 @@ getWorkflowExecutionHistory p1 p2 s =
 -- "REGISTERED"} ] }.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.ListActivityTypes'
+
 listActivityTypes :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -719,7 +805,8 @@ listActivityTypes :: ( MonadCatch m
 listActivityTypes p1 p3 s =
     paginate $ (mkListActivityTypes p1 p3) &~ s
 
--- | Returns a list of closed workflow executions in the specified domain that
+-- $ListClosedWorkflowExecutions
+-- Returns a list of closed workflow executions in the specified domain that
 -- meet the filtering criteria. The results may be split into multiple pages.
 -- To retrieve subsequent pages, make the call again using the nextPageToken
 -- returned by the initial call. This operation is eventually consistent. The
@@ -772,6 +859,7 @@ listActivityTypes p1 p3 s =
 -- "customerOrderWorkflow", "version": "1.0"} } ] }.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.ListClosedWorkflowExecutions'
+
 listClosedWorkflowExecutions :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
@@ -783,7 +871,8 @@ listClosedWorkflowExecutions :: ( MonadCatch m
 listClosedWorkflowExecutions p1 s =
     paginate $ (mkListClosedWorkflowExecutions p1) &~ s
 
--- | Returns the list of domains registered in the account. The results may be
+-- $ListDomains
+-- Returns the list of domains registered in the account. The results may be
 -- split into multiple pages. To retrieve subsequent pages, make the call
 -- again using the nextPageToken returned by the initial call. This operation
 -- is eventually consistent. The results are best effort and may not exactly
@@ -824,6 +913,7 @@ listClosedWorkflowExecutions p1 s =
 -- {"description": "", "name": "zsxfvgsxcv", "status": "REGISTERED"} ] }.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.ListDomains'
+
 listDomains :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -835,7 +925,8 @@ listDomains :: ( MonadCatch m
 listDomains p2 s =
     paginate $ (mkListDomains p2) &~ s
 
--- | Returns a list of open workflow executions in the specified domain that
+-- $ListOpenWorkflowExecutions
+-- Returns a list of open workflow executions in the specified domain that
 -- meet the filtering criteria. The results may be split into multiple pages.
 -- To retrieve subsequent pages, make the call again using the nextPageToken
 -- returned by the initial call. This operation is eventually consistent. The
@@ -876,6 +967,7 @@ listDomains p2 s =
 -- "customerOrderWorkflow", "version": "1.0"} } ] }.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.ListOpenWorkflowExecutions'
+
 listOpenWorkflowExecutions :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -888,7 +980,8 @@ listOpenWorkflowExecutions :: ( MonadCatch m
 listOpenWorkflowExecutions p1 p2 s =
     paginate $ (mkListOpenWorkflowExecutions p1 p2) &~ s
 
--- | Returns information about workflow types in the specified domain. The
+-- $ListWorkflowTypes
+-- Returns information about workflow types in the specified domain. The
 -- results may be split into multiple pages that can be retrieved by making
 -- the call repeatedly. Access Control You can use IAM policies to control
 -- this action's access to Amazon SWF resources as follows: Use a Resource
@@ -919,6 +1012,7 @@ listOpenWorkflowExecutions p1 p2 s =
 -- "customerOrderWorkflow", "version": "1.0"} } ] }.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.ListWorkflowTypes'
+
 listWorkflowTypes :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -931,7 +1025,8 @@ listWorkflowTypes :: ( MonadCatch m
 listWorkflowTypes p1 p3 s =
     paginate $ (mkListWorkflowTypes p1 p3) &~ s
 
--- | Used by workers to get an ActivityTask from the specified activity
+-- $PollForActivityTask
+-- Used by workers to get an ActivityTask from the specified activity
 -- taskList. This initiates a long poll, where the service holds the HTTP
 -- connection open and responds as soon as a task becomes available. The
 -- maximum time the service holds on to the request before responding is 60
@@ -975,6 +1070,7 @@ listWorkflowTypes p1 p3 s =
 -- "workflowId": "20110927-T-1"} }.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.PollForActivityTask'
+
 pollForActivityTask :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -987,7 +1083,8 @@ pollForActivityTask :: ( MonadCatch m
 pollForActivityTask p1 p2 s =
     send $ (mkPollForActivityTask p1 p2) &~ s
 
--- | Used by deciders to get a DecisionTask from the specified decision
+-- $PollForDecisionTask
+-- Used by deciders to get a DecisionTask from the specified decision
 -- taskList. A decision task may be returned for any open workflow execution
 -- that is using the specified task list. The task includes a paginated view
 -- of the history of the workflow execution. The decider should use the
@@ -1052,6 +1149,7 @@ pollForActivityTask p1 p2 s =
 -- "customerOrderWorkflow", "version": "1.0"} }.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.PollForDecisionTask'
+
 pollForDecisionTask :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -1064,7 +1162,8 @@ pollForDecisionTask :: ( MonadCatch m
 pollForDecisionTask p1 p2 s =
     paginate $ (mkPollForDecisionTask p1 p2) &~ s
 
--- | Used by activity workers to report to the service that the ActivityTask
+-- $RecordActivityTaskHeartbeat
+-- Used by activity workers to report to the service that the ActivityTask
 -- represented by the specified taskToken is still making progress. The worker
 -- can also (optionally) specify details of the progress, for example percent
 -- complete, using the details parameter. This action can also be used by the
@@ -1112,6 +1211,7 @@ pollForDecisionTask p1 p2 s =
 -- e08622cd-3ff5-11e1-9b11-7182192d0b57 {"cancelRequested":false}.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.RecordActivityTaskHeartbeat'
+
 recordActivityTaskHeartbeat :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -1123,7 +1223,8 @@ recordActivityTaskHeartbeat :: ( MonadCatch m
 recordActivityTaskHeartbeat p1 s =
     send $ (mkRecordActivityTaskHeartbeat p1) &~ s
 
--- | Registers a new activity type along with its configuration settings in the
+-- $RegisterActivityType
+-- Registers a new activity type along with its configuration settings in the
 -- specified domain. A TypeAlreadyExists fault is returned if the type already
 -- exists in the domain. You cannot change any configuration settings of the
 -- type after its registration, and it must be registered as a new version.
@@ -1160,6 +1261,7 @@ recordActivityTaskHeartbeat p1 s =
 -- d68969c7-3f0d-11e1-9b11-7182192d0b57.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.RegisterActivityType'
+
 registerActivityType :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -1173,7 +1275,8 @@ registerActivityType :: ( MonadCatch m
 registerActivityType p1 p2 p3 s =
     send $ (mkRegisterActivityType p1 p2 p3) &~ s
 
--- | Registers a new domain. Access Control You can use IAM policies to control
+-- $RegisterDomain
+-- Registers a new domain. Access Control You can use IAM policies to control
 -- this action's access to Amazon SWF resources as follows: You cannot use an
 -- IAM policy to control domain access for this action. The name of the domain
 -- being registered is available as the resource of this action. Use an Action
@@ -1201,6 +1304,7 @@ registerActivityType p1 p2 p3 s =
 -- 4ec4ac3f-3e16-11e1-9b11-7182192d0b57.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.RegisterDomain'
+
 registerDomain :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -1213,7 +1317,8 @@ registerDomain :: ( MonadCatch m
 registerDomain p1 p3 s =
     send $ (mkRegisterDomain p1 p3) &~ s
 
--- | Registers a new workflow type and its configuration settings in the
+-- $RegisterWorkflowType
+-- Registers a new workflow type and its configuration settings in the
 -- specified domain. The retention period for the workflow history is set by
 -- the RegisterDomain action. If the type already exists, then a
 -- TypeAlreadyExists fault is returned. You cannot change the configuration
@@ -1250,6 +1355,7 @@ registerDomain p1 p3 s =
 -- bb469e67-3e18-11e1-9914-a356b6ea8bdf.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.RegisterWorkflowType'
+
 registerWorkflowType :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -1263,7 +1369,8 @@ registerWorkflowType :: ( MonadCatch m
 registerWorkflowType p1 p2 p3 s =
     send $ (mkRegisterWorkflowType p1 p2 p3) &~ s
 
--- | Records a WorkflowExecutionCancelRequested event in the currently running
+-- $RequestCancelWorkflowExecution
+-- Records a WorkflowExecutionCancelRequested event in the currently running
 -- workflow execution identified by the given domain, workflowId, and runId.
 -- This logically requests the cancellation of the workflow execution as a
 -- whole. It is up to the decider to take appropriate actions when it receives
@@ -1299,6 +1406,7 @@ registerWorkflowType p1 p2 p3 s =
 -- 6bd0627e-3ffd-11e1-9b11-7182192d0b57.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.RequestCancelWorkflowExecution'
+
 requestCancelWorkflowExecution :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
@@ -1311,7 +1419,8 @@ requestCancelWorkflowExecution :: ( MonadCatch m
 requestCancelWorkflowExecution p1 p2 s =
     send $ (mkRequestCancelWorkflowExecution p1 p2) &~ s
 
--- | Used by workers to tell the service that the ActivityTask identified by the
+-- $RespondActivityTaskCanceled
+-- Used by workers to tell the service that the ActivityTask identified by the
 -- taskToken was successfully canceled. Additional details can be optionally
 -- provided using the details argument. These details (if provided) appear in
 -- the ActivityTaskCanceled event added to the workflow history. Only use this
@@ -1349,6 +1458,7 @@ requestCancelWorkflowExecution p1 p2 s =
 -- b1a001a6-3ffb-11e1-9b11-7182192d0b57.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.RespondActivityTaskCanceled'
+
 respondActivityTaskCanceled :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -1360,7 +1470,8 @@ respondActivityTaskCanceled :: ( MonadCatch m
 respondActivityTaskCanceled p1 s =
     send $ (mkRespondActivityTaskCanceled p1) &~ s
 
--- | Used by workers to tell the service that the ActivityTask identified by the
+-- $RespondActivityTaskCompleted
+-- Used by workers to tell the service that the ActivityTask identified by the
 -- taskToken completed successfully with a result (if provided). The result
 -- appears in the ActivityTaskCompleted event in the workflow history. If the
 -- requested task does not complete successfully, use
@@ -1399,6 +1510,7 @@ respondActivityTaskCanceled p1 s =
 -- 0976f0f4-3ff6-11e1-9a27-0760db01a4a8.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.RespondActivityTaskCompleted'
+
 respondActivityTaskCompleted :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
@@ -1410,7 +1522,8 @@ respondActivityTaskCompleted :: ( MonadCatch m
 respondActivityTaskCompleted p1 s =
     send $ (mkRespondActivityTaskCompleted p1) &~ s
 
--- | Used by workers to tell the service that the ActivityTask identified by the
+-- $RespondActivityTaskFailed
+-- Used by workers to tell the service that the ActivityTask identified by the
 -- taskToken has failed with reason (if specified). The reason and details
 -- appear in the ActivityTaskFailed event added to the workflow history. A
 -- task is considered open from the time that it is scheduled until it is
@@ -1445,6 +1558,7 @@ respondActivityTaskCompleted p1 s =
 -- x-amzn-RequestId: feadaedd-3ff8-11e1-9e8f-57bb03e21482.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.RespondActivityTaskFailed'
+
 respondActivityTaskFailed :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -1456,7 +1570,8 @@ respondActivityTaskFailed :: ( MonadCatch m
 respondActivityTaskFailed p1 s =
     send $ (mkRespondActivityTaskFailed p1) &~ s
 
--- | Used by deciders to tell the service that the DecisionTask identified by
+-- $RespondDecisionTaskCompleted
+-- Used by deciders to tell the service that the DecisionTask identified by
 -- the taskToken has successfully completed. The decisions argument specifies
 -- the list of decisions made while processing the task. A
 -- DecisionTaskCompleted event is added to the workflow history. The
@@ -1493,6 +1608,7 @@ respondActivityTaskFailed p1 s =
 -- x-amzn-RequestId: feef79b5-3fd0-11e1-9a27-0760db01a4a8.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.RespondDecisionTaskCompleted'
+
 respondDecisionTaskCompleted :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
@@ -1504,7 +1620,8 @@ respondDecisionTaskCompleted :: ( MonadCatch m
 respondDecisionTaskCompleted p1 s =
     send $ (mkRespondDecisionTaskCompleted p1) &~ s
 
--- | Records a WorkflowExecutionSignaled event in the workflow execution history
+-- $SignalWorkflowExecution
+-- Records a WorkflowExecutionSignaled event in the workflow execution history
 -- and creates a decision task for the workflow execution identified by the
 -- given domain, workflowId and runId. The event is recorded with the
 -- specified user defined signalName and input (if provided). If a runId is
@@ -1539,6 +1656,7 @@ respondDecisionTaskCompleted p1 s =
 -- application/json x-amzn-RequestId: bf78ae15-3f0c-11e1-9914-a356b6ea8bdf.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.SignalWorkflowExecution'
+
 signalWorkflowExecution :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -1552,7 +1670,8 @@ signalWorkflowExecution :: ( MonadCatch m
 signalWorkflowExecution p1 p2 p4 s =
     send $ (mkSignalWorkflowExecution p1 p2 p4) &~ s
 
--- | Starts an execution of the workflow type in the specified domain using the
+-- $StartWorkflowExecution
+-- Starts an execution of the workflow type in the specified domain using the
 -- provided workflowId and input data. This action returns the newly started
 -- workflow execution. Access Control You can use IAM policies to control this
 -- action's access to Amazon SWF resources as follows: Use a Resource element
@@ -1594,6 +1713,7 @@ signalWorkflowExecution p1 p2 p4 s =
 -- {"runId":"1e536162-f1ea-48b0-85f3-aade88eef2f7"}.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.StartWorkflowExecution'
+
 startWorkflowExecution :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -1607,7 +1727,8 @@ startWorkflowExecution :: ( MonadCatch m
 startWorkflowExecution p1 p2 p3 s =
     send $ (mkStartWorkflowExecution p1 p2 p3) &~ s
 
--- | Records a WorkflowExecutionTerminated event and forces closure of the
+-- $TerminateWorkflowExecution
+-- Records a WorkflowExecutionTerminated event and forces closure of the
 -- workflow execution identified by the given domain, runId, and workflowId.
 -- The child policy, registered with the workflow type or specified when
 -- starting this execution, is applied to any open child workflow executions
@@ -1645,6 +1766,7 @@ startWorkflowExecution p1 p2 p3 s =
 -- x-amzn-RequestId: 76d68a47-3ffe-11e1-b118-3bfa5e8e7fc3.
 --
 -- See: 'Network.AWS.SWF.V2012_01_25.TerminateWorkflowExecution'
+
 terminateWorkflowExecution :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m

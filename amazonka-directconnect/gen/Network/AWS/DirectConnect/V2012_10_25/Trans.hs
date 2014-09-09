@@ -23,48 +23,84 @@
 module Network.AWS.DirectConnect.V2012_10_25.Trans
     (
     -- * AllocateConnectionOnInterconnect
+    -- $AllocateConnectionOnInterconnect
       allocateConnectionOnInterconnect
+
     -- * AllocatePrivateVirtualInterface
+    -- $AllocatePrivateVirtualInterface
     , allocatePrivateVirtualInterface
+
     -- * AllocatePublicVirtualInterface
+    -- $AllocatePublicVirtualInterface
     , allocatePublicVirtualInterface
+
     -- * ConfirmConnection
+    -- $ConfirmConnection
     , confirmConnection
+
     -- * ConfirmPrivateVirtualInterface
+    -- $ConfirmPrivateVirtualInterface
     , confirmPrivateVirtualInterface
+
     -- * ConfirmPublicVirtualInterface
+    -- $ConfirmPublicVirtualInterface
     , confirmPublicVirtualInterface
+
     -- * CreateConnection
+    -- $CreateConnection
     , createConnection
+
     -- * CreateInterconnect
+    -- $CreateInterconnect
     , createInterconnect
+
     -- * CreatePrivateVirtualInterface
+    -- $CreatePrivateVirtualInterface
     , createPrivateVirtualInterface
+
     -- * CreatePublicVirtualInterface
+    -- $CreatePublicVirtualInterface
     , createPublicVirtualInterface
+
     -- * DeleteConnection
+    -- $DeleteConnection
     , deleteConnection
+
     -- * DeleteInterconnect
+    -- $DeleteInterconnect
     , deleteInterconnect
+
     -- * DeleteVirtualInterface
+    -- $DeleteVirtualInterface
     , deleteVirtualInterface
+
     -- * DescribeConnections
+    -- $DescribeConnections
     , describeConnections
+
     -- * DescribeConnectionsOnInterconnect
+    -- $DescribeConnectionsOnInterconnect
     , describeConnectionsOnInterconnect
+
     -- * DescribeInterconnects
+    -- $DescribeInterconnects
     , describeInterconnects
+
     -- * DescribeLocations
+    -- $DescribeLocations
     , describeLocations
+
     -- * DescribeVirtualGateways
+    -- $DescribeVirtualGateways
     , describeVirtualGateways
+
     -- * DescribeVirtualInterfaces
+    -- $DescribeVirtualInterfaces
     , describeVirtualInterfaces
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.DirectConnect.V2012_10_25
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -75,11 +111,13 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.DirectConnect.V2012_10_25
 
--- | Creates a hosted connection on an interconnect. Allocates a VLAN number and
+-- $AllocateConnectionOnInterconnect
+-- Creates a hosted connection on an interconnect. Allocates a VLAN number and
 -- a specified amount of bandwidth for use by a hosted connection on the given
 -- interconnect.
 --
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.AllocateConnectionOnInterconnect'
+
 allocateConnectionOnInterconnect :: ( MonadCatch m
                                     , MonadResource m
                                     , MonadError AWS.Error m
@@ -95,7 +133,8 @@ allocateConnectionOnInterconnect :: ( MonadCatch m
 allocateConnectionOnInterconnect p1 p2 p3 p4 p5 s =
     send $ (mkAllocateConnectionOnInterconnect p1 p2 p3 p4 p5) &~ s
 
--- | Provisions a private virtual interface to be owned by a different customer.
+-- $AllocatePrivateVirtualInterface
+-- Provisions a private virtual interface to be owned by a different customer.
 -- The owner of a connection calls this function to provision a private
 -- virtual interface which will be owned by another AWS customer. Virtual
 -- interfaces created using this function must be confirmed by the virtual
@@ -104,6 +143,7 @@ allocateConnectionOnInterconnect p1 p2 p3 p4 p5 s =
 -- and will not be available for handling traffic.
 --
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.AllocatePrivateVirtualInterface'
+
 allocatePrivateVirtualInterface :: ( MonadCatch m
                                    , MonadResource m
                                    , MonadError AWS.Error m
@@ -117,7 +157,8 @@ allocatePrivateVirtualInterface :: ( MonadCatch m
 allocatePrivateVirtualInterface p1 p2 p3 s =
     send $ (mkAllocatePrivateVirtualInterface p1 p2 p3) &~ s
 
--- | Provisions a public virtual interface to be owned by a different customer.
+-- $AllocatePublicVirtualInterface
+-- Provisions a public virtual interface to be owned by a different customer.
 -- The owner of a connection calls this function to provision a public virtual
 -- interface which will be owned by another AWS customer. Virtual interfaces
 -- created using this function must be confirmed by the virtual interface
@@ -126,6 +167,7 @@ allocatePrivateVirtualInterface p1 p2 p3 s =
 -- not be available for handling traffic.
 --
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.AllocatePublicVirtualInterface'
+
 allocatePublicVirtualInterface :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
@@ -139,12 +181,14 @@ allocatePublicVirtualInterface :: ( MonadCatch m
 allocatePublicVirtualInterface p1 p2 p3 s =
     send $ (mkAllocatePublicVirtualInterface p1 p2 p3) &~ s
 
--- | Confirm the creation of a hosted connection on an interconnect. Upon
+-- $ConfirmConnection
+-- Confirm the creation of a hosted connection on an interconnect. Upon
 -- creation, the hosted connection is initially in the 'Ordering' state, and
 -- will remain in this state until the owner calls ConfirmConnection to
 -- confirm creation of the hosted connection.
 --
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.ConfirmConnection'
+
 confirmConnection :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -156,12 +200,14 @@ confirmConnection :: ( MonadCatch m
 confirmConnection p1 s =
     send $ (mkConfirmConnection p1) &~ s
 
--- | Accept ownership of a private virtual interface created by another
+-- $ConfirmPrivateVirtualInterface
+-- Accept ownership of a private virtual interface created by another
 -- customer. After the virtual interface owner calls this function, the
 -- virtual interface will be created and attached to the given virtual private
 -- gateway, and will be available for handling traffic.
 --
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.ConfirmPrivateVirtualInterface'
+
 confirmPrivateVirtualInterface :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
@@ -174,11 +220,13 @@ confirmPrivateVirtualInterface :: ( MonadCatch m
 confirmPrivateVirtualInterface p1 p2 s =
     send $ (mkConfirmPrivateVirtualInterface p1 p2) &~ s
 
--- | Accept ownership of a public virtual interface created by another customer.
+-- $ConfirmPublicVirtualInterface
+-- Accept ownership of a public virtual interface created by another customer.
 -- After the virtual interface owner calls this function, the specified
 -- virtual interface will be created and made available for handling traffic.
 --
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.ConfirmPublicVirtualInterface'
+
 confirmPublicVirtualInterface :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
@@ -190,7 +238,8 @@ confirmPublicVirtualInterface :: ( MonadCatch m
 confirmPublicVirtualInterface p1 s =
     send $ (mkConfirmPublicVirtualInterface p1) &~ s
 
--- | Creates a new connection between the customer network and a specific AWS
+-- $CreateConnection
+-- Creates a new connection between the customer network and a specific AWS
 -- Direct Connect location. A connection links your internal network to an AWS
 -- Direct Connect location over a standard 1 gigabit or 10 gigabit Ethernet
 -- fiber-optic cable. One end of the cable is connected to your router, the
@@ -201,6 +250,7 @@ confirmPublicVirtualInterface p1 s =
 -- other regions.
 --
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.CreateConnection'
+
 createConnection :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -214,7 +264,8 @@ createConnection :: ( MonadCatch m
 createConnection p1 p2 p3 s =
     send $ (mkCreateConnection p1 p2 p3) &~ s
 
--- | Creates a new interconnect between a AWS Direct Connect partner's network
+-- $CreateInterconnect
+-- Creates a new interconnect between a AWS Direct Connect partner's network
 -- and a specific AWS Direct Connect location. An interconnect is a connection
 -- which is capable of hosting other connections. The AWS Direct Connect
 -- partner can use an interconnect to provide sub-1Gbps AWS Direct Connect
@@ -229,6 +280,7 @@ createConnection p1 p2 p3 s =
 -- the VLAN assigned to them by the AWS Direct Connect partner.
 --
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.CreateInterconnect'
+
 createInterconnect :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -242,11 +294,13 @@ createInterconnect :: ( MonadCatch m
 createInterconnect p1 p2 p3 s =
     send $ (mkCreateInterconnect p1 p2 p3) &~ s
 
--- | Creates a new private virtual interface. A virtual interface is the VLAN
+-- $CreatePrivateVirtualInterface
+-- Creates a new private virtual interface. A virtual interface is the VLAN
 -- that transports AWS Direct Connect traffic. A private virtual interface
 -- supports sending traffic to a single virtual private cloud (VPC).
 --
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.CreatePrivateVirtualInterface'
+
 createPrivateVirtualInterface :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
@@ -259,12 +313,14 @@ createPrivateVirtualInterface :: ( MonadCatch m
 createPrivateVirtualInterface p1 p2 s =
     send $ (mkCreatePrivateVirtualInterface p1 p2) &~ s
 
--- | Creates a new public virtual interface. A virtual interface is the VLAN
+-- $CreatePublicVirtualInterface
+-- Creates a new public virtual interface. A virtual interface is the VLAN
 -- that transports AWS Direct Connect traffic. A public virtual interface
 -- supports sending traffic to public services of AWS such as Amazon Simple
 -- Storage Service (Amazon S3).
 --
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.CreatePublicVirtualInterface'
+
 createPublicVirtualInterface :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
@@ -277,12 +333,14 @@ createPublicVirtualInterface :: ( MonadCatch m
 createPublicVirtualInterface p1 p2 s =
     send $ (mkCreatePublicVirtualInterface p1 p2) &~ s
 
--- | Deletes the connection. Deleting a connection only stops the AWS Direct
+-- $DeleteConnection
+-- Deletes the connection. Deleting a connection only stops the AWS Direct
 -- Connect port hour and data transfer charges. You need to cancel separately
 -- with the providers any services or charges for cross-connects or network
 -- circuits that connect you to the AWS Direct Connect location.
 --
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.DeleteConnection'
+
 deleteConnection :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -294,9 +352,11 @@ deleteConnection :: ( MonadCatch m
 deleteConnection p1 s =
     send $ (mkDeleteConnection p1) &~ s
 
--- | Deletes the specified interconnect.
+-- $DeleteInterconnect
+-- Deletes the specified interconnect.
 --
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.DeleteInterconnect'
+
 deleteInterconnect :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -308,9 +368,11 @@ deleteInterconnect :: ( MonadCatch m
 deleteInterconnect p1 s =
     send $ (mkDeleteInterconnect p1) &~ s
 
--- | Deletes a virtual interface.
+-- $DeleteVirtualInterface
+-- Deletes a virtual interface.
 --
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.DeleteVirtualInterface'
+
 deleteVirtualInterface :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -322,10 +384,12 @@ deleteVirtualInterface :: ( MonadCatch m
 deleteVirtualInterface p1 s =
     send $ (mkDeleteVirtualInterface p1) &~ s
 
--- | Displays all connections in this region. If a connection ID is provided,
+-- $DescribeConnections
+-- Displays all connections in this region. If a connection ID is provided,
 -- the call returns only that particular connection.
 --
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.DescribeConnections'
+
 describeConnections :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -336,10 +400,12 @@ describeConnections :: ( MonadCatch m
 describeConnections s =
     send (mkDescribeConnections &~ s)
 
--- | Return a list of connections that have been provisioned on the given
+-- $DescribeConnectionsOnInterconnect
+-- Return a list of connections that have been provisioned on the given
 -- interconnect.
 --
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.DescribeConnectionsOnInterconnect'
+
 describeConnectionsOnInterconnect :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
@@ -351,11 +417,13 @@ describeConnectionsOnInterconnect :: ( MonadCatch m
 describeConnectionsOnInterconnect p1 s =
     send $ (mkDescribeConnectionsOnInterconnect p1) &~ s
 
--- | Returns a list of interconnects owned by the AWS account. If an
+-- $DescribeInterconnects
+-- Returns a list of interconnects owned by the AWS account. If an
 -- interconnect ID is provided, it will only return this particular
 -- interconnect.
 --
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.DescribeInterconnects'
+
 describeInterconnects :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -366,11 +434,13 @@ describeInterconnects :: ( MonadCatch m
 describeInterconnects s =
     send (mkDescribeInterconnects &~ s)
 
--- | Returns the list of AWS Direct Connect locations in the current AWS region.
+-- $DescribeLocations
+-- Returns the list of AWS Direct Connect locations in the current AWS region.
 -- These are the locations that may be selected when calling CreateConnection
 -- or CreateInterconnect.
 --
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.DescribeLocations'
+
 describeLocations :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -381,13 +451,15 @@ describeLocations :: ( MonadCatch m
 describeLocations s =
     send (mkDescribeLocations &~ s)
 
--- | Returns a list of virtual private gateways owned by the AWS account. You
+-- $DescribeVirtualGateways
+-- Returns a list of virtual private gateways owned by the AWS account. You
 -- can create one or more AWS Direct Connect private virtual interfaces
 -- linking to a virtual private gateway. A virtual private gateway can be
 -- managed via Amazon Virtual Private Cloud (VPC) console or the EC2
 -- CreateVpnGateway action.
 --
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualGateways'
+
 describeVirtualGateways :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -398,7 +470,8 @@ describeVirtualGateways :: ( MonadCatch m
 describeVirtualGateways s =
     send (mkDescribeVirtualGateways &~ s)
 
--- | Displays all virtual interfaces for an AWS account. Virtual interfaces
+-- $DescribeVirtualInterfaces
+-- Displays all virtual interfaces for an AWS account. Virtual interfaces
 -- deleted fewer than 15 minutes before DescribeVirtualInterfaces is called
 -- are also returned. If a connection ID is included then only virtual
 -- interfaces associated with this connection will be returned. If a virtual
@@ -410,6 +483,7 @@ describeVirtualGateways s =
 -- virtual interface will be returned.
 --
 -- See: 'Network.AWS.DirectConnect.V2012_10_25.DescribeVirtualInterfaces'
+
 describeVirtualInterfaces :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m

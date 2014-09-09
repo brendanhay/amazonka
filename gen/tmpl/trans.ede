@@ -12,17 +12,18 @@ module {{ trans_namespace }}
 {% for oper in operations %}
   {% if oper.first %}
     -- * {{ oper.value.request.name }}
+    -- ${{oper.value.request.name }}
       {{ oper.value.request.function }}
   {% else %}
     -- * {{ oper.value.request.name }}
+    -- ${{oper.value.request.name }}
     , {{ oper.value.request.function }}
   {% endif %}
-{% endfor %}
 
+{% endfor %}
     -- * Re-exported
     , module AWS
     , module {{ version_namespace }}
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)

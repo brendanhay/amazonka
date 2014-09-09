@@ -22,44 +22,76 @@
 module Network.AWS.EMR.V2009_03_31.Trans
     (
     -- * AddInstanceGroups
+    -- $AddInstanceGroups
       addInstanceGroups
+
     -- * AddJobFlowSteps
+    -- $AddJobFlowSteps
     , addJobFlowSteps
+
     -- * AddTags
+    -- $AddTags
     , addTags
+
     -- * DescribeCluster
+    -- $DescribeCluster
     , describeCluster
+
     -- * DescribeJobFlows
+    -- $DescribeJobFlows
     , describeJobFlows
+
     -- * DescribeStep
+    -- $DescribeStep
     , describeStep
+
     -- * ListBootstrapActions
+    -- $ListBootstrapActions
     , listBootstrapActions
+
     -- * ListClusters
+    -- $ListClusters
     , listClusters
+
     -- * ListInstanceGroups
+    -- $ListInstanceGroups
     , listInstanceGroups
+
     -- * ListInstances
+    -- $ListInstances
     , listInstances
+
     -- * ListSteps
+    -- $ListSteps
     , listSteps
+
     -- * ModifyInstanceGroups
+    -- $ModifyInstanceGroups
     , modifyInstanceGroups
+
     -- * RemoveTags
+    -- $RemoveTags
     , removeTags
+
     -- * RunJobFlow
+    -- $RunJobFlow
     , runJobFlow
+
     -- * SetTerminationProtection
+    -- $SetTerminationProtection
     , setTerminationProtection
+
     -- * SetVisibleToAllUsers
+    -- $SetVisibleToAllUsers
     , setVisibleToAllUsers
+
     -- * TerminateJobFlows
+    -- $TerminateJobFlows
     , terminateJobFlows
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.EMR.V2009_03_31
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -70,7 +102,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.EMR.V2009_03_31
 
--- | AddInstanceGroups adds an instance group to a running cluster. POST /
+-- $AddInstanceGroups
+-- AddInstanceGroups adds an instance group to a running cluster. POST /
 -- HTTP/1.1 Content-Type: application/x-amz-json-1.1 X-Amz-Target:
 -- ElasticMapReduce.AddInstanceGroups Content-Length: 168 User-Agent:
 -- aws-sdk-ruby/1.9.2 ruby/1.9.3 i386-mingw32 Host:
@@ -91,6 +124,7 @@ import Network.AWS.EMR.V2009_03_31
 -- "j-3U7TSX5GZFD8Y" }.
 --
 -- See: 'Network.AWS.EMR.V2009_03_31.AddInstanceGroups'
+
 addInstanceGroups :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -103,7 +137,8 @@ addInstanceGroups :: ( MonadCatch m
 addInstanceGroups p1 p2 s =
     send $ (mkAddInstanceGroups p1 p2) &~ s
 
--- | AddJobFlowSteps adds new steps to a running job flow. A maximum of 256
+-- $AddJobFlowSteps
+-- AddJobFlowSteps adds new steps to a running job flow. A maximum of 256
 -- steps are allowed in each job flow. If your job flow is long-running (such
 -- as a Hive data warehouse) or complex, you may require more than 256 steps
 -- to process your data. You can bypass the 256-step limitation in various
@@ -144,6 +179,7 @@ addInstanceGroups p1 p2 s =
 -- 21:05:07 GMT.
 --
 -- See: 'Network.AWS.EMR.V2009_03_31.AddJobFlowSteps'
+
 addJobFlowSteps :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -156,7 +192,8 @@ addJobFlowSteps :: ( MonadCatch m
 addJobFlowSteps p1 p2 s =
     send $ (mkAddJobFlowSteps p1 p2) &~ s
 
--- | Adds tags to an Amazon EMR resource. Tags make it easier to associate
+-- $AddTags
+-- Adds tags to an Amazon EMR resource. Tags make it easier to associate
 -- clusters in various ways, such as grouping clusters to track your Amazon
 -- EMR resource allocation costs. For more information, see Tagging Amazon EMR
 -- Resources. POST / HTTP/1.1 Content-Type: application/x-amz-json-1.1
@@ -168,6 +205,7 @@ addJobFlowSteps p1 p2 s =
 -- 22:33:47 GMT { }.
 --
 -- See: 'Network.AWS.EMR.V2009_03_31.AddTags'
+
 addTags :: ( MonadCatch m
            , MonadResource m
            , MonadError AWS.Error m
@@ -180,11 +218,13 @@ addTags :: ( MonadCatch m
 addTags p1 p2 s =
     send $ (mkAddTags p1 p2) &~ s
 
--- | Provides cluster-level details including status, hardware and software
+-- $DescribeCluster
+-- Provides cluster-level details including status, hardware and software
 -- configuration, VPC settings, and so on. For information about the cluster
 -- steps, see ListSteps.
 --
 -- See: 'Network.AWS.EMR.V2009_03_31.DescribeCluster'
+
 describeCluster :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -196,7 +236,8 @@ describeCluster :: ( MonadCatch m
 describeCluster p1 s =
     send $ (mkDescribeCluster p1) &~ s
 
--- | This API is deprecated and will eventually be removed. We recommend you use
+-- $DescribeJobFlows
+-- This API is deprecated and will eventually be removed. We recommend you use
 -- ListClusters, DescribeCluster, ListSteps, ListInstanceGroups and
 -- ListBootstrapActions instead. DescribeJobFlows returns a list of job flows
 -- that match all of the supplied parameters. The parameters can include a
@@ -253,6 +294,7 @@ describeCluster p1 s =
 -- "VisibleToAllUsers": false }]}.
 --
 -- See: 'Network.AWS.EMR.V2009_03_31.DescribeJobFlows'
+
 describeJobFlows :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -263,9 +305,11 @@ describeJobFlows :: ( MonadCatch m
 describeJobFlows s =
     send (mkDescribeJobFlows &~ s)
 
--- | Provides more detail about the cluster step.
+-- $DescribeStep
+-- Provides more detail about the cluster step.
 --
 -- See: 'Network.AWS.EMR.V2009_03_31.DescribeStep'
+
 describeStep :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -278,9 +322,11 @@ describeStep :: ( MonadCatch m
 describeStep p1 p2 s =
     send $ (mkDescribeStep p1 p2) &~ s
 
--- | Provides information about the bootstrap actions associated with a cluster.
+-- $ListBootstrapActions
+-- Provides information about the bootstrap actions associated with a cluster.
 --
 -- See: 'Network.AWS.EMR.V2009_03_31.ListBootstrapActions'
+
 listBootstrapActions :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -292,13 +338,15 @@ listBootstrapActions :: ( MonadCatch m
 listBootstrapActions p1 s =
     paginate $ (mkListBootstrapActions p1) &~ s
 
--- | Provides the status of all clusters visible to this AWS account. Allows you
+-- $ListClusters
+-- Provides the status of all clusters visible to this AWS account. Allows you
 -- to filter the list of clusters based on certain criteria; for example,
 -- filtering by cluster creation date and time or by status. This call returns
 -- a maximum of 50 clusters per call, but returns a marker to track the paging
 -- of the cluster list across multiple ListClusters calls.
 --
 -- See: 'Network.AWS.EMR.V2009_03_31.ListClusters'
+
 listClusters :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -309,9 +357,11 @@ listClusters :: ( MonadCatch m
 listClusters s =
     paginate (mkListClusters &~ s)
 
--- | Provides all available details about the instance groups in a cluster.
+-- $ListInstanceGroups
+-- Provides all available details about the instance groups in a cluster.
 --
 -- See: 'Network.AWS.EMR.V2009_03_31.ListInstanceGroups'
+
 listInstanceGroups :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -323,13 +373,15 @@ listInstanceGroups :: ( MonadCatch m
 listInstanceGroups p1 s =
     paginate $ (mkListInstanceGroups p1) &~ s
 
--- | Provides information about the cluster instances that Amazon EMR provisions
+-- $ListInstances
+-- Provides information about the cluster instances that Amazon EMR provisions
 -- on behalf of a user when it creates the cluster. For example, this
 -- operation indicates when the EC2 instances reach the Ready state, when
 -- instances become available to Amazon EMR to use for jobs, and the IP
 -- addresses for cluster instances, etc.
 --
 -- See: 'Network.AWS.EMR.V2009_03_31.ListInstances'
+
 listInstances :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -341,9 +393,11 @@ listInstances :: ( MonadCatch m
 listInstances p1 s =
     paginate $ (mkListInstances p1) &~ s
 
--- | Provides a list of steps for the cluster.
+-- $ListSteps
+-- Provides a list of steps for the cluster.
 --
 -- See: 'Network.AWS.EMR.V2009_03_31.ListSteps'
+
 listSteps :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -355,7 +409,8 @@ listSteps :: ( MonadCatch m
 listSteps p1 s =
     paginate $ (mkListSteps p1) &~ s
 
--- | ModifyInstanceGroups modifies the number of nodes and configuration
+-- $ModifyInstanceGroups
+-- ModifyInstanceGroups modifies the number of nodes and configuration
 -- settings of an instance group. The input parameters include the new target
 -- instance count for the group and the instance group ID. The call will
 -- either succeed or fail atomically. POST / HTTP/1.1 Content-Type:
@@ -377,6 +432,7 @@ listSteps p1 s =
 -- 20:58:44 GMT.
 --
 -- See: 'Network.AWS.EMR.V2009_03_31.ModifyInstanceGroups'
+
 modifyInstanceGroups :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -387,7 +443,8 @@ modifyInstanceGroups :: ( MonadCatch m
 modifyInstanceGroups s =
     send (mkModifyInstanceGroups &~ s)
 
--- | Removes tags from an Amazon EMR resource. Tags make it easier to associate
+-- $RemoveTags
+-- Removes tags from an Amazon EMR resource. Tags make it easier to associate
 -- clusters in various ways, such as grouping clusters to track your Amazon
 -- EMR resource allocation costs. For more information, see Tagging Amazon EMR
 -- Resources. The following example removes the stack tag with value Prod from
@@ -405,6 +462,7 @@ modifyInstanceGroups s =
 -- Jul 2013 22:33:47 GMT { }.
 --
 -- See: 'Network.AWS.EMR.V2009_03_31.RemoveTags'
+
 removeTags :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -417,7 +475,8 @@ removeTags :: ( MonadCatch m
 removeTags p1 p2 s =
     send $ (mkRemoveTags p1 p2) &~ s
 
--- | RunJobFlow creates and starts running a new job flow. The job flow will run
+-- $RunJobFlow
+-- RunJobFlow creates and starts running a new job flow. The job flow will run
 -- the steps specified. Once the job flow completes, the cluster is stopped
 -- and the HDFS partition is lost. To prevent loss of data, configure the last
 -- step of the job flow to store results in Amazon S3. If the
@@ -463,6 +522,7 @@ removeTags p1 p2 s =
 -- 21:08:05 GMT {"JobFlowId": "j-ZKIY4CKQRX72"}.
 --
 -- See: 'Network.AWS.EMR.V2009_03_31.RunJobFlow'
+
 runJobFlow :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -475,7 +535,8 @@ runJobFlow :: ( MonadCatch m
 runJobFlow p1 p5 s =
     send $ (mkRunJobFlow p1 p5) &~ s
 
--- | SetTerminationProtection locks a job flow so the Amazon EC2 instances in
+-- $SetTerminationProtection
+-- SetTerminationProtection locks a job flow so the Amazon EC2 instances in
 -- the cluster cannot be terminated by user intervention, an API call, or in
 -- the event of a job-flow error. The cluster still terminates upon successful
 -- completion of the job flow. Calling SetTerminationProtection on a job flow
@@ -506,6 +567,7 @@ runJobFlow p1 p5 s =
 -- 21:14:21 GMT.
 --
 -- See: 'Network.AWS.EMR.V2009_03_31.SetTerminationProtection'
+
 setTerminationProtection :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -518,7 +580,8 @@ setTerminationProtection :: ( MonadCatch m
 setTerminationProtection p1 p2 s =
     send $ (mkSetTerminationProtection p1 p2) &~ s
 
--- | Sets whether all AWS Identity and Access Management (IAM) users under your
+-- $SetVisibleToAllUsers
+-- Sets whether all AWS Identity and Access Management (IAM) users under your
 -- account can access the specified job flows. This action works on running
 -- job flows. You can also set the visibility of a job flow when you launch it
 -- using the VisibleToAllUsers parameter of RunJobFlow. The
@@ -541,6 +604,7 @@ setTerminationProtection p1 p2 s =
 -- Jul 2013 22:16:18 GMT.
 --
 -- See: 'Network.AWS.EMR.V2009_03_31.SetVisibleToAllUsers'
+
 setVisibleToAllUsers :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -553,7 +617,8 @@ setVisibleToAllUsers :: ( MonadCatch m
 setVisibleToAllUsers p1 p2 s =
     send $ (mkSetVisibleToAllUsers p1 p2) &~ s
 
--- | TerminateJobFlows shuts a list of job flows down. When a job flow is shut
+-- $TerminateJobFlows
+-- TerminateJobFlows shuts a list of job flows down. When a job flow is shut
 -- down, any step not yet completed is canceled and the EC2 instances on which
 -- the job flow is running are stopped. Any log files not already saved are
 -- uploaded to Amazon S3 if a LogUri was specified when the job flow was
@@ -577,6 +642,7 @@ setVisibleToAllUsers p1 p2 s =
 -- 21:18:59 GMT.
 --
 -- See: 'Network.AWS.EMR.V2009_03_31.TerminateJobFlows'
+
 terminateJobFlows :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m

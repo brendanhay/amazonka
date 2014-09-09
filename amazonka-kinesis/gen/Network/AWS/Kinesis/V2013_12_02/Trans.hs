@@ -21,28 +21,44 @@
 module Network.AWS.Kinesis.V2013_12_02.Trans
     (
     -- * CreateStream
+    -- $CreateStream
       createStream
+
     -- * DeleteStream
+    -- $DeleteStream
     , deleteStream
+
     -- * DescribeStream
+    -- $DescribeStream
     , describeStream
+
     -- * GetRecords
+    -- $GetRecords
     , getRecords
+
     -- * GetShardIterator
+    -- $GetShardIterator
     , getShardIterator
+
     -- * ListStreams
+    -- $ListStreams
     , listStreams
+
     -- * MergeShards
+    -- $MergeShards
     , mergeShards
+
     -- * PutRecord
+    -- $PutRecord
     , putRecord
+
     -- * SplitShard
+    -- $SplitShard
     , splitShard
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.Kinesis.V2013_12_02
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -53,7 +69,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.Kinesis.V2013_12_02
 
--- | This operation adds a new Amazon Kinesis stream to your AWS account. A
+-- $CreateStream
+-- This operation adds a new Amazon Kinesis stream to your AWS account. A
 -- stream captures and transports data records that are continuously emitted
 -- from different data sources or producers. Scale-out within an Amazon
 -- Kinesis stream is explicitly supported by means of shards, which are
@@ -93,6 +110,7 @@ import Network.AWS.Kinesis.V2013_12_02
 -- Date: ]]>.
 --
 -- See: 'Network.AWS.Kinesis.V2013_12_02.CreateStream'
+
 createStream :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -105,7 +123,8 @@ createStream :: ( MonadCatch m
 createStream p1 p2 s =
     send $ (mkCreateStream p1 p2) &~ s
 
--- | This operation deletes a stream and all of its shards and data. You must
+-- $DeleteStream
+-- This operation deletes a stream and all of its shards and data. You must
 -- shut down any applications that are operating on the stream before you
 -- delete the stream. If an application attempts to operate on a deleted
 -- stream, it will receive the exception ResourceNotFoundException. If the
@@ -128,6 +147,7 @@ createStream p1 p2 s =
 -- Content-Length: Date: ]]>.
 --
 -- See: 'Network.AWS.Kinesis.V2013_12_02.DeleteStream'
+
 deleteStream :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -139,7 +159,8 @@ deleteStream :: ( MonadCatch m
 deleteStream p1 s =
     send $ (mkDeleteStream p1) &~ s
 
--- | This operation returns the following information about the stream: the
+-- $DescribeStream
+-- This operation returns the following information about the stream: the
 -- current status of the stream, the stream Amazon Resource Name (ARN), and an
 -- array of shard objects that comprise the stream. For each shard object
 -- there is information about the hash key and sequence number ranges that the
@@ -184,6 +205,7 @@ deleteStream p1 s =
 -- "exampleStreamName", "StreamStatus": "ACTIVE" } }.
 --
 -- See: 'Network.AWS.Kinesis.V2013_12_02.DescribeStream'
+
 describeStream :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -195,7 +217,8 @@ describeStream :: ( MonadCatch m
 describeStream p1 s =
     paginate $ (mkDescribeStream p1) &~ s
 
--- | This operation returns one or more data records from a shard. A GetRecords
+-- $GetRecords
+-- This operation returns one or more data records from a shard. A GetRecords
 -- operation request can retrieve up to 10 MB of data. You specify a shard
 -- iterator for the shard that you want to read data from in the ShardIterator
 -- parameter. The shard iterator specifies the position in the shard from
@@ -235,6 +258,7 @@ describeStream p1 s =
 -- "SequenceNumber": "21269319989652663814458848515492872193" } ] }.
 --
 -- See: 'Network.AWS.Kinesis.V2013_12_02.GetRecords'
+
 getRecords :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -246,7 +270,8 @@ getRecords :: ( MonadCatch m
 getRecords p1 s =
     send $ (mkGetRecords p1) &~ s
 
--- | This operation returns a shard iterator in ShardIterator. The shard
+-- $GetShardIterator
+-- This operation returns a shard iterator in ShardIterator. The shard
 -- iterator specifies the position in the shard from which you want to start
 -- reading data records sequentially. A shard iterator specifies this position
 -- using the sequence number of a data record in a shard. A sequence number is
@@ -292,6 +317,7 @@ getRecords p1 s =
 -- }.
 --
 -- See: 'Network.AWS.Kinesis.V2013_12_02.GetShardIterator'
+
 getShardIterator :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -305,7 +331,8 @@ getShardIterator :: ( MonadCatch m
 getShardIterator p1 p2 p3 s =
     send $ (mkGetShardIterator p1 p2 p3) &~ s
 
--- | This operation returns an array of the names of all the streams that are
+-- $ListStreams
+-- This operation returns an array of the names of all the streams that are
 -- associated with the AWS account making the ListStreams request. A given AWS
 -- account can have many streams active at one time. The number of streams may
 -- be too large to return from a single call to ListStreams. You can limit the
@@ -331,6 +358,7 @@ getShardIterator p1 p2 p3 s =
 -- "HasMoreStreams": false, "StreamNames": [ "exampleStreamName" ] }.
 --
 -- See: 'Network.AWS.Kinesis.V2013_12_02.ListStreams'
+
 listStreams :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -341,7 +369,8 @@ listStreams :: ( MonadCatch m
 listStreams s =
     paginate (mkListStreams &~ s)
 
--- | This operation merges two adjacent shards in a stream and combines them
+-- $MergeShards
+-- This operation merges two adjacent shards in a stream and combines them
 -- into a single shard to reduce the stream's capacity to ingest and transport
 -- data. Two shards are considered adjacent if the union of the hash key
 -- ranges for the two shards form a contiguous set with no gaps. For example,
@@ -381,6 +410,7 @@ listStreams s =
 -- application/x-amz-json-1.1 Content-Length: Date: ]]>.
 --
 -- See: 'Network.AWS.Kinesis.V2013_12_02.MergeShards'
+
 mergeShards :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -394,7 +424,8 @@ mergeShards :: ( MonadCatch m
 mergeShards p1 p2 p3 s =
     send $ (mkMergeShards p1 p2 p3) &~ s
 
--- | This operation puts a data record into an Amazon Kinesis stream from a
+-- $PutRecord
+-- This operation puts a data record into an Amazon Kinesis stream from a
 -- producer. This operation must be called to send data from the producer into
 -- the Amazon Kinesis stream for real-time ingestion and subsequent
 -- processing. The PutRecord operation requires the name of the stream that
@@ -433,6 +464,7 @@ mergeShards p1 p2 p3 s =
 -- "ShardId": "shardId-000000000001" }.
 --
 -- See: 'Network.AWS.Kinesis.V2013_12_02.PutRecord'
+
 putRecord :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -446,7 +478,8 @@ putRecord :: ( MonadCatch m
 putRecord p1 p2 p3 s =
     send $ (mkPutRecord p1 p2 p3) &~ s
 
--- | This operation splits a shard into two new shards in the stream, to
+-- $SplitShard
+-- This operation splits a shard into two new shards in the stream, to
 -- increase the stream's capacity to ingest and transport data. SplitShard is
 -- called when there is a need to increase the overall capacity of stream
 -- because of an expected increase in the volume of data records being
@@ -493,6 +526,7 @@ putRecord p1 p2 p3 s =
 -- Content-Length: Date: ]]>.
 --
 -- See: 'Network.AWS.Kinesis.V2013_12_02.SplitShard'
+
 splitShard :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m

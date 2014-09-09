@@ -21,162 +21,312 @@
 module Network.AWS.IAM.V2010_05_08.Trans
     (
     -- * AddRoleToInstanceProfile
+    -- $AddRoleToInstanceProfile
       addRoleToInstanceProfile
+
     -- * AddUserToGroup
+    -- $AddUserToGroup
     , addUserToGroup
+
     -- * ChangePassword
+    -- $ChangePassword
     , changePassword
+
     -- * CreateAccessKey
+    -- $CreateAccessKey
     , createAccessKey
+
     -- * CreateAccountAlias
+    -- $CreateAccountAlias
     , createAccountAlias
+
     -- * CreateGroup
+    -- $CreateGroup
     , createGroup
+
     -- * CreateInstanceProfile
+    -- $CreateInstanceProfile
     , createInstanceProfile
+
     -- * CreateLoginProfile
+    -- $CreateLoginProfile
     , createLoginProfile
+
     -- * CreateRole
+    -- $CreateRole
     , createRole
+
     -- * CreateSAMLProvider
+    -- $CreateSAMLProvider
     , createSAMLProvider
+
     -- * CreateUser
+    -- $CreateUser
     , createUser
+
     -- * CreateVirtualMFADevice
+    -- $CreateVirtualMFADevice
     , createVirtualMFADevice
+
     -- * DeactivateMFADevice
+    -- $DeactivateMFADevice
     , deactivateMFADevice
+
     -- * DeleteAccessKey
+    -- $DeleteAccessKey
     , deleteAccessKey
+
     -- * DeleteAccountAlias
+    -- $DeleteAccountAlias
     , deleteAccountAlias
+
     -- * DeleteAccountPasswordPolicy
+    -- $DeleteAccountPasswordPolicy
     , deleteAccountPasswordPolicy
+
     -- * DeleteGroup
+    -- $DeleteGroup
     , deleteGroup
+
     -- * DeleteGroupPolicy
+    -- $DeleteGroupPolicy
     , deleteGroupPolicy
+
     -- * DeleteInstanceProfile
+    -- $DeleteInstanceProfile
     , deleteInstanceProfile
+
     -- * DeleteLoginProfile
+    -- $DeleteLoginProfile
     , deleteLoginProfile
+
     -- * DeleteRole
+    -- $DeleteRole
     , deleteRole
+
     -- * DeleteRolePolicy
+    -- $DeleteRolePolicy
     , deleteRolePolicy
+
     -- * DeleteSAMLProvider
+    -- $DeleteSAMLProvider
     , deleteSAMLProvider
+
     -- * DeleteServerCertificate
+    -- $DeleteServerCertificate
     , deleteServerCertificate
+
     -- * DeleteSigningCertificate
+    -- $DeleteSigningCertificate
     , deleteSigningCertificate
+
     -- * DeleteUser
+    -- $DeleteUser
     , deleteUser
+
     -- * DeleteUserPolicy
+    -- $DeleteUserPolicy
     , deleteUserPolicy
+
     -- * DeleteVirtualMFADevice
+    -- $DeleteVirtualMFADevice
     , deleteVirtualMFADevice
+
     -- * EnableMFADevice
+    -- $EnableMFADevice
     , enableMFADevice
+
     -- * GenerateCredentialReport
+    -- $GenerateCredentialReport
     , generateCredentialReport
+
     -- * GetAccountPasswordPolicy
+    -- $GetAccountPasswordPolicy
     , getAccountPasswordPolicy
+
     -- * GetAccountSummary
+    -- $GetAccountSummary
     , getAccountSummary
+
     -- * GetCredentialReport
+    -- $GetCredentialReport
     , getCredentialReport
+
     -- * GetGroup
+    -- $GetGroup
     , getGroup
+
     -- * GetGroupPolicy
+    -- $GetGroupPolicy
     , getGroupPolicy
+
     -- * GetInstanceProfile
+    -- $GetInstanceProfile
     , getInstanceProfile
+
     -- * GetLoginProfile
+    -- $GetLoginProfile
     , getLoginProfile
+
     -- * GetRole
+    -- $GetRole
     , getRole
+
     -- * GetRolePolicy
+    -- $GetRolePolicy
     , getRolePolicy
+
     -- * GetSAMLProvider
+    -- $GetSAMLProvider
     , getSAMLProvider
+
     -- * GetServerCertificate
+    -- $GetServerCertificate
     , getServerCertificate
+
     -- * GetUser
+    -- $GetUser
     , getUser
+
     -- * GetUserPolicy
+    -- $GetUserPolicy
     , getUserPolicy
+
     -- * ListAccessKeys
+    -- $ListAccessKeys
     , listAccessKeys
+
     -- * ListAccountAliases
+    -- $ListAccountAliases
     , listAccountAliases
+
     -- * ListGroupPolicies
+    -- $ListGroupPolicies
     , listGroupPolicies
+
     -- * ListGroups
+    -- $ListGroups
     , listGroups
+
     -- * ListGroupsForUser
+    -- $ListGroupsForUser
     , listGroupsForUser
+
     -- * ListInstanceProfiles
+    -- $ListInstanceProfiles
     , listInstanceProfiles
+
     -- * ListInstanceProfilesForRole
+    -- $ListInstanceProfilesForRole
     , listInstanceProfilesForRole
+
     -- * ListMFADevices
+    -- $ListMFADevices
     , listMFADevices
+
     -- * ListRolePolicies
+    -- $ListRolePolicies
     , listRolePolicies
+
     -- * ListRoles
+    -- $ListRoles
     , listRoles
+
     -- * ListSAMLProviders
+    -- $ListSAMLProviders
     , listSAMLProviders
+
     -- * ListServerCertificates
+    -- $ListServerCertificates
     , listServerCertificates
+
     -- * ListSigningCertificates
+    -- $ListSigningCertificates
     , listSigningCertificates
+
     -- * ListUserPolicies
+    -- $ListUserPolicies
     , listUserPolicies
+
     -- * ListUsers
+    -- $ListUsers
     , listUsers
+
     -- * ListVirtualMFADevices
+    -- $ListVirtualMFADevices
     , listVirtualMFADevices
+
     -- * PutGroupPolicy
+    -- $PutGroupPolicy
     , putGroupPolicy
+
     -- * PutRolePolicy
+    -- $PutRolePolicy
     , putRolePolicy
+
     -- * PutUserPolicy
+    -- $PutUserPolicy
     , putUserPolicy
+
     -- * RemoveRoleFromInstanceProfile
+    -- $RemoveRoleFromInstanceProfile
     , removeRoleFromInstanceProfile
+
     -- * RemoveUserFromGroup
+    -- $RemoveUserFromGroup
     , removeUserFromGroup
+
     -- * ResyncMFADevice
+    -- $ResyncMFADevice
     , resyncMFADevice
+
     -- * UpdateAccessKey
+    -- $UpdateAccessKey
     , updateAccessKey
+
     -- * UpdateAccountPasswordPolicy
+    -- $UpdateAccountPasswordPolicy
     , updateAccountPasswordPolicy
+
     -- * UpdateAssumeRolePolicy
+    -- $UpdateAssumeRolePolicy
     , updateAssumeRolePolicy
+
     -- * UpdateGroup
+    -- $UpdateGroup
     , updateGroup
+
     -- * UpdateLoginProfile
+    -- $UpdateLoginProfile
     , updateLoginProfile
+
     -- * UpdateSAMLProvider
+    -- $UpdateSAMLProvider
     , updateSAMLProvider
+
     -- * UpdateServerCertificate
+    -- $UpdateServerCertificate
     , updateServerCertificate
+
     -- * UpdateSigningCertificate
+    -- $UpdateSigningCertificate
     , updateSigningCertificate
+
     -- * UpdateUser
+    -- $UpdateUser
     , updateUser
+
     -- * UploadServerCertificate
+    -- $UploadServerCertificate
     , uploadServerCertificate
+
     -- * UploadSigningCertificate
+    -- $UploadSigningCertificate
     , uploadSigningCertificate
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.IAM.V2010_05_08
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -187,7 +337,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.IAM.V2010_05_08
 
--- | Adds the specified role to the specified instance profile. For more
+-- $AddRoleToInstanceProfile
+-- Adds the specified role to the specified instance profile. For more
 -- information about roles, go to Working with Roles. For more information
 -- about instance profiles, go to About Instance Profiles.
 -- https://iam.amazonaws.com/ ?Action=AddRoleToInstanceProfile
@@ -195,6 +346,7 @@ import Network.AWS.IAM.V2010_05_08
 -- &AUTHPARAMS 12657608-99f2-11e1-a4c3-27EXAMPLE804.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.AddRoleToInstanceProfile'
+
 addRoleToInstanceProfile :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -207,11 +359,13 @@ addRoleToInstanceProfile :: ( MonadCatch m
 addRoleToInstanceProfile p1 p2 s =
     send $ (mkAddRoleToInstanceProfile p1 p2) &~ s
 
--- | Adds the specified user to the specified group. https://iam.amazonaws.com/
+-- $AddUserToGroup
+-- Adds the specified user to the specified group. https://iam.amazonaws.com/
 -- ?Action=AddUserToGroup &GroupName=Managers &UserName=Bob &AUTHPARAMS
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.AddUserToGroup'
+
 addUserToGroup :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -224,7 +378,8 @@ addUserToGroup :: ( MonadCatch m
 addUserToGroup p1 p2 s =
     send $ (mkAddUserToGroup p1 p2) &~ s
 
--- | Changes the password of the IAM user calling ChangePassword. The root
+-- $ChangePassword
+-- Changes the password of the IAM user calling ChangePassword. The root
 -- account password is not affected by this action. For information about
 -- modifying passwords, see Managing Passwords in the Using IAM guide.
 -- https://iam.amazonaws.com/ ?Action=ChangePassword &OldPassword=U79}kgds4?
@@ -232,6 +387,7 @@ addUserToGroup p1 p2 s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.ChangePassword'
+
 changePassword :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -244,7 +400,8 @@ changePassword :: ( MonadCatch m
 changePassword p1 p2 s =
     send $ (mkChangePassword p1 p2) &~ s
 
--- | Creates a new AWS secret access key and corresponding AWS access key ID for
+-- $CreateAccessKey
+-- Creates a new AWS secret access key and corresponding AWS access key ID for
 -- the specified user. The default status for new keys is Active. If you do
 -- not specify a user name, IAM determines the user name implicitly based on
 -- the AWS access key ID signing the request. Because this action works for
@@ -262,6 +419,7 @@ changePassword p1 p2 s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.CreateAccessKey'
+
 createAccessKey :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -272,13 +430,15 @@ createAccessKey :: ( MonadCatch m
 createAccessKey s =
     send (mkCreateAccessKey &~ s)
 
--- | This action creates an alias for your AWS account. For information about
+-- $CreateAccountAlias
+-- This action creates an alias for your AWS account. For information about
 -- using an AWS account alias, see Using an Alias for Your AWS Account ID in
 -- the Using IAM guide. https://iam.amazonaws.com/ ?Action=CreateAccountAlias
 -- &AccountAlias=foocorporation &Version=2010-05-08 &AUTHPARAMS
 -- 36b5db08-f1b0-11df-8fbe-45274EXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.CreateAccountAlias'
+
 createAccountAlias :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -290,13 +450,15 @@ createAccountAlias :: ( MonadCatch m
 createAccountAlias p1 s =
     send $ (mkCreateAccountAlias p1) &~ s
 
--- | Creates a new group. For information about the number of groups you can
+-- $CreateGroup
+-- Creates a new group. For information about the number of groups you can
 -- create, see Limitations on IAM Entities in the Using IAM guide.
 -- https://iam.amazonaws.com/ ?Action=CreateGroup &Path=/ &GroupName=Admins
 -- &Version=2010-05-08 &AUTHPARAMS / Admins AGPACKCEVSQ6C2EXAMPLE
 -- arn:aws:iam::123456789012:group/Admins 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.CreateGroup'
+
 createGroup :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -308,7 +470,8 @@ createGroup :: ( MonadCatch m
 createGroup p2 s =
     send $ (mkCreateGroup p2) &~ s
 
--- | Creates a new instance profile. For information about instance profiles, go
+-- $CreateInstanceProfile
+-- Creates a new instance profile. For information about instance profiles, go
 -- to About Instance Profiles. For information about the number of instance
 -- profiles you can create, see Limitations on IAM Entities in the Using IAM
 -- guide. https://iam.amazonaws.com/ ?Action=CreateInstanceProfile
@@ -319,6 +482,7 @@ createGroup p2 s =
 -- 2012-05-09T16:11:10.222Z 974142ee-99f1-11e1-a4c3-27EXAMPLE804.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.CreateInstanceProfile'
+
 createInstanceProfile :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -330,7 +494,8 @@ createInstanceProfile :: ( MonadCatch m
 createInstanceProfile p1 s =
     send $ (mkCreateInstanceProfile p1) &~ s
 
--- | Creates a password for the specified user, giving the user the ability to
+-- $CreateLoginProfile
+-- Creates a password for the specified user, giving the user the ability to
 -- access AWS services through the AWS Management Console. For more
 -- information about managing passwords, see Managing Passwords in the Using
 -- IAM guide. https://iam.amazonaws.com/ ?Action=CreateLoginProfile
@@ -338,6 +503,7 @@ createInstanceProfile p1 s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.CreateLoginProfile'
+
 createLoginProfile :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -350,7 +516,8 @@ createLoginProfile :: ( MonadCatch m
 createLoginProfile p1 p2 s =
     send $ (mkCreateLoginProfile p1 p2) &~ s
 
--- | Creates a new role for your AWS account. For more information about roles,
+-- $CreateRole
+-- Creates a new role for your AWS account. For more information about roles,
 -- go to Working with Roles. For information about limitations on role names
 -- and the number of roles you can create, go to Limitations on IAM Entities
 -- in the Using IAM guide. The example policy grants permission to an EC2
@@ -367,6 +534,7 @@ createLoginProfile p1 p2 s =
 -- 4a93ceee-9966-11e1-b624-b1aEXAMPLE7c.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.CreateRole'
+
 createRole :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -379,7 +547,8 @@ createRole :: ( MonadCatch m
 createRole p2 p3 s =
     send $ (mkCreateRole p2 p3) &~ s
 
--- | Creates an IAM entity to describe an identity provider (IdP) that supports
+-- $CreateSAMLProvider
+-- Creates an IAM entity to describe an identity provider (IdP) that supports
 -- SAML 2.0. The SAML provider that you create with this operation can be used
 -- as a principal in a role's trust policy to establish a trust relationship
 -- between AWS and a SAML identity provider. You can create an IAM role that
@@ -400,6 +569,7 @@ createRole p2 p3 s =
 -- 29f47818-99f5-11e1-a4c3-27EXAMPLE804.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.CreateSAMLProvider'
+
 createSAMLProvider :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -412,7 +582,8 @@ createSAMLProvider :: ( MonadCatch m
 createSAMLProvider p1 p2 s =
     send $ (mkCreateSAMLProvider p1 p2) &~ s
 
--- | Creates a new user for your AWS account. For information about limitations
+-- $CreateUser
+-- Creates a new user for your AWS account. For information about limitations
 -- on the number of users you can create, see Limitations on IAM Entities in
 -- the Using IAM guide. https://iam.amazonaws.com/ ?Action=CreateUser
 -- &Path=/division_abc/subdivision_xyz/ &UserName=Bob &Version=2010-05-08
@@ -421,6 +592,7 @@ createSAMLProvider p1 p2 s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.CreateUser'
+
 createUser :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -432,7 +604,8 @@ createUser :: ( MonadCatch m
 createUser p2 s =
     send $ (mkCreateUser p2) &~ s
 
--- | Creates a new virtual MFA device for the AWS account. After creating the
+-- $CreateVirtualMFADevice
+-- Creates a new virtual MFA device for the AWS account. After creating the
 -- virtual MFA, use EnableMFADevice to attach the MFA device to an IAM user.
 -- For more information about creating and working with virtual MFA devices,
 -- go to Using a Virtual MFA Device in the Using IAM guide. For information
@@ -449,6 +622,7 @@ createUser p2 s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.CreateVirtualMFADevice'
+
 createVirtualMFADevice :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -460,12 +634,14 @@ createVirtualMFADevice :: ( MonadCatch m
 createVirtualMFADevice p2 s =
     send $ (mkCreateVirtualMFADevice p2) &~ s
 
--- | Deactivates the specified MFA device and removes it from association with
+-- $DeactivateMFADevice
+-- Deactivates the specified MFA device and removes it from association with
 -- the user name for which it was originally enabled.
 -- https://iam.amazonaws.com/ ?Action=DeactivateMFADevice &UserName=Bob
 -- &SerialNumber=R1234 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.DeactivateMFADevice'
+
 deactivateMFADevice :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -478,7 +654,8 @@ deactivateMFADevice :: ( MonadCatch m
 deactivateMFADevice p1 p2 s =
     send $ (mkDeactivateMFADevice p1 p2) &~ s
 
--- | Deletes the access key associated with the specified user. If you do not
+-- $DeleteAccessKey
+-- Deletes the access key associated with the specified user. If you do not
 -- specify a user name, IAM determines the user name implicitly based on the
 -- AWS access key ID signing the request. Because this action works for access
 -- keys under the AWS account, you can use this API to manage root credentials
@@ -487,6 +664,7 @@ deactivateMFADevice p1 p2 s =
 -- &Version=2010-05-08 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteAccessKey'
+
 deleteAccessKey :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -498,13 +676,15 @@ deleteAccessKey :: ( MonadCatch m
 deleteAccessKey p2 s =
     send $ (mkDeleteAccessKey p2) &~ s
 
--- | Deletes the specified AWS account alias. For information about using an AWS
+-- $DeleteAccountAlias
+-- Deletes the specified AWS account alias. For information about using an AWS
 -- account alias, see Using an Alias for Your AWS Account ID in the Using IAM
 -- guide. https://iam.amazonaws.com/ ?Action=DeleteAccountAlias
 -- &AccountAlias=foocorporation &Version=2010-05-08 &AUTHPARAMS
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteAccountAlias'
+
 deleteAccountAlias :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -516,11 +696,13 @@ deleteAccountAlias :: ( MonadCatch m
 deleteAccountAlias p1 s =
     send $ (mkDeleteAccountAlias p1) &~ s
 
--- | Deletes the password policy for the AWS account. https://iam.amazonaws.com/
+-- $DeleteAccountPasswordPolicy
+-- Deletes the password policy for the AWS account. https://iam.amazonaws.com/
 -- ?Action=DeleteAccountPasswordPolicy &Version=2010-05-08 &AUTHPARAMS
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteAccountPasswordPolicy'
+
 deleteAccountPasswordPolicy :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -531,12 +713,14 @@ deleteAccountPasswordPolicy :: ( MonadCatch m
 deleteAccountPasswordPolicy s =
     send (mkDeleteAccountPasswordPolicy &~ s)
 
--- | Deletes the specified group. The group must not contain any users or have
+-- $DeleteGroup
+-- Deletes the specified group. The group must not contain any users or have
 -- any attached policies. https://iam.amazonaws.com/ ?Action=DeleteGroup
 -- &Group=Test &Version=2010-05-08 &AUTHPARAMS
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteGroup'
+
 deleteGroup :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -548,11 +732,13 @@ deleteGroup :: ( MonadCatch m
 deleteGroup p1 s =
     send $ (mkDeleteGroup p1) &~ s
 
--- | Deletes the specified policy that is associated with the specified group.
+-- $DeleteGroupPolicy
+-- Deletes the specified policy that is associated with the specified group.
 -- https://iam.amazonaws.com/ ?Action=DeleteGroupPolicy &GroupName=Admins
 -- &PolicyName=AdminRoot &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteGroupPolicy'
+
 deleteGroupPolicy :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -565,7 +751,8 @@ deleteGroupPolicy :: ( MonadCatch m
 deleteGroupPolicy p1 p2 s =
     send $ (mkDeleteGroupPolicy p1 p2) &~ s
 
--- | Deletes the specified instance profile. The instance profile must not have
+-- $DeleteInstanceProfile
+-- Deletes the specified instance profile. The instance profile must not have
 -- an associated role. Make sure you do not have any Amazon EC2 instances
 -- running with the instance profile you are about to delete. Deleting a role
 -- or instance profile that is associated with a running instance will break
@@ -576,6 +763,7 @@ deleteGroupPolicy p1 p2 s =
 -- 90c18667-99f3-11e1-a4c3-27EXAMPLE804.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteInstanceProfile'
+
 deleteInstanceProfile :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -587,7 +775,8 @@ deleteInstanceProfile :: ( MonadCatch m
 deleteInstanceProfile p1 s =
     send $ (mkDeleteInstanceProfile p1) &~ s
 
--- | Deletes the password for the specified user, which terminates the user's
+-- $DeleteLoginProfile
+-- Deletes the password for the specified user, which terminates the user's
 -- ability to access AWS services through the AWS Management Console. Deleting
 -- a user's password does not prevent a user from accessing IAM through the
 -- command line interface or the API. To prevent all user access you must also
@@ -597,6 +786,7 @@ deleteInstanceProfile p1 s =
 -- &UserName=Bob &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteLoginProfile'
+
 deleteLoginProfile :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -608,7 +798,8 @@ deleteLoginProfile :: ( MonadCatch m
 deleteLoginProfile p1 s =
     send $ (mkDeleteLoginProfile p1) &~ s
 
--- | Deletes the specified role. The role must not have any policies attached.
+-- $DeleteRole
+-- Deletes the specified role. The role must not have any policies attached.
 -- For more information about roles, go to Working with Roles. Make sure you
 -- do not have any Amazon EC2 instances running with the role you are about to
 -- delete. Deleting a role or instance profile that is associated with a
@@ -617,6 +808,7 @@ deleteLoginProfile p1 s =
 -- &Version=2010-05-08 &AUTHPARAMS 913e3f37-99ed-11e1-a4c3-270EXAMPLE04.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteRole'
+
 deleteRole :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -628,12 +820,14 @@ deleteRole :: ( MonadCatch m
 deleteRole p1 s =
     send $ (mkDeleteRole p1) &~ s
 
--- | Deletes the specified policy associated with the specified role.
+-- $DeleteRolePolicy
+-- Deletes the specified policy associated with the specified role.
 -- https://iam.amazonaws.com/ ?Action=DeleteRolePolicy
 -- &PolicyName=S3AccessPolicy &RoleName=S3Access &Version=2010-05-08
 -- &AUTHPARAMS c749ee7f-99ef-11e1-a4c3-27EXAMPLE804.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteRolePolicy'
+
 deleteRolePolicy :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -646,7 +840,8 @@ deleteRolePolicy :: ( MonadCatch m
 deleteRolePolicy p1 p2 s =
     send $ (mkDeleteRolePolicy p1 p2) &~ s
 
--- | Deletes a SAML provider. Deleting the provider does not update any roles
+-- $DeleteSAMLProvider
+-- Deletes a SAML provider. Deleting the provider does not update any roles
 -- that reference the SAML provider as a principal in their trust policies.
 -- Any attempt to assume a role that references a SAML provider that has been
 -- deleted will fail. This operation requires Signature Version 4.
@@ -655,6 +850,7 @@ deleteRolePolicy p1 p2 s =
 -- &Version=2010-05-08 &AUTHPARAMS.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteSAMLProvider'
+
 deleteSAMLProvider :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -666,7 +862,8 @@ deleteSAMLProvider :: ( MonadCatch m
 deleteSAMLProvider p1 s =
     send $ (mkDeleteSAMLProvider p1) &~ s
 
--- | Deletes the specified server certificate. If you are using a server
+-- $DeleteServerCertificate
+-- Deletes the specified server certificate. If you are using a server
 -- certificate with Elastic Load Balancing, deleting the certificate could
 -- have implications for your application. If Elastic Load Balancing doesn't
 -- detect the deletion of bound certificates, it may continue to use the
@@ -679,6 +876,7 @@ deleteSAMLProvider p1 s =
 -- &Version=2010-05-08 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteServerCertificate'
+
 deleteServerCertificate :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -690,7 +888,8 @@ deleteServerCertificate :: ( MonadCatch m
 deleteServerCertificate p1 s =
     send $ (mkDeleteServerCertificate p1) &~ s
 
--- | Deletes the specified signing certificate associated with the specified
+-- $DeleteSigningCertificate
+-- Deletes the specified signing certificate associated with the specified
 -- user. If you do not specify a user name, IAM determines the user name
 -- implicitly based on the AWS access key ID signing the request. Because this
 -- action works for access keys under the AWS account, you can use this API to
@@ -700,6 +899,7 @@ deleteServerCertificate p1 s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteSigningCertificate'
+
 deleteSigningCertificate :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -711,12 +911,14 @@ deleteSigningCertificate :: ( MonadCatch m
 deleteSigningCertificate p2 s =
     send $ (mkDeleteSigningCertificate p2) &~ s
 
--- | Deletes the specified user. The user must not belong to any groups, have
+-- $DeleteUser
+-- Deletes the specified user. The user must not belong to any groups, have
 -- any keys or signing certificates, or have any attached policies.
 -- https://iam.amazonaws.com/ ?Action=DeleteUser &UserName=Bob
 -- &Version=2010-05-08 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteUser'
+
 deleteUser :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -728,12 +930,14 @@ deleteUser :: ( MonadCatch m
 deleteUser p1 s =
     send $ (mkDeleteUser p1) &~ s
 
--- | Deletes the specified policy associated with the specified user.
+-- $DeleteUserPolicy
+-- Deletes the specified policy associated with the specified user.
 -- https://iam.amazonaws.com/ ?Action=DeleteUserPolicy &UserName=Bob
 -- &PolicyName=AllAccessPolicy &AUTHPARAMS
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteUserPolicy'
+
 deleteUserPolicy :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -746,7 +950,8 @@ deleteUserPolicy :: ( MonadCatch m
 deleteUserPolicy p1 p2 s =
     send $ (mkDeleteUserPolicy p1 p2) &~ s
 
--- | Deletes a virtual MFA device. You must deactivate a user's virtual MFA
+-- $DeleteVirtualMFADevice
+-- Deletes a virtual MFA device. You must deactivate a user's virtual MFA
 -- device before you can delete it. For information about deactivating MFA
 -- devices, see DeactivateMFADevice. https://iam.amazonaws.com/
 -- ?Action=DeleteVirtualMFADevice
@@ -755,6 +960,7 @@ deleteUserPolicy p1 p2 s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.DeleteVirtualMFADevice'
+
 deleteVirtualMFADevice :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -766,7 +972,8 @@ deleteVirtualMFADevice :: ( MonadCatch m
 deleteVirtualMFADevice p1 s =
     send $ (mkDeleteVirtualMFADevice p1) &~ s
 
--- | Enables the specified MFA device and associates it with the specified user
+-- $EnableMFADevice
+-- Enables the specified MFA device and associates it with the specified user
 -- name. When enabled, the MFA device is required for every subsequent login
 -- by the user name associated with the device. https://iam.amazonaws.com/
 -- ?Action=EnableMFADevice &UserName=Bob &SerialNumber=R1234
@@ -774,6 +981,7 @@ deleteVirtualMFADevice p1 s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.EnableMFADevice'
+
 enableMFADevice :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -788,11 +996,13 @@ enableMFADevice :: ( MonadCatch m
 enableMFADevice p1 p2 p3 p4 s =
     send $ (mkEnableMFADevice p1 p2 p3 p4) &~ s
 
--- | Generates a credential report for the AWS account. For more information
+-- $GenerateCredentialReport
+-- Generates a credential report for the AWS account. For more information
 -- about the credential report, see Getting Credential Reports in the Using
 -- IAM guide.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.GenerateCredentialReport'
+
 generateCredentialReport :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -803,13 +1013,15 @@ generateCredentialReport :: ( MonadCatch m
 generateCredentialReport s =
     send (mkGenerateCredentialReport &~ s)
 
--- | Retrieves the password policy for the AWS account. For more information
+-- $GetAccountPasswordPolicy
+-- Retrieves the password policy for the AWS account. For more information
 -- about using a password policy, go to Managing an IAM Password Policy.
 -- https://iam.amazonaws.com/ ?Action=GetAccountPasswordPolicy
 -- &Version=2010-05-08 &AUTHPARAMS 6, false false false false true
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.GetAccountPasswordPolicy'
+
 getAccountPasswordPolicy :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -820,7 +1032,8 @@ getAccountPasswordPolicy :: ( MonadCatch m
 getAccountPasswordPolicy s =
     send (mkGetAccountPasswordPolicy &~ s)
 
--- | Retrieves account level information about account entity usage and IAM
+-- $GetAccountSummary
+-- Retrieves account level information about account entity usage and IAM
 -- quotas. For information about limitations on IAM entities, see Limitations
 -- on IAM Entities in the Using IAM guide. https://iam.amazonaws.com/
 -- ?Action=GetAccountSummary &Version=2010-05-08 &AUTHPARAMS Groups 31
@@ -831,6 +1044,7 @@ getAccountPasswordPolicy s =
 -- MFADevices 20 f1e38443-f1ad-11df-b1ef-a9265EXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.GetAccountSummary'
+
 getAccountSummary :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -841,11 +1055,13 @@ getAccountSummary :: ( MonadCatch m
 getAccountSummary s =
     send (mkGetAccountSummary &~ s)
 
--- | Retrieves a credential report for the AWS account. For more information
+-- $GetCredentialReport
+-- Retrieves a credential report for the AWS account. For more information
 -- about the credential report, see Getting Credential Reports in the Using
 -- IAM guide.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.GetCredentialReport'
+
 getCredentialReport :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -856,7 +1072,8 @@ getCredentialReport :: ( MonadCatch m
 getCredentialReport s =
     send (mkGetCredentialReport &~ s)
 
--- | Returns a list of users that are in the specified group. You can paginate
+-- $GetGroup
+-- Returns a list of users that are in the specified group. You can paginate
 -- the results using the MaxItems and Marker parameters.
 -- https://iam.amazonaws.com/ ?Action=GetGroup &GroupName=Admins
 -- &Version=2010-05-08 &AUTHPARAMS / Admins AGPACKCEVSQ6C2EXAMPLE
@@ -868,6 +1085,7 @@ getCredentialReport s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.GetGroup'
+
 getGroup :: ( MonadCatch m
             , MonadResource m
             , MonadError AWS.Error m
@@ -879,7 +1097,8 @@ getGroup :: ( MonadCatch m
 getGroup p1 s =
     paginate $ (mkGetGroup p1) &~ s
 
--- | Retrieves the specified policy document for the specified group. The
+-- $GetGroupPolicy
+-- Retrieves the specified policy document for the specified group. The
 -- returned policy is URL-encoded according to RFC 3986. For more information
 -- about RFC 3986, go to http://www.faqs.org/rfcs/rfc3986.html.
 -- https://iam.amazonaws.com/ ?Action=GetGroupPolicy &GroupName=Admins
@@ -888,6 +1107,7 @@ getGroup p1 s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.GetGroupPolicy'
+
 getGroupPolicy :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -900,7 +1120,8 @@ getGroupPolicy :: ( MonadCatch m
 getGroupPolicy p1 p2 s =
     send $ (mkGetGroupPolicy p1 p2) &~ s
 
--- | Retrieves information about the specified instance profile, including the
+-- $GetInstanceProfile
+-- Retrieves information about the specified instance profile, including the
 -- instance profile's path, GUID, ARN, and role. For more information about
 -- instance profiles, go to About Instance Profiles. For more information
 -- about ARNs, go to ARNs. https://iam.amazonaws.com/
@@ -916,6 +1137,7 @@ getGroupPolicy p1 p2 s =
 -- 2012-05-09T16:11:10Z 37289fda-99f2-11e1-a4c3-27EXAMPLE804.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.GetInstanceProfile'
+
 getInstanceProfile :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -927,13 +1149,15 @@ getInstanceProfile :: ( MonadCatch m
 getInstanceProfile p1 s =
     send $ (mkGetInstanceProfile p1) &~ s
 
--- | Retrieves the user name and password-creation date for the specified user.
+-- $GetLoginProfile
+-- Retrieves the user name and password-creation date for the specified user.
 -- If the user has not been assigned a password, the action returns a 404
 -- (NoSuchEntity) error. https://iam.amazonaws.com/ ?Action=GetLoginProfile
 -- &UserName=Bob &AUTHPARAMS Bob 2011-09-19T23:00:56Z
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.GetLoginProfile'
+
 getLoginProfile :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -945,7 +1169,8 @@ getLoginProfile :: ( MonadCatch m
 getLoginProfile p1 s =
     send $ (mkGetLoginProfile p1) &~ s
 
--- | Retrieves information about the specified role, including the role's path,
+-- $GetRole
+-- Retrieves information about the specified role, including the role's path,
 -- GUID, ARN, and the policy granting permission to assume the role. For more
 -- information about ARNs, go to ARNs. For more information about roles, go to
 -- Working with Roles. The returned policy is URL-encoded according to RFC
@@ -960,6 +1185,7 @@ getLoginProfile p1 s =
 -- df37e965-9967-11e1-a4c3-270EXAMPLE04.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.GetRole'
+
 getRole :: ( MonadCatch m
            , MonadResource m
            , MonadError AWS.Error m
@@ -971,7 +1197,8 @@ getRole :: ( MonadCatch m
 getRole p1 s =
     send $ (mkGetRole p1) &~ s
 
--- | Retrieves the specified policy document for the specified role. For more
+-- $GetRolePolicy
+-- Retrieves the specified policy document for the specified role. For more
 -- information about roles, go to Working with Roles. The returned policy is
 -- URL-encoded according to RFC 3986. For more information about RFC 3986, go
 -- to http://www.faqs.org/rfcs/rfc3986.html. https://iam.amazonaws.com/
@@ -981,6 +1208,7 @@ getRole p1 s =
 -- 7e7cd8bc-99ef-11e1-a4c3-27EXAMPLE804.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.GetRolePolicy'
+
 getRolePolicy :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -993,7 +1221,8 @@ getRolePolicy :: ( MonadCatch m
 getRolePolicy p1 p2 s =
     send $ (mkGetRolePolicy p1 p2) &~ s
 
--- | Returns the SAML provider metadocument that was uploaded when the provider
+-- $GetSAMLProvider
+-- Returns the SAML provider metadocument that was uploaded when the provider
 -- was created or updated. This operation requires Signature Version 4.
 -- https://iam.amazonaws.com/ ?Action=GetSAMLProvider
 -- &Name=arn:aws:iam::123456789012:saml-metadata/MyUniversity
@@ -1001,6 +1230,7 @@ getRolePolicy p1 p2 s =
 -- Pd9fexDssTkRgGNqs...DxptfEs== 29f47818-99f5-11e1-a4c3-27EXAMPLE804.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.GetSAMLProvider'
+
 getSAMLProvider :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -1012,7 +1242,8 @@ getSAMLProvider :: ( MonadCatch m
 getSAMLProvider p1 s =
     send $ (mkGetSAMLProvider p1) &~ s
 
--- | Retrieves information about the specified server certificate.
+-- $GetServerCertificate
+-- Retrieves information about the specified server certificate.
 -- https://iam.amazonaws.com/ ?Action=GetServerCertificate
 -- &ServerCertificateName=ProdServerCert &Version=2010-05-08 &AUTHPARAMS
 -- ProdServerCert /company/servercerts/
@@ -1036,6 +1267,7 @@ getSAMLProvider p1 s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.GetServerCertificate'
+
 getServerCertificate :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -1047,7 +1279,8 @@ getServerCertificate :: ( MonadCatch m
 getServerCertificate p1 s =
     send $ (mkGetServerCertificate p1) &~ s
 
--- | Retrieves information about the specified user, including the user's path,
+-- $GetUser
+-- Retrieves information about the specified user, including the user's path,
 -- unique ID, and ARN. If you do not specify a user name, IAM determines the
 -- user name implicitly based on the AWS access key ID signing the request.
 -- https://iam.amazonaws.com/ ?Action=GetUser &UserName=Bob
@@ -1057,6 +1290,7 @@ getServerCertificate p1 s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.GetUser'
+
 getUser :: ( MonadCatch m
            , MonadResource m
            , MonadError AWS.Error m
@@ -1067,7 +1301,8 @@ getUser :: ( MonadCatch m
 getUser s =
     send (mkGetUser &~ s)
 
--- | Retrieves the specified policy document for the specified user. The
+-- $GetUserPolicy
+-- Retrieves the specified policy document for the specified user. The
 -- returned policy is URL-encoded according to RFC 3986. For more information
 -- about RFC 3986, go to http://www.faqs.org/rfcs/rfc3986.html.
 -- https://iam.amazonaws.com/ ?Action=GetUserPolicy &UserName=Bob
@@ -1076,6 +1311,7 @@ getUser s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.GetUserPolicy'
+
 getUserPolicy :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -1088,7 +1324,8 @@ getUserPolicy :: ( MonadCatch m
 getUserPolicy p1 p2 s =
     send $ (mkGetUserPolicy p1 p2) &~ s
 
--- | Returns information about the access key IDs associated with the specified
+-- $ListAccessKeys
+-- Returns information about the access key IDs associated with the specified
 -- user. If there are none, the action returns an empty list. Although each
 -- user is limited to a small number of keys, you can still paginate the
 -- results using the MaxItems and Marker parameters. If the UserName field is
@@ -1103,6 +1340,7 @@ getUserPolicy p1 p2 s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.ListAccessKeys'
+
 listAccessKeys :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -1113,7 +1351,8 @@ listAccessKeys :: ( MonadCatch m
 listAccessKeys s =
     paginate (mkListAccessKeys &~ s)
 
--- | Lists the account aliases associated with the account. For information
+-- $ListAccountAliases
+-- Lists the account aliases associated with the account. For information
 -- about using an AWS account alias, see Using an Alias for Your AWS Account
 -- ID in the Using IAM guide. You can paginate the results using the MaxItems
 -- and Marker parameters. https://iam.amazonaws.com/
@@ -1121,6 +1360,7 @@ listAccessKeys s =
 -- foocorporation c5a076e9-f1b0-11df-8fbe-45274EXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.ListAccountAliases'
+
 listAccountAliases :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -1131,13 +1371,15 @@ listAccountAliases :: ( MonadCatch m
 listAccountAliases s =
     paginate (mkListAccountAliases &~ s)
 
--- | Lists the names of the policies associated with the specified group. If
+-- $ListGroupPolicies
+-- Lists the names of the policies associated with the specified group. If
 -- there are none, the action returns an empty list. You can paginate the
 -- results using the MaxItems and Marker parameters.
 -- https://iam.amazonaws.com/ ?Action=ListGroupPolicies &GroupName=Admins
 -- &AUTHPARAMS AdminRoot KeyPolicy false 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.ListGroupPolicies'
+
 listGroupPolicies :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -1149,7 +1391,8 @@ listGroupPolicies :: ( MonadCatch m
 listGroupPolicies p1 s =
     paginate $ (mkListGroupPolicies p1) &~ s
 
--- | Lists the groups that have the specified path prefix. You can paginate the
+-- $ListGroups
+-- Lists the groups that have the specified path prefix. You can paginate the
 -- results using the MaxItems and Marker parameters.
 -- https://iam.amazonaws.com/ ?Action=ListGroups
 -- &PathPrefix=/division_abc/subdivision_xyz/ &Version=2010-05-08 &AUTHPARAMS
@@ -1164,6 +1407,7 @@ listGroupPolicies p1 s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.ListGroups'
+
 listGroups :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -1174,7 +1418,8 @@ listGroups :: ( MonadCatch m
 listGroups s =
     paginate (mkListGroups &~ s)
 
--- | Lists the groups the specified user belongs to. You can paginate the
+-- $ListGroupsForUser
+-- Lists the groups the specified user belongs to. You can paginate the
 -- results using the MaxItems and Marker parameters.
 -- https://iam.amazonaws.com/ ?Action=ListGroupsForUser &UserName=Bob
 -- &AUTHPARAMS / Admins AGPACKCEVSQ6C2EXAMPLE
@@ -1182,6 +1427,7 @@ listGroups s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.ListGroupsForUser'
+
 listGroupsForUser :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -1193,7 +1439,8 @@ listGroupsForUser :: ( MonadCatch m
 listGroupsForUser p1 s =
     paginate $ (mkListGroupsForUser p1) &~ s
 
--- | Lists the instance profiles that have the specified path prefix. If there
+-- $ListInstanceProfiles
+-- Lists the instance profiles that have the specified path prefix. If there
 -- are none, the action returns an empty list. For more information about
 -- instance profiles, go to About Instance Profiles. You can paginate the
 -- results using the MaxItems and Marker parameters.
@@ -1207,6 +1454,7 @@ listGroupsForUser p1 s =
 -- 2012-05-09T16:27:11Z fd74fa8d-99f3-11e1-a4c3-27EXAMPLE804.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.ListInstanceProfiles'
+
 listInstanceProfiles :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -1217,7 +1465,8 @@ listInstanceProfiles :: ( MonadCatch m
 listInstanceProfiles s =
     paginate (mkListInstanceProfiles &~ s)
 
--- | Lists the instance profiles that have the specified associated role. If
+-- $ListInstanceProfilesForRole
+-- Lists the instance profiles that have the specified associated role. If
 -- there are none, the action returns an empty list. For more information
 -- about instance profiles, go to About Instance Profiles. You can paginate
 -- the results using the MaxItems and Marker parameters.
@@ -1233,6 +1482,7 @@ listInstanceProfiles s =
 -- 2012-05-09T16:27:11Z 6a8c3992-99f4-11e1-a4c3-27EXAMPLE804.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.ListInstanceProfilesForRole'
+
 listInstanceProfilesForRole :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -1244,7 +1494,8 @@ listInstanceProfilesForRole :: ( MonadCatch m
 listInstanceProfilesForRole p1 s =
     paginate $ (mkListInstanceProfilesForRole p1) &~ s
 
--- | Lists the MFA devices. If the request includes the user name, then this
+-- $ListMFADevices
+-- Lists the MFA devices. If the request includes the user name, then this
 -- action lists all the MFA devices associated with the specified user name.
 -- If you do not specify a user name, IAM determines the user name implicitly
 -- based on the AWS access key ID signing the request. You can paginate the
@@ -1253,6 +1504,7 @@ listInstanceProfilesForRole p1 s =
 -- Bob R1234 false 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.ListMFADevices'
+
 listMFADevices :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -1263,7 +1515,8 @@ listMFADevices :: ( MonadCatch m
 listMFADevices s =
     paginate (mkListMFADevices &~ s)
 
--- | Lists the names of the policies associated with the specified role. If
+-- $ListRolePolicies
+-- Lists the names of the policies associated with the specified role. If
 -- there are none, the action returns an empty list. You can paginate the
 -- results using the MaxItems and Marker parameters.
 -- https://iam.amazonaws.com/ ?Action=ListRolePolicies &MaxItems=100
@@ -1272,6 +1525,7 @@ listMFADevices s =
 -- 8c7e1816-99f0-11e1-a4c3-27EXAMPLE804.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.ListRolePolicies'
+
 listRolePolicies :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -1283,7 +1537,8 @@ listRolePolicies :: ( MonadCatch m
 listRolePolicies p1 s =
     paginate $ (mkListRolePolicies p1) &~ s
 
--- | Lists the roles that have the specified path prefix. If there are none, the
+-- $ListRoles
+-- Lists the roles that have the specified path prefix. If there are none, the
 -- action returns an empty list. For more information about roles, go to
 -- Working with Roles. You can paginate the results using the MaxItems and
 -- Marker parameters. The returned policy is URL-encoded according to RFC
@@ -1302,6 +1557,7 @@ listRolePolicies p1 s =
 -- 20f7279f-99ee-11e1-a4c3-27EXAMPLE804.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.ListRoles'
+
 listRoles :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -1312,7 +1568,8 @@ listRoles :: ( MonadCatch m
 listRoles s =
     paginate (mkListRoles &~ s)
 
--- | Lists the SAML providers in the account. This operation requires Signature
+-- $ListSAMLProviders
+-- Lists the SAML providers in the account. This operation requires Signature
 -- Version 4. https://iam.amazonaws.com/ ?Action=ListSAMLProviders
 -- &MaxItems=100 &PathPrefix=/application_abc/ &Version=2010-05-08 &AUTHPARAMS
 -- arn:aws:iam::123456789012:instance-profile/application_abc/component_xyz/Database
@@ -1322,6 +1579,7 @@ listRoles s =
 -- fd74fa8d-99f3-11e1-a4c3-27EXAMPLE804.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.ListSAMLProviders'
+
 listSAMLProviders :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -1332,7 +1590,8 @@ listSAMLProviders :: ( MonadCatch m
 listSAMLProviders s =
     send (mkListSAMLProviders &~ s)
 
--- | Lists the server certificates that have the specified path prefix. If none
+-- $ListServerCertificates
+-- Lists the server certificates that have the specified path prefix. If none
 -- exist, the action returns an empty list. You can paginate the results using
 -- the MaxItems and Marker parameters. https://iam.amazonaws.com/
 -- ?Action=ListServerCertificates &PathPrefix=/company/servercerts
@@ -1348,6 +1607,7 @@ listSAMLProviders s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.ListServerCertificates'
+
 listServerCertificates :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -1358,7 +1618,8 @@ listServerCertificates :: ( MonadCatch m
 listServerCertificates s =
     paginate (mkListServerCertificates &~ s)
 
--- | Returns information about the signing certificates associated with the
+-- $ListSigningCertificates
+-- Returns information about the signing certificates associated with the
 -- specified user. If there are none, the action returns an empty list.
 -- Although each user is limited to a small number of signing certificates,
 -- you can still paginate the results using the MaxItems and Marker
@@ -1387,6 +1648,7 @@ listServerCertificates s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.ListSigningCertificates'
+
 listSigningCertificates :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -1397,7 +1659,8 @@ listSigningCertificates :: ( MonadCatch m
 listSigningCertificates s =
     paginate (mkListSigningCertificates &~ s)
 
--- | Lists the names of the policies associated with the specified user. If
+-- $ListUserPolicies
+-- Lists the names of the policies associated with the specified user. If
 -- there are none, the action returns an empty list. You can paginate the
 -- results using the MaxItems and Marker parameters.
 -- https://iam.amazonaws.com/ ?Action=ListUserPolicies &UserName=Bob
@@ -1405,6 +1668,7 @@ listSigningCertificates s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.ListUserPolicies'
+
 listUserPolicies :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -1416,7 +1680,8 @@ listUserPolicies :: ( MonadCatch m
 listUserPolicies p1 s =
     paginate $ (mkListUserPolicies p1) &~ s
 
--- | Lists the users that have the specified path prefix. If there are none, the
+-- $ListUsers
+-- Lists the users that have the specified path prefix. If there are none, the
 -- action returns an empty list. You can paginate the results using the
 -- MaxItems and Marker parameters. https://iam.amazonaws.com/
 -- ?Action=ListUsers
@@ -1430,6 +1695,7 @@ listUserPolicies p1 s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.ListUsers'
+
 listUsers :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -1440,7 +1706,8 @@ listUsers :: ( MonadCatch m
 listUsers s =
     paginate (mkListUsers &~ s)
 
--- | Lists the virtual MFA devices under the AWS account by assignment status.
+-- $ListVirtualMFADevices
+-- Lists the virtual MFA devices under the AWS account by assignment status.
 -- If you do not specify an assignment status, the action returns a list of
 -- all virtual MFA devices. Assignment status can be Assigned, Unassigned, or
 -- Any. You can paginate the results using the MaxItems and Marker parameters.
@@ -1457,6 +1724,7 @@ listUsers s =
 -- b61ce1b1-0401-11e1-b2f8-2dEXAMPLEbfc.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.ListVirtualMFADevices'
+
 listVirtualMFADevices :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -1467,7 +1735,8 @@ listVirtualMFADevices :: ( MonadCatch m
 listVirtualMFADevices s =
     paginate (mkListVirtualMFADevices &~ s)
 
--- | Adds (or updates) a policy document associated with the specified group.
+-- $PutGroupPolicy
+-- Adds (or updates) a policy document associated with the specified group.
 -- For information about policies, refer to Overview of Policies in the Using
 -- IAM guide. For information about limits on the number of policies you can
 -- associate with a group, see Limitations on IAM Entities in the Using IAM
@@ -1482,6 +1751,7 @@ listVirtualMFADevices s =
 -- &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.PutGroupPolicy'
+
 putGroupPolicy :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -1495,7 +1765,8 @@ putGroupPolicy :: ( MonadCatch m
 putGroupPolicy p1 p2 p3 s =
     send $ (mkPutGroupPolicy p1 p2 p3) &~ s
 
--- | Adds (or updates) a policy document associated with the specified role. For
+-- $PutRolePolicy
+-- Adds (or updates) a policy document associated with the specified role. For
 -- information about policies, go to Overview of Policies in the Using IAM
 -- guide. For information about limits on the policies you can associate with
 -- a role, see Limitations on IAM Entities in the Using IAM guide. Because
@@ -1510,6 +1781,7 @@ putGroupPolicy p1 p2 p3 s =
 -- &Version=2010-05-08 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.PutRolePolicy'
+
 putRolePolicy :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -1523,7 +1795,8 @@ putRolePolicy :: ( MonadCatch m
 putRolePolicy p1 p2 p3 s =
     send $ (mkPutRolePolicy p1 p2 p3) &~ s
 
--- | Adds (or updates) a policy document associated with the specified user. For
+-- $PutUserPolicy
+-- Adds (or updates) a policy document associated with the specified user. For
 -- information about policies, refer to Overview of Policies in the Using IAM
 -- guide. For information about limits on the number of policies you can
 -- associate with a user, see Limitations on IAM Entities in the Using IAM
@@ -1538,6 +1811,7 @@ putRolePolicy p1 p2 p3 s =
 -- &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.PutUserPolicy'
+
 putUserPolicy :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -1551,7 +1825,8 @@ putUserPolicy :: ( MonadCatch m
 putUserPolicy p1 p2 p3 s =
     send $ (mkPutUserPolicy p1 p2 p3) &~ s
 
--- | Removes the specified role from the specified instance profile. Make sure
+-- $RemoveRoleFromInstanceProfile
+-- Removes the specified role from the specified instance profile. Make sure
 -- you do not have any Amazon EC2 instances running with the role you are
 -- about to remove from the instance profile. Removing a role from an instance
 -- profile that is associated with a running instance will break any
@@ -1563,6 +1838,7 @@ putUserPolicy p1 p2 p3 s =
 -- 29f47818-99f5-11e1-a4c3-27EXAMPLE804.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.RemoveRoleFromInstanceProfile'
+
 removeRoleFromInstanceProfile :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
@@ -1575,11 +1851,13 @@ removeRoleFromInstanceProfile :: ( MonadCatch m
 removeRoleFromInstanceProfile p1 p2 s =
     send $ (mkRemoveRoleFromInstanceProfile p1 p2) &~ s
 
--- | Removes the specified user from the specified group.
+-- $RemoveUserFromGroup
+-- Removes the specified user from the specified group.
 -- https://iam.amazonaws.com/ ?Action=RemoveUserFromGroup &GroupName=Managers
 -- &UserName=Bob &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.RemoveUserFromGroup'
+
 removeUserFromGroup :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -1592,12 +1870,14 @@ removeUserFromGroup :: ( MonadCatch m
 removeUserFromGroup p1 p2 s =
     send $ (mkRemoveUserFromGroup p1 p2) &~ s
 
--- | Synchronizes the specified MFA device with AWS servers.
+-- $ResyncMFADevice
+-- Synchronizes the specified MFA device with AWS servers.
 -- https://iam.amazonaws.com/ ?Action=ResyncMFADevice &UserName=Bob
 -- &SerialNumber=R1234 &AuthenticationCode1=234567 &AuthenticationCode2=987654
 -- &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.ResyncMFADevice'
+
 resyncMFADevice :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -1612,7 +1892,8 @@ resyncMFADevice :: ( MonadCatch m
 resyncMFADevice p1 p2 p3 p4 s =
     send $ (mkResyncMFADevice p1 p2 p3 p4) &~ s
 
--- | Changes the status of the specified access key from Active to Inactive, or
+-- $UpdateAccessKey
+-- Changes the status of the specified access key from Active to Inactive, or
 -- vice versa. This action can be used to disable a user's key as part of a
 -- key rotation work flow. If the UserName field is not specified, the
 -- UserName is determined implicitly based on the AWS access key ID used to
@@ -1625,6 +1906,7 @@ resyncMFADevice p1 p2 p3 p4 s =
 -- &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.UpdateAccessKey'
+
 updateAccessKey :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -1637,7 +1919,8 @@ updateAccessKey :: ( MonadCatch m
 updateAccessKey p2 p3 s =
     send $ (mkUpdateAccessKey p2 p3) &~ s
 
--- | Updates the password policy settings for the account. For more information
+-- $UpdateAccountPasswordPolicy
+-- Updates the password policy settings for the account. For more information
 -- about using a password policy, see Managing an IAM Password Policy in the
 -- Using IAM guide. https://iam.amazonaws.com/
 -- ?Action=UpdateAccountPasswordPolicy &MinimumPasswordLength=12
@@ -1647,6 +1930,7 @@ updateAccessKey p2 p3 s =
 -- &Version=2010-05-08 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.UpdateAccountPasswordPolicy'
+
 updateAccountPasswordPolicy :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -1657,7 +1941,8 @@ updateAccountPasswordPolicy :: ( MonadCatch m
 updateAccountPasswordPolicy s =
     send (mkUpdateAccountPasswordPolicy &~ s)
 
--- | Updates the policy that grants an entity permission to assume a role. For
+-- $UpdateAssumeRolePolicy
+-- Updates the policy that grants an entity permission to assume a role. For
 -- more information about roles, go to Working with Roles.
 -- https://iam.amazonaws.com/ ?Action=UpdateAssumeRolePolicy
 -- &PolicyDocument={"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":["ec2.amazonaws.com"]},"Action":["sts:AssumeRole"]}]}
@@ -1665,6 +1950,7 @@ updateAccountPasswordPolicy s =
 -- 309c1671-99ed-11e1-a4c3-270EXAMPLE04.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.UpdateAssumeRolePolicy'
+
 updateAssumeRolePolicy :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -1677,7 +1963,8 @@ updateAssumeRolePolicy :: ( MonadCatch m
 updateAssumeRolePolicy p1 p2 s =
     send $ (mkUpdateAssumeRolePolicy p1 p2) &~ s
 
--- | Updates the name and/or the path of the specified group. You should
+-- $UpdateGroup
+-- Updates the name and/or the path of the specified group. You should
 -- understand the implications of changing a group's path or name. For more
 -- information, see Renaming Users and Groups in the Using IAM guide. To
 -- change a group name the requester must have appropriate permissions on both
@@ -1693,6 +1980,7 @@ updateAssumeRolePolicy p1 p2 s =
 -- product_1234/engineering/Test_1 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.UpdateGroup'
+
 updateGroup :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -1704,11 +1992,13 @@ updateGroup :: ( MonadCatch m
 updateGroup p1 s =
     send $ (mkUpdateGroup p1) &~ s
 
--- | Changes the password for the specified user. https://iam.amazonaws.com/
+-- $UpdateLoginProfile
+-- Changes the password for the specified user. https://iam.amazonaws.com/
 -- ?Action=UpdateLoginProfile &UserName=Bob &Password=NewPassword &AUTHPARAMS
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.UpdateLoginProfile'
+
 updateLoginProfile :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -1720,7 +2010,8 @@ updateLoginProfile :: ( MonadCatch m
 updateLoginProfile p1 s =
     send $ (mkUpdateLoginProfile p1) &~ s
 
--- | Updates the metadata document for an existing SAML provider. This operation
+-- $UpdateSAMLProvider
+-- Updates the metadata document for an existing SAML provider. This operation
 -- requires Signature Version 4. https://iam.amazonaws.com/
 -- ?Action=UpdateSAMLProvider
 -- &Name=arn:aws:iam::123456789012:saml-metadata/MyUniversity
@@ -1730,6 +2021,7 @@ updateLoginProfile p1 s =
 -- 29f47818-99f5-11e1-a4c3-27EXAMPLE804.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.UpdateSAMLProvider'
+
 updateSAMLProvider :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -1742,7 +2034,8 @@ updateSAMLProvider :: ( MonadCatch m
 updateSAMLProvider p1 p2 s =
     send $ (mkUpdateSAMLProvider p1 p2) &~ s
 
--- | Updates the name and/or the path of the specified server certificate. You
+-- $UpdateServerCertificate
+-- Updates the name and/or the path of the specified server certificate. You
 -- should understand the implications of changing a server certificate's path
 -- or name. For more information, see Managing Server Certificates in the
 -- Using IAM guide. To change a server certificate name the requester must
@@ -1756,6 +2049,7 @@ updateSAMLProvider p1 p2 s =
 -- &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.UpdateServerCertificate'
+
 updateServerCertificate :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -1767,7 +2061,8 @@ updateServerCertificate :: ( MonadCatch m
 updateServerCertificate p1 s =
     send $ (mkUpdateServerCertificate p1) &~ s
 
--- | Changes the status of the specified signing certificate from active to
+-- $UpdateSigningCertificate
+-- Changes the status of the specified signing certificate from active to
 -- disabled, or vice versa. This action can be used to disable a user's
 -- signing certificate as part of a certificate rotation work flow. If the
 -- UserName field is not specified, the UserName is determined implicitly
@@ -1781,6 +2076,7 @@ updateServerCertificate p1 s =
 -- &Version=2010-05-08 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.UpdateSigningCertificate'
+
 updateSigningCertificate :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -1793,7 +2089,8 @@ updateSigningCertificate :: ( MonadCatch m
 updateSigningCertificate p2 p3 s =
     send $ (mkUpdateSigningCertificate p2 p3) &~ s
 
--- | Updates the name and/or the path of the specified user. You should
+-- $UpdateUser
+-- Updates the name and/or the path of the specified user. You should
 -- understand the implications of changing a user's path or name. For more
 -- information, see Renaming Users and Groups in the Using IAM guide. To
 -- change a user name the requester must have appropriate permissions on both
@@ -1807,6 +2104,7 @@ updateSigningCertificate p2 p3 s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.UpdateUser'
+
 updateUser :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -1818,7 +2116,8 @@ updateUser :: ( MonadCatch m
 updateUser p1 s =
     send $ (mkUpdateUser p1) &~ s
 
--- | Uploads a server certificate entity for the AWS account. The server
+-- $UploadServerCertificate
+-- Uploads a server certificate entity for the AWS account. The server
 -- certificate entity includes a public key certificate, a private key, and an
 -- optional certificate chain, which should all be PEM-encoded. For
 -- information about the number of server certificates you can upload, see
@@ -1863,6 +2162,7 @@ updateUser p1 s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.UploadServerCertificate'
+
 uploadServerCertificate :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -1876,7 +2176,8 @@ uploadServerCertificate :: ( MonadCatch m
 uploadServerCertificate p2 p3 p4 s =
     send $ (mkUploadServerCertificate p2 p3 p4) &~ s
 
--- | Uploads an X.509 signing certificate and associates it with the specified
+-- $UploadSigningCertificate
+-- Uploads an X.509 signing certificate and associates it with the specified
 -- user. Some AWS services use X.509 signing certificates to validate requests
 -- that are signed with a corresponding private key. When you upload the
 -- certificate, its default status is Active. If the UserName field is not
@@ -1924,6 +2225,7 @@ uploadServerCertificate p2 p3 p4 s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
 -- See: 'Network.AWS.IAM.V2010_05_08.UploadSigningCertificate'
+
 uploadSigningCertificate :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m

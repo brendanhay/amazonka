@@ -24,42 +24,72 @@
 module Network.AWS.SQS.V2012_11_05.Trans
     (
     -- * AddPermission
+    -- $AddPermission
       addPermission
+
     -- * ChangeMessageVisibility
+    -- $ChangeMessageVisibility
     , changeMessageVisibility
+
     -- * ChangeMessageVisibilityBatch
+    -- $ChangeMessageVisibilityBatch
     , changeMessageVisibilityBatch
+
     -- * CreateQueue
+    -- $CreateQueue
     , createQueue
+
     -- * DeleteMessage
+    -- $DeleteMessage
     , deleteMessage
+
     -- * DeleteMessageBatch
+    -- $DeleteMessageBatch
     , deleteMessageBatch
+
     -- * DeleteQueue
+    -- $DeleteQueue
     , deleteQueue
+
     -- * GetQueueAttributes
+    -- $GetQueueAttributes
     , getQueueAttributes
+
     -- * GetQueueUrl
+    -- $GetQueueUrl
     , getQueueUrl
+
     -- * ListDeadLetterSourceQueues
+    -- $ListDeadLetterSourceQueues
     , listDeadLetterSourceQueues
+
     -- * ListQueues
+    -- $ListQueues
     , listQueues
+
     -- * ReceiveMessage
+    -- $ReceiveMessage
     , receiveMessage
+
     -- * RemovePermission
+    -- $RemovePermission
     , removePermission
+
     -- * SendMessage
+    -- $SendMessage
     , sendMessage
+
     -- * SendMessageBatch
+    -- $SendMessageBatch
     , sendMessageBatch
+
     -- * SetQueueAttributes
+    -- $SetQueueAttributes
     , setQueueAttributes
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.SQS.V2012_11_05
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -70,7 +100,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.SQS.V2012_11_05
 
--- | Adds a permission to a queue for a specific principal. This allows for
+-- $AddPermission
+-- Adds a permission to a queue for a specific principal. This allows for
 -- sharing access to the queue. When you create a queue, you have full control
 -- access rights for the queue. Only you (as owner of the queue) can grant or
 -- deny permissions to the queue. For more information about these
@@ -94,6 +125,7 @@ import Network.AWS.SQS.V2012_11_05
 -- 9a285199-c8d6-47c2-bdb2-314cb47d599d.
 --
 -- See: 'Network.AWS.SQS.V2012_11_05.AddPermission'
+
 addPermission :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -108,7 +140,8 @@ addPermission :: ( MonadCatch m
 addPermission p1 p2 p3 p4 s =
     send $ (mkAddPermission p1 p2 p3 p4) &~ s
 
--- | Changes the visibility timeout of a specified message in a queue to a new
+-- $ChangeMessageVisibility
+-- Changes the visibility timeout of a specified message in a queue to a new
 -- value. The maximum allowed timeout value you can set the value to is 12
 -- hours. This means you can't extend the timeout of a message in an existing
 -- queue to more than a total visibility timeout of 12 hours. (For more
@@ -147,6 +180,7 @@ addPermission p1 p2 p3 p4 s =
 -- 6a7a282a-d013-4a59-aba9-335b0fa48bed.
 --
 -- See: 'Network.AWS.SQS.V2012_11_05.ChangeMessageVisibility'
+
 changeMessageVisibility :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -160,7 +194,8 @@ changeMessageVisibility :: ( MonadCatch m
 changeMessageVisibility p1 p2 p3 s =
     send $ (mkChangeMessageVisibility p1 p2 p3) &~ s
 
--- | Changes the visibility timeout of multiple messages. This is a batch
+-- $ChangeMessageVisibilityBatch
+-- Changes the visibility timeout of multiple messages. This is a batch
 -- version of ChangeMessageVisibility. The result of the action on each
 -- message is reported individually in the response. You can send up to 10
 -- ChangeMessageVisibility requests with each ChangeMessageVisibilityBatch
@@ -187,6 +222,7 @@ changeMessageVisibility p1 p2 p3 s =
 -- change_visibility_msg_3 ca9668f7-ab1b-4f7a-8859-f15747ab17a7.
 --
 -- See: 'Network.AWS.SQS.V2012_11_05.ChangeMessageVisibilityBatch'
+
 changeMessageVisibilityBatch :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
@@ -199,7 +235,8 @@ changeMessageVisibilityBatch :: ( MonadCatch m
 changeMessageVisibilityBatch p1 p2 s =
     send $ (mkChangeMessageVisibilityBatch p1 p2) &~ s
 
--- | Creates a new queue, or returns the URL of an existing one. When you
+-- $CreateQueue
+-- Creates a new queue, or returns the URL of an existing one. When you
 -- request CreateQueue, you provide a name for the queue. To successfully
 -- create a new queue, you must provide a name that is unique within the scope
 -- of your own queues. If you delete a queue, you must wait at least 60
@@ -226,6 +263,7 @@ changeMessageVisibilityBatch p1 p2 s =
 -- 7a62c49f-347e-4fc4-9331-6e8e7a96aa73.
 --
 -- See: 'Network.AWS.SQS.V2012_11_05.CreateQueue'
+
 createQueue :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -237,7 +275,8 @@ createQueue :: ( MonadCatch m
 createQueue p1 s =
     send $ (mkCreateQueue p1) &~ s
 
--- | Deletes the specified message from the specified queue. You specify the
+-- $DeleteMessage
+-- Deletes the specified message from the specified queue. You specify the
 -- message by using the message's receipt handle and not the message ID you
 -- received when you sent the message. Even if the message is locked by
 -- another reader due to the visibility timeout setting, it is still deleted
@@ -267,6 +306,7 @@ createQueue p1 s =
 -- b5293cb5-d306-4a17-9048-b263635abe42.
 --
 -- See: 'Network.AWS.SQS.V2012_11_05.DeleteMessage'
+
 deleteMessage :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -279,7 +319,8 @@ deleteMessage :: ( MonadCatch m
 deleteMessage p1 p2 s =
     send $ (mkDeleteMessage p1 p2) &~ s
 
--- | Deletes multiple messages. This is a batch version of DeleteMessage. The
+-- $DeleteMessageBatch
+-- Deletes multiple messages. This is a batch version of DeleteMessage. The
 -- result of the delete action on each message is reported individually in the
 -- response. Because the batch request can result in a combination of
 -- successful and unsuccessful actions, you should check for batch errors even
@@ -302,6 +343,7 @@ deleteMessage p1 p2 s =
 -- d6f86b7a-74d1-4439-b43f-196a1e29cd85.
 --
 -- See: 'Network.AWS.SQS.V2012_11_05.DeleteMessageBatch'
+
 deleteMessageBatch :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -314,7 +356,8 @@ deleteMessageBatch :: ( MonadCatch m
 deleteMessageBatch p1 p2 s =
     send $ (mkDeleteMessageBatch p1 p2) &~ s
 
--- | Deletes the queue specified by the queue URL, regardless of whether the
+-- $DeleteQueue
+-- Deletes the queue specified by the queue URL, regardless of whether the
 -- queue is empty. If the specified queue does not exist, Amazon SQS returns a
 -- successful response. Use DeleteQueue with care; once you delete your queue,
 -- any messages in the queue are no longer available. When you delete a queue,
@@ -333,6 +376,7 @@ deleteMessageBatch p1 p2 s =
 -- 6fde8d1e-52cd-4581-8cd9-c512f4c64223.
 --
 -- See: 'Network.AWS.SQS.V2012_11_05.DeleteQueue'
+
 deleteQueue :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -344,7 +388,8 @@ deleteQueue :: ( MonadCatch m
 deleteQueue p1 s =
     send $ (mkDeleteQueue p1) &~ s
 
--- | Gets attributes for the specified queue. The following attributes are
+-- $GetQueueAttributes
+-- Gets attributes for the specified queue. The following attributes are
 -- supported: All - returns all values. ApproximateNumberOfMessages - returns
 -- the approximate number of visible messages in a queue. For more
 -- information, see Resources Required to Process Messages in the Amazon SQS
@@ -395,6 +440,7 @@ deleteQueue p1 s =
 -- VisibilityTimeout 30 DelaySeconds 0 ReceiveMessageWaitTimeSeconds 2.
 --
 -- See: 'Network.AWS.SQS.V2012_11_05.GetQueueAttributes'
+
 getQueueAttributes :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -406,7 +452,8 @@ getQueueAttributes :: ( MonadCatch m
 getQueueAttributes p1 s =
     send $ (mkGetQueueAttributes p1) &~ s
 
--- | Returns the URL of an existing queue. This action provides a simple way to
+-- $GetQueueUrl
+-- Returns the URL of an existing queue. This action provides a simple way to
 -- retrieve the URL of an Amazon SQS queue. To access a queue that belongs to
 -- another AWS account, use the QueueOwnerAWSAccountId parameter to specify
 -- the account ID of the queue's owner. The queue's owner must grant you
@@ -421,6 +468,7 @@ getQueueAttributes p1 s =
 -- 470a6f13-2ed9-4181-ad8a-2fdea142988e.
 --
 -- See: 'Network.AWS.SQS.V2012_11_05.GetQueueUrl'
+
 getQueueUrl :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -432,7 +480,8 @@ getQueueUrl :: ( MonadCatch m
 getQueueUrl p1 s =
     send $ (mkGetQueueUrl p1) &~ s
 
--- | Returns a list of your queues that have the RedrivePolicy queue attribute
+-- $ListDeadLetterSourceQueues
+-- Returns a list of your queues that have the RedrivePolicy queue attribute
 -- configured with a dead letter queue. The following example Query request
 -- returns a list of dead letter source queues. In this example only one
 -- source queue, MySourceQueue, was configured with a dead letter queue.
@@ -442,6 +491,7 @@ getQueueUrl p1 s =
 -- letter queues, see Using Amazon SQS Dead Letter Queues.
 --
 -- See: 'Network.AWS.SQS.V2012_11_05.ListDeadLetterSourceQueues'
+
 listDeadLetterSourceQueues :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -453,7 +503,8 @@ listDeadLetterSourceQueues :: ( MonadCatch m
 listDeadLetterSourceQueues p1 s =
     send $ (mkListDeadLetterSourceQueues p1) &~ s
 
--- | Returns a list of your queues. The maximum number of queues that can be
+-- $ListQueues
+-- Returns a list of your queues. The maximum number of queues that can be
 -- returned is 1000. If you specify a value for the optional QueueNamePrefix
 -- parameter, only queues with a name beginning with the specified value are
 -- returned. The following example Query request returns the queues whose
@@ -466,6 +517,7 @@ listDeadLetterSourceQueues p1 s =
 -- 725275ae-0b9b-4762-b238-436d7c65a1ac.
 --
 -- See: 'Network.AWS.SQS.V2012_11_05.ListQueues'
+
 listQueues :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -476,7 +528,8 @@ listQueues :: ( MonadCatch m
 listQueues s =
     send (mkListQueues &~ s)
 
--- | Retrieves one or more messages, with a maximum limit of 10 messages, from
+-- $ReceiveMessage
+-- Retrieves one or more messages, with a maximum limit of 10 messages, from
 -- the specified queue. Long poll support is enabled by using the
 -- WaitTimeSeconds parameter. For more information, see Amazon SQS Long Poll
 -- in the Amazon SQS Developer Guide. Short poll is the default behavior where
@@ -516,6 +569,7 @@ listQueues s =
 -- b6633655-283d-45b4-aee4-4e84e0ae6afa.
 --
 -- See: 'Network.AWS.SQS.V2012_11_05.ReceiveMessage'
+
 receiveMessage :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -527,7 +581,8 @@ receiveMessage :: ( MonadCatch m
 receiveMessage p1 s =
     send $ (mkReceiveMessage p1) &~ s
 
--- | Revokes any permissions in the queue policy that matches the specified
+-- $RemovePermission
+-- Revokes any permissions in the queue policy that matches the specified
 -- Label parameter. Only the owner of the queue can remove permissions. The
 -- following example Query request removes the testLabel permission on the
 -- queue named testQueue.
@@ -539,6 +594,7 @@ receiveMessage p1 s =
 -- f8bdb362-6616-42c0-977a-ce9a8bcce3bb.
 --
 -- See: 'Network.AWS.SQS.V2012_11_05.RemovePermission'
+
 removePermission :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -551,7 +607,8 @@ removePermission :: ( MonadCatch m
 removePermission p1 p2 s =
     send $ (mkRemovePermission p1 p2) &~ s
 
--- | Delivers a message to the specified queue. With Amazon SQS, you now have
+-- $SendMessage
+-- Delivers a message to the specified queue. With Amazon SQS, you now have
 -- the ability to send large payload messages that are up to 256KB (262,144
 -- bytes) in size. To send large payloads, you must use an AWS SDK that
 -- supports SigV4 signing. To verify whether SigV4 is supported for an AWS
@@ -580,6 +637,7 @@ removePermission p1 p2 s =
 -- 5fea7756-0ea4-451a-a703-a558b933e274 27daac76-34dd-47df-bd01-1f6e873584a0.
 --
 -- See: 'Network.AWS.SQS.V2012_11_05.SendMessage'
+
 sendMessage :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -592,7 +650,8 @@ sendMessage :: ( MonadCatch m
 sendMessage p1 p2 s =
     send $ (mkSendMessage p1 p2) &~ s
 
--- | Delivers up to ten messages to the specified queue. This is a batch version
+-- $SendMessageBatch
+-- Delivers up to ten messages to the specified queue. This is a batch version
 -- of SendMessage. The result of the send action on each message is reported
 -- individually in the response. The maximum allowed individual message size
 -- is 256 KB (262,144 bytes). The maximum total payload size (i.e., the sum of
@@ -632,6 +691,7 @@ sendMessage p1 p2 s =
 -- 295c5fa15a51aae6884d1d7c1d99ca50 ca1ad5d0-8271-408b-8d0f-1351bf547e74.
 --
 -- See: 'Network.AWS.SQS.V2012_11_05.SendMessageBatch'
+
 sendMessageBatch :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -644,7 +704,8 @@ sendMessageBatch :: ( MonadCatch m
 sendMessageBatch p1 p2 s =
     send $ (mkSendMessageBatch p1 p2) &~ s
 
--- | Sets the value of one or more queue attributes. When you change a queue's
+-- $SetQueueAttributes
+-- Sets the value of one or more queue attributes. When you change a queue's
 -- attributes, the change can take up to 60 seconds for most of the attributes
 -- to propagate throughout the SQS system. Changes made to the
 -- MessageRetentionPeriod attribute can take up to 15 minutes. Going forward,
@@ -681,6 +742,7 @@ sendMessageBatch p1 p2 s =
 -- e5cca473-4fc0-4198-a451-8abb94d02c75.
 --
 -- See: 'Network.AWS.SQS.V2012_11_05.SetQueueAttributes'
+
 setQueueAttributes :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m

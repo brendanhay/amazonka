@@ -25,100 +25,188 @@
 module Network.AWS.AutoScaling.V2011_01_01.Trans
     (
     -- * AttachInstances
+    -- $AttachInstances
       attachInstances
+
     -- * CompleteLifecycleAction
+    -- $CompleteLifecycleAction
     , completeLifecycleAction
+
     -- * CreateAutoScalingGroup
+    -- $CreateAutoScalingGroup
     , createAutoScalingGroup
+
     -- * CreateLaunchConfiguration
+    -- $CreateLaunchConfiguration
     , createLaunchConfiguration
+
     -- * CreateOrUpdateTags
+    -- $CreateOrUpdateTags
     , createOrUpdateTags
+
     -- * DeleteAutoScalingGroup
+    -- $DeleteAutoScalingGroup
     , deleteAutoScalingGroup
+
     -- * DeleteLaunchConfiguration
+    -- $DeleteLaunchConfiguration
     , deleteLaunchConfiguration
+
     -- * DeleteLifecycleHook
+    -- $DeleteLifecycleHook
     , deleteLifecycleHook
+
     -- * DeleteNotificationConfiguration
+    -- $DeleteNotificationConfiguration
     , deleteNotificationConfiguration
+
     -- * DeletePolicy
+    -- $DeletePolicy
     , deletePolicy
+
     -- * DeleteScheduledAction
+    -- $DeleteScheduledAction
     , deleteScheduledAction
+
     -- * DeleteTags
+    -- $DeleteTags
     , deleteTags
+
     -- * DescribeAccountLimits
+    -- $DescribeAccountLimits
     , describeAccountLimits
+
     -- * DescribeAdjustmentTypes
+    -- $DescribeAdjustmentTypes
     , describeAdjustmentTypes
+
     -- * DescribeAutoScalingGroups
+    -- $DescribeAutoScalingGroups
     , describeAutoScalingGroups
+
     -- * DescribeAutoScalingInstances
+    -- $DescribeAutoScalingInstances
     , describeAutoScalingInstances
+
     -- * DescribeAutoScalingNotificationTypes
+    -- $DescribeAutoScalingNotificationTypes
     , describeAutoScalingNotificationTypes
+
     -- * DescribeLaunchConfigurations
+    -- $DescribeLaunchConfigurations
     , describeLaunchConfigurations
+
     -- * DescribeLifecycleHookTypes
+    -- $DescribeLifecycleHookTypes
     , describeLifecycleHookTypes
+
     -- * DescribeLifecycleHooks
+    -- $DescribeLifecycleHooks
     , describeLifecycleHooks
+
     -- * DescribeMetricCollectionTypes
+    -- $DescribeMetricCollectionTypes
     , describeMetricCollectionTypes
+
     -- * DescribeNotificationConfigurations
+    -- $DescribeNotificationConfigurations
     , describeNotificationConfigurations
+
     -- * DescribePolicies
+    -- $DescribePolicies
     , describePolicies
+
     -- * DescribeScalingActivities
+    -- $DescribeScalingActivities
     , describeScalingActivities
+
     -- * DescribeScalingProcessTypes
+    -- $DescribeScalingProcessTypes
     , describeScalingProcessTypes
+
     -- * DescribeScheduledActions
+    -- $DescribeScheduledActions
     , describeScheduledActions
+
     -- * DescribeTags
+    -- $DescribeTags
     , describeTags
+
     -- * DescribeTerminationPolicyTypes
+    -- $DescribeTerminationPolicyTypes
     , describeTerminationPolicyTypes
+
     -- * DetachInstances
+    -- $DetachInstances
     , detachInstances
+
     -- * DisableMetricsCollection
+    -- $DisableMetricsCollection
     , disableMetricsCollection
+
     -- * EnableMetricsCollection
+    -- $EnableMetricsCollection
     , enableMetricsCollection
+
     -- * EnterStandby
+    -- $EnterStandby
     , enterStandby
+
     -- * ExecutePolicy
+    -- $ExecutePolicy
     , executePolicy
+
     -- * ExitStandby
+    -- $ExitStandby
     , exitStandby
+
     -- * PutLifecycleHook
+    -- $PutLifecycleHook
     , putLifecycleHook
+
     -- * PutNotificationConfiguration
+    -- $PutNotificationConfiguration
     , putNotificationConfiguration
+
     -- * PutScalingPolicy
+    -- $PutScalingPolicy
     , putScalingPolicy
+
     -- * PutScheduledUpdateGroupAction
+    -- $PutScheduledUpdateGroupAction
     , putScheduledUpdateGroupAction
+
     -- * RecordLifecycleActionHeartbeat
+    -- $RecordLifecycleActionHeartbeat
     , recordLifecycleActionHeartbeat
+
     -- * ResumeProcesses
+    -- $ResumeProcesses
     , resumeProcesses
+
     -- * SetDesiredCapacity
+    -- $SetDesiredCapacity
     , setDesiredCapacity
+
     -- * SetInstanceHealth
+    -- $SetInstanceHealth
     , setInstanceHealth
+
     -- * SuspendProcesses
+    -- $SuspendProcesses
     , suspendProcesses
+
     -- * TerminateInstanceInAutoScalingGroup
+    -- $TerminateInstanceInAutoScalingGroup
     , terminateInstanceInAutoScalingGroup
+
     -- * UpdateAutoScalingGroup
+    -- $UpdateAutoScalingGroup
     , updateAutoScalingGroup
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.AutoScaling.V2011_01_01
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -129,12 +217,14 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.AutoScaling.V2011_01_01
 
--- | Attaches one or more Amazon EC2 instances to an existing Auto Scaling
+-- $AttachInstances
+-- Attaches one or more Amazon EC2 instances to an existing Auto Scaling
 -- group. After the instance(s) is attached, it becomes a part of the Auto
 -- Scaling group. For more information, see Attach Amazon EC2 Instances to
 -- Your Existing Auto Scaling Group in the Auto Scaling Developer Guide.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.AttachInstances'
+
 attachInstances :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -147,7 +237,8 @@ attachInstances :: ( MonadCatch m
 attachInstances p1 p2 s =
     send $ (mkAttachInstances p1 p2) &~ s
 
--- | Completes the lifecycle action for the associated token initiated under the
+-- $CompleteLifecycleAction
+-- Completes the lifecycle action for the associated token initiated under the
 -- given lifecycle hook with the specified result. This operation is a part of
 -- the basic sequence for adding a lifecycle hook to an Auto Scaling group:
 -- Create a notification target. A target can be either an Amazon SQS queue or
@@ -160,6 +251,7 @@ attachInstances p1 p2 s =
 -- Scaling Terminating State.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.CompleteLifecycleAction'
+
 completeLifecycleAction :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -174,7 +266,8 @@ completeLifecycleAction :: ( MonadCatch m
 completeLifecycleAction p1 p2 p3 p4 s =
     send $ (mkCompleteLifecycleAction p1 p2 p3 p4) &~ s
 
--- | Creates a new Auto Scaling group with the specified name and other
+-- $CreateAutoScalingGroup
+-- Creates a new Auto Scaling group with the specified name and other
 -- attributes. When the creation request is completed, the Auto Scaling group
 -- is ready to be used in other calls. The Auto Scaling group name must be
 -- unique within the scope of your AWS account.
@@ -188,6 +281,7 @@ completeLifecycleAction p1 p2 p3 p4 s =
 -- 8d798a29-f083-11e1-bdfb-cb223EXAMPLE.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.CreateAutoScalingGroup'
+
 createAutoScalingGroup :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -201,7 +295,8 @@ createAutoScalingGroup :: ( MonadCatch m
 createAutoScalingGroup p1 p4 p5 s =
     send $ (mkCreateAutoScalingGroup p1 p4 p5) &~ s
 
--- | Creates a new launch configuration. The launch configuration name must be
+-- $CreateLaunchConfiguration
+-- Creates a new launch configuration. The launch configuration name must be
 -- unique within the scope of the client's AWS account. The maximum limit of
 -- launch configurations, which by default is 100, must not yet have been met;
 -- otherwise, the call will fail. When created, the new launch configuration
@@ -213,6 +308,7 @@ createAutoScalingGroup p1 p4 p5 s =
 -- 7c6e177f-f082-11e1-ac58-3714bEXAMPLE.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.CreateLaunchConfiguration'
+
 createLaunchConfiguration :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -224,7 +320,8 @@ createLaunchConfiguration :: ( MonadCatch m
 createLaunchConfiguration p1 s =
     send $ (mkCreateLaunchConfiguration p1) &~ s
 
--- | Creates new tags or updates existing tags for an Auto Scaling group. A
+-- $CreateOrUpdateTags
+-- Creates new tags or updates existing tags for an Auto Scaling group. A
 -- tag's definition is composed of a resource ID, resource type, key and
 -- value, and the propagate flag. Value and the propagate flag are optional
 -- parameters. See the Request Parameters for more information. For
@@ -237,6 +334,7 @@ createLaunchConfiguration p1 s =
 -- b0203919-bf1b-11e2-8a01-13263EXAMPLE.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.CreateOrUpdateTags'
+
 createOrUpdateTags :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -248,7 +346,8 @@ createOrUpdateTags :: ( MonadCatch m
 createOrUpdateTags p1 s =
     send $ (mkCreateOrUpdateTags p1) &~ s
 
--- | Deletes the specified Auto Scaling group if the group has no instances and
+-- $DeleteAutoScalingGroup
+-- Deletes the specified Auto Scaling group if the group has no instances and
 -- no scaling activities in progress. To remove all instances before calling
 -- DeleteAutoScalingGroup, you can call UpdateAutoScalingGroup to set the
 -- minimum and maximum size of the AutoScalingGroup to zero.
@@ -257,6 +356,7 @@ createOrUpdateTags p1 s =
 -- &AUTHPARAMS 70a76d42-9665-11e2-9fdf-211deEXAMPLE.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DeleteAutoScalingGroup'
+
 deleteAutoScalingGroup :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -268,7 +368,8 @@ deleteAutoScalingGroup :: ( MonadCatch m
 deleteAutoScalingGroup p1 s =
     send $ (mkDeleteAutoScalingGroup p1) &~ s
 
--- | Deletes the specified LaunchConfiguration. The specified launch
+-- $DeleteLaunchConfiguration
+-- Deletes the specified LaunchConfiguration. The specified launch
 -- configuration must not be attached to an Auto Scaling group. When this call
 -- completes, the launch configuration is no longer available for use.
 -- https://autoscaling.amazonaws.com/?LaunchConfigurationName=my-test-lc
@@ -276,6 +377,7 @@ deleteAutoScalingGroup p1 s =
 -- 7347261f-97df-11e2-8756-35eEXAMPLE.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DeleteLaunchConfiguration'
+
 deleteLaunchConfiguration :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -287,11 +389,13 @@ deleteLaunchConfiguration :: ( MonadCatch m
 deleteLaunchConfiguration p1 s =
     send $ (mkDeleteLaunchConfiguration p1) &~ s
 
--- | Deletes the specified lifecycle hook. If there are any outstanding
+-- $DeleteLifecycleHook
+-- Deletes the specified lifecycle hook. If there are any outstanding
 -- lifecycle actions, they are completed first (ABANDON for launching
 -- instances, CONTINUE for terminating instances).
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DeleteLifecycleHook'
+
 deleteLifecycleHook :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -304,9 +408,11 @@ deleteLifecycleHook :: ( MonadCatch m
 deleteLifecycleHook p1 p2 s =
     send $ (mkDeleteLifecycleHook p1 p2) &~ s
 
--- | Deletes notifications created by PutNotificationConfiguration.
+-- $DeleteNotificationConfiguration
+-- Deletes notifications created by PutNotificationConfiguration.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DeleteNotificationConfiguration'
+
 deleteNotificationConfiguration :: ( MonadCatch m
                                    , MonadResource m
                                    , MonadError AWS.Error m
@@ -319,9 +425,11 @@ deleteNotificationConfiguration :: ( MonadCatch m
 deleteNotificationConfiguration p1 p2 s =
     send $ (mkDeleteNotificationConfiguration p1 p2) &~ s
 
--- | Deletes a policy created by PutScalingPolicy.
+-- $DeletePolicy
+-- Deletes a policy created by PutScalingPolicy.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DeletePolicy'
+
 deletePolicy :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -333,10 +441,12 @@ deletePolicy :: ( MonadCatch m
 deletePolicy p2 s =
     send $ (mkDeletePolicy p2) &~ s
 
--- | Deletes a scheduled action previously created using the
+-- $DeleteScheduledAction
+-- Deletes a scheduled action previously created using the
 -- PutScheduledUpdateGroupAction.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DeleteScheduledAction'
+
 deleteScheduledAction :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -348,9 +458,11 @@ deleteScheduledAction :: ( MonadCatch m
 deleteScheduledAction p2 s =
     send $ (mkDeleteScheduledAction p2) &~ s
 
--- | Removes the specified tags or a set of tags from a set of resources.
+-- $DeleteTags
+-- Removes the specified tags or a set of tags from a set of resources.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DeleteTags'
+
 deleteTags :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -362,7 +474,8 @@ deleteTags :: ( MonadCatch m
 deleteTags p1 s =
     send $ (mkDeleteTags p1) &~ s
 
--- | Returns the limits for the Auto Scaling resources currently allowed for
+-- $DescribeAccountLimits
+-- Returns the limits for the Auto Scaling resources currently allowed for
 -- your AWS account. Your AWS account comes with default limits on resources
 -- for Auto Scaling. There is a default limit of 20 Auto Scaling groups and
 -- 100 launch configurations per region. If you reach the limits for the
@@ -373,6 +486,7 @@ deleteTags p1 s =
 -- a32bd184-519d-11e3-a8a4-c1c467cbcc3b.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeAccountLimits'
+
 describeAccountLimits :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -383,12 +497,14 @@ describeAccountLimits :: ( MonadCatch m
 describeAccountLimits s =
     send (mkDescribeAccountLimits &~ s)
 
--- | Returns policy adjustment types for use in the PutScalingPolicy action.
+-- $DescribeAdjustmentTypes
+-- Returns policy adjustment types for use in the PutScalingPolicy action.
 -- https://autoscaling.amazonaws.com/?Version=2011-01-01
 -- &Action=DescribeAdjustmentTypes &AUTHPARAMS ChangeInCapacity ExactCapacity
 -- PercentChangeInCapacity cc5f0337-b694-11e2-afc0-6544dEXAMPLE.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeAdjustmentTypes'
+
 describeAdjustmentTypes :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -399,7 +515,8 @@ describeAdjustmentTypes :: ( MonadCatch m
 describeAdjustmentTypes s =
     send (mkDescribeAdjustmentTypes &~ s)
 
--- | Returns a full description of each Auto Scaling group in the given list.
+-- $DescribeAutoScalingGroups
+-- Returns a full description of each Auto Scaling group in the given list.
 -- This includes all Amazon EC2 instances that are members of the group. If a
 -- list of names is not provided, the service returns the full details of all
 -- Auto Scaling groups. This action supports pagination by returning a token
@@ -414,6 +531,7 @@ describeAdjustmentTypes s =
 -- 0f02a07d-b677-11e2-9eb0-dd50EXAMPLE.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingGroups'
+
 describeAutoScalingGroups :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -424,7 +542,8 @@ describeAutoScalingGroups :: ( MonadCatch m
 describeAutoScalingGroups s =
     paginate (mkDescribeAutoScalingGroups &~ s)
 
--- | Returns a description of each Auto Scaling instance in the InstanceIds
+-- $DescribeAutoScalingInstances
+-- Returns a description of each Auto Scaling instance in the InstanceIds
 -- list. If a list is not provided, the service returns the full details of
 -- all instances up to a maximum of 50. By default, the service returns a list
 -- of 20 items. This action supports pagination by returning a token if there
@@ -437,6 +556,7 @@ describeAutoScalingGroups s =
 -- df992dc3-b72f-11e2-81e1-750aa6EXAMPLE.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingInstances'
+
 describeAutoScalingInstances :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
@@ -447,10 +567,12 @@ describeAutoScalingInstances :: ( MonadCatch m
 describeAutoScalingInstances s =
     paginate (mkDescribeAutoScalingInstances &~ s)
 
--- | Returns a list of all notification types that are supported by Auto
+-- $DescribeAutoScalingNotificationTypes
+-- Returns a list of all notification types that are supported by Auto
 -- Scaling.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeAutoScalingNotificationTypes'
+
 describeAutoScalingNotificationTypes :: ( MonadCatch m
                                         , MonadResource m
                                         , MonadError AWS.Error m
@@ -461,7 +583,8 @@ describeAutoScalingNotificationTypes :: ( MonadCatch m
 describeAutoScalingNotificationTypes s =
     send (mkDescribeAutoScalingNotificationTypes &~ s)
 
--- | Returns a full description of the launch configurations, or the specified
+-- $DescribeLaunchConfigurations
+-- Returns a full description of the launch configurations, or the specified
 -- launch configurations, if they exist. If no name is specified, then the
 -- full details of all launch configurations are returned.
 -- https://autoscaling.amazonaws.com/?LaunchConfigurationNames.member.1=my-test-lc
@@ -472,6 +595,7 @@ describeAutoScalingNotificationTypes s =
 -- ami-514ac838 true false d05a22f8-b690-11e2-bf8e-2113fEXAMPLE.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeLaunchConfigurations'
+
 describeLaunchConfigurations :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
@@ -482,9 +606,11 @@ describeLaunchConfigurations :: ( MonadCatch m
 describeLaunchConfigurations s =
     paginate (mkDescribeLaunchConfigurations &~ s)
 
--- | Describes the available types of lifecycle hooks.
+-- $DescribeLifecycleHookTypes
+-- Describes the available types of lifecycle hooks.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeLifecycleHookTypes'
+
 describeLifecycleHookTypes :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -495,10 +621,12 @@ describeLifecycleHookTypes :: ( MonadCatch m
 describeLifecycleHookTypes s =
     send (mkDescribeLifecycleHookTypes &~ s)
 
--- | Describes the lifecycle hooks that currently belong to the specified Auto
+-- $DescribeLifecycleHooks
+-- Describes the lifecycle hooks that currently belong to the specified Auto
 -- Scaling group.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeLifecycleHooks'
+
 describeLifecycleHooks :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -510,7 +638,8 @@ describeLifecycleHooks :: ( MonadCatch m
 describeLifecycleHooks p1 s =
     send $ (mkDescribeLifecycleHooks p1) &~ s
 
--- | Returns a list of metrics and a corresponding list of granularities for
+-- $DescribeMetricCollectionTypes
+-- Returns a list of metrics and a corresponding list of granularities for
 -- each metric.
 -- https://autoscaling.amazonaws.com/?Version=2011-01-01&Action=DescribeMetricCollectionTypes
 -- &AUTHPARAMS oc/2011-01-01/"> GroupMinSize GroupMaxSize GroupDesiredCapacity
@@ -521,6 +650,7 @@ describeLifecycleHooks p1 s =
 -- EnableMetricsCollection.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeMetricCollectionTypes'
+
 describeMetricCollectionTypes :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
@@ -531,10 +661,12 @@ describeMetricCollectionTypes :: ( MonadCatch m
 describeMetricCollectionTypes s =
     send (mkDescribeMetricCollectionTypes &~ s)
 
--- | Returns a list of notification actions associated with Auto Scaling groups
+-- $DescribeNotificationConfigurations
+-- Returns a list of notification actions associated with Auto Scaling groups
 -- for specified events.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeNotificationConfigurations'
+
 describeNotificationConfigurations :: ( MonadCatch m
                                       , MonadResource m
                                       , MonadError AWS.Error m
@@ -545,7 +677,8 @@ describeNotificationConfigurations :: ( MonadCatch m
 describeNotificationConfigurations s =
     paginate (mkDescribeNotificationConfigurations &~ s)
 
--- | Returns descriptions of what each policy does. This action supports
+-- $DescribePolicies
+-- Returns descriptions of what each policy does. This action supports
 -- pagination. If the response includes a token, there are more records
 -- available. To get the additional records, repeat the request with the
 -- response token as the NextToken parameter.
@@ -561,6 +694,7 @@ describeNotificationConfigurations s =
 -- ec3bffad-b739-11e2-b38d-15fbEXAMPLE.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribePolicies'
+
 describePolicies :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -571,7 +705,8 @@ describePolicies :: ( MonadCatch m
 describePolicies s =
     paginate (mkDescribePolicies &~ s)
 
--- | Returns the scaling activities for the specified Auto Scaling group. If the
+-- $DescribeScalingActivities
+-- Returns the scaling activities for the specified Auto Scaling group. If the
 -- specified ActivityIds list is empty, all the activities from the past six
 -- weeks are returned. Activities are sorted by the start time. Activities
 -- still in progress appear first on the list. This action supports
@@ -591,6 +726,7 @@ describePolicies s =
 -- 7a641adc-84c5-11e1-a8a5-217ebEXAMPLE.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeScalingActivities'
+
 describeScalingActivities :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -601,7 +737,8 @@ describeScalingActivities :: ( MonadCatch m
 describeScalingActivities s =
     paginate (mkDescribeScalingActivities &~ s)
 
--- | Returns scaling process types for use in the ResumeProcesses and
+-- $DescribeScalingProcessTypes
+-- Returns scaling process types for use in the ResumeProcesses and
 -- SuspendProcesses actions.
 -- https://autoscaling.amazonaws.com/?Version=2011-01-01
 -- &Action=DescribeScalingProcessTypes &AUTHPARAMS AZRebalance
@@ -609,6 +746,7 @@ describeScalingActivities s =
 -- ScheduledActions Terminate 27f2eacc-b73f-11e2-ad99-c7aba3a9c963.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeScalingProcessTypes'
+
 describeScalingProcessTypes :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -619,11 +757,13 @@ describeScalingProcessTypes :: ( MonadCatch m
 describeScalingProcessTypes s =
     send (mkDescribeScalingProcessTypes &~ s)
 
--- | Lists all the actions scheduled for your Auto Scaling group that haven't
+-- $DescribeScheduledActions
+-- Lists all the actions scheduled for your Auto Scaling group that haven't
 -- been executed. To see a list of actions already executed, see the activity
 -- record returned in DescribeScalingActivities.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeScheduledActions'
+
 describeScheduledActions :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -634,7 +774,8 @@ describeScheduledActions :: ( MonadCatch m
 describeScheduledActions s =
     paginate (mkDescribeScheduledActions &~ s)
 
--- | Lists the Auto Scaling group tags. You can use filters to limit results
+-- $DescribeTags
+-- Lists the Auto Scaling group tags. You can use filters to limit results
 -- when describing tags. For example, you can query for tags of a particular
 -- Auto Scaling group. You can specify multiple values for a filter. A tag
 -- must match at least one of the specified values for it to be included in
@@ -646,6 +787,7 @@ describeScheduledActions s =
 -- 086265fd-bf3e-11e2-85fc-fbb1EXAMPLE.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeTags'
+
 describeTags :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -656,13 +798,15 @@ describeTags :: ( MonadCatch m
 describeTags s =
     paginate (mkDescribeTags &~ s)
 
--- | Returns a list of all termination policies supported by Auto Scaling.
+-- $DescribeTerminationPolicyTypes
+-- Returns a list of all termination policies supported by Auto Scaling.
 -- https://autoscaling.amazonaws.com/?Version=2011-01-01
 -- &Action=DescribeTerminationPolicyTypes &AUTHPARAMS
 -- ClosestToNextInstanceHour Default NewestInstance OldestInstance
 -- OldestLaunchConfiguration d9a05827-b735-11e2-a40c-c79a5EXAMPLE.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DescribeTerminationPolicyTypes'
+
 describeTerminationPolicyTypes :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
@@ -673,7 +817,8 @@ describeTerminationPolicyTypes :: ( MonadCatch m
 describeTerminationPolicyTypes s =
     send (mkDescribeTerminationPolicyTypes &~ s)
 
--- | Using DetachInstances, you can remove an instance from an Auto Scaling
+-- $DetachInstances
+-- Using DetachInstances, you can remove an instance from an Auto Scaling
 -- group. After the instances are detached, you can manage them independently
 -- from the rest of the Auto Scaling group. To learn more about detaching
 -- instances, see Detach Amazon EC2 Instances From Your Auto Scaling Group.
@@ -687,6 +832,7 @@ describeTerminationPolicyTypes s =
 -- e04f3b11-f357-11e3-a434-7f10009d5849.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DetachInstances'
+
 detachInstances :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -699,11 +845,13 @@ detachInstances :: ( MonadCatch m
 detachInstances p2 p3 s =
     send $ (mkDetachInstances p2 p3) &~ s
 
--- | Disables monitoring of group metrics for the Auto Scaling group specified
+-- $DisableMetricsCollection
+-- Disables monitoring of group metrics for the Auto Scaling group specified
 -- in AutoScalingGroupName. You can specify the list of affected metrics with
 -- the Metrics parameter.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.DisableMetricsCollection'
+
 disableMetricsCollection :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -715,13 +863,15 @@ disableMetricsCollection :: ( MonadCatch m
 disableMetricsCollection p1 s =
     send $ (mkDisableMetricsCollection p1) &~ s
 
--- | Enables monitoring of group metrics for the Auto Scaling group specified in
+-- $EnableMetricsCollection
+-- Enables monitoring of group metrics for the Auto Scaling group specified in
 -- AutoScalingGroupName. You can specify the list of enabled metrics with the
 -- Metrics parameter. Auto Scaling metrics collection can be turned on only if
 -- the InstanceMonitoring flag, in the Auto Scaling group's launch
 -- configuration, is set to True.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.EnableMetricsCollection'
+
 enableMetricsCollection :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -734,7 +884,8 @@ enableMetricsCollection :: ( MonadCatch m
 enableMetricsCollection p1 p3 s =
     send $ (mkEnableMetricsCollection p1 p3) &~ s
 
--- | Move instances in an Auto Scaling group into a Standby mode. To learn more
+-- $EnterStandby
+-- Move instances in an Auto Scaling group into a Standby mode. To learn more
 -- about how to put instances into a Standby mode, see Auto Scaling InService
 -- State.
 -- https://autoscaling.amazonaws.com/?AutoScalingGroupName=my-asg&ShouldDecrementDesiredCapacity=true&InstanceIds.member.1=i-5b73d709&Version=2011-01-01&Action=
@@ -747,6 +898,7 @@ enableMetricsCollection p1 p3 s =
 -- i-5b73d709 126f2f31-f34b-11e3-bc51-b35178f0274f.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.EnterStandby'
+
 enterStandby :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -759,9 +911,11 @@ enterStandby :: ( MonadCatch m
 enterStandby p2 p3 s =
     send $ (mkEnterStandby p2 p3) &~ s
 
--- | Executes the specified policy.
+-- $ExecutePolicy
+-- Executes the specified policy.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.ExecutePolicy'
+
 executePolicy :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -773,7 +927,8 @@ executePolicy :: ( MonadCatch m
 executePolicy p2 s =
     send $ (mkExecutePolicy p2) &~ s
 
--- | Move an instance out of Standby mode. To learn more about how to put
+-- $ExitStandby
+-- Move an instance out of Standby mode. To learn more about how to put
 -- instances that are in a Standby mode back into service, see Auto Scaling
 -- InService State.
 -- https://autoscaling.amazonaws.com/?InstanceIds.member.1=i-5b73d709&AutoScalingGroupName=my-asg&Version=2011-01-01&Action=ExitStandby&SignatureVersion=2&SignatureMet
@@ -785,6 +940,7 @@ executePolicy p2 s =
 -- out of Standby: i-5b73d709 321a11c8-f34c-11e3-a434-7f10009d5849.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.ExitStandby'
+
 exitStandby :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -796,7 +952,8 @@ exitStandby :: ( MonadCatch m
 exitStandby p2 s =
     send $ (mkExitStandby p2) &~ s
 
--- | Creates or updates a lifecycle hook for an Auto Scaling Group. A lifecycle
+-- $PutLifecycleHook
+-- Creates or updates a lifecycle hook for an Auto Scaling Group. A lifecycle
 -- hook tells Auto Scaling that you want to perform an action on an instance
 -- that is not actively in service; for example, either when the instance
 -- launches or before the instance terminates. This operation is a part of the
@@ -817,6 +974,7 @@ exitStandby p2 s =
 -- 1952f458-f645-11e3-bc51-b35178f0274f.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.PutLifecycleHook'
+
 putLifecycleHook :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -829,7 +987,8 @@ putLifecycleHook :: ( MonadCatch m
 putLifecycleHook p1 p2 s =
     send $ (mkPutLifecycleHook p1 p2) &~ s
 
--- | Configures an Auto Scaling group to send notifications when specified
+-- $PutNotificationConfiguration
+-- Configures an Auto Scaling group to send notifications when specified
 -- events take place. Subscribers to this topic can have messages for events
 -- delivered to an endpoint such as a web server or email address. For more
 -- information see Get Email Notifications When Your Auto Scaling Group
@@ -837,6 +996,7 @@ putLifecycleHook p1 p2 s =
 -- configuration.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.PutNotificationConfiguration'
+
 putNotificationConfiguration :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
@@ -850,7 +1010,8 @@ putNotificationConfiguration :: ( MonadCatch m
 putNotificationConfiguration p1 p2 p3 s =
     send $ (mkPutNotificationConfiguration p1 p2 p3) &~ s
 
--- | Creates or updates a policy for an Auto Scaling group. To update an
+-- $PutScalingPolicy
+-- Creates or updates a policy for an Auto Scaling group. To update an
 -- existing policy, use the existing policy name and set the parameter(s) you
 -- want to change. Any existing parameter not changed in an update to an
 -- existing policy is not changed in this update request.
@@ -863,6 +1024,7 @@ putNotificationConfiguration p1 p2 p3 s =
 -- eout-policy 3cfc6fef-c08b-11e2-a697-2922EXAMPLE.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.PutScalingPolicy'
+
 putScalingPolicy :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -877,7 +1039,8 @@ putScalingPolicy :: ( MonadCatch m
 putScalingPolicy p1 p2 p3 p4 s =
     send $ (mkPutScalingPolicy p1 p2 p3 p4) &~ s
 
--- | Creates or updates a scheduled scaling action for an Auto Scaling group.
+-- $PutScheduledUpdateGroupAction
+-- Creates or updates a scheduled scaling action for an Auto Scaling group.
 -- When updating a scheduled scaling action, if you leave a parameter
 -- unspecified, the corresponding value remains unchanged in the affected Auto
 -- Scaling group. For information on creating or updating a scheduled action
@@ -896,6 +1059,7 @@ putScalingPolicy p1 p2 p3 p4 s =
 -- 3bc8c9bc-6a62-11e2-8a51-4b8a1EXAMPLE.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.PutScheduledUpdateGroupAction'
+
 putScheduledUpdateGroupAction :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
@@ -908,7 +1072,8 @@ putScheduledUpdateGroupAction :: ( MonadCatch m
 putScheduledUpdateGroupAction p1 p2 s =
     send $ (mkPutScheduledUpdateGroupAction p1 p2) &~ s
 
--- | Records a heartbeat for the lifecycle action associated with a specific
+-- $RecordLifecycleActionHeartbeat
+-- Records a heartbeat for the lifecycle action associated with a specific
 -- token. This extends the timeout by the length of time defined by the
 -- HeartbeatTimeout parameter of the PutLifecycleHook operation. This
 -- operation is a part of the basic sequence for adding a lifecycle hook to an
@@ -922,6 +1087,7 @@ putScheduledUpdateGroupAction p1 p2 s =
 -- Pending State and Auto Scaling Terminating State.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.RecordLifecycleActionHeartbeat'
+
 recordLifecycleActionHeartbeat :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
@@ -935,11 +1101,13 @@ recordLifecycleActionHeartbeat :: ( MonadCatch m
 recordLifecycleActionHeartbeat p1 p2 p3 s =
     send $ (mkRecordLifecycleActionHeartbeat p1 p2 p3) &~ s
 
--- | Resumes all suspended Auto Scaling processes for an Auto Scaling group. For
+-- $ResumeProcesses
+-- Resumes all suspended Auto Scaling processes for an Auto Scaling group. For
 -- information on suspending and resuming Auto Scaling process, see Suspend
 -- and Resume Auto Scaling Process.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.ResumeProcesses'
+
 resumeProcesses :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -951,13 +1119,15 @@ resumeProcesses :: ( MonadCatch m
 resumeProcesses p1 s =
     send $ (mkResumeProcesses p1) &~ s
 
--- | Sets the desired size of the specified AutoScalingGroup.
+-- $SetDesiredCapacity
+-- Sets the desired size of the specified AutoScalingGroup.
 -- https://autoscaling.amazonaws.com/?AutoScalingGroupName=my-test-asg
 -- &HonorCooldown=false &DesiredCapacity=2 &Version=2011-01-01
 -- &Action=SetDesiredCapacity &AUTHPARAMS
 -- 9fb7e2db-6998-11e2-a985-57c82EXAMPLE.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.SetDesiredCapacity'
+
 setDesiredCapacity :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -970,11 +1140,13 @@ setDesiredCapacity :: ( MonadCatch m
 setDesiredCapacity p1 p2 s =
     send $ (mkSetDesiredCapacity p1 p2) &~ s
 
--- | Sets the health status of a specified instance that belongs to any of your
+-- $SetInstanceHealth
+-- Sets the health status of a specified instance that belongs to any of your
 -- Auto Scaling groups. For more information, see Configure Health Checks for
 -- Your Auto Scaling group.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.SetInstanceHealth'
+
 setInstanceHealth :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -987,7 +1159,8 @@ setInstanceHealth :: ( MonadCatch m
 setInstanceHealth p1 p2 s =
     send $ (mkSetInstanceHealth p1 p2) &~ s
 
--- | Suspends Auto Scaling processes for an Auto Scaling group. To suspend
+-- $SuspendProcesses
+-- Suspends Auto Scaling processes for an Auto Scaling group. To suspend
 -- specific process types, specify them by name with the
 -- ScalingProcesses.member.N parameter. To suspend all process types, omit the
 -- ScalingProcesses.member.N parameter. Suspending either of the two primary
@@ -997,6 +1170,7 @@ setInstanceHealth p1 p2 s =
 -- Scaling process, see Suspend and Resume Auto Scaling Process.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.SuspendProcesses'
+
 suspendProcesses :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -1008,11 +1182,13 @@ suspendProcesses :: ( MonadCatch m
 suspendProcesses p1 s =
     send $ (mkSuspendProcesses p1) &~ s
 
--- | Terminates the specified instance. Optionally, the desired group size can
+-- $TerminateInstanceInAutoScalingGroup
+-- Terminates the specified instance. Optionally, the desired group size can
 -- be adjusted. This call simply registers a termination request. The
 -- termination of the instance cannot happen immediately.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.TerminateInstanceInAutoScalingGroup'
+
 terminateInstanceInAutoScalingGroup :: ( MonadCatch m
                                        , MonadResource m
                                        , MonadError AWS.Error m
@@ -1025,7 +1201,8 @@ terminateInstanceInAutoScalingGroup :: ( MonadCatch m
 terminateInstanceInAutoScalingGroup p1 p2 s =
     send $ (mkTerminateInstanceInAutoScalingGroup p1 p2) &~ s
 
--- | Updates the configuration for the specified AutoScalingGroup. To update an
+-- $UpdateAutoScalingGroup
+-- Updates the configuration for the specified AutoScalingGroup. To update an
 -- Auto Scaling group with a launch configuration that has the
 -- InstanceMonitoring flag set to False, you must first ensure that collection
 -- of group metrics is disabled. Otherwise, calls to UpdateAutoScalingGroup
@@ -1057,6 +1234,7 @@ terminateInstanceInAutoScalingGroup p1 p2 s =
 -- adafead0-ab8a-11e2-ba13-ab0ccEXAMPLE.
 --
 -- See: 'Network.AWS.AutoScaling.V2011_01_01.UpdateAutoScalingGroup'
+
 updateAutoScalingGroup :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m

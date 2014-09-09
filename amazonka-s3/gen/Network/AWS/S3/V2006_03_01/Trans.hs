@@ -24,108 +24,204 @@
 module Network.AWS.S3.V2006_03_01.Trans
     (
     -- * AbortMultipartUpload
+    -- $AbortMultipartUpload
       abortMultipartUpload
+
     -- * CompleteMultipartUpload
+    -- $CompleteMultipartUpload
     , completeMultipartUpload
+
     -- * CopyObject
+    -- $CopyObject
     , copyObject
+
     -- * CreateBucket
+    -- $CreateBucket
     , createBucket
+
     -- * CreateMultipartUpload
+    -- $CreateMultipartUpload
     , createMultipartUpload
+
     -- * DeleteBucket
+    -- $DeleteBucket
     , deleteBucket
+
     -- * DeleteBucketCors
+    -- $DeleteBucketCors
     , deleteBucketCors
+
     -- * DeleteBucketLifecycle
+    -- $DeleteBucketLifecycle
     , deleteBucketLifecycle
+
     -- * DeleteBucketPolicy
+    -- $DeleteBucketPolicy
     , deleteBucketPolicy
+
     -- * DeleteBucketTagging
+    -- $DeleteBucketTagging
     , deleteBucketTagging
+
     -- * DeleteBucketWebsite
+    -- $DeleteBucketWebsite
     , deleteBucketWebsite
+
     -- * DeleteObject
+    -- $DeleteObject
     , deleteObject
+
     -- * DeleteObjects
+    -- $DeleteObjects
     , deleteObjects
+
     -- * GetBucketAcl
+    -- $GetBucketAcl
     , getBucketAcl
+
     -- * GetBucketCors
+    -- $GetBucketCors
     , getBucketCors
+
     -- * GetBucketLifecycle
+    -- $GetBucketLifecycle
     , getBucketLifecycle
+
     -- * GetBucketLocation
+    -- $GetBucketLocation
     , getBucketLocation
+
     -- * GetBucketLogging
+    -- $GetBucketLogging
     , getBucketLogging
+
     -- * GetBucketNotification
+    -- $GetBucketNotification
     , getBucketNotification
+
     -- * GetBucketPolicy
+    -- $GetBucketPolicy
     , getBucketPolicy
+
     -- * GetBucketRequestPayment
+    -- $GetBucketRequestPayment
     , getBucketRequestPayment
+
     -- * GetBucketTagging
+    -- $GetBucketTagging
     , getBucketTagging
+
     -- * GetBucketVersioning
+    -- $GetBucketVersioning
     , getBucketVersioning
+
     -- * GetBucketWebsite
+    -- $GetBucketWebsite
     , getBucketWebsite
+
     -- * GetObject
+    -- $GetObject
     , getObject
+
     -- * GetObjectAcl
+    -- $GetObjectAcl
     , getObjectAcl
+
     -- * GetObjectTorrent
+    -- $GetObjectTorrent
     , getObjectTorrent
+
     -- * HeadBucket
+    -- $HeadBucket
     , headBucket
+
     -- * HeadObject
+    -- $HeadObject
     , headObject
+
     -- * ListBuckets
+    -- $ListBuckets
     , listBuckets
+
     -- * ListMultipartUploads
+    -- $ListMultipartUploads
     , listMultipartUploads
+
     -- * ListObjectVersions
+    -- $ListObjectVersions
     , listObjectVersions
+
     -- * ListObjects
+    -- $ListObjects
     , listObjects
+
     -- * ListParts
+    -- $ListParts
     , listParts
+
     -- * PutBucketAcl
+    -- $PutBucketAcl
     , putBucketAcl
+
     -- * PutBucketCors
+    -- $PutBucketCors
     , putBucketCors
+
     -- * PutBucketLifecycle
+    -- $PutBucketLifecycle
     , putBucketLifecycle
+
     -- * PutBucketLogging
+    -- $PutBucketLogging
     , putBucketLogging
+
     -- * PutBucketNotification
+    -- $PutBucketNotification
     , putBucketNotification
+
     -- * PutBucketPolicy
+    -- $PutBucketPolicy
     , putBucketPolicy
+
     -- * PutBucketRequestPayment
+    -- $PutBucketRequestPayment
     , putBucketRequestPayment
+
     -- * PutBucketTagging
+    -- $PutBucketTagging
     , putBucketTagging
+
     -- * PutBucketVersioning
+    -- $PutBucketVersioning
     , putBucketVersioning
+
     -- * PutBucketWebsite
+    -- $PutBucketWebsite
     , putBucketWebsite
+
     -- * PutObject
+    -- $PutObject
     , putObject
+
     -- * PutObjectAcl
+    -- $PutObjectAcl
     , putObjectAcl
+
     -- * RestoreObject
+    -- $RestoreObject
     , restoreObject
+
     -- * UploadPart
+    -- $UploadPart
     , uploadPart
+
     -- * UploadPartCopy
+    -- $UploadPartCopy
     , uploadPartCopy
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.S3.V2006_03_01
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -136,11 +232,13 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.S3.V2006_03_01
 
--- | Aborts a multipart upload. To verify that all parts have been removed, so
+-- $AbortMultipartUpload
+-- Aborts a multipart upload. To verify that all parts have been removed, so
 -- you don't get charged for the part storage, you should call the List Parts
 -- operation and ensure the parts list is empty.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.AbortMultipartUpload'
+
 abortMultipartUpload :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -154,9 +252,11 @@ abortMultipartUpload :: ( MonadCatch m
 abortMultipartUpload p1 p2 p3 s =
     send $ (mkAbortMultipartUpload p1 p2 p3) &~ s
 
--- | Completes a multipart upload by assembling previously uploaded parts.
+-- $CompleteMultipartUpload
+-- Completes a multipart upload by assembling previously uploaded parts.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.CompleteMultipartUpload'
+
 completeMultipartUpload :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -170,9 +270,11 @@ completeMultipartUpload :: ( MonadCatch m
 completeMultipartUpload p1 p2 p4 s =
     send $ (mkCompleteMultipartUpload p1 p2 p4) &~ s
 
--- | Creates a copy of an object that is already stored in Amazon S3.
+-- $CopyObject
+-- Creates a copy of an object that is already stored in Amazon S3.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.CopyObject'
+
 copyObject :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -186,9 +288,11 @@ copyObject :: ( MonadCatch m
 copyObject p18 p2 p8 s =
     send $ (mkCopyObject p18 p2 p8) &~ s
 
--- | Creates a new bucket.
+-- $CreateBucket
+-- Creates a new bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.CreateBucket'
+
 createBucket :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -200,7 +304,8 @@ createBucket :: ( MonadCatch m
 createBucket p2 s =
     send $ (mkCreateBucket p2) &~ s
 
--- | Initiates a multipart upload and returns an upload ID. Note: After you
+-- $CreateMultipartUpload
+-- Initiates a multipart upload and returns an upload ID. Note: After you
 -- initiate multipart upload and upload one or more parts, you must either
 -- complete or abort multipart upload in order to stop getting charged for
 -- storage of the uploaded parts. Only after you either complete or abort
@@ -208,6 +313,7 @@ createBucket p2 s =
 -- you for the parts storage.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.CreateMultipartUpload'
+
 createMultipartUpload :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -220,11 +326,13 @@ createMultipartUpload :: ( MonadCatch m
 createMultipartUpload p13 p2 s =
     send $ (mkCreateMultipartUpload p13 p2) &~ s
 
--- | Deletes the bucket. All objects (including all object versions and Delete
+-- $DeleteBucket
+-- Deletes the bucket. All objects (including all object versions and Delete
 -- Markers) in the bucket must be deleted before the bucket itself can be
 -- deleted.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.DeleteBucket'
+
 deleteBucket :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -236,9 +344,11 @@ deleteBucket :: ( MonadCatch m
 deleteBucket p1 s =
     send $ (mkDeleteBucket p1) &~ s
 
--- | Deletes the cors configuration information set for the bucket.
+-- $DeleteBucketCors
+-- Deletes the cors configuration information set for the bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.DeleteBucketCors'
+
 deleteBucketCors :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -250,9 +360,11 @@ deleteBucketCors :: ( MonadCatch m
 deleteBucketCors p1 s =
     send $ (mkDeleteBucketCors p1) &~ s
 
--- | Deletes the lifecycle configuration from the bucket.
+-- $DeleteBucketLifecycle
+-- Deletes the lifecycle configuration from the bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.DeleteBucketLifecycle'
+
 deleteBucketLifecycle :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -264,9 +376,11 @@ deleteBucketLifecycle :: ( MonadCatch m
 deleteBucketLifecycle p1 s =
     send $ (mkDeleteBucketLifecycle p1) &~ s
 
--- | Deletes the policy from the bucket.
+-- $DeleteBucketPolicy
+-- Deletes the policy from the bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.DeleteBucketPolicy'
+
 deleteBucketPolicy :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -278,9 +392,11 @@ deleteBucketPolicy :: ( MonadCatch m
 deleteBucketPolicy p1 s =
     send $ (mkDeleteBucketPolicy p1) &~ s
 
--- | Deletes the tags from the bucket.
+-- $DeleteBucketTagging
+-- Deletes the tags from the bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.DeleteBucketTagging'
+
 deleteBucketTagging :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -292,9 +408,11 @@ deleteBucketTagging :: ( MonadCatch m
 deleteBucketTagging p1 s =
     send $ (mkDeleteBucketTagging p1) &~ s
 
--- | This operation removes the website configuration from the bucket.
+-- $DeleteBucketWebsite
+-- This operation removes the website configuration from the bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.DeleteBucketWebsite'
+
 deleteBucketWebsite :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -306,11 +424,13 @@ deleteBucketWebsite :: ( MonadCatch m
 deleteBucketWebsite p1 s =
     send $ (mkDeleteBucketWebsite p1) &~ s
 
--- | Removes the null version (if there is one) of an object and inserts a
+-- $DeleteObject
+-- Removes the null version (if there is one) of an object and inserts a
 -- delete marker, which becomes the latest version of the object. If there
 -- isn't a null version, Amazon S3 does not remove any objects.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.DeleteObject'
+
 deleteObject :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -323,10 +443,12 @@ deleteObject :: ( MonadCatch m
 deleteObject p1 p2 s =
     send $ (mkDeleteObject p1 p2) &~ s
 
--- | This operation enables you to delete multiple objects from a bucket using a
+-- $DeleteObjects
+-- This operation enables you to delete multiple objects from a bucket using a
 -- single HTTP request. You may specify up to 1000 keys.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.DeleteObjects'
+
 deleteObjects :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -339,9 +461,11 @@ deleteObjects :: ( MonadCatch m
 deleteObjects p1 p2 s =
     send $ (mkDeleteObjects p1 p2) &~ s
 
--- | Gets the access control policy for the bucket.
+-- $GetBucketAcl
+-- Gets the access control policy for the bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.GetBucketAcl'
+
 getBucketAcl :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -353,9 +477,11 @@ getBucketAcl :: ( MonadCatch m
 getBucketAcl p1 s =
     send $ (mkGetBucketAcl p1) &~ s
 
--- | Returns the cors configuration for the bucket.
+-- $GetBucketCors
+-- Returns the cors configuration for the bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.GetBucketCors'
+
 getBucketCors :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -367,9 +493,11 @@ getBucketCors :: ( MonadCatch m
 getBucketCors p1 s =
     send $ (mkGetBucketCors p1) &~ s
 
--- | Returns the lifecycle configuration information set on the bucket.
+-- $GetBucketLifecycle
+-- Returns the lifecycle configuration information set on the bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.GetBucketLifecycle'
+
 getBucketLifecycle :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -381,9 +509,11 @@ getBucketLifecycle :: ( MonadCatch m
 getBucketLifecycle p1 s =
     send $ (mkGetBucketLifecycle p1) &~ s
 
--- | Returns the region the bucket resides in.
+-- $GetBucketLocation
+-- Returns the region the bucket resides in.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.GetBucketLocation'
+
 getBucketLocation :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -395,10 +525,12 @@ getBucketLocation :: ( MonadCatch m
 getBucketLocation p1 s =
     send $ (mkGetBucketLocation p1) &~ s
 
--- | Returns the logging status of a bucket and the permissions users have to
+-- $GetBucketLogging
+-- Returns the logging status of a bucket and the permissions users have to
 -- view and modify that status. To use GET, you must be the bucket owner.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.GetBucketLogging'
+
 getBucketLogging :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -410,9 +542,11 @@ getBucketLogging :: ( MonadCatch m
 getBucketLogging p1 s =
     send $ (mkGetBucketLogging p1) &~ s
 
--- | Return the notification configuration of a bucket.
+-- $GetBucketNotification
+-- Return the notification configuration of a bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.GetBucketNotification'
+
 getBucketNotification :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -424,9 +558,11 @@ getBucketNotification :: ( MonadCatch m
 getBucketNotification p1 s =
     send $ (mkGetBucketNotification p1) &~ s
 
--- | Returns the policy of a specified bucket.
+-- $GetBucketPolicy
+-- Returns the policy of a specified bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.GetBucketPolicy'
+
 getBucketPolicy :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -438,9 +574,11 @@ getBucketPolicy :: ( MonadCatch m
 getBucketPolicy p1 s =
     send $ (mkGetBucketPolicy p1) &~ s
 
--- | Returns the request payment configuration of a bucket.
+-- $GetBucketRequestPayment
+-- Returns the request payment configuration of a bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.GetBucketRequestPayment'
+
 getBucketRequestPayment :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -452,9 +590,11 @@ getBucketRequestPayment :: ( MonadCatch m
 getBucketRequestPayment p1 s =
     send $ (mkGetBucketRequestPayment p1) &~ s
 
--- | Returns the tag set associated with the bucket.
+-- $GetBucketTagging
+-- Returns the tag set associated with the bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.GetBucketTagging'
+
 getBucketTagging :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -466,9 +606,11 @@ getBucketTagging :: ( MonadCatch m
 getBucketTagging p1 s =
     send $ (mkGetBucketTagging p1) &~ s
 
--- | Returns the versioning state of a bucket.
+-- $GetBucketVersioning
+-- Returns the versioning state of a bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.GetBucketVersioning'
+
 getBucketVersioning :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -480,9 +622,11 @@ getBucketVersioning :: ( MonadCatch m
 getBucketVersioning p1 s =
     send $ (mkGetBucketVersioning p1) &~ s
 
--- | Returns the website configuration for a bucket.
+-- $GetBucketWebsite
+-- Returns the website configuration for a bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.GetBucketWebsite'
+
 getBucketWebsite :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -494,9 +638,11 @@ getBucketWebsite :: ( MonadCatch m
 getBucketWebsite p1 s =
     send $ (mkGetBucketWebsite p1) &~ s
 
--- | Retrieves objects from Amazon S3.
+-- $GetObject
+-- Retrieves objects from Amazon S3.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.GetObject'
+
 getObject :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -509,9 +655,11 @@ getObject :: ( MonadCatch m
 getObject p1 p6 s =
     send $ (mkGetObject p1 p6) &~ s
 
--- | Returns the access control list (ACL) of an object.
+-- $GetObjectAcl
+-- Returns the access control list (ACL) of an object.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.GetObjectAcl'
+
 getObjectAcl :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -524,9 +672,11 @@ getObjectAcl :: ( MonadCatch m
 getObjectAcl p1 p2 s =
     send $ (mkGetObjectAcl p1 p2) &~ s
 
--- | Return torrent files from a bucket.
+-- $GetObjectTorrent
+-- Return torrent files from a bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.GetObjectTorrent'
+
 getObjectTorrent :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -539,10 +689,12 @@ getObjectTorrent :: ( MonadCatch m
 getObjectTorrent p1 p2 s =
     send $ (mkGetObjectTorrent p1 p2) &~ s
 
--- | This operation is useful to determine if a bucket exists and you have
+-- $HeadBucket
+-- This operation is useful to determine if a bucket exists and you have
 -- permission to access it.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.HeadBucket'
+
 headBucket :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -554,11 +706,13 @@ headBucket :: ( MonadCatch m
 headBucket p1 s =
     send $ (mkHeadBucket p1) &~ s
 
--- | The HEAD operation retrieves metadata from an object without returning the
+-- $HeadObject
+-- The HEAD operation retrieves metadata from an object without returning the
 -- object itself. This operation is useful if you're only interested in an
 -- object's metadata. To use HEAD, you must have READ access to the object.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.HeadObject'
+
 headObject :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -571,10 +725,12 @@ headObject :: ( MonadCatch m
 headObject p1 p6 s =
     send $ (mkHeadObject p1 p6) &~ s
 
--- | Returns a list of all buckets owned by the authenticated sender of the
+-- $ListBuckets
+-- Returns a list of all buckets owned by the authenticated sender of the
 -- request.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.ListBuckets'
+
 listBuckets :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -585,9 +741,11 @@ listBuckets :: ( MonadCatch m
 listBuckets s =
     send (mkListBuckets &~ s)
 
--- | This operation lists in-progress multipart uploads.
+-- $ListMultipartUploads
+-- This operation lists in-progress multipart uploads.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.ListMultipartUploads'
+
 listMultipartUploads :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -599,9 +757,11 @@ listMultipartUploads :: ( MonadCatch m
 listMultipartUploads p1 s =
     paginate $ (mkListMultipartUploads p1) &~ s
 
--- | Returns metadata about all of the versions of objects in a bucket.
+-- $ListObjectVersions
+-- Returns metadata about all of the versions of objects in a bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.ListObjectVersions'
+
 listObjectVersions :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -613,11 +773,13 @@ listObjectVersions :: ( MonadCatch m
 listObjectVersions p1 s =
     paginate $ (mkListObjectVersions p1) &~ s
 
--- | Returns some or all (up to 1000) of the objects in a bucket. You can use
+-- $ListObjects
+-- Returns some or all (up to 1000) of the objects in a bucket. You can use
 -- the request parameters as selection criteria to return a subset of the
 -- objects in a bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.ListObjects'
+
 listObjects :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -629,9 +791,11 @@ listObjects :: ( MonadCatch m
 listObjects p1 s =
     paginate $ (mkListObjects p1) &~ s
 
--- | Lists the parts that have been uploaded for a specific multipart upload.
+-- $ListParts
+-- Lists the parts that have been uploaded for a specific multipart upload.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.ListParts'
+
 listParts :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -645,9 +809,11 @@ listParts :: ( MonadCatch m
 listParts p1 p2 p5 s =
     paginate $ (mkListParts p1 p2 p5) &~ s
 
--- | Sets the permissions on a bucket using access control lists (ACL).
+-- $PutBucketAcl
+-- Sets the permissions on a bucket using access control lists (ACL).
 --
 -- See: 'Network.AWS.S3.V2006_03_01.PutBucketAcl'
+
 putBucketAcl :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -659,9 +825,11 @@ putBucketAcl :: ( MonadCatch m
 putBucketAcl p3 s =
     send $ (mkPutBucketAcl p3) &~ s
 
--- | Sets the cors configuration for a bucket.
+-- $PutBucketCors
+-- Sets the cors configuration for a bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.PutBucketCors'
+
 putBucketCors :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -673,10 +841,12 @@ putBucketCors :: ( MonadCatch m
 putBucketCors p1 s =
     send $ (mkPutBucketCors p1) &~ s
 
--- | Sets lifecycle configuration for your bucket. If a lifecycle configuration
+-- $PutBucketLifecycle
+-- Sets lifecycle configuration for your bucket. If a lifecycle configuration
 -- exists, it replaces it.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.PutBucketLifecycle'
+
 putBucketLifecycle :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -688,11 +858,13 @@ putBucketLifecycle :: ( MonadCatch m
 putBucketLifecycle p1 s =
     send $ (mkPutBucketLifecycle p1) &~ s
 
--- | Set the logging parameters for a bucket and to specify permissions for who
+-- $PutBucketLogging
+-- Set the logging parameters for a bucket and to specify permissions for who
 -- can view and modify the logging parameters. To set the logging status of a
 -- bucket, you must be the bucket owner.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.PutBucketLogging'
+
 putBucketLogging :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -705,9 +877,11 @@ putBucketLogging :: ( MonadCatch m
 putBucketLogging p1 p2 s =
     send $ (mkPutBucketLogging p1 p2) &~ s
 
--- | Enables notifications of specified events for a bucket.
+-- $PutBucketNotification
+-- Enables notifications of specified events for a bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.PutBucketNotification'
+
 putBucketNotification :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -720,10 +894,12 @@ putBucketNotification :: ( MonadCatch m
 putBucketNotification p1 p3 s =
     send $ (mkPutBucketNotification p1 p3) &~ s
 
--- | Replaces a policy on a bucket. If the bucket already has a policy, the one
+-- $PutBucketPolicy
+-- Replaces a policy on a bucket. If the bucket already has a policy, the one
 -- in this request completely replaces it.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.PutBucketPolicy'
+
 putBucketPolicy :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -736,12 +912,14 @@ putBucketPolicy :: ( MonadCatch m
 putBucketPolicy p1 p3 s =
     send $ (mkPutBucketPolicy p1 p3) &~ s
 
--- | Sets the request payment configuration for a bucket. By default, the bucket
+-- $PutBucketRequestPayment
+-- Sets the request payment configuration for a bucket. By default, the bucket
 -- owner pays for downloads from the bucket. This configuration parameter
 -- enables the bucket owner (only) to specify that the person requesting the
 -- download will be charged for the download.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.PutBucketRequestPayment'
+
 putBucketRequestPayment :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -754,9 +932,11 @@ putBucketRequestPayment :: ( MonadCatch m
 putBucketRequestPayment p1 p3 s =
     send $ (mkPutBucketRequestPayment p1 p3) &~ s
 
--- | Sets the tags for a bucket.
+-- $PutBucketTagging
+-- Sets the tags for a bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.PutBucketTagging'
+
 putBucketTagging :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -769,10 +949,12 @@ putBucketTagging :: ( MonadCatch m
 putBucketTagging p1 p3 s =
     send $ (mkPutBucketTagging p1 p3) &~ s
 
--- | Sets the versioning state of an existing bucket. To set the versioning
+-- $PutBucketVersioning
+-- Sets the versioning state of an existing bucket. To set the versioning
 -- state, you must be the bucket owner.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.PutBucketVersioning'
+
 putBucketVersioning :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -785,9 +967,11 @@ putBucketVersioning :: ( MonadCatch m
 putBucketVersioning p1 p4 s =
     send $ (mkPutBucketVersioning p1 p4) &~ s
 
--- | Set the website configuration for a bucket.
+-- $PutBucketWebsite
+-- Set the website configuration for a bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.PutBucketWebsite'
+
 putBucketWebsite :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -800,9 +984,11 @@ putBucketWebsite :: ( MonadCatch m
 putBucketWebsite p1 p3 s =
     send $ (mkPutBucketWebsite p1 p3) &~ s
 
--- | Adds an object to a bucket.
+-- $PutObject
+-- Adds an object to a bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.PutObject'
+
 putObject :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -816,10 +1002,12 @@ putObject :: ( MonadCatch m
 putObject p16 p2 p3 s =
     send $ (mkPutObject p16 p2 p3) &~ s
 
--- | uses the acl subresource to set the access control list (ACL) permissions
+-- $PutObjectAcl
+-- uses the acl subresource to set the access control list (ACL) permissions
 -- for an object that already exists in a bucket.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.PutObjectAcl'
+
 putObjectAcl :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -832,9 +1020,11 @@ putObjectAcl :: ( MonadCatch m
 putObjectAcl p10 p3 s =
     send $ (mkPutObjectAcl p10 p3) &~ s
 
--- | Restores an archived copy of an object back into Amazon S3.
+-- $RestoreObject
+-- Restores an archived copy of an object back into Amazon S3.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.RestoreObject'
+
 restoreObject :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -847,7 +1037,8 @@ restoreObject :: ( MonadCatch m
 restoreObject p1 p2 s =
     send $ (mkRestoreObject p1 p2) &~ s
 
--- | Uploads a part in a multipart upload. Note: After you initiate multipart
+-- $UploadPart
+-- Uploads a part in a multipart upload. Note: After you initiate multipart
 -- upload and upload one or more parts, you must either complete or abort
 -- multipart upload in order to stop getting charged for storage of the
 -- uploaded parts. Only after you either complete or abort multipart upload,
@@ -855,6 +1046,7 @@ restoreObject p1 p2 s =
 -- storage.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.UploadPart'
+
 uploadPart :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -870,9 +1062,11 @@ uploadPart :: ( MonadCatch m
 uploadPart p1 p2 p5 p6 p7 s =
     send $ (mkUploadPart p1 p2 p5 p6 p7) &~ s
 
--- | Uploads a part by copying data from an existing object as data source.
+-- $UploadPartCopy
+-- Uploads a part by copying data from an existing object as data source.
 --
 -- See: 'Network.AWS.S3.V2006_03_01.UploadPartCopy'
+
 uploadPartCopy :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m

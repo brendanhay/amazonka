@@ -25,36 +25,60 @@
 module Network.AWS.DynamoDB.V2012_08_10.Trans
     (
     -- * BatchGetItem
+    -- $BatchGetItem
       batchGetItem
+
     -- * BatchWriteItem
+    -- $BatchWriteItem
     , batchWriteItem
+
     -- * CreateTable
+    -- $CreateTable
     , createTable
+
     -- * DeleteItem
+    -- $DeleteItem
     , deleteItem
+
     -- * DeleteTable
+    -- $DeleteTable
     , deleteTable
+
     -- * DescribeTable
+    -- $DescribeTable
     , describeTable
+
     -- * GetItem
+    -- $GetItem
     , getItem
+
     -- * ListTables
+    -- $ListTables
     , listTables
+
     -- * PutItem
+    -- $PutItem
     , putItem
+
     -- * Query
+    -- $Query
     , query
+
     -- * Scan
+    -- $Scan
     , scan
+
     -- * UpdateItem
+    -- $UpdateItem
     , updateItem
+
     -- * UpdateTable
+    -- $UpdateTable
     , updateTable
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.DynamoDB.V2012_08_10
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -65,7 +89,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.DynamoDB.V2012_08_10
 
--- | The BatchGetItem operation returns the attributes of one or more items from
+-- $BatchGetItem
+-- The BatchGetItem operation returns the attributes of one or more items from
 -- one or more tables. You identify requested items by primary key. A single
 -- operation can retrieve up to 1 MB of data, which can contain as many as 100
 -- items. BatchGetItem will return a partial result if the response size limit
@@ -103,6 +128,7 @@ import Network.AWS.DynamoDB.V2012_08_10
 -- "CapacityUnits": 3 }, { "TableName": "Thread", "CapacityUnits": 1 } ] }.
 --
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.BatchGetItem'
+
 batchGetItem :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -114,7 +140,8 @@ batchGetItem :: ( MonadCatch m
 batchGetItem p1 s =
     send $ (mkBatchGetItem p1) &~ s
 
--- | The BatchWriteItem operation puts or deletes multiple items in one or more
+-- $BatchWriteItem
+-- The BatchWriteItem operation puts or deletes multiple items in one or more
 -- tables. A single call to BatchWriteItem can write up to 1 MB of data, which
 -- can comprise as many as 25 put or delete requests. Individual items to be
 -- written can be as large as 64 KB. BatchWriteItem cannot update items. To
@@ -165,6 +192,7 @@ batchGetItem p1 s =
 -- "CapacityUnits": 3 } ] }.
 --
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.BatchWriteItem'
+
 batchWriteItem :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -176,7 +204,8 @@ batchWriteItem :: ( MonadCatch m
 batchWriteItem p1 s =
     send $ (mkBatchWriteItem p1) &~ s
 
--- | The CreateTable operation adds a new table to your account. In an AWS
+-- $CreateTable
+-- The CreateTable operation adds a new table to your account. In an AWS
 -- account, table names must be unique within each region. That is, you can
 -- have two tables with same name if you create the tables in different
 -- regions. CreateTable is an asynchronous operation. Upon receiving a
@@ -205,6 +234,7 @@ batchWriteItem p1 s =
 -- } }.
 --
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.CreateTable'
+
 createTable :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -219,7 +249,8 @@ createTable :: ( MonadCatch m
 createTable p1 p2 p3 p6 s =
     send $ (mkCreateTable p1 p2 p3 p6) &~ s
 
--- | Deletes a single item in a table by primary key. You can perform a
+-- $DeleteItem
+-- Deletes a single item in a table by primary key. You can perform a
 -- conditional delete operation that deletes the item if it exists, or if it
 -- has an expected attribute value. In addition to deleting an item, you can
 -- also return the item's attribute values in the same operation, using the
@@ -239,6 +270,7 @@ createTable p1 p2 p3 p6 s =
 -- single API call. What's the best way to do that?" } } }.
 --
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.DeleteItem'
+
 deleteItem :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -251,7 +283,8 @@ deleteItem :: ( MonadCatch m
 deleteItem p1 p2 s =
     send $ (mkDeleteItem p1 p2) &~ s
 
--- | The DeleteTable operation deletes a table and all of its items. After a
+-- $DeleteTable
+-- The DeleteTable operation deletes a table and all of its items. After a
 -- DeleteTable request, the specified table is in the DELETING state until
 -- DynamoDB completes the deletion. If the table is in the ACTIVE state, you
 -- can delete it. If a table is in CREATING or UPDATING states, then DynamoDB
@@ -268,6 +301,7 @@ deleteItem p1 p2 s =
 -- "TableSizeBytes": 0, "TableStatus": "DELETING" } }.
 --
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.DeleteTable'
+
 deleteTable :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -279,7 +313,8 @@ deleteTable :: ( MonadCatch m
 deleteTable p1 s =
     send $ (mkDeleteTable p1) &~ s
 
--- | Returns information about the table, including the current status of the
+-- $DescribeTable
+-- Returns information about the table, including the current status of the
 -- table, when it was created, the primary key schema, and any indexes on the
 -- table. Describe a Table This example describes the Thread table. { "Table":
 -- { "AttributeDefinitions": [ { "AttributeName": "ForumName",
@@ -297,6 +332,7 @@ deleteTable p1 s =
 -- }.
 --
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.DescribeTable'
+
 describeTable :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -308,7 +344,8 @@ describeTable :: ( MonadCatch m
 describeTable p1 s =
     send $ (mkDescribeTable p1) &~ s
 
--- | The GetItem operation returns a set of attributes for the item with the
+-- $GetItem
+-- The GetItem operation returns a set of attributes for the item with the
 -- given primary key. If there is no matching item, GetItem does not return
 -- any data. GetItem provides an eventually consistent read by default. If
 -- your application requires a strongly consistent read, set ConsistentRead to
@@ -326,6 +363,7 @@ describeTable p1 s =
 -- that?" } } }.
 --
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.GetItem'
+
 getItem :: ( MonadCatch m
            , MonadResource m
            , MonadError AWS.Error m
@@ -338,13 +376,15 @@ getItem :: ( MonadCatch m
 getItem p1 p2 s =
     send $ (mkGetItem p1 p2) &~ s
 
--- | Returns an array of all the tables associated with the current account and
+-- $ListTables
+-- Returns an array of all the tables associated with the current account and
 -- endpoint. List Tables This example requests a list of tables, starting with
 -- a table named comp2 and ending after three table names have been returned.
 -- { "LastEvaluatedTableName": "Thread", "TableNames":
 -- ["Forum","Reply","Thread"] }.
 --
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.ListTables'
+
 listTables :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -355,7 +395,8 @@ listTables :: ( MonadCatch m
 listTables s =
     paginate (mkListTables &~ s)
 
--- | Creates a new item, or replaces an old item with a new item. If an item
+-- $PutItem
+-- Creates a new item, or replaces an old item with a new item. If an item
 -- already exists in the specified table with the same primary key, the new
 -- item completely replaces the existing item. You can perform a conditional
 -- put (insert a new item if one with the specified primary key doesn't
@@ -377,6 +418,7 @@ listTables s =
 -- for the primary key attributes. { }.
 --
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.PutItem'
+
 putItem :: ( MonadCatch m
            , MonadResource m
            , MonadError AWS.Error m
@@ -389,7 +431,8 @@ putItem :: ( MonadCatch m
 putItem p1 p2 s =
     send $ (mkPutItem p1 p2) &~ s
 
--- | A Query operation directly accesses items from a table using the table
+-- $Query
+-- A Query operation directly accesses items from a table using the table
 -- primary key, or from an index using the index key. You must provide a
 -- specific hash key value. You can narrow the scope of the query by using
 -- comparison operators on the range key value, or on the index key. You can
@@ -413,6 +456,7 @@ putItem p1 p2 s =
 -- from the Thread table; this fetching occurs automatically. { "Count":`17 }.
 --
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.Query'
+
 query :: ( MonadCatch m
          , MonadResource m
          , MonadError AWS.Error m
@@ -424,7 +468,8 @@ query :: ( MonadCatch m
 query p1 s =
     paginate $ (mkQuery p1) &~ s
 
--- | The Scan operation returns one or more items and item attributes by
+-- $Scan
+-- The Scan operation returns one or more items and item attributes by
 -- accessing every item in the table. To have DynamoDB return fewer items, you
 -- can provide a ScanFilter. If the total number of scanned items exceeds the
 -- maximum data set size limit of 1 MB, the scan stops and results are
@@ -448,6 +493,7 @@ query p1 s =
 -- "ScannedCount": 4 }.
 --
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.Scan'
+
 scan :: ( MonadCatch m
         , MonadResource m
         , MonadError AWS.Error m
@@ -459,7 +505,8 @@ scan :: ( MonadCatch m
 scan p1 s =
     paginate $ (mkScan p1) &~ s
 
--- | Edits an existing item's attributes, or inserts a new item if it does not
+-- $UpdateItem
+-- Edits an existing item's attributes, or inserts a new item if it does not
 -- already exist. You can put, delete, or add attribute values. You can also
 -- perform a conditional update (insert a new attribute name-value pair if it
 -- doesn't exist, or replace an existing name-value pair if it has certain
@@ -471,6 +518,7 @@ scan p1 s =
 -- after the update, are returned in the response. { }.
 --
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.UpdateItem'
+
 updateItem :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -483,7 +531,8 @@ updateItem :: ( MonadCatch m
 updateItem p1 p2 s =
     send $ (mkUpdateItem p1 p2) &~ s
 
--- | Updates the provisioned throughput for the given table. Setting the
+-- $UpdateTable
+-- Updates the provisioned throughput for the given table. Setting the
 -- throughput for a table helps you manage performance and is part of the
 -- provisioned throughput feature of DynamoDB. The provisioned throughput
 -- values can be upgraded or downgraded based on the maximums and minimums
@@ -513,6 +562,7 @@ updateItem p1 p2 s =
 -- } }.
 --
 -- See: 'Network.AWS.DynamoDB.V2012_08_10.UpdateTable'
+
 updateTable :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m

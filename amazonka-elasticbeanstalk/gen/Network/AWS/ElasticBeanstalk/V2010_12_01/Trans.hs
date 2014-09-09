@@ -27,68 +27,124 @@
 module Network.AWS.ElasticBeanstalk.V2010_12_01.Trans
     (
     -- * CheckDNSAvailability
+    -- $CheckDNSAvailability
       checkDNSAvailability
+
     -- * CreateApplication
+    -- $CreateApplication
     , createApplication
+
     -- * CreateApplicationVersion
+    -- $CreateApplicationVersion
     , createApplicationVersion
+
     -- * CreateConfigurationTemplate
+    -- $CreateConfigurationTemplate
     , createConfigurationTemplate
+
     -- * CreateEnvironment
+    -- $CreateEnvironment
     , createEnvironment
+
     -- * CreateStorageLocation
+    -- $CreateStorageLocation
     , createStorageLocation
+
     -- * DeleteApplication
+    -- $DeleteApplication
     , deleteApplication
+
     -- * DeleteApplicationVersion
+    -- $DeleteApplicationVersion
     , deleteApplicationVersion
+
     -- * DeleteConfigurationTemplate
+    -- $DeleteConfigurationTemplate
     , deleteConfigurationTemplate
+
     -- * DeleteEnvironmentConfiguration
+    -- $DeleteEnvironmentConfiguration
     , deleteEnvironmentConfiguration
+
     -- * DescribeApplicationVersions
+    -- $DescribeApplicationVersions
     , describeApplicationVersions
+
     -- * DescribeApplications
+    -- $DescribeApplications
     , describeApplications
+
     -- * DescribeConfigurationOptions
+    -- $DescribeConfigurationOptions
     , describeConfigurationOptions
+
     -- * DescribeConfigurationSettings
+    -- $DescribeConfigurationSettings
     , describeConfigurationSettings
+
     -- * DescribeEnvironmentResources
+    -- $DescribeEnvironmentResources
     , describeEnvironmentResources
+
     -- * DescribeEnvironments
+    -- $DescribeEnvironments
     , describeEnvironments
+
     -- * DescribeEvents
+    -- $DescribeEvents
     , describeEvents
+
     -- * ListAvailableSolutionStacks
+    -- $ListAvailableSolutionStacks
     , listAvailableSolutionStacks
+
     -- * RebuildEnvironment
+    -- $RebuildEnvironment
     , rebuildEnvironment
+
     -- * RequestEnvironmentInfo
+    -- $RequestEnvironmentInfo
     , requestEnvironmentInfo
+
     -- * RestartAppServer
+    -- $RestartAppServer
     , restartAppServer
+
     -- * RetrieveEnvironmentInfo
+    -- $RetrieveEnvironmentInfo
     , retrieveEnvironmentInfo
+
     -- * SwapEnvironmentCNAMEs
+    -- $SwapEnvironmentCNAMEs
     , swapEnvironmentCNAMEs
+
     -- * TerminateEnvironment
+    -- $TerminateEnvironment
     , terminateEnvironment
+
     -- * UpdateApplication
+    -- $UpdateApplication
     , updateApplication
+
     -- * UpdateApplicationVersion
+    -- $UpdateApplicationVersion
     , updateApplicationVersion
+
     -- * UpdateConfigurationTemplate
+    -- $UpdateConfigurationTemplate
     , updateConfigurationTemplate
+
     -- * UpdateEnvironment
+    -- $UpdateEnvironment
     , updateEnvironment
+
     -- * ValidateConfigurationSettings
+    -- $ValidateConfigurationSettings
     , validateConfigurationSettings
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.ElasticBeanstalk.V2010_12_01
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -99,13 +155,15 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.ElasticBeanstalk.V2010_12_01
 
--- | Checks if the specified CNAME is available.
+-- $CheckDNSAvailability
+-- Checks if the specified CNAME is available.
 -- https://elasticbeanstalk.us-east-1.amazon.com/?CNAMEPrefix=sampleapplication
 -- &Operation=CheckDNSAvailability &AuthParams
 -- sampleapplication.elasticbeanstalk.amazonaws.com true
 -- 12f6701f-f1d6-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.CheckDNSAvailability'
+
 checkDNSAvailability :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -117,7 +175,8 @@ checkDNSAvailability :: ( MonadCatch m
 checkDNSAvailability p1 s =
     send $ (mkCheckDNSAvailability p1) &~ s
 
--- | Creates an application that has one configuration template named default
+-- $CreateApplication
+-- Creates an application that has one configuration template named default
 -- and no application versions. The &lt;code&gt;default&lt;/code&gt;
 -- configuration template is for a 32-bit version of the Amazon Linux
 -- operating system running the Tomcat 6 application container.
@@ -128,6 +187,7 @@ checkDNSAvailability p1 s =
 -- 2010-11-16T23:09:20.256Z Default 8b00e053-f1d6-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.CreateApplication'
+
 createApplication :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -139,7 +199,8 @@ createApplication :: ( MonadCatch m
 createApplication p1 s =
     send $ (mkCreateApplication p1) &~ s
 
--- | Creates an application version for the specified application. Once you
+-- $CreateApplicationVersion
+-- Creates an application version for the specified application. Once you
 -- create an application version with a specified Amazon S3 bucket and key
 -- location, you cannot change that Amazon S3 location. If you change the
 -- Amazon S3 location, you receive an exception when you attempt to launch an
@@ -153,6 +214,7 @@ createApplication p1 s =
 -- d653efef-f1f9-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.CreateApplicationVersion'
+
 createApplicationVersion :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -165,7 +227,8 @@ createApplicationVersion :: ( MonadCatch m
 createApplicationVersion p1 p2 s =
     send $ (mkCreateApplicationVersion p1 p2) &~ s
 
--- | Creates a configuration template. Templates are associated with a specific
+-- $CreateConfigurationTemplate
+-- Creates a configuration template. Templates are associated with a specific
 -- application and are used to deploy different versions of the application
 -- with the same configuration settings. Related Topics
 -- DescribeConfigurationOptions DescribeConfigurationSettings
@@ -217,6 +280,7 @@ createApplicationVersion p1 p2 s =
 -- 846cd905-f1fd-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.CreateConfigurationTemplate'
+
 createConfigurationTemplate :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -229,7 +293,8 @@ createConfigurationTemplate :: ( MonadCatch m
 createConfigurationTemplate p1 p2 s =
     send $ (mkCreateConfigurationTemplate p1 p2) &~ s
 
--- | Launches an environment for the specified application using the specified
+-- $CreateEnvironment
+-- Launches an environment for the specified application using the specified
 -- configuration.
 -- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationName=SampleApp
 -- &EnvironmentName=SampleApp
@@ -240,6 +305,7 @@ createConfigurationTemplate p1 p2 s =
 -- 15db925e-f1ff-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.CreateEnvironment'
+
 createEnvironment :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -252,13 +318,15 @@ createEnvironment :: ( MonadCatch m
 createEnvironment p1 p2 s =
     send $ (mkCreateEnvironment p1 p2) &~ s
 
--- | Creates the Amazon S3 storage location for the account. This location is
+-- $CreateStorageLocation
+-- Creates the Amazon S3 storage location for the account. This location is
 -- used to store user log files.
 -- https://elasticbeanstalk.us-east-1.amazon.com/?Operation=CreateStorageLocation
 -- &AuthParams elasticbeanstalk-us-east-1-780612358023
 -- ef51b94a-f1d6-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.CreateStorageLocation'
+
 createStorageLocation :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -269,7 +337,8 @@ createStorageLocation :: ( MonadCatch m
 createStorageLocation s =
     send (mkCreateStorageLocation &~ s)
 
--- | Deletes the specified application along with all associated versions and
+-- $DeleteApplication
+-- Deletes the specified application along with all associated versions and
 -- configurations. The application versions will not be deleted from your
 -- Amazon S3 bucket. You cannot delete an application that has a running
 -- environment.
@@ -278,6 +347,7 @@ createStorageLocation s =
 -- 1f155abd-f1d7-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteApplication'
+
 deleteApplication :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -289,7 +359,8 @@ deleteApplication :: ( MonadCatch m
 deleteApplication p1 s =
     send $ (mkDeleteApplication p1) &~ s
 
--- | Deletes the specified version from the specified application. You cannot
+-- $DeleteApplicationVersion
+-- Deletes the specified version from the specified application. You cannot
 -- delete an application version that is associated with a running
 -- environment.
 -- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationName=SampleApp
@@ -297,6 +368,7 @@ deleteApplication p1 s =
 -- &AuthParams 58dc7339-f272-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteApplicationVersion'
+
 deleteApplicationVersion :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -309,7 +381,8 @@ deleteApplicationVersion :: ( MonadCatch m
 deleteApplicationVersion p1 p2 s =
     send $ (mkDeleteApplicationVersion p1 p2) &~ s
 
--- | Deletes the specified configuration template. When you launch an
+-- $DeleteConfigurationTemplate
+-- Deletes the specified configuration template. When you launch an
 -- environment using a configuration template, the environment gets a copy of
 -- the template. You can delete or modify the environment's copy of the
 -- template without affecting the running environment.
@@ -318,6 +391,7 @@ deleteApplicationVersion p1 p2 s =
 -- &AuthParams af9cf1b6-f25e-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteConfigurationTemplate'
+
 deleteConfigurationTemplate :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -330,7 +404,8 @@ deleteConfigurationTemplate :: ( MonadCatch m
 deleteConfigurationTemplate p1 p2 s =
     send $ (mkDeleteConfigurationTemplate p1 p2) &~ s
 
--- | Deletes the draft configuration associated with the running environment.
+-- $DeleteEnvironmentConfiguration
+-- Deletes the draft configuration associated with the running environment.
 -- Updating a running environment with any configuration changes creates a
 -- draft configuration set. You can get the draft configuration using
 -- DescribeConfigurationSettings while the update is in progress or if the
@@ -342,6 +417,7 @@ deleteConfigurationTemplate p1 p2 s =
 -- &AuthParams fdf76507-f26d-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.DeleteEnvironmentConfiguration'
+
 deleteEnvironmentConfiguration :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
@@ -354,13 +430,15 @@ deleteEnvironmentConfiguration :: ( MonadCatch m
 deleteEnvironmentConfiguration p1 p2 s =
     send $ (mkDeleteEnvironmentConfiguration p1 p2) &~ s
 
--- | Returns descriptions for existing application versions.
+-- $DescribeApplicationVersions
+-- Returns descriptions for existing application versions.
 -- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationName=SampleApp
 -- &Operation=DescribeApplicationVersions &AuthParams amazonaws.com sample.war
 -- Version1 description SampleApp 2010-11-17T03:21:59.161Z
 -- 2010-11-17T03:21:59.161Z 773cd80a-f26c-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeApplicationVersions'
+
 describeApplicationVersions :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -371,13 +449,15 @@ describeApplicationVersions :: ( MonadCatch m
 describeApplicationVersions s =
     send (mkDescribeApplicationVersions &~ s)
 
--- | Returns the descriptions of existing applications.
+-- $DescribeApplications
+-- Returns the descriptions of existing applications.
 -- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationNames.member.1=SampleApplication
 -- &Operation=DescribeApplications &AuthParams Sample Description
 -- SampleApplication 2010-11-16T20:20:51.974Z 2010-11-16T20:20:51.974Z Default
 -- 577c70ff-f1d7-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeApplications'
+
 describeApplications :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -388,7 +468,8 @@ describeApplications :: ( MonadCatch m
 describeApplications s =
     send (mkDescribeApplications &~ s)
 
--- | Describes the configuration options that are used in a particular
+-- $DescribeConfigurationOptions
+-- Describes the configuration options that are used in a particular
 -- configuration template or environment, or that a specified solution stack
 -- defines. The description includes the values the options, their default
 -- values, and an indication of the required action on a running environment
@@ -465,6 +546,7 @@ describeApplications s =
 -- e8768900-f272-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeConfigurationOptions'
+
 describeConfigurationOptions :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
@@ -475,7 +557,8 @@ describeConfigurationOptions :: ( MonadCatch m
 describeConfigurationOptions s =
     send (mkDescribeConfigurationOptions &~ s)
 
--- | Returns a description of the settings for the specified configuration set,
+-- $DescribeConfigurationSettings
+-- Returns a description of the settings for the specified configuration set,
 -- that is, either a configuration template or the configuration set
 -- associated with a running environment. When describing the settings for the
 -- configuration set associated with a running environment, it is possible to
@@ -528,6 +611,7 @@ describeConfigurationOptions s =
 -- 4bde8884-f273-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeConfigurationSettings'
+
 describeConfigurationSettings :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
@@ -539,7 +623,8 @@ describeConfigurationSettings :: ( MonadCatch m
 describeConfigurationSettings p1 s =
     send $ (mkDescribeConfigurationSettings p1) &~ s
 
--- | Returns AWS resources for this environment.
+-- $DescribeEnvironmentResources
+-- Returns AWS resources for this environment.
 -- https://elasticbeanstalk.us-east-1.amazon.com/?EnvironmentId=e-hc8mvnayrx
 -- &EnvironmentName=SampleAppVersion &Operation=DescribeEnvironmentResources
 -- &AuthParams elasticbeanstalk-SampleAppVersion
@@ -549,6 +634,7 @@ describeConfigurationSettings p1 s =
 -- e1cb7b96-f287-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEnvironmentResources'
+
 describeEnvironmentResources :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
@@ -559,7 +645,8 @@ describeEnvironmentResources :: ( MonadCatch m
 describeEnvironmentResources s =
     send (mkDescribeEnvironmentResources &~ s)
 
--- | Returns descriptions for existing environments.
+-- $DescribeEnvironments
+-- Returns descriptions for existing environments.
 -- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationName=SampleApp
 -- &IncludeDeleted=true &IncludedDeletedBackTo=2008-11-05T06%3A00%3A00Z
 -- &Operation=DescribeEnvironments &AuthParams Version1 Available SampleApp
@@ -569,6 +656,7 @@ describeEnvironmentResources s =
 -- SampleApp 2010-11-17T03:59:33.520Z 44790c68-f260-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEnvironments'
+
 describeEnvironments :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -579,7 +667,8 @@ describeEnvironments :: ( MonadCatch m
 describeEnvironments s =
     send (mkDescribeEnvironments &~ s)
 
--- | Returns list of event descriptions matching criteria up to the last 6
+-- $DescribeEvents
+-- Returns list of event descriptions matching criteria up to the last 6
 -- weeks. This action returns the most recent 1,000 events from the specified
 -- NextToken.
 -- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationName=SampleApp
@@ -597,6 +686,7 @@ describeEnvironments s =
 -- f10d02dd-f288-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.DescribeEvents'
+
 describeEvents :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -607,13 +697,15 @@ describeEvents :: ( MonadCatch m
 describeEvents s =
     paginate (mkDescribeEvents &~ s)
 
--- | Returns a list of the available solution stack names.
+-- $ListAvailableSolutionStacks
+-- Returns a list of the available solution stack names.
 -- https://elasticbeanstalk.us-east-1.amazon.com/?Operation=ListAvailableSolutionStacks
 -- &AuthParams 64bit Amazon Linux running Tomcat 6 32bit Amazon Linux running
 -- Tomcat 6 64bit Amazon Linux running Tomcat 7 32bit Amazon Linux running
 -- Tomcat 7 f21e2a92-f1fc-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.ListAvailableSolutionStacks'
+
 listAvailableSolutionStacks :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -624,7 +716,8 @@ listAvailableSolutionStacks :: ( MonadCatch m
 listAvailableSolutionStacks s =
     send (mkListAvailableSolutionStacks &~ s)
 
--- | Deletes and recreates all of the AWS resources (for example: the Auto
+-- $RebuildEnvironment
+-- Deletes and recreates all of the AWS resources (for example: the Auto
 -- Scaling group, load balancer, etc.) for a specified environment and forces
 -- a restart.
 -- https://elasticbeanstalk.us-east-1.amazon.com/?EnvironmentId=e-hc8mvnayrx
@@ -632,6 +725,7 @@ listAvailableSolutionStacks s =
 -- a7d6606e-f289-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.RebuildEnvironment'
+
 rebuildEnvironment :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -642,7 +736,8 @@ rebuildEnvironment :: ( MonadCatch m
 rebuildEnvironment s =
     send (mkRebuildEnvironment &~ s)
 
--- | Initiates a request to compile the specified type of information of the
+-- $RequestEnvironmentInfo
+-- Initiates a request to compile the specified type of information of the
 -- deployed environment. Setting the InfoType to tail compiles the last lines
 -- from the application server log files of every Amazon EC2 instance in your
 -- environment. Use RetrieveEnvironmentInfo to access the compiled
@@ -653,6 +748,7 @@ rebuildEnvironment s =
 -- 126a4ff3-f28a-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.RequestEnvironmentInfo'
+
 requestEnvironmentInfo :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -664,13 +760,15 @@ requestEnvironmentInfo :: ( MonadCatch m
 requestEnvironmentInfo p3 s =
     send $ (mkRequestEnvironmentInfo p3) &~ s
 
--- | Causes the environment to restart the application container server running
+-- $RestartAppServer
+-- Causes the environment to restart the application container server running
 -- on each Amazon EC2 instance.
 -- https://elasticbeanstalk.us-east-1.amazon.com/?EnvironmentId=e-hc8mvnayrx
 -- &EnvironmentName=SampleAppVersion &Operation=RestartAppServer &AuthParams
 -- 90e8d1d5-f28a-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.RestartAppServer'
+
 restartAppServer :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -681,7 +779,8 @@ restartAppServer :: ( MonadCatch m
 restartAppServer s =
     send (mkRestartAppServer &~ s)
 
--- | Retrieves the compiled information from a RequestEnvironmentInfo request.
+-- $RetrieveEnvironmentInfo
+-- Retrieves the compiled information from a RequestEnvironmentInfo request.
 -- Related Topics RequestEnvironmentInfo
 -- https://elasticbeanstalk.us-east-1.amazon.com/?EnvironmentId=e-hc8mvnayrx
 -- &EnvironmentName=SampleAppVersion &InfoType=tail
@@ -691,6 +790,7 @@ restartAppServer s =
 -- e8e785c9-f28a-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.RetrieveEnvironmentInfo'
+
 retrieveEnvironmentInfo :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -702,12 +802,14 @@ retrieveEnvironmentInfo :: ( MonadCatch m
 retrieveEnvironmentInfo p3 s =
     send $ (mkRetrieveEnvironmentInfo p3) &~ s
 
--- | Swaps the CNAMEs of two environments.
+-- $SwapEnvironmentCNAMEs
+-- Swaps the CNAMEs of two environments.
 -- https://elasticbeanstalk.us-east-1.amazon.com/?SourceEnvironmentName=SampleApp
 -- &DestinationEnvironmentName=SampleApp2 &Operation=SwapEnvironmentCNAMEs
 -- &AuthParams f4e1b145-9080-11e0-8e5a-a558e0ce1fc4.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.SwapEnvironmentCNAMEs'
+
 swapEnvironmentCNAMEs :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -718,7 +820,8 @@ swapEnvironmentCNAMEs :: ( MonadCatch m
 swapEnvironmentCNAMEs s =
     send (mkSwapEnvironmentCNAMEs &~ s)
 
--- | Terminates the specified environment.
+-- $TerminateEnvironment
+-- Terminates the specified environment.
 -- https://elasticbeanstalk.us-east-1.amazon.com/?EnvironmentId=e-icsgecu3wf
 -- &EnvironmentName=SampleApp &TerminateResources=true
 -- &Operation=TerminateEnvironment &AuthParams Version1 Terminating SampleApp
@@ -728,6 +831,7 @@ swapEnvironmentCNAMEs s =
 -- SampleApp 2010-11-17T03:59:33.520Z 9b71af21-f26d-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.TerminateEnvironment'
+
 terminateEnvironment :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -738,7 +842,8 @@ terminateEnvironment :: ( MonadCatch m
 terminateEnvironment s =
     send (mkTerminateEnvironment &~ s)
 
--- | Updates the specified application to have the specified properties. If a
+-- $UpdateApplication
+-- Updates the specified application to have the specified properties. If a
 -- property (for example, description) is not provided, the value remains
 -- unchanged. To clear these properties, specify an empty string.
 -- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationName=SampleApp
@@ -747,6 +852,7 @@ terminateEnvironment s =
 -- 2010-11-17T20:42:54.611Z Default 40be666b-f28b-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateApplication'
+
 updateApplication :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -758,7 +864,8 @@ updateApplication :: ( MonadCatch m
 updateApplication p1 s =
     send $ (mkUpdateApplication p1) &~ s
 
--- | Updates the specified application version to have the specified properties.
+-- $UpdateApplicationVersion
+-- Updates the specified application version to have the specified properties.
 -- If a property (for example, description) is not provided, the value remains
 -- unchanged. To clear properties, specify an empty string.
 -- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationName=SampleApp
@@ -768,6 +875,7 @@ updateApplication p1 s =
 -- 2010-11-17T20:48:16.632Z 00b10aa1-f28c-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateApplicationVersion'
+
 updateApplicationVersion :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -780,7 +888,8 @@ updateApplicationVersion :: ( MonadCatch m
 updateApplicationVersion p1 p2 s =
     send $ (mkUpdateApplicationVersion p1 p2) &~ s
 
--- | Updates the specified configuration template to have the specified
+-- $UpdateConfigurationTemplate
+-- Updates the specified configuration template to have the specified
 -- properties or configuration option values. If a property (for example,
 -- ApplicationName) is not provided, its value remains unchanged. To clear
 -- such properties, specify an empty string. Related Topics
@@ -830,6 +939,7 @@ updateApplicationVersion p1 p2 s =
 -- 6cbcb09a-f28d-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateConfigurationTemplate'
+
 updateConfigurationTemplate :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -842,7 +952,8 @@ updateConfigurationTemplate :: ( MonadCatch m
 updateConfigurationTemplate p1 p2 s =
     send $ (mkUpdateConfigurationTemplate p1 p2) &~ s
 
--- | Updates the environment description, deploys a new application version,
+-- $UpdateEnvironment
+-- Updates the environment description, deploys a new application version,
 -- updates the configuration settings to an entirely new configuration
 -- template, or updates select configuration option values in the running
 -- environment. Attempting to update both the release and configuration is not
@@ -863,6 +974,7 @@ updateConfigurationTemplate p1 p2 s =
 -- 7705f0bc-f28e-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.UpdateEnvironment'
+
 updateEnvironment :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -873,7 +985,8 @@ updateEnvironment :: ( MonadCatch m
 updateEnvironment s =
     send (mkUpdateEnvironment &~ s)
 
--- | Takes a set of configuration settings and either a configuration template
+-- $ValidateConfigurationSettings
+-- Takes a set of configuration settings and either a configuration template
 -- or environment, and determines whether those values are valid. This action
 -- returns a list of messages indicating any errors or warnings associated
 -- with the selection of option values.
@@ -886,6 +999,7 @@ updateEnvironment s =
 -- 06f1cfff-f28f-11df-8a78-9f77047e0d0c.
 --
 -- See: 'Network.AWS.ElasticBeanstalk.V2010_12_01.ValidateConfigurationSettings'
+
 validateConfigurationSettings :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m

@@ -23,48 +23,84 @@
 module Network.AWS.Route53.V2013_04_01.Trans
     (
     -- * ChangeResourceRecordSets
+    -- $ChangeResourceRecordSets
       changeResourceRecordSets
+
     -- * ChangeTagsForResource
+    -- $ChangeTagsForResource
     , changeTagsForResource
+
     -- * CreateHealthCheck
+    -- $CreateHealthCheck
     , createHealthCheck
+
     -- * CreateHostedZone
+    -- $CreateHostedZone
     , createHostedZone
+
     -- * DeleteHealthCheck
+    -- $DeleteHealthCheck
     , deleteHealthCheck
+
     -- * DeleteHostedZone
+    -- $DeleteHostedZone
     , deleteHostedZone
+
     -- * GetChange
+    -- $GetChange
     , getChange
+
     -- * GetCheckerIpRanges
+    -- $GetCheckerIpRanges
     , getCheckerIpRanges
+
     -- * GetGeoLocation
+    -- $GetGeoLocation
     , getGeoLocation
+
     -- * GetHealthCheck
+    -- $GetHealthCheck
     , getHealthCheck
+
     -- * GetHealthCheckCount
+    -- $GetHealthCheckCount
     , getHealthCheckCount
+
     -- * GetHostedZone
+    -- $GetHostedZone
     , getHostedZone
+
     -- * ListGeoLocations
+    -- $ListGeoLocations
     , listGeoLocations
+
     -- * ListHealthChecks
+    -- $ListHealthChecks
     , listHealthChecks
+
     -- * ListHostedZones
+    -- $ListHostedZones
     , listHostedZones
+
     -- * ListResourceRecordSets
+    -- $ListResourceRecordSets
     , listResourceRecordSets
+
     -- * ListTagsForResource
+    -- $ListTagsForResource
     , listTagsForResource
+
     -- * ListTagsForResources
+    -- $ListTagsForResources
     , listTagsForResources
+
     -- * UpdateHealthCheck
+    -- $UpdateHealthCheck
     , updateHealthCheck
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.Route53.V2013_04_01
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -75,7 +111,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.Route53.V2013_04_01
 
--- | Use this action to create or change your authoritative DNS information. To
+-- $ChangeResourceRecordSets
+-- Use this action to create or change your authoritative DNS information. To
 -- use this action, send a POST request to the 2013-04-01/hostedzone/hosted
 -- Zone ID/rrset resource. The request body must include an XML document with
 -- a ChangeResourceRecordSetsRequest element. Changes are a list of change
@@ -97,6 +134,7 @@ import Network.AWS.Route53.V2013_04_01
 -- Value elements in a request cannot exceed 32,000 characters.
 --
 -- See: 'Network.AWS.Route53.V2013_04_01.ChangeResourceRecordSets'
+
 changeResourceRecordSets :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -109,7 +147,9 @@ changeResourceRecordSets :: ( MonadCatch m
 changeResourceRecordSets p1 p2 s =
     send $ (mkChangeResourceRecordSets p1 p2) &~ s
 
--- | See: 'Network.AWS.Route53.V2013_04_01.ChangeTagsForResource'
+-- $ChangeTagsForResource
+-- See: 'Network.AWS.Route53.V2013_04_01.ChangeTagsForResource'
+
 changeTagsForResource :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -122,13 +162,15 @@ changeTagsForResource :: ( MonadCatch m
 changeTagsForResource p1 p2 s =
     send $ (mkChangeTagsForResource p1 p2) &~ s
 
--- | This action creates a new health check. To create a new health check, send
+-- $CreateHealthCheck
+-- This action creates a new health check. To create a new health check, send
 -- a POST request to the 2013-04-01/healthcheck resource. The request body
 -- must include an XML document with a CreateHealthCheckRequest element. The
 -- response returns the CreateHealthCheckResponse element that contains
 -- metadata about the health check.
 --
 -- See: 'Network.AWS.Route53.V2013_04_01.CreateHealthCheck'
+
 createHealthCheck :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -141,7 +183,8 @@ createHealthCheck :: ( MonadCatch m
 createHealthCheck p1 p2 s =
     send $ (mkCreateHealthCheck p1 p2) &~ s
 
--- | This action creates a new hosted zone. To create a new hosted zone, send a
+-- $CreateHostedZone
+-- This action creates a new hosted zone. To create a new hosted zone, send a
 -- POST request to the 2013-04-01/hostedzone resource. The request body must
 -- include an XML document with a CreateHostedZoneRequest element. The
 -- response returns the CreateHostedZoneResponse element that contains
@@ -156,6 +199,7 @@ createHealthCheck p1 p2 s =
 -- DNS servers.
 --
 -- See: 'Network.AWS.Route53.V2013_04_01.CreateHostedZone'
+
 createHostedZone :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -168,7 +212,8 @@ createHostedZone :: ( MonadCatch m
 createHostedZone p1 p2 s =
     send $ (mkCreateHostedZone p1 p2) &~ s
 
--- | This action deletes a health check. To delete a health check, send a DELETE
+-- $DeleteHealthCheck
+-- This action deletes a health check. To delete a health check, send a DELETE
 -- request to the 2013-04-01/healthcheck/health check ID resource. You can
 -- delete a health check only if there are no resource record sets associated
 -- with this health check. If resource record sets are associated with this
@@ -179,6 +224,7 @@ createHostedZone p1 p2 s =
 -- see ChangeResourceRecordSets.
 --
 -- See: 'Network.AWS.Route53.V2013_04_01.DeleteHealthCheck'
+
 deleteHealthCheck :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -190,7 +236,8 @@ deleteHealthCheck :: ( MonadCatch m
 deleteHealthCheck p1 s =
     send $ (mkDeleteHealthCheck p1) &~ s
 
--- | This action deletes a hosted zone. To delete a hosted zone, send a DELETE
+-- $DeleteHostedZone
+-- This action deletes a hosted zone. To delete a hosted zone, send a DELETE
 -- request to the 2013-04-01/hostedzone/hosted zone ID resource. For more
 -- information about deleting a hosted zone, see Deleting a Hosted Zone in the
 -- Amazon Route 53 Developer Guide. You can delete a hosted zone only if there
@@ -202,6 +249,7 @@ deleteHealthCheck p1 s =
 -- about deleting records from your hosted zone, see ChangeResourceRecordSets.
 --
 -- See: 'Network.AWS.Route53.V2013_04_01.DeleteHostedZone'
+
 deleteHostedZone :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -213,13 +261,15 @@ deleteHostedZone :: ( MonadCatch m
 deleteHostedZone p1 s =
     send $ (mkDeleteHostedZone p1) &~ s
 
--- | This action returns the current status of a change batch request. The
+-- $GetChange
+-- This action returns the current status of a change batch request. The
 -- status is one of the following values: - PENDING indicates that the changes
 -- in this request have not replicated to all Route 53 DNS servers. This is
 -- the initial status of all change batch requests. - INSYNC indicates that
 -- the changes have replicated to all Amazon Route 53 DNS servers.
 --
 -- See: 'Network.AWS.Route53.V2013_04_01.GetChange'
+
 getChange :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -231,13 +281,15 @@ getChange :: ( MonadCatch m
 getChange p1 s =
     send $ (mkGetChange p1) &~ s
 
--- | To retrieve a list of the IP ranges used by Amazon Route 53 health checkers
+-- $GetCheckerIpRanges
+-- To retrieve a list of the IP ranges used by Amazon Route 53 health checkers
 -- to check the health of your resources, send a GET request to the
 -- 2013-04-01/checkeripranges resource. You can use these IP addresses to
 -- configure router and firewall rules to allow health checkers to check the
 -- health of your resources.
 --
 -- See: 'Network.AWS.Route53.V2013_04_01.GetCheckerIpRanges'
+
 getCheckerIpRanges :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -248,7 +300,9 @@ getCheckerIpRanges :: ( MonadCatch m
 getCheckerIpRanges s =
     send (mkGetCheckerIpRanges &~ s)
 
--- | See: 'Network.AWS.Route53.V2013_04_01.GetGeoLocation'
+-- $GetGeoLocation
+-- See: 'Network.AWS.Route53.V2013_04_01.GetGeoLocation'
+
 getGeoLocation :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -259,10 +313,12 @@ getGeoLocation :: ( MonadCatch m
 getGeoLocation s =
     send (mkGetGeoLocation &~ s)
 
--- | To retrieve the health check, send a GET request to the
+-- $GetHealthCheck
+-- To retrieve the health check, send a GET request to the
 -- 2013-04-01/healthcheck/health check ID resource.
 --
 -- See: 'Network.AWS.Route53.V2013_04_01.GetHealthCheck'
+
 getHealthCheck :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -274,10 +330,12 @@ getHealthCheck :: ( MonadCatch m
 getHealthCheck p1 s =
     send $ (mkGetHealthCheck p1) &~ s
 
--- | To retrieve a count of all your health checks, send a GET request to the
+-- $GetHealthCheckCount
+-- To retrieve a count of all your health checks, send a GET request to the
 -- 2013-04-01/healthcheckcount resource.
 --
 -- See: 'Network.AWS.Route53.V2013_04_01.GetHealthCheckCount'
+
 getHealthCheckCount :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -288,12 +346,14 @@ getHealthCheckCount :: ( MonadCatch m
 getHealthCheckCount s =
     send (mkGetHealthCheckCount &~ s)
 
--- | To retrieve the delegation set for a hosted zone, send a GET request to the
+-- $GetHostedZone
+-- To retrieve the delegation set for a hosted zone, send a GET request to the
 -- 2013-04-01/hostedzone/hosted zone ID resource. The delegation set is the
 -- four Route 53 name servers that were assigned to the hosted zone when you
 -- created it.
 --
 -- See: 'Network.AWS.Route53.V2013_04_01.GetHostedZone'
+
 getHostedZone :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -305,7 +365,9 @@ getHostedZone :: ( MonadCatch m
 getHostedZone p1 s =
     send $ (mkGetHostedZone p1) &~ s
 
--- | See: 'Network.AWS.Route53.V2013_04_01.ListGeoLocations'
+-- $ListGeoLocations
+-- See: 'Network.AWS.Route53.V2013_04_01.ListGeoLocations'
+
 listGeoLocations :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -316,7 +378,8 @@ listGeoLocations :: ( MonadCatch m
 listGeoLocations s =
     send (mkListGeoLocations &~ s)
 
--- | To retrieve a list of your health checks, send a GET request to the
+-- $ListHealthChecks
+-- To retrieve a list of your health checks, send a GET request to the
 -- 2013-04-01/healthcheck resource. The response to this request includes a
 -- HealthChecks element with zero, one, or multiple HealthCheck child
 -- elements. By default, the list of health checks is displayed on a single
@@ -327,6 +390,7 @@ listGeoLocations s =
 -- returns only the first 100.
 --
 -- See: 'Network.AWS.Route53.V2013_04_01.ListHealthChecks'
+
 listHealthChecks :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -337,7 +401,8 @@ listHealthChecks :: ( MonadCatch m
 listHealthChecks s =
     paginate (mkListHealthChecks &~ s)
 
--- | To retrieve a list of your hosted zones, send a GET request to the
+-- $ListHostedZones
+-- To retrieve a list of your hosted zones, send a GET request to the
 -- 2013-04-01/hostedzone resource. The response to this request includes a
 -- HostedZones element with zero, one, or multiple HostedZone child elements.
 -- By default, the list of hosted zones is displayed on a single page. You can
@@ -348,6 +413,7 @@ listHealthChecks s =
 -- the first 100.
 --
 -- See: 'Network.AWS.Route53.V2013_04_01.ListHostedZones'
+
 listHostedZones :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -358,7 +424,8 @@ listHostedZones :: ( MonadCatch m
 listHostedZones s =
     paginate (mkListHostedZones &~ s)
 
--- | Imagine all the resource record sets in a zone listed out in front of you.
+-- $ListResourceRecordSets
+-- Imagine all the resource record sets in a zone listed out in front of you.
 -- Imagine them sorted lexicographically first by DNS name (with the labels
 -- reversed, like "com.amazon.www" for example), and secondarily,
 -- lexicographically by record type. This operation retrieves at most MaxItems
@@ -392,6 +459,7 @@ listHostedZones s =
 -- subsequent call to ListResourceRecordSets by that process.
 --
 -- See: 'Network.AWS.Route53.V2013_04_01.ListResourceRecordSets'
+
 listResourceRecordSets :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -403,7 +471,9 @@ listResourceRecordSets :: ( MonadCatch m
 listResourceRecordSets p1 s =
     paginate $ (mkListResourceRecordSets p1) &~ s
 
--- | See: 'Network.AWS.Route53.V2013_04_01.ListTagsForResource'
+-- $ListTagsForResource
+-- See: 'Network.AWS.Route53.V2013_04_01.ListTagsForResource'
+
 listTagsForResource :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -416,7 +486,9 @@ listTagsForResource :: ( MonadCatch m
 listTagsForResource p1 p2 s =
     send $ (mkListTagsForResource p1 p2) &~ s
 
--- | See: 'Network.AWS.Route53.V2013_04_01.ListTagsForResources'
+-- $ListTagsForResources
+-- See: 'Network.AWS.Route53.V2013_04_01.ListTagsForResources'
+
 listTagsForResources :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -429,7 +501,8 @@ listTagsForResources :: ( MonadCatch m
 listTagsForResources p1 p2 s =
     send $ (mkListTagsForResources p1 p2) &~ s
 
--- | This action updates an existing health check. To update a health check,
+-- $UpdateHealthCheck
+-- This action updates an existing health check. To update a health check,
 -- send a POST request to the 2013-05-27/healthcheck/health check ID resource.
 -- The request body must include an XML document with an
 -- UpdateHealthCheckRequest element. The response returns an
@@ -437,6 +510,7 @@ listTagsForResources p1 p2 s =
 -- check.
 --
 -- See: 'Network.AWS.Route53.V2013_04_01.UpdateHealthCheck'
+
 updateHealthCheck :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m

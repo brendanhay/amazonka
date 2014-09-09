@@ -22,24 +22,36 @@
 module Network.AWS.CloudTrail.V2013_11_01.Trans
     (
     -- * CreateTrail
+    -- $CreateTrail
       createTrail
+
     -- * DeleteTrail
+    -- $DeleteTrail
     , deleteTrail
+
     -- * DescribeTrails
+    -- $DescribeTrails
     , describeTrails
+
     -- * GetTrailStatus
+    -- $GetTrailStatus
     , getTrailStatus
+
     -- * StartLogging
+    -- $StartLogging
     , startLogging
+
     -- * StopLogging
+    -- $StopLogging
     , stopLogging
+
     -- * UpdateTrail
+    -- $UpdateTrail
     , updateTrail
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.CloudTrail.V2013_11_01
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -50,10 +62,12 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CloudTrail.V2013_11_01
 
--- | From the command line, use create-subscription. Creates a trail that
+-- $CreateTrail
+-- From the command line, use create-subscription. Creates a trail that
 -- specifies the settings for delivery of log data to an Amazon S3 bucket.
 --
 -- See: 'Network.AWS.CloudTrail.V2013_11_01.CreateTrail'
+
 createTrail :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -66,9 +80,11 @@ createTrail :: ( MonadCatch m
 createTrail p1 p2 s =
     send $ (mkCreateTrail p1 p2) &~ s
 
--- | Deletes a trail.
+-- $DeleteTrail
+-- Deletes a trail.
 --
 -- See: 'Network.AWS.CloudTrail.V2013_11_01.DeleteTrail'
+
 deleteTrail :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -80,10 +96,12 @@ deleteTrail :: ( MonadCatch m
 deleteTrail p1 s =
     send $ (mkDeleteTrail p1) &~ s
 
--- | Retrieves settings for the trail associated with the current region for
+-- $DescribeTrails
+-- Retrieves settings for the trail associated with the current region for
 -- your account.
 --
 -- See: 'Network.AWS.CloudTrail.V2013_11_01.DescribeTrails'
+
 describeTrails :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -94,11 +112,13 @@ describeTrails :: ( MonadCatch m
 describeTrails s =
     send (mkDescribeTrails &~ s)
 
--- | Returns a JSON-formatted list of information about the specified trail.
+-- $GetTrailStatus
+-- Returns a JSON-formatted list of information about the specified trail.
 -- Fields include information on delivery errors, Amazon SNS and Amazon S3
 -- errors, and start and stop logging times for each trail.
 --
 -- See: 'Network.AWS.CloudTrail.V2013_11_01.GetTrailStatus'
+
 getTrailStatus :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -110,9 +130,11 @@ getTrailStatus :: ( MonadCatch m
 getTrailStatus p1 s =
     send $ (mkGetTrailStatus p1) &~ s
 
--- | Starts the recording of AWS API calls and log file delivery for a trail.
+-- $StartLogging
+-- Starts the recording of AWS API calls and log file delivery for a trail.
 --
 -- See: 'Network.AWS.CloudTrail.V2013_11_01.StartLogging'
+
 startLogging :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -124,12 +146,14 @@ startLogging :: ( MonadCatch m
 startLogging p1 s =
     send $ (mkStartLogging p1) &~ s
 
--- | Suspends the recording of AWS API calls and log file delivery for the
+-- $StopLogging
+-- Suspends the recording of AWS API calls and log file delivery for the
 -- specified trail. Under most circumstances, there is no need to use this
 -- action. You can update a trail without stopping it first. This action is
 -- the only way to stop recording.
 --
 -- See: 'Network.AWS.CloudTrail.V2013_11_01.StopLogging'
+
 stopLogging :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -141,13 +165,15 @@ stopLogging :: ( MonadCatch m
 stopLogging p1 s =
     send $ (mkStopLogging p1) &~ s
 
--- | From the command line, use update-subscription. Updates the settings that
+-- $UpdateTrail
+-- From the command line, use update-subscription. Updates the settings that
 -- specify delivery of log files. Changes to a trail do not require stopping
 -- the CloudTrail service. Use this action to designate an existing bucket for
 -- log delivery. If the existing bucket has previously been a target for
 -- CloudTrail log files, an IAM policy exists for the bucket.
 --
 -- See: 'Network.AWS.CloudTrail.V2013_11_01.UpdateTrail'
+
 updateTrail :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m

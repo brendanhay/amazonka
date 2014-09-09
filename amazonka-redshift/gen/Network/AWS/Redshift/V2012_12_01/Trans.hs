@@ -23,116 +23,220 @@
 module Network.AWS.Redshift.V2012_12_01.Trans
     (
     -- * AuthorizeClusterSecurityGroupIngress
+    -- $AuthorizeClusterSecurityGroupIngress
       authorizeClusterSecurityGroupIngress
+
     -- * AuthorizeSnapshotAccess
+    -- $AuthorizeSnapshotAccess
     , authorizeSnapshotAccess
+
     -- * CopyClusterSnapshot
+    -- $CopyClusterSnapshot
     , copyClusterSnapshot
+
     -- * CreateCluster
+    -- $CreateCluster
     , createCluster
+
     -- * CreateClusterParameterGroup
+    -- $CreateClusterParameterGroup
     , createClusterParameterGroup
+
     -- * CreateClusterSecurityGroup
+    -- $CreateClusterSecurityGroup
     , createClusterSecurityGroup
+
     -- * CreateClusterSnapshot
+    -- $CreateClusterSnapshot
     , createClusterSnapshot
+
     -- * CreateClusterSubnetGroup
+    -- $CreateClusterSubnetGroup
     , createClusterSubnetGroup
+
     -- * CreateEventSubscription
+    -- $CreateEventSubscription
     , createEventSubscription
+
     -- * CreateHsmClientCertificate
+    -- $CreateHsmClientCertificate
     , createHsmClientCertificate
+
     -- * CreateHsmConfiguration
+    -- $CreateHsmConfiguration
     , createHsmConfiguration
+
     -- * DeleteCluster
+    -- $DeleteCluster
     , deleteCluster
+
     -- * DeleteClusterParameterGroup
+    -- $DeleteClusterParameterGroup
     , deleteClusterParameterGroup
+
     -- * DeleteClusterSecurityGroup
+    -- $DeleteClusterSecurityGroup
     , deleteClusterSecurityGroup
+
     -- * DeleteClusterSnapshot
+    -- $DeleteClusterSnapshot
     , deleteClusterSnapshot
+
     -- * DeleteClusterSubnetGroup
+    -- $DeleteClusterSubnetGroup
     , deleteClusterSubnetGroup
+
     -- * DeleteEventSubscription
+    -- $DeleteEventSubscription
     , deleteEventSubscription
+
     -- * DeleteHsmClientCertificate
+    -- $DeleteHsmClientCertificate
     , deleteHsmClientCertificate
+
     -- * DeleteHsmConfiguration
+    -- $DeleteHsmConfiguration
     , deleteHsmConfiguration
+
     -- * DescribeClusterParameterGroups
+    -- $DescribeClusterParameterGroups
     , describeClusterParameterGroups
+
     -- * DescribeClusterParameters
+    -- $DescribeClusterParameters
     , describeClusterParameters
+
     -- * DescribeClusterSecurityGroups
+    -- $DescribeClusterSecurityGroups
     , describeClusterSecurityGroups
+
     -- * DescribeClusterSnapshots
+    -- $DescribeClusterSnapshots
     , describeClusterSnapshots
+
     -- * DescribeClusterSubnetGroups
+    -- $DescribeClusterSubnetGroups
     , describeClusterSubnetGroups
+
     -- * DescribeClusterVersions
+    -- $DescribeClusterVersions
     , describeClusterVersions
+
     -- * DescribeClusters
+    -- $DescribeClusters
     , describeClusters
+
     -- * DescribeDefaultClusterParameters
+    -- $DescribeDefaultClusterParameters
     , describeDefaultClusterParameters
+
     -- * DescribeEventCategories
+    -- $DescribeEventCategories
     , describeEventCategories
+
     -- * DescribeEventSubscriptions
+    -- $DescribeEventSubscriptions
     , describeEventSubscriptions
+
     -- * DescribeEvents
+    -- $DescribeEvents
     , describeEvents
+
     -- * DescribeHsmClientCertificates
+    -- $DescribeHsmClientCertificates
     , describeHsmClientCertificates
+
     -- * DescribeHsmConfigurations
+    -- $DescribeHsmConfigurations
     , describeHsmConfigurations
+
     -- * DescribeLoggingStatus
+    -- $DescribeLoggingStatus
     , describeLoggingStatus
+
     -- * DescribeOrderableClusterOptions
+    -- $DescribeOrderableClusterOptions
     , describeOrderableClusterOptions
+
     -- * DescribeReservedNodeOfferings
+    -- $DescribeReservedNodeOfferings
     , describeReservedNodeOfferings
+
     -- * DescribeReservedNodes
+    -- $DescribeReservedNodes
     , describeReservedNodes
+
     -- * DescribeResize
+    -- $DescribeResize
     , describeResize
+
     -- * DisableLogging
+    -- $DisableLogging
     , disableLogging
+
     -- * DisableSnapshotCopy
+    -- $DisableSnapshotCopy
     , disableSnapshotCopy
+
     -- * EnableLogging
+    -- $EnableLogging
     , enableLogging
+
     -- * EnableSnapshotCopy
+    -- $EnableSnapshotCopy
     , enableSnapshotCopy
+
     -- * ModifyCluster
+    -- $ModifyCluster
     , modifyCluster
+
     -- * ModifyClusterParameterGroup
+    -- $ModifyClusterParameterGroup
     , modifyClusterParameterGroup
+
     -- * ModifyClusterSubnetGroup
+    -- $ModifyClusterSubnetGroup
     , modifyClusterSubnetGroup
+
     -- * ModifyEventSubscription
+    -- $ModifyEventSubscription
     , modifyEventSubscription
+
     -- * ModifySnapshotCopyRetentionPeriod
+    -- $ModifySnapshotCopyRetentionPeriod
     , modifySnapshotCopyRetentionPeriod
+
     -- * PurchaseReservedNodeOffering
+    -- $PurchaseReservedNodeOffering
     , purchaseReservedNodeOffering
+
     -- * RebootCluster
+    -- $RebootCluster
     , rebootCluster
+
     -- * ResetClusterParameterGroup
+    -- $ResetClusterParameterGroup
     , resetClusterParameterGroup
+
     -- * RestoreFromClusterSnapshot
+    -- $RestoreFromClusterSnapshot
     , restoreFromClusterSnapshot
+
     -- * RevokeClusterSecurityGroupIngress
+    -- $RevokeClusterSecurityGroupIngress
     , revokeClusterSecurityGroupIngress
+
     -- * RevokeSnapshotAccess
+    -- $RevokeSnapshotAccess
     , revokeSnapshotAccess
+
     -- * RotateEncryptionKey
+    -- $RotateEncryptionKey
     , rotateEncryptionKey
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.Redshift.V2012_12_01
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -143,7 +247,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.Redshift.V2012_12_01
 
--- | Adds an inbound (ingress) rule to an Amazon Redshift security group.
+-- $AuthorizeClusterSecurityGroupIngress
+-- Adds an inbound (ingress) rule to an Amazon Redshift security group.
 -- Depending on whether the application accessing your cluster is running on
 -- the Internet or an EC2 instance, you can authorize inbound access to either
 -- a Classless Interdomain Routing (CIDR) IP address range or an EC2 security
@@ -166,6 +271,7 @@ import Network.AWS.Redshift.V2012_12_01
 -- 8c7cd4c8-6501-11e2-a8da-655adc216806.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.AuthorizeClusterSecurityGroupIngress'
+
 authorizeClusterSecurityGroupIngress :: ( MonadCatch m
                                         , MonadResource m
                                         , MonadError AWS.Error m
@@ -177,11 +283,13 @@ authorizeClusterSecurityGroupIngress :: ( MonadCatch m
 authorizeClusterSecurityGroupIngress p1 s =
     send $ (mkAuthorizeClusterSecurityGroupIngress p1) &~ s
 
--- | Authorizes the specified AWS customer account to restore the specified
+-- $AuthorizeSnapshotAccess
+-- Authorizes the specified AWS customer account to restore the specified
 -- snapshot. For more information about working with snapshots, go to Amazon
 -- Redshift Snapshots in the Amazon Redshift Management Guide.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.AuthorizeSnapshotAccess'
+
 authorizeSnapshotAccess :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -194,7 +302,8 @@ authorizeSnapshotAccess :: ( MonadCatch m
 authorizeSnapshotAccess p1 p3 s =
     send $ (mkAuthorizeSnapshotAccess p1 p3) &~ s
 
--- | Copies the specified automated cluster snapshot to a new manual cluster
+-- $CopyClusterSnapshot
+-- Copies the specified automated cluster snapshot to a new manual cluster
 -- snapshot. The source must be an automated snapshot and it must be in the
 -- available state. When you delete a cluster, Amazon Redshift deletes any
 -- automated snapshots of the cluster. Also, when the retention period of the
@@ -215,6 +324,7 @@ authorizeSnapshotAccess p1 p3 s =
 -- aebb56f5-64fe-11e2-88c5-53eb05787dfb.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.CopyClusterSnapshot'
+
 copyClusterSnapshot :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -227,7 +337,8 @@ copyClusterSnapshot :: ( MonadCatch m
 copyClusterSnapshot p1 p3 s =
     send $ (mkCopyClusterSnapshot p1 p3) &~ s
 
--- | Creates a new cluster. To create the cluster in virtual private cloud
+-- $CreateCluster
+-- Creates a new cluster. To create the cluster in virtual private cloud
 -- (VPC), you must provide cluster subnet group name. If you don't provide a
 -- cluster subnet group name or the cluster security group parameter, Amazon
 -- Redshift creates a non-VPC cluster, it associates the default cluster
@@ -257,6 +368,7 @@ copyClusterSnapshot p1 p3 s =
 -- master fa337bb4-6a4d-11e2-a12a-cb8076a904bd.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.CreateCluster'
+
 createCluster :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -271,7 +383,8 @@ createCluster :: ( MonadCatch m
 createCluster p2 p4 p5 p6 s =
     send $ (mkCreateCluster p2 p4 p5 p6) &~ s
 
--- | Creates an Amazon Redshift parameter group. Creating parameter groups is
+-- $CreateClusterParameterGroup
+-- Creates an Amazon Redshift parameter group. Creating parameter groups is
 -- independent of creating clusters. You can associate a cluster with a
 -- parameter group when you create the cluster. You can also associate an
 -- existing cluster with a parameter group after the cluster is created by
@@ -290,6 +403,7 @@ createCluster p2 p4 p5 p6 s =
 -- my parameter group parametergroup1 6d6df847-64f3-11e2-bea9-49e0ce183f07.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.CreateClusterParameterGroup'
+
 createClusterParameterGroup :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -303,7 +417,8 @@ createClusterParameterGroup :: ( MonadCatch m
 createClusterParameterGroup p1 p2 p3 s =
     send $ (mkCreateClusterParameterGroup p1 p2 p3) &~ s
 
--- | Creates a new Amazon Redshift security group. You use security groups to
+-- $CreateClusterSecurityGroup
+-- Creates a new Amazon Redshift security group. You use security groups to
 -- control access to non-VPC clusters. For information about managing security
 -- groups, go to Amazon Redshift Cluster Security Groups in the Amazon
 -- Redshift Management Guide. https://redshift.us-east-1.amazonaws.com/
@@ -316,6 +431,7 @@ createClusterParameterGroup p1 p2 p3 s =
 -- securitygroup1 f9ee270f-64f7-11e2-a8da-655adc216806.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.CreateClusterSecurityGroup'
+
 createClusterSecurityGroup :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -328,7 +444,8 @@ createClusterSecurityGroup :: ( MonadCatch m
 createClusterSecurityGroup p1 p2 s =
     send $ (mkCreateClusterSecurityGroup p1 p2) &~ s
 
--- | Creates a manual snapshot of the specified cluster. The cluster must be in
+-- $CreateClusterSnapshot
+-- Creates a manual snapshot of the specified cluster. The cluster must be in
 -- the available state. For more information about working with snapshots, go
 -- to Amazon Redshift Snapshots in the Amazon Redshift Management Guide.
 -- https://redshift.us-east-1.amazonaws.com/ ?Action=CreateClusterSnapshot
@@ -342,6 +459,7 @@ createClusterSecurityGroup p1 p2 s =
 -- 65baef14-64f9-11e2-bea9-49e0ce183f07.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.CreateClusterSnapshot'
+
 createClusterSnapshot :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -354,7 +472,8 @@ createClusterSnapshot :: ( MonadCatch m
 createClusterSnapshot p1 p2 s =
     send $ (mkCreateClusterSnapshot p1 p2) &~ s
 
--- | Creates a new Amazon Redshift subnet group. You must provide a list of one
+-- $CreateClusterSubnetGroup
+-- Creates a new Amazon Redshift subnet group. You must provide a list of one
 -- or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC)
 -- when creating Amazon Redshift subnet group. For information about subnet
 -- groups, go to Amazon Redshift Cluster Subnet Groups in the Amazon Redshift
@@ -370,6 +489,7 @@ createClusterSnapshot p1 p2 s =
 -- 0a60660f-6a4a-11e2-aad2-71d00c36728e.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.CreateClusterSubnetGroup'
+
 createClusterSubnetGroup :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -383,7 +503,8 @@ createClusterSubnetGroup :: ( MonadCatch m
 createClusterSubnetGroup p1 p2 p3 s =
     send $ (mkCreateClusterSubnetGroup p1 p2 p3) &~ s
 
--- | Creates an Amazon Redshift event notification subscription. This action
+-- $CreateEventSubscription
+-- Creates an Amazon Redshift event notification subscription. This action
 -- requires an ARN (Amazon Resource Name) of an Amazon SNS topic created by
 -- either the Amazon Redshift console, the Amazon SNS console, or the Amazon
 -- SNS API. To obtain an ARN with Amazon SNS, you must create a topic in
@@ -405,6 +526,7 @@ createClusterSubnetGroup p1 p2 p3 s =
 -- You must specify a source type if you specify a source ID.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.CreateEventSubscription'
+
 createEventSubscription :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -417,7 +539,8 @@ createEventSubscription :: ( MonadCatch m
 createEventSubscription p1 p2 s =
     send $ (mkCreateEventSubscription p1 p2) &~ s
 
--- | Creates an HSM client certificate that an Amazon Redshift cluster will use
+-- $CreateHsmClientCertificate
+-- Creates an HSM client certificate that an Amazon Redshift cluster will use
 -- to connect to the client's HSM in order to store and retrieve the keys used
 -- to encrypt the cluster databases. The command returns a public key, which
 -- you must store in the HSM. In addition to creating the HSM certificate, you
@@ -427,6 +550,7 @@ createEventSubscription p1 p2 s =
 -- Management Guide.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.CreateHsmClientCertificate'
+
 createHsmClientCertificate :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -438,7 +562,8 @@ createHsmClientCertificate :: ( MonadCatch m
 createHsmClientCertificate p1 s =
     send $ (mkCreateHsmClientCertificate p1) &~ s
 
--- | Creates an HSM configuration that contains the information required by an
+-- $CreateHsmConfiguration
+-- Creates an HSM configuration that contains the information required by an
 -- Amazon Redshift cluster to store and use database encryption keys in a
 -- Hardware Security Module (HSM). After creating the HSM configuration, you
 -- can specify it as a parameter when creating a cluster. The cluster will
@@ -448,6 +573,7 @@ createHsmClientCertificate p1 s =
 -- Management Guide.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.CreateHsmConfiguration'
+
 createHsmConfiguration :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -464,7 +590,8 @@ createHsmConfiguration :: ( MonadCatch m
 createHsmConfiguration p1 p2 p3 p4 p5 p6 s =
     send $ (mkCreateHsmConfiguration p1 p2 p3 p4 p5 p6) &~ s
 
--- | Deletes a previously provisioned cluster. A successful response from the
+-- $DeleteCluster
+-- Deletes a previously provisioned cluster. A successful response from the
 -- web service indicates that the request was received correctly. If a final
 -- cluster snapshot is requested the status of the cluster will be
 -- "final-snapshot" while the snapshot is being taken, then it's "deleting"
@@ -484,6 +611,7 @@ createHsmConfiguration p1 p2 p3 p4 p5 p6 s =
 -- examplecluster2 true masteruser f2e6b87e-6503-11e2-b343-393adc3f0a21.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DeleteCluster'
+
 deleteCluster :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -495,7 +623,8 @@ deleteCluster :: ( MonadCatch m
 deleteCluster p1 s =
     send $ (mkDeleteCluster p1) &~ s
 
--- | Deletes a specified Amazon Redshift parameter group. You cannot delete a
+-- $DeleteClusterParameterGroup
+-- Deletes a specified Amazon Redshift parameter group. You cannot delete a
 -- parameter group if it is associated with a cluster.
 -- https://redshift.us-east-1.amazonaws.com/
 -- ?Action=DeleteClusterParameterGroup &ParameterGroupName=parametergroup1
@@ -506,6 +635,7 @@ deleteCluster p1 s =
 -- 29674ca0-40da-11e2-b679-dba6cf515770.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DeleteClusterParameterGroup'
+
 deleteClusterParameterGroup :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -517,7 +647,8 @@ deleteClusterParameterGroup :: ( MonadCatch m
 deleteClusterParameterGroup p1 s =
     send $ (mkDeleteClusterParameterGroup p1) &~ s
 
--- | Deletes an Amazon Redshift security group. You cannot delete a security
+-- $DeleteClusterSecurityGroup
+-- Deletes an Amazon Redshift security group. You cannot delete a security
 -- group that is associated with any clusters. You cannot delete the default
 -- security group. For information about managing security groups, go to
 -- Amazon Redshift Cluster Security Groups in the Amazon Redshift Management
@@ -530,6 +661,7 @@ deleteClusterParameterGroup p1 s =
 -- e54e05dc-40da-11e2-955f-313c36e9e01d.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DeleteClusterSecurityGroup'
+
 deleteClusterSecurityGroup :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -541,7 +673,8 @@ deleteClusterSecurityGroup :: ( MonadCatch m
 deleteClusterSecurityGroup p1 s =
     send $ (mkDeleteClusterSecurityGroup p1) &~ s
 
--- | Deletes the specified manual snapshot. The snapshot must be in the
+-- $DeleteClusterSnapshot
+-- Deletes the specified manual snapshot. The snapshot must be in the
 -- available state, with no other users authorized to access the snapshot.
 -- Unlike automated snapshots, manual snapshots are retained even after you
 -- delete your cluster. Amazon Redshift does not delete your manual snapshots.
@@ -559,6 +692,7 @@ deleteClusterSecurityGroup p1 s =
 -- 88a31de4-40d1-11e2-8a25-eb010998df4e.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DeleteClusterSnapshot'
+
 deleteClusterSnapshot :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -570,7 +704,8 @@ deleteClusterSnapshot :: ( MonadCatch m
 deleteClusterSnapshot p1 s =
     send $ (mkDeleteClusterSnapshot p1) &~ s
 
--- | Deletes the specified cluster subnet group.
+-- $DeleteClusterSubnetGroup
+-- Deletes the specified cluster subnet group.
 -- https://redshift.us-east-1.amazonaws.com/ ?Action=DeleteClusterSubnetGroup
 -- &ClusterSubnetGroupName=my-subnet-group-2 &Version=2012-12-01
 -- &x-amz-algorithm=AWS4-HMAC-SHA256
@@ -580,6 +715,7 @@ deleteClusterSnapshot p1 s =
 -- 3a63806b-6af4-11e2-b27b-4d850b1c672d.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DeleteClusterSubnetGroup'
+
 deleteClusterSubnetGroup :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -591,9 +727,11 @@ deleteClusterSubnetGroup :: ( MonadCatch m
 deleteClusterSubnetGroup p1 s =
     send $ (mkDeleteClusterSubnetGroup p1) &~ s
 
--- | Deletes an Amazon Redshift event notification subscription.
+-- $DeleteEventSubscription
+-- Deletes an Amazon Redshift event notification subscription.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DeleteEventSubscription'
+
 deleteEventSubscription :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -605,9 +743,11 @@ deleteEventSubscription :: ( MonadCatch m
 deleteEventSubscription p1 s =
     send $ (mkDeleteEventSubscription p1) &~ s
 
--- | Deletes the specified HSM client certificate.
+-- $DeleteHsmClientCertificate
+-- Deletes the specified HSM client certificate.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DeleteHsmClientCertificate'
+
 deleteHsmClientCertificate :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -619,9 +759,11 @@ deleteHsmClientCertificate :: ( MonadCatch m
 deleteHsmClientCertificate p1 s =
     send $ (mkDeleteHsmClientCertificate p1) &~ s
 
--- | Deletes the specified Amazon Redshift HSM configuration.
+-- $DeleteHsmConfiguration
+-- Deletes the specified Amazon Redshift HSM configuration.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DeleteHsmConfiguration'
+
 deleteHsmConfiguration :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -633,7 +775,8 @@ deleteHsmConfiguration :: ( MonadCatch m
 deleteHsmConfiguration p1 s =
     send $ (mkDeleteHsmConfiguration p1) &~ s
 
--- | Returns a list of Amazon Redshift parameter groups, including parameter
+-- $DescribeClusterParameterGroups
+-- Returns a list of Amazon Redshift parameter groups, including parameter
 -- groups you created and the default parameter group. For each parameter
 -- group, the response includes the parameter group name, description, and
 -- parameter group family name. You can optionally specify a name to retrieve
@@ -650,6 +793,7 @@ deleteHsmConfiguration p1 s =
 -- 6d28788b-64f5-11e2-b343-393adc3f0a21.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeClusterParameterGroups'
+
 describeClusterParameterGroups :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
@@ -660,7 +804,8 @@ describeClusterParameterGroups :: ( MonadCatch m
 describeClusterParameterGroups s =
     paginate (mkDescribeClusterParameterGroups &~ s)
 
--- | Returns a detailed list of parameters contained within the specified Amazon
+-- $DescribeClusterParameters
+-- Returns a detailed list of parameters contained within the specified Amazon
 -- Redshift parameter group. For each parameter the response includes
 -- information such as parameter name, description, data type, value, whether
 -- the parameter value is modifiable, and so on. You can specify source filter
@@ -689,6 +834,7 @@ describeClusterParameterGroups s =
 -- configuration wlm_json_configuration 2ba35df4-40d3-11e2-82cf-0b45b05c0221.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeClusterParameters'
+
 describeClusterParameters :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -700,7 +846,8 @@ describeClusterParameters :: ( MonadCatch m
 describeClusterParameters p1 s =
     paginate $ (mkDescribeClusterParameters p1) &~ s
 
--- | Returns information about Amazon Redshift security groups. If the name of a
+-- $DescribeClusterSecurityGroups
+-- Returns information about Amazon Redshift security groups. If the name of a
 -- security group is specified, the response will contain only information
 -- about only that security group. For information about managing security
 -- groups, go to Amazon Redshift Cluster Security Groups in the Amazon
@@ -714,6 +861,7 @@ describeClusterParameters p1 s =
 -- 947a8305-64f8-11e2-bec0-17624ad140dd.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeClusterSecurityGroups'
+
 describeClusterSecurityGroups :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
@@ -724,7 +872,8 @@ describeClusterSecurityGroups :: ( MonadCatch m
 describeClusterSecurityGroups s =
     paginate (mkDescribeClusterSecurityGroups &~ s)
 
--- | Returns one or more snapshot objects, which contain metadata about your
+-- $DescribeClusterSnapshots
+-- Returns one or more snapshot objects, which contain metadata about your
 -- cluster snapshots. By default, this operation returns information about all
 -- snapshots of all clusters that are owned by you AWS customer account. No
 -- information is returned for snapshots owned by inactive AWS customer
@@ -741,6 +890,7 @@ describeClusterSecurityGroups s =
 -- dw1.xlarge examplecluster adminuser 56a9daf4-64fa-11e2-a8da-655adc216806.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeClusterSnapshots'
+
 describeClusterSnapshots :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -751,7 +901,8 @@ describeClusterSnapshots :: ( MonadCatch m
 describeClusterSnapshots s =
     paginate (mkDescribeClusterSnapshots &~ s)
 
--- | Returns one or more cluster subnet group objects, which contain metadata
+-- $DescribeClusterSubnetGroups
+-- Returns one or more cluster subnet group objects, which contain metadata
 -- about your cluster subnet groups. By default, this operation returns
 -- information about all cluster subnet groups that are defined in you AWS
 -- account. https://redshift.us-east-1.amazonaws.com/
@@ -764,6 +915,7 @@ describeClusterSnapshots s =
 -- subnet-78de1215 us-east-1a 42024b68-6af3-11e2-a726-6368a468fa67.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeClusterSubnetGroups'
+
 describeClusterSubnetGroups :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -774,7 +926,8 @@ describeClusterSubnetGroups :: ( MonadCatch m
 describeClusterSubnetGroups s =
     paginate (mkDescribeClusterSubnetGroups &~ s)
 
--- | Returns descriptions of the available Amazon Redshift cluster versions. You
+-- $DescribeClusterVersions
+-- Returns descriptions of the available Amazon Redshift cluster versions. You
 -- can call this operation even before creating any clusters to learn more
 -- about the Amazon Redshift versions. For more information about managing
 -- clusters, go to Amazon Redshift Clusters in the Amazon Redshift Management
@@ -787,6 +940,7 @@ describeClusterSubnetGroups s =
 -- release of redshift 1.0 d39cd5e5-40c2-11e2-8a25-eb010998df4e.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeClusterVersions'
+
 describeClusterVersions :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -797,7 +951,8 @@ describeClusterVersions :: ( MonadCatch m
 describeClusterVersions s =
     paginate (mkDescribeClusterVersions &~ s)
 
--- | Returns properties of provisioned clusters including general cluster
+-- $DescribeClusters
+-- Returns properties of provisioned clusters including general cluster
 -- properties, cluster database properties, maintenance and backup properties,
 -- and security and access properties. This operation supports pagination. For
 -- more information about managing clusters, go to Amazon Redshift Clusters in
@@ -813,6 +968,7 @@ describeClusterVersions s =
 -- 837d45d6-64f0-11e2-b07c-f7fbdd006c67.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeClusters'
+
 describeClusters :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -823,7 +979,8 @@ describeClusters :: ( MonadCatch m
 describeClusters s =
     paginate (mkDescribeClusters &~ s)
 
--- | Returns a list of parameter settings for the specified parameter group
+-- $DescribeDefaultClusterParameters
+-- Returns a list of parameter settings for the specified parameter group
 -- family. For more information about managing parameter groups, go to Amazon
 -- Redshift Parameter Groups in the Amazon Redshift Management Guide.
 -- https://redshift.us-east-1.amazonaws.com/
@@ -846,6 +1003,7 @@ describeClusters s =
 -- configuration wlm_json_configuration 396df00b-40c4-11e2-82cf-0b45b05c0221.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeDefaultClusterParameters'
+
 describeDefaultClusterParameters :: ( MonadCatch m
                                     , MonadResource m
                                     , MonadError AWS.Error m
@@ -857,11 +1015,13 @@ describeDefaultClusterParameters :: ( MonadCatch m
 describeDefaultClusterParameters p1 s =
     paginate $ (mkDescribeDefaultClusterParameters p1) &~ s
 
--- | Displays a list of event categories for all event source types, or for a
+-- $DescribeEventCategories
+-- Displays a list of event categories for all event source types, or for a
 -- specified source type. For a list of the event categories and source types,
 -- go to Amazon Redshift Event Notifications.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeEventCategories'
+
 describeEventCategories :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -872,11 +1032,13 @@ describeEventCategories :: ( MonadCatch m
 describeEventCategories s =
     send (mkDescribeEventCategories &~ s)
 
--- | Lists descriptions of all the Amazon Redshift event notifications
+-- $DescribeEventSubscriptions
+-- Lists descriptions of all the Amazon Redshift event notifications
 -- subscription for a customer account. If you specify a subscription name,
 -- lists the description for that subscription.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeEventSubscriptions'
+
 describeEventSubscriptions :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -887,7 +1049,8 @@ describeEventSubscriptions :: ( MonadCatch m
 describeEventSubscriptions s =
     paginate (mkDescribeEventSubscriptions &~ s)
 
--- | Returns events related to clusters, security groups, snapshots, and
+-- $DescribeEvents
+-- Returns events related to clusters, security groups, snapshots, and
 -- parameter groups for the past 14 days. Events specific to a particular
 -- cluster, security group, snapshot or parameter group can be obtained by
 -- providing the name as a parameter. By default, the past hour of events are
@@ -902,6 +1065,7 @@ describeEventSubscriptions s =
 -- 3eeb9efe-40c5-11e2-816a-1bba29fad1f5.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeEvents'
+
 describeEvents :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -912,11 +1076,13 @@ describeEvents :: ( MonadCatch m
 describeEvents s =
     paginate (mkDescribeEvents &~ s)
 
--- | Returns information about the specified HSM client certificate. If no
+-- $DescribeHsmClientCertificates
+-- Returns information about the specified HSM client certificate. If no
 -- certificate ID is specified, returns information about all the HSM
 -- certificates owned by your AWS customer account.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeHsmClientCertificates'
+
 describeHsmClientCertificates :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
@@ -927,11 +1093,13 @@ describeHsmClientCertificates :: ( MonadCatch m
 describeHsmClientCertificates s =
     paginate (mkDescribeHsmClientCertificates &~ s)
 
--- | Returns information about the specified Amazon Redshift HSM configuration.
+-- $DescribeHsmConfigurations
+-- Returns information about the specified Amazon Redshift HSM configuration.
 -- If no configuration ID is specified, returns information about all the HSM
 -- configurations owned by your AWS customer account.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeHsmConfigurations'
+
 describeHsmConfigurations :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -942,10 +1110,12 @@ describeHsmConfigurations :: ( MonadCatch m
 describeHsmConfigurations s =
     paginate (mkDescribeHsmConfigurations &~ s)
 
--- | Describes whether information, such as queries and connection attempts, is
+-- $DescribeLoggingStatus
+-- Describes whether information, such as queries and connection attempts, is
 -- being logged for the specified Amazon Redshift cluster.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeLoggingStatus'
+
 describeLoggingStatus :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -957,7 +1127,8 @@ describeLoggingStatus :: ( MonadCatch m
 describeLoggingStatus p1 s =
     send $ (mkDescribeLoggingStatus p1) &~ s
 
--- | Returns a list of orderable cluster options. Before you create a new
+-- $DescribeOrderableClusterOptions
+-- Returns a list of orderable cluster options. Before you create a new
 -- cluster you can use this operation to find what options are available, such
 -- as the EC2 Availability Zones (AZ) in the specific AWS region that you can
 -- specify, and the node types you can request. The node types differ by
@@ -976,6 +1147,7 @@ describeLoggingStatus p1 s =
 -- us-east-1c us-east-1d e37414cc-40c0-11e2-b6a0-df98b1a86860.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeOrderableClusterOptions'
+
 describeOrderableClusterOptions :: ( MonadCatch m
                                    , MonadResource m
                                    , MonadError AWS.Error m
@@ -986,7 +1158,8 @@ describeOrderableClusterOptions :: ( MonadCatch m
 describeOrderableClusterOptions s =
     paginate (mkDescribeOrderableClusterOptions &~ s)
 
--- | Returns a list of the available reserved node offerings by Amazon Redshift
+-- $DescribeReservedNodeOfferings
+-- Returns a list of the available reserved node offerings by Amazon Redshift
 -- with their descriptions including the node type, the fixed and recurring
 -- costs of reserving the node and duration the node will be reserved for you.
 -- These descriptions help you determine which reserve node offering you want
@@ -1006,6 +1179,7 @@ describeOrderableClusterOptions s =
 -- f4a07e06-60fc-11e2-95d9-658e9466d117.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeReservedNodeOfferings'
+
 describeReservedNodeOfferings :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
@@ -1016,7 +1190,8 @@ describeReservedNodeOfferings :: ( MonadCatch m
 describeReservedNodeOfferings s =
     paginate (mkDescribeReservedNodeOfferings &~ s)
 
--- | Returns the descriptions of the reserved nodes.
+-- $DescribeReservedNodes
+-- Returns the descriptions of the reserved nodes.
 -- https://redshift.us-east-1.amazonaws.com/ ?Action=DescribeReservedNodes
 -- &Version=2012-12-01 &x-amz-algorithm=AWS4-HMAC-SHA256
 -- &x-amz-credential=AKIAIOSFODNN7EXAMPLE/20130125/us-east-1/redshift/aws4_request
@@ -1030,6 +1205,7 @@ describeReservedNodeOfferings s =
 -- bbcd9749-f2ea-4d01-9b1b-b576f618eb4e 24dc90c8-672d-11e2-b2e1-8f41f0379151.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeReservedNodes'
+
 describeReservedNodes :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -1040,7 +1216,8 @@ describeReservedNodes :: ( MonadCatch m
 describeReservedNodes s =
     paginate (mkDescribeReservedNodes &~ s)
 
--- | Returns information about the last resize operation for the specified
+-- $DescribeResize
+-- Returns information about the last resize operation for the specified
 -- cluster. If no resize operation has ever been initiated for the specified
 -- cluster, a HTTP 404 error is returned. If a resize operation was initiated
 -- and completed, the status of the resize remains as SUCCEEDED until the next
@@ -1056,6 +1233,7 @@ describeReservedNodes s =
 -- dw1.xlarge 2 a6d59c61-a162-11e2-b2bc-fb54c9d11e09.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DescribeResize'
+
 describeResize :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -1067,10 +1245,12 @@ describeResize :: ( MonadCatch m
 describeResize p1 s =
     send $ (mkDescribeResize p1) &~ s
 
--- | Stops logging information, such as queries and connection attempts, for the
+-- $DisableLogging
+-- Stops logging information, such as queries and connection attempts, for the
 -- specified Amazon Redshift cluster.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DisableLogging'
+
 disableLogging :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -1082,10 +1262,12 @@ disableLogging :: ( MonadCatch m
 disableLogging p1 s =
     send $ (mkDisableLogging p1) &~ s
 
--- | Disables the automatic copying of snapshots from one region to another
+-- $DisableSnapshotCopy
+-- Disables the automatic copying of snapshots from one region to another
 -- region for a specified cluster.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.DisableSnapshotCopy'
+
 disableSnapshotCopy :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -1097,10 +1279,12 @@ disableSnapshotCopy :: ( MonadCatch m
 disableSnapshotCopy p1 s =
     send $ (mkDisableSnapshotCopy p1) &~ s
 
--- | Starts logging information, such as queries and connection attempts, for
+-- $EnableLogging
+-- Starts logging information, such as queries and connection attempts, for
 -- the specified Amazon Redshift cluster.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.EnableLogging'
+
 enableLogging :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -1113,10 +1297,12 @@ enableLogging :: ( MonadCatch m
 enableLogging p1 p2 s =
     send $ (mkEnableLogging p1 p2) &~ s
 
--- | Enables the automatic copy of snapshots from one region to another region
+-- $EnableSnapshotCopy
+-- Enables the automatic copy of snapshots from one region to another region
 -- for a specified cluster.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.EnableSnapshotCopy'
+
 enableSnapshotCopy :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -1129,7 +1315,8 @@ enableSnapshotCopy :: ( MonadCatch m
 enableSnapshotCopy p1 p2 s =
     send $ (mkEnableSnapshotCopy p1 p2) &~ s
 
--- | Modifies the settings for a cluster. For example, you can add another
+-- $ModifyCluster
+-- Modifies the settings for a cluster. For example, you can add another
 -- security or parameter group, update the preferred maintenance window, or
 -- change the master user password. Resetting a cluster password or modifying
 -- the security groups associated with a cluster do not need a reboot.
@@ -1155,6 +1342,7 @@ enableSnapshotCopy p1 p2 s =
 -- examplecluster true adminuser acbc43d5-6504-11e2-bea9-49e0ce183f07.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.ModifyCluster'
+
 modifyCluster :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -1166,7 +1354,8 @@ modifyCluster :: ( MonadCatch m
 modifyCluster p1 s =
     send $ (mkModifyCluster p1) &~ s
 
--- | Modifies the parameters of a parameter group. For more information about
+-- $ModifyClusterParameterGroup
+-- Modifies the parameters of a parameter group. For more information about
 -- managing parameter groups, go to Amazon Redshift Parameter Groups in the
 -- Amazon Redshift Management Guide. https://redshift.us-east-1.amazonaws.com/
 -- ?Action=ModifyClusterParameterGroup &ParameterGroupName=parametergroup1
@@ -1182,6 +1371,7 @@ modifyCluster p1 s =
 -- Clusters. parametergroup1 86e64043-40de-11e2-8a25-eb010998df4e.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.ModifyClusterParameterGroup'
+
 modifyClusterParameterGroup :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -1194,11 +1384,13 @@ modifyClusterParameterGroup :: ( MonadCatch m
 modifyClusterParameterGroup p1 p2 s =
     send $ (mkModifyClusterParameterGroup p1 p2) &~ s
 
--- | Modifies a cluster subnet group to include the specified list of VPC
+-- $ModifyClusterSubnetGroup
+-- Modifies a cluster subnet group to include the specified list of VPC
 -- subnets. The operation replaces the existing list of subnets with the new
 -- list of subnets.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.ModifyClusterSubnetGroup'
+
 modifyClusterSubnetGroup :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -1211,9 +1403,11 @@ modifyClusterSubnetGroup :: ( MonadCatch m
 modifyClusterSubnetGroup p1 p3 s =
     send $ (mkModifyClusterSubnetGroup p1 p3) &~ s
 
--- | Modifies an existing Amazon Redshift event notification subscription.
+-- $ModifyEventSubscription
+-- Modifies an existing Amazon Redshift event notification subscription.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.ModifyEventSubscription'
+
 modifyEventSubscription :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -1225,10 +1419,12 @@ modifyEventSubscription :: ( MonadCatch m
 modifyEventSubscription p1 s =
     send $ (mkModifyEventSubscription p1) &~ s
 
--- | Modifies the number of days to retain automated snapshots in the
+-- $ModifySnapshotCopyRetentionPeriod
+-- Modifies the number of days to retain automated snapshots in the
 -- destination region after they are copied from the source region.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.ModifySnapshotCopyRetentionPeriod'
+
 modifySnapshotCopyRetentionPeriod :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
@@ -1241,7 +1437,8 @@ modifySnapshotCopyRetentionPeriod :: ( MonadCatch m
 modifySnapshotCopyRetentionPeriod p1 p2 s =
     send $ (mkModifySnapshotCopyRetentionPeriod p1 p2) &~ s
 
--- | Allows you to purchase reserved nodes. Amazon Redshift offers a predefined
+-- $PurchaseReservedNodeOffering
+-- Allows you to purchase reserved nodes. Amazon Redshift offers a predefined
 -- set of reserved node offerings. You can purchase one of the offerings. You
 -- can call the DescribeReservedNodeOfferings API to obtain the available
 -- reserved node offerings. You can call this API by providing a specific
@@ -1260,6 +1457,7 @@ modifySnapshotCopyRetentionPeriod p1 p2 s =
 -- fcb117cc-61b7-11e2-b6e9-87e586e4ca38.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.PurchaseReservedNodeOffering'
+
 purchaseReservedNodeOffering :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
@@ -1271,7 +1469,8 @@ purchaseReservedNodeOffering :: ( MonadCatch m
 purchaseReservedNodeOffering p1 s =
     send $ (mkPurchaseReservedNodeOffering p1) &~ s
 
--- | Reboots a cluster. This action is taken as soon as possible. It results in
+-- $RebootCluster
+-- Reboots a cluster. This action is taken as soon as possible. It results in
 -- a momentary outage to the cluster, during which the cluster status is set
 -- to rebooting. A cluster event is created when the reboot is completed. Any
 -- pending cluster modifications (see ModifyCluster) are applied at this
@@ -1289,6 +1488,7 @@ purchaseReservedNodeOffering p1 s =
 -- examplecluster true adminuser 5edee79e-6503-11e2-9e70-918437dd236d.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.RebootCluster'
+
 rebootCluster :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -1300,7 +1500,8 @@ rebootCluster :: ( MonadCatch m
 rebootCluster p1 s =
     send $ (mkRebootCluster p1) &~ s
 
--- | Sets one or more parameters of the specified parameter group to their
+-- $ResetClusterParameterGroup
+-- Sets one or more parameters of the specified parameter group to their
 -- default values and sets the source values of the parameters to
 -- "engine-default". To reset the entire parameter group specify the
 -- ResetAllParameters parameter. For parameter changes to take effect you must
@@ -1315,6 +1516,7 @@ rebootCluster p1 s =
 -- Clusters. parametergroup1 625d23c1-40dc-11e2-8a25-eb010998df4e.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.ResetClusterParameterGroup'
+
 resetClusterParameterGroup :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -1326,7 +1528,8 @@ resetClusterParameterGroup :: ( MonadCatch m
 resetClusterParameterGroup p1 s =
     send $ (mkResetClusterParameterGroup p1) &~ s
 
--- | Creates a new cluster from a snapshot. Amazon Redshift creates the
+-- $RestoreFromClusterSnapshot
+-- Creates a new cluster from a snapshot. Amazon Redshift creates the
 -- resulting cluster with the same configuration as the original cluster from
 -- which the snapshot was created, except that the new cluster is created with
 -- the default cluster security and parameter group. After Amazon Redshift
@@ -1348,6 +1551,7 @@ resetClusterParameterGroup p1 s =
 -- 52a9aee8-6505-11e2-bec0-17624ad140dd.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.RestoreFromClusterSnapshot'
+
 restoreFromClusterSnapshot :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -1360,7 +1564,8 @@ restoreFromClusterSnapshot :: ( MonadCatch m
 restoreFromClusterSnapshot p1 p2 s =
     send $ (mkRestoreFromClusterSnapshot p1 p2) &~ s
 
--- | Revokes an ingress rule in an Amazon Redshift security group for a
+-- $RevokeClusterSecurityGroupIngress
+-- Revokes an ingress rule in an Amazon Redshift security group for a
 -- previously authorized IP range or Amazon EC2 security group. To add an
 -- ingress rule, see AuthorizeClusterSecurityGroupIngress. For information
 -- about managing security groups, go to Amazon Redshift Cluster Security
@@ -1375,6 +1580,7 @@ restoreFromClusterSnapshot p1 p2 s =
 -- securitygroup1 d8eff363-6502-11e2-a8da-655adc216806.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.RevokeClusterSecurityGroupIngress'
+
 revokeClusterSecurityGroupIngress :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
@@ -1386,13 +1592,15 @@ revokeClusterSecurityGroupIngress :: ( MonadCatch m
 revokeClusterSecurityGroupIngress p1 s =
     send $ (mkRevokeClusterSecurityGroupIngress p1) &~ s
 
--- | Removes the ability of the specified AWS customer account to restore the
+-- $RevokeSnapshotAccess
+-- Removes the ability of the specified AWS customer account to restore the
 -- specified snapshot. If the account is currently restoring the snapshot, the
 -- restore will run to completion. For more information about working with
 -- snapshots, go to Amazon Redshift Snapshots in the Amazon Redshift
 -- Management Guide.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.RevokeSnapshotAccess'
+
 revokeSnapshotAccess :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -1405,9 +1613,11 @@ revokeSnapshotAccess :: ( MonadCatch m
 revokeSnapshotAccess p1 p3 s =
     send $ (mkRevokeSnapshotAccess p1 p3) &~ s
 
--- | Rotates the encryption keys for a cluster.
+-- $RotateEncryptionKey
+-- Rotates the encryption keys for a cluster.
 --
 -- See: 'Network.AWS.Redshift.V2012_12_01.RotateEncryptionKey'
+
 rotateEncryptionKey :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m

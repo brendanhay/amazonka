@@ -21,42 +21,72 @@
 module Network.AWS.DataPipeline.V2012_10_29.Trans
     (
     -- * ActivatePipeline
+    -- $ActivatePipeline
       activatePipeline
+
     -- * CreatePipeline
+    -- $CreatePipeline
     , createPipeline
+
     -- * DeletePipeline
+    -- $DeletePipeline
     , deletePipeline
+
     -- * DescribeObjects
+    -- $DescribeObjects
     , describeObjects
+
     -- * DescribePipelines
+    -- $DescribePipelines
     , describePipelines
+
     -- * EvaluateExpression
+    -- $EvaluateExpression
     , evaluateExpression
+
     -- * GetPipelineDefinition
+    -- $GetPipelineDefinition
     , getPipelineDefinition
+
     -- * ListPipelines
+    -- $ListPipelines
     , listPipelines
+
     -- * PollForTask
+    -- $PollForTask
     , pollForTask
+
     -- * PutPipelineDefinition
+    -- $PutPipelineDefinition
     , putPipelineDefinition
+
     -- * QueryObjects
+    -- $QueryObjects
     , queryObjects
+
     -- * ReportTaskProgress
+    -- $ReportTaskProgress
     , reportTaskProgress
+
     -- * ReportTaskRunnerHeartbeat
+    -- $ReportTaskRunnerHeartbeat
     , reportTaskRunnerHeartbeat
+
     -- * SetStatus
+    -- $SetStatus
     , setStatus
+
     -- * SetTaskStatus
+    -- $SetTaskStatus
     , setTaskStatus
+
     -- * ValidatePipelineDefinition
+    -- $ValidatePipelineDefinition
     , validatePipelineDefinition
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.DataPipeline.V2012_10_29
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -67,7 +97,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.DataPipeline.V2012_10_29
 
--- | Validates a pipeline and initiates processing. If the pipeline does not
+-- $ActivatePipeline
+-- Validates a pipeline and initiates processing. If the pipeline does not
 -- pass validation, activation fails. Call this action to start processing
 -- pipeline tasks of a pipeline you've created using the CreatePipeline and
 -- PutPipelineDefinition actions. A pipeline cannot be modified after it has
@@ -81,6 +112,7 @@ import Network.AWS.DataPipeline.V2012_10_29
 -- 17:50:53 GMT {}.
 --
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.ActivatePipeline'
+
 activatePipeline :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -92,7 +124,8 @@ activatePipeline :: ( MonadCatch m
 activatePipeline p1 s =
     send $ (mkActivatePipeline p1) &~ s
 
--- | Creates a new empty pipeline. When this action succeeds, you can then use
+-- $CreatePipeline
+-- Creates a new empty pipeline. When this action succeeds, you can then use
 -- the PutPipelineDefinition action to populate the pipeline. POST / HTTP/1.1
 -- Content-Type: application/x-amz-json-1.1 X-Amz-Target:
 -- DataPipeline.CreatePipeline Content-Length: 91 Host:
@@ -104,6 +137,7 @@ activatePipeline p1 s =
 -- 17:50:53 GMT {"pipelineId": "df-06372391ZG65EXAMPLE"}.
 --
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.CreatePipeline'
+
 createPipeline :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -116,7 +150,8 @@ createPipeline :: ( MonadCatch m
 createPipeline p1 p2 s =
     send $ (mkCreatePipeline p1 p2) &~ s
 
--- | Permanently deletes a pipeline, its pipeline definition and its run
+-- $DeletePipeline
+-- Permanently deletes a pipeline, its pipeline definition and its run
 -- history. You cannot query or restore a deleted pipeline. AWS Data Pipeline
 -- will attempt to cancel instances associated with the pipeline that are
 -- currently being processed by task runners. Deleting a pipeline cannot be
@@ -132,6 +167,7 @@ createPipeline p1 p2 s =
 -- 17:50:53 GMT Unexpected response: 200, OK, undefined.
 --
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.DeletePipeline'
+
 deletePipeline :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -143,7 +179,8 @@ deletePipeline :: ( MonadCatch m
 deletePipeline p1 s =
     send $ (mkDeletePipeline p1) &~ s
 
--- | Returns the object definitions for a set of objects associated with the
+-- $DescribeObjects
+-- Returns the object definitions for a set of objects associated with the
 -- pipeline. Object definitions are composed of a set of fields that define
 -- the properties of the object. POST / HTTP/1.1 Content-Type:
 -- application/x-amz-json-1.1 X-Amz-Target: DataPipeline.DescribeObjects
@@ -162,6 +199,7 @@ deletePipeline p1 s =
 -- "df-06372391ZG65EXAMPLE"} ], "id": "Schedule", "name": "Schedule"} ] }.
 --
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.DescribeObjects'
+
 describeObjects :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -174,7 +212,8 @@ describeObjects :: ( MonadCatch m
 describeObjects p1 p2 s =
     paginate $ (mkDescribeObjects p1 p2) &~ s
 
--- | Retrieve metadata about one or more pipelines. The information retrieved
+-- $DescribePipelines
+-- Retrieve metadata about one or more pipelines. The information retrieved
 -- includes the name of the pipeline, the pipeline identifier, its current
 -- state, and the user account that owns the pipeline. Using account
 -- credentials, you can retrieve metadata about pipelines that you or your IAM
@@ -200,6 +239,7 @@ describeObjects p1 p2 s =
 -- "name": "myPipeline", "pipelineId": "df-0937003356ZJEXAMPLE"} ] }.
 --
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.DescribePipelines'
+
 describePipelines :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -211,7 +251,8 @@ describePipelines :: ( MonadCatch m
 describePipelines p1 s =
     send $ (mkDescribePipelines p1) &~ s
 
--- | Evaluates a string in the context of a specified object. A task runner can
+-- $EvaluateExpression
+-- Evaluates a string in the context of a specified object. A task runner can
 -- use this action to evaluate SQL queries stored in Amazon S3. POST /
 -- HTTP/1.1 Content-Type: application/x-amz-json-1.1 X-Amz-Target:
 -- DataPipeline.DescribePipelines Content-Length: 164 Host:
@@ -225,6 +266,7 @@ describePipelines p1 s =
 -- 2012-12-12T00:00:00 and finished at 2012-12-21T18:00:00"}.
 --
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.EvaluateExpression'
+
 evaluateExpression :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -238,7 +280,8 @@ evaluateExpression :: ( MonadCatch m
 evaluateExpression p1 p2 p3 s =
     send $ (mkEvaluateExpression p1 p2 p3) &~ s
 
--- | Returns the definition of the specified pipeline. You can call
+-- $GetPipelineDefinition
+-- Returns the definition of the specified pipeline. You can call
 -- GetPipelineDefinition to retrieve the pipeline definition you provided
 -- using PutPipelineDefinition. POST / HTTP/1.1 Content-Type:
 -- application/x-amz-json-1.1 X-Amz-Target: DataPipeline.GetPipelineDefinition
@@ -259,6 +302,7 @@ evaluateExpression p1 p2 p3 s =
 -- "name": "SayHello"} ] }.
 --
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.GetPipelineDefinition'
+
 getPipelineDefinition :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -270,7 +314,8 @@ getPipelineDefinition :: ( MonadCatch m
 getPipelineDefinition p1 s =
     send $ (mkGetPipelineDefinition p1) &~ s
 
--- | Returns a list of pipeline identifiers for all active pipelines.
+-- $ListPipelines
+-- Returns a list of pipeline identifiers for all active pipelines.
 -- Identifiers are returned only for pipelines you have permission to access.
 -- POST / HTTP/1.1 Content-Type: application/x-amz-json-1.1 X-Amz-Target:
 -- DataPipeline.ListPipelines Content-Length: 14 Host:
@@ -283,6 +328,7 @@ getPipelineDefinition p1 s =
 -- ] }.
 --
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.ListPipelines'
+
 listPipelines :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -293,7 +339,8 @@ listPipelines :: ( MonadCatch m
 listPipelines s =
     paginate (mkListPipelines &~ s)
 
--- | Task runners call this action to receive a task to perform from AWS Data
+-- $PollForTask
+-- Task runners call this action to receive a task to perform from AWS Data
 -- Pipeline. The task runner specifies which tasks it can perform by setting a
 -- value for the workerGroup parameter of the PollForTask call. The task
 -- returned by PollForTask may come from any of the pipelines that match the
@@ -335,6 +382,7 @@ listPipelines s =
 -- }.
 --
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.PollForTask'
+
 pollForTask :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -346,7 +394,8 @@ pollForTask :: ( MonadCatch m
 pollForTask p1 s =
     send $ (mkPollForTask p1) &~ s
 
--- | Adds tasks, schedules, and preconditions that control the behavior of the
+-- $PutPipelineDefinition
+-- Adds tasks, schedules, and preconditions that control the behavior of the
 -- pipeline. You can use PutPipelineDefinition to populate a new pipeline.
 -- PutPipelineDefinition also validates the configuration as it adds it to the
 -- pipeline. Changes to the pipeline are saved unless one of the following
@@ -397,6 +446,7 @@ pollForTask p1 s =
 -- Validate to validate your pipeline"}.
 --
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.PutPipelineDefinition'
+
 putPipelineDefinition :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -409,7 +459,8 @@ putPipelineDefinition :: ( MonadCatch m
 putPipelineDefinition p1 p2 s =
     send $ (mkPutPipelineDefinition p1 p2) &~ s
 
--- | Queries a pipeline for the names of objects that match a specified set of
+-- $QueryObjects
+-- Queries a pipeline for the names of objects that match a specified set of
 -- conditions. The objects returned by QueryObjects are paginated and then
 -- filtered by the value you set for query. This means the action may return
 -- an empty result set with a value set for marker. If HasMoreResults is set
@@ -426,6 +477,7 @@ putPipelineDefinition p1 p2 s =
 -- ["@SayHello_1_2012-09-25T17:00:00"] }.
 --
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.QueryObjects'
+
 queryObjects :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -438,7 +490,8 @@ queryObjects :: ( MonadCatch m
 queryObjects p1 p3 s =
     paginate $ (mkQueryObjects p1 p3) &~ s
 
--- | Updates the AWS Data Pipeline service on the progress of the calling task
+-- $ReportTaskProgress
+-- Updates the AWS Data Pipeline service on the progress of the calling task
 -- runner. When the task runner is assigned a task, it should call
 -- ReportTaskProgress to acknowledge that it has the task within 2 minutes. If
 -- the web service does not recieve this acknowledgement within the 2 minute
@@ -461,6 +514,7 @@ queryObjects p1 p3 s =
 -- 17:50:53 GMT {"canceled": false}.
 --
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.ReportTaskProgress'
+
 reportTaskProgress :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -472,7 +526,8 @@ reportTaskProgress :: ( MonadCatch m
 reportTaskProgress p1 s =
     send $ (mkReportTaskProgress p1) &~ s
 
--- | Task runners call ReportTaskRunnerHeartbeat every 15 minutes to indicate
+-- $ReportTaskRunnerHeartbeat
+-- Task runners call ReportTaskRunnerHeartbeat every 15 minutes to indicate
 -- that they are operational. In the case of AWS Data Pipeline Task Runner
 -- launched on a resource managed by AWS Data Pipeline, the web service can
 -- use this call to detect when the task runner application has failed and
@@ -487,6 +542,7 @@ reportTaskProgress p1 s =
 -- 17:50:53 GMT {"terminate": false}.
 --
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.ReportTaskRunnerHeartbeat'
+
 reportTaskRunnerHeartbeat :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -498,7 +554,8 @@ reportTaskRunnerHeartbeat :: ( MonadCatch m
 reportTaskRunnerHeartbeat p1 s =
     send $ (mkReportTaskRunnerHeartbeat p1) &~ s
 
--- | Requests that the status of an array of physical or logical pipeline
+-- $SetStatus
+-- Requests that the status of an array of physical or logical pipeline
 -- objects be updated in the pipeline. This update may not occur immediately,
 -- but is eventually consistent. The status that can be set depends on the
 -- type of object. POST / HTTP/1.1 Content-Type: application/x-amz-json-1.1
@@ -511,6 +568,7 @@ reportTaskRunnerHeartbeat p1 s =
 -- 17:50:53 GMT Unexpected response: 200, OK, undefined.
 --
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.SetStatus'
+
 setStatus :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -524,7 +582,8 @@ setStatus :: ( MonadCatch m
 setStatus p1 p2 p3 s =
     send $ (mkSetStatus p1 p2 p3) &~ s
 
--- | Notifies AWS Data Pipeline that a task is completed and provides
+-- $SetTaskStatus
+-- Notifies AWS Data Pipeline that a task is completed and provides
 -- information about the final status. The task runner calls this action
 -- regardless of whether the task was sucessful. The task runner does not need
 -- to call SetTaskStatus for tasks that are canceled by the web service during
@@ -539,6 +598,7 @@ setStatus p1 p2 p3 s =
 -- 17:50:53 GMT {}.
 --
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.SetTaskStatus'
+
 setTaskStatus :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -551,7 +611,8 @@ setTaskStatus :: ( MonadCatch m
 setTaskStatus p1 p2 s =
     send $ (mkSetTaskStatus p1 p2) &~ s
 
--- | Tests the pipeline definition with a set of validation checks to ensure
+-- $ValidatePipelineDefinition
+-- Tests the pipeline definition with a set of validation checks to ensure
 -- that it is well formed and can run without error. Example 1 This example
 -- sets an valid pipeline configuration and returns success. POST / HTTP/1.1
 -- Content-Type: application/x-amz-json-1.1 X-Amz-Target:
@@ -591,6 +652,7 @@ setTaskStatus p1 p2 s =
 -- value."], "id": "Schedule"} ] }.
 --
 -- See: 'Network.AWS.DataPipeline.V2012_10_29.ValidatePipelineDefinition'
+
 validatePipelineDefinition :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m

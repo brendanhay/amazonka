@@ -28,60 +28,108 @@
 module Network.AWS.SNS.V2010_03_31.Trans
     (
     -- * AddPermission
+    -- $AddPermission
       addPermission
+
     -- * ConfirmSubscription
+    -- $ConfirmSubscription
     , confirmSubscription
+
     -- * CreatePlatformApplication
+    -- $CreatePlatformApplication
     , createPlatformApplication
+
     -- * CreatePlatformEndpoint
+    -- $CreatePlatformEndpoint
     , createPlatformEndpoint
+
     -- * CreateTopic
+    -- $CreateTopic
     , createTopic
+
     -- * DeleteEndpoint
+    -- $DeleteEndpoint
     , deleteEndpoint
+
     -- * DeletePlatformApplication
+    -- $DeletePlatformApplication
     , deletePlatformApplication
+
     -- * DeleteTopic
+    -- $DeleteTopic
     , deleteTopic
+
     -- * GetEndpointAttributes
+    -- $GetEndpointAttributes
     , getEndpointAttributes
+
     -- * GetPlatformApplicationAttributes
+    -- $GetPlatformApplicationAttributes
     , getPlatformApplicationAttributes
+
     -- * GetSubscriptionAttributes
+    -- $GetSubscriptionAttributes
     , getSubscriptionAttributes
+
     -- * GetTopicAttributes
+    -- $GetTopicAttributes
     , getTopicAttributes
+
     -- * ListEndpointsByPlatformApplication
+    -- $ListEndpointsByPlatformApplication
     , listEndpointsByPlatformApplication
+
     -- * ListPlatformApplications
+    -- $ListPlatformApplications
     , listPlatformApplications
+
     -- * ListSubscriptions
+    -- $ListSubscriptions
     , listSubscriptions
+
     -- * ListSubscriptionsByTopic
+    -- $ListSubscriptionsByTopic
     , listSubscriptionsByTopic
+
     -- * ListTopics
+    -- $ListTopics
     , listTopics
+
     -- * Publish
+    -- $Publish
     , publish
+
     -- * RemovePermission
+    -- $RemovePermission
     , removePermission
+
     -- * SetEndpointAttributes
+    -- $SetEndpointAttributes
     , setEndpointAttributes
+
     -- * SetPlatformApplicationAttributes
+    -- $SetPlatformApplicationAttributes
     , setPlatformApplicationAttributes
+
     -- * SetSubscriptionAttributes
+    -- $SetSubscriptionAttributes
     , setSubscriptionAttributes
+
     -- * SetTopicAttributes
+    -- $SetTopicAttributes
     , setTopicAttributes
+
     -- * Subscribe
+    -- $Subscribe
     , subscribe
+
     -- * Unsubscribe
+    -- $Unsubscribe
     , unsubscribe
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.SNS.V2010_03_31
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -92,7 +140,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.SNS.V2010_03_31
 
--- | Adds a statement to a topic's access control policy, granting access for
+-- $AddPermission
+-- Adds a statement to a topic's access control policy, granting access for
 -- the specified AWS accounts to the specified actions.
 -- http://sns.us-east-1.amazonaws.com/
 -- ?TopicArn=arn%3Aaws%3Asns%3Aus-east-1%3A123456789012%3AMy-Test
@@ -110,6 +159,7 @@ import Network.AWS.SNS.V2010_03_31
 -- &lt;/ResponseMetadata&gt; &lt;/AddPermissionResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.AddPermission'
+
 addPermission :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -124,7 +174,8 @@ addPermission :: ( MonadCatch m
 addPermission p1 p2 p3 p4 s =
     send $ (mkAddPermission p1 p2 p3 p4) &~ s
 
--- | Verifies an endpoint owner's intent to receive messages by validating the
+-- $ConfirmSubscription
+-- Verifies an endpoint owner's intent to receive messages by validating the
 -- token sent to the endpoint by an earlier Subscribe action. If the token is
 -- valid, the action creates a new subscription and returns its Amazon
 -- Resource Name (ARN). This call requires an AWS signature only when the
@@ -145,6 +196,7 @@ addPermission p1 p2 p3 p4 s =
 -- &lt;/ResponseMetadata&gt; &lt;/ConfirmSubscriptionResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.ConfirmSubscription'
+
 confirmSubscription :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -157,7 +209,8 @@ confirmSubscription :: ( MonadCatch m
 confirmSubscription p1 p2 s =
     send $ (mkConfirmSubscription p1 p2) &~ s
 
--- | Creates a platform application object for one of the supported push
+-- $CreatePlatformApplication
+-- Creates a platform application object for one of the supported push
 -- notification services, such as APNS and GCM, to which devices and mobile
 -- apps may register. You must specify PlatformPrincipal and
 -- PlatformCredential attributes when using the CreatePlatformApplication
@@ -190,6 +243,7 @@ confirmSubscription p1 p2 s =
 -- &lt;/ResponseMetadata&gt; &lt;/CreatePlatformApplicationResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.CreatePlatformApplication'
+
 createPlatformApplication :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -203,7 +257,8 @@ createPlatformApplication :: ( MonadCatch m
 createPlatformApplication p1 p2 p3 s =
     send $ (mkCreatePlatformApplication p1 p2 p3) &~ s
 
--- | Creates an endpoint for a device and mobile app on one of the supported
+-- $CreatePlatformEndpoint
+-- Creates an endpoint for a device and mobile app on one of the supported
 -- push notification services, such as GCM and APNS. CreatePlatformEndpoint
 -- requires the PlatformApplicationArn that is returned from
 -- CreatePlatformApplication. The EndpointArn that is returned when using
@@ -234,6 +289,7 @@ createPlatformApplication p1 p2 p3 s =
 -- &lt;/ResponseMetadata&gt; &lt;/CreatePlatformEndpointResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.CreatePlatformEndpoint'
+
 createPlatformEndpoint :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -246,7 +302,8 @@ createPlatformEndpoint :: ( MonadCatch m
 createPlatformEndpoint p1 p2 s =
     send $ (mkCreatePlatformEndpoint p1 p2) &~ s
 
--- | Creates a topic to which notifications can be published. Users can create
+-- $CreateTopic
+-- Creates a topic to which notifications can be published. Users can create
 -- at most 3000 topics. For more information, see http://aws.amazon.com/sns.
 -- This action is idempotent, so if the requester already owns a topic with
 -- the specified name, that topic's ARN is returned without creating a new
@@ -264,6 +321,7 @@ createPlatformEndpoint p1 p2 s =
 -- &lt;/ResponseMetadata&gt; &lt;/CreateTopicResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.CreateTopic'
+
 createTopic :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -275,7 +333,8 @@ createTopic :: ( MonadCatch m
 createTopic p1 s =
     send $ (mkCreateTopic p1) &~ s
 
--- | Deletes the endpoint from Amazon SNS. This action is idempotent. For more
+-- $DeleteEndpoint
+-- Deletes the endpoint from Amazon SNS. This action is idempotent. For more
 -- information, see Using Amazon SNS Mobile Push Notifications. POST
 -- http://sns.us-west-2.amazonaws.com/ HTTP/1.1 ... Action=DeleteEndpoint
 -- &amp;SignatureMethod=HmacSHA256 &amp;AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
@@ -290,6 +349,7 @@ createTopic p1 s =
 -- &lt;/ResponseMetadata&gt; &lt;/DeleteEndpointResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.DeleteEndpoint'
+
 deleteEndpoint :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -301,7 +361,8 @@ deleteEndpoint :: ( MonadCatch m
 deleteEndpoint p1 s =
     send $ (mkDeleteEndpoint p1) &~ s
 
--- | Deletes a platform application object for one of the supported push
+-- $DeletePlatformApplication
+-- Deletes a platform application object for one of the supported push
 -- notification services, such as APNS and GCM. For more information, see
 -- Using Amazon SNS Mobile Push Notifications. POST
 -- http://sns.us-west-2.amazonaws.com/ HTTP/1.1 ...
@@ -318,6 +379,7 @@ deleteEndpoint p1 s =
 -- &lt;/ResponseMetadata&gt; &lt;/DeletePlatformApplicationResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.DeletePlatformApplication'
+
 deletePlatformApplication :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -329,7 +391,8 @@ deletePlatformApplication :: ( MonadCatch m
 deletePlatformApplication p1 s =
     send $ (mkDeletePlatformApplication p1) &~ s
 
--- | Deletes a topic and all its subscriptions. Deleting a topic might prevent
+-- $DeleteTopic
+-- Deletes a topic and all its subscriptions. Deleting a topic might prevent
 -- some messages previously sent to the topic from being delivered to
 -- subscribers. This action is idempotent, so deleting a topic that does not
 -- exist does not result in an error. http://sns.us-east-1.amazonaws.com/
@@ -345,6 +408,7 @@ deletePlatformApplication p1 s =
 -- &lt;/ResponseMetadata&gt; &lt;/DeleteTopicResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.DeleteTopic'
+
 deleteTopic :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -356,7 +420,8 @@ deleteTopic :: ( MonadCatch m
 deleteTopic p1 s =
     send $ (mkDeleteTopic p1) &~ s
 
--- | Retrieves the endpoint attributes for a device on one of the supported push
+-- $GetEndpointAttributes
+-- Retrieves the endpoint attributes for a device on one of the supported push
 -- notification services, such as GCM and APNS. For more information, see
 -- Using Amazon SNS Mobile Push Notifications. POST
 -- http://sns.us-west-2.amazonaws.com/ HTTP/1.1 ...
@@ -380,6 +445,7 @@ deleteTopic p1 s =
 -- &lt;/ResponseMetadata&gt; &lt;/GetEndpointAttributesResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.GetEndpointAttributes'
+
 getEndpointAttributes :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -391,7 +457,8 @@ getEndpointAttributes :: ( MonadCatch m
 getEndpointAttributes p1 s =
     send $ (mkGetEndpointAttributes p1) &~ s
 
--- | Retrieves the attributes of the platform application object for the
+-- $GetPlatformApplicationAttributes
+-- Retrieves the attributes of the platform application object for the
 -- supported push notification services, such as APNS and GCM. For more
 -- information, see Using Amazon SNS Mobile Push Notifications. POST
 -- http://sns.us-west-2.amazonaws.com/ HTTP/1.1 ...
@@ -412,6 +479,7 @@ getEndpointAttributes p1 s =
 -- &lt;/GetPlatformApplicationAttributesResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.GetPlatformApplicationAttributes'
+
 getPlatformApplicationAttributes :: ( MonadCatch m
                                     , MonadResource m
                                     , MonadError AWS.Error m
@@ -423,7 +491,8 @@ getPlatformApplicationAttributes :: ( MonadCatch m
 getPlatformApplicationAttributes p1 s =
     send $ (mkGetPlatformApplicationAttributes p1) &~ s
 
--- | Returns all of the properties of a subscription.
+-- $GetSubscriptionAttributes
+-- Returns all of the properties of a subscription.
 -- http://sns.us-east-1.amazonaws.com/
 -- ?SubscriptionArn=arn%3Aaws%3Asns%3Aus-east-1%3A123456789012%3AMy-Topic%3A80289ba6-0fd4-4079-afb4-ce8c8260f0ca
 -- &amp;Action=GetSubscriptionAttributes &amp;SignatureVersion=2
@@ -444,6 +513,7 @@ getPlatformApplicationAttributes p1 s =
 -- &lt;/ResponseMetadata&gt; &lt;/GetTopicAttributesResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.GetSubscriptionAttributes'
+
 getSubscriptionAttributes :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -455,7 +525,8 @@ getSubscriptionAttributes :: ( MonadCatch m
 getSubscriptionAttributes p1 s =
     send $ (mkGetSubscriptionAttributes p1) &~ s
 
--- | Returns all of the properties of a topic. Topic properties returned might
+-- $GetTopicAttributes
+-- Returns all of the properties of a topic. Topic properties returned might
 -- differ based on the authorization of the user.
 -- http://sns.us-east-1.amazonaws.com/
 -- ?TopicArn=arn%3Aaws%3Asns%3Aus-east-1%3A123456789012%3AMy-Topic
@@ -483,6 +554,7 @@ getSubscriptionAttributes p1 s =
 -- &lt;/ResponseMetadata&gt; &lt;/GetTopicAttributesResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.GetTopicAttributes'
+
 getTopicAttributes :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -494,7 +566,8 @@ getTopicAttributes :: ( MonadCatch m
 getTopicAttributes p1 s =
     send $ (mkGetTopicAttributes p1) &~ s
 
--- | Lists the endpoints and endpoint attributes for devices in a supported push
+-- $ListEndpointsByPlatformApplication
+-- Lists the endpoints and endpoint attributes for devices in a supported push
 -- notification service, such as GCM and APNS. The results for
 -- ListEndpointsByPlatformApplication are paginated and return a limited list
 -- of endpoints, up to 100. If additional records are available after the
@@ -528,6 +601,7 @@ getTopicAttributes p1 s =
 -- &lt;/ListEndpointsByPlatformApplicationResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.ListEndpointsByPlatformApplication'
+
 listEndpointsByPlatformApplication :: ( MonadCatch m
                                       , MonadResource m
                                       , MonadError AWS.Error m
@@ -539,7 +613,8 @@ listEndpointsByPlatformApplication :: ( MonadCatch m
 listEndpointsByPlatformApplication p1 s =
     paginate $ (mkListEndpointsByPlatformApplication p1) &~ s
 
--- | Lists the platform application objects for the supported push notification
+-- $ListPlatformApplications
+-- Lists the platform application objects for the supported push notification
 -- services, such as APNS and GCM. The results for ListPlatformApplications
 -- are paginated and return a limited list of applications, up to 100. If
 -- additional records are available after the first page results, then a
@@ -572,6 +647,7 @@ listEndpointsByPlatformApplication p1 s =
 -- &lt;/ResponseMetadata&gt; &lt;/ListPlatformApplicationsResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.ListPlatformApplications'
+
 listPlatformApplications :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -582,7 +658,8 @@ listPlatformApplications :: ( MonadCatch m
 listPlatformApplications s =
     paginate (mkListPlatformApplications &~ s)
 
--- | Returns a list of the requester's subscriptions. Each call returns a
+-- $ListSubscriptions
+-- Returns a list of the requester's subscriptions. Each call returns a
 -- limited list of subscriptions, up to 100. If there are more subscriptions,
 -- a NextToken is also returned. Use the NextToken parameter in a new
 -- ListSubscriptions call to get further results.
@@ -604,6 +681,7 @@ listPlatformApplications s =
 -- &lt;/ResponseMetadata&gt; &lt;/ListSubscriptionsResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.ListSubscriptions'
+
 listSubscriptions :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -614,7 +692,8 @@ listSubscriptions :: ( MonadCatch m
 listSubscriptions s =
     paginate (mkListSubscriptions &~ s)
 
--- | Returns a list of the subscriptions to a specific topic. Each call returns
+-- $ListSubscriptionsByTopic
+-- Returns a list of the subscriptions to a specific topic. Each call returns
 -- a limited list of subscriptions, up to 100. If there are more
 -- subscriptions, a NextToken is also returned. Use the NextToken parameter in
 -- a new ListSubscriptionsByTopic call to get further results.
@@ -638,6 +717,7 @@ listSubscriptions s =
 -- &lt;/ResponseMetadata&gt; &lt;/ListSubscriptionsByTopicResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.ListSubscriptionsByTopic'
+
 listSubscriptionsByTopic :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -649,7 +729,8 @@ listSubscriptionsByTopic :: ( MonadCatch m
 listSubscriptionsByTopic p1 s =
     paginate $ (mkListSubscriptionsByTopic p1) &~ s
 
--- | Returns a list of the requester's topics. Each call returns a limited list
+-- $ListTopics
+-- Returns a list of the requester's topics. Each call returns a limited list
 -- of topics, up to 100. If there are more topics, a NextToken is also
 -- returned. Use the NextToken parameter in a new ListTopics call to get
 -- further results. http://sns.us-east-1.amazonaws.com/ ?Action=ListTopics
@@ -665,6 +746,7 @@ listSubscriptionsByTopic p1 s =
 -- &lt;/ResponseMetadata&gt; &lt;/ListTopicsResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.ListTopics'
+
 listTopics :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -675,7 +757,8 @@ listTopics :: ( MonadCatch m
 listTopics s =
     paginate (mkListTopics &~ s)
 
--- | Sends a message to all of a topic's subscribed endpoints. When a messageId
+-- $Publish
+-- Sends a message to all of a topic's subscribed endpoints. When a messageId
 -- is returned, the message has been saved and Amazon SNS will attempt to
 -- deliver it to the topic's subscribers shortly. The format of the outgoing
 -- message to each subscribed endpoint depends on the notification protocol
@@ -717,6 +800,7 @@ listTopics s =
 -- &lt;/ResponseMetadata&gt; &lt;/PublishResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.Publish'
+
 publish :: ( MonadCatch m
            , MonadResource m
            , MonadError AWS.Error m
@@ -728,7 +812,8 @@ publish :: ( MonadCatch m
 publish p3 s =
     send $ (mkPublish p3) &~ s
 
--- | Removes a statement from a topic's access control policy.
+-- $RemovePermission
+-- Removes a statement from a topic's access control policy.
 -- http://sns.us-east-1.amazonaws.com/
 -- ?TopicArn=arn%3Aaws%3Asns%3Aus-east-1%3A123456789012%3AMy-Test
 -- &amp;Label=NewPermission &amp;Action=RemovePermission
@@ -742,6 +827,7 @@ publish p3 s =
 -- &lt;/ResponseMetadata&gt; &lt;/RemovePermissionResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.RemovePermission'
+
 removePermission :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -754,7 +840,8 @@ removePermission :: ( MonadCatch m
 removePermission p1 p2 s =
     send $ (mkRemovePermission p1 p2) &~ s
 
--- | Sets the attributes for an endpoint for a device on one of the supported
+-- $SetEndpointAttributes
+-- Sets the attributes for an endpoint for a device on one of the supported
 -- push notification services, such as GCM and APNS. For more information, see
 -- Using Amazon SNS Mobile Push Notifications. POST
 -- http://sns.us-west-2.amazonaws.com/ HTTP/1.1 ...
@@ -773,6 +860,7 @@ removePermission p1 p2 s =
 -- &lt;/ResponseMetadata&gt; &lt;/SetEndpointAttributesResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.SetEndpointAttributes'
+
 setEndpointAttributes :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -785,7 +873,8 @@ setEndpointAttributes :: ( MonadCatch m
 setEndpointAttributes p1 p2 s =
     send $ (mkSetEndpointAttributes p1 p2) &~ s
 
--- | Sets the attributes of the platform application object for the supported
+-- $SetPlatformApplicationAttributes
+-- Sets the attributes of the platform application object for the supported
 -- push notification services, such as APNS and GCM. For more information, see
 -- Using Amazon SNS Mobile Push Notifications. POST
 -- http://sns.us-west-2.amazonaws.com/ HTTP/1.1 ...
@@ -805,6 +894,7 @@ setEndpointAttributes p1 p2 s =
 -- &lt;/SetPlatformApplicationAttributesResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.SetPlatformApplicationAttributes'
+
 setPlatformApplicationAttributes :: ( MonadCatch m
                                     , MonadResource m
                                     , MonadError AWS.Error m
@@ -817,7 +907,8 @@ setPlatformApplicationAttributes :: ( MonadCatch m
 setPlatformApplicationAttributes p1 p2 s =
     send $ (mkSetPlatformApplicationAttributes p1 p2) &~ s
 
--- | Allows a subscription owner to set an attribute of the topic to a new
+-- $SetSubscriptionAttributes
+-- Allows a subscription owner to set an attribute of the topic to a new
 -- value. The following example sets the delivery policy to 5 total retries
 -- http://sns.us-east-1.amazonaws.com/
 -- ?AttributeValue={"healthyRetryPolicy":{"numRetries":5}}
@@ -839,6 +930,7 @@ setPlatformApplicationAttributes p1 p2 s =
 -- &lt;/ResponseMetadata&gt; &lt;/SetSubscriptionAttributesResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.SetSubscriptionAttributes'
+
 setSubscriptionAttributes :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -851,7 +943,8 @@ setSubscriptionAttributes :: ( MonadCatch m
 setSubscriptionAttributes p1 p2 s =
     send $ (mkSetSubscriptionAttributes p1 p2) &~ s
 
--- | Allows a topic owner to set an attribute of the topic to a new value. The
+-- $SetTopicAttributes
+-- Allows a topic owner to set an attribute of the topic to a new value. The
 -- following example sets the DisplayName attribute to MyTopicName
 -- http://sns.us-east-1.amazonaws.com/ ?AttributeValue=MyTopicName
 -- &amp;TopicArn=arn%3Aaws%3Asns%3Aus-east-1%3A123456789012%3AMy-Topic
@@ -880,6 +973,7 @@ setSubscriptionAttributes p1 p2 s =
 -- &lt;/ResponseMetadata&gt; &lt;/SetTopicAttributesResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.SetTopicAttributes'
+
 setTopicAttributes :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -892,7 +986,8 @@ setTopicAttributes :: ( MonadCatch m
 setTopicAttributes p1 p2 s =
     send $ (mkSetTopicAttributes p1 p2) &~ s
 
--- | Prepares to subscribe an endpoint by sending the endpoint a confirmation
+-- $Subscribe
+-- Prepares to subscribe an endpoint by sending the endpoint a confirmation
 -- message. To actually create a subscription, the endpoint owner must call
 -- the ConfirmSubscription action with the token from the confirmation
 -- message. Confirmation tokens are valid for three days. The following
@@ -910,6 +1005,7 @@ setTopicAttributes p1 p2 s =
 -- &lt;/ResponseMetadata&gt; &lt;/SubscribeResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.Subscribe'
+
 subscribe :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -922,7 +1018,8 @@ subscribe :: ( MonadCatch m
 subscribe p1 p2 s =
     send $ (mkSubscribe p1 p2) &~ s
 
--- | Deletes a subscription. If the subscription requires authentication for
+-- $Unsubscribe
+-- Deletes a subscription. If the subscription requires authentication for
 -- deletion, only the owner of the subscription or the topic's owner can
 -- unsubscribe, and an AWS signature is required. If the Unsubscribe call does
 -- not require authentication and the requester is not the subscription owner,
@@ -941,6 +1038,7 @@ subscribe p1 p2 s =
 -- &lt;/ResponseMetadata&gt; &lt;/UnsubscribeResponse&gt;.
 --
 -- See: 'Network.AWS.SNS.V2010_03_31.Unsubscribe'
+
 unsubscribe :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m

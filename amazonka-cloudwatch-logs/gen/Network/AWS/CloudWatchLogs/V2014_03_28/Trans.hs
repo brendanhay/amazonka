@@ -19,38 +19,64 @@
 module Network.AWS.CloudWatchLogs.V2014_03_28.Trans
     (
     -- * CreateLogGroup
+    -- $CreateLogGroup
       createLogGroup
+
     -- * CreateLogStream
+    -- $CreateLogStream
     , createLogStream
+
     -- * DeleteLogGroup
+    -- $DeleteLogGroup
     , deleteLogGroup
+
     -- * DeleteLogStream
+    -- $DeleteLogStream
     , deleteLogStream
+
     -- * DeleteMetricFilter
+    -- $DeleteMetricFilter
     , deleteMetricFilter
+
     -- * DeleteRetentionPolicy
+    -- $DeleteRetentionPolicy
     , deleteRetentionPolicy
+
     -- * DescribeLogGroups
+    -- $DescribeLogGroups
     , describeLogGroups
+
     -- * DescribeLogStreams
+    -- $DescribeLogStreams
     , describeLogStreams
+
     -- * DescribeMetricFilters
+    -- $DescribeMetricFilters
     , describeMetricFilters
+
     -- * GetLogEvents
+    -- $GetLogEvents
     , getLogEvents
+
     -- * PutLogEvents
+    -- $PutLogEvents
     , putLogEvents
+
     -- * PutMetricFilter
+    -- $PutMetricFilter
     , putMetricFilter
+
     -- * PutRetentionPolicy
+    -- $PutRetentionPolicy
     , putRetentionPolicy
+
     -- * TestMetricFilter
+    -- $TestMetricFilter
     , testMetricFilter
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.CloudWatchLogs.V2014_03_28
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -61,7 +87,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CloudWatchLogs.V2014_03_28
 
--- | Creates a new log group with the specified name. The name of the log group
+-- $CreateLogGroup
+-- Creates a new log group with the specified name. The name of the log group
 -- must be unique within a region for an AWS account. You can create up to 500
 -- log groups per account. You must use the following guidelines when naming a
 -- log group: Log group names can be between 1 and 512 characters long.
@@ -77,6 +104,7 @@ import Network.AWS.CloudWatchLogs.V2014_03_28
 -- application/x-amz-json-1.1 Content-Length: Date: ]]>.
 --
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.CreateLogGroup'
+
 createLogGroup :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -88,7 +116,8 @@ createLogGroup :: ( MonadCatch m
 createLogGroup p1 s =
     send $ (mkCreateLogGroup p1) &~ s
 
--- | Creates a new log stream in the specified log group. The name of the log
+-- $CreateLogStream
+-- Creates a new log stream in the specified log group. The name of the log
 -- stream must be unique within the log group. There is no limit on the number
 -- of log streams that can exist in a log group. You must use the following
 -- guidelines when naming a log stream: Log stream names can be between 1 and
@@ -105,6 +134,7 @@ createLogGroup p1 s =
 -- Content-Length: Date: ]]>.
 --
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.CreateLogStream'
+
 createLogStream :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -117,7 +147,8 @@ createLogStream :: ( MonadCatch m
 createLogStream p1 p2 s =
     send $ (mkCreateLogStream p1 p2) &~ s
 
--- | Deletes the log group with the specified name and permanently deletes all
+-- $DeleteLogGroup
+-- Deletes the log group with the specified name and permanently deletes all
 -- the archived log events associated with it. Delete a Log Group The
 -- following is an example of a DeleteLogGroup request and response. POST /
 -- HTTP/1.1 Host: logs.. X-Amz-Date: Authorization: AWS4-HMAC-SHA256
@@ -130,6 +161,7 @@ createLogStream p1 p2 s =
 -- application/x-amz-json-1.1 Content-Length: Date: ]]>.
 --
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.DeleteLogGroup'
+
 deleteLogGroup :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -141,7 +173,8 @@ deleteLogGroup :: ( MonadCatch m
 deleteLogGroup p1 s =
     send $ (mkDeleteLogGroup p1) &~ s
 
--- | Deletes a log stream and permanently deletes all the archived log events
+-- $DeleteLogStream
+-- Deletes a log stream and permanently deletes all the archived log events
 -- associated with it. Delete a Log Stream The following is an example of a
 -- DeleteLogStream request and response. POST / HTTP/1.1 Host: logs..
 -- X-Amz-Date: Authorization: AWS4-HMAC-SHA256 Credential=,
@@ -154,6 +187,7 @@ deleteLogGroup p1 s =
 -- Content-Length: Date: ]]>.
 --
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.DeleteLogStream'
+
 deleteLogStream :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -166,7 +200,8 @@ deleteLogStream :: ( MonadCatch m
 deleteLogStream p1 p2 s =
     send $ (mkDeleteLogStream p1 p2) &~ s
 
--- | Deletes a metric filter associated with the specified log group. Delete a
+-- $DeleteMetricFilter
+-- Deletes a metric filter associated with the specified log group. Delete a
 -- metric filter The following is an example of a DeleteMetricFilter request
 -- and response. POST / HTTP/1.1 Host: logs.. X-Amz-Date: Authorization:
 -- AWS4-HMAC-SHA256 Credential=,
@@ -179,6 +214,7 @@ deleteLogStream p1 p2 s =
 -- Content-Length: Date: ]]>.
 --
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.DeleteMetricFilter'
+
 deleteMetricFilter :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -191,7 +227,8 @@ deleteMetricFilter :: ( MonadCatch m
 deleteMetricFilter p1 p2 s =
     send $ (mkDeleteMetricFilter p1 p2) &~ s
 
--- | Deletes the retention policy of the specified log group. Log events would
+-- $DeleteRetentionPolicy
+-- Deletes the retention policy of the specified log group. Log events would
 -- not expire if they belong to log groups without a retention policy. Deletes
 -- the retention policy of a log group The following is an example of a
 -- DeleteRetentionPolicy request and response. POST / HTTP/1.1 Host: logs..
@@ -204,6 +241,7 @@ deleteMetricFilter p1 p2 s =
 -- application/x-amz-json-1.1 Content-Length: Date: ]]>.
 --
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.DeleteRetentionPolicy'
+
 deleteRetentionPolicy :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -215,7 +253,8 @@ deleteRetentionPolicy :: ( MonadCatch m
 deleteRetentionPolicy p1 s =
     send $ (mkDeleteRetentionPolicy p1) &~ s
 
--- | Returns all the log groups that are associated with the AWS account making
+-- $DescribeLogGroups
+-- Returns all the log groups that are associated with the AWS account making
 -- the request. The list returned in the response is ASCII-sorted by log group
 -- name. By default, this operation returns up to 50 log groups. If there are
 -- more log groups to list, the response would contain a nextToken value in
@@ -238,6 +277,7 @@ deleteRetentionPolicy p1 s =
 -- "metricFilterCount": 0, "retentionInDays": 30 } ] }.
 --
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.DescribeLogGroups'
+
 describeLogGroups :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -248,7 +288,8 @@ describeLogGroups :: ( MonadCatch m
 describeLogGroups s =
     paginate (mkDescribeLogGroups &~ s)
 
--- | Returns all the log streams that are associated with the specified log
+-- $DescribeLogStreams
+-- Returns all the log streams that are associated with the specified log
 -- group. The list returned in the response is ASCII-sorted by log stream
 -- name. By default, this operation returns up to 50 log streams. If there are
 -- more log streams to list, the response would contain a nextToken value in
@@ -277,6 +318,7 @@ describeLogGroups s =
 -- "07622379445839968487886029673945314100949536701251562127" } ] }.
 --
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.DescribeLogStreams'
+
 describeLogStreams :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -288,7 +330,8 @@ describeLogStreams :: ( MonadCatch m
 describeLogStreams p1 s =
     paginate $ (mkDescribeLogStreams p1) &~ s
 
--- | Returns all the metrics filters associated with the specified log group.
+-- $DescribeMetricFilters
+-- Returns all the metrics filters associated with the specified log group.
 -- The list returned in the response is ASCII-sorted by filter name. By
 -- default, this operation returns up to 50 metric filters. If there are more
 -- metric filters to list, the response would contain a nextToken value in the
@@ -310,6 +353,7 @@ describeLogStreams p1 s =
 -- "metricNamespace": "MyApp", "metricName": "RequestCount" } ] } ] }.
 --
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.DescribeMetricFilters'
+
 describeMetricFilters :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -321,7 +365,8 @@ describeMetricFilters :: ( MonadCatch m
 describeMetricFilters p1 s =
     paginate $ (mkDescribeMetricFilters p1) &~ s
 
--- | Retrieves log events from the specified log stream. You can provide an
+-- $GetLogEvents
+-- Retrieves log events from the specified log stream. You can provide an
 -- optional time range to filter the results on the event timestamp. By
 -- default, this operation returns as much log events as can fit in a response
 -- size of 1MB, up to 10,000 log events. The response will always include a
@@ -349,6 +394,7 @@ describeMetricFilters p1 s =
 -- "f/31132629323784151764587387538205132201699397759403884544" }.
 --
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.GetLogEvents'
+
 getLogEvents :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -361,7 +407,8 @@ getLogEvents :: ( MonadCatch m
 getLogEvents p1 p2 s =
     send $ (mkGetLogEvents p1 p2) &~ s
 
--- | Uploads a batch of log events to the specified log stream. Every
+-- $PutLogEvents
+-- Uploads a batch of log events to the specified log stream. Every
 -- PutLogEvents request must include the sequenceToken obtained from the
 -- response of the previous request. An upload in a newly created log stream
 -- does not require a sequenceToken. The batch of events must satisfy the
@@ -388,6 +435,7 @@ getLogEvents p1 p2 s =
 -- "49536701251539826331025683274032969384950891766572122113" }.
 --
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.PutLogEvents'
+
 putLogEvents :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -401,7 +449,8 @@ putLogEvents :: ( MonadCatch m
 putLogEvents p1 p2 p3 s =
     send $ (mkPutLogEvents p1 p2 p3) &~ s
 
--- | Creates or updates a metric filter and associates it with the specified log
+-- $PutMetricFilter
+-- Creates or updates a metric filter and associates it with the specified log
 -- group. Metric filters allow you to configure rules to extract metric data
 -- from log events ingested through PutLogEvents requests. Create or update a
 -- metric filter The following is an example of a PutMetricFilter request and
@@ -420,6 +469,7 @@ putLogEvents p1 p2 p3 s =
 -- Content-Length: Date: ]]>.
 --
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.PutMetricFilter'
+
 putMetricFilter :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -434,7 +484,8 @@ putMetricFilter :: ( MonadCatch m
 putMetricFilter p1 p2 p3 p4 s =
     send $ (mkPutMetricFilter p1 p2 p3 p4) &~ s
 
--- | Sets the retention of the specified log group. A retention policy allows
+-- $PutRetentionPolicy
+-- Sets the retention of the specified log group. A retention policy allows
 -- you to configure the number of days you want to retain log events in the
 -- specified log group. Creates or updates a 30 day retention policy for a log
 -- group The following is an example of a PutRetentionPolicy request and
@@ -449,6 +500,7 @@ putMetricFilter p1 p2 p3 p4 s =
 -- Date: ]]>.
 --
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.PutRetentionPolicy'
+
 putRetentionPolicy :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -461,7 +513,8 @@ putRetentionPolicy :: ( MonadCatch m
 putRetentionPolicy p1 p2 s =
     send $ (mkPutRetentionPolicy p1 p2) &~ s
 
--- | Tests the filter pattern of a metric filter against a sample of log event
+-- $TestMetricFilter
+-- Tests the filter pattern of a metric filter against a sample of log event
 -- messages. You can use this operation to validate the correctness of a
 -- metric filter pattern. Test a metric filter pattern on Apache access.log
 -- events The following is an example of a TestMetricFilter request and
@@ -631,6 +684,7 @@ putRetentionPolicy p1 p2 s =
 -- Unhanded exception: InvalidQueryException", "extractedValues": {} } ] }.
 --
 -- See: 'Network.AWS.CloudWatchLogs.V2014_03_28.TestMetricFilter'
+
 testMetricFilter :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m

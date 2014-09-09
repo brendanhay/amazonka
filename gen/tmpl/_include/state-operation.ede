@@ -1,11 +1,11 @@
 
+-- ${{ scope.request.name }}
 {% if scope.documentation %}
-{{ scope.documentation | above76 }}
+{{ scope.documentation | wrap76 }}
 --
--- See: '{{ scope.namespace }}'
-{% else %}
--- | See: '{{ scope.namespace }}'
 {% endif %}
+-- See: '{{ scope.namespace }}'
+
 {{ scope.request.function }} :: ( MonadCatch m
 {{ scope.request.function_pad }}    , MonadResource m
 {{ scope.request.function_pad }}    , MonadError AWS.Error m

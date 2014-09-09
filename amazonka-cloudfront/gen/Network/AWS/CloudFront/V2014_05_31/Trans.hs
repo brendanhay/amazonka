@@ -28,52 +28,92 @@
 module Network.AWS.CloudFront.V2014_05_31.Trans
     (
     -- * CreateCloudFrontOriginAccessIdentity
+    -- $CreateCloudFrontOriginAccessIdentity
       createCloudFrontOriginAccessIdentity
+
     -- * CreateDistribution
+    -- $CreateDistribution
     , createDistribution
+
     -- * CreateInvalidation
+    -- $CreateInvalidation
     , createInvalidation
+
     -- * CreateStreamingDistribution
+    -- $CreateStreamingDistribution
     , createStreamingDistribution
+
     -- * DeleteCloudFrontOriginAccessIdentity
+    -- $DeleteCloudFrontOriginAccessIdentity
     , deleteCloudFrontOriginAccessIdentity
+
     -- * DeleteDistribution
+    -- $DeleteDistribution
     , deleteDistribution
+
     -- * DeleteStreamingDistribution
+    -- $DeleteStreamingDistribution
     , deleteStreamingDistribution
+
     -- * GetCloudFrontOriginAccessIdentity
+    -- $GetCloudFrontOriginAccessIdentity
     , getCloudFrontOriginAccessIdentity
+
     -- * GetCloudFrontOriginAccessIdentityConfig
+    -- $GetCloudFrontOriginAccessIdentityConfig
     , getCloudFrontOriginAccessIdentityConfig
+
     -- * GetDistribution
+    -- $GetDistribution
     , getDistribution
+
     -- * GetDistributionConfig
+    -- $GetDistributionConfig
     , getDistributionConfig
+
     -- * GetInvalidation
+    -- $GetInvalidation
     , getInvalidation
+
     -- * GetStreamingDistribution
+    -- $GetStreamingDistribution
     , getStreamingDistribution
+
     -- * GetStreamingDistributionConfig
+    -- $GetStreamingDistributionConfig
     , getStreamingDistributionConfig
+
     -- * ListCloudFrontOriginAccessIdentities
+    -- $ListCloudFrontOriginAccessIdentities
     , listCloudFrontOriginAccessIdentities
+
     -- * ListDistributions
+    -- $ListDistributions
     , listDistributions
+
     -- * ListInvalidations
+    -- $ListInvalidations
     , listInvalidations
+
     -- * ListStreamingDistributions
+    -- $ListStreamingDistributions
     , listStreamingDistributions
+
     -- * UpdateCloudFrontOriginAccessIdentity
+    -- $UpdateCloudFrontOriginAccessIdentity
     , updateCloudFrontOriginAccessIdentity
+
     -- * UpdateDistribution
+    -- $UpdateDistribution
     , updateDistribution
+
     -- * UpdateStreamingDistribution
+    -- $UpdateStreamingDistribution
     , updateStreamingDistribution
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.CloudFront.V2014_05_31
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -84,9 +124,11 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CloudFront.V2014_05_31
 
--- | Create a new origin access identity.
+-- $CreateCloudFrontOriginAccessIdentity
+-- Create a new origin access identity.
 --
 -- See: 'Network.AWS.CloudFront.V2014_05_31.CreateCloudFrontOriginAccessIdentity'
+
 createCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                         , MonadResource m
                                         , MonadError AWS.Error m
@@ -98,9 +140,11 @@ createCloudFrontOriginAccessIdentity :: ( MonadCatch m
 createCloudFrontOriginAccessIdentity p1 s =
     send $ (mkCreateCloudFrontOriginAccessIdentity p1) &~ s
 
--- | Create a new distribution.
+-- $CreateDistribution
+-- Create a new distribution.
 --
 -- See: 'Network.AWS.CloudFront.V2014_05_31.CreateDistribution'
+
 createDistribution :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -112,9 +156,11 @@ createDistribution :: ( MonadCatch m
 createDistribution p1 s =
     send $ (mkCreateDistribution p1) &~ s
 
--- | Create a new invalidation.
+-- $CreateInvalidation
+-- Create a new invalidation.
 --
 -- See: 'Network.AWS.CloudFront.V2014_05_31.CreateInvalidation'
+
 createInvalidation :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -127,9 +173,11 @@ createInvalidation :: ( MonadCatch m
 createInvalidation p1 p2 s =
     send $ (mkCreateInvalidation p1 p2) &~ s
 
--- | Create a new streaming distribution.
+-- $CreateStreamingDistribution
+-- Create a new streaming distribution.
 --
 -- See: 'Network.AWS.CloudFront.V2014_05_31.CreateStreamingDistribution'
+
 createStreamingDistribution :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -141,9 +189,11 @@ createStreamingDistribution :: ( MonadCatch m
 createStreamingDistribution p1 s =
     send $ (mkCreateStreamingDistribution p1) &~ s
 
--- | Delete an origin access identity.
+-- $DeleteCloudFrontOriginAccessIdentity
+-- Delete an origin access identity.
 --
 -- See: 'Network.AWS.CloudFront.V2014_05_31.DeleteCloudFrontOriginAccessIdentity'
+
 deleteCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                         , MonadResource m
                                         , MonadError AWS.Error m
@@ -155,9 +205,11 @@ deleteCloudFrontOriginAccessIdentity :: ( MonadCatch m
 deleteCloudFrontOriginAccessIdentity p1 s =
     send $ (mkDeleteCloudFrontOriginAccessIdentity p1) &~ s
 
--- | Delete a distribution.
+-- $DeleteDistribution
+-- Delete a distribution.
 --
 -- See: 'Network.AWS.CloudFront.V2014_05_31.DeleteDistribution'
+
 deleteDistribution :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -169,9 +221,11 @@ deleteDistribution :: ( MonadCatch m
 deleteDistribution p1 s =
     send $ (mkDeleteDistribution p1) &~ s
 
--- | Delete a streaming distribution.
+-- $DeleteStreamingDistribution
+-- Delete a streaming distribution.
 --
 -- See: 'Network.AWS.CloudFront.V2014_05_31.DeleteStreamingDistribution'
+
 deleteStreamingDistribution :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -183,9 +237,11 @@ deleteStreamingDistribution :: ( MonadCatch m
 deleteStreamingDistribution p1 s =
     send $ (mkDeleteStreamingDistribution p1) &~ s
 
--- | Get the information about an origin access identity.
+-- $GetCloudFrontOriginAccessIdentity
+-- Get the information about an origin access identity.
 --
 -- See: 'Network.AWS.CloudFront.V2014_05_31.GetCloudFrontOriginAccessIdentity'
+
 getCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
@@ -197,9 +253,11 @@ getCloudFrontOriginAccessIdentity :: ( MonadCatch m
 getCloudFrontOriginAccessIdentity p1 s =
     send $ (mkGetCloudFrontOriginAccessIdentity p1) &~ s
 
--- | Get the configuration information about an origin access identity.
+-- $GetCloudFrontOriginAccessIdentityConfig
+-- Get the configuration information about an origin access identity.
 --
 -- See: 'Network.AWS.CloudFront.V2014_05_31.GetCloudFrontOriginAccessIdentityConfig'
+
 getCloudFrontOriginAccessIdentityConfig :: ( MonadCatch m
                                            , MonadResource m
                                            , MonadError AWS.Error m
@@ -211,9 +269,11 @@ getCloudFrontOriginAccessIdentityConfig :: ( MonadCatch m
 getCloudFrontOriginAccessIdentityConfig p1 s =
     send $ (mkGetCloudFrontOriginAccessIdentityConfig p1) &~ s
 
--- | Get the information about a distribution.
+-- $GetDistribution
+-- Get the information about a distribution.
 --
 -- See: 'Network.AWS.CloudFront.V2014_05_31.GetDistribution'
+
 getDistribution :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -225,9 +285,11 @@ getDistribution :: ( MonadCatch m
 getDistribution p1 s =
     send $ (mkGetDistribution p1) &~ s
 
--- | Get the configuration information about a distribution.
+-- $GetDistributionConfig
+-- Get the configuration information about a distribution.
 --
 -- See: 'Network.AWS.CloudFront.V2014_05_31.GetDistributionConfig'
+
 getDistributionConfig :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -239,9 +301,11 @@ getDistributionConfig :: ( MonadCatch m
 getDistributionConfig p1 s =
     send $ (mkGetDistributionConfig p1) &~ s
 
--- | Get the information about an invalidation.
+-- $GetInvalidation
+-- Get the information about an invalidation.
 --
 -- See: 'Network.AWS.CloudFront.V2014_05_31.GetInvalidation'
+
 getInvalidation :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -254,9 +318,11 @@ getInvalidation :: ( MonadCatch m
 getInvalidation p1 p2 s =
     send $ (mkGetInvalidation p1 p2) &~ s
 
--- | Get the information about a streaming distribution.
+-- $GetStreamingDistribution
+-- Get the information about a streaming distribution.
 --
 -- See: 'Network.AWS.CloudFront.V2014_05_31.GetStreamingDistribution'
+
 getStreamingDistribution :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -268,9 +334,11 @@ getStreamingDistribution :: ( MonadCatch m
 getStreamingDistribution p1 s =
     send $ (mkGetStreamingDistribution p1) &~ s
 
--- | Get the configuration information about a streaming distribution.
+-- $GetStreamingDistributionConfig
+-- Get the configuration information about a streaming distribution.
 --
 -- See: 'Network.AWS.CloudFront.V2014_05_31.GetStreamingDistributionConfig'
+
 getStreamingDistributionConfig :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
@@ -282,9 +350,11 @@ getStreamingDistributionConfig :: ( MonadCatch m
 getStreamingDistributionConfig p1 s =
     send $ (mkGetStreamingDistributionConfig p1) &~ s
 
--- | List origin access identities.
+-- $ListCloudFrontOriginAccessIdentities
+-- List origin access identities.
 --
 -- See: 'Network.AWS.CloudFront.V2014_05_31.ListCloudFrontOriginAccessIdentities'
+
 listCloudFrontOriginAccessIdentities :: ( MonadCatch m
                                         , MonadResource m
                                         , MonadError AWS.Error m
@@ -295,9 +365,11 @@ listCloudFrontOriginAccessIdentities :: ( MonadCatch m
 listCloudFrontOriginAccessIdentities s =
     paginate (mkListCloudFrontOriginAccessIdentities &~ s)
 
--- | List distributions.
+-- $ListDistributions
+-- List distributions.
 --
 -- See: 'Network.AWS.CloudFront.V2014_05_31.ListDistributions'
+
 listDistributions :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -308,9 +380,11 @@ listDistributions :: ( MonadCatch m
 listDistributions s =
     paginate (mkListDistributions &~ s)
 
--- | List invalidation batches.
+-- $ListInvalidations
+-- List invalidation batches.
 --
 -- See: 'Network.AWS.CloudFront.V2014_05_31.ListInvalidations'
+
 listInvalidations :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -322,9 +396,11 @@ listInvalidations :: ( MonadCatch m
 listInvalidations p1 s =
     paginate $ (mkListInvalidations p1) &~ s
 
--- | List streaming distributions.
+-- $ListStreamingDistributions
+-- List streaming distributions.
 --
 -- See: 'Network.AWS.CloudFront.V2014_05_31.ListStreamingDistributions'
+
 listStreamingDistributions :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -335,9 +411,11 @@ listStreamingDistributions :: ( MonadCatch m
 listStreamingDistributions s =
     paginate (mkListStreamingDistributions &~ s)
 
--- | Update an origin access identity.
+-- $UpdateCloudFrontOriginAccessIdentity
+-- Update an origin access identity.
 --
 -- See: 'Network.AWS.CloudFront.V2014_05_31.UpdateCloudFrontOriginAccessIdentity'
+
 updateCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                         , MonadResource m
                                         , MonadError AWS.Error m
@@ -350,9 +428,11 @@ updateCloudFrontOriginAccessIdentity :: ( MonadCatch m
 updateCloudFrontOriginAccessIdentity p1 p2 s =
     send $ (mkUpdateCloudFrontOriginAccessIdentity p1 p2) &~ s
 
--- | Update a distribution.
+-- $UpdateDistribution
+-- Update a distribution.
 --
 -- See: 'Network.AWS.CloudFront.V2014_05_31.UpdateDistribution'
+
 updateDistribution :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -365,9 +445,11 @@ updateDistribution :: ( MonadCatch m
 updateDistribution p1 p2 s =
     send $ (mkUpdateDistribution p1 p2) &~ s
 
--- | Update a streaming distribution.
+-- $UpdateStreamingDistribution
+-- Update a streaming distribution.
 --
 -- See: 'Network.AWS.CloudFront.V2014_05_31.UpdateStreamingDistribution'
+
 updateStreamingDistribution :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m

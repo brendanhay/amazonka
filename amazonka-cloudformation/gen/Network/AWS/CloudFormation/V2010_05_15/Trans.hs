@@ -28,40 +28,68 @@
 module Network.AWS.CloudFormation.V2010_05_15.Trans
     (
     -- * CancelUpdateStack
+    -- $CancelUpdateStack
       cancelUpdateStack
+
     -- * CreateStack
+    -- $CreateStack
     , createStack
+
     -- * DeleteStack
+    -- $DeleteStack
     , deleteStack
+
     -- * DescribeStackEvents
+    -- $DescribeStackEvents
     , describeStackEvents
+
     -- * DescribeStackResource
+    -- $DescribeStackResource
     , describeStackResource
+
     -- * DescribeStackResources
+    -- $DescribeStackResources
     , describeStackResources
+
     -- * DescribeStacks
+    -- $DescribeStacks
     , describeStacks
+
     -- * EstimateTemplateCost
+    -- $EstimateTemplateCost
     , estimateTemplateCost
+
     -- * GetStackPolicy
+    -- $GetStackPolicy
     , getStackPolicy
+
     -- * GetTemplate
+    -- $GetTemplate
     , getTemplate
+
     -- * ListStackResources
+    -- $ListStackResources
     , listStackResources
+
     -- * ListStacks
+    -- $ListStacks
     , listStacks
+
     -- * SetStackPolicy
+    -- $SetStackPolicy
     , setStackPolicy
+
     -- * UpdateStack
+    -- $UpdateStack
     , updateStack
+
     -- * ValidateTemplate
+    -- $ValidateTemplate
     , validateTemplate
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.CloudFormation.V2010_05_15
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -72,7 +100,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CloudFormation.V2010_05_15
 
--- | Cancels an update on the specified stack. If the call completes
+-- $CancelUpdateStack
+-- Cancels an update on the specified stack. If the call completes
 -- successfully, the stack will roll back the update and revert to the
 -- previous stack configuration. Only stacks that are in the
 -- UPDATE_IN_PROGRESS state can be canceled.
@@ -82,6 +111,7 @@ import Network.AWS.CloudFormation.V2010_05_15
 -- &Signature=[Signature].
 --
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.CancelUpdateStack'
+
 cancelUpdateStack :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -93,7 +123,8 @@ cancelUpdateStack :: ( MonadCatch m
 cancelUpdateStack p1 s =
     send $ (mkCancelUpdateStack p1) &~ s
 
--- | Creates a stack as specified in the template. After the call completes
+-- $CreateStack
+-- Creates a stack as specified in the template. After the call completes
 -- successfully, the stack creation starts. You can check the status of the
 -- stack via the DescribeStacks API.
 -- https://cloudformation.us-east-1.amazonaws.com/ ?Action=CreateStack
@@ -107,6 +138,7 @@ cancelUpdateStack p1 s =
 -- 
 --
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.CreateStack'
+
 createStack :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -118,7 +150,8 @@ createStack :: ( MonadCatch m
 createStack p1 s =
     send $ (mkCreateStack p1) &~ s
 
--- | Deletes a specified stack. Once the call completes successfully, stack
+-- $DeleteStack
+-- Deletes a specified stack. Once the call completes successfully, stack
 -- deletion starts. Deleted stacks do not show up in the DescribeStacks API if
 -- the deletion has been completed successfully.
 -- https://cloudformation.us-east-1.amazonaws.com/ ?Action=DeleteStack
@@ -127,6 +160,7 @@ createStack p1 s =
 -- &Signature=[Signature].
 --
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.DeleteStack'
+
 deleteStack :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -138,7 +172,8 @@ deleteStack :: ( MonadCatch m
 deleteStack p1 s =
     send $ (mkDeleteStack p1) &~ s
 
--- | Returns all stack related events for a specified stack. For more
+-- $DescribeStackEvents
+-- Returns all stack related events for a specified stack. For more
 -- information about a stack's event history, go to Stacks in the AWS
 -- CloudFormation User Guide. You can list events for stacks that have failed
 -- to create or have been deleted by specifying the unique stack identifier
@@ -157,6 +192,7 @@ deleteStack p1 s =
 -- CREATE_COMPLETE.
 --
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.DescribeStackEvents'
+
 describeStackEvents :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -168,7 +204,8 @@ describeStackEvents :: ( MonadCatch m
 describeStackEvents p1 s =
     paginate $ (mkDescribeStackEvents p1) &~ s
 
--- | Returns a description of the specified resource in the specified stack. For
+-- $DescribeStackResource
+-- Returns a description of the specified resource in the specified stack. For
 -- deleted stacks, DescribeStackResource returns resource information for up
 -- to 90 days after the stack has been deleted.
 -- https://cloudformation.us-east-1.amazonaws.com/
@@ -181,6 +218,7 @@ describeStackEvents p1 s =
 -- CREATE_COMPLETE.
 --
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.DescribeStackResource'
+
 describeStackResource :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -193,7 +231,8 @@ describeStackResource :: ( MonadCatch m
 describeStackResource p1 p2 s =
     send $ (mkDescribeStackResource p1 p2) &~ s
 
--- | Returns AWS resource descriptions for running and deleted stacks. If
+-- $DescribeStackResources
+-- Returns AWS resource descriptions for running and deleted stacks. If
 -- StackName is specified, all the associated resources that are part of the
 -- stack are returned. If PhysicalResourceId is specified, the associated
 -- resources of the stack that the resource belongs to are returned. Only the
@@ -218,6 +257,7 @@ describeStackResource p1 p2 s =
 -- 2010-07-27T22:28:28Z CREATE_IN_PROGRESS.
 --
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.DescribeStackResources'
+
 describeStackResources :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -228,7 +268,8 @@ describeStackResources :: ( MonadCatch m
 describeStackResources s =
     send (mkDescribeStackResources &~ s)
 
--- | Returns the description for the specified stack; if no stack name was
+-- $DescribeStacks
+-- Returns the description for the specified stack; if no stack name was
 -- specified, then it returns the description for all the stacks created.
 -- https://cloudformation.us-east-1.amazonaws.com/ ?Action=DescribeStacks
 -- &StackName=MyStack &Version=2010-05-15 &SignatureVersion=2
@@ -239,6 +280,7 @@ describeStackResources s =
 -- http://my-load-balancer.amazonaws.com:80/index.html.
 --
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.DescribeStacks'
+
 describeStacks :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -249,7 +291,8 @@ describeStacks :: ( MonadCatch m
 describeStacks s =
     paginate (mkDescribeStacks &~ s)
 
--- | Returns the estimated monthly cost of a template. The return value is an
+-- $EstimateTemplateCost
+-- Returns the estimated monthly cost of a template. The return value is an
 -- AWS Simple Monthly Calculator URL with a query string that describes the
 -- resources required to run the template.
 -- https://cloudformation.us-east-1.amazonaws.com/
@@ -262,6 +305,7 @@ describeStacks s =
 -- 
 --
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.EstimateTemplateCost'
+
 estimateTemplateCost :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -272,7 +316,8 @@ estimateTemplateCost :: ( MonadCatch m
 estimateTemplateCost s =
     send (mkEstimateTemplateCost &~ s)
 
--- | Returns the stack policy for a specified stack. If a stack doesn't have a
+-- $GetStackPolicy
+-- Returns the stack policy for a specified stack. If a stack doesn't have a
 -- policy, a null value is returned.
 -- https://cloudformation.us-east-1.amazonaws.com/ ?Action=GetStackPolicy
 -- &StackName=MyStack &Version=2010-05-15 &SignatureVersion=2
@@ -283,6 +328,7 @@ estimateTemplateCost s =
 -- "Update:*", "Principal" : "*", "Resource" : "*" } ] }.
 --
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.GetStackPolicy'
+
 getStackPolicy :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -294,7 +340,8 @@ getStackPolicy :: ( MonadCatch m
 getStackPolicy p1 s =
     send $ (mkGetStackPolicy p1) &~ s
 
--- | Returns the template body for a specified stack. You can get the template
+-- $GetTemplate
+-- Returns the template body for a specified stack. You can get the template
 -- for running or deleted stacks. For deleted stacks, GetTemplate returns the
 -- template for up to 90 days after the stack has been deleted. If the
 -- template does not exist, a ValidationError is returned.
@@ -306,6 +353,7 @@ getStackPolicy p1 s =
 -- "AWS::SQS::Queue", "Properties" : { } } } }.
 --
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.GetTemplate'
+
 getTemplate :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -317,7 +365,8 @@ getTemplate :: ( MonadCatch m
 getTemplate p1 s =
     send $ (mkGetTemplate p1) &~ s
 
--- | Returns descriptions of all resources of the specified stack. For deleted
+-- $ListStackResources
+-- Returns descriptions of all resources of the specified stack. For deleted
 -- stacks, ListStackResources returns resource information for up to 90 days
 -- after the stack has been deleted.
 -- https://cloudformation.us-east-1.amazonaws.com/ ?Action=ListStackResources
@@ -337,6 +386,7 @@ getTemplate p1 s =
 -- 2d06e36c-ac1d-11e0-a958-f9382b6eb86b.
 --
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.ListStackResources'
+
 listStackResources :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -348,7 +398,8 @@ listStackResources :: ( MonadCatch m
 listStackResources p1 s =
     paginate $ (mkListStackResources p1) &~ s
 
--- | Returns the summary information for stacks whose status matches the
+-- $ListStacks
+-- Returns the summary information for stacks whose status matches the
 -- specified StackStatusFilter. Summary information for stacks that have been
 -- deleted is kept for 90 days after the stack is deleted. If no
 -- StackStatusFilter is specified, summary information for all stacks is
@@ -367,6 +418,7 @@ listStackResources p1 s =
 -- basic Cloudformation Template.
 --
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.ListStacks'
+
 listStacks :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -377,7 +429,8 @@ listStacks :: ( MonadCatch m
 listStacks s =
     paginate (mkListStacks &~ s)
 
--- | Sets a stack policy for a specified stack.
+-- $SetStackPolicy
+-- Sets a stack policy for a specified stack.
 -- https://cloudformation.us-east-1.amazonaws.com/ ?Action=SetStackPolicy
 -- &StackName=MyStack &StackPolicyBody=[Stack Policy Document]
 -- &Version=2010-05-15 &SignatureVersion=2
@@ -385,6 +438,7 @@ listStacks s =
 -- &Signature=[Signature].
 --
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.SetStackPolicy'
+
 setStackPolicy :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -396,7 +450,8 @@ setStackPolicy :: ( MonadCatch m
 setStackPolicy p1 s =
     send $ (mkSetStackPolicy p1) &~ s
 
--- | Updates a stack as specified in the template. After the call completes
+-- $UpdateStack
+-- Updates a stack as specified in the template. After the call completes
 -- successfully, the stack update starts. You can check the status of the
 -- stack via the DescribeStacks action. To get a copy of the template for an
 -- existing stack, you can use the GetTemplate action. Tags that were
@@ -414,6 +469,7 @@ setStackPolicy p1 s =
 -- 
 --
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.UpdateStack'
+
 updateStack :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -425,7 +481,8 @@ updateStack :: ( MonadCatch m
 updateStack p1 s =
     send $ (mkUpdateStack p1) &~ s
 
--- | Validates a specified template.
+-- $ValidateTemplate
+-- Validates a specified template.
 -- https://cloudformation.us-east-1.amazonaws.com/ ?Action=ValidateTemplate
 -- &TemplateBody=http://myTemplateRepository/TemplateOne.template
 -- &Version=2010-05-15 &SignatureVersion=2
@@ -436,6 +493,7 @@ updateStack p1 s =
 -- server 0be7b6e8-e4a0-11e0-a5bd-9f8d5a7dbc91.
 --
 -- See: 'Network.AWS.CloudFormation.V2010_05_15.ValidateTemplate'
+
 validateTemplate :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m

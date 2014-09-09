@@ -25,46 +25,80 @@
 module Network.AWS.SES.V2010_12_01.Trans
     (
     -- * DeleteIdentity
+    -- $DeleteIdentity
       deleteIdentity
+
     -- * DeleteVerifiedEmailAddress
+    -- $DeleteVerifiedEmailAddress
     , deleteVerifiedEmailAddress
+
     -- * GetIdentityDkimAttributes
+    -- $GetIdentityDkimAttributes
     , getIdentityDkimAttributes
+
     -- * GetIdentityNotificationAttributes
+    -- $GetIdentityNotificationAttributes
     , getIdentityNotificationAttributes
+
     -- * GetIdentityVerificationAttributes
+    -- $GetIdentityVerificationAttributes
     , getIdentityVerificationAttributes
+
     -- * GetSendQuota
+    -- $GetSendQuota
     , getSendQuota
+
     -- * GetSendStatistics
+    -- $GetSendStatistics
     , getSendStatistics
+
     -- * ListIdentities
+    -- $ListIdentities
     , listIdentities
+
     -- * ListVerifiedEmailAddresses
+    -- $ListVerifiedEmailAddresses
     , listVerifiedEmailAddresses
+
     -- * SendEmail
+    -- $SendEmail
     , sendEmail
+
     -- * SendRawEmail
+    -- $SendRawEmail
     , sendRawEmail
+
     -- * SetIdentityDkimEnabled
+    -- $SetIdentityDkimEnabled
     , setIdentityDkimEnabled
+
     -- * SetIdentityFeedbackForwardingEnabled
+    -- $SetIdentityFeedbackForwardingEnabled
     , setIdentityFeedbackForwardingEnabled
+
     -- * SetIdentityNotificationTopic
+    -- $SetIdentityNotificationTopic
     , setIdentityNotificationTopic
+
     -- * VerifyDomainDkim
+    -- $VerifyDomainDkim
     , verifyDomainDkim
+
     -- * VerifyDomainIdentity
+    -- $VerifyDomainIdentity
     , verifyDomainIdentity
+
     -- * VerifyEmailAddress
+    -- $VerifyEmailAddress
     , verifyEmailAddress
+
     -- * VerifyEmailIdentity
+    -- $VerifyEmailIdentity
     , verifyEmailIdentity
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.SES.V2010_12_01
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -75,7 +109,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.SES.V2010_12_01
 
--- | Deletes the specified identity (email address or domain) from the list of
+-- $DeleteIdentity
+-- Deletes the specified identity (email address or domain) from the list of
 -- verified identities. This action is throttled at one request per second.
 -- POST / HTTP/1.1 Date: Sat, 12 May 2012 05:25:58 GMT Host:
 -- email.us-east-1.amazonaws.com Content-Type:
@@ -88,6 +123,7 @@ import Network.AWS.SES.V2010_12_01
 -- &Version=2010-12-01 d96bd874-9bf2-11e1-8ee7-c98a0037a2b6.
 --
 -- See: 'Network.AWS.SES.V2010_12_01.DeleteIdentity'
+
 deleteIdentity :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -99,7 +135,8 @@ deleteIdentity :: ( MonadCatch m
 deleteIdentity p1 s =
     send $ (mkDeleteIdentity p1) &~ s
 
--- | Deletes the specified email address from the list of verified addresses.
+-- $DeleteVerifiedEmailAddress
+-- Deletes the specified email address from the list of verified addresses.
 -- The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012
 -- release of Domain Verification. The DeleteIdentity action is now preferred.
 -- This action is throttled at one request per second. POST / HTTP/1.1 Date:
@@ -113,6 +150,7 @@ deleteIdentity p1 s =
 -- 5634af08-c865-11e0-8986-3f99a698f914.
 --
 -- See: 'Network.AWS.SES.V2010_12_01.DeleteVerifiedEmailAddress'
+
 deleteVerifiedEmailAddress :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -124,7 +162,8 @@ deleteVerifiedEmailAddress :: ( MonadCatch m
 deleteVerifiedEmailAddress p1 s =
     send $ (mkDeleteVerifiedEmailAddress p1) &~ s
 
--- | Returns the current status of Easy DKIM signing for an entity. For domain
+-- $GetIdentityDkimAttributes
+-- Returns the current status of Easy DKIM signing for an entity. For domain
 -- name identities, this action also returns the DKIM tokens that are required
 -- for Easy DKIM signing, and whether Amazon SES has successfully verified
 -- that these tokens have been published. This action takes a list of
@@ -151,6 +190,7 @@ deleteVerifiedEmailAddress p1 s =
 -- bb5a105d-c468-11e1-82eb-dff885ccc06a.
 --
 -- See: 'Network.AWS.SES.V2010_12_01.GetIdentityDkimAttributes'
+
 getIdentityDkimAttributes :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -162,7 +202,8 @@ getIdentityDkimAttributes :: ( MonadCatch m
 getIdentityDkimAttributes p1 s =
     send $ (mkGetIdentityDkimAttributes p1) &~ s
 
--- | Given a list of verified identities (email addresses and/or domains),
+-- $GetIdentityNotificationAttributes
+-- Given a list of verified identities (email addresses and/or domains),
 -- returns a structure describing identity notification attributes. This
 -- action is throttled at one request per second. For more information about
 -- using notifications with Amazon SES, see the Amazon SES Developer Guide.
@@ -182,6 +223,7 @@ getIdentityDkimAttributes p1 s =
 -- e038e509-b72a-11e1-901f-1fbd90e8104f.
 --
 -- See: 'Network.AWS.SES.V2010_12_01.GetIdentityNotificationAttributes'
+
 getIdentityNotificationAttributes :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
@@ -193,7 +235,8 @@ getIdentityNotificationAttributes :: ( MonadCatch m
 getIdentityNotificationAttributes p1 s =
     send $ (mkGetIdentityNotificationAttributes p1) &~ s
 
--- | Given a list of identities (email addresses and/or domains), returns the
+-- $GetIdentityVerificationAttributes
+-- Given a list of identities (email addresses and/or domains), returns the
 -- verification status and (for domain identities) the verification token for
 -- each identity. This action is throttled at one request per second. POST /
 -- HTTP/1.1 Date: Sat, 12 May 2012 05:27:54 GMT Host:
@@ -210,6 +253,7 @@ getIdentityNotificationAttributes p1 s =
 -- Pending 1d0c29f1-9bf3-11e1-8ee7-c98a0037a2b6.
 --
 -- See: 'Network.AWS.SES.V2010_12_01.GetIdentityVerificationAttributes'
+
 getIdentityVerificationAttributes :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
@@ -221,7 +265,8 @@ getIdentityVerificationAttributes :: ( MonadCatch m
 getIdentityVerificationAttributes p1 s =
     send $ (mkGetIdentityVerificationAttributes p1) &~ s
 
--- | Returns the user's current sending limits. This action is throttled at one
+-- $GetSendQuota
+-- Returns the user's current sending limits. This action is throttled at one
 -- request per second. POST / HTTP/1.1 Date: Thu, 18 Aug 2011 22:22:36 GMT
 -- Host: email.us-east-1.amazonaws.com Content-Type:
 -- application/x-www-form-urlencoded X-Amzn-Authorization: AWS3
@@ -233,6 +278,7 @@ getIdentityVerificationAttributes p1 s =
 -- 273021c6-c866-11e0-b926-699e21c3af9e.
 --
 -- See: 'Network.AWS.SES.V2010_12_01.GetSendQuota'
+
 getSendQuota :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -243,7 +289,8 @@ getSendQuota :: ( MonadCatch m
 getSendQuota s =
     send (mkGetSendQuota &~ s)
 
--- | Returns the user's sending statistics. The result is a list of data points,
+-- $GetSendStatistics
+-- Returns the user's sending statistics. The result is a list of data points,
 -- representing the last two weeks of sending activity. Each data point in the
 -- list contains statistics for a 15-minute interval. This action is throttled
 -- at one request per second. POST / HTTP/1.1 Date: Thu, 18 Aug 2011 22:23:01
@@ -257,6 +304,7 @@ getSendQuota s =
 -- 2011-08-03T06:53:00Z 0 0 0 . . . . c2b66ee5-c866-11e0-b17f-cddb0ab334db.
 --
 -- See: 'Network.AWS.SES.V2010_12_01.GetSendStatistics'
+
 getSendStatistics :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -267,7 +315,8 @@ getSendStatistics :: ( MonadCatch m
 getSendStatistics s =
     send (mkGetSendStatistics &~ s)
 
--- | Returns a list containing all of the identities (email addresses and
+-- $ListIdentities
+-- Returns a list containing all of the identities (email addresses and
 -- domains) for a specific AWS Account, regardless of verification status.
 -- This action is throttled at one request per second. POST / HTTP/1.1 Date:
 -- Sat, 12 May 2012 05:18:45 GMT Host: email.us-east-1.amazonaws.com
@@ -280,6 +329,7 @@ getSendStatistics s =
 -- user@example.com cacecf23-9bf1-11e1-9279-0100e8cf109a.
 --
 -- See: 'Network.AWS.SES.V2010_12_01.ListIdentities'
+
 listIdentities :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -290,7 +340,8 @@ listIdentities :: ( MonadCatch m
 listIdentities s =
     paginate (mkListIdentities &~ s)
 
--- | Returns a list containing all of the email addresses that have been
+-- $ListVerifiedEmailAddresses
+-- Returns a list containing all of the email addresses that have been
 -- verified. The ListVerifiedEmailAddresses action is deprecated as of the May
 -- 15, 2012 release of Domain Verification. The ListIdentities action is now
 -- preferred. This action is throttled at one request per second. POST /
@@ -305,6 +356,7 @@ listIdentities s =
 -- 3dd50e97-c865-11e0-b235-099eb63d928d.
 --
 -- See: 'Network.AWS.SES.V2010_12_01.ListVerifiedEmailAddresses'
+
 listVerifiedEmailAddresses :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -315,7 +367,8 @@ listVerifiedEmailAddresses :: ( MonadCatch m
 listVerifiedEmailAddresses s =
     send (mkListVerifiedEmailAddresses &~ s)
 
--- | Composes an email message based on input data, and then immediately queues
+-- $SendEmail
+-- Composes an email message based on input data, and then immediately queues
 -- the message for sending. You can only send email from verified email
 -- addresses and domains. If you have not requested production access to
 -- Amazon SES, you must also verify every recipient email address except for
@@ -344,6 +397,7 @@ listVerifiedEmailAddresses s =
 -- d5964849-c866-11e0-9beb-01a62d68c57f.
 --
 -- See: 'Network.AWS.SES.V2010_12_01.SendEmail'
+
 sendEmail :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -357,7 +411,8 @@ sendEmail :: ( MonadCatch m
 sendEmail p1 p2 p3 s =
     send $ (mkSendEmail p1 p2 p3) &~ s
 
--- | Sends an email message, with header and content specified by the client.
+-- $SendRawEmail
+-- Sends an email message, with header and content specified by the client.
 -- The SendRawEmail action is useful for sending multipart MIME emails. The
 -- raw text of the message must comply with Internet email standards;
 -- otherwise, the message cannot be sent. You can only send email from
@@ -401,6 +456,7 @@ sendEmail p1 p2 p3 s =
 -- e0abcdfa-c866-11e0-b6d0-273d09173b49.
 --
 -- See: 'Network.AWS.SES.V2010_12_01.SendRawEmail'
+
 sendRawEmail :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -412,7 +468,8 @@ sendRawEmail :: ( MonadCatch m
 sendRawEmail p3 s =
     send $ (mkSendRawEmail p3) &~ s
 
--- | Enables or disables Easy DKIM signing of email sent from an identity: If
+-- $SetIdentityDkimEnabled
+-- Enables or disables Easy DKIM signing of email sent from an identity: If
 -- Easy DKIM signing is enabled for a domain name identity (e.g.,
 -- example.com), then Amazon SES will DKIM-sign all email sent by addresses
 -- under that domain name (e.g., user@example.com). If Easy DKIM signing is
@@ -434,6 +491,7 @@ sendRawEmail p3 s =
 -- 7aa61362-c469-11e1-aee5-6bbb4608fbcc.
 --
 -- See: 'Network.AWS.SES.V2010_12_01.SetIdentityDkimEnabled'
+
 setIdentityDkimEnabled :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -446,7 +504,8 @@ setIdentityDkimEnabled :: ( MonadCatch m
 setIdentityDkimEnabled p1 p2 s =
     send $ (mkSetIdentityDkimEnabled p1 p2) &~ s
 
--- | Given an identity (email address or domain), enables or disables whether
+-- $SetIdentityFeedbackForwardingEnabled
+-- Given an identity (email address or domain), enables or disables whether
 -- Amazon SES forwards bounce and complaint notifications as email. Feedback
 -- forwarding can only be disabled when Amazon Simple Notification Service
 -- (Amazon SNS) topics are specified for both bounces and complaints. Feedback
@@ -465,6 +524,7 @@ setIdentityDkimEnabled p1 p2 s =
 -- &Version=2010-12-01 299f4af4-b72a-11e1-901f-1fbd90e8104f.
 --
 -- See: 'Network.AWS.SES.V2010_12_01.SetIdentityFeedbackForwardingEnabled'
+
 setIdentityFeedbackForwardingEnabled :: ( MonadCatch m
                                         , MonadResource m
                                         , MonadError AWS.Error m
@@ -477,7 +537,8 @@ setIdentityFeedbackForwardingEnabled :: ( MonadCatch m
 setIdentityFeedbackForwardingEnabled p1 p2 s =
     send $ (mkSetIdentityFeedbackForwardingEnabled p1 p2) &~ s
 
--- | Given an identity (email address or domain), sets the Amazon Simple
+-- $SetIdentityNotificationTopic
+-- Given an identity (email address or domain), sets the Amazon Simple
 -- Notification Service (Amazon SNS) topic to which Amazon SES will publish
 -- bounce, complaint, and/or delivery notifications for emails sent with that
 -- identity as the Source. Unless feedback forwarding is enabled, you must
@@ -498,6 +559,7 @@ setIdentityFeedbackForwardingEnabled p1 p2 s =
 -- 299f4af4-b72a-11e1-901f-1fbd90e8104f.
 --
 -- See: 'Network.AWS.SES.V2010_12_01.SetIdentityNotificationTopic'
+
 setIdentityNotificationTopic :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
@@ -510,7 +572,8 @@ setIdentityNotificationTopic :: ( MonadCatch m
 setIdentityNotificationTopic p1 p2 s =
     send $ (mkSetIdentityNotificationTopic p1 p2) &~ s
 
--- | Returns a set of DKIM tokens for a domain. DKIM tokens are character
+-- $VerifyDomainDkim
+-- Returns a set of DKIM tokens for a domain. DKIM tokens are character
 -- strings that represent your domain's identity. Using these tokens, you will
 -- need to create DNS CNAME records that point to DKIM public keys hosted by
 -- Amazon SES. Amazon Web Services will eventually detect that you have
@@ -534,6 +597,7 @@ setIdentityNotificationTopic p1 p2 s =
 -- 9662c15b-c469-11e1-99d1-797d6ecd6414.
 --
 -- See: 'Network.AWS.SES.V2010_12_01.VerifyDomainDkim'
+
 verifyDomainDkim :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -545,7 +609,8 @@ verifyDomainDkim :: ( MonadCatch m
 verifyDomainDkim p1 s =
     send $ (mkVerifyDomainDkim p1) &~ s
 
--- | Verifies a domain. This action is throttled at one request per second. POST
+-- $VerifyDomainIdentity
+-- Verifies a domain. This action is throttled at one request per second. POST
 -- / HTTP/1.1 Date: Sat, 12 May 2012 05:24:02 GMT Host:
 -- email.us-east-1.amazonaws.com Content-Type:
 -- application/x-www-form-urlencoded X-Amzn-Authorization: AWS3
@@ -558,6 +623,7 @@ verifyDomainDkim p1 s =
 -- 94f6368e-9bf2-11e1-8ee7-c98a0037a2b6.
 --
 -- See: 'Network.AWS.SES.V2010_12_01.VerifyDomainIdentity'
+
 verifyDomainIdentity :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -569,7 +635,8 @@ verifyDomainIdentity :: ( MonadCatch m
 verifyDomainIdentity p1 s =
     send $ (mkVerifyDomainIdentity p1) &~ s
 
--- | Verifies an email address. This action causes a confirmation email message
+-- $VerifyEmailAddress
+-- Verifies an email address. This action causes a confirmation email message
 -- to be sent to the specified address. The VerifyEmailAddress action is
 -- deprecated as of the May 15, 2012 release of Domain Verification. The
 -- VerifyEmailIdentity action is now preferred. This action is throttled at
@@ -584,6 +651,7 @@ verifyDomainIdentity p1 s =
 -- 8edd7eb2-c864-11e0-9f8f-3da8fc215a7e.
 --
 -- See: 'Network.AWS.SES.V2010_12_01.VerifyEmailAddress'
+
 verifyEmailAddress :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -595,7 +663,8 @@ verifyEmailAddress :: ( MonadCatch m
 verifyEmailAddress p1 s =
     send $ (mkVerifyEmailAddress p1) &~ s
 
--- | Verifies an email address. This action causes a confirmation email message
+-- $VerifyEmailIdentity
+-- Verifies an email address. This action causes a confirmation email message
 -- to be sent to the specified address. This action is throttled at one
 -- request per second. POST / HTTP/1.1 Date: Sat, 12 May 2012 05:21:58 GMT
 -- Host: email.us-east-1.amazonaws.com Content-Type:
@@ -608,6 +677,7 @@ verifyEmailAddress p1 s =
 -- &Version=2010-12-01 47e0ef1a-9bf2-11e1-9279-0100e8cf109a.
 --
 -- See: 'Network.AWS.SES.V2010_12_01.VerifyEmailIdentity'
+
 verifyEmailIdentity :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m

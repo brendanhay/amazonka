@@ -27,28 +27,44 @@
 module Network.AWS.CognitoIdentity.V2014_06_30.Trans
     (
     -- * CreateIdentityPool
+    -- $CreateIdentityPool
       createIdentityPool
+
     -- * DeleteIdentityPool
+    -- $DeleteIdentityPool
     , deleteIdentityPool
+
     -- * DescribeIdentityPool
+    -- $DescribeIdentityPool
     , describeIdentityPool
+
     -- * GetId
+    -- $GetId
     , getId
+
     -- * GetOpenIdToken
+    -- $GetOpenIdToken
     , getOpenIdToken
+
     -- * ListIdentities
+    -- $ListIdentities
     , listIdentities
+
     -- * ListIdentityPools
+    -- $ListIdentityPools
     , listIdentityPools
+
     -- * UnlinkIdentity
+    -- $UnlinkIdentity
     , unlinkIdentity
+
     -- * UpdateIdentityPool
+    -- $UpdateIdentityPool
     , updateIdentityPool
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.CognitoIdentity.V2014_06_30
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -59,7 +75,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CognitoIdentity.V2014_06_30
 
--- | Creates a new identity pool. The identity pool is a store of user identity
+-- $CreateIdentityPool
+-- Creates a new identity pool. The identity pool is a store of user identity
 -- information that is specific to your AWS account. CreateIdentityPool The
 -- following example shows a request and response for a CreateIdentityPool
 -- operation. { "IdentityPoolName": "MyIdentityPool",
@@ -73,6 +90,7 @@ import Network.AWS.CognitoIdentity.V2014_06_30
 -- "accounts.google.com": "Google_App_ID" }, "Unauthenticated": true }.
 --
 -- See: 'Network.AWS.CognitoIdentity.V2014_06_30.CreateIdentityPool'
+
 createIdentityPool :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -85,12 +103,14 @@ createIdentityPool :: ( MonadCatch m
 createIdentityPool p1 p2 s =
     send $ (mkCreateIdentityPool p1 p2) &~ s
 
--- | Deletes a user pool. Once a pool is deleted, users will not be able to
+-- $DeleteIdentityPool
+-- Deletes a user pool. Once a pool is deleted, users will not be able to
 -- authenticate with the pool. DeleteIdentityPool The following is an example
 -- of a DeleteIdentityPool request. { "IdentityPoolId":
 -- "us-east-1:1a234b56-7890-1cd2-3e45-f6g7hEXAMPLE" }.
 --
 -- See: 'Network.AWS.CognitoIdentity.V2014_06_30.DeleteIdentityPool'
+
 deleteIdentityPool :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -102,7 +122,8 @@ deleteIdentityPool :: ( MonadCatch m
 deleteIdentityPool p1 s =
     send $ (mkDeleteIdentityPool p1) &~ s
 
--- | Gets details about a particular identity pool, including the pool name, ID
+-- $DescribeIdentityPool
+-- Gets details about a particular identity pool, including the pool name, ID
 -- description, creation date, and current number of users.
 -- DescribeIdentityPool The following are an example request and response for
 -- the DescribeIdentityPool operation. { "IdentityPoolId":
@@ -114,6 +135,7 @@ deleteIdentityPool p1 s =
 -- "accounts.google.com": "Google_App_ID" }, "Unauthenticated": true }.
 --
 -- See: 'Network.AWS.CognitoIdentity.V2014_06_30.DescribeIdentityPool'
+
 describeIdentityPool :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -125,7 +147,8 @@ describeIdentityPool :: ( MonadCatch m
 describeIdentityPool p1 s =
     send $ (mkDescribeIdentityPool p1) &~ s
 
--- | Generates (or retrieves) a Cognito ID. Supplying multiple logins will
+-- $GetId
+-- Generates (or retrieves) a Cognito ID. Supplying multiple logins will
 -- create an implicit linked account. GetId The following example shows a
 -- GetId request for an unauthenticated identity. { "AccountId":
 -- "123456789012;", "IdentityPoolId":
@@ -133,6 +156,7 @@ describeIdentityPool p1 s =
 -- "us-east-1:852d4250-9eec-4006-8f84-4e82EXAMPLE3" }.
 --
 -- See: 'Network.AWS.CognitoIdentity.V2014_06_30.GetId'
+
 getId :: ( MonadCatch m
          , MonadResource m
          , MonadError AWS.Error m
@@ -145,7 +169,8 @@ getId :: ( MonadCatch m
 getId p1 p2 s =
     send $ (mkGetId p1 p2) &~ s
 
--- | Gets an OpenID token, using a known Cognito ID. This known Cognito ID is
+-- $GetOpenIdToken
+-- Gets an OpenID token, using a known Cognito ID. This known Cognito ID is
 -- returned from GetId. You can optionally add additional logins for the
 -- identity. Supplying multiple logins creates an implicit link.
 -- GetOpenIdToken The following examples show a GetOpenIdToken request and
@@ -156,6 +181,7 @@ getId p1 p2 s =
 -- }.
 --
 -- See: 'Network.AWS.CognitoIdentity.V2014_06_30.GetOpenIdToken'
+
 getOpenIdToken :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -167,7 +193,8 @@ getOpenIdToken :: ( MonadCatch m
 getOpenIdToken p1 s =
     send $ (mkGetOpenIdToken p1) &~ s
 
--- | Lists the identities in a pool. ListIdentities The following are examples
+-- $ListIdentities
+-- Lists the identities in a pool. ListIdentities The following are examples
 -- of a request and a response for the ListIdentities action. {
 -- "IdentityPoolId": "us-east-1:1a234b56-7890-1cd2-3e45-f6g7hEXAMPLE",
 -- "MaxResults": 10 } { "Identities": [ { "IdentityId":
@@ -177,6 +204,7 @@ getOpenIdToken p1 s =
 -- "us-east-1:1a234b56-7890-1cd2-3e45-f6g7hEXAMPLE" }.
 --
 -- See: 'Network.AWS.CognitoIdentity.V2014_06_30.ListIdentities'
+
 listIdentities :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -189,7 +217,8 @@ listIdentities :: ( MonadCatch m
 listIdentities p1 p2 s =
     send $ (mkListIdentities p1 p2) &~ s
 
--- | Lists all of the Cognito identity pools registered for your account.
+-- $ListIdentityPools
+-- Lists all of the Cognito identity pools registered for your account.
 -- ListIdentityPools The following example shows a request and a response for
 -- a ListIdentityPools operation. { "MaxResults": 10 } { "IdentityPools": [ {
 -- "IdentityPoolId": "us-east-1:af4311ca-835e-4b49-814c-2290EXAMPLE1",
@@ -198,6 +227,7 @@ listIdentities p1 p2 s =
 -- "MyPool2" } ] }.
 --
 -- See: 'Network.AWS.CognitoIdentity.V2014_06_30.ListIdentityPools'
+
 listIdentityPools :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -209,11 +239,13 @@ listIdentityPools :: ( MonadCatch m
 listIdentityPools p1 s =
     send $ (mkListIdentityPools p1) &~ s
 
--- | Unlinks a federated identity from an existing account. Unlinked logins will
+-- $UnlinkIdentity
+-- Unlinks a federated identity from an existing account. Unlinked logins will
 -- be considered new identities next time they are seen. Removing the last
 -- linked login will make this identity inaccessible.
 --
 -- See: 'Network.AWS.CognitoIdentity.V2014_06_30.UnlinkIdentity'
+
 unlinkIdentity :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -227,7 +259,8 @@ unlinkIdentity :: ( MonadCatch m
 unlinkIdentity p1 p2 p3 s =
     send $ (mkUnlinkIdentity p1 p2 p3) &~ s
 
--- | Updates a user pool. UpdateIdentityPool The following are a request and
+-- $UpdateIdentityPool
+-- Updates a user pool. UpdateIdentityPool The following are a request and
 -- response for the UpdateIdentityPool action. { "IdentityPoolId":
 -- "us-east-1:1a234b56-7890-1cd2-3e45-f6g7hEXAMPLE", "IdentityPoolName":
 -- "MyUpdatedPool", "IdentityPoolDescription": "An identity pool that needs
@@ -242,6 +275,7 @@ unlinkIdentity p1 p2 p3 s =
 -- true }.
 --
 -- See: 'Network.AWS.CognitoIdentity.V2014_06_30.UpdateIdentityPool'
+
 updateIdentityPool :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m

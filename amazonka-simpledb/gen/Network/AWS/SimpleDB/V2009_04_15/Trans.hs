@@ -31,30 +31,48 @@
 module Network.AWS.SimpleDB.V2009_04_15.Trans
     (
     -- * BatchDeleteAttributes
+    -- $BatchDeleteAttributes
       batchDeleteAttributes
+
     -- * BatchPutAttributes
+    -- $BatchPutAttributes
     , batchPutAttributes
+
     -- * CreateDomain
+    -- $CreateDomain
     , createDomain
+
     -- * DeleteAttributes
+    -- $DeleteAttributes
     , deleteAttributes
+
     -- * DeleteDomain
+    -- $DeleteDomain
     , deleteDomain
+
     -- * DomainMetadata
+    -- $DomainMetadata
     , domainMetadata
+
     -- * GetAttributes
+    -- $GetAttributes
     , getAttributes
+
     -- * ListDomains
+    -- $ListDomains
     , listDomains
+
     -- * PutAttributes
+    -- $PutAttributes
     , putAttributes
+
     -- * Select
+    -- $Select
     , select
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.SimpleDB.V2009_04_15
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -65,7 +83,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.SimpleDB.V2009_04_15
 
--- | Performs multiple DeleteAttributes operations in a single call, which
+-- $BatchDeleteAttributes
+-- Performs multiple DeleteAttributes operations in a single call, which
 -- reduces round trips and latencies. This enables Amazon SimpleDB to optimize
 -- requests, which generally yields better throughput. If you specify
 -- BatchDeleteAttributes without attributes or values, all the attributes for
@@ -83,6 +102,7 @@ import Network.AWS.SimpleDB.V2009_04_15
 -- limit per BatchDeleteAttributes operation.
 --
 -- See: 'Network.AWS.SimpleDB.V2009_04_15.BatchDeleteAttributes'
+
 batchDeleteAttributes :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -95,7 +115,8 @@ batchDeleteAttributes :: ( MonadCatch m
 batchDeleteAttributes p1 p2 s =
     send $ (mkBatchDeleteAttributes p1 p2) &~ s
 
--- | The BatchPutAttributes operation creates or replaces attributes within one
+-- $BatchPutAttributes
+-- The BatchPutAttributes operation creates or replaces attributes within one
 -- or more items. By using this operation, the client can perform multiple
 -- PutAttribute operation with a single call. This helps yield savings in
 -- round trips and latencies, enabling Amazon SimpleDB to optimize requests
@@ -132,6 +153,7 @@ batchDeleteAttributes p1 p2 s =
 -- domain 25 item limit per BatchPutAttributes operation.
 --
 -- See: 'Network.AWS.SimpleDB.V2009_04_15.BatchPutAttributes'
+
 batchPutAttributes :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -144,7 +166,8 @@ batchPutAttributes :: ( MonadCatch m
 batchPutAttributes p1 p2 s =
     send $ (mkBatchPutAttributes p1 p2) &~ s
 
--- | The CreateDomain operation creates a new domain. The domain name should be
+-- $CreateDomain
+-- The CreateDomain operation creates a new domain. The domain name should be
 -- unique among the domains associated with the Access Key ID provided in the
 -- request. The CreateDomain operation may take 10 or more seconds to
 -- complete. CreateDomain is an idempotent operation; running it multiple
@@ -154,6 +177,7 @@ batchPutAttributes p1 p2 s =
 -- http://aws.amazon.com/contact-us/simpledb-limit-request/.
 --
 -- See: 'Network.AWS.SimpleDB.V2009_04_15.CreateDomain'
+
 createDomain :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -165,7 +189,8 @@ createDomain :: ( MonadCatch m
 createDomain p1 s =
     send $ (mkCreateDomain p1) &~ s
 
--- | Deletes one or more attributes associated with an item. If all attributes
+-- $DeleteAttributes
+-- Deletes one or more attributes associated with an item. If all attributes
 -- of the item are deleted, the item is deleted. If DeleteAttributes is called
 -- without being passed any attributes or values specified, all the attributes
 -- for the item are deleted. DeleteAttributes is an idempotent operation;
@@ -177,6 +202,7 @@ createDomain p1 s =
 -- updated item data.
 --
 -- See: 'Network.AWS.SimpleDB.V2009_04_15.DeleteAttributes'
+
 deleteAttributes :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -189,13 +215,15 @@ deleteAttributes :: ( MonadCatch m
 deleteAttributes p1 p2 s =
     send $ (mkDeleteAttributes p1 p2) &~ s
 
--- | The DeleteDomain operation deletes a domain. Any items (and their
+-- $DeleteDomain
+-- The DeleteDomain operation deletes a domain. Any items (and their
 -- attributes) in the domain are deleted as well. The DeleteDomain operation
 -- might take 10 or more seconds to complete. Running DeleteDomain on a domain
 -- that does not exist or running the function multiple times using the same
 -- domain name will not result in an error response.
 --
 -- See: 'Network.AWS.SimpleDB.V2009_04_15.DeleteDomain'
+
 deleteDomain :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -207,11 +235,13 @@ deleteDomain :: ( MonadCatch m
 deleteDomain p1 s =
     send $ (mkDeleteDomain p1) &~ s
 
--- | Returns information about the domain, including when the domain was
+-- $DomainMetadata
+-- Returns information about the domain, including when the domain was
 -- created, the number of items and attributes in the domain, and the size of
 -- the attribute names and values.
 --
 -- See: 'Network.AWS.SimpleDB.V2009_04_15.DomainMetadata'
+
 domainMetadata :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -223,7 +253,8 @@ domainMetadata :: ( MonadCatch m
 domainMetadata p1 s =
     send $ (mkDomainMetadata p1) &~ s
 
--- | Returns all of the attributes associated with the specified item.
+-- $GetAttributes
+-- Returns all of the attributes associated with the specified item.
 -- Optionally, the attributes returned can be limited to one or more
 -- attributes by specifying an attribute name parameter. If the item does not
 -- exist on the replica that was accessed for this operation, an empty set is
@@ -233,6 +264,7 @@ domainMetadata p1 s =
 -- returned.
 --
 -- See: 'Network.AWS.SimpleDB.V2009_04_15.GetAttributes'
+
 getAttributes :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -245,7 +277,8 @@ getAttributes :: ( MonadCatch m
 getAttributes p1 p2 s =
     send $ (mkGetAttributes p1 p2) &~ s
 
--- | The ListDomains operation lists all domains associated with the Access Key
+-- $ListDomains
+-- The ListDomains operation lists all domains associated with the Access Key
 -- ID. It returns domain names up to the limit set by MaxNumberOfDomains. A
 -- NextToken is returned if there are more than MaxNumberOfDomains domains.
 -- Calling ListDomains successive times with the NextToken provided by the
@@ -253,6 +286,7 @@ getAttributes p1 p2 s =
 -- successive operation call.
 --
 -- See: 'Network.AWS.SimpleDB.V2009_04_15.ListDomains'
+
 listDomains :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -263,7 +297,8 @@ listDomains :: ( MonadCatch m
 listDomains s =
     paginate (mkListDomains &~ s)
 
--- | The PutAttributes operation creates or replaces attributes in an item. The
+-- $PutAttributes
+-- The PutAttributes operation creates or replaces attributes in an item. The
 -- client may specify new attributes using a combination of the
 -- Attribute.X.Name and Attribute.X.Value parameters. The client specifies the
 -- first attribute by the parameters Attribute.0.Name and Attribute.0.Value,
@@ -291,6 +326,7 @@ listDomains s =
 -- of total user data storage per domain.
 --
 -- See: 'Network.AWS.SimpleDB.V2009_04_15.PutAttributes'
+
 putAttributes :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -304,7 +340,8 @@ putAttributes :: ( MonadCatch m
 putAttributes p1 p2 p3 s =
     send $ (mkPutAttributes p1 p2 p3) &~ s
 
--- | The Select operation returns a set of attributes for ItemNames that match
+-- $Select
+-- The Select operation returns a set of attributes for ItemNames that match
 -- the select expression. Select is similar to the standard SQL SELECT
 -- statement. The total size of the response cannot exceed 1 MB in total size.
 -- Amazon SimpleDB automatically adjusts the number of items returned per page
@@ -315,6 +352,7 @@ putAttributes p1 p2 p3 s =
 -- Using Select to Create Amazon SimpleDB Queries in the Developer Guide.
 --
 -- See: 'Network.AWS.SimpleDB.V2009_04_15.Select'
+
 select :: ( MonadCatch m
           , MonadResource m
           , MonadError AWS.Error m

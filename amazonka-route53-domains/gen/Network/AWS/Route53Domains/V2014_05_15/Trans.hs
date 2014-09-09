@@ -18,36 +18,60 @@
 module Network.AWS.Route53Domains.V2014_05_15.Trans
     (
     -- * CheckDomainAvailability
+    -- $CheckDomainAvailability
       checkDomainAvailability
+
     -- * DisableDomainTransferLock
+    -- $DisableDomainTransferLock
     , disableDomainTransferLock
+
     -- * EnableDomainTransferLock
+    -- $EnableDomainTransferLock
     , enableDomainTransferLock
+
     -- * GetDomainDetail
+    -- $GetDomainDetail
     , getDomainDetail
+
     -- * GetOperationDetail
+    -- $GetOperationDetail
     , getOperationDetail
+
     -- * ListDomains
+    -- $ListDomains
     , listDomains
+
     -- * ListOperations
+    -- $ListOperations
     , listOperations
+
     -- * RegisterDomain
+    -- $RegisterDomain
     , registerDomain
+
     -- * RetrieveDomainAuthCode
+    -- $RetrieveDomainAuthCode
     , retrieveDomainAuthCode
+
     -- * TransferDomain
+    -- $TransferDomain
     , transferDomain
+
     -- * UpdateDomainContact
+    -- $UpdateDomainContact
     , updateDomainContact
+
     -- * UpdateDomainContactPrivacy
+    -- $UpdateDomainContactPrivacy
     , updateDomainContactPrivacy
+
     -- * UpdateDomainNameservers
+    -- $UpdateDomainNameservers
     , updateDomainNameservers
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.Route53Domains.V2014_05_15
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -58,7 +82,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.Route53Domains.V2014_05_15
 
--- | This operation checks the availability of one domain name. You can access
+-- $CheckDomainAvailability
+-- This operation checks the availability of one domain name. You can access
 -- this API without authenticating. Note that if the availability status of a
 -- domain is pending, you must submit another request to determine the
 -- availability of the domain name. CheckDomainAvailability Example POST /
@@ -77,6 +102,7 @@ import Network.AWS.Route53Domains.V2014_05_15
 -- "Availability":"AVAILABLE" }.
 --
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.CheckDomainAvailability'
+
 checkDomainAvailability :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -88,7 +114,8 @@ checkDomainAvailability :: ( MonadCatch m
 checkDomainAvailability p1 s =
     send $ (mkCheckDomainAvailability p1) &~ s
 
--- | This operation removes the transfer lock on the domain (specifically the
+-- $DisableDomainTransferLock
+-- This operation removes the transfer lock on the domain (specifically the
 -- clientTransferProhibited status) to allow domain transfers. We recommend
 -- you refrain from performing this action unless you intend to transfer the
 -- domain to a different registrar. Successful submission returns an operation
@@ -110,6 +137,7 @@ checkDomainAvailability p1 s =
 -- "OperationId":"0b370c79-faa4-40fe-94c8-b423069de3f6" }.
 --
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.DisableDomainTransferLock'
+
 disableDomainTransferLock :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -121,7 +149,8 @@ disableDomainTransferLock :: ( MonadCatch m
 disableDomainTransferLock p1 s =
     send $ (mkDisableDomainTransferLock p1) &~ s
 
--- | This operation sets the transfer lock on the domain (specifically the
+-- $EnableDomainTransferLock
+-- This operation sets the transfer lock on the domain (specifically the
 -- clientTransferProhibited status) to prevent domain transfers. Successful
 -- submission returns an operation ID that you can use to track the progress
 -- and completion of the action. If the request is not completed successfully,
@@ -141,6 +170,7 @@ disableDomainTransferLock p1 s =
 -- "OperationId":"0b370c79-faa4-40fe-94c8-b423069de3f6" }.
 --
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.EnableDomainTransferLock'
+
 enableDomainTransferLock :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -152,7 +182,8 @@ enableDomainTransferLock :: ( MonadCatch m
 enableDomainTransferLock p1 s =
     send $ (mkEnableDomainTransferLock p1) &~ s
 
--- | This operation returns detailed information about the domain. The domain's
+-- $GetDomainDetail
+-- This operation returns detailed information about the domain. The domain's
 -- contact information is also returned as part of the output. GetDomainDetail
 -- Example POST / HTTP/1.1 host:route53domains.us-east-1.amazonaws.com
 -- x-amz-date:20140711T205230Z authorization:AWS4-HMAC-SHA256
@@ -191,6 +222,7 @@ enableDomainTransferLock p1 s =
 -- "WhoIsServer":"whois.gandi.net" }.
 --
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.GetDomainDetail'
+
 getDomainDetail :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -202,7 +234,8 @@ getDomainDetail :: ( MonadCatch m
 getDomainDetail p1 s =
     send $ (mkGetDomainDetail p1) &~ s
 
--- | This operation returns the current status of an operation that is not
+-- $GetOperationDetail
+-- This operation returns the current status of an operation that is not
 -- completed. GetOperationDetail Example POST / HTTP/1.1
 -- host:route53domains.us-east-1.amazonaws.com x-amz-date:20140711T205230Z
 -- authorization:AWS4-HMAC-SHA256
@@ -222,6 +255,7 @@ getDomainDetail p1 s =
 -- "REGISTER_DOMAIN" }.
 --
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.GetOperationDetail'
+
 getOperationDetail :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -233,7 +267,8 @@ getOperationDetail :: ( MonadCatch m
 getOperationDetail p1 s =
     send $ (mkGetOperationDetail p1) &~ s
 
--- | This operation returns all the domain names registered with Amazon Route 53
+-- $ListDomains
+-- This operation returns all the domain names registered with Amazon Route 53
 -- for the current AWS account. ListDomains Example POST / HTTP/1.1
 -- host:route53domains.us-east-1.amazonaws.com x-amz-date:20140711T205230Z
 -- authorization:AWS4-HMAC-SHA256
@@ -255,6 +290,7 @@ getOperationDetail p1 s =
 -- "TransferLock":false } ] }.
 --
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.ListDomains'
+
 listDomains :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -265,7 +301,8 @@ listDomains :: ( MonadCatch m
 listDomains s =
     send (mkListDomains &~ s)
 
--- | This operation returns the operation IDs of operations that are not yet
+-- $ListOperations
+-- This operation returns the operation IDs of operations that are not yet
 -- complete. ListOperations Example POST / HTTP/1.1
 -- host:route53domains.us-east-1.amazonaws.com x-amz-date:20140711T205230Z
 -- authorization:AWS4-HMAC-SHA256
@@ -286,6 +323,7 @@ listDomains s =
 -- "Type":"DOMAIN_LOCK" } ] }.
 --
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.ListOperations'
+
 listOperations :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -296,7 +334,8 @@ listOperations :: ( MonadCatch m
 listOperations s =
     send (mkListOperations &~ s)
 
--- | This operation registers a domain. Domains are registered by the AWS
+-- $RegisterDomain
+-- This operation registers a domain. Domains are registered by the AWS
 -- registrar partner, Gandi. For some top-level domains (TLDs), this operation
 -- requires extra parameters. When you register a domain, Amazon Route 53 does
 -- the following: Creates a Amazon Route 53 hosted zone that has the same name
@@ -345,6 +384,7 @@ listOperations s =
 -- "OperationId":"308c56712-faa4-40fe-94c8-b423069de3f6" }.
 --
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.RegisterDomain'
+
 registerDomain :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -360,7 +400,8 @@ registerDomain :: ( MonadCatch m
 registerDomain p1 p3 p5 p6 p7 s =
     send $ (mkRegisterDomain p1 p3 p5 p6 p7) &~ s
 
--- | This operation returns the AuthCode for the domain. To transfer a domain to
+-- $RetrieveDomainAuthCode
+-- This operation returns the AuthCode for the domain. To transfer a domain to
 -- another registrar, you provide this value to the new registrar.
 -- RetrieveDomainAuthCode Example POST / HTTP/1.1
 -- host:route53domains.us-east-1.amazonaws.com x-amz-date:20140711T205230Z
@@ -377,6 +418,7 @@ registerDomain p1 p3 p5 p6 p7 s =
 -- characters in the JSON string] { "AuthCode":"rqL3*REjYH" }.
 --
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.RetrieveDomainAuthCode'
+
 retrieveDomainAuthCode :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -388,7 +430,8 @@ retrieveDomainAuthCode :: ( MonadCatch m
 retrieveDomainAuthCode p1 s =
     send $ (mkRetrieveDomainAuthCode p1) &~ s
 
--- | This operation transfers a domain from another registrar to Amazon Route
+-- $TransferDomain
+-- This operation transfers a domain from another registrar to Amazon Route
 -- 53. Domains are registered by the AWS registrar, Gandi upon transfer. To
 -- transfer a domain, you need to meet all the domain transfer criteria,
 -- including the following: You must supply nameservers to transfer a domain.
@@ -439,6 +482,7 @@ retrieveDomainAuthCode p1 s =
 -- "OperationId":"308c56712-faa4-40fe-94c8-b423069de3f6" }.
 --
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.TransferDomain'
+
 transferDomain :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -455,7 +499,8 @@ transferDomain :: ( MonadCatch m
 transferDomain p1 p3 p4 p7 p8 p9 s =
     send $ (mkTransferDomain p1 p3 p4 p7 p8 p9) &~ s
 
--- | This operation updates the contact information for a particular domain.
+-- $UpdateDomainContact
+-- This operation updates the contact information for a particular domain.
 -- Information for at least one contact (registrant, administrator, or
 -- technical) must be supplied for update. If the update is successful, this
 -- method returns an operation ID that you can use to track the progress and
@@ -491,6 +536,7 @@ transferDomain p1 p3 p4 p7 p8 p9 s =
 -- }.
 --
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.UpdateDomainContact'
+
 updateDomainContact :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -502,7 +548,8 @@ updateDomainContact :: ( MonadCatch m
 updateDomainContact p1 s =
     send $ (mkUpdateDomainContact p1) &~ s
 
--- | This operation updates the specified domain contact's privacy setting. When
+-- $UpdateDomainContactPrivacy
+-- This operation updates the specified domain contact's privacy setting. When
 -- the privacy option is enabled, personal information such as postal or email
 -- address is hidden from the results of a public WHOIS query. The privacy
 -- services are provided by the AWS registrar, Gandi. For more information,
@@ -527,6 +574,7 @@ updateDomainContact p1 s =
 -- the JSON string] { "OperationId":"777bc5da-fbf7-482c-b2ba-8946884a7dd6" }.
 --
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.UpdateDomainContactPrivacy'
+
 updateDomainContactPrivacy :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -538,7 +586,8 @@ updateDomainContactPrivacy :: ( MonadCatch m
 updateDomainContactPrivacy p1 s =
     send $ (mkUpdateDomainContactPrivacy p1) &~ s
 
--- | This operation replaces the current set of name servers for the domain with
+-- $UpdateDomainNameservers
+-- This operation replaces the current set of name servers for the domain with
 -- the specified set of name servers. If you use Amazon Route 53 as your DNS
 -- service, specify the four name servers in the delegation set for the hosted
 -- zone for the domain. If successful, this operation returns an operation ID
@@ -561,6 +610,7 @@ updateDomainContactPrivacy p1 s =
 -- "OperationId":"0b370c79-faa4-40fe-94c8-b423069de3f6" }.
 --
 -- See: 'Network.AWS.Route53Domains.V2014_05_15.UpdateDomainNameservers'
+
 updateDomainNameservers :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m

@@ -21,130 +21,248 @@
 module Network.AWS.OpsWorks.V2013_02_18.Trans
     (
     -- * AssignVolume
+    -- $AssignVolume
       assignVolume
+
     -- * AssociateElasticIp
+    -- $AssociateElasticIp
     , associateElasticIp
+
     -- * AttachElasticLoadBalancer
+    -- $AttachElasticLoadBalancer
     , attachElasticLoadBalancer
+
     -- * CloneStack
+    -- $CloneStack
     , cloneStack
+
     -- * CreateApp
+    -- $CreateApp
     , createApp
+
     -- * CreateDeployment
+    -- $CreateDeployment
     , createDeployment
+
     -- * CreateInstance
+    -- $CreateInstance
     , createInstance
+
     -- * CreateLayer
+    -- $CreateLayer
     , createLayer
+
     -- * CreateStack
+    -- $CreateStack
     , createStack
+
     -- * CreateUserProfile
+    -- $CreateUserProfile
     , createUserProfile
+
     -- * DeleteApp
+    -- $DeleteApp
     , deleteApp
+
     -- * DeleteInstance
+    -- $DeleteInstance
     , deleteInstance
+
     -- * DeleteLayer
+    -- $DeleteLayer
     , deleteLayer
+
     -- * DeleteStack
+    -- $DeleteStack
     , deleteStack
+
     -- * DeleteUserProfile
+    -- $DeleteUserProfile
     , deleteUserProfile
+
     -- * DeregisterElasticIp
+    -- $DeregisterElasticIp
     , deregisterElasticIp
+
     -- * DeregisterRdsDbInstance
+    -- $DeregisterRdsDbInstance
     , deregisterRdsDbInstance
+
     -- * DeregisterVolume
+    -- $DeregisterVolume
     , deregisterVolume
+
     -- * DescribeApps
+    -- $DescribeApps
     , describeApps
+
     -- * DescribeCommands
+    -- $DescribeCommands
     , describeCommands
+
     -- * DescribeDeployments
+    -- $DescribeDeployments
     , describeDeployments
+
     -- * DescribeElasticIps
+    -- $DescribeElasticIps
     , describeElasticIps
+
     -- * DescribeElasticLoadBalancers
+    -- $DescribeElasticLoadBalancers
     , describeElasticLoadBalancers
+
     -- * DescribeInstances
+    -- $DescribeInstances
     , describeInstances
+
     -- * DescribeLayers
+    -- $DescribeLayers
     , describeLayers
+
     -- * DescribeLoadBasedAutoScaling
+    -- $DescribeLoadBasedAutoScaling
     , describeLoadBasedAutoScaling
+
     -- * DescribeMyUserProfile
+    -- $DescribeMyUserProfile
     , describeMyUserProfile
+
     -- * DescribePermissions
+    -- $DescribePermissions
     , describePermissions
+
     -- * DescribeRaidArrays
+    -- $DescribeRaidArrays
     , describeRaidArrays
+
     -- * DescribeRdsDbInstances
+    -- $DescribeRdsDbInstances
     , describeRdsDbInstances
+
     -- * DescribeServiceErrors
+    -- $DescribeServiceErrors
     , describeServiceErrors
+
     -- * DescribeStackSummary
+    -- $DescribeStackSummary
     , describeStackSummary
+
     -- * DescribeStacks
+    -- $DescribeStacks
     , describeStacks
+
     -- * DescribeTimeBasedAutoScaling
+    -- $DescribeTimeBasedAutoScaling
     , describeTimeBasedAutoScaling
+
     -- * DescribeUserProfiles
+    -- $DescribeUserProfiles
     , describeUserProfiles
+
     -- * DescribeVolumes
+    -- $DescribeVolumes
     , describeVolumes
+
     -- * DetachElasticLoadBalancer
+    -- $DetachElasticLoadBalancer
     , detachElasticLoadBalancer
+
     -- * DisassociateElasticIp
+    -- $DisassociateElasticIp
     , disassociateElasticIp
+
     -- * GetHostnameSuggestion
+    -- $GetHostnameSuggestion
     , getHostnameSuggestion
+
     -- * RebootInstance
+    -- $RebootInstance
     , rebootInstance
+
     -- * RegisterElasticIp
+    -- $RegisterElasticIp
     , registerElasticIp
+
     -- * RegisterRdsDbInstance
+    -- $RegisterRdsDbInstance
     , registerRdsDbInstance
+
     -- * RegisterVolume
+    -- $RegisterVolume
     , registerVolume
+
     -- * SetLoadBasedAutoScaling
+    -- $SetLoadBasedAutoScaling
     , setLoadBasedAutoScaling
+
     -- * SetPermission
+    -- $SetPermission
     , setPermission
+
     -- * SetTimeBasedAutoScaling
+    -- $SetTimeBasedAutoScaling
     , setTimeBasedAutoScaling
+
     -- * StartInstance
+    -- $StartInstance
     , startInstance
+
     -- * StartStack
+    -- $StartStack
     , startStack
+
     -- * StopInstance
+    -- $StopInstance
     , stopInstance
+
     -- * StopStack
+    -- $StopStack
     , stopStack
+
     -- * UnassignVolume
+    -- $UnassignVolume
     , unassignVolume
+
     -- * UpdateApp
+    -- $UpdateApp
     , updateApp
+
     -- * UpdateElasticIp
+    -- $UpdateElasticIp
     , updateElasticIp
+
     -- * UpdateInstance
+    -- $UpdateInstance
     , updateInstance
+
     -- * UpdateLayer
+    -- $UpdateLayer
     , updateLayer
+
     -- * UpdateMyUserProfile
+    -- $UpdateMyUserProfile
     , updateMyUserProfile
+
     -- * UpdateRdsDbInstance
+    -- $UpdateRdsDbInstance
     , updateRdsDbInstance
+
     -- * UpdateStack
+    -- $UpdateStack
     , updateStack
+
     -- * UpdateUserProfile
+    -- $UpdateUserProfile
     , updateUserProfile
+
     -- * UpdateVolume
+    -- $UpdateVolume
     , updateVolume
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.OpsWorks.V2013_02_18
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -155,7 +273,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.OpsWorks.V2013_02_18
 
--- | Assigns one of the stack's registered Amazon EBS volumes to a specified
+-- $AssignVolume
+-- Assigns one of the stack's registered Amazon EBS volumes to a specified
 -- instance. The volume must first be registered with the stack by calling
 -- RegisterVolume. For more information, see Resource Management. Required
 -- Permissions: To use this action, an IAM user must have a Manage permissions
@@ -164,6 +283,7 @@ import Network.AWS.OpsWorks.V2013_02_18
 -- Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.AssignVolume'
+
 assignVolume :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -175,7 +295,8 @@ assignVolume :: ( MonadCatch m
 assignVolume p1 s =
     send $ (mkAssignVolume p1) &~ s
 
--- | Associates one of the stack's registered Elastic IP addresses with a
+-- $AssociateElasticIp
+-- Associates one of the stack's registered Elastic IP addresses with a
 -- specified instance. The address must first be registered with the stack by
 -- calling RegisterElasticIp. For more information, see Resource Management.
 -- Required Permissions: To use this action, an IAM user must have a Manage
@@ -184,6 +305,7 @@ assignVolume p1 s =
 -- User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.AssociateElasticIp'
+
 associateElasticIp :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -195,7 +317,8 @@ associateElasticIp :: ( MonadCatch m
 associateElasticIp p1 s =
     send $ (mkAssociateElasticIp p1) &~ s
 
--- | Attaches an Elastic Load Balancing load balancer to a specified layer. For
+-- $AttachElasticLoadBalancer
+-- Attaches an Elastic Load Balancing load balancer to a specified layer. For
 -- more information, see Elastic Load Balancing. You must create the Elastic
 -- Load Balancing instance separately, by using the Elastic Load Balancing
 -- console, API, or CLI. For more information, see Elastic Load Balancing
@@ -205,6 +328,7 @@ associateElasticIp p1 s =
 -- see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.AttachElasticLoadBalancer'
+
 attachElasticLoadBalancer :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -217,12 +341,14 @@ attachElasticLoadBalancer :: ( MonadCatch m
 attachElasticLoadBalancer p1 p2 s =
     send $ (mkAttachElasticLoadBalancer p1 p2) &~ s
 
--- | Creates a clone of a specified stack. For more information, see Clone a
+-- $CloneStack
+-- Creates a clone of a specified stack. For more information, see Clone a
 -- Stack. Required Permissions: To use this action, an IAM user must have an
 -- attached policy that explicitly grants permissions. For more information on
 -- user permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.CloneStack'
+
 cloneStack :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -235,13 +361,15 @@ cloneStack :: ( MonadCatch m
 cloneStack p1 p6 s =
     send $ (mkCloneStack p1 p6) &~ s
 
--- | Creates an app for a specified stack. For more information, see Creating
+-- $CreateApp
+-- Creates an app for a specified stack. For more information, see Creating
 -- Apps. Required Permissions: To use this action, an IAM user must have a
 -- Manage permissions level for the stack, or an attached policy that
 -- explicitly grants permissions. For more information on user permissions,
 -- see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.CreateApp'
+
 createApp :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -255,7 +383,8 @@ createApp :: ( MonadCatch m
 createApp p1 p3 p6 s =
     send $ (mkCreateApp p1 p3 p6) &~ s
 
--- | Deploys a stack or app. App deployment generates a deploy event, which runs
+-- $CreateDeployment
+-- Deploys a stack or app. App deployment generates a deploy event, which runs
 -- the associated recipes and passes them a JSON stack configuration object
 -- that includes information about the app. Stack deployment runs the deploy
 -- recipes but does not raise an event. For more information, see Deploying
@@ -265,6 +394,7 @@ createApp p1 p3 p6 s =
 -- on user permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.CreateDeployment'
+
 createDeployment :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -277,13 +407,15 @@ createDeployment :: ( MonadCatch m
 createDeployment p1 p4 s =
     send $ (mkCreateDeployment p1 p4) &~ s
 
--- | Creates an instance in a specified stack. For more information, see Adding
+-- $CreateInstance
+-- Creates an instance in a specified stack. For more information, see Adding
 -- an Instance to a Layer. Required Permissions: To use this action, an IAM
 -- user must have a Manage permissions level for the stack, or an attached
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.CreateInstance'
+
 createInstance :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -297,7 +429,8 @@ createInstance :: ( MonadCatch m
 createInstance p1 p2 p3 s =
     send $ (mkCreateInstance p1 p2 p3) &~ s
 
--- | Creates a layer. For more information, see How to Create a Layer. You
+-- $CreateLayer
+-- Creates a layer. For more information, see How to Create a Layer. You
 -- should use CreateLayer for noncustom layer types such as PHP App Server
 -- only if the stack does not have an existing layer of that type. A stack can
 -- have at most one instance of each noncustom layer; if you attempt to create
@@ -309,6 +442,7 @@ createInstance p1 p2 p3 s =
 -- see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.CreateLayer'
+
 createLayer :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -323,12 +457,14 @@ createLayer :: ( MonadCatch m
 createLayer p1 p2 p3 p4 s =
     send $ (mkCreateLayer p1 p2 p3 p4) &~ s
 
--- | Creates a new stack. For more information, see Create a New Stack. Required
+-- $CreateStack
+-- Creates a new stack. For more information, see Create a New Stack. Required
 -- Permissions: To use this action, an IAM user must have an attached policy
 -- that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.CreateStack'
+
 createStack :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -343,11 +479,13 @@ createStack :: ( MonadCatch m
 createStack p1 p2 p5 p6 s =
     send $ (mkCreateStack p1 p2 p5 p6) &~ s
 
--- | Creates a new user profile. Required Permissions: To use this action, an
+-- $CreateUserProfile
+-- Creates a new user profile. Required Permissions: To use this action, an
 -- IAM user must have an attached policy that explicitly grants permissions.
 -- For more information on user permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.CreateUserProfile'
+
 createUserProfile :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -359,12 +497,14 @@ createUserProfile :: ( MonadCatch m
 createUserProfile p1 s =
     send $ (mkCreateUserProfile p1) &~ s
 
--- | Deletes a specified app. Required Permissions: To use this action, an IAM
+-- $DeleteApp
+-- Deletes a specified app. Required Permissions: To use this action, an IAM
 -- user must have a Manage permissions level for the stack, or an attached
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DeleteApp'
+
 deleteApp :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -376,7 +516,8 @@ deleteApp :: ( MonadCatch m
 deleteApp p1 s =
     send $ (mkDeleteApp p1) &~ s
 
--- | Deletes a specified instance. You must stop an instance before you can
+-- $DeleteInstance
+-- Deletes a specified instance. You must stop an instance before you can
 -- delete it. For more information, see Deleting Instances. Required
 -- Permissions: To use this action, an IAM user must have a Manage permissions
 -- level for the stack, or an attached policy that explicitly grants
@@ -384,6 +525,7 @@ deleteApp p1 s =
 -- Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DeleteInstance'
+
 deleteInstance :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -395,7 +537,8 @@ deleteInstance :: ( MonadCatch m
 deleteInstance p1 s =
     send $ (mkDeleteInstance p1) &~ s
 
--- | Deletes a specified layer. You must first stop and then delete all
+-- $DeleteLayer
+-- Deletes a specified layer. You must first stop and then delete all
 -- associated instances. For more information, see How to Delete a Layer.
 -- Required Permissions: To use this action, an IAM user must have a Manage
 -- permissions level for the stack, or an attached policy that explicitly
@@ -403,6 +546,7 @@ deleteInstance p1 s =
 -- User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DeleteLayer'
+
 deleteLayer :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -414,13 +558,15 @@ deleteLayer :: ( MonadCatch m
 deleteLayer p1 s =
     send $ (mkDeleteLayer p1) &~ s
 
--- | Deletes a specified stack. You must first delete all instances, layers, and
+-- $DeleteStack
+-- Deletes a specified stack. You must first delete all instances, layers, and
 -- apps. For more information, see Shut Down a Stack. Required Permissions: To
 -- use this action, an IAM user must have a Manage permissions level for the
 -- stack, or an attached policy that explicitly grants permissions. For more
 -- information on user permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DeleteStack'
+
 deleteStack :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -432,11 +578,13 @@ deleteStack :: ( MonadCatch m
 deleteStack p1 s =
     send $ (mkDeleteStack p1) &~ s
 
--- | Deletes a user profile. Required Permissions: To use this action, an IAM
+-- $DeleteUserProfile
+-- Deletes a user profile. Required Permissions: To use this action, an IAM
 -- user must have an attached policy that explicitly grants permissions. For
 -- more information on user permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DeleteUserProfile'
+
 deleteUserProfile :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -448,7 +596,8 @@ deleteUserProfile :: ( MonadCatch m
 deleteUserProfile p1 s =
     send $ (mkDeleteUserProfile p1) &~ s
 
--- | Deregisters a specified Elastic IP address. The address can then be
+-- $DeregisterElasticIp
+-- Deregisters a specified Elastic IP address. The address can then be
 -- registered by another stack. For more information, see Resource Management.
 -- Required Permissions: To use this action, an IAM user must have a Manage
 -- permissions level for the stack, or an attached policy that explicitly
@@ -456,6 +605,7 @@ deleteUserProfile p1 s =
 -- User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DeregisterElasticIp'
+
 deregisterElasticIp :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -467,9 +617,11 @@ deregisterElasticIp :: ( MonadCatch m
 deregisterElasticIp p1 s =
     send $ (mkDeregisterElasticIp p1) &~ s
 
--- | Deregisters an Amazon RDS instance.
+-- $DeregisterRdsDbInstance
+-- Deregisters an Amazon RDS instance.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DeregisterRdsDbInstance'
+
 deregisterRdsDbInstance :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -481,7 +633,8 @@ deregisterRdsDbInstance :: ( MonadCatch m
 deregisterRdsDbInstance p1 s =
     send $ (mkDeregisterRdsDbInstance p1) &~ s
 
--- | Deregisters an Amazon EBS volume. The volume can then be registered by
+-- $DeregisterVolume
+-- Deregisters an Amazon EBS volume. The volume can then be registered by
 -- another stack. For more information, see Resource Management. Required
 -- Permissions: To use this action, an IAM user must have a Manage permissions
 -- level for the stack, or an attached policy that explicitly grants
@@ -489,6 +642,7 @@ deregisterRdsDbInstance p1 s =
 -- Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DeregisterVolume'
+
 deregisterVolume :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -500,13 +654,15 @@ deregisterVolume :: ( MonadCatch m
 deregisterVolume p1 s =
     send $ (mkDeregisterVolume p1) &~ s
 
--- | Requests a description of a specified set of apps. You must specify at
+-- $DescribeApps
+-- Requests a description of a specified set of apps. You must specify at
 -- least one of the parameters. Required Permissions: To use this action, an
 -- IAM user must have a Show, Deploy, or Manage permissions level for the
 -- stack, or an attached policy that explicitly grants permissions. For more
 -- information on user permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeApps'
+
 describeApps :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -517,13 +673,15 @@ describeApps :: ( MonadCatch m
 describeApps s =
     send (mkDescribeApps &~ s)
 
--- | Describes the results of specified commands. You must specify at least one
+-- $DescribeCommands
+-- Describes the results of specified commands. You must specify at least one
 -- of the parameters. Required Permissions: To use this action, an IAM user
 -- must have a Show, Deploy, or Manage permissions level for the stack, or an
 -- attached policy that explicitly grants permissions. For more information on
 -- user permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeCommands'
+
 describeCommands :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -534,13 +692,15 @@ describeCommands :: ( MonadCatch m
 describeCommands s =
     send (mkDescribeCommands &~ s)
 
--- | Requests a description of a specified set of deployments. You must specify
+-- $DescribeDeployments
+-- Requests a description of a specified set of deployments. You must specify
 -- at least one of the parameters. Required Permissions: To use this action,
 -- an IAM user must have a Show, Deploy, or Manage permissions level for the
 -- stack, or an attached policy that explicitly grants permissions. For more
 -- information on user permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeDeployments'
+
 describeDeployments :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -551,13 +711,15 @@ describeDeployments :: ( MonadCatch m
 describeDeployments s =
     send (mkDescribeDeployments &~ s)
 
--- | Describes Elastic IP addresses. You must specify at least one of the
+-- $DescribeElasticIps
+-- Describes Elastic IP addresses. You must specify at least one of the
 -- parameters. Required Permissions: To use this action, an IAM user must have
 -- a Show, Deploy, or Manage permissions level for the stack, or an attached
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeElasticIps'
+
 describeElasticIps :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -568,13 +730,15 @@ describeElasticIps :: ( MonadCatch m
 describeElasticIps s =
     send (mkDescribeElasticIps &~ s)
 
--- | Describes a stack's Elastic Load Balancing instances. You must specify at
+-- $DescribeElasticLoadBalancers
+-- Describes a stack's Elastic Load Balancing instances. You must specify at
 -- least one of the parameters. Required Permissions: To use this action, an
 -- IAM user must have a Show, Deploy, or Manage permissions level for the
 -- stack, or an attached policy that explicitly grants permissions. For more
 -- information on user permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeElasticLoadBalancers'
+
 describeElasticLoadBalancers :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
@@ -585,13 +749,15 @@ describeElasticLoadBalancers :: ( MonadCatch m
 describeElasticLoadBalancers s =
     send (mkDescribeElasticLoadBalancers &~ s)
 
--- | Requests a description of a set of instances. You must specify at least one
+-- $DescribeInstances
+-- Requests a description of a set of instances. You must specify at least one
 -- of the parameters. Required Permissions: To use this action, an IAM user
 -- must have a Show, Deploy, or Manage permissions level for the stack, or an
 -- attached policy that explicitly grants permissions. For more information on
 -- user permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeInstances'
+
 describeInstances :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -602,13 +768,15 @@ describeInstances :: ( MonadCatch m
 describeInstances s =
     send (mkDescribeInstances &~ s)
 
--- | Requests a description of one or more layers in a specified stack. You must
+-- $DescribeLayers
+-- Requests a description of one or more layers in a specified stack. You must
 -- specify at least one of the parameters. Required Permissions: To use this
 -- action, an IAM user must have a Show, Deploy, or Manage permissions level
 -- for the stack, or an attached policy that explicitly grants permissions.
 -- For more information on user permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeLayers'
+
 describeLayers :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -619,7 +787,8 @@ describeLayers :: ( MonadCatch m
 describeLayers s =
     send (mkDescribeLayers &~ s)
 
--- | Describes load-based auto scaling configurations for specified layers. You
+-- $DescribeLoadBasedAutoScaling
+-- Describes load-based auto scaling configurations for specified layers. You
 -- must specify at least one of the parameters. Required Permissions: To use
 -- this action, an IAM user must have a Show, Deploy, or Manage permissions
 -- level for the stack, or an attached policy that explicitly grants
@@ -627,6 +796,7 @@ describeLayers s =
 -- Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeLoadBasedAutoScaling'
+
 describeLoadBasedAutoScaling :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
@@ -638,12 +808,14 @@ describeLoadBasedAutoScaling :: ( MonadCatch m
 describeLoadBasedAutoScaling p1 s =
     send $ (mkDescribeLoadBasedAutoScaling p1) &~ s
 
--- | Describes a user's SSH information. Required Permissions: To use this
+-- $DescribeMyUserProfile
+-- Describes a user's SSH information. Required Permissions: To use this
 -- action, an IAM user must have self-management enabled or an attached policy
 -- that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeMyUserProfile'
+
 describeMyUserProfile :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -654,12 +826,14 @@ describeMyUserProfile :: ( MonadCatch m
 describeMyUserProfile s =
     send (mkDescribeMyUserProfile &~ s)
 
--- | Describes the permissions for a specified stack. Required Permissions: To
+-- $DescribePermissions
+-- Describes the permissions for a specified stack. Required Permissions: To
 -- use this action, an IAM user must have a Manage permissions level for the
 -- stack, or an attached policy that explicitly grants permissions. For more
 -- information on user permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribePermissions'
+
 describePermissions :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -670,13 +844,15 @@ describePermissions :: ( MonadCatch m
 describePermissions s =
     send (mkDescribePermissions &~ s)
 
--- | Describe an instance's RAID arrays. You must specify at least one of the
+-- $DescribeRaidArrays
+-- Describe an instance's RAID arrays. You must specify at least one of the
 -- parameters. Required Permissions: To use this action, an IAM user must have
 -- a Show, Deploy, or Manage permissions level for the stack, or an attached
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeRaidArrays'
+
 describeRaidArrays :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -687,9 +863,11 @@ describeRaidArrays :: ( MonadCatch m
 describeRaidArrays s =
     send (mkDescribeRaidArrays &~ s)
 
--- | Describes Amazon RDS instances.
+-- $DescribeRdsDbInstances
+-- Describes Amazon RDS instances.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeRdsDbInstances'
+
 describeRdsDbInstances :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -701,12 +879,14 @@ describeRdsDbInstances :: ( MonadCatch m
 describeRdsDbInstances p1 s =
     send $ (mkDescribeRdsDbInstances p1) &~ s
 
--- | Describes AWS OpsWorks service errors. Required Permissions: To use this
+-- $DescribeServiceErrors
+-- Describes AWS OpsWorks service errors. Required Permissions: To use this
 -- action, an IAM user must have a Show, Deploy, or Manage permissions level
 -- for the stack, or an attached policy that explicitly grants permissions.
 -- For more information on user permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeServiceErrors'
+
 describeServiceErrors :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -717,7 +897,8 @@ describeServiceErrors :: ( MonadCatch m
 describeServiceErrors s =
     send (mkDescribeServiceErrors &~ s)
 
--- | Describes the number of layers and apps in a specified stack, and the
+-- $DescribeStackSummary
+-- Describes the number of layers and apps in a specified stack, and the
 -- number of instances in each state, such as running_setup or online.
 -- Required Permissions: To use this action, an IAM user must have a Show,
 -- Deploy, or Manage permissions level for the stack, or an attached policy
@@ -725,6 +906,7 @@ describeServiceErrors s =
 -- permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeStackSummary'
+
 describeStackSummary :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -736,13 +918,15 @@ describeStackSummary :: ( MonadCatch m
 describeStackSummary p1 s =
     send $ (mkDescribeStackSummary p1) &~ s
 
--- | Requests a description of one or more stacks. Required Permissions: To use
+-- $DescribeStacks
+-- Requests a description of one or more stacks. Required Permissions: To use
 -- this action, an IAM user must have a Show, Deploy, or Manage permissions
 -- level for the stack, or an attached policy that explicitly grants
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeStacks'
+
 describeStacks :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -753,7 +937,8 @@ describeStacks :: ( MonadCatch m
 describeStacks s =
     send (mkDescribeStacks &~ s)
 
--- | Describes time-based auto scaling configurations for specified instances.
+-- $DescribeTimeBasedAutoScaling
+-- Describes time-based auto scaling configurations for specified instances.
 -- You must specify at least one of the parameters. Required Permissions: To
 -- use this action, an IAM user must have a Show, Deploy, or Manage
 -- permissions level for the stack, or an attached policy that explicitly
@@ -761,6 +946,7 @@ describeStacks s =
 -- User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeTimeBasedAutoScaling'
+
 describeTimeBasedAutoScaling :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
@@ -772,11 +958,13 @@ describeTimeBasedAutoScaling :: ( MonadCatch m
 describeTimeBasedAutoScaling p1 s =
     send $ (mkDescribeTimeBasedAutoScaling p1) &~ s
 
--- | Describe specified users. Required Permissions: To use this action, an IAM
+-- $DescribeUserProfiles
+-- Describe specified users. Required Permissions: To use this action, an IAM
 -- user must have an attached policy that explicitly grants permissions. For
 -- more information on user permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeUserProfiles'
+
 describeUserProfiles :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -787,13 +975,15 @@ describeUserProfiles :: ( MonadCatch m
 describeUserProfiles s =
     send (mkDescribeUserProfiles &~ s)
 
--- | Describes an instance's Amazon EBS volumes. You must specify at least one
+-- $DescribeVolumes
+-- Describes an instance's Amazon EBS volumes. You must specify at least one
 -- of the parameters. Required Permissions: To use this action, an IAM user
 -- must have a Show, Deploy, or Manage permissions level for the stack, or an
 -- attached policy that explicitly grants permissions. For more information on
 -- user permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DescribeVolumes'
+
 describeVolumes :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -804,13 +994,15 @@ describeVolumes :: ( MonadCatch m
 describeVolumes s =
     send (mkDescribeVolumes &~ s)
 
--- | Detaches a specified Elastic Load Balancing instance from its layer.
+-- $DetachElasticLoadBalancer
+-- Detaches a specified Elastic Load Balancing instance from its layer.
 -- Required Permissions: To use this action, an IAM user must have a Manage
 -- permissions level for the stack, or an attached policy that explicitly
 -- grants permissions. For more information on user permissions, see Managing
 -- User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DetachElasticLoadBalancer'
+
 detachElasticLoadBalancer :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -823,7 +1015,8 @@ detachElasticLoadBalancer :: ( MonadCatch m
 detachElasticLoadBalancer p1 p2 s =
     send $ (mkDetachElasticLoadBalancer p1 p2) &~ s
 
--- | Disassociates an Elastic IP address from its instance. The address remains
+-- $DisassociateElasticIp
+-- Disassociates an Elastic IP address from its instance. The address remains
 -- registered with the stack. For more information, see Resource Management.
 -- Required Permissions: To use this action, an IAM user must have a Manage
 -- permissions level for the stack, or an attached policy that explicitly
@@ -831,6 +1024,7 @@ detachElasticLoadBalancer p1 p2 s =
 -- User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.DisassociateElasticIp'
+
 disassociateElasticIp :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -842,13 +1036,15 @@ disassociateElasticIp :: ( MonadCatch m
 disassociateElasticIp p1 s =
     send $ (mkDisassociateElasticIp p1) &~ s
 
--- | Gets a generated host name for the specified layer, based on the current
+-- $GetHostnameSuggestion
+-- Gets a generated host name for the specified layer, based on the current
 -- host name theme. Required Permissions: To use this action, an IAM user must
 -- have a Manage permissions level for the stack, or an attached policy that
 -- explicitly grants permissions. For more information on user permissions,
 -- see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.GetHostnameSuggestion'
+
 getHostnameSuggestion :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -860,13 +1056,15 @@ getHostnameSuggestion :: ( MonadCatch m
 getHostnameSuggestion p1 s =
     send $ (mkGetHostnameSuggestion p1) &~ s
 
--- | Reboots a specified instance. For more information, see Starting, Stopping,
+-- $RebootInstance
+-- Reboots a specified instance. For more information, see Starting, Stopping,
 -- and Rebooting Instances. Required Permissions: To use this action, an IAM
 -- user must have a Manage permissions level for the stack, or an attached
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.RebootInstance'
+
 rebootInstance :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -878,7 +1076,8 @@ rebootInstance :: ( MonadCatch m
 rebootInstance p1 s =
     send $ (mkRebootInstance p1) &~ s
 
--- | Registers an Elastic IP address with a specified stack. An address can be
+-- $RegisterElasticIp
+-- Registers an Elastic IP address with a specified stack. An address can be
 -- registered with only one stack at a time. If the address is already
 -- registered, you must first deregister it by calling DeregisterElasticIp.
 -- For more information, see Resource Management. Required Permissions: To use
@@ -887,6 +1086,7 @@ rebootInstance p1 s =
 -- information on user permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.RegisterElasticIp'
+
 registerElasticIp :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -899,9 +1099,11 @@ registerElasticIp :: ( MonadCatch m
 registerElasticIp p1 p2 s =
     send $ (mkRegisterElasticIp p1 p2) &~ s
 
--- | Registers an Amazon RDS instance with a stack.
+-- $RegisterRdsDbInstance
+-- Registers an Amazon RDS instance with a stack.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.RegisterRdsDbInstance'
+
 registerRdsDbInstance :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -916,7 +1118,8 @@ registerRdsDbInstance :: ( MonadCatch m
 registerRdsDbInstance p1 p2 p3 p4 s =
     send $ (mkRegisterRdsDbInstance p1 p2 p3 p4) &~ s
 
--- | Registers an Amazon EBS volume with a specified stack. A volume can be
+-- $RegisterVolume
+-- Registers an Amazon EBS volume with a specified stack. A volume can be
 -- registered with only one stack at a time. If the volume is already
 -- registered, you must first deregister it by calling DeregisterVolume. For
 -- more information, see Resource Management. Required Permissions: To use
@@ -925,6 +1128,7 @@ registerRdsDbInstance p1 p2 p3 p4 s =
 -- information on user permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.RegisterVolume'
+
 registerVolume :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -936,7 +1140,8 @@ registerVolume :: ( MonadCatch m
 registerVolume p2 s =
     send $ (mkRegisterVolume p2) &~ s
 
--- | Specify the load-based auto scaling configuration for a specified layer.
+-- $SetLoadBasedAutoScaling
+-- Specify the load-based auto scaling configuration for a specified layer.
 -- For more information, see Managing Load with Time-based and Load-based
 -- Instances. To use load-based auto scaling, you must create a set of
 -- load-based auto scaling instances. Load-based auto scaling operates only on
@@ -948,6 +1153,7 @@ registerVolume p2 s =
 -- Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.SetLoadBasedAutoScaling'
+
 setLoadBasedAutoScaling :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -959,13 +1165,15 @@ setLoadBasedAutoScaling :: ( MonadCatch m
 setLoadBasedAutoScaling p1 s =
     send $ (mkSetLoadBasedAutoScaling p1) &~ s
 
--- | Specifies a user's permissions. For more information, see Security and
+-- $SetPermission
+-- Specifies a user's permissions. For more information, see Security and
 -- Permissions. Required Permissions: To use this action, an IAM user must
 -- have a Manage permissions level for the stack, or an attached policy that
 -- explicitly grants permissions. For more information on user permissions,
 -- see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.SetPermission'
+
 setPermission :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -978,7 +1186,8 @@ setPermission :: ( MonadCatch m
 setPermission p1 p2 s =
     send $ (mkSetPermission p1 p2) &~ s
 
--- | Specify the time-based auto scaling configuration for a specified instance.
+-- $SetTimeBasedAutoScaling
+-- Specify the time-based auto scaling configuration for a specified instance.
 -- For more information, see Managing Load with Time-based and Load-based
 -- Instances. Required Permissions: To use this action, an IAM user must have
 -- a Manage permissions level for the stack, or an attached policy that
@@ -986,6 +1195,7 @@ setPermission p1 p2 s =
 -- see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.SetTimeBasedAutoScaling'
+
 setTimeBasedAutoScaling :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -997,13 +1207,15 @@ setTimeBasedAutoScaling :: ( MonadCatch m
 setTimeBasedAutoScaling p1 s =
     send $ (mkSetTimeBasedAutoScaling p1) &~ s
 
--- | Starts a specified instance. For more information, see Starting, Stopping,
+-- $StartInstance
+-- Starts a specified instance. For more information, see Starting, Stopping,
 -- and Rebooting Instances. Required Permissions: To use this action, an IAM
 -- user must have a Manage permissions level for the stack, or an attached
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.StartInstance'
+
 startInstance :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -1015,12 +1227,14 @@ startInstance :: ( MonadCatch m
 startInstance p1 s =
     send $ (mkStartInstance p1) &~ s
 
--- | Starts a stack's instances. Required Permissions: To use this action, an
+-- $StartStack
+-- Starts a stack's instances. Required Permissions: To use this action, an
 -- IAM user must have a Manage permissions level for the stack, or an attached
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.StartStack'
+
 startStack :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -1032,7 +1246,8 @@ startStack :: ( MonadCatch m
 startStack p1 s =
     send $ (mkStartStack p1) &~ s
 
--- | Stops a specified instance. When you stop a standard instance, the data
+-- $StopInstance
+-- Stops a specified instance. When you stop a standard instance, the data
 -- disappears and must be reinstalled when you restart the instance. You can
 -- stop an Amazon EBS-backed instance without losing data. For more
 -- information, see Starting, Stopping, and Rebooting Instances. Required
@@ -1042,6 +1257,7 @@ startStack p1 s =
 -- Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.StopInstance'
+
 stopInstance :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -1053,12 +1269,14 @@ stopInstance :: ( MonadCatch m
 stopInstance p1 s =
     send $ (mkStopInstance p1) &~ s
 
--- | Stops a specified stack. Required Permissions: To use this action, an IAM
+-- $StopStack
+-- Stops a specified stack. Required Permissions: To use this action, an IAM
 -- user must have a Manage permissions level for the stack, or an attached
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.StopStack'
+
 stopStack :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -1070,7 +1288,8 @@ stopStack :: ( MonadCatch m
 stopStack p1 s =
     send $ (mkStopStack p1) &~ s
 
--- | Unassigns an assigned Amazon EBS volume. The volume remains registered with
+-- $UnassignVolume
+-- Unassigns an assigned Amazon EBS volume. The volume remains registered with
 -- the stack. For more information, see Resource Management. Required
 -- Permissions: To use this action, an IAM user must have a Manage permissions
 -- level for the stack, or an attached policy that explicitly grants
@@ -1078,6 +1297,7 @@ stopStack p1 s =
 -- Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.UnassignVolume'
+
 unassignVolume :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -1089,12 +1309,14 @@ unassignVolume :: ( MonadCatch m
 unassignVolume p1 s =
     send $ (mkUnassignVolume p1) &~ s
 
--- | Updates a specified app. Required Permissions: To use this action, an IAM
+-- $UpdateApp
+-- Updates a specified app. Required Permissions: To use this action, an IAM
 -- user must have a Deploy or Manage permissions level for the stack, or an
 -- attached policy that explicitly grants permissions. For more information on
 -- user permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.UpdateApp'
+
 updateApp :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -1106,13 +1328,15 @@ updateApp :: ( MonadCatch m
 updateApp p1 s =
     send $ (mkUpdateApp p1) &~ s
 
--- | Updates a registered Elastic IP address's name. For more information, see
+-- $UpdateElasticIp
+-- Updates a registered Elastic IP address's name. For more information, see
 -- Resource Management. Required Permissions: To use this action, an IAM user
 -- must have a Manage permissions level for the stack, or an attached policy
 -- that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.UpdateElasticIp'
+
 updateElasticIp :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -1124,12 +1348,14 @@ updateElasticIp :: ( MonadCatch m
 updateElasticIp p1 s =
     send $ (mkUpdateElasticIp p1) &~ s
 
--- | Updates a specified instance. Required Permissions: To use this action, an
+-- $UpdateInstance
+-- Updates a specified instance. Required Permissions: To use this action, an
 -- IAM user must have a Manage permissions level for the stack, or an attached
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.UpdateInstance'
+
 updateInstance :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -1141,12 +1367,14 @@ updateInstance :: ( MonadCatch m
 updateInstance p1 s =
     send $ (mkUpdateInstance p1) &~ s
 
--- | Updates a specified layer. Required Permissions: To use this action, an IAM
+-- $UpdateLayer
+-- Updates a specified layer. Required Permissions: To use this action, an IAM
 -- user must have a Manage permissions level for the stack, or an attached
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.UpdateLayer'
+
 updateLayer :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -1158,12 +1386,14 @@ updateLayer :: ( MonadCatch m
 updateLayer p1 s =
     send $ (mkUpdateLayer p1) &~ s
 
--- | Updates a user's SSH public key. Required Permissions: To use this action,
+-- $UpdateMyUserProfile
+-- Updates a user's SSH public key. Required Permissions: To use this action,
 -- an IAM user must have self-management enabled or an attached policy that
 -- explicitly grants permissions. For more information on user permissions,
 -- see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.UpdateMyUserProfile'
+
 updateMyUserProfile :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -1174,9 +1404,11 @@ updateMyUserProfile :: ( MonadCatch m
 updateMyUserProfile s =
     send (mkUpdateMyUserProfile &~ s)
 
--- | Updates an Amazon RDS instance.
+-- $UpdateRdsDbInstance
+-- Updates an Amazon RDS instance.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.UpdateRdsDbInstance'
+
 updateRdsDbInstance :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -1188,12 +1420,14 @@ updateRdsDbInstance :: ( MonadCatch m
 updateRdsDbInstance p1 s =
     send $ (mkUpdateRdsDbInstance p1) &~ s
 
--- | Updates a specified stack. Required Permissions: To use this action, an IAM
+-- $UpdateStack
+-- Updates a specified stack. Required Permissions: To use this action, an IAM
 -- user must have a Manage permissions level for the stack, or an attached
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.UpdateStack'
+
 updateStack :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -1205,12 +1439,14 @@ updateStack :: ( MonadCatch m
 updateStack p1 s =
     send $ (mkUpdateStack p1) &~ s
 
--- | Updates a specified user profile. Required Permissions: To use this action,
+-- $UpdateUserProfile
+-- Updates a specified user profile. Required Permissions: To use this action,
 -- an IAM user must have an attached policy that explicitly grants
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.UpdateUserProfile'
+
 updateUserProfile :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -1222,13 +1458,15 @@ updateUserProfile :: ( MonadCatch m
 updateUserProfile p1 s =
     send $ (mkUpdateUserProfile p1) &~ s
 
--- | Updates an Amazon EBS volume's name or mount point. For more information,
+-- $UpdateVolume
+-- Updates an Amazon EBS volume's name or mount point. For more information,
 -- see Resource Management. Required Permissions: To use this action, an IAM
 -- user must have a Manage permissions level for the stack, or an attached
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
 -- See: 'Network.AWS.OpsWorks.V2013_02_18.UpdateVolume'
+
 updateVolume :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m

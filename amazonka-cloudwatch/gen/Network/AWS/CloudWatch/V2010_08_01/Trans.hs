@@ -27,32 +27,52 @@
 module Network.AWS.CloudWatch.V2010_08_01.Trans
     (
     -- * DeleteAlarms
+    -- $DeleteAlarms
       deleteAlarms
+
     -- * DescribeAlarmHistory
+    -- $DescribeAlarmHistory
     , describeAlarmHistory
+
     -- * DescribeAlarms
+    -- $DescribeAlarms
     , describeAlarms
+
     -- * DescribeAlarmsForMetric
+    -- $DescribeAlarmsForMetric
     , describeAlarmsForMetric
+
     -- * DisableAlarmActions
+    -- $DisableAlarmActions
     , disableAlarmActions
+
     -- * EnableAlarmActions
+    -- $EnableAlarmActions
     , enableAlarmActions
+
     -- * GetMetricStatistics
+    -- $GetMetricStatistics
     , getMetricStatistics
+
     -- * ListMetrics
+    -- $ListMetrics
     , listMetrics
+
     -- * PutMetricAlarm
+    -- $PutMetricAlarm
     , putMetricAlarm
+
     -- * PutMetricData
+    -- $PutMetricData
     , putMetricData
+
     -- * SetAlarmState
+    -- $SetAlarmState
     , setAlarmState
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.CloudWatch.V2010_08_01
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -63,10 +83,12 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CloudWatch.V2010_08_01
 
--- | Deletes all specified alarms. In the event of an error, no alarms are
+-- $DeleteAlarms
+-- Deletes all specified alarms. In the event of an error, no alarms are
 -- deleted.
 --
 -- See: 'Network.AWS.CloudWatch.V2010_08_01.DeleteAlarms'
+
 deleteAlarms :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -78,12 +100,14 @@ deleteAlarms :: ( MonadCatch m
 deleteAlarms p1 s =
     send $ (mkDeleteAlarms p1) &~ s
 
--- | Retrieves history for the specified alarm. Filter alarms by date range or
+-- $DescribeAlarmHistory
+-- Retrieves history for the specified alarm. Filter alarms by date range or
 -- item type. If an alarm name is not specified, Amazon CloudWatch returns
 -- histories for all of the owner's alarms. Amazon CloudWatch retains the
 -- history of an alarm for two weeks, whether or not you delete the alarm.
 --
 -- See: 'Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmHistory'
+
 describeAlarmHistory :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -94,11 +118,13 @@ describeAlarmHistory :: ( MonadCatch m
 describeAlarmHistory s =
     paginate (mkDescribeAlarmHistory &~ s)
 
--- | Retrieves alarms with the specified names. If no name is specified, all
+-- $DescribeAlarms
+-- Retrieves alarms with the specified names. If no name is specified, all
 -- alarms for the user are returned. Alarms can be retrieved by using only a
 -- prefix for the alarm name, the alarm state, or a prefix for any action.
 --
 -- See: 'Network.AWS.CloudWatch.V2010_08_01.DescribeAlarms'
+
 describeAlarms :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -109,10 +135,12 @@ describeAlarms :: ( MonadCatch m
 describeAlarms s =
     paginate (mkDescribeAlarms &~ s)
 
--- | Retrieves all alarms for a single metric. Specify a statistic, period, or
+-- $DescribeAlarmsForMetric
+-- Retrieves all alarms for a single metric. Specify a statistic, period, or
 -- unit to filter the set of alarms further.
 --
 -- See: 'Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmsForMetric'
+
 describeAlarmsForMetric :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -125,11 +153,13 @@ describeAlarmsForMetric :: ( MonadCatch m
 describeAlarmsForMetric p1 p2 s =
     send $ (mkDescribeAlarmsForMetric p1 p2) &~ s
 
--- | Disables actions for the specified alarms. When an alarm's actions are
+-- $DisableAlarmActions
+-- Disables actions for the specified alarms. When an alarm's actions are
 -- disabled the alarm's state may change, but none of the alarm's actions will
 -- execute.
 --
 -- See: 'Network.AWS.CloudWatch.V2010_08_01.DisableAlarmActions'
+
 disableAlarmActions :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -141,9 +171,11 @@ disableAlarmActions :: ( MonadCatch m
 disableAlarmActions p1 s =
     send $ (mkDisableAlarmActions p1) &~ s
 
--- | Enables actions for the specified alarms.
+-- $EnableAlarmActions
+-- Enables actions for the specified alarms.
 --
 -- See: 'Network.AWS.CloudWatch.V2010_08_01.EnableAlarmActions'
+
 enableAlarmActions :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -155,7 +187,8 @@ enableAlarmActions :: ( MonadCatch m
 enableAlarmActions p1 s =
     send $ (mkEnableAlarmActions p1) &~ s
 
--- | Gets statistics for the specified metric. The maximum number of data points
+-- $GetMetricStatistics
+-- Gets statistics for the specified metric. The maximum number of data points
 -- returned from a single GetMetricStatistics request is 1,440. If a request
 -- is made that generates more than 1,440 data points, Amazon CloudWatch
 -- returns an error. In such a case, alter the request by narrowing the
@@ -175,6 +208,7 @@ enableAlarmActions p1 s =
 -- for up to 2 instances over a span of 2 weeks.
 --
 -- See: 'Network.AWS.CloudWatch.V2010_08_01.GetMetricStatistics'
+
 getMetricStatistics :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -191,7 +225,8 @@ getMetricStatistics :: ( MonadCatch m
 getMetricStatistics p1 p2 p4 p5 p6 p7 s =
     send $ (mkGetMetricStatistics p1 p2 p4 p5 p6 p7) &~ s
 
--- | Returns a list of valid metrics stored for the AWS account owner. Returned
+-- $ListMetrics
+-- Returns a list of valid metrics stored for the AWS account owner. Returned
 -- metrics can be used with GetMetricStatistics to obtain statistical data for
 -- a given metric. Up to 500 results are returned for any one call. To
 -- retrieve further results, use returned NextToken values with subsequent
@@ -200,6 +235,7 @@ getMetricStatistics p1 p2 p4 p5 p6 p7 s =
 -- the ListMetrics action.
 --
 -- See: 'Network.AWS.CloudWatch.V2010_08_01.ListMetrics'
+
 listMetrics :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -210,7 +246,8 @@ listMetrics :: ( MonadCatch m
 listMetrics s =
     paginate (mkListMetrics &~ s)
 
--- | Creates or updates an alarm and associates it with the specified Amazon
+-- $PutMetricAlarm
+-- Creates or updates an alarm and associates it with the specified Amazon
 -- CloudWatch metric. Optionally, this operation can associate one or more
 -- Amazon Simple Notification Service resources with the alarm. When this
 -- operation creates an alarm, the alarm state is immediately set to
@@ -219,6 +256,7 @@ listMetrics s =
 -- When updating an existing alarm, its StateValue is left unchanged.
 --
 -- See: 'Network.AWS.CloudWatch.V2010_08_01.PutMetricAlarm'
+
 putMetricAlarm :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -237,7 +275,8 @@ putMetricAlarm :: ( MonadCatch m
 putMetricAlarm p1 p11 p13 p14 p15 p7 p8 p9 s =
     send $ (mkPutMetricAlarm p1 p11 p13 p14 p15 p7 p8 p9) &~ s
 
--- | Publishes metric data points to Amazon CloudWatch. Amazon Cloudwatch
+-- $PutMetricData
+-- Publishes metric data points to Amazon CloudWatch. Amazon Cloudwatch
 -- associates the data points with the specified metric. If the specified
 -- metric does not exist, Amazon CloudWatch creates the metric. If you create
 -- a metric with the PutMetricData action, allow up to fifteen minutes for the
@@ -250,6 +289,7 @@ putMetricAlarm p1 p11 p13 p14 p15 p7 p8 p9 s =
 -- also truncated.
 --
 -- See: 'Network.AWS.CloudWatch.V2010_08_01.PutMetricData'
+
 putMetricData :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -262,12 +302,14 @@ putMetricData :: ( MonadCatch m
 putMetricData p1 p2 s =
     send $ (mkPutMetricData p1 p2) &~ s
 
--- | Temporarily sets the state of an alarm. When the updated StateValue differs
+-- $SetAlarmState
+-- Temporarily sets the state of an alarm. When the updated StateValue differs
 -- from the previous value, the action configured for the appropriate state is
 -- invoked. This is not a permanent change. The next periodic alarm check (in
 -- about a minute) will set the alarm to its actual state.
 --
 -- See: 'Network.AWS.CloudWatch.V2010_08_01.SetAlarmState'
+
 setAlarmState :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m

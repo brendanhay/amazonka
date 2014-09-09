@@ -22,44 +22,76 @@
 module Network.AWS.ElasticTranscoder.V2012_09_25.Trans
     (
     -- * CancelJob
+    -- $CancelJob
       cancelJob
+
     -- * CreateJob
+    -- $CreateJob
     , createJob
+
     -- * CreatePipeline
+    -- $CreatePipeline
     , createPipeline
+
     -- * CreatePreset
+    -- $CreatePreset
     , createPreset
+
     -- * DeletePipeline
+    -- $DeletePipeline
     , deletePipeline
+
     -- * DeletePreset
+    -- $DeletePreset
     , deletePreset
+
     -- * ListJobsByPipeline
+    -- $ListJobsByPipeline
     , listJobsByPipeline
+
     -- * ListJobsByStatus
+    -- $ListJobsByStatus
     , listJobsByStatus
+
     -- * ListPipelines
+    -- $ListPipelines
     , listPipelines
+
     -- * ListPresets
+    -- $ListPresets
     , listPresets
+
     -- * ReadJob
+    -- $ReadJob
     , readJob
+
     -- * ReadPipeline
+    -- $ReadPipeline
     , readPipeline
+
     -- * ReadPreset
+    -- $ReadPreset
     , readPreset
+
     -- * TestRole
+    -- $TestRole
     , testRole
+
     -- * UpdatePipeline
+    -- $UpdatePipeline
     , updatePipeline
+
     -- * UpdatePipelineNotifications
+    -- $UpdatePipelineNotifications
     , updatePipelineNotifications
+
     -- * UpdatePipelineStatus
+    -- $UpdatePipelineStatus
     , updatePipelineStatus
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.ElasticTranscoder.V2012_09_25
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -70,7 +102,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.ElasticTranscoder.V2012_09_25
 
--- | The CancelJob operation cancels an unfinished job. You can only cancel a
+-- $CancelJob
+-- The CancelJob operation cancels an unfinished job. You can only cancel a
 -- job that has a status of Submitted. To prevent a pipeline from starting to
 -- process a job while you're getting the job identifier, use
 -- UpdatePipelineStatus to temporarily pause the pipeline. DELETE
@@ -87,6 +120,7 @@ import Network.AWS.ElasticTranscoder.V2012_09_25
 -- 06:01:47 GMT { "Success":"true" }.
 --
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.CancelJob'
+
 cancelJob :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -98,7 +132,8 @@ cancelJob :: ( MonadCatch m
 cancelJob p1 s =
     send $ (mkCancelJob p1) &~ s
 
--- | When you create a job, Elastic Transcoder returns JSON data that includes
+-- $CreateJob
+-- When you create a job, Elastic Transcoder returns JSON data that includes
 -- the values that you specified plus information about the job that is
 -- created. If you have specified more than one output for your jobs (for
 -- example, one output for the Kindle Fire and another output for the Apple
@@ -157,6 +192,7 @@ cancelJob p1 s =
 -- }.
 --
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.CreateJob'
+
 createJob :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -169,7 +205,8 @@ createJob :: ( MonadCatch m
 createJob p1 p2 s =
     send $ (mkCreateJob p1 p2) &~ s
 
--- | The CreatePipeline operation creates a pipeline with settings that you
+-- $CreatePipeline
+-- The CreatePipeline operation creates a pipeline with settings that you
 -- specify. POST /2012-09-25/pipelines HTTP/1.1 Content-Type:
 -- application/json; charset=UTF-8 Accept: */* Host:
 -- elastictranscoder.[Elastic Transcoder-endpoint].amazonaws.com:443
@@ -206,6 +243,7 @@ createJob p1 p2 s =
 -- "StorageClass":"ReducedRedundancy" }, "Status":"Active" } }.
 --
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.CreatePipeline'
+
 createPipeline :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -219,7 +257,8 @@ createPipeline :: ( MonadCatch m
 createPipeline p1 p2 p4 s =
     send $ (mkCreatePipeline p1 p2 p4) &~ s
 
--- | The CreatePreset operation creates a preset with settings that you specify.
+-- $CreatePreset
+-- The CreatePreset operation creates a preset with settings that you specify.
 -- Elastic Transcoder checks the CreatePreset settings to ensure that they
 -- meet Elastic Transcoder requirements and to determine whether they comply
 -- with H.264 standards. If your settings are not valid for Elastic
@@ -275,6 +314,7 @@ createPipeline p1 p2 p4 s =
 -- "Target":"Content" } ] } }, "Warning":"" }.
 --
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.CreatePreset'
+
 createPreset :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -287,7 +327,8 @@ createPreset :: ( MonadCatch m
 createPreset p1 p3 s =
     send $ (mkCreatePreset p1 p3) &~ s
 
--- | The DeletePipeline operation removes a pipeline. You can only delete a
+-- $DeletePipeline
+-- The DeletePipeline operation removes a pipeline. You can only delete a
 -- pipeline that has never been used or that is not currently in use (doesn't
 -- contain any active jobs). If the pipeline is currently in use,
 -- DeletePipeline returns an error. DELETE
@@ -304,6 +345,7 @@ createPreset p1 p3 s =
 -- 06:01:47 GMT { "Success":"true" }.
 --
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.DeletePipeline'
+
 deletePipeline :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -315,7 +357,8 @@ deletePipeline :: ( MonadCatch m
 deletePipeline p1 s =
     send $ (mkDeletePipeline p1) &~ s
 
--- | The DeletePreset operation removes a preset that you've added in an AWS
+-- $DeletePreset
+-- The DeletePreset operation removes a preset that you've added in an AWS
 -- region. You can't delete the default presets that are included with Elastic
 -- Transcoder. DELETE /2012-09-25/pipelines/5555555555555-abcde5 HTTP/1.1
 -- Content-Type: charset=UTF-8 Accept: */* Host: elastictranscoder.[Elastic
@@ -330,6 +373,7 @@ deletePipeline p1 s =
 -- 06:01:47 GMT { "Success":"true" }.
 --
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.DeletePreset'
+
 deletePreset :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -341,7 +385,8 @@ deletePreset :: ( MonadCatch m
 deletePreset p1 s =
     send $ (mkDeletePreset p1) &~ s
 
--- | The ListJobsByPipeline operation gets a list of the jobs currently in a
+-- $ListJobsByPipeline
+-- The ListJobsByPipeline operation gets a list of the jobs currently in a
 -- pipeline. Elastic Transcoder returns all of the jobs currently in the
 -- specified pipeline. The response body contains one element for each job
 -- that satisfies the search criteria. GET
@@ -386,6 +431,7 @@ deletePreset p1 s =
 -- "PipelineId":"1111111111111-abcde1" } ], "NextPageToken":null.
 --
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.ListJobsByPipeline'
+
 listJobsByPipeline :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -397,7 +443,8 @@ listJobsByPipeline :: ( MonadCatch m
 listJobsByPipeline p1 s =
     paginate $ (mkListJobsByPipeline p1) &~ s
 
--- | The ListJobsByStatus operation gets a list of jobs that have a specified
+-- $ListJobsByStatus
+-- The ListJobsByStatus operation gets a list of jobs that have a specified
 -- status. The response body contains one element for each job that satisfies
 -- the search criteria. GET /2012-09-25/jobsByStatus/Complete?Ascending=true
 -- HTTP/1.1 Content-Type: charset=UTF-8 Accept: */* Host:
@@ -444,6 +491,7 @@ listJobsByPipeline p1 s =
 -- "NextPageToken":null }.
 --
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.ListJobsByStatus'
+
 listJobsByStatus :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -455,7 +503,8 @@ listJobsByStatus :: ( MonadCatch m
 listJobsByStatus p1 s =
     paginate $ (mkListJobsByStatus p1) &~ s
 
--- | The ListPipelines operation gets a list of the pipelines associated with
+-- $ListPipelines
+-- The ListPipelines operation gets a list of the pipelines associated with
 -- the current AWS account. GET /2012-09-25/pipelines HTTP/1.1 Content-Type:
 -- charset=UTF-8 Accept: */* Host: elastictranscoder.[Elastic
 -- Transcoder-endpoint].amazonaws.com:443 x-amz-date: 20130114T174952Z
@@ -498,6 +547,7 @@ listJobsByStatus p1 s =
 -- "Status":"Active" } ] }.
 --
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.ListPipelines'
+
 listPipelines :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -508,7 +558,8 @@ listPipelines :: ( MonadCatch m
 listPipelines s =
     paginate (mkListPipelines &~ s)
 
--- | The ListPresets operation gets a list of the default presets included with
+-- $ListPresets
+-- The ListPresets operation gets a list of the default presets included with
 -- Elastic Transcoder and the presets that you've added in an AWS region. GET
 -- /2012-09-25/presets HTTP/1.1 Content-Type: charset=UTF-8 Accept: */* Host:
 -- elastictranscoder.[Elastic Transcoder-endpoint].amazonaws.com:443
@@ -532,6 +583,7 @@ listPipelines s =
 -- "PaddingPolicy":"Pad", "SizingPolicy":"Fit" } }, {...} ] }.
 --
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.ListPresets'
+
 listPresets :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -542,7 +594,8 @@ listPresets :: ( MonadCatch m
 listPresets s =
     paginate (mkListPresets &~ s)
 
--- | The ReadJob operation returns detailed information about a job. GET
+-- $ReadJob
+-- The ReadJob operation returns detailed information about a job. GET
 -- /2012-09-25/jobs/3333333333333-abcde3 HTTP/1.1 Content-Type: charset=UTF-8
 -- Accept: */* Host: elastictranscoder.[Elastic
 -- Transcoder-endpoint].amazonaws.com:443 x-amz-date: 20130114T174952Z
@@ -561,6 +614,7 @@ listPresets s =
 -- "PipelineId":"1111111111111-abcde1" } }.
 --
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.ReadJob'
+
 readJob :: ( MonadCatch m
            , MonadResource m
            , MonadError AWS.Error m
@@ -572,7 +626,8 @@ readJob :: ( MonadCatch m
 readJob p1 s =
     send $ (mkReadJob p1) &~ s
 
--- | The ReadPipeline operation gets detailed information about a pipeline. GET
+-- $ReadPipeline
+-- The ReadPipeline operation gets detailed information about a pipeline. GET
 -- /2012-09-25/pipelines/1111111111111-abcde1 HTTP/1.1 Content-Type:
 -- charset=UTF-8 Accept: */* Host: elastictranscoder.[Elastic
 -- Transcoder-endpoint].amazonaws.com:443 x-amz-date: 20130114T174952Z
@@ -592,6 +647,7 @@ readJob p1 s =
 -- "Status":"Active" } }.
 --
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.ReadPipeline'
+
 readPipeline :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -603,7 +659,8 @@ readPipeline :: ( MonadCatch m
 readPipeline p1 s =
     send $ (mkReadPipeline p1) &~ s
 
--- | The ReadPreset operation gets detailed information about a preset. GET
+-- $ReadPreset
+-- The ReadPreset operation gets detailed information about a preset. GET
 -- /2012-09-25/presets/5555555555555-abcde5 HTTP/1.1 Content-Type:
 -- application/json; charset=UTF-8 Accept: */* Host:
 -- elastictranscoder.[Elastic Transcoder-endpoint].amazonaws.com:443
@@ -632,6 +689,7 @@ readPipeline p1 s =
 -- "KeyframesMaxDist":"240" } } }.
 --
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.ReadPreset'
+
 readPreset :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -643,7 +701,8 @@ readPreset :: ( MonadCatch m
 readPreset p1 s =
     send $ (mkReadPreset p1) &~ s
 
--- | The TestRole operation tests the IAM role used to create the pipeline. The
+-- $TestRole
+-- The TestRole operation tests the IAM role used to create the pipeline. The
 -- TestRole action lets you determine whether the IAM role you are using has
 -- sufficient permissions to let Elastic Transcoder perform tasks associated
 -- with the transcoding process. The action attempts to assume the specified
@@ -673,6 +732,7 @@ readPreset p1 s =
 -- "false" }.
 --
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.TestRole'
+
 testRole :: ( MonadCatch m
             , MonadResource m
             , MonadError AWS.Error m
@@ -687,13 +747,15 @@ testRole :: ( MonadCatch m
 testRole p1 p2 p3 p4 s =
     send $ (mkTestRole p1 p2 p3 p4) &~ s
 
--- | Use the UpdatePipeline operation to update settings for a pipeline. When
+-- $UpdatePipeline
+-- Use the UpdatePipeline operation to update settings for a pipeline. When
 -- you change pipeline settings, your changes take effect immediately. Jobs
 -- that you have already submitted and that Elastic Transcoder has not started
 -- to process are affected in addition to jobs that you submit after you
 -- change settings.
 --
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.UpdatePipeline'
+
 updatePipeline :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -705,7 +767,8 @@ updatePipeline :: ( MonadCatch m
 updatePipeline p1 s =
     send $ (mkUpdatePipeline p1) &~ s
 
--- | With the UpdatePipelineNotifications operation, you can update Amazon
+-- $UpdatePipelineNotifications
+-- With the UpdatePipelineNotifications operation, you can update Amazon
 -- Simple Notification Service (Amazon SNS) notifications for a pipeline. When
 -- you update notifications for a pipeline, Elastic Transcoder returns the
 -- values that you specified in the request. POST
@@ -728,6 +791,7 @@ updatePipeline p1 s =
 -- "Warning":"" } }.
 --
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.UpdatePipelineNotifications'
+
 updatePipelineNotifications :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -740,7 +804,8 @@ updatePipelineNotifications :: ( MonadCatch m
 updatePipelineNotifications p1 p2 s =
     send $ (mkUpdatePipelineNotifications p1 p2) &~ s
 
--- | The UpdatePipelineStatus operation pauses or reactivates a pipeline, so
+-- $UpdatePipelineStatus
+-- The UpdatePipelineStatus operation pauses or reactivates a pipeline, so
 -- that the pipeline stops or restarts the processing of jobs. Changing the
 -- pipeline status is useful if you want to cancel one or more jobs. You can't
 -- cancel jobs after Elastic Transcoder has started processing them; if you
@@ -761,6 +826,7 @@ updatePipelineNotifications p1 p2 s =
 -- 06:01:47 GMT { "Id":"1111111111111-abcde1", "Status":"Active" }.
 --
 -- See: 'Network.AWS.ElasticTranscoder.V2012_09_25.UpdatePipelineStatus'
+
 updatePipelineStatus :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m

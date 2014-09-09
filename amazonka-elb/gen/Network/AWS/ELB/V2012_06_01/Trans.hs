@@ -22,66 +22,120 @@
 module Network.AWS.ELB.V2012_06_01.Trans
     (
     -- * AddTags
+    -- $AddTags
       addTags
+
     -- * ApplySecurityGroupsToLoadBalancer
+    -- $ApplySecurityGroupsToLoadBalancer
     , applySecurityGroupsToLoadBalancer
+
     -- * AttachLoadBalancerToSubnets
+    -- $AttachLoadBalancerToSubnets
     , attachLoadBalancerToSubnets
+
     -- * ConfigureHealthCheck
+    -- $ConfigureHealthCheck
     , configureHealthCheck
+
     -- * CreateAppCookieStickinessPolicy
+    -- $CreateAppCookieStickinessPolicy
     , createAppCookieStickinessPolicy
+
     -- * CreateLBCookieStickinessPolicy
+    -- $CreateLBCookieStickinessPolicy
     , createLBCookieStickinessPolicy
+
     -- * CreateLoadBalancer
+    -- $CreateLoadBalancer
     , createLoadBalancer
+
     -- * CreateLoadBalancerListeners
+    -- $CreateLoadBalancerListeners
     , createLoadBalancerListeners
+
     -- * CreateLoadBalancerPolicy
+    -- $CreateLoadBalancerPolicy
     , createLoadBalancerPolicy
+
     -- * DeleteLoadBalancer
+    -- $DeleteLoadBalancer
     , deleteLoadBalancer
+
     -- * DeleteLoadBalancerListeners
+    -- $DeleteLoadBalancerListeners
     , deleteLoadBalancerListeners
+
     -- * DeleteLoadBalancerPolicy
+    -- $DeleteLoadBalancerPolicy
     , deleteLoadBalancerPolicy
+
     -- * DeregisterInstancesFromLoadBalancer
+    -- $DeregisterInstancesFromLoadBalancer
     , deregisterInstancesFromLoadBalancer
+
     -- * DescribeInstanceHealth
+    -- $DescribeInstanceHealth
     , describeInstanceHealth
+
     -- * DescribeLoadBalancerAttributes
+    -- $DescribeLoadBalancerAttributes
     , describeLoadBalancerAttributes
+
     -- * DescribeLoadBalancerPolicies
+    -- $DescribeLoadBalancerPolicies
     , describeLoadBalancerPolicies
+
     -- * DescribeLoadBalancerPolicyTypes
+    -- $DescribeLoadBalancerPolicyTypes
     , describeLoadBalancerPolicyTypes
+
     -- * DescribeLoadBalancers
+    -- $DescribeLoadBalancers
     , describeLoadBalancers
+
     -- * DescribeTags
+    -- $DescribeTags
     , describeTags
+
     -- * DetachLoadBalancerFromSubnets
+    -- $DetachLoadBalancerFromSubnets
     , detachLoadBalancerFromSubnets
+
     -- * DisableAvailabilityZonesForLoadBalancer
+    -- $DisableAvailabilityZonesForLoadBalancer
     , disableAvailabilityZonesForLoadBalancer
+
     -- * EnableAvailabilityZonesForLoadBalancer
+    -- $EnableAvailabilityZonesForLoadBalancer
     , enableAvailabilityZonesForLoadBalancer
+
     -- * ModifyLoadBalancerAttributes
+    -- $ModifyLoadBalancerAttributes
     , modifyLoadBalancerAttributes
+
     -- * RegisterInstancesWithLoadBalancer
+    -- $RegisterInstancesWithLoadBalancer
     , registerInstancesWithLoadBalancer
+
     -- * RemoveTags
+    -- $RemoveTags
     , removeTags
+
     -- * SetLoadBalancerListenerSSLCertificate
+    -- $SetLoadBalancerListenerSSLCertificate
     , setLoadBalancerListenerSSLCertificate
+
     -- * SetLoadBalancerPoliciesForBackendServer
+    -- $SetLoadBalancerPoliciesForBackendServer
     , setLoadBalancerPoliciesForBackendServer
+
     -- * SetLoadBalancerPoliciesOfListener
+    -- $SetLoadBalancerPoliciesOfListener
     , setLoadBalancerPoliciesOfListener
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.ELB.V2012_06_01
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -92,7 +146,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.ELB.V2012_06_01
 
--- | Adds one or more tags for the specified load balancer. Each load balancer
+-- $AddTags
+-- Adds one or more tags for the specified load balancer. Each load balancer
 -- can have a maximum of 10 tags. Each tag consists of a key and an optional
 -- value. Tag keys must be unique for each load balancer. If a tag with the
 -- same key is already associated with the load balancer, this action will
@@ -104,6 +159,7 @@ import Network.AWS.ELB.V2012_06_01
 -- 360e81f7-1100-11e4-b6ed-0f30EXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.AddTags'
+
 addTags :: ( MonadCatch m
            , MonadResource m
            , MonadError AWS.Error m
@@ -116,7 +172,8 @@ addTags :: ( MonadCatch m
 addTags p1 p2 s =
     send $ (mkAddTags p1 p2) &~ s
 
--- | Associates one or more security groups with your load balancer in Amazon
+-- $ApplySecurityGroupsToLoadBalancer
+-- Associates one or more security groups with your load balancer in Amazon
 -- Virtual Private Cloud (Amazon VPC). The provided security group IDs will
 -- override any currently applied security groups. For more information, see
 -- Manage Security Groups in Amazon VPC in the Elastic Load Balancing
@@ -127,6 +184,7 @@ addTags p1 p2 s =
 -- 06b5decc-102a-11e3-9ad6-bf3e4EXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.ApplySecurityGroupsToLoadBalancer'
+
 applySecurityGroupsToLoadBalancer :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
@@ -139,7 +197,8 @@ applySecurityGroupsToLoadBalancer :: ( MonadCatch m
 applySecurityGroupsToLoadBalancer p1 p2 s =
     send $ (mkApplySecurityGroupsToLoadBalancer p1 p2) &~ s
 
--- | Adds one or more subnets to the set of configured subnets in the Amazon
+-- $AttachLoadBalancerToSubnets
+-- Adds one or more subnets to the set of configured subnets in the Amazon
 -- Virtual Private Cloud (Amazon VPC) for the load balancer. The load
 -- balancers evenly distribute requests across all of the registered subnets.
 -- For more information, see Deploy Elastic Load Balancing in Amazon VPC in
@@ -150,6 +209,7 @@ applySecurityGroupsToLoadBalancer p1 p2 s =
 -- subnet-3561b05e 07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.AttachLoadBalancerToSubnets'
+
 attachLoadBalancerToSubnets :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -162,7 +222,8 @@ attachLoadBalancerToSubnets :: ( MonadCatch m
 attachLoadBalancerToSubnets p1 p2 s =
     send $ (mkAttachLoadBalancerToSubnets p1 p2) &~ s
 
--- | Specifies the health check settings to use for evaluating the health state
+-- $ConfigureHealthCheck
+-- Specifies the health check settings to use for evaluating the health state
 -- of your back-end instances. For more information, see Health Check in the
 -- Elastic Load Balancing Developer Guide.
 -- https://elasticloadbalancing.amazonaws.com/?HealthCheck.HealthyThreshold=2
@@ -172,6 +233,7 @@ attachLoadBalancerToSubnets p1 p2 s =
 -- &AUTHPARAMS 30 HTTP:80/ping 2 3 2 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.ConfigureHealthCheck'
+
 configureHealthCheck :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -184,7 +246,8 @@ configureHealthCheck :: ( MonadCatch m
 configureHealthCheck p1 p2 s =
     send $ (mkConfigureHealthCheck p1 p2) &~ s
 
--- | Generates a stickiness policy with sticky session lifetimes that follow
+-- $CreateAppCookieStickinessPolicy
+-- Generates a stickiness policy with sticky session lifetimes that follow
 -- that of an application-generated cookie. This policy can be associated only
 -- with HTTP/HTTPS listeners. This policy is similar to the policy created by
 -- CreateLBCookieStickinessPolicy, except that the lifetime of the special
@@ -204,6 +267,7 @@ configureHealthCheck p1 p2 s =
 -- 99a693e9-12b8-11e3-9ad6-bf3e4EXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.CreateAppCookieStickinessPolicy'
+
 createAppCookieStickinessPolicy :: ( MonadCatch m
                                    , MonadResource m
                                    , MonadError AWS.Error m
@@ -217,7 +281,8 @@ createAppCookieStickinessPolicy :: ( MonadCatch m
 createAppCookieStickinessPolicy p1 p2 p3 s =
     send $ (mkCreateAppCookieStickinessPolicy p1 p2 p3) &~ s
 
--- | Generates a stickiness policy with sticky session lifetimes controlled by
+-- $CreateLBCookieStickinessPolicy
+-- Generates a stickiness policy with sticky session lifetimes controlled by
 -- the lifetime of the browser (user-agent) or a specified expiration period.
 -- This policy can be associated only with HTTP/HTTPS listeners. When a load
 -- balancer implements this policy, the load balancer uses a special cookie to
@@ -237,6 +302,7 @@ createAppCookieStickinessPolicy p1 p2 p3 s =
 -- 99a693e9-12b8-11e3-9ad6-bf3e4EXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.CreateLBCookieStickinessPolicy'
+
 createLBCookieStickinessPolicy :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
@@ -249,7 +315,8 @@ createLBCookieStickinessPolicy :: ( MonadCatch m
 createLBCookieStickinessPolicy p1 p2 s =
     send $ (mkCreateLBCookieStickinessPolicy p1 p2) &~ s
 
--- | Creates a new load balancer. After the call has completed successfully, a
+-- $CreateLoadBalancer
+-- Creates a new load balancer. After the call has completed successfully, a
 -- new load balancer is created with a unique Domain Name Service (DNS) name.
 -- The DNS name includes the name of the AWS region in which the load balance
 -- was created. For example, if your load balancer was created in the United
@@ -317,6 +384,7 @@ createLBCookieStickinessPolicy p1 p2 s =
 -- 1549581b-12b7-11e3-895e-1334aEXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.CreateLoadBalancer'
+
 createLoadBalancer :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -329,7 +397,8 @@ createLoadBalancer :: ( MonadCatch m
 createLoadBalancer p1 p2 s =
     send $ (mkCreateLoadBalancer p1 p2) &~ s
 
--- | Creates one or more listeners on a load balancer for the specified port. If
+-- $CreateLoadBalancerListeners
+-- Creates one or more listeners on a load balancer for the specified port. If
 -- a listener with the given port does not already exist, it will be created;
 -- otherwise, the properties of the new listener must match the properties of
 -- the existing listener. For more information, see Add a Listener to Your
@@ -345,6 +414,7 @@ createLoadBalancer p1 p2 s =
 -- 1549581b-12b7-11e3-895e-1334aEXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.CreateLoadBalancerListeners'
+
 createLoadBalancerListeners :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -357,7 +427,8 @@ createLoadBalancerListeners :: ( MonadCatch m
 createLoadBalancerListeners p1 p2 s =
     send $ (mkCreateLoadBalancerListeners p1 p2) &~ s
 
--- | Creates a new policy that contains the necessary attributes depending on
+-- $CreateLoadBalancerPolicy
+-- Creates a new policy that contains the necessary attributes depending on
 -- the policy type. Policies are settings that are saved for your load
 -- balancer and that can be applied to the front-end listener, or the back-end
 -- application server, depending on your policy type.
@@ -369,6 +440,7 @@ createLoadBalancerListeners p1 p2 s =
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.CreateLoadBalancerPolicy'
+
 createLoadBalancerPolicy :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -382,7 +454,8 @@ createLoadBalancerPolicy :: ( MonadCatch m
 createLoadBalancerPolicy p1 p2 p3 s =
     send $ (mkCreateLoadBalancerPolicy p1 p2 p3) &~ s
 
--- | Deletes the specified load balancer. If attempting to recreate the load
+-- $DeleteLoadBalancer
+-- Deletes the specified load balancer. If attempting to recreate the load
 -- balancer, you must reconfigure all the settings. The DNS name associated
 -- with a deleted load balancer will no longer be usable. Once deleted, the
 -- name and associated DNS record of the load balancer no longer exist and
@@ -393,6 +466,7 @@ createLoadBalancerPolicy p1 p2 p3 s =
 -- call to DeleteLoadBalancer action still succeeds.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.DeleteLoadBalancer'
+
 deleteLoadBalancer :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -404,9 +478,11 @@ deleteLoadBalancer :: ( MonadCatch m
 deleteLoadBalancer p1 s =
     send $ (mkDeleteLoadBalancer p1) &~ s
 
--- | Deletes listeners from the load balancer for the specified port.
+-- $DeleteLoadBalancerListeners
+-- Deletes listeners from the load balancer for the specified port.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.DeleteLoadBalancerListeners'
+
 deleteLoadBalancerListeners :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
@@ -419,10 +495,12 @@ deleteLoadBalancerListeners :: ( MonadCatch m
 deleteLoadBalancerListeners p1 p2 s =
     send $ (mkDeleteLoadBalancerListeners p1 p2) &~ s
 
--- | Deletes a policy from the load balancer. The specified policy must not be
+-- $DeleteLoadBalancerPolicy
+-- Deletes a policy from the load balancer. The specified policy must not be
 -- enabled for any listeners.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.DeleteLoadBalancerPolicy'
+
 deleteLoadBalancerPolicy :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -435,7 +513,8 @@ deleteLoadBalancerPolicy :: ( MonadCatch m
 deleteLoadBalancerPolicy p1 p2 s =
     send $ (mkDeleteLoadBalancerPolicy p1 p2) &~ s
 
--- | Deregisters instances from the load balancer. Once the instance is
+-- $DeregisterInstancesFromLoadBalancer
+-- Deregisters instances from the load balancer. Once the instance is
 -- deregistered, it will stop receiving traffic from the load balancer. In
 -- order to successfully call this API, the same account credentials as those
 -- used to create the load balancer must be provided. For more information,
@@ -449,6 +528,7 @@ deleteLoadBalancerPolicy p1 p2 s =
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.DeregisterInstancesFromLoadBalancer'
+
 deregisterInstancesFromLoadBalancer :: ( MonadCatch m
                                        , MonadResource m
                                        , MonadError AWS.Error m
@@ -461,7 +541,8 @@ deregisterInstancesFromLoadBalancer :: ( MonadCatch m
 deregisterInstancesFromLoadBalancer p1 p2 s =
     send $ (mkDeregisterInstancesFromLoadBalancer p1 p2) &~ s
 
--- | Returns the current state of the specified instances registered with the
+-- $DescribeInstanceHealth
+-- Returns the current state of the specified instances registered with the
 -- specified load balancer. If no instances are specified, the state of all
 -- the instances registered with the load balancer is returned. You must
 -- provide the same account credentials as those that were used to create the
@@ -487,6 +568,7 @@ deregisterInstancesFromLoadBalancer p1 p2 s =
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.DescribeInstanceHealth'
+
 describeInstanceHealth :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -498,7 +580,8 @@ describeInstanceHealth :: ( MonadCatch m
 describeInstanceHealth p1 s =
     send $ (mkDescribeInstanceHealth p1) &~ s
 
--- | Returns detailed information about all of the attributes associated with
+-- $DescribeLoadBalancerAttributes
+-- Returns detailed information about all of the attributes associated with
 -- the specified load balancer.
 -- https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=my-test-loadbalancer
 -- &Version=2012-06-01 &Action=DescribeLoadBalancerAttributes &AUTHPARAMS true
@@ -506,6 +589,7 @@ describeInstanceHealth p1 s =
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerAttributes'
+
 describeLoadBalancerAttributes :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
@@ -517,7 +601,8 @@ describeLoadBalancerAttributes :: ( MonadCatch m
 describeLoadBalancerAttributes p1 s =
     send $ (mkDescribeLoadBalancerAttributes p1) &~ s
 
--- | Returns detailed descriptions of the policies. If you specify a load
+-- $DescribeLoadBalancerPolicies
+-- Returns detailed descriptions of the policies. If you specify a load
 -- balancer name, the action returns the descriptions of all the policies
 -- created for the load balancer. If you specify a policy name associated with
 -- your load balancer, the action returns the description of that policy. If
@@ -538,6 +623,7 @@ describeLoadBalancerAttributes p1 s =
 -- 1549581b-12b7-11e3-895e-1334aEXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerPolicies'
+
 describeLoadBalancerPolicies :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
@@ -548,7 +634,8 @@ describeLoadBalancerPolicies :: ( MonadCatch m
 describeLoadBalancerPolicies s =
     send (mkDescribeLoadBalancerPolicies &~ s)
 
--- | Returns meta-information on the specified load balancer policies defined by
+-- $DescribeLoadBalancerPolicyTypes
+-- Returns meta-information on the specified load balancer policies defined by
 -- the Elastic Load Balancing service. The policy types that are returned from
 -- this action can be used in a CreateLoadBalancerPolicy action to instantiate
 -- specific policy configurations that will be applied to a load balancer.
@@ -568,6 +655,7 @@ describeLoadBalancerPolicies s =
 -- 1549581b-12b7-11e3-895e-1334aEXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerPolicyTypes'
+
 describeLoadBalancerPolicyTypes :: ( MonadCatch m
                                    , MonadResource m
                                    , MonadError AWS.Error m
@@ -578,7 +666,8 @@ describeLoadBalancerPolicyTypes :: ( MonadCatch m
 describeLoadBalancerPolicyTypes s =
     send (mkDescribeLoadBalancerPolicyTypes &~ s)
 
--- | Returns detailed configuration information for all the load balancers
+-- $DescribeLoadBalancers
+-- Returns detailed configuration information for all the load balancers
 -- created for the account. If you specify load balancer names, the action
 -- returns configuration information of the specified load balancers. In order
 -- to retrieve this information, you must provide the same account credentials
@@ -594,6 +683,7 @@ describeLoadBalancerPolicyTypes s =
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.DescribeLoadBalancers'
+
 describeLoadBalancers :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -604,13 +694,15 @@ describeLoadBalancers :: ( MonadCatch m
 describeLoadBalancers s =
     paginate (mkDescribeLoadBalancers &~ s)
 
--- | Describes the tags associated with one or more load balancers.
+-- $DescribeTags
+-- Describes the tags associated with one or more load balancers.
 -- https://elasticloadbalancing.amazonaws.com//?Action=DescribeTags
 -- &LoadBalancerNames.member.1=my-test-loadbalancer &Version=2012-06-01
 -- &AUTHPARAMS my-test-project project test environment my-test-loadbalancer
 -- 07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.DescribeTags'
+
 describeTags :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -622,7 +714,8 @@ describeTags :: ( MonadCatch m
 describeTags p1 s =
     send $ (mkDescribeTags p1) &~ s
 
--- | Removes subnets from the set of configured subnets in the Amazon Virtual
+-- $DetachLoadBalancerFromSubnets
+-- Removes subnets from the set of configured subnets in the Amazon Virtual
 -- Private Cloud (Amazon VPC) for the load balancer. After a subnet is removed
 -- all of the EC2 instances registered with the load balancer that are in the
 -- removed subnet will go into the OutOfService state. When a subnet is
@@ -634,6 +727,7 @@ describeTags p1 s =
 -- subnet-3561b05e 07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.DetachLoadBalancerFromSubnets'
+
 detachLoadBalancerFromSubnets :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
@@ -646,7 +740,8 @@ detachLoadBalancerFromSubnets :: ( MonadCatch m
 detachLoadBalancerFromSubnets p1 p2 s =
     send $ (mkDetachLoadBalancerFromSubnets p1 p2) &~ s
 
--- | Removes the specified EC2 Availability Zones from the set of configured
+-- $DisableAvailabilityZonesForLoadBalancer
+-- Removes the specified EC2 Availability Zones from the set of configured
 -- Availability Zones for the load balancer. There must be at least one
 -- Availability Zone registered with a load balancer at all times. Once an
 -- Availability Zone is removed, all the instances registered with the load
@@ -663,6 +758,7 @@ detachLoadBalancerFromSubnets p1 p2 s =
 -- ba6267d5-2566-11e3-9c6d-eb728EXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.DisableAvailabilityZonesForLoadBalancer'
+
 disableAvailabilityZonesForLoadBalancer :: ( MonadCatch m
                                            , MonadResource m
                                            , MonadError AWS.Error m
@@ -675,7 +771,8 @@ disableAvailabilityZonesForLoadBalancer :: ( MonadCatch m
 disableAvailabilityZonesForLoadBalancer p1 p2 s =
     send $ (mkDisableAvailabilityZonesForLoadBalancer p1 p2) &~ s
 
--- | Adds one or more EC2 Availability Zones to the load balancer. The load
+-- $EnableAvailabilityZonesForLoadBalancer
+-- Adds one or more EC2 Availability Zones to the load balancer. The load
 -- balancer evenly distributes requests across all its registered Availability
 -- Zones that contain instances. The new EC2 Availability Zones to be added
 -- must be in the same EC2 Region as the Availability Zones for which the load
@@ -689,6 +786,7 @@ disableAvailabilityZonesForLoadBalancer p1 p2 s =
 -- us-east-1c 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.EnableAvailabilityZonesForLoadBalancer'
+
 enableAvailabilityZonesForLoadBalancer :: ( MonadCatch m
                                           , MonadResource m
                                           , MonadError AWS.Error m
@@ -701,7 +799,8 @@ enableAvailabilityZonesForLoadBalancer :: ( MonadCatch m
 enableAvailabilityZonesForLoadBalancer p1 p2 s =
     send $ (mkEnableAvailabilityZonesForLoadBalancer p1 p2) &~ s
 
--- | Modifies the attributes of a specified load balancer. You can modify the
+-- $ModifyLoadBalancerAttributes
+-- Modifies the attributes of a specified load balancer. You can modify the
 -- load balancer attributes, such as AccessLogs, ConnectionDraining, and
 -- CrossZoneLoadBalancing by either enabling or disabling them. Or, you can
 -- modify the load balancer attribute ConnectionSettings by specifying an idle
@@ -732,6 +831,7 @@ enableAvailabilityZonesForLoadBalancer p1 p2 s =
 -- my-test-loadbalancer 30 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.ModifyLoadBalancerAttributes'
+
 modifyLoadBalancerAttributes :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
@@ -744,7 +844,8 @@ modifyLoadBalancerAttributes :: ( MonadCatch m
 modifyLoadBalancerAttributes p1 p2 s =
     send $ (mkModifyLoadBalancerAttributes p1 p2) &~ s
 
--- | Adds new instances to the load balancer. Once the instance is registered,
+-- $RegisterInstancesWithLoadBalancer
+-- Adds new instances to the load balancer. Once the instance is registered,
 -- it starts receiving traffic and requests from the load balancer. Any
 -- instance that is not in any of the Availability Zones registered for the
 -- load balancer will be moved to the OutOfService state. It will move to the
@@ -771,6 +872,7 @@ modifyLoadBalancerAttributes p1 p2 s =
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.RegisterInstancesWithLoadBalancer'
+
 registerInstancesWithLoadBalancer :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
@@ -783,13 +885,15 @@ registerInstancesWithLoadBalancer :: ( MonadCatch m
 registerInstancesWithLoadBalancer p1 p2 s =
     send $ (mkRegisterInstancesWithLoadBalancer p1 p2) &~ s
 
--- | Removes one or more tags from the specified load balancer. Remove Two Tag
+-- $RemoveTags
+-- Removes one or more tags from the specified load balancer. Remove Two Tag
 -- Keys from the Load Balancer
 -- https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=my-test-loadbalancer
 -- &Tags.member.1.Key=owner &Tags.member.2.Key=project &Action=RemoveTags
 -- &Version=2012-06-01 &AUTHPARAMS 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.RemoveTags'
+
 removeTags :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -802,7 +906,8 @@ removeTags :: ( MonadCatch m
 removeTags p1 p2 s =
     send $ (mkRemoveTags p1 p2) &~ s
 
--- | Sets the certificate that terminates the specified listener's SSL
+-- $SetLoadBalancerListenerSSLCertificate
+-- Sets the certificate that terminates the specified listener's SSL
 -- connections. The specified certificate replaces any prior certificate that
 -- was used on the same load balancer and port. For more information on
 -- updating your SSL certificate, see Updating an SSL Certificate for a Load
@@ -814,6 +919,7 @@ removeTags p1 p2 s =
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.SetLoadBalancerListenerSSLCertificate'
+
 setLoadBalancerListenerSSLCertificate :: ( MonadCatch m
                                          , MonadResource m
                                          , MonadError AWS.Error m
@@ -827,7 +933,8 @@ setLoadBalancerListenerSSLCertificate :: ( MonadCatch m
 setLoadBalancerListenerSSLCertificate p1 p2 p3 s =
     send $ (mkSetLoadBalancerListenerSSLCertificate p1 p2 p3) &~ s
 
--- | Replaces the current set of policies associated with a port on which the
+-- $SetLoadBalancerPoliciesForBackendServer
+-- Replaces the current set of policies associated with a port on which the
 -- back-end server is listening with a new set of policies. After the policies
 -- have been created using CreateLoadBalancerPolicy, they can be applied here
 -- as a list. At this time, only the back-end server authentication policy
@@ -846,6 +953,7 @@ setLoadBalancerListenerSSLCertificate p1 p2 p3 s =
 -- associated with the back-end server.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.SetLoadBalancerPoliciesForBackendServer'
+
 setLoadBalancerPoliciesForBackendServer :: ( MonadCatch m
                                            , MonadResource m
                                            , MonadError AWS.Error m
@@ -859,7 +967,8 @@ setLoadBalancerPoliciesForBackendServer :: ( MonadCatch m
 setLoadBalancerPoliciesForBackendServer p1 p2 p3 s =
     send $ (mkSetLoadBalancerPoliciesForBackendServer p1 p2 p3) &~ s
 
--- | Associates, updates, or disables a policy with a listener on the load
+-- $SetLoadBalancerPoliciesOfListener
+-- Associates, updates, or disables a policy with a listener on the load
 -- balancer. You can associate multiple policies with a listener. Associate
 -- MySSLNegotiationPolicy with the load balancer port 443 on the
 -- MyInternalLoadbalancer load balancer.
@@ -869,6 +978,7 @@ setLoadBalancerPoliciesForBackendServer p1 p2 p3 s =
 -- azonaws.com/doc/2012-06-01/"> 07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE.
 --
 -- See: 'Network.AWS.ELB.V2012_06_01.SetLoadBalancerPoliciesOfListener'
+
 setLoadBalancerPoliciesOfListener :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m

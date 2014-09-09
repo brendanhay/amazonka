@@ -29,318 +29,624 @@
 module Network.AWS.EC2.V2014_06_15.Trans
     (
     -- * AcceptVpcPeeringConnection
+    -- $AcceptVpcPeeringConnection
       acceptVpcPeeringConnection
+
     -- * AllocateAddress
+    -- $AllocateAddress
     , allocateAddress
+
     -- * AssignPrivateIpAddresses
+    -- $AssignPrivateIpAddresses
     , assignPrivateIpAddresses
+
     -- * AssociateAddress
+    -- $AssociateAddress
     , associateAddress
+
     -- * AssociateDhcpOptions
+    -- $AssociateDhcpOptions
     , associateDhcpOptions
+
     -- * AssociateRouteTable
+    -- $AssociateRouteTable
     , associateRouteTable
+
     -- * AttachInternetGateway
+    -- $AttachInternetGateway
     , attachInternetGateway
+
     -- * AttachNetworkInterface
+    -- $AttachNetworkInterface
     , attachNetworkInterface
+
     -- * AttachVolume
+    -- $AttachVolume
     , attachVolume
+
     -- * AttachVpnGateway
+    -- $AttachVpnGateway
     , attachVpnGateway
+
     -- * AuthorizeSecurityGroupEgress
+    -- $AuthorizeSecurityGroupEgress
     , authorizeSecurityGroupEgress
+
     -- * AuthorizeSecurityGroupIngress
+    -- $AuthorizeSecurityGroupIngress
     , authorizeSecurityGroupIngress
+
     -- * BundleInstance
+    -- $BundleInstance
     , bundleInstance
+
     -- * CancelBundleTask
+    -- $CancelBundleTask
     , cancelBundleTask
+
     -- * CancelConversionTask
+    -- $CancelConversionTask
     , cancelConversionTask
+
     -- * CancelExportTask
+    -- $CancelExportTask
     , cancelExportTask
+
     -- * CancelReservedInstancesListing
+    -- $CancelReservedInstancesListing
     , cancelReservedInstancesListing
+
     -- * CancelSpotInstanceRequests
+    -- $CancelSpotInstanceRequests
     , cancelSpotInstanceRequests
+
     -- * ConfirmProductInstance
+    -- $ConfirmProductInstance
     , confirmProductInstance
+
     -- * CopyImage
+    -- $CopyImage
     , copyImage
+
     -- * CopySnapshot
+    -- $CopySnapshot
     , copySnapshot
+
     -- * CreateCustomerGateway
+    -- $CreateCustomerGateway
     , createCustomerGateway
+
     -- * CreateDhcpOptions
+    -- $CreateDhcpOptions
     , createDhcpOptions
+
     -- * CreateImage
+    -- $CreateImage
     , createImage
+
     -- * CreateInstanceExportTask
+    -- $CreateInstanceExportTask
     , createInstanceExportTask
+
     -- * CreateInternetGateway
+    -- $CreateInternetGateway
     , createInternetGateway
+
     -- * CreateKeyPair
+    -- $CreateKeyPair
     , createKeyPair
+
     -- * CreateNetworkAcl
+    -- $CreateNetworkAcl
     , createNetworkAcl
+
     -- * CreateNetworkAclEntry
+    -- $CreateNetworkAclEntry
     , createNetworkAclEntry
+
     -- * CreateNetworkInterface
+    -- $CreateNetworkInterface
     , createNetworkInterface
+
     -- * CreatePlacementGroup
+    -- $CreatePlacementGroup
     , createPlacementGroup
+
     -- * CreateReservedInstancesListing
+    -- $CreateReservedInstancesListing
     , createReservedInstancesListing
+
     -- * CreateRoute
+    -- $CreateRoute
     , createRoute
+
     -- * CreateRouteTable
+    -- $CreateRouteTable
     , createRouteTable
+
     -- * CreateSecurityGroup
+    -- $CreateSecurityGroup
     , createSecurityGroup
+
     -- * CreateSnapshot
+    -- $CreateSnapshot
     , createSnapshot
+
     -- * CreateSpotDatafeedSubscription
+    -- $CreateSpotDatafeedSubscription
     , createSpotDatafeedSubscription
+
     -- * CreateSubnet
+    -- $CreateSubnet
     , createSubnet
+
     -- * CreateTags
+    -- $CreateTags
     , createTags
+
     -- * CreateVolume
+    -- $CreateVolume
     , createVolume
+
     -- * CreateVpc
+    -- $CreateVpc
     , createVpc
+
     -- * CreateVpcPeeringConnection
+    -- $CreateVpcPeeringConnection
     , createVpcPeeringConnection
+
     -- * CreateVpnConnection
+    -- $CreateVpnConnection
     , createVpnConnection
+
     -- * CreateVpnConnectionRoute
+    -- $CreateVpnConnectionRoute
     , createVpnConnectionRoute
+
     -- * CreateVpnGateway
+    -- $CreateVpnGateway
     , createVpnGateway
+
     -- * DeleteCustomerGateway
+    -- $DeleteCustomerGateway
     , deleteCustomerGateway
+
     -- * DeleteDhcpOptions
+    -- $DeleteDhcpOptions
     , deleteDhcpOptions
+
     -- * DeleteInternetGateway
+    -- $DeleteInternetGateway
     , deleteInternetGateway
+
     -- * DeleteKeyPair
+    -- $DeleteKeyPair
     , deleteKeyPair
+
     -- * DeleteNetworkAcl
+    -- $DeleteNetworkAcl
     , deleteNetworkAcl
+
     -- * DeleteNetworkAclEntry
+    -- $DeleteNetworkAclEntry
     , deleteNetworkAclEntry
+
     -- * DeleteNetworkInterface
+    -- $DeleteNetworkInterface
     , deleteNetworkInterface
+
     -- * DeletePlacementGroup
+    -- $DeletePlacementGroup
     , deletePlacementGroup
+
     -- * DeleteRoute
+    -- $DeleteRoute
     , deleteRoute
+
     -- * DeleteRouteTable
+    -- $DeleteRouteTable
     , deleteRouteTable
+
     -- * DeleteSecurityGroup
+    -- $DeleteSecurityGroup
     , deleteSecurityGroup
+
     -- * DeleteSnapshot
+    -- $DeleteSnapshot
     , deleteSnapshot
+
     -- * DeleteSpotDatafeedSubscription
+    -- $DeleteSpotDatafeedSubscription
     , deleteSpotDatafeedSubscription
+
     -- * DeleteSubnet
+    -- $DeleteSubnet
     , deleteSubnet
+
     -- * DeleteTags
+    -- $DeleteTags
     , deleteTags
+
     -- * DeleteVolume
+    -- $DeleteVolume
     , deleteVolume
+
     -- * DeleteVpc
+    -- $DeleteVpc
     , deleteVpc
+
     -- * DeleteVpcPeeringConnection
+    -- $DeleteVpcPeeringConnection
     , deleteVpcPeeringConnection
+
     -- * DeleteVpnConnection
+    -- $DeleteVpnConnection
     , deleteVpnConnection
+
     -- * DeleteVpnConnectionRoute
+    -- $DeleteVpnConnectionRoute
     , deleteVpnConnectionRoute
+
     -- * DeleteVpnGateway
+    -- $DeleteVpnGateway
     , deleteVpnGateway
+
     -- * DeregisterImage
+    -- $DeregisterImage
     , deregisterImage
+
     -- * DescribeAccountAttributes
+    -- $DescribeAccountAttributes
     , describeAccountAttributes
+
     -- * DescribeAddresses
+    -- $DescribeAddresses
     , describeAddresses
+
     -- * DescribeAvailabilityZones
+    -- $DescribeAvailabilityZones
     , describeAvailabilityZones
+
     -- * DescribeBundleTasks
+    -- $DescribeBundleTasks
     , describeBundleTasks
+
     -- * DescribeConversionTasks
+    -- $DescribeConversionTasks
     , describeConversionTasks
+
     -- * DescribeCustomerGateways
+    -- $DescribeCustomerGateways
     , describeCustomerGateways
+
     -- * DescribeDhcpOptions
+    -- $DescribeDhcpOptions
     , describeDhcpOptions
+
     -- * DescribeExportTasks
+    -- $DescribeExportTasks
     , describeExportTasks
+
     -- * DescribeImageAttribute
+    -- $DescribeImageAttribute
     , describeImageAttribute
+
     -- * DescribeImages
+    -- $DescribeImages
     , describeImages
+
     -- * DescribeInstanceAttribute
+    -- $DescribeInstanceAttribute
     , describeInstanceAttribute
+
     -- * DescribeInstanceStatus
+    -- $DescribeInstanceStatus
     , describeInstanceStatus
+
     -- * DescribeInstances
+    -- $DescribeInstances
     , describeInstances
+
     -- * DescribeInternetGateways
+    -- $DescribeInternetGateways
     , describeInternetGateways
+
     -- * DescribeKeyPairs
+    -- $DescribeKeyPairs
     , describeKeyPairs
+
     -- * DescribeNetworkAcls
+    -- $DescribeNetworkAcls
     , describeNetworkAcls
+
     -- * DescribeNetworkInterfaceAttribute
+    -- $DescribeNetworkInterfaceAttribute
     , describeNetworkInterfaceAttribute
+
     -- * DescribeNetworkInterfaces
+    -- $DescribeNetworkInterfaces
     , describeNetworkInterfaces
+
     -- * DescribePlacementGroups
+    -- $DescribePlacementGroups
     , describePlacementGroups
+
     -- * DescribeRegions
+    -- $DescribeRegions
     , describeRegions
+
     -- * DescribeReservedInstances
+    -- $DescribeReservedInstances
     , describeReservedInstances
+
     -- * DescribeReservedInstancesListings
+    -- $DescribeReservedInstancesListings
     , describeReservedInstancesListings
+
     -- * DescribeReservedInstancesModifications
+    -- $DescribeReservedInstancesModifications
     , describeReservedInstancesModifications
+
     -- * DescribeReservedInstancesOfferings
+    -- $DescribeReservedInstancesOfferings
     , describeReservedInstancesOfferings
+
     -- * DescribeRouteTables
+    -- $DescribeRouteTables
     , describeRouteTables
+
     -- * DescribeSecurityGroups
+    -- $DescribeSecurityGroups
     , describeSecurityGroups
+
     -- * DescribeSnapshotAttribute
+    -- $DescribeSnapshotAttribute
     , describeSnapshotAttribute
+
     -- * DescribeSnapshots
+    -- $DescribeSnapshots
     , describeSnapshots
+
     -- * DescribeSpotDatafeedSubscription
+    -- $DescribeSpotDatafeedSubscription
     , describeSpotDatafeedSubscription
+
     -- * DescribeSpotInstanceRequests
+    -- $DescribeSpotInstanceRequests
     , describeSpotInstanceRequests
+
     -- * DescribeSpotPriceHistory
+    -- $DescribeSpotPriceHistory
     , describeSpotPriceHistory
+
     -- * DescribeSubnets
+    -- $DescribeSubnets
     , describeSubnets
+
     -- * DescribeTags
+    -- $DescribeTags
     , describeTags
+
     -- * DescribeVolumeAttribute
+    -- $DescribeVolumeAttribute
     , describeVolumeAttribute
+
     -- * DescribeVolumeStatus
+    -- $DescribeVolumeStatus
     , describeVolumeStatus
+
     -- * DescribeVolumes
+    -- $DescribeVolumes
     , describeVolumes
+
     -- * DescribeVpcAttribute
+    -- $DescribeVpcAttribute
     , describeVpcAttribute
+
     -- * DescribeVpcPeeringConnections
+    -- $DescribeVpcPeeringConnections
     , describeVpcPeeringConnections
+
     -- * DescribeVpcs
+    -- $DescribeVpcs
     , describeVpcs
+
     -- * DescribeVpnConnections
+    -- $DescribeVpnConnections
     , describeVpnConnections
+
     -- * DescribeVpnGateways
+    -- $DescribeVpnGateways
     , describeVpnGateways
+
     -- * DetachInternetGateway
+    -- $DetachInternetGateway
     , detachInternetGateway
+
     -- * DetachNetworkInterface
+    -- $DetachNetworkInterface
     , detachNetworkInterface
+
     -- * DetachVolume
+    -- $DetachVolume
     , detachVolume
+
     -- * DetachVpnGateway
+    -- $DetachVpnGateway
     , detachVpnGateway
+
     -- * DisableVgwRoutePropagation
+    -- $DisableVgwRoutePropagation
     , disableVgwRoutePropagation
+
     -- * DisassociateAddress
+    -- $DisassociateAddress
     , disassociateAddress
+
     -- * DisassociateRouteTable
+    -- $DisassociateRouteTable
     , disassociateRouteTable
+
     -- * EnableVgwRoutePropagation
+    -- $EnableVgwRoutePropagation
     , enableVgwRoutePropagation
+
     -- * EnableVolumeIO
+    -- $EnableVolumeIO
     , enableVolumeIO
+
     -- * GetConsoleOutput
+    -- $GetConsoleOutput
     , getConsoleOutput
+
     -- * GetPasswordData
+    -- $GetPasswordData
     , getPasswordData
+
     -- * ImportInstance
+    -- $ImportInstance
     , importInstance
+
     -- * ImportKeyPair
+    -- $ImportKeyPair
     , importKeyPair
+
     -- * ImportVolume
+    -- $ImportVolume
     , importVolume
+
     -- * ModifyImageAttribute
+    -- $ModifyImageAttribute
     , modifyImageAttribute
+
     -- * ModifyInstanceAttribute
+    -- $ModifyInstanceAttribute
     , modifyInstanceAttribute
+
     -- * ModifyNetworkInterfaceAttribute
+    -- $ModifyNetworkInterfaceAttribute
     , modifyNetworkInterfaceAttribute
+
     -- * ModifyReservedInstances
+    -- $ModifyReservedInstances
     , modifyReservedInstances
+
     -- * ModifySnapshotAttribute
+    -- $ModifySnapshotAttribute
     , modifySnapshotAttribute
+
     -- * ModifySubnetAttribute
+    -- $ModifySubnetAttribute
     , modifySubnetAttribute
+
     -- * ModifyVolumeAttribute
+    -- $ModifyVolumeAttribute
     , modifyVolumeAttribute
+
     -- * ModifyVpcAttribute
+    -- $ModifyVpcAttribute
     , modifyVpcAttribute
+
     -- * MonitorInstances
+    -- $MonitorInstances
     , monitorInstances
+
     -- * PurchaseReservedInstancesOffering
+    -- $PurchaseReservedInstancesOffering
     , purchaseReservedInstancesOffering
+
     -- * RebootInstances
+    -- $RebootInstances
     , rebootInstances
+
     -- * RegisterImage
+    -- $RegisterImage
     , registerImage
+
     -- * RejectVpcPeeringConnection
+    -- $RejectVpcPeeringConnection
     , rejectVpcPeeringConnection
+
     -- * ReleaseAddress
+    -- $ReleaseAddress
     , releaseAddress
+
     -- * ReplaceNetworkAclAssociation
+    -- $ReplaceNetworkAclAssociation
     , replaceNetworkAclAssociation
+
     -- * ReplaceNetworkAclEntry
+    -- $ReplaceNetworkAclEntry
     , replaceNetworkAclEntry
+
     -- * ReplaceRoute
+    -- $ReplaceRoute
     , replaceRoute
+
     -- * ReplaceRouteTableAssociation
+    -- $ReplaceRouteTableAssociation
     , replaceRouteTableAssociation
+
     -- * ReportInstanceStatus
+    -- $ReportInstanceStatus
     , reportInstanceStatus
+
     -- * RequestSpotInstances
+    -- $RequestSpotInstances
     , requestSpotInstances
+
     -- * ResetImageAttribute
+    -- $ResetImageAttribute
     , resetImageAttribute
+
     -- * ResetInstanceAttribute
+    -- $ResetInstanceAttribute
     , resetInstanceAttribute
+
     -- * ResetNetworkInterfaceAttribute
+    -- $ResetNetworkInterfaceAttribute
     , resetNetworkInterfaceAttribute
+
     -- * ResetSnapshotAttribute
+    -- $ResetSnapshotAttribute
     , resetSnapshotAttribute
+
     -- * RevokeSecurityGroupEgress
+    -- $RevokeSecurityGroupEgress
     , revokeSecurityGroupEgress
+
     -- * RevokeSecurityGroupIngress
+    -- $RevokeSecurityGroupIngress
     , revokeSecurityGroupIngress
+
     -- * RunInstances
+    -- $RunInstances
     , runInstances
+
     -- * StartInstances
+    -- $StartInstances
     , startInstances
+
     -- * StopInstances
+    -- $StopInstances
     , stopInstances
+
     -- * TerminateInstances
+    -- $TerminateInstances
     , terminateInstances
+
     -- * UnassignPrivateIpAddresses
+    -- $UnassignPrivateIpAddresses
     , unassignPrivateIpAddresses
+
     -- * UnmonitorInstances
+    -- $UnmonitorInstances
     , unmonitorInstances
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.EC2.V2014_06_15
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -351,7 +657,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.EC2.V2014_06_15
 
--- | Accept a VPC peering connection request. To accept a request, the VPC
+-- $AcceptVpcPeeringConnection
+-- Accept a VPC peering connection request. To accept a request, the VPC
 -- peering connection must be in the pending-acceptance state, and you must be
 -- the owner of the peer VPC. Use the DescribeVpcPeeringConnections request to
 -- view your outstanding VPC peering connection requests. Example This example
@@ -374,6 +681,7 @@ import Network.AWS.EC2.V2014_06_15
 -- &lt;/vpcPeeringConnection&gt; &lt;/AcceptVpcPeeringConnectionResponse&gt;".
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.AcceptVpcPeeringConnection'
+
 acceptVpcPeeringConnection :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -384,7 +692,8 @@ acceptVpcPeeringConnection :: ( MonadCatch m
 acceptVpcPeeringConnection s =
     send (mkAcceptVpcPeeringConnection &~ s)
 
--- | Acquires an Elastic IP address. An Elastic IP address is for use either in
+-- $AllocateAddress
+-- Acquires an Elastic IP address. An Elastic IP address is for use either in
 -- the EC2-Classic platform or in a VPC. For more information, see Elastic IP
 -- Addresses in the Amazon Elastic Compute Cloud User Guide. Example for
 -- EC2-Classic This example request allocates an Elastic IP address for use
@@ -407,6 +716,7 @@ acceptVpcPeeringConnection s =
 -- &lt;/AllocateAddressResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.AllocateAddress'
+
 allocateAddress :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -417,7 +727,8 @@ allocateAddress :: ( MonadCatch m
 allocateAddress s =
     send (mkAllocateAddress &~ s)
 
--- | Assigns one or more secondary private IP addresses to the specified network
+-- $AssignPrivateIpAddresses
+-- Assigns one or more secondary private IP addresses to the specified network
 -- interface. You can specify one or more specific secondary IP addresses, or
 -- you can specify the number of secondary IP addresses to be automatically
 -- assigned within the subnet's CIDR block range. The number of secondary IP
@@ -446,6 +757,7 @@ allocateAddress s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/AssignPrivateIpAddresses&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.AssignPrivateIpAddresses'
+
 assignPrivateIpAddresses :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -457,7 +769,8 @@ assignPrivateIpAddresses :: ( MonadCatch m
 assignPrivateIpAddresses p1 s =
     send $ (mkAssignPrivateIpAddresses p1) &~ s
 
--- | Associates an Elastic IP address with an instance or a network interface.
+-- $AssociateAddress
+-- Associates an Elastic IP address with an instance or a network interface.
 -- An Elastic IP address is for use in either the EC2-Classic platform or in a
 -- VPC. For more information, see Elastic IP Addresses in the Amazon Elastic
 -- Compute Cloud User Guide. [EC2-Classic, default VPC] If the Elastic IP
@@ -490,6 +803,7 @@ assignPrivateIpAddresses p1 s =
 -- &lt;/AssociateAddressResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.AssociateAddress'
+
 associateAddress :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -500,7 +814,8 @@ associateAddress :: ( MonadCatch m
 associateAddress s =
     send (mkAssociateAddress &~ s)
 
--- | Associates a set of DHCP options (that you've previously created) with the
+-- $AssociateDhcpOptions
+-- Associates a set of DHCP options (that you've previously created) with the
 -- specified VPC, or associates no DHCP options with the VPC. After you
 -- associate the options with the VPC, any existing instances and all new
 -- instances that you launch in that VPC use the options. You don't need to
@@ -526,6 +841,7 @@ associateAddress s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/AssociateDhcpOptionsResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.AssociateDhcpOptions'
+
 associateDhcpOptions :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -538,7 +854,8 @@ associateDhcpOptions :: ( MonadCatch m
 associateDhcpOptions p1 p2 s =
     send $ (mkAssociateDhcpOptions p1 p2) &~ s
 
--- | Associates a subnet with a route table. The subnet and route table must be
+-- $AssociateRouteTable
+-- Associates a subnet with a route table. The subnet and route table must be
 -- in the same VPC. This association causes traffic originating from the
 -- subnet to be routed according to the routes in the route table. The action
 -- returns an association ID, which you need in order to disassociate the
@@ -555,6 +872,7 @@ associateDhcpOptions p1 p2 s =
 -- &lt;/AssociateRouteTableResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.AssociateRouteTable'
+
 associateRouteTable :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -567,7 +885,8 @@ associateRouteTable :: ( MonadCatch m
 associateRouteTable p1 p2 s =
     send $ (mkAssociateRouteTable p1 p2) &~ s
 
--- | Attaches an Internet gateway to a VPC, enabling connectivity between the
+-- $AttachInternetGateway
+-- Attaches an Internet gateway to a VPC, enabling connectivity between the
 -- Internet and the VPC. For more information about your VPC and Internet
 -- gateway, see the Amazon Virtual Private Cloud User Guide. Example This
 -- example attaches the Internet gateway with the ID igw-eaad4883 to the VPC
@@ -580,6 +899,7 @@ associateRouteTable p1 p2 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/AttachInternetGatewayResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.AttachInternetGateway'
+
 attachInternetGateway :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -592,7 +912,8 @@ attachInternetGateway :: ( MonadCatch m
 attachInternetGateway p1 p2 s =
     send $ (mkAttachInternetGateway p1 p2) &~ s
 
--- | Attaches a network interface to an instance. Example This example attaches
+-- $AttachNetworkInterface
+-- Attaches a network interface to an instance. Example This example attaches
 -- the specified network interface to the specified instance.
 -- https://ec2.amazonaws.com/?Action=AttachNetworkInterface &amp;DeviceIndex=1
 -- &amp;InstanceId=i-9cc316fe &amp;NetworkInterfaceId=eni-ffda3197
@@ -603,6 +924,7 @@ attachInternetGateway p1 p2 s =
 -- &lt;/AttachNetworkInterfaceResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.AttachNetworkInterface'
+
 attachNetworkInterface :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -616,7 +938,8 @@ attachNetworkInterface :: ( MonadCatch m
 attachNetworkInterface p1 p2 p3 s =
     send $ (mkAttachNetworkInterface p1 p2 p3) &~ s
 
--- | Attaches an Amazon EBS volume to a running or stopped instance and exposes
+-- $AttachVolume
+-- Attaches an Amazon EBS volume to a running or stopped instance and exposes
 -- it to the instance with the specified device name. Encrypted Amazon EBS
 -- volumes may only be attached to instances that support Amazon EBS
 -- encryption. For more information, see Amazon EBS Encryption in the Amazon
@@ -651,6 +974,7 @@ attachNetworkInterface p1 p2 p3 s =
 -- &lt;/AttachVolumeResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.AttachVolume'
+
 attachVolume :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -664,7 +988,8 @@ attachVolume :: ( MonadCatch m
 attachVolume p1 p2 p3 s =
     send $ (mkAttachVolume p1 p2 p3) &~ s
 
--- | Attaches a virtual private gateway to a VPC. For more information, see
+-- $AttachVpnGateway
+-- Attaches a virtual private gateway to a VPC. For more information, see
 -- Adding a Hardware Virtual Private Gateway to Your VPC in the Amazon Virtual
 -- Private Cloud User Guide. Example This example attaches the virtual private
 -- gateway with the ID vgw-8db04f81 to the VPC with the ID vpc-1a2b3c4d.
@@ -678,6 +1003,7 @@ attachVolume p1 p2 p3 s =
 -- &lt;/AttachVpnGatewayResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.AttachVpnGateway'
+
 attachVpnGateway :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -690,7 +1016,8 @@ attachVpnGateway :: ( MonadCatch m
 attachVpnGateway p1 p2 s =
     send $ (mkAttachVpnGateway p1 p2) &~ s
 
--- | Adds one or more egress rules to a security group for use with a VPC.
+-- $AuthorizeSecurityGroupEgress
+-- Adds one or more egress rules to a security group for use with a VPC.
 -- Specifically, this action permits instances to send traffic to one or more
 -- CIDR IP address ranges, or to one or more security groups for the same VPC.
 -- You can have up to 50 rules per security group (covering both ingress and
@@ -729,6 +1056,7 @@ attachVpnGateway p1 p2 s =
 -- &lt;/AuthorizeSecurityGroupEgressResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.AuthorizeSecurityGroupEgress'
+
 authorizeSecurityGroupEgress :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
@@ -740,7 +1068,8 @@ authorizeSecurityGroupEgress :: ( MonadCatch m
 authorizeSecurityGroupEgress p1 s =
     send $ (mkAuthorizeSecurityGroupEgress p1) &~ s
 
--- | Adds one or more ingress rules to a security group. EC2-Classic: You can
+-- $AuthorizeSecurityGroupIngress
+-- Adds one or more ingress rules to a security group. EC2-Classic: You can
 -- have up to 100 rules per group. EC2-VPC: You can have up to 50 rules per
 -- group (covering both ingress and egress rules). Rule changes are propagated
 -- to instances within the security group as quickly as possible. However, a
@@ -794,6 +1123,7 @@ authorizeSecurityGroupEgress p1 s =
 -- 
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.AuthorizeSecurityGroupIngress'
+
 authorizeSecurityGroupIngress :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
@@ -804,7 +1134,8 @@ authorizeSecurityGroupIngress :: ( MonadCatch m
 authorizeSecurityGroupIngress s =
     send (mkAuthorizeSecurityGroupIngress &~ s)
 
--- | Bundles an Amazon instance store-backed Windows instance. During bundling,
+-- $BundleInstance
+-- Bundles an Amazon instance store-backed Windows instance. During bundling,
 -- only the root device volume (C:\) is bundled. Data on other instance store
 -- volumes is not preserved. This procedure is not applicable for Linux/Unix
 -- instances or Windows instances that are backed by Amazon EBS. For more
@@ -833,6 +1164,7 @@ authorizeSecurityGroupIngress s =
 -- &lt;/bundleInstanceTask&gt; &lt;/BundleInstanceResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.BundleInstance'
+
 bundleInstance :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -845,7 +1177,8 @@ bundleInstance :: ( MonadCatch m
 bundleInstance p1 p2 s =
     send $ (mkBundleInstance p1 p2) &~ s
 
--- | Cancels a bundling operation for an instance store-backed Windows instance.
+-- $CancelBundleTask
+-- Cancels a bundling operation for an instance store-backed Windows instance.
 -- Example This example request cancels the specified bundle task.
 -- https://ec2.amazonaws.com/?Action=CancelBundleTask
 -- &amp;BundleId=bun-cla322b9 &amp;AUTHPARAMS &lt;CancelBundleTaskResponse
@@ -862,6 +1195,7 @@ bundleInstance p1 p2 s =
 -- &lt;/bundleInstanceTask&gt; &lt;/CancelBundleTaskResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CancelBundleTask'
+
 cancelBundleTask :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -873,7 +1207,8 @@ cancelBundleTask :: ( MonadCatch m
 cancelBundleTask p1 s =
     send $ (mkCancelBundleTask p1) &~ s
 
--- | Cancels an active conversion task. The task can be the import of an
+-- $CancelConversionTask
+-- Cancels an active conversion task. The task can be the import of an
 -- instance or volume. The action removes all artifacts of the conversion,
 -- including a partially uploaded volume or instance. If the conversion is
 -- complete or is in the process of transferring the final disk image, the
@@ -886,6 +1221,7 @@ cancelBundleTask p1 s =
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE true.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CancelConversionTask'
+
 cancelConversionTask :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -897,7 +1233,8 @@ cancelConversionTask :: ( MonadCatch m
 cancelConversionTask p1 s =
     send $ (mkCancelConversionTask p1) &~ s
 
--- | Cancels an active export task. The request removes all artifacts of the
+-- $CancelExportTask
+-- Cancels an active export task. The request removes all artifacts of the
 -- export, including any partially-created Amazon S3 objects. If the export
 -- task is complete or is in the process of transferring the final disk image,
 -- the command fails and returns an error. Example This example request
@@ -907,6 +1244,7 @@ cancelConversionTask p1 s =
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE true.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CancelExportTask'
+
 cancelExportTask :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -918,7 +1256,8 @@ cancelExportTask :: ( MonadCatch m
 cancelExportTask p1 s =
     send $ (mkCancelExportTask p1) &~ s
 
--- | Cancels the specified Reserved Instance listing in the Reserved Instance
+-- $CancelReservedInstancesListing
+-- Cancels the specified Reserved Instance listing in the Reserved Instance
 -- Marketplace. For more information, see Reserved Instance Marketplace in the
 -- Amazon Elastic Compute Cloud User Guide. Example This example request
 -- cancels a Reserved Instance listing in the Reserved Instance Marketplace.
@@ -932,6 +1271,7 @@ cancelExportTask p1 s =
 -- XqJIt1342112125076.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CancelReservedInstancesListing'
+
 cancelReservedInstancesListing :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
@@ -943,7 +1283,8 @@ cancelReservedInstancesListing :: ( MonadCatch m
 cancelReservedInstancesListing p1 s =
     send $ (mkCancelReservedInstancesListing p1) &~ s
 
--- | Cancels one or more Spot Instance requests. Spot Instances are instances
+-- $CancelSpotInstanceRequests
+-- Cancels one or more Spot Instance requests. Spot Instances are instances
 -- that Amazon EC2 starts on your behalf when the maximum price that you
 -- specify exceeds the current Spot Price. Amazon EC2 periodically sets the
 -- Spot Price based on available Spot Instance capacity and current Spot
@@ -963,6 +1304,7 @@ cancelReservedInstancesListing p1 s =
 -- &lt;/CancelSpotInstanceRequestsResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CancelSpotInstanceRequests'
+
 cancelSpotInstanceRequests :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -974,7 +1316,8 @@ cancelSpotInstanceRequests :: ( MonadCatch m
 cancelSpotInstanceRequests p1 s =
     send $ (mkCancelSpotInstanceRequests p1) &~ s
 
--- | Determines whether a product code is associated with an instance. This
+-- $ConfirmProductInstance
+-- Determines whether a product code is associated with an instance. This
 -- action can only be used by the owner of the product code. It is useful when
 -- a product code owner needs to verify whether another user's instance is
 -- eligible for support. Example This example determines whether the specified
@@ -989,6 +1332,7 @@ cancelSpotInstanceRequests p1 s =
 -- &lt;/ConfirmProductInstanceResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.ConfirmProductInstance'
+
 confirmProductInstance :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -1001,7 +1345,8 @@ confirmProductInstance :: ( MonadCatch m
 confirmProductInstance p1 p2 s =
     send $ (mkConfirmProductInstance p1 p2) &~ s
 
--- | Initiates the copy of an AMI from the specified source region to the region
+-- $CopyImage
+-- Initiates the copy of an AMI from the specified source region to the region
 -- in which the request was made. You specify the destination region by using
 -- its endpoint when making the request. AMIs that use encrypted Amazon EBS
 -- snapshots cannot be copied with this method. For more information, see
@@ -1017,6 +1362,7 @@ confirmProductInstance p1 p2 s =
 -- &lt;imageId&gt;ami-4d3c2b1a&lt;/imageId&gt; &lt;/CopyImageResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CopyImage'
+
 copyImage :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -1029,7 +1375,8 @@ copyImage :: ( MonadCatch m
 copyImage p1 p2 s =
     send $ (mkCopyImage p1 p2) &~ s
 
--- | Copies a point-in-time snapshot of an Amazon EBS volume and stores it in
+-- $CopySnapshot
+-- Copies a point-in-time snapshot of an Amazon EBS volume and stores it in
 -- Amazon S3. You can copy the snapshot within the same region or from one
 -- region to another. You can use the snapshot to create Amazon EBS volumes or
 -- Amazon Machine Images (AMIs). The snapshot is copied to the regional
@@ -1047,6 +1394,7 @@ copyImage p1 p2 s =
 -- &lt;/CopySnapshotResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CopySnapshot'
+
 copySnapshot :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -1059,7 +1407,8 @@ copySnapshot :: ( MonadCatch m
 copySnapshot p1 p2 s =
     send $ (mkCopySnapshot p1 p2) &~ s
 
--- | Provides information to AWS about your VPN customer gateway device. The
+-- $CreateCustomerGateway
+-- Provides information to AWS about your VPN customer gateway device. The
 -- customer gateway is the appliance at your end of the VPN connection. (The
 -- device on the AWS side of the VPN connection is the virtual private
 -- gateway.) You must provide the Internet-routable IP address of the customer
@@ -1088,6 +1437,7 @@ copySnapshot p1 p2 s =
 -- &lt;/CreateCustomerGatewayResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateCustomerGateway'
+
 createCustomerGateway :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -1101,7 +1451,8 @@ createCustomerGateway :: ( MonadCatch m
 createCustomerGateway p1 p2 p3 s =
     send $ (mkCreateCustomerGateway p1 p2 p3) &~ s
 
--- | Creates a set of DHCP options for your VPC. After creating the set, you
+-- $CreateDhcpOptions
+-- Creates a set of DHCP options for your VPC. After creating the set, you
 -- must associate it with the VPC, causing all existing and new instances that
 -- you launch in the VPC to use this set of DHCP options. The following are
 -- the individual DHCP options you can specify. For more information about the
@@ -1144,6 +1495,7 @@ createCustomerGateway p1 p2 p3 s =
 -- &lt;tagSet/&gt; &lt;/dhcpOptions&gt; &lt;/CreateDhcpOptionsResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateDhcpOptions'
+
 createDhcpOptions :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -1155,7 +1507,8 @@ createDhcpOptions :: ( MonadCatch m
 createDhcpOptions p1 s =
     send $ (mkCreateDhcpOptions p1) &~ s
 
--- | Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is
+-- $CreateImage
+-- Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is
 -- either running or stopped. If you customized your instance with instance
 -- store volumes or EBS volumes in addition to the root device volume, the new
 -- AMI contains block device mapping information for those volumes. When you
@@ -1171,6 +1524,7 @@ createDhcpOptions p1 s =
 -- &lt;imageId&gt;ami-4fa54026&lt;/imageId&gt; &lt;/CreateImageResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateImage'
+
 createImage :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -1183,7 +1537,8 @@ createImage :: ( MonadCatch m
 createImage p1 p2 s =
     send $ (mkCreateImage p1 p2) &~ s
 
--- | Exports a running or stopped instance to an Amazon S3 bucket. For
+-- $CreateInstanceExportTask
+-- Exports a running or stopped instance to an Amazon S3 bucket. For
 -- information about the supported operating systems, image formats, and known
 -- limitations for the types of instances you can export, see Exporting EC2
 -- Instances in the Amazon Elastic Compute Cloud User Guide. Example This
@@ -1214,6 +1569,7 @@ createImage p1 p2 s =
 -- &lt;/CreateInstanceExportTaskResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateInstanceExportTask'
+
 createInstanceExportTask :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -1225,7 +1581,8 @@ createInstanceExportTask :: ( MonadCatch m
 createInstanceExportTask p2 s =
     send $ (mkCreateInstanceExportTask p2) &~ s
 
--- | Creates an Internet gateway for use with a VPC. After creating the Internet
+-- $CreateInternetGateway
+-- Creates an Internet gateway for use with a VPC. After creating the Internet
 -- gateway, you attach it to a VPC using AttachInternetGateway. For more
 -- information about your VPC and Internet gateway, see the Amazon Virtual
 -- Private Cloud User Guide. Example This example creates an Internet gateway.
@@ -1233,6 +1590,7 @@ createInstanceExportTask p2 s =
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE igw-eaad4883.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateInternetGateway'
+
 createInternetGateway :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -1243,7 +1601,8 @@ createInternetGateway :: ( MonadCatch m
 createInternetGateway s =
     send (mkCreateInternetGateway &~ s)
 
--- | Creates a 2048-bit RSA key pair with the specified name. Amazon EC2 stores
+-- $CreateKeyPair
+-- Creates a 2048-bit RSA key pair with the specified name. Amazon EC2 stores
 -- the public key and displays the private key for you to save to a file. The
 -- private key is returned as an unencrypted PEM encoded PKCS#8 private key.
 -- If a key with the specified name already exists, Amazon EC2 returns an
@@ -1278,6 +1637,7 @@ createInternetGateway s =
 -- 400 my-key-pair.pem.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateKeyPair'
+
 createKeyPair :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -1289,7 +1649,8 @@ createKeyPair :: ( MonadCatch m
 createKeyPair p1 s =
     send $ (mkCreateKeyPair p1) &~ s
 
--- | Creates a network ACL in a VPC. Network ACLs provide an optional layer of
+-- $CreateNetworkAcl
+-- Creates a network ACL in a VPC. Network ACLs provide an optional layer of
 -- security (in addition to security groups) for the instances in your VPC.
 -- For more information about network ACLs, see Network ACLs in the Amazon
 -- Virtual Private Cloud User Guide. Example This example creates a network
@@ -1304,6 +1665,7 @@ createKeyPair p1 s =
 -- 0.0.0.0/0.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateNetworkAcl'
+
 createNetworkAcl :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -1315,7 +1677,8 @@ createNetworkAcl :: ( MonadCatch m
 createNetworkAcl p1 s =
     send $ (mkCreateNetworkAcl p1) &~ s
 
--- | Creates an entry (a rule) in a network ACL with the specified rule number.
+-- $CreateNetworkAclEntry
+-- Creates an entry (a rule) in a network ACL with the specified rule number.
 -- Each network ACL has a set of numbered ingress rules and a separate set of
 -- numbered egress rules. When determining whether a packet should be allowed
 -- in or out of a subnet associated with the ACL, we process the entries in
@@ -1340,6 +1703,7 @@ createNetworkAcl p1 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/CreateNetworkAclEntryResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateNetworkAclEntry'
+
 createNetworkAclEntry :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -1356,7 +1720,8 @@ createNetworkAclEntry :: ( MonadCatch m
 createNetworkAclEntry p1 p2 p3 p4 p5 p6 s =
     send $ (mkCreateNetworkAclEntry p1 p2 p3 p4 p5 p6) &~ s
 
--- | Creates a network interface in the specified subnet. For more information
+-- $CreateNetworkInterface
+-- Creates a network interface in the specified subnet. For more information
 -- about network interfaces, see Elastic Network Interfaces in the Amazon
 -- Elastic Compute Cloud User Guide. Example 1 This example creates a network
 -- interface in the specified subnet with a primary IP address that is
@@ -1457,6 +1822,7 @@ createNetworkAclEntry p1 p2 p3 p4 p5 p6 s =
 -- &lt;/CreateNetworkInterfaceResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateNetworkInterface'
+
 createNetworkInterface :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -1468,7 +1834,8 @@ createNetworkInterface :: ( MonadCatch m
 createNetworkInterface p1 s =
     send $ (mkCreateNetworkInterface p1) &~ s
 
--- | Creates a placement group that you launch cluster instances into. You must
+-- $CreatePlacementGroup
+-- Creates a placement group that you launch cluster instances into. You must
 -- give the group a name that's unique within the scope of your account. For
 -- more information about placement groups and cluster instances, see Cluster
 -- Instances in the Amazon Elastic Compute Cloud User Guide. Example This
@@ -1481,6 +1848,7 @@ createNetworkInterface p1 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/CreatePlacementGroupResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreatePlacementGroup'
+
 createPlacementGroup :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -1493,7 +1861,8 @@ createPlacementGroup :: ( MonadCatch m
 createPlacementGroup p1 p2 s =
     send $ (mkCreatePlacementGroup p1 p2) &~ s
 
--- | Creates a listing for Amazon EC2 Reserved Instances to be sold in the
+-- $CreateReservedInstancesListing
+-- Creates a listing for Amazon EC2 Reserved Instances to be sold in the
 -- Reserved Instance Marketplace. You can submit one Reserved Instance listing
 -- at a time. For more information, see Reserved Instance Marketplace in the
 -- Amazon Elastic Compute Cloud User Guide. Example This example creates a
@@ -1517,6 +1886,7 @@ createPlacementGroup p1 p2 s =
 -- USD false 3 0.7 USD false 2 0.7 USD false 1 0.1 USD false myIdempToken1.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateReservedInstancesListing'
+
 createReservedInstancesListing :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
@@ -1531,7 +1901,8 @@ createReservedInstancesListing :: ( MonadCatch m
 createReservedInstancesListing p1 p2 p3 p4 s =
     send $ (mkCreateReservedInstancesListing p1 p2 p3 p4) &~ s
 
--- | Creates a route in a route table within a VPC. You must specify one of the
+-- $CreateRoute
+-- Creates a route in a route table within a VPC. You must specify one of the
 -- following targets: Internet gateway, NAT instance, VPC peering connection,
 -- or network interface. When determining how to route traffic, we use the
 -- route with the most specific match. For example, let's say the traffic is
@@ -1561,6 +1932,7 @@ createReservedInstancesListing p1 p2 p3 p4 s =
 -- &amp;vpcPeeringConnectionId=pcx-111aaa22 &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateRoute'
+
 createRoute :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -1573,7 +1945,8 @@ createRoute :: ( MonadCatch m
 createRoute p1 p2 s =
     send $ (mkCreateRoute p1 p2) &~ s
 
--- | Creates a route table for the specified VPC. After you create a route
+-- $CreateRouteTable
+-- Creates a route table for the specified VPC. After you create a route
 -- table, you can add routes and associate the table with a subnet. For more
 -- information about route tables, see Route Tables in the Amazon Virtual
 -- Private Cloud User Guide. Example This example creates a route table for
@@ -1585,6 +1958,7 @@ createRoute p1 p2 s =
 -- vpc-11ad4878 10.0.0.0/22 local active.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateRouteTable'
+
 createRouteTable :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -1596,7 +1970,8 @@ createRouteTable :: ( MonadCatch m
 createRouteTable p1 s =
     send $ (mkCreateRouteTable p1) &~ s
 
--- | Creates a security group. A security group is for use with instances either
+-- $CreateSecurityGroup
+-- Creates a security group. A security group is for use with instances either
 -- in the EC2-Classic platform or in a specific VPC. For more information, see
 -- Amazon EC2 Security Groups in the Amazon Elastic Compute Cloud User Guide
 -- and Security Groups for Your VPC in the Amazon Virtual Private Cloud User
@@ -1634,6 +2009,7 @@ createRouteTable p1 s =
 -- &lt;/CreateSecurityGroupResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateSecurityGroup'
+
 createSecurityGroup :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -1646,7 +2022,8 @@ createSecurityGroup :: ( MonadCatch m
 createSecurityGroup p1 p2 s =
     send $ (mkCreateSecurityGroup p1 p2) &~ s
 
--- | Creates a snapshot of an Amazon EBS volume and stores it in Amazon S3. You
+-- $CreateSnapshot
+-- Creates a snapshot of an Amazon EBS volume and stores it in Amazon S3. You
 -- can use snapshots for backups, to make copies of Amazon EBS volumes, and to
 -- save data before shutting down an instance. When a snapshot is created, any
 -- AWS Marketplace product codes that are associated with the source volume
@@ -1682,6 +2059,7 @@ createSecurityGroup p1 p2 s =
 -- Backup&lt;/description&gt; &lt;/CreateSnapshotResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateSnapshot'
+
 createSnapshot :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -1693,7 +2071,8 @@ createSnapshot :: ( MonadCatch m
 createSnapshot p1 s =
     send $ (mkCreateSnapshot p1) &~ s
 
--- | Creates a datafeed for Spot Instances, enabling you to view Spot Instance
+-- $CreateSpotDatafeedSubscription
+-- Creates a datafeed for Spot Instances, enabling you to view Spot Instance
 -- usage logs. You can create one data feed per AWS account. For more
 -- information, see Spot Instances in the Amazon Elastic Compute Cloud User
 -- Guide. Example This example creates a Spot Instance datafeed for the
@@ -1710,6 +2089,7 @@ createSnapshot p1 s =
 -- &lt;/CreateSpotDatafeedSubscriptionResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateSpotDatafeedSubscription'
+
 createSpotDatafeedSubscription :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
@@ -1721,7 +2101,8 @@ createSpotDatafeedSubscription :: ( MonadCatch m
 createSpotDatafeedSubscription p1 s =
     send $ (mkCreateSpotDatafeedSubscription p1) &~ s
 
--- | Creates a subnet in an existing VPC. When you create each subnet, you
+-- $CreateSubnet
+-- Creates a subnet in an existing VPC. When you create each subnet, you
 -- provide the VPC ID and the CIDR block you want for the subnet. After you
 -- create a subnet, you can't change its CIDR block. The subnet's CIDR block
 -- can be the same as the VPC's CIDR block (assuming you want only a single
@@ -1747,6 +2128,7 @@ createSpotDatafeedSubscription p1 s =
 -- &lt;/subnet&gt; &lt;/CreateSubnetResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateSubnet'
+
 createSubnet :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -1759,7 +2141,8 @@ createSubnet :: ( MonadCatch m
 createSubnet p1 p2 s =
     send $ (mkCreateSubnet p1 p2) &~ s
 
--- | Adds or overwrites one or more tags for the specified EC2 resource or
+-- $CreateTags
+-- Adds or overwrites one or more tags for the specified EC2 resource or
 -- resources. Each resource can have a maximum of 10 tags. Each tag consists
 -- of a key and optional value. Tag keys must be unique per resource. For more
 -- information about tags, see Tagging Your Resources in the Amazon Elastic
@@ -1774,6 +2157,7 @@ createSubnet p1 p2 s =
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE true.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateTags'
+
 createTags :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -1786,7 +2170,8 @@ createTags :: ( MonadCatch m
 createTags p1 p2 s =
     send $ (mkCreateTags p1 p2) &~ s
 
--- | Creates an Amazon EBS volume that can be attached to an instance in the
+-- $CreateVolume
+-- Creates an Amazon EBS volume that can be attached to an instance in the
 -- same Availability Zone. The volume is created in the specified region. You
 -- can create a new empty volume or restore a volume from an Amazon EBS
 -- snapshot. Any AWS Marketplace product codes from the snapshot are
@@ -1812,6 +2197,7 @@ createTags p1 p2 s =
 -- &lt;encrypted&gt;true&lt;/encrypted&gt; &lt;/CreateVolumeResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateVolume'
+
 createVolume :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -1823,7 +2209,8 @@ createVolume :: ( MonadCatch m
 createVolume p3 s =
     send $ (mkCreateVolume p3) &~ s
 
--- | Creates a VPC with the specified CIDR block. The smallest VPC you can
+-- $CreateVpc
+-- Creates a VPC with the specified CIDR block. The smallest VPC you can
 -- create uses a /28 netmask (16 IP addresses), and the largest uses a /16
 -- netmask (65,536 IP addresses). To help you decide how big to make your VPC,
 -- see Your VPC and Subnets in the Amazon Virtual Private Cloud User Guide. By
@@ -1855,6 +2242,7 @@ createVolume p3 s =
 -- &lt;/CreateVpcResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateVpc'
+
 createVpc :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -1866,7 +2254,8 @@ createVpc :: ( MonadCatch m
 createVpc p1 s =
     send $ (mkCreateVpc p1) &~ s
 
--- | Requests a VPC peering connection between two VPCs: a requester VPC that
+-- $CreateVpcPeeringConnection
+-- Requests a VPC peering connection between two VPCs: a requester VPC that
 -- you own and a peer VPC with which to create the connection. The peer VPC
 -- can belong to another AWS account. The requester VPC and peer VPC cannot
 -- have overlapping CIDR blocks. The owner of the peer VPC must accept the
@@ -1901,6 +2290,7 @@ createVpc p1 s =
 -- &amp;VpcId=vpc-1a2b3c4d &amp;PeerVpcId=vpc-11122233 &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateVpcPeeringConnection'
+
 createVpcPeeringConnection :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -1911,7 +2301,8 @@ createVpcPeeringConnection :: ( MonadCatch m
 createVpcPeeringConnection s =
     send (mkCreateVpcPeeringConnection &~ s)
 
--- | Creates a VPN connection between an existing virtual private gateway and a
+-- $CreateVpnConnection
+-- Creates a VPN connection between an existing virtual private gateway and a
 -- VPN customer gateway. The only supported connection type is ipsec.1. The
 -- response includes information that you need to give to your network
 -- administrator to configure your customer gateway. We strongly recommend
@@ -1965,6 +2356,7 @@ createVpcPeeringConnection s =
 -- &lt;/CreateVpnConnectionResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateVpnConnection'
+
 createVpnConnection :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -1978,7 +2370,8 @@ createVpnConnection :: ( MonadCatch m
 createVpnConnection p1 p2 p3 s =
     send $ (mkCreateVpnConnection p1 p2 p3) &~ s
 
--- | Creates a static route associated with a VPN connection between an existing
+-- $CreateVpnConnectionRoute
+-- Creates a static route associated with a VPN connection between an existing
 -- virtual private gateway and a VPN customer gateway. The static route allows
 -- traffic to be routed from the virtual private gateway to the VPN customer
 -- gateway. For more information about VPN connections, see Adding a Hardware
@@ -1996,6 +2389,7 @@ createVpnConnection p1 p2 p3 s =
 -- &lt;/CreateVpnConnectionRouteResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateVpnConnectionRoute'
+
 createVpnConnectionRoute :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -2008,7 +2402,8 @@ createVpnConnectionRoute :: ( MonadCatch m
 createVpnConnectionRoute p1 p2 s =
     send $ (mkCreateVpnConnectionRoute p1 p2) &~ s
 
--- | Creates a virtual private gateway. A virtual private gateway is the
+-- $CreateVpnGateway
+-- Creates a virtual private gateway. A virtual private gateway is the
 -- endpoint on the VPC side of your VPN connection. You can create a virtual
 -- private gateway before creating the VPC itself. For more information about
 -- virtual private gateways, see Adding a Hardware Virtual Private Gateway to
@@ -2025,6 +2420,7 @@ createVpnConnectionRoute p1 p2 s =
 -- &lt;/CreateVpnGatewayResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.CreateVpnGateway'
+
 createVpnGateway :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -2036,7 +2432,8 @@ createVpnGateway :: ( MonadCatch m
 createVpnGateway p1 s =
     send $ (mkCreateVpnGateway p1) &~ s
 
--- | Deletes the specified customer gateway. You must delete the VPN connection
+-- $DeleteCustomerGateway
+-- Deletes the specified customer gateway. You must delete the VPN connection
 -- before you can delete the customer gateway. Example This example deletes
 -- the specified customer gateway.
 -- https://ec2.amazonaws.com/?Action=DeleteCustomerGateway
@@ -2047,6 +2444,7 @@ createVpnGateway p1 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteCustomerGatewayResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteCustomerGateway'
+
 deleteCustomerGateway :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -2058,7 +2456,8 @@ deleteCustomerGateway :: ( MonadCatch m
 deleteCustomerGateway p1 s =
     send $ (mkDeleteCustomerGateway p1) &~ s
 
--- | Deletes the specified set of DHCP options. You must disassociate the set of
+-- $DeleteDhcpOptions
+-- Deletes the specified set of DHCP options. You must disassociate the set of
 -- DHCP options before you can delete it. You can disassociate the set of DHCP
 -- options by associating either a new set of options or the default set of
 -- options with the VPC. Example This example deletes the specified set of
@@ -2070,6 +2469,7 @@ deleteCustomerGateway p1 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteDhcpOptionsResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteDhcpOptions'
+
 deleteDhcpOptions :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -2081,7 +2481,8 @@ deleteDhcpOptions :: ( MonadCatch m
 deleteDhcpOptions p1 s =
     send $ (mkDeleteDhcpOptions p1) &~ s
 
--- | Deletes the specified Internet gateway. You must detach the Internet
+-- $DeleteInternetGateway
+-- Deletes the specified Internet gateway. You must detach the Internet
 -- gateway from the VPC before you can delete it. Example This example deletes
 -- the specified Internet gateway.
 -- https://ec2.amazonaws.com/?Action=DeleteInternetGateway
@@ -2092,6 +2493,7 @@ deleteDhcpOptions p1 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteInternetGatewayResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteInternetGateway'
+
 deleteInternetGateway :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -2103,7 +2505,8 @@ deleteInternetGateway :: ( MonadCatch m
 deleteInternetGateway p1 s =
     send $ (mkDeleteInternetGateway p1) &~ s
 
--- | Deletes the specified key pair, by removing the public key from Amazon EC2.
+-- $DeleteKeyPair
+-- Deletes the specified key pair, by removing the public key from Amazon EC2.
 -- Example This example request deletes the key pair named my-key-pair.
 -- https://ec2.amazonaws.com/?Action=DeleteKeyPair &amp;KeyName=my-key-pair
 -- &amp;AUTHPARAMS &lt;DeleteKeyPairResponse
@@ -2112,6 +2515,7 @@ deleteInternetGateway p1 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteKeyPairResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteKeyPair'
+
 deleteKeyPair :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -2123,7 +2527,8 @@ deleteKeyPair :: ( MonadCatch m
 deleteKeyPair p1 s =
     send $ (mkDeleteKeyPair p1) &~ s
 
--- | Deletes the specified network ACL. You can't delete the ACL if it's
+-- $DeleteNetworkAcl
+-- Deletes the specified network ACL. You can't delete the ACL if it's
 -- associated with any subnets. You can't delete the default network ACL.
 -- Example This example deletes the specified network ACL.
 -- https://ec2.amazonaws.com/?Action=DeleteNetworkAcl
@@ -2133,6 +2538,7 @@ deleteKeyPair p1 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteNetworkAclResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteNetworkAcl'
+
 deleteNetworkAcl :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -2144,7 +2550,8 @@ deleteNetworkAcl :: ( MonadCatch m
 deleteNetworkAcl p1 s =
     send $ (mkDeleteNetworkAcl p1) &~ s
 
--- | Deletes the specified ingress or egress entry (rule) from the specified
+-- $DeleteNetworkAclEntry
+-- Deletes the specified ingress or egress entry (rule) from the specified
 -- network ACL. Example This example deletes ingress rule number 100 from the
 -- specified network ACL.
 -- https://ec2.amazonaws.com/?Action=DeleteNetworkAclEntry
@@ -2155,6 +2562,7 @@ deleteNetworkAcl p1 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteNetworkAclEntryResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteNetworkAclEntry'
+
 deleteNetworkAclEntry :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -2168,7 +2576,8 @@ deleteNetworkAclEntry :: ( MonadCatch m
 deleteNetworkAclEntry p1 p2 p3 s =
     send $ (mkDeleteNetworkAclEntry p1 p2 p3) &~ s
 
--- | Deletes the specified network interface. You must detach the network
+-- $DeleteNetworkInterface
+-- Deletes the specified network interface. You must detach the network
 -- interface before you can delete it. Example This example deletes the
 -- specified network interface.
 -- https://ec2.amazonaws.com/?Action=DeleteNetworkInterface
@@ -2179,6 +2588,7 @@ deleteNetworkAclEntry p1 p2 p3 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteNetworkInterfaceResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteNetworkInterface'
+
 deleteNetworkInterface :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -2190,7 +2600,8 @@ deleteNetworkInterface :: ( MonadCatch m
 deleteNetworkInterface p1 s =
     send $ (mkDeleteNetworkInterface p1) &~ s
 
--- | Deletes the specified placement group. You must terminate all instances in
+-- $DeletePlacementGroup
+-- Deletes the specified placement group. You must terminate all instances in
 -- the placement group before you can delete the placement group. For more
 -- information about placement groups and cluster instances, see Cluster
 -- Instances in the Amazon Elastic Compute Cloud User Guide. Example This
@@ -2202,6 +2613,7 @@ deleteNetworkInterface p1 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeletePlacementGroupResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DeletePlacementGroup'
+
 deletePlacementGroup :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -2213,7 +2625,8 @@ deletePlacementGroup :: ( MonadCatch m
 deletePlacementGroup p1 s =
     send $ (mkDeletePlacementGroup p1) &~ s
 
--- | Deletes the specified route from the specified route table. Example This
+-- $DeleteRoute
+-- Deletes the specified route from the specified route table. Example This
 -- example deletes the route with destination CIDR 172.16.1.0/24 from the
 -- specified route table. https://ec2.amazonaws.com/?Action=DeleteRoute
 -- &amp;RouteTableId=rtb-e4ad488d &amp;DestinationCidrBlock=172.16.1.0/24
@@ -2223,6 +2636,7 @@ deletePlacementGroup p1 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteRouteResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteRoute'
+
 deleteRoute :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
@@ -2235,7 +2649,8 @@ deleteRoute :: ( MonadCatch m
 deleteRoute p1 p2 s =
     send $ (mkDeleteRoute p1 p2) &~ s
 
--- | Deletes the specified route table. You must disassociate the route table
+-- $DeleteRouteTable
+-- Deletes the specified route table. You must disassociate the route table
 -- from any subnets before you can delete it. You can't delete the main route
 -- table. Example This example deletes the specified route table.
 -- https://ec2.amazonaws.com/?Action=DeleteRouteTable
@@ -2245,6 +2660,7 @@ deleteRoute p1 p2 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteRouteTableResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteRouteTable'
+
 deleteRouteTable :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -2256,7 +2672,8 @@ deleteRouteTable :: ( MonadCatch m
 deleteRouteTable p1 s =
     send $ (mkDeleteRouteTable p1) &~ s
 
--- | Deletes a security group. If you attempt to delete a security group that is
+-- $DeleteSecurityGroup
+-- Deletes a security group. If you attempt to delete a security group that is
 -- associated with an instance, or is referenced by another security group,
 -- the operation fails with InvalidGroup.InUse in EC2-Classic or
 -- DependencyViolation in EC2-VPC. Example for EC2-Classic This example
@@ -2274,6 +2691,7 @@ deleteRouteTable p1 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteSecurityGroupResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteSecurityGroup'
+
 deleteSecurityGroup :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -2284,7 +2702,8 @@ deleteSecurityGroup :: ( MonadCatch m
 deleteSecurityGroup s =
     send (mkDeleteSecurityGroup &~ s)
 
--- | Deletes the specified snapshot. When you make periodic snapshots of a
+-- $DeleteSnapshot
+-- Deletes the specified snapshot. When you make periodic snapshots of a
 -- volume, the snapshots are incremental, and only the blocks on the device
 -- that have changed since your last snapshot are saved in the new snapshot.
 -- When you delete a snapshot, only the data not needed for any other snapshot
@@ -2302,6 +2721,7 @@ deleteSecurityGroup s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteSnapshotResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteSnapshot'
+
 deleteSnapshot :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -2313,7 +2733,8 @@ deleteSnapshot :: ( MonadCatch m
 deleteSnapshot p1 s =
     send $ (mkDeleteSnapshot p1) &~ s
 
--- | Deletes the datafeed for Spot Instances. For more information, see Spot
+-- $DeleteSpotDatafeedSubscription
+-- Deletes the datafeed for Spot Instances. For more information, see Spot
 -- Instances in the Amazon Elastic Compute Cloud User Guide. Example This
 -- example request deletes the datafeed for the AWS account.
 -- https://ec2.amazonaws.com/?Action=DeleteSpotDatafeedSubscription
@@ -2324,6 +2745,7 @@ deleteSnapshot p1 s =
 -- &lt;/DeleteSpotDatafeedSubscriptionResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteSpotDatafeedSubscription'
+
 deleteSpotDatafeedSubscription :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
@@ -2334,7 +2756,8 @@ deleteSpotDatafeedSubscription :: ( MonadCatch m
 deleteSpotDatafeedSubscription s =
     send (mkDeleteSpotDatafeedSubscription &~ s)
 
--- | Deletes the specified subnet. You must terminate all running instances in
+-- $DeleteSubnet
+-- Deletes the specified subnet. You must terminate all running instances in
 -- the subnet before you can delete the subnet. Example This example deletes
 -- the specified subnet. https://ec2.amazonaws.com/?Action=DeleteSubnet
 -- &amp;SubnetId=subnet-9d4a7b6c &amp;AUTHPARAMS &lt;DeleteSubnetResponse
@@ -2343,6 +2766,7 @@ deleteSpotDatafeedSubscription s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteSubnetResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteSubnet'
+
 deleteSubnet :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -2354,7 +2778,8 @@ deleteSubnet :: ( MonadCatch m
 deleteSubnet p1 s =
     send $ (mkDeleteSubnet p1) &~ s
 
--- | Deletes the specified set of tags from the specified set of resources. This
+-- $DeleteTags
+-- Deletes the specified set of tags from the specified set of resources. This
 -- call is designed to follow a DescribeTags request. For more information
 -- about tags, see Tagging Your Resources in the Amazon Elastic Compute Cloud
 -- User Guide. Example This example deletes the tags for the AMI with the ID
@@ -2379,6 +2804,7 @@ deleteSubnet p1 s =
 -- &amp;Tag.1.Key=Purpose &amp;Tag.2.Value= &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteTags'
+
 deleteTags :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
@@ -2390,7 +2816,8 @@ deleteTags :: ( MonadCatch m
 deleteTags p1 s =
     send $ (mkDeleteTags p1) &~ s
 
--- | Deletes the specified Amazon EBS volume. The volume must be in the
+-- $DeleteVolume
+-- Deletes the specified Amazon EBS volume. The volume must be in the
 -- available state (not attached to an instance). The volume may remain in the
 -- deleting state for several minutes. For more information, see Deleting an
 -- Amazon EBS Volume in the Amazon Elastic Compute Cloud User Guide. Example
@@ -2402,6 +2829,7 @@ deleteTags p1 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteVolumeResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteVolume'
+
 deleteVolume :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -2413,7 +2841,8 @@ deleteVolume :: ( MonadCatch m
 deleteVolume p1 s =
     send $ (mkDeleteVolume p1) &~ s
 
--- | Deletes the specified VPC. You must detach or delete all gateways and
+-- $DeleteVpc
+-- Deletes the specified VPC. You must detach or delete all gateways and
 -- resources that are associated with the VPC before you can delete it. For
 -- example, you must terminate all instances running in the VPC, delete all
 -- security groups associated with the VPC (except the default one), delete
@@ -2426,6 +2855,7 @@ deleteVolume p1 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteVpcResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteVpc'
+
 deleteVpc :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -2437,7 +2867,8 @@ deleteVpc :: ( MonadCatch m
 deleteVpc p1 s =
     send $ (mkDeleteVpc p1) &~ s
 
--- | Deletes a VPC peering connection. Either the owner of the requester VPC or
+-- $DeleteVpcPeeringConnection
+-- Deletes a VPC peering connection. Either the owner of the requester VPC or
 -- the owner of the peer VPC can delete the VPC peering connection if it's in
 -- the active state. The owner of the requester VPC can delete a VPC peering
 -- connection in the pending-acceptance state. Example This example deletes
@@ -2451,6 +2882,7 @@ deleteVpc p1 s =
 -- &lt;/DeleteVpcPeeringConnectionResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteVpcPeeringConnection'
+
 deleteVpcPeeringConnection :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -2462,7 +2894,8 @@ deleteVpcPeeringConnection :: ( MonadCatch m
 deleteVpcPeeringConnection p1 s =
     send $ (mkDeleteVpcPeeringConnection p1) &~ s
 
--- | Deletes the specified VPN connection. If you're deleting the VPC and its
+-- $DeleteVpnConnection
+-- Deletes the specified VPN connection. If you're deleting the VPC and its
 -- associated components, we recommend that you detach the virtual private
 -- gateway from the VPC and delete the VPC before deleting the VPN connection.
 -- Example This example deletes the specified VPN connection.
@@ -2474,6 +2907,7 @@ deleteVpcPeeringConnection p1 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteVpnConnectionResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteVpnConnection'
+
 deleteVpnConnection :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -2485,7 +2919,8 @@ deleteVpnConnection :: ( MonadCatch m
 deleteVpnConnection p1 s =
     send $ (mkDeleteVpnConnection p1) &~ s
 
--- | Deletes the specified static route associated with a VPN connection between
+-- $DeleteVpnConnectionRoute
+-- Deletes the specified static route associated with a VPN connection between
 -- an existing virtual private gateway and a VPN customer gateway. The static
 -- route allows traffic to be routed from the virtual private gateway to the
 -- VPN customer gateway. Example This example deletes a static route to the
@@ -2500,6 +2935,7 @@ deleteVpnConnection p1 s =
 -- &lt;/DeleteVpnConnectionRouteResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteVpnConnectionRoute'
+
 deleteVpnConnectionRoute :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -2512,7 +2948,8 @@ deleteVpnConnectionRoute :: ( MonadCatch m
 deleteVpnConnectionRoute p1 p2 s =
     send $ (mkDeleteVpnConnectionRoute p1 p2) &~ s
 
--- | Deletes the specified virtual private gateway. We recommend that before you
+-- $DeleteVpnGateway
+-- Deletes the specified virtual private gateway. We recommend that before you
 -- delete a virtual private gateway, you detach it from the VPC and delete the
 -- VPN connection. Note that you don't need to delete the virtual private
 -- gateway if you plan to delete and recreate the VPN connection between your
@@ -2524,6 +2961,7 @@ deleteVpnConnectionRoute p1 p2 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteVpnGatewayResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DeleteVpnGateway'
+
 deleteVpnGateway :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -2535,7 +2973,8 @@ deleteVpnGateway :: ( MonadCatch m
 deleteVpnGateway p1 s =
     send $ (mkDeleteVpnGateway p1) &~ s
 
--- | Deregisters the specified AMI. After you deregister an AMI, it can't be
+-- $DeregisterImage
+-- Deregisters the specified AMI. After you deregister an AMI, it can't be
 -- used to launch new instances. This command does not delete the AMI. Example
 -- This example request deregisters the specified AMI.
 -- https://ec2.amazonaws.com/?Action=DeregisterImage &amp;ImageId=ami-4fa54026
@@ -2545,6 +2984,7 @@ deleteVpnGateway p1 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeregisterImageResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DeregisterImage'
+
 deregisterImage :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -2556,7 +2996,8 @@ deregisterImage :: ( MonadCatch m
 deregisterImage p1 s =
     send $ (mkDeregisterImage p1) &~ s
 
--- | Describes the specified attribute of your AWS account. Example This example
+-- $DescribeAccountAttributes
+-- Describes the specified attribute of your AWS account. Example This example
 -- describes the platforms that are supported by your AWS account. The first
 -- response is for an account that supports only EC2-VPC. The second response
 -- if for an account that supports both EC2-Classic and EC2-VPC.
@@ -2606,6 +3047,7 @@ deregisterImage p1 s =
 -- &lt;/DescribeAccountAttributesResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeAccountAttributes'
+
 describeAccountAttributes :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -2616,7 +3058,8 @@ describeAccountAttributes :: ( MonadCatch m
 describeAccountAttributes s =
     send (mkDescribeAccountAttributes &~ s)
 
--- | Describes one or more of your Elastic IP addresses. An Elastic IP address
+-- $DescribeAddresses
+-- Describes one or more of your Elastic IP addresses. An Elastic IP address
 -- is for use in either the EC2-Classic platform or in a VPC. For more
 -- information, see Elastic IP Addresses in the Amazon Elastic Compute Cloud
 -- User Guide. Example for EC2-Classic This example request describes two
@@ -2658,6 +3101,7 @@ describeAccountAttributes s =
 -- &amp;Filter.1.Name=domain &amp;Filter.1.Value.1=vpc &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeAddresses'
+
 describeAddresses :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -2668,7 +3112,8 @@ describeAddresses :: ( MonadCatch m
 describeAddresses s =
     send (mkDescribeAddresses &~ s)
 
--- | Describes one or more of the Availability Zones that are available to you.
+-- $DescribeAvailabilityZones
+-- Describes one or more of the Availability Zones that are available to you.
 -- The results include zones only for the region you're currently using. If
 -- there is an event impacting an Availability Zone, you can use this request
 -- to view the state and any provided message for that Availability Zone. For
@@ -2697,6 +3142,7 @@ describeAddresses s =
 -- &lt;/DescribeAvailabilityZonesResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeAvailabilityZones'
+
 describeAvailabilityZones :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -2707,7 +3153,8 @@ describeAvailabilityZones :: ( MonadCatch m
 describeAvailabilityZones s =
     send (mkDescribeAvailabilityZones &~ s)
 
--- | Describes one or more of your bundling tasks. Completed bundle tasks are
+-- $DescribeBundleTasks
+-- Describes one or more of your bundling tasks. Completed bundle tasks are
 -- listed for only a limited time. If your bundle task is no longer in the
 -- list, you can still register an AMI from it. Just use RegisterImage with
 -- the Amazon S3 bucket name and image manifest name you provided to the
@@ -2725,6 +3172,7 @@ describeAvailabilityZones s =
 -- &amp;Filter.2.Name.2=failed &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeBundleTasks'
+
 describeBundleTasks :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -2735,7 +3183,8 @@ describeBundleTasks :: ( MonadCatch m
 describeBundleTasks s =
     send (mkDescribeBundleTasks &~ s)
 
--- | Describes one or more of your conversion tasks. For more information, see
+-- $DescribeConversionTasks
+-- Describes one or more of your conversion tasks. For more information, see
 -- Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2
 -- in the Amazon Elastic Compute Cloud User Guide. Example This example
 -- describes all your conversion tasks.
@@ -2745,6 +3194,7 @@ describeBundleTasks s =
 -- 8 vol-34d8a2ff active.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeConversionTasks'
+
 describeConversionTasks :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -2755,7 +3205,8 @@ describeConversionTasks :: ( MonadCatch m
 describeConversionTasks s =
     send (mkDescribeConversionTasks &~ s)
 
--- | Describes one or more of your VPN customer gateways. For more information
+-- $DescribeCustomerGateways
+-- Describes one or more of your VPN customer gateways. For more information
 -- about VPN customer gateways, see Adding a Hardware Virtual Private Gateway
 -- to Your VPC in the Amazon Virtual Private Cloud User Guide. Example 1 This
 -- example request describes the specified customer gateway.
@@ -2779,6 +3230,7 @@ describeConversionTasks s =
 -- &amp;Filter.2.Value.2=available &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeCustomerGateways'
+
 describeCustomerGateways :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -2789,7 +3241,8 @@ describeCustomerGateways :: ( MonadCatch m
 describeCustomerGateways s =
     send (mkDescribeCustomerGateways &~ s)
 
--- | Describes one or more of your DHCP options sets. For more information about
+-- $DescribeDhcpOptions
+-- Describes one or more of your DHCP options sets. For more information about
 -- DHCP options sets, see DHCP Options Sets in the Amazon Virtual Private
 -- Cloud User Guide. Example 1 This example describes the specified DHCP
 -- options set. https://ec2.amazonaws.com/?Action=DescribeDhcpOptions
@@ -2816,6 +3269,7 @@ describeCustomerGateways s =
 -- &amp;Filter.2.Name=value &amp;Filter.2.Value.1=*example* &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeDhcpOptions'
+
 describeDhcpOptions :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -2826,7 +3280,8 @@ describeDhcpOptions :: ( MonadCatch m
 describeDhcpOptions s =
     send (mkDescribeDhcpOptions &~ s)
 
--- | Describes one or more of your export tasks. Example This example describes
+-- $DescribeExportTasks
+-- Describes one or more of your export tasks. Example This example describes
 -- a single export task. https://ec2.amazonaws.com/?Action=DescribeExportTasks
 -- &amp;exportTaskId.1=export-i-1234wxyz &amp;AUTHPARAMS
 -- &lt;DescribeExportTasksResponse
@@ -2848,6 +3303,7 @@ describeDhcpOptions s =
 -- DescribeExportTasksResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeExportTasks'
+
 describeExportTasks :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -2858,7 +3314,8 @@ describeExportTasks :: ( MonadCatch m
 describeExportTasks s =
     send (mkDescribeExportTasks &~ s)
 
--- | Describes the specified attribute of the specified AMI. You can specify
+-- $DescribeImageAttribute
+-- Describes the specified attribute of the specified AMI. You can specify
 -- only one attribute at a time. Example 1 This example lists the launch
 -- permissions for the specified AMI.
 -- https://ec2.amazonaws.com/?Action=DescribeImageAttribute
@@ -2871,6 +3328,7 @@ describeExportTasks s =
 -- marketplace.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeImageAttribute'
+
 describeImageAttribute :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -2883,7 +3341,8 @@ describeImageAttribute :: ( MonadCatch m
 describeImageAttribute p1 p2 s =
     send $ (mkDescribeImageAttribute p1 p2) &~ s
 
--- | Describes one or more of the images (AMIs, AKIs, and ARIs) available to
+-- $DescribeImages
+-- Describes one or more of the images (AMIs, AKIs, and ARIs) available to
 -- you. Images available to you include public images, private images that you
 -- own, and private images owned by other AWS accounts but for which you have
 -- explicit launch permissions. Deregistered images are included in the
@@ -2914,6 +3373,7 @@ describeImageAttribute p1 p2 s =
 -- ebs /dev/sda1 /dev/sda1 snap-1a2b3c4d 8 true paravirtual xen ...
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeImages'
+
 describeImages :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -2924,7 +3384,8 @@ describeImages :: ( MonadCatch m
 describeImages s =
     send (mkDescribeImages &~ s)
 
--- | Describes the specified attribute of the specified instance. You can
+-- $DescribeInstanceAttribute
+-- Describes the specified attribute of the specified instance. You can
 -- specify only one attribute at a time. Example 1 This example lists the
 -- instance type of the specified instance.
 -- https://ec2.amazonaws.com/?Action=DescribeInstanceAttribute
@@ -2957,6 +3418,7 @@ describeImages s =
 -- &lt;/disableApiTermination&gt; &lt;/DescribeInstanceAttributeResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeInstanceAttribute'
+
 describeInstanceAttribute :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -2969,7 +3431,8 @@ describeInstanceAttribute :: ( MonadCatch m
 describeInstanceAttribute p1 p2 s =
     send $ (mkDescribeInstanceAttribute p1 p2) &~ s
 
--- | Describes the status of one or more instances, including any scheduled
+-- $DescribeInstanceStatus
+-- Describes the status of one or more instances, including any scheduled
 -- events. Instance status has two main components: System Status reports
 -- impaired functionality that stems from issues related to the systems that
 -- support an instance, such as such as hardware failures and network
@@ -3037,6 +3500,7 @@ describeInstanceAttribute p1 p2 s =
 -- reachability insufficient-data.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeInstanceStatus'
+
 describeInstanceStatus :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -3047,7 +3511,8 @@ describeInstanceStatus :: ( MonadCatch m
 describeInstanceStatus s =
     paginate (mkDescribeInstanceStatus &~ s)
 
--- | Describes one or more of your instances. If you specify one or more
+-- $DescribeInstances
+-- Describes one or more of your instances. If you specify one or more
 -- instance IDs, Amazon EC2 returns information for those instances. If you do
 -- not specify instance IDs, Amazon EC2 returns information for all relevant
 -- instances. If you specify an instance ID that is not valid, an error is
@@ -3156,6 +3621,7 @@ describeInstanceStatus s =
 -- &amp;Filter.1.Name=tag:Owner &amp;Filter.1.Value.1=DbAdmin &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeInstances'
+
 describeInstances :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -3166,13 +3632,15 @@ describeInstances :: ( MonadCatch m
 describeInstances s =
     paginate (mkDescribeInstances &~ s)
 
--- | Describes one or more of your Internet gateways. Example This example
+-- $DescribeInternetGateways
+-- Describes one or more of your Internet gateways. Example This example
 -- describes all your Internet gateways.
 -- https://ec2.amazonaws.com/?Action=DescribeInternetGateways &amp;AUTHPARAMS
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE igw-eaad4883EXAMPLE vpc-11ad4878
 -- available.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeInternetGateways'
+
 describeInternetGateways :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -3183,7 +3651,8 @@ describeInternetGateways :: ( MonadCatch m
 describeInternetGateways s =
     send (mkDescribeInternetGateways &~ s)
 
--- | Describes one or more of your key pairs. For more information about key
+-- $DescribeKeyPairs
+-- Describes one or more of your key pairs. For more information about key
 -- pairs, see Key Pairs in the Amazon Elastic Compute Cloud User Guide.
 -- Example This example describes the keypair with name my-key-pair.
 -- https://ec2.amazonaws.com/?Action=DescribeKeyPairs
@@ -3195,6 +3664,7 @@ describeInternetGateways s =
 -- &amp;Filter.1.Name=key-name &amp;Filter.1.Value.1=*Dave* &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeKeyPairs'
+
 describeKeyPairs :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -3205,7 +3675,8 @@ describeKeyPairs :: ( MonadCatch m
 describeKeyPairs s =
     send (mkDescribeKeyPairs &~ s)
 
--- | Describes one or more of your network ACLs. For more information about
+-- $DescribeNetworkAcls
+-- Describes one or more of your network ACLs. For more information about
 -- network ACLs, see Network ACLs in the Amazon Virtual Private Cloud User
 -- Guide. Example This example describes all your network ACLs.
 -- https://ec2.amazonaws.com/?Action=DescribeNetworkAcls &amp;AUTHPARAMS
@@ -3218,6 +3689,7 @@ describeKeyPairs s =
 -- aclassoc-c26596ab acl-5d659634 subnet-f0669599.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeNetworkAcls'
+
 describeNetworkAcls :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -3228,7 +3700,8 @@ describeNetworkAcls :: ( MonadCatch m
 describeNetworkAcls s =
     send (mkDescribeNetworkAcls &~ s)
 
--- | Describes a network interface attribute. You can specify only one attribute
+-- $DescribeNetworkInterfaceAttribute
+-- Describes a network interface attribute. You can specify only one attribute
 -- at a time. Example This example describes the sourceDestCheck attribute of
 -- the specified network interface.
 -- https://ec2.amazonaws.com/?Action=DescribeNetworkInterfaceAttribute
@@ -3242,6 +3715,7 @@ describeNetworkAcls s =
 -- &lt;/DescribeNetworkInterfaceAttributeResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeNetworkInterfaceAttribute'
+
 describeNetworkInterfaceAttribute :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
@@ -3253,7 +3727,8 @@ describeNetworkInterfaceAttribute :: ( MonadCatch m
 describeNetworkInterfaceAttribute p1 s =
     send $ (mkDescribeNetworkInterfaceAttribute p1) &~ s
 
--- | Describes one or more of your network interfaces. Example This example
+-- $DescribeNetworkInterfaces
+-- Describes one or more of your network interfaces. Example This example
 -- describes all your network interfaces.
 -- https://ec2.amazonaws.com/?Action=DescribeNetworkInterfaces &amp;AUTHPARAMS
 -- &lt;DescribeNetworkInterfacesResponse
@@ -3318,6 +3793,7 @@ describeNetworkInterfaceAttribute p1 s =
 -- &lt;/DescribeNetworkInterfacesResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeNetworkInterfaces'
+
 describeNetworkInterfaces :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -3328,7 +3804,8 @@ describeNetworkInterfaces :: ( MonadCatch m
 describeNetworkInterfaces s =
     send (mkDescribeNetworkInterfaces &~ s)
 
--- | Describes one or more of your placement groups. For more information about
+-- $DescribePlacementGroups
+-- Describes one or more of your placement groups. For more information about
 -- placement groups and cluster instances, see Cluster Instances in the Amazon
 -- Elastic Compute Cloud User Guide. Example This example describes the
 -- placement group named XYZ-cluster.
@@ -3342,6 +3819,7 @@ describeNetworkInterfaces s =
 -- d4904fd9-82c2-4ea5-adfe-a9cc3EXAMPLE Project-cluster cluster available.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribePlacementGroups'
+
 describePlacementGroups :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -3352,7 +3830,8 @@ describePlacementGroups :: ( MonadCatch m
 describePlacementGroups s =
     send (mkDescribePlacementGroups &~ s)
 
--- | Describes one or more regions that are currently available to you. For a
+-- $DescribeRegions
+-- Describes one or more regions that are currently available to you. For a
 -- list of the regions supported by Amazon EC2, see Regions and Endpoints.
 -- Example 1 This example displays information about all regions.
 -- https://ec2.amazonaws.com/?Action=DescribeRegions &amp;AUTHPARAMS Example 2
@@ -3363,6 +3842,7 @@ describePlacementGroups s =
 -- eu-west-1 ec2.eu-west-1amazonaws.com.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeRegions'
+
 describeRegions :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -3373,7 +3853,8 @@ describeRegions :: ( MonadCatch m
 describeRegions s =
     send (mkDescribeRegions &~ s)
 
--- | Describes one or more of the Reserved Instances that you purchased. For
+-- $DescribeReservedInstances
+-- Describes one or more of the Reserved Instances that you purchased. For
 -- more information about Reserved Instances, see Reserved Instances in the
 -- Amazon Elastic Compute Cloud User Guide. Example This example describes
 -- Reserved Instances owned by your account.
@@ -3391,6 +3872,7 @@ describeRegions s =
 -- &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeReservedInstances'
+
 describeReservedInstances :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -3401,7 +3883,8 @@ describeReservedInstances :: ( MonadCatch m
 describeReservedInstances s =
     send (mkDescribeReservedInstances &~ s)
 
--- | Describes your account's Reserved Instance listings in the Reserved
+-- $DescribeReservedInstancesListings
+-- Describes your account's Reserved Instance listings in the Reserved
 -- Instance Marketplace. For more information, see Reserved Instance
 -- Marketplace in the Amazon Elastic Compute Cloud User Guide. Example This
 -- example shows all the listings associated with your account.
@@ -3414,6 +3897,7 @@ describeReservedInstances s =
 -- USD false 1 60.0 USD false myclienttoken1.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesListings'
+
 describeReservedInstancesListings :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
@@ -3424,7 +3908,8 @@ describeReservedInstancesListings :: ( MonadCatch m
 describeReservedInstancesListings s =
     send (mkDescribeReservedInstancesListings &~ s)
 
--- | Describes the modifications made to your Reserved Instances. If no
+-- $DescribeReservedInstancesModifications
+-- Describes the modifications made to your Reserved Instances. If no
 -- parameter is specified, information about all your Reserved Instances
 -- modification requests is returned. If a modification ID is specified, only
 -- information about the specific modification is returned. Example 1
@@ -3435,6 +3920,7 @@ describeReservedInstancesListings s =
 -- &amp;Filter.1.Name=status &amp;Filter.1.Value.1=processing &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesModifications'
+
 describeReservedInstancesModifications :: ( MonadCatch m
                                           , MonadResource m
                                           , MonadError AWS.Error m
@@ -3445,7 +3931,8 @@ describeReservedInstancesModifications :: ( MonadCatch m
 describeReservedInstancesModifications s =
     paginate (mkDescribeReservedInstancesModifications &~ s)
 
--- | Describes Reserved Instance offerings that are available for purchase. With
+-- $DescribeReservedInstancesOfferings
+-- Describes Reserved Instance offerings that are available for purchase. With
 -- Reserved Instances, you purchase the right to launch instances for a period
 -- of time. During that time period, you do not receive insufficient capacity
 -- errors, and you pay a lower usage rate than the rate charged for On-Demand
@@ -3494,6 +3981,7 @@ describeReservedInstancesModifications s =
 -- &amp;Filter.3.Value.1=Linux%2FUNIX &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeReservedInstancesOfferings'
+
 describeReservedInstancesOfferings :: ( MonadCatch m
                                       , MonadResource m
                                       , MonadError AWS.Error m
@@ -3504,7 +3992,8 @@ describeReservedInstancesOfferings :: ( MonadCatch m
 describeReservedInstancesOfferings s =
     paginate (mkDescribeReservedInstancesOfferings &~ s)
 
--- | Describes one or more of your route tables. For more information about
+-- $DescribeRouteTables
+-- Describes one or more of your route tables. For more information about
 -- route tables, see Route Tables in the Amazon Virtual Private Cloud User
 -- Guide. Example This example describes all your route tables. The first
 -- route table in the returned list is the VPC's main route table. Its
@@ -3517,6 +4006,7 @@ describeReservedInstancesOfferings s =
 -- subnet-15ad487c.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeRouteTables'
+
 describeRouteTables :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -3527,7 +4017,8 @@ describeRouteTables :: ( MonadCatch m
 describeRouteTables s =
     send (mkDescribeRouteTables &~ s)
 
--- | Describes one or more of your security groups. A security group is for use
+-- $DescribeSecurityGroups
+-- Describes one or more of your security groups. A security group is for use
 -- with instances either in the EC2-Classic platform or in a specific VPC. For
 -- more information, see Amazon EC2 Security Groups in the Amazon Elastic
 -- Compute Cloud User Guide and Security Groups for Your VPC in the Amazon
@@ -3550,6 +4041,7 @@ describeRouteTables s =
 -- &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeSecurityGroups'
+
 describeSecurityGroups :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -3560,7 +4052,8 @@ describeSecurityGroups :: ( MonadCatch m
 describeSecurityGroups s =
     send (mkDescribeSecurityGroups &~ s)
 
--- | Describes the specified attribute of the specified snapshot. You can
+-- $DescribeSnapshotAttribute
+-- Describes the specified attribute of the specified snapshot. You can
 -- specify only one attribute at a time. For more information about Amazon EBS
 -- snapshots, see Amazon EBS Snapshots in the Amazon Elastic Compute Cloud
 -- User Guide. Example This example describes permissions for a snapshot with
@@ -3570,6 +4063,7 @@ describeSecurityGroups s =
 -- &amp;AUTHPARAMS 59dbff89-35bd-4eac-99ed-be587EXAMPLE snap-1a2b3c4d all.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeSnapshotAttribute'
+
 describeSnapshotAttribute :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -3582,7 +4076,8 @@ describeSnapshotAttribute :: ( MonadCatch m
 describeSnapshotAttribute p1 p2 s =
     send $ (mkDescribeSnapshotAttribute p1 p2) &~ s
 
--- | Describes one or more of the Amazon EBS snapshots available to you.
+-- $DescribeSnapshots
+-- Describes one or more of the Amazon EBS snapshots available to you.
 -- Available snapshots include public snapshots available for any AWS account
 -- to launch, private snapshots that you own, and private snapshots owned by
 -- another AWS account but for which you've been given explicit create volume
@@ -3623,6 +4118,7 @@ describeSnapshotAttribute p1 p2 s =
 -- demo_db_14_backup true.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeSnapshots'
+
 describeSnapshots :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
@@ -3633,7 +4129,8 @@ describeSnapshots :: ( MonadCatch m
 describeSnapshots s =
     send (mkDescribeSnapshots &~ s)
 
--- | Describes the datafeed for Spot Instances. For more information, see Spot
+-- $DescribeSpotDatafeedSubscription
+-- Describes the datafeed for Spot Instances. For more information, see Spot
 -- Instances in the Amazon Elastic Compute Cloud User Guide. Example This
 -- example describes the datafeed for the account.
 -- https://ec2.amazonaws.com/?Action=DescribeSpotDatafeedSubscription
@@ -3641,6 +4138,7 @@ describeSnapshots s =
 -- my-s3-bucket spotdata_ Active.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeSpotDatafeedSubscription'
+
 describeSpotDatafeedSubscription :: ( MonadCatch m
                                     , MonadResource m
                                     , MonadError AWS.Error m
@@ -3651,7 +4149,8 @@ describeSpotDatafeedSubscription :: ( MonadCatch m
 describeSpotDatafeedSubscription s =
     send (mkDescribeSpotDatafeedSubscription &~ s)
 
--- | Describes the Spot Instance requests that belong to your account. Spot
+-- $DescribeSpotInstanceRequests
+-- Describes the Spot Instance requests that belong to your account. Spot
 -- Instances are instances that Amazon EC2 starts on your behalf when the
 -- maximum price that you specify exceeds the current Spot Price. Amazon EC2
 -- periodically sets the Spot Price based on available Spot Instance capacity
@@ -3675,6 +4174,7 @@ describeSpotDatafeedSubscription s =
 -- &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeSpotInstanceRequests'
+
 describeSpotInstanceRequests :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
@@ -3685,7 +4185,8 @@ describeSpotInstanceRequests :: ( MonadCatch m
 describeSpotInstanceRequests s =
     send (mkDescribeSpotInstanceRequests &~ s)
 
--- | Describes the Spot Price history. Spot Instances are instances that Amazon
+-- $DescribeSpotPriceHistory
+-- Describes the Spot Price history. Spot Instances are instances that Amazon
 -- EC2 starts on your behalf when the maximum price that you specify exceeds
 -- the current Spot Price. Amazon EC2 periodically sets the Spot Price based
 -- on available Spot Instance capacity and current Spot Instance requests. For
@@ -3713,6 +4214,7 @@ describeSpotInstanceRequests s =
 -- &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeSpotPriceHistory'
+
 describeSpotPriceHistory :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
@@ -3723,7 +4225,8 @@ describeSpotPriceHistory :: ( MonadCatch m
 describeSpotPriceHistory s =
     paginate (mkDescribeSpotPriceHistory &~ s)
 
--- | Describes one or more of your subnets. For more information about subnets,
+-- $DescribeSubnets
+-- Describes one or more of your subnets. For more information about subnets,
 -- see Your VPC and Subnets in the Amazon Virtual Private Cloud User Guide.
 -- Example 1 This example describes the subnets with the IDs subnet-9d4a7b6c
 -- and subnet-6e7f829e. https://ec2.amazonaws.com/?Action=DescribeSubnets
@@ -3758,6 +4261,7 @@ describeSpotPriceHistory s =
 -- &amp;Filter.2.Name=state &amp;Filter.2.Value.1=available &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeSubnets'
+
 describeSubnets :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -3768,7 +4272,8 @@ describeSubnets :: ( MonadCatch m
 describeSubnets s =
     send (mkDescribeSubnets &~ s)
 
--- | Describes one or more of the tags for your EC2 resources. For more
+-- $DescribeTags
+-- Describes one or more of the tags for your EC2 resources. For more
 -- information about tags, see Tagging Your Resources in the Amazon Elastic
 -- Compute Cloud User Guide. Example This example describes all the tags in
 -- your account. https://ec2.amazonaws.com/?Action=DescribeTags
@@ -3808,6 +4313,7 @@ describeSubnets s =
 -- &amp;Filter.3.Name=value &amp;Filter.3.Value.1= &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeTags'
+
 describeTags :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -3818,7 +4324,8 @@ describeTags :: ( MonadCatch m
 describeTags s =
     paginate (mkDescribeTags &~ s)
 
--- | Describes the specified attribute of the specified volume. You can specify
+-- $DescribeVolumeAttribute
+-- Describes the specified attribute of the specified volume. You can specify
 -- only one attribute at a time. For more information about Amazon EBS
 -- volumes, see Amazon EBS Volumes in the Amazon Elastic Compute Cloud User
 -- Guide. Example This example describes the autoEnableIO attribute of the
@@ -3844,6 +4351,7 @@ describeTags s =
 -- &lt;/DescribeVolumeAttributeResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeVolumeAttribute'
+
 describeVolumeAttribute :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -3855,7 +4363,8 @@ describeVolumeAttribute :: ( MonadCatch m
 describeVolumeAttribute p1 s =
     send $ (mkDescribeVolumeAttribute p1) &~ s
 
--- | Describes the status of the specified volumes. Volume status provides the
+-- $DescribeVolumeStatus
+-- Describes the status of the specified volumes. Volume status provides the
 -- result of the checks performed on your volumes to determine events that can
 -- impair the performance of your volumes. The performance of a volume can be
 -- affected if an issue occurs on the volume's underlying host. If the
@@ -3901,6 +4410,7 @@ describeVolumeAttribute p1 s =
 -- &amp;Filter.3.Value.1=failed &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeVolumeStatus'
+
 describeVolumeStatus :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -3911,7 +4421,8 @@ describeVolumeStatus :: ( MonadCatch m
 describeVolumeStatus s =
     paginate (mkDescribeVolumeStatus &~ s)
 
--- | Describes the specified Amazon EBS volumes. For more information about
+-- $DescribeVolumes
+-- Describes the specified Amazon EBS volumes. For more information about
 -- Amazon EBS volumes, see Amazon EBS Volumes in the Amazon Elastic Compute
 -- Cloud User Guide. Example This example describes all volumes associated
 -- with your account. https://ec2.amazonaws.com/?Action=DescribeVolumes
@@ -3935,6 +4446,7 @@ describeVolumeStatus s =
 -- &lt;/DescribeVolumesResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeVolumes'
+
 describeVolumes :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -3945,7 +4457,8 @@ describeVolumes :: ( MonadCatch m
 describeVolumes s =
     send (mkDescribeVolumes &~ s)
 
--- | Describes the specified attribute of the specified VPC. You can specify
+-- $DescribeVpcAttribute
+-- Describes the specified attribute of the specified VPC. You can specify
 -- only one attribute at a time. Example 1 This example describes the
 -- enableDnsSupport attribute of the specified VPC. The sample response
 -- indicates that DNS resolution is supported.
@@ -3969,6 +4482,7 @@ describeVolumes s =
 -- &lt;/DescribeVpcAttributeResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeVpcAttribute'
+
 describeVpcAttribute :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -3980,7 +4494,8 @@ describeVpcAttribute :: ( MonadCatch m
 describeVpcAttribute p1 s =
     send $ (mkDescribeVpcAttribute p1) &~ s
 
--- | Describes one or more of your VPC peering connections. Example 1 This
+-- $DescribeVpcPeeringConnections
+-- Describes one or more of your VPC peering connections. Example 1 This
 -- example describes all of your VPC peering connections.
 -- https://ec2.amazonaws.com/?Action=DescribeVpcPeeringConnections
 -- &amp;AUTHPARAMS &lt;DescribeVpcPeeringConnectionsResponse
@@ -4015,6 +4530,7 @@ describeVpcAttribute p1 s =
 -- &amp;Filter.1.Value=vpc-1a2b3c4d &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeVpcPeeringConnections'
+
 describeVpcPeeringConnections :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
@@ -4025,7 +4541,8 @@ describeVpcPeeringConnections :: ( MonadCatch m
 describeVpcPeeringConnections s =
     send (mkDescribeVpcPeeringConnections &~ s)
 
--- | Describes one or more of your VPCs. Example 1 This example describes the
+-- $DescribeVpcs
+-- Describes one or more of your VPCs. Example 1 This example describes the
 -- specified VPC. https://ec2.amazonaws.com/?Action=DescribeVpcs
 -- &amp;VpcId.1=vpc-1a2b3c4d &amp;AUTHPARAMS &lt;DescribeVpcsResponse
 -- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
@@ -4045,6 +4562,7 @@ describeVpcPeeringConnections s =
 -- &amp;Filter.2.Value.1=available &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeVpcs'
+
 describeVpcs :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -4055,7 +4573,8 @@ describeVpcs :: ( MonadCatch m
 describeVpcs s =
     send (mkDescribeVpcs &~ s)
 
--- | Describes one or more of your VPN connections. For more information about
+-- $DescribeVpnConnections
+-- Describes one or more of your VPN connections. For more information about
 -- VPN connections, see Adding a Hardware Virtual Private Gateway to Your VPC
 -- in the Amazon Virtual Private Cloud User Guide. Example 1 This example
 -- describes the specified VPN connection. The response includes the customer
@@ -4084,6 +4603,7 @@ describeVpcs s =
 -- &amp;Filter.2.Value.2=available &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeVpnConnections'
+
 describeVpnConnections :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -4094,7 +4614,8 @@ describeVpnConnections :: ( MonadCatch m
 describeVpnConnections s =
     send (mkDescribeVpnConnections &~ s)
 
--- | Describes one or more of your virtual private gateways. For more
+-- $DescribeVpnGateways
+-- Describes one or more of your virtual private gateways. For more
 -- information about virtual private gateways, see Adding an IPsec Hardware
 -- VPN to Your VPC in the Amazon Virtual Private Cloud User Guide. Example 1
 -- This example describes the specified virtual private gateway.
@@ -4119,6 +4640,7 @@ describeVpnConnections s =
 -- &amp;Filter.2.Value.2=available &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DescribeVpnGateways'
+
 describeVpnGateways :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -4129,7 +4651,8 @@ describeVpnGateways :: ( MonadCatch m
 describeVpnGateways s =
     send (mkDescribeVpnGateways &~ s)
 
--- | Detaches an Internet gateway from a VPC, disabling connectivity between the
+-- $DetachInternetGateway
+-- Detaches an Internet gateway from a VPC, disabling connectivity between the
 -- Internet and the VPC. The VPC must not contain any running instances with
 -- Elastic IP addresses. Example The example detaches the specified Internet
 -- gateway from the specified VPC.
@@ -4141,6 +4664,7 @@ describeVpnGateways s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DetachInternetGatewayResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DetachInternetGateway'
+
 detachInternetGateway :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -4153,7 +4677,8 @@ detachInternetGateway :: ( MonadCatch m
 detachInternetGateway p1 p2 s =
     send $ (mkDetachInternetGateway p1 p2) &~ s
 
--- | Detaches a network interface from an instance. Example This example
+-- $DetachNetworkInterface
+-- Detaches a network interface from an instance. Example This example
 -- detaches the specified elastic network interface (ENI).
 -- https://ec2.amazonaws.com/?Action=DetachNetworkInterface
 -- &amp;AttachmentId=eni-attach-d94b09b0 &amp;AUTHPARAMS
@@ -4163,6 +4688,7 @@ detachInternetGateway p1 p2 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DetachNetworkInterfaceResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DetachNetworkInterface'
+
 detachNetworkInterface :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -4174,7 +4700,8 @@ detachNetworkInterface :: ( MonadCatch m
 detachNetworkInterface p1 s =
     send $ (mkDetachNetworkInterface p1) &~ s
 
--- | Detaches an Amazon EBS volume from an instance. Make sure to unmount any
+-- $DetachVolume
+-- Detaches an Amazon EBS volume from an instance. Make sure to unmount any
 -- file systems on the device within your operating system before detaching
 -- the volume. Failure to do so results in the volume being stuck in a busy
 -- state while detaching. If an Amazon EBS volume is the root device of an
@@ -4196,6 +4723,7 @@ detachNetworkInterface p1 s =
 -- &lt;/DetachVolumeResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DetachVolume'
+
 detachVolume :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -4207,7 +4735,8 @@ detachVolume :: ( MonadCatch m
 detachVolume p1 s =
     send $ (mkDetachVolume p1) &~ s
 
--- | Detaches a virtual private gateway from a VPC. You do this if you're
+-- $DetachVpnGateway
+-- Detaches a virtual private gateway from a VPC. You do this if you're
 -- planning to turn off the VPC and not use it anymore. You can confirm a
 -- virtual private gateway has been completely detached from a VPC by
 -- describing the virtual private gateway (any attachments to the virtual
@@ -4223,6 +4752,7 @@ detachVolume p1 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DetachVpnGatewayResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DetachVpnGateway'
+
 detachVpnGateway :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -4235,7 +4765,8 @@ detachVpnGateway :: ( MonadCatch m
 detachVpnGateway p1 p2 s =
     send $ (mkDetachVpnGateway p1 p2) &~ s
 
--- | Disables a virtual private gateway (VGW) from propagating routes to the
+-- $DisableVgwRoutePropagation
+-- Disables a virtual private gateway (VGW) from propagating routes to the
 -- routing tables of a VPC. Example This example disables the virtual private
 -- gateway vgw-d8e09e8a from automatically propagating routes to the routing
 -- table with ID rtb-c98a35a0.
@@ -4248,6 +4779,7 @@ detachVpnGateway p1 p2 s =
 -- &lt;/DisableVgwRoutePropagationResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DisableVgwRoutePropagation'
+
 disableVgwRoutePropagation :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -4260,7 +4792,8 @@ disableVgwRoutePropagation :: ( MonadCatch m
 disableVgwRoutePropagation p1 p2 s =
     send $ (mkDisableVgwRoutePropagation p1 p2) &~ s
 
--- | Disassociates an Elastic IP address from the instance or network interface
+-- $DisassociateAddress
+-- Disassociates an Elastic IP address from the instance or network interface
 -- it's associated with. This is an idempotent operation. If you perform the
 -- operation more than once, Amazon EC2 doesn't return an error. Example for
 -- EC2-Classic This example disassociates the specified Elastic IP address
@@ -4273,6 +4806,7 @@ disableVgwRoutePropagation p1 p2 s =
 -- &amp;AssociationId=eipassoc-aa7486c3 &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DisassociateAddress'
+
 disassociateAddress :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -4283,7 +4817,8 @@ disassociateAddress :: ( MonadCatch m
 disassociateAddress s =
     send (mkDisassociateAddress &~ s)
 
--- | Disassociates a subnet from a route table. After you perform this action,
+-- $DisassociateRouteTable
+-- Disassociates a subnet from a route table. After you perform this action,
 -- the subnet no longer uses the routes in the route table. Instead, it uses
 -- the routes in the VPC's main route table. For more information about route
 -- tables, see Route Tables in the Amazon Virtual Private Cloud User Guide.
@@ -4297,6 +4832,7 @@ disassociateAddress s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DisassociateRouteTableResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.DisassociateRouteTable'
+
 disassociateRouteTable :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -4308,7 +4844,8 @@ disassociateRouteTable :: ( MonadCatch m
 disassociateRouteTable p1 s =
     send $ (mkDisassociateRouteTable p1) &~ s
 
--- | Enables a virtual private gateway (VGW) to propagate routes to the routing
+-- $EnableVgwRoutePropagation
+-- Enables a virtual private gateway (VGW) to propagate routes to the routing
 -- tables of a VPC. Example This example enables the specified virtual private
 -- gateway to propagate routes automatically to the routing table with the ID
 -- rtb-c98a35a0. https://ec2.amazonaws.com/?Action=EnableVgwRoutePropagation
@@ -4319,6 +4856,7 @@ disassociateRouteTable p1 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/EnableVgwRoutePropagation&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.EnableVgwRoutePropagation'
+
 enableVgwRoutePropagation :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -4331,7 +4869,8 @@ enableVgwRoutePropagation :: ( MonadCatch m
 enableVgwRoutePropagation p1 p2 s =
     send $ (mkEnableVgwRoutePropagation p1 p2) &~ s
 
--- | Enables I/O operations for a volume that had I/O operations disabled
+-- $EnableVolumeIO
+-- Enables I/O operations for a volume that had I/O operations disabled
 -- because the data on the volume was potentially inconsistent. Example This
 -- example enables the I/O operations of the volume vol-8888888.
 -- https://ec2.amazonaws.com/?Action=EnableVolumeIO &amp;VolumeId= vol-8888888
@@ -4341,6 +4880,7 @@ enableVgwRoutePropagation p1 p2 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/EnableVolumeIOResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.EnableVolumeIO'
+
 enableVolumeIO :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -4352,7 +4892,8 @@ enableVolumeIO :: ( MonadCatch m
 enableVolumeIO p1 s =
     send $ (mkEnableVolumeIO p1) &~ s
 
--- | Gets the console output for the specified instance. Instances do not have a
+-- $GetConsoleOutput
+-- Gets the console output for the specified instance. Instances do not have a
 -- physical monitor through which you can view their console output. They also
 -- lack physical controls that allow you to power up, reboot, or shut them
 -- down. To allow these actions, we provide them through the Amazon EC2 API
@@ -4389,6 +4930,7 @@ enableVolumeIO p1 s =
 -- &lt;/GetConsoleOutputResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.GetConsoleOutput'
+
 getConsoleOutput :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -4400,7 +4942,8 @@ getConsoleOutput :: ( MonadCatch m
 getConsoleOutput p1 s =
     send $ (mkGetConsoleOutput p1) &~ s
 
--- | Retrieves the encrypted administrator password for an instance running
+-- $GetPasswordData
+-- Retrieves the encrypted administrator password for an instance running
 -- Windows. The Windows password is only generated the first time an AMI is
 -- launched. It is not generated for rebundled AMIs or after the password is
 -- changed on an instance. The password is encrypted using the key pair that
@@ -4419,6 +4962,7 @@ getConsoleOutput p1 s =
 -- &lt;/GetPasswordDataResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.GetPasswordData'
+
 getPasswordData :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -4430,7 +4974,8 @@ getPasswordData :: ( MonadCatch m
 getPasswordData p1 s =
     send $ (mkGetPasswordData p1) &~ s
 
--- | Creates an import instance task using metadata from the specified disk
+-- $ImportInstance
+-- Creates an import instance task using metadata from the specified disk
 -- image. After importing the image, you then upload it using the
 -- ec2-import-volume command in the EC2 command line tools. For more
 -- information, see Using the Command Line Tools to Import Your Virtual
@@ -4448,6 +4993,7 @@ getPasswordData p1 s =
 -- 12 vol-1a2b3c4d active i-12655a7f.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.ImportInstance'
+
 importInstance :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -4459,7 +5005,8 @@ importInstance :: ( MonadCatch m
 importInstance p4 s =
     send $ (mkImportInstance p4) &~ s
 
--- | Imports the public key from an RSA key pair that you created with a
+-- $ImportKeyPair
+-- Imports the public key from an RSA key pair that you created with a
 -- third-party tool. Compare this with CreateKeyPair, in which AWS creates the
 -- key pair and gives the keys to you (AWS keeps a copy of the public key).
 -- With ImportKeyPair, you create the key pair and give AWS just the public
@@ -4490,6 +5037,7 @@ importInstance p4 s =
 -- &lt;/ImportKeyPairResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.ImportKeyPair'
+
 importKeyPair :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -4502,7 +5050,8 @@ importKeyPair :: ( MonadCatch m
 importKeyPair p1 p2 s =
     send $ (mkImportKeyPair p1 p2) &~ s
 
--- | Creates an import volume task using metadata from the specified disk image.
+-- $ImportVolume
+-- Creates an import volume task using metadata from the specified disk image.
 -- After importing the image, you then upload it using the ec2-import-volume
 -- command in the Amazon EC2 command-line interface (CLI) tools. For more
 -- information, see Using the Command Line Tools to Import Your Virtual
@@ -4519,6 +5068,7 @@ importKeyPair p1 p2 s =
 -- ccb1b0536a4a70e86016b85229b5c6b10b14a4eb 8 vol-34d8a2ff active.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.ImportVolume'
+
 importVolume :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -4532,11 +5082,13 @@ importVolume :: ( MonadCatch m
 importVolume p1 p2 p4 s =
     send $ (mkImportVolume p1 p2 p4) &~ s
 
--- | Modifies the specified attribute of the specified AMI. You can specify only
+-- $ModifyImageAttribute
+-- Modifies the specified attribute of the specified AMI. You can specify only
 -- one attribute at a time. AWS Marketplace product codes cannot be modified.
 -- Images with an AWS Marketplace product code cannot be made public. Example.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.ModifyImageAttribute'
+
 modifyImageAttribute :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -4548,7 +5100,8 @@ modifyImageAttribute :: ( MonadCatch m
 modifyImageAttribute p1 s =
     send $ (mkModifyImageAttribute p1) &~ s
 
--- | Modifies the specified attribute of the specified instance. You can specify
+-- $ModifyInstanceAttribute
+-- Modifies the specified attribute of the specified instance. You can specify
 -- only one attribute at a time. To modify some attributes, the instance must
 -- be stopped. For more information, see Modifying Attributes of a Stopped
 -- Instance in the Amazon Elastic Compute Cloud User Guide. Example 1 This
@@ -4579,6 +5132,7 @@ modifyImageAttribute p1 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ModifyInstanceAttributeResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.ModifyInstanceAttribute'
+
 modifyInstanceAttribute :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -4590,7 +5144,8 @@ modifyInstanceAttribute :: ( MonadCatch m
 modifyInstanceAttribute p1 s =
     send $ (mkModifyInstanceAttribute p1) &~ s
 
--- | Modifies the specified network interface attribute. You can specify only
+-- $ModifyNetworkInterfaceAttribute
+-- Modifies the specified network interface attribute. You can specify only
 -- one attribute at a time. Example This example sets source/destination
 -- checking to false for the specified network interface.
 -- https://ec2.amazonaws.com/?Action=ModifyNetworkInterfaceAttribute
@@ -4602,6 +5157,7 @@ modifyInstanceAttribute p1 s =
 -- &lt;/ModifyNetworkInterfaceAttributeResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.ModifyNetworkInterfaceAttribute'
+
 modifyNetworkInterfaceAttribute :: ( MonadCatch m
                                    , MonadResource m
                                    , MonadError AWS.Error m
@@ -4613,7 +5169,8 @@ modifyNetworkInterfaceAttribute :: ( MonadCatch m
 modifyNetworkInterfaceAttribute p1 s =
     send $ (mkModifyNetworkInterfaceAttribute p1) &~ s
 
--- | Modifies the Availability Zone, instance count, instance type, or network
+-- $ModifyReservedInstances
+-- Modifies the Availability Zone, instance count, instance type, or network
 -- platform (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved
 -- Instances to be modified must be identical, except for Availability Zone,
 -- network platform, and instance type. Example
@@ -4628,6 +5185,7 @@ modifyNetworkInterfaceAttribute p1 s =
 -- rimod-3aae219d-3d63-47a9-a7e9-e764example.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.ModifyReservedInstances'
+
 modifyReservedInstances :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -4640,7 +5198,8 @@ modifyReservedInstances :: ( MonadCatch m
 modifyReservedInstances p2 p3 s =
     send $ (mkModifyReservedInstances p2 p3) &~ s
 
--- | Adds or removes permission settings for the specified snapshot. You may add
+-- $ModifySnapshotAttribute
+-- Adds or removes permission settings for the specified snapshot. You may add
 -- or remove specified AWS account IDs from a snapshot's list of create volume
 -- permissions, but you cannot do both in a single API call. If you need to
 -- both add and remove account IDs for a snapshot, you must use multiple API
@@ -4670,6 +5229,7 @@ modifyReservedInstances p2 p3 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ModifySnapshotAttributeResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.ModifySnapshotAttribute'
+
 modifySnapshotAttribute :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
@@ -4681,7 +5241,8 @@ modifySnapshotAttribute :: ( MonadCatch m
 modifySnapshotAttribute p1 s =
     send $ (mkModifySnapshotAttribute p1) &~ s
 
--- | Modifies a subnet attribute. Example This example modifies the attribute
+-- $ModifySubnetAttribute
+-- Modifies a subnet attribute. Example This example modifies the attribute
 -- for subnet-1a2b3c4d to specify that all instances launched into this subnet
 -- are assigned a public IP address.
 -- https://ec2.amazonaws.com/?Action=ModifySubnetAttribute
@@ -4689,6 +5250,7 @@ modifySnapshotAttribute p1 s =
 -- &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.ModifySubnetAttribute'
+
 modifySubnetAttribute :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -4700,7 +5262,8 @@ modifySubnetAttribute :: ( MonadCatch m
 modifySubnetAttribute p1 s =
     send $ (mkModifySubnetAttribute p1) &~ s
 
--- | Modifies a volume attribute. By default, all I/O operations for the volume
+-- $ModifyVolumeAttribute
+-- Modifies a volume attribute. By default, all I/O operations for the volume
 -- are suspended when the data on the volume is determined to be potentially
 -- inconsistent, to prevent undetectable, latent data corruption. The I/O
 -- access to the volume can be resumed by first enabling I/O access and then
@@ -4716,6 +5279,7 @@ modifySubnetAttribute p1 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ModifyVolumeAttributeResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.ModifyVolumeAttribute'
+
 modifyVolumeAttribute :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
@@ -4727,13 +5291,15 @@ modifyVolumeAttribute :: ( MonadCatch m
 modifyVolumeAttribute p1 s =
     send $ (mkModifyVolumeAttribute p1) &~ s
 
--- | Modifies the specified attribute of the specified VPC. Example This example
+-- $ModifyVpcAttribute
+-- Modifies the specified attribute of the specified VPC. Example This example
 -- disables support for DNS hostnames in the specified VPC.
 -- https://ec2.amazonaws.com/?Action=ModifyVpcAttribute
 -- &amp;VpcId=vpc-1a2b3c4d &amp;EnableDnsHostnames.Value=false
 -- &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.ModifyVpcAttribute'
+
 modifyVpcAttribute :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -4745,7 +5311,8 @@ modifyVpcAttribute :: ( MonadCatch m
 modifyVpcAttribute p1 s =
     send $ (mkModifyVpcAttribute p1) &~ s
 
--- | Enables monitoring for a running instance. For more information about
+-- $MonitorInstances
+-- Enables monitoring for a running instance. For more information about
 -- monitoring instances, see Monitoring Your Instances and Volumes in the
 -- Amazon Elastic Compute Cloud User Guide. Example This example enables
 -- monitoring for two instances.
@@ -4762,6 +5329,7 @@ modifyVpcAttribute p1 s =
 -- &lt;/item&gt; &lt;/instancesSet&gt; &lt;/MonitorInstancesResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.MonitorInstances'
+
 monitorInstances :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
@@ -4773,7 +5341,8 @@ monitorInstances :: ( MonadCatch m
 monitorInstances p1 s =
     send $ (mkMonitorInstances p1) &~ s
 
--- | Purchases a Reserved Instance for use with your account. With Amazon EC2
+-- $PurchaseReservedInstancesOffering
+-- Purchases a Reserved Instance for use with your account. With Amazon EC2
 -- Reserved Instances, you obtain a capacity reservation for a certain
 -- instance configuration over a specified period of time. You pay a lower
 -- usage rate than with On-Demand instances for the time that you actually use
@@ -4797,6 +5366,7 @@ monitorInstances p1 s =
 -- &lt;/PurchaseReservedInstancesOfferingResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.PurchaseReservedInstancesOffering'
+
 purchaseReservedInstancesOffering :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
@@ -4809,7 +5379,8 @@ purchaseReservedInstancesOffering :: ( MonadCatch m
 purchaseReservedInstancesOffering p1 p2 s =
     send $ (mkPurchaseReservedInstancesOffering p1 p2) &~ s
 
--- | Requests a reboot of one or more instances. This operation is asynchronous;
+-- $RebootInstances
+-- Requests a reboot of one or more instances. This operation is asynchronous;
 -- it only queues a request to reboot the specified instances. The operation
 -- succeeds if the instances are valid and belong to you. Requests to reboot
 -- terminated instances are ignored. If a Linux/Unix instance does not cleanly
@@ -4825,6 +5396,7 @@ purchaseReservedInstancesOffering p1 p2 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/RebootInstancesResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.RebootInstances'
+
 rebootInstances :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
@@ -4836,7 +5408,8 @@ rebootInstances :: ( MonadCatch m
 rebootInstances p1 s =
     send $ (mkRebootInstances p1) &~ s
 
--- | Registers an AMI. When you're creating an AMI, this is the final step you
+-- $RegisterImage
+-- Registers an AMI. When you're creating an AMI, this is the final step you
 -- must complete before you can launch an instance from the AMI. For more
 -- information about creating AMIs, see Creating Your Own AMIs in the Amazon
 -- Elastic Compute Cloud User Guide. For Amazon EBS-backed instances,
@@ -4883,6 +5456,7 @@ rebootInstances p1 s =
 -- &lt;imageId&gt;ami-1a2b3c4d&lt;/imageId&gt; &lt;/RegisterImageResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.RegisterImage'
+
 registerImage :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -4894,7 +5468,8 @@ registerImage :: ( MonadCatch m
 registerImage p2 s =
     send $ (mkRegisterImage p2) &~ s
 
--- | Rejects a VPC peering connection request. The VPC peering connection must
+-- $RejectVpcPeeringConnection
+-- Rejects a VPC peering connection request. The VPC peering connection must
 -- be in the pending-acceptance state. Use the DescribeVpcPeeringConnections
 -- request to view your outstanding VPC peering connection requests. Example
 -- This example rejects the specified VPC peering connection request.
@@ -4907,6 +5482,7 @@ registerImage p2 s =
 -- &lt;/RejectVpcPeeringConnectionResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.RejectVpcPeeringConnection'
+
 rejectVpcPeeringConnection :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -4918,7 +5494,8 @@ rejectVpcPeeringConnection :: ( MonadCatch m
 rejectVpcPeeringConnection p1 s =
     send $ (mkRejectVpcPeeringConnection p1) &~ s
 
--- | Releases the specified Elastic IP address. After releasing an Elastic IP
+-- $ReleaseAddress
+-- Releases the specified Elastic IP address. After releasing an Elastic IP
 -- address, it is released to the IP address pool and might be unavailable to
 -- you. Be sure to update your DNS records and any servers or devices that
 -- communicate with the address. If you attempt to release an Elastic IP
@@ -4938,6 +5515,7 @@ rejectVpcPeeringConnection p1 s =
 -- &amp;AllocationId=eipalloc-5723d13e &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.ReleaseAddress'
+
 releaseAddress :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -4948,7 +5526,8 @@ releaseAddress :: ( MonadCatch m
 releaseAddress s =
     send (mkReleaseAddress &~ s)
 
--- | Changes which network ACL a subnet is associated with. By default when you
+-- $ReplaceNetworkAclAssociation
+-- Changes which network ACL a subnet is associated with. By default when you
 -- create a subnet, it's automatically associated with the default network
 -- ACL. For more information about network ACLs, see Network ACLs in the
 -- Amazon Virtual Private Cloud User Guide. Example This example starts with a
@@ -4965,6 +5544,7 @@ releaseAddress s =
 -- &lt;/ReplaceNetworkAclAssociationResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.ReplaceNetworkAclAssociation'
+
 replaceNetworkAclAssociation :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
@@ -4977,7 +5557,8 @@ replaceNetworkAclAssociation :: ( MonadCatch m
 replaceNetworkAclAssociation p1 p2 s =
     send $ (mkReplaceNetworkAclAssociation p1 p2) &~ s
 
--- | Replaces an entry (rule) in a network ACL. For more information about
+-- $ReplaceNetworkAclEntry
+-- Replaces an entry (rule) in a network ACL. For more information about
 -- network ACLs, see Network ACLs in the Amazon Virtual Private Cloud User
 -- Guide. Example This example replaces the egress entry numbered 110 in the
 -- network ACL with ID acl-2cb85d45. The new rule denies egress traffic
@@ -4992,6 +5573,7 @@ replaceNetworkAclAssociation p1 p2 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ReplaceNetworkAclEntryResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.ReplaceNetworkAclEntry'
+
 replaceNetworkAclEntry :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -5008,7 +5590,8 @@ replaceNetworkAclEntry :: ( MonadCatch m
 replaceNetworkAclEntry p1 p2 p3 p4 p5 p6 s =
     send $ (mkReplaceNetworkAclEntry p1 p2 p3 p4 p5 p6) &~ s
 
--- | Replaces an existing route within a route table in a VPC. You must provide
+-- $ReplaceRoute
+-- Replaces an existing route within a route table in a VPC. You must provide
 -- only one of the following: Internet gateway, NAT instance, VPC peering
 -- connection, or network interface. For more information about route tables,
 -- see Route Tables in the Amazon Virtual Private Cloud User Guide. Example
@@ -5023,6 +5606,7 @@ replaceNetworkAclEntry p1 p2 p3 p4 p5 p6 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ReplaceRouteResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.ReplaceRoute'
+
 replaceRoute :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -5035,7 +5619,8 @@ replaceRoute :: ( MonadCatch m
 replaceRoute p1 p2 s =
     send $ (mkReplaceRoute p1 p2) &~ s
 
--- | Changes the route table associated with a given subnet in a VPC. After the
+-- $ReplaceRouteTableAssociation
+-- Changes the route table associated with a given subnet in a VPC. After the
 -- operation completes, the subnet uses the routes in the new route table it's
 -- associated with. For more information about route tables, see Route Tables
 -- in the Amazon Virtual Private Cloud User Guide. You can also use
@@ -5051,6 +5636,7 @@ replaceRoute p1 p2 s =
 -- &amp;AUTHPARAMS 59dbff89-35bd-4eac-99ed-be587EXAMPLE rtbassoc-faad4893.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.ReplaceRouteTableAssociation'
+
 replaceRouteTableAssociation :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
@@ -5063,7 +5649,8 @@ replaceRouteTableAssociation :: ( MonadCatch m
 replaceRouteTableAssociation p1 p2 s =
     send $ (mkReplaceRouteTableAssociation p1 p2) &~ s
 
--- | Submits feedback about the status of an instance. The instance must be in
+-- $ReportInstanceStatus
+-- Submits feedback about the status of an instance. The instance must be in
 -- the running state. If your experience with the instance differs from the
 -- instance status returned by DescribeInstanceStatus, use
 -- ReportInstanceStatus to report your experience with the instance. Amazon
@@ -5079,6 +5666,7 @@ replaceRouteTableAssociation p1 p2 s =
 -- &amp;ReasonCode.1=instance-performance-disk &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.ReportInstanceStatus'
+
 reportInstanceStatus :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -5092,7 +5680,8 @@ reportInstanceStatus :: ( MonadCatch m
 reportInstanceStatus p1 p2 p5 s =
     send $ (mkReportInstanceStatus p1 p2 p5) &~ s
 
--- | Creates a Spot Instance request. Spot Instances are instances that Amazon
+-- $RequestSpotInstances
+-- Creates a Spot Instance request. Spot Instances are instances that Amazon
 -- EC2 starts on your behalf when the maximum price that you specify exceeds
 -- the current Spot Price. Amazon EC2 periodically sets the Spot Price based
 -- on available Spot Instance capacity and current Spot Instance requests. For
@@ -5117,6 +5706,7 @@ reportInstanceStatus p1 p2 p5 s =
 -- YYYY-MM-DDTHH:MM:SS.000Z Linux/UNIX.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.RequestSpotInstances'
+
 requestSpotInstances :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
@@ -5128,7 +5718,8 @@ requestSpotInstances :: ( MonadCatch m
 requestSpotInstances p1 s =
     send $ (mkRequestSpotInstances p1) &~ s
 
--- | Resets an attribute of an AMI to its default value. Example This example
+-- $ResetImageAttribute
+-- Resets an attribute of an AMI to its default value. Example This example
 -- resets the launchPermission attribute for the specified AMI.
 -- https://ec2.amazonaws.com/?Action=ResetImageAttribute
 -- &amp;ImageId=ami-61a54008 &amp;Attribute=launchPermission &amp;AUTHPARAMS
@@ -5138,6 +5729,7 @@ requestSpotInstances p1 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ResetImageAttributeResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.ResetImageAttribute'
+
 resetImageAttribute :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
@@ -5150,7 +5742,8 @@ resetImageAttribute :: ( MonadCatch m
 resetImageAttribute p1 p2 s =
     send $ (mkResetImageAttribute p1 p2) &~ s
 
--- | Resets an attribute of an instance to its default value. To reset the
+-- $ResetInstanceAttribute
+-- Resets an attribute of an instance to its default value. To reset the
 -- kernel or RAM disk, the instance must be in a stopped state. To reset the
 -- SourceDestCheck, the instance can be either running or stopped. The
 -- SourceDestCheck attribute controls whether source/destination checking is
@@ -5166,6 +5759,7 @@ resetImageAttribute p1 p2 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ResetInstanceAttributeResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.ResetInstanceAttribute'
+
 resetInstanceAttribute :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -5178,7 +5772,8 @@ resetInstanceAttribute :: ( MonadCatch m
 resetInstanceAttribute p1 p2 s =
     send $ (mkResetInstanceAttribute p1 p2) &~ s
 
--- | Resets a network interface attribute. You can specify only one attribute at
+-- $ResetNetworkInterfaceAttribute
+-- Resets a network interface attribute. You can specify only one attribute at
 -- a time. Example This example resets the sourceDestCheck attribute for the
 -- specified network interface.
 -- https://ec2.amazonaws.com/?Action=ResetNetworkInterfaceAttribute
@@ -5190,6 +5785,7 @@ resetInstanceAttribute p1 p2 s =
 -- &lt;/ResetNetworkInterfaceAttributeResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.ResetNetworkInterfaceAttribute'
+
 resetNetworkInterfaceAttribute :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
@@ -5201,7 +5797,8 @@ resetNetworkInterfaceAttribute :: ( MonadCatch m
 resetNetworkInterfaceAttribute p1 s =
     send $ (mkResetNetworkInterfaceAttribute p1) &~ s
 
--- | Resets permission settings for the specified snapshot. For more information
+-- $ResetSnapshotAttribute
+-- Resets permission settings for the specified snapshot. For more information
 -- on modifying snapshot permissions, see Sharing Snapshots in the Amazon
 -- Elastic Compute Cloud User Guide. Example This example resets the
 -- permissions for snap-1a2b3c4d, making it a private snapshot that can only
@@ -5214,6 +5811,7 @@ resetNetworkInterfaceAttribute p1 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ResetSnapshotAttributeResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.ResetSnapshotAttribute'
+
 resetSnapshotAttribute :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
@@ -5226,7 +5824,8 @@ resetSnapshotAttribute :: ( MonadCatch m
 resetSnapshotAttribute p1 p2 s =
     send $ (mkResetSnapshotAttribute p1 p2) &~ s
 
--- | Removes one or more egress rules from a security group for EC2-VPC. The
+-- $RevokeSecurityGroupEgress
+-- Removes one or more egress rules from a security group for EC2-VPC. The
 -- values that you specify in the revoke request (for example, ports) must
 -- match the existing rule's values for the rule to be revoked. Each rule
 -- consists of the protocol and the CIDR range or source security group. For
@@ -5249,6 +5848,7 @@ resetSnapshotAttribute p1 p2 s =
 -- &amp;IpPermissions.1.Groups.1.GroupId=sg-9a8d7f5c &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.RevokeSecurityGroupEgress'
+
 revokeSecurityGroupEgress :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
@@ -5260,7 +5860,8 @@ revokeSecurityGroupEgress :: ( MonadCatch m
 revokeSecurityGroupEgress p1 s =
     send $ (mkRevokeSecurityGroupEgress p1) &~ s
 
--- | Removes one or more ingress rules from a security group. The values that
+-- $RevokeSecurityGroupIngress
+-- Removes one or more ingress rules from a security group. The values that
 -- you specify in the revoke request (for example, ports) must match the
 -- existing rule's values for the rule to be removed. Each rule consists of
 -- the protocol and the CIDR range or source security group. For the TCP and
@@ -5281,6 +5882,7 @@ revokeSecurityGroupEgress p1 s =
 -- &lt;/RevokeSecurityGroupIngressResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.RevokeSecurityGroupIngress'
+
 revokeSecurityGroupIngress :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -5291,7 +5893,8 @@ revokeSecurityGroupIngress :: ( MonadCatch m
 revokeSecurityGroupIngress s =
     send (mkRevokeSecurityGroupIngress &~ s)
 
--- | Launches the specified number of instances using an AMI for which you have
+-- $RunInstances
+-- Launches the specified number of instances using an AMI for which you have
 -- permissions. When you launch an instance, it enters the pending state.
 -- After the instance is ready for you, it enters the running state. To check
 -- the state of your instance, call DescribeInstances. If you don't specify a
@@ -5359,6 +5962,7 @@ revokeSecurityGroupIngress s =
 -- &amp;Monitoring.Enabled=false &amp;AUTHPARAMS.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.RunInstances'
+
 runInstances :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
@@ -5372,7 +5976,8 @@ runInstances :: ( MonadCatch m
 runInstances p1 p2 p3 s =
     send $ (mkRunInstances p1 p2 p3) &~ s
 
--- | Starts an Amazon EBS-backed AMI that you've previously stopped. Instances
+-- $StartInstances
+-- Starts an Amazon EBS-backed AMI that you've previously stopped. Instances
 -- that use Amazon EBS volumes as their root devices can be quickly stopped
 -- and started. When an instance is stopped, the compute resources are
 -- released and you are not billed for hourly instance usage. However, your
@@ -5398,6 +6003,7 @@ runInstances p1 p2 p3 s =
 -- &lt;/instancesSet&gt; &lt;/StartInstancesResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.StartInstances'
+
 startInstances :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
@@ -5409,7 +6015,8 @@ startInstances :: ( MonadCatch m
 startInstances p1 s =
     send $ (mkStartInstances p1) &~ s
 
--- | Stops an Amazon EBS-backed instance. Each time you transition an instance
+-- $StopInstances
+-- Stops an Amazon EBS-backed instance. Each time you transition an instance
 -- from stopped to started, Amazon EC2 charges a full instance hour, even if
 -- transitions happen multiple times within a single hour. You can't start or
 -- stop Spot Instances. Instances that use Amazon EBS volumes as their root
@@ -5444,6 +6051,7 @@ startInstances p1 s =
 -- &lt;/instancesSet&gt; &lt;/StopInstancesResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.StopInstances'
+
 stopInstances :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
@@ -5455,7 +6063,8 @@ stopInstances :: ( MonadCatch m
 stopInstances p1 s =
     send $ (mkStopInstances p1) &~ s
 
--- | Shuts down one or more instances. This operation is idempotent; if you
+-- $TerminateInstances
+-- Shuts down one or more instances. This operation is idempotent; if you
 -- terminate an instance more than once, each call succeeds. Terminated
 -- instances remain visible after termination (for approximately one hour). By
 -- default, Amazon EC2 deletes all Amazon EBS volumes that were attached when
@@ -5483,6 +6092,7 @@ stopInstances p1 s =
 -- &lt;/instancesSet&gt; &lt;/TerminateInstancesResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.TerminateInstances'
+
 terminateInstances :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
@@ -5494,7 +6104,8 @@ terminateInstances :: ( MonadCatch m
 terminateInstances p1 s =
     send $ (mkTerminateInstances p1) &~ s
 
--- | Unassigns one or more secondary private IP addresses from a network
+-- $UnassignPrivateIpAddresses
+-- Unassigns one or more secondary private IP addresses from a network
 -- interface. Example The following example unassigns two secondary private IP
 -- addresses from the specified network interface.
 -- https://ec2.amazonaws.com/?Action=UnassignPrivateIpAddresses
@@ -5506,6 +6117,7 @@ terminateInstances p1 s =
 -- &lt;return&gt;true&lt;/return&gt; &lt;/UnassignPrivateIpAddresses&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.UnassignPrivateIpAddresses'
+
 unassignPrivateIpAddresses :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
@@ -5518,7 +6130,8 @@ unassignPrivateIpAddresses :: ( MonadCatch m
 unassignPrivateIpAddresses p1 p2 s =
     send $ (mkUnassignPrivateIpAddresses p1 p2) &~ s
 
--- | Disables monitoring for a running instance. For more information about
+-- $UnmonitorInstances
+-- Disables monitoring for a running instance. For more information about
 -- monitoring instances, see Monitoring Your Instances and Volumes in the
 -- Amazon Elastic Compute Cloud User Guide. Example This example disables
 -- monitoring for the specified instances.
@@ -5535,6 +6148,7 @@ unassignPrivateIpAddresses p1 p2 s =
 -- &lt;/item&gt; &lt;/instancesSet&gt; &lt;/UnmonitorInstancesResponse&gt;.
 --
 -- See: 'Network.AWS.EC2.V2014_06_15.UnmonitorInstances'
+
 unmonitorInstances :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m

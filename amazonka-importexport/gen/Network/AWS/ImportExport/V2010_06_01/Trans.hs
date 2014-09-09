@@ -23,20 +23,28 @@
 module Network.AWS.ImportExport.V2010_06_01.Trans
     (
     -- * CancelJob
+    -- $CancelJob
       cancelJob
+
     -- * CreateJob
+    -- $CreateJob
     , createJob
+
     -- * GetStatus
+    -- $GetStatus
     , getStatus
+
     -- * ListJobs
+    -- $ListJobs
     , listJobs
+
     -- * UpdateJob
+    -- $UpdateJob
     , updateJob
 
     -- * Re-exported
     , module AWS
     , module Network.AWS.ImportExport.V2010_06_01
-    -- ** Lenses
     , (.=)
     , (?=)
     , (<>=)
@@ -47,10 +55,12 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.ImportExport.V2010_06_01
 
--- | This operation cancels a specified job. Only the job owner can cancel it.
+-- $CancelJob
+-- This operation cancels a specified job. Only the job owner can cancel it.
 -- The operation fails if the job has already started or is complete.
 --
 -- See: 'Network.AWS.ImportExport.V2010_06_01.CancelJob'
+
 cancelJob :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -62,13 +72,15 @@ cancelJob :: ( MonadCatch m
 cancelJob p1 s =
     send $ (mkCancelJob p1) &~ s
 
--- | This operation initiates the process of scheduling an upload or download of
+-- $CreateJob
+-- This operation initiates the process of scheduling an upload or download of
 -- your data. You include in the request a manifest that describes the data
 -- transfer specifics. The response to the request includes a job ID, which
 -- you can use in other operations, a signature that you use to identify your
 -- storage device, and the address where you should ship your storage device.
 --
 -- See: 'Network.AWS.ImportExport.V2010_06_01.CreateJob'
+
 createJob :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -82,12 +94,14 @@ createJob :: ( MonadCatch m
 createJob p1 p2 p4 s =
     send $ (mkCreateJob p1 p2 p4) &~ s
 
--- | This operation returns information about a job, including where the job is
+-- $GetStatus
+-- This operation returns information about a job, including where the job is
 -- in the processing pipeline, the status of the results, and the signature
 -- value associated with the job. You can only return information about jobs
 -- you own.
 --
 -- See: 'Network.AWS.ImportExport.V2010_06_01.GetStatus'
+
 getStatus :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
@@ -99,13 +113,15 @@ getStatus :: ( MonadCatch m
 getStatus p1 s =
     send $ (mkGetStatus p1) &~ s
 
--- | This operation returns the jobs associated with the requester. AWS
+-- $ListJobs
+-- This operation returns the jobs associated with the requester. AWS
 -- Import/Export lists the jobs in reverse chronological order based on the
 -- date of creation. For example if Job Test1 was created 2009Dec30 and Test2
 -- was created 2010Feb05, the ListJobs operation would return Test2 followed
 -- by Test1.
 --
 -- See: 'Network.AWS.ImportExport.V2010_06_01.ListJobs'
+
 listJobs :: ( MonadCatch m
             , MonadResource m
             , MonadError AWS.Error m
@@ -116,13 +132,15 @@ listJobs :: ( MonadCatch m
 listJobs s =
     paginate (mkListJobs &~ s)
 
--- | You use this operation to change the parameters specified in the original
+-- $UpdateJob
+-- You use this operation to change the parameters specified in the original
 -- manifest file by supplying a new manifest file. The manifest file attached
 -- to this request replaces the original manifest file. You can only use the
 -- operation after a CreateJob request but before the data transfer starts and
 -- you can only use it on jobs you own.
 --
 -- See: 'Network.AWS.ImportExport.V2010_06_01.UpdateJob'
+
 updateJob :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m

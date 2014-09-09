@@ -23,13 +23,7 @@ module {{ trans_namespace }}
     , (.=)
     ) where
 
-import Control.Monad.Catch
-import Control.Monad.Except
-import Control.Monad.Reader
-import Control.Monad.State
 import Control.Monad.Trans.AWS
-import Control.Monad.Trans.Resource
-import Data.Conduit (ResumableSource)
 import Network.AWS.Prelude
 import {{ version_namespace }}
 {% for oper in operations %}

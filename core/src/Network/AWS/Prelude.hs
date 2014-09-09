@@ -18,6 +18,7 @@ module Network.AWS.Prelude
     , Typeable
 
     -- * Primitives
+    , ResumableSource
     , Base64
     , ByteString
     , Exception
@@ -27,6 +28,11 @@ module Network.AWS.Prelude
     , Text
 
     -- * Classes
+    , MonadCatch      (..)
+    , MonadResource   (..)
+    , MonadReader     (..)
+    , MonadError      (..)
+    , State
     , FromJSON        (..)
     , ToJSON          (..)
     , AWSError        (..)
@@ -48,11 +54,16 @@ module Network.AWS.Prelude
 
 import Control.Applicative    as Export
 import Control.Exception      (Exception)
-import Control.Lens           as Lens ((<&>), (&), (^.), (.~), (?~), Lens', lens, to)
+import Control.Lens           as Lens ((<&>), (&), (^.), (.~), (?~), (&~), Lens', lens, to)
+import Control.Monad.Catch
+import Control.Monad.Except
 import Control.Monad.Identity as Export
+import Control.Monad.Reader
+import Control.Monad.State
 import Data.Aeson             (FromJSON(..), ToJSON(..))
 import Data.Bifunctor         as Export
 import Data.ByteString        (ByteString)
+import Data.Conduig           (ResumableSource)
 import Data.Default           as Export
 import Data.Hashable          as Export
 import Data.List.NonEmpty     (NonEmpty(..))

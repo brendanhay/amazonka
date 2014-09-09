@@ -47,7 +47,3 @@ library
     build-depends:
           amazonka-core
         , base          >= 4.6 && < 5
-        , exceptions
-        , conduit
-        , mtl
-        , resourcet

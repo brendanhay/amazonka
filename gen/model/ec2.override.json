@@ -61,10 +61,7 @@
         },
         "unprefixed": [
             "InstanceType"
-        ],
-        "existing": {
-            "Region": "Region"
-        }
+        ]
     },
     "field_overrides": {
         "ignored": [

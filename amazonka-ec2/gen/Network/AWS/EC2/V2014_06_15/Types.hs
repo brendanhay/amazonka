@@ -960,6 +960,12 @@ module Network.AWS.EC2.V2014_06_15.Types
     , rcFrequency
     , rcAmount
 
+    -- * Region
+    , Region
+    , mkRegion
+    , r1RegionName
+    , r1Endpoint
+
     -- * Reservation
     , Reservation
     , mkReservation
@@ -7309,6 +7315,35 @@ instance FromXML RecurringCharge where
 
 instance ToQuery RecurringCharge where
     toQuery = genericQuery def
+
+-- | Describes a region.
+data Region = Region
+    { _r1RegionName :: Maybe Text
+    , _r1Endpoint :: Maybe Text
+    } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Region' data type.
+--
+-- 'Region' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
+mkRegion :: Region
+mkRegion = Region
+    { _r1RegionName = Nothing
+    , _r1Endpoint = Nothing
+    }
+
+-- | The name of the region.
+r1RegionName :: Lens' Region (Maybe Text)
+r1RegionName = lens _r1RegionName (\s a -> s { _r1RegionName = a })
+
+-- | The region service endpoint.
+r1Endpoint :: Lens' Region (Maybe Text)
+r1Endpoint = lens _r1Endpoint (\s a -> s { _r1Endpoint = a })
+
+instance FromXML Region where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "item"
 
 -- | Describes a reservation.
 data Reservation = Reservation

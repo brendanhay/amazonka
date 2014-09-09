@@ -15,6 +15,9 @@
 -- request temporary, limited-privilege credentials for AWS Identity and
 -- Access Management (IAM) users or for users that you authenticate (federated
 -- users).
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.STS.V2011_06_15.Trans
     (
     -- * AssumeRole
@@ -31,6 +34,7 @@ module Network.AWS.STS.V2011_06_15.Trans
     , getSessionToken
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.STS.V2011_06_15
     ) where
 

@@ -19,6 +19,9 @@
 -- particularly well suited for applications that experience hourly, daily, or
 -- weekly variability in usage. Auto Scaling is enabled by Amazon CloudWatch
 -- and available at no additional charge beyond Amazon CloudWatch fees.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.AutoScaling.V2011_01_01.Trans
     (
     -- * AttachInstances
@@ -113,6 +116,7 @@ module Network.AWS.AutoScaling.V2011_01_01.Trans
     , updateAutoScalingGroup
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.AutoScaling.V2011_01_01
     ) where
 
@@ -384,7 +388,8 @@ describeAccountLimits :: ( MonadCatch m
                          )
                       => State DescribeAccountLimits a
                       -> m DescribeAccountLimitsResponse
-describeAccountLimits s = send (mkDescribeAccountLimits &~ s)
+describeAccountLimits s =
+    send (mkDescribeAccountLimits &~ s)
 
 -- | Returns policy adjustment types for use in the PutScalingPolicy action.
 -- https://autoscaling.amazonaws.com/?Version=2011-01-01

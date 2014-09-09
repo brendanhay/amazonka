@@ -22,6 +22,9 @@
 -- edge location, CloudFront retrieves it from an Amazon S3 bucket or an HTTP
 -- server (for example, a web server) that you have identified as the source
 -- for the definitive version of your content.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.CloudFront.V2014_05_31.Trans
     (
     -- * CreateCloudFrontOriginAccessIdentity
@@ -68,6 +71,7 @@ module Network.AWS.CloudFront.V2014_05_31.Trans
     , updateStreamingDistribution
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.CloudFront.V2014_05_31
     ) where
 

@@ -20,6 +20,9 @@
 -- unlimited number of technical support cases with pay-by-the-month pricing
 -- and no long-term contracts, providing developers and businesses flexibility
 -- to choose the level of support that meets their needs.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.Support.V2013_04_15.Trans
     (
     -- * AddAttachmentsToSet
@@ -52,6 +55,7 @@ module Network.AWS.Support.V2013_04_15.Trans
     , resolveCase
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.Support.V2013_04_15
     ) where
 

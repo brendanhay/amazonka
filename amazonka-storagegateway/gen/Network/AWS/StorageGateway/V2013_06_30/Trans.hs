@@ -15,6 +15,9 @@
 -- appliance with cloud-based storage to provide seamless and secure
 -- integration between your on-premises IT environment and AWS's storage
 -- infrastructure.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.StorageGateway.V2013_06_30.Trans
     (
     -- * ActivateGateway
@@ -113,6 +116,7 @@ module Network.AWS.StorageGateway.V2013_06_30.Trans
     , updateSnapshotSchedule
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.StorageGateway.V2013_06_30
     ) where
 

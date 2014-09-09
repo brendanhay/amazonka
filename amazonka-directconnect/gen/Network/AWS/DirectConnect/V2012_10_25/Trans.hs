@@ -17,6 +17,9 @@
 -- AWS Direct Connect router. With this connection in place, you can create
 -- virtual interfaces directly to the AWS cloud and Amazon Virtual Private
 -- Cloud, bypassing Internet service providers in your network path.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.DirectConnect.V2012_10_25.Trans
     (
     -- * AllocateConnectionOnInterconnect
@@ -59,6 +62,7 @@ module Network.AWS.DirectConnect.V2012_10_25.Trans
     , describeVirtualInterfaces
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.DirectConnect.V2012_10_25
     ) where
 

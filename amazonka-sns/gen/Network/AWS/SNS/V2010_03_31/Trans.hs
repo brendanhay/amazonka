@@ -22,6 +22,9 @@
 -- to any HTTP endpoint. To prevent messages from being lost, all messages
 -- published to Amazon SNS are stored redundantly across multiple availability
 -- zones.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.SNS.V2010_03_31.Trans
     (
     -- * AddPermission
@@ -76,6 +79,7 @@ module Network.AWS.SNS.V2010_03_31.Trans
     , unsubscribe
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.SNS.V2010_03_31
     ) where
 

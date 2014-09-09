@@ -17,6 +17,9 @@
 -- network and bypassing the Internet. For significant data sets, AWS
 -- Import/Export is often faster than Internet transfer and more cost
 -- effective than upgrading your connectivity.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.ImportExport.V2010_06_01.Trans
     (
     -- * CancelJob
@@ -31,6 +34,7 @@ module Network.AWS.ImportExport.V2010_06_01.Trans
     , updateJob
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.ImportExport.V2010_06_01
     ) where
 

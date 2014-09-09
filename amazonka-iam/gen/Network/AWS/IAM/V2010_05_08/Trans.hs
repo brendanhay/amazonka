@@ -15,6 +15,9 @@
 -- access to AWS services and resources for your users. Using IAM, you can
 -- create and manage AWS users and groups and use permissions to allow and
 -- deny their access to AWS resources.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.IAM.V2010_05_08.Trans
     (
     -- * AddRoleToInstanceProfile
@@ -171,6 +174,7 @@ module Network.AWS.IAM.V2010_05_08.Trans
     , uploadSigningCertificate
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.IAM.V2010_05_08
     ) where
 

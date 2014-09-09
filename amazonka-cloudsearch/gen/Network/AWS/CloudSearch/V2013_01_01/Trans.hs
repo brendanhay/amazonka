@@ -16,6 +16,9 @@
 -- for your website or application. Amazon CloudSearch supports 34 languages
 -- and popular search features such as highlighting, autocomplete, and
 -- geospatial search.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.CloudSearch.V2013_01_01.Trans
     (
     -- * BuildSuggesters
@@ -68,6 +71,7 @@ module Network.AWS.CloudSearch.V2013_01_01.Trans
     , updateServiceAccessPolicies
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.CloudSearch.V2013_01_01
     ) where
 

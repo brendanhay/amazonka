@@ -21,6 +21,9 @@
 -- access from your application. Your users are provided with Cognito tokens
 -- that uniquely identify their device and any information provided about
 -- third-party logins.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.CognitoIdentity.V2014_06_30.Trans
     (
     -- * CreateIdentityPool
@@ -43,6 +46,7 @@ module Network.AWS.CognitoIdentity.V2014_06_30.Trans
     , updateIdentityPool
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.CognitoIdentity.V2014_06_30
     ) where
 

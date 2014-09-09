@@ -15,6 +15,9 @@
 -- movement and transformation of data. With AWS Data Pipeline, you can define
 -- data-driven workflows, so that tasks can be dependent on the successful
 -- completion of previous tasks.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.DataPipeline.V2012_10_29.Trans
     (
     -- * ActivatePipeline
@@ -51,6 +54,7 @@ module Network.AWS.DataPipeline.V2012_10_29.Trans
     , validatePipelineDefinition
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.DataPipeline.V2012_10_29
     ) where
 

@@ -20,6 +20,7 @@ module {{ trans_namespace }}
 {% endfor %}
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module {{ version_namespace }}
     ) where
 

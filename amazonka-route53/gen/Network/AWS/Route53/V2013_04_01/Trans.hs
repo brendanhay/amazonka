@@ -17,6 +17,9 @@
 -- (Amazon EC2), Elastic Load Balancing, or Amazon Simple Storage Service
 -- (Amazon S3). You can also use Amazon Route 53 to route users to your
 -- infrastructure outside of AWS.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.Route53.V2013_04_01.Trans
     (
     -- * ChangeResourceRecordSets
@@ -59,6 +62,7 @@ module Network.AWS.Route53.V2013_04_01.Trans
     , updateHealthCheck
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.Route53.V2013_04_01
     ) where
 

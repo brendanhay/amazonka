@@ -16,6 +16,9 @@
 -- greater levels of fault tolerance in your applications, seamlessly
 -- providing the required amount of load balancing capacity needed to
 -- distribute application traffic.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.ELB.V2012_06_01.Trans
     (
     -- * AddTags
@@ -76,6 +79,7 @@ module Network.AWS.ELB.V2012_06_01.Trans
     , setLoadBalancerPoliciesOfListener
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.ELB.V2012_06_01
     ) where
 

@@ -12,6 +12,9 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Pending.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.Route53Domains.V2014_05_15.Trans
     (
     -- * CheckDomainAvailability
@@ -42,6 +45,7 @@ module Network.AWS.Route53Domains.V2014_05_15.Trans
     , updateDomainNameservers
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.Route53Domains.V2014_05_15
     ) where
 

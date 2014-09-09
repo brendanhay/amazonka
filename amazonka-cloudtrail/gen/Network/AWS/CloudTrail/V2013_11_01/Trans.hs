@@ -16,6 +16,9 @@
 -- includes the identity of the user, the start time of the AWS API call, the
 -- source IP address, the request parameters, and the response elements
 -- returned by the service.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.CloudTrail.V2013_11_01.Trans
     (
     -- * CreateTrail
@@ -34,6 +37,7 @@ module Network.AWS.CloudTrail.V2013_11_01.Trans
     , updateTrail
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.CloudTrail.V2013_11_01
     ) where
 

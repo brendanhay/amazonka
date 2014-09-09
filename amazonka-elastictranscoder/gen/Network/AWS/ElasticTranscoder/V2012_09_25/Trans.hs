@@ -16,6 +16,9 @@
 -- formats required by consumer playback devices. For example, you can convert
 -- large, high-quality digital media files into formats that users can play
 -- back on mobile devices, tablets, web browsers, and connected televisions.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.ElasticTranscoder.V2012_09_25.Trans
     (
     -- * CancelJob
@@ -54,6 +57,7 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.Trans
     , updatePipelineStatus
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.ElasticTranscoder.V2012_09_25
     ) where
 

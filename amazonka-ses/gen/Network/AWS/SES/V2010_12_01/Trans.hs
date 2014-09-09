@@ -19,6 +19,9 @@
 -- high deliverability, Amazon SES provides easy, real-time access to your
 -- sending statistics and built-in notifications for bounces, complaints, and
 -- deliveries to help you fine-tune your email-sending strategy.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.SES.V2010_12_01.Trans
     (
     -- * DeleteIdentity
@@ -59,6 +62,7 @@ module Network.AWS.SES.V2010_12_01.Trans
     , verifyEmailIdentity
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.SES.V2010_12_01
     ) where
 

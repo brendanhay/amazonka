@@ -15,6 +15,9 @@
 -- and applications. With AWS OpsWorks, you can provision AWS resources,
 -- manage their configuration, deploy applications to those resources, and
 -- monitor their health.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.OpsWorks.V2013_02_18.Trans
     (
     -- * AssignVolume
@@ -139,6 +142,7 @@ module Network.AWS.OpsWorks.V2013_02_18.Trans
     , updateVolume
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.OpsWorks.V2013_02_18
     ) where
 

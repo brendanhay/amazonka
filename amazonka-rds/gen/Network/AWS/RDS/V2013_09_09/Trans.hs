@@ -16,6 +16,9 @@
 -- It provides cost-efficient and resizable capacity while managing
 -- time-consuming database administration tasks, freeing you up to focus on
 -- your applications and business.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.RDS.V2013_09_09.Trans
     (
     -- * DownloadDBLogFilePortion
@@ -124,6 +127,7 @@ module Network.AWS.RDS.V2013_09_09.Trans
     , revokeDBSecurityGroupIngress
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.RDS.V2013_09_09
     ) where
 

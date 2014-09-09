@@ -21,6 +21,9 @@
 -- resources powering your application and can access the underlying resources
 -- at any time. There is no additional charge for Elastic Beanstalk - you pay
 -- only for the AWS resources needed to store and run your applications.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.ElasticBeanstalk.V2010_12_01.Trans
     (
     -- * CheckDNSAvailability
@@ -83,6 +86,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.Trans
     , validateConfigurationSettings
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.ElasticBeanstalk.V2010_12_01
     ) where
 

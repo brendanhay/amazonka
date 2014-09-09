@@ -25,6 +25,9 @@
 -- can focus on application development without worrying about infrastructure
 -- provisioning, high availability, software maintenance, schema and index
 -- management, or performance tuning.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.SimpleDB.V2009_04_15.Trans
     (
     -- * BatchDeleteAttributes
@@ -49,6 +52,7 @@ module Network.AWS.SimpleDB.V2009_04_15.Trans
     , select
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.SimpleDB.V2009_04_15
     ) where
 

@@ -20,6 +20,9 @@
 -- full control over implementing tasks and coordinating them without worrying
 -- about underlying complexities such as tracking their progress and
 -- maintaining their state.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.SWF.V2012_01_25.Trans
     (
     -- * CountClosedWorkflowExecutions
@@ -86,6 +89,7 @@ module Network.AWS.SWF.V2012_01_25.Trans
     , terminateWorkflowExecution
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.SWF.V2012_01_25
     ) where
 

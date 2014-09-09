@@ -22,6 +22,9 @@
 -- resources are deployed, you can modify and update them in a controlled and
 -- predictable way, in effect applying version control to your AWS
 -- infrastructure the same way you do with your software.
+--
+-- The 'State' operator variants from 'Control.Lens' such as '.=' can be
+-- used to modify any additional request parameters before sending.
 module Network.AWS.CloudFormation.V2010_05_15.Trans
     (
     -- * CancelUpdateStack
@@ -56,6 +59,7 @@ module Network.AWS.CloudFormation.V2010_05_15.Trans
     , validateTemplate
 
     -- * Re-exported
+    , module Control.Monad.Trans.AWS
     , module Network.AWS.CloudFormation.V2010_05_15
     ) where
 

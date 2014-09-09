@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.SNS.V2010_03_31.Monadic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -165,8 +166,7 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.SNS.V2010_03_31
 
-type ServiceErr = SNSError
-
+type ServiceEr = Er SNS
 
 -- $AddPermission
 -- Adds a statement to a topic's access control policy, granting access for
@@ -211,7 +211,7 @@ addPermissionCatch :: ( MonadCatch m
     -> [Text] -- ^ 'apAWSAccountId'
     -> [Text] -- ^ 'apActionName'
     -> State AddPermission a
-    -> m (Either ServiceErr AddPermissionResponse)
+    -> m (Either ServiceEr AddPermissionResponse)
 addPermissionCatch p1 p2 p3 p4 s =
     sendCatch $ (mkAddPermission p1 p2 p3 p4) &~ s
 
@@ -257,7 +257,7 @@ confirmSubscriptionCatch :: ( MonadCatch m
     => Text -- ^ 'csTopicArn'
     -> Text -- ^ 'csToken'
     -> State ConfirmSubscription a
-    -> m (Either ServiceErr ConfirmSubscriptionResponse)
+    -> m (Either ServiceEr ConfirmSubscriptionResponse)
 confirmSubscriptionCatch p1 p2 s =
     sendCatch $ (mkConfirmSubscription p1 p2) &~ s
 
@@ -317,7 +317,7 @@ createPlatformApplicationCatch :: ( MonadCatch m
     -> Text -- ^ 'cpaPlatform'
     -> Map Text Text -- ^ 'cpaAttributes'
     -> State CreatePlatformApplication a
-    -> m (Either ServiceErr CreatePlatformApplicationResponse)
+    -> m (Either ServiceEr CreatePlatformApplicationResponse)
 createPlatformApplicationCatch p1 p2 p3 s =
     sendCatch $ (mkCreatePlatformApplication p1 p2 p3) &~ s
 
@@ -373,7 +373,7 @@ createPlatformEndpointCatch :: ( MonadCatch m
     => Text -- ^ 'cpePlatformApplicationArn'
     -> Text -- ^ 'cpeToken'
     -> State CreatePlatformEndpoint a
-    -> m (Either ServiceErr CreatePlatformEndpointResponse)
+    -> m (Either ServiceEr CreatePlatformEndpointResponse)
 createPlatformEndpointCatch p1 p2 s =
     sendCatch $ (mkCreatePlatformEndpoint p1 p2) &~ s
 
@@ -414,7 +414,7 @@ createTopicCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'ctName'
     -> State CreateTopic a
-    -> m (Either ServiceErr CreateTopicResponse)
+    -> m (Either ServiceEr CreateTopicResponse)
 createTopicCatch p1 s =
     sendCatch $ (mkCreateTopic p1) &~ s
 
@@ -452,7 +452,7 @@ deleteEndpointCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'deEndpointArn'
     -> State DeleteEndpoint a
-    -> m (Either ServiceErr DeleteEndpointResponse)
+    -> m (Either ServiceEr DeleteEndpointResponse)
 deleteEndpointCatch p1 s =
     sendCatch $ (mkDeleteEndpoint p1) &~ s
 
@@ -492,7 +492,7 @@ deletePlatformApplicationCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'dpaPlatformApplicationArn'
     -> State DeletePlatformApplication a
-    -> m (Either ServiceErr DeletePlatformApplicationResponse)
+    -> m (Either ServiceEr DeletePlatformApplicationResponse)
 deletePlatformApplicationCatch p1 s =
     sendCatch $ (mkDeletePlatformApplication p1) &~ s
 
@@ -531,7 +531,7 @@ deleteTopicCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'dtTopicArn'
     -> State DeleteTopic a
-    -> m (Either ServiceErr DeleteTopicResponse)
+    -> m (Either ServiceEr DeleteTopicResponse)
 deleteTopicCatch p1 s =
     sendCatch $ (mkDeleteTopic p1) &~ s
 
@@ -578,7 +578,7 @@ getEndpointAttributesCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'geaEndpointArn'
     -> State GetEndpointAttributes a
-    -> m (Either ServiceErr GetEndpointAttributesResponse)
+    -> m (Either ServiceEr GetEndpointAttributesResponse)
 getEndpointAttributesCatch p1 s =
     sendCatch $ (mkGetEndpointAttributes p1) &~ s
 
@@ -622,7 +622,7 @@ getPlatformApplicationAttributesCatch :: ( MonadCatch m
                                          )
     => Text -- ^ 'gpaaPlatformApplicationArn'
     -> State GetPlatformApplicationAttributes a
-    -> m (Either ServiceErr GetPlatformApplicationAttributesResponse)
+    -> m (Either ServiceEr GetPlatformApplicationAttributesResponse)
 getPlatformApplicationAttributesCatch p1 s =
     sendCatch $ (mkGetPlatformApplicationAttributes p1) &~ s
 
@@ -666,7 +666,7 @@ getSubscriptionAttributesCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'gsaSubscriptionArn'
     -> State GetSubscriptionAttributes a
-    -> m (Either ServiceErr GetSubscriptionAttributesResponse)
+    -> m (Either ServiceEr GetSubscriptionAttributesResponse)
 getSubscriptionAttributesCatch p1 s =
     sendCatch $ (mkGetSubscriptionAttributes p1) &~ s
 
@@ -717,7 +717,7 @@ getTopicAttributesCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'gtaTopicArn'
     -> State GetTopicAttributes a
-    -> m (Either ServiceErr GetTopicAttributesResponse)
+    -> m (Either ServiceEr GetTopicAttributesResponse)
 getTopicAttributesCatch p1 s =
     sendCatch $ (mkGetTopicAttributes p1) &~ s
 
@@ -774,7 +774,7 @@ listEndpointsByPlatformApplicationCatch :: ( MonadCatch m
                                            )
     => Text -- ^ 'lebpaPlatformApplicationArn'
     -> State ListEndpointsByPlatformApplication a
-    -> ResumableSource m (Either ServiceErr ListEndpointsByPlatformApplicationResponse)
+    -> ResumableSource m (Either ServiceEr ListEndpointsByPlatformApplicationResponse)
 listEndpointsByPlatformApplicationCatch p1 s =
     paginateCatch $ (mkListEndpointsByPlatformApplication p1) &~ s
 
@@ -828,7 +828,7 @@ listPlatformApplicationsCatch :: ( MonadCatch m
                                  , MonadReader Env (ResumableSource m)
                                  )
     => State ListPlatformApplications a
-    -> ResumableSource m (Either ServiceErr ListPlatformApplicationsResponse)
+    -> ResumableSource m (Either ServiceEr ListPlatformApplicationsResponse)
 listPlatformApplicationsCatch s =
     paginateCatch (mkListPlatformApplications &~ s)
 
@@ -871,7 +871,7 @@ listSubscriptionsCatch :: ( MonadCatch m
                           , MonadReader Env (ResumableSource m)
                           )
     => State ListSubscriptions a
-    -> ResumableSource m (Either ServiceErr ListSubscriptionsResponse)
+    -> ResumableSource m (Either ServiceEr ListSubscriptionsResponse)
 listSubscriptionsCatch s =
     paginateCatch (mkListSubscriptions &~ s)
 
@@ -918,7 +918,7 @@ listSubscriptionsByTopicCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'lsbtTopicArn'
     -> State ListSubscriptionsByTopic a
-    -> ResumableSource m (Either ServiceErr ListSubscriptionsByTopicResponse)
+    -> ResumableSource m (Either ServiceEr ListSubscriptionsByTopicResponse)
 listSubscriptionsByTopicCatch p1 s =
     paginateCatch $ (mkListSubscriptionsByTopic p1) &~ s
 
@@ -955,7 +955,7 @@ listTopicsCatch :: ( MonadCatch m
                    , MonadReader Env (ResumableSource m)
                    )
     => State ListTopics a
-    -> ResumableSource m (Either ServiceErr ListTopicsResponse)
+    -> ResumableSource m (Either ServiceEr ListTopicsResponse)
 listTopicsCatch s =
     paginateCatch (mkListTopics &~ s)
 
@@ -1020,7 +1020,7 @@ publishCatch :: ( MonadCatch m
                 )
     => Text -- ^ 'pMessage'
     -> State Publish a
-    -> m (Either ServiceErr PublishResponse)
+    -> m (Either ServiceEr PublishResponse)
 publishCatch p3 s =
     sendCatch $ (mkPublish p3) &~ s
 
@@ -1059,7 +1059,7 @@ removePermissionCatch :: ( MonadCatch m
     => Text -- ^ 'rpTopicArn'
     -> Text -- ^ 'rpLabel'
     -> State RemovePermission a
-    -> m (Either ServiceErr RemovePermissionResponse)
+    -> m (Either ServiceEr RemovePermissionResponse)
 removePermissionCatch p1 p2 s =
     sendCatch $ (mkRemovePermission p1 p2) &~ s
 
@@ -1103,7 +1103,7 @@ setEndpointAttributesCatch :: ( MonadCatch m
     => Text -- ^ 'seaEndpointArn'
     -> Map Text Text -- ^ 'seaAttributes'
     -> State SetEndpointAttributes a
-    -> m (Either ServiceErr SetEndpointAttributesResponse)
+    -> m (Either ServiceEr SetEndpointAttributesResponse)
 setEndpointAttributesCatch p1 p2 s =
     sendCatch $ (mkSetEndpointAttributes p1 p2) &~ s
 
@@ -1148,7 +1148,7 @@ setPlatformApplicationAttributesCatch :: ( MonadCatch m
     => Text -- ^ 'spaaPlatformApplicationArn'
     -> Map Text Text -- ^ 'spaaAttributes'
     -> State SetPlatformApplicationAttributes a
-    -> m (Either ServiceErr SetPlatformApplicationAttributesResponse)
+    -> m (Either ServiceEr SetPlatformApplicationAttributesResponse)
 setPlatformApplicationAttributesCatch p1 p2 s =
     sendCatch $ (mkSetPlatformApplicationAttributes p1 p2) &~ s
 
@@ -1195,7 +1195,7 @@ setSubscriptionAttributesCatch :: ( MonadCatch m
     => Text -- ^ 'ssaSubscriptionArn'
     -> Text -- ^ 'ssaAttributeName'
     -> State SetSubscriptionAttributes a
-    -> m (Either ServiceErr SetSubscriptionAttributesResponse)
+    -> m (Either ServiceEr SetSubscriptionAttributesResponse)
 setSubscriptionAttributesCatch p1 p2 s =
     sendCatch $ (mkSetSubscriptionAttributes p1 p2) &~ s
 
@@ -1249,7 +1249,7 @@ setTopicAttributesCatch :: ( MonadCatch m
     => Text -- ^ 'staTopicArn'
     -> Text -- ^ 'staAttributeName'
     -> State SetTopicAttributes a
-    -> m (Either ServiceErr SetTopicAttributesResponse)
+    -> m (Either ServiceEr SetTopicAttributesResponse)
 setTopicAttributesCatch p1 p2 s =
     sendCatch $ (mkSetTopicAttributes p1 p2) &~ s
 
@@ -1292,7 +1292,7 @@ subscribeCatch :: ( MonadCatch m
     => Text -- ^ 's1TopicArn'
     -> Text -- ^ 's1Protocol'
     -> State Subscribe a
-    -> m (Either ServiceErr SubscribeResponse)
+    -> m (Either ServiceEr SubscribeResponse)
 subscribeCatch p1 p2 s =
     sendCatch $ (mkSubscribe p1 p2) &~ s
 
@@ -1334,6 +1334,6 @@ unsubscribeCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'uSubscriptionArn'
     -> State Unsubscribe a
-    -> m (Either ServiceErr UnsubscribeResponse)
+    -> m (Either ServiceEr UnsubscribeResponse)
 unsubscribeCatch p1 s =
     sendCatch $ (mkUnsubscribe p1) &~ s

@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Redshift.V2012_12_01.Monadic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -300,8 +301,7 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.Redshift.V2012_12_01
 
-type ServiceErr = RedshiftError
-
+type ServiceEr = Er Redshift
 
 -- $AuthorizeClusterSecurityGroupIngress
 -- Adds an inbound (ingress) rule to an Amazon Redshift security group.
@@ -345,7 +345,7 @@ authorizeClusterSecurityGroupIngressCatch :: ( MonadCatch m
                                              )
     => Text -- ^ 'acsgiClusterSecurityGroupName'
     -> State AuthorizeClusterSecurityGroupIngress a
-    -> m (Either ServiceErr AuthorizeClusterSecurityGroupIngressResponse)
+    -> m (Either ServiceEr AuthorizeClusterSecurityGroupIngressResponse)
 authorizeClusterSecurityGroupIngressCatch p1 s =
     sendCatch $ (mkAuthorizeClusterSecurityGroupIngress p1) &~ s
 
@@ -375,7 +375,7 @@ authorizeSnapshotAccessCatch :: ( MonadCatch m
     => Text -- ^ 'asaSnapshotIdentifier'
     -> Text -- ^ 'asaAccountWithRestoreAccess'
     -> State AuthorizeSnapshotAccess a
-    -> m (Either ServiceErr AuthorizeSnapshotAccessResponse)
+    -> m (Either ServiceEr AuthorizeSnapshotAccessResponse)
 authorizeSnapshotAccessCatch p1 p3 s =
     sendCatch $ (mkAuthorizeSnapshotAccess p1 p3) &~ s
 
@@ -421,7 +421,7 @@ copyClusterSnapshotCatch :: ( MonadCatch m
     => Text -- ^ 'ccsSourceSnapshotIdentifier'
     -> Text -- ^ 'ccsTargetSnapshotIdentifier'
     -> State CopyClusterSnapshot a
-    -> m (Either ServiceErr CopyClusterSnapshotResponse)
+    -> m (Either ServiceEr CopyClusterSnapshotResponse)
 copyClusterSnapshotCatch p1 p3 s =
     sendCatch $ (mkCopyClusterSnapshot p1 p3) &~ s
 
@@ -480,7 +480,7 @@ createClusterCatch :: ( MonadCatch m
     -> Text -- ^ 'ccMasterUsername'
     -> Text -- ^ 'ccMasterUserPassword'
     -> State CreateCluster a
-    -> m (Either ServiceErr CreateClusterResponse)
+    -> m (Either ServiceEr CreateClusterResponse)
 createClusterCatch p2 p4 p5 p6 s =
     sendCatch $ (mkCreateCluster p2 p4 p5 p6) &~ s
 
@@ -526,7 +526,7 @@ createClusterParameterGroupCatch :: ( MonadCatch m
     -> Text -- ^ 'ccpgParameterGroupFamily'
     -> Text -- ^ 'ccpgDescription'
     -> State CreateClusterParameterGroup a
-    -> m (Either ServiceErr CreateClusterParameterGroupResponse)
+    -> m (Either ServiceEr CreateClusterParameterGroupResponse)
 createClusterParameterGroupCatch p1 p2 p3 s =
     sendCatch $ (mkCreateClusterParameterGroup p1 p2 p3) &~ s
 
@@ -564,7 +564,7 @@ createClusterSecurityGroupCatch :: ( MonadCatch m
     => Text -- ^ 'ccsgClusterSecurityGroupName'
     -> Text -- ^ 'ccsgDescription'
     -> State CreateClusterSecurityGroup a
-    -> m (Either ServiceErr CreateClusterSecurityGroupResponse)
+    -> m (Either ServiceEr CreateClusterSecurityGroupResponse)
 createClusterSecurityGroupCatch p1 p2 s =
     sendCatch $ (mkCreateClusterSecurityGroup p1 p2) &~ s
 
@@ -603,7 +603,7 @@ createClusterSnapshotCatch :: ( MonadCatch m
     => Text -- ^ 'ccs1SnapshotIdentifier'
     -> Text -- ^ 'ccs1ClusterIdentifier'
     -> State CreateClusterSnapshot a
-    -> m (Either ServiceErr CreateClusterSnapshotResponse)
+    -> m (Either ServiceEr CreateClusterSnapshotResponse)
 createClusterSnapshotCatch p1 p2 s =
     sendCatch $ (mkCreateClusterSnapshot p1 p2) &~ s
 
@@ -646,7 +646,7 @@ createClusterSubnetGroupCatch :: ( MonadCatch m
     -> Text -- ^ 'ccsg1Description'
     -> [Text] -- ^ 'ccsg1SubnetIds'
     -> State CreateClusterSubnetGroup a
-    -> m (Either ServiceErr CreateClusterSubnetGroupResponse)
+    -> m (Either ServiceEr CreateClusterSubnetGroupResponse)
 createClusterSubnetGroupCatch p1 p2 p3 s =
     sendCatch $ (mkCreateClusterSubnetGroup p1 p2 p3) &~ s
 
@@ -693,7 +693,7 @@ createEventSubscriptionCatch :: ( MonadCatch m
     => Text -- ^ 'cesSubscriptionName'
     -> Text -- ^ 'cesSnsTopicArn'
     -> State CreateEventSubscription a
-    -> m (Either ServiceErr CreateEventSubscriptionResponse)
+    -> m (Either ServiceEr CreateEventSubscriptionResponse)
 createEventSubscriptionCatch p1 p2 s =
     sendCatch $ (mkCreateEventSubscription p1 p2) &~ s
 
@@ -726,7 +726,7 @@ createHsmClientCertificateCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'chccHsmClientCertificateIdentifier'
     -> State CreateHsmClientCertificate a
-    -> m (Either ServiceErr CreateHsmClientCertificateResponse)
+    -> m (Either ServiceEr CreateHsmClientCertificateResponse)
 createHsmClientCertificateCatch p1 s =
     sendCatch $ (mkCreateHsmClientCertificate p1) &~ s
 
@@ -769,7 +769,7 @@ createHsmConfigurationCatch :: ( MonadCatch m
     -> Text -- ^ 'chcHsmPartitionPassword'
     -> Text -- ^ 'chcHsmServerPublicCertificate'
     -> State CreateHsmConfiguration a
-    -> m (Either ServiceErr CreateHsmConfigurationResponse)
+    -> m (Either ServiceEr CreateHsmConfigurationResponse)
 createHsmConfigurationCatch p1 p2 p3 p4 p5 p6 s =
     sendCatch $ (mkCreateHsmConfiguration p1 p2 p3 p4 p5 p6) &~ s
 
@@ -812,7 +812,7 @@ deleteClusterCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'dcClusterIdentifier'
     -> State DeleteCluster a
-    -> m (Either ServiceErr DeleteClusterResponse)
+    -> m (Either ServiceEr DeleteClusterResponse)
 deleteClusterCatch p1 s =
     sendCatch $ (mkDeleteCluster p1) &~ s
 
@@ -846,7 +846,7 @@ deleteClusterParameterGroupCatch :: ( MonadCatch m
                                     )
     => Text -- ^ 'dcpgParameterGroupName'
     -> State DeleteClusterParameterGroup a
-    -> m (Either ServiceErr DeleteClusterParameterGroupResponse)
+    -> m (Either ServiceEr DeleteClusterParameterGroupResponse)
 deleteClusterParameterGroupCatch p1 s =
     sendCatch $ (mkDeleteClusterParameterGroup p1) &~ s
 
@@ -882,7 +882,7 @@ deleteClusterSecurityGroupCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'dcsgClusterSecurityGroupName'
     -> State DeleteClusterSecurityGroup a
-    -> m (Either ServiceErr DeleteClusterSecurityGroupResponse)
+    -> m (Either ServiceEr DeleteClusterSecurityGroupResponse)
 deleteClusterSecurityGroupCatch p1 s =
     sendCatch $ (mkDeleteClusterSecurityGroup p1) &~ s
 
@@ -923,7 +923,7 @@ deleteClusterSnapshotCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'dcsSnapshotIdentifier'
     -> State DeleteClusterSnapshot a
-    -> m (Either ServiceErr DeleteClusterSnapshotResponse)
+    -> m (Either ServiceEr DeleteClusterSnapshotResponse)
 deleteClusterSnapshotCatch p1 s =
     sendCatch $ (mkDeleteClusterSnapshot p1) &~ s
 
@@ -956,7 +956,7 @@ deleteClusterSubnetGroupCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'dcsg1ClusterSubnetGroupName'
     -> State DeleteClusterSubnetGroup a
-    -> m (Either ServiceErr DeleteClusterSubnetGroupResponse)
+    -> m (Either ServiceEr DeleteClusterSubnetGroupResponse)
 deleteClusterSubnetGroupCatch p1 s =
     sendCatch $ (mkDeleteClusterSubnetGroup p1) &~ s
 
@@ -982,7 +982,7 @@ deleteEventSubscriptionCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'desSubscriptionName'
     -> State DeleteEventSubscription a
-    -> m (Either ServiceErr DeleteEventSubscriptionResponse)
+    -> m (Either ServiceEr DeleteEventSubscriptionResponse)
 deleteEventSubscriptionCatch p1 s =
     sendCatch $ (mkDeleteEventSubscription p1) &~ s
 
@@ -1008,7 +1008,7 @@ deleteHsmClientCertificateCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'dhccHsmClientCertificateIdentifier'
     -> State DeleteHsmClientCertificate a
-    -> m (Either ServiceErr DeleteHsmClientCertificateResponse)
+    -> m (Either ServiceEr DeleteHsmClientCertificateResponse)
 deleteHsmClientCertificateCatch p1 s =
     sendCatch $ (mkDeleteHsmClientCertificate p1) &~ s
 
@@ -1034,7 +1034,7 @@ deleteHsmConfigurationCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'dhcHsmConfigurationIdentifier'
     -> State DeleteHsmConfiguration a
-    -> m (Either ServiceErr DeleteHsmConfigurationResponse)
+    -> m (Either ServiceEr DeleteHsmConfigurationResponse)
 deleteHsmConfigurationCatch p1 s =
     sendCatch $ (mkDeleteHsmConfiguration p1) &~ s
 
@@ -1072,7 +1072,7 @@ describeClusterParameterGroupsCatch :: ( MonadCatch m
                                        , MonadReader Env (ResumableSource m)
                                        )
     => State DescribeClusterParameterGroups a
-    -> ResumableSource m (Either ServiceErr DescribeClusterParameterGroupsResponse)
+    -> ResumableSource m (Either ServiceEr DescribeClusterParameterGroupsResponse)
 describeClusterParameterGroupsCatch s =
     paginateCatch (mkDescribeClusterParameterGroups &~ s)
 
@@ -1124,7 +1124,7 @@ describeClusterParametersCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'dcpParameterGroupName'
     -> State DescribeClusterParameters a
-    -> ResumableSource m (Either ServiceErr DescribeClusterParametersResponse)
+    -> ResumableSource m (Either ServiceEr DescribeClusterParametersResponse)
 describeClusterParametersCatch p1 s =
     paginateCatch $ (mkDescribeClusterParameters p1) &~ s
 
@@ -1159,7 +1159,7 @@ describeClusterSecurityGroupsCatch :: ( MonadCatch m
                                       , MonadReader Env (ResumableSource m)
                                       )
     => State DescribeClusterSecurityGroups a
-    -> ResumableSource m (Either ServiceErr DescribeClusterSecurityGroupsResponse)
+    -> ResumableSource m (Either ServiceEr DescribeClusterSecurityGroupsResponse)
 describeClusterSecurityGroupsCatch s =
     paginateCatch (mkDescribeClusterSecurityGroups &~ s)
 
@@ -1197,7 +1197,7 @@ describeClusterSnapshotsCatch :: ( MonadCatch m
                                  , MonadReader Env (ResumableSource m)
                                  )
     => State DescribeClusterSnapshots a
-    -> ResumableSource m (Either ServiceErr DescribeClusterSnapshotsResponse)
+    -> ResumableSource m (Either ServiceEr DescribeClusterSnapshotsResponse)
 describeClusterSnapshotsCatch s =
     paginateCatch (mkDescribeClusterSnapshots &~ s)
 
@@ -1231,7 +1231,7 @@ describeClusterSubnetGroupsCatch :: ( MonadCatch m
                                     , MonadReader Env (ResumableSource m)
                                     )
     => State DescribeClusterSubnetGroups a
-    -> ResumableSource m (Either ServiceErr DescribeClusterSubnetGroupsResponse)
+    -> ResumableSource m (Either ServiceEr DescribeClusterSubnetGroupsResponse)
 describeClusterSubnetGroupsCatch s =
     paginateCatch (mkDescribeClusterSubnetGroups &~ s)
 
@@ -1265,7 +1265,7 @@ describeClusterVersionsCatch :: ( MonadCatch m
                                 , MonadReader Env (ResumableSource m)
                                 )
     => State DescribeClusterVersions a
-    -> ResumableSource m (Either ServiceErr DescribeClusterVersionsResponse)
+    -> ResumableSource m (Either ServiceEr DescribeClusterVersionsResponse)
 describeClusterVersionsCatch s =
     paginateCatch (mkDescribeClusterVersions &~ s)
 
@@ -1302,7 +1302,7 @@ describeClustersCatch :: ( MonadCatch m
                          , MonadReader Env (ResumableSource m)
                          )
     => State DescribeClusters a
-    -> ResumableSource m (Either ServiceErr DescribeClustersResponse)
+    -> ResumableSource m (Either ServiceEr DescribeClustersResponse)
 describeClustersCatch s =
     paginateCatch (mkDescribeClusters &~ s)
 
@@ -1348,7 +1348,7 @@ describeDefaultClusterParametersCatch :: ( MonadCatch m
                                          )
     => Text -- ^ 'ddcpParameterGroupFamily'
     -> State DescribeDefaultClusterParameters a
-    -> ResumableSource m (Either ServiceErr DescribeDefaultClusterParametersResponse)
+    -> ResumableSource m (Either ServiceEr DescribeDefaultClusterParametersResponse)
 describeDefaultClusterParametersCatch p1 s =
     paginateCatch $ (mkDescribeDefaultClusterParameters p1) &~ s
 
@@ -1374,7 +1374,7 @@ describeEventCategoriesCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => State DescribeEventCategories a
-    -> m (Either ServiceErr DescribeEventCategoriesResponse)
+    -> m (Either ServiceEr DescribeEventCategoriesResponse)
 describeEventCategoriesCatch s =
     sendCatch (mkDescribeEventCategories &~ s)
 
@@ -1400,7 +1400,7 @@ describeEventSubscriptionsCatch :: ( MonadCatch m
                                    , MonadReader Env (ResumableSource m)
                                    )
     => State DescribeEventSubscriptions a
-    -> ResumableSource m (Either ServiceErr DescribeEventSubscriptionsResponse)
+    -> ResumableSource m (Either ServiceEr DescribeEventSubscriptionsResponse)
 describeEventSubscriptionsCatch s =
     paginateCatch (mkDescribeEventSubscriptions &~ s)
 
@@ -1436,7 +1436,7 @@ describeEventsCatch :: ( MonadCatch m
                        , MonadReader Env (ResumableSource m)
                        )
     => State DescribeEvents a
-    -> ResumableSource m (Either ServiceErr DescribeEventsResponse)
+    -> ResumableSource m (Either ServiceEr DescribeEventsResponse)
 describeEventsCatch s =
     paginateCatch (mkDescribeEvents &~ s)
 
@@ -1462,7 +1462,7 @@ describeHsmClientCertificatesCatch :: ( MonadCatch m
                                       , MonadReader Env (ResumableSource m)
                                       )
     => State DescribeHsmClientCertificates a
-    -> ResumableSource m (Either ServiceErr DescribeHsmClientCertificatesResponse)
+    -> ResumableSource m (Either ServiceEr DescribeHsmClientCertificatesResponse)
 describeHsmClientCertificatesCatch s =
     paginateCatch (mkDescribeHsmClientCertificates &~ s)
 
@@ -1488,7 +1488,7 @@ describeHsmConfigurationsCatch :: ( MonadCatch m
                                   , MonadReader Env (ResumableSource m)
                                   )
     => State DescribeHsmConfigurations a
-    -> ResumableSource m (Either ServiceErr DescribeHsmConfigurationsResponse)
+    -> ResumableSource m (Either ServiceEr DescribeHsmConfigurationsResponse)
 describeHsmConfigurationsCatch s =
     paginateCatch (mkDescribeHsmConfigurations &~ s)
 
@@ -1515,7 +1515,7 @@ describeLoggingStatusCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'dlsClusterIdentifier'
     -> State DescribeLoggingStatus a
-    -> m (Either ServiceErr DescribeLoggingStatusResponse)
+    -> m (Either ServiceEr DescribeLoggingStatusResponse)
 describeLoggingStatusCatch p1 s =
     sendCatch $ (mkDescribeLoggingStatus p1) &~ s
 
@@ -1555,7 +1555,7 @@ describeOrderableClusterOptionsCatch :: ( MonadCatch m
                                         , MonadReader Env (ResumableSource m)
                                         )
     => State DescribeOrderableClusterOptions a
-    -> ResumableSource m (Either ServiceErr DescribeOrderableClusterOptionsResponse)
+    -> ResumableSource m (Either ServiceEr DescribeOrderableClusterOptionsResponse)
 describeOrderableClusterOptionsCatch s =
     paginateCatch (mkDescribeOrderableClusterOptions &~ s)
 
@@ -1596,7 +1596,7 @@ describeReservedNodeOfferingsCatch :: ( MonadCatch m
                                       , MonadReader Env (ResumableSource m)
                                       )
     => State DescribeReservedNodeOfferings a
-    -> ResumableSource m (Either ServiceErr DescribeReservedNodeOfferingsResponse)
+    -> ResumableSource m (Either ServiceEr DescribeReservedNodeOfferingsResponse)
 describeReservedNodeOfferingsCatch s =
     paginateCatch (mkDescribeReservedNodeOfferings &~ s)
 
@@ -1631,7 +1631,7 @@ describeReservedNodesCatch :: ( MonadCatch m
                               , MonadReader Env (ResumableSource m)
                               )
     => State DescribeReservedNodes a
-    -> ResumableSource m (Either ServiceErr DescribeReservedNodesResponse)
+    -> ResumableSource m (Either ServiceEr DescribeReservedNodesResponse)
 describeReservedNodesCatch s =
     paginateCatch (mkDescribeReservedNodes &~ s)
 
@@ -1670,7 +1670,7 @@ describeResizeCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'drClusterIdentifier'
     -> State DescribeResize a
-    -> m (Either ServiceErr DescribeResizeResponse)
+    -> m (Either ServiceEr DescribeResizeResponse)
 describeResizeCatch p1 s =
     sendCatch $ (mkDescribeResize p1) &~ s
 
@@ -1697,7 +1697,7 @@ disableLoggingCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'dlClusterIdentifier'
     -> State DisableLogging a
-    -> m (Either ServiceErr DisableLoggingResponse)
+    -> m (Either ServiceEr DisableLoggingResponse)
 disableLoggingCatch p1 s =
     sendCatch $ (mkDisableLogging p1) &~ s
 
@@ -1724,7 +1724,7 @@ disableSnapshotCopyCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'dscClusterIdentifier'
     -> State DisableSnapshotCopy a
-    -> m (Either ServiceErr DisableSnapshotCopyResponse)
+    -> m (Either ServiceEr DisableSnapshotCopyResponse)
 disableSnapshotCopyCatch p1 s =
     sendCatch $ (mkDisableSnapshotCopy p1) &~ s
 
@@ -1753,7 +1753,7 @@ enableLoggingCatch :: ( MonadCatch m
     => Text -- ^ 'elClusterIdentifier'
     -> Text -- ^ 'elBucketName'
     -> State EnableLogging a
-    -> m (Either ServiceErr EnableLoggingResponse)
+    -> m (Either ServiceEr EnableLoggingResponse)
 enableLoggingCatch p1 p2 s =
     sendCatch $ (mkEnableLogging p1 p2) &~ s
 
@@ -1782,7 +1782,7 @@ enableSnapshotCopyCatch :: ( MonadCatch m
     => Text -- ^ 'escClusterIdentifier'
     -> Text -- ^ 'escDestinationRegion'
     -> State EnableSnapshotCopy a
-    -> m (Either ServiceErr EnableSnapshotCopyResponse)
+    -> m (Either ServiceEr EnableSnapshotCopyResponse)
 enableSnapshotCopyCatch p1 p2 s =
     sendCatch $ (mkEnableSnapshotCopy p1 p2) &~ s
 
@@ -1831,7 +1831,7 @@ modifyClusterCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'mcClusterIdentifier'
     -> State ModifyCluster a
-    -> m (Either ServiceErr ModifyClusterResponse)
+    -> m (Either ServiceEr ModifyClusterResponse)
 modifyClusterCatch p1 s =
     sendCatch $ (mkModifyCluster p1) &~ s
 
@@ -1872,7 +1872,7 @@ modifyClusterParameterGroupCatch :: ( MonadCatch m
     => Text -- ^ 'mcpgParameterGroupName'
     -> [Parameter] -- ^ 'mcpgParameters'
     -> State ModifyClusterParameterGroup a
-    -> m (Either ServiceErr ModifyClusterParameterGroupResponse)
+    -> m (Either ServiceEr ModifyClusterParameterGroupResponse)
 modifyClusterParameterGroupCatch p1 p2 s =
     sendCatch $ (mkModifyClusterParameterGroup p1 p2) &~ s
 
@@ -1902,7 +1902,7 @@ modifyClusterSubnetGroupCatch :: ( MonadCatch m
     => Text -- ^ 'mcsgClusterSubnetGroupName'
     -> [Text] -- ^ 'mcsgSubnetIds'
     -> State ModifyClusterSubnetGroup a
-    -> m (Either ServiceErr ModifyClusterSubnetGroupResponse)
+    -> m (Either ServiceEr ModifyClusterSubnetGroupResponse)
 modifyClusterSubnetGroupCatch p1 p3 s =
     sendCatch $ (mkModifyClusterSubnetGroup p1 p3) &~ s
 
@@ -1928,7 +1928,7 @@ modifyEventSubscriptionCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'mesSubscriptionName'
     -> State ModifyEventSubscription a
-    -> m (Either ServiceErr ModifyEventSubscriptionResponse)
+    -> m (Either ServiceEr ModifyEventSubscriptionResponse)
 modifyEventSubscriptionCatch p1 s =
     sendCatch $ (mkModifyEventSubscription p1) &~ s
 
@@ -1957,7 +1957,7 @@ modifySnapshotCopyRetentionPeriodCatch :: ( MonadCatch m
     => Text -- ^ 'mscrpClusterIdentifier'
     -> Integer -- ^ 'mscrpRetentionPeriod'
     -> State ModifySnapshotCopyRetentionPeriod a
-    -> m (Either ServiceErr ModifySnapshotCopyRetentionPeriodResponse)
+    -> m (Either ServiceEr ModifySnapshotCopyRetentionPeriodResponse)
 modifySnapshotCopyRetentionPeriodCatch p1 p2 s =
     sendCatch $ (mkModifySnapshotCopyRetentionPeriod p1 p2) &~ s
 
@@ -1999,7 +1999,7 @@ purchaseReservedNodeOfferingCatch :: ( MonadCatch m
                                      )
     => Text -- ^ 'prnoReservedNodeOfferingId'
     -> State PurchaseReservedNodeOffering a
-    -> m (Either ServiceErr PurchaseReservedNodeOfferingResponse)
+    -> m (Either ServiceEr PurchaseReservedNodeOfferingResponse)
 purchaseReservedNodeOfferingCatch p1 s =
     sendCatch $ (mkPurchaseReservedNodeOffering p1) &~ s
 
@@ -2040,7 +2040,7 @@ rebootClusterCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'rc1ClusterIdentifier'
     -> State RebootCluster a
-    -> m (Either ServiceErr RebootClusterResponse)
+    -> m (Either ServiceEr RebootClusterResponse)
 rebootClusterCatch p1 s =
     sendCatch $ (mkRebootCluster p1) &~ s
 
@@ -2078,7 +2078,7 @@ resetClusterParameterGroupCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'rcpgParameterGroupName'
     -> State ResetClusterParameterGroup a
-    -> m (Either ServiceErr ResetClusterParameterGroupResponse)
+    -> m (Either ServiceEr ResetClusterParameterGroupResponse)
 resetClusterParameterGroupCatch p1 s =
     sendCatch $ (mkResetClusterParameterGroup p1) &~ s
 
@@ -2125,7 +2125,7 @@ restoreFromClusterSnapshotCatch :: ( MonadCatch m
     => Text -- ^ 'rfcsClusterIdentifier'
     -> Text -- ^ 'rfcsSnapshotIdentifier'
     -> State RestoreFromClusterSnapshot a
-    -> m (Either ServiceErr RestoreFromClusterSnapshotResponse)
+    -> m (Either ServiceEr RestoreFromClusterSnapshotResponse)
 restoreFromClusterSnapshotCatch p1 p2 s =
     sendCatch $ (mkRestoreFromClusterSnapshot p1 p2) &~ s
 
@@ -2163,7 +2163,7 @@ revokeClusterSecurityGroupIngressCatch :: ( MonadCatch m
                                           )
     => Text -- ^ 'rcsgiClusterSecurityGroupName'
     -> State RevokeClusterSecurityGroupIngress a
-    -> m (Either ServiceErr RevokeClusterSecurityGroupIngressResponse)
+    -> m (Either ServiceEr RevokeClusterSecurityGroupIngressResponse)
 revokeClusterSecurityGroupIngressCatch p1 s =
     sendCatch $ (mkRevokeClusterSecurityGroupIngress p1) &~ s
 
@@ -2195,7 +2195,7 @@ revokeSnapshotAccessCatch :: ( MonadCatch m
     => Text -- ^ 'rsaSnapshotIdentifier'
     -> Text -- ^ 'rsaAccountWithRestoreAccess'
     -> State RevokeSnapshotAccess a
-    -> m (Either ServiceErr RevokeSnapshotAccessResponse)
+    -> m (Either ServiceEr RevokeSnapshotAccessResponse)
 revokeSnapshotAccessCatch p1 p3 s =
     sendCatch $ (mkRevokeSnapshotAccess p1 p3) &~ s
 
@@ -2221,6 +2221,6 @@ rotateEncryptionKeyCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'rekClusterIdentifier'
     -> State RotateEncryptionKey a
-    -> m (Either ServiceErr RotateEncryptionKeyResponse)
+    -> m (Either ServiceEr RotateEncryptionKeyResponse)
 rotateEncryptionKeyCatch p1 s =
     sendCatch $ (mkRotateEncryptionKey p1) &~ s

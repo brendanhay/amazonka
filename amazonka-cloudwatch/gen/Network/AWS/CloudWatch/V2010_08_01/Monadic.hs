@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.CloudWatch.V2010_08_01.Monadic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -94,8 +95,7 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CloudWatch.V2010_08_01
 
-type ServiceErr = CloudWatchError
-
+type ServiceEr = Er CloudWatch
 
 -- $DeleteAlarms
 -- Deletes all specified alarms. In the event of an error, no alarms are
@@ -120,7 +120,7 @@ deleteAlarmsCatch :: ( MonadCatch m
                      )
     => [Text] -- ^ 'daAlarmNames'
     -> State DeleteAlarms a
-    -> m (Either ServiceErr DeleteAlarmsResponse)
+    -> m (Either ServiceEr DeleteAlarmsResponse)
 deleteAlarmsCatch p1 s =
     sendCatch $ (mkDeleteAlarms p1) &~ s
 
@@ -147,7 +147,7 @@ describeAlarmHistoryCatch :: ( MonadCatch m
                              , MonadReader Env (ResumableSource m)
                              )
     => State DescribeAlarmHistory a
-    -> ResumableSource m (Either ServiceErr DescribeAlarmHistoryResponse)
+    -> ResumableSource m (Either ServiceEr DescribeAlarmHistoryResponse)
 describeAlarmHistoryCatch s =
     paginateCatch (mkDescribeAlarmHistory &~ s)
 
@@ -173,7 +173,7 @@ describeAlarmsCatch :: ( MonadCatch m
                        , MonadReader Env (ResumableSource m)
                        )
     => State DescribeAlarms a
-    -> ResumableSource m (Either ServiceErr DescribeAlarmsResponse)
+    -> ResumableSource m (Either ServiceEr DescribeAlarmsResponse)
 describeAlarmsCatch s =
     paginateCatch (mkDescribeAlarms &~ s)
 
@@ -202,7 +202,7 @@ describeAlarmsForMetricCatch :: ( MonadCatch m
     => Text -- ^ 'dafmMetricName'
     -> Text -- ^ 'dafmNamespace'
     -> State DescribeAlarmsForMetric a
-    -> m (Either ServiceErr DescribeAlarmsForMetricResponse)
+    -> m (Either ServiceEr DescribeAlarmsForMetricResponse)
 describeAlarmsForMetricCatch p1 p2 s =
     sendCatch $ (mkDescribeAlarmsForMetric p1 p2) &~ s
 
@@ -230,7 +230,7 @@ disableAlarmActionsCatch :: ( MonadCatch m
                             )
     => [Text] -- ^ 'daaAlarmNames'
     -> State DisableAlarmActions a
-    -> m (Either ServiceErr DisableAlarmActionsResponse)
+    -> m (Either ServiceEr DisableAlarmActionsResponse)
 disableAlarmActionsCatch p1 s =
     sendCatch $ (mkDisableAlarmActions p1) &~ s
 
@@ -256,7 +256,7 @@ enableAlarmActionsCatch :: ( MonadCatch m
                            )
     => [Text] -- ^ 'eaaAlarmNames'
     -> State EnableAlarmActions a
-    -> m (Either ServiceErr EnableAlarmActionsResponse)
+    -> m (Either ServiceEr EnableAlarmActionsResponse)
 enableAlarmActionsCatch p1 s =
     sendCatch $ (mkEnableAlarmActions p1) &~ s
 
@@ -309,7 +309,7 @@ getMetricStatisticsCatch :: ( MonadCatch m
     -> Integer -- ^ 'gmsPeriod'
     -> List1 Statistic -- ^ 'gmsStatistics'
     -> State GetMetricStatistics a
-    -> m (Either ServiceErr GetMetricStatisticsResponse)
+    -> m (Either ServiceEr GetMetricStatisticsResponse)
 getMetricStatisticsCatch p1 p2 p4 p5 p6 p7 s =
     sendCatch $ (mkGetMetricStatistics p1 p2 p4 p5 p6 p7) &~ s
 
@@ -339,7 +339,7 @@ listMetricsCatch :: ( MonadCatch m
                     , MonadReader Env (ResumableSource m)
                     )
     => State ListMetrics a
-    -> ResumableSource m (Either ServiceErr ListMetricsResponse)
+    -> ResumableSource m (Either ServiceEr ListMetricsResponse)
 listMetricsCatch s =
     paginateCatch (mkListMetrics &~ s)
 
@@ -385,7 +385,7 @@ putMetricAlarmCatch :: ( MonadCatch m
     -> Text -- ^ 'pmaNamespace'
     -> Statistic -- ^ 'pmaStatistic'
     -> State PutMetricAlarm a
-    -> m (Either ServiceErr PutMetricAlarmResponse)
+    -> m (Either ServiceEr PutMetricAlarmResponse)
 putMetricAlarmCatch p1 p11 p13 p14 p15 p7 p8 p9 s =
     sendCatch $ (mkPutMetricAlarm p1 p11 p13 p14 p15 p7 p8 p9) &~ s
 
@@ -423,7 +423,7 @@ putMetricDataCatch :: ( MonadCatch m
     => Text -- ^ 'pmdNamespace'
     -> [MetricDatum] -- ^ 'pmdMetricData'
     -> State PutMetricData a
-    -> m (Either ServiceErr PutMetricDataResponse)
+    -> m (Either ServiceEr PutMetricDataResponse)
 putMetricDataCatch p1 p2 s =
     sendCatch $ (mkPutMetricData p1 p2) &~ s
 
@@ -456,6 +456,6 @@ setAlarmStateCatch :: ( MonadCatch m
     -> StateValue -- ^ 'sasStateValue'
     -> Text -- ^ 'sasStateReason'
     -> State SetAlarmState a
-    -> m (Either ServiceErr SetAlarmStateResponse)
+    -> m (Either ServiceEr SetAlarmStateResponse)
 setAlarmStateCatch p1 p2 p3 s =
     sendCatch $ (mkSetAlarmState p1 p2 p3) &~ s

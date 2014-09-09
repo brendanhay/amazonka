@@ -1,8 +1,7 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE NoImplicitPrelude #-}
-{-# LANGUAGE TypeFamilies      #-}
 
--- Module      : Network.AWS.AutoScaling.V2011_01_01.Monadic
+-- Module      : Network.AWS.AutoScaling.V2011_01_01.Trans
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -23,7 +22,7 @@
 --
 -- The 'State' operator variants from "Control.Lens.Setter" such as '.='
 -- can be used to modify any additional request parameters before sending.
-module Network.AWS.AutoScaling.V2011_01_01.Monadic
+module Network.AWS.AutoScaling.V2011_01_01.Trans
     (
     -- * AttachInstances
     -- $AttachInstances
@@ -263,7 +262,8 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.AutoScaling.V2011_01_01
 
-type ServiceEr = Er AutoScaling
+type ServiceErr = AutoScalingError
+
 
 -- $AttachInstances
 -- Attaches one or more Amazon EC2 instances to an existing Auto Scaling
@@ -292,7 +292,7 @@ attachInstancesCatch :: ( MonadCatch m
     => List1 Text -- ^ 'aiInstanceIds'
     -> Text -- ^ 'aiAutoScalingGroupName'
     -> State AttachInstances a
-    -> m (Either ServiceEr AttachInstancesResponse)
+    -> m (Either ServiceErr AttachInstancesResponse)
 attachInstancesCatch p1 p2 s =
     sendCatch $ (mkAttachInstances p1 p2) &~ s
 
@@ -334,7 +334,7 @@ completeLifecycleActionCatch :: ( MonadCatch m
     -> Text -- ^ 'claLifecycleActionToken'
     -> Text -- ^ 'claLifecycleActionResult'
     -> State CompleteLifecycleAction a
-    -> m (Either ServiceEr CompleteLifecycleActionResponse)
+    -> m (Either ServiceErr CompleteLifecycleActionResponse)
 completeLifecycleActionCatch p1 p2 p3 p4 s =
     sendCatch $ (mkCompleteLifecycleAction p1 p2 p3 p4) &~ s
 
@@ -375,7 +375,7 @@ createAutoScalingGroupCatch :: ( MonadCatch m
     -> Integer -- ^ 'casgMinSize'
     -> Integer -- ^ 'casgMaxSize'
     -> State CreateAutoScalingGroup a
-    -> m (Either ServiceEr CreateAutoScalingGroupResponse)
+    -> m (Either ServiceErr CreateAutoScalingGroupResponse)
 createAutoScalingGroupCatch p1 p4 p5 s =
     sendCatch $ (mkCreateAutoScalingGroup p1 p4 p5) &~ s
 
@@ -410,7 +410,7 @@ createLaunchConfigurationCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'clcLaunchConfigurationName'
     -> State CreateLaunchConfiguration a
-    -> m (Either ServiceEr CreateLaunchConfigurationResponse)
+    -> m (Either ServiceErr CreateLaunchConfigurationResponse)
 createLaunchConfigurationCatch p1 s =
     sendCatch $ (mkCreateLaunchConfiguration p1) &~ s
 
@@ -446,7 +446,7 @@ createOrUpdateTagsCatch :: ( MonadCatch m
                            )
     => [Tag] -- ^ 'coutTags'
     -> State CreateOrUpdateTags a
-    -> m (Either ServiceEr CreateOrUpdateTagsResponse)
+    -> m (Either ServiceErr CreateOrUpdateTagsResponse)
 createOrUpdateTagsCatch p1 s =
     sendCatch $ (mkCreateOrUpdateTags p1) &~ s
 
@@ -478,7 +478,7 @@ deleteAutoScalingGroupCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'dasgAutoScalingGroupName'
     -> State DeleteAutoScalingGroup a
-    -> m (Either ServiceEr DeleteAutoScalingGroupResponse)
+    -> m (Either ServiceErr DeleteAutoScalingGroupResponse)
 deleteAutoScalingGroupCatch p1 s =
     sendCatch $ (mkDeleteAutoScalingGroup p1) &~ s
 
@@ -509,7 +509,7 @@ deleteLaunchConfigurationCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'dlcLaunchConfigurationName'
     -> State DeleteLaunchConfiguration a
-    -> m (Either ServiceEr DeleteLaunchConfigurationResponse)
+    -> m (Either ServiceErr DeleteLaunchConfigurationResponse)
 deleteLaunchConfigurationCatch p1 s =
     sendCatch $ (mkDeleteLaunchConfiguration p1) &~ s
 
@@ -539,7 +539,7 @@ deleteLifecycleHookCatch :: ( MonadCatch m
     => Text -- ^ 'dlhLifecycleHookName'
     -> Text -- ^ 'dlhAutoScalingGroupName'
     -> State DeleteLifecycleHook a
-    -> m (Either ServiceEr DeleteLifecycleHookResponse)
+    -> m (Either ServiceErr DeleteLifecycleHookResponse)
 deleteLifecycleHookCatch p1 p2 s =
     sendCatch $ (mkDeleteLifecycleHook p1 p2) &~ s
 
@@ -567,7 +567,7 @@ deleteNotificationConfigurationCatch :: ( MonadCatch m
     => Text -- ^ 'dncAutoScalingGroupName'
     -> Text -- ^ 'dncTopicARN'
     -> State DeleteNotificationConfiguration a
-    -> m (Either ServiceEr DeleteNotificationConfigurationResponse)
+    -> m (Either ServiceErr DeleteNotificationConfigurationResponse)
 deleteNotificationConfigurationCatch p1 p2 s =
     sendCatch $ (mkDeleteNotificationConfiguration p1 p2) &~ s
 
@@ -593,7 +593,7 @@ deletePolicyCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'dpPolicyName'
     -> State DeletePolicy a
-    -> m (Either ServiceEr DeletePolicyResponse)
+    -> m (Either ServiceErr DeletePolicyResponse)
 deletePolicyCatch p2 s =
     sendCatch $ (mkDeletePolicy p2) &~ s
 
@@ -620,7 +620,7 @@ deleteScheduledActionCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'dsaScheduledActionName'
     -> State DeleteScheduledAction a
-    -> m (Either ServiceEr DeleteScheduledActionResponse)
+    -> m (Either ServiceErr DeleteScheduledActionResponse)
 deleteScheduledActionCatch p2 s =
     sendCatch $ (mkDeleteScheduledAction p2) &~ s
 
@@ -646,7 +646,7 @@ deleteTagsCatch :: ( MonadCatch m
                    )
     => [Tag] -- ^ 'dtTags'
     -> State DeleteTags a
-    -> m (Either ServiceEr DeleteTagsResponse)
+    -> m (Either ServiceErr DeleteTagsResponse)
 deleteTagsCatch p1 s =
     sendCatch $ (mkDeleteTags p1) &~ s
 
@@ -678,7 +678,7 @@ describeAccountLimitsCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => State DescribeAccountLimits a
-    -> m (Either ServiceEr DescribeAccountLimitsResponse)
+    -> m (Either ServiceErr DescribeAccountLimitsResponse)
 describeAccountLimitsCatch s =
     sendCatch (mkDescribeAccountLimits &~ s)
 
@@ -705,7 +705,7 @@ describeAdjustmentTypesCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => State DescribeAdjustmentTypes a
-    -> m (Either ServiceEr DescribeAdjustmentTypesResponse)
+    -> m (Either ServiceErr DescribeAdjustmentTypesResponse)
 describeAdjustmentTypesCatch s =
     sendCatch (mkDescribeAdjustmentTypes &~ s)
 
@@ -741,7 +741,7 @@ describeAutoScalingGroupsCatch :: ( MonadCatch m
                                   , MonadReader Env (ResumableSource m)
                                   )
     => State DescribeAutoScalingGroups a
-    -> ResumableSource m (Either ServiceEr DescribeAutoScalingGroupsResponse)
+    -> ResumableSource m (Either ServiceErr DescribeAutoScalingGroupsResponse)
 describeAutoScalingGroupsCatch s =
     paginateCatch (mkDescribeAutoScalingGroups &~ s)
 
@@ -775,7 +775,7 @@ describeAutoScalingInstancesCatch :: ( MonadCatch m
                                      , MonadReader Env (ResumableSource m)
                                      )
     => State DescribeAutoScalingInstances a
-    -> ResumableSource m (Either ServiceEr DescribeAutoScalingInstancesResponse)
+    -> ResumableSource m (Either ServiceErr DescribeAutoScalingInstancesResponse)
 describeAutoScalingInstancesCatch s =
     paginateCatch (mkDescribeAutoScalingInstances &~ s)
 
@@ -800,7 +800,7 @@ describeAutoScalingNotificationTypesCatch :: ( MonadCatch m
                                              , MonadReader Env m
                                              )
     => State DescribeAutoScalingNotificationTypes a
-    -> m (Either ServiceEr DescribeAutoScalingNotificationTypesResponse)
+    -> m (Either ServiceErr DescribeAutoScalingNotificationTypesResponse)
 describeAutoScalingNotificationTypesCatch s =
     sendCatch (mkDescribeAutoScalingNotificationTypes &~ s)
 
@@ -832,7 +832,7 @@ describeLaunchConfigurationsCatch :: ( MonadCatch m
                                      , MonadReader Env (ResumableSource m)
                                      )
     => State DescribeLaunchConfigurations a
-    -> ResumableSource m (Either ServiceEr DescribeLaunchConfigurationsResponse)
+    -> ResumableSource m (Either ServiceErr DescribeLaunchConfigurationsResponse)
 describeLaunchConfigurationsCatch s =
     paginateCatch (mkDescribeLaunchConfigurations &~ s)
 
@@ -856,7 +856,7 @@ describeLifecycleHookTypesCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => State DescribeLifecycleHookTypes a
-    -> m (Either ServiceEr DescribeLifecycleHookTypesResponse)
+    -> m (Either ServiceErr DescribeLifecycleHookTypesResponse)
 describeLifecycleHookTypesCatch s =
     sendCatch (mkDescribeLifecycleHookTypes &~ s)
 
@@ -883,7 +883,7 @@ describeLifecycleHooksCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'dlh1AutoScalingGroupName'
     -> State DescribeLifecycleHooks a
-    -> m (Either ServiceEr DescribeLifecycleHooksResponse)
+    -> m (Either ServiceErr DescribeLifecycleHooksResponse)
 describeLifecycleHooksCatch p1 s =
     sendCatch $ (mkDescribeLifecycleHooks p1) &~ s
 
@@ -915,7 +915,7 @@ describeMetricCollectionTypesCatch :: ( MonadCatch m
                                       , MonadReader Env m
                                       )
     => State DescribeMetricCollectionTypes a
-    -> m (Either ServiceEr DescribeMetricCollectionTypesResponse)
+    -> m (Either ServiceErr DescribeMetricCollectionTypesResponse)
 describeMetricCollectionTypesCatch s =
     sendCatch (mkDescribeMetricCollectionTypes &~ s)
 
@@ -940,7 +940,7 @@ describeNotificationConfigurationsCatch :: ( MonadCatch m
                                            , MonadReader Env (ResumableSource m)
                                            )
     => State DescribeNotificationConfigurations a
-    -> ResumableSource m (Either ServiceEr DescribeNotificationConfigurationsResponse)
+    -> ResumableSource m (Either ServiceErr DescribeNotificationConfigurationsResponse)
 describeNotificationConfigurationsCatch s =
     paginateCatch (mkDescribeNotificationConfigurations &~ s)
 
@@ -977,7 +977,7 @@ describePoliciesCatch :: ( MonadCatch m
                          , MonadReader Env (ResumableSource m)
                          )
     => State DescribePolicies a
-    -> ResumableSource m (Either ServiceEr DescribePoliciesResponse)
+    -> ResumableSource m (Either ServiceErr DescribePoliciesResponse)
 describePoliciesCatch s =
     paginateCatch (mkDescribePolicies &~ s)
 
@@ -1018,7 +1018,7 @@ describeScalingActivitiesCatch :: ( MonadCatch m
                                   , MonadReader Env (ResumableSource m)
                                   )
     => State DescribeScalingActivities a
-    -> ResumableSource m (Either ServiceEr DescribeScalingActivitiesResponse)
+    -> ResumableSource m (Either ServiceErr DescribeScalingActivitiesResponse)
 describeScalingActivitiesCatch s =
     paginateCatch (mkDescribeScalingActivities &~ s)
 
@@ -1047,7 +1047,7 @@ describeScalingProcessTypesCatch :: ( MonadCatch m
                                     , MonadReader Env m
                                     )
     => State DescribeScalingProcessTypes a
-    -> m (Either ServiceEr DescribeScalingProcessTypesResponse)
+    -> m (Either ServiceErr DescribeScalingProcessTypesResponse)
 describeScalingProcessTypesCatch s =
     sendCatch (mkDescribeScalingProcessTypes &~ s)
 
@@ -1073,7 +1073,7 @@ describeScheduledActionsCatch :: ( MonadCatch m
                                  , MonadReader Env (ResumableSource m)
                                  )
     => State DescribeScheduledActions a
-    -> ResumableSource m (Either ServiceEr DescribeScheduledActionsResponse)
+    -> ResumableSource m (Either ServiceErr DescribeScheduledActionsResponse)
 describeScheduledActionsCatch s =
     paginateCatch (mkDescribeScheduledActions &~ s)
 
@@ -1106,7 +1106,7 @@ describeTagsCatch :: ( MonadCatch m
                      , MonadReader Env (ResumableSource m)
                      )
     => State DescribeTags a
-    -> ResumableSource m (Either ServiceEr DescribeTagsResponse)
+    -> ResumableSource m (Either ServiceErr DescribeTagsResponse)
 describeTagsCatch s =
     paginateCatch (mkDescribeTags &~ s)
 
@@ -1134,7 +1134,7 @@ describeTerminationPolicyTypesCatch :: ( MonadCatch m
                                        , MonadReader Env m
                                        )
     => State DescribeTerminationPolicyTypes a
-    -> m (Either ServiceEr DescribeTerminationPolicyTypesResponse)
+    -> m (Either ServiceErr DescribeTerminationPolicyTypesResponse)
 describeTerminationPolicyTypesCatch s =
     sendCatch (mkDescribeTerminationPolicyTypes &~ s)
 
@@ -1173,7 +1173,7 @@ detachInstancesCatch :: ( MonadCatch m
     => Text -- ^ 'diAutoScalingGroupName'
     -> Bool -- ^ 'diShouldDecrementDesiredCapacity'
     -> State DetachInstances a
-    -> m (Either ServiceEr DetachInstancesResponse)
+    -> m (Either ServiceErr DetachInstancesResponse)
 detachInstancesCatch p2 p3 s =
     sendCatch $ (mkDetachInstances p2 p3) &~ s
 
@@ -1201,7 +1201,7 @@ disableMetricsCollectionCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'dmcAutoScalingGroupName'
     -> State DisableMetricsCollection a
-    -> m (Either ServiceEr DisableMetricsCollectionResponse)
+    -> m (Either ServiceErr DisableMetricsCollectionResponse)
 disableMetricsCollectionCatch p1 s =
     sendCatch $ (mkDisableMetricsCollection p1) &~ s
 
@@ -1233,7 +1233,7 @@ enableMetricsCollectionCatch :: ( MonadCatch m
     => Text -- ^ 'emcAutoScalingGroupName'
     -> Text -- ^ 'emcGranularity'
     -> State EnableMetricsCollection a
-    -> m (Either ServiceEr EnableMetricsCollectionResponse)
+    -> m (Either ServiceErr EnableMetricsCollectionResponse)
 enableMetricsCollectionCatch p1 p3 s =
     sendCatch $ (mkEnableMetricsCollection p1 p3) &~ s
 
@@ -1271,7 +1271,7 @@ enterStandbyCatch :: ( MonadCatch m
     => Text -- ^ 'esAutoScalingGroupName'
     -> Bool -- ^ 'esShouldDecrementDesiredCapacity'
     -> State EnterStandby a
-    -> m (Either ServiceEr EnterStandbyResponse)
+    -> m (Either ServiceErr EnterStandbyResponse)
 enterStandbyCatch p2 p3 s =
     sendCatch $ (mkEnterStandby p2 p3) &~ s
 
@@ -1297,7 +1297,7 @@ executePolicyCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'epPolicyName'
     -> State ExecutePolicy a
-    -> m (Either ServiceEr ExecutePolicyResponse)
+    -> m (Either ServiceErr ExecutePolicyResponse)
 executePolicyCatch p2 s =
     sendCatch $ (mkExecutePolicy p2) &~ s
 
@@ -1332,7 +1332,7 @@ exitStandbyCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'es1AutoScalingGroupName'
     -> State ExitStandby a
-    -> m (Either ServiceEr ExitStandbyResponse)
+    -> m (Either ServiceErr ExitStandbyResponse)
 exitStandbyCatch p2 s =
     sendCatch $ (mkExitStandby p2) &~ s
 
@@ -1378,7 +1378,7 @@ putLifecycleHookCatch :: ( MonadCatch m
     => Text -- ^ 'plhLifecycleHookName'
     -> Text -- ^ 'plhAutoScalingGroupName'
     -> State PutLifecycleHook a
-    -> m (Either ServiceEr PutLifecycleHookResponse)
+    -> m (Either ServiceErr PutLifecycleHookResponse)
 putLifecycleHookCatch p1 p2 s =
     sendCatch $ (mkPutLifecycleHook p1 p2) &~ s
 
@@ -1413,7 +1413,7 @@ putNotificationConfigurationCatch :: ( MonadCatch m
     -> Text -- ^ 'pncTopicARN'
     -> [Text] -- ^ 'pncNotificationTypes'
     -> State PutNotificationConfiguration a
-    -> m (Either ServiceEr PutNotificationConfigurationResponse)
+    -> m (Either ServiceErr PutNotificationConfigurationResponse)
 putNotificationConfigurationCatch p1 p2 p3 s =
     sendCatch $ (mkPutNotificationConfiguration p1 p2 p3) &~ s
 
@@ -1455,7 +1455,7 @@ putScalingPolicyCatch :: ( MonadCatch m
     -> Integer -- ^ 'pspScalingAdjustment'
     -> Text -- ^ 'pspAdjustmentType'
     -> State PutScalingPolicy a
-    -> m (Either ServiceEr PutScalingPolicyResponse)
+    -> m (Either ServiceErr PutScalingPolicyResponse)
 putScalingPolicyCatch p1 p2 p3 p4 s =
     sendCatch $ (mkPutScalingPolicy p1 p2 p3 p4) &~ s
 
@@ -1499,7 +1499,7 @@ putScheduledUpdateGroupActionCatch :: ( MonadCatch m
     => Text -- ^ 'psugaAutoScalingGroupName'
     -> Text -- ^ 'psugaScheduledActionName'
     -> State PutScheduledUpdateGroupAction a
-    -> m (Either ServiceEr PutScheduledUpdateGroupActionResponse)
+    -> m (Either ServiceErr PutScheduledUpdateGroupActionResponse)
 putScheduledUpdateGroupActionCatch p1 p2 s =
     sendCatch $ (mkPutScheduledUpdateGroupAction p1 p2) &~ s
 
@@ -1540,7 +1540,7 @@ recordLifecycleActionHeartbeatCatch :: ( MonadCatch m
     -> Text -- ^ 'rlahAutoScalingGroupName'
     -> Text -- ^ 'rlahLifecycleActionToken'
     -> State RecordLifecycleActionHeartbeat a
-    -> m (Either ServiceEr RecordLifecycleActionHeartbeatResponse)
+    -> m (Either ServiceErr RecordLifecycleActionHeartbeatResponse)
 recordLifecycleActionHeartbeatCatch p1 p2 p3 s =
     sendCatch $ (mkRecordLifecycleActionHeartbeat p1 p2 p3) &~ s
 
@@ -1568,7 +1568,7 @@ resumeProcessesCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'rpAutoScalingGroupName'
     -> State ResumeProcesses a
-    -> m (Either ServiceEr ResumeProcessesResponse)
+    -> m (Either ServiceErr ResumeProcessesResponse)
 resumeProcessesCatch p1 s =
     sendCatch $ (mkResumeProcesses p1) &~ s
 
@@ -1600,7 +1600,7 @@ setDesiredCapacityCatch :: ( MonadCatch m
     => Text -- ^ 'sdcAutoScalingGroupName'
     -> Integer -- ^ 'sdcDesiredCapacity'
     -> State SetDesiredCapacity a
-    -> m (Either ServiceEr SetDesiredCapacityResponse)
+    -> m (Either ServiceErr SetDesiredCapacityResponse)
 setDesiredCapacityCatch p1 p2 s =
     sendCatch $ (mkSetDesiredCapacity p1 p2) &~ s
 
@@ -1630,7 +1630,7 @@ setInstanceHealthCatch :: ( MonadCatch m
     => Text -- ^ 'sihInstanceId'
     -> Text -- ^ 'sihHealthStatus'
     -> State SetInstanceHealth a
-    -> m (Either ServiceEr SetInstanceHealthResponse)
+    -> m (Either ServiceErr SetInstanceHealthResponse)
 setInstanceHealthCatch p1 p2 s =
     sendCatch $ (mkSetInstanceHealth p1 p2) &~ s
 
@@ -1663,7 +1663,7 @@ suspendProcessesCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'sp1AutoScalingGroupName'
     -> State SuspendProcesses a
-    -> m (Either ServiceEr SuspendProcessesResponse)
+    -> m (Either ServiceErr SuspendProcessesResponse)
 suspendProcessesCatch p1 s =
     sendCatch $ (mkSuspendProcesses p1) &~ s
 
@@ -1693,7 +1693,7 @@ terminateInstanceInAutoScalingGroupCatch :: ( MonadCatch m
     => Text -- ^ 'tiiasgInstanceId'
     -> Bool -- ^ 'tiiasgShouldDecrementDesiredCapacity'
     -> State TerminateInstanceInAutoScalingGroup a
-    -> m (Either ServiceEr TerminateInstanceInAutoScalingGroupResponse)
+    -> m (Either ServiceErr TerminateInstanceInAutoScalingGroupResponse)
 terminateInstanceInAutoScalingGroupCatch p1 p2 s =
     sendCatch $ (mkTerminateInstanceInAutoScalingGroup p1 p2) &~ s
 
@@ -1748,6 +1748,6 @@ updateAutoScalingGroupCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'uasgAutoScalingGroupName'
     -> State UpdateAutoScalingGroup a
-    -> m (Either ServiceEr UpdateAutoScalingGroupResponse)
+    -> m (Either ServiceErr UpdateAutoScalingGroupResponse)
 updateAutoScalingGroupCatch p1 s =
     sendCatch $ (mkUpdateAutoScalingGroup p1) &~ s

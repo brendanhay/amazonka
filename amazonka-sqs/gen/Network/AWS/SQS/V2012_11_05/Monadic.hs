@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.SQS.V2012_11_05.Monadic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -116,8 +117,7 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.SQS.V2012_11_05
 
-type ServiceErr = SQSError
-
+type ServiceEr = Er SQS
 
 -- $AddPermission
 -- Adds a permission to a queue for a specific principal. This allows for
@@ -168,7 +168,7 @@ addPermissionCatch :: ( MonadCatch m
     -> [Text] -- ^ 'apAWSAccountIds'
     -> [Text] -- ^ 'apActions'
     -> State AddPermission a
-    -> m (Either ServiceErr AddPermissionResponse)
+    -> m (Either ServiceEr AddPermissionResponse)
 addPermissionCatch p1 p2 p3 p4 s =
     sendCatch $ (mkAddPermission p1 p2 p3 p4) &~ s
 
@@ -234,7 +234,7 @@ changeMessageVisibilityCatch :: ( MonadCatch m
     -> Text -- ^ 'cmvReceiptHandle'
     -> Integer -- ^ 'cmvVisibilityTimeout'
     -> State ChangeMessageVisibility a
-    -> m (Either ServiceErr ChangeMessageVisibilityResponse)
+    -> m (Either ServiceEr ChangeMessageVisibilityResponse)
 changeMessageVisibilityCatch p1 p2 p3 s =
     sendCatch $ (mkChangeMessageVisibility p1 p2 p3) &~ s
 
@@ -286,7 +286,7 @@ changeMessageVisibilityBatchCatch :: ( MonadCatch m
     => Text -- ^ 'cmvbQueueUrl'
     -> [ChangeMessageVisibilityBatchRequestEntry] -- ^ 'cmvbEntries'
     -> State ChangeMessageVisibilityBatch a
-    -> m (Either ServiceErr ChangeMessageVisibilityBatchResponse)
+    -> m (Either ServiceEr ChangeMessageVisibilityBatchResponse)
 changeMessageVisibilityBatchCatch p1 p2 s =
     sendCatch $ (mkChangeMessageVisibilityBatch p1 p2) &~ s
 
@@ -336,7 +336,7 @@ createQueueCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'cqQueueName'
     -> State CreateQueue a
-    -> m (Either ServiceErr CreateQueueResponse)
+    -> m (Either ServiceEr CreateQueueResponse)
 createQueueCatch p1 s =
     sendCatch $ (mkCreateQueue p1) &~ s
 
@@ -391,7 +391,7 @@ deleteMessageCatch :: ( MonadCatch m
     => Text -- ^ 'dmQueueUrl'
     -> Text -- ^ 'dmReceiptHandle'
     -> State DeleteMessage a
-    -> m (Either ServiceErr DeleteMessageResponse)
+    -> m (Either ServiceEr DeleteMessageResponse)
 deleteMessageCatch p1 p2 s =
     sendCatch $ (mkDeleteMessage p1 p2) &~ s
 
@@ -439,7 +439,7 @@ deleteMessageBatchCatch :: ( MonadCatch m
     => Text -- ^ 'dmbQueueUrl'
     -> [DeleteMessageBatchRequestEntry] -- ^ 'dmbEntries'
     -> State DeleteMessageBatch a
-    -> m (Either ServiceErr DeleteMessageBatchResponse)
+    -> m (Either ServiceEr DeleteMessageBatchResponse)
 deleteMessageBatchCatch p1 p2 s =
     sendCatch $ (mkDeleteMessageBatch p1 p2) &~ s
 
@@ -481,7 +481,7 @@ deleteQueueCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'dqQueueUrl'
     -> State DeleteQueue a
-    -> m (Either ServiceErr DeleteQueueResponse)
+    -> m (Either ServiceEr DeleteQueueResponse)
 deleteQueueCatch p1 s =
     sendCatch $ (mkDeleteQueue p1) &~ s
 
@@ -555,7 +555,7 @@ getQueueAttributesCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'gqaQueueUrl'
     -> State GetQueueAttributes a
-    -> m (Either ServiceErr GetQueueAttributesResponse)
+    -> m (Either ServiceEr GetQueueAttributesResponse)
 getQueueAttributesCatch p1 s =
     sendCatch $ (mkGetQueueAttributes p1) &~ s
 
@@ -593,7 +593,7 @@ getQueueUrlCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'gquQueueName'
     -> State GetQueueUrl a
-    -> m (Either ServiceErr GetQueueUrlResponse)
+    -> m (Either ServiceEr GetQueueUrlResponse)
 getQueueUrlCatch p1 s =
     sendCatch $ (mkGetQueueUrl p1) &~ s
 
@@ -626,7 +626,7 @@ listDeadLetterSourceQueuesCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'ldlsqQueueUrl'
     -> State ListDeadLetterSourceQueues a
-    -> m (Either ServiceErr ListDeadLetterSourceQueuesResponse)
+    -> m (Either ServiceEr ListDeadLetterSourceQueuesResponse)
 listDeadLetterSourceQueuesCatch p1 s =
     sendCatch $ (mkListDeadLetterSourceQueues p1) &~ s
 
@@ -660,7 +660,7 @@ listQueuesCatch :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => State ListQueues a
-    -> m (Either ServiceErr ListQueuesResponse)
+    -> m (Either ServiceEr ListQueuesResponse)
 listQueuesCatch s =
     sendCatch (mkListQueues &~ s)
 
@@ -723,7 +723,7 @@ receiveMessageCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'rmQueueUrl'
     -> State ReceiveMessage a
-    -> m (Either ServiceErr ReceiveMessageResponse)
+    -> m (Either ServiceEr ReceiveMessageResponse)
 receiveMessageCatch p1 s =
     sendCatch $ (mkReceiveMessage p1) &~ s
 
@@ -760,7 +760,7 @@ removePermissionCatch :: ( MonadCatch m
     => Text -- ^ 'rpQueueUrl'
     -> Text -- ^ 'rpLabel'
     -> State RemovePermission a
-    -> m (Either ServiceErr RemovePermissionResponse)
+    -> m (Either ServiceEr RemovePermissionResponse)
 removePermissionCatch p1 p2 s =
     sendCatch $ (mkRemovePermission p1 p2) &~ s
 
@@ -814,7 +814,7 @@ sendMessageCatch :: ( MonadCatch m
     => Text -- ^ 'smQueueUrl'
     -> Text -- ^ 'smMessageBody'
     -> State SendMessage a
-    -> m (Either ServiceErr SendMessageResponse)
+    -> m (Either ServiceEr SendMessageResponse)
 sendMessageCatch p1 p2 s =
     sendCatch $ (mkSendMessage p1 p2) &~ s
 
@@ -879,7 +879,7 @@ sendMessageBatchCatch :: ( MonadCatch m
     => Text -- ^ 'smbQueueUrl'
     -> [SendMessageBatchRequestEntry] -- ^ 'smbEntries'
     -> State SendMessageBatch a
-    -> m (Either ServiceErr SendMessageBatchResponse)
+    -> m (Either ServiceEr SendMessageBatchResponse)
 sendMessageBatchCatch p1 p2 s =
     sendCatch $ (mkSendMessageBatch p1 p2) &~ s
 
@@ -941,6 +941,6 @@ setQueueAttributesCatch :: ( MonadCatch m
     => Text -- ^ 'sqaQueueUrl'
     -> Map QueueAttributeName Text -- ^ 'sqaAttributes'
     -> State SetQueueAttributes a
-    -> m (Either ServiceErr SetQueueAttributesResponse)
+    -> m (Either ServiceEr SetQueueAttributesResponse)
 setQueueAttributesCatch p1 p2 s =
     sendCatch $ (mkSetQueueAttributes p1 p2) &~ s

@@ -20,9 +20,9 @@
     => State {{ scope.request.name }} a
 {% endfor %}
 {% if scope.pagination %}
-    -> ResumableSource m (Either ServiceErr {{ scope.response.name }})
+    -> ResumableSource m (Either ServiceEr {{ scope.response.name }})
 {% else %}
-    -> m (Either ServiceErr {{ scope.response.name }})
+    -> m (Either ServiceEr {{ scope.response.name }})
 {% endif %}
 {{ scope.request.function }}Catch {% for param in scope.request.params -%} p{{ param.key }} {% endfor -%} s =
 {% if scope.request.params | mapLength > 0 %}

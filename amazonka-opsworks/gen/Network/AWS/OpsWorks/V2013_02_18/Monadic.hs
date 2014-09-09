@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.OpsWorks.V2013_02_18.Monadic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -333,8 +334,7 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.OpsWorks.V2013_02_18
 
-type ServiceErr = OpsWorksError
-
+type ServiceEr = Er OpsWorks
 
 -- $AssignVolume
 -- Assigns one of the stack's registered Amazon EBS volumes to a specified
@@ -364,7 +364,7 @@ assignVolumeCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'avVolumeId'
     -> State AssignVolume a
-    -> m (Either ServiceErr AssignVolumeResponse)
+    -> m (Either ServiceEr AssignVolumeResponse)
 assignVolumeCatch p1 s =
     sendCatch $ (mkAssignVolume p1) &~ s
 
@@ -396,7 +396,7 @@ associateElasticIpCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'aeiElasticIp'
     -> State AssociateElasticIp a
-    -> m (Either ServiceErr AssociateElasticIpResponse)
+    -> m (Either ServiceEr AssociateElasticIpResponse)
 associateElasticIpCatch p1 s =
     sendCatch $ (mkAssociateElasticIp p1) &~ s
 
@@ -431,7 +431,7 @@ attachElasticLoadBalancerCatch :: ( MonadCatch m
     => Text -- ^ 'aelbElasticLoadBalancerName'
     -> Text -- ^ 'aelbLayerId'
     -> State AttachElasticLoadBalancer a
-    -> m (Either ServiceErr AttachElasticLoadBalancerResponse)
+    -> m (Either ServiceEr AttachElasticLoadBalancerResponse)
 attachElasticLoadBalancerCatch p1 p2 s =
     sendCatch $ (mkAttachElasticLoadBalancer p1 p2) &~ s
 
@@ -462,7 +462,7 @@ cloneStackCatch :: ( MonadCatch m
     => Text -- ^ 'csSourceStackId'
     -> Text -- ^ 'csServiceRoleArn'
     -> State CloneStack a
-    -> m (Either ServiceErr CloneStackResponse)
+    -> m (Either ServiceEr CloneStackResponse)
 cloneStackCatch p1 p6 s =
     sendCatch $ (mkCloneStack p1 p6) &~ s
 
@@ -496,7 +496,7 @@ createAppCatch :: ( MonadCatch m
     -> Text -- ^ 'caName'
     -> AppType -- ^ 'caType'
     -> State CreateApp a
-    -> m (Either ServiceErr CreateAppResponse)
+    -> m (Either ServiceEr CreateAppResponse)
 createAppCatch p1 p3 p6 s =
     sendCatch $ (mkCreateApp p1 p3 p6) &~ s
 
@@ -531,7 +531,7 @@ createDeploymentCatch :: ( MonadCatch m
     => Text -- ^ 'cdStackId'
     -> DeploymentCommand -- ^ 'cdCommand'
     -> State CreateDeployment a
-    -> m (Either ServiceErr CreateDeploymentResponse)
+    -> m (Either ServiceEr CreateDeploymentResponse)
 createDeploymentCatch p1 p4 s =
     sendCatch $ (mkCreateDeployment p1 p4) &~ s
 
@@ -565,7 +565,7 @@ createInstanceCatch :: ( MonadCatch m
     -> [Text] -- ^ 'ciLayerIds'
     -> Text -- ^ 'ciInstanceType'
     -> State CreateInstance a
-    -> m (Either ServiceErr CreateInstanceResponse)
+    -> m (Either ServiceEr CreateInstanceResponse)
 createInstanceCatch p1 p2 p3 s =
     sendCatch $ (mkCreateInstance p1 p2 p3) &~ s
 
@@ -606,7 +606,7 @@ createLayerCatch :: ( MonadCatch m
     -> Text -- ^ 'clName'
     -> Text -- ^ 'clShortname'
     -> State CreateLayer a
-    -> m (Either ServiceErr CreateLayerResponse)
+    -> m (Either ServiceEr CreateLayerResponse)
 createLayerCatch p1 p2 p3 p4 s =
     sendCatch $ (mkCreateLayer p1 p2 p3 p4) &~ s
 
@@ -641,7 +641,7 @@ createStackCatch :: ( MonadCatch m
     -> Text -- ^ 'cs1ServiceRoleArn'
     -> Text -- ^ 'cs1DefaultInstanceProfileArn'
     -> State CreateStack a
-    -> m (Either ServiceErr CreateStackResponse)
+    -> m (Either ServiceEr CreateStackResponse)
 createStackCatch p1 p2 p5 p6 s =
     sendCatch $ (mkCreateStack p1 p2 p5 p6) &~ s
 
@@ -669,7 +669,7 @@ createUserProfileCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'cupIamUserArn'
     -> State CreateUserProfile a
-    -> m (Either ServiceErr CreateUserProfileResponse)
+    -> m (Either ServiceEr CreateUserProfileResponse)
 createUserProfileCatch p1 s =
     sendCatch $ (mkCreateUserProfile p1) &~ s
 
@@ -698,7 +698,7 @@ deleteAppCatch :: ( MonadCatch m
                   )
     => Text -- ^ 'daAppId'
     -> State DeleteApp a
-    -> m (Either ServiceErr DeleteAppResponse)
+    -> m (Either ServiceEr DeleteAppResponse)
 deleteAppCatch p1 s =
     sendCatch $ (mkDeleteApp p1) &~ s
 
@@ -729,7 +729,7 @@ deleteInstanceCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'diInstanceId'
     -> State DeleteInstance a
-    -> m (Either ServiceErr DeleteInstanceResponse)
+    -> m (Either ServiceEr DeleteInstanceResponse)
 deleteInstanceCatch p1 s =
     sendCatch $ (mkDeleteInstance p1) &~ s
 
@@ -760,7 +760,7 @@ deleteLayerCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'dlLayerId'
     -> State DeleteLayer a
-    -> m (Either ServiceErr DeleteLayerResponse)
+    -> m (Either ServiceEr DeleteLayerResponse)
 deleteLayerCatch p1 s =
     sendCatch $ (mkDeleteLayer p1) &~ s
 
@@ -790,7 +790,7 @@ deleteStackCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'ds1StackId'
     -> State DeleteStack a
-    -> m (Either ServiceErr DeleteStackResponse)
+    -> m (Either ServiceEr DeleteStackResponse)
 deleteStackCatch p1 s =
     sendCatch $ (mkDeleteStack p1) &~ s
 
@@ -818,7 +818,7 @@ deleteUserProfileCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'dupIamUserArn'
     -> State DeleteUserProfile a
-    -> m (Either ServiceErr DeleteUserProfileResponse)
+    -> m (Either ServiceEr DeleteUserProfileResponse)
 deleteUserProfileCatch p1 s =
     sendCatch $ (mkDeleteUserProfile p1) &~ s
 
@@ -849,7 +849,7 @@ deregisterElasticIpCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'deiElasticIp'
     -> State DeregisterElasticIp a
-    -> m (Either ServiceErr DeregisterElasticIpResponse)
+    -> m (Either ServiceEr DeregisterElasticIpResponse)
 deregisterElasticIpCatch p1 s =
     sendCatch $ (mkDeregisterElasticIp p1) &~ s
 
@@ -875,7 +875,7 @@ deregisterRdsDbInstanceCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'drdiRdsDbInstanceArn'
     -> State DeregisterRdsDbInstance a
-    -> m (Either ServiceErr DeregisterRdsDbInstanceResponse)
+    -> m (Either ServiceEr DeregisterRdsDbInstanceResponse)
 deregisterRdsDbInstanceCatch p1 s =
     sendCatch $ (mkDeregisterRdsDbInstance p1) &~ s
 
@@ -906,7 +906,7 @@ deregisterVolumeCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'dvVolumeId'
     -> State DeregisterVolume a
-    -> m (Either ServiceErr DeregisterVolumeResponse)
+    -> m (Either ServiceEr DeregisterVolumeResponse)
 deregisterVolumeCatch p1 s =
     sendCatch $ (mkDeregisterVolume p1) &~ s
 
@@ -934,7 +934,7 @@ describeAppsCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => State DescribeApps a
-    -> m (Either ServiceErr DescribeAppsResponse)
+    -> m (Either ServiceEr DescribeAppsResponse)
 describeAppsCatch s =
     sendCatch (mkDescribeApps &~ s)
 
@@ -962,7 +962,7 @@ describeCommandsCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => State DescribeCommands a
-    -> m (Either ServiceErr DescribeCommandsResponse)
+    -> m (Either ServiceEr DescribeCommandsResponse)
 describeCommandsCatch s =
     sendCatch (mkDescribeCommands &~ s)
 
@@ -990,7 +990,7 @@ describeDeploymentsCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => State DescribeDeployments a
-    -> m (Either ServiceErr DescribeDeploymentsResponse)
+    -> m (Either ServiceEr DescribeDeploymentsResponse)
 describeDeploymentsCatch s =
     sendCatch (mkDescribeDeployments &~ s)
 
@@ -1018,7 +1018,7 @@ describeElasticIpsCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => State DescribeElasticIps a
-    -> m (Either ServiceErr DescribeElasticIpsResponse)
+    -> m (Either ServiceEr DescribeElasticIpsResponse)
 describeElasticIpsCatch s =
     sendCatch (mkDescribeElasticIps &~ s)
 
@@ -1046,7 +1046,7 @@ describeElasticLoadBalancersCatch :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => State DescribeElasticLoadBalancers a
-    -> m (Either ServiceErr DescribeElasticLoadBalancersResponse)
+    -> m (Either ServiceEr DescribeElasticLoadBalancersResponse)
 describeElasticLoadBalancersCatch s =
     sendCatch (mkDescribeElasticLoadBalancers &~ s)
 
@@ -1074,7 +1074,7 @@ describeInstancesCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => State DescribeInstances a
-    -> m (Either ServiceErr DescribeInstancesResponse)
+    -> m (Either ServiceEr DescribeInstancesResponse)
 describeInstancesCatch s =
     sendCatch (mkDescribeInstances &~ s)
 
@@ -1102,7 +1102,7 @@ describeLayersCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => State DescribeLayers a
-    -> m (Either ServiceErr DescribeLayersResponse)
+    -> m (Either ServiceEr DescribeLayersResponse)
 describeLayersCatch s =
     sendCatch (mkDescribeLayers &~ s)
 
@@ -1133,7 +1133,7 @@ describeLoadBasedAutoScalingCatch :: ( MonadCatch m
                                      )
     => [Text] -- ^ 'dlbasLayerIds'
     -> State DescribeLoadBasedAutoScaling a
-    -> m (Either ServiceErr DescribeLoadBasedAutoScalingResponse)
+    -> m (Either ServiceEr DescribeLoadBasedAutoScalingResponse)
 describeLoadBasedAutoScalingCatch p1 s =
     sendCatch $ (mkDescribeLoadBasedAutoScaling p1) &~ s
 
@@ -1160,7 +1160,7 @@ describeMyUserProfileCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => State DescribeMyUserProfile a
-    -> m (Either ServiceErr DescribeMyUserProfileResponse)
+    -> m (Either ServiceEr DescribeMyUserProfileResponse)
 describeMyUserProfileCatch s =
     sendCatch (mkDescribeMyUserProfile &~ s)
 
@@ -1187,7 +1187,7 @@ describePermissionsCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => State DescribePermissions a
-    -> m (Either ServiceErr DescribePermissionsResponse)
+    -> m (Either ServiceEr DescribePermissionsResponse)
 describePermissionsCatch s =
     sendCatch (mkDescribePermissions &~ s)
 
@@ -1215,7 +1215,7 @@ describeRaidArraysCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => State DescribeRaidArrays a
-    -> m (Either ServiceErr DescribeRaidArraysResponse)
+    -> m (Either ServiceEr DescribeRaidArraysResponse)
 describeRaidArraysCatch s =
     sendCatch (mkDescribeRaidArrays &~ s)
 
@@ -1241,7 +1241,7 @@ describeRdsDbInstancesCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'drdi1StackId'
     -> State DescribeRdsDbInstances a
-    -> m (Either ServiceErr DescribeRdsDbInstancesResponse)
+    -> m (Either ServiceEr DescribeRdsDbInstancesResponse)
 describeRdsDbInstancesCatch p1 s =
     sendCatch $ (mkDescribeRdsDbInstances p1) &~ s
 
@@ -1268,7 +1268,7 @@ describeServiceErrorsCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => State DescribeServiceErrors a
-    -> m (Either ServiceErr DescribeServiceErrorsResponse)
+    -> m (Either ServiceEr DescribeServiceErrorsResponse)
 describeServiceErrorsCatch s =
     sendCatch (mkDescribeServiceErrors &~ s)
 
@@ -1299,7 +1299,7 @@ describeStackSummaryCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'dssStackId'
     -> State DescribeStackSummary a
-    -> m (Either ServiceErr DescribeStackSummaryResponse)
+    -> m (Either ServiceEr DescribeStackSummaryResponse)
 describeStackSummaryCatch p1 s =
     sendCatch $ (mkDescribeStackSummary p1) &~ s
 
@@ -1327,7 +1327,7 @@ describeStacksCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => State DescribeStacks a
-    -> m (Either ServiceErr DescribeStacksResponse)
+    -> m (Either ServiceEr DescribeStacksResponse)
 describeStacksCatch s =
     sendCatch (mkDescribeStacks &~ s)
 
@@ -1358,7 +1358,7 @@ describeTimeBasedAutoScalingCatch :: ( MonadCatch m
                                      )
     => [Text] -- ^ 'dtbasInstanceIds'
     -> State DescribeTimeBasedAutoScaling a
-    -> m (Either ServiceErr DescribeTimeBasedAutoScalingResponse)
+    -> m (Either ServiceEr DescribeTimeBasedAutoScalingResponse)
 describeTimeBasedAutoScalingCatch p1 s =
     sendCatch $ (mkDescribeTimeBasedAutoScaling p1) &~ s
 
@@ -1384,7 +1384,7 @@ describeUserProfilesCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => State DescribeUserProfiles a
-    -> m (Either ServiceErr DescribeUserProfilesResponse)
+    -> m (Either ServiceEr DescribeUserProfilesResponse)
 describeUserProfilesCatch s =
     sendCatch (mkDescribeUserProfiles &~ s)
 
@@ -1412,7 +1412,7 @@ describeVolumesCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => State DescribeVolumes a
-    -> m (Either ServiceErr DescribeVolumesResponse)
+    -> m (Either ServiceEr DescribeVolumesResponse)
 describeVolumesCatch s =
     sendCatch (mkDescribeVolumes &~ s)
 
@@ -1444,7 +1444,7 @@ detachElasticLoadBalancerCatch :: ( MonadCatch m
     => Text -- ^ 'delb1ElasticLoadBalancerName'
     -> Text -- ^ 'delb1LayerId'
     -> State DetachElasticLoadBalancer a
-    -> m (Either ServiceErr DetachElasticLoadBalancerResponse)
+    -> m (Either ServiceEr DetachElasticLoadBalancerResponse)
 detachElasticLoadBalancerCatch p1 p2 s =
     sendCatch $ (mkDetachElasticLoadBalancer p1 p2) &~ s
 
@@ -1475,7 +1475,7 @@ disassociateElasticIpCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'dei2ElasticIp'
     -> State DisassociateElasticIp a
-    -> m (Either ServiceErr DisassociateElasticIpResponse)
+    -> m (Either ServiceEr DisassociateElasticIpResponse)
 disassociateElasticIpCatch p1 s =
     sendCatch $ (mkDisassociateElasticIp p1) &~ s
 
@@ -1505,7 +1505,7 @@ getHostnameSuggestionCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'ghsLayerId'
     -> State GetHostnameSuggestion a
-    -> m (Either ServiceErr GetHostnameSuggestionResponse)
+    -> m (Either ServiceEr GetHostnameSuggestionResponse)
 getHostnameSuggestionCatch p1 s =
     sendCatch $ (mkGetHostnameSuggestion p1) &~ s
 
@@ -1535,7 +1535,7 @@ rebootInstanceCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'riInstanceId'
     -> State RebootInstance a
-    -> m (Either ServiceErr RebootInstanceResponse)
+    -> m (Either ServiceEr RebootInstanceResponse)
 rebootInstanceCatch p1 s =
     sendCatch $ (mkRebootInstance p1) &~ s
 
@@ -1569,7 +1569,7 @@ registerElasticIpCatch :: ( MonadCatch m
     => Text -- ^ 'reiElasticIp'
     -> Text -- ^ 'reiStackId'
     -> State RegisterElasticIp a
-    -> m (Either ServiceErr RegisterElasticIpResponse)
+    -> m (Either ServiceEr RegisterElasticIpResponse)
 registerElasticIpCatch p1 p2 s =
     sendCatch $ (mkRegisterElasticIp p1 p2) &~ s
 
@@ -1601,7 +1601,7 @@ registerRdsDbInstanceCatch :: ( MonadCatch m
     -> Text -- ^ 'rrdiDbUser'
     -> Text -- ^ 'rrdiDbPassword'
     -> State RegisterRdsDbInstance a
-    -> m (Either ServiceErr RegisterRdsDbInstanceResponse)
+    -> m (Either ServiceEr RegisterRdsDbInstanceResponse)
 registerRdsDbInstanceCatch p1 p2 p3 p4 s =
     sendCatch $ (mkRegisterRdsDbInstance p1 p2 p3 p4) &~ s
 
@@ -1633,7 +1633,7 @@ registerVolumeCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'rvStackId'
     -> State RegisterVolume a
-    -> m (Either ServiceErr RegisterVolumeResponse)
+    -> m (Either ServiceEr RegisterVolumeResponse)
 registerVolumeCatch p2 s =
     sendCatch $ (mkRegisterVolume p2) &~ s
 
@@ -1668,7 +1668,7 @@ setLoadBasedAutoScalingCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'slbasLayerId'
     -> State SetLoadBasedAutoScaling a
-    -> m (Either ServiceErr SetLoadBasedAutoScalingResponse)
+    -> m (Either ServiceEr SetLoadBasedAutoScalingResponse)
 setLoadBasedAutoScalingCatch p1 s =
     sendCatch $ (mkSetLoadBasedAutoScaling p1) &~ s
 
@@ -1700,7 +1700,7 @@ setPermissionCatch :: ( MonadCatch m
     => Text -- ^ 'spStackId'
     -> Text -- ^ 'spIamUserArn'
     -> State SetPermission a
-    -> m (Either ServiceErr SetPermissionResponse)
+    -> m (Either ServiceEr SetPermissionResponse)
 setPermissionCatch p1 p2 s =
     sendCatch $ (mkSetPermission p1 p2) &~ s
 
@@ -1731,7 +1731,7 @@ setTimeBasedAutoScalingCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'stbasInstanceId'
     -> State SetTimeBasedAutoScaling a
-    -> m (Either ServiceErr SetTimeBasedAutoScalingResponse)
+    -> m (Either ServiceEr SetTimeBasedAutoScalingResponse)
 setTimeBasedAutoScalingCatch p1 s =
     sendCatch $ (mkSetTimeBasedAutoScaling p1) &~ s
 
@@ -1761,7 +1761,7 @@ startInstanceCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'siInstanceId'
     -> State StartInstance a
-    -> m (Either ServiceErr StartInstanceResponse)
+    -> m (Either ServiceEr StartInstanceResponse)
 startInstanceCatch p1 s =
     sendCatch $ (mkStartInstance p1) &~ s
 
@@ -1790,7 +1790,7 @@ startStackCatch :: ( MonadCatch m
                    )
     => Text -- ^ 'ss1StackId'
     -> State StartStack a
-    -> m (Either ServiceErr StartStackResponse)
+    -> m (Either ServiceEr StartStackResponse)
 startStackCatch p1 s =
     sendCatch $ (mkStartStack p1) &~ s
 
@@ -1823,7 +1823,7 @@ stopInstanceCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'si1InstanceId'
     -> State StopInstance a
-    -> m (Either ServiceErr StopInstanceResponse)
+    -> m (Either ServiceEr StopInstanceResponse)
 stopInstanceCatch p1 s =
     sendCatch $ (mkStopInstance p1) &~ s
 
@@ -1852,7 +1852,7 @@ stopStackCatch :: ( MonadCatch m
                   )
     => Text -- ^ 'ss2StackId'
     -> State StopStack a
-    -> m (Either ServiceErr StopStackResponse)
+    -> m (Either ServiceEr StopStackResponse)
 stopStackCatch p1 s =
     sendCatch $ (mkStopStack p1) &~ s
 
@@ -1883,7 +1883,7 @@ unassignVolumeCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'uvVolumeId'
     -> State UnassignVolume a
-    -> m (Either ServiceErr UnassignVolumeResponse)
+    -> m (Either ServiceEr UnassignVolumeResponse)
 unassignVolumeCatch p1 s =
     sendCatch $ (mkUnassignVolume p1) &~ s
 
@@ -1912,7 +1912,7 @@ updateAppCatch :: ( MonadCatch m
                   )
     => Text -- ^ 'uaAppId'
     -> State UpdateApp a
-    -> m (Either ServiceErr UpdateAppResponse)
+    -> m (Either ServiceEr UpdateAppResponse)
 updateAppCatch p1 s =
     sendCatch $ (mkUpdateApp p1) &~ s
 
@@ -1942,7 +1942,7 @@ updateElasticIpCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'ueiElasticIp'
     -> State UpdateElasticIp a
-    -> m (Either ServiceErr UpdateElasticIpResponse)
+    -> m (Either ServiceEr UpdateElasticIpResponse)
 updateElasticIpCatch p1 s =
     sendCatch $ (mkUpdateElasticIp p1) &~ s
 
@@ -1971,7 +1971,7 @@ updateInstanceCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'uiInstanceId'
     -> State UpdateInstance a
-    -> m (Either ServiceErr UpdateInstanceResponse)
+    -> m (Either ServiceEr UpdateInstanceResponse)
 updateInstanceCatch p1 s =
     sendCatch $ (mkUpdateInstance p1) &~ s
 
@@ -2000,7 +2000,7 @@ updateLayerCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'ulLayerId'
     -> State UpdateLayer a
-    -> m (Either ServiceErr UpdateLayerResponse)
+    -> m (Either ServiceEr UpdateLayerResponse)
 updateLayerCatch p1 s =
     sendCatch $ (mkUpdateLayer p1) &~ s
 
@@ -2027,7 +2027,7 @@ updateMyUserProfileCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => State UpdateMyUserProfile a
-    -> m (Either ServiceErr UpdateMyUserProfileResponse)
+    -> m (Either ServiceEr UpdateMyUserProfileResponse)
 updateMyUserProfileCatch s =
     sendCatch (mkUpdateMyUserProfile &~ s)
 
@@ -2053,7 +2053,7 @@ updateRdsDbInstanceCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'urdiRdsDbInstanceArn'
     -> State UpdateRdsDbInstance a
-    -> m (Either ServiceErr UpdateRdsDbInstanceResponse)
+    -> m (Either ServiceEr UpdateRdsDbInstanceResponse)
 updateRdsDbInstanceCatch p1 s =
     sendCatch $ (mkUpdateRdsDbInstance p1) &~ s
 
@@ -2082,7 +2082,7 @@ updateStackCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'usStackId'
     -> State UpdateStack a
-    -> m (Either ServiceErr UpdateStackResponse)
+    -> m (Either ServiceEr UpdateStackResponse)
 updateStackCatch p1 s =
     sendCatch $ (mkUpdateStack p1) &~ s
 
@@ -2111,7 +2111,7 @@ updateUserProfileCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'uupIamUserArn'
     -> State UpdateUserProfile a
-    -> m (Either ServiceErr UpdateUserProfileResponse)
+    -> m (Either ServiceEr UpdateUserProfileResponse)
 updateUserProfileCatch p1 s =
     sendCatch $ (mkUpdateUserProfile p1) &~ s
 
@@ -2141,6 +2141,6 @@ updateVolumeCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'uv1VolumeId'
     -> State UpdateVolume a
-    -> m (Either ServiceErr UpdateVolumeResponse)
+    -> m (Either ServiceEr UpdateVolumeResponse)
 updateVolumeCatch p1 s =
     sendCatch $ (mkUpdateVolume p1) &~ s

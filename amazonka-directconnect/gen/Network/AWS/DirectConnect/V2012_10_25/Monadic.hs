@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.DirectConnect.V2012_10_25.Monadic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -130,8 +131,7 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.DirectConnect.V2012_10_25
 
-type ServiceErr = DirectConnectError
-
+type ServiceEr = Er DirectConnect
 
 -- $AllocateConnectionOnInterconnect
 -- Creates a hosted connection on an interconnect. Allocates a VLAN number and
@@ -165,7 +165,7 @@ allocateConnectionOnInterconnectCatch :: ( MonadCatch m
     -> Text -- ^ 'acoiInterconnectId'
     -> Integer -- ^ 'acoiVlan'
     -> State AllocateConnectionOnInterconnect a
-    -> m (Either ServiceErr AllocateConnectionOnInterconnectResponse)
+    -> m (Either ServiceEr AllocateConnectionOnInterconnectResponse)
 allocateConnectionOnInterconnectCatch p1 p2 p3 p4 p5 s =
     sendCatch $ (mkAllocateConnectionOnInterconnect p1 p2 p3 p4 p5) &~ s
 
@@ -201,7 +201,7 @@ allocatePrivateVirtualInterfaceCatch :: ( MonadCatch m
     -> Text -- ^ 'apviOwnerAccount'
     -> NewPrivateVirtualInterfaceAllocation -- ^ 'apviNewPrivateVirtualInterfaceAllocation'
     -> State AllocatePrivateVirtualInterface a
-    -> m (Either ServiceErr AllocatePrivateVirtualInterfaceResponse)
+    -> m (Either ServiceEr AllocatePrivateVirtualInterfaceResponse)
 allocatePrivateVirtualInterfaceCatch p1 p2 p3 s =
     sendCatch $ (mkAllocatePrivateVirtualInterface p1 p2 p3) &~ s
 
@@ -237,7 +237,7 @@ allocatePublicVirtualInterfaceCatch :: ( MonadCatch m
     -> Text -- ^ 'apvi1OwnerAccount'
     -> NewPublicVirtualInterfaceAllocation -- ^ 'apvi1NewPublicVirtualInterfaceAllocation'
     -> State AllocatePublicVirtualInterface a
-    -> m (Either ServiceErr AllocatePublicVirtualInterfaceResponse)
+    -> m (Either ServiceEr AllocatePublicVirtualInterfaceResponse)
 allocatePublicVirtualInterfaceCatch p1 p2 p3 s =
     sendCatch $ (mkAllocatePublicVirtualInterface p1 p2 p3) &~ s
 
@@ -266,7 +266,7 @@ confirmConnectionCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'ccConnectionId'
     -> State ConfirmConnection a
-    -> m (Either ServiceErr ConfirmConnectionResponse)
+    -> m (Either ServiceEr ConfirmConnectionResponse)
 confirmConnectionCatch p1 s =
     sendCatch $ (mkConfirmConnection p1) &~ s
 
@@ -297,7 +297,7 @@ confirmPrivateVirtualInterfaceCatch :: ( MonadCatch m
     => Text -- ^ 'cpviVirtualInterfaceId'
     -> Text -- ^ 'cpviVirtualGatewayId'
     -> State ConfirmPrivateVirtualInterface a
-    -> m (Either ServiceErr ConfirmPrivateVirtualInterfaceResponse)
+    -> m (Either ServiceEr ConfirmPrivateVirtualInterfaceResponse)
 confirmPrivateVirtualInterfaceCatch p1 p2 s =
     sendCatch $ (mkConfirmPrivateVirtualInterface p1 p2) &~ s
 
@@ -325,7 +325,7 @@ confirmPublicVirtualInterfaceCatch :: ( MonadCatch m
                                       )
     => Text -- ^ 'cpvi1VirtualInterfaceId'
     -> State ConfirmPublicVirtualInterface a
-    -> m (Either ServiceErr ConfirmPublicVirtualInterfaceResponse)
+    -> m (Either ServiceEr ConfirmPublicVirtualInterfaceResponse)
 confirmPublicVirtualInterfaceCatch p1 s =
     sendCatch $ (mkConfirmPublicVirtualInterface p1) &~ s
 
@@ -363,7 +363,7 @@ createConnectionCatch :: ( MonadCatch m
     -> Text -- ^ 'cc1Bandwidth'
     -> Text -- ^ 'cc1ConnectionName'
     -> State CreateConnection a
-    -> m (Either ServiceErr CreateConnectionResponse)
+    -> m (Either ServiceEr CreateConnectionResponse)
 createConnectionCatch p1 p2 p3 s =
     sendCatch $ (mkCreateConnection p1 p2 p3) &~ s
 
@@ -405,7 +405,7 @@ createInterconnectCatch :: ( MonadCatch m
     -> Text -- ^ 'ciBandwidth'
     -> Text -- ^ 'ciLocation'
     -> State CreateInterconnect a
-    -> m (Either ServiceErr CreateInterconnectResponse)
+    -> m (Either ServiceEr CreateInterconnectResponse)
 createInterconnectCatch p1 p2 p3 s =
     sendCatch $ (mkCreateInterconnect p1 p2 p3) &~ s
 
@@ -435,7 +435,7 @@ createPrivateVirtualInterfaceCatch :: ( MonadCatch m
     => Text -- ^ 'cpvi2ConnectionId'
     -> NewPrivateVirtualInterface -- ^ 'cpvi2NewPrivateVirtualInterface'
     -> State CreatePrivateVirtualInterface a
-    -> m (Either ServiceErr CreatePrivateVirtualInterfaceResponse)
+    -> m (Either ServiceEr CreatePrivateVirtualInterfaceResponse)
 createPrivateVirtualInterfaceCatch p1 p2 s =
     sendCatch $ (mkCreatePrivateVirtualInterface p1 p2) &~ s
 
@@ -466,7 +466,7 @@ createPublicVirtualInterfaceCatch :: ( MonadCatch m
     => Text -- ^ 'cpvi3ConnectionId'
     -> NewPublicVirtualInterface -- ^ 'cpvi3NewPublicVirtualInterface'
     -> State CreatePublicVirtualInterface a
-    -> m (Either ServiceErr CreatePublicVirtualInterfaceResponse)
+    -> m (Either ServiceEr CreatePublicVirtualInterfaceResponse)
 createPublicVirtualInterfaceCatch p1 p2 s =
     sendCatch $ (mkCreatePublicVirtualInterface p1 p2) &~ s
 
@@ -495,7 +495,7 @@ deleteConnectionCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'dcConnectionId'
     -> State DeleteConnection a
-    -> m (Either ServiceErr DeleteConnectionResponse)
+    -> m (Either ServiceEr DeleteConnectionResponse)
 deleteConnectionCatch p1 s =
     sendCatch $ (mkDeleteConnection p1) &~ s
 
@@ -521,7 +521,7 @@ deleteInterconnectCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'diInterconnectId'
     -> State DeleteInterconnect a
-    -> m (Either ServiceErr DeleteInterconnectResponse)
+    -> m (Either ServiceEr DeleteInterconnectResponse)
 deleteInterconnectCatch p1 s =
     sendCatch $ (mkDeleteInterconnect p1) &~ s
 
@@ -547,7 +547,7 @@ deleteVirtualInterfaceCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'dviVirtualInterfaceId'
     -> State DeleteVirtualInterface a
-    -> m (Either ServiceErr DeleteVirtualInterfaceResponse)
+    -> m (Either ServiceEr DeleteVirtualInterfaceResponse)
 deleteVirtualInterfaceCatch p1 s =
     sendCatch $ (mkDeleteVirtualInterface p1) &~ s
 
@@ -572,7 +572,7 @@ describeConnectionsCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => State DescribeConnections a
-    -> m (Either ServiceErr DescribeConnectionsResponse)
+    -> m (Either ServiceEr DescribeConnectionsResponse)
 describeConnectionsCatch s =
     sendCatch (mkDescribeConnections &~ s)
 
@@ -599,7 +599,7 @@ describeConnectionsOnInterconnectCatch :: ( MonadCatch m
                                           )
     => Text -- ^ 'dcoiInterconnectId'
     -> State DescribeConnectionsOnInterconnect a
-    -> m (Either ServiceErr DescribeConnectionsOnInterconnectResponse)
+    -> m (Either ServiceEr DescribeConnectionsOnInterconnectResponse)
 describeConnectionsOnInterconnectCatch p1 s =
     sendCatch $ (mkDescribeConnectionsOnInterconnect p1) &~ s
 
@@ -625,7 +625,7 @@ describeInterconnectsCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => State DescribeInterconnects a
-    -> m (Either ServiceErr DescribeInterconnectsResponse)
+    -> m (Either ServiceEr DescribeInterconnectsResponse)
 describeInterconnectsCatch s =
     sendCatch (mkDescribeInterconnects &~ s)
 
@@ -651,7 +651,7 @@ describeLocationsCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => State DescribeLocations a
-    -> m (Either ServiceErr DescribeLocationsResponse)
+    -> m (Either ServiceEr DescribeLocationsResponse)
 describeLocationsCatch s =
     sendCatch (mkDescribeLocations &~ s)
 
@@ -679,7 +679,7 @@ describeVirtualGatewaysCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => State DescribeVirtualGateways a
-    -> m (Either ServiceErr DescribeVirtualGatewaysResponse)
+    -> m (Either ServiceEr DescribeVirtualGatewaysResponse)
 describeVirtualGatewaysCatch s =
     sendCatch (mkDescribeVirtualGateways &~ s)
 
@@ -712,6 +712,6 @@ describeVirtualInterfacesCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => State DescribeVirtualInterfaces a
-    -> m (Either ServiceErr DescribeVirtualInterfacesResponse)
+    -> m (Either ServiceEr DescribeVirtualInterfacesResponse)
 describeVirtualInterfacesCatch s =
     sendCatch (mkDescribeVirtualInterfaces &~ s)

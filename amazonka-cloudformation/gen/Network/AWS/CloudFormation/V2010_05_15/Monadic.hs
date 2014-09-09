@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.CloudFormation.V2010_05_15.Monadic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -115,8 +116,7 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CloudFormation.V2010_05_15
 
-type ServiceErr = CloudFormationError
-
+type ServiceEr = Er CloudFormation
 
 -- $CancelUpdateStack
 -- Cancels an update on the specified stack. If the call completes
@@ -147,7 +147,7 @@ cancelUpdateStackCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'cusStackName'
     -> State CancelUpdateStack a
-    -> m (Either ServiceErr CancelUpdateStackResponse)
+    -> m (Either ServiceEr CancelUpdateStackResponse)
 cancelUpdateStackCatch p1 s =
     sendCatch $ (mkCancelUpdateStack p1) &~ s
 
@@ -184,7 +184,7 @@ createStackCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'csStackName'
     -> State CreateStack a
-    -> m (Either ServiceErr CreateStackResponse)
+    -> m (Either ServiceEr CreateStackResponse)
 createStackCatch p1 s =
     sendCatch $ (mkCreateStack p1) &~ s
 
@@ -216,7 +216,7 @@ deleteStackCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'dsStackName'
     -> State DeleteStack a
-    -> m (Either ServiceErr DeleteStackResponse)
+    -> m (Either ServiceEr DeleteStackResponse)
 deleteStackCatch p1 s =
     sendCatch $ (mkDeleteStack p1) &~ s
 
@@ -258,7 +258,7 @@ describeStackEventsCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'dseStackName'
     -> State DescribeStackEvents a
-    -> ResumableSource m (Either ServiceErr DescribeStackEventsResponse)
+    -> ResumableSource m (Either ServiceEr DescribeStackEventsResponse)
 describeStackEventsCatch p1 s =
     paginateCatch $ (mkDescribeStackEvents p1) &~ s
 
@@ -296,7 +296,7 @@ describeStackResourceCatch :: ( MonadCatch m
     => Text -- ^ 'dsrStackName'
     -> Text -- ^ 'dsrLogicalResourceId'
     -> State DescribeStackResource a
-    -> m (Either ServiceErr DescribeStackResourceResponse)
+    -> m (Either ServiceEr DescribeStackResourceResponse)
 describeStackResourceCatch p1 p2 s =
     sendCatch $ (mkDescribeStackResource p1 p2) &~ s
 
@@ -342,7 +342,7 @@ describeStackResourcesCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => State DescribeStackResources a
-    -> m (Either ServiceErr DescribeStackResourcesResponse)
+    -> m (Either ServiceEr DescribeStackResourcesResponse)
 describeStackResourcesCatch s =
     sendCatch (mkDescribeStackResources &~ s)
 
@@ -374,7 +374,7 @@ describeStacksCatch :: ( MonadCatch m
                        , MonadReader Env (ResumableSource m)
                        )
     => State DescribeStacks a
-    -> ResumableSource m (Either ServiceErr DescribeStacksResponse)
+    -> ResumableSource m (Either ServiceEr DescribeStacksResponse)
 describeStacksCatch s =
     paginateCatch (mkDescribeStacks &~ s)
 
@@ -408,7 +408,7 @@ estimateTemplateCostCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => State EstimateTemplateCost a
-    -> m (Either ServiceErr EstimateTemplateCostResponse)
+    -> m (Either ServiceEr EstimateTemplateCostResponse)
 estimateTemplateCostCatch s =
     sendCatch (mkEstimateTemplateCost &~ s)
 
@@ -442,7 +442,7 @@ getStackPolicyCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'gspStackName'
     -> State GetStackPolicy a
-    -> m (Either ServiceErr GetStackPolicyResponse)
+    -> m (Either ServiceEr GetStackPolicyResponse)
 getStackPolicyCatch p1 s =
     sendCatch $ (mkGetStackPolicy p1) &~ s
 
@@ -477,7 +477,7 @@ getTemplateCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'gtStackName'
     -> State GetTemplate a
-    -> m (Either ServiceErr GetTemplateResponse)
+    -> m (Either ServiceEr GetTemplateResponse)
 getTemplateCatch p1 s =
     sendCatch $ (mkGetTemplate p1) &~ s
 
@@ -520,7 +520,7 @@ listStackResourcesCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'lsrStackName'
     -> State ListStackResources a
-    -> ResumableSource m (Either ServiceErr ListStackResourcesResponse)
+    -> ResumableSource m (Either ServiceEr ListStackResourcesResponse)
 listStackResourcesCatch p1 s =
     paginateCatch $ (mkListStackResources p1) &~ s
 
@@ -560,7 +560,7 @@ listStacksCatch :: ( MonadCatch m
                    , MonadReader Env (ResumableSource m)
                    )
     => State ListStacks a
-    -> ResumableSource m (Either ServiceErr ListStacksResponse)
+    -> ResumableSource m (Either ServiceEr ListStacksResponse)
 listStacksCatch s =
     paginateCatch (mkListStacks &~ s)
 
@@ -591,7 +591,7 @@ setStackPolicyCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'sspStackName'
     -> State SetStackPolicy a
-    -> m (Either ServiceErr SetStackPolicyResponse)
+    -> m (Either ServiceEr SetStackPolicyResponse)
 setStackPolicyCatch p1 s =
     sendCatch $ (mkSetStackPolicy p1) &~ s
 
@@ -632,7 +632,7 @@ updateStackCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'usStackName'
     -> State UpdateStack a
-    -> m (Either ServiceErr UpdateStackResponse)
+    -> m (Either ServiceEr UpdateStackResponse)
 updateStackCatch p1 s =
     sendCatch $ (mkUpdateStack p1) &~ s
 
@@ -664,6 +664,6 @@ validateTemplateCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => State ValidateTemplate a
-    -> m (Either ServiceErr ValidateTemplateResponse)
+    -> m (Either ServiceEr ValidateTemplateResponse)
 validateTemplateCatch s =
     sendCatch (mkValidateTemplate &~ s)

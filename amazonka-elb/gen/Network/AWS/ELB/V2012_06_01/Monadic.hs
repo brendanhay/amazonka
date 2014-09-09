@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.ELB.V2012_06_01.Monadic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -174,8 +175,7 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.ELB.V2012_06_01
 
-type ServiceErr = ELBError
-
+type ServiceEr = Er ELB
 
 -- $AddTags
 -- Adds one or more tags for the specified load balancer. Each load balancer
@@ -210,7 +210,7 @@ addTagsCatch :: ( MonadCatch m
     => [Text] -- ^ 'atLoadBalancerNames'
     -> List1 Tag -- ^ 'atTags'
     -> State AddTags a
-    -> m (Either ServiceErr AddTagsResponse)
+    -> m (Either ServiceEr AddTagsResponse)
 addTagsCatch p1 p2 s =
     sendCatch $ (mkAddTags p1 p2) &~ s
 
@@ -246,7 +246,7 @@ applySecurityGroupsToLoadBalancerCatch :: ( MonadCatch m
     => Text -- ^ 'asgtlbLoadBalancerName'
     -> [Text] -- ^ 'asgtlbSecurityGroups'
     -> State ApplySecurityGroupsToLoadBalancer a
-    -> m (Either ServiceErr ApplySecurityGroupsToLoadBalancerResponse)
+    -> m (Either ServiceEr ApplySecurityGroupsToLoadBalancerResponse)
 applySecurityGroupsToLoadBalancerCatch p1 p2 s =
     sendCatch $ (mkApplySecurityGroupsToLoadBalancer p1 p2) &~ s
 
@@ -282,7 +282,7 @@ attachLoadBalancerToSubnetsCatch :: ( MonadCatch m
     => Text -- ^ 'albtsLoadBalancerName'
     -> [Text] -- ^ 'albtsSubnets'
     -> State AttachLoadBalancerToSubnets a
-    -> m (Either ServiceErr AttachLoadBalancerToSubnetsResponse)
+    -> m (Either ServiceEr AttachLoadBalancerToSubnetsResponse)
 attachLoadBalancerToSubnetsCatch p1 p2 s =
     sendCatch $ (mkAttachLoadBalancerToSubnets p1 p2) &~ s
 
@@ -317,7 +317,7 @@ configureHealthCheckCatch :: ( MonadCatch m
     => Text -- ^ 'chcLoadBalancerName'
     -> HealthCheck -- ^ 'chcHealthCheck'
     -> State ConfigureHealthCheck a
-    -> m (Either ServiceErr ConfigureHealthCheckResponse)
+    -> m (Either ServiceEr ConfigureHealthCheckResponse)
 configureHealthCheckCatch p1 p2 s =
     sendCatch $ (mkConfigureHealthCheck p1 p2) &~ s
 
@@ -364,7 +364,7 @@ createAppCookieStickinessPolicyCatch :: ( MonadCatch m
     -> Text -- ^ 'cacspPolicyName'
     -> Text -- ^ 'cacspCookieName'
     -> State CreateAppCookieStickinessPolicy a
-    -> m (Either ServiceErr CreateAppCookieStickinessPolicyResponse)
+    -> m (Either ServiceEr CreateAppCookieStickinessPolicyResponse)
 createAppCookieStickinessPolicyCatch p1 p2 p3 s =
     sendCatch $ (mkCreateAppCookieStickinessPolicy p1 p2 p3) &~ s
 
@@ -409,7 +409,7 @@ createLBCookieStickinessPolicyCatch :: ( MonadCatch m
     => Text -- ^ 'clbcspLoadBalancerName'
     -> Text -- ^ 'clbcspPolicyName'
     -> State CreateLBCookieStickinessPolicy a
-    -> m (Either ServiceErr CreateLBCookieStickinessPolicyResponse)
+    -> m (Either ServiceEr CreateLBCookieStickinessPolicyResponse)
 createLBCookieStickinessPolicyCatch p1 p2 s =
     sendCatch $ (mkCreateLBCookieStickinessPolicy p1 p2) &~ s
 
@@ -502,7 +502,7 @@ createLoadBalancerCatch :: ( MonadCatch m
     => Text -- ^ 'clbLoadBalancerName'
     -> [Listener] -- ^ 'clbListeners'
     -> State CreateLoadBalancer a
-    -> m (Either ServiceErr CreateLoadBalancerResponse)
+    -> m (Either ServiceEr CreateLoadBalancerResponse)
 createLoadBalancerCatch p1 p2 s =
     sendCatch $ (mkCreateLoadBalancer p1 p2) &~ s
 
@@ -543,7 +543,7 @@ createLoadBalancerListenersCatch :: ( MonadCatch m
     => Text -- ^ 'clblLoadBalancerName'
     -> [Listener] -- ^ 'clblListeners'
     -> State CreateLoadBalancerListeners a
-    -> m (Either ServiceErr CreateLoadBalancerListenersResponse)
+    -> m (Either ServiceEr CreateLoadBalancerListenersResponse)
 createLoadBalancerListenersCatch p1 p2 s =
     sendCatch $ (mkCreateLoadBalancerListeners p1 p2) &~ s
 
@@ -582,7 +582,7 @@ createLoadBalancerPolicyCatch :: ( MonadCatch m
     -> Text -- ^ 'clbpPolicyName'
     -> Text -- ^ 'clbpPolicyTypeName'
     -> State CreateLoadBalancerPolicy a
-    -> m (Either ServiceErr CreateLoadBalancerPolicyResponse)
+    -> m (Either ServiceEr CreateLoadBalancerPolicyResponse)
 createLoadBalancerPolicyCatch p1 p2 p3 s =
     sendCatch $ (mkCreateLoadBalancerPolicy p1 p2 p3) &~ s
 
@@ -616,7 +616,7 @@ deleteLoadBalancerCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'dlbLoadBalancerName'
     -> State DeleteLoadBalancer a
-    -> m (Either ServiceErr DeleteLoadBalancerResponse)
+    -> m (Either ServiceEr DeleteLoadBalancerResponse)
 deleteLoadBalancerCatch p1 s =
     sendCatch $ (mkDeleteLoadBalancer p1) &~ s
 
@@ -644,7 +644,7 @@ deleteLoadBalancerListenersCatch :: ( MonadCatch m
     => Text -- ^ 'dlblLoadBalancerName'
     -> [Integer] -- ^ 'dlblLoadBalancerPorts'
     -> State DeleteLoadBalancerListeners a
-    -> m (Either ServiceErr DeleteLoadBalancerListenersResponse)
+    -> m (Either ServiceEr DeleteLoadBalancerListenersResponse)
 deleteLoadBalancerListenersCatch p1 p2 s =
     sendCatch $ (mkDeleteLoadBalancerListeners p1 p2) &~ s
 
@@ -673,7 +673,7 @@ deleteLoadBalancerPolicyCatch :: ( MonadCatch m
     => Text -- ^ 'dlbpLoadBalancerName'
     -> Text -- ^ 'dlbpPolicyName'
     -> State DeleteLoadBalancerPolicy a
-    -> m (Either ServiceErr DeleteLoadBalancerPolicyResponse)
+    -> m (Either ServiceEr DeleteLoadBalancerPolicyResponse)
 deleteLoadBalancerPolicyCatch p1 p2 s =
     sendCatch $ (mkDeleteLoadBalancerPolicy p1 p2) &~ s
 
@@ -712,7 +712,7 @@ deregisterInstancesFromLoadBalancerCatch :: ( MonadCatch m
     => Text -- ^ 'diflbLoadBalancerName'
     -> [Instance] -- ^ 'diflbInstances'
     -> State DeregisterInstancesFromLoadBalancer a
-    -> m (Either ServiceErr DeregisterInstancesFromLoadBalancerResponse)
+    -> m (Either ServiceEr DeregisterInstancesFromLoadBalancerResponse)
 deregisterInstancesFromLoadBalancerCatch p1 p2 s =
     sendCatch $ (mkDeregisterInstancesFromLoadBalancer p1 p2) &~ s
 
@@ -761,7 +761,7 @@ describeInstanceHealthCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'dihLoadBalancerName'
     -> State DescribeInstanceHealth a
-    -> m (Either ServiceErr DescribeInstanceHealthResponse)
+    -> m (Either ServiceEr DescribeInstanceHealthResponse)
 describeInstanceHealthCatch p1 s =
     sendCatch $ (mkDescribeInstanceHealth p1) &~ s
 
@@ -792,7 +792,7 @@ describeLoadBalancerAttributesCatch :: ( MonadCatch m
                                        )
     => Text -- ^ 'dlbaLoadBalancerName'
     -> State DescribeLoadBalancerAttributes a
-    -> m (Either ServiceErr DescribeLoadBalancerAttributesResponse)
+    -> m (Either ServiceEr DescribeLoadBalancerAttributesResponse)
 describeLoadBalancerAttributesCatch p1 s =
     sendCatch $ (mkDescribeLoadBalancerAttributes p1) &~ s
 
@@ -834,7 +834,7 @@ describeLoadBalancerPoliciesCatch :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => State DescribeLoadBalancerPolicies a
-    -> m (Either ServiceErr DescribeLoadBalancerPoliciesResponse)
+    -> m (Either ServiceEr DescribeLoadBalancerPoliciesResponse)
 describeLoadBalancerPoliciesCatch s =
     sendCatch (mkDescribeLoadBalancerPolicies &~ s)
 
@@ -875,7 +875,7 @@ describeLoadBalancerPolicyTypesCatch :: ( MonadCatch m
                                         , MonadReader Env m
                                         )
     => State DescribeLoadBalancerPolicyTypes a
-    -> m (Either ServiceErr DescribeLoadBalancerPolicyTypesResponse)
+    -> m (Either ServiceEr DescribeLoadBalancerPolicyTypesResponse)
 describeLoadBalancerPolicyTypesCatch s =
     sendCatch (mkDescribeLoadBalancerPolicyTypes &~ s)
 
@@ -912,7 +912,7 @@ describeLoadBalancersCatch :: ( MonadCatch m
                               , MonadReader Env (ResumableSource m)
                               )
     => State DescribeLoadBalancers a
-    -> ResumableSource m (Either ServiceErr DescribeLoadBalancersResponse)
+    -> ResumableSource m (Either ServiceEr DescribeLoadBalancersResponse)
 describeLoadBalancersCatch s =
     paginateCatch (mkDescribeLoadBalancers &~ s)
 
@@ -942,7 +942,7 @@ describeTagsCatch :: ( MonadCatch m
                      )
     => List1 Text -- ^ 'dtLoadBalancerNames'
     -> State DescribeTags a
-    -> m (Either ServiceErr DescribeTagsResponse)
+    -> m (Either ServiceEr DescribeTagsResponse)
 describeTagsCatch p1 s =
     sendCatch $ (mkDescribeTags p1) &~ s
 
@@ -979,7 +979,7 @@ detachLoadBalancerFromSubnetsCatch :: ( MonadCatch m
     => Text -- ^ 'dlbfsLoadBalancerName'
     -> [Text] -- ^ 'dlbfsSubnets'
     -> State DetachLoadBalancerFromSubnets a
-    -> m (Either ServiceErr DetachLoadBalancerFromSubnetsResponse)
+    -> m (Either ServiceEr DetachLoadBalancerFromSubnetsResponse)
 detachLoadBalancerFromSubnetsCatch p1 p2 s =
     sendCatch $ (mkDetachLoadBalancerFromSubnets p1 p2) &~ s
 
@@ -1021,7 +1021,7 @@ disableAvailabilityZonesForLoadBalancerCatch :: ( MonadCatch m
     => Text -- ^ 'dazflbLoadBalancerName'
     -> [Text] -- ^ 'dazflbAvailabilityZones'
     -> State DisableAvailabilityZonesForLoadBalancer a
-    -> m (Either ServiceErr DisableAvailabilityZonesForLoadBalancerResponse)
+    -> m (Either ServiceEr DisableAvailabilityZonesForLoadBalancerResponse)
 disableAvailabilityZonesForLoadBalancerCatch p1 p2 s =
     sendCatch $ (mkDisableAvailabilityZonesForLoadBalancer p1 p2) &~ s
 
@@ -1060,7 +1060,7 @@ enableAvailabilityZonesForLoadBalancerCatch :: ( MonadCatch m
     => Text -- ^ 'eazflbLoadBalancerName'
     -> [Text] -- ^ 'eazflbAvailabilityZones'
     -> State EnableAvailabilityZonesForLoadBalancer a
-    -> m (Either ServiceErr EnableAvailabilityZonesForLoadBalancerResponse)
+    -> m (Either ServiceEr EnableAvailabilityZonesForLoadBalancerResponse)
 enableAvailabilityZonesForLoadBalancerCatch p1 p2 s =
     sendCatch $ (mkEnableAvailabilityZonesForLoadBalancer p1 p2) &~ s
 
@@ -1116,7 +1116,7 @@ modifyLoadBalancerAttributesCatch :: ( MonadCatch m
     => Text -- ^ 'mlbaLoadBalancerName'
     -> LoadBalancerAttributes -- ^ 'mlbaLoadBalancerAttributes'
     -> State ModifyLoadBalancerAttributes a
-    -> m (Either ServiceErr ModifyLoadBalancerAttributesResponse)
+    -> m (Either ServiceEr ModifyLoadBalancerAttributesResponse)
 modifyLoadBalancerAttributesCatch p1 p2 s =
     sendCatch $ (mkModifyLoadBalancerAttributes p1 p2) &~ s
 
@@ -1168,7 +1168,7 @@ registerInstancesWithLoadBalancerCatch :: ( MonadCatch m
     => Text -- ^ 'riwlbLoadBalancerName'
     -> [Instance] -- ^ 'riwlbInstances'
     -> State RegisterInstancesWithLoadBalancer a
-    -> m (Either ServiceErr RegisterInstancesWithLoadBalancerResponse)
+    -> m (Either ServiceEr RegisterInstancesWithLoadBalancerResponse)
 registerInstancesWithLoadBalancerCatch p1 p2 s =
     sendCatch $ (mkRegisterInstancesWithLoadBalancer p1 p2) &~ s
 
@@ -1200,7 +1200,7 @@ removeTagsCatch :: ( MonadCatch m
     => [Text] -- ^ 'rtLoadBalancerNames'
     -> List1 TagKeyOnly -- ^ 'rtTags'
     -> State RemoveTags a
-    -> m (Either ServiceErr RemoveTagsResponse)
+    -> m (Either ServiceEr RemoveTagsResponse)
 removeTagsCatch p1 p2 s =
     sendCatch $ (mkRemoveTags p1 p2) &~ s
 
@@ -1239,7 +1239,7 @@ setLoadBalancerListenerSSLCertificateCatch :: ( MonadCatch m
     -> Integer -- ^ 'slblsslcLoadBalancerPort'
     -> Text -- ^ 'slblsslcSSLCertificateId'
     -> State SetLoadBalancerListenerSSLCertificate a
-    -> m (Either ServiceErr SetLoadBalancerListenerSSLCertificateResponse)
+    -> m (Either ServiceEr SetLoadBalancerListenerSSLCertificateResponse)
 setLoadBalancerListenerSSLCertificateCatch p1 p2 p3 s =
     sendCatch $ (mkSetLoadBalancerListenerSSLCertificate p1 p2 p3) &~ s
 
@@ -1285,7 +1285,7 @@ setLoadBalancerPoliciesForBackendServerCatch :: ( MonadCatch m
     -> Integer -- ^ 'slbpfbsInstancePort'
     -> [Text] -- ^ 'slbpfbsPolicyNames'
     -> State SetLoadBalancerPoliciesForBackendServer a
-    -> m (Either ServiceErr SetLoadBalancerPoliciesForBackendServerResponse)
+    -> m (Either ServiceEr SetLoadBalancerPoliciesForBackendServerResponse)
 setLoadBalancerPoliciesForBackendServerCatch p1 p2 p3 s =
     sendCatch $ (mkSetLoadBalancerPoliciesForBackendServer p1 p2 p3) &~ s
 
@@ -1322,6 +1322,6 @@ setLoadBalancerPoliciesOfListenerCatch :: ( MonadCatch m
     -> Integer -- ^ 'slbpolLoadBalancerPort'
     -> [Text] -- ^ 'slbpolPolicyNames'
     -> State SetLoadBalancerPoliciesOfListener a
-    -> m (Either ServiceErr SetLoadBalancerPoliciesOfListenerResponse)
+    -> m (Either ServiceEr SetLoadBalancerPoliciesOfListenerResponse)
 setLoadBalancerPoliciesOfListenerCatch p1 p2 p3 s =
     sendCatch $ (mkSetLoadBalancerPoliciesOfListener p1 p2 p3) &~ s

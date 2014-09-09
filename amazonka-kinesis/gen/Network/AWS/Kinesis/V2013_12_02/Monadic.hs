@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Kinesis.V2013_12_02.Monadic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -78,8 +79,7 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.Kinesis.V2013_12_02
 
-type ServiceErr = KinesisError
-
+type ServiceEr = Er Kinesis
 
 -- $CreateStream
 -- This operation adds a new Amazon Kinesis stream to your AWS account. A
@@ -142,7 +142,7 @@ createStreamCatch :: ( MonadCatch m
     => Text -- ^ 'csStreamName'
     -> Integer -- ^ 'csShardCount'
     -> State CreateStream a
-    -> m (Either ServiceErr CreateStreamResponse)
+    -> m (Either ServiceEr CreateStreamResponse)
 createStreamCatch p1 p2 s =
     sendCatch $ (mkCreateStream p1 p2) &~ s
 
@@ -188,7 +188,7 @@ deleteStreamCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'dsStreamName'
     -> State DeleteStream a
-    -> m (Either ServiceErr DeleteStreamResponse)
+    -> m (Either ServiceEr DeleteStreamResponse)
 deleteStreamCatch p1 s =
     sendCatch $ (mkDeleteStream p1) &~ s
 
@@ -256,7 +256,7 @@ describeStreamCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'ds1StreamName'
     -> State DescribeStream a
-    -> ResumableSource m (Either ServiceErr DescribeStreamResponse)
+    -> ResumableSource m (Either ServiceEr DescribeStreamResponse)
 describeStreamCatch p1 s =
     paginateCatch $ (mkDescribeStream p1) &~ s
 
@@ -319,7 +319,7 @@ getRecordsCatch :: ( MonadCatch m
                    )
     => Text -- ^ 'grShardIterator'
     -> State GetRecords a
-    -> m (Either ServiceErr GetRecordsResponse)
+    -> m (Either ServiceEr GetRecordsResponse)
 getRecordsCatch p1 s =
     sendCatch $ (mkGetRecords p1) &~ s
 
@@ -392,7 +392,7 @@ getShardIteratorCatch :: ( MonadCatch m
     -> Text -- ^ 'gsiShardId'
     -> ShardIteratorType -- ^ 'gsiShardIteratorType'
     -> State GetShardIterator a
-    -> m (Either ServiceErr GetShardIteratorResponse)
+    -> m (Either ServiceEr GetShardIteratorResponse)
 getShardIteratorCatch p1 p2 p3 s =
     sendCatch $ (mkGetShardIterator p1 p2 p3) &~ s
 
@@ -439,7 +439,7 @@ listStreamsCatch :: ( MonadCatch m
                     , MonadReader Env (ResumableSource m)
                     )
     => State ListStreams a
-    -> ResumableSource m (Either ServiceErr ListStreamsResponse)
+    -> ResumableSource m (Either ServiceEr ListStreamsResponse)
 listStreamsCatch s =
     paginateCatch (mkListStreams &~ s)
 
@@ -506,7 +506,7 @@ mergeShardsCatch :: ( MonadCatch m
     -> Text -- ^ 'msShardToMerge'
     -> Text -- ^ 'msAdjacentShardToMerge'
     -> State MergeShards a
-    -> m (Either ServiceErr MergeShardsResponse)
+    -> m (Either ServiceEr MergeShardsResponse)
 mergeShardsCatch p1 p2 p3 s =
     sendCatch $ (mkMergeShards p1 p2 p3) &~ s
 
@@ -572,7 +572,7 @@ putRecordCatch :: ( MonadCatch m
     -> Base64 -- ^ 'prData'
     -> Text -- ^ 'prPartitionKey'
     -> State PutRecord a
-    -> m (Either ServiceErr PutRecordResponse)
+    -> m (Either ServiceEr PutRecordResponse)
 putRecordCatch p1 p2 p3 s =
     sendCatch $ (mkPutRecord p1 p2 p3) &~ s
 
@@ -646,6 +646,6 @@ splitShardCatch :: ( MonadCatch m
     -> Text -- ^ 'ssShardToSplit'
     -> Text -- ^ 'ssNewStartingHashKey'
     -> State SplitShard a
-    -> m (Either ServiceErr SplitShardResponse)
+    -> m (Either ServiceEr SplitShardResponse)
 splitShardCatch p1 p2 p3 s =
     sendCatch $ (mkSplitShard p1 p2 p3) &~ s

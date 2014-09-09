@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.STS.V2011_06_15.Monadic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -63,8 +64,7 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.STS.V2011_06_15
 
-type ServiceErr = STSError
-
+type ServiceEr = Er STS
 
 -- $AssumeRole
 -- Returns a set of temporary security credentials (consisting of an access
@@ -157,7 +157,7 @@ assumeRoleCatch :: ( MonadCatch m
     => Text -- ^ 'arRoleArn'
     -> Text -- ^ 'arRoleSessionName'
     -> State AssumeRole a
-    -> m (Either ServiceErr AssumeRoleResponse)
+    -> m (Either ServiceEr AssumeRoleResponse)
 assumeRoleCatch p1 p2 s =
     sendCatch $ (mkAssumeRole p1 p2) &~ s
 
@@ -223,7 +223,7 @@ assumeRoleWithSAMLCatch :: ( MonadCatch m
     -> Text -- ^ 'arwsamlPrincipalArn'
     -> Text -- ^ 'arwsamlSAMLAssertion'
     -> State AssumeRoleWithSAML a
-    -> m (Either ServiceErr AssumeRoleWithSAMLResponse)
+    -> m (Either ServiceEr AssumeRoleWithSAMLResponse)
 assumeRoleWithSAMLCatch p1 p2 p3 s =
     sendCatch $ (mkAssumeRoleWithSAML p1 p2 p3) &~ s
 
@@ -314,7 +314,7 @@ assumeRoleWithWebIdentityCatch :: ( MonadCatch m
     -> Text -- ^ 'arwwiRoleSessionName'
     -> Text -- ^ 'arwwiWebIdentityToken'
     -> State AssumeRoleWithWebIdentity a
-    -> m (Either ServiceErr AssumeRoleWithWebIdentityResponse)
+    -> m (Either ServiceEr AssumeRoleWithWebIdentityResponse)
 assumeRoleWithWebIdentityCatch p1 p2 p3 s =
     sendCatch $ (mkAssumeRoleWithWebIdentity p1 p2 p3) &~ s
 
@@ -371,7 +371,7 @@ decodeAuthorizationMessageCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'damEncodedMessage'
     -> State DecodeAuthorizationMessage a
-    -> m (Either ServiceErr DecodeAuthorizationMessageResponse)
+    -> m (Either ServiceEr DecodeAuthorizationMessageResponse)
 decodeAuthorizationMessageCatch p1 s =
     sendCatch $ (mkDecodeAuthorizationMessage p1) &~ s
 
@@ -458,7 +458,7 @@ getFederationTokenCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'gftName'
     -> State GetFederationToken a
-    -> m (Either ServiceErr GetFederationTokenResponse)
+    -> m (Either ServiceEr GetFederationTokenResponse)
 getFederationTokenCatch p1 s =
     sendCatch $ (mkGetFederationToken p1) &~ s
 
@@ -516,6 +516,6 @@ getSessionTokenCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => State GetSessionToken a
-    -> m (Either ServiceErr GetSessionTokenResponse)
+    -> m (Either ServiceEr GetSessionTokenResponse)
 getSessionTokenCatch s =
     sendCatch (mkGetSessionToken &~ s)

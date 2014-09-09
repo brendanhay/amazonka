@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 {% include "_include/license.ede" with trans_namespace %}
 
@@ -36,8 +37,7 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import {{ version_namespace }}
 
-type ServiceErr = {{ error.name }}
-
+type ServiceEr = Er {{ name }}
 {% for oper in operations %}
 {% include "_include/state-operation.ede" with oper.value %}
 {% endfor %}

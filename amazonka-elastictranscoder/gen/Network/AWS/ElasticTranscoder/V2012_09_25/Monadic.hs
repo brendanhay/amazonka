@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.V2012_09_25.Monadic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -119,8 +120,7 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.ElasticTranscoder.V2012_09_25
 
-type ServiceErr = ElasticTranscoderError
-
+type ServiceEr = Er ElasticTranscoder
 
 -- $CancelJob
 -- The CancelJob operation cancels an unfinished job. You can only cancel a
@@ -158,7 +158,7 @@ cancelJobCatch :: ( MonadCatch m
                   )
     => Text -- ^ 'cjId'
     -> State CancelJob a
-    -> m (Either ServiceErr CancelJobResponse)
+    -> m (Either ServiceEr CancelJobResponse)
 cancelJobCatch p1 s =
     sendCatch $ (mkCancelJob p1) &~ s
 
@@ -242,7 +242,7 @@ createJobCatch :: ( MonadCatch m
     => Text -- ^ 'cj1PipelineId'
     -> JobInput -- ^ 'cj1Input'
     -> State CreateJob a
-    -> m (Either ServiceErr CreateJobResponse)
+    -> m (Either ServiceEr CreateJobResponse)
 createJobCatch p1 p2 s =
     sendCatch $ (mkCreateJob p1 p2) &~ s
 
@@ -306,7 +306,7 @@ createPipelineCatch :: ( MonadCatch m
     -> Text -- ^ 'cpInputBucket'
     -> Text -- ^ 'cpRole'
     -> State CreatePipeline a
-    -> m (Either ServiceErr CreatePipelineResponse)
+    -> m (Either ServiceEr CreatePipelineResponse)
 createPipelineCatch p1 p2 p4 s =
     sendCatch $ (mkCreatePipeline p1 p2 p4) &~ s
 
@@ -387,7 +387,7 @@ createPresetCatch :: ( MonadCatch m
     => Text -- ^ 'cp1Name'
     -> Text -- ^ 'cp1Container'
     -> State CreatePreset a
-    -> m (Either ServiceErr CreatePresetResponse)
+    -> m (Either ServiceEr CreatePresetResponse)
 createPresetCatch p1 p3 s =
     sendCatch $ (mkCreatePreset p1 p3) &~ s
 
@@ -427,7 +427,7 @@ deletePipelineCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'dpId'
     -> State DeletePipeline a
-    -> m (Either ServiceErr DeletePipelineResponse)
+    -> m (Either ServiceEr DeletePipelineResponse)
 deletePipelineCatch p1 s =
     sendCatch $ (mkDeletePipeline p1) &~ s
 
@@ -465,7 +465,7 @@ deletePresetCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'dp1Id'
     -> State DeletePreset a
-    -> m (Either ServiceErr DeletePresetResponse)
+    -> m (Either ServiceEr DeletePresetResponse)
 deletePresetCatch p1 s =
     sendCatch $ (mkDeletePreset p1) &~ s
 
@@ -533,7 +533,7 @@ listJobsByPipelineCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'ljbpPipelineId'
     -> State ListJobsByPipeline a
-    -> ResumableSource m (Either ServiceErr ListJobsByPipelineResponse)
+    -> ResumableSource m (Either ServiceEr ListJobsByPipelineResponse)
 listJobsByPipelineCatch p1 s =
     paginateCatch $ (mkListJobsByPipeline p1) &~ s
 
@@ -603,7 +603,7 @@ listJobsByStatusCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'ljbsStatus'
     -> State ListJobsByStatus a
-    -> ResumableSource m (Either ServiceErr ListJobsByStatusResponse)
+    -> ResumableSource m (Either ServiceEr ListJobsByStatusResponse)
 listJobsByStatusCatch p1 s =
     paginateCatch $ (mkListJobsByStatus p1) &~ s
 
@@ -667,7 +667,7 @@ listPipelinesCatch :: ( MonadCatch m
                       , MonadReader Env (ResumableSource m)
                       )
     => State ListPipelines a
-    -> ResumableSource m (Either ServiceErr ListPipelinesResponse)
+    -> ResumableSource m (Either ServiceEr ListPipelinesResponse)
 listPipelinesCatch s =
     paginateCatch (mkListPipelines &~ s)
 
@@ -712,7 +712,7 @@ listPresetsCatch :: ( MonadCatch m
                     , MonadReader Env (ResumableSource m)
                     )
     => State ListPresets a
-    -> ResumableSource m (Either ServiceErr ListPresetsResponse)
+    -> ResumableSource m (Either ServiceEr ListPresetsResponse)
 listPresetsCatch s =
     paginateCatch (mkListPresets &~ s)
 
@@ -754,7 +754,7 @@ readJobCatch :: ( MonadCatch m
                 )
     => Text -- ^ 'rjId'
     -> State ReadJob a
-    -> m (Either ServiceErr ReadJobResponse)
+    -> m (Either ServiceEr ReadJobResponse)
 readJobCatch p1 s =
     sendCatch $ (mkReadJob p1) &~ s
 
@@ -797,7 +797,7 @@ readPipelineCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'rpId'
     -> State ReadPipeline a
-    -> m (Either ServiceErr ReadPipelineResponse)
+    -> m (Either ServiceEr ReadPipelineResponse)
 readPipelineCatch p1 s =
     sendCatch $ (mkReadPipeline p1) &~ s
 
@@ -849,7 +849,7 @@ readPresetCatch :: ( MonadCatch m
                    )
     => Text -- ^ 'rp1Id'
     -> State ReadPreset a
-    -> m (Either ServiceErr ReadPresetResponse)
+    -> m (Either ServiceEr ReadPresetResponse)
 readPresetCatch p1 s =
     sendCatch $ (mkReadPreset p1) &~ s
 
@@ -908,7 +908,7 @@ testRoleCatch :: ( MonadCatch m
     -> Text -- ^ 'trOutputBucket'
     -> [Text] -- ^ 'trTopics'
     -> State TestRole a
-    -> m (Either ServiceErr TestRoleResponse)
+    -> m (Either ServiceEr TestRoleResponse)
 testRoleCatch p1 p2 p3 p4 s =
     sendCatch $ (mkTestRole p1 p2 p3 p4) &~ s
 
@@ -938,7 +938,7 @@ updatePipelineCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'upId'
     -> State UpdatePipeline a
-    -> m (Either ServiceErr UpdatePipelineResponse)
+    -> m (Either ServiceEr UpdatePipelineResponse)
 updatePipelineCatch p1 s =
     sendCatch $ (mkUpdatePipeline p1) &~ s
 
@@ -986,7 +986,7 @@ updatePipelineNotificationsCatch :: ( MonadCatch m
     => Text -- ^ 'upnId'
     -> Notifications -- ^ 'upnNotifications'
     -> State UpdatePipelineNotifications a
-    -> m (Either ServiceErr UpdatePipelineNotificationsResponse)
+    -> m (Either ServiceEr UpdatePipelineNotificationsResponse)
 updatePipelineNotificationsCatch p1 p2 s =
     sendCatch $ (mkUpdatePipelineNotifications p1 p2) &~ s
 
@@ -1032,6 +1032,6 @@ updatePipelineStatusCatch :: ( MonadCatch m
     => Text -- ^ 'upsId'
     -> Text -- ^ 'upsStatus'
     -> State UpdatePipelineStatus a
-    -> m (Either ServiceErr UpdatePipelineStatusResponse)
+    -> m (Either ServiceEr UpdatePipelineStatusResponse)
 updatePipelineStatusCatch p1 p2 s =
     sendCatch $ (mkUpdatePipelineStatus p1 p2) &~ s

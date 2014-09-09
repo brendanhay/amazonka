@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.CloudSearch.V2013_01_01.Monadic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -154,8 +155,7 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CloudSearch.V2013_01_01
 
-type ServiceErr = CloudSearchError
-
+type ServiceEr = Er CloudSearch
 
 -- $BuildSuggesters
 -- Indexes the search suggestions.
@@ -179,7 +179,7 @@ buildSuggestersCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'bsDomainName'
     -> State BuildSuggesters a
-    -> m (Either ServiceErr BuildSuggestersResponse)
+    -> m (Either ServiceEr BuildSuggestersResponse)
 buildSuggestersCatch p1 s =
     sendCatch $ (mkBuildSuggesters p1) &~ s
 
@@ -206,7 +206,7 @@ createDomainCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'cdDomainName'
     -> State CreateDomain a
-    -> m (Either ServiceErr CreateDomainResponse)
+    -> m (Either ServiceEr CreateDomainResponse)
 createDomainCatch p1 s =
     sendCatch $ (mkCreateDomain p1) &~ s
 
@@ -237,7 +237,7 @@ defineAnalysisSchemeCatch :: ( MonadCatch m
     => Text -- ^ 'dasDomainName'
     -> AnalysisScheme -- ^ 'dasAnalysisScheme'
     -> State DefineAnalysisScheme a
-    -> m (Either ServiceErr DefineAnalysisSchemeResponse)
+    -> m (Either ServiceEr DefineAnalysisSchemeResponse)
 defineAnalysisSchemeCatch p1 p2 s =
     sendCatch $ (mkDefineAnalysisScheme p1 p2) &~ s
 
@@ -268,7 +268,7 @@ defineExpressionCatch :: ( MonadCatch m
     => Text -- ^ 'deDomainName'
     -> Expression -- ^ 'deExpression'
     -> State DefineExpression a
-    -> m (Either ServiceErr DefineExpressionResponse)
+    -> m (Either ServiceEr DefineExpressionResponse)
 defineExpressionCatch p1 p2 s =
     sendCatch $ (mkDefineExpression p1 p2) &~ s
 
@@ -303,7 +303,7 @@ defineIndexFieldCatch :: ( MonadCatch m
     => Text -- ^ 'difDomainName'
     -> IndexField -- ^ 'difIndexField'
     -> State DefineIndexField a
-    -> m (Either ServiceErr DefineIndexFieldResponse)
+    -> m (Either ServiceEr DefineIndexFieldResponse)
 defineIndexFieldCatch p1 p2 s =
     sendCatch $ (mkDefineIndexField p1 p2) &~ s
 
@@ -336,7 +336,7 @@ defineSuggesterCatch :: ( MonadCatch m
     => Text -- ^ 'ds1DomainName'
     -> Suggester -- ^ 'ds1Suggester'
     -> State DefineSuggester a
-    -> m (Either ServiceErr DefineSuggesterResponse)
+    -> m (Either ServiceEr DefineSuggesterResponse)
 defineSuggesterCatch p1 p2 s =
     sendCatch $ (mkDefineSuggester p1 p2) &~ s
 
@@ -365,7 +365,7 @@ deleteAnalysisSchemeCatch :: ( MonadCatch m
     => Text -- ^ 'das1DomainName'
     -> Text -- ^ 'das1AnalysisSchemeName'
     -> State DeleteAnalysisScheme a
-    -> m (Either ServiceErr DeleteAnalysisSchemeResponse)
+    -> m (Either ServiceEr DeleteAnalysisSchemeResponse)
 deleteAnalysisSchemeCatch p1 p2 s =
     sendCatch $ (mkDeleteAnalysisScheme p1 p2) &~ s
 
@@ -393,7 +393,7 @@ deleteDomainCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'ddDomainName'
     -> State DeleteDomain a
-    -> m (Either ServiceErr DeleteDomainResponse)
+    -> m (Either ServiceEr DeleteDomainResponse)
 deleteDomainCatch p1 s =
     sendCatch $ (mkDeleteDomain p1) &~ s
 
@@ -422,7 +422,7 @@ deleteExpressionCatch :: ( MonadCatch m
     => Text -- ^ 'de1DomainName'
     -> Text -- ^ 'de1ExpressionName'
     -> State DeleteExpression a
-    -> m (Either ServiceErr DeleteExpressionResponse)
+    -> m (Either ServiceEr DeleteExpressionResponse)
 deleteExpressionCatch p1 p2 s =
     sendCatch $ (mkDeleteExpression p1 p2) &~ s
 
@@ -451,7 +451,7 @@ deleteIndexFieldCatch :: ( MonadCatch m
     => Text -- ^ 'dif1DomainName'
     -> Text -- ^ 'dif1IndexFieldName'
     -> State DeleteIndexField a
-    -> m (Either ServiceErr DeleteIndexFieldResponse)
+    -> m (Either ServiceEr DeleteIndexFieldResponse)
 deleteIndexFieldCatch p1 p2 s =
     sendCatch $ (mkDeleteIndexField p1 p2) &~ s
 
@@ -480,7 +480,7 @@ deleteSuggesterCatch :: ( MonadCatch m
     => Text -- ^ 'ds2DomainName'
     -> Text -- ^ 'ds2SuggesterName'
     -> State DeleteSuggester a
-    -> m (Either ServiceErr DeleteSuggesterResponse)
+    -> m (Either ServiceEr DeleteSuggesterResponse)
 deleteSuggesterCatch p1 p2 s =
     sendCatch $ (mkDeleteSuggester p1 p2) &~ s
 
@@ -512,7 +512,7 @@ describeAnalysisSchemesCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'das2DomainName'
     -> State DescribeAnalysisSchemes a
-    -> m (Either ServiceErr DescribeAnalysisSchemesResponse)
+    -> m (Either ServiceEr DescribeAnalysisSchemesResponse)
 describeAnalysisSchemesCatch p1 s =
     sendCatch $ (mkDescribeAnalysisSchemes p1) &~ s
 
@@ -542,7 +542,7 @@ describeAvailabilityOptionsCatch :: ( MonadCatch m
                                     )
     => Text -- ^ 'dao2DomainName'
     -> State DescribeAvailabilityOptions a
-    -> m (Either ServiceErr DescribeAvailabilityOptionsResponse)
+    -> m (Either ServiceEr DescribeAvailabilityOptionsResponse)
 describeAvailabilityOptionsCatch p1 s =
     sendCatch $ (mkDescribeAvailabilityOptions p1) &~ s
 
@@ -572,7 +572,7 @@ describeDomainsCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => State DescribeDomains a
-    -> m (Either ServiceErr DescribeDomainsResponse)
+    -> m (Either ServiceEr DescribeDomainsResponse)
 describeDomainsCatch s =
     sendCatch (mkDescribeDomains &~ s)
 
@@ -603,7 +603,7 @@ describeExpressionsCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'de2DomainName'
     -> State DescribeExpressions a
-    -> m (Either ServiceErr DescribeExpressionsResponse)
+    -> m (Either ServiceEr DescribeExpressionsResponse)
 describeExpressionsCatch p1 s =
     sendCatch $ (mkDescribeExpressions p1) &~ s
 
@@ -634,7 +634,7 @@ describeIndexFieldsCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'dif2DomainName'
     -> State DescribeIndexFields a
-    -> m (Either ServiceErr DescribeIndexFieldsResponse)
+    -> m (Either ServiceEr DescribeIndexFieldsResponse)
 describeIndexFieldsCatch p1 s =
     sendCatch $ (mkDescribeIndexFields p1) &~ s
 
@@ -663,7 +663,7 @@ describeScalingParametersCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'dspDomainName'
     -> State DescribeScalingParameters a
-    -> m (Either ServiceErr DescribeScalingParametersResponse)
+    -> m (Either ServiceEr DescribeScalingParametersResponse)
 describeScalingParametersCatch p1 s =
     sendCatch $ (mkDescribeScalingParameters p1) &~ s
 
@@ -694,7 +694,7 @@ describeServiceAccessPoliciesCatch :: ( MonadCatch m
                                       )
     => Text -- ^ 'dsapDomainName'
     -> State DescribeServiceAccessPolicies a
-    -> m (Either ServiceErr DescribeServiceAccessPoliciesResponse)
+    -> m (Either ServiceEr DescribeServiceAccessPoliciesResponse)
 describeServiceAccessPoliciesCatch p1 s =
     sendCatch $ (mkDescribeServiceAccessPolicies p1) &~ s
 
@@ -726,7 +726,7 @@ describeSuggestersCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'ds3DomainName'
     -> State DescribeSuggesters a
-    -> m (Either ServiceErr DescribeSuggestersResponse)
+    -> m (Either ServiceEr DescribeSuggestersResponse)
 describeSuggestersCatch p1 s =
     sendCatch $ (mkDescribeSuggesters p1) &~ s
 
@@ -754,7 +754,7 @@ indexDocumentsCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'idDomainName'
     -> State IndexDocuments a
-    -> m (Either ServiceErr IndexDocumentsResponse)
+    -> m (Either ServiceEr IndexDocumentsResponse)
 indexDocumentsCatch p1 s =
     sendCatch $ (mkIndexDocuments p1) &~ s
 
@@ -778,7 +778,7 @@ listDomainNamesCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => State ListDomainNames a
-    -> m (Either ServiceErr ListDomainNamesResponse)
+    -> m (Either ServiceEr ListDomainNamesResponse)
 listDomainNamesCatch s =
     sendCatch (mkListDomainNames &~ s)
 
@@ -811,7 +811,7 @@ updateAvailabilityOptionsCatch :: ( MonadCatch m
     => Text -- ^ 'uaoDomainName'
     -> Bool -- ^ 'uaoMultiAZ'
     -> State UpdateAvailabilityOptions a
-    -> m (Either ServiceErr UpdateAvailabilityOptionsResponse)
+    -> m (Either ServiceEr UpdateAvailabilityOptionsResponse)
 updateAvailabilityOptionsCatch p1 p2 s =
     sendCatch $ (mkUpdateAvailabilityOptions p1 p2) &~ s
 
@@ -845,7 +845,7 @@ updateScalingParametersCatch :: ( MonadCatch m
     => Text -- ^ 'uspDomainName'
     -> ScalingParameters -- ^ 'uspScalingParameters'
     -> State UpdateScalingParameters a
-    -> m (Either ServiceErr UpdateScalingParametersResponse)
+    -> m (Either ServiceEr UpdateScalingParametersResponse)
 updateScalingParametersCatch p1 p2 s =
     sendCatch $ (mkUpdateScalingParameters p1 p2) &~ s
 
@@ -875,6 +875,6 @@ updateServiceAccessPoliciesCatch :: ( MonadCatch m
     => Text -- ^ 'usapDomainName'
     -> Text -- ^ 'usapAccessPolicies'
     -> State UpdateServiceAccessPolicies a
-    -> m (Either ServiceErr UpdateServiceAccessPoliciesResponse)
+    -> m (Either ServiceEr UpdateServiceAccessPoliciesResponse)
 updateServiceAccessPoliciesCatch p1 p2 s =
     sendCatch $ (mkUpdateServiceAccessPolicies p1 p2) &~ s

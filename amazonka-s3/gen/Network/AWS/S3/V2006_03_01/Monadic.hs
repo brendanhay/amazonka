@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.S3.V2006_03_01.Monadic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -281,8 +282,7 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.S3.V2006_03_01
 
-type ServiceErr = S3Error
-
+type ServiceEr = Er S3
 
 -- $AbortMultipartUpload
 -- Aborts a multipart upload. To verify that all parts have been removed, so
@@ -312,7 +312,7 @@ abortMultipartUploadCatch :: ( MonadCatch m
     -> ObjectKey -- ^ 'amuKey'
     -> Text -- ^ 'amuUploadId'
     -> State AbortMultipartUpload a
-    -> m (Either ServiceErr AbortMultipartUploadResponse)
+    -> m (Either ServiceEr AbortMultipartUploadResponse)
 abortMultipartUploadCatch p1 p2 p3 s =
     sendCatch $ (mkAbortMultipartUpload p1 p2 p3) &~ s
 
@@ -342,7 +342,7 @@ completeMultipartUploadCatch :: ( MonadCatch m
     -> ObjectKey -- ^ 'cmuKey'
     -> Text -- ^ 'cmuUploadId'
     -> State CompleteMultipartUpload a
-    -> m (Either ServiceErr CompleteMultipartUploadResponse)
+    -> m (Either ServiceEr CompleteMultipartUploadResponse)
 completeMultipartUploadCatch p1 p2 p4 s =
     sendCatch $ (mkCompleteMultipartUpload p1 p2 p4) &~ s
 
@@ -372,7 +372,7 @@ copyObjectCatch :: ( MonadCatch m
     -> BucketName -- ^ 'coBucket'
     -> Text -- ^ 'coCopySource'
     -> State CopyObject a
-    -> m (Either ServiceErr CopyObjectResponse)
+    -> m (Either ServiceEr CopyObjectResponse)
 copyObjectCatch p18 p2 p8 s =
     sendCatch $ (mkCopyObject p18 p2 p8) &~ s
 
@@ -398,7 +398,7 @@ createBucketCatch :: ( MonadCatch m
                      )
     => BucketName -- ^ 'cbBucket'
     -> State CreateBucket a
-    -> m (Either ServiceErr CreateBucketResponse)
+    -> m (Either ServiceEr CreateBucketResponse)
 createBucketCatch p2 s =
     sendCatch $ (mkCreateBucket p2) &~ s
 
@@ -431,7 +431,7 @@ createMultipartUploadCatch :: ( MonadCatch m
     => ObjectKey -- ^ 'cmu2Key'
     -> BucketName -- ^ 'cmu2Bucket'
     -> State CreateMultipartUpload a
-    -> m (Either ServiceErr CreateMultipartUploadResponse)
+    -> m (Either ServiceEr CreateMultipartUploadResponse)
 createMultipartUploadCatch p13 p2 s =
     sendCatch $ (mkCreateMultipartUpload p13 p2) &~ s
 
@@ -459,7 +459,7 @@ deleteBucketCatch :: ( MonadCatch m
                      )
     => BucketName -- ^ 'dbBucket'
     -> State DeleteBucket a
-    -> m (Either ServiceErr DeleteBucketResponse)
+    -> m (Either ServiceEr DeleteBucketResponse)
 deleteBucketCatch p1 s =
     sendCatch $ (mkDeleteBucket p1) &~ s
 
@@ -485,7 +485,7 @@ deleteBucketCorsCatch :: ( MonadCatch m
                          )
     => BucketName -- ^ 'dbcBucket'
     -> State DeleteBucketCors a
-    -> m (Either ServiceErr DeleteBucketCorsResponse)
+    -> m (Either ServiceEr DeleteBucketCorsResponse)
 deleteBucketCorsCatch p1 s =
     sendCatch $ (mkDeleteBucketCors p1) &~ s
 
@@ -511,7 +511,7 @@ deleteBucketLifecycleCatch :: ( MonadCatch m
                               )
     => BucketName -- ^ 'dblBucket'
     -> State DeleteBucketLifecycle a
-    -> m (Either ServiceErr DeleteBucketLifecycleResponse)
+    -> m (Either ServiceEr DeleteBucketLifecycleResponse)
 deleteBucketLifecycleCatch p1 s =
     sendCatch $ (mkDeleteBucketLifecycle p1) &~ s
 
@@ -537,7 +537,7 @@ deleteBucketPolicyCatch :: ( MonadCatch m
                            )
     => BucketName -- ^ 'dbpBucket'
     -> State DeleteBucketPolicy a
-    -> m (Either ServiceErr DeleteBucketPolicyResponse)
+    -> m (Either ServiceEr DeleteBucketPolicyResponse)
 deleteBucketPolicyCatch p1 s =
     sendCatch $ (mkDeleteBucketPolicy p1) &~ s
 
@@ -563,7 +563,7 @@ deleteBucketTaggingCatch :: ( MonadCatch m
                             )
     => BucketName -- ^ 'dbtBucket'
     -> State DeleteBucketTagging a
-    -> m (Either ServiceErr DeleteBucketTaggingResponse)
+    -> m (Either ServiceEr DeleteBucketTaggingResponse)
 deleteBucketTaggingCatch p1 s =
     sendCatch $ (mkDeleteBucketTagging p1) &~ s
 
@@ -589,7 +589,7 @@ deleteBucketWebsiteCatch :: ( MonadCatch m
                             )
     => BucketName -- ^ 'dbwBucket'
     -> State DeleteBucketWebsite a
-    -> m (Either ServiceErr DeleteBucketWebsiteResponse)
+    -> m (Either ServiceEr DeleteBucketWebsiteResponse)
 deleteBucketWebsiteCatch p1 s =
     sendCatch $ (mkDeleteBucketWebsite p1) &~ s
 
@@ -619,7 +619,7 @@ deleteObjectCatch :: ( MonadCatch m
     => BucketName -- ^ 'doBucket'
     -> ObjectKey -- ^ 'doKey'
     -> State DeleteObject a
-    -> m (Either ServiceErr DeleteObjectResponse)
+    -> m (Either ServiceEr DeleteObjectResponse)
 deleteObjectCatch p1 p2 s =
     sendCatch $ (mkDeleteObject p1 p2) &~ s
 
@@ -648,7 +648,7 @@ deleteObjectsCatch :: ( MonadCatch m
     => BucketName -- ^ 'do1Bucket'
     -> Delete -- ^ 'do1Delete'
     -> State DeleteObjects a
-    -> m (Either ServiceErr DeleteObjectsResponse)
+    -> m (Either ServiceEr DeleteObjectsResponse)
 deleteObjectsCatch p1 p2 s =
     sendCatch $ (mkDeleteObjects p1 p2) &~ s
 
@@ -674,7 +674,7 @@ getBucketAclCatch :: ( MonadCatch m
                      )
     => BucketName -- ^ 'gbaBucket'
     -> State GetBucketAcl a
-    -> m (Either ServiceErr GetBucketAclResponse)
+    -> m (Either ServiceEr GetBucketAclResponse)
 getBucketAclCatch p1 s =
     sendCatch $ (mkGetBucketAcl p1) &~ s
 
@@ -700,7 +700,7 @@ getBucketCorsCatch :: ( MonadCatch m
                       )
     => BucketName -- ^ 'gbcBucket'
     -> State GetBucketCors a
-    -> m (Either ServiceErr GetBucketCorsResponse)
+    -> m (Either ServiceEr GetBucketCorsResponse)
 getBucketCorsCatch p1 s =
     sendCatch $ (mkGetBucketCors p1) &~ s
 
@@ -726,7 +726,7 @@ getBucketLifecycleCatch :: ( MonadCatch m
                            )
     => BucketName -- ^ 'gblBucket'
     -> State GetBucketLifecycle a
-    -> m (Either ServiceErr GetBucketLifecycleResponse)
+    -> m (Either ServiceEr GetBucketLifecycleResponse)
 getBucketLifecycleCatch p1 s =
     sendCatch $ (mkGetBucketLifecycle p1) &~ s
 
@@ -752,7 +752,7 @@ getBucketLocationCatch :: ( MonadCatch m
                           )
     => BucketName -- ^ 'gbl1Bucket'
     -> State GetBucketLocation a
-    -> m (Either ServiceErr GetBucketLocationResponse)
+    -> m (Either ServiceEr GetBucketLocationResponse)
 getBucketLocationCatch p1 s =
     sendCatch $ (mkGetBucketLocation p1) &~ s
 
@@ -779,7 +779,7 @@ getBucketLoggingCatch :: ( MonadCatch m
                          )
     => BucketName -- ^ 'gbl2Bucket'
     -> State GetBucketLogging a
-    -> m (Either ServiceErr GetBucketLoggingResponse)
+    -> m (Either ServiceEr GetBucketLoggingResponse)
 getBucketLoggingCatch p1 s =
     sendCatch $ (mkGetBucketLogging p1) &~ s
 
@@ -805,7 +805,7 @@ getBucketNotificationCatch :: ( MonadCatch m
                               )
     => BucketName -- ^ 'gbnBucket'
     -> State GetBucketNotification a
-    -> m (Either ServiceErr GetBucketNotificationResponse)
+    -> m (Either ServiceEr GetBucketNotificationResponse)
 getBucketNotificationCatch p1 s =
     sendCatch $ (mkGetBucketNotification p1) &~ s
 
@@ -831,7 +831,7 @@ getBucketPolicyCatch :: ( MonadCatch m
                         )
     => BucketName -- ^ 'gbpBucket'
     -> State GetBucketPolicy a
-    -> m (Either ServiceErr GetBucketPolicyResponse)
+    -> m (Either ServiceEr GetBucketPolicyResponse)
 getBucketPolicyCatch p1 s =
     sendCatch $ (mkGetBucketPolicy p1) &~ s
 
@@ -857,7 +857,7 @@ getBucketRequestPaymentCatch :: ( MonadCatch m
                                 )
     => BucketName -- ^ 'gbrpBucket'
     -> State GetBucketRequestPayment a
-    -> m (Either ServiceErr GetBucketRequestPaymentResponse)
+    -> m (Either ServiceEr GetBucketRequestPaymentResponse)
 getBucketRequestPaymentCatch p1 s =
     sendCatch $ (mkGetBucketRequestPayment p1) &~ s
 
@@ -883,7 +883,7 @@ getBucketTaggingCatch :: ( MonadCatch m
                          )
     => BucketName -- ^ 'gbtBucket'
     -> State GetBucketTagging a
-    -> m (Either ServiceErr GetBucketTaggingResponse)
+    -> m (Either ServiceEr GetBucketTaggingResponse)
 getBucketTaggingCatch p1 s =
     sendCatch $ (mkGetBucketTagging p1) &~ s
 
@@ -909,7 +909,7 @@ getBucketVersioningCatch :: ( MonadCatch m
                             )
     => BucketName -- ^ 'gbvBucket'
     -> State GetBucketVersioning a
-    -> m (Either ServiceErr GetBucketVersioningResponse)
+    -> m (Either ServiceEr GetBucketVersioningResponse)
 getBucketVersioningCatch p1 s =
     sendCatch $ (mkGetBucketVersioning p1) &~ s
 
@@ -935,7 +935,7 @@ getBucketWebsiteCatch :: ( MonadCatch m
                          )
     => BucketName -- ^ 'gbwBucket'
     -> State GetBucketWebsite a
-    -> m (Either ServiceErr GetBucketWebsiteResponse)
+    -> m (Either ServiceEr GetBucketWebsiteResponse)
 getBucketWebsiteCatch p1 s =
     sendCatch $ (mkGetBucketWebsite p1) &~ s
 
@@ -963,7 +963,7 @@ getObjectCatch :: ( MonadCatch m
     => BucketName -- ^ 'goBucket'
     -> ObjectKey -- ^ 'goKey'
     -> State GetObject a
-    -> m (Either ServiceErr GetObjectResponse)
+    -> m (Either ServiceEr GetObjectResponse)
 getObjectCatch p1 p6 s =
     sendCatch $ (mkGetObject p1 p6) &~ s
 
@@ -991,7 +991,7 @@ getObjectAclCatch :: ( MonadCatch m
     => BucketName -- ^ 'goaBucket'
     -> ObjectKey -- ^ 'goaKey'
     -> State GetObjectAcl a
-    -> m (Either ServiceErr GetObjectAclResponse)
+    -> m (Either ServiceEr GetObjectAclResponse)
 getObjectAclCatch p1 p2 s =
     sendCatch $ (mkGetObjectAcl p1 p2) &~ s
 
@@ -1019,7 +1019,7 @@ getObjectTorrentCatch :: ( MonadCatch m
     => BucketName -- ^ 'gotBucket'
     -> ObjectKey -- ^ 'gotKey'
     -> State GetObjectTorrent a
-    -> m (Either ServiceErr GetObjectTorrentResponse)
+    -> m (Either ServiceEr GetObjectTorrentResponse)
 getObjectTorrentCatch p1 p2 s =
     sendCatch $ (mkGetObjectTorrent p1 p2) &~ s
 
@@ -1046,7 +1046,7 @@ headBucketCatch :: ( MonadCatch m
                    )
     => BucketName -- ^ 'hbBucket'
     -> State HeadBucket a
-    -> m (Either ServiceErr HeadBucketResponse)
+    -> m (Either ServiceEr HeadBucketResponse)
 headBucketCatch p1 s =
     sendCatch $ (mkHeadBucket p1) &~ s
 
@@ -1076,7 +1076,7 @@ headObjectCatch :: ( MonadCatch m
     => BucketName -- ^ 'hoBucket'
     -> ObjectKey -- ^ 'hoKey'
     -> State HeadObject a
-    -> m (Either ServiceErr HeadObjectResponse)
+    -> m (Either ServiceEr HeadObjectResponse)
 headObjectCatch p1 p6 s =
     sendCatch $ (mkHeadObject p1 p6) &~ s
 
@@ -1101,7 +1101,7 @@ listBucketsCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => State ListBuckets a
-    -> m (Either ServiceErr ListBucketsResponse)
+    -> m (Either ServiceEr ListBucketsResponse)
 listBucketsCatch s =
     sendCatch (mkListBuckets &~ s)
 
@@ -1127,7 +1127,7 @@ listMultipartUploadsCatch :: ( MonadCatch m
                              )
     => BucketName -- ^ 'lmuBucket'
     -> State ListMultipartUploads a
-    -> ResumableSource m (Either ServiceErr ListMultipartUploadsResponse)
+    -> ResumableSource m (Either ServiceEr ListMultipartUploadsResponse)
 listMultipartUploadsCatch p1 s =
     paginateCatch $ (mkListMultipartUploads p1) &~ s
 
@@ -1153,7 +1153,7 @@ listObjectVersionsCatch :: ( MonadCatch m
                            )
     => BucketName -- ^ 'lovBucket'
     -> State ListObjectVersions a
-    -> ResumableSource m (Either ServiceErr ListObjectVersionsResponse)
+    -> ResumableSource m (Either ServiceEr ListObjectVersionsResponse)
 listObjectVersionsCatch p1 s =
     paginateCatch $ (mkListObjectVersions p1) &~ s
 
@@ -1181,7 +1181,7 @@ listObjectsCatch :: ( MonadCatch m
                     )
     => BucketName -- ^ 'loBucket'
     -> State ListObjects a
-    -> ResumableSource m (Either ServiceErr ListObjectsResponse)
+    -> ResumableSource m (Either ServiceEr ListObjectsResponse)
 listObjectsCatch p1 s =
     paginateCatch $ (mkListObjects p1) &~ s
 
@@ -1211,7 +1211,7 @@ listPartsCatch :: ( MonadCatch m
     -> ObjectKey -- ^ 'lpKey'
     -> Text -- ^ 'lpUploadId'
     -> State ListParts a
-    -> ResumableSource m (Either ServiceErr ListPartsResponse)
+    -> ResumableSource m (Either ServiceEr ListPartsResponse)
 listPartsCatch p1 p2 p5 s =
     paginateCatch $ (mkListParts p1 p2 p5) &~ s
 
@@ -1237,7 +1237,7 @@ putBucketAclCatch :: ( MonadCatch m
                      )
     => BucketName -- ^ 'pbaBucket'
     -> State PutBucketAcl a
-    -> m (Either ServiceErr PutBucketAclResponse)
+    -> m (Either ServiceEr PutBucketAclResponse)
 putBucketAclCatch p3 s =
     sendCatch $ (mkPutBucketAcl p3) &~ s
 
@@ -1263,7 +1263,7 @@ putBucketCorsCatch :: ( MonadCatch m
                       )
     => BucketName -- ^ 'pbcBucket'
     -> State PutBucketCors a
-    -> m (Either ServiceErr PutBucketCorsResponse)
+    -> m (Either ServiceEr PutBucketCorsResponse)
 putBucketCorsCatch p1 s =
     sendCatch $ (mkPutBucketCors p1) &~ s
 
@@ -1290,7 +1290,7 @@ putBucketLifecycleCatch :: ( MonadCatch m
                            )
     => BucketName -- ^ 'pblBucket'
     -> State PutBucketLifecycle a
-    -> m (Either ServiceErr PutBucketLifecycleResponse)
+    -> m (Either ServiceEr PutBucketLifecycleResponse)
 putBucketLifecycleCatch p1 s =
     sendCatch $ (mkPutBucketLifecycle p1) &~ s
 
@@ -1320,7 +1320,7 @@ putBucketLoggingCatch :: ( MonadCatch m
     => BucketName -- ^ 'pbl1Bucket'
     -> BucketLoggingStatus -- ^ 'pbl1BucketLoggingStatus'
     -> State PutBucketLogging a
-    -> m (Either ServiceErr PutBucketLoggingResponse)
+    -> m (Either ServiceEr PutBucketLoggingResponse)
 putBucketLoggingCatch p1 p2 s =
     sendCatch $ (mkPutBucketLogging p1 p2) &~ s
 
@@ -1348,7 +1348,7 @@ putBucketNotificationCatch :: ( MonadCatch m
     => BucketName -- ^ 'pbnBucket'
     -> NotificationConfiguration -- ^ 'pbnNotificationConfiguration'
     -> State PutBucketNotification a
-    -> m (Either ServiceErr PutBucketNotificationResponse)
+    -> m (Either ServiceEr PutBucketNotificationResponse)
 putBucketNotificationCatch p1 p3 s =
     sendCatch $ (mkPutBucketNotification p1 p3) &~ s
 
@@ -1377,7 +1377,7 @@ putBucketPolicyCatch :: ( MonadCatch m
     => BucketName -- ^ 'pbpBucket'
     -> Text -- ^ 'pbpPolicy'
     -> State PutBucketPolicy a
-    -> m (Either ServiceErr PutBucketPolicyResponse)
+    -> m (Either ServiceEr PutBucketPolicyResponse)
 putBucketPolicyCatch p1 p3 s =
     sendCatch $ (mkPutBucketPolicy p1 p3) &~ s
 
@@ -1408,7 +1408,7 @@ putBucketRequestPaymentCatch :: ( MonadCatch m
     => BucketName -- ^ 'pbrpBucket'
     -> RequestPaymentConfiguration -- ^ 'pbrpRequestPaymentConfiguration'
     -> State PutBucketRequestPayment a
-    -> m (Either ServiceErr PutBucketRequestPaymentResponse)
+    -> m (Either ServiceEr PutBucketRequestPaymentResponse)
 putBucketRequestPaymentCatch p1 p3 s =
     sendCatch $ (mkPutBucketRequestPayment p1 p3) &~ s
 
@@ -1436,7 +1436,7 @@ putBucketTaggingCatch :: ( MonadCatch m
     => BucketName -- ^ 'pbtBucket'
     -> Tagging -- ^ 'pbtTagging'
     -> State PutBucketTagging a
-    -> m (Either ServiceErr PutBucketTaggingResponse)
+    -> m (Either ServiceEr PutBucketTaggingResponse)
 putBucketTaggingCatch p1 p3 s =
     sendCatch $ (mkPutBucketTagging p1 p3) &~ s
 
@@ -1465,7 +1465,7 @@ putBucketVersioningCatch :: ( MonadCatch m
     => BucketName -- ^ 'pbvBucket'
     -> VersioningConfiguration -- ^ 'pbvVersioningConfiguration'
     -> State PutBucketVersioning a
-    -> m (Either ServiceErr PutBucketVersioningResponse)
+    -> m (Either ServiceEr PutBucketVersioningResponse)
 putBucketVersioningCatch p1 p4 s =
     sendCatch $ (mkPutBucketVersioning p1 p4) &~ s
 
@@ -1493,7 +1493,7 @@ putBucketWebsiteCatch :: ( MonadCatch m
     => BucketName -- ^ 'pbwBucket'
     -> WebsiteConfiguration -- ^ 'pbwWebsiteConfiguration'
     -> State PutBucketWebsite a
-    -> m (Either ServiceErr PutBucketWebsiteResponse)
+    -> m (Either ServiceEr PutBucketWebsiteResponse)
 putBucketWebsiteCatch p1 p3 s =
     sendCatch $ (mkPutBucketWebsite p1 p3) &~ s
 
@@ -1523,7 +1523,7 @@ putObjectCatch :: ( MonadCatch m
     -> RqBody -- ^ 'poBody'
     -> BucketName -- ^ 'poBucket'
     -> State PutObject a
-    -> m (Either ServiceErr PutObjectResponse)
+    -> m (Either ServiceEr PutObjectResponse)
 putObjectCatch p16 p2 p3 s =
     sendCatch $ (mkPutObject p16 p2 p3) &~ s
 
@@ -1552,7 +1552,7 @@ putObjectAclCatch :: ( MonadCatch m
     => ObjectKey -- ^ 'poaKey'
     -> BucketName -- ^ 'poaBucket'
     -> State PutObjectAcl a
-    -> m (Either ServiceErr PutObjectAclResponse)
+    -> m (Either ServiceEr PutObjectAclResponse)
 putObjectAclCatch p10 p3 s =
     sendCatch $ (mkPutObjectAcl p10 p3) &~ s
 
@@ -1580,7 +1580,7 @@ restoreObjectCatch :: ( MonadCatch m
     => BucketName -- ^ 'roBucket'
     -> ObjectKey -- ^ 'roKey'
     -> State RestoreObject a
-    -> m (Either ServiceErr RestoreObjectResponse)
+    -> m (Either ServiceEr RestoreObjectResponse)
 restoreObjectCatch p1 p2 s =
     sendCatch $ (mkRestoreObject p1 p2) &~ s
 
@@ -1619,7 +1619,7 @@ uploadPartCatch :: ( MonadCatch m
     -> Integer -- ^ 'upPartNumber'
     -> Text -- ^ 'upUploadId'
     -> State UploadPart a
-    -> m (Either ServiceErr UploadPartResponse)
+    -> m (Either ServiceEr UploadPartResponse)
 uploadPartCatch p1 p2 p5 p6 p7 s =
     sendCatch $ (mkUploadPart p1 p2 p5 p6 p7) &~ s
 
@@ -1653,6 +1653,6 @@ uploadPartCopyCatch :: ( MonadCatch m
     -> ObjectKey -- ^ 'upcKey'
     -> Integer -- ^ 'upcPartNumber'
     -> State UploadPartCopy a
-    -> m (Either ServiceErr UploadPartCopyResponse)
+    -> m (Either ServiceEr UploadPartCopyResponse)
 uploadPartCopyCatch p1 p10 p2 p8 p9 s =
     sendCatch $ (mkUploadPartCopy p1 p10 p2 p8 p9) &~ s

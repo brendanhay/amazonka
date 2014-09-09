@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.SimpleDB.V2009_04_15.Monadic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -93,8 +94,7 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.SimpleDB.V2009_04_15
 
-type ServiceErr = SimpleDBError
-
+type ServiceEr = Er SimpleDB
 
 -- $BatchDeleteAttributes
 -- Performs multiple DeleteAttributes operations in a single call, which
@@ -135,7 +135,7 @@ batchDeleteAttributesCatch :: ( MonadCatch m
     => Text -- ^ 'bdaDomainName'
     -> [DeletableItem] -- ^ 'bdaItems'
     -> State BatchDeleteAttributes a
-    -> m (Either ServiceErr BatchDeleteAttributesResponse)
+    -> m (Either ServiceEr BatchDeleteAttributesResponse)
 batchDeleteAttributesCatch p1 p2 s =
     sendCatch $ (mkBatchDeleteAttributes p1 p2) &~ s
 
@@ -197,7 +197,7 @@ batchPutAttributesCatch :: ( MonadCatch m
     => Text -- ^ 'bpaDomainName'
     -> [ReplaceableItem] -- ^ 'bpaItems'
     -> State BatchPutAttributes a
-    -> m (Either ServiceErr BatchPutAttributesResponse)
+    -> m (Either ServiceEr BatchPutAttributesResponse)
 batchPutAttributesCatch p1 p2 s =
     sendCatch $ (mkBatchPutAttributes p1 p2) &~ s
 
@@ -230,7 +230,7 @@ createDomainCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'cdDomainName'
     -> State CreateDomain a
-    -> m (Either ServiceErr CreateDomainResponse)
+    -> m (Either ServiceEr CreateDomainResponse)
 createDomainCatch p1 s =
     sendCatch $ (mkCreateDomain p1) &~ s
 
@@ -267,7 +267,7 @@ deleteAttributesCatch :: ( MonadCatch m
     => Text -- ^ 'daDomainName'
     -> Text -- ^ 'daItemName'
     -> State DeleteAttributes a
-    -> m (Either ServiceErr DeleteAttributesResponse)
+    -> m (Either ServiceEr DeleteAttributesResponse)
 deleteAttributesCatch p1 p2 s =
     sendCatch $ (mkDeleteAttributes p1 p2) &~ s
 
@@ -297,7 +297,7 @@ deleteDomainCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'ddDomainName'
     -> State DeleteDomain a
-    -> m (Either ServiceErr DeleteDomainResponse)
+    -> m (Either ServiceEr DeleteDomainResponse)
 deleteDomainCatch p1 s =
     sendCatch $ (mkDeleteDomain p1) &~ s
 
@@ -325,7 +325,7 @@ domainMetadataCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'dmDomainName'
     -> State DomainMetadata a
-    -> m (Either ServiceErr DomainMetadataResponse)
+    -> m (Either ServiceEr DomainMetadataResponse)
 domainMetadataCatch p1 s =
     sendCatch $ (mkDomainMetadata p1) &~ s
 
@@ -360,7 +360,7 @@ getAttributesCatch :: ( MonadCatch m
     => Text -- ^ 'gaDomainName'
     -> Text -- ^ 'gaItemName'
     -> State GetAttributes a
-    -> m (Either ServiceErr GetAttributesResponse)
+    -> m (Either ServiceEr GetAttributesResponse)
 getAttributesCatch p1 p2 s =
     sendCatch $ (mkGetAttributes p1 p2) &~ s
 
@@ -389,7 +389,7 @@ listDomainsCatch :: ( MonadCatch m
                     , MonadReader Env (ResumableSource m)
                     )
     => State ListDomains a
-    -> ResumableSource m (Either ServiceErr ListDomainsResponse)
+    -> ResumableSource m (Either ServiceEr ListDomainsResponse)
 listDomainsCatch s =
     paginateCatch (mkListDomains &~ s)
 
@@ -444,7 +444,7 @@ putAttributesCatch :: ( MonadCatch m
     -> Text -- ^ 'paItemName'
     -> [ReplaceableAttribute] -- ^ 'paAttributes'
     -> State PutAttributes a
-    -> m (Either ServiceErr PutAttributesResponse)
+    -> m (Either ServiceEr PutAttributesResponse)
 putAttributesCatch p1 p2 p3 s =
     sendCatch $ (mkPutAttributes p1 p2 p3) &~ s
 
@@ -478,6 +478,6 @@ selectCatch :: ( MonadCatch m
                )
     => Text -- ^ 'sSelectExpression'
     -> State Select a
-    -> ResumableSource m (Either ServiceErr SelectResponse)
+    -> ResumableSource m (Either ServiceEr SelectResponse)
 selectCatch p1 s =
     paginateCatch $ (mkSelect p1) &~ s

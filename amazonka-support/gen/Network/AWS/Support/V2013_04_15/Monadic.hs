@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Support.V2013_04_15.Monadic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -108,8 +109,7 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.Support.V2013_04_15
 
-type ServiceErr = SupportError
-
+type ServiceEr = Er Support
 
 -- $AddAttachmentsToSet
 -- Adds one or more attachments to an attachment set. If an AttachmentSetId is
@@ -141,7 +141,7 @@ addAttachmentsToSetCatch :: ( MonadCatch m
                             )
     => [Attachment] -- ^ 'aatsAttachments'
     -> State AddAttachmentsToSet a
-    -> m (Either ServiceErr AddAttachmentsToSetResponse)
+    -> m (Either ServiceEr AddAttachmentsToSetResponse)
 addAttachmentsToSetCatch p2 s =
     sendCatch $ (mkAddAttachmentsToSet p2) &~ s
 
@@ -173,7 +173,7 @@ addCommunicationToCaseCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'actcCommunicationBody'
     -> State AddCommunicationToCase a
-    -> m (Either ServiceErr AddCommunicationToCaseResponse)
+    -> m (Either ServiceEr AddCommunicationToCaseResponse)
 addCommunicationToCaseCatch p2 s =
     sendCatch $ (mkAddCommunicationToCase p2) &~ s
 
@@ -226,7 +226,7 @@ createCaseCatch :: ( MonadCatch m
     => Text -- ^ 'ccSubject'
     -> Text -- ^ 'ccCommunicationBody'
     -> State CreateCase a
-    -> m (Either ServiceErr CreateCaseResponse)
+    -> m (Either ServiceEr CreateCaseResponse)
 createCaseCatch p1 p5 s =
     sendCatch $ (mkCreateCase p1 p5) &~ s
 
@@ -256,7 +256,7 @@ describeAttachmentCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'daAttachmentId'
     -> State DescribeAttachment a
-    -> m (Either ServiceErr DescribeAttachmentResponse)
+    -> m (Either ServiceEr DescribeAttachmentResponse)
 describeAttachmentCatch p1 s =
     sendCatch $ (mkDescribeAttachment p1) &~ s
 
@@ -287,7 +287,7 @@ describeCasesCatch :: ( MonadCatch m
                       , MonadReader Env (ResumableSource m)
                       )
     => State DescribeCases a
-    -> ResumableSource m (Either ServiceErr DescribeCasesResponse)
+    -> ResumableSource m (Either ServiceEr DescribeCasesResponse)
 describeCasesCatch s =
     paginateCatch (mkDescribeCases &~ s)
 
@@ -320,7 +320,7 @@ describeCommunicationsCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'dc1CaseId'
     -> State DescribeCommunications a
-    -> ResumableSource m (Either ServiceErr DescribeCommunicationsResponse)
+    -> ResumableSource m (Either ServiceEr DescribeCommunicationsResponse)
 describeCommunicationsCatch p1 s =
     paginateCatch $ (mkDescribeCommunications p1) &~ s
 
@@ -353,7 +353,7 @@ describeServicesCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => State DescribeServices a
-    -> m (Either ServiceErr DescribeServicesResponse)
+    -> m (Either ServiceEr DescribeServicesResponse)
 describeServicesCatch s =
     sendCatch (mkDescribeServices &~ s)
 
@@ -379,7 +379,7 @@ describeSeverityLevelsCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => State DescribeSeverityLevels a
-    -> m (Either ServiceErr DescribeSeverityLevelsResponse)
+    -> m (Either ServiceEr DescribeSeverityLevelsResponse)
 describeSeverityLevelsCatch s =
     sendCatch (mkDescribeSeverityLevels &~ s)
 
@@ -407,7 +407,7 @@ describeTrustedAdvisorCheckRefreshStatusesCatch :: ( MonadCatch m
                                                    )
     => [Text] -- ^ 'dtacrsCheckIds'
     -> State DescribeTrustedAdvisorCheckRefreshStatuses a
-    -> m (Either ServiceErr DescribeTrustedAdvisorCheckRefreshStatusesResponse)
+    -> m (Either ServiceEr DescribeTrustedAdvisorCheckRefreshStatusesResponse)
 describeTrustedAdvisorCheckRefreshStatusesCatch p1 s =
     sendCatch $ (mkDescribeTrustedAdvisorCheckRefreshStatuses p1) &~ s
 
@@ -441,7 +441,7 @@ describeTrustedAdvisorCheckResultCatch :: ( MonadCatch m
                                           )
     => Text -- ^ 'dtacrCheckId'
     -> State DescribeTrustedAdvisorCheckResult a
-    -> m (Either ServiceErr DescribeTrustedAdvisorCheckResultResponse)
+    -> m (Either ServiceEr DescribeTrustedAdvisorCheckResultResponse)
 describeTrustedAdvisorCheckResultCatch p1 s =
     sendCatch $ (mkDescribeTrustedAdvisorCheckResult p1) &~ s
 
@@ -470,7 +470,7 @@ describeTrustedAdvisorCheckSummariesCatch :: ( MonadCatch m
                                              )
     => [Text] -- ^ 'dtacsCheckIds'
     -> State DescribeTrustedAdvisorCheckSummaries a
-    -> m (Either ServiceErr DescribeTrustedAdvisorCheckSummariesResponse)
+    -> m (Either ServiceEr DescribeTrustedAdvisorCheckSummariesResponse)
 describeTrustedAdvisorCheckSummariesCatch p1 s =
     sendCatch $ (mkDescribeTrustedAdvisorCheckSummaries p1) &~ s
 
@@ -499,7 +499,7 @@ describeTrustedAdvisorChecksCatch :: ( MonadCatch m
                                      )
     => Text -- ^ 'dtacLanguage'
     -> State DescribeTrustedAdvisorChecks a
-    -> m (Either ServiceErr DescribeTrustedAdvisorChecksResponse)
+    -> m (Either ServiceEr DescribeTrustedAdvisorChecksResponse)
 describeTrustedAdvisorChecksCatch p1 s =
     sendCatch $ (mkDescribeTrustedAdvisorChecks p1) &~ s
 
@@ -532,7 +532,7 @@ refreshTrustedAdvisorCheckCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'rtacCheckId'
     -> State RefreshTrustedAdvisorCheck a
-    -> m (Either ServiceErr RefreshTrustedAdvisorCheckResponse)
+    -> m (Either ServiceEr RefreshTrustedAdvisorCheckResponse)
 refreshTrustedAdvisorCheckCatch p1 s =
     sendCatch $ (mkRefreshTrustedAdvisorCheck p1) &~ s
 
@@ -557,6 +557,6 @@ resolveCaseCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => State ResolveCase a
-    -> m (Either ServiceErr ResolveCaseResponse)
+    -> m (Either ServiceEr ResolveCaseResponse)
 resolveCaseCatch s =
     sendCatch (mkResolveCase &~ s)

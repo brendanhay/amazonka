@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.SES.V2010_12_01.Monadic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -127,8 +128,7 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.SES.V2010_12_01
 
-type ServiceErr = SESError
-
+type ServiceEr = Er SES
 
 -- $DeleteIdentity
 -- Deletes the specified identity (email address or domain) from the list of
@@ -162,7 +162,7 @@ deleteIdentityCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'diIdentity'
     -> State DeleteIdentity a
-    -> m (Either ServiceErr DeleteIdentityResponse)
+    -> m (Either ServiceEr DeleteIdentityResponse)
 deleteIdentityCatch p1 s =
     sendCatch $ (mkDeleteIdentity p1) &~ s
 
@@ -199,7 +199,7 @@ deleteVerifiedEmailAddressCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'dveaEmailAddress'
     -> State DeleteVerifiedEmailAddress a
-    -> m (Either ServiceErr DeleteVerifiedEmailAddressResponse)
+    -> m (Either ServiceEr DeleteVerifiedEmailAddressResponse)
 deleteVerifiedEmailAddressCatch p1 s =
     sendCatch $ (mkDeleteVerifiedEmailAddress p1) &~ s
 
@@ -249,7 +249,7 @@ getIdentityDkimAttributesCatch :: ( MonadCatch m
                                   )
     => [Text] -- ^ 'gidaIdentities'
     -> State GetIdentityDkimAttributes a
-    -> m (Either ServiceErr GetIdentityDkimAttributesResponse)
+    -> m (Either ServiceEr GetIdentityDkimAttributesResponse)
 getIdentityDkimAttributesCatch p1 s =
     sendCatch $ (mkGetIdentityDkimAttributes p1) &~ s
 
@@ -292,7 +292,7 @@ getIdentityNotificationAttributesCatch :: ( MonadCatch m
                                           )
     => [Text] -- ^ 'ginaIdentities'
     -> State GetIdentityNotificationAttributes a
-    -> m (Either ServiceErr GetIdentityNotificationAttributesResponse)
+    -> m (Either ServiceEr GetIdentityNotificationAttributesResponse)
 getIdentityNotificationAttributesCatch p1 s =
     sendCatch $ (mkGetIdentityNotificationAttributes p1) &~ s
 
@@ -332,7 +332,7 @@ getIdentityVerificationAttributesCatch :: ( MonadCatch m
                                           )
     => [Text] -- ^ 'givaIdentities'
     -> State GetIdentityVerificationAttributes a
-    -> m (Either ServiceErr GetIdentityVerificationAttributesResponse)
+    -> m (Either ServiceEr GetIdentityVerificationAttributesResponse)
 getIdentityVerificationAttributesCatch p1 s =
     sendCatch $ (mkGetIdentityVerificationAttributes p1) &~ s
 
@@ -365,7 +365,7 @@ getSendQuotaCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => State GetSendQuota a
-    -> m (Either ServiceErr GetSendQuotaResponse)
+    -> m (Either ServiceEr GetSendQuotaResponse)
 getSendQuotaCatch s =
     sendCatch (mkGetSendQuota &~ s)
 
@@ -400,7 +400,7 @@ getSendStatisticsCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => State GetSendStatistics a
-    -> m (Either ServiceErr GetSendStatisticsResponse)
+    -> m (Either ServiceEr GetSendStatisticsResponse)
 getSendStatisticsCatch s =
     sendCatch (mkGetSendStatistics &~ s)
 
@@ -434,7 +434,7 @@ listIdentitiesCatch :: ( MonadCatch m
                        , MonadReader Env (ResumableSource m)
                        )
     => State ListIdentities a
-    -> ResumableSource m (Either ServiceErr ListIdentitiesResponse)
+    -> ResumableSource m (Either ServiceEr ListIdentitiesResponse)
 listIdentitiesCatch s =
     paginateCatch (mkListIdentities &~ s)
 
@@ -470,7 +470,7 @@ listVerifiedEmailAddressesCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => State ListVerifiedEmailAddresses a
-    -> m (Either ServiceErr ListVerifiedEmailAddressesResponse)
+    -> m (Either ServiceEr ListVerifiedEmailAddressesResponse)
 listVerifiedEmailAddressesCatch s =
     sendCatch (mkListVerifiedEmailAddresses &~ s)
 
@@ -526,7 +526,7 @@ sendEmailCatch :: ( MonadCatch m
     -> Destination -- ^ 'seDestination'
     -> Message -- ^ 'seMessage'
     -> State SendEmail a
-    -> m (Either ServiceErr SendEmailResponse)
+    -> m (Either ServiceEr SendEmailResponse)
 sendEmailCatch p1 p2 p3 s =
     sendCatch $ (mkSendEmail p1 p2 p3) &~ s
 
@@ -593,7 +593,7 @@ sendRawEmailCatch :: ( MonadCatch m
                      )
     => RawMessage -- ^ 'sreRawMessage'
     -> State SendRawEmail a
-    -> m (Either ServiceErr SendRawEmailResponse)
+    -> m (Either ServiceEr SendRawEmailResponse)
 sendRawEmailCatch p3 s =
     sendCatch $ (mkSendRawEmail p3) &~ s
 
@@ -640,7 +640,7 @@ setIdentityDkimEnabledCatch :: ( MonadCatch m
     => Text -- ^ 'sideIdentity'
     -> Bool -- ^ 'sideDkimEnabled'
     -> State SetIdentityDkimEnabled a
-    -> m (Either ServiceErr SetIdentityDkimEnabledResponse)
+    -> m (Either ServiceEr SetIdentityDkimEnabledResponse)
 setIdentityDkimEnabledCatch p1 p2 s =
     sendCatch $ (mkSetIdentityDkimEnabled p1 p2) &~ s
 
@@ -684,7 +684,7 @@ setIdentityFeedbackForwardingEnabledCatch :: ( MonadCatch m
     => Text -- ^ 'siffeIdentity'
     -> Bool -- ^ 'siffeForwardingEnabled'
     -> State SetIdentityFeedbackForwardingEnabled a
-    -> m (Either ServiceErr SetIdentityFeedbackForwardingEnabledResponse)
+    -> m (Either ServiceEr SetIdentityFeedbackForwardingEnabledResponse)
 setIdentityFeedbackForwardingEnabledCatch p1 p2 s =
     sendCatch $ (mkSetIdentityFeedbackForwardingEnabled p1 p2) &~ s
 
@@ -730,7 +730,7 @@ setIdentityNotificationTopicCatch :: ( MonadCatch m
     => Text -- ^ 'sintIdentity'
     -> NotificationType -- ^ 'sintNotificationType'
     -> State SetIdentityNotificationTopic a
-    -> m (Either ServiceErr SetIdentityNotificationTopicResponse)
+    -> m (Either ServiceEr SetIdentityNotificationTopicResponse)
 setIdentityNotificationTopicCatch p1 p2 s =
     sendCatch $ (mkSetIdentityNotificationTopic p1 p2) &~ s
 
@@ -777,7 +777,7 @@ verifyDomainDkimCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'vddDomain'
     -> State VerifyDomainDkim a
-    -> m (Either ServiceErr VerifyDomainDkimResponse)
+    -> m (Either ServiceEr VerifyDomainDkimResponse)
 verifyDomainDkimCatch p1 s =
     sendCatch $ (mkVerifyDomainDkim p1) &~ s
 
@@ -813,7 +813,7 @@ verifyDomainIdentityCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'vdiDomain'
     -> State VerifyDomainIdentity a
-    -> m (Either ServiceErr VerifyDomainIdentityResponse)
+    -> m (Either ServiceEr VerifyDomainIdentityResponse)
 verifyDomainIdentityCatch p1 s =
     sendCatch $ (mkVerifyDomainIdentity p1) &~ s
 
@@ -851,7 +851,7 @@ verifyEmailAddressCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'veaEmailAddress'
     -> State VerifyEmailAddress a
-    -> m (Either ServiceErr VerifyEmailAddressResponse)
+    -> m (Either ServiceEr VerifyEmailAddressResponse)
 verifyEmailAddressCatch p1 s =
     sendCatch $ (mkVerifyEmailAddress p1) &~ s
 
@@ -887,6 +887,6 @@ verifyEmailIdentityCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'veiEmailAddress'
     -> State VerifyEmailIdentity a
-    -> m (Either ServiceErr VerifyEmailIdentityResponse)
+    -> m (Either ServiceEr VerifyEmailIdentityResponse)
 verifyEmailIdentityCatch p1 s =
     sendCatch $ (mkVerifyEmailIdentity p1) &~ s

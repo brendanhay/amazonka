@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.ImportExport.V2010_06_01.Monadic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -60,8 +61,7 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.ImportExport.V2010_06_01
 
-type ServiceErr = ImportExportError
-
+type ServiceEr = Er ImportExport
 
 -- $CancelJob
 -- This operation cancels a specified job. Only the job owner can cancel it.
@@ -86,7 +86,7 @@ cancelJobCatch :: ( MonadCatch m
                   )
     => Text -- ^ 'cjJobId'
     -> State CancelJob a
-    -> m (Either ServiceErr CancelJobResponse)
+    -> m (Either ServiceEr CancelJobResponse)
 cancelJobCatch p1 s =
     sendCatch $ (mkCancelJob p1) &~ s
 
@@ -120,7 +120,7 @@ createJobCatch :: ( MonadCatch m
     -> Text -- ^ 'cj1Manifest'
     -> Bool -- ^ 'cj1ValidateOnly'
     -> State CreateJob a
-    -> m (Either ServiceErr CreateJobResponse)
+    -> m (Either ServiceEr CreateJobResponse)
 createJobCatch p1 p2 p4 s =
     sendCatch $ (mkCreateJob p1 p2 p4) &~ s
 
@@ -149,7 +149,7 @@ getStatusCatch :: ( MonadCatch m
                   )
     => Text -- ^ 'gsJobId'
     -> State GetStatus a
-    -> m (Either ServiceErr GetStatusResponse)
+    -> m (Either ServiceEr GetStatusResponse)
 getStatusCatch p1 s =
     sendCatch $ (mkGetStatus p1) &~ s
 
@@ -177,7 +177,7 @@ listJobsCatch :: ( MonadCatch m
                  , MonadReader Env (ResumableSource m)
                  )
     => State ListJobs a
-    -> ResumableSource m (Either ServiceErr ListJobsResponse)
+    -> ResumableSource m (Either ServiceEr ListJobsResponse)
 listJobsCatch s =
     paginateCatch (mkListJobs &~ s)
 
@@ -213,6 +213,6 @@ updateJobCatch :: ( MonadCatch m
     -> JobType -- ^ 'ujJobType'
     -> Bool -- ^ 'ujValidateOnly'
     -> State UpdateJob a
-    -> m (Either ServiceErr UpdateJobResponse)
+    -> m (Either ServiceEr UpdateJobResponse)
 updateJobCatch p1 p2 p3 p4 s =
     sendCatch $ (mkUpdateJob p1 p2 p3 p4) &~ s

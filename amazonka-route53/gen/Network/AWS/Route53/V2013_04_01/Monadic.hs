@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE NoImplicitPrelude #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Route53.V2013_04_01.Monadic
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -130,8 +131,7 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.Route53.V2013_04_01
 
-type ServiceErr = Route53Error
-
+type ServiceEr = Er Route53
 
 -- $ChangeResourceRecordSets
 -- Use this action to create or change your authoritative DNS information. To
@@ -176,7 +176,7 @@ changeResourceRecordSetsCatch :: ( MonadCatch m
     => Text -- ^ 'crrsHostedZoneId'
     -> ChangeBatch -- ^ 'crrsChangeBatch'
     -> State ChangeResourceRecordSets a
-    -> m (Either ServiceErr ChangeResourceRecordSetsResponse)
+    -> m (Either ServiceEr ChangeResourceRecordSetsResponse)
 changeResourceRecordSetsCatch p1 p2 s =
     sendCatch $ (mkChangeResourceRecordSets p1 p2) &~ s
 
@@ -202,7 +202,7 @@ changeTagsForResourceCatch :: ( MonadCatch m
     => TagResourceType -- ^ 'ctfrResourceType'
     -> Text -- ^ 'ctfrResourceId'
     -> State ChangeTagsForResource a
-    -> m (Either ServiceErr ChangeTagsForResourceResponse)
+    -> m (Either ServiceEr ChangeTagsForResourceResponse)
 changeTagsForResourceCatch p1 p2 s =
     sendCatch $ (mkChangeTagsForResource p1 p2) &~ s
 
@@ -234,7 +234,7 @@ createHealthCheckCatch :: ( MonadCatch m
     => Text -- ^ 'chcCallerReference'
     -> HealthCheckConfig -- ^ 'chcHealthCheckConfig'
     -> State CreateHealthCheck a
-    -> m (Either ServiceErr CreateHealthCheckResponse)
+    -> m (Either ServiceEr CreateHealthCheckResponse)
 createHealthCheckCatch p1 p2 s =
     sendCatch $ (mkCreateHealthCheck p1 p2) &~ s
 
@@ -274,7 +274,7 @@ createHostedZoneCatch :: ( MonadCatch m
     => Text -- ^ 'chzName'
     -> Text -- ^ 'chzCallerReference'
     -> State CreateHostedZone a
-    -> m (Either ServiceErr CreateHostedZoneResponse)
+    -> m (Either ServiceEr CreateHostedZoneResponse)
 createHostedZoneCatch p1 p2 s =
     sendCatch $ (mkCreateHostedZone p1 p2) &~ s
 
@@ -308,7 +308,7 @@ deleteHealthCheckCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'dhcHealthCheckId'
     -> State DeleteHealthCheck a
-    -> m (Either ServiceErr DeleteHealthCheckResponse)
+    -> m (Either ServiceEr DeleteHealthCheckResponse)
 deleteHealthCheckCatch p1 s =
     sendCatch $ (mkDeleteHealthCheck p1) &~ s
 
@@ -343,7 +343,7 @@ deleteHostedZoneCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'dhzId'
     -> State DeleteHostedZone a
-    -> m (Either ServiceErr DeleteHostedZoneResponse)
+    -> m (Either ServiceEr DeleteHostedZoneResponse)
 deleteHostedZoneCatch p1 s =
     sendCatch $ (mkDeleteHostedZone p1) &~ s
 
@@ -373,7 +373,7 @@ getChangeCatch :: ( MonadCatch m
                   )
     => Text -- ^ 'gcId'
     -> State GetChange a
-    -> m (Either ServiceErr GetChangeResponse)
+    -> m (Either ServiceEr GetChangeResponse)
 getChangeCatch p1 s =
     sendCatch $ (mkGetChange p1) &~ s
 
@@ -401,7 +401,7 @@ getCheckerIpRangesCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => State GetCheckerIpRanges a
-    -> m (Either ServiceErr GetCheckerIpRangesResponse)
+    -> m (Either ServiceEr GetCheckerIpRangesResponse)
 getCheckerIpRangesCatch s =
     sendCatch (mkGetCheckerIpRanges &~ s)
 
@@ -423,7 +423,7 @@ getGeoLocationCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => State GetGeoLocation a
-    -> m (Either ServiceErr GetGeoLocationResponse)
+    -> m (Either ServiceEr GetGeoLocationResponse)
 getGeoLocationCatch s =
     sendCatch (mkGetGeoLocation &~ s)
 
@@ -450,7 +450,7 @@ getHealthCheckCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'ghcHealthCheckId'
     -> State GetHealthCheck a
-    -> m (Either ServiceErr GetHealthCheckResponse)
+    -> m (Either ServiceEr GetHealthCheckResponse)
 getHealthCheckCatch p1 s =
     sendCatch $ (mkGetHealthCheck p1) &~ s
 
@@ -475,7 +475,7 @@ getHealthCheckCountCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => State GetHealthCheckCount a
-    -> m (Either ServiceErr GetHealthCheckCountResponse)
+    -> m (Either ServiceEr GetHealthCheckCountResponse)
 getHealthCheckCountCatch s =
     sendCatch (mkGetHealthCheckCount &~ s)
 
@@ -504,7 +504,7 @@ getHostedZoneCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'ghzId'
     -> State GetHostedZone a
-    -> m (Either ServiceErr GetHostedZoneResponse)
+    -> m (Either ServiceEr GetHostedZoneResponse)
 getHostedZoneCatch p1 s =
     sendCatch $ (mkGetHostedZone p1) &~ s
 
@@ -526,7 +526,7 @@ listGeoLocationsCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => State ListGeoLocations a
-    -> m (Either ServiceErr ListGeoLocationsResponse)
+    -> m (Either ServiceEr ListGeoLocationsResponse)
 listGeoLocationsCatch s =
     sendCatch (mkListGeoLocations &~ s)
 
@@ -558,7 +558,7 @@ listHealthChecksCatch :: ( MonadCatch m
                          , MonadReader Env (ResumableSource m)
                          )
     => State ListHealthChecks a
-    -> ResumableSource m (Either ServiceErr ListHealthChecksResponse)
+    -> ResumableSource m (Either ServiceEr ListHealthChecksResponse)
 listHealthChecksCatch s =
     paginateCatch (mkListHealthChecks &~ s)
 
@@ -590,7 +590,7 @@ listHostedZonesCatch :: ( MonadCatch m
                         , MonadReader Env (ResumableSource m)
                         )
     => State ListHostedZones a
-    -> ResumableSource m (Either ServiceErr ListHostedZonesResponse)
+    -> ResumableSource m (Either ServiceEr ListHostedZonesResponse)
 listHostedZonesCatch s =
     paginateCatch (mkListHostedZones &~ s)
 
@@ -647,7 +647,7 @@ listResourceRecordSetsCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'lrrsHostedZoneId'
     -> State ListResourceRecordSets a
-    -> ResumableSource m (Either ServiceErr ListResourceRecordSetsResponse)
+    -> ResumableSource m (Either ServiceEr ListResourceRecordSetsResponse)
 listResourceRecordSetsCatch p1 s =
     paginateCatch $ (mkListResourceRecordSets p1) &~ s
 
@@ -673,7 +673,7 @@ listTagsForResourceCatch :: ( MonadCatch m
     => TagResourceType -- ^ 'ltfrResourceType'
     -> Text -- ^ 'ltfrResourceId'
     -> State ListTagsForResource a
-    -> m (Either ServiceErr ListTagsForResourceResponse)
+    -> m (Either ServiceEr ListTagsForResourceResponse)
 listTagsForResourceCatch p1 p2 s =
     sendCatch $ (mkListTagsForResource p1 p2) &~ s
 
@@ -699,7 +699,7 @@ listTagsForResourcesCatch :: ( MonadCatch m
     => TagResourceType -- ^ 'ltfr1ResourceType'
     -> List1 Text -- ^ 'ltfr1ResourceIds'
     -> State ListTagsForResources a
-    -> m (Either ServiceErr ListTagsForResourcesResponse)
+    -> m (Either ServiceEr ListTagsForResourcesResponse)
 listTagsForResourcesCatch p1 p2 s =
     sendCatch $ (mkListTagsForResources p1 p2) &~ s
 
@@ -730,6 +730,6 @@ updateHealthCheckCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'uhcHealthCheckId'
     -> State UpdateHealthCheck a
-    -> m (Either ServiceErr UpdateHealthCheckResponse)
+    -> m (Either ServiceEr UpdateHealthCheckResponse)
 updateHealthCheckCatch p1 s =
     sendCatch $ (mkUpdateHealthCheck p1) &~ s

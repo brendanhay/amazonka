@@ -29,9 +29,9 @@ library
 
     exposed-modules:
           Network.AWS.ELB
-        , Network.AWS.ELB.Trans
+        , Network.AWS.ELB.Monadic
         , Network.AWS.ELB.V2012_06_01
-        , Network.AWS.ELB.V2012_06_01.Trans
+        , Network.AWS.ELB.V2012_06_01.Monadic
         , Network.AWS.ELB.V2012_06_01.Types
         , Network.AWS.ELB.V2012_06_01.AddTags
         , Network.AWS.ELB.V2012_06_01.ApplySecurityGroupsToLoadBalancer

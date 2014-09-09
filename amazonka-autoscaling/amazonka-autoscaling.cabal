@@ -33,9 +33,9 @@ library
 
     exposed-modules:
           Network.AWS.AutoScaling
-        , Network.AWS.AutoScaling.Trans
+        , Network.AWS.AutoScaling.Monadic
         , Network.AWS.AutoScaling.V2011_01_01
-        , Network.AWS.AutoScaling.V2011_01_01.Trans
+        , Network.AWS.AutoScaling.V2011_01_01.Monadic
         , Network.AWS.AutoScaling.V2011_01_01.Types
         , Network.AWS.AutoScaling.V2011_01_01.AttachInstances
         , Network.AWS.AutoScaling.V2011_01_01.CompleteLifecycleAction

@@ -29,9 +29,9 @@ library
 
     exposed-modules:
           Network.AWS.EMR
-        , Network.AWS.EMR.Trans
+        , Network.AWS.EMR.Monadic
         , Network.AWS.EMR.V2009_03_31
-        , Network.AWS.EMR.V2009_03_31.Trans
+        , Network.AWS.EMR.V2009_03_31.Monadic
         , Network.AWS.EMR.V2009_03_31.Types
         , Network.AWS.EMR.V2009_03_31.AddInstanceGroups
         , Network.AWS.EMR.V2009_03_31.AddJobFlowSteps

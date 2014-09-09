@@ -33,9 +33,9 @@ library
 
     exposed-modules:
           Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache.Trans
+        , Network.AWS.ElastiCache.Monadic
         , Network.AWS.ElastiCache.V2014_07_15
-        , Network.AWS.ElastiCache.V2014_07_15.Trans
+        , Network.AWS.ElastiCache.V2014_07_15.Monadic
         , Network.AWS.ElastiCache.V2014_07_15.Types
         , Network.AWS.ElastiCache.V2014_07_15.AuthorizeCacheSecurityGroupIngress
         , Network.AWS.ElastiCache.V2014_07_15.CopySnapshot

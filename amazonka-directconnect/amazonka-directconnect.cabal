@@ -31,9 +31,9 @@ library
 
     exposed-modules:
           Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect.Trans
+        , Network.AWS.DirectConnect.Monadic
         , Network.AWS.DirectConnect.V2012_10_25
-        , Network.AWS.DirectConnect.V2012_10_25.Trans
+        , Network.AWS.DirectConnect.V2012_10_25.Monadic
         , Network.AWS.DirectConnect.V2012_10_25.Types
         , Network.AWS.DirectConnect.V2012_10_25.AllocateConnectionOnInterconnect
         , Network.AWS.DirectConnect.V2012_10_25.AllocatePrivateVirtualInterface

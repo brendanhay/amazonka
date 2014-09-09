@@ -31,9 +31,9 @@ library
 
     exposed-modules:
           Network.AWS.Route53
-        , Network.AWS.Route53.Trans
+        , Network.AWS.Route53.Monadic
         , Network.AWS.Route53.V2013_04_01
-        , Network.AWS.Route53.V2013_04_01.Trans
+        , Network.AWS.Route53.V2013_04_01.Monadic
         , Network.AWS.Route53.V2013_04_01.Types
         , Network.AWS.Route53.V2013_04_01.ChangeResourceRecordSets
         , Network.AWS.Route53.V2013_04_01.ChangeTagsForResource

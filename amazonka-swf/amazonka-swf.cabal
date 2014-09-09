@@ -33,9 +33,9 @@ library
 
     exposed-modules:
           Network.AWS.SWF
-        , Network.AWS.SWF.Trans
+        , Network.AWS.SWF.Monadic
         , Network.AWS.SWF.V2012_01_25
-        , Network.AWS.SWF.V2012_01_25.Trans
+        , Network.AWS.SWF.V2012_01_25.Monadic
         , Network.AWS.SWF.V2012_01_25.Types
         , Network.AWS.SWF.V2012_01_25.CountClosedWorkflowExecutions
         , Network.AWS.SWF.V2012_01_25.CountOpenWorkflowExecutions

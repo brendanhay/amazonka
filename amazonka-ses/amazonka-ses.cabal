@@ -33,9 +33,9 @@ library
 
     exposed-modules:
           Network.AWS.SES
-        , Network.AWS.SES.Trans
+        , Network.AWS.SES.Monadic
         , Network.AWS.SES.V2010_12_01
-        , Network.AWS.SES.V2010_12_01.Trans
+        , Network.AWS.SES.V2010_12_01.Monadic
         , Network.AWS.SES.V2010_12_01.Types
         , Network.AWS.SES.V2010_12_01.DeleteIdentity
         , Network.AWS.SES.V2010_12_01.DeleteVerifiedEmailAddress

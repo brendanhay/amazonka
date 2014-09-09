@@ -29,9 +29,9 @@ library
 
     exposed-modules:
           Network.AWS.RDS
-        , Network.AWS.RDS.Trans
+        , Network.AWS.RDS.Monadic
         , Network.AWS.RDS.V2013_09_09
-        , Network.AWS.RDS.V2013_09_09.Trans
+        , Network.AWS.RDS.V2013_09_09.Monadic
         , Network.AWS.RDS.V2013_09_09.Types
         , Network.AWS.RDS.V2013_09_09.DownloadDBLogFilePortion
         , Network.AWS.RDS.V2013_09_09.AddSourceIdentifierToSubscription

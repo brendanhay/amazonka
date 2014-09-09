@@ -35,9 +35,9 @@ library
 
     exposed-modules:
           Network.AWS.Support
-        , Network.AWS.Support.Trans
+        , Network.AWS.Support.Monadic
         , Network.AWS.Support.V2013_04_15
-        , Network.AWS.Support.V2013_04_15.Trans
+        , Network.AWS.Support.V2013_04_15.Monadic
         , Network.AWS.Support.V2013_04_15.Types
         , Network.AWS.Support.V2013_04_15.AddAttachmentsToSet
         , Network.AWS.Support.V2013_04_15.AddCommunicationToCase

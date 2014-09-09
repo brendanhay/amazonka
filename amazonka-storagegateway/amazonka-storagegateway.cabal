@@ -27,9 +27,9 @@ library
 
     exposed-modules:
           Network.AWS.StorageGateway
-        , Network.AWS.StorageGateway.Trans
+        , Network.AWS.StorageGateway.Monadic
         , Network.AWS.StorageGateway.V2013_06_30
-        , Network.AWS.StorageGateway.V2013_06_30.Trans
+        , Network.AWS.StorageGateway.V2013_06_30.Monadic
         , Network.AWS.StorageGateway.V2013_06_30.Types
         , Network.AWS.StorageGateway.V2013_06_30.ActivateGateway
         , Network.AWS.StorageGateway.V2013_06_30.AddCache

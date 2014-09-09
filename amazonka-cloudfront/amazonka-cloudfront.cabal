@@ -41,9 +41,9 @@ library
 
     exposed-modules:
           Network.AWS.CloudFront
-        , Network.AWS.CloudFront.Trans
+        , Network.AWS.CloudFront.Monadic
         , Network.AWS.CloudFront.V2014_05_31
-        , Network.AWS.CloudFront.V2014_05_31.Trans
+        , Network.AWS.CloudFront.V2014_05_31.Monadic
         , Network.AWS.CloudFront.V2014_05_31.Types
         , Network.AWS.CloudFront.V2014_05_31.CreateCloudFrontOriginAccessIdentity
         , Network.AWS.CloudFront.V2014_05_31.CreateDistribution

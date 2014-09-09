@@ -39,9 +39,9 @@ library
 
     exposed-modules:
           Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk.Trans
+        , Network.AWS.ElasticBeanstalk.Monadic
         , Network.AWS.ElasticBeanstalk.V2010_12_01
-        , Network.AWS.ElasticBeanstalk.V2010_12_01.Trans
+        , Network.AWS.ElasticBeanstalk.V2010_12_01.Monadic
         , Network.AWS.ElasticBeanstalk.V2010_12_01.Types
         , Network.AWS.ElasticBeanstalk.V2010_12_01.CheckDNSAvailability
         , Network.AWS.ElasticBeanstalk.V2010_12_01.CreateApplication

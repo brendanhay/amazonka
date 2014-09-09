@@ -31,9 +31,9 @@ library
 
     exposed-modules:
           Network.AWS.DynamoDB
-        , Network.AWS.DynamoDB.Trans
+        , Network.AWS.DynamoDB.Monadic
         , Network.AWS.DynamoDB.V2012_08_10
-        , Network.AWS.DynamoDB.V2012_08_10.Trans
+        , Network.AWS.DynamoDB.V2012_08_10.Monadic
         , Network.AWS.DynamoDB.V2012_08_10.Types
         , Network.AWS.DynamoDB.V2012_08_10.BatchGetItem
         , Network.AWS.DynamoDB.V2012_08_10.BatchWriteItem

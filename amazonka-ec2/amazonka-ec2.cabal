@@ -39,9 +39,9 @@ library
 
     exposed-modules:
           Network.AWS.EC2
-        , Network.AWS.EC2.Trans
+        , Network.AWS.EC2.Monadic
         , Network.AWS.EC2.V2014_06_15
-        , Network.AWS.EC2.V2014_06_15.Trans
+        , Network.AWS.EC2.V2014_06_15.Monadic
         , Network.AWS.EC2.V2014_06_15.Types
         , Network.AWS.EC2.V2014_06_15.AcceptVpcPeeringConnection
         , Network.AWS.EC2.V2014_06_15.AllocateAddress

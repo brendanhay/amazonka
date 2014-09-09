@@ -29,9 +29,9 @@ library
 
     exposed-modules:
           Network.AWS.Kinesis
-        , Network.AWS.Kinesis.Trans
+        , Network.AWS.Kinesis.Monadic
         , Network.AWS.Kinesis.V2013_12_02
-        , Network.AWS.Kinesis.V2013_12_02.Trans
+        , Network.AWS.Kinesis.V2013_12_02.Monadic
         , Network.AWS.Kinesis.V2013_12_02.Types
         , Network.AWS.Kinesis.V2013_12_02.CreateStream
         , Network.AWS.Kinesis.V2013_12_02.DeleteStream

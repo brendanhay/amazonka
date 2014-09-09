@@ -58,7 +58,7 @@ data Templates = Templates
     { tmplCabal     :: Template
     , tmplVersion   :: Template
     , tmplCurrent   :: Template
-    , tmplTrans     :: Template
+    , tmplMonadic   :: Template
     , tmplFunctions :: Template
     , tmplService   :: ServiceType -> (Template, Template)
     }
@@ -73,7 +73,7 @@ getTemplates = do
         <$> load "cabal"
         <*> load "version"
         <*> load "current"
-        <*> load "trans"
+        <*> load "monadic"
         <*> load "functions"
 
     !xml <- (,) <$> load "types-xml"   <*> load "operation-xml"

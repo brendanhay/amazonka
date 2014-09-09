@@ -45,7 +45,7 @@ module Network.AWS.Route53Domains.V2014_05_15.Trans
     , updateDomainNameservers
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.Route53Domains.V2014_05_15
     -- ** Lenses
     , (.=)
@@ -81,7 +81,6 @@ checkDomainAvailability :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'cdaDomainName'
                         -> State CheckDomainAvailability a
@@ -115,7 +114,6 @@ disableDomainTransferLock :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'ddtlDomainName'
                           -> State DisableDomainTransferLock a
@@ -147,7 +145,6 @@ enableDomainTransferLock :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'edtlDomainName'
                          -> State EnableDomainTransferLock a
@@ -198,7 +195,6 @@ getDomainDetail :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'gddDomainName'
                 -> State GetDomainDetail a
@@ -230,7 +226,6 @@ getOperationDetail :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'godOperationId'
                    -> State GetOperationDetail a
@@ -264,7 +259,6 @@ listDomains :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => State ListDomains a
             -> m ListDomainsResponse
@@ -296,7 +290,6 @@ listOperations :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => State ListOperations a
                -> m ListOperationsResponse
@@ -356,7 +349,6 @@ registerDomain :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'rdDomainName'
                -> Integer -- ^ 'rdDurationInYears'
@@ -389,7 +381,6 @@ retrieveDomainAuthCode :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'rdacDomainName'
                        -> State RetrieveDomainAuthCode a
@@ -452,7 +443,6 @@ transferDomain :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'tdDomainName'
                -> Integer -- ^ 'tdDurationInYears'
@@ -505,7 +495,6 @@ updateDomainContact :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'udcDomainName'
                     -> State UpdateDomainContact a
@@ -542,7 +531,6 @@ updateDomainContactPrivacy :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => Text -- ^ 'udcpDomainName'
                            -> State UpdateDomainContactPrivacy a
@@ -577,7 +565,6 @@ updateDomainNameservers :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'udnDomainName'
                         -> [Nameserver] -- ^ 'udnNameservers'

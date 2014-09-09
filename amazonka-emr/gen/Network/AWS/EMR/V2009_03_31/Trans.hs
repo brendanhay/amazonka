@@ -57,7 +57,7 @@ module Network.AWS.EMR.V2009_03_31.Trans
     , terminateJobFlows
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.EMR.V2009_03_31
     -- ** Lenses
     , (.=)
@@ -95,7 +95,6 @@ addInstanceGroups :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => [InstanceGroupConfig] -- ^ 'aigInstanceGroups'
                   -> Text -- ^ 'aigJobFlowId'
@@ -149,7 +148,6 @@ addJobFlowSteps :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'ajfsJobFlowId'
                 -> [StepConfig] -- ^ 'ajfsSteps'
@@ -174,7 +172,6 @@ addTags :: ( MonadCatch m
            , MonadResource m
            , MonadError AWS.Error m
            , MonadReader Env m
-           , AWSRequest a
            )
         => Text -- ^ 'atResourceId'
         -> [Tag] -- ^ 'atTags'
@@ -192,7 +189,6 @@ describeCluster :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'dcClusterId'
                 -> State DescribeCluster a
@@ -261,7 +257,6 @@ describeJobFlows :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => State DescribeJobFlows a
                  -> m DescribeJobFlowsResponse
@@ -275,7 +270,6 @@ describeStep :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'dsClusterId'
              -> Text -- ^ 'dsStepId'
@@ -291,7 +285,6 @@ listBootstrapActions :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env (ResumableSource m)
-                        , AWSPager a
                         )
                      => Text -- ^ 'lbaClusterId'
                      -> State ListBootstrapActions a
@@ -310,7 +303,6 @@ listClusters :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env (ResumableSource m)
-                , AWSPager a
                 )
              => State ListClusters a
              -> ResumableSource m ListClustersResponse
@@ -324,7 +316,6 @@ listInstanceGroups :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env (ResumableSource m)
-                      , AWSPager a
                       )
                    => Text -- ^ 'ligClusterId'
                    -> State ListInstanceGroups a
@@ -343,7 +334,6 @@ listInstances :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env (ResumableSource m)
-                 , AWSPager a
                  )
               => Text -- ^ 'liClusterId'
               -> State ListInstances a
@@ -358,7 +348,6 @@ listSteps :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env (ResumableSource m)
-             , AWSPager a
              )
           => Text -- ^ 'lsClusterId'
           -> State ListSteps a
@@ -392,7 +381,6 @@ modifyInstanceGroups :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => State ModifyInstanceGroups a
                      -> m ModifyInstanceGroupsResponse
@@ -421,7 +409,6 @@ removeTags :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => Text -- ^ 'rtResourceId'
            -> [Text] -- ^ 'rtTagKeys'
@@ -480,7 +467,6 @@ runJobFlow :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => Text -- ^ 'rjfName'
            -> JobFlowInstancesConfig -- ^ 'rjfInstances'
@@ -524,7 +510,6 @@ setTerminationProtection :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => [Text] -- ^ 'stpJobFlowIds'
                          -> Bool -- ^ 'stpTerminationProtected'
@@ -560,7 +545,6 @@ setVisibleToAllUsers :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => [Text] -- ^ 'svtauJobFlowIds'
                      -> Bool -- ^ 'svtauVisibleToAllUsers'
@@ -597,7 +581,6 @@ terminateJobFlows :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => [Text] -- ^ 'tjfJobFlowIds'
                   -> State TerminateJobFlows a

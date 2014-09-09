@@ -62,7 +62,7 @@ module Network.AWS.DirectConnect.V2012_10_25.Trans
     , describeVirtualInterfaces
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.DirectConnect.V2012_10_25
     -- ** Lenses
     , (.=)
@@ -84,7 +84,6 @@ allocateConnectionOnInterconnect :: ( MonadCatch m
                                     , MonadResource m
                                     , MonadError AWS.Error m
                                     , MonadReader Env m
-                                    , AWSRequest a
                                     )
                                  => Text -- ^ 'acoiBandwidth'
                                  -> Text -- ^ 'acoiConnectionName'
@@ -109,7 +108,6 @@ allocatePrivateVirtualInterface :: ( MonadCatch m
                                    , MonadResource m
                                    , MonadError AWS.Error m
                                    , MonadReader Env m
-                                   , AWSRequest a
                                    )
                                 => Text -- ^ 'apviConnectionId'
                                 -> Text -- ^ 'apviOwnerAccount'
@@ -132,7 +130,6 @@ allocatePublicVirtualInterface :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
                                   , MonadReader Env m
-                                  , AWSRequest a
                                   )
                                => Text -- ^ 'apvi1ConnectionId'
                                -> Text -- ^ 'apvi1OwnerAccount'
@@ -152,7 +149,6 @@ confirmConnection :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Text -- ^ 'ccConnectionId'
                   -> State ConfirmConnection a
@@ -170,7 +166,6 @@ confirmPrivateVirtualInterface :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
                                   , MonadReader Env m
-                                  , AWSRequest a
                                   )
                                => Text -- ^ 'cpviVirtualInterfaceId'
                                -> Text -- ^ 'cpviVirtualGatewayId'
@@ -188,7 +183,6 @@ confirmPublicVirtualInterface :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
                                  , MonadReader Env m
-                                 , AWSRequest a
                                  )
                               => Text -- ^ 'cpvi1VirtualInterfaceId'
                               -> State ConfirmPublicVirtualInterface a
@@ -211,7 +205,6 @@ createConnection :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'cc1Location'
                  -> Text -- ^ 'cc1Bandwidth'
@@ -240,7 +233,6 @@ createInterconnect :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'ciInterconnectName'
                    -> Text -- ^ 'ciBandwidth'
@@ -259,7 +251,6 @@ createPrivateVirtualInterface :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
                                  , MonadReader Env m
-                                 , AWSRequest a
                                  )
                               => Text -- ^ 'cpvi2ConnectionId'
                               -> NewPrivateVirtualInterface -- ^ 'cpvi2NewPrivateVirtualInterface'
@@ -278,7 +269,6 @@ createPublicVirtualInterface :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env m
-                                , AWSRequest a
                                 )
                              => Text -- ^ 'cpvi3ConnectionId'
                              -> NewPublicVirtualInterface -- ^ 'cpvi3NewPublicVirtualInterface'
@@ -297,7 +287,6 @@ deleteConnection :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'dcConnectionId'
                  -> State DeleteConnection a
@@ -312,7 +301,6 @@ deleteInterconnect :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'diInterconnectId'
                    -> State DeleteInterconnect a
@@ -327,7 +315,6 @@ deleteVirtualInterface :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'dviVirtualInterfaceId'
                        -> State DeleteVirtualInterface a
@@ -343,7 +330,6 @@ describeConnections :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => State DescribeConnections a
                     -> m DescribeConnectionsResponse
@@ -358,7 +344,6 @@ describeConnectionsOnInterconnect :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
                                      , MonadReader Env m
-                                     , AWSRequest a
                                      )
                                   => Text -- ^ 'dcoiInterconnectId'
                                   -> State DescribeConnectionsOnInterconnect a
@@ -375,7 +360,6 @@ describeInterconnects :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => State DescribeInterconnects a
                       -> m DescribeInterconnectsResponse
@@ -391,7 +375,6 @@ describeLocations :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => State DescribeLocations a
                   -> m DescribeLocationsResponse
@@ -409,7 +392,6 @@ describeVirtualGateways :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => State DescribeVirtualGateways a
                         -> m DescribeVirtualGatewaysResponse
@@ -432,7 +414,6 @@ describeVirtualInterfaces :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => State DescribeVirtualInterfaces a
                           -> m DescribeVirtualInterfacesResponse

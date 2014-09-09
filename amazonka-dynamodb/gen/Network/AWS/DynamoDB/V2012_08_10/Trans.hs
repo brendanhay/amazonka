@@ -52,7 +52,7 @@ module Network.AWS.DynamoDB.V2012_08_10.Trans
     , updateTable
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.DynamoDB.V2012_08_10
     -- ** Lenses
     , (.=)
@@ -107,7 +107,6 @@ batchGetItem :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Map Text KeysAndAttributes -- ^ 'bgiRequestItems'
              -> State BatchGetItem a
@@ -170,7 +169,6 @@ batchWriteItem :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Map Text (List1 WriteRequest) -- ^ 'bwiRequestItems'
                -> State BatchWriteItem a
@@ -211,7 +209,6 @@ createTable :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => [AttributeDefinition] -- ^ 'ctAttributeDefinitions'
             -> Text -- ^ 'ctTableName'
@@ -246,7 +243,6 @@ deleteItem :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => Text -- ^ 'diTableName'
            -> Map Text AttributeValue -- ^ 'diKey'
@@ -276,7 +272,6 @@ deleteTable :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'dtTableName'
             -> State DeleteTable a
@@ -306,7 +301,6 @@ describeTable :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'dt1TableName'
               -> State DescribeTable a
@@ -336,7 +330,6 @@ getItem :: ( MonadCatch m
            , MonadResource m
            , MonadError AWS.Error m
            , MonadReader Env m
-           , AWSRequest a
            )
         => Text -- ^ 'giTableName'
         -> Map Text AttributeValue -- ^ 'giKey'
@@ -356,7 +349,6 @@ listTables :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env (ResumableSource m)
-              , AWSPager a
               )
            => State ListTables a
            -> ResumableSource m ListTablesResponse
@@ -389,7 +381,6 @@ putItem :: ( MonadCatch m
            , MonadResource m
            , MonadError AWS.Error m
            , MonadReader Env m
-           , AWSRequest a
            )
         => Text -- ^ 'piTableName'
         -> Map Text AttributeValue -- ^ 'piItem'
@@ -426,7 +417,6 @@ query :: ( MonadCatch m
          , MonadResource m
          , MonadError AWS.Error m
          , MonadReader Env (ResumableSource m)
-         , AWSPager a
          )
       => Text -- ^ 'qTableName'
       -> State Query a
@@ -462,7 +452,6 @@ scan :: ( MonadCatch m
         , MonadResource m
         , MonadError AWS.Error m
         , MonadReader Env (ResumableSource m)
-        , AWSPager a
         )
      => Text -- ^ 'sTableName'
      -> State Scan a
@@ -486,7 +475,6 @@ updateItem :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => Text -- ^ 'uiTableName'
            -> Map Text AttributeValue -- ^ 'uiKey'
@@ -529,7 +517,6 @@ updateTable :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'utTableName'
             -> State UpdateTable a

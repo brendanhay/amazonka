@@ -116,7 +116,7 @@ module Network.AWS.StorageGateway.V2013_06_30.Trans
     , updateSnapshotSchedule
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.StorageGateway.V2013_06_30
     -- ** Lenses
     , (.=)
@@ -155,7 +155,6 @@ activateGateway :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'agActivationKey'
                 -> Text -- ^ 'agGatewayName'
@@ -192,7 +191,6 @@ addCache :: ( MonadCatch m
             , MonadResource m
             , MonadError AWS.Error m
             , MonadReader Env m
-            , AWSRequest a
             )
          => Text -- ^ 'acGatewayARN'
          -> [Text] -- ^ 'acDiskIds'
@@ -213,7 +211,6 @@ addUploadBuffer :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'aubGatewayARN'
                 -> [Text] -- ^ 'aubDiskIds'
@@ -248,7 +245,6 @@ addWorkingStorage :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Text -- ^ 'awsGatewayARN'
                   -> [Text] -- ^ 'awsDiskIds'
@@ -262,7 +258,6 @@ cancelArchival :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'caGatewayARN'
                -> Text -- ^ 'caTapeARN'
@@ -276,7 +271,6 @@ cancelRetrieval :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'crGatewayARN'
                 -> Text -- ^ 'crTapeARN'
@@ -321,7 +315,6 @@ createCachediSCSIVolume :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'ccscsivGatewayARN'
                         -> Integer -- ^ 'ccscsivVolumeSizeInBytes'
@@ -367,7 +360,6 @@ createSnapshot :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'csVolumeARN'
                -> Text -- ^ 'csSnapshotDescription'
@@ -415,7 +407,6 @@ createSnapshotFromVolumeRecoveryPoint :: ( MonadCatch m
                                          , MonadResource m
                                          , MonadError AWS.Error m
                                          , MonadReader Env m
-                                         , AWSRequest a
                                          )
                                       => Text -- ^ 'csfvrpVolumeARN'
                                       -> Text -- ^ 'csfvrpSnapshotDescription'
@@ -457,7 +448,6 @@ createStorediSCSIVolume :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'csscsivGatewayARN'
                         -> Text -- ^ 'csscsivDiskId'
@@ -474,7 +464,6 @@ createTapes :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'ctGatewayARN'
             -> Integer -- ^ 'ctTapeSizeInBytes'
@@ -509,7 +498,6 @@ deleteBandwidthRateLimit :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'dbrlGatewayARN'
                          -> Text -- ^ 'dbrlBandwidthType'
@@ -541,7 +529,6 @@ deleteChapCredentials :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'dccTargetARN'
                       -> Text -- ^ 'dccInitiatorName'
@@ -581,7 +568,6 @@ deleteGateway :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'dgGatewayARN'
               -> State DeleteGateway a
@@ -616,7 +602,6 @@ deleteSnapshotSchedule :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'dssVolumeARN'
                        -> State DeleteSnapshotSchedule a
@@ -629,7 +614,6 @@ deleteTape :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => Text -- ^ 'dtGatewayARN'
            -> Text -- ^ 'dtTapeARN'
@@ -643,7 +627,6 @@ deleteTapeArchive :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Text -- ^ 'dtaTapeARN'
                   -> State DeleteTapeArchive a
@@ -681,7 +664,6 @@ deleteVolume :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'dvVolumeARN'
              -> State DeleteVolume a
@@ -716,7 +698,6 @@ describeBandwidthRateLimit :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => Text -- ^ 'dbrl1GatewayARN'
                            -> State DescribeBandwidthRateLimit a
@@ -751,7 +732,6 @@ describeCache :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'dcGatewayARN'
               -> State DescribeCache a
@@ -791,7 +771,6 @@ describeCachediSCSIVolumes :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => [Text] -- ^ 'dcscsivVolumeARNs'
                            -> State DescribeCachediSCSIVolumes a
@@ -822,7 +801,6 @@ describeChapCredentials :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'dcc1TargetARN'
                         -> State DescribeChapCredentials a
@@ -854,7 +832,6 @@ describeGatewayInformation :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => Text -- ^ 'dgiGatewayARN'
                            -> State DescribeGatewayInformation a
@@ -884,7 +861,6 @@ describeMaintenanceStartTime :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env m
-                                , AWSRequest a
                                 )
                              => Text -- ^ 'dmstGatewayARN'
                              -> State DescribeMaintenanceStartTime a
@@ -915,7 +891,6 @@ describeSnapshotSchedule :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'dss1VolumeARN'
                          -> State DescribeSnapshotSchedule a
@@ -952,7 +927,6 @@ describeStorediSCSIVolumes :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => [Text] -- ^ 'dsscsivVolumeARNs'
                            -> State DescribeStorediSCSIVolumes a
@@ -965,7 +939,6 @@ describeTapeArchives :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env (ResumableSource m)
-                        , AWSPager a
                         )
                      => State DescribeTapeArchives a
                      -> ResumableSource m DescribeTapeArchivesResponse
@@ -977,7 +950,6 @@ describeTapeRecoveryPoints :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env (ResumableSource m)
-                              , AWSPager a
                               )
                            => Text -- ^ 'dtrpGatewayARN'
                            -> State DescribeTapeRecoveryPoints a
@@ -990,7 +962,6 @@ describeTapes :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env (ResumableSource m)
-                 , AWSPager a
                  )
               => Text -- ^ 'dt1GatewayARN'
               -> State DescribeTapes a
@@ -1026,7 +997,6 @@ describeUploadBuffer :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => Text -- ^ 'dubGatewayARN'
                      -> State DescribeUploadBuffer a
@@ -1039,7 +1009,6 @@ describeVTLDevices :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env (ResumableSource m)
-                      , AWSPager a
                       )
                    => Text -- ^ 'dvtldGatewayARN'
                    -> State DescribeVTLDevices a
@@ -1074,7 +1043,6 @@ describeWorkingStorage :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'dwsGatewayARN'
                        -> State DescribeWorkingStorage a
@@ -1087,7 +1055,6 @@ disableGateway :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'dg1GatewayARN'
                -> State DisableGateway a
@@ -1123,7 +1090,6 @@ listGateways :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env (ResumableSource m)
-                , AWSPager a
                 )
              => State ListGateways a
              -> ResumableSource m ListGatewaysResponse
@@ -1157,7 +1123,6 @@ listLocalDisks :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'lldGatewayARN'
                -> State ListLocalDisks a
@@ -1196,7 +1161,6 @@ listVolumeRecoveryPoints :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'lvrpGatewayARN'
                          -> State ListVolumeRecoveryPoints a
@@ -1237,7 +1201,6 @@ listVolumes :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env (ResumableSource m)
-               , AWSPager a
                )
             => Text -- ^ 'lvGatewayARN'
             -> State ListVolumes a
@@ -1250,7 +1213,6 @@ retrieveTapeArchive :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'rtaTapeARN'
                     -> Text -- ^ 'rtaGatewayARN'
@@ -1264,7 +1226,6 @@ retrieveTapeRecoveryPoint :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'rtrpTapeARN'
                           -> Text -- ^ 'rtrpGatewayARN'
@@ -1306,7 +1267,6 @@ shutdownGateway :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'sgGatewayARN'
                 -> State ShutdownGateway a
@@ -1341,7 +1301,6 @@ startGateway :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'sg1GatewayARN'
              -> State StartGateway a
@@ -1376,7 +1335,6 @@ updateBandwidthRateLimit :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'ubrlGatewayARN'
                          -> State UpdateBandwidthRateLimit a
@@ -1411,7 +1369,6 @@ updateChapCredentials :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'uccTargetARN'
                       -> Text -- ^ 'uccSecretToAuthenticateInitiator'
@@ -1442,7 +1399,6 @@ updateGatewayInformation :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'ugiGatewayARN'
                          -> State UpdateGatewayInformation a
@@ -1481,7 +1437,6 @@ updateGatewaySoftwareNow :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'ugsnGatewayARN'
                          -> State UpdateGatewaySoftwareNow a
@@ -1510,7 +1465,6 @@ updateMaintenanceStartTime :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => Text -- ^ 'umstGatewayARN'
                            -> Integer -- ^ 'umstHourOfDay'
@@ -1548,7 +1502,6 @@ updateSnapshotSchedule :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'ussVolumeARN'
                        -> Integer -- ^ 'ussStartAt'

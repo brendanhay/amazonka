@@ -20,7 +20,7 @@ module {{ trans_namespace }}
 {% endfor %}
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module {{ version_namespace }}
     -- ** Lenses
     , (.=)

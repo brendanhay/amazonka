@@ -71,7 +71,7 @@ module Network.AWS.CloudSearch.V2013_01_01.Trans
     , updateServiceAccessPolicies
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.CloudSearch.V2013_01_01
     -- ** Lenses
     , (.=)
@@ -91,7 +91,6 @@ buildSuggesters :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'bsDomainName'
                 -> State BuildSuggesters a
@@ -107,7 +106,6 @@ createDomain :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'cdDomainName'
              -> State CreateDomain a
@@ -125,7 +123,6 @@ defineAnalysisScheme :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => Text -- ^ 'dasDomainName'
                      -> AnalysisScheme -- ^ 'dasAnalysisScheme'
@@ -144,7 +141,6 @@ defineExpression :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'deDomainName'
                  -> Expression -- ^ 'deExpression'
@@ -167,7 +163,6 @@ defineIndexField :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'difDomainName'
                  -> IndexField -- ^ 'difIndexField'
@@ -188,7 +183,6 @@ defineSuggester :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'ds1DomainName'
                 -> Suggester -- ^ 'ds1Suggester'
@@ -205,7 +199,6 @@ deleteAnalysisScheme :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => Text -- ^ 'das1DomainName'
                      -> Text -- ^ 'das1AnalysisSchemeName'
@@ -223,7 +216,6 @@ deleteDomain :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'ddDomainName'
              -> State DeleteDomain a
@@ -239,7 +231,6 @@ deleteExpression :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'de1DomainName'
                  -> Text -- ^ 'de1ExpressionName'
@@ -256,7 +247,6 @@ deleteIndexField :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'dif1DomainName'
                  -> Text -- ^ 'dif1IndexFieldName'
@@ -273,7 +263,6 @@ deleteSuggester :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'ds2DomainName'
                 -> Text -- ^ 'ds2SuggesterName'
@@ -295,7 +284,6 @@ describeAnalysisSchemes :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'das2DomainName'
                         -> State DescribeAnalysisSchemes a
@@ -314,7 +302,6 @@ describeAvailabilityOptions :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => Text -- ^ 'dao2DomainName'
                             -> State DescribeAvailabilityOptions a
@@ -335,7 +322,6 @@ describeDomains :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => State DescribeDomains a
                 -> m DescribeDomainsResponse
@@ -354,7 +340,6 @@ describeExpressions :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'de2DomainName'
                     -> State DescribeExpressions a
@@ -374,7 +359,6 @@ describeIndexFields :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'dif2DomainName'
                     -> State DescribeIndexFields a
@@ -392,7 +376,6 @@ describeScalingParameters :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'dspDomainName'
                           -> State DescribeScalingParameters a
@@ -412,7 +395,6 @@ describeServiceAccessPolicies :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
                                  , MonadReader Env m
-                                 , AWSRequest a
                                  )
                               => Text -- ^ 'dsapDomainName'
                               -> State DescribeServiceAccessPolicies a
@@ -433,7 +415,6 @@ describeSuggesters :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'ds3DomainName'
                    -> State DescribeSuggesters a
@@ -450,7 +431,6 @@ indexDocuments :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'idDomainName'
                -> State IndexDocuments a
@@ -465,7 +445,6 @@ listDomainNames :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => State ListDomainNames a
                 -> m ListDomainNamesResponse
@@ -484,7 +463,6 @@ updateAvailabilityOptions :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'uaoDomainName'
                           -> Bool -- ^ 'uaoMultiAZ'
@@ -506,7 +484,6 @@ updateScalingParameters :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'uspDomainName'
                         -> ScalingParameters -- ^ 'uspScalingParameters'
@@ -524,7 +501,6 @@ updateServiceAccessPolicies :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => Text -- ^ 'usapDomainName'
                             -> Text -- ^ 'usapAccessPolicies'

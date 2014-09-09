@@ -50,7 +50,7 @@ module Network.AWS.CloudWatch.V2010_08_01.Trans
     , setAlarmState
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.CloudWatch.V2010_08_01
     -- ** Lenses
     , (.=)
@@ -71,7 +71,6 @@ deleteAlarms :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => [Text] -- ^ 'daAlarmNames'
              -> State DeleteAlarms a
@@ -89,7 +88,6 @@ describeAlarmHistory :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env (ResumableSource m)
-                        , AWSPager a
                         )
                      => State DescribeAlarmHistory a
                      -> ResumableSource m DescribeAlarmHistoryResponse
@@ -105,7 +103,6 @@ describeAlarms :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env (ResumableSource m)
-                  , AWSPager a
                   )
                => State DescribeAlarms a
                -> ResumableSource m DescribeAlarmsResponse
@@ -120,7 +117,6 @@ describeAlarmsForMetric :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'dafmMetricName'
                         -> Text -- ^ 'dafmNamespace'
@@ -138,7 +134,6 @@ disableAlarmActions :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => [Text] -- ^ 'daaAlarmNames'
                     -> State DisableAlarmActions a
@@ -153,7 +148,6 @@ enableAlarmActions :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => [Text] -- ^ 'eaaAlarmNames'
                    -> State EnableAlarmActions a
@@ -185,7 +179,6 @@ getMetricStatistics :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'gmsNamespace'
                     -> Text -- ^ 'gmsMetricName'
@@ -211,7 +204,6 @@ listMetrics :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env (ResumableSource m)
-               , AWSPager a
                )
             => State ListMetrics a
             -> ResumableSource m ListMetricsResponse
@@ -231,7 +223,6 @@ putMetricAlarm :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'pmaAlarmName'
                -> Integer -- ^ 'pmaPeriod'
@@ -263,7 +254,6 @@ putMetricData :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'pmdNamespace'
               -> [MetricDatum] -- ^ 'pmdMetricData'
@@ -282,7 +272,6 @@ setAlarmState :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'sasAlarmName'
               -> StateValue -- ^ 'sasStateValue'

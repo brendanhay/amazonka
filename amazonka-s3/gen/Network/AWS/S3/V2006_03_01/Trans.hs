@@ -123,7 +123,7 @@ module Network.AWS.S3.V2006_03_01.Trans
     , uploadPartCopy
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.S3.V2006_03_01
     -- ** Lenses
     , (.=)
@@ -145,7 +145,6 @@ abortMultipartUpload :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => BucketName -- ^ 'amuBucket'
                      -> ObjectKey -- ^ 'amuKey'
@@ -162,7 +161,6 @@ completeMultipartUpload :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => BucketName -- ^ 'cmuBucket'
                         -> ObjectKey -- ^ 'cmuKey'
@@ -179,7 +177,6 @@ copyObject :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => ObjectKey -- ^ 'coKey'
            -> BucketName -- ^ 'coBucket'
@@ -196,7 +193,6 @@ createBucket :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => BucketName -- ^ 'cbBucket'
              -> State CreateBucket a
@@ -216,7 +212,6 @@ createMultipartUpload :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => ObjectKey -- ^ 'cmu2Key'
                       -> BucketName -- ^ 'cmu2Bucket'
@@ -234,7 +229,6 @@ deleteBucket :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => BucketName -- ^ 'dbBucket'
              -> State DeleteBucket a
@@ -249,7 +243,6 @@ deleteBucketCors :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => BucketName -- ^ 'dbcBucket'
                  -> State DeleteBucketCors a
@@ -264,7 +257,6 @@ deleteBucketLifecycle :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => BucketName -- ^ 'dblBucket'
                       -> State DeleteBucketLifecycle a
@@ -279,7 +271,6 @@ deleteBucketPolicy :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => BucketName -- ^ 'dbpBucket'
                    -> State DeleteBucketPolicy a
@@ -294,7 +285,6 @@ deleteBucketTagging :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => BucketName -- ^ 'dbtBucket'
                     -> State DeleteBucketTagging a
@@ -309,7 +299,6 @@ deleteBucketWebsite :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => BucketName -- ^ 'dbwBucket'
                     -> State DeleteBucketWebsite a
@@ -326,7 +315,6 @@ deleteObject :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => BucketName -- ^ 'doBucket'
              -> ObjectKey -- ^ 'doKey'
@@ -343,7 +331,6 @@ deleteObjects :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => BucketName -- ^ 'do1Bucket'
               -> Delete -- ^ 'do1Delete'
@@ -359,7 +346,6 @@ getBucketAcl :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => BucketName -- ^ 'gbaBucket'
              -> State GetBucketAcl a
@@ -374,7 +360,6 @@ getBucketCors :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => BucketName -- ^ 'gbcBucket'
               -> State GetBucketCors a
@@ -389,7 +374,6 @@ getBucketLifecycle :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => BucketName -- ^ 'gblBucket'
                    -> State GetBucketLifecycle a
@@ -404,7 +388,6 @@ getBucketLocation :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => BucketName -- ^ 'gbl1Bucket'
                   -> State GetBucketLocation a
@@ -420,7 +403,6 @@ getBucketLogging :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => BucketName -- ^ 'gbl2Bucket'
                  -> State GetBucketLogging a
@@ -435,7 +417,6 @@ getBucketNotification :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => BucketName -- ^ 'gbnBucket'
                       -> State GetBucketNotification a
@@ -450,7 +431,6 @@ getBucketPolicy :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => BucketName -- ^ 'gbpBucket'
                 -> State GetBucketPolicy a
@@ -465,7 +445,6 @@ getBucketRequestPayment :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => BucketName -- ^ 'gbrpBucket'
                         -> State GetBucketRequestPayment a
@@ -480,7 +459,6 @@ getBucketTagging :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => BucketName -- ^ 'gbtBucket'
                  -> State GetBucketTagging a
@@ -495,7 +473,6 @@ getBucketVersioning :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => BucketName -- ^ 'gbvBucket'
                     -> State GetBucketVersioning a
@@ -510,7 +487,6 @@ getBucketWebsite :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => BucketName -- ^ 'gbwBucket'
                  -> State GetBucketWebsite a
@@ -525,7 +501,6 @@ getObject :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env m
-             , AWSRequest a
              )
           => BucketName -- ^ 'goBucket'
           -> ObjectKey -- ^ 'goKey'
@@ -541,7 +516,6 @@ getObjectAcl :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => BucketName -- ^ 'goaBucket'
              -> ObjectKey -- ^ 'goaKey'
@@ -557,7 +531,6 @@ getObjectTorrent :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => BucketName -- ^ 'gotBucket'
                  -> ObjectKey -- ^ 'gotKey'
@@ -574,7 +547,6 @@ headBucket :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => BucketName -- ^ 'hbBucket'
            -> State HeadBucket a
@@ -591,7 +563,6 @@ headObject :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => BucketName -- ^ 'hoBucket'
            -> ObjectKey -- ^ 'hoKey'
@@ -608,7 +579,6 @@ listBuckets :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => State ListBuckets a
             -> m ListBucketsResponse
@@ -622,7 +592,6 @@ listMultipartUploads :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env (ResumableSource m)
-                        , AWSPager a
                         )
                      => BucketName -- ^ 'lmuBucket'
                      -> State ListMultipartUploads a
@@ -637,7 +606,6 @@ listObjectVersions :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env (ResumableSource m)
-                      , AWSPager a
                       )
                    => BucketName -- ^ 'lovBucket'
                    -> State ListObjectVersions a
@@ -654,7 +622,6 @@ listObjects :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env (ResumableSource m)
-               , AWSPager a
                )
             => BucketName -- ^ 'loBucket'
             -> State ListObjects a
@@ -669,7 +636,6 @@ listParts :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env (ResumableSource m)
-             , AWSPager a
              )
           => BucketName -- ^ 'lpBucket'
           -> ObjectKey -- ^ 'lpKey'
@@ -686,7 +652,6 @@ putBucketAcl :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => BucketName -- ^ 'pbaBucket'
              -> State PutBucketAcl a
@@ -701,7 +666,6 @@ putBucketCors :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => BucketName -- ^ 'pbcBucket'
               -> State PutBucketCors a
@@ -717,7 +681,6 @@ putBucketLifecycle :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => BucketName -- ^ 'pblBucket'
                    -> State PutBucketLifecycle a
@@ -734,7 +697,6 @@ putBucketLogging :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => BucketName -- ^ 'pbl1Bucket'
                  -> BucketLoggingStatus -- ^ 'pbl1BucketLoggingStatus'
@@ -750,7 +712,6 @@ putBucketNotification :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => BucketName -- ^ 'pbnBucket'
                       -> NotificationConfiguration -- ^ 'pbnNotificationConfiguration'
@@ -767,7 +728,6 @@ putBucketPolicy :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => BucketName -- ^ 'pbpBucket'
                 -> Text -- ^ 'pbpPolicy'
@@ -786,7 +746,6 @@ putBucketRequestPayment :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => BucketName -- ^ 'pbrpBucket'
                         -> RequestPaymentConfiguration -- ^ 'pbrpRequestPaymentConfiguration'
@@ -802,7 +761,6 @@ putBucketTagging :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => BucketName -- ^ 'pbtBucket'
                  -> Tagging -- ^ 'pbtTagging'
@@ -819,7 +777,6 @@ putBucketVersioning :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => BucketName -- ^ 'pbvBucket'
                     -> VersioningConfiguration -- ^ 'pbvVersioningConfiguration'
@@ -835,7 +792,6 @@ putBucketWebsite :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => BucketName -- ^ 'pbwBucket'
                  -> WebsiteConfiguration -- ^ 'pbwWebsiteConfiguration'
@@ -851,7 +807,6 @@ putObject :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env m
-             , AWSRequest a
              )
           => ObjectKey -- ^ 'poKey'
           -> RqBody -- ^ 'poBody'
@@ -869,7 +824,6 @@ putObjectAcl :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => ObjectKey -- ^ 'poaKey'
              -> BucketName -- ^ 'poaBucket'
@@ -885,7 +839,6 @@ restoreObject :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => BucketName -- ^ 'roBucket'
               -> ObjectKey -- ^ 'roKey'
@@ -906,7 +859,6 @@ uploadPart :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => RqBody -- ^ 'upBody'
            -> BucketName -- ^ 'upBucket'
@@ -925,7 +877,6 @@ uploadPartCopy :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => BucketName -- ^ 'upcBucket'
                -> Text -- ^ 'upcUploadId'

@@ -34,7 +34,7 @@ module Network.AWS.ImportExport.V2010_06_01.Trans
     , updateJob
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.ImportExport.V2010_06_01
     -- ** Lenses
     , (.=)
@@ -55,7 +55,6 @@ cancelJob :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env m
-             , AWSRequest a
              )
           => Text -- ^ 'cjJobId'
           -> State CancelJob a
@@ -74,7 +73,6 @@ createJob :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env m
-             , AWSRequest a
              )
           => JobType -- ^ 'cj1JobType'
           -> Text -- ^ 'cj1Manifest'
@@ -94,7 +92,6 @@ getStatus :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env m
-             , AWSRequest a
              )
           => Text -- ^ 'gsJobId'
           -> State GetStatus a
@@ -113,7 +110,6 @@ listJobs :: ( MonadCatch m
             , MonadResource m
             , MonadError AWS.Error m
             , MonadReader Env (ResumableSource m)
-            , AWSPager a
             )
          => State ListJobs a
          -> ResumableSource m ListJobsResponse
@@ -131,7 +127,6 @@ updateJob :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env m
-             , AWSRequest a
              )
           => Text -- ^ 'ujJobId'
           -> Text -- ^ 'ujManifest'

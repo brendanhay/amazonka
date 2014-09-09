@@ -130,7 +130,7 @@ module Network.AWS.Redshift.V2012_12_01.Trans
     , rotateEncryptionKey
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.Redshift.V2012_12_01
     -- ** Lenses
     , (.=)
@@ -170,7 +170,6 @@ authorizeClusterSecurityGroupIngress :: ( MonadCatch m
                                         , MonadResource m
                                         , MonadError AWS.Error m
                                         , MonadReader Env m
-                                        , AWSRequest a
                                         )
                                      => Text -- ^ 'acsgiClusterSecurityGroupName'
                                      -> State AuthorizeClusterSecurityGroupIngress a
@@ -187,7 +186,6 @@ authorizeSnapshotAccess :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'asaSnapshotIdentifier'
                         -> Text -- ^ 'asaAccountWithRestoreAccess'
@@ -221,7 +219,6 @@ copyClusterSnapshot :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'ccsSourceSnapshotIdentifier'
                     -> Text -- ^ 'ccsTargetSnapshotIdentifier'
@@ -264,7 +261,6 @@ createCluster :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'ccClusterIdentifier'
               -> Text -- ^ 'ccNodeType'
@@ -298,7 +294,6 @@ createClusterParameterGroup :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => Text -- ^ 'ccpgParameterGroupName'
                             -> Text -- ^ 'ccpgParameterGroupFamily'
@@ -325,7 +320,6 @@ createClusterSecurityGroup :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => Text -- ^ 'ccsgClusterSecurityGroupName'
                            -> Text -- ^ 'ccsgDescription'
@@ -352,7 +346,6 @@ createClusterSnapshot :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'ccs1SnapshotIdentifier'
                       -> Text -- ^ 'ccs1ClusterIdentifier'
@@ -381,7 +374,6 @@ createClusterSubnetGroup :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'ccsg1ClusterSubnetGroupName'
                          -> Text -- ^ 'ccsg1Description'
@@ -417,7 +409,6 @@ createEventSubscription :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'cesSubscriptionName'
                         -> Text -- ^ 'cesSnsTopicArn'
@@ -440,7 +431,6 @@ createHsmClientCertificate :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => Text -- ^ 'chccHsmClientCertificateIdentifier'
                            -> State CreateHsmClientCertificate a
@@ -462,7 +452,6 @@ createHsmConfiguration :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'chcHsmConfigurationIdentifier'
                        -> Text -- ^ 'chcDescription'
@@ -499,7 +488,6 @@ deleteCluster :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'dcClusterIdentifier'
               -> State DeleteCluster a
@@ -522,7 +510,6 @@ deleteClusterParameterGroup :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => Text -- ^ 'dcpgParameterGroupName'
                             -> State DeleteClusterParameterGroup a
@@ -547,7 +534,6 @@ deleteClusterSecurityGroup :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => Text -- ^ 'dcsgClusterSecurityGroupName'
                            -> State DeleteClusterSecurityGroup a
@@ -577,7 +563,6 @@ deleteClusterSnapshot :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'dcsSnapshotIdentifier'
                       -> State DeleteClusterSnapshot a
@@ -599,7 +584,6 @@ deleteClusterSubnetGroup :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'dcsg1ClusterSubnetGroupName'
                          -> State DeleteClusterSubnetGroup a
@@ -614,7 +598,6 @@ deleteEventSubscription :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'desSubscriptionName'
                         -> State DeleteEventSubscription a
@@ -629,7 +612,6 @@ deleteHsmClientCertificate :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => Text -- ^ 'dhccHsmClientCertificateIdentifier'
                            -> State DeleteHsmClientCertificate a
@@ -644,7 +626,6 @@ deleteHsmConfiguration :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'dhcHsmConfigurationIdentifier'
                        -> State DeleteHsmConfiguration a
@@ -673,7 +654,6 @@ describeClusterParameterGroups :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
                                   , MonadReader Env (ResumableSource m)
-                                  , AWSPager a
                                   )
                                => State DescribeClusterParameterGroups a
                                -> ResumableSource m DescribeClusterParameterGroupsResponse
@@ -713,7 +693,6 @@ describeClusterParameters :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env (ResumableSource m)
-                             , AWSPager a
                              )
                           => Text -- ^ 'dcpParameterGroupName'
                           -> State DescribeClusterParameters a
@@ -739,7 +718,6 @@ describeClusterSecurityGroups :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
                                  , MonadReader Env (ResumableSource m)
-                                 , AWSPager a
                                  )
                               => State DescribeClusterSecurityGroups a
                               -> ResumableSource m DescribeClusterSecurityGroupsResponse
@@ -767,7 +745,6 @@ describeClusterSnapshots :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env (ResumableSource m)
-                            , AWSPager a
                             )
                          => State DescribeClusterSnapshots a
                          -> ResumableSource m DescribeClusterSnapshotsResponse
@@ -791,7 +768,6 @@ describeClusterSubnetGroups :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env (ResumableSource m)
-                               , AWSPager a
                                )
                             => State DescribeClusterSubnetGroups a
                             -> ResumableSource m DescribeClusterSubnetGroupsResponse
@@ -815,7 +791,6 @@ describeClusterVersions :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env (ResumableSource m)
-                           , AWSPager a
                            )
                         => State DescribeClusterVersions a
                         -> ResumableSource m DescribeClusterVersionsResponse
@@ -842,7 +817,6 @@ describeClusters :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env (ResumableSource m)
-                    , AWSPager a
                     )
                  => State DescribeClusters a
                  -> ResumableSource m DescribeClustersResponse
@@ -876,7 +850,6 @@ describeDefaultClusterParameters :: ( MonadCatch m
                                     , MonadResource m
                                     , MonadError AWS.Error m
                                     , MonadReader Env (ResumableSource m)
-                                    , AWSPager a
                                     )
                                  => Text -- ^ 'ddcpParameterGroupFamily'
                                  -> State DescribeDefaultClusterParameters a
@@ -893,7 +866,6 @@ describeEventCategories :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => State DescribeEventCategories a
                         -> m DescribeEventCategoriesResponse
@@ -909,7 +881,6 @@ describeEventSubscriptions :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env (ResumableSource m)
-                              , AWSPager a
                               )
                            => State DescribeEventSubscriptions a
                            -> ResumableSource m DescribeEventSubscriptionsResponse
@@ -935,7 +906,6 @@ describeEvents :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env (ResumableSource m)
-                  , AWSPager a
                   )
                => State DescribeEvents a
                -> ResumableSource m DescribeEventsResponse
@@ -951,7 +921,6 @@ describeHsmClientCertificates :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
                                  , MonadReader Env (ResumableSource m)
-                                 , AWSPager a
                                  )
                               => State DescribeHsmClientCertificates a
                               -> ResumableSource m DescribeHsmClientCertificatesResponse
@@ -967,7 +936,6 @@ describeHsmConfigurations :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env (ResumableSource m)
-                             , AWSPager a
                              )
                           => State DescribeHsmConfigurations a
                           -> ResumableSource m DescribeHsmConfigurationsResponse
@@ -982,7 +950,6 @@ describeLoggingStatus :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'dlsClusterIdentifier'
                       -> State DescribeLoggingStatus a
@@ -1013,7 +980,6 @@ describeOrderableClusterOptions :: ( MonadCatch m
                                    , MonadResource m
                                    , MonadError AWS.Error m
                                    , MonadReader Env (ResumableSource m)
-                                   , AWSPager a
                                    )
                                 => State DescribeOrderableClusterOptions a
                                 -> ResumableSource m DescribeOrderableClusterOptionsResponse
@@ -1044,7 +1010,6 @@ describeReservedNodeOfferings :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
                                  , MonadReader Env (ResumableSource m)
-                                 , AWSPager a
                                  )
                               => State DescribeReservedNodeOfferings a
                               -> ResumableSource m DescribeReservedNodeOfferingsResponse
@@ -1069,7 +1034,6 @@ describeReservedNodes :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env (ResumableSource m)
-                         , AWSPager a
                          )
                       => State DescribeReservedNodes a
                       -> ResumableSource m DescribeReservedNodesResponse
@@ -1096,7 +1060,6 @@ describeResize :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'drClusterIdentifier'
                -> State DescribeResize a
@@ -1112,7 +1075,6 @@ disableLogging :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'dlClusterIdentifier'
                -> State DisableLogging a
@@ -1128,7 +1090,6 @@ disableSnapshotCopy :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'dscClusterIdentifier'
                     -> State DisableSnapshotCopy a
@@ -1144,7 +1105,6 @@ enableLogging :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'elClusterIdentifier'
               -> Text -- ^ 'elBucketName'
@@ -1161,7 +1121,6 @@ enableSnapshotCopy :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'escClusterIdentifier'
                    -> Text -- ^ 'escDestinationRegion'
@@ -1200,7 +1159,6 @@ modifyCluster :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'mcClusterIdentifier'
               -> State ModifyCluster a
@@ -1228,7 +1186,6 @@ modifyClusterParameterGroup :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => Text -- ^ 'mcpgParameterGroupName'
                             -> [Parameter] -- ^ 'mcpgParameters'
@@ -1246,7 +1203,6 @@ modifyClusterSubnetGroup :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'mcsgClusterSubnetGroupName'
                          -> [Text] -- ^ 'mcsgSubnetIds'
@@ -1262,7 +1218,6 @@ modifyEventSubscription :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'mesSubscriptionName'
                         -> State ModifyEventSubscription a
@@ -1278,7 +1233,6 @@ modifySnapshotCopyRetentionPeriod :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
                                      , MonadReader Env m
-                                     , AWSRequest a
                                      )
                                   => Text -- ^ 'mscrpClusterIdentifier'
                                   -> Integer -- ^ 'mscrpRetentionPeriod'
@@ -1310,7 +1264,6 @@ purchaseReservedNodeOffering :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env m
-                                , AWSRequest a
                                 )
                              => Text -- ^ 'prnoReservedNodeOfferingId'
                              -> State PurchaseReservedNodeOffering a
@@ -1340,7 +1293,6 @@ rebootCluster :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'rc1ClusterIdentifier'
               -> State RebootCluster a
@@ -1367,7 +1319,6 @@ resetClusterParameterGroup :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => Text -- ^ 'rcpgParameterGroupName'
                            -> State ResetClusterParameterGroup a
@@ -1401,7 +1352,6 @@ restoreFromClusterSnapshot :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => Text -- ^ 'rfcsClusterIdentifier'
                            -> Text -- ^ 'rfcsSnapshotIdentifier'
@@ -1429,7 +1379,6 @@ revokeClusterSecurityGroupIngress :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
                                      , MonadReader Env m
-                                     , AWSRequest a
                                      )
                                   => Text -- ^ 'rcsgiClusterSecurityGroupName'
                                   -> State RevokeClusterSecurityGroupIngress a
@@ -1448,7 +1397,6 @@ revokeSnapshotAccess :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => Text -- ^ 'rsaSnapshotIdentifier'
                      -> Text -- ^ 'rsaAccountWithRestoreAccess'
@@ -1464,7 +1412,6 @@ rotateEncryptionKey :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'rekClusterIdentifier'
                     -> State RotateEncryptionKey a

@@ -55,7 +55,7 @@ module Network.AWS.Support.V2013_04_15.Trans
     , resolveCase
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.Support.V2013_04_15
     -- ** Lenses
     , (.=)
@@ -83,7 +83,6 @@ addAttachmentsToSet :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => [Attachment] -- ^ 'aatsAttachments'
                     -> State AddAttachmentsToSet a
@@ -104,7 +103,6 @@ addCommunicationToCase :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'actcCommunicationBody'
                        -> State AddCommunicationToCase a
@@ -144,7 +142,6 @@ createCase :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => Text -- ^ 'ccSubject'
            -> Text -- ^ 'ccCommunicationBody'
@@ -164,7 +161,6 @@ describeAttachment :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'daAttachmentId'
                    -> State DescribeAttachment a
@@ -186,7 +182,6 @@ describeCases :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env (ResumableSource m)
-                 , AWSPager a
                  )
               => State DescribeCases a
               -> ResumableSource m DescribeCasesResponse
@@ -207,7 +202,6 @@ describeCommunications :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env (ResumableSource m)
-                          , AWSPager a
                           )
                        => Text -- ^ 'dc1CaseId'
                        -> State DescribeCommunications a
@@ -231,7 +225,6 @@ describeServices :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => State DescribeServices a
                  -> m DescribeServicesResponse
@@ -247,7 +240,6 @@ describeSeverityLevels :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => State DescribeSeverityLevels a
                        -> m DescribeSeverityLevelsResponse
@@ -263,7 +255,6 @@ describeTrustedAdvisorCheckRefreshStatuses :: ( MonadCatch m
                                               , MonadResource m
                                               , MonadError AWS.Error m
                                               , MonadReader Env m
-                                              , AWSRequest a
                                               )
                                            => [Text] -- ^ 'dtacrsCheckIds'
                                            -> State DescribeTrustedAdvisorCheckRefreshStatuses a
@@ -286,7 +277,6 @@ describeTrustedAdvisorCheckResult :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
                                      , MonadReader Env m
-                                     , AWSRequest a
                                      )
                                   => Text -- ^ 'dtacrCheckId'
                                   -> State DescribeTrustedAdvisorCheckResult a
@@ -304,7 +294,6 @@ describeTrustedAdvisorCheckSummaries :: ( MonadCatch m
                                         , MonadResource m
                                         , MonadError AWS.Error m
                                         , MonadReader Env m
-                                        , AWSRequest a
                                         )
                                      => [Text] -- ^ 'dtacsCheckIds'
                                      -> State DescribeTrustedAdvisorCheckSummaries a
@@ -322,7 +311,6 @@ describeTrustedAdvisorChecks :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env m
-                                , AWSRequest a
                                 )
                              => Text -- ^ 'dtacLanguage'
                              -> State DescribeTrustedAdvisorChecks a
@@ -344,7 +332,6 @@ refreshTrustedAdvisorCheck :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => Text -- ^ 'rtacCheckId'
                            -> State RefreshTrustedAdvisorCheck a
@@ -360,7 +347,6 @@ resolveCase :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => State ResolveCase a
             -> m ResolveCaseResponse

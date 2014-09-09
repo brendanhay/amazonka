@@ -11,10 +11,8 @@
 {{ scope.request.function_pad }}    , MonadError AWS.Error m
 {% if scope.pagination %}
 {{ scope.request.function_pad }}    , MonadReader Env (ResumableSource m)
-{{ scope.request.function_pad }}    , AWSPager a
 {% else %}
 {{ scope.request.function_pad }}    , MonadReader Env m
-{{ scope.request.function_pad }}    , AWSRequest a
 {% endif %}
 {{ scope.request.function_pad }}    )
 {% for param in scope.request.params %}

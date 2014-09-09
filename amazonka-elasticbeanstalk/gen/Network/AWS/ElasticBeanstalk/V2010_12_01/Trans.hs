@@ -86,7 +86,7 @@ module Network.AWS.ElasticBeanstalk.V2010_12_01.Trans
     , validateConfigurationSettings
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.ElasticBeanstalk.V2010_12_01
     -- ** Lenses
     , (.=)
@@ -110,7 +110,6 @@ checkDNSAvailability :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => Text -- ^ 'cdnsaCNAMEPrefix'
                      -> State CheckDNSAvailability a
@@ -133,7 +132,6 @@ createApplication :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Text -- ^ 'caApplicationName'
                   -> State CreateApplication a
@@ -159,7 +157,6 @@ createApplicationVersion :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'cavApplicationName'
                          -> Text -- ^ 'cavVersionLabel'
@@ -224,7 +221,6 @@ createConfigurationTemplate :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => Text -- ^ 'cctApplicationName'
                             -> Text -- ^ 'cctTemplateName'
@@ -248,7 +244,6 @@ createEnvironment :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Text -- ^ 'ceApplicationName'
                   -> Text -- ^ 'ceEnvironmentName'
@@ -268,7 +263,6 @@ createStorageLocation :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => State CreateStorageLocation a
                       -> m CreateStorageLocationResponse
@@ -288,7 +282,6 @@ deleteApplication :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Text -- ^ 'daApplicationName'
                   -> State DeleteApplication a
@@ -308,7 +301,6 @@ deleteApplicationVersion :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'davApplicationName'
                          -> Text -- ^ 'davVersionLabel'
@@ -330,7 +322,6 @@ deleteConfigurationTemplate :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => Text -- ^ 'dctApplicationName'
                             -> Text -- ^ 'dctTemplateName'
@@ -355,7 +346,6 @@ deleteEnvironmentConfiguration :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
                                   , MonadReader Env m
-                                  , AWSRequest a
                                   )
                                => Text -- ^ 'decApplicationName'
                                -> Text -- ^ 'decEnvironmentName'
@@ -375,7 +365,6 @@ describeApplicationVersions :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => State DescribeApplicationVersions a
                             -> m DescribeApplicationVersionsResponse
@@ -393,7 +382,6 @@ describeApplications :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => State DescribeApplications a
                      -> m DescribeApplicationsResponse
@@ -481,7 +469,6 @@ describeConfigurationOptions :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env m
-                                , AWSRequest a
                                 )
                              => State DescribeConfigurationOptions a
                              -> m DescribeConfigurationOptionsResponse
@@ -545,7 +532,6 @@ describeConfigurationSettings :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
                                  , MonadReader Env m
-                                 , AWSRequest a
                                  )
                               => Text -- ^ 'dcsApplicationName'
                               -> State DescribeConfigurationSettings a
@@ -567,7 +553,6 @@ describeEnvironmentResources :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env m
-                                , AWSRequest a
                                 )
                              => State DescribeEnvironmentResources a
                              -> m DescribeEnvironmentResourcesResponse
@@ -588,7 +573,6 @@ describeEnvironments :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => State DescribeEnvironments a
                      -> m DescribeEnvironmentsResponse
@@ -617,7 +601,6 @@ describeEvents :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env (ResumableSource m)
-                  , AWSPager a
                   )
                => State DescribeEvents a
                -> ResumableSource m DescribeEventsResponse
@@ -635,7 +618,6 @@ listAvailableSolutionStacks :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => State ListAvailableSolutionStacks a
                             -> m ListAvailableSolutionStacksResponse
@@ -654,7 +636,6 @@ rebuildEnvironment :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => State RebuildEnvironment a
                    -> m RebuildEnvironmentResponse
@@ -676,7 +657,6 @@ requestEnvironmentInfo :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => EnvironmentInfoType -- ^ 'reiInfoType'
                        -> State RequestEnvironmentInfo a
@@ -695,7 +675,6 @@ restartAppServer :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => State RestartAppServer a
                  -> m RestartAppServerResponse
@@ -716,7 +695,6 @@ retrieveEnvironmentInfo :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => EnvironmentInfoType -- ^ 'rei1InfoType'
                         -> State RetrieveEnvironmentInfo a
@@ -734,7 +712,6 @@ swapEnvironmentCNAMEs :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => State SwapEnvironmentCNAMEs a
                       -> m SwapEnvironmentCNAMEsResponse
@@ -755,7 +732,6 @@ terminateEnvironment :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => State TerminateEnvironment a
                      -> m TerminateEnvironmentResponse
@@ -775,7 +751,6 @@ updateApplication :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Text -- ^ 'uaApplicationName'
                   -> State UpdateApplication a
@@ -797,7 +772,6 @@ updateApplicationVersion :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'uavApplicationName'
                          -> Text -- ^ 'uavVersionLabel'
@@ -860,7 +834,6 @@ updateConfigurationTemplate :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => Text -- ^ 'uctApplicationName'
                             -> Text -- ^ 'uctTemplateName'
@@ -894,7 +867,6 @@ updateEnvironment :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => State UpdateEnvironment a
                   -> m UpdateEnvironmentResponse
@@ -918,7 +890,6 @@ validateConfigurationSettings :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
                                  , MonadReader Env m
-                                 , AWSRequest a
                                  )
                               => Text -- ^ 'vcsApplicationName'
                               -> [ConfigurationOptionSetting] -- ^ 'vcsOptionSettings'

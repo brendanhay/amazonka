@@ -89,7 +89,7 @@ module Network.AWS.SWF.V2012_01_25.Trans
     , terminateWorkflowExecution
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.SWF.V2012_01_25
     -- ** Lenses
     , (.=)
@@ -140,7 +140,6 @@ countClosedWorkflowExecutions :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
                                  , MonadReader Env m
-                                 , AWSRequest a
                                  )
                               => Text -- ^ 'ccweDomain'
                               -> State CountClosedWorkflowExecutions a
@@ -186,7 +185,6 @@ countOpenWorkflowExecutions :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => Text -- ^ 'coweDomain'
                             -> ExecutionTimeFilter -- ^ 'coweStartTimeFilter'
@@ -230,7 +228,6 @@ countPendingActivityTasks :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'cpatDomain'
                           -> TaskList -- ^ 'cpatTaskList'
@@ -274,7 +271,6 @@ countPendingDecisionTasks :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'cpdtDomain'
                           -> TaskList -- ^ 'cpdtTaskList'
@@ -320,7 +316,6 @@ deprecateActivityType :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'datDomain'
                       -> ActivityType -- ^ 'datActivityType'
@@ -365,7 +360,6 @@ deprecateDomain :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'ddName'
                 -> State DeprecateDomain a
@@ -411,7 +405,6 @@ deprecateWorkflowType :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'dwtDomain'
                       -> WorkflowType -- ^ 'dwtWorkflowType'
@@ -462,7 +455,6 @@ describeActivityType :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => Text -- ^ 'dat1Domain'
                      -> ActivityType -- ^ 'dat1ActivityType'
@@ -504,7 +496,6 @@ describeDomain :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'dd1Name'
                -> State DescribeDomain a
@@ -555,7 +546,6 @@ describeWorkflowExecution :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'dweDomain'
                           -> WorkflowExecution -- ^ 'dweExecution'
@@ -605,7 +595,6 @@ describeWorkflowType :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => Text -- ^ 'dwt1Domain'
                      -> WorkflowType -- ^ 'dwt1WorkflowType'
@@ -687,7 +676,6 @@ getWorkflowExecutionHistory :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env (ResumableSource m)
-                               , AWSPager a
                                )
                             => Text -- ^ 'gwehDomain'
                             -> WorkflowExecution -- ^ 'gwehExecution'
@@ -723,7 +711,6 @@ listActivityTypes :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env (ResumableSource m)
-                     , AWSPager a
                      )
                   => Text -- ^ 'latDomain'
                   -> RegistrationStatus -- ^ 'latRegistrationStatus'
@@ -789,7 +776,6 @@ listClosedWorkflowExecutions :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env (ResumableSource m)
-                                , AWSPager a
                                 )
                              => Text -- ^ 'lcweDomain'
                              -> State ListClosedWorkflowExecutions a
@@ -842,7 +828,6 @@ listDomains :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env (ResumableSource m)
-               , AWSPager a
                )
             => RegistrationStatus -- ^ 'ldRegistrationStatus'
             -> State ListDomains a
@@ -895,7 +880,6 @@ listOpenWorkflowExecutions :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env (ResumableSource m)
-                              , AWSPager a
                               )
                            => Text -- ^ 'loweDomain'
                            -> ExecutionTimeFilter -- ^ 'loweStartTimeFilter'
@@ -939,7 +923,6 @@ listWorkflowTypes :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env (ResumableSource m)
-                     , AWSPager a
                      )
                   => Text -- ^ 'lwtDomain'
                   -> RegistrationStatus -- ^ 'lwtRegistrationStatus'
@@ -996,7 +979,6 @@ pollForActivityTask :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'pfatDomain'
                     -> TaskList -- ^ 'pfatTaskList'
@@ -1074,7 +1056,6 @@ pollForDecisionTask :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env (ResumableSource m)
-                       , AWSPager a
                        )
                     => Text -- ^ 'pfdtDomain'
                     -> TaskList -- ^ 'pfdtTaskList'
@@ -1135,7 +1116,6 @@ recordActivityTaskHeartbeat :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => Text -- ^ 'rathTaskToken'
                             -> State RecordActivityTaskHeartbeat a
@@ -1184,7 +1164,6 @@ registerActivityType :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => Text -- ^ 'ratDomain'
                      -> Text -- ^ 'ratName'
@@ -1226,7 +1205,6 @@ registerDomain :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'rdName'
                -> Text -- ^ 'rdWorkflowExecutionRetentionPeriodInDays'
@@ -1276,7 +1254,6 @@ registerWorkflowType :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => Text -- ^ 'rwtDomain'
                      -> Text -- ^ 'rwtName'
@@ -1326,7 +1303,6 @@ requestCancelWorkflowExecution :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
                                   , MonadReader Env m
-                                  , AWSRequest a
                                   )
                                => Text -- ^ 'rcweDomain'
                                -> Text -- ^ 'rcweWorkflowId'
@@ -1377,7 +1353,6 @@ respondActivityTaskCanceled :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => Text -- ^ 'ratcTaskToken'
                             -> State RespondActivityTaskCanceled a
@@ -1428,7 +1403,6 @@ respondActivityTaskCompleted :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env m
-                                , AWSRequest a
                                 )
                              => Text -- ^ 'ratc1TaskToken'
                              -> State RespondActivityTaskCompleted a
@@ -1475,7 +1449,6 @@ respondActivityTaskFailed :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'ratfTaskToken'
                           -> State RespondActivityTaskFailed a
@@ -1524,7 +1497,6 @@ respondDecisionTaskCompleted :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env m
-                                , AWSRequest a
                                 )
                              => Text -- ^ 'rdtcTaskToken'
                              -> State RespondDecisionTaskCompleted a
@@ -1571,7 +1543,6 @@ signalWorkflowExecution :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'sweDomain'
                         -> Text -- ^ 'sweWorkflowId'
@@ -1627,7 +1598,6 @@ startWorkflowExecution :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'swe1Domain'
                        -> Text -- ^ 'swe1WorkflowId'
@@ -1679,7 +1649,6 @@ terminateWorkflowExecution :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => Text -- ^ 'tweDomain'
                            -> Text -- ^ 'tweWorkflowId'

@@ -37,7 +37,7 @@ module Network.AWS.CloudTrail.V2013_11_01.Trans
     , updateTrail
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.CloudTrail.V2013_11_01
     -- ** Lenses
     , (.=)
@@ -58,7 +58,6 @@ createTrail :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'ctName'
             -> Text -- ^ 'ctS3BucketName'
@@ -74,7 +73,6 @@ deleteTrail :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'dtName'
             -> State DeleteTrail a
@@ -90,7 +88,6 @@ describeTrails :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => State DescribeTrails a
                -> m DescribeTrailsResponse
@@ -106,7 +103,6 @@ getTrailStatus :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'gtsName'
                -> State GetTrailStatus a
@@ -121,7 +117,6 @@ startLogging :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'slName'
              -> State StartLogging a
@@ -139,7 +134,6 @@ stopLogging :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'sl1Name'
             -> State StopLogging a
@@ -158,7 +152,6 @@ updateTrail :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'utName'
             -> State UpdateTrail a

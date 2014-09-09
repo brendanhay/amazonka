@@ -62,7 +62,7 @@ module Network.AWS.SES.V2010_12_01.Trans
     , verifyEmailIdentity
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.SES.V2010_12_01
     -- ** Lenses
     , (.=)
@@ -92,7 +92,6 @@ deleteIdentity :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'diIdentity'
                -> State DeleteIdentity a
@@ -118,7 +117,6 @@ deleteVerifiedEmailAddress :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => Text -- ^ 'dveaEmailAddress'
                            -> State DeleteVerifiedEmailAddress a
@@ -157,7 +155,6 @@ getIdentityDkimAttributes :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => [Text] -- ^ 'gidaIdentities'
                           -> State GetIdentityDkimAttributes a
@@ -189,7 +186,6 @@ getIdentityNotificationAttributes :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
                                      , MonadReader Env m
-                                     , AWSRequest a
                                      )
                                   => [Text] -- ^ 'ginaIdentities'
                                   -> State GetIdentityNotificationAttributes a
@@ -218,7 +214,6 @@ getIdentityVerificationAttributes :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
                                      , MonadReader Env m
-                                     , AWSRequest a
                                      )
                                   => [Text] -- ^ 'givaIdentities'
                                   -> State GetIdentityVerificationAttributes a
@@ -242,7 +237,6 @@ getSendQuota :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => State GetSendQuota a
              -> m GetSendQuotaResponse
@@ -267,7 +261,6 @@ getSendStatistics :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => State GetSendStatistics a
                   -> m GetSendStatisticsResponse
@@ -291,7 +284,6 @@ listIdentities :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env (ResumableSource m)
-                  , AWSPager a
                   )
                => State ListIdentities a
                -> ResumableSource m ListIdentitiesResponse
@@ -317,7 +309,6 @@ listVerifiedEmailAddresses :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => State ListVerifiedEmailAddresses a
                            -> m ListVerifiedEmailAddressesResponse
@@ -357,7 +348,6 @@ sendEmail :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env m
-             , AWSRequest a
              )
           => Text -- ^ 'seSource'
           -> Destination -- ^ 'seDestination'
@@ -415,7 +405,6 @@ sendRawEmail :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => RawMessage -- ^ 'sreRawMessage'
              -> State SendRawEmail a
@@ -449,7 +438,6 @@ setIdentityDkimEnabled :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'sideIdentity'
                        -> Bool -- ^ 'sideDkimEnabled'
@@ -481,7 +469,6 @@ setIdentityFeedbackForwardingEnabled :: ( MonadCatch m
                                         , MonadResource m
                                         , MonadError AWS.Error m
                                         , MonadReader Env m
-                                        , AWSRequest a
                                         )
                                      => Text -- ^ 'siffeIdentity'
                                      -> Bool -- ^ 'siffeForwardingEnabled'
@@ -515,7 +502,6 @@ setIdentityNotificationTopic :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env m
-                                , AWSRequest a
                                 )
                              => Text -- ^ 'sintIdentity'
                              -> NotificationType -- ^ 'sintNotificationType'
@@ -552,7 +538,6 @@ verifyDomainDkim :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'vddDomain'
                  -> State VerifyDomainDkim a
@@ -577,7 +562,6 @@ verifyDomainIdentity :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => Text -- ^ 'vdiDomain'
                      -> State VerifyDomainIdentity a
@@ -604,7 +588,6 @@ verifyEmailAddress :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'veaEmailAddress'
                    -> State VerifyEmailAddress a
@@ -629,7 +612,6 @@ verifyEmailIdentity :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'veiEmailAddress'
                     -> State VerifyEmailIdentity a

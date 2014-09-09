@@ -71,7 +71,7 @@ module Network.AWS.CloudFront.V2014_05_31.Trans
     , updateStreamingDistribution
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.CloudFront.V2014_05_31
     -- ** Lenses
     , (.=)
@@ -91,7 +91,6 @@ createCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                         , MonadResource m
                                         , MonadError AWS.Error m
                                         , MonadReader Env m
-                                        , AWSRequest a
                                         )
                                      => CloudFrontOriginAccessIdentityConfig -- ^ 'ccfoaiCloudFrontOriginAccessIdentityConfig'
                                      -> State CreateCloudFrontOriginAccessIdentity a
@@ -106,7 +105,6 @@ createDistribution :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => DistributionConfig -- ^ 'cdDistributionConfig'
                    -> State CreateDistribution a
@@ -121,7 +119,6 @@ createInvalidation :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'ciDistributionId'
                    -> InvalidationBatch -- ^ 'ciInvalidationBatch'
@@ -137,7 +134,6 @@ createStreamingDistribution :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => StreamingDistributionConfig -- ^ 'csdStreamingDistributionConfig'
                             -> State CreateStreamingDistribution a
@@ -152,7 +148,6 @@ deleteCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                         , MonadResource m
                                         , MonadError AWS.Error m
                                         , MonadReader Env m
-                                        , AWSRequest a
                                         )
                                      => Text -- ^ 'dcfoaiId'
                                      -> State DeleteCloudFrontOriginAccessIdentity a
@@ -167,7 +162,6 @@ deleteDistribution :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'ddId'
                    -> State DeleteDistribution a
@@ -182,7 +176,6 @@ deleteStreamingDistribution :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => Text -- ^ 'dsdId'
                             -> State DeleteStreamingDistribution a
@@ -197,7 +190,6 @@ getCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
                                      , MonadReader Env m
-                                     , AWSRequest a
                                      )
                                   => Text -- ^ 'gcfoaiId'
                                   -> State GetCloudFrontOriginAccessIdentity a
@@ -212,7 +204,6 @@ getCloudFrontOriginAccessIdentityConfig :: ( MonadCatch m
                                            , MonadResource m
                                            , MonadError AWS.Error m
                                            , MonadReader Env m
-                                           , AWSRequest a
                                            )
                                         => Text -- ^ 'gcfoaicId'
                                         -> State GetCloudFrontOriginAccessIdentityConfig a
@@ -227,7 +218,6 @@ getDistribution :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'gdId'
                 -> State GetDistribution a
@@ -242,7 +232,6 @@ getDistributionConfig :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'gdcId'
                       -> State GetDistributionConfig a
@@ -257,7 +246,6 @@ getInvalidation :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'giDistributionId'
                 -> Text -- ^ 'giId'
@@ -273,7 +261,6 @@ getStreamingDistribution :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'gsdId'
                          -> State GetStreamingDistribution a
@@ -288,7 +275,6 @@ getStreamingDistributionConfig :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
                                   , MonadReader Env m
-                                  , AWSRequest a
                                   )
                                => Text -- ^ 'gsdcId'
                                -> State GetStreamingDistributionConfig a
@@ -303,7 +289,6 @@ listCloudFrontOriginAccessIdentities :: ( MonadCatch m
                                         , MonadResource m
                                         , MonadError AWS.Error m
                                         , MonadReader Env (ResumableSource m)
-                                        , AWSPager a
                                         )
                                      => State ListCloudFrontOriginAccessIdentities a
                                      -> ResumableSource m ListCloudFrontOriginAccessIdentitiesResponse
@@ -317,7 +302,6 @@ listDistributions :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env (ResumableSource m)
-                     , AWSPager a
                      )
                   => State ListDistributions a
                   -> ResumableSource m ListDistributionsResponse
@@ -331,7 +315,6 @@ listInvalidations :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env (ResumableSource m)
-                     , AWSPager a
                      )
                   => Text -- ^ 'liDistributionId'
                   -> State ListInvalidations a
@@ -346,7 +329,6 @@ listStreamingDistributions :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env (ResumableSource m)
-                              , AWSPager a
                               )
                            => State ListStreamingDistributions a
                            -> ResumableSource m ListStreamingDistributionsResponse
@@ -360,7 +342,6 @@ updateCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                         , MonadResource m
                                         , MonadError AWS.Error m
                                         , MonadReader Env m
-                                        , AWSRequest a
                                         )
                                      => CloudFrontOriginAccessIdentityConfig -- ^ 'ucfoaiCloudFrontOriginAccessIdentityConfig'
                                      -> Text -- ^ 'ucfoaiId'
@@ -376,7 +357,6 @@ updateDistribution :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => DistributionConfig -- ^ 'udDistributionConfig'
                    -> Text -- ^ 'udId'
@@ -392,7 +372,6 @@ updateStreamingDistribution :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => StreamingDistributionConfig -- ^ 'usdStreamingDistributionConfig'
                             -> Text -- ^ 'usdId'

@@ -79,7 +79,7 @@ module Network.AWS.SNS.V2010_03_31.Trans
     , unsubscribe
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.SNS.V2010_03_31
     -- ** Lenses
     , (.=)
@@ -114,7 +114,6 @@ addPermission :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'apTopicArn'
               -> Text -- ^ 'apLabel'
@@ -150,7 +149,6 @@ confirmSubscription :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'csTopicArn'
                     -> Text -- ^ 'csToken'
@@ -196,7 +194,6 @@ createPlatformApplication :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'cpaName'
                           -> Text -- ^ 'cpaPlatform'
@@ -241,7 +238,6 @@ createPlatformEndpoint :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'cpePlatformApplicationArn'
                        -> Text -- ^ 'cpeToken'
@@ -272,7 +268,6 @@ createTopic :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'ctName'
             -> State CreateTopic a
@@ -299,7 +294,6 @@ deleteEndpoint :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'deEndpointArn'
                -> State DeleteEndpoint a
@@ -328,7 +322,6 @@ deletePlatformApplication :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'dpaPlatformApplicationArn'
                           -> State DeletePlatformApplication a
@@ -356,7 +349,6 @@ deleteTopic :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'dtTopicArn'
             -> State DeleteTopic a
@@ -392,7 +384,6 @@ getEndpointAttributes :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'geaEndpointArn'
                       -> State GetEndpointAttributes a
@@ -425,7 +416,6 @@ getPlatformApplicationAttributes :: ( MonadCatch m
                                     , MonadResource m
                                     , MonadError AWS.Error m
                                     , MonadReader Env m
-                                    , AWSRequest a
                                     )
                                  => Text -- ^ 'gpaaPlatformApplicationArn'
                                  -> State GetPlatformApplicationAttributes a
@@ -458,7 +448,6 @@ getSubscriptionAttributes :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'gsaSubscriptionArn'
                           -> State GetSubscriptionAttributes a
@@ -498,7 +487,6 @@ getTopicAttributes :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'gtaTopicArn'
                    -> State GetTopicAttributes a
@@ -544,7 +532,6 @@ listEndpointsByPlatformApplication :: ( MonadCatch m
                                       , MonadResource m
                                       , MonadError AWS.Error m
                                       , MonadReader Env (ResumableSource m)
-                                      , AWSPager a
                                       )
                                    => Text -- ^ 'lebpaPlatformApplicationArn'
                                    -> State ListEndpointsByPlatformApplication a
@@ -589,7 +576,6 @@ listPlatformApplications :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env (ResumableSource m)
-                            , AWSPager a
                             )
                          => State ListPlatformApplications a
                          -> ResumableSource m ListPlatformApplicationsResponse
@@ -622,7 +608,6 @@ listSubscriptions :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env (ResumableSource m)
-                     , AWSPager a
                      )
                   => State ListSubscriptions a
                   -> ResumableSource m ListSubscriptionsResponse
@@ -657,7 +642,6 @@ listSubscriptionsByTopic :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env (ResumableSource m)
-                            , AWSPager a
                             )
                          => Text -- ^ 'lsbtTopicArn'
                          -> State ListSubscriptionsByTopic a
@@ -685,7 +669,6 @@ listTopics :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env (ResumableSource m)
-              , AWSPager a
               )
            => State ListTopics a
            -> ResumableSource m ListTopicsResponse
@@ -738,7 +721,6 @@ publish :: ( MonadCatch m
            , MonadResource m
            , MonadError AWS.Error m
            , MonadReader Env m
-           , AWSRequest a
            )
         => Text -- ^ 'pMessage'
         -> State Publish a
@@ -764,7 +746,6 @@ removePermission :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'rpTopicArn'
                  -> Text -- ^ 'rpLabel'
@@ -796,7 +777,6 @@ setEndpointAttributes :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'seaEndpointArn'
                       -> Map Text Text -- ^ 'seaAttributes'
@@ -829,7 +809,6 @@ setPlatformApplicationAttributes :: ( MonadCatch m
                                     , MonadResource m
                                     , MonadError AWS.Error m
                                     , MonadReader Env m
-                                    , AWSRequest a
                                     )
                                  => Text -- ^ 'spaaPlatformApplicationArn'
                                  -> Map Text Text -- ^ 'spaaAttributes'
@@ -864,7 +843,6 @@ setSubscriptionAttributes :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'ssaSubscriptionArn'
                           -> Text -- ^ 'ssaAttributeName'
@@ -906,7 +884,6 @@ setTopicAttributes :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'staTopicArn'
                    -> Text -- ^ 'staAttributeName'
@@ -937,7 +914,6 @@ subscribe :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env m
-             , AWSRequest a
              )
           => Text -- ^ 's1TopicArn'
           -> Text -- ^ 's1Protocol'
@@ -969,7 +945,6 @@ unsubscribe :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'uSubscriptionArn'
             -> State Unsubscribe a

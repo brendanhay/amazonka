@@ -142,7 +142,7 @@ module Network.AWS.OpsWorks.V2013_02_18.Trans
     , updateVolume
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.OpsWorks.V2013_02_18
     -- ** Lenses
     , (.=)
@@ -168,7 +168,6 @@ assignVolume :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'avVolumeId'
              -> State AssignVolume a
@@ -189,7 +188,6 @@ associateElasticIp :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'aeiElasticIp'
                    -> State AssociateElasticIp a
@@ -211,7 +209,6 @@ attachElasticLoadBalancer :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'aelbElasticLoadBalancerName'
                           -> Text -- ^ 'aelbLayerId'
@@ -230,7 +227,6 @@ cloneStack :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => Text -- ^ 'csSourceStackId'
            -> Text -- ^ 'csServiceRoleArn'
@@ -250,7 +246,6 @@ createApp :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env m
-             , AWSRequest a
              )
           => Text -- ^ 'caStackId'
           -> Text -- ^ 'caName'
@@ -274,7 +269,6 @@ createDeployment :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'cdStackId'
                  -> DeploymentCommand -- ^ 'cdCommand'
@@ -294,7 +288,6 @@ createInstance :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'ciStackId'
                -> [Text] -- ^ 'ciLayerIds'
@@ -320,7 +313,6 @@ createLayer :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'clStackId'
             -> LayerType -- ^ 'clType'
@@ -341,7 +333,6 @@ createStack :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'cs1Name'
             -> Text -- ^ 'cs1Region'
@@ -361,7 +352,6 @@ createUserProfile :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Text -- ^ 'cupIamUserArn'
                   -> State CreateUserProfile a
@@ -379,7 +369,6 @@ deleteApp :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env m
-             , AWSRequest a
              )
           => Text -- ^ 'daAppId'
           -> State DeleteApp a
@@ -399,7 +388,6 @@ deleteInstance :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'diInstanceId'
                -> State DeleteInstance a
@@ -419,7 +407,6 @@ deleteLayer :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'dlLayerId'
             -> State DeleteLayer a
@@ -438,7 +425,6 @@ deleteStack :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'ds1StackId'
             -> State DeleteStack a
@@ -455,7 +441,6 @@ deleteUserProfile :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Text -- ^ 'dupIamUserArn'
                   -> State DeleteUserProfile a
@@ -475,7 +460,6 @@ deregisterElasticIp :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'deiElasticIp'
                     -> State DeregisterElasticIp a
@@ -490,7 +474,6 @@ deregisterRdsDbInstance :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'drdiRdsDbInstanceArn'
                         -> State DeregisterRdsDbInstance a
@@ -510,7 +493,6 @@ deregisterVolume :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'dvVolumeId'
                  -> State DeregisterVolume a
@@ -529,7 +511,6 @@ describeApps :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => State DescribeApps a
              -> m DescribeAppsResponse
@@ -547,7 +528,6 @@ describeCommands :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => State DescribeCommands a
                  -> m DescribeCommandsResponse
@@ -565,7 +545,6 @@ describeDeployments :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => State DescribeDeployments a
                     -> m DescribeDeploymentsResponse
@@ -583,7 +562,6 @@ describeElasticIps :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => State DescribeElasticIps a
                    -> m DescribeElasticIpsResponse
@@ -601,7 +579,6 @@ describeElasticLoadBalancers :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env m
-                                , AWSRequest a
                                 )
                              => State DescribeElasticLoadBalancers a
                              -> m DescribeElasticLoadBalancersResponse
@@ -619,7 +596,6 @@ describeInstances :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => State DescribeInstances a
                   -> m DescribeInstancesResponse
@@ -637,7 +613,6 @@ describeLayers :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => State DescribeLayers a
                -> m DescribeLayersResponse
@@ -656,7 +631,6 @@ describeLoadBasedAutoScaling :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env m
-                                , AWSRequest a
                                 )
                              => [Text] -- ^ 'dlbasLayerIds'
                              -> State DescribeLoadBasedAutoScaling a
@@ -674,7 +648,6 @@ describeMyUserProfile :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => State DescribeMyUserProfile a
                       -> m DescribeMyUserProfileResponse
@@ -691,7 +664,6 @@ describePermissions :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => State DescribePermissions a
                     -> m DescribePermissionsResponse
@@ -709,7 +681,6 @@ describeRaidArrays :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => State DescribeRaidArrays a
                    -> m DescribeRaidArraysResponse
@@ -723,7 +694,6 @@ describeRdsDbInstances :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'drdi1StackId'
                        -> State DescribeRdsDbInstances a
@@ -741,7 +711,6 @@ describeServiceErrors :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => State DescribeServiceErrors a
                       -> m DescribeServiceErrorsResponse
@@ -760,7 +729,6 @@ describeStackSummary :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => Text -- ^ 'dssStackId'
                      -> State DescribeStackSummary a
@@ -779,7 +747,6 @@ describeStacks :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => State DescribeStacks a
                -> m DescribeStacksResponse
@@ -798,7 +765,6 @@ describeTimeBasedAutoScaling :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env m
-                                , AWSRequest a
                                 )
                              => [Text] -- ^ 'dtbasInstanceIds'
                              -> State DescribeTimeBasedAutoScaling a
@@ -815,7 +781,6 @@ describeUserProfiles :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => State DescribeUserProfiles a
                      -> m DescribeUserProfilesResponse
@@ -833,7 +798,6 @@ describeVolumes :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => State DescribeVolumes a
                 -> m DescribeVolumesResponse
@@ -851,7 +815,6 @@ detachElasticLoadBalancer :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'delb1ElasticLoadBalancerName'
                           -> Text -- ^ 'delb1LayerId'
@@ -872,7 +835,6 @@ disassociateElasticIp :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'dei2ElasticIp'
                       -> State DisassociateElasticIp a
@@ -891,7 +853,6 @@ getHostnameSuggestion :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'ghsLayerId'
                       -> State GetHostnameSuggestion a
@@ -910,7 +871,6 @@ rebootInstance :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'riInstanceId'
                -> State RebootInstance a
@@ -931,7 +891,6 @@ registerElasticIp :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Text -- ^ 'reiElasticIp'
                   -> Text -- ^ 'reiStackId'
@@ -947,7 +906,6 @@ registerRdsDbInstance :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'rrdiStackId'
                       -> Text -- ^ 'rrdiRdsDbInstanceArn'
@@ -971,7 +929,6 @@ registerVolume :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'rvStackId'
                -> State RegisterVolume a
@@ -995,7 +952,6 @@ setLoadBasedAutoScaling :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'slbasLayerId'
                         -> State SetLoadBasedAutoScaling a
@@ -1014,7 +970,6 @@ setPermission :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'spStackId'
               -> Text -- ^ 'spIamUserArn'
@@ -1035,7 +990,6 @@ setTimeBasedAutoScaling :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'stbasInstanceId'
                         -> State SetTimeBasedAutoScaling a
@@ -1054,7 +1008,6 @@ startInstance :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'siInstanceId'
               -> State StartInstance a
@@ -1072,7 +1025,6 @@ startStack :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => Text -- ^ 'ss1StackId'
            -> State StartStack a
@@ -1094,7 +1046,6 @@ stopInstance :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'si1InstanceId'
              -> State StopInstance a
@@ -1112,7 +1063,6 @@ stopStack :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env m
-             , AWSRequest a
              )
           => Text -- ^ 'ss2StackId'
           -> State StopStack a
@@ -1132,7 +1082,6 @@ unassignVolume :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'uvVolumeId'
                -> State UnassignVolume a
@@ -1150,7 +1099,6 @@ updateApp :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env m
-             , AWSRequest a
              )
           => Text -- ^ 'uaAppId'
           -> State UpdateApp a
@@ -1169,7 +1117,6 @@ updateElasticIp :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'ueiElasticIp'
                 -> State UpdateElasticIp a
@@ -1187,7 +1134,6 @@ updateInstance :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'uiInstanceId'
                -> State UpdateInstance a
@@ -1205,7 +1151,6 @@ updateLayer :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'ulLayerId'
             -> State UpdateLayer a
@@ -1223,7 +1168,6 @@ updateMyUserProfile :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => State UpdateMyUserProfile a
                     -> m UpdateMyUserProfileResponse
@@ -1237,7 +1181,6 @@ updateRdsDbInstance :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'urdiRdsDbInstanceArn'
                     -> State UpdateRdsDbInstance a
@@ -1255,7 +1198,6 @@ updateStack :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'usStackId'
             -> State UpdateStack a
@@ -1273,7 +1215,6 @@ updateUserProfile :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Text -- ^ 'uupIamUserArn'
                   -> State UpdateUserProfile a
@@ -1292,7 +1233,6 @@ updateVolume :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'uv1VolumeId'
              -> State UpdateVolume a

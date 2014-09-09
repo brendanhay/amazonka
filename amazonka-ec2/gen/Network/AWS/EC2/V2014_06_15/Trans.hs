@@ -338,7 +338,7 @@ module Network.AWS.EC2.V2014_06_15.Trans
     , unmonitorInstances
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.EC2.V2014_06_15
     -- ** Lenses
     , (.=)
@@ -378,7 +378,6 @@ acceptVpcPeeringConnection :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => State AcceptVpcPeeringConnection a
                            -> m AcceptVpcPeeringConnectionResponse
@@ -412,7 +411,6 @@ allocateAddress :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => State AllocateAddress a
                 -> m AllocateAddressResponse
@@ -452,7 +450,6 @@ assignPrivateIpAddresses :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'apiaNetworkInterfaceId'
                          -> State AssignPrivateIpAddresses a
@@ -497,7 +494,6 @@ associateAddress :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => State AssociateAddress a
                  -> m AssociateAddressResponse
@@ -534,7 +530,6 @@ associateDhcpOptions :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => Text -- ^ 'adoDhcpOptionsId'
                      -> Text -- ^ 'adoVpcId'
@@ -564,7 +559,6 @@ associateRouteTable :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'artSubnetId'
                     -> Text -- ^ 'artRouteTableId'
@@ -590,7 +584,6 @@ attachInternetGateway :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'aigInternetGatewayId'
                       -> Text -- ^ 'aigVpcId'
@@ -614,7 +607,6 @@ attachNetworkInterface :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'aniNetworkInterfaceId'
                        -> Text -- ^ 'aniInstanceId'
@@ -663,7 +655,6 @@ attachVolume :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'avVolumeId'
              -> Text -- ^ 'avInstanceId'
@@ -691,7 +682,6 @@ attachVpnGateway :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'avgVpnGatewayId'
                  -> Text -- ^ 'avgVpcId'
@@ -743,7 +733,6 @@ authorizeSecurityGroupEgress :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env m
-                                , AWSRequest a
                                 )
                              => Text -- ^ 'asgeGroupId'
                              -> State AuthorizeSecurityGroupEgress a
@@ -809,7 +798,6 @@ authorizeSecurityGroupIngress :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
                                  , MonadReader Env m
-                                 , AWSRequest a
                                  )
                               => State AuthorizeSecurityGroupIngress a
                               -> m AuthorizeSecurityGroupIngressResponse
@@ -849,7 +837,6 @@ bundleInstance :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'biInstanceId'
                -> Storage -- ^ 'biStorage'
@@ -879,7 +866,6 @@ cancelBundleTask :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'cbtBundleId'
                  -> State CancelBundleTask a
@@ -904,7 +890,6 @@ cancelConversionTask :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => Text -- ^ 'cctConversionTaskId'
                      -> State CancelConversionTask a
@@ -926,7 +911,6 @@ cancelExportTask :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'cetExportTaskId'
                  -> State CancelExportTask a
@@ -952,7 +936,6 @@ cancelReservedInstancesListing :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
                                   , MonadReader Env m
-                                  , AWSRequest a
                                   )
                                => Text -- ^ 'crilReservedInstancesListingId'
                                -> State CancelReservedInstancesListing a
@@ -984,7 +967,6 @@ cancelSpotInstanceRequests :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => [Text] -- ^ 'csirSpotInstanceRequestIds'
                            -> State CancelSpotInstanceRequests a
@@ -1011,7 +993,6 @@ confirmProductInstance :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'cpiProductCode'
                        -> Text -- ^ 'cpiInstanceId'
@@ -1040,7 +1021,6 @@ copyImage :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env m
-             , AWSRequest a
              )
           => Text -- ^ 'ciSourceRegion'
           -> Text -- ^ 'ciSourceImageId'
@@ -1071,7 +1051,6 @@ copySnapshot :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'csSourceRegion'
              -> Text -- ^ 'csSourceSnapshotId'
@@ -1113,7 +1092,6 @@ createCustomerGateway :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => GatewayType -- ^ 'ccgType'
                       -> Text -- ^ 'ccgPublicIp'
@@ -1170,7 +1148,6 @@ createDhcpOptions :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => [DhcpConfiguration] -- ^ 'cdoDhcpConfigurations'
                   -> State CreateDhcpOptions a
@@ -1198,7 +1175,6 @@ createImage :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'ci1InstanceId'
             -> Text -- ^ 'ci1Name'
@@ -1242,7 +1218,6 @@ createInstanceExportTask :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'cietInstanceId'
                          -> State CreateInstanceExportTask a
@@ -1262,7 +1237,6 @@ createInternetGateway :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => State CreateInternetGateway a
                       -> m CreateInternetGatewayResponse
@@ -1308,7 +1282,6 @@ createKeyPair :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'ckpKeyName'
               -> State CreateKeyPair a
@@ -1335,7 +1308,6 @@ createNetworkAcl :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'cnaVpcId'
                  -> State CreateNetworkAcl a
@@ -1372,7 +1344,6 @@ createNetworkAclEntry :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'cnaeNetworkAclId'
                       -> Integer -- ^ 'cnaeRuleNumber'
@@ -1490,7 +1461,6 @@ createNetworkInterface :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'cniSubnetId'
                        -> State CreateNetworkInterface a
@@ -1515,7 +1485,6 @@ createPlacementGroup :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => Text -- ^ 'cpgGroupName'
                      -> PlacementStrategy -- ^ 'cpgStrategy'
@@ -1552,7 +1521,6 @@ createReservedInstancesListing :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
                                   , MonadReader Env m
-                                  , AWSRequest a
                                   )
                                => Text -- ^ 'cril1ReservedInstancesId'
                                -> Integer -- ^ 'cril1InstanceCount'
@@ -1597,7 +1565,6 @@ createRoute :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'crRouteTableId'
             -> Text -- ^ 'crDestinationCidrBlock'
@@ -1622,7 +1589,6 @@ createRouteTable :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'crtVpcId'
                  -> State CreateRouteTable a
@@ -1672,7 +1638,6 @@ createSecurityGroup :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'csgGroupName'
                     -> Text -- ^ 'csgDescription'
@@ -1721,7 +1686,6 @@ createSnapshot :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'cs1VolumeId'
                -> State CreateSnapshot a
@@ -1750,7 +1714,6 @@ createSpotDatafeedSubscription :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
                                   , MonadReader Env m
-                                  , AWSRequest a
                                   )
                                => Text -- ^ 'csdsBucket'
                                -> State CreateSpotDatafeedSubscription a
@@ -1788,7 +1751,6 @@ createSubnet :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'cs2VpcId'
              -> Text -- ^ 'cs2CidrBlock'
@@ -1816,7 +1778,6 @@ createTags :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => [Text] -- ^ 'ctResources'
            -> [Tag] -- ^ 'ctTags'
@@ -1855,7 +1816,6 @@ createVolume :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'cvAvailabilityZone'
              -> State CreateVolume a
@@ -1899,7 +1859,6 @@ createVpc :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env m
-             , AWSRequest a
              )
           => Text -- ^ 'cv1CidrBlock'
           -> State CreateVpc a
@@ -1946,7 +1905,6 @@ createVpcPeeringConnection :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => State CreateVpcPeeringConnection a
                            -> m CreateVpcPeeringConnectionResponse
@@ -2011,7 +1969,6 @@ createVpnConnection :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'cvcType'
                     -> Text -- ^ 'cvcCustomerGatewayId'
@@ -2043,7 +2000,6 @@ createVpnConnectionRoute :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'cvcr1VpnConnectionId'
                          -> Text -- ^ 'cvcr1DestinationCidrBlock'
@@ -2073,7 +2029,6 @@ createVpnGateway :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => GatewayType -- ^ 'cvgType'
                  -> State CreateVpnGateway a
@@ -2096,7 +2051,6 @@ deleteCustomerGateway :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'dcgCustomerGatewayId'
                       -> State DeleteCustomerGateway a
@@ -2120,7 +2074,6 @@ deleteDhcpOptions :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Text -- ^ 'ddoDhcpOptionsId'
                   -> State DeleteDhcpOptions a
@@ -2143,7 +2096,6 @@ deleteInternetGateway :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'digInternetGatewayId'
                       -> State DeleteInternetGateway a
@@ -2164,7 +2116,6 @@ deleteKeyPair :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'dkpKeyName'
               -> State DeleteKeyPair a
@@ -2186,7 +2137,6 @@ deleteNetworkAcl :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'dnaNetworkAclId'
                  -> State DeleteNetworkAcl a
@@ -2209,7 +2159,6 @@ deleteNetworkAclEntry :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'dnaeNetworkAclId'
                       -> Integer -- ^ 'dnaeRuleNumber'
@@ -2234,7 +2183,6 @@ deleteNetworkInterface :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'dniNetworkInterfaceId'
                        -> State DeleteNetworkInterface a
@@ -2258,7 +2206,6 @@ deletePlacementGroup :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => Text -- ^ 'dpgGroupName'
                      -> State DeletePlacementGroup a
@@ -2280,7 +2227,6 @@ deleteRoute :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'drRouteTableId'
             -> Text -- ^ 'drDestinationCidrBlock'
@@ -2303,7 +2249,6 @@ deleteRouteTable :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'drtRouteTableId'
                  -> State DeleteRouteTable a
@@ -2333,7 +2278,6 @@ deleteSecurityGroup :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => State DeleteSecurityGroup a
                     -> m DeleteSecurityGroupResponse
@@ -2362,7 +2306,6 @@ deleteSnapshot :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'dsSnapshotId'
                -> State DeleteSnapshot a
@@ -2385,7 +2328,6 @@ deleteSpotDatafeedSubscription :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
                                   , MonadReader Env m
-                                  , AWSRequest a
                                   )
                                => State DeleteSpotDatafeedSubscription a
                                -> m DeleteSpotDatafeedSubscriptionResponse
@@ -2405,7 +2347,6 @@ deleteSubnet :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'ds1SubnetId'
              -> State DeleteSubnet a
@@ -2442,7 +2383,6 @@ deleteTags :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => [Text] -- ^ 'dtResources'
            -> State DeleteTags a
@@ -2466,7 +2406,6 @@ deleteVolume :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'dvVolumeId'
              -> State DeleteVolume a
@@ -2491,7 +2430,6 @@ deleteVpc :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env m
-             , AWSRequest a
              )
           => Text -- ^ 'dv1VpcId'
           -> State DeleteVpc a
@@ -2517,7 +2455,6 @@ deleteVpcPeeringConnection :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => Text -- ^ 'dvpcVpcPeeringConnectionId'
                            -> State DeleteVpcPeeringConnection a
@@ -2541,7 +2478,6 @@ deleteVpnConnection :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'dvcVpnConnectionId'
                     -> State DeleteVpnConnection a
@@ -2568,7 +2504,6 @@ deleteVpnConnectionRoute :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'dvcrVpnConnectionId'
                          -> Text -- ^ 'dvcrDestinationCidrBlock'
@@ -2593,7 +2528,6 @@ deleteVpnGateway :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'dvgVpnGatewayId'
                  -> State DeleteVpnGateway a
@@ -2615,7 +2549,6 @@ deregisterImage :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'diImageId'
                 -> State DeregisterImage a
@@ -2677,7 +2610,6 @@ describeAccountAttributes :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => State DescribeAccountAttributes a
                           -> m DescribeAccountAttributesResponse
@@ -2730,7 +2662,6 @@ describeAddresses :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => State DescribeAddresses a
                   -> m DescribeAddressesResponse
@@ -2770,7 +2701,6 @@ describeAvailabilityZones :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => State DescribeAvailabilityZones a
                           -> m DescribeAvailabilityZonesResponse
@@ -2799,7 +2729,6 @@ describeBundleTasks :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => State DescribeBundleTasks a
                     -> m DescribeBundleTasksResponse
@@ -2820,7 +2749,6 @@ describeConversionTasks :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => State DescribeConversionTasks a
                         -> m DescribeConversionTasksResponse
@@ -2855,7 +2783,6 @@ describeCustomerGateways :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => State DescribeCustomerGateways a
                          -> m DescribeCustomerGatewaysResponse
@@ -2893,7 +2820,6 @@ describeDhcpOptions :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => State DescribeDhcpOptions a
                     -> m DescribeDhcpOptionsResponse
@@ -2926,7 +2852,6 @@ describeExportTasks :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => State DescribeExportTasks a
                     -> m DescribeExportTasksResponse
@@ -2950,7 +2875,6 @@ describeImageAttribute :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'diaImageId'
                        -> ImageAttributeName -- ^ 'diaAttribute'
@@ -2994,7 +2918,6 @@ describeImages :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => State DescribeImages a
                -> m DescribeImagesResponse
@@ -3038,7 +2961,6 @@ describeInstanceAttribute :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'dia1InstanceId'
                           -> InstanceAttributeName -- ^ 'dia1Attribute'
@@ -3119,7 +3041,6 @@ describeInstanceStatus :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env (ResumableSource m)
-                          , AWSPager a
                           )
                        => State DescribeInstanceStatus a
                        -> ResumableSource m DescribeInstanceStatusResponse
@@ -3239,7 +3160,6 @@ describeInstances :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env (ResumableSource m)
-                     , AWSPager a
                      )
                   => State DescribeInstances a
                   -> ResumableSource m DescribeInstancesResponse
@@ -3257,7 +3177,6 @@ describeInternetGateways :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => State DescribeInternetGateways a
                          -> m DescribeInternetGatewaysResponse
@@ -3280,7 +3199,6 @@ describeKeyPairs :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => State DescribeKeyPairs a
                  -> m DescribeKeyPairsResponse
@@ -3304,7 +3222,6 @@ describeNetworkAcls :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => State DescribeNetworkAcls a
                     -> m DescribeNetworkAclsResponse
@@ -3329,7 +3246,6 @@ describeNetworkInterfaceAttribute :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
                                      , MonadReader Env m
-                                     , AWSRequest a
                                      )
                                   => Text -- ^ 'dniaNetworkInterfaceId'
                                   -> State DescribeNetworkInterfaceAttribute a
@@ -3406,7 +3322,6 @@ describeNetworkInterfaces :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => State DescribeNetworkInterfaces a
                           -> m DescribeNetworkInterfacesResponse
@@ -3431,7 +3346,6 @@ describePlacementGroups :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => State DescribePlacementGroups a
                         -> m DescribePlacementGroupsResponse
@@ -3453,7 +3367,6 @@ describeRegions :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => State DescribeRegions a
                 -> m DescribeRegionsResponse
@@ -3482,7 +3395,6 @@ describeReservedInstances :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => State DescribeReservedInstances a
                           -> m DescribeReservedInstancesResponse
@@ -3506,7 +3418,6 @@ describeReservedInstancesListings :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
                                      , MonadReader Env m
-                                     , AWSRequest a
                                      )
                                   => State DescribeReservedInstancesListings a
                                   -> m DescribeReservedInstancesListingsResponse
@@ -3528,7 +3439,6 @@ describeReservedInstancesModifications :: ( MonadCatch m
                                           , MonadResource m
                                           , MonadError AWS.Error m
                                           , MonadReader Env (ResumableSource m)
-                                          , AWSPager a
                                           )
                                        => State DescribeReservedInstancesModifications a
                                        -> ResumableSource m DescribeReservedInstancesModificationsResponse
@@ -3588,7 +3498,6 @@ describeReservedInstancesOfferings :: ( MonadCatch m
                                       , MonadResource m
                                       , MonadError AWS.Error m
                                       , MonadReader Env (ResumableSource m)
-                                      , AWSPager a
                                       )
                                    => State DescribeReservedInstancesOfferings a
                                    -> ResumableSource m DescribeReservedInstancesOfferingsResponse
@@ -3612,7 +3521,6 @@ describeRouteTables :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => State DescribeRouteTables a
                     -> m DescribeRouteTablesResponse
@@ -3646,7 +3554,6 @@ describeSecurityGroups :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => State DescribeSecurityGroups a
                        -> m DescribeSecurityGroupsResponse
@@ -3667,7 +3574,6 @@ describeSnapshotAttribute :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'dsaSnapshotId'
                           -> SnapshotAttributeName -- ^ 'dsaAttribute'
@@ -3721,7 +3627,6 @@ describeSnapshots :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => State DescribeSnapshots a
                   -> m DescribeSnapshotsResponse
@@ -3740,7 +3645,6 @@ describeSpotDatafeedSubscription :: ( MonadCatch m
                                     , MonadResource m
                                     , MonadError AWS.Error m
                                     , MonadReader Env m
-                                    , AWSRequest a
                                     )
                                  => State DescribeSpotDatafeedSubscription a
                                  -> m DescribeSpotDatafeedSubscriptionResponse
@@ -3775,7 +3679,6 @@ describeSpotInstanceRequests :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env m
-                                , AWSRequest a
                                 )
                              => State DescribeSpotInstanceRequests a
                              -> m DescribeSpotInstanceRequestsResponse
@@ -3814,7 +3717,6 @@ describeSpotPriceHistory :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env (ResumableSource m)
-                            , AWSPager a
                             )
                          => State DescribeSpotPriceHistory a
                          -> ResumableSource m DescribeSpotPriceHistoryResponse
@@ -3860,7 +3762,6 @@ describeSubnets :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => State DescribeSubnets a
                 -> m DescribeSubnetsResponse
@@ -3911,7 +3812,6 @@ describeTags :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env (ResumableSource m)
-                , AWSPager a
                 )
              => State DescribeTags a
              -> ResumableSource m DescribeTagsResponse
@@ -3948,7 +3848,6 @@ describeVolumeAttribute :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'dvaVolumeId'
                         -> State DescribeVolumeAttribute a
@@ -4006,7 +3905,6 @@ describeVolumeStatus :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env (ResumableSource m)
-                        , AWSPager a
                         )
                      => State DescribeVolumeStatus a
                      -> ResumableSource m DescribeVolumeStatusResponse
@@ -4041,7 +3939,6 @@ describeVolumes :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => State DescribeVolumes a
                 -> m DescribeVolumesResponse
@@ -4076,7 +3973,6 @@ describeVpcAttribute :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => Text -- ^ 'dva1VpcId'
                      -> State DescribeVpcAttribute a
@@ -4123,7 +4019,6 @@ describeVpcPeeringConnections :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
                                  , MonadReader Env m
-                                 , AWSRequest a
                                  )
                               => State DescribeVpcPeeringConnections a
                               -> m DescribeVpcPeeringConnectionsResponse
@@ -4154,7 +4049,6 @@ describeVpcs :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => State DescribeVpcs a
              -> m DescribeVpcsResponse
@@ -4194,7 +4088,6 @@ describeVpnConnections :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => State DescribeVpnConnections a
                        -> m DescribeVpnConnectionsResponse
@@ -4230,7 +4123,6 @@ describeVpnGateways :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => State DescribeVpnGateways a
                     -> m DescribeVpnGatewaysResponse
@@ -4253,7 +4145,6 @@ detachInternetGateway :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'dig2InternetGatewayId'
                       -> Text -- ^ 'dig2VpcId'
@@ -4276,7 +4167,6 @@ detachNetworkInterface :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'dni2AttachmentId'
                        -> State DetachNetworkInterface a
@@ -4310,7 +4200,6 @@ detachVolume :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'dv4VolumeId'
              -> State DetachVolume a
@@ -4338,7 +4227,6 @@ detachVpnGateway :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'dvg2VpnGatewayId'
                  -> Text -- ^ 'dvg2VpcId'
@@ -4364,7 +4252,6 @@ disableVgwRoutePropagation :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => Text -- ^ 'dvrpRouteTableId'
                            -> Text -- ^ 'dvrpGatewayId'
@@ -4390,7 +4277,6 @@ disassociateAddress :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => State DisassociateAddress a
                     -> m DisassociateAddressResponse
@@ -4415,7 +4301,6 @@ disassociateRouteTable :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'drt2AssociationId'
                        -> State DisassociateRouteTable a
@@ -4438,7 +4323,6 @@ enableVgwRoutePropagation :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'evrpRouteTableId'
                           -> Text -- ^ 'evrpGatewayId'
@@ -4461,7 +4345,6 @@ enableVolumeIO :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'evioVolumeId'
                -> State EnableVolumeIO a
@@ -4510,7 +4393,6 @@ getConsoleOutput :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'gcoInstanceId'
                  -> State GetConsoleOutput a
@@ -4541,7 +4423,6 @@ getPasswordData :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'gpdInstanceId'
                 -> State GetPasswordData a
@@ -4571,7 +4452,6 @@ importInstance :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => PlatformValues -- ^ 'iiPlatform'
                -> State ImportInstance a
@@ -4614,7 +4494,6 @@ importKeyPair :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'ikpKeyName'
               -> ByteString -- ^ 'ikpPublicKeyMaterial'
@@ -4644,7 +4523,6 @@ importVolume :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'ivAvailabilityZone'
              -> DiskImageDetail -- ^ 'ivImage'
@@ -4663,7 +4541,6 @@ modifyImageAttribute :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => Text -- ^ 'miaImageId'
                      -> State ModifyImageAttribute a
@@ -4706,7 +4583,6 @@ modifyInstanceAttribute :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'mia1InstanceId'
                         -> State ModifyInstanceAttribute a
@@ -4730,7 +4606,6 @@ modifyNetworkInterfaceAttribute :: ( MonadCatch m
                                    , MonadResource m
                                    , MonadError AWS.Error m
                                    , MonadReader Env m
-                                   , AWSRequest a
                                    )
                                 => Text -- ^ 'mniaNetworkInterfaceId'
                                 -> State ModifyNetworkInterfaceAttribute a
@@ -4757,7 +4632,6 @@ modifyReservedInstances :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => [Text] -- ^ 'mriReservedInstancesIds'
                         -> [ReservedInstancesConfiguration] -- ^ 'mriTargetConfigurations'
@@ -4800,7 +4674,6 @@ modifySnapshotAttribute :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'msaSnapshotId'
                         -> State ModifySnapshotAttribute a
@@ -4820,7 +4693,6 @@ modifySubnetAttribute :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'msa1SubnetId'
                       -> State ModifySubnetAttribute a
@@ -4848,7 +4720,6 @@ modifyVolumeAttribute :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'mvaVolumeId'
                       -> State ModifyVolumeAttribute a
@@ -4867,7 +4738,6 @@ modifyVpcAttribute :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'mva1VpcId'
                    -> State ModifyVpcAttribute a
@@ -4896,7 +4766,6 @@ monitorInstances :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => [Text] -- ^ 'miInstanceIds'
                  -> State MonitorInstances a
@@ -4932,7 +4801,6 @@ purchaseReservedInstancesOffering :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
                                      , MonadReader Env m
-                                     , AWSRequest a
                                      )
                                   => Text -- ^ 'prioReservedInstancesOfferingId'
                                   -> Integer -- ^ 'prioInstanceCount'
@@ -4961,7 +4829,6 @@ rebootInstances :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => [Text] -- ^ 'ri1InstanceIds'
                 -> State RebootInstances a
@@ -5020,7 +4887,6 @@ registerImage :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'ri2Name'
               -> State RegisterImage a
@@ -5045,7 +4911,6 @@ rejectVpcPeeringConnection :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => Text -- ^ 'rvpcVpcPeeringConnectionId'
                            -> State RejectVpcPeeringConnection a
@@ -5077,7 +4942,6 @@ releaseAddress :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => State ReleaseAddress a
                -> m ReleaseAddressResponse
@@ -5105,7 +4969,6 @@ replaceNetworkAclAssociation :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env m
-                                , AWSRequest a
                                 )
                              => Text -- ^ 'rnaaAssociationId'
                              -> Text -- ^ 'rnaaNetworkAclId'
@@ -5133,7 +4996,6 @@ replaceNetworkAclEntry :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'rnaeNetworkAclId'
                        -> Integer -- ^ 'rnaeRuleNumber'
@@ -5165,7 +5027,6 @@ replaceRoute :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'rr1RouteTableId'
              -> Text -- ^ 'rr1DestinationCidrBlock'
@@ -5194,7 +5055,6 @@ replaceRouteTableAssociation :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env m
-                                , AWSRequest a
                                 )
                              => Text -- ^ 'rrtaAssociationId'
                              -> Text -- ^ 'rrtaRouteTableId'
@@ -5223,7 +5083,6 @@ reportInstanceStatus :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => [Text] -- ^ 'risInstances'
                      -> ReportStatusType -- ^ 'risStatus'
@@ -5262,7 +5121,6 @@ requestSpotInstances :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => Text -- ^ 'rsiSpotPrice'
                      -> State RequestSpotInstances a
@@ -5284,7 +5142,6 @@ resetImageAttribute :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'riaImageId'
                     -> ResetImageAttributeName -- ^ 'riaAttribute'
@@ -5313,7 +5170,6 @@ resetInstanceAttribute :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'ria1InstanceId'
                        -> InstanceAttributeName -- ^ 'ria1Attribute'
@@ -5338,7 +5194,6 @@ resetNetworkInterfaceAttribute :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
                                   , MonadReader Env m
-                                  , AWSRequest a
                                   )
                                => Text -- ^ 'rniaNetworkInterfaceId'
                                -> State ResetNetworkInterfaceAttribute a
@@ -5363,7 +5218,6 @@ resetSnapshotAttribute :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'rsaSnapshotId'
                        -> SnapshotAttributeName -- ^ 'rsaAttribute'
@@ -5399,7 +5253,6 @@ revokeSecurityGroupEgress :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'rsgeGroupId'
                           -> State RevokeSecurityGroupEgress a
@@ -5432,7 +5285,6 @@ revokeSecurityGroupIngress :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => State RevokeSecurityGroupIngress a
                            -> m RevokeSecurityGroupIngressResponse
@@ -5511,7 +5363,6 @@ runInstances :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'ri3ImageId'
              -> Integer -- ^ 'ri3MinCount'
@@ -5551,7 +5402,6 @@ startInstances :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => [Text] -- ^ 'siInstanceIds'
                -> State StartInstances a
@@ -5598,7 +5448,6 @@ stopInstances :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => [Text] -- ^ 'si1InstanceIds'
               -> State StopInstances a
@@ -5638,7 +5487,6 @@ terminateInstances :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => [Text] -- ^ 'tiInstanceIds'
                    -> State TerminateInstances a
@@ -5662,7 +5510,6 @@ unassignPrivateIpAddresses :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => Text -- ^ 'upiaNetworkInterfaceId'
                            -> [Text] -- ^ 'upiaPrivateIpAddresses'
@@ -5692,7 +5539,6 @@ unmonitorInstances :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => [Text] -- ^ 'uiInstanceIds'
                    -> State UnmonitorInstances a

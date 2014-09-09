@@ -79,7 +79,7 @@ module Network.AWS.ELB.V2012_06_01.Trans
     , setLoadBalancerPoliciesOfListener
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.ELB.V2012_06_01
     -- ** Lenses
     , (.=)
@@ -108,7 +108,6 @@ addTags :: ( MonadCatch m
            , MonadResource m
            , MonadError AWS.Error m
            , MonadReader Env m
-           , AWSRequest a
            )
         => [Text] -- ^ 'atLoadBalancerNames'
         -> List1 Tag -- ^ 'atTags'
@@ -132,7 +131,6 @@ applySecurityGroupsToLoadBalancer :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
                                      , MonadReader Env m
-                                     , AWSRequest a
                                      )
                                   => Text -- ^ 'asgtlbLoadBalancerName'
                                   -> [Text] -- ^ 'asgtlbSecurityGroups'
@@ -156,7 +154,6 @@ attachLoadBalancerToSubnets :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => Text -- ^ 'albtsLoadBalancerName'
                             -> [Text] -- ^ 'albtsSubnets'
@@ -179,7 +176,6 @@ configureHealthCheck :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => Text -- ^ 'chcLoadBalancerName'
                      -> HealthCheck -- ^ 'chcHealthCheck'
@@ -212,7 +208,6 @@ createAppCookieStickinessPolicy :: ( MonadCatch m
                                    , MonadResource m
                                    , MonadError AWS.Error m
                                    , MonadReader Env m
-                                   , AWSRequest a
                                    )
                                 => Text -- ^ 'cacspLoadBalancerName'
                                 -> Text -- ^ 'cacspPolicyName'
@@ -246,7 +241,6 @@ createLBCookieStickinessPolicy :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
                                   , MonadReader Env m
-                                  , AWSRequest a
                                   )
                                => Text -- ^ 'clbcspLoadBalancerName'
                                -> Text -- ^ 'clbcspPolicyName'
@@ -327,7 +321,6 @@ createLoadBalancer :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'clbLoadBalancerName'
                    -> [Listener] -- ^ 'clbListeners'
@@ -356,7 +349,6 @@ createLoadBalancerListeners :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => Text -- ^ 'clblLoadBalancerName'
                             -> [Listener] -- ^ 'clblListeners'
@@ -381,7 +373,6 @@ createLoadBalancerPolicy :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'clbpLoadBalancerName'
                          -> Text -- ^ 'clbpPolicyName'
@@ -406,7 +397,6 @@ deleteLoadBalancer :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'dlbLoadBalancerName'
                    -> State DeleteLoadBalancer a
@@ -421,7 +411,6 @@ deleteLoadBalancerListeners :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => Text -- ^ 'dlblLoadBalancerName'
                             -> [Integer] -- ^ 'dlblLoadBalancerPorts'
@@ -438,7 +427,6 @@ deleteLoadBalancerPolicy :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'dlbpLoadBalancerName'
                          -> Text -- ^ 'dlbpPolicyName'
@@ -465,7 +453,6 @@ deregisterInstancesFromLoadBalancer :: ( MonadCatch m
                                        , MonadResource m
                                        , MonadError AWS.Error m
                                        , MonadReader Env m
-                                       , AWSRequest a
                                        )
                                     => Text -- ^ 'diflbLoadBalancerName'
                                     -> [Instance] -- ^ 'diflbInstances'
@@ -504,7 +491,6 @@ describeInstanceHealth :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'dihLoadBalancerName'
                        -> State DescribeInstanceHealth a
@@ -524,7 +510,6 @@ describeLoadBalancerAttributes :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
                                   , MonadReader Env m
-                                  , AWSRequest a
                                   )
                                => Text -- ^ 'dlbaLoadBalancerName'
                                -> State DescribeLoadBalancerAttributes a
@@ -557,7 +542,6 @@ describeLoadBalancerPolicies :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env m
-                                , AWSRequest a
                                 )
                              => State DescribeLoadBalancerPolicies a
                              -> m DescribeLoadBalancerPoliciesResponse
@@ -588,7 +572,6 @@ describeLoadBalancerPolicyTypes :: ( MonadCatch m
                                    , MonadResource m
                                    , MonadError AWS.Error m
                                    , MonadReader Env m
-                                   , AWSRequest a
                                    )
                                 => State DescribeLoadBalancerPolicyTypes a
                                 -> m DescribeLoadBalancerPolicyTypesResponse
@@ -615,7 +598,6 @@ describeLoadBalancers :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env (ResumableSource m)
-                         , AWSPager a
                          )
                       => State DescribeLoadBalancers a
                       -> ResumableSource m DescribeLoadBalancersResponse
@@ -633,7 +615,6 @@ describeTags :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => List1 Text -- ^ 'dtLoadBalancerNames'
              -> State DescribeTags a
@@ -657,7 +638,6 @@ detachLoadBalancerFromSubnets :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
                                  , MonadReader Env m
-                                 , AWSRequest a
                                  )
                               => Text -- ^ 'dlbfsLoadBalancerName'
                               -> [Text] -- ^ 'dlbfsSubnets'
@@ -687,7 +667,6 @@ disableAvailabilityZonesForLoadBalancer :: ( MonadCatch m
                                            , MonadResource m
                                            , MonadError AWS.Error m
                                            , MonadReader Env m
-                                           , AWSRequest a
                                            )
                                         => Text -- ^ 'dazflbLoadBalancerName'
                                         -> [Text] -- ^ 'dazflbAvailabilityZones'
@@ -714,7 +693,6 @@ enableAvailabilityZonesForLoadBalancer :: ( MonadCatch m
                                           , MonadResource m
                                           , MonadError AWS.Error m
                                           , MonadReader Env m
-                                          , AWSRequest a
                                           )
                                        => Text -- ^ 'eazflbLoadBalancerName'
                                        -> [Text] -- ^ 'eazflbAvailabilityZones'
@@ -758,7 +736,6 @@ modifyLoadBalancerAttributes :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env m
-                                , AWSRequest a
                                 )
                              => Text -- ^ 'mlbaLoadBalancerName'
                              -> LoadBalancerAttributes -- ^ 'mlbaLoadBalancerAttributes'
@@ -798,7 +775,6 @@ registerInstancesWithLoadBalancer :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
                                      , MonadReader Env m
-                                     , AWSRequest a
                                      )
                                   => Text -- ^ 'riwlbLoadBalancerName'
                                   -> [Instance] -- ^ 'riwlbInstances'
@@ -818,7 +794,6 @@ removeTags :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => [Text] -- ^ 'rtLoadBalancerNames'
            -> List1 TagKeyOnly -- ^ 'rtTags'
@@ -843,7 +818,6 @@ setLoadBalancerListenerSSLCertificate :: ( MonadCatch m
                                          , MonadResource m
                                          , MonadError AWS.Error m
                                          , MonadReader Env m
-                                         , AWSRequest a
                                          )
                                       => Text -- ^ 'slblsslcLoadBalancerName'
                                       -> Integer -- ^ 'slblsslcLoadBalancerPort'
@@ -876,7 +850,6 @@ setLoadBalancerPoliciesForBackendServer :: ( MonadCatch m
                                            , MonadResource m
                                            , MonadError AWS.Error m
                                            , MonadReader Env m
-                                           , AWSRequest a
                                            )
                                         => Text -- ^ 'slbpfbsLoadBalancerName'
                                         -> Integer -- ^ 'slbpfbsInstancePort'
@@ -900,7 +873,6 @@ setLoadBalancerPoliciesOfListener :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
                                      , MonadReader Env m
-                                     , AWSRequest a
                                      )
                                   => Text -- ^ 'slbpolLoadBalancerName'
                                   -> Integer -- ^ 'slbpolLoadBalancerPort'

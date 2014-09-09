@@ -52,7 +52,7 @@ module Network.AWS.SimpleDB.V2009_04_15.Trans
     , select
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.SimpleDB.V2009_04_15
     -- ** Lenses
     , (.=)
@@ -87,7 +87,6 @@ batchDeleteAttributes :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'bdaDomainName'
                       -> [DeletableItem] -- ^ 'bdaItems'
@@ -137,7 +136,6 @@ batchPutAttributes :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'bpaDomainName'
                    -> [ReplaceableItem] -- ^ 'bpaItems'
@@ -160,7 +158,6 @@ createDomain :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'cdDomainName'
              -> State CreateDomain a
@@ -184,7 +181,6 @@ deleteAttributes :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'daDomainName'
                  -> Text -- ^ 'daItemName'
@@ -204,7 +200,6 @@ deleteDomain :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'ddDomainName'
              -> State DeleteDomain a
@@ -221,7 +216,6 @@ domainMetadata :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'dmDomainName'
                -> State DomainMetadata a
@@ -243,7 +237,6 @@ getAttributes :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'gaDomainName'
               -> Text -- ^ 'gaItemName'
@@ -264,7 +257,6 @@ listDomains :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env (ResumableSource m)
-               , AWSPager a
                )
             => State ListDomains a
             -> ResumableSource m ListDomainsResponse
@@ -303,7 +295,6 @@ putAttributes :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'paDomainName'
               -> Text -- ^ 'paItemName'
@@ -328,7 +319,6 @@ select :: ( MonadCatch m
           , MonadResource m
           , MonadError AWS.Error m
           , MonadReader Env (ResumableSource m)
-          , AWSPager a
           )
        => Text -- ^ 'sSelectExpression'
        -> State Select a

@@ -40,7 +40,7 @@ module Network.AWS.Kinesis.V2013_12_02.Trans
     , splitShard
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.Kinesis.V2013_12_02
     -- ** Lenses
     , (.=)
@@ -97,7 +97,6 @@ createStream :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'csStreamName'
              -> Integer -- ^ 'csShardCount'
@@ -133,7 +132,6 @@ deleteStream :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'dsStreamName'
              -> State DeleteStream a
@@ -190,7 +188,6 @@ describeStream :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env (ResumableSource m)
-                  , AWSPager a
                   )
                => Text -- ^ 'ds1StreamName'
                -> State DescribeStream a
@@ -242,7 +239,6 @@ getRecords :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => Text -- ^ 'grShardIterator'
            -> State GetRecords a
@@ -300,7 +296,6 @@ getShardIterator :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'gsiStreamName'
                  -> Text -- ^ 'gsiShardId'
@@ -340,7 +335,6 @@ listStreams :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env (ResumableSource m)
-               , AWSPager a
                )
             => State ListStreams a
             -> ResumableSource m ListStreamsResponse
@@ -391,7 +385,6 @@ mergeShards :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'msStreamName'
             -> Text -- ^ 'msShardToMerge'
@@ -444,7 +437,6 @@ putRecord :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env m
-             , AWSRequest a
              )
           => Text -- ^ 'prStreamName'
           -> Base64 -- ^ 'prData'
@@ -505,7 +497,6 @@ splitShard :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => Text -- ^ 'ssStreamName'
            -> Text -- ^ 'ssShardToSplit'

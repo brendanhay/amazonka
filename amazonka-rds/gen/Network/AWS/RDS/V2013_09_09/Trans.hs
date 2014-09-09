@@ -127,7 +127,7 @@ module Network.AWS.RDS.V2013_09_09.Trans
     , revokeDBSecurityGroupIngress
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.RDS.V2013_09_09
     -- ** Lenses
     , (.=)
@@ -158,7 +158,6 @@ downloadDBLogFilePortion :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env (ResumableSource m)
-                            , AWSPager a
                             )
                          => Text -- ^ 'ddblfpDBInstanceIdentifier'
                          -> Text -- ^ 'ddblfpLogFileName'
@@ -183,7 +182,6 @@ addSourceIdentifierToSubscription :: ( MonadCatch m
                                      , MonadResource m
                                      , MonadError AWS.Error m
                                      , MonadReader Env m
-                                     , AWSRequest a
                                      )
                                   => Text -- ^ 'asitsSubscriptionName'
                                   -> Text -- ^ 'asitsSourceIdentifier'
@@ -203,7 +201,6 @@ addTagsToResource :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Text -- ^ 'attrResourceName'
                   -> [Tag] -- ^ 'attrTags'
@@ -236,7 +233,6 @@ authorizeDBSecurityGroupIngress :: ( MonadCatch m
                                    , MonadResource m
                                    , MonadError AWS.Error m
                                    , MonadReader Env m
-                                   , AWSRequest a
                                    )
                                 => Text -- ^ 'adbsgiDBSecurityGroupName'
                                 -> State AuthorizeDBSecurityGroupIngress a
@@ -259,7 +255,6 @@ copyDBSnapshot :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'cdbsSourceDBSnapshotIdentifier'
                -> Text -- ^ 'cdbsTargetDBSnapshotIdentifier'
@@ -286,7 +281,6 @@ createDBInstance :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'cdbiDBInstanceIdentifier'
                  -> Integer -- ^ 'cdbiAllocatedStorage'
@@ -319,7 +313,6 @@ createDBInstanceReadReplica :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => Text -- ^ 'cdbirrDBInstanceIdentifier'
                             -> Text -- ^ 'cdbirrSourceDBInstanceIdentifier'
@@ -349,7 +342,6 @@ createDBParameterGroup :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'cdbpgDBParameterGroupName'
                        -> Text -- ^ 'cdbpgDBParameterGroupFamily'
@@ -373,7 +365,6 @@ createDBSecurityGroup :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'cdbsgDBSecurityGroupName'
                       -> Text -- ^ 'cdbsgDBSecurityGroupDescription'
@@ -396,7 +387,6 @@ createDBSnapshot :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'cdbs1DBSnapshotIdentifier'
                  -> Text -- ^ 'cdbs1DBInstanceIdentifier'
@@ -420,7 +410,6 @@ createDBSubnetGroup :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'cdbsg1DBSubnetGroupName'
                     -> Text -- ^ 'cdbsg1DBSubnetGroupDescription'
@@ -472,7 +461,6 @@ createEventSubscription :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'cesSubscriptionName'
                         -> Text -- ^ 'cesSnsTopicArn'
@@ -493,7 +481,6 @@ createOptionGroup :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Text -- ^ 'cogOptionGroupName'
                   -> Text -- ^ 'cogEngineName'
@@ -528,7 +515,6 @@ deleteDBInstance :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'ddbiDBInstanceIdentifier'
                  -> State DeleteDBInstance a
@@ -550,7 +536,6 @@ deleteDBParameterGroup :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'ddbpgDBParameterGroupName'
                        -> State DeleteDBParameterGroup a
@@ -570,7 +555,6 @@ deleteDBSecurityGroup :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'ddbsgDBSecurityGroupName'
                       -> State DeleteDBSecurityGroup a
@@ -592,7 +576,6 @@ deleteDBSnapshot :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'ddbsDBSnapshotIdentifier'
                  -> State DeleteDBSnapshot a
@@ -612,7 +595,6 @@ deleteDBSubnetGroup :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'ddbsg1DBSubnetGroupName'
                     -> State DeleteDBSubnetGroup a
@@ -634,7 +616,6 @@ deleteEventSubscription :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'desSubscriptionName'
                         -> State DeleteEventSubscription a
@@ -650,7 +631,6 @@ deleteOptionGroup :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Text -- ^ 'dogOptionGroupName'
                   -> State DeleteOptionGroup a
@@ -693,7 +673,6 @@ describeDBEngineVersions :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env (ResumableSource m)
-                            , AWSPager a
                             )
                          => State DescribeDBEngineVersions a
                          -> ResumableSource m DescribeDBEngineVersionsResponse
@@ -716,7 +695,6 @@ describeDBInstances :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env (ResumableSource m)
-                       , AWSPager a
                        )
                     => State DescribeDBInstances a
                     -> ResumableSource m DescribeDBInstancesResponse
@@ -742,7 +720,6 @@ describeDBLogFiles :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env (ResumableSource m)
-                      , AWSPager a
                       )
                    => Text -- ^ 'ddblfDBInstanceIdentifier'
                    -> State DescribeDBLogFiles a
@@ -765,7 +742,6 @@ describeDBParameterGroups :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env (ResumableSource m)
-                             , AWSPager a
                              )
                           => State DescribeDBParameterGroups a
                           -> ResumableSource m DescribeDBParameterGroupsResponse
@@ -788,7 +764,6 @@ describeDBParameters :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env (ResumableSource m)
-                        , AWSPager a
                         )
                      => Text -- ^ 'ddbpDBParameterGroupName'
                      -> State DescribeDBParameters a
@@ -812,7 +787,6 @@ describeDBSecurityGroups :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env (ResumableSource m)
-                            , AWSPager a
                             )
                          => State DescribeDBSecurityGroups a
                          -> ResumableSource m DescribeDBSecurityGroupsResponse
@@ -838,7 +812,6 @@ describeDBSnapshots :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env (ResumableSource m)
-                       , AWSPager a
                        )
                     => State DescribeDBSnapshots a
                     -> ResumableSource m DescribeDBSnapshotsResponse
@@ -862,7 +835,6 @@ describeDBSubnetGroups :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env (ResumableSource m)
-                          , AWSPager a
                           )
                        => State DescribeDBSubnetGroups a
                        -> ResumableSource m DescribeDBSubnetGroupsResponse
@@ -889,7 +861,6 @@ describeEngineDefaultParameters :: ( MonadCatch m
                                    , MonadResource m
                                    , MonadError AWS.Error m
                                    , MonadReader Env (ResumableSource m)
-                                   , AWSPager a
                                    )
                                 => Text -- ^ 'dedpDBParameterGroupFamily'
                                 -> State DescribeEngineDefaultParameters a
@@ -912,7 +883,6 @@ describeEventCategories :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => State DescribeEventCategories a
                         -> m DescribeEventCategoriesResponse
@@ -937,7 +907,6 @@ describeEventSubscriptions :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env (ResumableSource m)
-                              , AWSPager a
                               )
                            => State DescribeEventSubscriptions a
                            -> ResumableSource m DescribeEventSubscriptionsResponse
@@ -965,7 +934,6 @@ describeEvents :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env (ResumableSource m)
-                  , AWSPager a
                   )
                => State DescribeEvents a
                -> ResumableSource m DescribeEventsResponse
@@ -982,7 +950,6 @@ describeOptionGroupOptions :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env (ResumableSource m)
-                              , AWSPager a
                               )
                            => Text -- ^ 'dogoEngineName'
                            -> State DescribeOptionGroupOptions a
@@ -1003,7 +970,6 @@ describeOptionGroups :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env (ResumableSource m)
-                        , AWSPager a
                         )
                      => State DescribeOptionGroups a
                      -> ResumableSource m DescribeOptionGroupsResponse
@@ -1029,7 +995,6 @@ describeOrderableDBInstanceOptions :: ( MonadCatch m
                                       , MonadResource m
                                       , MonadError AWS.Error m
                                       , MonadReader Env (ResumableSource m)
-                                      , AWSPager a
                                       )
                                    => Text -- ^ 'dodbioEngine'
                                    -> State DescribeOrderableDBInstanceOptions a
@@ -1052,7 +1017,6 @@ describeReservedDBInstances :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env (ResumableSource m)
-                               , AWSPager a
                                )
                             => State DescribeReservedDBInstances a
                             -> ResumableSource m DescribeReservedDBInstancesResponse
@@ -1072,7 +1036,6 @@ describeReservedDBInstancesOfferings :: ( MonadCatch m
                                         , MonadResource m
                                         , MonadError AWS.Error m
                                         , MonadReader Env (ResumableSource m)
-                                        , AWSPager a
                                         )
                                      => State DescribeReservedDBInstancesOfferings a
                                      -> ResumableSource m DescribeReservedDBInstancesOfferingsResponse
@@ -1087,7 +1050,6 @@ listTagsForResource :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'ltfrResourceName'
                     -> State ListTagsForResource a
@@ -1112,7 +1074,6 @@ modifyDBInstance :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'mdbiDBInstanceIdentifier'
                  -> State ModifyDBInstance a
@@ -1144,7 +1105,6 @@ modifyDBParameterGroup :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'mdbpgDBParameterGroupName'
                        -> [Parameter] -- ^ 'mdbpgParameters'
@@ -1169,7 +1129,6 @@ modifyDBSubnetGroup :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'mdbsgDBSubnetGroupName'
                     -> [Text] -- ^ 'mdbsgSubnetIds'
@@ -1198,7 +1157,6 @@ modifyEventSubscription :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'mesSubscriptionName'
                         -> State ModifyEventSubscription a
@@ -1221,7 +1179,6 @@ modifyOptionGroup :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Text -- ^ 'mogOptionGroupName'
                   -> State ModifyOptionGroup a
@@ -1245,7 +1202,6 @@ promoteReadReplica :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'prrDBInstanceIdentifier'
                    -> State PromoteReadReplica a
@@ -1268,7 +1224,6 @@ purchaseReservedDBInstancesOffering :: ( MonadCatch m
                                        , MonadResource m
                                        , MonadError AWS.Error m
                                        , MonadReader Env m
-                                       , AWSRequest a
                                        )
                                     => Text -- ^ 'prdbioReservedDBInstancesOfferingId'
                                     -> State PurchaseReservedDBInstancesOffering a
@@ -1305,7 +1260,6 @@ rebootDBInstance :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'rdbi1DBInstanceIdentifier'
                  -> State RebootDBInstance a
@@ -1328,7 +1282,6 @@ removeSourceIdentifierFromSubscription :: ( MonadCatch m
                                           , MonadResource m
                                           , MonadError AWS.Error m
                                           , MonadReader Env m
-                                          , AWSRequest a
                                           )
                                        => Text -- ^ 'rsifsSubscriptionName'
                                        -> Text -- ^ 'rsifsSourceIdentifier'
@@ -1345,7 +1298,6 @@ removeTagsFromResource :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'rtfrResourceName'
                        -> [Text] -- ^ 'rtfrTagKeys'
@@ -1375,7 +1327,6 @@ resetDBParameterGroup :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'rdbpgDBParameterGroupName'
                       -> State ResetDBParameterGroup a
@@ -1400,7 +1351,6 @@ restoreDBInstanceFromDBSnapshot :: ( MonadCatch m
                                    , MonadResource m
                                    , MonadError AWS.Error m
                                    , MonadReader Env m
-                                   , AWSRequest a
                                    )
                                 => Text -- ^ 'rdbifdbsDBInstanceIdentifier'
                                 -> Text -- ^ 'rdbifdbsDBSnapshotIdentifier'
@@ -1429,7 +1379,6 @@ restoreDBInstanceToPointInTime :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
                                   , MonadReader Env m
-                                  , AWSRequest a
                                   )
                                => Text -- ^ 'rdbitpitSourceDBInstanceIdentifier'
                                -> Text -- ^ 'rdbitpitTargetDBInstanceIdentifier'
@@ -1454,7 +1403,6 @@ revokeDBSecurityGroupIngress :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env m
-                                , AWSRequest a
                                 )
                              => Text -- ^ 'rdbsgiDBSecurityGroupName'
                              -> State RevokeDBSecurityGroupIngress a

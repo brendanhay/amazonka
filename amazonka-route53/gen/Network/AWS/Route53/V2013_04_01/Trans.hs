@@ -62,7 +62,7 @@ module Network.AWS.Route53.V2013_04_01.Trans
     , updateHealthCheck
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.Route53.V2013_04_01
     -- ** Lenses
     , (.=)
@@ -101,7 +101,6 @@ changeResourceRecordSets :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'crrsHostedZoneId'
                          -> ChangeBatch -- ^ 'crrsChangeBatch'
@@ -115,7 +114,6 @@ changeTagsForResource :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => TagResourceType -- ^ 'ctfrResourceType'
                       -> Text -- ^ 'ctfrResourceId'
@@ -135,7 +133,6 @@ createHealthCheck :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Text -- ^ 'chcCallerReference'
                   -> HealthCheckConfig -- ^ 'chcHealthCheckConfig'
@@ -163,7 +160,6 @@ createHostedZone :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'chzName'
                  -> Text -- ^ 'chzCallerReference'
@@ -187,7 +183,6 @@ deleteHealthCheck :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Text -- ^ 'dhcHealthCheckId'
                   -> State DeleteHealthCheck a
@@ -211,7 +206,6 @@ deleteHostedZone :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'dhzId'
                  -> State DeleteHostedZone a
@@ -230,7 +224,6 @@ getChange :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env m
-             , AWSRequest a
              )
           => Text -- ^ 'gcId'
           -> State GetChange a
@@ -249,7 +242,6 @@ getCheckerIpRanges :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => State GetCheckerIpRanges a
                    -> m GetCheckerIpRangesResponse
@@ -261,7 +253,6 @@ getGeoLocation :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => State GetGeoLocation a
                -> m GetGeoLocationResponse
@@ -276,7 +267,6 @@ getHealthCheck :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'ghcHealthCheckId'
                -> State GetHealthCheck a
@@ -292,7 +282,6 @@ getHealthCheckCount :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => State GetHealthCheckCount a
                     -> m GetHealthCheckCountResponse
@@ -309,7 +298,6 @@ getHostedZone :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'ghzId'
               -> State GetHostedZone a
@@ -322,7 +310,6 @@ listGeoLocations :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => State ListGeoLocations a
                  -> m ListGeoLocationsResponse
@@ -344,7 +331,6 @@ listHealthChecks :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env (ResumableSource m)
-                    , AWSPager a
                     )
                  => State ListHealthChecks a
                  -> ResumableSource m ListHealthChecksResponse
@@ -366,7 +352,6 @@ listHostedZones :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env (ResumableSource m)
-                   , AWSPager a
                    )
                 => State ListHostedZones a
                 -> ResumableSource m ListHostedZonesResponse
@@ -411,7 +396,6 @@ listResourceRecordSets :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env (ResumableSource m)
-                          , AWSPager a
                           )
                        => Text -- ^ 'lrrsHostedZoneId'
                        -> State ListResourceRecordSets a
@@ -424,7 +408,6 @@ listTagsForResource :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => TagResourceType -- ^ 'ltfrResourceType'
                     -> Text -- ^ 'ltfrResourceId'
@@ -438,7 +421,6 @@ listTagsForResources :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => TagResourceType -- ^ 'ltfr1ResourceType'
                      -> List1 Text -- ^ 'ltfr1ResourceIds'
@@ -459,7 +441,6 @@ updateHealthCheck :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Text -- ^ 'uhcHealthCheckId'
                   -> State UpdateHealthCheck a

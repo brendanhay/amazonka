@@ -57,7 +57,7 @@ module Network.AWS.SQS.V2012_11_05.Trans
     , setQueueAttributes
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.SQS.V2012_11_05
     -- ** Lenses
     , (.=)
@@ -98,7 +98,6 @@ addPermission :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'apQueueUrl'
               -> Text -- ^ 'apLabel'
@@ -152,7 +151,6 @@ changeMessageVisibility :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'cmvQueueUrl'
                         -> Text -- ^ 'cmvReceiptHandle'
@@ -193,7 +191,6 @@ changeMessageVisibilityBatch :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env m
-                                , AWSRequest a
                                 )
                              => Text -- ^ 'cmvbQueueUrl'
                              -> [ChangeMessageVisibilityBatchRequestEntry] -- ^ 'cmvbEntries'
@@ -233,7 +230,6 @@ createQueue :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'cqQueueName'
             -> State CreateQueue a
@@ -275,7 +271,6 @@ deleteMessage :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'dmQueueUrl'
               -> Text -- ^ 'dmReceiptHandle'
@@ -311,7 +306,6 @@ deleteMessageBatch :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'dmbQueueUrl'
                    -> [DeleteMessageBatchRequestEntry] -- ^ 'dmbEntries'
@@ -343,7 +337,6 @@ deleteQueue :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'dqQueueUrl'
             -> State DeleteQueue a
@@ -406,7 +399,6 @@ getQueueAttributes :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'gqaQueueUrl'
                    -> State GetQueueAttributes a
@@ -433,7 +425,6 @@ getQueueUrl :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'gquQueueName'
             -> State GetQueueUrl a
@@ -455,7 +446,6 @@ listDeadLetterSourceQueues :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => Text -- ^ 'ldlsqQueueUrl'
                            -> State ListDeadLetterSourceQueues a
@@ -480,7 +470,6 @@ listQueues :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => State ListQueues a
            -> m ListQueuesResponse
@@ -531,7 +520,6 @@ receiveMessage :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'rmQueueUrl'
                -> State ReceiveMessage a
@@ -555,7 +543,6 @@ removePermission :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'rpQueueUrl'
                  -> Text -- ^ 'rpLabel'
@@ -597,7 +584,6 @@ sendMessage :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'smQueueUrl'
             -> Text -- ^ 'smMessageBody'
@@ -650,7 +636,6 @@ sendMessageBatch :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'smbQueueUrl'
                  -> [SendMessageBatchRequestEntry] -- ^ 'smbEntries'
@@ -700,7 +685,6 @@ setQueueAttributes :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'sqaQueueUrl'
                    -> Map QueueAttributeName Text -- ^ 'sqaAttributes'

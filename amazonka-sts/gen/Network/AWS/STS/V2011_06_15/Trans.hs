@@ -34,7 +34,7 @@ module Network.AWS.STS.V2011_06_15.Trans
     , getSessionToken
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.STS.V2011_06_15
     -- ** Lenses
     , (.=)
@@ -121,7 +121,6 @@ assumeRole :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => Text -- ^ 'arRoleArn'
            -> Text -- ^ 'arRoleSessionName'
@@ -173,7 +172,6 @@ assumeRoleWithSAML :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'arwsamlRoleArn'
                    -> Text -- ^ 'arwsamlPrincipalArn'
@@ -251,7 +249,6 @@ assumeRoleWithWebIdentity :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'arwwiRoleArn'
                           -> Text -- ^ 'arwwiRoleSessionName'
@@ -299,7 +296,6 @@ decodeAuthorizationMessage :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => Text -- ^ 'damEncodedMessage'
                            -> State DecodeAuthorizationMessage a
@@ -375,7 +371,6 @@ getFederationToken :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'gftName'
                    -> State GetFederationToken a
@@ -424,7 +419,6 @@ getSessionToken :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => State GetSessionToken a
                 -> m GetSessionTokenResponse

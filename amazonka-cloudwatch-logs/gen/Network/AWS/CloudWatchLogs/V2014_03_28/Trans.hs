@@ -48,7 +48,7 @@ module Network.AWS.CloudWatchLogs.V2014_03_28.Trans
     , testMetricFilter
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.CloudWatchLogs.V2014_03_28
     -- ** Lenses
     , (.=)
@@ -81,7 +81,6 @@ createLogGroup :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'clgLogGroupName'
                -> State CreateLogGroup a
@@ -110,7 +109,6 @@ createLogStream :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'clsLogGroupName'
                 -> Text -- ^ 'clsLogStreamName'
@@ -136,7 +134,6 @@ deleteLogGroup :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'dlgLogGroupName'
                -> State DeleteLogGroup a
@@ -161,7 +158,6 @@ deleteLogStream :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'dlsLogGroupName'
                 -> Text -- ^ 'dlsLogStreamName'
@@ -187,7 +183,6 @@ deleteMetricFilter :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'dmfLogGroupName'
                    -> Text -- ^ 'dmfFilterName'
@@ -213,7 +208,6 @@ deleteRetentionPolicy :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'drpLogGroupName'
                       -> State DeleteRetentionPolicy a
@@ -248,7 +242,6 @@ describeLogGroups :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env (ResumableSource m)
-                     , AWSPager a
                      )
                   => State DescribeLogGroups a
                   -> ResumableSource m DescribeLogGroupsResponse
@@ -288,7 +281,6 @@ describeLogStreams :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env (ResumableSource m)
-                      , AWSPager a
                       )
                    => Text -- ^ 'dls1LogGroupName'
                    -> State DescribeLogStreams a
@@ -322,7 +314,6 @@ describeMetricFilters :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env (ResumableSource m)
-                         , AWSPager a
                          )
                       => Text -- ^ 'dmf1LogGroupName'
                       -> State DescribeMetricFilters a
@@ -362,7 +353,6 @@ getLogEvents :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'gleLogGroupName'
              -> Text -- ^ 'gleLogStreamName'
@@ -402,7 +392,6 @@ putLogEvents :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'pleLogGroupName'
              -> Text -- ^ 'pleLogStreamName'
@@ -435,7 +424,6 @@ putMetricFilter :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'pmfLogGroupName'
                 -> Text -- ^ 'pmfFilterName'
@@ -465,7 +453,6 @@ putRetentionPolicy :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'prpLogGroupName'
                    -> Integer -- ^ 'prpRetentionInDays'
@@ -648,7 +635,6 @@ testMetricFilter :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'tmfFilterPattern'
                  -> List1 Text -- ^ 'tmfLogEventMessages'

@@ -46,7 +46,7 @@ module Network.AWS.CognitoIdentity.V2014_06_30.Trans
     , updateIdentityPool
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.CognitoIdentity.V2014_06_30
     -- ** Lenses
     , (.=)
@@ -77,7 +77,6 @@ createIdentityPool :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'cipIdentityPoolName'
                    -> Bool -- ^ 'cipAllowUnauthenticatedIdentities'
@@ -96,7 +95,6 @@ deleteIdentityPool :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'dipIdentityPoolId'
                    -> State DeleteIdentityPool a
@@ -120,7 +118,6 @@ describeIdentityPool :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => Text -- ^ 'dip1IdentityPoolId'
                      -> State DescribeIdentityPool a
@@ -140,7 +137,6 @@ getId :: ( MonadCatch m
          , MonadResource m
          , MonadError AWS.Error m
          , MonadReader Env m
-         , AWSRequest a
          )
       => Text -- ^ 'giAccountId'
       -> Text -- ^ 'giIdentityPoolId'
@@ -164,7 +160,6 @@ getOpenIdToken :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'goitIdentityId'
                -> State GetOpenIdToken a
@@ -186,7 +181,6 @@ listIdentities :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'liIdentityPoolId'
                -> Integer -- ^ 'liMaxResults'
@@ -208,7 +202,6 @@ listIdentityPools :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Integer -- ^ 'lipMaxResults'
                   -> State ListIdentityPools a
@@ -225,7 +218,6 @@ unlinkIdentity :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'uiIdentityId'
                -> Map Text Text -- ^ 'uiLogins'
@@ -254,7 +246,6 @@ updateIdentityPool :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'uipIdentityPoolId'
                    -> Text -- ^ 'uipIdentityPoolName'

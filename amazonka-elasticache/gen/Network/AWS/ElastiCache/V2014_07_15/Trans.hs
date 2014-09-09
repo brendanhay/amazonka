@@ -97,7 +97,7 @@ module Network.AWS.ElastiCache.V2014_07_15.Trans
     , revokeCacheSecurityGroupIngress
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.ElastiCache.V2014_07_15
     -- ** Lenses
     , (.=)
@@ -128,7 +128,6 @@ authorizeCacheSecurityGroupIngress :: ( MonadCatch m
                                       , MonadResource m
                                       , MonadError AWS.Error m
                                       , MonadReader Env m
-                                      , AWSRequest a
                                       )
                                    => Text -- ^ 'acsgiCacheSecurityGroupName'
                                    -> Text -- ^ 'acsgiEC2SecurityGroupName'
@@ -145,7 +144,6 @@ copySnapshot :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'csSourceSnapshotName'
              -> Text -- ^ 'csTargetSnapshotName'
@@ -177,7 +175,6 @@ createCacheCluster :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'cccCacheClusterId'
                    -> State CreateCacheCluster a
@@ -202,7 +199,6 @@ createCacheParameterGroup :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'ccpgCacheParameterGroupName'
                           -> Text -- ^ 'ccpgCacheParameterGroupFamily'
@@ -230,7 +226,6 @@ createCacheSecurityGroup :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'ccsgCacheSecurityGroupName'
                          -> Text -- ^ 'ccsgDescription'
@@ -255,7 +250,6 @@ createCacheSubnetGroup :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'ccsg1CacheSubnetGroupName'
                        -> Text -- ^ 'ccsg1CacheSubnetGroupDescription'
@@ -286,7 +280,6 @@ createReplicationGroup :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'crgReplicationGroupId'
                        -> Text -- ^ 'crgPrimaryClusterId'
@@ -311,7 +304,6 @@ createSnapshot :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'cs1CacheClusterId'
                -> Text -- ^ 'cs1SnapshotName'
@@ -338,7 +330,6 @@ deleteCacheCluster :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'dccCacheClusterId'
                    -> State DeleteCacheCluster a
@@ -360,7 +351,6 @@ deleteCacheParameterGroup :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'dcpgCacheParameterGroupName'
                           -> State DeleteCacheParameterGroup a
@@ -381,7 +371,6 @@ deleteCacheSecurityGroup :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'dcsgCacheSecurityGroupName'
                          -> State DeleteCacheSecurityGroup a
@@ -401,7 +390,6 @@ deleteCacheSubnetGroup :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'dcsg1CacheSubnetGroupName'
                        -> State DeleteCacheSubnetGroup a
@@ -428,7 +416,6 @@ deleteReplicationGroup :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'drgReplicationGroupId'
                        -> State DeleteReplicationGroup a
@@ -452,7 +439,6 @@ deleteSnapshot :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'dsSnapshotName'
                -> State DeleteSnapshot a
@@ -492,7 +478,6 @@ describeCacheClusters :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env (ResumableSource m)
-                         , AWSPager a
                          )
                       => State DescribeCacheClusters a
                       -> ResumableSource m DescribeCacheClustersResponse
@@ -513,7 +498,6 @@ describeCacheEngineVersions :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env (ResumableSource m)
-                               , AWSPager a
                                )
                             => State DescribeCacheEngineVersions a
                             -> ResumableSource m DescribeCacheEngineVersionsResponse
@@ -537,7 +521,6 @@ describeCacheParameterGroups :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env (ResumableSource m)
-                                , AWSPager a
                                 )
                              => State DescribeCacheParameterGroups a
                              -> ResumableSource m DescribeCacheParameterGroupsResponse
@@ -562,7 +545,6 @@ describeCacheParameters :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env (ResumableSource m)
-                           , AWSPager a
                            )
                         => Text -- ^ 'dcpCacheParameterGroupName'
                         -> State DescribeCacheParameters a
@@ -584,7 +566,6 @@ describeCacheSecurityGroups :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env (ResumableSource m)
-                               , AWSPager a
                                )
                             => State DescribeCacheSecurityGroups a
                             -> ResumableSource m DescribeCacheSecurityGroupsResponse
@@ -606,7 +587,6 @@ describeCacheSubnetGroups :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env (ResumableSource m)
-                             , AWSPager a
                              )
                           => State DescribeCacheSubnetGroups a
                           -> ResumableSource m DescribeCacheSubnetGroupsResponse
@@ -632,7 +612,6 @@ describeEngineDefaultParameters :: ( MonadCatch m
                                    , MonadResource m
                                    , MonadError AWS.Error m
                                    , MonadReader Env (ResumableSource m)
-                                   , AWSPager a
                                    )
                                 => Text -- ^ 'dedpCacheParameterGroupFamily'
                                 -> State DescribeEngineDefaultParameters a
@@ -658,7 +637,6 @@ describeEvents :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env (ResumableSource m)
-                  , AWSPager a
                   )
                => State DescribeEvents a
                -> ResumableSource m DescribeEventsResponse
@@ -683,7 +661,6 @@ describeReplicationGroups :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env (ResumableSource m)
-                             , AWSPager a
                              )
                           => State DescribeReplicationGroups a
                           -> ResumableSource m DescribeReplicationGroupsResponse
@@ -705,7 +682,6 @@ describeReservedCacheNodes :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env (ResumableSource m)
-                              , AWSPager a
                               )
                            => State DescribeReservedCacheNodes a
                            -> ResumableSource m DescribeReservedCacheNodesResponse
@@ -726,7 +702,6 @@ describeReservedCacheNodesOfferings :: ( MonadCatch m
                                        , MonadResource m
                                        , MonadError AWS.Error m
                                        , MonadReader Env (ResumableSource m)
-                                       , AWSPager a
                                        )
                                     => State DescribeReservedCacheNodesOfferings a
                                     -> ResumableSource m DescribeReservedCacheNodesOfferingsResponse
@@ -750,7 +725,6 @@ describeSnapshots :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => State DescribeSnapshots a
                   -> m DescribeSnapshotsResponse
@@ -773,7 +747,6 @@ modifyCacheCluster :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'mccCacheClusterId'
                    -> State ModifyCacheCluster a
@@ -798,7 +771,6 @@ modifyCacheParameterGroup :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'mcpgCacheParameterGroupName'
                           -> [ParameterNameValue] -- ^ 'mcpgParameterNameValues'
@@ -822,7 +794,6 @@ modifyCacheSubnetGroup :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'mcsgCacheSubnetGroupName'
                        -> State ModifyCacheSubnetGroup a
@@ -850,7 +821,6 @@ modifyReplicationGroup :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'mrgReplicationGroupId'
                        -> State ModifyReplicationGroup a
@@ -874,7 +844,6 @@ purchaseReservedCacheNodesOffering :: ( MonadCatch m
                                       , MonadResource m
                                       , MonadError AWS.Error m
                                       , MonadReader Env m
-                                      , AWSRequest a
                                       )
                                    => Text -- ^ 'prcnoReservedCacheNodesOfferingId'
                                    -> State PurchaseReservedCacheNodesOffering a
@@ -905,7 +874,6 @@ rebootCacheCluster :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'rccCacheClusterId'
                    -> [Text] -- ^ 'rccCacheNodeIdsToReboot'
@@ -931,7 +899,6 @@ resetCacheParameterGroup :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'rcpgCacheParameterGroupName'
                          -> [ParameterNameValue] -- ^ 'rcpgParameterNameValues'
@@ -956,7 +923,6 @@ revokeCacheSecurityGroupIngress :: ( MonadCatch m
                                    , MonadResource m
                                    , MonadError AWS.Error m
                                    , MonadReader Env m
-                                   , AWSRequest a
                                    )
                                 => Text -- ^ 'rcsgiCacheSecurityGroupName'
                                 -> Text -- ^ 'rcsgiEC2SecurityGroupName'

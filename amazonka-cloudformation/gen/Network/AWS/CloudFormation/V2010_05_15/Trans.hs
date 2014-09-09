@@ -59,7 +59,7 @@ module Network.AWS.CloudFormation.V2010_05_15.Trans
     , validateTemplate
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.CloudFormation.V2010_05_15
     -- ** Lenses
     , (.=)
@@ -86,7 +86,6 @@ cancelUpdateStack :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Text -- ^ 'cusStackName'
                   -> State CancelUpdateStack a
@@ -112,7 +111,6 @@ createStack :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'csStackName'
             -> State CreateStack a
@@ -133,7 +131,6 @@ deleteStack :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'dsStackName'
             -> State DeleteStack a
@@ -164,7 +161,6 @@ describeStackEvents :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env (ResumableSource m)
-                       , AWSPager a
                        )
                     => Text -- ^ 'dseStackName'
                     -> State DescribeStackEvents a
@@ -189,7 +185,6 @@ describeStackResource :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'dsrStackName'
                       -> Text -- ^ 'dsrLogicalResourceId'
@@ -227,7 +222,6 @@ describeStackResources :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => State DescribeStackResources a
                        -> m DescribeStackResourcesResponse
@@ -249,7 +243,6 @@ describeStacks :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env (ResumableSource m)
-                  , AWSPager a
                   )
                => State DescribeStacks a
                -> ResumableSource m DescribeStacksResponse
@@ -273,7 +266,6 @@ estimateTemplateCost :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => State EstimateTemplateCost a
                      -> m EstimateTemplateCostResponse
@@ -295,7 +287,6 @@ getStackPolicy :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'gspStackName'
                -> State GetStackPolicy a
@@ -319,7 +310,6 @@ getTemplate :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'gtStackName'
             -> State GetTemplate a
@@ -351,7 +341,6 @@ listStackResources :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env (ResumableSource m)
-                      , AWSPager a
                       )
                    => Text -- ^ 'lsrStackName'
                    -> State ListStackResources a
@@ -382,7 +371,6 @@ listStacks :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env (ResumableSource m)
-              , AWSPager a
               )
            => State ListStacks a
            -> ResumableSource m ListStacksResponse
@@ -401,7 +389,6 @@ setStackPolicy :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'sspStackName'
                -> State SetStackPolicy a
@@ -431,7 +418,6 @@ updateStack :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'usStackName'
             -> State UpdateStack a
@@ -454,7 +440,6 @@ validateTemplate :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => State ValidateTemplate a
                  -> m ValidateTemplateResponse

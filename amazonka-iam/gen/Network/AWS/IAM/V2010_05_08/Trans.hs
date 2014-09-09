@@ -174,7 +174,7 @@ module Network.AWS.IAM.V2010_05_08.Trans
     , uploadSigningCertificate
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.IAM.V2010_05_08
     -- ** Lenses
     , (.=)
@@ -199,7 +199,6 @@ addRoleToInstanceProfile :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'artipInstanceProfileName'
                          -> Text -- ^ 'artipRoleName'
@@ -217,7 +216,6 @@ addUserToGroup :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'autgGroupName'
                -> Text -- ^ 'autgUserName'
@@ -238,7 +236,6 @@ changePassword :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'cpOldPassword'
                -> Text -- ^ 'cpNewPassword'
@@ -269,7 +266,6 @@ createAccessKey :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => State CreateAccessKey a
                 -> m CreateAccessKeyResponse
@@ -287,7 +283,6 @@ createAccountAlias :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'caaAccountAlias'
                    -> State CreateAccountAlias a
@@ -306,7 +301,6 @@ createGroup :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'cgGroupName'
             -> State CreateGroup a
@@ -329,7 +323,6 @@ createInstanceProfile :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'cipInstanceProfileName'
                       -> State CreateInstanceProfile a
@@ -349,7 +342,6 @@ createLoginProfile :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'clpUserName'
                    -> Text -- ^ 'clpPassword'
@@ -379,7 +371,6 @@ createRole :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => Text -- ^ 'crRoleName'
            -> Text -- ^ 'crAssumeRolePolicyDocument'
@@ -413,7 +404,6 @@ createSAMLProvider :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'csamlpSAMLMetadataDocument'
                    -> Text -- ^ 'csamlpName'
@@ -435,7 +425,6 @@ createUser :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => Text -- ^ 'cuUserName'
            -> State CreateUser a
@@ -464,7 +453,6 @@ createVirtualMFADevice :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'cvmfadVirtualMFADeviceName'
                        -> State CreateVirtualMFADevice a
@@ -482,7 +470,6 @@ deactivateMFADevice :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'dmfadUserName'
                     -> Text -- ^ 'dmfadSerialNumber'
@@ -504,7 +491,6 @@ deleteAccessKey :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'dakAccessKeyId'
                 -> State DeleteAccessKey a
@@ -523,7 +509,6 @@ deleteAccountAlias :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'daaAccountAlias'
                    -> State DeleteAccountAlias a
@@ -540,7 +525,6 @@ deleteAccountPasswordPolicy :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => State DeleteAccountPasswordPolicy a
                             -> m DeleteAccountPasswordPolicyResponse
@@ -557,7 +541,6 @@ deleteGroup :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'dgGroupName'
             -> State DeleteGroup a
@@ -574,7 +557,6 @@ deleteGroupPolicy :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Text -- ^ 'dgpGroupName'
                   -> Text -- ^ 'dgpPolicyName'
@@ -598,7 +580,6 @@ deleteInstanceProfile :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'dipInstanceProfileName'
                       -> State DeleteInstanceProfile a
@@ -620,7 +601,6 @@ deleteLoginProfile :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'dlpUserName'
                    -> State DeleteLoginProfile a
@@ -641,7 +621,6 @@ deleteRole :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => Text -- ^ 'drRoleName'
            -> State DeleteRole a
@@ -659,7 +638,6 @@ deleteRolePolicy :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'drpRoleName'
                  -> Text -- ^ 'drpPolicyName'
@@ -681,7 +659,6 @@ deleteSAMLProvider :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'dsamlpSAMLProviderArn'
                    -> State DeleteSAMLProvider a
@@ -706,7 +683,6 @@ deleteServerCertificate :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'dscServerCertificateName'
                         -> State DeleteServerCertificate a
@@ -728,7 +704,6 @@ deleteSigningCertificate :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'dsc1CertificateId'
                          -> State DeleteSigningCertificate a
@@ -746,7 +721,6 @@ deleteUser :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => Text -- ^ 'duUserName'
            -> State DeleteUser a
@@ -764,7 +738,6 @@ deleteUserPolicy :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'dupUserName'
                  -> Text -- ^ 'dupPolicyName'
@@ -786,7 +759,6 @@ deleteVirtualMFADevice :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'dvmfadSerialNumber'
                        -> State DeleteVirtualMFADevice a
@@ -806,7 +778,6 @@ enableMFADevice :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'emfadUserName'
                 -> Text -- ^ 'emfadSerialNumber'
@@ -826,7 +797,6 @@ generateCredentialReport :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => State GenerateCredentialReport a
                          -> m GenerateCredentialReportResponse
@@ -844,7 +814,6 @@ getAccountPasswordPolicy :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => State GetAccountPasswordPolicy a
                          -> m GetAccountPasswordPolicyResponse
@@ -866,7 +835,6 @@ getAccountSummary :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => State GetAccountSummary a
                   -> m GetAccountSummaryResponse
@@ -882,7 +850,6 @@ getCredentialReport :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => State GetCredentialReport a
                     -> m GetCredentialReportResponse
@@ -905,7 +872,6 @@ getGroup :: ( MonadCatch m
             , MonadResource m
             , MonadError AWS.Error m
             , MonadReader Env (ResumableSource m)
-            , AWSPager a
             )
          => Text -- ^ 'ggGroupName'
          -> State GetGroup a
@@ -926,7 +892,6 @@ getGroupPolicy :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'ggpGroupName'
                -> Text -- ^ 'ggpPolicyName'
@@ -955,7 +920,6 @@ getInstanceProfile :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'gipInstanceProfileName'
                    -> State GetInstanceProfile a
@@ -974,7 +938,6 @@ getLoginProfile :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'glpUserName'
                 -> State GetLoginProfile a
@@ -1001,7 +964,6 @@ getRole :: ( MonadCatch m
            , MonadResource m
            , MonadError AWS.Error m
            , MonadReader Env m
-           , AWSRequest a
            )
         => Text -- ^ 'grRoleName'
         -> State GetRole a
@@ -1023,7 +985,6 @@ getRolePolicy :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'grpRoleName'
               -> Text -- ^ 'grpPolicyName'
@@ -1044,7 +1005,6 @@ getSAMLProvider :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'gsamlpSAMLProviderArn'
                 -> State GetSAMLProvider a
@@ -1080,7 +1040,6 @@ getServerCertificate :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => Text -- ^ 'gscServerCertificateName'
                      -> State GetServerCertificate a
@@ -1102,7 +1061,6 @@ getUser :: ( MonadCatch m
            , MonadResource m
            , MonadError AWS.Error m
            , MonadReader Env m
-           , AWSRequest a
            )
         => State GetUser a
         -> m GetUserResponse
@@ -1122,7 +1080,6 @@ getUserPolicy :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'gupUserName'
               -> Text -- ^ 'gupPolicyName'
@@ -1150,7 +1107,6 @@ listAccessKeys :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env (ResumableSource m)
-                  , AWSPager a
                   )
                => State ListAccessKeys a
                -> ResumableSource m ListAccessKeysResponse
@@ -1169,7 +1125,6 @@ listAccountAliases :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env (ResumableSource m)
-                      , AWSPager a
                       )
                    => State ListAccountAliases a
                    -> ResumableSource m ListAccountAliasesResponse
@@ -1187,7 +1142,6 @@ listGroupPolicies :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env (ResumableSource m)
-                     , AWSPager a
                      )
                   => Text -- ^ 'lgpGroupName'
                   -> State ListGroupPolicies a
@@ -1214,7 +1168,6 @@ listGroups :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env (ResumableSource m)
-              , AWSPager a
               )
            => State ListGroups a
            -> ResumableSource m ListGroupsResponse
@@ -1233,7 +1186,6 @@ listGroupsForUser :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env (ResumableSource m)
-                     , AWSPager a
                      )
                   => Text -- ^ 'lgfuUserName'
                   -> State ListGroupsForUser a
@@ -1259,7 +1211,6 @@ listInstanceProfiles :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env (ResumableSource m)
-                        , AWSPager a
                         )
                      => State ListInstanceProfiles a
                      -> ResumableSource m ListInstanceProfilesResponse
@@ -1286,7 +1237,6 @@ listInstanceProfilesForRole :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env (ResumableSource m)
-                               , AWSPager a
                                )
                             => Text -- ^ 'lipfrRoleName'
                             -> State ListInstanceProfilesForRole a
@@ -1307,7 +1257,6 @@ listMFADevices :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env (ResumableSource m)
-                  , AWSPager a
                   )
                => State ListMFADevices a
                -> ResumableSource m ListMFADevicesResponse
@@ -1327,7 +1276,6 @@ listRolePolicies :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env (ResumableSource m)
-                    , AWSPager a
                     )
                  => Text -- ^ 'lrpRoleName'
                  -> State ListRolePolicies a
@@ -1358,7 +1306,6 @@ listRoles :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env (ResumableSource m)
-             , AWSPager a
              )
           => State ListRoles a
           -> ResumableSource m ListRolesResponse
@@ -1379,7 +1326,6 @@ listSAMLProviders :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => State ListSAMLProviders a
                   -> m ListSAMLProvidersResponse
@@ -1406,7 +1352,6 @@ listServerCertificates :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env (ResumableSource m)
-                          , AWSPager a
                           )
                        => State ListServerCertificates a
                        -> ResumableSource m ListServerCertificatesResponse
@@ -1446,7 +1391,6 @@ listSigningCertificates :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env (ResumableSource m)
-                           , AWSPager a
                            )
                         => State ListSigningCertificates a
                         -> ResumableSource m ListSigningCertificatesResponse
@@ -1465,7 +1409,6 @@ listUserPolicies :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env (ResumableSource m)
-                    , AWSPager a
                     )
                  => Text -- ^ 'lupUserName'
                  -> State ListUserPolicies a
@@ -1491,7 +1434,6 @@ listUsers :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env (ResumableSource m)
-             , AWSPager a
              )
           => State ListUsers a
           -> ResumableSource m ListUsersResponse
@@ -1519,7 +1461,6 @@ listVirtualMFADevices :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env (ResumableSource m)
-                         , AWSPager a
                          )
                       => State ListVirtualMFADevices a
                       -> ResumableSource m ListVirtualMFADevicesResponse
@@ -1545,7 +1486,6 @@ putGroupPolicy :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'pgpGroupName'
                -> Text -- ^ 'pgpPolicyName'
@@ -1574,7 +1514,6 @@ putRolePolicy :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'prpRoleName'
               -> Text -- ^ 'prpPolicyName'
@@ -1603,7 +1542,6 @@ putUserPolicy :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'pupUserName'
               -> Text -- ^ 'pupPolicyName'
@@ -1629,7 +1567,6 @@ removeRoleFromInstanceProfile :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
                                  , MonadReader Env m
-                                 , AWSRequest a
                                  )
                               => Text -- ^ 'rrfipInstanceProfileName'
                               -> Text -- ^ 'rrfipRoleName'
@@ -1647,7 +1584,6 @@ removeUserFromGroup :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'rufgGroupName'
                     -> Text -- ^ 'rufgUserName'
@@ -1666,7 +1602,6 @@ resyncMFADevice :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'rmfadUserName'
                 -> Text -- ^ 'rmfadSerialNumber'
@@ -1694,7 +1629,6 @@ updateAccessKey :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'uakAccessKeyId'
                 -> StatusType -- ^ 'uakStatus'
@@ -1717,7 +1651,6 @@ updateAccountPasswordPolicy :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => State UpdateAccountPasswordPolicy a
                             -> m UpdateAccountPasswordPolicyResponse
@@ -1736,7 +1669,6 @@ updateAssumeRolePolicy :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'uarpRoleName'
                        -> Text -- ^ 'uarpPolicyDocument'
@@ -1765,7 +1697,6 @@ updateGroup :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'ugGroupName'
             -> State UpdateGroup a
@@ -1782,7 +1713,6 @@ updateLoginProfile :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'ulpUserName'
                    -> State UpdateLoginProfile a
@@ -1804,7 +1734,6 @@ updateSAMLProvider :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'usamlpSAMLMetadataDocument'
                    -> Text -- ^ 'usamlpSAMLProviderArn'
@@ -1831,7 +1760,6 @@ updateServerCertificate :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'uscServerCertificateName'
                         -> State UpdateServerCertificate a
@@ -1857,7 +1785,6 @@ updateSigningCertificate :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'usc1CertificateId'
                          -> StatusType -- ^ 'usc1Status'
@@ -1884,7 +1811,6 @@ updateUser :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => Text -- ^ 'uuUserName'
            -> State UpdateUser a
@@ -1941,7 +1867,6 @@ uploadServerCertificate :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'usc2ServerCertificateName'
                         -> Text -- ^ 'usc2CertificateBody'
@@ -2003,7 +1928,6 @@ uploadSigningCertificate :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'usc3CertificateBody'
                          -> State UploadSigningCertificate a

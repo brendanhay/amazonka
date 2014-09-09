@@ -54,7 +54,7 @@ module Network.AWS.DataPipeline.V2012_10_29.Trans
     , validatePipelineDefinition
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.DataPipeline.V2012_10_29
     -- ** Lenses
     , (.=)
@@ -85,7 +85,6 @@ activatePipeline :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'apPipelineId'
                  -> State ActivatePipeline a
@@ -109,7 +108,6 @@ createPipeline :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'cpName'
                -> Text -- ^ 'cpUniqueId'
@@ -138,7 +136,6 @@ deletePipeline :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'dpPipelineId'
                -> State DeletePipeline a
@@ -169,7 +166,6 @@ describeObjects :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env (ResumableSource m)
-                   , AWSPager a
                    )
                 => Text -- ^ 'doPipelineId'
                 -> [Text] -- ^ 'doObjectIds'
@@ -208,7 +204,6 @@ describePipelines :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => [Text] -- ^ 'dp1PipelineIds'
                   -> State DescribePipelines a
@@ -234,7 +229,6 @@ evaluateExpression :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'eePipelineId'
                    -> Text -- ^ 'eeObjectId'
@@ -269,7 +263,6 @@ getPipelineDefinition :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'gpdPipelineId'
                       -> State GetPipelineDefinition a
@@ -294,7 +287,6 @@ listPipelines :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env (ResumableSource m)
-                 , AWSPager a
                  )
               => State ListPipelines a
               -> ResumableSource m ListPipelinesResponse
@@ -347,7 +339,6 @@ pollForTask :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'pftWorkerGroup'
             -> State PollForTask a
@@ -410,7 +401,6 @@ putPipelineDefinition :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'ppdPipelineId'
                       -> [PipelineObject] -- ^ 'ppdPipelineObjects'
@@ -440,7 +430,6 @@ queryObjects :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env (ResumableSource m)
-                , AWSPager a
                 )
              => Text -- ^ 'qoPipelineId'
              -> Text -- ^ 'qoSphere'
@@ -476,7 +465,6 @@ reportTaskProgress :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'rtpTaskId'
                    -> State ReportTaskProgress a
@@ -503,7 +491,6 @@ reportTaskRunnerHeartbeat :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'rtrhTaskrunnerId'
                           -> State ReportTaskRunnerHeartbeat a
@@ -528,7 +515,6 @@ setStatus :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env m
-             , AWSRequest a
              )
           => Text -- ^ 'ssPipelineId'
           -> [Text] -- ^ 'ssObjectIds'
@@ -557,7 +543,6 @@ setTaskStatus :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'stsTaskId'
               -> TaskStatus -- ^ 'stsTaskStatus'
@@ -610,7 +595,6 @@ validatePipelineDefinition :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => Text -- ^ 'vpdPipelineId'
                            -> [PipelineObject] -- ^ 'vpdPipelineObjects'

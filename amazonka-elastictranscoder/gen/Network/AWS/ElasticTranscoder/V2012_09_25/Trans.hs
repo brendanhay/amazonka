@@ -57,7 +57,7 @@ module Network.AWS.ElasticTranscoder.V2012_09_25.Trans
     , updatePipelineStatus
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.ElasticTranscoder.V2012_09_25
     -- ** Lenses
     , (.=)
@@ -91,7 +91,6 @@ cancelJob :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env m
-             , AWSRequest a
              )
           => Text -- ^ 'cjId'
           -> State CancelJob a
@@ -162,7 +161,6 @@ createJob :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
              , MonadReader Env m
-             , AWSRequest a
              )
           => Text -- ^ 'cj1PipelineId'
           -> JobInput -- ^ 'cj1Input'
@@ -212,7 +210,6 @@ createPipeline :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'cpName'
                -> Text -- ^ 'cpInputBucket'
@@ -282,7 +279,6 @@ createPreset :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'cp1Name'
              -> Text -- ^ 'cp1Container'
@@ -312,7 +308,6 @@ deletePipeline :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'dpId'
                -> State DeletePipeline a
@@ -339,7 +334,6 @@ deletePreset :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'dp1Id'
              -> State DeletePreset a
@@ -396,7 +390,6 @@ listJobsByPipeline :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env (ResumableSource m)
-                      , AWSPager a
                       )
                    => Text -- ^ 'ljbpPipelineId'
                    -> State ListJobsByPipeline a
@@ -455,7 +448,6 @@ listJobsByStatus :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env (ResumableSource m)
-                    , AWSPager a
                     )
                  => Text -- ^ 'ljbsStatus'
                  -> State ListJobsByStatus a
@@ -510,7 +502,6 @@ listPipelines :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env (ResumableSource m)
-                 , AWSPager a
                  )
               => State ListPipelines a
               -> ResumableSource m ListPipelinesResponse
@@ -545,7 +536,6 @@ listPresets :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env (ResumableSource m)
-               , AWSPager a
                )
             => State ListPresets a
             -> ResumableSource m ListPresetsResponse
@@ -575,7 +565,6 @@ readJob :: ( MonadCatch m
            , MonadResource m
            , MonadError AWS.Error m
            , MonadReader Env m
-           , AWSRequest a
            )
         => Text -- ^ 'rjId'
         -> State ReadJob a
@@ -607,7 +596,6 @@ readPipeline :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'rpId'
              -> State ReadPipeline a
@@ -648,7 +636,6 @@ readPreset :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => Text -- ^ 'rp1Id'
            -> State ReadPreset a
@@ -690,7 +677,6 @@ testRole :: ( MonadCatch m
             , MonadResource m
             , MonadError AWS.Error m
             , MonadReader Env m
-            , AWSRequest a
             )
          => Text -- ^ 'trRole'
          -> Text -- ^ 'trInputBucket'
@@ -712,7 +698,6 @@ updatePipeline :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
                   , MonadReader Env m
-                  , AWSRequest a
                   )
                => Text -- ^ 'upId'
                -> State UpdatePipeline a
@@ -747,7 +732,6 @@ updatePipelineNotifications :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => Text -- ^ 'upnId'
                             -> Notifications -- ^ 'upnNotifications'
@@ -781,7 +765,6 @@ updatePipelineStatus :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
                         , MonadReader Env m
-                        , AWSRequest a
                         )
                      => Text -- ^ 'upsId'
                      -> Text -- ^ 'upsStatus'

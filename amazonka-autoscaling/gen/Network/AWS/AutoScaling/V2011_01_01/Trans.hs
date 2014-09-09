@@ -116,7 +116,7 @@ module Network.AWS.AutoScaling.V2011_01_01.Trans
     , updateAutoScalingGroup
 
     -- * Re-exported
-    , module Control.Monad.Trans.AWS
+    , module AWS
     , module Network.AWS.AutoScaling.V2011_01_01
     -- ** Lenses
     , (.=)
@@ -139,7 +139,6 @@ attachInstances :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => List1 Text -- ^ 'aiInstanceIds'
                 -> Text -- ^ 'aiAutoScalingGroupName'
@@ -165,7 +164,6 @@ completeLifecycleAction :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'claLifecycleHookName'
                         -> Text -- ^ 'claAutoScalingGroupName'
@@ -194,7 +192,6 @@ createAutoScalingGroup :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'casgAutoScalingGroupName'
                        -> Integer -- ^ 'casgMinSize'
@@ -220,7 +217,6 @@ createLaunchConfiguration :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'clcLaunchConfigurationName'
                           -> State CreateLaunchConfiguration a
@@ -245,7 +241,6 @@ createOrUpdateTags :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => [Tag] -- ^ 'coutTags'
                    -> State CreateOrUpdateTags a
@@ -266,7 +261,6 @@ deleteAutoScalingGroup :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'dasgAutoScalingGroupName'
                        -> State DeleteAutoScalingGroup a
@@ -286,7 +280,6 @@ deleteLaunchConfiguration :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env m
-                             , AWSRequest a
                              )
                           => Text -- ^ 'dlcLaunchConfigurationName'
                           -> State DeleteLaunchConfiguration a
@@ -303,7 +296,6 @@ deleteLifecycleHook :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
                        , MonadReader Env m
-                       , AWSRequest a
                        )
                     => Text -- ^ 'dlhLifecycleHookName'
                     -> Text -- ^ 'dlhAutoScalingGroupName'
@@ -319,7 +311,6 @@ deleteNotificationConfiguration :: ( MonadCatch m
                                    , MonadResource m
                                    , MonadError AWS.Error m
                                    , MonadReader Env m
-                                   , AWSRequest a
                                    )
                                 => Text -- ^ 'dncAutoScalingGroupName'
                                 -> Text -- ^ 'dncTopicARN'
@@ -335,7 +326,6 @@ deletePolicy :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'dpPolicyName'
              -> State DeletePolicy a
@@ -351,7 +341,6 @@ deleteScheduledAction :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => Text -- ^ 'dsaScheduledActionName'
                       -> State DeleteScheduledAction a
@@ -366,7 +355,6 @@ deleteTags :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
               , MonadReader Env m
-              , AWSRequest a
               )
            => [Tag] -- ^ 'dtTags'
            -> State DeleteTags a
@@ -389,7 +377,6 @@ describeAccountLimits :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
                          , MonadReader Env m
-                         , AWSRequest a
                          )
                       => State DescribeAccountLimits a
                       -> m DescribeAccountLimitsResponse
@@ -406,7 +393,6 @@ describeAdjustmentTypes :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => State DescribeAdjustmentTypes a
                         -> m DescribeAdjustmentTypesResponse
@@ -432,7 +418,6 @@ describeAutoScalingGroups :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env (ResumableSource m)
-                             , AWSPager a
                              )
                           => State DescribeAutoScalingGroups a
                           -> ResumableSource m DescribeAutoScalingGroupsResponse
@@ -456,7 +441,6 @@ describeAutoScalingInstances :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env (ResumableSource m)
-                                , AWSPager a
                                 )
                              => State DescribeAutoScalingInstances a
                              -> ResumableSource m DescribeAutoScalingInstancesResponse
@@ -471,7 +455,6 @@ describeAutoScalingNotificationTypes :: ( MonadCatch m
                                         , MonadResource m
                                         , MonadError AWS.Error m
                                         , MonadReader Env m
-                                        , AWSRequest a
                                         )
                                      => State DescribeAutoScalingNotificationTypes a
                                      -> m DescribeAutoScalingNotificationTypesResponse
@@ -493,7 +476,6 @@ describeLaunchConfigurations :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env (ResumableSource m)
-                                , AWSPager a
                                 )
                              => State DescribeLaunchConfigurations a
                              -> ResumableSource m DescribeLaunchConfigurationsResponse
@@ -507,7 +489,6 @@ describeLifecycleHookTypes :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
                               , MonadReader Env m
-                              , AWSRequest a
                               )
                            => State DescribeLifecycleHookTypes a
                            -> m DescribeLifecycleHookTypesResponse
@@ -522,7 +503,6 @@ describeLifecycleHooks :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'dlh1AutoScalingGroupName'
                        -> State DescribeLifecycleHooks a
@@ -545,7 +525,6 @@ describeMetricCollectionTypes :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
                                  , MonadReader Env m
-                                 , AWSRequest a
                                  )
                               => State DescribeMetricCollectionTypes a
                               -> m DescribeMetricCollectionTypesResponse
@@ -560,7 +539,6 @@ describeNotificationConfigurations :: ( MonadCatch m
                                       , MonadResource m
                                       , MonadError AWS.Error m
                                       , MonadReader Env (ResumableSource m)
-                                      , AWSPager a
                                       )
                                    => State DescribeNotificationConfigurations a
                                    -> ResumableSource m DescribeNotificationConfigurationsResponse
@@ -587,7 +565,6 @@ describePolicies :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env (ResumableSource m)
-                    , AWSPager a
                     )
                  => State DescribePolicies a
                  -> ResumableSource m DescribePoliciesResponse
@@ -618,7 +595,6 @@ describeScalingActivities :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
                              , MonadReader Env (ResumableSource m)
-                             , AWSPager a
                              )
                           => State DescribeScalingActivities a
                           -> ResumableSource m DescribeScalingActivitiesResponse
@@ -637,7 +613,6 @@ describeScalingProcessTypes :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
                                , MonadReader Env m
-                               , AWSRequest a
                                )
                             => State DescribeScalingProcessTypes a
                             -> m DescribeScalingProcessTypesResponse
@@ -653,7 +628,6 @@ describeScheduledActions :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env (ResumableSource m)
-                            , AWSPager a
                             )
                          => State DescribeScheduledActions a
                          -> ResumableSource m DescribeScheduledActionsResponse
@@ -676,7 +650,6 @@ describeTags :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env (ResumableSource m)
-                , AWSPager a
                 )
              => State DescribeTags a
              -> ResumableSource m DescribeTagsResponse
@@ -694,7 +667,6 @@ describeTerminationPolicyTypes :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
                                   , MonadReader Env m
-                                  , AWSRequest a
                                   )
                                => State DescribeTerminationPolicyTypes a
                                -> m DescribeTerminationPolicyTypesResponse
@@ -719,7 +691,6 @@ detachInstances :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'diAutoScalingGroupName'
                 -> Bool -- ^ 'diShouldDecrementDesiredCapacity'
@@ -737,7 +708,6 @@ disableMetricsCollection :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
                             , MonadReader Env m
-                            , AWSRequest a
                             )
                          => Text -- ^ 'dmcAutoScalingGroupName'
                          -> State DisableMetricsCollection a
@@ -756,7 +726,6 @@ enableMetricsCollection :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
                            , MonadReader Env m
-                           , AWSRequest a
                            )
                         => Text -- ^ 'emcAutoScalingGroupName'
                         -> Text -- ^ 'emcGranularity'
@@ -782,7 +751,6 @@ enterStandby :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
                 , MonadReader Env m
-                , AWSRequest a
                 )
              => Text -- ^ 'esAutoScalingGroupName'
              -> Bool -- ^ 'esShouldDecrementDesiredCapacity'
@@ -798,7 +766,6 @@ executePolicy :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
                  , MonadReader Env m
-                 , AWSRequest a
                  )
               => Text -- ^ 'epPolicyName'
               -> State ExecutePolicy a
@@ -822,7 +789,6 @@ exitStandby :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
                , MonadReader Env m
-               , AWSRequest a
                )
             => Text -- ^ 'es1AutoScalingGroupName'
             -> State ExitStandby a
@@ -855,7 +821,6 @@ putLifecycleHook :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'plhLifecycleHookName'
                  -> Text -- ^ 'plhAutoScalingGroupName'
@@ -876,7 +841,6 @@ putNotificationConfiguration :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
                                 , MonadReader Env m
-                                , AWSRequest a
                                 )
                              => Text -- ^ 'pncAutoScalingGroupName'
                              -> Text -- ^ 'pncTopicARN'
@@ -903,7 +867,6 @@ putScalingPolicy :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'pspAutoScalingGroupName'
                  -> Text -- ^ 'pspPolicyName'
@@ -937,7 +900,6 @@ putScheduledUpdateGroupAction :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadError AWS.Error m
                                  , MonadReader Env m
-                                 , AWSRequest a
                                  )
                               => Text -- ^ 'psugaAutoScalingGroupName'
                               -> Text -- ^ 'psugaScheduledActionName'
@@ -964,7 +926,6 @@ recordLifecycleActionHeartbeat :: ( MonadCatch m
                                   , MonadResource m
                                   , MonadError AWS.Error m
                                   , MonadReader Env m
-                                  , AWSRequest a
                                   )
                                => Text -- ^ 'rlahLifecycleHookName'
                                -> Text -- ^ 'rlahAutoScalingGroupName'
@@ -983,7 +944,6 @@ resumeProcesses :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
                    , MonadReader Env m
-                   , AWSRequest a
                    )
                 => Text -- ^ 'rpAutoScalingGroupName'
                 -> State ResumeProcesses a
@@ -1002,7 +962,6 @@ setDesiredCapacity :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
                       , MonadReader Env m
-                      , AWSRequest a
                       )
                    => Text -- ^ 'sdcAutoScalingGroupName'
                    -> Integer -- ^ 'sdcDesiredCapacity'
@@ -1020,7 +979,6 @@ setInstanceHealth :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
                      , MonadReader Env m
-                     , AWSRequest a
                      )
                   => Text -- ^ 'sihInstanceId'
                   -> Text -- ^ 'sihHealthStatus'
@@ -1043,7 +1001,6 @@ suspendProcesses :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
                     , MonadReader Env m
-                    , AWSRequest a
                     )
                  => Text -- ^ 'sp1AutoScalingGroupName'
                  -> State SuspendProcesses a
@@ -1060,7 +1017,6 @@ terminateInstanceInAutoScalingGroup :: ( MonadCatch m
                                        , MonadResource m
                                        , MonadError AWS.Error m
                                        , MonadReader Env m
-                                       , AWSRequest a
                                        )
                                     => Text -- ^ 'tiiasgInstanceId'
                                     -> Bool -- ^ 'tiiasgShouldDecrementDesiredCapacity'
@@ -1105,7 +1061,6 @@ updateAutoScalingGroup :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
                           , MonadReader Env m
-                          , AWSRequest a
                           )
                        => Text -- ^ 'uasgAutoScalingGroupName'
                        -> State UpdateAutoScalingGroup a

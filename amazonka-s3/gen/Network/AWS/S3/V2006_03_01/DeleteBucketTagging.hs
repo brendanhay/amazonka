@@ -53,16 +53,9 @@ mkDeleteBucketTagging p1 = DeleteBucketTagging
 dbtBucket :: Lens' DeleteBucketTagging BucketName
 dbtBucket = lens _dbtBucket (\s a -> s { _dbtBucket = a })
 
-instance ToPath DeleteBucketTagging where
-    toPath DeleteBucketTagging{..} = mconcat
-        [ "/"
-        , toBS _dbtBucket
-        ]
+instance ToPath DeleteBucketTagging
 
-instance ToQuery DeleteBucketTagging where
-    toQuery DeleteBucketTagging{..} = mconcat
-        [ "tagging"
-        ]
+instance ToQuery DeleteBucketTagging
 
 instance ToHeaders DeleteBucketTagging
 
@@ -82,5 +75,5 @@ instance AWSRequest DeleteBucketTagging where
     type Sv DeleteBucketTagging = S3
     type Rs DeleteBucketTagging = DeleteBucketTaggingResponse
 
-    request = delete
+    request = get
     response _ = nullaryResponse DeleteBucketTaggingResponse

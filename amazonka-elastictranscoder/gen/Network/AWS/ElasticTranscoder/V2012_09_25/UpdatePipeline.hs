@@ -184,11 +184,7 @@ upThumbnailConfig :: Lens' UpdatePipeline (Maybe PipelineOutputConfig)
 upThumbnailConfig =
     lens _upThumbnailConfig (\s a -> s { _upThumbnailConfig = a })
 
-instance ToPath UpdatePipeline where
-    toPath UpdatePipeline{..} = mconcat
-        [ "/2012-09-25/pipelines/"
-        , toBS _upId
-        ]
+instance ToPath UpdatePipeline
 
 instance ToQuery UpdatePipeline
 
@@ -222,5 +218,5 @@ instance AWSRequest UpdatePipeline where
     type Sv UpdatePipeline = ElasticTranscoder
     type Rs UpdatePipeline = UpdatePipelineResponse
 
-    request = put
+    request = get
     response _ = jsonResponse

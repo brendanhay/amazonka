@@ -51,8 +51,7 @@ data ListBuckets = ListBuckets
 mkListBuckets :: ListBuckets
 mkListBuckets = ListBuckets
 
-instance ToPath ListBuckets where
-    toPath = const "/"
+instance ToPath ListBuckets
 
 instance ToQuery ListBuckets
 

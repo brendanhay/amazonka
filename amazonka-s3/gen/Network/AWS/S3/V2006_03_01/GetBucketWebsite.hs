@@ -58,16 +58,9 @@ mkGetBucketWebsite p1 = GetBucketWebsite
 gbwBucket :: Lens' GetBucketWebsite BucketName
 gbwBucket = lens _gbwBucket (\s a -> s { _gbwBucket = a })
 
-instance ToPath GetBucketWebsite where
-    toPath GetBucketWebsite{..} = mconcat
-        [ "/"
-        , toBS _gbwBucket
-        ]
+instance ToPath GetBucketWebsite
 
-instance ToQuery GetBucketWebsite where
-    toQuery GetBucketWebsite{..} = mconcat
-        [ "website"
-        ]
+instance ToQuery GetBucketWebsite
 
 instance ToHeaders GetBucketWebsite
 

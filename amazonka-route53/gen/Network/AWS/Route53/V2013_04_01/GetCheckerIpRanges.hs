@@ -50,8 +50,7 @@ data GetCheckerIpRanges = GetCheckerIpRanges
 mkGetCheckerIpRanges :: GetCheckerIpRanges
 mkGetCheckerIpRanges = GetCheckerIpRanges
 
-instance ToPath GetCheckerIpRanges where
-    toPath = const "/2013-04-01/checkeripranges"
+instance ToPath GetCheckerIpRanges
 
 instance ToQuery GetCheckerIpRanges
 

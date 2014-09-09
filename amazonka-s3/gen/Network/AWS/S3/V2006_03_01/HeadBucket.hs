@@ -54,11 +54,7 @@ mkHeadBucket p1 = HeadBucket
 hbBucket :: Lens' HeadBucket BucketName
 hbBucket = lens _hbBucket (\s a -> s { _hbBucket = a })
 
-instance ToPath HeadBucket where
-    toPath HeadBucket{..} = mconcat
-        [ "/"
-        , toBS _hbBucket
-        ]
+instance ToPath HeadBucket
 
 instance ToQuery HeadBucket
 
@@ -80,5 +76,5 @@ instance AWSRequest HeadBucket where
     type Sv HeadBucket = S3
     type Rs HeadBucket = HeadBucketResponse
 
-    request = head
+    request = get
     response _ = nullaryResponse HeadBucketResponse

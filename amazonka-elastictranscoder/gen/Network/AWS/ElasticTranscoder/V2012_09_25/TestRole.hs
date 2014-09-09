@@ -112,8 +112,7 @@ trOutputBucket = lens _trOutputBucket (\s a -> s { _trOutputBucket = a })
 trTopics :: Lens' TestRole [Text]
 trTopics = lens _trTopics (\s a -> s { _trTopics = a })
 
-instance ToPath TestRole where
-    toPath = const "/2012-09-25/roleTests"
+instance ToPath TestRole
 
 instance ToQuery TestRole
 
@@ -153,5 +152,5 @@ instance AWSRequest TestRole where
     type Sv TestRole = ElasticTranscoder
     type Rs TestRole = TestRoleResponse
 
-    request = post
+    request = get
     response _ = jsonResponse

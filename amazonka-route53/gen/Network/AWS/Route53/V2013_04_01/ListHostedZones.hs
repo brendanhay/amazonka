@@ -86,14 +86,9 @@ lhzMarker = lens _lhzMarker (\s a -> s { _lhzMarker = a })
 lhzMaxItems :: Lens' ListHostedZones (Maybe Text)
 lhzMaxItems = lens _lhzMaxItems (\s a -> s { _lhzMaxItems = a })
 
-instance ToPath ListHostedZones where
-    toPath = const "/2013-04-01/hostedzone"
+instance ToPath ListHostedZones
 
-instance ToQuery ListHostedZones where
-    toQuery ListHostedZones{..} = mconcat
-        [ "marker" =? _lhzMarker
-        , "maxitems" =? _lhzMaxItems
-        ]
+instance ToQuery ListHostedZones
 
 instance ToHeaders ListHostedZones
 

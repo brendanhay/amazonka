@@ -68,11 +68,7 @@ mkDeletePipeline p1 = DeletePipeline
 dpId :: Lens' DeletePipeline Text
 dpId = lens _dpId (\s a -> s { _dpId = a })
 
-instance ToPath DeletePipeline where
-    toPath DeletePipeline{..} = mconcat
-        [ "/2012-09-25/pipelines/"
-        , toBS _dpId
-        ]
+instance ToPath DeletePipeline
 
 instance ToQuery DeletePipeline
 
@@ -95,5 +91,5 @@ instance AWSRequest DeletePipeline where
     type Sv DeletePipeline = ElasticTranscoder
     type Rs DeletePipeline = DeletePipelineResponse
 
-    request = delete
+    request = get
     response _ = nullaryResponse DeletePipelineResponse

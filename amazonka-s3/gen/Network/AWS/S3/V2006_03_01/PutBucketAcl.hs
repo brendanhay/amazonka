@@ -111,16 +111,9 @@ pbaGrantWriteACP :: Lens' PutBucketAcl (Maybe Text)
 pbaGrantWriteACP =
     lens _pbaGrantWriteACP (\s a -> s { _pbaGrantWriteACP = a })
 
-instance ToPath PutBucketAcl where
-    toPath PutBucketAcl{..} = mconcat
-        [ "/"
-        , toBS _pbaBucket
-        ]
+instance ToPath PutBucketAcl
 
-instance ToQuery PutBucketAcl where
-    toQuery PutBucketAcl{..} = mconcat
-        [ "acl"
-        ]
+instance ToQuery PutBucketAcl
 
 instance ToHeaders PutBucketAcl where
     toHeaders PutBucketAcl{..} = concat
@@ -150,5 +143,5 @@ instance AWSRequest PutBucketAcl where
     type Sv PutBucketAcl = S3
     type Rs PutBucketAcl = PutBucketAclResponse
 
-    request = put
+    request = get
     response _ = nullaryResponse PutBucketAclResponse

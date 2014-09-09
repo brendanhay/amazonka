@@ -107,14 +107,9 @@ lpAscending = lens _lpAscending (\s a -> s { _lpAscending = a })
 lpPageToken :: Lens' ListPipelines (Maybe Text)
 lpPageToken = lens _lpPageToken (\s a -> s { _lpPageToken = a })
 
-instance ToPath ListPipelines where
-    toPath = const "/2012-09-25/pipelines"
+instance ToPath ListPipelines
 
-instance ToQuery ListPipelines where
-    toQuery ListPipelines{..} = mconcat
-        [ "Ascending" =? _lpAscending
-        , "PageToken" =? _lpPageToken
-        ]
+instance ToQuery ListPipelines
 
 instance ToHeaders ListPipelines
 

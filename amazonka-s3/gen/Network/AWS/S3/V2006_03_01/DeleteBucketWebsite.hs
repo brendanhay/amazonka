@@ -53,16 +53,9 @@ mkDeleteBucketWebsite p1 = DeleteBucketWebsite
 dbwBucket :: Lens' DeleteBucketWebsite BucketName
 dbwBucket = lens _dbwBucket (\s a -> s { _dbwBucket = a })
 
-instance ToPath DeleteBucketWebsite where
-    toPath DeleteBucketWebsite{..} = mconcat
-        [ "/"
-        , toBS _dbwBucket
-        ]
+instance ToPath DeleteBucketWebsite
 
-instance ToQuery DeleteBucketWebsite where
-    toQuery DeleteBucketWebsite{..} = mconcat
-        [ "website"
-        ]
+instance ToQuery DeleteBucketWebsite
 
 instance ToHeaders DeleteBucketWebsite
 
@@ -82,5 +75,5 @@ instance AWSRequest DeleteBucketWebsite where
     type Sv DeleteBucketWebsite = S3
     type Rs DeleteBucketWebsite = DeleteBucketWebsiteResponse
 
-    request = delete
+    request = get
     response _ = nullaryResponse DeleteBucketWebsiteResponse

@@ -61,8 +61,7 @@ ccfoaiCloudFrontOriginAccessIdentityConfig =
     lens _ccfoaiCloudFrontOriginAccessIdentityConfig
          (\s a -> s { _ccfoaiCloudFrontOriginAccessIdentityConfig = a })
 
-instance ToPath CreateCloudFrontOriginAccessIdentity where
-    toPath = const "/2014-05-31/origin-access-identity/cloudfront"
+instance ToPath CreateCloudFrontOriginAccessIdentity
 
 instance ToQuery CreateCloudFrontOriginAccessIdentity
 
@@ -111,7 +110,7 @@ instance AWSRequest CreateCloudFrontOriginAccessIdentity where
     type Sv CreateCloudFrontOriginAccessIdentity = CloudFront
     type Rs CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentityResponse
 
-    request = post
+    request = get
     response _ = cursorResponse $ \hs xml ->
         pure CreateCloudFrontOriginAccessIdentityResponse
             <*> xml %|? "CloudFrontOriginAccessIdentity"

@@ -68,16 +68,9 @@ pblLifecycleConfiguration =
     lens _pblLifecycleConfiguration
          (\s a -> s { _pblLifecycleConfiguration = a })
 
-instance ToPath PutBucketLifecycle where
-    toPath PutBucketLifecycle{..} = mconcat
-        [ "/"
-        , toBS _pblBucket
-        ]
+instance ToPath PutBucketLifecycle
 
-instance ToQuery PutBucketLifecycle where
-    toQuery PutBucketLifecycle{..} = mconcat
-        [ "lifecycle"
-        ]
+instance ToQuery PutBucketLifecycle
 
 instance ToHeaders PutBucketLifecycle where
     toHeaders PutBucketLifecycle{..} = concat
@@ -101,5 +94,5 @@ instance AWSRequest PutBucketLifecycle where
     type Sv PutBucketLifecycle = S3
     type Rs PutBucketLifecycle = PutBucketLifecycleResponse
 
-    request = put
+    request = get
     response _ = nullaryResponse PutBucketLifecycleResponse

@@ -62,18 +62,9 @@ gotBucket = lens _gotBucket (\s a -> s { _gotBucket = a })
 gotKey :: Lens' GetObjectTorrent ObjectKey
 gotKey = lens _gotKey (\s a -> s { _gotKey = a })
 
-instance ToPath GetObjectTorrent where
-    toPath GetObjectTorrent{..} = mconcat
-        [ "/"
-        , toBS _gotBucket
-        , "/"
-        , toBS _gotKey
-        ]
+instance ToPath GetObjectTorrent
 
-instance ToQuery GetObjectTorrent where
-    toQuery GetObjectTorrent{..} = mconcat
-        [ "torrent"
-        ]
+instance ToQuery GetObjectTorrent
 
 instance ToHeaders GetObjectTorrent
 

@@ -94,16 +94,9 @@ lglStartSubdivisionCode =
 lglMaxItems :: Lens' ListGeoLocations (Maybe Text)
 lglMaxItems = lens _lglMaxItems (\s a -> s { _lglMaxItems = a })
 
-instance ToPath ListGeoLocations where
-    toPath = const "/2013-04-01/geolocations"
+instance ToPath ListGeoLocations
 
-instance ToQuery ListGeoLocations where
-    toQuery ListGeoLocations{..} = mconcat
-        [ "maxitems" =? _lglMaxItems
-        , "startcontinentcode" =? _lglStartContinentCode
-        , "startcountrycode" =? _lglStartCountryCode
-        , "startsubdivisioncode" =? _lglStartSubdivisionCode
-        ]
+instance ToQuery ListGeoLocations
 
 instance ToHeaders ListGeoLocations
 

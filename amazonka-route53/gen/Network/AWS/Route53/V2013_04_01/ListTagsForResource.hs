@@ -67,13 +67,7 @@ ltfrResourceType =
 ltfrResourceId :: Lens' ListTagsForResource Text
 ltfrResourceId = lens _ltfrResourceId (\s a -> s { _ltfrResourceId = a })
 
-instance ToPath ListTagsForResource where
-    toPath ListTagsForResource{..} = mconcat
-        [ "/2013-04-01/tags/"
-        , toBS _ltfrResourceType
-        , "/"
-        , toBS _ltfrResourceId
-        ]
+instance ToPath ListTagsForResource
 
 instance ToQuery ListTagsForResource
 

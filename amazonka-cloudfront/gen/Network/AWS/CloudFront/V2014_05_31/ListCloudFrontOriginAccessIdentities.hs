@@ -68,14 +68,9 @@ lcfoaiMarker = lens _lcfoaiMarker (\s a -> s { _lcfoaiMarker = a })
 lcfoaiMaxItems :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
 lcfoaiMaxItems = lens _lcfoaiMaxItems (\s a -> s { _lcfoaiMaxItems = a })
 
-instance ToPath ListCloudFrontOriginAccessIdentities where
-    toPath = const "/2014-05-31/origin-access-identity/cloudfront"
+instance ToPath ListCloudFrontOriginAccessIdentities
 
-instance ToQuery ListCloudFrontOriginAccessIdentities where
-    toQuery ListCloudFrontOriginAccessIdentities{..} = mconcat
-        [ "Marker" =? _lcfoaiMarker
-        , "MaxItems" =? _lcfoaiMaxItems
-        ]
+instance ToQuery ListCloudFrontOriginAccessIdentities
 
 instance ToHeaders ListCloudFrontOriginAccessIdentities
 

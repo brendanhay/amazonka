@@ -70,11 +70,7 @@ mkCancelJob p1 = CancelJob
 cjId :: Lens' CancelJob Text
 cjId = lens _cjId (\s a -> s { _cjId = a })
 
-instance ToPath CancelJob where
-    toPath CancelJob{..} = mconcat
-        [ "/2012-09-25/jobs/"
-        , toBS _cjId
-        ]
+instance ToPath CancelJob
 
 instance ToQuery CancelJob
 
@@ -98,5 +94,5 @@ instance AWSRequest CancelJob where
     type Sv CancelJob = ElasticTranscoder
     type Rs CancelJob = CancelJobResponse
 
-    request = delete
+    request = get
     response _ = nullaryResponse CancelJobResponse

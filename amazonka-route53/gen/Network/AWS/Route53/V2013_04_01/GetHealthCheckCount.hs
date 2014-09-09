@@ -48,8 +48,7 @@ data GetHealthCheckCount = GetHealthCheckCount
 mkGetHealthCheckCount :: GetHealthCheckCount
 mkGetHealthCheckCount = GetHealthCheckCount
 
-instance ToPath GetHealthCheckCount where
-    toPath = const "/2013-04-01/healthcheckcount"
+instance ToPath GetHealthCheckCount
 
 instance ToQuery GetHealthCheckCount
 

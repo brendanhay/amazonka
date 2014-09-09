@@ -205,19 +205,9 @@ upcCopySourceSSECustomerKeyMD5 =
     lens _upcCopySourceSSECustomerKeyMD5
          (\s a -> s { _upcCopySourceSSECustomerKeyMD5 = a })
 
-instance ToPath UploadPartCopy where
-    toPath UploadPartCopy{..} = mconcat
-        [ "/"
-        , toBS _upcBucket
-        , "/"
-        , toBS _upcKey
-        ]
+instance ToPath UploadPartCopy
 
-instance ToQuery UploadPartCopy where
-    toQuery UploadPartCopy{..} = mconcat
-        [ "partNumber" =? _upcPartNumber
-        , "uploadId" =? _upcUploadId
-        ]
+instance ToQuery UploadPartCopy
 
 instance ToHeaders UploadPartCopy where
     toHeaders UploadPartCopy{..} = concat
@@ -294,7 +284,7 @@ instance AWSRequest UploadPartCopy where
     type Sv UploadPartCopy = S3
     type Rs UploadPartCopy = UploadPartCopyResponse
 
-    request = put
+    request = get
     response _ = cursorResponse $ \hs xml ->
         pure UploadPartCopyResponse
             <*> hs ~:? "x-amz-copy-source-version-id"

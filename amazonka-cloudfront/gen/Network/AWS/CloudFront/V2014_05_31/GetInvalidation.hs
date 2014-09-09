@@ -66,13 +66,7 @@ giDistributionId =
 giId :: Lens' GetInvalidation Text
 giId = lens _giId (\s a -> s { _giId = a })
 
-instance ToPath GetInvalidation where
-    toPath GetInvalidation{..} = mconcat
-        [ "/2014-05-31/distribution/"
-        , toBS _giDistributionId
-        , "/invalidation/"
-        , toBS _giId
-        ]
+instance ToPath GetInvalidation
 
 instance ToQuery GetInvalidation
 

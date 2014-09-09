@@ -55,16 +55,9 @@ mkGetBucketLocation p1 = GetBucketLocation
 gbl1Bucket :: Lens' GetBucketLocation BucketName
 gbl1Bucket = lens _gbl1Bucket (\s a -> s { _gbl1Bucket = a })
 
-instance ToPath GetBucketLocation where
-    toPath GetBucketLocation{..} = mconcat
-        [ "/"
-        , toBS _gbl1Bucket
-        ]
+instance ToPath GetBucketLocation
 
-instance ToQuery GetBucketLocation where
-    toQuery GetBucketLocation{..} = mconcat
-        [ "location"
-        ]
+instance ToQuery GetBucketLocation
 
 instance ToHeaders GetBucketLocation
 

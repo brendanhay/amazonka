@@ -58,12 +58,7 @@ mkGetDistributionConfig p1 = GetDistributionConfig
 gdcId :: Lens' GetDistributionConfig Text
 gdcId = lens _gdcId (\s a -> s { _gdcId = a })
 
-instance ToPath GetDistributionConfig where
-    toPath GetDistributionConfig{..} = mconcat
-        [ "/2014-05-31/distribution/"
-        , toBS _gdcId
-        , "/config"
-        ]
+instance ToPath GetDistributionConfig
 
 instance ToQuery GetDistributionConfig
 

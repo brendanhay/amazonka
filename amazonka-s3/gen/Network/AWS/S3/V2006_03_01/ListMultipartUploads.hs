@@ -119,21 +119,9 @@ lmuUploadIdMarker :: Lens' ListMultipartUploads (Maybe Text)
 lmuUploadIdMarker =
     lens _lmuUploadIdMarker (\s a -> s { _lmuUploadIdMarker = a })
 
-instance ToPath ListMultipartUploads where
-    toPath ListMultipartUploads{..} = mconcat
-        [ "/"
-        , toBS _lmuBucket
-        ]
+instance ToPath ListMultipartUploads
 
-instance ToQuery ListMultipartUploads where
-    toQuery ListMultipartUploads{..} = mconcat
-        [ "delimiter" =? _lmuDelimiter
-        , "encoding-type" =? _lmuEncodingType
-        , "key-marker" =? _lmuKeyMarker
-        , "max-uploads" =? _lmuMaxUploads
-        , "upload-id-marker" =? _lmuUploadIdMarker
-        , "uploads&prefix" =? _lmuPrefix
-        ]
+instance ToQuery ListMultipartUploads
 
 instance ToHeaders ListMultipartUploads
 

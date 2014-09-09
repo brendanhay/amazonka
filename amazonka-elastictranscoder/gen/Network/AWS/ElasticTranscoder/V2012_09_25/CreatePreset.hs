@@ -149,8 +149,7 @@ cp1Audio = lens _cp1Audio (\s a -> s { _cp1Audio = a })
 cp1Thumbnails :: Lens' CreatePreset (Maybe Thumbnails)
 cp1Thumbnails = lens _cp1Thumbnails (\s a -> s { _cp1Thumbnails = a })
 
-instance ToPath CreatePreset where
-    toPath = const "/2012-09-25/presets"
+instance ToPath CreatePreset
 
 instance ToQuery CreatePreset
 
@@ -192,5 +191,5 @@ instance AWSRequest CreatePreset where
     type Sv CreatePreset = ElasticTranscoder
     type Rs CreatePreset = CreatePresetResponse
 
-    request = post
+    request = get
     response _ = jsonResponse

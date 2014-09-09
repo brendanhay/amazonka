@@ -29,7 +29,9 @@ library
 
     exposed-modules:
           Network.AWS.CloudSearch
+        , Network.AWS.CloudSearch.Trans
         , Network.AWS.CloudSearch.V2013_01_01
+        , Network.AWS.CloudSearch.V2013_01_01.Trans
         , Network.AWS.CloudSearch.V2013_01_01.Types
         , Network.AWS.CloudSearch.V2013_01_01.BuildSuggesters
         , Network.AWS.CloudSearch.V2013_01_01.CreateDomain

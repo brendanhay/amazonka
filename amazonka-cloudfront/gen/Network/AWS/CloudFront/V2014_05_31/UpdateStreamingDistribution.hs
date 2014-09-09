@@ -76,12 +76,7 @@ usdId = lens _usdId (\s a -> s { _usdId = a })
 usdIfMatch :: Lens' UpdateStreamingDistribution (Maybe Text)
 usdIfMatch = lens _usdIfMatch (\s a -> s { _usdIfMatch = a })
 
-instance ToPath UpdateStreamingDistribution where
-    toPath UpdateStreamingDistribution{..} = mconcat
-        [ "/2014-05-31/streaming-distribution/"
-        , toBS _usdId
-        , "/config"
-        ]
+instance ToPath UpdateStreamingDistribution
 
 instance ToQuery UpdateStreamingDistribution
 
@@ -124,7 +119,7 @@ instance AWSRequest UpdateStreamingDistribution where
     type Sv UpdateStreamingDistribution = CloudFront
     type Rs UpdateStreamingDistribution = UpdateStreamingDistributionResponse
 
-    request = put
+    request = get
     response _ = cursorResponse $ \hs xml ->
         pure UpdateStreamingDistributionResponse
             <*> xml %|? "StreamingDistribution"

@@ -55,16 +55,9 @@ mkGetBucketLifecycle p1 = GetBucketLifecycle
 gblBucket :: Lens' GetBucketLifecycle BucketName
 gblBucket = lens _gblBucket (\s a -> s { _gblBucket = a })
 
-instance ToPath GetBucketLifecycle where
-    toPath GetBucketLifecycle{..} = mconcat
-        [ "/"
-        , toBS _gblBucket
-        ]
+instance ToPath GetBucketLifecycle
 
-instance ToQuery GetBucketLifecycle where
-    toQuery GetBucketLifecycle{..} = mconcat
-        [ "lifecycle"
-        ]
+instance ToQuery GetBucketLifecycle
 
 instance ToHeaders GetBucketLifecycle
 

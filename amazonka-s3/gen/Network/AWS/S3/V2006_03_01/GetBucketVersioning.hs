@@ -56,16 +56,9 @@ mkGetBucketVersioning p1 = GetBucketVersioning
 gbvBucket :: Lens' GetBucketVersioning BucketName
 gbvBucket = lens _gbvBucket (\s a -> s { _gbvBucket = a })
 
-instance ToPath GetBucketVersioning where
-    toPath GetBucketVersioning{..} = mconcat
-        [ "/"
-        , toBS _gbvBucket
-        ]
+instance ToPath GetBucketVersioning
 
-instance ToQuery GetBucketVersioning where
-    toQuery GetBucketVersioning{..} = mconcat
-        [ "versioning"
-        ]
+instance ToQuery GetBucketVersioning
 
 instance ToHeaders GetBucketVersioning
 

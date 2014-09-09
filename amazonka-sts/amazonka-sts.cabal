@@ -27,7 +27,9 @@ library
 
     exposed-modules:
           Network.AWS.STS
+        , Network.AWS.STS.Trans
         , Network.AWS.STS.V2011_06_15
+        , Network.AWS.STS.V2011_06_15.Trans
         , Network.AWS.STS.V2011_06_15.Types
         , Network.AWS.STS.V2011_06_15.AssumeRole
         , Network.AWS.STS.V2011_06_15.AssumeRoleWithSAML

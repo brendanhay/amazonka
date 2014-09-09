@@ -56,16 +56,9 @@ mkGetBucketAcl p1 = GetBucketAcl
 gbaBucket :: Lens' GetBucketAcl BucketName
 gbaBucket = lens _gbaBucket (\s a -> s { _gbaBucket = a })
 
-instance ToPath GetBucketAcl where
-    toPath GetBucketAcl{..} = mconcat
-        [ "/"
-        , toBS _gbaBucket
-        ]
+instance ToPath GetBucketAcl
 
-instance ToQuery GetBucketAcl where
-    toQuery GetBucketAcl{..} = mconcat
-        [ "acl"
-        ]
+instance ToQuery GetBucketAcl
 
 instance ToHeaders GetBucketAcl
 

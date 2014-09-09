@@ -69,11 +69,7 @@ ltfr1ResourceIds :: Lens' ListTagsForResources (List1 Text)
 ltfr1ResourceIds =
     lens _ltfr1ResourceIds (\s a -> s { _ltfr1ResourceIds = a })
 
-instance ToPath ListTagsForResources where
-    toPath ListTagsForResources{..} = mconcat
-        [ "/2013-04-01/tags/"
-        , toBS _ltfr1ResourceType
-        ]
+instance ToPath ListTagsForResources
 
 instance ToQuery ListTagsForResources
 
@@ -111,5 +107,5 @@ instance AWSRequest ListTagsForResources where
     type Sv ListTagsForResources = Route53
     type Rs ListTagsForResources = ListTagsForResourcesResponse
 
-    request = post
+    request = get
     response _ = xmlResponse

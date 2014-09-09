@@ -53,16 +53,9 @@ mkDeleteBucketCors p1 = DeleteBucketCors
 dbcBucket :: Lens' DeleteBucketCors BucketName
 dbcBucket = lens _dbcBucket (\s a -> s { _dbcBucket = a })
 
-instance ToPath DeleteBucketCors where
-    toPath DeleteBucketCors{..} = mconcat
-        [ "/"
-        , toBS _dbcBucket
-        ]
+instance ToPath DeleteBucketCors
 
-instance ToQuery DeleteBucketCors where
-    toQuery DeleteBucketCors{..} = mconcat
-        [ "cors"
-        ]
+instance ToQuery DeleteBucketCors
 
 instance ToHeaders DeleteBucketCors
 
@@ -82,5 +75,5 @@ instance AWSRequest DeleteBucketCors where
     type Sv DeleteBucketCors = S3
     type Rs DeleteBucketCors = DeleteBucketCorsResponse
 
-    request = delete
+    request = get
     response _ = nullaryResponse DeleteBucketCorsResponse

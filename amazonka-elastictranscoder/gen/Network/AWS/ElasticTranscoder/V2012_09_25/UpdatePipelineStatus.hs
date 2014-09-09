@@ -83,12 +83,7 @@ upsId = lens _upsId (\s a -> s { _upsId = a })
 upsStatus :: Lens' UpdatePipelineStatus Text
 upsStatus = lens _upsStatus (\s a -> s { _upsStatus = a })
 
-instance ToPath UpdatePipelineStatus where
-    toPath UpdatePipelineStatus{..} = mconcat
-        [ "/2012-09-25/pipelines/"
-        , toBS _upsId
-        , "/status"
-        ]
+instance ToPath UpdatePipelineStatus
 
 instance ToQuery UpdatePipelineStatus
 
@@ -122,5 +117,5 @@ instance AWSRequest UpdatePipelineStatus where
     type Sv UpdatePipelineStatus = ElasticTranscoder
     type Rs UpdatePipelineStatus = UpdatePipelineStatusResponse
 
-    request = post
+    request = get
     response _ = jsonResponse

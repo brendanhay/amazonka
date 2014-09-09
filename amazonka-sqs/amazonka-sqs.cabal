@@ -33,7 +33,9 @@ library
 
     exposed-modules:
           Network.AWS.SQS
+        , Network.AWS.SQS.Trans
         , Network.AWS.SQS.V2012_11_05
+        , Network.AWS.SQS.V2012_11_05.Trans
         , Network.AWS.SQS.V2012_11_05.Types
         , Network.AWS.SQS.V2012_11_05.AddPermission
         , Network.AWS.SQS.V2012_11_05.ChangeMessageVisibility

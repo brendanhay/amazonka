@@ -75,12 +75,7 @@ udId = lens _udId (\s a -> s { _udId = a })
 udIfMatch :: Lens' UpdateDistribution (Maybe Text)
 udIfMatch = lens _udIfMatch (\s a -> s { _udIfMatch = a })
 
-instance ToPath UpdateDistribution where
-    toPath UpdateDistribution{..} = mconcat
-        [ "/2014-05-31/distribution/"
-        , toBS _udId
-        , "/config"
-        ]
+instance ToPath UpdateDistribution
 
 instance ToQuery UpdateDistribution
 
@@ -121,7 +116,7 @@ instance AWSRequest UpdateDistribution where
     type Sv UpdateDistribution = CloudFront
     type Rs UpdateDistribution = UpdateDistributionResponse
 
-    request = put
+    request = get
     response _ = cursorResponse $ \hs xml ->
         pure UpdateDistributionResponse
             <*> xml %|? "Distribution"

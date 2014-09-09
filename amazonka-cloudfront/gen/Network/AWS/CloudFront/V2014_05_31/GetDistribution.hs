@@ -58,11 +58,7 @@ mkGetDistribution p1 = GetDistribution
 gdId :: Lens' GetDistribution Text
 gdId = lens _gdId (\s a -> s { _gdId = a })
 
-instance ToPath GetDistribution where
-    toPath GetDistribution{..} = mconcat
-        [ "/2014-05-31/distribution/"
-        , toBS _gdId
-        ]
+instance ToPath GetDistribution
 
 instance ToQuery GetDistribution
 

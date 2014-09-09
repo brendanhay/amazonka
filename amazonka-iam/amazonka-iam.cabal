@@ -29,7 +29,9 @@ library
 
     exposed-modules:
           Network.AWS.IAM
+        , Network.AWS.IAM.Trans
         , Network.AWS.IAM.V2010_05_08
+        , Network.AWS.IAM.V2010_05_08.Trans
         , Network.AWS.IAM.V2010_05_08.Types
         , Network.AWS.IAM.V2010_05_08.AddRoleToInstanceProfile
         , Network.AWS.IAM.V2010_05_08.AddUserToGroup

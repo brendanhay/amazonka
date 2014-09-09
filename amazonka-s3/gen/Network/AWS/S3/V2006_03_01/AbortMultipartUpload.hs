@@ -69,18 +69,9 @@ amuKey = lens _amuKey (\s a -> s { _amuKey = a })
 amuUploadId :: Lens' AbortMultipartUpload Text
 amuUploadId = lens _amuUploadId (\s a -> s { _amuUploadId = a })
 
-instance ToPath AbortMultipartUpload where
-    toPath AbortMultipartUpload{..} = mconcat
-        [ "/"
-        , toBS _amuBucket
-        , "/"
-        , toBS _amuKey
-        ]
+instance ToPath AbortMultipartUpload
 
-instance ToQuery AbortMultipartUpload where
-    toQuery AbortMultipartUpload{..} = mconcat
-        [ "uploadId" =? _amuUploadId
-        ]
+instance ToQuery AbortMultipartUpload
 
 instance ToHeaders AbortMultipartUpload
 
@@ -100,5 +91,5 @@ instance AWSRequest AbortMultipartUpload where
     type Sv AbortMultipartUpload = S3
     type Rs AbortMultipartUpload = AbortMultipartUploadResponse
 
-    request = delete
+    request = get
     response _ = nullaryResponse AbortMultipartUploadResponse

@@ -136,11 +136,7 @@ uhcFailureThreshold :: Lens' UpdateHealthCheck (Maybe Integer)
 uhcFailureThreshold =
     lens _uhcFailureThreshold (\s a -> s { _uhcFailureThreshold = a })
 
-instance ToPath UpdateHealthCheck where
-    toPath UpdateHealthCheck{..} = mconcat
-        [ "/2013-04-01/healthcheck/"
-        , toBS _uhcHealthCheckId
-        ]
+instance ToPath UpdateHealthCheck
 
 instance ToQuery UpdateHealthCheck
 
@@ -176,5 +172,5 @@ instance AWSRequest UpdateHealthCheck where
     type Sv UpdateHealthCheck = Route53
     type Rs UpdateHealthCheck = UpdateHealthCheckResponse
 
-    request = post
+    request = get
     response _ = xmlResponse

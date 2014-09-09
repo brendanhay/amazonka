@@ -39,7 +39,9 @@ library
 
     exposed-modules:
           Network.AWS.SimpleDB
+        , Network.AWS.SimpleDB.Trans
         , Network.AWS.SimpleDB.V2009_04_15
+        , Network.AWS.SimpleDB.V2009_04_15.Trans
         , Network.AWS.SimpleDB.V2009_04_15.Types
         , Network.AWS.SimpleDB.V2009_04_15.BatchDeleteAttributes
         , Network.AWS.SimpleDB.V2009_04_15.BatchPutAttributes

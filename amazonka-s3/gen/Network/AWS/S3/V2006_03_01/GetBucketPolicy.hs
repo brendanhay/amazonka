@@ -55,16 +55,9 @@ mkGetBucketPolicy p1 = GetBucketPolicy
 gbpBucket :: Lens' GetBucketPolicy BucketName
 gbpBucket = lens _gbpBucket (\s a -> s { _gbpBucket = a })
 
-instance ToPath GetBucketPolicy where
-    toPath GetBucketPolicy{..} = mconcat
-        [ "/"
-        , toBS _gbpBucket
-        ]
+instance ToPath GetBucketPolicy
 
-instance ToQuery GetBucketPolicy where
-    toQuery GetBucketPolicy{..} = mconcat
-        [ "policy"
-        ]
+instance ToQuery GetBucketPolicy
 
 instance ToHeaders GetBucketPolicy
 

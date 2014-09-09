@@ -53,16 +53,9 @@ mkDeleteBucketPolicy p1 = DeleteBucketPolicy
 dbpBucket :: Lens' DeleteBucketPolicy BucketName
 dbpBucket = lens _dbpBucket (\s a -> s { _dbpBucket = a })
 
-instance ToPath DeleteBucketPolicy where
-    toPath DeleteBucketPolicy{..} = mconcat
-        [ "/"
-        , toBS _dbpBucket
-        ]
+instance ToPath DeleteBucketPolicy
 
-instance ToQuery DeleteBucketPolicy where
-    toQuery DeleteBucketPolicy{..} = mconcat
-        [ "policy"
-        ]
+instance ToQuery DeleteBucketPolicy
 
 instance ToHeaders DeleteBucketPolicy
 
@@ -82,5 +75,5 @@ instance AWSRequest DeleteBucketPolicy where
     type Sv DeleteBucketPolicy = S3
     type Rs DeleteBucketPolicy = DeleteBucketPolicyResponse
 
-    request = delete
+    request = get
     response _ = nullaryResponse DeleteBucketPolicyResponse

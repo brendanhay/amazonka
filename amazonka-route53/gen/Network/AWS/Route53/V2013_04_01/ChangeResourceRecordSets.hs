@@ -86,12 +86,7 @@ crrsHostedZoneId =
 crrsChangeBatch :: Lens' ChangeResourceRecordSets ChangeBatch
 crrsChangeBatch = lens _crrsChangeBatch (\s a -> s { _crrsChangeBatch = a })
 
-instance ToPath ChangeResourceRecordSets where
-    toPath ChangeResourceRecordSets{..} = mconcat
-        [ "/2013-04-01/hostedzone/"
-        , toBS _crrsHostedZoneId
-        , "/rrset/"
-        ]
+instance ToPath ChangeResourceRecordSets
 
 instance ToQuery ChangeResourceRecordSets
 
@@ -129,5 +124,5 @@ instance AWSRequest ChangeResourceRecordSets where
     type Sv ChangeResourceRecordSets = Route53
     type Rs ChangeResourceRecordSets = ChangeResourceRecordSetsResponse
 
-    request = post
+    request = get
     response _ = xmlResponse

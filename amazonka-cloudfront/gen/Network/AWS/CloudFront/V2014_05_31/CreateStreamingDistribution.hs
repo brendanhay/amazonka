@@ -61,8 +61,7 @@ csdStreamingDistributionConfig =
     lens _csdStreamingDistributionConfig
          (\s a -> s { _csdStreamingDistributionConfig = a })
 
-instance ToPath CreateStreamingDistribution where
-    toPath = const "/2014-05-31/streaming-distribution"
+instance ToPath CreateStreamingDistribution
 
 instance ToQuery CreateStreamingDistribution
 
@@ -111,7 +110,7 @@ instance AWSRequest CreateStreamingDistribution where
     type Sv CreateStreamingDistribution = CloudFront
     type Rs CreateStreamingDistribution = CreateStreamingDistributionResponse
 
-    request = post
+    request = get
     response _ = cursorResponse $ \hs xml ->
         pure CreateStreamingDistributionResponse
             <*> xml %|? "StreamingDistribution"

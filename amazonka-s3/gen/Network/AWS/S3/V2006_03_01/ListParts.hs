@@ -96,20 +96,9 @@ lpPartNumberMarker =
 lpUploadId :: Lens' ListParts Text
 lpUploadId = lens _lpUploadId (\s a -> s { _lpUploadId = a })
 
-instance ToPath ListParts where
-    toPath ListParts{..} = mconcat
-        [ "/"
-        , toBS _lpBucket
-        , "/"
-        , toBS _lpKey
-        ]
+instance ToPath ListParts
 
-instance ToQuery ListParts where
-    toQuery ListParts{..} = mconcat
-        [ "max-parts" =? _lpMaxParts
-        , "part-number-marker" =? _lpPartNumberMarker
-        , "uploadId" =? _lpUploadId
-        ]
+instance ToQuery ListParts
 
 instance ToHeaders ListParts
 

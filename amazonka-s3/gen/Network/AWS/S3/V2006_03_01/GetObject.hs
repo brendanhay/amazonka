@@ -214,24 +214,9 @@ goSSECustomerKeyMD5 :: Lens' GetObject (Maybe Text)
 goSSECustomerKeyMD5 =
     lens _goSSECustomerKeyMD5 (\s a -> s { _goSSECustomerKeyMD5 = a })
 
-instance ToPath GetObject where
-    toPath GetObject{..} = mconcat
-        [ "/"
-        , toBS _goBucket
-        , "/"
-        , toBS _goKey
-        ]
+instance ToPath GetObject
 
-instance ToQuery GetObject where
-    toQuery GetObject{..} = mconcat
-        [ "response-cache-control" =? _goResponseCacheControl
-        , "response-content-disposition" =? _goResponseContentDisposition
-        , "response-content-encoding" =? _goResponseContentEncoding
-        , "response-content-language" =? _goResponseContentLanguage
-        , "response-content-type" =? _goResponseContentType
-        , "response-expires" =? _goResponseExpires
-        , "versionId" =? _goVersionId
-        ]
+instance ToQuery GetObject
 
 instance ToHeaders GetObject where
     toHeaders GetObject{..} = concat

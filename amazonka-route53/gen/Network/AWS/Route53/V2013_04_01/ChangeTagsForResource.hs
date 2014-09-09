@@ -81,13 +81,7 @@ ctfrRemoveTagKeys :: Lens' ChangeTagsForResource (Maybe (List1 Text))
 ctfrRemoveTagKeys =
     lens _ctfrRemoveTagKeys (\s a -> s { _ctfrRemoveTagKeys = a })
 
-instance ToPath ChangeTagsForResource where
-    toPath ChangeTagsForResource{..} = mconcat
-        [ "/2013-04-01/tags/"
-        , toBS _ctfrResourceType
-        , "/"
-        , toBS _ctfrResourceId
-        ]
+instance ToPath ChangeTagsForResource
 
 instance ToQuery ChangeTagsForResource
 
@@ -112,5 +106,5 @@ instance AWSRequest ChangeTagsForResource where
     type Sv ChangeTagsForResource = Route53
     type Rs ChangeTagsForResource = ChangeTagsForResourceResponse
 
-    request = post
+    request = get
     response _ = nullaryResponse ChangeTagsForResourceResponse

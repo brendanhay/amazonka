@@ -104,8 +104,7 @@ chzHostedZoneConfig :: Lens' CreateHostedZone (Maybe HostedZoneConfig)
 chzHostedZoneConfig =
     lens _chzHostedZoneConfig (\s a -> s { _chzHostedZoneConfig = a })
 
-instance ToPath CreateHostedZone where
-    toPath = const "/2013-04-01/hostedzone"
+instance ToPath CreateHostedZone
 
 instance ToQuery CreateHostedZone
 
@@ -162,7 +161,7 @@ instance AWSRequest CreateHostedZone where
     type Sv CreateHostedZone = Route53
     type Rs CreateHostedZone = CreateHostedZoneResponse
 
-    request = post
+    request = get
     response _ = cursorResponse $ \hs xml ->
         pure CreateHostedZoneResponse
             <*> xml %| "HostedZone"

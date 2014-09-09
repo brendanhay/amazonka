@@ -60,8 +60,7 @@ cdDistributionConfig :: Lens' CreateDistribution DistributionConfig
 cdDistributionConfig =
     lens _cdDistributionConfig (\s a -> s { _cdDistributionConfig = a })
 
-instance ToPath CreateDistribution where
-    toPath = const "/2014-05-31/distribution"
+instance ToPath CreateDistribution
 
 instance ToQuery CreateDistribution
 
@@ -107,7 +106,7 @@ instance AWSRequest CreateDistribution where
     type Sv CreateDistribution = CloudFront
     type Rs CreateDistribution = CreateDistributionResponse
 
-    request = post
+    request = get
     response _ = cursorResponse $ \hs xml ->
         pure CreateDistributionResponse
             <*> xml %|? "Distribution"

@@ -304,13 +304,7 @@ coCopySourceSSECustomerKeyMD5 =
     lens _coCopySourceSSECustomerKeyMD5
          (\s a -> s { _coCopySourceSSECustomerKeyMD5 = a })
 
-instance ToPath CopyObject where
-    toPath CopyObject{..} = mconcat
-        [ "/"
-        , toBS _coBucket
-        , "/"
-        , toBS _coKey
-        ]
+instance ToPath CopyObject
 
 instance ToQuery CopyObject
 
@@ -407,7 +401,7 @@ instance AWSRequest CopyObject where
     type Sv CopyObject = S3
     type Rs CopyObject = CopyObjectResponse
 
-    request = put
+    request = get
     response _ = cursorResponse $ \hs xml ->
         pure CopyObjectResponse
             <*> xml %|? "CopyObjectResult"

@@ -110,20 +110,9 @@ loMaxKeys = lens _loMaxKeys (\s a -> s { _loMaxKeys = a })
 loPrefix :: Lens' ListObjects (Maybe Text)
 loPrefix = lens _loPrefix (\s a -> s { _loPrefix = a })
 
-instance ToPath ListObjects where
-    toPath ListObjects{..} = mconcat
-        [ "/"
-        , toBS _loBucket
-        ]
+instance ToPath ListObjects
 
-instance ToQuery ListObjects where
-    toQuery ListObjects{..} = mconcat
-        [ "delimiter" =? _loDelimiter
-        , "encoding-type" =? _loEncodingType
-        , "marker" =? _loMarker
-        , "max-keys" =? _loMaxKeys
-        , "prefix" =? _loPrefix
-        ]
+instance ToQuery ListObjects
 
 instance ToHeaders ListObjects
 

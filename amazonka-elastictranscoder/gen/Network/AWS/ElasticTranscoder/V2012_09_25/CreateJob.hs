@@ -160,8 +160,7 @@ cj1OutputKeyPrefix =
 cj1Playlists :: Lens' CreateJob [CreateJobPlaylist]
 cj1Playlists = lens _cj1Playlists (\s a -> s { _cj1Playlists = a })
 
-instance ToPath CreateJob where
-    toPath = const "/2012-09-25/jobs"
+instance ToPath CreateJob
 
 instance ToQuery CreateJob
 
@@ -194,5 +193,5 @@ instance AWSRequest CreateJob where
     type Sv CreateJob = ElasticTranscoder
     type Rs CreateJob = CreateJobResponse
 
-    request = post
+    request = get
     response _ = jsonResponse

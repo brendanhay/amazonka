@@ -137,20 +137,9 @@ lrrsStartRecordIdentifier =
 lrrsMaxItems :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsMaxItems = lens _lrrsMaxItems (\s a -> s { _lrrsMaxItems = a })
 
-instance ToPath ListResourceRecordSets where
-    toPath ListResourceRecordSets{..} = mconcat
-        [ "/2013-04-01/hostedzone/"
-        , toBS _lrrsHostedZoneId
-        , "/rrset"
-        ]
+instance ToPath ListResourceRecordSets
 
-instance ToQuery ListResourceRecordSets where
-    toQuery ListResourceRecordSets{..} = mconcat
-        [ "identifier" =? _lrrsStartRecordIdentifier
-        , "maxitems" =? _lrrsMaxItems
-        , "name" =? _lrrsStartRecordName
-        , "type" =? _lrrsStartRecordType
-        ]
+instance ToQuery ListResourceRecordSets
 
 instance ToHeaders ListResourceRecordSets
 

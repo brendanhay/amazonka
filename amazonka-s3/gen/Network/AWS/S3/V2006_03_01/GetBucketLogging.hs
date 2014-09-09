@@ -56,16 +56,9 @@ mkGetBucketLogging p1 = GetBucketLogging
 gbl2Bucket :: Lens' GetBucketLogging BucketName
 gbl2Bucket = lens _gbl2Bucket (\s a -> s { _gbl2Bucket = a })
 
-instance ToPath GetBucketLogging where
-    toPath GetBucketLogging{..} = mconcat
-        [ "/"
-        , toBS _gbl2Bucket
-        ]
+instance ToPath GetBucketLogging
 
-instance ToQuery GetBucketLogging where
-    toQuery GetBucketLogging{..} = mconcat
-        [ "logging"
-        ]
+instance ToQuery GetBucketLogging
 
 instance ToHeaders GetBucketLogging
 

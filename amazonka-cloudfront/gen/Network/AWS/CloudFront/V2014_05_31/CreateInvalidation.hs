@@ -68,12 +68,7 @@ ciInvalidationBatch :: Lens' CreateInvalidation InvalidationBatch
 ciInvalidationBatch =
     lens _ciInvalidationBatch (\s a -> s { _ciInvalidationBatch = a })
 
-instance ToPath CreateInvalidation where
-    toPath CreateInvalidation{..} = mconcat
-        [ "/2014-05-31/distribution/"
-        , toBS _ciDistributionId
-        , "/invalidation"
-        ]
+instance ToPath CreateInvalidation
 
 instance ToQuery CreateInvalidation
 
@@ -112,7 +107,7 @@ instance AWSRequest CreateInvalidation where
     type Sv CreateInvalidation = CloudFront
     type Rs CreateInvalidation = CreateInvalidationResponse
 
-    request = post
+    request = get
     response _ = cursorResponse $ \hs xml ->
         pure CreateInvalidationResponse
             <*> hs ~:? "Location"

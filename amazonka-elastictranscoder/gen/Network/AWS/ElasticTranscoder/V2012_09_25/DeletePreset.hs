@@ -67,11 +67,7 @@ mkDeletePreset p1 = DeletePreset
 dp1Id :: Lens' DeletePreset Text
 dp1Id = lens _dp1Id (\s a -> s { _dp1Id = a })
 
-instance ToPath DeletePreset where
-    toPath DeletePreset{..} = mconcat
-        [ "/2012-09-25/presets/"
-        , toBS _dp1Id
-        ]
+instance ToPath DeletePreset
 
 instance ToQuery DeletePreset
 
@@ -94,5 +90,5 @@ instance AWSRequest DeletePreset where
     type Sv DeletePreset = ElasticTranscoder
     type Rs DeletePreset = DeletePresetResponse
 
-    request = delete
+    request = get
     response _ = nullaryResponse DeletePresetResponse

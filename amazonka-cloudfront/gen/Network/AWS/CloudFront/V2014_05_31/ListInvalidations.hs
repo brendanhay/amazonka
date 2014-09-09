@@ -78,18 +78,9 @@ liMarker = lens _liMarker (\s a -> s { _liMarker = a })
 liMaxItems :: Lens' ListInvalidations (Maybe Text)
 liMaxItems = lens _liMaxItems (\s a -> s { _liMaxItems = a })
 
-instance ToPath ListInvalidations where
-    toPath ListInvalidations{..} = mconcat
-        [ "/2014-05-31/distribution/"
-        , toBS _liDistributionId
-        , "/invalidation"
-        ]
+instance ToPath ListInvalidations
 
-instance ToQuery ListInvalidations where
-    toQuery ListInvalidations{..} = mconcat
-        [ "Marker" =? _liMarker
-        , "MaxItems" =? _liMaxItems
-        ]
+instance ToQuery ListInvalidations
 
 instance ToHeaders ListInvalidations
 

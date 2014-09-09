@@ -62,11 +62,7 @@ mkGetHostedZone p1 = GetHostedZone
 ghzId :: Lens' GetHostedZone Text
 ghzId = lens _ghzId (\s a -> s { _ghzId = a })
 
-instance ToPath GetHostedZone where
-    toPath GetHostedZone{..} = mconcat
-        [ "/2013-04-01/hostedzone/"
-        , toBS _ghzId
-        ]
+instance ToPath GetHostedZone
 
 instance ToQuery GetHostedZone
 

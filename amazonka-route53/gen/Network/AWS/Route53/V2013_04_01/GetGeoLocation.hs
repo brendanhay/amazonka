@@ -81,15 +81,9 @@ gglSubdivisionCode :: Lens' GetGeoLocation (Maybe Text)
 gglSubdivisionCode =
     lens _gglSubdivisionCode (\s a -> s { _gglSubdivisionCode = a })
 
-instance ToPath GetGeoLocation where
-    toPath = const "/2013-04-01/geolocation"
+instance ToPath GetGeoLocation
 
-instance ToQuery GetGeoLocation where
-    toQuery GetGeoLocation{..} = mconcat
-        [ "continentcode" =? _gglContinentCode
-        , "countrycode" =? _gglCountryCode
-        , "subdivisioncode" =? _gglSubdivisionCode
-        ]
+instance ToQuery GetGeoLocation
 
 instance ToHeaders GetGeoLocation
 

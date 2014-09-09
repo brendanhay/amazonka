@@ -100,12 +100,7 @@ upnNotifications :: Lens' UpdatePipelineNotifications Notifications
 upnNotifications =
     lens _upnNotifications (\s a -> s { _upnNotifications = a })
 
-instance ToPath UpdatePipelineNotifications where
-    toPath UpdatePipelineNotifications{..} = mconcat
-        [ "/2012-09-25/pipelines/"
-        , toBS _upnId
-        , "/notifications"
-        ]
+instance ToPath UpdatePipelineNotifications
 
 instance ToQuery UpdatePipelineNotifications
 
@@ -138,5 +133,5 @@ instance AWSRequest UpdatePipelineNotifications where
     type Sv UpdatePipelineNotifications = ElasticTranscoder
     type Rs UpdatePipelineNotifications = UpdatePipelineNotificationsResponse
 
-    request = post
+    request = get
     response _ = jsonResponse

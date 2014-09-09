@@ -235,13 +235,7 @@ poSSECustomerKeyMD5 :: Lens' PutObject (Maybe Text)
 poSSECustomerKeyMD5 =
     lens _poSSECustomerKeyMD5 (\s a -> s { _poSSECustomerKeyMD5 = a })
 
-instance ToPath PutObject where
-    toPath PutObject{..} = mconcat
-        [ "/"
-        , toBS _poBucket
-        , "/"
-        , toBS _poKey
-        ]
+instance ToPath PutObject
 
 instance ToQuery PutObject
 
@@ -334,7 +328,7 @@ instance AWSRequest PutObject where
     type Sv PutObject = S3
     type Rs PutObject = PutObjectResponse
 
-    request = put
+    request = get
     response _ = headerResponse $ \hs ->
         pure PutObjectResponse
             <*> hs ~:? "x-amz-expiration"

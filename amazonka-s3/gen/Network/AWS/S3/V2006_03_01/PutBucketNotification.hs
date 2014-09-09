@@ -68,16 +68,9 @@ pbnNotificationConfiguration =
     lens _pbnNotificationConfiguration
          (\s a -> s { _pbnNotificationConfiguration = a })
 
-instance ToPath PutBucketNotification where
-    toPath PutBucketNotification{..} = mconcat
-        [ "/"
-        , toBS _pbnBucket
-        ]
+instance ToPath PutBucketNotification
 
-instance ToQuery PutBucketNotification where
-    toQuery PutBucketNotification{..} = mconcat
-        [ "notification"
-        ]
+instance ToQuery PutBucketNotification
 
 instance ToHeaders PutBucketNotification where
     toHeaders PutBucketNotification{..} = concat
@@ -101,5 +94,5 @@ instance AWSRequest PutBucketNotification where
     type Sv PutBucketNotification = S3
     type Rs PutBucketNotification = PutBucketNotificationResponse
 
-    request = put
+    request = get
     response _ = nullaryResponse PutBucketNotificationResponse

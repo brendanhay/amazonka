@@ -77,18 +77,9 @@ roRestoreRequest :: Lens' RestoreObject (Maybe RestoreRequest)
 roRestoreRequest =
     lens _roRestoreRequest (\s a -> s { _roRestoreRequest = a })
 
-instance ToPath RestoreObject where
-    toPath RestoreObject{..} = mconcat
-        [ "/"
-        , toBS _roBucket
-        , "/"
-        , toBS _roKey
-        ]
+instance ToPath RestoreObject
 
-instance ToQuery RestoreObject where
-    toQuery RestoreObject{..} = mconcat
-        [ "restore&versionId" =? _roVersionId
-        ]
+instance ToQuery RestoreObject
 
 instance ToHeaders RestoreObject
 
@@ -109,5 +100,5 @@ instance AWSRequest RestoreObject where
     type Sv RestoreObject = S3
     type Rs RestoreObject = RestoreObjectResponse
 
-    request = post
+    request = get
     response _ = nullaryResponse RestoreObjectResponse

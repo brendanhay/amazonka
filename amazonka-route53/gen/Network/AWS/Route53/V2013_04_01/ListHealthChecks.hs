@@ -85,14 +85,9 @@ lhcMarker = lens _lhcMarker (\s a -> s { _lhcMarker = a })
 lhcMaxItems :: Lens' ListHealthChecks (Maybe Text)
 lhcMaxItems = lens _lhcMaxItems (\s a -> s { _lhcMaxItems = a })
 
-instance ToPath ListHealthChecks where
-    toPath = const "/2013-04-01/healthcheck"
+instance ToPath ListHealthChecks
 
-instance ToQuery ListHealthChecks where
-    toQuery ListHealthChecks{..} = mconcat
-        [ "marker" =? _lhcMarker
-        , "maxitems" =? _lhcMaxItems
-        ]
+instance ToQuery ListHealthChecks
 
 instance ToHeaders ListHealthChecks
 

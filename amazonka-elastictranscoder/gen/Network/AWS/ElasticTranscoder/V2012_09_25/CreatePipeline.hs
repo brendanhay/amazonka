@@ -245,8 +245,7 @@ cpThumbnailConfig :: Lens' CreatePipeline (Maybe PipelineOutputConfig)
 cpThumbnailConfig =
     lens _cpThumbnailConfig (\s a -> s { _cpThumbnailConfig = a })
 
-instance ToPath CreatePipeline where
-    toPath = const "/2012-09-25/pipelines"
+instance ToPath CreatePipeline
 
 instance ToQuery CreatePipeline
 
@@ -280,5 +279,5 @@ instance AWSRequest CreatePipeline where
     type Sv CreatePipeline = ElasticTranscoder
     type Rs CreatePipeline = CreatePipelineResponse
 
-    request = post
+    request = get
     response _ = jsonResponse

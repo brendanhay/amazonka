@@ -55,16 +55,9 @@ mkGetBucketTagging p1 = GetBucketTagging
 gbtBucket :: Lens' GetBucketTagging BucketName
 gbtBucket = lens _gbtBucket (\s a -> s { _gbtBucket = a })
 
-instance ToPath GetBucketTagging where
-    toPath GetBucketTagging{..} = mconcat
-        [ "/"
-        , toBS _gbtBucket
-        ]
+instance ToPath GetBucketTagging
 
-instance ToQuery GetBucketTagging where
-    toQuery GetBucketTagging{..} = mconcat
-        [ "tagging"
-        ]
+instance ToQuery GetBucketTagging
 
 instance ToHeaders GetBucketTagging
 

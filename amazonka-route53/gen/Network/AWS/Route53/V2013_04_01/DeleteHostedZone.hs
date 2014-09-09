@@ -67,11 +67,7 @@ mkDeleteHostedZone p1 = DeleteHostedZone
 dhzId :: Lens' DeleteHostedZone Text
 dhzId = lens _dhzId (\s a -> s { _dhzId = a })
 
-instance ToPath DeleteHostedZone where
-    toPath DeleteHostedZone{..} = mconcat
-        [ "/2013-04-01/hostedzone/"
-        , toBS _dhzId
-        ]
+instance ToPath DeleteHostedZone
 
 instance ToQuery DeleteHostedZone
 
@@ -108,5 +104,5 @@ instance AWSRequest DeleteHostedZone where
     type Sv DeleteHostedZone = Route53
     type Rs DeleteHostedZone = DeleteHostedZoneResponse
 
-    request = delete
+    request = get
     response _ = xmlResponse

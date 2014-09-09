@@ -70,16 +70,9 @@ pbl1BucketLoggingStatus =
 pbl1ContentMD5 :: Lens' PutBucketLogging (Maybe Text)
 pbl1ContentMD5 = lens _pbl1ContentMD5 (\s a -> s { _pbl1ContentMD5 = a })
 
-instance ToPath PutBucketLogging where
-    toPath PutBucketLogging{..} = mconcat
-        [ "/"
-        , toBS _pbl1Bucket
-        ]
+instance ToPath PutBucketLogging
 
-instance ToQuery PutBucketLogging where
-    toQuery PutBucketLogging{..} = mconcat
-        [ "logging"
-        ]
+instance ToQuery PutBucketLogging
 
 instance ToHeaders PutBucketLogging where
     toHeaders PutBucketLogging{..} = concat
@@ -103,5 +96,5 @@ instance AWSRequest PutBucketLogging where
     type Sv PutBucketLogging = S3
     type Rs PutBucketLogging = PutBucketLoggingResponse
 
-    request = put
+    request = get
     response _ = nullaryResponse PutBucketLoggingResponse

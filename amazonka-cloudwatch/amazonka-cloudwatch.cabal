@@ -35,7 +35,9 @@ library
 
     exposed-modules:
           Network.AWS.CloudWatch
+        , Network.AWS.CloudWatch.Trans
         , Network.AWS.CloudWatch.V2010_08_01
+        , Network.AWS.CloudWatch.V2010_08_01.Trans
         , Network.AWS.CloudWatch.V2010_08_01.Types
         , Network.AWS.CloudWatch.V2010_08_01.DeleteAlarms
         , Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmHistory

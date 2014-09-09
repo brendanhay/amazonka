@@ -63,11 +63,7 @@ dsdId = lens _dsdId (\s a -> s { _dsdId = a })
 dsdIfMatch :: Lens' DeleteStreamingDistribution (Maybe Text)
 dsdIfMatch = lens _dsdIfMatch (\s a -> s { _dsdIfMatch = a })
 
-instance ToPath DeleteStreamingDistribution where
-    toPath DeleteStreamingDistribution{..} = mconcat
-        [ "/2014-05-31/streaming-distribution/"
-        , toBS _dsdId
-        ]
+instance ToPath DeleteStreamingDistribution
 
 instance ToQuery DeleteStreamingDistribution
 
@@ -94,5 +90,5 @@ instance AWSRequest DeleteStreamingDistribution where
     type Sv DeleteStreamingDistribution = CloudFront
     type Rs DeleteStreamingDistribution = DeleteStreamingDistributionResponse
 
-    request = delete
+    request = get
     response _ = nullaryResponse DeleteStreamingDistributionResponse

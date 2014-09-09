@@ -88,14 +88,9 @@ lp1Ascending = lens _lp1Ascending (\s a -> s { _lp1Ascending = a })
 lp1PageToken :: Lens' ListPresets (Maybe Text)
 lp1PageToken = lens _lp1PageToken (\s a -> s { _lp1PageToken = a })
 
-instance ToPath ListPresets where
-    toPath = const "/2012-09-25/presets"
+instance ToPath ListPresets
 
-instance ToQuery ListPresets where
-    toQuery ListPresets{..} = mconcat
-        [ "Ascending" =? _lp1Ascending
-        , "PageToken" =? _lp1PageToken
-        ]
+instance ToQuery ListPresets
 
 instance ToHeaders ListPresets
 

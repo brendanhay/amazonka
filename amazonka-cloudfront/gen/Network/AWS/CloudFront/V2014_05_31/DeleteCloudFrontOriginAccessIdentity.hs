@@ -63,11 +63,7 @@ dcfoaiId = lens _dcfoaiId (\s a -> s { _dcfoaiId = a })
 dcfoaiIfMatch :: Lens' DeleteCloudFrontOriginAccessIdentity (Maybe Text)
 dcfoaiIfMatch = lens _dcfoaiIfMatch (\s a -> s { _dcfoaiIfMatch = a })
 
-instance ToPath DeleteCloudFrontOriginAccessIdentity where
-    toPath DeleteCloudFrontOriginAccessIdentity{..} = mconcat
-        [ "/2014-05-31/origin-access-identity/cloudfront/"
-        , toBS _dcfoaiId
-        ]
+instance ToPath DeleteCloudFrontOriginAccessIdentity
 
 instance ToQuery DeleteCloudFrontOriginAccessIdentity
 
@@ -94,5 +90,5 @@ instance AWSRequest DeleteCloudFrontOriginAccessIdentity where
     type Sv DeleteCloudFrontOriginAccessIdentity = CloudFront
     type Rs DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentityResponse
 
-    request = delete
+    request = get
     response _ = nullaryResponse DeleteCloudFrontOriginAccessIdentityResponse

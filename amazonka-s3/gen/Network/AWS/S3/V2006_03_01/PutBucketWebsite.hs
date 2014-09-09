@@ -68,16 +68,9 @@ pbwWebsiteConfiguration =
     lens _pbwWebsiteConfiguration
          (\s a -> s { _pbwWebsiteConfiguration = a })
 
-instance ToPath PutBucketWebsite where
-    toPath PutBucketWebsite{..} = mconcat
-        [ "/"
-        , toBS _pbwBucket
-        ]
+instance ToPath PutBucketWebsite
 
-instance ToQuery PutBucketWebsite where
-    toQuery PutBucketWebsite{..} = mconcat
-        [ "website"
-        ]
+instance ToQuery PutBucketWebsite
 
 instance ToHeaders PutBucketWebsite where
     toHeaders PutBucketWebsite{..} = concat
@@ -101,5 +94,5 @@ instance AWSRequest PutBucketWebsite where
     type Sv PutBucketWebsite = S3
     type Rs PutBucketWebsite = PutBucketWebsiteResponse
 
-    request = put
+    request = get
     response _ = nullaryResponse PutBucketWebsiteResponse

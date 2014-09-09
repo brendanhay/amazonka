@@ -70,18 +70,9 @@ goaKey = lens _goaKey (\s a -> s { _goaKey = a })
 goaVersionId :: Lens' GetObjectAcl (Maybe ObjectVersionId)
 goaVersionId = lens _goaVersionId (\s a -> s { _goaVersionId = a })
 
-instance ToPath GetObjectAcl where
-    toPath GetObjectAcl{..} = mconcat
-        [ "/"
-        , toBS _goaBucket
-        , "/"
-        , toBS _goaKey
-        ]
+instance ToPath GetObjectAcl
 
-instance ToQuery GetObjectAcl where
-    toQuery GetObjectAcl{..} = mconcat
-        [ "acl&versionId" =? _goaVersionId
-        ]
+instance ToQuery GetObjectAcl
 
 instance ToHeaders GetObjectAcl
 

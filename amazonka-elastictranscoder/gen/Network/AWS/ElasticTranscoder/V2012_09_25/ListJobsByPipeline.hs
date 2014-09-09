@@ -117,17 +117,9 @@ ljbpAscending = lens _ljbpAscending (\s a -> s { _ljbpAscending = a })
 ljbpPageToken :: Lens' ListJobsByPipeline (Maybe Text)
 ljbpPageToken = lens _ljbpPageToken (\s a -> s { _ljbpPageToken = a })
 
-instance ToPath ListJobsByPipeline where
-    toPath ListJobsByPipeline{..} = mconcat
-        [ "/2012-09-25/jobsByPipeline/"
-        , toBS _ljbpPipelineId
-        ]
+instance ToPath ListJobsByPipeline
 
-instance ToQuery ListJobsByPipeline where
-    toQuery ListJobsByPipeline{..} = mconcat
-        [ "Ascending" =? _ljbpAscending
-        , "PageToken" =? _ljbpPageToken
-        ]
+instance ToQuery ListJobsByPipeline
 
 instance ToHeaders ListJobsByPipeline
 

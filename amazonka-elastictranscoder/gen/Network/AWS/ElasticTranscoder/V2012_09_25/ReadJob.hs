@@ -72,11 +72,7 @@ mkReadJob p1 = ReadJob
 rjId :: Lens' ReadJob Text
 rjId = lens _rjId (\s a -> s { _rjId = a })
 
-instance ToPath ReadJob where
-    toPath ReadJob{..} = mconcat
-        [ "/2012-09-25/jobs/"
-        , toBS _rjId
-        ]
+instance ToPath ReadJob
 
 instance ToQuery ReadJob
 

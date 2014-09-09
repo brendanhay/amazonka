@@ -229,18 +229,9 @@ cmu2SSECustomerKeyMD5 :: Lens' CreateMultipartUpload (Maybe Text)
 cmu2SSECustomerKeyMD5 =
     lens _cmu2SSECustomerKeyMD5 (\s a -> s { _cmu2SSECustomerKeyMD5 = a })
 
-instance ToPath CreateMultipartUpload where
-    toPath CreateMultipartUpload{..} = mconcat
-        [ "/"
-        , toBS _cmu2Bucket
-        , "/"
-        , toBS _cmu2Key
-        ]
+instance ToPath CreateMultipartUpload
 
-instance ToQuery CreateMultipartUpload where
-    toQuery CreateMultipartUpload{..} = mconcat
-        [ "uploads"
-        ]
+instance ToQuery CreateMultipartUpload
 
 instance ToHeaders CreateMultipartUpload where
     toHeaders CreateMultipartUpload{..} = concat
@@ -326,7 +317,7 @@ instance AWSRequest CreateMultipartUpload where
     type Sv CreateMultipartUpload = S3
     type Rs CreateMultipartUpload = CreateMultipartUploadResponse
 
-    request = post
+    request = get
     response _ = cursorResponse $ \hs xml ->
         pure CreateMultipartUploadResponse
             <*> xml %|? "BucketName"

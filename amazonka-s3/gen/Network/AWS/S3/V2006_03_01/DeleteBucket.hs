@@ -55,11 +55,7 @@ mkDeleteBucket p1 = DeleteBucket
 dbBucket :: Lens' DeleteBucket BucketName
 dbBucket = lens _dbBucket (\s a -> s { _dbBucket = a })
 
-instance ToPath DeleteBucket where
-    toPath DeleteBucket{..} = mconcat
-        [ "/"
-        , toBS _dbBucket
-        ]
+instance ToPath DeleteBucket
 
 instance ToQuery DeleteBucket
 
@@ -81,5 +77,5 @@ instance AWSRequest DeleteBucket where
     type Sv DeleteBucket = S3
     type Rs DeleteBucket = DeleteBucketResponse
 
-    request = delete
+    request = get
     response _ = nullaryResponse DeleteBucketResponse

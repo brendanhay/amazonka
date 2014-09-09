@@ -55,16 +55,9 @@ mkGetBucketCors p1 = GetBucketCors
 gbcBucket :: Lens' GetBucketCors BucketName
 gbcBucket = lens _gbcBucket (\s a -> s { _gbcBucket = a })
 
-instance ToPath GetBucketCors where
-    toPath GetBucketCors{..} = mconcat
-        [ "/"
-        , toBS _gbcBucket
-        ]
+instance ToPath GetBucketCors
 
-instance ToQuery GetBucketCors where
-    toQuery GetBucketCors{..} = mconcat
-        [ "cors"
-        ]
+instance ToQuery GetBucketCors
 
 instance ToHeaders GetBucketCors
 

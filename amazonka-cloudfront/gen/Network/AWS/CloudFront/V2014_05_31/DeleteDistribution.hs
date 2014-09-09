@@ -63,11 +63,7 @@ ddId = lens _ddId (\s a -> s { _ddId = a })
 ddIfMatch :: Lens' DeleteDistribution (Maybe Text)
 ddIfMatch = lens _ddIfMatch (\s a -> s { _ddIfMatch = a })
 
-instance ToPath DeleteDistribution where
-    toPath DeleteDistribution{..} = mconcat
-        [ "/2014-05-31/distribution/"
-        , toBS _ddId
-        ]
+instance ToPath DeleteDistribution
 
 instance ToQuery DeleteDistribution
 
@@ -94,5 +90,5 @@ instance AWSRequest DeleteDistribution where
     type Sv DeleteDistribution = CloudFront
     type Rs DeleteDistribution = DeleteDistributionResponse
 
-    request = delete
+    request = get
     response _ = nullaryResponse DeleteDistributionResponse

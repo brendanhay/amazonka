@@ -29,7 +29,9 @@ library
 
     exposed-modules:
           Network.AWS.OpsWorks
+        , Network.AWS.OpsWorks.Trans
         , Network.AWS.OpsWorks.V2013_02_18
+        , Network.AWS.OpsWorks.V2013_02_18.Trans
         , Network.AWS.OpsWorks.V2013_02_18.Types
         , Network.AWS.OpsWorks.V2013_02_18.AssignVolume
         , Network.AWS.OpsWorks.V2013_02_18.AssociateElasticIp

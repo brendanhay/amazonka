@@ -79,8 +79,7 @@ chcHealthCheckConfig :: Lens' CreateHealthCheck HealthCheckConfig
 chcHealthCheckConfig =
     lens _chcHealthCheckConfig (\s a -> s { _chcHealthCheckConfig = a })
 
-instance ToPath CreateHealthCheck where
-    toPath = const "/2013-04-01/healthcheck"
+instance ToPath CreateHealthCheck
 
 instance ToQuery CreateHealthCheck
 
@@ -122,7 +121,7 @@ instance AWSRequest CreateHealthCheck where
     type Sv CreateHealthCheck = Route53
     type Rs CreateHealthCheck = CreateHealthCheckResponse
 
-    request = post
+    request = get
     response _ = cursorResponse $ \hs xml ->
         pure CreateHealthCheckResponse
             <*> xml %| "HealthCheck"

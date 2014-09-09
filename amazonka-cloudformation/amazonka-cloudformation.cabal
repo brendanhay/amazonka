@@ -35,7 +35,9 @@ library
 
     exposed-modules:
           Network.AWS.CloudFormation
+        , Network.AWS.CloudFormation.Trans
         , Network.AWS.CloudFormation.V2010_05_15
+        , Network.AWS.CloudFormation.V2010_05_15.Trans
         , Network.AWS.CloudFormation.V2010_05_15.Types
         , Network.AWS.CloudFormation.V2010_05_15.CancelUpdateStack
         , Network.AWS.CloudFormation.V2010_05_15.CreateStack

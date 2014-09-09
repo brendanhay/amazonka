@@ -80,18 +80,9 @@ doMFA = lens _doMFA (\s a -> s { _doMFA = a })
 doVersionId :: Lens' DeleteObject (Maybe ObjectVersionId)
 doVersionId = lens _doVersionId (\s a -> s { _doVersionId = a })
 
-instance ToPath DeleteObject where
-    toPath DeleteObject{..} = mconcat
-        [ "/"
-        , toBS _doBucket
-        , "/"
-        , toBS _doKey
-        ]
+instance ToPath DeleteObject
 
-instance ToQuery DeleteObject where
-    toQuery DeleteObject{..} = mconcat
-        [ "versionId" =? _doVersionId
-        ]
+instance ToQuery DeleteObject
 
 instance ToHeaders DeleteObject where
     toHeaders DeleteObject{..} = concat
@@ -129,7 +120,7 @@ instance AWSRequest DeleteObject where
     type Sv DeleteObject = S3
     type Rs DeleteObject = DeleteObjectResponse
 
-    request = delete
+    request = get
     response _ = headerResponse $ \hs ->
         pure DeleteObjectResponse
             <*> hs ~:? "x-amz-delete-marker"

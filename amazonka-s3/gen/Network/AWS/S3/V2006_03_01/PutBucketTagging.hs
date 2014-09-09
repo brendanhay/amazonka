@@ -66,16 +66,9 @@ pbtContentMD5 = lens _pbtContentMD5 (\s a -> s { _pbtContentMD5 = a })
 pbtTagging :: Lens' PutBucketTagging Tagging
 pbtTagging = lens _pbtTagging (\s a -> s { _pbtTagging = a })
 
-instance ToPath PutBucketTagging where
-    toPath PutBucketTagging{..} = mconcat
-        [ "/"
-        , toBS _pbtBucket
-        ]
+instance ToPath PutBucketTagging
 
-instance ToQuery PutBucketTagging where
-    toQuery PutBucketTagging{..} = mconcat
-        [ "tagging"
-        ]
+instance ToQuery PutBucketTagging
 
 instance ToHeaders PutBucketTagging where
     toHeaders PutBucketTagging{..} = concat
@@ -99,5 +92,5 @@ instance AWSRequest PutBucketTagging where
     type Sv PutBucketTagging = S3
     type Rs PutBucketTagging = PutBucketTaggingResponse
 
-    request = put
+    request = get
     response _ = nullaryResponse PutBucketTaggingResponse

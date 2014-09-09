@@ -73,11 +73,7 @@ mkReadPipeline p1 = ReadPipeline
 rpId :: Lens' ReadPipeline Text
 rpId = lens _rpId (\s a -> s { _rpId = a })
 
-instance ToPath ReadPipeline where
-    toPath ReadPipeline{..} = mconcat
-        [ "/2012-09-25/pipelines/"
-        , toBS _rpId
-        ]
+instance ToPath ReadPipeline
 
 instance ToQuery ReadPipeline
 

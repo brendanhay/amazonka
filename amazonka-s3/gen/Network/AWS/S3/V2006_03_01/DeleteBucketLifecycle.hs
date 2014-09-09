@@ -53,16 +53,9 @@ mkDeleteBucketLifecycle p1 = DeleteBucketLifecycle
 dblBucket :: Lens' DeleteBucketLifecycle BucketName
 dblBucket = lens _dblBucket (\s a -> s { _dblBucket = a })
 
-instance ToPath DeleteBucketLifecycle where
-    toPath DeleteBucketLifecycle{..} = mconcat
-        [ "/"
-        , toBS _dblBucket
-        ]
+instance ToPath DeleteBucketLifecycle
 
-instance ToQuery DeleteBucketLifecycle where
-    toQuery DeleteBucketLifecycle{..} = mconcat
-        [ "lifecycle"
-        ]
+instance ToQuery DeleteBucketLifecycle
 
 instance ToHeaders DeleteBucketLifecycle
 
@@ -82,5 +75,5 @@ instance AWSRequest DeleteBucketLifecycle where
     type Sv DeleteBucketLifecycle = S3
     type Rs DeleteBucketLifecycle = DeleteBucketLifecycleResponse
 
-    request = delete
+    request = get
     response _ = nullaryResponse DeleteBucketLifecycleResponse

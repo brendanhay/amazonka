@@ -68,16 +68,9 @@ pbpContentMD5 = lens _pbpContentMD5 (\s a -> s { _pbpContentMD5 = a })
 pbpPolicy :: Lens' PutBucketPolicy Text
 pbpPolicy = lens _pbpPolicy (\s a -> s { _pbpPolicy = a })
 
-instance ToPath PutBucketPolicy where
-    toPath PutBucketPolicy{..} = mconcat
-        [ "/"
-        , toBS _pbpBucket
-        ]
+instance ToPath PutBucketPolicy
 
-instance ToQuery PutBucketPolicy where
-    toQuery PutBucketPolicy{..} = mconcat
-        [ "policy"
-        ]
+instance ToQuery PutBucketPolicy
 
 instance ToHeaders PutBucketPolicy where
     toHeaders PutBucketPolicy{..} = concat
@@ -101,5 +94,5 @@ instance AWSRequest PutBucketPolicy where
     type Sv PutBucketPolicy = S3
     type Rs PutBucketPolicy = PutBucketPolicyResponse
 
-    request = put
+    request = get
     response _ = nullaryResponse PutBucketPolicyResponse

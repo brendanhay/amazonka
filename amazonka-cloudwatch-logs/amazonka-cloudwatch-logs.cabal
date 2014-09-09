@@ -27,7 +27,9 @@ library
 
     exposed-modules:
           Network.AWS.CloudWatchLogs
+        , Network.AWS.CloudWatchLogs.Trans
         , Network.AWS.CloudWatchLogs.V2014_03_28
+        , Network.AWS.CloudWatchLogs.V2014_03_28.Trans
         , Network.AWS.CloudWatchLogs.V2014_03_28.Types
         , Network.AWS.CloudWatchLogs.V2014_03_28.CreateLogGroup
         , Network.AWS.CloudWatchLogs.V2014_03_28.CreateLogStream

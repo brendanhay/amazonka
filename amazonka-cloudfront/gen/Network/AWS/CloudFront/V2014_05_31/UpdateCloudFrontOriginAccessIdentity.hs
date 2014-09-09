@@ -76,12 +76,7 @@ ucfoaiId = lens _ucfoaiId (\s a -> s { _ucfoaiId = a })
 ucfoaiIfMatch :: Lens' UpdateCloudFrontOriginAccessIdentity (Maybe Text)
 ucfoaiIfMatch = lens _ucfoaiIfMatch (\s a -> s { _ucfoaiIfMatch = a })
 
-instance ToPath UpdateCloudFrontOriginAccessIdentity where
-    toPath UpdateCloudFrontOriginAccessIdentity{..} = mconcat
-        [ "/2014-05-31/origin-access-identity/cloudfront/"
-        , toBS _ucfoaiId
-        , "/config"
-        ]
+instance ToPath UpdateCloudFrontOriginAccessIdentity
 
 instance ToQuery UpdateCloudFrontOriginAccessIdentity
 
@@ -124,7 +119,7 @@ instance AWSRequest UpdateCloudFrontOriginAccessIdentity where
     type Sv UpdateCloudFrontOriginAccessIdentity = CloudFront
     type Rs UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentityResponse
 
-    request = put
+    request = get
     response _ = cursorResponse $ \hs xml ->
         pure UpdateCloudFrontOriginAccessIdentityResponse
             <*> xml %|? "CloudFrontOriginAccessIdentity"

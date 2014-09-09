@@ -58,11 +58,7 @@ mkGetStreamingDistribution p1 = GetStreamingDistribution
 gsdId :: Lens' GetStreamingDistribution Text
 gsdId = lens _gsdId (\s a -> s { _gsdId = a })
 
-instance ToPath GetStreamingDistribution where
-    toPath GetStreamingDistribution{..} = mconcat
-        [ "/2014-05-31/streaming-distribution/"
-        , toBS _gsdId
-        ]
+instance ToPath GetStreamingDistribution
 
 instance ToQuery GetStreamingDistribution
 

@@ -119,18 +119,9 @@ poaGrantWriteACP =
 poaKey :: Lens' PutObjectAcl ObjectKey
 poaKey = lens _poaKey (\s a -> s { _poaKey = a })
 
-instance ToPath PutObjectAcl where
-    toPath PutObjectAcl{..} = mconcat
-        [ "/"
-        , toBS _poaBucket
-        , "/"
-        , toBS _poaKey
-        ]
+instance ToPath PutObjectAcl
 
-instance ToQuery PutObjectAcl where
-    toQuery PutObjectAcl{..} = mconcat
-        [ "acl"
-        ]
+instance ToQuery PutObjectAcl
 
 instance ToHeaders PutObjectAcl where
     toHeaders PutObjectAcl{..} = concat
@@ -160,5 +151,5 @@ instance AWSRequest PutObjectAcl where
     type Sv PutObjectAcl = S3
     type Rs PutObjectAcl = PutObjectAclResponse
 
-    request = put
+    request = get
     response _ = nullaryResponse PutObjectAclResponse

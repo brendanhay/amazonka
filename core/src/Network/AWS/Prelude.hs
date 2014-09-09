@@ -52,29 +52,30 @@ module Network.AWS.Prelude
     , module Lens
     ) where
 
-import Control.Applicative    as Export
-import Control.Exception      (Exception)
-import Control.Lens           as Lens ((<&>), (&), (^.), (.~), (?~), (&~), Lens', lens, to)
-import Control.Monad.Catch
-import Control.Monad.Except
-import Control.Monad.Identity as Export
-import Control.Monad.Reader
-import Control.Monad.State
-import Data.Aeson             (FromJSON(..), ToJSON(..))
-import Data.Bifunctor         as Export
-import Data.ByteString        (ByteString)
-import Data.Conduig           (ResumableSource)
-import Data.Default           as Export
-import Data.Hashable          as Export
-import Data.List.NonEmpty     (NonEmpty(..))
-import Data.Maybe             as Export
-import Data.Monoid            as Export
-import Data.Tagged            as Export
-import Data.Text              (Text)
-import Data.Typeable          (Typeable)
-import GHC.Generics           (Generic)
-import Network.AWS.Data       as Export hiding (Query)
-import Network.AWS.Response   as Export
+import Control.Applicative          as Export
+import Control.Exception            (Exception)
+import Control.Lens                 as Lens ((<&>), (&), (^.), (.~), (?~), (&~), Lens', lens, to)
+import Control.Monad.Catch          (MonadCatch(..))
+import Control.Monad.Except         (MonadError(..))
+import Control.Monad.Identity       as Export
+import Control.Monad.Reader         (MonadReader(..))
+import Control.Monad.State          (State)
+import Control.Monad.Trans.Resource (MonadResource(..))
+import Data.Aeson                   (FromJSON(..), ToJSON(..))
+import Data.Bifunctor               as Export
+import Data.ByteString              (ByteString)
+import Data.Conduit                 (ResumableSource)
+import Data.Default                 as Export
+import Data.Hashable                as Export
+import Data.List.NonEmpty           (NonEmpty(..))
+import Data.Maybe                   as Export
+import Data.Monoid                  as Export
+import Data.Tagged                  as Export
+import Data.Text                    (Text)
+import Data.Typeable                (Typeable)
+import GHC.Generics                 (Generic)
+import Network.AWS.Data             as Export hiding (Query)
+import Network.AWS.Response         as Export
 import Network.AWS.Types
-import Network.HTTP.Client    (HttpException, RequestBody, Response)
-import Prelude                as Export hiding (head, error)
+import Network.HTTP.Client          (HttpException, RequestBody, Response)
+import Prelude                      as Export hiding (head, error)

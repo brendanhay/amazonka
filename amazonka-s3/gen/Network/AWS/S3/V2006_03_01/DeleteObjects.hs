@@ -76,16 +76,9 @@ do1Delete = lens _do1Delete (\s a -> s { _do1Delete = a })
 do1MFA :: Lens' DeleteObjects (Maybe Text)
 do1MFA = lens _do1MFA (\s a -> s { _do1MFA = a })
 
-instance ToPath DeleteObjects where
-    toPath DeleteObjects{..} = mconcat
-        [ "/"
-        , toBS _do1Bucket
-        ]
+instance ToPath DeleteObjects
 
-instance ToQuery DeleteObjects where
-    toQuery DeleteObjects{..} = mconcat
-        [ "delete"
-        ]
+instance ToQuery DeleteObjects
 
 instance ToHeaders DeleteObjects where
     toHeaders DeleteObjects{..} = concat
@@ -123,5 +116,5 @@ instance AWSRequest DeleteObjects where
     type Sv DeleteObjects = S3
     type Rs DeleteObjects = DeleteObjectsResponse
 
-    request = post
+    request = get
     response _ = xmlResponse

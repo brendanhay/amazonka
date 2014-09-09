@@ -31,7 +31,9 @@ library
 
     exposed-modules:
           Network.AWS.ImportExport
+        , Network.AWS.ImportExport.Trans
         , Network.AWS.ImportExport.V2010_06_01
+        , Network.AWS.ImportExport.V2010_06_01.Trans
         , Network.AWS.ImportExport.V2010_06_01.Types
         , Network.AWS.ImportExport.V2010_06_01.CancelJob
         , Network.AWS.ImportExport.V2010_06_01.CreateJob

@@ -71,16 +71,9 @@ pbrpRequestPaymentConfiguration =
     lens _pbrpRequestPaymentConfiguration
          (\s a -> s { _pbrpRequestPaymentConfiguration = a })
 
-instance ToPath PutBucketRequestPayment where
-    toPath PutBucketRequestPayment{..} = mconcat
-        [ "/"
-        , toBS _pbrpBucket
-        ]
+instance ToPath PutBucketRequestPayment
 
-instance ToQuery PutBucketRequestPayment where
-    toQuery PutBucketRequestPayment{..} = mconcat
-        [ "requestPayment"
-        ]
+instance ToQuery PutBucketRequestPayment
 
 instance ToHeaders PutBucketRequestPayment where
     toHeaders PutBucketRequestPayment{..} = concat
@@ -104,5 +97,5 @@ instance AWSRequest PutBucketRequestPayment where
     type Sv PutBucketRequestPayment = S3
     type Rs PutBucketRequestPayment = PutBucketRequestPaymentResponse
 
-    request = put
+    request = get
     response _ = nullaryResponse PutBucketRequestPaymentResponse

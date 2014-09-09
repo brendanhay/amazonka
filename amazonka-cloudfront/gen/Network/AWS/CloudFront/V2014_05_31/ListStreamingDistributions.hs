@@ -68,14 +68,9 @@ lsdMarker = lens _lsdMarker (\s a -> s { _lsdMarker = a })
 lsdMaxItems :: Lens' ListStreamingDistributions (Maybe Text)
 lsdMaxItems = lens _lsdMaxItems (\s a -> s { _lsdMaxItems = a })
 
-instance ToPath ListStreamingDistributions where
-    toPath = const "/2014-05-31/streaming-distribution"
+instance ToPath ListStreamingDistributions
 
-instance ToQuery ListStreamingDistributions where
-    toQuery ListStreamingDistributions{..} = mconcat
-        [ "Marker" =? _lsdMarker
-        , "MaxItems" =? _lsdMaxItems
-        ]
+instance ToQuery ListStreamingDistributions
 
 instance ToHeaders ListStreamingDistributions
 

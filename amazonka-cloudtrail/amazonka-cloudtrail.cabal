@@ -29,7 +29,9 @@ library
 
     exposed-modules:
           Network.AWS.CloudTrail
+        , Network.AWS.CloudTrail.Trans
         , Network.AWS.CloudTrail.V2013_11_01
+        , Network.AWS.CloudTrail.V2013_11_01.Trans
         , Network.AWS.CloudTrail.V2013_11_01.Types
         , Network.AWS.CloudTrail.V2013_11_01.CreateTrail
         , Network.AWS.CloudTrail.V2013_11_01.DeleteTrail

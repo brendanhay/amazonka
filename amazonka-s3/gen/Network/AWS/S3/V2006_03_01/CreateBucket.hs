@@ -111,11 +111,7 @@ cbGrantWrite = lens _cbGrantWrite (\s a -> s { _cbGrantWrite = a })
 cbGrantWriteACP :: Lens' CreateBucket (Maybe Text)
 cbGrantWriteACP = lens _cbGrantWriteACP (\s a -> s { _cbGrantWriteACP = a })
 
-instance ToPath CreateBucket where
-    toPath CreateBucket{..} = mconcat
-        [ "/"
-        , toBS _cbBucket
-        ]
+instance ToPath CreateBucket
 
 instance ToQuery CreateBucket
 
@@ -152,7 +148,7 @@ instance AWSRequest CreateBucket where
     type Sv CreateBucket = S3
     type Rs CreateBucket = CreateBucketResponse
 
-    request = put
+    request = get
     response _ = headerResponse $ \hs ->
         pure CreateBucketResponse
             <*> hs ~:? "Location"

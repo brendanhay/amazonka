@@ -55,16 +55,9 @@ mkGetBucketRequestPayment p1 = GetBucketRequestPayment
 gbrpBucket :: Lens' GetBucketRequestPayment BucketName
 gbrpBucket = lens _gbrpBucket (\s a -> s { _gbrpBucket = a })
 
-instance ToPath GetBucketRequestPayment where
-    toPath GetBucketRequestPayment{..} = mconcat
-        [ "/"
-        , toBS _gbrpBucket
-        ]
+instance ToPath GetBucketRequestPayment
 
-instance ToQuery GetBucketRequestPayment where
-    toQuery GetBucketRequestPayment{..} = mconcat
-        [ "requestPayment"
-        ]
+instance ToQuery GetBucketRequestPayment
 
 instance ToHeaders GetBucketRequestPayment
 

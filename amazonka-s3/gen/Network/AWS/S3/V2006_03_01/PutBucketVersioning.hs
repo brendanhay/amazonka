@@ -77,16 +77,9 @@ pbvVersioningConfiguration =
     lens _pbvVersioningConfiguration
          (\s a -> s { _pbvVersioningConfiguration = a })
 
-instance ToPath PutBucketVersioning where
-    toPath PutBucketVersioning{..} = mconcat
-        [ "/"
-        , toBS _pbvBucket
-        ]
+instance ToPath PutBucketVersioning
 
-instance ToQuery PutBucketVersioning where
-    toQuery PutBucketVersioning{..} = mconcat
-        [ "versioning"
-        ]
+instance ToQuery PutBucketVersioning
 
 instance ToHeaders PutBucketVersioning where
     toHeaders PutBucketVersioning{..} = concat
@@ -111,5 +104,5 @@ instance AWSRequest PutBucketVersioning where
     type Sv PutBucketVersioning = S3
     type Rs PutBucketVersioning = PutBucketVersioningResponse
 
-    request = put
+    request = get
     response _ = nullaryResponse PutBucketVersioningResponse

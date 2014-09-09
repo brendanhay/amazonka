@@ -119,21 +119,9 @@ lovVersionIdMarker :: Lens' ListObjectVersions (Maybe Text)
 lovVersionIdMarker =
     lens _lovVersionIdMarker (\s a -> s { _lovVersionIdMarker = a })
 
-instance ToPath ListObjectVersions where
-    toPath ListObjectVersions{..} = mconcat
-        [ "/"
-        , toBS _lovBucket
-        ]
+instance ToPath ListObjectVersions
 
-instance ToQuery ListObjectVersions where
-    toQuery ListObjectVersions{..} = mconcat
-        [ "encoding-type" =? _lovEncodingType
-        , "key-marker" =? _lovKeyMarker
-        , "max-keys" =? _lovMaxKeys
-        , "prefix" =? _lovPrefix
-        , "version-id-marker" =? _lovVersionIdMarker
-        , "versions&delimiter" =? _lovDelimiter
-        ]
+instance ToQuery ListObjectVersions
 
 instance ToHeaders ListObjectVersions
 

@@ -60,11 +60,7 @@ ghcHealthCheckId :: Lens' GetHealthCheck Text
 ghcHealthCheckId =
     lens _ghcHealthCheckId (\s a -> s { _ghcHealthCheckId = a })
 
-instance ToPath GetHealthCheck where
-    toPath GetHealthCheck{..} = mconcat
-        [ "/2013-04-01/healthcheck/"
-        , toBS _ghcHealthCheckId
-        ]
+instance ToPath GetHealthCheck
 
 instance ToQuery GetHealthCheck
 

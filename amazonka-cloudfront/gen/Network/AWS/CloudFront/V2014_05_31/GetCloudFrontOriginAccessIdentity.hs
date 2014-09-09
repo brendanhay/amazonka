@@ -58,11 +58,7 @@ mkGetCloudFrontOriginAccessIdentity p1 = GetCloudFrontOriginAccessIdentity
 gcfoaiId :: Lens' GetCloudFrontOriginAccessIdentity Text
 gcfoaiId = lens _gcfoaiId (\s a -> s { _gcfoaiId = a })
 
-instance ToPath GetCloudFrontOriginAccessIdentity where
-    toPath GetCloudFrontOriginAccessIdentity{..} = mconcat
-        [ "/2014-05-31/origin-access-identity/cloudfront/"
-        , toBS _gcfoaiId
-        ]
+instance ToPath GetCloudFrontOriginAccessIdentity
 
 instance ToQuery GetCloudFrontOriginAccessIdentity
 

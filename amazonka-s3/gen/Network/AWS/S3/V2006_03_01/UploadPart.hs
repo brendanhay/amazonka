@@ -140,19 +140,9 @@ upSSECustomerKeyMD5 :: Lens' UploadPart (Maybe Text)
 upSSECustomerKeyMD5 =
     lens _upSSECustomerKeyMD5 (\s a -> s { _upSSECustomerKeyMD5 = a })
 
-instance ToPath UploadPart where
-    toPath UploadPart{..} = mconcat
-        [ "/"
-        , toBS _upBucket
-        , "/"
-        , toBS _upKey
-        ]
+instance ToPath UploadPart
 
-instance ToQuery UploadPart where
-    toQuery UploadPart{..} = mconcat
-        [ "partNumber" =? _upPartNumber
-        , "uploadId" =? _upUploadId
-        ]
+instance ToQuery UploadPart
 
 instance ToHeaders UploadPart where
     toHeaders UploadPart{..} = concat
@@ -214,7 +204,7 @@ instance AWSRequest UploadPart where
     type Sv UploadPart = S3
     type Rs UploadPart = UploadPartResponse
 
-    request = put
+    request = get
     response _ = headerResponse $ \hs ->
         pure UploadPartResponse
             <*> hs ~:? "x-amz-server-side-encryption"

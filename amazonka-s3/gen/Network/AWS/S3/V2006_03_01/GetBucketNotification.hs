@@ -55,16 +55,9 @@ mkGetBucketNotification p1 = GetBucketNotification
 gbnBucket :: Lens' GetBucketNotification BucketName
 gbnBucket = lens _gbnBucket (\s a -> s { _gbnBucket = a })
 
-instance ToPath GetBucketNotification where
-    toPath GetBucketNotification{..} = mconcat
-        [ "/"
-        , toBS _gbnBucket
-        ]
+instance ToPath GetBucketNotification
 
-instance ToQuery GetBucketNotification where
-    toQuery GetBucketNotification{..} = mconcat
-        [ "notification"
-        ]
+instance ToQuery GetBucketNotification
 
 instance ToHeaders GetBucketNotification
 

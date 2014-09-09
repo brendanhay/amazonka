@@ -63,11 +63,7 @@ mkGetChange p1 = GetChange
 gcId :: Lens' GetChange Text
 gcId = lens _gcId (\s a -> s { _gcId = a })
 
-instance ToPath GetChange where
-    toPath GetChange{..} = mconcat
-        [ "/2013-04-01/change/"
-        , toBS _gcId
-        ]
+instance ToPath GetChange
 
 instance ToQuery GetChange
 

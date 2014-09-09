@@ -29,7 +29,9 @@ library
 
     exposed-modules:
           Network.AWS.ElasticTranscoder
+        , Network.AWS.ElasticTranscoder.Trans
         , Network.AWS.ElasticTranscoder.V2012_09_25
+        , Network.AWS.ElasticTranscoder.V2012_09_25.Trans
         , Network.AWS.ElasticTranscoder.V2012_09_25.Types
         , Network.AWS.ElasticTranscoder.V2012_09_25.CancelJob
         , Network.AWS.ElasticTranscoder.V2012_09_25.CreateJob

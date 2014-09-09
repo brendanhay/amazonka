@@ -121,17 +121,9 @@ ljbsAscending = lens _ljbsAscending (\s a -> s { _ljbsAscending = a })
 ljbsPageToken :: Lens' ListJobsByStatus (Maybe Text)
 ljbsPageToken = lens _ljbsPageToken (\s a -> s { _ljbsPageToken = a })
 
-instance ToPath ListJobsByStatus where
-    toPath ListJobsByStatus{..} = mconcat
-        [ "/2012-09-25/jobsByStatus/"
-        , toBS _ljbsStatus
-        ]
+instance ToPath ListJobsByStatus
 
-instance ToQuery ListJobsByStatus where
-    toQuery ListJobsByStatus{..} = mconcat
-        [ "Ascending" =? _ljbsAscending
-        , "PageToken" =? _ljbsPageToken
-        ]
+instance ToQuery ListJobsByStatus
 
 instance ToHeaders ListJobsByStatus
 

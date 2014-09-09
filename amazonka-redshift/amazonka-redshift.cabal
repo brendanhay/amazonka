@@ -31,7 +31,9 @@ library
 
     exposed-modules:
           Network.AWS.Redshift
+        , Network.AWS.Redshift.Trans
         , Network.AWS.Redshift.V2012_12_01
+        , Network.AWS.Redshift.V2012_12_01.Trans
         , Network.AWS.Redshift.V2012_12_01.Types
         , Network.AWS.Redshift.V2012_12_01.AuthorizeClusterSecurityGroupIngress
         , Network.AWS.Redshift.V2012_12_01.AuthorizeSnapshotAccess

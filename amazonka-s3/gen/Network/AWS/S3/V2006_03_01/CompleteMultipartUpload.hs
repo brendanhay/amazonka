@@ -82,18 +82,9 @@ cmuMultipartUpload =
 cmuUploadId :: Lens' CompleteMultipartUpload Text
 cmuUploadId = lens _cmuUploadId (\s a -> s { _cmuUploadId = a })
 
-instance ToPath CompleteMultipartUpload where
-    toPath CompleteMultipartUpload{..} = mconcat
-        [ "/"
-        , toBS _cmuBucket
-        , "/"
-        , toBS _cmuKey
-        ]
+instance ToPath CompleteMultipartUpload
 
-instance ToQuery CompleteMultipartUpload where
-    toQuery CompleteMultipartUpload{..} = mconcat
-        [ "uploadId" =? _cmuUploadId
-        ]
+instance ToQuery CompleteMultipartUpload
 
 instance ToHeaders CompleteMultipartUpload
 
@@ -158,7 +149,7 @@ instance AWSRequest CompleteMultipartUpload where
     type Sv CompleteMultipartUpload = S3
     type Rs CompleteMultipartUpload = CompleteMultipartUploadResponse
 
-    request = post
+    request = get
     response _ = cursorResponse $ \hs xml ->
         pure CompleteMultipartUploadResponse
             <*> xml %|? "Location"

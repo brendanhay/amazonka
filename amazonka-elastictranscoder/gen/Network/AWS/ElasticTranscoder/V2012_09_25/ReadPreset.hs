@@ -83,11 +83,7 @@ mkReadPreset p1 = ReadPreset
 rp1Id :: Lens' ReadPreset Text
 rp1Id = lens _rp1Id (\s a -> s { _rp1Id = a })
 
-instance ToPath ReadPreset where
-    toPath ReadPreset{..} = mconcat
-        [ "/2012-09-25/presets/"
-        , toBS _rp1Id
-        ]
+instance ToPath ReadPreset
 
 instance ToQuery ReadPreset
 

@@ -164,18 +164,9 @@ hoSSECustomerKeyMD5 :: Lens' HeadObject (Maybe Text)
 hoSSECustomerKeyMD5 =
     lens _hoSSECustomerKeyMD5 (\s a -> s { _hoSSECustomerKeyMD5 = a })
 
-instance ToPath HeadObject where
-    toPath HeadObject{..} = mconcat
-        [ "/"
-        , toBS _hoBucket
-        , "/"
-        , toBS _hoKey
-        ]
+instance ToPath HeadObject
 
-instance ToQuery HeadObject where
-    toQuery HeadObject{..} = mconcat
-        [ "versionId" =? _hoVersionId
-        ]
+instance ToQuery HeadObject
 
 instance ToHeaders HeadObject where
     toHeaders HeadObject{..} = concat
@@ -354,7 +345,7 @@ instance AWSRequest HeadObject where
     type Sv HeadObject = S3
     type Rs HeadObject = HeadObjectResponse
 
-    request = head
+    request = get
     response _ = headerResponse $ \hs ->
         pure HeadObjectResponse
             <*> hs ~:? "x-amz-delete-marker"

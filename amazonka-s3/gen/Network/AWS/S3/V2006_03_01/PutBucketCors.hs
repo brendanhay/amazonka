@@ -66,16 +66,9 @@ pbcCORSConfiguration =
 pbcContentMD5 :: Lens' PutBucketCors (Maybe Text)
 pbcContentMD5 = lens _pbcContentMD5 (\s a -> s { _pbcContentMD5 = a })
 
-instance ToPath PutBucketCors where
-    toPath PutBucketCors{..} = mconcat
-        [ "/"
-        , toBS _pbcBucket
-        ]
+instance ToPath PutBucketCors
 
-instance ToQuery PutBucketCors where
-    toQuery PutBucketCors{..} = mconcat
-        [ "cors"
-        ]
+instance ToQuery PutBucketCors
 
 instance ToHeaders PutBucketCors where
     toHeaders PutBucketCors{..} = concat
@@ -99,5 +92,5 @@ instance AWSRequest PutBucketCors where
     type Sv PutBucketCors = S3
     type Rs PutBucketCors = PutBucketCorsResponse
 
-    request = put
+    request = get
     response _ = nullaryResponse PutBucketCorsResponse

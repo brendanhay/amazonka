@@ -1,4 +1,4 @@
-{% if scope.documentation %}
+{% if scope.documentation | notEmptyText %}
 {{ scope.documentation | above76 }}
 {% endif %}
 {% case scope.ctor %}

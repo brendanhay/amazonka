@@ -1,3 +1,12 @@
+{% for field in scope.fields %}
+  {% if field.first %}
+--
+-- The fields accessible through corresponding lenses are:
+--
+  {% endif %}
+-- * @{{ field.value.prefixed | dropLower }} ::@ @{{ field.value.type }}@
+--
+{% endfor %}
 {% for param in scope.params %}
   {% if param.first %}
 {{ scope.smart_ctor }} :: {{ param.value.type }} -- ^ '{{ param.value.prefixed | lens }}'

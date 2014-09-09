@@ -1,0 +1,37 @@
+{-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+
+{% include "_include/license.ede" with trans_namespace %}
+
+{{ documentation | above76 }}
+module {{ trans_namespace }}
+    (
+{% for oper in operations %}
+  {% if oper.first %}
+    -- * {{ oper.value.request.name }}
+      {{ oper.value.request.function }}
+  {% else %}
+    -- * {{ oper.value.request.name }}
+    , {{ oper.value.request.function }}
+  {% endif %}
+{% endfor %}
+
+    -- * Re-exported
+    , module {{ version_namespace }}
+
+    -- * Lenses
+    , (.=)
+    ) where
+
+import Control.Monad.Catch
+import Control.Monad.Except
+import Control.Monad.Reader
+import Control.Monad.State
+import Control.Monad.Trans.AWS
+import Control.Monad.Trans.Resource
+import Data.Conduit (ResumableSource)
+import Network.AWS.Prelude
+import {{ version_namespace }}
+{% for oper in operations %}
+{% include "_include/state-operation.ede" with oper.value %}
+{% endfor %}

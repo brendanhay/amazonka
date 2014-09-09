@@ -54,10 +54,12 @@ instance ToPath NS where
     toPath (NS xs) = "gen" </> Text.unpack (Text.intercalate "/" xs) <.> "hs"
 
 data Templates = Templates
-    { tmplCabal   :: Template
-    , tmplVersion :: Template
-    , tmplCurrent :: Template
-    , tmplService :: ServiceType -> (Template, Template)
+    { tmplCabal     :: Template
+    , tmplVersion   :: Template
+    , tmplCurrent   :: Template
+    , tmplTrans     :: Template
+    , tmplFunctions :: Template
+    , tmplService   :: ServiceType -> (Template, Template)
     }
 
 getTemplates :: Script Templates
@@ -70,6 +72,8 @@ getTemplates = do
         <$> load "cabal"
         <*> load "version"
         <*> load "current"
+        <*> load "trans"
+        <*> load "functions"
 
     !xml <- (,) <$> load "types-xml"   <*> load "operation-xml"
     !js  <- (,) <$> load "types-json"  <*> load "operation-json"
@@ -114,7 +118,9 @@ render dir assets ss = do
             write "Render Operation" (rel (_opNamespace x)) o x
 
         write "Render Types"     (rel _svcTypesNamespace) t s
+        write "Render Trans"     (rel _svcTransNamespace) tmplTrans s
         write "Render Interface" (rel _svcVersionNamespace) tmplVersion s
+        write "Render Functions" (rel _svcFunctionsNamespace) tmplFunctions s
         write "Render Service"   (rel _svcName) tmplCurrent s
         write "Render Cabal"     (rel (lib <.> "cabal")) tmplCabal s
 

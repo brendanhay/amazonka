@@ -252,8 +252,14 @@ rootNS :: NS -> NS
 rootNS (NS []) = NS []
 rootNS (NS xs) = NS (init xs)
 
+functionsNS :: NS -> NS
+functionsNS = (<> "Trans") . rootNS
+
 typeNS :: NS -> NS
 typeNS = (<> "Types")
+
+transNS :: NS -> NS
+transNS = (<> "Trans")
 
 serviceNamespaces :: Service -> [NS]
 serviceNamespaces s = sort $

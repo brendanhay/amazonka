@@ -2,10 +2,10 @@
   {% if param.first %}
 {{ scope.smart_ctor }} :: {{ param.value.type }} -- ^ '{{ param.value.prefixed | lens }}'
   {% else %}
-{{ scope.padding }} -> {{ param.value.type }} -- ^ '{{ param.value.prefixed | lens }}'
+{{ scope.smart_pad }} -> {{ param.value.type }} -- ^ '{{ param.value.prefixed | lens }}'
   {% endif %}
   {% if param.last %}
-{{ scope.padding }} -> {{ scope.name }}
+{{ scope.smart_pad }} -> {{ scope.name }}
   {% endif %}
 {% else %}
 {{ scope.smart_ctor }} :: {{ scope.name }}

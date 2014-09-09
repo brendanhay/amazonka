@@ -440,32 +440,34 @@ instance Default FieldOverride where
     def = FieldOverride mempty
 
 data Service = Service
-    { _svcName             :: Abbrev
-    , _svcLibrary          :: Library
-    , _svcFullName         :: Text
-    , _svcNamespace        :: NS
-    , _svcVersionNamespace :: NS
-    , _svcTypesNamespace   :: NS
-    , _svcVersion          :: Version
-    , _svcRawVersion       :: Text
-    , _svcType             :: ServiceType
-    , _svcError            :: Error
-    , _svcWrapped          :: Bool
-    , _svcSignature        :: Signature
-    , _svcDocumentation    :: Doc
-    , _svcEndpointPrefix   :: Text
-    , _svcGlobalEndpoint   :: Maybe Text
-    , _svcXmlNamespace     :: Maybe Text
-    , _svcTimestamp        :: Time
-    , _svcChecksum         :: Checksum
-    , _svcJsonVersion      :: JSONV
-    , _svcTargetPrefix     :: Maybe Text
-    , _svcOperations       :: [Operation]
-    , _svcTypes            :: [Type']
-    , _svcCabal            :: Cabal
-    , _svcStatic           :: [NS]
-    , _svcTypeOverride     :: TypeOverride
-    , _svcFieldOverride    :: FieldOverride
+    { _svcName               :: Abbrev
+    , _svcLibrary            :: Library
+    , _svcFullName           :: Text
+    , _svcNamespace          :: NS
+    , _svcVersionNamespace   :: NS
+    , _svcTypesNamespace     :: NS
+    , _svcTransNamespace     :: NS
+    , _svcFunctionsNamespace :: NS
+    , _svcVersion            :: Version
+    , _svcRawVersion         :: Text
+    , _svcType               :: ServiceType
+    , _svcError              :: Error
+    , _svcWrapped            :: Bool
+    , _svcSignature          :: Signature
+    , _svcDocumentation      :: Doc
+    , _svcEndpointPrefix     :: Text
+    , _svcGlobalEndpoint     :: Maybe Text
+    , _svcXmlNamespace       :: Maybe Text
+    , _svcTimestamp          :: Time
+    , _svcChecksum           :: Checksum
+    , _svcJsonVersion        :: JSONV
+    , _svcTargetPrefix       :: Maybe Text
+    , _svcOperations         :: [Operation]
+    , _svcTypes              :: [Type']
+    , _svcCabal              :: Cabal
+    , _svcStatic             :: [NS]
+    , _svcTypeOverride       :: TypeOverride
+    , _svcFieldOverride      :: FieldOverride
     } deriving (Show, Generic)
 
 instance Eq Service where
@@ -482,32 +484,34 @@ instance Ord Service where
 
 defaultService :: Abbrev -> Service
 defaultService a = Service
-    { _svcName             = a
-    , _svcLibrary          = library a
-    , _svcFullName         = unAbbrev a
-    , _svcNamespace        = def
-    , _svcVersionNamespace = def
-    , _svcTypesNamespace   = def
-    , _svcVersion          = Version mempty
-    , _svcRawVersion       = mempty
-    , _svcType             = def
-    , _svcError            = Error (unAbbrev a) mempty mempty
-    , _svcWrapped          = False
-    , _svcSignature        = def
-    , _svcDocumentation    = def
-    , _svcEndpointPrefix   = mempty
-    , _svcGlobalEndpoint   = def
-    , _svcXmlNamespace     = def
-    , _svcTimestamp        = def
-    , _svcChecksum         = def
-    , _svcJsonVersion      = def
-    , _svcTargetPrefix     = def
-    , _svcOperations       = mempty
-    , _svcTypes            = mempty
-    , _svcCabal            = Cabal cabalVersion (unAbbrev a) def
-    , _svcStatic           = mempty
-    , _svcTypeOverride     = def
-    , _svcFieldOverride    = def
+    { _svcName               = a
+    , _svcLibrary            = library a
+    , _svcFullName           = unAbbrev a
+    , _svcNamespace          = def
+    , _svcVersionNamespace   = def
+    , _svcTypesNamespace     = def
+    , _svcTransNamespace     = def
+    , _svcFunctionsNamespace = def
+    , _svcVersion            = Version mempty
+    , _svcRawVersion         = mempty
+    , _svcType               = def
+    , _svcError              = Error (unAbbrev a) mempty mempty
+    , _svcWrapped            = False
+    , _svcSignature          = def
+    , _svcDocumentation      = def
+    , _svcEndpointPrefix     = mempty
+    , _svcGlobalEndpoint     = def
+    , _svcXmlNamespace       = def
+    , _svcTimestamp          = def
+    , _svcChecksum           = def
+    , _svcJsonVersion        = def
+    , _svcTargetPrefix       = def
+    , _svcOperations         = mempty
+    , _svcTypes              = mempty
+    , _svcCabal              = Cabal cabalVersion (unAbbrev a) def
+    , _svcStatic             = mempty
+    , _svcTypeOverride       = def
+    , _svcFieldOverride      = def
     }
 
 makeLenses ''Request

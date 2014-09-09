@@ -43,6 +43,12 @@ numericSuffix t
     | x <- Text.last t, isDigit x = Text.init t `Text.snoc` succ x
     | otherwise                   = t `Text.snoc` '1'
 
+lowerFirstWord :: Text -> Text
+lowerFirstWord = f . map Text.pack . splitBy isUpper . Text.unpack
+  where
+    f []     = ""
+    f (x:xs) = Text.toLower x <> Text.concat xs
+
 lensPrefix, isoPrefix, fieldPrefix :: Text -> Text
 lensPrefix t = reserved $ fromMaybe t (Text.stripPrefix "_" t)
 isoPrefix    = mappend "_" . reserved

@@ -27,7 +27,9 @@ library
 
     exposed-modules:
           {{ namespace }}
+        , {{ functions_namespace }}
         , {{ version_namespace }}
+        , {{ trans_namespace }}
         , {{ types_namespace }}
 {% for op in operations %}
         , {{ op.value.namespace }}
@@ -45,3 +47,7 @@ library
     build-depends:
           amazonka-core
         , base          >= 4.6 && < 5
+        , exceptions
+        , conduit
+        , mtl
+        , resourcet

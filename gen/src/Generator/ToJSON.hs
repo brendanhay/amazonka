@@ -94,11 +94,17 @@ instance ToJSON Operation where
     toJSON = toField (recase Camel Under . drop 3)
 
 instance ToJSON Request where
-    toJSON rq@Request{..} = Object (x <> y <> z)
+    toJSON rq@Request{..} = Object (w <> x <> y <> z)
       where
-        Object x = toJSON _rqHttp
-        Object y = toField (recase Camel Under . drop 3) rq
-        Object z = toJSON _rqType
+        Object w = toJSON _rqHttp
+        Object x = toField (recase Camel Under . drop 3) rq
+        Object y = toJSON _rqType
+        Object z = object
+          [ "function"     .= name
+          , "function_pad" .= Text.replicate (Text.length name) " "
+          ]
+
+        name = lowerFirstWord (rq ^. cmnName)
 
 instance ToJSON Style where
     toJSON = toCtor (recase Camel Under . drop 1)
@@ -167,7 +173,7 @@ instance ToJSON Type' where
     toJSON t@Type{..} = Object (x <> y <> z)
       where
         Object x = object
-            [ "padding"    .= Text.replicate (Text.length name + 2) " "
+            [ "smart_pad"  .= Text.replicate (Text.length name + 2) " "
             , "smart_ctor" .= mappend "mk" name
             , "fields"     .= _typFields
             , "payload"    .= _typPayload

@@ -166,7 +166,7 @@ instance FromJSON Service where
                 | otherwise = t
             sEr = serviceError a ops
 
-        Service a l n (rootNS vNS) vNS (typeNS vNS) ver rv typ sEr
+        Service a l n (rootNS vNS) vNS (typeNS vNS) (transNS vNS) (functionsNS vNS) ver rv typ sEr
             <$> o .:? "result_wrapped" .!= False
             <*> o .:  "signature_version"
             <*> pure d
@@ -208,7 +208,7 @@ instance FromJSON (Text -> Operation) where
 instance FromJSON Request where
     parseJSON = withObject "request" $ \o ->
         Request <$> (defaultType . setDirection DRequest <$> o .:! "input")
-                <*> o .:! "http"
+                <*> pure def
 
 instance FromJSON Response where
     parseJSON = withObject "response" $ \o ->

@@ -1,0 +1,42 @@
+
+{% if scope.documentation %}
+{{ scope.documentation | above76 }}
+--
+-- See: '{{ scope.namespace }}'
+{% else %}
+-- | See: '{{ scope.namespace }}'
+{% endif %}
+{{ scope.request.function }} :: ( MonadCatch m
+{{ scope.request.function_pad }}    , MonadResource m
+{{ scope.request.function_pad }}    , MonadError Error m
+{% if scope.pagination %}
+{{ scope.request.function_pad }}    , MonadReader Env (ResumableSource m)
+{{ scope.request.function_pad }}    , AWSPager a
+{% else %}
+{{ scope.request.function_pad }}    , MonadReader Env m
+{{ scope.request.function_pad }}    , AWSRequest a
+{% endif %}
+{{ scope.request.function_pad }}    )
+{% for param in scope.request.params %}
+  {% if param.first %}
+{{ scope.request.function_pad }} => {{ param.value.type }} -- ^ '{{ param.value.prefixed | lens }}'
+  {% else %}
+{{ scope.request.function_pad }} -> {{ param.value.type }} -- ^ '{{ param.value.prefixed | lens }}'
+  {% endif %}
+  {% if param.last %}
+{{ scope.request.function_pad }} -> State {{ scope.request.name }} a
+  {% endif %}
+{% else %}
+{{ scope.request.function_pad }} => State {{ scope.request.name }} a
+{% endfor %}
+{% if scope.pagination %}
+{{ scope.request.function_pad }} -> ResumableSource m {{ scope.response.name }}
+{% else %}
+{{ scope.request.function_pad }} -> m {{ scope.response.name }}
+{% endif %}
+{{ scope.request.function }} {% for param in scope.request.params -%} p{{ param.key }} {% endfor -%} s =
+{% if scope.pagination %}
+    paginate $ ({{ scope.request.smart_ctor }} {% for param in scope.request.params -%} p{{ param.key }} {% endfor -%}) &~ s
+{% else %}
+    send $ ({{ scope.request.smart_ctor }} {% for param in scope.request.params -%} p{{ param.key }} {% endfor -%}) &~ s
+{% endif %}

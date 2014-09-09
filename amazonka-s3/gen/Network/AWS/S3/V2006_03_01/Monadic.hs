@@ -20,8 +20,35 @@
 -- of web sites. The service aims to maximize benefits of scale and to pass
 -- those benefits on to developers.
 --
--- The 'State' operator variants from "Control.Lens.Setter" such as '.='
--- can be used to modify any additional request parameters before sending.
+-- This module is provided for convenience. It offers an alternative to the
+-- common idiom of supplying required fields to an operations's smart constructor,
+-- using the operation's lenses to modify additional fields, and then sending
+-- or paginating the request.
+--
+-- As an example: using "Network.AWS.S3" with the smart constructor and
+-- basic lens syntax, before explicitly calling 'send':
+--
+-- @
+-- import Control.Monad.Trans.AWS
+-- import Network.AWS.S3
+--
+-- send $ (mkOperationName w x)
+--      & onLensField1 .~ y
+--      & onLensField2 .~ z
+-- @
+--
+-- Versus using "Network.AWS.S3.Monadic" with the 'State' operator variants from
+-- "Control.Lens.Setter" such as '.=' to modify any additional request
+-- parameters before sending:
+--
+-- @
+-- import Network.AWS.S3.Monadic
+--
+-- operationName w x $ do
+--     onLensField1 .= y
+--     onLensField2 .= z
+-- @
+--
 module Network.AWS.S3.V2006_03_01.Monadic
     (
     -- * AbortMultipartUpload

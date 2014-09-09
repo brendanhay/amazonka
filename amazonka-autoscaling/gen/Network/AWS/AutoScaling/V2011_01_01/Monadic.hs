@@ -21,8 +21,35 @@
 -- weekly variability in usage. Auto Scaling is enabled by Amazon CloudWatch
 -- and available at no additional charge beyond Amazon CloudWatch fees.
 --
--- The 'State' operator variants from "Control.Lens.Setter" such as '.='
--- can be used to modify any additional request parameters before sending.
+-- This module is provided for convenience. It offers an alternative to the
+-- common idiom of supplying required fields to an operations's smart constructor,
+-- using the operation's lenses to modify additional fields, and then sending
+-- or paginating the request.
+--
+-- As an example: using "Network.AWS.AutoScaling" with the smart constructor and
+-- basic lens syntax, before explicitly calling 'send':
+--
+-- @
+-- import Control.Monad.Trans.AWS
+-- import Network.AWS.AutoScaling
+--
+-- send $ (mkOperationName w x)
+--      & onLensField1 .~ y
+--      & onLensField2 .~ z
+-- @
+--
+-- Versus using "Network.AWS.AutoScaling.Monadic" with the 'State' operator variants from
+-- "Control.Lens.Setter" such as '.=' to modify any additional request
+-- parameters before sending:
+--
+-- @
+-- import Network.AWS.AutoScaling.Monadic
+--
+-- operationName w x $ do
+--     onLensField1 .= y
+--     onLensField2 .= z
+-- @
+--
 module Network.AWS.AutoScaling.V2011_01_01.Monadic
     (
     -- * AttachInstances

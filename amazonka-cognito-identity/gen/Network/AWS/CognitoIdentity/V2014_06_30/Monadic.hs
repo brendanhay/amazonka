@@ -23,8 +23,35 @@
 -- that uniquely identify their device and any information provided about
 -- third-party logins.
 --
--- The 'State' operator variants from "Control.Lens.Setter" such as '.='
--- can be used to modify any additional request parameters before sending.
+-- This module is provided for convenience. It offers an alternative to the
+-- common idiom of supplying required fields to an operations's smart constructor,
+-- using the operation's lenses to modify additional fields, and then sending
+-- or paginating the request.
+--
+-- As an example: using "Network.AWS.CognitoIdentity" with the smart constructor and
+-- basic lens syntax, before explicitly calling 'send':
+--
+-- @
+-- import Control.Monad.Trans.AWS
+-- import Network.AWS.CognitoIdentity
+--
+-- send $ (mkOperationName w x)
+--      & onLensField1 .~ y
+--      & onLensField2 .~ z
+-- @
+--
+-- Versus using "Network.AWS.CognitoIdentity.Monadic" with the 'State' operator variants from
+-- "Control.Lens.Setter" such as '.=' to modify any additional request
+-- parameters before sending:
+--
+-- @
+-- import Network.AWS.CognitoIdentity.Monadic
+--
+-- operationName w x $ do
+--     onLensField1 .= y
+--     onLensField2 .= z
+-- @
+--
 module Network.AWS.CognitoIdentity.V2014_06_30.Monadic
     (
     -- * CreateIdentityPool

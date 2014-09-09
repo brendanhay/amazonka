@@ -19,8 +19,35 @@
 -- Import/Export is often faster than Internet transfer and more cost
 -- effective than upgrading your connectivity.
 --
--- The 'State' operator variants from "Control.Lens.Setter" such as '.='
--- can be used to modify any additional request parameters before sending.
+-- This module is provided for convenience. It offers an alternative to the
+-- common idiom of supplying required fields to an operations's smart constructor,
+-- using the operation's lenses to modify additional fields, and then sending
+-- or paginating the request.
+--
+-- As an example: using "Network.AWS.ImportExport" with the smart constructor and
+-- basic lens syntax, before explicitly calling 'send':
+--
+-- @
+-- import Control.Monad.Trans.AWS
+-- import Network.AWS.ImportExport
+--
+-- send $ (mkOperationName w x)
+--      & onLensField1 .~ y
+--      & onLensField2 .~ z
+-- @
+--
+-- Versus using "Network.AWS.ImportExport.Monadic" with the 'State' operator variants from
+-- "Control.Lens.Setter" such as '.=' to modify any additional request
+-- parameters before sending:
+--
+-- @
+-- import Network.AWS.ImportExport.Monadic
+--
+-- operationName w x $ do
+--     onLensField1 .= y
+--     onLensField2 .= z
+-- @
+--
 module Network.AWS.ImportExport.V2010_06_01.Monadic
     (
     -- * CancelJob

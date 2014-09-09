@@ -18,8 +18,35 @@
 -- and popular search features such as highlighting, autocomplete, and
 -- geospatial search.
 --
--- The 'State' operator variants from "Control.Lens.Setter" such as '.='
--- can be used to modify any additional request parameters before sending.
+-- This module is provided for convenience. It offers an alternative to the
+-- common idiom of supplying required fields to an operations's smart constructor,
+-- using the operation's lenses to modify additional fields, and then sending
+-- or paginating the request.
+--
+-- As an example: using "Network.AWS.CloudSearch" with the smart constructor and
+-- basic lens syntax, before explicitly calling 'send':
+--
+-- @
+-- import Control.Monad.Trans.AWS
+-- import Network.AWS.CloudSearch
+--
+-- send $ (mkOperationName w x)
+--      & onLensField1 .~ y
+--      & onLensField2 .~ z
+-- @
+--
+-- Versus using "Network.AWS.CloudSearch.Monadic" with the 'State' operator variants from
+-- "Control.Lens.Setter" such as '.=' to modify any additional request
+-- parameters before sending:
+--
+-- @
+-- import Network.AWS.CloudSearch.Monadic
+--
+-- operationName w x $ do
+--     onLensField1 .= y
+--     onLensField2 .= z
+-- @
+--
 module Network.AWS.CloudSearch.V2013_01_01.Monadic
     (
     -- * BuildSuggesters

@@ -137,8 +137,7 @@ instance FromJSON Library where
 
 instance FromJSON TypeOverride where
     parseJSON = withObject "type_overrides" $ \o -> TypeOverride
-        <$> o .:? "ignored"    .!= mempty
-        <*> o .:? "required"   .!= mempty
+        <$> o .:? "required"   .!= mempty
         <*> o .:? "existing"   .!= mempty
         <*> o .:? "rename"     .!= mempty
         <*> o .:? "unprefixed" .!= mempty
@@ -146,6 +145,7 @@ instance FromJSON TypeOverride where
 instance FromJSON FieldOverride where
     parseJSON = withObject "field_overrides" $ \o -> FieldOverride
         <$> o .:? "required" .!= mempty
+        <*> o .:? "ignored"  .!= mempty
 
 instance FromJSON Service where
     parseJSON = withObject "service" $ \o -> do

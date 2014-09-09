@@ -298,7 +298,7 @@ shapeType rq svc@Service{..} s = Type
           , f ^. cmnStreaming = f & cmnRequired .~ True & fldAnn.anRequired .~ True
           | otherwise         = f
 
-    shape = ignoreFields (svc ^. tIgnored) s
+    shape = ignoreFields (svc ^. fIgnored) s
     name  = s ^. cmnName
 
 annOf :: Bool -> Service -> Shape -> Ann
@@ -543,7 +543,7 @@ requireField cs f
     | CI.mk (_fldName f) `notElem` cs = f
     | otherwise = f & cmnRequired .~ True & fldAnn.anRequired .~ True
 
-ignoreFields :: [Text] -> Shape -> Shape
+ignoreFields :: [CI Text] -> Shape -> Shape
 ignoreFields cs (SStruct s) =
-    SStruct (s & sctFields %~ filter (\(k, _) -> k `notElem` cs))
+    SStruct (s & sctFields %~ filter (\(k, _) -> CI.mk k `notElem` cs))
 ignoreFields _ s = s

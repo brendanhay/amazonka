@@ -422,22 +422,22 @@ cabal :: Version -> Maybe Text -> Maybe Doc -> Text -> Doc -> Cabal
 cabal v ms md s d = Cabal v (fromMaybe (s <> " SDK") ms) (fromMaybe d md)
 
 data TypeOverride = TypeOverride
-    { _tIgnored    :: [Text]
-    , _tRequired   :: HashMap Text [CI Text]
+    { _tRequired   :: HashMap Text [CI Text]
     , _tExisting   :: HashMap Text Text
     , _tRename     :: HashMap Text Text
     , _tUnprefixed :: [Text]
     } deriving (Show, Generic)
 
 instance Default TypeOverride where
-    def = TypeOverride mempty mempty mempty mempty mempty
+    def = TypeOverride mempty mempty mempty mempty
 
-newtype FieldOverride = FieldOverride
+data FieldOverride = FieldOverride
     { _fRequired :: [CI Text]
+    , _fIgnored  :: [CI Text]
     } deriving (Show, Generic)
 
 instance Default FieldOverride where
-    def = FieldOverride mempty
+    def = FieldOverride mempty mempty
 
 data Service = Service
     { _svcName               :: Abbrev

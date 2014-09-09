@@ -18,9 +18,6 @@ module {{ trans_namespace }}
 
     -- * Re-exported
     , module {{ version_namespace }}
-
-    -- * Lenses
-    , (.=)
     ) where
 
 import Control.Monad.Trans.AWS

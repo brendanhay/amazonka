@@ -290,7 +290,7 @@ listPipelines :: ( MonadCatch m
               => State ListPipelines a
               -> ResumableSource m ListPipelinesResponse
 listPipelines s =
-    paginate $ (mkListPipelines) &~ s
+    paginate (mkListPipelines &~ s)
 
 -- | Task runners call this action to receive a task to perform from AWS Data
 -- Pipeline. The task runner specifies which tasks it can perform by setting a

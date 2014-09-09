@@ -245,7 +245,7 @@ getCheckerIpRanges :: ( MonadCatch m
                    => State GetCheckerIpRanges a
                    -> m GetCheckerIpRangesResponse
 getCheckerIpRanges s =
-    send $ (mkGetCheckerIpRanges) &~ s
+    send (mkGetCheckerIpRanges &~ s)
 
 -- | See: 'Network.AWS.Route53.V2013_04_01.GetGeoLocation'
 getGeoLocation :: ( MonadCatch m
@@ -257,7 +257,7 @@ getGeoLocation :: ( MonadCatch m
                => State GetGeoLocation a
                -> m GetGeoLocationResponse
 getGeoLocation s =
-    send $ (mkGetGeoLocation) &~ s
+    send (mkGetGeoLocation &~ s)
 
 -- | To retrieve the health check, send a GET request to the
 -- 2013-04-01/healthcheck/health check ID resource.
@@ -288,7 +288,7 @@ getHealthCheckCount :: ( MonadCatch m
                     => State GetHealthCheckCount a
                     -> m GetHealthCheckCountResponse
 getHealthCheckCount s =
-    send $ (mkGetHealthCheckCount) &~ s
+    send (mkGetHealthCheckCount &~ s)
 
 -- | To retrieve the delegation set for a hosted zone, send a GET request to the
 -- 2013-04-01/hostedzone/hosted zone ID resource. The delegation set is the
@@ -318,7 +318,7 @@ listGeoLocations :: ( MonadCatch m
                  => State ListGeoLocations a
                  -> m ListGeoLocationsResponse
 listGeoLocations s =
-    send $ (mkListGeoLocations) &~ s
+    send (mkListGeoLocations &~ s)
 
 -- | To retrieve a list of your health checks, send a GET request to the
 -- 2013-04-01/healthcheck resource. The response to this request includes a
@@ -340,7 +340,7 @@ listHealthChecks :: ( MonadCatch m
                  => State ListHealthChecks a
                  -> ResumableSource m ListHealthChecksResponse
 listHealthChecks s =
-    paginate $ (mkListHealthChecks) &~ s
+    paginate (mkListHealthChecks &~ s)
 
 -- | To retrieve a list of your hosted zones, send a GET request to the
 -- 2013-04-01/hostedzone resource. The response to this request includes a
@@ -362,7 +362,7 @@ listHostedZones :: ( MonadCatch m
                 => State ListHostedZones a
                 -> ResumableSource m ListHostedZonesResponse
 listHostedZones s =
-    paginate $ (mkListHostedZones) &~ s
+    paginate (mkListHostedZones &~ s)
 
 -- | Imagine all the resource record sets in a zone listed out in front of you.
 -- Imagine them sorted lexicographically first by DNS name (with the labels

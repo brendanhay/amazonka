@@ -260,7 +260,7 @@ listDomains :: ( MonadCatch m
             => State ListDomains a
             -> m ListDomainsResponse
 listDomains s =
-    send $ (mkListDomains) &~ s
+    send (mkListDomains &~ s)
 
 -- | This operation returns the operation IDs of operations that are not yet
 -- complete. ListOperations Example POST / HTTP/1.1
@@ -292,7 +292,7 @@ listOperations :: ( MonadCatch m
                => State ListOperations a
                -> m ListOperationsResponse
 listOperations s =
-    send $ (mkListOperations) &~ s
+    send (mkListOperations &~ s)
 
 -- | This operation registers a domain. Domains are registered by the AWS
 -- registrar partner, Gandi. For some top-level domains (TLDs), this operation

@@ -182,7 +182,7 @@ describeCases :: ( MonadCatch m
               => State DescribeCases a
               -> ResumableSource m DescribeCasesResponse
 describeCases s =
-    paginate $ (mkDescribeCases) &~ s
+    paginate (mkDescribeCases &~ s)
 
 -- | Returns communications (and attachments) for one or more support cases. You
 -- can use the AfterTime and BeforeTime parameters to filter by date. You can
@@ -227,7 +227,7 @@ describeServices :: ( MonadCatch m
                  => State DescribeServices a
                  -> m DescribeServicesResponse
 describeServices s =
-    send $ (mkDescribeServices) &~ s
+    send (mkDescribeServices &~ s)
 
 -- | Returns the list of severity levels that you can assign to an AWS Support
 -- case. The severity level for a case is also a field in the CaseDetails data
@@ -243,7 +243,7 @@ describeSeverityLevels :: ( MonadCatch m
                        => State DescribeSeverityLevels a
                        -> m DescribeSeverityLevelsResponse
 describeSeverityLevels s =
-    send $ (mkDescribeSeverityLevels) &~ s
+    send (mkDescribeSeverityLevels &~ s)
 
 -- | Returns the refresh status of the Trusted Advisor checks that have the
 -- specified check IDs. Check IDs can be obtained by calling
@@ -356,4 +356,4 @@ resolveCase :: ( MonadCatch m
             => State ResolveCase a
             -> m ResolveCaseResponse
 resolveCase s =
-    send $ (mkResolveCase) &~ s
+    send (mkResolveCase &~ s)

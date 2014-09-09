@@ -585,7 +585,7 @@ listPlatformApplications :: ( MonadCatch m
                          => State ListPlatformApplications a
                          -> ResumableSource m ListPlatformApplicationsResponse
 listPlatformApplications s =
-    paginate $ (mkListPlatformApplications) &~ s
+    paginate (mkListPlatformApplications &~ s)
 
 -- | Returns a list of the requester's subscriptions. Each call returns a
 -- limited list of subscriptions, up to 100. If there are more subscriptions,
@@ -618,7 +618,7 @@ listSubscriptions :: ( MonadCatch m
                   => State ListSubscriptions a
                   -> ResumableSource m ListSubscriptionsResponse
 listSubscriptions s =
-    paginate $ (mkListSubscriptions) &~ s
+    paginate (mkListSubscriptions &~ s)
 
 -- | Returns a list of the subscriptions to a specific topic. Each call returns
 -- a limited list of subscriptions, up to 100. If there are more
@@ -681,7 +681,7 @@ listTopics :: ( MonadCatch m
            => State ListTopics a
            -> ResumableSource m ListTopicsResponse
 listTopics s =
-    paginate $ (mkListTopics) &~ s
+    paginate (mkListTopics &~ s)
 
 -- | Sends a message to all of a topic's subscribed endpoints. When a messageId
 -- is returned, the message has been saved and Amazon SNS will attempt to

@@ -331,7 +331,7 @@ describeDomains :: ( MonadCatch m
                 => State DescribeDomains a
                 -> m DescribeDomainsResponse
 describeDomains s =
-    send $ (mkDescribeDomains) &~ s
+    send (mkDescribeDomains &~ s)
 
 -- | Gets the expressions configured for the search domain. Can be limited to
 -- specific expressions by name. By default, shows all expressions and
@@ -461,7 +461,7 @@ listDomainNames :: ( MonadCatch m
                 => State ListDomainNames a
                 -> m ListDomainNamesResponse
 listDomainNames s =
-    send $ (mkListDomainNames) &~ s
+    send (mkListDomainNames &~ s)
 
 -- | Configures the availability options for a domain. Enabling the Multi-AZ
 -- option expands an Amazon CloudSearch domain to an additional Availability

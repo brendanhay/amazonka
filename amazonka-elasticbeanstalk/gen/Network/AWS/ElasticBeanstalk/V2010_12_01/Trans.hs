@@ -264,7 +264,7 @@ createStorageLocation :: ( MonadCatch m
                       => State CreateStorageLocation a
                       -> m CreateStorageLocationResponse
 createStorageLocation s =
-    send $ (mkCreateStorageLocation) &~ s
+    send (mkCreateStorageLocation &~ s)
 
 -- | Deletes the specified application along with all associated versions and
 -- configurations. The application versions will not be deleted from your
@@ -371,7 +371,7 @@ describeApplicationVersions :: ( MonadCatch m
                             => State DescribeApplicationVersions a
                             -> m DescribeApplicationVersionsResponse
 describeApplicationVersions s =
-    send $ (mkDescribeApplicationVersions) &~ s
+    send (mkDescribeApplicationVersions &~ s)
 
 -- | Returns the descriptions of existing applications.
 -- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationNames.member.1=SampleApplication
@@ -389,7 +389,7 @@ describeApplications :: ( MonadCatch m
                      => State DescribeApplications a
                      -> m DescribeApplicationsResponse
 describeApplications s =
-    send $ (mkDescribeApplications) &~ s
+    send (mkDescribeApplications &~ s)
 
 -- | Describes the configuration options that are used in a particular
 -- configuration template or environment, or that a specified solution stack
@@ -477,7 +477,7 @@ describeConfigurationOptions :: ( MonadCatch m
                              => State DescribeConfigurationOptions a
                              -> m DescribeConfigurationOptionsResponse
 describeConfigurationOptions s =
-    send $ (mkDescribeConfigurationOptions) &~ s
+    send (mkDescribeConfigurationOptions &~ s)
 
 -- | Returns a description of the settings for the specified configuration set,
 -- that is, either a configuration template or the configuration set
@@ -563,7 +563,7 @@ describeEnvironmentResources :: ( MonadCatch m
                              => State DescribeEnvironmentResources a
                              -> m DescribeEnvironmentResourcesResponse
 describeEnvironmentResources s =
-    send $ (mkDescribeEnvironmentResources) &~ s
+    send (mkDescribeEnvironmentResources &~ s)
 
 -- | Returns descriptions for existing environments.
 -- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationName=SampleApp
@@ -584,7 +584,7 @@ describeEnvironments :: ( MonadCatch m
                      => State DescribeEnvironments a
                      -> m DescribeEnvironmentsResponse
 describeEnvironments s =
-    send $ (mkDescribeEnvironments) &~ s
+    send (mkDescribeEnvironments &~ s)
 
 -- | Returns list of event descriptions matching criteria up to the last 6
 -- weeks. This action returns the most recent 1,000 events from the specified
@@ -613,7 +613,7 @@ describeEvents :: ( MonadCatch m
                => State DescribeEvents a
                -> ResumableSource m DescribeEventsResponse
 describeEvents s =
-    paginate $ (mkDescribeEvents) &~ s
+    paginate (mkDescribeEvents &~ s)
 
 -- | Returns a list of the available solution stack names.
 -- https://elasticbeanstalk.us-east-1.amazon.com/?Operation=ListAvailableSolutionStacks
@@ -631,7 +631,7 @@ listAvailableSolutionStacks :: ( MonadCatch m
                             => State ListAvailableSolutionStacks a
                             -> m ListAvailableSolutionStacksResponse
 listAvailableSolutionStacks s =
-    send $ (mkListAvailableSolutionStacks) &~ s
+    send (mkListAvailableSolutionStacks &~ s)
 
 -- | Deletes and recreates all of the AWS resources (for example: the Auto
 -- Scaling group, load balancer, etc.) for a specified environment and forces
@@ -650,7 +650,7 @@ rebuildEnvironment :: ( MonadCatch m
                    => State RebuildEnvironment a
                    -> m RebuildEnvironmentResponse
 rebuildEnvironment s =
-    send $ (mkRebuildEnvironment) &~ s
+    send (mkRebuildEnvironment &~ s)
 
 -- | Initiates a request to compile the specified type of information of the
 -- deployed environment. Setting the InfoType to tail compiles the last lines
@@ -691,7 +691,7 @@ restartAppServer :: ( MonadCatch m
                  => State RestartAppServer a
                  -> m RestartAppServerResponse
 restartAppServer s =
-    send $ (mkRestartAppServer) &~ s
+    send (mkRestartAppServer &~ s)
 
 -- | Retrieves the compiled information from a RequestEnvironmentInfo request.
 -- Related Topics RequestEnvironmentInfo
@@ -730,7 +730,7 @@ swapEnvironmentCNAMEs :: ( MonadCatch m
                       => State SwapEnvironmentCNAMEs a
                       -> m SwapEnvironmentCNAMEsResponse
 swapEnvironmentCNAMEs s =
-    send $ (mkSwapEnvironmentCNAMEs) &~ s
+    send (mkSwapEnvironmentCNAMEs &~ s)
 
 -- | Terminates the specified environment.
 -- https://elasticbeanstalk.us-east-1.amazon.com/?EnvironmentId=e-icsgecu3wf
@@ -751,7 +751,7 @@ terminateEnvironment :: ( MonadCatch m
                      => State TerminateEnvironment a
                      -> m TerminateEnvironmentResponse
 terminateEnvironment s =
-    send $ (mkTerminateEnvironment) &~ s
+    send (mkTerminateEnvironment &~ s)
 
 -- | Updates the specified application to have the specified properties. If a
 -- property (for example, description) is not provided, the value remains
@@ -890,7 +890,7 @@ updateEnvironment :: ( MonadCatch m
                   => State UpdateEnvironment a
                   -> m UpdateEnvironmentResponse
 updateEnvironment s =
-    send $ (mkUpdateEnvironment) &~ s
+    send (mkUpdateEnvironment &~ s)
 
 -- | Takes a set of configuration settings and either a configuration template
 -- or environment, and determines whether those values are valid. This action

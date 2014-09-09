@@ -336,7 +336,7 @@ listStreams :: ( MonadCatch m
             => State ListStreams a
             -> ResumableSource m ListStreamsResponse
 listStreams s =
-    paginate $ (mkListStreams) &~ s
+    paginate (mkListStreams &~ s)
 
 -- | This operation merges two adjacent shards in a stream and combines them
 -- into a single shard to reduce the stream's capacity to ingest and transport

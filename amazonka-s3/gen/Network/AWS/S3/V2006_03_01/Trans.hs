@@ -604,7 +604,7 @@ listBuckets :: ( MonadCatch m
             => State ListBuckets a
             -> m ListBucketsResponse
 listBuckets s =
-    send $ (mkListBuckets) &~ s
+    send (mkListBuckets &~ s)
 
 -- | This operation lists in-progress multipart uploads.
 --

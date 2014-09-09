@@ -374,7 +374,7 @@ acceptVpcPeeringConnection :: ( MonadCatch m
                            => State AcceptVpcPeeringConnection a
                            -> m AcceptVpcPeeringConnectionResponse
 acceptVpcPeeringConnection s =
-    send $ (mkAcceptVpcPeeringConnection) &~ s
+    send (mkAcceptVpcPeeringConnection &~ s)
 
 -- | Acquires an Elastic IP address. An Elastic IP address is for use either in
 -- the EC2-Classic platform or in a VPC. For more information, see Elastic IP
@@ -408,7 +408,7 @@ allocateAddress :: ( MonadCatch m
                 => State AllocateAddress a
                 -> m AllocateAddressResponse
 allocateAddress s =
-    send $ (mkAllocateAddress) &~ s
+    send (mkAllocateAddress &~ s)
 
 -- | Assigns one or more secondary private IP addresses to the specified network
 -- interface. You can specify one or more specific secondary IP addresses, or
@@ -493,7 +493,7 @@ associateAddress :: ( MonadCatch m
                  => State AssociateAddress a
                  -> m AssociateAddressResponse
 associateAddress s =
-    send $ (mkAssociateAddress) &~ s
+    send (mkAssociateAddress &~ s)
 
 -- | Associates a set of DHCP options (that you've previously created) with the
 -- specified VPC, or associates no DHCP options with the VPC. After you
@@ -805,7 +805,7 @@ authorizeSecurityGroupIngress :: ( MonadCatch m
                               => State AuthorizeSecurityGroupIngress a
                               -> m AuthorizeSecurityGroupIngressResponse
 authorizeSecurityGroupIngress s =
-    send $ (mkAuthorizeSecurityGroupIngress) &~ s
+    send (mkAuthorizeSecurityGroupIngress &~ s)
 
 -- | Bundles an Amazon instance store-backed Windows instance. During bundling,
 -- only the root device volume (C:\) is bundled. Data on other instance store
@@ -1258,7 +1258,7 @@ createInternetGateway :: ( MonadCatch m
                       => State CreateInternetGateway a
                       -> m CreateInternetGatewayResponse
 createInternetGateway s =
-    send $ (mkCreateInternetGateway) &~ s
+    send (mkCreateInternetGateway &~ s)
 
 -- | Creates a 2048-bit RSA key pair with the specified name. Amazon EC2 stores
 -- the public key and displays the private key for you to save to a file. The
@@ -1942,7 +1942,7 @@ createVpcPeeringConnection :: ( MonadCatch m
                            => State CreateVpcPeeringConnection a
                            -> m CreateVpcPeeringConnectionResponse
 createVpcPeeringConnection s =
-    send $ (mkCreateVpcPeeringConnection) &~ s
+    send (mkCreateVpcPeeringConnection &~ s)
 
 -- | Creates a VPN connection between an existing virtual private gateway and a
 -- VPN customer gateway. The only supported connection type is ipsec.1. The
@@ -2329,7 +2329,7 @@ deleteSecurityGroup :: ( MonadCatch m
                     => State DeleteSecurityGroup a
                     -> m DeleteSecurityGroupResponse
 deleteSecurityGroup s =
-    send $ (mkDeleteSecurityGroup) &~ s
+    send (mkDeleteSecurityGroup &~ s)
 
 -- | Deletes the specified snapshot. When you make periodic snapshots of a
 -- volume, the snapshots are incremental, and only the blocks on the device
@@ -2381,7 +2381,7 @@ deleteSpotDatafeedSubscription :: ( MonadCatch m
                                => State DeleteSpotDatafeedSubscription a
                                -> m DeleteSpotDatafeedSubscriptionResponse
 deleteSpotDatafeedSubscription s =
-    send $ (mkDeleteSpotDatafeedSubscription) &~ s
+    send (mkDeleteSpotDatafeedSubscription &~ s)
 
 -- | Deletes the specified subnet. You must terminate all running instances in
 -- the subnet before you can delete the subnet. Example This example deletes
@@ -2673,7 +2673,7 @@ describeAccountAttributes :: ( MonadCatch m
                           => State DescribeAccountAttributes a
                           -> m DescribeAccountAttributesResponse
 describeAccountAttributes s =
-    send $ (mkDescribeAccountAttributes) &~ s
+    send (mkDescribeAccountAttributes &~ s)
 
 -- | Describes one or more of your Elastic IP addresses. An Elastic IP address
 -- is for use in either the EC2-Classic platform or in a VPC. For more
@@ -2726,7 +2726,7 @@ describeAddresses :: ( MonadCatch m
                   => State DescribeAddresses a
                   -> m DescribeAddressesResponse
 describeAddresses s =
-    send $ (mkDescribeAddresses) &~ s
+    send (mkDescribeAddresses &~ s)
 
 -- | Describes one or more of the Availability Zones that are available to you.
 -- The results include zones only for the region you're currently using. If
@@ -2766,7 +2766,7 @@ describeAvailabilityZones :: ( MonadCatch m
                           => State DescribeAvailabilityZones a
                           -> m DescribeAvailabilityZonesResponse
 describeAvailabilityZones s =
-    send $ (mkDescribeAvailabilityZones) &~ s
+    send (mkDescribeAvailabilityZones &~ s)
 
 -- | Describes one or more of your bundling tasks. Completed bundle tasks are
 -- listed for only a limited time. If your bundle task is no longer in the
@@ -2795,7 +2795,7 @@ describeBundleTasks :: ( MonadCatch m
                     => State DescribeBundleTasks a
                     -> m DescribeBundleTasksResponse
 describeBundleTasks s =
-    send $ (mkDescribeBundleTasks) &~ s
+    send (mkDescribeBundleTasks &~ s)
 
 -- | Describes one or more of your conversion tasks. For more information, see
 -- Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2
@@ -2816,7 +2816,7 @@ describeConversionTasks :: ( MonadCatch m
                         => State DescribeConversionTasks a
                         -> m DescribeConversionTasksResponse
 describeConversionTasks s =
-    send $ (mkDescribeConversionTasks) &~ s
+    send (mkDescribeConversionTasks &~ s)
 
 -- | Describes one or more of your VPN customer gateways. For more information
 -- about VPN customer gateways, see Adding a Hardware Virtual Private Gateway
@@ -2851,7 +2851,7 @@ describeCustomerGateways :: ( MonadCatch m
                          => State DescribeCustomerGateways a
                          -> m DescribeCustomerGatewaysResponse
 describeCustomerGateways s =
-    send $ (mkDescribeCustomerGateways) &~ s
+    send (mkDescribeCustomerGateways &~ s)
 
 -- | Describes one or more of your DHCP options sets. For more information about
 -- DHCP options sets, see DHCP Options Sets in the Amazon Virtual Private
@@ -2889,7 +2889,7 @@ describeDhcpOptions :: ( MonadCatch m
                     => State DescribeDhcpOptions a
                     -> m DescribeDhcpOptionsResponse
 describeDhcpOptions s =
-    send $ (mkDescribeDhcpOptions) &~ s
+    send (mkDescribeDhcpOptions &~ s)
 
 -- | Describes one or more of your export tasks. Example This example describes
 -- a single export task. https://ec2.amazonaws.com/?Action=DescribeExportTasks
@@ -2922,7 +2922,7 @@ describeExportTasks :: ( MonadCatch m
                     => State DescribeExportTasks a
                     -> m DescribeExportTasksResponse
 describeExportTasks s =
-    send $ (mkDescribeExportTasks) &~ s
+    send (mkDescribeExportTasks &~ s)
 
 -- | Describes the specified attribute of the specified AMI. You can specify
 -- only one attribute at a time. Example 1 This example lists the launch
@@ -2990,7 +2990,7 @@ describeImages :: ( MonadCatch m
                => State DescribeImages a
                -> m DescribeImagesResponse
 describeImages s =
-    send $ (mkDescribeImages) &~ s
+    send (mkDescribeImages &~ s)
 
 -- | Describes the specified attribute of the specified instance. You can
 -- specify only one attribute at a time. Example 1 This example lists the
@@ -3115,7 +3115,7 @@ describeInstanceStatus :: ( MonadCatch m
                        => State DescribeInstanceStatus a
                        -> ResumableSource m DescribeInstanceStatusResponse
 describeInstanceStatus s =
-    paginate $ (mkDescribeInstanceStatus) &~ s
+    paginate (mkDescribeInstanceStatus &~ s)
 
 -- | Describes one or more of your instances. If you specify one or more
 -- instance IDs, Amazon EC2 returns information for those instances. If you do
@@ -3235,7 +3235,7 @@ describeInstances :: ( MonadCatch m
                   => State DescribeInstances a
                   -> ResumableSource m DescribeInstancesResponse
 describeInstances s =
-    paginate $ (mkDescribeInstances) &~ s
+    paginate (mkDescribeInstances &~ s)
 
 -- | Describes one or more of your Internet gateways. Example This example
 -- describes all your Internet gateways.
@@ -3253,7 +3253,7 @@ describeInternetGateways :: ( MonadCatch m
                          => State DescribeInternetGateways a
                          -> m DescribeInternetGatewaysResponse
 describeInternetGateways s =
-    send $ (mkDescribeInternetGateways) &~ s
+    send (mkDescribeInternetGateways &~ s)
 
 -- | Describes one or more of your key pairs. For more information about key
 -- pairs, see Key Pairs in the Amazon Elastic Compute Cloud User Guide.
@@ -3276,7 +3276,7 @@ describeKeyPairs :: ( MonadCatch m
                  => State DescribeKeyPairs a
                  -> m DescribeKeyPairsResponse
 describeKeyPairs s =
-    send $ (mkDescribeKeyPairs) &~ s
+    send (mkDescribeKeyPairs &~ s)
 
 -- | Describes one or more of your network ACLs. For more information about
 -- network ACLs, see Network ACLs in the Amazon Virtual Private Cloud User
@@ -3300,7 +3300,7 @@ describeNetworkAcls :: ( MonadCatch m
                     => State DescribeNetworkAcls a
                     -> m DescribeNetworkAclsResponse
 describeNetworkAcls s =
-    send $ (mkDescribeNetworkAcls) &~ s
+    send (mkDescribeNetworkAcls &~ s)
 
 -- | Describes a network interface attribute. You can specify only one attribute
 -- at a time. Example This example describes the sourceDestCheck attribute of
@@ -3402,7 +3402,7 @@ describeNetworkInterfaces :: ( MonadCatch m
                           => State DescribeNetworkInterfaces a
                           -> m DescribeNetworkInterfacesResponse
 describeNetworkInterfaces s =
-    send $ (mkDescribeNetworkInterfaces) &~ s
+    send (mkDescribeNetworkInterfaces &~ s)
 
 -- | Describes one or more of your placement groups. For more information about
 -- placement groups and cluster instances, see Cluster Instances in the Amazon
@@ -3427,7 +3427,7 @@ describePlacementGroups :: ( MonadCatch m
                         => State DescribePlacementGroups a
                         -> m DescribePlacementGroupsResponse
 describePlacementGroups s =
-    send $ (mkDescribePlacementGroups) &~ s
+    send (mkDescribePlacementGroups &~ s)
 
 -- | Describes one or more regions that are currently available to you. For a
 -- list of the regions supported by Amazon EC2, see Regions and Endpoints.
@@ -3449,7 +3449,7 @@ describeRegions :: ( MonadCatch m
                 => State DescribeRegions a
                 -> m DescribeRegionsResponse
 describeRegions s =
-    send $ (mkDescribeRegions) &~ s
+    send (mkDescribeRegions &~ s)
 
 -- | Describes one or more of the Reserved Instances that you purchased. For
 -- more information about Reserved Instances, see Reserved Instances in the
@@ -3478,7 +3478,7 @@ describeReservedInstances :: ( MonadCatch m
                           => State DescribeReservedInstances a
                           -> m DescribeReservedInstancesResponse
 describeReservedInstances s =
-    send $ (mkDescribeReservedInstances) &~ s
+    send (mkDescribeReservedInstances &~ s)
 
 -- | Describes your account's Reserved Instance listings in the Reserved
 -- Instance Marketplace. For more information, see Reserved Instance
@@ -3502,7 +3502,7 @@ describeReservedInstancesListings :: ( MonadCatch m
                                   => State DescribeReservedInstancesListings a
                                   -> m DescribeReservedInstancesListingsResponse
 describeReservedInstancesListings s =
-    send $ (mkDescribeReservedInstancesListings) &~ s
+    send (mkDescribeReservedInstancesListings &~ s)
 
 -- | Describes the modifications made to your Reserved Instances. If no
 -- parameter is specified, information about all your Reserved Instances
@@ -3524,7 +3524,7 @@ describeReservedInstancesModifications :: ( MonadCatch m
                                        => State DescribeReservedInstancesModifications a
                                        -> ResumableSource m DescribeReservedInstancesModificationsResponse
 describeReservedInstancesModifications s =
-    paginate $ (mkDescribeReservedInstancesModifications) &~ s
+    paginate (mkDescribeReservedInstancesModifications &~ s)
 
 -- | Describes Reserved Instance offerings that are available for purchase. With
 -- Reserved Instances, you purchase the right to launch instances for a period
@@ -3584,7 +3584,7 @@ describeReservedInstancesOfferings :: ( MonadCatch m
                                    => State DescribeReservedInstancesOfferings a
                                    -> ResumableSource m DescribeReservedInstancesOfferingsResponse
 describeReservedInstancesOfferings s =
-    paginate $ (mkDescribeReservedInstancesOfferings) &~ s
+    paginate (mkDescribeReservedInstancesOfferings &~ s)
 
 -- | Describes one or more of your route tables. For more information about
 -- route tables, see Route Tables in the Amazon Virtual Private Cloud User
@@ -3608,7 +3608,7 @@ describeRouteTables :: ( MonadCatch m
                     => State DescribeRouteTables a
                     -> m DescribeRouteTablesResponse
 describeRouteTables s =
-    send $ (mkDescribeRouteTables) &~ s
+    send (mkDescribeRouteTables &~ s)
 
 -- | Describes one or more of your security groups. A security group is for use
 -- with instances either in the EC2-Classic platform or in a specific VPC. For
@@ -3642,7 +3642,7 @@ describeSecurityGroups :: ( MonadCatch m
                        => State DescribeSecurityGroups a
                        -> m DescribeSecurityGroupsResponse
 describeSecurityGroups s =
-    send $ (mkDescribeSecurityGroups) &~ s
+    send (mkDescribeSecurityGroups &~ s)
 
 -- | Describes the specified attribute of the specified snapshot. You can
 -- specify only one attribute at a time. For more information about Amazon EBS
@@ -3717,7 +3717,7 @@ describeSnapshots :: ( MonadCatch m
                   => State DescribeSnapshots a
                   -> m DescribeSnapshotsResponse
 describeSnapshots s =
-    send $ (mkDescribeSnapshots) &~ s
+    send (mkDescribeSnapshots &~ s)
 
 -- | Describes the datafeed for Spot Instances. For more information, see Spot
 -- Instances in the Amazon Elastic Compute Cloud User Guide. Example This
@@ -3736,7 +3736,7 @@ describeSpotDatafeedSubscription :: ( MonadCatch m
                                  => State DescribeSpotDatafeedSubscription a
                                  -> m DescribeSpotDatafeedSubscriptionResponse
 describeSpotDatafeedSubscription s =
-    send $ (mkDescribeSpotDatafeedSubscription) &~ s
+    send (mkDescribeSpotDatafeedSubscription &~ s)
 
 -- | Describes the Spot Instance requests that belong to your account. Spot
 -- Instances are instances that Amazon EC2 starts on your behalf when the
@@ -3771,7 +3771,7 @@ describeSpotInstanceRequests :: ( MonadCatch m
                              => State DescribeSpotInstanceRequests a
                              -> m DescribeSpotInstanceRequestsResponse
 describeSpotInstanceRequests s =
-    send $ (mkDescribeSpotInstanceRequests) &~ s
+    send (mkDescribeSpotInstanceRequests &~ s)
 
 -- | Describes the Spot Price history. Spot Instances are instances that Amazon
 -- EC2 starts on your behalf when the maximum price that you specify exceeds
@@ -3810,7 +3810,7 @@ describeSpotPriceHistory :: ( MonadCatch m
                          => State DescribeSpotPriceHistory a
                          -> ResumableSource m DescribeSpotPriceHistoryResponse
 describeSpotPriceHistory s =
-    paginate $ (mkDescribeSpotPriceHistory) &~ s
+    paginate (mkDescribeSpotPriceHistory &~ s)
 
 -- | Describes one or more of your subnets. For more information about subnets,
 -- see Your VPC and Subnets in the Amazon Virtual Private Cloud User Guide.
@@ -3856,7 +3856,7 @@ describeSubnets :: ( MonadCatch m
                 => State DescribeSubnets a
                 -> m DescribeSubnetsResponse
 describeSubnets s =
-    send $ (mkDescribeSubnets) &~ s
+    send (mkDescribeSubnets &~ s)
 
 -- | Describes one or more of the tags for your EC2 resources. For more
 -- information about tags, see Tagging Your Resources in the Amazon Elastic
@@ -3907,7 +3907,7 @@ describeTags :: ( MonadCatch m
              => State DescribeTags a
              -> ResumableSource m DescribeTagsResponse
 describeTags s =
-    paginate $ (mkDescribeTags) &~ s
+    paginate (mkDescribeTags &~ s)
 
 -- | Describes the specified attribute of the specified volume. You can specify
 -- only one attribute at a time. For more information about Amazon EBS
@@ -4002,7 +4002,7 @@ describeVolumeStatus :: ( MonadCatch m
                      => State DescribeVolumeStatus a
                      -> ResumableSource m DescribeVolumeStatusResponse
 describeVolumeStatus s =
-    paginate $ (mkDescribeVolumeStatus) &~ s
+    paginate (mkDescribeVolumeStatus &~ s)
 
 -- | Describes the specified Amazon EBS volumes. For more information about
 -- Amazon EBS volumes, see Amazon EBS Volumes in the Amazon Elastic Compute
@@ -4037,7 +4037,7 @@ describeVolumes :: ( MonadCatch m
                 => State DescribeVolumes a
                 -> m DescribeVolumesResponse
 describeVolumes s =
-    send $ (mkDescribeVolumes) &~ s
+    send (mkDescribeVolumes &~ s)
 
 -- | Describes the specified attribute of the specified VPC. You can specify
 -- only one attribute at a time. Example 1 This example describes the
@@ -4119,7 +4119,7 @@ describeVpcPeeringConnections :: ( MonadCatch m
                               => State DescribeVpcPeeringConnections a
                               -> m DescribeVpcPeeringConnectionsResponse
 describeVpcPeeringConnections s =
-    send $ (mkDescribeVpcPeeringConnections) &~ s
+    send (mkDescribeVpcPeeringConnections &~ s)
 
 -- | Describes one or more of your VPCs. Example 1 This example describes the
 -- specified VPC. https://ec2.amazonaws.com/?Action=DescribeVpcs
@@ -4150,7 +4150,7 @@ describeVpcs :: ( MonadCatch m
              => State DescribeVpcs a
              -> m DescribeVpcsResponse
 describeVpcs s =
-    send $ (mkDescribeVpcs) &~ s
+    send (mkDescribeVpcs &~ s)
 
 -- | Describes one or more of your VPN connections. For more information about
 -- VPN connections, see Adding a Hardware Virtual Private Gateway to Your VPC
@@ -4190,7 +4190,7 @@ describeVpnConnections :: ( MonadCatch m
                        => State DescribeVpnConnections a
                        -> m DescribeVpnConnectionsResponse
 describeVpnConnections s =
-    send $ (mkDescribeVpnConnections) &~ s
+    send (mkDescribeVpnConnections &~ s)
 
 -- | Describes one or more of your virtual private gateways. For more
 -- information about virtual private gateways, see Adding an IPsec Hardware
@@ -4226,7 +4226,7 @@ describeVpnGateways :: ( MonadCatch m
                     => State DescribeVpnGateways a
                     -> m DescribeVpnGatewaysResponse
 describeVpnGateways s =
-    send $ (mkDescribeVpnGateways) &~ s
+    send (mkDescribeVpnGateways &~ s)
 
 -- | Detaches an Internet gateway from a VPC, disabling connectivity between the
 -- Internet and the VPC. The VPC must not contain any running instances with
@@ -4386,7 +4386,7 @@ disassociateAddress :: ( MonadCatch m
                     => State DisassociateAddress a
                     -> m DisassociateAddressResponse
 disassociateAddress s =
-    send $ (mkDisassociateAddress) &~ s
+    send (mkDisassociateAddress &~ s)
 
 -- | Disassociates a subnet from a route table. After you perform this action,
 -- the subnet no longer uses the routes in the route table. Instead, it uses
@@ -5073,7 +5073,7 @@ releaseAddress :: ( MonadCatch m
                => State ReleaseAddress a
                -> m ReleaseAddressResponse
 releaseAddress s =
-    send $ (mkReleaseAddress) &~ s
+    send (mkReleaseAddress &~ s)
 
 -- | Changes which network ACL a subnet is associated with. By default when you
 -- create a subnet, it's automatically associated with the default network
@@ -5428,7 +5428,7 @@ revokeSecurityGroupIngress :: ( MonadCatch m
                            => State RevokeSecurityGroupIngress a
                            -> m RevokeSecurityGroupIngressResponse
 revokeSecurityGroupIngress s =
-    send $ (mkRevokeSecurityGroupIngress) &~ s
+    send (mkRevokeSecurityGroupIngress &~ s)
 
 -- | Launches the specified number of instances using an AMI for which you have
 -- permissions. When you launch an instance, it enters the pending state.

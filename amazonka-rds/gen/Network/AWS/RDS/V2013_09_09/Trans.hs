@@ -689,7 +689,7 @@ describeDBEngineVersions :: ( MonadCatch m
                          => State DescribeDBEngineVersions a
                          -> ResumableSource m DescribeDBEngineVersionsResponse
 describeDBEngineVersions s =
-    paginate $ (mkDescribeDBEngineVersions) &~ s
+    paginate (mkDescribeDBEngineVersions &~ s)
 
 -- | Returns information about provisioned RDS instances. This API supports
 -- pagination. https://rds.amazonaws.com/ ?Action=DescribeDBInstances
@@ -712,7 +712,7 @@ describeDBInstances :: ( MonadCatch m
                     => State DescribeDBInstances a
                     -> ResumableSource m DescribeDBInstancesResponse
 describeDBInstances s =
-    paginate $ (mkDescribeDBInstances) &~ s
+    paginate (mkDescribeDBInstances &~ s)
 
 -- | Returns a list of DB log files for the DB instance.
 -- https://rds.amazonaws.com/ ?DBInstanceIdentifier=rrak-mysql &MaxRecords=100
@@ -761,7 +761,7 @@ describeDBParameterGroups :: ( MonadCatch m
                           => State DescribeDBParameterGroups a
                           -> ResumableSource m DescribeDBParameterGroupsResponse
 describeDBParameterGroups s =
-    paginate $ (mkDescribeDBParameterGroups) &~ s
+    paginate (mkDescribeDBParameterGroups &~ s)
 
 -- | Returns the detailed parameter list for a particular DB parameter group.
 -- https://rds.amazonaws.com/ ?Action=DescribeDBParameters
@@ -808,7 +808,7 @@ describeDBSecurityGroups :: ( MonadCatch m
                          => State DescribeDBSecurityGroups a
                          -> ResumableSource m DescribeDBSecurityGroupsResponse
 describeDBSecurityGroups s =
-    paginate $ (mkDescribeDBSecurityGroups) &~ s
+    paginate (mkDescribeDBSecurityGroups &~ s)
 
 -- | Returns information about DB snapshots. This API supports pagination.
 -- https://rds.amazon.com/ ?Action=DescribeDBSnapshots &MaxRecords=100
@@ -834,7 +834,7 @@ describeDBSnapshots :: ( MonadCatch m
                     => State DescribeDBSnapshots a
                     -> ResumableSource m DescribeDBSnapshotsResponse
 describeDBSnapshots s =
-    paginate $ (mkDescribeDBSnapshots) &~ s
+    paginate (mkDescribeDBSnapshots &~ s)
 
 -- | Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is
 -- specified, the list will contain only the descriptions of the specified
@@ -858,7 +858,7 @@ describeDBSubnetGroups :: ( MonadCatch m
                        => State DescribeDBSubnetGroups a
                        -> ResumableSource m DescribeDBSubnetGroupsResponse
 describeDBSubnetGroups s =
-    paginate $ (mkDescribeDBSubnetGroups) &~ s
+    paginate (mkDescribeDBSubnetGroups &~ s)
 
 -- | Returns the default engine and system parameter information for the
 -- specified database engine. https://rds.amazonaws.com/
@@ -908,7 +908,7 @@ describeEventCategories :: ( MonadCatch m
                         => State DescribeEventCategories a
                         -> m DescribeEventCategoriesResponse
 describeEventCategories s =
-    send $ (mkDescribeEventCategories) &~ s
+    send (mkDescribeEventCategories &~ s)
 
 -- | Lists all the subscription descriptions for a customer account. The
 -- description for a subscription includes SubscriptionName, SNSTopicARN,
@@ -933,7 +933,7 @@ describeEventSubscriptions :: ( MonadCatch m
                            => State DescribeEventSubscriptions a
                            -> ResumableSource m DescribeEventSubscriptionsResponse
 describeEventSubscriptions s =
-    paginate $ (mkDescribeEventSubscriptions) &~ s
+    paginate (mkDescribeEventSubscriptions &~ s)
 
 -- | Returns events related to DB instances, DB security groups, DB snapshots,
 -- and DB parameter groups for the past 14 days. Events specific to a
@@ -961,7 +961,7 @@ describeEvents :: ( MonadCatch m
                => State DescribeEvents a
                -> ResumableSource m DescribeEventsResponse
 describeEvents s =
-    paginate $ (mkDescribeEvents) &~ s
+    paginate (mkDescribeEvents &~ s)
 
 -- | Describes all available options. https://rds.amazonaws.com/
 -- ?Action=DescribeOptionGroupOptions &EngineName=oracle-se1
@@ -999,7 +999,7 @@ describeOptionGroups :: ( MonadCatch m
                      => State DescribeOptionGroups a
                      -> ResumableSource m DescribeOptionGroupsResponse
 describeOptionGroups s =
-    paginate $ (mkDescribeOptionGroups) &~ s
+    paginate (mkDescribeOptionGroups &~ s)
 
 -- | Returns a list of orderable DB instance options for the specified engine.
 -- https://rds.amazonaws.com/ ?Action=DescribeOrderableDBInstanceOptions
@@ -1048,7 +1048,7 @@ describeReservedDBInstances :: ( MonadCatch m
                             => State DescribeReservedDBInstances a
                             -> ResumableSource m DescribeReservedDBInstancesResponse
 describeReservedDBInstances s =
-    paginate $ (mkDescribeReservedDBInstances) &~ s
+    paginate (mkDescribeReservedDBInstances &~ s)
 
 -- | Lists available reserved DB instance offerings. https://rds.amazonaws.com/
 -- ?Action=DescribeReservedDBInstancesOfferings
@@ -1068,7 +1068,7 @@ describeReservedDBInstancesOfferings :: ( MonadCatch m
                                      => State DescribeReservedDBInstancesOfferings a
                                      -> ResumableSource m DescribeReservedDBInstancesOfferingsResponse
 describeReservedDBInstancesOfferings s =
-    paginate $ (mkDescribeReservedDBInstancesOfferings) &~ s
+    paginate (mkDescribeReservedDBInstancesOfferings &~ s)
 
 -- | Lists all tags on an Amazon RDS resource. For an overview on tagging an
 -- Amazon RDS resource, see Tagging Amazon RDS Resources.

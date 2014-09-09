@@ -257,7 +257,7 @@ describeJobFlows :: ( MonadCatch m
                  => State DescribeJobFlows a
                  -> m DescribeJobFlowsResponse
 describeJobFlows s =
-    send $ (mkDescribeJobFlows) &~ s
+    send (mkDescribeJobFlows &~ s)
 
 -- | Provides more detail about the cluster step.
 --
@@ -306,7 +306,7 @@ listClusters :: ( MonadCatch m
              => State ListClusters a
              -> ResumableSource m ListClustersResponse
 listClusters s =
-    paginate $ (mkListClusters) &~ s
+    paginate (mkListClusters &~ s)
 
 -- | Provides all available details about the instance groups in a cluster.
 --
@@ -388,7 +388,7 @@ modifyInstanceGroups :: ( MonadCatch m
                      => State ModifyInstanceGroups a
                      -> m ModifyInstanceGroupsResponse
 modifyInstanceGroups s =
-    send $ (mkModifyInstanceGroups) &~ s
+    send (mkModifyInstanceGroups &~ s)
 
 -- | Removes tags from an Amazon EMR resource. Tags make it easier to associate
 -- clusters in various ways, such as grouping clusters to track your Amazon

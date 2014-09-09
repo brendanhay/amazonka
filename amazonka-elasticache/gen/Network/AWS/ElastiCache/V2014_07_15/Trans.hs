@@ -488,7 +488,7 @@ describeCacheClusters :: ( MonadCatch m
                       => State DescribeCacheClusters a
                       -> ResumableSource m DescribeCacheClustersResponse
 describeCacheClusters s =
-    paginate $ (mkDescribeCacheClusters) &~ s
+    paginate (mkDescribeCacheClusters &~ s)
 
 -- | The DescribeCacheEngineVersions operation returns a list of the available
 -- cache engines and their versions.
@@ -509,7 +509,7 @@ describeCacheEngineVersions :: ( MonadCatch m
                             => State DescribeCacheEngineVersions a
                             -> ResumableSource m DescribeCacheEngineVersionsResponse
 describeCacheEngineVersions s =
-    paginate $ (mkDescribeCacheEngineVersions) &~ s
+    paginate (mkDescribeCacheEngineVersions &~ s)
 
 -- | The DescribeCacheParameterGroups operation returns a list of cache
 -- parameter group descriptions. If a cache parameter group name is specified,
@@ -533,7 +533,7 @@ describeCacheParameterGroups :: ( MonadCatch m
                              => State DescribeCacheParameterGroups a
                              -> ResumableSource m DescribeCacheParameterGroupsResponse
 describeCacheParameterGroups s =
-    paginate $ (mkDescribeCacheParameterGroups) &~ s
+    paginate (mkDescribeCacheParameterGroups &~ s)
 
 -- | The DescribeCacheParameters operation returns the detailed parameter list
 -- for a particular cache parameter group. Some of the output has been omitted
@@ -580,7 +580,7 @@ describeCacheSecurityGroups :: ( MonadCatch m
                             => State DescribeCacheSecurityGroups a
                             -> ResumableSource m DescribeCacheSecurityGroupsResponse
 describeCacheSecurityGroups s =
-    paginate $ (mkDescribeCacheSecurityGroups) &~ s
+    paginate (mkDescribeCacheSecurityGroups &~ s)
 
 -- | The DescribeCacheSubnetGroups operation returns a list of cache subnet
 -- group descriptions. If a subnet group name is specified, the list will
@@ -602,7 +602,7 @@ describeCacheSubnetGroups :: ( MonadCatch m
                           => State DescribeCacheSubnetGroups a
                           -> ResumableSource m DescribeCacheSubnetGroupsResponse
 describeCacheSubnetGroups s =
-    paginate $ (mkDescribeCacheSubnetGroups) &~ s
+    paginate (mkDescribeCacheSubnetGroups &~ s)
 
 -- | The DescribeEngineDefaultParameters operation returns the default engine
 -- and system parameter information for the specified cache engine. Some of
@@ -654,7 +654,7 @@ describeEvents :: ( MonadCatch m
                => State DescribeEvents a
                -> ResumableSource m DescribeEventsResponse
 describeEvents s =
-    paginate $ (mkDescribeEvents) &~ s
+    paginate (mkDescribeEvents &~ s)
 
 -- | The DescribeReplicationGroups operation returns information about a
 -- particular replication group. If no identifier is specified,
@@ -679,7 +679,7 @@ describeReplicationGroups :: ( MonadCatch m
                           => State DescribeReplicationGroups a
                           -> ResumableSource m DescribeReplicationGroupsResponse
 describeReplicationGroups s =
-    paginate $ (mkDescribeReplicationGroups) &~ s
+    paginate (mkDescribeReplicationGroups &~ s)
 
 -- | The DescribeReservedCacheNodes operation returns information about reserved
 -- cache nodes for this account, or about a specified reserved cache node.
@@ -701,7 +701,7 @@ describeReservedCacheNodes :: ( MonadCatch m
                            => State DescribeReservedCacheNodes a
                            -> ResumableSource m DescribeReservedCacheNodesResponse
 describeReservedCacheNodes s =
-    paginate $ (mkDescribeReservedCacheNodes) &~ s
+    paginate (mkDescribeReservedCacheNodes &~ s)
 
 -- | The DescribeReservedCacheNodesOfferings operation lists available reserved
 -- cache node offerings. https://elasticache.amazonaws.com/
@@ -722,7 +722,7 @@ describeReservedCacheNodesOfferings :: ( MonadCatch m
                                     => State DescribeReservedCacheNodesOfferings a
                                     -> ResumableSource m DescribeReservedCacheNodesOfferingsResponse
 describeReservedCacheNodesOfferings s =
-    paginate $ (mkDescribeReservedCacheNodesOfferings) &~ s
+    paginate (mkDescribeReservedCacheNodesOfferings &~ s)
 
 -- | The DescribeSnapshots operation returns information about cache cluster
 -- snapshots. By default, DescribeSnapshots lists all of your snapshots; it
@@ -746,7 +746,7 @@ describeSnapshots :: ( MonadCatch m
                   => State DescribeSnapshots a
                   -> m DescribeSnapshotsResponse
 describeSnapshots s =
-    send $ (mkDescribeSnapshots) &~ s
+    send (mkDescribeSnapshots &~ s)
 
 -- | The ModifyCacheCluster operation modifies the settings for a cache cluster.
 -- You can use this operation to change one or more cluster configuration

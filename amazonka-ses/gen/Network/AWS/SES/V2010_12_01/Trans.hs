@@ -238,7 +238,7 @@ getSendQuota :: ( MonadCatch m
              => State GetSendQuota a
              -> m GetSendQuotaResponse
 getSendQuota s =
-    send $ (mkGetSendQuota) &~ s
+    send (mkGetSendQuota &~ s)
 
 -- | Returns the user's sending statistics. The result is a list of data points,
 -- representing the last two weeks of sending activity. Each data point in the
@@ -263,7 +263,7 @@ getSendStatistics :: ( MonadCatch m
                   => State GetSendStatistics a
                   -> m GetSendStatisticsResponse
 getSendStatistics s =
-    send $ (mkGetSendStatistics) &~ s
+    send (mkGetSendStatistics &~ s)
 
 -- | Returns a list containing all of the identities (email addresses and
 -- domains) for a specific AWS Account, regardless of verification status.
@@ -287,7 +287,7 @@ listIdentities :: ( MonadCatch m
                => State ListIdentities a
                -> ResumableSource m ListIdentitiesResponse
 listIdentities s =
-    paginate $ (mkListIdentities) &~ s
+    paginate (mkListIdentities &~ s)
 
 -- | Returns a list containing all of the email addresses that have been
 -- verified. The ListVerifiedEmailAddresses action is deprecated as of the May
@@ -313,7 +313,7 @@ listVerifiedEmailAddresses :: ( MonadCatch m
                            => State ListVerifiedEmailAddresses a
                            -> m ListVerifiedEmailAddressesResponse
 listVerifiedEmailAddresses s =
-    send $ (mkListVerifiedEmailAddresses) &~ s
+    send (mkListVerifiedEmailAddresses &~ s)
 
 -- | Composes an email message based on input data, and then immediately queues
 -- the message for sending. You can only send email from verified email

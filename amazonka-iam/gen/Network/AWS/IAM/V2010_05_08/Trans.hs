@@ -265,7 +265,7 @@ createAccessKey :: ( MonadCatch m
                 => State CreateAccessKey a
                 -> m CreateAccessKeyResponse
 createAccessKey s =
-    send $ (mkCreateAccessKey) &~ s
+    send (mkCreateAccessKey &~ s)
 
 -- | This action creates an alias for your AWS account. For information about
 -- using an AWS account alias, see Using an Alias for Your AWS Account ID in
@@ -536,7 +536,7 @@ deleteAccountPasswordPolicy :: ( MonadCatch m
                             => State DeleteAccountPasswordPolicy a
                             -> m DeleteAccountPasswordPolicyResponse
 deleteAccountPasswordPolicy s =
-    send $ (mkDeleteAccountPasswordPolicy) &~ s
+    send (mkDeleteAccountPasswordPolicy &~ s)
 
 -- | Deletes the specified group. The group must not contain any users or have
 -- any attached policies. https://iam.amazonaws.com/ ?Action=DeleteGroup
@@ -822,7 +822,7 @@ generateCredentialReport :: ( MonadCatch m
                          => State GenerateCredentialReport a
                          -> m GenerateCredentialReportResponse
 generateCredentialReport s =
-    send $ (mkGenerateCredentialReport) &~ s
+    send (mkGenerateCredentialReport &~ s)
 
 -- | Retrieves the password policy for the AWS account. For more information
 -- about using a password policy, go to Managing an IAM Password Policy.
@@ -840,7 +840,7 @@ getAccountPasswordPolicy :: ( MonadCatch m
                          => State GetAccountPasswordPolicy a
                          -> m GetAccountPasswordPolicyResponse
 getAccountPasswordPolicy s =
-    send $ (mkGetAccountPasswordPolicy) &~ s
+    send (mkGetAccountPasswordPolicy &~ s)
 
 -- | Retrieves account level information about account entity usage and IAM
 -- quotas. For information about limitations on IAM entities, see Limitations
@@ -862,7 +862,7 @@ getAccountSummary :: ( MonadCatch m
                   => State GetAccountSummary a
                   -> m GetAccountSummaryResponse
 getAccountSummary s =
-    send $ (mkGetAccountSummary) &~ s
+    send (mkGetAccountSummary &~ s)
 
 -- | Retrieves a credential report for the AWS account. For more information
 -- about the credential report, see Getting Credential Reports in the Using
@@ -878,7 +878,7 @@ getCredentialReport :: ( MonadCatch m
                     => State GetCredentialReport a
                     -> m GetCredentialReportResponse
 getCredentialReport s =
-    send $ (mkGetCredentialReport) &~ s
+    send (mkGetCredentialReport &~ s)
 
 -- | Returns a list of users that are in the specified group. You can paginate
 -- the results using the MaxItems and Marker parameters.
@@ -1098,7 +1098,7 @@ getUser :: ( MonadCatch m
         => State GetUser a
         -> m GetUserResponse
 getUser s =
-    send $ (mkGetUser) &~ s
+    send (mkGetUser &~ s)
 
 -- | Retrieves the specified policy document for the specified user. The
 -- returned policy is URL-encoded according to RFC 3986. For more information
@@ -1146,7 +1146,7 @@ listAccessKeys :: ( MonadCatch m
                => State ListAccessKeys a
                -> ResumableSource m ListAccessKeysResponse
 listAccessKeys s =
-    paginate $ (mkListAccessKeys) &~ s
+    paginate (mkListAccessKeys &~ s)
 
 -- | Lists the account aliases associated with the account. For information
 -- about using an AWS account alias, see Using an Alias for Your AWS Account
@@ -1165,7 +1165,7 @@ listAccountAliases :: ( MonadCatch m
                    => State ListAccountAliases a
                    -> ResumableSource m ListAccountAliasesResponse
 listAccountAliases s =
-    paginate $ (mkListAccountAliases) &~ s
+    paginate (mkListAccountAliases &~ s)
 
 -- | Lists the names of the policies associated with the specified group. If
 -- there are none, the action returns an empty list. You can paginate the
@@ -1210,7 +1210,7 @@ listGroups :: ( MonadCatch m
            => State ListGroups a
            -> ResumableSource m ListGroupsResponse
 listGroups s =
-    paginate $ (mkListGroups) &~ s
+    paginate (mkListGroups &~ s)
 
 -- | Lists the groups the specified user belongs to. You can paginate the
 -- results using the MaxItems and Marker parameters.
@@ -1255,7 +1255,7 @@ listInstanceProfiles :: ( MonadCatch m
                      => State ListInstanceProfiles a
                      -> ResumableSource m ListInstanceProfilesResponse
 listInstanceProfiles s =
-    paginate $ (mkListInstanceProfiles) &~ s
+    paginate (mkListInstanceProfiles &~ s)
 
 -- | Lists the instance profiles that have the specified associated role. If
 -- there are none, the action returns an empty list. For more information
@@ -1303,7 +1303,7 @@ listMFADevices :: ( MonadCatch m
                => State ListMFADevices a
                -> ResumableSource m ListMFADevicesResponse
 listMFADevices s =
-    paginate $ (mkListMFADevices) &~ s
+    paginate (mkListMFADevices &~ s)
 
 -- | Lists the names of the policies associated with the specified role. If
 -- there are none, the action returns an empty list. You can paginate the
@@ -1354,7 +1354,7 @@ listRoles :: ( MonadCatch m
           => State ListRoles a
           -> ResumableSource m ListRolesResponse
 listRoles s =
-    paginate $ (mkListRoles) &~ s
+    paginate (mkListRoles &~ s)
 
 -- | Lists the SAML providers in the account. This operation requires Signature
 -- Version 4. https://iam.amazonaws.com/ ?Action=ListSAMLProviders
@@ -1375,7 +1375,7 @@ listSAMLProviders :: ( MonadCatch m
                   => State ListSAMLProviders a
                   -> m ListSAMLProvidersResponse
 listSAMLProviders s =
-    send $ (mkListSAMLProviders) &~ s
+    send (mkListSAMLProviders &~ s)
 
 -- | Lists the server certificates that have the specified path prefix. If none
 -- exist, the action returns an empty list. You can paginate the results using
@@ -1402,7 +1402,7 @@ listServerCertificates :: ( MonadCatch m
                        => State ListServerCertificates a
                        -> ResumableSource m ListServerCertificatesResponse
 listServerCertificates s =
-    paginate $ (mkListServerCertificates) &~ s
+    paginate (mkListServerCertificates &~ s)
 
 -- | Returns information about the signing certificates associated with the
 -- specified user. If there are none, the action returns an empty list.
@@ -1442,7 +1442,7 @@ listSigningCertificates :: ( MonadCatch m
                         => State ListSigningCertificates a
                         -> ResumableSource m ListSigningCertificatesResponse
 listSigningCertificates s =
-    paginate $ (mkListSigningCertificates) &~ s
+    paginate (mkListSigningCertificates &~ s)
 
 -- | Lists the names of the policies associated with the specified user. If
 -- there are none, the action returns an empty list. You can paginate the
@@ -1487,7 +1487,7 @@ listUsers :: ( MonadCatch m
           => State ListUsers a
           -> ResumableSource m ListUsersResponse
 listUsers s =
-    paginate $ (mkListUsers) &~ s
+    paginate (mkListUsers &~ s)
 
 -- | Lists the virtual MFA devices under the AWS account by assignment status.
 -- If you do not specify an assignment status, the action returns a list of
@@ -1515,7 +1515,7 @@ listVirtualMFADevices :: ( MonadCatch m
                       => State ListVirtualMFADevices a
                       -> ResumableSource m ListVirtualMFADevicesResponse
 listVirtualMFADevices s =
-    paginate $ (mkListVirtualMFADevices) &~ s
+    paginate (mkListVirtualMFADevices &~ s)
 
 -- | Adds (or updates) a policy document associated with the specified group.
 -- For information about policies, refer to Overview of Policies in the Using
@@ -1713,7 +1713,7 @@ updateAccountPasswordPolicy :: ( MonadCatch m
                             => State UpdateAccountPasswordPolicy a
                             -> m UpdateAccountPasswordPolicyResponse
 updateAccountPasswordPolicy s =
-    send $ (mkUpdateAccountPasswordPolicy) &~ s
+    send (mkUpdateAccountPasswordPolicy &~ s)
 
 -- | Updates the policy that grants an entity permission to assume a role. For
 -- more information about roles, go to Working with Roles.

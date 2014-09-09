@@ -420,4 +420,4 @@ getSessionToken :: ( MonadCatch m
                 => State GetSessionToken a
                 -> m GetSessionTokenResponse
 getSessionToken s =
-    send $ (mkGetSessionToken) &~ s
+    send (mkGetSessionToken &~ s)

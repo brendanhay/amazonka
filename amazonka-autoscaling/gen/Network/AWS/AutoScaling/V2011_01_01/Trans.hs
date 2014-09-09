@@ -384,8 +384,7 @@ describeAccountLimits :: ( MonadCatch m
                          )
                       => State DescribeAccountLimits a
                       -> m DescribeAccountLimitsResponse
-describeAccountLimits s =
-    send $ (mkDescribeAccountLimits) &~ s
+describeAccountLimits s = send (mkDescribeAccountLimits &~ s)
 
 -- | Returns policy adjustment types for use in the PutScalingPolicy action.
 -- https://autoscaling.amazonaws.com/?Version=2011-01-01
@@ -402,7 +401,7 @@ describeAdjustmentTypes :: ( MonadCatch m
                         => State DescribeAdjustmentTypes a
                         -> m DescribeAdjustmentTypesResponse
 describeAdjustmentTypes s =
-    send $ (mkDescribeAdjustmentTypes) &~ s
+    send (mkDescribeAdjustmentTypes &~ s)
 
 -- | Returns a full description of each Auto Scaling group in the given list.
 -- This includes all Amazon EC2 instances that are members of the group. If a
@@ -428,7 +427,7 @@ describeAutoScalingGroups :: ( MonadCatch m
                           => State DescribeAutoScalingGroups a
                           -> ResumableSource m DescribeAutoScalingGroupsResponse
 describeAutoScalingGroups s =
-    paginate $ (mkDescribeAutoScalingGroups) &~ s
+    paginate (mkDescribeAutoScalingGroups &~ s)
 
 -- | Returns a description of each Auto Scaling instance in the InstanceIds
 -- list. If a list is not provided, the service returns the full details of
@@ -452,7 +451,7 @@ describeAutoScalingInstances :: ( MonadCatch m
                              => State DescribeAutoScalingInstances a
                              -> ResumableSource m DescribeAutoScalingInstancesResponse
 describeAutoScalingInstances s =
-    paginate $ (mkDescribeAutoScalingInstances) &~ s
+    paginate (mkDescribeAutoScalingInstances &~ s)
 
 -- | Returns a list of all notification types that are supported by Auto
 -- Scaling.
@@ -467,7 +466,7 @@ describeAutoScalingNotificationTypes :: ( MonadCatch m
                                      => State DescribeAutoScalingNotificationTypes a
                                      -> m DescribeAutoScalingNotificationTypesResponse
 describeAutoScalingNotificationTypes s =
-    send $ (mkDescribeAutoScalingNotificationTypes) &~ s
+    send (mkDescribeAutoScalingNotificationTypes &~ s)
 
 -- | Returns a full description of the launch configurations, or the specified
 -- launch configurations, if they exist. If no name is specified, then the
@@ -489,7 +488,7 @@ describeLaunchConfigurations :: ( MonadCatch m
                              => State DescribeLaunchConfigurations a
                              -> ResumableSource m DescribeLaunchConfigurationsResponse
 describeLaunchConfigurations s =
-    paginate $ (mkDescribeLaunchConfigurations) &~ s
+    paginate (mkDescribeLaunchConfigurations &~ s)
 
 -- | Describes the available types of lifecycle hooks.
 --
@@ -503,7 +502,7 @@ describeLifecycleHookTypes :: ( MonadCatch m
                            => State DescribeLifecycleHookTypes a
                            -> m DescribeLifecycleHookTypesResponse
 describeLifecycleHookTypes s =
-    send $ (mkDescribeLifecycleHookTypes) &~ s
+    send (mkDescribeLifecycleHookTypes &~ s)
 
 -- | Describes the lifecycle hooks that currently belong to the specified Auto
 -- Scaling group.
@@ -541,7 +540,7 @@ describeMetricCollectionTypes :: ( MonadCatch m
                               => State DescribeMetricCollectionTypes a
                               -> m DescribeMetricCollectionTypesResponse
 describeMetricCollectionTypes s =
-    send $ (mkDescribeMetricCollectionTypes) &~ s
+    send (mkDescribeMetricCollectionTypes &~ s)
 
 -- | Returns a list of notification actions associated with Auto Scaling groups
 -- for specified events.
@@ -556,7 +555,7 @@ describeNotificationConfigurations :: ( MonadCatch m
                                    => State DescribeNotificationConfigurations a
                                    -> ResumableSource m DescribeNotificationConfigurationsResponse
 describeNotificationConfigurations s =
-    paginate $ (mkDescribeNotificationConfigurations) &~ s
+    paginate (mkDescribeNotificationConfigurations &~ s)
 
 -- | Returns descriptions of what each policy does. This action supports
 -- pagination. If the response includes a token, there are more records
@@ -583,7 +582,7 @@ describePolicies :: ( MonadCatch m
                  => State DescribePolicies a
                  -> ResumableSource m DescribePoliciesResponse
 describePolicies s =
-    paginate $ (mkDescribePolicies) &~ s
+    paginate (mkDescribePolicies &~ s)
 
 -- | Returns the scaling activities for the specified Auto Scaling group. If the
 -- specified ActivityIds list is empty, all the activities from the past six
@@ -614,7 +613,7 @@ describeScalingActivities :: ( MonadCatch m
                           => State DescribeScalingActivities a
                           -> ResumableSource m DescribeScalingActivitiesResponse
 describeScalingActivities s =
-    paginate $ (mkDescribeScalingActivities) &~ s
+    paginate (mkDescribeScalingActivities &~ s)
 
 -- | Returns scaling process types for use in the ResumeProcesses and
 -- SuspendProcesses actions.
@@ -633,7 +632,7 @@ describeScalingProcessTypes :: ( MonadCatch m
                             => State DescribeScalingProcessTypes a
                             -> m DescribeScalingProcessTypesResponse
 describeScalingProcessTypes s =
-    send $ (mkDescribeScalingProcessTypes) &~ s
+    send (mkDescribeScalingProcessTypes &~ s)
 
 -- | Lists all the actions scheduled for your Auto Scaling group that haven't
 -- been executed. To see a list of actions already executed, see the activity
@@ -649,7 +648,7 @@ describeScheduledActions :: ( MonadCatch m
                          => State DescribeScheduledActions a
                          -> ResumableSource m DescribeScheduledActionsResponse
 describeScheduledActions s =
-    paginate $ (mkDescribeScheduledActions) &~ s
+    paginate (mkDescribeScheduledActions &~ s)
 
 -- | Lists the Auto Scaling group tags. You can use filters to limit results
 -- when describing tags. For example, you can query for tags of a particular
@@ -672,7 +671,7 @@ describeTags :: ( MonadCatch m
              => State DescribeTags a
              -> ResumableSource m DescribeTagsResponse
 describeTags s =
-    paginate $ (mkDescribeTags) &~ s
+    paginate (mkDescribeTags &~ s)
 
 -- | Returns a list of all termination policies supported by Auto Scaling.
 -- https://autoscaling.amazonaws.com/?Version=2011-01-01
@@ -690,7 +689,7 @@ describeTerminationPolicyTypes :: ( MonadCatch m
                                => State DescribeTerminationPolicyTypes a
                                -> m DescribeTerminationPolicyTypesResponse
 describeTerminationPolicyTypes s =
-    send $ (mkDescribeTerminationPolicyTypes) &~ s
+    send (mkDescribeTerminationPolicyTypes &~ s)
 
 -- | Using DetachInstances, you can remove an instance from an Auto Scaling
 -- group. After the instances are detached, you can manage them independently

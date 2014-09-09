@@ -339,7 +339,7 @@ describeConnections :: ( MonadCatch m
                     => State DescribeConnections a
                     -> m DescribeConnectionsResponse
 describeConnections s =
-    send $ (mkDescribeConnections) &~ s
+    send (mkDescribeConnections &~ s)
 
 -- | Return a list of connections that have been provisioned on the given
 -- interconnect.
@@ -371,7 +371,7 @@ describeInterconnects :: ( MonadCatch m
                       => State DescribeInterconnects a
                       -> m DescribeInterconnectsResponse
 describeInterconnects s =
-    send $ (mkDescribeInterconnects) &~ s
+    send (mkDescribeInterconnects &~ s)
 
 -- | Returns the list of AWS Direct Connect locations in the current AWS region.
 -- These are the locations that may be selected when calling CreateConnection
@@ -387,7 +387,7 @@ describeLocations :: ( MonadCatch m
                   => State DescribeLocations a
                   -> m DescribeLocationsResponse
 describeLocations s =
-    send $ (mkDescribeLocations) &~ s
+    send (mkDescribeLocations &~ s)
 
 -- | Returns a list of virtual private gateways owned by the AWS account. You
 -- can create one or more AWS Direct Connect private virtual interfaces
@@ -405,7 +405,7 @@ describeVirtualGateways :: ( MonadCatch m
                         => State DescribeVirtualGateways a
                         -> m DescribeVirtualGatewaysResponse
 describeVirtualGateways s =
-    send $ (mkDescribeVirtualGateways) &~ s
+    send (mkDescribeVirtualGateways &~ s)
 
 -- | Displays all virtual interfaces for an AWS account. Virtual interfaces
 -- deleted fewer than 15 minutes before DescribeVirtualInterfaces is called
@@ -428,4 +428,4 @@ describeVirtualInterfaces :: ( MonadCatch m
                           => State DescribeVirtualInterfaces a
                           -> m DescribeVirtualInterfacesResponse
 describeVirtualInterfaces s =
-    send $ (mkDescribeVirtualInterfaces) &~ s
+    send (mkDescribeVirtualInterfaces &~ s)

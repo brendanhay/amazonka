@@ -260,7 +260,7 @@ listDomains :: ( MonadCatch m
             => State ListDomains a
             -> ResumableSource m ListDomainsResponse
 listDomains s =
-    paginate $ (mkListDomains) &~ s
+    paginate (mkListDomains &~ s)
 
 -- | The PutAttributes operation creates or replaces attributes in an item. The
 -- client may specify new attributes using a combination of the

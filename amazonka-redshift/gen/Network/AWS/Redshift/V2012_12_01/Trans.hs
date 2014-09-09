@@ -669,7 +669,7 @@ describeClusterParameterGroups :: ( MonadCatch m
                                => State DescribeClusterParameterGroups a
                                -> ResumableSource m DescribeClusterParameterGroupsResponse
 describeClusterParameterGroups s =
-    paginate $ (mkDescribeClusterParameterGroups) &~ s
+    paginate (mkDescribeClusterParameterGroups &~ s)
 
 -- | Returns a detailed list of parameters contained within the specified Amazon
 -- Redshift parameter group. For each parameter the response includes
@@ -735,7 +735,7 @@ describeClusterSecurityGroups :: ( MonadCatch m
                               => State DescribeClusterSecurityGroups a
                               -> ResumableSource m DescribeClusterSecurityGroupsResponse
 describeClusterSecurityGroups s =
-    paginate $ (mkDescribeClusterSecurityGroups) &~ s
+    paginate (mkDescribeClusterSecurityGroups &~ s)
 
 -- | Returns one or more snapshot objects, which contain metadata about your
 -- cluster snapshots. By default, this operation returns information about all
@@ -763,7 +763,7 @@ describeClusterSnapshots :: ( MonadCatch m
                          => State DescribeClusterSnapshots a
                          -> ResumableSource m DescribeClusterSnapshotsResponse
 describeClusterSnapshots s =
-    paginate $ (mkDescribeClusterSnapshots) &~ s
+    paginate (mkDescribeClusterSnapshots &~ s)
 
 -- | Returns one or more cluster subnet group objects, which contain metadata
 -- about your cluster subnet groups. By default, this operation returns
@@ -787,7 +787,7 @@ describeClusterSubnetGroups :: ( MonadCatch m
                             => State DescribeClusterSubnetGroups a
                             -> ResumableSource m DescribeClusterSubnetGroupsResponse
 describeClusterSubnetGroups s =
-    paginate $ (mkDescribeClusterSubnetGroups) &~ s
+    paginate (mkDescribeClusterSubnetGroups &~ s)
 
 -- | Returns descriptions of the available Amazon Redshift cluster versions. You
 -- can call this operation even before creating any clusters to learn more
@@ -811,7 +811,7 @@ describeClusterVersions :: ( MonadCatch m
                         => State DescribeClusterVersions a
                         -> ResumableSource m DescribeClusterVersionsResponse
 describeClusterVersions s =
-    paginate $ (mkDescribeClusterVersions) &~ s
+    paginate (mkDescribeClusterVersions &~ s)
 
 -- | Returns properties of provisioned clusters including general cluster
 -- properties, cluster database properties, maintenance and backup properties,
@@ -838,7 +838,7 @@ describeClusters :: ( MonadCatch m
                  => State DescribeClusters a
                  -> ResumableSource m DescribeClustersResponse
 describeClusters s =
-    paginate $ (mkDescribeClusters) &~ s
+    paginate (mkDescribeClusters &~ s)
 
 -- | Returns a list of parameter settings for the specified parameter group
 -- family. For more information about managing parameter groups, go to Amazon
@@ -889,7 +889,7 @@ describeEventCategories :: ( MonadCatch m
                         => State DescribeEventCategories a
                         -> m DescribeEventCategoriesResponse
 describeEventCategories s =
-    send $ (mkDescribeEventCategories) &~ s
+    send (mkDescribeEventCategories &~ s)
 
 -- | Lists descriptions of all the Amazon Redshift event notifications
 -- subscription for a customer account. If you specify a subscription name,
@@ -905,7 +905,7 @@ describeEventSubscriptions :: ( MonadCatch m
                            => State DescribeEventSubscriptions a
                            -> ResumableSource m DescribeEventSubscriptionsResponse
 describeEventSubscriptions s =
-    paginate $ (mkDescribeEventSubscriptions) &~ s
+    paginate (mkDescribeEventSubscriptions &~ s)
 
 -- | Returns events related to clusters, security groups, snapshots, and
 -- parameter groups for the past 14 days. Events specific to a particular
@@ -931,7 +931,7 @@ describeEvents :: ( MonadCatch m
                => State DescribeEvents a
                -> ResumableSource m DescribeEventsResponse
 describeEvents s =
-    paginate $ (mkDescribeEvents) &~ s
+    paginate (mkDescribeEvents &~ s)
 
 -- | Returns information about the specified HSM client certificate. If no
 -- certificate ID is specified, returns information about all the HSM
@@ -947,7 +947,7 @@ describeHsmClientCertificates :: ( MonadCatch m
                               => State DescribeHsmClientCertificates a
                               -> ResumableSource m DescribeHsmClientCertificatesResponse
 describeHsmClientCertificates s =
-    paginate $ (mkDescribeHsmClientCertificates) &~ s
+    paginate (mkDescribeHsmClientCertificates &~ s)
 
 -- | Returns information about the specified Amazon Redshift HSM configuration.
 -- If no configuration ID is specified, returns information about all the HSM
@@ -963,7 +963,7 @@ describeHsmConfigurations :: ( MonadCatch m
                           => State DescribeHsmConfigurations a
                           -> ResumableSource m DescribeHsmConfigurationsResponse
 describeHsmConfigurations s =
-    paginate $ (mkDescribeHsmConfigurations) &~ s
+    paginate (mkDescribeHsmConfigurations &~ s)
 
 -- | Describes whether information, such as queries and connection attempts, is
 -- being logged for the specified Amazon Redshift cluster.
@@ -1009,7 +1009,7 @@ describeOrderableClusterOptions :: ( MonadCatch m
                                 => State DescribeOrderableClusterOptions a
                                 -> ResumableSource m DescribeOrderableClusterOptionsResponse
 describeOrderableClusterOptions s =
-    paginate $ (mkDescribeOrderableClusterOptions) &~ s
+    paginate (mkDescribeOrderableClusterOptions &~ s)
 
 -- | Returns a list of the available reserved node offerings by Amazon Redshift
 -- with their descriptions including the node type, the fixed and recurring
@@ -1040,7 +1040,7 @@ describeReservedNodeOfferings :: ( MonadCatch m
                               => State DescribeReservedNodeOfferings a
                               -> ResumableSource m DescribeReservedNodeOfferingsResponse
 describeReservedNodeOfferings s =
-    paginate $ (mkDescribeReservedNodeOfferings) &~ s
+    paginate (mkDescribeReservedNodeOfferings &~ s)
 
 -- | Returns the descriptions of the reserved nodes.
 -- https://redshift.us-east-1.amazonaws.com/ ?Action=DescribeReservedNodes
@@ -1065,7 +1065,7 @@ describeReservedNodes :: ( MonadCatch m
                       => State DescribeReservedNodes a
                       -> ResumableSource m DescribeReservedNodesResponse
 describeReservedNodes s =
-    paginate $ (mkDescribeReservedNodes) &~ s
+    paginate (mkDescribeReservedNodes &~ s)
 
 -- | Returns information about the last resize operation for the specified
 -- cluster. If no resize operation has ever been initiated for the specified

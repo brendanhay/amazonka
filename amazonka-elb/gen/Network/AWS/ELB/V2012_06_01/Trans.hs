@@ -553,7 +553,7 @@ describeLoadBalancerPolicies :: ( MonadCatch m
                              => State DescribeLoadBalancerPolicies a
                              -> m DescribeLoadBalancerPoliciesResponse
 describeLoadBalancerPolicies s =
-    send $ (mkDescribeLoadBalancerPolicies) &~ s
+    send (mkDescribeLoadBalancerPolicies &~ s)
 
 -- | Returns meta-information on the specified load balancer policies defined by
 -- the Elastic Load Balancing service. The policy types that are returned from
@@ -584,7 +584,7 @@ describeLoadBalancerPolicyTypes :: ( MonadCatch m
                                 => State DescribeLoadBalancerPolicyTypes a
                                 -> m DescribeLoadBalancerPolicyTypesResponse
 describeLoadBalancerPolicyTypes s =
-    send $ (mkDescribeLoadBalancerPolicyTypes) &~ s
+    send (mkDescribeLoadBalancerPolicyTypes &~ s)
 
 -- | Returns detailed configuration information for all the load balancers
 -- created for the account. If you specify load balancer names, the action
@@ -611,7 +611,7 @@ describeLoadBalancers :: ( MonadCatch m
                       => State DescribeLoadBalancers a
                       -> ResumableSource m DescribeLoadBalancersResponse
 describeLoadBalancers s =
-    paginate $ (mkDescribeLoadBalancers) &~ s
+    paginate (mkDescribeLoadBalancers &~ s)
 
 -- | Describes the tags associated with one or more load balancers.
 -- https://elasticloadbalancing.amazonaws.com//?Action=DescribeTags

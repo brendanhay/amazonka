@@ -109,7 +109,7 @@ listJobs :: ( MonadCatch m
          => State ListJobs a
          -> ResumableSource m ListJobsResponse
 listJobs s =
-    paginate $ (mkListJobs) &~ s
+    paginate (mkListJobs &~ s)
 
 -- | You use this operation to change the parameters specified in the original
 -- manifest file by supplying a new manifest file. The manifest file attached

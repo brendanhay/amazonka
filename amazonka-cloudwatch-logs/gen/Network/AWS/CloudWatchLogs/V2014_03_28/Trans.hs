@@ -244,7 +244,7 @@ describeLogGroups :: ( MonadCatch m
                   => State DescribeLogGroups a
                   -> ResumableSource m DescribeLogGroupsResponse
 describeLogGroups s =
-    paginate $ (mkDescribeLogGroups) &~ s
+    paginate (mkDescribeLogGroups &~ s)
 
 -- | Returns all the log streams that are associated with the specified log
 -- group. The list returned in the response is ASCII-sorted by log stream

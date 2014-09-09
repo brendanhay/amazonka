@@ -961,7 +961,7 @@ describeTapeArchives :: ( MonadCatch m
                      => State DescribeTapeArchives a
                      -> ResumableSource m DescribeTapeArchivesResponse
 describeTapeArchives s =
-    paginate $ (mkDescribeTapeArchives) &~ s
+    paginate (mkDescribeTapeArchives &~ s)
 
 -- | See: 'Network.AWS.StorageGateway.V2013_06_30.DescribeTapeRecoveryPoints'
 describeTapeRecoveryPoints :: ( MonadCatch m
@@ -1119,7 +1119,7 @@ listGateways :: ( MonadCatch m
              => State ListGateways a
              -> ResumableSource m ListGatewaysResponse
 listGateways s =
-    paginate $ (mkListGateways) &~ s
+    paginate (mkListGateways &~ s)
 
 -- | This operation returns a list of the local disks of a gateway. To specify
 -- which gateway to describe you use the Amazon Resource Name (ARN) of the

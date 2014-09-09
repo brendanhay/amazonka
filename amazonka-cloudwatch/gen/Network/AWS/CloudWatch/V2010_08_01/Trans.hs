@@ -85,7 +85,7 @@ describeAlarmHistory :: ( MonadCatch m
                      => State DescribeAlarmHistory a
                      -> ResumableSource m DescribeAlarmHistoryResponse
 describeAlarmHistory s =
-    paginate $ (mkDescribeAlarmHistory) &~ s
+    paginate (mkDescribeAlarmHistory &~ s)
 
 -- | Retrieves alarms with the specified names. If no name is specified, all
 -- alarms for the user are returned. Alarms can be retrieved by using only a
@@ -101,7 +101,7 @@ describeAlarms :: ( MonadCatch m
                => State DescribeAlarms a
                -> ResumableSource m DescribeAlarmsResponse
 describeAlarms s =
-    paginate $ (mkDescribeAlarms) &~ s
+    paginate (mkDescribeAlarms &~ s)
 
 -- | Retrieves all alarms for a single metric. Specify a statistic, period, or
 -- unit to filter the set of alarms further.
@@ -207,7 +207,7 @@ listMetrics :: ( MonadCatch m
             => State ListMetrics a
             -> ResumableSource m ListMetricsResponse
 listMetrics s =
-    paginate $ (mkListMetrics) &~ s
+    paginate (mkListMetrics &~ s)
 
 -- | Creates or updates an alarm and associates it with the specified Amazon
 -- CloudWatch metric. Optionally, this operation can associate one or more

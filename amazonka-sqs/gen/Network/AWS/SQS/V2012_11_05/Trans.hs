@@ -476,7 +476,7 @@ listQueues :: ( MonadCatch m
            => State ListQueues a
            -> m ListQueuesResponse
 listQueues s =
-    send $ (mkListQueues) &~ s
+    send (mkListQueues &~ s)
 
 -- | Retrieves one or more messages, with a maximum limit of 10 messages, from
 -- the specified queue. Long poll support is enabled by using the

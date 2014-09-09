@@ -86,7 +86,7 @@ describeTrails :: ( MonadCatch m
                => State DescribeTrails a
                -> m DescribeTrailsResponse
 describeTrails s =
-    send $ (mkDescribeTrails) &~ s
+    send (mkDescribeTrails &~ s)
 
 -- | Returns a JSON-formatted list of information about the specified trail.
 -- Fields include information on delivery errors, Amazon SNS and Amazon S3

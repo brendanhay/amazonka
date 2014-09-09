@@ -299,7 +299,7 @@ listCloudFrontOriginAccessIdentities :: ( MonadCatch m
                                      => State ListCloudFrontOriginAccessIdentities a
                                      -> ResumableSource m ListCloudFrontOriginAccessIdentitiesResponse
 listCloudFrontOriginAccessIdentities s =
-    paginate $ (mkListCloudFrontOriginAccessIdentities) &~ s
+    paginate (mkListCloudFrontOriginAccessIdentities &~ s)
 
 -- | List distributions.
 --
@@ -313,7 +313,7 @@ listDistributions :: ( MonadCatch m
                   => State ListDistributions a
                   -> ResumableSource m ListDistributionsResponse
 listDistributions s =
-    paginate $ (mkListDistributions) &~ s
+    paginate (mkListDistributions &~ s)
 
 -- | List invalidation batches.
 --
@@ -342,7 +342,7 @@ listStreamingDistributions :: ( MonadCatch m
                            => State ListStreamingDistributions a
                            -> ResumableSource m ListStreamingDistributionsResponse
 listStreamingDistributions s =
-    paginate $ (mkListStreamingDistributions) &~ s
+    paginate (mkListStreamingDistributions &~ s)
 
 -- | Update an origin access identity.
 --

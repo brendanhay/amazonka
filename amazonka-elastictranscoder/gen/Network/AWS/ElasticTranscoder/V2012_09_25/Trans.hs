@@ -506,7 +506,7 @@ listPipelines :: ( MonadCatch m
               => State ListPipelines a
               -> ResumableSource m ListPipelinesResponse
 listPipelines s =
-    paginate $ (mkListPipelines) &~ s
+    paginate (mkListPipelines &~ s)
 
 -- | The ListPresets operation gets a list of the default presets included with
 -- Elastic Transcoder and the presets that you've added in an AWS region. GET
@@ -541,7 +541,7 @@ listPresets :: ( MonadCatch m
             => State ListPresets a
             -> ResumableSource m ListPresetsResponse
 listPresets s =
-    paginate $ (mkListPresets) &~ s
+    paginate (mkListPresets &~ s)
 
 -- | The ReadJob operation returns detailed information about a job. GET
 -- /2012-09-25/jobs/3333333333333-abcde3 HTTP/1.1 Content-Type: charset=UTF-8

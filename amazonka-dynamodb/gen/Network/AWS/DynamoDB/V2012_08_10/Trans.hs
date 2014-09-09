@@ -352,7 +352,7 @@ listTables :: ( MonadCatch m
            => State ListTables a
            -> ResumableSource m ListTablesResponse
 listTables s =
-    paginate $ (mkListTables) &~ s
+    paginate (mkListTables &~ s)
 
 -- | Creates a new item, or replaces an old item with a new item. If an item
 -- already exists in the specified table with the same primary key, the new

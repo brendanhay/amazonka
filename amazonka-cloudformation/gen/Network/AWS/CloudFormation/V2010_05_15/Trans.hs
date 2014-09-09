@@ -223,7 +223,7 @@ describeStackResources :: ( MonadCatch m
                        => State DescribeStackResources a
                        -> m DescribeStackResourcesResponse
 describeStackResources s =
-    send $ (mkDescribeStackResources) &~ s
+    send (mkDescribeStackResources &~ s)
 
 -- | Returns the description for the specified stack; if no stack name was
 -- specified, then it returns the description for all the stacks created.
@@ -245,7 +245,7 @@ describeStacks :: ( MonadCatch m
                => State DescribeStacks a
                -> ResumableSource m DescribeStacksResponse
 describeStacks s =
-    paginate $ (mkDescribeStacks) &~ s
+    paginate (mkDescribeStacks &~ s)
 
 -- | Returns the estimated monthly cost of a template. The return value is an
 -- AWS Simple Monthly Calculator URL with a query string that describes the
@@ -269,7 +269,7 @@ estimateTemplateCost :: ( MonadCatch m
                      => State EstimateTemplateCost a
                      -> m EstimateTemplateCostResponse
 estimateTemplateCost s =
-    send $ (mkEstimateTemplateCost) &~ s
+    send (mkEstimateTemplateCost &~ s)
 
 -- | Returns the stack policy for a specified stack. If a stack doesn't have a
 -- policy, a null value is returned.
@@ -378,7 +378,7 @@ listStacks :: ( MonadCatch m
            => State ListStacks a
            -> ResumableSource m ListStacksResponse
 listStacks s =
-    paginate $ (mkListStacks) &~ s
+    paginate (mkListStacks &~ s)
 
 -- | Sets a stack policy for a specified stack.
 -- https://cloudformation.us-east-1.amazonaws.com/ ?Action=SetStackPolicy
@@ -450,4 +450,4 @@ validateTemplate :: ( MonadCatch m
                  => State ValidateTemplate a
                  -> m ValidateTemplateResponse
 validateTemplate s =
-    send $ (mkValidateTemplate) &~ s
+    send (mkValidateTemplate &~ s)

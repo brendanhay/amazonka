@@ -525,7 +525,7 @@ describeApps :: ( MonadCatch m
              => State DescribeApps a
              -> m DescribeAppsResponse
 describeApps s =
-    send $ (mkDescribeApps) &~ s
+    send (mkDescribeApps &~ s)
 
 -- | Describes the results of specified commands. You must specify at least one
 -- of the parameters. Required Permissions: To use this action, an IAM user
@@ -543,7 +543,7 @@ describeCommands :: ( MonadCatch m
                  => State DescribeCommands a
                  -> m DescribeCommandsResponse
 describeCommands s =
-    send $ (mkDescribeCommands) &~ s
+    send (mkDescribeCommands &~ s)
 
 -- | Requests a description of a specified set of deployments. You must specify
 -- at least one of the parameters. Required Permissions: To use this action,
@@ -561,7 +561,7 @@ describeDeployments :: ( MonadCatch m
                     => State DescribeDeployments a
                     -> m DescribeDeploymentsResponse
 describeDeployments s =
-    send $ (mkDescribeDeployments) &~ s
+    send (mkDescribeDeployments &~ s)
 
 -- | Describes Elastic IP addresses. You must specify at least one of the
 -- parameters. Required Permissions: To use this action, an IAM user must have
@@ -579,7 +579,7 @@ describeElasticIps :: ( MonadCatch m
                    => State DescribeElasticIps a
                    -> m DescribeElasticIpsResponse
 describeElasticIps s =
-    send $ (mkDescribeElasticIps) &~ s
+    send (mkDescribeElasticIps &~ s)
 
 -- | Describes a stack's Elastic Load Balancing instances. You must specify at
 -- least one of the parameters. Required Permissions: To use this action, an
@@ -597,7 +597,7 @@ describeElasticLoadBalancers :: ( MonadCatch m
                              => State DescribeElasticLoadBalancers a
                              -> m DescribeElasticLoadBalancersResponse
 describeElasticLoadBalancers s =
-    send $ (mkDescribeElasticLoadBalancers) &~ s
+    send (mkDescribeElasticLoadBalancers &~ s)
 
 -- | Requests a description of a set of instances. You must specify at least one
 -- of the parameters. Required Permissions: To use this action, an IAM user
@@ -615,7 +615,7 @@ describeInstances :: ( MonadCatch m
                   => State DescribeInstances a
                   -> m DescribeInstancesResponse
 describeInstances s =
-    send $ (mkDescribeInstances) &~ s
+    send (mkDescribeInstances &~ s)
 
 -- | Requests a description of one or more layers in a specified stack. You must
 -- specify at least one of the parameters. Required Permissions: To use this
@@ -633,7 +633,7 @@ describeLayers :: ( MonadCatch m
                => State DescribeLayers a
                -> m DescribeLayersResponse
 describeLayers s =
-    send $ (mkDescribeLayers) &~ s
+    send (mkDescribeLayers &~ s)
 
 -- | Describes load-based auto scaling configurations for specified layers. You
 -- must specify at least one of the parameters. Required Permissions: To use
@@ -670,7 +670,7 @@ describeMyUserProfile :: ( MonadCatch m
                       => State DescribeMyUserProfile a
                       -> m DescribeMyUserProfileResponse
 describeMyUserProfile s =
-    send $ (mkDescribeMyUserProfile) &~ s
+    send (mkDescribeMyUserProfile &~ s)
 
 -- | Describes the permissions for a specified stack. Required Permissions: To
 -- use this action, an IAM user must have a Manage permissions level for the
@@ -687,7 +687,7 @@ describePermissions :: ( MonadCatch m
                     => State DescribePermissions a
                     -> m DescribePermissionsResponse
 describePermissions s =
-    send $ (mkDescribePermissions) &~ s
+    send (mkDescribePermissions &~ s)
 
 -- | Describe an instance's RAID arrays. You must specify at least one of the
 -- parameters. Required Permissions: To use this action, an IAM user must have
@@ -705,7 +705,7 @@ describeRaidArrays :: ( MonadCatch m
                    => State DescribeRaidArrays a
                    -> m DescribeRaidArraysResponse
 describeRaidArrays s =
-    send $ (mkDescribeRaidArrays) &~ s
+    send (mkDescribeRaidArrays &~ s)
 
 -- | Describes Amazon RDS instances.
 --
@@ -737,7 +737,7 @@ describeServiceErrors :: ( MonadCatch m
                       => State DescribeServiceErrors a
                       -> m DescribeServiceErrorsResponse
 describeServiceErrors s =
-    send $ (mkDescribeServiceErrors) &~ s
+    send (mkDescribeServiceErrors &~ s)
 
 -- | Describes the number of layers and apps in a specified stack, and the
 -- number of instances in each state, such as running_setup or online.
@@ -775,7 +775,7 @@ describeStacks :: ( MonadCatch m
                => State DescribeStacks a
                -> m DescribeStacksResponse
 describeStacks s =
-    send $ (mkDescribeStacks) &~ s
+    send (mkDescribeStacks &~ s)
 
 -- | Describes time-based auto scaling configurations for specified instances.
 -- You must specify at least one of the parameters. Required Permissions: To
@@ -811,7 +811,7 @@ describeUserProfiles :: ( MonadCatch m
                      => State DescribeUserProfiles a
                      -> m DescribeUserProfilesResponse
 describeUserProfiles s =
-    send $ (mkDescribeUserProfiles) &~ s
+    send (mkDescribeUserProfiles &~ s)
 
 -- | Describes an instance's Amazon EBS volumes. You must specify at least one
 -- of the parameters. Required Permissions: To use this action, an IAM user
@@ -829,7 +829,7 @@ describeVolumes :: ( MonadCatch m
                 => State DescribeVolumes a
                 -> m DescribeVolumesResponse
 describeVolumes s =
-    send $ (mkDescribeVolumes) &~ s
+    send (mkDescribeVolumes &~ s)
 
 -- | Detaches a specified Elastic Load Balancing instance from its layer.
 -- Required Permissions: To use this action, an IAM user must have a Manage
@@ -1219,7 +1219,7 @@ updateMyUserProfile :: ( MonadCatch m
                     => State UpdateMyUserProfile a
                     -> m UpdateMyUserProfileResponse
 updateMyUserProfile s =
-    send $ (mkUpdateMyUserProfile) &~ s
+    send (mkUpdateMyUserProfile &~ s)
 
 -- | Updates an Amazon RDS instance.
 --

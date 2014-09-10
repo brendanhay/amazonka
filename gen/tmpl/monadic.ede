@@ -4,9 +4,7 @@
 
 {% include "_include/license.ede" with ns.monadic %}
 
-{{ documentation | above76 }}
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.

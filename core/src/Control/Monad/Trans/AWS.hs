@@ -18,7 +18,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
---
+-- | A monad transformer built on top of functions from "Network.AWS" which
+-- encapsulates various common parameters, errors, and usage patterns.
 module Control.Monad.Trans.AWS
     (
     -- * Transformer

@@ -28,22 +28,22 @@ library
     exposed-modules:
           Network.AWS.Route53Domains
         , Network.AWS.Route53Domains.Monadic
-        , Network.AWS.Route53Domains.V2014_05_15
-        , Network.AWS.Route53Domains.V2014_05_15.Monadic
-        , Network.AWS.Route53Domains.V2014_05_15.Types
-        , Network.AWS.Route53Domains.V2014_05_15.CheckDomainAvailability
-        , Network.AWS.Route53Domains.V2014_05_15.DisableDomainTransferLock
-        , Network.AWS.Route53Domains.V2014_05_15.EnableDomainTransferLock
-        , Network.AWS.Route53Domains.V2014_05_15.GetDomainDetail
-        , Network.AWS.Route53Domains.V2014_05_15.GetOperationDetail
-        , Network.AWS.Route53Domains.V2014_05_15.ListDomains
-        , Network.AWS.Route53Domains.V2014_05_15.ListOperations
-        , Network.AWS.Route53Domains.V2014_05_15.RegisterDomain
-        , Network.AWS.Route53Domains.V2014_05_15.RetrieveDomainAuthCode
-        , Network.AWS.Route53Domains.V2014_05_15.TransferDomain
-        , Network.AWS.Route53Domains.V2014_05_15.UpdateDomainContact
-        , Network.AWS.Route53Domains.V2014_05_15.UpdateDomainContactPrivacy
-        , Network.AWS.Route53Domains.V2014_05_15.UpdateDomainNameservers
+        , Network.AWS.Route53Domains
+        , Network.AWS.Route53Domains.Monadic
+        , Network.AWS.Route53Domains.Types
+        , Network.AWS.Route53Domains
+        , Network.AWS.Route53Domains
+        , Network.AWS.Route53Domains
+        , Network.AWS.Route53Domains
+        , Network.AWS.Route53Domains
+        , Network.AWS.Route53Domains
+        , Network.AWS.Route53Domains
+        , Network.AWS.Route53Domains
+        , Network.AWS.Route53Domains
+        , Network.AWS.Route53Domains
+        , Network.AWS.Route53Domains
+        , Network.AWS.Route53Domains
+        , Network.AWS.Route53Domains
 
     build-depends:
           amazonka-core

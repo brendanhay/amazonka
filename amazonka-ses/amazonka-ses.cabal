@@ -34,27 +34,27 @@ library
     exposed-modules:
           Network.AWS.SES
         , Network.AWS.SES.Monadic
-        , Network.AWS.SES.V2010_12_01
-        , Network.AWS.SES.V2010_12_01.Monadic
-        , Network.AWS.SES.V2010_12_01.Types
-        , Network.AWS.SES.V2010_12_01.DeleteIdentity
-        , Network.AWS.SES.V2010_12_01.DeleteVerifiedEmailAddress
-        , Network.AWS.SES.V2010_12_01.GetIdentityDkimAttributes
-        , Network.AWS.SES.V2010_12_01.GetIdentityNotificationAttributes
-        , Network.AWS.SES.V2010_12_01.GetIdentityVerificationAttributes
-        , Network.AWS.SES.V2010_12_01.GetSendQuota
-        , Network.AWS.SES.V2010_12_01.GetSendStatistics
-        , Network.AWS.SES.V2010_12_01.ListIdentities
-        , Network.AWS.SES.V2010_12_01.ListVerifiedEmailAddresses
-        , Network.AWS.SES.V2010_12_01.SendEmail
-        , Network.AWS.SES.V2010_12_01.SendRawEmail
-        , Network.AWS.SES.V2010_12_01.SetIdentityDkimEnabled
-        , Network.AWS.SES.V2010_12_01.SetIdentityFeedbackForwardingEnabled
-        , Network.AWS.SES.V2010_12_01.SetIdentityNotificationTopic
-        , Network.AWS.SES.V2010_12_01.VerifyDomainDkim
-        , Network.AWS.SES.V2010_12_01.VerifyDomainIdentity
-        , Network.AWS.SES.V2010_12_01.VerifyEmailAddress
-        , Network.AWS.SES.V2010_12_01.VerifyEmailIdentity
+        , Network.AWS.SES
+        , Network.AWS.SES.Monadic
+        , Network.AWS.SES.Types
+        , Network.AWS.SES
+        , Network.AWS.SES
+        , Network.AWS.SES
+        , Network.AWS.SES
+        , Network.AWS.SES
+        , Network.AWS.SES
+        , Network.AWS.SES
+        , Network.AWS.SES
+        , Network.AWS.SES
+        , Network.AWS.SES
+        , Network.AWS.SES
+        , Network.AWS.SES
+        , Network.AWS.SES
+        , Network.AWS.SES
+        , Network.AWS.SES
+        , Network.AWS.SES
+        , Network.AWS.SES
+        , Network.AWS.SES
 
     build-depends:
           amazonka-core

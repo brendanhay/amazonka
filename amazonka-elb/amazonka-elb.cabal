@@ -30,37 +30,37 @@ library
     exposed-modules:
           Network.AWS.ELB
         , Network.AWS.ELB.Monadic
-        , Network.AWS.ELB.V2012_06_01
-        , Network.AWS.ELB.V2012_06_01.Monadic
-        , Network.AWS.ELB.V2012_06_01.Types
-        , Network.AWS.ELB.V2012_06_01.AddTags
-        , Network.AWS.ELB.V2012_06_01.ApplySecurityGroupsToLoadBalancer
-        , Network.AWS.ELB.V2012_06_01.AttachLoadBalancerToSubnets
-        , Network.AWS.ELB.V2012_06_01.ConfigureHealthCheck
-        , Network.AWS.ELB.V2012_06_01.CreateAppCookieStickinessPolicy
-        , Network.AWS.ELB.V2012_06_01.CreateLBCookieStickinessPolicy
-        , Network.AWS.ELB.V2012_06_01.CreateLoadBalancer
-        , Network.AWS.ELB.V2012_06_01.CreateLoadBalancerListeners
-        , Network.AWS.ELB.V2012_06_01.CreateLoadBalancerPolicy
-        , Network.AWS.ELB.V2012_06_01.DeleteLoadBalancer
-        , Network.AWS.ELB.V2012_06_01.DeleteLoadBalancerListeners
-        , Network.AWS.ELB.V2012_06_01.DeleteLoadBalancerPolicy
-        , Network.AWS.ELB.V2012_06_01.DeregisterInstancesFromLoadBalancer
-        , Network.AWS.ELB.V2012_06_01.DescribeInstanceHealth
-        , Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerAttributes
-        , Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerPolicies
-        , Network.AWS.ELB.V2012_06_01.DescribeLoadBalancerPolicyTypes
-        , Network.AWS.ELB.V2012_06_01.DescribeLoadBalancers
-        , Network.AWS.ELB.V2012_06_01.DescribeTags
-        , Network.AWS.ELB.V2012_06_01.DetachLoadBalancerFromSubnets
-        , Network.AWS.ELB.V2012_06_01.DisableAvailabilityZonesForLoadBalancer
-        , Network.AWS.ELB.V2012_06_01.EnableAvailabilityZonesForLoadBalancer
-        , Network.AWS.ELB.V2012_06_01.ModifyLoadBalancerAttributes
-        , Network.AWS.ELB.V2012_06_01.RegisterInstancesWithLoadBalancer
-        , Network.AWS.ELB.V2012_06_01.RemoveTags
-        , Network.AWS.ELB.V2012_06_01.SetLoadBalancerListenerSSLCertificate
-        , Network.AWS.ELB.V2012_06_01.SetLoadBalancerPoliciesForBackendServer
-        , Network.AWS.ELB.V2012_06_01.SetLoadBalancerPoliciesOfListener
+        , Network.AWS.ELB
+        , Network.AWS.ELB.Monadic
+        , Network.AWS.ELB.Types
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
+        , Network.AWS.ELB
 
     build-depends:
           amazonka-core

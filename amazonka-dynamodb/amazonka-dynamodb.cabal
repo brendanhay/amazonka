@@ -32,22 +32,22 @@ library
     exposed-modules:
           Network.AWS.DynamoDB
         , Network.AWS.DynamoDB.Monadic
-        , Network.AWS.DynamoDB.V2012_08_10
-        , Network.AWS.DynamoDB.V2012_08_10.Monadic
-        , Network.AWS.DynamoDB.V2012_08_10.Types
-        , Network.AWS.DynamoDB.V2012_08_10.BatchGetItem
-        , Network.AWS.DynamoDB.V2012_08_10.BatchWriteItem
-        , Network.AWS.DynamoDB.V2012_08_10.CreateTable
-        , Network.AWS.DynamoDB.V2012_08_10.DeleteItem
-        , Network.AWS.DynamoDB.V2012_08_10.DeleteTable
-        , Network.AWS.DynamoDB.V2012_08_10.DescribeTable
-        , Network.AWS.DynamoDB.V2012_08_10.GetItem
-        , Network.AWS.DynamoDB.V2012_08_10.ListTables
-        , Network.AWS.DynamoDB.V2012_08_10.PutItem
-        , Network.AWS.DynamoDB.V2012_08_10.Query
-        , Network.AWS.DynamoDB.V2012_08_10.Scan
-        , Network.AWS.DynamoDB.V2012_08_10.UpdateItem
-        , Network.AWS.DynamoDB.V2012_08_10.UpdateTable
+        , Network.AWS.DynamoDB
+        , Network.AWS.DynamoDB.Monadic
+        , Network.AWS.DynamoDB.Types
+        , Network.AWS.DynamoDB
+        , Network.AWS.DynamoDB
+        , Network.AWS.DynamoDB
+        , Network.AWS.DynamoDB
+        , Network.AWS.DynamoDB
+        , Network.AWS.DynamoDB
+        , Network.AWS.DynamoDB
+        , Network.AWS.DynamoDB
+        , Network.AWS.DynamoDB
+        , Network.AWS.DynamoDB
+        , Network.AWS.DynamoDB
+        , Network.AWS.DynamoDB
+        , Network.AWS.DynamoDB
 
     build-depends:
           amazonka-core

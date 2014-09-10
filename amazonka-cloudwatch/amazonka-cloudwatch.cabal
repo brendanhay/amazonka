@@ -36,20 +36,20 @@ library
     exposed-modules:
           Network.AWS.CloudWatch
         , Network.AWS.CloudWatch.Monadic
-        , Network.AWS.CloudWatch.V2010_08_01
-        , Network.AWS.CloudWatch.V2010_08_01.Monadic
-        , Network.AWS.CloudWatch.V2010_08_01.Types
-        , Network.AWS.CloudWatch.V2010_08_01.DeleteAlarms
-        , Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmHistory
-        , Network.AWS.CloudWatch.V2010_08_01.DescribeAlarms
-        , Network.AWS.CloudWatch.V2010_08_01.DescribeAlarmsForMetric
-        , Network.AWS.CloudWatch.V2010_08_01.DisableAlarmActions
-        , Network.AWS.CloudWatch.V2010_08_01.EnableAlarmActions
-        , Network.AWS.CloudWatch.V2010_08_01.GetMetricStatistics
-        , Network.AWS.CloudWatch.V2010_08_01.ListMetrics
-        , Network.AWS.CloudWatch.V2010_08_01.PutMetricAlarm
-        , Network.AWS.CloudWatch.V2010_08_01.PutMetricData
-        , Network.AWS.CloudWatch.V2010_08_01.SetAlarmState
+        , Network.AWS.CloudWatch
+        , Network.AWS.CloudWatch.Monadic
+        , Network.AWS.CloudWatch.Types
+        , Network.AWS.CloudWatch
+        , Network.AWS.CloudWatch
+        , Network.AWS.CloudWatch
+        , Network.AWS.CloudWatch
+        , Network.AWS.CloudWatch
+        , Network.AWS.CloudWatch
+        , Network.AWS.CloudWatch
+        , Network.AWS.CloudWatch
+        , Network.AWS.CloudWatch
+        , Network.AWS.CloudWatch
+        , Network.AWS.CloudWatch
 
     build-depends:
           amazonka-core

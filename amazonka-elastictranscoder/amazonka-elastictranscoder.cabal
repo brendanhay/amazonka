@@ -30,26 +30,26 @@ library
     exposed-modules:
           Network.AWS.ElasticTranscoder
         , Network.AWS.ElasticTranscoder.Monadic
-        , Network.AWS.ElasticTranscoder.V2012_09_25
-        , Network.AWS.ElasticTranscoder.V2012_09_25.Monadic
-        , Network.AWS.ElasticTranscoder.V2012_09_25.Types
-        , Network.AWS.ElasticTranscoder.V2012_09_25.CancelJob
-        , Network.AWS.ElasticTranscoder.V2012_09_25.CreateJob
-        , Network.AWS.ElasticTranscoder.V2012_09_25.CreatePipeline
-        , Network.AWS.ElasticTranscoder.V2012_09_25.CreatePreset
-        , Network.AWS.ElasticTranscoder.V2012_09_25.DeletePipeline
-        , Network.AWS.ElasticTranscoder.V2012_09_25.DeletePreset
-        , Network.AWS.ElasticTranscoder.V2012_09_25.ListJobsByPipeline
-        , Network.AWS.ElasticTranscoder.V2012_09_25.ListJobsByStatus
-        , Network.AWS.ElasticTranscoder.V2012_09_25.ListPipelines
-        , Network.AWS.ElasticTranscoder.V2012_09_25.ListPresets
-        , Network.AWS.ElasticTranscoder.V2012_09_25.ReadJob
-        , Network.AWS.ElasticTranscoder.V2012_09_25.ReadPipeline
-        , Network.AWS.ElasticTranscoder.V2012_09_25.ReadPreset
-        , Network.AWS.ElasticTranscoder.V2012_09_25.TestRole
-        , Network.AWS.ElasticTranscoder.V2012_09_25.UpdatePipeline
-        , Network.AWS.ElasticTranscoder.V2012_09_25.UpdatePipelineNotifications
-        , Network.AWS.ElasticTranscoder.V2012_09_25.UpdatePipelineStatus
+        , Network.AWS.ElasticTranscoder
+        , Network.AWS.ElasticTranscoder.Monadic
+        , Network.AWS.ElasticTranscoder.Types
+        , Network.AWS.ElasticTranscoder
+        , Network.AWS.ElasticTranscoder
+        , Network.AWS.ElasticTranscoder
+        , Network.AWS.ElasticTranscoder
+        , Network.AWS.ElasticTranscoder
+        , Network.AWS.ElasticTranscoder
+        , Network.AWS.ElasticTranscoder
+        , Network.AWS.ElasticTranscoder
+        , Network.AWS.ElasticTranscoder
+        , Network.AWS.ElasticTranscoder
+        , Network.AWS.ElasticTranscoder
+        , Network.AWS.ElasticTranscoder
+        , Network.AWS.ElasticTranscoder
+        , Network.AWS.ElasticTranscoder
+        , Network.AWS.ElasticTranscoder
+        , Network.AWS.ElasticTranscoder
+        , Network.AWS.ElasticTranscoder
 
     build-depends:
           amazonka-core

@@ -65,7 +65,6 @@ import Network.AWS.Prelude
 import {{ ns.root }}
 
 type ServiceEr = Er {{ name }}
-
 {% for oper in operations %}
 {% include "_include/state-operation.ede" with oper.value %}
 {% endfor %}

@@ -97,7 +97,7 @@ instance Show Credentials where
     show = showBS
 
 -- | Retrieve authentication information from the environment or instance-data.
---getAuth :: (Functor m, MonadIO m) => Credentials -> ExceptT Error m Auth
+getAuth :: (MonadIO m, MonadError Error m) => Credentials -> m Auth
 getAuth c = case c of
     FromKeys a s      -> return (fromKeys a s)
     FromSession a s t -> return (fromSession a s t)

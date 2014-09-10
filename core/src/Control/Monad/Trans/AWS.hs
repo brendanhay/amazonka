@@ -90,14 +90,14 @@ import           Network.AWS.Auth
 import qualified Network.AWS.Types               as Types
 import           Network.AWS.Types               hiding (debug)
 
--- | A convenient alias for 'AWST IO'.
+-- | A convenient alias for 'AWST' 'IO'.
 type AWS = AWST IO
 
 -- | The transformer. This satisfies all of the constraints that the functions
 -- in this module require, such as providing 'MonadResource' instances,
 -- as well as keeping track of the internal 'Env' environment.
 --
--- The 'MonadError Error' instance for this transformer internally uses 'ExceptT'
+-- The 'MonadError' instance for this transformer internally uses 'ExceptT'
 -- to handle actions that result in an 'Error'. For more information see
 -- 'sendCatch' and 'paginateCatch'.
 newtype AWST m a = AWST
@@ -169,9 +169,6 @@ instance MonadResource AWS where
 
 -- | Unwrap an 'AWST' transformer, calling all of the registered 'ResourceT'
 -- release actions.
---
--- This will short-circuit and return the first 'Left' case encountered if
--- 'send' or 'paginate' are used and an 'Error' is thrown.
 runAWST :: MonadBaseControl IO m => AWST m a -> Env -> m (Either Error a)
 runAWST m e = runResourceT (withInternalState (runAWST' m . (e,)))
 

@@ -22,7 +22,73 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Types where
+module Network.AWS.Types
+    (
+    -- * Errors
+      AWSError        (..)
+    , AWSServiceError (..)
+    , Error           (..)
+    , _ServiceError
+    , _ClientError
+    , _SerializerError
+    , _Nested
+
+    -- * Authentication
+    -- ** Credentials
+    , AccessKey       (..)
+    , SecretKey       (..)
+    , SecurityToken   (..)
+    -- ** Environment
+    , AuthEnv         (..)
+    , Auth            (..)
+    , withAuth
+
+    -- * Logging
+    , Logging         (..)
+    , debug
+
+    -- * Services
+    , AWSService      (..)
+    , Service'        (..)
+    -- ** Endpoints
+    , Endpoint'       (..)
+    , Host            (..)
+    , endpoint
+
+    -- * Signing
+    , AWSSigner       (..)
+    , AWSPresigner    (..)
+    , Signed          (..)
+    , Meta
+    , sgMeta
+    , sgRequest
+
+    -- * Requests
+    , AWSRequest      (..)
+    , AWSPager        (..)
+    , Request         (..)
+    , rqMethod
+    , rqHeaders
+    , rqPath
+    , rqQuery
+    , rqBody
+    -- ** HTTP Client
+    , ClientRequest
+    , ClientResponse
+    , clientRequest
+
+    -- * Regions
+    , Region          (..)
+    , Zone            (..)
+    , zRegion
+    , zSuffix
+
+    -- * Miscellaneous
+    , Switch          (..)
+    , Action          (..)
+    , Base64          (..)
+    , base64
+    ) where
 
 import           Control.Applicative
 import           Control.Concurrent             (ThreadId)
@@ -48,21 +114,13 @@ import           Data.Typeable
 import           GHC.Generics
 import           Network.AWS.Data
 import qualified Network.HTTP.Client            as Client
-import           Network.HTTP.Client            hiding (Request, Response)
+import           Network.HTTP.Client            hiding (Request)
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 import           System.Locale
 
-type ClientRequest    = Client.Request
-type ClientResponse m = Client.Response (ResumableSource m ByteString)
-
-clientRequest :: ClientRequest
-clientRequest = def
-    { Client.secure      = True
-    , Client.port        = 443
-    , Client.checkStatus = \_ _ _ -> Nothing
-    }
-
+-- | An error type representing the subset of errors that can be directly
+-- attributed to this library.
 data Error
     = ServiceError    String
     | ClientError     HttpException
@@ -82,6 +140,7 @@ instance Monoid Error where
         f (Nested xs) = xs
         f x           = [x]
 
+-- | Convert from a specific error to the more general 'Error' type.
 class AWSError a where
     awsError :: a -> Error
 
@@ -100,6 +159,7 @@ instance AWSError LText.Text where
 instance AWSError HttpException where
     awsError = ClientError
 
+-- | Convert from service specific errors to the more general service error.
 class AWSError a => AWSServiceError a where
     serviceError    :: String        -> a
     clientError     :: HttpException -> a
@@ -110,6 +170,8 @@ instance AWSServiceError Error where
     clientError     = ClientError
     serializerError = SerializerError
 
+-- | The properties (such as endpoint) for a service, as well as it's
+-- associated signing algorithm and error types.
 class (AWSSigner (Sg a), AWSServiceError (Er a)) => AWSService a where
     type Sg a :: *
     data Er a :: *
@@ -118,6 +180,7 @@ class (AWSSigner (Sg a), AWSServiceError (Er a)) => AWSService a where
 
 deriving instance Typeable Er
 
+-- | Specify how a data type can be de/serialised.
 class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
     type Sv a :: *
     type Rs a :: *
@@ -128,11 +191,18 @@ class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
              -> Either HttpException (ClientResponse m)
              -> m (Either (Er (Sv a)) (Rs a))
 
+-- | Specify how an 'AWSRequest' and it's associated 'Rs' response can generate
+-- a subsequent request, if available.
 class AWSRequest a => AWSPager a where
     next :: a -> Rs a -> Maybe a
 
+-- | Signing metadata data specific to a signing algorithm.
+--
+-- Note: this is used for test and debug purposes, or is otherwise ignored.
 data family Meta v :: *
 
+-- | A signed 'ClientRequest' and associated metadata specific to the signing
+-- algorithm that was used.
 data Signed a v where
     Signed :: Show (Meta v)
            => { _sgMeta    :: Meta v
@@ -174,24 +244,28 @@ class AWSPresigner v where
               -> Int
               -> Signed a v
 
+-- | Access key credential.
 newtype AccessKey = AccessKey ByteString
     deriving (Eq, Show, IsString)
 
 instance ToByteString AccessKey where
     toBS (AccessKey k) = k
 
+-- | Secret key credential.
 newtype SecretKey = SecretKey ByteString
     deriving (Eq, Show, IsString)
 
 instance ToByteString SecretKey where
     toBS (SecretKey k) = k
 
+-- | A security token used by STS to temporarily authorise access to an AWS resource.
 newtype SecurityToken = SecurityToken ByteString
     deriving (Eq, Show, IsString)
 
 instance ToByteString SecurityToken where
     toBS (SecurityToken t) = t
 
+-- | The authorisation environment.
 data AuthEnv = AuthEnv
     { _authAccess :: !AccessKey
     , _authSecret :: !SecretKey
@@ -208,6 +282,8 @@ instance FromJSON AuthEnv where
       where
         f g = fmap (g . Text.encodeUtf8)
 
+-- | An authorisation environment containing AWS credentials and potentially
+-- a reference which can be refreshed out-of-band as they expire.
 data Auth
     = Ref  ThreadId (IORef AuthEnv)
     | Auth AuthEnv
@@ -216,14 +292,23 @@ withAuth :: MonadIO m => Auth -> (AuthEnv -> m a) -> m a
 withAuth (Auth  e) f = f e
 withAuth (Ref _ r) f = liftIO (readIORef r) >>= f
 
+-- | The log level and associated logger function.
 data Logging
     = None
     | Debug (Text -> IO ())
 
+-- | Log a message using the debug logger, or if none is specified noop.
 debug :: MonadIO m => Logging -> Text -> m ()
 debug None      = const (return ())
 debug (Debug f) = liftIO . f
 
+newtype Host = Host ByteString
+    deriving (Eq, Show)
+
+instance ToByteString Host where
+    toBS (Host h) = h
+
+-- | The scope for a service's endpoint.
 data Endpoint'
     = Global
     | Regional
@@ -232,19 +317,7 @@ data Endpoint'
 instance IsString Endpoint' where
     fromString = Custom . fromString
 
-data Service' a = Service'
-    { _svcEndpoint :: !Endpoint'
-    , _svcPrefix   :: ByteString
-    , _svcVersion  :: ByteString
-    , _svcTarget   :: Maybe ByteString
-    }
-
-newtype Host = Host ByteString
-    deriving (Eq, Show)
-
-instance ToByteString Host where
-    toBS (Host h) = h
-
+-- | Determine the full host address for a 'Service'' within the given 'Region'.
 endpoint :: Service' a -> Region -> Host
 endpoint Service'{..} reg =
     let suf = ".amazonaws.com"
@@ -253,6 +326,15 @@ endpoint Service'{..} reg =
             Regional -> _svcPrefix <> "." <> toBS reg <> suf
             Custom x -> x
 
+-- | Attributes specific to an AWS service.
+data Service' a = Service'
+    { _svcEndpoint :: !Endpoint'
+    , _svcPrefix   :: ByteString
+    , _svcVersion  :: ByteString
+    , _svcTarget   :: Maybe ByteString
+    }
+
+-- | An unsigned request.
 data Request a = Request
     { _rqMethod  :: !StdMethod
     , _rqPath    :: ByteString
@@ -274,6 +356,7 @@ instance ToText (Request a) where
         , "_rqBody    = " <> toText _rqBody
         ]
 
+-- | The sum of available AWS regions.
 data Region
     = Ireland         -- ^ Europe / eu-west-1
     | Tokyo           -- ^ Asia Pacific / ap-northeast-1
@@ -322,6 +405,7 @@ instance ToByteString Region
 instance FromXML      Region
 instance ToXML        Region
 
+-- | An availability zone.
 data Zone = Zone
     { _zRegion :: !Region
     , _zSuffix :: !Char
@@ -333,15 +417,18 @@ instance FromText Zone where
 instance ToText Zone where
     toText Zone{..} = toText _zRegion `Text.snoc` _zSuffix
 
+-- | A service action.
 newtype Action = Action Text
     deriving (Eq, Show, IsString)
 
 instance ToQuery Action where
     toQuery (Action a) = toQuery ("Action" :: ByteString, a)
 
+-- | A switch which can be either 'Enabled' or 'Disabled'.
 data Switch a = Enabled | Disabled
     deriving (Eq, Show, Generic)
 
+-- | Base64 encoded binary date.
 newtype Base64 = Base64 ByteString
     deriving (Eq, Show, Generic)
 
@@ -357,6 +444,21 @@ instance FromJSON Base64 where
 
 instance ToJSON Base64 where
     toJSON (Base64 bs) = toJSON (Text.decodeUtf8 bs)
+
+-- | A convenience alias to avoid type ambiguity.
+type ClientRequest    = Client.Request
+
+-- | A convenience alias encapsulating the common 'Response' body.
+type ClientResponse m = Response (ResumableSource m ByteString)
+
+-- | Construct a 'ClientRequest' using common parameters such as TLS and prevent
+-- throwing errors when receiving erroneous status codes in respones.
+clientRequest :: ClientRequest
+clientRequest = def
+    { Client.secure      = True
+    , Client.port        = 443
+    , Client.checkStatus = \_ _ _ -> Nothing
+    }
 
 makePrisms ''Error
 makeLenses ''Request

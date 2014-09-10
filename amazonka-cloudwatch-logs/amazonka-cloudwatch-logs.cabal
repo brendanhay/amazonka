@@ -28,23 +28,21 @@ library
     exposed-modules:
           Network.AWS.CloudWatchLogs
         , Network.AWS.CloudWatchLogs.Monadic
-        , Network.AWS.CloudWatchLogs
-        , Network.AWS.CloudWatchLogs.Monadic
         , Network.AWS.CloudWatchLogs.Types
-        , Network.AWS.CloudWatchLogs
-        , Network.AWS.CloudWatchLogs
-        , Network.AWS.CloudWatchLogs
-        , Network.AWS.CloudWatchLogs
-        , Network.AWS.CloudWatchLogs
-        , Network.AWS.CloudWatchLogs
-        , Network.AWS.CloudWatchLogs
-        , Network.AWS.CloudWatchLogs
-        , Network.AWS.CloudWatchLogs
-        , Network.AWS.CloudWatchLogs
-        , Network.AWS.CloudWatchLogs
-        , Network.AWS.CloudWatchLogs
-        , Network.AWS.CloudWatchLogs
-        , Network.AWS.CloudWatchLogs
+        , Network.AWS.CloudWatchLogs.CreateLogGroup
+        , Network.AWS.CloudWatchLogs.CreateLogStream
+        , Network.AWS.CloudWatchLogs.DeleteLogGroup
+        , Network.AWS.CloudWatchLogs.DeleteLogStream
+        , Network.AWS.CloudWatchLogs.DeleteMetricFilter
+        , Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
+        , Network.AWS.CloudWatchLogs.DescribeLogGroups
+        , Network.AWS.CloudWatchLogs.DescribeLogStreams
+        , Network.AWS.CloudWatchLogs.DescribeMetricFilters
+        , Network.AWS.CloudWatchLogs.GetLogEvents
+        , Network.AWS.CloudWatchLogs.PutLogEvents
+        , Network.AWS.CloudWatchLogs.PutMetricFilter
+        , Network.AWS.CloudWatchLogs.PutRetentionPolicy
+        , Network.AWS.CloudWatchLogs.TestMetricFilter
 
     build-depends:
           amazonka-core

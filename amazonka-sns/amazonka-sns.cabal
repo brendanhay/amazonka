@@ -36,34 +36,32 @@ library
     exposed-modules:
           Network.AWS.SNS
         , Network.AWS.SNS.Monadic
-        , Network.AWS.SNS
-        , Network.AWS.SNS.Monadic
         , Network.AWS.SNS.Types
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
-        , Network.AWS.SNS
+        , Network.AWS.SNS.AddPermission
+        , Network.AWS.SNS.ConfirmSubscription
+        , Network.AWS.SNS.CreatePlatformApplication
+        , Network.AWS.SNS.CreatePlatformEndpoint
+        , Network.AWS.SNS.CreateTopic
+        , Network.AWS.SNS.DeleteEndpoint
+        , Network.AWS.SNS.DeletePlatformApplication
+        , Network.AWS.SNS.DeleteTopic
+        , Network.AWS.SNS.GetEndpointAttributes
+        , Network.AWS.SNS.GetPlatformApplicationAttributes
+        , Network.AWS.SNS.GetSubscriptionAttributes
+        , Network.AWS.SNS.GetTopicAttributes
+        , Network.AWS.SNS.ListEndpointsByPlatformApplication
+        , Network.AWS.SNS.ListPlatformApplications
+        , Network.AWS.SNS.ListSubscriptions
+        , Network.AWS.SNS.ListSubscriptionsByTopic
+        , Network.AWS.SNS.ListTopics
+        , Network.AWS.SNS.Publish
+        , Network.AWS.SNS.RemovePermission
+        , Network.AWS.SNS.SetEndpointAttributes
+        , Network.AWS.SNS.SetPlatformApplicationAttributes
+        , Network.AWS.SNS.SetSubscriptionAttributes
+        , Network.AWS.SNS.SetTopicAttributes
+        , Network.AWS.SNS.Subscribe
+        , Network.AWS.SNS.Unsubscribe
 
     build-depends:
           amazonka-core

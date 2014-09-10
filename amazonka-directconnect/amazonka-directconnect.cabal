@@ -32,28 +32,26 @@ library
     exposed-modules:
           Network.AWS.DirectConnect
         , Network.AWS.DirectConnect.Monadic
-        , Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect.Monadic
         , Network.AWS.DirectConnect.Types
-        , Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect
-        , Network.AWS.DirectConnect
+        , Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
+        , Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
+        , Network.AWS.DirectConnect.AllocatePublicVirtualInterface
+        , Network.AWS.DirectConnect.ConfirmConnection
+        , Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
+        , Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
+        , Network.AWS.DirectConnect.CreateConnection
+        , Network.AWS.DirectConnect.CreateInterconnect
+        , Network.AWS.DirectConnect.CreatePrivateVirtualInterface
+        , Network.AWS.DirectConnect.CreatePublicVirtualInterface
+        , Network.AWS.DirectConnect.DeleteConnection
+        , Network.AWS.DirectConnect.DeleteInterconnect
+        , Network.AWS.DirectConnect.DeleteVirtualInterface
+        , Network.AWS.DirectConnect.DescribeConnections
+        , Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
+        , Network.AWS.DirectConnect.DescribeInterconnects
+        , Network.AWS.DirectConnect.DescribeLocations
+        , Network.AWS.DirectConnect.DescribeVirtualGateways
+        , Network.AWS.DirectConnect.DescribeVirtualInterfaces
 
     build-depends:
           amazonka-core

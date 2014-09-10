@@ -28,15 +28,13 @@ library
     exposed-modules:
           Network.AWS.STS
         , Network.AWS.STS.Monadic
-        , Network.AWS.STS
-        , Network.AWS.STS.Monadic
         , Network.AWS.STS.Types
-        , Network.AWS.STS
-        , Network.AWS.STS
-        , Network.AWS.STS
-        , Network.AWS.STS
-        , Network.AWS.STS
-        , Network.AWS.STS
+        , Network.AWS.STS.AssumeRole
+        , Network.AWS.STS.AssumeRoleWithSAML
+        , Network.AWS.STS.AssumeRoleWithWebIdentity
+        , Network.AWS.STS.DecodeAuthorizationMessage
+        , Network.AWS.STS.GetFederationToken
+        , Network.AWS.STS.GetSessionToken
 
     build-depends:
           amazonka-core

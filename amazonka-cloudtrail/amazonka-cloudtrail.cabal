@@ -30,16 +30,14 @@ library
     exposed-modules:
           Network.AWS.CloudTrail
         , Network.AWS.CloudTrail.Monadic
-        , Network.AWS.CloudTrail
-        , Network.AWS.CloudTrail.Monadic
         , Network.AWS.CloudTrail.Types
-        , Network.AWS.CloudTrail
-        , Network.AWS.CloudTrail
-        , Network.AWS.CloudTrail
-        , Network.AWS.CloudTrail
-        , Network.AWS.CloudTrail
-        , Network.AWS.CloudTrail
-        , Network.AWS.CloudTrail
+        , Network.AWS.CloudTrail.CreateTrail
+        , Network.AWS.CloudTrail.DeleteTrail
+        , Network.AWS.CloudTrail.DescribeTrails
+        , Network.AWS.CloudTrail.GetTrailStatus
+        , Network.AWS.CloudTrail.StartLogging
+        , Network.AWS.CloudTrail.StopLogging
+        , Network.AWS.CloudTrail.UpdateTrail
 
     build-depends:
           amazonka-core

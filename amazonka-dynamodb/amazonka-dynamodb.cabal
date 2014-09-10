@@ -32,22 +32,20 @@ library
     exposed-modules:
           Network.AWS.DynamoDB
         , Network.AWS.DynamoDB.Monadic
-        , Network.AWS.DynamoDB
-        , Network.AWS.DynamoDB.Monadic
         , Network.AWS.DynamoDB.Types
-        , Network.AWS.DynamoDB
-        , Network.AWS.DynamoDB
-        , Network.AWS.DynamoDB
-        , Network.AWS.DynamoDB
-        , Network.AWS.DynamoDB
-        , Network.AWS.DynamoDB
-        , Network.AWS.DynamoDB
-        , Network.AWS.DynamoDB
-        , Network.AWS.DynamoDB
-        , Network.AWS.DynamoDB
-        , Network.AWS.DynamoDB
-        , Network.AWS.DynamoDB
-        , Network.AWS.DynamoDB
+        , Network.AWS.DynamoDB.BatchGetItem
+        , Network.AWS.DynamoDB.BatchWriteItem
+        , Network.AWS.DynamoDB.CreateTable
+        , Network.AWS.DynamoDB.DeleteItem
+        , Network.AWS.DynamoDB.DeleteTable
+        , Network.AWS.DynamoDB.DescribeTable
+        , Network.AWS.DynamoDB.GetItem
+        , Network.AWS.DynamoDB.ListTables
+        , Network.AWS.DynamoDB.PutItem
+        , Network.AWS.DynamoDB.Query
+        , Network.AWS.DynamoDB.Scan
+        , Network.AWS.DynamoDB.UpdateItem
+        , Network.AWS.DynamoDB.UpdateTable
 
     build-depends:
           amazonka-core

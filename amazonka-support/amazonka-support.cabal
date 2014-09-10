@@ -36,23 +36,21 @@ library
     exposed-modules:
           Network.AWS.Support
         , Network.AWS.Support.Monadic
-        , Network.AWS.Support
-        , Network.AWS.Support.Monadic
         , Network.AWS.Support.Types
-        , Network.AWS.Support
-        , Network.AWS.Support
-        , Network.AWS.Support
-        , Network.AWS.Support
-        , Network.AWS.Support
-        , Network.AWS.Support
-        , Network.AWS.Support
-        , Network.AWS.Support
-        , Network.AWS.Support
-        , Network.AWS.Support
-        , Network.AWS.Support
-        , Network.AWS.Support
-        , Network.AWS.Support
-        , Network.AWS.Support
+        , Network.AWS.Support.AddAttachmentsToSet
+        , Network.AWS.Support.AddCommunicationToCase
+        , Network.AWS.Support.CreateCase
+        , Network.AWS.Support.DescribeAttachment
+        , Network.AWS.Support.DescribeCases
+        , Network.AWS.Support.DescribeCommunications
+        , Network.AWS.Support.DescribeServices
+        , Network.AWS.Support.DescribeSeverityLevels
+        , Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
+        , Network.AWS.Support.DescribeTrustedAdvisorCheckResult
+        , Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
+        , Network.AWS.Support.DescribeTrustedAdvisorChecks
+        , Network.AWS.Support.RefreshTrustedAdvisorCheck
+        , Network.AWS.Support.ResolveCase
 
     build-depends:
           amazonka-core

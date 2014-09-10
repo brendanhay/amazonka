@@ -30,26 +30,24 @@ library
     exposed-modules:
           Network.AWS.EMR
         , Network.AWS.EMR.Monadic
-        , Network.AWS.EMR
-        , Network.AWS.EMR.Monadic
         , Network.AWS.EMR.Types
-        , Network.AWS.EMR
-        , Network.AWS.EMR
-        , Network.AWS.EMR
-        , Network.AWS.EMR
-        , Network.AWS.EMR
-        , Network.AWS.EMR
-        , Network.AWS.EMR
-        , Network.AWS.EMR
-        , Network.AWS.EMR
-        , Network.AWS.EMR
-        , Network.AWS.EMR
-        , Network.AWS.EMR
-        , Network.AWS.EMR
-        , Network.AWS.EMR
-        , Network.AWS.EMR
-        , Network.AWS.EMR
-        , Network.AWS.EMR
+        , Network.AWS.EMR.AddInstanceGroups
+        , Network.AWS.EMR.AddJobFlowSteps
+        , Network.AWS.EMR.AddTags
+        , Network.AWS.EMR.DescribeCluster
+        , Network.AWS.EMR.DescribeJobFlows
+        , Network.AWS.EMR.DescribeStep
+        , Network.AWS.EMR.ListBootstrapActions
+        , Network.AWS.EMR.ListClusters
+        , Network.AWS.EMR.ListInstanceGroups
+        , Network.AWS.EMR.ListInstances
+        , Network.AWS.EMR.ListSteps
+        , Network.AWS.EMR.ModifyInstanceGroups
+        , Network.AWS.EMR.RemoveTags
+        , Network.AWS.EMR.RunJobFlow
+        , Network.AWS.EMR.SetTerminationProtection
+        , Network.AWS.EMR.SetVisibleToAllUsers
+        , Network.AWS.EMR.TerminateJobFlows
 
     build-depends:
           amazonka-core

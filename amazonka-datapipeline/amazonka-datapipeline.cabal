@@ -30,25 +30,23 @@ library
     exposed-modules:
           Network.AWS.DataPipeline
         , Network.AWS.DataPipeline.Monadic
-        , Network.AWS.DataPipeline
-        , Network.AWS.DataPipeline.Monadic
         , Network.AWS.DataPipeline.Types
-        , Network.AWS.DataPipeline
-        , Network.AWS.DataPipeline
-        , Network.AWS.DataPipeline
-        , Network.AWS.DataPipeline
-        , Network.AWS.DataPipeline
-        , Network.AWS.DataPipeline
-        , Network.AWS.DataPipeline
-        , Network.AWS.DataPipeline
-        , Network.AWS.DataPipeline
-        , Network.AWS.DataPipeline
-        , Network.AWS.DataPipeline
-        , Network.AWS.DataPipeline
-        , Network.AWS.DataPipeline
-        , Network.AWS.DataPipeline
-        , Network.AWS.DataPipeline
-        , Network.AWS.DataPipeline
+        , Network.AWS.DataPipeline.ActivatePipeline
+        , Network.AWS.DataPipeline.CreatePipeline
+        , Network.AWS.DataPipeline.DeletePipeline
+        , Network.AWS.DataPipeline.DescribeObjects
+        , Network.AWS.DataPipeline.DescribePipelines
+        , Network.AWS.DataPipeline.EvaluateExpression
+        , Network.AWS.DataPipeline.GetPipelineDefinition
+        , Network.AWS.DataPipeline.ListPipelines
+        , Network.AWS.DataPipeline.PollForTask
+        , Network.AWS.DataPipeline.PutPipelineDefinition
+        , Network.AWS.DataPipeline.QueryObjects
+        , Network.AWS.DataPipeline.ReportTaskProgress
+        , Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
+        , Network.AWS.DataPipeline.SetStatus
+        , Network.AWS.DataPipeline.SetTaskStatus
+        , Network.AWS.DataPipeline.ValidatePipelineDefinition
 
     build-depends:
           amazonka-core

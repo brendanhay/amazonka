@@ -40,38 +40,36 @@ library
     exposed-modules:
           Network.AWS.ElasticBeanstalk
         , Network.AWS.ElasticBeanstalk.Monadic
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk.Monadic
         , Network.AWS.ElasticBeanstalk.Types
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
-        , Network.AWS.ElasticBeanstalk
+        , Network.AWS.ElasticBeanstalk.CheckDNSAvailability
+        , Network.AWS.ElasticBeanstalk.CreateApplication
+        , Network.AWS.ElasticBeanstalk.CreateApplicationVersion
+        , Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
+        , Network.AWS.ElasticBeanstalk.CreateEnvironment
+        , Network.AWS.ElasticBeanstalk.CreateStorageLocation
+        , Network.AWS.ElasticBeanstalk.DeleteApplication
+        , Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
+        , Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
+        , Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
+        , Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
+        , Network.AWS.ElasticBeanstalk.DescribeApplications
+        , Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
+        , Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
+        , Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
+        , Network.AWS.ElasticBeanstalk.DescribeEnvironments
+        , Network.AWS.ElasticBeanstalk.DescribeEvents
+        , Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
+        , Network.AWS.ElasticBeanstalk.RebuildEnvironment
+        , Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
+        , Network.AWS.ElasticBeanstalk.RestartAppServer
+        , Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
+        , Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
+        , Network.AWS.ElasticBeanstalk.TerminateEnvironment
+        , Network.AWS.ElasticBeanstalk.UpdateApplication
+        , Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
+        , Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
+        , Network.AWS.ElasticBeanstalk.UpdateEnvironment
+        , Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
 
     build-depends:
           amazonka-core

@@ -34,43 +34,41 @@ library
     exposed-modules:
           Network.AWS.ElastiCache
         , Network.AWS.ElastiCache.Monadic
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache.Monadic
         , Network.AWS.ElastiCache.Types
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache
+        , Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
+        , Network.AWS.ElastiCache.CopySnapshot
+        , Network.AWS.ElastiCache.CreateCacheCluster
+        , Network.AWS.ElastiCache.CreateCacheParameterGroup
+        , Network.AWS.ElastiCache.CreateCacheSecurityGroup
+        , Network.AWS.ElastiCache.CreateCacheSubnetGroup
+        , Network.AWS.ElastiCache.CreateReplicationGroup
+        , Network.AWS.ElastiCache.CreateSnapshot
+        , Network.AWS.ElastiCache.DeleteCacheCluster
+        , Network.AWS.ElastiCache.DeleteCacheParameterGroup
+        , Network.AWS.ElastiCache.DeleteCacheSecurityGroup
+        , Network.AWS.ElastiCache.DeleteCacheSubnetGroup
+        , Network.AWS.ElastiCache.DeleteReplicationGroup
+        , Network.AWS.ElastiCache.DeleteSnapshot
+        , Network.AWS.ElastiCache.DescribeCacheClusters
+        , Network.AWS.ElastiCache.DescribeCacheEngineVersions
+        , Network.AWS.ElastiCache.DescribeCacheParameterGroups
+        , Network.AWS.ElastiCache.DescribeCacheParameters
+        , Network.AWS.ElastiCache.DescribeCacheSecurityGroups
+        , Network.AWS.ElastiCache.DescribeCacheSubnetGroups
+        , Network.AWS.ElastiCache.DescribeEngineDefaultParameters
+        , Network.AWS.ElastiCache.DescribeEvents
+        , Network.AWS.ElastiCache.DescribeReplicationGroups
+        , Network.AWS.ElastiCache.DescribeReservedCacheNodes
+        , Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
+        , Network.AWS.ElastiCache.DescribeSnapshots
+        , Network.AWS.ElastiCache.ModifyCacheCluster
+        , Network.AWS.ElastiCache.ModifyCacheParameterGroup
+        , Network.AWS.ElastiCache.ModifyCacheSubnetGroup
+        , Network.AWS.ElastiCache.ModifyReplicationGroup
+        , Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
+        , Network.AWS.ElastiCache.RebootCacheCluster
+        , Network.AWS.ElastiCache.ResetCacheParameterGroup
+        , Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
 
     build-depends:
           amazonka-core

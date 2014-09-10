@@ -30,33 +30,31 @@ library
     exposed-modules:
           Network.AWS.CloudSearch
         , Network.AWS.CloudSearch.Monadic
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch.Monadic
         , Network.AWS.CloudSearch.Types
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch
+        , Network.AWS.CloudSearch.BuildSuggesters
+        , Network.AWS.CloudSearch.CreateDomain
+        , Network.AWS.CloudSearch.DefineAnalysisScheme
+        , Network.AWS.CloudSearch.DefineExpression
+        , Network.AWS.CloudSearch.DefineIndexField
+        , Network.AWS.CloudSearch.DefineSuggester
+        , Network.AWS.CloudSearch.DeleteAnalysisScheme
+        , Network.AWS.CloudSearch.DeleteDomain
+        , Network.AWS.CloudSearch.DeleteExpression
+        , Network.AWS.CloudSearch.DeleteIndexField
+        , Network.AWS.CloudSearch.DeleteSuggester
+        , Network.AWS.CloudSearch.DescribeAnalysisSchemes
+        , Network.AWS.CloudSearch.DescribeAvailabilityOptions
+        , Network.AWS.CloudSearch.DescribeDomains
+        , Network.AWS.CloudSearch.DescribeExpressions
+        , Network.AWS.CloudSearch.DescribeIndexFields
+        , Network.AWS.CloudSearch.DescribeScalingParameters
+        , Network.AWS.CloudSearch.DescribeServiceAccessPolicies
+        , Network.AWS.CloudSearch.DescribeSuggesters
+        , Network.AWS.CloudSearch.IndexDocuments
+        , Network.AWS.CloudSearch.ListDomainNames
+        , Network.AWS.CloudSearch.UpdateAvailabilityOptions
+        , Network.AWS.CloudSearch.UpdateScalingParameters
+        , Network.AWS.CloudSearch.UpdateServiceAccessPolicies
 
     build-depends:
           amazonka-core

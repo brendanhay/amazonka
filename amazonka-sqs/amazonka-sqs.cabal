@@ -34,25 +34,23 @@ library
     exposed-modules:
           Network.AWS.SQS
         , Network.AWS.SQS.Monadic
-        , Network.AWS.SQS
-        , Network.AWS.SQS.Monadic
         , Network.AWS.SQS.Types
-        , Network.AWS.SQS
-        , Network.AWS.SQS
-        , Network.AWS.SQS
-        , Network.AWS.SQS
-        , Network.AWS.SQS
-        , Network.AWS.SQS
-        , Network.AWS.SQS
-        , Network.AWS.SQS
-        , Network.AWS.SQS
-        , Network.AWS.SQS
-        , Network.AWS.SQS
-        , Network.AWS.SQS
-        , Network.AWS.SQS
-        , Network.AWS.SQS
-        , Network.AWS.SQS
-        , Network.AWS.SQS
+        , Network.AWS.SQS.AddPermission
+        , Network.AWS.SQS.ChangeMessageVisibility
+        , Network.AWS.SQS.ChangeMessageVisibilityBatch
+        , Network.AWS.SQS.CreateQueue
+        , Network.AWS.SQS.DeleteMessage
+        , Network.AWS.SQS.DeleteMessageBatch
+        , Network.AWS.SQS.DeleteQueue
+        , Network.AWS.SQS.GetQueueAttributes
+        , Network.AWS.SQS.GetQueueUrl
+        , Network.AWS.SQS.ListDeadLetterSourceQueues
+        , Network.AWS.SQS.ListQueues
+        , Network.AWS.SQS.ReceiveMessage
+        , Network.AWS.SQS.RemovePermission
+        , Network.AWS.SQS.SendMessage
+        , Network.AWS.SQS.SendMessageBatch
+        , Network.AWS.SQS.SetQueueAttributes
 
     build-depends:
           amazonka-core

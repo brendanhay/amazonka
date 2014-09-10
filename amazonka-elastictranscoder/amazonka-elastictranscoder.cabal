@@ -30,26 +30,24 @@ library
     exposed-modules:
           Network.AWS.ElasticTranscoder
         , Network.AWS.ElasticTranscoder.Monadic
-        , Network.AWS.ElasticTranscoder
-        , Network.AWS.ElasticTranscoder.Monadic
         , Network.AWS.ElasticTranscoder.Types
-        , Network.AWS.ElasticTranscoder
-        , Network.AWS.ElasticTranscoder
-        , Network.AWS.ElasticTranscoder
-        , Network.AWS.ElasticTranscoder
-        , Network.AWS.ElasticTranscoder
-        , Network.AWS.ElasticTranscoder
-        , Network.AWS.ElasticTranscoder
-        , Network.AWS.ElasticTranscoder
-        , Network.AWS.ElasticTranscoder
-        , Network.AWS.ElasticTranscoder
-        , Network.AWS.ElasticTranscoder
-        , Network.AWS.ElasticTranscoder
-        , Network.AWS.ElasticTranscoder
-        , Network.AWS.ElasticTranscoder
-        , Network.AWS.ElasticTranscoder
-        , Network.AWS.ElasticTranscoder
-        , Network.AWS.ElasticTranscoder
+        , Network.AWS.ElasticTranscoder.CancelJob
+        , Network.AWS.ElasticTranscoder.CreateJob
+        , Network.AWS.ElasticTranscoder.CreatePipeline
+        , Network.AWS.ElasticTranscoder.CreatePreset
+        , Network.AWS.ElasticTranscoder.DeletePipeline
+        , Network.AWS.ElasticTranscoder.DeletePreset
+        , Network.AWS.ElasticTranscoder.ListJobsByPipeline
+        , Network.AWS.ElasticTranscoder.ListJobsByStatus
+        , Network.AWS.ElasticTranscoder.ListPipelines
+        , Network.AWS.ElasticTranscoder.ListPresets
+        , Network.AWS.ElasticTranscoder.ReadJob
+        , Network.AWS.ElasticTranscoder.ReadPipeline
+        , Network.AWS.ElasticTranscoder.ReadPreset
+        , Network.AWS.ElasticTranscoder.TestRole
+        , Network.AWS.ElasticTranscoder.UpdatePipeline
+        , Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
+        , Network.AWS.ElasticTranscoder.UpdatePipelineStatus
 
     build-depends:
           amazonka-core

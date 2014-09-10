@@ -32,14 +32,12 @@ library
     exposed-modules:
           Network.AWS.ImportExport
         , Network.AWS.ImportExport.Monadic
-        , Network.AWS.ImportExport
-        , Network.AWS.ImportExport.Monadic
         , Network.AWS.ImportExport.Types
-        , Network.AWS.ImportExport
-        , Network.AWS.ImportExport
-        , Network.AWS.ImportExport
-        , Network.AWS.ImportExport
-        , Network.AWS.ImportExport
+        , Network.AWS.ImportExport.CancelJob
+        , Network.AWS.ImportExport.CreateJob
+        , Network.AWS.ImportExport.GetStatus
+        , Network.AWS.ImportExport.ListJobs
+        , Network.AWS.ImportExport.UpdateJob
 
     build-depends:
           amazonka-core

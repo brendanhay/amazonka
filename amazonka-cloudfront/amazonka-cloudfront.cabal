@@ -42,30 +42,28 @@ library
     exposed-modules:
           Network.AWS.CloudFront
         , Network.AWS.CloudFront.Monadic
-        , Network.AWS.CloudFront
-        , Network.AWS.CloudFront.Monadic
         , Network.AWS.CloudFront.Types
-        , Network.AWS.CloudFront
-        , Network.AWS.CloudFront
-        , Network.AWS.CloudFront
-        , Network.AWS.CloudFront
-        , Network.AWS.CloudFront
-        , Network.AWS.CloudFront
-        , Network.AWS.CloudFront
-        , Network.AWS.CloudFront
-        , Network.AWS.CloudFront
-        , Network.AWS.CloudFront
-        , Network.AWS.CloudFront
-        , Network.AWS.CloudFront
-        , Network.AWS.CloudFront
-        , Network.AWS.CloudFront
-        , Network.AWS.CloudFront
-        , Network.AWS.CloudFront
-        , Network.AWS.CloudFront
-        , Network.AWS.CloudFront
-        , Network.AWS.CloudFront
-        , Network.AWS.CloudFront
-        , Network.AWS.CloudFront
+        , Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
+        , Network.AWS.CloudFront.CreateDistribution
+        , Network.AWS.CloudFront.CreateInvalidation
+        , Network.AWS.CloudFront.CreateStreamingDistribution
+        , Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
+        , Network.AWS.CloudFront.DeleteDistribution
+        , Network.AWS.CloudFront.DeleteStreamingDistribution
+        , Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
+        , Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
+        , Network.AWS.CloudFront.GetDistribution
+        , Network.AWS.CloudFront.GetDistributionConfig
+        , Network.AWS.CloudFront.GetInvalidation
+        , Network.AWS.CloudFront.GetStreamingDistribution
+        , Network.AWS.CloudFront.GetStreamingDistributionConfig
+        , Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
+        , Network.AWS.CloudFront.ListDistributions
+        , Network.AWS.CloudFront.ListInvalidations
+        , Network.AWS.CloudFront.ListStreamingDistributions
+        , Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
+        , Network.AWS.CloudFront.UpdateDistribution
+        , Network.AWS.CloudFront.UpdateStreamingDistribution
 
     build-depends:
           amazonka-core

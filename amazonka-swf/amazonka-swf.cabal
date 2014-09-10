@@ -34,40 +34,38 @@ library
     exposed-modules:
           Network.AWS.SWF
         , Network.AWS.SWF.Monadic
-        , Network.AWS.SWF
-        , Network.AWS.SWF.Monadic
         , Network.AWS.SWF.Types
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
-        , Network.AWS.SWF
+        , Network.AWS.SWF.CountClosedWorkflowExecutions
+        , Network.AWS.SWF.CountOpenWorkflowExecutions
+        , Network.AWS.SWF.CountPendingActivityTasks
+        , Network.AWS.SWF.CountPendingDecisionTasks
+        , Network.AWS.SWF.DeprecateActivityType
+        , Network.AWS.SWF.DeprecateDomain
+        , Network.AWS.SWF.DeprecateWorkflowType
+        , Network.AWS.SWF.DescribeActivityType
+        , Network.AWS.SWF.DescribeDomain
+        , Network.AWS.SWF.DescribeWorkflowExecution
+        , Network.AWS.SWF.DescribeWorkflowType
+        , Network.AWS.SWF.GetWorkflowExecutionHistory
+        , Network.AWS.SWF.ListActivityTypes
+        , Network.AWS.SWF.ListClosedWorkflowExecutions
+        , Network.AWS.SWF.ListDomains
+        , Network.AWS.SWF.ListOpenWorkflowExecutions
+        , Network.AWS.SWF.ListWorkflowTypes
+        , Network.AWS.SWF.PollForActivityTask
+        , Network.AWS.SWF.PollForDecisionTask
+        , Network.AWS.SWF.RecordActivityTaskHeartbeat
+        , Network.AWS.SWF.RegisterActivityType
+        , Network.AWS.SWF.RegisterDomain
+        , Network.AWS.SWF.RegisterWorkflowType
+        , Network.AWS.SWF.RequestCancelWorkflowExecution
+        , Network.AWS.SWF.RespondActivityTaskCanceled
+        , Network.AWS.SWF.RespondActivityTaskCompleted
+        , Network.AWS.SWF.RespondActivityTaskFailed
+        , Network.AWS.SWF.RespondDecisionTaskCompleted
+        , Network.AWS.SWF.SignalWorkflowExecution
+        , Network.AWS.SWF.StartWorkflowExecution
+        , Network.AWS.SWF.TerminateWorkflowExecution
 
     build-depends:
           amazonka-core

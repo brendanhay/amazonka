@@ -40,19 +40,17 @@ library
     exposed-modules:
           Network.AWS.SimpleDB
         , Network.AWS.SimpleDB.Monadic
-        , Network.AWS.SimpleDB
-        , Network.AWS.SimpleDB.Monadic
         , Network.AWS.SimpleDB.Types
-        , Network.AWS.SimpleDB
-        , Network.AWS.SimpleDB
-        , Network.AWS.SimpleDB
-        , Network.AWS.SimpleDB
-        , Network.AWS.SimpleDB
-        , Network.AWS.SimpleDB
-        , Network.AWS.SimpleDB
-        , Network.AWS.SimpleDB
-        , Network.AWS.SimpleDB
-        , Network.AWS.SimpleDB
+        , Network.AWS.SimpleDB.BatchDeleteAttributes
+        , Network.AWS.SimpleDB.BatchPutAttributes
+        , Network.AWS.SimpleDB.CreateDomain
+        , Network.AWS.SimpleDB.DeleteAttributes
+        , Network.AWS.SimpleDB.DeleteDomain
+        , Network.AWS.SimpleDB.DomainMetadata
+        , Network.AWS.SimpleDB.GetAttributes
+        , Network.AWS.SimpleDB.ListDomains
+        , Network.AWS.SimpleDB.PutAttributes
+        , Network.AWS.SimpleDB.Select
 
     build-depends:
           amazonka-core

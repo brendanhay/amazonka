@@ -11,8 +11,8 @@ import {{ module.value }}
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
-{% if xml_namespace %}
-    { xmlNamespace = Just "{{ xml_namespace }}"
+{% if xml_ns.root %}
+    { xmlNamespace = Just "{{ xml_ns.root }}"
     }
 {% endif %}
 

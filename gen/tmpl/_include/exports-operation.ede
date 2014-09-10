@@ -7,12 +7,12 @@
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
-{% include "license.ede" with scope.namespace %}
+{% include "license.ede" with scope.ns.root %}
 
 {% if scope.documentation %}
 {{ scope.documentation | above76 }}
 {% endif %}
-module {{ scope.namespace }}
+module {{ scope.ns.root }}
     (
     -- * Request
       {{ scope.request.name }}

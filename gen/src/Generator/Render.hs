@@ -18,6 +18,7 @@ module Generator.Render where
 
 import           Control.Applicative
 import           Control.Error
+import           Control.Lens        ((^.))
 import           Control.Monad
 import           Data.Aeson
 import           Data.Char
@@ -55,12 +56,10 @@ instance ToPath NS where
     toPath (NS xs) = "gen" </> Text.unpack (Text.intercalate "/" xs) <.> "hs"
 
 data Templates = Templates
-    { tmplCabal     :: Template
-    , tmplVersion   :: Template
-    , tmplCurrent   :: Template
-    , tmplMonadic   :: Template
-    , tmplFunctions :: Template
-    , tmplService   :: ServiceType -> (Template, Template)
+    { tmplCabal   :: Template
+    , tmplRoot    :: Template
+    , tmplMonadic :: Template
+    , tmplService :: ServiceType -> (Template, Template)
     }
 
 getTemplates :: Script Templates
@@ -69,12 +68,7 @@ getTemplates = do
 
     let load f = loadTemplate (dir </> "tmpl" </> f <.> "ede")
 
-    ctor <- Templates
-        <$> load "cabal"
-        <*> load "version"
-        <*> load "current"
-        <*> load "monadic"
-        <*> load "functions"
+    ctor <- Templates <$> load "cabal" <*> load "root" <*> load "monadic"
 
     !xml <- (,) <$> load "types-xml"   <*> load "operation-xml"
     !js  <- (,) <$> load "types-json"  <*> load "operation-json"
@@ -108,9 +102,6 @@ render dir assets ss = do
   where
     write lbl f t e = render' lbl dir f t (env e)
 
-    -- FIXME: doesnt currently support writing out multiple versions of the
-    -- same service to the same cabal file.
-
     go !as !Templates{..} !s@Service{..} = do
         say "Create Src" src
         scriptIO (createDirectoryIfMissing True src)
@@ -118,12 +109,10 @@ render dir assets ss = do
         forM_ _svcOperations $ \x ->
             write "Render Operation" (rel (_opNamespace x)) o x
 
-        write "Render Types"     (rel _svcTypesNamespace) t s
-        write "Render Trans"     (rel _svcTransNamespace) tmplTrans s
-        write "Render Interface" (rel _svcVersionNamespace) tmplVersion s
-        write "Render Functions" (rel _svcFunctionsNamespace) tmplFunctions s
-        write "Render Service"   (rel _svcName) tmplCurrent s
-        write "Render Cabal"     (rel (lib <.> "cabal")) tmplCabal s
+        write "Render Types"   (rel (_svcNs ^. nsTypes))   t s
+        write "Render Root"    (rel (_svcNs ^. nsRoot))    tmplRoot s
+        write "Render Monadic" (rel (_svcNs ^. nsMonadic)) tmplMonadic s
+        write "Render Cabal"   (rel (lib <.> "cabal"))     tmplCabal s
 
         forM_ as $ \x ->
             let f = rel (takeFileName x)

@@ -26,13 +26,13 @@ library
     ghc-options:       -Wall -ddump-splices
 
     exposed-modules:
-          {{ namespace }}
-        , {{ functions_namespace }}
-        , {{ version_namespace }}
-        , {{ trans_namespace }}
-        , {{ types_namespace }}
+          {{ ns.root }}
+        , {{ ns.monadic }}
+        , {{ ns.root }}
+        , {{ ns.monadic }}
+        , {{ ns.types }}
 {% for op in operations %}
-        , {{ op.value.namespace }}
+        , {{ op.value.ns.root }}
 {% endfor %}
 {% for module in static %}
   {% if module.first %}

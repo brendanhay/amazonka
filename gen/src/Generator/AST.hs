@@ -59,13 +59,8 @@ instance IsString NS where
 namespaceFromText :: Text -> NS
 namespaceFromText = NS . filter (/= "") . Text.split (== '.')
 
-namespace :: Abbrev -> Version -> NS
-namespace a v = NS
-    [ "Network"
-    , "AWS"
-    , unAbbrev a
-    , unVersion v
-    ]
+namespace :: Abbrev -> NS
+namespace a = NS ["Network", "AWS", unAbbrev a]
 
 newtype Version = Version { unVersion :: Text }
     deriving (Eq, Ord, Show, Generic)
@@ -393,11 +388,9 @@ instance HasType' Response where
 data Operation = Operation
     { _opName             :: Text
     , _opService          :: Abbrev
+    , _opNs               :: Namespaces
     , _opAlias            :: Maybe Text
     , _opNamespace        :: NS
-    , _opTypesNamespace   :: NS
-    , _opVersionNamespace :: NS
-    , _opRequestNamespace :: NS
     , _opDocumentation    :: Doc
     , _opUrl              :: Maybe Text
     , _opRequest          :: Request
@@ -439,45 +432,58 @@ data FieldOverride = FieldOverride
 instance Default FieldOverride where
     def = FieldOverride mempty mempty
 
+data Namespaces = Namespaces
+    { _nsRoot    :: !NS
+    , _nsMonadic :: !NS
+    , _nsTypes   :: !NS
+    , _nsRequest :: !NS
+    } deriving (Eq, Show, Generic)
+
+namespacesFromAbbrev :: Abbrev -> ServiceType -> Namespaces
+namespacesFromAbbrev a t = Namespaces
+    { _nsRoot    = root
+    , _nsMonadic = root <> "Monadic"
+    , _nsTypes   = root <> "Types"
+    , _nsRequest = NS ["Network", "AWS", "Request", fromString (show t)]
+    }
+  where
+    root = NS ["Network", "AWS", unAbbrev a]
+
 data Service = Service
-    { _svcName               :: Abbrev
-    , _svcLibrary            :: Library
-    , _svcFullName           :: Text
-    , _svcNamespace          :: NS
-    , _svcVersionNamespace   :: NS
-    , _svcTypesNamespace     :: NS
-    , _svcTransNamespace     :: NS
-    , _svcFunctionsNamespace :: NS
-    , _svcVersion            :: Version
-    , _svcRawVersion         :: Text
-    , _svcType               :: ServiceType
-    , _svcError              :: Error
-    , _svcWrapped            :: Bool
-    , _svcSignature          :: Signature
-    , _svcDocumentation      :: Doc
-    , _svcEndpointPrefix     :: Text
-    , _svcGlobalEndpoint     :: Maybe Text
-    , _svcXmlNamespace       :: Maybe Text
-    , _svcTimestamp          :: Time
-    , _svcChecksum           :: Checksum
-    , _svcJsonVersion        :: JSONV
-    , _svcTargetPrefix       :: Maybe Text
-    , _svcOperations         :: [Operation]
-    , _svcTypes              :: [Type']
-    , _svcCabal              :: Cabal
-    , _svcStatic             :: [NS]
-    , _svcTypeOverride       :: TypeOverride
-    , _svcFieldOverride      :: FieldOverride
+    { _svcName           :: Abbrev
+    , _svcLibrary        :: Library
+    , _svcFullName       :: Text
+    , _svcNs             :: Namespaces
+    , _svcVersion        :: Version
+    , _svcRawVersion     :: Text
+    , _svcType           :: ServiceType
+    , _svcError          :: Error
+    , _svcWrapped        :: Bool
+    , _svcSignature      :: Signature
+    , _svcDocumentation  :: Doc
+    , _svcEndpointPrefix :: Text
+    , _svcGlobalEndpoint :: Maybe Text
+    , _svcXmlNamespace   :: Maybe Text
+    , _svcTimestamp      :: Time
+    , _svcChecksum       :: Checksum
+    , _svcJsonVersion    :: JSONV
+    , _svcTargetPrefix   :: Maybe Text
+    , _svcOperations     :: [Operation]
+    , _svcTypes          :: [Type']
+    , _svcCabal          :: Cabal
+    , _svcStatic         :: [NS]
+    , _svcTypeOverride   :: TypeOverride
+    , _svcFieldOverride  :: FieldOverride
     } deriving (Show, Generic)
 
 instance Eq Service where
-    (==) a b = f _svcVersionNamespace
+    (==) a b = f (_nsRoot . _svcNs)
       where
         f :: Eq a => (Service -> a) -> Bool
         f g = g a == g b
 
 instance Ord Service where
-    compare a b = f _svcVersionNamespace
+    compare a b = f (_nsRoot . _svcNs)
       where
         f :: Ord a => (Service -> a) -> Ordering
         f g = compare (Down $ g a) (Down $ g b)
@@ -487,11 +493,7 @@ defaultService a = Service
     { _svcName               = a
     , _svcLibrary            = library a
     , _svcFullName           = unAbbrev a
-    , _svcNamespace          = def
-    , _svcVersionNamespace   = def
-    , _svcTypesNamespace     = def
-    , _svcTransNamespace     = def
-    , _svcFunctionsNamespace = def
+    , _svcNs                 = namespacesFromAbbrev a def
     , _svcVersion            = Version mempty
     , _svcRawVersion         = mempty
     , _svcType               = def
@@ -523,6 +525,7 @@ makeLenses ''HTTP
 makeLenses ''Response
 makeLenses ''Operation
 makeLenses ''Cabal
+makeLenses ''Namespaces
 makeLenses ''Service
 makeLenses ''Struct
 makeLenses ''List

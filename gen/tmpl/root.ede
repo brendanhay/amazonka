@@ -1,7 +1,7 @@
-{% include "_include/license.ede" with version_namespace %}
+{% include "_include/license.ede" with ns.root %}
 
 {{ documentation | above76 }}
-module {{ version_namespace }}
+module {{ ns.root }}
 {% for module in modules %}
   {% if module.first %}
     ( module {{ module.value }}

@@ -149,25 +149,28 @@ instance FromJSON FieldOverride where
 
 instance FromJSON Service where
     parseJSON = withObject "service" $ \o -> do
-        n   <- o .:  "service_full_name"
-        a   <- o .:  "service_abbreviation"
-        l   <- o .:? "library_name" .!= library a
-        rv  <- o .:  "api_version"
-        t   <- o .:  "type"
-        ops <- o .:  "operations"
-        d   <- o .:  "documentation"
+        n   <- o .: "service_full_name"
+        a   <- o .: "service_abbreviation"
+        rv  <- o .: "api_version"
+        t   <- o .: "type"
+        ops <- o .: "operations"
+        d   <- o .: "documentation"
 
         cbl <- fromMaybe (cabal cabalVersion Nothing Nothing)
             <$> (o .:? "cabal")
 
-        let ver = version rv
-            vNS = namespace a ver
-            typ | a == "S3" = RestS3
+        let typ | a == "S3" = RestS3
                 | otherwise = t
-            sEr = serviceError a ops
 
-        Service a l n (rootNS vNS) vNS (typeNS vNS) (transNS vNS) (functionsNS vNS) ver rv typ sEr
-            <$> o .:? "result_wrapped" .!= False
+        Service a
+            <$> o .:? "library_name" .!= library a
+            <*> pure n
+            <*> pure (namespacesFromAbbrev a typ)
+            <*> pure (version rv)
+            <*> pure rv
+            <*> pure typ
+            <*> pure (serviceError a ops)
+            <*> o .:? "result_wrapped" .!= False
             <*> o .:  "signature_version"
             <*> pure d
             <*> o .:  "endpoint_prefix"
@@ -192,10 +195,8 @@ instance FromJSON (Text -> Operation) where
     parseJSON = withObject "operation" $ \o -> do
         op <- Operation ""
             <$> pure def
+            <*> pure (namespacesFromAbbrev def def)
             <*> o .:? "alias"
-            <*> pure def
-            <*> pure def
-            <*> pure def
             <*> pure def
             <*> (Doc <$> o .:? "documentation")
             <*> o .:? "documentation_url"

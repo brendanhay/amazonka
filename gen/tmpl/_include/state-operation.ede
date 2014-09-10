@@ -4,6 +4,6 @@
 {{ scope.documentation | wrap76 }}
 --
 {% endif %}
--- See: '{{ scope.namespace }}'
+-- See: '{{ scope.ns.root }}'
 {% include "state-send.ede" with scope %}
 {% include "state-send-catch.ede" with scope %}

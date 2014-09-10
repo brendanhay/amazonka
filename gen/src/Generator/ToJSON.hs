@@ -81,6 +81,9 @@ instance ToJSON TypeOverride where
 instance ToJSON FieldOverride where
     toJSON = const Null
 
+instance ToJSON Namespaces where
+    toJSON = toField (recase Camel Under . drop 3)
+
 instance ToJSON Service where
     toJSON s = Object (x <> y)
       where

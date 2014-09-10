@@ -106,10 +106,8 @@ current = mapMaybe latest . groupBy identical
 operation :: Service -> Operation -> State (HashMap Text Text) Operation
 operation svc@Service{..} o = do
     let x = o & opService            .~ _svcName
-              & opNamespace          .~ _svcVersionNamespace <> NS [_opName o]
-              & opTypesNamespace     .~ _svcTypesNamespace
-              & opVersionNamespace   .~ _svcVersionNamespace
-              & opRequestNamespace   .~ "Network.AWS.Request" <> fromString (show _svcType)
+              & opNs                 .~ _svcNs
+              & opNamespace          .~ operationNS svc o
 
     let y = x & opRequest.cmnName    .~ (x ^. opName)
               & opRequest.cmnPrefix  .~ casedChars (x ^. opName)
@@ -126,6 +124,9 @@ operation svc@Service{..} o = do
               & opResponse          %~ response svc
 
     return z
+
+operationNS :: Service -> Operation -> NS
+operationNS svc o = svc ^. svcNs.nsRoot <> NS [o ^. opName]
 
 response :: Service -> Response -> Response
 response svc@Service{..} rs = rs' & rsStyle .~ style _svcType rs'
@@ -248,22 +249,11 @@ pagination svc o p = case p of
         fromMaybe (error $ "Missing field: " ++ show y)
                   (find ((y ==) . _fldName) z)
 
-rootNS :: NS -> NS
-rootNS (NS []) = NS []
-rootNS (NS xs) = NS (init xs)
-
-functionsNS :: NS -> NS
-functionsNS = (<> "Monadic") . rootNS
-
-typeNS :: NS -> NS
-typeNS = (<> "Types")
-
-transNS :: NS -> NS
-transNS = (<> "Monadic")
-
 serviceNamespaces :: Service -> [NS]
-serviceNamespaces s = sort $
-    _svcTypesNamespace s : map _opNamespace (_svcOperations s)
+serviceNamespaces s = sort
+    $ (s^.svcNs.nsMonadic)
+    : (s^.svcNs.nsTypes)
+    : map _opNamespace (_svcOperations s)
 
 fields :: Bool -> Service -> Shape -> [Field]
 fields rq svc s = case s of

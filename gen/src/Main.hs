@@ -28,7 +28,6 @@ data Options = Options
     , optOverride :: FilePath
     , optModels   :: [FilePath]
     , optAssets   :: FilePath
-    , optVersions :: Int
     } deriving (Show)
 
 options :: Parser Options
@@ -57,12 +56,6 @@ options = Options
         <> help "Directory containing service assets. [required]"
          )
 
-    <*> option auto
-         ( long "versions"
-        <> metavar "INT"
-        <> help "Maximum number of model versions to load. [required]"
-         )
-
 main :: IO ()
 main = do
     Options{..} <- customExecParser
@@ -72,7 +65,7 @@ main = do
     createDirectoryIfMissing True optDir
 
     runScript $ do
-        ms <- models optVersions optOverride optModels
+        ms <- models optOverride optModels
         ss <- mapM parseModel ms
 
         render optDir optAssets (transform ss)

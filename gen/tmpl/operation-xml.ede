@@ -1,7 +1,7 @@
 {% include "_include/exports-operation.ede" %}
 
-import {{ request_namespace }}
-import {{ types_namespace }}
+import {{ ns.request }}
+import {{ ns.types }}
 import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 {% if alias %}

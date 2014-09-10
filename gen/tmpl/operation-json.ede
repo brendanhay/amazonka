@@ -1,6 +1,6 @@
 {% include "_include/exports-operation.ede" %}
 
-import {{ types_namespace }}
+import {{ ns.types }}
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 {% if alias %}

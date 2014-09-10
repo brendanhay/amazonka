@@ -2,7 +2,7 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE TypeFamilies      #-}
 
-{% include "_include/license.ede" with trans_namespace %}
+{% include "_include/license.ede" with ns.monadic %}
 
 {{ documentation | above76 }}
 --
@@ -23,19 +23,19 @@
 --      & onLensField2 .~ z
 -- @
 --
--- Versus using "{{ functions_namespace }}" with the 'State' operator variants from
+-- Versus using "{{ ns.monadic }}" with the 'State' operator variants from
 -- "Control.Lens.Setter" such as '.=' to modify any additional request
 -- parameters before sending:
 --
 -- @
--- import {{ functions_namespace }}
+-- import {{ ns.monadic }}
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
 -- @
 --
-module {{ trans_namespace }}
+module {{ ns.monadic }}
     (
 {% for oper in operations %}
   {% if oper.first %}
@@ -52,7 +52,7 @@ module {{ trans_namespace }}
 
 {% endfor %}
     -- * Re-exported
-    , module {{ version_namespace }}
+    , module {{ ns.root }}
 
     , (.=)
     , (?=)
@@ -62,7 +62,7 @@ module {{ trans_namespace }}
 
 import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
-import {{ version_namespace }}
+import {{ ns.root }}
 
 type ServiceEr = Er {{ name }}
 

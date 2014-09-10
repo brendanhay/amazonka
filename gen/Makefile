@@ -2,7 +2,6 @@ SHELL    := /usr/bin/env bash
 FLAGS    := -j --disable-documentation --disable-library-coverage
 DEPS     := vendor/botocore vendor/ede vendor/jason
 BOTO     := vendor/botocore/botocore/data/aws
-VERSIONS := 1
 
 RESTS3 := \
  s3
@@ -63,7 +62,6 @@ gen: build
  --output=$(realpath ../) \
  --override=$(realpath ./model) \
  --assets=$(realpath ./asset) \
- --versions=$(VERSIONS) \
  $(addprefix --model=,$(realpath $(addprefix $(BOTO)/,$(MODELS))))
 
 build:

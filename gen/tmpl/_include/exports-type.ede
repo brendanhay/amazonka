@@ -8,12 +8,12 @@
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
-{% include "license.ede" with scope.types_namespace %}
+{% include "license.ede" with scope.ns.types %}
 
 {% if scope.documentation %}
 {{ scope.documentation | above76 }}
 {% endif %}
-module {{ scope.types_namespace }}
+module {{ scope.ns.types }}
     (
     -- * Service
       {{ scope.name }}

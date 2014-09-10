@@ -34,8 +34,8 @@ data Model = Model
 instance Ord Model where
     compare = comparing modVersion
 
-models :: Int -> FilePath -> [FilePath] -> Script [Model]
-models n o xs = concat . fmap (take n . sortBy (flip compare)) <$> mapM model xs
+models :: FilePath -> [FilePath] -> Script [Model]
+models o xs = concat . fmap (take 1 . sortBy (flip compare)) <$> mapM model xs
   where
     model d = (json <$> scriptIO (getDirectoryContents d))
         >>= mapM (fromPath o d)

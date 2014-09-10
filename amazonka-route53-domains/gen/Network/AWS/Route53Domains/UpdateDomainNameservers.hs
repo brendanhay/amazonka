@@ -105,7 +105,7 @@ instance ToJSON UpdateDomainNameservers
 
 -- | The UpdateDomainNameservers response includes the following element.
 newtype UpdateDomainNameserversResponse = UpdateDomainNameserversResponse
-    { _udnrOperationId :: !Text
+    { _udnrOperationId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

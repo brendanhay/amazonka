@@ -143,7 +143,7 @@ instance ToQuery SendRawEmail where
 -- | Represents a unique message ID returned from a successful SendRawEmail
 -- request.
 newtype SendRawEmailResponse = SendRawEmailResponse
-    { _srerMessageId :: !Text
+    { _srerMessageId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

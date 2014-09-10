@@ -266,7 +266,7 @@ xmlOptions = Tagged def
 -- remain idle (no data is sent over the connection) for the specified
 -- duration. For more information, see Configure Idle Connection Timeout.
 newtype ConnectionSettings = ConnectionSettings
-    { _csIdleTimeout :: !Integer
+    { _csIdleTimeout :: Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -300,7 +300,7 @@ instance ToQuery ConnectionSettings where
 -- of the Availability Zones. For more information, see Enable Cross-Zone Load
 -- Balancing.
 newtype CrossZoneLoadBalancing = CrossZoneLoadBalancing
-    { _czlbEnabled :: !Bool
+    { _czlbEnabled :: Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -330,7 +330,7 @@ instance ToQuery CrossZoneLoadBalancing where
 
 -- | The Instance data type.
 newtype Instance = Instance
-    { _iInstanceId :: !(Maybe Text)
+    { _iInstanceId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -358,7 +358,7 @@ instance ToQuery Instance where
 
 -- | The key of a tag to be removed.
 newtype TagKeyOnly = TagKeyOnly
-    { _tkoKey :: !(Maybe Text)
+    { _tkoKey :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

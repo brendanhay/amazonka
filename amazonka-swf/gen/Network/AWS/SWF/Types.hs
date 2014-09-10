@@ -1841,7 +1841,7 @@ instance ToJSON WorkflowExecutionTimeoutType
 -- | Provides details of the CancelTimer decision. It is not set for other
 -- decision types.
 newtype CancelTimerDecisionAttributes = CancelTimerDecisionAttributes
-    { _ctdaTimerId :: !Text
+    { _ctdaTimerId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1868,7 +1868,7 @@ instance ToJSON CancelTimerDecisionAttributes
 -- | Provides details of the CancelWorkflowExecution decision. It is not set for
 -- other decision types.
 newtype CancelWorkflowExecutionDecisionAttributes = CancelWorkflowExecutionDecisionAttributes
-    { _cweda1Details :: !(Maybe Text)
+    { _cweda1Details :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1922,7 +1922,7 @@ instance ToJSON CloseStatusFilter
 -- | Provides details of the CompleteWorkflowExecution decision. It is not set
 -- for other decision types.
 newtype CompleteWorkflowExecutionDecisionAttributes = CompleteWorkflowExecutionDecisionAttributes
-    { _cwedaResult :: !(Maybe Text)
+    { _cwedaResult :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1948,7 +1948,7 @@ instance ToJSON CompleteWorkflowExecutionDecisionAttributes
 
 -- | Contains the configuration settings of a domain.
 newtype DomainConfiguration = DomainConfiguration
-    { _dcWorkflowExecutionRetentionPeriodInDays :: !Text
+    { _dcWorkflowExecutionRetentionPeriodInDays :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1978,7 +1978,7 @@ instance FromJSON DomainConfiguration
 -- | Provides details of the RequestCancelActivityTask decision. It is not set
 -- for other decision types.
 newtype RequestCancelActivityTaskDecisionAttributes = RequestCancelActivityTaskDecisionAttributes
-    { _rcatdaActivityId :: !Text
+    { _rcatdaActivityId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2007,7 +2007,7 @@ instance ToJSON RequestCancelActivityTaskDecisionAttributes
 -- counted. closeStatusFilter, executionFilter, typeFilter and tagFilter are
 -- mutually exclusive. You can specify at most one of these in a request.
 newtype TagFilter = TagFilter
-    { _tfTag :: !Text
+    { _tfTag :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2032,7 +2032,7 @@ instance ToJSON TagFilter
 
 -- | The name of the task list.
 newtype TaskList = TaskList
-    { _tlName :: !Text
+    { _tlName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2061,7 +2061,7 @@ instance ToJSON TaskList
 -- tagFilter are mutually exclusive. You can specify at most one of these in a
 -- request.
 newtype WorkflowExecutionFilter = WorkflowExecutionFilter
-    { _wefWorkflowId :: !Text
+    { _wefWorkflowId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

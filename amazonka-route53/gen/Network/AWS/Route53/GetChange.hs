@@ -46,7 +46,7 @@ import Network.AWS.Types (Region)
 
 -- | The input for a GetChange request.
 newtype GetChange = GetChange
-    { _gcId :: !Text
+    { _gcId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype DeregisterImage = DeregisterImage
-    { _diImageId :: !Text
+    { _diImageId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

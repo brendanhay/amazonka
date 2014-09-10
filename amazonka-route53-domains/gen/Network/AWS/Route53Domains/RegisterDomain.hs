@@ -236,7 +236,7 @@ instance ToJSON RegisterDomain
 
 -- | The RegisterDomain response includes the following element.
 newtype RegisterDomainResponse = RegisterDomainResponse
-    { _rdrOperationId :: !Text
+    { _rdrOperationId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

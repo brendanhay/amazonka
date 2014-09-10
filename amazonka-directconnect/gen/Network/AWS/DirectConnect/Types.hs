@@ -330,7 +330,7 @@ instance ToJSON VirtualInterfaceState
 -- | A route filter prefix that the customer can advertise through Border
 -- Gateway Protocol (BGP) over a public virtual interface.
 newtype RouteFilterPrefix = RouteFilterPrefix
-    { _rfpCidr :: !(Maybe Text)
+    { _rfpCidr :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

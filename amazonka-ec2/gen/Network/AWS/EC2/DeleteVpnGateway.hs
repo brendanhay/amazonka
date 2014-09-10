@@ -47,7 +47,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype DeleteVpnGateway = DeleteVpnGateway
-    { _dvgVpnGatewayId :: !Text
+    { _dvgVpnGatewayId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

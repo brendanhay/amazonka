@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 -- | Represents a request instructing the service to begin email address
 -- verification.
 newtype VerifyEmailAddress = VerifyEmailAddress
-    { _veaEmailAddress :: !Text
+    { _veaEmailAddress :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 
 -- | 
 newtype DisableSnapshotCopy = DisableSnapshotCopy
-    { _dscClusterIdentifier :: !Text
+    { _dscClusterIdentifier :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

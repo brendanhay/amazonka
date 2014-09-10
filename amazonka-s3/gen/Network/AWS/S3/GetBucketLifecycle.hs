@@ -41,7 +41,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype GetBucketLifecycle = GetBucketLifecycle
-    { _gblBucket :: !BucketName
+    { _gblBucket :: BucketName
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

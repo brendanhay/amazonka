@@ -55,7 +55,7 @@ import Network.AWS.Request.JSON
 
 -- | The RetrieveDomainAuthCode request includes the following element.
 newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode
-    { _rdacDomainName :: !Text
+    { _rdacDomainName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -88,7 +88,7 @@ instance ToJSON RetrieveDomainAuthCode
 
 -- | The RetrieveDomainAuthCode response includes the following element.
 newtype RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse
-    { _rdacrAuthCode :: !Text
+    { _rdacrAuthCode :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

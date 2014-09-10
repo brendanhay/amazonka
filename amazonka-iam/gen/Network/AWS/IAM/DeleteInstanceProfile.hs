@@ -46,7 +46,7 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 newtype DeleteInstanceProfile = DeleteInstanceProfile
-    { _dipInstanceProfileName :: !Text
+    { _dipInstanceProfileName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

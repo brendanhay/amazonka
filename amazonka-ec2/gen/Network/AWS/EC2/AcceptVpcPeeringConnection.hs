@@ -60,7 +60,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype AcceptVpcPeeringConnection = AcceptVpcPeeringConnection
-    { _avpcVpcPeeringConnectionId :: !(Maybe Text)
+    { _avpcVpcPeeringConnectionId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -85,7 +85,7 @@ instance ToJSON RegisterVolume
 
 -- | Contains the response to a RegisterVolume request.
 newtype RegisterVolumeResponse = RegisterVolumeResponse
-    { _rvrVolumeId :: !(Maybe Text)
+    { _rvrVolumeId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

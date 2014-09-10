@@ -41,7 +41,7 @@ import Network.AWS.Prelude
 
 -- | 
 newtype RotateEncryptionKey = RotateEncryptionKey
-    { _rekClusterIdentifier :: !Text
+    { _rekClusterIdentifier :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -105,7 +105,7 @@ instance ToJSON AddWorkingStorage
 -- | A JSON object containing the of the gateway for which working storage was
 -- configured.
 newtype AddWorkingStorageResponse = AddWorkingStorageResponse
-    { _awsrGatewayARN :: !(Maybe Text)
+    { _awsrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

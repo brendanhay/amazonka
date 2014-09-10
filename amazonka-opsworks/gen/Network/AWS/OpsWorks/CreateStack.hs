@@ -312,7 +312,7 @@ instance ToJSON CreateStack
 
 -- | Contains the response to a CreateStack request.
 newtype CreateStackResponse = CreateStackResponse
-    { _csrrStackId :: !(Maybe Text)
+    { _csrrStackId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

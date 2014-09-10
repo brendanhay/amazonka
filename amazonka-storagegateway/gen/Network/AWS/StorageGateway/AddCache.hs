@@ -98,7 +98,7 @@ instance ToHeaders AddCache
 instance ToJSON AddCache
 
 newtype AddCacheResponse = AddCacheResponse
-    { _acrGatewayARN :: !(Maybe Text)
+    { _acrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

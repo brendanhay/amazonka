@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype GetBucketLogging = GetBucketLogging
-    { _gbl2Bucket :: !BucketName
+    { _gbl2Bucket :: BucketName
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

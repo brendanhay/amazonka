@@ -44,7 +44,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype DeleteSubnet = DeleteSubnet
-    { _ds1SubnetId :: !Text
+    { _ds1SubnetId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

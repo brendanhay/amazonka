@@ -148,7 +148,7 @@ instance ToBody CreateBucket where
     toBody = toBody . encodeXML . _cbCreateBucketConfiguration
 
 newtype CreateBucketResponse = CreateBucketResponse
-    { _cbrLocation :: !(Maybe Text)
+    { _cbrLocation :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

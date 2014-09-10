@@ -40,7 +40,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 newtype DeleteUserProfile = DeleteUserProfile
-    { _dupIamUserArn :: !Text
+    { _dupIamUserArn :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

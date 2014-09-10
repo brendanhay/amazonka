@@ -52,7 +52,7 @@ import Network.AWS.Request.JSON
 
 -- | The input for the DeletePipeline action.
 newtype DeletePipeline = DeletePipeline
-    { _dpPipelineId :: !Text
+    { _dpPipelineId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

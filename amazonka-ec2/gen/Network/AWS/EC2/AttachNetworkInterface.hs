@@ -93,7 +93,7 @@ instance ToQuery AttachNetworkInterface where
     toQuery = genericQuery def
 
 newtype AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
-    { _anirAttachmentId :: !(Maybe Text)
+    { _anirAttachmentId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

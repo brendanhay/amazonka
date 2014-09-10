@@ -67,7 +67,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 newtype DeprecateDomain = DeprecateDomain
-    { _ddName :: !Text
+    { _ddName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

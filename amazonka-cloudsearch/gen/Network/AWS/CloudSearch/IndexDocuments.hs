@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 -- | Container for the parameters to the IndexDocuments operation. Specifies the
 -- name of the domain you want to re-index.
 newtype IndexDocuments = IndexDocuments
-    { _idDomainName :: !Text
+    { _idDomainName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

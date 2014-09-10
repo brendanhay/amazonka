@@ -43,7 +43,7 @@ import Network.AWS.Types (Region)
 
 -- | The request to get a streaming distribution's information.
 newtype GetStreamingDistribution = GetStreamingDistribution
-    { _gsdId :: !Text
+    { _gsdId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

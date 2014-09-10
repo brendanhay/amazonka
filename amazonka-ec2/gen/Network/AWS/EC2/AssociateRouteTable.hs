@@ -88,7 +88,7 @@ instance ToQuery AssociateRouteTable where
     toQuery = genericQuery def
 
 newtype AssociateRouteTableResponse = AssociateRouteTableResponse
-    { _artrAssociationId :: !(Maybe Text)
+    { _artrAssociationId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

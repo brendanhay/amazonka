@@ -224,7 +224,7 @@ instance ToQuery VerificationStatus where
 -- those supported by Amazon SES. For more information, go to the Amazon SES
 -- Developer Guide. Content must be base64-encoded, if MIME requires it.
 newtype RawMessage = RawMessage
-    { _rmData :: !ByteString
+    { _rmData :: ByteString
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

@@ -44,7 +44,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype DeleteKeyPair = DeleteKeyPair
-    { _dkpKeyName :: !Text
+    { _dkpKeyName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

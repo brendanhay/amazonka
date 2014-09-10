@@ -58,7 +58,7 @@ import Network.AWS.Request.JSON
 
 -- | The ReadPipelineRequest structure.
 newtype ReadPipeline = ReadPipeline
-    { _rpId :: !Text
+    { _rpId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

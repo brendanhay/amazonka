@@ -78,7 +78,7 @@ instance ToHeaders DeleteTape
 instance ToJSON DeleteTape
 
 newtype DeleteTapeResponse = DeleteTapeResponse
-    { _dtrTapeARN :: !(Maybe Text)
+    { _dtrTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

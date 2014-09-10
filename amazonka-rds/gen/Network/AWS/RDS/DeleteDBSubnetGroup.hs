@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 
 -- | 
 newtype DeleteDBSubnetGroup = DeleteDBSubnetGroup
-    { _ddbsg1DBSubnetGroupName :: !Text
+    { _ddbsg1DBSubnetGroupName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

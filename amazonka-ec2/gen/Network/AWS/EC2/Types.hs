@@ -3347,7 +3347,7 @@ instance ToQuery VpnStaticRouteSource where
 
 -- | Describes a value of an account attribute.
 newtype AccountAttributeValue = AccountAttributeValue
-    { _aavAttributeValue :: !(Maybe Text)
+    { _aavAttributeValue :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3377,7 +3377,7 @@ instance ToQuery AccountAttributeValue where
 -- | If the value is true, you can't terminate the instance through the Amazon
 -- EC2 console, CLI, or API; otherwise, you can.
 newtype AttributeBooleanValue = AttributeBooleanValue
-    { _abvValue :: !(Maybe Bool)
+    { _abvValue :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3405,7 +3405,7 @@ instance ToQuery AttributeBooleanValue where
 
 -- | The kernel ID.
 newtype AttributeValue = AttributeValue
-    { _av1Value :: !(Maybe Text)
+    { _av1Value :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3433,7 +3433,7 @@ instance ToQuery AttributeValue where
 
 -- | Describes a message about an Availability Zone.
 newtype AvailabilityZoneMessage = AvailabilityZoneMessage
-    { _azmMessage :: !(Maybe Text)
+    { _azmMessage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3461,7 +3461,7 @@ instance ToQuery AvailabilityZoneMessage where
 
 -- | Describes an IP range.
 newtype IpRange = IpRange
-    { _irCidrIp :: !Text
+    { _irCidrIp :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3519,7 +3519,7 @@ instance ToQuery Monitoring where
 
 -- | Describes a virtual private gateway propagating route.
 newtype PropagatingVgw = PropagatingVgw
-    { _pvGatewayId :: !(Maybe Text)
+    { _pvGatewayId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3547,7 +3547,7 @@ instance ToQuery PropagatingVgw where
 
 -- | Describes the ID of a Reserved Instance.
 newtype ReservedInstancesId = ReservedInstancesId
-    { _riiReservedInstancesId :: !(Maybe Text)
+    { _riiReservedInstancesId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3576,7 +3576,7 @@ instance ToQuery ReservedInstancesId where
 
 -- | The monitoring for the instance.
 newtype RunInstancesMonitoringEnabled = RunInstancesMonitoringEnabled
-    { _rimeEnabled :: !Bool
+    { _rimeEnabled :: Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3630,7 +3630,7 @@ instance ToQuery Storage where
     toQuery = genericQuery def
 
 newtype VolumeDetail = VolumeDetail
-    { _vdSize :: !Integer
+    { _vdSize :: Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3659,7 +3659,7 @@ instance ToQuery VolumeDetail where
 
 -- | The VPN connection options.
 newtype VpnConnectionOptions = VpnConnectionOptions
-    { _vcoStaticRoutesOnly :: !(Maybe Bool)
+    { _vcoStaticRoutesOnly :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3691,7 +3691,7 @@ instance ToQuery VpnConnectionOptions where
 -- creating a VPN connection for a device that does not support BGP, you must
 -- specify true. Default: false.
 newtype VpnConnectionOptionsSpecification = VpnConnectionOptionsSpecification
-    { _vcosStaticRoutesOnly :: !(Maybe Bool)
+    { _vcosStaticRoutesOnly :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

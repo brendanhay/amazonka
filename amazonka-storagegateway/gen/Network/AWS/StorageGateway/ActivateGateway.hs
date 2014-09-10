@@ -154,7 +154,7 @@ instance ToJSON ActivateGateway
 -- name, and region. This ARN is used to reference the gateway in other API
 -- operations as well as resource-based authorization.
 newtype ActivateGatewayResponse = ActivateGatewayResponse
-    { _agrGatewayARN :: !(Maybe Text)
+    { _agrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -43,7 +43,7 @@ import Network.AWS.Request.JSON
 -- | Container for the parameters to the DescribeConnectionsOnInterconnect
 -- operation.
 newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect
-    { _dcoiInterconnectId :: !Text
+    { _dcoiInterconnectId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

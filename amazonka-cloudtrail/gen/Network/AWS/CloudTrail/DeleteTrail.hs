@@ -39,7 +39,7 @@ import Network.AWS.Request.JSON
 
 -- | The request that specifies the name of a trail to delete.
 newtype DeleteTrail = DeleteTrail
-    { _dtName :: !Text
+    { _dtName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

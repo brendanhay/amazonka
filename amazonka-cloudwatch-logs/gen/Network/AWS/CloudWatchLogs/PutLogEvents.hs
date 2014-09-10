@@ -123,7 +123,7 @@ instance ToHeaders PutLogEvents
 instance ToJSON PutLogEvents
 
 newtype PutLogEventsResponse = PutLogEventsResponse
-    { _plerNextSequenceToken :: !(Maybe Text)
+    { _plerNextSequenceToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

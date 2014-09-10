@@ -62,7 +62,7 @@ import Network.AWS.Prelude
 
 -- | Input for GetEndpointAttributes action.
 newtype GetEndpointAttributes = GetEndpointAttributes
-    { _geaEndpointArn :: !Text
+    { _geaEndpointArn :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a DeleteSnapshotMessage operation.
 newtype DeleteSnapshot = DeleteSnapshot
-    { _dsSnapshotName :: !Text
+    { _dsSnapshotName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

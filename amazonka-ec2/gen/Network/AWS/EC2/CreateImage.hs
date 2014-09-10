@@ -120,7 +120,7 @@ instance ToQuery CreateImage where
     toQuery = genericQuery def
 
 newtype CreateImageResponse = CreateImageResponse
-    { _cirrImageId :: !(Maybe Text)
+    { _cirrImageId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

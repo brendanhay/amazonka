@@ -185,7 +185,7 @@ instance ToQuery Publish where
 
 -- | Response for Publish action.
 newtype PublishResponse = PublishResponse
-    { _prMessageId :: !(Maybe Text)
+    { _prMessageId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

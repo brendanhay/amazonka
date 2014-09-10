@@ -128,7 +128,7 @@ instance ToJSON UpdateSnapshotSchedule
 
 -- | A JSON object containing the of the updated storage volume.
 newtype UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse
-    { _ussrVolumeARN :: !(Maybe Text)
+    { _ussrVolumeARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

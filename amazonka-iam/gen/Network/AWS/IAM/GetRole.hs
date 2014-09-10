@@ -52,7 +52,7 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 newtype GetRole = GetRole
-    { _grRoleName :: !Text
+    { _grRoleName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

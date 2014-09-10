@@ -120,7 +120,7 @@ instance ToQuery CreateSecurityGroup where
     toQuery = genericQuery def
 
 newtype CreateSecurityGroupResponse = CreateSecurityGroupResponse
-    { _csgrGroupId :: !(Maybe Text)
+    { _csgrGroupId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

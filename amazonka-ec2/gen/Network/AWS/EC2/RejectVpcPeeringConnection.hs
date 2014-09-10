@@ -50,7 +50,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype RejectVpcPeeringConnection = RejectVpcPeeringConnection
-    { _rvpcVpcPeeringConnectionId :: !Text
+    { _rvpcVpcPeeringConnectionId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -76,7 +76,7 @@ instance ToQuery RejectVpcPeeringConnection where
     toQuery = genericQuery def
 
 newtype RejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
-    { _rvpcrReturn :: !(Maybe Bool)
+    { _rvpcrReturn :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

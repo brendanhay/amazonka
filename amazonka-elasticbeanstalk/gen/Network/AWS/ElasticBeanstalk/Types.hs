@@ -506,7 +506,7 @@ instance ToQuery ValidationSeverity where
 
 -- | Describes an Auto Scaling launch configuration.
 newtype AutoScalingGroup = AutoScalingGroup
-    { _asgName :: !(Maybe Text)
+    { _asgName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -562,7 +562,7 @@ instance ToQuery EnvironmentResourcesDescription where
 
 -- | The description of an Amazon EC2 instance.
 newtype Instance = Instance
-    { _iId :: !(Maybe Text)
+    { _iId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -590,7 +590,7 @@ instance FromXML Instance where
 
 -- | Describes an Auto Scaling launch configuration.
 newtype LaunchConfiguration = LaunchConfiguration
-    { _lcName :: !(Maybe Text)
+    { _lcName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -618,7 +618,7 @@ instance FromXML LaunchConfiguration where
 
 -- | Describes a LoadBalancer.
 newtype LoadBalancer = LoadBalancer
-    { _lbName :: !(Maybe Text)
+    { _lbName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -646,7 +646,7 @@ instance FromXML LoadBalancer where
 
 -- | Describes a trigger.
 newtype Trigger = Trigger
-    { _trName :: !(Maybe Text)
+    { _trName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

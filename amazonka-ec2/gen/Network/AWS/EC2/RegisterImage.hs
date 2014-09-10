@@ -201,7 +201,7 @@ instance ToQuery RegisterImage where
     toQuery = genericQuery def
 
 newtype RegisterImageResponse = RegisterImageResponse
-    { _rirImageId :: !(Maybe Text)
+    { _rirImageId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

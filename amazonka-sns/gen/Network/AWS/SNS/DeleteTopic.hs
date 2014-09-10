@@ -51,7 +51,7 @@ import Network.AWS.SNS.Types
 import Network.AWS.Prelude
 
 newtype DeleteTopic = DeleteTopic
-    { _dtTopicArn :: !Text
+    { _dtTopicArn :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

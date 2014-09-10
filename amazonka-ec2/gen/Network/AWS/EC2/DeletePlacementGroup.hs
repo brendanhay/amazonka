@@ -47,7 +47,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype DeletePlacementGroup = DeletePlacementGroup
-    { _dpgGroupName :: !Text
+    { _dpgGroupName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

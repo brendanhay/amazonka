@@ -259,7 +259,7 @@ instance ToJSON TransferDomain
 
 -- | The TranserDomain response includes the following element.
 newtype TransferDomainResponse = TransferDomainResponse
-    { _tdrOperationId :: !Text
+    { _tdrOperationId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -117,7 +117,7 @@ instance ToJSON UpdateBandwidthRateLimit
 -- | A JSON object containing the of the gateway whose throttle information was
 -- updated.
 newtype UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse
-    { _ubrlrGatewayARN :: !(Maybe Text)
+    { _ubrlrGatewayARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

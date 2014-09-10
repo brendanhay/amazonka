@@ -89,7 +89,7 @@ instance ToQuery GetQueueUrl where
 
 -- | For more information, see Responses in the Amazon SQS Developer Guide.
 newtype GetQueueUrlResponse = GetQueueUrlResponse
-    { _gqurQueueUrl :: !(Maybe Text)
+    { _gqurQueueUrl :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

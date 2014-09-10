@@ -112,7 +112,7 @@ instance ToJSON CreatePipeline
 
 -- | Contains the output from the CreatePipeline action.
 newtype CreatePipelineResponse = CreatePipelineResponse
-    { _cprPipelineId :: !Text
+    { _cprPipelineId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

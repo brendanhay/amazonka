@@ -52,7 +52,7 @@ import Network.AWS.Request.JSON
 
 -- | Container for the parameters to the DeleteConnection operation.
 newtype DeleteConnection = DeleteConnection
-    { _dcConnectionId :: !Text
+    { _dcConnectionId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

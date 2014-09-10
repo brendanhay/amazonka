@@ -991,7 +991,7 @@ instance ToXML CORSConfiguration where
     toXMLRoot    = toRoot "CORSConfiguration"
 
 newtype CommonPrefix = CommonPrefix
-    { _cprPrefix :: !(Maybe Text)
+    { _cprPrefix :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1065,7 +1065,7 @@ instance ToXML CreateBucketConfiguration where
     toXMLRoot    = toRoot "CreateBucketConfiguration"
 
 newtype ErrorDocument = ErrorDocument
-    { _edKey :: !ObjectKey
+    { _edKey :: ObjectKey
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1094,7 +1094,7 @@ instance ToXML ErrorDocument where
     toXMLRoot    = toRoot "ErrorDocument"
 
 newtype IndexDocument = IndexDocument
-    { _idSuffix :: !Text
+    { _idSuffix :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1156,7 +1156,7 @@ instance ToXML LifecycleConfiguration where
 -- suspended) to request that Amazon S3 delete noncurrent object versions at a
 -- specific period in the object's lifetime.
 newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration
-    { _nveNoncurrentDays :: !(Maybe Integer)
+    { _nveNoncurrentDays :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1238,7 +1238,7 @@ instance ToXML RequestPaymentConfiguration where
     toXMLRoot    = toRoot "RequestPaymentConfiguration"
 
 newtype RestoreRequest = RestoreRequest
-    { _rr1Days :: !Integer
+    { _rr1Days :: Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

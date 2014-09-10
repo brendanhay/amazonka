@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype GetBucketAcl = GetBucketAcl
-    { _gbaBucket :: !BucketName
+    { _gbaBucket :: BucketName
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

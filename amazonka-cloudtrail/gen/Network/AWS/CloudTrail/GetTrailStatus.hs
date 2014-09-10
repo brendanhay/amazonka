@@ -49,7 +49,7 @@ import Network.AWS.Request.JSON
 
 -- | The name of a trail about which you want the current status.
 newtype GetTrailStatus = GetTrailStatus
-    { _gtsName :: !Text
+    { _gtsName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

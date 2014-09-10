@@ -114,7 +114,7 @@ instance ToQuery Subscribe where
 
 -- | Response for Subscribe action.
 newtype SubscribeResponse = SubscribeResponse
-    { _srSubscriptionArn :: !(Maybe Text)
+    { _srSubscriptionArn :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

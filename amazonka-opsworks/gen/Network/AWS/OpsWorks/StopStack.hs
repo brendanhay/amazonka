@@ -41,7 +41,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 newtype StopStack = StopStack
-    { _ss2StackId :: !Text
+    { _ss2StackId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

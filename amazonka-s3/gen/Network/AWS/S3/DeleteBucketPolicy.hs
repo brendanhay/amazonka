@@ -39,7 +39,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype DeleteBucketPolicy = DeleteBucketPolicy
-    { _dbpBucket :: !BucketName
+    { _dbpBucket :: BucketName
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

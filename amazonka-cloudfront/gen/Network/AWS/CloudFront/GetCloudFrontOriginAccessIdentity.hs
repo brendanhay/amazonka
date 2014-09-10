@@ -43,7 +43,7 @@ import Network.AWS.Types (Region)
 
 -- | The request to get an origin access identity's information.
 newtype GetCloudFrontOriginAccessIdentity = GetCloudFrontOriginAccessIdentity
-    { _gcfoaiId :: !Text
+    { _gcfoaiId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

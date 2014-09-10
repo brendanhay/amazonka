@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 -- | Container for the parameters to the DeleteDomain operation. Specifies the
 -- name of the domain you want to delete.
 newtype DeleteDomain = DeleteDomain
-    { _ddDomainName :: !Text
+    { _ddDomainName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

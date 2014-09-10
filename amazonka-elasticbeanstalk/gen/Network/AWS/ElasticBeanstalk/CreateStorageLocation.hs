@@ -53,7 +53,7 @@ instance ToQuery CreateStorageLocation where
 
 -- | Results of a CreateStorageLocationResult call.
 newtype CreateStorageLocationResponse = CreateStorageLocationResponse
-    { _cslrS3Bucket :: !(Maybe Text)
+    { _cslrS3Bucket :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

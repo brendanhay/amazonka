@@ -78,7 +78,7 @@ instance ToHeaders RetrieveTapeArchive
 instance ToJSON RetrieveTapeArchive
 
 newtype RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse
-    { _rtarTapeARN :: !(Maybe Text)
+    { _rtarTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

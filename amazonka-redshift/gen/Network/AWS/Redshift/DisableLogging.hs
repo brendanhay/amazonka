@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 
 -- | 
 newtype DisableLogging = DisableLogging
-    { _dlClusterIdentifier :: !Text
+    { _dlClusterIdentifier :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -97,7 +97,7 @@ import Network.AWS.Request.JSON
 
 -- | The GetDomainDetail request includes the following element.
 newtype GetDomainDetail = GetDomainDetail
-    { _gddDomainName :: !Text
+    { _gddDomainName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

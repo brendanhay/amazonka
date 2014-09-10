@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 newtype DeleteLogGroup = DeleteLogGroup
-    { _dlgLogGroupName :: !Text
+    { _dlgLogGroupName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -834,7 +834,7 @@ instance ToXML Restrictions where
 -- | A complex type that contains information about the Amazon S3 origin. If the
 -- origin is a custom origin, use the CustomOriginConfig element instead.
 newtype S3OriginConfig = S3OriginConfig
-    { _socOriginAccessIdentity :: !Text
+    { _socOriginAccessIdentity :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

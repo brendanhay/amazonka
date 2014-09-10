@@ -408,7 +408,7 @@ instance ToQuery ScalingActivityStatusCode where
 -- | Specifies whether the PutScalingPolicy ScalingAdjustment parameter is an
 -- absolute number or a percentage of the current capacity.
 newtype AdjustmentType = AdjustmentType
-    { _atAdjustmentType :: !(Maybe Text)
+    { _atAdjustmentType :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -444,7 +444,7 @@ instance FromXML AdjustmentType where
 -- Auto Scaling Instances. For information about Amazon CloudWatch, see the
 -- Amazon CloudWatch Developer Guide.
 newtype InstanceMonitoring = InstanceMonitoring
-    { _imEnabled :: !(Maybe Bool)
+    { _imEnabled :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -472,7 +472,7 @@ instance ToQuery InstanceMonitoring where
 
 -- | The MetricCollectionType data type.
 newtype MetricCollectionType = MetricCollectionType
-    { _mctMetric :: !(Maybe Text)
+    { _mctMetric :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -500,7 +500,7 @@ instance FromXML MetricCollectionType where
 
 -- | The MetricGranularityType data type.
 newtype MetricGranularityType = MetricGranularityType
-    { _mgtGranularity :: !(Maybe Text)
+    { _mgtGranularity :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -586,7 +586,7 @@ instance FromXML MetricGranularityType where
 -- either Launch or Terminate, your scheduled actions might not function as
 -- expected.
 newtype ProcessType = ProcessType
-    { _ptProcessName :: !Text
+    { _ptProcessName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

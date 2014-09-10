@@ -130,7 +130,7 @@ instance ToQuery CopySnapshot where
     toQuery = genericQuery def
 
 newtype CopySnapshotResponse = CopySnapshotResponse
-    { _csrSnapshotId :: !(Maybe Text)
+    { _csrSnapshotId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

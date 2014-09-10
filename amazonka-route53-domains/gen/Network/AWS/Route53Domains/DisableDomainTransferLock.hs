@@ -60,7 +60,7 @@ import Network.AWS.Request.JSON
 
 -- | The DisableDomainTransferLock request includes the following element.
 newtype DisableDomainTransferLock = DisableDomainTransferLock
-    { _ddtlDomainName :: !Text
+    { _ddtlDomainName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -93,7 +93,7 @@ instance ToJSON DisableDomainTransferLock
 
 -- | The DisableDomainTransferLock response includes the following element.
 newtype DisableDomainTransferLockResponse = DisableDomainTransferLockResponse
-    { _ddtlrOperationId :: !Text
+    { _ddtlrOperationId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

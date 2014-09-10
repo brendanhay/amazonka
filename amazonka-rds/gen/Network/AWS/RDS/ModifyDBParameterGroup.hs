@@ -105,7 +105,7 @@ instance ToQuery ModifyDBParameterGroup where
 -- | Contains the result of a successful invocation of the
 -- ModifyDBParameterGroup or ResetDBParameterGroup action.
 newtype ModifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
-    { _mdbpgrDBParameterGroupName :: !(Maybe Text)
+    { _mdbpgrDBParameterGroupName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

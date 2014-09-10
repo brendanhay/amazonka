@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 
 -- | The input for the GetStackPolicy action.
 newtype GetStackPolicy = GetStackPolicy
-    { _gspStackName :: !Text
+    { _gspStackName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -75,7 +75,7 @@ instance ToQuery GetStackPolicy where
 
 -- | The output for the GetStackPolicy action.
 newtype GetStackPolicyResponse = GetStackPolicyResponse
-    { _gsprStackPolicyBody :: !(Maybe Text)
+    { _gsprStackPolicyBody :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

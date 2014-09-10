@@ -214,7 +214,7 @@ instance ToQuery QueueAttributeName where
 
 -- | Encloses the id of an entry in ChangeMessageVisibilityBatch.
 newtype ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchResultEntry
-    { _cmvbrerId :: !Text
+    { _cmvbrerId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -244,7 +244,7 @@ instance FromXML ChangeMessageVisibilityBatchResultEntry where
 
 -- | Encloses the id an entry in DeleteMessageBatch.
 newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry
-    { _dmbrerId :: !Text
+    { _dmbrerId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

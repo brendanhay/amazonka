@@ -39,7 +39,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype DeleteBucketWebsite = DeleteBucketWebsite
-    { _dbwBucket :: !BucketName
+    { _dbwBucket :: BucketName
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -78,7 +78,7 @@ instance ToHeaders GetObjectTorrent
 instance ToBody GetObjectTorrent
 
 newtype GetObjectTorrentResponse = GetObjectTorrentResponse
-    { _gotrBody :: !RsBody
+    { _gotrBody :: RsBody
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

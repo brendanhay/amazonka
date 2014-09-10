@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 newtype DeleteRetentionPolicy = DeleteRetentionPolicy
-    { _drpLogGroupName :: !Text
+    { _drpLogGroupName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

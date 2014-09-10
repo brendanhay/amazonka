@@ -108,7 +108,7 @@ instance ToQuery ConfirmSubscription where
 
 -- | Response for ConfirmSubscriptions action.
 newtype ConfirmSubscriptionResponse = ConfirmSubscriptionResponse
-    { _csrSubscriptionArn :: !(Maybe Text)
+    { _csrSubscriptionArn :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

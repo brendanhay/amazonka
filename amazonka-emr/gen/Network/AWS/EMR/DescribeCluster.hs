@@ -43,7 +43,7 @@ import Network.AWS.Request.JSON
 
 -- | This input determines which cluster to describe.
 newtype DescribeCluster = DescribeCluster
-    { _dcClusterId :: !Text
+    { _dcClusterId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

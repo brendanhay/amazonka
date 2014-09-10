@@ -46,7 +46,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype DeleteInternetGateway = DeleteInternetGateway
-    { _digInternetGatewayId :: !Text
+    { _digInternetGatewayId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

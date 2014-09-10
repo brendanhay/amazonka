@@ -91,7 +91,7 @@ instance ToQuery UpdateSAMLProvider where
 -- | Contains the result of a successful invocation of the UpdateSAMLProvider
 -- action.
 newtype UpdateSAMLProviderResponse = UpdateSAMLProviderResponse
-    { _usamlprSAMLProviderArn :: !(Maybe Text)
+    { _usamlprSAMLProviderArn :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

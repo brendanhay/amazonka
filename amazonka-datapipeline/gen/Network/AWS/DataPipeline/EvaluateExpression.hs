@@ -102,7 +102,7 @@ instance ToJSON EvaluateExpression
 
 -- | Contains the output from the EvaluateExpression action.
 newtype EvaluateExpressionResponse = EvaluateExpressionResponse
-    { _eerEvaluatedExpression :: !Text
+    { _eerEvaluatedExpression :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

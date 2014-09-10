@@ -48,7 +48,7 @@ import Network.AWS.SimpleDB.Types
 import Network.AWS.Prelude
 
 newtype DomainMetadata = DomainMetadata
-    { _dmDomainName :: !Text
+    { _dmDomainName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -54,7 +54,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype CancelBundleTask = CancelBundleTask
-    { _cbtBundleId :: !Text
+    { _cbtBundleId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

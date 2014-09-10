@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 -- | Container for the parameters to the BuildSuggester operation. Specifies the
 -- name of the domain you want to update.
 newtype BuildSuggesters = BuildSuggesters
-    { _bsDomainName :: !Text
+    { _bsDomainName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

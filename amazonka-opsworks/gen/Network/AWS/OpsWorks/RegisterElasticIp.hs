@@ -86,7 +86,7 @@ instance ToJSON RegisterElasticIp
 
 -- | Contains the response to a RegisterElasticIp request.
 newtype RegisterElasticIpResponse = RegisterElasticIpResponse
-    { _reirElasticIp :: !(Maybe Text)
+    { _reirElasticIp :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

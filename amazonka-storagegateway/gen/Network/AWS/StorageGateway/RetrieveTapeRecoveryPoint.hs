@@ -78,7 +78,7 @@ instance ToHeaders RetrieveTapeRecoveryPoint
 instance ToJSON RetrieveTapeRecoveryPoint
 
 newtype RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
-    { _rtrprTapeARN :: !(Maybe Text)
+    { _rtrprTapeARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -105,7 +105,7 @@ instance ToJSON CreateUserProfile
 
 -- | Contains the response to a CreateUserProfile request.
 newtype CreateUserProfileResponse = CreateUserProfileResponse
-    { _cuprIamUserArn :: !(Maybe Text)
+    { _cuprIamUserArn :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

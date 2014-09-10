@@ -307,7 +307,7 @@ instance Exception (Er ElasticTranscoder)
 -- auto, Elastic Transcoder chooses a profile based on the bit rate of the
 -- output file.
 newtype AudioCodecOptions = AudioCodecOptions
-    { _acoProfile :: !(Maybe Text)
+    { _acoProfile :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

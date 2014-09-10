@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 -- | Represents a request instructing the service to delete an address from the
 -- list of verified email addresses.
 newtype DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress
-    { _dveaEmailAddress :: !Text
+    { _dveaEmailAddress :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

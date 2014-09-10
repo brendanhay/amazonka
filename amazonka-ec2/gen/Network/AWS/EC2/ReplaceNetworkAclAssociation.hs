@@ -91,7 +91,7 @@ instance ToQuery ReplaceNetworkAclAssociation where
     toQuery = genericQuery def
 
 newtype ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
-    { _rnaarNewAssociationId :: !(Maybe Text)
+    { _rnaarNewAssociationId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

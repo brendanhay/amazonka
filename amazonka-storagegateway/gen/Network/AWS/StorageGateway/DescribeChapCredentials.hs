@@ -58,7 +58,7 @@ import Network.AWS.Request.JSON
 -- | A JSON object containing the Amazon Resource Name (ARN) of the iSCSI volume
 -- target.
 newtype DescribeChapCredentials = DescribeChapCredentials
-    { _dcc1TargetARN :: !Text
+    { _dcc1TargetARN :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -482,7 +482,7 @@ instance ToQuery SourceType where
 
 -- | Describes an AWS customer account authorized to restore a snapshot.
 newtype AccountWithRestoreAccess = AccountWithRestoreAccess
-    { _awraAccountId :: !(Maybe Text)
+    { _awraAccountId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -510,7 +510,7 @@ instance ToQuery AccountWithRestoreAccess where
 
 -- | Describes an availability zone.
 newtype AvailabilityZone = AvailabilityZone
-    { _azName :: !(Maybe Text)
+    { _azName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

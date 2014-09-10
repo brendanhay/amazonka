@@ -66,7 +66,7 @@ import Network.AWS.Prelude
 
 -- | Input for GetTopicAttributes action.
 newtype GetTopicAttributes = GetTopicAttributes
-    { _gtaTopicArn :: !Text
+    { _gtaTopicArn :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

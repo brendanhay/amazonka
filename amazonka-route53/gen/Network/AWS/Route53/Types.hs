@@ -437,7 +437,7 @@ instance FromXML DelegationSet where
 
 -- | A complex type that contains an optional comment about your hosted zone.
 newtype HostedZoneConfig = HostedZoneConfig
-    { _hzcComment :: !(Maybe Text)
+    { _hzcComment :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -469,7 +469,7 @@ instance ToXML HostedZoneConfig where
 -- | A complex type that contains the value of the Value element for the current
 -- resource record set.
 newtype ResourceRecord = ResourceRecord
-    { _rrValue :: !Text
+    { _rrValue :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

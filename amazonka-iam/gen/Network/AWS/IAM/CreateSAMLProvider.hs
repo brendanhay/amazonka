@@ -103,7 +103,7 @@ instance ToQuery CreateSAMLProvider where
 -- | Contains the result of a successful invocation of the CreateSAMLProvider
 -- action.
 newtype CreateSAMLProviderResponse = CreateSAMLProviderResponse
-    { _csamlprSAMLProviderArn :: !(Maybe Text)
+    { _csamlprSAMLProviderArn :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

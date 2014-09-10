@@ -116,7 +116,7 @@ instance ToQuery CopyImage where
     toQuery = genericQuery def
 
 newtype CopyImageResponse = CopyImageResponse
-    { _cirImageId :: !(Maybe Text)
+    { _cirImageId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

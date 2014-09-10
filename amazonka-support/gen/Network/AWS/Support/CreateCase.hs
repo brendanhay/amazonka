@@ -181,7 +181,7 @@ instance ToJSON CreateCase
 -- | The AWS Support case ID returned by a successful completion of the
 -- CreateCase operation.
 newtype CreateCaseResponse = CreateCaseResponse
-    { _ccrCaseId :: !(Maybe Text)
+    { _ccrCaseId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

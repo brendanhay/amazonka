@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 
 -- | 
 newtype DeleteDBParameterGroup = DeleteDBParameterGroup
-    { _ddbpgDBParameterGroupName :: !Text
+    { _ddbpgDBParameterGroupName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

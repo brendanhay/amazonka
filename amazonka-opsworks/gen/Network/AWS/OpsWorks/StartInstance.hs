@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 newtype StartInstance = StartInstance
-    { _siInstanceId :: !Text
+    { _siInstanceId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

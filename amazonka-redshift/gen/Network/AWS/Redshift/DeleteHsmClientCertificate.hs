@@ -39,7 +39,7 @@ import Network.AWS.Prelude
 
 -- | 
 newtype DeleteHsmClientCertificate = DeleteHsmClientCertificate
-    { _dhccHsmClientCertificateIdentifier :: !Text
+    { _dhccHsmClientCertificateIdentifier :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

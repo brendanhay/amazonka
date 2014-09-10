@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 
 -- | Input for DeleteEndpoint action.
 newtype DeleteEndpoint = DeleteEndpoint
-    { _deEndpointArn :: !Text
+    { _deEndpointArn :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -89,7 +89,7 @@ instance ToQuery ReplaceRouteTableAssociation where
     toQuery = genericQuery def
 
 newtype ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
-    { _rrtarNewAssociationId :: !(Maybe Text)
+    { _rrtarNewAssociationId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

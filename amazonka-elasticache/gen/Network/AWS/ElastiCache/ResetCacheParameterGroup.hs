@@ -104,7 +104,7 @@ instance ToQuery ResetCacheParameterGroup where
 -- | Represents the output of one of the following operations:
 -- ModifyCacheParameterGroup ResetCacheParameterGroup.
 newtype ResetCacheParameterGroupResponse = ResetCacheParameterGroupResponse
-    { _rcpgrCacheParameterGroupName :: !(Maybe Text)
+    { _rcpgrCacheParameterGroupName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

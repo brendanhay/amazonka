@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 
 -- | 
 newtype DescribeLoggingStatus = DescribeLoggingStatus
-    { _dlsClusterIdentifier :: !Text
+    { _dlsClusterIdentifier :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

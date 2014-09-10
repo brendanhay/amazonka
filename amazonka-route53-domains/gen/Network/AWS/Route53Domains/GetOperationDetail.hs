@@ -63,7 +63,7 @@ import Network.AWS.Request.JSON
 
 -- | The GetOperationDetail request includes the following element.
 newtype GetOperationDetail = GetOperationDetail
-    { _godOperationId :: !Text
+    { _godOperationId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

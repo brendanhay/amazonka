@@ -137,7 +137,7 @@ xmlOptions = Tagged def
 -- | A wrapper type for the topic's Amazon Resource Name (ARN). To retrieve a
 -- topic's attributes, use GetTopicAttributes.
 newtype Topic = Topic
-    { _tTopicArn :: !(Maybe Text)
+    { _tTopicArn :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

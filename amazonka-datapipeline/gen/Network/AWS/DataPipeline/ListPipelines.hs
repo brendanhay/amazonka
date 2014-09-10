@@ -53,7 +53,7 @@ import Network.AWS.Request.JSON
 
 -- | The input to the ListPipelines action.
 newtype ListPipelines = ListPipelines
-    { _lpMarker :: !(Maybe Text)
+    { _lpMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

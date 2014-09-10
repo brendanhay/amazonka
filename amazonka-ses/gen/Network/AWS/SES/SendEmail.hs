@@ -144,7 +144,7 @@ instance ToQuery SendEmail where
 -- | Represents a unique message ID returned from a successful SendEmail
 -- request.
 newtype SendEmailResponse = SendEmailResponse
-    { _serMessageId :: !Text
+    { _serMessageId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

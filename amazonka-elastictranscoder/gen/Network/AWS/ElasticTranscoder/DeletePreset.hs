@@ -51,7 +51,7 @@ import Network.AWS.Request.JSON
 
 -- | The DeletePresetRequest structure.
 newtype DeletePreset = DeletePreset
-    { _dp1Id :: !Text
+    { _dp1Id :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

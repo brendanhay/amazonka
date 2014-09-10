@@ -47,7 +47,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype DeleteVolume = DeleteVolume
-    { _dvVolumeId :: !Text
+    { _dvVolumeId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

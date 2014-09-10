@@ -86,7 +86,7 @@ instance ToQuery ConfirmProductInstance where
     toQuery = genericQuery def
 
 newtype ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
-    { _cpirOwnerId :: !(Maybe Text)
+    { _cpirOwnerId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

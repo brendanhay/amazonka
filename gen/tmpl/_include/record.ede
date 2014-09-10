@@ -4,18 +4,30 @@
 {% case scope.ctor %}
 {% when "newtype" %}
 newtype {{ scope.name }} = {{ scope.name }}
+  {% for field in scope.fields %}
+    {% if field.first %}
+    { {{ field.value.prefixed }} :: {{ field.value.type }}
+    {% else %}
+    , {{ field.value.prefixed }} :: {{ field.value.type }}
+    {% endif %}
+    {% if field.last %}
+    } deriving (Show, Generic)
+    {% endif %}
+  {% else %}
+    deriving (Eq, Show, Generic)
+  {% endfor %}
 {% else %}
 data {{ scope.name }} = {{ scope.name }}
-{% endcase %}
-{% for field in scope.fields %}
-  {% if field.first %}
+  {% for field in scope.fields %}
+    {% if field.first %}
     { {{ field.value.prefixed }} :: {{ field.value.strict }}
-  {% else %}
+    {% else %}
     , {{ field.value.prefixed }} :: {{ field.value.strict }}
-  {% endif %}
-  {% if field.last %}
+    {% endif %}
+    {% if field.last %}
     } deriving (Show, Generic)
-  {% endif %}
-{% else %}
+    {% endif %}
+  {% else %}
     deriving (Eq, Show, Generic)
-{% endfor %}
+  {% endfor %}
+{% endcase %}

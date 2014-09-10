@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype GetBucketWebsite = GetBucketWebsite
-    { _gbwBucket :: !BucketName
+    { _gbwBucket :: BucketName
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

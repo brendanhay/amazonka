@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 newtype GetSAMLProvider = GetSAMLProvider
-    { _gsamlpSAMLProviderArn :: !Text
+    { _gsamlpSAMLProviderArn :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

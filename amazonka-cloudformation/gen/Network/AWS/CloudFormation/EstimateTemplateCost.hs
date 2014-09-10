@@ -99,7 +99,7 @@ instance ToQuery EstimateTemplateCost where
 
 -- | The output for a EstimateTemplateCost action.
 newtype EstimateTemplateCostResponse = EstimateTemplateCostResponse
-    { _etcrUrl :: !(Maybe Text)
+    { _etcrUrl :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

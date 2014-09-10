@@ -172,7 +172,7 @@ instance ToJSON CreateApp
 
 -- | Contains the response to a CreateApp request.
 newtype CreateAppResponse = CreateAppResponse
-    { _carAppId :: !(Maybe Text)
+    { _carAppId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

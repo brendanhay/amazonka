@@ -40,7 +40,7 @@ import Network.AWS.Prelude
 
 -- | 
 newtype DeleteOptionGroup = DeleteOptionGroup
-    { _dogOptionGroupName :: !Text
+    { _dogOptionGroupName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

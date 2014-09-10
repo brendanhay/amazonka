@@ -65,7 +65,7 @@ import Network.AWS.Prelude
 
 -- | 
 newtype DescribeResize = DescribeResize
-    { _drClusterIdentifier :: !Text
+    { _drClusterIdentifier :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

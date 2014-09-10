@@ -722,7 +722,7 @@ instance FromJSON TableStatus
 
 -- | The amount of throughput consumed on the table affected by the operation.
 newtype Capacity = Capacity
-    { _cCapacityUnits :: !(Maybe Double)
+    { _cCapacityUnits :: Maybe Double
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

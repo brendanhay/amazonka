@@ -59,7 +59,7 @@ import Network.AWS.Prelude
 
 -- | Input structure for the GetStatus operation.
 newtype GetStatus = GetStatus
-    { _gsJobId :: !Text
+    { _gsJobId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

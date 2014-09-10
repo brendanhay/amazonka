@@ -42,7 +42,7 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 newtype DeleteAccountAlias = DeleteAccountAlias
-    { _daaAccountAlias :: !Text
+    { _daaAccountAlias :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

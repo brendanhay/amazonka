@@ -111,7 +111,7 @@ instance ToJSON ReportTaskRunnerHeartbeat
 
 -- | Contains the output from the ReportTaskRunnerHeartbeat action.
 newtype ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse
-    { _rtrhrTerminate :: !Bool
+    { _rtrhrTerminate :: Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

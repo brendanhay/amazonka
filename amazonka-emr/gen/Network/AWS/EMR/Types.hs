@@ -1060,7 +1060,7 @@ instance ToJSON BootstrapActionDetail
 
 -- | The Amazon EC2 Availability Zone for the job flow.
 newtype PlacementType = PlacementType
-    { _ptAvailabilityZone :: !Text
+    { _ptAvailabilityZone :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

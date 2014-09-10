@@ -109,7 +109,7 @@ instance ToQuery PurchaseReservedInstancesOffering where
     toQuery = genericQuery def
 
 newtype PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
-    { _priorReservedInstancesId :: !(Maybe Text)
+    { _priorReservedInstancesId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

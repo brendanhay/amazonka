@@ -41,7 +41,7 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 newtype DeleteUser = DeleteUser
-    { _duUserName :: !Text
+    { _duUserName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

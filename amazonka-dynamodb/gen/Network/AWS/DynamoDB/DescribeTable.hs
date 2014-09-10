@@ -56,7 +56,7 @@ import Network.AWS.Request.JSON
 
 -- | Represents the input of a DescribeTable operation.
 newtype DescribeTable = DescribeTable
-    { _dt1TableName :: !Text
+    { _dt1TableName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

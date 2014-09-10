@@ -148,7 +148,7 @@ instance ToQuery AssociateAddress where
     toQuery = genericQuery def
 
 newtype AssociateAddressResponse = AssociateAddressResponse
-    { _aarrAssociationId :: !(Maybe Text)
+    { _aarrAssociationId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

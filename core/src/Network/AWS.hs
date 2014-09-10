@@ -69,7 +69,7 @@ makeLenses ''Env
 -- | This creates a new environment without debug logging and uses 'getAuth'
 -- to expand/discover the supplied 'Credentials'.
 --
--- Lenses such as 'envLogging' can be used to modify the 'Env' with a debug log.
+-- Lenses such as 'envLogging' can be used to modify the 'Env' with a debug logger.
 newEnv :: (MonadIO m, MonadError Error m)
        => Region
        -> Credentials

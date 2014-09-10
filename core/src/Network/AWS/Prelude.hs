@@ -65,7 +65,6 @@ import Data.ByteString              (ByteString)
 import Data.Conduit                 (ResumableSource)
 import Data.Default                 as Export
 import Data.Hashable                as Export
-import Data.List.NonEmpty           (NonEmpty(..))
 import Data.Maybe                   as Export
 import Data.Monoid                  as Export
 import Data.Tagged                  as Export

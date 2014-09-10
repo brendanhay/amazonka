@@ -16,6 +16,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
+
+--
 module Network.AWS
     (
     -- * Environment
@@ -41,20 +43,20 @@ module Network.AWS
     , module Network.AWS.Types
     ) where
 
-import Control.Applicative
-import Control.Lens
-import Control.Monad.Catch
-import Control.Monad.Except
-import Control.Monad.Trans.Resource
-import Data.Conduit
-import Data.Monoid
-import Data.Time
-import Network.AWS.Auth
-import Network.AWS.Data
-import Network.AWS.Internal.Signing
-import Network.AWS.Types
-import Network.HTTP.Conduit
+import           Control.Lens
+import           Control.Monad.Catch
+import           Control.Monad.Except
+import           Control.Monad.Trans.Resource
+import           Data.Conduit
+import           Data.Monoid
+import           Data.Time
+import           Network.AWS.Auth
+import           Network.AWS.Data
+import qualified Network.AWS.Internal.Signing as Sign
+import           Network.AWS.Types
+import           Network.HTTP.Conduit
 
+-- | The environment containing the parameters required to make AWS requests.
 data Env = Env
     { _envRegion  :: !Region
     , _envLogging :: Logging
@@ -64,14 +66,23 @@ data Env = Env
 
 makeLenses ''Env
 
-newEnv :: (Functor m, MonadIO m)
+-- | This creates a new environment without debug logging and uses 'getAuth'
+-- to expand/discover the supplied 'Credentials'.
+--
+-- Lenses such as 'envLogging' can be used to modify the 'Env' with a debug log.
+newEnv :: (MonadIO m, MonadError Error m)
        => Region
        -> Credentials
-       -> ExceptT Error m Env
-newEnv r c = Env r None
-    <$> liftIO (newManager conduitManagerSettings)
-    <*> getAuth c
+       -> Manager
+       -> m Env
+newEnv r c m = Env r None m `liftM` getAuth c
 
+-- | Send a data type which is an instance of 'AWSRequest', returning either the
+-- associated 'Rs' response type in the success case, or the related service's
+-- 'Er' type in the error case.
+--
+-- This includes 'HTTPExceptions', serialisation errors, and any service
+-- errors returned as part of the 'Response'.
 send :: (MonadCatch m, MonadResource m, AWSRequest a)
      => Env
      -> a
@@ -82,7 +93,7 @@ send Env{..} x@(request -> rq) = go `catch` er >>= response x
         debug _envLogging $
             "[Raw Request]\n" <> toText rq
         t  <- liftIO getCurrentTime
-        sg <- sign _envAuth _envRegion rq t
+        sg <- Sign.sign _envAuth _envRegion rq t
         debug _envLogging $
             "[Signed Request]\n" <> toText sg
         rs <- http (sg ^. sgRequest) _envManager
@@ -92,6 +103,12 @@ send Env{..} x@(request -> rq) = go `catch` er >>= response x
 
     er ex = return (Left (ex :: HttpException))
 
+-- | Send a data type which is an instance of 'AWSPager' and paginate over
+-- the associated 'Rs' response type in the success case, or the related service's
+-- 'Er' type in the error case.
+--
+-- Note: The 'ResumableSource' will close when there are no more results or the
+-- 'ResourceT' computation is unwrapped. See: 'runResourceT' for more information.
 paginate :: (MonadCatch m, MonadResource m, AWSPager a)
          => Env
          -> a
@@ -104,3 +121,15 @@ paginate e = newResumableSource . go
         either (const $ return ())
                (maybe (return ()) go . next rq)
                rs
+
+-- | Presign a URL with expiry to be used at a later time.
+--
+-- Note: Requires the service's signer to be an instance of 'AWSPresigner'.
+-- Not all signing process support this.
+presign :: (MonadIO m, AWSRequest a, AWSPresigner (Sg (Sv a)))
+        => Env
+        -> a       -- ^ Request to presign.
+        -> UTCTime -- ^ Signing time.
+        -> Int     -- ^ Expiry time in seconds.
+        -> m (Signed a (Sg (Sv a)))
+presign Env{..} (request -> rq) = Sign.presign _envAuth _envRegion rq

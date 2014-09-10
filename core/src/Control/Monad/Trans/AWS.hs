@@ -18,13 +18,14 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
+--
 module Control.Monad.Trans.AWS
     (
-    -- * Monad
-      AWS
-
     -- * Transformer
-    , AWST
+      AWST
+    , AWS
+
+    -- * Run
     , runAWST
 
     -- * Environment
@@ -89,8 +90,16 @@ import           Network.AWS.Auth
 import qualified Network.AWS.Types               as Types
 import           Network.AWS.Types               hiding (debug)
 
+-- | A convenient alias for 'AWST IO'.
 type AWS = AWST IO
 
+-- | The transformer. This satisfies all of the constraints that the functions
+-- in this module require, such as providing 'MonadResource' instances,
+-- as well as keeping track of the internal 'Env' environment.
+--
+-- The 'MonadError Error' instance for this transformer internally uses 'ExceptT'
+-- to handle actions that result in an 'Error'. For more information see
+-- 'sendCatch' and 'paginateCatch'.
 newtype AWST m a = AWST
     { unAWST :: ReaderT (Env, InternalState) (ExceptT Error m) a
     } deriving
@@ -158,6 +167,11 @@ instance MonadResource AWS where
     liftResourceT f = resources >>= liftIO . runInternalState f
     {-# INLINE liftResourceT #-}
 
+-- | Unwrap an 'AWST' transformer, calling all of the registered 'ResourceT'
+-- release actions.
+--
+-- This will short-circuit and return the first 'Left' case encountered if
+-- 'send' or 'paginate' are used and an 'Error' is thrown.
 runAWST :: MonadBaseControl IO m => AWST m a -> Env -> m (Either Error a)
 runAWST m e = runResourceT (withInternalState (runAWST' m . (e,)))
 
@@ -175,9 +189,13 @@ hoistEither = either (throwError . awsError) return
 scoped :: MonadReader Env m => (Env -> m a) -> m a
 scoped f = ask >>= f
 
+-- | Use the logger from 'envLogging' to log a debug message.
 debug :: (MonadIO m, MonadReader Env m) => Text -> m ()
 debug t = view envLogging >>= (`Types.debug` t)
 
+-- | Perform a monadic action if 'envLogging' is set to 'Debug'.
+--
+-- Analogous to 'when'.
 whenDebug :: MonadReader Env m => m () -> m ()
 whenDebug f = do
     l <- view envLogging
@@ -189,6 +207,13 @@ whenDebug f = do
 within :: MonadReader Env m => Region -> m a -> m a
 within r = local (envRegion .~ r)
 
+-- | Send a data type which is an instance of 'AWSRequest', returning it's
+-- associated 'Rs' response type.
+--
+-- This will throw any 'HTTPException' or 'AWSServiceError' returned by the
+-- service using the 'MonadError' instance. In the case of 'AWST' this will
+-- cause the internal 'ExceptT' to short-circuit and return an 'Error' in
+-- the 'Left' case as the result of the computation.
 send :: ( MonadCatch m
         , MonadResource m
         , MonadReader Env m
@@ -199,6 +224,12 @@ send :: ( MonadCatch m
      -> m (Rs a)
 send = sendCatch >=> hoistEither
 
+-- | Send a data type which is an instance of 'AWSRequest', returning either the
+-- associated 'Rs' response type in the success case, or the related service's
+-- 'Er' type in the error case.
+--
+-- This includes 'HTTPExceptions', serialisation errors, and any service
+-- errors returned as part of the 'Response'.
 sendCatch :: ( MonadCatch m
              , MonadResource m
              , MonadReader Env m
@@ -208,6 +239,13 @@ sendCatch :: ( MonadCatch m
           -> m (Either (Er (Sv a)) (Rs a))
 sendCatch rq = scoped (`AWS.send` rq)
 
+-- | Send a data type which is an instance of 'AWSPager' and paginate while
+-- there are more results as defined by the related service operation.
+--
+-- Errors will be handle identically to 'send'.
+--
+-- Note: The 'ResumableSource' will close when there are no more results or the
+-- 'ResourceT' computation is unwrapped. See: 'runResourceT' for more information.
 paginate :: ( MonadCatch m
             , MonadResource m
             , MonadReader Env (ResumableSource m)
@@ -218,6 +256,12 @@ paginate :: ( MonadCatch m
          -> ResumableSource m (Rs a)
 paginate rq = paginateCatch rq $=+ awaitForever (hoistEither >=> yield)
 
+-- | Send a data type which is an instance of 'AWSPager' and paginate over
+-- the associated 'Rs' response type in the success case, or the related service's
+-- 'Er' type in the error case.
+--
+-- Note: The 'ResumableSource' will close when there are no more results or the
+-- 'ResourceT' computation is unwrapped. See: 'runResourceT' for more information.
 paginateCatch :: ( MonadCatch m
                  , MonadResource m
                  , MonadReader Env (ResumableSource m)
@@ -227,19 +271,24 @@ paginateCatch :: ( MonadCatch m
               -> ResumableSource m (Either (Er (Sv a)) (Rs a))
 paginateCatch rq = scoped (`AWS.paginate` rq)
 
+-- | Wait for an asynchronous computation initiated by 'async' to complete and
+-- raise any returned error case using 'hoistEither'.
 wait :: (MonadBaseControl IO m, MonadError Error m, AWSError e)
      => Async (StM m (Either e a))
      -> m a
 wait = Async.wait >=> hoistEither
 
+-- | Presign a URL with expiry to be used at a later time.
+--
+-- Note: Requires the service's signer to be an instance of 'AWSPresigner'.
+-- Not all signing process support this.
 presign :: ( MonadIO m
            , MonadReader Env m
            , AWSRequest a
            , AWSPresigner (Sg (Sv a))
            )
-        => a
-        -> UTCTime
-        -> Int
+        => a       -- ^ Request to presign.
+        -> UTCTime -- ^ Signing time.
+        -> Int     -- ^ Expiry time in seconds.
         -> m (Signed a (Sg (Sv a)))
-presign rq t x = scoped $ \e ->
-    AWS.presign (e ^. envAuth) (e ^. envRegion) (request rq) t x
+presign rq t x = scoped $ \e -> AWS.presign e rq t x

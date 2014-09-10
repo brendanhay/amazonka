@@ -22,14 +22,13 @@ module Network.AWS
     (
     -- * Environment
       Env
-    -- ** Creating the environment
-    , Credentials (..)
-    , newEnv
-    -- ** Lenses
     , envAuth
     , envRegion
     , envManager
     , envLogging
+    -- ** Creating the environment
+    , Credentials (..)
+    , newEnv
 
     -- * Requests
     -- ** Synchronous

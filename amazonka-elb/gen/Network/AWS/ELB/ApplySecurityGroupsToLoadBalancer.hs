@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 
 -- | The input for the ApplySecurityGroupsToLoadBalancer action.
 data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer
-    { _asgtlbLoadBalancerName :: Text
+    { _asgtlbLoadBalancerName :: !Text
     , _asgtlbSecurityGroups :: [Text]
     } deriving (Show, Generic)
 

@@ -44,10 +44,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DescribeVTLDevices = DescribeVTLDevices
-    { _dvtldGatewayARN :: Text
+    { _dvtldGatewayARN :: !Text
     , _dvtldVTLDeviceARNs :: [Text]
-    , _dvtldMarker :: Maybe Text
-    , _dvtldLimit :: Maybe Integer
+    , _dvtldMarker :: !(Maybe Text)
+    , _dvtldLimit :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -96,9 +96,9 @@ instance ToHeaders DescribeVTLDevices
 instance ToJSON DescribeVTLDevices
 
 data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse
-    { _dvtldrGatewayARN :: Maybe Text
+    { _dvtldrGatewayARN :: !(Maybe Text)
     , _dvtldrVTLDevices :: [VTLDevice]
-    , _dvtldrMarker :: Maybe Text
+    , _dvtldrMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

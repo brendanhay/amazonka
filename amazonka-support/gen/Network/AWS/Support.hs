@@ -30,7 +30,6 @@ module Network.AWS.Support
     , module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
     , module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
     , module Network.AWS.Support.DescribeTrustedAdvisorChecks
-    , module Network.AWS.Support.Monadic
     , module Network.AWS.Support.RefreshTrustedAdvisorCheck
     , module Network.AWS.Support.ResolveCase
     , module Network.AWS.Support.Types
@@ -48,7 +47,6 @@ import Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
 import Network.AWS.Support.DescribeTrustedAdvisorCheckResult
 import Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
 import Network.AWS.Support.DescribeTrustedAdvisorChecks
-import Network.AWS.Support.Monadic
 import Network.AWS.Support.RefreshTrustedAdvisorCheck
 import Network.AWS.Support.ResolveCase
 import Network.AWS.Support.Types

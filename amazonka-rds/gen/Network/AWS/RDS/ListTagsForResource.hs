@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 
 -- | 
 newtype ListTagsForResource = ListTagsForResource
-    { _ltfrResourceName :: Text
+    { _ltfrResourceName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

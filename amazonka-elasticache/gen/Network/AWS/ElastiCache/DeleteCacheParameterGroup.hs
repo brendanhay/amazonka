@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a DeleteCacheParameterGroup operation.
 newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup
-    { _dcpgCacheParameterGroupName :: Text
+    { _dcpgCacheParameterGroupName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

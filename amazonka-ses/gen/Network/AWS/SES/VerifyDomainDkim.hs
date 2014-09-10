@@ -63,7 +63,7 @@ import Network.AWS.Prelude
 -- | Represents a request instructing the service to begin DKIM verification for
 -- a domain.
 newtype VerifyDomainDkim = VerifyDomainDkim
-    { _vddDomain :: Text
+    { _vddDomain :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

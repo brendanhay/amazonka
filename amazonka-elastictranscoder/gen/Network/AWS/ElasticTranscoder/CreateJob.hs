@@ -102,11 +102,11 @@ import Network.AWS.Request.JSON
 
 -- | The CreateJobRequest structure.
 data CreateJob = CreateJob
-    { _cj1PipelineId :: Text
+    { _cj1PipelineId :: !Text
     , _cj1Input :: JobInput
     , _cj1Output :: Maybe CreateJobOutput
     , _cj1Outputs :: [CreateJobOutput]
-    , _cj1OutputKeyPrefix :: Maybe Text
+    , _cj1OutputKeyPrefix :: !(Maybe Text)
     , _cj1Playlists :: [CreateJobPlaylist]
     } deriving (Show, Generic)
 

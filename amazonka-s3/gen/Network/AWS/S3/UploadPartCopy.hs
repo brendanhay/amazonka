@@ -60,22 +60,22 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data UploadPartCopy = UploadPartCopy
-    { _upcBucket :: BucketName
-    , _upcCopySource :: Text
-    , _upcCopySourceIfMatch :: Maybe Text
-    , _upcCopySourceIfModifiedSince :: Maybe RFC822
-    , _upcCopySourceIfNoneMatch :: Maybe Text
-    , _upcCopySourceIfUnmodifiedSince :: Maybe RFC822
-    , _upcCopySourceRange :: Maybe Text
-    , _upcKey :: ObjectKey
-    , _upcPartNumber :: Integer
-    , _upcUploadId :: Text
-    , _upcSSECustomerAlgorithm :: Maybe Text
-    , _upcSSECustomerKey :: Maybe Text
-    , _upcSSECustomerKeyMD5 :: Maybe Text
-    , _upcCopySourceSSECustomerAlgorithm :: Maybe Text
-    , _upcCopySourceSSECustomerKey :: Maybe Text
-    , _upcCopySourceSSECustomerKeyMD5 :: Maybe Text
+    { _upcBucket :: !BucketName
+    , _upcCopySource :: !Text
+    , _upcCopySourceIfMatch :: !(Maybe Text)
+    , _upcCopySourceIfModifiedSince :: !(Maybe RFC822)
+    , _upcCopySourceIfNoneMatch :: !(Maybe Text)
+    , _upcCopySourceIfUnmodifiedSince :: !(Maybe RFC822)
+    , _upcCopySourceRange :: !(Maybe Text)
+    , _upcKey :: !ObjectKey
+    , _upcPartNumber :: !Integer
+    , _upcUploadId :: !Text
+    , _upcSSECustomerAlgorithm :: !(Maybe Text)
+    , _upcSSECustomerKey :: !(Maybe Text)
+    , _upcSSECustomerKeyMD5 :: !(Maybe Text)
+    , _upcCopySourceSSECustomerAlgorithm :: !(Maybe Text)
+    , _upcCopySourceSSECustomerKey :: !(Maybe Text)
+    , _upcCopySourceSSECustomerKeyMD5 :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -263,11 +263,11 @@ instance ToHeaders UploadPartCopy where
 instance ToBody UploadPartCopy
 
 data UploadPartCopyResponse = UploadPartCopyResponse
-    { _upcrCopySourceVersionId :: Maybe Text
+    { _upcrCopySourceVersionId :: !(Maybe Text)
     , _upcrCopyPartResult :: Maybe CopyPartResult
     , _upcrServerSideEncryption :: Maybe ServerSideEncryption
-    , _upcrSSECustomerAlgorithm :: Maybe Text
-    , _upcrSSECustomerKeyMD5 :: Maybe Text
+    , _upcrSSECustomerAlgorithm :: !(Maybe Text)
+    , _upcrSSECustomerKeyMD5 :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

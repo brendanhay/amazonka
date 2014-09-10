@@ -79,9 +79,9 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data AttachVolume = AttachVolume
-    { _avVolumeId :: Text
-    , _avInstanceId :: Text
-    , _avDevice :: Text
+    { _avVolumeId :: !Text
+    , _avInstanceId :: !Text
+    , _avDevice :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -122,12 +122,12 @@ instance ToQuery AttachVolume where
     toQuery = genericQuery def
 
 data AttachVolumeResponse = AttachVolumeResponse
-    { _avrVolumeId :: Maybe Text
-    , _avrInstanceId :: Maybe Text
-    , _avrDevice :: Maybe Text
+    { _avrVolumeId :: !(Maybe Text)
+    , _avrInstanceId :: !(Maybe Text)
+    , _avrDevice :: !(Maybe Text)
     , _avrState :: Maybe VolumeAttachmentState
-    , _avrAttachTime :: Maybe ISO8601
-    , _avrDeleteOnTermination :: Maybe Bool
+    , _avrAttachTime :: !(Maybe ISO8601)
+    , _avrDeleteOnTermination :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

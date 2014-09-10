@@ -834,7 +834,7 @@ instance ToXML Restrictions where
 -- | A complex type that contains information about the Amazon S3 origin. If the
 -- origin is a custom origin, use the CustomOriginConfig element instead.
 newtype S3OriginConfig = S3OriginConfig
-    { _socOriginAccessIdentity :: Text
+    { _socOriginAccessIdentity :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -883,8 +883,8 @@ instance ToXML S3OriginConfig where
 -- trusted signer's AWS account. If no KeyPairId element appears for a Signer,
 -- that signer can't create working signed URLs.
 data ActiveTrustedSigners = ActiveTrustedSigners
-    { _atsEnabled :: Bool
-    , _atsQuantity :: Integer
+    { _atsEnabled :: !Bool
+    , _atsQuantity :: !Integer
     , _atsItems :: [Signer]
     } deriving (Show, Generic)
 
@@ -935,7 +935,7 @@ instance FromXML ActiveTrustedSigners where
 -- | A complex type that contains information about CNAMEs (alternate domain
 -- names), if any, for this distribution.
 data Aliases = Aliases
-    { _aQuantity :: Integer
+    { _aQuantity :: !Integer
     , _aItems :: [Text]
     } deriving (Show, Generic)
 
@@ -981,7 +981,7 @@ instance ToXML Aliases where
 -- don't want them to. For example, you may not want users to have permission
 -- to delete objects from your origin.
 data AllowedMethods = AllowedMethods
-    { _amQuantity :: Integer
+    { _amQuantity :: !Integer
     , _amItems :: [Method]
     } deriving (Show, Generic)
 
@@ -1036,14 +1036,14 @@ instance ToXML AllowedMethods where
 -- behaviors, update the distribution configuration and specify all of the
 -- cache behaviors that you want to include in the updated distribution.
 data CacheBehavior = CacheBehavior
-    { _cb1PathPattern :: Text
-    , _cb1TargetOriginId :: Text
+    { _cb1PathPattern :: !Text
+    , _cb1TargetOriginId :: !Text
     , _cb1ForwardedValues :: ForwardedValues
     , _cb1TrustedSigners :: TrustedSigners
     , _cb1ViewerProtocolPolicy :: ViewerProtocolPolicy
-    , _cb1MinTTL :: Integer
+    , _cb1MinTTL :: !Integer
     , _cb1AllowedMethods :: Maybe AllowedMethods
-    , _cb1SmoothStreaming :: Maybe Bool
+    , _cb1SmoothStreaming :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1173,7 +1173,7 @@ instance ToXML CacheBehavior where
 
 -- | A complex type that contains zero or more CacheBehavior elements.
 data CacheBehaviors = CacheBehaviors
-    { _cbQuantity :: Integer
+    { _cbQuantity :: !Integer
     , _cbItems :: [CacheBehavior]
     } deriving (Show, Generic)
 
@@ -1212,8 +1212,8 @@ instance ToXML CacheBehaviors where
 
 -- | The origin access identity's information.
 data CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentity
-    { _cfoaiId :: Text
-    , _cfoaiS3CanonicalUserId :: Text
+    { _cfoaiId :: !Text
+    , _cfoaiS3CanonicalUserId :: !Text
     , _cfoaiCloudFrontOriginAccessIdentityConfig :: Maybe CloudFrontOriginAccessIdentityConfig
     } deriving (Show, Generic)
 
@@ -1263,8 +1263,8 @@ instance FromXML CloudFrontOriginAccessIdentity where
 
 -- | The origin access identity's configuration information.
 data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig
-    { _cfoaicCallerReference :: Text
-    , _cfoaicComment :: Text
+    { _cfoaicCallerReference :: !Text
+    , _cfoaicComment :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1314,11 +1314,11 @@ instance ToXML CloudFrontOriginAccessIdentityConfig where
 
 -- | The CloudFrontOriginAccessIdentityList type.
 data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList
-    { _cfoailMarker :: Text
-    , _cfoailNextMarker :: Maybe Text
-    , _cfoailMaxItems :: Integer
-    , _cfoailIsTruncated :: Bool
-    , _cfoailQuantity :: Integer
+    { _cfoailMarker :: !Text
+    , _cfoailNextMarker :: !(Maybe Text)
+    , _cfoailMaxItems :: !Integer
+    , _cfoailIsTruncated :: !Bool
+    , _cfoailQuantity :: !Integer
     , _cfoailItems :: [CloudFrontOriginAccessIdentitySummary]
     } deriving (Show, Generic)
 
@@ -1396,9 +1396,9 @@ instance FromXML CloudFrontOriginAccessIdentityList where
 
 -- | Summary of the information about a CloudFront origin access identity.
 data CloudFrontOriginAccessIdentitySummary = CloudFrontOriginAccessIdentitySummary
-    { _cfoaisId :: Text
-    , _cfoaisS3CanonicalUserId :: Text
-    , _cfoaisComment :: Text
+    { _cfoaisId :: !Text
+    , _cfoaisS3CanonicalUserId :: !Text
+    , _cfoaisComment :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1450,7 +1450,7 @@ instance FromXML CloudFrontOriginAccessIdentitySummary where
 -- want CloudFront to forward to your origin that is associated with this
 -- cache behavior.
 data CookieNames = CookieNames
-    { _cnQuantity :: Integer
+    { _cnQuantity :: !Integer
     , _cnItems :: [Text]
     } deriving (Show, Generic)
 
@@ -1543,10 +1543,10 @@ instance ToXML CookiePreference where
 -- update the distribution configuration and specify all of the custom error
 -- responses that you want to include in the updated distribution.
 data CustomErrorResponse = CustomErrorResponse
-    { _cer1ErrorCode :: Integer
-    , _cer1ResponsePagePath :: Maybe Text
-    , _cer1ResponseCode :: Maybe Text
-    , _cer1ErrorCachingMinTTL :: Maybe Integer
+    { _cer1ErrorCode :: !Integer
+    , _cer1ResponsePagePath :: !(Maybe Text)
+    , _cer1ResponseCode :: !(Maybe Text)
+    , _cer1ErrorCachingMinTTL :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1610,7 +1610,7 @@ instance ToXML CustomErrorResponse where
 
 -- | A complex type that contains zero or more CustomErrorResponse elements.
 data CustomErrorResponses = CustomErrorResponses
-    { _cerQuantity :: Integer
+    { _cerQuantity :: !Integer
     , _cerItems :: [CustomErrorResponse]
     } deriving (Show, Generic)
 
@@ -1650,8 +1650,8 @@ instance ToXML CustomErrorResponses where
 -- | A complex type that contains information about a custom origin. If the
 -- origin is an Amazon S3 bucket, use the S3OriginConfig element instead.
 data CustomOriginConfig = CustomOriginConfig
-    { _cocHTTPPort :: Integer
-    , _cocHTTPSPort :: Integer
+    { _cocHTTPPort :: !Integer
+    , _cocHTTPSPort :: !Integer
     , _cocOriginProtocolPolicy :: OriginProtocolPolicy
     } deriving (Show, Generic)
 
@@ -1703,13 +1703,13 @@ instance ToXML CustomOriginConfig where
 -- of PathPattern in CacheBehavior elements.You must create exactly one
 -- default cache behavior.
 data DefaultCacheBehavior = DefaultCacheBehavior
-    { _dcbTargetOriginId :: Text
+    { _dcbTargetOriginId :: !Text
     , _dcbForwardedValues :: ForwardedValues
     , _dcbTrustedSigners :: TrustedSigners
     , _dcbViewerProtocolPolicy :: ViewerProtocolPolicy
-    , _dcbMinTTL :: Integer
+    , _dcbMinTTL :: !Integer
     , _dcbAllowedMethods :: Maybe AllowedMethods
-    , _dcbSmoothStreaming :: Maybe Bool
+    , _dcbSmoothStreaming :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1825,11 +1825,11 @@ instance ToXML DefaultCacheBehavior where
 
 -- | The distribution's information.
 data Distribution = Distribution
-    { _dId :: Text
-    , _dStatus :: Text
-    , _dLastModifiedTime :: ISO8601
-    , _dInProgressInvalidationBatches :: Integer
-    , _dDomainName :: Text
+    { _dId :: !Text
+    , _dStatus :: !Text
+    , _dLastModifiedTime :: !ISO8601
+    , _dInProgressInvalidationBatches :: !Integer
+    , _dDomainName :: !Text
     , _dActiveTrustedSigners :: ActiveTrustedSigners
     , _dDistributionConfig :: DistributionConfig
     } deriving (Show, Generic)
@@ -1923,17 +1923,17 @@ instance FromXML Distribution where
 
 -- | The distribution's configuration information.
 data DistributionConfig = DistributionConfig
-    { _dcCallerReference :: Text
+    { _dcCallerReference :: !Text
     , _dcAliases :: Aliases
-    , _dcDefaultRootObject :: Text
+    , _dcDefaultRootObject :: !Text
     , _dcOrigins :: Origins
     , _dcDefaultCacheBehavior :: DefaultCacheBehavior
     , _dcCacheBehaviors :: CacheBehaviors
     , _dcCustomErrorResponses :: Maybe CustomErrorResponses
-    , _dcComment :: Text
+    , _dcComment :: !Text
     , _dcLogging :: LoggingConfig
     , _dcPriceClass :: PriceClass
-    , _dcEnabled :: Bool
+    , _dcEnabled :: !Bool
     , _dcViewerCertificate :: Maybe ViewerCertificate
     , _dcRestrictions :: Maybe Restrictions
     } deriving (Show, Generic)
@@ -2092,11 +2092,11 @@ instance ToXML DistributionConfig where
 
 -- | The DistributionList type.
 data DistributionList = DistributionList
-    { _dlMarker :: Text
-    , _dlNextMarker :: Maybe Text
-    , _dlMaxItems :: Integer
-    , _dlIsTruncated :: Bool
-    , _dlQuantity :: Integer
+    { _dlMarker :: !Text
+    , _dlNextMarker :: !(Maybe Text)
+    , _dlMaxItems :: !Integer
+    , _dlIsTruncated :: !Bool
+    , _dlQuantity :: !Integer
     , _dlItems :: [DistributionSummary]
     } deriving (Show, Generic)
 
@@ -2170,18 +2170,18 @@ instance FromXML DistributionList where
 
 -- | A summary of the information for an Amazon CloudFront distribution.
 data DistributionSummary = DistributionSummary
-    { _dsId :: Text
-    , _dsStatus :: Text
-    , _dsLastModifiedTime :: ISO8601
-    , _dsDomainName :: Text
+    { _dsId :: !Text
+    , _dsStatus :: !Text
+    , _dsLastModifiedTime :: !ISO8601
+    , _dsDomainName :: !Text
     , _dsAliases :: Aliases
     , _dsOrigins :: Origins
     , _dsDefaultCacheBehavior :: DefaultCacheBehavior
     , _dsCacheBehaviors :: CacheBehaviors
     , _dsCustomErrorResponses :: CustomErrorResponses
-    , _dsComment :: Text
+    , _dsComment :: !Text
     , _dsPriceClass :: PriceClass
-    , _dsEnabled :: Bool
+    , _dsEnabled :: !Bool
     , _dsViewerCertificate :: ViewerCertificate
     , _dsRestrictions :: Restrictions
     } deriving (Show, Generic)
@@ -2332,7 +2332,7 @@ instance FromXML DistributionSummary where
 -- | A complex type that specifies how CloudFront handles query strings, cookies
 -- and headers.
 data ForwardedValues = ForwardedValues
-    { _fvQueryString :: Bool
+    { _fvQueryString :: !Bool
     , _fvCookies :: CookiePreference
     , _fvHeaders :: Maybe Headers
     } deriving (Show, Generic)
@@ -2388,7 +2388,7 @@ instance ToXML ForwardedValues where
 -- your GeoIP databases? on the MaxMind website.
 data GeoRestriction = GeoRestriction
     { _grRestrictionType :: GeoRestrictionType
-    , _grQuantity :: Integer
+    , _grQuantity :: !Integer
     , _grItems :: [Text]
     } deriving (Show, Generic)
 
@@ -2452,7 +2452,7 @@ instance ToXML GeoRestriction where
 -- | A complex type that specifies the Headers, if any, that you want CloudFront
 -- to vary upon for this cache behavior.
 data Headers = Headers
-    { _hQuantity :: Integer
+    { _hQuantity :: !Integer
     , _hItems :: [Text]
     } deriving (Show, Generic)
 
@@ -2498,9 +2498,9 @@ instance ToXML Headers where
 
 -- | The invalidation's information.
 data Invalidation = Invalidation
-    { _iId :: Text
-    , _iStatus :: Text
-    , _iCreateTime :: ISO8601
+    { _iId :: !Text
+    , _iStatus :: !Text
+    , _iCreateTime :: !ISO8601
     , _iInvalidationBatch :: InvalidationBatch
     } deriving (Show, Generic)
 
@@ -2557,7 +2557,7 @@ instance FromXML Invalidation where
 -- | The batch information for the invalidation.
 data InvalidationBatch = InvalidationBatch
     { _ibPaths :: Paths
-    , _ibCallerReference :: Text
+    , _ibCallerReference :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2610,11 +2610,11 @@ instance ToXML InvalidationBatch where
 
 -- | Information about invalidation batches.
 data InvalidationList = InvalidationList
-    { _ilMarker :: Text
-    , _ilNextMarker :: Maybe Text
-    , _ilMaxItems :: Integer
-    , _ilIsTruncated :: Bool
-    , _ilQuantity :: Integer
+    { _ilMarker :: !Text
+    , _ilNextMarker :: !(Maybe Text)
+    , _ilMaxItems :: !Integer
+    , _ilIsTruncated :: !Bool
+    , _ilQuantity :: !Integer
     , _ilItems :: [InvalidationSummary]
     } deriving (Show, Generic)
 
@@ -2689,9 +2689,9 @@ instance FromXML InvalidationList where
 
 -- | Summary of an invalidation request.
 data InvalidationSummary = InvalidationSummary
-    { _isId :: Text
-    , _isCreateTime :: ISO8601
-    , _isStatus :: Text
+    { _isId :: !Text
+    , _isCreateTime :: !ISO8601
+    , _isStatus :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2736,7 +2736,7 @@ instance FromXML InvalidationSummary where
 -- | A complex type that lists the active CloudFront key pairs, if any, that are
 -- associated with AwsAccountNumber.
 data KeyPairIds = KeyPairIds
-    { _kpiQuantity :: Integer
+    { _kpiQuantity :: !Integer
     , _kpiItems :: [Text]
     } deriving (Show, Generic)
 
@@ -2776,10 +2776,10 @@ instance ToXML KeyPairIds where
 -- | A complex type that controls whether access logs are written for the
 -- distribution.
 data LoggingConfig = LoggingConfig
-    { _lcEnabled :: Bool
-    , _lcIncludeCookies :: Bool
-    , _lcBucket :: Text
-    , _lcPrefix :: Text
+    { _lcEnabled :: !Bool
+    , _lcIncludeCookies :: !Bool
+    , _lcBucket :: !Text
+    , _lcPrefix :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2850,8 +2850,8 @@ instance ToXML LoggingConfig where
 -- example, a web server) from which CloudFront gets your files.You must
 -- create at least one origin.
 data Origin = Origin
-    { _o1Id :: Text
-    , _o1DomainName :: Text
+    { _o1Id :: !Text
+    , _o1DomainName :: !Text
     , _o1S3OriginConfig :: Maybe S3OriginConfig
     , _o1CustomOriginConfig :: Maybe CustomOriginConfig
     } deriving (Show, Generic)
@@ -2917,7 +2917,7 @@ instance ToXML Origin where
 -- | A complex type that contains information about origins for this
 -- distribution.
 data Origins = Origins
-    { _oQuantity :: Integer
+    { _oQuantity :: !Integer
     , _oItems :: Maybe (List1 Origin)
     } deriving (Show, Generic)
 
@@ -2961,7 +2961,7 @@ instance ToXML Origins where
 -- URL encode any other characters in the path, or CloudFront will not
 -- invalidate the old version of the updated object.
 data Paths = Paths
-    { _pQuantity :: Integer
+    { _pQuantity :: !Integer
     , _pItems :: [Text]
     } deriving (Show, Generic)
 
@@ -3001,8 +3001,8 @@ instance ToXML Paths where
 -- | A complex type that contains information about the Amazon S3 bucket from
 -- which you want CloudFront to get your media files for distribution.
 data S3Origin = S3Origin
-    { _soDomainName :: Text
-    , _soOriginAccessIdentity :: Text
+    { _soDomainName :: !Text
+    , _soOriginAccessIdentity :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3043,7 +3043,7 @@ instance ToXML S3Origin where
 -- TrustedSigners complex type, as well as their active CloudFront key pair
 -- IDs, if any.
 data Signer = Signer
-    { _sAwsAccountNumber :: Maybe Text
+    { _sAwsAccountNumber :: !(Maybe Text)
     , _sKeyPairIds :: Maybe KeyPairIds
     } deriving (Show, Generic)
 
@@ -3084,10 +3084,10 @@ instance FromXML Signer where
 
 -- | The streaming distribution's information.
 data StreamingDistribution = StreamingDistribution
-    { _sdId :: Text
-    , _sdStatus :: Text
-    , _sdLastModifiedTime :: Maybe ISO8601
-    , _sdDomainName :: Text
+    { _sdId :: !Text
+    , _sdStatus :: !Text
+    , _sdLastModifiedTime :: !(Maybe ISO8601)
+    , _sdDomainName :: !Text
     , _sdActiveTrustedSigners :: ActiveTrustedSigners
     , _sdStreamingDistributionConfig :: StreamingDistributionConfig
     } deriving (Show, Generic)
@@ -3172,14 +3172,14 @@ instance FromXML StreamingDistribution where
 
 -- | The streaming distribution's configuration information.
 data StreamingDistributionConfig = StreamingDistributionConfig
-    { _sdcCallerReference :: Text
+    { _sdcCallerReference :: !Text
     , _sdcS3Origin :: S3Origin
     , _sdcAliases :: Aliases
-    , _sdcComment :: Text
+    , _sdcComment :: !Text
     , _sdcLogging :: StreamingLoggingConfig
     , _sdcTrustedSigners :: TrustedSigners
     , _sdcPriceClass :: PriceClass
-    , _sdcEnabled :: Bool
+    , _sdcEnabled :: !Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3293,11 +3293,11 @@ instance ToXML StreamingDistributionConfig where
 
 -- | The StreamingDistributionList type.
 data StreamingDistributionList = StreamingDistributionList
-    { _sdlMarker :: Text
-    , _sdlNextMarker :: Maybe Text
-    , _sdlMaxItems :: Integer
-    , _sdlIsTruncated :: Bool
-    , _sdlQuantity :: Integer
+    { _sdlMarker :: !Text
+    , _sdlNextMarker :: !(Maybe Text)
+    , _sdlMaxItems :: !Integer
+    , _sdlIsTruncated :: !Bool
+    , _sdlQuantity :: !Integer
     , _sdlItems :: [StreamingDistributionSummary]
     } deriving (Show, Generic)
 
@@ -3373,16 +3373,16 @@ instance FromXML StreamingDistributionList where
 -- | A summary of the information for an Amazon CloudFront streaming
 -- distribution.
 data StreamingDistributionSummary = StreamingDistributionSummary
-    { _sdsId :: Text
-    , _sdsStatus :: Text
-    , _sdsLastModifiedTime :: ISO8601
-    , _sdsDomainName :: Text
+    { _sdsId :: !Text
+    , _sdsStatus :: !Text
+    , _sdsLastModifiedTime :: !ISO8601
+    , _sdsDomainName :: !Text
     , _sdsS3Origin :: S3Origin
     , _sdsAliases :: Aliases
     , _sdsTrustedSigners :: TrustedSigners
-    , _sdsComment :: Text
+    , _sdsComment :: !Text
     , _sdsPriceClass :: PriceClass
-    , _sdsEnabled :: Bool
+    , _sdsEnabled :: !Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3502,9 +3502,9 @@ instance FromXML StreamingDistributionSummary where
 -- | A complex type that controls whether access logs are written for the
 -- streaming distribution.
 data StreamingLoggingConfig = StreamingLoggingConfig
-    { _slcEnabled :: Bool
-    , _slcBucket :: Text
-    , _slcPrefix :: Text
+    { _slcEnabled :: !Bool
+    , _slcBucket :: !Text
+    , _slcPrefix :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3570,8 +3570,8 @@ instance ToXML StreamingLoggingConfig where
 -- as applicable, and specify all of the trusted signers that you want to
 -- include in the updated distribution.
 data TrustedSigners = TrustedSigners
-    { _tsEnabled :: Bool
-    , _tsQuantity :: Integer
+    { _tsEnabled :: !Bool
+    , _tsQuantity :: !Integer
     , _tsItems :: [Text]
     } deriving (Show, Generic)
 
@@ -3620,8 +3620,8 @@ instance ToXML TrustedSigners where
 -- | A complex type that contains information about viewer certificates for this
 -- distribution.
 data ViewerCertificate = ViewerCertificate
-    { _vcIAMCertificateId :: Maybe Text
-    , _vcCloudFrontDefaultCertificate :: Maybe Bool
+    { _vcIAMCertificateId :: !(Maybe Text)
+    , _vcCloudFrontDefaultCertificate :: !(Maybe Bool)
     , _vcSSLSupportMethod :: Maybe SSLSupportMethod
     } deriving (Show, Generic)
 

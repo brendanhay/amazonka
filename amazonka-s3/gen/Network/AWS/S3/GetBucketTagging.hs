@@ -41,7 +41,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype GetBucketTagging = GetBucketTagging
-    { _gbtBucket :: BucketName
+    { _gbtBucket :: !BucketName
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

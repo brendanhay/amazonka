@@ -53,8 +53,8 @@ import Network.AWS.Prelude
 
 data EnterStandby = EnterStandby
     { _esInstanceIds :: [Text]
-    , _esAutoScalingGroupName :: Text
-    , _esShouldDecrementDesiredCapacity :: Bool
+    , _esAutoScalingGroupName :: !Text
+    , _esShouldDecrementDesiredCapacity :: !Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

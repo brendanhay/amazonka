@@ -56,9 +56,9 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data CreateRole = CreateRole
-    { _crPath :: Maybe Text
-    , _crRoleName :: Text
-    , _crAssumeRolePolicyDocument :: Text
+    { _crPath :: !(Maybe Text)
+    , _crRoleName :: !Text
+    , _crAssumeRolePolicyDocument :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -50,8 +50,8 @@ import Network.AWS.SimpleDB.Types
 import Network.AWS.Prelude
 
 data DeleteAttributes = DeleteAttributes
-    { _daDomainName :: Text
-    , _daItemName :: Text
+    { _daDomainName :: !Text
+    , _daItemName :: !Text
     , _daAttributes :: [Attribute]
     , _daExpected :: Maybe UpdateCondition
     } deriving (Show, Generic)

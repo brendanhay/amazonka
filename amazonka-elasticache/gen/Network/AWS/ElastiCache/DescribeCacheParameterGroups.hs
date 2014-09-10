@@ -54,9 +54,9 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a DescribeCacheParameterGroups operation.
 data DescribeCacheParameterGroups = DescribeCacheParameterGroups
-    { _dcpg1CacheParameterGroupName :: Maybe Text
-    , _dcpg1MaxRecords :: Maybe Integer
-    , _dcpg1Marker :: Maybe Text
+    { _dcpg1CacheParameterGroupName :: !(Maybe Text)
+    , _dcpg1MaxRecords :: !(Maybe Integer)
+    , _dcpg1Marker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -102,7 +102,7 @@ instance ToQuery DescribeCacheParameterGroups where
 
 -- | Represents the output of a DescribeCacheParameterGroups operation.
 data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
-    { _dcpgrMarker :: Maybe Text
+    { _dcpgrMarker :: !(Maybe Text)
     , _dcpgrCacheParameterGroups :: [CacheParameterGroup]
     } deriving (Show, Generic)
 

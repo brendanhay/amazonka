@@ -79,7 +79,7 @@ import Network.AWS.SQS.Types
 import Network.AWS.Prelude
 
 data SendMessageBatch = SendMessageBatch
-    { _smbQueueUrl :: Text
+    { _smbQueueUrl :: !Text
     , _smbEntries :: [SendMessageBatchRequestEntry]
     } deriving (Show, Generic)
 

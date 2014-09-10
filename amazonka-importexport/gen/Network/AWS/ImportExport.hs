@@ -19,7 +19,6 @@ module Network.AWS.ImportExport
     , module Network.AWS.ImportExport.CreateJob
     , module Network.AWS.ImportExport.GetStatus
     , module Network.AWS.ImportExport.ListJobs
-    , module Network.AWS.ImportExport.Monadic
     , module Network.AWS.ImportExport.Types
     , module Network.AWS.ImportExport.UpdateJob
     ) where
@@ -28,6 +27,5 @@ import Network.AWS.ImportExport.CancelJob
 import Network.AWS.ImportExport.CreateJob
 import Network.AWS.ImportExport.GetStatus
 import Network.AWS.ImportExport.ListJobs
-import Network.AWS.ImportExport.Monadic
 import Network.AWS.ImportExport.Types
 import Network.AWS.ImportExport.UpdateJob

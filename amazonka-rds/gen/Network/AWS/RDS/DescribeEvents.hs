@@ -63,14 +63,14 @@ import Network.AWS.Prelude
 
 -- | 
 data DescribeEvents = DescribeEvents
-    { _deSourceIdentifier :: Maybe Text
+    { _deSourceIdentifier :: !(Maybe Text)
     , _deSourceType :: Maybe SourceType
-    , _deStartTime :: Maybe ISO8601
-    , _deEndTime :: Maybe ISO8601
-    , _deDuration :: Maybe Integer
+    , _deStartTime :: !(Maybe ISO8601)
+    , _deEndTime :: !(Maybe ISO8601)
+    , _deDuration :: !(Maybe Integer)
     , _deEventCategories :: [Text]
-    , _deMaxRecords :: Maybe Integer
-    , _deMarker :: Maybe Text
+    , _deMaxRecords :: !(Maybe Integer)
+    , _deMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -164,7 +164,7 @@ instance ToQuery DescribeEvents where
 -- | Contains the result of a successful invocation of the DescribeEvents
 -- action.
 data DescribeEventsResponse = DescribeEventsResponse
-    { _derMarker :: Maybe Text
+    { _derMarker :: !(Maybe Text)
     , _derEvents :: [Event]
     } deriving (Show, Generic)
 

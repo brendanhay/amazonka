@@ -52,7 +52,6 @@ module Network.AWS.OpsWorks
     , module Network.AWS.OpsWorks.DetachElasticLoadBalancer
     , module Network.AWS.OpsWorks.DisassociateElasticIp
     , module Network.AWS.OpsWorks.GetHostnameSuggestion
-    , module Network.AWS.OpsWorks.Monadic
     , module Network.AWS.OpsWorks.RebootInstance
     , module Network.AWS.OpsWorks.RegisterElasticIp
     , module Network.AWS.OpsWorks.RegisterRdsDbInstance
@@ -116,7 +115,6 @@ import Network.AWS.OpsWorks.DescribeVolumes
 import Network.AWS.OpsWorks.DetachElasticLoadBalancer
 import Network.AWS.OpsWorks.DisassociateElasticIp
 import Network.AWS.OpsWorks.GetHostnameSuggestion
-import Network.AWS.OpsWorks.Monadic
 import Network.AWS.OpsWorks.RebootInstance
 import Network.AWS.OpsWorks.RegisterElasticIp
 import Network.AWS.OpsWorks.RegisterRdsDbInstance

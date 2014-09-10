@@ -85,9 +85,9 @@ import Network.AWS.Request.JSON
 
 -- | Represents the input of a SplitShard operation.
 data SplitShard = SplitShard
-    { _ssStreamName :: Text
-    , _ssShardToSplit :: Text
-    , _ssNewStartingHashKey :: Text
+    { _ssStreamName :: !Text
+    , _ssShardToSplit :: !Text
+    , _ssNewStartingHashKey :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

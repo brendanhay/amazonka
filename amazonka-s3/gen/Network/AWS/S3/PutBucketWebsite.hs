@@ -41,8 +41,8 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data PutBucketWebsite = PutBucketWebsite
-    { _pbwBucket :: BucketName
-    , _pbwContentMD5 :: Maybe Text
+    { _pbwBucket :: !BucketName
+    , _pbwContentMD5 :: !(Maybe Text)
     , _pbwWebsiteConfiguration :: WebsiteConfiguration
     } deriving (Show, Generic)
 

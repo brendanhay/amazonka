@@ -55,9 +55,9 @@ import Network.AWS.Prelude
 
 -- | 
 data DescribeEventSubscriptions = DescribeEventSubscriptions
-    { _des1SubscriptionName :: Maybe Text
-    , _des1MaxRecords :: Maybe Integer
-    , _des1Marker :: Maybe Text
+    { _des1SubscriptionName :: !(Maybe Text)
+    , _des1MaxRecords :: !(Maybe Integer)
+    , _des1Marker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -102,7 +102,7 @@ instance ToQuery DescribeEventSubscriptions where
 
 -- | Data returned by the DescribeEventSubscriptions action.
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
-    { _desrrMarker :: Maybe Text
+    { _desrrMarker :: !(Maybe Text)
     , _desrrEventSubscriptionsList :: [EventSubscription]
     } deriving (Show, Generic)
 

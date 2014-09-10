@@ -41,7 +41,7 @@ import Network.AWS.Request.JSON
 
 -- | Container for the parameters to the DeleteInterconnect operation.
 newtype DeleteInterconnect = DeleteInterconnect
-    { _diInterconnectId :: Text
+    { _diInterconnectId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

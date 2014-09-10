@@ -61,7 +61,6 @@ module Network.AWS.Redshift
     , module Network.AWS.Redshift.ModifyClusterSubnetGroup
     , module Network.AWS.Redshift.ModifyEventSubscription
     , module Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
-    , module Network.AWS.Redshift.Monadic
     , module Network.AWS.Redshift.PurchaseReservedNodeOffering
     , module Network.AWS.Redshift.RebootCluster
     , module Network.AWS.Redshift.ResetClusterParameterGroup
@@ -118,7 +117,6 @@ import Network.AWS.Redshift.ModifyClusterParameterGroup
 import Network.AWS.Redshift.ModifyClusterSubnetGroup
 import Network.AWS.Redshift.ModifyEventSubscription
 import Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
-import Network.AWS.Redshift.Monadic
 import Network.AWS.Redshift.PurchaseReservedNodeOffering
 import Network.AWS.Redshift.RebootCluster
 import Network.AWS.Redshift.ResetClusterParameterGroup

@@ -58,8 +58,8 @@ import Network.AWS.Request.JSON
 
 -- | The CheckDomainAvailability request contains the following elements.
 data CheckDomainAvailability = CheckDomainAvailability
-    { _cdaDomainName :: Text
-    , _cdaIdnLangCode :: Maybe Text
+    { _cdaDomainName :: !Text
+    , _cdaIdnLangCode :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

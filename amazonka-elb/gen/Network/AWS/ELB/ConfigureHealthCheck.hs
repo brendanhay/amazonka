@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 
 -- | Input for the ConfigureHealthCheck action.
 data ConfigureHealthCheck = ConfigureHealthCheck
-    { _chcLoadBalancerName :: Text
+    { _chcLoadBalancerName :: !Text
     , _chcHealthCheck :: HealthCheck
     } deriving (Show, Generic)
 

@@ -32,7 +32,6 @@ module Network.AWS.CloudFormation
     , module Network.AWS.CloudFormation.GetTemplate
     , module Network.AWS.CloudFormation.ListStackResources
     , module Network.AWS.CloudFormation.ListStacks
-    , module Network.AWS.CloudFormation.Monadic
     , module Network.AWS.CloudFormation.SetStackPolicy
     , module Network.AWS.CloudFormation.Types
     , module Network.AWS.CloudFormation.UpdateStack
@@ -51,7 +50,6 @@ import Network.AWS.CloudFormation.GetStackPolicy
 import Network.AWS.CloudFormation.GetTemplate
 import Network.AWS.CloudFormation.ListStackResources
 import Network.AWS.CloudFormation.ListStacks
-import Network.AWS.CloudFormation.Monadic
 import Network.AWS.CloudFormation.SetStackPolicy
 import Network.AWS.CloudFormation.Types
 import Network.AWS.CloudFormation.UpdateStack

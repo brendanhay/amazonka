@@ -55,9 +55,9 @@ import Network.AWS.Prelude
 
 -- | ???.
 data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups
-    { _dcsg2ClusterSecurityGroupName :: Maybe Text
-    , _dcsg2MaxRecords :: Maybe Integer
-    , _dcsg2Marker :: Maybe Text
+    { _dcsg2ClusterSecurityGroupName :: !(Maybe Text)
+    , _dcsg2MaxRecords :: !(Maybe Integer)
+    , _dcsg2Marker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -109,7 +109,7 @@ instance ToQuery DescribeClusterSecurityGroups where
 
 -- | Contains the output from the DescribeClusterSecurityGroups action.
 data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse
-    { _dcsgrMarker :: Maybe Text
+    { _dcsgrMarker :: !(Maybe Text)
     , _dcsgrClusterSecurityGroups :: [ClusterSecurityGroup]
     } deriving (Show, Generic)
 

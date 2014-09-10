@@ -50,10 +50,10 @@ import Network.AWS.Request.JSON
 
 -- | To be written.
 data AddCommunicationToCase = AddCommunicationToCase
-    { _actcCaseId :: Maybe Text
-    , _actcCommunicationBody :: Text
+    { _actcCaseId :: !(Maybe Text)
+    , _actcCommunicationBody :: !Text
     , _actcCcEmailAddresses :: [Text]
-    , _actcAttachmentSetId :: Maybe Text
+    , _actcAttachmentSetId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -111,7 +111,7 @@ instance ToJSON AddCommunicationToCase
 
 -- | The result of the AddCommunicationToCase operation.
 newtype AddCommunicationToCaseResponse = AddCommunicationToCaseResponse
-    { _actcrResult :: Maybe Bool
+    { _actcrResult :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

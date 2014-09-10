@@ -49,8 +49,8 @@ import Network.AWS.Prelude
 -- configuration and exclude any pending changes, set the Deployed option to
 -- true.
 data DescribeAvailabilityOptions = DescribeAvailabilityOptions
-    { _dao2DomainName :: Text
-    , _dao2Deployed :: Maybe Bool
+    { _dao2DomainName :: !Text
+    , _dao2Deployed :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -44,7 +44,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data ModifyVpcAttribute = ModifyVpcAttribute
-    { _mva1VpcId :: Text
+    { _mva1VpcId :: !Text
     , _mva1EnableDnsSupport :: Maybe AttributeBooleanValue
     , _mva1EnableDnsHostnames :: Maybe AttributeBooleanValue
     } deriving (Show, Generic)

@@ -70,7 +70,7 @@ import Network.AWS.Request.JSON
 
 -- | Represents the input of an UpdateTable operation.
 data UpdateTable = UpdateTable
-    { _utTableName :: Text
+    { _utTableName :: !Text
     , _utProvisionedThroughput :: Maybe ProvisionedThroughput
     , _utGlobalSecondaryIndexUpdates :: [GlobalSecondaryIndexUpdate]
     } deriving (Show, Generic)

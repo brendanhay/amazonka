@@ -415,11 +415,11 @@ instance ToQuery Statistic where
 -- CloudWatch returns this data type as part of the DescribeAlarmHistoryResult
 -- data type.
 data AlarmHistoryItem = AlarmHistoryItem
-    { _ahiAlarmName :: Maybe Text
-    , _ahiTimestamp :: Maybe ISO8601
+    { _ahiAlarmName :: !(Maybe Text)
+    , _ahiTimestamp :: !(Maybe ISO8601)
     , _ahiHistoryItemType :: Maybe HistoryItemType
-    , _ahiHistorySummary :: Maybe Text
-    , _ahiHistoryData :: Maybe Text
+    , _ahiHistorySummary :: !(Maybe Text)
+    , _ahiHistoryData :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -478,12 +478,12 @@ instance FromXML AlarmHistoryItem where
 -- | The Datapoint data type encapsulates the statistical data that Amazon
 -- CloudWatch computes from metric data.
 data Datapoint = Datapoint
-    { _drTimestamp :: Maybe ISO8601
-    , _drSampleCount :: Maybe Double
-    , _drAverage :: Maybe Double
-    , _drSum :: Maybe Double
-    , _drMinimum :: Maybe Double
-    , _drMaximum :: Maybe Double
+    { _drTimestamp :: !(Maybe ISO8601)
+    , _drSampleCount :: !(Maybe Double)
+    , _drAverage :: !(Maybe Double)
+    , _drSum :: !(Maybe Double)
+    , _drMinimum :: !(Maybe Double)
+    , _drMaximum :: !(Maybe Double)
     , _drUnit :: Maybe StandardUnit
     } deriving (Show, Generic)
 
@@ -556,8 +556,8 @@ instance FromXML Datapoint where
 -- | The Dimension data type further expands on the identity of a metric using a
 -- Name, Value pair.
 data Dimension = Dimension
-    { _dName :: Text
-    , _dValue :: Text
+    { _dName :: !Text
+    , _dValue :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -594,8 +594,8 @@ instance ToQuery Dimension where
 
 -- | The DimensionFilter data type is used to filter ListMetrics results.
 data DimensionFilter = DimensionFilter
-    { _dfName :: Text
-    , _dfValue :: Maybe Text
+    { _dfName :: !Text
+    , _dfValue :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -630,8 +630,8 @@ instance ToQuery DimensionFilter where
 -- call ListMetrics, Amazon CloudWatch returns information contained by this
 -- data type.
 data Metric = Metric
-    { _mNamespace :: Maybe Text
-    , _mMetricName :: Maybe Text
+    { _mNamespace :: !(Maybe Text)
+    , _mMetricName :: !(Maybe Text)
     , _mDimensions :: [Dimension]
     } deriving (Show, Generic)
 
@@ -675,26 +675,26 @@ instance FromXML Metric where
 -- | The MetricAlarm data type represents an alarm. You can use PutMetricAlarm
 -- to create or update an alarm.
 data MetricAlarm = MetricAlarm
-    { _maAlarmName :: Maybe Text
-    , _maAlarmArn :: Maybe Text
-    , _maAlarmDescription :: Maybe Text
-    , _maAlarmConfigurationUpdatedTimestamp :: Maybe ISO8601
-    , _maActionsEnabled :: Maybe Bool
+    { _maAlarmName :: !(Maybe Text)
+    , _maAlarmArn :: !(Maybe Text)
+    , _maAlarmDescription :: !(Maybe Text)
+    , _maAlarmConfigurationUpdatedTimestamp :: !(Maybe ISO8601)
+    , _maActionsEnabled :: !(Maybe Bool)
     , _maOKActions :: [Text]
     , _maAlarmActions :: [Text]
     , _maInsufficientDataActions :: [Text]
     , _maStateValue :: Maybe StateValue
-    , _maStateReason :: Maybe Text
-    , _maStateReasonData :: Maybe Text
-    , _maStateUpdatedTimestamp :: Maybe ISO8601
-    , _maMetricName :: Maybe Text
-    , _maNamespace :: Maybe Text
+    , _maStateReason :: !(Maybe Text)
+    , _maStateReasonData :: !(Maybe Text)
+    , _maStateUpdatedTimestamp :: !(Maybe ISO8601)
+    , _maMetricName :: !(Maybe Text)
+    , _maNamespace :: !(Maybe Text)
     , _maStatistic :: Maybe Statistic
     , _maDimensions :: [Dimension]
-    , _maPeriod :: Maybe Integer
+    , _maPeriod :: !(Maybe Integer)
     , _maUnit :: Maybe StandardUnit
-    , _maEvaluationPeriods :: Maybe Integer
-    , _maThreshold :: Maybe Double
+    , _maEvaluationPeriods :: !(Maybe Integer)
+    , _maThreshold :: !(Maybe Double)
     , _maComparisonOperator :: Maybe ComparisonOperator
     } deriving (Show, Generic)
 
@@ -888,10 +888,10 @@ instance FromXML MetricAlarm where
 -- PutMetricData to either create a new metric or add new values to be
 -- aggregated into an existing metric.
 data MetricDatum = MetricDatum
-    { _mdMetricName :: Text
+    { _mdMetricName :: !Text
     , _mdDimensions :: [Dimension]
-    , _mdTimestamp :: Maybe ISO8601
-    , _mdValue :: Maybe Double
+    , _mdTimestamp :: !(Maybe ISO8601)
+    , _mdValue :: !(Maybe Double)
     , _mdStatisticValues :: Maybe StatisticSet
     , _mdUnit :: Maybe StandardUnit
     } deriving (Show, Generic)
@@ -959,10 +959,10 @@ instance ToQuery MetricDatum where
 
 -- | A set of statistical values describing the metric.
 data StatisticSet = StatisticSet
-    { _ssSampleCount :: Double
-    , _ssSum :: Double
-    , _ssMinimum :: Double
-    , _ssMaximum :: Double
+    { _ssSampleCount :: !Double
+    , _ssSum :: !Double
+    , _ssMinimum :: !Double
+    , _ssMaximum :: !Double
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

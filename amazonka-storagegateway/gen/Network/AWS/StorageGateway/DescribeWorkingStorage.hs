@@ -64,7 +64,7 @@ import Network.AWS.Request.JSON
 
 -- | A JSON object containing the of the gateway.
 newtype DescribeWorkingStorage = DescribeWorkingStorage
-    { _dwsGatewayARN :: Text
+    { _dwsGatewayARN :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -95,10 +95,10 @@ instance ToJSON DescribeWorkingStorage
 
 -- | A JSON object containing the following fields:.
 data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse
-    { _dwsrGatewayARN :: Maybe Text
+    { _dwsrGatewayARN :: !(Maybe Text)
     , _dwsrDiskIds :: [Text]
-    , _dwsrWorkingStorageUsedInBytes :: Maybe Integer
-    , _dwsrWorkingStorageAllocatedInBytes :: Maybe Integer
+    , _dwsrWorkingStorageUsedInBytes :: !(Maybe Integer)
+    , _dwsrWorkingStorageAllocatedInBytes :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -59,9 +59,9 @@ import Network.AWS.Request.JSON
 
 -- | Container for the parameters to the CreateConnection operation.
 data CreateConnection = CreateConnection
-    { _cc1Location :: Text
-    , _cc1Bandwidth :: Text
-    , _cc1ConnectionName :: Text
+    { _cc1Location :: !Text
+    , _cc1Bandwidth :: !Text
+    , _cc1ConnectionName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -109,15 +109,15 @@ instance ToJSON CreateConnection
 -- | A connection represents the physical network connection between the AWS
 -- Direct Connect location and the customer.
 data CreateConnectionResponse = CreateConnectionResponse
-    { _ccrrOwnerAccount :: Maybe Text
-    , _ccrrConnectionId :: Maybe Text
-    , _ccrrConnectionName :: Maybe Text
+    { _ccrrOwnerAccount :: !(Maybe Text)
+    , _ccrrConnectionId :: !(Maybe Text)
+    , _ccrrConnectionName :: !(Maybe Text)
     , _ccrrConnectionState :: Maybe ConnectionState
-    , _ccrrRegion :: Maybe Text
-    , _ccrrLocation :: Maybe Text
-    , _ccrrBandwidth :: Maybe Text
-    , _ccrrVlan :: Maybe Integer
-    , _ccrrPartnerName :: Maybe Text
+    , _ccrrRegion :: !(Maybe Text)
+    , _ccrrLocation :: !(Maybe Text)
+    , _ccrrBandwidth :: !(Maybe Text)
+    , _ccrrVlan :: !(Maybe Integer)
+    , _ccrrPartnerName :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

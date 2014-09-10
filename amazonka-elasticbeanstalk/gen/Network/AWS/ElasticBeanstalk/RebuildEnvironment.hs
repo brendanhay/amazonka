@@ -45,8 +45,8 @@ import Network.AWS.Prelude
 
 -- | 
 data RebuildEnvironment = RebuildEnvironment
-    { _reEnvironmentId :: Maybe Text
-    , _reEnvironmentName :: Maybe Text
+    { _reEnvironmentId :: !(Maybe Text)
+    , _reEnvironmentName :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

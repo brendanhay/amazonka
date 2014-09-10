@@ -428,7 +428,7 @@ instance ToQuery SourceType where
 
 -- | The Availability Zone associated with the subnet.
 newtype AvailabilityZone = AvailabilityZone
-    { _azName :: Maybe Text
+    { _azName :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -457,7 +457,7 @@ instance ToQuery AvailabilityZone where
 -- | A group of settings to be applied to the replication group, either
 -- immediately or during the next maintenance window.
 newtype ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues
-    { _rgpmvPrimaryClusterId :: Maybe Text
+    { _rgpmvPrimaryClusterId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -487,28 +487,28 @@ instance ToQuery ReplicationGroupPendingModifiedValues where
 
 -- | Contains all of the attributes of a specific cache cluster.
 data CacheCluster = CacheCluster
-    { _ccCacheClusterId :: Maybe Text
+    { _ccCacheClusterId :: !(Maybe Text)
     , _ccConfigurationEndpoint :: Maybe Endpoint
-    , _ccClientDownloadLandingPage :: Maybe Text
-    , _ccCacheNodeType :: Maybe Text
-    , _ccEngine :: Maybe Text
-    , _ccEngineVersion :: Maybe Text
-    , _ccCacheClusterStatus :: Maybe Text
-    , _ccNumCacheNodes :: Maybe Integer
-    , _ccPreferredAvailabilityZone :: Maybe Text
-    , _ccCacheClusterCreateTime :: Maybe ISO8601
-    , _ccPreferredMaintenanceWindow :: Maybe Text
+    , _ccClientDownloadLandingPage :: !(Maybe Text)
+    , _ccCacheNodeType :: !(Maybe Text)
+    , _ccEngine :: !(Maybe Text)
+    , _ccEngineVersion :: !(Maybe Text)
+    , _ccCacheClusterStatus :: !(Maybe Text)
+    , _ccNumCacheNodes :: !(Maybe Integer)
+    , _ccPreferredAvailabilityZone :: !(Maybe Text)
+    , _ccCacheClusterCreateTime :: !(Maybe ISO8601)
+    , _ccPreferredMaintenanceWindow :: !(Maybe Text)
     , _ccPendingModifiedValues :: Maybe PendingModifiedValues
     , _ccNotificationConfiguration :: Maybe NotificationConfiguration
     , _ccCacheSecurityGroups :: [CacheSecurityGroupMembership]
     , _ccCacheParameterGroup :: Maybe CacheParameterGroupStatus
-    , _ccCacheSubnetGroupName :: Maybe Text
+    , _ccCacheSubnetGroupName :: !(Maybe Text)
     , _ccCacheNodes :: [CacheNode]
-    , _ccAutoMinorVersionUpgrade :: Maybe Bool
+    , _ccAutoMinorVersionUpgrade :: !(Maybe Bool)
     , _ccSecurityGroups :: [SecurityGroupMembership]
-    , _ccReplicationGroupId :: Maybe Text
-    , _ccSnapshotRetentionLimit :: Maybe Integer
-    , _ccSnapshotWindow :: Maybe Text
+    , _ccReplicationGroupId :: !(Maybe Text)
+    , _ccSnapshotRetentionLimit :: !(Maybe Integer)
+    , _ccSnapshotWindow :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -726,11 +726,11 @@ instance FromXML CacheCluster where
 
 -- | Provides all of the details about a particular cache engine version.
 data CacheEngineVersion = CacheEngineVersion
-    { _cevEngine :: Maybe Text
-    , _cevEngineVersion :: Maybe Text
-    , _cevCacheParameterGroupFamily :: Maybe Text
-    , _cevCacheEngineDescription :: Maybe Text
-    , _cevCacheEngineVersionDescription :: Maybe Text
+    { _cevEngine :: !(Maybe Text)
+    , _cevEngineVersion :: !(Maybe Text)
+    , _cevCacheParameterGroupFamily :: !(Maybe Text)
+    , _cevCacheEngineDescription :: !(Maybe Text)
+    , _cevCacheEngineVersionDescription :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -796,13 +796,13 @@ instance FromXML CacheEngineVersion where
 -- runs its own instance of the cluster's protocol-compliant caching software
 -- - either Memcached or Redis.
 data CacheNode = CacheNode
-    { _cnCacheNodeId :: Maybe Text
-    , _cnCacheNodeStatus :: Maybe Text
-    , _cnCacheNodeCreateTime :: Maybe ISO8601
+    { _cnCacheNodeId :: !(Maybe Text)
+    , _cnCacheNodeStatus :: !(Maybe Text)
+    , _cnCacheNodeCreateTime :: !(Maybe ISO8601)
     , _cnEndpoint :: Maybe Endpoint
-    , _cnParameterGroupStatus :: Maybe Text
-    , _cnSourceCacheNodeId :: Maybe Text
-    , _cnCustomerAvailabilityZone :: Maybe Text
+    , _cnParameterGroupStatus :: !(Maybe Text)
+    , _cnSourceCacheNodeId :: !(Maybe Text)
+    , _cnCustomerAvailabilityZone :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -884,13 +884,13 @@ instance ToQuery CacheNode where
 -- applied to. For example, in a Redis cache cluster, a cache.m1.large cache
 -- node type would have a larger maxmemory value than a cache.m1.small type.
 data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter
-    { _cntspParameterName :: Maybe Text
-    , _cntspDescription :: Maybe Text
-    , _cntspSource :: Maybe Text
-    , _cntspDataType :: Maybe Text
-    , _cntspAllowedValues :: Maybe Text
-    , _cntspIsModifiable :: Maybe Bool
-    , _cntspMinimumEngineVersion :: Maybe Text
+    { _cntspParameterName :: !(Maybe Text)
+    , _cntspDescription :: !(Maybe Text)
+    , _cntspSource :: !(Maybe Text)
+    , _cntspDataType :: !(Maybe Text)
+    , _cntspAllowedValues :: !(Maybe Text)
+    , _cntspIsModifiable :: !(Maybe Bool)
+    , _cntspMinimumEngineVersion :: !(Maybe Text)
     , _cntspCacheNodeTypeSpecificValues :: [CacheNodeTypeSpecificValue]
     } deriving (Show, Generic)
 
@@ -979,8 +979,8 @@ instance FromXML CacheNodeTypeSpecificParameter where
 
 -- | A value that applies only to a certain cache node type.
 data CacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue
-    { _cntsvCacheNodeType :: Maybe Text
-    , _cntsvValue :: Maybe Text
+    { _cntsvCacheNodeType :: !(Maybe Text)
+    , _cntsvValue :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1016,9 +1016,9 @@ instance ToQuery CacheNodeTypeSpecificValue where
 
 -- | Represents the output of a CreateCacheParameterGroup operation.
 data CacheParameterGroup = CacheParameterGroup
-    { _cpgCacheParameterGroupName :: Maybe Text
-    , _cpgCacheParameterGroupFamily :: Maybe Text
-    , _cpgDescription :: Maybe Text
+    { _cpgCacheParameterGroupName :: !(Maybe Text)
+    , _cpgCacheParameterGroupFamily :: !(Maybe Text)
+    , _cpgDescription :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1065,8 +1065,8 @@ instance FromXML CacheParameterGroup where
 
 -- | The status of the cache parameter group.
 data CacheParameterGroupStatus = CacheParameterGroupStatus
-    { _cpgsCacheParameterGroupName :: Maybe Text
-    , _cpgsParameterApplyStatus :: Maybe Text
+    { _cpgsCacheParameterGroupName :: !(Maybe Text)
+    , _cpgsParameterApplyStatus :: !(Maybe Text)
     , _cpgsCacheNodeIdsToReboot :: [Text]
     } deriving (Show, Generic)
 
@@ -1119,9 +1119,9 @@ instance ToQuery CacheParameterGroupStatus where
 -- AuthorizeCacheSecurityGroupIngress CreateCacheSecurityGroup
 -- RevokeCacheSecurityGroupIngress.
 data CacheSecurityGroup = CacheSecurityGroup
-    { _csgOwnerId :: Maybe Text
-    , _csgCacheSecurityGroupName :: Maybe Text
-    , _csgDescription :: Maybe Text
+    { _csgOwnerId :: !(Maybe Text)
+    , _csgCacheSecurityGroupName :: !(Maybe Text)
+    , _csgDescription :: !(Maybe Text)
     , _csgEC2SecurityGroups :: [EC2SecurityGroup]
     } deriving (Show, Generic)
 
@@ -1176,8 +1176,8 @@ instance FromXML CacheSecurityGroup where
 -- | Represents a cache cluster's status within a particular cache security
 -- group.
 data CacheSecurityGroupMembership = CacheSecurityGroupMembership
-    { _csgmCacheSecurityGroupName :: Maybe Text
-    , _csgmStatus :: Maybe Text
+    { _csgmCacheSecurityGroupName :: !(Maybe Text)
+    , _csgmStatus :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1217,9 +1217,9 @@ instance ToQuery CacheSecurityGroupMembership where
 -- | Represents the output of one of the following operations:
 -- CreateCacheSubnetGroup ModifyCacheSubnetGroup.
 data CacheSubnetGroup = CacheSubnetGroup
-    { _csgrCacheSubnetGroupName :: Maybe Text
-    , _csgrCacheSubnetGroupDescription :: Maybe Text
-    , _csgrVpcId :: Maybe Text
+    { _csgrCacheSubnetGroupName :: !(Maybe Text)
+    , _csgrCacheSubnetGroupDescription :: !(Maybe Text)
+    , _csgrVpcId :: !(Maybe Text)
     , _csgrSubnets :: [Subnet]
     } deriving (Show, Generic)
 
@@ -1274,9 +1274,9 @@ instance FromXML CacheSubnetGroup where
 
 -- | Provides ownership and status information for an Amazon EC2 security group.
 data EC2SecurityGroup = EC2SecurityGroup
-    { _ecsgStatus :: Maybe Text
-    , _ecsgEC2SecurityGroupName :: Maybe Text
-    , _ecsgEC2SecurityGroupOwnerId :: Maybe Text
+    { _ecsgStatus :: !(Maybe Text)
+    , _ecsgEC2SecurityGroupName :: !(Maybe Text)
+    , _ecsgEC2SecurityGroupOwnerId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1323,8 +1323,8 @@ instance ToQuery EC2SecurityGroup where
 -- | Represents the information required for client programs to connect to a
 -- cache node.
 data Endpoint = Endpoint
-    { _eAddress :: Maybe Text
-    , _ePort :: Maybe Integer
+    { _eAddress :: !(Maybe Text)
+    , _ePort :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1359,8 +1359,8 @@ instance ToQuery Endpoint where
 
 -- | Represents the output of a DescribeEngineDefaultParameters operation.
 data EngineDefaults = EngineDefaults
-    { _edCacheParameterGroupFamily :: Maybe Text
-    , _edMarker :: Maybe Text
+    { _edCacheParameterGroupFamily :: !(Maybe Text)
+    , _edMarker :: !(Maybe Text)
     , _edParameters :: [Parameter]
     , _edCacheNodeTypeSpecificParameters :: [CacheNodeTypeSpecificParameter]
     } deriving (Show, Generic)
@@ -1419,10 +1419,10 @@ instance FromXML EngineDefaults where
 -- Some examples of events are creating a cache cluster, adding or removing a
 -- cache node, or rebooting a node.
 data Event = Event
-    { _erSourceIdentifier :: Maybe Text
+    { _erSourceIdentifier :: !(Maybe Text)
     , _erSourceType :: Maybe SourceType
-    , _erMessage :: Maybe Text
-    , _erDate :: Maybe ISO8601
+    , _erMessage :: !(Maybe Text)
+    , _erDate :: !(Maybe ISO8601)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1475,8 +1475,8 @@ instance FromXML Event where
 
 -- | Represents a collection of cache nodes in a replication group.
 data NodeGroup = NodeGroup
-    { _ngNodeGroupId :: Maybe Text
-    , _ngStatus :: Maybe Text
+    { _ngNodeGroupId :: !(Maybe Text)
+    , _ngStatus :: !(Maybe Text)
     , _ngPrimaryEndpoint :: Maybe Endpoint
     , _ngNodeGroupMembers :: [NodeGroupMember]
     } deriving (Show, Generic)
@@ -1531,11 +1531,11 @@ instance ToQuery NodeGroup where
 
 -- | Represents a single node within a node group.
 data NodeGroupMember = NodeGroupMember
-    { _ngmCacheClusterId :: Maybe Text
-    , _ngmCacheNodeId :: Maybe Text
+    { _ngmCacheClusterId :: !(Maybe Text)
+    , _ngmCacheNodeId :: !(Maybe Text)
     , _ngmReadEndpoint :: Maybe Endpoint
-    , _ngmPreferredAvailabilityZone :: Maybe Text
-    , _ngmCurrentRole :: Maybe Text
+    , _ngmPreferredAvailabilityZone :: !(Maybe Text)
+    , _ngmCurrentRole :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1596,10 +1596,10 @@ instance ToQuery NodeGroupMember where
 
 -- | Represents an individual cache node in a snapshot of a cache cluster.
 data NodeSnapshot = NodeSnapshot
-    { _nsCacheNodeId :: Maybe Text
-    , _nsCacheSize :: Maybe Text
-    , _nsCacheNodeCreateTime :: Maybe ISO8601
-    , _nsSnapshotCreateTime :: Maybe ISO8601
+    { _nsCacheNodeId :: !(Maybe Text)
+    , _nsCacheSize :: !(Maybe Text)
+    , _nsCacheNodeCreateTime :: !(Maybe ISO8601)
+    , _nsSnapshotCreateTime :: !(Maybe ISO8601)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1654,8 +1654,8 @@ instance ToQuery NodeSnapshot where
 -- for publishing ElastiCache events to subscribers using Amazon Simple
 -- Notification Service (SNS).
 data NotificationConfiguration = NotificationConfiguration
-    { _ncTopicArn :: Maybe Text
-    , _ncTopicStatus :: Maybe Text
+    { _ncTopicArn :: !(Maybe Text)
+    , _ncTopicStatus :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1691,14 +1691,14 @@ instance ToQuery NotificationConfiguration where
 -- | Describes an individual setting that controls some aspect of ElastiCache
 -- behavior.
 data Parameter = Parameter
-    { _pParameterName :: Maybe Text
-    , _pParameterValue :: Maybe Text
-    , _pDescription :: Maybe Text
-    , _pSource :: Maybe Text
-    , _pDataType :: Maybe Text
-    , _pAllowedValues :: Maybe Text
-    , _pIsModifiable :: Maybe Bool
-    , _pMinimumEngineVersion :: Maybe Text
+    { _pParameterName :: !(Maybe Text)
+    , _pParameterValue :: !(Maybe Text)
+    , _pDescription :: !(Maybe Text)
+    , _pSource :: !(Maybe Text)
+    , _pDataType :: !(Maybe Text)
+    , _pAllowedValues :: !(Maybe Text)
+    , _pIsModifiable :: !(Maybe Bool)
+    , _pMinimumEngineVersion :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1779,8 +1779,8 @@ instance FromXML Parameter where
 -- | Describes a name-value pair that is used to update the value of a
 -- parameter.
 data ParameterNameValue = ParameterNameValue
-    { _pnvParameterName :: Maybe Text
-    , _pnvParameterValue :: Maybe Text
+    { _pnvParameterName :: !(Maybe Text)
+    , _pnvParameterValue :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1814,9 +1814,9 @@ instance ToQuery ParameterNameValue where
 -- | A group of settings that will be applied to the cache cluster in the
 -- future, or that are currently being applied.
 data PendingModifiedValues = PendingModifiedValues
-    { _pmvNumCacheNodes :: Maybe Integer
+    { _pmvNumCacheNodes :: !(Maybe Integer)
     , _pmvCacheNodeIdsToRemove :: [Text]
-    , _pmvEngineVersion :: Maybe Text
+    , _pmvEngineVersion :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1864,8 +1864,8 @@ instance ToQuery PendingModifiedValues where
 -- | Contains the specific price and frequency of a recurring charges for a
 -- reserved cache node, or for a reserved cache node offering.
 data RecurringCharge = RecurringCharge
-    { _rcRecurringChargeAmount :: Maybe Double
-    , _rcRecurringChargeFrequency :: Maybe Text
+    { _rcRecurringChargeAmount :: !(Maybe Double)
+    , _rcRecurringChargeFrequency :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1904,13 +1904,13 @@ instance ToQuery RecurringCharge where
 
 -- | Contains all of the attributes of a specific replication group.
 data ReplicationGroup = ReplicationGroup
-    { _rgReplicationGroupId :: Maybe Text
-    , _rgDescription :: Maybe Text
-    , _rgStatus :: Maybe Text
+    { _rgReplicationGroupId :: !(Maybe Text)
+    , _rgDescription :: !(Maybe Text)
+    , _rgStatus :: !(Maybe Text)
     , _rgPendingModifiedValues :: Maybe ReplicationGroupPendingModifiedValues
     , _rgMemberClusters :: [Text]
     , _rgNodeGroups :: [NodeGroup]
-    , _rgSnapshottingClusterId :: Maybe Text
+    , _rgSnapshottingClusterId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1990,17 +1990,17 @@ instance FromXML ReplicationGroup where
 
 -- | Represents the output of a PurchaseReservedCacheNodesOffering operation.
 data ReservedCacheNode = ReservedCacheNode
-    { _rcnReservedCacheNodeId :: Maybe Text
-    , _rcnReservedCacheNodesOfferingId :: Maybe Text
-    , _rcnCacheNodeType :: Maybe Text
-    , _rcnStartTime :: Maybe ISO8601
-    , _rcnDuration :: Maybe Integer
-    , _rcnFixedPrice :: Maybe Double
-    , _rcnUsagePrice :: Maybe Double
-    , _rcnCacheNodeCount :: Maybe Integer
-    , _rcnProductDescription :: Maybe Text
-    , _rcnOfferingType :: Maybe Text
-    , _rcnState :: Maybe Text
+    { _rcnReservedCacheNodeId :: !(Maybe Text)
+    , _rcnReservedCacheNodesOfferingId :: !(Maybe Text)
+    , _rcnCacheNodeType :: !(Maybe Text)
+    , _rcnStartTime :: !(Maybe ISO8601)
+    , _rcnDuration :: !(Maybe Integer)
+    , _rcnFixedPrice :: !(Maybe Double)
+    , _rcnUsagePrice :: !(Maybe Double)
+    , _rcnCacheNodeCount :: !(Maybe Integer)
+    , _rcnProductDescription :: !(Maybe Text)
+    , _rcnOfferingType :: !(Maybe Text)
+    , _rcnState :: !(Maybe Text)
     , _rcnRecurringCharges :: [RecurringCharge]
     } deriving (Show, Generic)
 
@@ -2113,13 +2113,13 @@ instance FromXML ReservedCacheNode where
 
 -- | Describes all of the attributes of a reserved cache node offering.
 data ReservedCacheNodesOffering = ReservedCacheNodesOffering
-    { _rcnoReservedCacheNodesOfferingId :: Maybe Text
-    , _rcnoCacheNodeType :: Maybe Text
-    , _rcnoDuration :: Maybe Integer
-    , _rcnoFixedPrice :: Maybe Double
-    , _rcnoUsagePrice :: Maybe Double
-    , _rcnoProductDescription :: Maybe Text
-    , _rcnoOfferingType :: Maybe Text
+    { _rcnoReservedCacheNodesOfferingId :: !(Maybe Text)
+    , _rcnoCacheNodeType :: !(Maybe Text)
+    , _rcnoDuration :: !(Maybe Integer)
+    , _rcnoFixedPrice :: !(Maybe Double)
+    , _rcnoUsagePrice :: !(Maybe Double)
+    , _rcnoProductDescription :: !(Maybe Text)
+    , _rcnoOfferingType :: !(Maybe Text)
     , _rcnoRecurringCharges :: [RecurringCharge]
     } deriving (Show, Generic)
 
@@ -2203,8 +2203,8 @@ instance FromXML ReservedCacheNodesOffering where
 
 -- | Represents a single cache security group and its status..
 data SecurityGroupMembership = SecurityGroupMembership
-    { _sgmSecurityGroupId :: Maybe Text
-    , _sgmStatus :: Maybe Text
+    { _sgmSecurityGroupId :: !(Maybe Text)
+    , _sgmStatus :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2243,25 +2243,25 @@ instance ToQuery SecurityGroupMembership where
 -- | Represents a copy of an entire cache cluster as of the time when the
 -- snapshot was taken.
 data Snapshot = Snapshot
-    { _sSnapshotName :: Maybe Text
-    , _sCacheClusterId :: Maybe Text
-    , _sSnapshotStatus :: Maybe Text
-    , _sSnapshotSource :: Maybe Text
-    , _sCacheNodeType :: Maybe Text
-    , _sEngine :: Maybe Text
-    , _sEngineVersion :: Maybe Text
-    , _sNumCacheNodes :: Maybe Integer
-    , _sPreferredAvailabilityZone :: Maybe Text
-    , _sCacheClusterCreateTime :: Maybe ISO8601
-    , _sPreferredMaintenanceWindow :: Maybe Text
-    , _sTopicArn :: Maybe Text
-    , _sPort :: Maybe Integer
-    , _sCacheParameterGroupName :: Maybe Text
-    , _sCacheSubnetGroupName :: Maybe Text
-    , _sVpcId :: Maybe Text
-    , _sAutoMinorVersionUpgrade :: Maybe Bool
-    , _sSnapshotRetentionLimit :: Maybe Integer
-    , _sSnapshotWindow :: Maybe Text
+    { _sSnapshotName :: !(Maybe Text)
+    , _sCacheClusterId :: !(Maybe Text)
+    , _sSnapshotStatus :: !(Maybe Text)
+    , _sSnapshotSource :: !(Maybe Text)
+    , _sCacheNodeType :: !(Maybe Text)
+    , _sEngine :: !(Maybe Text)
+    , _sEngineVersion :: !(Maybe Text)
+    , _sNumCacheNodes :: !(Maybe Integer)
+    , _sPreferredAvailabilityZone :: !(Maybe Text)
+    , _sCacheClusterCreateTime :: !(Maybe ISO8601)
+    , _sPreferredMaintenanceWindow :: !(Maybe Text)
+    , _sTopicArn :: !(Maybe Text)
+    , _sPort :: !(Maybe Integer)
+    , _sCacheParameterGroupName :: !(Maybe Text)
+    , _sCacheSubnetGroupName :: !(Maybe Text)
+    , _sVpcId :: !(Maybe Text)
+    , _sAutoMinorVersionUpgrade :: !(Maybe Bool)
+    , _sSnapshotRetentionLimit :: !(Maybe Integer)
+    , _sSnapshotWindow :: !(Maybe Text)
     , _sNodeSnapshots :: [NodeSnapshot]
     } deriving (Show, Generic)
 
@@ -2457,7 +2457,7 @@ instance FromXML Snapshot where
 -- refers to subnets defined in Amazon Virtual Private Cloud (Amazon VPC) and
 -- used with ElastiCache.
 data Subnet = Subnet
-    { _srSubnetIdentifier :: Maybe Text
+    { _srSubnetIdentifier :: !(Maybe Text)
     , _srSubnetAvailabilityZone :: Maybe AvailabilityZone
     } deriving (Show, Generic)
 

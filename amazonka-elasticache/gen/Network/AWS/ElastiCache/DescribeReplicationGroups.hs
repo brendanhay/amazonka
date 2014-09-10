@@ -55,9 +55,9 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a DescribeReplicationGroups operation.
 data DescribeReplicationGroups = DescribeReplicationGroups
-    { _drg1ReplicationGroupId :: Maybe Text
-    , _drg1MaxRecords :: Maybe Integer
-    , _drg1Marker :: Maybe Text
+    { _drg1ReplicationGroupId :: !(Maybe Text)
+    , _drg1MaxRecords :: !(Maybe Integer)
+    , _drg1Marker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -104,7 +104,7 @@ instance ToQuery DescribeReplicationGroups where
 
 -- | Represents the output of a DescribeReplicationGroups operation.
 data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse
-    { _drgrrMarker :: Maybe Text
+    { _drgrrMarker :: !(Maybe Text)
     , _drgrrReplicationGroups :: [ReplicationGroup]
     } deriving (Show, Generic)
 

@@ -59,7 +59,7 @@ import Network.AWS.Prelude
 
 -- | Input structure for the GetStatus operation.
 newtype GetStatus = GetStatus
-    { _gsJobId :: Text
+    { _gsJobId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -84,22 +84,22 @@ instance ToQuery GetStatus where
 
 -- | Output structure for the GetStatus operation.
 data GetStatusResponse = GetStatusResponse
-    { _gsrJobId :: Maybe Text
+    { _gsrJobId :: !(Maybe Text)
     , _gsrJobType :: Maybe JobType
-    , _gsrAwsShippingAddress :: Maybe Text
-    , _gsrLocationCode :: Maybe Text
-    , _gsrLocationMessage :: Maybe Text
-    , _gsrProgressCode :: Maybe Text
-    , _gsrProgressMessage :: Maybe Text
-    , _gsrCarrier :: Maybe Text
-    , _gsrTrackingNumber :: Maybe Text
-    , _gsrLogBucket :: Maybe Text
-    , _gsrLogKey :: Maybe Text
-    , _gsrErrorCount :: Maybe Integer
-    , _gsrSignature :: Maybe Text
-    , _gsrSignatureFileContents :: Maybe Text
-    , _gsrCurrentManifest :: Maybe Text
-    , _gsrCreationDate :: Maybe ISO8601
+    , _gsrAwsShippingAddress :: !(Maybe Text)
+    , _gsrLocationCode :: !(Maybe Text)
+    , _gsrLocationMessage :: !(Maybe Text)
+    , _gsrProgressCode :: !(Maybe Text)
+    , _gsrProgressMessage :: !(Maybe Text)
+    , _gsrCarrier :: !(Maybe Text)
+    , _gsrTrackingNumber :: !(Maybe Text)
+    , _gsrLogBucket :: !(Maybe Text)
+    , _gsrLogKey :: !(Maybe Text)
+    , _gsrErrorCount :: !(Maybe Integer)
+    , _gsrSignature :: !(Maybe Text)
+    , _gsrSignatureFileContents :: !(Maybe Text)
+    , _gsrCurrentManifest :: !(Maybe Text)
+    , _gsrCreationDate :: !(Maybe ISO8601)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

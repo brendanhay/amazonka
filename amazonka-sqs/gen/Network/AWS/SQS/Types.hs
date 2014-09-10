@@ -214,7 +214,7 @@ instance ToQuery QueueAttributeName where
 
 -- | Encloses the id of an entry in ChangeMessageVisibilityBatch.
 newtype ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchResultEntry
-    { _cmvbrerId :: Text
+    { _cmvbrerId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -244,7 +244,7 @@ instance FromXML ChangeMessageVisibilityBatchResultEntry where
 
 -- | Encloses the id an entry in DeleteMessageBatch.
 newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry
-    { _dmbrerId :: Text
+    { _dmbrerId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -274,10 +274,10 @@ instance FromXML DeleteMessageBatchResultEntry where
 -- | This is used in the responses of batch API to give a detailed description
 -- of the result of an action on each entry in the request.
 data BatchResultErrorEntry = BatchResultErrorEntry
-    { _breeId :: Text
-    , _breeSenderFault :: Bool
-    , _breeCode :: Text
-    , _breeMessage :: Maybe Text
+    { _breeId :: !Text
+    , _breeSenderFault :: !Bool
+    , _breeCode :: !Text
+    , _breeMessage :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -337,9 +337,9 @@ instance FromXML BatchResultErrorEntry where
 -- &amp;ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=Your_Receipt_Handle
 -- &amp;ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=45.
 data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequestEntry
-    { _cmvbreId :: Text
-    , _cmvbreReceiptHandle :: Text
-    , _cmvbreVisibilityTimeout :: Maybe Integer
+    { _cmvbreId :: !Text
+    , _cmvbreReceiptHandle :: !Text
+    , _cmvbreVisibilityTimeout :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -384,8 +384,8 @@ instance ToQuery ChangeMessageVisibilityBatchRequestEntry where
 
 -- | Encloses a receipt handle and an identifier for it.
 data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry
-    { _dmbreId :: Text
-    , _dmbreReceiptHandle :: Text
+    { _dmbreId :: !Text
+    , _dmbreReceiptHandle :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -421,12 +421,12 @@ instance ToQuery DeleteMessageBatchRequestEntry where
 
 -- | An Amazon SQS message.
 data Message = Message
-    { _mMessageId :: Maybe Text
-    , _mReceiptHandle :: Maybe Text
-    , _mMD5OfBody :: Maybe Text
-    , _mBody :: Maybe Text
+    { _mMessageId :: !(Maybe Text)
+    , _mReceiptHandle :: !(Maybe Text)
+    , _mMD5OfBody :: !(Maybe Text)
+    , _mBody :: !(Maybe Text)
     , _mAttributes :: Map QueueAttributeName Text
-    , _mMD5OfMessageAttributes :: Maybe Text
+    , _mMD5OfMessageAttributes :: !(Maybe Text)
     , _mMessageAttributes :: Map Text MessageAttributeValue
     } deriving (Show, Generic)
 
@@ -517,11 +517,11 @@ instance FromXML Message where
 -- are included in the message size restriction, which is currently 256 KB
 -- (262,144 bytes).
 data MessageAttributeValue = MessageAttributeValue
-    { _mavStringValue :: Maybe Text
-    , _mavBinaryValue :: Maybe ByteString
+    { _mavStringValue :: !(Maybe Text)
+    , _mavBinaryValue :: !(Maybe ByteString)
     , _mavStringListValues :: [Text]
     , _mavBinaryListValues :: [ByteString]
-    , _mavDataType :: Text
+    , _mavDataType :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -584,9 +584,9 @@ instance ToQuery MessageAttributeValue where
 
 -- | Contains the details of a single Amazon SQS message along with a Id.
 data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry
-    { _smbreId :: Text
-    , _smbreMessageBody :: Text
-    , _smbreDelaySeconds :: Maybe Integer
+    { _smbreId :: !Text
+    , _smbreMessageBody :: !Text
+    , _smbreDelaySeconds :: !(Maybe Integer)
     , _smbreMessageAttributes :: Map Text MessageAttributeValue
     } deriving (Show, Generic)
 
@@ -641,10 +641,10 @@ instance ToQuery SendMessageBatchRequestEntry where
 -- | Encloses a message ID for successfully enqueued message of a
 -- SendMessageBatch.
 data SendMessageBatchResultEntry = SendMessageBatchResultEntry
-    { _smbrerId :: Text
-    , _smbrerMessageId :: Text
-    , _smbrerMD5OfMessageBody :: Text
-    , _smbrerMD5OfMessageAttributes :: Maybe Text
+    { _smbrerId :: !Text
+    , _smbrerMessageId :: !Text
+    , _smbrerMD5OfMessageBody :: !Text
+    , _smbrerMD5OfMessageAttributes :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

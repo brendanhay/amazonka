@@ -50,7 +50,7 @@ import Network.AWS.SQS.Types
 import Network.AWS.Prelude
 
 newtype ListQueues = ListQueues
-    { _lqQueueNamePrefix :: Maybe Text
+    { _lqQueueNamePrefix :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

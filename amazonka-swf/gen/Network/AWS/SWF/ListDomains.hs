@@ -82,10 +82,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data ListDomains = ListDomains
-    { _ldNextPageToken :: Maybe Text
+    { _ldNextPageToken :: !(Maybe Text)
     , _ldRegistrationStatus :: RegistrationStatus
-    , _ldMaximumPageSize :: Maybe Integer
-    , _ldReverseOrder :: Maybe Bool
+    , _ldMaximumPageSize :: !(Maybe Integer)
+    , _ldReverseOrder :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -148,7 +148,7 @@ instance ToJSON ListDomains
 -- | Contains a paginated collection of DomainInfo structures.
 data ListDomainsResponse = ListDomainsResponse
     { _ldrDomainInfos :: [DomainInfo]
-    , _ldrNextPageToken :: Maybe Text
+    , _ldrNextPageToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

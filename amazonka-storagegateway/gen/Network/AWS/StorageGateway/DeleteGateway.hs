@@ -65,7 +65,7 @@ import Network.AWS.Request.JSON
 
 -- | A JSON object containing the of the gateway to delete.
 newtype DeleteGateway = DeleteGateway
-    { _dgGatewayARN :: Text
+    { _dgGatewayARN :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -96,7 +96,7 @@ instance ToJSON DeleteGateway
 
 -- | A JSON object containing the of the deleted gateway.
 newtype DeleteGatewayResponse = DeleteGatewayResponse
-    { _dgrGatewayARN :: Maybe Text
+    { _dgrGatewayARN :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

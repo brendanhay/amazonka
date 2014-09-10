@@ -71,8 +71,8 @@ import Network.AWS.Request.JSON
 -- | A JSON object containing one or more of the following fields:
 -- CreateSnapshotInput$SnapshotDescription CreateSnapshotInput$VolumeARN.
 data CreateSnapshot = CreateSnapshot
-    { _csVolumeARN :: Text
-    , _csSnapshotDescription :: Text
+    { _csVolumeARN :: !Text
+    , _csSnapshotDescription :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -114,8 +114,8 @@ instance ToJSON CreateSnapshot
 
 -- | A JSON object containing the following fields:.
 data CreateSnapshotResponse = CreateSnapshotResponse
-    { _csrVolumeARN :: Maybe Text
-    , _csrSnapshotId :: Maybe Text
+    { _csrVolumeARN :: !(Maybe Text)
+    , _csrSnapshotId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

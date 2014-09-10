@@ -48,13 +48,13 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data ModifyImageAttribute = ModifyImageAttribute
-    { _miaImageId :: Text
-    , _miaAttribute :: Maybe Text
-    , _miaOperationType :: Maybe Text
+    { _miaImageId :: !Text
+    , _miaAttribute :: !(Maybe Text)
+    , _miaOperationType :: !(Maybe Text)
     , _miaUserIds :: [Text]
     , _miaUserGroups :: [Text]
     , _miaProductCodes :: [Text]
-    , _miaValue :: Maybe Text
+    , _miaValue :: !(Maybe Text)
     , _miaLaunchPermission :: Maybe LaunchPermissionModifications
     , _miaDescription :: Maybe AttributeValue
     } deriving (Show, Generic)

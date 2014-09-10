@@ -44,9 +44,9 @@ import Network.AWS.Prelude
 
 -- | 
 data EnableSnapshotCopy = EnableSnapshotCopy
-    { _escClusterIdentifier :: Text
-    , _escDestinationRegion :: Text
-    , _escRetentionPeriod :: Maybe Integer
+    { _escClusterIdentifier :: !Text
+    , _escDestinationRegion :: !Text
+    , _escRetentionPeriod :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

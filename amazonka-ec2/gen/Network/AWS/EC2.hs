@@ -151,7 +151,6 @@ module Network.AWS.EC2
     , module Network.AWS.EC2.ModifySubnetAttribute
     , module Network.AWS.EC2.ModifyVolumeAttribute
     , module Network.AWS.EC2.ModifyVpcAttribute
-    , module Network.AWS.EC2.Monadic
     , module Network.AWS.EC2.MonitorInstances
     , module Network.AWS.EC2.PurchaseReservedInstancesOffering
     , module Network.AWS.EC2.RebootInstances
@@ -309,7 +308,6 @@ import Network.AWS.EC2.ModifySnapshotAttribute
 import Network.AWS.EC2.ModifySubnetAttribute
 import Network.AWS.EC2.ModifyVolumeAttribute
 import Network.AWS.EC2.ModifyVpcAttribute
-import Network.AWS.EC2.Monadic
 import Network.AWS.EC2.MonitorInstances
 import Network.AWS.EC2.PurchaseReservedInstancesOffering
 import Network.AWS.EC2.RebootInstances

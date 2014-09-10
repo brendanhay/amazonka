@@ -53,7 +53,7 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 newtype GetInstanceProfile = GetInstanceProfile
-    { _gipInstanceProfileName :: Text
+    { _gipInstanceProfileName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

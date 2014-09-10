@@ -46,9 +46,9 @@ import Network.AWS.Prelude
 
 -- | This documentation target is not reported in the API reference.
 data DeleteApplicationVersion = DeleteApplicationVersion
-    { _davApplicationName :: Text
-    , _davVersionLabel :: Text
-    , _davDeleteSourceBundle :: Maybe Bool
+    { _davApplicationName :: !Text
+    , _davVersionLabel :: !Text
+    , _davDeleteSourceBundle :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

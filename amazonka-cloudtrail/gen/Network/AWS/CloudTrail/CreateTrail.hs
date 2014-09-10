@@ -50,11 +50,11 @@ import Network.AWS.Request.JSON
 
 -- | Specifies the settings for each trail.
 data CreateTrail = CreateTrail
-    { _ctName :: Text
-    , _ctS3BucketName :: Text
-    , _ctS3KeyPrefix :: Maybe Text
-    , _ctSnsTopicName :: Maybe Text
-    , _ctIncludeGlobalServiceEvents :: Maybe Bool
+    { _ctName :: !Text
+    , _ctS3BucketName :: !Text
+    , _ctS3KeyPrefix :: !(Maybe Text)
+    , _ctSnsTopicName :: !(Maybe Text)
+    , _ctIncludeGlobalServiceEvents :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -120,11 +120,11 @@ instance ToJSON CreateTrail
 -- | Returns the objects or data listed below if successful. Otherwise, returns
 -- an error.
 data CreateTrailResponse = CreateTrailResponse
-    { _ctrName :: Maybe Text
-    , _ctrS3BucketName :: Maybe Text
-    , _ctrS3KeyPrefix :: Maybe Text
-    , _ctrSnsTopicName :: Maybe Text
-    , _ctrIncludeGlobalServiceEvents :: Maybe Bool
+    { _ctrName :: !(Maybe Text)
+    , _ctrS3BucketName :: !(Maybe Text)
+    , _ctrS3KeyPrefix :: !(Maybe Text)
+    , _ctrSnsTopicName :: !(Maybe Text)
+    , _ctrIncludeGlobalServiceEvents :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

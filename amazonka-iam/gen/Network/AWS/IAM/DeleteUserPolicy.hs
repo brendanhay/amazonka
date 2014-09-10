@@ -42,8 +42,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data DeleteUserPolicy = DeleteUserPolicy
-    { _dupUserName :: Text
-    , _dupPolicyName :: Text
+    { _dupUserName :: !Text
+    , _dupPolicyName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

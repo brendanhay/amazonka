@@ -47,8 +47,8 @@ import Network.AWS.SimpleDB.Types
 import Network.AWS.Prelude
 
 data ListDomains = ListDomains
-    { _ldMaxNumberOfDomains :: Maybe Integer
-    , _ldNextToken :: Maybe Text
+    { _ldMaxNumberOfDomains :: !(Maybe Integer)
+    , _ldNextToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -82,7 +82,7 @@ instance ToQuery ListDomains where
 
 data ListDomainsResponse = ListDomainsResponse
     { _ldrDomainNames :: [Text]
-    , _ldrNextToken :: Maybe Text
+    , _ldrNextToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

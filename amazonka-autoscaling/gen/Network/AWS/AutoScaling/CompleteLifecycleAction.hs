@@ -51,10 +51,10 @@ import Network.AWS.AutoScaling.Types
 import Network.AWS.Prelude
 
 data CompleteLifecycleAction = CompleteLifecycleAction
-    { _claLifecycleHookName :: Text
-    , _claAutoScalingGroupName :: Text
-    , _claLifecycleActionToken :: Text
-    , _claLifecycleActionResult :: Text
+    { _claLifecycleHookName :: !Text
+    , _claAutoScalingGroupName :: !Text
+    , _claLifecycleActionToken :: !Text
+    , _claLifecycleActionResult :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

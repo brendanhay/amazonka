@@ -105,9 +105,9 @@ import Network.AWS.STS.Types
 import Network.AWS.Prelude
 
 data GetFederationToken = GetFederationToken
-    { _gftName :: Text
-    , _gftPolicy :: Maybe Text
-    , _gftDurationSeconds :: Maybe Integer
+    { _gftName :: !Text
+    , _gftPolicy :: !(Maybe Text)
+    , _gftDurationSeconds :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -172,7 +172,7 @@ instance ToQuery GetFederationToken where
 data GetFederationTokenResponse = GetFederationTokenResponse
     { _gftrCredentials :: Maybe Credentials
     , _gftrFederatedUser :: Maybe FederatedUser
-    , _gftrPackedPolicySize :: Maybe Integer
+    , _gftrPackedPolicySize :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

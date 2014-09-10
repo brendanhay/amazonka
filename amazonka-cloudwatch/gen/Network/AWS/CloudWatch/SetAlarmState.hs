@@ -44,10 +44,10 @@ import Network.AWS.CloudWatch.Types
 import Network.AWS.Prelude
 
 data SetAlarmState = SetAlarmState
-    { _sasAlarmName :: Text
+    { _sasAlarmName :: !Text
     , _sasStateValue :: StateValue
-    , _sasStateReason :: Text
-    , _sasStateReasonData :: Maybe Text
+    , _sasStateReason :: !Text
+    , _sasStateReasonData :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

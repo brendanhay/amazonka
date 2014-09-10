@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 -- Specifies the name of the domain you want to update and the scaling
 -- parameters you want to configure.
 data UpdateScalingParameters = UpdateScalingParameters
-    { _uspDomainName :: Text
+    { _uspDomainName :: !Text
     , _uspScalingParameters :: ScalingParameters
     } deriving (Show, Generic)
 

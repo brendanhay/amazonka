@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a DeleteCacheSecurityGroup operation.
 newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup
-    { _dcsgCacheSecurityGroupName :: Text
+    { _dcsgCacheSecurityGroupName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

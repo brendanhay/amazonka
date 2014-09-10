@@ -130,28 +130,28 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data RunInstances = RunInstances
-    { _ri3ImageId :: Text
-    , _ri3MinCount :: Integer
-    , _ri3MaxCount :: Integer
-    , _ri3KeyName :: Maybe Text
+    { _ri3ImageId :: !Text
+    , _ri3MinCount :: !Integer
+    , _ri3MaxCount :: !Integer
+    , _ri3KeyName :: !(Maybe Text)
     , _ri3SecurityGroups :: [Text]
     , _ri3SecurityGroupIds :: [Text]
-    , _ri3UserData :: Maybe ByteString
+    , _ri3UserData :: !(Maybe ByteString)
     , _ri3InstanceType :: Maybe InstanceType
     , _ri3Placement :: Maybe Placement
-    , _ri3KernelId :: Maybe Text
-    , _ri3RamdiskId :: Maybe Text
+    , _ri3KernelId :: !(Maybe Text)
+    , _ri3RamdiskId :: !(Maybe Text)
     , _ri3BlockDeviceMappings :: [BlockDeviceMapping]
     , _ri3Monitoring :: Maybe RunInstancesMonitoringEnabled
-    , _ri3SubnetId :: Maybe Text
-    , _ri3DisableApiTermination :: Maybe Bool
+    , _ri3SubnetId :: !(Maybe Text)
+    , _ri3DisableApiTermination :: !(Maybe Bool)
     , _ri3InstanceInitiatedShutdownBehavior :: Maybe ShutdownBehavior
-    , _ri3PrivateIpAddress :: Maybe Text
-    , _ri3ClientToken :: Maybe Text
-    , _ri3AdditionalInfo :: Maybe Text
+    , _ri3PrivateIpAddress :: !(Maybe Text)
+    , _ri3ClientToken :: !(Maybe Text)
+    , _ri3AdditionalInfo :: !(Maybe Text)
     , _ri3NetworkInterfaces :: [InstanceNetworkInterfaceSpecification]
     , _ri3IamInstanceProfile :: Maybe IamInstanceProfileSpecification
-    , _ri3EbsOptimized :: Maybe Bool
+    , _ri3EbsOptimized :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -376,9 +376,9 @@ instance ToQuery RunInstances where
 
 -- | One or more reservations.
 data RunInstancesResponse = RunInstancesResponse
-    { _rirrReservationId :: Maybe Text
-    , _rirrOwnerId :: Maybe Text
-    , _rirrRequesterId :: Maybe Text
+    { _rirrReservationId :: !(Maybe Text)
+    , _rirrOwnerId :: !(Maybe Text)
+    , _rirrRequesterId :: !(Maybe Text)
     , _rirrGroups :: [GroupIdentifier]
     , _rirrInstances :: [Instance]
     } deriving (Show, Generic)

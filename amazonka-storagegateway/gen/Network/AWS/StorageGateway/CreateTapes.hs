@@ -43,11 +43,11 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data CreateTapes = CreateTapes
-    { _ctGatewayARN :: Text
-    , _ctTapeSizeInBytes :: Integer
-    , _ctClientToken :: Text
-    , _ctNumTapesToCreate :: Integer
-    , _ctTapeBarcodePrefix :: Text
+    { _ctGatewayARN :: !Text
+    , _ctTapeSizeInBytes :: !Integer
+    , _ctClientToken :: !Text
+    , _ctNumTapesToCreate :: !Integer
+    , _ctTapeBarcodePrefix :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

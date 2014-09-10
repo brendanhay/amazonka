@@ -51,7 +51,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype CancelReservedInstancesListing = CancelReservedInstancesListing
-    { _crilReservedInstancesListingId :: Text
+    { _crilReservedInstancesListingId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

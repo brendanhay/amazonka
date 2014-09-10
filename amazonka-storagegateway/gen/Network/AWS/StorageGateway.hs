@@ -50,7 +50,6 @@ module Network.AWS.StorageGateway
     , module Network.AWS.StorageGateway.ListLocalDisks
     , module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
     , module Network.AWS.StorageGateway.ListVolumes
-    , module Network.AWS.StorageGateway.Monadic
     , module Network.AWS.StorageGateway.RetrieveTapeArchive
     , module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     , module Network.AWS.StorageGateway.ShutdownGateway
@@ -101,7 +100,6 @@ import Network.AWS.StorageGateway.ListGateways
 import Network.AWS.StorageGateway.ListLocalDisks
 import Network.AWS.StorageGateway.ListVolumeRecoveryPoints
 import Network.AWS.StorageGateway.ListVolumes
-import Network.AWS.StorageGateway.Monadic
 import Network.AWS.StorageGateway.RetrieveTapeArchive
 import Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
 import Network.AWS.StorageGateway.ShutdownGateway

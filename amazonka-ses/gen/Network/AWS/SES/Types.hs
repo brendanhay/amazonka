@@ -224,7 +224,7 @@ instance ToQuery VerificationStatus where
 -- those supported by Amazon SES. For more information, go to the Amazon SES
 -- Developer Guide. Content must be base64-encoded, if MIME requires it.
 newtype RawMessage = RawMessage
-    { _rmData :: ByteString
+    { _rmData :: !ByteString
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -289,8 +289,8 @@ instance ToQuery Body where
 -- | The subject of the message: A short summary of the content, which will
 -- appear in the recipient's inbox.
 data Content = Content
-    { _cData :: Text
-    , _cCharset :: Maybe Text
+    { _cData :: !Text
+    , _cCharset :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -362,7 +362,7 @@ instance ToQuery Destination where
 
 -- | Represents the DKIM attributes of a verified email address or a domain.
 data IdentityDkimAttributes = IdentityDkimAttributes
-    { _idaDkimEnabled :: Bool
+    { _idaDkimEnabled :: !Bool
     , _idaDkimVerificationStatus :: VerificationStatus
     , _idaDkimTokens :: [Text]
     } deriving (Show, Generic)
@@ -424,10 +424,10 @@ instance FromXML IdentityDkimAttributes where
 -- bounce, complaint, and/or delivery notifications, and whether feedback
 -- forwarding is enabled for bounce and complaint notifications.
 data IdentityNotificationAttributes = IdentityNotificationAttributes
-    { _inaBounceTopic :: Text
-    , _inaComplaintTopic :: Text
-    , _inaDeliveryTopic :: Text
-    , _inaForwardingEnabled :: Bool
+    { _inaBounceTopic :: !Text
+    , _inaComplaintTopic :: !Text
+    , _inaDeliveryTopic :: !Text
+    , _inaForwardingEnabled :: !Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -491,7 +491,7 @@ instance FromXML IdentityNotificationAttributes where
 -- | Represents the verification attributes of a single identity.
 data IdentityVerificationAttributes = IdentityVerificationAttributes
     { _ivaVerificationStatus :: VerificationStatus
-    , _ivaVerificationToken :: Maybe Text
+    , _ivaVerificationToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -567,11 +567,11 @@ instance ToQuery Message where
 -- | Represents sending statistics data. Each SendDataPoint contains statistics
 -- for a 15-minute period of sending activity.
 data SendDataPoint = SendDataPoint
-    { _sdpTimestamp :: Maybe ISO8601
-    , _sdpDeliveryAttempts :: Maybe Integer
-    , _sdpBounces :: Maybe Integer
-    , _sdpComplaints :: Maybe Integer
-    , _sdpRejects :: Maybe Integer
+    { _sdpTimestamp :: !(Maybe ISO8601)
+    , _sdpDeliveryAttempts :: !(Maybe Integer)
+    , _sdpBounces :: !(Maybe Integer)
+    , _sdpComplaints :: !(Maybe Integer)
+    , _sdpRejects :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

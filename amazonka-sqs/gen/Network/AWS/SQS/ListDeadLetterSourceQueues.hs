@@ -47,7 +47,7 @@ import Network.AWS.SQS.Types
 import Network.AWS.Prelude
 
 newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues
-    { _ldlsqQueueUrl :: Text
+    { _ldlsqQueueUrl :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

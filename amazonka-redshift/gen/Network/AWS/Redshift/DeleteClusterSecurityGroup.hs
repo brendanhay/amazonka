@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 
 -- | 
 newtype DeleteClusterSecurityGroup = DeleteClusterSecurityGroup
-    { _dcsgClusterSecurityGroupName :: Text
+    { _dcsgClusterSecurityGroupName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

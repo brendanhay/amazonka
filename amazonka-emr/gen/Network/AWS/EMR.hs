@@ -26,7 +26,6 @@ module Network.AWS.EMR
     , module Network.AWS.EMR.ListInstances
     , module Network.AWS.EMR.ListSteps
     , module Network.AWS.EMR.ModifyInstanceGroups
-    , module Network.AWS.EMR.Monadic
     , module Network.AWS.EMR.RemoveTags
     , module Network.AWS.EMR.RunJobFlow
     , module Network.AWS.EMR.SetTerminationProtection
@@ -47,7 +46,6 @@ import Network.AWS.EMR.ListInstanceGroups
 import Network.AWS.EMR.ListInstances
 import Network.AWS.EMR.ListSteps
 import Network.AWS.EMR.ModifyInstanceGroups
-import Network.AWS.EMR.Monadic
 import Network.AWS.EMR.RemoveTags
 import Network.AWS.EMR.RunJobFlow
 import Network.AWS.EMR.SetTerminationProtection

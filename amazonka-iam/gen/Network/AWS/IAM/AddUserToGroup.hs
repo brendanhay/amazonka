@@ -41,8 +41,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data AddUserToGroup = AddUserToGroup
-    { _autgGroupName :: Text
-    , _autgUserName :: Text
+    { _autgGroupName :: !Text
+    , _autgUserName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

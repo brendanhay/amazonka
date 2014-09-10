@@ -70,10 +70,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DescribeLogStreams = DescribeLogStreams
-    { _dls1LogGroupName :: Text
-    , _dls1LogStreamNamePrefix :: Maybe Text
-    , _dls1NextToken :: Maybe Text
-    , _dls1Limit :: Maybe Integer
+    { _dls1LogGroupName :: !Text
+    , _dls1LogStreamNamePrefix :: !(Maybe Text)
+    , _dls1NextToken :: !(Maybe Text)
+    , _dls1Limit :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -128,7 +128,7 @@ instance ToJSON DescribeLogStreams
 
 data DescribeLogStreamsResponse = DescribeLogStreamsResponse
     { _dlsrLogStreams :: [LogStream]
-    , _dlsrNextToken :: Maybe Text
+    , _dlsrNextToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

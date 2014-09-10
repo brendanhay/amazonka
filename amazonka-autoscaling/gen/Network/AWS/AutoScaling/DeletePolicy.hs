@@ -40,8 +40,8 @@ import Network.AWS.Prelude
 
 -- | 
 data DeletePolicy = DeletePolicy
-    { _dpAutoScalingGroupName :: Maybe Text
-    , _dpPolicyName :: Text
+    { _dpAutoScalingGroupName :: !(Maybe Text)
+    , _dpPolicyName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

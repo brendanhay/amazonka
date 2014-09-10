@@ -133,8 +133,8 @@ instance Exception (Er CloudWatchLogs)
 -- CloudWatch Logs understands contains two properties: the timestamp of when
 -- the event occurred, and the raw event message.
 data InputLogEvent = InputLogEvent
-    { _ileTimestamp :: Integer
-    , _ileMessage :: Text
+    { _ileTimestamp :: !Integer
+    , _ileMessage :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -165,12 +165,12 @@ ileMessage = lens _ileMessage (\s a -> s { _ileMessage = a })
 instance ToJSON InputLogEvent
 
 data LogGroup = LogGroup
-    { _lgLogGroupName :: Maybe Text
-    , _lgCreationTime :: Maybe Integer
-    , _lgRetentionInDays :: Maybe Integer
-    , _lgMetricFilterCount :: Maybe Integer
-    , _lgArn :: Maybe Text
-    , _lgStoredBytes :: Maybe Integer
+    { _lgLogGroupName :: !(Maybe Text)
+    , _lgCreationTime :: !(Maybe Integer)
+    , _lgRetentionInDays :: !(Maybe Integer)
+    , _lgMetricFilterCount :: !(Maybe Integer)
+    , _lgArn :: !(Maybe Text)
+    , _lgStoredBytes :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -233,14 +233,14 @@ instance FromJSON LogGroup
 
 -- | A log stream is sequence of log events that share the same emitter.
 data LogStream = LogStream
-    { _lsLogStreamName :: Maybe Text
-    , _lsCreationTime :: Maybe Integer
-    , _lsFirstEventTimestamp :: Maybe Integer
-    , _lsLastEventTimestamp :: Maybe Integer
-    , _lsLastIngestionTime :: Maybe Integer
-    , _lsUploadSequenceToken :: Maybe Text
-    , _lsArn :: Maybe Text
-    , _lsStoredBytes :: Maybe Integer
+    { _lsLogStreamName :: !(Maybe Text)
+    , _lsCreationTime :: !(Maybe Integer)
+    , _lsFirstEventTimestamp :: !(Maybe Integer)
+    , _lsLastEventTimestamp :: !(Maybe Integer)
+    , _lsLastIngestionTime :: !(Maybe Integer)
+    , _lsUploadSequenceToken :: !(Maybe Text)
+    , _lsArn :: !(Maybe Text)
+    , _lsStoredBytes :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -324,10 +324,10 @@ instance FromJSON LogStream
 -- extract metric observations from ingested log events and transform them to
 -- metric data in a CloudWatch metric.
 data MetricFilter = MetricFilter
-    { _mfFilterName :: Maybe Text
-    , _mfFilterPattern :: Maybe Text
+    { _mfFilterName :: !(Maybe Text)
+    , _mfFilterPattern :: !(Maybe Text)
     , _mfMetricTransformations :: Maybe (List1 MetricTransformation)
-    , _mfCreationTime :: Maybe Integer
+    , _mfCreationTime :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -374,8 +374,8 @@ mfCreationTime = lens _mfCreationTime (\s a -> s { _mfCreationTime = a })
 instance FromJSON MetricFilter
 
 data MetricFilterMatchRecord = MetricFilterMatchRecord
-    { _mfmrEventNumber :: Maybe Integer
-    , _mfmrEventMessage :: Maybe Text
+    { _mfmrEventNumber :: !(Maybe Integer)
+    , _mfmrEventMessage :: !(Maybe Text)
     , _mfmrExtractedValues :: Map Text Text
     } deriving (Show, Generic)
 
@@ -414,9 +414,9 @@ mfmrExtractedValues =
 instance FromJSON MetricFilterMatchRecord
 
 data MetricTransformation = MetricTransformation
-    { _mtMetricName :: Text
-    , _mtMetricNamespace :: Text
-    , _mtMetricValue :: Text
+    { _mtMetricName :: !Text
+    , _mtMetricNamespace :: !Text
+    , _mtMetricValue :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -455,9 +455,9 @@ instance FromJSON MetricTransformation
 instance ToJSON MetricTransformation
 
 data OutputLogEvent = OutputLogEvent
-    { _oleTimestamp :: Maybe Integer
-    , _oleMessage :: Maybe Text
-    , _oleIngestionTime :: Maybe Integer
+    { _oleTimestamp :: !(Maybe Integer)
+    , _oleMessage :: !(Maybe Text)
+    , _oleIngestionTime :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

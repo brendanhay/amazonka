@@ -69,28 +69,28 @@ import Network.AWS.Types (Region)
 
 data PutObject = PutObject
     { _poACL :: Maybe ObjectCannedACL
-    , _poBody :: RqBody
-    , _poBucket :: BucketName
-    , _poCacheControl :: Maybe Text
-    , _poContentDisposition :: Maybe Text
-    , _poContentEncoding :: Maybe Text
-    , _poContentLanguage :: Maybe Text
-    , _poContentLength :: Maybe Integer
-    , _poContentMD5 :: Maybe Text
-    , _poContentType :: Maybe Text
-    , _poExpires :: Maybe RFC822
-    , _poGrantFullControl :: Maybe Text
-    , _poGrantRead :: Maybe Text
-    , _poGrantReadACP :: Maybe Text
-    , _poGrantWriteACP :: Maybe Text
-    , _poKey :: ObjectKey
+    , _poBody :: !RqBody
+    , _poBucket :: !BucketName
+    , _poCacheControl :: !(Maybe Text)
+    , _poContentDisposition :: !(Maybe Text)
+    , _poContentEncoding :: !(Maybe Text)
+    , _poContentLanguage :: !(Maybe Text)
+    , _poContentLength :: !(Maybe Integer)
+    , _poContentMD5 :: !(Maybe Text)
+    , _poContentType :: !(Maybe Text)
+    , _poExpires :: !(Maybe RFC822)
+    , _poGrantFullControl :: !(Maybe Text)
+    , _poGrantRead :: !(Maybe Text)
+    , _poGrantReadACP :: !(Maybe Text)
+    , _poGrantWriteACP :: !(Maybe Text)
+    , _poKey :: !ObjectKey
     , _poMetadata :: Map Text Text
     , _poServerSideEncryption :: Maybe ServerSideEncryption
     , _poStorageClass :: Maybe StorageClass
-    , _poWebsiteRedirectLocation :: Maybe Text
-    , _poSSECustomerAlgorithm :: Maybe Text
-    , _poSSECustomerKey :: Maybe Text
-    , _poSSECustomerKeyMD5 :: Maybe Text
+    , _poWebsiteRedirectLocation :: !(Maybe Text)
+    , _poSSECustomerAlgorithm :: !(Maybe Text)
+    , _poSSECustomerKey :: !(Maybe Text)
+    , _poSSECustomerKeyMD5 :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -316,12 +316,12 @@ instance ToBody PutObject where
     toBody = toBody . _poBody
 
 data PutObjectResponse = PutObjectResponse
-    { _porExpiration :: Maybe RFC822
-    , _porETag :: Maybe ETag
+    { _porExpiration :: !(Maybe RFC822)
+    , _porETag :: !(Maybe ETag)
     , _porServerSideEncryption :: Maybe ServerSideEncryption
-    , _porVersionId :: Maybe ObjectVersionId
-    , _porSSECustomerAlgorithm :: Maybe Text
-    , _porSSECustomerKeyMD5 :: Maybe Text
+    , _porVersionId :: !(Maybe ObjectVersionId)
+    , _porSSECustomerAlgorithm :: !(Maybe Text)
+    , _porSSECustomerKeyMD5 :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

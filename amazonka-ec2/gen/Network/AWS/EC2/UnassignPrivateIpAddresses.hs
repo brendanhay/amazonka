@@ -48,7 +48,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
-    { _upiaNetworkInterfaceId :: Text
+    { _upiaNetworkInterfaceId :: !Text
     , _upiaPrivateIpAddresses :: [Text]
     } deriving (Show, Generic)
 

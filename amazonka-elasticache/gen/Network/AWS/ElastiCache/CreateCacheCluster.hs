@@ -77,27 +77,27 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a CreateCacheCluster operation.
 data CreateCacheCluster = CreateCacheCluster
-    { _cccCacheClusterId :: Text
-    , _cccReplicationGroupId :: Maybe Text
-    , _cccNumCacheNodes :: Maybe Integer
-    , _cccCacheNodeType :: Maybe Text
-    , _cccEngine :: Maybe Text
-    , _cccEngineVersion :: Maybe Text
-    , _cccCacheParameterGroupName :: Maybe Text
-    , _cccCacheSubnetGroupName :: Maybe Text
+    { _cccCacheClusterId :: !Text
+    , _cccReplicationGroupId :: !(Maybe Text)
+    , _cccNumCacheNodes :: !(Maybe Integer)
+    , _cccCacheNodeType :: !(Maybe Text)
+    , _cccEngine :: !(Maybe Text)
+    , _cccEngineVersion :: !(Maybe Text)
+    , _cccCacheParameterGroupName :: !(Maybe Text)
+    , _cccCacheSubnetGroupName :: !(Maybe Text)
     , _cccCacheSecurityGroupNames :: [Text]
     , _cccSecurityGroupIds :: [Text]
     , _cccSnapshotArns :: [Text]
-    , _cccSnapshotName :: Maybe Text
-    , _cccAZMode :: Maybe Text
-    , _cccPreferredAvailabilityZone :: Maybe Text
+    , _cccSnapshotName :: !(Maybe Text)
+    , _cccAZMode :: !(Maybe Text)
+    , _cccPreferredAvailabilityZone :: !(Maybe Text)
     , _cccPreferredAvailabilityZones :: [Text]
-    , _cccPreferredMaintenanceWindow :: Maybe Text
-    , _cccPort :: Maybe Integer
-    , _cccNotificationTopicArn :: Maybe Text
-    , _cccAutoMinorVersionUpgrade :: Maybe Bool
-    , _cccSnapshotRetentionLimit :: Maybe Integer
-    , _cccSnapshotWindow :: Maybe Text
+    , _cccPreferredMaintenanceWindow :: !(Maybe Text)
+    , _cccPort :: !(Maybe Integer)
+    , _cccNotificationTopicArn :: !(Maybe Text)
+    , _cccAutoMinorVersionUpgrade :: !(Maybe Bool)
+    , _cccSnapshotRetentionLimit :: !(Maybe Integer)
+    , _cccSnapshotWindow :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

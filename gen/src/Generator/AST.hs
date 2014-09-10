@@ -272,10 +272,11 @@ data Ann = Ann
    , _anMonoid   :: !Bool
    , _anDefault  :: !Bool
    , _anRequired :: !Bool
+   , _anStrict   :: !Bool
    } deriving (Eq, Show, Generic)
 
 instance Default Ann where
-    def = Ann "Default" def False False False False
+    def = Ann "Default" def False False False False False
 
 data Field = Field
     { _fldAnn      :: !Ann

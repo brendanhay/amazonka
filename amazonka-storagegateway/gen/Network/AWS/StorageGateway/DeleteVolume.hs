@@ -64,7 +64,7 @@ import Network.AWS.Request.JSON
 
 -- | A JSON object containing the DeleteVolumeInput$VolumeARN to delete.
 newtype DeleteVolume = DeleteVolume
-    { _dvVolumeARN :: Text
+    { _dvVolumeARN :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -95,7 +95,7 @@ instance ToJSON DeleteVolume
 
 -- | A JSON object containing the of the storage volume that was deleted.
 newtype DeleteVolumeResponse = DeleteVolumeResponse
-    { _dvrVolumeARN :: Maybe Text
+    { _dvrVolumeARN :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

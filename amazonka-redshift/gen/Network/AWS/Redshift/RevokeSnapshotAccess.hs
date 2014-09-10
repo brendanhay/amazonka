@@ -47,9 +47,9 @@ import Network.AWS.Prelude
 
 -- | 
 data RevokeSnapshotAccess = RevokeSnapshotAccess
-    { _rsaSnapshotIdentifier :: Text
-    , _rsaSnapshotClusterIdentifier :: Maybe Text
-    , _rsaAccountWithRestoreAccess :: Text
+    { _rsaSnapshotIdentifier :: !Text
+    , _rsaSnapshotClusterIdentifier :: !(Maybe Text)
+    , _rsaAccountWithRestoreAccess :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

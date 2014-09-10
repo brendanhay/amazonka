@@ -208,7 +208,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data TestMetricFilter = TestMetricFilter
-    { _tmfFilterPattern :: Text
+    { _tmfFilterPattern :: !Text
     , _tmfLogEventMessages :: List1 Text
     } deriving (Show, Generic)
 

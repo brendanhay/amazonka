@@ -44,7 +44,7 @@ import Network.AWS.Types (Region)
 -- delete the tags that are associated with a resource.
 data ChangeTagsForResource = ChangeTagsForResource
     { _ctfrResourceType :: TagResourceType
-    , _ctfrResourceId :: Text
+    , _ctfrResourceId :: !Text
     , _ctfrAddTags :: Maybe (List1 Tag)
     , _ctfrRemoveTagKeys :: Maybe (List1 Text)
     } deriving (Show, Generic)

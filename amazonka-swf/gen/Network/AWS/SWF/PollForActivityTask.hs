@@ -88,9 +88,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data PollForActivityTask = PollForActivityTask
-    { _pfatDomain :: Text
+    { _pfatDomain :: !Text
     , _pfatTaskList :: TaskList
-    , _pfatIdentity :: Maybe Text
+    , _pfatIdentity :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -141,12 +141,12 @@ instance ToJSON PollForActivityTask
 
 -- | Unit of work sent to an activity worker.
 data PollForActivityTaskResponse = PollForActivityTaskResponse
-    { _pfatrTaskToken :: Text
-    , _pfatrActivityId :: Text
-    , _pfatrStartedEventId :: Integer
+    { _pfatrTaskToken :: !Text
+    , _pfatrActivityId :: !Text
+    , _pfatrStartedEventId :: !Integer
     , _pfatrWorkflowExecution :: WorkflowExecution
     , _pfatrActivityType :: ActivityType
-    , _pfatrInput :: Maybe Text
+    , _pfatrInput :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

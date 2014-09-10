@@ -55,9 +55,9 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data ListUsers = ListUsers
-    { _luPathPrefix :: Maybe Text
-    , _luMarker :: Maybe Text
-    , _luMaxItems :: Maybe Integer
+    { _luPathPrefix :: !(Maybe Text)
+    , _luMarker :: !(Maybe Text)
+    , _luMaxItems :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -106,8 +106,8 @@ instance ToQuery ListUsers where
 -- | Contains the result of a successful invocation of the ListUsers action.
 data ListUsersResponse = ListUsersResponse
     { _lurUsers :: [User]
-    , _lurIsTruncated :: Bool
-    , _lurMarker :: Maybe Text
+    , _lurIsTruncated :: !Bool
+    , _lurMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

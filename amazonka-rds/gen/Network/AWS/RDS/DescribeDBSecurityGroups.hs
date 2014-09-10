@@ -53,9 +53,9 @@ import Network.AWS.Prelude
 
 -- | 
 data DescribeDBSecurityGroups = DescribeDBSecurityGroups
-    { _ddbsg2DBSecurityGroupName :: Maybe Text
-    , _ddbsg2MaxRecords :: Maybe Integer
-    , _ddbsg2Marker :: Maybe Text
+    { _ddbsg2DBSecurityGroupName :: !(Maybe Text)
+    , _ddbsg2MaxRecords :: !(Maybe Integer)
+    , _ddbsg2Marker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -103,7 +103,7 @@ instance ToQuery DescribeDBSecurityGroups where
 -- | Contains the result of a successful invocation of the
 -- DescribeDBSecurityGroups action.
 data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse
-    { _ddbsgrMarker :: Maybe Text
+    { _ddbsgrMarker :: !(Maybe Text)
     , _ddbsgrDBSecurityGroups :: [DBSecurityGroup]
     } deriving (Show, Generic)
 

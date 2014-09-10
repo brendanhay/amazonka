@@ -44,8 +44,8 @@ import Network.AWS.Prelude
 
 -- | 
 data RestartAppServer = RestartAppServer
-    { _rasEnvironmentId :: Maybe Text
-    , _rasEnvironmentName :: Maybe Text
+    { _rasEnvironmentId :: !(Maybe Text)
+    , _rasEnvironmentName :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

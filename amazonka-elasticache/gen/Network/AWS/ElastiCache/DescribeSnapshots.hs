@@ -56,11 +56,11 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a DescribeSnapshotsMessage operation.
 data DescribeSnapshots = DescribeSnapshots
-    { _ds1CacheClusterId :: Maybe Text
-    , _ds1SnapshotName :: Maybe Text
-    , _ds1SnapshotSource :: Maybe Text
-    , _ds1Marker :: Maybe Text
-    , _ds1MaxRecords :: Maybe Integer
+    { _ds1CacheClusterId :: !(Maybe Text)
+    , _ds1SnapshotName :: !(Maybe Text)
+    , _ds1SnapshotSource :: !(Maybe Text)
+    , _ds1Marker :: !(Maybe Text)
+    , _ds1MaxRecords :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -125,7 +125,7 @@ instance ToQuery DescribeSnapshots where
 
 -- | Represents the output of a DescribeSnapshots operation.
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse
-    { _dsrrMarker :: Maybe Text
+    { _dsrrMarker :: !(Maybe Text)
     , _dsrrSnapshots :: [Snapshot]
     } deriving (Show, Generic)
 

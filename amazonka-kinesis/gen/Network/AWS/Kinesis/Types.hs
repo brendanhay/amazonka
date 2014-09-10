@@ -195,8 +195,8 @@ instance FromJSON StreamStatus
 -- | The range of possible hash key values for the shard, which is a set of
 -- ordered contiguous positive integers.
 data HashKeyRange = HashKeyRange
-    { _hkrStartingHashKey :: Text
-    , _hkrEndingHashKey :: Text
+    { _hkrStartingHashKey :: !Text
+    , _hkrEndingHashKey :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -233,9 +233,9 @@ instance ToJSON HashKeyRange
 -- | The unit of data of the Amazon Kinesis stream, which is composed of a
 -- sequence number, a partition key, and a data blob.
 data Record = Record
-    { _rSequenceNumber :: Text
-    , _rData :: Base64
-    , _rPartitionKey :: Text
+    { _rSequenceNumber :: !Text
+    , _rData :: !Base64
+    , _rPartitionKey :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -281,8 +281,8 @@ instance FromJSON Record
 
 -- | The range of possible sequence numbers for the shard.
 data SequenceNumberRange = SequenceNumberRange
-    { _snrStartingSequenceNumber :: Text
-    , _snrEndingSequenceNumber :: Maybe Text
+    { _snrStartingSequenceNumber :: !Text
+    , _snrEndingSequenceNumber :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -320,9 +320,9 @@ instance ToJSON SequenceNumberRange
 
 -- | A uniquely identified group of data records in an Amazon Kinesis stream.
 data Shard = Shard
-    { _sShardId :: Text
-    , _sParentShardId :: Maybe Text
-    , _sAdjacentParentShardId :: Maybe Text
+    { _sShardId :: !Text
+    , _sParentShardId :: !(Maybe Text)
+    , _sAdjacentParentShardId :: !(Maybe Text)
     , _sHashKeyRange :: HashKeyRange
     , _sSequenceNumberRange :: SequenceNumberRange
     } deriving (Show, Generic)
@@ -386,11 +386,11 @@ instance FromJSON Shard
 -- shard objects that comprise the stream, and states whether there are more
 -- shards available.
 data StreamDescription = StreamDescription
-    { _sdStreamName :: Text
-    , _sdStreamARN :: Text
+    { _sdStreamName :: !Text
+    , _sdStreamARN :: !Text
     , _sdStreamStatus :: StreamStatus
     , _sdShards :: [Shard]
-    , _sdHasMoreShards :: Bool
+    , _sdHasMoreShards :: !Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

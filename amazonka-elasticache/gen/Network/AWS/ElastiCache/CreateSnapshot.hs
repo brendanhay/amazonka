@@ -50,8 +50,8 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a CreateSnapshotMessage operation.
 data CreateSnapshot = CreateSnapshot
-    { _cs1CacheClusterId :: Text
-    , _cs1SnapshotName :: Text
+    { _cs1CacheClusterId :: !Text
+    , _cs1SnapshotName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

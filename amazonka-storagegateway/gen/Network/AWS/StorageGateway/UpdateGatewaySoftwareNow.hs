@@ -65,7 +65,7 @@ import Network.AWS.Request.JSON
 
 -- | A JSON object containing the of the gateway to update.
 newtype UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow
-    { _ugsnGatewayARN :: Text
+    { _ugsnGatewayARN :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -96,7 +96,7 @@ instance ToJSON UpdateGatewaySoftwareNow
 
 -- | A JSON object containing the of the gateway that was updated.
 newtype UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse
-    { _ugsnrGatewayARN :: Maybe Text
+    { _ugsnrGatewayARN :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

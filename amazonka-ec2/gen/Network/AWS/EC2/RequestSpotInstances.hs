@@ -69,13 +69,13 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data RequestSpotInstances = RequestSpotInstances
-    { _rsiSpotPrice :: Text
-    , _rsiInstanceCount :: Maybe Integer
+    { _rsiSpotPrice :: !Text
+    , _rsiInstanceCount :: !(Maybe Integer)
     , _rsiType :: Maybe SpotInstanceType
-    , _rsiValidFrom :: Maybe ISO8601
-    , _rsiValidUntil :: Maybe ISO8601
-    , _rsiLaunchGroup :: Maybe Text
-    , _rsiAvailabilityZoneGroup :: Maybe Text
+    , _rsiValidFrom :: !(Maybe ISO8601)
+    , _rsiValidUntil :: !(Maybe ISO8601)
+    , _rsiLaunchGroup :: !(Maybe Text)
+    , _rsiAvailabilityZoneGroup :: !(Maybe Text)
     , _rsiLaunchSpecification :: Maybe LaunchSpecification
     } deriving (Show, Generic)
 

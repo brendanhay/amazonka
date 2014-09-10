@@ -50,7 +50,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeSnapshotAttribute = DescribeSnapshotAttribute
-    { _dsaSnapshotId :: Text
+    { _dsaSnapshotId :: !Text
     , _dsaAttribute :: SnapshotAttributeName
     } deriving (Show, Generic)
 
@@ -83,7 +83,7 @@ instance ToQuery DescribeSnapshotAttribute where
     toQuery = genericQuery def
 
 data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
-    { _dsarSnapshotId :: Maybe Text
+    { _dsarSnapshotId :: !(Maybe Text)
     , _dsarCreateVolumePermissions :: [CreateVolumePermission]
     , _dsarProductCodes :: [ProductCode]
     } deriving (Show, Generic)

@@ -77,16 +77,16 @@ import Network.AWS.Request.JSON
 
 -- | Represents the input of a Query operation.
 data Query = Query
-    { _qTableName :: Text
-    , _qIndexName :: Maybe Text
+    { _qTableName :: !Text
+    , _qIndexName :: !(Maybe Text)
     , _qSelect :: Maybe Select
     , _qAttributesToGet :: Maybe (List1 Text)
-    , _qLimit :: Maybe Integer
-    , _qConsistentRead :: Maybe Bool
+    , _qLimit :: !(Maybe Integer)
+    , _qConsistentRead :: !(Maybe Bool)
     , _qKeyConditions :: Map Text Condition
     , _qQueryFilter :: Map Text Condition
     , _qConditionalOperator :: Maybe ConditionalOperator
-    , _qScanIndexForward :: Maybe Bool
+    , _qScanIndexForward :: !(Maybe Bool)
     , _qExclusiveStartKey :: Map Text AttributeValue
     , _qReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
     } deriving (Show, Generic)
@@ -329,8 +329,8 @@ instance ToJSON Query
 -- | Represents the output of a Query operation.
 data QueryResponse = QueryResponse
     { _qrItems :: [Map Text AttributeValue]
-    , _qrCount :: Maybe Integer
-    , _qrScannedCount :: Maybe Integer
+    , _qrCount :: !(Maybe Integer)
+    , _qrScannedCount :: !(Maybe Integer)
     , _qrLastEvaluatedKey :: Map Text AttributeValue
     , _qrConsumedCapacity :: Maybe ConsumedCapacity
     } deriving (Show, Generic)

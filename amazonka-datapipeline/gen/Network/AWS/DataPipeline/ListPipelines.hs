@@ -53,7 +53,7 @@ import Network.AWS.Request.JSON
 
 -- | The input to the ListPipelines action.
 newtype ListPipelines = ListPipelines
-    { _lpMarker :: Maybe Text
+    { _lpMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -86,8 +86,8 @@ instance ToJSON ListPipelines
 -- | Contains the output from the ListPipelines action.
 data ListPipelinesResponse = ListPipelinesResponse
     { _lprPipelineIdList :: [PipelineIdName]
-    , _lprMarker :: Maybe Text
-    , _lprHasMoreResults :: Bool
+    , _lprMarker :: !(Maybe Text)
+    , _lprHasMoreResults :: !Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

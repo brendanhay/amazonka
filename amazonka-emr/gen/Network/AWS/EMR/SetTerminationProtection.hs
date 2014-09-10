@@ -69,7 +69,7 @@ import Network.AWS.Request.JSON
 -- | The input argument to the TerminationProtection operation.
 data SetTerminationProtection = SetTerminationProtection
     { _stpJobFlowIds :: [Text]
-    , _stpTerminationProtected :: Bool
+    , _stpTerminationProtected :: !Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -48,8 +48,8 @@ import Network.AWS.Request.JSON
 
 -- | Input to the GetId action.
 data GetId = GetId
-    { _giAccountId :: Text
-    , _giIdentityPoolId :: Text
+    { _giAccountId :: !Text
+    , _giIdentityPoolId :: !Text
     , _giLogins :: Map Text Text
     } deriving (Show, Generic)
 
@@ -97,7 +97,7 @@ instance ToJSON GetId
 
 -- | Returned in the response to a GetId request.
 newtype GetIdResponse = GetIdResponse
-    { _girIdentityId :: Maybe Text
+    { _girIdentityId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

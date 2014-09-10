@@ -72,7 +72,6 @@ module Network.AWS.IAM
     , module Network.AWS.IAM.ListUserPolicies
     , module Network.AWS.IAM.ListUsers
     , module Network.AWS.IAM.ListVirtualMFADevices
-    , module Network.AWS.IAM.Monadic
     , module Network.AWS.IAM.PutGroupPolicy
     , module Network.AWS.IAM.PutRolePolicy
     , module Network.AWS.IAM.PutUserPolicy
@@ -152,7 +151,6 @@ import Network.AWS.IAM.ListSigningCertificates
 import Network.AWS.IAM.ListUserPolicies
 import Network.AWS.IAM.ListUsers
 import Network.AWS.IAM.ListVirtualMFADevices
-import Network.AWS.IAM.Monadic
 import Network.AWS.IAM.PutGroupPolicy
 import Network.AWS.IAM.PutRolePolicy
 import Network.AWS.IAM.PutUserPolicy

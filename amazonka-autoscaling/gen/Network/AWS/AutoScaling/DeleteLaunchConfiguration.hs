@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 
 -- | 
 newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration
-    { _dlcLaunchConfigurationName :: Text
+    { _dlcLaunchConfigurationName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -33,7 +33,6 @@ module Network.AWS.Route53
     , module Network.AWS.Route53.ListResourceRecordSets
     , module Network.AWS.Route53.ListTagsForResource
     , module Network.AWS.Route53.ListTagsForResources
-    , module Network.AWS.Route53.Monadic
     , module Network.AWS.Route53.Types
     , module Network.AWS.Route53.UpdateHealthCheck
     ) where
@@ -56,6 +55,5 @@ import Network.AWS.Route53.ListHostedZones
 import Network.AWS.Route53.ListResourceRecordSets
 import Network.AWS.Route53.ListTagsForResource
 import Network.AWS.Route53.ListTagsForResources
-import Network.AWS.Route53.Monadic
 import Network.AWS.Route53.Types
 import Network.AWS.Route53.UpdateHealthCheck

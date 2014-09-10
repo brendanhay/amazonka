@@ -26,7 +26,6 @@ module Network.AWS.CognitoIdentity
     , module Network.AWS.CognitoIdentity.GetOpenIdToken
     , module Network.AWS.CognitoIdentity.ListIdentities
     , module Network.AWS.CognitoIdentity.ListIdentityPools
-    , module Network.AWS.CognitoIdentity.Monadic
     , module Network.AWS.CognitoIdentity.Types
     , module Network.AWS.CognitoIdentity.UnlinkIdentity
     , module Network.AWS.CognitoIdentity.UpdateIdentityPool
@@ -39,7 +38,6 @@ import Network.AWS.CognitoIdentity.GetId
 import Network.AWS.CognitoIdentity.GetOpenIdToken
 import Network.AWS.CognitoIdentity.ListIdentities
 import Network.AWS.CognitoIdentity.ListIdentityPools
-import Network.AWS.CognitoIdentity.Monadic
 import Network.AWS.CognitoIdentity.Types
 import Network.AWS.CognitoIdentity.UnlinkIdentity
 import Network.AWS.CognitoIdentity.UpdateIdentityPool

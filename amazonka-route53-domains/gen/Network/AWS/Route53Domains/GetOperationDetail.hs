@@ -63,7 +63,7 @@ import Network.AWS.Request.JSON
 
 -- | The GetOperationDetail request includes the following element.
 newtype GetOperationDetail = GetOperationDetail
-    { _godOperationId :: Text
+    { _godOperationId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -95,12 +95,12 @@ instance ToJSON GetOperationDetail
 
 -- | The GetOperationDetail response includes the following elements.
 data GetOperationDetailResponse = GetOperationDetailResponse
-    { _godrOperationId :: Maybe Text
+    { _godrOperationId :: !(Maybe Text)
     , _godrStatus :: Maybe OperationStatus
-    , _godrMessage :: Maybe Text
-    , _godrDomainName :: Maybe Text
+    , _godrMessage :: !(Maybe Text)
+    , _godrDomainName :: !(Maybe Text)
     , _godrType :: Maybe OperationType
-    , _godrSubmittedDate :: Maybe ISO8601
+    , _godrSubmittedDate :: !(Maybe ISO8601)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

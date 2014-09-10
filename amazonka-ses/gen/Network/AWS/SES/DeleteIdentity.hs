@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 -- | Represents a request instructing the service to delete an identity from the
 -- list of identities for the AWS Account.
 newtype DeleteIdentity = DeleteIdentity
-    { _diIdentity :: Text
+    { _diIdentity :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

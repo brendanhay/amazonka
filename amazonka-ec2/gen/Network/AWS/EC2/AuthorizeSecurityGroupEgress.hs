@@ -81,13 +81,13 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
-    { _asgeGroupId :: Text
-    , _asgeSourceSecurityGroupName :: Maybe Text
-    , _asgeSourceSecurityGroupOwnerId :: Maybe Text
-    , _asgeIpProtocol :: Maybe Text
-    , _asgeFromPort :: Maybe Integer
-    , _asgeToPort :: Maybe Integer
-    , _asgeCidrIp :: Maybe Text
+    { _asgeGroupId :: !Text
+    , _asgeSourceSecurityGroupName :: !(Maybe Text)
+    , _asgeSourceSecurityGroupOwnerId :: !(Maybe Text)
+    , _asgeIpProtocol :: !(Maybe Text)
+    , _asgeFromPort :: !(Maybe Integer)
+    , _asgeToPort :: !(Maybe Integer)
+    , _asgeCidrIp :: !(Maybe Text)
     , _asgeIpPermissions :: [IpPermission]
     } deriving (Show, Generic)
 

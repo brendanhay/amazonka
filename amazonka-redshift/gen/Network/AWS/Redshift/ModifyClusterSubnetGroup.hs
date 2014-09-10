@@ -45,8 +45,8 @@ import Network.AWS.Prelude
 
 -- | 
 data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup
-    { _mcsgClusterSubnetGroupName :: Text
-    , _mcsgDescription :: Maybe Text
+    { _mcsgClusterSubnetGroupName :: !Text
+    , _mcsgDescription :: !(Maybe Text)
     , _mcsgSubnetIds :: [Text]
     } deriving (Show, Generic)
 

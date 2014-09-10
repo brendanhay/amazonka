@@ -46,7 +46,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype DeleteCustomerGateway = DeleteCustomerGateway
-    { _dcgCustomerGatewayId :: Text
+    { _dcgCustomerGatewayId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

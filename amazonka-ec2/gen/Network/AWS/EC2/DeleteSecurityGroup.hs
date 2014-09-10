@@ -54,8 +54,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DeleteSecurityGroup = DeleteSecurityGroup
-    { _dsgGroupName :: Maybe Text
-    , _dsgGroupId :: Maybe Text
+    { _dsgGroupName :: !(Maybe Text)
+    , _dsgGroupId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

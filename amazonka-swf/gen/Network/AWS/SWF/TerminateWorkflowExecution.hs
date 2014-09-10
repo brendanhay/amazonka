@@ -78,11 +78,11 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data TerminateWorkflowExecution = TerminateWorkflowExecution
-    { _tweDomain :: Text
-    , _tweWorkflowId :: Text
-    , _tweRunId :: Maybe Text
-    , _tweReason :: Maybe Text
-    , _tweDetails :: Maybe Text
+    { _tweDomain :: !Text
+    , _tweWorkflowId :: !Text
+    , _tweRunId :: !(Maybe Text)
+    , _tweReason :: !(Maybe Text)
+    , _tweDetails :: !(Maybe Text)
     , _tweChildPolicy :: Maybe ChildPolicy
     } deriving (Show, Generic)
 

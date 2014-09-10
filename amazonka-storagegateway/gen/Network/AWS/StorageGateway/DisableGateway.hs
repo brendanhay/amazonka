@@ -39,7 +39,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 newtype DisableGateway = DisableGateway
-    { _dg1GatewayARN :: Text
+    { _dg1GatewayARN :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -69,7 +69,7 @@ instance ToHeaders DisableGateway
 instance ToJSON DisableGateway
 
 newtype DisableGatewayResponse = DisableGatewayResponse
-    { _dgrrGatewayARN :: Maybe Text
+    { _dgrrGatewayARN :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -52,8 +52,8 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a CreateCacheSubnetGroup operation.
 data CreateCacheSubnetGroup = CreateCacheSubnetGroup
-    { _ccsg1CacheSubnetGroupName :: Text
-    , _ccsg1CacheSubnetGroupDescription :: Text
+    { _ccsg1CacheSubnetGroupName :: !Text
+    , _ccsg1CacheSubnetGroupDescription :: !Text
     , _ccsg1SubnetIds :: [Text]
     } deriving (Show, Generic)
 

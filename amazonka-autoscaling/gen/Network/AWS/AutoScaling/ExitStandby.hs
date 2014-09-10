@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 
 data ExitStandby = ExitStandby
     { _es1InstanceIds :: [Text]
-    , _es1AutoScalingGroupName :: Text
+    , _es1AutoScalingGroupName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

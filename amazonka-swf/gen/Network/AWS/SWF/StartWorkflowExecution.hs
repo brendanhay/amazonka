@@ -87,14 +87,14 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data StartWorkflowExecution = StartWorkflowExecution
-    { _swe1Domain :: Text
-    , _swe1WorkflowId :: Text
+    { _swe1Domain :: !Text
+    , _swe1WorkflowId :: !Text
     , _swe1WorkflowType :: WorkflowType
     , _swe1TaskList :: Maybe TaskList
-    , _swe1Input :: Maybe Text
-    , _swe1ExecutionStartToCloseTimeout :: Maybe Text
+    , _swe1Input :: !(Maybe Text)
+    , _swe1ExecutionStartToCloseTimeout :: !(Maybe Text)
     , _swe1TagList :: [Text]
-    , _swe1TaskStartToCloseTimeout :: Maybe Text
+    , _swe1TaskStartToCloseTimeout :: !(Maybe Text)
     , _swe1ChildPolicy :: Maybe ChildPolicy
     } deriving (Show, Generic)
 
@@ -243,7 +243,7 @@ instance ToJSON StartWorkflowExecution
 
 -- | Specifies the runId of a workflow execution.
 newtype StartWorkflowExecutionResponse = StartWorkflowExecutionResponse
-    { _swerRunId :: Maybe Text
+    { _swerRunId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

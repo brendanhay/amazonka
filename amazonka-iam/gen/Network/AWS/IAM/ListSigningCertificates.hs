@@ -70,9 +70,9 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data ListSigningCertificates = ListSigningCertificates
-    { _lsc1UserName :: Maybe Text
-    , _lsc1Marker :: Maybe Text
-    , _lsc1MaxItems :: Maybe Integer
+    { _lsc1UserName :: !(Maybe Text)
+    , _lsc1Marker :: !(Maybe Text)
+    , _lsc1MaxItems :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -118,8 +118,8 @@ instance ToQuery ListSigningCertificates where
 -- ListSigningCertificates action.
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse
     { _lscrrCertificates :: [SigningCertificate]
-    , _lscrrIsTruncated :: Bool
-    , _lscrrMarker :: Maybe Text
+    , _lscrrIsTruncated :: !Bool
+    , _lscrrMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

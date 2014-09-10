@@ -54,11 +54,11 @@ import Network.AWS.Prelude
 
 -- | 
 data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress
-    { _rdbsgiDBSecurityGroupName :: Text
-    , _rdbsgiCIDRIP :: Maybe Text
-    , _rdbsgiEC2SecurityGroupName :: Maybe Text
-    , _rdbsgiEC2SecurityGroupId :: Maybe Text
-    , _rdbsgiEC2SecurityGroupOwnerId :: Maybe Text
+    { _rdbsgiDBSecurityGroupName :: !Text
+    , _rdbsgiCIDRIP :: !(Maybe Text)
+    , _rdbsgiEC2SecurityGroupName :: !(Maybe Text)
+    , _rdbsgiEC2SecurityGroupId :: !(Maybe Text)
+    , _rdbsgiEC2SecurityGroupOwnerId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

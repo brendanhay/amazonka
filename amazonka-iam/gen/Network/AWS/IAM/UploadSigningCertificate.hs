@@ -86,8 +86,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data UploadSigningCertificate = UploadSigningCertificate
-    { _usc3UserName :: Maybe Text
-    , _usc3CertificateBody :: Text
+    { _usc3UserName :: !(Maybe Text)
+    , _usc3CertificateBody :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

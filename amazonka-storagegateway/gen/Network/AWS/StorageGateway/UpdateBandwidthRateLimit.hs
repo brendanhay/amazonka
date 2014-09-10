@@ -65,9 +65,9 @@ import Network.AWS.Request.JSON
 -- UpdateBandwidthRateLimitInput$AverageDownloadRateLimitInBitsPerSec
 -- UpdateBandwidthRateLimitInput$AverageUploadRateLimitInBitsPerSec.
 data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit
-    { _ubrlGatewayARN :: Text
-    , _ubrlAverageUploadRateLimitInBitsPerSec :: Maybe Integer
-    , _ubrlAverageDownloadRateLimitInBitsPerSec :: Maybe Integer
+    { _ubrlGatewayARN :: !Text
+    , _ubrlAverageUploadRateLimitInBitsPerSec :: !(Maybe Integer)
+    , _ubrlAverageDownloadRateLimitInBitsPerSec :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -117,7 +117,7 @@ instance ToJSON UpdateBandwidthRateLimit
 -- | A JSON object containing the of the gateway whose throttle information was
 -- updated.
 newtype UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse
-    { _ubrlrGatewayARN :: Maybe Text
+    { _ubrlrGatewayARN :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

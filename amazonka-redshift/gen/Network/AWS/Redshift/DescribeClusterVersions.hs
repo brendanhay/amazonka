@@ -54,10 +54,10 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Prelude
 
 data DescribeClusterVersions = DescribeClusterVersions
-    { _dcvClusterVersion :: Maybe Text
-    , _dcvClusterParameterGroupFamily :: Maybe Text
-    , _dcvMaxRecords :: Maybe Integer
-    , _dcvMarker :: Maybe Text
+    { _dcvClusterVersion :: !(Maybe Text)
+    , _dcvClusterParameterGroupFamily :: !(Maybe Text)
+    , _dcvMaxRecords :: !(Maybe Integer)
+    , _dcvMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -117,7 +117,7 @@ instance ToQuery DescribeClusterVersions where
 
 -- | Contains the output from the DescribeClusterVersions action.
 data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse
-    { _dcvrMarker :: Maybe Text
+    { _dcvrMarker :: !(Maybe Text)
     , _dcvrClusterVersions :: [ClusterVersion]
     } deriving (Show, Generic)
 

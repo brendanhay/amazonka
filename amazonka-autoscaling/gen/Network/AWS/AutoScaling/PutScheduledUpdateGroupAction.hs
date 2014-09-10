@@ -62,15 +62,15 @@ import Network.AWS.AutoScaling.Types
 import Network.AWS.Prelude
 
 data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
-    { _psugaAutoScalingGroupName :: Text
-    , _psugaScheduledActionName :: Text
-    , _psugaTime :: Maybe ISO8601
-    , _psugaStartTime :: Maybe ISO8601
-    , _psugaEndTime :: Maybe ISO8601
-    , _psugaRecurrence :: Maybe Text
-    , _psugaMinSize :: Maybe Integer
-    , _psugaMaxSize :: Maybe Integer
-    , _psugaDesiredCapacity :: Maybe Integer
+    { _psugaAutoScalingGroupName :: !Text
+    , _psugaScheduledActionName :: !Text
+    , _psugaTime :: !(Maybe ISO8601)
+    , _psugaStartTime :: !(Maybe ISO8601)
+    , _psugaEndTime :: !(Maybe ISO8601)
+    , _psugaRecurrence :: !(Maybe Text)
+    , _psugaMinSize :: !(Maybe Integer)
+    , _psugaMaxSize :: !(Maybe Integer)
+    , _psugaDesiredCapacity :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

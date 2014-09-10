@@ -41,10 +41,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data RegisterRdsDbInstance = RegisterRdsDbInstance
-    { _rrdiStackId :: Text
-    , _rrdiRdsDbInstanceArn :: Text
-    , _rrdiDbUser :: Text
-    , _rrdiDbPassword :: Text
+    { _rrdiStackId :: !Text
+    , _rrdiRdsDbInstanceArn :: !Text
+    , _rrdiDbUser :: !Text
+    , _rrdiDbPassword :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

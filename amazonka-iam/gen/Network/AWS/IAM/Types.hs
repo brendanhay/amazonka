@@ -406,11 +406,11 @@ instance FromXML SummaryKeyType where
 
 -- | Information about the access key.
 data AccessKey = AccessKey
-    { _akUserName :: Text
-    , _akAccessKeyId :: Text
+    { _akUserName :: !Text
+    , _akAccessKeyId :: !Text
     , _akStatus :: StatusType
-    , _akSecretAccessKey :: Text
-    , _akCreateDate :: Maybe ISO8601
+    , _akSecretAccessKey :: !Text
+    , _akCreateDate :: !(Maybe ISO8601)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -474,10 +474,10 @@ instance FromXML AccessKey where
 -- without its secret key. This data type is used as a response element in the
 -- action ListAccessKeys.
 data AccessKeyMetadata = AccessKeyMetadata
-    { _akmUserName :: Maybe Text
-    , _akmAccessKeyId :: Maybe Text
+    { _akmUserName :: !(Maybe Text)
+    , _akmAccessKeyId :: !(Maybe Text)
     , _akmStatus :: Maybe StatusType
-    , _akmCreateDate :: Maybe ISO8601
+    , _akmCreateDate :: !(Maybe ISO8601)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -527,11 +527,11 @@ instance FromXML AccessKeyMetadata where
 
 -- | Information about the group.
 data Group = Group
-    { _gPath :: Text
-    , _gGroupName :: Text
-    , _gGroupId :: Text
-    , _gArn :: Text
-    , _gCreateDate :: ISO8601
+    { _gPath :: !Text
+    , _gGroupName :: !Text
+    , _gGroupId :: !Text
+    , _gArn :: !Text
+    , _gCreateDate :: !ISO8601
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -596,11 +596,11 @@ instance FromXML Group where
 
 -- | Information about the instance profile.
 data InstanceProfile = InstanceProfile
-    { _ipPath :: Text
-    , _ipInstanceProfileName :: Text
-    , _ipInstanceProfileId :: Text
-    , _ipArn :: Text
-    , _ipCreateDate :: ISO8601
+    { _ipPath :: !Text
+    , _ipInstanceProfileName :: !Text
+    , _ipInstanceProfileId :: !Text
+    , _ipArn :: !Text
+    , _ipCreateDate :: !ISO8601
     , _ipRoles :: [Role]
     } deriving (Show, Generic)
 
@@ -677,9 +677,9 @@ instance FromXML InstanceProfile where
 
 -- | The user name and password create date.
 data LoginProfile = LoginProfile
-    { _lpUserName :: Text
-    , _lpCreateDate :: ISO8601
-    , _lpPasswordResetRequired :: Maybe Bool
+    { _lpUserName :: !Text
+    , _lpCreateDate :: !ISO8601
+    , _lpPasswordResetRequired :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -728,9 +728,9 @@ instance FromXML LoginProfile where
 -- | The MFADevice data type contains information about an MFA device. This data
 -- type is used as a response element in the action ListMFADevices.
 data MFADevice = MFADevice
-    { _mfadUserName :: Text
-    , _mfadSerialNumber :: Text
-    , _mfadEnableDate :: ISO8601
+    { _mfadUserName :: !Text
+    , _mfadSerialNumber :: !Text
+    , _mfadEnableDate :: !ISO8601
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -779,16 +779,16 @@ instance FromXML MFADevice where
 -- password policy. This data type is used as a response element in the action
 -- GetAccountPasswordPolicy.
 data PasswordPolicy = PasswordPolicy
-    { _ppMinimumPasswordLength :: Maybe Integer
-    , _ppRequireSymbols :: Maybe Bool
-    , _ppRequireNumbers :: Maybe Bool
-    , _ppRequireUppercaseCharacters :: Maybe Bool
-    , _ppRequireLowercaseCharacters :: Maybe Bool
-    , _ppAllowUsersToChangePassword :: Maybe Bool
-    , _ppExpirePasswords :: Maybe Bool
-    , _ppMaxPasswordAge :: Maybe Integer
-    , _ppPasswordReusePrevention :: Maybe Integer
-    , _ppHardExpiry :: Maybe Bool
+    { _ppMinimumPasswordLength :: !(Maybe Integer)
+    , _ppRequireSymbols :: !(Maybe Bool)
+    , _ppRequireNumbers :: !(Maybe Bool)
+    , _ppRequireUppercaseCharacters :: !(Maybe Bool)
+    , _ppRequireLowercaseCharacters :: !(Maybe Bool)
+    , _ppAllowUsersToChangePassword :: !(Maybe Bool)
+    , _ppExpirePasswords :: !(Maybe Bool)
+    , _ppMaxPasswordAge :: !(Maybe Integer)
+    , _ppPasswordReusePrevention :: !(Maybe Integer)
+    , _ppHardExpiry :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -898,12 +898,12 @@ instance FromXML PasswordPolicy where
 -- used as a response element in the following actions: CreateRole GetRole
 -- ListRoles.
 data Role = Role
-    { _rPath :: Text
-    , _rRoleName :: Text
-    , _rRoleId :: Text
-    , _rArn :: Text
-    , _rCreateDate :: ISO8601
-    , _rAssumeRolePolicyDocument :: Maybe Text
+    { _rPath :: !Text
+    , _rRoleName :: !Text
+    , _rRoleId :: !Text
+    , _rArn :: !Text
+    , _rCreateDate :: !ISO8601
+    , _rAssumeRolePolicyDocument :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -979,9 +979,9 @@ instance ToQuery Role where
 
 -- | The list of SAML providers for this account.
 data SAMLProviderListEntry = SAMLProviderListEntry
-    { _samlpleArn :: Maybe Text
-    , _samlpleValidUntil :: Maybe ISO8601
-    , _samlpleCreateDate :: Maybe ISO8601
+    { _samlpleArn :: !(Maybe Text)
+    , _samlpleValidUntil :: !(Maybe ISO8601)
+    , _samlpleCreateDate :: !(Maybe ISO8601)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1026,8 +1026,8 @@ instance FromXML SAMLProviderListEntry where
 -- | Information about the server certificate.
 data ServerCertificate = ServerCertificate
     { _scServerCertificateMetadata :: ServerCertificateMetadata
-    , _scCertificateBody :: Text
-    , _scCertificateChain :: Maybe Text
+    , _scCertificateBody :: !Text
+    , _scCertificateChain :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1077,12 +1077,12 @@ instance FromXML ServerCertificate where
 -- | The meta information of the server certificate, such as its name, path, ID,
 -- and ARN.
 data ServerCertificateMetadata = ServerCertificateMetadata
-    { _scmPath :: Text
-    , _scmServerCertificateName :: Text
-    , _scmServerCertificateId :: Text
-    , _scmArn :: Text
-    , _scmUploadDate :: Maybe ISO8601
-    , _scmExpiration :: Maybe ISO8601
+    { _scmPath :: !Text
+    , _scmServerCertificateName :: !Text
+    , _scmServerCertificateId :: !Text
+    , _scmArn :: !Text
+    , _scmUploadDate :: !(Maybe ISO8601)
+    , _scmExpiration :: !(Maybe ISO8601)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1159,11 +1159,11 @@ instance FromXML ServerCertificateMetadata where
 -- signing certificate. This data type is used as a response element in the
 -- actions UploadSigningCertificate and ListSigningCertificates.
 data SigningCertificate = SigningCertificate
-    { _scrUserName :: Text
-    , _scrCertificateId :: Text
-    , _scrCertificateBody :: Text
+    { _scrUserName :: !Text
+    , _scrCertificateId :: !Text
+    , _scrCertificateBody :: !Text
     , _scrStatus :: StatusType
-    , _scrUploadDate :: Maybe ISO8601
+    , _scrUploadDate :: !(Maybe ISO8601)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1226,11 +1226,11 @@ instance FromXML SigningCertificate where
 
 -- | Information about the user.
 data User = User
-    { _uPath :: Text
-    , _uUserName :: Text
-    , _uUserId :: Text
-    , _uArn :: Text
-    , _uCreateDate :: ISO8601
+    { _uPath :: !Text
+    , _uUserName :: !Text
+    , _uUserId :: !Text
+    , _uArn :: !Text
+    , _uCreateDate :: !ISO8601
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1295,11 +1295,11 @@ instance ToQuery User where
 
 -- | A newly created virtual MFA device.
 data VirtualMFADevice = VirtualMFADevice
-    { _vmfadSerialNumber :: Text
-    , _vmfadBase32StringSeed :: Maybe ByteString
-    , _vmfadQRCodePNG :: Maybe ByteString
+    { _vmfadSerialNumber :: !Text
+    , _vmfadBase32StringSeed :: !(Maybe ByteString)
+    , _vmfadQRCodePNG :: !(Maybe ByteString)
     , _vmfadUser :: Maybe User
-    , _vmfadEnableDate :: Maybe ISO8601
+    , _vmfadEnableDate :: !(Maybe ISO8601)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

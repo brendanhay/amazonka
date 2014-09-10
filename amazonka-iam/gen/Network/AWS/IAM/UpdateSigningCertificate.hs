@@ -51,8 +51,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data UpdateSigningCertificate = UpdateSigningCertificate
-    { _usc1UserName :: Maybe Text
-    , _usc1CertificateId :: Text
+    { _usc1UserName :: !(Maybe Text)
+    , _usc1CertificateId :: !Text
     , _usc1Status :: StatusType
     } deriving (Show, Generic)
 

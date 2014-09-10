@@ -46,8 +46,8 @@ import Network.AWS.Request.JSON
 -- | Container for the parameters to the ConfirmPrivateVirtualInterface
 -- operation.
 data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface
-    { _cpviVirtualInterfaceId :: Text
-    , _cpviVirtualGatewayId :: Text
+    { _cpviVirtualInterfaceId :: !Text
+    , _cpviVirtualGatewayId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

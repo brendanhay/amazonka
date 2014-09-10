@@ -59,7 +59,7 @@ import Network.AWS.Request.JSON
 
 -- | Container for the parameters to the CreatePublicVirtualInterface operation.
 data CreatePublicVirtualInterface = CreatePublicVirtualInterface
-    { _cpvi3ConnectionId :: Text
+    { _cpvi3ConnectionId :: !Text
     , _cpvi3NewPublicVirtualInterface :: NewPublicVirtualInterface
     } deriving (Show, Generic)
 
@@ -103,20 +103,20 @@ instance ToJSON CreatePublicVirtualInterface
 -- | A virtual interface (VLAN) transmits the traffic between the AWS Direct
 -- Connect location and the customer.
 data CreatePublicVirtualInterfaceResponse = CreatePublicVirtualInterfaceResponse
-    { _cpvir1rOwnerAccount :: Maybe Text
-    , _cpvir1rVirtualInterfaceId :: Maybe Text
-    , _cpvir1rLocation :: Maybe Text
-    , _cpvir1rConnectionId :: Maybe Text
-    , _cpvir1rVirtualInterfaceType :: Maybe Text
-    , _cpvir1rVirtualInterfaceName :: Maybe Text
-    , _cpvir1rVlan :: Maybe Integer
-    , _cpvir1rAsn :: Maybe Integer
-    , _cpvir1rAuthKey :: Maybe Text
-    , _cpvir1rAmazonAddress :: Maybe Text
-    , _cpvir1rCustomerAddress :: Maybe Text
+    { _cpvir1rOwnerAccount :: !(Maybe Text)
+    , _cpvir1rVirtualInterfaceId :: !(Maybe Text)
+    , _cpvir1rLocation :: !(Maybe Text)
+    , _cpvir1rConnectionId :: !(Maybe Text)
+    , _cpvir1rVirtualInterfaceType :: !(Maybe Text)
+    , _cpvir1rVirtualInterfaceName :: !(Maybe Text)
+    , _cpvir1rVlan :: !(Maybe Integer)
+    , _cpvir1rAsn :: !(Maybe Integer)
+    , _cpvir1rAuthKey :: !(Maybe Text)
+    , _cpvir1rAmazonAddress :: !(Maybe Text)
+    , _cpvir1rCustomerAddress :: !(Maybe Text)
     , _cpvir1rVirtualInterfaceState :: Maybe VirtualInterfaceState
-    , _cpvir1rCustomerRouterConfig :: Maybe Text
-    , _cpvir1rVirtualGatewayId :: Maybe Text
+    , _cpvir1rCustomerRouterConfig :: !(Maybe Text)
+    , _cpvir1rVirtualGatewayId :: !(Maybe Text)
     , _cpvir1rRouteFilterPrefixes :: [RouteFilterPrefix]
     } deriving (Show, Generic)
 

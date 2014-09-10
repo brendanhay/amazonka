@@ -57,7 +57,6 @@ module Network.AWS.RDS
     , module Network.AWS.RDS.ModifyDBSubnetGroup
     , module Network.AWS.RDS.ModifyEventSubscription
     , module Network.AWS.RDS.ModifyOptionGroup
-    , module Network.AWS.RDS.Monadic
     , module Network.AWS.RDS.PromoteReadReplica
     , module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     , module Network.AWS.RDS.RebootDBInstance
@@ -113,7 +112,6 @@ import Network.AWS.RDS.ModifyDBParameterGroup
 import Network.AWS.RDS.ModifyDBSubnetGroup
 import Network.AWS.RDS.ModifyEventSubscription
 import Network.AWS.RDS.ModifyOptionGroup
-import Network.AWS.RDS.Monadic
 import Network.AWS.RDS.PromoteReadReplica
 import Network.AWS.RDS.PurchaseReservedDBInstancesOffering
 import Network.AWS.RDS.RebootDBInstance

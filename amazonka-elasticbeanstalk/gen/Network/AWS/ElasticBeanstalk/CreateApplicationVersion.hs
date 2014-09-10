@@ -56,11 +56,11 @@ import Network.AWS.Prelude
 
 -- | 
 data CreateApplicationVersion = CreateApplicationVersion
-    { _cavApplicationName :: Text
-    , _cavVersionLabel :: Text
-    , _cavDescription :: Maybe Text
+    { _cavApplicationName :: !Text
+    , _cavVersionLabel :: !Text
+    , _cavDescription :: !(Maybe Text)
     , _cavSourceBundle :: Maybe S3Location
-    , _cavAutoCreateApplication :: Maybe Bool
+    , _cavAutoCreateApplication :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

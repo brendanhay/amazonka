@@ -56,9 +56,9 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data ListGroups = ListGroups
-    { _lgPathPrefix :: Maybe Text
-    , _lgMarker :: Maybe Text
-    , _lgMaxItems :: Maybe Integer
+    { _lgPathPrefix :: !(Maybe Text)
+    , _lgMarker :: !(Maybe Text)
+    , _lgMaxItems :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -105,8 +105,8 @@ instance ToQuery ListGroups where
 -- | Contains the result of a successful invocation of the ListGroups action.
 data ListGroupsResponse = ListGroupsResponse
     { _lgrGroups :: [Group]
-    , _lgrIsTruncated :: Bool
-    , _lgrMarker :: Maybe Text
+    , _lgrIsTruncated :: !Bool
+    , _lgrMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

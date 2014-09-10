@@ -46,8 +46,8 @@ import Network.AWS.Types (Region)
 -- | The request to update an origin access identity.
 data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity
     { _ucfoaiCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
-    , _ucfoaiId :: Text
-    , _ucfoaiIfMatch :: Maybe Text
+    , _ucfoaiId :: !Text
+    , _ucfoaiIfMatch :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -101,7 +101,7 @@ instance ToXML UpdateCloudFrontOriginAccessIdentity where
 -- | The returned result of the corresponding request.
 data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse
     { _ucfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
-    , _ucfoairETag :: Maybe Text
+    , _ucfoairETag :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

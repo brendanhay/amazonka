@@ -59,9 +59,9 @@ import Network.AWS.Prelude
 
 -- | Represents a request to set or clear an identity's notification topic.
 data SetIdentityNotificationTopic = SetIdentityNotificationTopic
-    { _sintIdentity :: Text
+    { _sintIdentity :: !Text
     , _sintNotificationType :: NotificationType
-    , _sintSnsTopic :: Maybe Text
+    , _sintSnsTopic :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

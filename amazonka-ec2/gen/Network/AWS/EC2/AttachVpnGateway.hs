@@ -52,8 +52,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data AttachVpnGateway = AttachVpnGateway
-    { _avgVpnGatewayId :: Text
-    , _avgVpcId :: Text
+    { _avgVpnGatewayId :: !Text
+    , _avgVpcId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

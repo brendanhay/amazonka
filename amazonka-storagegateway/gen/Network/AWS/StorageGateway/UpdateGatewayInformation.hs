@@ -56,9 +56,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data UpdateGatewayInformation = UpdateGatewayInformation
-    { _ugiGatewayARN :: Text
-    , _ugiGatewayName :: Maybe Text
-    , _ugiGatewayTimezone :: Maybe Text
+    { _ugiGatewayARN :: !Text
+    , _ugiGatewayName :: !(Maybe Text)
+    , _ugiGatewayTimezone :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -105,7 +105,7 @@ instance ToJSON UpdateGatewayInformation
 
 -- | A JSON object containing the of the gateway that was updated.
 newtype UpdateGatewayInformationResponse = UpdateGatewayInformationResponse
-    { _ugirGatewayARN :: Maybe Text
+    { _ugirGatewayARN :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

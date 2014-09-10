@@ -59,8 +59,8 @@ import Network.AWS.Prelude
 
 data ListVirtualMFADevices = ListVirtualMFADevices
     { _lvmfadAssignmentStatus :: Maybe AssignmentStatusType
-    , _lvmfadMarker :: Maybe Text
-    , _lvmfadMaxItems :: Maybe Integer
+    , _lvmfadMarker :: !(Maybe Text)
+    , _lvmfadMaxItems :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -110,8 +110,8 @@ instance ToQuery ListVirtualMFADevices where
 -- action.
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
     { _lvmfadrVirtualMFADevices :: [VirtualMFADevice]
-    , _lvmfadrIsTruncated :: Bool
-    , _lvmfadrMarker :: Maybe Text
+    , _lvmfadrIsTruncated :: !Bool
+    , _lvmfadrMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

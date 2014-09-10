@@ -60,8 +60,8 @@ import Network.AWS.Request.JSON
 
 -- | The UpdatePipelineStatusRequest structure.
 data UpdatePipelineStatus = UpdatePipelineStatus
-    { _upsId :: Text
-    , _upsStatus :: Text
+    { _upsId :: !Text
+    , _upsStatus :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

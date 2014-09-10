@@ -48,8 +48,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data UpdateSAMLProvider = UpdateSAMLProvider
-    { _usamlpSAMLMetadataDocument :: Text
-    , _usamlpSAMLProviderArn :: Text
+    { _usamlpSAMLMetadataDocument :: !Text
+    , _usamlpSAMLProviderArn :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -91,7 +91,7 @@ instance ToQuery UpdateSAMLProvider where
 -- | Contains the result of a successful invocation of the UpdateSAMLProvider
 -- action.
 newtype UpdateSAMLProviderResponse = UpdateSAMLProviderResponse
-    { _usamlprSAMLProviderArn :: Maybe Text
+    { _usamlprSAMLProviderArn :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

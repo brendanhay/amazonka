@@ -52,10 +52,10 @@ import Network.AWS.Prelude
 
 -- | 
 data ModifyOptionGroup = ModifyOptionGroup
-    { _mogOptionGroupName :: Text
+    { _mogOptionGroupName :: !Text
     , _mogOptionsToInclude :: [OptionConfiguration]
     , _mogOptionsToRemove :: [Text]
-    , _mogApplyImmediately :: Maybe Bool
+    , _mogApplyImmediately :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

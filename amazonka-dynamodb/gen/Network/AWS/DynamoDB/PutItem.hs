@@ -68,7 +68,7 @@ import Network.AWS.Request.JSON
 
 -- | Represents the input of a PutItem operation.
 data PutItem = PutItem
-    { _piTableName :: Text
+    { _piTableName :: !Text
     , _piItem :: Map Text AttributeValue
     , _piExpected :: Map Text ExpectedAttributeValue
     , _piReturnValues :: Maybe ReturnValue

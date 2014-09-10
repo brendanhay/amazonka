@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 newtype GetUser = GetUser
-    { _guUserName :: Maybe Text
+    { _guUserName :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

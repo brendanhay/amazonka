@@ -61,11 +61,11 @@ import Network.AWS.Request.JSON
 
 -- | The input for the QueryObjects action.
 data QueryObjects = QueryObjects
-    { _qoPipelineId :: Text
+    { _qoPipelineId :: !Text
     , _qoQuery :: Maybe Query
-    , _qoSphere :: Text
-    , _qoMarker :: Maybe Text
-    , _qoLimit :: Maybe Integer
+    , _qoSphere :: !Text
+    , _qoMarker :: !(Maybe Text)
+    , _qoLimit :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -133,8 +133,8 @@ instance ToJSON QueryObjects
 -- | Contains the output from the QueryObjects action.
 data QueryObjectsResponse = QueryObjectsResponse
     { _qorIds :: [Text]
-    , _qorMarker :: Maybe Text
-    , _qorHasMoreResults :: Bool
+    , _qorMarker :: !(Maybe Text)
+    , _qorHasMoreResults :: !Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

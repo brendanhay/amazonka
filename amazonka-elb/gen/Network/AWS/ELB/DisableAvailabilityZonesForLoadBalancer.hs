@@ -56,7 +56,7 @@ import Network.AWS.Prelude
 
 -- | The input for the DisableAvailabilityZonesForLoadBalancer action.
 data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancer
-    { _dazflbLoadBalancerName :: Text
+    { _dazflbLoadBalancerName :: !Text
     , _dazflbAvailabilityZones :: [Text]
     } deriving (Show, Generic)
 

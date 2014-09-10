@@ -41,8 +41,8 @@ import Network.AWS.Types (Region)
 
 -- | The request to delete a streaming distribution.
 data DeleteStreamingDistribution = DeleteStreamingDistribution
-    { _dsdId :: Text
-    , _dsdIfMatch :: Maybe Text
+    { _dsdId :: !Text
+    , _dsdIfMatch :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

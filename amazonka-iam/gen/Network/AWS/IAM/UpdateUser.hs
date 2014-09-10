@@ -51,9 +51,9 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data UpdateUser = UpdateUser
-    { _uuUserName :: Text
-    , _uuNewPath :: Maybe Text
-    , _uuNewUserName :: Maybe Text
+    { _uuUserName :: !Text
+    , _uuNewPath :: !(Maybe Text)
+    , _uuNewUserName :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

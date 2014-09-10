@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 -- Specifies the name of the domain you want to update and the analysis scheme
 -- configuration.
 data DefineAnalysisScheme = DefineAnalysisScheme
-    { _dasDomainName :: Text
+    { _dasDomainName :: !Text
     , _dasAnalysisScheme :: AnalysisScheme
     } deriving (Show, Generic)
 

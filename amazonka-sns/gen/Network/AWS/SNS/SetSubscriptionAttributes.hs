@@ -60,9 +60,9 @@ import Network.AWS.Prelude
 
 -- | Input for SetSubscriptionAttributes action.
 data SetSubscriptionAttributes = SetSubscriptionAttributes
-    { _ssaSubscriptionArn :: Text
-    , _ssaAttributeName :: Text
-    , _ssaAttributeValue :: Maybe Text
+    { _ssaSubscriptionArn :: !Text
+    , _ssaAttributeName :: !Text
+    , _ssaAttributeValue :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

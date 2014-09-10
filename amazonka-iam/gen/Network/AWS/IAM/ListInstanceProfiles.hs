@@ -55,9 +55,9 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data ListInstanceProfiles = ListInstanceProfiles
-    { _lipPathPrefix :: Maybe Text
-    , _lipMarker :: Maybe Text
-    , _lipMaxItems :: Maybe Integer
+    { _lipPathPrefix :: !(Maybe Text)
+    , _lipMarker :: !(Maybe Text)
+    , _lipMaxItems :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -108,8 +108,8 @@ instance ToQuery ListInstanceProfiles where
 -- action.
 data ListInstanceProfilesResponse = ListInstanceProfilesResponse
     { _liprInstanceProfiles :: [InstanceProfile]
-    , _liprIsTruncated :: Bool
-    , _liprMarker :: Maybe Text
+    , _liprIsTruncated :: !Bool
+    , _liprMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

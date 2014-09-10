@@ -35,7 +35,6 @@ module Network.AWS.SWF
     , module Network.AWS.SWF.ListDomains
     , module Network.AWS.SWF.ListOpenWorkflowExecutions
     , module Network.AWS.SWF.ListWorkflowTypes
-    , module Network.AWS.SWF.Monadic
     , module Network.AWS.SWF.PollForActivityTask
     , module Network.AWS.SWF.PollForDecisionTask
     , module Network.AWS.SWF.RecordActivityTaskHeartbeat
@@ -70,7 +69,6 @@ import Network.AWS.SWF.ListClosedWorkflowExecutions
 import Network.AWS.SWF.ListDomains
 import Network.AWS.SWF.ListOpenWorkflowExecutions
 import Network.AWS.SWF.ListWorkflowTypes
-import Network.AWS.SWF.Monadic
 import Network.AWS.SWF.PollForActivityTask
 import Network.AWS.SWF.PollForDecisionTask
 import Network.AWS.SWF.RecordActivityTaskHeartbeat

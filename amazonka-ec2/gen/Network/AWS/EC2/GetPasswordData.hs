@@ -58,7 +58,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype GetPasswordData = GetPasswordData
-    { _gpdInstanceId :: Text
+    { _gpdInstanceId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -82,9 +82,9 @@ instance ToQuery GetPasswordData where
     toQuery = genericQuery def
 
 data GetPasswordDataResponse = GetPasswordDataResponse
-    { _gpdrInstanceId :: Maybe Text
-    , _gpdrTimestamp :: Maybe ISO8601
-    , _gpdrPasswordData :: Maybe Text
+    { _gpdrInstanceId :: !(Maybe Text)
+    , _gpdrTimestamp :: !(Maybe ISO8601)
+    , _gpdrPasswordData :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

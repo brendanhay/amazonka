@@ -70,7 +70,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DeprecateWorkflowType = DeprecateWorkflowType
-    { _dwtDomain :: Text
+    { _dwtDomain :: !Text
     , _dwtWorkflowType :: WorkflowType
     } deriving (Show, Generic)
 

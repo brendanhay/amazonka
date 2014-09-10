@@ -61,7 +61,7 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 newtype GetServerCertificate = GetServerCertificate
-    { _gscServerCertificateName :: Text
+    { _gscServerCertificateName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

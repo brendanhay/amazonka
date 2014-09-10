@@ -75,12 +75,12 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data AssociateAddress = AssociateAddress
-    { _aa1InstanceId :: Maybe Text
-    , _aa1PublicIp :: Maybe Text
-    , _aa1AllocationId :: Maybe Text
-    , _aa1NetworkInterfaceId :: Maybe Text
-    , _aa1PrivateIpAddress :: Maybe Text
-    , _aa1AllowReassociation :: Maybe Bool
+    { _aa1InstanceId :: !(Maybe Text)
+    , _aa1PublicIp :: !(Maybe Text)
+    , _aa1AllocationId :: !(Maybe Text)
+    , _aa1NetworkInterfaceId :: !(Maybe Text)
+    , _aa1PrivateIpAddress :: !(Maybe Text)
+    , _aa1AllowReassociation :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -148,7 +148,7 @@ instance ToQuery AssociateAddress where
     toQuery = genericQuery def
 
 newtype AssociateAddressResponse = AssociateAddressResponse
-    { _aarrAssociationId :: Maybe Text
+    { _aarrAssociationId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

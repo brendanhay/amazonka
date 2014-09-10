@@ -56,10 +56,10 @@ import Network.AWS.Prelude
 
 -- | ???.
 data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress
-    { _rcsgiClusterSecurityGroupName :: Text
-    , _rcsgiCIDRIP :: Maybe Text
-    , _rcsgiEC2SecurityGroupName :: Maybe Text
-    , _rcsgiEC2SecurityGroupOwnerId :: Maybe Text
+    { _rcsgiClusterSecurityGroupName :: !Text
+    , _rcsgiCIDRIP :: !(Maybe Text)
+    , _rcsgiEC2SecurityGroupName :: !(Maybe Text)
+    , _rcsgiEC2SecurityGroupOwnerId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

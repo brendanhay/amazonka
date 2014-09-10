@@ -43,7 +43,7 @@ import Network.AWS.Request.JSON
 -- | Passes the request to CloudTrail to stop logging AWS API calls for the
 -- specified account.
 newtype StopLogging = StopLogging
-    { _sl1Name :: Text
+    { _sl1Name :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

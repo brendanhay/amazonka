@@ -49,11 +49,11 @@ import Network.AWS.Prelude
 
 data DescribeAlarms = DescribeAlarms
     { _da1AlarmNames :: [Text]
-    , _da1AlarmNamePrefix :: Maybe Text
+    , _da1AlarmNamePrefix :: !(Maybe Text)
     , _da1StateValue :: Maybe StateValue
-    , _da1ActionPrefix :: Maybe Text
-    , _da1MaxRecords :: Maybe Integer
-    , _da1NextToken :: Maybe Text
+    , _da1ActionPrefix :: !(Maybe Text)
+    , _da1MaxRecords :: !(Maybe Integer)
+    , _da1NextToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -116,7 +116,7 @@ instance ToQuery DescribeAlarms where
 -- | The output for the DescribeAlarms action.
 data DescribeAlarmsResponse = DescribeAlarmsResponse
     { _darMetricAlarms :: [MetricAlarm]
-    , _darNextToken :: Maybe Text
+    , _darNextToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

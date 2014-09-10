@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 
 -- | Input for DeletePlatformApplication action.
 newtype DeletePlatformApplication = DeletePlatformApplication
-    { _dpaPlatformApplicationArn :: Text
+    { _dpaPlatformApplicationArn :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

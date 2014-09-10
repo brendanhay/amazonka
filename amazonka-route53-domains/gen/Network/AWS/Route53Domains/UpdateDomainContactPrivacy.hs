@@ -66,10 +66,10 @@ import Network.AWS.Request.JSON
 
 -- | The UpdateDomainContactPrivacy request includes the following elements.
 data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy
-    { _udcpDomainName :: Text
-    , _udcpAdminPrivacy :: Maybe Bool
-    , _udcpRegistrantPrivacy :: Maybe Bool
-    , _udcpTechPrivacy :: Maybe Bool
+    { _udcpDomainName :: !Text
+    , _udcpAdminPrivacy :: !(Maybe Bool)
+    , _udcpRegistrantPrivacy :: !(Maybe Bool)
+    , _udcpTechPrivacy :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -134,7 +134,7 @@ instance ToJSON UpdateDomainContactPrivacy
 
 -- | The UpdateDomainContactPrivacy response includes the following element.
 newtype UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse
-    { _udcprOperationId :: Text
+    { _udcprOperationId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

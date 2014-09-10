@@ -41,7 +41,7 @@ import Network.AWS.Request.JSON
 
 -- | Container for the parameters to the DeleteVirtualInterface operation.
 newtype DeleteVirtualInterface = DeleteVirtualInterface
-    { _dviVirtualInterfaceId :: Text
+    { _dviVirtualInterfaceId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -40,7 +40,7 @@ import Network.AWS.Prelude
 
 -- | The input for the DeleteLoadBalancerListeners action.
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners
-    { _dlblLoadBalancerName :: Text
+    { _dlblLoadBalancerName :: !Text
     , _dlblLoadBalancerPorts :: [Integer]
     } deriving (Show, Generic)
 

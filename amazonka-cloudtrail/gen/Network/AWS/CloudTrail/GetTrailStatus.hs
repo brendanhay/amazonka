@@ -49,7 +49,7 @@ import Network.AWS.Request.JSON
 
 -- | The name of a trail about which you want the current status.
 newtype GetTrailStatus = GetTrailStatus
-    { _gtsName :: Text
+    { _gtsName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -80,13 +80,13 @@ instance ToJSON GetTrailStatus
 -- | Returns the objects or data listed below if successful. Otherwise, returns
 -- an error.
 data GetTrailStatusResponse = GetTrailStatusResponse
-    { _gtsrIsLogging :: Maybe Bool
-    , _gtsrLatestDeliveryError :: Maybe Text
-    , _gtsrLatestNotificationError :: Maybe Text
-    , _gtsrLatestDeliveryTime :: Maybe ISO8601
-    , _gtsrLatestNotificationTime :: Maybe ISO8601
-    , _gtsrStartLoggingTime :: Maybe ISO8601
-    , _gtsrStopLoggingTime :: Maybe ISO8601
+    { _gtsrIsLogging :: !(Maybe Bool)
+    , _gtsrLatestDeliveryError :: !(Maybe Text)
+    , _gtsrLatestNotificationError :: !(Maybe Text)
+    , _gtsrLatestDeliveryTime :: !(Maybe ISO8601)
+    , _gtsrLatestNotificationTime :: !(Maybe ISO8601)
+    , _gtsrStartLoggingTime :: !(Maybe ISO8601)
+    , _gtsrStopLoggingTime :: !(Maybe ISO8601)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

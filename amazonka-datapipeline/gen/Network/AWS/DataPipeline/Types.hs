@@ -256,9 +256,9 @@ instance ToJSON Query
 -- is specified as either a string value (StringValue) or a reference to
 -- another object (RefValue) but not as both.
 data Field = Field
-    { _fKey :: Text
-    , _fStringValue :: Maybe Text
-    , _fRefValue :: Maybe Text
+    { _fKey :: !Text
+    , _fStringValue :: !(Maybe Text)
+    , _fRefValue :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -304,8 +304,8 @@ instance ToJSON Field
 -- running on an EC2 instance, and ensures the proper AWS Data Pipeline
 -- service charges are applied to your pipeline.
 data InstanceIdentity = InstanceIdentity
-    { _iiDocument :: Maybe Text
-    , _iiSignature :: Maybe Text
+    { _iiDocument :: !(Maybe Text)
+    , _iiSignature :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -386,10 +386,10 @@ instance ToJSON Operator
 
 -- | Contains pipeline metadata.
 data PipelineDescription = PipelineDescription
-    { _pdPipelineId :: Text
-    , _pdName :: Text
+    { _pdPipelineId :: !Text
+    , _pdName :: !Text
     , _pdFields :: [Field]
-    , _pdDescription :: Maybe Text
+    , _pdDescription :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -441,8 +441,8 @@ instance FromJSON PipelineDescription
 
 -- | Contains the name and identifier of a pipeline.
 data PipelineIdName = PipelineIdName
-    { _pinId :: Maybe Text
-    , _pinName :: Maybe Text
+    { _pinId :: !(Maybe Text)
+    , _pinName :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -478,8 +478,8 @@ instance FromJSON PipelineIdName
 -- physical, or physical attempt pipeline object. The complete set of
 -- components of a pipeline defines the pipeline.
 data PipelineObject = PipelineObject
-    { _poId :: Text
-    , _poName :: Text
+    { _poId :: !Text
+    , _poName :: !Text
     , _poFields :: [Field]
     } deriving (Show, Generic)
 
@@ -523,7 +523,7 @@ instance ToJSON PipelineObject
 -- | A comparision that is used to determine whether a query should return this
 -- object.
 data Selector = Selector
-    { _sFieldName :: Maybe Text
+    { _sFieldName :: !(Maybe Text)
     , _sOperator :: Maybe Operator
     } deriving (Show, Generic)
 
@@ -563,9 +563,9 @@ instance ToJSON Selector
 -- assigned. The calling task runner uses taskId in subsequent calls to
 -- ReportTaskProgress and SetTaskStatus.
 data TaskObject = TaskObject
-    { _toTaskId :: Maybe Text
-    , _toPipelineId :: Maybe Text
-    , _toAttemptId :: Maybe Text
+    { _toTaskId :: !(Maybe Text)
+    , _toPipelineId :: !(Maybe Text)
+    , _toAttemptId :: !(Maybe Text)
     , _toObjects :: Map Text PipelineObject
     } deriving (Show, Generic)
 
@@ -619,7 +619,7 @@ instance FromJSON TaskObject
 -- The set of validation errors that can be returned are defined by AWS Data
 -- Pipeline.
 data ValidationError = ValidationError
-    { _veId :: Maybe Text
+    { _veId :: !(Maybe Text)
     , _veErrors :: [Text]
     } deriving (Show, Generic)
 
@@ -656,7 +656,7 @@ instance FromJSON ValidationError
 -- activation. The set of validation warnings that can be returned are defined
 -- by AWS Data Pipeline.
 data ValidationWarning = ValidationWarning
-    { _vwId :: Maybe Text
+    { _vwId :: !(Maybe Text)
     , _vwWarnings :: [Text]
     } deriving (Show, Generic)
 

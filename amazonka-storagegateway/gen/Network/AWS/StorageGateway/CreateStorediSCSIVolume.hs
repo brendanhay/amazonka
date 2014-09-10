@@ -79,12 +79,12 @@ import Network.AWS.Request.JSON
 -- CreateStorediSCSIVolumeInput$SnapshotId
 -- CreateStorediSCSIVolumeInput$TargetName.
 data CreateStorediSCSIVolume = CreateStorediSCSIVolume
-    { _csscsivGatewayARN :: Text
-    , _csscsivDiskId :: Text
-    , _csscsivSnapshotId :: Maybe Text
-    , _csscsivPreserveExistingData :: Bool
-    , _csscsivTargetName :: Text
-    , _csscsivNetworkInterfaceId :: Text
+    { _csscsivGatewayARN :: !Text
+    , _csscsivDiskId :: !Text
+    , _csscsivSnapshotId :: !(Maybe Text)
+    , _csscsivPreserveExistingData :: !Bool
+    , _csscsivTargetName :: !Text
+    , _csscsivNetworkInterfaceId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -175,9 +175,9 @@ instance ToJSON CreateStorediSCSIVolume
 
 -- | A JSON object containing the following fields:.
 data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse
-    { _csscsivrVolumeARN :: Maybe Text
-    , _csscsivrVolumeSizeInBytes :: Maybe Integer
-    , _csscsivrTargetARN :: Maybe Text
+    { _csscsivrVolumeARN :: !(Maybe Text)
+    , _csscsivrVolumeSizeInBytes :: !(Maybe Integer)
+    , _csscsivrTargetARN :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

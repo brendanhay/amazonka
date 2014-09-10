@@ -44,7 +44,7 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 newtype GetLoginProfile = GetLoginProfile
-    { _glpUserName :: Text
+    { _glpUserName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -71,8 +71,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data CreateInstanceExportTask = CreateInstanceExportTask
-    { _cietDescription :: Maybe Text
-    , _cietInstanceId :: Text
+    { _cietDescription :: !(Maybe Text)
+    , _cietInstanceId :: !Text
     , _cietTargetEnvironment :: Maybe ExportEnvironment
     , _cietExportToS3Task :: Maybe ExportToS3TaskSpecification
     } deriving (Show, Generic)

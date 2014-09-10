@@ -43,7 +43,7 @@ import Network.AWS.Types (Region)
 
 -- | To request to get a streaming distribution configuration.
 newtype GetStreamingDistributionConfig = GetStreamingDistributionConfig
-    { _gsdcId :: Text
+    { _gsdcId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -76,7 +76,7 @@ instance ToXML GetStreamingDistributionConfig where
 -- | The returned result of the corresponding request.
 data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse
     { _gsdcrStreamingDistributionConfig :: Maybe StreamingDistributionConfig
-    , _gsdcrETag :: Maybe Text
+    , _gsdcrETag :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

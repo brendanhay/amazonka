@@ -80,12 +80,12 @@ import Network.AWS.Prelude
 
 -- | This documentation target is not reported in the API reference.
 data UpdateEnvironment = UpdateEnvironment
-    { _ueEnvironmentId :: Maybe Text
-    , _ueEnvironmentName :: Maybe Text
-    , _ueDescription :: Maybe Text
+    { _ueEnvironmentId :: !(Maybe Text)
+    , _ueEnvironmentName :: !(Maybe Text)
+    , _ueDescription :: !(Maybe Text)
     , _ueTier :: Maybe EnvironmentTier
-    , _ueVersionLabel :: Maybe Text
-    , _ueTemplateName :: Maybe Text
+    , _ueVersionLabel :: !(Maybe Text)
+    , _ueTemplateName :: !(Maybe Text)
     , _ueOptionSettings :: [ConfigurationOptionSetting]
     , _ueOptionsToRemove :: [OptionSpecification]
     } deriving (Show, Generic)
@@ -182,17 +182,17 @@ instance ToQuery UpdateEnvironment where
 
 -- | Describes the properties of an environment.
 data UpdateEnvironmentResponse = UpdateEnvironmentResponse
-    { _uerEnvironmentName :: Maybe Text
-    , _uerEnvironmentId :: Maybe Text
-    , _uerApplicationName :: Maybe Text
-    , _uerVersionLabel :: Maybe Text
-    , _uerSolutionStackName :: Maybe Text
-    , _uerTemplateName :: Maybe Text
-    , _uerDescription :: Maybe Text
-    , _uerEndpointURL :: Maybe Text
-    , _uerCNAME :: Maybe Text
-    , _uerDateCreated :: Maybe ISO8601
-    , _uerDateUpdated :: Maybe ISO8601
+    { _uerEnvironmentName :: !(Maybe Text)
+    , _uerEnvironmentId :: !(Maybe Text)
+    , _uerApplicationName :: !(Maybe Text)
+    , _uerVersionLabel :: !(Maybe Text)
+    , _uerSolutionStackName :: !(Maybe Text)
+    , _uerTemplateName :: !(Maybe Text)
+    , _uerDescription :: !(Maybe Text)
+    , _uerEndpointURL :: !(Maybe Text)
+    , _uerCNAME :: !(Maybe Text)
+    , _uerDateCreated :: !(Maybe ISO8601)
+    , _uerDateUpdated :: !(Maybe ISO8601)
     , _uerStatus :: Maybe EnvironmentStatus
     , _uerHealth :: Maybe EnvironmentHealth
     , _uerResources :: Maybe EnvironmentResourcesDescription

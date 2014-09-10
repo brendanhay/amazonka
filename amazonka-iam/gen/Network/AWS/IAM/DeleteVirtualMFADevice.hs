@@ -44,7 +44,7 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice
-    { _dvmfadSerialNumber :: Text
+    { _dvmfadSerialNumber :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

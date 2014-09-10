@@ -47,8 +47,8 @@ import Network.AWS.Request.JSON
 
 -- | Represents the input of a ListTables operation.
 data ListTables = ListTables
-    { _ltExclusiveStartTableName :: Maybe Text
-    , _ltLimit :: Maybe Integer
+    { _ltExclusiveStartTableName :: !(Maybe Text)
+    , _ltLimit :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -89,7 +89,7 @@ instance ToJSON ListTables
 -- | Represents the output of a ListTables operation.
 data ListTablesResponse = ListTablesResponse
     { _ltrTableNames :: [Text]
-    , _ltrLastEvaluatedTableName :: Maybe Text
+    , _ltrLastEvaluatedTableName :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

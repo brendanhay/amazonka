@@ -17,7 +17,6 @@ module Network.AWS.Route53Domains
     , module Network.AWS.Route53Domains.GetOperationDetail
     , module Network.AWS.Route53Domains.ListDomains
     , module Network.AWS.Route53Domains.ListOperations
-    , module Network.AWS.Route53Domains.Monadic
     , module Network.AWS.Route53Domains.RegisterDomain
     , module Network.AWS.Route53Domains.RetrieveDomainAuthCode
     , module Network.AWS.Route53Domains.TransferDomain
@@ -34,7 +33,6 @@ import Network.AWS.Route53Domains.GetDomainDetail
 import Network.AWS.Route53Domains.GetOperationDetail
 import Network.AWS.Route53Domains.ListDomains
 import Network.AWS.Route53Domains.ListOperations
-import Network.AWS.Route53Domains.Monadic
 import Network.AWS.Route53Domains.RegisterDomain
 import Network.AWS.Route53Domains.RetrieveDomainAuthCode
 import Network.AWS.Route53Domains.TransferDomain

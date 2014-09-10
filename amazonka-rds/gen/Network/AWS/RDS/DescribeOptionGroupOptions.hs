@@ -48,10 +48,10 @@ import Network.AWS.Prelude
 
 -- | 
 data DescribeOptionGroupOptions = DescribeOptionGroupOptions
-    { _dogoEngineName :: Text
-    , _dogoMajorEngineVersion :: Maybe Text
-    , _dogoMaxRecords :: Maybe Integer
-    , _dogoMarker :: Maybe Text
+    { _dogoEngineName :: !Text
+    , _dogoMajorEngineVersion :: !(Maybe Text)
+    , _dogoMaxRecords :: !(Maybe Integer)
+    , _dogoMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -106,7 +106,7 @@ instance ToQuery DescribeOptionGroupOptions where
 -- | 
 data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse
     { _dogorOptionGroupOptions :: [OptionGroupOption]
-    , _dogorMarker :: Maybe Text
+    , _dogorMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -63,17 +63,17 @@ import Network.AWS.RDS.Types
 import Network.AWS.Prelude
 
 data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica
-    { _cdbirrDBInstanceIdentifier :: Text
-    , _cdbirrSourceDBInstanceIdentifier :: Text
-    , _cdbirrDBInstanceClass :: Maybe Text
-    , _cdbirrAvailabilityZone :: Maybe Text
-    , _cdbirrPort :: Maybe Integer
-    , _cdbirrAutoMinorVersionUpgrade :: Maybe Bool
-    , _cdbirrIops :: Maybe Integer
-    , _cdbirrOptionGroupName :: Maybe Text
-    , _cdbirrPubliclyAccessible :: Maybe Bool
+    { _cdbirrDBInstanceIdentifier :: !Text
+    , _cdbirrSourceDBInstanceIdentifier :: !Text
+    , _cdbirrDBInstanceClass :: !(Maybe Text)
+    , _cdbirrAvailabilityZone :: !(Maybe Text)
+    , _cdbirrPort :: !(Maybe Integer)
+    , _cdbirrAutoMinorVersionUpgrade :: !(Maybe Bool)
+    , _cdbirrIops :: !(Maybe Integer)
+    , _cdbirrOptionGroupName :: !(Maybe Text)
+    , _cdbirrPubliclyAccessible :: !(Maybe Bool)
     , _cdbirrTags :: [Tag]
-    , _cdbirrDBSubnetGroupName :: Maybe Text
+    , _cdbirrDBSubnetGroupName :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

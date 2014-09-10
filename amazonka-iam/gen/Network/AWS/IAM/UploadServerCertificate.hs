@@ -86,11 +86,11 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data UploadServerCertificate = UploadServerCertificate
-    { _usc2Path :: Maybe Text
-    , _usc2ServerCertificateName :: Text
-    , _usc2CertificateBody :: Text
-    , _usc2PrivateKey :: Text
-    , _usc2CertificateChain :: Maybe Text
+    { _usc2Path :: !(Maybe Text)
+    , _usc2ServerCertificateName :: !Text
+    , _usc2CertificateBody :: !Text
+    , _usc2PrivateKey :: !Text
+    , _usc2CertificateChain :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

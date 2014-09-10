@@ -43,7 +43,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 newtype DisassociateElasticIp = DisassociateElasticIp
-    { _dei2ElasticIp :: Text
+    { _dei2ElasticIp :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

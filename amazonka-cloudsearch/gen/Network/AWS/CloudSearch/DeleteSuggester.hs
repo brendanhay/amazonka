@@ -45,8 +45,8 @@ import Network.AWS.Prelude
 -- the name of the domain you want to update and name of the suggester you
 -- want to delete.
 data DeleteSuggester = DeleteSuggester
-    { _ds2DomainName :: Text
-    , _ds2SuggesterName :: Text
+    { _ds2DomainName :: !Text
+    , _ds2SuggesterName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

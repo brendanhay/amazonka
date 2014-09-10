@@ -81,7 +81,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DescribeWorkflowExecution = DescribeWorkflowExecution
-    { _dweDomain :: Text
+    { _dweDomain :: !Text
     , _dweExecution :: WorkflowExecution
     } deriving (Show, Generic)
 
@@ -123,8 +123,8 @@ data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse
     { _dwerExecutionInfo :: WorkflowExecutionInfo
     , _dwerExecutionConfiguration :: WorkflowExecutionConfiguration
     , _dwerOpenCounts :: WorkflowExecutionOpenCounts
-    , _dwerLatestActivityTaskTimestamp :: Maybe POSIX
-    , _dwerLatestExecutionContext :: Maybe Text
+    , _dwerLatestActivityTaskTimestamp :: !(Maybe POSIX)
+    , _dwerLatestExecutionContext :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

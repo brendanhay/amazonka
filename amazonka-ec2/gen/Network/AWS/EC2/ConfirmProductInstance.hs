@@ -53,8 +53,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data ConfirmProductInstance = ConfirmProductInstance
-    { _cpiProductCode :: Text
-    , _cpiInstanceId :: Text
+    { _cpiProductCode :: !Text
+    , _cpiInstanceId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -86,7 +86,7 @@ instance ToQuery ConfirmProductInstance where
     toQuery = genericQuery def
 
 newtype ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
-    { _cpirOwnerId :: Maybe Text
+    { _cpirOwnerId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

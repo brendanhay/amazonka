@@ -49,9 +49,9 @@ import Network.AWS.Types (Region)
 type DeleteMultipleObjects = DeleteObjects
 
 data DeleteObjects = DeleteObjects
-    { _do1Bucket :: BucketName
+    { _do1Bucket :: !BucketName
     , _do1Delete :: Delete
-    , _do1MFA :: Maybe Text
+    , _do1MFA :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

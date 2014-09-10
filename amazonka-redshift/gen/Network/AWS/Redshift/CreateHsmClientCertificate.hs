@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 
 -- | 
 newtype CreateHsmClientCertificate = CreateHsmClientCertificate
-    { _chccHsmClientCertificateIdentifier :: Text
+    { _chccHsmClientCertificateIdentifier :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

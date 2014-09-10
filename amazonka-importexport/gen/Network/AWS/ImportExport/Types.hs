@@ -157,9 +157,9 @@ instance ToQuery JobType where
 
 -- | Representation of a job returned by the ListJobs operation.
 data Job = Job
-    { _jJobId :: Text
-    , _jCreationDate :: ISO8601
-    , _jIsCanceled :: Bool
+    { _jJobId :: !Text
+    , _jCreationDate :: !ISO8601
+    , _jIsCanceled :: !Bool
     , _jJobType :: JobType
     } deriving (Show, Generic)
 

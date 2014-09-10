@@ -46,8 +46,8 @@ import Network.AWS.Types (Region)
 -- | The request to update a streaming distribution.
 data UpdateStreamingDistribution = UpdateStreamingDistribution
     { _usdStreamingDistributionConfig :: StreamingDistributionConfig
-    , _usdId :: Text
-    , _usdIfMatch :: Maybe Text
+    , _usdId :: !Text
+    , _usdIfMatch :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -101,7 +101,7 @@ instance ToXML UpdateStreamingDistribution where
 -- | The returned result of the corresponding request.
 data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse
     { _usdrStreamingDistribution :: Maybe StreamingDistribution
-    , _usdrETag :: Maybe Text
+    , _usdrETag :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -64,7 +64,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeVpcAttribute = DescribeVpcAttribute
-    { _dva1VpcId :: Text
+    { _dva1VpcId :: !Text
     , _dva1Attribute :: Maybe VpcAttributeName
     } deriving (Show, Generic)
 
@@ -96,7 +96,7 @@ instance ToQuery DescribeVpcAttribute where
     toQuery = genericQuery def
 
 data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
-    { _dvarrVpcId :: Maybe Text
+    { _dvarrVpcId :: !(Maybe Text)
     , _dvarrEnableDnsSupport :: Maybe AttributeBooleanValue
     , _dvarrEnableDnsHostnames :: Maybe AttributeBooleanValue
     } deriving (Show, Generic)

@@ -40,8 +40,8 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data CancelRetrieval = CancelRetrieval
-    { _crGatewayARN :: Text
-    , _crTapeARN :: Text
+    { _crGatewayARN :: !Text
+    , _crTapeARN :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -78,7 +78,7 @@ instance ToHeaders CancelRetrieval
 instance ToJSON CancelRetrieval
 
 newtype CancelRetrievalResponse = CancelRetrievalResponse
-    { _crrTapeARN :: Maybe Text
+    { _crrTapeARN :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

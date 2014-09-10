@@ -52,7 +52,7 @@ import Network.AWS.Request.JSON
 
 -- | Container for the parameters to the DeleteConnection operation.
 newtype DeleteConnection = DeleteConnection
-    { _dcConnectionId :: Text
+    { _dcConnectionId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -83,15 +83,15 @@ instance ToJSON DeleteConnection
 -- | A connection represents the physical network connection between the AWS
 -- Direct Connect location and the customer.
 data DeleteConnectionResponse = DeleteConnectionResponse
-    { _dcrOwnerAccount :: Maybe Text
-    , _dcrConnectionId :: Maybe Text
-    , _dcrConnectionName :: Maybe Text
+    { _dcrOwnerAccount :: !(Maybe Text)
+    , _dcrConnectionId :: !(Maybe Text)
+    , _dcrConnectionName :: !(Maybe Text)
     , _dcrConnectionState :: Maybe ConnectionState
-    , _dcrRegion :: Maybe Text
-    , _dcrLocation :: Maybe Text
-    , _dcrBandwidth :: Maybe Text
-    , _dcrVlan :: Maybe Integer
-    , _dcrPartnerName :: Maybe Text
+    , _dcrRegion :: !(Maybe Text)
+    , _dcrLocation :: !(Maybe Text)
+    , _dcrBandwidth :: !(Maybe Text)
+    , _dcrVlan :: !(Maybe Integer)
+    , _dcrPartnerName :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

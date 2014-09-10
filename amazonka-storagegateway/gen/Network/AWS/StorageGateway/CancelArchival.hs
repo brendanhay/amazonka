@@ -40,8 +40,8 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data CancelArchival = CancelArchival
-    { _caGatewayARN :: Text
-    , _caTapeARN :: Text
+    { _caGatewayARN :: !Text
+    , _caTapeARN :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -78,7 +78,7 @@ instance ToHeaders CancelArchival
 instance ToJSON CancelArchival
 
 newtype CancelArchivalResponse = CancelArchivalResponse
-    { _carTapeARN :: Maybe Text
+    { _carTapeARN :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

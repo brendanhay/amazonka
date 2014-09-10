@@ -50,7 +50,6 @@ module Network.AWS.S3
     , module Network.AWS.S3.ListObjectVersions
     , module Network.AWS.S3.ListObjects
     , module Network.AWS.S3.ListParts
-    , module Network.AWS.S3.Monadic
     , module Network.AWS.S3.PutBucketAcl
     , module Network.AWS.S3.PutBucketCors
     , module Network.AWS.S3.PutBucketLifecycle
@@ -103,7 +102,6 @@ import Network.AWS.S3.ListMultipartUploads
 import Network.AWS.S3.ListObjectVersions
 import Network.AWS.S3.ListObjects
 import Network.AWS.S3.ListParts
-import Network.AWS.S3.Monadic
 import Network.AWS.S3.PutBucketAcl
 import Network.AWS.S3.PutBucketCors
 import Network.AWS.S3.PutBucketLifecycle

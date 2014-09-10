@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data AddAttachmentsToSet = AddAttachmentsToSet
-    { _aatsAttachmentSetId :: Maybe Text
+    { _aatsAttachmentSetId :: !(Maybe Text)
     , _aatsAttachments :: [Attachment]
     } deriving (Show, Generic)
 
@@ -94,8 +94,8 @@ instance ToJSON AddAttachmentsToSet
 -- | The ID and expiry time of the attachment set returned by the
 -- AddAttachmentsToSet operation.
 data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse
-    { _aatsrAttachmentSetId :: Maybe Text
-    , _aatsrExpiryTime :: Maybe Text
+    { _aatsrAttachmentSetId :: !(Maybe Text)
+    , _aatsrExpiryTime :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

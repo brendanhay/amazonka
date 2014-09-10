@@ -86,9 +86,9 @@ import Network.AWS.Request.JSON
 
 -- | The ListJobsByPipelineRequest structure.
 data ListJobsByPipeline = ListJobsByPipeline
-    { _ljbpPipelineId :: Text
-    , _ljbpAscending :: Maybe Text
-    , _ljbpPageToken :: Maybe Text
+    { _ljbpPipelineId :: !Text
+    , _ljbpAscending :: !(Maybe Text)
+    , _ljbpPageToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -137,7 +137,7 @@ instance ToJSON ListJobsByPipeline
 -- | The ListJobsByPipelineResponse structure.
 data ListJobsByPipelineResponse = ListJobsByPipelineResponse
     { _ljbprJobs :: [Job]
-    , _ljbprNextPageToken :: Maybe Text
+    , _ljbprNextPageToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

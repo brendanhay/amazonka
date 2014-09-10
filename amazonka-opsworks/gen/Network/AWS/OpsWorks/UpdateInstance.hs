@@ -51,17 +51,17 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data UpdateInstance = UpdateInstance
-    { _uiInstanceId :: Text
+    { _uiInstanceId :: !Text
     , _uiLayerIds :: [Text]
-    , _uiInstanceType :: Maybe Text
+    , _uiInstanceType :: !(Maybe Text)
     , _uiAutoScalingType :: Maybe AutoScalingType
-    , _uiHostname :: Maybe Text
-    , _uiOs :: Maybe Text
-    , _uiAmiId :: Maybe Text
-    , _uiSshKeyName :: Maybe Text
+    , _uiHostname :: !(Maybe Text)
+    , _uiOs :: !(Maybe Text)
+    , _uiAmiId :: !(Maybe Text)
+    , _uiSshKeyName :: !(Maybe Text)
     , _uiArchitecture :: Maybe Architecture
-    , _uiInstallUpdatesOnBoot :: Maybe Bool
-    , _uiEbsOptimized :: Maybe Bool
+    , _uiInstallUpdatesOnBoot :: !(Maybe Bool)
+    , _uiEbsOptimized :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

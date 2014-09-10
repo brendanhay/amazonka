@@ -72,7 +72,7 @@ import Network.AWS.Prelude
 
 -- | Input for ListPlatformApplications action.
 newtype ListPlatformApplications = ListPlatformApplications
-    { _lpaNextToken :: Maybe Text
+    { _lpaNextToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -99,7 +99,7 @@ instance ToQuery ListPlatformApplications where
 -- | Response for ListPlatformApplications action.
 data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse
     { _lparPlatformApplications :: [PlatformApplication]
-    , _lparNextToken :: Maybe Text
+    , _lparNextToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

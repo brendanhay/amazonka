@@ -44,7 +44,7 @@ import Network.AWS.Request.JSON
 -- | Container for the parameters to the ConfirmPublicVirtualInterface
 -- operation.
 newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface
-    { _cpvi1VirtualInterfaceId :: Text
+    { _cpvi1VirtualInterfaceId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

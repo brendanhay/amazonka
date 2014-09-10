@@ -50,7 +50,6 @@ module Network.AWS.ElastiCache
     , module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     , module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
     , module Network.AWS.ElastiCache.ModifyReplicationGroup
-    , module Network.AWS.ElastiCache.Monadic
     , module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     , module Network.AWS.ElastiCache.RebootCacheCluster
     , module Network.AWS.ElastiCache.ResetCacheParameterGroup
@@ -88,7 +87,6 @@ import Network.AWS.ElastiCache.ModifyCacheCluster
 import Network.AWS.ElastiCache.ModifyCacheParameterGroup
 import Network.AWS.ElastiCache.ModifyCacheSubnetGroup
 import Network.AWS.ElastiCache.ModifyReplicationGroup
-import Network.AWS.ElastiCache.Monadic
 import Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
 import Network.AWS.ElastiCache.RebootCacheCluster
 import Network.AWS.ElastiCache.ResetCacheParameterGroup

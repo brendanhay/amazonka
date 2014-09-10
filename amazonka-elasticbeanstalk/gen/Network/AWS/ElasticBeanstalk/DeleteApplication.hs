@@ -46,8 +46,8 @@ import Network.AWS.Prelude
 
 -- | This documentation target is not reported in the API reference.
 data DeleteApplication = DeleteApplication
-    { _daApplicationName :: Text
-    , _daTerminateEnvByForce :: Maybe Bool
+    { _daApplicationName :: !Text
+    , _daTerminateEnvByForce :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

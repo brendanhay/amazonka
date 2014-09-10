@@ -55,12 +55,12 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data ReplaceRoute = ReplaceRoute
-    { _rr1RouteTableId :: Text
-    , _rr1DestinationCidrBlock :: Text
-    , _rr1GatewayId :: Maybe Text
-    , _rr1InstanceId :: Maybe Text
-    , _rr1NetworkInterfaceId :: Maybe Text
-    , _rr1VpcPeeringConnectionId :: Maybe Text
+    { _rr1RouteTableId :: !Text
+    , _rr1DestinationCidrBlock :: !Text
+    , _rr1GatewayId :: !(Maybe Text)
+    , _rr1InstanceId :: !(Maybe Text)
+    , _rr1NetworkInterfaceId :: !(Maybe Text)
+    , _rr1VpcPeeringConnectionId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

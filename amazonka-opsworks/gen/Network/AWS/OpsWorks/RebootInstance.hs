@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 newtype RebootInstance = RebootInstance
-    { _riInstanceId :: Text
+    { _riInstanceId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

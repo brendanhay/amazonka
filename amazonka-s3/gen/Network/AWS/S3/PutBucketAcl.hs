@@ -49,13 +49,13 @@ import Network.AWS.Types (Region)
 data PutBucketAcl = PutBucketAcl
     { _pbaACL :: Maybe BucketCannedACL
     , _pbaAccessControlPolicy :: Maybe AccessControlPolicy
-    , _pbaBucket :: BucketName
-    , _pbaContentMD5 :: Maybe Text
-    , _pbaGrantFullControl :: Maybe Text
-    , _pbaGrantRead :: Maybe Text
-    , _pbaGrantReadACP :: Maybe Text
-    , _pbaGrantWrite :: Maybe Text
-    , _pbaGrantWriteACP :: Maybe Text
+    , _pbaBucket :: !BucketName
+    , _pbaContentMD5 :: !(Maybe Text)
+    , _pbaGrantFullControl :: !(Maybe Text)
+    , _pbaGrantRead :: !(Maybe Text)
+    , _pbaGrantReadACP :: !(Maybe Text)
+    , _pbaGrantWrite :: !(Maybe Text)
+    , _pbaGrantWriteACP :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -53,15 +53,15 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy
-    { _uappMinimumPasswordLength :: Maybe Integer
-    , _uappRequireSymbols :: Maybe Bool
-    , _uappRequireNumbers :: Maybe Bool
-    , _uappRequireUppercaseCharacters :: Maybe Bool
-    , _uappRequireLowercaseCharacters :: Maybe Bool
-    , _uappAllowUsersToChangePassword :: Maybe Bool
-    , _uappMaxPasswordAge :: Maybe Integer
-    , _uappPasswordReusePrevention :: Maybe Integer
-    , _uappHardExpiry :: Maybe Bool
+    { _uappMinimumPasswordLength :: !(Maybe Integer)
+    , _uappRequireSymbols :: !(Maybe Bool)
+    , _uappRequireNumbers :: !(Maybe Bool)
+    , _uappRequireUppercaseCharacters :: !(Maybe Bool)
+    , _uappRequireLowercaseCharacters :: !(Maybe Bool)
+    , _uappAllowUsersToChangePassword :: !(Maybe Bool)
+    , _uappMaxPasswordAge :: !(Maybe Integer)
+    , _uappPasswordReusePrevention :: !(Maybe Integer)
+    , _uappHardExpiry :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

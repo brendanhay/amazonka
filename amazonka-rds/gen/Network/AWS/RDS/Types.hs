@@ -546,8 +546,8 @@ instance ToQuery SourceType where
 -- | Contains Availability Zone information. This data type is used as an
 -- element in the following data type: OrderableDBInstanceOption.
 data AvailabilityZone = AvailabilityZone
-    { _azName :: Maybe Text
-    , _azProvisionedIopsCapable :: Maybe Bool
+    { _azName :: !(Maybe Text)
+    , _azProvisionedIopsCapable :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -585,8 +585,8 @@ instance ToQuery AvailabilityZone where
 -- | The default character set for new instances of this engine version, if the
 -- CharacterSetName parameter of the CreateDBInstance API is not specified.
 data CharacterSet = CharacterSet
-    { _csCharacterSetName :: Maybe Text
-    , _csCharacterSetDescription :: Maybe Text
+    { _csCharacterSetName :: !(Maybe Text)
+    , _csCharacterSetDescription :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -625,11 +625,11 @@ instance ToQuery CharacterSet where
 -- | This data type is used as a response element in the action
 -- DescribeDBEngineVersions.
 data DBEngineVersion = DBEngineVersion
-    { _dbevEngine :: Maybe Text
-    , _dbevEngineVersion :: Maybe Text
-    , _dbevDBParameterGroupFamily :: Maybe Text
-    , _dbevDBEngineDescription :: Maybe Text
-    , _dbevDBEngineVersionDescription :: Maybe Text
+    { _dbevEngine :: !(Maybe Text)
+    , _dbevEngineVersion :: !(Maybe Text)
+    , _dbevDBParameterGroupFamily :: !(Maybe Text)
+    , _dbevDBEngineDescription :: !(Maybe Text)
+    , _dbevDBEngineVersionDescription :: !(Maybe Text)
     , _dbevDefaultCharacterSet :: Maybe CharacterSet
     , _dbevSupportedCharacterSets :: [CharacterSet]
     } deriving (Show, Generic)
@@ -716,36 +716,36 @@ instance FromXML DBEngineVersion where
 -- CreateDBInstance DeleteDBInstance ModifyDBInstance This data type is used
 -- as a response element in the DescribeDBInstances action.
 data DBInstance = DBInstance
-    { _dbiDBInstanceIdentifier :: Maybe Text
-    , _dbiDBInstanceClass :: Maybe Text
-    , _dbiEngine :: Maybe Text
-    , _dbiDBInstanceStatus :: Maybe Text
-    , _dbiMasterUsername :: Maybe Text
-    , _dbiDBName :: Maybe Text
+    { _dbiDBInstanceIdentifier :: !(Maybe Text)
+    , _dbiDBInstanceClass :: !(Maybe Text)
+    , _dbiEngine :: !(Maybe Text)
+    , _dbiDBInstanceStatus :: !(Maybe Text)
+    , _dbiMasterUsername :: !(Maybe Text)
+    , _dbiDBName :: !(Maybe Text)
     , _dbiEndpoint :: Maybe Endpoint
-    , _dbiAllocatedStorage :: Maybe Integer
-    , _dbiInstanceCreateTime :: Maybe ISO8601
-    , _dbiPreferredBackupWindow :: Maybe Text
-    , _dbiBackupRetentionPeriod :: Maybe Integer
+    , _dbiAllocatedStorage :: !(Maybe Integer)
+    , _dbiInstanceCreateTime :: !(Maybe ISO8601)
+    , _dbiPreferredBackupWindow :: !(Maybe Text)
+    , _dbiBackupRetentionPeriod :: !(Maybe Integer)
     , _dbiDBSecurityGroups :: [DBSecurityGroupMembership]
     , _dbiVpcSecurityGroups :: [VpcSecurityGroupMembership]
     , _dbiDBParameterGroups :: [DBParameterGroupStatus]
-    , _dbiAvailabilityZone :: Maybe Text
+    , _dbiAvailabilityZone :: !(Maybe Text)
     , _dbiDBSubnetGroup :: Maybe DBSubnetGroup
-    , _dbiPreferredMaintenanceWindow :: Maybe Text
+    , _dbiPreferredMaintenanceWindow :: !(Maybe Text)
     , _dbiPendingModifiedValues :: Maybe PendingModifiedValues
-    , _dbiLatestRestorableTime :: Maybe ISO8601
-    , _dbiMultiAZ :: Maybe Bool
-    , _dbiEngineVersion :: Maybe Text
-    , _dbiAutoMinorVersionUpgrade :: Maybe Bool
-    , _dbiReadReplicaSourceDBInstanceIdentifier :: Maybe Text
+    , _dbiLatestRestorableTime :: !(Maybe ISO8601)
+    , _dbiMultiAZ :: !(Maybe Bool)
+    , _dbiEngineVersion :: !(Maybe Text)
+    , _dbiAutoMinorVersionUpgrade :: !(Maybe Bool)
+    , _dbiReadReplicaSourceDBInstanceIdentifier :: !(Maybe Text)
     , _dbiReadReplicaDBInstanceIdentifiers :: [Text]
-    , _dbiLicenseModel :: Maybe Text
-    , _dbiIops :: Maybe Integer
+    , _dbiLicenseModel :: !(Maybe Text)
+    , _dbiIops :: !(Maybe Integer)
     , _dbiOptionGroupMemberships :: [OptionGroupMembership]
-    , _dbiCharacterSetName :: Maybe Text
-    , _dbiSecondaryAvailabilityZone :: Maybe Text
-    , _dbiPubliclyAccessible :: Maybe Bool
+    , _dbiCharacterSetName :: !(Maybe Text)
+    , _dbiSecondaryAvailabilityZone :: !(Maybe Text)
+    , _dbiPubliclyAccessible :: !(Maybe Bool)
     , _dbiStatusInfos :: [DBInstanceStatusInfo]
     } deriving (Show, Generic)
 
@@ -1053,10 +1053,10 @@ instance FromXML DBInstance where
 
 -- | Provides a list of status information for a DB instance.
 data DBInstanceStatusInfo = DBInstanceStatusInfo
-    { _dbisiStatusType :: Maybe Text
-    , _dbisiNormal :: Maybe Bool
-    , _dbisiStatus :: Maybe Text
-    , _dbisiMessage :: Maybe Text
+    { _dbisiStatusType :: !(Maybe Text)
+    , _dbisiNormal :: !(Maybe Bool)
+    , _dbisiStatus :: !(Maybe Text)
+    , _dbisiMessage :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1111,9 +1111,9 @@ instance ToQuery DBInstanceStatusInfo where
 -- parameter in the DeleteDBParameterGroup action, and as a response element
 -- in the DescribeDBParameterGroups action.
 data DBParameterGroup = DBParameterGroup
-    { _dbpgDBParameterGroupName :: Maybe Text
-    , _dbpgDBParameterGroupFamily :: Maybe Text
-    , _dbpgDescription :: Maybe Text
+    { _dbpgDBParameterGroupName :: !(Maybe Text)
+    , _dbpgDBParameterGroupFamily :: !(Maybe Text)
+    , _dbpgDescription :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1163,8 +1163,8 @@ instance FromXML DBParameterGroup where
 -- CreateDBInstanceReadReplica DeleteDBInstance ModifyDBInstance
 -- RebootDBInstance RestoreDBInstanceFromDBSnapshot.
 data DBParameterGroupStatus = DBParameterGroupStatus
-    { _dbpgsDBParameterGroupName :: Maybe Text
-    , _dbpgsParameterApplyStatus :: Maybe Text
+    { _dbpgsDBParameterGroupName :: !(Maybe Text)
+    , _dbpgsParameterApplyStatus :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1206,10 +1206,10 @@ instance ToQuery DBParameterGroupStatus where
 -- CreateDBSecurityGroup RevokeDBSecurityGroupIngress This data type is used
 -- as a response element in the DescribeDBSecurityGroups action.
 data DBSecurityGroup = DBSecurityGroup
-    { _dbsgOwnerId :: Maybe Text
-    , _dbsgDBSecurityGroupName :: Maybe Text
-    , _dbsgDBSecurityGroupDescription :: Maybe Text
-    , _dbsgVpcId :: Maybe Text
+    { _dbsgOwnerId :: !(Maybe Text)
+    , _dbsgDBSecurityGroupName :: !(Maybe Text)
+    , _dbsgDBSecurityGroupDescription :: !(Maybe Text)
+    , _dbsgVpcId :: !(Maybe Text)
     , _dbsgEC2SecurityGroups :: [EC2SecurityGroup]
     , _dbsgIPRanges :: [IPRange]
     } deriving (Show, Generic)
@@ -1281,8 +1281,8 @@ instance FromXML DBSecurityGroup where
 -- ModifyDBInstance RebootDBInstance RestoreDBInstanceFromDBSnapshot
 -- RestoreDBInstanceToPointInTime.
 data DBSecurityGroupMembership = DBSecurityGroupMembership
-    { _dbsgmDBSecurityGroupName :: Maybe Text
-    , _dbsgmStatus :: Maybe Text
+    { _dbsgmDBSecurityGroupName :: !(Maybe Text)
+    , _dbsgmStatus :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1321,24 +1321,24 @@ instance ToQuery DBSecurityGroupMembership where
 -- CreateDBSnapshot DeleteDBSnapshot This data type is used as a response
 -- element in the DescribeDBSnapshots action.
 data DBSnapshot = DBSnapshot
-    { _dbsDBSnapshotIdentifier :: Maybe Text
-    , _dbsDBInstanceIdentifier :: Maybe Text
-    , _dbsSnapshotCreateTime :: Maybe ISO8601
-    , _dbsEngine :: Maybe Text
-    , _dbsAllocatedStorage :: Maybe Integer
-    , _dbsStatus :: Maybe Text
-    , _dbsPort :: Maybe Integer
-    , _dbsAvailabilityZone :: Maybe Text
-    , _dbsVpcId :: Maybe Text
-    , _dbsInstanceCreateTime :: Maybe ISO8601
-    , _dbsMasterUsername :: Maybe Text
-    , _dbsEngineVersion :: Maybe Text
-    , _dbsLicenseModel :: Maybe Text
-    , _dbsSnapshotType :: Maybe Text
-    , _dbsIops :: Maybe Integer
-    , _dbsOptionGroupName :: Maybe Text
-    , _dbsPercentProgress :: Maybe Integer
-    , _dbsSourceRegion :: Maybe Text
+    { _dbsDBSnapshotIdentifier :: !(Maybe Text)
+    , _dbsDBInstanceIdentifier :: !(Maybe Text)
+    , _dbsSnapshotCreateTime :: !(Maybe ISO8601)
+    , _dbsEngine :: !(Maybe Text)
+    , _dbsAllocatedStorage :: !(Maybe Integer)
+    , _dbsStatus :: !(Maybe Text)
+    , _dbsPort :: !(Maybe Integer)
+    , _dbsAvailabilityZone :: !(Maybe Text)
+    , _dbsVpcId :: !(Maybe Text)
+    , _dbsInstanceCreateTime :: !(Maybe ISO8601)
+    , _dbsMasterUsername :: !(Maybe Text)
+    , _dbsEngineVersion :: !(Maybe Text)
+    , _dbsLicenseModel :: !(Maybe Text)
+    , _dbsSnapshotType :: !(Maybe Text)
+    , _dbsIops :: !(Maybe Integer)
+    , _dbsOptionGroupName :: !(Maybe Text)
+    , _dbsPercentProgress :: !(Maybe Integer)
+    , _dbsSourceRegion :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1502,10 +1502,10 @@ instance FromXML DBSnapshot where
 -- | Specifies information on the subnet group associated with the DB instance,
 -- including the name, description, and subnets in the subnet group.
 data DBSubnetGroup = DBSubnetGroup
-    { _dbsgrDBSubnetGroupName :: Maybe Text
-    , _dbsgrDBSubnetGroupDescription :: Maybe Text
-    , _dbsgrVpcId :: Maybe Text
-    , _dbsgrSubnetGroupStatus :: Maybe Text
+    { _dbsgrDBSubnetGroupName :: !(Maybe Text)
+    , _dbsgrDBSubnetGroupDescription :: !(Maybe Text)
+    , _dbsgrVpcId :: !(Maybe Text)
+    , _dbsgrSubnetGroupStatus :: !(Maybe Text)
     , _dbsgrSubnets :: [Subnet]
     } deriving (Show, Generic)
 
@@ -1566,9 +1566,9 @@ instance ToQuery DBSubnetGroup where
 
 -- | This data type is used as a response element to DescribeDBLogFiles.
 data DescribeDBLogFilesDetails = DescribeDBLogFilesDetails
-    { _ddblfdLogFileName :: Maybe Text
-    , _ddblfdLastWritten :: Maybe Integer
-    , _ddblfdSize :: Maybe Integer
+    { _ddblfdLogFileName :: !(Maybe Text)
+    , _ddblfdLastWritten :: !(Maybe Integer)
+    , _ddblfdSize :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1614,10 +1614,10 @@ instance FromXML DescribeDBLogFilesDetails where
 -- AuthorizeDBSecurityGroupIngress DescribeDBSecurityGroups
 -- RevokeDBSecurityGroupIngress.
 data EC2SecurityGroup = EC2SecurityGroup
-    { _ecsgStatus :: Maybe Text
-    , _ecsgEC2SecurityGroupName :: Maybe Text
-    , _ecsgEC2SecurityGroupId :: Maybe Text
-    , _ecsgEC2SecurityGroupOwnerId :: Maybe Text
+    { _ecsgStatus :: !(Maybe Text)
+    , _ecsgEC2SecurityGroupName :: !(Maybe Text)
+    , _ecsgEC2SecurityGroupId :: !(Maybe Text)
+    , _ecsgEC2SecurityGroupOwnerId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1673,8 +1673,8 @@ instance ToQuery EC2SecurityGroup where
 
 -- | Specifies the connection endpoint.
 data Endpoint = Endpoint
-    { _eAddress :: Maybe Text
-    , _ePort :: Maybe Integer
+    { _eAddress :: !(Maybe Text)
+    , _ePort :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1710,8 +1710,8 @@ instance ToQuery Endpoint where
 -- | Contains the result of a successful invocation of the
 -- DescribeEngineDefaultParameters action.
 data EngineDefaults = EngineDefaults
-    { _edDBParameterGroupFamily :: Maybe Text
-    , _edMarker :: Maybe Text
+    { _edDBParameterGroupFamily :: !(Maybe Text)
+    , _edMarker :: !(Maybe Text)
     , _edParameters :: [Parameter]
     } deriving (Show, Generic)
 
@@ -1759,11 +1759,11 @@ instance FromXML EngineDefaults where
 
 -- | This data type is used as a response element in the DescribeEvents action.
 data Event = Event
-    { _erSourceIdentifier :: Maybe Text
+    { _erSourceIdentifier :: !(Maybe Text)
     , _erSourceType :: Maybe SourceType
-    , _erMessage :: Maybe Text
+    , _erMessage :: !(Maybe Text)
     , _erEventCategories :: [Text]
-    , _erDate :: Maybe ISO8601
+    , _erDate :: !(Maybe ISO8601)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1822,7 +1822,7 @@ instance FromXML Event where
 -- | Contains the results of a successful invocation of the
 -- DescribeEventCategories action.
 data EventCategoriesMap = EventCategoriesMap
-    { _ecmSourceType :: Maybe Text
+    { _ecmSourceType :: !(Maybe Text)
     , _ecmEventCategories :: [Text]
     } deriving (Show, Generic)
 
@@ -1860,15 +1860,15 @@ instance FromXML EventCategoriesMap where
 -- | Contains the results of a successful invocation of the
 -- DescribeEventSubscriptions action.
 data EventSubscription = EventSubscription
-    { _esCustomerAwsId :: Maybe Text
-    , _esCustSubscriptionId :: Maybe Text
-    , _esSnsTopicArn :: Maybe Text
-    , _esStatus :: Maybe Text
-    , _esSubscriptionCreationTime :: Maybe Text
-    , _esSourceType :: Maybe Text
+    { _esCustomerAwsId :: !(Maybe Text)
+    , _esCustSubscriptionId :: !(Maybe Text)
+    , _esSnsTopicArn :: !(Maybe Text)
+    , _esStatus :: !(Maybe Text)
+    , _esSubscriptionCreationTime :: !(Maybe Text)
+    , _esSourceType :: !(Maybe Text)
     , _esSourceIdsList :: [Text]
     , _esEventCategoriesList :: [Text]
-    , _esEnabled :: Maybe Bool
+    , _esEnabled :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1964,8 +1964,8 @@ instance FromXML EventSubscription where
 -- | This data type is used as a response element in the
 -- DescribeDBSecurityGroups action.
 data IPRange = IPRange
-    { _iprStatus :: Maybe Text
-    , _iprCIDRIP :: Maybe Text
+    { _iprStatus :: !(Maybe Text)
+    , _iprCIDRIP :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2001,11 +2001,11 @@ instance ToQuery IPRange where
 
 -- | Option details.
 data Option = Option
-    { _oOptionName :: Maybe Text
-    , _oOptionDescription :: Maybe Text
-    , _oPersistent :: Maybe Bool
-    , _oPermanent :: Maybe Bool
-    , _oPort :: Maybe Integer
+    { _oOptionName :: !(Maybe Text)
+    , _oOptionDescription :: !(Maybe Text)
+    , _oPersistent :: !(Maybe Bool)
+    , _oPermanent :: !(Maybe Bool)
+    , _oPort :: !(Maybe Integer)
     , _oOptionSettings :: [OptionSetting]
     , _oDBSecurityGroupMemberships :: [DBSecurityGroupMembership]
     , _oVpcSecurityGroupMemberships :: [VpcSecurityGroupMembership]
@@ -2092,8 +2092,8 @@ instance ToQuery Option where
 
 -- | A list of all available options.
 data OptionConfiguration = OptionConfiguration
-    { _ocOptionName :: Text
-    , _ocPort :: Maybe Integer
+    { _ocOptionName :: !Text
+    , _ocPort :: !(Maybe Integer)
     , _ocDBSecurityGroupMemberships :: [Text]
     , _ocVpcSecurityGroupMemberships :: [Text]
     , _ocOptionSettings :: [OptionSetting]
@@ -2154,13 +2154,13 @@ instance ToQuery OptionConfiguration where
 
 -- | 
 data OptionGroup = OptionGroup
-    { _ogOptionGroupName :: Maybe Text
-    , _ogOptionGroupDescription :: Maybe Text
-    , _ogEngineName :: Maybe Text
-    , _ogMajorEngineVersion :: Maybe Text
+    { _ogOptionGroupName :: !(Maybe Text)
+    , _ogOptionGroupDescription :: !(Maybe Text)
+    , _ogEngineName :: !(Maybe Text)
+    , _ogMajorEngineVersion :: !(Maybe Text)
     , _ogOptions :: [Option]
-    , _ogAllowsVpcAndNonVpcInstanceMemberships :: Maybe Bool
-    , _ogVpcId :: Maybe Text
+    , _ogAllowsVpcAndNonVpcInstanceMemberships :: !(Maybe Bool)
+    , _ogVpcId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2242,8 +2242,8 @@ instance FromXML OptionGroup where
 
 -- | Provides information on the option groups the DB instance is a member of.
 data OptionGroupMembership = OptionGroupMembership
-    { _ogmOptionGroupName :: Maybe Text
-    , _ogmStatus :: Maybe Text
+    { _ogmOptionGroupName :: !(Maybe Text)
+    , _ogmStatus :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2280,16 +2280,16 @@ instance ToQuery OptionGroupMembership where
 
 -- | Available option.
 data OptionGroupOption = OptionGroupOption
-    { _ogoName :: Maybe Text
-    , _ogoDescription :: Maybe Text
-    , _ogoEngineName :: Maybe Text
-    , _ogoMajorEngineVersion :: Maybe Text
-    , _ogoMinimumRequiredMinorEngineVersion :: Maybe Text
-    , _ogoPortRequired :: Maybe Bool
-    , _ogoDefaultPort :: Maybe Integer
+    { _ogoName :: !(Maybe Text)
+    , _ogoDescription :: !(Maybe Text)
+    , _ogoEngineName :: !(Maybe Text)
+    , _ogoMajorEngineVersion :: !(Maybe Text)
+    , _ogoMinimumRequiredMinorEngineVersion :: !(Maybe Text)
+    , _ogoPortRequired :: !(Maybe Bool)
+    , _ogoDefaultPort :: !(Maybe Integer)
     , _ogoOptionsDependedOn :: [Text]
-    , _ogoPersistent :: Maybe Bool
-    , _ogoPermanent :: Maybe Bool
+    , _ogoPersistent :: !(Maybe Bool)
+    , _ogoPermanent :: !(Maybe Bool)
     , _ogoOptionGroupOptionSettings :: [OptionGroupOptionSetting]
     } deriving (Show, Generic)
 
@@ -2402,12 +2402,12 @@ instance FromXML OptionGroupOption where
 -- each option with their default values and other information. These values
 -- are used with the DescribeOptionGroupOptions action.
 data OptionGroupOptionSetting = OptionGroupOptionSetting
-    { _ogosSettingName :: Maybe Text
-    , _ogosSettingDescription :: Maybe Text
-    , _ogosDefaultValue :: Maybe Text
-    , _ogosApplyType :: Maybe Text
-    , _ogosAllowedValues :: Maybe Text
-    , _ogosIsModifiable :: Maybe Bool
+    { _ogosSettingName :: !(Maybe Text)
+    , _ogosSettingDescription :: !(Maybe Text)
+    , _ogosDefaultValue :: !(Maybe Text)
+    , _ogosApplyType :: !(Maybe Text)
+    , _ogosAllowedValues :: !(Maybe Text)
+    , _ogosIsModifiable :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2478,15 +2478,15 @@ instance ToQuery OptionGroupOptionSetting where
 -- groups. For example, the NATIVE_NETWORK_ENCRYPTION option has a setting
 -- called SQLNET.ENCRYPTION_SERVER that can have several different values.
 data OptionSetting = OptionSetting
-    { _osName :: Maybe Text
-    , _osValue :: Maybe Text
-    , _osDefaultValue :: Maybe Text
-    , _osDescription :: Maybe Text
-    , _osApplyType :: Maybe Text
-    , _osDataType :: Maybe Text
-    , _osAllowedValues :: Maybe Text
-    , _osIsModifiable :: Maybe Bool
-    , _osIsCollection :: Maybe Bool
+    { _osName :: !(Maybe Text)
+    , _osValue :: !(Maybe Text)
+    , _osDefaultValue :: !(Maybe Text)
+    , _osDescription :: !(Maybe Text)
+    , _osApplyType :: !(Maybe Text)
+    , _osDataType :: !(Maybe Text)
+    , _osAllowedValues :: !(Maybe Text)
+    , _osIsModifiable :: !(Maybe Bool)
+    , _osIsCollection :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2573,14 +2573,14 @@ instance ToQuery OptionSetting where
 -- used as a response element in the DescribeOrderableDBInstanceOptions
 -- action.
 data OrderableDBInstanceOption = OrderableDBInstanceOption
-    { _odbioEngine :: Maybe Text
-    , _odbioEngineVersion :: Maybe Text
-    , _odbioDBInstanceClass :: Maybe Text
-    , _odbioLicenseModel :: Maybe Text
+    { _odbioEngine :: !(Maybe Text)
+    , _odbioEngineVersion :: !(Maybe Text)
+    , _odbioDBInstanceClass :: !(Maybe Text)
+    , _odbioLicenseModel :: !(Maybe Text)
     , _odbioAvailabilityZones :: [AvailabilityZone]
-    , _odbioMultiAZCapable :: Maybe Bool
-    , _odbioReadReplicaCapable :: Maybe Bool
-    , _odbioVpc :: Maybe Bool
+    , _odbioMultiAZCapable :: !(Maybe Bool)
+    , _odbioReadReplicaCapable :: !(Maybe Bool)
+    , _odbioVpc :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2667,15 +2667,15 @@ instance FromXML OrderableDBInstanceOption where
 -- element in the DescribeEngineDefaultParameters and DescribeDBParameters
 -- actions.
 data Parameter = Parameter
-    { _pParameterName :: Maybe Text
-    , _pParameterValue :: Maybe Text
-    , _pDescription :: Maybe Text
-    , _pSource :: Maybe Text
-    , _pApplyType :: Maybe Text
-    , _pDataType :: Maybe Text
-    , _pAllowedValues :: Maybe Text
-    , _pIsModifiable :: Maybe Bool
-    , _pMinimumEngineVersion :: Maybe Text
+    { _pParameterName :: !(Maybe Text)
+    , _pParameterValue :: !(Maybe Text)
+    , _pDescription :: !(Maybe Text)
+    , _pSource :: !(Maybe Text)
+    , _pApplyType :: !(Maybe Text)
+    , _pDataType :: !(Maybe Text)
+    , _pAllowedValues :: !(Maybe Text)
+    , _pIsModifiable :: !(Maybe Bool)
+    , _pMinimumEngineVersion :: !(Maybe Text)
     , _pApplyMethod :: Maybe ApplyMethod
     } deriving (Show, Generic)
 
@@ -2772,15 +2772,15 @@ instance ToQuery Parameter where
 -- included when changes are pending. Specific changes are identified by
 -- subelements.
 data PendingModifiedValues = PendingModifiedValues
-    { _pmvDBInstanceClass :: Maybe Text
-    , _pmvAllocatedStorage :: Maybe Integer
-    , _pmvMasterUserPassword :: Maybe Text
-    , _pmvPort :: Maybe Integer
-    , _pmvBackupRetentionPeriod :: Maybe Integer
-    , _pmvMultiAZ :: Maybe Bool
-    , _pmvEngineVersion :: Maybe Text
-    , _pmvIops :: Maybe Integer
-    , _pmvDBInstanceIdentifier :: Maybe Text
+    { _pmvDBInstanceClass :: !(Maybe Text)
+    , _pmvAllocatedStorage :: !(Maybe Integer)
+    , _pmvMasterUserPassword :: !(Maybe Text)
+    , _pmvPort :: !(Maybe Integer)
+    , _pmvBackupRetentionPeriod :: !(Maybe Integer)
+    , _pmvMultiAZ :: !(Maybe Bool)
+    , _pmvEngineVersion :: !(Maybe Text)
+    , _pmvIops :: !(Maybe Integer)
+    , _pmvDBInstanceIdentifier :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2881,8 +2881,8 @@ instance ToQuery PendingModifiedValues where
 -- DescribeReservedDBInstances and DescribeReservedDBInstancesOfferings
 -- actions.
 data RecurringCharge = RecurringCharge
-    { _rcRecurringChargeAmount :: Maybe Double
-    , _rcRecurringChargeFrequency :: Maybe Text
+    { _rcRecurringChargeAmount :: !(Maybe Double)
+    , _rcRecurringChargeFrequency :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2923,19 +2923,19 @@ instance ToQuery RecurringCharge where
 -- DescribeReservedDBInstances and PurchaseReservedDBInstancesOffering
 -- actions.
 data ReservedDBInstance = ReservedDBInstance
-    { _rdbiReservedDBInstanceId :: Maybe Text
-    , _rdbiReservedDBInstancesOfferingId :: Maybe Text
-    , _rdbiDBInstanceClass :: Maybe Text
-    , _rdbiStartTime :: Maybe ISO8601
-    , _rdbiDuration :: Maybe Integer
-    , _rdbiFixedPrice :: Maybe Double
-    , _rdbiUsagePrice :: Maybe Double
-    , _rdbiCurrencyCode :: Maybe Text
-    , _rdbiDBInstanceCount :: Maybe Integer
-    , _rdbiProductDescription :: Maybe Text
-    , _rdbiOfferingType :: Maybe Text
-    , _rdbiMultiAZ :: Maybe Bool
-    , _rdbiState :: Maybe Text
+    { _rdbiReservedDBInstanceId :: !(Maybe Text)
+    , _rdbiReservedDBInstancesOfferingId :: !(Maybe Text)
+    , _rdbiDBInstanceClass :: !(Maybe Text)
+    , _rdbiStartTime :: !(Maybe ISO8601)
+    , _rdbiDuration :: !(Maybe Integer)
+    , _rdbiFixedPrice :: !(Maybe Double)
+    , _rdbiUsagePrice :: !(Maybe Double)
+    , _rdbiCurrencyCode :: !(Maybe Text)
+    , _rdbiDBInstanceCount :: !(Maybe Integer)
+    , _rdbiProductDescription :: !(Maybe Text)
+    , _rdbiOfferingType :: !(Maybe Text)
+    , _rdbiMultiAZ :: !(Maybe Bool)
+    , _rdbiState :: !(Maybe Text)
     , _rdbiRecurringCharges :: [RecurringCharge]
     } deriving (Show, Generic)
 
@@ -3066,15 +3066,15 @@ instance FromXML ReservedDBInstance where
 -- | This data type is used as a response element in the
 -- DescribeReservedDBInstancesOfferings action.
 data ReservedDBInstancesOffering = ReservedDBInstancesOffering
-    { _rdbioReservedDBInstancesOfferingId :: Maybe Text
-    , _rdbioDBInstanceClass :: Maybe Text
-    , _rdbioDuration :: Maybe Integer
-    , _rdbioFixedPrice :: Maybe Double
-    , _rdbioUsagePrice :: Maybe Double
-    , _rdbioCurrencyCode :: Maybe Text
-    , _rdbioProductDescription :: Maybe Text
-    , _rdbioOfferingType :: Maybe Text
-    , _rdbioMultiAZ :: Maybe Bool
+    { _rdbioReservedDBInstancesOfferingId :: !(Maybe Text)
+    , _rdbioDBInstanceClass :: !(Maybe Text)
+    , _rdbioDuration :: !(Maybe Integer)
+    , _rdbioFixedPrice :: !(Maybe Double)
+    , _rdbioUsagePrice :: !(Maybe Double)
+    , _rdbioCurrencyCode :: !(Maybe Text)
+    , _rdbioProductDescription :: !(Maybe Text)
+    , _rdbioOfferingType :: !(Maybe Text)
+    , _rdbioMultiAZ :: !(Maybe Bool)
     , _rdbioRecurringCharges :: [RecurringCharge]
     } deriving (Show, Generic)
 
@@ -3175,9 +3175,9 @@ instance FromXML ReservedDBInstancesOffering where
 -- | This data type is used as a response element in the DescribeDBSubnetGroups
 -- action.
 data Subnet = Subnet
-    { _sSubnetIdentifier :: Maybe Text
+    { _sSubnetIdentifier :: !(Maybe Text)
     , _sSubnetAvailabilityZone :: Maybe AvailabilityZone
-    , _sSubnetStatus :: Maybe Text
+    , _sSubnetStatus :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3223,8 +3223,8 @@ instance ToQuery Subnet where
 
 -- | Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
 data Tag = Tag
-    { _tKey :: Maybe Text
-    , _tValue :: Maybe Text
+    { _tKey :: !(Maybe Text)
+    , _tValue :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3268,8 +3268,8 @@ instance ToQuery Tag where
 -- | This data type is used as a response element for queries on VPC security
 -- group membership.
 data VpcSecurityGroupMembership = VpcSecurityGroupMembership
-    { _vsgmVpcSecurityGroupId :: Maybe Text
-    , _vsgmStatus :: Maybe Text
+    { _vsgmVpcSecurityGroupId :: !(Maybe Text)
+    , _vsgmStatus :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

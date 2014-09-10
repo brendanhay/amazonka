@@ -76,23 +76,23 @@ import Network.AWS.Prelude
 
 -- | 
 data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
-    { _rfcsClusterIdentifier :: Text
-    , _rfcsSnapshotIdentifier :: Text
-    , _rfcsSnapshotClusterIdentifier :: Maybe Text
-    , _rfcsPort :: Maybe Integer
-    , _rfcsAvailabilityZone :: Maybe Text
-    , _rfcsAllowVersionUpgrade :: Maybe Bool
-    , _rfcsClusterSubnetGroupName :: Maybe Text
-    , _rfcsPubliclyAccessible :: Maybe Bool
-    , _rfcsOwnerAccount :: Maybe Text
-    , _rfcsHsmClientCertificateIdentifier :: Maybe Text
-    , _rfcsHsmConfigurationIdentifier :: Maybe Text
-    , _rfcsElasticIp :: Maybe Text
-    , _rfcsClusterParameterGroupName :: Maybe Text
+    { _rfcsClusterIdentifier :: !Text
+    , _rfcsSnapshotIdentifier :: !Text
+    , _rfcsSnapshotClusterIdentifier :: !(Maybe Text)
+    , _rfcsPort :: !(Maybe Integer)
+    , _rfcsAvailabilityZone :: !(Maybe Text)
+    , _rfcsAllowVersionUpgrade :: !(Maybe Bool)
+    , _rfcsClusterSubnetGroupName :: !(Maybe Text)
+    , _rfcsPubliclyAccessible :: !(Maybe Bool)
+    , _rfcsOwnerAccount :: !(Maybe Text)
+    , _rfcsHsmClientCertificateIdentifier :: !(Maybe Text)
+    , _rfcsHsmConfigurationIdentifier :: !(Maybe Text)
+    , _rfcsElasticIp :: !(Maybe Text)
+    , _rfcsClusterParameterGroupName :: !(Maybe Text)
     , _rfcsClusterSecurityGroups :: [Text]
     , _rfcsVpcSecurityGroupIds :: [Text]
-    , _rfcsPreferredMaintenanceWindow :: Maybe Text
-    , _rfcsAutomatedSnapshotRetentionPeriod :: Maybe Integer
+    , _rfcsPreferredMaintenanceWindow :: !(Maybe Text)
+    , _rfcsAutomatedSnapshotRetentionPeriod :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

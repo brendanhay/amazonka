@@ -52,9 +52,9 @@ import Network.AWS.Prelude
 -- you want to describe. To show the active configuration and exclude any
 -- pending changes, set the Deployed option to true.
 data DescribeIndexFields = DescribeIndexFields
-    { _dif2DomainName :: Text
+    { _dif2DomainName :: !Text
     , _dif2FieldNames :: [Text]
-    , _dif2Deployed :: Maybe Bool
+    , _dif2Deployed :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

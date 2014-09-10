@@ -49,8 +49,8 @@ import Network.AWS.Prelude
 -- Specifies the name of the domain you want to update and the Multi-AZ
 -- availability option.
 data UpdateAvailabilityOptions = UpdateAvailabilityOptions
-    { _uaoDomainName :: Text
-    , _uaoMultiAZ :: Bool
+    { _uaoDomainName :: !Text
+    , _uaoMultiAZ :: !Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

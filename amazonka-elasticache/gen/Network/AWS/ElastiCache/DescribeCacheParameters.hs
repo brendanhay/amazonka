@@ -57,10 +57,10 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a DescribeCacheParameters operation.
 data DescribeCacheParameters = DescribeCacheParameters
-    { _dcpCacheParameterGroupName :: Text
-    , _dcpSource :: Maybe Text
-    , _dcpMaxRecords :: Maybe Integer
-    , _dcpMarker :: Maybe Text
+    { _dcpCacheParameterGroupName :: !Text
+    , _dcpSource :: !(Maybe Text)
+    , _dcpMaxRecords :: !(Maybe Integer)
+    , _dcpMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -115,7 +115,7 @@ instance ToQuery DescribeCacheParameters where
 
 -- | Represents the output of a DescribeCacheParameters operation.
 data DescribeCacheParametersResponse = DescribeCacheParametersResponse
-    { _dcprMarker :: Maybe Text
+    { _dcprMarker :: !(Maybe Text)
     , _dcprParameters :: [Parameter]
     , _dcprCacheNodeTypeSpecificParameters :: [CacheNodeTypeSpecificParameter]
     } deriving (Show, Generic)

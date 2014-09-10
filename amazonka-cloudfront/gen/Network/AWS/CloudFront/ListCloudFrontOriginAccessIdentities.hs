@@ -43,8 +43,8 @@ import Network.AWS.Types (Region)
 
 -- | The request to list origin access identities.
 data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
-    { _lcfoaiMarker :: Maybe Text
-    , _lcfoaiMaxItems :: Maybe Text
+    { _lcfoaiMarker :: !(Maybe Text)
+    , _lcfoaiMaxItems :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

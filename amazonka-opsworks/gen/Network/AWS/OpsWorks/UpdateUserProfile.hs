@@ -44,10 +44,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data UpdateUserProfile = UpdateUserProfile
-    { _uupIamUserArn :: Text
-    , _uupSshUsername :: Maybe Text
-    , _uupSshPublicKey :: Maybe Text
-    , _uupAllowSelfManagement :: Maybe Bool
+    { _uupIamUserArn :: !Text
+    , _uupSshUsername :: !(Maybe Text)
+    , _uupSshPublicKey :: !(Maybe Text)
+    , _uupAllowSelfManagement :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

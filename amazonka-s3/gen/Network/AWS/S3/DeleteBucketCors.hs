@@ -39,7 +39,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype DeleteBucketCors = DeleteBucketCors
-    { _dbcBucket :: BucketName
+    { _dbcBucket :: !BucketName
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

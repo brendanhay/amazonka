@@ -161,11 +161,12 @@ instance ToJSON Primitive where
 instance ToJSON Ann where
     toJSON ann = Object (x <> y)
       where
-        Object x = toField (recase Camel Under . drop 3) ann
-        Object y = object
+        Object x = object
             [ "wrapped" .= wtyp
             , "type"    .= typ
+            , "strict"  .= if _anStrict ann then "!" <> wtyp else typ
             ]
+        Object y = toField (recase Camel Under . drop 3) ann
 
         (wtyp, typ) = typeOf ann
 

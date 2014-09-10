@@ -55,8 +55,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data CreateVirtualMFADevice = CreateVirtualMFADevice
-    { _cvmfadPath :: Maybe Text
-    , _cvmfadVirtualMFADeviceName :: Text
+    { _cvmfadPath :: !(Maybe Text)
+    , _cvmfadVirtualMFADeviceName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

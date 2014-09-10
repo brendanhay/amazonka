@@ -26,7 +26,6 @@ module Network.AWS.SES
     , module Network.AWS.SES.GetSendStatistics
     , module Network.AWS.SES.ListIdentities
     , module Network.AWS.SES.ListVerifiedEmailAddresses
-    , module Network.AWS.SES.Monadic
     , module Network.AWS.SES.SendEmail
     , module Network.AWS.SES.SendRawEmail
     , module Network.AWS.SES.SetIdentityDkimEnabled
@@ -48,7 +47,6 @@ import Network.AWS.SES.GetSendQuota
 import Network.AWS.SES.GetSendStatistics
 import Network.AWS.SES.ListIdentities
 import Network.AWS.SES.ListVerifiedEmailAddresses
-import Network.AWS.SES.Monadic
 import Network.AWS.SES.SendEmail
 import Network.AWS.SES.SendRawEmail
 import Network.AWS.SES.SetIdentityDkimEnabled

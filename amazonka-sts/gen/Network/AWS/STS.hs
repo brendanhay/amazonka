@@ -19,7 +19,6 @@ module Network.AWS.STS
     , module Network.AWS.STS.DecodeAuthorizationMessage
     , module Network.AWS.STS.GetFederationToken
     , module Network.AWS.STS.GetSessionToken
-    , module Network.AWS.STS.Monadic
     , module Network.AWS.STS.Types
     ) where
 
@@ -29,5 +28,4 @@ import Network.AWS.STS.AssumeRoleWithWebIdentity
 import Network.AWS.STS.DecodeAuthorizationMessage
 import Network.AWS.STS.GetFederationToken
 import Network.AWS.STS.GetSessionToken
-import Network.AWS.STS.Monadic
 import Network.AWS.STS.Types

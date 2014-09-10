@@ -100,16 +100,16 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions
-    { _lcweDomain :: Text
+    { _lcweDomain :: !Text
     , _lcweStartTimeFilter :: Maybe ExecutionTimeFilter
     , _lcweCloseTimeFilter :: Maybe ExecutionTimeFilter
     , _lcweExecutionFilter :: Maybe WorkflowExecutionFilter
     , _lcweCloseStatusFilter :: Maybe CloseStatusFilter
     , _lcweTypeFilter :: Maybe WorkflowTypeFilter
     , _lcweTagFilter :: Maybe TagFilter
-    , _lcweNextPageToken :: Maybe Text
-    , _lcweMaximumPageSize :: Maybe Integer
-    , _lcweReverseOrder :: Maybe Bool
+    , _lcweNextPageToken :: !(Maybe Text)
+    , _lcweMaximumPageSize :: !(Maybe Integer)
+    , _lcweReverseOrder :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -240,7 +240,7 @@ instance ToJSON ListClosedWorkflowExecutions
 -- | Contains a paginated list of information about workflow executions.
 data ListClosedWorkflowExecutionsResponse = ListClosedWorkflowExecutionsResponse
     { _lcwerExecutionInfos :: [WorkflowExecutionInfo]
-    , _lcwerNextPageToken :: Maybe Text
+    , _lcwerNextPageToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

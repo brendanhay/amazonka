@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 newtype RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck
-    { _rtacCheckId :: Text
+    { _rtacCheckId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -73,8 +73,8 @@ import Network.AWS.Prelude
 
 -- | Input for CreatePlatformApplication action.
 data CreatePlatformApplication = CreatePlatformApplication
-    { _cpaName :: Text
-    , _cpaPlatform :: Text
+    { _cpaName :: !Text
+    , _cpaPlatform :: !Text
     , _cpaAttributes :: Map Text Text
     } deriving (Show, Generic)
 
@@ -120,7 +120,7 @@ instance ToQuery CreatePlatformApplication where
 
 -- | Response from CreatePlatformApplication action.
 newtype CreatePlatformApplicationResponse = CreatePlatformApplicationResponse
-    { _cparPlatformApplicationArn :: Maybe Text
+    { _cparPlatformApplicationArn :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 newtype CreateLogGroup = CreateLogGroup
-    { _clgLogGroupName :: Text
+    { _clgLogGroupName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

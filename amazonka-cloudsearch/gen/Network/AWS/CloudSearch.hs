@@ -35,7 +35,6 @@ module Network.AWS.CloudSearch
     , module Network.AWS.CloudSearch.DescribeSuggesters
     , module Network.AWS.CloudSearch.IndexDocuments
     , module Network.AWS.CloudSearch.ListDomainNames
-    , module Network.AWS.CloudSearch.Monadic
     , module Network.AWS.CloudSearch.Types
     , module Network.AWS.CloudSearch.UpdateAvailabilityOptions
     , module Network.AWS.CloudSearch.UpdateScalingParameters
@@ -63,7 +62,6 @@ import Network.AWS.CloudSearch.DescribeServiceAccessPolicies
 import Network.AWS.CloudSearch.DescribeSuggesters
 import Network.AWS.CloudSearch.IndexDocuments
 import Network.AWS.CloudSearch.ListDomainNames
-import Network.AWS.CloudSearch.Monadic
 import Network.AWS.CloudSearch.Types
 import Network.AWS.CloudSearch.UpdateAvailabilityOptions
 import Network.AWS.CloudSearch.UpdateScalingParameters

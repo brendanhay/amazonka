@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 
 -- | The input for DeleteStack action.
 newtype DeleteStack = DeleteStack
-    { _dsStackName :: Text
+    { _dsStackName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

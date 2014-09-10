@@ -66,8 +66,8 @@ import Network.AWS.Request.JSON
 
 -- | Represents the input of a ListStreams operation.
 data ListStreams = ListStreams
-    { _lsLimit :: Maybe Integer
-    , _lsExclusiveStartStreamName :: Maybe Text
+    { _lsLimit :: !(Maybe Integer)
+    , _lsExclusiveStartStreamName :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -106,7 +106,7 @@ instance ToJSON ListStreams
 -- | Represents the output of a ListStreams operation.
 data ListStreamsResponse = ListStreamsResponse
     { _lsrStreamNames :: [Text]
-    , _lsrHasMoreStreams :: Bool
+    , _lsrHasMoreStreams :: !Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

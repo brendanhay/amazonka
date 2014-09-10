@@ -44,8 +44,8 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DescribePermissions = DescribePermissions
-    { _dpIamUserArn :: Maybe Text
-    , _dpStackId :: Maybe Text
+    { _dpIamUserArn :: !(Maybe Text)
+    , _dpStackId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -60,9 +60,9 @@ import Network.AWS.Prelude
 
 -- | 
 data DeleteCluster = DeleteCluster
-    { _dcClusterIdentifier :: Text
-    , _dcSkipFinalClusterSnapshot :: Maybe Bool
-    , _dcFinalClusterSnapshotIdentifier :: Maybe Text
+    { _dcClusterIdentifier :: !Text
+    , _dcSkipFinalClusterSnapshot :: !(Maybe Bool)
+    , _dcFinalClusterSnapshotIdentifier :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

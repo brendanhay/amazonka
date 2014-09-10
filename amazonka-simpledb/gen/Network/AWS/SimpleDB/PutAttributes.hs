@@ -66,8 +66,8 @@ import Network.AWS.SimpleDB.Types
 import Network.AWS.Prelude
 
 data PutAttributes = PutAttributes
-    { _paDomainName :: Text
-    , _paItemName :: Text
+    { _paDomainName :: !Text
+    , _paItemName :: !Text
     , _paAttributes :: [ReplaceableAttribute]
     , _paExpected :: Maybe UpdateCondition
     } deriving (Show, Generic)

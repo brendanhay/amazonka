@@ -65,9 +65,9 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data CreateSubnet = CreateSubnet
-    { _cs2VpcId :: Text
-    , _cs2CidrBlock :: Text
-    , _cs2AvailabilityZone :: Maybe Text
+    { _cs2VpcId :: !Text
+    , _cs2CidrBlock :: !Text
+    , _cs2AvailabilityZone :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

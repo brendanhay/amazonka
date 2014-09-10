@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 -- | Container for the parameters to the DescribeScalingParameters operation.
 -- Specifies the name of the domain you want to describe.
 newtype DescribeScalingParameters = DescribeScalingParameters
-    { _dspDomainName :: Text
+    { _dspDomainName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

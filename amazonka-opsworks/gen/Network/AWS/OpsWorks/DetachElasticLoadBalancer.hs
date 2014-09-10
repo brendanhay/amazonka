@@ -43,8 +43,8 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DetachElasticLoadBalancer = DetachElasticLoadBalancer
-    { _delb1ElasticLoadBalancerName :: Text
-    , _delb1LayerId :: Text
+    { _delb1ElasticLoadBalancerName :: !Text
+    , _delb1LayerId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

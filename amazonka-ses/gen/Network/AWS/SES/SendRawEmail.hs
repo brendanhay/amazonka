@@ -87,7 +87,7 @@ import Network.AWS.Prelude
 -- consisting of source, destination, and raw message text. This object can
 -- then be sent using the SendRawEmail action.
 data SendRawEmail = SendRawEmail
-    { _sreSource :: Maybe Text
+    { _sreSource :: !(Maybe Text)
     , _sreDestinations :: [Text]
     , _sreRawMessage :: RawMessage
     } deriving (Show, Generic)
@@ -143,7 +143,7 @@ instance ToQuery SendRawEmail where
 -- | Represents a unique message ID returned from a successful SendRawEmail
 -- request.
 newtype SendRawEmailResponse = SendRawEmailResponse
-    { _srerMessageId :: Text
+    { _srerMessageId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

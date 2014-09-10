@@ -43,8 +43,8 @@ import Network.AWS.Request.JSON
 
 -- | This input determines which bootstrap actions to retrieve.
 data ListBootstrapActions = ListBootstrapActions
-    { _lbaClusterId :: Text
-    , _lbaMarker :: Maybe Text
+    { _lbaClusterId :: !Text
+    , _lbaMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -82,7 +82,7 @@ instance ToJSON ListBootstrapActions
 -- | This output contains the boostrap actions detail .
 data ListBootstrapActionsResponse = ListBootstrapActionsResponse
     { _lbarBootstrapActions :: [Command]
-    , _lbarMarker :: Maybe Text
+    , _lbarMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

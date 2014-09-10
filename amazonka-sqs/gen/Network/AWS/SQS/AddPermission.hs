@@ -62,8 +62,8 @@ import Network.AWS.SQS.Types
 import Network.AWS.Prelude
 
 data AddPermission = AddPermission
-    { _apQueueUrl :: Text
-    , _apLabel :: Text
+    { _apQueueUrl :: !Text
+    , _apLabel :: !Text
     , _apAWSAccountIds :: [Text]
     , _apActions :: [Text]
     } deriving (Show, Generic)

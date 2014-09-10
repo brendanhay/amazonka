@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype DeleteNetworkAcl = DeleteNetworkAcl
-    { _dnaNetworkAclId :: Text
+    { _dnaNetworkAclId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

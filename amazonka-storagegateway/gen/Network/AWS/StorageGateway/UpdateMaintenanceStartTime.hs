@@ -61,10 +61,10 @@ import Network.AWS.Request.JSON
 -- UpdateMaintenanceStartTimeInput$HourOfDay
 -- UpdateMaintenanceStartTimeInput$MinuteOfHour.
 data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime
-    { _umstGatewayARN :: Text
-    , _umstHourOfDay :: Integer
-    , _umstMinuteOfHour :: Integer
-    , _umstDayOfWeek :: Integer
+    { _umstGatewayARN :: !Text
+    , _umstHourOfDay :: !Integer
+    , _umstMinuteOfHour :: !Integer
+    , _umstDayOfWeek :: !Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -125,7 +125,7 @@ instance ToJSON UpdateMaintenanceStartTime
 -- | A JSON object containing the of the gateway whose maintenance start time is
 -- updated.
 newtype UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse
-    { _umstrGatewayARN :: Text
+    { _umstrGatewayARN :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

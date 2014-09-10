@@ -31,7 +31,6 @@ module Network.AWS.SimpleDB
     , module Network.AWS.SimpleDB.DomainMetadata
     , module Network.AWS.SimpleDB.GetAttributes
     , module Network.AWS.SimpleDB.ListDomains
-    , module Network.AWS.SimpleDB.Monadic
     , module Network.AWS.SimpleDB.PutAttributes
     , module Network.AWS.SimpleDB.Select
     , module Network.AWS.SimpleDB.Types
@@ -45,7 +44,6 @@ import Network.AWS.SimpleDB.DeleteDomain
 import Network.AWS.SimpleDB.DomainMetadata
 import Network.AWS.SimpleDB.GetAttributes
 import Network.AWS.SimpleDB.ListDomains
-import Network.AWS.SimpleDB.Monadic
 import Network.AWS.SimpleDB.PutAttributes
 import Network.AWS.SimpleDB.Select
 import Network.AWS.SimpleDB.Types

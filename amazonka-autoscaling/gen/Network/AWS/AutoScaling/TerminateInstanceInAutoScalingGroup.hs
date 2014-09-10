@@ -44,8 +44,8 @@ import Network.AWS.Prelude
 
 -- | 
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup
-    { _tiiasgInstanceId :: Text
-    , _tiiasgShouldDecrementDesiredCapacity :: Bool
+    { _tiiasgInstanceId :: !Text
+    , _tiiasgShouldDecrementDesiredCapacity :: !Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

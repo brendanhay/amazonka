@@ -47,10 +47,10 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data DeleteObject = DeleteObject
-    { _doBucket :: BucketName
-    , _doKey :: ObjectKey
-    , _doMFA :: Maybe Text
-    , _doVersionId :: Maybe ObjectVersionId
+    { _doBucket :: !BucketName
+    , _doKey :: !ObjectKey
+    , _doMFA :: !(Maybe Text)
+    , _doVersionId :: !(Maybe ObjectVersionId)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -103,8 +103,8 @@ instance ToHeaders DeleteObject where
 instance ToBody DeleteObject
 
 data DeleteObjectResponse = DeleteObjectResponse
-    { _dorDeleteMarker :: Maybe Bool
-    , _dorVersionId :: Maybe ObjectVersionId
+    { _dorDeleteMarker :: !(Maybe Bool)
+    , _dorVersionId :: !(Maybe ObjectVersionId)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

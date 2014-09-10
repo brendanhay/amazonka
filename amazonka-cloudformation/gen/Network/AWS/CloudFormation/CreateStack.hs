@@ -63,17 +63,17 @@ import Network.AWS.Prelude
 
 -- | The input for CreateStack action.
 data CreateStack = CreateStack
-    { _csStackName :: Text
-    , _csTemplateBody :: Maybe Text
-    , _csTemplateURL :: Maybe Text
+    { _csStackName :: !Text
+    , _csTemplateBody :: !(Maybe Text)
+    , _csTemplateURL :: !(Maybe Text)
     , _csParameters :: [Parameter]
-    , _csDisableRollback :: Maybe Bool
-    , _csTimeoutInMinutes :: Maybe Integer
+    , _csDisableRollback :: !(Maybe Bool)
+    , _csTimeoutInMinutes :: !(Maybe Integer)
     , _csNotificationARNs :: [Text]
     , _csCapabilities :: [Capability]
     , _csOnFailure :: Maybe OnFailure
-    , _csStackPolicyBody :: Maybe Text
-    , _csStackPolicyURL :: Maybe Text
+    , _csStackPolicyBody :: !(Maybe Text)
+    , _csStackPolicyURL :: !(Maybe Text)
     , _csTags :: [Tag]
     } deriving (Show, Generic)
 
@@ -215,7 +215,7 @@ instance ToQuery CreateStack where
 
 -- | The output for a CreateStack action.
 newtype CreateStackResponse = CreateStackResponse
-    { _csrStackId :: Maybe Text
+    { _csrStackId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

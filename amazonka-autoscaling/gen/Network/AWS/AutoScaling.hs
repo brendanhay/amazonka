@@ -51,7 +51,6 @@ module Network.AWS.AutoScaling
     , module Network.AWS.AutoScaling.EnterStandby
     , module Network.AWS.AutoScaling.ExecutePolicy
     , module Network.AWS.AutoScaling.ExitStandby
-    , module Network.AWS.AutoScaling.Monadic
     , module Network.AWS.AutoScaling.PutLifecycleHook
     , module Network.AWS.AutoScaling.PutNotificationConfiguration
     , module Network.AWS.AutoScaling.PutScalingPolicy
@@ -100,7 +99,6 @@ import Network.AWS.AutoScaling.EnableMetricsCollection
 import Network.AWS.AutoScaling.EnterStandby
 import Network.AWS.AutoScaling.ExecutePolicy
 import Network.AWS.AutoScaling.ExitStandby
-import Network.AWS.AutoScaling.Monadic
 import Network.AWS.AutoScaling.PutLifecycleHook
 import Network.AWS.AutoScaling.PutNotificationConfiguration
 import Network.AWS.AutoScaling.PutScalingPolicy

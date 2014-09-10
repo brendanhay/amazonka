@@ -41,7 +41,7 @@ import Network.AWS.AutoScaling.Types
 import Network.AWS.Prelude
 
 data ResumeProcesses = ResumeProcesses
-    { _rpAutoScalingGroupName :: Text
+    { _rpAutoScalingGroupName :: !Text
     , _rpScalingProcesses :: [Text]
     } deriving (Show, Generic)
 

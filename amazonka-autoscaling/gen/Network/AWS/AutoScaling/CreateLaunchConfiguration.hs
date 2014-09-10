@@ -63,22 +63,22 @@ import Network.AWS.Prelude
 
 -- | 
 data CreateLaunchConfiguration = CreateLaunchConfiguration
-    { _clcLaunchConfigurationName :: Text
-    , _clcImageId :: Maybe Text
-    , _clcKeyName :: Maybe Text
+    { _clcLaunchConfigurationName :: !Text
+    , _clcImageId :: !(Maybe Text)
+    , _clcKeyName :: !(Maybe Text)
     , _clcSecurityGroups :: [Text]
-    , _clcUserData :: Maybe ByteString
-    , _clcInstanceId :: Maybe Text
-    , _clcInstanceType :: Maybe Text
-    , _clcKernelId :: Maybe Text
-    , _clcRamdiskId :: Maybe Text
+    , _clcUserData :: !(Maybe ByteString)
+    , _clcInstanceId :: !(Maybe Text)
+    , _clcInstanceType :: !(Maybe Text)
+    , _clcKernelId :: !(Maybe Text)
+    , _clcRamdiskId :: !(Maybe Text)
     , _clcBlockDeviceMappings :: [BlockDeviceMapping]
     , _clcInstanceMonitoring :: Maybe InstanceMonitoring
-    , _clcSpotPrice :: Maybe Text
-    , _clcIamInstanceProfile :: Maybe Text
-    , _clcEbsOptimized :: Maybe Bool
-    , _clcAssociatePublicIpAddress :: Maybe Bool
-    , _clcPlacementTenancy :: Maybe Text
+    , _clcSpotPrice :: !(Maybe Text)
+    , _clcIamInstanceProfile :: !(Maybe Text)
+    , _clcEbsOptimized :: !(Maybe Bool)
+    , _clcAssociatePublicIpAddress :: !(Maybe Bool)
+    , _clcPlacementTenancy :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

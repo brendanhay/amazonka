@@ -64,19 +64,19 @@ import Network.AWS.Prelude
 
 -- | 
 data CreateAutoScalingGroup = CreateAutoScalingGroup
-    { _casgAutoScalingGroupName :: Text
-    , _casgLaunchConfigurationName :: Maybe Text
-    , _casgInstanceId :: Maybe Text
-    , _casgMinSize :: Integer
-    , _casgMaxSize :: Integer
-    , _casgDesiredCapacity :: Maybe Integer
-    , _casgDefaultCooldown :: Maybe Integer
+    { _casgAutoScalingGroupName :: !Text
+    , _casgLaunchConfigurationName :: !(Maybe Text)
+    , _casgInstanceId :: !(Maybe Text)
+    , _casgMinSize :: !Integer
+    , _casgMaxSize :: !Integer
+    , _casgDesiredCapacity :: !(Maybe Integer)
+    , _casgDefaultCooldown :: !(Maybe Integer)
     , _casgAvailabilityZones :: Maybe (List1 Text)
     , _casgLoadBalancerNames :: [Text]
-    , _casgHealthCheckType :: Maybe Text
-    , _casgHealthCheckGracePeriod :: Maybe Integer
-    , _casgPlacementGroup :: Maybe Text
-    , _casgVPCZoneIdentifier :: Maybe Text
+    , _casgHealthCheckType :: !(Maybe Text)
+    , _casgHealthCheckGracePeriod :: !(Maybe Integer)
+    , _casgPlacementGroup :: !(Maybe Text)
+    , _casgVPCZoneIdentifier :: !(Maybe Text)
     , _casgTerminationPolicies :: [Text]
     , _casgTags :: [Tag]
     } deriving (Show, Generic)

@@ -45,7 +45,7 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Prelude
 
 newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup
-    { _dcsg1ClusterSubnetGroupName :: Text
+    { _dcsg1ClusterSubnetGroupName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

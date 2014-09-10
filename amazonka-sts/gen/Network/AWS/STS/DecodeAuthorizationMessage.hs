@@ -71,7 +71,7 @@ import Network.AWS.STS.Types
 import Network.AWS.Prelude
 
 newtype DecodeAuthorizationMessage = DecodeAuthorizationMessage
-    { _damEncodedMessage :: Text
+    { _damEncodedMessage :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -99,7 +99,7 @@ instance ToQuery DecodeAuthorizationMessage where
 -- status of a request from an encoded message that is returned in response to
 -- an AWS request.
 newtype DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
-    { _damrDecodedMessage :: Maybe Text
+    { _damrDecodedMessage :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

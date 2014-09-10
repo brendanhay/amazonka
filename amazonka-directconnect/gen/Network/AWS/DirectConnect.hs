@@ -34,7 +34,6 @@ module Network.AWS.DirectConnect
     , module Network.AWS.DirectConnect.DescribeLocations
     , module Network.AWS.DirectConnect.DescribeVirtualGateways
     , module Network.AWS.DirectConnect.DescribeVirtualInterfaces
-    , module Network.AWS.DirectConnect.Monadic
     , module Network.AWS.DirectConnect.Types
     ) where
 
@@ -57,5 +56,4 @@ import Network.AWS.DirectConnect.DescribeInterconnects
 import Network.AWS.DirectConnect.DescribeLocations
 import Network.AWS.DirectConnect.DescribeVirtualGateways
 import Network.AWS.DirectConnect.DescribeVirtualInterfaces
-import Network.AWS.DirectConnect.Monadic
 import Network.AWS.DirectConnect.Types

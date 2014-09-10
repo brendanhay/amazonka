@@ -63,10 +63,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DescribeMetricFilters = DescribeMetricFilters
-    { _dmf1LogGroupName :: Text
-    , _dmf1FilterNamePrefix :: Maybe Text
-    , _dmf1NextToken :: Maybe Text
-    , _dmf1Limit :: Maybe Integer
+    { _dmf1LogGroupName :: !Text
+    , _dmf1FilterNamePrefix :: !(Maybe Text)
+    , _dmf1NextToken :: !(Maybe Text)
+    , _dmf1Limit :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -121,7 +121,7 @@ instance ToJSON DescribeMetricFilters
 
 data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse
     { _dmfrMetricFilters :: [MetricFilter]
-    , _dmfrNextToken :: Maybe Text
+    , _dmfrNextToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

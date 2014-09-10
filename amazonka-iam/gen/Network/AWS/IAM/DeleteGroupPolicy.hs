@@ -41,8 +41,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data DeleteGroupPolicy = DeleteGroupPolicy
-    { _dgpGroupName :: Text
-    , _dgpPolicyName :: Text
+    { _dgpGroupName :: !Text
+    , _dgpPolicyName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

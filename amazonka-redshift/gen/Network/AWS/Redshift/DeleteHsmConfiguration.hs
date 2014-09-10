@@ -39,7 +39,7 @@ import Network.AWS.Prelude
 
 -- | 
 newtype DeleteHsmConfiguration = DeleteHsmConfiguration
-    { _dhcHsmConfigurationIdentifier :: Text
+    { _dhcHsmConfigurationIdentifier :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

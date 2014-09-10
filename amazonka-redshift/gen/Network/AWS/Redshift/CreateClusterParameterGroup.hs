@@ -59,9 +59,9 @@ import Network.AWS.Prelude
 
 -- | 
 data CreateClusterParameterGroup = CreateClusterParameterGroup
-    { _ccpgParameterGroupName :: Text
-    , _ccpgParameterGroupFamily :: Text
-    , _ccpgDescription :: Text
+    { _ccpgParameterGroupName :: !Text
+    , _ccpgParameterGroupFamily :: !Text
+    , _ccpgDescription :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

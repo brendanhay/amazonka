@@ -58,21 +58,21 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data CreateInstance = CreateInstance
-    { _ciStackId :: Text
+    { _ciStackId :: !Text
     , _ciLayerIds :: [Text]
-    , _ciInstanceType :: Text
+    , _ciInstanceType :: !Text
     , _ciAutoScalingType :: Maybe AutoScalingType
-    , _ciHostname :: Maybe Text
-    , _ciOs :: Maybe Text
-    , _ciAmiId :: Maybe Text
-    , _ciSshKeyName :: Maybe Text
-    , _ciAvailabilityZone :: Maybe Text
-    , _ciVirtualizationType :: Maybe Text
-    , _ciSubnetId :: Maybe Text
+    , _ciHostname :: !(Maybe Text)
+    , _ciOs :: !(Maybe Text)
+    , _ciAmiId :: !(Maybe Text)
+    , _ciSshKeyName :: !(Maybe Text)
+    , _ciAvailabilityZone :: !(Maybe Text)
+    , _ciVirtualizationType :: !(Maybe Text)
+    , _ciSubnetId :: !(Maybe Text)
     , _ciArchitecture :: Maybe Architecture
     , _ciRootDeviceType :: Maybe RootDeviceType
-    , _ciInstallUpdatesOnBoot :: Maybe Bool
-    , _ciEbsOptimized :: Maybe Bool
+    , _ciInstallUpdatesOnBoot :: !(Maybe Bool)
+    , _ciEbsOptimized :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -239,7 +239,7 @@ instance ToJSON CreateInstance
 
 -- | Contains the response to a CreateInstance request.
 newtype CreateInstanceResponse = CreateInstanceResponse
-    { _cirInstanceId :: Maybe Text
+    { _cirInstanceId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

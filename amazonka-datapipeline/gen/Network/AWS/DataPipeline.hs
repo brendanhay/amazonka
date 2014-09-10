@@ -21,7 +21,6 @@ module Network.AWS.DataPipeline
     , module Network.AWS.DataPipeline.EvaluateExpression
     , module Network.AWS.DataPipeline.GetPipelineDefinition
     , module Network.AWS.DataPipeline.ListPipelines
-    , module Network.AWS.DataPipeline.Monadic
     , module Network.AWS.DataPipeline.PollForTask
     , module Network.AWS.DataPipeline.PutPipelineDefinition
     , module Network.AWS.DataPipeline.QueryObjects
@@ -41,7 +40,6 @@ import Network.AWS.DataPipeline.DescribePipelines
 import Network.AWS.DataPipeline.EvaluateExpression
 import Network.AWS.DataPipeline.GetPipelineDefinition
 import Network.AWS.DataPipeline.ListPipelines
-import Network.AWS.DataPipeline.Monadic
 import Network.AWS.DataPipeline.PollForTask
 import Network.AWS.DataPipeline.PutPipelineDefinition
 import Network.AWS.DataPipeline.QueryObjects

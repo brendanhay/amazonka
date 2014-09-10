@@ -67,7 +67,7 @@ import Network.AWS.Request.JSON
 
 -- | The ReadPresetRequest structure.
 newtype ReadPreset = ReadPreset
-    { _rp1Id :: Text
+    { _rp1Id :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

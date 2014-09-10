@@ -37,7 +37,6 @@ module Network.AWS.SNS
     , module Network.AWS.SNS.ListSubscriptions
     , module Network.AWS.SNS.ListSubscriptionsByTopic
     , module Network.AWS.SNS.ListTopics
-    , module Network.AWS.SNS.Monadic
     , module Network.AWS.SNS.Publish
     , module Network.AWS.SNS.RemovePermission
     , module Network.AWS.SNS.SetEndpointAttributes
@@ -66,7 +65,6 @@ import Network.AWS.SNS.ListPlatformApplications
 import Network.AWS.SNS.ListSubscriptions
 import Network.AWS.SNS.ListSubscriptionsByTopic
 import Network.AWS.SNS.ListTopics
-import Network.AWS.SNS.Monadic
 import Network.AWS.SNS.Publish
 import Network.AWS.SNS.RemovePermission
 import Network.AWS.SNS.SetEndpointAttributes

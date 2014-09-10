@@ -42,8 +42,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data DeactivateMFADevice = DeactivateMFADevice
-    { _dmfadUserName :: Text
-    , _dmfadSerialNumber :: Text
+    { _dmfadUserName :: !Text
+    , _dmfadSerialNumber :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -53,9 +53,9 @@ import Network.AWS.Prelude
 -- describe. To show the active configuration and exclude any pending changes,
 -- set the Deployed option to true.
 data DescribeSuggesters = DescribeSuggesters
-    { _ds3DomainName :: Text
+    { _ds3DomainName :: !Text
     , _ds3SuggesterNames :: [Text]
-    , _ds3Deployed :: Maybe Bool
+    , _ds3Deployed :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

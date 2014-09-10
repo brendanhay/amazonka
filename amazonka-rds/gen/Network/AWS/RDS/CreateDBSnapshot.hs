@@ -50,8 +50,8 @@ import Network.AWS.Prelude
 
 -- | 
 data CreateDBSnapshot = CreateDBSnapshot
-    { _cdbs1DBSnapshotIdentifier :: Text
-    , _cdbs1DBInstanceIdentifier :: Text
+    { _cdbs1DBSnapshotIdentifier :: !Text
+    , _cdbs1DBInstanceIdentifier :: !Text
     , _cdbs1Tags :: [Tag]
     } deriving (Show, Generic)
 

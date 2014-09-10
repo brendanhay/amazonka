@@ -112,12 +112,12 @@ import Network.AWS.Prelude
 
 -- | The input for the CreateLoadBalancer action.
 data CreateLoadBalancer = CreateLoadBalancer
-    { _clbLoadBalancerName :: Text
+    { _clbLoadBalancerName :: !Text
     , _clbListeners :: [Listener]
     , _clbAvailabilityZones :: [Text]
     , _clbSubnets :: [Text]
     , _clbSecurityGroups :: [Text]
-    , _clbScheme :: Maybe Text
+    , _clbScheme :: !(Maybe Text)
     , _clbTags :: Maybe (List1 Tag)
     } deriving (Show, Generic)
 
@@ -204,7 +204,7 @@ instance ToQuery CreateLoadBalancer where
 
 -- | The output for the CreateLoadBalancer action.
 newtype CreateLoadBalancerResponse = CreateLoadBalancerResponse
-    { _clbrDNSName :: Maybe Text
+    { _clbrDNSName :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

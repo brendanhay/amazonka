@@ -67,10 +67,10 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data AssignPrivateIpAddresses = AssignPrivateIpAddresses
-    { _apiaNetworkInterfaceId :: Text
+    { _apiaNetworkInterfaceId :: !Text
     , _apiaPrivateIpAddresses :: [Text]
-    , _apiaSecondaryPrivateIpAddressCount :: Maybe Integer
-    , _apiaAllowReassignment :: Maybe Bool
+    , _apiaSecondaryPrivateIpAddressCount :: !(Maybe Integer)
+    , _apiaAllowReassignment :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

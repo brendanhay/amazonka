@@ -46,9 +46,9 @@ import Network.AWS.Prelude
 
 -- | 
 data DescribeHsmConfigurations = DescribeHsmConfigurations
-    { _dhc1HsmConfigurationIdentifier :: Maybe Text
-    , _dhc1MaxRecords :: Maybe Integer
-    , _dhc1Marker :: Maybe Text
+    { _dhc1HsmConfigurationIdentifier :: !(Maybe Text)
+    , _dhc1MaxRecords :: !(Maybe Integer)
+    , _dhc1Marker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -99,7 +99,7 @@ instance ToQuery DescribeHsmConfigurations where
 
 -- | 
 data DescribeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
-    { _dhcrMarker :: Maybe Text
+    { _dhcrMarker :: !(Maybe Text)
     , _dhcrHsmConfigurations :: [HsmConfiguration]
     } deriving (Show, Generic)
 

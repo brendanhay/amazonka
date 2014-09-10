@@ -54,7 +54,7 @@ import Network.AWS.SimpleDB.Types
 import Network.AWS.Prelude
 
 data BatchDeleteAttributes = BatchDeleteAttributes
-    { _bdaDomainName :: Text
+    { _bdaDomainName :: !Text
     , _bdaItems :: [DeletableItem]
     } deriving (Show, Generic)
 

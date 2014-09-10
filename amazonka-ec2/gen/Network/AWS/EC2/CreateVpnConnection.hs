@@ -94,9 +94,9 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data CreateVpnConnection = CreateVpnConnection
-    { _cvcType :: Text
-    , _cvcCustomerGatewayId :: Text
-    , _cvcVpnGatewayId :: Text
+    { _cvcType :: !Text
+    , _cvcCustomerGatewayId :: !Text
+    , _cvcVpnGatewayId :: !Text
     , _cvcOptions :: Maybe VpnConnectionOptionsSpecification
     } deriving (Show, Generic)
 

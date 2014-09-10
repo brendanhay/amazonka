@@ -44,7 +44,7 @@ import Network.AWS.Request.JSON
 
 -- | Container for the parameters to the ConfirmConnection operation.
 newtype ConfirmConnection = ConfirmConnection
-    { _ccConnectionId :: Text
+    { _ccConnectionId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

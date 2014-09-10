@@ -38,7 +38,6 @@ module Network.AWS.CloudFront
     , module Network.AWS.CloudFront.ListDistributions
     , module Network.AWS.CloudFront.ListInvalidations
     , module Network.AWS.CloudFront.ListStreamingDistributions
-    , module Network.AWS.CloudFront.Monadic
     , module Network.AWS.CloudFront.Types
     , module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     , module Network.AWS.CloudFront.UpdateDistribution
@@ -63,7 +62,6 @@ import Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
 import Network.AWS.CloudFront.ListDistributions
 import Network.AWS.CloudFront.ListInvalidations
 import Network.AWS.CloudFront.ListStreamingDistributions
-import Network.AWS.CloudFront.Monadic
 import Network.AWS.CloudFront.Types
 import Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
 import Network.AWS.CloudFront.UpdateDistribution

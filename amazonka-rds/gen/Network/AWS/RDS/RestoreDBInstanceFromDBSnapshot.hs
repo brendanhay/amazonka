@@ -65,20 +65,20 @@ import Network.AWS.Prelude
 
 -- | 
 data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot
-    { _rdbifdbsDBInstanceIdentifier :: Text
-    , _rdbifdbsDBSnapshotIdentifier :: Text
-    , _rdbifdbsDBInstanceClass :: Maybe Text
-    , _rdbifdbsPort :: Maybe Integer
-    , _rdbifdbsAvailabilityZone :: Maybe Text
-    , _rdbifdbsDBSubnetGroupName :: Maybe Text
-    , _rdbifdbsMultiAZ :: Maybe Bool
-    , _rdbifdbsPubliclyAccessible :: Maybe Bool
-    , _rdbifdbsAutoMinorVersionUpgrade :: Maybe Bool
-    , _rdbifdbsLicenseModel :: Maybe Text
-    , _rdbifdbsDBName :: Maybe Text
-    , _rdbifdbsEngine :: Maybe Text
-    , _rdbifdbsIops :: Maybe Integer
-    , _rdbifdbsOptionGroupName :: Maybe Text
+    { _rdbifdbsDBInstanceIdentifier :: !Text
+    , _rdbifdbsDBSnapshotIdentifier :: !Text
+    , _rdbifdbsDBInstanceClass :: !(Maybe Text)
+    , _rdbifdbsPort :: !(Maybe Integer)
+    , _rdbifdbsAvailabilityZone :: !(Maybe Text)
+    , _rdbifdbsDBSubnetGroupName :: !(Maybe Text)
+    , _rdbifdbsMultiAZ :: !(Maybe Bool)
+    , _rdbifdbsPubliclyAccessible :: !(Maybe Bool)
+    , _rdbifdbsAutoMinorVersionUpgrade :: !(Maybe Bool)
+    , _rdbifdbsLicenseModel :: !(Maybe Text)
+    , _rdbifdbsDBName :: !(Maybe Text)
+    , _rdbifdbsEngine :: !(Maybe Text)
+    , _rdbifdbsIops :: !(Maybe Integer)
+    , _rdbifdbsOptionGroupName :: !(Maybe Text)
     , _rdbifdbsTags :: [Tag]
     } deriving (Show, Generic)
 

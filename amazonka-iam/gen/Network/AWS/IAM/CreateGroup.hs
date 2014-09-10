@@ -45,8 +45,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data CreateGroup = CreateGroup
-    { _cgPath :: Maybe Text
-    , _cgGroupName :: Text
+    { _cgPath :: !(Maybe Text)
+    , _cgGroupName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

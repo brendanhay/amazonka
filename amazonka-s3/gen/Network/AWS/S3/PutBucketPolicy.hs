@@ -42,9 +42,9 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data PutBucketPolicy = PutBucketPolicy
-    { _pbpBucket :: BucketName
-    , _pbpContentMD5 :: Maybe Text
-    , _pbpPolicy :: Text
+    { _pbpBucket :: !BucketName
+    , _pbpContentMD5 :: !(Maybe Text)
+    , _pbpPolicy :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

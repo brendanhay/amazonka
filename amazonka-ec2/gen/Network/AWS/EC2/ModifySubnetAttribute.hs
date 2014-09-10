@@ -44,7 +44,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data ModifySubnetAttribute = ModifySubnetAttribute
-    { _msa1SubnetId :: Text
+    { _msa1SubnetId :: !Text
     , _msa1MapPublicIpOnLaunch :: Maybe AttributeBooleanValue
     } deriving (Show, Generic)
 

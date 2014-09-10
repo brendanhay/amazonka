@@ -47,8 +47,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data CreateUser = CreateUser
-    { _cuPath :: Maybe Text
-    , _cuUserName :: Text
+    { _cuPath :: !(Maybe Text)
+    , _cuUserName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

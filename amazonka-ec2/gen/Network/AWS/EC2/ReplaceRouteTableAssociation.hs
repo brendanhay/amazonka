@@ -54,8 +54,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
-    { _rrtaAssociationId :: Text
-    , _rrtaRouteTableId :: Text
+    { _rrtaAssociationId :: !Text
+    , _rrtaRouteTableId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -89,7 +89,7 @@ instance ToQuery ReplaceRouteTableAssociation where
     toQuery = genericQuery def
 
 newtype ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
-    { _rrtarNewAssociationId :: Maybe Text
+    { _rrtarNewAssociationId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

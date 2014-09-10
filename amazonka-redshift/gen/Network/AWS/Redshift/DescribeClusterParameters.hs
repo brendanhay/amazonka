@@ -70,10 +70,10 @@ import Network.AWS.Redshift.Types
 import Network.AWS.Prelude
 
 data DescribeClusterParameters = DescribeClusterParameters
-    { _dcpParameterGroupName :: Text
-    , _dcpSource :: Maybe Text
-    , _dcpMaxRecords :: Maybe Integer
-    , _dcpMarker :: Maybe Text
+    { _dcpParameterGroupName :: !Text
+    , _dcpSource :: !(Maybe Text)
+    , _dcpMaxRecords :: !(Maybe Integer)
+    , _dcpMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -133,7 +133,7 @@ instance ToQuery DescribeClusterParameters where
 -- | Contains the output from the DescribeClusterParameters action.
 data DescribeClusterParametersResponse = DescribeClusterParametersResponse
     { _dcprParameters :: [Parameter]
-    , _dcprMarker :: Maybe Text
+    , _dcprMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

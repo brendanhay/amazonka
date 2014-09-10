@@ -76,7 +76,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DescribeWorkflowType = DescribeWorkflowType
-    { _dwt1Domain :: Text
+    { _dwt1Domain :: !Text
     , _dwt1WorkflowType :: WorkflowType
     } deriving (Show, Generic)
 

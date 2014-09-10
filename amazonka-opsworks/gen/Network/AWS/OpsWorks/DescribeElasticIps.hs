@@ -46,8 +46,8 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DescribeElasticIps = DescribeElasticIps
-    { _dei1InstanceId :: Maybe Text
-    , _dei1StackId :: Maybe Text
+    { _dei1InstanceId :: !(Maybe Text)
+    , _dei1StackId :: !(Maybe Text)
     , _dei1Ips :: [Text]
     } deriving (Show, Generic)
 

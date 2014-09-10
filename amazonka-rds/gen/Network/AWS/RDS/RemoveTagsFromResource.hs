@@ -41,7 +41,7 @@ import Network.AWS.Prelude
 
 -- | 
 data RemoveTagsFromResource = RemoveTagsFromResource
-    { _rtfrResourceName :: Text
+    { _rtfrResourceName :: !Text
     , _rtfrTagKeys :: [Text]
     } deriving (Show, Generic)
 

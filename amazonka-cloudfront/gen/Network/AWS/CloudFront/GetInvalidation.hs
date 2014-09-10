@@ -43,8 +43,8 @@ import Network.AWS.Types (Region)
 
 -- | The request to get an invalidation's information.
 data GetInvalidation = GetInvalidation
-    { _giDistributionId :: Text
-    , _giId :: Text
+    { _giDistributionId :: !Text
+    , _giId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -57,23 +57,23 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data UpdateStack = UpdateStack
-    { _usStackId :: Text
-    , _usName :: Maybe Text
+    { _usStackId :: !Text
+    , _usName :: !(Maybe Text)
     , _usAttributes :: Map StackAttributesKeys Text
-    , _usServiceRoleArn :: Maybe Text
-    , _usDefaultInstanceProfileArn :: Maybe Text
-    , _usDefaultOs :: Maybe Text
-    , _usHostnameTheme :: Maybe Text
-    , _usDefaultAvailabilityZone :: Maybe Text
-    , _usDefaultSubnetId :: Maybe Text
-    , _usCustomJson :: Maybe Text
+    , _usServiceRoleArn :: !(Maybe Text)
+    , _usDefaultInstanceProfileArn :: !(Maybe Text)
+    , _usDefaultOs :: !(Maybe Text)
+    , _usHostnameTheme :: !(Maybe Text)
+    , _usDefaultAvailabilityZone :: !(Maybe Text)
+    , _usDefaultSubnetId :: !(Maybe Text)
+    , _usCustomJson :: !(Maybe Text)
     , _usConfigurationManager :: Maybe StackConfigurationManager
     , _usChefConfiguration :: Maybe ChefConfiguration
-    , _usUseCustomCookbooks :: Maybe Bool
+    , _usUseCustomCookbooks :: !(Maybe Bool)
     , _usCustomCookbooksSource :: Maybe Source
-    , _usDefaultSshKeyName :: Maybe Text
+    , _usDefaultSshKeyName :: !(Maybe Text)
     , _usDefaultRootDeviceType :: Maybe RootDeviceType
-    , _usUseOpsworksSecurityGroups :: Maybe Bool
+    , _usUseOpsworksSecurityGroups :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

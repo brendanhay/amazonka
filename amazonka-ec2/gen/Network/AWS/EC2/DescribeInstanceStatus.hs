@@ -112,9 +112,9 @@ import Network.AWS.Prelude
 data DescribeInstanceStatus = DescribeInstanceStatus
     { _disInstanceIds :: [Text]
     , _disFilters :: [Filter]
-    , _disNextToken :: Maybe Text
-    , _disMaxResults :: Maybe Integer
-    , _disIncludeAllInstances :: Maybe Bool
+    , _disNextToken :: !(Maybe Text)
+    , _disMaxResults :: !(Maybe Integer)
+    , _disIncludeAllInstances :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -188,7 +188,7 @@ instance ToQuery DescribeInstanceStatus where
 
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
     { _disrInstanceStatuses :: [InstanceStatus]
-    , _disrNextToken :: Maybe Text
+    , _disrNextToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

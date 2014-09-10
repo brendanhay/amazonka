@@ -56,8 +56,8 @@ import Network.AWS.Prelude
 -- AWS Account.
 data ListIdentities = ListIdentities
     { _liIdentityType :: Maybe IdentityType
-    , _liNextToken :: Maybe Text
-    , _liMaxItems :: Maybe Integer
+    , _liNextToken :: !(Maybe Text)
+    , _liMaxItems :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -98,7 +98,7 @@ instance ToQuery ListIdentities where
 -- | Represents a list of all verified identities for the AWS Account.
 data ListIdentitiesResponse = ListIdentitiesResponse
     { _lirIdentities :: [Text]
-    , _lirNextToken :: Maybe Text
+    , _lirNextToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

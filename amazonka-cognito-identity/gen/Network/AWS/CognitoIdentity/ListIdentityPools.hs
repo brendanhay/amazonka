@@ -49,8 +49,8 @@ import Network.AWS.Request.JSON
 
 -- | Input to the ListIdentityPools action.
 data ListIdentityPools = ListIdentityPools
-    { _lipMaxResults :: Integer
-    , _lipNextToken :: Maybe Text
+    { _lipMaxResults :: !Integer
+    , _lipNextToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -88,7 +88,7 @@ instance ToJSON ListIdentityPools
 -- | The result of a successful ListIdentityPools action.
 data ListIdentityPoolsResponse = ListIdentityPoolsResponse
     { _liprIdentityPools :: [IdentityPoolShortDescription]
-    , _liprNextToken :: Maybe Text
+    , _liprNextToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

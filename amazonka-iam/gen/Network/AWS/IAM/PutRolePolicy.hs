@@ -52,9 +52,9 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data PutRolePolicy = PutRolePolicy
-    { _prpRoleName :: Text
-    , _prpPolicyName :: Text
-    , _prpPolicyDocument :: Text
+    { _prpRoleName :: !Text
+    , _prpPolicyName :: !Text
+    , _prpPolicyDocument :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

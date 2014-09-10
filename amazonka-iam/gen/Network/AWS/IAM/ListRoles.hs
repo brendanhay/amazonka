@@ -60,9 +60,9 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data ListRoles = ListRoles
-    { _lrPathPrefix :: Maybe Text
-    , _lrMarker :: Maybe Text
-    , _lrMaxItems :: Maybe Integer
+    { _lrPathPrefix :: !(Maybe Text)
+    , _lrMarker :: !(Maybe Text)
+    , _lrMaxItems :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -111,8 +111,8 @@ instance ToQuery ListRoles where
 -- | Contains the result of a successful invocation of the ListRoles action.
 data ListRolesResponse = ListRolesResponse
     { _lrrRoles :: [Role]
-    , _lrrIsTruncated :: Bool
-    , _lrrMarker :: Maybe Text
+    , _lrrIsTruncated :: !Bool
+    , _lrrMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

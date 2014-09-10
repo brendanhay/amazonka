@@ -56,7 +56,7 @@ import Network.AWS.Prelude
 
 -- | Input for SetEndpointAttributes action.
 data SetEndpointAttributes = SetEndpointAttributes
-    { _seaEndpointArn :: Text
+    { _seaEndpointArn :: !Text
     , _seaAttributes :: Map Text Text
     } deriving (Show, Generic)
 

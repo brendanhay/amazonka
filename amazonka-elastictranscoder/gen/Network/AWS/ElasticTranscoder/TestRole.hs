@@ -72,9 +72,9 @@ import Network.AWS.Request.JSON
 
 -- | The TestRoleRequest structure.
 data TestRole = TestRole
-    { _trRole :: Text
-    , _trInputBucket :: Text
-    , _trOutputBucket :: Text
+    { _trRole :: !Text
+    , _trInputBucket :: !Text
+    , _trOutputBucket :: !Text
     , _trTopics :: [Text]
     } deriving (Show, Generic)
 
@@ -133,7 +133,7 @@ instance ToJSON TestRole
 
 -- | The TestRoleResponse structure.
 data TestRoleResponse = TestRoleResponse
-    { _trrSuccess :: Maybe Text
+    { _trrSuccess :: !(Maybe Text)
     , _trrMessages :: [Text]
     } deriving (Show, Generic)
 

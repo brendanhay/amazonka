@@ -49,10 +49,10 @@ import Network.AWS.Types (Region)
 
 -- | The input for a ListGeoLocations request.
 data ListGeoLocations = ListGeoLocations
-    { _lglStartContinentCode :: Maybe Text
-    , _lglStartCountryCode :: Maybe Text
-    , _lglStartSubdivisionCode :: Maybe Text
-    , _lglMaxItems :: Maybe Text
+    { _lglStartContinentCode :: !(Maybe Text)
+    , _lglStartCountryCode :: !(Maybe Text)
+    , _lglStartSubdivisionCode :: !(Maybe Text)
+    , _lglMaxItems :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -119,11 +119,11 @@ instance ToXML ListGeoLocations where
 -- returned by the request and information about the response.
 data ListGeoLocationsResponse = ListGeoLocationsResponse
     { _lglrGeoLocationDetailsList :: [GeoLocationDetails]
-    , _lglrIsTruncated :: Bool
-    , _lglrNextContinentCode :: Maybe Text
-    , _lglrNextCountryCode :: Maybe Text
-    , _lglrNextSubdivisionCode :: Maybe Text
-    , _lglrMaxItems :: Text
+    , _lglrIsTruncated :: !Bool
+    , _lglrNextContinentCode :: !(Maybe Text)
+    , _lglrNextCountryCode :: !(Maybe Text)
+    , _lglrNextSubdivisionCode :: !(Maybe Text)
+    , _lglrMaxItems :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

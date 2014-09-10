@@ -50,10 +50,10 @@ import Network.AWS.SimpleDB.Types
 import Network.AWS.Prelude
 
 data GetAttributes = GetAttributes
-    { _gaDomainName :: Text
-    , _gaItemName :: Text
+    { _gaDomainName :: !Text
+    , _gaItemName :: !Text
     , _gaAttributeNames :: [Text]
-    , _gaConsistentRead :: Maybe Bool
+    , _gaConsistentRead :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

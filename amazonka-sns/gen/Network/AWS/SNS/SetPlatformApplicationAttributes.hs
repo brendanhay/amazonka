@@ -57,7 +57,7 @@ import Network.AWS.Prelude
 
 -- | Input for SetPlatformApplicationAttributes action.
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes
-    { _spaaPlatformApplicationArn :: Text
+    { _spaaPlatformApplicationArn :: !Text
     , _spaaAttributes :: Map Text Text
     } deriving (Show, Generic)
 

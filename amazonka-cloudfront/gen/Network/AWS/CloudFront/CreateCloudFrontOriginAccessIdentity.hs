@@ -79,8 +79,8 @@ instance ToXML CreateCloudFrontOriginAccessIdentity where
 -- | The returned result of the corresponding request.
 data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse
     { _ccfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
-    , _ccfoairLocation :: Maybe Text
-    , _ccfoairETag :: Maybe Text
+    , _ccfoairLocation :: !(Maybe Text)
+    , _ccfoairETag :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

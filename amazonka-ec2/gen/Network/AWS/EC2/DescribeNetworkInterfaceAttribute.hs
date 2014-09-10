@@ -56,7 +56,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
-    { _dniaNetworkInterfaceId :: Text
+    { _dniaNetworkInterfaceId :: !Text
     , _dniaAttribute :: Maybe NetworkInterfaceAttribute
     } deriving (Show, Generic)
 
@@ -89,7 +89,7 @@ instance ToQuery DescribeNetworkInterfaceAttribute where
     toQuery = genericQuery def
 
 data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse
-    { _dniarNetworkInterfaceId :: Maybe Text
+    { _dniarNetworkInterfaceId :: !(Maybe Text)
     , _dniarDescription :: Maybe AttributeValue
     , _dniarSourceDestCheck :: Maybe AttributeBooleanValue
     , _dniarGroups :: [GroupIdentifier]

@@ -58,7 +58,7 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a RebootCacheCluster operation.
 data RebootCacheCluster = RebootCacheCluster
-    { _rccCacheClusterId :: Text
+    { _rccCacheClusterId :: !Text
     , _rccCacheNodeIdsToReboot :: [Text]
     } deriving (Show, Generic)
 

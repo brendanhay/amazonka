@@ -46,10 +46,10 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data EnableMFADevice = EnableMFADevice
-    { _emfadUserName :: Text
-    , _emfadSerialNumber :: Text
-    , _emfadAuthenticationCode1 :: Text
-    , _emfadAuthenticationCode2 :: Text
+    { _emfadUserName :: !Text
+    , _emfadSerialNumber :: !Text
+    , _emfadAuthenticationCode1 :: !Text
+    , _emfadAuthenticationCode2 :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

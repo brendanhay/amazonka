@@ -42,8 +42,8 @@ import Network.AWS.Request.JSON
 
 -- | This input determines which step to describe.
 data DescribeStep = DescribeStep
-    { _dsClusterId :: Text
-    , _dsStepId :: Text
+    { _dsClusterId :: !Text
+    , _dsStepId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

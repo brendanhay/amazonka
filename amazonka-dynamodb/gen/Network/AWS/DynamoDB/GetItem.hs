@@ -61,10 +61,10 @@ import Network.AWS.Request.JSON
 
 -- | Represents the input of a GetItem operation.
 data GetItem = GetItem
-    { _giTableName :: Text
+    { _giTableName :: !Text
     , _giKey :: Map Text AttributeValue
     , _giAttributesToGet :: Maybe (List1 Text)
-    , _giConsistentRead :: Maybe Bool
+    , _giConsistentRead :: !(Maybe Bool)
     , _giReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
     } deriving (Show, Generic)
 

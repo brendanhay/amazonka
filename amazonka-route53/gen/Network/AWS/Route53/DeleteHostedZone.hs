@@ -51,7 +51,7 @@ import Network.AWS.Types (Region)
 
 -- | A complex type containing the response information for the delete request.
 newtype DeleteHostedZone = DeleteHostedZone
-    { _dhzId :: Text
+    { _dhzId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

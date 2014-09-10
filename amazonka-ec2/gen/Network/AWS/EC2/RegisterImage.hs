@@ -93,16 +93,16 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data RegisterImage = RegisterImage
-    { _ri2ImageLocation :: Maybe Text
-    , _ri2Name :: Text
-    , _ri2Description :: Maybe Text
+    { _ri2ImageLocation :: !(Maybe Text)
+    , _ri2Name :: !Text
+    , _ri2Description :: !(Maybe Text)
     , _ri2Architecture :: Maybe ArchitectureValues
-    , _ri2KernelId :: Maybe Text
-    , _ri2RamdiskId :: Maybe Text
-    , _ri2RootDeviceName :: Maybe Text
+    , _ri2KernelId :: !(Maybe Text)
+    , _ri2RamdiskId :: !(Maybe Text)
+    , _ri2RootDeviceName :: !(Maybe Text)
     , _ri2BlockDeviceMappings :: [BlockDeviceMapping]
     , _ri2VirtualizationType :: Maybe VirtualizationType
-    , _ri2SriovNetSupport :: Maybe Text
+    , _ri2SriovNetSupport :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -201,7 +201,7 @@ instance ToQuery RegisterImage where
     toQuery = genericQuery def
 
 newtype RegisterImageResponse = RegisterImageResponse
-    { _rirImageId :: Maybe Text
+    { _rirImageId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

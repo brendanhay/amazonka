@@ -50,9 +50,9 @@ import Network.AWS.ELB.Types
 import Network.AWS.Prelude
 
 data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy
-    { _clbpLoadBalancerName :: Text
-    , _clbpPolicyName :: Text
-    , _clbpPolicyTypeName :: Text
+    { _clbpLoadBalancerName :: !Text
+    , _clbpPolicyName :: !Text
+    , _clbpPolicyTypeName :: !Text
     , _clbpPolicyAttributes :: [PolicyAttribute]
     } deriving (Show, Generic)
 

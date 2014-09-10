@@ -51,7 +51,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype DeleteVpcPeeringConnection = DeleteVpcPeeringConnection
-    { _dvpcVpcPeeringConnectionId :: Text
+    { _dvpcVpcPeeringConnectionId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -77,7 +77,7 @@ instance ToQuery DeleteVpcPeeringConnection where
     toQuery = genericQuery def
 
 newtype DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
-    { _dvpcrReturn :: Maybe Bool
+    { _dvpcrReturn :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

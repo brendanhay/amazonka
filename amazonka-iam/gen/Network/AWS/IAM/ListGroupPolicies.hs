@@ -48,9 +48,9 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data ListGroupPolicies = ListGroupPolicies
-    { _lgpGroupName :: Text
-    , _lgpMarker :: Maybe Text
-    , _lgpMaxItems :: Maybe Integer
+    { _lgpGroupName :: !Text
+    , _lgpMarker :: !(Maybe Text)
+    , _lgpMaxItems :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -96,8 +96,8 @@ instance ToQuery ListGroupPolicies where
 -- action.
 data ListGroupPoliciesResponse = ListGroupPoliciesResponse
     { _lgprPolicyNames :: [Text]
-    , _lgprIsTruncated :: Bool
-    , _lgprMarker :: Maybe Text
+    , _lgprIsTruncated :: !Bool
+    , _lgprMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

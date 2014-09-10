@@ -49,8 +49,8 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DeleteLogStream = DeleteLogStream
-    { _dlsLogGroupName :: Text
-    , _dlsLogStreamName :: Text
+    { _dlsLogGroupName :: !Text
+    , _dlsLogStreamName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

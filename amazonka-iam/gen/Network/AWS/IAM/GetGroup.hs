@@ -54,9 +54,9 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data GetGroup = GetGroup
-    { _ggGroupName :: Text
-    , _ggMarker :: Maybe Text
-    , _ggMaxItems :: Maybe Integer
+    { _ggGroupName :: !Text
+    , _ggMarker :: !(Maybe Text)
+    , _ggMaxItems :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -102,8 +102,8 @@ instance ToQuery GetGroup where
 data GetGroupResponse = GetGroupResponse
     { _ggrGroup :: Group
     , _ggrUsers :: [User]
-    , _ggrIsTruncated :: Bool
-    , _ggrMarker :: Maybe Text
+    , _ggrIsTruncated :: !Bool
+    , _ggrMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

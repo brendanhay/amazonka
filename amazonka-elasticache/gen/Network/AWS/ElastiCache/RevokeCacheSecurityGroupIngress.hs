@@ -52,9 +52,9 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a RevokeCacheSecurityGroupIngress operation.
 data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress
-    { _rcsgiCacheSecurityGroupName :: Text
-    , _rcsgiEC2SecurityGroupName :: Text
-    , _rcsgiEC2SecurityGroupOwnerId :: Text
+    { _rcsgiCacheSecurityGroupName :: !Text
+    , _rcsgiEC2SecurityGroupName :: !Text
+    , _rcsgiEC2SecurityGroupOwnerId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

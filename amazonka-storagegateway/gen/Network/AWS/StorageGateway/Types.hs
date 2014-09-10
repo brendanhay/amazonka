@@ -465,13 +465,13 @@ instance FromJSON ErrorCode
 instance ToJSON ErrorCode
 
 data CachediSCSIVolumeInformation = CachediSCSIVolumeInformation
-    { _cscsiviVolumeARN :: Maybe Text
-    , _cscsiviVolumeId :: Maybe Text
-    , _cscsiviVolumeType :: Maybe Text
-    , _cscsiviVolumeStatus :: Maybe Text
-    , _cscsiviVolumeSizeInBytes :: Maybe Integer
-    , _cscsiviVolumeProgress :: Maybe Double
-    , _cscsiviSourceSnapshotId :: Maybe Text
+    { _cscsiviVolumeARN :: !(Maybe Text)
+    , _cscsiviVolumeId :: !(Maybe Text)
+    , _cscsiviVolumeType :: !(Maybe Text)
+    , _cscsiviVolumeStatus :: !(Maybe Text)
+    , _cscsiviVolumeSizeInBytes :: !(Maybe Integer)
+    , _cscsiviVolumeProgress :: !(Maybe Double)
+    , _cscsiviSourceSnapshotId :: !(Maybe Text)
     , _cscsiviVolumeiSCSIAttributes :: Maybe VolumeiSCSIAttributes
     } deriving (Show, Generic)
 
@@ -551,10 +551,10 @@ instance FromJSON CachediSCSIVolumeInformation
 -- | Describes Challenge-Handshake Authentication Protocol (CHAP) information
 -- that supports authentication between your gateway and iSCSI initiators.
 data ChapInfo = ChapInfo
-    { _ciTargetARN :: Maybe Text
-    , _ciSecretToAuthenticateInitiator :: Maybe Text
-    , _ciInitiatorName :: Maybe Text
-    , _ciSecretToAuthenticateTarget :: Maybe Text
+    { _ciTargetARN :: !(Maybe Text)
+    , _ciSecretToAuthenticateInitiator :: !(Maybe Text)
+    , _ciInitiatorName :: !(Maybe Text)
+    , _ciSecretToAuthenticateTarget :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -607,10 +607,10 @@ ciSecretToAuthenticateTarget =
 instance FromJSON ChapInfo
 
 data DeviceiSCSIAttributes = DeviceiSCSIAttributes
-    { _dscsiaTargetARN :: Maybe Text
-    , _dscsiaNetworkInterfaceId :: Maybe Text
-    , _dscsiaNetworkInterfacePort :: Maybe Integer
-    , _dscsiaChapEnabled :: Maybe Bool
+    { _dscsiaTargetARN :: !(Maybe Text)
+    , _dscsiaNetworkInterfaceId :: !(Maybe Text)
+    , _dscsiaNetworkInterfacePort :: !(Maybe Integer)
+    , _dscsiaChapEnabled :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -656,12 +656,12 @@ instance FromJSON DeviceiSCSIAttributes
 instance ToJSON DeviceiSCSIAttributes
 
 data DiskInformation = DiskInformation
-    { _diDiskId :: Maybe Text
-    , _diDiskPath :: Maybe Text
-    , _diDiskNode :: Maybe Text
-    , _diDiskSizeInBytes :: Maybe Integer
-    , _diDiskAllocationType :: Maybe Text
-    , _diDiskAllocationResource :: Maybe Text
+    { _diDiskId :: !(Maybe Text)
+    , _diDiskPath :: !(Maybe Text)
+    , _diDiskNode :: !(Maybe Text)
+    , _diDiskSizeInBytes :: !(Maybe Integer)
+    , _diDiskAllocationType :: !(Maybe Text)
+    , _diDiskAllocationResource :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -719,8 +719,8 @@ diDiskAllocationResource =
 instance FromJSON DiskInformation
 
 data GatewayInformation = GatewayInformation
-    { _giGatewayARN :: Maybe Text
-    , _giGatewayType :: Maybe Text
+    { _giGatewayARN :: !(Maybe Text)
+    , _giGatewayType :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -753,9 +753,9 @@ instance FromJSON GatewayInformation
 
 -- | Describes a gateway's network interface.
 data NetworkInterface = NetworkInterface
-    { _niIpv4Address :: Maybe Text
-    , _niMacAddress :: Maybe Text
-    , _niIpv6Address :: Maybe Text
+    { _niIpv4Address :: !(Maybe Text)
+    , _niMacAddress :: !(Maybe Text)
+    , _niIpv6Address :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -830,15 +830,15 @@ instance FromJSON StorageGatewayError
 instance ToJSON StorageGatewayError
 
 data StorediSCSIVolumeInformation = StorediSCSIVolumeInformation
-    { _sscsiviVolumeARN :: Maybe Text
-    , _sscsiviVolumeId :: Maybe Text
-    , _sscsiviVolumeType :: Maybe Text
-    , _sscsiviVolumeStatus :: Maybe Text
-    , _sscsiviVolumeSizeInBytes :: Maybe Integer
-    , _sscsiviVolumeProgress :: Maybe Double
-    , _sscsiviVolumeDiskId :: Maybe Text
-    , _sscsiviSourceSnapshotId :: Maybe Text
-    , _sscsiviPreservedExistingData :: Maybe Bool
+    { _sscsiviVolumeARN :: !(Maybe Text)
+    , _sscsiviVolumeId :: !(Maybe Text)
+    , _sscsiviVolumeType :: !(Maybe Text)
+    , _sscsiviVolumeStatus :: !(Maybe Text)
+    , _sscsiviVolumeSizeInBytes :: !(Maybe Integer)
+    , _sscsiviVolumeProgress :: !(Maybe Double)
+    , _sscsiviVolumeDiskId :: !(Maybe Text)
+    , _sscsiviSourceSnapshotId :: !(Maybe Text)
+    , _sscsiviPreservedExistingData :: !(Maybe Bool)
     , _sscsiviVolumeiSCSIAttributes :: Maybe VolumeiSCSIAttributes
     } deriving (Show, Generic)
 
@@ -931,12 +931,12 @@ sscsiviVolumeiSCSIAttributes =
 instance FromJSON StorediSCSIVolumeInformation
 
 data Tape = Tape
-    { _tTapeARN :: Maybe Text
-    , _tTapeBarcode :: Maybe Text
-    , _tTapeSizeInBytes :: Maybe Integer
-    , _tTapeStatus :: Maybe Text
-    , _tVTLDevice :: Maybe Text
-    , _tProgress :: Maybe Double
+    { _tTapeARN :: !(Maybe Text)
+    , _tTapeBarcode :: !(Maybe Text)
+    , _tTapeSizeInBytes :: !(Maybe Integer)
+    , _tTapeStatus :: !(Maybe Text)
+    , _tVTLDevice :: !(Maybe Text)
+    , _tProgress :: !(Maybe Double)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -991,12 +991,12 @@ tProgress = lens _tProgress (\s a -> s { _tProgress = a })
 instance FromJSON Tape
 
 data TapeArchive = TapeArchive
-    { _taTapeARN :: Maybe Text
-    , _taTapeBarcode :: Maybe Text
-    , _taTapeSizeInBytes :: Maybe Integer
-    , _taCompletionTime :: Maybe ISO8601
-    , _taRetrievedTo :: Maybe Text
-    , _taTapeStatus :: Maybe Text
+    { _taTapeARN :: !(Maybe Text)
+    , _taTapeBarcode :: !(Maybe Text)
+    , _taTapeSizeInBytes :: !(Maybe Integer)
+    , _taCompletionTime :: !(Maybe ISO8601)
+    , _taRetrievedTo :: !(Maybe Text)
+    , _taTapeStatus :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1054,9 +1054,9 @@ taTapeStatus = lens _taTapeStatus (\s a -> s { _taTapeStatus = a })
 instance FromJSON TapeArchive
 
 data TapeRecoveryPointInfo = TapeRecoveryPointInfo
-    { _trpiTapeARN :: Maybe Text
-    , _trpiTapeRecoveryPointTime :: Maybe ISO8601
-    , _trpiTapeSizeInBytes :: Maybe Integer
+    { _trpiTapeARN :: !(Maybe Text)
+    , _trpiTapeRecoveryPointTime :: !(Maybe ISO8601)
+    , _trpiTapeSizeInBytes :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1095,7 +1095,7 @@ trpiTapeSizeInBytes =
 instance FromJSON TapeRecoveryPointInfo
 
 data VTLDevice = VTLDevice
-    { _vtldVTLDeviceARN :: Maybe Text
+    { _vtldVTLDeviceARN :: !(Maybe Text)
     , _vtldDeviceiSCSIAttributes :: Maybe DeviceiSCSIAttributes
     } deriving (Show, Generic)
 
@@ -1129,8 +1129,8 @@ vtldDeviceiSCSIAttributes =
 instance FromJSON VTLDevice
 
 data VolumeInformation = VolumeInformation
-    { _viVolumeARN :: Maybe Text
-    , _viVolumeType :: Maybe Text
+    { _viVolumeARN :: !(Maybe Text)
+    , _viVolumeType :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1160,10 +1160,10 @@ viVolumeType = lens _viVolumeType (\s a -> s { _viVolumeType = a })
 instance FromJSON VolumeInformation
 
 data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo
-    { _vrpiVolumeARN :: Maybe Text
-    , _vrpiVolumeSizeInBytes :: Maybe Integer
-    , _vrpiVolumeUsageInBytes :: Maybe Integer
-    , _vrpiVolumeRecoveryPointTime :: Maybe Text
+    { _vrpiVolumeARN :: !(Maybe Text)
+    , _vrpiVolumeSizeInBytes :: !(Maybe Integer)
+    , _vrpiVolumeUsageInBytes :: !(Maybe Integer)
+    , _vrpiVolumeRecoveryPointTime :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1210,11 +1210,11 @@ instance FromJSON VolumeRecoveryPointInfo
 
 -- | Lists iSCSI information about a volume.
 data VolumeiSCSIAttributes = VolumeiSCSIAttributes
-    { _vscsiaTargetARN :: Maybe Text
-    , _vscsiaNetworkInterfaceId :: Maybe Text
-    , _vscsiaNetworkInterfacePort :: Maybe Integer
-    , _vscsiaLunNumber :: Maybe Integer
-    , _vscsiaChapEnabled :: Maybe Bool
+    { _vscsiaTargetARN :: !(Maybe Text)
+    , _vscsiaNetworkInterfaceId :: !(Maybe Text)
+    , _vscsiaNetworkInterfacePort :: !(Maybe Integer)
+    , _vscsiaLunNumber :: !(Maybe Integer)
+    , _vscsiaChapEnabled :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

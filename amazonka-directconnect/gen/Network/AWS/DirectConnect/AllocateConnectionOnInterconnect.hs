@@ -56,11 +56,11 @@ import Network.AWS.Request.JSON
 -- | Container for the parameters to the AllocateConnectionOnInterconnect
 -- operation.
 data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect
-    { _acoiBandwidth :: Text
-    , _acoiConnectionName :: Text
-    , _acoiOwnerAccount :: Text
-    , _acoiInterconnectId :: Text
-    , _acoiVlan :: Integer
+    { _acoiBandwidth :: !Text
+    , _acoiConnectionName :: !Text
+    , _acoiOwnerAccount :: !Text
+    , _acoiInterconnectId :: !Text
+    , _acoiVlan :: !Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -130,15 +130,15 @@ instance ToJSON AllocateConnectionOnInterconnect
 -- | A connection represents the physical network connection between the AWS
 -- Direct Connect location and the customer.
 data AllocateConnectionOnInterconnectResponse = AllocateConnectionOnInterconnectResponse
-    { _acoirOwnerAccount :: Maybe Text
-    , _acoirConnectionId :: Maybe Text
-    , _acoirConnectionName :: Maybe Text
+    { _acoirOwnerAccount :: !(Maybe Text)
+    , _acoirConnectionId :: !(Maybe Text)
+    , _acoirConnectionName :: !(Maybe Text)
     , _acoirConnectionState :: Maybe ConnectionState
-    , _acoirRegion :: Maybe Text
-    , _acoirLocation :: Maybe Text
-    , _acoirBandwidth :: Maybe Text
-    , _acoirVlan :: Maybe Integer
-    , _acoirPartnerName :: Maybe Text
+    , _acoirRegion :: !(Maybe Text)
+    , _acoirLocation :: !(Maybe Text)
+    , _acoirBandwidth :: !(Maybe Text)
+    , _acoirVlan :: !(Maybe Integer)
+    , _acoirPartnerName :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

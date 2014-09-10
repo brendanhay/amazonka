@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 
 -- | Represents a request instructing the service to begin domain verification.
 newtype VerifyDomainIdentity = VerifyDomainIdentity
-    { _vdiDomain :: Text
+    { _vdiDomain :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -76,7 +76,7 @@ instance ToQuery VerifyDomainIdentity where
 
 -- | Represents a token used for domain ownership verification.
 newtype VerifyDomainIdentityResponse = VerifyDomainIdentityResponse
-    { _vdirVerificationToken :: Text
+    { _vdirVerificationToken :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

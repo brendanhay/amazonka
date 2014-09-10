@@ -48,7 +48,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype DeleteVpc = DeleteVpc
-    { _dv1VpcId :: Text
+    { _dv1VpcId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

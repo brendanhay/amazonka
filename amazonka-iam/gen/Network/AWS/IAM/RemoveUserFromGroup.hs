@@ -41,8 +41,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data RemoveUserFromGroup = RemoveUserFromGroup
-    { _rufgGroupName :: Text
-    , _rufgUserName :: Text
+    { _rufgGroupName :: !Text
+    , _rufgUserName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

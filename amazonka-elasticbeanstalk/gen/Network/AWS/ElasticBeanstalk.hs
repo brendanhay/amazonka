@@ -37,7 +37,6 @@ module Network.AWS.ElasticBeanstalk
     , module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     , module Network.AWS.ElasticBeanstalk.DescribeEvents
     , module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
-    , module Network.AWS.ElasticBeanstalk.Monadic
     , module Network.AWS.ElasticBeanstalk.RebuildEnvironment
     , module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     , module Network.AWS.ElasticBeanstalk.RestartAppServer
@@ -70,7 +69,6 @@ import Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
 import Network.AWS.ElasticBeanstalk.DescribeEnvironments
 import Network.AWS.ElasticBeanstalk.DescribeEvents
 import Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
-import Network.AWS.ElasticBeanstalk.Monadic
 import Network.AWS.ElasticBeanstalk.RebuildEnvironment
 import Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
 import Network.AWS.ElasticBeanstalk.RestartAppServer

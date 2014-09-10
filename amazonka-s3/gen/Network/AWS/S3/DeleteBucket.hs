@@ -41,7 +41,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype DeleteBucket = DeleteBucket
-    { _dbBucket :: BucketName
+    { _dbBucket :: !BucketName
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

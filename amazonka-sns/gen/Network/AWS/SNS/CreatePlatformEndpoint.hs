@@ -72,9 +72,9 @@ import Network.AWS.Prelude
 
 -- | Input for CreatePlatformEndpoint action.
 data CreatePlatformEndpoint = CreatePlatformEndpoint
-    { _cpePlatformApplicationArn :: Text
-    , _cpeToken :: Text
-    , _cpeCustomUserData :: Maybe Text
+    { _cpePlatformApplicationArn :: !Text
+    , _cpeToken :: !Text
+    , _cpeCustomUserData :: !(Maybe Text)
     , _cpeAttributes :: Map Text Text
     } deriving (Show, Generic)
 
@@ -131,7 +131,7 @@ instance ToQuery CreatePlatformEndpoint where
 
 -- | Response from CreateEndpoint action.
 newtype CreatePlatformEndpointResponse = CreatePlatformEndpointResponse
-    { _cperEndpointArn :: Maybe Text
+    { _cperEndpointArn :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -59,7 +59,7 @@ import Network.AWS.Request.JSON
 
 -- | Represents the input of an UpdateItem operation.
 data UpdateItem = UpdateItem
-    { _uiTableName :: Text
+    { _uiTableName :: !Text
     , _uiKey :: Map Text AttributeValue
     , _uiAttributeUpdates :: Map Text AttributeValueUpdate
     , _uiExpected :: Map Text ExpectedAttributeValue

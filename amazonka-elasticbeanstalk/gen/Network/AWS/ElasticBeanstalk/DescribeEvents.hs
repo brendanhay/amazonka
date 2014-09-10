@@ -67,17 +67,17 @@ import Network.AWS.Prelude
 
 -- | This documentation target is not reported in the API reference.
 data DescribeEvents = DescribeEvents
-    { _de1ApplicationName :: Maybe Text
-    , _de1VersionLabel :: Maybe Text
-    , _de1TemplateName :: Maybe Text
-    , _de1EnvironmentId :: Maybe Text
-    , _de1EnvironmentName :: Maybe Text
-    , _de1RequestId :: Maybe Text
+    { _de1ApplicationName :: !(Maybe Text)
+    , _de1VersionLabel :: !(Maybe Text)
+    , _de1TemplateName :: !(Maybe Text)
+    , _de1EnvironmentId :: !(Maybe Text)
+    , _de1EnvironmentName :: !(Maybe Text)
+    , _de1RequestId :: !(Maybe Text)
     , _de1Severity :: Maybe EventSeverity
-    , _de1StartTime :: Maybe ISO8601
-    , _de1EndTime :: Maybe ISO8601
-    , _de1MaxRecords :: Maybe Integer
-    , _de1NextToken :: Maybe Text
+    , _de1StartTime :: !(Maybe ISO8601)
+    , _de1EndTime :: !(Maybe ISO8601)
+    , _de1MaxRecords :: !(Maybe Integer)
+    , _de1NextToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -186,7 +186,7 @@ instance ToQuery DescribeEvents where
 -- | Result message wrapping a list of event descriptions.
 data DescribeEventsResponse = DescribeEventsResponse
     { _der1rEvents :: [EventDescription]
-    , _der1rNextToken :: Maybe Text
+    , _der1rNextToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

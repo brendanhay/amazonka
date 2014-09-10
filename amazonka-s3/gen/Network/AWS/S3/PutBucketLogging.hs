@@ -43,9 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data PutBucketLogging = PutBucketLogging
-    { _pbl1Bucket :: BucketName
+    { _pbl1Bucket :: !BucketName
     , _pbl1BucketLoggingStatus :: BucketLoggingStatus
-    , _pbl1ContentMD5 :: Maybe Text
+    , _pbl1ContentMD5 :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -67,11 +67,11 @@ import Network.AWS.Request.JSON
 -- ActivateGatewayInput$GatewayRegion ActivateGatewayInput$GatewayTimezone
 -- ActivateGatewayInput$GatewayType.
 data ActivateGateway = ActivateGateway
-    { _agActivationKey :: Text
-    , _agGatewayName :: Text
-    , _agGatewayTimezone :: Text
-    , _agGatewayRegion :: Text
-    , _agGatewayType :: Maybe Text
+    { _agActivationKey :: !Text
+    , _agGatewayName :: !Text
+    , _agGatewayTimezone :: !Text
+    , _agGatewayRegion :: !Text
+    , _agGatewayType :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -154,7 +154,7 @@ instance ToJSON ActivateGateway
 -- name, and region. This ARN is used to reference the gateway in other API
 -- operations as well as resource-based authorization.
 newtype ActivateGatewayResponse = ActivateGatewayResponse
-    { _agrGatewayARN :: Maybe Text
+    { _agrGatewayARN :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

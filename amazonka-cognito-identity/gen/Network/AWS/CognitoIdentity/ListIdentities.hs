@@ -52,9 +52,9 @@ import Network.AWS.Request.JSON
 
 -- | Input to the ListIdentities action.
 data ListIdentities = ListIdentities
-    { _liIdentityPoolId :: Text
-    , _liMaxResults :: Integer
-    , _liNextToken :: Maybe Text
+    { _liIdentityPoolId :: !Text
+    , _liMaxResults :: !Integer
+    , _liNextToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -100,9 +100,9 @@ instance ToJSON ListIdentities
 
 -- | The response to a ListIdentities request.
 data ListIdentitiesResponse = ListIdentitiesResponse
-    { _lirIdentityPoolId :: Maybe Text
+    { _lirIdentityPoolId :: !(Maybe Text)
     , _lirIdentities :: [IdentityDescription]
-    , _lirNextToken :: Maybe Text
+    , _lirNextToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

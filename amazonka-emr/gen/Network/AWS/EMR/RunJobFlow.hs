@@ -96,18 +96,18 @@ import Network.AWS.Request.JSON
 
 -- | Input to the RunJobFlow operation.
 data RunJobFlow = RunJobFlow
-    { _rjfName :: Text
-    , _rjfLogUri :: Maybe Text
-    , _rjfAdditionalInfo :: Maybe Text
-    , _rjfAmiVersion :: Maybe Text
+    { _rjfName :: !Text
+    , _rjfLogUri :: !(Maybe Text)
+    , _rjfAdditionalInfo :: !(Maybe Text)
+    , _rjfAmiVersion :: !(Maybe Text)
     , _rjfInstances :: JobFlowInstancesConfig
     , _rjfSteps :: [StepConfig]
     , _rjfBootstrapActions :: [BootstrapActionConfig]
     , _rjfSupportedProducts :: [Text]
     , _rjfNewSupportedProducts :: [SupportedProductConfig]
-    , _rjfVisibleToAllUsers :: Maybe Bool
-    , _rjfJobFlowRole :: Maybe Text
-    , _rjfServiceRole :: Maybe Text
+    , _rjfVisibleToAllUsers :: !(Maybe Bool)
+    , _rjfJobFlowRole :: !(Maybe Text)
+    , _rjfServiceRole :: !(Maybe Text)
     , _rjfTags :: [Tag]
     } deriving (Show, Generic)
 
@@ -259,7 +259,7 @@ instance ToJSON RunJobFlow
 
 -- | The result of the RunJobFlow operation.
 newtype RunJobFlowResponse = RunJobFlowResponse
-    { _rjfrJobFlowId :: Maybe Text
+    { _rjfrJobFlowId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

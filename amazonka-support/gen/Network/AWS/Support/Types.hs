@@ -250,8 +250,8 @@ instance ToJSON TrustedAdvisorCategorySpecificSummary
 -- | An attachment to a case communication. The attachment consists of the file
 -- name and the content of the file.
 data Attachment = Attachment
-    { _aFileName :: Maybe Text
-    , _aData :: Maybe Base64
+    { _aFileName :: !(Maybe Text)
+    , _aData :: !(Maybe Base64)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -284,8 +284,8 @@ instance ToJSON Attachment
 -- | The file name and ID of an attachment to a case communication. You can use
 -- the ID to retrieve the attachment with the DescribeAttachment operation.
 data AttachmentDetails = AttachmentDetails
-    { _adAttachmentId :: Maybe Text
-    , _adFileName :: Maybe Text
+    { _adAttachmentId :: !(Maybe Text)
+    , _adFileName :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -337,18 +337,18 @@ instance ToJSON AttachmentDetails
 -- address of the account that submitted the case. TimeCreated. The time the
 -- case was created, in ISO-8601 format.
 data CaseDetails = CaseDetails
-    { _cdCaseId :: Maybe Text
-    , _cdDisplayId :: Maybe Text
-    , _cdSubject :: Maybe Text
-    , _cdStatus :: Maybe Text
-    , _cdServiceCode :: Maybe Text
-    , _cdCategoryCode :: Maybe Text
-    , _cdSeverityCode :: Maybe Text
-    , _cdSubmittedBy :: Maybe Text
-    , _cdTimeCreated :: Maybe Text
+    { _cdCaseId :: !(Maybe Text)
+    , _cdDisplayId :: !(Maybe Text)
+    , _cdSubject :: !(Maybe Text)
+    , _cdStatus :: !(Maybe Text)
+    , _cdServiceCode :: !(Maybe Text)
+    , _cdCategoryCode :: !(Maybe Text)
+    , _cdSeverityCode :: !(Maybe Text)
+    , _cdSubmittedBy :: !(Maybe Text)
+    , _cdTimeCreated :: !(Maybe Text)
     , _cdRecentCommunications :: Maybe RecentCaseCommunications
     , _cdCcEmailAddresses :: [Text]
-    , _cdLanguage :: Maybe Text
+    , _cdLanguage :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -463,8 +463,8 @@ instance FromJSON CaseDetails
 -- category code of the problem, selected from the DescribeServices response
 -- for each AWS service.
 data Category = Category
-    { _c1Code :: Maybe Text
-    , _c1Name :: Maybe Text
+    { _c1Code :: !(Maybe Text)
+    , _c1Name :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -498,10 +498,10 @@ instance ToJSON Category
 -- consists of the case ID, the message body, attachment information, the
 -- account email address, and the date and time of the communication.
 data Communication = Communication
-    { _cCaseId :: Maybe Text
-    , _cBody :: Maybe Text
-    , _cSubmittedBy :: Maybe Text
-    , _cTimeCreated :: Maybe Text
+    { _cCaseId :: !(Maybe Text)
+    , _cBody :: !(Maybe Text)
+    , _cSubmittedBy :: !(Maybe Text)
+    , _cTimeCreated :: !(Maybe Text)
     , _cAttachmentSet :: [AttachmentDetails]
     } deriving (Show, Generic)
 
@@ -560,7 +560,7 @@ instance ToJSON Communication
 -- nextToken that you can use to retrieve earlier communications.
 data RecentCaseCommunications = RecentCaseCommunications
     { _rccCommunications :: [Communication]
-    , _rccNextToken :: Maybe Text
+    , _rccNextToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -594,8 +594,8 @@ instance ToJSON RecentCaseCommunications
 -- | Information about an AWS service returned by the DescribeServices
 -- operation.
 data Service = Service
-    { _sCode :: Maybe Text
-    , _sName :: Maybe Text
+    { _sCode :: !(Maybe Text)
+    , _sName :: !(Maybe Text)
     , _sCategories :: [Category]
     } deriving (Show, Generic)
 
@@ -642,8 +642,8 @@ instance FromJSON Service
 -- | A code and name pair that represent a severity level that can be applied to
 -- a support case.
 data SeverityLevel = SeverityLevel
-    { _slCode :: Maybe Text
-    , _slName :: Maybe Text
+    { _slCode :: !(Maybe Text)
+    , _slName :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -677,10 +677,10 @@ instance FromJSON SeverityLevel
 
 -- | The description and metadata for a Trusted Advisor check.
 data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription
-    { _tacdId :: Text
-    , _tacdName :: Text
-    , _tacdDescription :: Text
-    , _tacdCategory :: Text
+    { _tacdId :: !Text
+    , _tacdName :: !Text
+    , _tacdDescription :: !Text
+    , _tacdCategory :: !Text
     , _tacdMetadata :: [Text]
     } deriving (Show, Generic)
 
@@ -745,9 +745,9 @@ instance FromJSON TrustedAdvisorCheckDescription
 
 -- | The refresh status of a Trusted Advisor check.
 data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus
-    { _tacrsCheckId :: Text
-    , _tacrsStatus :: Text
-    , _tacrsMillisUntilNextRefreshable :: Integer
+    { _tacrsCheckId :: !Text
+    , _tacrsStatus :: !Text
+    , _tacrsMillisUntilNextRefreshable :: !Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -794,9 +794,9 @@ instance FromJSON TrustedAdvisorCheckRefreshStatus
 
 -- | The detailed results of the Trusted Advisor check.
 data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult
-    { _tacrCheckId :: Text
-    , _tacrTimestamp :: Text
-    , _tacrStatus :: Text
+    { _tacrCheckId :: !Text
+    , _tacrTimestamp :: !Text
+    , _tacrStatus :: !Text
     , _tacrResourcesSummary :: TrustedAdvisorResourcesSummary
     , _tacrCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
     , _tacrFlaggedResources :: [TrustedAdvisorResourceDetail]
@@ -874,10 +874,10 @@ instance FromJSON TrustedAdvisorCheckResult
 -- | A summary of a Trusted Advisor check result, including the alert status,
 -- last refresh, and number of resources examined.
 data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary
-    { _tacsCheckId :: Text
-    , _tacsTimestamp :: Text
-    , _tacsStatus :: Text
-    , _tacsHasFlaggedResources :: Maybe Bool
+    { _tacsCheckId :: !Text
+    , _tacsTimestamp :: !Text
+    , _tacsStatus :: !Text
+    , _tacsHasFlaggedResources :: !(Maybe Bool)
     , _tacsResourcesSummary :: TrustedAdvisorResourcesSummary
     , _tacsCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
     } deriving (Show, Generic)
@@ -954,8 +954,8 @@ instance FromJSON TrustedAdvisorCheckSummary
 -- | The summary information about cost savings for a Trusted Advisor check that
 -- is in the Cost Optimizing category.
 data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary
-    { _tacosEstimatedMonthlySavings :: Double
-    , _tacosEstimatedPercentMonthlySavings :: Double
+    { _tacosEstimatedMonthlySavings :: !Double
+    , _tacosEstimatedPercentMonthlySavings :: !Double
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -996,10 +996,10 @@ instance ToJSON TrustedAdvisorCostOptimizingSummary
 -- | Contains information about a resource identified by a Trusted Advisor
 -- check.
 data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail
-    { _tardStatus :: Text
-    , _tardRegion :: Text
-    , _tardResourceId :: Text
-    , _tardIsSuppressed :: Maybe Bool
+    { _tardStatus :: !Text
+    , _tardRegion :: !Text
+    , _tardResourceId :: !Text
+    , _tardIsSuppressed :: !(Maybe Bool)
     , _tardMetadata :: [Text]
     } deriving (Show, Generic)
 
@@ -1066,10 +1066,10 @@ instance FromJSON TrustedAdvisorResourceDetail
 -- | Details about AWS resources that were analyzed in a call to Trusted Advisor
 -- DescribeTrustedAdvisorCheckSummaries.
 data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary
-    { _tarsResourcesProcessed :: Integer
-    , _tarsResourcesFlagged :: Integer
-    , _tarsResourcesIgnored :: Integer
-    , _tarsResourcesSuppressed :: Integer
+    { _tarsResourcesProcessed :: !Integer
+    , _tarsResourcesFlagged :: !Integer
+    , _tarsResourcesIgnored :: !Integer
+    , _tarsResourcesSuppressed :: !Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

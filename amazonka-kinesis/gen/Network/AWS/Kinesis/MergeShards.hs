@@ -78,9 +78,9 @@ import Network.AWS.Request.JSON
 
 -- | Represents the input of a MergeShards operation.
 data MergeShards = MergeShards
-    { _msStreamName :: Text
-    , _msShardToMerge :: Text
-    , _msAdjacentShardToMerge :: Text
+    { _msStreamName :: !Text
+    , _msShardToMerge :: !Text
+    , _msAdjacentShardToMerge :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

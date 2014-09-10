@@ -76,7 +76,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions
-    { _coweDomain :: Text
+    { _coweDomain :: !Text
     , _coweStartTimeFilter :: ExecutionTimeFilter
     , _coweTypeFilter :: Maybe WorkflowTypeFilter
     , _coweTagFilter :: Maybe TagFilter
@@ -149,8 +149,8 @@ instance ToJSON CountOpenWorkflowExecutions
 -- | Contains the count of workflow executions returned from
 -- CountOpenWorkflowExecutions or CountClosedWorkflowExecutions.
 data CountOpenWorkflowExecutionsResponse = CountOpenWorkflowExecutionsResponse
-    { _cowerCount :: Integer
-    , _cowerTruncated :: Maybe Bool
+    { _cowerCount :: !Integer
+    , _cowerTruncated :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

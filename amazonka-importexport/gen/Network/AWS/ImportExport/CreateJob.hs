@@ -54,9 +54,9 @@ import Network.AWS.Prelude
 -- | Input structure for the CreateJob operation.
 data CreateJob = CreateJob
     { _cj1JobType :: JobType
-    , _cj1Manifest :: Text
-    , _cj1ManifestAddendum :: Maybe Text
-    , _cj1ValidateOnly :: Bool
+    , _cj1Manifest :: !Text
+    , _cj1ManifestAddendum :: !(Maybe Text)
+    , _cj1ValidateOnly :: !Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -106,12 +106,12 @@ instance ToQuery CreateJob where
 
 -- | Output structure for the CreateJob operation.
 data CreateJobResponse = CreateJobResponse
-    { _cjrrJobId :: Maybe Text
+    { _cjrrJobId :: !(Maybe Text)
     , _cjrrJobType :: Maybe JobType
-    , _cjrrAwsShippingAddress :: Maybe Text
-    , _cjrrSignature :: Maybe Text
-    , _cjrrSignatureFileContents :: Maybe Text
-    , _cjrrWarningMessage :: Maybe Text
+    , _cjrrAwsShippingAddress :: !(Maybe Text)
+    , _cjrrSignature :: !(Maybe Text)
+    , _cjrrSignatureFileContents :: !(Maybe Text)
+    , _cjrrWarningMessage :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

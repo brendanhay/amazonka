@@ -61,9 +61,9 @@ import Network.AWS.Prelude
 
 -- | Input for ConfirmSubscription action.
 data ConfirmSubscription = ConfirmSubscription
-    { _csTopicArn :: Text
-    , _csToken :: Text
-    , _csAuthenticateOnUnsubscribe :: Maybe Text
+    { _csTopicArn :: !Text
+    , _csToken :: !Text
+    , _csAuthenticateOnUnsubscribe :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -108,7 +108,7 @@ instance ToQuery ConfirmSubscription where
 
 -- | Response for ConfirmSubscriptions action.
 newtype ConfirmSubscriptionResponse = ConfirmSubscriptionResponse
-    { _csrSubscriptionArn :: Maybe Text
+    { _csrSubscriptionArn :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -43,7 +43,7 @@ import Network.AWS.Prelude
 -- | Container for the parameters to the CreateDomain operation. Specifies a
 -- name for the new search domain.
 newtype CreateDomain = CreateDomain
-    { _cdDomainName :: Text
+    { _cdDomainName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

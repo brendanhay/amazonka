@@ -44,7 +44,7 @@ import Network.AWS.Types (Region)
 -- | A complex type that contains information about the request to get a health
 -- check.
 newtype GetHealthCheck = GetHealthCheck
-    { _ghcHealthCheckId :: Text
+    { _ghcHealthCheckId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

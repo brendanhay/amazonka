@@ -49,7 +49,7 @@ import Network.AWS.Request.JSON
 
 -- | This input identifies a cluster and a list of tags to attach.
 data AddTags = AddTags
-    { _atResourceId :: Text
+    { _atResourceId :: !Text
     , _atTags :: [Tag]
     } deriving (Show, Generic)
 

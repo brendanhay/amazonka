@@ -53,12 +53,12 @@ import Network.AWS.Prelude
 
 -- | This documentation target is not reported in the API reference.
 data DescribeEnvironments = DescribeEnvironments
-    { _deApplicationName :: Maybe Text
-    , _deVersionLabel :: Maybe Text
+    { _deApplicationName :: !(Maybe Text)
+    , _deVersionLabel :: !(Maybe Text)
     , _deEnvironmentIds :: [Text]
     , _deEnvironmentNames :: [Text]
-    , _deIncludeDeleted :: Maybe Bool
-    , _deIncludedDeletedBackTo :: Maybe ISO8601
+    , _deIncludeDeleted :: !(Maybe Bool)
+    , _deIncludedDeletedBackTo :: !(Maybe ISO8601)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

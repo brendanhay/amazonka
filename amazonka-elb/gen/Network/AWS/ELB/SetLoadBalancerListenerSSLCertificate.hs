@@ -50,9 +50,9 @@ import Network.AWS.Prelude
 
 -- | The input for the SetLoadBalancerListenerSSLCertificate action.
 data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificate
-    { _slblsslcLoadBalancerName :: Text
-    , _slblsslcLoadBalancerPort :: Integer
-    , _slblsslcSSLCertificateId :: Text
+    { _slblsslcLoadBalancerName :: !Text
+    , _slblsslcLoadBalancerPort :: !Integer
+    , _slblsslcSSLCertificateId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

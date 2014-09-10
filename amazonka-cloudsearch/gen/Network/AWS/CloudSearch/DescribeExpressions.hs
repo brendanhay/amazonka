@@ -52,9 +52,9 @@ import Network.AWS.Prelude
 -- describe. To show the active configuration and exclude any pending changes,
 -- set the Deployed option to true.
 data DescribeExpressions = DescribeExpressions
-    { _de2DomainName :: Text
+    { _de2DomainName :: !Text
     , _de2ExpressionNames :: [Text]
-    , _de2Deployed :: Maybe Bool
+    , _de2Deployed :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

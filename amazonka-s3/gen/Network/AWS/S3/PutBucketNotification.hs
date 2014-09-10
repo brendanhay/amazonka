@@ -41,8 +41,8 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data PutBucketNotification = PutBucketNotification
-    { _pbnBucket :: BucketName
-    , _pbnContentMD5 :: Maybe Text
+    { _pbnBucket :: !BucketName
+    , _pbnContentMD5 :: !(Maybe Text)
     , _pbnNotificationConfiguration :: NotificationConfiguration
     } deriving (Show, Generic)
 

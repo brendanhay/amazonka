@@ -96,16 +96,16 @@ import Network.AWS.Request.JSON
 
 -- | The RegisterDomain request includes the following elements.
 data RegisterDomain = RegisterDomain
-    { _rdDomainName :: Text
-    , _rdIdnLangCode :: Maybe Text
-    , _rdDurationInYears :: Integer
-    , _rdAutoRenew :: Maybe Bool
+    { _rdDomainName :: !Text
+    , _rdIdnLangCode :: !(Maybe Text)
+    , _rdDurationInYears :: !Integer
+    , _rdAutoRenew :: !(Maybe Bool)
     , _rdAdminContact :: ContactDetail
     , _rdRegistrantContact :: ContactDetail
     , _rdTechContact :: ContactDetail
-    , _rdPrivacyProtectAdminContact :: Maybe Bool
-    , _rdPrivacyProtectRegistrantContact :: Maybe Bool
-    , _rdPrivacyProtectTechContact :: Maybe Bool
+    , _rdPrivacyProtectAdminContact :: !(Maybe Bool)
+    , _rdPrivacyProtectRegistrantContact :: !(Maybe Bool)
+    , _rdPrivacyProtectTechContact :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -236,7 +236,7 @@ instance ToJSON RegisterDomain
 
 -- | The RegisterDomain response includes the following element.
 newtype RegisterDomainResponse = RegisterDomainResponse
-    { _rdrOperationId :: Text
+    { _rdrOperationId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

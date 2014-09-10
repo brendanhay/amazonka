@@ -37,7 +37,6 @@ module Network.AWS.ELB
     , module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     , module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     , module Network.AWS.ELB.ModifyLoadBalancerAttributes
-    , module Network.AWS.ELB.Monadic
     , module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     , module Network.AWS.ELB.RemoveTags
     , module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
@@ -69,7 +68,6 @@ import Network.AWS.ELB.DetachLoadBalancerFromSubnets
 import Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
 import Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
 import Network.AWS.ELB.ModifyLoadBalancerAttributes
-import Network.AWS.ELB.Monadic
 import Network.AWS.ELB.RegisterInstancesWithLoadBalancer
 import Network.AWS.ELB.RemoveTags
 import Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate

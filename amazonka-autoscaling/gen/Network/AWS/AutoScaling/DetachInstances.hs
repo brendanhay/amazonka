@@ -54,8 +54,8 @@ import Network.AWS.Prelude
 
 data DetachInstances = DetachInstances
     { _diInstanceIds :: [Text]
-    , _diAutoScalingGroupName :: Text
-    , _diShouldDecrementDesiredCapacity :: Bool
+    , _diAutoScalingGroupName :: !Text
+    , _diShouldDecrementDesiredCapacity :: !Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -76,7 +76,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype GetConsoleOutput = GetConsoleOutput
-    { _gcoInstanceId :: Text
+    { _gcoInstanceId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -100,9 +100,9 @@ instance ToQuery GetConsoleOutput where
     toQuery = genericQuery def
 
 data GetConsoleOutputResponse = GetConsoleOutputResponse
-    { _gcorInstanceId :: Maybe Text
-    , _gcorTimestamp :: Maybe ISO8601
-    , _gcorOutput :: Maybe Text
+    { _gcorInstanceId :: !(Maybe Text)
+    , _gcorTimestamp :: !(Maybe ISO8601)
+    , _gcorOutput :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

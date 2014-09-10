@@ -52,7 +52,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data ModifyVolumeAttribute = ModifyVolumeAttribute
-    { _mvaVolumeId :: Text
+    { _mvaVolumeId :: !Text
     , _mvaAutoEnableIO :: Maybe AttributeBooleanValue
     } deriving (Show, Generic)
 

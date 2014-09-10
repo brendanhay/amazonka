@@ -51,14 +51,14 @@ import Network.AWS.Types (Region)
 data PutObjectAcl = PutObjectAcl
     { _poaACL :: Maybe ObjectCannedACL
     , _poaAccessControlPolicy :: Maybe AccessControlPolicy
-    , _poaBucket :: BucketName
-    , _poaContentMD5 :: Maybe Text
-    , _poaGrantFullControl :: Maybe Text
-    , _poaGrantRead :: Maybe Text
-    , _poaGrantReadACP :: Maybe Text
-    , _poaGrantWrite :: Maybe Text
-    , _poaGrantWriteACP :: Maybe Text
-    , _poaKey :: ObjectKey
+    , _poaBucket :: !BucketName
+    , _poaContentMD5 :: !(Maybe Text)
+    , _poaGrantFullControl :: !(Maybe Text)
+    , _poaGrantRead :: !(Maybe Text)
+    , _poaGrantReadACP :: !(Maybe Text)
+    , _poaGrantWrite :: !(Maybe Text)
+    , _poaGrantWriteACP :: !(Maybe Text)
+    , _poaKey :: !ObjectKey
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

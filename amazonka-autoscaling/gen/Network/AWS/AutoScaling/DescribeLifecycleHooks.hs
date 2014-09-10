@@ -42,7 +42,7 @@ import Network.AWS.AutoScaling.Types
 import Network.AWS.Prelude
 
 data DescribeLifecycleHooks = DescribeLifecycleHooks
-    { _dlh1AutoScalingGroupName :: Text
+    { _dlh1AutoScalingGroupName :: !Text
     , _dlh1LifecycleHookNames :: [Text]
     } deriving (Show, Generic)
 

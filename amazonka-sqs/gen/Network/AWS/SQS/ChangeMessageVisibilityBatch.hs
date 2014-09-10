@@ -66,7 +66,7 @@ import Network.AWS.SQS.Types
 import Network.AWS.Prelude
 
 data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch
-    { _cmvbQueueUrl :: Text
+    { _cmvbQueueUrl :: !Text
     , _cmvbEntries :: [ChangeMessageVisibilityBatchRequestEntry]
     } deriving (Show, Generic)
 

@@ -41,7 +41,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype GetBucketLocation = GetBucketLocation
-    { _gbl1Bucket :: BucketName
+    { _gbl1Bucket :: !BucketName
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

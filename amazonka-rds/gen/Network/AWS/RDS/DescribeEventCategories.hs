@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 
 -- | 
 newtype DescribeEventCategories = DescribeEventCategories
-    { _decSourceType :: Maybe Text
+    { _decSourceType :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

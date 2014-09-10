@@ -46,8 +46,8 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DescribeDeployments = DescribeDeployments
-    { _ddStackId :: Maybe Text
-    , _ddAppId :: Maybe Text
+    { _ddStackId :: !(Maybe Text)
+    , _ddAppId :: !(Maybe Text)
     , _ddDeploymentIds :: [Text]
     } deriving (Show, Generic)
 

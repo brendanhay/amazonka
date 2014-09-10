@@ -58,15 +58,15 @@ import Network.AWS.Prelude
 
 -- | 
 data DescribeReservedDBInstances = DescribeReservedDBInstances
-    { _drdbiReservedDBInstanceId :: Maybe Text
-    , _drdbiReservedDBInstancesOfferingId :: Maybe Text
-    , _drdbiDBInstanceClass :: Maybe Text
-    , _drdbiDuration :: Maybe Text
-    , _drdbiProductDescription :: Maybe Text
-    , _drdbiOfferingType :: Maybe Text
-    , _drdbiMultiAZ :: Maybe Bool
-    , _drdbiMaxRecords :: Maybe Integer
-    , _drdbiMarker :: Maybe Text
+    { _drdbiReservedDBInstanceId :: !(Maybe Text)
+    , _drdbiReservedDBInstancesOfferingId :: !(Maybe Text)
+    , _drdbiDBInstanceClass :: !(Maybe Text)
+    , _drdbiDuration :: !(Maybe Text)
+    , _drdbiProductDescription :: !(Maybe Text)
+    , _drdbiOfferingType :: !(Maybe Text)
+    , _drdbiMultiAZ :: !(Maybe Bool)
+    , _drdbiMaxRecords :: !(Maybe Integer)
+    , _drdbiMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -169,7 +169,7 @@ instance ToQuery DescribeReservedDBInstances where
 -- | Contains the result of a successful invocation of the
 -- DescribeReservedDBInstances action.
 data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse
-    { _drdbirMarker :: Maybe Text
+    { _drdbirMarker :: !(Maybe Text)
     , _drdbirReservedDBInstances :: [ReservedDBInstance]
     } deriving (Show, Generic)
 

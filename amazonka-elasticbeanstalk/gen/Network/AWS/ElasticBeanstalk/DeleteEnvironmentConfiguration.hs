@@ -49,8 +49,8 @@ import Network.AWS.Prelude
 
 -- | This documentation target is not reported in the API reference.
 data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration
-    { _decApplicationName :: Text
-    , _decEnvironmentName :: Text
+    { _decApplicationName :: !Text
+    , _decEnvironmentName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

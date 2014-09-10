@@ -79,34 +79,34 @@ type PutObjectCopy = CopyObject
 
 data CopyObject = CopyObject
     { _coACL :: Maybe ObjectCannedACL
-    , _coBucket :: BucketName
-    , _coCacheControl :: Maybe Text
-    , _coContentDisposition :: Maybe Text
-    , _coContentEncoding :: Maybe Text
-    , _coContentLanguage :: Maybe Text
-    , _coContentType :: Maybe Text
-    , _coCopySource :: Text
-    , _coCopySourceIfMatch :: Maybe Text
-    , _coCopySourceIfModifiedSince :: Maybe RFC822
-    , _coCopySourceIfNoneMatch :: Maybe Text
-    , _coCopySourceIfUnmodifiedSince :: Maybe RFC822
-    , _coExpires :: Maybe RFC822
-    , _coGrantFullControl :: Maybe Text
-    , _coGrantRead :: Maybe Text
-    , _coGrantReadACP :: Maybe Text
-    , _coGrantWriteACP :: Maybe Text
-    , _coKey :: ObjectKey
+    , _coBucket :: !BucketName
+    , _coCacheControl :: !(Maybe Text)
+    , _coContentDisposition :: !(Maybe Text)
+    , _coContentEncoding :: !(Maybe Text)
+    , _coContentLanguage :: !(Maybe Text)
+    , _coContentType :: !(Maybe Text)
+    , _coCopySource :: !Text
+    , _coCopySourceIfMatch :: !(Maybe Text)
+    , _coCopySourceIfModifiedSince :: !(Maybe RFC822)
+    , _coCopySourceIfNoneMatch :: !(Maybe Text)
+    , _coCopySourceIfUnmodifiedSince :: !(Maybe RFC822)
+    , _coExpires :: !(Maybe RFC822)
+    , _coGrantFullControl :: !(Maybe Text)
+    , _coGrantRead :: !(Maybe Text)
+    , _coGrantReadACP :: !(Maybe Text)
+    , _coGrantWriteACP :: !(Maybe Text)
+    , _coKey :: !ObjectKey
     , _coMetadata :: Map Text Text
     , _coMetadataDirective :: Maybe MetadataDirective
     , _coServerSideEncryption :: Maybe ServerSideEncryption
     , _coStorageClass :: Maybe StorageClass
-    , _coWebsiteRedirectLocation :: Maybe Text
-    , _coSSECustomerAlgorithm :: Maybe Text
-    , _coSSECustomerKey :: Maybe Text
-    , _coSSECustomerKeyMD5 :: Maybe Text
-    , _coCopySourceSSECustomerAlgorithm :: Maybe Text
-    , _coCopySourceSSECustomerKey :: Maybe Text
-    , _coCopySourceSSECustomerKeyMD5 :: Maybe Text
+    , _coWebsiteRedirectLocation :: !(Maybe Text)
+    , _coSSECustomerAlgorithm :: !(Maybe Text)
+    , _coSSECustomerKey :: !(Maybe Text)
+    , _coSSECustomerKeyMD5 :: !(Maybe Text)
+    , _coCopySourceSSECustomerAlgorithm :: !(Maybe Text)
+    , _coCopySourceSSECustomerKey :: !(Maybe Text)
+    , _coCopySourceSSECustomerKeyMD5 :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -404,11 +404,11 @@ instance ToBody CopyObject
 
 data CopyObjectResponse = CopyObjectResponse
     { _corCopyObjectResult :: Maybe CopyObjectResult
-    , _corExpiration :: Maybe RFC822
-    , _corCopySourceVersionId :: Maybe Text
+    , _corExpiration :: !(Maybe RFC822)
+    , _corCopySourceVersionId :: !(Maybe Text)
     , _corServerSideEncryption :: Maybe ServerSideEncryption
-    , _corSSECustomerAlgorithm :: Maybe Text
-    , _corSSECustomerKeyMD5 :: Maybe Text
+    , _corSSECustomerAlgorithm :: !(Maybe Text)
+    , _corSSECustomerKeyMD5 :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

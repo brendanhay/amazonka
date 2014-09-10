@@ -57,7 +57,7 @@ import Network.AWS.Request.JSON
 
 -- | The ReadJobRequest structure.
 newtype ReadJob = ReadJob
-    { _rjId :: Text
+    { _rjId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

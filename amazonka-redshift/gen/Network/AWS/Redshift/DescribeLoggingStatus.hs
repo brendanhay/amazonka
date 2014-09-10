@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 
 -- | 
 newtype DescribeLoggingStatus = DescribeLoggingStatus
-    { _dlsClusterIdentifier :: Text
+    { _dlsClusterIdentifier :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -74,12 +74,12 @@ instance ToQuery DescribeLoggingStatus where
 
 -- | Describes the status of logging for a cluster.
 data DescribeLoggingStatusResponse = DescribeLoggingStatusResponse
-    { _dlsrLoggingEnabled :: Maybe Bool
-    , _dlsrBucketName :: Maybe Text
-    , _dlsrS3KeyPrefix :: Maybe Text
-    , _dlsrLastSuccessfulDeliveryTime :: Maybe ISO8601
-    , _dlsrLastFailureTime :: Maybe ISO8601
-    , _dlsrLastFailureMessage :: Maybe Text
+    { _dlsrLoggingEnabled :: !(Maybe Bool)
+    , _dlsrBucketName :: !(Maybe Text)
+    , _dlsrS3KeyPrefix :: !(Maybe Text)
+    , _dlsrLastSuccessfulDeliveryTime :: !(Maybe ISO8601)
+    , _dlsrLastFailureTime :: !(Maybe ISO8601)
+    , _dlsrLastFailureMessage :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

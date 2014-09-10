@@ -81,7 +81,7 @@ import Network.AWS.Request.JSON
 
 -- | The input of the ValidatePipelineDefinition action.
 data ValidatePipelineDefinition = ValidatePipelineDefinition
-    { _vpdPipelineId :: Text
+    { _vpdPipelineId :: !Text
     , _vpdPipelineObjects :: [PipelineObject]
     } deriving (Show, Generic)
 
@@ -124,7 +124,7 @@ instance ToJSON ValidatePipelineDefinition
 data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse
     { _vpdrValidationErrors :: [ValidationError]
     , _vpdrValidationWarnings :: [ValidationWarning]
-    , _vpdrErrored :: Bool
+    , _vpdrErrored :: !Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

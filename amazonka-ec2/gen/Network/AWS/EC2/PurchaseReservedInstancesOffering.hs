@@ -63,8 +63,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
-    { _prioReservedInstancesOfferingId :: Text
-    , _prioInstanceCount :: Integer
+    { _prioReservedInstancesOfferingId :: !Text
+    , _prioInstanceCount :: !Integer
     , _prioLimitPrice :: Maybe ReservedInstanceLimitPrice
     } deriving (Show, Generic)
 
@@ -109,7 +109,7 @@ instance ToQuery PurchaseReservedInstancesOffering where
     toQuery = genericQuery def
 
 newtype PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
-    { _priorReservedInstancesId :: Maybe Text
+    { _priorReservedInstancesId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

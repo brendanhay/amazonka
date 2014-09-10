@@ -74,7 +74,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype CreateKeyPair = CreateKeyPair
-    { _ckpKeyName :: Text
+    { _ckpKeyName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -98,9 +98,9 @@ instance ToQuery CreateKeyPair where
     toQuery = genericQuery def
 
 data CreateKeyPairResponse = CreateKeyPairResponse
-    { _ckprKeyName :: Maybe Text
-    , _ckprKeyFingerprint :: Maybe Text
-    , _ckprKeyMaterial :: Maybe Text
+    { _ckprKeyName :: !(Maybe Text)
+    , _ckprKeyFingerprint :: !(Maybe Text)
+    , _ckprKeyMaterial :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -82,11 +82,11 @@ import Network.AWS.Types (Region)
 
 -- | The input for a ListResourceRecordSets request.
 data ListResourceRecordSets = ListResourceRecordSets
-    { _lrrsHostedZoneId :: Text
-    , _lrrsStartRecordName :: Maybe Text
+    { _lrrsHostedZoneId :: !Text
+    , _lrrsStartRecordName :: !(Maybe Text)
     , _lrrsStartRecordType :: Maybe RecordType
-    , _lrrsStartRecordIdentifier :: Maybe Text
-    , _lrrsMaxItems :: Maybe Text
+    , _lrrsStartRecordIdentifier :: !(Maybe Text)
+    , _lrrsMaxItems :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -164,11 +164,11 @@ instance ToXML ListResourceRecordSets where
 -- that are returned by the request and information about the response.
 data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
     { _lrrsrResourceRecordSets :: [ResourceRecordSet]
-    , _lrrsrIsTruncated :: Bool
-    , _lrrsrNextRecordName :: Maybe Text
+    , _lrrsrIsTruncated :: !Bool
+    , _lrrsrNextRecordName :: !(Maybe Text)
     , _lrrsrNextRecordType :: Maybe RecordType
-    , _lrrsrNextRecordIdentifier :: Maybe Text
-    , _lrrsrMaxItems :: Text
+    , _lrrsrNextRecordIdentifier :: !(Maybe Text)
+    , _lrrsrMaxItems :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

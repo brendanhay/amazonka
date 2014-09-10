@@ -50,8 +50,8 @@ import Network.AWS.Prelude
 
 -- | This documentation target is not reported in the API reference.
 data CreateApplication = CreateApplication
-    { _caApplicationName :: Text
-    , _caDescription :: Maybe Text
+    { _caApplicationName :: !Text
+    , _caDescription :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

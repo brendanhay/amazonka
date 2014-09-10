@@ -60,8 +60,8 @@ import Network.AWS.Prelude
 
 -- | The input for ListStackResource action.
 data ListStackResources = ListStackResources
-    { _lsrStackName :: Text
-    , _lsrNextToken :: Maybe Text
+    { _lsrStackName :: !Text
+    , _lsrNextToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -98,7 +98,7 @@ instance ToQuery ListStackResources where
 -- | The output for a ListStackResources action.
 data ListStackResourcesResponse = ListStackResourcesResponse
     { _lsrrStackResourceSummaries :: [StackResourceSummary]
-    , _lsrrNextToken :: Maybe Text
+    , _lsrrNextToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -53,10 +53,10 @@ import Network.AWS.RDS.Types
 import Network.AWS.Prelude
 
 data DescribeDBParameters = DescribeDBParameters
-    { _ddbpDBParameterGroupName :: Text
-    , _ddbpSource :: Maybe Text
-    , _ddbpMaxRecords :: Maybe Integer
-    , _ddbpMarker :: Maybe Text
+    { _ddbpDBParameterGroupName :: !Text
+    , _ddbpSource :: !(Maybe Text)
+    , _ddbpMaxRecords :: !(Maybe Integer)
+    , _ddbpMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -114,7 +114,7 @@ instance ToQuery DescribeDBParameters where
 -- action.
 data DescribeDBParametersResponse = DescribeDBParametersResponse
     { _ddbprParameters :: [Parameter]
-    , _ddbprMarker :: Maybe Text
+    , _ddbprMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

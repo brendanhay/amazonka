@@ -50,10 +50,10 @@ import Network.AWS.Request.JSON
 -- | This input determines how the ListClusters action filters the list of
 -- clusters that it returns.
 data ListClusters = ListClusters
-    { _lcCreatedAfter :: Maybe POSIX
-    , _lcCreatedBefore :: Maybe POSIX
+    { _lcCreatedAfter :: !(Maybe POSIX)
+    , _lcCreatedBefore :: !(Maybe POSIX)
     , _lcClusterStates :: [ClusterState]
-    , _lcMarker :: Maybe Text
+    , _lcMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -105,7 +105,7 @@ instance ToJSON ListClusters
 -- the cluster IDs, names, and status.
 data ListClustersResponse = ListClustersResponse
     { _lcrClusters :: [ClusterSummary]
-    , _lcrMarker :: Maybe Text
+    , _lcrMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

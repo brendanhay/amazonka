@@ -55,7 +55,7 @@ import Network.AWS.Request.JSON
 
 -- | Represents the input of a DeleteTable operation.
 newtype DeleteTable = DeleteTable
-    { _dtTableName :: Text
+    { _dtTableName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

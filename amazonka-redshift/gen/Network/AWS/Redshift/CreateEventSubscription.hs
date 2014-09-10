@@ -66,13 +66,13 @@ import Network.AWS.Prelude
 
 -- | 
 data CreateEventSubscription = CreateEventSubscription
-    { _cesSubscriptionName :: Text
-    , _cesSnsTopicArn :: Text
-    , _cesSourceType :: Maybe Text
+    { _cesSubscriptionName :: !Text
+    , _cesSnsTopicArn :: !Text
+    , _cesSourceType :: !(Maybe Text)
     , _cesSourceIds :: [Text]
     , _cesEventCategories :: [Text]
-    , _cesSeverity :: Maybe Text
-    , _cesEnabled :: Maybe Bool
+    , _cesSeverity :: !(Maybe Text)
+    , _cesEnabled :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

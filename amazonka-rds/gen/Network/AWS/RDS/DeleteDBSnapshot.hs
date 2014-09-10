@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 
 -- | 
 newtype DeleteDBSnapshot = DeleteDBSnapshot
-    { _ddbsDBSnapshotIdentifier :: Text
+    { _ddbsDBSnapshotIdentifier :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

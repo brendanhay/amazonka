@@ -44,7 +44,7 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 newtype DeleteSAMLProvider = DeleteSAMLProvider
-    { _dsamlpSAMLProviderArn :: Text
+    { _dsamlpSAMLProviderArn :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

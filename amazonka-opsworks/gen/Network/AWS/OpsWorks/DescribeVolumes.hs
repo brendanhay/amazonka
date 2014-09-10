@@ -47,9 +47,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DescribeVolumes = DescribeVolumes
-    { _dv1InstanceId :: Maybe Text
-    , _dv1StackId :: Maybe Text
-    , _dv1RaidArrayId :: Maybe Text
+    { _dv1InstanceId :: !(Maybe Text)
+    , _dv1StackId :: !(Maybe Text)
+    , _dv1RaidArrayId :: !(Maybe Text)
     , _dv1VolumeIds :: [Text]
     } deriving (Show, Generic)
 

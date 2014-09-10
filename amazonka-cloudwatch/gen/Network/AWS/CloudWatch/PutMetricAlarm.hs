@@ -58,20 +58,20 @@ import Network.AWS.CloudWatch.Types
 import Network.AWS.Prelude
 
 data PutMetricAlarm = PutMetricAlarm
-    { _pmaAlarmName :: Text
-    , _pmaAlarmDescription :: Maybe Text
-    , _pmaActionsEnabled :: Maybe Bool
+    { _pmaAlarmName :: !Text
+    , _pmaAlarmDescription :: !(Maybe Text)
+    , _pmaActionsEnabled :: !(Maybe Bool)
     , _pmaOKActions :: [Text]
     , _pmaAlarmActions :: [Text]
     , _pmaInsufficientDataActions :: [Text]
-    , _pmaMetricName :: Text
-    , _pmaNamespace :: Text
+    , _pmaMetricName :: !Text
+    , _pmaNamespace :: !Text
     , _pmaStatistic :: Statistic
     , _pmaDimensions :: [Dimension]
-    , _pmaPeriod :: Integer
+    , _pmaPeriod :: !Integer
     , _pmaUnit :: Maybe StandardUnit
-    , _pmaEvaluationPeriods :: Integer
-    , _pmaThreshold :: Double
+    , _pmaEvaluationPeriods :: !Integer
+    , _pmaThreshold :: !Double
     , _pmaComparisonOperator :: ComparisonOperator
     } deriving (Show, Generic)
 

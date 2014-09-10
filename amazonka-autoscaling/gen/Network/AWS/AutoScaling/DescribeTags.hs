@@ -54,8 +54,8 @@ import Network.AWS.Prelude
 -- | 
 data DescribeTags = DescribeTags
     { _dt1Filters :: [Filter]
-    , _dt1NextToken :: Maybe Text
-    , _dt1MaxRecords :: Maybe Integer
+    , _dt1NextToken :: !(Maybe Text)
+    , _dt1MaxRecords :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -97,7 +97,7 @@ instance ToQuery DescribeTags where
 -- | 
 data DescribeTagsResponse = DescribeTagsResponse
     { _dtrTags :: [TagDescription]
-    , _dtrNextToken :: Maybe Text
+    , _dtrNextToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

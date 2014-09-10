@@ -307,7 +307,7 @@ instance Exception (Er ElasticTranscoder)
 -- auto, Elastic Transcoder chooses a profile based on the bit rate of the
 -- output file.
 newtype AudioCodecOptions = AudioCodecOptions
-    { _acoProfile :: Maybe Text
+    { _acoProfile :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -373,12 +373,12 @@ instance ToJSON Clip
 -- artwork unchanged, set the Merge Policy to "Prepend", "Append", or
 -- "Fallback", and use an empty Artwork array.
 data Artwork = Artwork
-    { _aInputKey :: Maybe Text
-    , _aMaxWidth :: Maybe Text
-    , _aMaxHeight :: Maybe Text
-    , _aSizingPolicy :: Maybe Text
-    , _aPaddingPolicy :: Maybe Text
-    , _aAlbumArtFormat :: Maybe Text
+    { _aInputKey :: !(Maybe Text)
+    , _aMaxWidth :: !(Maybe Text)
+    , _aMaxHeight :: !(Maybe Text)
+    , _aSizingPolicy :: !(Maybe Text)
+    , _aPaddingPolicy :: !(Maybe Text)
+    , _aAlbumArtFormat :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -470,10 +470,10 @@ instance ToJSON Artwork
 
 -- | A section of the request body that specifies the audio parameters.
 data AudioParameters = AudioParameters
-    { _apCodec :: Maybe Text
-    , _apSampleRate :: Maybe Text
-    , _apBitRate :: Maybe Text
-    , _apChannels :: Maybe Text
+    { _apCodec :: !(Maybe Text)
+    , _apSampleRate :: !(Maybe Text)
+    , _apBitRate :: !(Maybe Text)
+    , _apChannels :: !(Maybe Text)
     , _apCodecOptions :: Maybe AudioCodecOptions
     } deriving (Show, Generic)
 
@@ -537,8 +537,8 @@ instance ToJSON AudioParameters
 -- | The file format of the output captions. If you leave this value blank,
 -- Elastic Transcoder returns an error.
 data CaptionFormat = CaptionFormat
-    { _cfFormat :: Maybe Text
-    , _cfPattern :: Maybe Text
+    { _cfFormat :: !(Maybe Text)
+    , _cfPattern :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -587,10 +587,10 @@ instance ToJSON CaptionFormat
 -- | A source file for the input sidecar captions used during the transcoding
 -- process.
 data CaptionSource = CaptionSource
-    { _csKey :: Maybe Text
-    , _csLanguage :: Maybe Text
-    , _csTimeOffset :: Maybe Text
-    , _csLabel :: Maybe Text
+    { _csKey :: !(Maybe Text)
+    , _csLanguage :: !(Maybe Text)
+    , _csTimeOffset :: !(Maybe Text)
+    , _csLabel :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -671,7 +671,7 @@ instance ToJSON CaptionSource
 -- more information on sidecar files, see the Extensible Metadata Platform and
 -- Sidecar file Wikipedia pages.
 data Captions = Captions
-    { _c1MergePolicy :: Maybe Text
+    { _c1MergePolicy :: !(Maybe Text)
     , _c1CaptionSources :: [CaptionSource]
     , _c1CaptionFormats :: [CaptionFormat]
     } deriving (Show, Generic)
@@ -728,11 +728,11 @@ instance ToJSON Captions
 
 -- | The CreateJobOutput structure.
 data CreateJobOutput = CreateJobOutput
-    { _cjoKey :: Maybe Text
-    , _cjoThumbnailPattern :: Maybe Text
-    , _cjoRotate :: Maybe Text
-    , _cjoPresetId :: Maybe Text
-    , _cjoSegmentDuration :: Maybe Text
+    { _cjoKey :: !(Maybe Text)
+    , _cjoThumbnailPattern :: !(Maybe Text)
+    , _cjoRotate :: !(Maybe Text)
+    , _cjoPresetId :: !(Maybe Text)
+    , _cjoSegmentDuration :: !(Maybe Text)
     , _cjoWatermarks :: [JobWatermark]
     , _cjoAlbumArt :: Maybe JobAlbumArt
     , _cjoComposition :: [Clip]
@@ -882,8 +882,8 @@ instance ToJSON CreateJobOutput
 
 -- | Information about the master playlist.
 data CreateJobPlaylist = CreateJobPlaylist
-    { _cjpName :: Maybe Text
-    , _cjpFormat :: Maybe Text
+    { _cjpName :: !(Maybe Text)
+    , _cjpFormat :: !(Maybe Text)
     , _cjpOutputKeys :: [Text]
     } deriving (Show, Generic)
 
@@ -930,15 +930,15 @@ instance ToJSON CreateJobPlaylist
 -- | A section of the response body that provides information about the job that
 -- is created.
 data Job = Job
-    { _jId :: Maybe Text
-    , _jArn :: Maybe Text
-    , _jPipelineId :: Maybe Text
+    { _jId :: !(Maybe Text)
+    , _jArn :: !(Maybe Text)
+    , _jPipelineId :: !(Maybe Text)
     , _jInput :: Maybe JobInput
     , _jOutput :: Maybe JobOutput
     , _jOutputs :: [JobOutput]
-    , _jOutputKeyPrefix :: Maybe Text
+    , _jOutputKeyPrefix :: !(Maybe Text)
     , _jPlaylists :: [Playlist]
-    , _jStatus :: Maybe Text
+    , _jStatus :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1047,7 +1047,7 @@ instance FromJSON Job
 -- for each output. Settings for each artwork must be defined in the job for
 -- the current output.
 data JobAlbumArt = JobAlbumArt
-    { _jaaMergePolicy :: Maybe Text
+    { _jaaMergePolicy :: !(Maybe Text)
     , _jaaArtwork :: [Artwork]
     } deriving (Show, Generic)
 
@@ -1089,12 +1089,12 @@ instance ToJSON JobAlbumArt
 -- | A section of the request body that provides information about the file that
 -- is being transcoded.
 data JobInput = JobInput
-    { _jiKey :: Maybe Text
-    , _jiFrameRate :: Maybe Text
-    , _jiResolution :: Maybe Text
-    , _jiAspectRatio :: Maybe Text
-    , _jiInterlaced :: Maybe Text
-    , _jiContainer :: Maybe Text
+    { _jiKey :: !(Maybe Text)
+    , _jiFrameRate :: !(Maybe Text)
+    , _jiResolution :: !(Maybe Text)
+    , _jiAspectRatio :: !(Maybe Text)
+    , _jiInterlaced :: !(Maybe Text)
+    , _jiContainer :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1182,17 +1182,17 @@ instance ToJSON JobInput
 -- instead. A section of the request or response body that provides
 -- information about the transcoded (target) file.
 data JobOutput = JobOutput
-    { _joId :: Maybe Text
-    , _joKey :: Maybe Text
-    , _joThumbnailPattern :: Maybe Text
-    , _joRotate :: Maybe Text
-    , _joPresetId :: Maybe Text
-    , _joSegmentDuration :: Maybe Text
-    , _joStatus :: Maybe Text
-    , _joStatusDetail :: Maybe Text
-    , _joDuration :: Maybe Integer
-    , _joWidth :: Maybe Integer
-    , _joHeight :: Maybe Integer
+    { _joId :: !(Maybe Text)
+    , _joKey :: !(Maybe Text)
+    , _joThumbnailPattern :: !(Maybe Text)
+    , _joRotate :: !(Maybe Text)
+    , _joPresetId :: !(Maybe Text)
+    , _joSegmentDuration :: !(Maybe Text)
+    , _joStatus :: !(Maybe Text)
+    , _joStatusDetail :: !(Maybe Text)
+    , _joDuration :: !(Maybe Integer)
+    , _joWidth :: !(Maybe Integer)
+    , _joHeight :: !(Maybe Integer)
     , _joWatermarks :: [JobWatermark]
     , _joAlbumArt :: Maybe JobAlbumArt
     , _joComposition :: [Clip]
@@ -1414,8 +1414,8 @@ instance ToJSON JobOutput
 -- watermark that is not rectangular, use the .png format, which supports
 -- transparency.
 data JobWatermark = JobWatermark
-    { _jwPresetWatermarkId :: Maybe Text
-    , _jwInputKey :: Maybe Text
+    { _jwPresetWatermarkId :: !(Maybe Text)
+    , _jwInputKey :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1473,10 +1473,10 @@ instance ToJSON JobWatermark
 -- encounters an error condition while processing a job in this pipeline. This
 -- is the ARN that Amazon SNS returned when you created the topic.
 data Notifications = Notifications
-    { _nProgressing :: Maybe Text
-    , _nCompleted :: Maybe Text
-    , _nWarning :: Maybe Text
-    , _nError :: Maybe Text
+    { _nProgressing :: !(Maybe Text)
+    , _nCompleted :: !(Maybe Text)
+    , _nWarning :: !(Maybe Text)
+    , _nError :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1526,8 +1526,8 @@ instance ToJSON Notifications
 
 -- | The Permission structure.
 data Permission = Permission
-    { _p1GranteeType :: Maybe Text
-    , _p1Grantee :: Maybe Text
+    { _p1GranteeType :: !(Maybe Text)
+    , _p1Grantee :: !(Maybe Text)
     , _p1Access :: [Text]
     } deriving (Show, Generic)
 
@@ -1585,13 +1585,13 @@ instance ToJSON Permission
 -- | A section of the response body that provides information about the pipeline
 -- that is created.
 data Pipeline = Pipeline
-    { _prId :: Maybe Text
-    , _prArn :: Maybe Text
-    , _prName :: Maybe Text
-    , _prStatus :: Maybe Text
-    , _prInputBucket :: Maybe Text
-    , _prOutputBucket :: Maybe Text
-    , _prRole :: Maybe Text
+    { _prId :: !(Maybe Text)
+    , _prArn :: !(Maybe Text)
+    , _prName :: !(Maybe Text)
+    , _prStatus :: !(Maybe Text)
+    , _prInputBucket :: !(Maybe Text)
+    , _prOutputBucket :: !(Maybe Text)
+    , _prRole :: !(Maybe Text)
     , _prNotifications :: Maybe Notifications
     , _prContentConfig :: Maybe PipelineOutputConfig
     , _prThumbnailConfig :: Maybe PipelineOutputConfig
@@ -1789,8 +1789,8 @@ instance FromJSON Pipeline
 -- ReducedRedundancy, that you want Elastic Transcoder to assign to the video
 -- files and playlists that it stores in your Amazon S3 bucket.
 data PipelineOutputConfig = PipelineOutputConfig
-    { _pocBucket :: Maybe Text
-    , _pocStorageClass :: Maybe Text
+    { _pocBucket :: !(Maybe Text)
+    , _pocStorageClass :: !(Maybe Text)
     , _pocPermissions :: [Permission]
     } deriving (Show, Generic)
 
@@ -1857,11 +1857,11 @@ instance ToJSON PipelineOutputConfig
 -- that you create only one master playlist. The maximum number of master
 -- playlists in a job is 30.
 data Playlist = Playlist
-    { _pName :: Maybe Text
-    , _pFormat :: Maybe Text
+    { _pName :: !(Maybe Text)
+    , _pFormat :: !(Maybe Text)
     , _pOutputKeys :: [Text]
-    , _pStatus :: Maybe Text
-    , _pStatusDetail :: Maybe Text
+    , _pStatus :: !(Maybe Text)
+    , _pStatusDetail :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1923,15 +1923,15 @@ instance ToJSON Playlist
 -- | A section of the response body that provides information about the preset
 -- that is created.
 data Preset = Preset
-    { _p1rId :: Maybe Text
-    , _p1rArn :: Maybe Text
-    , _p1rName :: Maybe Text
-    , _p1rDescription :: Maybe Text
-    , _p1rContainer :: Maybe Text
+    { _p1rId :: !(Maybe Text)
+    , _p1rArn :: !(Maybe Text)
+    , _p1rName :: !(Maybe Text)
+    , _p1rDescription :: !(Maybe Text)
+    , _p1rContainer :: !(Maybe Text)
     , _p1rAudio :: Maybe AudioParameters
     , _p1rVideo :: Maybe VideoParameters
     , _p1rThumbnails :: Maybe Thumbnails
-    , _p1rType :: Maybe Text
+    , _p1rType :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2030,16 +2030,16 @@ instance FromJSON Preset
 -- which allows you to use the same preset for up to four watermarks that have
 -- different dimensions.
 data PresetWatermark = PresetWatermark
-    { _pwId :: Maybe Text
-    , _pwMaxWidth :: Maybe Text
-    , _pwMaxHeight :: Maybe Text
-    , _pwSizingPolicy :: Maybe Text
-    , _pwHorizontalAlign :: Maybe Text
-    , _pwHorizontalOffset :: Maybe Text
-    , _pwVerticalAlign :: Maybe Text
-    , _pwVerticalOffset :: Maybe Text
-    , _pwOpacity :: Maybe Text
-    , _pwTarget :: Maybe Text
+    { _pwId :: !(Maybe Text)
+    , _pwMaxWidth :: !(Maybe Text)
+    , _pwMaxHeight :: !(Maybe Text)
+    , _pwSizingPolicy :: !(Maybe Text)
+    , _pwHorizontalAlign :: !(Maybe Text)
+    , _pwHorizontalOffset :: !(Maybe Text)
+    , _pwVerticalAlign :: !(Maybe Text)
+    , _pwVerticalOffset :: !(Maybe Text)
+    , _pwOpacity :: !(Maybe Text)
+    , _pwTarget :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2205,14 +2205,14 @@ instance ToJSON PresetWatermark
 -- | A section of the request body that specifies the thumbnail parameters, if
 -- any.
 data Thumbnails = Thumbnails
-    { _tFormat :: Maybe Text
-    , _tInterval :: Maybe Text
-    , _tResolution :: Maybe Text
-    , _tAspectRatio :: Maybe Text
-    , _tMaxWidth :: Maybe Text
-    , _tMaxHeight :: Maybe Text
-    , _tSizingPolicy :: Maybe Text
-    , _tPaddingPolicy :: Maybe Text
+    { _tFormat :: !(Maybe Text)
+    , _tInterval :: !(Maybe Text)
+    , _tResolution :: !(Maybe Text)
+    , _tAspectRatio :: !(Maybe Text)
+    , _tMaxWidth :: !(Maybe Text)
+    , _tMaxHeight :: !(Maybe Text)
+    , _tSizingPolicy :: !(Maybe Text)
+    , _tPaddingPolicy :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2327,8 +2327,8 @@ instance ToJSON Thumbnails
 
 -- | Settings that determine when a clip begins and how long it lasts.
 data TimeSpan = TimeSpan
-    { _tsStartTime :: Maybe Text
-    , _tsDuration :: Maybe Text
+    { _tsStartTime :: !(Maybe Text)
+    , _tsDuration :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2368,20 +2368,20 @@ instance ToJSON TimeSpan
 
 -- | A section of the request body that specifies the video parameters.
 data VideoParameters = VideoParameters
-    { _vpCodec :: Maybe Text
+    { _vpCodec :: !(Maybe Text)
     , _vpCodecOptions :: Map Text Text
-    , _vpKeyframesMaxDist :: Maybe Text
-    , _vpFixedGOP :: Maybe Text
-    , _vpBitRate :: Maybe Text
-    , _vpFrameRate :: Maybe Text
-    , _vpMaxFrameRate :: Maybe Text
-    , _vpResolution :: Maybe Text
-    , _vpAspectRatio :: Maybe Text
-    , _vpMaxWidth :: Maybe Text
-    , _vpMaxHeight :: Maybe Text
-    , _vpDisplayAspectRatio :: Maybe Text
-    , _vpSizingPolicy :: Maybe Text
-    , _vpPaddingPolicy :: Maybe Text
+    , _vpKeyframesMaxDist :: !(Maybe Text)
+    , _vpFixedGOP :: !(Maybe Text)
+    , _vpBitRate :: !(Maybe Text)
+    , _vpFrameRate :: !(Maybe Text)
+    , _vpMaxFrameRate :: !(Maybe Text)
+    , _vpResolution :: !(Maybe Text)
+    , _vpAspectRatio :: !(Maybe Text)
+    , _vpMaxWidth :: !(Maybe Text)
+    , _vpMaxHeight :: !(Maybe Text)
+    , _vpDisplayAspectRatio :: !(Maybe Text)
+    , _vpSizingPolicy :: !(Maybe Text)
+    , _vpPaddingPolicy :: !(Maybe Text)
     , _vpWatermarks :: [PresetWatermark]
     } deriving (Show, Generic)
 

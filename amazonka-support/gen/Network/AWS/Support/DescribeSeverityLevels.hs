@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 newtype DescribeSeverityLevels = DescribeSeverityLevels
-    { _dslLanguage :: Maybe Text
+    { _dslLanguage :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

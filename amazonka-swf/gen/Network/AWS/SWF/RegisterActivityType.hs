@@ -80,15 +80,15 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data RegisterActivityType = RegisterActivityType
-    { _ratDomain :: Text
-    , _ratName :: Text
-    , _ratVersion :: Text
-    , _ratDescription :: Maybe Text
-    , _ratDefaultTaskStartToCloseTimeout :: Maybe Text
-    , _ratDefaultTaskHeartbeatTimeout :: Maybe Text
+    { _ratDomain :: !Text
+    , _ratName :: !Text
+    , _ratVersion :: !Text
+    , _ratDescription :: !(Maybe Text)
+    , _ratDefaultTaskStartToCloseTimeout :: !(Maybe Text)
+    , _ratDefaultTaskHeartbeatTimeout :: !(Maybe Text)
     , _ratDefaultTaskList :: Maybe TaskList
-    , _ratDefaultTaskScheduleToStartTimeout :: Maybe Text
-    , _ratDefaultTaskScheduleToCloseTimeout :: Maybe Text
+    , _ratDefaultTaskScheduleToStartTimeout :: !(Maybe Text)
+    , _ratDefaultTaskScheduleToCloseTimeout :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

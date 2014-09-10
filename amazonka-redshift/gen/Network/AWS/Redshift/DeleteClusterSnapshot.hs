@@ -57,8 +57,8 @@ import Network.AWS.Prelude
 
 -- | 
 data DeleteClusterSnapshot = DeleteClusterSnapshot
-    { _dcsSnapshotIdentifier :: Text
-    , _dcsSnapshotClusterIdentifier :: Maybe Text
+    { _dcsSnapshotIdentifier :: !Text
+    , _dcsSnapshotClusterIdentifier :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

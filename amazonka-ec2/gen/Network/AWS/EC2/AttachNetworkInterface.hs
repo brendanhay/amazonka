@@ -50,9 +50,9 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data AttachNetworkInterface = AttachNetworkInterface
-    { _aniNetworkInterfaceId :: Text
-    , _aniInstanceId :: Text
-    , _aniDeviceIndex :: Integer
+    { _aniNetworkInterfaceId :: !Text
+    , _aniInstanceId :: !Text
+    , _aniDeviceIndex :: !Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -93,7 +93,7 @@ instance ToQuery AttachNetworkInterface where
     toQuery = genericQuery def
 
 newtype AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
-    { _anirAttachmentId :: Maybe Text
+    { _anirAttachmentId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

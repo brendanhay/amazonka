@@ -44,7 +44,7 @@ import Network.AWS.Types (Region)
 -- tags that are associated with an individual resource.
 data ListTagsForResource = ListTagsForResource
     { _ltfrResourceType :: TagResourceType
-    , _ltfrResourceId :: Text
+    , _ltfrResourceId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

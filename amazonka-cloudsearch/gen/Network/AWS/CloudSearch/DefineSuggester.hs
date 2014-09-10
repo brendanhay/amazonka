@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 -- | Container for the parameters to the DefineSuggester operation. Specifies
 -- the name of the domain you want to update and the suggester configuration.
 data DefineSuggester = DefineSuggester
-    { _ds1DomainName :: Text
+    { _ds1DomainName :: !Text
     , _ds1Suggester :: Suggester
     } deriving (Show, Generic)
 

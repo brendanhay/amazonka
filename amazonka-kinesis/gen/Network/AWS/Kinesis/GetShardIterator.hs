@@ -87,10 +87,10 @@ import Network.AWS.Request.JSON
 
 -- | Represents the input of a GetShardIterator operation.
 data GetShardIterator = GetShardIterator
-    { _gsiStreamName :: Text
-    , _gsiShardId :: Text
+    { _gsiStreamName :: !Text
+    , _gsiShardId :: !Text
     , _gsiShardIteratorType :: ShardIteratorType
-    , _gsiStartingSequenceNumber :: Maybe Text
+    , _gsiStartingSequenceNumber :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -155,7 +155,7 @@ instance ToJSON GetShardIterator
 
 -- | Represents the output of a GetShardIterator operation.
 newtype GetShardIteratorResponse = GetShardIteratorResponse
-    { _gsirShardIterator :: Maybe Text
+    { _gsirShardIterator :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

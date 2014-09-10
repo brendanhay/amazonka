@@ -250,9 +250,7 @@ pagination svc o p = case p of
                   (find ((y ==) . _fldName) z)
 
 serviceNamespaces :: Service -> [NS]
-serviceNamespaces s = sort
-    $ (s^.svcNs.nsMonadic)
-    : (s^.svcNs.nsTypes)
+serviceNamespaces s = sort $ (s^.svcNs.nsTypes)
     : map _opNamespace (_svcOperations s)
 
 fields :: Bool -> Service -> Shape -> [Field]
@@ -292,10 +290,11 @@ shapeType rq svc@Service{..} s = Type
     name  = s ^. cmnName
 
 annOf :: Bool -> Service -> Shape -> Ann
-annOf rq svc s = Ann isRaw (ctorOf s) isWrapped monoid' default' req
+annOf rq svc s = Ann isRaw (ctorOf s) isWrapped monoid' default' req strict'
   where
     monoid'  = isMonoid s
     default' = isDefault s
+    strict'  = isStrict s
 
     (isRaw, isWrapped) = case s of
         _ | Just x <- renameType   svc s -> (x, False)
@@ -344,6 +343,10 @@ typeOf Ann{..}
 parens :: (IsString m, Monoid m) => Bool -> m -> m
 parens True  x = "(" <> x <> ")"
 parens False x = x
+
+isStrict :: Shape -> Bool
+isStrict SPrim{} = True
+isStrict _       = False
 
 isBody :: HasCommon a => a -> Bool
 isBody s = s ^. cmnLocation == LBody && s ^. cmnStreaming

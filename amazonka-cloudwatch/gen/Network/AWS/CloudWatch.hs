@@ -27,7 +27,6 @@ module Network.AWS.CloudWatch
     , module Network.AWS.CloudWatch.EnableAlarmActions
     , module Network.AWS.CloudWatch.GetMetricStatistics
     , module Network.AWS.CloudWatch.ListMetrics
-    , module Network.AWS.CloudWatch.Monadic
     , module Network.AWS.CloudWatch.PutMetricAlarm
     , module Network.AWS.CloudWatch.PutMetricData
     , module Network.AWS.CloudWatch.SetAlarmState
@@ -42,7 +41,6 @@ import Network.AWS.CloudWatch.DisableAlarmActions
 import Network.AWS.CloudWatch.EnableAlarmActions
 import Network.AWS.CloudWatch.GetMetricStatistics
 import Network.AWS.CloudWatch.ListMetrics
-import Network.AWS.CloudWatch.Monadic
 import Network.AWS.CloudWatch.PutMetricAlarm
 import Network.AWS.CloudWatch.PutMetricData
 import Network.AWS.CloudWatch.SetAlarmState

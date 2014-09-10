@@ -52,9 +52,9 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data PutGroupPolicy = PutGroupPolicy
-    { _pgpGroupName :: Text
-    , _pgpPolicyName :: Text
-    , _pgpPolicyDocument :: Text
+    { _pgpGroupName :: !Text
+    , _pgpPolicyName :: !Text
+    , _pgpPolicyDocument :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

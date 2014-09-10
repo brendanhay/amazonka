@@ -67,12 +67,12 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data CreateNetworkAclEntry = CreateNetworkAclEntry
-    { _cnaeNetworkAclId :: Text
-    , _cnaeRuleNumber :: Integer
-    , _cnaeProtocol :: Text
+    { _cnaeNetworkAclId :: !Text
+    , _cnaeRuleNumber :: !Integer
+    , _cnaeProtocol :: !Text
     , _cnaeRuleAction :: RuleAction
-    , _cnaeEgress :: Bool
-    , _cnaeCidrBlock :: Text
+    , _cnaeEgress :: !Bool
+    , _cnaeCidrBlock :: !Text
     , _cnaeIcmpTypeCode :: Maybe IcmpTypeCode
     , _cnaePortRange :: Maybe PortRange
     } deriving (Show, Generic)

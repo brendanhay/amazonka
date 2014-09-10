@@ -43,10 +43,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DescribeTapes = DescribeTapes
-    { _dt1GatewayARN :: Text
+    { _dt1GatewayARN :: !Text
     , _dt1TapeARNs :: [Text]
-    , _dt1Marker :: Maybe Text
-    , _dt1Limit :: Maybe Integer
+    , _dt1Marker :: !(Maybe Text)
+    , _dt1Limit :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -95,7 +95,7 @@ instance ToJSON DescribeTapes
 
 data DescribeTapesResponse = DescribeTapesResponse
     { _dtrrTapes :: [Tape]
-    , _dtrrMarker :: Maybe Text
+    , _dtrrMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

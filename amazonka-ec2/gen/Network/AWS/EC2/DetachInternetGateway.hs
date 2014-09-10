@@ -48,8 +48,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DetachInternetGateway = DetachInternetGateway
-    { _dig2InternetGatewayId :: Text
-    , _dig2VpcId :: Text
+    { _dig2InternetGatewayId :: !Text
+    , _dig2VpcId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

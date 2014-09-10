@@ -24,7 +24,6 @@ module Network.AWS.ElasticTranscoder
     , module Network.AWS.ElasticTranscoder.ListJobsByStatus
     , module Network.AWS.ElasticTranscoder.ListPipelines
     , module Network.AWS.ElasticTranscoder.ListPresets
-    , module Network.AWS.ElasticTranscoder.Monadic
     , module Network.AWS.ElasticTranscoder.ReadJob
     , module Network.AWS.ElasticTranscoder.ReadPipeline
     , module Network.AWS.ElasticTranscoder.ReadPreset
@@ -45,7 +44,6 @@ import Network.AWS.ElasticTranscoder.ListJobsByPipeline
 import Network.AWS.ElasticTranscoder.ListJobsByStatus
 import Network.AWS.ElasticTranscoder.ListPipelines
 import Network.AWS.ElasticTranscoder.ListPresets
-import Network.AWS.ElasticTranscoder.Monadic
 import Network.AWS.ElasticTranscoder.ReadJob
 import Network.AWS.ElasticTranscoder.ReadPipeline
 import Network.AWS.ElasticTranscoder.ReadPreset

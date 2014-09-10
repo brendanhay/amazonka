@@ -63,14 +63,14 @@ import Network.AWS.Prelude
 
 -- | 
 data DescribeClusterSnapshots = DescribeClusterSnapshots
-    { _dcs1ClusterIdentifier :: Maybe Text
-    , _dcs1SnapshotIdentifier :: Maybe Text
-    , _dcs1SnapshotType :: Maybe Text
-    , _dcs1StartTime :: Maybe ISO8601
-    , _dcs1EndTime :: Maybe ISO8601
-    , _dcs1MaxRecords :: Maybe Integer
-    , _dcs1Marker :: Maybe Text
-    , _dcs1OwnerAccount :: Maybe Text
+    { _dcs1ClusterIdentifier :: !(Maybe Text)
+    , _dcs1SnapshotIdentifier :: !(Maybe Text)
+    , _dcs1SnapshotType :: !(Maybe Text)
+    , _dcs1StartTime :: !(Maybe ISO8601)
+    , _dcs1EndTime :: !(Maybe ISO8601)
+    , _dcs1MaxRecords :: !(Maybe Integer)
+    , _dcs1Marker :: !(Maybe Text)
+    , _dcs1OwnerAccount :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -167,7 +167,7 @@ instance ToQuery DescribeClusterSnapshots where
 
 -- | Contains the output from the DescribeClusterSnapshots action.
 data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
-    { _dcsrrMarker :: Maybe Text
+    { _dcsrrMarker :: !(Maybe Text)
     , _dcsrrSnapshots :: [Snapshot]
     } deriving (Show, Generic)
 

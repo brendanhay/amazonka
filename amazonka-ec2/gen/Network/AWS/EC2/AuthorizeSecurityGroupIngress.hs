@@ -97,14 +97,14 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
-    { _asgiGroupName :: Maybe Text
-    , _asgiGroupId :: Maybe Text
-    , _asgiSourceSecurityGroupName :: Maybe Text
-    , _asgiSourceSecurityGroupOwnerId :: Maybe Text
-    , _asgiIpProtocol :: Maybe Text
-    , _asgiFromPort :: Maybe Integer
-    , _asgiToPort :: Maybe Integer
-    , _asgiCidrIp :: Maybe Text
+    { _asgiGroupName :: !(Maybe Text)
+    , _asgiGroupId :: !(Maybe Text)
+    , _asgiSourceSecurityGroupName :: !(Maybe Text)
+    , _asgiSourceSecurityGroupOwnerId :: !(Maybe Text)
+    , _asgiIpProtocol :: !(Maybe Text)
+    , _asgiFromPort :: !(Maybe Integer)
+    , _asgiToPort :: !(Maybe Integer)
+    , _asgiCidrIp :: !(Maybe Text)
     , _asgiIpPermissions :: [IpPermission]
     } deriving (Show, Generic)
 

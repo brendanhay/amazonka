@@ -73,7 +73,7 @@ import Network.AWS.SimpleDB.Types
 import Network.AWS.Prelude
 
 data BatchPutAttributes = BatchPutAttributes
-    { _bpaDomainName :: Text
+    { _bpaDomainName :: !Text
     , _bpaItems :: [ReplaceableItem]
     } deriving (Show, Generic)
 

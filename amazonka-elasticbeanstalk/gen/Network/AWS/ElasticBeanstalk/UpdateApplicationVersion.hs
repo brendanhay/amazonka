@@ -50,9 +50,9 @@ import Network.AWS.Prelude
 
 -- | 
 data UpdateApplicationVersion = UpdateApplicationVersion
-    { _uavApplicationName :: Text
-    , _uavVersionLabel :: Text
-    , _uavDescription :: Maybe Text
+    { _uavApplicationName :: !Text
+    , _uavVersionLabel :: !Text
+    , _uavDescription :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

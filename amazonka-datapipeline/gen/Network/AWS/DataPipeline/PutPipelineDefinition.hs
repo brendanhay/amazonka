@@ -92,7 +92,7 @@ import Network.AWS.Request.JSON
 
 -- | The input of the PutPipelineDefinition action.
 data PutPipelineDefinition = PutPipelineDefinition
-    { _ppdPipelineId :: Text
+    { _ppdPipelineId :: !Text
     , _ppdPipelineObjects :: [PipelineObject]
     } deriving (Show, Generic)
 
@@ -135,7 +135,7 @@ instance ToJSON PutPipelineDefinition
 data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse
     { _ppdrValidationErrors :: [ValidationError]
     , _ppdrValidationWarnings :: [ValidationWarning]
-    , _ppdrErrored :: Bool
+    , _ppdrErrored :: !Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -43,7 +43,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 newtype DeleteLayer = DeleteLayer
-    { _dlLayerId :: Text
+    { _dlLayerId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

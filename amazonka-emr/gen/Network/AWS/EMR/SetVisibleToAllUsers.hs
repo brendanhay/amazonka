@@ -61,7 +61,7 @@ import Network.AWS.Request.JSON
 -- | The input to the SetVisibleToAllUsers action.
 data SetVisibleToAllUsers = SetVisibleToAllUsers
     { _svtauJobFlowIds :: [Text]
-    , _svtauVisibleToAllUsers :: Bool
+    , _svtauVisibleToAllUsers :: !Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

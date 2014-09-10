@@ -43,8 +43,8 @@ import Network.AWS.Types (Region)
 
 -- | The request to list your streaming distributions.
 data ListStreamingDistributions = ListStreamingDistributions
-    { _lsdMarker :: Maybe Text
-    , _lsdMaxItems :: Maybe Text
+    { _lsdMarker :: !(Maybe Text)
+    , _lsdMaxItems :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

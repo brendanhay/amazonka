@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DescribeRaidArrays = DescribeRaidArrays
-    { _draInstanceId :: Maybe Text
+    { _draInstanceId :: !(Maybe Text)
     , _draRaidArrayIds :: [Text]
     } deriving (Show, Generic)
 

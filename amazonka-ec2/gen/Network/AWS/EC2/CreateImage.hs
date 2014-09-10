@@ -57,10 +57,10 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data CreateImage = CreateImage
-    { _ci1InstanceId :: Text
-    , _ci1Name :: Text
-    , _ci1Description :: Maybe Text
-    , _ci1NoReboot :: Maybe Bool
+    { _ci1InstanceId :: !Text
+    , _ci1Name :: !Text
+    , _ci1Description :: !(Maybe Text)
+    , _ci1NoReboot :: !(Maybe Bool)
     , _ci1BlockDeviceMappings :: [BlockDeviceMapping]
     } deriving (Show, Generic)
 
@@ -120,7 +120,7 @@ instance ToQuery CreateImage where
     toQuery = genericQuery def
 
 newtype CreateImageResponse = CreateImageResponse
-    { _cirrImageId :: Maybe Text
+    { _cirrImageId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

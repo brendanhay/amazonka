@@ -52,7 +52,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype CreateNetworkAcl = CreateNetworkAcl
-    { _cnaVpcId :: Text
+    { _cnaVpcId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

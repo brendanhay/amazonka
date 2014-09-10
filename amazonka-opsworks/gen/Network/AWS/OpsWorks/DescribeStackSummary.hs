@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 newtype DescribeStackSummary = DescribeStackSummary
-    { _dssStackId :: Text
+    { _dssStackId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

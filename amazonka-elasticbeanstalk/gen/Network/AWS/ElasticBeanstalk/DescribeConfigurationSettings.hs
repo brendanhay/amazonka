@@ -94,9 +94,9 @@ import Network.AWS.Prelude
 -- | Result message containing all of the configuration settings for a specified
 -- solution stack or configuration template.
 data DescribeConfigurationSettings = DescribeConfigurationSettings
-    { _dcsApplicationName :: Text
-    , _dcsTemplateName :: Maybe Text
-    , _dcsEnvironmentName :: Maybe Text
+    { _dcsApplicationName :: !Text
+    , _dcsTemplateName :: !(Maybe Text)
+    , _dcsEnvironmentName :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

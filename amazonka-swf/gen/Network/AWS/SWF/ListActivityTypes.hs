@@ -66,12 +66,12 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data ListActivityTypes = ListActivityTypes
-    { _latDomain :: Text
-    , _latName :: Maybe Text
+    { _latDomain :: !Text
+    , _latName :: !(Maybe Text)
     , _latRegistrationStatus :: RegistrationStatus
-    , _latNextPageToken :: Maybe Text
-    , _latMaximumPageSize :: Maybe Integer
-    , _latReverseOrder :: Maybe Bool
+    , _latNextPageToken :: !(Maybe Text)
+    , _latMaximumPageSize :: !(Maybe Integer)
+    , _latReverseOrder :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -149,7 +149,7 @@ instance ToJSON ListActivityTypes
 -- | Contains a paginated list of activity type information structures.
 data ListActivityTypesResponse = ListActivityTypesResponse
     { _latrTypeInfos :: [ActivityTypeInfo]
-    , _latrNextPageToken :: Maybe Text
+    , _latrNextPageToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -408,7 +408,7 @@ instance ToQuery ScalingActivityStatusCode where
 -- | Specifies whether the PutScalingPolicy ScalingAdjustment parameter is an
 -- absolute number or a percentage of the current capacity.
 newtype AdjustmentType = AdjustmentType
-    { _atAdjustmentType :: Maybe Text
+    { _atAdjustmentType :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -444,7 +444,7 @@ instance FromXML AdjustmentType where
 -- Auto Scaling Instances. For information about Amazon CloudWatch, see the
 -- Amazon CloudWatch Developer Guide.
 newtype InstanceMonitoring = InstanceMonitoring
-    { _imEnabled :: Maybe Bool
+    { _imEnabled :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -472,7 +472,7 @@ instance ToQuery InstanceMonitoring where
 
 -- | The MetricCollectionType data type.
 newtype MetricCollectionType = MetricCollectionType
-    { _mctMetric :: Maybe Text
+    { _mctMetric :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -500,7 +500,7 @@ instance FromXML MetricCollectionType where
 
 -- | The MetricGranularityType data type.
 newtype MetricGranularityType = MetricGranularityType
-    { _mgtGranularity :: Maybe Text
+    { _mgtGranularity :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -586,7 +586,7 @@ instance FromXML MetricGranularityType where
 -- either Launch or Terminate, your scheduled actions might not function as
 -- expected.
 newtype ProcessType = ProcessType
-    { _ptProcessName :: Text
+    { _ptProcessName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -618,16 +618,16 @@ instance FromXML ProcessType where
 -- be a process to replace an instance, or a process to perform any other
 -- long-running operations supported by the API.
 data Activity = Activity
-    { _arActivityId :: Text
-    , _arAutoScalingGroupName :: Text
-    , _arDescription :: Maybe Text
-    , _arCause :: Text
-    , _arStartTime :: ISO8601
-    , _arEndTime :: Maybe ISO8601
+    { _arActivityId :: !Text
+    , _arAutoScalingGroupName :: !Text
+    , _arDescription :: !(Maybe Text)
+    , _arCause :: !Text
+    , _arStartTime :: !ISO8601
+    , _arEndTime :: !(Maybe ISO8601)
     , _arStatusCode :: ScalingActivityStatusCode
-    , _arStatusMessage :: Maybe Text
-    , _arProgress :: Maybe Integer
-    , _arDetails :: Maybe Text
+    , _arStatusMessage :: !(Maybe Text)
+    , _arProgress :: !(Maybe Integer)
+    , _arDetails :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -725,8 +725,8 @@ instance FromXML Activity where
 
 -- | The Alarm data type.
 data Alarm = Alarm
-    { _aAlarmName :: Maybe Text
-    , _aAlarmARN :: Maybe Text
+    { _aAlarmName :: !(Maybe Text)
+    , _aAlarmARN :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -761,24 +761,24 @@ instance ToQuery Alarm where
 
 -- | The AutoScalingGroup data type.
 data AutoScalingGroup = AutoScalingGroup
-    { _asgAutoScalingGroupName :: Text
-    , _asgAutoScalingGroupARN :: Maybe Text
-    , _asgLaunchConfigurationName :: Text
-    , _asgMinSize :: Integer
-    , _asgMaxSize :: Integer
-    , _asgDesiredCapacity :: Integer
-    , _asgDefaultCooldown :: Integer
+    { _asgAutoScalingGroupName :: !Text
+    , _asgAutoScalingGroupARN :: !(Maybe Text)
+    , _asgLaunchConfigurationName :: !Text
+    , _asgMinSize :: !Integer
+    , _asgMaxSize :: !Integer
+    , _asgDesiredCapacity :: !Integer
+    , _asgDefaultCooldown :: !Integer
     , _asgAvailabilityZones :: List1 Text
     , _asgLoadBalancerNames :: [Text]
-    , _asgHealthCheckType :: Text
-    , _asgHealthCheckGracePeriod :: Maybe Integer
+    , _asgHealthCheckType :: !Text
+    , _asgHealthCheckGracePeriod :: !(Maybe Integer)
     , _asgInstances :: [Instance]
-    , _asgCreatedTime :: ISO8601
+    , _asgCreatedTime :: !ISO8601
     , _asgSuspendedProcesses :: [SuspendedProcess]
-    , _asgPlacementGroup :: Maybe Text
-    , _asgVPCZoneIdentifier :: Maybe Text
+    , _asgPlacementGroup :: !(Maybe Text)
+    , _asgVPCZoneIdentifier :: !(Maybe Text)
     , _asgEnabledMetrics :: [EnabledMetric]
-    , _asgStatus :: Maybe Text
+    , _asgStatus :: !(Maybe Text)
     , _asgTags :: [TagDescription]
     , _asgTerminationPolicies :: [Text]
     } deriving (Show, Generic)
@@ -976,12 +976,12 @@ instance FromXML AutoScalingGroup where
 
 -- | The AutoScalingInstanceDetails data type.
 data AutoScalingInstanceDetails = AutoScalingInstanceDetails
-    { _asidInstanceId :: Text
-    , _asidAutoScalingGroupName :: Text
-    , _asidAvailabilityZone :: Text
-    , _asidLifecycleState :: Text
-    , _asidHealthStatus :: Text
-    , _asidLaunchConfigurationName :: Text
+    { _asidInstanceId :: !Text
+    , _asidAutoScalingGroupName :: !Text
+    , _asidAvailabilityZone :: !Text
+    , _asidLifecycleState :: !Text
+    , _asidHealthStatus :: !Text
+    , _asidLaunchConfigurationName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1060,10 +1060,10 @@ instance FromXML AutoScalingInstanceDetails where
 
 -- | The BlockDeviceMapping data type.
 data BlockDeviceMapping = BlockDeviceMapping
-    { _bdmVirtualName :: Maybe Text
-    , _bdmDeviceName :: Text
+    { _bdmVirtualName :: !(Maybe Text)
+    , _bdmDeviceName :: !Text
     , _bdmEbs :: Maybe Ebs
-    , _bdmNoDevice :: Maybe Bool
+    , _bdmNoDevice :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1115,11 +1115,11 @@ instance ToQuery BlockDeviceMapping where
 
 -- | The Elastic Block Storage volume information.
 data Ebs = Ebs
-    { _eSnapshotId :: Maybe Text
-    , _eVolumeSize :: Maybe Integer
-    , _eVolumeType :: Maybe Text
-    , _eDeleteOnTermination :: Maybe Bool
-    , _eIops :: Maybe Integer
+    { _eSnapshotId :: !(Maybe Text)
+    , _eVolumeSize :: !(Maybe Integer)
+    , _eVolumeType :: !(Maybe Text)
+    , _eDeleteOnTermination :: !(Maybe Bool)
+    , _eIops :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1182,8 +1182,8 @@ instance ToQuery Ebs where
 
 -- | The EnabledMetric data type.
 data EnabledMetric = EnabledMetric
-    { _emMetric :: Maybe Text
-    , _emGranularity :: Maybe Text
+    { _emMetric :: !(Maybe Text)
+    , _emGranularity :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1218,7 +1218,7 @@ instance ToQuery EnabledMetric where
 
 -- | The Filter data type.
 data Filter = Filter
-    { _fName :: Text
+    { _fName :: !Text
     , _fValues :: [Text]
     } deriving (Show, Generic)
 
@@ -1252,11 +1252,11 @@ instance ToQuery Filter where
 
 -- | The Instance data type.
 data Instance = Instance
-    { _iInstanceId :: Text
-    , _iAvailabilityZone :: Text
+    { _iInstanceId :: !Text
+    , _iAvailabilityZone :: !Text
     , _iLifecycleState :: LifecycleState
-    , _iHealthStatus :: Text
-    , _iLaunchConfigurationName :: Text
+    , _iHealthStatus :: !Text
+    , _iLaunchConfigurationName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1321,23 +1321,23 @@ instance ToQuery Instance where
 
 -- | The LaunchConfiguration data type.
 data LaunchConfiguration = LaunchConfiguration
-    { _lcLaunchConfigurationName :: Text
-    , _lcLaunchConfigurationARN :: Maybe Text
-    , _lcImageId :: Text
-    , _lcKeyName :: Maybe Text
+    { _lcLaunchConfigurationName :: !Text
+    , _lcLaunchConfigurationARN :: !(Maybe Text)
+    , _lcImageId :: !Text
+    , _lcKeyName :: !(Maybe Text)
     , _lcSecurityGroups :: [Text]
-    , _lcUserData :: Maybe Text
-    , _lcInstanceType :: Text
-    , _lcKernelId :: Maybe Text
-    , _lcRamdiskId :: Maybe Text
+    , _lcUserData :: !(Maybe Text)
+    , _lcInstanceType :: !Text
+    , _lcKernelId :: !(Maybe Text)
+    , _lcRamdiskId :: !(Maybe Text)
     , _lcBlockDeviceMappings :: [BlockDeviceMapping]
     , _lcInstanceMonitoring :: Maybe InstanceMonitoring
-    , _lcSpotPrice :: Maybe Text
-    , _lcIamInstanceProfile :: Maybe Text
-    , _lcCreatedTime :: ISO8601
-    , _lcEbsOptimized :: Maybe Bool
-    , _lcAssociatePublicIpAddress :: Maybe Bool
-    , _lcPlacementTenancy :: Maybe Text
+    , _lcSpotPrice :: !(Maybe Text)
+    , _lcIamInstanceProfile :: !(Maybe Text)
+    , _lcCreatedTime :: !ISO8601
+    , _lcEbsOptimized :: !(Maybe Bool)
+    , _lcAssociatePublicIpAddress :: !(Maybe Bool)
+    , _lcPlacementTenancy :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1507,15 +1507,15 @@ instance FromXML LaunchConfiguration where
 -- terminates, but before it is fully terminated To learn more, see Auto
 -- Scaling Pending State and Auto Scaling Terminating State.
 data LifecycleHook = LifecycleHook
-    { _lhLifecycleHookName :: Maybe Text
-    , _lhAutoScalingGroupName :: Maybe Text
-    , _lhLifecycleTransition :: Maybe Text
-    , _lhNotificationTargetARN :: Maybe Text
-    , _lhRoleARN :: Maybe Text
-    , _lhNotificationMetadata :: Maybe Text
-    , _lhHeartbeatTimeout :: Maybe Integer
-    , _lhGlobalTimeout :: Maybe Integer
-    , _lhDefaultResult :: Maybe Text
+    { _lhLifecycleHookName :: !(Maybe Text)
+    , _lhAutoScalingGroupName :: !(Maybe Text)
+    , _lhLifecycleTransition :: !(Maybe Text)
+    , _lhNotificationTargetARN :: !(Maybe Text)
+    , _lhRoleARN :: !(Maybe Text)
+    , _lhNotificationMetadata :: !(Maybe Text)
+    , _lhHeartbeatTimeout :: !(Maybe Integer)
+    , _lhGlobalTimeout :: !(Maybe Integer)
+    , _lhDefaultResult :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1622,9 +1622,9 @@ instance FromXML LifecycleHook where
 
 -- | The NotificationConfiguration data type.
 data NotificationConfiguration = NotificationConfiguration
-    { _ncAutoScalingGroupName :: Maybe Text
-    , _ncTopicARN :: Maybe Text
-    , _ncNotificationType :: Maybe Text
+    { _ncAutoScalingGroupName :: !(Maybe Text)
+    , _ncTopicARN :: !(Maybe Text)
+    , _ncNotificationType :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1669,14 +1669,14 @@ instance FromXML NotificationConfiguration where
 
 -- | The ScalingPolicy data type.
 data ScalingPolicy = ScalingPolicy
-    { _sprAutoScalingGroupName :: Maybe Text
-    , _sprPolicyName :: Maybe Text
-    , _sprScalingAdjustment :: Maybe Integer
-    , _sprAdjustmentType :: Maybe Text
-    , _sprCooldown :: Maybe Integer
-    , _sprPolicyARN :: Maybe Text
+    { _sprAutoScalingGroupName :: !(Maybe Text)
+    , _sprPolicyName :: !(Maybe Text)
+    , _sprScalingAdjustment :: !(Maybe Integer)
+    , _sprAdjustmentType :: !(Maybe Text)
+    , _sprCooldown :: !(Maybe Integer)
+    , _sprPolicyARN :: !(Maybe Text)
     , _sprAlarms :: [Alarm]
-    , _sprMinAdjustmentStep :: Maybe Integer
+    , _sprMinAdjustmentStep :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1765,16 +1765,16 @@ instance FromXML ScalingPolicy where
 -- | This data type stores information about a scheduled update to an Auto
 -- Scaling group.
 data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction
-    { _sugaAutoScalingGroupName :: Maybe Text
-    , _sugaScheduledActionName :: Maybe Text
-    , _sugaScheduledActionARN :: Maybe Text
-    , _sugaTime :: Maybe ISO8601
-    , _sugaStartTime :: Maybe ISO8601
-    , _sugaEndTime :: Maybe ISO8601
-    , _sugaRecurrence :: Maybe Text
-    , _sugaMinSize :: Maybe Integer
-    , _sugaMaxSize :: Maybe Integer
-    , _sugaDesiredCapacity :: Maybe Integer
+    { _sugaAutoScalingGroupName :: !(Maybe Text)
+    , _sugaScheduledActionName :: !(Maybe Text)
+    , _sugaScheduledActionARN :: !(Maybe Text)
+    , _sugaTime :: !(Maybe ISO8601)
+    , _sugaStartTime :: !(Maybe ISO8601)
+    , _sugaEndTime :: !(Maybe ISO8601)
+    , _sugaRecurrence :: !(Maybe Text)
+    , _sugaMinSize :: !(Maybe Integer)
+    , _sugaMaxSize :: !(Maybe Integer)
+    , _sugaDesiredCapacity :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1877,8 +1877,8 @@ instance FromXML ScheduledUpdateGroupAction where
 -- | An Auto Scaling process that has been suspended. For more information, see
 -- ProcessType.
 data SuspendedProcess = SuspendedProcess
-    { _spProcessName :: Maybe Text
-    , _spSuspensionReason :: Maybe Text
+    { _spProcessName :: !(Maybe Text)
+    , _spSuspensionReason :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1914,11 +1914,11 @@ instance ToQuery SuspendedProcess where
 
 -- | The tag applied to an Auto Scaling group.
 data Tag = Tag
-    { _tResourceId :: Text
-    , _tResourceType :: Text
-    , _tKey :: Text
-    , _tValue :: Text
-    , _tPropagateAtLaunch :: Bool
+    { _tResourceId :: !Text
+    , _tResourceType :: !Text
+    , _tKey :: !Text
+    , _tValue :: !Text
+    , _tPropagateAtLaunch :: !Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1980,11 +1980,11 @@ instance ToQuery Tag where
 
 -- | The tag applied to an Auto Scaling group.
 data TagDescription = TagDescription
-    { _tdResourceId :: Text
-    , _tdResourceType :: Text
-    , _tdKey :: Text
-    , _tdValue :: Text
-    , _tdPropagateAtLaunch :: Bool
+    { _tdResourceId :: !Text
+    , _tdResourceType :: !Text
+    , _tdKey :: !Text
+    , _tdValue :: !Text
+    , _tdPropagateAtLaunch :: !Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

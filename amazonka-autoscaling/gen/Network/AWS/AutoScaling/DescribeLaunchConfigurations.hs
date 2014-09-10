@@ -53,8 +53,8 @@ import Network.AWS.Prelude
 -- | The LaunchConfigurationNamesType data type.
 data DescribeLaunchConfigurations = DescribeLaunchConfigurations
     { _dlc1LaunchConfigurationNames :: [Text]
-    , _dlc1NextToken :: Maybe Text
-    , _dlc1MaxRecords :: Maybe Integer
+    , _dlc1NextToken :: !(Maybe Text)
+    , _dlc1MaxRecords :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -95,7 +95,7 @@ instance ToQuery DescribeLaunchConfigurations where
 -- | The LaunchConfigurationsType data type.
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
     { _dlcrLaunchConfigurations :: [LaunchConfiguration]
-    , _dlcrNextToken :: Maybe Text
+    , _dlcrNextToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

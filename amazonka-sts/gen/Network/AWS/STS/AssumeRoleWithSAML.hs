@@ -87,11 +87,11 @@ import Network.AWS.STS.Types
 import Network.AWS.Prelude
 
 data AssumeRoleWithSAML = AssumeRoleWithSAML
-    { _arwsamlRoleArn :: Text
-    , _arwsamlPrincipalArn :: Text
-    , _arwsamlSAMLAssertion :: Text
-    , _arwsamlPolicy :: Maybe Text
-    , _arwsamlDurationSeconds :: Maybe Integer
+    { _arwsamlRoleArn :: !Text
+    , _arwsamlPrincipalArn :: !Text
+    , _arwsamlSAMLAssertion :: !Text
+    , _arwsamlPolicy :: !(Maybe Text)
+    , _arwsamlDurationSeconds :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -170,12 +170,12 @@ instance ToQuery AssumeRoleWithSAML where
 data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse
     { _arwsamlrCredentials :: Maybe Credentials
     , _arwsamlrAssumedRoleUser :: Maybe AssumedRoleUser
-    , _arwsamlrPackedPolicySize :: Maybe Integer
-    , _arwsamlrSubject :: Maybe Text
-    , _arwsamlrSubjectType :: Maybe Text
-    , _arwsamlrIssuer :: Maybe Text
-    , _arwsamlrAudience :: Maybe Text
-    , _arwsamlrNameQualifier :: Maybe Text
+    , _arwsamlrPackedPolicySize :: !(Maybe Integer)
+    , _arwsamlrSubject :: !(Maybe Text)
+    , _arwsamlrSubjectType :: !(Maybe Text)
+    , _arwsamlrIssuer :: !(Maybe Text)
+    , _arwsamlrAudience :: !(Maybe Text)
+    , _arwsamlrNameQualifier :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

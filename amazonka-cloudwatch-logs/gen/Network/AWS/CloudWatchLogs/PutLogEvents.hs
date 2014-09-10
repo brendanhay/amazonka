@@ -67,10 +67,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data PutLogEvents = PutLogEvents
-    { _pleLogGroupName :: Text
-    , _pleLogStreamName :: Text
+    { _pleLogGroupName :: !Text
+    , _pleLogStreamName :: !Text
     , _pleLogEvents :: List1 InputLogEvent
-    , _pleSequenceToken :: Maybe Text
+    , _pleSequenceToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -123,7 +123,7 @@ instance ToHeaders PutLogEvents
 instance ToJSON PutLogEvents
 
 newtype PutLogEventsResponse = PutLogEventsResponse
-    { _plerNextSequenceToken :: Maybe Text
+    { _plerNextSequenceToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

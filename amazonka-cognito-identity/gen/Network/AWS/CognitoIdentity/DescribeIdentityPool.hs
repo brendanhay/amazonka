@@ -53,7 +53,7 @@ import Network.AWS.Request.JSON
 
 -- | Input to the DescribeIdentityPool action.
 newtype DescribeIdentityPool = DescribeIdentityPool
-    { _dip1IdentityPoolId :: Text
+    { _dip1IdentityPoolId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -84,9 +84,9 @@ instance ToJSON DescribeIdentityPool
 
 -- | An object representing a Cognito identity pool.
 data DescribeIdentityPoolResponse = DescribeIdentityPoolResponse
-    { _diprIdentityPoolId :: Text
-    , _diprIdentityPoolName :: Text
-    , _diprAllowUnauthenticatedIdentities :: Bool
+    { _diprIdentityPoolId :: !Text
+    , _diprIdentityPoolName :: !Text
+    , _diprAllowUnauthenticatedIdentities :: !Bool
     , _diprSupportedLoginProviders :: Map Text Text
     } deriving (Show, Generic)
 

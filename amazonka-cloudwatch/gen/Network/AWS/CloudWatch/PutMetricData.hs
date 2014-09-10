@@ -49,7 +49,7 @@ import Network.AWS.CloudWatch.Types
 import Network.AWS.Prelude
 
 data PutMetricData = PutMetricData
-    { _pmdNamespace :: Text
+    { _pmdNamespace :: !Text
     , _pmdMetricData :: [MetricDatum]
     } deriving (Show, Generic)
 

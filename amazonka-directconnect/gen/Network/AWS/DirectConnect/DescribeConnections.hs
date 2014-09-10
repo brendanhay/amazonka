@@ -42,7 +42,7 @@ import Network.AWS.Request.JSON
 
 -- | Container for the parameters to the DescribeConnections operation.
 newtype DescribeConnections = DescribeConnections
-    { _dc1ConnectionId :: Maybe Text
+    { _dc1ConnectionId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

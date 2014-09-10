@@ -20,7 +20,6 @@ module Network.AWS.Kinesis
     , module Network.AWS.Kinesis.GetShardIterator
     , module Network.AWS.Kinesis.ListStreams
     , module Network.AWS.Kinesis.MergeShards
-    , module Network.AWS.Kinesis.Monadic
     , module Network.AWS.Kinesis.PutRecord
     , module Network.AWS.Kinesis.SplitShard
     , module Network.AWS.Kinesis.Types
@@ -33,7 +32,6 @@ import Network.AWS.Kinesis.GetRecords
 import Network.AWS.Kinesis.GetShardIterator
 import Network.AWS.Kinesis.ListStreams
 import Network.AWS.Kinesis.MergeShards
-import Network.AWS.Kinesis.Monadic
 import Network.AWS.Kinesis.PutRecord
 import Network.AWS.Kinesis.SplitShard
 import Network.AWS.Kinesis.Types

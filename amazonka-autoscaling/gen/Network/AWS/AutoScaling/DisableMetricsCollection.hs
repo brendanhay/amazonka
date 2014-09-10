@@ -41,7 +41,7 @@ import Network.AWS.AutoScaling.Types
 import Network.AWS.Prelude
 
 data DisableMetricsCollection = DisableMetricsCollection
-    { _dmcAutoScalingGroupName :: Text
+    { _dmcAutoScalingGroupName :: !Text
     , _dmcMetrics :: [Text]
     } deriving (Show, Generic)
 

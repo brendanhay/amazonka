@@ -59,7 +59,7 @@ import Network.AWS.Request.JSON
 
 -- | Represents the input of a DeleteStream operation.
 newtype DeleteStream = DeleteStream
-    { _dsStreamName :: Text
+    { _dsStreamName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

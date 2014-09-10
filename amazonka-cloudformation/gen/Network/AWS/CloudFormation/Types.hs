@@ -355,9 +355,9 @@ instance ToQuery StackStatus where
 
 -- | The Output data type.
 data Output = Output
-    { _oOutputKey :: Maybe Text
-    , _oOutputValue :: Maybe Text
-    , _oDescription :: Maybe Text
+    { _oOutputKey :: !(Maybe Text)
+    , _oOutputValue :: !(Maybe Text)
+    , _oDescription :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -399,9 +399,9 @@ instance ToQuery Output where
 
 -- | The Parameter data type.
 data Parameter = Parameter
-    { _pParameterKey :: Maybe Text
-    , _pParameterValue :: Maybe Text
-    , _pUsePreviousValue :: Maybe Bool
+    { _pParameterKey :: !(Maybe Text)
+    , _pParameterValue :: !(Maybe Text)
+    , _pUsePreviousValue :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -445,17 +445,17 @@ instance ToQuery Parameter where
 
 -- | The Stack data type.
 data Stack = Stack
-    { _sStackId :: Maybe Text
-    , _sStackName :: Text
-    , _sDescription :: Maybe Text
+    { _sStackId :: !(Maybe Text)
+    , _sStackName :: !Text
+    , _sDescription :: !(Maybe Text)
     , _sParameters :: [Parameter]
-    , _sCreationTime :: ISO8601
-    , _sLastUpdatedTime :: Maybe ISO8601
+    , _sCreationTime :: !ISO8601
+    , _sLastUpdatedTime :: !(Maybe ISO8601)
     , _sStackStatus :: StackStatus
-    , _sStackStatusReason :: Maybe Text
-    , _sDisableRollback :: Maybe Bool
+    , _sStackStatusReason :: !(Maybe Text)
+    , _sDisableRollback :: !(Maybe Bool)
     , _sNotificationARNs :: [Text]
-    , _sTimeoutInMinutes :: Maybe Integer
+    , _sTimeoutInMinutes :: !(Maybe Integer)
     , _sCapabilities :: [Capability]
     , _sOutputs :: [Output]
     , _sTags :: [Tag]
@@ -587,16 +587,16 @@ instance FromXML Stack where
 
 -- | The StackEvent data type.
 data StackEvent = StackEvent
-    { _seStackId :: Text
-    , _seEventId :: Text
-    , _seStackName :: Text
-    , _seLogicalResourceId :: Maybe Text
-    , _sePhysicalResourceId :: Maybe Text
-    , _seResourceType :: Maybe Text
-    , _seTimestamp :: ISO8601
+    { _seStackId :: !Text
+    , _seEventId :: !Text
+    , _seStackName :: !Text
+    , _seLogicalResourceId :: !(Maybe Text)
+    , _sePhysicalResourceId :: !(Maybe Text)
+    , _seResourceType :: !(Maybe Text)
+    , _seTimestamp :: !ISO8601
     , _seResourceStatus :: Maybe ResourceStatus
-    , _seResourceStatusReason :: Maybe Text
-    , _seResourceProperties :: Maybe Text
+    , _seResourceStatusReason :: !(Maybe Text)
+    , _seResourceProperties :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -698,15 +698,15 @@ instance FromXML StackEvent where
 
 -- | The StackResource data type.
 data StackResource = StackResource
-    { _srStackName :: Maybe Text
-    , _srStackId :: Maybe Text
-    , _srLogicalResourceId :: Text
-    , _srPhysicalResourceId :: Maybe Text
-    , _srResourceType :: Text
-    , _srTimestamp :: ISO8601
+    { _srStackName :: !(Maybe Text)
+    , _srStackId :: !(Maybe Text)
+    , _srLogicalResourceId :: !Text
+    , _srPhysicalResourceId :: !(Maybe Text)
+    , _srResourceType :: !Text
+    , _srTimestamp :: !ISO8601
     , _srResourceStatus :: ResourceStatus
-    , _srResourceStatusReason :: Maybe Text
-    , _srDescription :: Maybe Text
+    , _srResourceStatusReason :: !(Maybe Text)
+    , _srDescription :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -801,16 +801,16 @@ instance FromXML StackResource where
 -- | A StackResourceDetail structure containing the description of the specified
 -- resource in the specified stack.
 data StackResourceDetail = StackResourceDetail
-    { _srdStackName :: Maybe Text
-    , _srdStackId :: Maybe Text
-    , _srdLogicalResourceId :: Text
-    , _srdPhysicalResourceId :: Maybe Text
-    , _srdResourceType :: Text
-    , _srdLastUpdatedTimestamp :: ISO8601
+    { _srdStackName :: !(Maybe Text)
+    , _srdStackId :: !(Maybe Text)
+    , _srdLogicalResourceId :: !Text
+    , _srdPhysicalResourceId :: !(Maybe Text)
+    , _srdResourceType :: !Text
+    , _srdLastUpdatedTimestamp :: !ISO8601
     , _srdResourceStatus :: ResourceStatus
-    , _srdResourceStatusReason :: Maybe Text
-    , _srdDescription :: Maybe Text
-    , _srdMetadata :: Maybe Text
+    , _srdResourceStatusReason :: !(Maybe Text)
+    , _srdDescription :: !(Maybe Text)
+    , _srdMetadata :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -916,12 +916,12 @@ instance FromXML StackResourceDetail where
 
 -- | Contains high-level information about the specified stack resource.
 data StackResourceSummary = StackResourceSummary
-    { _srsLogicalResourceId :: Text
-    , _srsPhysicalResourceId :: Maybe Text
-    , _srsResourceType :: Text
-    , _srsLastUpdatedTimestamp :: ISO8601
+    { _srsLogicalResourceId :: !Text
+    , _srsPhysicalResourceId :: !(Maybe Text)
+    , _srsResourceType :: !Text
+    , _srsLastUpdatedTimestamp :: !ISO8601
     , _srsResourceStatus :: ResourceStatus
-    , _srsResourceStatusReason :: Maybe Text
+    , _srsResourceStatusReason :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -997,14 +997,14 @@ instance FromXML StackResourceSummary where
 
 -- | The StackSummary Data Type.
 data StackSummary = StackSummary
-    { _ssStackId :: Maybe Text
-    , _ssStackName :: Text
-    , _ssTemplateDescription :: Maybe Text
-    , _ssCreationTime :: ISO8601
-    , _ssLastUpdatedTime :: Maybe ISO8601
-    , _ssDeletionTime :: Maybe ISO8601
+    { _ssStackId :: !(Maybe Text)
+    , _ssStackName :: !Text
+    , _ssTemplateDescription :: !(Maybe Text)
+    , _ssCreationTime :: !ISO8601
+    , _ssLastUpdatedTime :: !(Maybe ISO8601)
+    , _ssDeletionTime :: !(Maybe ISO8601)
     , _ssStackStatus :: StackStatus
-    , _ssStackStatusReason :: Maybe Text
+    , _ssStackStatusReason :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1090,8 +1090,8 @@ instance FromXML StackSummary where
 -- specify a key/value pair that can be used to store information related to
 -- cost allocation for an AWS CloudFormation stack.
 data Tag = Tag
-    { _tKey :: Maybe Text
-    , _tValue :: Maybe Text
+    { _tKey :: !(Maybe Text)
+    , _tValue :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1129,10 +1129,10 @@ instance ToQuery Tag where
 
 -- | The TemplateParameter data type.
 data TemplateParameter = TemplateParameter
-    { _tpParameterKey :: Maybe Text
-    , _tpDefaultValue :: Maybe Text
-    , _tpNoEcho :: Maybe Bool
-    , _tpDescription :: Maybe Text
+    { _tpParameterKey :: !(Maybe Text)
+    , _tpDefaultValue :: !(Maybe Text)
+    , _tpNoEcho :: !(Maybe Bool)
+    , _tpDescription :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

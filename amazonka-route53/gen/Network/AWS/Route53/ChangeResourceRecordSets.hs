@@ -62,7 +62,7 @@ import Network.AWS.Types (Region)
 
 -- | A complex type that contains a change batch.
 data ChangeResourceRecordSets = ChangeResourceRecordSets
-    { _crrsHostedZoneId :: Text
+    { _crrsHostedZoneId :: !Text
     , _crrsChangeBatch :: ChangeBatch
     } deriving (Show, Generic)
 

@@ -53,8 +53,8 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a ResetCacheParameterGroup operation.
 data ResetCacheParameterGroup = ResetCacheParameterGroup
-    { _rcpgCacheParameterGroupName :: Text
-    , _rcpgResetAllParameters :: Maybe Bool
+    { _rcpgCacheParameterGroupName :: !Text
+    , _rcpgResetAllParameters :: !(Maybe Bool)
     , _rcpgParameterNameValues :: [ParameterNameValue]
     } deriving (Show, Generic)
 
@@ -104,7 +104,7 @@ instance ToQuery ResetCacheParameterGroup where
 -- | Represents the output of one of the following operations:
 -- ModifyCacheParameterGroup ResetCacheParameterGroup.
 newtype ResetCacheParameterGroupResponse = ResetCacheParameterGroupResponse
-    { _rcpgrCacheParameterGroupName :: Maybe Text
+    { _rcpgrCacheParameterGroupName :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

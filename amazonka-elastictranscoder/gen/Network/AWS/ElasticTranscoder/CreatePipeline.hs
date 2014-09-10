@@ -81,10 +81,10 @@ import Network.AWS.Request.JSON
 
 -- | The CreatePipelineRequest structure.
 data CreatePipeline = CreatePipeline
-    { _cpName :: Text
-    , _cpInputBucket :: Text
-    , _cpOutputBucket :: Maybe Text
-    , _cpRole :: Text
+    { _cpName :: !Text
+    , _cpInputBucket :: !Text
+    , _cpOutputBucket :: !(Maybe Text)
+    , _cpRole :: !Text
     , _cpNotifications :: Maybe Notifications
     , _cpContentConfig :: Maybe PipelineOutputConfig
     , _cpThumbnailConfig :: Maybe PipelineOutputConfig

@@ -53,9 +53,9 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data UpdateGroup = UpdateGroup
-    { _ugGroupName :: Text
-    , _ugNewPath :: Maybe Text
-    , _ugNewGroupName :: Maybe Text
+    { _ugGroupName :: !Text
+    , _ugNewPath :: !(Maybe Text)
+    , _ugNewGroupName :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

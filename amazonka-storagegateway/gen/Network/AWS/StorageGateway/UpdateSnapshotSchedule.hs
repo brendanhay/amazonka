@@ -67,10 +67,10 @@ import Network.AWS.Request.JSON
 -- UpdateSnapshotScheduleInput$RecurrenceInHours
 -- UpdateSnapshotScheduleInput$StartAt UpdateSnapshotScheduleInput$VolumeARN.
 data UpdateSnapshotSchedule = UpdateSnapshotSchedule
-    { _ussVolumeARN :: Text
-    , _ussStartAt :: Integer
-    , _ussRecurrenceInHours :: Integer
-    , _ussDescription :: Maybe Text
+    { _ussVolumeARN :: !Text
+    , _ussStartAt :: !Integer
+    , _ussRecurrenceInHours :: !Integer
+    , _ussDescription :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -128,7 +128,7 @@ instance ToJSON UpdateSnapshotSchedule
 
 -- | A JSON object containing the of the updated storage volume.
 newtype UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse
-    { _ussrVolumeARN :: Maybe Text
+    { _ussrVolumeARN :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

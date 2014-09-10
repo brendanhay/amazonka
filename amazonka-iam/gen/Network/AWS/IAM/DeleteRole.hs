@@ -44,7 +44,7 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 newtype DeleteRole = DeleteRole
-    { _drRoleName :: Text
+    { _drRoleName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

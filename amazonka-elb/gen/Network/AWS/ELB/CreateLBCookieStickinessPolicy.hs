@@ -58,9 +58,9 @@ import Network.AWS.Prelude
 
 -- | The input for the CreateLBCookieStickinessPolicy action.
 data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy
-    { _clbcspLoadBalancerName :: Text
-    , _clbcspPolicyName :: Text
-    , _clbcspCookieExpirationPeriod :: Maybe Integer
+    { _clbcspLoadBalancerName :: !Text
+    , _clbcspPolicyName :: !Text
+    , _clbcspCookieExpirationPeriod :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

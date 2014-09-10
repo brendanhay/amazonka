@@ -25,7 +25,6 @@ module Network.AWS.DynamoDB
     , module Network.AWS.DynamoDB.DescribeTable
     , module Network.AWS.DynamoDB.GetItem
     , module Network.AWS.DynamoDB.ListTables
-    , module Network.AWS.DynamoDB.Monadic
     , module Network.AWS.DynamoDB.PutItem
     , module Network.AWS.DynamoDB.Query
     , module Network.AWS.DynamoDB.Scan
@@ -42,7 +41,6 @@ import Network.AWS.DynamoDB.DeleteTable
 import Network.AWS.DynamoDB.DescribeTable
 import Network.AWS.DynamoDB.GetItem
 import Network.AWS.DynamoDB.ListTables
-import Network.AWS.DynamoDB.Monadic
 import Network.AWS.DynamoDB.PutItem
 import Network.AWS.DynamoDB.Query
 import Network.AWS.DynamoDB.Scan

@@ -48,8 +48,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data ListAccountAliases = ListAccountAliases
-    { _laaMarker :: Maybe Text
-    , _laaMaxItems :: Maybe Integer
+    { _laaMarker :: !(Maybe Text)
+    , _laaMaxItems :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -88,8 +88,8 @@ instance ToQuery ListAccountAliases where
 -- action.
 data ListAccountAliasesResponse = ListAccountAliasesResponse
     { _laarAccountAliases :: [Text]
-    , _laarIsTruncated :: Bool
-    , _laarMarker :: Maybe Text
+    , _laarIsTruncated :: !Bool
+    , _laarMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

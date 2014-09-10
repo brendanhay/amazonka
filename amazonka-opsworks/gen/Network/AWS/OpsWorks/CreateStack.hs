@@ -60,23 +60,23 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data CreateStack = CreateStack
-    { _cs1Name :: Text
-    , _cs1Region :: Text
-    , _cs1VpcId :: Maybe Text
+    { _cs1Name :: !Text
+    , _cs1Region :: !Text
+    , _cs1VpcId :: !(Maybe Text)
     , _cs1Attributes :: Map StackAttributesKeys Text
-    , _cs1ServiceRoleArn :: Text
-    , _cs1DefaultInstanceProfileArn :: Text
-    , _cs1DefaultOs :: Maybe Text
-    , _cs1HostnameTheme :: Maybe Text
-    , _cs1DefaultAvailabilityZone :: Maybe Text
-    , _cs1DefaultSubnetId :: Maybe Text
-    , _cs1CustomJson :: Maybe Text
+    , _cs1ServiceRoleArn :: !Text
+    , _cs1DefaultInstanceProfileArn :: !Text
+    , _cs1DefaultOs :: !(Maybe Text)
+    , _cs1HostnameTheme :: !(Maybe Text)
+    , _cs1DefaultAvailabilityZone :: !(Maybe Text)
+    , _cs1DefaultSubnetId :: !(Maybe Text)
+    , _cs1CustomJson :: !(Maybe Text)
     , _cs1ConfigurationManager :: Maybe StackConfigurationManager
     , _cs1ChefConfiguration :: Maybe ChefConfiguration
-    , _cs1UseCustomCookbooks :: Maybe Bool
-    , _cs1UseOpsworksSecurityGroups :: Maybe Bool
+    , _cs1UseCustomCookbooks :: !(Maybe Bool)
+    , _cs1UseOpsworksSecurityGroups :: !(Maybe Bool)
     , _cs1CustomCookbooksSource :: Maybe Source
-    , _cs1DefaultSshKeyName :: Maybe Text
+    , _cs1DefaultSshKeyName :: !(Maybe Text)
     , _cs1DefaultRootDeviceType :: Maybe RootDeviceType
     } deriving (Show, Generic)
 
@@ -312,7 +312,7 @@ instance ToJSON CreateStack
 
 -- | Contains the response to a CreateStack request.
 newtype CreateStackResponse = CreateStackResponse
-    { _csrrStackId :: Maybe Text
+    { _csrrStackId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

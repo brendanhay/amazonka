@@ -53,7 +53,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype DeleteSnapshot = DeleteSnapshot
-    { _dsSnapshotId :: Text
+    { _dsSnapshotId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

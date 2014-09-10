@@ -52,9 +52,9 @@ import Network.AWS.Request.JSON
 
 -- | The input for the CreatePipeline action.
 data CreatePipeline = CreatePipeline
-    { _cpName :: Text
-    , _cpUniqueId :: Text
-    , _cpDescription :: Maybe Text
+    { _cpName :: !Text
+    , _cpUniqueId :: !Text
+    , _cpDescription :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -112,7 +112,7 @@ instance ToJSON CreatePipeline
 
 -- | Contains the output from the CreatePipeline action.
 newtype CreatePipelineResponse = CreatePipelineResponse
-    { _cprPipelineId :: Text
+    { _cprPipelineId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

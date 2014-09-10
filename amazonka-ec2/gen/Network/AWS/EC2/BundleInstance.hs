@@ -67,7 +67,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data BundleInstance = BundleInstance
-    { _biInstanceId :: Text
+    { _biInstanceId :: !Text
     , _biStorage :: Storage
     } deriving (Show, Generic)
 

@@ -76,9 +76,9 @@ import Network.AWS.STS.Types
 import Network.AWS.Prelude
 
 data GetSessionToken = GetSessionToken
-    { _gstDurationSeconds :: Maybe Integer
-    , _gstSerialNumber :: Maybe Text
-    , _gstTokenCode :: Maybe Text
+    { _gstDurationSeconds :: !(Maybe Integer)
+    , _gstSerialNumber :: !(Maybe Text)
+    , _gstTokenCode :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -88,9 +88,9 @@ import Network.AWS.Request.JSON
 
 -- | The ListJobsByStatusRequest structure.
 data ListJobsByStatus = ListJobsByStatus
-    { _ljbsStatus :: Text
-    , _ljbsAscending :: Maybe Text
-    , _ljbsPageToken :: Maybe Text
+    { _ljbsStatus :: !Text
+    , _ljbsAscending :: !(Maybe Text)
+    , _ljbsPageToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -141,7 +141,7 @@ instance ToJSON ListJobsByStatus
 -- | The ListJobsByStatusResponse structure.
 data ListJobsByStatusResponse = ListJobsByStatusResponse
     { _ljbsrJobs :: [Job]
-    , _ljbsrNextPageToken :: Maybe Text
+    , _ljbsrNextPageToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

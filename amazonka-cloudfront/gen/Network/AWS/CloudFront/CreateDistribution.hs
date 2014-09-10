@@ -78,8 +78,8 @@ instance ToXML CreateDistribution where
 -- | The returned result of the corresponding request.
 data CreateDistributionResponse = CreateDistributionResponse
     { _cdrDistribution :: Maybe Distribution
-    , _cdrLocation :: Maybe Text
-    , _cdrETag :: Maybe Text
+    , _cdrLocation :: !(Maybe Text)
+    , _cdrETag :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -59,9 +59,9 @@ import Network.AWS.Request.JSON
 
 -- | An object representing a Cognito identity pool.
 data UpdateIdentityPool = UpdateIdentityPool
-    { _uipIdentityPoolId :: Text
-    , _uipIdentityPoolName :: Text
-    , _uipAllowUnauthenticatedIdentities :: Bool
+    { _uipIdentityPoolId :: !Text
+    , _uipIdentityPoolName :: !Text
+    , _uipAllowUnauthenticatedIdentities :: !Bool
     , _uipSupportedLoginProviders :: Map Text Text
     } deriving (Show, Generic)
 
@@ -121,9 +121,9 @@ instance ToJSON UpdateIdentityPool
 
 -- | An object representing a Cognito identity pool.
 data UpdateIdentityPoolResponse = UpdateIdentityPoolResponse
-    { _uiprIdentityPoolId :: Text
-    , _uiprIdentityPoolName :: Text
-    , _uiprAllowUnauthenticatedIdentities :: Bool
+    { _uiprIdentityPoolId :: !Text
+    , _uiprIdentityPoolName :: !Text
+    , _uiprAllowUnauthenticatedIdentities :: !Bool
     , _uiprSupportedLoginProviders :: Map Text Text
     } deriving (Show, Generic)
 

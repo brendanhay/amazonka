@@ -55,11 +55,11 @@ import Network.AWS.Request.JSON
 
 -- | The input of the SetTaskStatus action.
 data SetTaskStatus = SetTaskStatus
-    { _stsTaskId :: Text
+    { _stsTaskId :: !Text
     , _stsTaskStatus :: TaskStatus
-    , _stsErrorId :: Maybe Text
-    , _stsErrorMessage :: Maybe Text
-    , _stsErrorStackTrace :: Maybe Text
+    , _stsErrorId :: !(Maybe Text)
+    , _stsErrorMessage :: !(Maybe Text)
+    , _stsErrorStackTrace :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

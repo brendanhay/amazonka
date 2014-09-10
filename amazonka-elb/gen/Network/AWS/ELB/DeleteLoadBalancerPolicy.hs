@@ -41,8 +41,8 @@ import Network.AWS.Prelude
 
 -- | The input for the DeleteLoadBalancerPolicy action.
 data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy
-    { _dlbpLoadBalancerName :: Text
-    , _dlbpPolicyName :: Text
+    { _dlbpLoadBalancerName :: !Text
+    , _dlbpPolicyName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

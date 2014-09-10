@@ -60,8 +60,8 @@ import Network.AWS.Prelude
 -- | Represents a request instructing the service to enable or disable DKIM
 -- signing for an identity.
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled
-    { _sideIdentity :: Text
-    , _sideDkimEnabled :: Bool
+    { _sideIdentity :: !Text
+    , _sideDkimEnabled :: !Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

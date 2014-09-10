@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 
 -- | Input structure for the CancelJob operation.
 newtype CancelJob = CancelJob
-    { _cjJobId :: Text
+    { _cjJobId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -67,7 +67,7 @@ instance ToQuery CancelJob where
 
 -- | Output structure for the CancelJob operation.
 newtype CancelJobResponse = CancelJobResponse
-    { _cjrSuccess :: Maybe Bool
+    { _cjrSuccess :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

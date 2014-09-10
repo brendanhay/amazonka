@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data AddUploadBuffer = AddUploadBuffer
-    { _aubGatewayARN :: Text
+    { _aubGatewayARN :: !Text
     , _aubDiskIds :: [Text]
     } deriving (Show, Generic)
 
@@ -84,7 +84,7 @@ instance ToHeaders AddUploadBuffer
 instance ToJSON AddUploadBuffer
 
 newtype AddUploadBufferResponse = AddUploadBufferResponse
-    { _aubrGatewayARN :: Maybe Text
+    { _aubrGatewayARN :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

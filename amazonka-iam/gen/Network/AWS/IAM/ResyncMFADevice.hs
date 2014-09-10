@@ -44,10 +44,10 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data ResyncMFADevice = ResyncMFADevice
-    { _rmfadUserName :: Text
-    , _rmfadSerialNumber :: Text
-    , _rmfadAuthenticationCode1 :: Text
-    , _rmfadAuthenticationCode2 :: Text
+    { _rmfadUserName :: !Text
+    , _rmfadSerialNumber :: !Text
+    , _rmfadAuthenticationCode1 :: !Text
+    , _rmfadAuthenticationCode2 :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

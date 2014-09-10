@@ -52,9 +52,9 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a PurchaseReservedCacheNodesOffering operation.
 data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering
-    { _prcnoReservedCacheNodesOfferingId :: Text
-    , _prcnoReservedCacheNodeId :: Maybe Text
-    , _prcnoCacheNodeCount :: Maybe Integer
+    { _prcnoReservedCacheNodesOfferingId :: !Text
+    , _prcnoReservedCacheNodeId :: !(Maybe Text)
+    , _prcnoCacheNodeCount :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

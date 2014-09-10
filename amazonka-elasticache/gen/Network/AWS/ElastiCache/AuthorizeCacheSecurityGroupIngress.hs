@@ -54,9 +54,9 @@ import Network.AWS.Prelude
 
 -- | Represents the input of an AuthorizeCacheSecurityGroupIngress operation.
 data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress
-    { _acsgiCacheSecurityGroupName :: Text
-    , _acsgiEC2SecurityGroupName :: Text
-    , _acsgiEC2SecurityGroupOwnerId :: Text
+    { _acsgiCacheSecurityGroupName :: !Text
+    , _acsgiEC2SecurityGroupName :: !Text
+    , _acsgiEC2SecurityGroupOwnerId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

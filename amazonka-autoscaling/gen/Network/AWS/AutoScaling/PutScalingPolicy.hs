@@ -55,12 +55,12 @@ import Network.AWS.AutoScaling.Types
 import Network.AWS.Prelude
 
 data PutScalingPolicy = PutScalingPolicy
-    { _pspAutoScalingGroupName :: Text
-    , _pspPolicyName :: Text
-    , _pspScalingAdjustment :: Integer
-    , _pspAdjustmentType :: Text
-    , _pspCooldown :: Maybe Integer
-    , _pspMinAdjustmentStep :: Maybe Integer
+    { _pspAutoScalingGroupName :: !Text
+    , _pspPolicyName :: !Text
+    , _pspScalingAdjustment :: !Integer
+    , _pspAdjustmentType :: !Text
+    , _pspCooldown :: !(Maybe Integer)
+    , _pspMinAdjustmentStep :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -141,7 +141,7 @@ instance ToQuery PutScalingPolicy where
 
 -- | The PolicyARNType data type.
 newtype PutScalingPolicyResponse = PutScalingPolicyResponse
-    { _psprPolicyARN :: Maybe Text
+    { _psprPolicyARN :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

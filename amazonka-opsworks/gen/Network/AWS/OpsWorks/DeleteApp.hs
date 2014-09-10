@@ -41,7 +41,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 newtype DeleteApp = DeleteApp
-    { _daAppId :: Text
+    { _daAppId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

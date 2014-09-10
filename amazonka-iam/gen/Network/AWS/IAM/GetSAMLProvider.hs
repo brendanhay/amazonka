@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 newtype GetSAMLProvider = GetSAMLProvider
-    { _gsamlpSAMLProviderArn :: Text
+    { _gsamlpSAMLProviderArn :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -75,9 +75,9 @@ instance ToQuery GetSAMLProvider where
 -- | Contains the result of a successful invocation of the GetSAMLProvider
 -- action.
 data GetSAMLProviderResponse = GetSAMLProviderResponse
-    { _gsamlprSAMLMetadataDocument :: Maybe Text
-    , _gsamlprCreateDate :: Maybe ISO8601
-    , _gsamlprValidUntil :: Maybe ISO8601
+    { _gsamlprSAMLMetadataDocument :: !(Maybe Text)
+    , _gsamlprCreateDate :: !(Maybe ISO8601)
+    , _gsamlprValidUntil :: !(Maybe ISO8601)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

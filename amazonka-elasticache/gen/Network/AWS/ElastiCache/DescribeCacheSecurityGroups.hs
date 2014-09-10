@@ -51,9 +51,9 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a DescribeCacheSecurityGroups operation.
 data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups
-    { _dcsg2CacheSecurityGroupName :: Maybe Text
-    , _dcsg2MaxRecords :: Maybe Integer
-    , _dcsg2Marker :: Maybe Text
+    { _dcsg2CacheSecurityGroupName :: !(Maybe Text)
+    , _dcsg2MaxRecords :: !(Maybe Integer)
+    , _dcsg2Marker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -99,7 +99,7 @@ instance ToQuery DescribeCacheSecurityGroups where
 
 -- | Represents the output of a DescribeCacheSecurityGroups operation.
 data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
-    { _dcsgrMarker :: Maybe Text
+    { _dcsgrMarker :: !(Maybe Text)
     , _dcsgrCacheSecurityGroups :: [CacheSecurityGroup]
     } deriving (Show, Generic)
 

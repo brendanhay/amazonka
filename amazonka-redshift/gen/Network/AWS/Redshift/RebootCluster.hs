@@ -56,7 +56,7 @@ import Network.AWS.Prelude
 
 -- | 
 newtype RebootCluster = RebootCluster
-    { _rc1ClusterIdentifier :: Text
+    { _rc1ClusterIdentifier :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

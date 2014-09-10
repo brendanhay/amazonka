@@ -171,10 +171,10 @@ xmlOptions = Tagged def
 
 -- | 
 data Attribute = Attribute
-    { _aName :: Text
-    , _aAlternateNameEncoding :: Maybe Text
-    , _aValue :: Text
-    , _aAlternateValueEncoding :: Maybe Text
+    { _aName :: !Text
+    , _aAlternateNameEncoding :: !(Maybe Text)
+    , _aValue :: !Text
+    , _aAlternateValueEncoding :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -227,7 +227,7 @@ instance ToQuery Attribute where
     toQuery = genericQuery def
 
 data DeletableItem = DeletableItem
-    { _diName :: Text
+    { _diName :: !Text
     , _diAttributes :: [Attribute]
     } deriving (Show, Generic)
 
@@ -258,8 +258,8 @@ instance ToQuery DeletableItem where
 
 -- | 
 data Item = Item
-    { _iName :: Text
-    , _iAlternateNameEncoding :: Maybe Text
+    { _iName :: !Text
+    , _iAlternateNameEncoding :: !(Maybe Text)
     , _iAttributes :: [Attribute]
     } deriving (Show, Generic)
 
@@ -305,9 +305,9 @@ instance FromXML Item where
 
 -- | 
 data ReplaceableAttribute = ReplaceableAttribute
-    { _raName :: Text
-    , _raValue :: Text
-    , _raReplace :: Maybe Bool
+    { _raName :: !Text
+    , _raValue :: !Text
+    , _raReplace :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -352,7 +352,7 @@ instance ToQuery ReplaceableAttribute where
 
 -- | 
 data ReplaceableItem = ReplaceableItem
-    { _riName :: Text
+    { _riName :: !Text
     , _riAttributes :: [ReplaceableAttribute]
     } deriving (Show, Generic)
 
@@ -388,9 +388,9 @@ instance ToQuery ReplaceableItem where
 -- attributes will be deleted or not. The update condition must be satisfied
 -- in order for this request to be processed and the attributes to be deleted.
 data UpdateCondition = UpdateCondition
-    { _ucName :: Maybe Text
-    , _ucValue :: Maybe Text
-    , _ucExists :: Maybe Bool
+    { _ucName :: !(Maybe Text)
+    , _ucValue :: !(Maybe Text)
+    , _ucExists :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

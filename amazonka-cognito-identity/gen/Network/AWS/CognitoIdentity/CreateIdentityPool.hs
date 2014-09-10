@@ -57,8 +57,8 @@ import Network.AWS.Request.JSON
 
 -- | Input to the CreateIdentityPool action.
 data CreateIdentityPool = CreateIdentityPool
-    { _cipIdentityPoolName :: Text
-    , _cipAllowUnauthenticatedIdentities :: Bool
+    { _cipIdentityPoolName :: !Text
+    , _cipAllowUnauthenticatedIdentities :: !Bool
     , _cipSupportedLoginProviders :: Map Text Text
     } deriving (Show, Generic)
 
@@ -109,9 +109,9 @@ instance ToJSON CreateIdentityPool
 
 -- | An object representing a Cognito identity pool.
 data CreateIdentityPoolResponse = CreateIdentityPoolResponse
-    { _ciprIdentityPoolId :: Text
-    , _ciprIdentityPoolName :: Text
-    , _ciprAllowUnauthenticatedIdentities :: Bool
+    { _ciprIdentityPoolId :: !Text
+    , _ciprIdentityPoolName :: !Text
+    , _ciprAllowUnauthenticatedIdentities :: !Bool
     , _ciprSupportedLoginProviders :: Map Text Text
     } deriving (Show, Generic)
 

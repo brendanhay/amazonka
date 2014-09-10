@@ -53,8 +53,8 @@ import Network.AWS.Prelude
 
 -- | 
 data CreateClusterSnapshot = CreateClusterSnapshot
-    { _ccs1SnapshotIdentifier :: Text
-    , _ccs1ClusterIdentifier :: Text
+    { _ccs1SnapshotIdentifier :: !Text
+    , _ccs1ClusterIdentifier :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

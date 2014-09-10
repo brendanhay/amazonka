@@ -41,7 +41,7 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 newtype DeleteGroup = DeleteGroup
-    { _dgGroupName :: Text
+    { _dgGroupName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

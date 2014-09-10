@@ -51,10 +51,10 @@ import Network.AWS.Request.JSON
 
 -- | The UpdatePipelineRequest structure.
 data UpdatePipeline = UpdatePipeline
-    { _upId :: Text
-    , _upName :: Maybe Text
-    , _upInputBucket :: Maybe Text
-    , _upRole :: Maybe Text
+    { _upId :: !Text
+    , _upName :: !(Maybe Text)
+    , _upInputBucket :: !(Maybe Text)
+    , _upRole :: !(Maybe Text)
     , _upNotifications :: Maybe Notifications
     , _upContentConfig :: Maybe PipelineOutputConfig
     , _upThumbnailConfig :: Maybe PipelineOutputConfig

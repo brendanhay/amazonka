@@ -89,8 +89,8 @@ import Network.AWS.Prelude
 data DescribeVolumeStatus = DescribeVolumeStatus
     { _dvsVolumeIds :: [Text]
     , _dvsFilters :: [Filter]
-    , _dvsNextToken :: Maybe Text
-    , _dvsMaxResults :: Maybe Integer
+    , _dvsNextToken :: !(Maybe Text)
+    , _dvsMaxResults :: !(Maybe Integer)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -150,7 +150,7 @@ instance ToQuery DescribeVolumeStatus where
 
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
     { _dvsrVolumeStatuses :: [VolumeStatusItem]
-    , _dvsrNextToken :: Maybe Text
+    , _dvsrNextToken :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

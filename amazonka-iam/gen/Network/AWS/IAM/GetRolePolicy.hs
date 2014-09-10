@@ -50,8 +50,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data GetRolePolicy = GetRolePolicy
-    { _grpRoleName :: Text
-    , _grpPolicyName :: Text
+    { _grpRoleName :: !Text
+    , _grpPolicyName :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -84,9 +84,9 @@ instance ToQuery GetRolePolicy where
 
 -- | Contains the result of a successful invocation of the GetRolePolicy action.
 data GetRolePolicyResponse = GetRolePolicyResponse
-    { _grprRoleName :: Text
-    , _grprPolicyName :: Text
-    , _grprPolicyDocument :: Text
+    { _grprRoleName :: !Text
+    , _grprPolicyName :: !Text
+    , _grprPolicyDocument :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -66,7 +66,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeVolumeAttribute = DescribeVolumeAttribute
-    { _dvaVolumeId :: Text
+    { _dvaVolumeId :: !Text
     , _dvaAttribute :: Maybe VolumeAttributeName
     } deriving (Show, Generic)
 
@@ -98,7 +98,7 @@ instance ToQuery DescribeVolumeAttribute where
     toQuery = genericQuery def
 
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
-    { _dvarVolumeId :: Maybe Text
+    { _dvarVolumeId :: !(Maybe Text)
     , _dvarAutoEnableIO :: Maybe AttributeBooleanValue
     , _dvarProductCodes :: [ProductCode]
     } deriving (Show, Generic)

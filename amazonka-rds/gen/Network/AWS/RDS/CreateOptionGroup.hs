@@ -50,10 +50,10 @@ import Network.AWS.Prelude
 
 -- | 
 data CreateOptionGroup = CreateOptionGroup
-    { _cogOptionGroupName :: Text
-    , _cogEngineName :: Text
-    , _cogMajorEngineVersion :: Text
-    , _cogOptionGroupDescription :: Text
+    { _cogOptionGroupName :: !Text
+    , _cogEngineName :: !Text
+    , _cogMajorEngineVersion :: !Text
+    , _cogOptionGroupDescription :: !Text
     , _cogTags :: [Tag]
     } deriving (Show, Generic)
 

@@ -9,9 +9,9 @@ data {{ scope.name }} = {{ scope.name }}
 {% endcase %}
 {% for field in scope.fields %}
   {% if field.first %}
-    { {{ field.value.prefixed }} :: {{ field.value.type }}
+    { {{ field.value.prefixed }} :: {{ field.value.strict }}
   {% else %}
-    , {{ field.value.prefixed }} :: {{ field.value.type }}
+    , {{ field.value.prefixed }} :: {{ field.value.strict }}
   {% endif %}
   {% if field.last %}
     } deriving (Show, Generic)

@@ -54,9 +54,9 @@ import Network.AWS.Prelude
 
 -- | 
 data DescribeDBSubnetGroups = DescribeDBSubnetGroups
-    { _ddbsg3DBSubnetGroupName :: Maybe Text
-    , _ddbsg3MaxRecords :: Maybe Integer
-    , _ddbsg3Marker :: Maybe Text
+    { _ddbsg3DBSubnetGroupName :: !(Maybe Text)
+    , _ddbsg3MaxRecords :: !(Maybe Integer)
+    , _ddbsg3Marker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -103,7 +103,7 @@ instance ToQuery DescribeDBSubnetGroups where
 -- | Contains the result of a successful invocation of the
 -- DescribeDBSubnetGroups action.
 data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
-    { _ddbsgrrMarker :: Maybe Text
+    { _ddbsgrrMarker :: !(Maybe Text)
     , _ddbsgrrDBSubnetGroups :: [DBSubnetGroup]
     } deriving (Show, Generic)
 

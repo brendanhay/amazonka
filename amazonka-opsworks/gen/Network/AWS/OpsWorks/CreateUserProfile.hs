@@ -45,10 +45,10 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data CreateUserProfile = CreateUserProfile
-    { _cupIamUserArn :: Text
-    , _cupSshUsername :: Maybe Text
-    , _cupSshPublicKey :: Maybe Text
-    , _cupAllowSelfManagement :: Maybe Bool
+    { _cupIamUserArn :: !Text
+    , _cupSshUsername :: !(Maybe Text)
+    , _cupSshPublicKey :: !(Maybe Text)
+    , _cupAllowSelfManagement :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -105,7 +105,7 @@ instance ToJSON CreateUserProfile
 
 -- | Contains the response to a CreateUserProfile request.
 newtype CreateUserProfileResponse = CreateUserProfileResponse
-    { _cuprIamUserArn :: Maybe Text
+    { _cuprIamUserArn :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

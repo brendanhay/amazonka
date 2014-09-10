@@ -53,11 +53,11 @@ import Network.AWS.Request.JSON
 
 -- | Specifies settings to update for the trail.
 data UpdateTrail = UpdateTrail
-    { _utName :: Text
-    , _utS3BucketName :: Maybe Text
-    , _utS3KeyPrefix :: Maybe Text
-    , _utSnsTopicName :: Maybe Text
-    , _utIncludeGlobalServiceEvents :: Maybe Bool
+    { _utName :: !Text
+    , _utS3BucketName :: !(Maybe Text)
+    , _utS3KeyPrefix :: !(Maybe Text)
+    , _utSnsTopicName :: !(Maybe Text)
+    , _utIncludeGlobalServiceEvents :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -122,11 +122,11 @@ instance ToJSON UpdateTrail
 -- | Returns the objects or data listed below if successful. Otherwise, returns
 -- an error.
 data UpdateTrailResponse = UpdateTrailResponse
-    { _utrName :: Maybe Text
-    , _utrS3BucketName :: Maybe Text
-    , _utrS3KeyPrefix :: Maybe Text
-    , _utrSnsTopicName :: Maybe Text
-    , _utrIncludeGlobalServiceEvents :: Maybe Bool
+    { _utrName :: !(Maybe Text)
+    , _utrS3BucketName :: !(Maybe Text)
+    , _utrS3KeyPrefix :: !(Maybe Text)
+    , _utrSnsTopicName :: !(Maybe Text)
+    , _utrIncludeGlobalServiceEvents :: !(Maybe Bool)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

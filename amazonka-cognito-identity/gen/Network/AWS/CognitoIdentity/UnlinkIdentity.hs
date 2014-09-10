@@ -43,7 +43,7 @@ import Network.AWS.Request.JSON
 
 -- | Input to the UnlinkIdentity action.
 data UnlinkIdentity = UnlinkIdentity
-    { _uiIdentityId :: Text
+    { _uiIdentityId :: !Text
     , _uiLogins :: Map Text Text
     , _uiLoginsToRemove :: [Text]
     } deriving (Show, Generic)

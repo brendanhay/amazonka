@@ -56,9 +56,9 @@ import Network.AWS.Prelude
 
 -- | 
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
-    { _dedpDBParameterGroupFamily :: Text
-    , _dedpMaxRecords :: Maybe Integer
-    , _dedpMarker :: Maybe Text
+    { _dedpDBParameterGroupFamily :: !Text
+    , _dedpMaxRecords :: !(Maybe Integer)
+    , _dedpMarker :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

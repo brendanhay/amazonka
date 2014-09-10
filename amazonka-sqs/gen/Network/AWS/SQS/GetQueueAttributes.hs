@@ -89,7 +89,7 @@ import Network.AWS.SQS.Types
 import Network.AWS.Prelude
 
 data GetQueueAttributes = GetQueueAttributes
-    { _gqaQueueUrl :: Text
+    { _gqaQueueUrl :: !Text
     , _gqaAttributeNames :: [QueueAttributeName]
     } deriving (Show, Generic)
 

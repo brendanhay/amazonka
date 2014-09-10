@@ -65,21 +65,21 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a ModifyCacheCluster operation.
 data ModifyCacheCluster = ModifyCacheCluster
-    { _mccCacheClusterId :: Text
-    , _mccNumCacheNodes :: Maybe Integer
+    { _mccCacheClusterId :: !Text
+    , _mccNumCacheNodes :: !(Maybe Integer)
     , _mccCacheNodeIdsToRemove :: [Text]
     , _mccCacheSecurityGroupNames :: [Text]
     , _mccSecurityGroupIds :: [Text]
-    , _mccPreferredMaintenanceWindow :: Maybe Text
-    , _mccNotificationTopicArn :: Maybe Text
-    , _mccCacheParameterGroupName :: Maybe Text
-    , _mccNotificationTopicStatus :: Maybe Text
-    , _mccApplyImmediately :: Maybe Bool
-    , _mccEngineVersion :: Maybe Text
-    , _mccAutoMinorVersionUpgrade :: Maybe Bool
-    , _mccSnapshotRetentionLimit :: Maybe Integer
-    , _mccSnapshotWindow :: Maybe Text
-    , _mccAZMode :: Maybe Text
+    , _mccPreferredMaintenanceWindow :: !(Maybe Text)
+    , _mccNotificationTopicArn :: !(Maybe Text)
+    , _mccCacheParameterGroupName :: !(Maybe Text)
+    , _mccNotificationTopicStatus :: !(Maybe Text)
+    , _mccApplyImmediately :: !(Maybe Bool)
+    , _mccEngineVersion :: !(Maybe Text)
+    , _mccAutoMinorVersionUpgrade :: !(Maybe Bool)
+    , _mccSnapshotRetentionLimit :: !(Maybe Integer)
+    , _mccSnapshotWindow :: !(Maybe Text)
+    , _mccAZMode :: !(Maybe Text)
     , _mccNewAvailabilityZones :: [Text]
     } deriving (Show, Generic)
 

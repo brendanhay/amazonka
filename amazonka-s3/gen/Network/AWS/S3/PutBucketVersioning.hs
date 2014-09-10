@@ -43,9 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data PutBucketVersioning = PutBucketVersioning
-    { _pbvBucket :: BucketName
-    , _pbvContentMD5 :: Maybe Text
-    , _pbvMFA :: Maybe Text
+    { _pbvBucket :: !BucketName
+    , _pbvContentMD5 :: !(Maybe Text)
+    , _pbvMFA :: !(Maybe Text)
     , _pbvVersioningConfiguration :: VersioningConfiguration
     } deriving (Show, Generic)
 

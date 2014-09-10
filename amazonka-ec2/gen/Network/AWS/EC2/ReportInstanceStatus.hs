@@ -58,10 +58,10 @@ import Network.AWS.Prelude
 data ReportInstanceStatus = ReportInstanceStatus
     { _risInstances :: [Text]
     , _risStatus :: ReportStatusType
-    , _risStartTime :: Maybe ISO8601
-    , _risEndTime :: Maybe ISO8601
+    , _risStartTime :: !(Maybe ISO8601)
+    , _risEndTime :: !(Maybe ISO8601)
     , _risReasonCodes :: [ReportInstanceReasonCodes]
-    , _risDescription :: Maybe Text
+    , _risDescription :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

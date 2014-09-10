@@ -54,15 +54,15 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data CreateApp = CreateApp
-    { _caStackId :: Text
-    , _caShortname :: Maybe Text
-    , _caName :: Text
-    , _caDescription :: Maybe Text
+    { _caStackId :: !Text
+    , _caShortname :: !(Maybe Text)
+    , _caName :: !Text
+    , _caDescription :: !(Maybe Text)
     , _caDataSources :: [DataSource]
     , _caType :: AppType
     , _caAppSource :: Maybe Source
     , _caDomains :: [Text]
-    , _caEnableSsl :: Maybe Bool
+    , _caEnableSsl :: !(Maybe Bool)
     , _caSslConfiguration :: Maybe SslConfiguration
     , _caAttributes :: Map AppAttributesKeys Text
     } deriving (Show, Generic)
@@ -172,7 +172,7 @@ instance ToJSON CreateApp
 
 -- | Contains the response to a CreateApp request.
 newtype CreateAppResponse = CreateAppResponse
-    { _carAppId :: Maybe Text
+    { _carAppId :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

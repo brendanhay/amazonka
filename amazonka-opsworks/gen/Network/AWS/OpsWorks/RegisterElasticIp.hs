@@ -47,8 +47,8 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data RegisterElasticIp = RegisterElasticIp
-    { _reiElasticIp :: Text
-    , _reiStackId :: Text
+    { _reiElasticIp :: !Text
+    , _reiStackId :: !Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -86,7 +86,7 @@ instance ToJSON RegisterElasticIp
 
 -- | Contains the response to a RegisterElasticIp request.
 newtype RegisterElasticIpResponse = RegisterElasticIpResponse
-    { _reirElasticIp :: Maybe Text
+    { _reirElasticIp :: !(Maybe Text)
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

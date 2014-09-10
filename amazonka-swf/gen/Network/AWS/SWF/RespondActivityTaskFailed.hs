@@ -50,7 +50,7 @@
 -- "reason": "could not verify customer credit card", "details": "card number
 -- invalid"} HTTP/1.1 200 OK Content-Length: 0 Content-Type: application/json
 -- x-amzn-RequestId: feadaedd-3ff8-11e1-9e8f-57bb03e21482.
-module Network.AWS.SWF
+module Network.AWS.SWF.RespondActivityTaskFailed
     (
     -- * Request
       RespondActivityTaskFailed

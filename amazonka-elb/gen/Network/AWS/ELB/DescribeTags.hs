@@ -22,7 +22,7 @@
 -- &LoadBalancerNames.member.1=my-test-loadbalancer &Version=2012-06-01
 -- &AUTHPARAMS my-test-project project test environment my-test-loadbalancer
 -- 07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE.
-module Network.AWS.ELB
+module Network.AWS.ELB.DescribeTags
     (
     -- * Request
       DescribeTags

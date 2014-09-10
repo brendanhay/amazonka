@@ -25,7 +25,7 @@
 -- &Version=2014-03-24 &SignatureVersion=4 &SignatureMethod=HmacSHA256
 -- &Timestamp=20140401T192317Z &X-Amz-Credential=
 -- d0a417cb-575b-11e0-8869-cd22b4f9d96f.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.DeleteCacheParameterGroup
     (
     -- * Request
       DeleteCacheParameterGroup

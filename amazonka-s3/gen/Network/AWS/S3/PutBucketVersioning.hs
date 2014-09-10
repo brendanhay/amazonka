@@ -19,7 +19,7 @@
 
 -- | Sets the versioning state of an existing bucket. To set the versioning
 -- state, you must be the bucket owner.
-module Network.AWS.S3
+module Network.AWS.S3.PutBucketVersioning
     (
     -- * Request
       PutBucketVersioning

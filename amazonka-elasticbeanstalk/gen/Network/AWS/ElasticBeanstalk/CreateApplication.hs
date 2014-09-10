@@ -26,7 +26,7 @@
 -- &Description=Sample%20Description &Operation=CreateApplication &AuthParams
 -- Sample Description SampleApp 2010-11-16T23:09:20.256Z
 -- 2010-11-16T23:09:20.256Z Default 8b00e053-f1d6-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.CreateApplication
     (
     -- * Request
       CreateApplication

@@ -24,7 +24,7 @@
 -- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationName=SampleApp
 -- &Operation=DeleteApplication &AuthParams
 -- 1f155abd-f1d7-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.DeleteApplication
     (
     -- * Request
       DeleteApplication

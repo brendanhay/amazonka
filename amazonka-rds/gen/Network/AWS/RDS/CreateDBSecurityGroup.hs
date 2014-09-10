@@ -25,7 +25,7 @@
 -- &SignatureMethod=HmacSHA256 &Timestamp=2011-02-15T18%3A14%3A49.482Z
 -- &AWSAccessKeyId= &Signature= My new DBSecurityGroup 565419523791
 -- mydbsecuritygroup vpc-1a2b3c4d ed662948-a57b-11df-9e38-7ffab86c801f.
-module Network.AWS.RDS
+module Network.AWS.RDS.CreateDBSecurityGroup
     (
     -- * Request
       CreateDBSecurityGroup

@@ -28,7 +28,7 @@
 -- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &Action=DeleteIdentity
 -- &Identity=domain.com &Timestamp=2012-05-12T05%3A25%3A58.000Z
 -- &Version=2010-12-01 d96bd874-9bf2-11e1-8ee7-c98a0037a2b6.
-module Network.AWS.SES
+module Network.AWS.SES.DeleteIdentity
     (
     -- * Request
       DeleteIdentity

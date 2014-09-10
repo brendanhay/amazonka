@@ -84,7 +84,7 @@
 -- 1326668003.094, "eventType": "DecisionTaskScheduled"} ], "nextPageToken":
 -- "AAAAKgAAAAEAAAAAAAAAATeTvAyvqlQz34ctbGhM5nglWmjzk0hGuHf0g4EO4CblQFku70ukjPgrAHy7Tnp7FaZ0okP8EEWnkfg8gi3Fqy/WVrXyxQaa525D31cIq1owXK21CKR6SQ0Job87G8SHvvqvP7yjLGHlHrRGZUCbJgeEuV4Rp/yW+vKhc8dJ54x7wvpQMwZ+ssG6stTyX26vu1gIDuspk13UrDZa4TbLOFdM0aAocHe3xklKMtD/B4ithem6BWm6CBl/UF7lMfNccwUYEityp1Kht/YrcD9zbJkt1FSt4Y6pgt0njAh4FKRO9nyRyvLmbvgtQXEIQz8hdbjwj3xE1+9ocYwXOCAhVkRsh3OD6F8KHilKfdwg4Xz1jtLXOh4lsCecNb8dS7J9hbRErRbw3rh1Sv415U2Ye23OEfF4Jv7JznpmEyzuq8d2bMyOLjAInQVFK4t1tPo5FAhzdICCXBhRq6Wkt++W9sRQXqqX/HTX5kNomHySZloylPuY5gL5zRj39frInfZk4EXWHwrI+18+erGIHO4nBQpMzO64dMP+A/KtVGCn59rAMmilD6wEE9rH8RuZ03Wkvm9yrJvjrI8/6358n8TMB8OcHoqILkMCAXYiIppnFlm+NWXVqxalHLKOrrNzEZM6qsz3Qj3HV1cpy9P7fnS9QAxrgsAYBoDmdOaFkS3ktAkRa0Sle8STfHi4zKbfIGS7rg=="}.
 -- 
-module Network.AWS.SWF
+module Network.AWS.SWF.GetWorkflowExecutionHistory
     (
     -- * Request
       GetWorkflowExecutionHistory

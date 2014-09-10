@@ -22,7 +22,7 @@
 -- filtering by cluster creation date and time or by status. This call returns
 -- a maximum of 50 clusters per call, but returns a marker to track the paging
 -- of the cluster list across multiple ListClusters calls.
-module Network.AWS.EMR
+module Network.AWS.EMR.ListClusters
     (
     -- * Request
       ListClusters

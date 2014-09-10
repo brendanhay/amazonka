@@ -26,7 +26,7 @@
 -- You can establish connections with AWS Direct Connect locations in multiple
 -- regions, but a connection in one region does not provide connectivity to
 -- other regions.
-module Network.AWS.DirectConnect
+module Network.AWS.DirectConnect.CreateConnection
     (
     -- * Request
       CreateConnection

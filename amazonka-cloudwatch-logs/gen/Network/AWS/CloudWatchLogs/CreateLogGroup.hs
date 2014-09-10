@@ -31,7 +31,7 @@
 -- X-Amz-Target: Logs_20140328.CreateLogGroup { "logGroupName":
 -- "exampleLogGroupName" } HTTP/1.1 200 OK x-amzn-RequestId: Content-Type:
 -- application/x-amz-json-1.1 Content-Length: Date: ]]>.
-module Network.AWS.CloudWatchLogs
+module Network.AWS.CloudWatchLogs.CreateLogGroup
     (
     -- * Request
       CreateLogGroup

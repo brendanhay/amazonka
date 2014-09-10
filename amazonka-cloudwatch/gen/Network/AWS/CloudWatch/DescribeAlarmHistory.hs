@@ -21,7 +21,7 @@
 -- item type. If an alarm name is not specified, Amazon CloudWatch returns
 -- histories for all of the owner's alarms. Amazon CloudWatch retains the
 -- history of an alarm for two weeks, whether or not you delete the alarm.
-module Network.AWS.CloudWatch
+module Network.AWS.CloudWatch.DescribeAlarmHistory
     (
     -- * Request
       DescribeAlarmHistory

@@ -23,7 +23,7 @@
 -- &Action=DescribeScalingProcessTypes &AUTHPARAMS AZRebalance
 -- AddToLoadBalancer AlarmNotification HealthCheck Launch ReplaceUnhealthy
 -- ScheduledActions Terminate 27f2eacc-b73f-11e2-ad99-c7aba3a9c963.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.DescribeScalingProcessTypes
     (
     -- * Request
       DescribeScalingProcessTypes

@@ -37,7 +37,7 @@
 -- &DkimEnabled=true&Identity=user%40example.com
 -- &Timestamp=2012-06-29T22%3A42%3A08.000Z &Version=2010-12-01
 -- 7aa61362-c469-11e1-aee5-6bbb4608fbcc.
-module Network.AWS.SES
+module Network.AWS.SES.SetIdentityDkimEnabled
     (
     -- * Request
       SetIdentityDkimEnabled

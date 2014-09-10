@@ -23,7 +23,7 @@
 -- https://ec2.amazonaws.com/?Action=ModifySubnetAttribute
 -- &amp;SubnetId=subnet-1a2b3c4d &amp;MapPublicIpOnLaunch.Value=true
 -- &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.ModifySubnetAttribute
     (
     -- * Request
       ModifySubnetAttribute

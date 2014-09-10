@@ -19,7 +19,7 @@
 
 -- | Describes the lifecycle hooks that currently belong to the specified Auto
 -- Scaling group.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.DescribeLifecycleHooks
     (
     -- * Request
       DescribeLifecycleHooks

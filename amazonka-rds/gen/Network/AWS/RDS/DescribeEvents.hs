@@ -32,7 +32,7 @@
 -- db-instance 2010-08-11T18:25:52.263Z mynewdbinstance Creating user snapshot
 -- db-snapshot 2010-08-11T18:25:52.263Z mynewdbsnapshot3
 -- 95b948cd-bf45-11de-86a4-97241dfaadff.
-module Network.AWS.RDS
+module Network.AWS.RDS.DescribeEvents
     (
     -- * Request
       DescribeEvents

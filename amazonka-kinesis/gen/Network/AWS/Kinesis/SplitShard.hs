@@ -62,7 +62,7 @@
 -- "ShardToSplit": "shardId-000000000000", "NewStartingHashKey": "10" }
 -- HTTP/1.1 200 OK x-amzn-RequestId: Content-Type: application/x-amz-json-1.1
 -- Content-Length: Date: ]]>.
-module Network.AWS.Kinesis
+module Network.AWS.Kinesis.SplitShard
     (
     -- * Request
       SplitShard

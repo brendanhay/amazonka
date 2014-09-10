@@ -27,7 +27,7 @@
 -- 2014-04-01T18:46:57.972Z 2.8.6 manual true wed:09:00-wed:10:00
 -- my-manual-snapshot 5 2014-04-01T18:54:12Z 2014-04-01T18:46:57.972Z 0001 3
 -- MB deleting 1 07:30-08:30 694d7017-b9d2-11e3-8a16-7978bb24ffdf.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.DeleteSnapshot
     (
     -- * Request
       DeleteSnapshot

@@ -45,7 +45,7 @@
 -- "NumberOfDecreasesToday": 0, "ReadCapacityUnits": 5, "WriteCapacityUnits":
 -- 5 }, "TableName": "Thread", "TableSizeBytes": 0, "TableStatus": "UPDATING"
 -- } }.
-module Network.AWS.DynamoDB
+module Network.AWS.DynamoDB.UpdateTable
     (
     -- * Request
       UpdateTable

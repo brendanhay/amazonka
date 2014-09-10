@@ -54,7 +54,7 @@
 -- "LastName":"Doe", "PhoneNumber":"+2065550100", "State":"WA",
 -- "ZipCode":"98101" }, "TechPrivacy":true, "UpdatedDate":1400010459,
 -- "WhoIsServer":"whois.gandi.net" }.
-module Network.AWS.Route53Domains
+module Network.AWS.Route53Domains.GetDomainDetail
     (
     -- * Request
       GetDomainDetail

@@ -19,7 +19,7 @@
 
 -- | Deletes an existing option group. https://rds.amazonaws.com/
 -- ?Action=DeleteOptionGroup &OptionGroupName=myoptiongroup.
-module Network.AWS.RDS
+module Network.AWS.RDS.DeleteOptionGroup
     (
     -- * Request
       DeleteOptionGroup

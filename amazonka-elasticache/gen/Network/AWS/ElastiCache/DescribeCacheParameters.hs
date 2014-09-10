@@ -29,7 +29,7 @@
 -- max_cache_memory 1.4.5 (...output omitted...) 1024 integer system false The
 -- backlog queue limit. 1-10000 backlog_queue_limit 1.4.5 (...output
 -- omitted...) 0c507368-b7fe-11e0-9326-b7275b9d4a6c.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.DescribeCacheParameters
     (
     -- * Request
       DescribeCacheParameters

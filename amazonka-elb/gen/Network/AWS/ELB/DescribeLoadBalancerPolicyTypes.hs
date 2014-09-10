@@ -35,7 +35,7 @@
 -- whether to include the IP address and port of the originating request for
 -- TCP messages. This policy operates on TCP/SSL listeners only
 -- 1549581b-12b7-11e3-895e-1334aEXAMPLE.
-module Network.AWS.ELB
+module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     (
     -- * Request
       DescribeLoadBalancerPolicyTypes

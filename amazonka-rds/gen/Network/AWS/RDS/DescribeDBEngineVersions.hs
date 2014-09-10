@@ -46,7 +46,7 @@
 -- oracle-se1-11.2 oracle-se1 Oracle Database Server SE1 11.2.0.2.v3 Oracle
 -- SE1 release AL32UTF8 Unicode 5.0 UTF-8 Universal character set
 -- 1162dc55-850f-11e0-90aa-eb648410240d.
-module Network.AWS.RDS
+module Network.AWS.RDS.DescribeDBEngineVersions
     (
     -- * Request
       DescribeDBEngineVersions

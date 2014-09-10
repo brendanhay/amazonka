@@ -26,7 +26,7 @@
 -- m1.small false WebServerPort The TCP port for the Web Server 8888 false
 -- KeyName Name of an existing EC2 KeyPair to enable SSH access into the
 -- server 0be7b6e8-e4a0-11e0-a5bd-9f8d5a7dbc91.
-module Network.AWS.CloudFormation
+module Network.AWS.CloudFormation.ValidateTemplate
     (
     -- * Request
       ValidateTemplate

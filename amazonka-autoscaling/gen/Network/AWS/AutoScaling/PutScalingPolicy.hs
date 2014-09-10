@@ -28,7 +28,7 @@
 -- arn:aws:autoscaling:us-east-1:803981987763:scalingPolicy:b0dcf5e8
 -- -02e6-4e31-9719-0675d0dc31ae:autoScalingGroupName/my-test-asg:policyName/my-scal
 -- eout-policy 3cfc6fef-c08b-11e2-a697-2922EXAMPLE.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.PutScalingPolicy
     (
     -- * Request
       PutScalingPolicy

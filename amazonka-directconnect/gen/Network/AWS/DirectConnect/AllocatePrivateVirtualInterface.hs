@@ -24,7 +24,7 @@
 -- interface owner by calling ConfirmPrivateVirtualInterface. Until this step
 -- has been completed, the virtual interface will be in 'Confirming' state,
 -- and will not be available for handling traffic.
-module Network.AWS.DirectConnect
+module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
     (
     -- * Request
       AllocatePrivateVirtualInterface

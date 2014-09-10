@@ -19,7 +19,7 @@
 
 -- | Deletes a scheduled action previously created using the
 -- PutScheduledUpdateGroupAction.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.DeleteScheduledAction
     (
     -- * Request
       DeleteScheduledAction

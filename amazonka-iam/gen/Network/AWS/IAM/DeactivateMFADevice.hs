@@ -21,7 +21,7 @@
 -- the user name for which it was originally enabled.
 -- https://iam.amazonaws.com/ ?Action=DeactivateMFADevice &UserName=Bob
 -- &SerialNumber=R1234 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM
+module Network.AWS.IAM.DeactivateMFADevice
     (
     -- * Request
       DeactivateMFADevice

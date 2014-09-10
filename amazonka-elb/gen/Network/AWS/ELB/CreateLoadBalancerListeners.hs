@@ -31,7 +31,7 @@
 -- &LoadBalancerName=MyHTTPSLoadBalancer &Version=2012-06-01
 -- &Action=CreateLoadBalancerListeners &AUTHPARAMS
 -- 1549581b-12b7-11e3-895e-1334aEXAMPLE.
-module Network.AWS.ELB
+module Network.AWS.ELB.CreateLoadBalancerListeners
     (
     -- * Request
       CreateLoadBalancerListeners

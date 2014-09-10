@@ -20,7 +20,7 @@
 -- | Permanently deletes a search domain and all of its data. Once a domain has
 -- been deleted, it cannot be recovered. For more information, see Deleting a
 -- Search Domain in the Amazon CloudSearch Developer Guide.
-module Network.AWS.CloudSearch
+module Network.AWS.CloudSearch.DeleteDomain
     (
     -- * Request
       DeleteDomain

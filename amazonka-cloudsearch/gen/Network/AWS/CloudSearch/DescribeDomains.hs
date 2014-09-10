@@ -24,7 +24,7 @@
 -- q=matchall&amp;q.parser=structured&amp;size=0. For more information, see
 -- Getting Information about a Search Domain in the Amazon CloudSearch
 -- Developer Guide.
-module Network.AWS.CloudSearch
+module Network.AWS.CloudSearch.DescribeDomains
     (
     -- * Request
       DescribeDomains

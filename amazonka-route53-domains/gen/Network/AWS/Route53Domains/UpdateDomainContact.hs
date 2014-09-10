@@ -51,7 +51,7 @@
 -- "Fax":"+2065550101" }, } HTTP/1.1 200 Content-Length:[number of characters
 -- in the JSON string] { "OperationId":"308c56712-faa4-40fe-94c8-b423069de3f6"
 -- }.
-module Network.AWS.Route53Domains
+module Network.AWS.Route53Domains.UpdateDomainContact
     (
     -- * Request
       UpdateDomainContact

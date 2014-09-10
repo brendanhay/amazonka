@@ -19,7 +19,7 @@
 
 -- | To retrieve a count of all your health checks, send a GET request to the
 -- 2013-04-01/healthcheckcount resource.
-module Network.AWS.Route53
+module Network.AWS.Route53.GetHealthCheckCount
     (
     -- * Request
       GetHealthCheckCount

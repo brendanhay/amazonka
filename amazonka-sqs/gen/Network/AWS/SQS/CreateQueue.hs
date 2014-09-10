@@ -42,7 +42,7 @@
 -- &SignatureVersion=2 &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- http://&useast1-query;/123456789012/testQueue
 -- 7a62c49f-347e-4fc4-9331-6e8e7a96aa73.
-module Network.AWS.SQS
+module Network.AWS.SQS.CreateQueue
     (
     -- * Request
       CreateQueue

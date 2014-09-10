@@ -38,7 +38,7 @@
 -- "arn": "arn:aws:logs:us-east-1:123456789:log-group:exampleLogGroupName2:*",
 -- "creationTime": 1396224000000, "logGroupName": "exampleLogGroupName2",
 -- "metricFilterCount": 0, "retentionInDays": 30 } ] }.
-module Network.AWS.CloudWatchLogs
+module Network.AWS.CloudWatchLogs.DescribeLogGroups
     (
     -- * Request
       DescribeLogGroups

@@ -28,7 +28,7 @@
 -- &x-amz-date=20121207T230708Z
 -- &x-amz-signedheaders=content-type;host;x-amz-date redshift-1.0 Initial
 -- release of redshift 1.0 d39cd5e5-40c2-11e2-8a25-eb010998df4e.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.DescribeClusterVersions
     (
     -- * Request
       DescribeClusterVersions

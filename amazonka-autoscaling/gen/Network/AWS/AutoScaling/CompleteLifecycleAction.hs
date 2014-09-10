@@ -28,7 +28,7 @@
 -- action heartbeat to keep the instance in a pending state. Complete the
 -- lifecycle action. To learn more, see Auto Scaling Pending State and Auto
 -- Scaling Terminating State.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.CompleteLifecycleAction
     (
     -- * Request
       CompleteLifecycleAction

@@ -22,7 +22,7 @@
 -- restore will run to completion. For more information about working with
 -- snapshots, go to Amazon Redshift Snapshots in the Amazon Redshift
 -- Management Guide.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.RevokeSnapshotAccess
     (
     -- * Request
       RevokeSnapshotAccess

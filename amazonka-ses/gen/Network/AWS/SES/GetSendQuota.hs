@@ -27,7 +27,7 @@
 -- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &Action=GetSendQuota
 -- &Timestamp=2011-08-18T22%3A22%3A36.000Z 127.0 200.0 1.0
 -- 273021c6-c866-11e0-b926-699e21c3af9e.
-module Network.AWS.SES
+module Network.AWS.SES.GetSendQuota
     (
     -- * Request
       GetSendQuota

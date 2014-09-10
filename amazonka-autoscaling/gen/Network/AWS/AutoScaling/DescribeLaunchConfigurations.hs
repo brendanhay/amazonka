@@ -26,7 +26,7 @@
 -- arn:aws:autoscaling:us-east-1:803981987763:launchConfiguration:
 -- 9dbbbf87-6141-428a-a409-0752edbe6cad:launchConfigurationName/my-test-lc
 -- ami-514ac838 true false d05a22f8-b690-11e2-bf8e-2113fEXAMPLE.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     (
     -- * Request
       DescribeLaunchConfigurations

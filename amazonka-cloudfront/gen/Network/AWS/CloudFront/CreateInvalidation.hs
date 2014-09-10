@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Create a new invalidation.
-module Network.AWS.CloudFront
+module Network.AWS.CloudFront.CreateInvalidation
     (
     -- * Request
       CreateInvalidation

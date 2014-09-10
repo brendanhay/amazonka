@@ -22,7 +22,7 @@
 -- (NoSuchEntity) error. https://iam.amazonaws.com/ ?Action=GetLoginProfile
 -- &UserName=Bob &AUTHPARAMS Bob 2011-09-19T23:00:56Z
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM
+module Network.AWS.IAM.GetLoginProfile
     (
     -- * Request
       GetLoginProfile

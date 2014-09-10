@@ -37,7 +37,7 @@
 -- 12:00:02 GMT Content-Type: application/x-amz-json-1.1 Content-length: 85 {
 -- "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
-module Network.AWS.StorageGateway
+module Network.AWS.StorageGateway.AddCache
     (
     -- * Request
       AddCache

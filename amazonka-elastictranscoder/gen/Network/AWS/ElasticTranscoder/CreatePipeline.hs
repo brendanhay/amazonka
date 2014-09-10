@@ -52,7 +52,7 @@
 -- "Permissions":[ { "GranteeType":"Email",
 -- "Grantee":"marketing-promos@example.com", "Access":[ "FullControl" ] } ],
 -- "StorageClass":"ReducedRedundancy" }, "Status":"Active" } }.
-module Network.AWS.ElasticTranscoder
+module Network.AWS.ElasticTranscoder.CreatePipeline
     (
     -- * Request
       CreatePipeline

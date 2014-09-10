@@ -33,7 +33,7 @@
 -- &amp;Filter.2.Name=instance-type &amp;Filter.2.Value.1=m1.small
 -- &amp;Filter.3.Name=product-description &amp;Filter.3.Value.1=Linux%2FUNIX
 -- &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeReservedInstances
     (
     -- * Request
       DescribeReservedInstances

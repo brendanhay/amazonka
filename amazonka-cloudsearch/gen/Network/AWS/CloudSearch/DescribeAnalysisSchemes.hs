@@ -24,7 +24,7 @@
 -- the Deployed option to true to show the active configuration and exclude
 -- pending changes. For more information, see Configuring Analysis Schemes in
 -- the Amazon CloudSearch Developer Guide.
-module Network.AWS.CloudSearch
+module Network.AWS.CloudSearch.DescribeAnalysisSchemes
     (
     -- * Request
       DescribeAnalysisSchemes

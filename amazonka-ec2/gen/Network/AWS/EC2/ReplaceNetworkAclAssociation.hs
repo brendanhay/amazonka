@@ -32,7 +32,7 @@
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;newAssociationId&gt;aclassoc-17b85d7e&lt;/newAssociationId&gt;
 -- &lt;/ReplaceNetworkAclAssociationResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.ReplaceNetworkAclAssociation
     (
     -- * Request
       ReplaceNetworkAclAssociation

@@ -22,7 +22,7 @@
 -- in this request have not replicated to all Route 53 DNS servers. This is
 -- the initial status of all change batch requests. - INSYNC indicates that
 -- the changes have replicated to all Amazon Route 53 DNS servers.
-module Network.AWS.Route53
+module Network.AWS.Route53.GetChange
     (
     -- * Request
       GetChange

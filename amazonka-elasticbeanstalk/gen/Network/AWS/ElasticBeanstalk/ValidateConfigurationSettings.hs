@@ -28,7 +28,7 @@
 -- &OptionSettings.member.1.Value=1000000
 -- &Operation=ValidateConfigurationSettings &AuthParams
 -- 06f1cfff-f28f-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     (
     -- * Request
       ValidateConfigurationSettings

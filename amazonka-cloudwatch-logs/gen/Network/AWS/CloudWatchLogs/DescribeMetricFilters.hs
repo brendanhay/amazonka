@@ -37,7 +37,7 @@
 -- size]", "metricTransformations": [ { "metricValue": "$size",
 -- "metricNamespace": "MyApp", "metricName": "Volume" }, { "metricValue": "1",
 -- "metricNamespace": "MyApp", "metricName": "RequestCount" } ] } ] }.
-module Network.AWS.CloudWatchLogs
+module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     (
     -- * Request
       DescribeMetricFilters

@@ -40,7 +40,7 @@
 -- "DomainName":"example.com", "AdminPrivacy":true, "RegistrantPrivacy":true,
 -- "TechPrivacy":true, } HTTP/1.1 200 Content-Length:[number of characters in
 -- the JSON string] { "OperationId":"777bc5da-fbf7-482c-b2ba-8946884a7dd6" }.
-module Network.AWS.Route53Domains
+module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
     (
     -- * Request
       UpdateDomainContactPrivacy

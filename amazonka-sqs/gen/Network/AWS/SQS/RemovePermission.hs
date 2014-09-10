@@ -27,7 +27,7 @@
 -- &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &SignatureVersion=2
 -- &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- f8bdb362-6616-42c0-977a-ce9a8bcce3bb.
-module Network.AWS.SQS
+module Network.AWS.SQS.RemovePermission
     (
     -- * Request
       RemovePermission

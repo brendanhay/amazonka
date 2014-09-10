@@ -33,7 +33,7 @@
 -- &AWSAccessKeyId=[AWS Access KeyID] &Signature=[Signature]
 -- arn:aws:cloudformation:us-east-1:123456789:stack/MyStack/aaf549a0-a413-11df-adb3-5081b3858e83.
 -- 
-module Network.AWS.CloudFormation
+module Network.AWS.CloudFormation.UpdateStack
     (
     -- * Request
       UpdateStack

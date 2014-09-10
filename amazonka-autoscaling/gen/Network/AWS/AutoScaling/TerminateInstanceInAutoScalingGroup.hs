@@ -20,7 +20,7 @@
 -- | Terminates the specified instance. Optionally, the desired group size can
 -- be adjusted. This call simply registers a termination request. The
 -- termination of the instance cannot happen immediately.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
     (
     -- * Request
       TerminateInstanceInAutoScalingGroup

@@ -34,7 +34,7 @@
 -- us-east-1b 2014-04-01T19:04:12.812Z 1.4.17 true wed:09:00-wed:10:00
 -- https://console.aws.amazon.com/elasticache/home#client-download: default
 -- active 3 cf7e6fc4-b9d1-11e3-8a16-7978bb24ffdf.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.RebootCacheCluster
     (
     -- * Request
       RebootCacheCluster

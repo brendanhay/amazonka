@@ -23,7 +23,7 @@
 -- &PolicyDocument={"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":["ec2.amazonaws.com"]},"Action":["sts:AssumeRole"]}]}
 -- &RoleName=S3Access &Version=2010-05-08 &AUTHPARAMS
 -- 309c1671-99ed-11e1-a4c3-270EXAMPLE04.
-module Network.AWS.IAM
+module Network.AWS.IAM.UpdateAssumeRolePolicy
     (
     -- * Request
       UpdateAssumeRolePolicy

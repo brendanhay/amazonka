@@ -35,7 +35,7 @@
 -- &amp;Filter.1.Name=dhcp-options-id &amp;Filter.1.Value.1=dopt-7a8b9c2d
 -- &amp;Filter.1.Value.2=dopt-2b2a3d3c &amp;Filter.2.Name=state
 -- &amp;Filter.2.Value.1=available &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeVpcs
     (
     -- * Request
       DescribeVpcs

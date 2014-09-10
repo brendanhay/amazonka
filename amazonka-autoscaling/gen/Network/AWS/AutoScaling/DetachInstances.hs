@@ -29,7 +29,7 @@
 -- user request, shrinking the capacity from 4 to 3. my-asg {"Availability
 -- Zone":"us-east-1a"} Detaching EC2 instance: i-5f2e8a0d
 -- e04f3b11-f357-11e3-a434-7f10009d5849.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.DetachInstances
     (
     -- * Request
       DetachInstances

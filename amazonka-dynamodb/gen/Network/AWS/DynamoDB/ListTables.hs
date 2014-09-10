@@ -22,7 +22,7 @@
 -- a table named comp2 and ending after three table names have been returned.
 -- { "LastEvaluatedTableName": "Thread", "TableNames":
 -- ["Forum","Reply","Thread"] }.
-module Network.AWS.DynamoDB
+module Network.AWS.DynamoDB.ListTables
     (
     -- * Request
       ListTables

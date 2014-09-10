@@ -39,7 +39,7 @@
 -- &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &SignatureVersion=2
 -- &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- 9a285199-c8d6-47c2-bdb2-314cb47d599d.
-module Network.AWS.SQS
+module Network.AWS.SQS.AddPermission
     (
     -- * Request
       AddPermission

@@ -43,7 +43,7 @@
 -- "VolumeDiskId": "pci-0000:03:00.0-scsi-0:0:0:0", "VolumeId":
 -- "vol-1122AABB", "VolumeSizeInBytes": 1099511627776, "VolumeStatus":
 -- "AVAILABLE", "VolumeType": "CACHED iSCSI" } ] }.
-module Network.AWS.StorageGateway
+module Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
     (
     -- * Request
       DescribeCachediSCSIVolumes

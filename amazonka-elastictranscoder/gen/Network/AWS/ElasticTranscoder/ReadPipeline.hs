@@ -35,7 +35,7 @@
 -- "Warning":"" }, "OutputBucket":"salesoffice.example.com-public-promos",
 -- "Role":"arn:aws:iam::123456789012:role/transcode-service",
 -- "Status":"Active" } }.
-module Network.AWS.ElasticTranscoder
+module Network.AWS.ElasticTranscoder.ReadPipeline
     (
     -- * Request
       ReadPipeline

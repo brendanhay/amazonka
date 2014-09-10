@@ -30,7 +30,7 @@
 -- db.m2.2xlarge us-east-1a yes us-east-1b yes us-east-1d yes true mysql
 -- general-public-license true 5.1.45 db.m2.4xlarge us-east-1a yes us-east-1b
 -- no us-east-1d no 2a0406d7-8511-11e0-90aa-eb648410240d.
-module Network.AWS.RDS
+module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     (
     -- * Request
       DescribeOrderableDBInstanceOptions

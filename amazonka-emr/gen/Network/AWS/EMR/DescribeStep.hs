@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Provides more detail about the cluster step.
-module Network.AWS.EMR
+module Network.AWS.EMR.DescribeStep
     (
     -- * Request
       DescribeStep

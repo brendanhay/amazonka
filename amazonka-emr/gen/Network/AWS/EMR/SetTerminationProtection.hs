@@ -46,7 +46,7 @@
 -- af23b1db-ee5c-11e2-9787-192218ecb460 Content-Type:
 -- application/x-amz-json-1.1 Content-Length: 0 Date: Tue, 16 Jul 2013
 -- 21:14:21 GMT.
-module Network.AWS.EMR
+module Network.AWS.EMR.SetTerminationProtection
     (
     -- * Request
       SetTerminationProtection

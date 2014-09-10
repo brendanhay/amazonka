@@ -27,7 +27,7 @@
 -- SQL statements for the binary log during a transaction. dynamic
 -- 4096-9223372036854775807 binlog_cache_size
 -- 8743f2cf-bf41-11de-8c8e-49155882c409.
-module Network.AWS.RDS
+module Network.AWS.RDS.DescribeDBParameters
     (
     -- * Request
       DescribeDBParameters

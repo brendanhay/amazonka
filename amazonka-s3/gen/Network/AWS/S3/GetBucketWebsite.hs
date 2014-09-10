@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the website configuration for a bucket.
-module Network.AWS.S3
+module Network.AWS.S3.GetBucketWebsite
     (
     -- * Request
       GetBucketWebsite

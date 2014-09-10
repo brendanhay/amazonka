@@ -23,7 +23,7 @@
 -- https://autoscaling.amazonaws.com/?LaunchConfigurationName=my-test-lc
 -- &Version=2011-01-01 &Action=DeleteLaunchConfiguration &AUTHPARAMS
 -- 7347261f-97df-11e2-8756-35eEXAMPLE.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.DeleteLaunchConfiguration
     (
     -- * Request
       DeleteLaunchConfiguration

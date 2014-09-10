@@ -116,7 +116,7 @@
 -- &lt;primary&gt;false&lt;/primary&gt; &lt;/item&gt;
 -- &lt;/privateIpAddressesSet&gt; &lt;/networkInterface&gt;
 -- &lt;/CreateNetworkInterfaceResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.CreateNetworkInterface
     (
     -- * Request
       CreateNetworkInterface

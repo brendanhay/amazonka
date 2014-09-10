@@ -21,7 +21,7 @@
 -- expressions and modify existing ones. If the expression exists, the new
 -- configuration replaces the old one. For more information, see Configuring
 -- Expressions in the Amazon CloudSearch Developer Guide.
-module Network.AWS.CloudSearch
+module Network.AWS.CloudSearch.DefineExpression
     (
     -- * Request
       DefineExpression

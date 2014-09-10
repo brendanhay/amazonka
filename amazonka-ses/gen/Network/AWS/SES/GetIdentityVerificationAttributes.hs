@@ -32,7 +32,7 @@
 -- &Timestamp=2012-05-12T05%3A27%3A54.000Z &Version=2010-12-01 domain.com
 -- Pending QTKknzFg2J4ygwa+XvHAxUl1hyHoY0gVfZdfjIedHZ0= user@domain.com
 -- Pending 1d0c29f1-9bf3-11e1-8ee7-c98a0037a2b6.
-module Network.AWS.SES
+module Network.AWS.SES.GetIdentityVerificationAttributes
     (
     -- * Request
       GetIdentityVerificationAttributes

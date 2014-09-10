@@ -20,7 +20,7 @@
 -- | Deletes the specified lifecycle hook. If there are any outstanding
 -- lifecycle actions, they are completed first (ABANDON for launching
 -- instances, CONTINUE for terminating instances).
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.DeleteLifecycleHook
     (
     -- * Request
       DeleteLifecycleHook

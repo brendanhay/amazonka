@@ -28,7 +28,7 @@
 -- rtb-f9ad4890 vpc-11ad4878 10.0.0.0/22 local active CreateRouteTable
 -- 0.0.0.0/0 igw-eaad4883 active rtbassoc-faad4893 rtb-f9ad4890
 -- subnet-15ad487c.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeRouteTables
     (
     -- * Request
       DescribeRouteTables

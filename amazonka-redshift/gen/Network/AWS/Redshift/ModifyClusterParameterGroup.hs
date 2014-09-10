@@ -31,7 +31,7 @@
 -- &x-amz-signedheaders=content-type;host;x-amz-date Your parameter group has
 -- been updated but changes won't get applied until you reboot the associated
 -- Clusters. parametergroup1 86e64043-40de-11e2-8a25-eb010998df4e.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.ModifyClusterParameterGroup
     (
     -- * Request
       ModifyClusterParameterGroup

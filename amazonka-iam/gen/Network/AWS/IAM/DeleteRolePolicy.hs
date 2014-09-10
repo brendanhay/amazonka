@@ -21,7 +21,7 @@
 -- https://iam.amazonaws.com/ ?Action=DeleteRolePolicy
 -- &PolicyName=S3AccessPolicy &RoleName=S3Access &Version=2010-05-08
 -- &AUTHPARAMS c749ee7f-99ef-11e1-a4c3-27EXAMPLE804.
-module Network.AWS.IAM
+module Network.AWS.IAM.DeleteRolePolicy
     (
     -- * Request
       DeleteRolePolicy

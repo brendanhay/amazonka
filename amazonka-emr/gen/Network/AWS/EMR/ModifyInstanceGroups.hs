@@ -37,7 +37,7 @@
 -- 80a74808-ee5a-11e2-90db-69a5154aeb8d Content-Type:
 -- application/x-amz-json-1.1 Content-Length: 0 Date: Tue, 16 Jul 2013
 -- 20:58:44 GMT.
-module Network.AWS.EMR
+module Network.AWS.EMR.ModifyInstanceGroups
     (
     -- * Request
       ModifyInstanceGroups

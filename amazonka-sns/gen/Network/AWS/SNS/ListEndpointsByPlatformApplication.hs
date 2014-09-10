@@ -49,7 +49,7 @@
 -- &lt;RequestId&gt;9a48768c-dac8-5a60-aec0-3cc27ea08d96&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt;
 -- &lt;/ListEndpointsByPlatformApplicationResponse&gt;.
-module Network.AWS.SNS
+module Network.AWS.SNS.ListEndpointsByPlatformApplication
     (
     -- * Request
       ListEndpointsByPlatformApplication

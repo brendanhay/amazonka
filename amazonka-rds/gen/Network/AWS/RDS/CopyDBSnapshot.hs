@@ -26,7 +26,7 @@
 -- mysql available us-east-1a general-public-license 2011-05-23T06:06:43.110Z
 -- 10 simcoprod01 5.1.50 mydbsnapshot manual master
 -- c4181d1d-8505-11e0-90aa-eb648410240d.
-module Network.AWS.RDS
+module Network.AWS.RDS.CopyDBSnapshot
     (
     -- * Request
       CopyDBSnapshot

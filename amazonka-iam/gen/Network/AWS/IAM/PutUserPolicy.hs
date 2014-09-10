@@ -30,7 +30,7 @@
 -- &PolicyName=AllAccessPolicy
 -- &PolicyDocument={"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":"*","Resource":"*"}]}
 -- &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM
+module Network.AWS.IAM.PutUserPolicy
     (
     -- * Request
       PutUserPolicy

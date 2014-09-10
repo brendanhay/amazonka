@@ -19,7 +19,7 @@
 
 -- | Removes an Expression from the search domain. For more information, see
 -- Configuring Expressions in the Amazon CloudSearch Developer Guide.
-module Network.AWS.CloudSearch
+module Network.AWS.CloudSearch.DeleteExpression
     (
     -- * Request
       DeleteExpression

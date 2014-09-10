@@ -28,7 +28,7 @@
 -- &SignatureVersion=4 &SignatureMethod=HmacSHA256 &Timestamp=20140401T192317Z
 -- &X-Amz-Credential= mycacheparametergroup
 -- fcedeef2-b7ff-11e0-9326-b7275b9d4a6c.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     (
     -- * Request
       ModifyCacheParameterGroup

@@ -20,7 +20,7 @@
 -- | Disables monitoring of group metrics for the Auto Scaling group specified
 -- in AutoScalingGroupName. You can specify the list of affected metrics with
 -- the Metrics parameter.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.DisableMetricsCollection
     (
     -- * Request
       DisableMetricsCollection

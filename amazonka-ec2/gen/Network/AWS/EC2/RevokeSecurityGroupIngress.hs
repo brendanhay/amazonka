@@ -36,7 +36,7 @@
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/RevokeSecurityGroupIngressResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.RevokeSecurityGroupIngress
     (
     -- * Request
       RevokeSecurityGroupIngress

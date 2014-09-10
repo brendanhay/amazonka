@@ -26,7 +26,7 @@
 -- Reserved Instances modification requests with status processing.
 -- https://ec2.amazonaws.com/?Action=DescribeReservedInstancesModifications
 -- &amp;Filter.1.Name=status &amp;Filter.1.Value.1=processing &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeReservedInstancesModifications
     (
     -- * Request
       DescribeReservedInstancesModifications

@@ -29,7 +29,7 @@
 -- &LaunchConfigurationName=my-test-lc &Version=2011-01-01
 -- &Action=CreateAutoScalingGroup &AUTHPARAMS
 -- 8d798a29-f083-11e1-bdfb-cb223EXAMPLE.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.CreateAutoScalingGroup
     (
     -- * Request
       CreateAutoScalingGroup

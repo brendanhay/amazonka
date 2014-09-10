@@ -19,7 +19,7 @@
 
 -- | To retrieve the health check, send a GET request to the
 -- 2013-04-01/healthcheck/health check ID resource.
-module Network.AWS.Route53
+module Network.AWS.Route53.GetHealthCheck
     (
     -- * Request
       GetHealthCheck

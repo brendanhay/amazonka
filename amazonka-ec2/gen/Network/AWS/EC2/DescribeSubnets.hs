@@ -50,7 +50,7 @@
 -- https://ec2.amazonaws.com/?Action=DescribeSubnets &amp;Filter.1.Name=vpc-id
 -- &amp;Filter.1.Value.1=vpc-1a2b3c4d &amp;Filter.1.Value.2=vpc-6e7f8a92
 -- &amp;Filter.2.Name=state &amp;Filter.2.Value.1=available &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeSubnets
     (
     -- * Request
       DescribeSubnets

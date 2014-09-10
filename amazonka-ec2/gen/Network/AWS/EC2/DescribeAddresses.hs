@@ -57,7 +57,7 @@
 -- EC2-VPC This example describes your Elastic IP addresses for EC2-VPC only.
 -- https://ec2.amazonaws.com/?Action=DescribeAddresses
 -- &amp;Filter.1.Name=domain &amp;Filter.1.Value.1=vpc &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeAddresses
     (
     -- * Request
       DescribeAddresses

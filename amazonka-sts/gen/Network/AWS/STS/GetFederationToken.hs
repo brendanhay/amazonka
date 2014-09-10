@@ -79,7 +79,7 @@
 -- wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY 2011-07-15T23:28:33.359Z
 -- AKIAIOSFODNN7EXAMPLE arn:aws:sts::123456789012:federated-user/Bob
 -- 123456789012:Bob 6 c6104cbe-af31-11e0-8154-cbc7ccf896c7.
-module Network.AWS.STS
+module Network.AWS.STS.GetFederationToken
     (
     -- * Request
       GetFederationToken

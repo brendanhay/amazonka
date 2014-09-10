@@ -83,7 +83,7 @@
 -- &Version=2012-06-01 &Action=CreateLoadBalancer &AUTHPARAMS
 -- my-test-loadbalancer-1234567890.us-east-1.elb.amazonaws.com
 -- 1549581b-12b7-11e3-895e-1334aEXAMPLE.
-module Network.AWS.ELB
+module Network.AWS.ELB.CreateLoadBalancer
     (
     -- * Request
       CreateLoadBalancer

@@ -22,7 +22,7 @@
 -- &Operation=DescribeApplications &AuthParams Sample Description
 -- SampleApplication 2010-11-16T20:20:51.974Z 2010-11-16T20:20:51.974Z Default
 -- 577c70ff-f1d7-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.DescribeApplications
     (
     -- * Request
       DescribeApplications

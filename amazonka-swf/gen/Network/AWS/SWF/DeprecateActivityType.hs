@@ -48,7 +48,7 @@
 -- "867530901", "activityType": {"name": "activityVerify", "version": "1.0"} }
 -- HTTP/1.1 200 OK Content-Length: 0 Content-Type: application/json
 -- x-amzn-RequestId: 191ee17e-3fff-11e1-a23a-99d60383ae71.
-module Network.AWS.SWF
+module Network.AWS.SWF.DeprecateActivityType
     (
     -- * Request
       DeprecateActivityType

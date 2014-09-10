@@ -22,7 +22,7 @@
 -- https://ec2.amazonaws.com/?Action=ModifyVpcAttribute
 -- &amp;VpcId=vpc-1a2b3c4d &amp;EnableDnsHostnames.Value=false
 -- &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.ModifyVpcAttribute
     (
     -- * Request
       ModifyVpcAttribute

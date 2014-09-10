@@ -32,7 +32,7 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;097dac18-7a77-5823-a8dd-e65476dcb037&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/DeletePlatformApplicationResponse&gt;.
-module Network.AWS.SNS
+module Network.AWS.SNS.DeletePlatformApplication
     (
     -- * Request
       DeletePlatformApplication

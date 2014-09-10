@@ -38,7 +38,7 @@
 -- 12:00:02 GMT Content-type: application/x-amz-json-1.1 Content-length: 80 {
 -- "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
-module Network.AWS.StorageGateway
+module Network.AWS.StorageGateway.StartGateway
     (
     -- * Request
       StartGateway

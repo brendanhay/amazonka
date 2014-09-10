@@ -38,7 +38,7 @@
 -- "Name":"ns1.example.com", "GlueIps":[ "192.0.2.44" ] } ] } HTTP/1.1 200
 -- Content-Length:[number of characters in the JSON string] {
 -- "OperationId":"0b370c79-faa4-40fe-94c8-b423069de3f6" }.
-module Network.AWS.Route53Domains
+module Network.AWS.Route53Domains.UpdateDomainNameservers
     (
     -- * Request
       UpdateDomainNameservers

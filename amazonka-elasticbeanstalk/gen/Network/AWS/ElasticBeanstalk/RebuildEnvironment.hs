@@ -23,7 +23,7 @@
 -- https://elasticbeanstalk.us-east-1.amazon.com/?EnvironmentId=e-hc8mvnayrx
 -- &EnvironmentName=SampleAppVersion &Operation=RebuildEnvironment &AuthParams
 -- a7d6606e-f289-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.RebuildEnvironment
     (
     -- * Request
       RebuildEnvironment

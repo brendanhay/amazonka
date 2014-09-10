@@ -50,7 +50,7 @@
 -- https://ec2.amazonaws.com/?Action=DescribeVpcPeeringConnections
 -- &amp;Filter.1.Name=requester-vpc-info.vpc-id
 -- &amp;Filter.1.Value=vpc-1a2b3c4d &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeVpcPeeringConnections
     (
     -- * Request
       DescribeVpcPeeringConnections

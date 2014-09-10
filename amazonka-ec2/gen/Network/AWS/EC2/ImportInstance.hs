@@ -33,7 +33,7 @@
 -- import-i-ffvko9js 2010-12-22T12:01Z 0 us-east-1a VMDK 1179593728
 -- https://s3.amazonaws.com/myawsbucket/​a3a5e1b6-590d-43cc-97c1-15c7325d3f41/​Win_2008_Server_Data_Center_SP2_32-bit.​vmdkmanifest.xml?AWSAccessKeyId=​AKIAIOSFODNN7EXAMPLE&amp;​Expires=1294855591&amp;​Signature=5snej01TlTtL0uR7KExtEXAMPLE%3D
 -- 12 vol-1a2b3c4d active i-12655a7f.
-module Network.AWS.EC2
+module Network.AWS.EC2.ImportInstance
     (
     -- * Request
       ImportInstance

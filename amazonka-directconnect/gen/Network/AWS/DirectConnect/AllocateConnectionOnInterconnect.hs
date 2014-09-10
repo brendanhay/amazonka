@@ -20,7 +20,7 @@
 -- | Creates a hosted connection on an interconnect. Allocates a VLAN number and
 -- a specified amount of bandwidth for use by a hosted connection on the given
 -- interconnect.
-module Network.AWS.DirectConnect
+module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
     (
     -- * Request
       AllocateConnectionOnInterconnect

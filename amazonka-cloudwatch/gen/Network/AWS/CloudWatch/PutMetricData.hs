@@ -28,7 +28,7 @@
 -- Values with base-10 exponents greater than 126 (1 x 10^126) are truncated.
 -- Likewise, values with base-10 exponents less than -130 (1 x 10^-130) are
 -- also truncated.
-module Network.AWS.CloudWatch
+module Network.AWS.CloudWatch.PutMetricData
     (
     -- * Request
       PutMetricData

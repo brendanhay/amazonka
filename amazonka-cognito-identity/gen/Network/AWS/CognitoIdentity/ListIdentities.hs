@@ -25,7 +25,7 @@
 -- "us-east-1:852d4250-9eec-4006-8f84-4e82EXAMPLE3" }, { "IdentityId":
 -- "us-east-1:921a3843-2dd6-46b8-ab2f-c679EXAMPLE5" } ], "IdentityPoolId":
 -- "us-east-1:1a234b56-7890-1cd2-3e45-f6g7hEXAMPLE" }.
-module Network.AWS.CognitoIdentity
+module Network.AWS.CognitoIdentity.ListIdentities
     (
     -- * Request
       ListIdentities

@@ -23,7 +23,7 @@
 -- &MajorEngineVersion=11.2 &OptionGroupDescription=Test option group 11.2
 -- myoptiongroup oracle-se1 Test option group
 -- b2416a8a-84c9-11e1-a264-0b23c28bc344.
-module Network.AWS.RDS
+module Network.AWS.RDS.CreateOptionGroup
     (
     -- * Request
       CreateOptionGroup

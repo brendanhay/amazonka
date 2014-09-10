@@ -68,7 +68,7 @@
 -- aws:elb:loadbalancer Default Configuration Template SampleApp
 -- 2010-11-17T03:20:17.832Z Default 2010-11-17T03:20:17.832Z
 -- 4bde8884-f273-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     (
     -- * Request
       DescribeConfigurationSettings

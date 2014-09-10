@@ -25,7 +25,7 @@
 -- &Operation=UpdateApplicationVersion &AuthParams awsemr sample.war New
 -- Version New Release Description SampleApp 2010-11-17T19:26:20.699Z
 -- 2010-11-17T20:48:16.632Z 00b10aa1-f28c-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
     (
     -- * Request
       UpdateApplicationVersion

@@ -25,7 +25,7 @@
 -- &SignatureVersion=4 &SignatureMethod=HmacSHA256 &Timestamp=20140401T192317Z
 -- &X-Amz-Credential= default 123456789012 default mycachesecuritygroup
 -- 123456789012 My Security Group a95360ae-b7fc-11e0-9326-b7275b9d4a6c.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     (
     -- * Request
       DescribeCacheSecurityGroups

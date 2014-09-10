@@ -39,7 +39,7 @@
 -- Sold 0 Cancelled 0 Pending 0 11 2.5 USD true 10 2.5 USD false 9 2.5 USD
 -- false 8 2.0 USD false 7 2.0 USD false 6 2.0 USD false 5 1.5 USD false 4 1.5
 -- USD false 3 0.7 USD false 2 0.7 USD false 1 0.1 USD false myIdempToken1.
-module Network.AWS.EC2
+module Network.AWS.EC2.CreateReservedInstancesListing
     (
     -- * Request
       CreateReservedInstancesListing

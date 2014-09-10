@@ -26,7 +26,7 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
 -- &lt;requestId&gt;4f35a1b2-c2c3-4093-b51f-abb9d7311990&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/EnableVgwRoutePropagation&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.EnableVgwRoutePropagation
     (
     -- * Request
       EnableVgwRoutePropagation

@@ -37,7 +37,7 @@
 -- &lt;status&gt;detaching&lt;/status&gt;
 -- &lt;attachTime&gt;YYYY-MM-DDTHH:MM:SS.000Z&lt;/attachTime&gt;
 -- &lt;/DetachVolumeResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.DetachVolume
     (
     -- * Request
       DetachVolume

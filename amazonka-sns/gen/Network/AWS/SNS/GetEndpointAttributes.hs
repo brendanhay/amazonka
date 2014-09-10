@@ -39,7 +39,7 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;6c725a19-a142-5b77-94f9-1055a9ea04e7&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/GetEndpointAttributesResponse&gt;.
-module Network.AWS.SNS
+module Network.AWS.SNS.GetEndpointAttributes
     (
     -- * Request
       GetEndpointAttributes

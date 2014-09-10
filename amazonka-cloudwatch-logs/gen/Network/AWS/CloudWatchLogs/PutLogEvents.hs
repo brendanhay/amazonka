@@ -42,7 +42,7 @@
 -- OK x-amzn-RequestId: Content-Type: application/x-amz-json-1.1
 -- Content-Length: Date: ]]> { "nextSequenceToken":
 -- "49536701251539826331025683274032969384950891766572122113" }.
-module Network.AWS.CloudWatchLogs
+module Network.AWS.CloudWatchLogs.PutLogEvents
     (
     -- * Request
       PutLogEvents

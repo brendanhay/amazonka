@@ -29,7 +29,7 @@
 -- us-east-1d creating 5.1.50 simcoprod01 in-sync default.mysql5.1 active
 -- default 00:00-00:30 true sat:07:30-sat:08:00 10 db.m1.large master
 -- 2e5d4270-8501-11e0-bd9b-a7b1ece36d51.
-module Network.AWS.RDS
+module Network.AWS.RDS.CreateDBInstance
     (
     -- * Request
       CreateDBInstance

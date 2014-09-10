@@ -25,7 +25,7 @@
 -- https://elasticbeanstalk.us-east-1.s3.amazonaws.com/environments%2Fa514386a-709f-4888-9683-068c38d744b4%2Flogs%2Fi-92a3ceff%2F278756a8-7d83-4bc1-93db-b1763163705a.log?Expires=1291236023
 -- &AuthParams 2010-11-17T20:40:23.210Z tail i-92a3ceff
 -- e8e785c9-f28a-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
     (
     -- * Request
       RetrieveEnvironmentInfo

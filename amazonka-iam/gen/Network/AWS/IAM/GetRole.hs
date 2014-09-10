@@ -30,7 +30,7 @@
 -- {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":["ec2.amazonaws.com"]},"Action":["sts:AssumeRole"]}]}
 -- 2012-05-08T23:34:01Z AROADBQP57FF2AEXAMPLE
 -- df37e965-9967-11e1-a4c3-270EXAMPLE04.
-module Network.AWS.IAM
+module Network.AWS.IAM.GetRole
     (
     -- * Request
       GetRole

@@ -54,7 +54,7 @@
 -- &Expires=2009-04-18T22%3A52%3A43PST &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
 -- &SignatureVersion=2 &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- 6a7a282a-d013-4a59-aba9-335b0fa48bed.
-module Network.AWS.SQS
+module Network.AWS.SQS.ChangeMessageVisibility
     (
     -- * Request
       ChangeMessageVisibility

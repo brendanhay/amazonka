@@ -19,7 +19,7 @@
 
 -- | This operation enables you to delete multiple objects from a bucket using a
 -- single HTTP request. You may specify up to 1000 keys.
-module Network.AWS.S3
+module Network.AWS.S3.DeleteObjects
     (
     -- * Request
       DeleteObjects

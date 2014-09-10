@@ -30,7 +30,7 @@
 -- "Amazon_App_ID", "graph.facebook.com": "Facebook_App_ID",
 -- "accounts.google.com": "Google_App_ID" }, "AllowUnauthenticatedIdentities":
 -- true }.
-module Network.AWS.CognitoIdentity
+module Network.AWS.CognitoIdentity.UpdateIdentityPool
     (
     -- * Request
       UpdateIdentityPool

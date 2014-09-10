@@ -50,7 +50,7 @@
 -- "f5ebbac6-941c-4342-ad69-dfd2f8be6689", "signalName": "CancelOrder",
 -- "input": "order 3553"} HTTP/1.1 200 OK Content-Length: 0 Content-Type:
 -- application/json x-amzn-RequestId: bf78ae15-3f0c-11e1-9914-a356b6ea8bdf.
-module Network.AWS.SWF
+module Network.AWS.SWF.SignalWorkflowExecution
     (
     -- * Request
       SignalWorkflowExecution

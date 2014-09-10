@@ -24,7 +24,7 @@
 -- &RoleName=S3Access &Version=2010-05-08 &AUTHPARAMS
 -- CloudwatchPutMetricPolicy S3AccessPolicy false
 -- 8c7e1816-99f0-11e1-a4c3-27EXAMPLE804.
-module Network.AWS.IAM
+module Network.AWS.IAM.ListRolePolicies
     (
     -- * Request
       ListRolePolicies

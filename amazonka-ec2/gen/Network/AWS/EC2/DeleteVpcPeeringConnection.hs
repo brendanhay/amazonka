@@ -29,7 +29,7 @@
 -- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/DeleteVpcPeeringConnectionResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.DeleteVpcPeeringConnection
     (
     -- * Request
       DeleteVpcPeeringConnection

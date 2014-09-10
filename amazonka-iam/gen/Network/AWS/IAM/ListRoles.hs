@@ -34,7 +34,7 @@
 -- {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":["ec2.amazonaws.com"]},"Action":["sts:AssumeRole"]}]}
 -- 2012-05-09T15:45:45Z AROAC2ICXG32EXAMPLEWK
 -- 20f7279f-99ee-11e1-a4c3-27EXAMPLE804.
-module Network.AWS.IAM
+module Network.AWS.IAM.ListRoles
     (
     -- * Request
       ListRoles

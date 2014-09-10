@@ -31,7 +31,7 @@
 -- true false dev sun:10:30-sun:11:00 in-sync default.redshift-1.0 active
 -- default us-east-1a dw1.xlarge examplecluster true masteruser
 -- 837d45d6-64f0-11e2-b07c-f7fbdd006c67.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.DescribeClusters
     (
     -- * Request
       DescribeClusters

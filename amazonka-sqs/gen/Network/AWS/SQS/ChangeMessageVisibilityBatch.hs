@@ -42,7 +42,7 @@
 -- &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &SignatureVersion=2
 -- &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE change_visibility_msg_2
 -- change_visibility_msg_3 ca9668f7-ab1b-4f7a-8859-f15747ab17a7.
-module Network.AWS.SQS
+module Network.AWS.SQS.ChangeMessageVisibilityBatch
     (
     -- * Request
       ChangeMessageVisibilityBatch

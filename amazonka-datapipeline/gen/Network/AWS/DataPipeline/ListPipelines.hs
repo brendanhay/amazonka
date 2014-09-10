@@ -28,7 +28,7 @@
 -- 17:50:53 GMT {"PipelineIdList": [ {"id": "df-08785951KAKJEXAMPLE", "name":
 -- "MyPipeline"}, {"id": "df-08662578ISYEXAMPLE", "name": "MySecondPipeline"}
 -- ] }.
-module Network.AWS.DataPipeline
+module Network.AWS.DataPipeline.ListPipelines
     (
     -- * Request
       ListPipelines

@@ -34,7 +34,7 @@
 -- &Expires=2009-04-18T22%3A52%3A43PST &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
 -- &SignatureVersion=2 &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- 6fde8d1e-52cd-4581-8cd9-c512f4c64223.
-module Network.AWS.SQS
+module Network.AWS.SQS.DeleteQueue
     (
     -- * Request
       DeleteQueue

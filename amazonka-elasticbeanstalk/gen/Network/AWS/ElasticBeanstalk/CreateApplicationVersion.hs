@@ -29,7 +29,7 @@
 -- amazonaws.com sample.war Version1 description SampleApp
 -- 2010-11-17T03:21:59.161Z 2010-11-17T03:21:59.161Z
 -- d653efef-f1f9-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     (
     -- * Request
       CreateApplicationVersion

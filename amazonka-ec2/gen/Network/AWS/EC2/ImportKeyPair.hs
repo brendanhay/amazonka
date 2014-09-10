@@ -46,7 +46,7 @@
 -- &lt;keyName&gt;my-key-pair&lt;/keyName&gt;
 -- &lt;keyFingerprint&gt;1f:51:ae:28:bf:89:e9:d8:1f:25:5d:37:2d:7d:b8:ca:9f:f5:f1:6f&lt;/keyFingerprint&gt;
 -- &lt;/ImportKeyPairResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.ImportKeyPair
     (
     -- * Request
       ImportKeyPair

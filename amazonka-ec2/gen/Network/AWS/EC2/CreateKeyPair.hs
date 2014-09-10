@@ -50,7 +50,7 @@
 -- computer to connect to your instance, use the following command to set the
 -- permissions of your private key file so that only you can read it. chmod
 -- 400 my-key-pair.pem.
-module Network.AWS.EC2
+module Network.AWS.EC2.CreateKeyPair
     (
     -- * Request
       CreateKeyPair

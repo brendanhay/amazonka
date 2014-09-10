@@ -23,7 +23,7 @@
 -- https://ec2.amazonaws.com/?Action=DescribeSpotDatafeedSubscription
 -- &amp;AUTHPARAMS 59dbff89-35bd-4eac-99ed-be587EXAMPLE 123456789012
 -- my-s3-bucket spotdata_ Active.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeSpotDatafeedSubscription
     (
     -- * Request
       DescribeSpotDatafeedSubscription

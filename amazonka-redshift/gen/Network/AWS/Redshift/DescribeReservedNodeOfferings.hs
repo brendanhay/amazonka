@@ -35,7 +35,7 @@
 -- dw1.8xlarge Heavy Utilization 31536000 Hourly 0.09 1815.0
 -- d586503b-289f-408b-955b-9c95005d6908 0.0 dw1.xlarge
 -- f4a07e06-60fc-11e2-95d9-658e9466d117.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.DescribeReservedNodeOfferings
     (
     -- * Request
       DescribeReservedNodeOfferings

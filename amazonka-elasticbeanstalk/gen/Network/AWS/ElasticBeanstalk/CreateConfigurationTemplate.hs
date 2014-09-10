@@ -67,7 +67,7 @@
 -- aws:elb:loadbalancer ConfigTemplateDescription SampleApp
 -- 2010-11-17T03:48:19.640Z AppTemplate 2010-11-17T03:48:19.640Z
 -- 846cd905-f1fd-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     (
     -- * Request
       CreateConfigurationTemplate

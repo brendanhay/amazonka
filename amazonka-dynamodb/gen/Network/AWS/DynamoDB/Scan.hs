@@ -39,7 +39,7 @@
 -- "S": "Amazon DynamoDB#How do I update multiple items?" }, "Message": { "S":
 -- "BatchWriteItem is documented in the Amazon DynamoDB API Reference." } } ],
 -- "ScannedCount": 4 }.
-module Network.AWS.DynamoDB
+module Network.AWS.DynamoDB.Scan
     (
     -- * Request
       Scan

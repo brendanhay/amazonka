@@ -29,7 +29,7 @@
 -- creating manual 1.0 2013-01-23T01:08:29.142Z 2 dev 2013-01-22T19:23:59.368Z
 -- us-east-1c dw1.xlarge examplecluster adminuser
 -- 65baef14-64f9-11e2-bea9-49e0ce183f07.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.CreateClusterSnapshot
     (
     -- * Request
       CreateClusterSnapshot

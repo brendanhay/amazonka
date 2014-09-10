@@ -29,7 +29,7 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;d170b150-33a8-11df-995a-2d6fbe836cc1&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/RemovePermissionResponse&gt;.
-module Network.AWS.SNS
+module Network.AWS.SNS.RemovePermission
     (
     -- * Request
       RemovePermission

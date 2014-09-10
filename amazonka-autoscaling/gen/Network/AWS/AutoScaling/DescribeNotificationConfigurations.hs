@@ -19,7 +19,7 @@
 
 -- | Returns a list of notification actions associated with Auto Scaling groups
 -- for specified events.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.DescribeNotificationConfigurations
     (
     -- * Request
       DescribeNotificationConfigurations

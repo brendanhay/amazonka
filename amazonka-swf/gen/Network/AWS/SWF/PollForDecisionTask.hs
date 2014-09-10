@@ -80,7 +80,7 @@
 -- "workflowExecution": {"runId": "06b8f87a-24b3-40b6-9ceb-9676f28e9493",
 -- "workflowId": "20110927-T-1"}, "workflowType": {"name":
 -- "customerOrderWorkflow", "version": "1.0"} }.
-module Network.AWS.SWF
+module Network.AWS.SWF.PollForDecisionTask
     (
     -- * Request
       PollForDecisionTask

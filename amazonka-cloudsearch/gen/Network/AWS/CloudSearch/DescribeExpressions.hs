@@ -23,7 +23,7 @@
 -- to true to show the active configuration and exclude pending changes. For
 -- more information, see Configuring Expressions in the Amazon CloudSearch
 -- Developer Guide.
-module Network.AWS.CloudSearch
+module Network.AWS.CloudSearch.DescribeExpressions
     (
     -- * Request
       DescribeExpressions

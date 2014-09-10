@@ -21,7 +21,7 @@
 -- any keys or signing certificates, or have any attached policies.
 -- https://iam.amazonaws.com/ ?Action=DeleteUser &UserName=Bob
 -- &Version=2010-05-08 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM
+module Network.AWS.IAM.DeleteUser
     (
     -- * Request
       DeleteUser

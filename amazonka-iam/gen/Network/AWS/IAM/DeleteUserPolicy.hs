@@ -21,7 +21,7 @@
 -- https://iam.amazonaws.com/ ?Action=DeleteUserPolicy &UserName=Bob
 -- &PolicyName=AllAccessPolicy &AUTHPARAMS
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM
+module Network.AWS.IAM.DeleteUserPolicy
     (
     -- * Request
       DeleteUserPolicy

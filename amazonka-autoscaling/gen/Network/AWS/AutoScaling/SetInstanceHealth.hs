@@ -20,7 +20,7 @@
 -- | Sets the health status of a specified instance that belongs to any of your
 -- Auto Scaling groups. For more information, see Configure Health Checks for
 -- Your Auto Scaling group.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.SetInstanceHealth
     (
     -- * Request
       SetInstanceHealth

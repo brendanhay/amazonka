@@ -21,7 +21,7 @@
 -- have the specified check IDs. Check IDs can be obtained by calling
 -- DescribeTrustedAdvisorChecks. The response contains an array of
 -- TrustedAdvisorCheckSummary objects.
-module Network.AWS.Support
+module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
     (
     -- * Request
       DescribeTrustedAdvisorCheckSummaries

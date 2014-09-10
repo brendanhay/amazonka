@@ -28,7 +28,7 @@
 -- 20 Sold 0 Cancelled 0 Pending 0 8 480.0 USD false 7 420.0 USD false 6 360.0
 -- USD active 5 300.0 USD false 4 240.0 USD false 3 180.0 USD false 2 120.0
 -- USD false 1 60.0 USD false myclienttoken1.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeReservedInstancesListings
     (
     -- * Request
       DescribeReservedInstancesListings

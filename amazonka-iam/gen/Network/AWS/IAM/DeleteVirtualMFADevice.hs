@@ -24,7 +24,7 @@
 -- &SerialNumber=arn:aws:iam::123456789012:mfa/ExampleName &Version=2010-05-08
 -- &AUTHPARAMS arn:aws:iam::123456789012:mfa/ExampleName
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM
+module Network.AWS.IAM.DeleteVirtualMFADevice
     (
     -- * Request
       DeleteVirtualMFADevice

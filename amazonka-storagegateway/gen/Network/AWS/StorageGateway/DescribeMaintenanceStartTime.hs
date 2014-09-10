@@ -33,7 +33,7 @@
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway",
 -- "HourOfDay": 15, "MinuteOfHour": 35, "DayOfWeek": 2, "Timezone": "GMT+7:00"
 -- }.
-module Network.AWS.StorageGateway
+module Network.AWS.StorageGateway.DescribeMaintenanceStartTime
     (
     -- * Request
       DescribeMaintenanceStartTime

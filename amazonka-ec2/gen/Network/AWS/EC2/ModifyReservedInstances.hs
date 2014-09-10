@@ -30,7 +30,7 @@
 -- &amp;ReservedInstancesId.0=d16f7a91-4d0f-4f19-9d7f-a74d26b1ccfa
 -- &amp;AUTHPARAMS bef729b6-0731-4489-8881-2258746ae163
 -- rimod-3aae219d-3d63-47a9-a7e9-e764example.
-module Network.AWS.EC2
+module Network.AWS.EC2.ModifyReservedInstances
     (
     -- * Request
       ModifyReservedInstances

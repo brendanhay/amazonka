@@ -54,7 +54,7 @@
 -- "result": "customer credit card verified"} HTTP/1.1 200 OK Content-Length:
 -- 0 Content-Type: application/json x-amzn-RequestId:
 -- 0976f0f4-3ff6-11e1-9a27-0760db01a4a8.
-module Network.AWS.SWF
+module Network.AWS.SWF.RespondActivityTaskCompleted
     (
     -- * Request
       RespondActivityTaskCompleted

@@ -24,7 +24,7 @@
 -- &CacheSecurityGroupName=mycachesecuritygroup3 &Version=2014-03-24
 -- &SignatureVersion=4 &SignatureMethod=HmacSHA256 &Timestamp=20140401T192317Z
 -- &X-Amz-Credential= c130cfb7-3650-11e0-ae57-f96cfe56749c.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
     (
     -- * Request
       DeleteCacheSecurityGroup

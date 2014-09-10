@@ -44,7 +44,7 @@
 -- "NumberOfDecreasesToday": 0, "ReadCapacityUnits": 5, "WriteCapacityUnits":
 -- 5 }, "TableName": "Thread", "TableSizeBytes": 0, "TableStatus": "CREATING"
 -- } }.
-module Network.AWS.DynamoDB
+module Network.AWS.DynamoDB.CreateTable
     (
     -- * Request
       CreateTable

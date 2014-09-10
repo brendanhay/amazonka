@@ -28,7 +28,7 @@
 -- arn:aws:cloudformation:us-east-1:123456789:stack/MyStack/aaf549a0-a413-11df-adb3-5081b3858e83
 -- MyStack MyDBInstance MyStack_DB1 AWS::RDS::DBInstance 2011-07-07T22:27:28Z
 -- CREATE_COMPLETE.
-module Network.AWS.CloudFormation
+module Network.AWS.CloudFormation.DescribeStackResource
     (
     -- * Request
       DescribeStackResource

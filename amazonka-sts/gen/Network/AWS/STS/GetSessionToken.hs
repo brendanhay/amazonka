@@ -52,7 +52,7 @@
 -- Z3CYWFXG8C5zqx37wnOE49mRl/+OtkIKGO7fAE
 -- wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY 2011-07-11T19:55:29.611Z
 -- AKIAIOSFODNN7EXAMPLE 58c5dbae-abef-11e0-8cfe-09039844ac7d.
-module Network.AWS.STS
+module Network.AWS.STS.GetSessionToken
     (
     -- * Request
       GetSessionToken

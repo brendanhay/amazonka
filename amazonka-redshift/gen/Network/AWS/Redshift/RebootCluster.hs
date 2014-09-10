@@ -33,7 +33,7 @@
 -- true false dev sun:06:30-sun:07:00 in-sync default.redshift-1.0
 -- 2013-01-22T19:23:59.368Z active default us-east-1c dw1.xlarge
 -- examplecluster true adminuser 5edee79e-6503-11e2-9e70-918437dd236d.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.RebootCluster
     (
     -- * Request
       RebootCluster

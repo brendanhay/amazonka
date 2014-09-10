@@ -33,7 +33,7 @@
 -- HTTP/1.1 200 OK x-amzn-RequestId: 9da5a349-ed9e-11e2-90db-69a5154aeb8d
 -- Content-Type: application/x-amz-json-1.1 Content-Length: 71 Date: Mon, 15
 -- Jul 2013 22:33:47 GMT { }.
-module Network.AWS.EMR
+module Network.AWS.EMR.RemoveTags
     (
     -- * Request
       RemoveTags

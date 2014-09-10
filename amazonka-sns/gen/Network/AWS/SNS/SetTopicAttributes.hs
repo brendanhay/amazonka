@@ -44,7 +44,7 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;a8763b99-33a7-11df-a9b7-05d48da6f042&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/SetTopicAttributesResponse&gt;.
-module Network.AWS.SNS
+module Network.AWS.SNS.SetTopicAttributes
     (
     -- * Request
       SetTopicAttributes

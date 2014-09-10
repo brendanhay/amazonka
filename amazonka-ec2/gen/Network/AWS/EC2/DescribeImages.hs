@@ -46,7 +46,7 @@
 -- a1b2c3d4e5f6g7h8i9j10k11 marketplace i386 machine aki-1a2b3c4d
 -- aws-marketplace example-marketplace-amzn-ami.1 Amazon Linux AMI i386 EBS
 -- ebs /dev/sda1 /dev/sda1 snap-1a2b3c4d 8 true paravirtual xen ...
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeImages
     (
     -- * Request
       DescribeImages

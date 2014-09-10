@@ -25,7 +25,7 @@
 -- IndexFieldType. If the field exists, the new configuration replaces the old
 -- one. For more information, see Configuring Index Fields in the Amazon
 -- CloudSearch Developer Guide.
-module Network.AWS.CloudSearch
+module Network.AWS.CloudSearch.DefineIndexField
     (
     -- * Request
       DefineIndexField

@@ -29,7 +29,7 @@
 -- &lt;attachment&gt; &lt;vpcId&gt;vpc-1a2b3c4d&lt;/vpcId&gt;
 -- &lt;state&gt;attaching&lt;/state&gt; &lt;/attachment&gt;
 -- &lt;/AttachVpnGatewayResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.AttachVpnGateway
     (
     -- * Request
       AttachVpnGateway

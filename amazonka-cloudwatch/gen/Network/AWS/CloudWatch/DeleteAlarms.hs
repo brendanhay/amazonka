@@ -19,7 +19,7 @@
 
 -- | Deletes all specified alarms. In the event of an error, no alarms are
 -- deleted.
-module Network.AWS.CloudWatch
+module Network.AWS.CloudWatch.DeleteAlarms
     (
     -- * Request
       DeleteAlarms

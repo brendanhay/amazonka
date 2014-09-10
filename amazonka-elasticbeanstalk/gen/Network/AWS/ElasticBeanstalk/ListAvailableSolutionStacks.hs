@@ -22,7 +22,7 @@
 -- &AuthParams 64bit Amazon Linux running Tomcat 6 32bit Amazon Linux running
 -- Tomcat 6 64bit Amazon Linux running Tomcat 7 32bit Amazon Linux running
 -- Tomcat 7 f21e2a92-f1fc-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
     (
     -- * Request
       ListAvailableSolutionStacks

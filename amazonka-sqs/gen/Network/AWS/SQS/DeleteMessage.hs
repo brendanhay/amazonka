@@ -45,7 +45,7 @@
 -- &Expires=2009-04-18T22%3A52%3A43PST &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
 -- &SignatureVersion=2 &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- b5293cb5-d306-4a17-9048-b263635abe42.
-module Network.AWS.SQS
+module Network.AWS.SQS.DeleteMessage
     (
     -- * Request
       DeleteMessage

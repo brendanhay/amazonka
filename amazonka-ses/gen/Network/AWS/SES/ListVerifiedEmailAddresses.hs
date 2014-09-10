@@ -30,7 +30,7 @@
 -- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &Action=ListVerifiedEmailAddresses
 -- &Timestamp=2011-08-18T22%3A05%3A09.000Z% example@amazon.com
 -- 3dd50e97-c865-11e0-b235-099eb63d928d.
-module Network.AWS.SES
+module Network.AWS.SES.ListVerifiedEmailAddresses
     (
     -- * Request
       ListVerifiedEmailAddresses

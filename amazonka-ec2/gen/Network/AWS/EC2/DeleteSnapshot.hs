@@ -33,7 +33,7 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-05-01/"&gt;
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteSnapshotResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.DeleteSnapshot
     (
     -- * Request
       DeleteSnapshot

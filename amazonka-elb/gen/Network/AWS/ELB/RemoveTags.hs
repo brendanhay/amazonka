@@ -22,7 +22,7 @@
 -- https://elasticloadbalancing.amazonaws.com/?LoadBalancerName=my-test-loadbalancer
 -- &Tags.member.1.Key=owner &Tags.member.2.Key=project &Action=RemoveTags
 -- &Version=2012-06-01 &AUTHPARAMS 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
-module Network.AWS.ELB
+module Network.AWS.ELB.RemoveTags
     (
     -- * Request
       RemoveTags

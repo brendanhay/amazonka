@@ -45,7 +45,7 @@
 -- arn:aws:iam::123456789012:role/transcode-service does not have access to
 -- the topic: arn:aws:sns:us-east-1:111222333444:ETS_Errors" ], "Success":
 -- "false" }.
-module Network.AWS.ElasticTranscoder
+module Network.AWS.ElasticTranscoder.TestRole
     (
     -- * Request
       TestRole

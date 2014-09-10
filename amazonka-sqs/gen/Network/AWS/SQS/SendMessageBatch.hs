@@ -55,7 +55,7 @@
 -- 0e024d309850c78cba5eabbeff7cae71 test_msg_002
 -- 15ee1ed3-87e7-40c1-bdaa-2e49968ea7e9 7fb8146a82f95e0af155278f406862c2
 -- 295c5fa15a51aae6884d1d7c1d99ca50 ca1ad5d0-8271-408b-8d0f-1351bf547e74.
-module Network.AWS.SQS
+module Network.AWS.SQS.SendMessageBatch
     (
     -- * Request
       SendMessageBatch

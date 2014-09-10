@@ -20,7 +20,7 @@
 -- | Disables actions for the specified alarms. When an alarm's actions are
 -- disabled the alarm's state may change, but none of the alarm's actions will
 -- execute.
-module Network.AWS.CloudWatch
+module Network.AWS.CloudWatch.DisableAlarmActions
     (
     -- * Request
       DisableAlarmActions

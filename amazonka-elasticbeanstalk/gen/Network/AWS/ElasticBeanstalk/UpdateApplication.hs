@@ -24,7 +24,7 @@
 -- &Description=Another%20Description &Operation=UpdateApplication &AuthParams
 -- New Version Another Description SampleApp 2010-11-17T19:26:20.410Z
 -- 2010-11-17T20:42:54.611Z Default 40be666b-f28b-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.UpdateApplication
     (
     -- * Request
       UpdateApplication

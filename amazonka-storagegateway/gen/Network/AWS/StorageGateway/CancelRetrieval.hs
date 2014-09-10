@@ -17,7 +17,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.StorageGateway
+module Network.AWS.StorageGateway.CancelRetrieval
     (
     -- * Request
       CancelRetrieval

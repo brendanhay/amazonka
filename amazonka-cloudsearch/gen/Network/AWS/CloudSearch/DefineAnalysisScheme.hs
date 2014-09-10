@@ -21,7 +21,7 @@
 -- field to define language-specific text processing options. For more
 -- information, see Configuring Analysis Schemes in the Amazon CloudSearch
 -- Developer Guide.
-module Network.AWS.CloudSearch
+module Network.AWS.CloudSearch.DefineAnalysisScheme
     (
     -- * Request
       DefineAnalysisScheme

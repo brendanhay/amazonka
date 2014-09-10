@@ -42,7 +42,7 @@
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB",
 -- "VolumeRecoveryPointTime": "2012-09-04T21:08:44.627Z", "VolumeSizeInBytes":
 -- 536870912000, "VolumeUsageInBytes": 6694048 } ] }.
-module Network.AWS.StorageGateway
+module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
     (
     -- * Request
       ListVolumeRecoveryPoints

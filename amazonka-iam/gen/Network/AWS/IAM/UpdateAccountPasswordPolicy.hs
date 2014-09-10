@@ -25,7 +25,7 @@
 -- &RequireLowercaseCharacters=true &AllowUsersToChangePassword=true
 -- &MaxPasswordAge=90 &PasswordReusePrevention=6 &HardExpiry=false
 -- &Version=2010-05-08 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM
+module Network.AWS.IAM.UpdateAccountPasswordPolicy
     (
     -- * Request
       UpdateAccountPasswordPolicy

@@ -25,7 +25,7 @@
 -- configuration, you must also create an HSM client certificate. For more
 -- information, go to Hardware Security Modules in the Amazon Redshift
 -- Management Guide.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.CreateHsmConfiguration
     (
     -- * Request
       CreateHsmConfiguration

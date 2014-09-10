@@ -33,7 +33,7 @@
 -- healthy instances - Environment may not be available. 2010-11-17T20:19:28Z
 -- New Version SampleApp SampleAppVersion WARN
 -- f10d02dd-f288-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.DescribeEvents
     (
     -- * Request
       DescribeEvents

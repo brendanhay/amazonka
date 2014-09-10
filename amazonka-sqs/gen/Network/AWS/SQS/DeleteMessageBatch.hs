@@ -38,7 +38,7 @@
 -- &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &SignatureVersion=2
 -- &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE msg1 msg2
 -- d6f86b7a-74d1-4439-b43f-196a1e29cd85.
-module Network.AWS.SQS
+module Network.AWS.SQS.DeleteMessageBatch
     (
     -- * Request
       DeleteMessageBatch

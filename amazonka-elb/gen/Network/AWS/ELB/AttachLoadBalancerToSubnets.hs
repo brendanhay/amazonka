@@ -26,7 +26,7 @@
 -- &LoadBalancerName=my-test-vpc-loadbalancer &Version=2012-06-01
 -- &Action=AttachLoadBalancerToSubnets &AUTHPARAMS subnet-119f0078
 -- subnet-3561b05e 07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE.
-module Network.AWS.ELB
+module Network.AWS.ELB.AttachLoadBalancerToSubnets
     (
     -- * Request
       AttachLoadBalancerToSubnets

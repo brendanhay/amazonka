@@ -31,7 +31,7 @@
 -- &x-amz-signedheaders=content-type;host;x-amz-date multi-node SUCCEEDED
 -- 6.5263 66922 0 users venue sales listing event date category 10254
 -- dw1.xlarge 2 a6d59c61-a162-11e2-b2bc-fb54c9d11e09.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.DescribeResize
     (
     -- * Request
       DescribeResize

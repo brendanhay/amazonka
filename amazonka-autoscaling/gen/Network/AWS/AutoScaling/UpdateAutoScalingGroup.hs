@@ -47,7 +47,7 @@
 -- &AvailabilityZones.member.3=us-east-1c &MinSize=3 &Version=2011-01-01
 -- &Action=UpdateAutoScalingGroup &AUTHPARAMS
 -- adafead0-ab8a-11e2-ba13-ab0ccEXAMPLE.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     (
     -- * Request
       UpdateAutoScalingGroup

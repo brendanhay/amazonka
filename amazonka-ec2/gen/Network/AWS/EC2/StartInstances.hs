@@ -41,7 +41,7 @@
 -- &lt;/currentState&gt; &lt;previousState&gt; &lt;code&gt;80&lt;/code&gt;
 -- &lt;name&gt;stopped&lt;/name&gt; &lt;/previousState&gt; &lt;/item&gt;
 -- &lt;/instancesSet&gt; &lt;/StartInstancesResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.StartInstances
     (
     -- * Request
       StartInstances

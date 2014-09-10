@@ -62,7 +62,7 @@
 -- "Name":"playlist-iPhone-spaghetti.m3u8", "OutputKeys":[
 -- "iphone/spaghetti-512k" ] } ], "Status":"Complete" } ],
 -- "NextPageToken":null }.
-module Network.AWS.ElasticTranscoder
+module Network.AWS.ElasticTranscoder.ListJobsByStatus
     (
     -- * Request
       ListJobsByStatus

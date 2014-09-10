@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Update a distribution.
-module Network.AWS.CloudFront
+module Network.AWS.CloudFront.UpdateDistribution
     (
     -- * Request
       UpdateDistribution

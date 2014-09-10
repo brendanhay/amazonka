@@ -30,7 +30,7 @@
 -- &amp;Tag.2.Key=stack &amp;Tag.2.Value=Production &amp;AUTHPARAMS
 -- xmlns="http://ec2.amazonaws.com/doc/2014-05-01/">
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE true.
-module Network.AWS.EC2
+module Network.AWS.EC2.CreateTags
     (
     -- * Request
       CreateTags

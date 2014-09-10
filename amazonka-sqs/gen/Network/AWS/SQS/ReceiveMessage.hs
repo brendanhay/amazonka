@@ -55,7 +55,7 @@
 -- This is a test message SenderId 195004372649 SentTimestamp 1238099229000
 -- ApproximateReceiveCount 5 ApproximateFirstReceiveTimestamp 1250700979248
 -- b6633655-283d-45b4-aee4-4e84e0ae6afa.
-module Network.AWS.SQS
+module Network.AWS.SQS.ReceiveMessage
     (
     -- * Request
       ReceiveMessage

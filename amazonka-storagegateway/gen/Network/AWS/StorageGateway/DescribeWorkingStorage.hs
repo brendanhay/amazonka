@@ -38,7 +38,7 @@
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway",
 -- "WorkingStorageAllocatedInBytes": 2199023255552,
 -- "WorkingStorageUsedInBytes": 789207040 }.
-module Network.AWS.StorageGateway
+module Network.AWS.StorageGateway.DescribeWorkingStorage
     (
     -- * Request
       DescribeWorkingStorage

@@ -50,7 +50,7 @@
 -- "snap-78e22663", "VolumeARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB",
 -- "VolumeRecoveryPointTime": "2012-06-30T10:10:10.000Z" }.
-module Network.AWS.StorageGateway
+module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     (
     -- * Request
       CreateSnapshotFromVolumeRecoveryPoint

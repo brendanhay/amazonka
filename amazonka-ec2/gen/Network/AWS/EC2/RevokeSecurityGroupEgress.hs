@@ -38,7 +38,7 @@
 -- &amp;GroupId=sg-1a2b3c4d &amp;IpPermissions.1.IpProtocol=tcp
 -- &amp;IpPermissions.1.FromPort=1433 &amp;IpPermissions.1.ToPort=1433
 -- &amp;IpPermissions.1.Groups.1.GroupId=sg-9a8d7f5c &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.RevokeSecurityGroupEgress
     (
     -- * Request
       RevokeSecurityGroupEgress

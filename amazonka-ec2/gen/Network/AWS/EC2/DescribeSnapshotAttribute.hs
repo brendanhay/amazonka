@@ -25,7 +25,7 @@
 -- https://ec2.amazonaws.com/?Action=DescribeSnapshotAttribute
 -- &amp;SnapshotId=snap-1a2b3c4d &amp;Attribute=createVolumePermission
 -- &amp;AUTHPARAMS 59dbff89-35bd-4eac-99ed-be587EXAMPLE snap-1a2b3c4d all.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeSnapshotAttribute
     (
     -- * Request
       DescribeSnapshotAttribute

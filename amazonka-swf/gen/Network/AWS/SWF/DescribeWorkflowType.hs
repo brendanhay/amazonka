@@ -52,7 +52,7 @@
 -- 1326481174.027, "description": "Handle customer orders", "status":
 -- "REGISTERED", "workflowType": {"name": "customerOrderWorkflow", "version":
 -- "1.0"} } }.
-module Network.AWS.SWF
+module Network.AWS.SWF.DescribeWorkflowType
     (
     -- * Request
       DescribeWorkflowType

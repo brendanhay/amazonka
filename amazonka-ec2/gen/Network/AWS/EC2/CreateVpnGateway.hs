@@ -32,7 +32,7 @@
 -- &lt;availabilityZone&gt;us-east-1a&lt;/availabilityZone&gt;
 -- &lt;attachments/&gt; &lt;tagSet/&gt; &lt;/vpnGateway&gt;
 -- &lt;/CreateVpnGatewayResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.CreateVpnGateway
     (
     -- * Request
       CreateVpnGateway

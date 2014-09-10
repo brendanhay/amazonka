@@ -27,7 +27,7 @@
 -- table, changing the LastPostedBy attribute-but only if LastPostedBy is
 -- currently "fred@example.com". All of the item's attributes, as they appear
 -- after the update, are returned in the response. { }.
-module Network.AWS.DynamoDB
+module Network.AWS.DynamoDB.UpdateItem
     (
     -- * Request
       UpdateItem

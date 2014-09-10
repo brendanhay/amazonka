@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | List origin access identities.
-module Network.AWS.CloudFront
+module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     (
     -- * Request
       ListCloudFrontOriginAccessIdentities

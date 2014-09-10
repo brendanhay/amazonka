@@ -34,7 +34,7 @@
 -- Heavy Utilization 94608000 Hourly 0.21 12452.0 0.0 payment-pending
 -- dw1.8xlarge 2 1ba8e2e3-dacf-48d9-841f-cc675182a8a6
 -- fcb117cc-61b7-11e2-b6e9-87e586e4ca38.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.PurchaseReservedNodeOffering
     (
     -- * Request
       PurchaseReservedNodeOffering

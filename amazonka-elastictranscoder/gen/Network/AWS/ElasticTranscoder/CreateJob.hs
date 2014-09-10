@@ -74,7 +74,7 @@
 -- "Format":"HLSv3", "Name":"playlist-iPhone-lasagna.m3u8", "OutputKeys": [
 -- "iphone/lasagna-1024k", "iphone/lasagna-512k" ] } ], "Status":"Progressing"
 -- }.
-module Network.AWS.ElasticTranscoder
+module Network.AWS.ElasticTranscoder.CreateJob
     (
     -- * Request
       CreateJob

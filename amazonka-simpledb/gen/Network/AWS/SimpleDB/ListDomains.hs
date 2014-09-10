@@ -23,7 +23,7 @@
 -- Calling ListDomains successive times with the NextToken provided by the
 -- operation returns up to MaxNumberOfDomains more domain names with each
 -- successive operation call.
-module Network.AWS.SimpleDB
+module Network.AWS.SimpleDB.ListDomains
     (
     -- * Request
       ListDomains

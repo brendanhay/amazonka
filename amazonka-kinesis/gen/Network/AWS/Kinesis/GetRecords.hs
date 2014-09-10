@@ -55,7 +55,7 @@
 -- "AAAAAAAAAAHsW8zCWf9164uy8Epue6WS3w6wmj4a4USt+CNvMd6uXQ+HL5vAJMznqqC0DLKsIjuoiTi1BpT6nW0LN2M2D56zM5H8anHm30Gbri9ua+qaGgj+3XTyvbhpERfrezgLHbPB/rIcVpykJbaSj5tmcXYRmFnqZBEyHwtZYFmh6hvWVFkIwLuMZLMrpWhG5r5hzkE=",
 -- "Records": [ { "Data": "XzxkYXRhPl8w", "PartitionKey": "partitionKey",
 -- "SequenceNumber": "21269319989652663814458848515492872193" } ] }.
-module Network.AWS.Kinesis
+module Network.AWS.Kinesis.GetRecords
     (
     -- * Request
       GetRecords

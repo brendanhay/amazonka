@@ -19,7 +19,7 @@
 
 -- | Stops logging information, such as queries and connection attempts, for the
 -- specified Amazon Redshift cluster.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.DisableLogging
     (
     -- * Request
       DisableLogging

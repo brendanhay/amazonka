@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes the cors configuration information set for the bucket.
-module Network.AWS.S3
+module Network.AWS.S3.DeleteBucketCors
     (
     -- * Request
       DeleteBucketCors

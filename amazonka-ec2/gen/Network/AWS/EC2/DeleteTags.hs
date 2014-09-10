@@ -40,7 +40,7 @@
 -- key is Purpose and the tag value is the empty string.
 -- https://ec2.amazonaws.com/?Action=DeleteTags &amp;ResourceId.1=i-5f4e3d2a
 -- &amp;Tag.1.Key=Purpose &amp;Tag.2.Value= &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.DeleteTags
     (
     -- * Request
       DeleteTags

@@ -32,7 +32,7 @@
 -- c321ec43-378e-11e2-8e4c-4d5b971203e9 Content-Type: application/json
 -- Content-Length: [number-of-characters-in-response] Date: Mon, 14 Jan 2013
 -- 06:01:47 GMT { "Success":"true" }.
-module Network.AWS.ElasticTranscoder
+module Network.AWS.ElasticTranscoder.DeletePipeline
     (
     -- * Request
       DeletePipeline

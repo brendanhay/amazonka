@@ -46,7 +46,7 @@
 -- &lt;s3Key&gt;my-exports/ export-i-1234wxyz .ova&lt;/s3Key&gt;
 -- &lt;/exportToS3&gt; &lt;/exportTask&gt;
 -- &lt;/CreateInstanceExportTaskResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.CreateInstanceExportTask
     (
     -- * Request
       CreateInstanceExportTask

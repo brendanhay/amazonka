@@ -43,7 +43,7 @@
 -- "workflowExecutionRetentionPeriodInDays": "60"} HTTP/1.1 200 OK
 -- Content-Length: 0 Content-Type: application/json x-amzn-RequestId:
 -- 4ec4ac3f-3e16-11e1-9b11-7182192d0b57.
-module Network.AWS.SWF
+module Network.AWS.SWF.RegisterDomain
     (
     -- * Request
       RegisterDomain

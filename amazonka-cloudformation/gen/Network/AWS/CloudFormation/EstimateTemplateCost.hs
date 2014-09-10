@@ -28,7 +28,7 @@
 -- &Signature=[Signature]
 -- http://calculator.s3.amazonaws.com/calc5.html?key=cf-2e351785-e821-450c-9d58-625e1e1ebfb6.
 -- 
-module Network.AWS.CloudFormation
+module Network.AWS.CloudFormation.EstimateTemplateCost
     (
     -- * Request
       EstimateTemplateCost

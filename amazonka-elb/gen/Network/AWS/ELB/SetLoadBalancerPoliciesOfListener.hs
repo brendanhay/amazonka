@@ -25,7 +25,7 @@
 -- &LoadBalancerName=MyInternalLoadBalancer &LoadBalancerPort=443
 -- &Version=2012-06-01 &Action=SetLoadBalancerPoliciesOfListener &AUTHPARAMS
 -- azonaws.com/doc/2012-06-01/"> 07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE.
-module Network.AWS.ELB
+module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
     (
     -- * Request
       SetLoadBalancerPoliciesOfListener

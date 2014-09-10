@@ -63,7 +63,7 @@
 -- "details": "starting task"} HTTP/1.1 200 OK Content-Length: 25
 -- Content-Type: application/json x-amzn-RequestId:
 -- e08622cd-3ff5-11e1-9b11-7182192d0b57 {"cancelRequested":false}.
-module Network.AWS.SWF
+module Network.AWS.SWF.RecordActivityTaskHeartbeat
     (
     -- * Request
       RecordActivityTaskHeartbeat

@@ -31,7 +31,7 @@
 -- restored-db in-sync default.mysql5.1 active default 00:00-00:30 true
 -- sat:07:30-sat:08:00 10 db.m1.large master
 -- 1ef546bc-850b-11e0-90aa-eb648410240d.
-module Network.AWS.RDS
+module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     (
     -- * Request
       RestoreDBInstanceToPointInTime

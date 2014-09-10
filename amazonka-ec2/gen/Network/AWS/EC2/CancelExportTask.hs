@@ -25,7 +25,7 @@
 -- https://ec2.amazonaws.com/?Action=CancelExportTask
 -- &amp;exportTaskId=export-i-1234wxyz &amp;AUTHPARAMS
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE true.
-module Network.AWS.EC2
+module Network.AWS.EC2.CancelExportTask
     (
     -- * Request
       CancelExportTask

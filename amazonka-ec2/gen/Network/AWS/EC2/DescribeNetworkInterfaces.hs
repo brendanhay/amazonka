@@ -80,7 +80,7 @@
 -- &lt;primary&gt;false&lt;/primary&gt; &lt;/item&gt;
 -- &lt;/privateIpAddressesSet&gt; &lt;/item&gt; &lt;/networkInterfaceSet&gt;
 -- &lt;/DescribeNetworkInterfacesResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeNetworkInterfaces
     (
     -- * Request
       DescribeNetworkInterfaces

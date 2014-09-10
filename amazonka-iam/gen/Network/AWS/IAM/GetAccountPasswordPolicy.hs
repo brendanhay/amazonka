@@ -22,7 +22,7 @@
 -- https://iam.amazonaws.com/ ?Action=GetAccountPasswordPolicy
 -- &Version=2010-05-08 &AUTHPARAMS 6, false false false false true
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM
+module Network.AWS.IAM.GetAccountPasswordPolicy
     (
     -- * Request
       GetAccountPasswordPolicy

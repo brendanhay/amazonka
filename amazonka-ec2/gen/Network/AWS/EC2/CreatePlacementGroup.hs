@@ -28,7 +28,7 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2013-10-01/"&gt;
 -- &lt;requestId&gt;d4904fd9-82c2-4ea5-adfe-a9cc3EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/CreatePlacementGroupResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.CreatePlacementGroup
     (
     -- * Request
       CreatePlacementGroup

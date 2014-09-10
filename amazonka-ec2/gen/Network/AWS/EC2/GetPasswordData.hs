@@ -34,7 +34,7 @@
 -- 15:00:00&lt;/timestamp&gt;
 -- &lt;passwordData&gt;TGludXggdmVyc2lvbiAyLjYuMTYteGVuVSAoYnVpbGRlckBwYXRjaGJhdC5hbWF6b25zYSkgKGdj&lt;/passwordData&gt;
 -- &lt;/GetPasswordDataResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.GetPasswordData
     (
     -- * Request
       GetPasswordData

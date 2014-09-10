@@ -31,7 +31,7 @@
 -- /application_abc/component_xyz/
 -- arn:aws:iam::123456789012:instance-profile/application_abc/component_xyz/Webserver
 -- 2012-05-09T16:27:11Z 6a8c3992-99f4-11e1-a4c3-27EXAMPLE804.
-module Network.AWS.IAM
+module Network.AWS.IAM.ListInstanceProfilesForRole
     (
     -- * Request
       ListInstanceProfilesForRole

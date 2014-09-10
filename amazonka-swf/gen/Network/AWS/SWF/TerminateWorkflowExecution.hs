@@ -53,7 +53,7 @@
 -- "details": "customer credit card declined", "childPolicy": "TERMINATE"}
 -- HTTP/1.1 200 OK Content-Length: 0 Content-Type: application/json
 -- x-amzn-RequestId: 76d68a47-3ffe-11e1-b118-3bfa5e8e7fc3.
-module Network.AWS.SWF
+module Network.AWS.SWF.TerminateWorkflowExecution
     (
     -- * Request
       TerminateWorkflowExecution

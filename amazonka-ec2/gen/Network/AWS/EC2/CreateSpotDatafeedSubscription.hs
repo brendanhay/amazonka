@@ -32,7 +32,7 @@
 -- &lt;prefix&gt;spotdata_&lt;/prefix&gt; &lt;state&gt;Active&lt;/state&gt;
 -- &lt;/spotDatafeedSubscription&gt;
 -- &lt;/CreateSpotDatafeedSubscriptionResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.CreateSpotDatafeedSubscription
     (
     -- * Request
       CreateSpotDatafeedSubscription

@@ -54,7 +54,7 @@
 -- x-amzn-RequestId: Content-Type: application/x-amz-json-1.1 Content-Length:
 -- Date: ]]> { "SequenceNumber": "21269319989653637946712965403778482177",
 -- "ShardId": "shardId-000000000001" }.
-module Network.AWS.Kinesis
+module Network.AWS.Kinesis.PutRecord
     (
     -- * Request
       PutRecord

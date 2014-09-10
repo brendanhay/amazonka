@@ -25,7 +25,7 @@
 -- 2011-03-11T07:20:24.082Z mysql deleted us-east-1d general-public-license
 -- 2010-07-16T00:06:59.107Z 60 simcoprod01 5.1.47 mysnapshot2 manual master
 -- 627a43a1-8507-11e0-bd9b-a7b1ece36d51.
-module Network.AWS.RDS
+module Network.AWS.RDS.DeleteDBSnapshot
     (
     -- * Request
       DeleteDBSnapshot

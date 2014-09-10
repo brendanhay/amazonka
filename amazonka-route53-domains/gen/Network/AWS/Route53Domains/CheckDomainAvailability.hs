@@ -34,7 +34,7 @@
 -- connections:Keep-Alive { "DomainName":"example.com" } HTTP/1.1 200
 -- Content-Length:[number of characters in the JSON string] {
 -- "Availability":"AVAILABLE" }.
-module Network.AWS.Route53Domains
+module Network.AWS.Route53Domains.CheckDomainAvailability
     (
     -- * Request
       CheckDomainAvailability

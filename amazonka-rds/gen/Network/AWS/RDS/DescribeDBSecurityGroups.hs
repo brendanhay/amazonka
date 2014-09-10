@@ -27,7 +27,7 @@
 -- DBSecurityGroup 192.168.1.1/24 authorized 621567473609 mydbsecuritygroup
 -- vpc-1ab2c3d5 My new DBSecurityGroup 621567473609 mydbsecuritygroup4
 -- vpc-1ab2c3d6 bbdad154-bf42-11de-86a4-97241dfaadff.
-module Network.AWS.RDS
+module Network.AWS.RDS.DescribeDBSecurityGroups
     (
     -- * Request
       DescribeDBSecurityGroups

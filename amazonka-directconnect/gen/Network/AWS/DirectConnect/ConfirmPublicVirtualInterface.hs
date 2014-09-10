@@ -20,7 +20,7 @@
 -- | Accept ownership of a public virtual interface created by another customer.
 -- After the virtual interface owner calls this function, the specified
 -- virtual interface will be created and made available for handling traffic.
-module Network.AWS.DirectConnect
+module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
     (
     -- * Request
       ConfirmPublicVirtualInterface

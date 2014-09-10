@@ -35,7 +35,7 @@
 -- &lt;state&gt;cancelled&lt;/state&gt; &lt;/item&gt;
 -- &lt;/spotInstanceRequestSet&gt;
 -- &lt;/CancelSpotInstanceRequestsResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.CancelSpotInstanceRequests
     (
     -- * Request
       CancelSpotInstanceRequests

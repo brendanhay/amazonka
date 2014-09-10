@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Delete a distribution.
-module Network.AWS.CloudFront
+module Network.AWS.CloudFront.DeleteDistribution
     (
     -- * Request
       DeleteDistribution

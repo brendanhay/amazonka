@@ -44,7 +44,7 @@
 -- &lt;bucket&gt;myawsbucket&lt;/bucket&gt;
 -- &lt;prefix&gt;winami&lt;/prefix&gt; &lt;/S3&gt; &lt;/storage&gt;
 -- &lt;/bundleInstanceTask&gt; &lt;/BundleInstanceResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.BundleInstance
     (
     -- * Request
       BundleInstance

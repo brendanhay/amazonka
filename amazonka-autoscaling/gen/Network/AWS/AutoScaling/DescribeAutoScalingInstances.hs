@@ -28,7 +28,7 @@
 -- &Action=DescribeAutoScalingInstances &AUTHPARAMS Healthy my-test-asg
 -- us-east-1e i-78e0d40b my-test-lc InService
 -- df992dc3-b72f-11e2-81e1-750aa6EXAMPLE.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     (
     -- * Request
       DescribeAutoScalingInstances

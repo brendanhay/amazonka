@@ -61,7 +61,7 @@
 -- Content-Length: Date: ]]> { "ShardIterator":
 -- "AAAAAAAAAAETYyAYzd665+8e0X7JTsASDM/Hr2rSwc0X2qz93iuA3udrjTH+ikQvpQk/1ZcMMLzRdAesqwBGPnsthzU0/CBlM/U8/8oEqGwX3pKw0XyeDNRAAZyXBo3MqkQtCpXhr942BRTjvWKhFz7OmCb2Ncfr8Tl2cBktooi6kJhr+djN5WYkB38Rr3akRgCl9qaU4dY="
 -- }.
-module Network.AWS.Kinesis
+module Network.AWS.Kinesis.GetShardIterator
     (
     -- * Request
       GetShardIterator

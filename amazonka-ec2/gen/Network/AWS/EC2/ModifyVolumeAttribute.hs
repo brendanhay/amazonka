@@ -31,7 +31,7 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-05-01/"&gt;
 -- &lt;requestId&gt;5jkdf074-37ed-4004-8671-a78ee82bf1cbEXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ModifyVolumeAttributeResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.ModifyVolumeAttribute
     (
     -- * Request
       ModifyVolumeAttribute

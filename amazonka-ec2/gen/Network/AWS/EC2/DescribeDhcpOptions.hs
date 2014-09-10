@@ -42,7 +42,7 @@
 -- https://ec2.amazonaws.com/?Action=DescribeDhcpOptions
 -- &amp;Filter.1.Name=key &amp;Filter.1.Value.1=domain-name
 -- &amp;Filter.2.Name=value &amp;Filter.2.Value.1=*example* &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeDhcpOptions
     (
     -- * Request
       DescribeDhcpOptions

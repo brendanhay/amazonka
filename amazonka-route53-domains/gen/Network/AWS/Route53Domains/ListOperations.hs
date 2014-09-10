@@ -36,7 +36,7 @@
 -- "OperationId":"2e3ac45b-89b3-47ea-a042-f56dcd1b6883",
 -- "Status":"WORKFLOW_IN_PROGRESS", "SubmittedDate":1403548986.429,
 -- "Type":"DOMAIN_LOCK" } ] }.
-module Network.AWS.Route53Domains
+module Network.AWS.Route53Domains.ListOperations
     (
     -- * Request
       ListOperations

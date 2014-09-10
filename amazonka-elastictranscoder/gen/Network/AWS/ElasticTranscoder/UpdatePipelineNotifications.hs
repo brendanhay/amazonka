@@ -38,7 +38,7 @@
 -- "Id":"1111111111111-abcde1", "Notifications":{ "Completed":"",
 -- "Error":"arn:aws:sns:us-east-1:111222333444:ETS_Errors", "Progressing":"",
 -- "Warning":"" } }.
-module Network.AWS.ElasticTranscoder
+module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
     (
     -- * Request
       UpdatePipelineNotifications

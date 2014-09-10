@@ -39,7 +39,7 @@
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway",
 -- "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway2" } ] }.
-module Network.AWS.StorageGateway
+module Network.AWS.StorageGateway.ListGateways
     (
     -- * Request
       ListGateways

@@ -41,7 +41,7 @@
 -- &lt;availableIpAddressCount&gt;251&lt;/availableIpAddressCount&gt;
 -- &lt;availabilityZone&gt;us-east-1a&lt;/availabilityZone&gt; &lt;tagSet/&gt;
 -- &lt;/subnet&gt; &lt;/CreateSubnetResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.CreateSubnet
     (
     -- * Request
       CreateSubnet

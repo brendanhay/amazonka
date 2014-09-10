@@ -32,7 +32,7 @@
 -- AIDEXAMPLE4EXAMPLEXYZ / ExampleUser
 -- arn:aws:iam::111122223333:user/ExampleUser 2011-07-01T17:23:07Z
 -- b61ce1b1-0401-11e1-b2f8-2dEXAMPLEbfc.
-module Network.AWS.IAM
+module Network.AWS.IAM.ListVirtualMFADevices
     (
     -- * Request
       ListVirtualMFADevices

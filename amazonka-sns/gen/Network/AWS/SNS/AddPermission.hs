@@ -33,7 +33,7 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;6a213e4e-33a8-11df-9540-99d0768312d3&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/AddPermissionResponse&gt;.
-module Network.AWS.SNS
+module Network.AWS.SNS.AddPermission
     (
     -- * Request
       AddPermission

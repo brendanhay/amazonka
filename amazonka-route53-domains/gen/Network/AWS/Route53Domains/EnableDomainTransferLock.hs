@@ -35,7 +35,7 @@
 -- "DomainName":"example.com" } HTTP/1.1 200 Content-Length:[number of
 -- characters in the JSON string] {
 -- "OperationId":"0b370c79-faa4-40fe-94c8-b423069de3f6" }.
-module Network.AWS.Route53Domains
+module Network.AWS.Route53Domains.EnableDomainTransferLock
     (
     -- * Request
       EnableDomainTransferLock

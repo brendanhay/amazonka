@@ -26,7 +26,7 @@
 -- &lt;requestId&gt;ace8cd1e-e685-4e44-90fb-92014d907212&lt;/requestId&gt;
 -- &lt;attachmentId&gt;eni-attach-d94b09b0&lt;/attachmentId&gt;
 -- &lt;/AttachNetworkInterfaceResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.AttachNetworkInterface
     (
     -- * Request
       AttachNetworkInterface

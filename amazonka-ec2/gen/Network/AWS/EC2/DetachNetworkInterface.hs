@@ -25,7 +25,7 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
 -- &lt;requestId&gt;ce540707-0635-46bc-97da-33a8a362a0e8&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DetachNetworkInterfaceResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.DetachNetworkInterface
     (
     -- * Request
       DetachNetworkInterface

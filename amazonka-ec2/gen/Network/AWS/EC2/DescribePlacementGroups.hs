@@ -29,7 +29,7 @@
 -- https://ec2.amazonaws.com/?Action=DescribePlacementGroups
 -- &amp;Filter.1.Name=group-name &amp;Filter.1.Value=*Project* &amp;AUTHPARAMS
 -- d4904fd9-82c2-4ea5-adfe-a9cc3EXAMPLE Project-cluster cluster available.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribePlacementGroups
     (
     -- * Request
       DescribePlacementGroups

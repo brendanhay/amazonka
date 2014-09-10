@@ -34,7 +34,7 @@
 -- &x-amz-date=20130123T002544Z
 -- &x-amz-signedheaders=content-type;host;x-amz-date redshift-1.0 description
 -- my parameter group parametergroup1 6d6df847-64f3-11e2-bea9-49e0ce183f07.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.CreateClusterParameterGroup
     (
     -- * Request
       CreateClusterParameterGroup

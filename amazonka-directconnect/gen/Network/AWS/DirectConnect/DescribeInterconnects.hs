@@ -20,7 +20,7 @@
 -- | Returns a list of interconnects owned by the AWS account. If an
 -- interconnect ID is provided, it will only return this particular
 -- interconnect.
-module Network.AWS.DirectConnect
+module Network.AWS.DirectConnect.DescribeInterconnects
     (
     -- * Request
       DescribeInterconnects

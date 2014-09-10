@@ -31,7 +31,7 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;f3aa9ac9-3c3d-11df-8235-9dab105e9c32&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/DeleteTopicResponse&gt;.
-module Network.AWS.SNS
+module Network.AWS.SNS.DeleteTopic
     (
     -- * Request
       DeleteTopic

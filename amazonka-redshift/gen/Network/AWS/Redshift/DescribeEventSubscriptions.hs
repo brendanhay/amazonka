@@ -20,7 +20,7 @@
 -- | Lists descriptions of all the Amazon Redshift event notifications
 -- subscription for a customer account. If you specify a subscription name,
 -- lists the description for that subscription.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.DescribeEventSubscriptions
     (
     -- * Request
       DescribeEventSubscriptions

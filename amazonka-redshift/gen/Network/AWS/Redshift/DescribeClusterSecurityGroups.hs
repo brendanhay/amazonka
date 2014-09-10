@@ -29,7 +29,7 @@
 -- &x-amz-signedheaders=content-type;host;x-amz-date 0.0.0.0/0 authorized
 -- default default my security group securitygroup1
 -- 947a8305-64f8-11e2-bec0-17624ad140dd.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.DescribeClusterSecurityGroups
     (
     -- * Request
       DescribeClusterSecurityGroups

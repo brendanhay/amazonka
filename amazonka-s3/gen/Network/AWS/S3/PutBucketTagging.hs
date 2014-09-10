@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Sets the tags for a bucket.
-module Network.AWS.S3
+module Network.AWS.S3.PutBucketTagging
     (
     -- * Request
       PutBucketTagging

@@ -21,7 +21,7 @@
 -- ?Action=DescribeOptionGroupOptions &EngineName=oracle-se1
 -- &MajorEngineVersion=11.2 11.2 true Oracle Enterprise Manager 1158 OEM
 -- oracle-se1 0.2.v3 false false d9c8f6a1-84c7-11e1-a264-0b23c28bc344.
-module Network.AWS.RDS
+module Network.AWS.RDS.DescribeOptionGroupOptions
     (
     -- * Request
       DescribeOptionGroupOptions

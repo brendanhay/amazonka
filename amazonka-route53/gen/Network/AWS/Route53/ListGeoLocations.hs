@@ -17,7 +17,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Route53
+module Network.AWS.Route53.ListGeoLocations
     (
     -- * Request
       ListGeoLocations

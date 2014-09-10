@@ -26,7 +26,7 @@
 -- &AWSAccessKeyId= &Signature= mysql5.1 Default parameter group for mysql5.1
 -- default.mysql5.1 mysql5.1 My DB Param Group testdbparamgroup
 -- cb8d9bb4-a02a-11df-bd60-c955b7d6e8e0.
-module Network.AWS.RDS
+module Network.AWS.RDS.DescribeDBParameterGroups
     (
     -- * Request
       DescribeDBParameterGroups

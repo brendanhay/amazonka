@@ -21,7 +21,7 @@
 -- https://autoscaling.amazonaws.com/?Version=2011-01-01
 -- &Action=DescribeAdjustmentTypes &AUTHPARAMS ChangeInCapacity ExactCapacity
 -- PercentChangeInCapacity cc5f0337-b694-11e2-afc0-6544dEXAMPLE.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.DescribeAdjustmentTypes
     (
     -- * Request
       DescribeAdjustmentTypes

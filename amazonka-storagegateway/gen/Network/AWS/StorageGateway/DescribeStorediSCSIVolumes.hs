@@ -40,7 +40,7 @@
 -- "pci-0000:03:00.0-scsi-0:0:0:0", "VolumeId": "vol-1122AABB",
 -- "VolumeProgress": 23.7, "VolumeSizeInBytes": 1099511627776, "VolumeStatus":
 -- "BOOTSTRAPPING" } ] }.
-module Network.AWS.StorageGateway
+module Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
     (
     -- * Request
       DescribeStorediSCSIVolumes

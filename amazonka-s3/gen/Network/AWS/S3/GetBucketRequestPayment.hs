@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the request payment configuration of a bucket.
-module Network.AWS.S3
+module Network.AWS.S3.GetBucketRequestPayment
     (
     -- * Request
       GetBucketRequestPayment

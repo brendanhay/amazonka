@@ -23,7 +23,7 @@
 -- storage of the uploaded parts. Only after you either complete or abort
 -- multipart upload, Amazon S3 frees up the parts storage and stops charging
 -- you for the parts storage.
-module Network.AWS.S3
+module Network.AWS.S3.CreateMultipartUpload
     (
     -- * Request
       CreateMultipartUpload

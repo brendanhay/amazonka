@@ -38,7 +38,7 @@
 -- &amp;Filter.4.Name=ip-permission.group-name
 -- &amp;Filter.4.Value.1=app_server_group &amp;Filter.4.Value.2=database_group
 -- &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeSecurityGroups
     (
     -- * Request
       DescribeSecurityGroups

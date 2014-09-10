@@ -22,7 +22,7 @@
 -- &Action=DescribeTerminationPolicyTypes &AUTHPARAMS
 -- ClosestToNextInstanceHour Default NewestInstance OldestInstance
 -- OldestLaunchConfiguration d9a05827-b735-11e2-a40c-c79a5EXAMPLE.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
     (
     -- * Request
       DescribeTerminationPolicyTypes

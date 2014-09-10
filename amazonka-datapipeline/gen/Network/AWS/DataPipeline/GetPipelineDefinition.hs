@@ -36,7 +36,7 @@
 -- "stringValue": "echo hello"}, {"key": "parent", "refValue": "Default"},
 -- {"key": "type", "stringValue": "ShellCommandActivity"} ], "id": "SayHello",
 -- "name": "SayHello"} ] }.
-module Network.AWS.DataPipeline
+module Network.AWS.DataPipeline.GetPipelineDefinition
     (
     -- * Request
       GetPipelineDefinition

@@ -69,7 +69,7 @@
 -- &lt;staticRoutesOnly&gt;true&lt;/staticRoutesOnly&gt; &lt;/options&gt;
 -- &lt;routes/&gt; &lt;/vpnConnection&gt;
 -- &lt;/CreateVpnConnectionResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.CreateVpnConnection
     (
     -- * Request
       CreateVpnConnection

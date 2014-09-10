@@ -47,7 +47,7 @@
 -- &lt;dhcpOptionsId&gt;dopt-1a2b3c4d2&lt;/dhcpOptionsId&gt;
 -- &lt;instanceTenancy&gt;dedicated&lt;/instanceTenancy&gt; &lt;/vpc&gt;
 -- &lt;/CreateVpcResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.CreateVpc
     (
     -- * Request
       CreateVpc

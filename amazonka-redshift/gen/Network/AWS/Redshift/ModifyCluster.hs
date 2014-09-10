@@ -41,7 +41,7 @@
 -- true false dev wed:07:30-wed:08:00 applying parametergroup1
 -- 2013-01-22T19:23:59.368Z active default us-east-1c dw1.xlarge
 -- examplecluster true adminuser acbc43d5-6504-11e2-bea9-49e0ce183f07.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.ModifyCluster
     (
     -- * Request
       ModifyCluster

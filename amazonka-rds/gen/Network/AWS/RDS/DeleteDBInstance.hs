@@ -35,7 +35,7 @@
 -- myrestoreddbinstance in-sync default.mysql5.1 active default 00:00-00:30
 -- true sat:07:30-sat:08:00 us-east-1d 2011-05-23T06:52:48.255Z 10 db.m1.large
 -- master 03ea4ae8-850d-11e0-90aa-eb648410240d.
-module Network.AWS.RDS
+module Network.AWS.RDS.DeleteDBInstance
     (
     -- * Request
       DeleteDBInstance

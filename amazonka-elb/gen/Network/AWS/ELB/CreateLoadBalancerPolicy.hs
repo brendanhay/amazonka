@@ -27,7 +27,7 @@
 -- &LoadBalancerName=my-test-loadbalancer &PolicyName=EnableProxyProtocol
 -- &Version=2012-06-01 &Action=CreateLoadBalancerPolicy &AUTHPARAMS
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
-module Network.AWS.ELB
+module Network.AWS.ELB.CreateLoadBalancerPolicy
     (
     -- * Request
       CreateLoadBalancerPolicy

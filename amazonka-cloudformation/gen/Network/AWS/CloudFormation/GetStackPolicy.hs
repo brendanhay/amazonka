@@ -26,7 +26,7 @@
 -- "Update:*", "Principal" : "*", "Resource" :
 -- "LogicalResourceId/ProductionDatabase" }, { "Effect" : "Allow", "Action" :
 -- "Update:*", "Principal" : "*", "Resource" : "*" } ] }.
-module Network.AWS.CloudFormation
+module Network.AWS.CloudFormation.GetStackPolicy
     (
     -- * Request
       GetStackPolicy

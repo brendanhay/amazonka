@@ -30,7 +30,7 @@
 -- &SignatureMethod=HmacSHA256 &Timestamp=20140401T192317Z &X-Amz-Credential=
 -- my-redis-primary my-repgroup deleting My replication group
 -- 93eb37db-b9d7-11e3-8a16-7978bb24ffdf.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.DeleteReplicationGroup
     (
     -- * Request
       DeleteReplicationGroup

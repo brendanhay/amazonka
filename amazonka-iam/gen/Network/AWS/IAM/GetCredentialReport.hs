@@ -20,7 +20,7 @@
 -- | Retrieves a credential report for the AWS account. For more information
 -- about the credential report, see Getting Credential Reports in the Using
 -- IAM guide.
-module Network.AWS.IAM
+module Network.AWS.IAM.GetCredentialReport
     (
     -- * Request
       GetCredentialReport

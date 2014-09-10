@@ -25,7 +25,7 @@
 -- &HealthCheck.Target=HTTP:80/ping &HealthCheck.Interval=30
 -- &HealthCheck.Timeout=3 &Version=2012-06-01 &Action=ConfigureHealthCheck
 -- &AUTHPARAMS 30 HTTP:80/ping 2 3 2 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
-module Network.AWS.ELB
+module Network.AWS.ELB.ConfigureHealthCheck
     (
     -- * Request
       ConfigureHealthCheck

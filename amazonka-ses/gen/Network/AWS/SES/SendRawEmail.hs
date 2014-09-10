@@ -59,7 +59,7 @@
 -- &Timestamp=2011-08-17T00%3A21%3A38.000Z
 -- 00000131d51d6b36-1d4f9293-0aee-4503-b573-9ae4e70e9e38-000000
 -- e0abcdfa-c866-11e0-b6d0-273d09173b49.
-module Network.AWS.SES
+module Network.AWS.SES.SendRawEmail
     (
     -- * Request
       SendRawEmail

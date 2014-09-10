@@ -32,7 +32,7 @@
 -- &LoadBalancerName=MyHTTPSLoadBalancer &Version=2012-06-01
 -- &Action=DisableAvailabilityZonesForLoadBalancer &AUTHPARAMS us-east-1b
 -- ba6267d5-2566-11e3-9c6d-eb728EXAMPLE.
-module Network.AWS.ELB
+module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     (
     -- * Request
       DisableAvailabilityZonesForLoadBalancer

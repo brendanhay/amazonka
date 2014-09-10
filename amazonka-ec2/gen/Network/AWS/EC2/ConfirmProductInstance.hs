@@ -30,7 +30,7 @@
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;ownerId&gt;111122223333&lt;/ownerId&gt;
 -- &lt;/ConfirmProductInstanceResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.ConfirmProductInstance
     (
     -- * Request
       ConfirmProductInstance

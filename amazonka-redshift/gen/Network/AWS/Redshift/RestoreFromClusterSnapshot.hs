@@ -37,7 +37,7 @@
 -- false dev sun:06:30-sun:07:00 in-sync default.redshift-1.0 active default
 -- dw1.xlarge examplecluster-restored true adminuser
 -- 52a9aee8-6505-11e2-bec0-17624ad140dd.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.RestoreFromClusterSnapshot
     (
     -- * Request
       RestoreFromClusterSnapshot

@@ -39,7 +39,7 @@
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway",
 -- "UploadBufferAllocatedInBytes": 161061273600, "UploadBufferUsedInBytes": 0
 -- }.
-module Network.AWS.StorageGateway
+module Network.AWS.StorageGateway.DescribeUploadBuffer
     (
     -- * Request
       DescribeUploadBuffer

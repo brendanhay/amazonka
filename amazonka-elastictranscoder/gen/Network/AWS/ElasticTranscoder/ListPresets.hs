@@ -39,7 +39,7 @@
 -- "DisplayAspectRatio":"auto", "FixedGOP":"false", "FrameRate":"30",
 -- "KeyframesMaxDist":"240", "MaxHeight":"auto", "MaxWidth":"auto",
 -- "PaddingPolicy":"Pad", "SizingPolicy":"Fit" } }, {...} ] }.
-module Network.AWS.ElasticTranscoder
+module Network.AWS.ElasticTranscoder.ListPresets
     (
     -- * Request
       ListPresets

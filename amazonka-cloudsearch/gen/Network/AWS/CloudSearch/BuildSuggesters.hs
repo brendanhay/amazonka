@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Indexes the search suggestions.
-module Network.AWS.CloudSearch
+module Network.AWS.CloudSearch.BuildSuggesters
     (
     -- * Request
       BuildSuggesters

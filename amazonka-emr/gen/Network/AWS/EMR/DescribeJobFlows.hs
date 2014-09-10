@@ -72,7 +72,7 @@
 -- "/home/hadoop/contrib/streaming/hadoop-streaming.jar", "Properties": [] },
 -- "Name": "Example Streaming Step" } }], "SupportedProducts": [],
 -- "VisibleToAllUsers": false }]}.
-module Network.AWS.EMR
+module Network.AWS.EMR.DescribeJobFlows
     (
     -- * Request
       DescribeJobFlows

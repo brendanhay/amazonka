@@ -31,7 +31,7 @@
 -- &x-amz-signedheaders=content-type;host;x-amz-date vpc-796a5913 My subnet
 -- group 1 mysubnetgroup1 Complete Active subnet-756a591f us-east-1c
 -- 0a60660f-6a4a-11e2-aad2-71d00c36728e.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.CreateClusterSubnetGroup
     (
     -- * Request
       CreateClusterSubnetGroup

@@ -66,7 +66,7 @@
 -- &Expires=2013-10-18T22%3A52%3A43PST &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
 -- &SignatureVersion=2 &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- VisibilityTimeout 30 DelaySeconds 0 ReceiveMessageWaitTimeSeconds 2.
-module Network.AWS.SQS
+module Network.AWS.SQS.GetQueueAttributes
     (
     -- * Request
       GetQueueAttributes

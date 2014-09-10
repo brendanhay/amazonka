@@ -45,7 +45,7 @@
 -- creating 2 1 false false dev sat:08:30-sat:09:00 in-sync
 -- default.redshift-1.0 vpc-796a5913 dw1.xlarge exampleclusterinvpc true
 -- master fa337bb4-6a4d-11e2-a12a-cb8076a904bd.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.CreateCluster
     (
     -- * Request
       CreateCluster

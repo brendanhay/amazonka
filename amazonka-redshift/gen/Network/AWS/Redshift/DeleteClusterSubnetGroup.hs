@@ -25,7 +25,7 @@
 -- &x-amz-date=20130130T154635Z
 -- &x-amz-signedheaders=content-type;host;x-amz-date
 -- 3a63806b-6af4-11e2-b27b-4d850b1c672d.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.DeleteClusterSubnetGroup
     (
     -- * Request
       DeleteClusterSubnetGroup

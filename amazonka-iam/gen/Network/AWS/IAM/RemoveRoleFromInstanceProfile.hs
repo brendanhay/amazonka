@@ -27,7 +27,7 @@
 -- ?Action=RemoveRoleFromInstanceProfile &InstanceProfileName=Webserver
 -- &RoleName=S3Access &Version=2010-05-08 &AUTHPARAMS
 -- 29f47818-99f5-11e1-a4c3-27EXAMPLE804.
-module Network.AWS.IAM
+module Network.AWS.IAM.RemoveRoleFromInstanceProfile
     (
     -- * Request
       RemoveRoleFromInstanceProfile

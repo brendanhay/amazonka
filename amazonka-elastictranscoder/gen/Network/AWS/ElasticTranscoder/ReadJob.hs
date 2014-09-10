@@ -34,7 +34,7 @@
 -- "Output":{ "Key":"", "PresetId":"5555555555555-abcde5", "Rotate":"0",
 -- "Status":"Submitted", "StatusDetail":"", "ThumbnailPattern":"{count}" },
 -- "PipelineId":"1111111111111-abcde1" } }.
-module Network.AWS.ElasticTranscoder
+module Network.AWS.ElasticTranscoder.ReadJob
     (
     -- * Request
       ReadJob

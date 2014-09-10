@@ -37,7 +37,7 @@
 -- &lt;s3Key&gt;my-exports/ export-i-1234wxyz .ova&lt;/s3Key&gt;
 -- &lt;/exportToS3&gt; &lt;/item&gt; &lt;/exportTaskSet&gt; &lt;/
 -- DescribeExportTasksResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeExportTasks
     (
     -- * Request
       DescribeExportTasks

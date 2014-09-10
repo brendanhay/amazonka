@@ -29,7 +29,7 @@
 -- &Timestamp=20140401T192317Z &X-Amz-Credential= authorizing default
 -- 565419523791 mygroup 123456781234 My security group
 -- 817fa999-3647-11e0-ae57-f96cfe56749c.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     (
     -- * Request
       AuthorizeCacheSecurityGroupIngress

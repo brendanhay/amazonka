@@ -24,7 +24,7 @@
 -- ListMetrics operations. If you create a metric with the PutMetricData
 -- action, allow up to fifteen minutes for the metric to appear in calls to
 -- the ListMetrics action.
-module Network.AWS.CloudWatch
+module Network.AWS.CloudWatch.ListMetrics
     (
     -- * Request
       ListMetrics

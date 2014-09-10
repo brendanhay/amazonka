@@ -52,7 +52,7 @@
 -- bHQgMSB6b25lbGlzdHMKS2VybmVsIGNvbW1hbmQgbGluZTogcm9vdD0vZGV2L3NkYTEgcm8gNApF
 -- bmFibGluZyBmYXN0IEZQVSBzYXZlIGFuZCByZXN0b3JlLi4uIGRvbmUuCg==&lt;/output&gt;
 -- &lt;/GetConsoleOutputResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.GetConsoleOutput
     (
     -- * Request
       GetConsoleOutput

@@ -49,7 +49,7 @@
 -- 1356998399}, "tagFilter": {"tag": "ricoh-the-dog"} } HTTP/1.1 200 OK
 -- Content-Length: 29 Content-Type: application/json x-amzn-RequestId:
 -- 5ea6789e-3f05-11e1-9e8f-57bb03e21482 {"count":1,"truncated":false}.
-module Network.AWS.SWF
+module Network.AWS.SWF.CountOpenWorkflowExecutions
     (
     -- * Request
       CountOpenWorkflowExecutions

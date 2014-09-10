@@ -20,7 +20,7 @@
 -- | Unlinks a federated identity from an existing account. Unlinked logins will
 -- be considered new identities next time they are seen. Removing the last
 -- linked login will make this identity inaccessible.
-module Network.AWS.CognitoIdentity
+module Network.AWS.CognitoIdentity.UnlinkIdentity
     (
     -- * Request
       UnlinkIdentity

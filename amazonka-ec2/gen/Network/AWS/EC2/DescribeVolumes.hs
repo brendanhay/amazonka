@@ -39,7 +39,7 @@
 -- &lt;/attachmentSet&gt; &lt;volumeType&gt;standard&lt;/volumeType&gt;
 -- &lt;encrypted&gt;true&lt;/encrypted&gt; &lt;/item&gt; &lt;/volumeSet&gt;
 -- &lt;/DescribeVolumesResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeVolumes
     (
     -- * Request
       DescribeVolumes

@@ -32,7 +32,7 @@
 -- application/x-amz-json-1.1 Content-Length: 72 Date: Mon, 12 Nov 2012
 -- 17:50:53 GMT {"hasMoreResults": false, "ids":
 -- ["@SayHello_1_2012-09-25T17:00:00"] }.
-module Network.AWS.DataPipeline
+module Network.AWS.DataPipeline.QueryObjects
     (
     -- * Request
       QueryObjects

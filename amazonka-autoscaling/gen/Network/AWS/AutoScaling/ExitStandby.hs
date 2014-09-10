@@ -27,7 +27,7 @@
 -- moved out of standby in response to a user request, increasing the capacity
 -- from 3 to 4. my-asg {"Availability Zone":"us-east-1a"} Moving EC2 instance
 -- out of Standby: i-5b73d709 321a11c8-f34c-11e3-a434-7f10009d5849.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.ExitStandby
     (
     -- * Request
       ExitStandby

@@ -35,7 +35,7 @@
 -- &lt;RequestId&gt;cf577bcc-b3dc-5463-88f1-3180b9412395&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt;
 -- &lt;/SetPlatformApplicationAttributesResponse&gt;.
-module Network.AWS.SNS
+module Network.AWS.SNS.SetPlatformApplicationAttributes
     (
     -- * Request
       SetPlatformApplicationAttributes

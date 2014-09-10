@@ -35,7 +35,7 @@
 -- "GatewayId": "sgw-AABB1122", "GatewayNetworkInterfaces": [ {"Ipv4Address":
 -- "10.35.69.216"} ], "GatewayState": "STATE_RUNNING", "GatewayTimezone":
 -- "GMT-8:00" }.
-module Network.AWS.StorageGateway
+module Network.AWS.StorageGateway.DescribeGatewayInformation
     (
     -- * Request
       DescribeGatewayInformation

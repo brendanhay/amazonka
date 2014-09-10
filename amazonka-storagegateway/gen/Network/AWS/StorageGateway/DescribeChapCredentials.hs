@@ -34,7 +34,7 @@
 -- "SecretToAuthenticateInitiator": "111111111111", "InitiatorName":
 -- "iqn.1991-05.com.microsoft:computername.domain.example.com",
 -- "SecretToAuthenticateTarget": "222222222222" } }.
-module Network.AWS.StorageGateway
+module Network.AWS.StorageGateway.DescribeChapCredentials
     (
     -- * Request
       DescribeChapCredentials

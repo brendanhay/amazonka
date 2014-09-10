@@ -28,7 +28,7 @@
 -- &x-amz-date=20130123T005817Z
 -- &x-amz-signedheaders=content-type;host;x-amz-date my security group
 -- securitygroup1 f9ee270f-64f7-11e2-a8da-655adc216806.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.CreateClusterSecurityGroup
     (
     -- * Request
       CreateClusterSecurityGroup

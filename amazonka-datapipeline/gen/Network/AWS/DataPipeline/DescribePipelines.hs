@@ -41,7 +41,7 @@
 -- "stringValue": "924374875933"}, {"key": "@accountId", "stringValue":
 -- "924374875933"}, {"key": "uniqueId", "stringValue": "1234567890"} ],
 -- "name": "myPipeline", "pipelineId": "df-0937003356ZJEXAMPLE"} ] }.
-module Network.AWS.DataPipeline
+module Network.AWS.DataPipeline.DescribePipelines
     (
     -- * Request
       DescribePipelines

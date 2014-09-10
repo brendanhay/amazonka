@@ -52,7 +52,7 @@
 -- {"name": "mainTaskList"}, "defaultChildPolicy": "TERMINATE"} HTTP/1.1 200
 -- OK Content-Length: 0 Content-Type: application/json x-amzn-RequestId:
 -- bb469e67-3e18-11e1-9914-a356b6ea8bdf.
-module Network.AWS.SWF
+module Network.AWS.SWF.RegisterWorkflowType
     (
     -- * Request
       RegisterWorkflowType

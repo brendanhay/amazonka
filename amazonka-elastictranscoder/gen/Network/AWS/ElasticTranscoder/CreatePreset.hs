@@ -71,7 +71,7 @@
 -- "HorizontalAlign":"Right", "HorizontalOffset":"10px",
 -- "VerticalAlign":"Bottom", "VerticalOffset":"10px", "Opacity":"55.5",
 -- "Target":"Content" } ] } }, "Warning":"" }.
-module Network.AWS.ElasticTranscoder
+module Network.AWS.ElasticTranscoder.CreatePreset
     (
     -- * Request
       CreatePreset

@@ -26,7 +26,7 @@
 -- Utilization USD mysql 438012d3-4052-4cc7-b2e3-8d3372e0e706 true
 -- payment-pending myreservationID 10 2011-12-18T23:24:56.577Z 31536000 123.0
 -- 0.123 db.m1.small 7f099901-29cf-11e1-bd06-6fe008f046c3.
-module Network.AWS.RDS
+module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     (
     -- * Request
       PurchaseReservedDBInstancesOffering

@@ -27,7 +27,7 @@
 -- default.mysql5.1 active default 00:00-00:30 true sat:07:30-sat:08:00
 -- us-east-1a 2011-05-23T06:06:43.110Z 10 default.mysql5.1 in-sync db.m1.large
 -- master 9135fff3-8509-11e0-bd9b-a7b1ece36d51.
-module Network.AWS.RDS
+module Network.AWS.RDS.DescribeDBInstances
     (
     -- * Request
       DescribeDBInstances

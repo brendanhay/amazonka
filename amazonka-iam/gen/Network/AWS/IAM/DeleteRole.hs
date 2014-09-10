@@ -24,7 +24,7 @@
 -- running instance will break any applications running on the instance.
 -- https://iam.amazonaws.com/ ?Action=DeleteRole &RoleName=S3Access
 -- &Version=2010-05-08 &AUTHPARAMS 913e3f37-99ed-11e1-a4c3-270EXAMPLE04.
-module Network.AWS.IAM
+module Network.AWS.IAM.DeleteRole
     (
     -- * Request
       DeleteRole

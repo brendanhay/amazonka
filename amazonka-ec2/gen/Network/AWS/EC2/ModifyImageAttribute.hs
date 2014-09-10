@@ -20,7 +20,7 @@
 -- | Modifies the specified attribute of the specified AMI. You can specify only
 -- one attribute at a time. AWS Marketplace product codes cannot be modified.
 -- Images with an AWS Marketplace product code cannot be made public. Example.
-module Network.AWS.EC2
+module Network.AWS.EC2.ModifyImageAttribute
     (
     -- * Request
       ModifyImageAttribute

@@ -44,7 +44,7 @@
 -- {"configuration": {"workflowExecutionRetentionPeriodInDays": "60"},
 -- "domainInfo": {"description": "music", "name": "867530901", "status":
 -- "REGISTERED"} }.
-module Network.AWS.SWF
+module Network.AWS.SWF.DescribeDomain
     (
     -- * Request
       DescribeDomain

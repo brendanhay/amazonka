@@ -26,7 +26,7 @@
 -- &EnvironmentName=SampleAppVersion &InfoType=tail
 -- &Operation=RequestEnvironmentInfo &AuthParams
 -- 126a4ff3-f28a-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     (
     -- * Request
       RequestEnvironmentInfo

@@ -44,7 +44,7 @@
 -- &lt;ipAddress&gt;12.1.2.3&lt;/ipAddress&gt;
 -- &lt;bgpAsn&gt;65534&lt;/bgpAsn&gt; &lt;tagSet/&gt; &lt;/customerGateway&gt;
 -- &lt;/CreateCustomerGatewayResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.CreateCustomerGateway
     (
     -- * Request
       CreateCustomerGateway

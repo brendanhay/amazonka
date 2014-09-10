@@ -32,7 +32,7 @@
 -- {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":{"Service":["ec2.amazonaws.com"]},"Action":["sts:AssumeRole"]}]}
 -- 2012-05-08T23:34:01.495Z AROADBQP57FF2AEXAMPLE
 -- 4a93ceee-9966-11e1-b624-b1aEXAMPLE7c.
-module Network.AWS.IAM
+module Network.AWS.IAM.CreateRole
     (
     -- * Request
       CreateRole

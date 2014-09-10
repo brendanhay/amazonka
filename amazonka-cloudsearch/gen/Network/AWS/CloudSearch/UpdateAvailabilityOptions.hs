@@ -23,7 +23,7 @@
 -- service disruption. Changes to the Multi-AZ option can take about half an
 -- hour to become active. For more information, see Configuring Availability
 -- Options in the Amazon CloudSearch Developer Guide.
-module Network.AWS.CloudSearch
+module Network.AWS.CloudSearch.UpdateAvailabilityOptions
     (
     -- * Request
       UpdateAvailabilityOptions

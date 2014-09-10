@@ -29,7 +29,7 @@
 -- error/mysql-error-running.log.1 0 1364371200000
 -- error/mysql-error-running.log.9 0 1364405700000 error/mysql-error.log 0
 -- d70fb3b3-9704-11e2-a0db-871552e0ef19.
-module Network.AWS.RDS
+module Network.AWS.RDS.DownloadDBLogFilePortion
     (
     -- * Request
       DownloadDBLogFilePortion

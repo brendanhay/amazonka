@@ -25,7 +25,7 @@
 -- &Timestamp=20140401T192317Z &X-Amz-Credential= 31536000 Heavy Utilization
 -- Hourly 0.123 162.0 memcached 0.0 SampleOfferingId cache.m1.small
 -- 521b420a-2961-11e1-bd06-6fe008f046c3.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
     (
     -- * Request
       DescribeReservedCacheNodesOfferings

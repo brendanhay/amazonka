@@ -33,7 +33,7 @@
 -- &Version=2010-05-08 &AUTHPARAMS Bob AKIAIOSFODNN7EXAMPLE Active
 -- wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM
+module Network.AWS.IAM.CreateAccessKey
     (
     -- * Request
       CreateAccessKey

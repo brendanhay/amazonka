@@ -34,7 +34,7 @@
 -- "2012-12-21T18:00:00"}, {"key": "@version", "stringValue": "1"}, {"key":
 -- "@status", "stringValue": "PENDING"}, {"key": "@pipelineId", "stringValue":
 -- "df-06372391ZG65EXAMPLE"} ], "id": "Schedule", "name": "Schedule"} ] }.
-module Network.AWS.DataPipeline
+module Network.AWS.DataPipeline.DescribeObjects
     (
     -- * Request
       DescribeObjects

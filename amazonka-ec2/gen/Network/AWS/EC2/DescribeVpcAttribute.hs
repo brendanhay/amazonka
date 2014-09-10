@@ -39,7 +39,7 @@
 -- &lt;vpcId&gt;vpc-1a2b3c4d&lt;/vpcId&gt; &lt;enableDnsHostnames&gt;
 -- &lt;value&gt;true&lt;/value&gt; &lt;/enableDnsHostnames&gt;
 -- &lt;/DescribeVpcAttributeResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeVpcAttribute
     (
     -- * Request
       DescribeVpcAttribute

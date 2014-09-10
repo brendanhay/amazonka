@@ -22,7 +22,7 @@
 -- that you have already submitted and that Elastic Transcoder has not started
 -- to process are affected in addition to jobs that you submit after you
 -- change settings.
-module Network.AWS.ElasticTranscoder
+module Network.AWS.ElasticTranscoder.UpdatePipeline
     (
     -- * Request
       UpdatePipeline

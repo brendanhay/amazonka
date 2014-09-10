@@ -65,7 +65,7 @@
 -- aws:elasticbeanstalk:container:tomcat:jvmoptions changed description
 -- SampleApp 2010-11-17T19:26:20.420Z Default 2010-11-17T20:58:27.508Z
 -- 6cbcb09a-f28d-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
     (
     -- * Request
       UpdateConfigurationTemplate

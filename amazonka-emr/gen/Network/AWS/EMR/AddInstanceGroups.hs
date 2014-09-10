@@ -36,7 +36,7 @@
 -- application/x-amz-json-1.1 Content-Length: 71 Date: Mon, 15 Jul 2013
 -- 22:33:47 GMT { "InstanceGroupIds": ["ig-294A6A2KWT4WB"], "JobFlowId":
 -- "j-3U7TSX5GZFD8Y" }.
-module Network.AWS.EMR
+module Network.AWS.EMR.AddInstanceGroups
     (
     -- * Request
       AddInstanceGroups

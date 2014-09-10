@@ -44,7 +44,7 @@
 -- "CodecOptions":{ "Level":"2.2", "MaxReferenceFrames":"3", "Profile":"main",
 -- "MaxBitRate":"", "BufferSize":"" }, "FixedGOP":"false", "FrameRate":"30",
 -- "KeyframesMaxDist":"240" } } }.
-module Network.AWS.ElasticTranscoder
+module Network.AWS.ElasticTranscoder.ReadPreset
     (
     -- * Request
       ReadPreset

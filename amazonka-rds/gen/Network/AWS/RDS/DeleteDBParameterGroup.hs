@@ -25,7 +25,7 @@
 -- &SignatureVersion=2&SignatureMethod=HmacSHA256
 -- &Timestamp=2011-05-11T18%3A47%3A08.851Z &AWSAccessKeyId= &Signature=
 -- 4dc38be9-bf3b-11de-a88b-7b5b3d23b3a7.
-module Network.AWS.RDS
+module Network.AWS.RDS.DeleteDBParameterGroup
     (
     -- * Request
       DeleteDBParameterGroup

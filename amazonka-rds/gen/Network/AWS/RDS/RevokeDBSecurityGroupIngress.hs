@@ -27,7 +27,7 @@
 -- &Timestamp=2011-02-15T22%3A32%3A12.515Z &AWSAccessKeyId= &Signature= My new
 -- DBSecurityGroup 192.168.1.1/24 revoking 621567473609 mydbsecuritygroup
 -- vpc-1ab2c3d4 beecb8ac-bf5a-11de-9f9f-53d6aee22de9.
-module Network.AWS.RDS
+module Network.AWS.RDS.RevokeDBSecurityGroupIngress
     (
     -- * Request
       RevokeDBSecurityGroupIngress

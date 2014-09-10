@@ -39,7 +39,7 @@
 -- 3frqe7jn4obpuxjpwpolz6ipb3k5nvt2nhjpik2oy
 -- wrqplteh7oodxnad7hsl4mixg2uavzneazxv5sxi2
 -- 9662c15b-c469-11e1-99d1-797d6ecd6414.
-module Network.AWS.SES
+module Network.AWS.SES.VerifyDomainDkim
     (
     -- * Request
       VerifyDomainDkim

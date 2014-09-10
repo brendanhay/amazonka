@@ -185,7 +185,7 @@
 -- application/x-amz-json-1.1 Content-Length: Date: ]]> { "matches": [ {
 -- "eventNumber": 3, "eventMessage": "02 May 2014 00:34:16,142 [ERROR]
 -- Unhanded exception: InvalidQueryException", "extractedValues": {} } ] }.
-module Network.AWS.CloudWatchLogs
+module Network.AWS.CloudWatchLogs.TestMetricFilter
     (
     -- * Request
       TestMetricFilter

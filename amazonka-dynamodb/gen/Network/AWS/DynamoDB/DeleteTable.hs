@@ -32,7 +32,7 @@
 -- "ProvisionedThroughput": { "NumberOfDecreasesToday": 0,
 -- "ReadCapacityUnits": 5, "WriteCapacityUnits": 5 }, "TableName": "Reply",
 -- "TableSizeBytes": 0, "TableStatus": "DELETING" } }.
-module Network.AWS.DynamoDB
+module Network.AWS.DynamoDB.DeleteTable
     (
     -- * Request
       DeleteTable

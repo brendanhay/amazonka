@@ -39,7 +39,7 @@
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;reservedInstancesId&gt;e5a2ff3b-7d14-494f-90af-0b5d0EXAMPLE&lt;/reservedInstancesId&gt;
 -- &lt;/PurchaseReservedInstancesOfferingResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.PurchaseReservedInstancesOffering
     (
     -- * Request
       PurchaseReservedInstancesOffering

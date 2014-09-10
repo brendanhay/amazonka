@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Completes a multipart upload by assembling previously uploaded parts.
-module Network.AWS.S3
+module Network.AWS.S3.CompleteMultipartUpload
     (
     -- * Request
       CompleteMultipartUpload

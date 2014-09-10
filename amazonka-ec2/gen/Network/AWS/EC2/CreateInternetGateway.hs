@@ -23,7 +23,7 @@
 -- Private Cloud User Guide. Example This example creates an Internet gateway.
 -- https://ec2.amazonaws.com/?Action=CreateInternetGateway &amp;AUTHPARAMS
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE igw-eaad4883.
-module Network.AWS.EC2
+module Network.AWS.EC2.CreateInternetGateway
     (
     -- * Request
       CreateInternetGateway

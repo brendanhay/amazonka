@@ -20,7 +20,7 @@
 -- | Returns information about the domain, including when the domain was
 -- created, the number of items and attributes in the domain, and the size of
 -- the attribute names and values.
-module Network.AWS.SimpleDB
+module Network.AWS.SimpleDB.DomainMetadata
     (
     -- * Request
       DomainMetadata

@@ -20,7 +20,7 @@
 -- | Resumes all suspended Auto Scaling processes for an Auto Scaling group. For
 -- information on suspending and resuming Auto Scaling process, see Suspend
 -- and Resume Auto Scaling Process.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.ResumeProcesses
     (
     -- * Request
       ResumeProcesses

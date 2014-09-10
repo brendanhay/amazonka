@@ -27,7 +27,7 @@
 -- &ImageId=ami-0078da69 &InstanceType=m1.small
 -- &Action=CreateLaunchConfiguration &AUTHPARAMS
 -- 7c6e177f-f082-11e1-ac58-3714bEXAMPLE.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.CreateLaunchConfiguration
     (
     -- * Request
       CreateLaunchConfiguration

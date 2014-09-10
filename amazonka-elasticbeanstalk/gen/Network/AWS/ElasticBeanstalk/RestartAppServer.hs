@@ -22,7 +22,7 @@
 -- https://elasticbeanstalk.us-east-1.amazon.com/?EnvironmentId=e-hc8mvnayrx
 -- &EnvironmentName=SampleAppVersion &Operation=RestartAppServer &AuthParams
 -- 90e8d1d5-f28a-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.RestartAppServer
     (
     -- * Request
       RestartAppServer

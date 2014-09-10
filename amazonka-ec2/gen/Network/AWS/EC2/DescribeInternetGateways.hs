@@ -22,7 +22,7 @@
 -- https://ec2.amazonaws.com/?Action=DescribeInternetGateways &amp;AUTHPARAMS
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE igw-eaad4883EXAMPLE vpc-11ad4878
 -- available.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeInternetGateways
     (
     -- * Request
       DescribeInternetGateways

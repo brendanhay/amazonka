@@ -34,7 +34,7 @@
 -- 0eb9b381-dde0-11e2-8d78-6ddbaEXAMPLE You can use DescribeLoadBalancers or
 -- DescribeLoadBalancerPolicies action to verify that the policy has been
 -- associated with the back-end server.
-module Network.AWS.ELB
+module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
     (
     -- * Request
       SetLoadBalancerPoliciesForBackendServer

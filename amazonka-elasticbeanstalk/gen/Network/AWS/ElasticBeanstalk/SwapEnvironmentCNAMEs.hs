@@ -21,7 +21,7 @@
 -- https://elasticbeanstalk.us-east-1.amazon.com/?SourceEnvironmentName=SampleApp
 -- &DestinationEnvironmentName=SampleApp2 &Operation=SwapEnvironmentCNAMEs
 -- &AuthParams f4e1b145-9080-11e0-8e5a-a558e0ce1fc4.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
     (
     -- * Request
       SwapEnvironmentCNAMEs

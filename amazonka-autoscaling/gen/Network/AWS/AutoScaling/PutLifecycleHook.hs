@@ -36,7 +36,7 @@
 -- 
 -- 01-01&Action=PutLifecycleHook&SignatureVersion=2&SignatureMethod=HmacSHA256&Timestamp=2014-06-17T17%3A30%3A36.125Z&AUTHPARAMS
 -- 1952f458-f645-11e3-bc51-b35178f0274f.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.PutLifecycleHook
     (
     -- * Request
       PutLifecycleHook

@@ -35,7 +35,7 @@
 -- monitoring enabled: Statistics for up to 400 instances for a span of one
 -- hour Statistics for up to 35 instances over a span of 24 hours Statistics
 -- for up to 2 instances over a span of 2 weeks.
-module Network.AWS.CloudWatch
+module Network.AWS.CloudWatch.GetMetricStatistics
     (
     -- * Request
       GetMetricStatistics

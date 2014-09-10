@@ -33,7 +33,7 @@
 -- &lt;/CreateTopicResult&gt; &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;a8dec8b3-33a4-11df-8963-01868b7c937a&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/CreateTopicResponse&gt;.
-module Network.AWS.SNS
+module Network.AWS.SNS.CreateTopic
     (
     -- * Request
       CreateTopic

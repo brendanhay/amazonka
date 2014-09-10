@@ -24,7 +24,7 @@
 -- &StackName=MyStack &Version=2010-05-15 &SignatureVersion=2
 -- &Timestamp=2010-07-27T22%3A26%3A28.000Z &AWSAccessKeyId=[AWS Access KeyID]
 -- &Signature=[Signature].
-module Network.AWS.CloudFormation
+module Network.AWS.CloudFormation.DeleteStack
     (
     -- * Request
       DeleteStack

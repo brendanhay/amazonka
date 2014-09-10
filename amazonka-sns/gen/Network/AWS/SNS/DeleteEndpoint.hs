@@ -30,7 +30,7 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;c1d2b191-353c-5a5f-8969-fbdd3900afa8&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/DeleteEndpointResponse&gt;.
-module Network.AWS.SNS
+module Network.AWS.SNS.DeleteEndpoint
     (
     -- * Request
       DeleteEndpoint

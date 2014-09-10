@@ -30,7 +30,7 @@
 -- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &Action=VerifyEmailAddress
 -- &EmailAddress=user%40example.com &Timestamp=2011-08-18T22%3A28%3A27.000Z
 -- 8edd7eb2-c864-11e0-9f8f-3da8fc215a7e.
-module Network.AWS.SES
+module Network.AWS.SES.VerifyEmailAddress
     (
     -- * Request
       VerifyEmailAddress

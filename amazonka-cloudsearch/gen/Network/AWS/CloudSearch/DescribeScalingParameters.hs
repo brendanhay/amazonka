@@ -21,7 +21,7 @@
 -- parameters specify the desired search instance type and replication count.
 -- For more information, see Configuring Scaling Options in the Amazon
 -- CloudSearch Developer Guide.
-module Network.AWS.CloudSearch
+module Network.AWS.CloudSearch.DescribeScalingParameters
     (
     -- * Request
       DescribeScalingParameters

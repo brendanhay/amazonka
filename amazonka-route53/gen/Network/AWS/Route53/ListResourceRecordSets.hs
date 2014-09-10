@@ -49,7 +49,7 @@
 -- single process makes a call to ChangeResourceRecordSets and receives a
 -- successful response, the effects of that change will be visible in a
 -- subsequent call to ListResourceRecordSets by that process.
-module Network.AWS.Route53
+module Network.AWS.Route53.ListResourceRecordSets
     (
     -- * Request
       ListResourceRecordSets

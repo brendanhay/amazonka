@@ -27,7 +27,7 @@
 -- default.mysql5.1 active default 00:00-00:30 true sat:07:30-sat:08:00
 -- us-east-1a 2011-05-23T06:06:43.110Z 10 db.m1.large master
 -- f61a020f-8512-11e0-90aa-eb648410240d.
-module Network.AWS.RDS
+module Network.AWS.RDS.PromoteReadReplica
     (
     -- * Request
       PromoteReadReplica

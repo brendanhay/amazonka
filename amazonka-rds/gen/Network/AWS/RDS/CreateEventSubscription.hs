@@ -53,7 +53,7 @@
 -- creation deletion EventSubscription03
 -- arn:aws:sns:us-east-1:012345678901:EventSubscription01
 -- d064b48c-68eb-11e2-ab10-11125abcb784.
-module Network.AWS.RDS
+module Network.AWS.RDS.CreateEventSubscription
     (
     -- * Request
       CreateEventSubscription

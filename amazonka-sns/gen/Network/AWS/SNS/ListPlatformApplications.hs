@@ -48,7 +48,7 @@
 -- &lt;/ListPlatformApplicationsResult&gt; &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;315a335e-85d8-52df-9349-791283cbb529&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/ListPlatformApplicationsResponse&gt;.
-module Network.AWS.SNS
+module Network.AWS.SNS.ListPlatformApplications
     (
     -- * Request
       ListPlatformApplications

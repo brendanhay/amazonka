@@ -36,7 +36,7 @@
 -- available manual 1.0 2013-01-22T19:27:58.931Z 2 dev
 -- 2013-01-22T19:23:59.368Z us-east-1c dw1.xlarge examplecluster adminuser
 -- aebb56f5-64fe-11e2-88c5-53eb05787dfb.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.CopyClusterSnapshot
     (
     -- * Request
       CopyClusterSnapshot

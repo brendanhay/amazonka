@@ -35,7 +35,7 @@
 -- &AWSAccessKeyId= &Signature= My new DBSecurityGroup 192.168.1.1/24
 -- authorizing 621567473609 mydbsecuritygroup vpc-1ab2c3d4
 -- d9799197-bf2d-11de-b88d-993294bf1c81.
-module Network.AWS.RDS
+module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
     (
     -- * Request
       AuthorizeDBSecurityGroupIngress

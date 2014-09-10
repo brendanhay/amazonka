@@ -24,7 +24,7 @@
 -- &Timestamp=2011-12-18T18%3A31%3A36.118Z &AWSAccessKeyId= &Signature=
 -- c/2012-04-02/"> 31536000 Heavy Utilization USD Hourly 0.123 162.0 mysql 0.0
 -- false SampleOfferingId db.m1.small 521b420a-2961-11e1-bd06-6fe008f046c3.
-module Network.AWS.RDS
+module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     (
     -- * Request
       DescribeReservedDBInstancesOfferings

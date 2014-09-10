@@ -60,7 +60,7 @@
 -- arn:aws:iam::123456789012:server-certificate/company/servercerts/ProdServerCert
 -- 2010-05-08T01:02:03.004Z ASCACKCEVSQ6C2EXAMPLE 2012-05-08T01:02:03.004Z
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM
+module Network.AWS.IAM.UploadServerCertificate
     (
     -- * Request
       UploadServerCertificate

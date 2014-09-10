@@ -25,7 +25,7 @@
 -- elasticbeanstalk-SampleAppVersion-us-east-1c SampleAppVersion
 -- elasticbeanstalk-SampleAppVersion-us-east-1c
 -- e1cb7b96-f287-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     (
     -- * Request
       DescribeEnvironmentResources

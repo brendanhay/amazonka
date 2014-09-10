@@ -32,7 +32,7 @@
 -- &lt;bucket&gt;myawsbucket&lt;/bucket&gt;
 -- &lt;prefix&gt;my-new-image&lt;/prefix&gt; &lt;/S3&gt; &lt;/storage&gt;
 -- &lt;/bundleInstanceTask&gt; &lt;/CancelBundleTaskResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.CancelBundleTask
     (
     -- * Request
       CancelBundleTask

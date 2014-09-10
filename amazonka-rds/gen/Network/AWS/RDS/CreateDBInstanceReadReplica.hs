@@ -31,7 +31,7 @@
 -- default.mysql5.1 mydbinstance active default 23:00-01:00 true
 -- sun:05:00-sun:09:00 10 db.m1.small master
 -- 3e24c5cd-c6e2-11df-8463-4f0c49644cb7.
-module Network.AWS.RDS
+module Network.AWS.RDS.CreateDBInstanceReadReplica
     (
     -- * Request
       CreateDBInstanceReadReplica

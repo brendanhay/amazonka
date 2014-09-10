@@ -34,7 +34,7 @@
 -- &DesiredCapacity=3 &Version=2011-01-01
 -- &Action=PutScheduledUpdateGroupAction &AUTHPARAMS
 -- 3bc8c9bc-6a62-11e2-8a51-4b8a1EXAMPLE.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
     (
     -- * Request
       PutScheduledUpdateGroupAction

@@ -32,7 +32,7 @@
 -- &Version=2013-05-15 &SignatureVersion=2 &SignatureMethod=HmacSHA256
 -- &AWSAccessKeyId= &Signature= mydbparametergroup
 -- 071e758f-bf57-11de-9f9f-53d6aee22de9.
-module Network.AWS.RDS
+module Network.AWS.RDS.ResetDBParameterGroup
     (
     -- * Request
       ResetDBParameterGroup

@@ -31,7 +31,7 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;3f1478c7-33a9-11df-9540-99d0768312d3&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/ListTopicsResponse&gt;.
-module Network.AWS.SNS
+module Network.AWS.SNS.ListTopics
     (
     -- * Request
       ListTopics

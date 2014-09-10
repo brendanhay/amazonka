@@ -26,7 +26,7 @@
 -- https://iam.amazonaws.com/ ?Action=DeleteInstanceProfile
 -- &InstanceProfileName=Webserver &Version=2010-05-08 &AUTHPARAMS
 -- 90c18667-99f3-11e1-a4c3-27EXAMPLE804.
-module Network.AWS.IAM
+module Network.AWS.IAM.DeleteInstanceProfile
     (
     -- * Request
       DeleteInstanceProfile

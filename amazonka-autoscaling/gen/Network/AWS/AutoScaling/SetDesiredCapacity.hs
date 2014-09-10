@@ -22,7 +22,7 @@
 -- &HonorCooldown=false &DesiredCapacity=2 &Version=2011-01-01
 -- &Action=SetDesiredCapacity &AUTHPARAMS
 -- 9fb7e2db-6998-11e2-a985-57c82EXAMPLE.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.SetDesiredCapacity
     (
     -- * Request
       SetDesiredCapacity

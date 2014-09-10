@@ -32,7 +32,7 @@
 -- content-length:[number of characters in the JSON string] {
 -- "DomainName":"example.com" } HTTP/1.1 200 Content-Length:[number of
 -- characters in the JSON string] { "AuthCode":"rqL3*REjYH" }.
-module Network.AWS.Route53Domains
+module Network.AWS.Route53Domains.RetrieveDomainAuthCode
     (
     -- * Request
       RetrieveDomainAuthCode

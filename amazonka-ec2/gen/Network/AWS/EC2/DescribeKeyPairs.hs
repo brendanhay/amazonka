@@ -27,7 +27,7 @@
 -- example filters the response to include only key pairs whose names include
 -- the string Dave. https://ec2.amazonaws.com/?Action=DescribeKeyPairs
 -- &amp;Filter.1.Name=key-name &amp;Filter.1.Value.1=*Dave* &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeKeyPairs
     (
     -- * Request
       DescribeKeyPairs

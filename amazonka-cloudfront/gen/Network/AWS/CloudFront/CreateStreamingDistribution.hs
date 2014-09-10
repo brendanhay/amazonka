@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Create a new streaming distribution.
-module Network.AWS.CloudFront
+module Network.AWS.CloudFront.CreateStreamingDistribution
     (
     -- * Request
       CreateStreamingDistribution

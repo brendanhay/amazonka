@@ -19,7 +19,7 @@
 
 -- | This operation cancels a specified job. Only the job owner can cancel it.
 -- The operation fails if the job has already started or is complete.
-module Network.AWS.ImportExport
+module Network.AWS.ImportExport.CancelJob
     (
     -- * Request
       CancelJob

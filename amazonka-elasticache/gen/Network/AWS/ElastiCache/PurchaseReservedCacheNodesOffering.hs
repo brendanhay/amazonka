@@ -27,7 +27,7 @@
 -- Medium Utilization memcached 438012d3-4052-4cc7-b2e3-8d3372e0e706
 -- payment-pending myreservationID 10 2014-03-18T23:24:56.577Z 31536000 123.0
 -- 0.123 cache.m1.small 7f099901-29cf-11e1-bd06-6fe008f046c3.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     (
     -- * Request
       PurchaseReservedCacheNodesOffering

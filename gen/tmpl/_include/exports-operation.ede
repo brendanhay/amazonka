@@ -12,7 +12,7 @@
 {% if scope.documentation %}
 {{ scope.documentation | above76 }}
 {% endif %}
-module {{ scope.ns }}
+module {{ scope.namespace }}
     (
     -- * Request
       {{ scope.request.name }}

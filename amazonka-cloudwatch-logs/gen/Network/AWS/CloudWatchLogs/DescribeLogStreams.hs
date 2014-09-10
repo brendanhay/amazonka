@@ -44,7 +44,7 @@
 -- "lastEventTimestamp": 1396235500000, "lastIngestionTime": 1396225560000,
 -- "logStreamName": "exampleLogStreamName2", "uploadSequenceToken":
 -- "07622379445839968487886029673945314100949536701251562127" } ] }.
-module Network.AWS.CloudWatchLogs
+module Network.AWS.CloudWatchLogs.DescribeLogStreams
     (
     -- * Request
       DescribeLogStreams

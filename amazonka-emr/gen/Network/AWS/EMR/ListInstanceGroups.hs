@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Provides all available details about the instance groups in a cluster.
-module Network.AWS.EMR
+module Network.AWS.EMR.ListInstanceGroups
     (
     -- * Request
       ListInstanceGroups

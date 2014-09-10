@@ -50,7 +50,7 @@
 -- a peering connection between your VPCs vpc-1a2b3c4d and vpc-11122233.
 -- https://ec2.amazonaws.com/?Action=CreateVpcPeeringConnection
 -- &amp;VpcId=vpc-1a2b3c4d &amp;PeerVpcId=vpc-11122233 &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.CreateVpcPeeringConnection
     (
     -- * Request
       CreateVpcPeeringConnection

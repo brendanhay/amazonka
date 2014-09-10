@@ -27,7 +27,7 @@
 -- "MyIdentityPool", "SupportedLoginProviders": { "www.amazon.com":
 -- "Amazon_App_ID", "graph.facebook.com": "Facebook_App_ID",
 -- "accounts.google.com": "Google_App_ID" }, "Unauthenticated": true }.
-module Network.AWS.CognitoIdentity
+module Network.AWS.CognitoIdentity.DescribeIdentityPool
     (
     -- * Request
       DescribeIdentityPool

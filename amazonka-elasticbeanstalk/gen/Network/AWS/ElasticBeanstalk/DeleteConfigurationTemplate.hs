@@ -24,7 +24,7 @@
 -- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationName=SampleApp
 -- &TemplateName=SampleAppTemplate &Operation=DeleteConfigurationTemplate
 -- &AuthParams af9cf1b6-f25e-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
     (
     -- * Request
       DeleteConfigurationTemplate

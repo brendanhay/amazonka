@@ -26,7 +26,7 @@
 -- Deploying SampleApp Grey e-icsgecu3wf 2010-11-17T03:59:33.520Z 32bit Amazon
 -- Linux running Tomcat 7 EnvDescrip SampleApp 2010-11-17T03:59:33.520Z
 -- 15db925e-f1ff-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.CreateEnvironment
     (
     -- * Request
       CreateEnvironment

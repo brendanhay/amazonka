@@ -47,7 +47,7 @@
 -- Content-Length: 21 Pragma: no-cache Cache-Control: no-cache {"name":
 -- "867530901"} HTTP/1.1 200 OK Content-Length: 0 Content-Type:
 -- application/json x-amzn-RequestId: 0800c01a-4000-11e1-9914-a356b6ea8bdf.
-module Network.AWS.SWF
+module Network.AWS.SWF.DeprecateDomain
     (
     -- * Request
       DeprecateDomain

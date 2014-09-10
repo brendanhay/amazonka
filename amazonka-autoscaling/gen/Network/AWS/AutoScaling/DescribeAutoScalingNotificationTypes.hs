@@ -19,7 +19,7 @@
 
 -- | Returns a list of all notification types that are supported by Auto
 -- Scaling.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
     (
     -- * Request
       DescribeAutoScalingNotificationTypes

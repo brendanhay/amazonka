@@ -28,7 +28,7 @@
 -- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &Action=ListIdentities
 -- &Timestamp=2012-05-12T05%3A18%3A45.000Z& Version=2010-12-01 example.com
 -- user@example.com cacecf23-9bf1-11e1-9279-0100e8cf109a.
-module Network.AWS.SES
+module Network.AWS.SES.ListIdentities
     (
     -- * Request
       ListIdentities

@@ -30,7 +30,7 @@
 -- 2010-07-16T00:06:59.107Z 60 simcoprod01 5.1.47
 -- rds:simcoprod01-2012-04-02-00-01 automated master myoptiongroupname
 -- c4191173-8506-11e0-90aa-eb648410240d.
-module Network.AWS.RDS
+module Network.AWS.RDS.DescribeDBSnapshots
     (
     -- * Request
       DescribeDBSnapshots

@@ -33,7 +33,7 @@
 -- &lt;requestId&gt;60bc441d-fa2c-494d-b155-5d6a3EXAMPLE&lt;/requestId&gt;
 -- &lt;snapshotId&gt;snap-2a2b3c4d&lt;/snapshotId&gt;
 -- &lt;/CopySnapshotResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.CopySnapshot
     (
     -- * Request
       CopySnapshot

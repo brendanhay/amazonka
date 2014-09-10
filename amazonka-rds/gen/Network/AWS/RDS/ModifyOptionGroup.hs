@@ -26,7 +26,7 @@
 -- ?Action=ModifyOptionGroup &OptionGroupName=myoptiongroup
 -- &OptionsToRemove=OEM &ApplyImmediately=true myoptiongroup Test option group
 -- oracle-se1 11.2 ed662948-a57b-11df-9e38-7ffab86c801f.
-module Network.AWS.RDS
+module Network.AWS.RDS.ModifyOptionGroup
     (
     -- * Request
       ModifyOptionGroup

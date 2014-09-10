@@ -26,7 +26,7 @@
 -- &x-amz-date=20121208T015410Z
 -- &x-amz-signedheaders=content-type;host;x-amz-date
 -- 29674ca0-40da-11e2-b679-dba6cf515770.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.DeleteClusterParameterGroup
     (
     -- * Request
       DeleteClusterParameterGroup

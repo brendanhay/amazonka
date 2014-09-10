@@ -38,7 +38,7 @@
 -- "pci-0000:03:00.0-scsi-0:0:1:0", "DiskNode": "SCSI(0:1)", "DiskPath":
 -- "/dev/sdb", "DiskSizeInBytes": 1099511627776 } ], "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
-module Network.AWS.StorageGateway
+module Network.AWS.StorageGateway.ListLocalDisks
     (
     -- * Request
       ListLocalDisks

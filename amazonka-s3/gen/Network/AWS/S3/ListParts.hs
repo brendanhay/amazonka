@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Lists the parts that have been uploaded for a specific multipart upload.
-module Network.AWS.S3
+module Network.AWS.S3.ListParts
     (
     -- * Request
       ListParts

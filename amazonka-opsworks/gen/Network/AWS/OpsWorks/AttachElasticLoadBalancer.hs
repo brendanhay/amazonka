@@ -25,7 +25,7 @@
 -- have a Manage permissions level for the stack, or an attached policy that
 -- explicitly grants permissions. For more information on user permissions,
 -- see Managing User Permissions.
-module Network.AWS.OpsWorks
+module Network.AWS.OpsWorks.AttachElasticLoadBalancer
     (
     -- * Request
       AttachElasticLoadBalancer

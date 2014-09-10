@@ -46,7 +46,7 @@
 -- "867530901", "taskList": {"name": "specialTaskList"} } HTTP/1.1 200 OK
 -- Content-Length: 29 Content-Type: application/json x-amzn-RequestId:
 -- 4b977c76-3ff2-11e1-a23a-99d60383ae71 {"count":1,"truncated":false}.
-module Network.AWS.SWF
+module Network.AWS.SWF.CountPendingActivityTasks
     (
     -- * Request
       CountPendingActivityTasks

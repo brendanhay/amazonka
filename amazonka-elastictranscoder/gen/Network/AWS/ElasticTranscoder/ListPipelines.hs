@@ -58,7 +58,7 @@
 -- "Grantee":"marketing-promos-amsterdam@example.com", "Access":[
 -- "FullControl" ] } ], "StorageClass":"ReducedRedundancy" },
 -- "Status":"Active" } ] }.
-module Network.AWS.ElasticTranscoder
+module Network.AWS.ElasticTranscoder.ListPipelines
     (
     -- * Request
       ListPipelines

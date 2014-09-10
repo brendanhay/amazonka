@@ -57,7 +57,7 @@
 -- &lt;/PublishResult&gt; &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;d74b8436-ae13-5ab4-a9ff-ce54dfea72a0&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/PublishResponse&gt;.
-module Network.AWS.SNS
+module Network.AWS.SNS.Publish
     (
     -- * Request
       Publish

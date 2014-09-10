@@ -25,7 +25,7 @@
 -- &X-Amz-Credential= memcached1.4 memcached memcached version 1.4.14
 -- memcached 1.4.14 memcached1.4 memcached memcached version 1.4.5 memcached
 -- 1.4.5 a6ac9ad2-f8a4-11e1-a4d1-a345e5370093.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.DescribeCacheEngineVersions
     (
     -- * Request
       DescribeCacheEngineVersions

@@ -23,7 +23,7 @@
 -- &Name=arn:aws:iam::123456789012:saml-metadata/MyUniversity
 -- &Version=2010-05-08 &AUTHPARAMS 2012-05-09T16:27:11Z 2015-12-31T211:59:59Z
 -- Pd9fexDssTkRgGNqs...DxptfEs== 29f47818-99f5-11e1-a4c3-27EXAMPLE804.
-module Network.AWS.IAM
+module Network.AWS.IAM.GetSAMLProvider
     (
     -- * Request
       GetSAMLProvider

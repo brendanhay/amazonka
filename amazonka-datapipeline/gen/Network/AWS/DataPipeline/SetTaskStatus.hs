@@ -30,7 +30,7 @@
 -- 8c8deb53-0788-11e2-af9c-6bc7a6be6qr8 Content-Type:
 -- application/x-amz-json-1.1 Content-Length: 0 Date: Mon, 12 Nov 2012
 -- 17:50:53 GMT {}.
-module Network.AWS.DataPipeline
+module Network.AWS.DataPipeline.SetTaskStatus
     (
     -- * Request
       SetTaskStatus

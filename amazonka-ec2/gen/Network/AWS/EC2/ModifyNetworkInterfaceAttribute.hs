@@ -27,7 +27,7 @@
 -- &lt;requestId&gt;657a4623-5620-4232-b03b-427e852d71cf&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/ModifyNetworkInterfaceAttributeResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.ModifyNetworkInterfaceAttribute
     (
     -- * Request
       ModifyNetworkInterfaceAttribute

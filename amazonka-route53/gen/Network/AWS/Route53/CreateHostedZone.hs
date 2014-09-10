@@ -30,7 +30,7 @@
 -- that it is not yet available on all DNS servers. The status of the zone
 -- changes to INSYNC when the NS and SOA records are available on all Route 53
 -- DNS servers.
-module Network.AWS.Route53
+module Network.AWS.Route53.CreateHostedZone
     (
     -- * Request
       CreateHostedZone

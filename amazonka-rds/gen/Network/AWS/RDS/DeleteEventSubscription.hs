@@ -25,7 +25,7 @@
 -- 2013-01-28 00:29:23.736 creation deletion EventSubscription01
 -- arn:aws:sns:us-east-1:012345678901:EventSubscription01
 -- e7cf30ac-68e9-11e2-bd13-a92da73b3119.
-module Network.AWS.RDS
+module Network.AWS.RDS.DeleteEventSubscription
     (
     -- * Request
       DeleteEventSubscription

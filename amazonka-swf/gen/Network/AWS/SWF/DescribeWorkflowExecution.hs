@@ -54,7 +54,7 @@
 -- "customerOrderWorkflow", "version": "1.0"} }, "openCounts":
 -- {"openActivityTasks": 0, "openChildWorkflowExecutions": 0,
 -- "openDecisionTasks": 1, "openTimers": 0} }.
-module Network.AWS.SWF
+module Network.AWS.SWF.DescribeWorkflowExecution
     (
     -- * Request
       DescribeWorkflowExecution

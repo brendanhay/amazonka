@@ -41,7 +41,7 @@
 -- &lt;createTime&gt;YYYY-MM-DDTHH:MM:SS.000Z&lt;/createTime&gt;
 -- &lt;volumeType&gt;standard&lt;/volumeType&gt;
 -- &lt;encrypted&gt;true&lt;/encrypted&gt; &lt;/CreateVolumeResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.CreateVolume
     (
     -- * Request
       CreateVolume

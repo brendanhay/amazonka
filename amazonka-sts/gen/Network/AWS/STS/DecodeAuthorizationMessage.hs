@@ -49,7 +49,7 @@
 -- "item": { "key": "ec2:Tenancy", "values": ["default"] }, { "item": { "key":
 -- "ec2:ResourceTag/elasticbeanstalk:environment-name", "values":
 -- ["Default-Environment"] } }, (Additional items ...) ] } }.
-module Network.AWS.STS
+module Network.AWS.STS.DecodeAuthorizationMessage
     (
     -- * Request
       DecodeAuthorizationMessage

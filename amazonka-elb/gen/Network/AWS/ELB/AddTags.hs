@@ -27,7 +27,7 @@
 -- &Action=AddTags &Tags.member.1.Key=project
 -- &Tags.member.1.Value=my-test-project &Version=2012-06-01 &AUTHPARAMS
 -- 360e81f7-1100-11e4-b6ed-0f30EXAMPLE.
-module Network.AWS.ELB
+module Network.AWS.ELB.AddTags
     (
     -- * Request
       AddTags

@@ -30,7 +30,7 @@
 -- &SignatureVersion=2 &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- http://&useast1-query;/123456789012/testQueue
 -- 470a6f13-2ed9-4181-ad8a-2fdea142988e.
-module Network.AWS.SQS
+module Network.AWS.SQS.GetQueueUrl
     (
     -- * Request
       GetQueueUrl

@@ -33,7 +33,7 @@
 -- &lt;/SubscribeResult&gt; &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;c4407779-24a4-56fa-982c-3d927f93a775&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/SubscribeResponse&gt;.
-module Network.AWS.SNS
+module Network.AWS.SNS.Subscribe
     (
     -- * Request
       Subscribe

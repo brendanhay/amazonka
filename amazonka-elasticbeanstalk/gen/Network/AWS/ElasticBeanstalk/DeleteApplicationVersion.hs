@@ -23,7 +23,7 @@
 -- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationName=SampleApp
 -- &VersionLabel=First%20Release &Operation=DeleteApplicationVersion
 -- &AuthParams 58dc7339-f272-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
     (
     -- * Request
       DeleteApplicationVersion

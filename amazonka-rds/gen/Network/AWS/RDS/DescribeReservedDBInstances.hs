@@ -26,7 +26,7 @@
 -- 649fd0c8-cf6d-47a0-bfa6-060f8e75e95f false active myreservationid 1
 -- 2010-12-15T00:25:14.131Z 31536000 227.5 0.046 db.m1.small
 -- c695119b-2961-11e1-bd06-6fe008f046c3.
-module Network.AWS.RDS
+module Network.AWS.RDS.DescribeReservedDBInstances
     (
     -- * Request
       DescribeReservedDBInstances

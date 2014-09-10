@@ -28,7 +28,7 @@
 -- &Domain=domain.com &Timestamp=2012-05-12T05%3A24%3A02.000Z
 -- &Version=2010-12-01 QTKknzFg2J4ygwa+XvHAxUl1hyHoY0gVfZdfjIedHZ0=
 -- 94f6368e-9bf2-11e1-8ee7-c98a0037a2b6.
-module Network.AWS.SES
+module Network.AWS.SES.VerifyDomainIdentity
     (
     -- * Request
       VerifyDomainIdentity

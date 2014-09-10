@@ -20,7 +20,7 @@
 -- | Returns a JSON-formatted list of information about the specified trail.
 -- Fields include information on delivery errors, Amazon SNS and Amazon S3
 -- errors, and start and stop logging times for each trail.
-module Network.AWS.CloudTrail
+module Network.AWS.CloudTrail.GetTrailStatus
     (
     -- * Request
       GetTrailStatus

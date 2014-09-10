@@ -20,7 +20,7 @@
 -- | Returns some or all (up to 1000) of the objects in a bucket. You can use
 -- the request parameters as selection criteria to return a subset of the
 -- objects in a bucket.
-module Network.AWS.S3
+module Network.AWS.S3.ListObjects
     (
     -- * Request
       ListObjects

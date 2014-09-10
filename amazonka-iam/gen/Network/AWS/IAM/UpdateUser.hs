@@ -29,7 +29,7 @@
 -- &AUTHPARAMS /division_abc/subdivision_xyz/ Robert AIDACKCEVSQ6C2EXAMPLE
 -- arn:aws::123456789012:user/division_abc/subdivision_xyz/Robert
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM
+module Network.AWS.IAM.UpdateUser
     (
     -- * Request
       UpdateUser

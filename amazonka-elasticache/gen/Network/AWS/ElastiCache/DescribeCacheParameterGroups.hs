@@ -28,7 +28,7 @@
 -- parameter group mycacheparametergroup1 memcached1.4 My first cache
 -- parameter group mycacheparametergroup3 memcached1.4 My first cache
 -- parameter group 7193fbb8-b7fc-11e0-9b0b-a9261be2b354.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.DescribeCacheParameterGroups
     (
     -- * Request
       DescribeCacheParameterGroups

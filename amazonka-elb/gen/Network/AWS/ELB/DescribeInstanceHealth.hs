@@ -41,7 +41,7 @@
 -- &Version=2012-06-01 &Action=DescribeInstanceHealth &AUTHPARAMS A transient
 -- error occurred. Please try again later. i-7f12e649 Unknown ELB
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
-module Network.AWS.ELB
+module Network.AWS.ELB.DescribeInstanceHealth
     (
     -- * Request
       DescribeInstanceHealth

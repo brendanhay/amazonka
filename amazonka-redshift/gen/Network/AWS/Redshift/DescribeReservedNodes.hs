@@ -29,7 +29,7 @@
 -- 93bbbca2-e88c-4b8b-a600-b64eaabf18a3 2013-01-23T21:49:32.517Z Medium
 -- Utilization 31536000 800.0 0.158 payment-pending dw1.xlarge 1
 -- bbcd9749-f2ea-4d01-9b1b-b576f618eb4e 24dc90c8-672d-11e2-b2e1-8f41f0379151.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.DescribeReservedNodes
     (
     -- * Request
       DescribeReservedNodes

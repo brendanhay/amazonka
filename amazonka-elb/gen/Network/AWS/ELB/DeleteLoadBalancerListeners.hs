@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes listeners from the load balancer for the specified port.
-module Network.AWS.ELB
+module Network.AWS.ELB.DeleteLoadBalancerListeners
     (
     -- * Request
       DeleteLoadBalancerListeners

@@ -21,7 +21,7 @@
 -- from the previous value, the action configured for the appropriate state is
 -- invoked. This is not a permanent change. The next periodic alarm check (in
 -- about a minute) will set the alarm to its actual state.
-module Network.AWS.CloudWatch
+module Network.AWS.CloudWatch.SetAlarmState
     (
     -- * Request
       SetAlarmState

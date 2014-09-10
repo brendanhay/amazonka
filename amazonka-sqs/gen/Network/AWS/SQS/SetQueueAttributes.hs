@@ -52,7 +52,7 @@
 -- &Expires=2009-04-18T22%3A52%3A43PST &AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE
 -- &SignatureVersion=2 &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- e5cca473-4fc0-4198-a451-8abb94d02c75.
-module Network.AWS.SQS
+module Network.AWS.SQS.SetQueueAttributes
     (
     -- * Request
       SetQueueAttributes

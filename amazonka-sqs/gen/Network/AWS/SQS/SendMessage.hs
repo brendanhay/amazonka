@@ -44,7 +44,7 @@
 -- &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- fafb00f5732ab283681e124bf8747ed1 3ae8f24a165a8cedc005670c81a27295
 -- 5fea7756-0ea4-451a-a703-a558b933e274 27daac76-34dd-47df-bd01-1f6e873584a0.
-module Network.AWS.SQS
+module Network.AWS.SQS.SendMessage
     (
     -- * Request
       SendMessage

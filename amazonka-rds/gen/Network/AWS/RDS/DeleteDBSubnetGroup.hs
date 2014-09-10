@@ -23,7 +23,7 @@
 -- &Version=2013-05-15 &SignatureVersion=2 &SignatureMethod=HmacSHA256
 -- &Timestamp=2011-02-15T17%3A48%3A21.746Z &AWSAccessKeyId= &Signature=
 -- 5d013245-4172-11df-8520-e7e1e602a915.
-module Network.AWS.RDS
+module Network.AWS.RDS.DeleteDBSubnetGroup
     (
     -- * Request
       DeleteDBSubnetGroup

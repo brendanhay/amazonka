@@ -23,7 +23,7 @@
 -- UpdateHealthCheckRequest element. The response returns an
 -- UpdateHealthCheckResponse element, which contains metadata about the health
 -- check.
-module Network.AWS.Route53
+module Network.AWS.Route53.UpdateHealthCheck
     (
     -- * Request
       UpdateHealthCheck

@@ -43,7 +43,7 @@
 -- The following limitations are enforced for this operation: 256 total
 -- attribute name-value pairs per item One billion attributes per domain 10 GB
 -- of total user data storage per domain.
-module Network.AWS.SimpleDB
+module Network.AWS.SimpleDB.PutAttributes
     (
     -- * Request
       PutAttributes

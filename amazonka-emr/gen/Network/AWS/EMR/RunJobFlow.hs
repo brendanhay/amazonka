@@ -61,7 +61,7 @@
 -- x-amzn-RequestId: a4406d6b-ed92-11e2-9787-192218ecb460 Content-Type:
 -- application/x-amz-json-1.1 Content-Length: 31 Date: Mon, 15 Jul 2013
 -- 21:08:05 GMT {"JobFlowId": "j-ZKIY4CKQRX72"}.
-module Network.AWS.EMR
+module Network.AWS.EMR.RunJobFlow
     (
     -- * Request
       RunJobFlow

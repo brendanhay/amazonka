@@ -25,7 +25,7 @@
 -- &Version=2010-05-08 &AUTHPARAMS S3AccessPolicy S3Access
 -- {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":["s3:*"],"Resource":["*"]}]}
 -- 7e7cd8bc-99ef-11e1-a4c3-27EXAMPLE804.
-module Network.AWS.IAM
+module Network.AWS.IAM.GetRolePolicy
     (
     -- * Request
       GetRolePolicy

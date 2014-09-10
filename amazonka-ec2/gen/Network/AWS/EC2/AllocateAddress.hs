@@ -38,7 +38,7 @@
 -- &lt;domain&gt;vpc&lt;/domain&gt;
 -- &lt;allocationId&gt;eipalloc-5723d13e&lt;/allocationId&gt;
 -- &lt;/AllocateAddressResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.AllocateAddress
     (
     -- * Request
       AllocateAddress

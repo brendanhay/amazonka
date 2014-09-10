@@ -24,7 +24,7 @@
 -- ?Action=DescribeOptionGroups &MaxRecords=100 11.2 myoptiongroup oracle-se1
 -- Test option group 11.2 default:oracle-se1-11-2 oracle-se1 Default option
 -- group. e4b234d9-84d5-11e1-87a6-71059839a52b.
-module Network.AWS.RDS
+module Network.AWS.RDS.DescribeOptionGroups
     (
     -- * Request
       DescribeOptionGroups

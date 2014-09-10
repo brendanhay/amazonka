@@ -35,7 +35,7 @@
 -- "OperationId":"43884ce5-e30a-4801-858f-7aa86356c127",
 -- "Status":"WORKFLOW_IN_PROGRESS", "SubmittedDate" : 1402630939.057, "Type" :
 -- "REGISTER_DOMAIN" }.
-module Network.AWS.Route53Domains
+module Network.AWS.Route53Domains.GetOperationDetail
     (
     -- * Request
       GetOperationDetail

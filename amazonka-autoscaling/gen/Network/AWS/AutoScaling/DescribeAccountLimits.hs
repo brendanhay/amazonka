@@ -26,7 +26,7 @@
 -- https://autoscaling.amazonaws.com/?Version=2011-01-01
 -- &Action=DescribeAccountLimits &AUTHPARAMS 100 20
 -- a32bd184-519d-11e3-a8a4-c1c467cbcc3b.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.DescribeAccountLimits
     (
     -- * Request
       DescribeAccountLimits

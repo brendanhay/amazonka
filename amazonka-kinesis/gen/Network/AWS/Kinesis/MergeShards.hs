@@ -55,7 +55,7 @@
 -- "ShardToMerge": "shardId-000000000000", "AdjacentShardToMerge":
 -- "shardId-000000000001" } HTTP/1.1 200 OK x-amzn-RequestId: Content-Type:
 -- application/x-amz-json-1.1 Content-Length: Date: ]]>.
-module Network.AWS.Kinesis
+module Network.AWS.Kinesis.MergeShards
     (
     -- * Request
       MergeShards

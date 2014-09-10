@@ -30,7 +30,7 @@
 -- arn:aws:autoscaling:us-east-1:803981987763:autoScalingGroup:ca861182-c8f9-4ca7-b1eb-cd35505f5ebb
 -- :autoScalingGroupName/my-test-asg-lbs Default 10
 -- 0f02a07d-b677-11e2-9eb0-dd50EXAMPLE.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.DescribeAutoScalingGroups
     (
     -- * Request
       DescribeAutoScalingGroups

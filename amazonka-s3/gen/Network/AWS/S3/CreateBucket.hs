@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Creates a new bucket.
-module Network.AWS.S3
+module Network.AWS.S3.CreateBucket
     (
     -- * Request
       CreateBucket

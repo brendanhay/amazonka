@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Get the information about a distribution.
-module Network.AWS.CloudFront
+module Network.AWS.CloudFront.GetDistribution
     (
     -- * Request
       GetDistribution

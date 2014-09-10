@@ -32,7 +32,7 @@
 -- &Timestamp=20140401T192317Z &X-Amz-Credential= my-redis-primary
 -- my-redis-primary my-repgroup creating My replication group
 -- f3b7b32d-b9d2-11e3-8a16-7978bb24ffdf.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.CreateReplicationGroup
     (
     -- * Request
       CreateReplicationGroup

@@ -53,7 +53,7 @@
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;groupId&gt;sg-0a42d66a&lt;/groupId&gt;
 -- &lt;/CreateSecurityGroupResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.CreateSecurityGroup
     (
     -- * Request
       CreateSecurityGroup

@@ -22,7 +22,7 @@
 -- linking to a virtual private gateway. A virtual private gateway can be
 -- managed via Amazon Virtual Private Cloud (VPC) console or the EC2
 -- CreateVpnGateway action.
-module Network.AWS.DirectConnect
+module Network.AWS.DirectConnect.DescribeVirtualGateways
     (
     -- * Request
       DescribeVirtualGateways

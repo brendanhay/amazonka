@@ -36,7 +36,7 @@
 -- &lt;/ConfirmSubscriptionResult&gt; &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;7a50221f-3774-11df-a9b7-05d48da6f042&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/ConfirmSubscriptionResponse&gt;.
-module Network.AWS.SNS
+module Network.AWS.SNS.ConfirmSubscription
     (
     -- * Request
       ConfirmSubscription

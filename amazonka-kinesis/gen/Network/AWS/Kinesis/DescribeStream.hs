@@ -60,7 +60,7 @@
 -- "ShardId": "shardId-000000000002" } ], "StreamARN":
 -- "arn:aws:kinesis:us-east-1:052958737983:exampleStreamName", "StreamName":
 -- "exampleStreamName", "StreamStatus": "ACTIVE" } }.
-module Network.AWS.Kinesis
+module Network.AWS.Kinesis.DescribeStream
     (
     -- * Request
       DescribeStream

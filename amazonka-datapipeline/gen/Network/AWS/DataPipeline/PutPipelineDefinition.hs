@@ -66,7 +66,7 @@
 -- definition has errors: Could not save the pipeline definition due to FATAL
 -- errors: [com.amazon.setl.webservice.ValidationError@108d7ea9] Please call
 -- Validate to validate your pipeline"}.
-module Network.AWS.DataPipeline
+module Network.AWS.DataPipeline.PutPipelineDefinition
     (
     -- * Request
       PutPipelineDefinition

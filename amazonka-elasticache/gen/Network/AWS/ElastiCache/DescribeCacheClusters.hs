@@ -43,7 +43,7 @@
 -- fri:08:30-fri:09:00 default active active
 -- arn:aws:sns:us-east-1:123456789012:ElastiCacheNotifications 6
 -- f270d58f-b7fb-11e0-9326-b7275b9d4a6c.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.DescribeCacheClusters
     (
     -- * Request
       DescribeCacheClusters

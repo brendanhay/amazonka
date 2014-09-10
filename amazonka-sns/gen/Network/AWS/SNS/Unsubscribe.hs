@@ -34,7 +34,7 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;18e0ac39-3776-11df-84c0-b93cc1666b84&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/UnsubscribeResponse&gt;.
-module Network.AWS.SNS
+module Network.AWS.SNS.Unsubscribe
     (
     -- * Request
       Unsubscribe

@@ -83,7 +83,7 @@
 -- &amp;BlockDeviceMapping.3.Ebs.VolumeSize=100 &amp;EbsOptimized=false
 -- &amp;MinCount=1 &amp;MaxCount=1 &amp;DisableApiTermination=false
 -- &amp;Monitoring.Enabled=false &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.RunInstances
     (
     -- * Request
       RunInstances

@@ -25,7 +25,7 @@
 -- arn:aws:iam::123456789012:instance-profile/application_abc/component_xyz/Webserver
 -- 2015-03-11T13:11:02Z 2012-05-09T16:27:11Z
 -- fd74fa8d-99f3-11e1-a4c3-27EXAMPLE804.
-module Network.AWS.IAM
+module Network.AWS.IAM.ListSAMLProviders
     (
     -- * Request
       ListSAMLProviders

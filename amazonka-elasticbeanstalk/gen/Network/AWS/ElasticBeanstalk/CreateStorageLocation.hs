@@ -22,7 +22,7 @@
 -- https://elasticbeanstalk.us-east-1.amazon.com/?Operation=CreateStorageLocation
 -- &AuthParams elasticbeanstalk-us-east-1-780612358023
 -- ef51b94a-f1d6-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.CreateStorageLocation
     (
     -- * Request
       CreateStorageLocation

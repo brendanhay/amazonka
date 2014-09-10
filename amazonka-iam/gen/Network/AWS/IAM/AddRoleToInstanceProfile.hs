@@ -23,7 +23,7 @@
 -- https://iam.amazonaws.com/ ?Action=AddRoleToInstanceProfile
 -- &InstanceProfileName=Webserver &RoleName=S3Access &Version=2010-05-08
 -- &AUTHPARAMS 12657608-99f2-11e1-a4c3-27EXAMPLE804.
-module Network.AWS.IAM
+module Network.AWS.IAM.AddRoleToInstanceProfile
     (
     -- * Request
       AddRoleToInstanceProfile

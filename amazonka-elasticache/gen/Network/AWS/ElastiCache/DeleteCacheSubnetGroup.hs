@@ -23,7 +23,7 @@
 -- &CacheSubnetGroupName=mysubnetgroup &Version=2014-03-24 &SignatureVersion=4
 -- &SignatureMethod=HmacSHA256 &Timestamp=20140401T192317Z &X-Amz-Credential=
 -- 5d013245-4172-11df-8520-e7e1e602a915.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.DeleteCacheSubnetGroup
     (
     -- * Request
       DeleteCacheSubnetGroup

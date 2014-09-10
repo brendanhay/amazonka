@@ -31,7 +31,7 @@
 -- arn:aws:iam::123456789012:server-certificate/company/servercerts/TestServerCert
 -- 2010-05-08T03:01:02.004Z ASCACKCEVSQ6CEXAMPLE3 2012-05-08T03:01:02.004Z
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM
+module Network.AWS.IAM.ListServerCertificates
     (
     -- * Request
       ListServerCertificates

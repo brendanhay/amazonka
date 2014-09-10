@@ -63,7 +63,7 @@
 -- wFpWHVjTFMKk+tSDG1lssLHyYWWdFFU4AnejRGORJYNaRHgVTKjHphc5jEhHm0BX
 -- AEaHzTpmEXAMPLE= -----END CERTIFICATE----- Active
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM
+module Network.AWS.IAM.UploadSigningCertificate
     (
     -- * Request
       UploadSigningCertificate

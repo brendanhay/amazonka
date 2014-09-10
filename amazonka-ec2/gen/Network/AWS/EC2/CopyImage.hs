@@ -31,7 +31,7 @@
 -- &lt;CopyImageResponse xmlns="http://ec2.amazonaws.com/doc/2014-02-01/"&gt;
 -- &lt;requestId&gt;60bc441d-fa2c-494d-b155-5d6a3EXAMPLE&lt;/requestId&gt;
 -- &lt;imageId&gt;ami-4d3c2b1a&lt;/imageId&gt; &lt;/CopyImageResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.CopyImage
     (
     -- * Request
       CopyImage

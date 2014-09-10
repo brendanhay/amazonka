@@ -32,7 +32,7 @@
 -- &lt;item&gt; &lt;instanceId&gt;i-23a3397d&lt;/instanceId&gt;
 -- &lt;monitoring&gt; &lt;state&gt;disabled&lt;/state&gt; &lt;/monitoring&gt;
 -- &lt;/item&gt; &lt;/instancesSet&gt; &lt;/UnmonitorInstancesResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.UnmonitorInstances
     (
     -- * Request
       UnmonitorInstances

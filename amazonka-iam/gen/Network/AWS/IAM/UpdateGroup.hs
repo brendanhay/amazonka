@@ -31,7 +31,7 @@
 -- AGP2MAB8DPLSRHEXAMPLE
 -- arn:aws:iam::123456789012:group/division_abc/subdivision_xyz/
 -- product_1234/engineering/Test_1 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM
+module Network.AWS.IAM.UpdateGroup
     (
     -- * Request
       UpdateGroup

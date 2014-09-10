@@ -35,7 +35,7 @@
 -- Elastic IP address for EC2-VPC.
 -- https://ec2.amazonaws.com/?Action=ReleaseAddress
 -- &amp;AllocationId=eipalloc-5723d13e &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.ReleaseAddress
     (
     -- * Request
       ReleaseAddress

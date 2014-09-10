@@ -27,7 +27,7 @@
 -- &Timestamp=20140401T192317Z &X-Amz-Credential= revoking default
 -- 123456781234 mygroup 123456789012 My security group
 -- 02ae3699-3650-11e0-a564-8f11342c56b0.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
     (
     -- * Request
       RevokeCacheSecurityGroupIngress

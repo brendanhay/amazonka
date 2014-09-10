@@ -25,7 +25,7 @@
 -- http://sqs.us-east-1.amazonaws.com/123456789012/MySourceQueue
 -- 8ffb921f-b85e-53d9-abcf-d8d0057f38fc For more information about using dead
 -- letter queues, see Using Amazon SQS Dead Letter Queues.
-module Network.AWS.SQS
+module Network.AWS.SQS.ListDeadLetterSourceQueues
     (
     -- * Request
       ListDeadLetterSourceQueues

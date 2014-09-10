@@ -23,7 +23,7 @@
 -- &Version=2012-06-01 &Action=DescribeLoadBalancerAttributes &AUTHPARAMS true
 -- my-loadbalancer-logs testprefix 5 30 true true 60
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
-module Network.AWS.ELB
+module Network.AWS.ELB.DescribeLoadBalancerAttributes
     (
     -- * Request
       DescribeLoadBalancerAttributes

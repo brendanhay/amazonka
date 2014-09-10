@@ -29,7 +29,7 @@
 -- &lt;sourceDestCheck&gt; &lt;value&gt;true&lt;/value&gt;
 -- &lt;/sourceDestCheck&gt;
 -- &lt;/DescribeNetworkInterfaceAttributeResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
     (
     -- * Request
       DescribeNetworkInterfaceAttribute

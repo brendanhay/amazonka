@@ -40,7 +40,7 @@
 -- Your Spot request has been submitted for review, and is pending evaluation.
 -- MyAzGroup ami-1a2b3c4d my-key-pair sg-1a2b3c4d websrv m1.small false false
 -- YYYY-MM-DDTHH:MM:SS.000Z Linux/UNIX.
-module Network.AWS.EC2
+module Network.AWS.EC2.RequestSpotInstances
     (
     -- * Request
       RequestSpotInstances

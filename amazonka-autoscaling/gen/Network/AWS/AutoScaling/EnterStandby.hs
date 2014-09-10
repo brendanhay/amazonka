@@ -28,7 +28,7 @@
 -- response to a user request, shrinking the capacity from 4 to 3. my-asg
 -- {"Availability Zone":"us-east-1a"} Moving EC2 instance to Standby:
 -- i-5b73d709 126f2f31-f34b-11e3-bc51-b35178f0274f.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.EnterStandby
     (
     -- * Request
       EnterStandby

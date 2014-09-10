@@ -19,7 +19,7 @@
 
 -- | Returns a list of all buckets owned by the authenticated sender of the
 -- request.
-module Network.AWS.S3
+module Network.AWS.S3.ListBuckets
     (
     -- * Request
       ListBuckets

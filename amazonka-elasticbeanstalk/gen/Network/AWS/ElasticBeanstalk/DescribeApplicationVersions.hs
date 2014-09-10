@@ -22,7 +22,7 @@
 -- &Operation=DescribeApplicationVersions &AuthParams amazonaws.com sample.war
 -- Version1 description SampleApp 2010-11-17T03:21:59.161Z
 -- 2010-11-17T03:21:59.161Z 773cd80a-f26c-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     (
     -- * Request
       DescribeApplicationVersions

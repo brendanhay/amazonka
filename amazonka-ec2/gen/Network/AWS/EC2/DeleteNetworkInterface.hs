@@ -26,7 +26,7 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-06-15/"&gt;
 -- &lt;requestId&gt;e1c6d73b-edaa-4e62-9909-6611404e1739&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteNetworkInterfaceResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.DeleteNetworkInterface
     (
     -- * Request
       DeleteNetworkInterface

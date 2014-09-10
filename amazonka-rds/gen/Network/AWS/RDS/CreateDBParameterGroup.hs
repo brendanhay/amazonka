@@ -32,7 +32,7 @@
 -- &Timestamp=2011-05-11T18%3A09%3A29.793Z &AWSAccessKeyId= &Signature=
 -- mysql5.1 My new DBParameterGroup mydbparametergroup3
 -- 0b447b66-bf36-11de-a88b-7b5b3d23b3a7.
-module Network.AWS.RDS
+module Network.AWS.RDS.CreateDBParameterGroup
     (
     -- * Request
       CreateDBParameterGroup

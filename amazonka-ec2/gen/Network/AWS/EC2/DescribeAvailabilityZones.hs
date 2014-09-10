@@ -44,7 +44,7 @@
 -- &lt;regionName&gt;us-east-1&lt;/regionName&gt; &lt;messageSet/&gt;
 -- &lt;/item&gt; &lt;/availabilityZoneInfo&gt;
 -- &lt;/DescribeAvailabilityZonesResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeAvailabilityZones
     (
     -- * Request
       DescribeAvailabilityZones

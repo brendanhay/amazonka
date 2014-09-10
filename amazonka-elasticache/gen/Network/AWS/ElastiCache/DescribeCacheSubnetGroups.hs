@@ -26,7 +26,7 @@
 -- 990524496922 description subnet_grp1 Active subnet-7c5b4115 us-east-1c
 -- Active subnet-7b5b4112 us-east-1b Active subnet-3ea6bd57 us-east-1d
 -- (...output omitted...) 31d0faee-229b-11e1-81f1-df3a2a803dad.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
     (
     -- * Request
       DescribeCacheSubnetGroups

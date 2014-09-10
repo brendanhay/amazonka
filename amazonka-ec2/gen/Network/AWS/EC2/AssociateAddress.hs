@@ -48,7 +48,7 @@
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;associationId&gt;eipassoc-fc5ca095&lt;/associationId&gt;
 -- &lt;/AssociateAddressResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.AssociateAddress
     (
     -- * Request
       AssociateAddress

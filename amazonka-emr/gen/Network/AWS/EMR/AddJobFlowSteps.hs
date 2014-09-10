@@ -56,7 +56,7 @@
 -- x-amzn-RequestId: 6514261f-ee5b-11e2-9345-5332e9ab2e6d Content-Type:
 -- application/x-amz-json-1.1 Content-Length: 0 Date: Tue, 16 Jul 2013
 -- 21:05:07 GMT.
-module Network.AWS.EMR
+module Network.AWS.EMR.AddJobFlowSteps
     (
     -- * Request
       AddJobFlowSteps

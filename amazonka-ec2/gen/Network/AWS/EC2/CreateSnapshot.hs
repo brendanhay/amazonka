@@ -51,7 +51,7 @@
 -- &lt;ownerId&gt;111122223333&lt;/ownerId&gt;
 -- &lt;volumeSize&gt;30&lt;/volumeSize&gt; &lt;description&gt;Daily
 -- Backup&lt;/description&gt; &lt;/CreateSnapshotResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.CreateSnapshot
     (
     -- * Request
       CreateSnapshot

@@ -33,7 +33,7 @@
 -- 5439 snapshot-1234 deleted 2012-12-06T23:09:01.475Z manual 1.0 us-east-1a
 -- examplecluster masteruser dw1.xlarge mydb 3
 -- 88a31de4-40d1-11e2-8a25-eb010998df4e.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.DeleteClusterSnapshot
     (
     -- * Request
       DeleteClusterSnapshot

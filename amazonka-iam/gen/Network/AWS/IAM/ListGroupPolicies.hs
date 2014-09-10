@@ -22,7 +22,7 @@
 -- results using the MaxItems and Marker parameters.
 -- https://iam.amazonaws.com/ ?Action=ListGroupPolicies &GroupName=Admins
 -- &AUTHPARAMS AdminRoot KeyPolicy false 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM
+module Network.AWS.IAM.ListGroupPolicies
     (
     -- * Request
       ListGroupPolicies

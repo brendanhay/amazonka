@@ -58,7 +58,7 @@
 -- &lt;/item&gt; &lt;item&gt; &lt;value&gt;10.2.5.2&lt;/value&gt;
 -- &lt;/item&gt; &lt;/valueSet&gt; &lt;/item&gt; &lt;/dhcpConfigurationSet&gt;
 -- &lt;tagSet/&gt; &lt;/dhcpOptions&gt; &lt;/CreateDhcpOptionsResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.CreateDhcpOptions
     (
     -- * Request
       CreateDhcpOptions

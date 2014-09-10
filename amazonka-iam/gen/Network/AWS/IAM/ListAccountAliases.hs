@@ -23,7 +23,7 @@
 -- and Marker parameters. https://iam.amazonaws.com/
 -- ?Action=ListAccountAliases &Version=2010-05-08 &AUTHPARAMS false
 -- foocorporation c5a076e9-f1b0-11df-8fbe-45274EXAMPLE.
-module Network.AWS.IAM
+module Network.AWS.IAM.ListAccountAliases
     (
     -- * Request
       ListAccountAliases

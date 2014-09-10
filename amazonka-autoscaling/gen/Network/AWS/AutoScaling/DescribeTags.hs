@@ -27,7 +27,7 @@
 -- https://autoscaling.amazonaws.com/?Version=2011-01-01&Action=DescribeTags
 -- &AUTHPARAMS my-test-asg true 1.0 version auto-scaling-group
 -- 086265fd-bf3e-11e2-85fc-fbb1EXAMPLE.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.DescribeTags
     (
     -- * Request
       DescribeTags

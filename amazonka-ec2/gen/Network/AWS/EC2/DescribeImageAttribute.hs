@@ -28,7 +28,7 @@
 -- &amp;ImageId=ami-2bb65342 &amp;Attribute=productCodes &amp;AUTHPARAMS
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE ami-2bb65342 a1b2c3d4e5f6g7h8i9j10k11
 -- marketplace.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeImageAttribute
     (
     -- * Request
       DescribeImageAttribute

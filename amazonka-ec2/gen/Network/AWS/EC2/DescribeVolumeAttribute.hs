@@ -41,7 +41,7 @@
 -- &lt;productCode&gt;a1b2c3d4e5f6g7h8i9j10k11&lt;/productCode&gt;
 -- &lt;type&gt;marketplace&lt;/type&gt; &lt;/item&gt; &lt;/productCodes&gt;
 -- &lt;/DescribeVolumeAttributeResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeVolumeAttribute
     (
     -- * Request
       DescribeVolumeAttribute

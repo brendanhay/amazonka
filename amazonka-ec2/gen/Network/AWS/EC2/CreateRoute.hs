@@ -45,7 +45,7 @@
 -- https://ec2.amazonaws.com/?Action=CreateRoute
 -- &amp;RouteTableId=rtb-g8ff4ea2 &amp;DestinationCidrBlock=10.0.0.0/16
 -- &amp;vpcPeeringConnectionId=pcx-111aaa22 &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.CreateRoute
     (
     -- * Request
       CreateRoute

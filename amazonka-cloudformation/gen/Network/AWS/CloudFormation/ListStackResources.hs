@@ -35,7 +35,7 @@
 -- AWS::SNS::Topic CREATE_COMPLETE CPUAlarmHigh 2011-06-21T20:29:23Z
 -- MyStack-CPUAlarmHigh-POBWQPDJA81F AWS::CloudWatch::Alarm
 -- 2d06e36c-ac1d-11e0-a958-f9382b6eb86b.
-module Network.AWS.CloudFormation
+module Network.AWS.CloudFormation.ListStackResources
     (
     -- * Request
       ListStackResources

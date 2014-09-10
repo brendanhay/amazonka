@@ -27,7 +27,7 @@
 -- try to delete a hosted zone that contains other resource record sets, Route
 -- 53 will deny your request with a HostedZoneNotEmpty error. For information
 -- about deleting records from your hosted zone, see ChangeResourceRecordSets.
-module Network.AWS.Route53
+module Network.AWS.Route53.DeleteHostedZone
     (
     -- * Request
       DeleteHostedZone

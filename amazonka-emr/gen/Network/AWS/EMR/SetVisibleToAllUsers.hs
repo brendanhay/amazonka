@@ -38,7 +38,7 @@
 -- HTTP/1.1 200 OK x-amzn-RequestId: 2be9cde9-ed9c-11e2-82b6-2351cde3f33f
 -- Content-Type: application/x-amz-json-1.1 Content-Length: 0 Date: Mon, 15
 -- Jul 2013 22:16:18 GMT.
-module Network.AWS.EMR
+module Network.AWS.EMR.SetVisibleToAllUsers
     (
     -- * Request
       SetVisibleToAllUsers

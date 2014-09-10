@@ -29,7 +29,7 @@
 -- Available 0 Sold 0 Cancelled 1 Pending 0 5 166.64 USD false 4 133.32 USD
 -- false 3 99.99 USD false 2 66.66 USD false 1 33.33 USD false
 -- XqJIt1342112125076.
-module Network.AWS.EC2
+module Network.AWS.EC2.CancelReservedInstancesListing
     (
     -- * Request
       CancelReservedInstancesListing

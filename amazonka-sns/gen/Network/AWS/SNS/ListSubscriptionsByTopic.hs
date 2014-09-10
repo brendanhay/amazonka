@@ -39,7 +39,7 @@
 -- &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;b9275252-3774-11df-9540-99d0768312d3&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/ListSubscriptionsByTopicResponse&gt;.
-module Network.AWS.SNS
+module Network.AWS.SNS.ListSubscriptionsByTopic
     (
     -- * Request
       ListSubscriptionsByTopic

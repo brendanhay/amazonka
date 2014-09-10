@@ -22,7 +22,7 @@
 -- the Using IAM guide. https://iam.amazonaws.com/ ?Action=CreateAccountAlias
 -- &AccountAlias=foocorporation &Version=2010-05-08 &AUTHPARAMS
 -- 36b5db08-f1b0-11df-8fbe-45274EXAMPLE.
-module Network.AWS.IAM
+module Network.AWS.IAM.CreateAccountAlias
     (
     -- * Request
       CreateAccountAlias

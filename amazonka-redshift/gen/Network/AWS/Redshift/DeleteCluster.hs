@@ -35,7 +35,7 @@
 -- true true dev sun:10:30-sun:11:00 in-sync default.redshift-1.0
 -- 2013-01-23T00:11:32.804Z active default us-east-1a dw1.xlarge
 -- examplecluster2 true masteruser f2e6b87e-6503-11e2-b343-393adc3f0a21.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.DeleteCluster
     (
     -- * Request
       DeleteCluster

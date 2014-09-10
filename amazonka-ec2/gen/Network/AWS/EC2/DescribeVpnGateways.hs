@@ -40,7 +40,7 @@
 -- &amp;Filter.1.Name=availability-zone &amp;Filter.1.Value.1=us-east-1a
 -- &amp;Filter.2.Name=state &amp;Filter.2.Value.1=pending
 -- &amp;Filter.2.Value.2=available &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeVpnGateways
     (
     -- * Request
       DescribeVpnGateways

@@ -27,7 +27,7 @@
 -- https://elasticbeanstalk.us-east-1.amazon.com/?ApplicationName=SampleApp
 -- &EnvironmentName=SampleApp &Operation=DeleteEnvironmentConfiguration
 -- &AuthParams fdf76507-f26d-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
     (
     -- * Request
       DeleteEnvironmentConfiguration

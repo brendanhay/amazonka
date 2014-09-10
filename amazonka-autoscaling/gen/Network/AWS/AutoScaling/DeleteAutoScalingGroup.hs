@@ -24,7 +24,7 @@
 -- https://autoscaling.amazonaws.com/?AutoScalingGroupName=my-test-asg
 -- &ForceDelete=true &Version=2011-01-01 &Action=DeleteAutoScalingGroup
 -- &AUTHPARAMS 70a76d42-9665-11e2-9fdf-211deEXAMPLE.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.DeleteAutoScalingGroup
     (
     -- * Request
       DeleteAutoScalingGroup

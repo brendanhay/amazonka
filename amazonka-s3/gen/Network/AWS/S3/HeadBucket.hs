@@ -19,7 +19,7 @@
 
 -- | This operation is useful to determine if a bucket exists and you have
 -- permission to access it.
-module Network.AWS.S3
+module Network.AWS.S3.HeadBucket
     (
     -- * Request
       HeadBucket

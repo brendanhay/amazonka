@@ -44,7 +44,7 @@
 -- &Timestamp=2011-08-18T22%3A25%3A27.000Z
 -- 00000131d51d2292-159ad6eb-077c-46e6-ad09-ae7c05925ed4-000000
 -- d5964849-c866-11e0-9beb-01a62d68c57f.
-module Network.AWS.SES
+module Network.AWS.SES.SendEmail
     (
     -- * Request
       SendEmail

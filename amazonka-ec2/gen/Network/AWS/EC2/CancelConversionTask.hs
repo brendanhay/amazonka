@@ -28,7 +28,7 @@
 -- https://ec2.amazonaws.com/?Action=CancelConversionTask
 -- &amp;ConversionTaskId=import-i-fh95npoc &amp;AUTHPARAMS
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE true.
-module Network.AWS.EC2
+module Network.AWS.EC2.CancelConversionTask
     (
     -- * Request
       CancelConversionTask

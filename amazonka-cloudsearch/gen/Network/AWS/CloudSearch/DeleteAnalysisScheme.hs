@@ -19,7 +19,7 @@
 
 -- | Deletes an analysis scheme. For more information, see Configuring Analysis
 -- Schemes in the Amazon CloudSearch Developer Guide.
-module Network.AWS.CloudSearch
+module Network.AWS.CloudSearch.DeleteAnalysisScheme
     (
     -- * Request
       DeleteAnalysisScheme

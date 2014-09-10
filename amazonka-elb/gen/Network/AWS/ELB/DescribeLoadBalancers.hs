@@ -31,7 +31,7 @@
 -- amazon-elb amazon-elb-sg
 -- MyLoadBalancer-123456789.us-east-1.elb.amazonaws.com
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
-module Network.AWS.ELB
+module Network.AWS.ELB.DescribeLoadBalancers
     (
     -- * Request
       DescribeLoadBalancers

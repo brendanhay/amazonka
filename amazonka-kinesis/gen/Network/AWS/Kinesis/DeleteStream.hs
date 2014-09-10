@@ -38,7 +38,7 @@
 -- Kinesis_20131202.DeleteStream { "StreamName":"exampleStreamName" } HTTP/1.1
 -- 200 OK x-amzn-RequestId: Content-Type: application/x-amz-json-1.1
 -- Content-Length: Date: ]]>.
-module Network.AWS.Kinesis
+module Network.AWS.Kinesis.DeleteStream
     (
     -- * Request
       DeleteStream

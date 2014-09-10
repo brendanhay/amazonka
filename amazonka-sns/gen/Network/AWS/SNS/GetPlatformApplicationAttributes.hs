@@ -36,7 +36,7 @@
 -- &lt;RequestId&gt;74848df2-87f6-55ed-890c-c7be80442462&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt;
 -- &lt;/GetPlatformApplicationAttributesResponse&gt;.
-module Network.AWS.SNS
+module Network.AWS.SNS.GetPlatformApplicationAttributes
     (
     -- * Request
       GetPlatformApplicationAttributes

@@ -31,7 +31,7 @@
 -- &amp;InstanceId.0=i-9440effb &amp;InstanceId.1=i-0cf27c63
 -- &amp;ReasonCode.0=instance-performance-network
 -- &amp;ReasonCode.1=instance-performance-disk &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.ReportInstanceStatus
     (
     -- * Request
       ReportInstanceStatus

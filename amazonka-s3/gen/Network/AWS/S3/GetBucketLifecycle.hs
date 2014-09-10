@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Returns the lifecycle configuration information set on the bucket.
-module Network.AWS.S3
+module Network.AWS.S3.GetBucketLifecycle
     (
     -- * Request
       GetBucketLifecycle

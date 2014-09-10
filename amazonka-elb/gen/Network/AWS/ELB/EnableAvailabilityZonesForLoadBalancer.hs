@@ -29,7 +29,7 @@
 -- &LoadBalancerName=my-test-loadbalancer &Version=2012-06-01
 -- &Action=EnableAvailabilityZonesForLoadBalancer &AUTHPARAMS us-east-1a
 -- us-east-1c 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
-module Network.AWS.ELB
+module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     (
     -- * Request
       EnableAvailabilityZonesForLoadBalancer

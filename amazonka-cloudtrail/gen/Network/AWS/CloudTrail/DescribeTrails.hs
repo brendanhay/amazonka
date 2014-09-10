@@ -19,7 +19,7 @@
 
 -- | Retrieves settings for the trail associated with the current region for
 -- your account.
-module Network.AWS.CloudTrail
+module Network.AWS.CloudTrail.DescribeTrails
     (
     -- * Request
       DescribeTrails

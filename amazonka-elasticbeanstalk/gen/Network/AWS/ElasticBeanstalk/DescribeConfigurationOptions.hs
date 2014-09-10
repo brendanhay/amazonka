@@ -92,7 +92,7 @@
 -- HealthyThreshold Scalar 3 10 aws:elb:healthcheck false RestartEnvironment
 -- 2000 SSLCertificateId Scalar aws:elb:loadbalancer
 -- e8768900-f272-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     (
     -- * Request
       DescribeConfigurationOptions

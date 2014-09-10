@@ -79,7 +79,7 @@
 -- AKIAIOSFODNN7EXAMPLE apps.example.com
 -- client.5498841531868486423.1548@apps.example.com
 -- ad4156e9-bce1-11e2-82e6-6b6ef249e618.
-module Network.AWS.STS
+module Network.AWS.STS.AssumeRoleWithWebIdentity
     (
     -- * Request
       AssumeRoleWithWebIdentity

@@ -50,7 +50,7 @@
 -- &lt;/currentState&gt; &lt;previousState&gt; &lt;code&gt;16&lt;/code&gt;
 -- &lt;name&gt;running&lt;/name&gt; &lt;/previousState&gt;
 -- &lt;/instancesSet&gt; &lt;/StopInstancesResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.StopInstances
     (
     -- * Request
       StopInstances

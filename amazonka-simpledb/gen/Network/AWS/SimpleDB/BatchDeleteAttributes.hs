@@ -33,7 +33,7 @@
 -- Expected.X.Name, Expected.X.Value, or Expected.X.Exists. The following
 -- limitations are enforced for this operation: 1 MB request size 25 item
 -- limit per BatchDeleteAttributes operation.
-module Network.AWS.SimpleDB
+module Network.AWS.SimpleDB.BatchDeleteAttributes
     (
     -- * Request
       BatchDeleteAttributes

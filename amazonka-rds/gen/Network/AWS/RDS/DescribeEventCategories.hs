@@ -26,7 +26,7 @@
 -- &Signature= db-instance failover low storage maintenance recovery
 -- restoration deletion configuration change failover availability creation
 -- backup notification ea3bf54b-68ea-11e2-bd13-a92da73b3119.
-module Network.AWS.RDS
+module Network.AWS.RDS.DescribeEventCategories
     (
     -- * Request
       DescribeEventCategories

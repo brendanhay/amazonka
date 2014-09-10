@@ -56,7 +56,7 @@
 -- {"description": "", "name": "testDomain3", "status": "REGISTERED"},
 -- {"description": "", "name": "testDomain4", "status": "REGISTERED"},
 -- {"description": "", "name": "zsxfvgsxcv", "status": "REGISTERED"} ] }.
-module Network.AWS.SWF
+module Network.AWS.SWF.ListDomains
     (
     -- * Request
       ListDomains

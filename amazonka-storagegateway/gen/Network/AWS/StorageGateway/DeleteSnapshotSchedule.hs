@@ -38,7 +38,7 @@
 -- "VolumeARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB"
 -- }.
-module Network.AWS.StorageGateway
+module Network.AWS.StorageGateway.DeleteSnapshotSchedule
     (
     -- * Request
       DeleteSnapshotSchedule

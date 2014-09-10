@@ -61,7 +61,7 @@
 -- &amp;Filter.2.Value.1=io-enabled
 -- &amp;Filter.3.Name=volume-status.details-status
 -- &amp;Filter.3.Value.1=failed &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeVolumeStatus
     (
     -- * Request
       DescribeVolumeStatus

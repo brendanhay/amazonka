@@ -37,7 +37,7 @@
 -- Put an Item This example puts a new item into the Thread table. To prevent
 -- this new item from overwriting an existing item, "Exists" is set to false
 -- for the primary key attributes. { }.
-module Network.AWS.DynamoDB
+module Network.AWS.DynamoDB.PutItem
     (
     -- * Request
       PutItem

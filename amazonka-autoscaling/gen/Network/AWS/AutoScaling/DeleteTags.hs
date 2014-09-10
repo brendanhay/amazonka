@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Removes the specified tags or a set of tags from a set of resources.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.DeleteTags
     (
     -- * Request
       DeleteTags

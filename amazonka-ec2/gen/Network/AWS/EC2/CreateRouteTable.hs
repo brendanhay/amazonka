@@ -27,7 +27,7 @@
 -- https://ec2.amazonaws.com/?Action=CreateRouteTable &amp;VpcId=vpc-11ad4878
 -- &amp;AUTHPARAMS 59dbff89-35bd-4eac-99ed-be587EXAMPLE rtb-f9ad4890
 -- vpc-11ad4878 10.0.0.0/22 local active.
-module Network.AWS.EC2
+module Network.AWS.EC2.CreateRouteTable
     (
     -- * Request
       CreateRouteTable

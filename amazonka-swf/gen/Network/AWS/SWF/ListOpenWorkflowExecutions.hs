@@ -56,7 +56,7 @@
 -- "executionStatus": "OPEN", "startTimestamp": 1326585031.619, "tagList":
 -- ["music purchase", "digital", "ricoh-the-dog"], "workflowType": {"name":
 -- "customerOrderWorkflow", "version": "1.0"} } ] }.
-module Network.AWS.SWF
+module Network.AWS.SWF.ListOpenWorkflowExecutions
     (
     -- * Request
       ListOpenWorkflowExecutions

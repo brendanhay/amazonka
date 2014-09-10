@@ -38,7 +38,7 @@
 -- "CacheUsedPercentage": 0.07, "DiskIds": [ "pci-0000:03:00.0-scsi-0:0:0:0",
 -- "pci-0000:04:00.0-scsi-0:1:0:0" ], "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
-module Network.AWS.StorageGateway
+module Network.AWS.StorageGateway.DescribeCache
     (
     -- * Request
       DescribeCache

@@ -19,7 +19,7 @@
 
 -- | Creates a new search domain. For more information, see Creating a Search
 -- Domain in the Amazon CloudSearch Developer Guide.
-module Network.AWS.CloudSearch
+module Network.AWS.CloudSearch.CreateDomain
     (
     -- * Request
       CreateDomain

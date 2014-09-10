@@ -30,7 +30,7 @@
 -- error/mysql-error-running.log.2 0 1364349600000
 -- error/mysql-error-running.log.3 0 1364405700000 error/mysql-error.log 0
 -- d70fb3b3-9704-11e2-a0db-871552e0ef19.
-module Network.AWS.RDS
+module Network.AWS.RDS.DescribeDBLogFiles
     (
     -- * Request
       DescribeDBLogFiles

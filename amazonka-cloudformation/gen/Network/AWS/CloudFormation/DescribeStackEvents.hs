@@ -34,7 +34,7 @@
 -- arn:aws:cloudformation:us-east-1:123456789:stack/MyStack/aaf549a0-a413-11df-adb3-5081b3858e83
 -- MyStack MySG1 MyStack_SG1 AWS:: SecurityGroup 2010-07-27T22:28:28Z
 -- CREATE_COMPLETE.
-module Network.AWS.CloudFormation
+module Network.AWS.CloudFormation.DescribeStackEvents
     (
     -- * Request
       DescribeStackEvents

@@ -31,7 +31,7 @@
 -- ChangeInCapacity 1 MyScaleUpPolicy my-test-asg 60 TestQueue
 -- arn:aws:cloudwatch:us-east-1:803981987763:alarm:TestQueue
 -- ec3bffad-b739-11e2-b38d-15fbEXAMPLE.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.DescribePolicies
     (
     -- * Request
       DescribePolicies

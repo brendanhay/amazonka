@@ -36,7 +36,7 @@
 -- &Action=DescribeLoadBalancerPolicies &AUTHPARAMS EnableProxyProtocol
 -- ProxyProtocolPolicyType ProxyProtocol true
 -- 1549581b-12b7-11e3-895e-1334aEXAMPLE.
-module Network.AWS.ELB
+module Network.AWS.ELB.DescribeLoadBalancerPolicies
     (
     -- * Request
       DescribeLoadBalancerPolicies

@@ -26,7 +26,7 @@
 -- &amp;RegionName.1=us-east-1 &amp;RegionName.2=eu-west-1 &amp;AUTHPARAMS
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE us-east-1 ec2.us-east-1.amazonaws.com
 -- eu-west-1 ec2.eu-west-1amazonaws.com.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeRegions
     (
     -- * Request
       DescribeRegions

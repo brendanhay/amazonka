@@ -22,7 +22,7 @@
 -- &Operation=CheckDNSAvailability &AuthParams
 -- sampleapplication.elasticbeanstalk.amazonaws.com true
 -- 12f6701f-f1d6-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
     (
     -- * Request
       CheckDNSAvailability

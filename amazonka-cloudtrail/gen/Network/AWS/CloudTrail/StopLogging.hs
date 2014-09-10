@@ -21,7 +21,7 @@
 -- specified trail. Under most circumstances, there is no need to use this
 -- action. You can update a trail without stopping it first. This action is
 -- the only way to stop recording.
-module Network.AWS.CloudTrail
+module Network.AWS.CloudTrail.StopLogging
     (
     -- * Request
       StopLogging

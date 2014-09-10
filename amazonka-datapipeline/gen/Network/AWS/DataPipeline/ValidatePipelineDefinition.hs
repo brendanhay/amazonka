@@ -55,7 +55,7 @@
 -- Nov 2012 17:50:53 GMT {"errored": true, "validationErrors": [ {"errors":
 -- ["INVALID_FIELD_VALUE: 'startDateTime' value must be a literal datetime
 -- value."], "id": "Schedule"} ] }.
-module Network.AWS.DataPipeline
+module Network.AWS.DataPipeline.ValidatePipelineDefinition
     (
     -- * Request
       ValidatePipelineDefinition

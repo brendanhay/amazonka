@@ -49,7 +49,7 @@
 -- "867530901", "workflowType": {"name": "customerOrderWorkflow", "version":
 -- "1.0"} } HTTP/1.1 200 OK Content-Length: 0 Content-Type: application/json
 -- x-amzn-RequestId: 9c8d6d3b-3fff-11e1-9e8f-57bb03e21482.
-module Network.AWS.SWF
+module Network.AWS.SWF.DeprecateWorkflowType
     (
     -- * Request
       DeprecateWorkflowType

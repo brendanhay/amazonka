@@ -35,7 +35,7 @@
 -- does not exist. Launching EC2 instance failed. 2012-04-12T17:32:08Z The
 -- image id 'ami-4edb0327' does not exist. Launching EC2 instance failed.
 -- 7a641adc-84c5-11e1-a8a5-217ebEXAMPLE.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.DescribeScalingActivities
     (
     -- * Request
       DescribeScalingActivities

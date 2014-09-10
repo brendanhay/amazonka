@@ -32,7 +32,7 @@
 -- parameter group for redshift-1.0 default.redshift-1.0 redshift-1.0
 -- description my parameter group parametergroup1
 -- 6d28788b-64f5-11e2-b343-393adc3f0a21.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.DescribeClusterParameterGroups
     (
     -- * Request
       DescribeClusterParameterGroups

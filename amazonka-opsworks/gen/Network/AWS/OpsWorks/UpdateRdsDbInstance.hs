@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Updates an Amazon RDS instance.
-module Network.AWS.OpsWorks
+module Network.AWS.OpsWorks.UpdateRdsDbInstance
     (
     -- * Request
       UpdateRdsDbInstance

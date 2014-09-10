@@ -39,7 +39,7 @@
 -- https://ec2.amazonaws.com/?Action=DescribeInstances
 -- &amp;Filter.1.Name=instance-lifecycle &amp;Filter.1.Value.1=spot
 -- &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeSpotInstanceRequests
     (
     -- * Request
       DescribeSpotInstanceRequests

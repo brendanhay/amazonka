@@ -43,7 +43,7 @@
 -- &amp;Filter.1.Name=timestamp &amp;Filter.1.Value.1=2009-12-04*
 -- &amp;Filter.2.Name=availability-zone &amp;Filter.2.Value.1=us-east-1a
 -- &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeSpotPriceHistory
     (
     -- * Request
       DescribeSpotPriceHistory

@@ -31,7 +31,7 @@
 -- my-replica-1.q68zge.0001.use1devo.elmo-dev.amazonaws.com us-east-1e 0001
 -- replica my-repgroup available my-replica-1 My replication group
 -- 6fd0aad6-b9d7-11e3-8a16-7978bb24ffdf.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.ModifyReplicationGroup
     (
     -- * Request
       ModifyReplicationGroup

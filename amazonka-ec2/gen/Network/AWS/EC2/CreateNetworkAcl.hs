@@ -30,7 +30,7 @@
 -- &amp;AUTHPARAMS 59dbff89-35bd-4eac-99ed-be587EXAMPLE acl-5fb85d36
 -- vpc-11ad4878 false 32767 all deny true 0.0.0.0/0 32767 all deny false
 -- 0.0.0.0/0.
-module Network.AWS.EC2
+module Network.AWS.EC2.CreateNetworkAcl
     (
     -- * Request
       CreateNetworkAcl

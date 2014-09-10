@@ -43,7 +43,7 @@
 -- "b/31132629274945519779805322857203735586714454643391594505",
 -- "nextForwardToken":
 -- "f/31132629323784151764587387538205132201699397759403884544" }.
-module Network.AWS.CloudWatchLogs
+module Network.AWS.CloudWatchLogs.GetLogEvents
     (
     -- * Request
       GetLogEvents

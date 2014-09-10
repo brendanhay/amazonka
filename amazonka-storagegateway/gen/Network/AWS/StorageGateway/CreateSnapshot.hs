@@ -45,7 +45,7 @@
 -- application/x-amz-json-1.1 Content-length: 128 { "VolumeARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB",
 -- "SnapshotId": "snap-78e22663" }.
-module Network.AWS.StorageGateway
+module Network.AWS.StorageGateway.CreateSnapshot
     (
     -- * Request
       CreateSnapshot

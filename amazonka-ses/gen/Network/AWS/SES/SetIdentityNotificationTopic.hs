@@ -36,7 +36,7 @@
 -- &NotificationType=Bounce
 -- &Timestamp=2012-05-12T05%3A27%3A54.000Z&Version=2010-12-01
 -- 299f4af4-b72a-11e1-901f-1fbd90e8104f.
-module Network.AWS.SES
+module Network.AWS.SES.SetIdentityNotificationTopic
     (
     -- * Request
       SetIdentityNotificationTopic

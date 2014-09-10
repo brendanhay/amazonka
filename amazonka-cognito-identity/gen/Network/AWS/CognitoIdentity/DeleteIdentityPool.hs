@@ -21,7 +21,7 @@
 -- authenticate with the pool. DeleteIdentityPool The following is an example
 -- of a DeleteIdentityPool request. { "IdentityPoolId":
 -- "us-east-1:1a234b56-7890-1cd2-3e45-f6g7hEXAMPLE" }.
-module Network.AWS.CognitoIdentity
+module Network.AWS.CognitoIdentity.DeleteIdentityPool
     (
     -- * Request
       DeleteIdentityPool

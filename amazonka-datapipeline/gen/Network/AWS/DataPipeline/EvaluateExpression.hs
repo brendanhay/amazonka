@@ -29,7 +29,7 @@
 -- application/x-amz-json-1.1 Content-Length: 103 Date: Mon, 12 Nov 2012
 -- 17:50:53 GMT {"evaluatedExpression": "Transform started at
 -- 2012-12-12T00:00:00 and finished at 2012-12-21T18:00:00"}.
-module Network.AWS.DataPipeline
+module Network.AWS.DataPipeline.EvaluateExpression
     (
     -- * Request
       EvaluateExpression

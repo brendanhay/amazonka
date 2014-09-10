@@ -37,7 +37,7 @@
 -- Change elements. - A request cannot contain more than 1000 ResourceRecord
 -- elements. The sum of the number of characters (including spaces) in all
 -- Value elements in a request cannot exceed 32,000 characters.
-module Network.AWS.Route53
+module Network.AWS.Route53.ChangeResourceRecordSets
     (
     -- * Request
       ChangeResourceRecordSets

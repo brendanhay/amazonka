@@ -23,7 +23,7 @@
 -- "123456789012;", "IdentityPoolId":
 -- "us-east-1:af4311ca-835e-4b49-814c-2290EXAMPLE1" } { "IdentityId":
 -- "us-east-1:852d4250-9eec-4006-8f84-4e82EXAMPLE3" }.
-module Network.AWS.CognitoIdentity
+module Network.AWS.CognitoIdentity.GetId
     (
     -- * Request
       GetId

@@ -60,7 +60,7 @@
 -- "StatusDetail":"",
 -- "ThumbnailPattern":"cooking/baked-ziti-{count}-KindleFireHD" },
 -- "PipelineId":"1111111111111-abcde1" } ], "NextPageToken":null.
-module Network.AWS.ElasticTranscoder
+module Network.AWS.ElasticTranscoder.ListJobsByPipeline
     (
     -- * Request
       ListJobsByPipeline

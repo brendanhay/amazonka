@@ -38,7 +38,7 @@
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway",
 -- "AverageUploadRateLimitInBitsPerSec": 102400,
 -- "AverageDownloadRateLimitInBitsPerSec": 51200 }.
-module Network.AWS.StorageGateway
+module Network.AWS.StorageGateway.DescribeBandwidthRateLimit
     (
     -- * Request
       DescribeBandwidthRateLimit

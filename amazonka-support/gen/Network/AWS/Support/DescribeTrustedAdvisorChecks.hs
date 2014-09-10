@@ -21,7 +21,7 @@
 -- name, ID, category, description, and metadata. You must specify a language
 -- code; English ("en") and Japanese ("ja") are currently supported. The
 -- response contains a TrustedAdvisorCheckDescription for each check.
-module Network.AWS.Support
+module Network.AWS.Support.DescribeTrustedAdvisorChecks
     (
     -- * Request
       DescribeTrustedAdvisorChecks

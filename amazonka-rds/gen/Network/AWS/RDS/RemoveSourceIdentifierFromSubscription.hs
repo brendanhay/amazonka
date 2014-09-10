@@ -26,7 +26,7 @@
 -- db-instance modifying 2013-01-28 00:29:23.736 creation deletion
 -- EventSubscription01 arn:aws:sns:us-east-1:012345678901:EventSubscription01
 -- 6f0b82bf-68e9-11e2-b97b-43c6362ec60d.
-module Network.AWS.RDS
+module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
     (
     -- * Request
       RemoveSourceIdentifierFromSubscription

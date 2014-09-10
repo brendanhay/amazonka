@@ -124,7 +124,7 @@
 -- Owner and the value DbAdmin.
 -- https://ec2.amazonaws.com/?Action=DescribeInstances
 -- &amp;Filter.1.Name=tag:Owner &amp;Filter.1.Value.1=DbAdmin &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeInstances
     (
     -- * Request
       DescribeInstances

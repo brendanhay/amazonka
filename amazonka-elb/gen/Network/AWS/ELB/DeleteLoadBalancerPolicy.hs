@@ -19,7 +19,7 @@
 
 -- | Deletes a policy from the load balancer. The specified policy must not be
 -- enabled for any listeners.
-module Network.AWS.ELB
+module Network.AWS.ELB.DeleteLoadBalancerPolicy
     (
     -- * Request
       DeleteLoadBalancerPolicy

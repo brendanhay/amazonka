@@ -35,7 +35,7 @@
 -- &LoadBalancerName=MyLoadBalancer&PolicyName=MyDurationStickyPolicy
 -- &Version=2012-06-01 &Action=CreateLBCookieStickinessPolicy &AUTHPARAMS
 -- 99a693e9-12b8-11e3-9ad6-bf3e4EXAMPLE.
-module Network.AWS.ELB
+module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     (
     -- * Request
       CreateLBCookieStickinessPolicy

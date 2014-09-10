@@ -62,7 +62,7 @@
 -- xmlns="http://ec2.amazonaws.com/doc/2014-02-01/"&gt;
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;imageId&gt;ami-1a2b3c4d&lt;/imageId&gt; &lt;/RegisterImageResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.RegisterImage
     (
     -- * Request
       RegisterImage

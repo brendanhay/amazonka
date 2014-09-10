@@ -29,7 +29,7 @@
 -- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &Action=DeleteVerifiedEmailAddress
 -- &EmailAddress=user%40example.com &Timestamp=2011-08-18T22%3A20%3A50.000Z
 -- 5634af08-c865-11e0-8986-3f99a698f914.
-module Network.AWS.SES
+module Network.AWS.SES.DeleteVerifiedEmailAddress
     (
     -- * Request
       DeleteVerifiedEmailAddress

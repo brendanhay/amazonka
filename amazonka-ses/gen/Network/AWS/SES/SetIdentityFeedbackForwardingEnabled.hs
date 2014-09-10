@@ -34,7 +34,7 @@
 -- &Action=SetIdentityFeedbackForwardingEnabled &ForwardingEnabled=true
 -- &Identity=user%40example.com &Timestamp=2012-06-15T20%3A31%3A21.000Z
 -- &Version=2010-12-01 299f4af4-b72a-11e1-901f-1fbd90e8104f.
-module Network.AWS.SES
+module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
     (
     -- * Request
       SetIdentityFeedbackForwardingEnabled

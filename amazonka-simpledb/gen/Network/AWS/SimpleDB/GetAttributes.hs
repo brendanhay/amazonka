@@ -25,7 +25,7 @@
 -- item does not exist on other replicas. If GetAttributes is called without
 -- being passed any attribute names, all the attributes for the item are
 -- returned.
-module Network.AWS.SimpleDB
+module Network.AWS.SimpleDB.GetAttributes
     (
     -- * Request
       GetAttributes

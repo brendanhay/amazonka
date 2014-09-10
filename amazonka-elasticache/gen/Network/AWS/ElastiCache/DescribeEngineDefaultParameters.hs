@@ -30,7 +30,7 @@
 -- maximum configurable amount of memory to use to store items, in megabytes.
 -- 1-100000 max_cache_memory 1.4.5 (...output omitted...)
 -- 061282fe-b7fd-11e0-9326-b7275b9d4a6c.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.DescribeEngineDefaultParameters
     (
     -- * Request
       DescribeEngineDefaultParameters

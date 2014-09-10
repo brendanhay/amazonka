@@ -20,7 +20,7 @@
 -- | Returns information about the specified HSM client certificate. If no
 -- certificate ID is specified, returns information about all the HSM
 -- certificates owned by your AWS customer account.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.DescribeHsmClientCertificates
     (
     -- * Request
       DescribeHsmClientCertificates

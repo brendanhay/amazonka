@@ -38,7 +38,7 @@
 -- &lt;status&gt; &lt;code&gt;active&lt;/code&gt;
 -- &lt;message&gt;Active&lt;/message&gt; &lt;/status&gt; &lt;tagSet/&gt;
 -- &lt;/vpcPeeringConnection&gt; &lt;/AcceptVpcPeeringConnectionResponse&gt;".
-module Network.AWS.EC2
+module Network.AWS.EC2.AcceptVpcPeeringConnection
     (
     -- * Request
       AcceptVpcPeeringConnection

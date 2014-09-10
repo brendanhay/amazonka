@@ -35,7 +35,7 @@
 -- arn:aws:sns:us-east-1:123456789012:example
 -- arn:aws:sns:us-east-1:123456789012:example
 -- e038e509-b72a-11e1-901f-1fbd90e8104f.
-module Network.AWS.SES
+module Network.AWS.SES.GetIdentityNotificationAttributes
     (
     -- * Request
       GetIdentityNotificationAttributes

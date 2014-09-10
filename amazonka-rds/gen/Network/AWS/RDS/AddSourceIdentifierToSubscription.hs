@@ -27,7 +27,7 @@
 -- deletion EventSubscription01
 -- arn:aws:sns:us-east-1:012345678901:EventSubscription01
 -- 05d0fd8a-68e8-11e2-8e4d-31f087d822e1.
-module Network.AWS.RDS
+module Network.AWS.RDS.AddSourceIdentifierToSubscription
     (
     -- * Request
       AddSourceIdentifierToSubscription

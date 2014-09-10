@@ -48,7 +48,7 @@
 -- &lt;/CreatePlatformApplicationResult&gt; &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;b6f0e78b-e9d4-5a0e-b973-adc04e8a4ff9&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/CreatePlatformApplicationResponse&gt;.
-module Network.AWS.SNS
+module Network.AWS.SNS.CreatePlatformApplication
     (
     -- * Request
       CreatePlatformApplication

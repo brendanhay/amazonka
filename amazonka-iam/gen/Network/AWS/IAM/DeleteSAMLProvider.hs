@@ -24,7 +24,7 @@
 -- https://iam.amazonaws.com/ ?Action=DeleteSAMLProvider
 -- &Name=arn:aws:iam::123456789012:saml-metadata/MyUniversity
 -- &Version=2010-05-08 &AUTHPARAMS.
-module Network.AWS.IAM
+module Network.AWS.IAM.DeleteSAMLProvider
     (
     -- * Request
       DeleteSAMLProvider

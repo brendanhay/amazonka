@@ -28,7 +28,7 @@
 -- &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- http://sqs.us-east-1.amazonaws.com/123456789012/testQueue
 -- 725275ae-0b9b-4762-b238-436d7c65a1ac.
-module Network.AWS.SQS
+module Network.AWS.SQS.ListQueues
     (
     -- * Request
       ListQueues

@@ -40,7 +40,7 @@
 -- arn:aws:cloudformation:us-east-1:123456789:stack/MyStack/aaf549a0-a413-11df-adb3-5081b3858e83
 -- MyStack MyAutoScalingGroup MyStack_ASG1 AWS::AutoScalingGroup
 -- 2010-07-27T22:28:28Z CREATE_IN_PROGRESS.
-module Network.AWS.CloudFormation
+module Network.AWS.CloudFormation.DescribeStackResources
     (
     -- * Request
       DescribeStackResources

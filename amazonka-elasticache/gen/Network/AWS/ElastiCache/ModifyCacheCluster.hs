@@ -27,7 +27,7 @@
 -- simcoprod01 available 11211 simcoprod01.m2st2p.cfg.cache.amazonaws.com
 -- cache.m1.large memcached 5 us-east-1b 2014-03-26T23:45:20.937Z 1.4.5 true
 -- fri:04:30-fri:05:00 default active 3 d5786c6d-b7fe-11e0-9326-b7275b9d4a6c.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.ModifyCacheCluster
     (
     -- * Request
       ModifyCacheCluster

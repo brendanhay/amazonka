@@ -53,7 +53,7 @@
 -- a single data item at a time? Are there any limits?" } } ] },
 -- "UnprocessedKeys": { }, "ConsumedCapacity": [ { "TableName": "Forum",
 -- "CapacityUnits": 3 }, { "TableName": "Thread", "CapacityUnits": 1 } ] }.
-module Network.AWS.DynamoDB
+module Network.AWS.DynamoDB.BatchGetItem
     (
     -- * Request
       BatchGetItem

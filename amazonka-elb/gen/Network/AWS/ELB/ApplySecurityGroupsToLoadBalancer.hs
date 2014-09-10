@@ -26,7 +26,7 @@
 -- &LoadBalancerName=my-test-vpc-loadbalancer &Version=2012-06-01
 -- &Action=ApplySecurityGroupsToLoadBalancer &AUTHPARAMS sg-123456789
 -- 06b5decc-102a-11e3-9ad6-bf3e4EXAMPLE.
-module Network.AWS.ELB
+module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     (
     -- * Request
       ApplySecurityGroupsToLoadBalancer

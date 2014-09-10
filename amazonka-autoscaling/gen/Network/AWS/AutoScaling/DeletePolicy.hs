@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Deletes a policy created by PutScalingPolicy.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.DeletePolicy
     (
     -- * Request
       DeletePolicy

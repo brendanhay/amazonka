@@ -30,7 +30,7 @@
 -- using this cluster security group. cluster-security-group
 -- 2012-12-07T23:05:02.660Z securitygroup1
 -- 3eeb9efe-40c5-11e2-816a-1bba29fad1f5.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.DescribeEvents
     (
     -- * Request
       DescribeEvents

@@ -50,7 +50,7 @@
 -- &lt;status&gt;attaching&lt;/status&gt;
 -- &lt;attachTime&gt;YYYY-MM-DDTHH:MM:SS.000Z&lt;/attachTime&gt;
 -- &lt;/AttachVolumeResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.AttachVolume
     (
     -- * Request
       AttachVolume

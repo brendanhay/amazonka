@@ -29,7 +29,7 @@
 -- simcoprod43.m2st2p.cfg.cache.amazonaws.com cache.m1.large memcached
 -- us-east-1b 2014-03-27T02:18:26.497Z 1.4.5 true mon:05:00-mon:05:30 default
 -- active 3 ab84aa7e-b7fa-11e0-9b0b-a9261be2b354.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.DeleteCacheCluster
     (
     -- * Request
       DeleteCacheCluster

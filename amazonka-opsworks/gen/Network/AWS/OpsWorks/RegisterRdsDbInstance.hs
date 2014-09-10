@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Registers an Amazon RDS instance with a stack.
-module Network.AWS.OpsWorks
+module Network.AWS.OpsWorks.RegisterRdsDbInstance
     (
     -- * Request
       RegisterRdsDbInstance

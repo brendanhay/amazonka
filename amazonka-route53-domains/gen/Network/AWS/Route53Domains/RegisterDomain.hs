@@ -64,7 +64,7 @@
 -- "PrivacyProtectRegistrantContact":true, "PrivacyProtectTechContact":true }
 -- HTTP/1.1 200 Content-Length:[number of characters in the JSON string] {
 -- "OperationId":"308c56712-faa4-40fe-94c8-b423069de3f6" }.
-module Network.AWS.Route53Domains
+module Network.AWS.Route53Domains.RegisterDomain
     (
     -- * Request
       RegisterDomain

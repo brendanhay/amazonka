@@ -83,7 +83,7 @@
 -- us-east-1d 16 running ok reachability passed ok reachability passed
 -- i-4a2b3c4d us-east-1d 16 running ok reachability passed insufficient-data
 -- reachability insufficient-data.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeInstanceStatus
     (
     -- * Request
       DescribeInstanceStatus

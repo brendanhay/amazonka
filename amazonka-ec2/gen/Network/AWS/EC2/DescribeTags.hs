@@ -55,7 +55,7 @@
 -- &amp;Filter.1.Name=resource-type &amp;Filter.1.Value.1=instance
 -- &amp;Filter.2.Name=key &amp;Filter.2.Value.1=Purpose
 -- &amp;Filter.3.Name=value &amp;Filter.3.Value.1= &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeTags
     (
     -- * Request
       DescribeTags

@@ -27,7 +27,7 @@
 -- &Signature=[Signature] "{ "AWSTemplateFormatVersion" : "2010-09-09",
 -- "Description" : "Simple example", "Resources" : { "MySQS" : { "Type" :
 -- "AWS::SQS::Queue", "Properties" : { } } } }.
-module Network.AWS.CloudFormation
+module Network.AWS.CloudFormation.GetTemplate
     (
     -- * Request
       GetTemplate

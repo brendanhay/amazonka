@@ -69,7 +69,7 @@
 -- &amp;IpPermissions.1.ToPort=3389
 -- &amp;IpPermissions.1.IpRanges.1.CidrIp=your-local-system's-public-ip-address/32.
 -- 
-module Network.AWS.EC2
+module Network.AWS.EC2.AuthorizeSecurityGroupIngress
     (
     -- * Request
       AuthorizeSecurityGroupIngress

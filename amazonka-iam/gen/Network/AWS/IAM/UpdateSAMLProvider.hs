@@ -25,7 +25,7 @@
 -- LCBCYXNlNjQtZW5jb2RlZCBpbnRvIGEgYmlnIHN0cmluZy4= &Version=2010-05-08
 -- &AUTHPARAMS arn:aws:iam::123456789012:saml-metadata/MyUniversity
 -- 29f47818-99f5-11e1-a4c3-27EXAMPLE804.
-module Network.AWS.IAM
+module Network.AWS.IAM.UpdateSAMLProvider
     (
     -- * Request
       UpdateSAMLProvider

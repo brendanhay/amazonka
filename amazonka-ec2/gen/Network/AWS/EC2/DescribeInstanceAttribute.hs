@@ -48,7 +48,7 @@
 -- &lt;instanceId&gt;i-10a64379&lt;/instanceId&gt;
 -- &lt;disableApiTermination&gt; &lt;value&gt;false&lt;/value&gt;
 -- &lt;/disableApiTermination&gt; &lt;/DescribeInstanceAttributeResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeInstanceAttribute
     (
     -- * Request
       DescribeInstanceAttribute

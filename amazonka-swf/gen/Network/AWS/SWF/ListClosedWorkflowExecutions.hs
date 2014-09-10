@@ -68,7 +68,7 @@
 -- "executionStatus": "CLOSED", "startTimestamp": 1326581114.02, "tagList":
 -- ["music purchase", "digital", "ricoh-the-dog"], "workflowType": {"name":
 -- "customerOrderWorkflow", "version": "1.0"} } ] }.
-module Network.AWS.SWF
+module Network.AWS.SWF.ListClosedWorkflowExecutions
     (
     -- * Request
       ListClosedWorkflowExecutions

@@ -41,7 +41,7 @@
 -- Kinesis_20131202.ListStreams HTTP/1.1 200 OK x-amzn-RequestId:
 -- Content-Type: application/x-amz-json-1.1 Content-Length: Date: ]]> {
 -- "HasMoreStreams": false, "StreamNames": [ "exampleStreamName" ] }.
-module Network.AWS.Kinesis
+module Network.AWS.Kinesis.ListStreams
     (
     -- * Request
       ListStreams

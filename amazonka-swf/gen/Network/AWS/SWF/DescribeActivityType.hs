@@ -53,7 +53,7 @@
 -- {"name": "activityVerify", "version": "1.0"}, "creationDate":
 -- 1326586446.471, "description": "Verify the customer credit", "status":
 -- "REGISTERED"} }.
-module Network.AWS.SWF
+module Network.AWS.SWF.DescribeActivityType
     (
     -- * Request
       DescribeActivityType

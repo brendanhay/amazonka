@@ -34,7 +34,7 @@
 -- &X-Amz-Signature=[signature-value] creating 3 memcached 1.4.5 true
 -- sun:08:00-sun:09:00 cache.m1.large default active mycache
 -- aaf2e796-363f-11e0-a564-8f11342c56b0 ]]> -->.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.CreateCacheCluster
     (
     -- * Request
       CreateCacheCluster

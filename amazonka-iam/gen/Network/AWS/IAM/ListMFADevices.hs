@@ -24,7 +24,7 @@
 -- results using the MaxItems and Marker parameters.
 -- https://iam.amazonaws.com/ ?Action=ListMFADevices &UserName=Bob &AUTHPARAMS
 -- Bob R1234 false 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
-module Network.AWS.IAM
+module Network.AWS.IAM.ListMFADevices
     (
     -- * Request
       ListMFADevices

@@ -38,7 +38,7 @@
 -- number of milliseconds. statement_timeout
 -- [{&quot;query_concurrency&quot;:5}] string engine-default true wlm json
 -- configuration wlm_json_configuration 396df00b-40c4-11e2-82cf-0b45b05c0221.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.DescribeDefaultClusterParameters
     (
     -- * Request
       DescribeDefaultClusterParameters

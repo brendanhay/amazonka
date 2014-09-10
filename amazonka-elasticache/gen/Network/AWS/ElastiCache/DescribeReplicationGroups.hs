@@ -29,7 +29,7 @@
 -- my-redis-primary.q68zge.0001.use1devo.elmo-dev.amazonaws.com us-east-1d
 -- 0001 primary my-repgroup available My replication group
 -- 144745b0-b9d3-11e3-8a16-7978bb24ffdf.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.DescribeReplicationGroups
     (
     -- * Request
       DescribeReplicationGroups

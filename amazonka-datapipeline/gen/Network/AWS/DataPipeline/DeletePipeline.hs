@@ -31,7 +31,7 @@
 -- b7a88c81-0754-11e2-af6f-6bc7a6be60d9 Content-Type:
 -- application/x-amz-json-1.1 Content-Length: 0 Date: Mon, 12 Nov 2012
 -- 17:50:53 GMT Unexpected response: 200, OK, undefined.
-module Network.AWS.DataPipeline
+module Network.AWS.DataPipeline.DeletePipeline
     (
     -- * Request
       DeletePipeline

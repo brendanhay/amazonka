@@ -24,7 +24,7 @@
 -- "IdentityPoolName": "MyPool" }, { "IdentityPoolId":
 -- "us-east-1:f212b602-a526-4557-af13-8eedEXAMPLE2", "IdentityPoolName":
 -- "MyPool2" } ] }.
-module Network.AWS.CognitoIdentity
+module Network.AWS.CognitoIdentity.ListIdentityPools
     (
     -- * Request
       ListIdentityPools

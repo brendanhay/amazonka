@@ -29,7 +29,7 @@
 -- &X-Amz-Credential= Cache cluster created cache-cluster
 -- 2014-04-01T18:22:18.202Z my-redis-primary (...output omitted...)
 -- e21c81b4-b9cd-11e3-8a16-7978bb24ffdf.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.DescribeEvents
     (
     -- * Request
       DescribeEvents

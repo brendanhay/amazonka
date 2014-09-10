@@ -33,7 +33,7 @@
 -- &amp;Filter.1.Name=s3-bucket &amp;Filter.1.Value.1=myawsbucket
 -- &amp;Filter.2.Name=state &amp;Filter.2.Name.1=complete
 -- &amp;Filter.2.Name.2=failed &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeBundleTasks
     (
     -- * Request
       DescribeBundleTasks

@@ -19,7 +19,7 @@
 
 -- | Removes an IndexField from the search domain. For more information, see
 -- Configuring Index Fields in the Amazon CloudSearch Developer Guide.
-module Network.AWS.CloudSearch
+module Network.AWS.CloudSearch.DeleteIndexField
     (
     -- * Request
       DeleteIndexField

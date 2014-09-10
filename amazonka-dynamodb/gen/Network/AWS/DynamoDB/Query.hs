@@ -39,7 +39,7 @@
 -- attribute. All of the attributes will be returned. Any attributes that are
 -- not projected into the index will cause DynamoDB to fetch those attributes
 -- from the Thread table; this fetching occurs automatically. { "Count":`17 }.
-module Network.AWS.DynamoDB
+module Network.AWS.DynamoDB.Query
     (
     -- * Request
       Query

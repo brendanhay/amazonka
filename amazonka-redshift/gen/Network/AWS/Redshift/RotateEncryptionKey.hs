@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Rotates the encryption keys for a cluster.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.RotateEncryptionKey
     (
     -- * Request
       RotateEncryptionKey

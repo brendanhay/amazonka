@@ -44,7 +44,7 @@
 -- "VolumeSizeInBytes": 1099511627776, "TargetARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/target/iqn.1997-05.com.amazon:myvolume"
 -- }.
-module Network.AWS.StorageGateway
+module Network.AWS.StorageGateway.CreateStorediSCSIVolume
     (
     -- * Request
       CreateStorediSCSIVolume

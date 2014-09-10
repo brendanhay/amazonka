@@ -26,7 +26,7 @@
 -- 07f3fea2-bf3c-11e2-9b6f-f3cdbb80c073 The GroupStandbyInstances metric is
 -- not returned by default. You must explicitly request it when calling
 -- EnableMetricsCollection.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
     (
     -- * Request
       DescribeMetricCollectionTypes

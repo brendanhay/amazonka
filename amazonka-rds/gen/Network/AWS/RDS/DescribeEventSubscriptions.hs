@@ -29,7 +29,7 @@
 -- true 012345678901 active 2013-01-28 00:29:42.851 EventSubscription02
 -- arn:aws:sns:us-east-1:012345678901:EventSubscription01
 -- 0ce48079-68e4-11e2-91fe-5daa8e68c7d4.
-module Network.AWS.RDS
+module Network.AWS.RDS.DescribeEventSubscriptions
     (
     -- * Request
       DescribeEventSubscriptions

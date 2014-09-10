@@ -57,7 +57,7 @@
 -- Content-Type: application/json x-amzn-RequestId:
 -- 6c25f6e6-3f01-11e1-9a27-0760db01a4a8
 -- {"runId":"1e536162-f1ea-48b0-85f3-aade88eef2f7"}.
-module Network.AWS.SWF
+module Network.AWS.SWF.StartWorkflowExecution
     (
     -- * Request
       StartWorkflowExecution

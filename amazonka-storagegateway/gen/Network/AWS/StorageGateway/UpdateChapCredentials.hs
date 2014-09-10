@@ -38,7 +38,7 @@
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/target/iqn.1997-05.com.amazon:myvolume",
 -- "InitiatorName":
 -- "iqn.1991-05.com.microsoft:computername.domain.example.com" }.
-module Network.AWS.StorageGateway
+module Network.AWS.StorageGateway.UpdateChapCredentials
     (
     -- * Request
       UpdateChapCredentials

@@ -36,7 +36,7 @@
 -- 2010-11-17T21:05:55.251Z 32bit Amazon Linux running Tomcat 7
 -- SampleAppDescription SampleAppVersion 2010-11-17T20:17:42.339Z
 -- 7705f0bc-f28e-11df-8a78-9f77047e0d0c.
-module Network.AWS.ElasticBeanstalk
+module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     (
     -- * Request
       UpdateEnvironment

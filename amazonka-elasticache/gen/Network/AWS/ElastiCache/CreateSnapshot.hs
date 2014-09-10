@@ -26,7 +26,7 @@
 -- 2014-04-01T18:46:57.972Z 2.8.6 manual true wed:09:00-wed:10:00
 -- my-manual-snapshot 5 2014-04-01T18:46:57.972Z 0001 creating 1 07:30-08:30
 -- faf5a232-b9ce-11e3-8a16-7978bb24ffdf.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.CreateSnapshot
     (
     -- * Request
       CreateSnapshot

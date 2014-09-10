@@ -33,7 +33,7 @@
 -- "LastPostDateTime": { "S": "201303190436" }, "Message": { "S": "I want to
 -- update multiple items in a single API call. What's the best way to do
 -- that?" } } }.
-module Network.AWS.DynamoDB
+module Network.AWS.DynamoDB.GetItem
     (
     -- * Request
       GetItem

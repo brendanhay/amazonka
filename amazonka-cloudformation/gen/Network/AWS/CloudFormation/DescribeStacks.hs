@@ -26,7 +26,7 @@
 -- arn:aws:cloudformation:us-east-1:123456789:stack/MyStack/aaf549a0-a413-11df-adb3-5081b3858e83
 -- 2010-07-27T22:28:28Z CREATE_COMPLETE false StartPage
 -- http://my-load-balancer.amazonaws.com:80/index.html.
-module Network.AWS.CloudFormation
+module Network.AWS.CloudFormation.DescribeStacks
     (
     -- * Request
       DescribeStacks

@@ -22,7 +22,7 @@
 -- 2013-04-01/checkeripranges resource. You can use these IP addresses to
 -- configure router and firewall rules to allow health checkers to check the
 -- health of your resources.
-module Network.AWS.Route53
+module Network.AWS.Route53.GetCheckerIpRanges
     (
     -- * Request
       GetCheckerIpRanges

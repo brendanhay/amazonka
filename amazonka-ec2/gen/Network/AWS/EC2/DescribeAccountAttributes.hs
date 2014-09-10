@@ -65,7 +65,7 @@
 -- &lt;attributeValue&gt;none&lt;/attributeValue&gt; &lt;/item&gt;
 -- &lt;/attributeValueSet&gt; &lt;/item&gt; &lt;/accountAttributeSet&gt;
 -- &lt;/DescribeAccountAttributesResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeAccountAttributes
     (
     -- * Request
       DescribeAccountAttributes

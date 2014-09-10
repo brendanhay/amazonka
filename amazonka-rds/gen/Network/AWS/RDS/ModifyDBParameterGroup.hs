@@ -35,7 +35,7 @@
 -- &SignatureVersion=2 &SignatureMethod=HmacSHA256
 -- &Timestamp=2011-05-11T21%3A25%3A00.686Z &AWSAccessKeyId= &Signature=
 -- mydbparametergroup 5ba91f97-bf51-11de-bf60-ef2e377db6f3.
-module Network.AWS.RDS
+module Network.AWS.RDS.ModifyDBParameterGroup
     (
     -- * Request
       ModifyDBParameterGroup

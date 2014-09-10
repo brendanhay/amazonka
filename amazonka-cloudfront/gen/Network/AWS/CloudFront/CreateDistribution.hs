@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Create a new distribution.
-module Network.AWS.CloudFront
+module Network.AWS.CloudFront.CreateDistribution
     (
     -- * Request
       CreateDistribution

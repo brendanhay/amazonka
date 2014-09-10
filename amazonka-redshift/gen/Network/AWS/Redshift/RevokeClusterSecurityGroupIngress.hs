@@ -30,7 +30,7 @@
 -- &x-amz-date=20130123T021606Z
 -- &x-amz-signedheaders=content-type;host;x-amz-date my security group
 -- securitygroup1 d8eff363-6502-11e2-a8da-655adc216806.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
     (
     -- * Request
       RevokeClusterSecurityGroupIngress

@@ -39,7 +39,7 @@
 -- x-amzn-RequestId: 5551a7c9-ee5d-11e2-9542-25296c300ff0 Content-Type:
 -- application/x-amz-json-1.1 Content-Length: 0 Date: Tue, 16 Jul 2013
 -- 21:18:59 GMT.
-module Network.AWS.EMR
+module Network.AWS.EMR.TerminateJobFlows
     (
     -- * Request
       TerminateJobFlows

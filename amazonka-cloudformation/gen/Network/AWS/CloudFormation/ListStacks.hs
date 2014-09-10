@@ -34,7 +34,7 @@
 -- arn:aws:cloudformation:us-east-1:1234567:stack/TestDelete2/bbbbb
 -- DELETE_COMPLETE 2011-03-10T16:20:51Z WP1 2011-03-05T19:57:58Z A simple
 -- basic Cloudformation Template.
-module Network.AWS.CloudFormation
+module Network.AWS.CloudFormation.ListStacks
     (
     -- * Request
       ListStacks

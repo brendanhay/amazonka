@@ -31,7 +31,7 @@
 -- https://ec2.amazonaws.com/?Action=ReplaceRouteTableAssociation
 -- &amp;AssociationId=rtbassoc-f8ad4891 &amp;RouteTableId=rtb-f9ad4890
 -- &amp;AUTHPARAMS 59dbff89-35bd-4eac-99ed-be587EXAMPLE rtbassoc-faad4893.
-module Network.AWS.EC2
+module Network.AWS.EC2.ReplaceRouteTableAssociation
     (
     -- * Request
       ReplaceRouteTableAssociation

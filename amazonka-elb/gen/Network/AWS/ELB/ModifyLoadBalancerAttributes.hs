@@ -46,7 +46,7 @@
 -- &LoadBalancerAttributes.ConnectionSettings.IdleTimeout=30
 -- &Version=2012-06-01 &Action=ModifyLoadBalancerAttributes &AUTHPARAMS
 -- my-test-loadbalancer 30 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
-module Network.AWS.ELB
+module Network.AWS.ELB.ModifyLoadBalancerAttributes
     (
     -- * Request
       ModifyLoadBalancerAttributes

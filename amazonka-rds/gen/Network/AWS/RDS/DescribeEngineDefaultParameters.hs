@@ -31,7 +31,7 @@
 -- engine-default true Determines the starting point for the AUTO_INCREMENT
 -- column value dynamic 1-65535 auto_increment_offset
 -- 6c1341eb-a124-11df-bf5c-973b09643c5d.
-module Network.AWS.RDS
+module Network.AWS.RDS.DescribeEngineDefaultParameters
     (
     -- * Request
       DescribeEngineDefaultParameters

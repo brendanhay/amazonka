@@ -39,7 +39,7 @@
 -- &amp;Filter.1.Name=ip-address &amp;Filter.1.Value.1=12.1.2.3
 -- &amp;Filter.2.Name=state &amp;Filter.2.Value.1=pending
 -- &amp;Filter.2.Value.2=available &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeCustomerGateways
     (
     -- * Request
       DescribeCustomerGateways

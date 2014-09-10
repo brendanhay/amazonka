@@ -18,7 +18,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Starts the recording of AWS API calls and log file delivery for a trail.
-module Network.AWS.CloudTrail
+module Network.AWS.CloudTrail.StartLogging
     (
     -- * Request
       StartLogging

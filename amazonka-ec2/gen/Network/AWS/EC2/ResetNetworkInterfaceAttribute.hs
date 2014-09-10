@@ -27,7 +27,7 @@
 -- &lt;requestId&gt;5187642e-3f16-44a3-b05f-24c3848b5162&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/ResetNetworkInterfaceAttributeResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.ResetNetworkInterfaceAttribute
     (
     -- * Request
       ResetNetworkInterfaceAttribute

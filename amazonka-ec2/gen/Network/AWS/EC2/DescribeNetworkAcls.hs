@@ -28,7 +28,7 @@
 -- allow false 0.0.0.0/0 80 80 120 6 allow false 0.0.0.0/0 443 443 32767 all
 -- deny false 0.0.0.0/0 aclassoc-5c659635 acl-5d659634 subnet-ff669596
 -- aclassoc-c26596ab acl-5d659634 subnet-f0669599.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeNetworkAcls
     (
     -- * Request
       DescribeNetworkAcls

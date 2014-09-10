@@ -27,7 +27,7 @@
 -- CacheSubnetGroup myCachesubnetgroup Active subnet-7c5b4115 us-east-1c
 -- Active subnet-7b5b4112 us-east-1b Active subnet-3ea6bd57 us-east-1d
 -- ed662948-a57b-11df-9e38-7ffab86c801f.
-module Network.AWS.ElastiCache
+module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     (
     -- * Request
       CreateCacheSubnetGroup

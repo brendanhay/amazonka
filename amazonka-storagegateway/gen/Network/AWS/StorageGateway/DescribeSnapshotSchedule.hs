@@ -34,7 +34,7 @@
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB",
 -- "StartAt": 6, "RecurrenceInHours": 24, "Description":
 -- "sgw-AABB1122:vol-AABB1122:Schedule", "Timezone": "GMT+7:00" }.
-module Network.AWS.StorageGateway
+module Network.AWS.StorageGateway.DescribeSnapshotSchedule
     (
     -- * Request
       DescribeSnapshotSchedule

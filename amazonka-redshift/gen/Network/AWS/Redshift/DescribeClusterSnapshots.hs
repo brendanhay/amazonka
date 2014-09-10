@@ -32,7 +32,7 @@
 -- dw1.xlarge examplecluster adminuser 5439 my-snapshot-123 available manual
 -- 1.0 2013-01-23T01:09:03.149Z 2 dev 2013-01-22T19:23:59.368Z us-east-1c
 -- dw1.xlarge examplecluster adminuser 56a9daf4-64fa-11e2-a8da-655adc216806.
-module Network.AWS.Redshift
+module Network.AWS.Redshift.DescribeClusterSnapshots
     (
     -- * Request
       DescribeClusterSnapshots

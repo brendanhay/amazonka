@@ -32,7 +32,7 @@
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;associationId&gt;rtbassoc-f8ad4891&lt;/associationId&gt;
 -- &lt;/AssociateRouteTableResponse&gt;.
-module Network.AWS.EC2
+module Network.AWS.EC2.AssociateRouteTable
     (
     -- * Request
       AssociateRouteTable

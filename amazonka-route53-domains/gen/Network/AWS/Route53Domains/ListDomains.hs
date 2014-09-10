@@ -37,7 +37,7 @@
 -- "DomainName":"example.org", "Expiry":1431240024, "TransferLock":false }, {
 -- "AutoRenew":false, "DomainName":"example.test", "Expiry":1431539259,
 -- "TransferLock":false } ] }.
-module Network.AWS.Route53Domains
+module Network.AWS.Route53Domains.ListDomains
     (
     -- * Request
       ListDomains

@@ -46,7 +46,7 @@
 -- &lt;/CreatePlatformEndpointResult&gt; &lt;ResponseMetadata&gt;
 -- &lt;RequestId&gt;6613341d-3e15-53f7-bf3c-7e56994ba278&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/CreatePlatformEndpointResponse&gt;.
-module Network.AWS.SNS
+module Network.AWS.SNS.CreatePlatformEndpoint
     (
     -- * Request
       CreatePlatformEndpoint

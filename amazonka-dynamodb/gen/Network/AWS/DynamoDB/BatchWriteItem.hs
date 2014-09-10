@@ -66,7 +66,7 @@
 -- "Name": { "S": "Amazon ElastiCache" }, "Category": { "S": "Amazon Web
 -- Services" } } } } ] }, "ConsumedCapacity": [ { "TableName": "Forum",
 -- "CapacityUnits": 3 } ] }.
-module Network.AWS.DynamoDB
+module Network.AWS.DynamoDB.BatchWriteItem
     (
     -- * Request
       BatchWriteItem

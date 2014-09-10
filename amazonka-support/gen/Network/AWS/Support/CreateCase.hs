@@ -43,7 +43,7 @@
 -- attachments to an existing case, use AddCommunicationToCase. A successful
 -- CreateCase request returns an AWS Support case number. Case numbers are
 -- used by the DescribeCases operation to retrieve existing AWS Support cases.
-module Network.AWS.Support
+module Network.AWS.Support.CreateCase
     (
     -- * Request
       CreateCase

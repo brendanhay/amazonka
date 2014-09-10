@@ -28,7 +28,7 @@
 -- &Tags.member.1.Value=1.0 &Tags.member.1.PropagateAtLaunch=true
 -- &Version=2011-01-01 &Action=CreateOrUpdateTags &AUTHPARAMS
 -- b0203919-bf1b-11e2-8a01-13263EXAMPLE.
-module Network.AWS.AutoScaling
+module Network.AWS.AutoScaling.CreateOrUpdateTags
     (
     -- * Request
       CreateOrUpdateTags

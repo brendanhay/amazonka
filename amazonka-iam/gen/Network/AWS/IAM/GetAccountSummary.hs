@@ -26,7 +26,7 @@
 -- SigningCertificatesPerUserQuota 2 ServerCertificates 0
 -- ServerCertificatesQuota 10 AccountMFAEnabled 0 MFADevicesInUse 10
 -- MFADevices 20 f1e38443-f1ad-11df-b1ef-a9265EXAMPLE.
-module Network.AWS.IAM
+module Network.AWS.IAM.GetAccountSummary
     (
     -- * Request
       GetAccountSummary

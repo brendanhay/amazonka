@@ -56,7 +56,7 @@
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE snap-1a2b3c4d vol-1a2b3c4d pending
 -- YYYY-MM-DDTHH:MM:SS.SSSZ 30% 111122223333 15 Daily Backup Purpose
 -- demo_db_14_backup true.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeSnapshots
     (
     -- * Request
       DescribeSnapshots

@@ -26,7 +26,7 @@
 -- same account credentials as were used to create the load balancer. By
 -- design, if the load balancer does not exist or has already been deleted, a
 -- call to DeleteLoadBalancer action still succeeds.
-module Network.AWS.ELB
+module Network.AWS.ELB.DeleteLoadBalancer
     (
     -- * Request
       DeleteLoadBalancer

@@ -49,7 +49,7 @@
 -- 1356998399}, "closeStatusFilter": {"status": "TIMED_OUT"} } HTTP/1.1 200 OK
 -- Content-Length: 29 Content-Type: application/json x-amzn-RequestId:
 -- 9bfad387-3f22-11e1-9914-a356b6ea8bdf { "count":3, "truncated":false }.
-module Network.AWS.SWF
+module Network.AWS.SWF.CountClosedWorkflowExecutions
     (
     -- * Request
       CountClosedWorkflowExecutions

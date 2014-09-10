@@ -35,7 +35,7 @@
 -- ["Update","Multiple Items","HelpMe"] }, "Subject": { "S": "How do I update
 -- multiple items?" }, "Message": { "S": "I want to update multiple items in a
 -- single API call. What's the best way to do that?" } } }.
-module Network.AWS.DynamoDB
+module Network.AWS.DynamoDB.DeleteItem
     (
     -- * Request
       DeleteItem

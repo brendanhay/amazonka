@@ -29,7 +29,7 @@
 -- AWSAccessKeyId=AKIAIOSFODNN7EXAMPLE &Action=GetSendStatistics
 -- &Timestamp=2011-08-18T22%3A23%3A01.000Z 8 2011-08-03T19:23:00Z 0 0 0 7
 -- 2011-08-03T06:53:00Z 0 0 0 . . . . c2b66ee5-c866-11e0-b17f-cddb0ab334db.
-module Network.AWS.SES
+module Network.AWS.SES.GetSendStatistics
     (
     -- * Request
       GetSendStatistics

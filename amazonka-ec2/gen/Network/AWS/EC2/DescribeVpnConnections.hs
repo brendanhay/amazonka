@@ -44,7 +44,7 @@
 -- &amp;Filter.1.Name=customer-gateway-id &amp;Filter.1.Value.1=cgw-b4dc3961
 -- &amp;Filter.2.Name=state &amp;Filter.2.Value.1=pending
 -- &amp;Filter.2.Value.2=available &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.DescribeVpnConnections
     (
     -- * Request
       DescribeVpnConnections

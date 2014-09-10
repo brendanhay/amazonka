@@ -28,7 +28,7 @@
 -- to which it is associated.
 -- https://ec2.amazonaws.com/?Action=DisassociateAddress
 -- &amp;AssociationId=eipassoc-aa7486c3 &amp;AUTHPARAMS.
-module Network.AWS.EC2
+module Network.AWS.EC2.DisassociateAddress
     (
     -- * Request
       DisassociateAddress

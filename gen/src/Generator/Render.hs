@@ -106,10 +106,11 @@ render dir assets ss = do
         say "Create Src" src
         scriptIO (createDirectoryIfMissing True src)
 
+        write "Render Types" (rel (_svcNs ^. nsTypes)) t s
+
         forM_ _svcOperations $ \x ->
             write "Render Operation" (rel (_opNamespace x)) o x
 
-        write "Render Types"   (rel (_svcNs ^. nsTypes))   t s
         write "Render Root"    (rel (_svcNs ^. nsRoot))    tmplRoot s
         write "Render Monadic" (rel (_svcNs ^. nsMonadic)) tmplMonadic s
         write "Render Cabal"   (rel (lib <.> "cabal"))     tmplCabal s

@@ -12,16 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Auto Scaling allows you to scale your Amazon EC2 capacity up or down
--- automatically according to conditions you define. With Auto Scaling, you
--- can ensure that the number of Amazon EC2 instances you’re using increases
--- seamlessly during demand spikes to maintain performance, and decreases
--- automatically during demand lulls to minimize costs. Auto Scaling is
--- particularly well suited for applications that experience hourly, daily, or
--- weekly variability in usage. Auto Scaling is enabled by Amazon CloudWatch
--- and available at no additional charge beyond Amazon CloudWatch fees.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -43,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.AutoScaling.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.AutoScaling.Monadic
@@ -298,7 +293,7 @@ type ServiceEr = Er AutoScaling
 -- Scaling group. For more information, see Attach Amazon EC2 Instances to
 -- Your Existing Auto Scaling Group in the Auto Scaling Developer Guide.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.AttachInstances'
 
 attachInstances :: ( MonadCatch m
                    , MonadResource m
@@ -307,7 +302,6 @@ attachInstances :: ( MonadCatch m
                    )
     => List1 Text -- ^ 'aiInstanceIds'
     -> Text -- ^ 'aiAutoScalingGroupName'
-    -> State AttachInstances a
     -> m AttachInstancesResponse
 attachInstances p1 p2 s =
     send $ (mkAttachInstances p1 p2) &~ s
@@ -318,7 +312,6 @@ attachInstancesCatch :: ( MonadCatch m
                         )
     => List1 Text -- ^ 'aiInstanceIds'
     -> Text -- ^ 'aiAutoScalingGroupName'
-    -> State AttachInstances a
     -> m (Either ServiceEr AttachInstancesResponse)
 attachInstancesCatch p1 p2 s =
     sendCatch $ (mkAttachInstances p1 p2) &~ s
@@ -336,7 +329,7 @@ attachInstancesCatch p1 p2 s =
 -- lifecycle action. To learn more, see Auto Scaling Pending State and Auto
 -- Scaling Terminating State.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.CompleteLifecycleAction'
 
 completeLifecycleAction :: ( MonadCatch m
                            , MonadResource m
@@ -347,7 +340,6 @@ completeLifecycleAction :: ( MonadCatch m
     -> Text -- ^ 'claAutoScalingGroupName'
     -> Text -- ^ 'claLifecycleActionToken'
     -> Text -- ^ 'claLifecycleActionResult'
-    -> State CompleteLifecycleAction a
     -> m CompleteLifecycleActionResponse
 completeLifecycleAction p1 p2 p3 p4 s =
     send $ (mkCompleteLifecycleAction p1 p2 p3 p4) &~ s
@@ -360,7 +352,6 @@ completeLifecycleActionCatch :: ( MonadCatch m
     -> Text -- ^ 'claAutoScalingGroupName'
     -> Text -- ^ 'claLifecycleActionToken'
     -> Text -- ^ 'claLifecycleActionResult'
-    -> State CompleteLifecycleAction a
     -> m (Either ServiceEr CompleteLifecycleActionResponse)
 completeLifecycleActionCatch p1 p2 p3 p4 s =
     sendCatch $ (mkCompleteLifecycleAction p1 p2 p3 p4) &~ s
@@ -379,7 +370,7 @@ completeLifecycleActionCatch p1 p2 p3 p4 s =
 -- &Action=CreateAutoScalingGroup &AUTHPARAMS
 -- 8d798a29-f083-11e1-bdfb-cb223EXAMPLE.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.CreateAutoScalingGroup'
 
 createAutoScalingGroup :: ( MonadCatch m
                           , MonadResource m
@@ -389,7 +380,6 @@ createAutoScalingGroup :: ( MonadCatch m
     => Text -- ^ 'casgAutoScalingGroupName'
     -> Integer -- ^ 'casgMinSize'
     -> Integer -- ^ 'casgMaxSize'
-    -> State CreateAutoScalingGroup a
     -> m CreateAutoScalingGroupResponse
 createAutoScalingGroup p1 p4 p5 s =
     send $ (mkCreateAutoScalingGroup p1 p4 p5) &~ s
@@ -401,7 +391,6 @@ createAutoScalingGroupCatch :: ( MonadCatch m
     => Text -- ^ 'casgAutoScalingGroupName'
     -> Integer -- ^ 'casgMinSize'
     -> Integer -- ^ 'casgMaxSize'
-    -> State CreateAutoScalingGroup a
     -> m (Either ServiceEr CreateAutoScalingGroupResponse)
 createAutoScalingGroupCatch p1 p4 p5 s =
     sendCatch $ (mkCreateAutoScalingGroup p1 p4 p5) &~ s
@@ -418,7 +407,7 @@ createAutoScalingGroupCatch p1 p4 p5 s =
 -- &Action=CreateLaunchConfiguration &AUTHPARAMS
 -- 7c6e177f-f082-11e1-ac58-3714bEXAMPLE.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.CreateLaunchConfiguration'
 
 createLaunchConfiguration :: ( MonadCatch m
                              , MonadResource m
@@ -426,7 +415,6 @@ createLaunchConfiguration :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'clcLaunchConfigurationName'
-    -> State CreateLaunchConfiguration a
     -> m CreateLaunchConfigurationResponse
 createLaunchConfiguration p1 s =
     send $ (mkCreateLaunchConfiguration p1) &~ s
@@ -436,7 +424,6 @@ createLaunchConfigurationCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => Text -- ^ 'clcLaunchConfigurationName'
-    -> State CreateLaunchConfiguration a
     -> m (Either ServiceEr CreateLaunchConfigurationResponse)
 createLaunchConfigurationCatch p1 s =
     sendCatch $ (mkCreateLaunchConfiguration p1) &~ s
@@ -454,7 +441,7 @@ createLaunchConfigurationCatch p1 s =
 -- &Version=2011-01-01 &Action=CreateOrUpdateTags &AUTHPARAMS
 -- b0203919-bf1b-11e2-8a01-13263EXAMPLE.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.CreateOrUpdateTags'
 
 createOrUpdateTags :: ( MonadCatch m
                       , MonadResource m
@@ -462,7 +449,6 @@ createOrUpdateTags :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => [Tag] -- ^ 'coutTags'
-    -> State CreateOrUpdateTags a
     -> m CreateOrUpdateTagsResponse
 createOrUpdateTags p1 s =
     send $ (mkCreateOrUpdateTags p1) &~ s
@@ -472,7 +458,6 @@ createOrUpdateTagsCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => [Tag] -- ^ 'coutTags'
-    -> State CreateOrUpdateTags a
     -> m (Either ServiceEr CreateOrUpdateTagsResponse)
 createOrUpdateTagsCatch p1 s =
     sendCatch $ (mkCreateOrUpdateTags p1) &~ s
@@ -486,7 +471,7 @@ createOrUpdateTagsCatch p1 s =
 -- &ForceDelete=true &Version=2011-01-01 &Action=DeleteAutoScalingGroup
 -- &AUTHPARAMS 70a76d42-9665-11e2-9fdf-211deEXAMPLE.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DeleteAutoScalingGroup'
 
 deleteAutoScalingGroup :: ( MonadCatch m
                           , MonadResource m
@@ -494,7 +479,6 @@ deleteAutoScalingGroup :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'dasgAutoScalingGroupName'
-    -> State DeleteAutoScalingGroup a
     -> m DeleteAutoScalingGroupResponse
 deleteAutoScalingGroup p1 s =
     send $ (mkDeleteAutoScalingGroup p1) &~ s
@@ -504,7 +488,6 @@ deleteAutoScalingGroupCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'dasgAutoScalingGroupName'
-    -> State DeleteAutoScalingGroup a
     -> m (Either ServiceEr DeleteAutoScalingGroupResponse)
 deleteAutoScalingGroupCatch p1 s =
     sendCatch $ (mkDeleteAutoScalingGroup p1) &~ s
@@ -517,7 +500,7 @@ deleteAutoScalingGroupCatch p1 s =
 -- &Version=2011-01-01 &Action=DeleteLaunchConfiguration &AUTHPARAMS
 -- 7347261f-97df-11e2-8756-35eEXAMPLE.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DeleteLaunchConfiguration'
 
 deleteLaunchConfiguration :: ( MonadCatch m
                              , MonadResource m
@@ -525,7 +508,6 @@ deleteLaunchConfiguration :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'dlcLaunchConfigurationName'
-    -> State DeleteLaunchConfiguration a
     -> m DeleteLaunchConfigurationResponse
 deleteLaunchConfiguration p1 s =
     send $ (mkDeleteLaunchConfiguration p1) &~ s
@@ -535,7 +517,6 @@ deleteLaunchConfigurationCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => Text -- ^ 'dlcLaunchConfigurationName'
-    -> State DeleteLaunchConfiguration a
     -> m (Either ServiceEr DeleteLaunchConfigurationResponse)
 deleteLaunchConfigurationCatch p1 s =
     sendCatch $ (mkDeleteLaunchConfiguration p1) &~ s
@@ -545,7 +526,7 @@ deleteLaunchConfigurationCatch p1 s =
 -- lifecycle actions, they are completed first (ABANDON for launching
 -- instances, CONTINUE for terminating instances).
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DeleteLifecycleHook'
 
 deleteLifecycleHook :: ( MonadCatch m
                        , MonadResource m
@@ -554,7 +535,6 @@ deleteLifecycleHook :: ( MonadCatch m
                        )
     => Text -- ^ 'dlhLifecycleHookName'
     -> Text -- ^ 'dlhAutoScalingGroupName'
-    -> State DeleteLifecycleHook a
     -> m DeleteLifecycleHookResponse
 deleteLifecycleHook p1 p2 s =
     send $ (mkDeleteLifecycleHook p1 p2) &~ s
@@ -565,7 +545,6 @@ deleteLifecycleHookCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'dlhLifecycleHookName'
     -> Text -- ^ 'dlhAutoScalingGroupName'
-    -> State DeleteLifecycleHook a
     -> m (Either ServiceEr DeleteLifecycleHookResponse)
 deleteLifecycleHookCatch p1 p2 s =
     sendCatch $ (mkDeleteLifecycleHook p1 p2) &~ s
@@ -573,7 +552,7 @@ deleteLifecycleHookCatch p1 p2 s =
 -- $DeleteNotificationConfiguration
 -- Deletes notifications created by PutNotificationConfiguration.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DeleteNotificationConfiguration'
 
 deleteNotificationConfiguration :: ( MonadCatch m
                                    , MonadResource m
@@ -582,7 +561,6 @@ deleteNotificationConfiguration :: ( MonadCatch m
                                    )
     => Text -- ^ 'dncAutoScalingGroupName'
     -> Text -- ^ 'dncTopicARN'
-    -> State DeleteNotificationConfiguration a
     -> m DeleteNotificationConfigurationResponse
 deleteNotificationConfiguration p1 p2 s =
     send $ (mkDeleteNotificationConfiguration p1 p2) &~ s
@@ -593,7 +571,6 @@ deleteNotificationConfigurationCatch :: ( MonadCatch m
                                         )
     => Text -- ^ 'dncAutoScalingGroupName'
     -> Text -- ^ 'dncTopicARN'
-    -> State DeleteNotificationConfiguration a
     -> m (Either ServiceEr DeleteNotificationConfigurationResponse)
 deleteNotificationConfigurationCatch p1 p2 s =
     sendCatch $ (mkDeleteNotificationConfiguration p1 p2) &~ s
@@ -601,7 +578,7 @@ deleteNotificationConfigurationCatch p1 p2 s =
 -- $DeletePolicy
 -- Deletes a policy created by PutScalingPolicy.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DeletePolicy'
 
 deletePolicy :: ( MonadCatch m
                 , MonadResource m
@@ -609,7 +586,6 @@ deletePolicy :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => Text -- ^ 'dpPolicyName'
-    -> State DeletePolicy a
     -> m DeletePolicyResponse
 deletePolicy p2 s =
     send $ (mkDeletePolicy p2) &~ s
@@ -619,7 +595,6 @@ deletePolicyCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'dpPolicyName'
-    -> State DeletePolicy a
     -> m (Either ServiceEr DeletePolicyResponse)
 deletePolicyCatch p2 s =
     sendCatch $ (mkDeletePolicy p2) &~ s
@@ -628,7 +603,7 @@ deletePolicyCatch p2 s =
 -- Deletes a scheduled action previously created using the
 -- PutScheduledUpdateGroupAction.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DeleteScheduledAction'
 
 deleteScheduledAction :: ( MonadCatch m
                          , MonadResource m
@@ -636,7 +611,6 @@ deleteScheduledAction :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'dsaScheduledActionName'
-    -> State DeleteScheduledAction a
     -> m DeleteScheduledActionResponse
 deleteScheduledAction p2 s =
     send $ (mkDeleteScheduledAction p2) &~ s
@@ -646,7 +620,6 @@ deleteScheduledActionCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'dsaScheduledActionName'
-    -> State DeleteScheduledAction a
     -> m (Either ServiceEr DeleteScheduledActionResponse)
 deleteScheduledActionCatch p2 s =
     sendCatch $ (mkDeleteScheduledAction p2) &~ s
@@ -654,7 +627,7 @@ deleteScheduledActionCatch p2 s =
 -- $DeleteTags
 -- Removes the specified tags or a set of tags from a set of resources.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DeleteTags'
 
 deleteTags :: ( MonadCatch m
               , MonadResource m
@@ -662,7 +635,6 @@ deleteTags :: ( MonadCatch m
               , MonadReader Env m
               )
     => [Tag] -- ^ 'dtTags'
-    -> State DeleteTags a
     -> m DeleteTagsResponse
 deleteTags p1 s =
     send $ (mkDeleteTags p1) &~ s
@@ -672,7 +644,6 @@ deleteTagsCatch :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => [Tag] -- ^ 'dtTags'
-    -> State DeleteTags a
     -> m (Either ServiceEr DeleteTagsResponse)
 deleteTagsCatch p1 s =
     sendCatch $ (mkDeleteTags p1) &~ s
@@ -688,7 +659,7 @@ deleteTagsCatch p1 s =
 -- &Action=DescribeAccountLimits &AUTHPARAMS 100 20
 -- a32bd184-519d-11e3-a8a4-c1c467cbcc3b.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DescribeAccountLimits'
 
 describeAccountLimits :: ( MonadCatch m
                          , MonadResource m
@@ -715,7 +686,7 @@ describeAccountLimitsCatch s =
 -- &Action=DescribeAdjustmentTypes &AUTHPARAMS ChangeInCapacity ExactCapacity
 -- PercentChangeInCapacity cc5f0337-b694-11e2-afc0-6544dEXAMPLE.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DescribeAdjustmentTypes'
 
 describeAdjustmentTypes :: ( MonadCatch m
                            , MonadResource m
@@ -751,7 +722,7 @@ describeAdjustmentTypesCatch s =
 -- :autoScalingGroupName/my-test-asg-lbs Default 10
 -- 0f02a07d-b677-11e2-9eb0-dd50EXAMPLE.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DescribeAutoScalingGroups'
 
 describeAutoScalingGroups :: ( MonadCatch m
                              , MonadResource m
@@ -785,7 +756,7 @@ describeAutoScalingGroupsCatch s =
 -- us-east-1e i-78e0d40b my-test-lc InService
 -- df992dc3-b72f-11e2-81e1-750aa6EXAMPLE.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DescribeAutoScalingInstances'
 
 describeAutoScalingInstances :: ( MonadCatch m
                                 , MonadResource m
@@ -810,7 +781,7 @@ describeAutoScalingInstancesCatch s =
 -- Returns a list of all notification types that are supported by Auto
 -- Scaling.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes'
 
 describeAutoScalingNotificationTypes :: ( MonadCatch m
                                         , MonadResource m
@@ -842,7 +813,7 @@ describeAutoScalingNotificationTypesCatch s =
 -- 9dbbbf87-6141-428a-a409-0752edbe6cad:launchConfigurationName/my-test-lc
 -- ami-514ac838 true false d05a22f8-b690-11e2-bf8e-2113fEXAMPLE.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DescribeLaunchConfigurations'
 
 describeLaunchConfigurations :: ( MonadCatch m
                                 , MonadResource m
@@ -866,7 +837,7 @@ describeLaunchConfigurationsCatch s =
 -- $DescribeLifecycleHookTypes
 -- Describes the available types of lifecycle hooks.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DescribeLifecycleHookTypes'
 
 describeLifecycleHookTypes :: ( MonadCatch m
                               , MonadResource m
@@ -891,7 +862,7 @@ describeLifecycleHookTypesCatch s =
 -- Describes the lifecycle hooks that currently belong to the specified Auto
 -- Scaling group.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DescribeLifecycleHooks'
 
 describeLifecycleHooks :: ( MonadCatch m
                           , MonadResource m
@@ -899,7 +870,6 @@ describeLifecycleHooks :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'dlh1AutoScalingGroupName'
-    -> State DescribeLifecycleHooks a
     -> m DescribeLifecycleHooksResponse
 describeLifecycleHooks p1 s =
     send $ (mkDescribeLifecycleHooks p1) &~ s
@@ -909,7 +879,6 @@ describeLifecycleHooksCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'dlh1AutoScalingGroupName'
-    -> State DescribeLifecycleHooks a
     -> m (Either ServiceEr DescribeLifecycleHooksResponse)
 describeLifecycleHooksCatch p1 s =
     sendCatch $ (mkDescribeLifecycleHooks p1) &~ s
@@ -925,7 +894,7 @@ describeLifecycleHooksCatch p1 s =
 -- not returned by default. You must explicitly request it when calling
 -- EnableMetricsCollection.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DescribeMetricCollectionTypes'
 
 describeMetricCollectionTypes :: ( MonadCatch m
                                  , MonadResource m
@@ -950,7 +919,7 @@ describeMetricCollectionTypesCatch s =
 -- Returns a list of notification actions associated with Auto Scaling groups
 -- for specified events.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DescribeNotificationConfigurations'
 
 describeNotificationConfigurations :: ( MonadCatch m
                                       , MonadResource m
@@ -987,7 +956,7 @@ describeNotificationConfigurationsCatch s =
 -- arn:aws:cloudwatch:us-east-1:803981987763:alarm:TestQueue
 -- ec3bffad-b739-11e2-b38d-15fbEXAMPLE.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DescribePolicies'
 
 describePolicies :: ( MonadCatch m
                     , MonadResource m
@@ -1028,7 +997,7 @@ describePoliciesCatch s =
 -- image id 'ami-4edb0327' does not exist. Launching EC2 instance failed.
 -- 7a641adc-84c5-11e1-a8a5-217ebEXAMPLE.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DescribeScalingActivities'
 
 describeScalingActivities :: ( MonadCatch m
                              , MonadResource m
@@ -1057,7 +1026,7 @@ describeScalingActivitiesCatch s =
 -- AddToLoadBalancer AlarmNotification HealthCheck Launch ReplaceUnhealthy
 -- ScheduledActions Terminate 27f2eacc-b73f-11e2-ad99-c7aba3a9c963.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DescribeScalingProcessTypes'
 
 describeScalingProcessTypes :: ( MonadCatch m
                                , MonadResource m
@@ -1083,7 +1052,7 @@ describeScalingProcessTypesCatch s =
 -- been executed. To see a list of actions already executed, see the activity
 -- record returned in DescribeScalingActivities.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DescribeScheduledActions'
 
 describeScheduledActions :: ( MonadCatch m
                             , MonadResource m
@@ -1116,7 +1085,7 @@ describeScheduledActionsCatch s =
 -- &AUTHPARAMS my-test-asg true 1.0 version auto-scaling-group
 -- 086265fd-bf3e-11e2-85fc-fbb1EXAMPLE.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DescribeTags'
 
 describeTags :: ( MonadCatch m
                 , MonadResource m
@@ -1144,7 +1113,7 @@ describeTagsCatch s =
 -- ClosestToNextInstanceHour Default NewestInstance OldestInstance
 -- OldestLaunchConfiguration d9a05827-b735-11e2-a40c-c79a5EXAMPLE.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DescribeTerminationPolicyTypes'
 
 describeTerminationPolicyTypes :: ( MonadCatch m
                                   , MonadResource m
@@ -1179,7 +1148,7 @@ describeTerminationPolicyTypesCatch s =
 -- Zone":"us-east-1a"} Detaching EC2 instance: i-5f2e8a0d
 -- e04f3b11-f357-11e3-a434-7f10009d5849.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DetachInstances'
 
 detachInstances :: ( MonadCatch m
                    , MonadResource m
@@ -1188,7 +1157,6 @@ detachInstances :: ( MonadCatch m
                    )
     => Text -- ^ 'diAutoScalingGroupName'
     -> Bool -- ^ 'diShouldDecrementDesiredCapacity'
-    -> State DetachInstances a
     -> m DetachInstancesResponse
 detachInstances p2 p3 s =
     send $ (mkDetachInstances p2 p3) &~ s
@@ -1199,7 +1167,6 @@ detachInstancesCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'diAutoScalingGroupName'
     -> Bool -- ^ 'diShouldDecrementDesiredCapacity'
-    -> State DetachInstances a
     -> m (Either ServiceEr DetachInstancesResponse)
 detachInstancesCatch p2 p3 s =
     sendCatch $ (mkDetachInstances p2 p3) &~ s
@@ -1209,7 +1176,7 @@ detachInstancesCatch p2 p3 s =
 -- in AutoScalingGroupName. You can specify the list of affected metrics with
 -- the Metrics parameter.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.DisableMetricsCollection'
 
 disableMetricsCollection :: ( MonadCatch m
                             , MonadResource m
@@ -1217,7 +1184,6 @@ disableMetricsCollection :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'dmcAutoScalingGroupName'
-    -> State DisableMetricsCollection a
     -> m DisableMetricsCollectionResponse
 disableMetricsCollection p1 s =
     send $ (mkDisableMetricsCollection p1) &~ s
@@ -1227,7 +1193,6 @@ disableMetricsCollectionCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'dmcAutoScalingGroupName'
-    -> State DisableMetricsCollection a
     -> m (Either ServiceEr DisableMetricsCollectionResponse)
 disableMetricsCollectionCatch p1 s =
     sendCatch $ (mkDisableMetricsCollection p1) &~ s
@@ -1239,7 +1204,7 @@ disableMetricsCollectionCatch p1 s =
 -- the InstanceMonitoring flag, in the Auto Scaling group's launch
 -- configuration, is set to True.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.EnableMetricsCollection'
 
 enableMetricsCollection :: ( MonadCatch m
                            , MonadResource m
@@ -1248,7 +1213,6 @@ enableMetricsCollection :: ( MonadCatch m
                            )
     => Text -- ^ 'emcAutoScalingGroupName'
     -> Text -- ^ 'emcGranularity'
-    -> State EnableMetricsCollection a
     -> m EnableMetricsCollectionResponse
 enableMetricsCollection p1 p3 s =
     send $ (mkEnableMetricsCollection p1 p3) &~ s
@@ -1259,7 +1223,6 @@ enableMetricsCollectionCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'emcAutoScalingGroupName'
     -> Text -- ^ 'emcGranularity'
-    -> State EnableMetricsCollection a
     -> m (Either ServiceEr EnableMetricsCollectionResponse)
 enableMetricsCollectionCatch p1 p3 s =
     sendCatch $ (mkEnableMetricsCollection p1 p3) &~ s
@@ -1277,7 +1240,7 @@ enableMetricsCollectionCatch p1 p3 s =
 -- {"Availability Zone":"us-east-1a"} Moving EC2 instance to Standby:
 -- i-5b73d709 126f2f31-f34b-11e3-bc51-b35178f0274f.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.EnterStandby'
 
 enterStandby :: ( MonadCatch m
                 , MonadResource m
@@ -1286,7 +1249,6 @@ enterStandby :: ( MonadCatch m
                 )
     => Text -- ^ 'esAutoScalingGroupName'
     -> Bool -- ^ 'esShouldDecrementDesiredCapacity'
-    -> State EnterStandby a
     -> m EnterStandbyResponse
 enterStandby p2 p3 s =
     send $ (mkEnterStandby p2 p3) &~ s
@@ -1297,7 +1259,6 @@ enterStandbyCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'esAutoScalingGroupName'
     -> Bool -- ^ 'esShouldDecrementDesiredCapacity'
-    -> State EnterStandby a
     -> m (Either ServiceEr EnterStandbyResponse)
 enterStandbyCatch p2 p3 s =
     sendCatch $ (mkEnterStandby p2 p3) &~ s
@@ -1305,7 +1266,7 @@ enterStandbyCatch p2 p3 s =
 -- $ExecutePolicy
 -- Executes the specified policy.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.ExecutePolicy'
 
 executePolicy :: ( MonadCatch m
                  , MonadResource m
@@ -1313,7 +1274,6 @@ executePolicy :: ( MonadCatch m
                  , MonadReader Env m
                  )
     => Text -- ^ 'epPolicyName'
-    -> State ExecutePolicy a
     -> m ExecutePolicyResponse
 executePolicy p2 s =
     send $ (mkExecutePolicy p2) &~ s
@@ -1323,7 +1283,6 @@ executePolicyCatch :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'epPolicyName'
-    -> State ExecutePolicy a
     -> m (Either ServiceEr ExecutePolicyResponse)
 executePolicyCatch p2 s =
     sendCatch $ (mkExecutePolicy p2) &~ s
@@ -1340,7 +1299,7 @@ executePolicyCatch p2 s =
 -- from 3 to 4. my-asg {"Availability Zone":"us-east-1a"} Moving EC2 instance
 -- out of Standby: i-5b73d709 321a11c8-f34c-11e3-a434-7f10009d5849.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.ExitStandby'
 
 exitStandby :: ( MonadCatch m
                , MonadResource m
@@ -1348,7 +1307,6 @@ exitStandby :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'es1AutoScalingGroupName'
-    -> State ExitStandby a
     -> m ExitStandbyResponse
 exitStandby p2 s =
     send $ (mkExitStandby p2) &~ s
@@ -1358,7 +1316,6 @@ exitStandbyCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'es1AutoScalingGroupName'
-    -> State ExitStandby a
     -> m (Either ServiceEr ExitStandbyResponse)
 exitStandbyCatch p2 s =
     sendCatch $ (mkExitStandby p2) &~ s
@@ -1384,7 +1341,7 @@ exitStandbyCatch p2 s =
 -- 01-01&Action=PutLifecycleHook&SignatureVersion=2&SignatureMethod=HmacSHA256&Timestamp=2014-06-17T17%3A30%3A36.125Z&AUTHPARAMS
 -- 1952f458-f645-11e3-bc51-b35178f0274f.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.PutLifecycleHook'
 
 putLifecycleHook :: ( MonadCatch m
                     , MonadResource m
@@ -1393,7 +1350,6 @@ putLifecycleHook :: ( MonadCatch m
                     )
     => Text -- ^ 'plhLifecycleHookName'
     -> Text -- ^ 'plhAutoScalingGroupName'
-    -> State PutLifecycleHook a
     -> m PutLifecycleHookResponse
 putLifecycleHook p1 p2 s =
     send $ (mkPutLifecycleHook p1 p2) &~ s
@@ -1404,7 +1360,6 @@ putLifecycleHookCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'plhLifecycleHookName'
     -> Text -- ^ 'plhAutoScalingGroupName'
-    -> State PutLifecycleHook a
     -> m (Either ServiceEr PutLifecycleHookResponse)
 putLifecycleHookCatch p1 p2 s =
     sendCatch $ (mkPutLifecycleHook p1 p2) &~ s
@@ -1417,7 +1372,7 @@ putLifecycleHookCatch p1 p2 s =
 -- Changes A new PutNotificationConfiguration overwrites an existing
 -- configuration.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.PutNotificationConfiguration'
 
 putNotificationConfiguration :: ( MonadCatch m
                                 , MonadResource m
@@ -1427,7 +1382,6 @@ putNotificationConfiguration :: ( MonadCatch m
     => Text -- ^ 'pncAutoScalingGroupName'
     -> Text -- ^ 'pncTopicARN'
     -> [Text] -- ^ 'pncNotificationTypes'
-    -> State PutNotificationConfiguration a
     -> m PutNotificationConfigurationResponse
 putNotificationConfiguration p1 p2 p3 s =
     send $ (mkPutNotificationConfiguration p1 p2 p3) &~ s
@@ -1439,7 +1393,6 @@ putNotificationConfigurationCatch :: ( MonadCatch m
     => Text -- ^ 'pncAutoScalingGroupName'
     -> Text -- ^ 'pncTopicARN'
     -> [Text] -- ^ 'pncNotificationTypes'
-    -> State PutNotificationConfiguration a
     -> m (Either ServiceEr PutNotificationConfigurationResponse)
 putNotificationConfigurationCatch p1 p2 p3 s =
     sendCatch $ (mkPutNotificationConfiguration p1 p2 p3) &~ s
@@ -1457,7 +1410,7 @@ putNotificationConfigurationCatch p1 p2 p3 s =
 -- -02e6-4e31-9719-0675d0dc31ae:autoScalingGroupName/my-test-asg:policyName/my-scal
 -- eout-policy 3cfc6fef-c08b-11e2-a697-2922EXAMPLE.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.PutScalingPolicy'
 
 putScalingPolicy :: ( MonadCatch m
                     , MonadResource m
@@ -1468,7 +1421,6 @@ putScalingPolicy :: ( MonadCatch m
     -> Text -- ^ 'pspPolicyName'
     -> Integer -- ^ 'pspScalingAdjustment'
     -> Text -- ^ 'pspAdjustmentType'
-    -> State PutScalingPolicy a
     -> m PutScalingPolicyResponse
 putScalingPolicy p1 p2 p3 p4 s =
     send $ (mkPutScalingPolicy p1 p2 p3 p4) &~ s
@@ -1481,7 +1433,6 @@ putScalingPolicyCatch :: ( MonadCatch m
     -> Text -- ^ 'pspPolicyName'
     -> Integer -- ^ 'pspScalingAdjustment'
     -> Text -- ^ 'pspAdjustmentType'
-    -> State PutScalingPolicy a
     -> m (Either ServiceEr PutScalingPolicyResponse)
 putScalingPolicyCatch p1 p2 p3 p4 s =
     sendCatch $ (mkPutScalingPolicy p1 p2 p3 p4) &~ s
@@ -1505,7 +1456,7 @@ putScalingPolicyCatch p1 p2 p3 p4 s =
 -- &Action=PutScheduledUpdateGroupAction &AUTHPARAMS
 -- 3bc8c9bc-6a62-11e2-8a51-4b8a1EXAMPLE.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.PutScheduledUpdateGroupAction'
 
 putScheduledUpdateGroupAction :: ( MonadCatch m
                                  , MonadResource m
@@ -1514,7 +1465,6 @@ putScheduledUpdateGroupAction :: ( MonadCatch m
                                  )
     => Text -- ^ 'psugaAutoScalingGroupName'
     -> Text -- ^ 'psugaScheduledActionName'
-    -> State PutScheduledUpdateGroupAction a
     -> m PutScheduledUpdateGroupActionResponse
 putScheduledUpdateGroupAction p1 p2 s =
     send $ (mkPutScheduledUpdateGroupAction p1 p2) &~ s
@@ -1525,7 +1475,6 @@ putScheduledUpdateGroupActionCatch :: ( MonadCatch m
                                       )
     => Text -- ^ 'psugaAutoScalingGroupName'
     -> Text -- ^ 'psugaScheduledActionName'
-    -> State PutScheduledUpdateGroupAction a
     -> m (Either ServiceEr PutScheduledUpdateGroupActionResponse)
 putScheduledUpdateGroupActionCatch p1 p2 s =
     sendCatch $ (mkPutScheduledUpdateGroupAction p1 p2) &~ s
@@ -1544,7 +1493,7 @@ putScheduledUpdateGroupActionCatch p1 p2 s =
 -- state. Complete the lifecycle action. To learn more, see Auto Scaling
 -- Pending State and Auto Scaling Terminating State.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat'
 
 recordLifecycleActionHeartbeat :: ( MonadCatch m
                                   , MonadResource m
@@ -1554,7 +1503,6 @@ recordLifecycleActionHeartbeat :: ( MonadCatch m
     => Text -- ^ 'rlahLifecycleHookName'
     -> Text -- ^ 'rlahAutoScalingGroupName'
     -> Text -- ^ 'rlahLifecycleActionToken'
-    -> State RecordLifecycleActionHeartbeat a
     -> m RecordLifecycleActionHeartbeatResponse
 recordLifecycleActionHeartbeat p1 p2 p3 s =
     send $ (mkRecordLifecycleActionHeartbeat p1 p2 p3) &~ s
@@ -1566,7 +1514,6 @@ recordLifecycleActionHeartbeatCatch :: ( MonadCatch m
     => Text -- ^ 'rlahLifecycleHookName'
     -> Text -- ^ 'rlahAutoScalingGroupName'
     -> Text -- ^ 'rlahLifecycleActionToken'
-    -> State RecordLifecycleActionHeartbeat a
     -> m (Either ServiceEr RecordLifecycleActionHeartbeatResponse)
 recordLifecycleActionHeartbeatCatch p1 p2 p3 s =
     sendCatch $ (mkRecordLifecycleActionHeartbeat p1 p2 p3) &~ s
@@ -1576,7 +1523,7 @@ recordLifecycleActionHeartbeatCatch p1 p2 p3 s =
 -- information on suspending and resuming Auto Scaling process, see Suspend
 -- and Resume Auto Scaling Process.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.ResumeProcesses'
 
 resumeProcesses :: ( MonadCatch m
                    , MonadResource m
@@ -1584,7 +1531,6 @@ resumeProcesses :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'rpAutoScalingGroupName'
-    -> State ResumeProcesses a
     -> m ResumeProcessesResponse
 resumeProcesses p1 s =
     send $ (mkResumeProcesses p1) &~ s
@@ -1594,7 +1540,6 @@ resumeProcessesCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'rpAutoScalingGroupName'
-    -> State ResumeProcesses a
     -> m (Either ServiceEr ResumeProcessesResponse)
 resumeProcessesCatch p1 s =
     sendCatch $ (mkResumeProcesses p1) &~ s
@@ -1606,7 +1551,7 @@ resumeProcessesCatch p1 s =
 -- &Action=SetDesiredCapacity &AUTHPARAMS
 -- 9fb7e2db-6998-11e2-a985-57c82EXAMPLE.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.SetDesiredCapacity'
 
 setDesiredCapacity :: ( MonadCatch m
                       , MonadResource m
@@ -1615,7 +1560,6 @@ setDesiredCapacity :: ( MonadCatch m
                       )
     => Text -- ^ 'sdcAutoScalingGroupName'
     -> Integer -- ^ 'sdcDesiredCapacity'
-    -> State SetDesiredCapacity a
     -> m SetDesiredCapacityResponse
 setDesiredCapacity p1 p2 s =
     send $ (mkSetDesiredCapacity p1 p2) &~ s
@@ -1626,7 +1570,6 @@ setDesiredCapacityCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'sdcAutoScalingGroupName'
     -> Integer -- ^ 'sdcDesiredCapacity'
-    -> State SetDesiredCapacity a
     -> m (Either ServiceEr SetDesiredCapacityResponse)
 setDesiredCapacityCatch p1 p2 s =
     sendCatch $ (mkSetDesiredCapacity p1 p2) &~ s
@@ -1636,7 +1579,7 @@ setDesiredCapacityCatch p1 p2 s =
 -- Auto Scaling groups. For more information, see Configure Health Checks for
 -- Your Auto Scaling group.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.SetInstanceHealth'
 
 setInstanceHealth :: ( MonadCatch m
                      , MonadResource m
@@ -1645,7 +1588,6 @@ setInstanceHealth :: ( MonadCatch m
                      )
     => Text -- ^ 'sihInstanceId'
     -> Text -- ^ 'sihHealthStatus'
-    -> State SetInstanceHealth a
     -> m SetInstanceHealthResponse
 setInstanceHealth p1 p2 s =
     send $ (mkSetInstanceHealth p1 p2) &~ s
@@ -1656,7 +1598,6 @@ setInstanceHealthCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'sihInstanceId'
     -> Text -- ^ 'sihHealthStatus'
-    -> State SetInstanceHealth a
     -> m (Either ServiceEr SetInstanceHealthResponse)
 setInstanceHealthCatch p1 p2 s =
     sendCatch $ (mkSetInstanceHealth p1 p2) &~ s
@@ -1671,7 +1612,7 @@ setInstanceHealthCatch p1 p2 s =
 -- ResumeProcesses For more information on suspending and resuming Auto
 -- Scaling process, see Suspend and Resume Auto Scaling Process.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.SuspendProcesses'
 
 suspendProcesses :: ( MonadCatch m
                     , MonadResource m
@@ -1679,7 +1620,6 @@ suspendProcesses :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'sp1AutoScalingGroupName'
-    -> State SuspendProcesses a
     -> m SuspendProcessesResponse
 suspendProcesses p1 s =
     send $ (mkSuspendProcesses p1) &~ s
@@ -1689,7 +1629,6 @@ suspendProcessesCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'sp1AutoScalingGroupName'
-    -> State SuspendProcesses a
     -> m (Either ServiceEr SuspendProcessesResponse)
 suspendProcessesCatch p1 s =
     sendCatch $ (mkSuspendProcesses p1) &~ s
@@ -1699,7 +1638,7 @@ suspendProcessesCatch p1 s =
 -- be adjusted. This call simply registers a termination request. The
 -- termination of the instance cannot happen immediately.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup'
 
 terminateInstanceInAutoScalingGroup :: ( MonadCatch m
                                        , MonadResource m
@@ -1708,7 +1647,6 @@ terminateInstanceInAutoScalingGroup :: ( MonadCatch m
                                        )
     => Text -- ^ 'tiiasgInstanceId'
     -> Bool -- ^ 'tiiasgShouldDecrementDesiredCapacity'
-    -> State TerminateInstanceInAutoScalingGroup a
     -> m TerminateInstanceInAutoScalingGroupResponse
 terminateInstanceInAutoScalingGroup p1 p2 s =
     send $ (mkTerminateInstanceInAutoScalingGroup p1 p2) &~ s
@@ -1719,7 +1657,6 @@ terminateInstanceInAutoScalingGroupCatch :: ( MonadCatch m
                                             )
     => Text -- ^ 'tiiasgInstanceId'
     -> Bool -- ^ 'tiiasgShouldDecrementDesiredCapacity'
-    -> State TerminateInstanceInAutoScalingGroup a
     -> m (Either ServiceEr TerminateInstanceInAutoScalingGroupResponse)
 terminateInstanceInAutoScalingGroupCatch p1 p2 s =
     sendCatch $ (mkTerminateInstanceInAutoScalingGroup p1 p2) &~ s
@@ -1756,7 +1693,7 @@ terminateInstanceInAutoScalingGroupCatch p1 p2 s =
 -- &Action=UpdateAutoScalingGroup &AUTHPARAMS
 -- adafead0-ab8a-11e2-ba13-ab0ccEXAMPLE.
 --
--- See: 'Network.AWS.AutoScaling'
+-- See: 'Network.AWS.AutoScaling.UpdateAutoScalingGroup'
 
 updateAutoScalingGroup :: ( MonadCatch m
                           , MonadResource m
@@ -1764,7 +1701,6 @@ updateAutoScalingGroup :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'uasgAutoScalingGroupName'
-    -> State UpdateAutoScalingGroup a
     -> m UpdateAutoScalingGroupResponse
 updateAutoScalingGroup p1 s =
     send $ (mkUpdateAutoScalingGroup p1) &~ s
@@ -1774,7 +1710,6 @@ updateAutoScalingGroupCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'uasgAutoScalingGroupName'
-    -> State UpdateAutoScalingGroup a
     -> m (Either ServiceEr UpdateAutoScalingGroupResponse)
 updateAutoScalingGroupCatch p1 s =
     sendCatch $ (mkUpdateAutoScalingGroup p1) &~ s

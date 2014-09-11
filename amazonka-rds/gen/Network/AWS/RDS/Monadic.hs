@@ -12,13 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Amazon Relational Database Service (Amazon RDS) is a web service that makes
--- it easy to set up, operate, and scale a relational database in the cloud.
--- It provides cost-efficient and resizable capacity while managing
--- time-consuming database administration tasks, freeing you up to focus on
--- your applications and business.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -40,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.RDS.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.RDS.Monadic
@@ -338,7 +336,7 @@ type ServiceEr = Er RDS
 -- error/mysql-error-running.log.9 0 1364405700000 error/mysql-error.log 0
 -- d70fb3b3-9704-11e2-a0db-871552e0ef19.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DownloadDBLogFilePortion'
 
 downloadDBLogFilePortion :: ( MonadCatch m
                             , MonadResource m
@@ -347,7 +345,6 @@ downloadDBLogFilePortion :: ( MonadCatch m
                             )
     => Text -- ^ 'ddblfpDBInstanceIdentifier'
     -> Text -- ^ 'ddblfpLogFileName'
-    -> State DownloadDBLogFilePortion a
     -> ResumableSource m DownloadDBLogFilePortionResponse
 downloadDBLogFilePortion p1 p2 s =
     paginate $ (mkDownloadDBLogFilePortion p1 p2) &~ s
@@ -358,7 +355,6 @@ downloadDBLogFilePortionCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'ddblfpDBInstanceIdentifier'
     -> Text -- ^ 'ddblfpLogFileName'
-    -> State DownloadDBLogFilePortion a
     -> ResumableSource m (Either ServiceEr DownloadDBLogFilePortionResponse)
 downloadDBLogFilePortionCatch p1 p2 s =
     paginateCatch $ (mkDownloadDBLogFilePortion p1 p2) &~ s
@@ -375,7 +371,7 @@ downloadDBLogFilePortionCatch p1 p2 s =
 -- arn:aws:sns:us-east-1:012345678901:EventSubscription01
 -- 05d0fd8a-68e8-11e2-8e4d-31f087d822e1.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.AddSourceIdentifierToSubscription'
 
 addSourceIdentifierToSubscription :: ( MonadCatch m
                                      , MonadResource m
@@ -384,7 +380,6 @@ addSourceIdentifierToSubscription :: ( MonadCatch m
                                      )
     => Text -- ^ 'asitsSubscriptionName'
     -> Text -- ^ 'asitsSourceIdentifier'
-    -> State AddSourceIdentifierToSubscription a
     -> m AddSourceIdentifierToSubscriptionResponse
 addSourceIdentifierToSubscription p1 p2 s =
     send $ (mkAddSourceIdentifierToSubscription p1 p2) &~ s
@@ -395,7 +390,6 @@ addSourceIdentifierToSubscriptionCatch :: ( MonadCatch m
                                           )
     => Text -- ^ 'asitsSubscriptionName'
     -> Text -- ^ 'asitsSourceIdentifier'
-    -> State AddSourceIdentifierToSubscription a
     -> m (Either ServiceEr AddSourceIdentifierToSubscriptionResponse)
 addSourceIdentifierToSubscriptionCatch p1 p2 s =
     sendCatch $ (mkAddSourceIdentifierToSubscription p1 p2) &~ s
@@ -407,7 +401,7 @@ addSourceIdentifierToSubscriptionCatch p1 p2 s =
 -- an overview on tagging Amazon RDS resources, see Tagging Amazon RDS
 -- Resources.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.AddTagsToResource'
 
 addTagsToResource :: ( MonadCatch m
                      , MonadResource m
@@ -416,7 +410,6 @@ addTagsToResource :: ( MonadCatch m
                      )
     => Text -- ^ 'attrResourceName'
     -> [Tag] -- ^ 'attrTags'
-    -> State AddTagsToResource a
     -> m AddTagsToResourceResponse
 addTagsToResource p1 p2 s =
     send $ (mkAddTagsToResource p1 p2) &~ s
@@ -427,7 +420,6 @@ addTagsToResourceCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'attrResourceName'
     -> [Tag] -- ^ 'attrTags'
-    -> State AddTagsToResource a
     -> m (Either ServiceEr AddTagsToResourceResponse)
 addTagsToResourceCatch p1 p2 s =
     sendCatch $ (mkAddTagsToResource p1 p2) &~ s
@@ -452,7 +444,7 @@ addTagsToResourceCatch p1 p2 s =
 -- authorizing 621567473609 mydbsecuritygroup vpc-1ab2c3d4
 -- d9799197-bf2d-11de-b88d-993294bf1c81.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.AuthorizeDBSecurityGroupIngress'
 
 authorizeDBSecurityGroupIngress :: ( MonadCatch m
                                    , MonadResource m
@@ -460,7 +452,6 @@ authorizeDBSecurityGroupIngress :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => Text -- ^ 'adbsgiDBSecurityGroupName'
-    -> State AuthorizeDBSecurityGroupIngress a
     -> m AuthorizeDBSecurityGroupIngressResponse
 authorizeDBSecurityGroupIngress p1 s =
     send $ (mkAuthorizeDBSecurityGroupIngress p1) &~ s
@@ -470,7 +461,6 @@ authorizeDBSecurityGroupIngressCatch :: ( MonadCatch m
                                         , MonadReader Env m
                                         )
     => Text -- ^ 'adbsgiDBSecurityGroupName'
-    -> State AuthorizeDBSecurityGroupIngress a
     -> m (Either ServiceEr AuthorizeDBSecurityGroupIngressResponse)
 authorizeDBSecurityGroupIngressCatch p1 s =
     sendCatch $ (mkAuthorizeDBSecurityGroupIngress p1) &~ s
@@ -486,7 +476,7 @@ authorizeDBSecurityGroupIngressCatch p1 s =
 -- 10 simcoprod01 5.1.50 mydbsnapshot manual master
 -- c4181d1d-8505-11e0-90aa-eb648410240d.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.CopyDBSnapshot'
 
 copyDBSnapshot :: ( MonadCatch m
                   , MonadResource m
@@ -495,7 +485,6 @@ copyDBSnapshot :: ( MonadCatch m
                   )
     => Text -- ^ 'cdbsSourceDBSnapshotIdentifier'
     -> Text -- ^ 'cdbsTargetDBSnapshotIdentifier'
-    -> State CopyDBSnapshot a
     -> m CopyDBSnapshotResponse
 copyDBSnapshot p1 p2 s =
     send $ (mkCopyDBSnapshot p1 p2) &~ s
@@ -506,7 +495,6 @@ copyDBSnapshotCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'cdbsSourceDBSnapshotIdentifier'
     -> Text -- ^ 'cdbsTargetDBSnapshotIdentifier'
-    -> State CopyDBSnapshot a
     -> m (Either ServiceEr CopyDBSnapshotResponse)
 copyDBSnapshotCatch p1 p2 s =
     sendCatch $ (mkCopyDBSnapshot p1 p2) &~ s
@@ -525,7 +513,7 @@ copyDBSnapshotCatch p1 p2 s =
 -- default 00:00-00:30 true sat:07:30-sat:08:00 10 db.m1.large master
 -- 2e5d4270-8501-11e0-bd9b-a7b1ece36d51.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.CreateDBInstance'
 
 createDBInstance :: ( MonadCatch m
                     , MonadResource m
@@ -538,7 +526,6 @@ createDBInstance :: ( MonadCatch m
     -> Text -- ^ 'cdbiEngine'
     -> Text -- ^ 'cdbiMasterUsername'
     -> Text -- ^ 'cdbiMasterUserPassword'
-    -> State CreateDBInstance a
     -> m CreateDBInstanceResponse
 createDBInstance p2 p3 p4 p5 p6 p7 s =
     send $ (mkCreateDBInstance p2 p3 p4 p5 p6 p7) &~ s
@@ -553,7 +540,6 @@ createDBInstanceCatch :: ( MonadCatch m
     -> Text -- ^ 'cdbiEngine'
     -> Text -- ^ 'cdbiMasterUsername'
     -> Text -- ^ 'cdbiMasterUserPassword'
-    -> State CreateDBInstance a
     -> m (Either ServiceEr CreateDBInstanceResponse)
 createDBInstanceCatch p2 p3 p4 p5 p6 p7 s =
     sendCatch $ (mkCreateDBInstance p2 p3 p4 p5 p6 p7) &~ s
@@ -574,7 +560,7 @@ createDBInstanceCatch p2 p3 p4 p5 p6 p7 s =
 -- sun:05:00-sun:09:00 10 db.m1.small master
 -- 3e24c5cd-c6e2-11df-8463-4f0c49644cb7.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.CreateDBInstanceReadReplica'
 
 createDBInstanceReadReplica :: ( MonadCatch m
                                , MonadResource m
@@ -583,7 +569,6 @@ createDBInstanceReadReplica :: ( MonadCatch m
                                )
     => Text -- ^ 'cdbirrDBInstanceIdentifier'
     -> Text -- ^ 'cdbirrSourceDBInstanceIdentifier'
-    -> State CreateDBInstanceReadReplica a
     -> m CreateDBInstanceReadReplicaResponse
 createDBInstanceReadReplica p1 p2 s =
     send $ (mkCreateDBInstanceReadReplica p1 p2) &~ s
@@ -594,7 +579,6 @@ createDBInstanceReadReplicaCatch :: ( MonadCatch m
                                     )
     => Text -- ^ 'cdbirrDBInstanceIdentifier'
     -> Text -- ^ 'cdbirrSourceDBInstanceIdentifier'
-    -> State CreateDBInstanceReadReplica a
     -> m (Either ServiceEr CreateDBInstanceReadReplicaResponse)
 createDBInstanceReadReplicaCatch p1 p2 s =
     sendCatch $ (mkCreateDBInstanceReadReplica p1 p2) &~ s
@@ -616,7 +600,7 @@ createDBInstanceReadReplicaCatch p1 p2 s =
 -- mysql5.1 My new DBParameterGroup mydbparametergroup3
 -- 0b447b66-bf36-11de-a88b-7b5b3d23b3a7.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.CreateDBParameterGroup'
 
 createDBParameterGroup :: ( MonadCatch m
                           , MonadResource m
@@ -626,7 +610,6 @@ createDBParameterGroup :: ( MonadCatch m
     => Text -- ^ 'cdbpgDBParameterGroupName'
     -> Text -- ^ 'cdbpgDBParameterGroupFamily'
     -> Text -- ^ 'cdbpgDescription'
-    -> State CreateDBParameterGroup a
     -> m CreateDBParameterGroupResponse
 createDBParameterGroup p1 p2 p3 s =
     send $ (mkCreateDBParameterGroup p1 p2 p3) &~ s
@@ -638,7 +621,6 @@ createDBParameterGroupCatch :: ( MonadCatch m
     => Text -- ^ 'cdbpgDBParameterGroupName'
     -> Text -- ^ 'cdbpgDBParameterGroupFamily'
     -> Text -- ^ 'cdbpgDescription'
-    -> State CreateDBParameterGroup a
     -> m (Either ServiceEr CreateDBParameterGroupResponse)
 createDBParameterGroupCatch p1 p2 p3 s =
     sendCatch $ (mkCreateDBParameterGroup p1 p2 p3) &~ s
@@ -653,7 +635,7 @@ createDBParameterGroupCatch p1 p2 p3 s =
 -- &AWSAccessKeyId= &Signature= My new DBSecurityGroup 565419523791
 -- mydbsecuritygroup vpc-1a2b3c4d ed662948-a57b-11df-9e38-7ffab86c801f.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.CreateDBSecurityGroup'
 
 createDBSecurityGroup :: ( MonadCatch m
                          , MonadResource m
@@ -662,7 +644,6 @@ createDBSecurityGroup :: ( MonadCatch m
                          )
     => Text -- ^ 'cdbsgDBSecurityGroupName'
     -> Text -- ^ 'cdbsgDBSecurityGroupDescription'
-    -> State CreateDBSecurityGroup a
     -> m CreateDBSecurityGroupResponse
 createDBSecurityGroup p1 p2 s =
     send $ (mkCreateDBSecurityGroup p1 p2) &~ s
@@ -673,7 +654,6 @@ createDBSecurityGroupCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'cdbsgDBSecurityGroupName'
     -> Text -- ^ 'cdbsgDBSecurityGroupDescription'
-    -> State CreateDBSecurityGroup a
     -> m (Either ServiceEr CreateDBSecurityGroupResponse)
 createDBSecurityGroupCatch p1 p2 s =
     sendCatch $ (mkCreateDBSecurityGroup p1 p2) &~ s
@@ -688,7 +668,7 @@ createDBSecurityGroupCatch p1 p2 s =
 -- 10 simcoprod01 5.1.50 mydbsnapshot manual master
 -- c4181d1d-8505-11e0-90aa-eb648410240d.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.CreateDBSnapshot'
 
 createDBSnapshot :: ( MonadCatch m
                     , MonadResource m
@@ -697,7 +677,6 @@ createDBSnapshot :: ( MonadCatch m
                     )
     => Text -- ^ 'cdbs1DBSnapshotIdentifier'
     -> Text -- ^ 'cdbs1DBInstanceIdentifier'
-    -> State CreateDBSnapshot a
     -> m CreateDBSnapshotResponse
 createDBSnapshot p1 p2 s =
     send $ (mkCreateDBSnapshot p1 p2) &~ s
@@ -708,7 +687,6 @@ createDBSnapshotCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'cdbs1DBSnapshotIdentifier'
     -> Text -- ^ 'cdbs1DBInstanceIdentifier'
-    -> State CreateDBSnapshot a
     -> m (Either ServiceEr CreateDBSnapshotResponse)
 createDBSnapshotCatch p1 p2 s =
     sendCatch $ (mkCreateDBSnapshot p1 p2) &~ s
@@ -724,7 +702,7 @@ createDBSnapshotCatch p1 p2 s =
 -- subnet-7c5b4115 us-east-1c Active subnet-7b5b4112 us-east-1b Active
 -- subnet-3ea6bd57 us-east-1d ed662948-a57b-11df-9e38-7ffab86c801f.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.CreateDBSubnetGroup'
 
 createDBSubnetGroup :: ( MonadCatch m
                        , MonadResource m
@@ -734,7 +712,6 @@ createDBSubnetGroup :: ( MonadCatch m
     => Text -- ^ 'cdbsg1DBSubnetGroupName'
     -> Text -- ^ 'cdbsg1DBSubnetGroupDescription'
     -> [Text] -- ^ 'cdbsg1SubnetIds'
-    -> State CreateDBSubnetGroup a
     -> m CreateDBSubnetGroupResponse
 createDBSubnetGroup p1 p2 p3 s =
     send $ (mkCreateDBSubnetGroup p1 p2 p3) &~ s
@@ -746,7 +723,6 @@ createDBSubnetGroupCatch :: ( MonadCatch m
     => Text -- ^ 'cdbsg1DBSubnetGroupName'
     -> Text -- ^ 'cdbsg1DBSubnetGroupDescription'
     -> [Text] -- ^ 'cdbsg1SubnetIds'
-    -> State CreateDBSubnetGroup a
     -> m (Either ServiceEr CreateDBSubnetGroupResponse)
 createDBSubnetGroupCatch p1 p2 p3 s =
     sendCatch $ (mkCreateDBSubnetGroup p1 p2 p3) &~ s
@@ -789,7 +765,7 @@ createDBSubnetGroupCatch p1 p2 p3 s =
 -- arn:aws:sns:us-east-1:012345678901:EventSubscription01
 -- d064b48c-68eb-11e2-ab10-11125abcb784.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.CreateEventSubscription'
 
 createEventSubscription :: ( MonadCatch m
                            , MonadResource m
@@ -798,7 +774,6 @@ createEventSubscription :: ( MonadCatch m
                            )
     => Text -- ^ 'cesSubscriptionName'
     -> Text -- ^ 'cesSnsTopicArn'
-    -> State CreateEventSubscription a
     -> m CreateEventSubscriptionResponse
 createEventSubscription p1 p2 s =
     send $ (mkCreateEventSubscription p1 p2) &~ s
@@ -809,7 +784,6 @@ createEventSubscriptionCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'cesSubscriptionName'
     -> Text -- ^ 'cesSnsTopicArn'
-    -> State CreateEventSubscription a
     -> m (Either ServiceEr CreateEventSubscriptionResponse)
 createEventSubscriptionCatch p1 p2 s =
     sendCatch $ (mkCreateEventSubscription p1 p2) &~ s
@@ -822,7 +796,7 @@ createEventSubscriptionCatch p1 p2 s =
 -- myoptiongroup oracle-se1 Test option group
 -- b2416a8a-84c9-11e1-a264-0b23c28bc344.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.CreateOptionGroup'
 
 createOptionGroup :: ( MonadCatch m
                      , MonadResource m
@@ -833,7 +807,6 @@ createOptionGroup :: ( MonadCatch m
     -> Text -- ^ 'cogEngineName'
     -> Text -- ^ 'cogMajorEngineVersion'
     -> Text -- ^ 'cogOptionGroupDescription'
-    -> State CreateOptionGroup a
     -> m CreateOptionGroupResponse
 createOptionGroup p1 p2 p3 p4 s =
     send $ (mkCreateOptionGroup p1 p2 p3 p4) &~ s
@@ -846,7 +819,6 @@ createOptionGroupCatch :: ( MonadCatch m
     -> Text -- ^ 'cogEngineName'
     -> Text -- ^ 'cogMajorEngineVersion'
     -> Text -- ^ 'cogOptionGroupDescription'
-    -> State CreateOptionGroup a
     -> m (Either ServiceEr CreateOptionGroupResponse)
 createOptionGroupCatch p1 p2 p3 p4 s =
     sendCatch $ (mkCreateOptionGroup p1 p2 p3 p4) &~ s
@@ -871,7 +843,7 @@ createOptionGroupCatch p1 p2 p3 p4 s =
 -- true sat:07:30-sat:08:00 us-east-1d 2011-05-23T06:52:48.255Z 10 db.m1.large
 -- master 03ea4ae8-850d-11e0-90aa-eb648410240d.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DeleteDBInstance'
 
 deleteDBInstance :: ( MonadCatch m
                     , MonadResource m
@@ -879,7 +851,6 @@ deleteDBInstance :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'ddbiDBInstanceIdentifier'
-    -> State DeleteDBInstance a
     -> m DeleteDBInstanceResponse
 deleteDBInstance p1 s =
     send $ (mkDeleteDBInstance p1) &~ s
@@ -889,7 +860,6 @@ deleteDBInstanceCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'ddbiDBInstanceIdentifier'
-    -> State DeleteDBInstance a
     -> m (Either ServiceEr DeleteDBInstanceResponse)
 deleteDBInstanceCatch p1 s =
     sendCatch $ (mkDeleteDBInstance p1) &~ s
@@ -904,7 +874,7 @@ deleteDBInstanceCatch p1 s =
 -- &Timestamp=2011-05-11T18%3A47%3A08.851Z &AWSAccessKeyId= &Signature=
 -- 4dc38be9-bf3b-11de-a88b-7b5b3d23b3a7.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DeleteDBParameterGroup'
 
 deleteDBParameterGroup :: ( MonadCatch m
                           , MonadResource m
@@ -912,7 +882,6 @@ deleteDBParameterGroup :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'ddbpgDBParameterGroupName'
-    -> State DeleteDBParameterGroup a
     -> m DeleteDBParameterGroupResponse
 deleteDBParameterGroup p1 s =
     send $ (mkDeleteDBParameterGroup p1) &~ s
@@ -922,7 +891,6 @@ deleteDBParameterGroupCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'ddbpgDBParameterGroupName'
-    -> State DeleteDBParameterGroup a
     -> m (Either ServiceEr DeleteDBParameterGroupResponse)
 deleteDBParameterGroupCatch p1 s =
     sendCatch $ (mkDeleteDBParameterGroup p1) &~ s
@@ -935,7 +903,7 @@ deleteDBParameterGroupCatch p1 s =
 -- &Timestamp=2011-02-15T17%3A48%3A21.746Z &AWSAccessKeyId= &Signature=
 -- 5d013245-4172-11df-8520-e7e1e602a915.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DeleteDBSecurityGroup'
 
 deleteDBSecurityGroup :: ( MonadCatch m
                          , MonadResource m
@@ -943,7 +911,6 @@ deleteDBSecurityGroup :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'ddbsgDBSecurityGroupName'
-    -> State DeleteDBSecurityGroup a
     -> m DeleteDBSecurityGroupResponse
 deleteDBSecurityGroup p1 s =
     send $ (mkDeleteDBSecurityGroup p1) &~ s
@@ -953,7 +920,6 @@ deleteDBSecurityGroupCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'ddbsgDBSecurityGroupName'
-    -> State DeleteDBSecurityGroup a
     -> m (Either ServiceEr DeleteDBSecurityGroupResponse)
 deleteDBSecurityGroupCatch p1 s =
     sendCatch $ (mkDeleteDBSecurityGroup p1) &~ s
@@ -968,7 +934,7 @@ deleteDBSecurityGroupCatch p1 s =
 -- 2010-07-16T00:06:59.107Z 60 simcoprod01 5.1.47 mysnapshot2 manual master
 -- 627a43a1-8507-11e0-bd9b-a7b1ece36d51.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DeleteDBSnapshot'
 
 deleteDBSnapshot :: ( MonadCatch m
                     , MonadResource m
@@ -976,7 +942,6 @@ deleteDBSnapshot :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'ddbsDBSnapshotIdentifier'
-    -> State DeleteDBSnapshot a
     -> m DeleteDBSnapshotResponse
 deleteDBSnapshot p1 s =
     send $ (mkDeleteDBSnapshot p1) &~ s
@@ -986,7 +951,6 @@ deleteDBSnapshotCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'ddbsDBSnapshotIdentifier'
-    -> State DeleteDBSnapshot a
     -> m (Either ServiceEr DeleteDBSnapshotResponse)
 deleteDBSnapshotCatch p1 s =
     sendCatch $ (mkDeleteDBSnapshot p1) &~ s
@@ -999,7 +963,7 @@ deleteDBSnapshotCatch p1 s =
 -- &Timestamp=2011-02-15T17%3A48%3A21.746Z &AWSAccessKeyId= &Signature=
 -- 5d013245-4172-11df-8520-e7e1e602a915.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DeleteDBSubnetGroup'
 
 deleteDBSubnetGroup :: ( MonadCatch m
                        , MonadResource m
@@ -1007,7 +971,6 @@ deleteDBSubnetGroup :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'ddbsg1DBSubnetGroupName'
-    -> State DeleteDBSubnetGroup a
     -> m DeleteDBSubnetGroupResponse
 deleteDBSubnetGroup p1 s =
     send $ (mkDeleteDBSubnetGroup p1) &~ s
@@ -1017,7 +980,6 @@ deleteDBSubnetGroupCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'ddbsg1DBSubnetGroupName'
-    -> State DeleteDBSubnetGroup a
     -> m (Either ServiceEr DeleteDBSubnetGroupResponse)
 deleteDBSubnetGroupCatch p1 s =
     sendCatch $ (mkDeleteDBSubnetGroup p1) &~ s
@@ -1032,7 +994,7 @@ deleteDBSubnetGroupCatch p1 s =
 -- arn:aws:sns:us-east-1:012345678901:EventSubscription01
 -- e7cf30ac-68e9-11e2-bd13-a92da73b3119.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DeleteEventSubscription'
 
 deleteEventSubscription :: ( MonadCatch m
                            , MonadResource m
@@ -1040,7 +1002,6 @@ deleteEventSubscription :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'desSubscriptionName'
-    -> State DeleteEventSubscription a
     -> m DeleteEventSubscriptionResponse
 deleteEventSubscription p1 s =
     send $ (mkDeleteEventSubscription p1) &~ s
@@ -1050,7 +1011,6 @@ deleteEventSubscriptionCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'desSubscriptionName'
-    -> State DeleteEventSubscription a
     -> m (Either ServiceEr DeleteEventSubscriptionResponse)
 deleteEventSubscriptionCatch p1 s =
     sendCatch $ (mkDeleteEventSubscription p1) &~ s
@@ -1059,7 +1019,7 @@ deleteEventSubscriptionCatch p1 s =
 -- Deletes an existing option group. https://rds.amazonaws.com/
 -- ?Action=DeleteOptionGroup &OptionGroupName=myoptiongroup.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DeleteOptionGroup'
 
 deleteOptionGroup :: ( MonadCatch m
                      , MonadResource m
@@ -1067,7 +1027,6 @@ deleteOptionGroup :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'dogOptionGroupName'
-    -> State DeleteOptionGroup a
     -> m DeleteOptionGroupResponse
 deleteOptionGroup p1 s =
     send $ (mkDeleteOptionGroup p1) &~ s
@@ -1077,7 +1036,6 @@ deleteOptionGroupCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'dogOptionGroupName'
-    -> State DeleteOptionGroup a
     -> m (Either ServiceEr DeleteOptionGroupResponse)
 deleteOptionGroupCatch p1 s =
     sendCatch $ (mkDeleteOptionGroup p1) &~ s
@@ -1113,7 +1071,7 @@ deleteOptionGroupCatch p1 s =
 -- SE1 release AL32UTF8 Unicode 5.0 UTF-8 Universal character set
 -- 1162dc55-850f-11e0-90aa-eb648410240d.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DescribeDBEngineVersions'
 
 describeDBEngineVersions :: ( MonadCatch m
                             , MonadResource m
@@ -1146,7 +1104,7 @@ describeDBEngineVersionsCatch s =
 -- us-east-1a 2011-05-23T06:06:43.110Z 10 default.mysql5.1 in-sync db.m1.large
 -- master 9135fff3-8509-11e0-bd9b-a7b1ece36d51.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DescribeDBInstances'
 
 describeDBInstances :: ( MonadCatch m
                        , MonadResource m
@@ -1182,7 +1140,7 @@ describeDBInstancesCatch s =
 -- error/mysql-error-running.log.3 0 1364405700000 error/mysql-error.log 0
 -- d70fb3b3-9704-11e2-a0db-871552e0ef19.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DescribeDBLogFiles'
 
 describeDBLogFiles :: ( MonadCatch m
                       , MonadResource m
@@ -1190,7 +1148,6 @@ describeDBLogFiles :: ( MonadCatch m
                       , MonadReader Env (ResumableSource m)
                       )
     => Text -- ^ 'ddblfDBInstanceIdentifier'
-    -> State DescribeDBLogFiles a
     -> ResumableSource m DescribeDBLogFilesResponse
 describeDBLogFiles p1 s =
     paginate $ (mkDescribeDBLogFiles p1) &~ s
@@ -1200,7 +1157,6 @@ describeDBLogFilesCatch :: ( MonadCatch m
                            , MonadReader Env (ResumableSource m)
                            )
     => Text -- ^ 'ddblfDBInstanceIdentifier'
-    -> State DescribeDBLogFiles a
     -> ResumableSource m (Either ServiceEr DescribeDBLogFilesResponse)
 describeDBLogFilesCatch p1 s =
     paginateCatch $ (mkDescribeDBLogFiles p1) &~ s
@@ -1216,7 +1172,7 @@ describeDBLogFilesCatch p1 s =
 -- default.mysql5.1 mysql5.1 My DB Param Group testdbparamgroup
 -- cb8d9bb4-a02a-11df-bd60-c955b7d6e8e0.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DescribeDBParameterGroups'
 
 describeDBParameterGroups :: ( MonadCatch m
                              , MonadResource m
@@ -1249,7 +1205,7 @@ describeDBParameterGroupsCatch s =
 -- 4096-9223372036854775807 binlog_cache_size
 -- 8743f2cf-bf41-11de-8c8e-49155882c409.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DescribeDBParameters'
 
 describeDBParameters :: ( MonadCatch m
                         , MonadResource m
@@ -1257,7 +1213,6 @@ describeDBParameters :: ( MonadCatch m
                         , MonadReader Env (ResumableSource m)
                         )
     => Text -- ^ 'ddbpDBParameterGroupName'
-    -> State DescribeDBParameters a
     -> ResumableSource m DescribeDBParametersResponse
 describeDBParameters p1 s =
     paginate $ (mkDescribeDBParameters p1) &~ s
@@ -1267,7 +1222,6 @@ describeDBParametersCatch :: ( MonadCatch m
                              , MonadReader Env (ResumableSource m)
                              )
     => Text -- ^ 'ddbpDBParameterGroupName'
-    -> State DescribeDBParameters a
     -> ResumableSource m (Either ServiceEr DescribeDBParametersResponse)
 describeDBParametersCatch p1 s =
     paginateCatch $ (mkDescribeDBParameters p1) &~ s
@@ -1284,7 +1238,7 @@ describeDBParametersCatch p1 s =
 -- vpc-1ab2c3d5 My new DBSecurityGroup 621567473609 mydbsecuritygroup4
 -- vpc-1ab2c3d6 bbdad154-bf42-11de-86a4-97241dfaadff.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DescribeDBSecurityGroups'
 
 describeDBSecurityGroups :: ( MonadCatch m
                             , MonadResource m
@@ -1320,7 +1274,7 @@ describeDBSecurityGroupsCatch s =
 -- rds:simcoprod01-2012-04-02-00-01 automated master myoptiongroupname
 -- c4191173-8506-11e0-90aa-eb648410240d.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DescribeDBSnapshots'
 
 describeDBSnapshots :: ( MonadCatch m
                        , MonadResource m
@@ -1354,7 +1308,7 @@ describeDBSnapshotsCatch s =
 -- Active subnet-7c5b4115 us-east-1c Active subnet-7b5b4112 us-east-1b Active
 -- subnet-3ea6bd57 us-east-1d 31d0faee-229b-11e1-81f1-df3a2a803dad.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DescribeDBSubnetGroups'
 
 describeDBSubnetGroups :: ( MonadCatch m
                           , MonadResource m
@@ -1391,7 +1345,7 @@ describeDBSubnetGroupsCatch s =
 -- column value dynamic 1-65535 auto_increment_offset
 -- 6c1341eb-a124-11df-bf5c-973b09643c5d.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DescribeEngineDefaultParameters'
 
 describeEngineDefaultParameters :: ( MonadCatch m
                                    , MonadResource m
@@ -1399,7 +1353,6 @@ describeEngineDefaultParameters :: ( MonadCatch m
                                    , MonadReader Env (ResumableSource m)
                                    )
     => Text -- ^ 'dedpDBParameterGroupFamily'
-    -> State DescribeEngineDefaultParameters a
     -> ResumableSource m DescribeEngineDefaultParametersResponse
 describeEngineDefaultParameters p1 s =
     paginate $ (mkDescribeEngineDefaultParameters p1) &~ s
@@ -1409,7 +1362,6 @@ describeEngineDefaultParametersCatch :: ( MonadCatch m
                                         , MonadReader Env (ResumableSource m)
                                         )
     => Text -- ^ 'dedpDBParameterGroupFamily'
-    -> State DescribeEngineDefaultParameters a
     -> ResumableSource m (Either ServiceEr DescribeEngineDefaultParametersResponse)
 describeEngineDefaultParametersCatch p1 s =
     paginateCatch $ (mkDescribeEngineDefaultParameters p1) &~ s
@@ -1425,7 +1377,7 @@ describeEngineDefaultParametersCatch p1 s =
 -- restoration deletion configuration change failover availability creation
 -- backup notification ea3bf54b-68ea-11e2-bd13-a92da73b3119.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DescribeEventCategories'
 
 describeEventCategories :: ( MonadCatch m
                            , MonadResource m
@@ -1460,7 +1412,7 @@ describeEventCategoriesCatch s =
 -- arn:aws:sns:us-east-1:012345678901:EventSubscription01
 -- 0ce48079-68e4-11e2-91fe-5daa8e68c7d4.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DescribeEventSubscriptions'
 
 describeEventSubscriptions :: ( MonadCatch m
                               , MonadResource m
@@ -1498,7 +1450,7 @@ describeEventSubscriptionsCatch s =
 -- db-snapshot 2010-08-11T18:25:52.263Z mynewdbsnapshot3
 -- 95b948cd-bf45-11de-86a4-97241dfaadff.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DescribeEvents'
 
 describeEvents :: ( MonadCatch m
                   , MonadResource m
@@ -1525,7 +1477,7 @@ describeEventsCatch s =
 -- &MajorEngineVersion=11.2 11.2 true Oracle Enterprise Manager 1158 OEM
 -- oracle-se1 0.2.v3 false false d9c8f6a1-84c7-11e1-a264-0b23c28bc344.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DescribeOptionGroupOptions'
 
 describeOptionGroupOptions :: ( MonadCatch m
                               , MonadResource m
@@ -1533,7 +1485,6 @@ describeOptionGroupOptions :: ( MonadCatch m
                               , MonadReader Env (ResumableSource m)
                               )
     => Text -- ^ 'dogoEngineName'
-    -> State DescribeOptionGroupOptions a
     -> ResumableSource m DescribeOptionGroupOptionsResponse
 describeOptionGroupOptions p1 s =
     paginate $ (mkDescribeOptionGroupOptions p1) &~ s
@@ -1543,7 +1494,6 @@ describeOptionGroupOptionsCatch :: ( MonadCatch m
                                    , MonadReader Env (ResumableSource m)
                                    )
     => Text -- ^ 'dogoEngineName'
-    -> State DescribeOptionGroupOptions a
     -> ResumableSource m (Either ServiceEr DescribeOptionGroupOptionsResponse)
 describeOptionGroupOptionsCatch p1 s =
     paginateCatch $ (mkDescribeOptionGroupOptions p1) &~ s
@@ -1557,7 +1507,7 @@ describeOptionGroupOptionsCatch p1 s =
 -- Test option group 11.2 default:oracle-se1-11-2 oracle-se1 Default option
 -- group. e4b234d9-84d5-11e1-87a6-71059839a52b.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DescribeOptionGroups'
 
 describeOptionGroups :: ( MonadCatch m
                         , MonadResource m
@@ -1593,7 +1543,7 @@ describeOptionGroupsCatch s =
 -- general-public-license true 5.1.45 db.m2.4xlarge us-east-1a yes us-east-1b
 -- no us-east-1d no 2a0406d7-8511-11e0-90aa-eb648410240d.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DescribeOrderableDBInstanceOptions'
 
 describeOrderableDBInstanceOptions :: ( MonadCatch m
                                       , MonadResource m
@@ -1601,7 +1551,6 @@ describeOrderableDBInstanceOptions :: ( MonadCatch m
                                       , MonadReader Env (ResumableSource m)
                                       )
     => Text -- ^ 'dodbioEngine'
-    -> State DescribeOrderableDBInstanceOptions a
     -> ResumableSource m DescribeOrderableDBInstanceOptionsResponse
 describeOrderableDBInstanceOptions p1 s =
     paginate $ (mkDescribeOrderableDBInstanceOptions p1) &~ s
@@ -1611,7 +1560,6 @@ describeOrderableDBInstanceOptionsCatch :: ( MonadCatch m
                                            , MonadReader Env (ResumableSource m)
                                            )
     => Text -- ^ 'dodbioEngine'
-    -> State DescribeOrderableDBInstanceOptions a
     -> ResumableSource m (Either ServiceEr DescribeOrderableDBInstanceOptionsResponse)
 describeOrderableDBInstanceOptionsCatch p1 s =
     paginateCatch $ (mkDescribeOrderableDBInstanceOptions p1) &~ s
@@ -1627,7 +1575,7 @@ describeOrderableDBInstanceOptionsCatch p1 s =
 -- 2010-12-15T00:25:14.131Z 31536000 227.5 0.046 db.m1.small
 -- c695119b-2961-11e1-bd06-6fe008f046c3.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DescribeReservedDBInstances'
 
 describeReservedDBInstances :: ( MonadCatch m
                                , MonadResource m
@@ -1657,7 +1605,7 @@ describeReservedDBInstancesCatch s =
 -- c/2012-04-02/"> 31536000 Heavy Utilization USD Hourly 0.123 162.0 mysql 0.0
 -- false SampleOfferingId db.m1.small 521b420a-2961-11e1-bd06-6fe008f046c3.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.DescribeReservedDBInstancesOfferings'
 
 describeReservedDBInstancesOfferings :: ( MonadCatch m
                                         , MonadResource m
@@ -1682,7 +1630,7 @@ describeReservedDBInstancesOfferingsCatch s =
 -- Lists all tags on an Amazon RDS resource. For an overview on tagging an
 -- Amazon RDS resource, see Tagging Amazon RDS Resources.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.ListTagsForResource'
 
 listTagsForResource :: ( MonadCatch m
                        , MonadResource m
@@ -1690,7 +1638,6 @@ listTagsForResource :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'ltfrResourceName'
-    -> State ListTagsForResource a
     -> m ListTagsForResourceResponse
 listTagsForResource p1 s =
     send $ (mkListTagsForResource p1) &~ s
@@ -1700,7 +1647,6 @@ listTagsForResourceCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'ltfrResourceName'
-    -> State ListTagsForResource a
     -> m (Either ServiceEr ListTagsForResourceResponse)
 listTagsForResourceCatch p1 s =
     sendCatch $ (mkListTagsForResource p1) &~ s
@@ -1718,7 +1664,7 @@ listTagsForResourceCatch p1 s =
 -- sat:07:30-sat:08:00 us-east-1a 2011-05-23T06:06:43.110Z 10 db.m1.large
 -- master f61a020f-8512-11e0-90aa-eb648410240d.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.ModifyDBInstance'
 
 modifyDBInstance :: ( MonadCatch m
                     , MonadResource m
@@ -1726,7 +1672,6 @@ modifyDBInstance :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'mdbiDBInstanceIdentifier'
-    -> State ModifyDBInstance a
     -> m ModifyDBInstanceResponse
 modifyDBInstance p1 s =
     send $ (mkModifyDBInstance p1) &~ s
@@ -1736,7 +1681,6 @@ modifyDBInstanceCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'mdbiDBInstanceIdentifier'
-    -> State ModifyDBInstance a
     -> m (Either ServiceEr ModifyDBInstanceResponse)
 modifyDBInstanceCatch p1 s =
     sendCatch $ (mkModifyDBInstance p1) &~ s
@@ -1761,7 +1705,7 @@ modifyDBInstanceCatch p1 s =
 -- &Timestamp=2011-05-11T21%3A25%3A00.686Z &AWSAccessKeyId= &Signature=
 -- mydbparametergroup 5ba91f97-bf51-11de-bf60-ef2e377db6f3.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.ModifyDBParameterGroup'
 
 modifyDBParameterGroup :: ( MonadCatch m
                           , MonadResource m
@@ -1770,7 +1714,6 @@ modifyDBParameterGroup :: ( MonadCatch m
                           )
     => Text -- ^ 'mdbpgDBParameterGroupName'
     -> [Parameter] -- ^ 'mdbpgParameters'
-    -> State ModifyDBParameterGroup a
     -> m ModifyDBParameterGroupResponse
 modifyDBParameterGroup p1 p2 s =
     send $ (mkModifyDBParameterGroup p1 p2) &~ s
@@ -1781,7 +1724,6 @@ modifyDBParameterGroupCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'mdbpgDBParameterGroupName'
     -> [Parameter] -- ^ 'mdbpgParameters'
-    -> State ModifyDBParameterGroup a
     -> m (Either ServiceEr ModifyDBParameterGroupResponse)
 modifyDBParameterGroupCatch p1 p2 s =
     sendCatch $ (mkModifyDBParameterGroup p1 p2) &~ s
@@ -1798,7 +1740,7 @@ modifyDBParameterGroupCatch p1 p2 s =
 -- subnet-7c5b4115 us-east-1c Active subnet-7b5b4112 us-east-1b Active
 -- subnet-3ea6bd57 us-east-1d ed662948-a57b-11df-9e38-7ffab86c801f.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.ModifyDBSubnetGroup'
 
 modifyDBSubnetGroup :: ( MonadCatch m
                        , MonadResource m
@@ -1807,7 +1749,6 @@ modifyDBSubnetGroup :: ( MonadCatch m
                        )
     => Text -- ^ 'mdbsgDBSubnetGroupName'
     -> [Text] -- ^ 'mdbsgSubnetIds'
-    -> State ModifyDBSubnetGroup a
     -> m ModifyDBSubnetGroupResponse
 modifyDBSubnetGroup p1 p3 s =
     send $ (mkModifyDBSubnetGroup p1 p3) &~ s
@@ -1818,7 +1759,6 @@ modifyDBSubnetGroupCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'mdbsgDBSubnetGroupName'
     -> [Text] -- ^ 'mdbsgSubnetIds'
-    -> State ModifyDBSubnetGroup a
     -> m (Either ServiceEr ModifyDBSubnetGroupResponse)
 modifyDBSubnetGroupCatch p1 p3 s =
     sendCatch $ (mkModifyDBSubnetGroup p1 p3) &~ s
@@ -1839,7 +1779,7 @@ modifyDBSubnetGroupCatch p1 p3 s =
 -- EventSubscription01 arn:aws:sns:us-east-1:012345678901:EventSubscription01
 -- 34907d48-68e5-11e2-98ef-2b071ac20a57.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.ModifyEventSubscription'
 
 modifyEventSubscription :: ( MonadCatch m
                            , MonadResource m
@@ -1847,7 +1787,6 @@ modifyEventSubscription :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'mesSubscriptionName'
-    -> State ModifyEventSubscription a
     -> m ModifyEventSubscriptionResponse
 modifyEventSubscription p1 s =
     send $ (mkModifyEventSubscription p1) &~ s
@@ -1857,7 +1796,6 @@ modifyEventSubscriptionCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'mesSubscriptionName'
-    -> State ModifyEventSubscription a
     -> m (Either ServiceEr ModifyEventSubscriptionResponse)
 modifyEventSubscriptionCatch p1 s =
     sendCatch $ (mkModifyEventSubscription p1) &~ s
@@ -1873,7 +1811,7 @@ modifyEventSubscriptionCatch p1 s =
 -- &OptionsToRemove=OEM &ApplyImmediately=true myoptiongroup Test option group
 -- oracle-se1 11.2 ed662948-a57b-11df-9e38-7ffab86c801f.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.ModifyOptionGroup'
 
 modifyOptionGroup :: ( MonadCatch m
                      , MonadResource m
@@ -1881,7 +1819,6 @@ modifyOptionGroup :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'mogOptionGroupName'
-    -> State ModifyOptionGroup a
     -> m ModifyOptionGroupResponse
 modifyOptionGroup p1 s =
     send $ (mkModifyOptionGroup p1) &~ s
@@ -1891,7 +1828,6 @@ modifyOptionGroupCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'mogOptionGroupName'
-    -> State ModifyOptionGroup a
     -> m (Either ServiceEr ModifyOptionGroupResponse)
 modifyOptionGroupCatch p1 s =
     sendCatch $ (mkModifyOptionGroup p1) &~ s
@@ -1908,7 +1844,7 @@ modifyOptionGroupCatch p1 s =
 -- us-east-1a 2011-05-23T06:06:43.110Z 10 db.m1.large master
 -- f61a020f-8512-11e0-90aa-eb648410240d.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.PromoteReadReplica'
 
 promoteReadReplica :: ( MonadCatch m
                       , MonadResource m
@@ -1916,7 +1852,6 @@ promoteReadReplica :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'prrDBInstanceIdentifier'
-    -> State PromoteReadReplica a
     -> m PromoteReadReplicaResponse
 promoteReadReplica p1 s =
     send $ (mkPromoteReadReplica p1) &~ s
@@ -1926,7 +1861,6 @@ promoteReadReplicaCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'prrDBInstanceIdentifier'
-    -> State PromoteReadReplica a
     -> m (Either ServiceEr PromoteReadReplicaResponse)
 promoteReadReplicaCatch p1 s =
     sendCatch $ (mkPromoteReadReplica p1) &~ s
@@ -1942,7 +1876,7 @@ promoteReadReplicaCatch p1 s =
 -- payment-pending myreservationID 10 2011-12-18T23:24:56.577Z 31536000 123.0
 -- 0.123 db.m1.small 7f099901-29cf-11e1-bd06-6fe008f046c3.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.PurchaseReservedDBInstancesOffering'
 
 purchaseReservedDBInstancesOffering :: ( MonadCatch m
                                        , MonadResource m
@@ -1950,7 +1884,6 @@ purchaseReservedDBInstancesOffering :: ( MonadCatch m
                                        , MonadReader Env m
                                        )
     => Text -- ^ 'prdbioReservedDBInstancesOfferingId'
-    -> State PurchaseReservedDBInstancesOffering a
     -> m PurchaseReservedDBInstancesOfferingResponse
 purchaseReservedDBInstancesOffering p1 s =
     send $ (mkPurchaseReservedDBInstancesOffering p1) &~ s
@@ -1960,7 +1893,6 @@ purchaseReservedDBInstancesOfferingCatch :: ( MonadCatch m
                                             , MonadReader Env m
                                             )
     => Text -- ^ 'prdbioReservedDBInstancesOfferingId'
-    -> State PurchaseReservedDBInstancesOffering a
     -> m (Either ServiceEr PurchaseReservedDBInstancesOfferingResponse)
 purchaseReservedDBInstancesOfferingCatch p1 s =
     sendCatch $ (mkPurchaseReservedDBInstancesOffering p1) &~ s
@@ -1990,7 +1922,7 @@ purchaseReservedDBInstancesOfferingCatch p1 s =
 -- sat:07:30-sat:08:00 us-east-1a 2011-05-23T06:06:43.110Z 10 db.m1.large
 -- master 5d5df758-8503-11e0-90aa-eb648410240d.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.RebootDBInstance'
 
 rebootDBInstance :: ( MonadCatch m
                     , MonadResource m
@@ -1998,7 +1930,6 @@ rebootDBInstance :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'rdbi1DBInstanceIdentifier'
-    -> State RebootDBInstance a
     -> m RebootDBInstanceResponse
 rebootDBInstance p1 s =
     send $ (mkRebootDBInstance p1) &~ s
@@ -2008,7 +1939,6 @@ rebootDBInstanceCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'rdbi1DBInstanceIdentifier'
-    -> State RebootDBInstance a
     -> m (Either ServiceEr RebootDBInstanceResponse)
 rebootDBInstanceCatch p1 s =
     sendCatch $ (mkRebootDBInstance p1) &~ s
@@ -2024,7 +1954,7 @@ rebootDBInstanceCatch p1 s =
 -- EventSubscription01 arn:aws:sns:us-east-1:012345678901:EventSubscription01
 -- 6f0b82bf-68e9-11e2-b97b-43c6362ec60d.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.RemoveSourceIdentifierFromSubscription'
 
 removeSourceIdentifierFromSubscription :: ( MonadCatch m
                                           , MonadResource m
@@ -2033,7 +1963,6 @@ removeSourceIdentifierFromSubscription :: ( MonadCatch m
                                           )
     => Text -- ^ 'rsifsSubscriptionName'
     -> Text -- ^ 'rsifsSourceIdentifier'
-    -> State RemoveSourceIdentifierFromSubscription a
     -> m RemoveSourceIdentifierFromSubscriptionResponse
 removeSourceIdentifierFromSubscription p1 p2 s =
     send $ (mkRemoveSourceIdentifierFromSubscription p1 p2) &~ s
@@ -2044,7 +1973,6 @@ removeSourceIdentifierFromSubscriptionCatch :: ( MonadCatch m
                                                )
     => Text -- ^ 'rsifsSubscriptionName'
     -> Text -- ^ 'rsifsSourceIdentifier'
-    -> State RemoveSourceIdentifierFromSubscription a
     -> m (Either ServiceEr RemoveSourceIdentifierFromSubscriptionResponse)
 removeSourceIdentifierFromSubscriptionCatch p1 p2 s =
     sendCatch $ (mkRemoveSourceIdentifierFromSubscription p1 p2) &~ s
@@ -2053,7 +1981,7 @@ removeSourceIdentifierFromSubscriptionCatch p1 p2 s =
 -- Removes metadata tags from an Amazon RDS resource. For an overview on
 -- tagging an Amazon RDS resource, see Tagging Amazon RDS Resources.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.RemoveTagsFromResource'
 
 removeTagsFromResource :: ( MonadCatch m
                           , MonadResource m
@@ -2062,7 +1990,6 @@ removeTagsFromResource :: ( MonadCatch m
                           )
     => Text -- ^ 'rtfrResourceName'
     -> [Text] -- ^ 'rtfrTagKeys'
-    -> State RemoveTagsFromResource a
     -> m RemoveTagsFromResourceResponse
 removeTagsFromResource p1 p2 s =
     send $ (mkRemoveTagsFromResource p1 p2) &~ s
@@ -2073,7 +2000,6 @@ removeTagsFromResourceCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'rtfrResourceName'
     -> [Text] -- ^ 'rtfrTagKeys'
-    -> State RemoveTagsFromResource a
     -> m (Either ServiceEr RemoveTagsFromResourceResponse)
 removeTagsFromResourceCatch p1 p2 s =
     sendCatch $ (mkRemoveTagsFromResource p1 p2) &~ s
@@ -2095,7 +2021,7 @@ removeTagsFromResourceCatch p1 p2 s =
 -- &AWSAccessKeyId= &Signature= mydbparametergroup
 -- 071e758f-bf57-11de-9f9f-53d6aee22de9.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.ResetDBParameterGroup'
 
 resetDBParameterGroup :: ( MonadCatch m
                          , MonadResource m
@@ -2103,7 +2029,6 @@ resetDBParameterGroup :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'rdbpgDBParameterGroupName'
-    -> State ResetDBParameterGroup a
     -> m ResetDBParameterGroupResponse
 resetDBParameterGroup p1 s =
     send $ (mkResetDBParameterGroup p1) &~ s
@@ -2113,7 +2038,6 @@ resetDBParameterGroupCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'rdbpgDBParameterGroupName'
-    -> State ResetDBParameterGroup a
     -> m (Either ServiceEr ResetDBParameterGroupResponse)
 resetDBParameterGroupCatch p1 s =
     sendCatch $ (mkResetDBParameterGroup p1) &~ s
@@ -2131,7 +2055,7 @@ resetDBParameterGroupCatch p1 s =
 -- default.mysql5.1 active default 00:00-00:30 true sat:07:30-sat:08:00 10
 -- db.m1.large master 7ca622e8-8508-11e0-bd9b-a7b1ece36d51.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot'
 
 restoreDBInstanceFromDBSnapshot :: ( MonadCatch m
                                    , MonadResource m
@@ -2140,7 +2064,6 @@ restoreDBInstanceFromDBSnapshot :: ( MonadCatch m
                                    )
     => Text -- ^ 'rdbifdbsDBInstanceIdentifier'
     -> Text -- ^ 'rdbifdbsDBSnapshotIdentifier'
-    -> State RestoreDBInstanceFromDBSnapshot a
     -> m RestoreDBInstanceFromDBSnapshotResponse
 restoreDBInstanceFromDBSnapshot p1 p2 s =
     send $ (mkRestoreDBInstanceFromDBSnapshot p1 p2) &~ s
@@ -2151,7 +2074,6 @@ restoreDBInstanceFromDBSnapshotCatch :: ( MonadCatch m
                                         )
     => Text -- ^ 'rdbifdbsDBInstanceIdentifier'
     -> Text -- ^ 'rdbifdbsDBSnapshotIdentifier'
-    -> State RestoreDBInstanceFromDBSnapshot a
     -> m (Either ServiceEr RestoreDBInstanceFromDBSnapshotResponse)
 restoreDBInstanceFromDBSnapshotCatch p1 p2 s =
     sendCatch $ (mkRestoreDBInstanceFromDBSnapshot p1 p2) &~ s
@@ -2172,7 +2094,7 @@ restoreDBInstanceFromDBSnapshotCatch p1 p2 s =
 -- sat:07:30-sat:08:00 10 db.m1.large master
 -- 1ef546bc-850b-11e0-90aa-eb648410240d.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.RestoreDBInstanceToPointInTime'
 
 restoreDBInstanceToPointInTime :: ( MonadCatch m
                                   , MonadResource m
@@ -2181,7 +2103,6 @@ restoreDBInstanceToPointInTime :: ( MonadCatch m
                                   )
     => Text -- ^ 'rdbitpitSourceDBInstanceIdentifier'
     -> Text -- ^ 'rdbitpitTargetDBInstanceIdentifier'
-    -> State RestoreDBInstanceToPointInTime a
     -> m RestoreDBInstanceToPointInTimeResponse
 restoreDBInstanceToPointInTime p1 p2 s =
     send $ (mkRestoreDBInstanceToPointInTime p1 p2) &~ s
@@ -2192,7 +2113,6 @@ restoreDBInstanceToPointInTimeCatch :: ( MonadCatch m
                                        )
     => Text -- ^ 'rdbitpitSourceDBInstanceIdentifier'
     -> Text -- ^ 'rdbitpitTargetDBInstanceIdentifier'
-    -> State RestoreDBInstanceToPointInTime a
     -> m (Either ServiceEr RestoreDBInstanceToPointInTimeResponse)
 restoreDBInstanceToPointInTimeCatch p1 p2 s =
     sendCatch $ (mkRestoreDBInstanceToPointInTime p1 p2) &~ s
@@ -2209,7 +2129,7 @@ restoreDBInstanceToPointInTimeCatch p1 p2 s =
 -- DBSecurityGroup 192.168.1.1/24 revoking 621567473609 mydbsecuritygroup
 -- vpc-1ab2c3d4 beecb8ac-bf5a-11de-9f9f-53d6aee22de9.
 --
--- See: 'Network.AWS.RDS'
+-- See: 'Network.AWS.RDS.RevokeDBSecurityGroupIngress'
 
 revokeDBSecurityGroupIngress :: ( MonadCatch m
                                 , MonadResource m
@@ -2217,7 +2137,6 @@ revokeDBSecurityGroupIngress :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'rdbsgiDBSecurityGroupName'
-    -> State RevokeDBSecurityGroupIngress a
     -> m RevokeDBSecurityGroupIngressResponse
 revokeDBSecurityGroupIngress p1 s =
     send $ (mkRevokeDBSecurityGroupIngress p1) &~ s
@@ -2227,7 +2146,6 @@ revokeDBSecurityGroupIngressCatch :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => Text -- ^ 'rdbsgiDBSecurityGroupName'
-    -> State RevokeDBSecurityGroupIngress a
     -> m (Either ServiceEr RevokeDBSecurityGroupIngressResponse)
 revokeDBSecurityGroupIngressCatch p1 s =
     sendCatch $ (mkRevokeDBSecurityGroupIngress p1) &~ s

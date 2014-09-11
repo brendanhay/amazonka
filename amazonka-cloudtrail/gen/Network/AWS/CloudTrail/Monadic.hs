@@ -12,13 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | CloudTrail is a web service that records AWS API calls for your AWS account
--- and delivers log files to an Amazon S3 bucket. The recorded information
--- includes the identity of the user, the start time of the AWS API call, the
--- source IP address, the request parameters, and the response elements
--- returned by the service.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -40,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.CloudTrail.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.CloudTrail.Monadic
@@ -103,7 +101,7 @@ type ServiceEr = Er CloudTrail
 -- From the command line, use create-subscription. Creates a trail that
 -- specifies the settings for delivery of log data to an Amazon S3 bucket.
 --
--- See: 'Network.AWS.CloudTrail'
+-- See: 'Network.AWS.CloudTrail.CreateTrail'
 
 createTrail :: ( MonadCatch m
                , MonadResource m
@@ -112,7 +110,6 @@ createTrail :: ( MonadCatch m
                )
     => Text -- ^ 'ctName'
     -> Text -- ^ 'ctS3BucketName'
-    -> State CreateTrail a
     -> m CreateTrailResponse
 createTrail p1 p2 s =
     send $ (mkCreateTrail p1 p2) &~ s
@@ -123,7 +120,6 @@ createTrailCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'ctName'
     -> Text -- ^ 'ctS3BucketName'
-    -> State CreateTrail a
     -> m (Either ServiceEr CreateTrailResponse)
 createTrailCatch p1 p2 s =
     sendCatch $ (mkCreateTrail p1 p2) &~ s
@@ -131,7 +127,7 @@ createTrailCatch p1 p2 s =
 -- $DeleteTrail
 -- Deletes a trail.
 --
--- See: 'Network.AWS.CloudTrail'
+-- See: 'Network.AWS.CloudTrail.DeleteTrail'
 
 deleteTrail :: ( MonadCatch m
                , MonadResource m
@@ -139,7 +135,6 @@ deleteTrail :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'dtName'
-    -> State DeleteTrail a
     -> m DeleteTrailResponse
 deleteTrail p1 s =
     send $ (mkDeleteTrail p1) &~ s
@@ -149,7 +144,6 @@ deleteTrailCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'dtName'
-    -> State DeleteTrail a
     -> m (Either ServiceEr DeleteTrailResponse)
 deleteTrailCatch p1 s =
     sendCatch $ (mkDeleteTrail p1) &~ s
@@ -158,7 +152,7 @@ deleteTrailCatch p1 s =
 -- Retrieves settings for the trail associated with the current region for
 -- your account.
 --
--- See: 'Network.AWS.CloudTrail'
+-- See: 'Network.AWS.CloudTrail.DescribeTrails'
 
 describeTrails :: ( MonadCatch m
                   , MonadResource m
@@ -184,7 +178,7 @@ describeTrailsCatch s =
 -- Fields include information on delivery errors, Amazon SNS and Amazon S3
 -- errors, and start and stop logging times for each trail.
 --
--- See: 'Network.AWS.CloudTrail'
+-- See: 'Network.AWS.CloudTrail.GetTrailStatus'
 
 getTrailStatus :: ( MonadCatch m
                   , MonadResource m
@@ -192,7 +186,6 @@ getTrailStatus :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'gtsName'
-    -> State GetTrailStatus a
     -> m GetTrailStatusResponse
 getTrailStatus p1 s =
     send $ (mkGetTrailStatus p1) &~ s
@@ -202,7 +195,6 @@ getTrailStatusCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'gtsName'
-    -> State GetTrailStatus a
     -> m (Either ServiceEr GetTrailStatusResponse)
 getTrailStatusCatch p1 s =
     sendCatch $ (mkGetTrailStatus p1) &~ s
@@ -210,7 +202,7 @@ getTrailStatusCatch p1 s =
 -- $StartLogging
 -- Starts the recording of AWS API calls and log file delivery for a trail.
 --
--- See: 'Network.AWS.CloudTrail'
+-- See: 'Network.AWS.CloudTrail.StartLogging'
 
 startLogging :: ( MonadCatch m
                 , MonadResource m
@@ -218,7 +210,6 @@ startLogging :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => Text -- ^ 'slName'
-    -> State StartLogging a
     -> m StartLoggingResponse
 startLogging p1 s =
     send $ (mkStartLogging p1) &~ s
@@ -228,7 +219,6 @@ startLoggingCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'slName'
-    -> State StartLogging a
     -> m (Either ServiceEr StartLoggingResponse)
 startLoggingCatch p1 s =
     sendCatch $ (mkStartLogging p1) &~ s
@@ -239,7 +229,7 @@ startLoggingCatch p1 s =
 -- action. You can update a trail without stopping it first. This action is
 -- the only way to stop recording.
 --
--- See: 'Network.AWS.CloudTrail'
+-- See: 'Network.AWS.CloudTrail.StopLogging'
 
 stopLogging :: ( MonadCatch m
                , MonadResource m
@@ -247,7 +237,6 @@ stopLogging :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'sl1Name'
-    -> State StopLogging a
     -> m StopLoggingResponse
 stopLogging p1 s =
     send $ (mkStopLogging p1) &~ s
@@ -257,7 +246,6 @@ stopLoggingCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'sl1Name'
-    -> State StopLogging a
     -> m (Either ServiceEr StopLoggingResponse)
 stopLoggingCatch p1 s =
     sendCatch $ (mkStopLogging p1) &~ s
@@ -269,7 +257,7 @@ stopLoggingCatch p1 s =
 -- log delivery. If the existing bucket has previously been a target for
 -- CloudTrail log files, an IAM policy exists for the bucket.
 --
--- See: 'Network.AWS.CloudTrail'
+-- See: 'Network.AWS.CloudTrail.UpdateTrail'
 
 updateTrail :: ( MonadCatch m
                , MonadResource m
@@ -277,7 +265,6 @@ updateTrail :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'utName'
-    -> State UpdateTrail a
     -> m UpdateTrailResponse
 updateTrail p1 s =
     send $ (mkUpdateTrail p1) &~ s
@@ -287,7 +274,6 @@ updateTrailCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'utName'
-    -> State UpdateTrail a
     -> m (Either ServiceEr UpdateTrailResponse)
 updateTrailCatch p1 s =
     sendCatch $ (mkUpdateTrail p1) &~ s

@@ -12,12 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | AWS Identity and Access Management (IAM) enables you to securely control
--- access to AWS services and resources for your users. Using IAM, you can
--- create and manage AWS users and groups and use permissions to allow and
--- deny their access to AWS resources.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -39,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.IAM.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.IAM.Monadic
@@ -451,7 +450,7 @@ type ServiceEr = Er IAM
 -- &InstanceProfileName=Webserver &RoleName=S3Access &Version=2010-05-08
 -- &AUTHPARAMS 12657608-99f2-11e1-a4c3-27EXAMPLE804.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.AddRoleToInstanceProfile'
 
 addRoleToInstanceProfile :: ( MonadCatch m
                             , MonadResource m
@@ -460,7 +459,6 @@ addRoleToInstanceProfile :: ( MonadCatch m
                             )
     => Text -- ^ 'artipInstanceProfileName'
     -> Text -- ^ 'artipRoleName'
-    -> State AddRoleToInstanceProfile a
     -> m AddRoleToInstanceProfileResponse
 addRoleToInstanceProfile p1 p2 s =
     send $ (mkAddRoleToInstanceProfile p1 p2) &~ s
@@ -471,7 +469,6 @@ addRoleToInstanceProfileCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'artipInstanceProfileName'
     -> Text -- ^ 'artipRoleName'
-    -> State AddRoleToInstanceProfile a
     -> m (Either ServiceEr AddRoleToInstanceProfileResponse)
 addRoleToInstanceProfileCatch p1 p2 s =
     sendCatch $ (mkAddRoleToInstanceProfile p1 p2) &~ s
@@ -481,7 +478,7 @@ addRoleToInstanceProfileCatch p1 p2 s =
 -- ?Action=AddUserToGroup &GroupName=Managers &UserName=Bob &AUTHPARAMS
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.AddUserToGroup'
 
 addUserToGroup :: ( MonadCatch m
                   , MonadResource m
@@ -490,7 +487,6 @@ addUserToGroup :: ( MonadCatch m
                   )
     => Text -- ^ 'autgGroupName'
     -> Text -- ^ 'autgUserName'
-    -> State AddUserToGroup a
     -> m AddUserToGroupResponse
 addUserToGroup p1 p2 s =
     send $ (mkAddUserToGroup p1 p2) &~ s
@@ -501,7 +497,6 @@ addUserToGroupCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'autgGroupName'
     -> Text -- ^ 'autgUserName'
-    -> State AddUserToGroup a
     -> m (Either ServiceEr AddUserToGroupResponse)
 addUserToGroupCatch p1 p2 s =
     sendCatch $ (mkAddUserToGroup p1 p2) &~ s
@@ -514,7 +509,7 @@ addUserToGroupCatch p1 p2 s =
 -- &NewPassword=Lb0*1(9xpN &Version=2010-05-08 &AUTHPARAMS
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.ChangePassword'
 
 changePassword :: ( MonadCatch m
                   , MonadResource m
@@ -523,7 +518,6 @@ changePassword :: ( MonadCatch m
                   )
     => Text -- ^ 'cpOldPassword'
     -> Text -- ^ 'cpNewPassword'
-    -> State ChangePassword a
     -> m ChangePasswordResponse
 changePassword p1 p2 s =
     send $ (mkChangePassword p1 p2) &~ s
@@ -534,7 +528,6 @@ changePasswordCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'cpOldPassword'
     -> Text -- ^ 'cpNewPassword'
-    -> State ChangePassword a
     -> m (Either ServiceEr ChangePasswordResponse)
 changePasswordCatch p1 p2 s =
     sendCatch $ (mkChangePassword p1 p2) &~ s
@@ -557,7 +550,7 @@ changePasswordCatch p1 p2 s =
 -- wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.CreateAccessKey'
 
 createAccessKey :: ( MonadCatch m
                    , MonadResource m
@@ -585,7 +578,7 @@ createAccessKeyCatch s =
 -- &AccountAlias=foocorporation &Version=2010-05-08 &AUTHPARAMS
 -- 36b5db08-f1b0-11df-8fbe-45274EXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.CreateAccountAlias'
 
 createAccountAlias :: ( MonadCatch m
                       , MonadResource m
@@ -593,7 +586,6 @@ createAccountAlias :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'caaAccountAlias'
-    -> State CreateAccountAlias a
     -> m CreateAccountAliasResponse
 createAccountAlias p1 s =
     send $ (mkCreateAccountAlias p1) &~ s
@@ -603,7 +595,6 @@ createAccountAliasCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'caaAccountAlias'
-    -> State CreateAccountAlias a
     -> m (Either ServiceEr CreateAccountAliasResponse)
 createAccountAliasCatch p1 s =
     sendCatch $ (mkCreateAccountAlias p1) &~ s
@@ -615,7 +606,7 @@ createAccountAliasCatch p1 s =
 -- &Version=2010-05-08 &AUTHPARAMS / Admins AGPACKCEVSQ6C2EXAMPLE
 -- arn:aws:iam::123456789012:group/Admins 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.CreateGroup'
 
 createGroup :: ( MonadCatch m
                , MonadResource m
@@ -623,7 +614,6 @@ createGroup :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'cgGroupName'
-    -> State CreateGroup a
     -> m CreateGroupResponse
 createGroup p2 s =
     send $ (mkCreateGroup p2) &~ s
@@ -633,7 +623,6 @@ createGroupCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'cgGroupName'
-    -> State CreateGroup a
     -> m (Either ServiceEr CreateGroupResponse)
 createGroupCatch p2 s =
     sendCatch $ (mkCreateGroup p2) &~ s
@@ -649,7 +638,7 @@ createGroupCatch p2 s =
 -- arn:aws:iam::123456789012:instance-profile/application_abc/component_xyz/Webserver
 -- 2012-05-09T16:11:10.222Z 974142ee-99f1-11e1-a4c3-27EXAMPLE804.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.CreateInstanceProfile'
 
 createInstanceProfile :: ( MonadCatch m
                          , MonadResource m
@@ -657,7 +646,6 @@ createInstanceProfile :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'cipInstanceProfileName'
-    -> State CreateInstanceProfile a
     -> m CreateInstanceProfileResponse
 createInstanceProfile p1 s =
     send $ (mkCreateInstanceProfile p1) &~ s
@@ -667,7 +655,6 @@ createInstanceProfileCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'cipInstanceProfileName'
-    -> State CreateInstanceProfile a
     -> m (Either ServiceEr CreateInstanceProfileResponse)
 createInstanceProfileCatch p1 s =
     sendCatch $ (mkCreateInstanceProfile p1) &~ s
@@ -680,7 +667,7 @@ createInstanceProfileCatch p1 s =
 -- &UserName=Bob &Password=Password1 &AUTHPARAMS Bob 2011-09-19T23:00:56Z
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.CreateLoginProfile'
 
 createLoginProfile :: ( MonadCatch m
                       , MonadResource m
@@ -689,7 +676,6 @@ createLoginProfile :: ( MonadCatch m
                       )
     => Text -- ^ 'clpUserName'
     -> Text -- ^ 'clpPassword'
-    -> State CreateLoginProfile a
     -> m CreateLoginProfileResponse
 createLoginProfile p1 p2 s =
     send $ (mkCreateLoginProfile p1 p2) &~ s
@@ -700,7 +686,6 @@ createLoginProfileCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'clpUserName'
     -> Text -- ^ 'clpPassword'
-    -> State CreateLoginProfile a
     -> m (Either ServiceEr CreateLoginProfileResponse)
 createLoginProfileCatch p1 p2 s =
     sendCatch $ (mkCreateLoginProfile p1 p2) &~ s
@@ -722,7 +707,7 @@ createLoginProfileCatch p1 p2 s =
 -- 2012-05-08T23:34:01.495Z AROADBQP57FF2AEXAMPLE
 -- 4a93ceee-9966-11e1-b624-b1aEXAMPLE7c.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.CreateRole'
 
 createRole :: ( MonadCatch m
               , MonadResource m
@@ -731,7 +716,6 @@ createRole :: ( MonadCatch m
               )
     => Text -- ^ 'crRoleName'
     -> Text -- ^ 'crAssumeRolePolicyDocument'
-    -> State CreateRole a
     -> m CreateRoleResponse
 createRole p2 p3 s =
     send $ (mkCreateRole p2 p3) &~ s
@@ -742,7 +726,6 @@ createRoleCatch :: ( MonadCatch m
                    )
     => Text -- ^ 'crRoleName'
     -> Text -- ^ 'crAssumeRolePolicyDocument'
-    -> State CreateRole a
     -> m (Either ServiceEr CreateRoleResponse)
 createRoleCatch p2 p3 s =
     sendCatch $ (mkCreateRole p2 p3) &~ s
@@ -768,7 +751,7 @@ createRoleCatch p2 p3 s =
 -- &AUTHPARAMS arn:aws:iam::123456789012:saml-metadata/MyUniversity
 -- 29f47818-99f5-11e1-a4c3-27EXAMPLE804.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.CreateSAMLProvider'
 
 createSAMLProvider :: ( MonadCatch m
                       , MonadResource m
@@ -777,7 +760,6 @@ createSAMLProvider :: ( MonadCatch m
                       )
     => Text -- ^ 'csamlpSAMLMetadataDocument'
     -> Text -- ^ 'csamlpName'
-    -> State CreateSAMLProvider a
     -> m CreateSAMLProviderResponse
 createSAMLProvider p1 p2 s =
     send $ (mkCreateSAMLProvider p1 p2) &~ s
@@ -788,7 +770,6 @@ createSAMLProviderCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'csamlpSAMLMetadataDocument'
     -> Text -- ^ 'csamlpName'
-    -> State CreateSAMLProvider a
     -> m (Either ServiceEr CreateSAMLProviderResponse)
 createSAMLProviderCatch p1 p2 s =
     sendCatch $ (mkCreateSAMLProvider p1 p2) &~ s
@@ -802,7 +783,7 @@ createSAMLProviderCatch p1 p2 s =
 -- arn:aws:iam::123456789012:user/division_abc/subdivision_xyz/Bob
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.CreateUser'
 
 createUser :: ( MonadCatch m
               , MonadResource m
@@ -810,7 +791,6 @@ createUser :: ( MonadCatch m
               , MonadReader Env m
               )
     => Text -- ^ 'cuUserName'
-    -> State CreateUser a
     -> m CreateUserResponse
 createUser p2 s =
     send $ (mkCreateUser p2) &~ s
@@ -820,7 +800,6 @@ createUserCatch :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'cuUserName'
-    -> State CreateUser a
     -> m (Either ServiceEr CreateUserResponse)
 createUserCatch p2 s =
     sendCatch $ (mkCreateUser p2) &~ s
@@ -842,7 +821,7 @@ createUserCatch p2 s =
 -- 89504E470D0A1A0AASDFAHSDFKJKLJFKALSDFJASDF
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.CreateVirtualMFADevice'
 
 createVirtualMFADevice :: ( MonadCatch m
                           , MonadResource m
@@ -850,7 +829,6 @@ createVirtualMFADevice :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'cvmfadVirtualMFADeviceName'
-    -> State CreateVirtualMFADevice a
     -> m CreateVirtualMFADeviceResponse
 createVirtualMFADevice p2 s =
     send $ (mkCreateVirtualMFADevice p2) &~ s
@@ -860,7 +838,6 @@ createVirtualMFADeviceCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'cvmfadVirtualMFADeviceName'
-    -> State CreateVirtualMFADevice a
     -> m (Either ServiceEr CreateVirtualMFADeviceResponse)
 createVirtualMFADeviceCatch p2 s =
     sendCatch $ (mkCreateVirtualMFADevice p2) &~ s
@@ -871,7 +848,7 @@ createVirtualMFADeviceCatch p2 s =
 -- https://iam.amazonaws.com/ ?Action=DeactivateMFADevice &UserName=Bob
 -- &SerialNumber=R1234 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.DeactivateMFADevice'
 
 deactivateMFADevice :: ( MonadCatch m
                        , MonadResource m
@@ -880,7 +857,6 @@ deactivateMFADevice :: ( MonadCatch m
                        )
     => Text -- ^ 'dmfadUserName'
     -> Text -- ^ 'dmfadSerialNumber'
-    -> State DeactivateMFADevice a
     -> m DeactivateMFADeviceResponse
 deactivateMFADevice p1 p2 s =
     send $ (mkDeactivateMFADevice p1 p2) &~ s
@@ -891,7 +867,6 @@ deactivateMFADeviceCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'dmfadUserName'
     -> Text -- ^ 'dmfadSerialNumber'
-    -> State DeactivateMFADevice a
     -> m (Either ServiceEr DeactivateMFADeviceResponse)
 deactivateMFADeviceCatch p1 p2 s =
     sendCatch $ (mkDeactivateMFADevice p1 p2) &~ s
@@ -905,7 +880,7 @@ deactivateMFADeviceCatch p1 p2 s =
 -- ?Action=DeleteAccessKey &UserName=Bob &AccessKeyId=AKIAIOSFODNN7EXAMPLE
 -- &Version=2010-05-08 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.DeleteAccessKey'
 
 deleteAccessKey :: ( MonadCatch m
                    , MonadResource m
@@ -913,7 +888,6 @@ deleteAccessKey :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'dakAccessKeyId'
-    -> State DeleteAccessKey a
     -> m DeleteAccessKeyResponse
 deleteAccessKey p2 s =
     send $ (mkDeleteAccessKey p2) &~ s
@@ -923,7 +897,6 @@ deleteAccessKeyCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'dakAccessKeyId'
-    -> State DeleteAccessKey a
     -> m (Either ServiceEr DeleteAccessKeyResponse)
 deleteAccessKeyCatch p2 s =
     sendCatch $ (mkDeleteAccessKey p2) &~ s
@@ -935,7 +908,7 @@ deleteAccessKeyCatch p2 s =
 -- &AccountAlias=foocorporation &Version=2010-05-08 &AUTHPARAMS
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.DeleteAccountAlias'
 
 deleteAccountAlias :: ( MonadCatch m
                       , MonadResource m
@@ -943,7 +916,6 @@ deleteAccountAlias :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'daaAccountAlias'
-    -> State DeleteAccountAlias a
     -> m DeleteAccountAliasResponse
 deleteAccountAlias p1 s =
     send $ (mkDeleteAccountAlias p1) &~ s
@@ -953,7 +925,6 @@ deleteAccountAliasCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'daaAccountAlias'
-    -> State DeleteAccountAlias a
     -> m (Either ServiceEr DeleteAccountAliasResponse)
 deleteAccountAliasCatch p1 s =
     sendCatch $ (mkDeleteAccountAlias p1) &~ s
@@ -963,7 +934,7 @@ deleteAccountAliasCatch p1 s =
 -- ?Action=DeleteAccountPasswordPolicy &Version=2010-05-08 &AUTHPARAMS
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.DeleteAccountPasswordPolicy'
 
 deleteAccountPasswordPolicy :: ( MonadCatch m
                                , MonadResource m
@@ -990,7 +961,7 @@ deleteAccountPasswordPolicyCatch s =
 -- &Group=Test &Version=2010-05-08 &AUTHPARAMS
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.DeleteGroup'
 
 deleteGroup :: ( MonadCatch m
                , MonadResource m
@@ -998,7 +969,6 @@ deleteGroup :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'dgGroupName'
-    -> State DeleteGroup a
     -> m DeleteGroupResponse
 deleteGroup p1 s =
     send $ (mkDeleteGroup p1) &~ s
@@ -1008,7 +978,6 @@ deleteGroupCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'dgGroupName'
-    -> State DeleteGroup a
     -> m (Either ServiceEr DeleteGroupResponse)
 deleteGroupCatch p1 s =
     sendCatch $ (mkDeleteGroup p1) &~ s
@@ -1018,7 +987,7 @@ deleteGroupCatch p1 s =
 -- https://iam.amazonaws.com/ ?Action=DeleteGroupPolicy &GroupName=Admins
 -- &PolicyName=AdminRoot &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.DeleteGroupPolicy'
 
 deleteGroupPolicy :: ( MonadCatch m
                      , MonadResource m
@@ -1027,7 +996,6 @@ deleteGroupPolicy :: ( MonadCatch m
                      )
     => Text -- ^ 'dgpGroupName'
     -> Text -- ^ 'dgpPolicyName'
-    -> State DeleteGroupPolicy a
     -> m DeleteGroupPolicyResponse
 deleteGroupPolicy p1 p2 s =
     send $ (mkDeleteGroupPolicy p1 p2) &~ s
@@ -1038,7 +1006,6 @@ deleteGroupPolicyCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'dgpGroupName'
     -> Text -- ^ 'dgpPolicyName'
-    -> State DeleteGroupPolicy a
     -> m (Either ServiceEr DeleteGroupPolicyResponse)
 deleteGroupPolicyCatch p1 p2 s =
     sendCatch $ (mkDeleteGroupPolicy p1 p2) &~ s
@@ -1054,7 +1021,7 @@ deleteGroupPolicyCatch p1 p2 s =
 -- &InstanceProfileName=Webserver &Version=2010-05-08 &AUTHPARAMS
 -- 90c18667-99f3-11e1-a4c3-27EXAMPLE804.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.DeleteInstanceProfile'
 
 deleteInstanceProfile :: ( MonadCatch m
                          , MonadResource m
@@ -1062,7 +1029,6 @@ deleteInstanceProfile :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'dipInstanceProfileName'
-    -> State DeleteInstanceProfile a
     -> m DeleteInstanceProfileResponse
 deleteInstanceProfile p1 s =
     send $ (mkDeleteInstanceProfile p1) &~ s
@@ -1072,7 +1038,6 @@ deleteInstanceProfileCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'dipInstanceProfileName'
-    -> State DeleteInstanceProfile a
     -> m (Either ServiceEr DeleteInstanceProfileResponse)
 deleteInstanceProfileCatch p1 s =
     sendCatch $ (mkDeleteInstanceProfile p1) &~ s
@@ -1087,7 +1052,7 @@ deleteInstanceProfileCatch p1 s =
 -- DeleteAccessKey. https://iam.amazonaws.com/ ?Action=DeleteLoginProfile
 -- &UserName=Bob &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.DeleteLoginProfile'
 
 deleteLoginProfile :: ( MonadCatch m
                       , MonadResource m
@@ -1095,7 +1060,6 @@ deleteLoginProfile :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'dlpUserName'
-    -> State DeleteLoginProfile a
     -> m DeleteLoginProfileResponse
 deleteLoginProfile p1 s =
     send $ (mkDeleteLoginProfile p1) &~ s
@@ -1105,7 +1069,6 @@ deleteLoginProfileCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'dlpUserName'
-    -> State DeleteLoginProfile a
     -> m (Either ServiceEr DeleteLoginProfileResponse)
 deleteLoginProfileCatch p1 s =
     sendCatch $ (mkDeleteLoginProfile p1) &~ s
@@ -1119,7 +1082,7 @@ deleteLoginProfileCatch p1 s =
 -- https://iam.amazonaws.com/ ?Action=DeleteRole &RoleName=S3Access
 -- &Version=2010-05-08 &AUTHPARAMS 913e3f37-99ed-11e1-a4c3-270EXAMPLE04.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.DeleteRole'
 
 deleteRole :: ( MonadCatch m
               , MonadResource m
@@ -1127,7 +1090,6 @@ deleteRole :: ( MonadCatch m
               , MonadReader Env m
               )
     => Text -- ^ 'drRoleName'
-    -> State DeleteRole a
     -> m DeleteRoleResponse
 deleteRole p1 s =
     send $ (mkDeleteRole p1) &~ s
@@ -1137,7 +1099,6 @@ deleteRoleCatch :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'drRoleName'
-    -> State DeleteRole a
     -> m (Either ServiceEr DeleteRoleResponse)
 deleteRoleCatch p1 s =
     sendCatch $ (mkDeleteRole p1) &~ s
@@ -1148,7 +1109,7 @@ deleteRoleCatch p1 s =
 -- &PolicyName=S3AccessPolicy &RoleName=S3Access &Version=2010-05-08
 -- &AUTHPARAMS c749ee7f-99ef-11e1-a4c3-27EXAMPLE804.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.DeleteRolePolicy'
 
 deleteRolePolicy :: ( MonadCatch m
                     , MonadResource m
@@ -1157,7 +1118,6 @@ deleteRolePolicy :: ( MonadCatch m
                     )
     => Text -- ^ 'drpRoleName'
     -> Text -- ^ 'drpPolicyName'
-    -> State DeleteRolePolicy a
     -> m DeleteRolePolicyResponse
 deleteRolePolicy p1 p2 s =
     send $ (mkDeleteRolePolicy p1 p2) &~ s
@@ -1168,7 +1128,6 @@ deleteRolePolicyCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'drpRoleName'
     -> Text -- ^ 'drpPolicyName'
-    -> State DeleteRolePolicy a
     -> m (Either ServiceEr DeleteRolePolicyResponse)
 deleteRolePolicyCatch p1 p2 s =
     sendCatch $ (mkDeleteRolePolicy p1 p2) &~ s
@@ -1182,7 +1141,7 @@ deleteRolePolicyCatch p1 p2 s =
 -- &Name=arn:aws:iam::123456789012:saml-metadata/MyUniversity
 -- &Version=2010-05-08 &AUTHPARAMS.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.DeleteSAMLProvider'
 
 deleteSAMLProvider :: ( MonadCatch m
                       , MonadResource m
@@ -1190,7 +1149,6 @@ deleteSAMLProvider :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'dsamlpSAMLProviderArn'
-    -> State DeleteSAMLProvider a
     -> m DeleteSAMLProviderResponse
 deleteSAMLProvider p1 s =
     send $ (mkDeleteSAMLProvider p1) &~ s
@@ -1200,7 +1158,6 @@ deleteSAMLProviderCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'dsamlpSAMLProviderArn'
-    -> State DeleteSAMLProvider a
     -> m (Either ServiceEr DeleteSAMLProviderResponse)
 deleteSAMLProviderCatch p1 s =
     sendCatch $ (mkDeleteSAMLProvider p1) &~ s
@@ -1218,7 +1175,7 @@ deleteSAMLProviderCatch p1 s =
 -- ?Action=DeleteServerCertificate &ServerCertificateName=ProdServerCert
 -- &Version=2010-05-08 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.DeleteServerCertificate'
 
 deleteServerCertificate :: ( MonadCatch m
                            , MonadResource m
@@ -1226,7 +1183,6 @@ deleteServerCertificate :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'dscServerCertificateName'
-    -> State DeleteServerCertificate a
     -> m DeleteServerCertificateResponse
 deleteServerCertificate p1 s =
     send $ (mkDeleteServerCertificate p1) &~ s
@@ -1236,7 +1192,6 @@ deleteServerCertificateCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'dscServerCertificateName'
-    -> State DeleteServerCertificate a
     -> m (Either ServiceEr DeleteServerCertificateResponse)
 deleteServerCertificateCatch p1 s =
     sendCatch $ (mkDeleteServerCertificate p1) &~ s
@@ -1251,7 +1206,7 @@ deleteServerCertificateCatch p1 s =
 -- &CertificateId=TA7SMP42TDN5Z26OBPJE7EXAMPLE &Version=2010-05-08 &AUTHPARAMS
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.DeleteSigningCertificate'
 
 deleteSigningCertificate :: ( MonadCatch m
                             , MonadResource m
@@ -1259,7 +1214,6 @@ deleteSigningCertificate :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'dsc1CertificateId'
-    -> State DeleteSigningCertificate a
     -> m DeleteSigningCertificateResponse
 deleteSigningCertificate p2 s =
     send $ (mkDeleteSigningCertificate p2) &~ s
@@ -1269,7 +1223,6 @@ deleteSigningCertificateCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'dsc1CertificateId'
-    -> State DeleteSigningCertificate a
     -> m (Either ServiceEr DeleteSigningCertificateResponse)
 deleteSigningCertificateCatch p2 s =
     sendCatch $ (mkDeleteSigningCertificate p2) &~ s
@@ -1280,7 +1233,7 @@ deleteSigningCertificateCatch p2 s =
 -- https://iam.amazonaws.com/ ?Action=DeleteUser &UserName=Bob
 -- &Version=2010-05-08 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.DeleteUser'
 
 deleteUser :: ( MonadCatch m
               , MonadResource m
@@ -1288,7 +1241,6 @@ deleteUser :: ( MonadCatch m
               , MonadReader Env m
               )
     => Text -- ^ 'duUserName'
-    -> State DeleteUser a
     -> m DeleteUserResponse
 deleteUser p1 s =
     send $ (mkDeleteUser p1) &~ s
@@ -1298,7 +1250,6 @@ deleteUserCatch :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'duUserName'
-    -> State DeleteUser a
     -> m (Either ServiceEr DeleteUserResponse)
 deleteUserCatch p1 s =
     sendCatch $ (mkDeleteUser p1) &~ s
@@ -1309,7 +1260,7 @@ deleteUserCatch p1 s =
 -- &PolicyName=AllAccessPolicy &AUTHPARAMS
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.DeleteUserPolicy'
 
 deleteUserPolicy :: ( MonadCatch m
                     , MonadResource m
@@ -1318,7 +1269,6 @@ deleteUserPolicy :: ( MonadCatch m
                     )
     => Text -- ^ 'dupUserName'
     -> Text -- ^ 'dupPolicyName'
-    -> State DeleteUserPolicy a
     -> m DeleteUserPolicyResponse
 deleteUserPolicy p1 p2 s =
     send $ (mkDeleteUserPolicy p1 p2) &~ s
@@ -1329,7 +1279,6 @@ deleteUserPolicyCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'dupUserName'
     -> Text -- ^ 'dupPolicyName'
-    -> State DeleteUserPolicy a
     -> m (Either ServiceEr DeleteUserPolicyResponse)
 deleteUserPolicyCatch p1 p2 s =
     sendCatch $ (mkDeleteUserPolicy p1 p2) &~ s
@@ -1343,7 +1292,7 @@ deleteUserPolicyCatch p1 p2 s =
 -- &AUTHPARAMS arn:aws:iam::123456789012:mfa/ExampleName
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.DeleteVirtualMFADevice'
 
 deleteVirtualMFADevice :: ( MonadCatch m
                           , MonadResource m
@@ -1351,7 +1300,6 @@ deleteVirtualMFADevice :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'dvmfadSerialNumber'
-    -> State DeleteVirtualMFADevice a
     -> m DeleteVirtualMFADeviceResponse
 deleteVirtualMFADevice p1 s =
     send $ (mkDeleteVirtualMFADevice p1) &~ s
@@ -1361,7 +1309,6 @@ deleteVirtualMFADeviceCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'dvmfadSerialNumber'
-    -> State DeleteVirtualMFADevice a
     -> m (Either ServiceEr DeleteVirtualMFADeviceResponse)
 deleteVirtualMFADeviceCatch p1 s =
     sendCatch $ (mkDeleteVirtualMFADevice p1) &~ s
@@ -1374,7 +1321,7 @@ deleteVirtualMFADeviceCatch p1 s =
 -- &AuthenticationCode1=234567 &AuthenticationCode2=987654 &AUTHPARAMS
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.EnableMFADevice'
 
 enableMFADevice :: ( MonadCatch m
                    , MonadResource m
@@ -1385,7 +1332,6 @@ enableMFADevice :: ( MonadCatch m
     -> Text -- ^ 'emfadSerialNumber'
     -> Text -- ^ 'emfadAuthenticationCode1'
     -> Text -- ^ 'emfadAuthenticationCode2'
-    -> State EnableMFADevice a
     -> m EnableMFADeviceResponse
 enableMFADevice p1 p2 p3 p4 s =
     send $ (mkEnableMFADevice p1 p2 p3 p4) &~ s
@@ -1398,7 +1344,6 @@ enableMFADeviceCatch :: ( MonadCatch m
     -> Text -- ^ 'emfadSerialNumber'
     -> Text -- ^ 'emfadAuthenticationCode1'
     -> Text -- ^ 'emfadAuthenticationCode2'
-    -> State EnableMFADevice a
     -> m (Either ServiceEr EnableMFADeviceResponse)
 enableMFADeviceCatch p1 p2 p3 p4 s =
     sendCatch $ (mkEnableMFADevice p1 p2 p3 p4) &~ s
@@ -1408,7 +1353,7 @@ enableMFADeviceCatch p1 p2 p3 p4 s =
 -- about the credential report, see Getting Credential Reports in the Using
 -- IAM guide.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.GenerateCredentialReport'
 
 generateCredentialReport :: ( MonadCatch m
                             , MonadResource m
@@ -1436,7 +1381,7 @@ generateCredentialReportCatch s =
 -- &Version=2010-05-08 &AUTHPARAMS 6, false false false false true
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.GetAccountPasswordPolicy'
 
 getAccountPasswordPolicy :: ( MonadCatch m
                             , MonadResource m
@@ -1468,7 +1413,7 @@ getAccountPasswordPolicyCatch s =
 -- ServerCertificatesQuota 10 AccountMFAEnabled 0 MFADevicesInUse 10
 -- MFADevices 20 f1e38443-f1ad-11df-b1ef-a9265EXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.GetAccountSummary'
 
 getAccountSummary :: ( MonadCatch m
                      , MonadResource m
@@ -1494,7 +1439,7 @@ getAccountSummaryCatch s =
 -- about the credential report, see Getting Credential Reports in the Using
 -- IAM guide.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.GetCredentialReport'
 
 getCredentialReport :: ( MonadCatch m
                        , MonadResource m
@@ -1527,7 +1472,7 @@ getCredentialReportCatch s =
 -- arn:aws:iam::123456789012:user/division_abc/subdivision_xyz/Susan false
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.GetGroup'
 
 getGroup :: ( MonadCatch m
             , MonadResource m
@@ -1535,7 +1480,6 @@ getGroup :: ( MonadCatch m
             , MonadReader Env (ResumableSource m)
             )
     => Text -- ^ 'ggGroupName'
-    -> State GetGroup a
     -> ResumableSource m GetGroupResponse
 getGroup p1 s =
     paginate $ (mkGetGroup p1) &~ s
@@ -1545,7 +1489,6 @@ getGroupCatch :: ( MonadCatch m
                  , MonadReader Env (ResumableSource m)
                  )
     => Text -- ^ 'ggGroupName'
-    -> State GetGroup a
     -> ResumableSource m (Either ServiceEr GetGroupResponse)
 getGroupCatch p1 s =
     paginateCatch $ (mkGetGroup p1) &~ s
@@ -1559,7 +1502,7 @@ getGroupCatch p1 s =
 -- {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":"*","Resource":"*"}]}
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.GetGroupPolicy'
 
 getGroupPolicy :: ( MonadCatch m
                   , MonadResource m
@@ -1568,7 +1511,6 @@ getGroupPolicy :: ( MonadCatch m
                   )
     => Text -- ^ 'ggpGroupName'
     -> Text -- ^ 'ggpPolicyName'
-    -> State GetGroupPolicy a
     -> m GetGroupPolicyResponse
 getGroupPolicy p1 p2 s =
     send $ (mkGetGroupPolicy p1 p2) &~ s
@@ -1579,7 +1521,6 @@ getGroupPolicyCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'ggpGroupName'
     -> Text -- ^ 'ggpPolicyName'
-    -> State GetGroupPolicy a
     -> m (Either ServiceEr GetGroupPolicyResponse)
 getGroupPolicyCatch p1 p2 s =
     sendCatch $ (mkGetGroupPolicy p1 p2) &~ s
@@ -1600,7 +1541,7 @@ getGroupPolicyCatch p1 p2 s =
 -- arn:aws:iam::123456789012:instance-profile/application_abc/component_xyz/Webserver
 -- 2012-05-09T16:11:10Z 37289fda-99f2-11e1-a4c3-27EXAMPLE804.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.GetInstanceProfile'
 
 getInstanceProfile :: ( MonadCatch m
                       , MonadResource m
@@ -1608,7 +1549,6 @@ getInstanceProfile :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'gipInstanceProfileName'
-    -> State GetInstanceProfile a
     -> m GetInstanceProfileResponse
 getInstanceProfile p1 s =
     send $ (mkGetInstanceProfile p1) &~ s
@@ -1618,7 +1558,6 @@ getInstanceProfileCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'gipInstanceProfileName'
-    -> State GetInstanceProfile a
     -> m (Either ServiceEr GetInstanceProfileResponse)
 getInstanceProfileCatch p1 s =
     sendCatch $ (mkGetInstanceProfile p1) &~ s
@@ -1630,7 +1569,7 @@ getInstanceProfileCatch p1 s =
 -- &UserName=Bob &AUTHPARAMS Bob 2011-09-19T23:00:56Z
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.GetLoginProfile'
 
 getLoginProfile :: ( MonadCatch m
                    , MonadResource m
@@ -1638,7 +1577,6 @@ getLoginProfile :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'glpUserName'
-    -> State GetLoginProfile a
     -> m GetLoginProfileResponse
 getLoginProfile p1 s =
     send $ (mkGetLoginProfile p1) &~ s
@@ -1648,7 +1586,6 @@ getLoginProfileCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'glpUserName'
-    -> State GetLoginProfile a
     -> m (Either ServiceEr GetLoginProfileResponse)
 getLoginProfileCatch p1 s =
     sendCatch $ (mkGetLoginProfile p1) &~ s
@@ -1668,7 +1605,7 @@ getLoginProfileCatch p1 s =
 -- 2012-05-08T23:34:01Z AROADBQP57FF2AEXAMPLE
 -- df37e965-9967-11e1-a4c3-270EXAMPLE04.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.GetRole'
 
 getRole :: ( MonadCatch m
            , MonadResource m
@@ -1676,7 +1613,6 @@ getRole :: ( MonadCatch m
            , MonadReader Env m
            )
     => Text -- ^ 'grRoleName'
-    -> State GetRole a
     -> m GetRoleResponse
 getRole p1 s =
     send $ (mkGetRole p1) &~ s
@@ -1686,7 +1622,6 @@ getRoleCatch :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => Text -- ^ 'grRoleName'
-    -> State GetRole a
     -> m (Either ServiceEr GetRoleResponse)
 getRoleCatch p1 s =
     sendCatch $ (mkGetRole p1) &~ s
@@ -1701,7 +1636,7 @@ getRoleCatch p1 s =
 -- {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":["s3:*"],"Resource":["*"]}]}
 -- 7e7cd8bc-99ef-11e1-a4c3-27EXAMPLE804.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.GetRolePolicy'
 
 getRolePolicy :: ( MonadCatch m
                  , MonadResource m
@@ -1710,7 +1645,6 @@ getRolePolicy :: ( MonadCatch m
                  )
     => Text -- ^ 'grpRoleName'
     -> Text -- ^ 'grpPolicyName'
-    -> State GetRolePolicy a
     -> m GetRolePolicyResponse
 getRolePolicy p1 p2 s =
     send $ (mkGetRolePolicy p1 p2) &~ s
@@ -1721,7 +1655,6 @@ getRolePolicyCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'grpRoleName'
     -> Text -- ^ 'grpPolicyName'
-    -> State GetRolePolicy a
     -> m (Either ServiceEr GetRolePolicyResponse)
 getRolePolicyCatch p1 p2 s =
     sendCatch $ (mkGetRolePolicy p1 p2) &~ s
@@ -1734,7 +1667,7 @@ getRolePolicyCatch p1 p2 s =
 -- &Version=2010-05-08 &AUTHPARAMS 2012-05-09T16:27:11Z 2015-12-31T211:59:59Z
 -- Pd9fexDssTkRgGNqs...DxptfEs== 29f47818-99f5-11e1-a4c3-27EXAMPLE804.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.GetSAMLProvider'
 
 getSAMLProvider :: ( MonadCatch m
                    , MonadResource m
@@ -1742,7 +1675,6 @@ getSAMLProvider :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'gsamlpSAMLProviderArn'
-    -> State GetSAMLProvider a
     -> m GetSAMLProviderResponse
 getSAMLProvider p1 s =
     send $ (mkGetSAMLProvider p1) &~ s
@@ -1752,7 +1684,6 @@ getSAMLProviderCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'gsamlpSAMLProviderArn'
-    -> State GetSAMLProvider a
     -> m (Either ServiceEr GetSAMLProviderResponse)
 getSAMLProviderCatch p1 s =
     sendCatch $ (mkGetSAMLProvider p1) &~ s
@@ -1781,7 +1712,7 @@ getSAMLProviderCatch p1 s =
 -- AEaHzTpmEXAMPLE= -----END CERTIFICATE-----
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.GetServerCertificate'
 
 getServerCertificate :: ( MonadCatch m
                         , MonadResource m
@@ -1789,7 +1720,6 @@ getServerCertificate :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'gscServerCertificateName'
-    -> State GetServerCertificate a
     -> m GetServerCertificateResponse
 getServerCertificate p1 s =
     send $ (mkGetServerCertificate p1) &~ s
@@ -1799,7 +1729,6 @@ getServerCertificateCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'gscServerCertificateName'
-    -> State GetServerCertificate a
     -> m (Either ServiceEr GetServerCertificateResponse)
 getServerCertificateCatch p1 s =
     sendCatch $ (mkGetServerCertificate p1) &~ s
@@ -1814,7 +1743,7 @@ getServerCertificateCatch p1 s =
 -- arn:aws:iam::123456789012:user/division_abc/subdivision_xyz/Bob
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.GetUser'
 
 getUser :: ( MonadCatch m
            , MonadResource m
@@ -1844,7 +1773,7 @@ getUserCatch s =
 -- {"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":"*","Resource":"*"}]}
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.GetUserPolicy'
 
 getUserPolicy :: ( MonadCatch m
                  , MonadResource m
@@ -1853,7 +1782,6 @@ getUserPolicy :: ( MonadCatch m
                  )
     => Text -- ^ 'gupUserName'
     -> Text -- ^ 'gupPolicyName'
-    -> State GetUserPolicy a
     -> m GetUserPolicyResponse
 getUserPolicy p1 p2 s =
     send $ (mkGetUserPolicy p1 p2) &~ s
@@ -1864,7 +1792,6 @@ getUserPolicyCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'gupUserName'
     -> Text -- ^ 'gupPolicyName'
-    -> State GetUserPolicy a
     -> m (Either ServiceEr GetUserPolicyResponse)
 getUserPolicyCatch p1 p2 s =
     sendCatch $ (mkGetUserPolicy p1 p2) &~ s
@@ -1884,7 +1811,7 @@ getUserPolicyCatch p1 p2 s =
 -- Bob AKIAIOSFODNN7EXAMPLE Active Bob AKIAI44QH8DHBEXAMPLE Inactive false
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.ListAccessKeys'
 
 listAccessKeys :: ( MonadCatch m
                   , MonadResource m
@@ -1913,7 +1840,7 @@ listAccessKeysCatch s =
 -- ?Action=ListAccountAliases &Version=2010-05-08 &AUTHPARAMS false
 -- foocorporation c5a076e9-f1b0-11df-8fbe-45274EXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.ListAccountAliases'
 
 listAccountAliases :: ( MonadCatch m
                       , MonadResource m
@@ -1941,7 +1868,7 @@ listAccountAliasesCatch s =
 -- https://iam.amazonaws.com/ ?Action=ListGroupPolicies &GroupName=Admins
 -- &AUTHPARAMS AdminRoot KeyPolicy false 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.ListGroupPolicies'
 
 listGroupPolicies :: ( MonadCatch m
                      , MonadResource m
@@ -1949,7 +1876,6 @@ listGroupPolicies :: ( MonadCatch m
                      , MonadReader Env (ResumableSource m)
                      )
     => Text -- ^ 'lgpGroupName'
-    -> State ListGroupPolicies a
     -> ResumableSource m ListGroupPoliciesResponse
 listGroupPolicies p1 s =
     paginate $ (mkListGroupPolicies p1) &~ s
@@ -1959,7 +1885,6 @@ listGroupPoliciesCatch :: ( MonadCatch m
                           , MonadReader Env (ResumableSource m)
                           )
     => Text -- ^ 'lgpGroupName'
-    -> State ListGroupPolicies a
     -> ResumableSource m (Either ServiceEr ListGroupPoliciesResponse)
 listGroupPoliciesCatch p1 s =
     paginateCatch $ (mkListGroupPolicies p1) &~ s
@@ -1979,7 +1904,7 @@ listGroupPoliciesCatch p1 s =
 -- :group/division_abc/subdivision_xyz/product_1234/Managers false
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.ListGroups'
 
 listGroups :: ( MonadCatch m
               , MonadResource m
@@ -2008,7 +1933,7 @@ listGroupsCatch s =
 -- arn:aws:iam::123456789012:group/Admins false
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.ListGroupsForUser'
 
 listGroupsForUser :: ( MonadCatch m
                      , MonadResource m
@@ -2016,7 +1941,6 @@ listGroupsForUser :: ( MonadCatch m
                      , MonadReader Env (ResumableSource m)
                      )
     => Text -- ^ 'lgfuUserName'
-    -> State ListGroupsForUser a
     -> ResumableSource m ListGroupsForUserResponse
 listGroupsForUser p1 s =
     paginate $ (mkListGroupsForUser p1) &~ s
@@ -2026,7 +1950,6 @@ listGroupsForUserCatch :: ( MonadCatch m
                           , MonadReader Env (ResumableSource m)
                           )
     => Text -- ^ 'lgfuUserName'
-    -> State ListGroupsForUser a
     -> ResumableSource m (Either ServiceEr ListGroupsForUserResponse)
 listGroupsForUserCatch p1 s =
     paginateCatch $ (mkListGroupsForUser p1) &~ s
@@ -2045,7 +1968,7 @@ listGroupsForUserCatch p1 s =
 -- arn:aws:iam::123456789012:instance-profile/application_abc/component_xyz/Webserver
 -- 2012-05-09T16:27:11Z fd74fa8d-99f3-11e1-a4c3-27EXAMPLE804.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.ListInstanceProfiles'
 
 listInstanceProfiles :: ( MonadCatch m
                         , MonadResource m
@@ -2082,7 +2005,7 @@ listInstanceProfilesCatch s =
 -- arn:aws:iam::123456789012:instance-profile/application_abc/component_xyz/Webserver
 -- 2012-05-09T16:27:11Z 6a8c3992-99f4-11e1-a4c3-27EXAMPLE804.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.ListInstanceProfilesForRole'
 
 listInstanceProfilesForRole :: ( MonadCatch m
                                , MonadResource m
@@ -2090,7 +2013,6 @@ listInstanceProfilesForRole :: ( MonadCatch m
                                , MonadReader Env (ResumableSource m)
                                )
     => Text -- ^ 'lipfrRoleName'
-    -> State ListInstanceProfilesForRole a
     -> ResumableSource m ListInstanceProfilesForRoleResponse
 listInstanceProfilesForRole p1 s =
     paginate $ (mkListInstanceProfilesForRole p1) &~ s
@@ -2100,7 +2022,6 @@ listInstanceProfilesForRoleCatch :: ( MonadCatch m
                                     , MonadReader Env (ResumableSource m)
                                     )
     => Text -- ^ 'lipfrRoleName'
-    -> State ListInstanceProfilesForRole a
     -> ResumableSource m (Either ServiceEr ListInstanceProfilesForRoleResponse)
 listInstanceProfilesForRoleCatch p1 s =
     paginateCatch $ (mkListInstanceProfilesForRole p1) &~ s
@@ -2114,7 +2035,7 @@ listInstanceProfilesForRoleCatch p1 s =
 -- https://iam.amazonaws.com/ ?Action=ListMFADevices &UserName=Bob &AUTHPARAMS
 -- Bob R1234 false 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.ListMFADevices'
 
 listMFADevices :: ( MonadCatch m
                   , MonadResource m
@@ -2144,7 +2065,7 @@ listMFADevicesCatch s =
 -- CloudwatchPutMetricPolicy S3AccessPolicy false
 -- 8c7e1816-99f0-11e1-a4c3-27EXAMPLE804.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.ListRolePolicies'
 
 listRolePolicies :: ( MonadCatch m
                     , MonadResource m
@@ -2152,7 +2073,6 @@ listRolePolicies :: ( MonadCatch m
                     , MonadReader Env (ResumableSource m)
                     )
     => Text -- ^ 'lrpRoleName'
-    -> State ListRolePolicies a
     -> ResumableSource m ListRolePoliciesResponse
 listRolePolicies p1 s =
     paginate $ (mkListRolePolicies p1) &~ s
@@ -2162,7 +2082,6 @@ listRolePoliciesCatch :: ( MonadCatch m
                          , MonadReader Env (ResumableSource m)
                          )
     => Text -- ^ 'lrpRoleName'
-    -> State ListRolePolicies a
     -> ResumableSource m (Either ServiceEr ListRolePoliciesResponse)
 listRolePoliciesCatch p1 s =
     paginateCatch $ (mkListRolePolicies p1) &~ s
@@ -2186,7 +2105,7 @@ listRolePoliciesCatch p1 s =
 -- 2012-05-09T15:45:45Z AROAC2ICXG32EXAMPLEWK
 -- 20f7279f-99ee-11e1-a4c3-27EXAMPLE804.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.ListRoles'
 
 listRoles :: ( MonadCatch m
              , MonadResource m
@@ -2217,7 +2136,7 @@ listRolesCatch s =
 -- 2015-03-11T13:11:02Z 2012-05-09T16:27:11Z
 -- fd74fa8d-99f3-11e1-a4c3-27EXAMPLE804.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.ListSAMLProviders'
 
 listSAMLProviders :: ( MonadCatch m
                      , MonadResource m
@@ -2254,7 +2173,7 @@ listSAMLProvidersCatch s =
 -- 2010-05-08T03:01:02.004Z ASCACKCEVSQ6CEXAMPLE3 2012-05-08T03:01:02.004Z
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.ListServerCertificates'
 
 listServerCertificates :: ( MonadCatch m
                           , MonadResource m
@@ -2304,7 +2223,7 @@ listServerCertificatesCatch s =
 -- AEaHzTpmEXAMPLE= -----END CERTIFICATE----- Active false
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.ListSigningCertificates'
 
 listSigningCertificates :: ( MonadCatch m
                            , MonadResource m
@@ -2333,7 +2252,7 @@ listSigningCertificatesCatch s =
 -- &AUTHPARAMS AllAccessPolicy KeyPolicy false
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.ListUserPolicies'
 
 listUserPolicies :: ( MonadCatch m
                     , MonadResource m
@@ -2341,7 +2260,6 @@ listUserPolicies :: ( MonadCatch m
                     , MonadReader Env (ResumableSource m)
                     )
     => Text -- ^ 'lupUserName'
-    -> State ListUserPolicies a
     -> ResumableSource m ListUserPoliciesResponse
 listUserPolicies p1 s =
     paginate $ (mkListUserPolicies p1) &~ s
@@ -2351,7 +2269,6 @@ listUserPoliciesCatch :: ( MonadCatch m
                          , MonadReader Env (ResumableSource m)
                          )
     => Text -- ^ 'lupUserName'
-    -> State ListUserPolicies a
     -> ResumableSource m (Either ServiceEr ListUserPoliciesResponse)
 listUserPoliciesCatch p1 s =
     paginateCatch $ (mkListUserPolicies p1) &~ s
@@ -2370,7 +2287,7 @@ listUserPoliciesCatch p1 s =
 -- /division_abc/subdivision_xyz/engineering/Jackie false
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.ListUsers'
 
 listUsers :: ( MonadCatch m
              , MonadResource m
@@ -2408,7 +2325,7 @@ listUsersCatch s =
 -- arn:aws:iam::111122223333:user/ExampleUser 2011-07-01T17:23:07Z
 -- b61ce1b1-0401-11e1-b2f8-2dEXAMPLEbfc.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.ListVirtualMFADevices'
 
 listVirtualMFADevices :: ( MonadCatch m
                          , MonadResource m
@@ -2444,7 +2361,7 @@ listVirtualMFADevicesCatch s =
 -- &PolicyDocument={"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":"*","Resource":"*"}]}
 -- &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.PutGroupPolicy'
 
 putGroupPolicy :: ( MonadCatch m
                   , MonadResource m
@@ -2454,7 +2371,6 @@ putGroupPolicy :: ( MonadCatch m
     => Text -- ^ 'pgpGroupName'
     -> Text -- ^ 'pgpPolicyName'
     -> Text -- ^ 'pgpPolicyDocument'
-    -> State PutGroupPolicy a
     -> m PutGroupPolicyResponse
 putGroupPolicy p1 p2 p3 s =
     send $ (mkPutGroupPolicy p1 p2 p3) &~ s
@@ -2466,7 +2382,6 @@ putGroupPolicyCatch :: ( MonadCatch m
     => Text -- ^ 'pgpGroupName'
     -> Text -- ^ 'pgpPolicyName'
     -> Text -- ^ 'pgpPolicyDocument'
-    -> State PutGroupPolicy a
     -> m (Either ServiceEr PutGroupPolicyResponse)
 putGroupPolicyCatch p1 p2 p3 s =
     sendCatch $ (mkPutGroupPolicy p1 p2 p3) &~ s
@@ -2486,7 +2401,7 @@ putGroupPolicyCatch p1 p2 p3 s =
 -- &PolicyDocument={"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":"s3:*","Resource":"*"}]}
 -- &Version=2010-05-08 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.PutRolePolicy'
 
 putRolePolicy :: ( MonadCatch m
                  , MonadResource m
@@ -2496,7 +2411,6 @@ putRolePolicy :: ( MonadCatch m
     => Text -- ^ 'prpRoleName'
     -> Text -- ^ 'prpPolicyName'
     -> Text -- ^ 'prpPolicyDocument'
-    -> State PutRolePolicy a
     -> m PutRolePolicyResponse
 putRolePolicy p1 p2 p3 s =
     send $ (mkPutRolePolicy p1 p2 p3) &~ s
@@ -2508,7 +2422,6 @@ putRolePolicyCatch :: ( MonadCatch m
     => Text -- ^ 'prpRoleName'
     -> Text -- ^ 'prpPolicyName'
     -> Text -- ^ 'prpPolicyDocument'
-    -> State PutRolePolicy a
     -> m (Either ServiceEr PutRolePolicyResponse)
 putRolePolicyCatch p1 p2 p3 s =
     sendCatch $ (mkPutRolePolicy p1 p2 p3) &~ s
@@ -2528,7 +2441,7 @@ putRolePolicyCatch p1 p2 p3 s =
 -- &PolicyDocument={"Version":"2012-10-17","Statement":[{"Effect":"Allow","Action":"*","Resource":"*"}]}
 -- &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.PutUserPolicy'
 
 putUserPolicy :: ( MonadCatch m
                  , MonadResource m
@@ -2538,7 +2451,6 @@ putUserPolicy :: ( MonadCatch m
     => Text -- ^ 'pupUserName'
     -> Text -- ^ 'pupPolicyName'
     -> Text -- ^ 'pupPolicyDocument'
-    -> State PutUserPolicy a
     -> m PutUserPolicyResponse
 putUserPolicy p1 p2 p3 s =
     send $ (mkPutUserPolicy p1 p2 p3) &~ s
@@ -2550,7 +2462,6 @@ putUserPolicyCatch :: ( MonadCatch m
     => Text -- ^ 'pupUserName'
     -> Text -- ^ 'pupPolicyName'
     -> Text -- ^ 'pupPolicyDocument'
-    -> State PutUserPolicy a
     -> m (Either ServiceEr PutUserPolicyResponse)
 putUserPolicyCatch p1 p2 p3 s =
     sendCatch $ (mkPutUserPolicy p1 p2 p3) &~ s
@@ -2567,7 +2478,7 @@ putUserPolicyCatch p1 p2 p3 s =
 -- &RoleName=S3Access &Version=2010-05-08 &AUTHPARAMS
 -- 29f47818-99f5-11e1-a4c3-27EXAMPLE804.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.RemoveRoleFromInstanceProfile'
 
 removeRoleFromInstanceProfile :: ( MonadCatch m
                                  , MonadResource m
@@ -2576,7 +2487,6 @@ removeRoleFromInstanceProfile :: ( MonadCatch m
                                  )
     => Text -- ^ 'rrfipInstanceProfileName'
     -> Text -- ^ 'rrfipRoleName'
-    -> State RemoveRoleFromInstanceProfile a
     -> m RemoveRoleFromInstanceProfileResponse
 removeRoleFromInstanceProfile p1 p2 s =
     send $ (mkRemoveRoleFromInstanceProfile p1 p2) &~ s
@@ -2587,7 +2497,6 @@ removeRoleFromInstanceProfileCatch :: ( MonadCatch m
                                       )
     => Text -- ^ 'rrfipInstanceProfileName'
     -> Text -- ^ 'rrfipRoleName'
-    -> State RemoveRoleFromInstanceProfile a
     -> m (Either ServiceEr RemoveRoleFromInstanceProfileResponse)
 removeRoleFromInstanceProfileCatch p1 p2 s =
     sendCatch $ (mkRemoveRoleFromInstanceProfile p1 p2) &~ s
@@ -2597,7 +2506,7 @@ removeRoleFromInstanceProfileCatch p1 p2 s =
 -- https://iam.amazonaws.com/ ?Action=RemoveUserFromGroup &GroupName=Managers
 -- &UserName=Bob &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.RemoveUserFromGroup'
 
 removeUserFromGroup :: ( MonadCatch m
                        , MonadResource m
@@ -2606,7 +2515,6 @@ removeUserFromGroup :: ( MonadCatch m
                        )
     => Text -- ^ 'rufgGroupName'
     -> Text -- ^ 'rufgUserName'
-    -> State RemoveUserFromGroup a
     -> m RemoveUserFromGroupResponse
 removeUserFromGroup p1 p2 s =
     send $ (mkRemoveUserFromGroup p1 p2) &~ s
@@ -2617,7 +2525,6 @@ removeUserFromGroupCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'rufgGroupName'
     -> Text -- ^ 'rufgUserName'
-    -> State RemoveUserFromGroup a
     -> m (Either ServiceEr RemoveUserFromGroupResponse)
 removeUserFromGroupCatch p1 p2 s =
     sendCatch $ (mkRemoveUserFromGroup p1 p2) &~ s
@@ -2628,7 +2535,7 @@ removeUserFromGroupCatch p1 p2 s =
 -- &SerialNumber=R1234 &AuthenticationCode1=234567 &AuthenticationCode2=987654
 -- &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.ResyncMFADevice'
 
 resyncMFADevice :: ( MonadCatch m
                    , MonadResource m
@@ -2639,7 +2546,6 @@ resyncMFADevice :: ( MonadCatch m
     -> Text -- ^ 'rmfadSerialNumber'
     -> Text -- ^ 'rmfadAuthenticationCode1'
     -> Text -- ^ 'rmfadAuthenticationCode2'
-    -> State ResyncMFADevice a
     -> m ResyncMFADeviceResponse
 resyncMFADevice p1 p2 p3 p4 s =
     send $ (mkResyncMFADevice p1 p2 p3 p4) &~ s
@@ -2652,7 +2558,6 @@ resyncMFADeviceCatch :: ( MonadCatch m
     -> Text -- ^ 'rmfadSerialNumber'
     -> Text -- ^ 'rmfadAuthenticationCode1'
     -> Text -- ^ 'rmfadAuthenticationCode2'
-    -> State ResyncMFADevice a
     -> m (Either ServiceEr ResyncMFADeviceResponse)
 resyncMFADeviceCatch p1 p2 p3 p4 s =
     sendCatch $ (mkResyncMFADevice p1 p2 p3 p4) &~ s
@@ -2670,7 +2575,7 @@ resyncMFADeviceCatch p1 p2 p3 p4 s =
 -- &AccessKeyId=AKIAIOSFODNN7EXAMPLE &Status=Inactive &Version=2010-05-08
 -- &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.UpdateAccessKey'
 
 updateAccessKey :: ( MonadCatch m
                    , MonadResource m
@@ -2679,7 +2584,6 @@ updateAccessKey :: ( MonadCatch m
                    )
     => Text -- ^ 'uakAccessKeyId'
     -> StatusType -- ^ 'uakStatus'
-    -> State UpdateAccessKey a
     -> m UpdateAccessKeyResponse
 updateAccessKey p2 p3 s =
     send $ (mkUpdateAccessKey p2 p3) &~ s
@@ -2690,7 +2594,6 @@ updateAccessKeyCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'uakAccessKeyId'
     -> StatusType -- ^ 'uakStatus'
-    -> State UpdateAccessKey a
     -> m (Either ServiceEr UpdateAccessKeyResponse)
 updateAccessKeyCatch p2 p3 s =
     sendCatch $ (mkUpdateAccessKey p2 p3) &~ s
@@ -2705,7 +2608,7 @@ updateAccessKeyCatch p2 p3 s =
 -- &MaxPasswordAge=90 &PasswordReusePrevention=6 &HardExpiry=false
 -- &Version=2010-05-08 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.UpdateAccountPasswordPolicy'
 
 updateAccountPasswordPolicy :: ( MonadCatch m
                                , MonadResource m
@@ -2734,7 +2637,7 @@ updateAccountPasswordPolicyCatch s =
 -- &RoleName=S3Access &Version=2010-05-08 &AUTHPARAMS
 -- 309c1671-99ed-11e1-a4c3-270EXAMPLE04.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.UpdateAssumeRolePolicy'
 
 updateAssumeRolePolicy :: ( MonadCatch m
                           , MonadResource m
@@ -2743,7 +2646,6 @@ updateAssumeRolePolicy :: ( MonadCatch m
                           )
     => Text -- ^ 'uarpRoleName'
     -> Text -- ^ 'uarpPolicyDocument'
-    -> State UpdateAssumeRolePolicy a
     -> m UpdateAssumeRolePolicyResponse
 updateAssumeRolePolicy p1 p2 s =
     send $ (mkUpdateAssumeRolePolicy p1 p2) &~ s
@@ -2754,7 +2656,6 @@ updateAssumeRolePolicyCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'uarpRoleName'
     -> Text -- ^ 'uarpPolicyDocument'
-    -> State UpdateAssumeRolePolicy a
     -> m (Either ServiceEr UpdateAssumeRolePolicyResponse)
 updateAssumeRolePolicyCatch p1 p2 s =
     sendCatch $ (mkUpdateAssumeRolePolicy p1 p2) &~ s
@@ -2775,7 +2676,7 @@ updateAssumeRolePolicyCatch p1 p2 s =
 -- arn:aws:iam::123456789012:group/division_abc/subdivision_xyz/
 -- product_1234/engineering/Test_1 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.UpdateGroup'
 
 updateGroup :: ( MonadCatch m
                , MonadResource m
@@ -2783,7 +2684,6 @@ updateGroup :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'ugGroupName'
-    -> State UpdateGroup a
     -> m UpdateGroupResponse
 updateGroup p1 s =
     send $ (mkUpdateGroup p1) &~ s
@@ -2793,7 +2693,6 @@ updateGroupCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'ugGroupName'
-    -> State UpdateGroup a
     -> m (Either ServiceEr UpdateGroupResponse)
 updateGroupCatch p1 s =
     sendCatch $ (mkUpdateGroup p1) &~ s
@@ -2803,7 +2702,7 @@ updateGroupCatch p1 s =
 -- ?Action=UpdateLoginProfile &UserName=Bob &Password=NewPassword &AUTHPARAMS
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.UpdateLoginProfile'
 
 updateLoginProfile :: ( MonadCatch m
                       , MonadResource m
@@ -2811,7 +2710,6 @@ updateLoginProfile :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'ulpUserName'
-    -> State UpdateLoginProfile a
     -> m UpdateLoginProfileResponse
 updateLoginProfile p1 s =
     send $ (mkUpdateLoginProfile p1) &~ s
@@ -2821,7 +2719,6 @@ updateLoginProfileCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'ulpUserName'
-    -> State UpdateLoginProfile a
     -> m (Either ServiceEr UpdateLoginProfileResponse)
 updateLoginProfileCatch p1 s =
     sendCatch $ (mkUpdateLoginProfile p1) &~ s
@@ -2836,7 +2733,7 @@ updateLoginProfileCatch p1 s =
 -- &AUTHPARAMS arn:aws:iam::123456789012:saml-metadata/MyUniversity
 -- 29f47818-99f5-11e1-a4c3-27EXAMPLE804.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.UpdateSAMLProvider'
 
 updateSAMLProvider :: ( MonadCatch m
                       , MonadResource m
@@ -2845,7 +2742,6 @@ updateSAMLProvider :: ( MonadCatch m
                       )
     => Text -- ^ 'usamlpSAMLMetadataDocument'
     -> Text -- ^ 'usamlpSAMLProviderArn'
-    -> State UpdateSAMLProvider a
     -> m UpdateSAMLProviderResponse
 updateSAMLProvider p1 p2 s =
     send $ (mkUpdateSAMLProvider p1 p2) &~ s
@@ -2856,7 +2752,6 @@ updateSAMLProviderCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'usamlpSAMLMetadataDocument'
     -> Text -- ^ 'usamlpSAMLProviderArn'
-    -> State UpdateSAMLProvider a
     -> m (Either ServiceEr UpdateSAMLProviderResponse)
 updateSAMLProviderCatch p1 p2 s =
     sendCatch $ (mkUpdateSAMLProvider p1 p2) &~ s
@@ -2875,7 +2770,7 @@ updateSAMLProviderCatch p1 p2 s =
 -- &NewServerCertificateName=ProdServerCertName &Version=2010-05-08
 -- &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.UpdateServerCertificate'
 
 updateServerCertificate :: ( MonadCatch m
                            , MonadResource m
@@ -2883,7 +2778,6 @@ updateServerCertificate :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'uscServerCertificateName'
-    -> State UpdateServerCertificate a
     -> m UpdateServerCertificateResponse
 updateServerCertificate p1 s =
     send $ (mkUpdateServerCertificate p1) &~ s
@@ -2893,7 +2787,6 @@ updateServerCertificateCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'uscServerCertificateName'
-    -> State UpdateServerCertificate a
     -> m (Either ServiceEr UpdateServerCertificateResponse)
 updateServerCertificateCatch p1 s =
     sendCatch $ (mkUpdateServerCertificate p1) &~ s
@@ -2912,7 +2805,7 @@ updateServerCertificateCatch p1 s =
 -- &CertificateId=TA7SMP42TDN5Z26OBPJE7EXAMPLE &Status=Inactive
 -- &Version=2010-05-08 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.UpdateSigningCertificate'
 
 updateSigningCertificate :: ( MonadCatch m
                             , MonadResource m
@@ -2921,7 +2814,6 @@ updateSigningCertificate :: ( MonadCatch m
                             )
     => Text -- ^ 'usc1CertificateId'
     -> StatusType -- ^ 'usc1Status'
-    -> State UpdateSigningCertificate a
     -> m UpdateSigningCertificateResponse
 updateSigningCertificate p2 p3 s =
     send $ (mkUpdateSigningCertificate p2 p3) &~ s
@@ -2932,7 +2824,6 @@ updateSigningCertificateCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'usc1CertificateId'
     -> StatusType -- ^ 'usc1Status'
-    -> State UpdateSigningCertificate a
     -> m (Either ServiceEr UpdateSigningCertificateResponse)
 updateSigningCertificateCatch p2 p3 s =
     sendCatch $ (mkUpdateSigningCertificate p2 p3) &~ s
@@ -2951,7 +2842,7 @@ updateSigningCertificateCatch p2 p3 s =
 -- arn:aws::123456789012:user/division_abc/subdivision_xyz/Robert
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.UpdateUser'
 
 updateUser :: ( MonadCatch m
               , MonadResource m
@@ -2959,7 +2850,6 @@ updateUser :: ( MonadCatch m
               , MonadReader Env m
               )
     => Text -- ^ 'uuUserName'
-    -> State UpdateUser a
     -> m UpdateUserResponse
 updateUser p1 s =
     send $ (mkUpdateUser p1) &~ s
@@ -2969,7 +2859,6 @@ updateUserCatch :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'uuUserName'
-    -> State UpdateUser a
     -> m (Either ServiceEr UpdateUserResponse)
 updateUserCatch p1 s =
     sendCatch $ (mkUpdateUser p1) &~ s
@@ -3019,7 +2908,7 @@ updateUserCatch p1 s =
 -- 2010-05-08T01:02:03.004Z ASCACKCEVSQ6C2EXAMPLE 2012-05-08T01:02:03.004Z
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.UploadServerCertificate'
 
 uploadServerCertificate :: ( MonadCatch m
                            , MonadResource m
@@ -3029,7 +2918,6 @@ uploadServerCertificate :: ( MonadCatch m
     => Text -- ^ 'usc2ServerCertificateName'
     -> Text -- ^ 'usc2CertificateBody'
     -> Text -- ^ 'usc2PrivateKey'
-    -> State UploadServerCertificate a
     -> m UploadServerCertificateResponse
 uploadServerCertificate p2 p3 p4 s =
     send $ (mkUploadServerCertificate p2 p3 p4) &~ s
@@ -3041,7 +2929,6 @@ uploadServerCertificateCatch :: ( MonadCatch m
     => Text -- ^ 'usc2ServerCertificateName'
     -> Text -- ^ 'usc2CertificateBody'
     -> Text -- ^ 'usc2PrivateKey'
-    -> State UploadServerCertificate a
     -> m (Either ServiceEr UploadServerCertificateResponse)
 uploadServerCertificateCatch p2 p3 p4 s =
     sendCatch $ (mkUploadServerCertificate p2 p3 p4) &~ s
@@ -3094,7 +2981,7 @@ uploadServerCertificateCatch p2 p3 p4 s =
 -- AEaHzTpmEXAMPLE= -----END CERTIFICATE----- Active
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 --
--- See: 'Network.AWS.IAM'
+-- See: 'Network.AWS.IAM.UploadSigningCertificate'
 
 uploadSigningCertificate :: ( MonadCatch m
                             , MonadResource m
@@ -3102,7 +2989,6 @@ uploadSigningCertificate :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'usc3CertificateBody'
-    -> State UploadSigningCertificate a
     -> m UploadSigningCertificateResponse
 uploadSigningCertificate p2 s =
     send $ (mkUploadSigningCertificate p2) &~ s
@@ -3112,7 +2998,6 @@ uploadSigningCertificateCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'usc3CertificateBody'
-    -> State UploadSigningCertificate a
     -> m (Either ServiceEr UploadSigningCertificateResponse)
 uploadSigningCertificateCatch p2 s =
     sendCatch $ (mkUploadSigningCertificate p2) &~ s

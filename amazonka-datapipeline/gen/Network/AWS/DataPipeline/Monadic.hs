@@ -12,12 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | AWS Data Pipeline is a web service that you can use to automate the
--- movement and transformation of data. With AWS Data Pipeline, you can define
--- data-driven workflows, so that tasks can be dependent on the successful
--- completion of previous tasks.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -39,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.DataPipeline.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.DataPipeline.Monadic
@@ -157,7 +156,7 @@ type ServiceEr = Er DataPipeline
 -- application/x-amz-json-1.1 Content-Length: 2 Date: Mon, 12 Nov 2012
 -- 17:50:53 GMT {}.
 --
--- See: 'Network.AWS.DataPipeline'
+-- See: 'Network.AWS.DataPipeline.ActivatePipeline'
 
 activatePipeline :: ( MonadCatch m
                     , MonadResource m
@@ -165,7 +164,6 @@ activatePipeline :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'apPipelineId'
-    -> State ActivatePipeline a
     -> m ActivatePipelineResponse
 activatePipeline p1 s =
     send $ (mkActivatePipeline p1) &~ s
@@ -175,7 +173,6 @@ activatePipelineCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'apPipelineId'
-    -> State ActivatePipeline a
     -> m (Either ServiceEr ActivatePipelineResponse)
 activatePipelineCatch p1 s =
     sendCatch $ (mkActivatePipeline p1) &~ s
@@ -192,7 +189,7 @@ activatePipelineCatch p1 s =
 -- application/x-amz-json-1.1 Content-Length: 40 Date: Mon, 12 Nov 2012
 -- 17:50:53 GMT {"pipelineId": "df-06372391ZG65EXAMPLE"}.
 --
--- See: 'Network.AWS.DataPipeline'
+-- See: 'Network.AWS.DataPipeline.CreatePipeline'
 
 createPipeline :: ( MonadCatch m
                   , MonadResource m
@@ -201,7 +198,6 @@ createPipeline :: ( MonadCatch m
                   )
     => Text -- ^ 'cpName'
     -> Text -- ^ 'cpUniqueId'
-    -> State CreatePipeline a
     -> m CreatePipelineResponse
 createPipeline p1 p2 s =
     send $ (mkCreatePipeline p1 p2) &~ s
@@ -212,7 +208,6 @@ createPipelineCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'cpName'
     -> Text -- ^ 'cpUniqueId'
-    -> State CreatePipeline a
     -> m (Either ServiceEr CreatePipelineResponse)
 createPipelineCatch p1 p2 s =
     sendCatch $ (mkCreatePipeline p1 p2) &~ s
@@ -233,7 +228,7 @@ createPipelineCatch p1 p2 s =
 -- application/x-amz-json-1.1 Content-Length: 0 Date: Mon, 12 Nov 2012
 -- 17:50:53 GMT Unexpected response: 200, OK, undefined.
 --
--- See: 'Network.AWS.DataPipeline'
+-- See: 'Network.AWS.DataPipeline.DeletePipeline'
 
 deletePipeline :: ( MonadCatch m
                   , MonadResource m
@@ -241,7 +236,6 @@ deletePipeline :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'dpPipelineId'
-    -> State DeletePipeline a
     -> m DeletePipelineResponse
 deletePipeline p1 s =
     send $ (mkDeletePipeline p1) &~ s
@@ -251,7 +245,6 @@ deletePipelineCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'dpPipelineId'
-    -> State DeletePipeline a
     -> m (Either ServiceEr DeletePipelineResponse)
 deletePipelineCatch p1 s =
     sendCatch $ (mkDeletePipeline p1) &~ s
@@ -275,7 +268,7 @@ deletePipelineCatch p1 s =
 -- "@status", "stringValue": "PENDING"}, {"key": "@pipelineId", "stringValue":
 -- "df-06372391ZG65EXAMPLE"} ], "id": "Schedule", "name": "Schedule"} ] }.
 --
--- See: 'Network.AWS.DataPipeline'
+-- See: 'Network.AWS.DataPipeline.DescribeObjects'
 
 describeObjects :: ( MonadCatch m
                    , MonadResource m
@@ -284,7 +277,6 @@ describeObjects :: ( MonadCatch m
                    )
     => Text -- ^ 'doPipelineId'
     -> [Text] -- ^ 'doObjectIds'
-    -> State DescribeObjects a
     -> ResumableSource m DescribeObjectsResponse
 describeObjects p1 p2 s =
     paginate $ (mkDescribeObjects p1 p2) &~ s
@@ -295,7 +287,6 @@ describeObjectsCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'doPipelineId'
     -> [Text] -- ^ 'doObjectIds'
-    -> State DescribeObjects a
     -> ResumableSource m (Either ServiceEr DescribeObjectsResponse)
 describeObjectsCatch p1 p2 s =
     paginateCatch $ (mkDescribeObjects p1 p2) &~ s
@@ -326,7 +317,7 @@ describeObjectsCatch p1 p2 s =
 -- "924374875933"}, {"key": "uniqueId", "stringValue": "1234567890"} ],
 -- "name": "myPipeline", "pipelineId": "df-0937003356ZJEXAMPLE"} ] }.
 --
--- See: 'Network.AWS.DataPipeline'
+-- See: 'Network.AWS.DataPipeline.DescribePipelines'
 
 describePipelines :: ( MonadCatch m
                      , MonadResource m
@@ -334,7 +325,6 @@ describePipelines :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => [Text] -- ^ 'dp1PipelineIds'
-    -> State DescribePipelines a
     -> m DescribePipelinesResponse
 describePipelines p1 s =
     send $ (mkDescribePipelines p1) &~ s
@@ -344,7 +334,6 @@ describePipelinesCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => [Text] -- ^ 'dp1PipelineIds'
-    -> State DescribePipelines a
     -> m (Either ServiceEr DescribePipelinesResponse)
 describePipelinesCatch p1 s =
     sendCatch $ (mkDescribePipelines p1) &~ s
@@ -363,7 +352,7 @@ describePipelinesCatch p1 s =
 -- 17:50:53 GMT {"evaluatedExpression": "Transform started at
 -- 2012-12-12T00:00:00 and finished at 2012-12-21T18:00:00"}.
 --
--- See: 'Network.AWS.DataPipeline'
+-- See: 'Network.AWS.DataPipeline.EvaluateExpression'
 
 evaluateExpression :: ( MonadCatch m
                       , MonadResource m
@@ -373,7 +362,6 @@ evaluateExpression :: ( MonadCatch m
     => Text -- ^ 'eePipelineId'
     -> Text -- ^ 'eeObjectId'
     -> Text -- ^ 'eeExpression'
-    -> State EvaluateExpression a
     -> m EvaluateExpressionResponse
 evaluateExpression p1 p2 p3 s =
     send $ (mkEvaluateExpression p1 p2 p3) &~ s
@@ -385,7 +373,6 @@ evaluateExpressionCatch :: ( MonadCatch m
     => Text -- ^ 'eePipelineId'
     -> Text -- ^ 'eeObjectId'
     -> Text -- ^ 'eeExpression'
-    -> State EvaluateExpression a
     -> m (Either ServiceEr EvaluateExpressionResponse)
 evaluateExpressionCatch p1 p2 p3 s =
     sendCatch $ (mkEvaluateExpression p1 p2 p3) &~ s
@@ -411,7 +398,7 @@ evaluateExpressionCatch p1 p2 p3 s =
 -- {"key": "type", "stringValue": "ShellCommandActivity"} ], "id": "SayHello",
 -- "name": "SayHello"} ] }.
 --
--- See: 'Network.AWS.DataPipeline'
+-- See: 'Network.AWS.DataPipeline.GetPipelineDefinition'
 
 getPipelineDefinition :: ( MonadCatch m
                          , MonadResource m
@@ -419,7 +406,6 @@ getPipelineDefinition :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'gpdPipelineId'
-    -> State GetPipelineDefinition a
     -> m GetPipelineDefinitionResponse
 getPipelineDefinition p1 s =
     send $ (mkGetPipelineDefinition p1) &~ s
@@ -429,7 +415,6 @@ getPipelineDefinitionCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'gpdPipelineId'
-    -> State GetPipelineDefinition a
     -> m (Either ServiceEr GetPipelineDefinitionResponse)
 getPipelineDefinitionCatch p1 s =
     sendCatch $ (mkGetPipelineDefinition p1) &~ s
@@ -447,7 +432,7 @@ getPipelineDefinitionCatch p1 s =
 -- "MyPipeline"}, {"id": "df-08662578ISYEXAMPLE", "name": "MySecondPipeline"}
 -- ] }.
 --
--- See: 'Network.AWS.DataPipeline'
+-- See: 'Network.AWS.DataPipeline.ListPipelines'
 
 listPipelines :: ( MonadCatch m
                  , MonadResource m
@@ -510,7 +495,7 @@ listPipelinesCatch s =
 -- "2xaM4wRs5zOsIH+g9U3oVHfAgAlbSqU6XduncB0HhZ3xMnmvfePZPn4dIbYXHyWyRK+cU15MqDHwdrvftx/4wv+sNS4w34vJfv7QA9aOoOazW28l1GYSb2ZRR0N0paiQp+d1MhSKo10hOTWOsVK5S5Lnx9Qm6omFgXHyIvZRIvTlrQMpr1xuUrflyGOfbFOGpOLpvPE172MYdqpZKnbSS4TcuqgQKSWV2833fEubI57DPOP7ghWa2TcYeSIv4pdLYG53fTuwfbnbdc98g2LNUQzSVhSnt7BoqyNwht2aQ6b/UHg9A80+KVpuXuqmz3m1MXwHFgxjdmuesXNOrrlGpeLCcRWD+aGo0RN1NqhQRzNAig8V4GlaPTQzMsRCljKqvrIyAoP3Tt2XEGsHkkQo12rEX8Z90957XX2qKRwhruwYzqGkSLWjINoLdAxUJdpRXRc5DJTrBd3D5mdzn7kY1l7NEh4kFHJDt3Cx4Z3Mk8MYCACyCk/CEyy9DwuPi66cLz0NBcgbCM5LKjTBOwo1m+am+pvM1kSposE9FPP1+RFGb8k6jQBTJx3TRz1yKilnGXQTZ5xvdOFpJrklIT0OXP1MG3+auM9FlJA+1dX90QoNJE5z7axmK//MOGXUdkqFe2kiDkorqjxwDvc0Js9pVKfKvAmW8YqUbmI9l0ERpWCXXnLVHNmPWz3jaPY+OBAmuJWDmxB/Z8p94aEDg4BVXQ7LvsKQ3DLYhaB7yJ390CJT+i0mm+EBqY60V6YikPSWDFrYQ/NPi2b1DgE19mX8zHqw8qprIl4yh1Ckx2Iige4En/N5ktOoIxnASxAw/TzcE2skxdw5KlHDF+UTj71m16CR/dIaKlXijlfNlNzUBo/bNSadCQn3G5NoO501wPKI:XO50TgDNyo8EXAMPLE/g==:1"}
 -- }.
 --
--- See: 'Network.AWS.DataPipeline'
+-- See: 'Network.AWS.DataPipeline.PollForTask'
 
 pollForTask :: ( MonadCatch m
                , MonadResource m
@@ -518,7 +503,6 @@ pollForTask :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'pftWorkerGroup'
-    -> State PollForTask a
     -> m PollForTaskResponse
 pollForTask p1 s =
     send $ (mkPollForTask p1) &~ s
@@ -528,7 +512,6 @@ pollForTaskCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'pftWorkerGroup'
-    -> State PollForTask a
     -> m (Either ServiceEr PollForTaskResponse)
 pollForTaskCatch p1 s =
     sendCatch $ (mkPollForTask p1) &~ s
@@ -584,7 +567,7 @@ pollForTaskCatch p1 s =
 -- errors: [com.amazon.setl.webservice.ValidationError@108d7ea9] Please call
 -- Validate to validate your pipeline"}.
 --
--- See: 'Network.AWS.DataPipeline'
+-- See: 'Network.AWS.DataPipeline.PutPipelineDefinition'
 
 putPipelineDefinition :: ( MonadCatch m
                          , MonadResource m
@@ -593,7 +576,6 @@ putPipelineDefinition :: ( MonadCatch m
                          )
     => Text -- ^ 'ppdPipelineId'
     -> [PipelineObject] -- ^ 'ppdPipelineObjects'
-    -> State PutPipelineDefinition a
     -> m PutPipelineDefinitionResponse
 putPipelineDefinition p1 p2 s =
     send $ (mkPutPipelineDefinition p1 p2) &~ s
@@ -604,7 +586,6 @@ putPipelineDefinitionCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'ppdPipelineId'
     -> [PipelineObject] -- ^ 'ppdPipelineObjects'
-    -> State PutPipelineDefinition a
     -> m (Either ServiceEr PutPipelineDefinitionResponse)
 putPipelineDefinitionCatch p1 p2 s =
     sendCatch $ (mkPutPipelineDefinition p1 p2) &~ s
@@ -626,7 +607,7 @@ putPipelineDefinitionCatch p1 p2 s =
 -- 17:50:53 GMT {"hasMoreResults": false, "ids":
 -- ["@SayHello_1_2012-09-25T17:00:00"] }.
 --
--- See: 'Network.AWS.DataPipeline'
+-- See: 'Network.AWS.DataPipeline.QueryObjects'
 
 queryObjects :: ( MonadCatch m
                 , MonadResource m
@@ -635,7 +616,6 @@ queryObjects :: ( MonadCatch m
                 )
     => Text -- ^ 'qoPipelineId'
     -> Text -- ^ 'qoSphere'
-    -> State QueryObjects a
     -> ResumableSource m QueryObjectsResponse
 queryObjects p1 p3 s =
     paginate $ (mkQueryObjects p1 p3) &~ s
@@ -646,7 +626,6 @@ queryObjectsCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'qoPipelineId'
     -> Text -- ^ 'qoSphere'
-    -> State QueryObjects a
     -> ResumableSource m (Either ServiceEr QueryObjectsResponse)
 queryObjectsCatch p1 p3 s =
     paginateCatch $ (mkQueryObjects p1 p3) &~ s
@@ -674,7 +653,7 @@ queryObjectsCatch p1 p3 s =
 -- application/x-amz-json-1.1 Content-Length: 18 Date: Mon, 12 Nov 2012
 -- 17:50:53 GMT {"canceled": false}.
 --
--- See: 'Network.AWS.DataPipeline'
+-- See: 'Network.AWS.DataPipeline.ReportTaskProgress'
 
 reportTaskProgress :: ( MonadCatch m
                       , MonadResource m
@@ -682,7 +661,6 @@ reportTaskProgress :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'rtpTaskId'
-    -> State ReportTaskProgress a
     -> m ReportTaskProgressResponse
 reportTaskProgress p1 s =
     send $ (mkReportTaskProgress p1) &~ s
@@ -692,7 +670,6 @@ reportTaskProgressCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'rtpTaskId'
-    -> State ReportTaskProgress a
     -> m (Either ServiceEr ReportTaskProgressResponse)
 reportTaskProgressCatch p1 s =
     sendCatch $ (mkReportTaskProgress p1) &~ s
@@ -712,7 +689,7 @@ reportTaskProgressCatch p1 s =
 -- application/x-amz-json-1.1 Content-Length: 20 Date: Mon, 12 Nov 2012
 -- 17:50:53 GMT {"terminate": false}.
 --
--- See: 'Network.AWS.DataPipeline'
+-- See: 'Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat'
 
 reportTaskRunnerHeartbeat :: ( MonadCatch m
                              , MonadResource m
@@ -720,7 +697,6 @@ reportTaskRunnerHeartbeat :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'rtrhTaskrunnerId'
-    -> State ReportTaskRunnerHeartbeat a
     -> m ReportTaskRunnerHeartbeatResponse
 reportTaskRunnerHeartbeat p1 s =
     send $ (mkReportTaskRunnerHeartbeat p1) &~ s
@@ -730,7 +706,6 @@ reportTaskRunnerHeartbeatCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => Text -- ^ 'rtrhTaskrunnerId'
-    -> State ReportTaskRunnerHeartbeat a
     -> m (Either ServiceEr ReportTaskRunnerHeartbeatResponse)
 reportTaskRunnerHeartbeatCatch p1 s =
     sendCatch $ (mkReportTaskRunnerHeartbeat p1) &~ s
@@ -748,7 +723,7 @@ reportTaskRunnerHeartbeatCatch p1 s =
 -- application/x-amz-json-1.1 Content-Length: 0 Date: Mon, 12 Nov 2012
 -- 17:50:53 GMT Unexpected response: 200, OK, undefined.
 --
--- See: 'Network.AWS.DataPipeline'
+-- See: 'Network.AWS.DataPipeline.SetStatus'
 
 setStatus :: ( MonadCatch m
              , MonadResource m
@@ -758,7 +733,6 @@ setStatus :: ( MonadCatch m
     => Text -- ^ 'ssPipelineId'
     -> [Text] -- ^ 'ssObjectIds'
     -> Text -- ^ 'ssStatus'
-    -> State SetStatus a
     -> m SetStatusResponse
 setStatus p1 p2 p3 s =
     send $ (mkSetStatus p1 p2 p3) &~ s
@@ -770,7 +744,6 @@ setStatusCatch :: ( MonadCatch m
     => Text -- ^ 'ssPipelineId'
     -> [Text] -- ^ 'ssObjectIds'
     -> Text -- ^ 'ssStatus'
-    -> State SetStatus a
     -> m (Either ServiceEr SetStatusResponse)
 setStatusCatch p1 p2 p3 s =
     sendCatch $ (mkSetStatus p1 p2 p3) &~ s
@@ -790,7 +763,7 @@ setStatusCatch p1 p2 p3 s =
 -- application/x-amz-json-1.1 Content-Length: 0 Date: Mon, 12 Nov 2012
 -- 17:50:53 GMT {}.
 --
--- See: 'Network.AWS.DataPipeline'
+-- See: 'Network.AWS.DataPipeline.SetTaskStatus'
 
 setTaskStatus :: ( MonadCatch m
                  , MonadResource m
@@ -799,7 +772,6 @@ setTaskStatus :: ( MonadCatch m
                  )
     => Text -- ^ 'stsTaskId'
     -> TaskStatus -- ^ 'stsTaskStatus'
-    -> State SetTaskStatus a
     -> m SetTaskStatusResponse
 setTaskStatus p1 p2 s =
     send $ (mkSetTaskStatus p1 p2) &~ s
@@ -810,7 +782,6 @@ setTaskStatusCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'stsTaskId'
     -> TaskStatus -- ^ 'stsTaskStatus'
-    -> State SetTaskStatus a
     -> m (Either ServiceEr SetTaskStatusResponse)
 setTaskStatusCatch p1 p2 s =
     sendCatch $ (mkSetTaskStatus p1 p2) &~ s
@@ -855,7 +826,7 @@ setTaskStatusCatch p1 p2 s =
 -- ["INVALID_FIELD_VALUE: 'startDateTime' value must be a literal datetime
 -- value."], "id": "Schedule"} ] }.
 --
--- See: 'Network.AWS.DataPipeline'
+-- See: 'Network.AWS.DataPipeline.ValidatePipelineDefinition'
 
 validatePipelineDefinition :: ( MonadCatch m
                               , MonadResource m
@@ -864,7 +835,6 @@ validatePipelineDefinition :: ( MonadCatch m
                               )
     => Text -- ^ 'vpdPipelineId'
     -> [PipelineObject] -- ^ 'vpdPipelineObjects'
-    -> State ValidatePipelineDefinition a
     -> m ValidatePipelineDefinitionResponse
 validatePipelineDefinition p1 p2 s =
     send $ (mkValidatePipelineDefinition p1 p2) &~ s
@@ -875,7 +845,6 @@ validatePipelineDefinitionCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'vpdPipelineId'
     -> [PipelineObject] -- ^ 'vpdPipelineObjects'
-    -> State ValidatePipelineDefinition a
     -> m (Either ServiceEr ValidatePipelineDefinitionResponse)
 validatePipelineDefinitionCatch p1 p2 s =
     sendCatch $ (mkValidatePipelineDefinition p1 p2) &~ s

@@ -26,11 +26,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import {{ ns.monadic }}
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module {{ ns.monadic }}

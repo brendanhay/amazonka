@@ -12,19 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | AWS CloudFormation gives developers and systems administrators an easy way
--- to create and manage a collection of related AWS resources, provisioning
--- and updating them in an orderly and predictable fashion. You can use AWS
--- CloudFormation’s sample templates or create your own templates to describe
--- the AWS resources, and any associated dependencies or runtime parameters,
--- required to run your application. You don’t need to figure out the order
--- for provisioning AWS services or the subtleties of making those
--- dependencies work. CloudFormation takes care of this for you. After the AWS
--- resources are deployed, you can modify and update them in a controlled and
--- predictable way, in effect applying version control to your AWS
--- infrastructure the same way you do with your software.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -46,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.CloudFormation.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.CloudFormation.Monadic
@@ -155,7 +147,7 @@ type ServiceEr = Er CloudFormation
 -- &Timestamp=2010-07-27T22%3A26%3A28.000Z &AWSAccessKeyId=[AWS Access KeyID]
 -- &Signature=[Signature].
 --
--- See: 'Network.AWS.CloudFormation'
+-- See: 'Network.AWS.CloudFormation.CancelUpdateStack'
 
 cancelUpdateStack :: ( MonadCatch m
                      , MonadResource m
@@ -163,7 +155,6 @@ cancelUpdateStack :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'cusStackName'
-    -> State CancelUpdateStack a
     -> m CancelUpdateStackResponse
 cancelUpdateStack p1 s =
     send $ (mkCancelUpdateStack p1) &~ s
@@ -173,7 +164,6 @@ cancelUpdateStackCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'cusStackName'
-    -> State CancelUpdateStack a
     -> m (Either ServiceEr CancelUpdateStackResponse)
 cancelUpdateStackCatch p1 s =
     sendCatch $ (mkCancelUpdateStack p1) &~ s
@@ -192,7 +182,7 @@ cancelUpdateStackCatch p1 s =
 -- arn:aws:cloudformation:us-east-1:123456789:stack/MyStack/aaf549a0-a413-11df-adb3-5081b3858e83.
 -- 
 --
--- See: 'Network.AWS.CloudFormation'
+-- See: 'Network.AWS.CloudFormation.CreateStack'
 
 createStack :: ( MonadCatch m
                , MonadResource m
@@ -200,7 +190,6 @@ createStack :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'csStackName'
-    -> State CreateStack a
     -> m CreateStackResponse
 createStack p1 s =
     send $ (mkCreateStack p1) &~ s
@@ -210,7 +199,6 @@ createStackCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'csStackName'
-    -> State CreateStack a
     -> m (Either ServiceEr CreateStackResponse)
 createStackCatch p1 s =
     sendCatch $ (mkCreateStack p1) &~ s
@@ -224,7 +212,7 @@ createStackCatch p1 s =
 -- &Timestamp=2010-07-27T22%3A26%3A28.000Z &AWSAccessKeyId=[AWS Access KeyID]
 -- &Signature=[Signature].
 --
--- See: 'Network.AWS.CloudFormation'
+-- See: 'Network.AWS.CloudFormation.DeleteStack'
 
 deleteStack :: ( MonadCatch m
                , MonadResource m
@@ -232,7 +220,6 @@ deleteStack :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'dsStackName'
-    -> State DeleteStack a
     -> m DeleteStackResponse
 deleteStack p1 s =
     send $ (mkDeleteStack p1) &~ s
@@ -242,7 +229,6 @@ deleteStackCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'dsStackName'
-    -> State DeleteStack a
     -> m (Either ServiceEr DeleteStackResponse)
 deleteStackCatch p1 s =
     sendCatch $ (mkDeleteStack p1) &~ s
@@ -266,7 +252,7 @@ deleteStackCatch p1 s =
 -- MyStack MySG1 MyStack_SG1 AWS:: SecurityGroup 2010-07-27T22:28:28Z
 -- CREATE_COMPLETE.
 --
--- See: 'Network.AWS.CloudFormation'
+-- See: 'Network.AWS.CloudFormation.DescribeStackEvents'
 
 describeStackEvents :: ( MonadCatch m
                        , MonadResource m
@@ -274,7 +260,6 @@ describeStackEvents :: ( MonadCatch m
                        , MonadReader Env (ResumableSource m)
                        )
     => Text -- ^ 'dseStackName'
-    -> State DescribeStackEvents a
     -> ResumableSource m DescribeStackEventsResponse
 describeStackEvents p1 s =
     paginate $ (mkDescribeStackEvents p1) &~ s
@@ -284,7 +269,6 @@ describeStackEventsCatch :: ( MonadCatch m
                             , MonadReader Env (ResumableSource m)
                             )
     => Text -- ^ 'dseStackName'
-    -> State DescribeStackEvents a
     -> ResumableSource m (Either ServiceEr DescribeStackEventsResponse)
 describeStackEventsCatch p1 s =
     paginateCatch $ (mkDescribeStackEvents p1) &~ s
@@ -302,7 +286,7 @@ describeStackEventsCatch p1 s =
 -- MyStack MyDBInstance MyStack_DB1 AWS::RDS::DBInstance 2011-07-07T22:27:28Z
 -- CREATE_COMPLETE.
 --
--- See: 'Network.AWS.CloudFormation'
+-- See: 'Network.AWS.CloudFormation.DescribeStackResource'
 
 describeStackResource :: ( MonadCatch m
                          , MonadResource m
@@ -311,7 +295,6 @@ describeStackResource :: ( MonadCatch m
                          )
     => Text -- ^ 'dsrStackName'
     -> Text -- ^ 'dsrLogicalResourceId'
-    -> State DescribeStackResource a
     -> m DescribeStackResourceResponse
 describeStackResource p1 p2 s =
     send $ (mkDescribeStackResource p1 p2) &~ s
@@ -322,7 +305,6 @@ describeStackResourceCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'dsrStackName'
     -> Text -- ^ 'dsrLogicalResourceId'
-    -> State DescribeStackResource a
     -> m (Either ServiceEr DescribeStackResourceResponse)
 describeStackResourceCatch p1 p2 s =
     sendCatch $ (mkDescribeStackResource p1 p2) &~ s
@@ -352,7 +334,7 @@ describeStackResourceCatch p1 p2 s =
 -- MyStack MyAutoScalingGroup MyStack_ASG1 AWS::AutoScalingGroup
 -- 2010-07-27T22:28:28Z CREATE_IN_PROGRESS.
 --
--- See: 'Network.AWS.CloudFormation'
+-- See: 'Network.AWS.CloudFormation.DescribeStackResources'
 
 describeStackResources :: ( MonadCatch m
                           , MonadResource m
@@ -384,7 +366,7 @@ describeStackResourcesCatch s =
 -- 2010-07-27T22:28:28Z CREATE_COMPLETE false StartPage
 -- http://my-load-balancer.amazonaws.com:80/index.html.
 --
--- See: 'Network.AWS.CloudFormation'
+-- See: 'Network.AWS.CloudFormation.DescribeStacks'
 
 describeStacks :: ( MonadCatch m
                   , MonadResource m
@@ -418,7 +400,7 @@ describeStacksCatch s =
 -- http://calculator.s3.amazonaws.com/calc5.html?key=cf-2e351785-e821-450c-9d58-625e1e1ebfb6.
 -- 
 --
--- See: 'Network.AWS.CloudFormation'
+-- See: 'Network.AWS.CloudFormation.EstimateTemplateCost'
 
 estimateTemplateCost :: ( MonadCatch m
                         , MonadResource m
@@ -450,7 +432,7 @@ estimateTemplateCostCatch s =
 -- "LogicalResourceId/ProductionDatabase" }, { "Effect" : "Allow", "Action" :
 -- "Update:*", "Principal" : "*", "Resource" : "*" } ] }.
 --
--- See: 'Network.AWS.CloudFormation'
+-- See: 'Network.AWS.CloudFormation.GetStackPolicy'
 
 getStackPolicy :: ( MonadCatch m
                   , MonadResource m
@@ -458,7 +440,6 @@ getStackPolicy :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'gspStackName'
-    -> State GetStackPolicy a
     -> m GetStackPolicyResponse
 getStackPolicy p1 s =
     send $ (mkGetStackPolicy p1) &~ s
@@ -468,7 +449,6 @@ getStackPolicyCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'gspStackName'
-    -> State GetStackPolicy a
     -> m (Either ServiceEr GetStackPolicyResponse)
 getStackPolicyCatch p1 s =
     sendCatch $ (mkGetStackPolicy p1) &~ s
@@ -485,7 +465,7 @@ getStackPolicyCatch p1 s =
 -- "Description" : "Simple example", "Resources" : { "MySQS" : { "Type" :
 -- "AWS::SQS::Queue", "Properties" : { } } } }.
 --
--- See: 'Network.AWS.CloudFormation'
+-- See: 'Network.AWS.CloudFormation.GetTemplate'
 
 getTemplate :: ( MonadCatch m
                , MonadResource m
@@ -493,7 +473,6 @@ getTemplate :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'gtStackName'
-    -> State GetTemplate a
     -> m GetTemplateResponse
 getTemplate p1 s =
     send $ (mkGetTemplate p1) &~ s
@@ -503,7 +482,6 @@ getTemplateCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'gtStackName'
-    -> State GetTemplate a
     -> m (Either ServiceEr GetTemplateResponse)
 getTemplateCatch p1 s =
     sendCatch $ (mkGetTemplate p1) &~ s
@@ -528,7 +506,7 @@ getTemplateCatch p1 s =
 -- MyStack-CPUAlarmHigh-POBWQPDJA81F AWS::CloudWatch::Alarm
 -- 2d06e36c-ac1d-11e0-a958-f9382b6eb86b.
 --
--- See: 'Network.AWS.CloudFormation'
+-- See: 'Network.AWS.CloudFormation.ListStackResources'
 
 listStackResources :: ( MonadCatch m
                       , MonadResource m
@@ -536,7 +514,6 @@ listStackResources :: ( MonadCatch m
                       , MonadReader Env (ResumableSource m)
                       )
     => Text -- ^ 'lsrStackName'
-    -> State ListStackResources a
     -> ResumableSource m ListStackResourcesResponse
 listStackResources p1 s =
     paginate $ (mkListStackResources p1) &~ s
@@ -546,7 +523,6 @@ listStackResourcesCatch :: ( MonadCatch m
                            , MonadReader Env (ResumableSource m)
                            )
     => Text -- ^ 'lsrStackName'
-    -> State ListStackResources a
     -> ResumableSource m (Either ServiceEr ListStackResourcesResponse)
 listStackResourcesCatch p1 s =
     paginateCatch $ (mkListStackResources p1) &~ s
@@ -570,7 +546,7 @@ listStackResourcesCatch p1 s =
 -- DELETE_COMPLETE 2011-03-10T16:20:51Z WP1 2011-03-05T19:57:58Z A simple
 -- basic Cloudformation Template.
 --
--- See: 'Network.AWS.CloudFormation'
+-- See: 'Network.AWS.CloudFormation.ListStacks'
 
 listStacks :: ( MonadCatch m
               , MonadResource m
@@ -599,7 +575,7 @@ listStacksCatch s =
 -- &Timestamp=2010-07-27T22%3A26%3A28.000Z &AWSAccessKeyId=[AWS Access KeyID]
 -- &Signature=[Signature].
 --
--- See: 'Network.AWS.CloudFormation'
+-- See: 'Network.AWS.CloudFormation.SetStackPolicy'
 
 setStackPolicy :: ( MonadCatch m
                   , MonadResource m
@@ -607,7 +583,6 @@ setStackPolicy :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'sspStackName'
-    -> State SetStackPolicy a
     -> m SetStackPolicyResponse
 setStackPolicy p1 s =
     send $ (mkSetStackPolicy p1) &~ s
@@ -617,7 +592,6 @@ setStackPolicyCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'sspStackName'
-    -> State SetStackPolicy a
     -> m (Either ServiceEr SetStackPolicyResponse)
 setStackPolicyCatch p1 s =
     sendCatch $ (mkSetStackPolicy p1) &~ s
@@ -640,7 +614,7 @@ setStackPolicyCatch p1 s =
 -- arn:aws:cloudformation:us-east-1:123456789:stack/MyStack/aaf549a0-a413-11df-adb3-5081b3858e83.
 -- 
 --
--- See: 'Network.AWS.CloudFormation'
+-- See: 'Network.AWS.CloudFormation.UpdateStack'
 
 updateStack :: ( MonadCatch m
                , MonadResource m
@@ -648,7 +622,6 @@ updateStack :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'usStackName'
-    -> State UpdateStack a
     -> m UpdateStackResponse
 updateStack p1 s =
     send $ (mkUpdateStack p1) &~ s
@@ -658,7 +631,6 @@ updateStackCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'usStackName'
-    -> State UpdateStack a
     -> m (Either ServiceEr UpdateStackResponse)
 updateStackCatch p1 s =
     sendCatch $ (mkUpdateStack p1) &~ s
@@ -674,7 +646,7 @@ updateStackCatch p1 s =
 -- KeyName Name of an existing EC2 KeyPair to enable SSH access into the
 -- server 0be7b6e8-e4a0-11e0-a5bd-9f8d5a7dbc91.
 --
--- See: 'Network.AWS.CloudFormation'
+-- See: 'Network.AWS.CloudFormation.ValidateTemplate'
 
 validateTemplate :: ( MonadCatch m
                     , MonadResource m

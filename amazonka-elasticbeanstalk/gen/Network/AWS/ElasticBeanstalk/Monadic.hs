@@ -12,18 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling
--- web applications and services developed with Java, .NET, PHP, Node.js,
--- Python, Ruby, and Docker on familiar servers such as Apache HTTP Server,
--- Apache Tomcat, Nginx, Passenger, and IIS 7.5/8. You can simply upload your
--- code and Elastic Beanstalk automatically handles the deployment, from
--- capacity provisioning, load balancing, auto-scaling to application health
--- monitoring. At the same time, you retain full control over the AWS
--- resources powering your application and can access the underlying resources
--- at any time. There is no additional charge for Elastic Beanstalk - you pay
--- only for the AWS resources needed to store and run your applications.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -45,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.ElasticBeanstalk.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.ElasticBeanstalk.Monadic
@@ -221,7 +214,7 @@ type ServiceEr = Er ElasticBeanstalk
 -- sampleapplication.elasticbeanstalk.amazonaws.com true
 -- 12f6701f-f1d6-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.CheckDNSAvailability'
 
 checkDNSAvailability :: ( MonadCatch m
                         , MonadResource m
@@ -229,7 +222,6 @@ checkDNSAvailability :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'cdnsaCNAMEPrefix'
-    -> State CheckDNSAvailability a
     -> m CheckDNSAvailabilityResponse
 checkDNSAvailability p1 s =
     send $ (mkCheckDNSAvailability p1) &~ s
@@ -239,7 +231,6 @@ checkDNSAvailabilityCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'cdnsaCNAMEPrefix'
-    -> State CheckDNSAvailability a
     -> m (Either ServiceEr CheckDNSAvailabilityResponse)
 checkDNSAvailabilityCatch p1 s =
     sendCatch $ (mkCheckDNSAvailability p1) &~ s
@@ -255,7 +246,7 @@ checkDNSAvailabilityCatch p1 s =
 -- Sample Description SampleApp 2010-11-16T23:09:20.256Z
 -- 2010-11-16T23:09:20.256Z Default 8b00e053-f1d6-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.CreateApplication'
 
 createApplication :: ( MonadCatch m
                      , MonadResource m
@@ -263,7 +254,6 @@ createApplication :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'caApplicationName'
-    -> State CreateApplication a
     -> m CreateApplicationResponse
 createApplication p1 s =
     send $ (mkCreateApplication p1) &~ s
@@ -273,7 +263,6 @@ createApplicationCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'caApplicationName'
-    -> State CreateApplication a
     -> m (Either ServiceEr CreateApplicationResponse)
 createApplicationCatch p1 s =
     sendCatch $ (mkCreateApplication p1) &~ s
@@ -292,7 +281,7 @@ createApplicationCatch p1 s =
 -- 2010-11-17T03:21:59.161Z 2010-11-17T03:21:59.161Z
 -- d653efef-f1f9-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.CreateApplicationVersion'
 
 createApplicationVersion :: ( MonadCatch m
                             , MonadResource m
@@ -301,7 +290,6 @@ createApplicationVersion :: ( MonadCatch m
                             )
     => Text -- ^ 'cavApplicationName'
     -> Text -- ^ 'cavVersionLabel'
-    -> State CreateApplicationVersion a
     -> m CreateApplicationVersionResponse
 createApplicationVersion p1 p2 s =
     send $ (mkCreateApplicationVersion p1 p2) &~ s
@@ -312,7 +300,6 @@ createApplicationVersionCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'cavApplicationName'
     -> Text -- ^ 'cavVersionLabel'
-    -> State CreateApplicationVersion a
     -> m (Either ServiceEr CreateApplicationVersionResponse)
 createApplicationVersionCatch p1 p2 s =
     sendCatch $ (mkCreateApplicationVersion p1 p2) &~ s
@@ -369,7 +356,7 @@ createApplicationVersionCatch p1 p2 s =
 -- 2010-11-17T03:48:19.640Z AppTemplate 2010-11-17T03:48:19.640Z
 -- 846cd905-f1fd-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate'
 
 createConfigurationTemplate :: ( MonadCatch m
                                , MonadResource m
@@ -378,7 +365,6 @@ createConfigurationTemplate :: ( MonadCatch m
                                )
     => Text -- ^ 'cctApplicationName'
     -> Text -- ^ 'cctTemplateName'
-    -> State CreateConfigurationTemplate a
     -> m CreateConfigurationTemplateResponse
 createConfigurationTemplate p1 p2 s =
     send $ (mkCreateConfigurationTemplate p1 p2) &~ s
@@ -389,7 +375,6 @@ createConfigurationTemplateCatch :: ( MonadCatch m
                                     )
     => Text -- ^ 'cctApplicationName'
     -> Text -- ^ 'cctTemplateName'
-    -> State CreateConfigurationTemplate a
     -> m (Either ServiceEr CreateConfigurationTemplateResponse)
 createConfigurationTemplateCatch p1 p2 s =
     sendCatch $ (mkCreateConfigurationTemplate p1 p2) &~ s
@@ -405,7 +390,7 @@ createConfigurationTemplateCatch p1 p2 s =
 -- Linux running Tomcat 7 EnvDescrip SampleApp 2010-11-17T03:59:33.520Z
 -- 15db925e-f1ff-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.CreateEnvironment'
 
 createEnvironment :: ( MonadCatch m
                      , MonadResource m
@@ -414,7 +399,6 @@ createEnvironment :: ( MonadCatch m
                      )
     => Text -- ^ 'ceApplicationName'
     -> Text -- ^ 'ceEnvironmentName'
-    -> State CreateEnvironment a
     -> m CreateEnvironmentResponse
 createEnvironment p1 p2 s =
     send $ (mkCreateEnvironment p1 p2) &~ s
@@ -425,7 +409,6 @@ createEnvironmentCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'ceApplicationName'
     -> Text -- ^ 'ceEnvironmentName'
-    -> State CreateEnvironment a
     -> m (Either ServiceEr CreateEnvironmentResponse)
 createEnvironmentCatch p1 p2 s =
     sendCatch $ (mkCreateEnvironment p1 p2) &~ s
@@ -437,7 +420,7 @@ createEnvironmentCatch p1 p2 s =
 -- &AuthParams elasticbeanstalk-us-east-1-780612358023
 -- ef51b94a-f1d6-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.CreateStorageLocation'
 
 createStorageLocation :: ( MonadCatch m
                          , MonadResource m
@@ -467,7 +450,7 @@ createStorageLocationCatch s =
 -- &Operation=DeleteApplication &AuthParams
 -- 1f155abd-f1d7-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.DeleteApplication'
 
 deleteApplication :: ( MonadCatch m
                      , MonadResource m
@@ -475,7 +458,6 @@ deleteApplication :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'daApplicationName'
-    -> State DeleteApplication a
     -> m DeleteApplicationResponse
 deleteApplication p1 s =
     send $ (mkDeleteApplication p1) &~ s
@@ -485,7 +467,6 @@ deleteApplicationCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'daApplicationName'
-    -> State DeleteApplication a
     -> m (Either ServiceEr DeleteApplicationResponse)
 deleteApplicationCatch p1 s =
     sendCatch $ (mkDeleteApplication p1) &~ s
@@ -498,7 +479,7 @@ deleteApplicationCatch p1 s =
 -- &VersionLabel=First%20Release &Operation=DeleteApplicationVersion
 -- &AuthParams 58dc7339-f272-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.DeleteApplicationVersion'
 
 deleteApplicationVersion :: ( MonadCatch m
                             , MonadResource m
@@ -507,7 +488,6 @@ deleteApplicationVersion :: ( MonadCatch m
                             )
     => Text -- ^ 'davApplicationName'
     -> Text -- ^ 'davVersionLabel'
-    -> State DeleteApplicationVersion a
     -> m DeleteApplicationVersionResponse
 deleteApplicationVersion p1 p2 s =
     send $ (mkDeleteApplicationVersion p1 p2) &~ s
@@ -518,7 +498,6 @@ deleteApplicationVersionCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'davApplicationName'
     -> Text -- ^ 'davVersionLabel'
-    -> State DeleteApplicationVersion a
     -> m (Either ServiceEr DeleteApplicationVersionResponse)
 deleteApplicationVersionCatch p1 p2 s =
     sendCatch $ (mkDeleteApplicationVersion p1 p2) &~ s
@@ -532,7 +511,7 @@ deleteApplicationVersionCatch p1 p2 s =
 -- &TemplateName=SampleAppTemplate &Operation=DeleteConfigurationTemplate
 -- &AuthParams af9cf1b6-f25e-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate'
 
 deleteConfigurationTemplate :: ( MonadCatch m
                                , MonadResource m
@@ -541,7 +520,6 @@ deleteConfigurationTemplate :: ( MonadCatch m
                                )
     => Text -- ^ 'dctApplicationName'
     -> Text -- ^ 'dctTemplateName'
-    -> State DeleteConfigurationTemplate a
     -> m DeleteConfigurationTemplateResponse
 deleteConfigurationTemplate p1 p2 s =
     send $ (mkDeleteConfigurationTemplate p1 p2) &~ s
@@ -552,7 +530,6 @@ deleteConfigurationTemplateCatch :: ( MonadCatch m
                                     )
     => Text -- ^ 'dctApplicationName'
     -> Text -- ^ 'dctTemplateName'
-    -> State DeleteConfigurationTemplate a
     -> m (Either ServiceEr DeleteConfigurationTemplateResponse)
 deleteConfigurationTemplateCatch p1 p2 s =
     sendCatch $ (mkDeleteConfigurationTemplate p1 p2) &~ s
@@ -569,7 +546,7 @@ deleteConfigurationTemplateCatch p1 p2 s =
 -- &EnvironmentName=SampleApp &Operation=DeleteEnvironmentConfiguration
 -- &AuthParams fdf76507-f26d-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration'
 
 deleteEnvironmentConfiguration :: ( MonadCatch m
                                   , MonadResource m
@@ -578,7 +555,6 @@ deleteEnvironmentConfiguration :: ( MonadCatch m
                                   )
     => Text -- ^ 'decApplicationName'
     -> Text -- ^ 'decEnvironmentName'
-    -> State DeleteEnvironmentConfiguration a
     -> m DeleteEnvironmentConfigurationResponse
 deleteEnvironmentConfiguration p1 p2 s =
     send $ (mkDeleteEnvironmentConfiguration p1 p2) &~ s
@@ -589,7 +565,6 @@ deleteEnvironmentConfigurationCatch :: ( MonadCatch m
                                        )
     => Text -- ^ 'decApplicationName'
     -> Text -- ^ 'decEnvironmentName'
-    -> State DeleteEnvironmentConfiguration a
     -> m (Either ServiceEr DeleteEnvironmentConfigurationResponse)
 deleteEnvironmentConfigurationCatch p1 p2 s =
     sendCatch $ (mkDeleteEnvironmentConfiguration p1 p2) &~ s
@@ -601,7 +576,7 @@ deleteEnvironmentConfigurationCatch p1 p2 s =
 -- Version1 description SampleApp 2010-11-17T03:21:59.161Z
 -- 2010-11-17T03:21:59.161Z 773cd80a-f26c-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.DescribeApplicationVersions'
 
 describeApplicationVersions :: ( MonadCatch m
                                , MonadResource m
@@ -629,7 +604,7 @@ describeApplicationVersionsCatch s =
 -- SampleApplication 2010-11-16T20:20:51.974Z 2010-11-16T20:20:51.974Z Default
 -- 577c70ff-f1d7-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.DescribeApplications'
 
 describeApplications :: ( MonadCatch m
                         , MonadResource m
@@ -727,7 +702,7 @@ describeApplicationsCatch s =
 -- 2000 SSLCertificateId Scalar aws:elb:loadbalancer
 -- e8768900-f272-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions'
 
 describeConfigurationOptions :: ( MonadCatch m
                                 , MonadResource m
@@ -801,7 +776,7 @@ describeConfigurationOptionsCatch s =
 -- 2010-11-17T03:20:17.832Z Default 2010-11-17T03:20:17.832Z
 -- 4bde8884-f273-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings'
 
 describeConfigurationSettings :: ( MonadCatch m
                                  , MonadResource m
@@ -809,7 +784,6 @@ describeConfigurationSettings :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'dcsApplicationName'
-    -> State DescribeConfigurationSettings a
     -> m DescribeConfigurationSettingsResponse
 describeConfigurationSettings p1 s =
     send $ (mkDescribeConfigurationSettings p1) &~ s
@@ -819,7 +793,6 @@ describeConfigurationSettingsCatch :: ( MonadCatch m
                                       , MonadReader Env m
                                       )
     => Text -- ^ 'dcsApplicationName'
-    -> State DescribeConfigurationSettings a
     -> m (Either ServiceEr DescribeConfigurationSettingsResponse)
 describeConfigurationSettingsCatch p1 s =
     sendCatch $ (mkDescribeConfigurationSettings p1) &~ s
@@ -834,7 +807,7 @@ describeConfigurationSettingsCatch p1 s =
 -- elasticbeanstalk-SampleAppVersion-us-east-1c
 -- e1cb7b96-f287-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources'
 
 describeEnvironmentResources :: ( MonadCatch m
                                 , MonadResource m
@@ -865,7 +838,7 @@ describeEnvironmentResourcesCatch s =
 -- 2010-11-17T04:01:40.668Z 32bit Amazon Linux running Tomcat 7 EnvDescrip
 -- SampleApp 2010-11-17T03:59:33.520Z 44790c68-f260-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.DescribeEnvironments'
 
 describeEnvironments :: ( MonadCatch m
                         , MonadResource m
@@ -904,7 +877,7 @@ describeEnvironmentsCatch s =
 -- New Version SampleApp SampleAppVersion WARN
 -- f10d02dd-f288-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.DescribeEvents'
 
 describeEvents :: ( MonadCatch m
                   , MonadResource m
@@ -932,7 +905,7 @@ describeEventsCatch s =
 -- Tomcat 6 64bit Amazon Linux running Tomcat 7 32bit Amazon Linux running
 -- Tomcat 7 f21e2a92-f1fc-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks'
 
 listAvailableSolutionStacks :: ( MonadCatch m
                                , MonadResource m
@@ -961,7 +934,7 @@ listAvailableSolutionStacksCatch s =
 -- &EnvironmentName=SampleAppVersion &Operation=RebuildEnvironment &AuthParams
 -- a7d6606e-f289-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.RebuildEnvironment'
 
 rebuildEnvironment :: ( MonadCatch m
                       , MonadResource m
@@ -993,7 +966,7 @@ rebuildEnvironmentCatch s =
 -- &Operation=RequestEnvironmentInfo &AuthParams
 -- 126a4ff3-f28a-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo'
 
 requestEnvironmentInfo :: ( MonadCatch m
                           , MonadResource m
@@ -1001,7 +974,6 @@ requestEnvironmentInfo :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => EnvironmentInfoType -- ^ 'reiInfoType'
-    -> State RequestEnvironmentInfo a
     -> m RequestEnvironmentInfoResponse
 requestEnvironmentInfo p3 s =
     send $ (mkRequestEnvironmentInfo p3) &~ s
@@ -1011,7 +983,6 @@ requestEnvironmentInfoCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => EnvironmentInfoType -- ^ 'reiInfoType'
-    -> State RequestEnvironmentInfo a
     -> m (Either ServiceEr RequestEnvironmentInfoResponse)
 requestEnvironmentInfoCatch p3 s =
     sendCatch $ (mkRequestEnvironmentInfo p3) &~ s
@@ -1023,7 +994,7 @@ requestEnvironmentInfoCatch p3 s =
 -- &EnvironmentName=SampleAppVersion &Operation=RestartAppServer &AuthParams
 -- 90e8d1d5-f28a-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.RestartAppServer'
 
 restartAppServer :: ( MonadCatch m
                     , MonadResource m
@@ -1054,7 +1025,7 @@ restartAppServerCatch s =
 -- &AuthParams 2010-11-17T20:40:23.210Z tail i-92a3ceff
 -- e8e785c9-f28a-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo'
 
 retrieveEnvironmentInfo :: ( MonadCatch m
                            , MonadResource m
@@ -1062,7 +1033,6 @@ retrieveEnvironmentInfo :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => EnvironmentInfoType -- ^ 'rei1InfoType'
-    -> State RetrieveEnvironmentInfo a
     -> m RetrieveEnvironmentInfoResponse
 retrieveEnvironmentInfo p3 s =
     send $ (mkRetrieveEnvironmentInfo p3) &~ s
@@ -1072,7 +1042,6 @@ retrieveEnvironmentInfoCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => EnvironmentInfoType -- ^ 'rei1InfoType'
-    -> State RetrieveEnvironmentInfo a
     -> m (Either ServiceEr RetrieveEnvironmentInfoResponse)
 retrieveEnvironmentInfoCatch p3 s =
     sendCatch $ (mkRetrieveEnvironmentInfo p3) &~ s
@@ -1083,7 +1052,7 @@ retrieveEnvironmentInfoCatch p3 s =
 -- &DestinationEnvironmentName=SampleApp2 &Operation=SwapEnvironmentCNAMEs
 -- &AuthParams f4e1b145-9080-11e0-8e5a-a558e0ce1fc4.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs'
 
 swapEnvironmentCNAMEs :: ( MonadCatch m
                          , MonadResource m
@@ -1114,7 +1083,7 @@ swapEnvironmentCNAMEsCatch s =
 -- 2010-11-17T17:10:41.976Z 32bit Amazon Linux running Tomcat 7 EnvDescrip
 -- SampleApp 2010-11-17T03:59:33.520Z 9b71af21-f26d-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.TerminateEnvironment'
 
 terminateEnvironment :: ( MonadCatch m
                         , MonadResource m
@@ -1144,7 +1113,7 @@ terminateEnvironmentCatch s =
 -- New Version Another Description SampleApp 2010-11-17T19:26:20.410Z
 -- 2010-11-17T20:42:54.611Z Default 40be666b-f28b-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.UpdateApplication'
 
 updateApplication :: ( MonadCatch m
                      , MonadResource m
@@ -1152,7 +1121,6 @@ updateApplication :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'uaApplicationName'
-    -> State UpdateApplication a
     -> m UpdateApplicationResponse
 updateApplication p1 s =
     send $ (mkUpdateApplication p1) &~ s
@@ -1162,7 +1130,6 @@ updateApplicationCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'uaApplicationName'
-    -> State UpdateApplication a
     -> m (Either ServiceEr UpdateApplicationResponse)
 updateApplicationCatch p1 s =
     sendCatch $ (mkUpdateApplication p1) &~ s
@@ -1177,7 +1144,7 @@ updateApplicationCatch p1 s =
 -- Version New Release Description SampleApp 2010-11-17T19:26:20.699Z
 -- 2010-11-17T20:48:16.632Z 00b10aa1-f28c-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.UpdateApplicationVersion'
 
 updateApplicationVersion :: ( MonadCatch m
                             , MonadResource m
@@ -1186,7 +1153,6 @@ updateApplicationVersion :: ( MonadCatch m
                             )
     => Text -- ^ 'uavApplicationName'
     -> Text -- ^ 'uavVersionLabel'
-    -> State UpdateApplicationVersion a
     -> m UpdateApplicationVersionResponse
 updateApplicationVersion p1 p2 s =
     send $ (mkUpdateApplicationVersion p1 p2) &~ s
@@ -1197,7 +1163,6 @@ updateApplicationVersionCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'uavApplicationName'
     -> Text -- ^ 'uavVersionLabel'
-    -> State UpdateApplicationVersion a
     -> m (Either ServiceEr UpdateApplicationVersionResponse)
 updateApplicationVersionCatch p1 p2 s =
     sendCatch $ (mkUpdateApplicationVersion p1 p2) &~ s
@@ -1252,7 +1217,7 @@ updateApplicationVersionCatch p1 p2 s =
 -- SampleApp 2010-11-17T19:26:20.420Z Default 2010-11-17T20:58:27.508Z
 -- 6cbcb09a-f28d-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate'
 
 updateConfigurationTemplate :: ( MonadCatch m
                                , MonadResource m
@@ -1261,7 +1226,6 @@ updateConfigurationTemplate :: ( MonadCatch m
                                )
     => Text -- ^ 'uctApplicationName'
     -> Text -- ^ 'uctTemplateName'
-    -> State UpdateConfigurationTemplate a
     -> m UpdateConfigurationTemplateResponse
 updateConfigurationTemplate p1 p2 s =
     send $ (mkUpdateConfigurationTemplate p1 p2) &~ s
@@ -1272,7 +1236,6 @@ updateConfigurationTemplateCatch :: ( MonadCatch m
                                     )
     => Text -- ^ 'uctApplicationName'
     -> Text -- ^ 'uctTemplateName'
-    -> State UpdateConfigurationTemplate a
     -> m (Either ServiceEr UpdateConfigurationTemplateResponse)
 updateConfigurationTemplateCatch p1 p2 s =
     sendCatch $ (mkUpdateConfigurationTemplate p1 p2) &~ s
@@ -1298,7 +1261,7 @@ updateConfigurationTemplateCatch p1 p2 s =
 -- SampleAppDescription SampleAppVersion 2010-11-17T20:17:42.339Z
 -- 7705f0bc-f28e-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.UpdateEnvironment'
 
 updateEnvironment :: ( MonadCatch m
                      , MonadResource m
@@ -1332,7 +1295,7 @@ updateEnvironmentCatch s =
 -- &Operation=ValidateConfigurationSettings &AuthParams
 -- 06f1cfff-f28f-11df-8a78-9f77047e0d0c.
 --
--- See: 'Network.AWS.ElasticBeanstalk'
+-- See: 'Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings'
 
 validateConfigurationSettings :: ( MonadCatch m
                                  , MonadResource m
@@ -1341,7 +1304,6 @@ validateConfigurationSettings :: ( MonadCatch m
                                  )
     => Text -- ^ 'vcsApplicationName'
     -> [ConfigurationOptionSetting] -- ^ 'vcsOptionSettings'
-    -> State ValidateConfigurationSettings a
     -> m ValidateConfigurationSettingsResponse
 validateConfigurationSettings p1 p4 s =
     send $ (mkValidateConfigurationSettings p1 p4) &~ s
@@ -1352,7 +1314,6 @@ validateConfigurationSettingsCatch :: ( MonadCatch m
                                       )
     => Text -- ^ 'vcsApplicationName'
     -> [ConfigurationOptionSetting] -- ^ 'vcsOptionSettings'
-    -> State ValidateConfigurationSettings a
     -> m (Either ServiceEr ValidateConfigurationSettingsResponse)
 validateConfigurationSettingsCatch p1 p4 s =
     sendCatch $ (mkValidateConfigurationSettings p1 p4) &~ s

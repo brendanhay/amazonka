@@ -12,20 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides
--- resizable compute capacity in the cloud. It is designed to make web-scale
--- computing easier for developers. Amazon EC2’s simple web service interface
--- allows you to obtain and configure capacity with minimal friction. It
--- provides you with complete control of your computing resources and lets you
--- run on Amazon’s proven computing environment. Amazon EC2 reduces the time
--- required to obtain and boot new server instances to minutes, allowing you
--- to quickly scale capacity, both up and down, as your computing requirements
--- change. Amazon EC2 changes the economics of computing by allowing you to
--- pay only for capacity that you actually use. Amazon EC2 provides developers
--- the tools to build failure resilient applications and isolate themselves
--- from common failure scenarios.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -47,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.EC2.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.EC2.Monadic
@@ -864,7 +855,7 @@ type ServiceEr = Er EC2
 -- &lt;message&gt;Active&lt;/message&gt; &lt;/status&gt; &lt;tagSet/&gt;
 -- &lt;/vpcPeeringConnection&gt; &lt;/AcceptVpcPeeringConnectionResponse&gt;".
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.AcceptVpcPeeringConnection'
 
 acceptVpcPeeringConnection :: ( MonadCatch m
                               , MonadResource m
@@ -908,7 +899,7 @@ acceptVpcPeeringConnectionCatch s =
 -- &lt;allocationId&gt;eipalloc-5723d13e&lt;/allocationId&gt;
 -- &lt;/AllocateAddressResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.AllocateAddress'
 
 allocateAddress :: ( MonadCatch m
                    , MonadResource m
@@ -958,7 +949,7 @@ allocateAddressCatch s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/AssignPrivateIpAddresses&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.AssignPrivateIpAddresses'
 
 assignPrivateIpAddresses :: ( MonadCatch m
                             , MonadResource m
@@ -966,7 +957,6 @@ assignPrivateIpAddresses :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'apiaNetworkInterfaceId'
-    -> State AssignPrivateIpAddresses a
     -> m AssignPrivateIpAddressesResponse
 assignPrivateIpAddresses p1 s =
     send $ (mkAssignPrivateIpAddresses p1) &~ s
@@ -976,7 +966,6 @@ assignPrivateIpAddressesCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'apiaNetworkInterfaceId'
-    -> State AssignPrivateIpAddresses a
     -> m (Either ServiceEr AssignPrivateIpAddressesResponse)
 assignPrivateIpAddressesCatch p1 s =
     sendCatch $ (mkAssignPrivateIpAddresses p1) &~ s
@@ -1014,7 +1003,7 @@ assignPrivateIpAddressesCatch p1 s =
 -- &lt;associationId&gt;eipassoc-fc5ca095&lt;/associationId&gt;
 -- &lt;/AssociateAddressResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.AssociateAddress'
 
 associateAddress :: ( MonadCatch m
                     , MonadResource m
@@ -1061,7 +1050,7 @@ associateAddressCatch s =
 -- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/AssociateDhcpOptionsResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.AssociateDhcpOptions'
 
 associateDhcpOptions :: ( MonadCatch m
                         , MonadResource m
@@ -1070,7 +1059,6 @@ associateDhcpOptions :: ( MonadCatch m
                         )
     => Text -- ^ 'adoDhcpOptionsId'
     -> Text -- ^ 'adoVpcId'
-    -> State AssociateDhcpOptions a
     -> m AssociateDhcpOptionsResponse
 associateDhcpOptions p1 p2 s =
     send $ (mkAssociateDhcpOptions p1 p2) &~ s
@@ -1081,7 +1069,6 @@ associateDhcpOptionsCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'adoDhcpOptionsId'
     -> Text -- ^ 'adoVpcId'
-    -> State AssociateDhcpOptions a
     -> m (Either ServiceEr AssociateDhcpOptionsResponse)
 associateDhcpOptionsCatch p1 p2 s =
     sendCatch $ (mkAssociateDhcpOptions p1 p2) &~ s
@@ -1103,7 +1090,7 @@ associateDhcpOptionsCatch p1 p2 s =
 -- &lt;associationId&gt;rtbassoc-f8ad4891&lt;/associationId&gt;
 -- &lt;/AssociateRouteTableResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.AssociateRouteTable'
 
 associateRouteTable :: ( MonadCatch m
                        , MonadResource m
@@ -1112,7 +1099,6 @@ associateRouteTable :: ( MonadCatch m
                        )
     => Text -- ^ 'artSubnetId'
     -> Text -- ^ 'artRouteTableId'
-    -> State AssociateRouteTable a
     -> m AssociateRouteTableResponse
 associateRouteTable p1 p2 s =
     send $ (mkAssociateRouteTable p1 p2) &~ s
@@ -1123,7 +1109,6 @@ associateRouteTableCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'artSubnetId'
     -> Text -- ^ 'artRouteTableId'
-    -> State AssociateRouteTable a
     -> m (Either ServiceEr AssociateRouteTableResponse)
 associateRouteTableCatch p1 p2 s =
     sendCatch $ (mkAssociateRouteTable p1 p2) &~ s
@@ -1141,7 +1126,7 @@ associateRouteTableCatch p1 p2 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/AttachInternetGatewayResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.AttachInternetGateway'
 
 attachInternetGateway :: ( MonadCatch m
                          , MonadResource m
@@ -1150,7 +1135,6 @@ attachInternetGateway :: ( MonadCatch m
                          )
     => Text -- ^ 'aigInternetGatewayId'
     -> Text -- ^ 'aigVpcId'
-    -> State AttachInternetGateway a
     -> m AttachInternetGatewayResponse
 attachInternetGateway p1 p2 s =
     send $ (mkAttachInternetGateway p1 p2) &~ s
@@ -1161,7 +1145,6 @@ attachInternetGatewayCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'aigInternetGatewayId'
     -> Text -- ^ 'aigVpcId'
-    -> State AttachInternetGateway a
     -> m (Either ServiceEr AttachInternetGatewayResponse)
 attachInternetGatewayCatch p1 p2 s =
     sendCatch $ (mkAttachInternetGateway p1 p2) &~ s
@@ -1177,7 +1160,7 @@ attachInternetGatewayCatch p1 p2 s =
 -- &lt;attachmentId&gt;eni-attach-d94b09b0&lt;/attachmentId&gt;
 -- &lt;/AttachNetworkInterfaceResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.AttachNetworkInterface'
 
 attachNetworkInterface :: ( MonadCatch m
                           , MonadResource m
@@ -1187,7 +1170,6 @@ attachNetworkInterface :: ( MonadCatch m
     => Text -- ^ 'aniNetworkInterfaceId'
     -> Text -- ^ 'aniInstanceId'
     -> Integer -- ^ 'aniDeviceIndex'
-    -> State AttachNetworkInterface a
     -> m AttachNetworkInterfaceResponse
 attachNetworkInterface p1 p2 p3 s =
     send $ (mkAttachNetworkInterface p1 p2 p3) &~ s
@@ -1199,7 +1181,6 @@ attachNetworkInterfaceCatch :: ( MonadCatch m
     => Text -- ^ 'aniNetworkInterfaceId'
     -> Text -- ^ 'aniInstanceId'
     -> Integer -- ^ 'aniDeviceIndex'
-    -> State AttachNetworkInterface a
     -> m (Either ServiceEr AttachNetworkInterfaceResponse)
 attachNetworkInterfaceCatch p1 p2 p3 s =
     sendCatch $ (mkAttachNetworkInterface p1 p2 p3) &~ s
@@ -1239,7 +1220,7 @@ attachNetworkInterfaceCatch p1 p2 p3 s =
 -- &lt;attachTime&gt;YYYY-MM-DDTHH:MM:SS.000Z&lt;/attachTime&gt;
 -- &lt;/AttachVolumeResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.AttachVolume'
 
 attachVolume :: ( MonadCatch m
                 , MonadResource m
@@ -1249,7 +1230,6 @@ attachVolume :: ( MonadCatch m
     => Text -- ^ 'avVolumeId'
     -> Text -- ^ 'avInstanceId'
     -> Text -- ^ 'avDevice'
-    -> State AttachVolume a
     -> m AttachVolumeResponse
 attachVolume p1 p2 p3 s =
     send $ (mkAttachVolume p1 p2 p3) &~ s
@@ -1261,7 +1241,6 @@ attachVolumeCatch :: ( MonadCatch m
     => Text -- ^ 'avVolumeId'
     -> Text -- ^ 'avInstanceId'
     -> Text -- ^ 'avDevice'
-    -> State AttachVolume a
     -> m (Either ServiceEr AttachVolumeResponse)
 attachVolumeCatch p1 p2 p3 s =
     sendCatch $ (mkAttachVolume p1 p2 p3) &~ s
@@ -1280,7 +1259,7 @@ attachVolumeCatch p1 p2 p3 s =
 -- &lt;state&gt;attaching&lt;/state&gt; &lt;/attachment&gt;
 -- &lt;/AttachVpnGatewayResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.AttachVpnGateway'
 
 attachVpnGateway :: ( MonadCatch m
                     , MonadResource m
@@ -1289,7 +1268,6 @@ attachVpnGateway :: ( MonadCatch m
                     )
     => Text -- ^ 'avgVpnGatewayId'
     -> Text -- ^ 'avgVpcId'
-    -> State AttachVpnGateway a
     -> m AttachVpnGatewayResponse
 attachVpnGateway p1 p2 s =
     send $ (mkAttachVpnGateway p1 p2) &~ s
@@ -1300,7 +1278,6 @@ attachVpnGatewayCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'avgVpnGatewayId'
     -> Text -- ^ 'avgVpcId'
-    -> State AttachVpnGateway a
     -> m (Either ServiceEr AttachVpnGatewayResponse)
 attachVpnGatewayCatch p1 p2 s =
     sendCatch $ (mkAttachVpnGateway p1 p2) &~ s
@@ -1344,7 +1321,7 @@ attachVpnGatewayCatch p1 p2 s =
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/AuthorizeSecurityGroupEgressResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.AuthorizeSecurityGroupEgress'
 
 authorizeSecurityGroupEgress :: ( MonadCatch m
                                 , MonadResource m
@@ -1352,7 +1329,6 @@ authorizeSecurityGroupEgress :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'asgeGroupId'
-    -> State AuthorizeSecurityGroupEgress a
     -> m AuthorizeSecurityGroupEgressResponse
 authorizeSecurityGroupEgress p1 s =
     send $ (mkAuthorizeSecurityGroupEgress p1) &~ s
@@ -1362,7 +1338,6 @@ authorizeSecurityGroupEgressCatch :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => Text -- ^ 'asgeGroupId'
-    -> State AuthorizeSecurityGroupEgress a
     -> m (Either ServiceEr AuthorizeSecurityGroupEgressResponse)
 authorizeSecurityGroupEgressCatch p1 s =
     sendCatch $ (mkAuthorizeSecurityGroupEgress p1) &~ s
@@ -1421,7 +1396,7 @@ authorizeSecurityGroupEgressCatch p1 s =
 -- &amp;IpPermissions.1.IpRanges.1.CidrIp=your-local-system's-public-ip-address/32.
 -- 
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.AuthorizeSecurityGroupIngress'
 
 authorizeSecurityGroupIngress :: ( MonadCatch m
                                  , MonadResource m
@@ -1471,7 +1446,7 @@ authorizeSecurityGroupIngressCatch s =
 -- &lt;prefix&gt;winami&lt;/prefix&gt; &lt;/S3&gt; &lt;/storage&gt;
 -- &lt;/bundleInstanceTask&gt; &lt;/BundleInstanceResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.BundleInstance'
 
 bundleInstance :: ( MonadCatch m
                   , MonadResource m
@@ -1480,7 +1455,6 @@ bundleInstance :: ( MonadCatch m
                   )
     => Text -- ^ 'biInstanceId'
     -> Storage -- ^ 'biStorage'
-    -> State BundleInstance a
     -> m BundleInstanceResponse
 bundleInstance p1 p2 s =
     send $ (mkBundleInstance p1 p2) &~ s
@@ -1491,7 +1465,6 @@ bundleInstanceCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'biInstanceId'
     -> Storage -- ^ 'biStorage'
-    -> State BundleInstance a
     -> m (Either ServiceEr BundleInstanceResponse)
 bundleInstanceCatch p1 p2 s =
     sendCatch $ (mkBundleInstance p1 p2) &~ s
@@ -1513,7 +1486,7 @@ bundleInstanceCatch p1 p2 s =
 -- &lt;prefix&gt;my-new-image&lt;/prefix&gt; &lt;/S3&gt; &lt;/storage&gt;
 -- &lt;/bundleInstanceTask&gt; &lt;/CancelBundleTaskResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CancelBundleTask'
 
 cancelBundleTask :: ( MonadCatch m
                     , MonadResource m
@@ -1521,7 +1494,6 @@ cancelBundleTask :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'cbtBundleId'
-    -> State CancelBundleTask a
     -> m CancelBundleTaskResponse
 cancelBundleTask p1 s =
     send $ (mkCancelBundleTask p1) &~ s
@@ -1531,7 +1503,6 @@ cancelBundleTaskCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'cbtBundleId'
-    -> State CancelBundleTask a
     -> m (Either ServiceEr CancelBundleTaskResponse)
 cancelBundleTaskCatch p1 s =
     sendCatch $ (mkCancelBundleTask p1) &~ s
@@ -1549,7 +1520,7 @@ cancelBundleTaskCatch p1 s =
 -- &amp;ConversionTaskId=import-i-fh95npoc &amp;AUTHPARAMS
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE true.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CancelConversionTask'
 
 cancelConversionTask :: ( MonadCatch m
                         , MonadResource m
@@ -1557,7 +1528,6 @@ cancelConversionTask :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'cctConversionTaskId'
-    -> State CancelConversionTask a
     -> m CancelConversionTaskResponse
 cancelConversionTask p1 s =
     send $ (mkCancelConversionTask p1) &~ s
@@ -1567,7 +1537,6 @@ cancelConversionTaskCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'cctConversionTaskId'
-    -> State CancelConversionTask a
     -> m (Either ServiceEr CancelConversionTaskResponse)
 cancelConversionTaskCatch p1 s =
     sendCatch $ (mkCancelConversionTask p1) &~ s
@@ -1582,7 +1551,7 @@ cancelConversionTaskCatch p1 s =
 -- &amp;exportTaskId=export-i-1234wxyz &amp;AUTHPARAMS
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE true.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CancelExportTask'
 
 cancelExportTask :: ( MonadCatch m
                     , MonadResource m
@@ -1590,7 +1559,6 @@ cancelExportTask :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'cetExportTaskId'
-    -> State CancelExportTask a
     -> m CancelExportTaskResponse
 cancelExportTask p1 s =
     send $ (mkCancelExportTask p1) &~ s
@@ -1600,7 +1568,6 @@ cancelExportTaskCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'cetExportTaskId'
-    -> State CancelExportTask a
     -> m (Either ServiceEr CancelExportTaskResponse)
 cancelExportTaskCatch p1 s =
     sendCatch $ (mkCancelExportTask p1) &~ s
@@ -1619,7 +1586,7 @@ cancelExportTaskCatch p1 s =
 -- false 3 99.99 USD false 2 66.66 USD false 1 33.33 USD false
 -- XqJIt1342112125076.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CancelReservedInstancesListing'
 
 cancelReservedInstancesListing :: ( MonadCatch m
                                   , MonadResource m
@@ -1627,7 +1594,6 @@ cancelReservedInstancesListing :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => Text -- ^ 'crilReservedInstancesListingId'
-    -> State CancelReservedInstancesListing a
     -> m CancelReservedInstancesListingResponse
 cancelReservedInstancesListing p1 s =
     send $ (mkCancelReservedInstancesListing p1) &~ s
@@ -1637,7 +1603,6 @@ cancelReservedInstancesListingCatch :: ( MonadCatch m
                                        , MonadReader Env m
                                        )
     => Text -- ^ 'crilReservedInstancesListingId'
-    -> State CancelReservedInstancesListing a
     -> m (Either ServiceEr CancelReservedInstancesListingResponse)
 cancelReservedInstancesListingCatch p1 s =
     sendCatch $ (mkCancelReservedInstancesListing p1) &~ s
@@ -1662,7 +1627,7 @@ cancelReservedInstancesListingCatch p1 s =
 -- &lt;/spotInstanceRequestSet&gt;
 -- &lt;/CancelSpotInstanceRequestsResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CancelSpotInstanceRequests'
 
 cancelSpotInstanceRequests :: ( MonadCatch m
                               , MonadResource m
@@ -1670,7 +1635,6 @@ cancelSpotInstanceRequests :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => [Text] -- ^ 'csirSpotInstanceRequestIds'
-    -> State CancelSpotInstanceRequests a
     -> m CancelSpotInstanceRequestsResponse
 cancelSpotInstanceRequests p1 s =
     send $ (mkCancelSpotInstanceRequests p1) &~ s
@@ -1680,7 +1644,6 @@ cancelSpotInstanceRequestsCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => [Text] -- ^ 'csirSpotInstanceRequestIds'
-    -> State CancelSpotInstanceRequests a
     -> m (Either ServiceEr CancelSpotInstanceRequestsResponse)
 cancelSpotInstanceRequestsCatch p1 s =
     sendCatch $ (mkCancelSpotInstanceRequests p1) &~ s
@@ -1700,7 +1663,7 @@ cancelSpotInstanceRequestsCatch p1 s =
 -- &lt;ownerId&gt;111122223333&lt;/ownerId&gt;
 -- &lt;/ConfirmProductInstanceResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.ConfirmProductInstance'
 
 confirmProductInstance :: ( MonadCatch m
                           , MonadResource m
@@ -1709,7 +1672,6 @@ confirmProductInstance :: ( MonadCatch m
                           )
     => Text -- ^ 'cpiProductCode'
     -> Text -- ^ 'cpiInstanceId'
-    -> State ConfirmProductInstance a
     -> m ConfirmProductInstanceResponse
 confirmProductInstance p1 p2 s =
     send $ (mkConfirmProductInstance p1 p2) &~ s
@@ -1720,7 +1682,6 @@ confirmProductInstanceCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'cpiProductCode'
     -> Text -- ^ 'cpiInstanceId'
-    -> State ConfirmProductInstance a
     -> m (Either ServiceEr ConfirmProductInstanceResponse)
 confirmProductInstanceCatch p1 p2 s =
     sendCatch $ (mkConfirmProductInstance p1 p2) &~ s
@@ -1741,7 +1702,7 @@ confirmProductInstanceCatch p1 p2 s =
 -- &lt;requestId&gt;60bc441d-fa2c-494d-b155-5d6a3EXAMPLE&lt;/requestId&gt;
 -- &lt;imageId&gt;ami-4d3c2b1a&lt;/imageId&gt; &lt;/CopyImageResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CopyImage'
 
 copyImage :: ( MonadCatch m
              , MonadResource m
@@ -1750,7 +1711,6 @@ copyImage :: ( MonadCatch m
              )
     => Text -- ^ 'ciSourceRegion'
     -> Text -- ^ 'ciSourceImageId'
-    -> State CopyImage a
     -> m CopyImageResponse
 copyImage p1 p2 s =
     send $ (mkCopyImage p1 p2) &~ s
@@ -1761,7 +1721,6 @@ copyImageCatch :: ( MonadCatch m
                   )
     => Text -- ^ 'ciSourceRegion'
     -> Text -- ^ 'ciSourceImageId'
-    -> State CopyImage a
     -> m (Either ServiceEr CopyImageResponse)
 copyImageCatch p1 p2 s =
     sendCatch $ (mkCopyImage p1 p2) &~ s
@@ -1784,7 +1743,7 @@ copyImageCatch p1 p2 s =
 -- &lt;snapshotId&gt;snap-2a2b3c4d&lt;/snapshotId&gt;
 -- &lt;/CopySnapshotResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CopySnapshot'
 
 copySnapshot :: ( MonadCatch m
                 , MonadResource m
@@ -1793,7 +1752,6 @@ copySnapshot :: ( MonadCatch m
                 )
     => Text -- ^ 'csSourceRegion'
     -> Text -- ^ 'csSourceSnapshotId'
-    -> State CopySnapshot a
     -> m CopySnapshotResponse
 copySnapshot p1 p2 s =
     send $ (mkCopySnapshot p1 p2) &~ s
@@ -1804,7 +1762,6 @@ copySnapshotCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'csSourceRegion'
     -> Text -- ^ 'csSourceSnapshotId'
-    -> State CopySnapshot a
     -> m (Either ServiceEr CopySnapshotResponse)
 copySnapshotCatch p1 p2 s =
     sendCatch $ (mkCopySnapshot p1 p2) &~ s
@@ -1838,7 +1795,7 @@ copySnapshotCatch p1 p2 s =
 -- &lt;bgpAsn&gt;65534&lt;/bgpAsn&gt; &lt;tagSet/&gt; &lt;/customerGateway&gt;
 -- &lt;/CreateCustomerGatewayResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateCustomerGateway'
 
 createCustomerGateway :: ( MonadCatch m
                          , MonadResource m
@@ -1848,7 +1805,6 @@ createCustomerGateway :: ( MonadCatch m
     => GatewayType -- ^ 'ccgType'
     -> Text -- ^ 'ccgPublicIp'
     -> Integer -- ^ 'ccgBgpAsn'
-    -> State CreateCustomerGateway a
     -> m CreateCustomerGatewayResponse
 createCustomerGateway p1 p2 p3 s =
     send $ (mkCreateCustomerGateway p1 p2 p3) &~ s
@@ -1860,7 +1816,6 @@ createCustomerGatewayCatch :: ( MonadCatch m
     => GatewayType -- ^ 'ccgType'
     -> Text -- ^ 'ccgPublicIp'
     -> Integer -- ^ 'ccgBgpAsn'
-    -> State CreateCustomerGateway a
     -> m (Either ServiceEr CreateCustomerGatewayResponse)
 createCustomerGatewayCatch p1 p2 p3 s =
     sendCatch $ (mkCreateCustomerGateway p1 p2 p3) &~ s
@@ -1908,7 +1863,7 @@ createCustomerGatewayCatch p1 p2 p3 s =
 -- &lt;/item&gt; &lt;/valueSet&gt; &lt;/item&gt; &lt;/dhcpConfigurationSet&gt;
 -- &lt;tagSet/&gt; &lt;/dhcpOptions&gt; &lt;/CreateDhcpOptionsResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateDhcpOptions'
 
 createDhcpOptions :: ( MonadCatch m
                      , MonadResource m
@@ -1916,7 +1871,6 @@ createDhcpOptions :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => [DhcpConfiguration] -- ^ 'cdoDhcpConfigurations'
-    -> State CreateDhcpOptions a
     -> m CreateDhcpOptionsResponse
 createDhcpOptions p1 s =
     send $ (mkCreateDhcpOptions p1) &~ s
@@ -1926,7 +1880,6 @@ createDhcpOptionsCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => [DhcpConfiguration] -- ^ 'cdoDhcpConfigurations'
-    -> State CreateDhcpOptions a
     -> m (Either ServiceEr CreateDhcpOptionsResponse)
 createDhcpOptionsCatch p1 s =
     sendCatch $ (mkCreateDhcpOptions p1) &~ s
@@ -1947,7 +1900,7 @@ createDhcpOptionsCatch p1 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;imageId&gt;ami-4fa54026&lt;/imageId&gt; &lt;/CreateImageResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateImage'
 
 createImage :: ( MonadCatch m
                , MonadResource m
@@ -1956,7 +1909,6 @@ createImage :: ( MonadCatch m
                )
     => Text -- ^ 'ci1InstanceId'
     -> Text -- ^ 'ci1Name'
-    -> State CreateImage a
     -> m CreateImageResponse
 createImage p1 p2 s =
     send $ (mkCreateImage p1 p2) &~ s
@@ -1967,7 +1919,6 @@ createImageCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'ci1InstanceId'
     -> Text -- ^ 'ci1Name'
-    -> State CreateImage a
     -> m (Either ServiceEr CreateImageResponse)
 createImageCatch p1 p2 s =
     sendCatch $ (mkCreateImage p1 p2) &~ s
@@ -2003,7 +1954,7 @@ createImageCatch p1 p2 s =
 -- &lt;/exportToS3&gt; &lt;/exportTask&gt;
 -- &lt;/CreateInstanceExportTaskResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateInstanceExportTask'
 
 createInstanceExportTask :: ( MonadCatch m
                             , MonadResource m
@@ -2011,7 +1962,6 @@ createInstanceExportTask :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'cietInstanceId'
-    -> State CreateInstanceExportTask a
     -> m CreateInstanceExportTaskResponse
 createInstanceExportTask p2 s =
     send $ (mkCreateInstanceExportTask p2) &~ s
@@ -2021,7 +1971,6 @@ createInstanceExportTaskCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'cietInstanceId'
-    -> State CreateInstanceExportTask a
     -> m (Either ServiceEr CreateInstanceExportTaskResponse)
 createInstanceExportTaskCatch p2 s =
     sendCatch $ (mkCreateInstanceExportTask p2) &~ s
@@ -2034,7 +1983,7 @@ createInstanceExportTaskCatch p2 s =
 -- https://ec2.amazonaws.com/?Action=CreateInternetGateway &amp;AUTHPARAMS
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE igw-eaad4883.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateInternetGateway'
 
 createInternetGateway :: ( MonadCatch m
                          , MonadResource m
@@ -2090,7 +2039,7 @@ createInternetGatewayCatch s =
 -- permissions of your private key file so that only you can read it. chmod
 -- 400 my-key-pair.pem.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateKeyPair'
 
 createKeyPair :: ( MonadCatch m
                  , MonadResource m
@@ -2098,7 +2047,6 @@ createKeyPair :: ( MonadCatch m
                  , MonadReader Env m
                  )
     => Text -- ^ 'ckpKeyName'
-    -> State CreateKeyPair a
     -> m CreateKeyPairResponse
 createKeyPair p1 s =
     send $ (mkCreateKeyPair p1) &~ s
@@ -2108,7 +2056,6 @@ createKeyPairCatch :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'ckpKeyName'
-    -> State CreateKeyPair a
     -> m (Either ServiceEr CreateKeyPairResponse)
 createKeyPairCatch p1 s =
     sendCatch $ (mkCreateKeyPair p1) &~ s
@@ -2128,7 +2075,7 @@ createKeyPairCatch p1 s =
 -- vpc-11ad4878 false 32767 all deny true 0.0.0.0/0 32767 all deny false
 -- 0.0.0.0/0.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateNetworkAcl'
 
 createNetworkAcl :: ( MonadCatch m
                     , MonadResource m
@@ -2136,7 +2083,6 @@ createNetworkAcl :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'cnaVpcId'
-    -> State CreateNetworkAcl a
     -> m CreateNetworkAclResponse
 createNetworkAcl p1 s =
     send $ (mkCreateNetworkAcl p1) &~ s
@@ -2146,7 +2092,6 @@ createNetworkAclCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'cnaVpcId'
-    -> State CreateNetworkAcl a
     -> m (Either ServiceEr CreateNetworkAclResponse)
 createNetworkAclCatch p1 s =
     sendCatch $ (mkCreateNetworkAcl p1) &~ s
@@ -2176,7 +2121,7 @@ createNetworkAclCatch p1 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/CreateNetworkAclEntryResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateNetworkAclEntry'
 
 createNetworkAclEntry :: ( MonadCatch m
                          , MonadResource m
@@ -2189,7 +2134,6 @@ createNetworkAclEntry :: ( MonadCatch m
     -> RuleAction -- ^ 'cnaeRuleAction'
     -> Bool -- ^ 'cnaeEgress'
     -> Text -- ^ 'cnaeCidrBlock'
-    -> State CreateNetworkAclEntry a
     -> m CreateNetworkAclEntryResponse
 createNetworkAclEntry p1 p2 p3 p4 p5 p6 s =
     send $ (mkCreateNetworkAclEntry p1 p2 p3 p4 p5 p6) &~ s
@@ -2204,7 +2148,6 @@ createNetworkAclEntryCatch :: ( MonadCatch m
     -> RuleAction -- ^ 'cnaeRuleAction'
     -> Bool -- ^ 'cnaeEgress'
     -> Text -- ^ 'cnaeCidrBlock'
-    -> State CreateNetworkAclEntry a
     -> m (Either ServiceEr CreateNetworkAclEntryResponse)
 createNetworkAclEntryCatch p1 p2 p3 p4 p5 p6 s =
     sendCatch $ (mkCreateNetworkAclEntry p1 p2 p3 p4 p5 p6) &~ s
@@ -2310,7 +2253,7 @@ createNetworkAclEntryCatch p1 p2 p3 p4 p5 p6 s =
 -- &lt;/privateIpAddressesSet&gt; &lt;/networkInterface&gt;
 -- &lt;/CreateNetworkInterfaceResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateNetworkInterface'
 
 createNetworkInterface :: ( MonadCatch m
                           , MonadResource m
@@ -2318,7 +2261,6 @@ createNetworkInterface :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'cniSubnetId'
-    -> State CreateNetworkInterface a
     -> m CreateNetworkInterfaceResponse
 createNetworkInterface p1 s =
     send $ (mkCreateNetworkInterface p1) &~ s
@@ -2328,7 +2270,6 @@ createNetworkInterfaceCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'cniSubnetId'
-    -> State CreateNetworkInterface a
     -> m (Either ServiceEr CreateNetworkInterfaceResponse)
 createNetworkInterfaceCatch p1 s =
     sendCatch $ (mkCreateNetworkInterface p1) &~ s
@@ -2346,7 +2287,7 @@ createNetworkInterfaceCatch p1 s =
 -- &lt;requestId&gt;d4904fd9-82c2-4ea5-adfe-a9cc3EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/CreatePlacementGroupResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreatePlacementGroup'
 
 createPlacementGroup :: ( MonadCatch m
                         , MonadResource m
@@ -2355,7 +2296,6 @@ createPlacementGroup :: ( MonadCatch m
                         )
     => Text -- ^ 'cpgGroupName'
     -> PlacementStrategy -- ^ 'cpgStrategy'
-    -> State CreatePlacementGroup a
     -> m CreatePlacementGroupResponse
 createPlacementGroup p1 p2 s =
     send $ (mkCreatePlacementGroup p1 p2) &~ s
@@ -2366,7 +2306,6 @@ createPlacementGroupCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'cpgGroupName'
     -> PlacementStrategy -- ^ 'cpgStrategy'
-    -> State CreatePlacementGroup a
     -> m (Either ServiceEr CreatePlacementGroupResponse)
 createPlacementGroupCatch p1 p2 s =
     sendCatch $ (mkCreatePlacementGroup p1 p2) &~ s
@@ -2395,7 +2334,7 @@ createPlacementGroupCatch p1 p2 s =
 -- false 8 2.0 USD false 7 2.0 USD false 6 2.0 USD false 5 1.5 USD false 4 1.5
 -- USD false 3 0.7 USD false 2 0.7 USD false 1 0.1 USD false myIdempToken1.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateReservedInstancesListing'
 
 createReservedInstancesListing :: ( MonadCatch m
                                   , MonadResource m
@@ -2406,7 +2345,6 @@ createReservedInstancesListing :: ( MonadCatch m
     -> Integer -- ^ 'cril1InstanceCount'
     -> [PriceScheduleSpecification] -- ^ 'cril1PriceSchedules'
     -> Text -- ^ 'cril1ClientToken'
-    -> State CreateReservedInstancesListing a
     -> m CreateReservedInstancesListingResponse
 createReservedInstancesListing p1 p2 p3 p4 s =
     send $ (mkCreateReservedInstancesListing p1 p2 p3 p4) &~ s
@@ -2419,7 +2357,6 @@ createReservedInstancesListingCatch :: ( MonadCatch m
     -> Integer -- ^ 'cril1InstanceCount'
     -> [PriceScheduleSpecification] -- ^ 'cril1PriceSchedules'
     -> Text -- ^ 'cril1ClientToken'
-    -> State CreateReservedInstancesListing a
     -> m (Either ServiceEr CreateReservedInstancesListingResponse)
 createReservedInstancesListingCatch p1 p2 p3 p4 s =
     sendCatch $ (mkCreateReservedInstancesListing p1 p2 p3 p4) &~ s
@@ -2454,7 +2391,7 @@ createReservedInstancesListingCatch p1 p2 p3 p4 s =
 -- &amp;RouteTableId=rtb-g8ff4ea2 &amp;DestinationCidrBlock=10.0.0.0/16
 -- &amp;vpcPeeringConnectionId=pcx-111aaa22 &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateRoute'
 
 createRoute :: ( MonadCatch m
                , MonadResource m
@@ -2463,7 +2400,6 @@ createRoute :: ( MonadCatch m
                )
     => Text -- ^ 'crRouteTableId'
     -> Text -- ^ 'crDestinationCidrBlock'
-    -> State CreateRoute a
     -> m CreateRouteResponse
 createRoute p1 p2 s =
     send $ (mkCreateRoute p1 p2) &~ s
@@ -2474,7 +2410,6 @@ createRouteCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'crRouteTableId'
     -> Text -- ^ 'crDestinationCidrBlock'
-    -> State CreateRoute a
     -> m (Either ServiceEr CreateRouteResponse)
 createRouteCatch p1 p2 s =
     sendCatch $ (mkCreateRoute p1 p2) &~ s
@@ -2491,7 +2426,7 @@ createRouteCatch p1 p2 s =
 -- &amp;AUTHPARAMS 59dbff89-35bd-4eac-99ed-be587EXAMPLE rtb-f9ad4890
 -- vpc-11ad4878 10.0.0.0/22 local active.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateRouteTable'
 
 createRouteTable :: ( MonadCatch m
                     , MonadResource m
@@ -2499,7 +2434,6 @@ createRouteTable :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'crtVpcId'
-    -> State CreateRouteTable a
     -> m CreateRouteTableResponse
 createRouteTable p1 s =
     send $ (mkCreateRouteTable p1) &~ s
@@ -2509,7 +2443,6 @@ createRouteTableCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'crtVpcId'
-    -> State CreateRouteTable a
     -> m (Either ServiceEr CreateRouteTableResponse)
 createRouteTableCatch p1 s =
     sendCatch $ (mkCreateRouteTable p1) &~ s
@@ -2552,7 +2485,7 @@ createRouteTableCatch p1 s =
 -- &lt;groupId&gt;sg-0a42d66a&lt;/groupId&gt;
 -- &lt;/CreateSecurityGroupResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateSecurityGroup'
 
 createSecurityGroup :: ( MonadCatch m
                        , MonadResource m
@@ -2561,7 +2494,6 @@ createSecurityGroup :: ( MonadCatch m
                        )
     => Text -- ^ 'csgGroupName'
     -> Text -- ^ 'csgDescription'
-    -> State CreateSecurityGroup a
     -> m CreateSecurityGroupResponse
 createSecurityGroup p1 p2 s =
     send $ (mkCreateSecurityGroup p1 p2) &~ s
@@ -2572,7 +2504,6 @@ createSecurityGroupCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'csgGroupName'
     -> Text -- ^ 'csgDescription'
-    -> State CreateSecurityGroup a
     -> m (Either ServiceEr CreateSecurityGroupResponse)
 createSecurityGroupCatch p1 p2 s =
     sendCatch $ (mkCreateSecurityGroup p1 p2) &~ s
@@ -2613,7 +2544,7 @@ createSecurityGroupCatch p1 p2 s =
 -- &lt;volumeSize&gt;30&lt;/volumeSize&gt; &lt;description&gt;Daily
 -- Backup&lt;/description&gt; &lt;/CreateSnapshotResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateSnapshot'
 
 createSnapshot :: ( MonadCatch m
                   , MonadResource m
@@ -2621,7 +2552,6 @@ createSnapshot :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'cs1VolumeId'
-    -> State CreateSnapshot a
     -> m CreateSnapshotResponse
 createSnapshot p1 s =
     send $ (mkCreateSnapshot p1) &~ s
@@ -2631,7 +2561,6 @@ createSnapshotCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'cs1VolumeId'
-    -> State CreateSnapshot a
     -> m (Either ServiceEr CreateSnapshotResponse)
 createSnapshotCatch p1 s =
     sendCatch $ (mkCreateSnapshot p1) &~ s
@@ -2653,7 +2582,7 @@ createSnapshotCatch p1 s =
 -- &lt;/spotDatafeedSubscription&gt;
 -- &lt;/CreateSpotDatafeedSubscriptionResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateSpotDatafeedSubscription'
 
 createSpotDatafeedSubscription :: ( MonadCatch m
                                   , MonadResource m
@@ -2661,7 +2590,6 @@ createSpotDatafeedSubscription :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => Text -- ^ 'csdsBucket'
-    -> State CreateSpotDatafeedSubscription a
     -> m CreateSpotDatafeedSubscriptionResponse
 createSpotDatafeedSubscription p1 s =
     send $ (mkCreateSpotDatafeedSubscription p1) &~ s
@@ -2671,7 +2599,6 @@ createSpotDatafeedSubscriptionCatch :: ( MonadCatch m
                                        , MonadReader Env m
                                        )
     => Text -- ^ 'csdsBucket'
-    -> State CreateSpotDatafeedSubscription a
     -> m (Either ServiceEr CreateSpotDatafeedSubscriptionResponse)
 createSpotDatafeedSubscriptionCatch p1 s =
     sendCatch $ (mkCreateSpotDatafeedSubscription p1) &~ s
@@ -2702,7 +2629,7 @@ createSpotDatafeedSubscriptionCatch p1 s =
 -- &lt;availabilityZone&gt;us-east-1a&lt;/availabilityZone&gt; &lt;tagSet/&gt;
 -- &lt;/subnet&gt; &lt;/CreateSubnetResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateSubnet'
 
 createSubnet :: ( MonadCatch m
                 , MonadResource m
@@ -2711,7 +2638,6 @@ createSubnet :: ( MonadCatch m
                 )
     => Text -- ^ 'cs2VpcId'
     -> Text -- ^ 'cs2CidrBlock'
-    -> State CreateSubnet a
     -> m CreateSubnetResponse
 createSubnet p1 p2 s =
     send $ (mkCreateSubnet p1 p2) &~ s
@@ -2722,7 +2648,6 @@ createSubnetCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'cs2VpcId'
     -> Text -- ^ 'cs2CidrBlock'
-    -> State CreateSubnet a
     -> m (Either ServiceEr CreateSubnetResponse)
 createSubnetCatch p1 p2 s =
     sendCatch $ (mkCreateSubnet p1 p2) &~ s
@@ -2742,7 +2667,7 @@ createSubnetCatch p1 p2 s =
 -- xmlns="http://ec2.amazonaws.com/doc/2014-05-01/">
 -- 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE true.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateTags'
 
 createTags :: ( MonadCatch m
               , MonadResource m
@@ -2751,7 +2676,6 @@ createTags :: ( MonadCatch m
               )
     => [Text] -- ^ 'ctResources'
     -> [Tag] -- ^ 'ctTags'
-    -> State CreateTags a
     -> m CreateTagsResponse
 createTags p1 p2 s =
     send $ (mkCreateTags p1 p2) &~ s
@@ -2762,7 +2686,6 @@ createTagsCatch :: ( MonadCatch m
                    )
     => [Text] -- ^ 'ctResources'
     -> [Tag] -- ^ 'ctTags'
-    -> State CreateTags a
     -> m (Either ServiceEr CreateTagsResponse)
 createTagsCatch p1 p2 s =
     sendCatch $ (mkCreateTags p1 p2) &~ s
@@ -2793,7 +2716,7 @@ createTagsCatch p1 p2 s =
 -- &lt;volumeType&gt;standard&lt;/volumeType&gt;
 -- &lt;encrypted&gt;true&lt;/encrypted&gt; &lt;/CreateVolumeResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateVolume'
 
 createVolume :: ( MonadCatch m
                 , MonadResource m
@@ -2801,7 +2724,6 @@ createVolume :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => Text -- ^ 'cvAvailabilityZone'
-    -> State CreateVolume a
     -> m CreateVolumeResponse
 createVolume p3 s =
     send $ (mkCreateVolume p3) &~ s
@@ -2811,7 +2733,6 @@ createVolumeCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'cvAvailabilityZone'
-    -> State CreateVolume a
     -> m (Either ServiceEr CreateVolumeResponse)
 createVolumeCatch p3 s =
     sendCatch $ (mkCreateVolume p3) &~ s
@@ -2848,7 +2769,7 @@ createVolumeCatch p3 s =
 -- &lt;instanceTenancy&gt;dedicated&lt;/instanceTenancy&gt; &lt;/vpc&gt;
 -- &lt;/CreateVpcResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateVpc'
 
 createVpc :: ( MonadCatch m
              , MonadResource m
@@ -2856,7 +2777,6 @@ createVpc :: ( MonadCatch m
              , MonadReader Env m
              )
     => Text -- ^ 'cv1CidrBlock'
-    -> State CreateVpc a
     -> m CreateVpcResponse
 createVpc p1 s =
     send $ (mkCreateVpc p1) &~ s
@@ -2866,7 +2786,6 @@ createVpcCatch :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'cv1CidrBlock'
-    -> State CreateVpc a
     -> m (Either ServiceEr CreateVpcResponse)
 createVpcCatch p1 s =
     sendCatch $ (mkCreateVpc p1) &~ s
@@ -2906,7 +2825,7 @@ createVpcCatch p1 s =
 -- https://ec2.amazonaws.com/?Action=CreateVpcPeeringConnection
 -- &amp;VpcId=vpc-1a2b3c4d &amp;PeerVpcId=vpc-11122233 &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateVpcPeeringConnection'
 
 createVpcPeeringConnection :: ( MonadCatch m
                               , MonadResource m
@@ -2981,7 +2900,7 @@ createVpcPeeringConnectionCatch s =
 -- &lt;routes/&gt; &lt;/vpnConnection&gt;
 -- &lt;/CreateVpnConnectionResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateVpnConnection'
 
 createVpnConnection :: ( MonadCatch m
                        , MonadResource m
@@ -2991,7 +2910,6 @@ createVpnConnection :: ( MonadCatch m
     => Text -- ^ 'cvcType'
     -> Text -- ^ 'cvcCustomerGatewayId'
     -> Text -- ^ 'cvcVpnGatewayId'
-    -> State CreateVpnConnection a
     -> m CreateVpnConnectionResponse
 createVpnConnection p1 p2 p3 s =
     send $ (mkCreateVpnConnection p1 p2 p3) &~ s
@@ -3003,7 +2921,6 @@ createVpnConnectionCatch :: ( MonadCatch m
     => Text -- ^ 'cvcType'
     -> Text -- ^ 'cvcCustomerGatewayId'
     -> Text -- ^ 'cvcVpnGatewayId'
-    -> State CreateVpnConnection a
     -> m (Either ServiceEr CreateVpnConnectionResponse)
 createVpnConnectionCatch p1 p2 p3 s =
     sendCatch $ (mkCreateVpnConnection p1 p2 p3) &~ s
@@ -3026,7 +2943,7 @@ createVpnConnectionCatch p1 p2 p3 s =
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/CreateVpnConnectionRouteResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateVpnConnectionRoute'
 
 createVpnConnectionRoute :: ( MonadCatch m
                             , MonadResource m
@@ -3035,7 +2952,6 @@ createVpnConnectionRoute :: ( MonadCatch m
                             )
     => Text -- ^ 'cvcr1VpnConnectionId'
     -> Text -- ^ 'cvcr1DestinationCidrBlock'
-    -> State CreateVpnConnectionRoute a
     -> m CreateVpnConnectionRouteResponse
 createVpnConnectionRoute p1 p2 s =
     send $ (mkCreateVpnConnectionRoute p1 p2) &~ s
@@ -3046,7 +2962,6 @@ createVpnConnectionRouteCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'cvcr1VpnConnectionId'
     -> Text -- ^ 'cvcr1DestinationCidrBlock'
-    -> State CreateVpnConnectionRoute a
     -> m (Either ServiceEr CreateVpnConnectionRouteResponse)
 createVpnConnectionRouteCatch p1 p2 s =
     sendCatch $ (mkCreateVpnConnectionRoute p1 p2) &~ s
@@ -3068,7 +2983,7 @@ createVpnConnectionRouteCatch p1 p2 s =
 -- &lt;attachments/&gt; &lt;tagSet/&gt; &lt;/vpnGateway&gt;
 -- &lt;/CreateVpnGatewayResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.CreateVpnGateway'
 
 createVpnGateway :: ( MonadCatch m
                     , MonadResource m
@@ -3076,7 +2991,6 @@ createVpnGateway :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => GatewayType -- ^ 'cvgType'
-    -> State CreateVpnGateway a
     -> m CreateVpnGatewayResponse
 createVpnGateway p1 s =
     send $ (mkCreateVpnGateway p1) &~ s
@@ -3086,7 +3000,6 @@ createVpnGatewayCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => GatewayType -- ^ 'cvgType'
-    -> State CreateVpnGateway a
     -> m (Either ServiceEr CreateVpnGatewayResponse)
 createVpnGatewayCatch p1 s =
     sendCatch $ (mkCreateVpnGateway p1) &~ s
@@ -3102,7 +3015,7 @@ createVpnGatewayCatch p1 s =
 -- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteCustomerGatewayResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DeleteCustomerGateway'
 
 deleteCustomerGateway :: ( MonadCatch m
                          , MonadResource m
@@ -3110,7 +3023,6 @@ deleteCustomerGateway :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'dcgCustomerGatewayId'
-    -> State DeleteCustomerGateway a
     -> m DeleteCustomerGatewayResponse
 deleteCustomerGateway p1 s =
     send $ (mkDeleteCustomerGateway p1) &~ s
@@ -3120,7 +3032,6 @@ deleteCustomerGatewayCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'dcgCustomerGatewayId'
-    -> State DeleteCustomerGateway a
     -> m (Either ServiceEr DeleteCustomerGatewayResponse)
 deleteCustomerGatewayCatch p1 s =
     sendCatch $ (mkDeleteCustomerGateway p1) &~ s
@@ -3137,7 +3048,7 @@ deleteCustomerGatewayCatch p1 s =
 -- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteDhcpOptionsResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DeleteDhcpOptions'
 
 deleteDhcpOptions :: ( MonadCatch m
                      , MonadResource m
@@ -3145,7 +3056,6 @@ deleteDhcpOptions :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'ddoDhcpOptionsId'
-    -> State DeleteDhcpOptions a
     -> m DeleteDhcpOptionsResponse
 deleteDhcpOptions p1 s =
     send $ (mkDeleteDhcpOptions p1) &~ s
@@ -3155,7 +3065,6 @@ deleteDhcpOptionsCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'ddoDhcpOptionsId'
-    -> State DeleteDhcpOptions a
     -> m (Either ServiceEr DeleteDhcpOptionsResponse)
 deleteDhcpOptionsCatch p1 s =
     sendCatch $ (mkDeleteDhcpOptions p1) &~ s
@@ -3171,7 +3080,7 @@ deleteDhcpOptionsCatch p1 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteInternetGatewayResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DeleteInternetGateway'
 
 deleteInternetGateway :: ( MonadCatch m
                          , MonadResource m
@@ -3179,7 +3088,6 @@ deleteInternetGateway :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'digInternetGatewayId'
-    -> State DeleteInternetGateway a
     -> m DeleteInternetGatewayResponse
 deleteInternetGateway p1 s =
     send $ (mkDeleteInternetGateway p1) &~ s
@@ -3189,7 +3097,6 @@ deleteInternetGatewayCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'digInternetGatewayId'
-    -> State DeleteInternetGateway a
     -> m (Either ServiceEr DeleteInternetGatewayResponse)
 deleteInternetGatewayCatch p1 s =
     sendCatch $ (mkDeleteInternetGateway p1) &~ s
@@ -3203,7 +3110,7 @@ deleteInternetGatewayCatch p1 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteKeyPairResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DeleteKeyPair'
 
 deleteKeyPair :: ( MonadCatch m
                  , MonadResource m
@@ -3211,7 +3118,6 @@ deleteKeyPair :: ( MonadCatch m
                  , MonadReader Env m
                  )
     => Text -- ^ 'dkpKeyName'
-    -> State DeleteKeyPair a
     -> m DeleteKeyPairResponse
 deleteKeyPair p1 s =
     send $ (mkDeleteKeyPair p1) &~ s
@@ -3221,7 +3127,6 @@ deleteKeyPairCatch :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'dkpKeyName'
-    -> State DeleteKeyPair a
     -> m (Either ServiceEr DeleteKeyPairResponse)
 deleteKeyPairCatch p1 s =
     sendCatch $ (mkDeleteKeyPair p1) &~ s
@@ -3236,7 +3141,7 @@ deleteKeyPairCatch p1 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteNetworkAclResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DeleteNetworkAcl'
 
 deleteNetworkAcl :: ( MonadCatch m
                     , MonadResource m
@@ -3244,7 +3149,6 @@ deleteNetworkAcl :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'dnaNetworkAclId'
-    -> State DeleteNetworkAcl a
     -> m DeleteNetworkAclResponse
 deleteNetworkAcl p1 s =
     send $ (mkDeleteNetworkAcl p1) &~ s
@@ -3254,7 +3158,6 @@ deleteNetworkAclCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'dnaNetworkAclId'
-    -> State DeleteNetworkAcl a
     -> m (Either ServiceEr DeleteNetworkAclResponse)
 deleteNetworkAclCatch p1 s =
     sendCatch $ (mkDeleteNetworkAcl p1) &~ s
@@ -3270,7 +3173,7 @@ deleteNetworkAclCatch p1 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteNetworkAclEntryResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DeleteNetworkAclEntry'
 
 deleteNetworkAclEntry :: ( MonadCatch m
                          , MonadResource m
@@ -3280,7 +3183,6 @@ deleteNetworkAclEntry :: ( MonadCatch m
     => Text -- ^ 'dnaeNetworkAclId'
     -> Integer -- ^ 'dnaeRuleNumber'
     -> Bool -- ^ 'dnaeEgress'
-    -> State DeleteNetworkAclEntry a
     -> m DeleteNetworkAclEntryResponse
 deleteNetworkAclEntry p1 p2 p3 s =
     send $ (mkDeleteNetworkAclEntry p1 p2 p3) &~ s
@@ -3292,7 +3194,6 @@ deleteNetworkAclEntryCatch :: ( MonadCatch m
     => Text -- ^ 'dnaeNetworkAclId'
     -> Integer -- ^ 'dnaeRuleNumber'
     -> Bool -- ^ 'dnaeEgress'
-    -> State DeleteNetworkAclEntry a
     -> m (Either ServiceEr DeleteNetworkAclEntryResponse)
 deleteNetworkAclEntryCatch p1 p2 p3 s =
     sendCatch $ (mkDeleteNetworkAclEntry p1 p2 p3) &~ s
@@ -3308,7 +3209,7 @@ deleteNetworkAclEntryCatch p1 p2 p3 s =
 -- &lt;requestId&gt;e1c6d73b-edaa-4e62-9909-6611404e1739&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteNetworkInterfaceResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DeleteNetworkInterface'
 
 deleteNetworkInterface :: ( MonadCatch m
                           , MonadResource m
@@ -3316,7 +3217,6 @@ deleteNetworkInterface :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'dniNetworkInterfaceId'
-    -> State DeleteNetworkInterface a
     -> m DeleteNetworkInterfaceResponse
 deleteNetworkInterface p1 s =
     send $ (mkDeleteNetworkInterface p1) &~ s
@@ -3326,7 +3226,6 @@ deleteNetworkInterfaceCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'dniNetworkInterfaceId'
-    -> State DeleteNetworkInterface a
     -> m (Either ServiceEr DeleteNetworkInterfaceResponse)
 deleteNetworkInterfaceCatch p1 s =
     sendCatch $ (mkDeleteNetworkInterface p1) &~ s
@@ -3343,7 +3242,7 @@ deleteNetworkInterfaceCatch p1 s =
 -- &lt;requestId&gt;d4904fd9-82c2-4ea5-adfe-a9cc3EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeletePlacementGroupResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DeletePlacementGroup'
 
 deletePlacementGroup :: ( MonadCatch m
                         , MonadResource m
@@ -3351,7 +3250,6 @@ deletePlacementGroup :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'dpgGroupName'
-    -> State DeletePlacementGroup a
     -> m DeletePlacementGroupResponse
 deletePlacementGroup p1 s =
     send $ (mkDeletePlacementGroup p1) &~ s
@@ -3361,7 +3259,6 @@ deletePlacementGroupCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'dpgGroupName'
-    -> State DeletePlacementGroup a
     -> m (Either ServiceEr DeletePlacementGroupResponse)
 deletePlacementGroupCatch p1 s =
     sendCatch $ (mkDeletePlacementGroup p1) &~ s
@@ -3376,7 +3273,7 @@ deletePlacementGroupCatch p1 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteRouteResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DeleteRoute'
 
 deleteRoute :: ( MonadCatch m
                , MonadResource m
@@ -3385,7 +3282,6 @@ deleteRoute :: ( MonadCatch m
                )
     => Text -- ^ 'drRouteTableId'
     -> Text -- ^ 'drDestinationCidrBlock'
-    -> State DeleteRoute a
     -> m DeleteRouteResponse
 deleteRoute p1 p2 s =
     send $ (mkDeleteRoute p1 p2) &~ s
@@ -3396,7 +3292,6 @@ deleteRouteCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'drRouteTableId'
     -> Text -- ^ 'drDestinationCidrBlock'
-    -> State DeleteRoute a
     -> m (Either ServiceEr DeleteRouteResponse)
 deleteRouteCatch p1 p2 s =
     sendCatch $ (mkDeleteRoute p1 p2) &~ s
@@ -3411,7 +3306,7 @@ deleteRouteCatch p1 p2 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteRouteTableResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DeleteRouteTable'
 
 deleteRouteTable :: ( MonadCatch m
                     , MonadResource m
@@ -3419,7 +3314,6 @@ deleteRouteTable :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'drtRouteTableId'
-    -> State DeleteRouteTable a
     -> m DeleteRouteTableResponse
 deleteRouteTable p1 s =
     send $ (mkDeleteRouteTable p1) &~ s
@@ -3429,7 +3323,6 @@ deleteRouteTableCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'drtRouteTableId'
-    -> State DeleteRouteTable a
     -> m (Either ServiceEr DeleteRouteTableResponse)
 deleteRouteTableCatch p1 s =
     sendCatch $ (mkDeleteRouteTable p1) &~ s
@@ -3452,7 +3345,7 @@ deleteRouteTableCatch p1 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteSecurityGroupResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DeleteSecurityGroup'
 
 deleteSecurityGroup :: ( MonadCatch m
                        , MonadResource m
@@ -3491,7 +3384,7 @@ deleteSecurityGroupCatch s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteSnapshotResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DeleteSnapshot'
 
 deleteSnapshot :: ( MonadCatch m
                   , MonadResource m
@@ -3499,7 +3392,6 @@ deleteSnapshot :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'dsSnapshotId'
-    -> State DeleteSnapshot a
     -> m DeleteSnapshotResponse
 deleteSnapshot p1 s =
     send $ (mkDeleteSnapshot p1) &~ s
@@ -3509,7 +3401,6 @@ deleteSnapshotCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'dsSnapshotId'
-    -> State DeleteSnapshot a
     -> m (Either ServiceEr DeleteSnapshotResponse)
 deleteSnapshotCatch p1 s =
     sendCatch $ (mkDeleteSnapshot p1) &~ s
@@ -3525,7 +3416,7 @@ deleteSnapshotCatch p1 s =
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/DeleteSpotDatafeedSubscriptionResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DeleteSpotDatafeedSubscription'
 
 deleteSpotDatafeedSubscription :: ( MonadCatch m
                                   , MonadResource m
@@ -3555,7 +3446,7 @@ deleteSpotDatafeedSubscriptionCatch s =
 -- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteSubnetResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DeleteSubnet'
 
 deleteSubnet :: ( MonadCatch m
                 , MonadResource m
@@ -3563,7 +3454,6 @@ deleteSubnet :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => Text -- ^ 'ds1SubnetId'
-    -> State DeleteSubnet a
     -> m DeleteSubnetResponse
 deleteSubnet p1 s =
     send $ (mkDeleteSubnet p1) &~ s
@@ -3573,7 +3463,6 @@ deleteSubnetCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'ds1SubnetId'
-    -> State DeleteSubnet a
     -> m (Either ServiceEr DeleteSubnetResponse)
 deleteSubnetCatch p1 s =
     sendCatch $ (mkDeleteSubnet p1) &~ s
@@ -3603,7 +3492,7 @@ deleteSubnetCatch p1 s =
 -- https://ec2.amazonaws.com/?Action=DeleteTags &amp;ResourceId.1=i-5f4e3d2a
 -- &amp;Tag.1.Key=Purpose &amp;Tag.2.Value= &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DeleteTags'
 
 deleteTags :: ( MonadCatch m
               , MonadResource m
@@ -3611,7 +3500,6 @@ deleteTags :: ( MonadCatch m
               , MonadReader Env m
               )
     => [Text] -- ^ 'dtResources'
-    -> State DeleteTags a
     -> m DeleteTagsResponse
 deleteTags p1 s =
     send $ (mkDeleteTags p1) &~ s
@@ -3621,7 +3509,6 @@ deleteTagsCatch :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => [Text] -- ^ 'dtResources'
-    -> State DeleteTags a
     -> m (Either ServiceEr DeleteTagsResponse)
 deleteTagsCatch p1 s =
     sendCatch $ (mkDeleteTags p1) &~ s
@@ -3638,7 +3525,7 @@ deleteTagsCatch p1 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteVolumeResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DeleteVolume'
 
 deleteVolume :: ( MonadCatch m
                 , MonadResource m
@@ -3646,7 +3533,6 @@ deleteVolume :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => Text -- ^ 'dvVolumeId'
-    -> State DeleteVolume a
     -> m DeleteVolumeResponse
 deleteVolume p1 s =
     send $ (mkDeleteVolume p1) &~ s
@@ -3656,7 +3542,6 @@ deleteVolumeCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'dvVolumeId'
-    -> State DeleteVolume a
     -> m (Either ServiceEr DeleteVolumeResponse)
 deleteVolumeCatch p1 s =
     sendCatch $ (mkDeleteVolume p1) &~ s
@@ -3674,7 +3559,7 @@ deleteVolumeCatch p1 s =
 -- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteVpcResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DeleteVpc'
 
 deleteVpc :: ( MonadCatch m
              , MonadResource m
@@ -3682,7 +3567,6 @@ deleteVpc :: ( MonadCatch m
              , MonadReader Env m
              )
     => Text -- ^ 'dv1VpcId'
-    -> State DeleteVpc a
     -> m DeleteVpcResponse
 deleteVpc p1 s =
     send $ (mkDeleteVpc p1) &~ s
@@ -3692,7 +3576,6 @@ deleteVpcCatch :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'dv1VpcId'
-    -> State DeleteVpc a
     -> m (Either ServiceEr DeleteVpcResponse)
 deleteVpcCatch p1 s =
     sendCatch $ (mkDeleteVpc p1) &~ s
@@ -3711,7 +3594,7 @@ deleteVpcCatch p1 s =
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/DeleteVpcPeeringConnectionResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DeleteVpcPeeringConnection'
 
 deleteVpcPeeringConnection :: ( MonadCatch m
                               , MonadResource m
@@ -3719,7 +3602,6 @@ deleteVpcPeeringConnection :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'dvpcVpcPeeringConnectionId'
-    -> State DeleteVpcPeeringConnection a
     -> m DeleteVpcPeeringConnectionResponse
 deleteVpcPeeringConnection p1 s =
     send $ (mkDeleteVpcPeeringConnection p1) &~ s
@@ -3729,7 +3611,6 @@ deleteVpcPeeringConnectionCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => Text -- ^ 'dvpcVpcPeeringConnectionId'
-    -> State DeleteVpcPeeringConnection a
     -> m (Either ServiceEr DeleteVpcPeeringConnectionResponse)
 deleteVpcPeeringConnectionCatch p1 s =
     sendCatch $ (mkDeleteVpcPeeringConnection p1) &~ s
@@ -3746,7 +3627,7 @@ deleteVpcPeeringConnectionCatch p1 s =
 -- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteVpnConnectionResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DeleteVpnConnection'
 
 deleteVpnConnection :: ( MonadCatch m
                        , MonadResource m
@@ -3754,7 +3635,6 @@ deleteVpnConnection :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'dvcVpnConnectionId'
-    -> State DeleteVpnConnection a
     -> m DeleteVpnConnectionResponse
 deleteVpnConnection p1 s =
     send $ (mkDeleteVpnConnection p1) &~ s
@@ -3764,7 +3644,6 @@ deleteVpnConnectionCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'dvcVpnConnectionId'
-    -> State DeleteVpnConnection a
     -> m (Either ServiceEr DeleteVpnConnectionResponse)
 deleteVpnConnectionCatch p1 s =
     sendCatch $ (mkDeleteVpnConnection p1) &~ s
@@ -3784,7 +3663,7 @@ deleteVpnConnectionCatch p1 s =
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/DeleteVpnConnectionRouteResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DeleteVpnConnectionRoute'
 
 deleteVpnConnectionRoute :: ( MonadCatch m
                             , MonadResource m
@@ -3793,7 +3672,6 @@ deleteVpnConnectionRoute :: ( MonadCatch m
                             )
     => Text -- ^ 'dvcrVpnConnectionId'
     -> Text -- ^ 'dvcrDestinationCidrBlock'
-    -> State DeleteVpnConnectionRoute a
     -> m DeleteVpnConnectionRouteResponse
 deleteVpnConnectionRoute p1 p2 s =
     send $ (mkDeleteVpnConnectionRoute p1 p2) &~ s
@@ -3804,7 +3682,6 @@ deleteVpnConnectionRouteCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'dvcrVpnConnectionId'
     -> Text -- ^ 'dvcrDestinationCidrBlock'
-    -> State DeleteVpnConnectionRoute a
     -> m (Either ServiceEr DeleteVpnConnectionRouteResponse)
 deleteVpnConnectionRouteCatch p1 p2 s =
     sendCatch $ (mkDeleteVpnConnectionRoute p1 p2) &~ s
@@ -3821,7 +3698,7 @@ deleteVpnConnectionRouteCatch p1 p2 s =
 -- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeleteVpnGatewayResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DeleteVpnGateway'
 
 deleteVpnGateway :: ( MonadCatch m
                     , MonadResource m
@@ -3829,7 +3706,6 @@ deleteVpnGateway :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'dvgVpnGatewayId'
-    -> State DeleteVpnGateway a
     -> m DeleteVpnGatewayResponse
 deleteVpnGateway p1 s =
     send $ (mkDeleteVpnGateway p1) &~ s
@@ -3839,7 +3715,6 @@ deleteVpnGatewayCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'dvgVpnGatewayId'
-    -> State DeleteVpnGateway a
     -> m (Either ServiceEr DeleteVpnGatewayResponse)
 deleteVpnGatewayCatch p1 s =
     sendCatch $ (mkDeleteVpnGateway p1) &~ s
@@ -3854,7 +3729,7 @@ deleteVpnGatewayCatch p1 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DeregisterImageResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DeregisterImage'
 
 deregisterImage :: ( MonadCatch m
                    , MonadResource m
@@ -3862,7 +3737,6 @@ deregisterImage :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'diImageId'
-    -> State DeregisterImage a
     -> m DeregisterImageResponse
 deregisterImage p1 s =
     send $ (mkDeregisterImage p1) &~ s
@@ -3872,7 +3746,6 @@ deregisterImageCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'diImageId'
-    -> State DeregisterImage a
     -> m (Either ServiceEr DeregisterImageResponse)
 deregisterImageCatch p1 s =
     sendCatch $ (mkDeregisterImage p1) &~ s
@@ -3927,7 +3800,7 @@ deregisterImageCatch p1 s =
 -- &lt;/attributeValueSet&gt; &lt;/item&gt; &lt;/accountAttributeSet&gt;
 -- &lt;/DescribeAccountAttributesResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeAccountAttributes'
 
 describeAccountAttributes :: ( MonadCatch m
                              , MonadResource m
@@ -3990,7 +3863,7 @@ describeAccountAttributesCatch s =
 -- https://ec2.amazonaws.com/?Action=DescribeAddresses
 -- &amp;Filter.1.Name=domain &amp;Filter.1.Value.1=vpc &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeAddresses'
 
 describeAddresses :: ( MonadCatch m
                      , MonadResource m
@@ -4040,7 +3913,7 @@ describeAddressesCatch s =
 -- &lt;/item&gt; &lt;/availabilityZoneInfo&gt;
 -- &lt;/DescribeAvailabilityZonesResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeAvailabilityZones'
 
 describeAvailabilityZones :: ( MonadCatch m
                              , MonadResource m
@@ -4079,7 +3952,7 @@ describeAvailabilityZonesCatch s =
 -- &amp;Filter.2.Name=state &amp;Filter.2.Name.1=complete
 -- &amp;Filter.2.Name.2=failed &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeBundleTasks'
 
 describeBundleTasks :: ( MonadCatch m
                        , MonadResource m
@@ -4110,7 +3983,7 @@ describeBundleTasksCatch s =
 -- https://s3.amazonaws.com/myawsbucket/​a3a5e1b6-590d-43cc-97c1-15c7325d3f41/​Win_2008_Server_Data_Center_SP2_32-bit.​vmdkmanifest.xml?AWSAccessKeyId=​AKIAIOSFODNN7EXAMPLE&amp;​Expires=1294855591&amp;​Signature=5snej01TlTtL0uR7KExtEXAMPLE%3D
 -- 8 vol-34d8a2ff active.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeConversionTasks'
 
 describeConversionTasks :: ( MonadCatch m
                            , MonadResource m
@@ -4155,7 +4028,7 @@ describeConversionTasksCatch s =
 -- &amp;Filter.2.Name=state &amp;Filter.2.Value.1=pending
 -- &amp;Filter.2.Value.2=available &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeCustomerGateways'
 
 describeCustomerGateways :: ( MonadCatch m
                             , MonadResource m
@@ -4203,7 +4076,7 @@ describeCustomerGatewaysCatch s =
 -- &amp;Filter.1.Name=key &amp;Filter.1.Value.1=domain-name
 -- &amp;Filter.2.Name=value &amp;Filter.2.Value.1=*example* &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeDhcpOptions'
 
 describeDhcpOptions :: ( MonadCatch m
                        , MonadResource m
@@ -4246,7 +4119,7 @@ describeDhcpOptionsCatch s =
 -- &lt;/exportToS3&gt; &lt;/item&gt; &lt;/exportTaskSet&gt; &lt;/
 -- DescribeExportTasksResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeExportTasks'
 
 describeExportTasks :: ( MonadCatch m
                        , MonadResource m
@@ -4280,7 +4153,7 @@ describeExportTasksCatch s =
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE ami-2bb65342 a1b2c3d4e5f6g7h8i9j10k11
 -- marketplace.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeImageAttribute'
 
 describeImageAttribute :: ( MonadCatch m
                           , MonadResource m
@@ -4289,7 +4162,6 @@ describeImageAttribute :: ( MonadCatch m
                           )
     => Text -- ^ 'diaImageId'
     -> ImageAttributeName -- ^ 'diaAttribute'
-    -> State DescribeImageAttribute a
     -> m DescribeImageAttributeResponse
 describeImageAttribute p1 p2 s =
     send $ (mkDescribeImageAttribute p1 p2) &~ s
@@ -4300,7 +4172,6 @@ describeImageAttributeCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'diaImageId'
     -> ImageAttributeName -- ^ 'diaAttribute'
-    -> State DescribeImageAttribute a
     -> m (Either ServiceEr DescribeImageAttributeResponse)
 describeImageAttributeCatch p1 p2 s =
     sendCatch $ (mkDescribeImageAttribute p1 p2) &~ s
@@ -4336,7 +4207,7 @@ describeImageAttributeCatch p1 p2 s =
 -- aws-marketplace example-marketplace-amzn-ami.1 Amazon Linux AMI i386 EBS
 -- ebs /dev/sda1 /dev/sda1 snap-1a2b3c4d 8 true paravirtual xen ...
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeImages'
 
 describeImages :: ( MonadCatch m
                   , MonadResource m
@@ -4390,7 +4261,7 @@ describeImagesCatch s =
 -- &lt;disableApiTermination&gt; &lt;value&gt;false&lt;/value&gt;
 -- &lt;/disableApiTermination&gt; &lt;/DescribeInstanceAttributeResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeInstanceAttribute'
 
 describeInstanceAttribute :: ( MonadCatch m
                              , MonadResource m
@@ -4399,7 +4270,6 @@ describeInstanceAttribute :: ( MonadCatch m
                              )
     => Text -- ^ 'dia1InstanceId'
     -> InstanceAttributeName -- ^ 'dia1Attribute'
-    -> State DescribeInstanceAttribute a
     -> m DescribeInstanceAttributeResponse
 describeInstanceAttribute p1 p2 s =
     send $ (mkDescribeInstanceAttribute p1 p2) &~ s
@@ -4410,7 +4280,6 @@ describeInstanceAttributeCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'dia1InstanceId'
     -> InstanceAttributeName -- ^ 'dia1Attribute'
-    -> State DescribeInstanceAttribute a
     -> m (Either ServiceEr DescribeInstanceAttributeResponse)
 describeInstanceAttributeCatch p1 p2 s =
     sendCatch $ (mkDescribeInstanceAttribute p1 p2) &~ s
@@ -4483,7 +4352,7 @@ describeInstanceAttributeCatch p1 p2 s =
 -- i-4a2b3c4d us-east-1d 16 running ok reachability passed insufficient-data
 -- reachability insufficient-data.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeInstanceStatus'
 
 describeInstanceStatus :: ( MonadCatch m
                           , MonadResource m
@@ -4613,7 +4482,7 @@ describeInstanceStatusCatch s =
 -- https://ec2.amazonaws.com/?Action=DescribeInstances
 -- &amp;Filter.1.Name=tag:Owner &amp;Filter.1.Value.1=DbAdmin &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeInstances'
 
 describeInstances :: ( MonadCatch m
                      , MonadResource m
@@ -4641,7 +4510,7 @@ describeInstancesCatch s =
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE igw-eaad4883EXAMPLE vpc-11ad4878
 -- available.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeInternetGateways'
 
 describeInternetGateways :: ( MonadCatch m
                             , MonadResource m
@@ -4674,7 +4543,7 @@ describeInternetGatewaysCatch s =
 -- the string Dave. https://ec2.amazonaws.com/?Action=DescribeKeyPairs
 -- &amp;Filter.1.Name=key-name &amp;Filter.1.Value.1=*Dave* &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeKeyPairs'
 
 describeKeyPairs :: ( MonadCatch m
                     , MonadResource m
@@ -4708,7 +4577,7 @@ describeKeyPairsCatch s =
 -- deny false 0.0.0.0/0 aclassoc-5c659635 acl-5d659634 subnet-ff669596
 -- aclassoc-c26596ab acl-5d659634 subnet-f0669599.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeNetworkAcls'
 
 describeNetworkAcls :: ( MonadCatch m
                        , MonadResource m
@@ -4743,7 +4612,7 @@ describeNetworkAclsCatch s =
 -- &lt;/sourceDestCheck&gt;
 -- &lt;/DescribeNetworkInterfaceAttributeResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeNetworkInterfaceAttribute'
 
 describeNetworkInterfaceAttribute :: ( MonadCatch m
                                      , MonadResource m
@@ -4751,7 +4620,6 @@ describeNetworkInterfaceAttribute :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => Text -- ^ 'dniaNetworkInterfaceId'
-    -> State DescribeNetworkInterfaceAttribute a
     -> m DescribeNetworkInterfaceAttributeResponse
 describeNetworkInterfaceAttribute p1 s =
     send $ (mkDescribeNetworkInterfaceAttribute p1) &~ s
@@ -4761,7 +4629,6 @@ describeNetworkInterfaceAttributeCatch :: ( MonadCatch m
                                           , MonadReader Env m
                                           )
     => Text -- ^ 'dniaNetworkInterfaceId'
-    -> State DescribeNetworkInterfaceAttribute a
     -> m (Either ServiceEr DescribeNetworkInterfaceAttributeResponse)
 describeNetworkInterfaceAttributeCatch p1 s =
     sendCatch $ (mkDescribeNetworkInterfaceAttribute p1) &~ s
@@ -4831,7 +4698,7 @@ describeNetworkInterfaceAttributeCatch p1 s =
 -- &lt;/privateIpAddressesSet&gt; &lt;/item&gt; &lt;/networkInterfaceSet&gt;
 -- &lt;/DescribeNetworkInterfacesResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeNetworkInterfaces'
 
 describeNetworkInterfaces :: ( MonadCatch m
                              , MonadResource m
@@ -4866,7 +4733,7 @@ describeNetworkInterfacesCatch s =
 -- &amp;Filter.1.Name=group-name &amp;Filter.1.Value=*Project* &amp;AUTHPARAMS
 -- d4904fd9-82c2-4ea5-adfe-a9cc3EXAMPLE Project-cluster cluster available.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribePlacementGroups'
 
 describePlacementGroups :: ( MonadCatch m
                            , MonadResource m
@@ -4898,7 +4765,7 @@ describePlacementGroupsCatch s =
 -- 59dbff89-35bd-4eac-99ed-be587EXAMPLE us-east-1 ec2.us-east-1.amazonaws.com
 -- eu-west-1 ec2.eu-west-1amazonaws.com.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeRegions'
 
 describeRegions :: ( MonadCatch m
                    , MonadResource m
@@ -4937,7 +4804,7 @@ describeRegionsCatch s =
 -- &amp;Filter.3.Name=product-description &amp;Filter.3.Value.1=Linux%2FUNIX
 -- &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeReservedInstances'
 
 describeReservedInstances :: ( MonadCatch m
                              , MonadResource m
@@ -4971,7 +4838,7 @@ describeReservedInstancesCatch s =
 -- USD active 5 300.0 USD false 4 240.0 USD false 3 180.0 USD false 2 120.0
 -- USD false 1 60.0 USD false myclienttoken1.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeReservedInstancesListings'
 
 describeReservedInstancesListings :: ( MonadCatch m
                                      , MonadResource m
@@ -5003,7 +4870,7 @@ describeReservedInstancesListingsCatch s =
 -- https://ec2.amazonaws.com/?Action=DescribeReservedInstancesModifications
 -- &amp;Filter.1.Name=status &amp;Filter.1.Value.1=processing &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeReservedInstancesModifications'
 
 describeReservedInstancesModifications :: ( MonadCatch m
                                           , MonadResource m
@@ -5073,7 +4940,7 @@ describeReservedInstancesModificationsCatch s =
 -- &amp;Filter.2.Value.2=m1.large &amp;Filter.3.Name=product-description
 -- &amp;Filter.3.Value.1=Linux%2FUNIX &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeReservedInstancesOfferings'
 
 describeReservedInstancesOfferings :: ( MonadCatch m
                                       , MonadResource m
@@ -5107,7 +4974,7 @@ describeReservedInstancesOfferingsCatch s =
 -- 0.0.0.0/0 igw-eaad4883 active rtbassoc-faad4893 rtb-f9ad4890
 -- subnet-15ad487c.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeRouteTables'
 
 describeRouteTables :: ( MonadCatch m
                        , MonadResource m
@@ -5151,7 +5018,7 @@ describeRouteTablesCatch s =
 -- &amp;Filter.4.Value.1=app_server_group &amp;Filter.4.Value.2=database_group
 -- &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeSecurityGroups'
 
 describeSecurityGroups :: ( MonadCatch m
                           , MonadResource m
@@ -5182,7 +5049,7 @@ describeSecurityGroupsCatch s =
 -- &amp;SnapshotId=snap-1a2b3c4d &amp;Attribute=createVolumePermission
 -- &amp;AUTHPARAMS 59dbff89-35bd-4eac-99ed-be587EXAMPLE snap-1a2b3c4d all.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeSnapshotAttribute'
 
 describeSnapshotAttribute :: ( MonadCatch m
                              , MonadResource m
@@ -5191,7 +5058,6 @@ describeSnapshotAttribute :: ( MonadCatch m
                              )
     => Text -- ^ 'dsaSnapshotId'
     -> SnapshotAttributeName -- ^ 'dsaAttribute'
-    -> State DescribeSnapshotAttribute a
     -> m DescribeSnapshotAttributeResponse
 describeSnapshotAttribute p1 p2 s =
     send $ (mkDescribeSnapshotAttribute p1 p2) &~ s
@@ -5202,7 +5068,6 @@ describeSnapshotAttributeCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'dsaSnapshotId'
     -> SnapshotAttributeName -- ^ 'dsaAttribute'
-    -> State DescribeSnapshotAttribute a
     -> m (Either ServiceEr DescribeSnapshotAttributeResponse)
 describeSnapshotAttributeCatch p1 p2 s =
     sendCatch $ (mkDescribeSnapshotAttribute p1 p2) &~ s
@@ -5248,7 +5113,7 @@ describeSnapshotAttributeCatch p1 p2 s =
 -- YYYY-MM-DDTHH:MM:SS.SSSZ 30% 111122223333 15 Daily Backup Purpose
 -- demo_db_14_backup true.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeSnapshots'
 
 describeSnapshots :: ( MonadCatch m
                      , MonadResource m
@@ -5277,7 +5142,7 @@ describeSnapshotsCatch s =
 -- &amp;AUTHPARAMS 59dbff89-35bd-4eac-99ed-be587EXAMPLE 123456789012
 -- my-s3-bucket spotdata_ Active.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeSpotDatafeedSubscription'
 
 describeSpotDatafeedSubscription :: ( MonadCatch m
                                     , MonadResource m
@@ -5322,7 +5187,7 @@ describeSpotDatafeedSubscriptionCatch s =
 -- &amp;Filter.1.Name=instance-lifecycle &amp;Filter.1.Value.1=spot
 -- &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeSpotInstanceRequests'
 
 describeSpotInstanceRequests :: ( MonadCatch m
                                 , MonadResource m
@@ -5371,7 +5236,7 @@ describeSpotInstanceRequestsCatch s =
 -- &amp;Filter.2.Name=availability-zone &amp;Filter.2.Value.1=us-east-1a
 -- &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeSpotPriceHistory'
 
 describeSpotPriceHistory :: ( MonadCatch m
                             , MonadResource m
@@ -5427,7 +5292,7 @@ describeSpotPriceHistoryCatch s =
 -- &amp;Filter.1.Value.1=vpc-1a2b3c4d &amp;Filter.1.Value.2=vpc-6e7f8a92
 -- &amp;Filter.2.Name=state &amp;Filter.2.Value.1=available &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeSubnets'
 
 describeSubnets :: ( MonadCatch m
                    , MonadResource m
@@ -5488,7 +5353,7 @@ describeSubnetsCatch s =
 -- &amp;Filter.2.Name=key &amp;Filter.2.Value.1=Purpose
 -- &amp;Filter.3.Name=value &amp;Filter.3.Value.1= &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeTags'
 
 describeTags :: ( MonadCatch m
                 , MonadResource m
@@ -5535,7 +5400,7 @@ describeTagsCatch s =
 -- &lt;type&gt;marketplace&lt;/type&gt; &lt;/item&gt; &lt;/productCodes&gt;
 -- &lt;/DescribeVolumeAttributeResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeVolumeAttribute'
 
 describeVolumeAttribute :: ( MonadCatch m
                            , MonadResource m
@@ -5543,7 +5408,6 @@ describeVolumeAttribute :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'dvaVolumeId'
-    -> State DescribeVolumeAttribute a
     -> m DescribeVolumeAttributeResponse
 describeVolumeAttribute p1 s =
     send $ (mkDescribeVolumeAttribute p1) &~ s
@@ -5553,7 +5417,6 @@ describeVolumeAttributeCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'dvaVolumeId'
-    -> State DescribeVolumeAttribute a
     -> m (Either ServiceEr DescribeVolumeAttributeResponse)
 describeVolumeAttributeCatch p1 s =
     sendCatch $ (mkDescribeVolumeAttribute p1) &~ s
@@ -5604,7 +5467,7 @@ describeVolumeAttributeCatch p1 s =
 -- &amp;Filter.3.Name=volume-status.details-status
 -- &amp;Filter.3.Value.1=failed &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeVolumeStatus'
 
 describeVolumeStatus :: ( MonadCatch m
                         , MonadResource m
@@ -5649,7 +5512,7 @@ describeVolumeStatusCatch s =
 -- &lt;encrypted&gt;true&lt;/encrypted&gt; &lt;/item&gt; &lt;/volumeSet&gt;
 -- &lt;/DescribeVolumesResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeVolumes'
 
 describeVolumes :: ( MonadCatch m
                    , MonadResource m
@@ -5694,7 +5557,7 @@ describeVolumesCatch s =
 -- &lt;value&gt;true&lt;/value&gt; &lt;/enableDnsHostnames&gt;
 -- &lt;/DescribeVpcAttributeResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeVpcAttribute'
 
 describeVpcAttribute :: ( MonadCatch m
                         , MonadResource m
@@ -5702,7 +5565,6 @@ describeVpcAttribute :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'dva1VpcId'
-    -> State DescribeVpcAttribute a
     -> m DescribeVpcAttributeResponse
 describeVpcAttribute p1 s =
     send $ (mkDescribeVpcAttribute p1) &~ s
@@ -5712,7 +5574,6 @@ describeVpcAttributeCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'dva1VpcId'
-    -> State DescribeVpcAttribute a
     -> m (Either ServiceEr DescribeVpcAttributeResponse)
 describeVpcAttributeCatch p1 s =
     sendCatch $ (mkDescribeVpcAttribute p1) &~ s
@@ -5752,7 +5613,7 @@ describeVpcAttributeCatch p1 s =
 -- &amp;Filter.1.Name=requester-vpc-info.vpc-id
 -- &amp;Filter.1.Value=vpc-1a2b3c4d &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeVpcPeeringConnections'
 
 describeVpcPeeringConnections :: ( MonadCatch m
                                  , MonadResource m
@@ -5793,7 +5654,7 @@ describeVpcPeeringConnectionsCatch s =
 -- &amp;Filter.1.Value.2=dopt-2b2a3d3c &amp;Filter.2.Name=state
 -- &amp;Filter.2.Value.1=available &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeVpcs'
 
 describeVpcs :: ( MonadCatch m
                 , MonadResource m
@@ -5843,7 +5704,7 @@ describeVpcsCatch s =
 -- &amp;Filter.2.Name=state &amp;Filter.2.Value.1=pending
 -- &amp;Filter.2.Value.2=available &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeVpnConnections'
 
 describeVpnConnections :: ( MonadCatch m
                           , MonadResource m
@@ -5889,7 +5750,7 @@ describeVpnConnectionsCatch s =
 -- &amp;Filter.2.Name=state &amp;Filter.2.Value.1=pending
 -- &amp;Filter.2.Value.2=available &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DescribeVpnGateways'
 
 describeVpnGateways :: ( MonadCatch m
                        , MonadResource m
@@ -5922,7 +5783,7 @@ describeVpnGatewaysCatch s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DetachInternetGatewayResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DetachInternetGateway'
 
 detachInternetGateway :: ( MonadCatch m
                          , MonadResource m
@@ -5931,7 +5792,6 @@ detachInternetGateway :: ( MonadCatch m
                          )
     => Text -- ^ 'dig2InternetGatewayId'
     -> Text -- ^ 'dig2VpcId'
-    -> State DetachInternetGateway a
     -> m DetachInternetGatewayResponse
 detachInternetGateway p1 p2 s =
     send $ (mkDetachInternetGateway p1 p2) &~ s
@@ -5942,7 +5802,6 @@ detachInternetGatewayCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'dig2InternetGatewayId'
     -> Text -- ^ 'dig2VpcId'
-    -> State DetachInternetGateway a
     -> m (Either ServiceEr DetachInternetGatewayResponse)
 detachInternetGatewayCatch p1 p2 s =
     sendCatch $ (mkDetachInternetGateway p1 p2) &~ s
@@ -5957,7 +5816,7 @@ detachInternetGatewayCatch p1 p2 s =
 -- &lt;requestId&gt;ce540707-0635-46bc-97da-33a8a362a0e8&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DetachNetworkInterfaceResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DetachNetworkInterface'
 
 detachNetworkInterface :: ( MonadCatch m
                           , MonadResource m
@@ -5965,7 +5824,6 @@ detachNetworkInterface :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'dni2AttachmentId'
-    -> State DetachNetworkInterface a
     -> m DetachNetworkInterfaceResponse
 detachNetworkInterface p1 s =
     send $ (mkDetachNetworkInterface p1) &~ s
@@ -5975,7 +5833,6 @@ detachNetworkInterfaceCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'dni2AttachmentId'
-    -> State DetachNetworkInterface a
     -> m (Either ServiceEr DetachNetworkInterfaceResponse)
 detachNetworkInterfaceCatch p1 s =
     sendCatch $ (mkDetachNetworkInterface p1) &~ s
@@ -6002,7 +5859,7 @@ detachNetworkInterfaceCatch p1 s =
 -- &lt;attachTime&gt;YYYY-MM-DDTHH:MM:SS.000Z&lt;/attachTime&gt;
 -- &lt;/DetachVolumeResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DetachVolume'
 
 detachVolume :: ( MonadCatch m
                 , MonadResource m
@@ -6010,7 +5867,6 @@ detachVolume :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => Text -- ^ 'dv4VolumeId'
-    -> State DetachVolume a
     -> m DetachVolumeResponse
 detachVolume p1 s =
     send $ (mkDetachVolume p1) &~ s
@@ -6020,7 +5876,6 @@ detachVolumeCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'dv4VolumeId'
-    -> State DetachVolume a
     -> m (Either ServiceEr DetachVolumeResponse)
 detachVolumeCatch p1 s =
     sendCatch $ (mkDetachVolume p1) &~ s
@@ -6041,7 +5896,7 @@ detachVolumeCatch p1 s =
 -- &lt;requestId&gt;7a62c49f-347e-4fc4-9331-6e8eEXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DetachVpnGatewayResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DetachVpnGateway'
 
 detachVpnGateway :: ( MonadCatch m
                     , MonadResource m
@@ -6050,7 +5905,6 @@ detachVpnGateway :: ( MonadCatch m
                     )
     => Text -- ^ 'dvg2VpnGatewayId'
     -> Text -- ^ 'dvg2VpcId'
-    -> State DetachVpnGateway a
     -> m DetachVpnGatewayResponse
 detachVpnGateway p1 p2 s =
     send $ (mkDetachVpnGateway p1 p2) &~ s
@@ -6061,7 +5915,6 @@ detachVpnGatewayCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'dvg2VpnGatewayId'
     -> Text -- ^ 'dvg2VpcId'
-    -> State DetachVpnGateway a
     -> m (Either ServiceEr DetachVpnGatewayResponse)
 detachVpnGatewayCatch p1 p2 s =
     sendCatch $ (mkDetachVpnGateway p1 p2) &~ s
@@ -6079,7 +5932,7 @@ detachVpnGatewayCatch p1 p2 s =
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/DisableVgwRoutePropagationResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DisableVgwRoutePropagation'
 
 disableVgwRoutePropagation :: ( MonadCatch m
                               , MonadResource m
@@ -6088,7 +5941,6 @@ disableVgwRoutePropagation :: ( MonadCatch m
                               )
     => Text -- ^ 'dvrpRouteTableId'
     -> Text -- ^ 'dvrpGatewayId'
-    -> State DisableVgwRoutePropagation a
     -> m DisableVgwRoutePropagationResponse
 disableVgwRoutePropagation p1 p2 s =
     send $ (mkDisableVgwRoutePropagation p1 p2) &~ s
@@ -6099,7 +5951,6 @@ disableVgwRoutePropagationCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'dvrpRouteTableId'
     -> Text -- ^ 'dvrpGatewayId'
-    -> State DisableVgwRoutePropagation a
     -> m (Either ServiceEr DisableVgwRoutePropagationResponse)
 disableVgwRoutePropagationCatch p1 p2 s =
     sendCatch $ (mkDisableVgwRoutePropagation p1 p2) &~ s
@@ -6117,7 +5968,7 @@ disableVgwRoutePropagationCatch p1 p2 s =
 -- https://ec2.amazonaws.com/?Action=DisassociateAddress
 -- &amp;AssociationId=eipassoc-aa7486c3 &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DisassociateAddress'
 
 disassociateAddress :: ( MonadCatch m
                        , MonadResource m
@@ -6152,7 +6003,7 @@ disassociateAddressCatch s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/DisassociateRouteTableResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.DisassociateRouteTable'
 
 disassociateRouteTable :: ( MonadCatch m
                           , MonadResource m
@@ -6160,7 +6011,6 @@ disassociateRouteTable :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'drt2AssociationId'
-    -> State DisassociateRouteTable a
     -> m DisassociateRouteTableResponse
 disassociateRouteTable p1 s =
     send $ (mkDisassociateRouteTable p1) &~ s
@@ -6170,7 +6020,6 @@ disassociateRouteTableCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'drt2AssociationId'
-    -> State DisassociateRouteTable a
     -> m (Either ServiceEr DisassociateRouteTableResponse)
 disassociateRouteTableCatch p1 s =
     sendCatch $ (mkDisassociateRouteTable p1) &~ s
@@ -6186,7 +6035,7 @@ disassociateRouteTableCatch p1 s =
 -- &lt;requestId&gt;4f35a1b2-c2c3-4093-b51f-abb9d7311990&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/EnableVgwRoutePropagation&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.EnableVgwRoutePropagation'
 
 enableVgwRoutePropagation :: ( MonadCatch m
                              , MonadResource m
@@ -6195,7 +6044,6 @@ enableVgwRoutePropagation :: ( MonadCatch m
                              )
     => Text -- ^ 'evrpRouteTableId'
     -> Text -- ^ 'evrpGatewayId'
-    -> State EnableVgwRoutePropagation a
     -> m EnableVgwRoutePropagationResponse
 enableVgwRoutePropagation p1 p2 s =
     send $ (mkEnableVgwRoutePropagation p1 p2) &~ s
@@ -6206,7 +6054,6 @@ enableVgwRoutePropagationCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'evrpRouteTableId'
     -> Text -- ^ 'evrpGatewayId'
-    -> State EnableVgwRoutePropagation a
     -> m (Either ServiceEr EnableVgwRoutePropagationResponse)
 enableVgwRoutePropagationCatch p1 p2 s =
     sendCatch $ (mkEnableVgwRoutePropagation p1 p2) &~ s
@@ -6221,7 +6068,7 @@ enableVgwRoutePropagationCatch p1 p2 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/EnableVolumeIOResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.EnableVolumeIO'
 
 enableVolumeIO :: ( MonadCatch m
                   , MonadResource m
@@ -6229,7 +6076,6 @@ enableVolumeIO :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'evioVolumeId'
-    -> State EnableVolumeIO a
     -> m EnableVolumeIOResponse
 enableVolumeIO p1 s =
     send $ (mkEnableVolumeIO p1) &~ s
@@ -6239,7 +6085,6 @@ enableVolumeIOCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'evioVolumeId'
-    -> State EnableVolumeIO a
     -> m (Either ServiceEr EnableVolumeIOResponse)
 enableVolumeIOCatch p1 s =
     sendCatch $ (mkEnableVolumeIO p1) &~ s
@@ -6281,7 +6126,7 @@ enableVolumeIOCatch p1 s =
 -- bmFibGluZyBmYXN0IEZQVSBzYXZlIGFuZCByZXN0b3JlLi4uIGRvbmUuCg==&lt;/output&gt;
 -- &lt;/GetConsoleOutputResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.GetConsoleOutput'
 
 getConsoleOutput :: ( MonadCatch m
                     , MonadResource m
@@ -6289,7 +6134,6 @@ getConsoleOutput :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'gcoInstanceId'
-    -> State GetConsoleOutput a
     -> m GetConsoleOutputResponse
 getConsoleOutput p1 s =
     send $ (mkGetConsoleOutput p1) &~ s
@@ -6299,7 +6143,6 @@ getConsoleOutputCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'gcoInstanceId'
-    -> State GetConsoleOutput a
     -> m (Either ServiceEr GetConsoleOutputResponse)
 getConsoleOutputCatch p1 s =
     sendCatch $ (mkGetConsoleOutput p1) &~ s
@@ -6323,7 +6166,7 @@ getConsoleOutputCatch p1 s =
 -- &lt;passwordData&gt;TGludXggdmVyc2lvbiAyLjYuMTYteGVuVSAoYnVpbGRlckBwYXRjaGJhdC5hbWF6b25zYSkgKGdj&lt;/passwordData&gt;
 -- &lt;/GetPasswordDataResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.GetPasswordData'
 
 getPasswordData :: ( MonadCatch m
                    , MonadResource m
@@ -6331,7 +6174,6 @@ getPasswordData :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'gpdInstanceId'
-    -> State GetPasswordData a
     -> m GetPasswordDataResponse
 getPasswordData p1 s =
     send $ (mkGetPasswordData p1) &~ s
@@ -6341,7 +6183,6 @@ getPasswordDataCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'gpdInstanceId'
-    -> State GetPasswordData a
     -> m (Either ServiceEr GetPasswordDataResponse)
 getPasswordDataCatch p1 s =
     sendCatch $ (mkGetPasswordData p1) &~ s
@@ -6364,7 +6205,7 @@ getPasswordDataCatch p1 s =
 -- https://s3.amazonaws.com/myawsbucket/​a3a5e1b6-590d-43cc-97c1-15c7325d3f41/​Win_2008_Server_Data_Center_SP2_32-bit.​vmdkmanifest.xml?AWSAccessKeyId=​AKIAIOSFODNN7EXAMPLE&amp;​Expires=1294855591&amp;​Signature=5snej01TlTtL0uR7KExtEXAMPLE%3D
 -- 12 vol-1a2b3c4d active i-12655a7f.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.ImportInstance'
 
 importInstance :: ( MonadCatch m
                   , MonadResource m
@@ -6372,7 +6213,6 @@ importInstance :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => PlatformValues -- ^ 'iiPlatform'
-    -> State ImportInstance a
     -> m ImportInstanceResponse
 importInstance p4 s =
     send $ (mkImportInstance p4) &~ s
@@ -6382,7 +6222,6 @@ importInstanceCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => PlatformValues -- ^ 'iiPlatform'
-    -> State ImportInstance a
     -> m (Either ServiceEr ImportInstanceResponse)
 importInstanceCatch p4 s =
     sendCatch $ (mkImportInstance p4) &~ s
@@ -6418,7 +6257,7 @@ importInstanceCatch p4 s =
 -- &lt;keyFingerprint&gt;1f:51:ae:28:bf:89:e9:d8:1f:25:5d:37:2d:7d:b8:ca:9f:f5:f1:6f&lt;/keyFingerprint&gt;
 -- &lt;/ImportKeyPairResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.ImportKeyPair'
 
 importKeyPair :: ( MonadCatch m
                  , MonadResource m
@@ -6427,7 +6266,6 @@ importKeyPair :: ( MonadCatch m
                  )
     => Text -- ^ 'ikpKeyName'
     -> ByteString -- ^ 'ikpPublicKeyMaterial'
-    -> State ImportKeyPair a
     -> m ImportKeyPairResponse
 importKeyPair p1 p2 s =
     send $ (mkImportKeyPair p1 p2) &~ s
@@ -6438,7 +6276,6 @@ importKeyPairCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'ikpKeyName'
     -> ByteString -- ^ 'ikpPublicKeyMaterial'
-    -> State ImportKeyPair a
     -> m (Either ServiceEr ImportKeyPairResponse)
 importKeyPairCatch p1 p2 s =
     sendCatch $ (mkImportKeyPair p1 p2) &~ s
@@ -6460,7 +6297,7 @@ importKeyPairCatch p1 p2 s =
 -- https://s3.amazonaws.com/myawsbucket/​a3a5e1b6-590d-43cc-97c1-15c7325d3f41/​Win_2008_Server_Data_Center_SP2_32-bit.​vmdkmanifest.xml?AWSAccessKeyId=​AKIAIOSFODNN7EXAMPLE&amp;​Expires=1294855591&amp;​Signature=5snej01TlTtL0uR7KExtEXAMPLE%3D
 -- ccb1b0536a4a70e86016b85229b5c6b10b14a4eb 8 vol-34d8a2ff active.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.ImportVolume'
 
 importVolume :: ( MonadCatch m
                 , MonadResource m
@@ -6470,7 +6307,6 @@ importVolume :: ( MonadCatch m
     => Text -- ^ 'ivAvailabilityZone'
     -> DiskImageDetail -- ^ 'ivImage'
     -> VolumeDetail -- ^ 'ivVolume'
-    -> State ImportVolume a
     -> m ImportVolumeResponse
 importVolume p1 p2 p4 s =
     send $ (mkImportVolume p1 p2 p4) &~ s
@@ -6482,7 +6318,6 @@ importVolumeCatch :: ( MonadCatch m
     => Text -- ^ 'ivAvailabilityZone'
     -> DiskImageDetail -- ^ 'ivImage'
     -> VolumeDetail -- ^ 'ivVolume'
-    -> State ImportVolume a
     -> m (Either ServiceEr ImportVolumeResponse)
 importVolumeCatch p1 p2 p4 s =
     sendCatch $ (mkImportVolume p1 p2 p4) &~ s
@@ -6492,7 +6327,7 @@ importVolumeCatch p1 p2 p4 s =
 -- one attribute at a time. AWS Marketplace product codes cannot be modified.
 -- Images with an AWS Marketplace product code cannot be made public. Example.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.ModifyImageAttribute'
 
 modifyImageAttribute :: ( MonadCatch m
                         , MonadResource m
@@ -6500,7 +6335,6 @@ modifyImageAttribute :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'miaImageId'
-    -> State ModifyImageAttribute a
     -> m ModifyImageAttributeResponse
 modifyImageAttribute p1 s =
     send $ (mkModifyImageAttribute p1) &~ s
@@ -6510,7 +6344,6 @@ modifyImageAttributeCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'miaImageId'
-    -> State ModifyImageAttribute a
     -> m (Either ServiceEr ModifyImageAttributeResponse)
 modifyImageAttributeCatch p1 s =
     sendCatch $ (mkModifyImageAttribute p1) &~ s
@@ -6546,7 +6379,7 @@ modifyImageAttributeCatch p1 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ModifyInstanceAttributeResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.ModifyInstanceAttribute'
 
 modifyInstanceAttribute :: ( MonadCatch m
                            , MonadResource m
@@ -6554,7 +6387,6 @@ modifyInstanceAttribute :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'mia1InstanceId'
-    -> State ModifyInstanceAttribute a
     -> m ModifyInstanceAttributeResponse
 modifyInstanceAttribute p1 s =
     send $ (mkModifyInstanceAttribute p1) &~ s
@@ -6564,7 +6396,6 @@ modifyInstanceAttributeCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'mia1InstanceId'
-    -> State ModifyInstanceAttribute a
     -> m (Either ServiceEr ModifyInstanceAttributeResponse)
 modifyInstanceAttributeCatch p1 s =
     sendCatch $ (mkModifyInstanceAttribute p1) &~ s
@@ -6581,7 +6412,7 @@ modifyInstanceAttributeCatch p1 s =
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/ModifyNetworkInterfaceAttributeResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.ModifyNetworkInterfaceAttribute'
 
 modifyNetworkInterfaceAttribute :: ( MonadCatch m
                                    , MonadResource m
@@ -6589,7 +6420,6 @@ modifyNetworkInterfaceAttribute :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => Text -- ^ 'mniaNetworkInterfaceId'
-    -> State ModifyNetworkInterfaceAttribute a
     -> m ModifyNetworkInterfaceAttributeResponse
 modifyNetworkInterfaceAttribute p1 s =
     send $ (mkModifyNetworkInterfaceAttribute p1) &~ s
@@ -6599,7 +6429,6 @@ modifyNetworkInterfaceAttributeCatch :: ( MonadCatch m
                                         , MonadReader Env m
                                         )
     => Text -- ^ 'mniaNetworkInterfaceId'
-    -> State ModifyNetworkInterfaceAttribute a
     -> m (Either ServiceEr ModifyNetworkInterfaceAttributeResponse)
 modifyNetworkInterfaceAttributeCatch p1 s =
     sendCatch $ (mkModifyNetworkInterfaceAttribute p1) &~ s
@@ -6619,7 +6448,7 @@ modifyNetworkInterfaceAttributeCatch p1 s =
 -- &amp;AUTHPARAMS bef729b6-0731-4489-8881-2258746ae163
 -- rimod-3aae219d-3d63-47a9-a7e9-e764example.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.ModifyReservedInstances'
 
 modifyReservedInstances :: ( MonadCatch m
                            , MonadResource m
@@ -6628,7 +6457,6 @@ modifyReservedInstances :: ( MonadCatch m
                            )
     => [Text] -- ^ 'mriReservedInstancesIds'
     -> [ReservedInstancesConfiguration] -- ^ 'mriTargetConfigurations'
-    -> State ModifyReservedInstances a
     -> m ModifyReservedInstancesResponse
 modifyReservedInstances p2 p3 s =
     send $ (mkModifyReservedInstances p2 p3) &~ s
@@ -6639,7 +6467,6 @@ modifyReservedInstancesCatch :: ( MonadCatch m
                                 )
     => [Text] -- ^ 'mriReservedInstancesIds'
     -> [ReservedInstancesConfiguration] -- ^ 'mriTargetConfigurations'
-    -> State ModifyReservedInstances a
     -> m (Either ServiceEr ModifyReservedInstancesResponse)
 modifyReservedInstancesCatch p2 p3 s =
     sendCatch $ (mkModifyReservedInstances p2 p3) &~ s
@@ -6674,7 +6501,7 @@ modifyReservedInstancesCatch p2 p3 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ModifySnapshotAttributeResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.ModifySnapshotAttribute'
 
 modifySnapshotAttribute :: ( MonadCatch m
                            , MonadResource m
@@ -6682,7 +6509,6 @@ modifySnapshotAttribute :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'msaSnapshotId'
-    -> State ModifySnapshotAttribute a
     -> m ModifySnapshotAttributeResponse
 modifySnapshotAttribute p1 s =
     send $ (mkModifySnapshotAttribute p1) &~ s
@@ -6692,7 +6518,6 @@ modifySnapshotAttributeCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'msaSnapshotId'
-    -> State ModifySnapshotAttribute a
     -> m (Either ServiceEr ModifySnapshotAttributeResponse)
 modifySnapshotAttributeCatch p1 s =
     sendCatch $ (mkModifySnapshotAttribute p1) &~ s
@@ -6705,7 +6530,7 @@ modifySnapshotAttributeCatch p1 s =
 -- &amp;SubnetId=subnet-1a2b3c4d &amp;MapPublicIpOnLaunch.Value=true
 -- &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.ModifySubnetAttribute'
 
 modifySubnetAttribute :: ( MonadCatch m
                          , MonadResource m
@@ -6713,7 +6538,6 @@ modifySubnetAttribute :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'msa1SubnetId'
-    -> State ModifySubnetAttribute a
     -> m ModifySubnetAttributeResponse
 modifySubnetAttribute p1 s =
     send $ (mkModifySubnetAttribute p1) &~ s
@@ -6723,7 +6547,6 @@ modifySubnetAttributeCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'msa1SubnetId'
-    -> State ModifySubnetAttribute a
     -> m (Either ServiceEr ModifySubnetAttributeResponse)
 modifySubnetAttributeCatch p1 s =
     sendCatch $ (mkModifySubnetAttribute p1) &~ s
@@ -6744,7 +6567,7 @@ modifySubnetAttributeCatch p1 s =
 -- &lt;requestId&gt;5jkdf074-37ed-4004-8671-a78ee82bf1cbEXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ModifyVolumeAttributeResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.ModifyVolumeAttribute'
 
 modifyVolumeAttribute :: ( MonadCatch m
                          , MonadResource m
@@ -6752,7 +6575,6 @@ modifyVolumeAttribute :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'mvaVolumeId'
-    -> State ModifyVolumeAttribute a
     -> m ModifyVolumeAttributeResponse
 modifyVolumeAttribute p1 s =
     send $ (mkModifyVolumeAttribute p1) &~ s
@@ -6762,7 +6584,6 @@ modifyVolumeAttributeCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'mvaVolumeId'
-    -> State ModifyVolumeAttribute a
     -> m (Either ServiceEr ModifyVolumeAttributeResponse)
 modifyVolumeAttributeCatch p1 s =
     sendCatch $ (mkModifyVolumeAttribute p1) &~ s
@@ -6774,7 +6595,7 @@ modifyVolumeAttributeCatch p1 s =
 -- &amp;VpcId=vpc-1a2b3c4d &amp;EnableDnsHostnames.Value=false
 -- &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.ModifyVpcAttribute'
 
 modifyVpcAttribute :: ( MonadCatch m
                       , MonadResource m
@@ -6782,7 +6603,6 @@ modifyVpcAttribute :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'mva1VpcId'
-    -> State ModifyVpcAttribute a
     -> m ModifyVpcAttributeResponse
 modifyVpcAttribute p1 s =
     send $ (mkModifyVpcAttribute p1) &~ s
@@ -6792,7 +6612,6 @@ modifyVpcAttributeCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'mva1VpcId'
-    -> State ModifyVpcAttribute a
     -> m (Either ServiceEr ModifyVpcAttributeResponse)
 modifyVpcAttributeCatch p1 s =
     sendCatch $ (mkModifyVpcAttribute p1) &~ s
@@ -6814,7 +6633,7 @@ modifyVpcAttributeCatch p1 s =
 -- &lt;monitoring&gt; &lt;state&gt;pending&lt;/state&gt; &lt;/monitoring&gt;
 -- &lt;/item&gt; &lt;/instancesSet&gt; &lt;/MonitorInstancesResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.MonitorInstances'
 
 monitorInstances :: ( MonadCatch m
                     , MonadResource m
@@ -6822,7 +6641,6 @@ monitorInstances :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => [Text] -- ^ 'miInstanceIds'
-    -> State MonitorInstances a
     -> m MonitorInstancesResponse
 monitorInstances p1 s =
     send $ (mkMonitorInstances p1) &~ s
@@ -6832,7 +6650,6 @@ monitorInstancesCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => [Text] -- ^ 'miInstanceIds'
-    -> State MonitorInstances a
     -> m (Either ServiceEr MonitorInstancesResponse)
 monitorInstancesCatch p1 s =
     sendCatch $ (mkMonitorInstances p1) &~ s
@@ -6861,7 +6678,7 @@ monitorInstancesCatch p1 s =
 -- &lt;reservedInstancesId&gt;e5a2ff3b-7d14-494f-90af-0b5d0EXAMPLE&lt;/reservedInstancesId&gt;
 -- &lt;/PurchaseReservedInstancesOfferingResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.PurchaseReservedInstancesOffering'
 
 purchaseReservedInstancesOffering :: ( MonadCatch m
                                      , MonadResource m
@@ -6870,7 +6687,6 @@ purchaseReservedInstancesOffering :: ( MonadCatch m
                                      )
     => Text -- ^ 'prioReservedInstancesOfferingId'
     -> Integer -- ^ 'prioInstanceCount'
-    -> State PurchaseReservedInstancesOffering a
     -> m PurchaseReservedInstancesOfferingResponse
 purchaseReservedInstancesOffering p1 p2 s =
     send $ (mkPurchaseReservedInstancesOffering p1 p2) &~ s
@@ -6881,7 +6697,6 @@ purchaseReservedInstancesOfferingCatch :: ( MonadCatch m
                                           )
     => Text -- ^ 'prioReservedInstancesOfferingId'
     -> Integer -- ^ 'prioInstanceCount'
-    -> State PurchaseReservedInstancesOffering a
     -> m (Either ServiceEr PurchaseReservedInstancesOfferingResponse)
 purchaseReservedInstancesOfferingCatch p1 p2 s =
     sendCatch $ (mkPurchaseReservedInstancesOffering p1 p2) &~ s
@@ -6902,7 +6717,7 @@ purchaseReservedInstancesOfferingCatch p1 p2 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/RebootInstancesResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.RebootInstances'
 
 rebootInstances :: ( MonadCatch m
                    , MonadResource m
@@ -6910,7 +6725,6 @@ rebootInstances :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => [Text] -- ^ 'ri1InstanceIds'
-    -> State RebootInstances a
     -> m RebootInstancesResponse
 rebootInstances p1 s =
     send $ (mkRebootInstances p1) &~ s
@@ -6920,7 +6734,6 @@ rebootInstancesCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => [Text] -- ^ 'ri1InstanceIds'
-    -> State RebootInstances a
     -> m (Either ServiceEr RebootInstancesResponse)
 rebootInstancesCatch p1 s =
     sendCatch $ (mkRebootInstances p1) &~ s
@@ -6972,7 +6785,7 @@ rebootInstancesCatch p1 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;imageId&gt;ami-1a2b3c4d&lt;/imageId&gt; &lt;/RegisterImageResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.RegisterImage'
 
 registerImage :: ( MonadCatch m
                  , MonadResource m
@@ -6980,7 +6793,6 @@ registerImage :: ( MonadCatch m
                  , MonadReader Env m
                  )
     => Text -- ^ 'ri2Name'
-    -> State RegisterImage a
     -> m RegisterImageResponse
 registerImage p2 s =
     send $ (mkRegisterImage p2) &~ s
@@ -6990,7 +6802,6 @@ registerImageCatch :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'ri2Name'
-    -> State RegisterImage a
     -> m (Either ServiceEr RegisterImageResponse)
 registerImageCatch p2 s =
     sendCatch $ (mkRegisterImage p2) &~ s
@@ -7008,7 +6819,7 @@ registerImageCatch p2 s =
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/RejectVpcPeeringConnectionResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.RejectVpcPeeringConnection'
 
 rejectVpcPeeringConnection :: ( MonadCatch m
                               , MonadResource m
@@ -7016,7 +6827,6 @@ rejectVpcPeeringConnection :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'rvpcVpcPeeringConnectionId'
-    -> State RejectVpcPeeringConnection a
     -> m RejectVpcPeeringConnectionResponse
 rejectVpcPeeringConnection p1 s =
     send $ (mkRejectVpcPeeringConnection p1) &~ s
@@ -7026,7 +6836,6 @@ rejectVpcPeeringConnectionCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => Text -- ^ 'rvpcVpcPeeringConnectionId'
-    -> State RejectVpcPeeringConnection a
     -> m (Either ServiceEr RejectVpcPeeringConnectionResponse)
 rejectVpcPeeringConnectionCatch p1 s =
     sendCatch $ (mkRejectVpcPeeringConnection p1) &~ s
@@ -7051,7 +6860,7 @@ rejectVpcPeeringConnectionCatch p1 s =
 -- https://ec2.amazonaws.com/?Action=ReleaseAddress
 -- &amp;AllocationId=eipalloc-5723d13e &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.ReleaseAddress'
 
 releaseAddress :: ( MonadCatch m
                   , MonadResource m
@@ -7089,7 +6898,7 @@ releaseAddressCatch s =
 -- &lt;newAssociationId&gt;aclassoc-17b85d7e&lt;/newAssociationId&gt;
 -- &lt;/ReplaceNetworkAclAssociationResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.ReplaceNetworkAclAssociation'
 
 replaceNetworkAclAssociation :: ( MonadCatch m
                                 , MonadResource m
@@ -7098,7 +6907,6 @@ replaceNetworkAclAssociation :: ( MonadCatch m
                                 )
     => Text -- ^ 'rnaaAssociationId'
     -> Text -- ^ 'rnaaNetworkAclId'
-    -> State ReplaceNetworkAclAssociation a
     -> m ReplaceNetworkAclAssociationResponse
 replaceNetworkAclAssociation p1 p2 s =
     send $ (mkReplaceNetworkAclAssociation p1 p2) &~ s
@@ -7109,7 +6917,6 @@ replaceNetworkAclAssociationCatch :: ( MonadCatch m
                                      )
     => Text -- ^ 'rnaaAssociationId'
     -> Text -- ^ 'rnaaNetworkAclId'
-    -> State ReplaceNetworkAclAssociation a
     -> m (Either ServiceEr ReplaceNetworkAclAssociationResponse)
 replaceNetworkAclAssociationCatch p1 p2 s =
     sendCatch $ (mkReplaceNetworkAclAssociation p1 p2) &~ s
@@ -7129,7 +6936,7 @@ replaceNetworkAclAssociationCatch p1 p2 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ReplaceNetworkAclEntryResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.ReplaceNetworkAclEntry'
 
 replaceNetworkAclEntry :: ( MonadCatch m
                           , MonadResource m
@@ -7142,7 +6949,6 @@ replaceNetworkAclEntry :: ( MonadCatch m
     -> RuleAction -- ^ 'rnaeRuleAction'
     -> Bool -- ^ 'rnaeEgress'
     -> Text -- ^ 'rnaeCidrBlock'
-    -> State ReplaceNetworkAclEntry a
     -> m ReplaceNetworkAclEntryResponse
 replaceNetworkAclEntry p1 p2 p3 p4 p5 p6 s =
     send $ (mkReplaceNetworkAclEntry p1 p2 p3 p4 p5 p6) &~ s
@@ -7157,7 +6963,6 @@ replaceNetworkAclEntryCatch :: ( MonadCatch m
     -> RuleAction -- ^ 'rnaeRuleAction'
     -> Bool -- ^ 'rnaeEgress'
     -> Text -- ^ 'rnaeCidrBlock'
-    -> State ReplaceNetworkAclEntry a
     -> m (Either ServiceEr ReplaceNetworkAclEntryResponse)
 replaceNetworkAclEntryCatch p1 p2 p3 p4 p5 p6 s =
     sendCatch $ (mkReplaceNetworkAclEntry p1 p2 p3 p4 p5 p6) &~ s
@@ -7177,7 +6982,7 @@ replaceNetworkAclEntryCatch p1 p2 p3 p4 p5 p6 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ReplaceRouteResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.ReplaceRoute'
 
 replaceRoute :: ( MonadCatch m
                 , MonadResource m
@@ -7186,7 +6991,6 @@ replaceRoute :: ( MonadCatch m
                 )
     => Text -- ^ 'rr1RouteTableId'
     -> Text -- ^ 'rr1DestinationCidrBlock'
-    -> State ReplaceRoute a
     -> m ReplaceRouteResponse
 replaceRoute p1 p2 s =
     send $ (mkReplaceRoute p1 p2) &~ s
@@ -7197,7 +7001,6 @@ replaceRouteCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'rr1RouteTableId'
     -> Text -- ^ 'rr1DestinationCidrBlock'
-    -> State ReplaceRoute a
     -> m (Either ServiceEr ReplaceRouteResponse)
 replaceRouteCatch p1 p2 s =
     sendCatch $ (mkReplaceRoute p1 p2) &~ s
@@ -7218,7 +7021,7 @@ replaceRouteCatch p1 p2 s =
 -- &amp;AssociationId=rtbassoc-f8ad4891 &amp;RouteTableId=rtb-f9ad4890
 -- &amp;AUTHPARAMS 59dbff89-35bd-4eac-99ed-be587EXAMPLE rtbassoc-faad4893.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.ReplaceRouteTableAssociation'
 
 replaceRouteTableAssociation :: ( MonadCatch m
                                 , MonadResource m
@@ -7227,7 +7030,6 @@ replaceRouteTableAssociation :: ( MonadCatch m
                                 )
     => Text -- ^ 'rrtaAssociationId'
     -> Text -- ^ 'rrtaRouteTableId'
-    -> State ReplaceRouteTableAssociation a
     -> m ReplaceRouteTableAssociationResponse
 replaceRouteTableAssociation p1 p2 s =
     send $ (mkReplaceRouteTableAssociation p1 p2) &~ s
@@ -7238,7 +7040,6 @@ replaceRouteTableAssociationCatch :: ( MonadCatch m
                                      )
     => Text -- ^ 'rrtaAssociationId'
     -> Text -- ^ 'rrtaRouteTableId'
-    -> State ReplaceRouteTableAssociation a
     -> m (Either ServiceEr ReplaceRouteTableAssociationResponse)
 replaceRouteTableAssociationCatch p1 p2 s =
     sendCatch $ (mkReplaceRouteTableAssociation p1 p2) &~ s
@@ -7259,7 +7060,7 @@ replaceRouteTableAssociationCatch p1 p2 s =
 -- &amp;ReasonCode.0=instance-performance-network
 -- &amp;ReasonCode.1=instance-performance-disk &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.ReportInstanceStatus'
 
 reportInstanceStatus :: ( MonadCatch m
                         , MonadResource m
@@ -7269,7 +7070,6 @@ reportInstanceStatus :: ( MonadCatch m
     => [Text] -- ^ 'risInstances'
     -> ReportStatusType -- ^ 'risStatus'
     -> [ReportInstanceReasonCodes] -- ^ 'risReasonCodes'
-    -> State ReportInstanceStatus a
     -> m ReportInstanceStatusResponse
 reportInstanceStatus p1 p2 p5 s =
     send $ (mkReportInstanceStatus p1 p2 p5) &~ s
@@ -7281,7 +7081,6 @@ reportInstanceStatusCatch :: ( MonadCatch m
     => [Text] -- ^ 'risInstances'
     -> ReportStatusType -- ^ 'risStatus'
     -> [ReportInstanceReasonCodes] -- ^ 'risReasonCodes'
-    -> State ReportInstanceStatus a
     -> m (Either ServiceEr ReportInstanceStatusResponse)
 reportInstanceStatusCatch p1 p2 p5 s =
     sendCatch $ (mkReportInstanceStatus p1 p2 p5) &~ s
@@ -7311,7 +7110,7 @@ reportInstanceStatusCatch p1 p2 p5 s =
 -- MyAzGroup ami-1a2b3c4d my-key-pair sg-1a2b3c4d websrv m1.small false false
 -- YYYY-MM-DDTHH:MM:SS.000Z Linux/UNIX.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.RequestSpotInstances'
 
 requestSpotInstances :: ( MonadCatch m
                         , MonadResource m
@@ -7319,7 +7118,6 @@ requestSpotInstances :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'rsiSpotPrice'
-    -> State RequestSpotInstances a
     -> m RequestSpotInstancesResponse
 requestSpotInstances p1 s =
     send $ (mkRequestSpotInstances p1) &~ s
@@ -7329,7 +7127,6 @@ requestSpotInstancesCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'rsiSpotPrice'
-    -> State RequestSpotInstances a
     -> m (Either ServiceEr RequestSpotInstancesResponse)
 requestSpotInstancesCatch p1 s =
     sendCatch $ (mkRequestSpotInstances p1) &~ s
@@ -7344,7 +7141,7 @@ requestSpotInstancesCatch p1 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ResetImageAttributeResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.ResetImageAttribute'
 
 resetImageAttribute :: ( MonadCatch m
                        , MonadResource m
@@ -7353,7 +7150,6 @@ resetImageAttribute :: ( MonadCatch m
                        )
     => Text -- ^ 'riaImageId'
     -> ResetImageAttributeName -- ^ 'riaAttribute'
-    -> State ResetImageAttribute a
     -> m ResetImageAttributeResponse
 resetImageAttribute p1 p2 s =
     send $ (mkResetImageAttribute p1 p2) &~ s
@@ -7364,7 +7160,6 @@ resetImageAttributeCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'riaImageId'
     -> ResetImageAttributeName -- ^ 'riaAttribute'
-    -> State ResetImageAttribute a
     -> m (Either ServiceEr ResetImageAttributeResponse)
 resetImageAttributeCatch p1 p2 s =
     sendCatch $ (mkResetImageAttribute p1 p2) &~ s
@@ -7385,7 +7180,7 @@ resetImageAttributeCatch p1 p2 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ResetInstanceAttributeResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.ResetInstanceAttribute'
 
 resetInstanceAttribute :: ( MonadCatch m
                           , MonadResource m
@@ -7394,7 +7189,6 @@ resetInstanceAttribute :: ( MonadCatch m
                           )
     => Text -- ^ 'ria1InstanceId'
     -> InstanceAttributeName -- ^ 'ria1Attribute'
-    -> State ResetInstanceAttribute a
     -> m ResetInstanceAttributeResponse
 resetInstanceAttribute p1 p2 s =
     send $ (mkResetInstanceAttribute p1 p2) &~ s
@@ -7405,7 +7199,6 @@ resetInstanceAttributeCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'ria1InstanceId'
     -> InstanceAttributeName -- ^ 'ria1Attribute'
-    -> State ResetInstanceAttribute a
     -> m (Either ServiceEr ResetInstanceAttributeResponse)
 resetInstanceAttributeCatch p1 p2 s =
     sendCatch $ (mkResetInstanceAttribute p1 p2) &~ s
@@ -7422,7 +7215,7 @@ resetInstanceAttributeCatch p1 p2 s =
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/ResetNetworkInterfaceAttributeResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.ResetNetworkInterfaceAttribute'
 
 resetNetworkInterfaceAttribute :: ( MonadCatch m
                                   , MonadResource m
@@ -7430,7 +7223,6 @@ resetNetworkInterfaceAttribute :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => Text -- ^ 'rniaNetworkInterfaceId'
-    -> State ResetNetworkInterfaceAttribute a
     -> m ResetNetworkInterfaceAttributeResponse
 resetNetworkInterfaceAttribute p1 s =
     send $ (mkResetNetworkInterfaceAttribute p1) &~ s
@@ -7440,7 +7232,6 @@ resetNetworkInterfaceAttributeCatch :: ( MonadCatch m
                                        , MonadReader Env m
                                        )
     => Text -- ^ 'rniaNetworkInterfaceId'
-    -> State ResetNetworkInterfaceAttribute a
     -> m (Either ServiceEr ResetNetworkInterfaceAttributeResponse)
 resetNetworkInterfaceAttributeCatch p1 s =
     sendCatch $ (mkResetNetworkInterfaceAttribute p1) &~ s
@@ -7458,7 +7249,7 @@ resetNetworkInterfaceAttributeCatch p1 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/ResetSnapshotAttributeResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.ResetSnapshotAttribute'
 
 resetSnapshotAttribute :: ( MonadCatch m
                           , MonadResource m
@@ -7467,7 +7258,6 @@ resetSnapshotAttribute :: ( MonadCatch m
                           )
     => Text -- ^ 'rsaSnapshotId'
     -> SnapshotAttributeName -- ^ 'rsaAttribute'
-    -> State ResetSnapshotAttribute a
     -> m ResetSnapshotAttributeResponse
 resetSnapshotAttribute p1 p2 s =
     send $ (mkResetSnapshotAttribute p1 p2) &~ s
@@ -7478,7 +7268,6 @@ resetSnapshotAttributeCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'rsaSnapshotId'
     -> SnapshotAttributeName -- ^ 'rsaAttribute'
-    -> State ResetSnapshotAttribute a
     -> m (Either ServiceEr ResetSnapshotAttributeResponse)
 resetSnapshotAttributeCatch p1 p2 s =
     sendCatch $ (mkResetSnapshotAttribute p1 p2) &~ s
@@ -7506,7 +7295,7 @@ resetSnapshotAttributeCatch p1 p2 s =
 -- &amp;IpPermissions.1.FromPort=1433 &amp;IpPermissions.1.ToPort=1433
 -- &amp;IpPermissions.1.Groups.1.GroupId=sg-9a8d7f5c &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.RevokeSecurityGroupEgress'
 
 revokeSecurityGroupEgress :: ( MonadCatch m
                              , MonadResource m
@@ -7514,7 +7303,6 @@ revokeSecurityGroupEgress :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'rsgeGroupId'
-    -> State RevokeSecurityGroupEgress a
     -> m RevokeSecurityGroupEgressResponse
 revokeSecurityGroupEgress p1 s =
     send $ (mkRevokeSecurityGroupEgress p1) &~ s
@@ -7524,7 +7312,6 @@ revokeSecurityGroupEgressCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => Text -- ^ 'rsgeGroupId'
-    -> State RevokeSecurityGroupEgress a
     -> m (Either ServiceEr RevokeSecurityGroupEgressResponse)
 revokeSecurityGroupEgressCatch p1 s =
     sendCatch $ (mkRevokeSecurityGroupEgress p1) &~ s
@@ -7550,7 +7337,7 @@ revokeSecurityGroupEgressCatch p1 s =
 -- &lt;return&gt;true&lt;/return&gt;
 -- &lt;/RevokeSecurityGroupIngressResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.RevokeSecurityGroupIngress'
 
 revokeSecurityGroupIngress :: ( MonadCatch m
                               , MonadResource m
@@ -7639,7 +7426,7 @@ revokeSecurityGroupIngressCatch s =
 -- &amp;MinCount=1 &amp;MaxCount=1 &amp;DisableApiTermination=false
 -- &amp;Monitoring.Enabled=false &amp;AUTHPARAMS.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.RunInstances'
 
 runInstances :: ( MonadCatch m
                 , MonadResource m
@@ -7649,7 +7436,6 @@ runInstances :: ( MonadCatch m
     => Text -- ^ 'ri3ImageId'
     -> Integer -- ^ 'ri3MinCount'
     -> Integer -- ^ 'ri3MaxCount'
-    -> State RunInstances a
     -> m RunInstancesResponse
 runInstances p1 p2 p3 s =
     send $ (mkRunInstances p1 p2 p3) &~ s
@@ -7661,7 +7447,6 @@ runInstancesCatch :: ( MonadCatch m
     => Text -- ^ 'ri3ImageId'
     -> Integer -- ^ 'ri3MinCount'
     -> Integer -- ^ 'ri3MaxCount'
-    -> State RunInstances a
     -> m (Either ServiceEr RunInstancesResponse)
 runInstancesCatch p1 p2 p3 s =
     sendCatch $ (mkRunInstances p1 p2 p3) &~ s
@@ -7692,7 +7477,7 @@ runInstancesCatch p1 p2 p3 s =
 -- &lt;name&gt;stopped&lt;/name&gt; &lt;/previousState&gt; &lt;/item&gt;
 -- &lt;/instancesSet&gt; &lt;/StartInstancesResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.StartInstances'
 
 startInstances :: ( MonadCatch m
                   , MonadResource m
@@ -7700,7 +7485,6 @@ startInstances :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => [Text] -- ^ 'siInstanceIds'
-    -> State StartInstances a
     -> m StartInstancesResponse
 startInstances p1 s =
     send $ (mkStartInstances p1) &~ s
@@ -7710,7 +7494,6 @@ startInstancesCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => [Text] -- ^ 'siInstanceIds'
-    -> State StartInstances a
     -> m (Either ServiceEr StartInstancesResponse)
 startInstancesCatch p1 s =
     sendCatch $ (mkStartInstances p1) &~ s
@@ -7750,7 +7533,7 @@ startInstancesCatch p1 s =
 -- &lt;name&gt;running&lt;/name&gt; &lt;/previousState&gt;
 -- &lt;/instancesSet&gt; &lt;/StopInstancesResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.StopInstances'
 
 stopInstances :: ( MonadCatch m
                  , MonadResource m
@@ -7758,7 +7541,6 @@ stopInstances :: ( MonadCatch m
                  , MonadReader Env m
                  )
     => [Text] -- ^ 'si1InstanceIds'
-    -> State StopInstances a
     -> m StopInstancesResponse
 stopInstances p1 s =
     send $ (mkStopInstances p1) &~ s
@@ -7768,7 +7550,6 @@ stopInstancesCatch :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => [Text] -- ^ 'si1InstanceIds'
-    -> State StopInstances a
     -> m (Either ServiceEr StopInstancesResponse)
 stopInstancesCatch p1 s =
     sendCatch $ (mkStopInstances p1) &~ s
@@ -7801,7 +7582,7 @@ stopInstancesCatch p1 s =
 -- &lt;name&gt;running&lt;/name&gt; &lt;/previousState&gt; &lt;/item&gt;
 -- &lt;/instancesSet&gt; &lt;/TerminateInstancesResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.TerminateInstances'
 
 terminateInstances :: ( MonadCatch m
                       , MonadResource m
@@ -7809,7 +7590,6 @@ terminateInstances :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => [Text] -- ^ 'tiInstanceIds'
-    -> State TerminateInstances a
     -> m TerminateInstancesResponse
 terminateInstances p1 s =
     send $ (mkTerminateInstances p1) &~ s
@@ -7819,7 +7599,6 @@ terminateInstancesCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => [Text] -- ^ 'tiInstanceIds'
-    -> State TerminateInstances a
     -> m (Either ServiceEr TerminateInstancesResponse)
 terminateInstancesCatch p1 s =
     sendCatch $ (mkTerminateInstances p1) &~ s
@@ -7836,7 +7615,7 @@ terminateInstancesCatch p1 s =
 -- &lt;requestId&gt;59dbff89-35bd-4eac-99ed-be587EXAMPLE&lt;/requestId&gt;
 -- &lt;return&gt;true&lt;/return&gt; &lt;/UnassignPrivateIpAddresses&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.UnassignPrivateIpAddresses'
 
 unassignPrivateIpAddresses :: ( MonadCatch m
                               , MonadResource m
@@ -7845,7 +7624,6 @@ unassignPrivateIpAddresses :: ( MonadCatch m
                               )
     => Text -- ^ 'upiaNetworkInterfaceId'
     -> [Text] -- ^ 'upiaPrivateIpAddresses'
-    -> State UnassignPrivateIpAddresses a
     -> m UnassignPrivateIpAddressesResponse
 unassignPrivateIpAddresses p1 p2 s =
     send $ (mkUnassignPrivateIpAddresses p1 p2) &~ s
@@ -7856,7 +7634,6 @@ unassignPrivateIpAddressesCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'upiaNetworkInterfaceId'
     -> [Text] -- ^ 'upiaPrivateIpAddresses'
-    -> State UnassignPrivateIpAddresses a
     -> m (Either ServiceEr UnassignPrivateIpAddressesResponse)
 unassignPrivateIpAddressesCatch p1 p2 s =
     sendCatch $ (mkUnassignPrivateIpAddresses p1 p2) &~ s
@@ -7878,7 +7655,7 @@ unassignPrivateIpAddressesCatch p1 p2 s =
 -- &lt;monitoring&gt; &lt;state&gt;disabled&lt;/state&gt; &lt;/monitoring&gt;
 -- &lt;/item&gt; &lt;/instancesSet&gt; &lt;/UnmonitorInstancesResponse&gt;.
 --
--- See: 'Network.AWS.EC2'
+-- See: 'Network.AWS.EC2.UnmonitorInstances'
 
 unmonitorInstances :: ( MonadCatch m
                       , MonadResource m
@@ -7886,7 +7663,6 @@ unmonitorInstances :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => [Text] -- ^ 'uiInstanceIds'
-    -> State UnmonitorInstances a
     -> m UnmonitorInstancesResponse
 unmonitorInstances p1 s =
     send $ (mkUnmonitorInstances p1) &~ s
@@ -7896,7 +7672,6 @@ unmonitorInstancesCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => [Text] -- ^ 'uiInstanceIds'
-    -> State UnmonitorInstances a
     -> m (Either ServiceEr UnmonitorInstancesResponse)
 unmonitorInstancesCatch p1 s =
     sendCatch $ (mkUnmonitorInstances p1) &~ s

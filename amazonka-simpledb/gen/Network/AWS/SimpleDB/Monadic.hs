@@ -12,22 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Amazon SimpleDB is a highly available and flexible non-relational data
--- store that offloads the work of database administration. Developers simply
--- store and query data items via web services requests and Amazon SimpleDB
--- does the rest. Unbound by the strict requirements of a relational database,
--- Amazon SimpleDB is optimized to provide high availability and flexibility,
--- with little or no administrative burden. Behind the scenes, Amazon SimpleDB
--- creates and manages multiple geographically distributed replicas of your
--- data automatically to enable high availability and data durability. The
--- service charges you only for the resources actually consumed in storing
--- your data and serving your requests. You can change your data model on the
--- fly, and data is automatically indexed for you. With Amazon SimpleDB, you
--- can focus on application development without worrying about infrastructure
--- provisioning, high availability, software maintenance, schema and index
--- management, or performance tuning.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -49,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.SimpleDB.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.SimpleDB.Monadic
@@ -141,7 +130,7 @@ type ServiceEr = Er SimpleDB
 -- limitations are enforced for this operation: 1 MB request size 25 item
 -- limit per BatchDeleteAttributes operation.
 --
--- See: 'Network.AWS.SimpleDB'
+-- See: 'Network.AWS.SimpleDB.BatchDeleteAttributes'
 
 batchDeleteAttributes :: ( MonadCatch m
                          , MonadResource m
@@ -150,7 +139,6 @@ batchDeleteAttributes :: ( MonadCatch m
                          )
     => Text -- ^ 'bdaDomainName'
     -> [DeletableItem] -- ^ 'bdaItems'
-    -> State BatchDeleteAttributes a
     -> m BatchDeleteAttributesResponse
 batchDeleteAttributes p1 p2 s =
     send $ (mkBatchDeleteAttributes p1 p2) &~ s
@@ -161,7 +149,6 @@ batchDeleteAttributesCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'bdaDomainName'
     -> [DeletableItem] -- ^ 'bdaItems'
-    -> State BatchDeleteAttributes a
     -> m (Either ServiceEr BatchDeleteAttributesResponse)
 batchDeleteAttributesCatch p1 p2 s =
     sendCatch $ (mkBatchDeleteAttributes p1 p2) &~ s
@@ -203,7 +190,7 @@ batchDeleteAttributesCatch p1 p2 s =
 -- size 1 billion attributes per domain 10 GB of total user data storage per
 -- domain 25 item limit per BatchPutAttributes operation.
 --
--- See: 'Network.AWS.SimpleDB'
+-- See: 'Network.AWS.SimpleDB.BatchPutAttributes'
 
 batchPutAttributes :: ( MonadCatch m
                       , MonadResource m
@@ -212,7 +199,6 @@ batchPutAttributes :: ( MonadCatch m
                       )
     => Text -- ^ 'bpaDomainName'
     -> [ReplaceableItem] -- ^ 'bpaItems'
-    -> State BatchPutAttributes a
     -> m BatchPutAttributesResponse
 batchPutAttributes p1 p2 s =
     send $ (mkBatchPutAttributes p1 p2) &~ s
@@ -223,7 +209,6 @@ batchPutAttributesCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'bpaDomainName'
     -> [ReplaceableItem] -- ^ 'bpaItems'
-    -> State BatchPutAttributes a
     -> m (Either ServiceEr BatchPutAttributesResponse)
 batchPutAttributesCatch p1 p2 s =
     sendCatch $ (mkBatchPutAttributes p1 p2) &~ s
@@ -238,7 +223,7 @@ batchPutAttributesCatch p1 p2 s =
 -- additional domains, go to
 -- http://aws.amazon.com/contact-us/simpledb-limit-request/.
 --
--- See: 'Network.AWS.SimpleDB'
+-- See: 'Network.AWS.SimpleDB.CreateDomain'
 
 createDomain :: ( MonadCatch m
                 , MonadResource m
@@ -246,7 +231,6 @@ createDomain :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => Text -- ^ 'cdDomainName'
-    -> State CreateDomain a
     -> m CreateDomainResponse
 createDomain p1 s =
     send $ (mkCreateDomain p1) &~ s
@@ -256,7 +240,6 @@ createDomainCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'cdDomainName'
-    -> State CreateDomain a
     -> m (Either ServiceEr CreateDomainResponse)
 createDomainCatch p1 s =
     sendCatch $ (mkCreateDomain p1) &~ s
@@ -273,7 +256,7 @@ createDomainCatch p1 s =
 -- DeleteAttributes or PutAttributes operation (write) might not return
 -- updated item data.
 --
--- See: 'Network.AWS.SimpleDB'
+-- See: 'Network.AWS.SimpleDB.DeleteAttributes'
 
 deleteAttributes :: ( MonadCatch m
                     , MonadResource m
@@ -282,7 +265,6 @@ deleteAttributes :: ( MonadCatch m
                     )
     => Text -- ^ 'daDomainName'
     -> Text -- ^ 'daItemName'
-    -> State DeleteAttributes a
     -> m DeleteAttributesResponse
 deleteAttributes p1 p2 s =
     send $ (mkDeleteAttributes p1 p2) &~ s
@@ -293,7 +275,6 @@ deleteAttributesCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'daDomainName'
     -> Text -- ^ 'daItemName'
-    -> State DeleteAttributes a
     -> m (Either ServiceEr DeleteAttributesResponse)
 deleteAttributesCatch p1 p2 s =
     sendCatch $ (mkDeleteAttributes p1 p2) &~ s
@@ -305,7 +286,7 @@ deleteAttributesCatch p1 p2 s =
 -- that does not exist or running the function multiple times using the same
 -- domain name will not result in an error response.
 --
--- See: 'Network.AWS.SimpleDB'
+-- See: 'Network.AWS.SimpleDB.DeleteDomain'
 
 deleteDomain :: ( MonadCatch m
                 , MonadResource m
@@ -313,7 +294,6 @@ deleteDomain :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => Text -- ^ 'ddDomainName'
-    -> State DeleteDomain a
     -> m DeleteDomainResponse
 deleteDomain p1 s =
     send $ (mkDeleteDomain p1) &~ s
@@ -323,7 +303,6 @@ deleteDomainCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'ddDomainName'
-    -> State DeleteDomain a
     -> m (Either ServiceEr DeleteDomainResponse)
 deleteDomainCatch p1 s =
     sendCatch $ (mkDeleteDomain p1) &~ s
@@ -333,7 +312,7 @@ deleteDomainCatch p1 s =
 -- created, the number of items and attributes in the domain, and the size of
 -- the attribute names and values.
 --
--- See: 'Network.AWS.SimpleDB'
+-- See: 'Network.AWS.SimpleDB.DomainMetadata'
 
 domainMetadata :: ( MonadCatch m
                   , MonadResource m
@@ -341,7 +320,6 @@ domainMetadata :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'dmDomainName'
-    -> State DomainMetadata a
     -> m DomainMetadataResponse
 domainMetadata p1 s =
     send $ (mkDomainMetadata p1) &~ s
@@ -351,7 +329,6 @@ domainMetadataCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'dmDomainName'
-    -> State DomainMetadata a
     -> m (Either ServiceEr DomainMetadataResponse)
 domainMetadataCatch p1 s =
     sendCatch $ (mkDomainMetadata p1) &~ s
@@ -366,7 +343,7 @@ domainMetadataCatch p1 s =
 -- being passed any attribute names, all the attributes for the item are
 -- returned.
 --
--- See: 'Network.AWS.SimpleDB'
+-- See: 'Network.AWS.SimpleDB.GetAttributes'
 
 getAttributes :: ( MonadCatch m
                  , MonadResource m
@@ -375,7 +352,6 @@ getAttributes :: ( MonadCatch m
                  )
     => Text -- ^ 'gaDomainName'
     -> Text -- ^ 'gaItemName'
-    -> State GetAttributes a
     -> m GetAttributesResponse
 getAttributes p1 p2 s =
     send $ (mkGetAttributes p1 p2) &~ s
@@ -386,7 +362,6 @@ getAttributesCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'gaDomainName'
     -> Text -- ^ 'gaItemName'
-    -> State GetAttributes a
     -> m (Either ServiceEr GetAttributesResponse)
 getAttributesCatch p1 p2 s =
     sendCatch $ (mkGetAttributes p1 p2) &~ s
@@ -399,7 +374,7 @@ getAttributesCatch p1 p2 s =
 -- operation returns up to MaxNumberOfDomains more domain names with each
 -- successive operation call.
 --
--- See: 'Network.AWS.SimpleDB'
+-- See: 'Network.AWS.SimpleDB.ListDomains'
 
 listDomains :: ( MonadCatch m
                , MonadResource m
@@ -448,7 +423,7 @@ listDomainsCatch s =
 -- attribute name-value pairs per item One billion attributes per domain 10 GB
 -- of total user data storage per domain.
 --
--- See: 'Network.AWS.SimpleDB'
+-- See: 'Network.AWS.SimpleDB.PutAttributes'
 
 putAttributes :: ( MonadCatch m
                  , MonadResource m
@@ -458,7 +433,6 @@ putAttributes :: ( MonadCatch m
     => Text -- ^ 'paDomainName'
     -> Text -- ^ 'paItemName'
     -> [ReplaceableAttribute] -- ^ 'paAttributes'
-    -> State PutAttributes a
     -> m PutAttributesResponse
 putAttributes p1 p2 p3 s =
     send $ (mkPutAttributes p1 p2 p3) &~ s
@@ -470,7 +444,6 @@ putAttributesCatch :: ( MonadCatch m
     => Text -- ^ 'paDomainName'
     -> Text -- ^ 'paItemName'
     -> [ReplaceableAttribute] -- ^ 'paAttributes'
-    -> State PutAttributes a
     -> m (Either ServiceEr PutAttributesResponse)
 putAttributesCatch p1 p2 p3 s =
     sendCatch $ (mkPutAttributes p1 p2 p3) &~ s
@@ -486,7 +459,7 @@ putAttributesCatch p1 p2 p3 s =
 -- of results. For information on how to construct select expressions, see
 -- Using Select to Create Amazon SimpleDB Queries in the Developer Guide.
 --
--- See: 'Network.AWS.SimpleDB'
+-- See: 'Network.AWS.SimpleDB.Select'
 
 select :: ( MonadCatch m
           , MonadResource m
@@ -494,7 +467,6 @@ select :: ( MonadCatch m
           , MonadReader Env (ResumableSource m)
           )
     => Text -- ^ 'sSelectExpression'
-    -> State Select a
     -> ResumableSource m SelectResponse
 select p1 s =
     paginate $ (mkSelect p1) &~ s
@@ -504,7 +476,6 @@ selectCatch :: ( MonadCatch m
                , MonadReader Env (ResumableSource m)
                )
     => Text -- ^ 'sSelectExpression'
-    -> State Select a
     -> ResumableSource m (Either ServiceEr SelectResponse)
 selectCatch p1 s =
     paginateCatch $ (mkSelect p1) &~ s

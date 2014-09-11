@@ -12,19 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Amazon Simple Notification Service (Amazon SNS) is a fast, flexible, fully
--- managed push messaging service. Amazon SNS makes it simple and
--- cost-effective to push notifications to Apple, Google, Fire OS, and Windows
--- devices, as well as Android devices in China with Baidu Cloud Push. You can
--- also use SNS to push notifications to internet connected smart devices, as
--- well as other distributed services. Besides pushing cloud notifications
--- directly to mobile devices, Amazon SNS can also deliver notifications by
--- SMS text message or email, to Amazon Simple Queue Service (SQS) queues, or
--- to any HTTP endpoint. To prevent messages from being lost, all messages
--- published to Amazon SNS are stored redundantly across multiple availability
--- zones.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -46,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.SNS.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.SNS.Monadic
@@ -213,7 +205,7 @@ type ServiceEr = Er SNS
 -- &lt;RequestId&gt;6a213e4e-33a8-11df-9540-99d0768312d3&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/AddPermissionResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.AddPermission'
 
 addPermission :: ( MonadCatch m
                  , MonadResource m
@@ -224,7 +216,6 @@ addPermission :: ( MonadCatch m
     -> Text -- ^ 'apLabel'
     -> [Text] -- ^ 'apAWSAccountId'
     -> [Text] -- ^ 'apActionName'
-    -> State AddPermission a
     -> m AddPermissionResponse
 addPermission p1 p2 p3 p4 s =
     send $ (mkAddPermission p1 p2 p3 p4) &~ s
@@ -237,7 +228,6 @@ addPermissionCatch :: ( MonadCatch m
     -> Text -- ^ 'apLabel'
     -> [Text] -- ^ 'apAWSAccountId'
     -> [Text] -- ^ 'apActionName'
-    -> State AddPermission a
     -> m (Either ServiceEr AddPermissionResponse)
 addPermissionCatch p1 p2 p3 p4 s =
     sendCatch $ (mkAddPermission p1 p2 p3 p4) &~ s
@@ -263,7 +253,7 @@ addPermissionCatch p1 p2 p3 p4 s =
 -- &lt;RequestId&gt;7a50221f-3774-11df-a9b7-05d48da6f042&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/ConfirmSubscriptionResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.ConfirmSubscription'
 
 confirmSubscription :: ( MonadCatch m
                        , MonadResource m
@@ -272,7 +262,6 @@ confirmSubscription :: ( MonadCatch m
                        )
     => Text -- ^ 'csTopicArn'
     -> Text -- ^ 'csToken'
-    -> State ConfirmSubscription a
     -> m ConfirmSubscriptionResponse
 confirmSubscription p1 p2 s =
     send $ (mkConfirmSubscription p1 p2) &~ s
@@ -283,7 +272,6 @@ confirmSubscriptionCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'csTopicArn'
     -> Text -- ^ 'csToken'
-    -> State ConfirmSubscription a
     -> m (Either ServiceEr ConfirmSubscriptionResponse)
 confirmSubscriptionCatch p1 p2 s =
     sendCatch $ (mkConfirmSubscription p1 p2) &~ s
@@ -321,7 +309,7 @@ confirmSubscriptionCatch p1 p2 s =
 -- &lt;RequestId&gt;b6f0e78b-e9d4-5a0e-b973-adc04e8a4ff9&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/CreatePlatformApplicationResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.CreatePlatformApplication'
 
 createPlatformApplication :: ( MonadCatch m
                              , MonadResource m
@@ -331,7 +319,6 @@ createPlatformApplication :: ( MonadCatch m
     => Text -- ^ 'cpaName'
     -> Text -- ^ 'cpaPlatform'
     -> Map Text Text -- ^ 'cpaAttributes'
-    -> State CreatePlatformApplication a
     -> m CreatePlatformApplicationResponse
 createPlatformApplication p1 p2 p3 s =
     send $ (mkCreatePlatformApplication p1 p2 p3) &~ s
@@ -343,7 +330,6 @@ createPlatformApplicationCatch :: ( MonadCatch m
     => Text -- ^ 'cpaName'
     -> Text -- ^ 'cpaPlatform'
     -> Map Text Text -- ^ 'cpaAttributes'
-    -> State CreatePlatformApplication a
     -> m (Either ServiceEr CreatePlatformApplicationResponse)
 createPlatformApplicationCatch p1 p2 p3 s =
     sendCatch $ (mkCreatePlatformApplication p1 p2 p3) &~ s
@@ -379,7 +365,7 @@ createPlatformApplicationCatch p1 p2 p3 s =
 -- &lt;RequestId&gt;6613341d-3e15-53f7-bf3c-7e56994ba278&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/CreatePlatformEndpointResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.CreatePlatformEndpoint'
 
 createPlatformEndpoint :: ( MonadCatch m
                           , MonadResource m
@@ -388,7 +374,6 @@ createPlatformEndpoint :: ( MonadCatch m
                           )
     => Text -- ^ 'cpePlatformApplicationArn'
     -> Text -- ^ 'cpeToken'
-    -> State CreatePlatformEndpoint a
     -> m CreatePlatformEndpointResponse
 createPlatformEndpoint p1 p2 s =
     send $ (mkCreatePlatformEndpoint p1 p2) &~ s
@@ -399,7 +384,6 @@ createPlatformEndpointCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'cpePlatformApplicationArn'
     -> Text -- ^ 'cpeToken'
-    -> State CreatePlatformEndpoint a
     -> m (Either ServiceEr CreatePlatformEndpointResponse)
 createPlatformEndpointCatch p1 p2 s =
     sendCatch $ (mkCreatePlatformEndpoint p1 p2) &~ s
@@ -422,7 +406,7 @@ createPlatformEndpointCatch p1 p2 s =
 -- &lt;RequestId&gt;a8dec8b3-33a4-11df-8963-01868b7c937a&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/CreateTopicResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.CreateTopic'
 
 createTopic :: ( MonadCatch m
                , MonadResource m
@@ -430,7 +414,6 @@ createTopic :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'ctName'
-    -> State CreateTopic a
     -> m CreateTopicResponse
 createTopic p1 s =
     send $ (mkCreateTopic p1) &~ s
@@ -440,7 +423,6 @@ createTopicCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'ctName'
-    -> State CreateTopic a
     -> m (Either ServiceEr CreateTopicResponse)
 createTopicCatch p1 s =
     sendCatch $ (mkCreateTopic p1) &~ s
@@ -460,7 +442,7 @@ createTopicCatch p1 s =
 -- &lt;RequestId&gt;c1d2b191-353c-5a5f-8969-fbdd3900afa8&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/DeleteEndpointResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.DeleteEndpoint'
 
 deleteEndpoint :: ( MonadCatch m
                   , MonadResource m
@@ -468,7 +450,6 @@ deleteEndpoint :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'deEndpointArn'
-    -> State DeleteEndpoint a
     -> m DeleteEndpointResponse
 deleteEndpoint p1 s =
     send $ (mkDeleteEndpoint p1) &~ s
@@ -478,7 +459,6 @@ deleteEndpointCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'deEndpointArn'
-    -> State DeleteEndpoint a
     -> m (Either ServiceEr DeleteEndpointResponse)
 deleteEndpointCatch p1 s =
     sendCatch $ (mkDeleteEndpoint p1) &~ s
@@ -500,7 +480,7 @@ deleteEndpointCatch p1 s =
 -- &lt;RequestId&gt;097dac18-7a77-5823-a8dd-e65476dcb037&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/DeletePlatformApplicationResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.DeletePlatformApplication'
 
 deletePlatformApplication :: ( MonadCatch m
                              , MonadResource m
@@ -508,7 +488,6 @@ deletePlatformApplication :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'dpaPlatformApplicationArn'
-    -> State DeletePlatformApplication a
     -> m DeletePlatformApplicationResponse
 deletePlatformApplication p1 s =
     send $ (mkDeletePlatformApplication p1) &~ s
@@ -518,7 +497,6 @@ deletePlatformApplicationCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => Text -- ^ 'dpaPlatformApplicationArn'
-    -> State DeletePlatformApplication a
     -> m (Either ServiceEr DeletePlatformApplicationResponse)
 deletePlatformApplicationCatch p1 s =
     sendCatch $ (mkDeletePlatformApplication p1) &~ s
@@ -539,7 +517,7 @@ deletePlatformApplicationCatch p1 s =
 -- &lt;RequestId&gt;f3aa9ac9-3c3d-11df-8235-9dab105e9c32&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/DeleteTopicResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.DeleteTopic'
 
 deleteTopic :: ( MonadCatch m
                , MonadResource m
@@ -547,7 +525,6 @@ deleteTopic :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'dtTopicArn'
-    -> State DeleteTopic a
     -> m DeleteTopicResponse
 deleteTopic p1 s =
     send $ (mkDeleteTopic p1) &~ s
@@ -557,7 +534,6 @@ deleteTopicCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'dtTopicArn'
-    -> State DeleteTopic a
     -> m (Either ServiceEr DeleteTopicResponse)
 deleteTopicCatch p1 s =
     sendCatch $ (mkDeleteTopic p1) &~ s
@@ -586,7 +562,7 @@ deleteTopicCatch p1 s =
 -- &lt;RequestId&gt;6c725a19-a142-5b77-94f9-1055a9ea04e7&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/GetEndpointAttributesResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.GetEndpointAttributes'
 
 getEndpointAttributes :: ( MonadCatch m
                          , MonadResource m
@@ -594,7 +570,6 @@ getEndpointAttributes :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'geaEndpointArn'
-    -> State GetEndpointAttributes a
     -> m GetEndpointAttributesResponse
 getEndpointAttributes p1 s =
     send $ (mkGetEndpointAttributes p1) &~ s
@@ -604,7 +579,6 @@ getEndpointAttributesCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'geaEndpointArn'
-    -> State GetEndpointAttributes a
     -> m (Either ServiceEr GetEndpointAttributesResponse)
 getEndpointAttributesCatch p1 s =
     sendCatch $ (mkGetEndpointAttributes p1) &~ s
@@ -630,7 +604,7 @@ getEndpointAttributesCatch p1 s =
 -- &lt;/ResponseMetadata&gt;
 -- &lt;/GetPlatformApplicationAttributesResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.GetPlatformApplicationAttributes'
 
 getPlatformApplicationAttributes :: ( MonadCatch m
                                     , MonadResource m
@@ -638,7 +612,6 @@ getPlatformApplicationAttributes :: ( MonadCatch m
                                     , MonadReader Env m
                                     )
     => Text -- ^ 'gpaaPlatformApplicationArn'
-    -> State GetPlatformApplicationAttributes a
     -> m GetPlatformApplicationAttributesResponse
 getPlatformApplicationAttributes p1 s =
     send $ (mkGetPlatformApplicationAttributes p1) &~ s
@@ -648,7 +621,6 @@ getPlatformApplicationAttributesCatch :: ( MonadCatch m
                                          , MonadReader Env m
                                          )
     => Text -- ^ 'gpaaPlatformApplicationArn'
-    -> State GetPlatformApplicationAttributes a
     -> m (Either ServiceEr GetPlatformApplicationAttributesResponse)
 getPlatformApplicationAttributesCatch p1 s =
     sendCatch $ (mkGetPlatformApplicationAttributes p1) &~ s
@@ -674,7 +646,7 @@ getPlatformApplicationAttributesCatch p1 s =
 -- &lt;RequestId&gt;057f074c-33a7-11df-9540-99d0768312d3&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/GetTopicAttributesResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.GetSubscriptionAttributes'
 
 getSubscriptionAttributes :: ( MonadCatch m
                              , MonadResource m
@@ -682,7 +654,6 @@ getSubscriptionAttributes :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'gsaSubscriptionArn'
-    -> State GetSubscriptionAttributes a
     -> m GetSubscriptionAttributesResponse
 getSubscriptionAttributes p1 s =
     send $ (mkGetSubscriptionAttributes p1) &~ s
@@ -692,7 +663,6 @@ getSubscriptionAttributesCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => Text -- ^ 'gsaSubscriptionArn'
-    -> State GetSubscriptionAttributes a
     -> m (Either ServiceEr GetSubscriptionAttributesResponse)
 getSubscriptionAttributesCatch p1 s =
     sendCatch $ (mkGetSubscriptionAttributes p1) &~ s
@@ -725,7 +695,7 @@ getSubscriptionAttributesCatch p1 s =
 -- &lt;RequestId&gt;057f074c-33a7-11df-9540-99d0768312d3&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/GetTopicAttributesResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.GetTopicAttributes'
 
 getTopicAttributes :: ( MonadCatch m
                       , MonadResource m
@@ -733,7 +703,6 @@ getTopicAttributes :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'gtaTopicArn'
-    -> State GetTopicAttributes a
     -> m GetTopicAttributesResponse
 getTopicAttributes p1 s =
     send $ (mkGetTopicAttributes p1) &~ s
@@ -743,7 +712,6 @@ getTopicAttributesCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'gtaTopicArn'
-    -> State GetTopicAttributes a
     -> m (Either ServiceEr GetTopicAttributesResponse)
 getTopicAttributesCatch p1 s =
     sendCatch $ (mkGetTopicAttributes p1) &~ s
@@ -782,7 +750,7 @@ getTopicAttributesCatch p1 s =
 -- &lt;/ResponseMetadata&gt;
 -- &lt;/ListEndpointsByPlatformApplicationResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.ListEndpointsByPlatformApplication'
 
 listEndpointsByPlatformApplication :: ( MonadCatch m
                                       , MonadResource m
@@ -790,7 +758,6 @@ listEndpointsByPlatformApplication :: ( MonadCatch m
                                       , MonadReader Env (ResumableSource m)
                                       )
     => Text -- ^ 'lebpaPlatformApplicationArn'
-    -> State ListEndpointsByPlatformApplication a
     -> ResumableSource m ListEndpointsByPlatformApplicationResponse
 listEndpointsByPlatformApplication p1 s =
     paginate $ (mkListEndpointsByPlatformApplication p1) &~ s
@@ -800,7 +767,6 @@ listEndpointsByPlatformApplicationCatch :: ( MonadCatch m
                                            , MonadReader Env (ResumableSource m)
                                            )
     => Text -- ^ 'lebpaPlatformApplicationArn'
-    -> State ListEndpointsByPlatformApplication a
     -> ResumableSource m (Either ServiceEr ListEndpointsByPlatformApplicationResponse)
 listEndpointsByPlatformApplicationCatch p1 s =
     paginateCatch $ (mkListEndpointsByPlatformApplication p1) &~ s
@@ -838,7 +804,7 @@ listEndpointsByPlatformApplicationCatch p1 s =
 -- &lt;RequestId&gt;315a335e-85d8-52df-9349-791283cbb529&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/ListPlatformApplicationsResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.ListPlatformApplications'
 
 listPlatformApplications :: ( MonadCatch m
                             , MonadResource m
@@ -881,7 +847,7 @@ listPlatformApplicationsCatch s =
 -- &lt;RequestId&gt;384ac68d-3775-11df-8963-01868b7c937a&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/ListSubscriptionsResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.ListSubscriptions'
 
 listSubscriptions :: ( MonadCatch m
                      , MonadResource m
@@ -926,7 +892,7 @@ listSubscriptionsCatch s =
 -- &lt;RequestId&gt;b9275252-3774-11df-9540-99d0768312d3&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/ListSubscriptionsByTopicResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.ListSubscriptionsByTopic'
 
 listSubscriptionsByTopic :: ( MonadCatch m
                             , MonadResource m
@@ -934,7 +900,6 @@ listSubscriptionsByTopic :: ( MonadCatch m
                             , MonadReader Env (ResumableSource m)
                             )
     => Text -- ^ 'lsbtTopicArn'
-    -> State ListSubscriptionsByTopic a
     -> ResumableSource m ListSubscriptionsByTopicResponse
 listSubscriptionsByTopic p1 s =
     paginate $ (mkListSubscriptionsByTopic p1) &~ s
@@ -944,7 +909,6 @@ listSubscriptionsByTopicCatch :: ( MonadCatch m
                                  , MonadReader Env (ResumableSource m)
                                  )
     => Text -- ^ 'lsbtTopicArn'
-    -> State ListSubscriptionsByTopic a
     -> ResumableSource m (Either ServiceEr ListSubscriptionsByTopicResponse)
 listSubscriptionsByTopicCatch p1 s =
     paginateCatch $ (mkListSubscriptionsByTopic p1) &~ s
@@ -965,7 +929,7 @@ listSubscriptionsByTopicCatch p1 s =
 -- &lt;RequestId&gt;3f1478c7-33a9-11df-9540-99d0768312d3&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/ListTopicsResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.ListTopics'
 
 listTopics :: ( MonadCatch m
               , MonadResource m
@@ -1028,7 +992,7 @@ listTopicsCatch s =
 -- &lt;RequestId&gt;d74b8436-ae13-5ab4-a9ff-ce54dfea72a0&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/PublishResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.Publish'
 
 publish :: ( MonadCatch m
            , MonadResource m
@@ -1036,7 +1000,6 @@ publish :: ( MonadCatch m
            , MonadReader Env m
            )
     => Text -- ^ 'pMessage'
-    -> State Publish a
     -> m PublishResponse
 publish p3 s =
     send $ (mkPublish p3) &~ s
@@ -1046,7 +1009,6 @@ publishCatch :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => Text -- ^ 'pMessage'
-    -> State Publish a
     -> m (Either ServiceEr PublishResponse)
 publishCatch p3 s =
     sendCatch $ (mkPublish p3) &~ s
@@ -1065,7 +1027,7 @@ publishCatch p3 s =
 -- &lt;RequestId&gt;d170b150-33a8-11df-995a-2d6fbe836cc1&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/RemovePermissionResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.RemovePermission'
 
 removePermission :: ( MonadCatch m
                     , MonadResource m
@@ -1074,7 +1036,6 @@ removePermission :: ( MonadCatch m
                     )
     => Text -- ^ 'rpTopicArn'
     -> Text -- ^ 'rpLabel'
-    -> State RemovePermission a
     -> m RemovePermissionResponse
 removePermission p1 p2 s =
     send $ (mkRemovePermission p1 p2) &~ s
@@ -1085,7 +1046,6 @@ removePermissionCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'rpTopicArn'
     -> Text -- ^ 'rpLabel'
-    -> State RemovePermission a
     -> m (Either ServiceEr RemovePermissionResponse)
 removePermissionCatch p1 p2 s =
     sendCatch $ (mkRemovePermission p1 p2) &~ s
@@ -1109,7 +1069,7 @@ removePermissionCatch p1 p2 s =
 -- &lt;RequestId&gt;2fe0bfc7-3e85-5ee5-a9e2-f58b35e85f6a&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/SetEndpointAttributesResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.SetEndpointAttributes'
 
 setEndpointAttributes :: ( MonadCatch m
                          , MonadResource m
@@ -1118,7 +1078,6 @@ setEndpointAttributes :: ( MonadCatch m
                          )
     => Text -- ^ 'seaEndpointArn'
     -> Map Text Text -- ^ 'seaAttributes'
-    -> State SetEndpointAttributes a
     -> m SetEndpointAttributesResponse
 setEndpointAttributes p1 p2 s =
     send $ (mkSetEndpointAttributes p1 p2) &~ s
@@ -1129,7 +1088,6 @@ setEndpointAttributesCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'seaEndpointArn'
     -> Map Text Text -- ^ 'seaAttributes'
-    -> State SetEndpointAttributes a
     -> m (Either ServiceEr SetEndpointAttributesResponse)
 setEndpointAttributesCatch p1 p2 s =
     sendCatch $ (mkSetEndpointAttributes p1 p2) &~ s
@@ -1154,7 +1112,7 @@ setEndpointAttributesCatch p1 p2 s =
 -- &lt;/ResponseMetadata&gt;
 -- &lt;/SetPlatformApplicationAttributesResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.SetPlatformApplicationAttributes'
 
 setPlatformApplicationAttributes :: ( MonadCatch m
                                     , MonadResource m
@@ -1163,7 +1121,6 @@ setPlatformApplicationAttributes :: ( MonadCatch m
                                     )
     => Text -- ^ 'spaaPlatformApplicationArn'
     -> Map Text Text -- ^ 'spaaAttributes'
-    -> State SetPlatformApplicationAttributes a
     -> m SetPlatformApplicationAttributesResponse
 setPlatformApplicationAttributes p1 p2 s =
     send $ (mkSetPlatformApplicationAttributes p1 p2) &~ s
@@ -1174,7 +1131,6 @@ setPlatformApplicationAttributesCatch :: ( MonadCatch m
                                          )
     => Text -- ^ 'spaaPlatformApplicationArn'
     -> Map Text Text -- ^ 'spaaAttributes'
-    -> State SetPlatformApplicationAttributes a
     -> m (Either ServiceEr SetPlatformApplicationAttributesResponse)
 setPlatformApplicationAttributesCatch p1 p2 s =
     sendCatch $ (mkSetPlatformApplicationAttributes p1 p2) &~ s
@@ -1201,7 +1157,7 @@ setPlatformApplicationAttributesCatch p1 p2 s =
 -- &lt;RequestId&gt;a8763b99-33a7-11df-a9b7-05d48da6f042&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/SetSubscriptionAttributesResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.SetSubscriptionAttributes'
 
 setSubscriptionAttributes :: ( MonadCatch m
                              , MonadResource m
@@ -1210,7 +1166,6 @@ setSubscriptionAttributes :: ( MonadCatch m
                              )
     => Text -- ^ 'ssaSubscriptionArn'
     -> Text -- ^ 'ssaAttributeName'
-    -> State SetSubscriptionAttributes a
     -> m SetSubscriptionAttributesResponse
 setSubscriptionAttributes p1 p2 s =
     send $ (mkSetSubscriptionAttributes p1 p2) &~ s
@@ -1221,7 +1176,6 @@ setSubscriptionAttributesCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'ssaSubscriptionArn'
     -> Text -- ^ 'ssaAttributeName'
-    -> State SetSubscriptionAttributes a
     -> m (Either ServiceEr SetSubscriptionAttributesResponse)
 setSubscriptionAttributesCatch p1 p2 s =
     sendCatch $ (mkSetSubscriptionAttributes p1 p2) &~ s
@@ -1255,7 +1209,7 @@ setSubscriptionAttributesCatch p1 p2 s =
 -- &lt;RequestId&gt;a8763b99-33a7-11df-a9b7-05d48da6f042&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/SetTopicAttributesResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.SetTopicAttributes'
 
 setTopicAttributes :: ( MonadCatch m
                       , MonadResource m
@@ -1264,7 +1218,6 @@ setTopicAttributes :: ( MonadCatch m
                       )
     => Text -- ^ 'staTopicArn'
     -> Text -- ^ 'staAttributeName'
-    -> State SetTopicAttributes a
     -> m SetTopicAttributesResponse
 setTopicAttributes p1 p2 s =
     send $ (mkSetTopicAttributes p1 p2) &~ s
@@ -1275,7 +1228,6 @@ setTopicAttributesCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'staTopicArn'
     -> Text -- ^ 'staAttributeName'
-    -> State SetTopicAttributes a
     -> m (Either ServiceEr SetTopicAttributesResponse)
 setTopicAttributesCatch p1 p2 s =
     sendCatch $ (mkSetTopicAttributes p1 p2) &~ s
@@ -1298,7 +1250,7 @@ setTopicAttributesCatch p1 p2 s =
 -- &lt;RequestId&gt;c4407779-24a4-56fa-982c-3d927f93a775&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/SubscribeResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.Subscribe'
 
 subscribe :: ( MonadCatch m
              , MonadResource m
@@ -1307,7 +1259,6 @@ subscribe :: ( MonadCatch m
              )
     => Text -- ^ 's1TopicArn'
     -> Text -- ^ 's1Protocol'
-    -> State Subscribe a
     -> m SubscribeResponse
 subscribe p1 p2 s =
     send $ (mkSubscribe p1 p2) &~ s
@@ -1318,7 +1269,6 @@ subscribeCatch :: ( MonadCatch m
                   )
     => Text -- ^ 's1TopicArn'
     -> Text -- ^ 's1Protocol'
-    -> State Subscribe a
     -> m (Either ServiceEr SubscribeResponse)
 subscribeCatch p1 p2 s =
     sendCatch $ (mkSubscribe p1 p2) &~ s
@@ -1342,7 +1292,7 @@ subscribeCatch p1 p2 s =
 -- &lt;RequestId&gt;18e0ac39-3776-11df-84c0-b93cc1666b84&lt;/RequestId&gt;
 -- &lt;/ResponseMetadata&gt; &lt;/UnsubscribeResponse&gt;.
 --
--- See: 'Network.AWS.SNS'
+-- See: 'Network.AWS.SNS.Unsubscribe'
 
 unsubscribe :: ( MonadCatch m
                , MonadResource m
@@ -1350,7 +1300,6 @@ unsubscribe :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'uSubscriptionArn'
-    -> State Unsubscribe a
     -> m UnsubscribeResponse
 unsubscribe p1 s =
     send $ (mkUnsubscribe p1) &~ s
@@ -1360,7 +1309,6 @@ unsubscribeCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'uSubscriptionArn'
-    -> State Unsubscribe a
     -> m (Either ServiceEr UnsubscribeResponse)
 unsubscribeCatch p1 s =
     sendCatch $ (mkUnsubscribe p1) &~ s

@@ -12,12 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | AWS Storage Gateway is a service that connects an on-premises software
--- appliance with cloud-based storage to provide seamless and secure
--- integration between your on-premises IT environment and AWS's storage
--- infrastructure.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -39,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.StorageGateway.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.StorageGateway.Monadic
@@ -320,7 +319,7 @@ type ServiceEr = Er StorageGateway
 -- "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.ActivateGateway'
 
 activateGateway :: ( MonadCatch m
                    , MonadResource m
@@ -331,7 +330,6 @@ activateGateway :: ( MonadCatch m
     -> Text -- ^ 'agGatewayName'
     -> Text -- ^ 'agGatewayTimezone'
     -> Text -- ^ 'agGatewayRegion'
-    -> State ActivateGateway a
     -> m ActivateGatewayResponse
 activateGateway p1 p2 p3 p4 s =
     send $ (mkActivateGateway p1 p2 p3 p4) &~ s
@@ -344,7 +342,6 @@ activateGatewayCatch :: ( MonadCatch m
     -> Text -- ^ 'agGatewayName'
     -> Text -- ^ 'agGatewayTimezone'
     -> Text -- ^ 'agGatewayRegion'
-    -> State ActivateGateway a
     -> m (Either ServiceEr ActivateGatewayResponse)
 activateGatewayCatch p1 p2 p3 p4 s =
     sendCatch $ (mkActivateGateway p1 p2 p3 p4) &~ s
@@ -371,7 +368,7 @@ activateGatewayCatch p1 p2 p3 p4 s =
 -- "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.AddCache'
 
 addCache :: ( MonadCatch m
             , MonadResource m
@@ -380,7 +377,6 @@ addCache :: ( MonadCatch m
             )
     => Text -- ^ 'acGatewayARN'
     -> [Text] -- ^ 'acDiskIds'
-    -> State AddCache a
     -> m AddCacheResponse
 addCache p1 p2 s =
     send $ (mkAddCache p1 p2) &~ s
@@ -391,7 +387,6 @@ addCacheCatch :: ( MonadCatch m
                  )
     => Text -- ^ 'acGatewayARN'
     -> [Text] -- ^ 'acDiskIds'
-    -> State AddCache a
     -> m (Either ServiceEr AddCacheResponse)
 addCacheCatch p1 p2 s =
     sendCatch $ (mkAddCache p1 p2) &~ s
@@ -404,7 +399,7 @@ addCacheCatch p1 p2 s =
 -- upload buffer, and one or more disk IDs that you want to configure as
 -- upload buffer.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.AddUploadBuffer'
 
 addUploadBuffer :: ( MonadCatch m
                    , MonadResource m
@@ -413,7 +408,6 @@ addUploadBuffer :: ( MonadCatch m
                    )
     => Text -- ^ 'aubGatewayARN'
     -> [Text] -- ^ 'aubDiskIds'
-    -> State AddUploadBuffer a
     -> m AddUploadBufferResponse
 addUploadBuffer p1 p2 s =
     send $ (mkAddUploadBuffer p1 p2) &~ s
@@ -424,7 +418,6 @@ addUploadBufferCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'aubGatewayARN'
     -> [Text] -- ^ 'aubDiskIds'
-    -> State AddUploadBuffer a
     -> m (Either ServiceEr AddUploadBufferResponse)
 addUploadBufferCatch p1 p2 s =
     sendCatch $ (mkAddUploadBuffer p1 p2) &~ s
@@ -451,7 +444,7 @@ addUploadBufferCatch p1 p2 s =
 -- "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.AddWorkingStorage'
 
 addWorkingStorage :: ( MonadCatch m
                      , MonadResource m
@@ -460,7 +453,6 @@ addWorkingStorage :: ( MonadCatch m
                      )
     => Text -- ^ 'awsGatewayARN'
     -> [Text] -- ^ 'awsDiskIds'
-    -> State AddWorkingStorage a
     -> m AddWorkingStorageResponse
 addWorkingStorage p1 p2 s =
     send $ (mkAddWorkingStorage p1 p2) &~ s
@@ -471,13 +463,12 @@ addWorkingStorageCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'awsGatewayARN'
     -> [Text] -- ^ 'awsDiskIds'
-    -> State AddWorkingStorage a
     -> m (Either ServiceEr AddWorkingStorageResponse)
 addWorkingStorageCatch p1 p2 s =
     sendCatch $ (mkAddWorkingStorage p1 p2) &~ s
 
 -- $CancelArchival
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.CancelArchival'
 
 cancelArchival :: ( MonadCatch m
                   , MonadResource m
@@ -486,7 +477,6 @@ cancelArchival :: ( MonadCatch m
                   )
     => Text -- ^ 'caGatewayARN'
     -> Text -- ^ 'caTapeARN'
-    -> State CancelArchival a
     -> m CancelArchivalResponse
 cancelArchival p1 p2 s =
     send $ (mkCancelArchival p1 p2) &~ s
@@ -497,13 +487,12 @@ cancelArchivalCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'caGatewayARN'
     -> Text -- ^ 'caTapeARN'
-    -> State CancelArchival a
     -> m (Either ServiceEr CancelArchivalResponse)
 cancelArchivalCatch p1 p2 s =
     sendCatch $ (mkCancelArchival p1 p2) &~ s
 
 -- $CancelRetrieval
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.CancelRetrieval'
 
 cancelRetrieval :: ( MonadCatch m
                    , MonadResource m
@@ -512,7 +501,6 @@ cancelRetrieval :: ( MonadCatch m
                    )
     => Text -- ^ 'crGatewayARN'
     -> Text -- ^ 'crTapeARN'
-    -> State CancelRetrieval a
     -> m CancelRetrievalResponse
 cancelRetrieval p1 p2 s =
     send $ (mkCancelRetrieval p1 p2) &~ s
@@ -523,7 +511,6 @@ cancelRetrievalCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'crGatewayARN'
     -> Text -- ^ 'crTapeARN'
-    -> State CancelRetrieval a
     -> m (Either ServiceEr CancelRetrievalResponse)
 cancelRetrievalCatch p1 p2 s =
     sendCatch $ (mkCancelRetrieval p1 p2) &~ s
@@ -560,7 +547,7 @@ cancelRetrievalCatch p1 p2 s =
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB"
 -- }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.CreateCachediSCSIVolume'
 
 createCachediSCSIVolume :: ( MonadCatch m
                            , MonadResource m
@@ -572,7 +559,6 @@ createCachediSCSIVolume :: ( MonadCatch m
     -> Text -- ^ 'ccscsivTargetName'
     -> Text -- ^ 'ccscsivNetworkInterfaceId'
     -> Text -- ^ 'ccscsivClientToken'
-    -> State CreateCachediSCSIVolume a
     -> m CreateCachediSCSIVolumeResponse
 createCachediSCSIVolume p1 p2 p4 p5 p6 s =
     send $ (mkCreateCachediSCSIVolume p1 p2 p4 p5 p6) &~ s
@@ -586,7 +572,6 @@ createCachediSCSIVolumeCatch :: ( MonadCatch m
     -> Text -- ^ 'ccscsivTargetName'
     -> Text -- ^ 'ccscsivNetworkInterfaceId'
     -> Text -- ^ 'ccscsivClientToken'
-    -> State CreateCachediSCSIVolume a
     -> m (Either ServiceEr CreateCachediSCSIVolumeResponse)
 createCachediSCSIVolumeCatch p1 p2 p4 p5 p6 s =
     sendCatch $ (mkCreateCachediSCSIVolume p1 p2 p4 p5 p6) &~ s
@@ -621,7 +606,7 @@ createCachediSCSIVolumeCatch p1 p2 p4 p5 p6 s =
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB",
 -- "SnapshotId": "snap-78e22663" }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.CreateSnapshot'
 
 createSnapshot :: ( MonadCatch m
                   , MonadResource m
@@ -630,7 +615,6 @@ createSnapshot :: ( MonadCatch m
                   )
     => Text -- ^ 'csVolumeARN'
     -> Text -- ^ 'csSnapshotDescription'
-    -> State CreateSnapshot a
     -> m CreateSnapshotResponse
 createSnapshot p1 p2 s =
     send $ (mkCreateSnapshot p1 p2) &~ s
@@ -641,7 +625,6 @@ createSnapshotCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'csVolumeARN'
     -> Text -- ^ 'csSnapshotDescription'
-    -> State CreateSnapshot a
     -> m (Either ServiceEr CreateSnapshotResponse)
 createSnapshotCatch p1 p2 s =
     sendCatch $ (mkCreateSnapshot p1 p2) &~ s
@@ -681,7 +664,7 @@ createSnapshotCatch p1 p2 s =
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB",
 -- "VolumeRecoveryPointTime": "2012-06-30T10:10:10.000Z" }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint'
 
 createSnapshotFromVolumeRecoveryPoint :: ( MonadCatch m
                                          , MonadResource m
@@ -690,7 +673,6 @@ createSnapshotFromVolumeRecoveryPoint :: ( MonadCatch m
                                          )
     => Text -- ^ 'csfvrpVolumeARN'
     -> Text -- ^ 'csfvrpSnapshotDescription'
-    -> State CreateSnapshotFromVolumeRecoveryPoint a
     -> m CreateSnapshotFromVolumeRecoveryPointResponse
 createSnapshotFromVolumeRecoveryPoint p1 p2 s =
     send $ (mkCreateSnapshotFromVolumeRecoveryPoint p1 p2) &~ s
@@ -701,7 +683,6 @@ createSnapshotFromVolumeRecoveryPointCatch :: ( MonadCatch m
                                               )
     => Text -- ^ 'csfvrpVolumeARN'
     -> Text -- ^ 'csfvrpSnapshotDescription'
-    -> State CreateSnapshotFromVolumeRecoveryPoint a
     -> m (Either ServiceEr CreateSnapshotFromVolumeRecoveryPointResponse)
 createSnapshotFromVolumeRecoveryPointCatch p1 p2 s =
     sendCatch $ (mkCreateSnapshotFromVolumeRecoveryPoint p1 p2) &~ s
@@ -735,7 +716,7 @@ createSnapshotFromVolumeRecoveryPointCatch p1 p2 s =
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/target/iqn.1997-05.com.amazon:myvolume"
 -- }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.CreateStorediSCSIVolume'
 
 createStorediSCSIVolume :: ( MonadCatch m
                            , MonadResource m
@@ -747,7 +728,6 @@ createStorediSCSIVolume :: ( MonadCatch m
     -> Bool -- ^ 'csscsivPreserveExistingData'
     -> Text -- ^ 'csscsivTargetName'
     -> Text -- ^ 'csscsivNetworkInterfaceId'
-    -> State CreateStorediSCSIVolume a
     -> m CreateStorediSCSIVolumeResponse
 createStorediSCSIVolume p1 p2 p4 p5 p6 s =
     send $ (mkCreateStorediSCSIVolume p1 p2 p4 p5 p6) &~ s
@@ -761,13 +741,12 @@ createStorediSCSIVolumeCatch :: ( MonadCatch m
     -> Bool -- ^ 'csscsivPreserveExistingData'
     -> Text -- ^ 'csscsivTargetName'
     -> Text -- ^ 'csscsivNetworkInterfaceId'
-    -> State CreateStorediSCSIVolume a
     -> m (Either ServiceEr CreateStorediSCSIVolumeResponse)
 createStorediSCSIVolumeCatch p1 p2 p4 p5 p6 s =
     sendCatch $ (mkCreateStorediSCSIVolume p1 p2 p4 p5 p6) &~ s
 
 -- $CreateTapes
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.CreateTapes'
 
 createTapes :: ( MonadCatch m
                , MonadResource m
@@ -779,7 +758,6 @@ createTapes :: ( MonadCatch m
     -> Text -- ^ 'ctClientToken'
     -> Integer -- ^ 'ctNumTapesToCreate'
     -> Text -- ^ 'ctTapeBarcodePrefix'
-    -> State CreateTapes a
     -> m CreateTapesResponse
 createTapes p1 p2 p3 p4 p5 s =
     send $ (mkCreateTapes p1 p2 p3 p4 p5) &~ s
@@ -793,7 +771,6 @@ createTapesCatch :: ( MonadCatch m
     -> Text -- ^ 'ctClientToken'
     -> Integer -- ^ 'ctNumTapesToCreate'
     -> Text -- ^ 'ctTapeBarcodePrefix'
-    -> State CreateTapes a
     -> m (Either ServiceEr CreateTapesResponse)
 createTapesCatch p1 p2 p3 p4 p5 s =
     sendCatch $ (mkCreateTapes p1 p2 p3 p4 p5) &~ s
@@ -817,7 +794,7 @@ createTapesCatch p1 p2 p3 p4 p5 s =
 -- "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.DeleteBandwidthRateLimit'
 
 deleteBandwidthRateLimit :: ( MonadCatch m
                             , MonadResource m
@@ -826,7 +803,6 @@ deleteBandwidthRateLimit :: ( MonadCatch m
                             )
     => Text -- ^ 'dbrlGatewayARN'
     -> Text -- ^ 'dbrlBandwidthType'
-    -> State DeleteBandwidthRateLimit a
     -> m DeleteBandwidthRateLimitResponse
 deleteBandwidthRateLimit p1 p2 s =
     send $ (mkDeleteBandwidthRateLimit p1 p2) &~ s
@@ -837,7 +813,6 @@ deleteBandwidthRateLimitCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'dbrlGatewayARN'
     -> Text -- ^ 'dbrlBandwidthType'
-    -> State DeleteBandwidthRateLimit a
     -> m (Either ServiceEr DeleteBandwidthRateLimitResponse)
 deleteBandwidthRateLimitCatch p1 p2 s =
     sendCatch $ (mkDeleteBandwidthRateLimit p1 p2) &~ s
@@ -861,7 +836,7 @@ deleteBandwidthRateLimitCatch p1 p2 s =
 -- "InitiatorName":
 -- "iqn.1991-05.com.microsoft:computername.domain.example.com" }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.DeleteChapCredentials'
 
 deleteChapCredentials :: ( MonadCatch m
                          , MonadResource m
@@ -870,7 +845,6 @@ deleteChapCredentials :: ( MonadCatch m
                          )
     => Text -- ^ 'dccTargetARN'
     -> Text -- ^ 'dccInitiatorName'
-    -> State DeleteChapCredentials a
     -> m DeleteChapCredentialsResponse
 deleteChapCredentials p1 p2 s =
     send $ (mkDeleteChapCredentials p1 p2) &~ s
@@ -881,7 +855,6 @@ deleteChapCredentialsCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'dccTargetARN'
     -> Text -- ^ 'dccInitiatorName'
-    -> State DeleteChapCredentials a
     -> m (Either ServiceEr DeleteChapCredentialsResponse)
 deleteChapCredentialsCatch p1 p2 s =
     sendCatch $ (mkDeleteChapCredentials p1 p2) &~ s
@@ -913,7 +886,7 @@ deleteChapCredentialsCatch p1 p2 s =
 -- "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.DeleteGateway'
 
 deleteGateway :: ( MonadCatch m
                  , MonadResource m
@@ -921,7 +894,6 @@ deleteGateway :: ( MonadCatch m
                  , MonadReader Env m
                  )
     => Text -- ^ 'dgGatewayARN'
-    -> State DeleteGateway a
     -> m DeleteGatewayResponse
 deleteGateway p1 s =
     send $ (mkDeleteGateway p1) &~ s
@@ -931,7 +903,6 @@ deleteGatewayCatch :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'dgGatewayARN'
-    -> State DeleteGateway a
     -> m (Either ServiceEr DeleteGatewayResponse)
 deleteGatewayCatch p1 s =
     sendCatch $ (mkDeleteGateway p1) &~ s
@@ -959,7 +930,7 @@ deleteGatewayCatch p1 s =
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB"
 -- }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.DeleteSnapshotSchedule'
 
 deleteSnapshotSchedule :: ( MonadCatch m
                           , MonadResource m
@@ -967,7 +938,6 @@ deleteSnapshotSchedule :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'dssVolumeARN'
-    -> State DeleteSnapshotSchedule a
     -> m DeleteSnapshotScheduleResponse
 deleteSnapshotSchedule p1 s =
     send $ (mkDeleteSnapshotSchedule p1) &~ s
@@ -977,13 +947,12 @@ deleteSnapshotScheduleCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'dssVolumeARN'
-    -> State DeleteSnapshotSchedule a
     -> m (Either ServiceEr DeleteSnapshotScheduleResponse)
 deleteSnapshotScheduleCatch p1 s =
     sendCatch $ (mkDeleteSnapshotSchedule p1) &~ s
 
 -- $DeleteTape
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.DeleteTape'
 
 deleteTape :: ( MonadCatch m
               , MonadResource m
@@ -992,7 +961,6 @@ deleteTape :: ( MonadCatch m
               )
     => Text -- ^ 'dtGatewayARN'
     -> Text -- ^ 'dtTapeARN'
-    -> State DeleteTape a
     -> m DeleteTapeResponse
 deleteTape p1 p2 s =
     send $ (mkDeleteTape p1 p2) &~ s
@@ -1003,13 +971,12 @@ deleteTapeCatch :: ( MonadCatch m
                    )
     => Text -- ^ 'dtGatewayARN'
     -> Text -- ^ 'dtTapeARN'
-    -> State DeleteTape a
     -> m (Either ServiceEr DeleteTapeResponse)
 deleteTapeCatch p1 p2 s =
     sendCatch $ (mkDeleteTape p1 p2) &~ s
 
 -- $DeleteTapeArchive
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.DeleteTapeArchive'
 
 deleteTapeArchive :: ( MonadCatch m
                      , MonadResource m
@@ -1017,7 +984,6 @@ deleteTapeArchive :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'dtaTapeARN'
-    -> State DeleteTapeArchive a
     -> m DeleteTapeArchiveResponse
 deleteTapeArchive p1 s =
     send $ (mkDeleteTapeArchive p1) &~ s
@@ -1027,7 +993,6 @@ deleteTapeArchiveCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'dtaTapeARN'
-    -> State DeleteTapeArchive a
     -> m (Either ServiceEr DeleteTapeArchiveResponse)
 deleteTapeArchiveCatch p1 s =
     sendCatch $ (mkDeleteTapeArchive p1) &~ s
@@ -1058,7 +1023,7 @@ deleteTapeArchiveCatch p1 s =
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB"
 -- }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.DeleteVolume'
 
 deleteVolume :: ( MonadCatch m
                 , MonadResource m
@@ -1066,7 +1031,6 @@ deleteVolume :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => Text -- ^ 'dvVolumeARN'
-    -> State DeleteVolume a
     -> m DeleteVolumeResponse
 deleteVolume p1 s =
     send $ (mkDeleteVolume p1) &~ s
@@ -1076,7 +1040,6 @@ deleteVolumeCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'dvVolumeARN'
-    -> State DeleteVolume a
     -> m (Either ServiceEr DeleteVolumeResponse)
 deleteVolumeCatch p1 s =
     sendCatch $ (mkDeleteVolume p1) &~ s
@@ -1104,7 +1067,7 @@ deleteVolumeCatch p1 s =
 -- "AverageUploadRateLimitInBitsPerSec": 102400,
 -- "AverageDownloadRateLimitInBitsPerSec": 51200 }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.DescribeBandwidthRateLimit'
 
 describeBandwidthRateLimit :: ( MonadCatch m
                               , MonadResource m
@@ -1112,7 +1075,6 @@ describeBandwidthRateLimit :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'dbrl1GatewayARN'
-    -> State DescribeBandwidthRateLimit a
     -> m DescribeBandwidthRateLimitResponse
 describeBandwidthRateLimit p1 s =
     send $ (mkDescribeBandwidthRateLimit p1) &~ s
@@ -1122,7 +1084,6 @@ describeBandwidthRateLimitCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => Text -- ^ 'dbrl1GatewayARN'
-    -> State DescribeBandwidthRateLimit a
     -> m (Either ServiceEr DescribeBandwidthRateLimitResponse)
 describeBandwidthRateLimitCatch p1 s =
     sendCatch $ (mkDescribeBandwidthRateLimit p1) &~ s
@@ -1150,7 +1111,7 @@ describeBandwidthRateLimitCatch p1 s =
 -- "pci-0000:04:00.0-scsi-0:1:0:0" ], "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.DescribeCache'
 
 describeCache :: ( MonadCatch m
                  , MonadResource m
@@ -1158,7 +1119,6 @@ describeCache :: ( MonadCatch m
                  , MonadReader Env m
                  )
     => Text -- ^ 'dcGatewayARN'
-    -> State DescribeCache a
     -> m DescribeCacheResponse
 describeCache p1 s =
     send $ (mkDescribeCache p1) &~ s
@@ -1168,7 +1128,6 @@ describeCacheCatch :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'dcGatewayARN'
-    -> State DescribeCache a
     -> m (Either ServiceEr DescribeCacheResponse)
 describeCacheCatch p1 s =
     sendCatch $ (mkDescribeCache p1) &~ s
@@ -1201,7 +1160,7 @@ describeCacheCatch p1 s =
 -- "vol-1122AABB", "VolumeSizeInBytes": 1099511627776, "VolumeStatus":
 -- "AVAILABLE", "VolumeType": "CACHED iSCSI" } ] }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.DescribeCachediSCSIVolumes'
 
 describeCachediSCSIVolumes :: ( MonadCatch m
                               , MonadResource m
@@ -1209,7 +1168,6 @@ describeCachediSCSIVolumes :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => [Text] -- ^ 'dcscsivVolumeARNs'
-    -> State DescribeCachediSCSIVolumes a
     -> m DescribeCachediSCSIVolumesResponse
 describeCachediSCSIVolumes p1 s =
     send $ (mkDescribeCachediSCSIVolumes p1) &~ s
@@ -1219,7 +1177,6 @@ describeCachediSCSIVolumesCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => [Text] -- ^ 'dcscsivVolumeARNs'
-    -> State DescribeCachediSCSIVolumes a
     -> m (Either ServiceEr DescribeCachediSCSIVolumesResponse)
 describeCachediSCSIVolumesCatch p1 s =
     sendCatch $ (mkDescribeCachediSCSIVolumes p1) &~ s
@@ -1243,7 +1200,7 @@ describeCachediSCSIVolumesCatch p1 s =
 -- "iqn.1991-05.com.microsoft:computername.domain.example.com",
 -- "SecretToAuthenticateTarget": "222222222222" } }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.DescribeChapCredentials'
 
 describeChapCredentials :: ( MonadCatch m
                            , MonadResource m
@@ -1251,7 +1208,6 @@ describeChapCredentials :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'dcc1TargetARN'
-    -> State DescribeChapCredentials a
     -> m DescribeChapCredentialsResponse
 describeChapCredentials p1 s =
     send $ (mkDescribeChapCredentials p1) &~ s
@@ -1261,7 +1217,6 @@ describeChapCredentialsCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'dcc1TargetARN'
-    -> State DescribeChapCredentials a
     -> m (Either ServiceEr DescribeChapCredentialsResponse)
 describeChapCredentialsCatch p1 s =
     sendCatch $ (mkDescribeChapCredentials p1) &~ s
@@ -1286,7 +1241,7 @@ describeChapCredentialsCatch p1 s =
 -- "10.35.69.216"} ], "GatewayState": "STATE_RUNNING", "GatewayTimezone":
 -- "GMT-8:00" }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.DescribeGatewayInformation'
 
 describeGatewayInformation :: ( MonadCatch m
                               , MonadResource m
@@ -1294,7 +1249,6 @@ describeGatewayInformation :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'dgiGatewayARN'
-    -> State DescribeGatewayInformation a
     -> m DescribeGatewayInformationResponse
 describeGatewayInformation p1 s =
     send $ (mkDescribeGatewayInformation p1) &~ s
@@ -1304,7 +1258,6 @@ describeGatewayInformationCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => Text -- ^ 'dgiGatewayARN'
-    -> State DescribeGatewayInformation a
     -> m (Either ServiceEr DescribeGatewayInformationResponse)
 describeGatewayInformationCatch p1 s =
     sendCatch $ (mkDescribeGatewayInformation p1) &~ s
@@ -1327,7 +1280,7 @@ describeGatewayInformationCatch p1 s =
 -- "HourOfDay": 15, "MinuteOfHour": 35, "DayOfWeek": 2, "Timezone": "GMT+7:00"
 -- }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.DescribeMaintenanceStartTime'
 
 describeMaintenanceStartTime :: ( MonadCatch m
                                 , MonadResource m
@@ -1335,7 +1288,6 @@ describeMaintenanceStartTime :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'dmstGatewayARN'
-    -> State DescribeMaintenanceStartTime a
     -> m DescribeMaintenanceStartTimeResponse
 describeMaintenanceStartTime p1 s =
     send $ (mkDescribeMaintenanceStartTime p1) &~ s
@@ -1345,7 +1297,6 @@ describeMaintenanceStartTimeCatch :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => Text -- ^ 'dmstGatewayARN'
-    -> State DescribeMaintenanceStartTime a
     -> m (Either ServiceEr DescribeMaintenanceStartTimeResponse)
 describeMaintenanceStartTimeCatch p1 s =
     sendCatch $ (mkDescribeMaintenanceStartTime p1) &~ s
@@ -1369,7 +1320,7 @@ describeMaintenanceStartTimeCatch p1 s =
 -- "StartAt": 6, "RecurrenceInHours": 24, "Description":
 -- "sgw-AABB1122:vol-AABB1122:Schedule", "Timezone": "GMT+7:00" }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.DescribeSnapshotSchedule'
 
 describeSnapshotSchedule :: ( MonadCatch m
                             , MonadResource m
@@ -1377,7 +1328,6 @@ describeSnapshotSchedule :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'dss1VolumeARN'
-    -> State DescribeSnapshotSchedule a
     -> m DescribeSnapshotScheduleResponse
 describeSnapshotSchedule p1 s =
     send $ (mkDescribeSnapshotSchedule p1) &~ s
@@ -1387,7 +1337,6 @@ describeSnapshotScheduleCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'dss1VolumeARN'
-    -> State DescribeSnapshotSchedule a
     -> m (Either ServiceEr DescribeSnapshotScheduleResponse)
 describeSnapshotScheduleCatch p1 s =
     sendCatch $ (mkDescribeSnapshotSchedule p1) &~ s
@@ -1417,7 +1366,7 @@ describeSnapshotScheduleCatch p1 s =
 -- "VolumeProgress": 23.7, "VolumeSizeInBytes": 1099511627776, "VolumeStatus":
 -- "BOOTSTRAPPING" } ] }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.DescribeStorediSCSIVolumes'
 
 describeStorediSCSIVolumes :: ( MonadCatch m
                               , MonadResource m
@@ -1425,7 +1374,6 @@ describeStorediSCSIVolumes :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => [Text] -- ^ 'dsscsivVolumeARNs'
-    -> State DescribeStorediSCSIVolumes a
     -> m DescribeStorediSCSIVolumesResponse
 describeStorediSCSIVolumes p1 s =
     send $ (mkDescribeStorediSCSIVolumes p1) &~ s
@@ -1435,13 +1383,12 @@ describeStorediSCSIVolumesCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => [Text] -- ^ 'dsscsivVolumeARNs'
-    -> State DescribeStorediSCSIVolumes a
     -> m (Either ServiceEr DescribeStorediSCSIVolumesResponse)
 describeStorediSCSIVolumesCatch p1 s =
     sendCatch $ (mkDescribeStorediSCSIVolumes p1) &~ s
 
 -- $DescribeTapeArchives
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.DescribeTapeArchives'
 
 describeTapeArchives :: ( MonadCatch m
                         , MonadResource m
@@ -1463,7 +1410,7 @@ describeTapeArchivesCatch s =
     paginateCatch (mkDescribeTapeArchives &~ s)
 
 -- $DescribeTapeRecoveryPoints
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.DescribeTapeRecoveryPoints'
 
 describeTapeRecoveryPoints :: ( MonadCatch m
                               , MonadResource m
@@ -1471,7 +1418,6 @@ describeTapeRecoveryPoints :: ( MonadCatch m
                               , MonadReader Env (ResumableSource m)
                               )
     => Text -- ^ 'dtrpGatewayARN'
-    -> State DescribeTapeRecoveryPoints a
     -> ResumableSource m DescribeTapeRecoveryPointsResponse
 describeTapeRecoveryPoints p1 s =
     paginate $ (mkDescribeTapeRecoveryPoints p1) &~ s
@@ -1481,13 +1427,12 @@ describeTapeRecoveryPointsCatch :: ( MonadCatch m
                                    , MonadReader Env (ResumableSource m)
                                    )
     => Text -- ^ 'dtrpGatewayARN'
-    -> State DescribeTapeRecoveryPoints a
     -> ResumableSource m (Either ServiceEr DescribeTapeRecoveryPointsResponse)
 describeTapeRecoveryPointsCatch p1 s =
     paginateCatch $ (mkDescribeTapeRecoveryPoints p1) &~ s
 
 -- $DescribeTapes
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.DescribeTapes'
 
 describeTapes :: ( MonadCatch m
                  , MonadResource m
@@ -1495,7 +1440,6 @@ describeTapes :: ( MonadCatch m
                  , MonadReader Env (ResumableSource m)
                  )
     => Text -- ^ 'dt1GatewayARN'
-    -> State DescribeTapes a
     -> ResumableSource m DescribeTapesResponse
 describeTapes p1 s =
     paginate $ (mkDescribeTapes p1) &~ s
@@ -1505,7 +1449,6 @@ describeTapesCatch :: ( MonadCatch m
                       , MonadReader Env (ResumableSource m)
                       )
     => Text -- ^ 'dt1GatewayARN'
-    -> State DescribeTapes a
     -> ResumableSource m (Either ServiceEr DescribeTapesResponse)
 describeTapesCatch p1 s =
     paginateCatch $ (mkDescribeTapes p1) &~ s
@@ -1534,7 +1477,7 @@ describeTapesCatch p1 s =
 -- "UploadBufferAllocatedInBytes": 161061273600, "UploadBufferUsedInBytes": 0
 -- }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.DescribeUploadBuffer'
 
 describeUploadBuffer :: ( MonadCatch m
                         , MonadResource m
@@ -1542,7 +1485,6 @@ describeUploadBuffer :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'dubGatewayARN'
-    -> State DescribeUploadBuffer a
     -> m DescribeUploadBufferResponse
 describeUploadBuffer p1 s =
     send $ (mkDescribeUploadBuffer p1) &~ s
@@ -1552,13 +1494,12 @@ describeUploadBufferCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'dubGatewayARN'
-    -> State DescribeUploadBuffer a
     -> m (Either ServiceEr DescribeUploadBufferResponse)
 describeUploadBufferCatch p1 s =
     sendCatch $ (mkDescribeUploadBuffer p1) &~ s
 
 -- $DescribeVTLDevices
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.DescribeVTLDevices'
 
 describeVTLDevices :: ( MonadCatch m
                       , MonadResource m
@@ -1566,7 +1507,6 @@ describeVTLDevices :: ( MonadCatch m
                       , MonadReader Env (ResumableSource m)
                       )
     => Text -- ^ 'dvtldGatewayARN'
-    -> State DescribeVTLDevices a
     -> ResumableSource m DescribeVTLDevicesResponse
 describeVTLDevices p1 s =
     paginate $ (mkDescribeVTLDevices p1) &~ s
@@ -1576,7 +1516,6 @@ describeVTLDevicesCatch :: ( MonadCatch m
                            , MonadReader Env (ResumableSource m)
                            )
     => Text -- ^ 'dvtldGatewayARN'
-    -> State DescribeVTLDevices a
     -> ResumableSource m (Either ServiceEr DescribeVTLDevicesResponse)
 describeVTLDevicesCatch p1 s =
     paginateCatch $ (mkDescribeVTLDevices p1) &~ s
@@ -1604,7 +1543,7 @@ describeVTLDevicesCatch p1 s =
 -- "WorkingStorageAllocatedInBytes": 2199023255552,
 -- "WorkingStorageUsedInBytes": 789207040 }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.DescribeWorkingStorage'
 
 describeWorkingStorage :: ( MonadCatch m
                           , MonadResource m
@@ -1612,7 +1551,6 @@ describeWorkingStorage :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'dwsGatewayARN'
-    -> State DescribeWorkingStorage a
     -> m DescribeWorkingStorageResponse
 describeWorkingStorage p1 s =
     send $ (mkDescribeWorkingStorage p1) &~ s
@@ -1622,13 +1560,12 @@ describeWorkingStorageCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'dwsGatewayARN'
-    -> State DescribeWorkingStorage a
     -> m (Either ServiceEr DescribeWorkingStorageResponse)
 describeWorkingStorageCatch p1 s =
     sendCatch $ (mkDescribeWorkingStorage p1) &~ s
 
 -- $DisableGateway
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.DisableGateway'
 
 disableGateway :: ( MonadCatch m
                   , MonadResource m
@@ -1636,7 +1573,6 @@ disableGateway :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'dg1GatewayARN'
-    -> State DisableGateway a
     -> m DisableGatewayResponse
 disableGateway p1 s =
     send $ (mkDisableGateway p1) &~ s
@@ -1646,7 +1582,6 @@ disableGatewayCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'dg1GatewayARN'
-    -> State DisableGateway a
     -> m (Either ServiceEr DisableGatewayResponse)
 disableGatewayCatch p1 s =
     sendCatch $ (mkDisableGateway p1) &~ s
@@ -1675,7 +1610,7 @@ disableGatewayCatch p1 s =
 -- "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway2" } ] }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.ListGateways'
 
 listGateways :: ( MonadCatch m
                 , MonadResource m
@@ -1719,7 +1654,7 @@ listGatewaysCatch s =
 -- "/dev/sdb", "DiskSizeInBytes": 1099511627776 } ], "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.ListLocalDisks'
 
 listLocalDisks :: ( MonadCatch m
                   , MonadResource m
@@ -1727,7 +1662,6 @@ listLocalDisks :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'lldGatewayARN'
-    -> State ListLocalDisks a
     -> m ListLocalDisksResponse
 listLocalDisks p1 s =
     send $ (mkListLocalDisks p1) &~ s
@@ -1737,7 +1671,6 @@ listLocalDisksCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'lldGatewayARN'
-    -> State ListLocalDisks a
     -> m (Either ServiceEr ListLocalDisksResponse)
 listLocalDisksCatch p1 s =
     sendCatch $ (mkListLocalDisks p1) &~ s
@@ -1769,7 +1702,7 @@ listLocalDisksCatch p1 s =
 -- "VolumeRecoveryPointTime": "2012-09-04T21:08:44.627Z", "VolumeSizeInBytes":
 -- 536870912000, "VolumeUsageInBytes": 6694048 } ] }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.ListVolumeRecoveryPoints'
 
 listVolumeRecoveryPoints :: ( MonadCatch m
                             , MonadResource m
@@ -1777,7 +1710,6 @@ listVolumeRecoveryPoints :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'lvrpGatewayARN'
-    -> State ListVolumeRecoveryPoints a
     -> m ListVolumeRecoveryPointsResponse
 listVolumeRecoveryPoints p1 s =
     send $ (mkListVolumeRecoveryPoints p1) &~ s
@@ -1787,7 +1719,6 @@ listVolumeRecoveryPointsCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'lvrpGatewayARN'
-    -> State ListVolumeRecoveryPoints a
     -> m (Either ServiceEr ListVolumeRecoveryPointsResponse)
 listVolumeRecoveryPointsCatch p1 s =
     sendCatch $ (mkListVolumeRecoveryPoints p1) &~ s
@@ -1821,7 +1752,7 @@ listVolumeRecoveryPointsCatch p1 s =
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-3344CCDD",
 -- "VolumeType": "STORED" }, ] }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.ListVolumes'
 
 listVolumes :: ( MonadCatch m
                , MonadResource m
@@ -1829,7 +1760,6 @@ listVolumes :: ( MonadCatch m
                , MonadReader Env (ResumableSource m)
                )
     => Text -- ^ 'lvGatewayARN'
-    -> State ListVolumes a
     -> ResumableSource m ListVolumesResponse
 listVolumes p1 s =
     paginate $ (mkListVolumes p1) &~ s
@@ -1839,13 +1769,12 @@ listVolumesCatch :: ( MonadCatch m
                     , MonadReader Env (ResumableSource m)
                     )
     => Text -- ^ 'lvGatewayARN'
-    -> State ListVolumes a
     -> ResumableSource m (Either ServiceEr ListVolumesResponse)
 listVolumesCatch p1 s =
     paginateCatch $ (mkListVolumes p1) &~ s
 
 -- $RetrieveTapeArchive
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.RetrieveTapeArchive'
 
 retrieveTapeArchive :: ( MonadCatch m
                        , MonadResource m
@@ -1854,7 +1783,6 @@ retrieveTapeArchive :: ( MonadCatch m
                        )
     => Text -- ^ 'rtaTapeARN'
     -> Text -- ^ 'rtaGatewayARN'
-    -> State RetrieveTapeArchive a
     -> m RetrieveTapeArchiveResponse
 retrieveTapeArchive p1 p2 s =
     send $ (mkRetrieveTapeArchive p1 p2) &~ s
@@ -1865,13 +1793,12 @@ retrieveTapeArchiveCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'rtaTapeARN'
     -> Text -- ^ 'rtaGatewayARN'
-    -> State RetrieveTapeArchive a
     -> m (Either ServiceEr RetrieveTapeArchiveResponse)
 retrieveTapeArchiveCatch p1 p2 s =
     sendCatch $ (mkRetrieveTapeArchive p1 p2) &~ s
 
 -- $RetrieveTapeRecoveryPoint
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint'
 
 retrieveTapeRecoveryPoint :: ( MonadCatch m
                              , MonadResource m
@@ -1880,7 +1807,6 @@ retrieveTapeRecoveryPoint :: ( MonadCatch m
                              )
     => Text -- ^ 'rtrpTapeARN'
     -> Text -- ^ 'rtrpGatewayARN'
-    -> State RetrieveTapeRecoveryPoint a
     -> m RetrieveTapeRecoveryPointResponse
 retrieveTapeRecoveryPoint p1 p2 s =
     send $ (mkRetrieveTapeRecoveryPoint p1 p2) &~ s
@@ -1891,7 +1817,6 @@ retrieveTapeRecoveryPointCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'rtrpTapeARN'
     -> Text -- ^ 'rtrpGatewayARN'
-    -> State RetrieveTapeRecoveryPoint a
     -> m (Either ServiceEr RetrieveTapeRecoveryPointResponse)
 retrieveTapeRecoveryPointCatch p1 p2 s =
     sendCatch $ (mkRetrieveTapeRecoveryPoint p1 p2) &~ s
@@ -1925,7 +1850,7 @@ retrieveTapeRecoveryPointCatch p1 p2 s =
 -- "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.ShutdownGateway'
 
 shutdownGateway :: ( MonadCatch m
                    , MonadResource m
@@ -1933,7 +1858,6 @@ shutdownGateway :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'sgGatewayARN'
-    -> State ShutdownGateway a
     -> m ShutdownGatewayResponse
 shutdownGateway p1 s =
     send $ (mkShutdownGateway p1) &~ s
@@ -1943,7 +1867,6 @@ shutdownGatewayCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'sgGatewayARN'
-    -> State ShutdownGateway a
     -> m (Either ServiceEr ShutdownGatewayResponse)
 shutdownGatewayCatch p1 s =
     sendCatch $ (mkShutdownGateway p1) &~ s
@@ -1971,7 +1894,7 @@ shutdownGatewayCatch p1 s =
 -- "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.StartGateway'
 
 startGateway :: ( MonadCatch m
                 , MonadResource m
@@ -1979,7 +1902,6 @@ startGateway :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => Text -- ^ 'sg1GatewayARN'
-    -> State StartGateway a
     -> m StartGatewayResponse
 startGateway p1 s =
     send $ (mkStartGateway p1) &~ s
@@ -1989,7 +1911,6 @@ startGatewayCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'sg1GatewayARN'
-    -> State StartGateway a
     -> m (Either ServiceEr StartGatewayResponse)
 startGatewayCatch p1 s =
     sendCatch $ (mkStartGateway p1) &~ s
@@ -2017,7 +1938,7 @@ startGatewayCatch p1 s =
 -- application/x-amz-json-1.1 Content-length: 80 { "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.UpdateBandwidthRateLimit'
 
 updateBandwidthRateLimit :: ( MonadCatch m
                             , MonadResource m
@@ -2025,7 +1946,6 @@ updateBandwidthRateLimit :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'ubrlGatewayARN'
-    -> State UpdateBandwidthRateLimit a
     -> m UpdateBandwidthRateLimitResponse
 updateBandwidthRateLimit p1 s =
     send $ (mkUpdateBandwidthRateLimit p1) &~ s
@@ -2035,7 +1955,6 @@ updateBandwidthRateLimitCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'ubrlGatewayARN'
-    -> State UpdateBandwidthRateLimit a
     -> m (Either ServiceEr UpdateBandwidthRateLimitResponse)
 updateBandwidthRateLimitCatch p1 s =
     sendCatch $ (mkUpdateBandwidthRateLimit p1) &~ s
@@ -2063,7 +1982,7 @@ updateBandwidthRateLimitCatch p1 s =
 -- "InitiatorName":
 -- "iqn.1991-05.com.microsoft:computername.domain.example.com" }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.UpdateChapCredentials'
 
 updateChapCredentials :: ( MonadCatch m
                          , MonadResource m
@@ -2073,7 +1992,6 @@ updateChapCredentials :: ( MonadCatch m
     => Text -- ^ 'uccTargetARN'
     -> Text -- ^ 'uccSecretToAuthenticateInitiator'
     -> Text -- ^ 'uccInitiatorName'
-    -> State UpdateChapCredentials a
     -> m UpdateChapCredentialsResponse
 updateChapCredentials p1 p2 p3 s =
     send $ (mkUpdateChapCredentials p1 p2 p3) &~ s
@@ -2085,7 +2003,6 @@ updateChapCredentialsCatch :: ( MonadCatch m
     => Text -- ^ 'uccTargetARN'
     -> Text -- ^ 'uccSecretToAuthenticateInitiator'
     -> Text -- ^ 'uccInitiatorName'
-    -> State UpdateChapCredentials a
     -> m (Either ServiceEr UpdateChapCredentialsResponse)
 updateChapCredentialsCatch p1 p2 p3 s =
     sendCatch $ (mkUpdateChapCredentials p1 p2 p3) &~ s
@@ -2107,7 +2024,7 @@ updateChapCredentialsCatch p1 p2 p3 s =
 -- "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway2" }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.UpdateGatewayInformation'
 
 updateGatewayInformation :: ( MonadCatch m
                             , MonadResource m
@@ -2115,7 +2032,6 @@ updateGatewayInformation :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'ugiGatewayARN'
-    -> State UpdateGatewayInformation a
     -> m UpdateGatewayInformationResponse
 updateGatewayInformation p1 s =
     send $ (mkUpdateGatewayInformation p1) &~ s
@@ -2125,7 +2041,6 @@ updateGatewayInformationCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'ugiGatewayARN'
-    -> State UpdateGatewayInformation a
     -> m (Either ServiceEr UpdateGatewayInformationResponse)
 updateGatewayInformationCatch p1 s =
     sendCatch $ (mkUpdateGatewayInformation p1) &~ s
@@ -2157,7 +2072,7 @@ updateGatewayInformationCatch p1 s =
 -- "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.UpdateGatewaySoftwareNow'
 
 updateGatewaySoftwareNow :: ( MonadCatch m
                             , MonadResource m
@@ -2165,7 +2080,6 @@ updateGatewaySoftwareNow :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'ugsnGatewayARN'
-    -> State UpdateGatewaySoftwareNow a
     -> m UpdateGatewaySoftwareNowResponse
 updateGatewaySoftwareNow p1 s =
     send $ (mkUpdateGatewaySoftwareNow p1) &~ s
@@ -2175,7 +2089,6 @@ updateGatewaySoftwareNowCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'ugsnGatewayARN'
-    -> State UpdateGatewaySoftwareNow a
     -> m (Either ServiceEr UpdateGatewaySoftwareNowResponse)
 updateGatewaySoftwareNowCatch p1 s =
     sendCatch $ (mkUpdateGatewaySoftwareNow p1) &~ s
@@ -2197,7 +2110,7 @@ updateGatewaySoftwareNowCatch p1 s =
 -- application/x-amz-json-1.1 Content-length: 80 { "GatewayARN":
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway" }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.UpdateMaintenanceStartTime'
 
 updateMaintenanceStartTime :: ( MonadCatch m
                               , MonadResource m
@@ -2208,7 +2121,6 @@ updateMaintenanceStartTime :: ( MonadCatch m
     -> Integer -- ^ 'umstHourOfDay'
     -> Integer -- ^ 'umstMinuteOfHour'
     -> Integer -- ^ 'umstDayOfWeek'
-    -> State UpdateMaintenanceStartTime a
     -> m UpdateMaintenanceStartTimeResponse
 updateMaintenanceStartTime p1 p2 p3 p4 s =
     send $ (mkUpdateMaintenanceStartTime p1 p2 p3 p4) &~ s
@@ -2221,7 +2133,6 @@ updateMaintenanceStartTimeCatch :: ( MonadCatch m
     -> Integer -- ^ 'umstHourOfDay'
     -> Integer -- ^ 'umstMinuteOfHour'
     -> Integer -- ^ 'umstDayOfWeek'
-    -> State UpdateMaintenanceStartTime a
     -> m (Either ServiceEr UpdateMaintenanceStartTimeResponse)
 updateMaintenanceStartTimeCatch p1 p2 p3 p4 s =
     sendCatch $ (mkUpdateMaintenanceStartTime p1 p2 p3 p4) &~ s
@@ -2249,7 +2160,7 @@ updateMaintenanceStartTimeCatch p1 p2 p3 p4 s =
 -- "arn:aws:storagegateway:us-east-1:111122223333:gateway/mygateway/volume/vol-1122AABB"
 -- }.
 --
--- See: 'Network.AWS.StorageGateway'
+-- See: 'Network.AWS.StorageGateway.UpdateSnapshotSchedule'
 
 updateSnapshotSchedule :: ( MonadCatch m
                           , MonadResource m
@@ -2259,7 +2170,6 @@ updateSnapshotSchedule :: ( MonadCatch m
     => Text -- ^ 'ussVolumeARN'
     -> Integer -- ^ 'ussStartAt'
     -> Integer -- ^ 'ussRecurrenceInHours'
-    -> State UpdateSnapshotSchedule a
     -> m UpdateSnapshotScheduleResponse
 updateSnapshotSchedule p1 p2 p3 s =
     send $ (mkUpdateSnapshotSchedule p1 p2 p3) &~ s
@@ -2271,7 +2181,6 @@ updateSnapshotScheduleCatch :: ( MonadCatch m
     => Text -- ^ 'ussVolumeARN'
     -> Integer -- ^ 'ussStartAt'
     -> Integer -- ^ 'ussRecurrenceInHours'
-    -> State UpdateSnapshotSchedule a
     -> m (Either ServiceEr UpdateSnapshotScheduleResponse)
 updateSnapshotScheduleCatch p1 p2 p3 s =
     sendCatch $ (mkUpdateSnapshotSchedule p1 p2 p3) &~ s

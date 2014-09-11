@@ -12,14 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Amazon Redshift is a fast, fully managed, petabyte-scale data warehouse
--- service that makes it simple and cost-effective to efficiently analyze all
--- your data using your existing business intelligence tools. You can start
--- small for just $0.25 per hour with no commitments or upfront costs and
--- scale to a petabyte or more for $1,000 per terabyte per year, less than a
--- tenth of most other data warehousing solutions.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -41,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.Redshift.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.Redshift.Monadic
@@ -353,7 +350,7 @@ type ServiceEr = Er Redshift
 -- authorized my security group securitygroup1
 -- 8c7cd4c8-6501-11e2-a8da-655adc216806.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress'
 
 authorizeClusterSecurityGroupIngress :: ( MonadCatch m
                                         , MonadResource m
@@ -361,7 +358,6 @@ authorizeClusterSecurityGroupIngress :: ( MonadCatch m
                                         , MonadReader Env m
                                         )
     => Text -- ^ 'acsgiClusterSecurityGroupName'
-    -> State AuthorizeClusterSecurityGroupIngress a
     -> m AuthorizeClusterSecurityGroupIngressResponse
 authorizeClusterSecurityGroupIngress p1 s =
     send $ (mkAuthorizeClusterSecurityGroupIngress p1) &~ s
@@ -371,7 +367,6 @@ authorizeClusterSecurityGroupIngressCatch :: ( MonadCatch m
                                              , MonadReader Env m
                                              )
     => Text -- ^ 'acsgiClusterSecurityGroupName'
-    -> State AuthorizeClusterSecurityGroupIngress a
     -> m (Either ServiceEr AuthorizeClusterSecurityGroupIngressResponse)
 authorizeClusterSecurityGroupIngressCatch p1 s =
     sendCatch $ (mkAuthorizeClusterSecurityGroupIngress p1) &~ s
@@ -381,7 +376,7 @@ authorizeClusterSecurityGroupIngressCatch p1 s =
 -- snapshot. For more information about working with snapshots, go to Amazon
 -- Redshift Snapshots in the Amazon Redshift Management Guide.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.AuthorizeSnapshotAccess'
 
 authorizeSnapshotAccess :: ( MonadCatch m
                            , MonadResource m
@@ -390,7 +385,6 @@ authorizeSnapshotAccess :: ( MonadCatch m
                            )
     => Text -- ^ 'asaSnapshotIdentifier'
     -> Text -- ^ 'asaAccountWithRestoreAccess'
-    -> State AuthorizeSnapshotAccess a
     -> m AuthorizeSnapshotAccessResponse
 authorizeSnapshotAccess p1 p3 s =
     send $ (mkAuthorizeSnapshotAccess p1 p3) &~ s
@@ -401,7 +395,6 @@ authorizeSnapshotAccessCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'asaSnapshotIdentifier'
     -> Text -- ^ 'asaAccountWithRestoreAccess'
-    -> State AuthorizeSnapshotAccess a
     -> m (Either ServiceEr AuthorizeSnapshotAccessResponse)
 authorizeSnapshotAccessCatch p1 p3 s =
     sendCatch $ (mkAuthorizeSnapshotAccess p1 p3) &~ s
@@ -427,7 +420,7 @@ authorizeSnapshotAccessCatch p1 p3 s =
 -- 2013-01-22T19:23:59.368Z us-east-1c dw1.xlarge examplecluster adminuser
 -- aebb56f5-64fe-11e2-88c5-53eb05787dfb.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.CopyClusterSnapshot'
 
 copyClusterSnapshot :: ( MonadCatch m
                        , MonadResource m
@@ -436,7 +429,6 @@ copyClusterSnapshot :: ( MonadCatch m
                        )
     => Text -- ^ 'ccsSourceSnapshotIdentifier'
     -> Text -- ^ 'ccsTargetSnapshotIdentifier'
-    -> State CopyClusterSnapshot a
     -> m CopyClusterSnapshotResponse
 copyClusterSnapshot p1 p3 s =
     send $ (mkCopyClusterSnapshot p1 p3) &~ s
@@ -447,7 +439,6 @@ copyClusterSnapshotCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'ccsSourceSnapshotIdentifier'
     -> Text -- ^ 'ccsTargetSnapshotIdentifier'
-    -> State CopyClusterSnapshot a
     -> m (Either ServiceEr CopyClusterSnapshotResponse)
 copyClusterSnapshotCatch p1 p3 s =
     sendCatch $ (mkCopyClusterSnapshot p1 p3) &~ s
@@ -482,7 +473,7 @@ copyClusterSnapshotCatch p1 p3 s =
 -- default.redshift-1.0 vpc-796a5913 dw1.xlarge exampleclusterinvpc true
 -- master fa337bb4-6a4d-11e2-a12a-cb8076a904bd.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.CreateCluster'
 
 createCluster :: ( MonadCatch m
                  , MonadResource m
@@ -493,7 +484,6 @@ createCluster :: ( MonadCatch m
     -> Text -- ^ 'ccNodeType'
     -> Text -- ^ 'ccMasterUsername'
     -> Text -- ^ 'ccMasterUserPassword'
-    -> State CreateCluster a
     -> m CreateClusterResponse
 createCluster p2 p4 p5 p6 s =
     send $ (mkCreateCluster p2 p4 p5 p6) &~ s
@@ -506,7 +496,6 @@ createClusterCatch :: ( MonadCatch m
     -> Text -- ^ 'ccNodeType'
     -> Text -- ^ 'ccMasterUsername'
     -> Text -- ^ 'ccMasterUserPassword'
-    -> State CreateCluster a
     -> m (Either ServiceEr CreateClusterResponse)
 createClusterCatch p2 p4 p5 p6 s =
     sendCatch $ (mkCreateCluster p2 p4 p5 p6) &~ s
@@ -530,7 +519,7 @@ createClusterCatch p2 p4 p5 p6 s =
 -- &x-amz-signedheaders=content-type;host;x-amz-date redshift-1.0 description
 -- my parameter group parametergroup1 6d6df847-64f3-11e2-bea9-49e0ce183f07.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.CreateClusterParameterGroup'
 
 createClusterParameterGroup :: ( MonadCatch m
                                , MonadResource m
@@ -540,7 +529,6 @@ createClusterParameterGroup :: ( MonadCatch m
     => Text -- ^ 'ccpgParameterGroupName'
     -> Text -- ^ 'ccpgParameterGroupFamily'
     -> Text -- ^ 'ccpgDescription'
-    -> State CreateClusterParameterGroup a
     -> m CreateClusterParameterGroupResponse
 createClusterParameterGroup p1 p2 p3 s =
     send $ (mkCreateClusterParameterGroup p1 p2 p3) &~ s
@@ -552,7 +540,6 @@ createClusterParameterGroupCatch :: ( MonadCatch m
     => Text -- ^ 'ccpgParameterGroupName'
     -> Text -- ^ 'ccpgParameterGroupFamily'
     -> Text -- ^ 'ccpgDescription'
-    -> State CreateClusterParameterGroup a
     -> m (Either ServiceEr CreateClusterParameterGroupResponse)
 createClusterParameterGroupCatch p1 p2 p3 s =
     sendCatch $ (mkCreateClusterParameterGroup p1 p2 p3) &~ s
@@ -570,7 +557,7 @@ createClusterParameterGroupCatch p1 p2 p3 s =
 -- &x-amz-signedheaders=content-type;host;x-amz-date my security group
 -- securitygroup1 f9ee270f-64f7-11e2-a8da-655adc216806.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.CreateClusterSecurityGroup'
 
 createClusterSecurityGroup :: ( MonadCatch m
                               , MonadResource m
@@ -579,7 +566,6 @@ createClusterSecurityGroup :: ( MonadCatch m
                               )
     => Text -- ^ 'ccsgClusterSecurityGroupName'
     -> Text -- ^ 'ccsgDescription'
-    -> State CreateClusterSecurityGroup a
     -> m CreateClusterSecurityGroupResponse
 createClusterSecurityGroup p1 p2 s =
     send $ (mkCreateClusterSecurityGroup p1 p2) &~ s
@@ -590,7 +576,6 @@ createClusterSecurityGroupCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'ccsgClusterSecurityGroupName'
     -> Text -- ^ 'ccsgDescription'
-    -> State CreateClusterSecurityGroup a
     -> m (Either ServiceEr CreateClusterSecurityGroupResponse)
 createClusterSecurityGroupCatch p1 p2 s =
     sendCatch $ (mkCreateClusterSecurityGroup p1 p2) &~ s
@@ -609,7 +594,7 @@ createClusterSecurityGroupCatch p1 p2 s =
 -- us-east-1c dw1.xlarge examplecluster adminuser
 -- 65baef14-64f9-11e2-bea9-49e0ce183f07.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.CreateClusterSnapshot'
 
 createClusterSnapshot :: ( MonadCatch m
                          , MonadResource m
@@ -618,7 +603,6 @@ createClusterSnapshot :: ( MonadCatch m
                          )
     => Text -- ^ 'ccs1SnapshotIdentifier'
     -> Text -- ^ 'ccs1ClusterIdentifier'
-    -> State CreateClusterSnapshot a
     -> m CreateClusterSnapshotResponse
 createClusterSnapshot p1 p2 s =
     send $ (mkCreateClusterSnapshot p1 p2) &~ s
@@ -629,7 +613,6 @@ createClusterSnapshotCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'ccs1SnapshotIdentifier'
     -> Text -- ^ 'ccs1ClusterIdentifier'
-    -> State CreateClusterSnapshot a
     -> m (Either ServiceEr CreateClusterSnapshotResponse)
 createClusterSnapshotCatch p1 p2 s =
     sendCatch $ (mkCreateClusterSnapshot p1 p2) &~ s
@@ -650,7 +633,7 @@ createClusterSnapshotCatch p1 p2 s =
 -- group 1 mysubnetgroup1 Complete Active subnet-756a591f us-east-1c
 -- 0a60660f-6a4a-11e2-aad2-71d00c36728e.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.CreateClusterSubnetGroup'
 
 createClusterSubnetGroup :: ( MonadCatch m
                             , MonadResource m
@@ -660,7 +643,6 @@ createClusterSubnetGroup :: ( MonadCatch m
     => Text -- ^ 'ccsg1ClusterSubnetGroupName'
     -> Text -- ^ 'ccsg1Description'
     -> [Text] -- ^ 'ccsg1SubnetIds'
-    -> State CreateClusterSubnetGroup a
     -> m CreateClusterSubnetGroupResponse
 createClusterSubnetGroup p1 p2 p3 s =
     send $ (mkCreateClusterSubnetGroup p1 p2 p3) &~ s
@@ -672,7 +654,6 @@ createClusterSubnetGroupCatch :: ( MonadCatch m
     => Text -- ^ 'ccsg1ClusterSubnetGroupName'
     -> Text -- ^ 'ccsg1Description'
     -> [Text] -- ^ 'ccsg1SubnetIds'
-    -> State CreateClusterSubnetGroup a
     -> m (Either ServiceEr CreateClusterSubnetGroupResponse)
 createClusterSubnetGroupCatch p1 p2 p3 s =
     sendCatch $ (mkCreateClusterSubnetGroup p1 p2 p3) &~ s
@@ -699,7 +680,7 @@ createClusterSubnetGroupCatch p1 p2 p3 s =
 -- generated from all Amazon Redshift sources belonging to your AWS account.
 -- You must specify a source type if you specify a source ID.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.CreateEventSubscription'
 
 createEventSubscription :: ( MonadCatch m
                            , MonadResource m
@@ -708,7 +689,6 @@ createEventSubscription :: ( MonadCatch m
                            )
     => Text -- ^ 'cesSubscriptionName'
     -> Text -- ^ 'cesSnsTopicArn'
-    -> State CreateEventSubscription a
     -> m CreateEventSubscriptionResponse
 createEventSubscription p1 p2 s =
     send $ (mkCreateEventSubscription p1 p2) &~ s
@@ -719,7 +699,6 @@ createEventSubscriptionCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'cesSubscriptionName'
     -> Text -- ^ 'cesSnsTopicArn'
-    -> State CreateEventSubscription a
     -> m (Either ServiceEr CreateEventSubscriptionResponse)
 createEventSubscriptionCatch p1 p2 s =
     sendCatch $ (mkCreateEventSubscription p1 p2) &~ s
@@ -734,7 +713,7 @@ createEventSubscriptionCatch p1 p2 s =
 -- more information, go to Hardware Security Modules in the Amazon Redshift
 -- Management Guide.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.CreateHsmClientCertificate'
 
 createHsmClientCertificate :: ( MonadCatch m
                               , MonadResource m
@@ -742,7 +721,6 @@ createHsmClientCertificate :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'chccHsmClientCertificateIdentifier'
-    -> State CreateHsmClientCertificate a
     -> m CreateHsmClientCertificateResponse
 createHsmClientCertificate p1 s =
     send $ (mkCreateHsmClientCertificate p1) &~ s
@@ -752,7 +730,6 @@ createHsmClientCertificateCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => Text -- ^ 'chccHsmClientCertificateIdentifier'
-    -> State CreateHsmClientCertificate a
     -> m (Either ServiceEr CreateHsmClientCertificateResponse)
 createHsmClientCertificateCatch p1 s =
     sendCatch $ (mkCreateHsmClientCertificate p1) &~ s
@@ -767,7 +744,7 @@ createHsmClientCertificateCatch p1 s =
 -- information, go to Hardware Security Modules in the Amazon Redshift
 -- Management Guide.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.CreateHsmConfiguration'
 
 createHsmConfiguration :: ( MonadCatch m
                           , MonadResource m
@@ -780,7 +757,6 @@ createHsmConfiguration :: ( MonadCatch m
     -> Text -- ^ 'chcHsmPartitionName'
     -> Text -- ^ 'chcHsmPartitionPassword'
     -> Text -- ^ 'chcHsmServerPublicCertificate'
-    -> State CreateHsmConfiguration a
     -> m CreateHsmConfigurationResponse
 createHsmConfiguration p1 p2 p3 p4 p5 p6 s =
     send $ (mkCreateHsmConfiguration p1 p2 p3 p4 p5 p6) &~ s
@@ -795,7 +771,6 @@ createHsmConfigurationCatch :: ( MonadCatch m
     -> Text -- ^ 'chcHsmPartitionName'
     -> Text -- ^ 'chcHsmPartitionPassword'
     -> Text -- ^ 'chcHsmServerPublicCertificate'
-    -> State CreateHsmConfiguration a
     -> m (Either ServiceEr CreateHsmConfigurationResponse)
 createHsmConfigurationCatch p1 p2 p3 p4 p5 p6 s =
     sendCatch $ (mkCreateHsmConfiguration p1 p2 p3 p4 p5 p6) &~ s
@@ -820,7 +795,7 @@ createHsmConfigurationCatch p1 p2 p3 p4 p5 p6 s =
 -- 2013-01-23T00:11:32.804Z active default us-east-1a dw1.xlarge
 -- examplecluster2 true masteruser f2e6b87e-6503-11e2-b343-393adc3f0a21.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DeleteCluster'
 
 deleteCluster :: ( MonadCatch m
                  , MonadResource m
@@ -828,7 +803,6 @@ deleteCluster :: ( MonadCatch m
                  , MonadReader Env m
                  )
     => Text -- ^ 'dcClusterIdentifier'
-    -> State DeleteCluster a
     -> m DeleteClusterResponse
 deleteCluster p1 s =
     send $ (mkDeleteCluster p1) &~ s
@@ -838,7 +812,6 @@ deleteClusterCatch :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'dcClusterIdentifier'
-    -> State DeleteCluster a
     -> m (Either ServiceEr DeleteClusterResponse)
 deleteClusterCatch p1 s =
     sendCatch $ (mkDeleteCluster p1) &~ s
@@ -854,7 +827,7 @@ deleteClusterCatch p1 s =
 -- &x-amz-signedheaders=content-type;host;x-amz-date
 -- 29674ca0-40da-11e2-b679-dba6cf515770.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DeleteClusterParameterGroup'
 
 deleteClusterParameterGroup :: ( MonadCatch m
                                , MonadResource m
@@ -862,7 +835,6 @@ deleteClusterParameterGroup :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'dcpgParameterGroupName'
-    -> State DeleteClusterParameterGroup a
     -> m DeleteClusterParameterGroupResponse
 deleteClusterParameterGroup p1 s =
     send $ (mkDeleteClusterParameterGroup p1) &~ s
@@ -872,7 +844,6 @@ deleteClusterParameterGroupCatch :: ( MonadCatch m
                                     , MonadReader Env m
                                     )
     => Text -- ^ 'dcpgParameterGroupName'
-    -> State DeleteClusterParameterGroup a
     -> m (Either ServiceEr DeleteClusterParameterGroupResponse)
 deleteClusterParameterGroupCatch p1 s =
     sendCatch $ (mkDeleteClusterParameterGroup p1) &~ s
@@ -890,7 +861,7 @@ deleteClusterParameterGroupCatch p1 s =
 -- &x-amz-signedheaders=content-type;host;x-amz-date
 -- e54e05dc-40da-11e2-955f-313c36e9e01d.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DeleteClusterSecurityGroup'
 
 deleteClusterSecurityGroup :: ( MonadCatch m
                               , MonadResource m
@@ -898,7 +869,6 @@ deleteClusterSecurityGroup :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'dcsgClusterSecurityGroupName'
-    -> State DeleteClusterSecurityGroup a
     -> m DeleteClusterSecurityGroupResponse
 deleteClusterSecurityGroup p1 s =
     send $ (mkDeleteClusterSecurityGroup p1) &~ s
@@ -908,7 +878,6 @@ deleteClusterSecurityGroupCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => Text -- ^ 'dcsgClusterSecurityGroupName'
-    -> State DeleteClusterSecurityGroup a
     -> m (Either ServiceEr DeleteClusterSecurityGroupResponse)
 deleteClusterSecurityGroupCatch p1 s =
     sendCatch $ (mkDeleteClusterSecurityGroup p1) &~ s
@@ -931,7 +900,7 @@ deleteClusterSecurityGroupCatch p1 s =
 -- examplecluster masteruser dw1.xlarge mydb 3
 -- 88a31de4-40d1-11e2-8a25-eb010998df4e.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DeleteClusterSnapshot'
 
 deleteClusterSnapshot :: ( MonadCatch m
                          , MonadResource m
@@ -939,7 +908,6 @@ deleteClusterSnapshot :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'dcsSnapshotIdentifier'
-    -> State DeleteClusterSnapshot a
     -> m DeleteClusterSnapshotResponse
 deleteClusterSnapshot p1 s =
     send $ (mkDeleteClusterSnapshot p1) &~ s
@@ -949,7 +917,6 @@ deleteClusterSnapshotCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'dcsSnapshotIdentifier'
-    -> State DeleteClusterSnapshot a
     -> m (Either ServiceEr DeleteClusterSnapshotResponse)
 deleteClusterSnapshotCatch p1 s =
     sendCatch $ (mkDeleteClusterSnapshot p1) &~ s
@@ -964,7 +931,7 @@ deleteClusterSnapshotCatch p1 s =
 -- &x-amz-signedheaders=content-type;host;x-amz-date
 -- 3a63806b-6af4-11e2-b27b-4d850b1c672d.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DeleteClusterSubnetGroup'
 
 deleteClusterSubnetGroup :: ( MonadCatch m
                             , MonadResource m
@@ -972,7 +939,6 @@ deleteClusterSubnetGroup :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'dcsg1ClusterSubnetGroupName'
-    -> State DeleteClusterSubnetGroup a
     -> m DeleteClusterSubnetGroupResponse
 deleteClusterSubnetGroup p1 s =
     send $ (mkDeleteClusterSubnetGroup p1) &~ s
@@ -982,7 +948,6 @@ deleteClusterSubnetGroupCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'dcsg1ClusterSubnetGroupName'
-    -> State DeleteClusterSubnetGroup a
     -> m (Either ServiceEr DeleteClusterSubnetGroupResponse)
 deleteClusterSubnetGroupCatch p1 s =
     sendCatch $ (mkDeleteClusterSubnetGroup p1) &~ s
@@ -990,7 +955,7 @@ deleteClusterSubnetGroupCatch p1 s =
 -- $DeleteEventSubscription
 -- Deletes an Amazon Redshift event notification subscription.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DeleteEventSubscription'
 
 deleteEventSubscription :: ( MonadCatch m
                            , MonadResource m
@@ -998,7 +963,6 @@ deleteEventSubscription :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'desSubscriptionName'
-    -> State DeleteEventSubscription a
     -> m DeleteEventSubscriptionResponse
 deleteEventSubscription p1 s =
     send $ (mkDeleteEventSubscription p1) &~ s
@@ -1008,7 +972,6 @@ deleteEventSubscriptionCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'desSubscriptionName'
-    -> State DeleteEventSubscription a
     -> m (Either ServiceEr DeleteEventSubscriptionResponse)
 deleteEventSubscriptionCatch p1 s =
     sendCatch $ (mkDeleteEventSubscription p1) &~ s
@@ -1016,7 +979,7 @@ deleteEventSubscriptionCatch p1 s =
 -- $DeleteHsmClientCertificate
 -- Deletes the specified HSM client certificate.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DeleteHsmClientCertificate'
 
 deleteHsmClientCertificate :: ( MonadCatch m
                               , MonadResource m
@@ -1024,7 +987,6 @@ deleteHsmClientCertificate :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'dhccHsmClientCertificateIdentifier'
-    -> State DeleteHsmClientCertificate a
     -> m DeleteHsmClientCertificateResponse
 deleteHsmClientCertificate p1 s =
     send $ (mkDeleteHsmClientCertificate p1) &~ s
@@ -1034,7 +996,6 @@ deleteHsmClientCertificateCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => Text -- ^ 'dhccHsmClientCertificateIdentifier'
-    -> State DeleteHsmClientCertificate a
     -> m (Either ServiceEr DeleteHsmClientCertificateResponse)
 deleteHsmClientCertificateCatch p1 s =
     sendCatch $ (mkDeleteHsmClientCertificate p1) &~ s
@@ -1042,7 +1003,7 @@ deleteHsmClientCertificateCatch p1 s =
 -- $DeleteHsmConfiguration
 -- Deletes the specified Amazon Redshift HSM configuration.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DeleteHsmConfiguration'
 
 deleteHsmConfiguration :: ( MonadCatch m
                           , MonadResource m
@@ -1050,7 +1011,6 @@ deleteHsmConfiguration :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'dhcHsmConfigurationIdentifier'
-    -> State DeleteHsmConfiguration a
     -> m DeleteHsmConfigurationResponse
 deleteHsmConfiguration p1 s =
     send $ (mkDeleteHsmConfiguration p1) &~ s
@@ -1060,7 +1020,6 @@ deleteHsmConfigurationCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'dhcHsmConfigurationIdentifier'
-    -> State DeleteHsmConfiguration a
     -> m (Either ServiceEr DeleteHsmConfigurationResponse)
 deleteHsmConfigurationCatch p1 s =
     sendCatch $ (mkDeleteHsmConfiguration p1) &~ s
@@ -1082,7 +1041,7 @@ deleteHsmConfigurationCatch p1 s =
 -- description my parameter group parametergroup1
 -- 6d28788b-64f5-11e2-b343-393adc3f0a21.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DescribeClusterParameterGroups'
 
 describeClusterParameterGroups :: ( MonadCatch m
                                   , MonadResource m
@@ -1132,7 +1091,7 @@ describeClusterParameterGroupsCatch s =
 -- [{&quot;query_concurrency&quot;:5}] string engine-default true wlm json
 -- configuration wlm_json_configuration 2ba35df4-40d3-11e2-82cf-0b45b05c0221.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DescribeClusterParameters'
 
 describeClusterParameters :: ( MonadCatch m
                              , MonadResource m
@@ -1140,7 +1099,6 @@ describeClusterParameters :: ( MonadCatch m
                              , MonadReader Env (ResumableSource m)
                              )
     => Text -- ^ 'dcpParameterGroupName'
-    -> State DescribeClusterParameters a
     -> ResumableSource m DescribeClusterParametersResponse
 describeClusterParameters p1 s =
     paginate $ (mkDescribeClusterParameters p1) &~ s
@@ -1150,7 +1108,6 @@ describeClusterParametersCatch :: ( MonadCatch m
                                   , MonadReader Env (ResumableSource m)
                                   )
     => Text -- ^ 'dcpParameterGroupName'
-    -> State DescribeClusterParameters a
     -> ResumableSource m (Either ServiceEr DescribeClusterParametersResponse)
 describeClusterParametersCatch p1 s =
     paginateCatch $ (mkDescribeClusterParameters p1) &~ s
@@ -1169,7 +1126,7 @@ describeClusterParametersCatch p1 s =
 -- default default my security group securitygroup1
 -- 947a8305-64f8-11e2-bec0-17624ad140dd.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DescribeClusterSecurityGroups'
 
 describeClusterSecurityGroups :: ( MonadCatch m
                                  , MonadResource m
@@ -1207,7 +1164,7 @@ describeClusterSecurityGroupsCatch s =
 -- 1.0 2013-01-23T01:09:03.149Z 2 dev 2013-01-22T19:23:59.368Z us-east-1c
 -- dw1.xlarge examplecluster adminuser 56a9daf4-64fa-11e2-a8da-655adc216806.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DescribeClusterSnapshots'
 
 describeClusterSnapshots :: ( MonadCatch m
                             , MonadResource m
@@ -1241,7 +1198,7 @@ describeClusterSnapshotsCatch s =
 -- group my-subnet-group Complete Active subnet-71c5091c us-east-1a Active
 -- subnet-78de1215 us-east-1a 42024b68-6af3-11e2-a726-6368a468fa67.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DescribeClusterSubnetGroups'
 
 describeClusterSubnetGroups :: ( MonadCatch m
                                , MonadResource m
@@ -1275,7 +1232,7 @@ describeClusterSubnetGroupsCatch s =
 -- &x-amz-signedheaders=content-type;host;x-amz-date redshift-1.0 Initial
 -- release of redshift 1.0 d39cd5e5-40c2-11e2-8a25-eb010998df4e.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DescribeClusterVersions'
 
 describeClusterVersions :: ( MonadCatch m
                            , MonadResource m
@@ -1312,7 +1269,7 @@ describeClusterVersionsCatch s =
 -- default us-east-1a dw1.xlarge examplecluster true masteruser
 -- 837d45d6-64f0-11e2-b07c-f7fbdd006c67.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DescribeClusters'
 
 describeClusters :: ( MonadCatch m
                     , MonadResource m
@@ -1356,7 +1313,7 @@ describeClustersCatch s =
 -- [{&quot;query_concurrency&quot;:5}] string engine-default true wlm json
 -- configuration wlm_json_configuration 396df00b-40c4-11e2-82cf-0b45b05c0221.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DescribeDefaultClusterParameters'
 
 describeDefaultClusterParameters :: ( MonadCatch m
                                     , MonadResource m
@@ -1364,7 +1321,6 @@ describeDefaultClusterParameters :: ( MonadCatch m
                                     , MonadReader Env (ResumableSource m)
                                     )
     => Text -- ^ 'ddcpParameterGroupFamily'
-    -> State DescribeDefaultClusterParameters a
     -> ResumableSource m DescribeDefaultClusterParametersResponse
 describeDefaultClusterParameters p1 s =
     paginate $ (mkDescribeDefaultClusterParameters p1) &~ s
@@ -1374,7 +1330,6 @@ describeDefaultClusterParametersCatch :: ( MonadCatch m
                                          , MonadReader Env (ResumableSource m)
                                          )
     => Text -- ^ 'ddcpParameterGroupFamily'
-    -> State DescribeDefaultClusterParameters a
     -> ResumableSource m (Either ServiceEr DescribeDefaultClusterParametersResponse)
 describeDefaultClusterParametersCatch p1 s =
     paginateCatch $ (mkDescribeDefaultClusterParameters p1) &~ s
@@ -1384,7 +1339,7 @@ describeDefaultClusterParametersCatch p1 s =
 -- specified source type. For a list of the event categories and source types,
 -- go to Amazon Redshift Event Notifications.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DescribeEventCategories'
 
 describeEventCategories :: ( MonadCatch m
                            , MonadResource m
@@ -1410,7 +1365,7 @@ describeEventCategoriesCatch s =
 -- subscription for a customer account. If you specify a subscription name,
 -- lists the description for that subscription.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DescribeEventSubscriptions'
 
 describeEventSubscriptions :: ( MonadCatch m
                               , MonadResource m
@@ -1446,7 +1401,7 @@ describeEventSubscriptionsCatch s =
 -- 2012-12-07T23:05:02.660Z securitygroup1
 -- 3eeb9efe-40c5-11e2-816a-1bba29fad1f5.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DescribeEvents'
 
 describeEvents :: ( MonadCatch m
                   , MonadResource m
@@ -1472,7 +1427,7 @@ describeEventsCatch s =
 -- certificate ID is specified, returns information about all the HSM
 -- certificates owned by your AWS customer account.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DescribeHsmClientCertificates'
 
 describeHsmClientCertificates :: ( MonadCatch m
                                  , MonadResource m
@@ -1498,7 +1453,7 @@ describeHsmClientCertificatesCatch s =
 -- If no configuration ID is specified, returns information about all the HSM
 -- configurations owned by your AWS customer account.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DescribeHsmConfigurations'
 
 describeHsmConfigurations :: ( MonadCatch m
                              , MonadResource m
@@ -1523,7 +1478,7 @@ describeHsmConfigurationsCatch s =
 -- Describes whether information, such as queries and connection attempts, is
 -- being logged for the specified Amazon Redshift cluster.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DescribeLoggingStatus'
 
 describeLoggingStatus :: ( MonadCatch m
                          , MonadResource m
@@ -1531,7 +1486,6 @@ describeLoggingStatus :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'dlsClusterIdentifier'
-    -> State DescribeLoggingStatus a
     -> m DescribeLoggingStatusResponse
 describeLoggingStatus p1 s =
     send $ (mkDescribeLoggingStatus p1) &~ s
@@ -1541,7 +1495,6 @@ describeLoggingStatusCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'dlsClusterIdentifier'
-    -> State DescribeLoggingStatus a
     -> m (Either ServiceEr DescribeLoggingStatusResponse)
 describeLoggingStatusCatch p1 s =
     sendCatch $ (mkDescribeLoggingStatus p1) &~ s
@@ -1565,7 +1518,7 @@ describeLoggingStatusCatch p1 s =
 -- us-east-1a us-east-1c us-east-1d 1.0 single-node dw1.xlarge us-east-1a
 -- us-east-1c us-east-1d e37414cc-40c0-11e2-b6a0-df98b1a86860.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DescribeOrderableClusterOptions'
 
 describeOrderableClusterOptions :: ( MonadCatch m
                                    , MonadResource m
@@ -1606,7 +1559,7 @@ describeOrderableClusterOptionsCatch s =
 -- d586503b-289f-408b-955b-9c95005d6908 0.0 dw1.xlarge
 -- f4a07e06-60fc-11e2-95d9-658e9466d117.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DescribeReservedNodeOfferings'
 
 describeReservedNodeOfferings :: ( MonadCatch m
                                  , MonadResource m
@@ -1641,7 +1594,7 @@ describeReservedNodeOfferingsCatch s =
 -- Utilization 31536000 800.0 0.158 payment-pending dw1.xlarge 1
 -- bbcd9749-f2ea-4d01-9b1b-b576f618eb4e 24dc90c8-672d-11e2-b2e1-8f41f0379151.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DescribeReservedNodes'
 
 describeReservedNodes :: ( MonadCatch m
                          , MonadResource m
@@ -1678,7 +1631,7 @@ describeReservedNodesCatch s =
 -- 6.5263 66922 0 users venue sales listing event date category 10254
 -- dw1.xlarge 2 a6d59c61-a162-11e2-b2bc-fb54c9d11e09.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DescribeResize'
 
 describeResize :: ( MonadCatch m
                   , MonadResource m
@@ -1686,7 +1639,6 @@ describeResize :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'drClusterIdentifier'
-    -> State DescribeResize a
     -> m DescribeResizeResponse
 describeResize p1 s =
     send $ (mkDescribeResize p1) &~ s
@@ -1696,7 +1648,6 @@ describeResizeCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'drClusterIdentifier'
-    -> State DescribeResize a
     -> m (Either ServiceEr DescribeResizeResponse)
 describeResizeCatch p1 s =
     sendCatch $ (mkDescribeResize p1) &~ s
@@ -1705,7 +1656,7 @@ describeResizeCatch p1 s =
 -- Stops logging information, such as queries and connection attempts, for the
 -- specified Amazon Redshift cluster.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DisableLogging'
 
 disableLogging :: ( MonadCatch m
                   , MonadResource m
@@ -1713,7 +1664,6 @@ disableLogging :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'dlClusterIdentifier'
-    -> State DisableLogging a
     -> m DisableLoggingResponse
 disableLogging p1 s =
     send $ (mkDisableLogging p1) &~ s
@@ -1723,7 +1673,6 @@ disableLoggingCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'dlClusterIdentifier'
-    -> State DisableLogging a
     -> m (Either ServiceEr DisableLoggingResponse)
 disableLoggingCatch p1 s =
     sendCatch $ (mkDisableLogging p1) &~ s
@@ -1732,7 +1681,7 @@ disableLoggingCatch p1 s =
 -- Disables the automatic copying of snapshots from one region to another
 -- region for a specified cluster.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.DisableSnapshotCopy'
 
 disableSnapshotCopy :: ( MonadCatch m
                        , MonadResource m
@@ -1740,7 +1689,6 @@ disableSnapshotCopy :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'dscClusterIdentifier'
-    -> State DisableSnapshotCopy a
     -> m DisableSnapshotCopyResponse
 disableSnapshotCopy p1 s =
     send $ (mkDisableSnapshotCopy p1) &~ s
@@ -1750,7 +1698,6 @@ disableSnapshotCopyCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'dscClusterIdentifier'
-    -> State DisableSnapshotCopy a
     -> m (Either ServiceEr DisableSnapshotCopyResponse)
 disableSnapshotCopyCatch p1 s =
     sendCatch $ (mkDisableSnapshotCopy p1) &~ s
@@ -1759,7 +1706,7 @@ disableSnapshotCopyCatch p1 s =
 -- Starts logging information, such as queries and connection attempts, for
 -- the specified Amazon Redshift cluster.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.EnableLogging'
 
 enableLogging :: ( MonadCatch m
                  , MonadResource m
@@ -1768,7 +1715,6 @@ enableLogging :: ( MonadCatch m
                  )
     => Text -- ^ 'elClusterIdentifier'
     -> Text -- ^ 'elBucketName'
-    -> State EnableLogging a
     -> m EnableLoggingResponse
 enableLogging p1 p2 s =
     send $ (mkEnableLogging p1 p2) &~ s
@@ -1779,7 +1725,6 @@ enableLoggingCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'elClusterIdentifier'
     -> Text -- ^ 'elBucketName'
-    -> State EnableLogging a
     -> m (Either ServiceEr EnableLoggingResponse)
 enableLoggingCatch p1 p2 s =
     sendCatch $ (mkEnableLogging p1 p2) &~ s
@@ -1788,7 +1733,7 @@ enableLoggingCatch p1 p2 s =
 -- Enables the automatic copy of snapshots from one region to another region
 -- for a specified cluster.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.EnableSnapshotCopy'
 
 enableSnapshotCopy :: ( MonadCatch m
                       , MonadResource m
@@ -1797,7 +1742,6 @@ enableSnapshotCopy :: ( MonadCatch m
                       )
     => Text -- ^ 'escClusterIdentifier'
     -> Text -- ^ 'escDestinationRegion'
-    -> State EnableSnapshotCopy a
     -> m EnableSnapshotCopyResponse
 enableSnapshotCopy p1 p2 s =
     send $ (mkEnableSnapshotCopy p1 p2) &~ s
@@ -1808,7 +1752,6 @@ enableSnapshotCopyCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'escClusterIdentifier'
     -> Text -- ^ 'escDestinationRegion'
-    -> State EnableSnapshotCopy a
     -> m (Either ServiceEr EnableSnapshotCopyResponse)
 enableSnapshotCopyCatch p1 p2 s =
     sendCatch $ (mkEnableSnapshotCopy p1 p2) &~ s
@@ -1839,7 +1782,7 @@ enableSnapshotCopyCatch p1 p2 s =
 -- 2013-01-22T19:23:59.368Z active default us-east-1c dw1.xlarge
 -- examplecluster true adminuser acbc43d5-6504-11e2-bea9-49e0ce183f07.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.ModifyCluster'
 
 modifyCluster :: ( MonadCatch m
                  , MonadResource m
@@ -1847,7 +1790,6 @@ modifyCluster :: ( MonadCatch m
                  , MonadReader Env m
                  )
     => Text -- ^ 'mcClusterIdentifier'
-    -> State ModifyCluster a
     -> m ModifyClusterResponse
 modifyCluster p1 s =
     send $ (mkModifyCluster p1) &~ s
@@ -1857,7 +1799,6 @@ modifyClusterCatch :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'mcClusterIdentifier'
-    -> State ModifyCluster a
     -> m (Either ServiceEr ModifyClusterResponse)
 modifyClusterCatch p1 s =
     sendCatch $ (mkModifyCluster p1) &~ s
@@ -1878,7 +1819,7 @@ modifyClusterCatch p1 s =
 -- been updated but changes won't get applied until you reboot the associated
 -- Clusters. parametergroup1 86e64043-40de-11e2-8a25-eb010998df4e.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.ModifyClusterParameterGroup'
 
 modifyClusterParameterGroup :: ( MonadCatch m
                                , MonadResource m
@@ -1887,7 +1828,6 @@ modifyClusterParameterGroup :: ( MonadCatch m
                                )
     => Text -- ^ 'mcpgParameterGroupName'
     -> [Parameter] -- ^ 'mcpgParameters'
-    -> State ModifyClusterParameterGroup a
     -> m ModifyClusterParameterGroupResponse
 modifyClusterParameterGroup p1 p2 s =
     send $ (mkModifyClusterParameterGroup p1 p2) &~ s
@@ -1898,7 +1838,6 @@ modifyClusterParameterGroupCatch :: ( MonadCatch m
                                     )
     => Text -- ^ 'mcpgParameterGroupName'
     -> [Parameter] -- ^ 'mcpgParameters'
-    -> State ModifyClusterParameterGroup a
     -> m (Either ServiceEr ModifyClusterParameterGroupResponse)
 modifyClusterParameterGroupCatch p1 p2 s =
     sendCatch $ (mkModifyClusterParameterGroup p1 p2) &~ s
@@ -1908,7 +1847,7 @@ modifyClusterParameterGroupCatch p1 p2 s =
 -- subnets. The operation replaces the existing list of subnets with the new
 -- list of subnets.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.ModifyClusterSubnetGroup'
 
 modifyClusterSubnetGroup :: ( MonadCatch m
                             , MonadResource m
@@ -1917,7 +1856,6 @@ modifyClusterSubnetGroup :: ( MonadCatch m
                             )
     => Text -- ^ 'mcsgClusterSubnetGroupName'
     -> [Text] -- ^ 'mcsgSubnetIds'
-    -> State ModifyClusterSubnetGroup a
     -> m ModifyClusterSubnetGroupResponse
 modifyClusterSubnetGroup p1 p3 s =
     send $ (mkModifyClusterSubnetGroup p1 p3) &~ s
@@ -1928,7 +1866,6 @@ modifyClusterSubnetGroupCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'mcsgClusterSubnetGroupName'
     -> [Text] -- ^ 'mcsgSubnetIds'
-    -> State ModifyClusterSubnetGroup a
     -> m (Either ServiceEr ModifyClusterSubnetGroupResponse)
 modifyClusterSubnetGroupCatch p1 p3 s =
     sendCatch $ (mkModifyClusterSubnetGroup p1 p3) &~ s
@@ -1936,7 +1873,7 @@ modifyClusterSubnetGroupCatch p1 p3 s =
 -- $ModifyEventSubscription
 -- Modifies an existing Amazon Redshift event notification subscription.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.ModifyEventSubscription'
 
 modifyEventSubscription :: ( MonadCatch m
                            , MonadResource m
@@ -1944,7 +1881,6 @@ modifyEventSubscription :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'mesSubscriptionName'
-    -> State ModifyEventSubscription a
     -> m ModifyEventSubscriptionResponse
 modifyEventSubscription p1 s =
     send $ (mkModifyEventSubscription p1) &~ s
@@ -1954,7 +1890,6 @@ modifyEventSubscriptionCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'mesSubscriptionName'
-    -> State ModifyEventSubscription a
     -> m (Either ServiceEr ModifyEventSubscriptionResponse)
 modifyEventSubscriptionCatch p1 s =
     sendCatch $ (mkModifyEventSubscription p1) &~ s
@@ -1963,7 +1898,7 @@ modifyEventSubscriptionCatch p1 s =
 -- Modifies the number of days to retain automated snapshots in the
 -- destination region after they are copied from the source region.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod'
 
 modifySnapshotCopyRetentionPeriod :: ( MonadCatch m
                                      , MonadResource m
@@ -1972,7 +1907,6 @@ modifySnapshotCopyRetentionPeriod :: ( MonadCatch m
                                      )
     => Text -- ^ 'mscrpClusterIdentifier'
     -> Integer -- ^ 'mscrpRetentionPeriod'
-    -> State ModifySnapshotCopyRetentionPeriod a
     -> m ModifySnapshotCopyRetentionPeriodResponse
 modifySnapshotCopyRetentionPeriod p1 p2 s =
     send $ (mkModifySnapshotCopyRetentionPeriod p1 p2) &~ s
@@ -1983,7 +1917,6 @@ modifySnapshotCopyRetentionPeriodCatch :: ( MonadCatch m
                                           )
     => Text -- ^ 'mscrpClusterIdentifier'
     -> Integer -- ^ 'mscrpRetentionPeriod'
-    -> State ModifySnapshotCopyRetentionPeriod a
     -> m (Either ServiceEr ModifySnapshotCopyRetentionPeriodResponse)
 modifySnapshotCopyRetentionPeriodCatch p1 p2 s =
     sendCatch $ (mkModifySnapshotCopyRetentionPeriod p1 p2) &~ s
@@ -2007,7 +1940,7 @@ modifySnapshotCopyRetentionPeriodCatch p1 p2 s =
 -- dw1.8xlarge 2 1ba8e2e3-dacf-48d9-841f-cc675182a8a6
 -- fcb117cc-61b7-11e2-b6e9-87e586e4ca38.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.PurchaseReservedNodeOffering'
 
 purchaseReservedNodeOffering :: ( MonadCatch m
                                 , MonadResource m
@@ -2015,7 +1948,6 @@ purchaseReservedNodeOffering :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'prnoReservedNodeOfferingId'
-    -> State PurchaseReservedNodeOffering a
     -> m PurchaseReservedNodeOfferingResponse
 purchaseReservedNodeOffering p1 s =
     send $ (mkPurchaseReservedNodeOffering p1) &~ s
@@ -2025,7 +1957,6 @@ purchaseReservedNodeOfferingCatch :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => Text -- ^ 'prnoReservedNodeOfferingId'
-    -> State PurchaseReservedNodeOffering a
     -> m (Either ServiceEr PurchaseReservedNodeOfferingResponse)
 purchaseReservedNodeOfferingCatch p1 s =
     sendCatch $ (mkPurchaseReservedNodeOffering p1) &~ s
@@ -2048,7 +1979,7 @@ purchaseReservedNodeOfferingCatch p1 s =
 -- 2013-01-22T19:23:59.368Z active default us-east-1c dw1.xlarge
 -- examplecluster true adminuser 5edee79e-6503-11e2-9e70-918437dd236d.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.RebootCluster'
 
 rebootCluster :: ( MonadCatch m
                  , MonadResource m
@@ -2056,7 +1987,6 @@ rebootCluster :: ( MonadCatch m
                  , MonadReader Env m
                  )
     => Text -- ^ 'rc1ClusterIdentifier'
-    -> State RebootCluster a
     -> m RebootClusterResponse
 rebootCluster p1 s =
     send $ (mkRebootCluster p1) &~ s
@@ -2066,7 +1996,6 @@ rebootClusterCatch :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'rc1ClusterIdentifier'
-    -> State RebootCluster a
     -> m (Either ServiceEr RebootClusterResponse)
 rebootClusterCatch p1 s =
     sendCatch $ (mkRebootCluster p1) &~ s
@@ -2086,7 +2015,7 @@ rebootClusterCatch p1 s =
 -- been updated but changes won't get applied until you reboot the associated
 -- Clusters. parametergroup1 625d23c1-40dc-11e2-8a25-eb010998df4e.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.ResetClusterParameterGroup'
 
 resetClusterParameterGroup :: ( MonadCatch m
                               , MonadResource m
@@ -2094,7 +2023,6 @@ resetClusterParameterGroup :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'rcpgParameterGroupName'
-    -> State ResetClusterParameterGroup a
     -> m ResetClusterParameterGroupResponse
 resetClusterParameterGroup p1 s =
     send $ (mkResetClusterParameterGroup p1) &~ s
@@ -2104,7 +2032,6 @@ resetClusterParameterGroupCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => Text -- ^ 'rcpgParameterGroupName'
-    -> State ResetClusterParameterGroup a
     -> m (Either ServiceEr ResetClusterParameterGroupResponse)
 resetClusterParameterGroupCatch p1 s =
     sendCatch $ (mkResetClusterParameterGroup p1) &~ s
@@ -2131,7 +2058,7 @@ resetClusterParameterGroupCatch p1 s =
 -- dw1.xlarge examplecluster-restored true adminuser
 -- 52a9aee8-6505-11e2-bec0-17624ad140dd.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.RestoreFromClusterSnapshot'
 
 restoreFromClusterSnapshot :: ( MonadCatch m
                               , MonadResource m
@@ -2140,7 +2067,6 @@ restoreFromClusterSnapshot :: ( MonadCatch m
                               )
     => Text -- ^ 'rfcsClusterIdentifier'
     -> Text -- ^ 'rfcsSnapshotIdentifier'
-    -> State RestoreFromClusterSnapshot a
     -> m RestoreFromClusterSnapshotResponse
 restoreFromClusterSnapshot p1 p2 s =
     send $ (mkRestoreFromClusterSnapshot p1 p2) &~ s
@@ -2151,7 +2077,6 @@ restoreFromClusterSnapshotCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'rfcsClusterIdentifier'
     -> Text -- ^ 'rfcsSnapshotIdentifier'
-    -> State RestoreFromClusterSnapshot a
     -> m (Either ServiceEr RestoreFromClusterSnapshotResponse)
 restoreFromClusterSnapshotCatch p1 p2 s =
     sendCatch $ (mkRestoreFromClusterSnapshot p1 p2) &~ s
@@ -2171,7 +2096,7 @@ restoreFromClusterSnapshotCatch p1 p2 s =
 -- &x-amz-signedheaders=content-type;host;x-amz-date my security group
 -- securitygroup1 d8eff363-6502-11e2-a8da-655adc216806.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.RevokeClusterSecurityGroupIngress'
 
 revokeClusterSecurityGroupIngress :: ( MonadCatch m
                                      , MonadResource m
@@ -2179,7 +2104,6 @@ revokeClusterSecurityGroupIngress :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => Text -- ^ 'rcsgiClusterSecurityGroupName'
-    -> State RevokeClusterSecurityGroupIngress a
     -> m RevokeClusterSecurityGroupIngressResponse
 revokeClusterSecurityGroupIngress p1 s =
     send $ (mkRevokeClusterSecurityGroupIngress p1) &~ s
@@ -2189,7 +2113,6 @@ revokeClusterSecurityGroupIngressCatch :: ( MonadCatch m
                                           , MonadReader Env m
                                           )
     => Text -- ^ 'rcsgiClusterSecurityGroupName'
-    -> State RevokeClusterSecurityGroupIngress a
     -> m (Either ServiceEr RevokeClusterSecurityGroupIngressResponse)
 revokeClusterSecurityGroupIngressCatch p1 s =
     sendCatch $ (mkRevokeClusterSecurityGroupIngress p1) &~ s
@@ -2201,7 +2124,7 @@ revokeClusterSecurityGroupIngressCatch p1 s =
 -- snapshots, go to Amazon Redshift Snapshots in the Amazon Redshift
 -- Management Guide.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.RevokeSnapshotAccess'
 
 revokeSnapshotAccess :: ( MonadCatch m
                         , MonadResource m
@@ -2210,7 +2133,6 @@ revokeSnapshotAccess :: ( MonadCatch m
                         )
     => Text -- ^ 'rsaSnapshotIdentifier'
     -> Text -- ^ 'rsaAccountWithRestoreAccess'
-    -> State RevokeSnapshotAccess a
     -> m RevokeSnapshotAccessResponse
 revokeSnapshotAccess p1 p3 s =
     send $ (mkRevokeSnapshotAccess p1 p3) &~ s
@@ -2221,7 +2143,6 @@ revokeSnapshotAccessCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'rsaSnapshotIdentifier'
     -> Text -- ^ 'rsaAccountWithRestoreAccess'
-    -> State RevokeSnapshotAccess a
     -> m (Either ServiceEr RevokeSnapshotAccessResponse)
 revokeSnapshotAccessCatch p1 p3 s =
     sendCatch $ (mkRevokeSnapshotAccess p1 p3) &~ s
@@ -2229,7 +2150,7 @@ revokeSnapshotAccessCatch p1 p3 s =
 -- $RotateEncryptionKey
 -- Rotates the encryption keys for a cluster.
 --
--- See: 'Network.AWS.Redshift'
+-- See: 'Network.AWS.Redshift.RotateEncryptionKey'
 
 rotateEncryptionKey :: ( MonadCatch m
                        , MonadResource m
@@ -2237,7 +2158,6 @@ rotateEncryptionKey :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'rekClusterIdentifier'
-    -> State RotateEncryptionKey a
     -> m RotateEncryptionKeyResponse
 rotateEncryptionKey p1 s =
     send $ (mkRotateEncryptionKey p1) &~ s
@@ -2247,7 +2167,6 @@ rotateEncryptionKeyCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'rekClusterIdentifier'
-    -> State RotateEncryptionKey a
     -> m (Either ServiceEr RotateEncryptionKeyResponse)
 rotateEncryptionKeyCatch p1 s =
     sendCatch $ (mkRotateEncryptionKey p1) &~ s

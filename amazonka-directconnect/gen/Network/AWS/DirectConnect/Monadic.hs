@@ -12,14 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | AWS Direct Connect links your internal network to an AWS Direct Connect
--- location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic
--- cable. One end of the cable is connected to your router, the other to an
--- AWS Direct Connect router. With this connection in place, you can create
--- virtual interfaces directly to the AWS cloud and Amazon Virtual Private
--- Cloud, bypassing Internet service providers in your network path.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -41,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.DirectConnect.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.DirectConnect.Monadic
@@ -165,7 +162,7 @@ type ServiceEr = Er DirectConnect
 -- a specified amount of bandwidth for use by a hosted connection on the given
 -- interconnect.
 --
--- See: 'Network.AWS.DirectConnect'
+-- See: 'Network.AWS.DirectConnect.AllocateConnectionOnInterconnect'
 
 allocateConnectionOnInterconnect :: ( MonadCatch m
                                     , MonadResource m
@@ -177,7 +174,6 @@ allocateConnectionOnInterconnect :: ( MonadCatch m
     -> Text -- ^ 'acoiOwnerAccount'
     -> Text -- ^ 'acoiInterconnectId'
     -> Integer -- ^ 'acoiVlan'
-    -> State AllocateConnectionOnInterconnect a
     -> m AllocateConnectionOnInterconnectResponse
 allocateConnectionOnInterconnect p1 p2 p3 p4 p5 s =
     send $ (mkAllocateConnectionOnInterconnect p1 p2 p3 p4 p5) &~ s
@@ -191,7 +187,6 @@ allocateConnectionOnInterconnectCatch :: ( MonadCatch m
     -> Text -- ^ 'acoiOwnerAccount'
     -> Text -- ^ 'acoiInterconnectId'
     -> Integer -- ^ 'acoiVlan'
-    -> State AllocateConnectionOnInterconnect a
     -> m (Either ServiceEr AllocateConnectionOnInterconnectResponse)
 allocateConnectionOnInterconnectCatch p1 p2 p3 p4 p5 s =
     sendCatch $ (mkAllocateConnectionOnInterconnect p1 p2 p3 p4 p5) &~ s
@@ -205,7 +200,7 @@ allocateConnectionOnInterconnectCatch p1 p2 p3 p4 p5 s =
 -- has been completed, the virtual interface will be in 'Confirming' state,
 -- and will not be available for handling traffic.
 --
--- See: 'Network.AWS.DirectConnect'
+-- See: 'Network.AWS.DirectConnect.AllocatePrivateVirtualInterface'
 
 allocatePrivateVirtualInterface :: ( MonadCatch m
                                    , MonadResource m
@@ -215,7 +210,6 @@ allocatePrivateVirtualInterface :: ( MonadCatch m
     => Text -- ^ 'apviConnectionId'
     -> Text -- ^ 'apviOwnerAccount'
     -> NewPrivateVirtualInterfaceAllocation -- ^ 'apviNewPrivateVirtualInterfaceAllocation'
-    -> State AllocatePrivateVirtualInterface a
     -> m AllocatePrivateVirtualInterfaceResponse
 allocatePrivateVirtualInterface p1 p2 p3 s =
     send $ (mkAllocatePrivateVirtualInterface p1 p2 p3) &~ s
@@ -227,7 +221,6 @@ allocatePrivateVirtualInterfaceCatch :: ( MonadCatch m
     => Text -- ^ 'apviConnectionId'
     -> Text -- ^ 'apviOwnerAccount'
     -> NewPrivateVirtualInterfaceAllocation -- ^ 'apviNewPrivateVirtualInterfaceAllocation'
-    -> State AllocatePrivateVirtualInterface a
     -> m (Either ServiceEr AllocatePrivateVirtualInterfaceResponse)
 allocatePrivateVirtualInterfaceCatch p1 p2 p3 s =
     sendCatch $ (mkAllocatePrivateVirtualInterface p1 p2 p3) &~ s
@@ -241,7 +234,7 @@ allocatePrivateVirtualInterfaceCatch p1 p2 p3 s =
 -- completed, the virtual interface will be in 'Confirming' state, and will
 -- not be available for handling traffic.
 --
--- See: 'Network.AWS.DirectConnect'
+-- See: 'Network.AWS.DirectConnect.AllocatePublicVirtualInterface'
 
 allocatePublicVirtualInterface :: ( MonadCatch m
                                   , MonadResource m
@@ -251,7 +244,6 @@ allocatePublicVirtualInterface :: ( MonadCatch m
     => Text -- ^ 'apvi1ConnectionId'
     -> Text -- ^ 'apvi1OwnerAccount'
     -> NewPublicVirtualInterfaceAllocation -- ^ 'apvi1NewPublicVirtualInterfaceAllocation'
-    -> State AllocatePublicVirtualInterface a
     -> m AllocatePublicVirtualInterfaceResponse
 allocatePublicVirtualInterface p1 p2 p3 s =
     send $ (mkAllocatePublicVirtualInterface p1 p2 p3) &~ s
@@ -263,7 +255,6 @@ allocatePublicVirtualInterfaceCatch :: ( MonadCatch m
     => Text -- ^ 'apvi1ConnectionId'
     -> Text -- ^ 'apvi1OwnerAccount'
     -> NewPublicVirtualInterfaceAllocation -- ^ 'apvi1NewPublicVirtualInterfaceAllocation'
-    -> State AllocatePublicVirtualInterface a
     -> m (Either ServiceEr AllocatePublicVirtualInterfaceResponse)
 allocatePublicVirtualInterfaceCatch p1 p2 p3 s =
     sendCatch $ (mkAllocatePublicVirtualInterface p1 p2 p3) &~ s
@@ -274,7 +265,7 @@ allocatePublicVirtualInterfaceCatch p1 p2 p3 s =
 -- will remain in this state until the owner calls ConfirmConnection to
 -- confirm creation of the hosted connection.
 --
--- See: 'Network.AWS.DirectConnect'
+-- See: 'Network.AWS.DirectConnect.ConfirmConnection'
 
 confirmConnection :: ( MonadCatch m
                      , MonadResource m
@@ -282,7 +273,6 @@ confirmConnection :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'ccConnectionId'
-    -> State ConfirmConnection a
     -> m ConfirmConnectionResponse
 confirmConnection p1 s =
     send $ (mkConfirmConnection p1) &~ s
@@ -292,7 +282,6 @@ confirmConnectionCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'ccConnectionId'
-    -> State ConfirmConnection a
     -> m (Either ServiceEr ConfirmConnectionResponse)
 confirmConnectionCatch p1 s =
     sendCatch $ (mkConfirmConnection p1) &~ s
@@ -303,7 +292,7 @@ confirmConnectionCatch p1 s =
 -- virtual interface will be created and attached to the given virtual private
 -- gateway, and will be available for handling traffic.
 --
--- See: 'Network.AWS.DirectConnect'
+-- See: 'Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface'
 
 confirmPrivateVirtualInterface :: ( MonadCatch m
                                   , MonadResource m
@@ -312,7 +301,6 @@ confirmPrivateVirtualInterface :: ( MonadCatch m
                                   )
     => Text -- ^ 'cpviVirtualInterfaceId'
     -> Text -- ^ 'cpviVirtualGatewayId'
-    -> State ConfirmPrivateVirtualInterface a
     -> m ConfirmPrivateVirtualInterfaceResponse
 confirmPrivateVirtualInterface p1 p2 s =
     send $ (mkConfirmPrivateVirtualInterface p1 p2) &~ s
@@ -323,7 +311,6 @@ confirmPrivateVirtualInterfaceCatch :: ( MonadCatch m
                                        )
     => Text -- ^ 'cpviVirtualInterfaceId'
     -> Text -- ^ 'cpviVirtualGatewayId'
-    -> State ConfirmPrivateVirtualInterface a
     -> m (Either ServiceEr ConfirmPrivateVirtualInterfaceResponse)
 confirmPrivateVirtualInterfaceCatch p1 p2 s =
     sendCatch $ (mkConfirmPrivateVirtualInterface p1 p2) &~ s
@@ -333,7 +320,7 @@ confirmPrivateVirtualInterfaceCatch p1 p2 s =
 -- After the virtual interface owner calls this function, the specified
 -- virtual interface will be created and made available for handling traffic.
 --
--- See: 'Network.AWS.DirectConnect'
+-- See: 'Network.AWS.DirectConnect.ConfirmPublicVirtualInterface'
 
 confirmPublicVirtualInterface :: ( MonadCatch m
                                  , MonadResource m
@@ -341,7 +328,6 @@ confirmPublicVirtualInterface :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'cpvi1VirtualInterfaceId'
-    -> State ConfirmPublicVirtualInterface a
     -> m ConfirmPublicVirtualInterfaceResponse
 confirmPublicVirtualInterface p1 s =
     send $ (mkConfirmPublicVirtualInterface p1) &~ s
@@ -351,7 +337,6 @@ confirmPublicVirtualInterfaceCatch :: ( MonadCatch m
                                       , MonadReader Env m
                                       )
     => Text -- ^ 'cpvi1VirtualInterfaceId'
-    -> State ConfirmPublicVirtualInterface a
     -> m (Either ServiceEr ConfirmPublicVirtualInterfaceResponse)
 confirmPublicVirtualInterfaceCatch p1 s =
     sendCatch $ (mkConfirmPublicVirtualInterface p1) &~ s
@@ -367,7 +352,7 @@ confirmPublicVirtualInterfaceCatch p1 s =
 -- regions, but a connection in one region does not provide connectivity to
 -- other regions.
 --
--- See: 'Network.AWS.DirectConnect'
+-- See: 'Network.AWS.DirectConnect.CreateConnection'
 
 createConnection :: ( MonadCatch m
                     , MonadResource m
@@ -377,7 +362,6 @@ createConnection :: ( MonadCatch m
     => Text -- ^ 'cc1Location'
     -> Text -- ^ 'cc1Bandwidth'
     -> Text -- ^ 'cc1ConnectionName'
-    -> State CreateConnection a
     -> m CreateConnectionResponse
 createConnection p1 p2 p3 s =
     send $ (mkCreateConnection p1 p2 p3) &~ s
@@ -389,7 +373,6 @@ createConnectionCatch :: ( MonadCatch m
     => Text -- ^ 'cc1Location'
     -> Text -- ^ 'cc1Bandwidth'
     -> Text -- ^ 'cc1ConnectionName'
-    -> State CreateConnection a
     -> m (Either ServiceEr CreateConnectionResponse)
 createConnectionCatch p1 p2 p3 s =
     sendCatch $ (mkCreateConnection p1 p2 p3) &~ s
@@ -409,7 +392,7 @@ createConnectionCatch p1 p2 p3 s =
 -- to AWS resources by creating a virtual interface on their connection, using
 -- the VLAN assigned to them by the AWS Direct Connect partner.
 --
--- See: 'Network.AWS.DirectConnect'
+-- See: 'Network.AWS.DirectConnect.CreateInterconnect'
 
 createInterconnect :: ( MonadCatch m
                       , MonadResource m
@@ -419,7 +402,6 @@ createInterconnect :: ( MonadCatch m
     => Text -- ^ 'ciInterconnectName'
     -> Text -- ^ 'ciBandwidth'
     -> Text -- ^ 'ciLocation'
-    -> State CreateInterconnect a
     -> m CreateInterconnectResponse
 createInterconnect p1 p2 p3 s =
     send $ (mkCreateInterconnect p1 p2 p3) &~ s
@@ -431,7 +413,6 @@ createInterconnectCatch :: ( MonadCatch m
     => Text -- ^ 'ciInterconnectName'
     -> Text -- ^ 'ciBandwidth'
     -> Text -- ^ 'ciLocation'
-    -> State CreateInterconnect a
     -> m (Either ServiceEr CreateInterconnectResponse)
 createInterconnectCatch p1 p2 p3 s =
     sendCatch $ (mkCreateInterconnect p1 p2 p3) &~ s
@@ -441,7 +422,7 @@ createInterconnectCatch p1 p2 p3 s =
 -- that transports AWS Direct Connect traffic. A private virtual interface
 -- supports sending traffic to a single virtual private cloud (VPC).
 --
--- See: 'Network.AWS.DirectConnect'
+-- See: 'Network.AWS.DirectConnect.CreatePrivateVirtualInterface'
 
 createPrivateVirtualInterface :: ( MonadCatch m
                                  , MonadResource m
@@ -450,7 +431,6 @@ createPrivateVirtualInterface :: ( MonadCatch m
                                  )
     => Text -- ^ 'cpvi2ConnectionId'
     -> NewPrivateVirtualInterface -- ^ 'cpvi2NewPrivateVirtualInterface'
-    -> State CreatePrivateVirtualInterface a
     -> m CreatePrivateVirtualInterfaceResponse
 createPrivateVirtualInterface p1 p2 s =
     send $ (mkCreatePrivateVirtualInterface p1 p2) &~ s
@@ -461,7 +441,6 @@ createPrivateVirtualInterfaceCatch :: ( MonadCatch m
                                       )
     => Text -- ^ 'cpvi2ConnectionId'
     -> NewPrivateVirtualInterface -- ^ 'cpvi2NewPrivateVirtualInterface'
-    -> State CreatePrivateVirtualInterface a
     -> m (Either ServiceEr CreatePrivateVirtualInterfaceResponse)
 createPrivateVirtualInterfaceCatch p1 p2 s =
     sendCatch $ (mkCreatePrivateVirtualInterface p1 p2) &~ s
@@ -472,7 +451,7 @@ createPrivateVirtualInterfaceCatch p1 p2 s =
 -- supports sending traffic to public services of AWS such as Amazon Simple
 -- Storage Service (Amazon S3).
 --
--- See: 'Network.AWS.DirectConnect'
+-- See: 'Network.AWS.DirectConnect.CreatePublicVirtualInterface'
 
 createPublicVirtualInterface :: ( MonadCatch m
                                 , MonadResource m
@@ -481,7 +460,6 @@ createPublicVirtualInterface :: ( MonadCatch m
                                 )
     => Text -- ^ 'cpvi3ConnectionId'
     -> NewPublicVirtualInterface -- ^ 'cpvi3NewPublicVirtualInterface'
-    -> State CreatePublicVirtualInterface a
     -> m CreatePublicVirtualInterfaceResponse
 createPublicVirtualInterface p1 p2 s =
     send $ (mkCreatePublicVirtualInterface p1 p2) &~ s
@@ -492,7 +470,6 @@ createPublicVirtualInterfaceCatch :: ( MonadCatch m
                                      )
     => Text -- ^ 'cpvi3ConnectionId'
     -> NewPublicVirtualInterface -- ^ 'cpvi3NewPublicVirtualInterface'
-    -> State CreatePublicVirtualInterface a
     -> m (Either ServiceEr CreatePublicVirtualInterfaceResponse)
 createPublicVirtualInterfaceCatch p1 p2 s =
     sendCatch $ (mkCreatePublicVirtualInterface p1 p2) &~ s
@@ -503,7 +480,7 @@ createPublicVirtualInterfaceCatch p1 p2 s =
 -- with the providers any services or charges for cross-connects or network
 -- circuits that connect you to the AWS Direct Connect location.
 --
--- See: 'Network.AWS.DirectConnect'
+-- See: 'Network.AWS.DirectConnect.DeleteConnection'
 
 deleteConnection :: ( MonadCatch m
                     , MonadResource m
@@ -511,7 +488,6 @@ deleteConnection :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'dcConnectionId'
-    -> State DeleteConnection a
     -> m DeleteConnectionResponse
 deleteConnection p1 s =
     send $ (mkDeleteConnection p1) &~ s
@@ -521,7 +497,6 @@ deleteConnectionCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'dcConnectionId'
-    -> State DeleteConnection a
     -> m (Either ServiceEr DeleteConnectionResponse)
 deleteConnectionCatch p1 s =
     sendCatch $ (mkDeleteConnection p1) &~ s
@@ -529,7 +504,7 @@ deleteConnectionCatch p1 s =
 -- $DeleteInterconnect
 -- Deletes the specified interconnect.
 --
--- See: 'Network.AWS.DirectConnect'
+-- See: 'Network.AWS.DirectConnect.DeleteInterconnect'
 
 deleteInterconnect :: ( MonadCatch m
                       , MonadResource m
@@ -537,7 +512,6 @@ deleteInterconnect :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'diInterconnectId'
-    -> State DeleteInterconnect a
     -> m DeleteInterconnectResponse
 deleteInterconnect p1 s =
     send $ (mkDeleteInterconnect p1) &~ s
@@ -547,7 +521,6 @@ deleteInterconnectCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'diInterconnectId'
-    -> State DeleteInterconnect a
     -> m (Either ServiceEr DeleteInterconnectResponse)
 deleteInterconnectCatch p1 s =
     sendCatch $ (mkDeleteInterconnect p1) &~ s
@@ -555,7 +528,7 @@ deleteInterconnectCatch p1 s =
 -- $DeleteVirtualInterface
 -- Deletes a virtual interface.
 --
--- See: 'Network.AWS.DirectConnect'
+-- See: 'Network.AWS.DirectConnect.DeleteVirtualInterface'
 
 deleteVirtualInterface :: ( MonadCatch m
                           , MonadResource m
@@ -563,7 +536,6 @@ deleteVirtualInterface :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'dviVirtualInterfaceId'
-    -> State DeleteVirtualInterface a
     -> m DeleteVirtualInterfaceResponse
 deleteVirtualInterface p1 s =
     send $ (mkDeleteVirtualInterface p1) &~ s
@@ -573,7 +545,6 @@ deleteVirtualInterfaceCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'dviVirtualInterfaceId'
-    -> State DeleteVirtualInterface a
     -> m (Either ServiceEr DeleteVirtualInterfaceResponse)
 deleteVirtualInterfaceCatch p1 s =
     sendCatch $ (mkDeleteVirtualInterface p1) &~ s
@@ -582,7 +553,7 @@ deleteVirtualInterfaceCatch p1 s =
 -- Displays all connections in this region. If a connection ID is provided,
 -- the call returns only that particular connection.
 --
--- See: 'Network.AWS.DirectConnect'
+-- See: 'Network.AWS.DirectConnect.DescribeConnections'
 
 describeConnections :: ( MonadCatch m
                        , MonadResource m
@@ -607,7 +578,7 @@ describeConnectionsCatch s =
 -- Return a list of connections that have been provisioned on the given
 -- interconnect.
 --
--- See: 'Network.AWS.DirectConnect'
+-- See: 'Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect'
 
 describeConnectionsOnInterconnect :: ( MonadCatch m
                                      , MonadResource m
@@ -615,7 +586,6 @@ describeConnectionsOnInterconnect :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => Text -- ^ 'dcoiInterconnectId'
-    -> State DescribeConnectionsOnInterconnect a
     -> m DescribeConnectionsOnInterconnectResponse
 describeConnectionsOnInterconnect p1 s =
     send $ (mkDescribeConnectionsOnInterconnect p1) &~ s
@@ -625,7 +595,6 @@ describeConnectionsOnInterconnectCatch :: ( MonadCatch m
                                           , MonadReader Env m
                                           )
     => Text -- ^ 'dcoiInterconnectId'
-    -> State DescribeConnectionsOnInterconnect a
     -> m (Either ServiceEr DescribeConnectionsOnInterconnectResponse)
 describeConnectionsOnInterconnectCatch p1 s =
     sendCatch $ (mkDescribeConnectionsOnInterconnect p1) &~ s
@@ -635,7 +604,7 @@ describeConnectionsOnInterconnectCatch p1 s =
 -- interconnect ID is provided, it will only return this particular
 -- interconnect.
 --
--- See: 'Network.AWS.DirectConnect'
+-- See: 'Network.AWS.DirectConnect.DescribeInterconnects'
 
 describeInterconnects :: ( MonadCatch m
                          , MonadResource m
@@ -661,7 +630,7 @@ describeInterconnectsCatch s =
 -- These are the locations that may be selected when calling CreateConnection
 -- or CreateInterconnect.
 --
--- See: 'Network.AWS.DirectConnect'
+-- See: 'Network.AWS.DirectConnect.DescribeLocations'
 
 describeLocations :: ( MonadCatch m
                      , MonadResource m
@@ -689,7 +658,7 @@ describeLocationsCatch s =
 -- managed via Amazon Virtual Private Cloud (VPC) console or the EC2
 -- CreateVpnGateway action.
 --
--- See: 'Network.AWS.DirectConnect'
+-- See: 'Network.AWS.DirectConnect.DescribeVirtualGateways'
 
 describeVirtualGateways :: ( MonadCatch m
                            , MonadResource m
@@ -722,7 +691,7 @@ describeVirtualGatewaysCatch s =
 -- returned. If a virtual interface ID is provided, only this particular
 -- virtual interface will be returned.
 --
--- See: 'Network.AWS.DirectConnect'
+-- See: 'Network.AWS.DirectConnect.DescribeVirtualInterfaces'
 
 describeVirtualInterfaces :: ( MonadCatch m
                              , MonadResource m

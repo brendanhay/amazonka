@@ -12,12 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Amazon Kinesis is a managed service that scales elastically for real-time
--- processing of streaming big data. The service takes in large streams of
--- data records that can then be consumed in real time by multiple
--- data-processing applications that can be run on Amazon EC2 instances.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -39,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.Kinesis.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.Kinesis.Monadic
@@ -148,7 +147,7 @@ type ServiceEr = Er Kinesis
 -- x-amzn-RequestId: Content-Type: application/x-amz-json-1.1 Content-Length:
 -- Date: ]]>.
 --
--- See: 'Network.AWS.Kinesis'
+-- See: 'Network.AWS.Kinesis.CreateStream'
 
 createStream :: ( MonadCatch m
                 , MonadResource m
@@ -157,7 +156,6 @@ createStream :: ( MonadCatch m
                 )
     => Text -- ^ 'csStreamName'
     -> Integer -- ^ 'csShardCount'
-    -> State CreateStream a
     -> m CreateStreamResponse
 createStream p1 p2 s =
     send $ (mkCreateStream p1 p2) &~ s
@@ -168,7 +166,6 @@ createStreamCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'csStreamName'
     -> Integer -- ^ 'csShardCount'
-    -> State CreateStream a
     -> m (Either ServiceEr CreateStreamResponse)
 createStreamCatch p1 p2 s =
     sendCatch $ (mkCreateStream p1 p2) &~ s
@@ -196,7 +193,7 @@ createStreamCatch p1 p2 s =
 -- 200 OK x-amzn-RequestId: Content-Type: application/x-amz-json-1.1
 -- Content-Length: Date: ]]>.
 --
--- See: 'Network.AWS.Kinesis'
+-- See: 'Network.AWS.Kinesis.DeleteStream'
 
 deleteStream :: ( MonadCatch m
                 , MonadResource m
@@ -204,7 +201,6 @@ deleteStream :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => Text -- ^ 'dsStreamName'
-    -> State DeleteStream a
     -> m DeleteStreamResponse
 deleteStream p1 s =
     send $ (mkDeleteStream p1) &~ s
@@ -214,7 +210,6 @@ deleteStreamCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'dsStreamName'
-    -> State DeleteStream a
     -> m (Either ServiceEr DeleteStreamResponse)
 deleteStreamCatch p1 s =
     sendCatch $ (mkDeleteStream p1) &~ s
@@ -264,7 +259,7 @@ deleteStreamCatch p1 s =
 -- "arn:aws:kinesis:us-east-1:052958737983:exampleStreamName", "StreamName":
 -- "exampleStreamName", "StreamStatus": "ACTIVE" } }.
 --
--- See: 'Network.AWS.Kinesis'
+-- See: 'Network.AWS.Kinesis.DescribeStream'
 
 describeStream :: ( MonadCatch m
                   , MonadResource m
@@ -272,7 +267,6 @@ describeStream :: ( MonadCatch m
                   , MonadReader Env (ResumableSource m)
                   )
     => Text -- ^ 'ds1StreamName'
-    -> State DescribeStream a
     -> ResumableSource m DescribeStreamResponse
 describeStream p1 s =
     paginate $ (mkDescribeStream p1) &~ s
@@ -282,7 +276,6 @@ describeStreamCatch :: ( MonadCatch m
                        , MonadReader Env (ResumableSource m)
                        )
     => Text -- ^ 'ds1StreamName'
-    -> State DescribeStream a
     -> ResumableSource m (Either ServiceEr DescribeStreamResponse)
 describeStreamCatch p1 s =
     paginateCatch $ (mkDescribeStream p1) &~ s
@@ -327,7 +320,7 @@ describeStreamCatch p1 s =
 -- "Records": [ { "Data": "XzxkYXRhPl8w", "PartitionKey": "partitionKey",
 -- "SequenceNumber": "21269319989652663814458848515492872193" } ] }.
 --
--- See: 'Network.AWS.Kinesis'
+-- See: 'Network.AWS.Kinesis.GetRecords'
 
 getRecords :: ( MonadCatch m
               , MonadResource m
@@ -335,7 +328,6 @@ getRecords :: ( MonadCatch m
               , MonadReader Env m
               )
     => Text -- ^ 'grShardIterator'
-    -> State GetRecords a
     -> m GetRecordsResponse
 getRecords p1 s =
     send $ (mkGetRecords p1) &~ s
@@ -345,7 +337,6 @@ getRecordsCatch :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'grShardIterator'
-    -> State GetRecords a
     -> m (Either ServiceEr GetRecordsResponse)
 getRecordsCatch p1 s =
     sendCatch $ (mkGetRecords p1) &~ s
@@ -396,7 +387,7 @@ getRecordsCatch p1 s =
 -- "AAAAAAAAAAETYyAYzd665+8e0X7JTsASDM/Hr2rSwc0X2qz93iuA3udrjTH+ikQvpQk/1ZcMMLzRdAesqwBGPnsthzU0/CBlM/U8/8oEqGwX3pKw0XyeDNRAAZyXBo3MqkQtCpXhr942BRTjvWKhFz7OmCb2Ncfr8Tl2cBktooi6kJhr+djN5WYkB38Rr3akRgCl9qaU4dY="
 -- }.
 --
--- See: 'Network.AWS.Kinesis'
+-- See: 'Network.AWS.Kinesis.GetShardIterator'
 
 getShardIterator :: ( MonadCatch m
                     , MonadResource m
@@ -406,7 +397,6 @@ getShardIterator :: ( MonadCatch m
     => Text -- ^ 'gsiStreamName'
     -> Text -- ^ 'gsiShardId'
     -> ShardIteratorType -- ^ 'gsiShardIteratorType'
-    -> State GetShardIterator a
     -> m GetShardIteratorResponse
 getShardIterator p1 p2 p3 s =
     send $ (mkGetShardIterator p1 p2 p3) &~ s
@@ -418,7 +408,6 @@ getShardIteratorCatch :: ( MonadCatch m
     => Text -- ^ 'gsiStreamName'
     -> Text -- ^ 'gsiShardId'
     -> ShardIteratorType -- ^ 'gsiShardIteratorType'
-    -> State GetShardIterator a
     -> m (Either ServiceEr GetShardIteratorResponse)
 getShardIteratorCatch p1 p2 p3 s =
     sendCatch $ (mkGetShardIterator p1 p2 p3) &~ s
@@ -449,7 +438,7 @@ getShardIteratorCatch p1 p2 p3 s =
 -- Content-Type: application/x-amz-json-1.1 Content-Length: Date: ]]> {
 -- "HasMoreStreams": false, "StreamNames": [ "exampleStreamName" ] }.
 --
--- See: 'Network.AWS.Kinesis'
+-- See: 'Network.AWS.Kinesis.ListStreams'
 
 listStreams :: ( MonadCatch m
                , MonadResource m
@@ -510,7 +499,7 @@ listStreamsCatch s =
 -- "shardId-000000000001" } HTTP/1.1 200 OK x-amzn-RequestId: Content-Type:
 -- application/x-amz-json-1.1 Content-Length: Date: ]]>.
 --
--- See: 'Network.AWS.Kinesis'
+-- See: 'Network.AWS.Kinesis.MergeShards'
 
 mergeShards :: ( MonadCatch m
                , MonadResource m
@@ -520,7 +509,6 @@ mergeShards :: ( MonadCatch m
     => Text -- ^ 'msStreamName'
     -> Text -- ^ 'msShardToMerge'
     -> Text -- ^ 'msAdjacentShardToMerge'
-    -> State MergeShards a
     -> m MergeShardsResponse
 mergeShards p1 p2 p3 s =
     send $ (mkMergeShards p1 p2 p3) &~ s
@@ -532,7 +520,6 @@ mergeShardsCatch :: ( MonadCatch m
     => Text -- ^ 'msStreamName'
     -> Text -- ^ 'msShardToMerge'
     -> Text -- ^ 'msAdjacentShardToMerge'
-    -> State MergeShards a
     -> m (Either ServiceEr MergeShardsResponse)
 mergeShardsCatch p1 p2 p3 s =
     sendCatch $ (mkMergeShards p1 p2 p3) &~ s
@@ -576,7 +563,7 @@ mergeShardsCatch p1 p2 p3 s =
 -- Date: ]]> { "SequenceNumber": "21269319989653637946712965403778482177",
 -- "ShardId": "shardId-000000000001" }.
 --
--- See: 'Network.AWS.Kinesis'
+-- See: 'Network.AWS.Kinesis.PutRecord'
 
 putRecord :: ( MonadCatch m
              , MonadResource m
@@ -586,7 +573,6 @@ putRecord :: ( MonadCatch m
     => Text -- ^ 'prStreamName'
     -> Base64 -- ^ 'prData'
     -> Text -- ^ 'prPartitionKey'
-    -> State PutRecord a
     -> m PutRecordResponse
 putRecord p1 p2 p3 s =
     send $ (mkPutRecord p1 p2 p3) &~ s
@@ -598,7 +584,6 @@ putRecordCatch :: ( MonadCatch m
     => Text -- ^ 'prStreamName'
     -> Base64 -- ^ 'prData'
     -> Text -- ^ 'prPartitionKey'
-    -> State PutRecord a
     -> m (Either ServiceEr PutRecordResponse)
 putRecordCatch p1 p2 p3 s =
     sendCatch $ (mkPutRecord p1 p2 p3) &~ s
@@ -650,7 +635,7 @@ putRecordCatch p1 p2 p3 s =
 -- HTTP/1.1 200 OK x-amzn-RequestId: Content-Type: application/x-amz-json-1.1
 -- Content-Length: Date: ]]>.
 --
--- See: 'Network.AWS.Kinesis'
+-- See: 'Network.AWS.Kinesis.SplitShard'
 
 splitShard :: ( MonadCatch m
               , MonadResource m
@@ -660,7 +645,6 @@ splitShard :: ( MonadCatch m
     => Text -- ^ 'ssStreamName'
     -> Text -- ^ 'ssShardToSplit'
     -> Text -- ^ 'ssNewStartingHashKey'
-    -> State SplitShard a
     -> m SplitShardResponse
 splitShard p1 p2 p3 s =
     send $ (mkSplitShard p1 p2 p3) &~ s
@@ -672,7 +656,6 @@ splitShardCatch :: ( MonadCatch m
     => Text -- ^ 'ssStreamName'
     -> Text -- ^ 'ssShardToSplit'
     -> Text -- ^ 'ssNewStartingHashKey'
-    -> State SplitShard a
     -> m (Either ServiceEr SplitShardResponse)
 splitShardCatch p1 p2 p3 s =
     sendCatch $ (mkSplitShard p1 p2 p3) &~ s

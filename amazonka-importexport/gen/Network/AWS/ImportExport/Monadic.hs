@@ -12,14 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | AWS Import/Export accelerates moving large amounts of data into and out of
--- AWS using portable storage devices for transport. AWS transfers your data
--- directly onto and off of storage devices using Amazon’s high-speed internal
--- network and bypassing the Internet. For significant data sets, AWS
--- Import/Export is often faster than Internet transfer and more cost
--- effective than upgrading your connectivity.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -41,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.ImportExport.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.ImportExport.Monadic
@@ -94,7 +91,7 @@ type ServiceEr = Er ImportExport
 -- This operation cancels a specified job. Only the job owner can cancel it.
 -- The operation fails if the job has already started or is complete.
 --
--- See: 'Network.AWS.ImportExport'
+-- See: 'Network.AWS.ImportExport.CancelJob'
 
 cancelJob :: ( MonadCatch m
              , MonadResource m
@@ -102,7 +99,6 @@ cancelJob :: ( MonadCatch m
              , MonadReader Env m
              )
     => Text -- ^ 'cjJobId'
-    -> State CancelJob a
     -> m CancelJobResponse
 cancelJob p1 s =
     send $ (mkCancelJob p1) &~ s
@@ -112,7 +108,6 @@ cancelJobCatch :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'cjJobId'
-    -> State CancelJob a
     -> m (Either ServiceEr CancelJobResponse)
 cancelJobCatch p1 s =
     sendCatch $ (mkCancelJob p1) &~ s
@@ -124,7 +119,7 @@ cancelJobCatch p1 s =
 -- you can use in other operations, a signature that you use to identify your
 -- storage device, and the address where you should ship your storage device.
 --
--- See: 'Network.AWS.ImportExport'
+-- See: 'Network.AWS.ImportExport.CreateJob'
 
 createJob :: ( MonadCatch m
              , MonadResource m
@@ -134,7 +129,6 @@ createJob :: ( MonadCatch m
     => JobType -- ^ 'cj1JobType'
     -> Text -- ^ 'cj1Manifest'
     -> Bool -- ^ 'cj1ValidateOnly'
-    -> State CreateJob a
     -> m CreateJobResponse
 createJob p1 p2 p4 s =
     send $ (mkCreateJob p1 p2 p4) &~ s
@@ -146,7 +140,6 @@ createJobCatch :: ( MonadCatch m
     => JobType -- ^ 'cj1JobType'
     -> Text -- ^ 'cj1Manifest'
     -> Bool -- ^ 'cj1ValidateOnly'
-    -> State CreateJob a
     -> m (Either ServiceEr CreateJobResponse)
 createJobCatch p1 p2 p4 s =
     sendCatch $ (mkCreateJob p1 p2 p4) &~ s
@@ -157,7 +150,7 @@ createJobCatch p1 p2 p4 s =
 -- value associated with the job. You can only return information about jobs
 -- you own.
 --
--- See: 'Network.AWS.ImportExport'
+-- See: 'Network.AWS.ImportExport.GetStatus'
 
 getStatus :: ( MonadCatch m
              , MonadResource m
@@ -165,7 +158,6 @@ getStatus :: ( MonadCatch m
              , MonadReader Env m
              )
     => Text -- ^ 'gsJobId'
-    -> State GetStatus a
     -> m GetStatusResponse
 getStatus p1 s =
     send $ (mkGetStatus p1) &~ s
@@ -175,7 +167,6 @@ getStatusCatch :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'gsJobId'
-    -> State GetStatus a
     -> m (Either ServiceEr GetStatusResponse)
 getStatusCatch p1 s =
     sendCatch $ (mkGetStatus p1) &~ s
@@ -187,7 +178,7 @@ getStatusCatch p1 s =
 -- was created 2010Feb05, the ListJobs operation would return Test2 followed
 -- by Test1.
 --
--- See: 'Network.AWS.ImportExport'
+-- See: 'Network.AWS.ImportExport.ListJobs'
 
 listJobs :: ( MonadCatch m
             , MonadResource m
@@ -215,7 +206,7 @@ listJobsCatch s =
 -- operation after a CreateJob request but before the data transfer starts and
 -- you can only use it on jobs you own.
 --
--- See: 'Network.AWS.ImportExport'
+-- See: 'Network.AWS.ImportExport.UpdateJob'
 
 updateJob :: ( MonadCatch m
              , MonadResource m
@@ -226,7 +217,6 @@ updateJob :: ( MonadCatch m
     -> Text -- ^ 'ujManifest'
     -> JobType -- ^ 'ujJobType'
     -> Bool -- ^ 'ujValidateOnly'
-    -> State UpdateJob a
     -> m UpdateJobResponse
 updateJob p1 p2 p3 p4 s =
     send $ (mkUpdateJob p1 p2 p3 p4) &~ s
@@ -239,7 +229,6 @@ updateJobCatch :: ( MonadCatch m
     -> Text -- ^ 'ujManifest'
     -> JobType -- ^ 'ujJobType'
     -> Bool -- ^ 'ujValidateOnly'
-    -> State UpdateJob a
     -> m (Either ServiceEr UpdateJobResponse)
 updateJobCatch p1 p2 p3 p4 s =
     sendCatch $ (mkUpdateJob p1 p2 p3 p4) &~ s

@@ -12,15 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Amazon Simple Queue Service (SQS) is a fast, reliable, scalable, fully
--- managed message queuing service. SQS makes it simple and cost-effective to
--- decouple the components of a cloud application. You can use SQS to transmit
--- any volume of data, at any level of throughput, without losing messages or
--- requiring other services to be always available. With SQS, you can offload
--- the administrative burden of operating and scaling a highly available
--- messaging cluster, while paying a low price for only what you use.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -42,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.SQS.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.SQS.Monadic
@@ -170,7 +166,7 @@ type ServiceEr = Er SQS
 -- &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- 9a285199-c8d6-47c2-bdb2-314cb47d599d.
 --
--- See: 'Network.AWS.SQS'
+-- See: 'Network.AWS.SQS.AddPermission'
 
 addPermission :: ( MonadCatch m
                  , MonadResource m
@@ -181,7 +177,6 @@ addPermission :: ( MonadCatch m
     -> Text -- ^ 'apLabel'
     -> [Text] -- ^ 'apAWSAccountIds'
     -> [Text] -- ^ 'apActions'
-    -> State AddPermission a
     -> m AddPermissionResponse
 addPermission p1 p2 p3 p4 s =
     send $ (mkAddPermission p1 p2 p3 p4) &~ s
@@ -194,7 +189,6 @@ addPermissionCatch :: ( MonadCatch m
     -> Text -- ^ 'apLabel'
     -> [Text] -- ^ 'apAWSAccountIds'
     -> [Text] -- ^ 'apActions'
-    -> State AddPermission a
     -> m (Either ServiceEr AddPermissionResponse)
 addPermissionCatch p1 p2 p3 p4 s =
     sendCatch $ (mkAddPermission p1 p2 p3 p4) &~ s
@@ -238,7 +232,7 @@ addPermissionCatch p1 p2 p3 p4 s =
 -- &SignatureVersion=2 &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- 6a7a282a-d013-4a59-aba9-335b0fa48bed.
 --
--- See: 'Network.AWS.SQS'
+-- See: 'Network.AWS.SQS.ChangeMessageVisibility'
 
 changeMessageVisibility :: ( MonadCatch m
                            , MonadResource m
@@ -248,7 +242,6 @@ changeMessageVisibility :: ( MonadCatch m
     => Text -- ^ 'cmvQueueUrl'
     -> Text -- ^ 'cmvReceiptHandle'
     -> Integer -- ^ 'cmvVisibilityTimeout'
-    -> State ChangeMessageVisibility a
     -> m ChangeMessageVisibilityResponse
 changeMessageVisibility p1 p2 p3 s =
     send $ (mkChangeMessageVisibility p1 p2 p3) &~ s
@@ -260,7 +253,6 @@ changeMessageVisibilityCatch :: ( MonadCatch m
     => Text -- ^ 'cmvQueueUrl'
     -> Text -- ^ 'cmvReceiptHandle'
     -> Integer -- ^ 'cmvVisibilityTimeout'
-    -> State ChangeMessageVisibility a
     -> m (Either ServiceEr ChangeMessageVisibilityResponse)
 changeMessageVisibilityCatch p1 p2 p3 s =
     sendCatch $ (mkChangeMessageVisibility p1 p2 p3) &~ s
@@ -292,7 +284,7 @@ changeMessageVisibilityCatch p1 p2 p3 s =
 -- &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE change_visibility_msg_2
 -- change_visibility_msg_3 ca9668f7-ab1b-4f7a-8859-f15747ab17a7.
 --
--- See: 'Network.AWS.SQS'
+-- See: 'Network.AWS.SQS.ChangeMessageVisibilityBatch'
 
 changeMessageVisibilityBatch :: ( MonadCatch m
                                 , MonadResource m
@@ -301,7 +293,6 @@ changeMessageVisibilityBatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'cmvbQueueUrl'
     -> [ChangeMessageVisibilityBatchRequestEntry] -- ^ 'cmvbEntries'
-    -> State ChangeMessageVisibilityBatch a
     -> m ChangeMessageVisibilityBatchResponse
 changeMessageVisibilityBatch p1 p2 s =
     send $ (mkChangeMessageVisibilityBatch p1 p2) &~ s
@@ -312,7 +303,6 @@ changeMessageVisibilityBatchCatch :: ( MonadCatch m
                                      )
     => Text -- ^ 'cmvbQueueUrl'
     -> [ChangeMessageVisibilityBatchRequestEntry] -- ^ 'cmvbEntries'
-    -> State ChangeMessageVisibilityBatch a
     -> m (Either ServiceEr ChangeMessageVisibilityBatchResponse)
 changeMessageVisibilityBatchCatch p1 p2 s =
     sendCatch $ (mkChangeMessageVisibilityBatch p1 p2) &~ s
@@ -344,7 +334,7 @@ changeMessageVisibilityBatchCatch p1 p2 s =
 -- http://&useast1-query;/123456789012/testQueue
 -- 7a62c49f-347e-4fc4-9331-6e8e7a96aa73.
 --
--- See: 'Network.AWS.SQS'
+-- See: 'Network.AWS.SQS.CreateQueue'
 
 createQueue :: ( MonadCatch m
                , MonadResource m
@@ -352,7 +342,6 @@ createQueue :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'cqQueueName'
-    -> State CreateQueue a
     -> m CreateQueueResponse
 createQueue p1 s =
     send $ (mkCreateQueue p1) &~ s
@@ -362,7 +351,6 @@ createQueueCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'cqQueueName'
-    -> State CreateQueue a
     -> m (Either ServiceEr CreateQueueResponse)
 createQueueCatch p1 s =
     sendCatch $ (mkCreateQueue p1) &~ s
@@ -397,7 +385,7 @@ createQueueCatch p1 s =
 -- &SignatureVersion=2 &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- b5293cb5-d306-4a17-9048-b263635abe42.
 --
--- See: 'Network.AWS.SQS'
+-- See: 'Network.AWS.SQS.DeleteMessage'
 
 deleteMessage :: ( MonadCatch m
                  , MonadResource m
@@ -406,7 +394,6 @@ deleteMessage :: ( MonadCatch m
                  )
     => Text -- ^ 'dmQueueUrl'
     -> Text -- ^ 'dmReceiptHandle'
-    -> State DeleteMessage a
     -> m DeleteMessageResponse
 deleteMessage p1 p2 s =
     send $ (mkDeleteMessage p1 p2) &~ s
@@ -417,7 +404,6 @@ deleteMessageCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'dmQueueUrl'
     -> Text -- ^ 'dmReceiptHandle'
-    -> State DeleteMessage a
     -> m (Either ServiceEr DeleteMessageResponse)
 deleteMessageCatch p1 p2 s =
     sendCatch $ (mkDeleteMessage p1 p2) &~ s
@@ -445,7 +431,7 @@ deleteMessageCatch p1 p2 s =
 -- &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE msg1 msg2
 -- d6f86b7a-74d1-4439-b43f-196a1e29cd85.
 --
--- See: 'Network.AWS.SQS'
+-- See: 'Network.AWS.SQS.DeleteMessageBatch'
 
 deleteMessageBatch :: ( MonadCatch m
                       , MonadResource m
@@ -454,7 +440,6 @@ deleteMessageBatch :: ( MonadCatch m
                       )
     => Text -- ^ 'dmbQueueUrl'
     -> [DeleteMessageBatchRequestEntry] -- ^ 'dmbEntries'
-    -> State DeleteMessageBatch a
     -> m DeleteMessageBatchResponse
 deleteMessageBatch p1 p2 s =
     send $ (mkDeleteMessageBatch p1 p2) &~ s
@@ -465,7 +450,6 @@ deleteMessageBatchCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'dmbQueueUrl'
     -> [DeleteMessageBatchRequestEntry] -- ^ 'dmbEntries'
-    -> State DeleteMessageBatch a
     -> m (Either ServiceEr DeleteMessageBatchResponse)
 deleteMessageBatchCatch p1 p2 s =
     sendCatch $ (mkDeleteMessageBatch p1 p2) &~ s
@@ -489,7 +473,7 @@ deleteMessageBatchCatch p1 p2 s =
 -- &SignatureVersion=2 &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- 6fde8d1e-52cd-4581-8cd9-c512f4c64223.
 --
--- See: 'Network.AWS.SQS'
+-- See: 'Network.AWS.SQS.DeleteQueue'
 
 deleteQueue :: ( MonadCatch m
                , MonadResource m
@@ -497,7 +481,6 @@ deleteQueue :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'dqQueueUrl'
-    -> State DeleteQueue a
     -> m DeleteQueueResponse
 deleteQueue p1 s =
     send $ (mkDeleteQueue p1) &~ s
@@ -507,7 +490,6 @@ deleteQueueCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'dqQueueUrl'
-    -> State DeleteQueue a
     -> m (Either ServiceEr DeleteQueueResponse)
 deleteQueueCatch p1 s =
     sendCatch $ (mkDeleteQueue p1) &~ s
@@ -563,7 +545,7 @@ deleteQueueCatch p1 s =
 -- &SignatureVersion=2 &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- VisibilityTimeout 30 DelaySeconds 0 ReceiveMessageWaitTimeSeconds 2.
 --
--- See: 'Network.AWS.SQS'
+-- See: 'Network.AWS.SQS.GetQueueAttributes'
 
 getQueueAttributes :: ( MonadCatch m
                       , MonadResource m
@@ -571,7 +553,6 @@ getQueueAttributes :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'gqaQueueUrl'
-    -> State GetQueueAttributes a
     -> m GetQueueAttributesResponse
 getQueueAttributes p1 s =
     send $ (mkGetQueueAttributes p1) &~ s
@@ -581,7 +562,6 @@ getQueueAttributesCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'gqaQueueUrl'
-    -> State GetQueueAttributes a
     -> m (Either ServiceEr GetQueueAttributesResponse)
 getQueueAttributesCatch p1 s =
     sendCatch $ (mkGetQueueAttributes p1) &~ s
@@ -601,7 +581,7 @@ getQueueAttributesCatch p1 s =
 -- http://&useast1-query;/123456789012/testQueue
 -- 470a6f13-2ed9-4181-ad8a-2fdea142988e.
 --
--- See: 'Network.AWS.SQS'
+-- See: 'Network.AWS.SQS.GetQueueUrl'
 
 getQueueUrl :: ( MonadCatch m
                , MonadResource m
@@ -609,7 +589,6 @@ getQueueUrl :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'gquQueueName'
-    -> State GetQueueUrl a
     -> m GetQueueUrlResponse
 getQueueUrl p1 s =
     send $ (mkGetQueueUrl p1) &~ s
@@ -619,7 +598,6 @@ getQueueUrlCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'gquQueueName'
-    -> State GetQueueUrl a
     -> m (Either ServiceEr GetQueueUrlResponse)
 getQueueUrlCatch p1 s =
     sendCatch $ (mkGetQueueUrl p1) &~ s
@@ -634,7 +612,7 @@ getQueueUrlCatch p1 s =
 -- 8ffb921f-b85e-53d9-abcf-d8d0057f38fc For more information about using dead
 -- letter queues, see Using Amazon SQS Dead Letter Queues.
 --
--- See: 'Network.AWS.SQS'
+-- See: 'Network.AWS.SQS.ListDeadLetterSourceQueues'
 
 listDeadLetterSourceQueues :: ( MonadCatch m
                               , MonadResource m
@@ -642,7 +620,6 @@ listDeadLetterSourceQueues :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'ldlsqQueueUrl'
-    -> State ListDeadLetterSourceQueues a
     -> m ListDeadLetterSourceQueuesResponse
 listDeadLetterSourceQueues p1 s =
     send $ (mkListDeadLetterSourceQueues p1) &~ s
@@ -652,7 +629,6 @@ listDeadLetterSourceQueuesCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => Text -- ^ 'ldlsqQueueUrl'
-    -> State ListDeadLetterSourceQueues a
     -> m (Either ServiceEr ListDeadLetterSourceQueuesResponse)
 listDeadLetterSourceQueuesCatch p1 s =
     sendCatch $ (mkListDeadLetterSourceQueues p1) &~ s
@@ -670,7 +646,7 @@ listDeadLetterSourceQueuesCatch p1 s =
 -- http://sqs.us-east-1.amazonaws.com/123456789012/testQueue
 -- 725275ae-0b9b-4762-b238-436d7c65a1ac.
 --
--- See: 'Network.AWS.SQS'
+-- See: 'Network.AWS.SQS.ListQueues'
 
 listQueues :: ( MonadCatch m
               , MonadResource m
@@ -731,7 +707,7 @@ listQueuesCatch s =
 -- ApproximateReceiveCount 5 ApproximateFirstReceiveTimestamp 1250700979248
 -- b6633655-283d-45b4-aee4-4e84e0ae6afa.
 --
--- See: 'Network.AWS.SQS'
+-- See: 'Network.AWS.SQS.ReceiveMessage'
 
 receiveMessage :: ( MonadCatch m
                   , MonadResource m
@@ -739,7 +715,6 @@ receiveMessage :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'rmQueueUrl'
-    -> State ReceiveMessage a
     -> m ReceiveMessageResponse
 receiveMessage p1 s =
     send $ (mkReceiveMessage p1) &~ s
@@ -749,7 +724,6 @@ receiveMessageCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'rmQueueUrl'
-    -> State ReceiveMessage a
     -> m (Either ServiceEr ReceiveMessageResponse)
 receiveMessageCatch p1 s =
     sendCatch $ (mkReceiveMessage p1) &~ s
@@ -766,7 +740,7 @@ receiveMessageCatch p1 s =
 -- &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- f8bdb362-6616-42c0-977a-ce9a8bcce3bb.
 --
--- See: 'Network.AWS.SQS'
+-- See: 'Network.AWS.SQS.RemovePermission'
 
 removePermission :: ( MonadCatch m
                     , MonadResource m
@@ -775,7 +749,6 @@ removePermission :: ( MonadCatch m
                     )
     => Text -- ^ 'rpQueueUrl'
     -> Text -- ^ 'rpLabel'
-    -> State RemovePermission a
     -> m RemovePermissionResponse
 removePermission p1 p2 s =
     send $ (mkRemovePermission p1 p2) &~ s
@@ -786,7 +759,6 @@ removePermissionCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'rpQueueUrl'
     -> Text -- ^ 'rpLabel'
-    -> State RemovePermission a
     -> m (Either ServiceEr RemovePermissionResponse)
 removePermissionCatch p1 p2 s =
     sendCatch $ (mkRemovePermission p1 p2) &~ s
@@ -820,7 +792,7 @@ removePermissionCatch p1 p2 s =
 -- fafb00f5732ab283681e124bf8747ed1 3ae8f24a165a8cedc005670c81a27295
 -- 5fea7756-0ea4-451a-a703-a558b933e274 27daac76-34dd-47df-bd01-1f6e873584a0.
 --
--- See: 'Network.AWS.SQS'
+-- See: 'Network.AWS.SQS.SendMessage'
 
 sendMessage :: ( MonadCatch m
                , MonadResource m
@@ -829,7 +801,6 @@ sendMessage :: ( MonadCatch m
                )
     => Text -- ^ 'smQueueUrl'
     -> Text -- ^ 'smMessageBody'
-    -> State SendMessage a
     -> m SendMessageResponse
 sendMessage p1 p2 s =
     send $ (mkSendMessage p1 p2) &~ s
@@ -840,7 +811,6 @@ sendMessageCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'smQueueUrl'
     -> Text -- ^ 'smMessageBody'
-    -> State SendMessage a
     -> m (Either ServiceEr SendMessageResponse)
 sendMessageCatch p1 p2 s =
     sendCatch $ (mkSendMessage p1 p2) &~ s
@@ -885,7 +855,7 @@ sendMessageCatch p1 p2 s =
 -- 15ee1ed3-87e7-40c1-bdaa-2e49968ea7e9 7fb8146a82f95e0af155278f406862c2
 -- 295c5fa15a51aae6884d1d7c1d99ca50 ca1ad5d0-8271-408b-8d0f-1351bf547e74.
 --
--- See: 'Network.AWS.SQS'
+-- See: 'Network.AWS.SQS.SendMessageBatch'
 
 sendMessageBatch :: ( MonadCatch m
                     , MonadResource m
@@ -894,7 +864,6 @@ sendMessageBatch :: ( MonadCatch m
                     )
     => Text -- ^ 'smbQueueUrl'
     -> [SendMessageBatchRequestEntry] -- ^ 'smbEntries'
-    -> State SendMessageBatch a
     -> m SendMessageBatchResponse
 sendMessageBatch p1 p2 s =
     send $ (mkSendMessageBatch p1 p2) &~ s
@@ -905,7 +874,6 @@ sendMessageBatchCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'smbQueueUrl'
     -> [SendMessageBatchRequestEntry] -- ^ 'smbEntries'
-    -> State SendMessageBatch a
     -> m (Either ServiceEr SendMessageBatchResponse)
 sendMessageBatchCatch p1 p2 s =
     sendCatch $ (mkSendMessageBatch p1 p2) &~ s
@@ -947,7 +915,7 @@ sendMessageBatchCatch p1 p2 s =
 -- &SignatureVersion=2 &Signature=Dqlp3Sd6ljTUA9Uf6SGtEExwUQEXAMPLE
 -- e5cca473-4fc0-4198-a451-8abb94d02c75.
 --
--- See: 'Network.AWS.SQS'
+-- See: 'Network.AWS.SQS.SetQueueAttributes'
 
 setQueueAttributes :: ( MonadCatch m
                       , MonadResource m
@@ -956,7 +924,6 @@ setQueueAttributes :: ( MonadCatch m
                       )
     => Text -- ^ 'sqaQueueUrl'
     -> Map QueueAttributeName Text -- ^ 'sqaAttributes'
-    -> State SetQueueAttributes a
     -> m SetQueueAttributesResponse
 setQueueAttributes p1 p2 s =
     send $ (mkSetQueueAttributes p1 p2) &~ s
@@ -967,7 +934,6 @@ setQueueAttributesCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'sqaQueueUrl'
     -> Map QueueAttributeName Text -- ^ 'sqaAttributes'
-    -> State SetQueueAttributes a
     -> m (Either ServiceEr SetQueueAttributesResponse)
 setQueueAttributesCatch p1 p2 s =
     sendCatch $ (mkSetQueueAttributes p1 p2) &~ s

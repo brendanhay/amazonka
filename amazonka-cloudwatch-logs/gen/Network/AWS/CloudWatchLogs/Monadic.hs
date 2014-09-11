@@ -12,10 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Amazon CloudWatch Logs enables you to monitor, store, and access your
--- system, application, and custom log files.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -37,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.CloudWatchLogs.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.CloudWatchLogs.Monadic
@@ -147,7 +148,7 @@ type ServiceEr = Er CloudWatchLogs
 -- "exampleLogGroupName" } HTTP/1.1 200 OK x-amzn-RequestId: Content-Type:
 -- application/x-amz-json-1.1 Content-Length: Date: ]]>.
 --
--- See: 'Network.AWS.CloudWatchLogs'
+-- See: 'Network.AWS.CloudWatchLogs.CreateLogGroup'
 
 createLogGroup :: ( MonadCatch m
                   , MonadResource m
@@ -155,7 +156,6 @@ createLogGroup :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'clgLogGroupName'
-    -> State CreateLogGroup a
     -> m CreateLogGroupResponse
 createLogGroup p1 s =
     send $ (mkCreateLogGroup p1) &~ s
@@ -165,7 +165,6 @@ createLogGroupCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'clgLogGroupName'
-    -> State CreateLogGroup a
     -> m (Either ServiceEr CreateLogGroupResponse)
 createLogGroupCatch p1 s =
     sendCatch $ (mkCreateLogGroup p1) &~ s
@@ -187,7 +186,7 @@ createLogGroupCatch p1 s =
 -- 200 OK x-amzn-RequestId: Content-Type: application/x-amz-json-1.1
 -- Content-Length: Date: ]]>.
 --
--- See: 'Network.AWS.CloudWatchLogs'
+-- See: 'Network.AWS.CloudWatchLogs.CreateLogStream'
 
 createLogStream :: ( MonadCatch m
                    , MonadResource m
@@ -196,7 +195,6 @@ createLogStream :: ( MonadCatch m
                    )
     => Text -- ^ 'clsLogGroupName'
     -> Text -- ^ 'clsLogStreamName'
-    -> State CreateLogStream a
     -> m CreateLogStreamResponse
 createLogStream p1 p2 s =
     send $ (mkCreateLogStream p1 p2) &~ s
@@ -207,7 +205,6 @@ createLogStreamCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'clsLogGroupName'
     -> Text -- ^ 'clsLogStreamName'
-    -> State CreateLogStream a
     -> m (Either ServiceEr CreateLogStreamResponse)
 createLogStreamCatch p1 p2 s =
     sendCatch $ (mkCreateLogStream p1 p2) &~ s
@@ -225,7 +222,7 @@ createLogStreamCatch p1 p2 s =
 -- "exampleLogGroupName" } HTTP/1.1 200 OK x-amzn-RequestId: Content-Type:
 -- application/x-amz-json-1.1 Content-Length: Date: ]]>.
 --
--- See: 'Network.AWS.CloudWatchLogs'
+-- See: 'Network.AWS.CloudWatchLogs.DeleteLogGroup'
 
 deleteLogGroup :: ( MonadCatch m
                   , MonadResource m
@@ -233,7 +230,6 @@ deleteLogGroup :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'dlgLogGroupName'
-    -> State DeleteLogGroup a
     -> m DeleteLogGroupResponse
 deleteLogGroup p1 s =
     send $ (mkDeleteLogGroup p1) &~ s
@@ -243,7 +239,6 @@ deleteLogGroupCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'dlgLogGroupName'
-    -> State DeleteLogGroup a
     -> m (Either ServiceEr DeleteLogGroupResponse)
 deleteLogGroupCatch p1 s =
     sendCatch $ (mkDeleteLogGroup p1) &~ s
@@ -261,7 +256,7 @@ deleteLogGroupCatch p1 s =
 -- 200 OK x-amzn-RequestId: Content-Type: application/x-amz-json-1.1
 -- Content-Length: Date: ]]>.
 --
--- See: 'Network.AWS.CloudWatchLogs'
+-- See: 'Network.AWS.CloudWatchLogs.DeleteLogStream'
 
 deleteLogStream :: ( MonadCatch m
                    , MonadResource m
@@ -270,7 +265,6 @@ deleteLogStream :: ( MonadCatch m
                    )
     => Text -- ^ 'dlsLogGroupName'
     -> Text -- ^ 'dlsLogStreamName'
-    -> State DeleteLogStream a
     -> m DeleteLogStreamResponse
 deleteLogStream p1 p2 s =
     send $ (mkDeleteLogStream p1 p2) &~ s
@@ -281,7 +275,6 @@ deleteLogStreamCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'dlsLogGroupName'
     -> Text -- ^ 'dlsLogStreamName'
-    -> State DeleteLogStream a
     -> m (Either ServiceEr DeleteLogStreamResponse)
 deleteLogStreamCatch p1 p2 s =
     sendCatch $ (mkDeleteLogStream p1 p2) &~ s
@@ -299,7 +292,7 @@ deleteLogStreamCatch p1 p2 s =
 -- 200 OK x-amzn-RequestId: Content-Type: application/x-amz-json-1.1
 -- Content-Length: Date: ]]>.
 --
--- See: 'Network.AWS.CloudWatchLogs'
+-- See: 'Network.AWS.CloudWatchLogs.DeleteMetricFilter'
 
 deleteMetricFilter :: ( MonadCatch m
                       , MonadResource m
@@ -308,7 +301,6 @@ deleteMetricFilter :: ( MonadCatch m
                       )
     => Text -- ^ 'dmfLogGroupName'
     -> Text -- ^ 'dmfFilterName'
-    -> State DeleteMetricFilter a
     -> m DeleteMetricFilterResponse
 deleteMetricFilter p1 p2 s =
     send $ (mkDeleteMetricFilter p1 p2) &~ s
@@ -319,7 +311,6 @@ deleteMetricFilterCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'dmfLogGroupName'
     -> Text -- ^ 'dmfFilterName'
-    -> State DeleteMetricFilter a
     -> m (Either ServiceEr DeleteMetricFilterResponse)
 deleteMetricFilterCatch p1 p2 s =
     sendCatch $ (mkDeleteMetricFilter p1 p2) &~ s
@@ -337,7 +328,7 @@ deleteMetricFilterCatch p1 p2 s =
 -- "exampleLogGroupName" } HTTP/1.1 200 OK x-amzn-RequestId: Content-Type:
 -- application/x-amz-json-1.1 Content-Length: Date: ]]>.
 --
--- See: 'Network.AWS.CloudWatchLogs'
+-- See: 'Network.AWS.CloudWatchLogs.DeleteRetentionPolicy'
 
 deleteRetentionPolicy :: ( MonadCatch m
                          , MonadResource m
@@ -345,7 +336,6 @@ deleteRetentionPolicy :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'drpLogGroupName'
-    -> State DeleteRetentionPolicy a
     -> m DeleteRetentionPolicyResponse
 deleteRetentionPolicy p1 s =
     send $ (mkDeleteRetentionPolicy p1) &~ s
@@ -355,7 +345,6 @@ deleteRetentionPolicyCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'drpLogGroupName'
-    -> State DeleteRetentionPolicy a
     -> m (Either ServiceEr DeleteRetentionPolicyResponse)
 deleteRetentionPolicyCatch p1 s =
     sendCatch $ (mkDeleteRetentionPolicy p1) &~ s
@@ -383,7 +372,7 @@ deleteRetentionPolicyCatch p1 s =
 -- "creationTime": 1396224000000, "logGroupName": "exampleLogGroupName2",
 -- "metricFilterCount": 0, "retentionInDays": 30 } ] }.
 --
--- See: 'Network.AWS.CloudWatchLogs'
+-- See: 'Network.AWS.CloudWatchLogs.DescribeLogGroups'
 
 describeLogGroups :: ( MonadCatch m
                      , MonadResource m
@@ -433,7 +422,7 @@ describeLogGroupsCatch s =
 -- "logStreamName": "exampleLogStreamName2", "uploadSequenceToken":
 -- "07622379445839968487886029673945314100949536701251562127" } ] }.
 --
--- See: 'Network.AWS.CloudWatchLogs'
+-- See: 'Network.AWS.CloudWatchLogs.DescribeLogStreams'
 
 describeLogStreams :: ( MonadCatch m
                       , MonadResource m
@@ -441,7 +430,6 @@ describeLogStreams :: ( MonadCatch m
                       , MonadReader Env (ResumableSource m)
                       )
     => Text -- ^ 'dls1LogGroupName'
-    -> State DescribeLogStreams a
     -> ResumableSource m DescribeLogStreamsResponse
 describeLogStreams p1 s =
     paginate $ (mkDescribeLogStreams p1) &~ s
@@ -451,7 +439,6 @@ describeLogStreamsCatch :: ( MonadCatch m
                            , MonadReader Env (ResumableSource m)
                            )
     => Text -- ^ 'dls1LogGroupName'
-    -> State DescribeLogStreams a
     -> ResumableSource m (Either ServiceEr DescribeLogStreamsResponse)
 describeLogStreamsCatch p1 s =
     paginateCatch $ (mkDescribeLogStreams p1) &~ s
@@ -478,7 +465,7 @@ describeLogStreamsCatch p1 s =
 -- "metricNamespace": "MyApp", "metricName": "Volume" }, { "metricValue": "1",
 -- "metricNamespace": "MyApp", "metricName": "RequestCount" } ] } ] }.
 --
--- See: 'Network.AWS.CloudWatchLogs'
+-- See: 'Network.AWS.CloudWatchLogs.DescribeMetricFilters'
 
 describeMetricFilters :: ( MonadCatch m
                          , MonadResource m
@@ -486,7 +473,6 @@ describeMetricFilters :: ( MonadCatch m
                          , MonadReader Env (ResumableSource m)
                          )
     => Text -- ^ 'dmf1LogGroupName'
-    -> State DescribeMetricFilters a
     -> ResumableSource m DescribeMetricFiltersResponse
 describeMetricFilters p1 s =
     paginate $ (mkDescribeMetricFilters p1) &~ s
@@ -496,7 +482,6 @@ describeMetricFiltersCatch :: ( MonadCatch m
                               , MonadReader Env (ResumableSource m)
                               )
     => Text -- ^ 'dmf1LogGroupName'
-    -> State DescribeMetricFilters a
     -> ResumableSource m (Either ServiceEr DescribeMetricFiltersResponse)
 describeMetricFiltersCatch p1 s =
     paginateCatch $ (mkDescribeMetricFilters p1) &~ s
@@ -529,7 +514,7 @@ describeMetricFiltersCatch p1 s =
 -- "nextForwardToken":
 -- "f/31132629323784151764587387538205132201699397759403884544" }.
 --
--- See: 'Network.AWS.CloudWatchLogs'
+-- See: 'Network.AWS.CloudWatchLogs.GetLogEvents'
 
 getLogEvents :: ( MonadCatch m
                 , MonadResource m
@@ -538,7 +523,6 @@ getLogEvents :: ( MonadCatch m
                 )
     => Text -- ^ 'gleLogGroupName'
     -> Text -- ^ 'gleLogStreamName'
-    -> State GetLogEvents a
     -> m GetLogEventsResponse
 getLogEvents p1 p2 s =
     send $ (mkGetLogEvents p1 p2) &~ s
@@ -549,7 +533,6 @@ getLogEventsCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'gleLogGroupName'
     -> Text -- ^ 'gleLogStreamName'
-    -> State GetLogEvents a
     -> m (Either ServiceEr GetLogEventsResponse)
 getLogEventsCatch p1 p2 s =
     sendCatch $ (mkGetLogEvents p1 p2) &~ s
@@ -581,7 +564,7 @@ getLogEventsCatch p1 p2 s =
 -- Content-Length: Date: ]]> { "nextSequenceToken":
 -- "49536701251539826331025683274032969384950891766572122113" }.
 --
--- See: 'Network.AWS.CloudWatchLogs'
+-- See: 'Network.AWS.CloudWatchLogs.PutLogEvents'
 
 putLogEvents :: ( MonadCatch m
                 , MonadResource m
@@ -591,7 +574,6 @@ putLogEvents :: ( MonadCatch m
     => Text -- ^ 'pleLogGroupName'
     -> Text -- ^ 'pleLogStreamName'
     -> List1 InputLogEvent -- ^ 'pleLogEvents'
-    -> State PutLogEvents a
     -> m PutLogEventsResponse
 putLogEvents p1 p2 p3 s =
     send $ (mkPutLogEvents p1 p2 p3) &~ s
@@ -603,7 +585,6 @@ putLogEventsCatch :: ( MonadCatch m
     => Text -- ^ 'pleLogGroupName'
     -> Text -- ^ 'pleLogStreamName'
     -> List1 InputLogEvent -- ^ 'pleLogEvents'
-    -> State PutLogEvents a
     -> m (Either ServiceEr PutLogEventsResponse)
 putLogEventsCatch p1 p2 p3 s =
     sendCatch $ (mkPutLogEvents p1 p2 p3) &~ s
@@ -627,7 +608,7 @@ putLogEventsCatch p1 p2 p3 s =
 -- OK x-amzn-RequestId: Content-Type: application/x-amz-json-1.1
 -- Content-Length: Date: ]]>.
 --
--- See: 'Network.AWS.CloudWatchLogs'
+-- See: 'Network.AWS.CloudWatchLogs.PutMetricFilter'
 
 putMetricFilter :: ( MonadCatch m
                    , MonadResource m
@@ -638,7 +619,6 @@ putMetricFilter :: ( MonadCatch m
     -> Text -- ^ 'pmfFilterName'
     -> Text -- ^ 'pmfFilterPattern'
     -> List1 MetricTransformation -- ^ 'pmfMetricTransformations'
-    -> State PutMetricFilter a
     -> m PutMetricFilterResponse
 putMetricFilter p1 p2 p3 p4 s =
     send $ (mkPutMetricFilter p1 p2 p3 p4) &~ s
@@ -651,7 +631,6 @@ putMetricFilterCatch :: ( MonadCatch m
     -> Text -- ^ 'pmfFilterName'
     -> Text -- ^ 'pmfFilterPattern'
     -> List1 MetricTransformation -- ^ 'pmfMetricTransformations'
-    -> State PutMetricFilter a
     -> m (Either ServiceEr PutMetricFilterResponse)
 putMetricFilterCatch p1 p2 p3 p4 s =
     sendCatch $ (mkPutMetricFilter p1 p2 p3 p4) &~ s
@@ -671,7 +650,7 @@ putMetricFilterCatch p1 p2 p3 p4 s =
 -- x-amzn-RequestId: Content-Type: application/x-amz-json-1.1 Content-Length:
 -- Date: ]]>.
 --
--- See: 'Network.AWS.CloudWatchLogs'
+-- See: 'Network.AWS.CloudWatchLogs.PutRetentionPolicy'
 
 putRetentionPolicy :: ( MonadCatch m
                       , MonadResource m
@@ -680,7 +659,6 @@ putRetentionPolicy :: ( MonadCatch m
                       )
     => Text -- ^ 'prpLogGroupName'
     -> Integer -- ^ 'prpRetentionInDays'
-    -> State PutRetentionPolicy a
     -> m PutRetentionPolicyResponse
 putRetentionPolicy p1 p2 s =
     send $ (mkPutRetentionPolicy p1 p2) &~ s
@@ -691,7 +669,6 @@ putRetentionPolicyCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'prpLogGroupName'
     -> Integer -- ^ 'prpRetentionInDays'
-    -> State PutRetentionPolicy a
     -> m (Either ServiceEr PutRetentionPolicyResponse)
 putRetentionPolicyCatch p1 p2 s =
     sendCatch $ (mkPutRetentionPolicy p1 p2) &~ s
@@ -866,7 +843,7 @@ putRetentionPolicyCatch p1 p2 s =
 -- "eventNumber": 3, "eventMessage": "02 May 2014 00:34:16,142 [ERROR]
 -- Unhanded exception: InvalidQueryException", "extractedValues": {} } ] }.
 --
--- See: 'Network.AWS.CloudWatchLogs'
+-- See: 'Network.AWS.CloudWatchLogs.TestMetricFilter'
 
 testMetricFilter :: ( MonadCatch m
                     , MonadResource m
@@ -875,7 +852,6 @@ testMetricFilter :: ( MonadCatch m
                     )
     => Text -- ^ 'tmfFilterPattern'
     -> List1 Text -- ^ 'tmfLogEventMessages'
-    -> State TestMetricFilter a
     -> m TestMetricFilterResponse
 testMetricFilter p1 p2 s =
     send $ (mkTestMetricFilter p1 p2) &~ s
@@ -886,7 +862,6 @@ testMetricFilterCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'tmfFilterPattern'
     -> List1 Text -- ^ 'tmfLogEventMessages'
-    -> State TestMetricFilter a
     -> m (Either ServiceEr TestMetricFilterResponse)
 testMetricFilterCatch p1 p2 s =
     sendCatch $ (mkTestMetricFilter p1 p2) &~ s

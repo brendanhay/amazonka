@@ -12,16 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Amazon Simple Email Service (Amazon SES) is a cost-effective outbound-only
--- email-sending service built on the reliable and scalable infrastructure
--- that Amazon.com has developed to serve its own customer base. With Amazon
--- SES, you can send transactional email, marketing messages, or any other
--- type of high-quality content and you only pay for what you use. Along with
--- high deliverability, Amazon SES provides easy, real-time access to your
--- sending statistics and built-in notifications for bounces, complaints, and
--- deliveries to help you fine-tune your email-sending strategy.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -43,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.SES.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.SES.Monadic
@@ -170,7 +165,7 @@ type ServiceEr = Er SES
 -- &Identity=domain.com &Timestamp=2012-05-12T05%3A25%3A58.000Z
 -- &Version=2010-12-01 d96bd874-9bf2-11e1-8ee7-c98a0037a2b6.
 --
--- See: 'Network.AWS.SES'
+-- See: 'Network.AWS.SES.DeleteIdentity'
 
 deleteIdentity :: ( MonadCatch m
                   , MonadResource m
@@ -178,7 +173,6 @@ deleteIdentity :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'diIdentity'
-    -> State DeleteIdentity a
     -> m DeleteIdentityResponse
 deleteIdentity p1 s =
     send $ (mkDeleteIdentity p1) &~ s
@@ -188,7 +182,6 @@ deleteIdentityCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'diIdentity'
-    -> State DeleteIdentity a
     -> m (Either ServiceEr DeleteIdentityResponse)
 deleteIdentityCatch p1 s =
     sendCatch $ (mkDeleteIdentity p1) &~ s
@@ -207,7 +200,7 @@ deleteIdentityCatch p1 s =
 -- &EmailAddress=user%40example.com &Timestamp=2011-08-18T22%3A20%3A50.000Z
 -- 5634af08-c865-11e0-8986-3f99a698f914.
 --
--- See: 'Network.AWS.SES'
+-- See: 'Network.AWS.SES.DeleteVerifiedEmailAddress'
 
 deleteVerifiedEmailAddress :: ( MonadCatch m
                               , MonadResource m
@@ -215,7 +208,6 @@ deleteVerifiedEmailAddress :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'dveaEmailAddress'
-    -> State DeleteVerifiedEmailAddress a
     -> m DeleteVerifiedEmailAddressResponse
 deleteVerifiedEmailAddress p1 s =
     send $ (mkDeleteVerifiedEmailAddress p1) &~ s
@@ -225,7 +217,6 @@ deleteVerifiedEmailAddressCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => Text -- ^ 'dveaEmailAddress'
-    -> State DeleteVerifiedEmailAddress a
     -> m (Either ServiceEr DeleteVerifiedEmailAddressResponse)
 deleteVerifiedEmailAddressCatch p1 s =
     sendCatch $ (mkDeleteVerifiedEmailAddress p1) &~ s
@@ -257,7 +248,7 @@ deleteVerifiedEmailAddressCatch p1 s =
 -- wrqplteh7oodxnad7hsl4mixg2uavzneazxv5sxi2
 -- bb5a105d-c468-11e1-82eb-dff885ccc06a.
 --
--- See: 'Network.AWS.SES'
+-- See: 'Network.AWS.SES.GetIdentityDkimAttributes'
 
 getIdentityDkimAttributes :: ( MonadCatch m
                              , MonadResource m
@@ -265,7 +256,6 @@ getIdentityDkimAttributes :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => [Text] -- ^ 'gidaIdentities'
-    -> State GetIdentityDkimAttributes a
     -> m GetIdentityDkimAttributesResponse
 getIdentityDkimAttributes p1 s =
     send $ (mkGetIdentityDkimAttributes p1) &~ s
@@ -275,7 +265,6 @@ getIdentityDkimAttributesCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => [Text] -- ^ 'gidaIdentities'
-    -> State GetIdentityDkimAttributes a
     -> m (Either ServiceEr GetIdentityDkimAttributesResponse)
 getIdentityDkimAttributesCatch p1 s =
     sendCatch $ (mkGetIdentityDkimAttributes p1) &~ s
@@ -300,7 +289,7 @@ getIdentityDkimAttributesCatch p1 s =
 -- arn:aws:sns:us-east-1:123456789012:example
 -- e038e509-b72a-11e1-901f-1fbd90e8104f.
 --
--- See: 'Network.AWS.SES'
+-- See: 'Network.AWS.SES.GetIdentityNotificationAttributes'
 
 getIdentityNotificationAttributes :: ( MonadCatch m
                                      , MonadResource m
@@ -308,7 +297,6 @@ getIdentityNotificationAttributes :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => [Text] -- ^ 'ginaIdentities'
-    -> State GetIdentityNotificationAttributes a
     -> m GetIdentityNotificationAttributesResponse
 getIdentityNotificationAttributes p1 s =
     send $ (mkGetIdentityNotificationAttributes p1) &~ s
@@ -318,7 +306,6 @@ getIdentityNotificationAttributesCatch :: ( MonadCatch m
                                           , MonadReader Env m
                                           )
     => [Text] -- ^ 'ginaIdentities'
-    -> State GetIdentityNotificationAttributes a
     -> m (Either ServiceEr GetIdentityNotificationAttributesResponse)
 getIdentityNotificationAttributesCatch p1 s =
     sendCatch $ (mkGetIdentityNotificationAttributes p1) &~ s
@@ -340,7 +327,7 @@ getIdentityNotificationAttributesCatch p1 s =
 -- Pending QTKknzFg2J4ygwa+XvHAxUl1hyHoY0gVfZdfjIedHZ0= user@domain.com
 -- Pending 1d0c29f1-9bf3-11e1-8ee7-c98a0037a2b6.
 --
--- See: 'Network.AWS.SES'
+-- See: 'Network.AWS.SES.GetIdentityVerificationAttributes'
 
 getIdentityVerificationAttributes :: ( MonadCatch m
                                      , MonadResource m
@@ -348,7 +335,6 @@ getIdentityVerificationAttributes :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => [Text] -- ^ 'givaIdentities'
-    -> State GetIdentityVerificationAttributes a
     -> m GetIdentityVerificationAttributesResponse
 getIdentityVerificationAttributes p1 s =
     send $ (mkGetIdentityVerificationAttributes p1) &~ s
@@ -358,7 +344,6 @@ getIdentityVerificationAttributesCatch :: ( MonadCatch m
                                           , MonadReader Env m
                                           )
     => [Text] -- ^ 'givaIdentities'
-    -> State GetIdentityVerificationAttributes a
     -> m (Either ServiceEr GetIdentityVerificationAttributesResponse)
 getIdentityVerificationAttributesCatch p1 s =
     sendCatch $ (mkGetIdentityVerificationAttributes p1) &~ s
@@ -375,7 +360,7 @@ getIdentityVerificationAttributesCatch p1 s =
 -- &Timestamp=2011-08-18T22%3A22%3A36.000Z 127.0 200.0 1.0
 -- 273021c6-c866-11e0-b926-699e21c3af9e.
 --
--- See: 'Network.AWS.SES'
+-- See: 'Network.AWS.SES.GetSendQuota'
 
 getSendQuota :: ( MonadCatch m
                 , MonadResource m
@@ -410,7 +395,7 @@ getSendQuotaCatch s =
 -- &Timestamp=2011-08-18T22%3A23%3A01.000Z 8 2011-08-03T19:23:00Z 0 0 0 7
 -- 2011-08-03T06:53:00Z 0 0 0 . . . . c2b66ee5-c866-11e0-b17f-cddb0ab334db.
 --
--- See: 'Network.AWS.SES'
+-- See: 'Network.AWS.SES.GetSendStatistics'
 
 getSendStatistics :: ( MonadCatch m
                      , MonadResource m
@@ -444,7 +429,7 @@ getSendStatisticsCatch s =
 -- &Timestamp=2012-05-12T05%3A18%3A45.000Z& Version=2010-12-01 example.com
 -- user@example.com cacecf23-9bf1-11e1-9279-0100e8cf109a.
 --
--- See: 'Network.AWS.SES'
+-- See: 'Network.AWS.SES.ListIdentities'
 
 listIdentities :: ( MonadCatch m
                   , MonadResource m
@@ -480,7 +465,7 @@ listIdentitiesCatch s =
 -- &Timestamp=2011-08-18T22%3A05%3A09.000Z% example@amazon.com
 -- 3dd50e97-c865-11e0-b235-099eb63d928d.
 --
--- See: 'Network.AWS.SES'
+-- See: 'Network.AWS.SES.ListVerifiedEmailAddresses'
 
 listVerifiedEmailAddresses :: ( MonadCatch m
                               , MonadResource m
@@ -530,7 +515,7 @@ listVerifiedEmailAddressesCatch s =
 -- 00000131d51d2292-159ad6eb-077c-46e6-ad09-ae7c05925ed4-000000
 -- d5964849-c866-11e0-9beb-01a62d68c57f.
 --
--- See: 'Network.AWS.SES'
+-- See: 'Network.AWS.SES.SendEmail'
 
 sendEmail :: ( MonadCatch m
              , MonadResource m
@@ -540,7 +525,6 @@ sendEmail :: ( MonadCatch m
     => Text -- ^ 'seSource'
     -> Destination -- ^ 'seDestination'
     -> Message -- ^ 'seMessage'
-    -> State SendEmail a
     -> m SendEmailResponse
 sendEmail p1 p2 p3 s =
     send $ (mkSendEmail p1 p2 p3) &~ s
@@ -552,7 +536,6 @@ sendEmailCatch :: ( MonadCatch m
     => Text -- ^ 'seSource'
     -> Destination -- ^ 'seDestination'
     -> Message -- ^ 'seMessage'
-    -> State SendEmail a
     -> m (Either ServiceEr SendEmailResponse)
 sendEmailCatch p1 p2 p3 s =
     sendCatch $ (mkSendEmail p1 p2 p3) &~ s
@@ -601,7 +584,7 @@ sendEmailCatch p1 p2 p3 s =
 -- 00000131d51d6b36-1d4f9293-0aee-4503-b573-9ae4e70e9e38-000000
 -- e0abcdfa-c866-11e0-b6d0-273d09173b49.
 --
--- See: 'Network.AWS.SES'
+-- See: 'Network.AWS.SES.SendRawEmail'
 
 sendRawEmail :: ( MonadCatch m
                 , MonadResource m
@@ -609,7 +592,6 @@ sendRawEmail :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => RawMessage -- ^ 'sreRawMessage'
-    -> State SendRawEmail a
     -> m SendRawEmailResponse
 sendRawEmail p3 s =
     send $ (mkSendRawEmail p3) &~ s
@@ -619,7 +601,6 @@ sendRawEmailCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => RawMessage -- ^ 'sreRawMessage'
-    -> State SendRawEmail a
     -> m (Either ServiceEr SendRawEmailResponse)
 sendRawEmailCatch p3 s =
     sendCatch $ (mkSendRawEmail p3) &~ s
@@ -646,7 +627,7 @@ sendRawEmailCatch p3 s =
 -- &Timestamp=2012-06-29T22%3A42%3A08.000Z &Version=2010-12-01
 -- 7aa61362-c469-11e1-aee5-6bbb4608fbcc.
 --
--- See: 'Network.AWS.SES'
+-- See: 'Network.AWS.SES.SetIdentityDkimEnabled'
 
 setIdentityDkimEnabled :: ( MonadCatch m
                           , MonadResource m
@@ -655,7 +636,6 @@ setIdentityDkimEnabled :: ( MonadCatch m
                           )
     => Text -- ^ 'sideIdentity'
     -> Bool -- ^ 'sideDkimEnabled'
-    -> State SetIdentityDkimEnabled a
     -> m SetIdentityDkimEnabledResponse
 setIdentityDkimEnabled p1 p2 s =
     send $ (mkSetIdentityDkimEnabled p1 p2) &~ s
@@ -666,7 +646,6 @@ setIdentityDkimEnabledCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'sideIdentity'
     -> Bool -- ^ 'sideDkimEnabled'
-    -> State SetIdentityDkimEnabled a
     -> m (Either ServiceEr SetIdentityDkimEnabledResponse)
 setIdentityDkimEnabledCatch p1 p2 s =
     sendCatch $ (mkSetIdentityDkimEnabled p1 p2) &~ s
@@ -690,7 +669,7 @@ setIdentityDkimEnabledCatch p1 p2 s =
 -- &Identity=user%40example.com &Timestamp=2012-06-15T20%3A31%3A21.000Z
 -- &Version=2010-12-01 299f4af4-b72a-11e1-901f-1fbd90e8104f.
 --
--- See: 'Network.AWS.SES'
+-- See: 'Network.AWS.SES.SetIdentityFeedbackForwardingEnabled'
 
 setIdentityFeedbackForwardingEnabled :: ( MonadCatch m
                                         , MonadResource m
@@ -699,7 +678,6 @@ setIdentityFeedbackForwardingEnabled :: ( MonadCatch m
                                         )
     => Text -- ^ 'siffeIdentity'
     -> Bool -- ^ 'siffeForwardingEnabled'
-    -> State SetIdentityFeedbackForwardingEnabled a
     -> m SetIdentityFeedbackForwardingEnabledResponse
 setIdentityFeedbackForwardingEnabled p1 p2 s =
     send $ (mkSetIdentityFeedbackForwardingEnabled p1 p2) &~ s
@@ -710,7 +688,6 @@ setIdentityFeedbackForwardingEnabledCatch :: ( MonadCatch m
                                              )
     => Text -- ^ 'siffeIdentity'
     -> Bool -- ^ 'siffeForwardingEnabled'
-    -> State SetIdentityFeedbackForwardingEnabled a
     -> m (Either ServiceEr SetIdentityFeedbackForwardingEnabledResponse)
 setIdentityFeedbackForwardingEnabledCatch p1 p2 s =
     sendCatch $ (mkSetIdentityFeedbackForwardingEnabled p1 p2) &~ s
@@ -736,7 +713,7 @@ setIdentityFeedbackForwardingEnabledCatch p1 p2 s =
 -- &Timestamp=2012-05-12T05%3A27%3A54.000Z&Version=2010-12-01
 -- 299f4af4-b72a-11e1-901f-1fbd90e8104f.
 --
--- See: 'Network.AWS.SES'
+-- See: 'Network.AWS.SES.SetIdentityNotificationTopic'
 
 setIdentityNotificationTopic :: ( MonadCatch m
                                 , MonadResource m
@@ -745,7 +722,6 @@ setIdentityNotificationTopic :: ( MonadCatch m
                                 )
     => Text -- ^ 'sintIdentity'
     -> NotificationType -- ^ 'sintNotificationType'
-    -> State SetIdentityNotificationTopic a
     -> m SetIdentityNotificationTopicResponse
 setIdentityNotificationTopic p1 p2 s =
     send $ (mkSetIdentityNotificationTopic p1 p2) &~ s
@@ -756,7 +732,6 @@ setIdentityNotificationTopicCatch :: ( MonadCatch m
                                      )
     => Text -- ^ 'sintIdentity'
     -> NotificationType -- ^ 'sintNotificationType'
-    -> State SetIdentityNotificationTopic a
     -> m (Either ServiceEr SetIdentityNotificationTopicResponse)
 setIdentityNotificationTopicCatch p1 p2 s =
     sendCatch $ (mkSetIdentityNotificationTopic p1 p2) &~ s
@@ -785,7 +760,7 @@ setIdentityNotificationTopicCatch p1 p2 s =
 -- wrqplteh7oodxnad7hsl4mixg2uavzneazxv5sxi2
 -- 9662c15b-c469-11e1-99d1-797d6ecd6414.
 --
--- See: 'Network.AWS.SES'
+-- See: 'Network.AWS.SES.VerifyDomainDkim'
 
 verifyDomainDkim :: ( MonadCatch m
                     , MonadResource m
@@ -793,7 +768,6 @@ verifyDomainDkim :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'vddDomain'
-    -> State VerifyDomainDkim a
     -> m VerifyDomainDkimResponse
 verifyDomainDkim p1 s =
     send $ (mkVerifyDomainDkim p1) &~ s
@@ -803,7 +777,6 @@ verifyDomainDkimCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'vddDomain'
-    -> State VerifyDomainDkim a
     -> m (Either ServiceEr VerifyDomainDkimResponse)
 verifyDomainDkimCatch p1 s =
     sendCatch $ (mkVerifyDomainDkim p1) &~ s
@@ -821,7 +794,7 @@ verifyDomainDkimCatch p1 s =
 -- &Version=2010-12-01 QTKknzFg2J4ygwa+XvHAxUl1hyHoY0gVfZdfjIedHZ0=
 -- 94f6368e-9bf2-11e1-8ee7-c98a0037a2b6.
 --
--- See: 'Network.AWS.SES'
+-- See: 'Network.AWS.SES.VerifyDomainIdentity'
 
 verifyDomainIdentity :: ( MonadCatch m
                         , MonadResource m
@@ -829,7 +802,6 @@ verifyDomainIdentity :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'vdiDomain'
-    -> State VerifyDomainIdentity a
     -> m VerifyDomainIdentityResponse
 verifyDomainIdentity p1 s =
     send $ (mkVerifyDomainIdentity p1) &~ s
@@ -839,7 +811,6 @@ verifyDomainIdentityCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'vdiDomain'
-    -> State VerifyDomainIdentity a
     -> m (Either ServiceEr VerifyDomainIdentityResponse)
 verifyDomainIdentityCatch p1 s =
     sendCatch $ (mkVerifyDomainIdentity p1) &~ s
@@ -859,7 +830,7 @@ verifyDomainIdentityCatch p1 s =
 -- &EmailAddress=user%40example.com &Timestamp=2011-08-18T22%3A28%3A27.000Z
 -- 8edd7eb2-c864-11e0-9f8f-3da8fc215a7e.
 --
--- See: 'Network.AWS.SES'
+-- See: 'Network.AWS.SES.VerifyEmailAddress'
 
 verifyEmailAddress :: ( MonadCatch m
                       , MonadResource m
@@ -867,7 +838,6 @@ verifyEmailAddress :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'veaEmailAddress'
-    -> State VerifyEmailAddress a
     -> m VerifyEmailAddressResponse
 verifyEmailAddress p1 s =
     send $ (mkVerifyEmailAddress p1) &~ s
@@ -877,7 +847,6 @@ verifyEmailAddressCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'veaEmailAddress'
-    -> State VerifyEmailAddress a
     -> m (Either ServiceEr VerifyEmailAddressResponse)
 verifyEmailAddressCatch p1 s =
     sendCatch $ (mkVerifyEmailAddress p1) &~ s
@@ -895,7 +864,7 @@ verifyEmailAddressCatch p1 s =
 -- &EmailAddress=user%40domain.com &Timestamp=2012-05-12T05%3A21%3A58.000Z
 -- &Version=2010-12-01 47e0ef1a-9bf2-11e1-9279-0100e8cf109a.
 --
--- See: 'Network.AWS.SES'
+-- See: 'Network.AWS.SES.VerifyEmailIdentity'
 
 verifyEmailIdentity :: ( MonadCatch m
                        , MonadResource m
@@ -903,7 +872,6 @@ verifyEmailIdentity :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'veiEmailAddress'
-    -> State VerifyEmailIdentity a
     -> m VerifyEmailIdentityResponse
 verifyEmailIdentity p1 s =
     send $ (mkVerifyEmailIdentity p1) &~ s
@@ -913,7 +881,6 @@ verifyEmailIdentityCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'veiEmailAddress'
-    -> State VerifyEmailIdentity a
     -> m (Either ServiceEr VerifyEmailIdentityResponse)
 verifyEmailIdentityCatch p1 s =
     sendCatch $ (mkVerifyEmailIdentity p1) &~ s

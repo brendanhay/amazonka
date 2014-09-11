@@ -12,9 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Pending.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -36,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.Route53Domains.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.Route53Domains.Monadic
@@ -144,7 +146,7 @@ type ServiceEr = Er Route53Domains
 -- Content-Length:[number of characters in the JSON string] {
 -- "Availability":"AVAILABLE" }.
 --
--- See: 'Network.AWS.Route53Domains'
+-- See: 'Network.AWS.Route53Domains.CheckDomainAvailability'
 
 checkDomainAvailability :: ( MonadCatch m
                            , MonadResource m
@@ -152,7 +154,6 @@ checkDomainAvailability :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'cdaDomainName'
-    -> State CheckDomainAvailability a
     -> m CheckDomainAvailabilityResponse
 checkDomainAvailability p1 s =
     send $ (mkCheckDomainAvailability p1) &~ s
@@ -162,7 +163,6 @@ checkDomainAvailabilityCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'cdaDomainName'
-    -> State CheckDomainAvailability a
     -> m (Either ServiceEr CheckDomainAvailabilityResponse)
 checkDomainAvailabilityCatch p1 s =
     sendCatch $ (mkCheckDomainAvailability p1) &~ s
@@ -189,7 +189,7 @@ checkDomainAvailabilityCatch p1 s =
 -- characters in the JSON string] {
 -- "OperationId":"0b370c79-faa4-40fe-94c8-b423069de3f6" }.
 --
--- See: 'Network.AWS.Route53Domains'
+-- See: 'Network.AWS.Route53Domains.DisableDomainTransferLock'
 
 disableDomainTransferLock :: ( MonadCatch m
                              , MonadResource m
@@ -197,7 +197,6 @@ disableDomainTransferLock :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'ddtlDomainName'
-    -> State DisableDomainTransferLock a
     -> m DisableDomainTransferLockResponse
 disableDomainTransferLock p1 s =
     send $ (mkDisableDomainTransferLock p1) &~ s
@@ -207,7 +206,6 @@ disableDomainTransferLockCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => Text -- ^ 'ddtlDomainName'
-    -> State DisableDomainTransferLock a
     -> m (Either ServiceEr DisableDomainTransferLockResponse)
 disableDomainTransferLockCatch p1 s =
     sendCatch $ (mkDisableDomainTransferLock p1) &~ s
@@ -232,7 +230,7 @@ disableDomainTransferLockCatch p1 s =
 -- characters in the JSON string] {
 -- "OperationId":"0b370c79-faa4-40fe-94c8-b423069de3f6" }.
 --
--- See: 'Network.AWS.Route53Domains'
+-- See: 'Network.AWS.Route53Domains.EnableDomainTransferLock'
 
 enableDomainTransferLock :: ( MonadCatch m
                             , MonadResource m
@@ -240,7 +238,6 @@ enableDomainTransferLock :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'edtlDomainName'
-    -> State EnableDomainTransferLock a
     -> m EnableDomainTransferLockResponse
 enableDomainTransferLock p1 s =
     send $ (mkEnableDomainTransferLock p1) &~ s
@@ -250,7 +247,6 @@ enableDomainTransferLockCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'edtlDomainName'
-    -> State EnableDomainTransferLock a
     -> m (Either ServiceEr EnableDomainTransferLockResponse)
 enableDomainTransferLockCatch p1 s =
     sendCatch $ (mkEnableDomainTransferLock p1) &~ s
@@ -294,7 +290,7 @@ enableDomainTransferLockCatch p1 s =
 -- "ZipCode":"98101" }, "TechPrivacy":true, "UpdatedDate":1400010459,
 -- "WhoIsServer":"whois.gandi.net" }.
 --
--- See: 'Network.AWS.Route53Domains'
+-- See: 'Network.AWS.Route53Domains.GetDomainDetail'
 
 getDomainDetail :: ( MonadCatch m
                    , MonadResource m
@@ -302,7 +298,6 @@ getDomainDetail :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'gddDomainName'
-    -> State GetDomainDetail a
     -> m GetDomainDetailResponse
 getDomainDetail p1 s =
     send $ (mkGetDomainDetail p1) &~ s
@@ -312,7 +307,6 @@ getDomainDetailCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'gddDomainName'
-    -> State GetDomainDetail a
     -> m (Either ServiceEr GetDomainDetailResponse)
 getDomainDetailCatch p1 s =
     sendCatch $ (mkGetDomainDetail p1) &~ s
@@ -337,7 +331,7 @@ getDomainDetailCatch p1 s =
 -- "Status":"WORKFLOW_IN_PROGRESS", "SubmittedDate" : 1402630939.057, "Type" :
 -- "REGISTER_DOMAIN" }.
 --
--- See: 'Network.AWS.Route53Domains'
+-- See: 'Network.AWS.Route53Domains.GetOperationDetail'
 
 getOperationDetail :: ( MonadCatch m
                       , MonadResource m
@@ -345,7 +339,6 @@ getOperationDetail :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'godOperationId'
-    -> State GetOperationDetail a
     -> m GetOperationDetailResponse
 getOperationDetail p1 s =
     send $ (mkGetOperationDetail p1) &~ s
@@ -355,7 +348,6 @@ getOperationDetailCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'godOperationId'
-    -> State GetOperationDetail a
     -> m (Either ServiceEr GetOperationDetailResponse)
 getOperationDetailCatch p1 s =
     sendCatch $ (mkGetOperationDetail p1) &~ s
@@ -382,7 +374,7 @@ getOperationDetailCatch p1 s =
 -- "AutoRenew":false, "DomainName":"example.test", "Expiry":1431539259,
 -- "TransferLock":false } ] }.
 --
--- See: 'Network.AWS.Route53Domains'
+-- See: 'Network.AWS.Route53Domains.ListDomains'
 
 listDomains :: ( MonadCatch m
                , MonadResource m
@@ -424,7 +416,7 @@ listDomainsCatch s =
 -- "Status":"WORKFLOW_IN_PROGRESS", "SubmittedDate":1403548986.429,
 -- "Type":"DOMAIN_LOCK" } ] }.
 --
--- See: 'Network.AWS.Route53Domains'
+-- See: 'Network.AWS.Route53Domains.ListOperations'
 
 listOperations :: ( MonadCatch m
                   , MonadResource m
@@ -494,7 +486,7 @@ listOperationsCatch s =
 -- HTTP/1.1 200 Content-Length:[number of characters in the JSON string] {
 -- "OperationId":"308c56712-faa4-40fe-94c8-b423069de3f6" }.
 --
--- See: 'Network.AWS.Route53Domains'
+-- See: 'Network.AWS.Route53Domains.RegisterDomain'
 
 registerDomain :: ( MonadCatch m
                   , MonadResource m
@@ -506,7 +498,6 @@ registerDomain :: ( MonadCatch m
     -> ContactDetail -- ^ 'rdAdminContact'
     -> ContactDetail -- ^ 'rdRegistrantContact'
     -> ContactDetail -- ^ 'rdTechContact'
-    -> State RegisterDomain a
     -> m RegisterDomainResponse
 registerDomain p1 p3 p5 p6 p7 s =
     send $ (mkRegisterDomain p1 p3 p5 p6 p7) &~ s
@@ -520,7 +511,6 @@ registerDomainCatch :: ( MonadCatch m
     -> ContactDetail -- ^ 'rdAdminContact'
     -> ContactDetail -- ^ 'rdRegistrantContact'
     -> ContactDetail -- ^ 'rdTechContact'
-    -> State RegisterDomain a
     -> m (Either ServiceEr RegisterDomainResponse)
 registerDomainCatch p1 p3 p5 p6 p7 s =
     sendCatch $ (mkRegisterDomain p1 p3 p5 p6 p7) &~ s
@@ -542,7 +532,7 @@ registerDomainCatch p1 p3 p5 p6 p7 s =
 -- "DomainName":"example.com" } HTTP/1.1 200 Content-Length:[number of
 -- characters in the JSON string] { "AuthCode":"rqL3*REjYH" }.
 --
--- See: 'Network.AWS.Route53Domains'
+-- See: 'Network.AWS.Route53Domains.RetrieveDomainAuthCode'
 
 retrieveDomainAuthCode :: ( MonadCatch m
                           , MonadResource m
@@ -550,7 +540,6 @@ retrieveDomainAuthCode :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'rdacDomainName'
-    -> State RetrieveDomainAuthCode a
     -> m RetrieveDomainAuthCodeResponse
 retrieveDomainAuthCode p1 s =
     send $ (mkRetrieveDomainAuthCode p1) &~ s
@@ -560,7 +549,6 @@ retrieveDomainAuthCodeCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'rdacDomainName'
-    -> State RetrieveDomainAuthCode a
     -> m (Either ServiceEr RetrieveDomainAuthCodeResponse)
 retrieveDomainAuthCodeCatch p1 s =
     sendCatch $ (mkRetrieveDomainAuthCode p1) &~ s
@@ -616,7 +604,7 @@ retrieveDomainAuthCodeCatch p1 s =
 -- characters in the JSON string] {
 -- "OperationId":"308c56712-faa4-40fe-94c8-b423069de3f6" }.
 --
--- See: 'Network.AWS.Route53Domains'
+-- See: 'Network.AWS.Route53Domains.TransferDomain'
 
 transferDomain :: ( MonadCatch m
                   , MonadResource m
@@ -629,7 +617,6 @@ transferDomain :: ( MonadCatch m
     -> ContactDetail -- ^ 'tdAdminContact'
     -> ContactDetail -- ^ 'tdRegistrantContact'
     -> ContactDetail -- ^ 'tdTechContact'
-    -> State TransferDomain a
     -> m TransferDomainResponse
 transferDomain p1 p3 p4 p7 p8 p9 s =
     send $ (mkTransferDomain p1 p3 p4 p7 p8 p9) &~ s
@@ -644,7 +631,6 @@ transferDomainCatch :: ( MonadCatch m
     -> ContactDetail -- ^ 'tdAdminContact'
     -> ContactDetail -- ^ 'tdRegistrantContact'
     -> ContactDetail -- ^ 'tdTechContact'
-    -> State TransferDomain a
     -> m (Either ServiceEr TransferDomainResponse)
 transferDomainCatch p1 p3 p4 p7 p8 p9 s =
     sendCatch $ (mkTransferDomain p1 p3 p4 p7 p8 p9) &~ s
@@ -685,7 +671,7 @@ transferDomainCatch p1 p3 p4 p7 p8 p9 s =
 -- in the JSON string] { "OperationId":"308c56712-faa4-40fe-94c8-b423069de3f6"
 -- }.
 --
--- See: 'Network.AWS.Route53Domains'
+-- See: 'Network.AWS.Route53Domains.UpdateDomainContact'
 
 updateDomainContact :: ( MonadCatch m
                        , MonadResource m
@@ -693,7 +679,6 @@ updateDomainContact :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'udcDomainName'
-    -> State UpdateDomainContact a
     -> m UpdateDomainContactResponse
 updateDomainContact p1 s =
     send $ (mkUpdateDomainContact p1) &~ s
@@ -703,7 +688,6 @@ updateDomainContactCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'udcDomainName'
-    -> State UpdateDomainContact a
     -> m (Either ServiceEr UpdateDomainContactResponse)
 updateDomainContactCatch p1 s =
     sendCatch $ (mkUpdateDomainContact p1) &~ s
@@ -733,7 +717,7 @@ updateDomainContactCatch p1 s =
 -- "TechPrivacy":true, } HTTP/1.1 200 Content-Length:[number of characters in
 -- the JSON string] { "OperationId":"777bc5da-fbf7-482c-b2ba-8946884a7dd6" }.
 --
--- See: 'Network.AWS.Route53Domains'
+-- See: 'Network.AWS.Route53Domains.UpdateDomainContactPrivacy'
 
 updateDomainContactPrivacy :: ( MonadCatch m
                               , MonadResource m
@@ -741,7 +725,6 @@ updateDomainContactPrivacy :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'udcpDomainName'
-    -> State UpdateDomainContactPrivacy a
     -> m UpdateDomainContactPrivacyResponse
 updateDomainContactPrivacy p1 s =
     send $ (mkUpdateDomainContactPrivacy p1) &~ s
@@ -751,7 +734,6 @@ updateDomainContactPrivacyCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => Text -- ^ 'udcpDomainName'
-    -> State UpdateDomainContactPrivacy a
     -> m (Either ServiceEr UpdateDomainContactPrivacyResponse)
 updateDomainContactPrivacyCatch p1 s =
     sendCatch $ (mkUpdateDomainContactPrivacy p1) &~ s
@@ -779,7 +761,7 @@ updateDomainContactPrivacyCatch p1 s =
 -- Content-Length:[number of characters in the JSON string] {
 -- "OperationId":"0b370c79-faa4-40fe-94c8-b423069de3f6" }.
 --
--- See: 'Network.AWS.Route53Domains'
+-- See: 'Network.AWS.Route53Domains.UpdateDomainNameservers'
 
 updateDomainNameservers :: ( MonadCatch m
                            , MonadResource m
@@ -788,7 +770,6 @@ updateDomainNameservers :: ( MonadCatch m
                            )
     => Text -- ^ 'udnDomainName'
     -> [Nameserver] -- ^ 'udnNameservers'
-    -> State UpdateDomainNameservers a
     -> m UpdateDomainNameserversResponse
 updateDomainNameservers p1 p2 s =
     send $ (mkUpdateDomainNameservers p1 p2) &~ s
@@ -799,7 +780,6 @@ updateDomainNameserversCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'udnDomainName'
     -> [Nameserver] -- ^ 'udnNameservers'
-    -> State UpdateDomainNameservers a
     -> m (Either ServiceEr UpdateDomainNameserversResponse)
 updateDomainNameserversCatch p1 p2 s =
     sendCatch $ (mkUpdateDomainNameservers p1 p2) &~ s

@@ -12,13 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Amazon Elastic Transcoder lets you convert media files that you have stored
--- in Amazon Simple Storage Service (Amazon S3) into media files in the
--- formats required by consumer playback devices. For example, you can convert
--- large, high-quality digital media files into formats that users can play
--- back on mobile devices, tablets, web browsers, and connected televisions.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -40,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.ElasticTranscoder.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.ElasticTranscoder.Monadic
@@ -166,7 +164,7 @@ type ServiceEr = Er ElasticTranscoder
 -- Content-Length: [number-of-characters-in-response] Date: Mon, 14 Jan 2013
 -- 06:01:47 GMT { "Success":"true" }.
 --
--- See: 'Network.AWS.ElasticTranscoder'
+-- See: 'Network.AWS.ElasticTranscoder.CancelJob'
 
 cancelJob :: ( MonadCatch m
              , MonadResource m
@@ -174,7 +172,6 @@ cancelJob :: ( MonadCatch m
              , MonadReader Env m
              )
     => Text -- ^ 'cjId'
-    -> State CancelJob a
     -> m CancelJobResponse
 cancelJob p1 s =
     send $ (mkCancelJob p1) &~ s
@@ -184,7 +181,6 @@ cancelJobCatch :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'cjId'
-    -> State CancelJob a
     -> m (Either ServiceEr CancelJobResponse)
 cancelJobCatch p1 s =
     sendCatch $ (mkCancelJob p1) &~ s
@@ -248,7 +244,7 @@ cancelJobCatch p1 s =
 -- "iphone/lasagna-1024k", "iphone/lasagna-512k" ] } ], "Status":"Progressing"
 -- }.
 --
--- See: 'Network.AWS.ElasticTranscoder'
+-- See: 'Network.AWS.ElasticTranscoder.CreateJob'
 
 createJob :: ( MonadCatch m
              , MonadResource m
@@ -257,7 +253,6 @@ createJob :: ( MonadCatch m
              )
     => Text -- ^ 'cj1PipelineId'
     -> JobInput -- ^ 'cj1Input'
-    -> State CreateJob a
     -> m CreateJobResponse
 createJob p1 p2 s =
     send $ (mkCreateJob p1 p2) &~ s
@@ -268,7 +263,6 @@ createJobCatch :: ( MonadCatch m
                   )
     => Text -- ^ 'cj1PipelineId'
     -> JobInput -- ^ 'cj1Input'
-    -> State CreateJob a
     -> m (Either ServiceEr CreateJobResponse)
 createJobCatch p1 p2 s =
     sendCatch $ (mkCreateJob p1 p2) &~ s
@@ -310,7 +304,7 @@ createJobCatch p1 p2 s =
 -- "Grantee":"marketing-promos@example.com", "Access":[ "FullControl" ] } ],
 -- "StorageClass":"ReducedRedundancy" }, "Status":"Active" } }.
 --
--- See: 'Network.AWS.ElasticTranscoder'
+-- See: 'Network.AWS.ElasticTranscoder.CreatePipeline'
 
 createPipeline :: ( MonadCatch m
                   , MonadResource m
@@ -320,7 +314,6 @@ createPipeline :: ( MonadCatch m
     => Text -- ^ 'cpName'
     -> Text -- ^ 'cpInputBucket'
     -> Text -- ^ 'cpRole'
-    -> State CreatePipeline a
     -> m CreatePipelineResponse
 createPipeline p1 p2 p4 s =
     send $ (mkCreatePipeline p1 p2 p4) &~ s
@@ -332,7 +325,6 @@ createPipelineCatch :: ( MonadCatch m
     => Text -- ^ 'cpName'
     -> Text -- ^ 'cpInputBucket'
     -> Text -- ^ 'cpRole'
-    -> State CreatePipeline a
     -> m (Either ServiceEr CreatePipelineResponse)
 createPipelineCatch p1 p2 p4 s =
     sendCatch $ (mkCreatePipeline p1 p2 p4) &~ s
@@ -393,7 +385,7 @@ createPipelineCatch p1 p2 p4 s =
 -- "VerticalAlign":"Bottom", "VerticalOffset":"10px", "Opacity":"55.5",
 -- "Target":"Content" } ] } }, "Warning":"" }.
 --
--- See: 'Network.AWS.ElasticTranscoder'
+-- See: 'Network.AWS.ElasticTranscoder.CreatePreset'
 
 createPreset :: ( MonadCatch m
                 , MonadResource m
@@ -402,7 +394,6 @@ createPreset :: ( MonadCatch m
                 )
     => Text -- ^ 'cp1Name'
     -> Text -- ^ 'cp1Container'
-    -> State CreatePreset a
     -> m CreatePresetResponse
 createPreset p1 p3 s =
     send $ (mkCreatePreset p1 p3) &~ s
@@ -413,7 +404,6 @@ createPresetCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'cp1Name'
     -> Text -- ^ 'cp1Container'
-    -> State CreatePreset a
     -> m (Either ServiceEr CreatePresetResponse)
 createPresetCatch p1 p3 s =
     sendCatch $ (mkCreatePreset p1 p3) &~ s
@@ -435,7 +425,7 @@ createPresetCatch p1 p3 s =
 -- Content-Length: [number-of-characters-in-response] Date: Mon, 14 Jan 2013
 -- 06:01:47 GMT { "Success":"true" }.
 --
--- See: 'Network.AWS.ElasticTranscoder'
+-- See: 'Network.AWS.ElasticTranscoder.DeletePipeline'
 
 deletePipeline :: ( MonadCatch m
                   , MonadResource m
@@ -443,7 +433,6 @@ deletePipeline :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'dpId'
-    -> State DeletePipeline a
     -> m DeletePipelineResponse
 deletePipeline p1 s =
     send $ (mkDeletePipeline p1) &~ s
@@ -453,7 +442,6 @@ deletePipelineCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'dpId'
-    -> State DeletePipeline a
     -> m (Either ServiceEr DeletePipelineResponse)
 deletePipelineCatch p1 s =
     sendCatch $ (mkDeletePipeline p1) &~ s
@@ -473,7 +461,7 @@ deletePipelineCatch p1 s =
 -- Content-Length: [number-of-characters-in-response] Date: Mon, 14 Jan 2013
 -- 06:01:47 GMT { "Success":"true" }.
 --
--- See: 'Network.AWS.ElasticTranscoder'
+-- See: 'Network.AWS.ElasticTranscoder.DeletePreset'
 
 deletePreset :: ( MonadCatch m
                 , MonadResource m
@@ -481,7 +469,6 @@ deletePreset :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => Text -- ^ 'dp1Id'
-    -> State DeletePreset a
     -> m DeletePresetResponse
 deletePreset p1 s =
     send $ (mkDeletePreset p1) &~ s
@@ -491,7 +478,6 @@ deletePresetCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'dp1Id'
-    -> State DeletePreset a
     -> m (Either ServiceEr DeletePresetResponse)
 deletePresetCatch p1 s =
     sendCatch $ (mkDeletePreset p1) &~ s
@@ -541,7 +527,7 @@ deletePresetCatch p1 s =
 -- "ThumbnailPattern":"cooking/baked-ziti-{count}-KindleFireHD" },
 -- "PipelineId":"1111111111111-abcde1" } ], "NextPageToken":null.
 --
--- See: 'Network.AWS.ElasticTranscoder'
+-- See: 'Network.AWS.ElasticTranscoder.ListJobsByPipeline'
 
 listJobsByPipeline :: ( MonadCatch m
                       , MonadResource m
@@ -549,7 +535,6 @@ listJobsByPipeline :: ( MonadCatch m
                       , MonadReader Env (ResumableSource m)
                       )
     => Text -- ^ 'ljbpPipelineId'
-    -> State ListJobsByPipeline a
     -> ResumableSource m ListJobsByPipelineResponse
 listJobsByPipeline p1 s =
     paginate $ (mkListJobsByPipeline p1) &~ s
@@ -559,7 +544,6 @@ listJobsByPipelineCatch :: ( MonadCatch m
                            , MonadReader Env (ResumableSource m)
                            )
     => Text -- ^ 'ljbpPipelineId'
-    -> State ListJobsByPipeline a
     -> ResumableSource m (Either ServiceEr ListJobsByPipelineResponse)
 listJobsByPipelineCatch p1 s =
     paginateCatch $ (mkListJobsByPipeline p1) &~ s
@@ -611,7 +595,7 @@ listJobsByPipelineCatch p1 s =
 -- "iphone/spaghetti-512k" ] } ], "Status":"Complete" } ],
 -- "NextPageToken":null }.
 --
--- See: 'Network.AWS.ElasticTranscoder'
+-- See: 'Network.AWS.ElasticTranscoder.ListJobsByStatus'
 
 listJobsByStatus :: ( MonadCatch m
                     , MonadResource m
@@ -619,7 +603,6 @@ listJobsByStatus :: ( MonadCatch m
                     , MonadReader Env (ResumableSource m)
                     )
     => Text -- ^ 'ljbsStatus'
-    -> State ListJobsByStatus a
     -> ResumableSource m ListJobsByStatusResponse
 listJobsByStatus p1 s =
     paginate $ (mkListJobsByStatus p1) &~ s
@@ -629,7 +612,6 @@ listJobsByStatusCatch :: ( MonadCatch m
                          , MonadReader Env (ResumableSource m)
                          )
     => Text -- ^ 'ljbsStatus'
-    -> State ListJobsByStatus a
     -> ResumableSource m (Either ServiceEr ListJobsByStatusResponse)
 listJobsByStatusCatch p1 s =
     paginateCatch $ (mkListJobsByStatus p1) &~ s
@@ -677,7 +659,7 @@ listJobsByStatusCatch p1 s =
 -- "FullControl" ] } ], "StorageClass":"ReducedRedundancy" },
 -- "Status":"Active" } ] }.
 --
--- See: 'Network.AWS.ElasticTranscoder'
+-- See: 'Network.AWS.ElasticTranscoder.ListPipelines'
 
 listPipelines :: ( MonadCatch m
                  , MonadResource m
@@ -722,7 +704,7 @@ listPipelinesCatch s =
 -- "KeyframesMaxDist":"240", "MaxHeight":"auto", "MaxWidth":"auto",
 -- "PaddingPolicy":"Pad", "SizingPolicy":"Fit" } }, {...} ] }.
 --
--- See: 'Network.AWS.ElasticTranscoder'
+-- See: 'Network.AWS.ElasticTranscoder.ListPresets'
 
 listPresets :: ( MonadCatch m
                , MonadResource m
@@ -762,7 +744,7 @@ listPresetsCatch s =
 -- "Status":"Submitted", "StatusDetail":"", "ThumbnailPattern":"{count}" },
 -- "PipelineId":"1111111111111-abcde1" } }.
 --
--- See: 'Network.AWS.ElasticTranscoder'
+-- See: 'Network.AWS.ElasticTranscoder.ReadJob'
 
 readJob :: ( MonadCatch m
            , MonadResource m
@@ -770,7 +752,6 @@ readJob :: ( MonadCatch m
            , MonadReader Env m
            )
     => Text -- ^ 'rjId'
-    -> State ReadJob a
     -> m ReadJobResponse
 readJob p1 s =
     send $ (mkReadJob p1) &~ s
@@ -780,7 +761,6 @@ readJobCatch :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => Text -- ^ 'rjId'
-    -> State ReadJob a
     -> m (Either ServiceEr ReadJobResponse)
 readJobCatch p1 s =
     sendCatch $ (mkReadJob p1) &~ s
@@ -805,7 +785,7 @@ readJobCatch p1 s =
 -- "Role":"arn:aws:iam::123456789012:role/transcode-service",
 -- "Status":"Active" } }.
 --
--- See: 'Network.AWS.ElasticTranscoder'
+-- See: 'Network.AWS.ElasticTranscoder.ReadPipeline'
 
 readPipeline :: ( MonadCatch m
                 , MonadResource m
@@ -813,7 +793,6 @@ readPipeline :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => Text -- ^ 'rpId'
-    -> State ReadPipeline a
     -> m ReadPipelineResponse
 readPipeline p1 s =
     send $ (mkReadPipeline p1) &~ s
@@ -823,7 +802,6 @@ readPipelineCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'rpId'
-    -> State ReadPipeline a
     -> m (Either ServiceEr ReadPipelineResponse)
 readPipelineCatch p1 s =
     sendCatch $ (mkReadPipeline p1) &~ s
@@ -857,7 +835,7 @@ readPipelineCatch p1 s =
 -- "MaxBitRate":"", "BufferSize":"" }, "FixedGOP":"false", "FrameRate":"30",
 -- "KeyframesMaxDist":"240" } } }.
 --
--- See: 'Network.AWS.ElasticTranscoder'
+-- See: 'Network.AWS.ElasticTranscoder.ReadPreset'
 
 readPreset :: ( MonadCatch m
               , MonadResource m
@@ -865,7 +843,6 @@ readPreset :: ( MonadCatch m
               , MonadReader Env m
               )
     => Text -- ^ 'rp1Id'
-    -> State ReadPreset a
     -> m ReadPresetResponse
 readPreset p1 s =
     send $ (mkReadPreset p1) &~ s
@@ -875,7 +852,6 @@ readPresetCatch :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'rp1Id'
-    -> State ReadPreset a
     -> m (Either ServiceEr ReadPresetResponse)
 readPresetCatch p1 s =
     sendCatch $ (mkReadPreset p1) &~ s
@@ -910,7 +886,7 @@ readPresetCatch p1 s =
 -- the topic: arn:aws:sns:us-east-1:111222333444:ETS_Errors" ], "Success":
 -- "false" }.
 --
--- See: 'Network.AWS.ElasticTranscoder'
+-- See: 'Network.AWS.ElasticTranscoder.TestRole'
 
 testRole :: ( MonadCatch m
             , MonadResource m
@@ -921,7 +897,6 @@ testRole :: ( MonadCatch m
     -> Text -- ^ 'trInputBucket'
     -> Text -- ^ 'trOutputBucket'
     -> [Text] -- ^ 'trTopics'
-    -> State TestRole a
     -> m TestRoleResponse
 testRole p1 p2 p3 p4 s =
     send $ (mkTestRole p1 p2 p3 p4) &~ s
@@ -934,7 +909,6 @@ testRoleCatch :: ( MonadCatch m
     -> Text -- ^ 'trInputBucket'
     -> Text -- ^ 'trOutputBucket'
     -> [Text] -- ^ 'trTopics'
-    -> State TestRole a
     -> m (Either ServiceEr TestRoleResponse)
 testRoleCatch p1 p2 p3 p4 s =
     sendCatch $ (mkTestRole p1 p2 p3 p4) &~ s
@@ -946,7 +920,7 @@ testRoleCatch p1 p2 p3 p4 s =
 -- to process are affected in addition to jobs that you submit after you
 -- change settings.
 --
--- See: 'Network.AWS.ElasticTranscoder'
+-- See: 'Network.AWS.ElasticTranscoder.UpdatePipeline'
 
 updatePipeline :: ( MonadCatch m
                   , MonadResource m
@@ -954,7 +928,6 @@ updatePipeline :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'upId'
-    -> State UpdatePipeline a
     -> m UpdatePipelineResponse
 updatePipeline p1 s =
     send $ (mkUpdatePipeline p1) &~ s
@@ -964,7 +937,6 @@ updatePipelineCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'upId'
-    -> State UpdatePipeline a
     -> m (Either ServiceEr UpdatePipelineResponse)
 updatePipelineCatch p1 s =
     sendCatch $ (mkUpdatePipeline p1) &~ s
@@ -992,7 +964,7 @@ updatePipelineCatch p1 s =
 -- "Error":"arn:aws:sns:us-east-1:111222333444:ETS_Errors", "Progressing":"",
 -- "Warning":"" } }.
 --
--- See: 'Network.AWS.ElasticTranscoder'
+-- See: 'Network.AWS.ElasticTranscoder.UpdatePipelineNotifications'
 
 updatePipelineNotifications :: ( MonadCatch m
                                , MonadResource m
@@ -1001,7 +973,6 @@ updatePipelineNotifications :: ( MonadCatch m
                                )
     => Text -- ^ 'upnId'
     -> Notifications -- ^ 'upnNotifications'
-    -> State UpdatePipelineNotifications a
     -> m UpdatePipelineNotificationsResponse
 updatePipelineNotifications p1 p2 s =
     send $ (mkUpdatePipelineNotifications p1 p2) &~ s
@@ -1012,7 +983,6 @@ updatePipelineNotificationsCatch :: ( MonadCatch m
                                     )
     => Text -- ^ 'upnId'
     -> Notifications -- ^ 'upnNotifications'
-    -> State UpdatePipelineNotifications a
     -> m (Either ServiceEr UpdatePipelineNotificationsResponse)
 updatePipelineNotificationsCatch p1 p2 s =
     sendCatch $ (mkUpdatePipelineNotifications p1 p2) &~ s
@@ -1038,7 +1008,7 @@ updatePipelineNotificationsCatch p1 p2 s =
 -- Content-Length: [number-of-characters-in-response] Date: Mon, 14 Jan 2013
 -- 06:01:47 GMT { "Id":"1111111111111-abcde1", "Status":"Active" }.
 --
--- See: 'Network.AWS.ElasticTranscoder'
+-- See: 'Network.AWS.ElasticTranscoder.UpdatePipelineStatus'
 
 updatePipelineStatus :: ( MonadCatch m
                         , MonadResource m
@@ -1047,7 +1017,6 @@ updatePipelineStatus :: ( MonadCatch m
                         )
     => Text -- ^ 'upsId'
     -> Text -- ^ 'upsStatus'
-    -> State UpdatePipelineStatus a
     -> m UpdatePipelineStatusResponse
 updatePipelineStatus p1 p2 s =
     send $ (mkUpdatePipelineStatus p1 p2) &~ s
@@ -1058,7 +1027,6 @@ updatePipelineStatusCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'upsId'
     -> Text -- ^ 'upsStatus'
-    -> State UpdatePipelineStatus a
     -> m (Either ServiceEr UpdatePipelineStatusResponse)
 updatePipelineStatusCatch p1 p2 s =
     sendCatch $ (mkUpdatePipelineStatus p1 p2) &~ s

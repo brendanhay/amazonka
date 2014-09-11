@@ -12,12 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | AWS OpsWorks provides a simple and flexible way to create and manage stacks
--- and applications. With AWS OpsWorks, you can provision AWS resources,
--- manage their configuration, deploy applications to those resources, and
--- monitor their health.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -39,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.OpsWorks.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.OpsWorks.Monadic
@@ -372,7 +371,7 @@ type ServiceEr = Er OpsWorks
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.AssignVolume'
 
 assignVolume :: ( MonadCatch m
                 , MonadResource m
@@ -380,7 +379,6 @@ assignVolume :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => Text -- ^ 'avVolumeId'
-    -> State AssignVolume a
     -> m AssignVolumeResponse
 assignVolume p1 s =
     send $ (mkAssignVolume p1) &~ s
@@ -390,7 +388,6 @@ assignVolumeCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'avVolumeId'
-    -> State AssignVolume a
     -> m (Either ServiceEr AssignVolumeResponse)
 assignVolumeCatch p1 s =
     sendCatch $ (mkAssignVolume p1) &~ s
@@ -404,7 +401,7 @@ assignVolumeCatch p1 s =
 -- grants permissions. For more information on user permissions, see Managing
 -- User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.AssociateElasticIp'
 
 associateElasticIp :: ( MonadCatch m
                       , MonadResource m
@@ -412,7 +409,6 @@ associateElasticIp :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'aeiElasticIp'
-    -> State AssociateElasticIp a
     -> m AssociateElasticIpResponse
 associateElasticIp p1 s =
     send $ (mkAssociateElasticIp p1) &~ s
@@ -422,7 +418,6 @@ associateElasticIpCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'aeiElasticIp'
-    -> State AssociateElasticIp a
     -> m (Either ServiceEr AssociateElasticIpResponse)
 associateElasticIpCatch p1 s =
     sendCatch $ (mkAssociateElasticIp p1) &~ s
@@ -437,7 +432,7 @@ associateElasticIpCatch p1 s =
 -- explicitly grants permissions. For more information on user permissions,
 -- see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.AttachElasticLoadBalancer'
 
 attachElasticLoadBalancer :: ( MonadCatch m
                              , MonadResource m
@@ -446,7 +441,6 @@ attachElasticLoadBalancer :: ( MonadCatch m
                              )
     => Text -- ^ 'aelbElasticLoadBalancerName'
     -> Text -- ^ 'aelbLayerId'
-    -> State AttachElasticLoadBalancer a
     -> m AttachElasticLoadBalancerResponse
 attachElasticLoadBalancer p1 p2 s =
     send $ (mkAttachElasticLoadBalancer p1 p2) &~ s
@@ -457,7 +451,6 @@ attachElasticLoadBalancerCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'aelbElasticLoadBalancerName'
     -> Text -- ^ 'aelbLayerId'
-    -> State AttachElasticLoadBalancer a
     -> m (Either ServiceEr AttachElasticLoadBalancerResponse)
 attachElasticLoadBalancerCatch p1 p2 s =
     sendCatch $ (mkAttachElasticLoadBalancer p1 p2) &~ s
@@ -468,7 +461,7 @@ attachElasticLoadBalancerCatch p1 p2 s =
 -- attached policy that explicitly grants permissions. For more information on
 -- user permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.CloneStack'
 
 cloneStack :: ( MonadCatch m
               , MonadResource m
@@ -477,7 +470,6 @@ cloneStack :: ( MonadCatch m
               )
     => Text -- ^ 'csSourceStackId'
     -> Text -- ^ 'csServiceRoleArn'
-    -> State CloneStack a
     -> m CloneStackResponse
 cloneStack p1 p6 s =
     send $ (mkCloneStack p1 p6) &~ s
@@ -488,7 +480,6 @@ cloneStackCatch :: ( MonadCatch m
                    )
     => Text -- ^ 'csSourceStackId'
     -> Text -- ^ 'csServiceRoleArn'
-    -> State CloneStack a
     -> m (Either ServiceEr CloneStackResponse)
 cloneStackCatch p1 p6 s =
     sendCatch $ (mkCloneStack p1 p6) &~ s
@@ -500,7 +491,7 @@ cloneStackCatch p1 p6 s =
 -- explicitly grants permissions. For more information on user permissions,
 -- see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.CreateApp'
 
 createApp :: ( MonadCatch m
              , MonadResource m
@@ -510,7 +501,6 @@ createApp :: ( MonadCatch m
     => Text -- ^ 'caStackId'
     -> Text -- ^ 'caName'
     -> AppType -- ^ 'caType'
-    -> State CreateApp a
     -> m CreateAppResponse
 createApp p1 p3 p6 s =
     send $ (mkCreateApp p1 p3 p6) &~ s
@@ -522,7 +512,6 @@ createAppCatch :: ( MonadCatch m
     => Text -- ^ 'caStackId'
     -> Text -- ^ 'caName'
     -> AppType -- ^ 'caType'
-    -> State CreateApp a
     -> m (Either ServiceEr CreateAppResponse)
 createAppCatch p1 p3 p6 s =
     sendCatch $ (mkCreateApp p1 p3 p6) &~ s
@@ -537,7 +526,7 @@ createAppCatch p1 p3 p6 s =
 -- an attached policy that explicitly grants permissions. For more information
 -- on user permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.CreateDeployment'
 
 createDeployment :: ( MonadCatch m
                     , MonadResource m
@@ -546,7 +535,6 @@ createDeployment :: ( MonadCatch m
                     )
     => Text -- ^ 'cdStackId'
     -> DeploymentCommand -- ^ 'cdCommand'
-    -> State CreateDeployment a
     -> m CreateDeploymentResponse
 createDeployment p1 p4 s =
     send $ (mkCreateDeployment p1 p4) &~ s
@@ -557,7 +545,6 @@ createDeploymentCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'cdStackId'
     -> DeploymentCommand -- ^ 'cdCommand'
-    -> State CreateDeployment a
     -> m (Either ServiceEr CreateDeploymentResponse)
 createDeploymentCatch p1 p4 s =
     sendCatch $ (mkCreateDeployment p1 p4) &~ s
@@ -569,7 +556,7 @@ createDeploymentCatch p1 p4 s =
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.CreateInstance'
 
 createInstance :: ( MonadCatch m
                   , MonadResource m
@@ -579,7 +566,6 @@ createInstance :: ( MonadCatch m
     => Text -- ^ 'ciStackId'
     -> [Text] -- ^ 'ciLayerIds'
     -> Text -- ^ 'ciInstanceType'
-    -> State CreateInstance a
     -> m CreateInstanceResponse
 createInstance p1 p2 p3 s =
     send $ (mkCreateInstance p1 p2 p3) &~ s
@@ -591,7 +577,6 @@ createInstanceCatch :: ( MonadCatch m
     => Text -- ^ 'ciStackId'
     -> [Text] -- ^ 'ciLayerIds'
     -> Text -- ^ 'ciInstanceType'
-    -> State CreateInstance a
     -> m (Either ServiceEr CreateInstanceResponse)
 createInstanceCatch p1 p2 p3 s =
     sendCatch $ (mkCreateInstance p1 p2 p3) &~ s
@@ -608,7 +593,7 @@ createInstanceCatch p1 p2 p3 s =
 -- explicitly grants permissions. For more information on user permissions,
 -- see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.CreateLayer'
 
 createLayer :: ( MonadCatch m
                , MonadResource m
@@ -619,7 +604,6 @@ createLayer :: ( MonadCatch m
     -> LayerType -- ^ 'clType'
     -> Text -- ^ 'clName'
     -> Text -- ^ 'clShortname'
-    -> State CreateLayer a
     -> m CreateLayerResponse
 createLayer p1 p2 p3 p4 s =
     send $ (mkCreateLayer p1 p2 p3 p4) &~ s
@@ -632,7 +616,6 @@ createLayerCatch :: ( MonadCatch m
     -> LayerType -- ^ 'clType'
     -> Text -- ^ 'clName'
     -> Text -- ^ 'clShortname'
-    -> State CreateLayer a
     -> m (Either ServiceEr CreateLayerResponse)
 createLayerCatch p1 p2 p3 p4 s =
     sendCatch $ (mkCreateLayer p1 p2 p3 p4) &~ s
@@ -643,7 +626,7 @@ createLayerCatch p1 p2 p3 p4 s =
 -- that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.CreateStack'
 
 createStack :: ( MonadCatch m
                , MonadResource m
@@ -654,7 +637,6 @@ createStack :: ( MonadCatch m
     -> Text -- ^ 'cs1Region'
     -> Text -- ^ 'cs1ServiceRoleArn'
     -> Text -- ^ 'cs1DefaultInstanceProfileArn'
-    -> State CreateStack a
     -> m CreateStackResponse
 createStack p1 p2 p5 p6 s =
     send $ (mkCreateStack p1 p2 p5 p6) &~ s
@@ -667,7 +649,6 @@ createStackCatch :: ( MonadCatch m
     -> Text -- ^ 'cs1Region'
     -> Text -- ^ 'cs1ServiceRoleArn'
     -> Text -- ^ 'cs1DefaultInstanceProfileArn'
-    -> State CreateStack a
     -> m (Either ServiceEr CreateStackResponse)
 createStackCatch p1 p2 p5 p6 s =
     sendCatch $ (mkCreateStack p1 p2 p5 p6) &~ s
@@ -677,7 +658,7 @@ createStackCatch p1 p2 p5 p6 s =
 -- IAM user must have an attached policy that explicitly grants permissions.
 -- For more information on user permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.CreateUserProfile'
 
 createUserProfile :: ( MonadCatch m
                      , MonadResource m
@@ -685,7 +666,6 @@ createUserProfile :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'cupIamUserArn'
-    -> State CreateUserProfile a
     -> m CreateUserProfileResponse
 createUserProfile p1 s =
     send $ (mkCreateUserProfile p1) &~ s
@@ -695,7 +675,6 @@ createUserProfileCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'cupIamUserArn'
-    -> State CreateUserProfile a
     -> m (Either ServiceEr CreateUserProfileResponse)
 createUserProfileCatch p1 s =
     sendCatch $ (mkCreateUserProfile p1) &~ s
@@ -706,7 +685,7 @@ createUserProfileCatch p1 s =
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DeleteApp'
 
 deleteApp :: ( MonadCatch m
              , MonadResource m
@@ -714,7 +693,6 @@ deleteApp :: ( MonadCatch m
              , MonadReader Env m
              )
     => Text -- ^ 'daAppId'
-    -> State DeleteApp a
     -> m DeleteAppResponse
 deleteApp p1 s =
     send $ (mkDeleteApp p1) &~ s
@@ -724,7 +702,6 @@ deleteAppCatch :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'daAppId'
-    -> State DeleteApp a
     -> m (Either ServiceEr DeleteAppResponse)
 deleteAppCatch p1 s =
     sendCatch $ (mkDeleteApp p1) &~ s
@@ -737,7 +714,7 @@ deleteAppCatch p1 s =
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DeleteInstance'
 
 deleteInstance :: ( MonadCatch m
                   , MonadResource m
@@ -745,7 +722,6 @@ deleteInstance :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'diInstanceId'
-    -> State DeleteInstance a
     -> m DeleteInstanceResponse
 deleteInstance p1 s =
     send $ (mkDeleteInstance p1) &~ s
@@ -755,7 +731,6 @@ deleteInstanceCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'diInstanceId'
-    -> State DeleteInstance a
     -> m (Either ServiceEr DeleteInstanceResponse)
 deleteInstanceCatch p1 s =
     sendCatch $ (mkDeleteInstance p1) &~ s
@@ -768,7 +743,7 @@ deleteInstanceCatch p1 s =
 -- grants permissions. For more information on user permissions, see Managing
 -- User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DeleteLayer'
 
 deleteLayer :: ( MonadCatch m
                , MonadResource m
@@ -776,7 +751,6 @@ deleteLayer :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'dlLayerId'
-    -> State DeleteLayer a
     -> m DeleteLayerResponse
 deleteLayer p1 s =
     send $ (mkDeleteLayer p1) &~ s
@@ -786,7 +760,6 @@ deleteLayerCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'dlLayerId'
-    -> State DeleteLayer a
     -> m (Either ServiceEr DeleteLayerResponse)
 deleteLayerCatch p1 s =
     sendCatch $ (mkDeleteLayer p1) &~ s
@@ -798,7 +771,7 @@ deleteLayerCatch p1 s =
 -- stack, or an attached policy that explicitly grants permissions. For more
 -- information on user permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DeleteStack'
 
 deleteStack :: ( MonadCatch m
                , MonadResource m
@@ -806,7 +779,6 @@ deleteStack :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'ds1StackId'
-    -> State DeleteStack a
     -> m DeleteStackResponse
 deleteStack p1 s =
     send $ (mkDeleteStack p1) &~ s
@@ -816,7 +788,6 @@ deleteStackCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'ds1StackId'
-    -> State DeleteStack a
     -> m (Either ServiceEr DeleteStackResponse)
 deleteStackCatch p1 s =
     sendCatch $ (mkDeleteStack p1) &~ s
@@ -826,7 +797,7 @@ deleteStackCatch p1 s =
 -- user must have an attached policy that explicitly grants permissions. For
 -- more information on user permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DeleteUserProfile'
 
 deleteUserProfile :: ( MonadCatch m
                      , MonadResource m
@@ -834,7 +805,6 @@ deleteUserProfile :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'dupIamUserArn'
-    -> State DeleteUserProfile a
     -> m DeleteUserProfileResponse
 deleteUserProfile p1 s =
     send $ (mkDeleteUserProfile p1) &~ s
@@ -844,7 +814,6 @@ deleteUserProfileCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'dupIamUserArn'
-    -> State DeleteUserProfile a
     -> m (Either ServiceEr DeleteUserProfileResponse)
 deleteUserProfileCatch p1 s =
     sendCatch $ (mkDeleteUserProfile p1) &~ s
@@ -857,7 +826,7 @@ deleteUserProfileCatch p1 s =
 -- grants permissions. For more information on user permissions, see Managing
 -- User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DeregisterElasticIp'
 
 deregisterElasticIp :: ( MonadCatch m
                        , MonadResource m
@@ -865,7 +834,6 @@ deregisterElasticIp :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'deiElasticIp'
-    -> State DeregisterElasticIp a
     -> m DeregisterElasticIpResponse
 deregisterElasticIp p1 s =
     send $ (mkDeregisterElasticIp p1) &~ s
@@ -875,7 +843,6 @@ deregisterElasticIpCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'deiElasticIp'
-    -> State DeregisterElasticIp a
     -> m (Either ServiceEr DeregisterElasticIpResponse)
 deregisterElasticIpCatch p1 s =
     sendCatch $ (mkDeregisterElasticIp p1) &~ s
@@ -883,7 +850,7 @@ deregisterElasticIpCatch p1 s =
 -- $DeregisterRdsDbInstance
 -- Deregisters an Amazon RDS instance.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DeregisterRdsDbInstance'
 
 deregisterRdsDbInstance :: ( MonadCatch m
                            , MonadResource m
@@ -891,7 +858,6 @@ deregisterRdsDbInstance :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'drdiRdsDbInstanceArn'
-    -> State DeregisterRdsDbInstance a
     -> m DeregisterRdsDbInstanceResponse
 deregisterRdsDbInstance p1 s =
     send $ (mkDeregisterRdsDbInstance p1) &~ s
@@ -901,7 +867,6 @@ deregisterRdsDbInstanceCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'drdiRdsDbInstanceArn'
-    -> State DeregisterRdsDbInstance a
     -> m (Either ServiceEr DeregisterRdsDbInstanceResponse)
 deregisterRdsDbInstanceCatch p1 s =
     sendCatch $ (mkDeregisterRdsDbInstance p1) &~ s
@@ -914,7 +879,7 @@ deregisterRdsDbInstanceCatch p1 s =
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DeregisterVolume'
 
 deregisterVolume :: ( MonadCatch m
                     , MonadResource m
@@ -922,7 +887,6 @@ deregisterVolume :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'dvVolumeId'
-    -> State DeregisterVolume a
     -> m DeregisterVolumeResponse
 deregisterVolume p1 s =
     send $ (mkDeregisterVolume p1) &~ s
@@ -932,7 +896,6 @@ deregisterVolumeCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'dvVolumeId'
-    -> State DeregisterVolume a
     -> m (Either ServiceEr DeregisterVolumeResponse)
 deregisterVolumeCatch p1 s =
     sendCatch $ (mkDeregisterVolume p1) &~ s
@@ -944,7 +907,7 @@ deregisterVolumeCatch p1 s =
 -- stack, or an attached policy that explicitly grants permissions. For more
 -- information on user permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DescribeApps'
 
 describeApps :: ( MonadCatch m
                 , MonadResource m
@@ -972,7 +935,7 @@ describeAppsCatch s =
 -- attached policy that explicitly grants permissions. For more information on
 -- user permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DescribeCommands'
 
 describeCommands :: ( MonadCatch m
                     , MonadResource m
@@ -1000,7 +963,7 @@ describeCommandsCatch s =
 -- stack, or an attached policy that explicitly grants permissions. For more
 -- information on user permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DescribeDeployments'
 
 describeDeployments :: ( MonadCatch m
                        , MonadResource m
@@ -1028,7 +991,7 @@ describeDeploymentsCatch s =
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DescribeElasticIps'
 
 describeElasticIps :: ( MonadCatch m
                       , MonadResource m
@@ -1056,7 +1019,7 @@ describeElasticIpsCatch s =
 -- stack, or an attached policy that explicitly grants permissions. For more
 -- information on user permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DescribeElasticLoadBalancers'
 
 describeElasticLoadBalancers :: ( MonadCatch m
                                 , MonadResource m
@@ -1084,7 +1047,7 @@ describeElasticLoadBalancersCatch s =
 -- attached policy that explicitly grants permissions. For more information on
 -- user permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DescribeInstances'
 
 describeInstances :: ( MonadCatch m
                      , MonadResource m
@@ -1112,7 +1075,7 @@ describeInstancesCatch s =
 -- for the stack, or an attached policy that explicitly grants permissions.
 -- For more information on user permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DescribeLayers'
 
 describeLayers :: ( MonadCatch m
                   , MonadResource m
@@ -1141,7 +1104,7 @@ describeLayersCatch s =
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling'
 
 describeLoadBasedAutoScaling :: ( MonadCatch m
                                 , MonadResource m
@@ -1149,7 +1112,6 @@ describeLoadBasedAutoScaling :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => [Text] -- ^ 'dlbasLayerIds'
-    -> State DescribeLoadBasedAutoScaling a
     -> m DescribeLoadBasedAutoScalingResponse
 describeLoadBasedAutoScaling p1 s =
     send $ (mkDescribeLoadBasedAutoScaling p1) &~ s
@@ -1159,7 +1121,6 @@ describeLoadBasedAutoScalingCatch :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => [Text] -- ^ 'dlbasLayerIds'
-    -> State DescribeLoadBasedAutoScaling a
     -> m (Either ServiceEr DescribeLoadBasedAutoScalingResponse)
 describeLoadBasedAutoScalingCatch p1 s =
     sendCatch $ (mkDescribeLoadBasedAutoScaling p1) &~ s
@@ -1170,7 +1131,7 @@ describeLoadBasedAutoScalingCatch p1 s =
 -- that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DescribeMyUserProfile'
 
 describeMyUserProfile :: ( MonadCatch m
                          , MonadResource m
@@ -1197,7 +1158,7 @@ describeMyUserProfileCatch s =
 -- stack, or an attached policy that explicitly grants permissions. For more
 -- information on user permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DescribePermissions'
 
 describePermissions :: ( MonadCatch m
                        , MonadResource m
@@ -1225,7 +1186,7 @@ describePermissionsCatch s =
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DescribeRaidArrays'
 
 describeRaidArrays :: ( MonadCatch m
                       , MonadResource m
@@ -1249,7 +1210,7 @@ describeRaidArraysCatch s =
 -- $DescribeRdsDbInstances
 -- Describes Amazon RDS instances.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DescribeRdsDbInstances'
 
 describeRdsDbInstances :: ( MonadCatch m
                           , MonadResource m
@@ -1257,7 +1218,6 @@ describeRdsDbInstances :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'drdi1StackId'
-    -> State DescribeRdsDbInstances a
     -> m DescribeRdsDbInstancesResponse
 describeRdsDbInstances p1 s =
     send $ (mkDescribeRdsDbInstances p1) &~ s
@@ -1267,7 +1227,6 @@ describeRdsDbInstancesCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'drdi1StackId'
-    -> State DescribeRdsDbInstances a
     -> m (Either ServiceEr DescribeRdsDbInstancesResponse)
 describeRdsDbInstancesCatch p1 s =
     sendCatch $ (mkDescribeRdsDbInstances p1) &~ s
@@ -1278,7 +1237,7 @@ describeRdsDbInstancesCatch p1 s =
 -- for the stack, or an attached policy that explicitly grants permissions.
 -- For more information on user permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DescribeServiceErrors'
 
 describeServiceErrors :: ( MonadCatch m
                          , MonadResource m
@@ -1307,7 +1266,7 @@ describeServiceErrorsCatch s =
 -- that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DescribeStackSummary'
 
 describeStackSummary :: ( MonadCatch m
                         , MonadResource m
@@ -1315,7 +1274,6 @@ describeStackSummary :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'dssStackId'
-    -> State DescribeStackSummary a
     -> m DescribeStackSummaryResponse
 describeStackSummary p1 s =
     send $ (mkDescribeStackSummary p1) &~ s
@@ -1325,7 +1283,6 @@ describeStackSummaryCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'dssStackId'
-    -> State DescribeStackSummary a
     -> m (Either ServiceEr DescribeStackSummaryResponse)
 describeStackSummaryCatch p1 s =
     sendCatch $ (mkDescribeStackSummary p1) &~ s
@@ -1337,7 +1294,7 @@ describeStackSummaryCatch p1 s =
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DescribeStacks'
 
 describeStacks :: ( MonadCatch m
                   , MonadResource m
@@ -1366,7 +1323,7 @@ describeStacksCatch s =
 -- grants permissions. For more information on user permissions, see Managing
 -- User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling'
 
 describeTimeBasedAutoScaling :: ( MonadCatch m
                                 , MonadResource m
@@ -1374,7 +1331,6 @@ describeTimeBasedAutoScaling :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => [Text] -- ^ 'dtbasInstanceIds'
-    -> State DescribeTimeBasedAutoScaling a
     -> m DescribeTimeBasedAutoScalingResponse
 describeTimeBasedAutoScaling p1 s =
     send $ (mkDescribeTimeBasedAutoScaling p1) &~ s
@@ -1384,7 +1340,6 @@ describeTimeBasedAutoScalingCatch :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => [Text] -- ^ 'dtbasInstanceIds'
-    -> State DescribeTimeBasedAutoScaling a
     -> m (Either ServiceEr DescribeTimeBasedAutoScalingResponse)
 describeTimeBasedAutoScalingCatch p1 s =
     sendCatch $ (mkDescribeTimeBasedAutoScaling p1) &~ s
@@ -1394,7 +1349,7 @@ describeTimeBasedAutoScalingCatch p1 s =
 -- user must have an attached policy that explicitly grants permissions. For
 -- more information on user permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DescribeUserProfiles'
 
 describeUserProfiles :: ( MonadCatch m
                         , MonadResource m
@@ -1422,7 +1377,7 @@ describeUserProfilesCatch s =
 -- attached policy that explicitly grants permissions. For more information on
 -- user permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DescribeVolumes'
 
 describeVolumes :: ( MonadCatch m
                    , MonadResource m
@@ -1450,7 +1405,7 @@ describeVolumesCatch s =
 -- grants permissions. For more information on user permissions, see Managing
 -- User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DetachElasticLoadBalancer'
 
 detachElasticLoadBalancer :: ( MonadCatch m
                              , MonadResource m
@@ -1459,7 +1414,6 @@ detachElasticLoadBalancer :: ( MonadCatch m
                              )
     => Text -- ^ 'delb1ElasticLoadBalancerName'
     -> Text -- ^ 'delb1LayerId'
-    -> State DetachElasticLoadBalancer a
     -> m DetachElasticLoadBalancerResponse
 detachElasticLoadBalancer p1 p2 s =
     send $ (mkDetachElasticLoadBalancer p1 p2) &~ s
@@ -1470,7 +1424,6 @@ detachElasticLoadBalancerCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'delb1ElasticLoadBalancerName'
     -> Text -- ^ 'delb1LayerId'
-    -> State DetachElasticLoadBalancer a
     -> m (Either ServiceEr DetachElasticLoadBalancerResponse)
 detachElasticLoadBalancerCatch p1 p2 s =
     sendCatch $ (mkDetachElasticLoadBalancer p1 p2) &~ s
@@ -1483,7 +1436,7 @@ detachElasticLoadBalancerCatch p1 p2 s =
 -- grants permissions. For more information on user permissions, see Managing
 -- User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.DisassociateElasticIp'
 
 disassociateElasticIp :: ( MonadCatch m
                          , MonadResource m
@@ -1491,7 +1444,6 @@ disassociateElasticIp :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'dei2ElasticIp'
-    -> State DisassociateElasticIp a
     -> m DisassociateElasticIpResponse
 disassociateElasticIp p1 s =
     send $ (mkDisassociateElasticIp p1) &~ s
@@ -1501,7 +1453,6 @@ disassociateElasticIpCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'dei2ElasticIp'
-    -> State DisassociateElasticIp a
     -> m (Either ServiceEr DisassociateElasticIpResponse)
 disassociateElasticIpCatch p1 s =
     sendCatch $ (mkDisassociateElasticIp p1) &~ s
@@ -1513,7 +1464,7 @@ disassociateElasticIpCatch p1 s =
 -- explicitly grants permissions. For more information on user permissions,
 -- see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.GetHostnameSuggestion'
 
 getHostnameSuggestion :: ( MonadCatch m
                          , MonadResource m
@@ -1521,7 +1472,6 @@ getHostnameSuggestion :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'ghsLayerId'
-    -> State GetHostnameSuggestion a
     -> m GetHostnameSuggestionResponse
 getHostnameSuggestion p1 s =
     send $ (mkGetHostnameSuggestion p1) &~ s
@@ -1531,7 +1481,6 @@ getHostnameSuggestionCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'ghsLayerId'
-    -> State GetHostnameSuggestion a
     -> m (Either ServiceEr GetHostnameSuggestionResponse)
 getHostnameSuggestionCatch p1 s =
     sendCatch $ (mkGetHostnameSuggestion p1) &~ s
@@ -1543,7 +1492,7 @@ getHostnameSuggestionCatch p1 s =
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.RebootInstance'
 
 rebootInstance :: ( MonadCatch m
                   , MonadResource m
@@ -1551,7 +1500,6 @@ rebootInstance :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'riInstanceId'
-    -> State RebootInstance a
     -> m RebootInstanceResponse
 rebootInstance p1 s =
     send $ (mkRebootInstance p1) &~ s
@@ -1561,7 +1509,6 @@ rebootInstanceCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'riInstanceId'
-    -> State RebootInstance a
     -> m (Either ServiceEr RebootInstanceResponse)
 rebootInstanceCatch p1 s =
     sendCatch $ (mkRebootInstance p1) &~ s
@@ -1575,7 +1522,7 @@ rebootInstanceCatch p1 s =
 -- stack, or an attached policy that explicitly grants permissions. For more
 -- information on user permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.RegisterElasticIp'
 
 registerElasticIp :: ( MonadCatch m
                      , MonadResource m
@@ -1584,7 +1531,6 @@ registerElasticIp :: ( MonadCatch m
                      )
     => Text -- ^ 'reiElasticIp'
     -> Text -- ^ 'reiStackId'
-    -> State RegisterElasticIp a
     -> m RegisterElasticIpResponse
 registerElasticIp p1 p2 s =
     send $ (mkRegisterElasticIp p1 p2) &~ s
@@ -1595,7 +1541,6 @@ registerElasticIpCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'reiElasticIp'
     -> Text -- ^ 'reiStackId'
-    -> State RegisterElasticIp a
     -> m (Either ServiceEr RegisterElasticIpResponse)
 registerElasticIpCatch p1 p2 s =
     sendCatch $ (mkRegisterElasticIp p1 p2) &~ s
@@ -1603,7 +1548,7 @@ registerElasticIpCatch p1 p2 s =
 -- $RegisterRdsDbInstance
 -- Registers an Amazon RDS instance with a stack.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.RegisterRdsDbInstance'
 
 registerRdsDbInstance :: ( MonadCatch m
                          , MonadResource m
@@ -1614,7 +1559,6 @@ registerRdsDbInstance :: ( MonadCatch m
     -> Text -- ^ 'rrdiRdsDbInstanceArn'
     -> Text -- ^ 'rrdiDbUser'
     -> Text -- ^ 'rrdiDbPassword'
-    -> State RegisterRdsDbInstance a
     -> m RegisterRdsDbInstanceResponse
 registerRdsDbInstance p1 p2 p3 p4 s =
     send $ (mkRegisterRdsDbInstance p1 p2 p3 p4) &~ s
@@ -1627,7 +1571,6 @@ registerRdsDbInstanceCatch :: ( MonadCatch m
     -> Text -- ^ 'rrdiRdsDbInstanceArn'
     -> Text -- ^ 'rrdiDbUser'
     -> Text -- ^ 'rrdiDbPassword'
-    -> State RegisterRdsDbInstance a
     -> m (Either ServiceEr RegisterRdsDbInstanceResponse)
 registerRdsDbInstanceCatch p1 p2 p3 p4 s =
     sendCatch $ (mkRegisterRdsDbInstance p1 p2 p3 p4) &~ s
@@ -1641,7 +1584,7 @@ registerRdsDbInstanceCatch p1 p2 p3 p4 s =
 -- stack, or an attached policy that explicitly grants permissions. For more
 -- information on user permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.RegisterVolume'
 
 registerVolume :: ( MonadCatch m
                   , MonadResource m
@@ -1649,7 +1592,6 @@ registerVolume :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'rvStackId'
-    -> State RegisterVolume a
     -> m RegisterVolumeResponse
 registerVolume p2 s =
     send $ (mkRegisterVolume p2) &~ s
@@ -1659,7 +1601,6 @@ registerVolumeCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'rvStackId'
-    -> State RegisterVolume a
     -> m (Either ServiceEr RegisterVolumeResponse)
 registerVolumeCatch p2 s =
     sendCatch $ (mkRegisterVolume p2) &~ s
@@ -1676,7 +1617,7 @@ registerVolumeCatch p2 s =
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.SetLoadBasedAutoScaling'
 
 setLoadBasedAutoScaling :: ( MonadCatch m
                            , MonadResource m
@@ -1684,7 +1625,6 @@ setLoadBasedAutoScaling :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'slbasLayerId'
-    -> State SetLoadBasedAutoScaling a
     -> m SetLoadBasedAutoScalingResponse
 setLoadBasedAutoScaling p1 s =
     send $ (mkSetLoadBasedAutoScaling p1) &~ s
@@ -1694,7 +1634,6 @@ setLoadBasedAutoScalingCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'slbasLayerId'
-    -> State SetLoadBasedAutoScaling a
     -> m (Either ServiceEr SetLoadBasedAutoScalingResponse)
 setLoadBasedAutoScalingCatch p1 s =
     sendCatch $ (mkSetLoadBasedAutoScaling p1) &~ s
@@ -1706,7 +1645,7 @@ setLoadBasedAutoScalingCatch p1 s =
 -- explicitly grants permissions. For more information on user permissions,
 -- see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.SetPermission'
 
 setPermission :: ( MonadCatch m
                  , MonadResource m
@@ -1715,7 +1654,6 @@ setPermission :: ( MonadCatch m
                  )
     => Text -- ^ 'spStackId'
     -> Text -- ^ 'spIamUserArn'
-    -> State SetPermission a
     -> m SetPermissionResponse
 setPermission p1 p2 s =
     send $ (mkSetPermission p1 p2) &~ s
@@ -1726,7 +1664,6 @@ setPermissionCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'spStackId'
     -> Text -- ^ 'spIamUserArn'
-    -> State SetPermission a
     -> m (Either ServiceEr SetPermissionResponse)
 setPermissionCatch p1 p2 s =
     sendCatch $ (mkSetPermission p1 p2) &~ s
@@ -1739,7 +1676,7 @@ setPermissionCatch p1 p2 s =
 -- explicitly grants permissions. For more information on user permissions,
 -- see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.SetTimeBasedAutoScaling'
 
 setTimeBasedAutoScaling :: ( MonadCatch m
                            , MonadResource m
@@ -1747,7 +1684,6 @@ setTimeBasedAutoScaling :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'stbasInstanceId'
-    -> State SetTimeBasedAutoScaling a
     -> m SetTimeBasedAutoScalingResponse
 setTimeBasedAutoScaling p1 s =
     send $ (mkSetTimeBasedAutoScaling p1) &~ s
@@ -1757,7 +1693,6 @@ setTimeBasedAutoScalingCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'stbasInstanceId'
-    -> State SetTimeBasedAutoScaling a
     -> m (Either ServiceEr SetTimeBasedAutoScalingResponse)
 setTimeBasedAutoScalingCatch p1 s =
     sendCatch $ (mkSetTimeBasedAutoScaling p1) &~ s
@@ -1769,7 +1704,7 @@ setTimeBasedAutoScalingCatch p1 s =
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.StartInstance'
 
 startInstance :: ( MonadCatch m
                  , MonadResource m
@@ -1777,7 +1712,6 @@ startInstance :: ( MonadCatch m
                  , MonadReader Env m
                  )
     => Text -- ^ 'siInstanceId'
-    -> State StartInstance a
     -> m StartInstanceResponse
 startInstance p1 s =
     send $ (mkStartInstance p1) &~ s
@@ -1787,7 +1721,6 @@ startInstanceCatch :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'siInstanceId'
-    -> State StartInstance a
     -> m (Either ServiceEr StartInstanceResponse)
 startInstanceCatch p1 s =
     sendCatch $ (mkStartInstance p1) &~ s
@@ -1798,7 +1731,7 @@ startInstanceCatch p1 s =
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.StartStack'
 
 startStack :: ( MonadCatch m
               , MonadResource m
@@ -1806,7 +1739,6 @@ startStack :: ( MonadCatch m
               , MonadReader Env m
               )
     => Text -- ^ 'ss1StackId'
-    -> State StartStack a
     -> m StartStackResponse
 startStack p1 s =
     send $ (mkStartStack p1) &~ s
@@ -1816,7 +1748,6 @@ startStackCatch :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'ss1StackId'
-    -> State StartStack a
     -> m (Either ServiceEr StartStackResponse)
 startStackCatch p1 s =
     sendCatch $ (mkStartStack p1) &~ s
@@ -1831,7 +1762,7 @@ startStackCatch p1 s =
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.StopInstance'
 
 stopInstance :: ( MonadCatch m
                 , MonadResource m
@@ -1839,7 +1770,6 @@ stopInstance :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => Text -- ^ 'si1InstanceId'
-    -> State StopInstance a
     -> m StopInstanceResponse
 stopInstance p1 s =
     send $ (mkStopInstance p1) &~ s
@@ -1849,7 +1779,6 @@ stopInstanceCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'si1InstanceId'
-    -> State StopInstance a
     -> m (Either ServiceEr StopInstanceResponse)
 stopInstanceCatch p1 s =
     sendCatch $ (mkStopInstance p1) &~ s
@@ -1860,7 +1789,7 @@ stopInstanceCatch p1 s =
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.StopStack'
 
 stopStack :: ( MonadCatch m
              , MonadResource m
@@ -1868,7 +1797,6 @@ stopStack :: ( MonadCatch m
              , MonadReader Env m
              )
     => Text -- ^ 'ss2StackId'
-    -> State StopStack a
     -> m StopStackResponse
 stopStack p1 s =
     send $ (mkStopStack p1) &~ s
@@ -1878,7 +1806,6 @@ stopStackCatch :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'ss2StackId'
-    -> State StopStack a
     -> m (Either ServiceEr StopStackResponse)
 stopStackCatch p1 s =
     sendCatch $ (mkStopStack p1) &~ s
@@ -1891,7 +1818,7 @@ stopStackCatch p1 s =
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.UnassignVolume'
 
 unassignVolume :: ( MonadCatch m
                   , MonadResource m
@@ -1899,7 +1826,6 @@ unassignVolume :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'uvVolumeId'
-    -> State UnassignVolume a
     -> m UnassignVolumeResponse
 unassignVolume p1 s =
     send $ (mkUnassignVolume p1) &~ s
@@ -1909,7 +1835,6 @@ unassignVolumeCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'uvVolumeId'
-    -> State UnassignVolume a
     -> m (Either ServiceEr UnassignVolumeResponse)
 unassignVolumeCatch p1 s =
     sendCatch $ (mkUnassignVolume p1) &~ s
@@ -1920,7 +1845,7 @@ unassignVolumeCatch p1 s =
 -- attached policy that explicitly grants permissions. For more information on
 -- user permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.UpdateApp'
 
 updateApp :: ( MonadCatch m
              , MonadResource m
@@ -1928,7 +1853,6 @@ updateApp :: ( MonadCatch m
              , MonadReader Env m
              )
     => Text -- ^ 'uaAppId'
-    -> State UpdateApp a
     -> m UpdateAppResponse
 updateApp p1 s =
     send $ (mkUpdateApp p1) &~ s
@@ -1938,7 +1862,6 @@ updateAppCatch :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'uaAppId'
-    -> State UpdateApp a
     -> m (Either ServiceEr UpdateAppResponse)
 updateAppCatch p1 s =
     sendCatch $ (mkUpdateApp p1) &~ s
@@ -1950,7 +1873,7 @@ updateAppCatch p1 s =
 -- that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.UpdateElasticIp'
 
 updateElasticIp :: ( MonadCatch m
                    , MonadResource m
@@ -1958,7 +1881,6 @@ updateElasticIp :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'ueiElasticIp'
-    -> State UpdateElasticIp a
     -> m UpdateElasticIpResponse
 updateElasticIp p1 s =
     send $ (mkUpdateElasticIp p1) &~ s
@@ -1968,7 +1890,6 @@ updateElasticIpCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'ueiElasticIp'
-    -> State UpdateElasticIp a
     -> m (Either ServiceEr UpdateElasticIpResponse)
 updateElasticIpCatch p1 s =
     sendCatch $ (mkUpdateElasticIp p1) &~ s
@@ -1979,7 +1900,7 @@ updateElasticIpCatch p1 s =
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.UpdateInstance'
 
 updateInstance :: ( MonadCatch m
                   , MonadResource m
@@ -1987,7 +1908,6 @@ updateInstance :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'uiInstanceId'
-    -> State UpdateInstance a
     -> m UpdateInstanceResponse
 updateInstance p1 s =
     send $ (mkUpdateInstance p1) &~ s
@@ -1997,7 +1917,6 @@ updateInstanceCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'uiInstanceId'
-    -> State UpdateInstance a
     -> m (Either ServiceEr UpdateInstanceResponse)
 updateInstanceCatch p1 s =
     sendCatch $ (mkUpdateInstance p1) &~ s
@@ -2008,7 +1927,7 @@ updateInstanceCatch p1 s =
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.UpdateLayer'
 
 updateLayer :: ( MonadCatch m
                , MonadResource m
@@ -2016,7 +1935,6 @@ updateLayer :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'ulLayerId'
-    -> State UpdateLayer a
     -> m UpdateLayerResponse
 updateLayer p1 s =
     send $ (mkUpdateLayer p1) &~ s
@@ -2026,7 +1944,6 @@ updateLayerCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'ulLayerId'
-    -> State UpdateLayer a
     -> m (Either ServiceEr UpdateLayerResponse)
 updateLayerCatch p1 s =
     sendCatch $ (mkUpdateLayer p1) &~ s
@@ -2037,7 +1954,7 @@ updateLayerCatch p1 s =
 -- explicitly grants permissions. For more information on user permissions,
 -- see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.UpdateMyUserProfile'
 
 updateMyUserProfile :: ( MonadCatch m
                        , MonadResource m
@@ -2061,7 +1978,7 @@ updateMyUserProfileCatch s =
 -- $UpdateRdsDbInstance
 -- Updates an Amazon RDS instance.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.UpdateRdsDbInstance'
 
 updateRdsDbInstance :: ( MonadCatch m
                        , MonadResource m
@@ -2069,7 +1986,6 @@ updateRdsDbInstance :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'urdiRdsDbInstanceArn'
-    -> State UpdateRdsDbInstance a
     -> m UpdateRdsDbInstanceResponse
 updateRdsDbInstance p1 s =
     send $ (mkUpdateRdsDbInstance p1) &~ s
@@ -2079,7 +1995,6 @@ updateRdsDbInstanceCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'urdiRdsDbInstanceArn'
-    -> State UpdateRdsDbInstance a
     -> m (Either ServiceEr UpdateRdsDbInstanceResponse)
 updateRdsDbInstanceCatch p1 s =
     sendCatch $ (mkUpdateRdsDbInstance p1) &~ s
@@ -2090,7 +2005,7 @@ updateRdsDbInstanceCatch p1 s =
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.UpdateStack'
 
 updateStack :: ( MonadCatch m
                , MonadResource m
@@ -2098,7 +2013,6 @@ updateStack :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'usStackId'
-    -> State UpdateStack a
     -> m UpdateStackResponse
 updateStack p1 s =
     send $ (mkUpdateStack p1) &~ s
@@ -2108,7 +2022,6 @@ updateStackCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'usStackId'
-    -> State UpdateStack a
     -> m (Either ServiceEr UpdateStackResponse)
 updateStackCatch p1 s =
     sendCatch $ (mkUpdateStack p1) &~ s
@@ -2119,7 +2032,7 @@ updateStackCatch p1 s =
 -- permissions. For more information on user permissions, see Managing User
 -- Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.UpdateUserProfile'
 
 updateUserProfile :: ( MonadCatch m
                      , MonadResource m
@@ -2127,7 +2040,6 @@ updateUserProfile :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'uupIamUserArn'
-    -> State UpdateUserProfile a
     -> m UpdateUserProfileResponse
 updateUserProfile p1 s =
     send $ (mkUpdateUserProfile p1) &~ s
@@ -2137,7 +2049,6 @@ updateUserProfileCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'uupIamUserArn'
-    -> State UpdateUserProfile a
     -> m (Either ServiceEr UpdateUserProfileResponse)
 updateUserProfileCatch p1 s =
     sendCatch $ (mkUpdateUserProfile p1) &~ s
@@ -2149,7 +2060,7 @@ updateUserProfileCatch p1 s =
 -- policy that explicitly grants permissions. For more information on user
 -- permissions, see Managing User Permissions.
 --
--- See: 'Network.AWS.OpsWorks'
+-- See: 'Network.AWS.OpsWorks.UpdateVolume'
 
 updateVolume :: ( MonadCatch m
                 , MonadResource m
@@ -2157,7 +2068,6 @@ updateVolume :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => Text -- ^ 'uv1VolumeId'
-    -> State UpdateVolume a
     -> m UpdateVolumeResponse
 updateVolume p1 s =
     send $ (mkUpdateVolume p1) &~ s
@@ -2167,7 +2077,6 @@ updateVolumeCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'uv1VolumeId'
-    -> State UpdateVolume a
     -> m (Either ServiceEr UpdateVolumeResponse)
 updateVolumeCatch p1 s =
     sendCatch $ (mkUpdateVolume p1) &~ s

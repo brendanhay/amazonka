@@ -12,17 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | AWS Support is a one-on-one, fast-response support channel that is staffed
--- with experienced support personnel. The service helps customers get the
--- most from the products and features provided by Amazon Web Services. There
--- are four levels, or tiers, of AWS Support: Basic, Developer, Business, and
--- Enterprise. The Basic tier is free of charge and offers support for account
--- and billing questions and service limit increases. The other tiers offer an
--- unlimited number of technical support cases with pay-by-the-month pricing
--- and no long-term contracts, providing developers and businesses flexibility
--- to choose the level of support that meets their needs.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -44,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.Support.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.Support.Monadic
@@ -149,7 +143,7 @@ type ServiceEr = Er Support
 -- maximum number of attachments in a set is 3, and the maximum size of any
 -- attachment in the set is 5 MB.
 --
--- See: 'Network.AWS.Support'
+-- See: 'Network.AWS.Support.AddAttachmentsToSet'
 
 addAttachmentsToSet :: ( MonadCatch m
                        , MonadResource m
@@ -157,7 +151,6 @@ addAttachmentsToSet :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => [Attachment] -- ^ 'aatsAttachments'
-    -> State AddAttachmentsToSet a
     -> m AddAttachmentsToSetResponse
 addAttachmentsToSet p2 s =
     send $ (mkAddAttachmentsToSet p2) &~ s
@@ -167,7 +160,6 @@ addAttachmentsToSetCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => [Attachment] -- ^ 'aatsAttachments'
-    -> State AddAttachmentsToSet a
     -> m (Either ServiceEr AddAttachmentsToSetResponse)
 addAttachmentsToSetCatch p2 s =
     sendCatch $ (mkAddAttachmentsToSet p2) &~ s
@@ -181,7 +173,7 @@ addAttachmentsToSetCatch p2 s =
 -- request. This operation implements a subset of the behavior on the AWS
 -- Support Your Support Cases web form.
 --
--- See: 'Network.AWS.Support'
+-- See: 'Network.AWS.Support.AddCommunicationToCase'
 
 addCommunicationToCase :: ( MonadCatch m
                           , MonadResource m
@@ -189,7 +181,6 @@ addCommunicationToCase :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'actcCommunicationBody'
-    -> State AddCommunicationToCase a
     -> m AddCommunicationToCaseResponse
 addCommunicationToCase p2 s =
     send $ (mkAddCommunicationToCase p2) &~ s
@@ -199,7 +190,6 @@ addCommunicationToCaseCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'actcCommunicationBody'
-    -> State AddCommunicationToCase a
     -> m (Either ServiceEr AddCommunicationToCaseResponse)
 addCommunicationToCaseCatch p2 s =
     sendCatch $ (mkAddCommunicationToCase p2) &~ s
@@ -232,7 +222,7 @@ addCommunicationToCaseCatch p2 s =
 -- CreateCase request returns an AWS Support case number. Case numbers are
 -- used by the DescribeCases operation to retrieve existing AWS Support cases.
 --
--- See: 'Network.AWS.Support'
+-- See: 'Network.AWS.Support.CreateCase'
 
 createCase :: ( MonadCatch m
               , MonadResource m
@@ -241,7 +231,6 @@ createCase :: ( MonadCatch m
               )
     => Text -- ^ 'ccSubject'
     -> Text -- ^ 'ccCommunicationBody'
-    -> State CreateCase a
     -> m CreateCaseResponse
 createCase p1 p5 s =
     send $ (mkCreateCase p1 p5) &~ s
@@ -252,7 +241,6 @@ createCaseCatch :: ( MonadCatch m
                    )
     => Text -- ^ 'ccSubject'
     -> Text -- ^ 'ccCommunicationBody'
-    -> State CreateCase a
     -> m (Either ServiceEr CreateCaseResponse)
 createCaseCatch p1 p5 s =
     sendCatch $ (mkCreateCase p1 p5) &~ s
@@ -264,7 +252,7 @@ createCaseCatch p1 p5 s =
 -- AttachmentDetails objects that are returned by the DescribeCommunications
 -- operation.
 --
--- See: 'Network.AWS.Support'
+-- See: 'Network.AWS.Support.DescribeAttachment'
 
 describeAttachment :: ( MonadCatch m
                       , MonadResource m
@@ -272,7 +260,6 @@ describeAttachment :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'daAttachmentId'
-    -> State DescribeAttachment a
     -> m DescribeAttachmentResponse
 describeAttachment p1 s =
     send $ (mkDescribeAttachment p1) &~ s
@@ -282,7 +269,6 @@ describeAttachmentCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'daAttachmentId'
-    -> State DescribeAttachment a
     -> m (Either ServiceEr DescribeAttachmentResponse)
 describeAttachmentCatch p1 s =
     sendCatch $ (mkDescribeAttachment p1) &~ s
@@ -297,7 +283,7 @@ describeAttachmentCatch p1 s =
 -- values, which specify where to paginate the returned records represented by
 -- the CaseDetails objects.
 --
--- See: 'Network.AWS.Support'
+-- See: 'Network.AWS.Support.DescribeCases'
 
 describeCases :: ( MonadCatch m
                  , MonadResource m
@@ -328,7 +314,7 @@ describeCasesCatch s =
 -- result set. Set MaxResults to the number of cases you want displayed on
 -- each page, and use NextToken to specify the resumption of pagination.
 --
--- See: 'Network.AWS.Support'
+-- See: 'Network.AWS.Support.DescribeCommunications'
 
 describeCommunications :: ( MonadCatch m
                           , MonadResource m
@@ -336,7 +322,6 @@ describeCommunications :: ( MonadCatch m
                           , MonadReader Env (ResumableSource m)
                           )
     => Text -- ^ 'dc1CaseId'
-    -> State DescribeCommunications a
     -> ResumableSource m DescribeCommunicationsResponse
 describeCommunications p1 s =
     paginate $ (mkDescribeCommunications p1) &~ s
@@ -346,7 +331,6 @@ describeCommunicationsCatch :: ( MonadCatch m
                                , MonadReader Env (ResumableSource m)
                                )
     => Text -- ^ 'dc1CaseId'
-    -> State DescribeCommunications a
     -> ResumableSource m (Either ServiceEr DescribeCommunicationsResponse)
 describeCommunicationsCatch p1 s =
     paginateCatch $ (mkDescribeCommunications p1) &~ s
@@ -363,7 +347,7 @@ describeCommunicationsCatch p1 s =
 -- obtained programmatically. This practice ensures that you always have the
 -- most recent set of service and category codes.
 --
--- See: 'Network.AWS.Support'
+-- See: 'Network.AWS.Support.DescribeServices'
 
 describeServices :: ( MonadCatch m
                     , MonadResource m
@@ -389,7 +373,7 @@ describeServicesCatch s =
 -- case. The severity level for a case is also a field in the CaseDetails data
 -- type included in any CreateCase request.
 --
--- See: 'Network.AWS.Support'
+-- See: 'Network.AWS.Support.DescribeSeverityLevels'
 
 describeSeverityLevels :: ( MonadCatch m
                           , MonadResource m
@@ -415,7 +399,7 @@ describeSeverityLevelsCatch s =
 -- specified check IDs. Check IDs can be obtained by calling
 -- DescribeTrustedAdvisorChecks.
 --
--- See: 'Network.AWS.Support'
+-- See: 'Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses'
 
 describeTrustedAdvisorCheckRefreshStatuses :: ( MonadCatch m
                                               , MonadResource m
@@ -423,7 +407,6 @@ describeTrustedAdvisorCheckRefreshStatuses :: ( MonadCatch m
                                               , MonadReader Env m
                                               )
     => [Text] -- ^ 'dtacrsCheckIds'
-    -> State DescribeTrustedAdvisorCheckRefreshStatuses a
     -> m DescribeTrustedAdvisorCheckRefreshStatusesResponse
 describeTrustedAdvisorCheckRefreshStatuses p1 s =
     send $ (mkDescribeTrustedAdvisorCheckRefreshStatuses p1) &~ s
@@ -433,7 +416,6 @@ describeTrustedAdvisorCheckRefreshStatusesCatch :: ( MonadCatch m
                                                    , MonadReader Env m
                                                    )
     => [Text] -- ^ 'dtacrsCheckIds'
-    -> State DescribeTrustedAdvisorCheckRefreshStatuses a
     -> m (Either ServiceEr DescribeTrustedAdvisorCheckRefreshStatusesResponse)
 describeTrustedAdvisorCheckRefreshStatusesCatch p1 s =
     sendCatch $ (mkDescribeTrustedAdvisorCheckRefreshStatuses p1) &~ s
@@ -449,7 +431,7 @@ describeTrustedAdvisorCheckRefreshStatusesCatch p1 s =
 -- (yellow), "error" (red), or "not_available". Timestamp. The time of the
 -- last refresh of the check. CheckId. The unique identifier for the check.
 --
--- See: 'Network.AWS.Support'
+-- See: 'Network.AWS.Support.DescribeTrustedAdvisorCheckResult'
 
 describeTrustedAdvisorCheckResult :: ( MonadCatch m
                                      , MonadResource m
@@ -457,7 +439,6 @@ describeTrustedAdvisorCheckResult :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => Text -- ^ 'dtacrCheckId'
-    -> State DescribeTrustedAdvisorCheckResult a
     -> m DescribeTrustedAdvisorCheckResultResponse
 describeTrustedAdvisorCheckResult p1 s =
     send $ (mkDescribeTrustedAdvisorCheckResult p1) &~ s
@@ -467,7 +448,6 @@ describeTrustedAdvisorCheckResultCatch :: ( MonadCatch m
                                           , MonadReader Env m
                                           )
     => Text -- ^ 'dtacrCheckId'
-    -> State DescribeTrustedAdvisorCheckResult a
     -> m (Either ServiceEr DescribeTrustedAdvisorCheckResultResponse)
 describeTrustedAdvisorCheckResultCatch p1 s =
     sendCatch $ (mkDescribeTrustedAdvisorCheckResult p1) &~ s
@@ -478,7 +458,7 @@ describeTrustedAdvisorCheckResultCatch p1 s =
 -- DescribeTrustedAdvisorChecks. The response contains an array of
 -- TrustedAdvisorCheckSummary objects.
 --
--- See: 'Network.AWS.Support'
+-- See: 'Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries'
 
 describeTrustedAdvisorCheckSummaries :: ( MonadCatch m
                                         , MonadResource m
@@ -486,7 +466,6 @@ describeTrustedAdvisorCheckSummaries :: ( MonadCatch m
                                         , MonadReader Env m
                                         )
     => [Text] -- ^ 'dtacsCheckIds'
-    -> State DescribeTrustedAdvisorCheckSummaries a
     -> m DescribeTrustedAdvisorCheckSummariesResponse
 describeTrustedAdvisorCheckSummaries p1 s =
     send $ (mkDescribeTrustedAdvisorCheckSummaries p1) &~ s
@@ -496,7 +475,6 @@ describeTrustedAdvisorCheckSummariesCatch :: ( MonadCatch m
                                              , MonadReader Env m
                                              )
     => [Text] -- ^ 'dtacsCheckIds'
-    -> State DescribeTrustedAdvisorCheckSummaries a
     -> m (Either ServiceEr DescribeTrustedAdvisorCheckSummariesResponse)
 describeTrustedAdvisorCheckSummariesCatch p1 s =
     sendCatch $ (mkDescribeTrustedAdvisorCheckSummaries p1) &~ s
@@ -507,7 +485,7 @@ describeTrustedAdvisorCheckSummariesCatch p1 s =
 -- code; English ("en") and Japanese ("ja") are currently supported. The
 -- response contains a TrustedAdvisorCheckDescription for each check.
 --
--- See: 'Network.AWS.Support'
+-- See: 'Network.AWS.Support.DescribeTrustedAdvisorChecks'
 
 describeTrustedAdvisorChecks :: ( MonadCatch m
                                 , MonadResource m
@@ -515,7 +493,6 @@ describeTrustedAdvisorChecks :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'dtacLanguage'
-    -> State DescribeTrustedAdvisorChecks a
     -> m DescribeTrustedAdvisorChecksResponse
 describeTrustedAdvisorChecks p1 s =
     send $ (mkDescribeTrustedAdvisorChecks p1) &~ s
@@ -525,7 +502,6 @@ describeTrustedAdvisorChecksCatch :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => Text -- ^ 'dtacLanguage'
-    -> State DescribeTrustedAdvisorChecks a
     -> m (Either ServiceEr DescribeTrustedAdvisorChecksResponse)
 describeTrustedAdvisorChecksCatch p1 s =
     sendCatch $ (mkDescribeTrustedAdvisorChecks p1) &~ s
@@ -540,7 +516,7 @@ describeTrustedAdvisorChecksCatch p1 s =
 -- in milliseconds, until the check is eligible for refresh. CheckId. The
 -- unique identifier for the check.
 --
--- See: 'Network.AWS.Support'
+-- See: 'Network.AWS.Support.RefreshTrustedAdvisorCheck'
 
 refreshTrustedAdvisorCheck :: ( MonadCatch m
                               , MonadResource m
@@ -548,7 +524,6 @@ refreshTrustedAdvisorCheck :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'rtacCheckId'
-    -> State RefreshTrustedAdvisorCheck a
     -> m RefreshTrustedAdvisorCheckResponse
 refreshTrustedAdvisorCheck p1 s =
     send $ (mkRefreshTrustedAdvisorCheck p1) &~ s
@@ -558,7 +533,6 @@ refreshTrustedAdvisorCheckCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => Text -- ^ 'rtacCheckId'
-    -> State RefreshTrustedAdvisorCheck a
     -> m (Either ServiceEr RefreshTrustedAdvisorCheckResponse)
 refreshTrustedAdvisorCheckCatch p1 s =
     sendCatch $ (mkRefreshTrustedAdvisorCheck p1) &~ s
@@ -567,7 +541,7 @@ refreshTrustedAdvisorCheckCatch p1 s =
 -- Takes a CaseId and returns the initial state of the case along with the
 -- state of the case after the call to ResolveCase completed.
 --
--- See: 'Network.AWS.Support'
+-- See: 'Network.AWS.Support.ResolveCase'
 
 resolveCase :: ( MonadCatch m
                , MonadResource m

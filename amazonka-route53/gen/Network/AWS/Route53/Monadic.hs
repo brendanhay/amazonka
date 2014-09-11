@@ -12,14 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Amazon Route 53 is a scalable Domain Name System (DNS) web service. It
--- provides secure and reliable routing to your infrastructure that uses
--- Amazon Web Services (AWS) products, such as Amazon Elastic Compute Cloud
--- (Amazon EC2), Elastic Load Balancing, or Amazon Simple Storage Service
--- (Amazon S3). You can also use Amazon Route 53 to route users to your
--- infrastructure outside of AWS.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -41,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.Route53.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.Route53.Monadic
@@ -182,7 +179,7 @@ type ServiceEr = Er Route53
 -- elements. The sum of the number of characters (including spaces) in all
 -- Value elements in a request cannot exceed 32,000 characters.
 --
--- See: 'Network.AWS.Route53'
+-- See: 'Network.AWS.Route53.ChangeResourceRecordSets'
 
 changeResourceRecordSets :: ( MonadCatch m
                             , MonadResource m
@@ -191,7 +188,6 @@ changeResourceRecordSets :: ( MonadCatch m
                             )
     => Text -- ^ 'crrsHostedZoneId'
     -> ChangeBatch -- ^ 'crrsChangeBatch'
-    -> State ChangeResourceRecordSets a
     -> m ChangeResourceRecordSetsResponse
 changeResourceRecordSets p1 p2 s =
     send $ (mkChangeResourceRecordSets p1 p2) &~ s
@@ -202,13 +198,12 @@ changeResourceRecordSetsCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'crrsHostedZoneId'
     -> ChangeBatch -- ^ 'crrsChangeBatch'
-    -> State ChangeResourceRecordSets a
     -> m (Either ServiceEr ChangeResourceRecordSetsResponse)
 changeResourceRecordSetsCatch p1 p2 s =
     sendCatch $ (mkChangeResourceRecordSets p1 p2) &~ s
 
 -- $ChangeTagsForResource
--- See: 'Network.AWS.Route53'
+-- See: 'Network.AWS.Route53.ChangeTagsForResource'
 
 changeTagsForResource :: ( MonadCatch m
                          , MonadResource m
@@ -217,7 +212,6 @@ changeTagsForResource :: ( MonadCatch m
                          )
     => TagResourceType -- ^ 'ctfrResourceType'
     -> Text -- ^ 'ctfrResourceId'
-    -> State ChangeTagsForResource a
     -> m ChangeTagsForResourceResponse
 changeTagsForResource p1 p2 s =
     send $ (mkChangeTagsForResource p1 p2) &~ s
@@ -228,7 +222,6 @@ changeTagsForResourceCatch :: ( MonadCatch m
                               )
     => TagResourceType -- ^ 'ctfrResourceType'
     -> Text -- ^ 'ctfrResourceId'
-    -> State ChangeTagsForResource a
     -> m (Either ServiceEr ChangeTagsForResourceResponse)
 changeTagsForResourceCatch p1 p2 s =
     sendCatch $ (mkChangeTagsForResource p1 p2) &~ s
@@ -240,7 +233,7 @@ changeTagsForResourceCatch p1 p2 s =
 -- response returns the CreateHealthCheckResponse element that contains
 -- metadata about the health check.
 --
--- See: 'Network.AWS.Route53'
+-- See: 'Network.AWS.Route53.CreateHealthCheck'
 
 createHealthCheck :: ( MonadCatch m
                      , MonadResource m
@@ -249,7 +242,6 @@ createHealthCheck :: ( MonadCatch m
                      )
     => Text -- ^ 'chcCallerReference'
     -> HealthCheckConfig -- ^ 'chcHealthCheckConfig'
-    -> State CreateHealthCheck a
     -> m CreateHealthCheckResponse
 createHealthCheck p1 p2 s =
     send $ (mkCreateHealthCheck p1 p2) &~ s
@@ -260,7 +252,6 @@ createHealthCheckCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'chcCallerReference'
     -> HealthCheckConfig -- ^ 'chcHealthCheckConfig'
-    -> State CreateHealthCheck a
     -> m (Either ServiceEr CreateHealthCheckResponse)
 createHealthCheckCatch p1 p2 s =
     sendCatch $ (mkCreateHealthCheck p1 p2) &~ s
@@ -280,7 +271,7 @@ createHealthCheckCatch p1 p2 s =
 -- changes to INSYNC when the NS and SOA records are available on all Route 53
 -- DNS servers.
 --
--- See: 'Network.AWS.Route53'
+-- See: 'Network.AWS.Route53.CreateHostedZone'
 
 createHostedZone :: ( MonadCatch m
                     , MonadResource m
@@ -289,7 +280,6 @@ createHostedZone :: ( MonadCatch m
                     )
     => Text -- ^ 'chzName'
     -> Text -- ^ 'chzCallerReference'
-    -> State CreateHostedZone a
     -> m CreateHostedZoneResponse
 createHostedZone p1 p2 s =
     send $ (mkCreateHostedZone p1 p2) &~ s
@@ -300,7 +290,6 @@ createHostedZoneCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'chzName'
     -> Text -- ^ 'chzCallerReference'
-    -> State CreateHostedZone a
     -> m (Either ServiceEr CreateHostedZoneResponse)
 createHostedZoneCatch p1 p2 s =
     sendCatch $ (mkCreateHostedZone p1 p2) &~ s
@@ -316,7 +305,7 @@ createHostedZoneCatch p1 p2 s =
 -- For information about disassociating the records from your health check,
 -- see ChangeResourceRecordSets.
 --
--- See: 'Network.AWS.Route53'
+-- See: 'Network.AWS.Route53.DeleteHealthCheck'
 
 deleteHealthCheck :: ( MonadCatch m
                      , MonadResource m
@@ -324,7 +313,6 @@ deleteHealthCheck :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'dhcHealthCheckId'
-    -> State DeleteHealthCheck a
     -> m DeleteHealthCheckResponse
 deleteHealthCheck p1 s =
     send $ (mkDeleteHealthCheck p1) &~ s
@@ -334,7 +322,6 @@ deleteHealthCheckCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'dhcHealthCheckId'
-    -> State DeleteHealthCheck a
     -> m (Either ServiceEr DeleteHealthCheckResponse)
 deleteHealthCheckCatch p1 s =
     sendCatch $ (mkDeleteHealthCheck p1) &~ s
@@ -351,7 +338,7 @@ deleteHealthCheckCatch p1 s =
 -- 53 will deny your request with a HostedZoneNotEmpty error. For information
 -- about deleting records from your hosted zone, see ChangeResourceRecordSets.
 --
--- See: 'Network.AWS.Route53'
+-- See: 'Network.AWS.Route53.DeleteHostedZone'
 
 deleteHostedZone :: ( MonadCatch m
                     , MonadResource m
@@ -359,7 +346,6 @@ deleteHostedZone :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'dhzId'
-    -> State DeleteHostedZone a
     -> m DeleteHostedZoneResponse
 deleteHostedZone p1 s =
     send $ (mkDeleteHostedZone p1) &~ s
@@ -369,7 +355,6 @@ deleteHostedZoneCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'dhzId'
-    -> State DeleteHostedZone a
     -> m (Either ServiceEr DeleteHostedZoneResponse)
 deleteHostedZoneCatch p1 s =
     sendCatch $ (mkDeleteHostedZone p1) &~ s
@@ -381,7 +366,7 @@ deleteHostedZoneCatch p1 s =
 -- the initial status of all change batch requests. - INSYNC indicates that
 -- the changes have replicated to all Amazon Route 53 DNS servers.
 --
--- See: 'Network.AWS.Route53'
+-- See: 'Network.AWS.Route53.GetChange'
 
 getChange :: ( MonadCatch m
              , MonadResource m
@@ -389,7 +374,6 @@ getChange :: ( MonadCatch m
              , MonadReader Env m
              )
     => Text -- ^ 'gcId'
-    -> State GetChange a
     -> m GetChangeResponse
 getChange p1 s =
     send $ (mkGetChange p1) &~ s
@@ -399,7 +383,6 @@ getChangeCatch :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'gcId'
-    -> State GetChange a
     -> m (Either ServiceEr GetChangeResponse)
 getChangeCatch p1 s =
     sendCatch $ (mkGetChange p1) &~ s
@@ -411,7 +394,7 @@ getChangeCatch p1 s =
 -- configure router and firewall rules to allow health checkers to check the
 -- health of your resources.
 --
--- See: 'Network.AWS.Route53'
+-- See: 'Network.AWS.Route53.GetCheckerIpRanges'
 
 getCheckerIpRanges :: ( MonadCatch m
                       , MonadResource m
@@ -433,7 +416,7 @@ getCheckerIpRangesCatch s =
     sendCatch (mkGetCheckerIpRanges &~ s)
 
 -- $GetGeoLocation
--- See: 'Network.AWS.Route53'
+-- See: 'Network.AWS.Route53.GetGeoLocation'
 
 getGeoLocation :: ( MonadCatch m
                   , MonadResource m
@@ -458,7 +441,7 @@ getGeoLocationCatch s =
 -- To retrieve the health check, send a GET request to the
 -- 2013-04-01/healthcheck/health check ID resource.
 --
--- See: 'Network.AWS.Route53'
+-- See: 'Network.AWS.Route53.GetHealthCheck'
 
 getHealthCheck :: ( MonadCatch m
                   , MonadResource m
@@ -466,7 +449,6 @@ getHealthCheck :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'ghcHealthCheckId'
-    -> State GetHealthCheck a
     -> m GetHealthCheckResponse
 getHealthCheck p1 s =
     send $ (mkGetHealthCheck p1) &~ s
@@ -476,7 +458,6 @@ getHealthCheckCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'ghcHealthCheckId'
-    -> State GetHealthCheck a
     -> m (Either ServiceEr GetHealthCheckResponse)
 getHealthCheckCatch p1 s =
     sendCatch $ (mkGetHealthCheck p1) &~ s
@@ -485,7 +466,7 @@ getHealthCheckCatch p1 s =
 -- To retrieve a count of all your health checks, send a GET request to the
 -- 2013-04-01/healthcheckcount resource.
 --
--- See: 'Network.AWS.Route53'
+-- See: 'Network.AWS.Route53.GetHealthCheckCount'
 
 getHealthCheckCount :: ( MonadCatch m
                        , MonadResource m
@@ -512,7 +493,7 @@ getHealthCheckCountCatch s =
 -- four Route 53 name servers that were assigned to the hosted zone when you
 -- created it.
 --
--- See: 'Network.AWS.Route53'
+-- See: 'Network.AWS.Route53.GetHostedZone'
 
 getHostedZone :: ( MonadCatch m
                  , MonadResource m
@@ -520,7 +501,6 @@ getHostedZone :: ( MonadCatch m
                  , MonadReader Env m
                  )
     => Text -- ^ 'ghzId'
-    -> State GetHostedZone a
     -> m GetHostedZoneResponse
 getHostedZone p1 s =
     send $ (mkGetHostedZone p1) &~ s
@@ -530,13 +510,12 @@ getHostedZoneCatch :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'ghzId'
-    -> State GetHostedZone a
     -> m (Either ServiceEr GetHostedZoneResponse)
 getHostedZoneCatch p1 s =
     sendCatch $ (mkGetHostedZone p1) &~ s
 
 -- $ListGeoLocations
--- See: 'Network.AWS.Route53'
+-- See: 'Network.AWS.Route53.ListGeoLocations'
 
 listGeoLocations :: ( MonadCatch m
                     , MonadResource m
@@ -568,7 +547,7 @@ listGeoLocationsCatch s =
 -- items. If you set MaxItems to a value greater than 100, Amazon Route 53
 -- returns only the first 100.
 --
--- See: 'Network.AWS.Route53'
+-- See: 'Network.AWS.Route53.ListHealthChecks'
 
 listHealthChecks :: ( MonadCatch m
                     , MonadResource m
@@ -600,7 +579,7 @@ listHealthChecksCatch s =
 -- you set MaxItems to a value greater than 100, Amazon Route 53 returns only
 -- the first 100.
 --
--- See: 'Network.AWS.Route53'
+-- See: 'Network.AWS.Route53.ListHostedZones'
 
 listHostedZones :: ( MonadCatch m
                    , MonadResource m
@@ -655,7 +634,7 @@ listHostedZonesCatch s =
 -- successful response, the effects of that change will be visible in a
 -- subsequent call to ListResourceRecordSets by that process.
 --
--- See: 'Network.AWS.Route53'
+-- See: 'Network.AWS.Route53.ListResourceRecordSets'
 
 listResourceRecordSets :: ( MonadCatch m
                           , MonadResource m
@@ -663,7 +642,6 @@ listResourceRecordSets :: ( MonadCatch m
                           , MonadReader Env (ResumableSource m)
                           )
     => Text -- ^ 'lrrsHostedZoneId'
-    -> State ListResourceRecordSets a
     -> ResumableSource m ListResourceRecordSetsResponse
 listResourceRecordSets p1 s =
     paginate $ (mkListResourceRecordSets p1) &~ s
@@ -673,13 +651,12 @@ listResourceRecordSetsCatch :: ( MonadCatch m
                                , MonadReader Env (ResumableSource m)
                                )
     => Text -- ^ 'lrrsHostedZoneId'
-    -> State ListResourceRecordSets a
     -> ResumableSource m (Either ServiceEr ListResourceRecordSetsResponse)
 listResourceRecordSetsCatch p1 s =
     paginateCatch $ (mkListResourceRecordSets p1) &~ s
 
 -- $ListTagsForResource
--- See: 'Network.AWS.Route53'
+-- See: 'Network.AWS.Route53.ListTagsForResource'
 
 listTagsForResource :: ( MonadCatch m
                        , MonadResource m
@@ -688,7 +665,6 @@ listTagsForResource :: ( MonadCatch m
                        )
     => TagResourceType -- ^ 'ltfrResourceType'
     -> Text -- ^ 'ltfrResourceId'
-    -> State ListTagsForResource a
     -> m ListTagsForResourceResponse
 listTagsForResource p1 p2 s =
     send $ (mkListTagsForResource p1 p2) &~ s
@@ -699,13 +675,12 @@ listTagsForResourceCatch :: ( MonadCatch m
                             )
     => TagResourceType -- ^ 'ltfrResourceType'
     -> Text -- ^ 'ltfrResourceId'
-    -> State ListTagsForResource a
     -> m (Either ServiceEr ListTagsForResourceResponse)
 listTagsForResourceCatch p1 p2 s =
     sendCatch $ (mkListTagsForResource p1 p2) &~ s
 
 -- $ListTagsForResources
--- See: 'Network.AWS.Route53'
+-- See: 'Network.AWS.Route53.ListTagsForResources'
 
 listTagsForResources :: ( MonadCatch m
                         , MonadResource m
@@ -714,7 +689,6 @@ listTagsForResources :: ( MonadCatch m
                         )
     => TagResourceType -- ^ 'ltfr1ResourceType'
     -> List1 Text -- ^ 'ltfr1ResourceIds'
-    -> State ListTagsForResources a
     -> m ListTagsForResourcesResponse
 listTagsForResources p1 p2 s =
     send $ (mkListTagsForResources p1 p2) &~ s
@@ -725,7 +699,6 @@ listTagsForResourcesCatch :: ( MonadCatch m
                              )
     => TagResourceType -- ^ 'ltfr1ResourceType'
     -> List1 Text -- ^ 'ltfr1ResourceIds'
-    -> State ListTagsForResources a
     -> m (Either ServiceEr ListTagsForResourcesResponse)
 listTagsForResourcesCatch p1 p2 s =
     sendCatch $ (mkListTagsForResources p1 p2) &~ s
@@ -738,7 +711,7 @@ listTagsForResourcesCatch p1 p2 s =
 -- UpdateHealthCheckResponse element, which contains metadata about the health
 -- check.
 --
--- See: 'Network.AWS.Route53'
+-- See: 'Network.AWS.Route53.UpdateHealthCheck'
 
 updateHealthCheck :: ( MonadCatch m
                      , MonadResource m
@@ -746,7 +719,6 @@ updateHealthCheck :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'uhcHealthCheckId'
-    -> State UpdateHealthCheck a
     -> m UpdateHealthCheckResponse
 updateHealthCheck p1 s =
     send $ (mkUpdateHealthCheck p1) &~ s
@@ -756,7 +728,6 @@ updateHealthCheckCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'uhcHealthCheckId'
-    -> State UpdateHealthCheck a
     -> m (Either ServiceEr UpdateHealthCheckResponse)
 updateHealthCheckCatch p1 s =
     sendCatch $ (mkUpdateHealthCheck p1) &~ s

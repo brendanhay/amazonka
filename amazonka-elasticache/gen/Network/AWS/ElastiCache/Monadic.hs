@@ -12,19 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | ElastiCache is a web service that makes it easy to deploy, operate, and
--- scale an in-memory cache in the cloud. The service improves the performance
--- of web applications by allowing you to retrieve information from fast,
--- managed, in-memory caches, instead of relying entirely on slower disk-based
--- databases. Amazon ElastiCache automatically detects and replaces failed
--- nodes, reducing the overhead associated with self-managed infrastructures
--- and provides a resilient system that mitigates the risk of overloaded
--- databases, which slow website and application load times. Through
--- integration with Amazon CloudWatch, Amazon ElastiCache provides enhanced
--- visibility into key performance metrics associated with your Memcached or
--- Redis nodes.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -46,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.ElastiCache.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.ElastiCache.Monadic
@@ -254,7 +246,7 @@ type ServiceEr = Er ElastiCache
 -- 565419523791 mygroup 123456781234 My security group
 -- 817fa999-3647-11e0-ae57-f96cfe56749c.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress'
 
 authorizeCacheSecurityGroupIngress :: ( MonadCatch m
                                       , MonadResource m
@@ -264,7 +256,6 @@ authorizeCacheSecurityGroupIngress :: ( MonadCatch m
     => Text -- ^ 'acsgiCacheSecurityGroupName'
     -> Text -- ^ 'acsgiEC2SecurityGroupName'
     -> Text -- ^ 'acsgiEC2SecurityGroupOwnerId'
-    -> State AuthorizeCacheSecurityGroupIngress a
     -> m AuthorizeCacheSecurityGroupIngressResponse
 authorizeCacheSecurityGroupIngress p1 p2 p3 s =
     send $ (mkAuthorizeCacheSecurityGroupIngress p1 p2 p3) &~ s
@@ -276,7 +267,6 @@ authorizeCacheSecurityGroupIngressCatch :: ( MonadCatch m
     => Text -- ^ 'acsgiCacheSecurityGroupName'
     -> Text -- ^ 'acsgiEC2SecurityGroupName'
     -> Text -- ^ 'acsgiEC2SecurityGroupOwnerId'
-    -> State AuthorizeCacheSecurityGroupIngress a
     -> m (Either ServiceEr AuthorizeCacheSecurityGroupIngressResponse)
 authorizeCacheSecurityGroupIngressCatch p1 p2 p3 s =
     sendCatch $ (mkAuthorizeCacheSecurityGroupIngress p1 p2 p3) &~ s
@@ -284,7 +274,7 @@ authorizeCacheSecurityGroupIngressCatch p1 p2 p3 s =
 -- $CopySnapshot
 -- The CopySnapshot operation makes a copy of an existing snapshot.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.CopySnapshot'
 
 copySnapshot :: ( MonadCatch m
                 , MonadResource m
@@ -293,7 +283,6 @@ copySnapshot :: ( MonadCatch m
                 )
     => Text -- ^ 'csSourceSnapshotName'
     -> Text -- ^ 'csTargetSnapshotName'
-    -> State CopySnapshot a
     -> m CopySnapshotResponse
 copySnapshot p1 p2 s =
     send $ (mkCopySnapshot p1 p2) &~ s
@@ -304,7 +293,6 @@ copySnapshotCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'csSourceSnapshotName'
     -> Text -- ^ 'csTargetSnapshotName'
-    -> State CopySnapshot a
     -> m (Either ServiceEr CopySnapshotResponse)
 copySnapshotCatch p1 p2 s =
     sendCatch $ (mkCopySnapshot p1 p2) &~ s
@@ -328,7 +316,7 @@ copySnapshotCatch p1 p2 s =
 -- sun:08:00-sun:09:00 cache.m1.large default active mycache
 -- aaf2e796-363f-11e0-a564-8f11342c56b0 ]]> -->.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.CreateCacheCluster'
 
 createCacheCluster :: ( MonadCatch m
                       , MonadResource m
@@ -336,7 +324,6 @@ createCacheCluster :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'cccCacheClusterId'
-    -> State CreateCacheCluster a
     -> m CreateCacheClusterResponse
 createCacheCluster p1 s =
     send $ (mkCreateCacheCluster p1) &~ s
@@ -346,7 +333,6 @@ createCacheClusterCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'cccCacheClusterId'
-    -> State CreateCacheCluster a
     -> m (Either ServiceEr CreateCacheClusterResponse)
 createCacheClusterCatch p1 s =
     sendCatch $ (mkCreateCacheCluster p1) &~ s
@@ -364,7 +350,7 @@ createCacheClusterCatch p1 s =
 -- &X-Amz-Credential= mycacheparametergroup3 memcached1.4 My first cache
 -- parameter group 05699541-b7f9-11e0-9326-b7275b9d4a6c.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.CreateCacheParameterGroup'
 
 createCacheParameterGroup :: ( MonadCatch m
                              , MonadResource m
@@ -374,7 +360,6 @@ createCacheParameterGroup :: ( MonadCatch m
     => Text -- ^ 'ccpgCacheParameterGroupName'
     -> Text -- ^ 'ccpgCacheParameterGroupFamily'
     -> Text -- ^ 'ccpgDescription'
-    -> State CreateCacheParameterGroup a
     -> m CreateCacheParameterGroupResponse
 createCacheParameterGroup p1 p2 p3 s =
     send $ (mkCreateCacheParameterGroup p1 p2 p3) &~ s
@@ -386,7 +371,6 @@ createCacheParameterGroupCatch :: ( MonadCatch m
     => Text -- ^ 'ccpgCacheParameterGroupName'
     -> Text -- ^ 'ccpgCacheParameterGroupFamily'
     -> Text -- ^ 'ccpgDescription'
-    -> State CreateCacheParameterGroup a
     -> m (Either ServiceEr CreateCacheParameterGroupResponse)
 createCacheParameterGroupCatch p1 p2 p3 s =
     sendCatch $ (mkCreateCacheParameterGroup p1 p2 p3) &~ s
@@ -405,7 +389,7 @@ createCacheParameterGroupCatch p1 p2 p3 s =
 -- &X-Amz-Credential= mycachesecuritygroup 123456789012 My cache security
 -- group 2b1c8035-b7fa-11e0-9326-b7275b9d4a6c.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.CreateCacheSecurityGroup'
 
 createCacheSecurityGroup :: ( MonadCatch m
                             , MonadResource m
@@ -414,7 +398,6 @@ createCacheSecurityGroup :: ( MonadCatch m
                             )
     => Text -- ^ 'ccsgCacheSecurityGroupName'
     -> Text -- ^ 'ccsgDescription'
-    -> State CreateCacheSecurityGroup a
     -> m CreateCacheSecurityGroupResponse
 createCacheSecurityGroup p1 p2 s =
     send $ (mkCreateCacheSecurityGroup p1 p2) &~ s
@@ -425,7 +408,6 @@ createCacheSecurityGroupCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'ccsgCacheSecurityGroupName'
     -> Text -- ^ 'ccsgDescription'
-    -> State CreateCacheSecurityGroup a
     -> m (Either ServiceEr CreateCacheSecurityGroupResponse)
 createCacheSecurityGroupCatch p1 p2 s =
     sendCatch $ (mkCreateCacheSecurityGroup p1 p2) &~ s
@@ -442,7 +424,7 @@ createCacheSecurityGroupCatch p1 p2 s =
 -- Active subnet-7b5b4112 us-east-1b Active subnet-3ea6bd57 us-east-1d
 -- ed662948-a57b-11df-9e38-7ffab86c801f.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.CreateCacheSubnetGroup'
 
 createCacheSubnetGroup :: ( MonadCatch m
                           , MonadResource m
@@ -452,7 +434,6 @@ createCacheSubnetGroup :: ( MonadCatch m
     => Text -- ^ 'ccsg1CacheSubnetGroupName'
     -> Text -- ^ 'ccsg1CacheSubnetGroupDescription'
     -> [Text] -- ^ 'ccsg1SubnetIds'
-    -> State CreateCacheSubnetGroup a
     -> m CreateCacheSubnetGroupResponse
 createCacheSubnetGroup p1 p2 p3 s =
     send $ (mkCreateCacheSubnetGroup p1 p2 p3) &~ s
@@ -464,7 +445,6 @@ createCacheSubnetGroupCatch :: ( MonadCatch m
     => Text -- ^ 'ccsg1CacheSubnetGroupName'
     -> Text -- ^ 'ccsg1CacheSubnetGroupDescription'
     -> [Text] -- ^ 'ccsg1SubnetIds'
-    -> State CreateCacheSubnetGroup a
     -> m (Either ServiceEr CreateCacheSubnetGroupResponse)
 createCacheSubnetGroupCatch p1 p2 p3 s =
     sendCatch $ (mkCreateCacheSubnetGroup p1 p2 p3) &~ s
@@ -486,7 +466,7 @@ createCacheSubnetGroupCatch p1 p2 p3 s =
 -- my-redis-primary my-repgroup creating My replication group
 -- f3b7b32d-b9d2-11e3-8a16-7978bb24ffdf.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.CreateReplicationGroup'
 
 createReplicationGroup :: ( MonadCatch m
                           , MonadResource m
@@ -496,7 +476,6 @@ createReplicationGroup :: ( MonadCatch m
     => Text -- ^ 'crgReplicationGroupId'
     -> Text -- ^ 'crgPrimaryClusterId'
     -> Text -- ^ 'crgReplicationGroupDescription'
-    -> State CreateReplicationGroup a
     -> m CreateReplicationGroupResponse
 createReplicationGroup p1 p2 p3 s =
     send $ (mkCreateReplicationGroup p1 p2 p3) &~ s
@@ -508,7 +487,6 @@ createReplicationGroupCatch :: ( MonadCatch m
     => Text -- ^ 'crgReplicationGroupId'
     -> Text -- ^ 'crgPrimaryClusterId'
     -> Text -- ^ 'crgReplicationGroupDescription'
-    -> State CreateReplicationGroup a
     -> m (Either ServiceEr CreateReplicationGroupResponse)
 createReplicationGroupCatch p1 p2 p3 s =
     sendCatch $ (mkCreateReplicationGroup p1 p2 p3) &~ s
@@ -524,7 +502,7 @@ createReplicationGroupCatch p1 p2 p3 s =
 -- my-manual-snapshot 5 2014-04-01T18:46:57.972Z 0001 creating 1 07:30-08:30
 -- faf5a232-b9ce-11e3-8a16-7978bb24ffdf.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.CreateSnapshot'
 
 createSnapshot :: ( MonadCatch m
                   , MonadResource m
@@ -533,7 +511,6 @@ createSnapshot :: ( MonadCatch m
                   )
     => Text -- ^ 'cs1CacheClusterId'
     -> Text -- ^ 'cs1SnapshotName'
-    -> State CreateSnapshot a
     -> m CreateSnapshotResponse
 createSnapshot p1 p2 s =
     send $ (mkCreateSnapshot p1 p2) &~ s
@@ -544,7 +521,6 @@ createSnapshotCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'cs1CacheClusterId'
     -> Text -- ^ 'cs1SnapshotName'
-    -> State CreateSnapshot a
     -> m (Either ServiceEr CreateSnapshotResponse)
 createSnapshotCatch p1 p2 s =
     sendCatch $ (mkCreateSnapshot p1 p2) &~ s
@@ -563,7 +539,7 @@ createSnapshotCatch p1 p2 s =
 -- us-east-1b 2014-03-27T02:18:26.497Z 1.4.5 true mon:05:00-mon:05:30 default
 -- active 3 ab84aa7e-b7fa-11e0-9b0b-a9261be2b354.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.DeleteCacheCluster'
 
 deleteCacheCluster :: ( MonadCatch m
                       , MonadResource m
@@ -571,7 +547,6 @@ deleteCacheCluster :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'dccCacheClusterId'
-    -> State DeleteCacheCluster a
     -> m DeleteCacheClusterResponse
 deleteCacheCluster p1 s =
     send $ (mkDeleteCacheCluster p1) &~ s
@@ -581,7 +556,6 @@ deleteCacheClusterCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'dccCacheClusterId'
-    -> State DeleteCacheCluster a
     -> m (Either ServiceEr DeleteCacheClusterResponse)
 deleteCacheClusterCatch p1 s =
     sendCatch $ (mkDeleteCacheCluster p1) &~ s
@@ -596,7 +570,7 @@ deleteCacheClusterCatch p1 s =
 -- &Timestamp=20140401T192317Z &X-Amz-Credential=
 -- d0a417cb-575b-11e0-8869-cd22b4f9d96f.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.DeleteCacheParameterGroup'
 
 deleteCacheParameterGroup :: ( MonadCatch m
                              , MonadResource m
@@ -604,7 +578,6 @@ deleteCacheParameterGroup :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'dcpgCacheParameterGroupName'
-    -> State DeleteCacheParameterGroup a
     -> m DeleteCacheParameterGroupResponse
 deleteCacheParameterGroup p1 s =
     send $ (mkDeleteCacheParameterGroup p1) &~ s
@@ -614,7 +587,6 @@ deleteCacheParameterGroupCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => Text -- ^ 'dcpgCacheParameterGroupName'
-    -> State DeleteCacheParameterGroup a
     -> m (Either ServiceEr DeleteCacheParameterGroupResponse)
 deleteCacheParameterGroupCatch p1 s =
     sendCatch $ (mkDeleteCacheParameterGroup p1) &~ s
@@ -628,7 +600,7 @@ deleteCacheParameterGroupCatch p1 s =
 -- &SignatureVersion=4 &SignatureMethod=HmacSHA256 &Timestamp=20140401T192317Z
 -- &X-Amz-Credential= c130cfb7-3650-11e0-ae57-f96cfe56749c.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.DeleteCacheSecurityGroup'
 
 deleteCacheSecurityGroup :: ( MonadCatch m
                             , MonadResource m
@@ -636,7 +608,6 @@ deleteCacheSecurityGroup :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'dcsgCacheSecurityGroupName'
-    -> State DeleteCacheSecurityGroup a
     -> m DeleteCacheSecurityGroupResponse
 deleteCacheSecurityGroup p1 s =
     send $ (mkDeleteCacheSecurityGroup p1) &~ s
@@ -646,7 +617,6 @@ deleteCacheSecurityGroupCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'dcsgCacheSecurityGroupName'
-    -> State DeleteCacheSecurityGroup a
     -> m (Either ServiceEr DeleteCacheSecurityGroupResponse)
 deleteCacheSecurityGroupCatch p1 s =
     sendCatch $ (mkDeleteCacheSecurityGroup p1) &~ s
@@ -659,7 +629,7 @@ deleteCacheSecurityGroupCatch p1 s =
 -- &SignatureMethod=HmacSHA256 &Timestamp=20140401T192317Z &X-Amz-Credential=
 -- 5d013245-4172-11df-8520-e7e1e602a915.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.DeleteCacheSubnetGroup'
 
 deleteCacheSubnetGroup :: ( MonadCatch m
                           , MonadResource m
@@ -667,7 +637,6 @@ deleteCacheSubnetGroup :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'dcsg1CacheSubnetGroupName'
-    -> State DeleteCacheSubnetGroup a
     -> m DeleteCacheSubnetGroupResponse
 deleteCacheSubnetGroup p1 s =
     send $ (mkDeleteCacheSubnetGroup p1) &~ s
@@ -677,7 +646,6 @@ deleteCacheSubnetGroupCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'dcsg1CacheSubnetGroupName'
-    -> State DeleteCacheSubnetGroup a
     -> m (Either ServiceEr DeleteCacheSubnetGroupResponse)
 deleteCacheSubnetGroupCatch p1 s =
     sendCatch $ (mkDeleteCacheSubnetGroup p1) &~ s
@@ -697,7 +665,7 @@ deleteCacheSubnetGroupCatch p1 s =
 -- my-redis-primary my-repgroup deleting My replication group
 -- 93eb37db-b9d7-11e3-8a16-7978bb24ffdf.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.DeleteReplicationGroup'
 
 deleteReplicationGroup :: ( MonadCatch m
                           , MonadResource m
@@ -705,7 +673,6 @@ deleteReplicationGroup :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'drgReplicationGroupId'
-    -> State DeleteReplicationGroup a
     -> m DeleteReplicationGroupResponse
 deleteReplicationGroup p1 s =
     send $ (mkDeleteReplicationGroup p1) &~ s
@@ -715,7 +682,6 @@ deleteReplicationGroupCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'drgReplicationGroupId'
-    -> State DeleteReplicationGroup a
     -> m (Either ServiceEr DeleteReplicationGroupResponse)
 deleteReplicationGroupCatch p1 s =
     sendCatch $ (mkDeleteReplicationGroup p1) &~ s
@@ -732,7 +698,7 @@ deleteReplicationGroupCatch p1 s =
 -- my-manual-snapshot 5 2014-04-01T18:54:12Z 2014-04-01T18:46:57.972Z 0001 3
 -- MB deleting 1 07:30-08:30 694d7017-b9d2-11e3-8a16-7978bb24ffdf.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.DeleteSnapshot'
 
 deleteSnapshot :: ( MonadCatch m
                   , MonadResource m
@@ -740,7 +706,6 @@ deleteSnapshot :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'dsSnapshotName'
-    -> State DeleteSnapshot a
     -> m DeleteSnapshotResponse
 deleteSnapshot p1 s =
     send $ (mkDeleteSnapshot p1) &~ s
@@ -750,7 +715,6 @@ deleteSnapshotCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'dsSnapshotName'
-    -> State DeleteSnapshot a
     -> m (Either ServiceEr DeleteSnapshotResponse)
 deleteSnapshotCatch p1 s =
     sendCatch $ (mkDeleteSnapshot p1) &~ s
@@ -783,7 +747,7 @@ deleteSnapshotCatch p1 s =
 -- arn:aws:sns:us-east-1:123456789012:ElastiCacheNotifications 6
 -- f270d58f-b7fb-11e0-9326-b7275b9d4a6c.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.DescribeCacheClusters'
 
 describeCacheClusters :: ( MonadCatch m
                          , MonadResource m
@@ -814,7 +778,7 @@ describeCacheClustersCatch s =
 -- memcached 1.4.14 memcached1.4 memcached memcached version 1.4.5 memcached
 -- 1.4.5 a6ac9ad2-f8a4-11e1-a4d1-a345e5370093.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.DescribeCacheEngineVersions'
 
 describeCacheEngineVersions :: ( MonadCatch m
                                , MonadResource m
@@ -848,7 +812,7 @@ describeCacheEngineVersionsCatch s =
 -- parameter group mycacheparametergroup3 memcached1.4 My first cache
 -- parameter group 7193fbb8-b7fc-11e0-9b0b-a9261be2b354.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.DescribeCacheParameterGroups'
 
 describeCacheParameterGroups :: ( MonadCatch m
                                 , MonadResource m
@@ -883,7 +847,7 @@ describeCacheParameterGroupsCatch s =
 -- backlog queue limit. 1-10000 backlog_queue_limit 1.4.5 (...output
 -- omitted...) 0c507368-b7fe-11e0-9326-b7275b9d4a6c.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.DescribeCacheParameters'
 
 describeCacheParameters :: ( MonadCatch m
                            , MonadResource m
@@ -891,7 +855,6 @@ describeCacheParameters :: ( MonadCatch m
                            , MonadReader Env (ResumableSource m)
                            )
     => Text -- ^ 'dcpCacheParameterGroupName'
-    -> State DescribeCacheParameters a
     -> ResumableSource m DescribeCacheParametersResponse
 describeCacheParameters p1 s =
     paginate $ (mkDescribeCacheParameters p1) &~ s
@@ -901,7 +864,6 @@ describeCacheParametersCatch :: ( MonadCatch m
                                 , MonadReader Env (ResumableSource m)
                                 )
     => Text -- ^ 'dcpCacheParameterGroupName'
-    -> State DescribeCacheParameters a
     -> ResumableSource m (Either ServiceEr DescribeCacheParametersResponse)
 describeCacheParametersCatch p1 s =
     paginateCatch $ (mkDescribeCacheParameters p1) &~ s
@@ -916,7 +878,7 @@ describeCacheParametersCatch p1 s =
 -- &X-Amz-Credential= default 123456789012 default mycachesecuritygroup
 -- 123456789012 My Security Group a95360ae-b7fc-11e0-9326-b7275b9d4a6c.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.DescribeCacheSecurityGroups'
 
 describeCacheSecurityGroups :: ( MonadCatch m
                                , MonadResource m
@@ -948,7 +910,7 @@ describeCacheSecurityGroupsCatch s =
 -- Active subnet-7b5b4112 us-east-1b Active subnet-3ea6bd57 us-east-1d
 -- (...output omitted...) 31d0faee-229b-11e1-81f1-df3a2a803dad.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.DescribeCacheSubnetGroups'
 
 describeCacheSubnetGroups :: ( MonadCatch m
                              , MonadResource m
@@ -984,7 +946,7 @@ describeCacheSubnetGroupsCatch s =
 -- 1-100000 max_cache_memory 1.4.5 (...output omitted...)
 -- 061282fe-b7fd-11e0-9326-b7275b9d4a6c.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.DescribeEngineDefaultParameters'
 
 describeEngineDefaultParameters :: ( MonadCatch m
                                    , MonadResource m
@@ -992,7 +954,6 @@ describeEngineDefaultParameters :: ( MonadCatch m
                                    , MonadReader Env (ResumableSource m)
                                    )
     => Text -- ^ 'dedpCacheParameterGroupFamily'
-    -> State DescribeEngineDefaultParameters a
     -> ResumableSource m DescribeEngineDefaultParametersResponse
 describeEngineDefaultParameters p1 s =
     paginate $ (mkDescribeEngineDefaultParameters p1) &~ s
@@ -1002,7 +963,6 @@ describeEngineDefaultParametersCatch :: ( MonadCatch m
                                         , MonadReader Env (ResumableSource m)
                                         )
     => Text -- ^ 'dedpCacheParameterGroupFamily'
-    -> State DescribeEngineDefaultParameters a
     -> ResumableSource m (Either ServiceEr DescribeEngineDefaultParametersResponse)
 describeEngineDefaultParametersCatch p1 s =
     paginateCatch $ (mkDescribeEngineDefaultParameters p1) &~ s
@@ -1021,7 +981,7 @@ describeEngineDefaultParametersCatch p1 s =
 -- 2014-04-01T18:22:18.202Z my-redis-primary (...output omitted...)
 -- e21c81b4-b9cd-11e3-8a16-7978bb24ffdf.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.DescribeEvents'
 
 describeEvents :: ( MonadCatch m
                   , MonadResource m
@@ -1056,7 +1016,7 @@ describeEventsCatch s =
 -- 0001 primary my-repgroup available My replication group
 -- 144745b0-b9d3-11e3-8a16-7978bb24ffdf.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.DescribeReplicationGroups'
 
 describeReplicationGroups :: ( MonadCatch m
                              , MonadResource m
@@ -1088,7 +1048,7 @@ describeReplicationGroupsCatch s =
 -- 2010-12-15T00:25:14.131Z 31536000 227.5 0.046 cache.m1.small
 -- c695119b-2961-11e1-bd06-6fe008f046c3.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.DescribeReservedCacheNodes'
 
 describeReservedCacheNodes :: ( MonadCatch m
                               , MonadResource m
@@ -1119,7 +1079,7 @@ describeReservedCacheNodesCatch s =
 -- Hourly 0.123 162.0 memcached 0.0 SampleOfferingId cache.m1.small
 -- 521b420a-2961-11e1-bd06-6fe008f046c3.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings'
 
 describeReservedCacheNodesOfferings :: ( MonadCatch m
                                        , MonadResource m
@@ -1153,7 +1113,7 @@ describeReservedCacheNodesOfferingsCatch s =
 -- my-manual-snapshot 5 2014-04-01T18:54:12Z 2014-04-01T18:46:57.972Z 0001 3
 -- MB creating 1 07:30-08:30 51b0b25e-b9cf-11e3-8a16-7978bb24ffdf.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.DescribeSnapshots'
 
 describeSnapshots :: ( MonadCatch m
                      , MonadResource m
@@ -1186,7 +1146,7 @@ describeSnapshotsCatch s =
 -- cache.m1.large memcached 5 us-east-1b 2014-03-26T23:45:20.937Z 1.4.5 true
 -- fri:04:30-fri:05:00 default active 3 d5786c6d-b7fe-11e0-9326-b7275b9d4a6c.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.ModifyCacheCluster'
 
 modifyCacheCluster :: ( MonadCatch m
                       , MonadResource m
@@ -1194,7 +1154,6 @@ modifyCacheCluster :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'mccCacheClusterId'
-    -> State ModifyCacheCluster a
     -> m ModifyCacheClusterResponse
 modifyCacheCluster p1 s =
     send $ (mkModifyCacheCluster p1) &~ s
@@ -1204,7 +1163,6 @@ modifyCacheClusterCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'mccCacheClusterId'
-    -> State ModifyCacheCluster a
     -> m (Either ServiceEr ModifyCacheClusterResponse)
 modifyCacheClusterCatch p1 s =
     sendCatch $ (mkModifyCacheCluster p1) &~ s
@@ -1222,7 +1180,7 @@ modifyCacheClusterCatch p1 s =
 -- &X-Amz-Credential= mycacheparametergroup
 -- fcedeef2-b7ff-11e0-9326-b7275b9d4a6c.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.ModifyCacheParameterGroup'
 
 modifyCacheParameterGroup :: ( MonadCatch m
                              , MonadResource m
@@ -1231,7 +1189,6 @@ modifyCacheParameterGroup :: ( MonadCatch m
                              )
     => Text -- ^ 'mcpgCacheParameterGroupName'
     -> [ParameterNameValue] -- ^ 'mcpgParameterNameValues'
-    -> State ModifyCacheParameterGroup a
     -> m ModifyCacheParameterGroupResponse
 modifyCacheParameterGroup p1 p2 s =
     send $ (mkModifyCacheParameterGroup p1 p2) &~ s
@@ -1242,7 +1199,6 @@ modifyCacheParameterGroupCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'mcpgCacheParameterGroupName'
     -> [ParameterNameValue] -- ^ 'mcpgParameterNameValues'
-    -> State ModifyCacheParameterGroup a
     -> m (Either ServiceEr ModifyCacheParameterGroupResponse)
 modifyCacheParameterGroupCatch p1 p2 s =
     sendCatch $ (mkModifyCacheParameterGroup p1 p2) &~ s
@@ -1258,7 +1214,7 @@ modifyCacheParameterGroupCatch p1 p2 s =
 -- Active subnet-7b5b4112 us-east-1b Active subnet-3ea6bd57 us-east-1d
 -- ed662948-a57b-11df-9e38-7ffab86c801f.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.ModifyCacheSubnetGroup'
 
 modifyCacheSubnetGroup :: ( MonadCatch m
                           , MonadResource m
@@ -1266,7 +1222,6 @@ modifyCacheSubnetGroup :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'mcsgCacheSubnetGroupName'
-    -> State ModifyCacheSubnetGroup a
     -> m ModifyCacheSubnetGroupResponse
 modifyCacheSubnetGroup p1 s =
     send $ (mkModifyCacheSubnetGroup p1) &~ s
@@ -1276,7 +1231,6 @@ modifyCacheSubnetGroupCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'mcsgCacheSubnetGroupName'
-    -> State ModifyCacheSubnetGroup a
     -> m (Either ServiceEr ModifyCacheSubnetGroupResponse)
 modifyCacheSubnetGroupCatch p1 s =
     sendCatch $ (mkModifyCacheSubnetGroup p1) &~ s
@@ -1297,7 +1251,7 @@ modifyCacheSubnetGroupCatch p1 s =
 -- replica my-repgroup available my-replica-1 My replication group
 -- 6fd0aad6-b9d7-11e3-8a16-7978bb24ffdf.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.ModifyReplicationGroup'
 
 modifyReplicationGroup :: ( MonadCatch m
                           , MonadResource m
@@ -1305,7 +1259,6 @@ modifyReplicationGroup :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'mrgReplicationGroupId'
-    -> State ModifyReplicationGroup a
     -> m ModifyReplicationGroupResponse
 modifyReplicationGroup p1 s =
     send $ (mkModifyReplicationGroup p1) &~ s
@@ -1315,7 +1268,6 @@ modifyReplicationGroupCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'mrgReplicationGroupId'
-    -> State ModifyReplicationGroup a
     -> m (Either ServiceEr ModifyReplicationGroupResponse)
 modifyReplicationGroupCatch p1 s =
     sendCatch $ (mkModifyReplicationGroup p1) &~ s
@@ -1332,7 +1284,7 @@ modifyReplicationGroupCatch p1 s =
 -- payment-pending myreservationID 10 2014-03-18T23:24:56.577Z 31536000 123.0
 -- 0.123 cache.m1.small 7f099901-29cf-11e1-bd06-6fe008f046c3.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering'
 
 purchaseReservedCacheNodesOffering :: ( MonadCatch m
                                       , MonadResource m
@@ -1340,7 +1292,6 @@ purchaseReservedCacheNodesOffering :: ( MonadCatch m
                                       , MonadReader Env m
                                       )
     => Text -- ^ 'prcnoReservedCacheNodesOfferingId'
-    -> State PurchaseReservedCacheNodesOffering a
     -> m PurchaseReservedCacheNodesOfferingResponse
 purchaseReservedCacheNodesOffering p1 s =
     send $ (mkPurchaseReservedCacheNodesOffering p1) &~ s
@@ -1350,7 +1301,6 @@ purchaseReservedCacheNodesOfferingCatch :: ( MonadCatch m
                                            , MonadReader Env m
                                            )
     => Text -- ^ 'prcnoReservedCacheNodesOfferingId'
-    -> State PurchaseReservedCacheNodesOffering a
     -> m (Either ServiceEr PurchaseReservedCacheNodesOfferingResponse)
 purchaseReservedCacheNodesOfferingCatch p1 s =
     sendCatch $ (mkPurchaseReservedCacheNodesOffering p1) &~ s
@@ -1374,7 +1324,7 @@ purchaseReservedCacheNodesOfferingCatch p1 s =
 -- https://console.aws.amazon.com/elasticache/home#client-download: default
 -- active 3 cf7e6fc4-b9d1-11e3-8a16-7978bb24ffdf.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.RebootCacheCluster'
 
 rebootCacheCluster :: ( MonadCatch m
                       , MonadResource m
@@ -1383,7 +1333,6 @@ rebootCacheCluster :: ( MonadCatch m
                       )
     => Text -- ^ 'rccCacheClusterId'
     -> [Text] -- ^ 'rccCacheNodeIdsToReboot'
-    -> State RebootCacheCluster a
     -> m RebootCacheClusterResponse
 rebootCacheCluster p1 p2 s =
     send $ (mkRebootCacheCluster p1 p2) &~ s
@@ -1394,7 +1343,6 @@ rebootCacheClusterCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'rccCacheClusterId'
     -> [Text] -- ^ 'rccCacheNodeIdsToReboot'
-    -> State RebootCacheCluster a
     -> m (Either ServiceEr RebootCacheClusterResponse)
 rebootCacheClusterCatch p1 p2 s =
     sendCatch $ (mkRebootCacheCluster p1 p2) &~ s
@@ -1412,7 +1360,7 @@ rebootCacheClusterCatch p1 p2 s =
 -- &X-Amz-Credential= mycacheparametergroup1
 -- cb7cc855-b9d2-11e3-8a16-7978bb24ffdf.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.ResetCacheParameterGroup'
 
 resetCacheParameterGroup :: ( MonadCatch m
                             , MonadResource m
@@ -1421,7 +1369,6 @@ resetCacheParameterGroup :: ( MonadCatch m
                             )
     => Text -- ^ 'rcpgCacheParameterGroupName'
     -> [ParameterNameValue] -- ^ 'rcpgParameterNameValues'
-    -> State ResetCacheParameterGroup a
     -> m ResetCacheParameterGroupResponse
 resetCacheParameterGroup p1 p3 s =
     send $ (mkResetCacheParameterGroup p1 p3) &~ s
@@ -1432,7 +1379,6 @@ resetCacheParameterGroupCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'rcpgCacheParameterGroupName'
     -> [ParameterNameValue] -- ^ 'rcpgParameterNameValues'
-    -> State ResetCacheParameterGroup a
     -> m (Either ServiceEr ResetCacheParameterGroupResponse)
 resetCacheParameterGroupCatch p1 p3 s =
     sendCatch $ (mkResetCacheParameterGroup p1 p3) &~ s
@@ -1449,7 +1395,7 @@ resetCacheParameterGroupCatch p1 p3 s =
 -- 123456781234 mygroup 123456789012 My security group
 -- 02ae3699-3650-11e0-a564-8f11342c56b0.
 --
--- See: 'Network.AWS.ElastiCache'
+-- See: 'Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress'
 
 revokeCacheSecurityGroupIngress :: ( MonadCatch m
                                    , MonadResource m
@@ -1459,7 +1405,6 @@ revokeCacheSecurityGroupIngress :: ( MonadCatch m
     => Text -- ^ 'rcsgiCacheSecurityGroupName'
     -> Text -- ^ 'rcsgiEC2SecurityGroupName'
     -> Text -- ^ 'rcsgiEC2SecurityGroupOwnerId'
-    -> State RevokeCacheSecurityGroupIngress a
     -> m RevokeCacheSecurityGroupIngressResponse
 revokeCacheSecurityGroupIngress p1 p2 p3 s =
     send $ (mkRevokeCacheSecurityGroupIngress p1 p2 p3) &~ s
@@ -1471,7 +1416,6 @@ revokeCacheSecurityGroupIngressCatch :: ( MonadCatch m
     => Text -- ^ 'rcsgiCacheSecurityGroupName'
     -> Text -- ^ 'rcsgiEC2SecurityGroupName'
     -> Text -- ^ 'rcsgiEC2SecurityGroupOwnerId'
-    -> State RevokeCacheSecurityGroupIngress a
     -> m (Either ServiceEr RevokeCacheSecurityGroupIngressResponse)
 revokeCacheSecurityGroupIngressCatch p1 p2 p3 s =
     sendCatch $ (mkRevokeCacheSecurityGroupIngress p1 p2 p3) &~ s

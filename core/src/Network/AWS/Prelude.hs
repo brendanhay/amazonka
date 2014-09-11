@@ -78,22 +78,19 @@ import Network.HTTP.Client          (HttpException, RequestBody, Response)
 import Prelude                      as Export hiding (head, error)
 
 import Control.Lens as Lens
-    ( (<&>)
-
+    ( Lens'
+    , (<&>)
     , (&)
     , (^.)
     , (.~)
     , (?~)
     , (<>~)
     , (%~)
-
     , (&~)
     , (.=)
     , (?=)
     , (<>=)
     , (%=)
-
-    , Lens'
     , lens
     , to
     )

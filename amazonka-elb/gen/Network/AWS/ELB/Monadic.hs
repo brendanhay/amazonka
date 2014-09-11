@@ -12,13 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Elastic Load Balancing automatically distributes incoming application
--- traffic across multiple Amazon EC2 instances. It enables you to achieve
--- greater levels of fault tolerance in your applications, seamlessly
--- providing the required amount of load balancing capacity needed to
--- distribute application traffic.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -40,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.ELB.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.ELB.Monadic
@@ -216,7 +214,7 @@ type ServiceEr = Er ELB
 -- &Tags.member.1.Value=my-test-project &Version=2012-06-01 &AUTHPARAMS
 -- 360e81f7-1100-11e4-b6ed-0f30EXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.AddTags'
 
 addTags :: ( MonadCatch m
            , MonadResource m
@@ -225,7 +223,6 @@ addTags :: ( MonadCatch m
            )
     => [Text] -- ^ 'atLoadBalancerNames'
     -> List1 Tag -- ^ 'atTags'
-    -> State AddTags a
     -> m AddTagsResponse
 addTags p1 p2 s =
     send $ (mkAddTags p1 p2) &~ s
@@ -236,7 +233,6 @@ addTagsCatch :: ( MonadCatch m
                 )
     => [Text] -- ^ 'atLoadBalancerNames'
     -> List1 Tag -- ^ 'atTags'
-    -> State AddTags a
     -> m (Either ServiceEr AddTagsResponse)
 addTagsCatch p1 p2 s =
     sendCatch $ (mkAddTags p1 p2) &~ s
@@ -252,7 +248,7 @@ addTagsCatch p1 p2 s =
 -- &Action=ApplySecurityGroupsToLoadBalancer &AUTHPARAMS sg-123456789
 -- 06b5decc-102a-11e3-9ad6-bf3e4EXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer'
 
 applySecurityGroupsToLoadBalancer :: ( MonadCatch m
                                      , MonadResource m
@@ -261,7 +257,6 @@ applySecurityGroupsToLoadBalancer :: ( MonadCatch m
                                      )
     => Text -- ^ 'asgtlbLoadBalancerName'
     -> [Text] -- ^ 'asgtlbSecurityGroups'
-    -> State ApplySecurityGroupsToLoadBalancer a
     -> m ApplySecurityGroupsToLoadBalancerResponse
 applySecurityGroupsToLoadBalancer p1 p2 s =
     send $ (mkApplySecurityGroupsToLoadBalancer p1 p2) &~ s
@@ -272,7 +267,6 @@ applySecurityGroupsToLoadBalancerCatch :: ( MonadCatch m
                                           )
     => Text -- ^ 'asgtlbLoadBalancerName'
     -> [Text] -- ^ 'asgtlbSecurityGroups'
-    -> State ApplySecurityGroupsToLoadBalancer a
     -> m (Either ServiceEr ApplySecurityGroupsToLoadBalancerResponse)
 applySecurityGroupsToLoadBalancerCatch p1 p2 s =
     sendCatch $ (mkApplySecurityGroupsToLoadBalancer p1 p2) &~ s
@@ -288,7 +282,7 @@ applySecurityGroupsToLoadBalancerCatch p1 p2 s =
 -- &Action=AttachLoadBalancerToSubnets &AUTHPARAMS subnet-119f0078
 -- subnet-3561b05e 07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.AttachLoadBalancerToSubnets'
 
 attachLoadBalancerToSubnets :: ( MonadCatch m
                                , MonadResource m
@@ -297,7 +291,6 @@ attachLoadBalancerToSubnets :: ( MonadCatch m
                                )
     => Text -- ^ 'albtsLoadBalancerName'
     -> [Text] -- ^ 'albtsSubnets'
-    -> State AttachLoadBalancerToSubnets a
     -> m AttachLoadBalancerToSubnetsResponse
 attachLoadBalancerToSubnets p1 p2 s =
     send $ (mkAttachLoadBalancerToSubnets p1 p2) &~ s
@@ -308,7 +301,6 @@ attachLoadBalancerToSubnetsCatch :: ( MonadCatch m
                                     )
     => Text -- ^ 'albtsLoadBalancerName'
     -> [Text] -- ^ 'albtsSubnets'
-    -> State AttachLoadBalancerToSubnets a
     -> m (Either ServiceEr AttachLoadBalancerToSubnetsResponse)
 attachLoadBalancerToSubnetsCatch p1 p2 s =
     sendCatch $ (mkAttachLoadBalancerToSubnets p1 p2) &~ s
@@ -323,7 +315,7 @@ attachLoadBalancerToSubnetsCatch p1 p2 s =
 -- &HealthCheck.Timeout=3 &Version=2012-06-01 &Action=ConfigureHealthCheck
 -- &AUTHPARAMS 30 HTTP:80/ping 2 3 2 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.ConfigureHealthCheck'
 
 configureHealthCheck :: ( MonadCatch m
                         , MonadResource m
@@ -332,7 +324,6 @@ configureHealthCheck :: ( MonadCatch m
                         )
     => Text -- ^ 'chcLoadBalancerName'
     -> HealthCheck -- ^ 'chcHealthCheck'
-    -> State ConfigureHealthCheck a
     -> m ConfigureHealthCheckResponse
 configureHealthCheck p1 p2 s =
     send $ (mkConfigureHealthCheck p1 p2) &~ s
@@ -343,7 +334,6 @@ configureHealthCheckCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'chcLoadBalancerName'
     -> HealthCheck -- ^ 'chcHealthCheck'
-    -> State ConfigureHealthCheck a
     -> m (Either ServiceEr ConfigureHealthCheckResponse)
 configureHealthCheckCatch p1 p2 s =
     sendCatch $ (mkConfigureHealthCheck p1 p2) &~ s
@@ -368,7 +358,7 @@ configureHealthCheckCatch p1 p2 s =
 -- &Version=2012-06-01 &Action=CreateAppCookieStickinessPolicy &AUTHPARAMS
 -- 99a693e9-12b8-11e3-9ad6-bf3e4EXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.CreateAppCookieStickinessPolicy'
 
 createAppCookieStickinessPolicy :: ( MonadCatch m
                                    , MonadResource m
@@ -378,7 +368,6 @@ createAppCookieStickinessPolicy :: ( MonadCatch m
     => Text -- ^ 'cacspLoadBalancerName'
     -> Text -- ^ 'cacspPolicyName'
     -> Text -- ^ 'cacspCookieName'
-    -> State CreateAppCookieStickinessPolicy a
     -> m CreateAppCookieStickinessPolicyResponse
 createAppCookieStickinessPolicy p1 p2 p3 s =
     send $ (mkCreateAppCookieStickinessPolicy p1 p2 p3) &~ s
@@ -390,7 +379,6 @@ createAppCookieStickinessPolicyCatch :: ( MonadCatch m
     => Text -- ^ 'cacspLoadBalancerName'
     -> Text -- ^ 'cacspPolicyName'
     -> Text -- ^ 'cacspCookieName'
-    -> State CreateAppCookieStickinessPolicy a
     -> m (Either ServiceEr CreateAppCookieStickinessPolicyResponse)
 createAppCookieStickinessPolicyCatch p1 p2 p3 s =
     sendCatch $ (mkCreateAppCookieStickinessPolicy p1 p2 p3) &~ s
@@ -415,7 +403,7 @@ createAppCookieStickinessPolicyCatch p1 p2 p3 s =
 -- &Version=2012-06-01 &Action=CreateLBCookieStickinessPolicy &AUTHPARAMS
 -- 99a693e9-12b8-11e3-9ad6-bf3e4EXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.CreateLBCookieStickinessPolicy'
 
 createLBCookieStickinessPolicy :: ( MonadCatch m
                                   , MonadResource m
@@ -424,7 +412,6 @@ createLBCookieStickinessPolicy :: ( MonadCatch m
                                   )
     => Text -- ^ 'clbcspLoadBalancerName'
     -> Text -- ^ 'clbcspPolicyName'
-    -> State CreateLBCookieStickinessPolicy a
     -> m CreateLBCookieStickinessPolicyResponse
 createLBCookieStickinessPolicy p1 p2 s =
     send $ (mkCreateLBCookieStickinessPolicy p1 p2) &~ s
@@ -435,7 +422,6 @@ createLBCookieStickinessPolicyCatch :: ( MonadCatch m
                                        )
     => Text -- ^ 'clbcspLoadBalancerName'
     -> Text -- ^ 'clbcspPolicyName'
-    -> State CreateLBCookieStickinessPolicy a
     -> m (Either ServiceEr CreateLBCookieStickinessPolicyResponse)
 createLBCookieStickinessPolicyCatch p1 p2 s =
     sendCatch $ (mkCreateLBCookieStickinessPolicy p1 p2) &~ s
@@ -508,7 +494,7 @@ createLBCookieStickinessPolicyCatch p1 p2 s =
 -- my-test-loadbalancer-1234567890.us-east-1.elb.amazonaws.com
 -- 1549581b-12b7-11e3-895e-1334aEXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.CreateLoadBalancer'
 
 createLoadBalancer :: ( MonadCatch m
                       , MonadResource m
@@ -517,7 +503,6 @@ createLoadBalancer :: ( MonadCatch m
                       )
     => Text -- ^ 'clbLoadBalancerName'
     -> [Listener] -- ^ 'clbListeners'
-    -> State CreateLoadBalancer a
     -> m CreateLoadBalancerResponse
 createLoadBalancer p1 p2 s =
     send $ (mkCreateLoadBalancer p1 p2) &~ s
@@ -528,7 +513,6 @@ createLoadBalancerCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'clbLoadBalancerName'
     -> [Listener] -- ^ 'clbListeners'
-    -> State CreateLoadBalancer a
     -> m (Either ServiceEr CreateLoadBalancerResponse)
 createLoadBalancerCatch p1 p2 s =
     sendCatch $ (mkCreateLoadBalancer p1 p2) &~ s
@@ -549,7 +533,7 @@ createLoadBalancerCatch p1 p2 s =
 -- &Action=CreateLoadBalancerListeners &AUTHPARAMS
 -- 1549581b-12b7-11e3-895e-1334aEXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.CreateLoadBalancerListeners'
 
 createLoadBalancerListeners :: ( MonadCatch m
                                , MonadResource m
@@ -558,7 +542,6 @@ createLoadBalancerListeners :: ( MonadCatch m
                                )
     => Text -- ^ 'clblLoadBalancerName'
     -> [Listener] -- ^ 'clblListeners'
-    -> State CreateLoadBalancerListeners a
     -> m CreateLoadBalancerListenersResponse
 createLoadBalancerListeners p1 p2 s =
     send $ (mkCreateLoadBalancerListeners p1 p2) &~ s
@@ -569,7 +552,6 @@ createLoadBalancerListenersCatch :: ( MonadCatch m
                                     )
     => Text -- ^ 'clblLoadBalancerName'
     -> [Listener] -- ^ 'clblListeners'
-    -> State CreateLoadBalancerListeners a
     -> m (Either ServiceEr CreateLoadBalancerListenersResponse)
 createLoadBalancerListenersCatch p1 p2 s =
     sendCatch $ (mkCreateLoadBalancerListeners p1 p2) &~ s
@@ -586,7 +568,7 @@ createLoadBalancerListenersCatch p1 p2 s =
 -- &Version=2012-06-01 &Action=CreateLoadBalancerPolicy &AUTHPARAMS
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.CreateLoadBalancerPolicy'
 
 createLoadBalancerPolicy :: ( MonadCatch m
                             , MonadResource m
@@ -596,7 +578,6 @@ createLoadBalancerPolicy :: ( MonadCatch m
     => Text -- ^ 'clbpLoadBalancerName'
     -> Text -- ^ 'clbpPolicyName'
     -> Text -- ^ 'clbpPolicyTypeName'
-    -> State CreateLoadBalancerPolicy a
     -> m CreateLoadBalancerPolicyResponse
 createLoadBalancerPolicy p1 p2 p3 s =
     send $ (mkCreateLoadBalancerPolicy p1 p2 p3) &~ s
@@ -608,7 +589,6 @@ createLoadBalancerPolicyCatch :: ( MonadCatch m
     => Text -- ^ 'clbpLoadBalancerName'
     -> Text -- ^ 'clbpPolicyName'
     -> Text -- ^ 'clbpPolicyTypeName'
-    -> State CreateLoadBalancerPolicy a
     -> m (Either ServiceEr CreateLoadBalancerPolicyResponse)
 createLoadBalancerPolicyCatch p1 p2 p3 s =
     sendCatch $ (mkCreateLoadBalancerPolicy p1 p2 p3) &~ s
@@ -624,7 +604,7 @@ createLoadBalancerPolicyCatch p1 p2 p3 s =
 -- design, if the load balancer does not exist or has already been deleted, a
 -- call to DeleteLoadBalancer action still succeeds.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.DeleteLoadBalancer'
 
 deleteLoadBalancer :: ( MonadCatch m
                       , MonadResource m
@@ -632,7 +612,6 @@ deleteLoadBalancer :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'dlbLoadBalancerName'
-    -> State DeleteLoadBalancer a
     -> m DeleteLoadBalancerResponse
 deleteLoadBalancer p1 s =
     send $ (mkDeleteLoadBalancer p1) &~ s
@@ -642,7 +621,6 @@ deleteLoadBalancerCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'dlbLoadBalancerName'
-    -> State DeleteLoadBalancer a
     -> m (Either ServiceEr DeleteLoadBalancerResponse)
 deleteLoadBalancerCatch p1 s =
     sendCatch $ (mkDeleteLoadBalancer p1) &~ s
@@ -650,7 +628,7 @@ deleteLoadBalancerCatch p1 s =
 -- $DeleteLoadBalancerListeners
 -- Deletes listeners from the load balancer for the specified port.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.DeleteLoadBalancerListeners'
 
 deleteLoadBalancerListeners :: ( MonadCatch m
                                , MonadResource m
@@ -659,7 +637,6 @@ deleteLoadBalancerListeners :: ( MonadCatch m
                                )
     => Text -- ^ 'dlblLoadBalancerName'
     -> [Integer] -- ^ 'dlblLoadBalancerPorts'
-    -> State DeleteLoadBalancerListeners a
     -> m DeleteLoadBalancerListenersResponse
 deleteLoadBalancerListeners p1 p2 s =
     send $ (mkDeleteLoadBalancerListeners p1 p2) &~ s
@@ -670,7 +647,6 @@ deleteLoadBalancerListenersCatch :: ( MonadCatch m
                                     )
     => Text -- ^ 'dlblLoadBalancerName'
     -> [Integer] -- ^ 'dlblLoadBalancerPorts'
-    -> State DeleteLoadBalancerListeners a
     -> m (Either ServiceEr DeleteLoadBalancerListenersResponse)
 deleteLoadBalancerListenersCatch p1 p2 s =
     sendCatch $ (mkDeleteLoadBalancerListeners p1 p2) &~ s
@@ -679,7 +655,7 @@ deleteLoadBalancerListenersCatch p1 p2 s =
 -- Deletes a policy from the load balancer. The specified policy must not be
 -- enabled for any listeners.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.DeleteLoadBalancerPolicy'
 
 deleteLoadBalancerPolicy :: ( MonadCatch m
                             , MonadResource m
@@ -688,7 +664,6 @@ deleteLoadBalancerPolicy :: ( MonadCatch m
                             )
     => Text -- ^ 'dlbpLoadBalancerName'
     -> Text -- ^ 'dlbpPolicyName'
-    -> State DeleteLoadBalancerPolicy a
     -> m DeleteLoadBalancerPolicyResponse
 deleteLoadBalancerPolicy p1 p2 s =
     send $ (mkDeleteLoadBalancerPolicy p1 p2) &~ s
@@ -699,7 +674,6 @@ deleteLoadBalancerPolicyCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'dlbpLoadBalancerName'
     -> Text -- ^ 'dlbpPolicyName'
-    -> State DeleteLoadBalancerPolicy a
     -> m (Either ServiceEr DeleteLoadBalancerPolicyResponse)
 deleteLoadBalancerPolicyCatch p1 p2 s =
     sendCatch $ (mkDeleteLoadBalancerPolicy p1 p2) &~ s
@@ -718,7 +692,7 @@ deleteLoadBalancerPolicyCatch p1 p2 s =
 -- &Action=DeregisterInstancesFromLoadBalancer &AUTHPARAMS i-6ec63d59
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.DeregisterInstancesFromLoadBalancer'
 
 deregisterInstancesFromLoadBalancer :: ( MonadCatch m
                                        , MonadResource m
@@ -727,7 +701,6 @@ deregisterInstancesFromLoadBalancer :: ( MonadCatch m
                                        )
     => Text -- ^ 'diflbLoadBalancerName'
     -> [Instance] -- ^ 'diflbInstances'
-    -> State DeregisterInstancesFromLoadBalancer a
     -> m DeregisterInstancesFromLoadBalancerResponse
 deregisterInstancesFromLoadBalancer p1 p2 s =
     send $ (mkDeregisterInstancesFromLoadBalancer p1 p2) &~ s
@@ -738,7 +711,6 @@ deregisterInstancesFromLoadBalancerCatch :: ( MonadCatch m
                                             )
     => Text -- ^ 'diflbLoadBalancerName'
     -> [Instance] -- ^ 'diflbInstances'
-    -> State DeregisterInstancesFromLoadBalancer a
     -> m (Either ServiceEr DeregisterInstancesFromLoadBalancerResponse)
 deregisterInstancesFromLoadBalancerCatch p1 p2 s =
     sendCatch $ (mkDeregisterInstancesFromLoadBalancer p1 p2) &~ s
@@ -769,7 +741,7 @@ deregisterInstancesFromLoadBalancerCatch p1 p2 s =
 -- error occurred. Please try again later. i-7f12e649 Unknown ELB
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.DescribeInstanceHealth'
 
 describeInstanceHealth :: ( MonadCatch m
                           , MonadResource m
@@ -777,7 +749,6 @@ describeInstanceHealth :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'dihLoadBalancerName'
-    -> State DescribeInstanceHealth a
     -> m DescribeInstanceHealthResponse
 describeInstanceHealth p1 s =
     send $ (mkDescribeInstanceHealth p1) &~ s
@@ -787,7 +758,6 @@ describeInstanceHealthCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'dihLoadBalancerName'
-    -> State DescribeInstanceHealth a
     -> m (Either ServiceEr DescribeInstanceHealthResponse)
 describeInstanceHealthCatch p1 s =
     sendCatch $ (mkDescribeInstanceHealth p1) &~ s
@@ -800,7 +770,7 @@ describeInstanceHealthCatch p1 s =
 -- my-loadbalancer-logs testprefix 5 30 true true 60
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.DescribeLoadBalancerAttributes'
 
 describeLoadBalancerAttributes :: ( MonadCatch m
                                   , MonadResource m
@@ -808,7 +778,6 @@ describeLoadBalancerAttributes :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => Text -- ^ 'dlbaLoadBalancerName'
-    -> State DescribeLoadBalancerAttributes a
     -> m DescribeLoadBalancerAttributesResponse
 describeLoadBalancerAttributes p1 s =
     send $ (mkDescribeLoadBalancerAttributes p1) &~ s
@@ -818,7 +787,6 @@ describeLoadBalancerAttributesCatch :: ( MonadCatch m
                                        , MonadReader Env m
                                        )
     => Text -- ^ 'dlbaLoadBalancerName'
-    -> State DescribeLoadBalancerAttributes a
     -> m (Either ServiceEr DescribeLoadBalancerAttributesResponse)
 describeLoadBalancerAttributesCatch p1 s =
     sendCatch $ (mkDescribeLoadBalancerAttributes p1) &~ s
@@ -844,7 +812,7 @@ describeLoadBalancerAttributesCatch p1 s =
 -- ProxyProtocolPolicyType ProxyProtocol true
 -- 1549581b-12b7-11e3-895e-1334aEXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.DescribeLoadBalancerPolicies'
 
 describeLoadBalancerPolicies :: ( MonadCatch m
                                 , MonadResource m
@@ -885,7 +853,7 @@ describeLoadBalancerPoliciesCatch s =
 -- TCP messages. This policy operates on TCP/SSL listeners only
 -- 1549581b-12b7-11e3-895e-1334aEXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.DescribeLoadBalancerPolicyTypes'
 
 describeLoadBalancerPolicyTypes :: ( MonadCatch m
                                    , MonadResource m
@@ -922,7 +890,7 @@ describeLoadBalancerPolicyTypesCatch s =
 -- MyLoadBalancer-123456789.us-east-1.elb.amazonaws.com
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.DescribeLoadBalancers'
 
 describeLoadBalancers :: ( MonadCatch m
                          , MonadResource m
@@ -950,7 +918,7 @@ describeLoadBalancersCatch s =
 -- &AUTHPARAMS my-test-project project test environment my-test-loadbalancer
 -- 07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.DescribeTags'
 
 describeTags :: ( MonadCatch m
                 , MonadResource m
@@ -958,7 +926,6 @@ describeTags :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => List1 Text -- ^ 'dtLoadBalancerNames'
-    -> State DescribeTags a
     -> m DescribeTagsResponse
 describeTags p1 s =
     send $ (mkDescribeTags p1) &~ s
@@ -968,7 +935,6 @@ describeTagsCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => List1 Text -- ^ 'dtLoadBalancerNames'
-    -> State DescribeTags a
     -> m (Either ServiceEr DescribeTagsResponse)
 describeTagsCatch p1 s =
     sendCatch $ (mkDescribeTags p1) &~ s
@@ -985,7 +951,7 @@ describeTagsCatch p1 s =
 -- &Action=DetachLoadBalancerFromSubnets &AUTHPARAMS subnet-159f007c
 -- subnet-3561b05e 07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.DetachLoadBalancerFromSubnets'
 
 detachLoadBalancerFromSubnets :: ( MonadCatch m
                                  , MonadResource m
@@ -994,7 +960,6 @@ detachLoadBalancerFromSubnets :: ( MonadCatch m
                                  )
     => Text -- ^ 'dlbfsLoadBalancerName'
     -> [Text] -- ^ 'dlbfsSubnets'
-    -> State DetachLoadBalancerFromSubnets a
     -> m DetachLoadBalancerFromSubnetsResponse
 detachLoadBalancerFromSubnets p1 p2 s =
     send $ (mkDetachLoadBalancerFromSubnets p1 p2) &~ s
@@ -1005,7 +970,6 @@ detachLoadBalancerFromSubnetsCatch :: ( MonadCatch m
                                       )
     => Text -- ^ 'dlbfsLoadBalancerName'
     -> [Text] -- ^ 'dlbfsSubnets'
-    -> State DetachLoadBalancerFromSubnets a
     -> m (Either ServiceEr DetachLoadBalancerFromSubnetsResponse)
 detachLoadBalancerFromSubnetsCatch p1 p2 s =
     sendCatch $ (mkDetachLoadBalancerFromSubnets p1 p2) &~ s
@@ -1027,7 +991,7 @@ detachLoadBalancerFromSubnetsCatch p1 p2 s =
 -- &Action=DisableAvailabilityZonesForLoadBalancer &AUTHPARAMS us-east-1b
 -- ba6267d5-2566-11e3-9c6d-eb728EXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer'
 
 disableAvailabilityZonesForLoadBalancer :: ( MonadCatch m
                                            , MonadResource m
@@ -1036,7 +1000,6 @@ disableAvailabilityZonesForLoadBalancer :: ( MonadCatch m
                                            )
     => Text -- ^ 'dazflbLoadBalancerName'
     -> [Text] -- ^ 'dazflbAvailabilityZones'
-    -> State DisableAvailabilityZonesForLoadBalancer a
     -> m DisableAvailabilityZonesForLoadBalancerResponse
 disableAvailabilityZonesForLoadBalancer p1 p2 s =
     send $ (mkDisableAvailabilityZonesForLoadBalancer p1 p2) &~ s
@@ -1047,7 +1010,6 @@ disableAvailabilityZonesForLoadBalancerCatch :: ( MonadCatch m
                                                 )
     => Text -- ^ 'dazflbLoadBalancerName'
     -> [Text] -- ^ 'dazflbAvailabilityZones'
-    -> State DisableAvailabilityZonesForLoadBalancer a
     -> m (Either ServiceEr DisableAvailabilityZonesForLoadBalancerResponse)
 disableAvailabilityZonesForLoadBalancerCatch p1 p2 s =
     sendCatch $ (mkDisableAvailabilityZonesForLoadBalancer p1 p2) &~ s
@@ -1066,7 +1028,7 @@ disableAvailabilityZonesForLoadBalancerCatch p1 p2 s =
 -- &Action=EnableAvailabilityZonesForLoadBalancer &AUTHPARAMS us-east-1a
 -- us-east-1c 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer'
 
 enableAvailabilityZonesForLoadBalancer :: ( MonadCatch m
                                           , MonadResource m
@@ -1075,7 +1037,6 @@ enableAvailabilityZonesForLoadBalancer :: ( MonadCatch m
                                           )
     => Text -- ^ 'eazflbLoadBalancerName'
     -> [Text] -- ^ 'eazflbAvailabilityZones'
-    -> State EnableAvailabilityZonesForLoadBalancer a
     -> m EnableAvailabilityZonesForLoadBalancerResponse
 enableAvailabilityZonesForLoadBalancer p1 p2 s =
     send $ (mkEnableAvailabilityZonesForLoadBalancer p1 p2) &~ s
@@ -1086,7 +1047,6 @@ enableAvailabilityZonesForLoadBalancerCatch :: ( MonadCatch m
                                                )
     => Text -- ^ 'eazflbLoadBalancerName'
     -> [Text] -- ^ 'eazflbAvailabilityZones'
-    -> State EnableAvailabilityZonesForLoadBalancer a
     -> m (Either ServiceEr EnableAvailabilityZonesForLoadBalancerResponse)
 enableAvailabilityZonesForLoadBalancerCatch p1 p2 s =
     sendCatch $ (mkEnableAvailabilityZonesForLoadBalancer p1 p2) &~ s
@@ -1122,7 +1082,7 @@ enableAvailabilityZonesForLoadBalancerCatch p1 p2 s =
 -- &Version=2012-06-01 &Action=ModifyLoadBalancerAttributes &AUTHPARAMS
 -- my-test-loadbalancer 30 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.ModifyLoadBalancerAttributes'
 
 modifyLoadBalancerAttributes :: ( MonadCatch m
                                 , MonadResource m
@@ -1131,7 +1091,6 @@ modifyLoadBalancerAttributes :: ( MonadCatch m
                                 )
     => Text -- ^ 'mlbaLoadBalancerName'
     -> LoadBalancerAttributes -- ^ 'mlbaLoadBalancerAttributes'
-    -> State ModifyLoadBalancerAttributes a
     -> m ModifyLoadBalancerAttributesResponse
 modifyLoadBalancerAttributes p1 p2 s =
     send $ (mkModifyLoadBalancerAttributes p1 p2) &~ s
@@ -1142,7 +1101,6 @@ modifyLoadBalancerAttributesCatch :: ( MonadCatch m
                                      )
     => Text -- ^ 'mlbaLoadBalancerName'
     -> LoadBalancerAttributes -- ^ 'mlbaLoadBalancerAttributes'
-    -> State ModifyLoadBalancerAttributes a
     -> m (Either ServiceEr ModifyLoadBalancerAttributesResponse)
 modifyLoadBalancerAttributesCatch p1 p2 s =
     sendCatch $ (mkModifyLoadBalancerAttributes p1 p2) &~ s
@@ -1174,7 +1132,7 @@ modifyLoadBalancerAttributesCatch p1 p2 s =
 -- &Action=RegisterInstancesWithLoadBalancer &AUTHPARAMS i-315b7e51
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.RegisterInstancesWithLoadBalancer'
 
 registerInstancesWithLoadBalancer :: ( MonadCatch m
                                      , MonadResource m
@@ -1183,7 +1141,6 @@ registerInstancesWithLoadBalancer :: ( MonadCatch m
                                      )
     => Text -- ^ 'riwlbLoadBalancerName'
     -> [Instance] -- ^ 'riwlbInstances'
-    -> State RegisterInstancesWithLoadBalancer a
     -> m RegisterInstancesWithLoadBalancerResponse
 registerInstancesWithLoadBalancer p1 p2 s =
     send $ (mkRegisterInstancesWithLoadBalancer p1 p2) &~ s
@@ -1194,7 +1151,6 @@ registerInstancesWithLoadBalancerCatch :: ( MonadCatch m
                                           )
     => Text -- ^ 'riwlbLoadBalancerName'
     -> [Instance] -- ^ 'riwlbInstances'
-    -> State RegisterInstancesWithLoadBalancer a
     -> m (Either ServiceEr RegisterInstancesWithLoadBalancerResponse)
 registerInstancesWithLoadBalancerCatch p1 p2 s =
     sendCatch $ (mkRegisterInstancesWithLoadBalancer p1 p2) &~ s
@@ -1206,7 +1162,7 @@ registerInstancesWithLoadBalancerCatch p1 p2 s =
 -- &Tags.member.1.Key=owner &Tags.member.2.Key=project &Action=RemoveTags
 -- &Version=2012-06-01 &AUTHPARAMS 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.RemoveTags'
 
 removeTags :: ( MonadCatch m
               , MonadResource m
@@ -1215,7 +1171,6 @@ removeTags :: ( MonadCatch m
               )
     => [Text] -- ^ 'rtLoadBalancerNames'
     -> List1 TagKeyOnly -- ^ 'rtTags'
-    -> State RemoveTags a
     -> m RemoveTagsResponse
 removeTags p1 p2 s =
     send $ (mkRemoveTags p1 p2) &~ s
@@ -1226,7 +1181,6 @@ removeTagsCatch :: ( MonadCatch m
                    )
     => [Text] -- ^ 'rtLoadBalancerNames'
     -> List1 TagKeyOnly -- ^ 'rtTags'
-    -> State RemoveTags a
     -> m (Either ServiceEr RemoveTagsResponse)
 removeTagsCatch p1 p2 s =
     sendCatch $ (mkRemoveTags p1 p2) &~ s
@@ -1243,7 +1197,7 @@ removeTagsCatch p1 p2 s =
 -- &Action=SetLoadBalancerListenerSSLCertificate &AUTHPARAMS
 -- 83c88b9d-12b7-11e3-8b82-87b12EXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate'
 
 setLoadBalancerListenerSSLCertificate :: ( MonadCatch m
                                          , MonadResource m
@@ -1253,7 +1207,6 @@ setLoadBalancerListenerSSLCertificate :: ( MonadCatch m
     => Text -- ^ 'slblsslcLoadBalancerName'
     -> Integer -- ^ 'slblsslcLoadBalancerPort'
     -> Text -- ^ 'slblsslcSSLCertificateId'
-    -> State SetLoadBalancerListenerSSLCertificate a
     -> m SetLoadBalancerListenerSSLCertificateResponse
 setLoadBalancerListenerSSLCertificate p1 p2 p3 s =
     send $ (mkSetLoadBalancerListenerSSLCertificate p1 p2 p3) &~ s
@@ -1265,7 +1218,6 @@ setLoadBalancerListenerSSLCertificateCatch :: ( MonadCatch m
     => Text -- ^ 'slblsslcLoadBalancerName'
     -> Integer -- ^ 'slblsslcLoadBalancerPort'
     -> Text -- ^ 'slblsslcSSLCertificateId'
-    -> State SetLoadBalancerListenerSSLCertificate a
     -> m (Either ServiceEr SetLoadBalancerListenerSSLCertificateResponse)
 setLoadBalancerListenerSSLCertificateCatch p1 p2 p3 s =
     sendCatch $ (mkSetLoadBalancerListenerSSLCertificate p1 p2 p3) &~ s
@@ -1289,7 +1241,7 @@ setLoadBalancerListenerSSLCertificateCatch p1 p2 p3 s =
 -- DescribeLoadBalancerPolicies action to verify that the policy has been
 -- associated with the back-end server.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer'
 
 setLoadBalancerPoliciesForBackendServer :: ( MonadCatch m
                                            , MonadResource m
@@ -1299,7 +1251,6 @@ setLoadBalancerPoliciesForBackendServer :: ( MonadCatch m
     => Text -- ^ 'slbpfbsLoadBalancerName'
     -> Integer -- ^ 'slbpfbsInstancePort'
     -> [Text] -- ^ 'slbpfbsPolicyNames'
-    -> State SetLoadBalancerPoliciesForBackendServer a
     -> m SetLoadBalancerPoliciesForBackendServerResponse
 setLoadBalancerPoliciesForBackendServer p1 p2 p3 s =
     send $ (mkSetLoadBalancerPoliciesForBackendServer p1 p2 p3) &~ s
@@ -1311,7 +1262,6 @@ setLoadBalancerPoliciesForBackendServerCatch :: ( MonadCatch m
     => Text -- ^ 'slbpfbsLoadBalancerName'
     -> Integer -- ^ 'slbpfbsInstancePort'
     -> [Text] -- ^ 'slbpfbsPolicyNames'
-    -> State SetLoadBalancerPoliciesForBackendServer a
     -> m (Either ServiceEr SetLoadBalancerPoliciesForBackendServerResponse)
 setLoadBalancerPoliciesForBackendServerCatch p1 p2 p3 s =
     sendCatch $ (mkSetLoadBalancerPoliciesForBackendServer p1 p2 p3) &~ s
@@ -1326,7 +1276,7 @@ setLoadBalancerPoliciesForBackendServerCatch p1 p2 p3 s =
 -- &Version=2012-06-01 &Action=SetLoadBalancerPoliciesOfListener &AUTHPARAMS
 -- azonaws.com/doc/2012-06-01/"> 07b1ecbc-1100-11e3-acaf-dd7edEXAMPLE.
 --
--- See: 'Network.AWS.ELB'
+-- See: 'Network.AWS.ELB.SetLoadBalancerPoliciesOfListener'
 
 setLoadBalancerPoliciesOfListener :: ( MonadCatch m
                                      , MonadResource m
@@ -1336,7 +1286,6 @@ setLoadBalancerPoliciesOfListener :: ( MonadCatch m
     => Text -- ^ 'slbpolLoadBalancerName'
     -> Integer -- ^ 'slbpolLoadBalancerPort'
     -> [Text] -- ^ 'slbpolPolicyNames'
-    -> State SetLoadBalancerPoliciesOfListener a
     -> m SetLoadBalancerPoliciesOfListenerResponse
 setLoadBalancerPoliciesOfListener p1 p2 p3 s =
     send $ (mkSetLoadBalancerPoliciesOfListener p1 p2 p3) &~ s
@@ -1348,7 +1297,6 @@ setLoadBalancerPoliciesOfListenerCatch :: ( MonadCatch m
     => Text -- ^ 'slbpolLoadBalancerName'
     -> Integer -- ^ 'slbpolLoadBalancerPort'
     -> [Text] -- ^ 'slbpolPolicyNames'
-    -> State SetLoadBalancerPoliciesOfListener a
     -> m (Either ServiceEr SetLoadBalancerPoliciesOfListenerResponse)
 setLoadBalancerPoliciesOfListenerCatch p1 p2 p3 s =
     sendCatch $ (mkSetLoadBalancerPoliciesOfListener p1 p2 p3) &~ s

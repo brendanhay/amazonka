@@ -12,12 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | The AWS Security Token Service (STS) is a web service that enables you to
--- request temporary, limited-privilege credentials for AWS Identity and
--- Access Management (IAM) users or for users that you authenticate (federated
--- users).
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -39,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.STS.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.STS.Monadic
@@ -163,7 +162,7 @@ type ServiceEr = Er STS
 -- AKIAIOSFODNN7EXAMPLE arn:aws:sts::123456789012:assumed-role/demo/Bob
 -- ARO123EXAMPLE123:Bob 6 c6104cbe-af31-11e0-8154-cbc7ccf896c7.
 --
--- See: 'Network.AWS.STS'
+-- See: 'Network.AWS.STS.AssumeRole'
 
 assumeRole :: ( MonadCatch m
               , MonadResource m
@@ -172,7 +171,6 @@ assumeRole :: ( MonadCatch m
               )
     => Text -- ^ 'arRoleArn'
     -> Text -- ^ 'arRoleSessionName'
-    -> State AssumeRole a
     -> m AssumeRoleResponse
 assumeRole p1 p2 s =
     send $ (mkAssumeRole p1 p2) &~ s
@@ -183,7 +181,6 @@ assumeRoleCatch :: ( MonadCatch m
                    )
     => Text -- ^ 'arRoleArn'
     -> Text -- ^ 'arRoleSessionName'
-    -> State AssumeRole a
     -> m (Either ServiceEr AssumeRoleResponse)
 assumeRoleCatch p1 p2 s =
     sendCatch $ (mkAssumeRole p1 p2) &~ s
@@ -227,7 +224,7 @@ assumeRoleCatch p1 p2 s =
 -- Relying Party and Claims in Using IAM. Creating a Role for SAML-Based
 -- Federation in Using IAM.
 --
--- See: 'Network.AWS.STS'
+-- See: 'Network.AWS.STS.AssumeRoleWithSAML'
 
 assumeRoleWithSAML :: ( MonadCatch m
                       , MonadResource m
@@ -237,7 +234,6 @@ assumeRoleWithSAML :: ( MonadCatch m
     => Text -- ^ 'arwsamlRoleArn'
     -> Text -- ^ 'arwsamlPrincipalArn'
     -> Text -- ^ 'arwsamlSAMLAssertion'
-    -> State AssumeRoleWithSAML a
     -> m AssumeRoleWithSAMLResponse
 assumeRoleWithSAML p1 p2 p3 s =
     send $ (mkAssumeRoleWithSAML p1 p2 p3) &~ s
@@ -249,7 +245,6 @@ assumeRoleWithSAMLCatch :: ( MonadCatch m
     => Text -- ^ 'arwsamlRoleArn'
     -> Text -- ^ 'arwsamlPrincipalArn'
     -> Text -- ^ 'arwsamlSAMLAssertion'
-    -> State AssumeRoleWithSAML a
     -> m (Either ServiceEr AssumeRoleWithSAMLResponse)
 assumeRoleWithSAMLCatch p1 p2 p3 s =
     sendCatch $ (mkAssumeRoleWithSAML p1 p2 p3) &~ s
@@ -318,7 +313,7 @@ assumeRoleWithSAMLCatch p1 p2 p3 s =
 -- client.5498841531868486423.1548@apps.example.com
 -- ad4156e9-bce1-11e2-82e6-6b6ef249e618.
 --
--- See: 'Network.AWS.STS'
+-- See: 'Network.AWS.STS.AssumeRoleWithWebIdentity'
 
 assumeRoleWithWebIdentity :: ( MonadCatch m
                              , MonadResource m
@@ -328,7 +323,6 @@ assumeRoleWithWebIdentity :: ( MonadCatch m
     => Text -- ^ 'arwwiRoleArn'
     -> Text -- ^ 'arwwiRoleSessionName'
     -> Text -- ^ 'arwwiWebIdentityToken'
-    -> State AssumeRoleWithWebIdentity a
     -> m AssumeRoleWithWebIdentityResponse
 assumeRoleWithWebIdentity p1 p2 p3 s =
     send $ (mkAssumeRoleWithWebIdentity p1 p2 p3) &~ s
@@ -340,7 +334,6 @@ assumeRoleWithWebIdentityCatch :: ( MonadCatch m
     => Text -- ^ 'arwwiRoleArn'
     -> Text -- ^ 'arwwiRoleSessionName'
     -> Text -- ^ 'arwwiWebIdentityToken'
-    -> State AssumeRoleWithWebIdentity a
     -> m (Either ServiceEr AssumeRoleWithWebIdentityResponse)
 assumeRoleWithWebIdentityCatch p1 p2 p3 s =
     sendCatch $ (mkAssumeRoleWithWebIdentity p1 p2 p3) &~ s
@@ -379,7 +372,7 @@ assumeRoleWithWebIdentityCatch p1 p2 p3 s =
 -- "ec2:ResourceTag/elasticbeanstalk:environment-name", "values":
 -- ["Default-Environment"] } }, (Additional items ...) ] } }.
 --
--- See: 'Network.AWS.STS'
+-- See: 'Network.AWS.STS.DecodeAuthorizationMessage'
 
 decodeAuthorizationMessage :: ( MonadCatch m
                               , MonadResource m
@@ -387,7 +380,6 @@ decodeAuthorizationMessage :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'damEncodedMessage'
-    -> State DecodeAuthorizationMessage a
     -> m DecodeAuthorizationMessageResponse
 decodeAuthorizationMessage p1 s =
     send $ (mkDecodeAuthorizationMessage p1) &~ s
@@ -397,7 +389,6 @@ decodeAuthorizationMessageCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => Text -- ^ 'damEncodedMessage'
-    -> State DecodeAuthorizationMessage a
     -> m (Either ServiceEr DecodeAuthorizationMessageResponse)
 decodeAuthorizationMessageCatch p1 s =
     sendCatch $ (mkDecodeAuthorizationMessage p1) &~ s
@@ -466,7 +457,7 @@ decodeAuthorizationMessageCatch p1 s =
 -- AKIAIOSFODNN7EXAMPLE arn:aws:sts::123456789012:federated-user/Bob
 -- 123456789012:Bob 6 c6104cbe-af31-11e0-8154-cbc7ccf896c7.
 --
--- See: 'Network.AWS.STS'
+-- See: 'Network.AWS.STS.GetFederationToken'
 
 getFederationToken :: ( MonadCatch m
                       , MonadResource m
@@ -474,7 +465,6 @@ getFederationToken :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'gftName'
-    -> State GetFederationToken a
     -> m GetFederationTokenResponse
 getFederationToken p1 s =
     send $ (mkGetFederationToken p1) &~ s
@@ -484,7 +474,6 @@ getFederationTokenCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'gftName'
-    -> State GetFederationToken a
     -> m (Either ServiceEr GetFederationTokenResponse)
 getFederationTokenCatch p1 s =
     sendCatch $ (mkGetFederationToken p1) &~ s
@@ -526,7 +515,7 @@ getFederationTokenCatch p1 s =
 -- wJalrXUtnFEMI/K7MDENG/bPxRfiCYzEXAMPLEKEY 2011-07-11T19:55:29.611Z
 -- AKIAIOSFODNN7EXAMPLE 58c5dbae-abef-11e0-8cfe-09039844ac7d.
 --
--- See: 'Network.AWS.STS'
+-- See: 'Network.AWS.STS.GetSessionToken'
 
 getSessionToken :: ( MonadCatch m
                    , MonadResource m

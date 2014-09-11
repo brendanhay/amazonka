@@ -12,19 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Amazon CloudFront is a web service that speeds up distribution of your
--- static and dynamic web content, for example, .html, .css, .php, image, and
--- media files, to end users. CloudFront delivers your content through a
--- worldwide network of edge locations. When an end user requests content that
--- you're serving with CloudFront, the user is routed to the edge location
--- that provides the lowest latency, so content is delivered with the best
--- possible performance. If the content is already in that edge location,
--- CloudFront delivers it immediately. If the content is not currently in that
--- edge location, CloudFront retrieves it from an Amazon S3 bucket or an HTTP
--- server (for example, a web server) that you have identified as the source
--- for the definitive version of your content.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -46,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.CloudFront.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.CloudFront.Monadic
@@ -178,7 +170,7 @@ type ServiceEr = Er CloudFront
 -- $CreateCloudFrontOriginAccessIdentity
 -- Create a new origin access identity.
 --
--- See: 'Network.AWS.CloudFront'
+-- See: 'Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity'
 
 createCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                         , MonadResource m
@@ -186,7 +178,6 @@ createCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                         , MonadReader Env m
                                         )
     => CloudFrontOriginAccessIdentityConfig -- ^ 'ccfoaiCloudFrontOriginAccessIdentityConfig'
-    -> State CreateCloudFrontOriginAccessIdentity a
     -> m CreateCloudFrontOriginAccessIdentityResponse
 createCloudFrontOriginAccessIdentity p1 s =
     send $ (mkCreateCloudFrontOriginAccessIdentity p1) &~ s
@@ -196,7 +187,6 @@ createCloudFrontOriginAccessIdentityCatch :: ( MonadCatch m
                                              , MonadReader Env m
                                              )
     => CloudFrontOriginAccessIdentityConfig -- ^ 'ccfoaiCloudFrontOriginAccessIdentityConfig'
-    -> State CreateCloudFrontOriginAccessIdentity a
     -> m (Either ServiceEr CreateCloudFrontOriginAccessIdentityResponse)
 createCloudFrontOriginAccessIdentityCatch p1 s =
     sendCatch $ (mkCreateCloudFrontOriginAccessIdentity p1) &~ s
@@ -204,7 +194,7 @@ createCloudFrontOriginAccessIdentityCatch p1 s =
 -- $CreateDistribution
 -- Create a new distribution.
 --
--- See: 'Network.AWS.CloudFront'
+-- See: 'Network.AWS.CloudFront.CreateDistribution'
 
 createDistribution :: ( MonadCatch m
                       , MonadResource m
@@ -212,7 +202,6 @@ createDistribution :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => DistributionConfig -- ^ 'cdDistributionConfig'
-    -> State CreateDistribution a
     -> m CreateDistributionResponse
 createDistribution p1 s =
     send $ (mkCreateDistribution p1) &~ s
@@ -222,7 +211,6 @@ createDistributionCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => DistributionConfig -- ^ 'cdDistributionConfig'
-    -> State CreateDistribution a
     -> m (Either ServiceEr CreateDistributionResponse)
 createDistributionCatch p1 s =
     sendCatch $ (mkCreateDistribution p1) &~ s
@@ -230,7 +218,7 @@ createDistributionCatch p1 s =
 -- $CreateInvalidation
 -- Create a new invalidation.
 --
--- See: 'Network.AWS.CloudFront'
+-- See: 'Network.AWS.CloudFront.CreateInvalidation'
 
 createInvalidation :: ( MonadCatch m
                       , MonadResource m
@@ -239,7 +227,6 @@ createInvalidation :: ( MonadCatch m
                       )
     => Text -- ^ 'ciDistributionId'
     -> InvalidationBatch -- ^ 'ciInvalidationBatch'
-    -> State CreateInvalidation a
     -> m CreateInvalidationResponse
 createInvalidation p1 p2 s =
     send $ (mkCreateInvalidation p1 p2) &~ s
@@ -250,7 +237,6 @@ createInvalidationCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'ciDistributionId'
     -> InvalidationBatch -- ^ 'ciInvalidationBatch'
-    -> State CreateInvalidation a
     -> m (Either ServiceEr CreateInvalidationResponse)
 createInvalidationCatch p1 p2 s =
     sendCatch $ (mkCreateInvalidation p1 p2) &~ s
@@ -258,7 +244,7 @@ createInvalidationCatch p1 p2 s =
 -- $CreateStreamingDistribution
 -- Create a new streaming distribution.
 --
--- See: 'Network.AWS.CloudFront'
+-- See: 'Network.AWS.CloudFront.CreateStreamingDistribution'
 
 createStreamingDistribution :: ( MonadCatch m
                                , MonadResource m
@@ -266,7 +252,6 @@ createStreamingDistribution :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => StreamingDistributionConfig -- ^ 'csdStreamingDistributionConfig'
-    -> State CreateStreamingDistribution a
     -> m CreateStreamingDistributionResponse
 createStreamingDistribution p1 s =
     send $ (mkCreateStreamingDistribution p1) &~ s
@@ -276,7 +261,6 @@ createStreamingDistributionCatch :: ( MonadCatch m
                                     , MonadReader Env m
                                     )
     => StreamingDistributionConfig -- ^ 'csdStreamingDistributionConfig'
-    -> State CreateStreamingDistribution a
     -> m (Either ServiceEr CreateStreamingDistributionResponse)
 createStreamingDistributionCatch p1 s =
     sendCatch $ (mkCreateStreamingDistribution p1) &~ s
@@ -284,7 +268,7 @@ createStreamingDistributionCatch p1 s =
 -- $DeleteCloudFrontOriginAccessIdentity
 -- Delete an origin access identity.
 --
--- See: 'Network.AWS.CloudFront'
+-- See: 'Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity'
 
 deleteCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                         , MonadResource m
@@ -292,7 +276,6 @@ deleteCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                         , MonadReader Env m
                                         )
     => Text -- ^ 'dcfoaiId'
-    -> State DeleteCloudFrontOriginAccessIdentity a
     -> m DeleteCloudFrontOriginAccessIdentityResponse
 deleteCloudFrontOriginAccessIdentity p1 s =
     send $ (mkDeleteCloudFrontOriginAccessIdentity p1) &~ s
@@ -302,7 +285,6 @@ deleteCloudFrontOriginAccessIdentityCatch :: ( MonadCatch m
                                              , MonadReader Env m
                                              )
     => Text -- ^ 'dcfoaiId'
-    -> State DeleteCloudFrontOriginAccessIdentity a
     -> m (Either ServiceEr DeleteCloudFrontOriginAccessIdentityResponse)
 deleteCloudFrontOriginAccessIdentityCatch p1 s =
     sendCatch $ (mkDeleteCloudFrontOriginAccessIdentity p1) &~ s
@@ -310,7 +292,7 @@ deleteCloudFrontOriginAccessIdentityCatch p1 s =
 -- $DeleteDistribution
 -- Delete a distribution.
 --
--- See: 'Network.AWS.CloudFront'
+-- See: 'Network.AWS.CloudFront.DeleteDistribution'
 
 deleteDistribution :: ( MonadCatch m
                       , MonadResource m
@@ -318,7 +300,6 @@ deleteDistribution :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'ddId'
-    -> State DeleteDistribution a
     -> m DeleteDistributionResponse
 deleteDistribution p1 s =
     send $ (mkDeleteDistribution p1) &~ s
@@ -328,7 +309,6 @@ deleteDistributionCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'ddId'
-    -> State DeleteDistribution a
     -> m (Either ServiceEr DeleteDistributionResponse)
 deleteDistributionCatch p1 s =
     sendCatch $ (mkDeleteDistribution p1) &~ s
@@ -336,7 +316,7 @@ deleteDistributionCatch p1 s =
 -- $DeleteStreamingDistribution
 -- Delete a streaming distribution.
 --
--- See: 'Network.AWS.CloudFront'
+-- See: 'Network.AWS.CloudFront.DeleteStreamingDistribution'
 
 deleteStreamingDistribution :: ( MonadCatch m
                                , MonadResource m
@@ -344,7 +324,6 @@ deleteStreamingDistribution :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'dsdId'
-    -> State DeleteStreamingDistribution a
     -> m DeleteStreamingDistributionResponse
 deleteStreamingDistribution p1 s =
     send $ (mkDeleteStreamingDistribution p1) &~ s
@@ -354,7 +333,6 @@ deleteStreamingDistributionCatch :: ( MonadCatch m
                                     , MonadReader Env m
                                     )
     => Text -- ^ 'dsdId'
-    -> State DeleteStreamingDistribution a
     -> m (Either ServiceEr DeleteStreamingDistributionResponse)
 deleteStreamingDistributionCatch p1 s =
     sendCatch $ (mkDeleteStreamingDistribution p1) &~ s
@@ -362,7 +340,7 @@ deleteStreamingDistributionCatch p1 s =
 -- $GetCloudFrontOriginAccessIdentity
 -- Get the information about an origin access identity.
 --
--- See: 'Network.AWS.CloudFront'
+-- See: 'Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity'
 
 getCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                      , MonadResource m
@@ -370,7 +348,6 @@ getCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => Text -- ^ 'gcfoaiId'
-    -> State GetCloudFrontOriginAccessIdentity a
     -> m GetCloudFrontOriginAccessIdentityResponse
 getCloudFrontOriginAccessIdentity p1 s =
     send $ (mkGetCloudFrontOriginAccessIdentity p1) &~ s
@@ -380,7 +357,6 @@ getCloudFrontOriginAccessIdentityCatch :: ( MonadCatch m
                                           , MonadReader Env m
                                           )
     => Text -- ^ 'gcfoaiId'
-    -> State GetCloudFrontOriginAccessIdentity a
     -> m (Either ServiceEr GetCloudFrontOriginAccessIdentityResponse)
 getCloudFrontOriginAccessIdentityCatch p1 s =
     sendCatch $ (mkGetCloudFrontOriginAccessIdentity p1) &~ s
@@ -388,7 +364,7 @@ getCloudFrontOriginAccessIdentityCatch p1 s =
 -- $GetCloudFrontOriginAccessIdentityConfig
 -- Get the configuration information about an origin access identity.
 --
--- See: 'Network.AWS.CloudFront'
+-- See: 'Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig'
 
 getCloudFrontOriginAccessIdentityConfig :: ( MonadCatch m
                                            , MonadResource m
@@ -396,7 +372,6 @@ getCloudFrontOriginAccessIdentityConfig :: ( MonadCatch m
                                            , MonadReader Env m
                                            )
     => Text -- ^ 'gcfoaicId'
-    -> State GetCloudFrontOriginAccessIdentityConfig a
     -> m GetCloudFrontOriginAccessIdentityConfigResponse
 getCloudFrontOriginAccessIdentityConfig p1 s =
     send $ (mkGetCloudFrontOriginAccessIdentityConfig p1) &~ s
@@ -406,7 +381,6 @@ getCloudFrontOriginAccessIdentityConfigCatch :: ( MonadCatch m
                                                 , MonadReader Env m
                                                 )
     => Text -- ^ 'gcfoaicId'
-    -> State GetCloudFrontOriginAccessIdentityConfig a
     -> m (Either ServiceEr GetCloudFrontOriginAccessIdentityConfigResponse)
 getCloudFrontOriginAccessIdentityConfigCatch p1 s =
     sendCatch $ (mkGetCloudFrontOriginAccessIdentityConfig p1) &~ s
@@ -414,7 +388,7 @@ getCloudFrontOriginAccessIdentityConfigCatch p1 s =
 -- $GetDistribution
 -- Get the information about a distribution.
 --
--- See: 'Network.AWS.CloudFront'
+-- See: 'Network.AWS.CloudFront.GetDistribution'
 
 getDistribution :: ( MonadCatch m
                    , MonadResource m
@@ -422,7 +396,6 @@ getDistribution :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'gdId'
-    -> State GetDistribution a
     -> m GetDistributionResponse
 getDistribution p1 s =
     send $ (mkGetDistribution p1) &~ s
@@ -432,7 +405,6 @@ getDistributionCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'gdId'
-    -> State GetDistribution a
     -> m (Either ServiceEr GetDistributionResponse)
 getDistributionCatch p1 s =
     sendCatch $ (mkGetDistribution p1) &~ s
@@ -440,7 +412,7 @@ getDistributionCatch p1 s =
 -- $GetDistributionConfig
 -- Get the configuration information about a distribution.
 --
--- See: 'Network.AWS.CloudFront'
+-- See: 'Network.AWS.CloudFront.GetDistributionConfig'
 
 getDistributionConfig :: ( MonadCatch m
                          , MonadResource m
@@ -448,7 +420,6 @@ getDistributionConfig :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'gdcId'
-    -> State GetDistributionConfig a
     -> m GetDistributionConfigResponse
 getDistributionConfig p1 s =
     send $ (mkGetDistributionConfig p1) &~ s
@@ -458,7 +429,6 @@ getDistributionConfigCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'gdcId'
-    -> State GetDistributionConfig a
     -> m (Either ServiceEr GetDistributionConfigResponse)
 getDistributionConfigCatch p1 s =
     sendCatch $ (mkGetDistributionConfig p1) &~ s
@@ -466,7 +436,7 @@ getDistributionConfigCatch p1 s =
 -- $GetInvalidation
 -- Get the information about an invalidation.
 --
--- See: 'Network.AWS.CloudFront'
+-- See: 'Network.AWS.CloudFront.GetInvalidation'
 
 getInvalidation :: ( MonadCatch m
                    , MonadResource m
@@ -475,7 +445,6 @@ getInvalidation :: ( MonadCatch m
                    )
     => Text -- ^ 'giDistributionId'
     -> Text -- ^ 'giId'
-    -> State GetInvalidation a
     -> m GetInvalidationResponse
 getInvalidation p1 p2 s =
     send $ (mkGetInvalidation p1 p2) &~ s
@@ -486,7 +455,6 @@ getInvalidationCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'giDistributionId'
     -> Text -- ^ 'giId'
-    -> State GetInvalidation a
     -> m (Either ServiceEr GetInvalidationResponse)
 getInvalidationCatch p1 p2 s =
     sendCatch $ (mkGetInvalidation p1 p2) &~ s
@@ -494,7 +462,7 @@ getInvalidationCatch p1 p2 s =
 -- $GetStreamingDistribution
 -- Get the information about a streaming distribution.
 --
--- See: 'Network.AWS.CloudFront'
+-- See: 'Network.AWS.CloudFront.GetStreamingDistribution'
 
 getStreamingDistribution :: ( MonadCatch m
                             , MonadResource m
@@ -502,7 +470,6 @@ getStreamingDistribution :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'gsdId'
-    -> State GetStreamingDistribution a
     -> m GetStreamingDistributionResponse
 getStreamingDistribution p1 s =
     send $ (mkGetStreamingDistribution p1) &~ s
@@ -512,7 +479,6 @@ getStreamingDistributionCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'gsdId'
-    -> State GetStreamingDistribution a
     -> m (Either ServiceEr GetStreamingDistributionResponse)
 getStreamingDistributionCatch p1 s =
     sendCatch $ (mkGetStreamingDistribution p1) &~ s
@@ -520,7 +486,7 @@ getStreamingDistributionCatch p1 s =
 -- $GetStreamingDistributionConfig
 -- Get the configuration information about a streaming distribution.
 --
--- See: 'Network.AWS.CloudFront'
+-- See: 'Network.AWS.CloudFront.GetStreamingDistributionConfig'
 
 getStreamingDistributionConfig :: ( MonadCatch m
                                   , MonadResource m
@@ -528,7 +494,6 @@ getStreamingDistributionConfig :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => Text -- ^ 'gsdcId'
-    -> State GetStreamingDistributionConfig a
     -> m GetStreamingDistributionConfigResponse
 getStreamingDistributionConfig p1 s =
     send $ (mkGetStreamingDistributionConfig p1) &~ s
@@ -538,7 +503,6 @@ getStreamingDistributionConfigCatch :: ( MonadCatch m
                                        , MonadReader Env m
                                        )
     => Text -- ^ 'gsdcId'
-    -> State GetStreamingDistributionConfig a
     -> m (Either ServiceEr GetStreamingDistributionConfigResponse)
 getStreamingDistributionConfigCatch p1 s =
     sendCatch $ (mkGetStreamingDistributionConfig p1) &~ s
@@ -546,7 +510,7 @@ getStreamingDistributionConfigCatch p1 s =
 -- $ListCloudFrontOriginAccessIdentities
 -- List origin access identities.
 --
--- See: 'Network.AWS.CloudFront'
+-- See: 'Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities'
 
 listCloudFrontOriginAccessIdentities :: ( MonadCatch m
                                         , MonadResource m
@@ -570,7 +534,7 @@ listCloudFrontOriginAccessIdentitiesCatch s =
 -- $ListDistributions
 -- List distributions.
 --
--- See: 'Network.AWS.CloudFront'
+-- See: 'Network.AWS.CloudFront.ListDistributions'
 
 listDistributions :: ( MonadCatch m
                      , MonadResource m
@@ -594,7 +558,7 @@ listDistributionsCatch s =
 -- $ListInvalidations
 -- List invalidation batches.
 --
--- See: 'Network.AWS.CloudFront'
+-- See: 'Network.AWS.CloudFront.ListInvalidations'
 
 listInvalidations :: ( MonadCatch m
                      , MonadResource m
@@ -602,7 +566,6 @@ listInvalidations :: ( MonadCatch m
                      , MonadReader Env (ResumableSource m)
                      )
     => Text -- ^ 'liDistributionId'
-    -> State ListInvalidations a
     -> ResumableSource m ListInvalidationsResponse
 listInvalidations p1 s =
     paginate $ (mkListInvalidations p1) &~ s
@@ -612,7 +575,6 @@ listInvalidationsCatch :: ( MonadCatch m
                           , MonadReader Env (ResumableSource m)
                           )
     => Text -- ^ 'liDistributionId'
-    -> State ListInvalidations a
     -> ResumableSource m (Either ServiceEr ListInvalidationsResponse)
 listInvalidationsCatch p1 s =
     paginateCatch $ (mkListInvalidations p1) &~ s
@@ -620,7 +582,7 @@ listInvalidationsCatch p1 s =
 -- $ListStreamingDistributions
 -- List streaming distributions.
 --
--- See: 'Network.AWS.CloudFront'
+-- See: 'Network.AWS.CloudFront.ListStreamingDistributions'
 
 listStreamingDistributions :: ( MonadCatch m
                               , MonadResource m
@@ -644,7 +606,7 @@ listStreamingDistributionsCatch s =
 -- $UpdateCloudFrontOriginAccessIdentity
 -- Update an origin access identity.
 --
--- See: 'Network.AWS.CloudFront'
+-- See: 'Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity'
 
 updateCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                         , MonadResource m
@@ -653,7 +615,6 @@ updateCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                         )
     => CloudFrontOriginAccessIdentityConfig -- ^ 'ucfoaiCloudFrontOriginAccessIdentityConfig'
     -> Text -- ^ 'ucfoaiId'
-    -> State UpdateCloudFrontOriginAccessIdentity a
     -> m UpdateCloudFrontOriginAccessIdentityResponse
 updateCloudFrontOriginAccessIdentity p1 p2 s =
     send $ (mkUpdateCloudFrontOriginAccessIdentity p1 p2) &~ s
@@ -664,7 +625,6 @@ updateCloudFrontOriginAccessIdentityCatch :: ( MonadCatch m
                                              )
     => CloudFrontOriginAccessIdentityConfig -- ^ 'ucfoaiCloudFrontOriginAccessIdentityConfig'
     -> Text -- ^ 'ucfoaiId'
-    -> State UpdateCloudFrontOriginAccessIdentity a
     -> m (Either ServiceEr UpdateCloudFrontOriginAccessIdentityResponse)
 updateCloudFrontOriginAccessIdentityCatch p1 p2 s =
     sendCatch $ (mkUpdateCloudFrontOriginAccessIdentity p1 p2) &~ s
@@ -672,7 +632,7 @@ updateCloudFrontOriginAccessIdentityCatch p1 p2 s =
 -- $UpdateDistribution
 -- Update a distribution.
 --
--- See: 'Network.AWS.CloudFront'
+-- See: 'Network.AWS.CloudFront.UpdateDistribution'
 
 updateDistribution :: ( MonadCatch m
                       , MonadResource m
@@ -681,7 +641,6 @@ updateDistribution :: ( MonadCatch m
                       )
     => DistributionConfig -- ^ 'udDistributionConfig'
     -> Text -- ^ 'udId'
-    -> State UpdateDistribution a
     -> m UpdateDistributionResponse
 updateDistribution p1 p2 s =
     send $ (mkUpdateDistribution p1 p2) &~ s
@@ -692,7 +651,6 @@ updateDistributionCatch :: ( MonadCatch m
                            )
     => DistributionConfig -- ^ 'udDistributionConfig'
     -> Text -- ^ 'udId'
-    -> State UpdateDistribution a
     -> m (Either ServiceEr UpdateDistributionResponse)
 updateDistributionCatch p1 p2 s =
     sendCatch $ (mkUpdateDistribution p1 p2) &~ s
@@ -700,7 +658,7 @@ updateDistributionCatch p1 p2 s =
 -- $UpdateStreamingDistribution
 -- Update a streaming distribution.
 --
--- See: 'Network.AWS.CloudFront'
+-- See: 'Network.AWS.CloudFront.UpdateStreamingDistribution'
 
 updateStreamingDistribution :: ( MonadCatch m
                                , MonadResource m
@@ -709,7 +667,6 @@ updateStreamingDistribution :: ( MonadCatch m
                                )
     => StreamingDistributionConfig -- ^ 'usdStreamingDistributionConfig'
     -> Text -- ^ 'usdId'
-    -> State UpdateStreamingDistribution a
     -> m UpdateStreamingDistributionResponse
 updateStreamingDistribution p1 p2 s =
     send $ (mkUpdateStreamingDistribution p1 p2) &~ s
@@ -720,7 +677,6 @@ updateStreamingDistributionCatch :: ( MonadCatch m
                                     )
     => StreamingDistributionConfig -- ^ 'usdStreamingDistributionConfig'
     -> Text -- ^ 'usdId'
-    -> State UpdateStreamingDistribution a
     -> m (Either ServiceEr UpdateStreamingDistributionResponse)
 updateStreamingDistributionCatch p1 p2 s =
     sendCatch $ (mkUpdateStreamingDistribution p1 p2) &~ s

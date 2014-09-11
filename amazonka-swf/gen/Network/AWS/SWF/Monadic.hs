@@ -12,17 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Amazon Simple Workflow Service (Amazon SWF) makes it easy to build
--- applications that coordinate work across distributed components. In Amazon
--- SWF, a task represents a logical unit of work that is performed by a
--- component of your application. Coordinating tasks across the application
--- involves managing intertask dependencies, scheduling, and concurrency in
--- accordance with the logical flow of the application. Amazon SWF gives you
--- full control over implementing tasks and coordinating them without worrying
--- about underlying complexities such as tracking their progress and
--- maintaining their state.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -44,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.SWF.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.SWF.Monadic
@@ -257,7 +251,7 @@ type ServiceEr = Er SWF
 -- Content-Length: 29 Content-Type: application/json x-amzn-RequestId:
 -- 9bfad387-3f22-11e1-9914-a356b6ea8bdf { "count":3, "truncated":false }.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.CountClosedWorkflowExecutions'
 
 countClosedWorkflowExecutions :: ( MonadCatch m
                                  , MonadResource m
@@ -265,7 +259,6 @@ countClosedWorkflowExecutions :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'ccweDomain'
-    -> State CountClosedWorkflowExecutions a
     -> m CountClosedWorkflowExecutionsResponse
 countClosedWorkflowExecutions p1 s =
     send $ (mkCountClosedWorkflowExecutions p1) &~ s
@@ -275,7 +268,6 @@ countClosedWorkflowExecutionsCatch :: ( MonadCatch m
                                       , MonadReader Env m
                                       )
     => Text -- ^ 'ccweDomain'
-    -> State CountClosedWorkflowExecutions a
     -> m (Either ServiceEr CountClosedWorkflowExecutionsResponse)
 countClosedWorkflowExecutionsCatch p1 s =
     sendCatch $ (mkCountClosedWorkflowExecutions p1) &~ s
@@ -314,7 +306,7 @@ countClosedWorkflowExecutionsCatch p1 s =
 -- Content-Length: 29 Content-Type: application/json x-amzn-RequestId:
 -- 5ea6789e-3f05-11e1-9e8f-57bb03e21482 {"count":1,"truncated":false}.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.CountOpenWorkflowExecutions'
 
 countOpenWorkflowExecutions :: ( MonadCatch m
                                , MonadResource m
@@ -323,7 +315,6 @@ countOpenWorkflowExecutions :: ( MonadCatch m
                                )
     => Text -- ^ 'coweDomain'
     -> ExecutionTimeFilter -- ^ 'coweStartTimeFilter'
-    -> State CountOpenWorkflowExecutions a
     -> m CountOpenWorkflowExecutionsResponse
 countOpenWorkflowExecutions p1 p2 s =
     send $ (mkCountOpenWorkflowExecutions p1 p2) &~ s
@@ -334,7 +325,6 @@ countOpenWorkflowExecutionsCatch :: ( MonadCatch m
                                     )
     => Text -- ^ 'coweDomain'
     -> ExecutionTimeFilter -- ^ 'coweStartTimeFilter'
-    -> State CountOpenWorkflowExecutions a
     -> m (Either ServiceEr CountOpenWorkflowExecutionsResponse)
 countOpenWorkflowExecutionsCatch p1 p2 s =
     sendCatch $ (mkCountOpenWorkflowExecutions p1 p2) &~ s
@@ -370,7 +360,7 @@ countOpenWorkflowExecutionsCatch p1 p2 s =
 -- Content-Length: 29 Content-Type: application/json x-amzn-RequestId:
 -- 4b977c76-3ff2-11e1-a23a-99d60383ae71 {"count":1,"truncated":false}.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.CountPendingActivityTasks'
 
 countPendingActivityTasks :: ( MonadCatch m
                              , MonadResource m
@@ -379,7 +369,6 @@ countPendingActivityTasks :: ( MonadCatch m
                              )
     => Text -- ^ 'cpatDomain'
     -> TaskList -- ^ 'cpatTaskList'
-    -> State CountPendingActivityTasks a
     -> m CountPendingActivityTasksResponse
 countPendingActivityTasks p1 p2 s =
     send $ (mkCountPendingActivityTasks p1 p2) &~ s
@@ -390,7 +379,6 @@ countPendingActivityTasksCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'cpatDomain'
     -> TaskList -- ^ 'cpatTaskList'
-    -> State CountPendingActivityTasks a
     -> m (Either ServiceEr CountPendingActivityTasksResponse)
 countPendingActivityTasksCatch p1 p2 s =
     sendCatch $ (mkCountPendingActivityTasks p1 p2) &~ s
@@ -426,7 +414,7 @@ countPendingActivityTasksCatch p1 p2 s =
 -- Content-Length: 29 Content-Type: application/json x-amzn-RequestId:
 -- 4718a364-3fd0-11e1-9914-a356b6ea8bdf {"count": 2, "truncated": false}.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.CountPendingDecisionTasks'
 
 countPendingDecisionTasks :: ( MonadCatch m
                              , MonadResource m
@@ -435,7 +423,6 @@ countPendingDecisionTasks :: ( MonadCatch m
                              )
     => Text -- ^ 'cpdtDomain'
     -> TaskList -- ^ 'cpdtTaskList'
-    -> State CountPendingDecisionTasks a
     -> m CountPendingDecisionTasksResponse
 countPendingDecisionTasks p1 p2 s =
     send $ (mkCountPendingDecisionTasks p1 p2) &~ s
@@ -446,7 +433,6 @@ countPendingDecisionTasksCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'cpdtDomain'
     -> TaskList -- ^ 'cpdtTaskList'
-    -> State CountPendingDecisionTasks a
     -> m (Either ServiceEr CountPendingDecisionTasksResponse)
 countPendingDecisionTasksCatch p1 p2 s =
     sendCatch $ (mkCountPendingDecisionTasks p1 p2) &~ s
@@ -484,7 +470,7 @@ countPendingDecisionTasksCatch p1 p2 s =
 -- HTTP/1.1 200 OK Content-Length: 0 Content-Type: application/json
 -- x-amzn-RequestId: 191ee17e-3fff-11e1-a23a-99d60383ae71.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.DeprecateActivityType'
 
 deprecateActivityType :: ( MonadCatch m
                          , MonadResource m
@@ -493,7 +479,6 @@ deprecateActivityType :: ( MonadCatch m
                          )
     => Text -- ^ 'datDomain'
     -> ActivityType -- ^ 'datActivityType'
-    -> State DeprecateActivityType a
     -> m DeprecateActivityTypeResponse
 deprecateActivityType p1 p2 s =
     send $ (mkDeprecateActivityType p1 p2) &~ s
@@ -504,7 +489,6 @@ deprecateActivityTypeCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'datDomain'
     -> ActivityType -- ^ 'datActivityType'
-    -> State DeprecateActivityType a
     -> m (Either ServiceEr DeprecateActivityTypeResponse)
 deprecateActivityTypeCatch p1 p2 s =
     sendCatch $ (mkDeprecateActivityType p1 p2) &~ s
@@ -541,7 +525,7 @@ deprecateActivityTypeCatch p1 p2 s =
 -- "867530901"} HTTP/1.1 200 OK Content-Length: 0 Content-Type:
 -- application/json x-amzn-RequestId: 0800c01a-4000-11e1-9914-a356b6ea8bdf.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.DeprecateDomain'
 
 deprecateDomain :: ( MonadCatch m
                    , MonadResource m
@@ -549,7 +533,6 @@ deprecateDomain :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'ddName'
-    -> State DeprecateDomain a
     -> m DeprecateDomainResponse
 deprecateDomain p1 s =
     send $ (mkDeprecateDomain p1) &~ s
@@ -559,7 +542,6 @@ deprecateDomainCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'ddName'
-    -> State DeprecateDomain a
     -> m (Either ServiceEr DeprecateDomainResponse)
 deprecateDomainCatch p1 s =
     sendCatch $ (mkDeprecateDomain p1) &~ s
@@ -598,7 +580,7 @@ deprecateDomainCatch p1 s =
 -- "1.0"} } HTTP/1.1 200 OK Content-Length: 0 Content-Type: application/json
 -- x-amzn-RequestId: 9c8d6d3b-3fff-11e1-9e8f-57bb03e21482.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.DeprecateWorkflowType'
 
 deprecateWorkflowType :: ( MonadCatch m
                          , MonadResource m
@@ -607,7 +589,6 @@ deprecateWorkflowType :: ( MonadCatch m
                          )
     => Text -- ^ 'dwtDomain'
     -> WorkflowType -- ^ 'dwtWorkflowType'
-    -> State DeprecateWorkflowType a
     -> m DeprecateWorkflowTypeResponse
 deprecateWorkflowType p1 p2 s =
     send $ (mkDeprecateWorkflowType p1 p2) &~ s
@@ -618,7 +599,6 @@ deprecateWorkflowTypeCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'dwtDomain'
     -> WorkflowType -- ^ 'dwtWorkflowType'
-    -> State DeprecateWorkflowType a
     -> m (Either ServiceEr DeprecateWorkflowTypeResponse)
 deprecateWorkflowTypeCatch p1 p2 s =
     sendCatch $ (mkDeprecateWorkflowType p1 p2) &~ s
@@ -661,7 +641,7 @@ deprecateWorkflowTypeCatch p1 p2 s =
 -- 1326586446.471, "description": "Verify the customer credit", "status":
 -- "REGISTERED"} }.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.DescribeActivityType'
 
 describeActivityType :: ( MonadCatch m
                         , MonadResource m
@@ -670,7 +650,6 @@ describeActivityType :: ( MonadCatch m
                         )
     => Text -- ^ 'dat1Domain'
     -> ActivityType -- ^ 'dat1ActivityType'
-    -> State DescribeActivityType a
     -> m DescribeActivityTypeResponse
 describeActivityType p1 p2 s =
     send $ (mkDescribeActivityType p1 p2) &~ s
@@ -681,7 +660,6 @@ describeActivityTypeCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'dat1Domain'
     -> ActivityType -- ^ 'dat1ActivityType'
-    -> State DescribeActivityType a
     -> m (Either ServiceEr DescribeActivityTypeResponse)
 describeActivityTypeCatch p1 p2 s =
     sendCatch $ (mkDescribeActivityType p1 p2) &~ s
@@ -715,7 +693,7 @@ describeActivityTypeCatch p1 p2 s =
 -- "domainInfo": {"description": "music", "name": "867530901", "status":
 -- "REGISTERED"} }.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.DescribeDomain'
 
 describeDomain :: ( MonadCatch m
                   , MonadResource m
@@ -723,7 +701,6 @@ describeDomain :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'dd1Name'
-    -> State DescribeDomain a
     -> m DescribeDomainResponse
 describeDomain p1 s =
     send $ (mkDescribeDomain p1) &~ s
@@ -733,7 +710,6 @@ describeDomainCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'dd1Name'
-    -> State DescribeDomain a
     -> m (Either ServiceEr DescribeDomainResponse)
 describeDomainCatch p1 s =
     sendCatch $ (mkDescribeDomain p1) &~ s
@@ -777,7 +753,7 @@ describeDomainCatch p1 s =
 -- {"openActivityTasks": 0, "openChildWorkflowExecutions": 0,
 -- "openDecisionTasks": 1, "openTimers": 0} }.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.DescribeWorkflowExecution'
 
 describeWorkflowExecution :: ( MonadCatch m
                              , MonadResource m
@@ -786,7 +762,6 @@ describeWorkflowExecution :: ( MonadCatch m
                              )
     => Text -- ^ 'dweDomain'
     -> WorkflowExecution -- ^ 'dweExecution'
-    -> State DescribeWorkflowExecution a
     -> m DescribeWorkflowExecutionResponse
 describeWorkflowExecution p1 p2 s =
     send $ (mkDescribeWorkflowExecution p1 p2) &~ s
@@ -797,7 +772,6 @@ describeWorkflowExecutionCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'dweDomain'
     -> WorkflowExecution -- ^ 'dweExecution'
-    -> State DescribeWorkflowExecution a
     -> m (Either ServiceEr DescribeWorkflowExecutionResponse)
 describeWorkflowExecutionCatch p1 p2 s =
     sendCatch $ (mkDescribeWorkflowExecution p1 p2) &~ s
@@ -839,7 +813,7 @@ describeWorkflowExecutionCatch p1 p2 s =
 -- "REGISTERED", "workflowType": {"name": "customerOrderWorkflow", "version":
 -- "1.0"} } }.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.DescribeWorkflowType'
 
 describeWorkflowType :: ( MonadCatch m
                         , MonadResource m
@@ -848,7 +822,6 @@ describeWorkflowType :: ( MonadCatch m
                         )
     => Text -- ^ 'dwt1Domain'
     -> WorkflowType -- ^ 'dwt1WorkflowType'
-    -> State DescribeWorkflowType a
     -> m DescribeWorkflowTypeResponse
 describeWorkflowType p1 p2 s =
     send $ (mkDescribeWorkflowType p1 p2) &~ s
@@ -859,7 +832,6 @@ describeWorkflowTypeCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'dwt1Domain'
     -> WorkflowType -- ^ 'dwt1WorkflowType'
-    -> State DescribeWorkflowType a
     -> m (Either ServiceEr DescribeWorkflowTypeResponse)
 describeWorkflowTypeCatch p1 p2 s =
     sendCatch $ (mkDescribeWorkflowType p1 p2) &~ s
@@ -933,7 +905,7 @@ describeWorkflowTypeCatch p1 p2 s =
 -- "AAAAKgAAAAEAAAAAAAAAATeTvAyvqlQz34ctbGhM5nglWmjzk0hGuHf0g4EO4CblQFku70ukjPgrAHy7Tnp7FaZ0okP8EEWnkfg8gi3Fqy/WVrXyxQaa525D31cIq1owXK21CKR6SQ0Job87G8SHvvqvP7yjLGHlHrRGZUCbJgeEuV4Rp/yW+vKhc8dJ54x7wvpQMwZ+ssG6stTyX26vu1gIDuspk13UrDZa4TbLOFdM0aAocHe3xklKMtD/B4ithem6BWm6CBl/UF7lMfNccwUYEityp1Kht/YrcD9zbJkt1FSt4Y6pgt0njAh4FKRO9nyRyvLmbvgtQXEIQz8hdbjwj3xE1+9ocYwXOCAhVkRsh3OD6F8KHilKfdwg4Xz1jtLXOh4lsCecNb8dS7J9hbRErRbw3rh1Sv415U2Ye23OEfF4Jv7JznpmEyzuq8d2bMyOLjAInQVFK4t1tPo5FAhzdICCXBhRq6Wkt++W9sRQXqqX/HTX5kNomHySZloylPuY5gL5zRj39frInfZk4EXWHwrI+18+erGIHO4nBQpMzO64dMP+A/KtVGCn59rAMmilD6wEE9rH8RuZ03Wkvm9yrJvjrI8/6358n8TMB8OcHoqILkMCAXYiIppnFlm+NWXVqxalHLKOrrNzEZM6qsz3Qj3HV1cpy9P7fnS9QAxrgsAYBoDmdOaFkS3ktAkRa0Sle8STfHi4zKbfIGS7rg=="}.
 -- 
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.GetWorkflowExecutionHistory'
 
 getWorkflowExecutionHistory :: ( MonadCatch m
                                , MonadResource m
@@ -942,7 +914,6 @@ getWorkflowExecutionHistory :: ( MonadCatch m
                                )
     => Text -- ^ 'gwehDomain'
     -> WorkflowExecution -- ^ 'gwehExecution'
-    -> State GetWorkflowExecutionHistory a
     -> ResumableSource m GetWorkflowExecutionHistoryResponse
 getWorkflowExecutionHistory p1 p2 s =
     paginate $ (mkGetWorkflowExecutionHistory p1 p2) &~ s
@@ -953,7 +924,6 @@ getWorkflowExecutionHistoryCatch :: ( MonadCatch m
                                     )
     => Text -- ^ 'gwehDomain'
     -> WorkflowExecution -- ^ 'gwehExecution'
-    -> State GetWorkflowExecutionHistory a
     -> ResumableSource m (Either ServiceEr GetWorkflowExecutionHistoryResponse)
 getWorkflowExecutionHistoryCatch p1 p2 s =
     paginateCatch $ (mkGetWorkflowExecutionHistory p1 p2) &~ s
@@ -981,7 +951,7 @@ getWorkflowExecutionHistoryCatch p1 p2 s =
 -- 1326586446.471, "description": "Verify the customer credit", "status":
 -- "REGISTERED"} ] }.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.ListActivityTypes'
 
 listActivityTypes :: ( MonadCatch m
                      , MonadResource m
@@ -990,7 +960,6 @@ listActivityTypes :: ( MonadCatch m
                      )
     => Text -- ^ 'latDomain'
     -> RegistrationStatus -- ^ 'latRegistrationStatus'
-    -> State ListActivityTypes a
     -> ResumableSource m ListActivityTypesResponse
 listActivityTypes p1 p3 s =
     paginate $ (mkListActivityTypes p1 p3) &~ s
@@ -1001,7 +970,6 @@ listActivityTypesCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'latDomain'
     -> RegistrationStatus -- ^ 'latRegistrationStatus'
-    -> State ListActivityTypes a
     -> ResumableSource m (Either ServiceEr ListActivityTypesResponse)
 listActivityTypesCatch p1 p3 s =
     paginateCatch $ (mkListActivityTypes p1 p3) &~ s
@@ -1059,7 +1027,7 @@ listActivityTypesCatch p1 p3 s =
 -- ["music purchase", "digital", "ricoh-the-dog"], "workflowType": {"name":
 -- "customerOrderWorkflow", "version": "1.0"} } ] }.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.ListClosedWorkflowExecutions'
 
 listClosedWorkflowExecutions :: ( MonadCatch m
                                 , MonadResource m
@@ -1067,7 +1035,6 @@ listClosedWorkflowExecutions :: ( MonadCatch m
                                 , MonadReader Env (ResumableSource m)
                                 )
     => Text -- ^ 'lcweDomain'
-    -> State ListClosedWorkflowExecutions a
     -> ResumableSource m ListClosedWorkflowExecutionsResponse
 listClosedWorkflowExecutions p1 s =
     paginate $ (mkListClosedWorkflowExecutions p1) &~ s
@@ -1077,7 +1044,6 @@ listClosedWorkflowExecutionsCatch :: ( MonadCatch m
                                      , MonadReader Env (ResumableSource m)
                                      )
     => Text -- ^ 'lcweDomain'
-    -> State ListClosedWorkflowExecutions a
     -> ResumableSource m (Either ServiceEr ListClosedWorkflowExecutionsResponse)
 listClosedWorkflowExecutionsCatch p1 s =
     paginateCatch $ (mkListClosedWorkflowExecutions p1) &~ s
@@ -1123,7 +1089,7 @@ listClosedWorkflowExecutionsCatch p1 s =
 -- {"description": "", "name": "testDomain4", "status": "REGISTERED"},
 -- {"description": "", "name": "zsxfvgsxcv", "status": "REGISTERED"} ] }.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.ListDomains'
 
 listDomains :: ( MonadCatch m
                , MonadResource m
@@ -1131,7 +1097,6 @@ listDomains :: ( MonadCatch m
                , MonadReader Env (ResumableSource m)
                )
     => RegistrationStatus -- ^ 'ldRegistrationStatus'
-    -> State ListDomains a
     -> ResumableSource m ListDomainsResponse
 listDomains p2 s =
     paginate $ (mkListDomains p2) &~ s
@@ -1141,7 +1106,6 @@ listDomainsCatch :: ( MonadCatch m
                     , MonadReader Env (ResumableSource m)
                     )
     => RegistrationStatus -- ^ 'ldRegistrationStatus'
-    -> State ListDomains a
     -> ResumableSource m (Either ServiceEr ListDomainsResponse)
 listDomainsCatch p2 s =
     paginateCatch $ (mkListDomains p2) &~ s
@@ -1187,7 +1151,7 @@ listDomainsCatch p2 s =
 -- ["music purchase", "digital", "ricoh-the-dog"], "workflowType": {"name":
 -- "customerOrderWorkflow", "version": "1.0"} } ] }.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.ListOpenWorkflowExecutions'
 
 listOpenWorkflowExecutions :: ( MonadCatch m
                               , MonadResource m
@@ -1196,7 +1160,6 @@ listOpenWorkflowExecutions :: ( MonadCatch m
                               )
     => Text -- ^ 'loweDomain'
     -> ExecutionTimeFilter -- ^ 'loweStartTimeFilter'
-    -> State ListOpenWorkflowExecutions a
     -> ResumableSource m ListOpenWorkflowExecutionsResponse
 listOpenWorkflowExecutions p1 p2 s =
     paginate $ (mkListOpenWorkflowExecutions p1 p2) &~ s
@@ -1207,7 +1170,6 @@ listOpenWorkflowExecutionsCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'loweDomain'
     -> ExecutionTimeFilter -- ^ 'loweStartTimeFilter'
-    -> State ListOpenWorkflowExecutions a
     -> ResumableSource m (Either ServiceEr ListOpenWorkflowExecutionsResponse)
 listOpenWorkflowExecutionsCatch p1 p2 s =
     paginateCatch $ (mkListOpenWorkflowExecutions p1 p2) &~ s
@@ -1243,7 +1205,7 @@ listOpenWorkflowExecutionsCatch p1 p2 s =
 -- customer orders", "status": "REGISTERED", "workflowType": {"name":
 -- "customerOrderWorkflow", "version": "1.0"} } ] }.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.ListWorkflowTypes'
 
 listWorkflowTypes :: ( MonadCatch m
                      , MonadResource m
@@ -1252,7 +1214,6 @@ listWorkflowTypes :: ( MonadCatch m
                      )
     => Text -- ^ 'lwtDomain'
     -> RegistrationStatus -- ^ 'lwtRegistrationStatus'
-    -> State ListWorkflowTypes a
     -> ResumableSource m ListWorkflowTypesResponse
 listWorkflowTypes p1 p3 s =
     paginate $ (mkListWorkflowTypes p1 p3) &~ s
@@ -1263,7 +1224,6 @@ listWorkflowTypesCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'lwtDomain'
     -> RegistrationStatus -- ^ 'lwtRegistrationStatus'
-    -> State ListWorkflowTypes a
     -> ResumableSource m (Either ServiceEr ListWorkflowTypesResponse)
 listWorkflowTypesCatch p1 p3 s =
     paginateCatch $ (mkListWorkflowTypes p1 p3) &~ s
@@ -1312,7 +1272,7 @@ listWorkflowTypesCatch p1 p3 s =
 -- "workflowExecution": {"runId": "cfa2bd33-31b0-4b75-b131-255bb0d97b3f",
 -- "workflowId": "20110927-T-1"} }.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.PollForActivityTask'
 
 pollForActivityTask :: ( MonadCatch m
                        , MonadResource m
@@ -1321,7 +1281,6 @@ pollForActivityTask :: ( MonadCatch m
                        )
     => Text -- ^ 'pfatDomain'
     -> TaskList -- ^ 'pfatTaskList'
-    -> State PollForActivityTask a
     -> m PollForActivityTaskResponse
 pollForActivityTask p1 p2 s =
     send $ (mkPollForActivityTask p1 p2) &~ s
@@ -1332,7 +1291,6 @@ pollForActivityTaskCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'pfatDomain'
     -> TaskList -- ^ 'pfatTaskList'
-    -> State PollForActivityTask a
     -> m (Either ServiceEr PollForActivityTaskResponse)
 pollForActivityTaskCatch p1 p2 s =
     sendCatch $ (mkPollForActivityTask p1 p2) &~ s
@@ -1402,7 +1360,7 @@ pollForActivityTaskCatch p1 p2 s =
 -- "workflowId": "20110927-T-1"}, "workflowType": {"name":
 -- "customerOrderWorkflow", "version": "1.0"} }.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.PollForDecisionTask'
 
 pollForDecisionTask :: ( MonadCatch m
                        , MonadResource m
@@ -1411,7 +1369,6 @@ pollForDecisionTask :: ( MonadCatch m
                        )
     => Text -- ^ 'pfdtDomain'
     -> TaskList -- ^ 'pfdtTaskList'
-    -> State PollForDecisionTask a
     -> ResumableSource m PollForDecisionTaskResponse
 pollForDecisionTask p1 p2 s =
     paginate $ (mkPollForDecisionTask p1 p2) &~ s
@@ -1422,7 +1379,6 @@ pollForDecisionTaskCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'pfdtDomain'
     -> TaskList -- ^ 'pfdtTaskList'
-    -> State PollForDecisionTask a
     -> ResumableSource m (Either ServiceEr PollForDecisionTaskResponse)
 pollForDecisionTaskCatch p1 p2 s =
     paginateCatch $ (mkPollForDecisionTask p1 p2) &~ s
@@ -1475,7 +1431,7 @@ pollForDecisionTaskCatch p1 p2 s =
 -- Content-Type: application/json x-amzn-RequestId:
 -- e08622cd-3ff5-11e1-9b11-7182192d0b57 {"cancelRequested":false}.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.RecordActivityTaskHeartbeat'
 
 recordActivityTaskHeartbeat :: ( MonadCatch m
                                , MonadResource m
@@ -1483,7 +1439,6 @@ recordActivityTaskHeartbeat :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'rathTaskToken'
-    -> State RecordActivityTaskHeartbeat a
     -> m RecordActivityTaskHeartbeatResponse
 recordActivityTaskHeartbeat p1 s =
     send $ (mkRecordActivityTaskHeartbeat p1) &~ s
@@ -1493,7 +1448,6 @@ recordActivityTaskHeartbeatCatch :: ( MonadCatch m
                                     , MonadReader Env m
                                     )
     => Text -- ^ 'rathTaskToken'
-    -> State RecordActivityTaskHeartbeat a
     -> m (Either ServiceEr RecordActivityTaskHeartbeatResponse)
 recordActivityTaskHeartbeatCatch p1 s =
     sendCatch $ (mkRecordActivityTaskHeartbeat p1) &~ s
@@ -1535,7 +1489,7 @@ recordActivityTaskHeartbeatCatch p1 s =
 -- 0 Content-Type: application/json x-amzn-RequestId:
 -- d68969c7-3f0d-11e1-9b11-7182192d0b57.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.RegisterActivityType'
 
 registerActivityType :: ( MonadCatch m
                         , MonadResource m
@@ -1545,7 +1499,6 @@ registerActivityType :: ( MonadCatch m
     => Text -- ^ 'ratDomain'
     -> Text -- ^ 'ratName'
     -> Text -- ^ 'ratVersion'
-    -> State RegisterActivityType a
     -> m RegisterActivityTypeResponse
 registerActivityType p1 p2 p3 s =
     send $ (mkRegisterActivityType p1 p2 p3) &~ s
@@ -1557,7 +1510,6 @@ registerActivityTypeCatch :: ( MonadCatch m
     => Text -- ^ 'ratDomain'
     -> Text -- ^ 'ratName'
     -> Text -- ^ 'ratVersion'
-    -> State RegisterActivityType a
     -> m (Either ServiceEr RegisterActivityTypeResponse)
 registerActivityTypeCatch p1 p2 p3 s =
     sendCatch $ (mkRegisterActivityType p1 p2 p3) &~ s
@@ -1590,7 +1542,7 @@ registerActivityTypeCatch p1 p2 p3 s =
 -- Content-Length: 0 Content-Type: application/json x-amzn-RequestId:
 -- 4ec4ac3f-3e16-11e1-9b11-7182192d0b57.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.RegisterDomain'
 
 registerDomain :: ( MonadCatch m
                   , MonadResource m
@@ -1599,7 +1551,6 @@ registerDomain :: ( MonadCatch m
                   )
     => Text -- ^ 'rdName'
     -> Text -- ^ 'rdWorkflowExecutionRetentionPeriodInDays'
-    -> State RegisterDomain a
     -> m RegisterDomainResponse
 registerDomain p1 p3 s =
     send $ (mkRegisterDomain p1 p3) &~ s
@@ -1610,7 +1561,6 @@ registerDomainCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'rdName'
     -> Text -- ^ 'rdWorkflowExecutionRetentionPeriodInDays'
-    -> State RegisterDomain a
     -> m (Either ServiceEr RegisterDomainResponse)
 registerDomainCatch p1 p3 s =
     sendCatch $ (mkRegisterDomain p1 p3) &~ s
@@ -1652,7 +1602,7 @@ registerDomainCatch p1 p3 s =
 -- OK Content-Length: 0 Content-Type: application/json x-amzn-RequestId:
 -- bb469e67-3e18-11e1-9914-a356b6ea8bdf.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.RegisterWorkflowType'
 
 registerWorkflowType :: ( MonadCatch m
                         , MonadResource m
@@ -1662,7 +1612,6 @@ registerWorkflowType :: ( MonadCatch m
     => Text -- ^ 'rwtDomain'
     -> Text -- ^ 'rwtName'
     -> Text -- ^ 'rwtVersion'
-    -> State RegisterWorkflowType a
     -> m RegisterWorkflowTypeResponse
 registerWorkflowType p1 p2 p3 s =
     send $ (mkRegisterWorkflowType p1 p2 p3) &~ s
@@ -1674,7 +1623,6 @@ registerWorkflowTypeCatch :: ( MonadCatch m
     => Text -- ^ 'rwtDomain'
     -> Text -- ^ 'rwtName'
     -> Text -- ^ 'rwtVersion'
-    -> State RegisterWorkflowType a
     -> m (Either ServiceEr RegisterWorkflowTypeResponse)
 registerWorkflowTypeCatch p1 p2 p3 s =
     sendCatch $ (mkRegisterWorkflowType p1 p2 p3) &~ s
@@ -1715,7 +1663,7 @@ registerWorkflowTypeCatch p1 p2 p3 s =
 -- Content-Type: application/json x-amzn-RequestId:
 -- 6bd0627e-3ffd-11e1-9b11-7182192d0b57.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.RequestCancelWorkflowExecution'
 
 requestCancelWorkflowExecution :: ( MonadCatch m
                                   , MonadResource m
@@ -1724,7 +1672,6 @@ requestCancelWorkflowExecution :: ( MonadCatch m
                                   )
     => Text -- ^ 'rcweDomain'
     -> Text -- ^ 'rcweWorkflowId'
-    -> State RequestCancelWorkflowExecution a
     -> m RequestCancelWorkflowExecutionResponse
 requestCancelWorkflowExecution p1 p2 s =
     send $ (mkRequestCancelWorkflowExecution p1 p2) &~ s
@@ -1735,7 +1682,6 @@ requestCancelWorkflowExecutionCatch :: ( MonadCatch m
                                        )
     => Text -- ^ 'rcweDomain'
     -> Text -- ^ 'rcweWorkflowId'
-    -> State RequestCancelWorkflowExecution a
     -> m (Either ServiceEr RequestCancelWorkflowExecutionResponse)
 requestCancelWorkflowExecutionCatch p1 p2 s =
     sendCatch $ (mkRequestCancelWorkflowExecution p1 p2) &~ s
@@ -1778,7 +1724,7 @@ requestCancelWorkflowExecutionCatch p1 p2 s =
 -- 0 Content-Type: application/json x-amzn-RequestId:
 -- b1a001a6-3ffb-11e1-9b11-7182192d0b57.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.RespondActivityTaskCanceled'
 
 respondActivityTaskCanceled :: ( MonadCatch m
                                , MonadResource m
@@ -1786,7 +1732,6 @@ respondActivityTaskCanceled :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'ratcTaskToken'
-    -> State RespondActivityTaskCanceled a
     -> m RespondActivityTaskCanceledResponse
 respondActivityTaskCanceled p1 s =
     send $ (mkRespondActivityTaskCanceled p1) &~ s
@@ -1796,7 +1741,6 @@ respondActivityTaskCanceledCatch :: ( MonadCatch m
                                     , MonadReader Env m
                                     )
     => Text -- ^ 'ratcTaskToken'
-    -> State RespondActivityTaskCanceled a
     -> m (Either ServiceEr RespondActivityTaskCanceledResponse)
 respondActivityTaskCanceledCatch p1 s =
     sendCatch $ (mkRespondActivityTaskCanceled p1) &~ s
@@ -1840,7 +1784,7 @@ respondActivityTaskCanceledCatch p1 s =
 -- 0 Content-Type: application/json x-amzn-RequestId:
 -- 0976f0f4-3ff6-11e1-9a27-0760db01a4a8.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.RespondActivityTaskCompleted'
 
 respondActivityTaskCompleted :: ( MonadCatch m
                                 , MonadResource m
@@ -1848,7 +1792,6 @@ respondActivityTaskCompleted :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'ratc1TaskToken'
-    -> State RespondActivityTaskCompleted a
     -> m RespondActivityTaskCompletedResponse
 respondActivityTaskCompleted p1 s =
     send $ (mkRespondActivityTaskCompleted p1) &~ s
@@ -1858,7 +1801,6 @@ respondActivityTaskCompletedCatch :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => Text -- ^ 'ratc1TaskToken'
-    -> State RespondActivityTaskCompleted a
     -> m (Either ServiceEr RespondActivityTaskCompletedResponse)
 respondActivityTaskCompletedCatch p1 s =
     sendCatch $ (mkRespondActivityTaskCompleted p1) &~ s
@@ -1898,7 +1840,7 @@ respondActivityTaskCompletedCatch p1 s =
 -- invalid"} HTTP/1.1 200 OK Content-Length: 0 Content-Type: application/json
 -- x-amzn-RequestId: feadaedd-3ff8-11e1-9e8f-57bb03e21482.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.RespondActivityTaskFailed'
 
 respondActivityTaskFailed :: ( MonadCatch m
                              , MonadResource m
@@ -1906,7 +1848,6 @@ respondActivityTaskFailed :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'ratfTaskToken'
-    -> State RespondActivityTaskFailed a
     -> m RespondActivityTaskFailedResponse
 respondActivityTaskFailed p1 s =
     send $ (mkRespondActivityTaskFailed p1) &~ s
@@ -1916,7 +1857,6 @@ respondActivityTaskFailedCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => Text -- ^ 'ratfTaskToken'
-    -> State RespondActivityTaskFailed a
     -> m (Either ServiceEr RespondActivityTaskFailedResponse)
 respondActivityTaskFailedCatch p1 s =
     sendCatch $ (mkRespondActivityTaskFailed p1) &~ s
@@ -1958,7 +1898,7 @@ respondActivityTaskFailedCatch p1 s =
 -- HTTP/1.1 200 OK Content-Length: 0 Content-Type: application/json
 -- x-amzn-RequestId: feef79b5-3fd0-11e1-9a27-0760db01a4a8.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.RespondDecisionTaskCompleted'
 
 respondDecisionTaskCompleted :: ( MonadCatch m
                                 , MonadResource m
@@ -1966,7 +1906,6 @@ respondDecisionTaskCompleted :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'rdtcTaskToken'
-    -> State RespondDecisionTaskCompleted a
     -> m RespondDecisionTaskCompletedResponse
 respondDecisionTaskCompleted p1 s =
     send $ (mkRespondDecisionTaskCompleted p1) &~ s
@@ -1976,7 +1915,6 @@ respondDecisionTaskCompletedCatch :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => Text -- ^ 'rdtcTaskToken'
-    -> State RespondDecisionTaskCompleted a
     -> m (Either ServiceEr RespondDecisionTaskCompletedResponse)
 respondDecisionTaskCompletedCatch p1 s =
     sendCatch $ (mkRespondDecisionTaskCompleted p1) &~ s
@@ -2016,7 +1954,7 @@ respondDecisionTaskCompletedCatch p1 s =
 -- "input": "order 3553"} HTTP/1.1 200 OK Content-Length: 0 Content-Type:
 -- application/json x-amzn-RequestId: bf78ae15-3f0c-11e1-9914-a356b6ea8bdf.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.SignalWorkflowExecution'
 
 signalWorkflowExecution :: ( MonadCatch m
                            , MonadResource m
@@ -2026,7 +1964,6 @@ signalWorkflowExecution :: ( MonadCatch m
     => Text -- ^ 'sweDomain'
     -> Text -- ^ 'sweWorkflowId'
     -> Text -- ^ 'sweSignalName'
-    -> State SignalWorkflowExecution a
     -> m SignalWorkflowExecutionResponse
 signalWorkflowExecution p1 p2 p4 s =
     send $ (mkSignalWorkflowExecution p1 p2 p4) &~ s
@@ -2038,7 +1975,6 @@ signalWorkflowExecutionCatch :: ( MonadCatch m
     => Text -- ^ 'sweDomain'
     -> Text -- ^ 'sweWorkflowId'
     -> Text -- ^ 'sweSignalName'
-    -> State SignalWorkflowExecution a
     -> m (Either ServiceEr SignalWorkflowExecutionResponse)
 signalWorkflowExecutionCatch p1 p2 p4 s =
     sendCatch $ (mkSignalWorkflowExecution p1 p2 p4) &~ s
@@ -2085,7 +2021,7 @@ signalWorkflowExecutionCatch p1 p2 p4 s =
 -- 6c25f6e6-3f01-11e1-9a27-0760db01a4a8
 -- {"runId":"1e536162-f1ea-48b0-85f3-aade88eef2f7"}.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.StartWorkflowExecution'
 
 startWorkflowExecution :: ( MonadCatch m
                           , MonadResource m
@@ -2095,7 +2031,6 @@ startWorkflowExecution :: ( MonadCatch m
     => Text -- ^ 'swe1Domain'
     -> Text -- ^ 'swe1WorkflowId'
     -> WorkflowType -- ^ 'swe1WorkflowType'
-    -> State StartWorkflowExecution a
     -> m StartWorkflowExecutionResponse
 startWorkflowExecution p1 p2 p3 s =
     send $ (mkStartWorkflowExecution p1 p2 p3) &~ s
@@ -2107,7 +2042,6 @@ startWorkflowExecutionCatch :: ( MonadCatch m
     => Text -- ^ 'swe1Domain'
     -> Text -- ^ 'swe1WorkflowId'
     -> WorkflowType -- ^ 'swe1WorkflowType'
-    -> State StartWorkflowExecution a
     -> m (Either ServiceEr StartWorkflowExecutionResponse)
 startWorkflowExecutionCatch p1 p2 p3 s =
     sendCatch $ (mkStartWorkflowExecution p1 p2 p3) &~ s
@@ -2150,7 +2084,7 @@ startWorkflowExecutionCatch p1 p2 p3 s =
 -- HTTP/1.1 200 OK Content-Length: 0 Content-Type: application/json
 -- x-amzn-RequestId: 76d68a47-3ffe-11e1-b118-3bfa5e8e7fc3.
 --
--- See: 'Network.AWS.SWF'
+-- See: 'Network.AWS.SWF.TerminateWorkflowExecution'
 
 terminateWorkflowExecution :: ( MonadCatch m
                               , MonadResource m
@@ -2159,7 +2093,6 @@ terminateWorkflowExecution :: ( MonadCatch m
                               )
     => Text -- ^ 'tweDomain'
     -> Text -- ^ 'tweWorkflowId'
-    -> State TerminateWorkflowExecution a
     -> m TerminateWorkflowExecutionResponse
 terminateWorkflowExecution p1 p2 s =
     send $ (mkTerminateWorkflowExecution p1 p2) &~ s
@@ -2170,7 +2103,6 @@ terminateWorkflowExecutionCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'tweDomain'
     -> Text -- ^ 'tweWorkflowId'
-    -> State TerminateWorkflowExecution a
     -> m (Either ServiceEr TerminateWorkflowExecutionResponse)
 terminateWorkflowExecutionCatch p1 p2 s =
     sendCatch $ (mkTerminateWorkflowExecution p1 p2) &~ s

@@ -181,7 +181,8 @@ instance ToJSON Type' where
             , "smart_ctor" .= mappend "mk" name
             , "fields"     .= _typFields
             , "payload"    .= _typPayload
-            , "params"     .= params
+            , "params"     .= object params
+            , "exhaustive" .= (length params == length _typFields)
             , "headers"    .= _typHeaders
             ]
 
@@ -190,7 +191,8 @@ instance ToJSON Type' where
 
         name = t ^. cmnName
 
-        params = object . foldl' param [] $ zip [1..] _typFields
+        params = foldl' param [] $ zip [1..] _typFields
+
         param xs (i :: Int, f)
             | f ^. cmnRequired = (Text.pack $ show i, toJSON f) : xs
             | otherwise        = xs

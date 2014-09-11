@@ -223,7 +223,9 @@ pagination svc o p = case p of
     rq = o ^. opRequest.typShape
     rs = o ^. opResponse.typShape
 
-    types = shapeType True  svc rq : shapeType False svc rs : _svcTypes svc
+    types = shapeType True svc rq
+          : shapeType False svc rs
+          : _svcTypes svc
 
     labeled _ Empty        = Empty
     labeled x (Keyed  y)   = Keyed  (applied x y)
@@ -303,7 +305,9 @@ annOf rq svc s = Ann isRaw (ctorOf s) isWrapped monoid' default' req strict'
         SStruct _ -> (name, False)
 
         SList l
-            | l ^. lstMinLength > 0
+            | l^.lstMinLength > 0
+            -- This seems to be an incorrect assumption, that a list that
+            -- is 'required' is equivalient to min_length > 0 || l^.cmnRequired
                 -> let (r, w) = ann (_lstItem l)
                     in ("List1 " <> parens w r, True)
 

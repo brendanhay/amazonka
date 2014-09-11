@@ -12,16 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Amazon DynamoDB is a fully managed NoSQL database service that provides
--- fast and predictable performance with seamless scalability. You can use
--- Amazon DynamoDB to create a database table that can store and retrieve any
--- amount of data, and serve any level of request traffic. Amazon DynamoDB
--- automatically spreads the data and traffic for the table over a sufficient
--- number of servers to handle the request capacity specified by the customer
--- and the amount of data stored, while maintaining consistent and fast
--- performance.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -43,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.DynamoDB.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.DynamoDB.Monadic
@@ -170,7 +165,7 @@ type ServiceEr = Er DynamoDB
 -- "UnprocessedKeys": { }, "ConsumedCapacity": [ { "TableName": "Forum",
 -- "CapacityUnits": 3 }, { "TableName": "Thread", "CapacityUnits": 1 } ] }.
 --
--- See: 'Network.AWS.DynamoDB'
+-- See: 'Network.AWS.DynamoDB.BatchGetItem'
 
 batchGetItem :: ( MonadCatch m
                 , MonadResource m
@@ -178,7 +173,6 @@ batchGetItem :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => Map Text KeysAndAttributes -- ^ 'bgiRequestItems'
-    -> State BatchGetItem a
     -> m BatchGetItemResponse
 batchGetItem p1 s =
     send $ (mkBatchGetItem p1) &~ s
@@ -188,7 +182,6 @@ batchGetItemCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Map Text KeysAndAttributes -- ^ 'bgiRequestItems'
-    -> State BatchGetItem a
     -> m (Either ServiceEr BatchGetItemResponse)
 batchGetItemCatch p1 s =
     sendCatch $ (mkBatchGetItem p1) &~ s
@@ -244,7 +237,7 @@ batchGetItemCatch p1 s =
 -- Services" } } } } ] }, "ConsumedCapacity": [ { "TableName": "Forum",
 -- "CapacityUnits": 3 } ] }.
 --
--- See: 'Network.AWS.DynamoDB'
+-- See: 'Network.AWS.DynamoDB.BatchWriteItem'
 
 batchWriteItem :: ( MonadCatch m
                   , MonadResource m
@@ -252,7 +245,6 @@ batchWriteItem :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Map Text (List1 WriteRequest) -- ^ 'bwiRequestItems'
-    -> State BatchWriteItem a
     -> m BatchWriteItemResponse
 batchWriteItem p1 s =
     send $ (mkBatchWriteItem p1) &~ s
@@ -262,7 +254,6 @@ batchWriteItemCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Map Text (List1 WriteRequest) -- ^ 'bwiRequestItems'
-    -> State BatchWriteItem a
     -> m (Either ServiceEr BatchWriteItemResponse)
 batchWriteItemCatch p1 s =
     sendCatch $ (mkBatchWriteItem p1) &~ s
@@ -296,7 +287,7 @@ batchWriteItemCatch p1 s =
 -- 5 }, "TableName": "Thread", "TableSizeBytes": 0, "TableStatus": "CREATING"
 -- } }.
 --
--- See: 'Network.AWS.DynamoDB'
+-- See: 'Network.AWS.DynamoDB.CreateTable'
 
 createTable :: ( MonadCatch m
                , MonadResource m
@@ -307,7 +298,6 @@ createTable :: ( MonadCatch m
     -> Text -- ^ 'ctTableName'
     -> List1 KeySchemaElement -- ^ 'ctKeySchema'
     -> ProvisionedThroughput -- ^ 'ctProvisionedThroughput'
-    -> State CreateTable a
     -> m CreateTableResponse
 createTable p1 p2 p3 p6 s =
     send $ (mkCreateTable p1 p2 p3 p6) &~ s
@@ -320,7 +310,6 @@ createTableCatch :: ( MonadCatch m
     -> Text -- ^ 'ctTableName'
     -> List1 KeySchemaElement -- ^ 'ctKeySchema'
     -> ProvisionedThroughput -- ^ 'ctProvisionedThroughput'
-    -> State CreateTable a
     -> m (Either ServiceEr CreateTableResponse)
 createTableCatch p1 p2 p3 p6 s =
     sendCatch $ (mkCreateTable p1 p2 p3 p6) &~ s
@@ -345,7 +334,7 @@ createTableCatch p1 p2 p3 p6 s =
 -- multiple items?" }, "Message": { "S": "I want to update multiple items in a
 -- single API call. What's the best way to do that?" } } }.
 --
--- See: 'Network.AWS.DynamoDB'
+-- See: 'Network.AWS.DynamoDB.DeleteItem'
 
 deleteItem :: ( MonadCatch m
               , MonadResource m
@@ -354,7 +343,6 @@ deleteItem :: ( MonadCatch m
               )
     => Text -- ^ 'diTableName'
     -> Map Text AttributeValue -- ^ 'diKey'
-    -> State DeleteItem a
     -> m DeleteItemResponse
 deleteItem p1 p2 s =
     send $ (mkDeleteItem p1 p2) &~ s
@@ -365,7 +353,6 @@ deleteItemCatch :: ( MonadCatch m
                    )
     => Text -- ^ 'diTableName'
     -> Map Text AttributeValue -- ^ 'diKey'
-    -> State DeleteItem a
     -> m (Either ServiceEr DeleteItemResponse)
 deleteItemCatch p1 p2 s =
     sendCatch $ (mkDeleteItem p1 p2) &~ s
@@ -387,7 +374,7 @@ deleteItemCatch p1 p2 s =
 -- "ReadCapacityUnits": 5, "WriteCapacityUnits": 5 }, "TableName": "Reply",
 -- "TableSizeBytes": 0, "TableStatus": "DELETING" } }.
 --
--- See: 'Network.AWS.DynamoDB'
+-- See: 'Network.AWS.DynamoDB.DeleteTable'
 
 deleteTable :: ( MonadCatch m
                , MonadResource m
@@ -395,7 +382,6 @@ deleteTable :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'dtTableName'
-    -> State DeleteTable a
     -> m DeleteTableResponse
 deleteTable p1 s =
     send $ (mkDeleteTable p1) &~ s
@@ -405,7 +391,6 @@ deleteTableCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'dtTableName'
-    -> State DeleteTable a
     -> m (Either ServiceEr DeleteTableResponse)
 deleteTableCatch p1 s =
     sendCatch $ (mkDeleteTable p1) &~ s
@@ -428,7 +413,7 @@ deleteTableCatch p1 s =
 -- 5 }, "TableName": "Thread", "TableSizeBytes": 0, "TableStatus": "ACTIVE" }
 -- }.
 --
--- See: 'Network.AWS.DynamoDB'
+-- See: 'Network.AWS.DynamoDB.DescribeTable'
 
 describeTable :: ( MonadCatch m
                  , MonadResource m
@@ -436,7 +421,6 @@ describeTable :: ( MonadCatch m
                  , MonadReader Env m
                  )
     => Text -- ^ 'dt1TableName'
-    -> State DescribeTable a
     -> m DescribeTableResponse
 describeTable p1 s =
     send $ (mkDescribeTable p1) &~ s
@@ -446,7 +430,6 @@ describeTableCatch :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'dt1TableName'
-    -> State DescribeTable a
     -> m (Either ServiceEr DescribeTableResponse)
 describeTableCatch p1 s =
     sendCatch $ (mkDescribeTable p1) &~ s
@@ -469,7 +452,7 @@ describeTableCatch p1 s =
 -- update multiple items in a single API call. What's the best way to do
 -- that?" } } }.
 --
--- See: 'Network.AWS.DynamoDB'
+-- See: 'Network.AWS.DynamoDB.GetItem'
 
 getItem :: ( MonadCatch m
            , MonadResource m
@@ -478,7 +461,6 @@ getItem :: ( MonadCatch m
            )
     => Text -- ^ 'giTableName'
     -> Map Text AttributeValue -- ^ 'giKey'
-    -> State GetItem a
     -> m GetItemResponse
 getItem p1 p2 s =
     send $ (mkGetItem p1 p2) &~ s
@@ -489,7 +471,6 @@ getItemCatch :: ( MonadCatch m
                 )
     => Text -- ^ 'giTableName'
     -> Map Text AttributeValue -- ^ 'giKey'
-    -> State GetItem a
     -> m (Either ServiceEr GetItemResponse)
 getItemCatch p1 p2 s =
     sendCatch $ (mkGetItem p1 p2) &~ s
@@ -501,7 +482,7 @@ getItemCatch p1 p2 s =
 -- { "LastEvaluatedTableName": "Thread", "TableNames":
 -- ["Forum","Reply","Thread"] }.
 --
--- See: 'Network.AWS.DynamoDB'
+-- See: 'Network.AWS.DynamoDB.ListTables'
 
 listTables :: ( MonadCatch m
               , MonadResource m
@@ -544,7 +525,7 @@ listTablesCatch s =
 -- this new item from overwriting an existing item, "Exists" is set to false
 -- for the primary key attributes. { }.
 --
--- See: 'Network.AWS.DynamoDB'
+-- See: 'Network.AWS.DynamoDB.PutItem'
 
 putItem :: ( MonadCatch m
            , MonadResource m
@@ -553,7 +534,6 @@ putItem :: ( MonadCatch m
            )
     => Text -- ^ 'piTableName'
     -> Map Text AttributeValue -- ^ 'piItem'
-    -> State PutItem a
     -> m PutItemResponse
 putItem p1 p2 s =
     send $ (mkPutItem p1 p2) &~ s
@@ -564,7 +544,6 @@ putItemCatch :: ( MonadCatch m
                 )
     => Text -- ^ 'piTableName'
     -> Map Text AttributeValue -- ^ 'piItem'
-    -> State PutItem a
     -> m (Either ServiceEr PutItemResponse)
 putItemCatch p1 p2 s =
     sendCatch $ (mkPutItem p1 p2) &~ s
@@ -593,7 +572,7 @@ putItemCatch p1 p2 s =
 -- not projected into the index will cause DynamoDB to fetch those attributes
 -- from the Thread table; this fetching occurs automatically. { "Count":`17 }.
 --
--- See: 'Network.AWS.DynamoDB'
+-- See: 'Network.AWS.DynamoDB.Query'
 
 query :: ( MonadCatch m
          , MonadResource m
@@ -601,7 +580,6 @@ query :: ( MonadCatch m
          , MonadReader Env (ResumableSource m)
          )
     => Text -- ^ 'qTableName'
-    -> State Query a
     -> ResumableSource m QueryResponse
 query p1 s =
     paginate $ (mkQuery p1) &~ s
@@ -611,7 +589,6 @@ queryCatch :: ( MonadCatch m
               , MonadReader Env (ResumableSource m)
               )
     => Text -- ^ 'qTableName'
-    -> State Query a
     -> ResumableSource m (Either ServiceEr QueryResponse)
 queryCatch p1 s =
     paginateCatch $ (mkQuery p1) &~ s
@@ -640,7 +617,7 @@ queryCatch p1 s =
 -- "BatchWriteItem is documented in the Amazon DynamoDB API Reference." } } ],
 -- "ScannedCount": 4 }.
 --
--- See: 'Network.AWS.DynamoDB'
+-- See: 'Network.AWS.DynamoDB.Scan'
 
 scan :: ( MonadCatch m
         , MonadResource m
@@ -648,7 +625,6 @@ scan :: ( MonadCatch m
         , MonadReader Env (ResumableSource m)
         )
     => Text -- ^ 'sTableName'
-    -> State Scan a
     -> ResumableSource m ScanResponse
 scan p1 s =
     paginate $ (mkScan p1) &~ s
@@ -658,7 +634,6 @@ scanCatch :: ( MonadCatch m
              , MonadReader Env (ResumableSource m)
              )
     => Text -- ^ 'sTableName'
-    -> State Scan a
     -> ResumableSource m (Either ServiceEr ScanResponse)
 scanCatch p1 s =
     paginateCatch $ (mkScan p1) &~ s
@@ -675,7 +650,7 @@ scanCatch p1 s =
 -- currently "fred@example.com". All of the item's attributes, as they appear
 -- after the update, are returned in the response. { }.
 --
--- See: 'Network.AWS.DynamoDB'
+-- See: 'Network.AWS.DynamoDB.UpdateItem'
 
 updateItem :: ( MonadCatch m
               , MonadResource m
@@ -684,7 +659,6 @@ updateItem :: ( MonadCatch m
               )
     => Text -- ^ 'uiTableName'
     -> Map Text AttributeValue -- ^ 'uiKey'
-    -> State UpdateItem a
     -> m UpdateItemResponse
 updateItem p1 p2 s =
     send $ (mkUpdateItem p1 p2) &~ s
@@ -695,7 +669,6 @@ updateItemCatch :: ( MonadCatch m
                    )
     => Text -- ^ 'uiTableName'
     -> Map Text AttributeValue -- ^ 'uiKey'
-    -> State UpdateItem a
     -> m (Either ServiceEr UpdateItemResponse)
 updateItemCatch p1 p2 s =
     sendCatch $ (mkUpdateItem p1 p2) &~ s
@@ -730,7 +703,7 @@ updateItemCatch p1 p2 s =
 -- 5 }, "TableName": "Thread", "TableSizeBytes": 0, "TableStatus": "UPDATING"
 -- } }.
 --
--- See: 'Network.AWS.DynamoDB'
+-- See: 'Network.AWS.DynamoDB.UpdateTable'
 
 updateTable :: ( MonadCatch m
                , MonadResource m
@@ -738,7 +711,6 @@ updateTable :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'utTableName'
-    -> State UpdateTable a
     -> m UpdateTableResponse
 updateTable p1 s =
     send $ (mkUpdateTable p1) &~ s
@@ -748,7 +720,6 @@ updateTableCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'utTableName'
-    -> State UpdateTable a
     -> m (Either ServiceEr UpdateTableResponse)
 updateTableCatch p1 s =
     sendCatch $ (mkUpdateTable p1) &~ s

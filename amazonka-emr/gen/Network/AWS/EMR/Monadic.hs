@@ -12,13 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Amazon Elastic MapReduce (Amazon EMR) is a web service that makes it easy
--- to process large amounts of data efficiently. Amazon EMR uses Hadoop
--- processing combined with several AWS products to do such tasks as web
--- indexing, data mining, log file analysis, machine learning, scientific
--- simulation, and data warehousing.
---
--- This module is provided for convenience. It offers an alternative to the
+-- | This module is provided for convenience. It offers an alternative to the
 -- common idiom of supplying required fields to an operations's smart constructor,
 -- using the operation's lenses to modify additional fields, and then sending
 -- or paginating the request.
@@ -40,11 +34,15 @@
 -- parameters before sending:
 --
 -- @
+-- import Control.Applicative
 -- import Network.AWS.EMR.Monadic
 --
 -- operationName w x $ do
 --     onLensField1 .= y
 --     onLensField2 .= z
+--
+-- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
+-- operationName w x empty
 -- @
 --
 module Network.AWS.EMR.Monadic
@@ -170,7 +168,7 @@ type ServiceEr = Er EMR
 -- 22:33:47 GMT { "InstanceGroupIds": ["ig-294A6A2KWT4WB"], "JobFlowId":
 -- "j-3U7TSX5GZFD8Y" }.
 --
--- See: 'Network.AWS.EMR'
+-- See: 'Network.AWS.EMR.AddInstanceGroups'
 
 addInstanceGroups :: ( MonadCatch m
                      , MonadResource m
@@ -179,7 +177,6 @@ addInstanceGroups :: ( MonadCatch m
                      )
     => [InstanceGroupConfig] -- ^ 'aigInstanceGroups'
     -> Text -- ^ 'aigJobFlowId'
-    -> State AddInstanceGroups a
     -> m AddInstanceGroupsResponse
 addInstanceGroups p1 p2 s =
     send $ (mkAddInstanceGroups p1 p2) &~ s
@@ -190,7 +187,6 @@ addInstanceGroupsCatch :: ( MonadCatch m
                           )
     => [InstanceGroupConfig] -- ^ 'aigInstanceGroups'
     -> Text -- ^ 'aigJobFlowId'
-    -> State AddInstanceGroups a
     -> m (Either ServiceEr AddInstanceGroupsResponse)
 addInstanceGroupsCatch p1 p2 s =
     sendCatch $ (mkAddInstanceGroups p1 p2) &~ s
@@ -236,7 +232,7 @@ addInstanceGroupsCatch p1 p2 s =
 -- application/x-amz-json-1.1 Content-Length: 0 Date: Tue, 16 Jul 2013
 -- 21:05:07 GMT.
 --
--- See: 'Network.AWS.EMR'
+-- See: 'Network.AWS.EMR.AddJobFlowSteps'
 
 addJobFlowSteps :: ( MonadCatch m
                    , MonadResource m
@@ -245,7 +241,6 @@ addJobFlowSteps :: ( MonadCatch m
                    )
     => Text -- ^ 'ajfsJobFlowId'
     -> [StepConfig] -- ^ 'ajfsSteps'
-    -> State AddJobFlowSteps a
     -> m AddJobFlowStepsResponse
 addJobFlowSteps p1 p2 s =
     send $ (mkAddJobFlowSteps p1 p2) &~ s
@@ -256,7 +251,6 @@ addJobFlowStepsCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'ajfsJobFlowId'
     -> [StepConfig] -- ^ 'ajfsSteps'
-    -> State AddJobFlowSteps a
     -> m (Either ServiceEr AddJobFlowStepsResponse)
 addJobFlowStepsCatch p1 p2 s =
     sendCatch $ (mkAddJobFlowSteps p1 p2) &~ s
@@ -273,7 +267,7 @@ addJobFlowStepsCatch p1 p2 s =
 -- application/x-amz-json-1.1 Content-Length: 71 Date: Mon, 15 Jul 2013
 -- 22:33:47 GMT { }.
 --
--- See: 'Network.AWS.EMR'
+-- See: 'Network.AWS.EMR.AddTags'
 
 addTags :: ( MonadCatch m
            , MonadResource m
@@ -282,7 +276,6 @@ addTags :: ( MonadCatch m
            )
     => Text -- ^ 'atResourceId'
     -> [Tag] -- ^ 'atTags'
-    -> State AddTags a
     -> m AddTagsResponse
 addTags p1 p2 s =
     send $ (mkAddTags p1 p2) &~ s
@@ -293,7 +286,6 @@ addTagsCatch :: ( MonadCatch m
                 )
     => Text -- ^ 'atResourceId'
     -> [Tag] -- ^ 'atTags'
-    -> State AddTags a
     -> m (Either ServiceEr AddTagsResponse)
 addTagsCatch p1 p2 s =
     sendCatch $ (mkAddTags p1 p2) &~ s
@@ -303,7 +295,7 @@ addTagsCatch p1 p2 s =
 -- configuration, VPC settings, and so on. For information about the cluster
 -- steps, see ListSteps.
 --
--- See: 'Network.AWS.EMR'
+-- See: 'Network.AWS.EMR.DescribeCluster'
 
 describeCluster :: ( MonadCatch m
                    , MonadResource m
@@ -311,7 +303,6 @@ describeCluster :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'dcClusterId'
-    -> State DescribeCluster a
     -> m DescribeClusterResponse
 describeCluster p1 s =
     send $ (mkDescribeCluster p1) &~ s
@@ -321,7 +312,6 @@ describeClusterCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'dcClusterId'
-    -> State DescribeCluster a
     -> m (Either ServiceEr DescribeClusterResponse)
 describeClusterCatch p1 s =
     sendCatch $ (mkDescribeCluster p1) &~ s
@@ -383,7 +373,7 @@ describeClusterCatch p1 s =
 -- "Name": "Example Streaming Step" } }], "SupportedProducts": [],
 -- "VisibleToAllUsers": false }]}.
 --
--- See: 'Network.AWS.EMR'
+-- See: 'Network.AWS.EMR.DescribeJobFlows'
 
 describeJobFlows :: ( MonadCatch m
                     , MonadResource m
@@ -407,7 +397,7 @@ describeJobFlowsCatch s =
 -- $DescribeStep
 -- Provides more detail about the cluster step.
 --
--- See: 'Network.AWS.EMR'
+-- See: 'Network.AWS.EMR.DescribeStep'
 
 describeStep :: ( MonadCatch m
                 , MonadResource m
@@ -416,7 +406,6 @@ describeStep :: ( MonadCatch m
                 )
     => Text -- ^ 'dsClusterId'
     -> Text -- ^ 'dsStepId'
-    -> State DescribeStep a
     -> m DescribeStepResponse
 describeStep p1 p2 s =
     send $ (mkDescribeStep p1 p2) &~ s
@@ -427,7 +416,6 @@ describeStepCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'dsClusterId'
     -> Text -- ^ 'dsStepId'
-    -> State DescribeStep a
     -> m (Either ServiceEr DescribeStepResponse)
 describeStepCatch p1 p2 s =
     sendCatch $ (mkDescribeStep p1 p2) &~ s
@@ -435,7 +423,7 @@ describeStepCatch p1 p2 s =
 -- $ListBootstrapActions
 -- Provides information about the bootstrap actions associated with a cluster.
 --
--- See: 'Network.AWS.EMR'
+-- See: 'Network.AWS.EMR.ListBootstrapActions'
 
 listBootstrapActions :: ( MonadCatch m
                         , MonadResource m
@@ -443,7 +431,6 @@ listBootstrapActions :: ( MonadCatch m
                         , MonadReader Env (ResumableSource m)
                         )
     => Text -- ^ 'lbaClusterId'
-    -> State ListBootstrapActions a
     -> ResumableSource m ListBootstrapActionsResponse
 listBootstrapActions p1 s =
     paginate $ (mkListBootstrapActions p1) &~ s
@@ -453,7 +440,6 @@ listBootstrapActionsCatch :: ( MonadCatch m
                              , MonadReader Env (ResumableSource m)
                              )
     => Text -- ^ 'lbaClusterId'
-    -> State ListBootstrapActions a
     -> ResumableSource m (Either ServiceEr ListBootstrapActionsResponse)
 listBootstrapActionsCatch p1 s =
     paginateCatch $ (mkListBootstrapActions p1) &~ s
@@ -465,7 +451,7 @@ listBootstrapActionsCatch p1 s =
 -- a maximum of 50 clusters per call, but returns a marker to track the paging
 -- of the cluster list across multiple ListClusters calls.
 --
--- See: 'Network.AWS.EMR'
+-- See: 'Network.AWS.EMR.ListClusters'
 
 listClusters :: ( MonadCatch m
                 , MonadResource m
@@ -489,7 +475,7 @@ listClustersCatch s =
 -- $ListInstanceGroups
 -- Provides all available details about the instance groups in a cluster.
 --
--- See: 'Network.AWS.EMR'
+-- See: 'Network.AWS.EMR.ListInstanceGroups'
 
 listInstanceGroups :: ( MonadCatch m
                       , MonadResource m
@@ -497,7 +483,6 @@ listInstanceGroups :: ( MonadCatch m
                       , MonadReader Env (ResumableSource m)
                       )
     => Text -- ^ 'ligClusterId'
-    -> State ListInstanceGroups a
     -> ResumableSource m ListInstanceGroupsResponse
 listInstanceGroups p1 s =
     paginate $ (mkListInstanceGroups p1) &~ s
@@ -507,7 +492,6 @@ listInstanceGroupsCatch :: ( MonadCatch m
                            , MonadReader Env (ResumableSource m)
                            )
     => Text -- ^ 'ligClusterId'
-    -> State ListInstanceGroups a
     -> ResumableSource m (Either ServiceEr ListInstanceGroupsResponse)
 listInstanceGroupsCatch p1 s =
     paginateCatch $ (mkListInstanceGroups p1) &~ s
@@ -519,7 +503,7 @@ listInstanceGroupsCatch p1 s =
 -- instances become available to Amazon EMR to use for jobs, and the IP
 -- addresses for cluster instances, etc.
 --
--- See: 'Network.AWS.EMR'
+-- See: 'Network.AWS.EMR.ListInstances'
 
 listInstances :: ( MonadCatch m
                  , MonadResource m
@@ -527,7 +511,6 @@ listInstances :: ( MonadCatch m
                  , MonadReader Env (ResumableSource m)
                  )
     => Text -- ^ 'liClusterId'
-    -> State ListInstances a
     -> ResumableSource m ListInstancesResponse
 listInstances p1 s =
     paginate $ (mkListInstances p1) &~ s
@@ -537,7 +520,6 @@ listInstancesCatch :: ( MonadCatch m
                       , MonadReader Env (ResumableSource m)
                       )
     => Text -- ^ 'liClusterId'
-    -> State ListInstances a
     -> ResumableSource m (Either ServiceEr ListInstancesResponse)
 listInstancesCatch p1 s =
     paginateCatch $ (mkListInstances p1) &~ s
@@ -545,7 +527,7 @@ listInstancesCatch p1 s =
 -- $ListSteps
 -- Provides a list of steps for the cluster.
 --
--- See: 'Network.AWS.EMR'
+-- See: 'Network.AWS.EMR.ListSteps'
 
 listSteps :: ( MonadCatch m
              , MonadResource m
@@ -553,7 +535,6 @@ listSteps :: ( MonadCatch m
              , MonadReader Env (ResumableSource m)
              )
     => Text -- ^ 'lsClusterId'
-    -> State ListSteps a
     -> ResumableSource m ListStepsResponse
 listSteps p1 s =
     paginate $ (mkListSteps p1) &~ s
@@ -563,7 +544,6 @@ listStepsCatch :: ( MonadCatch m
                   , MonadReader Env (ResumableSource m)
                   )
     => Text -- ^ 'lsClusterId'
-    -> State ListSteps a
     -> ResumableSource m (Either ServiceEr ListStepsResponse)
 listStepsCatch p1 s =
     paginateCatch $ (mkListSteps p1) &~ s
@@ -590,7 +570,7 @@ listStepsCatch p1 s =
 -- application/x-amz-json-1.1 Content-Length: 0 Date: Tue, 16 Jul 2013
 -- 20:58:44 GMT.
 --
--- See: 'Network.AWS.EMR'
+-- See: 'Network.AWS.EMR.ModifyInstanceGroups'
 
 modifyInstanceGroups :: ( MonadCatch m
                         , MonadResource m
@@ -629,7 +609,7 @@ modifyInstanceGroupsCatch s =
 -- Content-Type: application/x-amz-json-1.1 Content-Length: 71 Date: Mon, 15
 -- Jul 2013 22:33:47 GMT { }.
 --
--- See: 'Network.AWS.EMR'
+-- See: 'Network.AWS.EMR.RemoveTags'
 
 removeTags :: ( MonadCatch m
               , MonadResource m
@@ -638,7 +618,6 @@ removeTags :: ( MonadCatch m
               )
     => Text -- ^ 'rtResourceId'
     -> [Text] -- ^ 'rtTagKeys'
-    -> State RemoveTags a
     -> m RemoveTagsResponse
 removeTags p1 p2 s =
     send $ (mkRemoveTags p1 p2) &~ s
@@ -649,7 +628,6 @@ removeTagsCatch :: ( MonadCatch m
                    )
     => Text -- ^ 'rtResourceId'
     -> [Text] -- ^ 'rtTagKeys'
-    -> State RemoveTags a
     -> m (Either ServiceEr RemoveTagsResponse)
 removeTagsCatch p1 p2 s =
     sendCatch $ (mkRemoveTags p1 p2) &~ s
@@ -700,7 +678,7 @@ removeTagsCatch p1 p2 s =
 -- application/x-amz-json-1.1 Content-Length: 31 Date: Mon, 15 Jul 2013
 -- 21:08:05 GMT {"JobFlowId": "j-ZKIY4CKQRX72"}.
 --
--- See: 'Network.AWS.EMR'
+-- See: 'Network.AWS.EMR.RunJobFlow'
 
 runJobFlow :: ( MonadCatch m
               , MonadResource m
@@ -709,7 +687,6 @@ runJobFlow :: ( MonadCatch m
               )
     => Text -- ^ 'rjfName'
     -> JobFlowInstancesConfig -- ^ 'rjfInstances'
-    -> State RunJobFlow a
     -> m RunJobFlowResponse
 runJobFlow p1 p5 s =
     send $ (mkRunJobFlow p1 p5) &~ s
@@ -720,7 +697,6 @@ runJobFlowCatch :: ( MonadCatch m
                    )
     => Text -- ^ 'rjfName'
     -> JobFlowInstancesConfig -- ^ 'rjfInstances'
-    -> State RunJobFlow a
     -> m (Either ServiceEr RunJobFlowResponse)
 runJobFlowCatch p1 p5 s =
     sendCatch $ (mkRunJobFlow p1 p5) &~ s
@@ -756,7 +732,7 @@ runJobFlowCatch p1 p5 s =
 -- application/x-amz-json-1.1 Content-Length: 0 Date: Tue, 16 Jul 2013
 -- 21:14:21 GMT.
 --
--- See: 'Network.AWS.EMR'
+-- See: 'Network.AWS.EMR.SetTerminationProtection'
 
 setTerminationProtection :: ( MonadCatch m
                             , MonadResource m
@@ -765,7 +741,6 @@ setTerminationProtection :: ( MonadCatch m
                             )
     => [Text] -- ^ 'stpJobFlowIds'
     -> Bool -- ^ 'stpTerminationProtected'
-    -> State SetTerminationProtection a
     -> m SetTerminationProtectionResponse
 setTerminationProtection p1 p2 s =
     send $ (mkSetTerminationProtection p1 p2) &~ s
@@ -776,7 +751,6 @@ setTerminationProtectionCatch :: ( MonadCatch m
                                  )
     => [Text] -- ^ 'stpJobFlowIds'
     -> Bool -- ^ 'stpTerminationProtected'
-    -> State SetTerminationProtection a
     -> m (Either ServiceEr SetTerminationProtectionResponse)
 setTerminationProtectionCatch p1 p2 s =
     sendCatch $ (mkSetTerminationProtection p1 p2) &~ s
@@ -804,7 +778,7 @@ setTerminationProtectionCatch p1 p2 s =
 -- Content-Type: application/x-amz-json-1.1 Content-Length: 0 Date: Mon, 15
 -- Jul 2013 22:16:18 GMT.
 --
--- See: 'Network.AWS.EMR'
+-- See: 'Network.AWS.EMR.SetVisibleToAllUsers'
 
 setVisibleToAllUsers :: ( MonadCatch m
                         , MonadResource m
@@ -813,7 +787,6 @@ setVisibleToAllUsers :: ( MonadCatch m
                         )
     => [Text] -- ^ 'svtauJobFlowIds'
     -> Bool -- ^ 'svtauVisibleToAllUsers'
-    -> State SetVisibleToAllUsers a
     -> m SetVisibleToAllUsersResponse
 setVisibleToAllUsers p1 p2 s =
     send $ (mkSetVisibleToAllUsers p1 p2) &~ s
@@ -824,7 +797,6 @@ setVisibleToAllUsersCatch :: ( MonadCatch m
                              )
     => [Text] -- ^ 'svtauJobFlowIds'
     -> Bool -- ^ 'svtauVisibleToAllUsers'
-    -> State SetVisibleToAllUsers a
     -> m (Either ServiceEr SetVisibleToAllUsersResponse)
 setVisibleToAllUsersCatch p1 p2 s =
     sendCatch $ (mkSetVisibleToAllUsers p1 p2) &~ s
@@ -853,7 +825,7 @@ setVisibleToAllUsersCatch p1 p2 s =
 -- application/x-amz-json-1.1 Content-Length: 0 Date: Tue, 16 Jul 2013
 -- 21:18:59 GMT.
 --
--- See: 'Network.AWS.EMR'
+-- See: 'Network.AWS.EMR.TerminateJobFlows'
 
 terminateJobFlows :: ( MonadCatch m
                      , MonadResource m
@@ -861,7 +833,6 @@ terminateJobFlows :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => [Text] -- ^ 'tjfJobFlowIds'
-    -> State TerminateJobFlows a
     -> m TerminateJobFlowsResponse
 terminateJobFlows p1 s =
     send $ (mkTerminateJobFlows p1) &~ s
@@ -871,7 +842,6 @@ terminateJobFlowsCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => [Text] -- ^ 'tjfJobFlowIds'
-    -> State TerminateJobFlows a
     -> m (Either ServiceEr TerminateJobFlowsResponse)
 terminateJobFlowsCatch p1 s =
     sendCatch $ (mkTerminateJobFlows p1) &~ s

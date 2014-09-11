@@ -16,7 +16,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- |
+-- | The core module for making requests to the various AWS services.
 module Network.AWS
     (
     -- * Environment
@@ -110,8 +110,8 @@ send Env{..} x@(request -> rq) = go `catch` er >>= response x
 paginate :: (MonadCatch m, MonadResource m, AWSPager a)
          => Env
          -> a
-         -> ResumableSource m (Either (Er (Sv a)) (Rs a))
-paginate e = newResumableSource . go
+         -> Source m (Either (Er (Sv a)) (Rs a))
+paginate e = go
   where
     go rq = do
         rs <- lift (send e rq)

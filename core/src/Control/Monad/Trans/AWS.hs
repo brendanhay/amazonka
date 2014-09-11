@@ -245,13 +245,13 @@ sendCatch rq = scoped (`AWS.send` rq)
 -- 'ResourceT' computation is unwrapped. See: 'runResourceT' for more information.
 paginate :: ( MonadCatch m
             , MonadResource m
-            , MonadReader Env (ResumableSource m)
+            , MonadReader Env m
             , MonadError Error m
             , AWSPager a
             )
          => a
-         -> ResumableSource m (Rs a)
-paginate rq = paginateCatch rq $=+ awaitForever (hoistEither >=> yield)
+         -> Source m (Rs a)
+paginate rq = paginateCatch rq $= awaitForever (hoistEither >=> yield)
 
 -- | Send a data type which is an instance of 'AWSPager' and paginate over
 -- the associated 'Rs' response type in the success case, or the related service's
@@ -261,11 +261,11 @@ paginate rq = paginateCatch rq $=+ awaitForever (hoistEither >=> yield)
 -- 'ResourceT' computation is unwrapped. See: 'runResourceT' for more information.
 paginateCatch :: ( MonadCatch m
                  , MonadResource m
-                 , MonadReader Env (ResumableSource m)
+                 , MonadReader Env m
                  , AWSPager a
                  )
               => a
-              -> ResumableSource m (Either (Er (Sv a)) (Rs a))
+              -> Source m (Either (Er (Sv a)) (Rs a))
 paginateCatch rq = scoped (`AWS.paginate` rq)
 
 -- | Wait for an asynchronous computation initiated by 'async' to complete and

@@ -341,23 +341,23 @@ type ServiceEr = Er RDS
 downloadDBLogFilePortion :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
-                            , MonadReader Env (ResumableSource m)
+                            , MonadReader Env m
                             )
     => Text -- ^ 'ddblfpDBInstanceIdentifier'
     -> Text -- ^ 'ddblfpLogFileName'
     -> State DownloadDBLogFilePortion a
-    -> ResumableSource m DownloadDBLogFilePortionResponse
+    -> Source m DownloadDBLogFilePortionResponse
 downloadDBLogFilePortion p1 p2 s =
     paginate $ (mkDownloadDBLogFilePortion p1 p2) &~ s
 
 downloadDBLogFilePortionCatch :: ( MonadCatch m
                                  , MonadResource m
-                                 , MonadReader Env (ResumableSource m)
+                                 , MonadReader Env m
                                  )
     => Text -- ^ 'ddblfpDBInstanceIdentifier'
     -> Text -- ^ 'ddblfpLogFileName'
     -> State DownloadDBLogFilePortion a
-    -> ResumableSource m (Either ServiceEr DownloadDBLogFilePortionResponse)
+    -> Source m (Either ServiceEr DownloadDBLogFilePortionResponse)
 downloadDBLogFilePortionCatch p1 p2 s =
     paginateCatch $ (mkDownloadDBLogFilePortion p1 p2) &~ s
 
@@ -1100,19 +1100,19 @@ deleteOptionGroupCatch p1 =
 describeDBEngineVersions :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
-                            , MonadReader Env (ResumableSource m)
+                            , MonadReader Env m
                             )
     => State DescribeDBEngineVersions a
-    -> ResumableSource m DescribeDBEngineVersionsResponse
+    -> Source m DescribeDBEngineVersionsResponse
 describeDBEngineVersions s =
     paginate (mkDescribeDBEngineVersions &~ s)
 
 describeDBEngineVersionsCatch :: ( MonadCatch m
                                  , MonadResource m
-                                 , MonadReader Env (ResumableSource m)
+                                 , MonadReader Env m
                                  )
     => State DescribeDBEngineVersions a
-    -> ResumableSource m (Either ServiceEr DescribeDBEngineVersionsResponse)
+    -> Source m (Either ServiceEr DescribeDBEngineVersionsResponse)
 describeDBEngineVersionsCatch s =
     paginateCatch (mkDescribeDBEngineVersions &~ s)
 
@@ -1133,19 +1133,19 @@ describeDBEngineVersionsCatch s =
 describeDBInstances :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
-                       , MonadReader Env (ResumableSource m)
+                       , MonadReader Env m
                        )
     => State DescribeDBInstances a
-    -> ResumableSource m DescribeDBInstancesResponse
+    -> Source m DescribeDBInstancesResponse
 describeDBInstances s =
     paginate (mkDescribeDBInstances &~ s)
 
 describeDBInstancesCatch :: ( MonadCatch m
                             , MonadResource m
-                            , MonadReader Env (ResumableSource m)
+                            , MonadReader Env m
                             )
     => State DescribeDBInstances a
-    -> ResumableSource m (Either ServiceEr DescribeDBInstancesResponse)
+    -> Source m (Either ServiceEr DescribeDBInstancesResponse)
 describeDBInstancesCatch s =
     paginateCatch (mkDescribeDBInstances &~ s)
 
@@ -1169,21 +1169,21 @@ describeDBInstancesCatch s =
 describeDBLogFiles :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
-                      , MonadReader Env (ResumableSource m)
+                      , MonadReader Env m
                       )
     => Text -- ^ 'ddblfDBInstanceIdentifier'
     -> State DescribeDBLogFiles a
-    -> ResumableSource m DescribeDBLogFilesResponse
+    -> Source m DescribeDBLogFilesResponse
 describeDBLogFiles p1 s =
     paginate $ (mkDescribeDBLogFiles p1) &~ s
 
 describeDBLogFilesCatch :: ( MonadCatch m
                            , MonadResource m
-                           , MonadReader Env (ResumableSource m)
+                           , MonadReader Env m
                            )
     => Text -- ^ 'ddblfDBInstanceIdentifier'
     -> State DescribeDBLogFiles a
-    -> ResumableSource m (Either ServiceEr DescribeDBLogFilesResponse)
+    -> Source m (Either ServiceEr DescribeDBLogFilesResponse)
 describeDBLogFilesCatch p1 s =
     paginateCatch $ (mkDescribeDBLogFiles p1) &~ s
 
@@ -1203,19 +1203,19 @@ describeDBLogFilesCatch p1 s =
 describeDBParameterGroups :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
-                             , MonadReader Env (ResumableSource m)
+                             , MonadReader Env m
                              )
     => State DescribeDBParameterGroups a
-    -> ResumableSource m DescribeDBParameterGroupsResponse
+    -> Source m DescribeDBParameterGroupsResponse
 describeDBParameterGroups s =
     paginate (mkDescribeDBParameterGroups &~ s)
 
 describeDBParameterGroupsCatch :: ( MonadCatch m
                                   , MonadResource m
-                                  , MonadReader Env (ResumableSource m)
+                                  , MonadReader Env m
                                   )
     => State DescribeDBParameterGroups a
-    -> ResumableSource m (Either ServiceEr DescribeDBParameterGroupsResponse)
+    -> Source m (Either ServiceEr DescribeDBParameterGroupsResponse)
 describeDBParameterGroupsCatch s =
     paginateCatch (mkDescribeDBParameterGroups &~ s)
 
@@ -1236,21 +1236,21 @@ describeDBParameterGroupsCatch s =
 describeDBParameters :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
-                        , MonadReader Env (ResumableSource m)
+                        , MonadReader Env m
                         )
     => Text -- ^ 'ddbpDBParameterGroupName'
     -> State DescribeDBParameters a
-    -> ResumableSource m DescribeDBParametersResponse
+    -> Source m DescribeDBParametersResponse
 describeDBParameters p1 s =
     paginate $ (mkDescribeDBParameters p1) &~ s
 
 describeDBParametersCatch :: ( MonadCatch m
                              , MonadResource m
-                             , MonadReader Env (ResumableSource m)
+                             , MonadReader Env m
                              )
     => Text -- ^ 'ddbpDBParameterGroupName'
     -> State DescribeDBParameters a
-    -> ResumableSource m (Either ServiceEr DescribeDBParametersResponse)
+    -> Source m (Either ServiceEr DescribeDBParametersResponse)
 describeDBParametersCatch p1 s =
     paginateCatch $ (mkDescribeDBParameters p1) &~ s
 
@@ -1271,19 +1271,19 @@ describeDBParametersCatch p1 s =
 describeDBSecurityGroups :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
-                            , MonadReader Env (ResumableSource m)
+                            , MonadReader Env m
                             )
     => State DescribeDBSecurityGroups a
-    -> ResumableSource m DescribeDBSecurityGroupsResponse
+    -> Source m DescribeDBSecurityGroupsResponse
 describeDBSecurityGroups s =
     paginate (mkDescribeDBSecurityGroups &~ s)
 
 describeDBSecurityGroupsCatch :: ( MonadCatch m
                                  , MonadResource m
-                                 , MonadReader Env (ResumableSource m)
+                                 , MonadReader Env m
                                  )
     => State DescribeDBSecurityGroups a
-    -> ResumableSource m (Either ServiceEr DescribeDBSecurityGroupsResponse)
+    -> Source m (Either ServiceEr DescribeDBSecurityGroupsResponse)
 describeDBSecurityGroupsCatch s =
     paginateCatch (mkDescribeDBSecurityGroups &~ s)
 
@@ -1307,19 +1307,19 @@ describeDBSecurityGroupsCatch s =
 describeDBSnapshots :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
-                       , MonadReader Env (ResumableSource m)
+                       , MonadReader Env m
                        )
     => State DescribeDBSnapshots a
-    -> ResumableSource m DescribeDBSnapshotsResponse
+    -> Source m DescribeDBSnapshotsResponse
 describeDBSnapshots s =
     paginate (mkDescribeDBSnapshots &~ s)
 
 describeDBSnapshotsCatch :: ( MonadCatch m
                             , MonadResource m
-                            , MonadReader Env (ResumableSource m)
+                            , MonadReader Env m
                             )
     => State DescribeDBSnapshots a
-    -> ResumableSource m (Either ServiceEr DescribeDBSnapshotsResponse)
+    -> Source m (Either ServiceEr DescribeDBSnapshotsResponse)
 describeDBSnapshotsCatch s =
     paginateCatch (mkDescribeDBSnapshots &~ s)
 
@@ -1341,19 +1341,19 @@ describeDBSnapshotsCatch s =
 describeDBSubnetGroups :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
-                          , MonadReader Env (ResumableSource m)
+                          , MonadReader Env m
                           )
     => State DescribeDBSubnetGroups a
-    -> ResumableSource m DescribeDBSubnetGroupsResponse
+    -> Source m DescribeDBSubnetGroupsResponse
 describeDBSubnetGroups s =
     paginate (mkDescribeDBSubnetGroups &~ s)
 
 describeDBSubnetGroupsCatch :: ( MonadCatch m
                                , MonadResource m
-                               , MonadReader Env (ResumableSource m)
+                               , MonadReader Env m
                                )
     => State DescribeDBSubnetGroups a
-    -> ResumableSource m (Either ServiceEr DescribeDBSubnetGroupsResponse)
+    -> Source m (Either ServiceEr DescribeDBSubnetGroupsResponse)
 describeDBSubnetGroupsCatch s =
     paginateCatch (mkDescribeDBSubnetGroups &~ s)
 
@@ -1378,21 +1378,21 @@ describeDBSubnetGroupsCatch s =
 describeEngineDefaultParameters :: ( MonadCatch m
                                    , MonadResource m
                                    , MonadError AWS.Error m
-                                   , MonadReader Env (ResumableSource m)
+                                   , MonadReader Env m
                                    )
     => Text -- ^ 'dedpDBParameterGroupFamily'
     -> State DescribeEngineDefaultParameters a
-    -> ResumableSource m DescribeEngineDefaultParametersResponse
+    -> Source m DescribeEngineDefaultParametersResponse
 describeEngineDefaultParameters p1 s =
     paginate $ (mkDescribeEngineDefaultParameters p1) &~ s
 
 describeEngineDefaultParametersCatch :: ( MonadCatch m
                                         , MonadResource m
-                                        , MonadReader Env (ResumableSource m)
+                                        , MonadReader Env m
                                         )
     => Text -- ^ 'dedpDBParameterGroupFamily'
     -> State DescribeEngineDefaultParameters a
-    -> ResumableSource m (Either ServiceEr DescribeEngineDefaultParametersResponse)
+    -> Source m (Either ServiceEr DescribeEngineDefaultParametersResponse)
 describeEngineDefaultParametersCatch p1 s =
     paginateCatch $ (mkDescribeEngineDefaultParameters p1) &~ s
 
@@ -1447,19 +1447,19 @@ describeEventCategoriesCatch s =
 describeEventSubscriptions :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
-                              , MonadReader Env (ResumableSource m)
+                              , MonadReader Env m
                               )
     => State DescribeEventSubscriptions a
-    -> ResumableSource m DescribeEventSubscriptionsResponse
+    -> Source m DescribeEventSubscriptionsResponse
 describeEventSubscriptions s =
     paginate (mkDescribeEventSubscriptions &~ s)
 
 describeEventSubscriptionsCatch :: ( MonadCatch m
                                    , MonadResource m
-                                   , MonadReader Env (ResumableSource m)
+                                   , MonadReader Env m
                                    )
     => State DescribeEventSubscriptions a
-    -> ResumableSource m (Either ServiceEr DescribeEventSubscriptionsResponse)
+    -> Source m (Either ServiceEr DescribeEventSubscriptionsResponse)
 describeEventSubscriptionsCatch s =
     paginateCatch (mkDescribeEventSubscriptions &~ s)
 
@@ -1485,19 +1485,19 @@ describeEventSubscriptionsCatch s =
 describeEvents :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
-                  , MonadReader Env (ResumableSource m)
+                  , MonadReader Env m
                   )
     => State DescribeEvents a
-    -> ResumableSource m DescribeEventsResponse
+    -> Source m DescribeEventsResponse
 describeEvents s =
     paginate (mkDescribeEvents &~ s)
 
 describeEventsCatch :: ( MonadCatch m
                        , MonadResource m
-                       , MonadReader Env (ResumableSource m)
+                       , MonadReader Env m
                        )
     => State DescribeEvents a
-    -> ResumableSource m (Either ServiceEr DescribeEventsResponse)
+    -> Source m (Either ServiceEr DescribeEventsResponse)
 describeEventsCatch s =
     paginateCatch (mkDescribeEvents &~ s)
 
@@ -1512,21 +1512,21 @@ describeEventsCatch s =
 describeOptionGroupOptions :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
-                              , MonadReader Env (ResumableSource m)
+                              , MonadReader Env m
                               )
     => Text -- ^ 'dogoEngineName'
     -> State DescribeOptionGroupOptions a
-    -> ResumableSource m DescribeOptionGroupOptionsResponse
+    -> Source m DescribeOptionGroupOptionsResponse
 describeOptionGroupOptions p1 s =
     paginate $ (mkDescribeOptionGroupOptions p1) &~ s
 
 describeOptionGroupOptionsCatch :: ( MonadCatch m
                                    , MonadResource m
-                                   , MonadReader Env (ResumableSource m)
+                                   , MonadReader Env m
                                    )
     => Text -- ^ 'dogoEngineName'
     -> State DescribeOptionGroupOptions a
-    -> ResumableSource m (Either ServiceEr DescribeOptionGroupOptionsResponse)
+    -> Source m (Either ServiceEr DescribeOptionGroupOptionsResponse)
 describeOptionGroupOptionsCatch p1 s =
     paginateCatch $ (mkDescribeOptionGroupOptions p1) &~ s
 
@@ -1544,19 +1544,19 @@ describeOptionGroupOptionsCatch p1 s =
 describeOptionGroups :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
-                        , MonadReader Env (ResumableSource m)
+                        , MonadReader Env m
                         )
     => State DescribeOptionGroups a
-    -> ResumableSource m DescribeOptionGroupsResponse
+    -> Source m DescribeOptionGroupsResponse
 describeOptionGroups s =
     paginate (mkDescribeOptionGroups &~ s)
 
 describeOptionGroupsCatch :: ( MonadCatch m
                              , MonadResource m
-                             , MonadReader Env (ResumableSource m)
+                             , MonadReader Env m
                              )
     => State DescribeOptionGroups a
-    -> ResumableSource m (Either ServiceEr DescribeOptionGroupsResponse)
+    -> Source m (Either ServiceEr DescribeOptionGroupsResponse)
 describeOptionGroupsCatch s =
     paginateCatch (mkDescribeOptionGroups &~ s)
 
@@ -1580,21 +1580,21 @@ describeOptionGroupsCatch s =
 describeOrderableDBInstanceOptions :: ( MonadCatch m
                                       , MonadResource m
                                       , MonadError AWS.Error m
-                                      , MonadReader Env (ResumableSource m)
+                                      , MonadReader Env m
                                       )
     => Text -- ^ 'dodbioEngine'
     -> State DescribeOrderableDBInstanceOptions a
-    -> ResumableSource m DescribeOrderableDBInstanceOptionsResponse
+    -> Source m DescribeOrderableDBInstanceOptionsResponse
 describeOrderableDBInstanceOptions p1 s =
     paginate $ (mkDescribeOrderableDBInstanceOptions p1) &~ s
 
 describeOrderableDBInstanceOptionsCatch :: ( MonadCatch m
                                            , MonadResource m
-                                           , MonadReader Env (ResumableSource m)
+                                           , MonadReader Env m
                                            )
     => Text -- ^ 'dodbioEngine'
     -> State DescribeOrderableDBInstanceOptions a
-    -> ResumableSource m (Either ServiceEr DescribeOrderableDBInstanceOptionsResponse)
+    -> Source m (Either ServiceEr DescribeOrderableDBInstanceOptionsResponse)
 describeOrderableDBInstanceOptionsCatch p1 s =
     paginateCatch $ (mkDescribeOrderableDBInstanceOptions p1) &~ s
 
@@ -1614,19 +1614,19 @@ describeOrderableDBInstanceOptionsCatch p1 s =
 describeReservedDBInstances :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
-                               , MonadReader Env (ResumableSource m)
+                               , MonadReader Env m
                                )
     => State DescribeReservedDBInstances a
-    -> ResumableSource m DescribeReservedDBInstancesResponse
+    -> Source m DescribeReservedDBInstancesResponse
 describeReservedDBInstances s =
     paginate (mkDescribeReservedDBInstances &~ s)
 
 describeReservedDBInstancesCatch :: ( MonadCatch m
                                     , MonadResource m
-                                    , MonadReader Env (ResumableSource m)
+                                    , MonadReader Env m
                                     )
     => State DescribeReservedDBInstances a
-    -> ResumableSource m (Either ServiceEr DescribeReservedDBInstancesResponse)
+    -> Source m (Either ServiceEr DescribeReservedDBInstancesResponse)
 describeReservedDBInstancesCatch s =
     paginateCatch (mkDescribeReservedDBInstances &~ s)
 
@@ -1644,19 +1644,19 @@ describeReservedDBInstancesCatch s =
 describeReservedDBInstancesOfferings :: ( MonadCatch m
                                         , MonadResource m
                                         , MonadError AWS.Error m
-                                        , MonadReader Env (ResumableSource m)
+                                        , MonadReader Env m
                                         )
     => State DescribeReservedDBInstancesOfferings a
-    -> ResumableSource m DescribeReservedDBInstancesOfferingsResponse
+    -> Source m DescribeReservedDBInstancesOfferingsResponse
 describeReservedDBInstancesOfferings s =
     paginate (mkDescribeReservedDBInstancesOfferings &~ s)
 
 describeReservedDBInstancesOfferingsCatch :: ( MonadCatch m
                                              , MonadResource m
-                                             , MonadReader Env (ResumableSource m)
+                                             , MonadReader Env m
                                              )
     => State DescribeReservedDBInstancesOfferings a
-    -> ResumableSource m (Either ServiceEr DescribeReservedDBInstancesOfferingsResponse)
+    -> Source m (Either ServiceEr DescribeReservedDBInstancesOfferingsResponse)
 describeReservedDBInstancesOfferingsCatch s =
     paginateCatch (mkDescribeReservedDBInstancesOfferings &~ s)
 

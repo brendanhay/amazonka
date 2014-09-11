@@ -259,21 +259,21 @@ deleteStackCatch p1 =
 describeStackEvents :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
-                       , MonadReader Env (ResumableSource m)
+                       , MonadReader Env m
                        )
     => Text -- ^ 'dseStackName'
     -> State DescribeStackEvents a
-    -> ResumableSource m DescribeStackEventsResponse
+    -> Source m DescribeStackEventsResponse
 describeStackEvents p1 s =
     paginate $ (mkDescribeStackEvents p1) &~ s
 
 describeStackEventsCatch :: ( MonadCatch m
                             , MonadResource m
-                            , MonadReader Env (ResumableSource m)
+                            , MonadReader Env m
                             )
     => Text -- ^ 'dseStackName'
     -> State DescribeStackEvents a
-    -> ResumableSource m (Either ServiceEr DescribeStackEventsResponse)
+    -> Source m (Either ServiceEr DescribeStackEventsResponse)
 describeStackEventsCatch p1 s =
     paginateCatch $ (mkDescribeStackEvents p1) &~ s
 
@@ -375,19 +375,19 @@ describeStackResourcesCatch s =
 describeStacks :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
-                  , MonadReader Env (ResumableSource m)
+                  , MonadReader Env m
                   )
     => State DescribeStacks a
-    -> ResumableSource m DescribeStacksResponse
+    -> Source m DescribeStacksResponse
 describeStacks s =
     paginate (mkDescribeStacks &~ s)
 
 describeStacksCatch :: ( MonadCatch m
                        , MonadResource m
-                       , MonadReader Env (ResumableSource m)
+                       , MonadReader Env m
                        )
     => State DescribeStacks a
-    -> ResumableSource m (Either ServiceEr DescribeStacksResponse)
+    -> Source m (Either ServiceEr DescribeStacksResponse)
 describeStacksCatch s =
     paginateCatch (mkDescribeStacks &~ s)
 
@@ -515,21 +515,21 @@ getTemplateCatch p1 =
 listStackResources :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
-                      , MonadReader Env (ResumableSource m)
+                      , MonadReader Env m
                       )
     => Text -- ^ 'lsrStackName'
     -> State ListStackResources a
-    -> ResumableSource m ListStackResourcesResponse
+    -> Source m ListStackResourcesResponse
 listStackResources p1 s =
     paginate $ (mkListStackResources p1) &~ s
 
 listStackResourcesCatch :: ( MonadCatch m
                            , MonadResource m
-                           , MonadReader Env (ResumableSource m)
+                           , MonadReader Env m
                            )
     => Text -- ^ 'lsrStackName'
     -> State ListStackResources a
-    -> ResumableSource m (Either ServiceEr ListStackResourcesResponse)
+    -> Source m (Either ServiceEr ListStackResourcesResponse)
 listStackResourcesCatch p1 s =
     paginateCatch $ (mkListStackResources p1) &~ s
 
@@ -557,19 +557,19 @@ listStackResourcesCatch p1 s =
 listStacks :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
-              , MonadReader Env (ResumableSource m)
+              , MonadReader Env m
               )
     => State ListStacks a
-    -> ResumableSource m ListStacksResponse
+    -> Source m ListStacksResponse
 listStacks s =
     paginate (mkListStacks &~ s)
 
 listStacksCatch :: ( MonadCatch m
                    , MonadResource m
-                   , MonadReader Env (ResumableSource m)
+                   , MonadReader Env m
                    )
     => State ListStacks a
-    -> ResumableSource m (Either ServiceEr ListStacksResponse)
+    -> Source m (Either ServiceEr ListStacksResponse)
 listStacksCatch s =
     paginateCatch (mkListStacks &~ s)
 

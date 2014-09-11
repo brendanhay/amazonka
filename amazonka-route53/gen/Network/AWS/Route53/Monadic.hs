@@ -552,19 +552,19 @@ listGeoLocationsCatch s =
 listHealthChecks :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
-                    , MonadReader Env (ResumableSource m)
+                    , MonadReader Env m
                     )
     => State ListHealthChecks a
-    -> ResumableSource m ListHealthChecksResponse
+    -> Source m ListHealthChecksResponse
 listHealthChecks s =
     paginate (mkListHealthChecks &~ s)
 
 listHealthChecksCatch :: ( MonadCatch m
                          , MonadResource m
-                         , MonadReader Env (ResumableSource m)
+                         , MonadReader Env m
                          )
     => State ListHealthChecks a
-    -> ResumableSource m (Either ServiceEr ListHealthChecksResponse)
+    -> Source m (Either ServiceEr ListHealthChecksResponse)
 listHealthChecksCatch s =
     paginateCatch (mkListHealthChecks &~ s)
 
@@ -584,19 +584,19 @@ listHealthChecksCatch s =
 listHostedZones :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
-                   , MonadReader Env (ResumableSource m)
+                   , MonadReader Env m
                    )
     => State ListHostedZones a
-    -> ResumableSource m ListHostedZonesResponse
+    -> Source m ListHostedZonesResponse
 listHostedZones s =
     paginate (mkListHostedZones &~ s)
 
 listHostedZonesCatch :: ( MonadCatch m
                         , MonadResource m
-                        , MonadReader Env (ResumableSource m)
+                        , MonadReader Env m
                         )
     => State ListHostedZones a
-    -> ResumableSource m (Either ServiceEr ListHostedZonesResponse)
+    -> Source m (Either ServiceEr ListHostedZonesResponse)
 listHostedZonesCatch s =
     paginateCatch (mkListHostedZones &~ s)
 
@@ -639,21 +639,21 @@ listHostedZonesCatch s =
 listResourceRecordSets :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
-                          , MonadReader Env (ResumableSource m)
+                          , MonadReader Env m
                           )
     => Text -- ^ 'lrrsHostedZoneId'
     -> State ListResourceRecordSets a
-    -> ResumableSource m ListResourceRecordSetsResponse
+    -> Source m ListResourceRecordSetsResponse
 listResourceRecordSets p1 s =
     paginate $ (mkListResourceRecordSets p1) &~ s
 
 listResourceRecordSetsCatch :: ( MonadCatch m
                                , MonadResource m
-                               , MonadReader Env (ResumableSource m)
+                               , MonadReader Env m
                                )
     => Text -- ^ 'lrrsHostedZoneId'
     -> State ListResourceRecordSets a
-    -> ResumableSource m (Either ServiceEr ListResourceRecordSetsResponse)
+    -> Source m (Either ServiceEr ListResourceRecordSetsResponse)
 listResourceRecordSetsCatch p1 s =
     paginateCatch $ (mkListResourceRecordSets p1) &~ s
 

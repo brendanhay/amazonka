@@ -428,21 +428,21 @@ describeStepCatch p1 p2 =
 listBootstrapActions :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
-                        , MonadReader Env (ResumableSource m)
+                        , MonadReader Env m
                         )
     => Text -- ^ 'lbaClusterId'
     -> State ListBootstrapActions a
-    -> ResumableSource m ListBootstrapActionsResponse
+    -> Source m ListBootstrapActionsResponse
 listBootstrapActions p1 s =
     paginate $ (mkListBootstrapActions p1) &~ s
 
 listBootstrapActionsCatch :: ( MonadCatch m
                              , MonadResource m
-                             , MonadReader Env (ResumableSource m)
+                             , MonadReader Env m
                              )
     => Text -- ^ 'lbaClusterId'
     -> State ListBootstrapActions a
-    -> ResumableSource m (Either ServiceEr ListBootstrapActionsResponse)
+    -> Source m (Either ServiceEr ListBootstrapActionsResponse)
 listBootstrapActionsCatch p1 s =
     paginateCatch $ (mkListBootstrapActions p1) &~ s
 
@@ -458,19 +458,19 @@ listBootstrapActionsCatch p1 s =
 listClusters :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
-                , MonadReader Env (ResumableSource m)
+                , MonadReader Env m
                 )
     => State ListClusters a
-    -> ResumableSource m ListClustersResponse
+    -> Source m ListClustersResponse
 listClusters s =
     paginate (mkListClusters &~ s)
 
 listClustersCatch :: ( MonadCatch m
                      , MonadResource m
-                     , MonadReader Env (ResumableSource m)
+                     , MonadReader Env m
                      )
     => State ListClusters a
-    -> ResumableSource m (Either ServiceEr ListClustersResponse)
+    -> Source m (Either ServiceEr ListClustersResponse)
 listClustersCatch s =
     paginateCatch (mkListClusters &~ s)
 
@@ -482,21 +482,21 @@ listClustersCatch s =
 listInstanceGroups :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
-                      , MonadReader Env (ResumableSource m)
+                      , MonadReader Env m
                       )
     => Text -- ^ 'ligClusterId'
     -> State ListInstanceGroups a
-    -> ResumableSource m ListInstanceGroupsResponse
+    -> Source m ListInstanceGroupsResponse
 listInstanceGroups p1 s =
     paginate $ (mkListInstanceGroups p1) &~ s
 
 listInstanceGroupsCatch :: ( MonadCatch m
                            , MonadResource m
-                           , MonadReader Env (ResumableSource m)
+                           , MonadReader Env m
                            )
     => Text -- ^ 'ligClusterId'
     -> State ListInstanceGroups a
-    -> ResumableSource m (Either ServiceEr ListInstanceGroupsResponse)
+    -> Source m (Either ServiceEr ListInstanceGroupsResponse)
 listInstanceGroupsCatch p1 s =
     paginateCatch $ (mkListInstanceGroups p1) &~ s
 
@@ -512,21 +512,21 @@ listInstanceGroupsCatch p1 s =
 listInstances :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
-                 , MonadReader Env (ResumableSource m)
+                 , MonadReader Env m
                  )
     => Text -- ^ 'liClusterId'
     -> State ListInstances a
-    -> ResumableSource m ListInstancesResponse
+    -> Source m ListInstancesResponse
 listInstances p1 s =
     paginate $ (mkListInstances p1) &~ s
 
 listInstancesCatch :: ( MonadCatch m
                       , MonadResource m
-                      , MonadReader Env (ResumableSource m)
+                      , MonadReader Env m
                       )
     => Text -- ^ 'liClusterId'
     -> State ListInstances a
-    -> ResumableSource m (Either ServiceEr ListInstancesResponse)
+    -> Source m (Either ServiceEr ListInstancesResponse)
 listInstancesCatch p1 s =
     paginateCatch $ (mkListInstances p1) &~ s
 
@@ -538,21 +538,21 @@ listInstancesCatch p1 s =
 listSteps :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
-             , MonadReader Env (ResumableSource m)
+             , MonadReader Env m
              )
     => Text -- ^ 'lsClusterId'
     -> State ListSteps a
-    -> ResumableSource m ListStepsResponse
+    -> Source m ListStepsResponse
 listSteps p1 s =
     paginate $ (mkListSteps p1) &~ s
 
 listStepsCatch :: ( MonadCatch m
                   , MonadResource m
-                  , MonadReader Env (ResumableSource m)
+                  , MonadReader Env m
                   )
     => Text -- ^ 'lsClusterId'
     -> State ListSteps a
-    -> ResumableSource m (Either ServiceEr ListStepsResponse)
+    -> Source m (Either ServiceEr ListStepsResponse)
 listStepsCatch p1 s =
     paginateCatch $ (mkListSteps p1) &~ s
 

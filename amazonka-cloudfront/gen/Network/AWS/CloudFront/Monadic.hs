@@ -521,19 +521,19 @@ getStreamingDistributionConfigCatch p1 =
 listCloudFrontOriginAccessIdentities :: ( MonadCatch m
                                         , MonadResource m
                                         , MonadError AWS.Error m
-                                        , MonadReader Env (ResumableSource m)
+                                        , MonadReader Env m
                                         )
     => State ListCloudFrontOriginAccessIdentities a
-    -> ResumableSource m ListCloudFrontOriginAccessIdentitiesResponse
+    -> Source m ListCloudFrontOriginAccessIdentitiesResponse
 listCloudFrontOriginAccessIdentities s =
     paginate (mkListCloudFrontOriginAccessIdentities &~ s)
 
 listCloudFrontOriginAccessIdentitiesCatch :: ( MonadCatch m
                                              , MonadResource m
-                                             , MonadReader Env (ResumableSource m)
+                                             , MonadReader Env m
                                              )
     => State ListCloudFrontOriginAccessIdentities a
-    -> ResumableSource m (Either ServiceEr ListCloudFrontOriginAccessIdentitiesResponse)
+    -> Source m (Either ServiceEr ListCloudFrontOriginAccessIdentitiesResponse)
 listCloudFrontOriginAccessIdentitiesCatch s =
     paginateCatch (mkListCloudFrontOriginAccessIdentities &~ s)
 
@@ -545,19 +545,19 @@ listCloudFrontOriginAccessIdentitiesCatch s =
 listDistributions :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
-                     , MonadReader Env (ResumableSource m)
+                     , MonadReader Env m
                      )
     => State ListDistributions a
-    -> ResumableSource m ListDistributionsResponse
+    -> Source m ListDistributionsResponse
 listDistributions s =
     paginate (mkListDistributions &~ s)
 
 listDistributionsCatch :: ( MonadCatch m
                           , MonadResource m
-                          , MonadReader Env (ResumableSource m)
+                          , MonadReader Env m
                           )
     => State ListDistributions a
-    -> ResumableSource m (Either ServiceEr ListDistributionsResponse)
+    -> Source m (Either ServiceEr ListDistributionsResponse)
 listDistributionsCatch s =
     paginateCatch (mkListDistributions &~ s)
 
@@ -569,21 +569,21 @@ listDistributionsCatch s =
 listInvalidations :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
-                     , MonadReader Env (ResumableSource m)
+                     , MonadReader Env m
                      )
     => Text -- ^ 'liDistributionId'
     -> State ListInvalidations a
-    -> ResumableSource m ListInvalidationsResponse
+    -> Source m ListInvalidationsResponse
 listInvalidations p1 s =
     paginate $ (mkListInvalidations p1) &~ s
 
 listInvalidationsCatch :: ( MonadCatch m
                           , MonadResource m
-                          , MonadReader Env (ResumableSource m)
+                          , MonadReader Env m
                           )
     => Text -- ^ 'liDistributionId'
     -> State ListInvalidations a
-    -> ResumableSource m (Either ServiceEr ListInvalidationsResponse)
+    -> Source m (Either ServiceEr ListInvalidationsResponse)
 listInvalidationsCatch p1 s =
     paginateCatch $ (mkListInvalidations p1) &~ s
 
@@ -595,19 +595,19 @@ listInvalidationsCatch p1 s =
 listStreamingDistributions :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
-                              , MonadReader Env (ResumableSource m)
+                              , MonadReader Env m
                               )
     => State ListStreamingDistributions a
-    -> ResumableSource m ListStreamingDistributionsResponse
+    -> Source m ListStreamingDistributionsResponse
 listStreamingDistributions s =
     paginate (mkListStreamingDistributions &~ s)
 
 listStreamingDistributionsCatch :: ( MonadCatch m
                                    , MonadResource m
-                                   , MonadReader Env (ResumableSource m)
+                                   , MonadReader Env m
                                    )
     => State ListStreamingDistributions a
-    -> ResumableSource m (Either ServiceEr ListStreamingDistributionsResponse)
+    -> Source m (Either ServiceEr ListStreamingDistributionsResponse)
 listStreamingDistributionsCatch s =
     paginateCatch (mkListStreamingDistributions &~ s)
 

@@ -377,19 +377,19 @@ deleteRetentionPolicyCatch p1 =
 describeLogGroups :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
-                     , MonadReader Env (ResumableSource m)
+                     , MonadReader Env m
                      )
     => State DescribeLogGroups a
-    -> ResumableSource m DescribeLogGroupsResponse
+    -> Source m DescribeLogGroupsResponse
 describeLogGroups s =
     paginate (mkDescribeLogGroups &~ s)
 
 describeLogGroupsCatch :: ( MonadCatch m
                           , MonadResource m
-                          , MonadReader Env (ResumableSource m)
+                          , MonadReader Env m
                           )
     => State DescribeLogGroups a
-    -> ResumableSource m (Either ServiceEr DescribeLogGroupsResponse)
+    -> Source m (Either ServiceEr DescribeLogGroupsResponse)
 describeLogGroupsCatch s =
     paginateCatch (mkDescribeLogGroups &~ s)
 
@@ -427,21 +427,21 @@ describeLogGroupsCatch s =
 describeLogStreams :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
-                      , MonadReader Env (ResumableSource m)
+                      , MonadReader Env m
                       )
     => Text -- ^ 'dls1LogGroupName'
     -> State DescribeLogStreams a
-    -> ResumableSource m DescribeLogStreamsResponse
+    -> Source m DescribeLogStreamsResponse
 describeLogStreams p1 s =
     paginate $ (mkDescribeLogStreams p1) &~ s
 
 describeLogStreamsCatch :: ( MonadCatch m
                            , MonadResource m
-                           , MonadReader Env (ResumableSource m)
+                           , MonadReader Env m
                            )
     => Text -- ^ 'dls1LogGroupName'
     -> State DescribeLogStreams a
-    -> ResumableSource m (Either ServiceEr DescribeLogStreamsResponse)
+    -> Source m (Either ServiceEr DescribeLogStreamsResponse)
 describeLogStreamsCatch p1 s =
     paginateCatch $ (mkDescribeLogStreams p1) &~ s
 
@@ -472,21 +472,21 @@ describeLogStreamsCatch p1 s =
 describeMetricFilters :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
-                         , MonadReader Env (ResumableSource m)
+                         , MonadReader Env m
                          )
     => Text -- ^ 'dmf1LogGroupName'
     -> State DescribeMetricFilters a
-    -> ResumableSource m DescribeMetricFiltersResponse
+    -> Source m DescribeMetricFiltersResponse
 describeMetricFilters p1 s =
     paginate $ (mkDescribeMetricFilters p1) &~ s
 
 describeMetricFiltersCatch :: ( MonadCatch m
                               , MonadResource m
-                              , MonadReader Env (ResumableSource m)
+                              , MonadReader Env m
                               )
     => Text -- ^ 'dmf1LogGroupName'
     -> State DescribeMetricFilters a
-    -> ResumableSource m (Either ServiceEr DescribeMetricFiltersResponse)
+    -> Source m (Either ServiceEr DescribeMetricFiltersResponse)
 describeMetricFiltersCatch p1 s =
     paginateCatch $ (mkDescribeMetricFilters p1) &~ s
 

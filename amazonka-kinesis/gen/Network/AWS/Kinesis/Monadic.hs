@@ -264,21 +264,21 @@ deleteStreamCatch p1 =
 describeStream :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
-                  , MonadReader Env (ResumableSource m)
+                  , MonadReader Env m
                   )
     => Text -- ^ 'ds1StreamName'
     -> State DescribeStream a
-    -> ResumableSource m DescribeStreamResponse
+    -> Source m DescribeStreamResponse
 describeStream p1 s =
     paginate $ (mkDescribeStream p1) &~ s
 
 describeStreamCatch :: ( MonadCatch m
                        , MonadResource m
-                       , MonadReader Env (ResumableSource m)
+                       , MonadReader Env m
                        )
     => Text -- ^ 'ds1StreamName'
     -> State DescribeStream a
-    -> ResumableSource m (Either ServiceEr DescribeStreamResponse)
+    -> Source m (Either ServiceEr DescribeStreamResponse)
 describeStreamCatch p1 s =
     paginateCatch $ (mkDescribeStream p1) &~ s
 
@@ -449,19 +449,19 @@ getShardIteratorCatch p1 p2 p3 s =
 listStreams :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
-               , MonadReader Env (ResumableSource m)
+               , MonadReader Env m
                )
     => State ListStreams a
-    -> ResumableSource m ListStreamsResponse
+    -> Source m ListStreamsResponse
 listStreams s =
     paginate (mkListStreams &~ s)
 
 listStreamsCatch :: ( MonadCatch m
                     , MonadResource m
-                    , MonadReader Env (ResumableSource m)
+                    , MonadReader Env m
                     )
     => State ListStreams a
-    -> ResumableSource m (Either ServiceEr ListStreamsResponse)
+    -> Source m (Either ServiceEr ListStreamsResponse)
 listStreamsCatch s =
     paginateCatch (mkListStreams &~ s)
 

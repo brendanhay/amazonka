@@ -4391,19 +4391,19 @@ describeInstanceAttributeCatch p1 p2 =
 describeInstanceStatus :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
-                          , MonadReader Env (ResumableSource m)
+                          , MonadReader Env m
                           )
     => State DescribeInstanceStatus a
-    -> ResumableSource m DescribeInstanceStatusResponse
+    -> Source m DescribeInstanceStatusResponse
 describeInstanceStatus s =
     paginate (mkDescribeInstanceStatus &~ s)
 
 describeInstanceStatusCatch :: ( MonadCatch m
                                , MonadResource m
-                               , MonadReader Env (ResumableSource m)
+                               , MonadReader Env m
                                )
     => State DescribeInstanceStatus a
-    -> ResumableSource m (Either ServiceEr DescribeInstanceStatusResponse)
+    -> Source m (Either ServiceEr DescribeInstanceStatusResponse)
 describeInstanceStatusCatch s =
     paginateCatch (mkDescribeInstanceStatus &~ s)
 
@@ -4521,19 +4521,19 @@ describeInstanceStatusCatch s =
 describeInstances :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
-                     , MonadReader Env (ResumableSource m)
+                     , MonadReader Env m
                      )
     => State DescribeInstances a
-    -> ResumableSource m DescribeInstancesResponse
+    -> Source m DescribeInstancesResponse
 describeInstances s =
     paginate (mkDescribeInstances &~ s)
 
 describeInstancesCatch :: ( MonadCatch m
                           , MonadResource m
-                          , MonadReader Env (ResumableSource m)
+                          , MonadReader Env m
                           )
     => State DescribeInstances a
-    -> ResumableSource m (Either ServiceEr DescribeInstancesResponse)
+    -> Source m (Either ServiceEr DescribeInstancesResponse)
 describeInstancesCatch s =
     paginateCatch (mkDescribeInstances &~ s)
 
@@ -4911,19 +4911,19 @@ describeReservedInstancesListingsCatch s =
 describeReservedInstancesModifications :: ( MonadCatch m
                                           , MonadResource m
                                           , MonadError AWS.Error m
-                                          , MonadReader Env (ResumableSource m)
+                                          , MonadReader Env m
                                           )
     => State DescribeReservedInstancesModifications a
-    -> ResumableSource m DescribeReservedInstancesModificationsResponse
+    -> Source m DescribeReservedInstancesModificationsResponse
 describeReservedInstancesModifications s =
     paginate (mkDescribeReservedInstancesModifications &~ s)
 
 describeReservedInstancesModificationsCatch :: ( MonadCatch m
                                                , MonadResource m
-                                               , MonadReader Env (ResumableSource m)
+                                               , MonadReader Env m
                                                )
     => State DescribeReservedInstancesModifications a
-    -> ResumableSource m (Either ServiceEr DescribeReservedInstancesModificationsResponse)
+    -> Source m (Either ServiceEr DescribeReservedInstancesModificationsResponse)
 describeReservedInstancesModificationsCatch s =
     paginateCatch (mkDescribeReservedInstancesModifications &~ s)
 
@@ -4981,19 +4981,19 @@ describeReservedInstancesModificationsCatch s =
 describeReservedInstancesOfferings :: ( MonadCatch m
                                       , MonadResource m
                                       , MonadError AWS.Error m
-                                      , MonadReader Env (ResumableSource m)
+                                      , MonadReader Env m
                                       )
     => State DescribeReservedInstancesOfferings a
-    -> ResumableSource m DescribeReservedInstancesOfferingsResponse
+    -> Source m DescribeReservedInstancesOfferingsResponse
 describeReservedInstancesOfferings s =
     paginate (mkDescribeReservedInstancesOfferings &~ s)
 
 describeReservedInstancesOfferingsCatch :: ( MonadCatch m
                                            , MonadResource m
-                                           , MonadReader Env (ResumableSource m)
+                                           , MonadReader Env m
                                            )
     => State DescribeReservedInstancesOfferings a
-    -> ResumableSource m (Either ServiceEr DescribeReservedInstancesOfferingsResponse)
+    -> Source m (Either ServiceEr DescribeReservedInstancesOfferingsResponse)
 describeReservedInstancesOfferingsCatch s =
     paginateCatch (mkDescribeReservedInstancesOfferings &~ s)
 
@@ -5275,19 +5275,19 @@ describeSpotInstanceRequestsCatch s =
 describeSpotPriceHistory :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
-                            , MonadReader Env (ResumableSource m)
+                            , MonadReader Env m
                             )
     => State DescribeSpotPriceHistory a
-    -> ResumableSource m DescribeSpotPriceHistoryResponse
+    -> Source m DescribeSpotPriceHistoryResponse
 describeSpotPriceHistory s =
     paginate (mkDescribeSpotPriceHistory &~ s)
 
 describeSpotPriceHistoryCatch :: ( MonadCatch m
                                  , MonadResource m
-                                 , MonadReader Env (ResumableSource m)
+                                 , MonadReader Env m
                                  )
     => State DescribeSpotPriceHistory a
-    -> ResumableSource m (Either ServiceEr DescribeSpotPriceHistoryResponse)
+    -> Source m (Either ServiceEr DescribeSpotPriceHistoryResponse)
 describeSpotPriceHistoryCatch s =
     paginateCatch (mkDescribeSpotPriceHistory &~ s)
 
@@ -5392,19 +5392,19 @@ describeSubnetsCatch s =
 describeTags :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
-                , MonadReader Env (ResumableSource m)
+                , MonadReader Env m
                 )
     => State DescribeTags a
-    -> ResumableSource m DescribeTagsResponse
+    -> Source m DescribeTagsResponse
 describeTags s =
     paginate (mkDescribeTags &~ s)
 
 describeTagsCatch :: ( MonadCatch m
                      , MonadResource m
-                     , MonadReader Env (ResumableSource m)
+                     , MonadReader Env m
                      )
     => State DescribeTags a
-    -> ResumableSource m (Either ServiceEr DescribeTagsResponse)
+    -> Source m (Either ServiceEr DescribeTagsResponse)
 describeTagsCatch s =
     paginateCatch (mkDescribeTags &~ s)
 
@@ -5508,19 +5508,19 @@ describeVolumeAttributeCatch p1 s =
 describeVolumeStatus :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
-                        , MonadReader Env (ResumableSource m)
+                        , MonadReader Env m
                         )
     => State DescribeVolumeStatus a
-    -> ResumableSource m DescribeVolumeStatusResponse
+    -> Source m DescribeVolumeStatusResponse
 describeVolumeStatus s =
     paginate (mkDescribeVolumeStatus &~ s)
 
 describeVolumeStatusCatch :: ( MonadCatch m
                              , MonadResource m
-                             , MonadReader Env (ResumableSource m)
+                             , MonadReader Env m
                              )
     => State DescribeVolumeStatus a
-    -> ResumableSource m (Either ServiceEr DescribeVolumeStatusResponse)
+    -> Source m (Either ServiceEr DescribeVolumeStatusResponse)
 describeVolumeStatusCatch s =
     paginateCatch (mkDescribeVolumeStatus &~ s)
 

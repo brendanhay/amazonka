@@ -430,19 +430,19 @@ getSendStatisticsCatch =
 listIdentities :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
-                  , MonadReader Env (ResumableSource m)
+                  , MonadReader Env m
                   )
     => State ListIdentities a
-    -> ResumableSource m ListIdentitiesResponse
+    -> Source m ListIdentitiesResponse
 listIdentities s =
     paginate (mkListIdentities &~ s)
 
 listIdentitiesCatch :: ( MonadCatch m
                        , MonadResource m
-                       , MonadReader Env (ResumableSource m)
+                       , MonadReader Env m
                        )
     => State ListIdentities a
-    -> ResumableSource m (Either ServiceEr ListIdentitiesResponse)
+    -> Source m (Either ServiceEr ListIdentitiesResponse)
 listIdentitiesCatch s =
     paginateCatch (mkListIdentities &~ s)
 

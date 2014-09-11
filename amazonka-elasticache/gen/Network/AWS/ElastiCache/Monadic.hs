@@ -758,19 +758,19 @@ deleteSnapshotCatch p1 =
 describeCacheClusters :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
-                         , MonadReader Env (ResumableSource m)
+                         , MonadReader Env m
                          )
     => State DescribeCacheClusters a
-    -> ResumableSource m DescribeCacheClustersResponse
+    -> Source m DescribeCacheClustersResponse
 describeCacheClusters s =
     paginate (mkDescribeCacheClusters &~ s)
 
 describeCacheClustersCatch :: ( MonadCatch m
                               , MonadResource m
-                              , MonadReader Env (ResumableSource m)
+                              , MonadReader Env m
                               )
     => State DescribeCacheClusters a
-    -> ResumableSource m (Either ServiceEr DescribeCacheClustersResponse)
+    -> Source m (Either ServiceEr DescribeCacheClustersResponse)
 describeCacheClustersCatch s =
     paginateCatch (mkDescribeCacheClusters &~ s)
 
@@ -789,19 +789,19 @@ describeCacheClustersCatch s =
 describeCacheEngineVersions :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
-                               , MonadReader Env (ResumableSource m)
+                               , MonadReader Env m
                                )
     => State DescribeCacheEngineVersions a
-    -> ResumableSource m DescribeCacheEngineVersionsResponse
+    -> Source m DescribeCacheEngineVersionsResponse
 describeCacheEngineVersions s =
     paginate (mkDescribeCacheEngineVersions &~ s)
 
 describeCacheEngineVersionsCatch :: ( MonadCatch m
                                     , MonadResource m
-                                    , MonadReader Env (ResumableSource m)
+                                    , MonadReader Env m
                                     )
     => State DescribeCacheEngineVersions a
-    -> ResumableSource m (Either ServiceEr DescribeCacheEngineVersionsResponse)
+    -> Source m (Either ServiceEr DescribeCacheEngineVersionsResponse)
 describeCacheEngineVersionsCatch s =
     paginateCatch (mkDescribeCacheEngineVersions &~ s)
 
@@ -823,19 +823,19 @@ describeCacheEngineVersionsCatch s =
 describeCacheParameterGroups :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
-                                , MonadReader Env (ResumableSource m)
+                                , MonadReader Env m
                                 )
     => State DescribeCacheParameterGroups a
-    -> ResumableSource m DescribeCacheParameterGroupsResponse
+    -> Source m DescribeCacheParameterGroupsResponse
 describeCacheParameterGroups s =
     paginate (mkDescribeCacheParameterGroups &~ s)
 
 describeCacheParameterGroupsCatch :: ( MonadCatch m
                                      , MonadResource m
-                                     , MonadReader Env (ResumableSource m)
+                                     , MonadReader Env m
                                      )
     => State DescribeCacheParameterGroups a
-    -> ResumableSource m (Either ServiceEr DescribeCacheParameterGroupsResponse)
+    -> Source m (Either ServiceEr DescribeCacheParameterGroupsResponse)
 describeCacheParameterGroupsCatch s =
     paginateCatch (mkDescribeCacheParameterGroups &~ s)
 
@@ -858,21 +858,21 @@ describeCacheParameterGroupsCatch s =
 describeCacheParameters :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
-                           , MonadReader Env (ResumableSource m)
+                           , MonadReader Env m
                            )
     => Text -- ^ 'dcpCacheParameterGroupName'
     -> State DescribeCacheParameters a
-    -> ResumableSource m DescribeCacheParametersResponse
+    -> Source m DescribeCacheParametersResponse
 describeCacheParameters p1 s =
     paginate $ (mkDescribeCacheParameters p1) &~ s
 
 describeCacheParametersCatch :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadReader Env (ResumableSource m)
+                                , MonadReader Env m
                                 )
     => Text -- ^ 'dcpCacheParameterGroupName'
     -> State DescribeCacheParameters a
-    -> ResumableSource m (Either ServiceEr DescribeCacheParametersResponse)
+    -> Source m (Either ServiceEr DescribeCacheParametersResponse)
 describeCacheParametersCatch p1 s =
     paginateCatch $ (mkDescribeCacheParameters p1) &~ s
 
@@ -891,19 +891,19 @@ describeCacheParametersCatch p1 s =
 describeCacheSecurityGroups :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
-                               , MonadReader Env (ResumableSource m)
+                               , MonadReader Env m
                                )
     => State DescribeCacheSecurityGroups a
-    -> ResumableSource m DescribeCacheSecurityGroupsResponse
+    -> Source m DescribeCacheSecurityGroupsResponse
 describeCacheSecurityGroups s =
     paginate (mkDescribeCacheSecurityGroups &~ s)
 
 describeCacheSecurityGroupsCatch :: ( MonadCatch m
                                     , MonadResource m
-                                    , MonadReader Env (ResumableSource m)
+                                    , MonadReader Env m
                                     )
     => State DescribeCacheSecurityGroups a
-    -> ResumableSource m (Either ServiceEr DescribeCacheSecurityGroupsResponse)
+    -> Source m (Either ServiceEr DescribeCacheSecurityGroupsResponse)
 describeCacheSecurityGroupsCatch s =
     paginateCatch (mkDescribeCacheSecurityGroups &~ s)
 
@@ -923,19 +923,19 @@ describeCacheSecurityGroupsCatch s =
 describeCacheSubnetGroups :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
-                             , MonadReader Env (ResumableSource m)
+                             , MonadReader Env m
                              )
     => State DescribeCacheSubnetGroups a
-    -> ResumableSource m DescribeCacheSubnetGroupsResponse
+    -> Source m DescribeCacheSubnetGroupsResponse
 describeCacheSubnetGroups s =
     paginate (mkDescribeCacheSubnetGroups &~ s)
 
 describeCacheSubnetGroupsCatch :: ( MonadCatch m
                                   , MonadResource m
-                                  , MonadReader Env (ResumableSource m)
+                                  , MonadReader Env m
                                   )
     => State DescribeCacheSubnetGroups a
-    -> ResumableSource m (Either ServiceEr DescribeCacheSubnetGroupsResponse)
+    -> Source m (Either ServiceEr DescribeCacheSubnetGroupsResponse)
 describeCacheSubnetGroupsCatch s =
     paginateCatch (mkDescribeCacheSubnetGroups &~ s)
 
@@ -959,21 +959,21 @@ describeCacheSubnetGroupsCatch s =
 describeEngineDefaultParameters :: ( MonadCatch m
                                    , MonadResource m
                                    , MonadError AWS.Error m
-                                   , MonadReader Env (ResumableSource m)
+                                   , MonadReader Env m
                                    )
     => Text -- ^ 'dedpCacheParameterGroupFamily'
     -> State DescribeEngineDefaultParameters a
-    -> ResumableSource m DescribeEngineDefaultParametersResponse
+    -> Source m DescribeEngineDefaultParametersResponse
 describeEngineDefaultParameters p1 s =
     paginate $ (mkDescribeEngineDefaultParameters p1) &~ s
 
 describeEngineDefaultParametersCatch :: ( MonadCatch m
                                         , MonadResource m
-                                        , MonadReader Env (ResumableSource m)
+                                        , MonadReader Env m
                                         )
     => Text -- ^ 'dedpCacheParameterGroupFamily'
     -> State DescribeEngineDefaultParameters a
-    -> ResumableSource m (Either ServiceEr DescribeEngineDefaultParametersResponse)
+    -> Source m (Either ServiceEr DescribeEngineDefaultParametersResponse)
 describeEngineDefaultParametersCatch p1 s =
     paginateCatch $ (mkDescribeEngineDefaultParameters p1) &~ s
 
@@ -996,19 +996,19 @@ describeEngineDefaultParametersCatch p1 s =
 describeEvents :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
-                  , MonadReader Env (ResumableSource m)
+                  , MonadReader Env m
                   )
     => State DescribeEvents a
-    -> ResumableSource m DescribeEventsResponse
+    -> Source m DescribeEventsResponse
 describeEvents s =
     paginate (mkDescribeEvents &~ s)
 
 describeEventsCatch :: ( MonadCatch m
                        , MonadResource m
-                       , MonadReader Env (ResumableSource m)
+                       , MonadReader Env m
                        )
     => State DescribeEvents a
-    -> ResumableSource m (Either ServiceEr DescribeEventsResponse)
+    -> Source m (Either ServiceEr DescribeEventsResponse)
 describeEventsCatch s =
     paginateCatch (mkDescribeEvents &~ s)
 
@@ -1031,19 +1031,19 @@ describeEventsCatch s =
 describeReplicationGroups :: ( MonadCatch m
                              , MonadResource m
                              , MonadError AWS.Error m
-                             , MonadReader Env (ResumableSource m)
+                             , MonadReader Env m
                              )
     => State DescribeReplicationGroups a
-    -> ResumableSource m DescribeReplicationGroupsResponse
+    -> Source m DescribeReplicationGroupsResponse
 describeReplicationGroups s =
     paginate (mkDescribeReplicationGroups &~ s)
 
 describeReplicationGroupsCatch :: ( MonadCatch m
                                   , MonadResource m
-                                  , MonadReader Env (ResumableSource m)
+                                  , MonadReader Env m
                                   )
     => State DescribeReplicationGroups a
-    -> ResumableSource m (Either ServiceEr DescribeReplicationGroupsResponse)
+    -> Source m (Either ServiceEr DescribeReplicationGroupsResponse)
 describeReplicationGroupsCatch s =
     paginateCatch (mkDescribeReplicationGroups &~ s)
 
@@ -1063,19 +1063,19 @@ describeReplicationGroupsCatch s =
 describeReservedCacheNodes :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
-                              , MonadReader Env (ResumableSource m)
+                              , MonadReader Env m
                               )
     => State DescribeReservedCacheNodes a
-    -> ResumableSource m DescribeReservedCacheNodesResponse
+    -> Source m DescribeReservedCacheNodesResponse
 describeReservedCacheNodes s =
     paginate (mkDescribeReservedCacheNodes &~ s)
 
 describeReservedCacheNodesCatch :: ( MonadCatch m
                                    , MonadResource m
-                                   , MonadReader Env (ResumableSource m)
+                                   , MonadReader Env m
                                    )
     => State DescribeReservedCacheNodes a
-    -> ResumableSource m (Either ServiceEr DescribeReservedCacheNodesResponse)
+    -> Source m (Either ServiceEr DescribeReservedCacheNodesResponse)
 describeReservedCacheNodesCatch s =
     paginateCatch (mkDescribeReservedCacheNodes &~ s)
 
@@ -1094,19 +1094,19 @@ describeReservedCacheNodesCatch s =
 describeReservedCacheNodesOfferings :: ( MonadCatch m
                                        , MonadResource m
                                        , MonadError AWS.Error m
-                                       , MonadReader Env (ResumableSource m)
+                                       , MonadReader Env m
                                        )
     => State DescribeReservedCacheNodesOfferings a
-    -> ResumableSource m DescribeReservedCacheNodesOfferingsResponse
+    -> Source m DescribeReservedCacheNodesOfferingsResponse
 describeReservedCacheNodesOfferings s =
     paginate (mkDescribeReservedCacheNodesOfferings &~ s)
 
 describeReservedCacheNodesOfferingsCatch :: ( MonadCatch m
                                             , MonadResource m
-                                            , MonadReader Env (ResumableSource m)
+                                            , MonadReader Env m
                                             )
     => State DescribeReservedCacheNodesOfferings a
-    -> ResumableSource m (Either ServiceEr DescribeReservedCacheNodesOfferingsResponse)
+    -> Source m (Either ServiceEr DescribeReservedCacheNodesOfferingsResponse)
 describeReservedCacheNodesOfferingsCatch s =
     paginateCatch (mkDescribeReservedCacheNodesOfferings &~ s)
 

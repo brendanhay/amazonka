@@ -185,19 +185,19 @@ getStatusCatch p1 =
 listJobs :: ( MonadCatch m
             , MonadResource m
             , MonadError AWS.Error m
-            , MonadReader Env (ResumableSource m)
+            , MonadReader Env m
             )
     => State ListJobs a
-    -> ResumableSource m ListJobsResponse
+    -> Source m ListJobsResponse
 listJobs s =
     paginate (mkListJobs &~ s)
 
 listJobsCatch :: ( MonadCatch m
                  , MonadResource m
-                 , MonadReader Env (ResumableSource m)
+                 , MonadReader Env m
                  )
     => State ListJobs a
-    -> ResumableSource m (Either ServiceEr ListJobsResponse)
+    -> Source m (Either ServiceEr ListJobsResponse)
 listJobsCatch s =
     paginateCatch (mkListJobs &~ s)
 

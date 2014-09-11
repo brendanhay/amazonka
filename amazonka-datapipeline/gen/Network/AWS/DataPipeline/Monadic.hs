@@ -275,23 +275,23 @@ deletePipelineCatch p1 =
 describeObjects :: ( MonadCatch m
                    , MonadResource m
                    , MonadError AWS.Error m
-                   , MonadReader Env (ResumableSource m)
+                   , MonadReader Env m
                    )
     => Text -- ^ 'doPipelineId'
     -> [Text] -- ^ 'doObjectIds'
     -> State DescribeObjects a
-    -> ResumableSource m DescribeObjectsResponse
+    -> Source m DescribeObjectsResponse
 describeObjects p1 p2 s =
     paginate $ (mkDescribeObjects p1 p2) &~ s
 
 describeObjectsCatch :: ( MonadCatch m
                         , MonadResource m
-                        , MonadReader Env (ResumableSource m)
+                        , MonadReader Env m
                         )
     => Text -- ^ 'doPipelineId'
     -> [Text] -- ^ 'doObjectIds'
     -> State DescribeObjects a
-    -> ResumableSource m (Either ServiceEr DescribeObjectsResponse)
+    -> Source m (Either ServiceEr DescribeObjectsResponse)
 describeObjectsCatch p1 p2 s =
     paginateCatch $ (mkDescribeObjects p1 p2) &~ s
 
@@ -443,19 +443,19 @@ getPipelineDefinitionCatch p1 s =
 listPipelines :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
-                 , MonadReader Env (ResumableSource m)
+                 , MonadReader Env m
                  )
     => State ListPipelines a
-    -> ResumableSource m ListPipelinesResponse
+    -> Source m ListPipelinesResponse
 listPipelines s =
     paginate (mkListPipelines &~ s)
 
 listPipelinesCatch :: ( MonadCatch m
                       , MonadResource m
-                      , MonadReader Env (ResumableSource m)
+                      , MonadReader Env m
                       )
     => State ListPipelines a
-    -> ResumableSource m (Either ServiceEr ListPipelinesResponse)
+    -> Source m (Either ServiceEr ListPipelinesResponse)
 listPipelinesCatch s =
     paginateCatch (mkListPipelines &~ s)
 
@@ -620,23 +620,23 @@ putPipelineDefinitionCatch p1 p2 =
 queryObjects :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
-                , MonadReader Env (ResumableSource m)
+                , MonadReader Env m
                 )
     => Text -- ^ 'qoPipelineId'
     -> Text -- ^ 'qoSphere'
     -> State QueryObjects a
-    -> ResumableSource m QueryObjectsResponse
+    -> Source m QueryObjectsResponse
 queryObjects p1 p3 s =
     paginate $ (mkQueryObjects p1 p3) &~ s
 
 queryObjectsCatch :: ( MonadCatch m
                      , MonadResource m
-                     , MonadReader Env (ResumableSource m)
+                     , MonadReader Env m
                      )
     => Text -- ^ 'qoPipelineId'
     -> Text -- ^ 'qoSphere'
     -> State QueryObjects a
-    -> ResumableSource m (Either ServiceEr QueryObjectsResponse)
+    -> Source m (Either ServiceEr QueryObjectsResponse)
 queryObjectsCatch p1 p3 s =
     paginateCatch $ (mkQueryObjects p1 p3) &~ s
 

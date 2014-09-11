@@ -294,19 +294,19 @@ describeAttachmentCatch p1 =
 describeCases :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
-                 , MonadReader Env (ResumableSource m)
+                 , MonadReader Env m
                  )
     => State DescribeCases a
-    -> ResumableSource m DescribeCasesResponse
+    -> Source m DescribeCasesResponse
 describeCases s =
     paginate (mkDescribeCases &~ s)
 
 describeCasesCatch :: ( MonadCatch m
                       , MonadResource m
-                      , MonadReader Env (ResumableSource m)
+                      , MonadReader Env m
                       )
     => State DescribeCases a
-    -> ResumableSource m (Either ServiceEr DescribeCasesResponse)
+    -> Source m (Either ServiceEr DescribeCasesResponse)
 describeCasesCatch s =
     paginateCatch (mkDescribeCases &~ s)
 
@@ -325,21 +325,21 @@ describeCasesCatch s =
 describeCommunications :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
-                          , MonadReader Env (ResumableSource m)
+                          , MonadReader Env m
                           )
     => Text -- ^ 'dc1CaseId'
     -> State DescribeCommunications a
-    -> ResumableSource m DescribeCommunicationsResponse
+    -> Source m DescribeCommunicationsResponse
 describeCommunications p1 s =
     paginate $ (mkDescribeCommunications p1) &~ s
 
 describeCommunicationsCatch :: ( MonadCatch m
                                , MonadResource m
-                               , MonadReader Env (ResumableSource m)
+                               , MonadReader Env m
                                )
     => Text -- ^ 'dc1CaseId'
     -> State DescribeCommunications a
-    -> ResumableSource m (Either ServiceEr DescribeCommunicationsResponse)
+    -> Source m (Either ServiceEr DescribeCommunicationsResponse)
 describeCommunicationsCatch p1 s =
     paginateCatch $ (mkDescribeCommunications p1) &~ s
 

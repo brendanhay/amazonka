@@ -914,23 +914,23 @@ describeWorkflowTypeCatch p1 p2 =
 getWorkflowExecutionHistory :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
-                               , MonadReader Env (ResumableSource m)
+                               , MonadReader Env m
                                )
     => Text -- ^ 'gwehDomain'
     -> WorkflowExecution -- ^ 'gwehExecution'
     -> State GetWorkflowExecutionHistory a
-    -> ResumableSource m GetWorkflowExecutionHistoryResponse
+    -> Source m GetWorkflowExecutionHistoryResponse
 getWorkflowExecutionHistory p1 p2 s =
     paginate $ (mkGetWorkflowExecutionHistory p1 p2) &~ s
 
 getWorkflowExecutionHistoryCatch :: ( MonadCatch m
                                     , MonadResource m
-                                    , MonadReader Env (ResumableSource m)
+                                    , MonadReader Env m
                                     )
     => Text -- ^ 'gwehDomain'
     -> WorkflowExecution -- ^ 'gwehExecution'
     -> State GetWorkflowExecutionHistory a
-    -> ResumableSource m (Either ServiceEr GetWorkflowExecutionHistoryResponse)
+    -> Source m (Either ServiceEr GetWorkflowExecutionHistoryResponse)
 getWorkflowExecutionHistoryCatch p1 p2 s =
     paginateCatch $ (mkGetWorkflowExecutionHistory p1 p2) &~ s
 
@@ -962,23 +962,23 @@ getWorkflowExecutionHistoryCatch p1 p2 s =
 listActivityTypes :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
-                     , MonadReader Env (ResumableSource m)
+                     , MonadReader Env m
                      )
     => Text -- ^ 'latDomain'
     -> RegistrationStatus -- ^ 'latRegistrationStatus'
     -> State ListActivityTypes a
-    -> ResumableSource m ListActivityTypesResponse
+    -> Source m ListActivityTypesResponse
 listActivityTypes p1 p3 s =
     paginate $ (mkListActivityTypes p1 p3) &~ s
 
 listActivityTypesCatch :: ( MonadCatch m
                           , MonadResource m
-                          , MonadReader Env (ResumableSource m)
+                          , MonadReader Env m
                           )
     => Text -- ^ 'latDomain'
     -> RegistrationStatus -- ^ 'latRegistrationStatus'
     -> State ListActivityTypes a
-    -> ResumableSource m (Either ServiceEr ListActivityTypesResponse)
+    -> Source m (Either ServiceEr ListActivityTypesResponse)
 listActivityTypesCatch p1 p3 s =
     paginateCatch $ (mkListActivityTypes p1 p3) &~ s
 
@@ -1040,21 +1040,21 @@ listActivityTypesCatch p1 p3 s =
 listClosedWorkflowExecutions :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadError AWS.Error m
-                                , MonadReader Env (ResumableSource m)
+                                , MonadReader Env m
                                 )
     => Text -- ^ 'lcweDomain'
     -> State ListClosedWorkflowExecutions a
-    -> ResumableSource m ListClosedWorkflowExecutionsResponse
+    -> Source m ListClosedWorkflowExecutionsResponse
 listClosedWorkflowExecutions p1 s =
     paginate $ (mkListClosedWorkflowExecutions p1) &~ s
 
 listClosedWorkflowExecutionsCatch :: ( MonadCatch m
                                      , MonadResource m
-                                     , MonadReader Env (ResumableSource m)
+                                     , MonadReader Env m
                                      )
     => Text -- ^ 'lcweDomain'
     -> State ListClosedWorkflowExecutions a
-    -> ResumableSource m (Either ServiceEr ListClosedWorkflowExecutionsResponse)
+    -> Source m (Either ServiceEr ListClosedWorkflowExecutionsResponse)
 listClosedWorkflowExecutionsCatch p1 s =
     paginateCatch $ (mkListClosedWorkflowExecutions p1) &~ s
 
@@ -1104,21 +1104,21 @@ listClosedWorkflowExecutionsCatch p1 s =
 listDomains :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
-               , MonadReader Env (ResumableSource m)
+               , MonadReader Env m
                )
     => RegistrationStatus -- ^ 'ldRegistrationStatus'
     -> State ListDomains a
-    -> ResumableSource m ListDomainsResponse
+    -> Source m ListDomainsResponse
 listDomains p2 s =
     paginate $ (mkListDomains p2) &~ s
 
 listDomainsCatch :: ( MonadCatch m
                     , MonadResource m
-                    , MonadReader Env (ResumableSource m)
+                    , MonadReader Env m
                     )
     => RegistrationStatus -- ^ 'ldRegistrationStatus'
     -> State ListDomains a
-    -> ResumableSource m (Either ServiceEr ListDomainsResponse)
+    -> Source m (Either ServiceEr ListDomainsResponse)
 listDomainsCatch p2 s =
     paginateCatch $ (mkListDomains p2) &~ s
 
@@ -1168,23 +1168,23 @@ listDomainsCatch p2 s =
 listOpenWorkflowExecutions :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
-                              , MonadReader Env (ResumableSource m)
+                              , MonadReader Env m
                               )
     => Text -- ^ 'loweDomain'
     -> ExecutionTimeFilter -- ^ 'loweStartTimeFilter'
     -> State ListOpenWorkflowExecutions a
-    -> ResumableSource m ListOpenWorkflowExecutionsResponse
+    -> Source m ListOpenWorkflowExecutionsResponse
 listOpenWorkflowExecutions p1 p2 s =
     paginate $ (mkListOpenWorkflowExecutions p1 p2) &~ s
 
 listOpenWorkflowExecutionsCatch :: ( MonadCatch m
                                    , MonadResource m
-                                   , MonadReader Env (ResumableSource m)
+                                   , MonadReader Env m
                                    )
     => Text -- ^ 'loweDomain'
     -> ExecutionTimeFilter -- ^ 'loweStartTimeFilter'
     -> State ListOpenWorkflowExecutions a
-    -> ResumableSource m (Either ServiceEr ListOpenWorkflowExecutionsResponse)
+    -> Source m (Either ServiceEr ListOpenWorkflowExecutionsResponse)
 listOpenWorkflowExecutionsCatch p1 p2 s =
     paginateCatch $ (mkListOpenWorkflowExecutions p1 p2) &~ s
 
@@ -1224,23 +1224,23 @@ listOpenWorkflowExecutionsCatch p1 p2 s =
 listWorkflowTypes :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
-                     , MonadReader Env (ResumableSource m)
+                     , MonadReader Env m
                      )
     => Text -- ^ 'lwtDomain'
     -> RegistrationStatus -- ^ 'lwtRegistrationStatus'
     -> State ListWorkflowTypes a
-    -> ResumableSource m ListWorkflowTypesResponse
+    -> Source m ListWorkflowTypesResponse
 listWorkflowTypes p1 p3 s =
     paginate $ (mkListWorkflowTypes p1 p3) &~ s
 
 listWorkflowTypesCatch :: ( MonadCatch m
                           , MonadResource m
-                          , MonadReader Env (ResumableSource m)
+                          , MonadReader Env m
                           )
     => Text -- ^ 'lwtDomain'
     -> RegistrationStatus -- ^ 'lwtRegistrationStatus'
     -> State ListWorkflowTypes a
-    -> ResumableSource m (Either ServiceEr ListWorkflowTypesResponse)
+    -> Source m (Either ServiceEr ListWorkflowTypesResponse)
 listWorkflowTypesCatch p1 p3 s =
     paginateCatch $ (mkListWorkflowTypes p1 p3) &~ s
 
@@ -1383,23 +1383,23 @@ pollForActivityTaskCatch p1 p2 s =
 pollForDecisionTask :: ( MonadCatch m
                        , MonadResource m
                        , MonadError AWS.Error m
-                       , MonadReader Env (ResumableSource m)
+                       , MonadReader Env m
                        )
     => Text -- ^ 'pfdtDomain'
     -> TaskList -- ^ 'pfdtTaskList'
     -> State PollForDecisionTask a
-    -> ResumableSource m PollForDecisionTaskResponse
+    -> Source m PollForDecisionTaskResponse
 pollForDecisionTask p1 p2 s =
     paginate $ (mkPollForDecisionTask p1 p2) &~ s
 
 pollForDecisionTaskCatch :: ( MonadCatch m
                             , MonadResource m
-                            , MonadReader Env (ResumableSource m)
+                            , MonadReader Env m
                             )
     => Text -- ^ 'pfdtDomain'
     -> TaskList -- ^ 'pfdtTaskList'
     -> State PollForDecisionTask a
-    -> ResumableSource m (Either ServiceEr PollForDecisionTaskResponse)
+    -> Source m (Either ServiceEr PollForDecisionTaskResponse)
 pollForDecisionTaskCatch p1 p2 s =
     paginateCatch $ (mkPollForDecisionTask p1 p2) &~ s
 

@@ -1399,19 +1399,19 @@ describeStorediSCSIVolumesCatch p1 =
 describeTapeArchives :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
-                        , MonadReader Env (ResumableSource m)
+                        , MonadReader Env m
                         )
     => State DescribeTapeArchives a
-    -> ResumableSource m DescribeTapeArchivesResponse
+    -> Source m DescribeTapeArchivesResponse
 describeTapeArchives s =
     paginate (mkDescribeTapeArchives &~ s)
 
 describeTapeArchivesCatch :: ( MonadCatch m
                              , MonadResource m
-                             , MonadReader Env (ResumableSource m)
+                             , MonadReader Env m
                              )
     => State DescribeTapeArchives a
-    -> ResumableSource m (Either ServiceEr DescribeTapeArchivesResponse)
+    -> Source m (Either ServiceEr DescribeTapeArchivesResponse)
 describeTapeArchivesCatch s =
     paginateCatch (mkDescribeTapeArchives &~ s)
 
@@ -1421,21 +1421,21 @@ describeTapeArchivesCatch s =
 describeTapeRecoveryPoints :: ( MonadCatch m
                               , MonadResource m
                               , MonadError AWS.Error m
-                              , MonadReader Env (ResumableSource m)
+                              , MonadReader Env m
                               )
     => Text -- ^ 'dtrpGatewayARN'
     -> State DescribeTapeRecoveryPoints a
-    -> ResumableSource m DescribeTapeRecoveryPointsResponse
+    -> Source m DescribeTapeRecoveryPointsResponse
 describeTapeRecoveryPoints p1 s =
     paginate $ (mkDescribeTapeRecoveryPoints p1) &~ s
 
 describeTapeRecoveryPointsCatch :: ( MonadCatch m
                                    , MonadResource m
-                                   , MonadReader Env (ResumableSource m)
+                                   , MonadReader Env m
                                    )
     => Text -- ^ 'dtrpGatewayARN'
     -> State DescribeTapeRecoveryPoints a
-    -> ResumableSource m (Either ServiceEr DescribeTapeRecoveryPointsResponse)
+    -> Source m (Either ServiceEr DescribeTapeRecoveryPointsResponse)
 describeTapeRecoveryPointsCatch p1 s =
     paginateCatch $ (mkDescribeTapeRecoveryPoints p1) &~ s
 
@@ -1445,21 +1445,21 @@ describeTapeRecoveryPointsCatch p1 s =
 describeTapes :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
-                 , MonadReader Env (ResumableSource m)
+                 , MonadReader Env m
                  )
     => Text -- ^ 'dt1GatewayARN'
     -> State DescribeTapes a
-    -> ResumableSource m DescribeTapesResponse
+    -> Source m DescribeTapesResponse
 describeTapes p1 s =
     paginate $ (mkDescribeTapes p1) &~ s
 
 describeTapesCatch :: ( MonadCatch m
                       , MonadResource m
-                      , MonadReader Env (ResumableSource m)
+                      , MonadReader Env m
                       )
     => Text -- ^ 'dt1GatewayARN'
     -> State DescribeTapes a
-    -> ResumableSource m (Either ServiceEr DescribeTapesResponse)
+    -> Source m (Either ServiceEr DescribeTapesResponse)
 describeTapesCatch p1 s =
     paginateCatch $ (mkDescribeTapes p1) &~ s
 
@@ -1514,21 +1514,21 @@ describeUploadBufferCatch p1 =
 describeVTLDevices :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
-                      , MonadReader Env (ResumableSource m)
+                      , MonadReader Env m
                       )
     => Text -- ^ 'dvtldGatewayARN'
     -> State DescribeVTLDevices a
-    -> ResumableSource m DescribeVTLDevicesResponse
+    -> Source m DescribeVTLDevicesResponse
 describeVTLDevices p1 s =
     paginate $ (mkDescribeVTLDevices p1) &~ s
 
 describeVTLDevicesCatch :: ( MonadCatch m
                            , MonadResource m
-                           , MonadReader Env (ResumableSource m)
+                           , MonadReader Env m
                            )
     => Text -- ^ 'dvtldGatewayARN'
     -> State DescribeVTLDevices a
-    -> ResumableSource m (Either ServiceEr DescribeVTLDevicesResponse)
+    -> Source m (Either ServiceEr DescribeVTLDevicesResponse)
 describeVTLDevicesCatch p1 s =
     paginateCatch $ (mkDescribeVTLDevices p1) &~ s
 
@@ -1627,19 +1627,19 @@ disableGatewayCatch p1 =
 listGateways :: ( MonadCatch m
                 , MonadResource m
                 , MonadError AWS.Error m
-                , MonadReader Env (ResumableSource m)
+                , MonadReader Env m
                 )
     => State ListGateways a
-    -> ResumableSource m ListGatewaysResponse
+    -> Source m ListGatewaysResponse
 listGateways s =
     paginate (mkListGateways &~ s)
 
 listGatewaysCatch :: ( MonadCatch m
                      , MonadResource m
-                     , MonadReader Env (ResumableSource m)
+                     , MonadReader Env m
                      )
     => State ListGateways a
-    -> ResumableSource m (Either ServiceEr ListGatewaysResponse)
+    -> Source m (Either ServiceEr ListGatewaysResponse)
 listGatewaysCatch s =
     paginateCatch (mkListGateways &~ s)
 
@@ -1769,21 +1769,21 @@ listVolumeRecoveryPointsCatch p1 =
 listVolumes :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
-               , MonadReader Env (ResumableSource m)
+               , MonadReader Env m
                )
     => Text -- ^ 'lvGatewayARN'
     -> State ListVolumes a
-    -> ResumableSource m ListVolumesResponse
+    -> Source m ListVolumesResponse
 listVolumes p1 s =
     paginate $ (mkListVolumes p1) &~ s
 
 listVolumesCatch :: ( MonadCatch m
                     , MonadResource m
-                    , MonadReader Env (ResumableSource m)
+                    , MonadReader Env m
                     )
     => Text -- ^ 'lvGatewayARN'
     -> State ListVolumes a
-    -> ResumableSource m (Either ServiceEr ListVolumesResponse)
+    -> Source m (Either ServiceEr ListVolumesResponse)
 listVolumesCatch p1 s =
     paginateCatch $ (mkListVolumes p1) &~ s
 

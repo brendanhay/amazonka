@@ -1094,21 +1094,21 @@ listBucketsCatch =
 listMultipartUploads :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
-                        , MonadReader Env (ResumableSource m)
+                        , MonadReader Env m
                         )
     => BucketName -- ^ 'lmuBucket'
     -> State ListMultipartUploads a
-    -> ResumableSource m ListMultipartUploadsResponse
+    -> Source m ListMultipartUploadsResponse
 listMultipartUploads p1 s =
     paginate $ (mkListMultipartUploads p1) &~ s
 
 listMultipartUploadsCatch :: ( MonadCatch m
                              , MonadResource m
-                             , MonadReader Env (ResumableSource m)
+                             , MonadReader Env m
                              )
     => BucketName -- ^ 'lmuBucket'
     -> State ListMultipartUploads a
-    -> ResumableSource m (Either ServiceEr ListMultipartUploadsResponse)
+    -> Source m (Either ServiceEr ListMultipartUploadsResponse)
 listMultipartUploadsCatch p1 s =
     paginateCatch $ (mkListMultipartUploads p1) &~ s
 
@@ -1120,21 +1120,21 @@ listMultipartUploadsCatch p1 s =
 listObjectVersions :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
-                      , MonadReader Env (ResumableSource m)
+                      , MonadReader Env m
                       )
     => BucketName -- ^ 'lovBucket'
     -> State ListObjectVersions a
-    -> ResumableSource m ListObjectVersionsResponse
+    -> Source m ListObjectVersionsResponse
 listObjectVersions p1 s =
     paginate $ (mkListObjectVersions p1) &~ s
 
 listObjectVersionsCatch :: ( MonadCatch m
                            , MonadResource m
-                           , MonadReader Env (ResumableSource m)
+                           , MonadReader Env m
                            )
     => BucketName -- ^ 'lovBucket'
     -> State ListObjectVersions a
-    -> ResumableSource m (Either ServiceEr ListObjectVersionsResponse)
+    -> Source m (Either ServiceEr ListObjectVersionsResponse)
 listObjectVersionsCatch p1 s =
     paginateCatch $ (mkListObjectVersions p1) &~ s
 
@@ -1148,21 +1148,21 @@ listObjectVersionsCatch p1 s =
 listObjects :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
-               , MonadReader Env (ResumableSource m)
+               , MonadReader Env m
                )
     => BucketName -- ^ 'loBucket'
     -> State ListObjects a
-    -> ResumableSource m ListObjectsResponse
+    -> Source m ListObjectsResponse
 listObjects p1 s =
     paginate $ (mkListObjects p1) &~ s
 
 listObjectsCatch :: ( MonadCatch m
                     , MonadResource m
-                    , MonadReader Env (ResumableSource m)
+                    , MonadReader Env m
                     )
     => BucketName -- ^ 'loBucket'
     -> State ListObjects a
-    -> ResumableSource m (Either ServiceEr ListObjectsResponse)
+    -> Source m (Either ServiceEr ListObjectsResponse)
 listObjectsCatch p1 s =
     paginateCatch $ (mkListObjects p1) &~ s
 
@@ -1174,25 +1174,25 @@ listObjectsCatch p1 s =
 listParts :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
-             , MonadReader Env (ResumableSource m)
+             , MonadReader Env m
              )
     => BucketName -- ^ 'lpBucket'
     -> ObjectKey -- ^ 'lpKey'
     -> Text -- ^ 'lpUploadId'
     -> State ListParts a
-    -> ResumableSource m ListPartsResponse
+    -> Source m ListPartsResponse
 listParts p1 p2 p5 s =
     paginate $ (mkListParts p1 p2 p5) &~ s
 
 listPartsCatch :: ( MonadCatch m
                   , MonadResource m
-                  , MonadReader Env (ResumableSource m)
+                  , MonadReader Env m
                   )
     => BucketName -- ^ 'lpBucket'
     -> ObjectKey -- ^ 'lpKey'
     -> Text -- ^ 'lpUploadId'
     -> State ListParts a
-    -> ResumableSource m (Either ServiceEr ListPartsResponse)
+    -> Source m (Either ServiceEr ListPartsResponse)
 listPartsCatch p1 p2 p5 s =
     paginateCatch $ (mkListParts p1 p2 p5) &~ s
 

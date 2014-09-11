@@ -1483,21 +1483,21 @@ getCredentialReportCatch =
 getGroup :: ( MonadCatch m
             , MonadResource m
             , MonadError AWS.Error m
-            , MonadReader Env (ResumableSource m)
+            , MonadReader Env m
             )
     => Text -- ^ 'ggGroupName'
     -> State GetGroup a
-    -> ResumableSource m GetGroupResponse
+    -> Source m GetGroupResponse
 getGroup p1 s =
     paginate $ (mkGetGroup p1) &~ s
 
 getGroupCatch :: ( MonadCatch m
                  , MonadResource m
-                 , MonadReader Env (ResumableSource m)
+                 , MonadReader Env m
                  )
     => Text -- ^ 'ggGroupName'
     -> State GetGroup a
-    -> ResumableSource m (Either ServiceEr GetGroupResponse)
+    -> Source m (Either ServiceEr GetGroupResponse)
 getGroupCatch p1 s =
     paginateCatch $ (mkGetGroup p1) &~ s
 
@@ -1824,19 +1824,19 @@ getUserPolicyCatch p1 p2 =
 listAccessKeys :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
-                  , MonadReader Env (ResumableSource m)
+                  , MonadReader Env m
                   )
     => State ListAccessKeys a
-    -> ResumableSource m ListAccessKeysResponse
+    -> Source m ListAccessKeysResponse
 listAccessKeys s =
     paginate (mkListAccessKeys &~ s)
 
 listAccessKeysCatch :: ( MonadCatch m
                        , MonadResource m
-                       , MonadReader Env (ResumableSource m)
+                       , MonadReader Env m
                        )
     => State ListAccessKeys a
-    -> ResumableSource m (Either ServiceEr ListAccessKeysResponse)
+    -> Source m (Either ServiceEr ListAccessKeysResponse)
 listAccessKeysCatch s =
     paginateCatch (mkListAccessKeys &~ s)
 
@@ -1853,19 +1853,19 @@ listAccessKeysCatch s =
 listAccountAliases :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
-                      , MonadReader Env (ResumableSource m)
+                      , MonadReader Env m
                       )
     => State ListAccountAliases a
-    -> ResumableSource m ListAccountAliasesResponse
+    -> Source m ListAccountAliasesResponse
 listAccountAliases s =
     paginate (mkListAccountAliases &~ s)
 
 listAccountAliasesCatch :: ( MonadCatch m
                            , MonadResource m
-                           , MonadReader Env (ResumableSource m)
+                           , MonadReader Env m
                            )
     => State ListAccountAliases a
-    -> ResumableSource m (Either ServiceEr ListAccountAliasesResponse)
+    -> Source m (Either ServiceEr ListAccountAliasesResponse)
 listAccountAliasesCatch s =
     paginateCatch (mkListAccountAliases &~ s)
 
@@ -1881,21 +1881,21 @@ listAccountAliasesCatch s =
 listGroupPolicies :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
-                     , MonadReader Env (ResumableSource m)
+                     , MonadReader Env m
                      )
     => Text -- ^ 'lgpGroupName'
     -> State ListGroupPolicies a
-    -> ResumableSource m ListGroupPoliciesResponse
+    -> Source m ListGroupPoliciesResponse
 listGroupPolicies p1 s =
     paginate $ (mkListGroupPolicies p1) &~ s
 
 listGroupPoliciesCatch :: ( MonadCatch m
                           , MonadResource m
-                          , MonadReader Env (ResumableSource m)
+                          , MonadReader Env m
                           )
     => Text -- ^ 'lgpGroupName'
     -> State ListGroupPolicies a
-    -> ResumableSource m (Either ServiceEr ListGroupPoliciesResponse)
+    -> Source m (Either ServiceEr ListGroupPoliciesResponse)
 listGroupPoliciesCatch p1 s =
     paginateCatch $ (mkListGroupPolicies p1) &~ s
 
@@ -1919,19 +1919,19 @@ listGroupPoliciesCatch p1 s =
 listGroups :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
-              , MonadReader Env (ResumableSource m)
+              , MonadReader Env m
               )
     => State ListGroups a
-    -> ResumableSource m ListGroupsResponse
+    -> Source m ListGroupsResponse
 listGroups s =
     paginate (mkListGroups &~ s)
 
 listGroupsCatch :: ( MonadCatch m
                    , MonadResource m
-                   , MonadReader Env (ResumableSource m)
+                   , MonadReader Env m
                    )
     => State ListGroups a
-    -> ResumableSource m (Either ServiceEr ListGroupsResponse)
+    -> Source m (Either ServiceEr ListGroupsResponse)
 listGroupsCatch s =
     paginateCatch (mkListGroups &~ s)
 
@@ -1948,21 +1948,21 @@ listGroupsCatch s =
 listGroupsForUser :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
-                     , MonadReader Env (ResumableSource m)
+                     , MonadReader Env m
                      )
     => Text -- ^ 'lgfuUserName'
     -> State ListGroupsForUser a
-    -> ResumableSource m ListGroupsForUserResponse
+    -> Source m ListGroupsForUserResponse
 listGroupsForUser p1 s =
     paginate $ (mkListGroupsForUser p1) &~ s
 
 listGroupsForUserCatch :: ( MonadCatch m
                           , MonadResource m
-                          , MonadReader Env (ResumableSource m)
+                          , MonadReader Env m
                           )
     => Text -- ^ 'lgfuUserName'
     -> State ListGroupsForUser a
-    -> ResumableSource m (Either ServiceEr ListGroupsForUserResponse)
+    -> Source m (Either ServiceEr ListGroupsForUserResponse)
 listGroupsForUserCatch p1 s =
     paginateCatch $ (mkListGroupsForUser p1) &~ s
 
@@ -1985,19 +1985,19 @@ listGroupsForUserCatch p1 s =
 listInstanceProfiles :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
-                        , MonadReader Env (ResumableSource m)
+                        , MonadReader Env m
                         )
     => State ListInstanceProfiles a
-    -> ResumableSource m ListInstanceProfilesResponse
+    -> Source m ListInstanceProfilesResponse
 listInstanceProfiles s =
     paginate (mkListInstanceProfiles &~ s)
 
 listInstanceProfilesCatch :: ( MonadCatch m
                              , MonadResource m
-                             , MonadReader Env (ResumableSource m)
+                             , MonadReader Env m
                              )
     => State ListInstanceProfiles a
-    -> ResumableSource m (Either ServiceEr ListInstanceProfilesResponse)
+    -> Source m (Either ServiceEr ListInstanceProfilesResponse)
 listInstanceProfilesCatch s =
     paginateCatch (mkListInstanceProfiles &~ s)
 
@@ -2022,21 +2022,21 @@ listInstanceProfilesCatch s =
 listInstanceProfilesForRole :: ( MonadCatch m
                                , MonadResource m
                                , MonadError AWS.Error m
-                               , MonadReader Env (ResumableSource m)
+                               , MonadReader Env m
                                )
     => Text -- ^ 'lipfrRoleName'
     -> State ListInstanceProfilesForRole a
-    -> ResumableSource m ListInstanceProfilesForRoleResponse
+    -> Source m ListInstanceProfilesForRoleResponse
 listInstanceProfilesForRole p1 s =
     paginate $ (mkListInstanceProfilesForRole p1) &~ s
 
 listInstanceProfilesForRoleCatch :: ( MonadCatch m
                                     , MonadResource m
-                                    , MonadReader Env (ResumableSource m)
+                                    , MonadReader Env m
                                     )
     => Text -- ^ 'lipfrRoleName'
     -> State ListInstanceProfilesForRole a
-    -> ResumableSource m (Either ServiceEr ListInstanceProfilesForRoleResponse)
+    -> Source m (Either ServiceEr ListInstanceProfilesForRoleResponse)
 listInstanceProfilesForRoleCatch p1 s =
     paginateCatch $ (mkListInstanceProfilesForRole p1) &~ s
 
@@ -2054,19 +2054,19 @@ listInstanceProfilesForRoleCatch p1 s =
 listMFADevices :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
-                  , MonadReader Env (ResumableSource m)
+                  , MonadReader Env m
                   )
     => State ListMFADevices a
-    -> ResumableSource m ListMFADevicesResponse
+    -> Source m ListMFADevicesResponse
 listMFADevices s =
     paginate (mkListMFADevices &~ s)
 
 listMFADevicesCatch :: ( MonadCatch m
                        , MonadResource m
-                       , MonadReader Env (ResumableSource m)
+                       , MonadReader Env m
                        )
     => State ListMFADevices a
-    -> ResumableSource m (Either ServiceEr ListMFADevicesResponse)
+    -> Source m (Either ServiceEr ListMFADevicesResponse)
 listMFADevicesCatch s =
     paginateCatch (mkListMFADevices &~ s)
 
@@ -2084,21 +2084,21 @@ listMFADevicesCatch s =
 listRolePolicies :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
-                    , MonadReader Env (ResumableSource m)
+                    , MonadReader Env m
                     )
     => Text -- ^ 'lrpRoleName'
     -> State ListRolePolicies a
-    -> ResumableSource m ListRolePoliciesResponse
+    -> Source m ListRolePoliciesResponse
 listRolePolicies p1 s =
     paginate $ (mkListRolePolicies p1) &~ s
 
 listRolePoliciesCatch :: ( MonadCatch m
                          , MonadResource m
-                         , MonadReader Env (ResumableSource m)
+                         , MonadReader Env m
                          )
     => Text -- ^ 'lrpRoleName'
     -> State ListRolePolicies a
-    -> ResumableSource m (Either ServiceEr ListRolePoliciesResponse)
+    -> Source m (Either ServiceEr ListRolePoliciesResponse)
 listRolePoliciesCatch p1 s =
     paginateCatch $ (mkListRolePolicies p1) &~ s
 
@@ -2126,19 +2126,19 @@ listRolePoliciesCatch p1 s =
 listRoles :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
-             , MonadReader Env (ResumableSource m)
+             , MonadReader Env m
              )
     => State ListRoles a
-    -> ResumableSource m ListRolesResponse
+    -> Source m ListRolesResponse
 listRoles s =
     paginate (mkListRoles &~ s)
 
 listRolesCatch :: ( MonadCatch m
                   , MonadResource m
-                  , MonadReader Env (ResumableSource m)
+                  , MonadReader Env m
                   )
     => State ListRoles a
-    -> ResumableSource m (Either ServiceEr ListRolesResponse)
+    -> Source m (Either ServiceEr ListRolesResponse)
 listRolesCatch s =
     paginateCatch (mkListRoles &~ s)
 
@@ -2192,19 +2192,19 @@ listSAMLProvidersCatch =
 listServerCertificates :: ( MonadCatch m
                           , MonadResource m
                           , MonadError AWS.Error m
-                          , MonadReader Env (ResumableSource m)
+                          , MonadReader Env m
                           )
     => State ListServerCertificates a
-    -> ResumableSource m ListServerCertificatesResponse
+    -> Source m ListServerCertificatesResponse
 listServerCertificates s =
     paginate (mkListServerCertificates &~ s)
 
 listServerCertificatesCatch :: ( MonadCatch m
                                , MonadResource m
-                               , MonadReader Env (ResumableSource m)
+                               , MonadReader Env m
                                )
     => State ListServerCertificates a
-    -> ResumableSource m (Either ServiceEr ListServerCertificatesResponse)
+    -> Source m (Either ServiceEr ListServerCertificatesResponse)
 listServerCertificatesCatch s =
     paginateCatch (mkListServerCertificates &~ s)
 
@@ -2242,19 +2242,19 @@ listServerCertificatesCatch s =
 listSigningCertificates :: ( MonadCatch m
                            , MonadResource m
                            , MonadError AWS.Error m
-                           , MonadReader Env (ResumableSource m)
+                           , MonadReader Env m
                            )
     => State ListSigningCertificates a
-    -> ResumableSource m ListSigningCertificatesResponse
+    -> Source m ListSigningCertificatesResponse
 listSigningCertificates s =
     paginate (mkListSigningCertificates &~ s)
 
 listSigningCertificatesCatch :: ( MonadCatch m
                                 , MonadResource m
-                                , MonadReader Env (ResumableSource m)
+                                , MonadReader Env m
                                 )
     => State ListSigningCertificates a
-    -> ResumableSource m (Either ServiceEr ListSigningCertificatesResponse)
+    -> Source m (Either ServiceEr ListSigningCertificatesResponse)
 listSigningCertificatesCatch s =
     paginateCatch (mkListSigningCertificates &~ s)
 
@@ -2271,21 +2271,21 @@ listSigningCertificatesCatch s =
 listUserPolicies :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
-                    , MonadReader Env (ResumableSource m)
+                    , MonadReader Env m
                     )
     => Text -- ^ 'lupUserName'
     -> State ListUserPolicies a
-    -> ResumableSource m ListUserPoliciesResponse
+    -> Source m ListUserPoliciesResponse
 listUserPolicies p1 s =
     paginate $ (mkListUserPolicies p1) &~ s
 
 listUserPoliciesCatch :: ( MonadCatch m
                          , MonadResource m
-                         , MonadReader Env (ResumableSource m)
+                         , MonadReader Env m
                          )
     => Text -- ^ 'lupUserName'
     -> State ListUserPolicies a
-    -> ResumableSource m (Either ServiceEr ListUserPoliciesResponse)
+    -> Source m (Either ServiceEr ListUserPoliciesResponse)
 listUserPoliciesCatch p1 s =
     paginateCatch $ (mkListUserPolicies p1) &~ s
 
@@ -2308,19 +2308,19 @@ listUserPoliciesCatch p1 s =
 listUsers :: ( MonadCatch m
              , MonadResource m
              , MonadError AWS.Error m
-             , MonadReader Env (ResumableSource m)
+             , MonadReader Env m
              )
     => State ListUsers a
-    -> ResumableSource m ListUsersResponse
+    -> Source m ListUsersResponse
 listUsers s =
     paginate (mkListUsers &~ s)
 
 listUsersCatch :: ( MonadCatch m
                   , MonadResource m
-                  , MonadReader Env (ResumableSource m)
+                  , MonadReader Env m
                   )
     => State ListUsers a
-    -> ResumableSource m (Either ServiceEr ListUsersResponse)
+    -> Source m (Either ServiceEr ListUsersResponse)
 listUsersCatch s =
     paginateCatch (mkListUsers &~ s)
 
@@ -2346,19 +2346,19 @@ listUsersCatch s =
 listVirtualMFADevices :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
-                         , MonadReader Env (ResumableSource m)
+                         , MonadReader Env m
                          )
     => State ListVirtualMFADevices a
-    -> ResumableSource m ListVirtualMFADevicesResponse
+    -> Source m ListVirtualMFADevicesResponse
 listVirtualMFADevices s =
     paginate (mkListVirtualMFADevices &~ s)
 
 listVirtualMFADevicesCatch :: ( MonadCatch m
                               , MonadResource m
-                              , MonadReader Env (ResumableSource m)
+                              , MonadReader Env m
                               )
     => State ListVirtualMFADevices a
-    -> ResumableSource m (Either ServiceEr ListVirtualMFADevicesResponse)
+    -> Source m (Either ServiceEr ListVirtualMFADevicesResponse)
 listVirtualMFADevicesCatch s =
     paginateCatch (mkListVirtualMFADevices &~ s)
 

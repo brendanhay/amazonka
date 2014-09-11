@@ -153,19 +153,19 @@ deleteAlarmsCatch p1 =
 describeAlarmHistory :: ( MonadCatch m
                         , MonadResource m
                         , MonadError AWS.Error m
-                        , MonadReader Env (ResumableSource m)
+                        , MonadReader Env m
                         )
     => State DescribeAlarmHistory a
-    -> ResumableSource m DescribeAlarmHistoryResponse
+    -> Source m DescribeAlarmHistoryResponse
 describeAlarmHistory s =
     paginate (mkDescribeAlarmHistory &~ s)
 
 describeAlarmHistoryCatch :: ( MonadCatch m
                              , MonadResource m
-                             , MonadReader Env (ResumableSource m)
+                             , MonadReader Env m
                              )
     => State DescribeAlarmHistory a
-    -> ResumableSource m (Either ServiceEr DescribeAlarmHistoryResponse)
+    -> Source m (Either ServiceEr DescribeAlarmHistoryResponse)
 describeAlarmHistoryCatch s =
     paginateCatch (mkDescribeAlarmHistory &~ s)
 
@@ -179,19 +179,19 @@ describeAlarmHistoryCatch s =
 describeAlarms :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
-                  , MonadReader Env (ResumableSource m)
+                  , MonadReader Env m
                   )
     => State DescribeAlarms a
-    -> ResumableSource m DescribeAlarmsResponse
+    -> Source m DescribeAlarmsResponse
 describeAlarms s =
     paginate (mkDescribeAlarms &~ s)
 
 describeAlarmsCatch :: ( MonadCatch m
                        , MonadResource m
-                       , MonadReader Env (ResumableSource m)
+                       , MonadReader Env m
                        )
     => State DescribeAlarms a
-    -> ResumableSource m (Either ServiceEr DescribeAlarmsResponse)
+    -> Source m (Either ServiceEr DescribeAlarmsResponse)
 describeAlarmsCatch s =
     paginateCatch (mkDescribeAlarms &~ s)
 
@@ -341,19 +341,19 @@ getMetricStatisticsCatch p1 p2 p4 p5 p6 p7 s =
 listMetrics :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
-               , MonadReader Env (ResumableSource m)
+               , MonadReader Env m
                )
     => State ListMetrics a
-    -> ResumableSource m ListMetricsResponse
+    -> Source m ListMetricsResponse
 listMetrics s =
     paginate (mkListMetrics &~ s)
 
 listMetricsCatch :: ( MonadCatch m
                     , MonadResource m
-                    , MonadReader Env (ResumableSource m)
+                    , MonadReader Env m
                     )
     => State ListMetrics a
-    -> ResumableSource m (Either ServiceEr ListMetricsResponse)
+    -> Source m (Either ServiceEr ListMetricsResponse)
 listMetricsCatch s =
     paginateCatch (mkListMetrics &~ s)
 

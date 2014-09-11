@@ -759,21 +759,21 @@ getTopicAttributesCatch p1 =
 listEndpointsByPlatformApplication :: ( MonadCatch m
                                       , MonadResource m
                                       , MonadError AWS.Error m
-                                      , MonadReader Env (ResumableSource m)
+                                      , MonadReader Env m
                                       )
     => Text -- ^ 'lebpaPlatformApplicationArn'
     -> State ListEndpointsByPlatformApplication a
-    -> ResumableSource m ListEndpointsByPlatformApplicationResponse
+    -> Source m ListEndpointsByPlatformApplicationResponse
 listEndpointsByPlatformApplication p1 s =
     paginate $ (mkListEndpointsByPlatformApplication p1) &~ s
 
 listEndpointsByPlatformApplicationCatch :: ( MonadCatch m
                                            , MonadResource m
-                                           , MonadReader Env (ResumableSource m)
+                                           , MonadReader Env m
                                            )
     => Text -- ^ 'lebpaPlatformApplicationArn'
     -> State ListEndpointsByPlatformApplication a
-    -> ResumableSource m (Either ServiceEr ListEndpointsByPlatformApplicationResponse)
+    -> Source m (Either ServiceEr ListEndpointsByPlatformApplicationResponse)
 listEndpointsByPlatformApplicationCatch p1 s =
     paginateCatch $ (mkListEndpointsByPlatformApplication p1) &~ s
 
@@ -815,19 +815,19 @@ listEndpointsByPlatformApplicationCatch p1 s =
 listPlatformApplications :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
-                            , MonadReader Env (ResumableSource m)
+                            , MonadReader Env m
                             )
     => State ListPlatformApplications a
-    -> ResumableSource m ListPlatformApplicationsResponse
+    -> Source m ListPlatformApplicationsResponse
 listPlatformApplications s =
     paginate (mkListPlatformApplications &~ s)
 
 listPlatformApplicationsCatch :: ( MonadCatch m
                                  , MonadResource m
-                                 , MonadReader Env (ResumableSource m)
+                                 , MonadReader Env m
                                  )
     => State ListPlatformApplications a
-    -> ResumableSource m (Either ServiceEr ListPlatformApplicationsResponse)
+    -> Source m (Either ServiceEr ListPlatformApplicationsResponse)
 listPlatformApplicationsCatch s =
     paginateCatch (mkListPlatformApplications &~ s)
 
@@ -858,19 +858,19 @@ listPlatformApplicationsCatch s =
 listSubscriptions :: ( MonadCatch m
                      , MonadResource m
                      , MonadError AWS.Error m
-                     , MonadReader Env (ResumableSource m)
+                     , MonadReader Env m
                      )
     => State ListSubscriptions a
-    -> ResumableSource m ListSubscriptionsResponse
+    -> Source m ListSubscriptionsResponse
 listSubscriptions s =
     paginate (mkListSubscriptions &~ s)
 
 listSubscriptionsCatch :: ( MonadCatch m
                           , MonadResource m
-                          , MonadReader Env (ResumableSource m)
+                          , MonadReader Env m
                           )
     => State ListSubscriptions a
-    -> ResumableSource m (Either ServiceEr ListSubscriptionsResponse)
+    -> Source m (Either ServiceEr ListSubscriptionsResponse)
 listSubscriptionsCatch s =
     paginateCatch (mkListSubscriptions &~ s)
 
@@ -903,21 +903,21 @@ listSubscriptionsCatch s =
 listSubscriptionsByTopic :: ( MonadCatch m
                             , MonadResource m
                             , MonadError AWS.Error m
-                            , MonadReader Env (ResumableSource m)
+                            , MonadReader Env m
                             )
     => Text -- ^ 'lsbtTopicArn'
     -> State ListSubscriptionsByTopic a
-    -> ResumableSource m ListSubscriptionsByTopicResponse
+    -> Source m ListSubscriptionsByTopicResponse
 listSubscriptionsByTopic p1 s =
     paginate $ (mkListSubscriptionsByTopic p1) &~ s
 
 listSubscriptionsByTopicCatch :: ( MonadCatch m
                                  , MonadResource m
-                                 , MonadReader Env (ResumableSource m)
+                                 , MonadReader Env m
                                  )
     => Text -- ^ 'lsbtTopicArn'
     -> State ListSubscriptionsByTopic a
-    -> ResumableSource m (Either ServiceEr ListSubscriptionsByTopicResponse)
+    -> Source m (Either ServiceEr ListSubscriptionsByTopicResponse)
 listSubscriptionsByTopicCatch p1 s =
     paginateCatch $ (mkListSubscriptionsByTopic p1) &~ s
 
@@ -942,19 +942,19 @@ listSubscriptionsByTopicCatch p1 s =
 listTopics :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
-              , MonadReader Env (ResumableSource m)
+              , MonadReader Env m
               )
     => State ListTopics a
-    -> ResumableSource m ListTopicsResponse
+    -> Source m ListTopicsResponse
 listTopics s =
     paginate (mkListTopics &~ s)
 
 listTopicsCatch :: ( MonadCatch m
                    , MonadResource m
-                   , MonadReader Env (ResumableSource m)
+                   , MonadReader Env m
                    )
     => State ListTopics a
-    -> ResumableSource m (Either ServiceEr ListTopicsResponse)
+    -> Source m (Either ServiceEr ListTopicsResponse)
 listTopicsCatch s =
     paginateCatch (mkListTopics &~ s)
 

@@ -894,19 +894,19 @@ describeEnvironmentsCatch s =
 describeEvents :: ( MonadCatch m
                   , MonadResource m
                   , MonadError AWS.Error m
-                  , MonadReader Env (ResumableSource m)
+                  , MonadReader Env m
                   )
     => State DescribeEvents a
-    -> ResumableSource m DescribeEventsResponse
+    -> Source m DescribeEventsResponse
 describeEvents s =
     paginate (mkDescribeEvents &~ s)
 
 describeEventsCatch :: ( MonadCatch m
                        , MonadResource m
-                       , MonadReader Env (ResumableSource m)
+                       , MonadReader Env m
                        )
     => State DescribeEvents a
-    -> ResumableSource m (Either ServiceEr DescribeEventsResponse)
+    -> Source m (Either ServiceEr DescribeEventsResponse)
 describeEventsCatch s =
     paginateCatch (mkDescribeEvents &~ s)
 

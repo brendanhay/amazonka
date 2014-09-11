@@ -538,21 +538,21 @@ deletePresetCatch p1 =
 listJobsByPipeline :: ( MonadCatch m
                       , MonadResource m
                       , MonadError AWS.Error m
-                      , MonadReader Env (ResumableSource m)
+                      , MonadReader Env m
                       )
     => Text -- ^ 'ljbpPipelineId'
     -> State ListJobsByPipeline a
-    -> ResumableSource m ListJobsByPipelineResponse
+    -> Source m ListJobsByPipelineResponse
 listJobsByPipeline p1 s =
     paginate $ (mkListJobsByPipeline p1) &~ s
 
 listJobsByPipelineCatch :: ( MonadCatch m
                            , MonadResource m
-                           , MonadReader Env (ResumableSource m)
+                           , MonadReader Env m
                            )
     => Text -- ^ 'ljbpPipelineId'
     -> State ListJobsByPipeline a
-    -> ResumableSource m (Either ServiceEr ListJobsByPipelineResponse)
+    -> Source m (Either ServiceEr ListJobsByPipelineResponse)
 listJobsByPipelineCatch p1 s =
     paginateCatch $ (mkListJobsByPipeline p1) &~ s
 
@@ -608,21 +608,21 @@ listJobsByPipelineCatch p1 s =
 listJobsByStatus :: ( MonadCatch m
                     , MonadResource m
                     , MonadError AWS.Error m
-                    , MonadReader Env (ResumableSource m)
+                    , MonadReader Env m
                     )
     => Text -- ^ 'ljbsStatus'
     -> State ListJobsByStatus a
-    -> ResumableSource m ListJobsByStatusResponse
+    -> Source m ListJobsByStatusResponse
 listJobsByStatus p1 s =
     paginate $ (mkListJobsByStatus p1) &~ s
 
 listJobsByStatusCatch :: ( MonadCatch m
                          , MonadResource m
-                         , MonadReader Env (ResumableSource m)
+                         , MonadReader Env m
                          )
     => Text -- ^ 'ljbsStatus'
     -> State ListJobsByStatus a
-    -> ResumableSource m (Either ServiceEr ListJobsByStatusResponse)
+    -> Source m (Either ServiceEr ListJobsByStatusResponse)
 listJobsByStatusCatch p1 s =
     paginateCatch $ (mkListJobsByStatus p1) &~ s
 
@@ -674,19 +674,19 @@ listJobsByStatusCatch p1 s =
 listPipelines :: ( MonadCatch m
                  , MonadResource m
                  , MonadError AWS.Error m
-                 , MonadReader Env (ResumableSource m)
+                 , MonadReader Env m
                  )
     => State ListPipelines a
-    -> ResumableSource m ListPipelinesResponse
+    -> Source m ListPipelinesResponse
 listPipelines s =
     paginate (mkListPipelines &~ s)
 
 listPipelinesCatch :: ( MonadCatch m
                       , MonadResource m
-                      , MonadReader Env (ResumableSource m)
+                      , MonadReader Env m
                       )
     => State ListPipelines a
-    -> ResumableSource m (Either ServiceEr ListPipelinesResponse)
+    -> Source m (Either ServiceEr ListPipelinesResponse)
 listPipelinesCatch s =
     paginateCatch (mkListPipelines &~ s)
 
@@ -719,19 +719,19 @@ listPipelinesCatch s =
 listPresets :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
-               , MonadReader Env (ResumableSource m)
+               , MonadReader Env m
                )
     => State ListPresets a
-    -> ResumableSource m ListPresetsResponse
+    -> Source m ListPresetsResponse
 listPresets s =
     paginate (mkListPresets &~ s)
 
 listPresetsCatch :: ( MonadCatch m
                     , MonadResource m
-                    , MonadReader Env (ResumableSource m)
+                    , MonadReader Env m
                     )
     => State ListPresets a
-    -> ResumableSource m (Either ServiceEr ListPresetsResponse)
+    -> Source m (Either ServiceEr ListPresetsResponse)
 listPresetsCatch s =
     paginateCatch (mkListPresets &~ s)
 

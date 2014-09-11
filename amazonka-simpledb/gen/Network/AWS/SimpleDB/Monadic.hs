@@ -383,19 +383,19 @@ getAttributesCatch p1 p2 s =
 listDomains :: ( MonadCatch m
                , MonadResource m
                , MonadError AWS.Error m
-               , MonadReader Env (ResumableSource m)
+               , MonadReader Env m
                )
     => State ListDomains a
-    -> ResumableSource m ListDomainsResponse
+    -> Source m ListDomainsResponse
 listDomains s =
     paginate (mkListDomains &~ s)
 
 listDomainsCatch :: ( MonadCatch m
                     , MonadResource m
-                    , MonadReader Env (ResumableSource m)
+                    , MonadReader Env m
                     )
     => State ListDomains a
-    -> ResumableSource m (Either ServiceEr ListDomainsResponse)
+    -> Source m (Either ServiceEr ListDomainsResponse)
 listDomainsCatch s =
     paginateCatch (mkListDomains &~ s)
 
@@ -470,20 +470,20 @@ putAttributesCatch p1 p2 p3 s =
 select :: ( MonadCatch m
           , MonadResource m
           , MonadError AWS.Error m
-          , MonadReader Env (ResumableSource m)
+          , MonadReader Env m
           )
     => Text -- ^ 'sSelectExpression'
     -> State Select a
-    -> ResumableSource m SelectResponse
+    -> Source m SelectResponse
 select p1 s =
     paginate $ (mkSelect p1) &~ s
 
 selectCatch :: ( MonadCatch m
                , MonadResource m
-               , MonadReader Env (ResumableSource m)
+               , MonadReader Env m
                )
     => Text -- ^ 'sSelectExpression'
     -> State Select a
-    -> ResumableSource m (Either ServiceEr SelectResponse)
+    -> Source m (Either ServiceEr SelectResponse)
 selectCatch p1 s =
     paginateCatch $ (mkSelect p1) &~ s

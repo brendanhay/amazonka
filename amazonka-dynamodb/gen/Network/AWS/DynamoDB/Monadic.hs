@@ -497,19 +497,19 @@ getItemCatch p1 p2 s =
 listTables :: ( MonadCatch m
               , MonadResource m
               , MonadError AWS.Error m
-              , MonadReader Env (ResumableSource m)
+              , MonadReader Env m
               )
     => State ListTables a
-    -> ResumableSource m ListTablesResponse
+    -> Source m ListTablesResponse
 listTables s =
     paginate (mkListTables &~ s)
 
 listTablesCatch :: ( MonadCatch m
                    , MonadResource m
-                   , MonadReader Env (ResumableSource m)
+                   , MonadReader Env m
                    )
     => State ListTables a
-    -> ResumableSource m (Either ServiceEr ListTablesResponse)
+    -> Source m (Either ServiceEr ListTablesResponse)
 listTablesCatch s =
     paginateCatch (mkListTables &~ s)
 
@@ -589,21 +589,21 @@ putItemCatch p1 p2 s =
 query :: ( MonadCatch m
          , MonadResource m
          , MonadError AWS.Error m
-         , MonadReader Env (ResumableSource m)
+         , MonadReader Env m
          )
     => Text -- ^ 'qTableName'
     -> State Query a
-    -> ResumableSource m QueryResponse
+    -> Source m QueryResponse
 query p1 s =
     paginate $ (mkQuery p1) &~ s
 
 queryCatch :: ( MonadCatch m
               , MonadResource m
-              , MonadReader Env (ResumableSource m)
+              , MonadReader Env m
               )
     => Text -- ^ 'qTableName'
     -> State Query a
-    -> ResumableSource m (Either ServiceEr QueryResponse)
+    -> Source m (Either ServiceEr QueryResponse)
 queryCatch p1 s =
     paginateCatch $ (mkQuery p1) &~ s
 
@@ -636,21 +636,21 @@ queryCatch p1 s =
 scan :: ( MonadCatch m
         , MonadResource m
         , MonadError AWS.Error m
-        , MonadReader Env (ResumableSource m)
+        , MonadReader Env m
         )
     => Text -- ^ 'sTableName'
     -> State Scan a
-    -> ResumableSource m ScanResponse
+    -> Source m ScanResponse
 scan p1 s =
     paginate $ (mkScan p1) &~ s
 
 scanCatch :: ( MonadCatch m
              , MonadResource m
-             , MonadReader Env (ResumableSource m)
+             , MonadReader Env m
              )
     => Text -- ^ 'sTableName'
     -> State Scan a
-    -> ResumableSource m (Either ServiceEr ScanResponse)
+    -> Source m (Either ServiceEr ScanResponse)
 scanCatch p1 s =
     paginateCatch $ (mkScan p1) &~ s
 

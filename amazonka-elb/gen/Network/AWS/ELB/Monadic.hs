@@ -903,19 +903,19 @@ describeLoadBalancerPolicyTypesCatch s =
 describeLoadBalancers :: ( MonadCatch m
                          , MonadResource m
                          , MonadError AWS.Error m
-                         , MonadReader Env (ResumableSource m)
+                         , MonadReader Env m
                          )
     => State DescribeLoadBalancers a
-    -> ResumableSource m DescribeLoadBalancersResponse
+    -> Source m DescribeLoadBalancersResponse
 describeLoadBalancers s =
     paginate (mkDescribeLoadBalancers &~ s)
 
 describeLoadBalancersCatch :: ( MonadCatch m
                               , MonadResource m
-                              , MonadReader Env (ResumableSource m)
+                              , MonadReader Env m
                               )
     => State DescribeLoadBalancers a
-    -> ResumableSource m (Either ServiceEr DescribeLoadBalancersResponse)
+    -> Source m (Either ServiceEr DescribeLoadBalancersResponse)
 describeLoadBalancersCatch s =
     paginateCatch (mkDescribeLoadBalancers &~ s)
 

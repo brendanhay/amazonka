@@ -157,8 +157,8 @@ createStream :: ( MonadCatch m
     => Text -- ^ 'csStreamName'
     -> Integer -- ^ 'csShardCount'
     -> m CreateStreamResponse
-createStream p1 p2 s =
-    send $ (mkCreateStream p1 p2) &~ s
+createStream p1 p2 =
+    send (mkCreateStream p1 p2)
 
 createStreamCatch :: ( MonadCatch m
                      , MonadResource m
@@ -167,8 +167,8 @@ createStreamCatch :: ( MonadCatch m
     => Text -- ^ 'csStreamName'
     -> Integer -- ^ 'csShardCount'
     -> m (Either ServiceEr CreateStreamResponse)
-createStreamCatch p1 p2 s =
-    sendCatch $ (mkCreateStream p1 p2) &~ s
+createStreamCatch p1 p2 =
+    sendCatch (mkCreateStream p1 p2)
 
 -- $DeleteStream
 -- This operation deletes a stream and all of its shards and data. You must
@@ -202,8 +202,8 @@ deleteStream :: ( MonadCatch m
                 )
     => Text -- ^ 'dsStreamName'
     -> m DeleteStreamResponse
-deleteStream p1 s =
-    send $ (mkDeleteStream p1) &~ s
+deleteStream p1 =
+    send (mkDeleteStream p1)
 
 deleteStreamCatch :: ( MonadCatch m
                      , MonadResource m
@@ -211,8 +211,8 @@ deleteStreamCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'dsStreamName'
     -> m (Either ServiceEr DeleteStreamResponse)
-deleteStreamCatch p1 s =
-    sendCatch $ (mkDeleteStream p1) &~ s
+deleteStreamCatch p1 =
+    sendCatch (mkDeleteStream p1)
 
 -- $DescribeStream
 -- This operation returns the following information about the stream: the
@@ -267,6 +267,7 @@ describeStream :: ( MonadCatch m
                   , MonadReader Env (ResumableSource m)
                   )
     => Text -- ^ 'ds1StreamName'
+    -> State DescribeStream a
     -> ResumableSource m DescribeStreamResponse
 describeStream p1 s =
     paginate $ (mkDescribeStream p1) &~ s
@@ -276,6 +277,7 @@ describeStreamCatch :: ( MonadCatch m
                        , MonadReader Env (ResumableSource m)
                        )
     => Text -- ^ 'ds1StreamName'
+    -> State DescribeStream a
     -> ResumableSource m (Either ServiceEr DescribeStreamResponse)
 describeStreamCatch p1 s =
     paginateCatch $ (mkDescribeStream p1) &~ s
@@ -328,6 +330,7 @@ getRecords :: ( MonadCatch m
               , MonadReader Env m
               )
     => Text -- ^ 'grShardIterator'
+    -> State GetRecords a
     -> m GetRecordsResponse
 getRecords p1 s =
     send $ (mkGetRecords p1) &~ s
@@ -337,6 +340,7 @@ getRecordsCatch :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'grShardIterator'
+    -> State GetRecords a
     -> m (Either ServiceEr GetRecordsResponse)
 getRecordsCatch p1 s =
     sendCatch $ (mkGetRecords p1) &~ s
@@ -397,6 +401,7 @@ getShardIterator :: ( MonadCatch m
     => Text -- ^ 'gsiStreamName'
     -> Text -- ^ 'gsiShardId'
     -> ShardIteratorType -- ^ 'gsiShardIteratorType'
+    -> State GetShardIterator a
     -> m GetShardIteratorResponse
 getShardIterator p1 p2 p3 s =
     send $ (mkGetShardIterator p1 p2 p3) &~ s
@@ -408,6 +413,7 @@ getShardIteratorCatch :: ( MonadCatch m
     => Text -- ^ 'gsiStreamName'
     -> Text -- ^ 'gsiShardId'
     -> ShardIteratorType -- ^ 'gsiShardIteratorType'
+    -> State GetShardIterator a
     -> m (Either ServiceEr GetShardIteratorResponse)
 getShardIteratorCatch p1 p2 p3 s =
     sendCatch $ (mkGetShardIterator p1 p2 p3) &~ s
@@ -510,8 +516,8 @@ mergeShards :: ( MonadCatch m
     -> Text -- ^ 'msShardToMerge'
     -> Text -- ^ 'msAdjacentShardToMerge'
     -> m MergeShardsResponse
-mergeShards p1 p2 p3 s =
-    send $ (mkMergeShards p1 p2 p3) &~ s
+mergeShards p1 p2 p3 =
+    send (mkMergeShards p1 p2 p3)
 
 mergeShardsCatch :: ( MonadCatch m
                     , MonadResource m
@@ -521,8 +527,8 @@ mergeShardsCatch :: ( MonadCatch m
     -> Text -- ^ 'msShardToMerge'
     -> Text -- ^ 'msAdjacentShardToMerge'
     -> m (Either ServiceEr MergeShardsResponse)
-mergeShardsCatch p1 p2 p3 s =
-    sendCatch $ (mkMergeShards p1 p2 p3) &~ s
+mergeShardsCatch p1 p2 p3 =
+    sendCatch (mkMergeShards p1 p2 p3)
 
 -- $PutRecord
 -- This operation puts a data record into an Amazon Kinesis stream from a
@@ -573,6 +579,7 @@ putRecord :: ( MonadCatch m
     => Text -- ^ 'prStreamName'
     -> Base64 -- ^ 'prData'
     -> Text -- ^ 'prPartitionKey'
+    -> State PutRecord a
     -> m PutRecordResponse
 putRecord p1 p2 p3 s =
     send $ (mkPutRecord p1 p2 p3) &~ s
@@ -584,6 +591,7 @@ putRecordCatch :: ( MonadCatch m
     => Text -- ^ 'prStreamName'
     -> Base64 -- ^ 'prData'
     -> Text -- ^ 'prPartitionKey'
+    -> State PutRecord a
     -> m (Either ServiceEr PutRecordResponse)
 putRecordCatch p1 p2 p3 s =
     sendCatch $ (mkPutRecord p1 p2 p3) &~ s
@@ -646,8 +654,8 @@ splitShard :: ( MonadCatch m
     -> Text -- ^ 'ssShardToSplit'
     -> Text -- ^ 'ssNewStartingHashKey'
     -> m SplitShardResponse
-splitShard p1 p2 p3 s =
-    send $ (mkSplitShard p1 p2 p3) &~ s
+splitShard p1 p2 p3 =
+    send (mkSplitShard p1 p2 p3)
 
 splitShardCatch :: ( MonadCatch m
                    , MonadResource m
@@ -657,5 +665,5 @@ splitShardCatch :: ( MonadCatch m
     -> Text -- ^ 'ssShardToSplit'
     -> Text -- ^ 'ssNewStartingHashKey'
     -> m (Either ServiceEr SplitShardResponse)
-splitShardCatch p1 p2 p3 s =
-    sendCatch $ (mkSplitShard p1 p2 p3) &~ s
+splitShardCatch p1 p2 p3 =
+    sendCatch (mkSplitShard p1 p2 p3)

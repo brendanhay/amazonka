@@ -156,8 +156,8 @@ cancelUpdateStack :: ( MonadCatch m
                      )
     => Text -- ^ 'cusStackName'
     -> m CancelUpdateStackResponse
-cancelUpdateStack p1 s =
-    send $ (mkCancelUpdateStack p1) &~ s
+cancelUpdateStack p1 =
+    send (mkCancelUpdateStack p1)
 
 cancelUpdateStackCatch :: ( MonadCatch m
                           , MonadResource m
@@ -165,8 +165,8 @@ cancelUpdateStackCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'cusStackName'
     -> m (Either ServiceEr CancelUpdateStackResponse)
-cancelUpdateStackCatch p1 s =
-    sendCatch $ (mkCancelUpdateStack p1) &~ s
+cancelUpdateStackCatch p1 =
+    sendCatch (mkCancelUpdateStack p1)
 
 -- $CreateStack
 -- Creates a stack as specified in the template. After the call completes
@@ -190,6 +190,7 @@ createStack :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'csStackName'
+    -> State CreateStack a
     -> m CreateStackResponse
 createStack p1 s =
     send $ (mkCreateStack p1) &~ s
@@ -199,6 +200,7 @@ createStackCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'csStackName'
+    -> State CreateStack a
     -> m (Either ServiceEr CreateStackResponse)
 createStackCatch p1 s =
     sendCatch $ (mkCreateStack p1) &~ s
@@ -221,8 +223,8 @@ deleteStack :: ( MonadCatch m
                )
     => Text -- ^ 'dsStackName'
     -> m DeleteStackResponse
-deleteStack p1 s =
-    send $ (mkDeleteStack p1) &~ s
+deleteStack p1 =
+    send (mkDeleteStack p1)
 
 deleteStackCatch :: ( MonadCatch m
                     , MonadResource m
@@ -230,8 +232,8 @@ deleteStackCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'dsStackName'
     -> m (Either ServiceEr DeleteStackResponse)
-deleteStackCatch p1 s =
-    sendCatch $ (mkDeleteStack p1) &~ s
+deleteStackCatch p1 =
+    sendCatch (mkDeleteStack p1)
 
 -- $DescribeStackEvents
 -- Returns all stack related events for a specified stack. For more
@@ -260,6 +262,7 @@ describeStackEvents :: ( MonadCatch m
                        , MonadReader Env (ResumableSource m)
                        )
     => Text -- ^ 'dseStackName'
+    -> State DescribeStackEvents a
     -> ResumableSource m DescribeStackEventsResponse
 describeStackEvents p1 s =
     paginate $ (mkDescribeStackEvents p1) &~ s
@@ -269,6 +272,7 @@ describeStackEventsCatch :: ( MonadCatch m
                             , MonadReader Env (ResumableSource m)
                             )
     => Text -- ^ 'dseStackName'
+    -> State DescribeStackEvents a
     -> ResumableSource m (Either ServiceEr DescribeStackEventsResponse)
 describeStackEventsCatch p1 s =
     paginateCatch $ (mkDescribeStackEvents p1) &~ s
@@ -296,8 +300,8 @@ describeStackResource :: ( MonadCatch m
     => Text -- ^ 'dsrStackName'
     -> Text -- ^ 'dsrLogicalResourceId'
     -> m DescribeStackResourceResponse
-describeStackResource p1 p2 s =
-    send $ (mkDescribeStackResource p1 p2) &~ s
+describeStackResource p1 p2 =
+    send (mkDescribeStackResource p1 p2)
 
 describeStackResourceCatch :: ( MonadCatch m
                               , MonadResource m
@@ -306,8 +310,8 @@ describeStackResourceCatch :: ( MonadCatch m
     => Text -- ^ 'dsrStackName'
     -> Text -- ^ 'dsrLogicalResourceId'
     -> m (Either ServiceEr DescribeStackResourceResponse)
-describeStackResourceCatch p1 p2 s =
-    sendCatch $ (mkDescribeStackResource p1 p2) &~ s
+describeStackResourceCatch p1 p2 =
+    sendCatch (mkDescribeStackResource p1 p2)
 
 -- $DescribeStackResources
 -- Returns AWS resource descriptions for running and deleted stacks. If
@@ -441,8 +445,8 @@ getStackPolicy :: ( MonadCatch m
                   )
     => Text -- ^ 'gspStackName'
     -> m GetStackPolicyResponse
-getStackPolicy p1 s =
-    send $ (mkGetStackPolicy p1) &~ s
+getStackPolicy p1 =
+    send (mkGetStackPolicy p1)
 
 getStackPolicyCatch :: ( MonadCatch m
                        , MonadResource m
@@ -450,8 +454,8 @@ getStackPolicyCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'gspStackName'
     -> m (Either ServiceEr GetStackPolicyResponse)
-getStackPolicyCatch p1 s =
-    sendCatch $ (mkGetStackPolicy p1) &~ s
+getStackPolicyCatch p1 =
+    sendCatch (mkGetStackPolicy p1)
 
 -- $GetTemplate
 -- Returns the template body for a specified stack. You can get the template
@@ -474,8 +478,8 @@ getTemplate :: ( MonadCatch m
                )
     => Text -- ^ 'gtStackName'
     -> m GetTemplateResponse
-getTemplate p1 s =
-    send $ (mkGetTemplate p1) &~ s
+getTemplate p1 =
+    send (mkGetTemplate p1)
 
 getTemplateCatch :: ( MonadCatch m
                     , MonadResource m
@@ -483,8 +487,8 @@ getTemplateCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'gtStackName'
     -> m (Either ServiceEr GetTemplateResponse)
-getTemplateCatch p1 s =
-    sendCatch $ (mkGetTemplate p1) &~ s
+getTemplateCatch p1 =
+    sendCatch (mkGetTemplate p1)
 
 -- $ListStackResources
 -- Returns descriptions of all resources of the specified stack. For deleted
@@ -514,6 +518,7 @@ listStackResources :: ( MonadCatch m
                       , MonadReader Env (ResumableSource m)
                       )
     => Text -- ^ 'lsrStackName'
+    -> State ListStackResources a
     -> ResumableSource m ListStackResourcesResponse
 listStackResources p1 s =
     paginate $ (mkListStackResources p1) &~ s
@@ -523,6 +528,7 @@ listStackResourcesCatch :: ( MonadCatch m
                            , MonadReader Env (ResumableSource m)
                            )
     => Text -- ^ 'lsrStackName'
+    -> State ListStackResources a
     -> ResumableSource m (Either ServiceEr ListStackResourcesResponse)
 listStackResourcesCatch p1 s =
     paginateCatch $ (mkListStackResources p1) &~ s
@@ -583,6 +589,7 @@ setStackPolicy :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'sspStackName'
+    -> State SetStackPolicy a
     -> m SetStackPolicyResponse
 setStackPolicy p1 s =
     send $ (mkSetStackPolicy p1) &~ s
@@ -592,6 +599,7 @@ setStackPolicyCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'sspStackName'
+    -> State SetStackPolicy a
     -> m (Either ServiceEr SetStackPolicyResponse)
 setStackPolicyCatch p1 s =
     sendCatch $ (mkSetStackPolicy p1) &~ s
@@ -622,6 +630,7 @@ updateStack :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'usStackName'
+    -> State UpdateStack a
     -> m UpdateStackResponse
 updateStack p1 s =
     send $ (mkUpdateStack p1) &~ s
@@ -631,6 +640,7 @@ updateStackCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'usStackName'
+    -> State UpdateStack a
     -> m (Either ServiceEr UpdateStackResponse)
 updateStackCatch p1 s =
     sendCatch $ (mkUpdateStack p1) &~ s

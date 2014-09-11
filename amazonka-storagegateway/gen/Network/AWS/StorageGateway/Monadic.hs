@@ -330,6 +330,7 @@ activateGateway :: ( MonadCatch m
     -> Text -- ^ 'agGatewayName'
     -> Text -- ^ 'agGatewayTimezone'
     -> Text -- ^ 'agGatewayRegion'
+    -> State ActivateGateway a
     -> m ActivateGatewayResponse
 activateGateway p1 p2 p3 p4 s =
     send $ (mkActivateGateway p1 p2 p3 p4) &~ s
@@ -342,6 +343,7 @@ activateGatewayCatch :: ( MonadCatch m
     -> Text -- ^ 'agGatewayName'
     -> Text -- ^ 'agGatewayTimezone'
     -> Text -- ^ 'agGatewayRegion'
+    -> State ActivateGateway a
     -> m (Either ServiceEr ActivateGatewayResponse)
 activateGatewayCatch p1 p2 p3 p4 s =
     sendCatch $ (mkActivateGateway p1 p2 p3 p4) &~ s
@@ -378,8 +380,8 @@ addCache :: ( MonadCatch m
     => Text -- ^ 'acGatewayARN'
     -> [Text] -- ^ 'acDiskIds'
     -> m AddCacheResponse
-addCache p1 p2 s =
-    send $ (mkAddCache p1 p2) &~ s
+addCache p1 p2 =
+    send (mkAddCache p1 p2)
 
 addCacheCatch :: ( MonadCatch m
                  , MonadResource m
@@ -388,8 +390,8 @@ addCacheCatch :: ( MonadCatch m
     => Text -- ^ 'acGatewayARN'
     -> [Text] -- ^ 'acDiskIds'
     -> m (Either ServiceEr AddCacheResponse)
-addCacheCatch p1 p2 s =
-    sendCatch $ (mkAddCache p1 p2) &~ s
+addCacheCatch p1 p2 =
+    sendCatch (mkAddCache p1 p2)
 
 -- $AddUploadBuffer
 -- This operation configures one or more gateway local disks as upload buffer
@@ -409,8 +411,8 @@ addUploadBuffer :: ( MonadCatch m
     => Text -- ^ 'aubGatewayARN'
     -> [Text] -- ^ 'aubDiskIds'
     -> m AddUploadBufferResponse
-addUploadBuffer p1 p2 s =
-    send $ (mkAddUploadBuffer p1 p2) &~ s
+addUploadBuffer p1 p2 =
+    send (mkAddUploadBuffer p1 p2)
 
 addUploadBufferCatch :: ( MonadCatch m
                         , MonadResource m
@@ -419,8 +421,8 @@ addUploadBufferCatch :: ( MonadCatch m
     => Text -- ^ 'aubGatewayARN'
     -> [Text] -- ^ 'aubDiskIds'
     -> m (Either ServiceEr AddUploadBufferResponse)
-addUploadBufferCatch p1 p2 s =
-    sendCatch $ (mkAddUploadBuffer p1 p2) &~ s
+addUploadBufferCatch p1 p2 =
+    sendCatch (mkAddUploadBuffer p1 p2)
 
 -- $AddWorkingStorage
 -- This operation configures one or more gateway local disks as working
@@ -454,8 +456,8 @@ addWorkingStorage :: ( MonadCatch m
     => Text -- ^ 'awsGatewayARN'
     -> [Text] -- ^ 'awsDiskIds'
     -> m AddWorkingStorageResponse
-addWorkingStorage p1 p2 s =
-    send $ (mkAddWorkingStorage p1 p2) &~ s
+addWorkingStorage p1 p2 =
+    send (mkAddWorkingStorage p1 p2)
 
 addWorkingStorageCatch :: ( MonadCatch m
                           , MonadResource m
@@ -464,8 +466,8 @@ addWorkingStorageCatch :: ( MonadCatch m
     => Text -- ^ 'awsGatewayARN'
     -> [Text] -- ^ 'awsDiskIds'
     -> m (Either ServiceEr AddWorkingStorageResponse)
-addWorkingStorageCatch p1 p2 s =
-    sendCatch $ (mkAddWorkingStorage p1 p2) &~ s
+addWorkingStorageCatch p1 p2 =
+    sendCatch (mkAddWorkingStorage p1 p2)
 
 -- $CancelArchival
 -- See: 'Network.AWS.StorageGateway.CancelArchival'
@@ -478,8 +480,8 @@ cancelArchival :: ( MonadCatch m
     => Text -- ^ 'caGatewayARN'
     -> Text -- ^ 'caTapeARN'
     -> m CancelArchivalResponse
-cancelArchival p1 p2 s =
-    send $ (mkCancelArchival p1 p2) &~ s
+cancelArchival p1 p2 =
+    send (mkCancelArchival p1 p2)
 
 cancelArchivalCatch :: ( MonadCatch m
                        , MonadResource m
@@ -488,8 +490,8 @@ cancelArchivalCatch :: ( MonadCatch m
     => Text -- ^ 'caGatewayARN'
     -> Text -- ^ 'caTapeARN'
     -> m (Either ServiceEr CancelArchivalResponse)
-cancelArchivalCatch p1 p2 s =
-    sendCatch $ (mkCancelArchival p1 p2) &~ s
+cancelArchivalCatch p1 p2 =
+    sendCatch (mkCancelArchival p1 p2)
 
 -- $CancelRetrieval
 -- See: 'Network.AWS.StorageGateway.CancelRetrieval'
@@ -502,8 +504,8 @@ cancelRetrieval :: ( MonadCatch m
     => Text -- ^ 'crGatewayARN'
     -> Text -- ^ 'crTapeARN'
     -> m CancelRetrievalResponse
-cancelRetrieval p1 p2 s =
-    send $ (mkCancelRetrieval p1 p2) &~ s
+cancelRetrieval p1 p2 =
+    send (mkCancelRetrieval p1 p2)
 
 cancelRetrievalCatch :: ( MonadCatch m
                         , MonadResource m
@@ -512,8 +514,8 @@ cancelRetrievalCatch :: ( MonadCatch m
     => Text -- ^ 'crGatewayARN'
     -> Text -- ^ 'crTapeARN'
     -> m (Either ServiceEr CancelRetrievalResponse)
-cancelRetrievalCatch p1 p2 s =
-    sendCatch $ (mkCancelRetrieval p1 p2) &~ s
+cancelRetrievalCatch p1 p2 =
+    sendCatch (mkCancelRetrieval p1 p2)
 
 -- $CreateCachediSCSIVolume
 -- This operation creates a cached volume on a specified cached gateway. This
@@ -559,6 +561,7 @@ createCachediSCSIVolume :: ( MonadCatch m
     -> Text -- ^ 'ccscsivTargetName'
     -> Text -- ^ 'ccscsivNetworkInterfaceId'
     -> Text -- ^ 'ccscsivClientToken'
+    -> State CreateCachediSCSIVolume a
     -> m CreateCachediSCSIVolumeResponse
 createCachediSCSIVolume p1 p2 p4 p5 p6 s =
     send $ (mkCreateCachediSCSIVolume p1 p2 p4 p5 p6) &~ s
@@ -572,6 +575,7 @@ createCachediSCSIVolumeCatch :: ( MonadCatch m
     -> Text -- ^ 'ccscsivTargetName'
     -> Text -- ^ 'ccscsivNetworkInterfaceId'
     -> Text -- ^ 'ccscsivClientToken'
+    -> State CreateCachediSCSIVolume a
     -> m (Either ServiceEr CreateCachediSCSIVolumeResponse)
 createCachediSCSIVolumeCatch p1 p2 p4 p5 p6 s =
     sendCatch $ (mkCreateCachediSCSIVolume p1 p2 p4 p5 p6) &~ s
@@ -616,8 +620,8 @@ createSnapshot :: ( MonadCatch m
     => Text -- ^ 'csVolumeARN'
     -> Text -- ^ 'csSnapshotDescription'
     -> m CreateSnapshotResponse
-createSnapshot p1 p2 s =
-    send $ (mkCreateSnapshot p1 p2) &~ s
+createSnapshot p1 p2 =
+    send (mkCreateSnapshot p1 p2)
 
 createSnapshotCatch :: ( MonadCatch m
                        , MonadResource m
@@ -626,8 +630,8 @@ createSnapshotCatch :: ( MonadCatch m
     => Text -- ^ 'csVolumeARN'
     -> Text -- ^ 'csSnapshotDescription'
     -> m (Either ServiceEr CreateSnapshotResponse)
-createSnapshotCatch p1 p2 s =
-    sendCatch $ (mkCreateSnapshot p1 p2) &~ s
+createSnapshotCatch p1 p2 =
+    sendCatch (mkCreateSnapshot p1 p2)
 
 -- $CreateSnapshotFromVolumeRecoveryPoint
 -- This operation initiates a snapshot of a gateway from a volume recovery
@@ -674,8 +678,8 @@ createSnapshotFromVolumeRecoveryPoint :: ( MonadCatch m
     => Text -- ^ 'csfvrpVolumeARN'
     -> Text -- ^ 'csfvrpSnapshotDescription'
     -> m CreateSnapshotFromVolumeRecoveryPointResponse
-createSnapshotFromVolumeRecoveryPoint p1 p2 s =
-    send $ (mkCreateSnapshotFromVolumeRecoveryPoint p1 p2) &~ s
+createSnapshotFromVolumeRecoveryPoint p1 p2 =
+    send (mkCreateSnapshotFromVolumeRecoveryPoint p1 p2)
 
 createSnapshotFromVolumeRecoveryPointCatch :: ( MonadCatch m
                                               , MonadResource m
@@ -684,8 +688,8 @@ createSnapshotFromVolumeRecoveryPointCatch :: ( MonadCatch m
     => Text -- ^ 'csfvrpVolumeARN'
     -> Text -- ^ 'csfvrpSnapshotDescription'
     -> m (Either ServiceEr CreateSnapshotFromVolumeRecoveryPointResponse)
-createSnapshotFromVolumeRecoveryPointCatch p1 p2 s =
-    sendCatch $ (mkCreateSnapshotFromVolumeRecoveryPoint p1 p2) &~ s
+createSnapshotFromVolumeRecoveryPointCatch p1 p2 =
+    sendCatch (mkCreateSnapshotFromVolumeRecoveryPoint p1 p2)
 
 -- $CreateStorediSCSIVolume
 -- This operation creates a volume on a specified gateway. This operation is
@@ -728,6 +732,7 @@ createStorediSCSIVolume :: ( MonadCatch m
     -> Bool -- ^ 'csscsivPreserveExistingData'
     -> Text -- ^ 'csscsivTargetName'
     -> Text -- ^ 'csscsivNetworkInterfaceId'
+    -> State CreateStorediSCSIVolume a
     -> m CreateStorediSCSIVolumeResponse
 createStorediSCSIVolume p1 p2 p4 p5 p6 s =
     send $ (mkCreateStorediSCSIVolume p1 p2 p4 p5 p6) &~ s
@@ -741,6 +746,7 @@ createStorediSCSIVolumeCatch :: ( MonadCatch m
     -> Bool -- ^ 'csscsivPreserveExistingData'
     -> Text -- ^ 'csscsivTargetName'
     -> Text -- ^ 'csscsivNetworkInterfaceId'
+    -> State CreateStorediSCSIVolume a
     -> m (Either ServiceEr CreateStorediSCSIVolumeResponse)
 createStorediSCSIVolumeCatch p1 p2 p4 p5 p6 s =
     sendCatch $ (mkCreateStorediSCSIVolume p1 p2 p4 p5 p6) &~ s
@@ -759,8 +765,8 @@ createTapes :: ( MonadCatch m
     -> Integer -- ^ 'ctNumTapesToCreate'
     -> Text -- ^ 'ctTapeBarcodePrefix'
     -> m CreateTapesResponse
-createTapes p1 p2 p3 p4 p5 s =
-    send $ (mkCreateTapes p1 p2 p3 p4 p5) &~ s
+createTapes p1 p2 p3 p4 p5 =
+    send (mkCreateTapes p1 p2 p3 p4 p5)
 
 createTapesCatch :: ( MonadCatch m
                     , MonadResource m
@@ -772,8 +778,8 @@ createTapesCatch :: ( MonadCatch m
     -> Integer -- ^ 'ctNumTapesToCreate'
     -> Text -- ^ 'ctTapeBarcodePrefix'
     -> m (Either ServiceEr CreateTapesResponse)
-createTapesCatch p1 p2 p3 p4 p5 s =
-    sendCatch $ (mkCreateTapes p1 p2 p3 p4 p5) &~ s
+createTapesCatch p1 p2 p3 p4 p5 =
+    sendCatch (mkCreateTapes p1 p2 p3 p4 p5)
 
 -- $DeleteBandwidthRateLimit
 -- This operation deletes the bandwidth rate limits of a gateway. You can
@@ -804,8 +810,8 @@ deleteBandwidthRateLimit :: ( MonadCatch m
     => Text -- ^ 'dbrlGatewayARN'
     -> Text -- ^ 'dbrlBandwidthType'
     -> m DeleteBandwidthRateLimitResponse
-deleteBandwidthRateLimit p1 p2 s =
-    send $ (mkDeleteBandwidthRateLimit p1 p2) &~ s
+deleteBandwidthRateLimit p1 p2 =
+    send (mkDeleteBandwidthRateLimit p1 p2)
 
 deleteBandwidthRateLimitCatch :: ( MonadCatch m
                                  , MonadResource m
@@ -814,8 +820,8 @@ deleteBandwidthRateLimitCatch :: ( MonadCatch m
     => Text -- ^ 'dbrlGatewayARN'
     -> Text -- ^ 'dbrlBandwidthType'
     -> m (Either ServiceEr DeleteBandwidthRateLimitResponse)
-deleteBandwidthRateLimitCatch p1 p2 s =
-    sendCatch $ (mkDeleteBandwidthRateLimit p1 p2) &~ s
+deleteBandwidthRateLimitCatch p1 p2 =
+    sendCatch (mkDeleteBandwidthRateLimit p1 p2)
 
 -- $DeleteChapCredentials
 -- This operation deletes Challenge-Handshake Authentication Protocol (CHAP)
@@ -846,8 +852,8 @@ deleteChapCredentials :: ( MonadCatch m
     => Text -- ^ 'dccTargetARN'
     -> Text -- ^ 'dccInitiatorName'
     -> m DeleteChapCredentialsResponse
-deleteChapCredentials p1 p2 s =
-    send $ (mkDeleteChapCredentials p1 p2) &~ s
+deleteChapCredentials p1 p2 =
+    send (mkDeleteChapCredentials p1 p2)
 
 deleteChapCredentialsCatch :: ( MonadCatch m
                               , MonadResource m
@@ -856,8 +862,8 @@ deleteChapCredentialsCatch :: ( MonadCatch m
     => Text -- ^ 'dccTargetARN'
     -> Text -- ^ 'dccInitiatorName'
     -> m (Either ServiceEr DeleteChapCredentialsResponse)
-deleteChapCredentialsCatch p1 p2 s =
-    sendCatch $ (mkDeleteChapCredentials p1 p2) &~ s
+deleteChapCredentialsCatch p1 p2 =
+    sendCatch (mkDeleteChapCredentials p1 p2)
 
 -- $DeleteGateway
 -- This operation deletes a gateway. To specify which gateway to delete, use
@@ -895,8 +901,8 @@ deleteGateway :: ( MonadCatch m
                  )
     => Text -- ^ 'dgGatewayARN'
     -> m DeleteGatewayResponse
-deleteGateway p1 s =
-    send $ (mkDeleteGateway p1) &~ s
+deleteGateway p1 =
+    send (mkDeleteGateway p1)
 
 deleteGatewayCatch :: ( MonadCatch m
                       , MonadResource m
@@ -904,8 +910,8 @@ deleteGatewayCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'dgGatewayARN'
     -> m (Either ServiceEr DeleteGatewayResponse)
-deleteGatewayCatch p1 s =
-    sendCatch $ (mkDeleteGateway p1) &~ s
+deleteGatewayCatch p1 =
+    sendCatch (mkDeleteGateway p1)
 
 -- $DeleteSnapshotSchedule
 -- This operation deletes a snapshot of a volume. You can take snapshots of
@@ -939,8 +945,8 @@ deleteSnapshotSchedule :: ( MonadCatch m
                           )
     => Text -- ^ 'dssVolumeARN'
     -> m DeleteSnapshotScheduleResponse
-deleteSnapshotSchedule p1 s =
-    send $ (mkDeleteSnapshotSchedule p1) &~ s
+deleteSnapshotSchedule p1 =
+    send (mkDeleteSnapshotSchedule p1)
 
 deleteSnapshotScheduleCatch :: ( MonadCatch m
                                , MonadResource m
@@ -948,8 +954,8 @@ deleteSnapshotScheduleCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'dssVolumeARN'
     -> m (Either ServiceEr DeleteSnapshotScheduleResponse)
-deleteSnapshotScheduleCatch p1 s =
-    sendCatch $ (mkDeleteSnapshotSchedule p1) &~ s
+deleteSnapshotScheduleCatch p1 =
+    sendCatch (mkDeleteSnapshotSchedule p1)
 
 -- $DeleteTape
 -- See: 'Network.AWS.StorageGateway.DeleteTape'
@@ -962,8 +968,8 @@ deleteTape :: ( MonadCatch m
     => Text -- ^ 'dtGatewayARN'
     -> Text -- ^ 'dtTapeARN'
     -> m DeleteTapeResponse
-deleteTape p1 p2 s =
-    send $ (mkDeleteTape p1 p2) &~ s
+deleteTape p1 p2 =
+    send (mkDeleteTape p1 p2)
 
 deleteTapeCatch :: ( MonadCatch m
                    , MonadResource m
@@ -972,8 +978,8 @@ deleteTapeCatch :: ( MonadCatch m
     => Text -- ^ 'dtGatewayARN'
     -> Text -- ^ 'dtTapeARN'
     -> m (Either ServiceEr DeleteTapeResponse)
-deleteTapeCatch p1 p2 s =
-    sendCatch $ (mkDeleteTape p1 p2) &~ s
+deleteTapeCatch p1 p2 =
+    sendCatch (mkDeleteTape p1 p2)
 
 -- $DeleteTapeArchive
 -- See: 'Network.AWS.StorageGateway.DeleteTapeArchive'
@@ -985,8 +991,8 @@ deleteTapeArchive :: ( MonadCatch m
                      )
     => Text -- ^ 'dtaTapeARN'
     -> m DeleteTapeArchiveResponse
-deleteTapeArchive p1 s =
-    send $ (mkDeleteTapeArchive p1) &~ s
+deleteTapeArchive p1 =
+    send (mkDeleteTapeArchive p1)
 
 deleteTapeArchiveCatch :: ( MonadCatch m
                           , MonadResource m
@@ -994,8 +1000,8 @@ deleteTapeArchiveCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'dtaTapeARN'
     -> m (Either ServiceEr DeleteTapeArchiveResponse)
-deleteTapeArchiveCatch p1 s =
-    sendCatch $ (mkDeleteTapeArchive p1) &~ s
+deleteTapeArchiveCatch p1 =
+    sendCatch (mkDeleteTapeArchive p1)
 
 -- $DeleteVolume
 -- This operation delete the specified gateway volume that you previously
@@ -1032,8 +1038,8 @@ deleteVolume :: ( MonadCatch m
                 )
     => Text -- ^ 'dvVolumeARN'
     -> m DeleteVolumeResponse
-deleteVolume p1 s =
-    send $ (mkDeleteVolume p1) &~ s
+deleteVolume p1 =
+    send (mkDeleteVolume p1)
 
 deleteVolumeCatch :: ( MonadCatch m
                      , MonadResource m
@@ -1041,8 +1047,8 @@ deleteVolumeCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'dvVolumeARN'
     -> m (Either ServiceEr DeleteVolumeResponse)
-deleteVolumeCatch p1 s =
-    sendCatch $ (mkDeleteVolume p1) &~ s
+deleteVolumeCatch p1 =
+    sendCatch (mkDeleteVolume p1)
 
 -- $DescribeBandwidthRateLimit
 -- This operation returns the bandwidth rate limits of a gateway. By default,
@@ -1076,8 +1082,8 @@ describeBandwidthRateLimit :: ( MonadCatch m
                               )
     => Text -- ^ 'dbrl1GatewayARN'
     -> m DescribeBandwidthRateLimitResponse
-describeBandwidthRateLimit p1 s =
-    send $ (mkDescribeBandwidthRateLimit p1) &~ s
+describeBandwidthRateLimit p1 =
+    send (mkDescribeBandwidthRateLimit p1)
 
 describeBandwidthRateLimitCatch :: ( MonadCatch m
                                    , MonadResource m
@@ -1085,8 +1091,8 @@ describeBandwidthRateLimitCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'dbrl1GatewayARN'
     -> m (Either ServiceEr DescribeBandwidthRateLimitResponse)
-describeBandwidthRateLimitCatch p1 s =
-    sendCatch $ (mkDescribeBandwidthRateLimit p1) &~ s
+describeBandwidthRateLimitCatch p1 =
+    sendCatch (mkDescribeBandwidthRateLimit p1)
 
 -- $DescribeCache
 -- This operation returns information about the cache of a gateway. This
@@ -1120,8 +1126,8 @@ describeCache :: ( MonadCatch m
                  )
     => Text -- ^ 'dcGatewayARN'
     -> m DescribeCacheResponse
-describeCache p1 s =
-    send $ (mkDescribeCache p1) &~ s
+describeCache p1 =
+    send (mkDescribeCache p1)
 
 describeCacheCatch :: ( MonadCatch m
                       , MonadResource m
@@ -1129,8 +1135,8 @@ describeCacheCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'dcGatewayARN'
     -> m (Either ServiceEr DescribeCacheResponse)
-describeCacheCatch p1 s =
-    sendCatch $ (mkDescribeCache p1) &~ s
+describeCacheCatch p1 =
+    sendCatch (mkDescribeCache p1)
 
 -- $DescribeCachediSCSIVolumes
 -- This operation returns a description of the gateway volumes specified in
@@ -1169,8 +1175,8 @@ describeCachediSCSIVolumes :: ( MonadCatch m
                               )
     => [Text] -- ^ 'dcscsivVolumeARNs'
     -> m DescribeCachediSCSIVolumesResponse
-describeCachediSCSIVolumes p1 s =
-    send $ (mkDescribeCachediSCSIVolumes p1) &~ s
+describeCachediSCSIVolumes p1 =
+    send (mkDescribeCachediSCSIVolumes p1)
 
 describeCachediSCSIVolumesCatch :: ( MonadCatch m
                                    , MonadResource m
@@ -1178,8 +1184,8 @@ describeCachediSCSIVolumesCatch :: ( MonadCatch m
                                    )
     => [Text] -- ^ 'dcscsivVolumeARNs'
     -> m (Either ServiceEr DescribeCachediSCSIVolumesResponse)
-describeCachediSCSIVolumesCatch p1 s =
-    sendCatch $ (mkDescribeCachediSCSIVolumes p1) &~ s
+describeCachediSCSIVolumesCatch p1 =
+    sendCatch (mkDescribeCachediSCSIVolumes p1)
 
 -- $DescribeChapCredentials
 -- This operation returns an array of Challenge-Handshake Authentication
@@ -1209,8 +1215,8 @@ describeChapCredentials :: ( MonadCatch m
                            )
     => Text -- ^ 'dcc1TargetARN'
     -> m DescribeChapCredentialsResponse
-describeChapCredentials p1 s =
-    send $ (mkDescribeChapCredentials p1) &~ s
+describeChapCredentials p1 =
+    send (mkDescribeChapCredentials p1)
 
 describeChapCredentialsCatch :: ( MonadCatch m
                                 , MonadResource m
@@ -1218,8 +1224,8 @@ describeChapCredentialsCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'dcc1TargetARN'
     -> m (Either ServiceEr DescribeChapCredentialsResponse)
-describeChapCredentialsCatch p1 s =
-    sendCatch $ (mkDescribeChapCredentials p1) &~ s
+describeChapCredentialsCatch p1 =
+    sendCatch (mkDescribeChapCredentials p1)
 
 -- $DescribeGatewayInformation
 -- This operation returns metadata about a gateway such as its name, network
@@ -1250,8 +1256,8 @@ describeGatewayInformation :: ( MonadCatch m
                               )
     => Text -- ^ 'dgiGatewayARN'
     -> m DescribeGatewayInformationResponse
-describeGatewayInformation p1 s =
-    send $ (mkDescribeGatewayInformation p1) &~ s
+describeGatewayInformation p1 =
+    send (mkDescribeGatewayInformation p1)
 
 describeGatewayInformationCatch :: ( MonadCatch m
                                    , MonadResource m
@@ -1259,8 +1265,8 @@ describeGatewayInformationCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'dgiGatewayARN'
     -> m (Either ServiceEr DescribeGatewayInformationResponse)
-describeGatewayInformationCatch p1 s =
-    sendCatch $ (mkDescribeGatewayInformation p1) &~ s
+describeGatewayInformationCatch p1 =
+    sendCatch (mkDescribeGatewayInformation p1)
 
 -- $DescribeMaintenanceStartTime
 -- This operation returns your gateway's weekly maintenance start time
@@ -1289,8 +1295,8 @@ describeMaintenanceStartTime :: ( MonadCatch m
                                 )
     => Text -- ^ 'dmstGatewayARN'
     -> m DescribeMaintenanceStartTimeResponse
-describeMaintenanceStartTime p1 s =
-    send $ (mkDescribeMaintenanceStartTime p1) &~ s
+describeMaintenanceStartTime p1 =
+    send (mkDescribeMaintenanceStartTime p1)
 
 describeMaintenanceStartTimeCatch :: ( MonadCatch m
                                      , MonadResource m
@@ -1298,8 +1304,8 @@ describeMaintenanceStartTimeCatch :: ( MonadCatch m
                                      )
     => Text -- ^ 'dmstGatewayARN'
     -> m (Either ServiceEr DescribeMaintenanceStartTimeResponse)
-describeMaintenanceStartTimeCatch p1 s =
-    sendCatch $ (mkDescribeMaintenanceStartTime p1) &~ s
+describeMaintenanceStartTimeCatch p1 =
+    sendCatch (mkDescribeMaintenanceStartTime p1)
 
 -- $DescribeSnapshotSchedule
 -- This operation describes the snapshot schedule for the specified gateway
@@ -1329,8 +1335,8 @@ describeSnapshotSchedule :: ( MonadCatch m
                             )
     => Text -- ^ 'dss1VolumeARN'
     -> m DescribeSnapshotScheduleResponse
-describeSnapshotSchedule p1 s =
-    send $ (mkDescribeSnapshotSchedule p1) &~ s
+describeSnapshotSchedule p1 =
+    send (mkDescribeSnapshotSchedule p1)
 
 describeSnapshotScheduleCatch :: ( MonadCatch m
                                  , MonadResource m
@@ -1338,8 +1344,8 @@ describeSnapshotScheduleCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'dss1VolumeARN'
     -> m (Either ServiceEr DescribeSnapshotScheduleResponse)
-describeSnapshotScheduleCatch p1 s =
-    sendCatch $ (mkDescribeSnapshotSchedule p1) &~ s
+describeSnapshotScheduleCatch p1 =
+    sendCatch (mkDescribeSnapshotSchedule p1)
 
 -- $DescribeStorediSCSIVolumes
 -- This operation returns description of the gateway volumes specified in the
@@ -1375,8 +1381,8 @@ describeStorediSCSIVolumes :: ( MonadCatch m
                               )
     => [Text] -- ^ 'dsscsivVolumeARNs'
     -> m DescribeStorediSCSIVolumesResponse
-describeStorediSCSIVolumes p1 s =
-    send $ (mkDescribeStorediSCSIVolumes p1) &~ s
+describeStorediSCSIVolumes p1 =
+    send (mkDescribeStorediSCSIVolumes p1)
 
 describeStorediSCSIVolumesCatch :: ( MonadCatch m
                                    , MonadResource m
@@ -1384,8 +1390,8 @@ describeStorediSCSIVolumesCatch :: ( MonadCatch m
                                    )
     => [Text] -- ^ 'dsscsivVolumeARNs'
     -> m (Either ServiceEr DescribeStorediSCSIVolumesResponse)
-describeStorediSCSIVolumesCatch p1 s =
-    sendCatch $ (mkDescribeStorediSCSIVolumes p1) &~ s
+describeStorediSCSIVolumesCatch p1 =
+    sendCatch (mkDescribeStorediSCSIVolumes p1)
 
 -- $DescribeTapeArchives
 -- See: 'Network.AWS.StorageGateway.DescribeTapeArchives'
@@ -1418,6 +1424,7 @@ describeTapeRecoveryPoints :: ( MonadCatch m
                               , MonadReader Env (ResumableSource m)
                               )
     => Text -- ^ 'dtrpGatewayARN'
+    -> State DescribeTapeRecoveryPoints a
     -> ResumableSource m DescribeTapeRecoveryPointsResponse
 describeTapeRecoveryPoints p1 s =
     paginate $ (mkDescribeTapeRecoveryPoints p1) &~ s
@@ -1427,6 +1434,7 @@ describeTapeRecoveryPointsCatch :: ( MonadCatch m
                                    , MonadReader Env (ResumableSource m)
                                    )
     => Text -- ^ 'dtrpGatewayARN'
+    -> State DescribeTapeRecoveryPoints a
     -> ResumableSource m (Either ServiceEr DescribeTapeRecoveryPointsResponse)
 describeTapeRecoveryPointsCatch p1 s =
     paginateCatch $ (mkDescribeTapeRecoveryPoints p1) &~ s
@@ -1440,6 +1448,7 @@ describeTapes :: ( MonadCatch m
                  , MonadReader Env (ResumableSource m)
                  )
     => Text -- ^ 'dt1GatewayARN'
+    -> State DescribeTapes a
     -> ResumableSource m DescribeTapesResponse
 describeTapes p1 s =
     paginate $ (mkDescribeTapes p1) &~ s
@@ -1449,6 +1458,7 @@ describeTapesCatch :: ( MonadCatch m
                       , MonadReader Env (ResumableSource m)
                       )
     => Text -- ^ 'dt1GatewayARN'
+    -> State DescribeTapes a
     -> ResumableSource m (Either ServiceEr DescribeTapesResponse)
 describeTapesCatch p1 s =
     paginateCatch $ (mkDescribeTapes p1) &~ s
@@ -1486,8 +1496,8 @@ describeUploadBuffer :: ( MonadCatch m
                         )
     => Text -- ^ 'dubGatewayARN'
     -> m DescribeUploadBufferResponse
-describeUploadBuffer p1 s =
-    send $ (mkDescribeUploadBuffer p1) &~ s
+describeUploadBuffer p1 =
+    send (mkDescribeUploadBuffer p1)
 
 describeUploadBufferCatch :: ( MonadCatch m
                              , MonadResource m
@@ -1495,8 +1505,8 @@ describeUploadBufferCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'dubGatewayARN'
     -> m (Either ServiceEr DescribeUploadBufferResponse)
-describeUploadBufferCatch p1 s =
-    sendCatch $ (mkDescribeUploadBuffer p1) &~ s
+describeUploadBufferCatch p1 =
+    sendCatch (mkDescribeUploadBuffer p1)
 
 -- $DescribeVTLDevices
 -- See: 'Network.AWS.StorageGateway.DescribeVTLDevices'
@@ -1507,6 +1517,7 @@ describeVTLDevices :: ( MonadCatch m
                       , MonadReader Env (ResumableSource m)
                       )
     => Text -- ^ 'dvtldGatewayARN'
+    -> State DescribeVTLDevices a
     -> ResumableSource m DescribeVTLDevicesResponse
 describeVTLDevices p1 s =
     paginate $ (mkDescribeVTLDevices p1) &~ s
@@ -1516,6 +1527,7 @@ describeVTLDevicesCatch :: ( MonadCatch m
                            , MonadReader Env (ResumableSource m)
                            )
     => Text -- ^ 'dvtldGatewayARN'
+    -> State DescribeVTLDevices a
     -> ResumableSource m (Either ServiceEr DescribeVTLDevicesResponse)
 describeVTLDevicesCatch p1 s =
     paginateCatch $ (mkDescribeVTLDevices p1) &~ s
@@ -1552,8 +1564,8 @@ describeWorkingStorage :: ( MonadCatch m
                           )
     => Text -- ^ 'dwsGatewayARN'
     -> m DescribeWorkingStorageResponse
-describeWorkingStorage p1 s =
-    send $ (mkDescribeWorkingStorage p1) &~ s
+describeWorkingStorage p1 =
+    send (mkDescribeWorkingStorage p1)
 
 describeWorkingStorageCatch :: ( MonadCatch m
                                , MonadResource m
@@ -1561,8 +1573,8 @@ describeWorkingStorageCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'dwsGatewayARN'
     -> m (Either ServiceEr DescribeWorkingStorageResponse)
-describeWorkingStorageCatch p1 s =
-    sendCatch $ (mkDescribeWorkingStorage p1) &~ s
+describeWorkingStorageCatch p1 =
+    sendCatch (mkDescribeWorkingStorage p1)
 
 -- $DisableGateway
 -- See: 'Network.AWS.StorageGateway.DisableGateway'
@@ -1574,8 +1586,8 @@ disableGateway :: ( MonadCatch m
                   )
     => Text -- ^ 'dg1GatewayARN'
     -> m DisableGatewayResponse
-disableGateway p1 s =
-    send $ (mkDisableGateway p1) &~ s
+disableGateway p1 =
+    send (mkDisableGateway p1)
 
 disableGatewayCatch :: ( MonadCatch m
                        , MonadResource m
@@ -1583,8 +1595,8 @@ disableGatewayCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'dg1GatewayARN'
     -> m (Either ServiceEr DisableGatewayResponse)
-disableGatewayCatch p1 s =
-    sendCatch $ (mkDisableGateway p1) &~ s
+disableGatewayCatch p1 =
+    sendCatch (mkDisableGateway p1)
 
 -- $ListGateways
 -- This operation lists gateways owned by an AWS account in a region specified
@@ -1663,8 +1675,8 @@ listLocalDisks :: ( MonadCatch m
                   )
     => Text -- ^ 'lldGatewayARN'
     -> m ListLocalDisksResponse
-listLocalDisks p1 s =
-    send $ (mkListLocalDisks p1) &~ s
+listLocalDisks p1 =
+    send (mkListLocalDisks p1)
 
 listLocalDisksCatch :: ( MonadCatch m
                        , MonadResource m
@@ -1672,8 +1684,8 @@ listLocalDisksCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'lldGatewayARN'
     -> m (Either ServiceEr ListLocalDisksResponse)
-listLocalDisksCatch p1 s =
-    sendCatch $ (mkListLocalDisks p1) &~ s
+listLocalDisksCatch p1 =
+    sendCatch (mkListLocalDisks p1)
 
 -- $ListVolumeRecoveryPoints
 -- This operation lists the recovery points for a specified gateway. This
@@ -1711,8 +1723,8 @@ listVolumeRecoveryPoints :: ( MonadCatch m
                             )
     => Text -- ^ 'lvrpGatewayARN'
     -> m ListVolumeRecoveryPointsResponse
-listVolumeRecoveryPoints p1 s =
-    send $ (mkListVolumeRecoveryPoints p1) &~ s
+listVolumeRecoveryPoints p1 =
+    send (mkListVolumeRecoveryPoints p1)
 
 listVolumeRecoveryPointsCatch :: ( MonadCatch m
                                  , MonadResource m
@@ -1720,8 +1732,8 @@ listVolumeRecoveryPointsCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'lvrpGatewayARN'
     -> m (Either ServiceEr ListVolumeRecoveryPointsResponse)
-listVolumeRecoveryPointsCatch p1 s =
-    sendCatch $ (mkListVolumeRecoveryPoints p1) &~ s
+listVolumeRecoveryPointsCatch p1 =
+    sendCatch (mkListVolumeRecoveryPoints p1)
 
 -- $ListVolumes
 -- This operation lists the iSCSI stored volumes of a gateway. Results are
@@ -1760,6 +1772,7 @@ listVolumes :: ( MonadCatch m
                , MonadReader Env (ResumableSource m)
                )
     => Text -- ^ 'lvGatewayARN'
+    -> State ListVolumes a
     -> ResumableSource m ListVolumesResponse
 listVolumes p1 s =
     paginate $ (mkListVolumes p1) &~ s
@@ -1769,6 +1782,7 @@ listVolumesCatch :: ( MonadCatch m
                     , MonadReader Env (ResumableSource m)
                     )
     => Text -- ^ 'lvGatewayARN'
+    -> State ListVolumes a
     -> ResumableSource m (Either ServiceEr ListVolumesResponse)
 listVolumesCatch p1 s =
     paginateCatch $ (mkListVolumes p1) &~ s
@@ -1784,8 +1798,8 @@ retrieveTapeArchive :: ( MonadCatch m
     => Text -- ^ 'rtaTapeARN'
     -> Text -- ^ 'rtaGatewayARN'
     -> m RetrieveTapeArchiveResponse
-retrieveTapeArchive p1 p2 s =
-    send $ (mkRetrieveTapeArchive p1 p2) &~ s
+retrieveTapeArchive p1 p2 =
+    send (mkRetrieveTapeArchive p1 p2)
 
 retrieveTapeArchiveCatch :: ( MonadCatch m
                             , MonadResource m
@@ -1794,8 +1808,8 @@ retrieveTapeArchiveCatch :: ( MonadCatch m
     => Text -- ^ 'rtaTapeARN'
     -> Text -- ^ 'rtaGatewayARN'
     -> m (Either ServiceEr RetrieveTapeArchiveResponse)
-retrieveTapeArchiveCatch p1 p2 s =
-    sendCatch $ (mkRetrieveTapeArchive p1 p2) &~ s
+retrieveTapeArchiveCatch p1 p2 =
+    sendCatch (mkRetrieveTapeArchive p1 p2)
 
 -- $RetrieveTapeRecoveryPoint
 -- See: 'Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint'
@@ -1808,8 +1822,8 @@ retrieveTapeRecoveryPoint :: ( MonadCatch m
     => Text -- ^ 'rtrpTapeARN'
     -> Text -- ^ 'rtrpGatewayARN'
     -> m RetrieveTapeRecoveryPointResponse
-retrieveTapeRecoveryPoint p1 p2 s =
-    send $ (mkRetrieveTapeRecoveryPoint p1 p2) &~ s
+retrieveTapeRecoveryPoint p1 p2 =
+    send (mkRetrieveTapeRecoveryPoint p1 p2)
 
 retrieveTapeRecoveryPointCatch :: ( MonadCatch m
                                   , MonadResource m
@@ -1818,8 +1832,8 @@ retrieveTapeRecoveryPointCatch :: ( MonadCatch m
     => Text -- ^ 'rtrpTapeARN'
     -> Text -- ^ 'rtrpGatewayARN'
     -> m (Either ServiceEr RetrieveTapeRecoveryPointResponse)
-retrieveTapeRecoveryPointCatch p1 p2 s =
-    sendCatch $ (mkRetrieveTapeRecoveryPoint p1 p2) &~ s
+retrieveTapeRecoveryPointCatch p1 p2 =
+    sendCatch (mkRetrieveTapeRecoveryPoint p1 p2)
 
 -- $ShutdownGateway
 -- This operation shuts down a gateway. To specify which gateway to shut down,
@@ -1859,8 +1873,8 @@ shutdownGateway :: ( MonadCatch m
                    )
     => Text -- ^ 'sgGatewayARN'
     -> m ShutdownGatewayResponse
-shutdownGateway p1 s =
-    send $ (mkShutdownGateway p1) &~ s
+shutdownGateway p1 =
+    send (mkShutdownGateway p1)
 
 shutdownGatewayCatch :: ( MonadCatch m
                         , MonadResource m
@@ -1868,8 +1882,8 @@ shutdownGatewayCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'sgGatewayARN'
     -> m (Either ServiceEr ShutdownGatewayResponse)
-shutdownGatewayCatch p1 s =
-    sendCatch $ (mkShutdownGateway p1) &~ s
+shutdownGatewayCatch p1 =
+    sendCatch (mkShutdownGateway p1)
 
 -- $StartGateway
 -- This operation starts a gateway that you previously shut down (see
@@ -1903,8 +1917,8 @@ startGateway :: ( MonadCatch m
                 )
     => Text -- ^ 'sg1GatewayARN'
     -> m StartGatewayResponse
-startGateway p1 s =
-    send $ (mkStartGateway p1) &~ s
+startGateway p1 =
+    send (mkStartGateway p1)
 
 startGatewayCatch :: ( MonadCatch m
                      , MonadResource m
@@ -1912,8 +1926,8 @@ startGatewayCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'sg1GatewayARN'
     -> m (Either ServiceEr StartGatewayResponse)
-startGatewayCatch p1 s =
-    sendCatch $ (mkStartGateway p1) &~ s
+startGatewayCatch p1 =
+    sendCatch (mkStartGateway p1)
 
 -- $UpdateBandwidthRateLimit
 -- This operation updates the bandwidth rate limits of a gateway. You can
@@ -1946,6 +1960,7 @@ updateBandwidthRateLimit :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'ubrlGatewayARN'
+    -> State UpdateBandwidthRateLimit a
     -> m UpdateBandwidthRateLimitResponse
 updateBandwidthRateLimit p1 s =
     send $ (mkUpdateBandwidthRateLimit p1) &~ s
@@ -1955,6 +1970,7 @@ updateBandwidthRateLimitCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'ubrlGatewayARN'
+    -> State UpdateBandwidthRateLimit a
     -> m (Either ServiceEr UpdateBandwidthRateLimitResponse)
 updateBandwidthRateLimitCatch p1 s =
     sendCatch $ (mkUpdateBandwidthRateLimit p1) &~ s
@@ -1992,6 +2008,7 @@ updateChapCredentials :: ( MonadCatch m
     => Text -- ^ 'uccTargetARN'
     -> Text -- ^ 'uccSecretToAuthenticateInitiator'
     -> Text -- ^ 'uccInitiatorName'
+    -> State UpdateChapCredentials a
     -> m UpdateChapCredentialsResponse
 updateChapCredentials p1 p2 p3 s =
     send $ (mkUpdateChapCredentials p1 p2 p3) &~ s
@@ -2003,6 +2020,7 @@ updateChapCredentialsCatch :: ( MonadCatch m
     => Text -- ^ 'uccTargetARN'
     -> Text -- ^ 'uccSecretToAuthenticateInitiator'
     -> Text -- ^ 'uccInitiatorName'
+    -> State UpdateChapCredentials a
     -> m (Either ServiceEr UpdateChapCredentialsResponse)
 updateChapCredentialsCatch p1 p2 p3 s =
     sendCatch $ (mkUpdateChapCredentials p1 p2 p3) &~ s
@@ -2032,6 +2050,7 @@ updateGatewayInformation :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'ugiGatewayARN'
+    -> State UpdateGatewayInformation a
     -> m UpdateGatewayInformationResponse
 updateGatewayInformation p1 s =
     send $ (mkUpdateGatewayInformation p1) &~ s
@@ -2041,6 +2060,7 @@ updateGatewayInformationCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'ugiGatewayARN'
+    -> State UpdateGatewayInformation a
     -> m (Either ServiceEr UpdateGatewayInformationResponse)
 updateGatewayInformationCatch p1 s =
     sendCatch $ (mkUpdateGatewayInformation p1) &~ s
@@ -2081,8 +2101,8 @@ updateGatewaySoftwareNow :: ( MonadCatch m
                             )
     => Text -- ^ 'ugsnGatewayARN'
     -> m UpdateGatewaySoftwareNowResponse
-updateGatewaySoftwareNow p1 s =
-    send $ (mkUpdateGatewaySoftwareNow p1) &~ s
+updateGatewaySoftwareNow p1 =
+    send (mkUpdateGatewaySoftwareNow p1)
 
 updateGatewaySoftwareNowCatch :: ( MonadCatch m
                                  , MonadResource m
@@ -2090,8 +2110,8 @@ updateGatewaySoftwareNowCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'ugsnGatewayARN'
     -> m (Either ServiceEr UpdateGatewaySoftwareNowResponse)
-updateGatewaySoftwareNowCatch p1 s =
-    sendCatch $ (mkUpdateGatewaySoftwareNow p1) &~ s
+updateGatewaySoftwareNowCatch p1 =
+    sendCatch (mkUpdateGatewaySoftwareNow p1)
 
 -- $UpdateMaintenanceStartTime
 -- This operation updates a gateway's weekly maintenance start time
@@ -2122,8 +2142,8 @@ updateMaintenanceStartTime :: ( MonadCatch m
     -> Integer -- ^ 'umstMinuteOfHour'
     -> Integer -- ^ 'umstDayOfWeek'
     -> m UpdateMaintenanceStartTimeResponse
-updateMaintenanceStartTime p1 p2 p3 p4 s =
-    send $ (mkUpdateMaintenanceStartTime p1 p2 p3 p4) &~ s
+updateMaintenanceStartTime p1 p2 p3 p4 =
+    send (mkUpdateMaintenanceStartTime p1 p2 p3 p4)
 
 updateMaintenanceStartTimeCatch :: ( MonadCatch m
                                    , MonadResource m
@@ -2134,8 +2154,8 @@ updateMaintenanceStartTimeCatch :: ( MonadCatch m
     -> Integer -- ^ 'umstMinuteOfHour'
     -> Integer -- ^ 'umstDayOfWeek'
     -> m (Either ServiceEr UpdateMaintenanceStartTimeResponse)
-updateMaintenanceStartTimeCatch p1 p2 p3 p4 s =
-    sendCatch $ (mkUpdateMaintenanceStartTime p1 p2 p3 p4) &~ s
+updateMaintenanceStartTimeCatch p1 p2 p3 p4 =
+    sendCatch (mkUpdateMaintenanceStartTime p1 p2 p3 p4)
 
 -- $UpdateSnapshotSchedule
 -- This operation updates a snapshot schedule configured for a gateway volume.
@@ -2170,6 +2190,7 @@ updateSnapshotSchedule :: ( MonadCatch m
     => Text -- ^ 'ussVolumeARN'
     -> Integer -- ^ 'ussStartAt'
     -> Integer -- ^ 'ussRecurrenceInHours'
+    -> State UpdateSnapshotSchedule a
     -> m UpdateSnapshotScheduleResponse
 updateSnapshotSchedule p1 p2 p3 s =
     send $ (mkUpdateSnapshotSchedule p1 p2 p3) &~ s
@@ -2181,6 +2202,7 @@ updateSnapshotScheduleCatch :: ( MonadCatch m
     => Text -- ^ 'ussVolumeARN'
     -> Integer -- ^ 'ussStartAt'
     -> Integer -- ^ 'ussRecurrenceInHours'
+    -> State UpdateSnapshotSchedule a
     -> m (Either ServiceEr UpdateSnapshotScheduleResponse)
 updateSnapshotScheduleCatch p1 p2 p3 s =
     sendCatch $ (mkUpdateSnapshotSchedule p1 p2 p3) &~ s

@@ -171,6 +171,7 @@ assumeRole :: ( MonadCatch m
               )
     => Text -- ^ 'arRoleArn'
     -> Text -- ^ 'arRoleSessionName'
+    -> State AssumeRole a
     -> m AssumeRoleResponse
 assumeRole p1 p2 s =
     send $ (mkAssumeRole p1 p2) &~ s
@@ -181,6 +182,7 @@ assumeRoleCatch :: ( MonadCatch m
                    )
     => Text -- ^ 'arRoleArn'
     -> Text -- ^ 'arRoleSessionName'
+    -> State AssumeRole a
     -> m (Either ServiceEr AssumeRoleResponse)
 assumeRoleCatch p1 p2 s =
     sendCatch $ (mkAssumeRole p1 p2) &~ s
@@ -234,6 +236,7 @@ assumeRoleWithSAML :: ( MonadCatch m
     => Text -- ^ 'arwsamlRoleArn'
     -> Text -- ^ 'arwsamlPrincipalArn'
     -> Text -- ^ 'arwsamlSAMLAssertion'
+    -> State AssumeRoleWithSAML a
     -> m AssumeRoleWithSAMLResponse
 assumeRoleWithSAML p1 p2 p3 s =
     send $ (mkAssumeRoleWithSAML p1 p2 p3) &~ s
@@ -245,6 +248,7 @@ assumeRoleWithSAMLCatch :: ( MonadCatch m
     => Text -- ^ 'arwsamlRoleArn'
     -> Text -- ^ 'arwsamlPrincipalArn'
     -> Text -- ^ 'arwsamlSAMLAssertion'
+    -> State AssumeRoleWithSAML a
     -> m (Either ServiceEr AssumeRoleWithSAMLResponse)
 assumeRoleWithSAMLCatch p1 p2 p3 s =
     sendCatch $ (mkAssumeRoleWithSAML p1 p2 p3) &~ s
@@ -323,6 +327,7 @@ assumeRoleWithWebIdentity :: ( MonadCatch m
     => Text -- ^ 'arwwiRoleArn'
     -> Text -- ^ 'arwwiRoleSessionName'
     -> Text -- ^ 'arwwiWebIdentityToken'
+    -> State AssumeRoleWithWebIdentity a
     -> m AssumeRoleWithWebIdentityResponse
 assumeRoleWithWebIdentity p1 p2 p3 s =
     send $ (mkAssumeRoleWithWebIdentity p1 p2 p3) &~ s
@@ -334,6 +339,7 @@ assumeRoleWithWebIdentityCatch :: ( MonadCatch m
     => Text -- ^ 'arwwiRoleArn'
     -> Text -- ^ 'arwwiRoleSessionName'
     -> Text -- ^ 'arwwiWebIdentityToken'
+    -> State AssumeRoleWithWebIdentity a
     -> m (Either ServiceEr AssumeRoleWithWebIdentityResponse)
 assumeRoleWithWebIdentityCatch p1 p2 p3 s =
     sendCatch $ (mkAssumeRoleWithWebIdentity p1 p2 p3) &~ s
@@ -381,8 +387,8 @@ decodeAuthorizationMessage :: ( MonadCatch m
                               )
     => Text -- ^ 'damEncodedMessage'
     -> m DecodeAuthorizationMessageResponse
-decodeAuthorizationMessage p1 s =
-    send $ (mkDecodeAuthorizationMessage p1) &~ s
+decodeAuthorizationMessage p1 =
+    send (mkDecodeAuthorizationMessage p1)
 
 decodeAuthorizationMessageCatch :: ( MonadCatch m
                                    , MonadResource m
@@ -390,8 +396,8 @@ decodeAuthorizationMessageCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'damEncodedMessage'
     -> m (Either ServiceEr DecodeAuthorizationMessageResponse)
-decodeAuthorizationMessageCatch p1 s =
-    sendCatch $ (mkDecodeAuthorizationMessage p1) &~ s
+decodeAuthorizationMessageCatch p1 =
+    sendCatch (mkDecodeAuthorizationMessage p1)
 
 -- $GetFederationToken
 -- Returns a set of temporary security credentials (consisting of an access
@@ -465,6 +471,7 @@ getFederationToken :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'gftName'
+    -> State GetFederationToken a
     -> m GetFederationTokenResponse
 getFederationToken p1 s =
     send $ (mkGetFederationToken p1) &~ s
@@ -474,6 +481,7 @@ getFederationTokenCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'gftName'
+    -> State GetFederationToken a
     -> m (Either ServiceEr GetFederationTokenResponse)
 getFederationTokenCatch p1 s =
     sendCatch $ (mkGetFederationToken p1) &~ s

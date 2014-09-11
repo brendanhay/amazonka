@@ -358,6 +358,7 @@ authorizeClusterSecurityGroupIngress :: ( MonadCatch m
                                         , MonadReader Env m
                                         )
     => Text -- ^ 'acsgiClusterSecurityGroupName'
+    -> State AuthorizeClusterSecurityGroupIngress a
     -> m AuthorizeClusterSecurityGroupIngressResponse
 authorizeClusterSecurityGroupIngress p1 s =
     send $ (mkAuthorizeClusterSecurityGroupIngress p1) &~ s
@@ -367,6 +368,7 @@ authorizeClusterSecurityGroupIngressCatch :: ( MonadCatch m
                                              , MonadReader Env m
                                              )
     => Text -- ^ 'acsgiClusterSecurityGroupName'
+    -> State AuthorizeClusterSecurityGroupIngress a
     -> m (Either ServiceEr AuthorizeClusterSecurityGroupIngressResponse)
 authorizeClusterSecurityGroupIngressCatch p1 s =
     sendCatch $ (mkAuthorizeClusterSecurityGroupIngress p1) &~ s
@@ -385,6 +387,7 @@ authorizeSnapshotAccess :: ( MonadCatch m
                            )
     => Text -- ^ 'asaSnapshotIdentifier'
     -> Text -- ^ 'asaAccountWithRestoreAccess'
+    -> State AuthorizeSnapshotAccess a
     -> m AuthorizeSnapshotAccessResponse
 authorizeSnapshotAccess p1 p3 s =
     send $ (mkAuthorizeSnapshotAccess p1 p3) &~ s
@@ -395,6 +398,7 @@ authorizeSnapshotAccessCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'asaSnapshotIdentifier'
     -> Text -- ^ 'asaAccountWithRestoreAccess'
+    -> State AuthorizeSnapshotAccess a
     -> m (Either ServiceEr AuthorizeSnapshotAccessResponse)
 authorizeSnapshotAccessCatch p1 p3 s =
     sendCatch $ (mkAuthorizeSnapshotAccess p1 p3) &~ s
@@ -429,6 +433,7 @@ copyClusterSnapshot :: ( MonadCatch m
                        )
     => Text -- ^ 'ccsSourceSnapshotIdentifier'
     -> Text -- ^ 'ccsTargetSnapshotIdentifier'
+    -> State CopyClusterSnapshot a
     -> m CopyClusterSnapshotResponse
 copyClusterSnapshot p1 p3 s =
     send $ (mkCopyClusterSnapshot p1 p3) &~ s
@@ -439,6 +444,7 @@ copyClusterSnapshotCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'ccsSourceSnapshotIdentifier'
     -> Text -- ^ 'ccsTargetSnapshotIdentifier'
+    -> State CopyClusterSnapshot a
     -> m (Either ServiceEr CopyClusterSnapshotResponse)
 copyClusterSnapshotCatch p1 p3 s =
     sendCatch $ (mkCopyClusterSnapshot p1 p3) &~ s
@@ -484,6 +490,7 @@ createCluster :: ( MonadCatch m
     -> Text -- ^ 'ccNodeType'
     -> Text -- ^ 'ccMasterUsername'
     -> Text -- ^ 'ccMasterUserPassword'
+    -> State CreateCluster a
     -> m CreateClusterResponse
 createCluster p2 p4 p5 p6 s =
     send $ (mkCreateCluster p2 p4 p5 p6) &~ s
@@ -496,6 +503,7 @@ createClusterCatch :: ( MonadCatch m
     -> Text -- ^ 'ccNodeType'
     -> Text -- ^ 'ccMasterUsername'
     -> Text -- ^ 'ccMasterUserPassword'
+    -> State CreateCluster a
     -> m (Either ServiceEr CreateClusterResponse)
 createClusterCatch p2 p4 p5 p6 s =
     sendCatch $ (mkCreateCluster p2 p4 p5 p6) &~ s
@@ -530,8 +538,8 @@ createClusterParameterGroup :: ( MonadCatch m
     -> Text -- ^ 'ccpgParameterGroupFamily'
     -> Text -- ^ 'ccpgDescription'
     -> m CreateClusterParameterGroupResponse
-createClusterParameterGroup p1 p2 p3 s =
-    send $ (mkCreateClusterParameterGroup p1 p2 p3) &~ s
+createClusterParameterGroup p1 p2 p3 =
+    send (mkCreateClusterParameterGroup p1 p2 p3)
 
 createClusterParameterGroupCatch :: ( MonadCatch m
                                     , MonadResource m
@@ -541,8 +549,8 @@ createClusterParameterGroupCatch :: ( MonadCatch m
     -> Text -- ^ 'ccpgParameterGroupFamily'
     -> Text -- ^ 'ccpgDescription'
     -> m (Either ServiceEr CreateClusterParameterGroupResponse)
-createClusterParameterGroupCatch p1 p2 p3 s =
-    sendCatch $ (mkCreateClusterParameterGroup p1 p2 p3) &~ s
+createClusterParameterGroupCatch p1 p2 p3 =
+    sendCatch (mkCreateClusterParameterGroup p1 p2 p3)
 
 -- $CreateClusterSecurityGroup
 -- Creates a new Amazon Redshift security group. You use security groups to
@@ -567,8 +575,8 @@ createClusterSecurityGroup :: ( MonadCatch m
     => Text -- ^ 'ccsgClusterSecurityGroupName'
     -> Text -- ^ 'ccsgDescription'
     -> m CreateClusterSecurityGroupResponse
-createClusterSecurityGroup p1 p2 s =
-    send $ (mkCreateClusterSecurityGroup p1 p2) &~ s
+createClusterSecurityGroup p1 p2 =
+    send (mkCreateClusterSecurityGroup p1 p2)
 
 createClusterSecurityGroupCatch :: ( MonadCatch m
                                    , MonadResource m
@@ -577,8 +585,8 @@ createClusterSecurityGroupCatch :: ( MonadCatch m
     => Text -- ^ 'ccsgClusterSecurityGroupName'
     -> Text -- ^ 'ccsgDescription'
     -> m (Either ServiceEr CreateClusterSecurityGroupResponse)
-createClusterSecurityGroupCatch p1 p2 s =
-    sendCatch $ (mkCreateClusterSecurityGroup p1 p2) &~ s
+createClusterSecurityGroupCatch p1 p2 =
+    sendCatch (mkCreateClusterSecurityGroup p1 p2)
 
 -- $CreateClusterSnapshot
 -- Creates a manual snapshot of the specified cluster. The cluster must be in
@@ -604,8 +612,8 @@ createClusterSnapshot :: ( MonadCatch m
     => Text -- ^ 'ccs1SnapshotIdentifier'
     -> Text -- ^ 'ccs1ClusterIdentifier'
     -> m CreateClusterSnapshotResponse
-createClusterSnapshot p1 p2 s =
-    send $ (mkCreateClusterSnapshot p1 p2) &~ s
+createClusterSnapshot p1 p2 =
+    send (mkCreateClusterSnapshot p1 p2)
 
 createClusterSnapshotCatch :: ( MonadCatch m
                               , MonadResource m
@@ -614,8 +622,8 @@ createClusterSnapshotCatch :: ( MonadCatch m
     => Text -- ^ 'ccs1SnapshotIdentifier'
     -> Text -- ^ 'ccs1ClusterIdentifier'
     -> m (Either ServiceEr CreateClusterSnapshotResponse)
-createClusterSnapshotCatch p1 p2 s =
-    sendCatch $ (mkCreateClusterSnapshot p1 p2) &~ s
+createClusterSnapshotCatch p1 p2 =
+    sendCatch (mkCreateClusterSnapshot p1 p2)
 
 -- $CreateClusterSubnetGroup
 -- Creates a new Amazon Redshift subnet group. You must provide a list of one
@@ -644,8 +652,8 @@ createClusterSubnetGroup :: ( MonadCatch m
     -> Text -- ^ 'ccsg1Description'
     -> [Text] -- ^ 'ccsg1SubnetIds'
     -> m CreateClusterSubnetGroupResponse
-createClusterSubnetGroup p1 p2 p3 s =
-    send $ (mkCreateClusterSubnetGroup p1 p2 p3) &~ s
+createClusterSubnetGroup p1 p2 p3 =
+    send (mkCreateClusterSubnetGroup p1 p2 p3)
 
 createClusterSubnetGroupCatch :: ( MonadCatch m
                                  , MonadResource m
@@ -655,8 +663,8 @@ createClusterSubnetGroupCatch :: ( MonadCatch m
     -> Text -- ^ 'ccsg1Description'
     -> [Text] -- ^ 'ccsg1SubnetIds'
     -> m (Either ServiceEr CreateClusterSubnetGroupResponse)
-createClusterSubnetGroupCatch p1 p2 p3 s =
-    sendCatch $ (mkCreateClusterSubnetGroup p1 p2 p3) &~ s
+createClusterSubnetGroupCatch p1 p2 p3 =
+    sendCatch (mkCreateClusterSubnetGroup p1 p2 p3)
 
 -- $CreateEventSubscription
 -- Creates an Amazon Redshift event notification subscription. This action
@@ -689,6 +697,7 @@ createEventSubscription :: ( MonadCatch m
                            )
     => Text -- ^ 'cesSubscriptionName'
     -> Text -- ^ 'cesSnsTopicArn'
+    -> State CreateEventSubscription a
     -> m CreateEventSubscriptionResponse
 createEventSubscription p1 p2 s =
     send $ (mkCreateEventSubscription p1 p2) &~ s
@@ -699,6 +708,7 @@ createEventSubscriptionCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'cesSubscriptionName'
     -> Text -- ^ 'cesSnsTopicArn'
+    -> State CreateEventSubscription a
     -> m (Either ServiceEr CreateEventSubscriptionResponse)
 createEventSubscriptionCatch p1 p2 s =
     sendCatch $ (mkCreateEventSubscription p1 p2) &~ s
@@ -722,8 +732,8 @@ createHsmClientCertificate :: ( MonadCatch m
                               )
     => Text -- ^ 'chccHsmClientCertificateIdentifier'
     -> m CreateHsmClientCertificateResponse
-createHsmClientCertificate p1 s =
-    send $ (mkCreateHsmClientCertificate p1) &~ s
+createHsmClientCertificate p1 =
+    send (mkCreateHsmClientCertificate p1)
 
 createHsmClientCertificateCatch :: ( MonadCatch m
                                    , MonadResource m
@@ -731,8 +741,8 @@ createHsmClientCertificateCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'chccHsmClientCertificateIdentifier'
     -> m (Either ServiceEr CreateHsmClientCertificateResponse)
-createHsmClientCertificateCatch p1 s =
-    sendCatch $ (mkCreateHsmClientCertificate p1) &~ s
+createHsmClientCertificateCatch p1 =
+    sendCatch (mkCreateHsmClientCertificate p1)
 
 -- $CreateHsmConfiguration
 -- Creates an HSM configuration that contains the information required by an
@@ -758,8 +768,8 @@ createHsmConfiguration :: ( MonadCatch m
     -> Text -- ^ 'chcHsmPartitionPassword'
     -> Text -- ^ 'chcHsmServerPublicCertificate'
     -> m CreateHsmConfigurationResponse
-createHsmConfiguration p1 p2 p3 p4 p5 p6 s =
-    send $ (mkCreateHsmConfiguration p1 p2 p3 p4 p5 p6) &~ s
+createHsmConfiguration p1 p2 p3 p4 p5 p6 =
+    send (mkCreateHsmConfiguration p1 p2 p3 p4 p5 p6)
 
 createHsmConfigurationCatch :: ( MonadCatch m
                                , MonadResource m
@@ -772,8 +782,8 @@ createHsmConfigurationCatch :: ( MonadCatch m
     -> Text -- ^ 'chcHsmPartitionPassword'
     -> Text -- ^ 'chcHsmServerPublicCertificate'
     -> m (Either ServiceEr CreateHsmConfigurationResponse)
-createHsmConfigurationCatch p1 p2 p3 p4 p5 p6 s =
-    sendCatch $ (mkCreateHsmConfiguration p1 p2 p3 p4 p5 p6) &~ s
+createHsmConfigurationCatch p1 p2 p3 p4 p5 p6 =
+    sendCatch (mkCreateHsmConfiguration p1 p2 p3 p4 p5 p6)
 
 -- $DeleteCluster
 -- Deletes a previously provisioned cluster. A successful response from the
@@ -803,6 +813,7 @@ deleteCluster :: ( MonadCatch m
                  , MonadReader Env m
                  )
     => Text -- ^ 'dcClusterIdentifier'
+    -> State DeleteCluster a
     -> m DeleteClusterResponse
 deleteCluster p1 s =
     send $ (mkDeleteCluster p1) &~ s
@@ -812,6 +823,7 @@ deleteClusterCatch :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'dcClusterIdentifier'
+    -> State DeleteCluster a
     -> m (Either ServiceEr DeleteClusterResponse)
 deleteClusterCatch p1 s =
     sendCatch $ (mkDeleteCluster p1) &~ s
@@ -836,8 +848,8 @@ deleteClusterParameterGroup :: ( MonadCatch m
                                )
     => Text -- ^ 'dcpgParameterGroupName'
     -> m DeleteClusterParameterGroupResponse
-deleteClusterParameterGroup p1 s =
-    send $ (mkDeleteClusterParameterGroup p1) &~ s
+deleteClusterParameterGroup p1 =
+    send (mkDeleteClusterParameterGroup p1)
 
 deleteClusterParameterGroupCatch :: ( MonadCatch m
                                     , MonadResource m
@@ -845,8 +857,8 @@ deleteClusterParameterGroupCatch :: ( MonadCatch m
                                     )
     => Text -- ^ 'dcpgParameterGroupName'
     -> m (Either ServiceEr DeleteClusterParameterGroupResponse)
-deleteClusterParameterGroupCatch p1 s =
-    sendCatch $ (mkDeleteClusterParameterGroup p1) &~ s
+deleteClusterParameterGroupCatch p1 =
+    sendCatch (mkDeleteClusterParameterGroup p1)
 
 -- $DeleteClusterSecurityGroup
 -- Deletes an Amazon Redshift security group. You cannot delete a security
@@ -870,8 +882,8 @@ deleteClusterSecurityGroup :: ( MonadCatch m
                               )
     => Text -- ^ 'dcsgClusterSecurityGroupName'
     -> m DeleteClusterSecurityGroupResponse
-deleteClusterSecurityGroup p1 s =
-    send $ (mkDeleteClusterSecurityGroup p1) &~ s
+deleteClusterSecurityGroup p1 =
+    send (mkDeleteClusterSecurityGroup p1)
 
 deleteClusterSecurityGroupCatch :: ( MonadCatch m
                                    , MonadResource m
@@ -879,8 +891,8 @@ deleteClusterSecurityGroupCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'dcsgClusterSecurityGroupName'
     -> m (Either ServiceEr DeleteClusterSecurityGroupResponse)
-deleteClusterSecurityGroupCatch p1 s =
-    sendCatch $ (mkDeleteClusterSecurityGroup p1) &~ s
+deleteClusterSecurityGroupCatch p1 =
+    sendCatch (mkDeleteClusterSecurityGroup p1)
 
 -- $DeleteClusterSnapshot
 -- Deletes the specified manual snapshot. The snapshot must be in the
@@ -908,6 +920,7 @@ deleteClusterSnapshot :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'dcsSnapshotIdentifier'
+    -> State DeleteClusterSnapshot a
     -> m DeleteClusterSnapshotResponse
 deleteClusterSnapshot p1 s =
     send $ (mkDeleteClusterSnapshot p1) &~ s
@@ -917,6 +930,7 @@ deleteClusterSnapshotCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'dcsSnapshotIdentifier'
+    -> State DeleteClusterSnapshot a
     -> m (Either ServiceEr DeleteClusterSnapshotResponse)
 deleteClusterSnapshotCatch p1 s =
     sendCatch $ (mkDeleteClusterSnapshot p1) &~ s
@@ -940,8 +954,8 @@ deleteClusterSubnetGroup :: ( MonadCatch m
                             )
     => Text -- ^ 'dcsg1ClusterSubnetGroupName'
     -> m DeleteClusterSubnetGroupResponse
-deleteClusterSubnetGroup p1 s =
-    send $ (mkDeleteClusterSubnetGroup p1) &~ s
+deleteClusterSubnetGroup p1 =
+    send (mkDeleteClusterSubnetGroup p1)
 
 deleteClusterSubnetGroupCatch :: ( MonadCatch m
                                  , MonadResource m
@@ -949,8 +963,8 @@ deleteClusterSubnetGroupCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'dcsg1ClusterSubnetGroupName'
     -> m (Either ServiceEr DeleteClusterSubnetGroupResponse)
-deleteClusterSubnetGroupCatch p1 s =
-    sendCatch $ (mkDeleteClusterSubnetGroup p1) &~ s
+deleteClusterSubnetGroupCatch p1 =
+    sendCatch (mkDeleteClusterSubnetGroup p1)
 
 -- $DeleteEventSubscription
 -- Deletes an Amazon Redshift event notification subscription.
@@ -964,8 +978,8 @@ deleteEventSubscription :: ( MonadCatch m
                            )
     => Text -- ^ 'desSubscriptionName'
     -> m DeleteEventSubscriptionResponse
-deleteEventSubscription p1 s =
-    send $ (mkDeleteEventSubscription p1) &~ s
+deleteEventSubscription p1 =
+    send (mkDeleteEventSubscription p1)
 
 deleteEventSubscriptionCatch :: ( MonadCatch m
                                 , MonadResource m
@@ -973,8 +987,8 @@ deleteEventSubscriptionCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'desSubscriptionName'
     -> m (Either ServiceEr DeleteEventSubscriptionResponse)
-deleteEventSubscriptionCatch p1 s =
-    sendCatch $ (mkDeleteEventSubscription p1) &~ s
+deleteEventSubscriptionCatch p1 =
+    sendCatch (mkDeleteEventSubscription p1)
 
 -- $DeleteHsmClientCertificate
 -- Deletes the specified HSM client certificate.
@@ -988,8 +1002,8 @@ deleteHsmClientCertificate :: ( MonadCatch m
                               )
     => Text -- ^ 'dhccHsmClientCertificateIdentifier'
     -> m DeleteHsmClientCertificateResponse
-deleteHsmClientCertificate p1 s =
-    send $ (mkDeleteHsmClientCertificate p1) &~ s
+deleteHsmClientCertificate p1 =
+    send (mkDeleteHsmClientCertificate p1)
 
 deleteHsmClientCertificateCatch :: ( MonadCatch m
                                    , MonadResource m
@@ -997,8 +1011,8 @@ deleteHsmClientCertificateCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'dhccHsmClientCertificateIdentifier'
     -> m (Either ServiceEr DeleteHsmClientCertificateResponse)
-deleteHsmClientCertificateCatch p1 s =
-    sendCatch $ (mkDeleteHsmClientCertificate p1) &~ s
+deleteHsmClientCertificateCatch p1 =
+    sendCatch (mkDeleteHsmClientCertificate p1)
 
 -- $DeleteHsmConfiguration
 -- Deletes the specified Amazon Redshift HSM configuration.
@@ -1012,8 +1026,8 @@ deleteHsmConfiguration :: ( MonadCatch m
                           )
     => Text -- ^ 'dhcHsmConfigurationIdentifier'
     -> m DeleteHsmConfigurationResponse
-deleteHsmConfiguration p1 s =
-    send $ (mkDeleteHsmConfiguration p1) &~ s
+deleteHsmConfiguration p1 =
+    send (mkDeleteHsmConfiguration p1)
 
 deleteHsmConfigurationCatch :: ( MonadCatch m
                                , MonadResource m
@@ -1021,8 +1035,8 @@ deleteHsmConfigurationCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'dhcHsmConfigurationIdentifier'
     -> m (Either ServiceEr DeleteHsmConfigurationResponse)
-deleteHsmConfigurationCatch p1 s =
-    sendCatch $ (mkDeleteHsmConfiguration p1) &~ s
+deleteHsmConfigurationCatch p1 =
+    sendCatch (mkDeleteHsmConfiguration p1)
 
 -- $DescribeClusterParameterGroups
 -- Returns a list of Amazon Redshift parameter groups, including parameter
@@ -1099,6 +1113,7 @@ describeClusterParameters :: ( MonadCatch m
                              , MonadReader Env (ResumableSource m)
                              )
     => Text -- ^ 'dcpParameterGroupName'
+    -> State DescribeClusterParameters a
     -> ResumableSource m DescribeClusterParametersResponse
 describeClusterParameters p1 s =
     paginate $ (mkDescribeClusterParameters p1) &~ s
@@ -1108,6 +1123,7 @@ describeClusterParametersCatch :: ( MonadCatch m
                                   , MonadReader Env (ResumableSource m)
                                   )
     => Text -- ^ 'dcpParameterGroupName'
+    -> State DescribeClusterParameters a
     -> ResumableSource m (Either ServiceEr DescribeClusterParametersResponse)
 describeClusterParametersCatch p1 s =
     paginateCatch $ (mkDescribeClusterParameters p1) &~ s
@@ -1321,6 +1337,7 @@ describeDefaultClusterParameters :: ( MonadCatch m
                                     , MonadReader Env (ResumableSource m)
                                     )
     => Text -- ^ 'ddcpParameterGroupFamily'
+    -> State DescribeDefaultClusterParameters a
     -> ResumableSource m DescribeDefaultClusterParametersResponse
 describeDefaultClusterParameters p1 s =
     paginate $ (mkDescribeDefaultClusterParameters p1) &~ s
@@ -1330,6 +1347,7 @@ describeDefaultClusterParametersCatch :: ( MonadCatch m
                                          , MonadReader Env (ResumableSource m)
                                          )
     => Text -- ^ 'ddcpParameterGroupFamily'
+    -> State DescribeDefaultClusterParameters a
     -> ResumableSource m (Either ServiceEr DescribeDefaultClusterParametersResponse)
 describeDefaultClusterParametersCatch p1 s =
     paginateCatch $ (mkDescribeDefaultClusterParameters p1) &~ s
@@ -1487,8 +1505,8 @@ describeLoggingStatus :: ( MonadCatch m
                          )
     => Text -- ^ 'dlsClusterIdentifier'
     -> m DescribeLoggingStatusResponse
-describeLoggingStatus p1 s =
-    send $ (mkDescribeLoggingStatus p1) &~ s
+describeLoggingStatus p1 =
+    send (mkDescribeLoggingStatus p1)
 
 describeLoggingStatusCatch :: ( MonadCatch m
                               , MonadResource m
@@ -1496,8 +1514,8 @@ describeLoggingStatusCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'dlsClusterIdentifier'
     -> m (Either ServiceEr DescribeLoggingStatusResponse)
-describeLoggingStatusCatch p1 s =
-    sendCatch $ (mkDescribeLoggingStatus p1) &~ s
+describeLoggingStatusCatch p1 =
+    sendCatch (mkDescribeLoggingStatus p1)
 
 -- $DescribeOrderableClusterOptions
 -- Returns a list of orderable cluster options. Before you create a new
@@ -1640,8 +1658,8 @@ describeResize :: ( MonadCatch m
                   )
     => Text -- ^ 'drClusterIdentifier'
     -> m DescribeResizeResponse
-describeResize p1 s =
-    send $ (mkDescribeResize p1) &~ s
+describeResize p1 =
+    send (mkDescribeResize p1)
 
 describeResizeCatch :: ( MonadCatch m
                        , MonadResource m
@@ -1649,8 +1667,8 @@ describeResizeCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'drClusterIdentifier'
     -> m (Either ServiceEr DescribeResizeResponse)
-describeResizeCatch p1 s =
-    sendCatch $ (mkDescribeResize p1) &~ s
+describeResizeCatch p1 =
+    sendCatch (mkDescribeResize p1)
 
 -- $DisableLogging
 -- Stops logging information, such as queries and connection attempts, for the
@@ -1665,8 +1683,8 @@ disableLogging :: ( MonadCatch m
                   )
     => Text -- ^ 'dlClusterIdentifier'
     -> m DisableLoggingResponse
-disableLogging p1 s =
-    send $ (mkDisableLogging p1) &~ s
+disableLogging p1 =
+    send (mkDisableLogging p1)
 
 disableLoggingCatch :: ( MonadCatch m
                        , MonadResource m
@@ -1674,8 +1692,8 @@ disableLoggingCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'dlClusterIdentifier'
     -> m (Either ServiceEr DisableLoggingResponse)
-disableLoggingCatch p1 s =
-    sendCatch $ (mkDisableLogging p1) &~ s
+disableLoggingCatch p1 =
+    sendCatch (mkDisableLogging p1)
 
 -- $DisableSnapshotCopy
 -- Disables the automatic copying of snapshots from one region to another
@@ -1690,8 +1708,8 @@ disableSnapshotCopy :: ( MonadCatch m
                        )
     => Text -- ^ 'dscClusterIdentifier'
     -> m DisableSnapshotCopyResponse
-disableSnapshotCopy p1 s =
-    send $ (mkDisableSnapshotCopy p1) &~ s
+disableSnapshotCopy p1 =
+    send (mkDisableSnapshotCopy p1)
 
 disableSnapshotCopyCatch :: ( MonadCatch m
                             , MonadResource m
@@ -1699,8 +1717,8 @@ disableSnapshotCopyCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'dscClusterIdentifier'
     -> m (Either ServiceEr DisableSnapshotCopyResponse)
-disableSnapshotCopyCatch p1 s =
-    sendCatch $ (mkDisableSnapshotCopy p1) &~ s
+disableSnapshotCopyCatch p1 =
+    sendCatch (mkDisableSnapshotCopy p1)
 
 -- $EnableLogging
 -- Starts logging information, such as queries and connection attempts, for
@@ -1715,6 +1733,7 @@ enableLogging :: ( MonadCatch m
                  )
     => Text -- ^ 'elClusterIdentifier'
     -> Text -- ^ 'elBucketName'
+    -> State EnableLogging a
     -> m EnableLoggingResponse
 enableLogging p1 p2 s =
     send $ (mkEnableLogging p1 p2) &~ s
@@ -1725,6 +1744,7 @@ enableLoggingCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'elClusterIdentifier'
     -> Text -- ^ 'elBucketName'
+    -> State EnableLogging a
     -> m (Either ServiceEr EnableLoggingResponse)
 enableLoggingCatch p1 p2 s =
     sendCatch $ (mkEnableLogging p1 p2) &~ s
@@ -1742,6 +1762,7 @@ enableSnapshotCopy :: ( MonadCatch m
                       )
     => Text -- ^ 'escClusterIdentifier'
     -> Text -- ^ 'escDestinationRegion'
+    -> State EnableSnapshotCopy a
     -> m EnableSnapshotCopyResponse
 enableSnapshotCopy p1 p2 s =
     send $ (mkEnableSnapshotCopy p1 p2) &~ s
@@ -1752,6 +1773,7 @@ enableSnapshotCopyCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'escClusterIdentifier'
     -> Text -- ^ 'escDestinationRegion'
+    -> State EnableSnapshotCopy a
     -> m (Either ServiceEr EnableSnapshotCopyResponse)
 enableSnapshotCopyCatch p1 p2 s =
     sendCatch $ (mkEnableSnapshotCopy p1 p2) &~ s
@@ -1790,6 +1812,7 @@ modifyCluster :: ( MonadCatch m
                  , MonadReader Env m
                  )
     => Text -- ^ 'mcClusterIdentifier'
+    -> State ModifyCluster a
     -> m ModifyClusterResponse
 modifyCluster p1 s =
     send $ (mkModifyCluster p1) &~ s
@@ -1799,6 +1822,7 @@ modifyClusterCatch :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'mcClusterIdentifier'
+    -> State ModifyCluster a
     -> m (Either ServiceEr ModifyClusterResponse)
 modifyClusterCatch p1 s =
     sendCatch $ (mkModifyCluster p1) &~ s
@@ -1829,8 +1853,8 @@ modifyClusterParameterGroup :: ( MonadCatch m
     => Text -- ^ 'mcpgParameterGroupName'
     -> [Parameter] -- ^ 'mcpgParameters'
     -> m ModifyClusterParameterGroupResponse
-modifyClusterParameterGroup p1 p2 s =
-    send $ (mkModifyClusterParameterGroup p1 p2) &~ s
+modifyClusterParameterGroup p1 p2 =
+    send (mkModifyClusterParameterGroup p1 p2)
 
 modifyClusterParameterGroupCatch :: ( MonadCatch m
                                     , MonadResource m
@@ -1839,8 +1863,8 @@ modifyClusterParameterGroupCatch :: ( MonadCatch m
     => Text -- ^ 'mcpgParameterGroupName'
     -> [Parameter] -- ^ 'mcpgParameters'
     -> m (Either ServiceEr ModifyClusterParameterGroupResponse)
-modifyClusterParameterGroupCatch p1 p2 s =
-    sendCatch $ (mkModifyClusterParameterGroup p1 p2) &~ s
+modifyClusterParameterGroupCatch p1 p2 =
+    sendCatch (mkModifyClusterParameterGroup p1 p2)
 
 -- $ModifyClusterSubnetGroup
 -- Modifies a cluster subnet group to include the specified list of VPC
@@ -1856,6 +1880,7 @@ modifyClusterSubnetGroup :: ( MonadCatch m
                             )
     => Text -- ^ 'mcsgClusterSubnetGroupName'
     -> [Text] -- ^ 'mcsgSubnetIds'
+    -> State ModifyClusterSubnetGroup a
     -> m ModifyClusterSubnetGroupResponse
 modifyClusterSubnetGroup p1 p3 s =
     send $ (mkModifyClusterSubnetGroup p1 p3) &~ s
@@ -1866,6 +1891,7 @@ modifyClusterSubnetGroupCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'mcsgClusterSubnetGroupName'
     -> [Text] -- ^ 'mcsgSubnetIds'
+    -> State ModifyClusterSubnetGroup a
     -> m (Either ServiceEr ModifyClusterSubnetGroupResponse)
 modifyClusterSubnetGroupCatch p1 p3 s =
     sendCatch $ (mkModifyClusterSubnetGroup p1 p3) &~ s
@@ -1881,6 +1907,7 @@ modifyEventSubscription :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'mesSubscriptionName'
+    -> State ModifyEventSubscription a
     -> m ModifyEventSubscriptionResponse
 modifyEventSubscription p1 s =
     send $ (mkModifyEventSubscription p1) &~ s
@@ -1890,6 +1917,7 @@ modifyEventSubscriptionCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'mesSubscriptionName'
+    -> State ModifyEventSubscription a
     -> m (Either ServiceEr ModifyEventSubscriptionResponse)
 modifyEventSubscriptionCatch p1 s =
     sendCatch $ (mkModifyEventSubscription p1) &~ s
@@ -1908,8 +1936,8 @@ modifySnapshotCopyRetentionPeriod :: ( MonadCatch m
     => Text -- ^ 'mscrpClusterIdentifier'
     -> Integer -- ^ 'mscrpRetentionPeriod'
     -> m ModifySnapshotCopyRetentionPeriodResponse
-modifySnapshotCopyRetentionPeriod p1 p2 s =
-    send $ (mkModifySnapshotCopyRetentionPeriod p1 p2) &~ s
+modifySnapshotCopyRetentionPeriod p1 p2 =
+    send (mkModifySnapshotCopyRetentionPeriod p1 p2)
 
 modifySnapshotCopyRetentionPeriodCatch :: ( MonadCatch m
                                           , MonadResource m
@@ -1918,8 +1946,8 @@ modifySnapshotCopyRetentionPeriodCatch :: ( MonadCatch m
     => Text -- ^ 'mscrpClusterIdentifier'
     -> Integer -- ^ 'mscrpRetentionPeriod'
     -> m (Either ServiceEr ModifySnapshotCopyRetentionPeriodResponse)
-modifySnapshotCopyRetentionPeriodCatch p1 p2 s =
-    sendCatch $ (mkModifySnapshotCopyRetentionPeriod p1 p2) &~ s
+modifySnapshotCopyRetentionPeriodCatch p1 p2 =
+    sendCatch (mkModifySnapshotCopyRetentionPeriod p1 p2)
 
 -- $PurchaseReservedNodeOffering
 -- Allows you to purchase reserved nodes. Amazon Redshift offers a predefined
@@ -1948,6 +1976,7 @@ purchaseReservedNodeOffering :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'prnoReservedNodeOfferingId'
+    -> State PurchaseReservedNodeOffering a
     -> m PurchaseReservedNodeOfferingResponse
 purchaseReservedNodeOffering p1 s =
     send $ (mkPurchaseReservedNodeOffering p1) &~ s
@@ -1957,6 +1986,7 @@ purchaseReservedNodeOfferingCatch :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => Text -- ^ 'prnoReservedNodeOfferingId'
+    -> State PurchaseReservedNodeOffering a
     -> m (Either ServiceEr PurchaseReservedNodeOfferingResponse)
 purchaseReservedNodeOfferingCatch p1 s =
     sendCatch $ (mkPurchaseReservedNodeOffering p1) &~ s
@@ -1988,8 +2018,8 @@ rebootCluster :: ( MonadCatch m
                  )
     => Text -- ^ 'rc1ClusterIdentifier'
     -> m RebootClusterResponse
-rebootCluster p1 s =
-    send $ (mkRebootCluster p1) &~ s
+rebootCluster p1 =
+    send (mkRebootCluster p1)
 
 rebootClusterCatch :: ( MonadCatch m
                       , MonadResource m
@@ -1997,8 +2027,8 @@ rebootClusterCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'rc1ClusterIdentifier'
     -> m (Either ServiceEr RebootClusterResponse)
-rebootClusterCatch p1 s =
-    sendCatch $ (mkRebootCluster p1) &~ s
+rebootClusterCatch p1 =
+    sendCatch (mkRebootCluster p1)
 
 -- $ResetClusterParameterGroup
 -- Sets one or more parameters of the specified parameter group to their
@@ -2023,6 +2053,7 @@ resetClusterParameterGroup :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'rcpgParameterGroupName'
+    -> State ResetClusterParameterGroup a
     -> m ResetClusterParameterGroupResponse
 resetClusterParameterGroup p1 s =
     send $ (mkResetClusterParameterGroup p1) &~ s
@@ -2032,6 +2063,7 @@ resetClusterParameterGroupCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => Text -- ^ 'rcpgParameterGroupName'
+    -> State ResetClusterParameterGroup a
     -> m (Either ServiceEr ResetClusterParameterGroupResponse)
 resetClusterParameterGroupCatch p1 s =
     sendCatch $ (mkResetClusterParameterGroup p1) &~ s
@@ -2067,6 +2099,7 @@ restoreFromClusterSnapshot :: ( MonadCatch m
                               )
     => Text -- ^ 'rfcsClusterIdentifier'
     -> Text -- ^ 'rfcsSnapshotIdentifier'
+    -> State RestoreFromClusterSnapshot a
     -> m RestoreFromClusterSnapshotResponse
 restoreFromClusterSnapshot p1 p2 s =
     send $ (mkRestoreFromClusterSnapshot p1 p2) &~ s
@@ -2077,6 +2110,7 @@ restoreFromClusterSnapshotCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'rfcsClusterIdentifier'
     -> Text -- ^ 'rfcsSnapshotIdentifier'
+    -> State RestoreFromClusterSnapshot a
     -> m (Either ServiceEr RestoreFromClusterSnapshotResponse)
 restoreFromClusterSnapshotCatch p1 p2 s =
     sendCatch $ (mkRestoreFromClusterSnapshot p1 p2) &~ s
@@ -2104,6 +2138,7 @@ revokeClusterSecurityGroupIngress :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => Text -- ^ 'rcsgiClusterSecurityGroupName'
+    -> State RevokeClusterSecurityGroupIngress a
     -> m RevokeClusterSecurityGroupIngressResponse
 revokeClusterSecurityGroupIngress p1 s =
     send $ (mkRevokeClusterSecurityGroupIngress p1) &~ s
@@ -2113,6 +2148,7 @@ revokeClusterSecurityGroupIngressCatch :: ( MonadCatch m
                                           , MonadReader Env m
                                           )
     => Text -- ^ 'rcsgiClusterSecurityGroupName'
+    -> State RevokeClusterSecurityGroupIngress a
     -> m (Either ServiceEr RevokeClusterSecurityGroupIngressResponse)
 revokeClusterSecurityGroupIngressCatch p1 s =
     sendCatch $ (mkRevokeClusterSecurityGroupIngress p1) &~ s
@@ -2133,6 +2169,7 @@ revokeSnapshotAccess :: ( MonadCatch m
                         )
     => Text -- ^ 'rsaSnapshotIdentifier'
     -> Text -- ^ 'rsaAccountWithRestoreAccess'
+    -> State RevokeSnapshotAccess a
     -> m RevokeSnapshotAccessResponse
 revokeSnapshotAccess p1 p3 s =
     send $ (mkRevokeSnapshotAccess p1 p3) &~ s
@@ -2143,6 +2180,7 @@ revokeSnapshotAccessCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'rsaSnapshotIdentifier'
     -> Text -- ^ 'rsaAccountWithRestoreAccess'
+    -> State RevokeSnapshotAccess a
     -> m (Either ServiceEr RevokeSnapshotAccessResponse)
 revokeSnapshotAccessCatch p1 p3 s =
     sendCatch $ (mkRevokeSnapshotAccess p1 p3) &~ s
@@ -2159,8 +2197,8 @@ rotateEncryptionKey :: ( MonadCatch m
                        )
     => Text -- ^ 'rekClusterIdentifier'
     -> m RotateEncryptionKeyResponse
-rotateEncryptionKey p1 s =
-    send $ (mkRotateEncryptionKey p1) &~ s
+rotateEncryptionKey p1 =
+    send (mkRotateEncryptionKey p1)
 
 rotateEncryptionKeyCatch :: ( MonadCatch m
                             , MonadResource m
@@ -2168,5 +2206,5 @@ rotateEncryptionKeyCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'rekClusterIdentifier'
     -> m (Either ServiceEr RotateEncryptionKeyResponse)
-rotateEncryptionKeyCatch p1 s =
-    sendCatch $ (mkRotateEncryptionKey p1) &~ s
+rotateEncryptionKeyCatch p1 =
+    sendCatch (mkRotateEncryptionKey p1)

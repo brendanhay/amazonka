@@ -259,6 +259,7 @@ countClosedWorkflowExecutions :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'ccweDomain'
+    -> State CountClosedWorkflowExecutions a
     -> m CountClosedWorkflowExecutionsResponse
 countClosedWorkflowExecutions p1 s =
     send $ (mkCountClosedWorkflowExecutions p1) &~ s
@@ -268,6 +269,7 @@ countClosedWorkflowExecutionsCatch :: ( MonadCatch m
                                       , MonadReader Env m
                                       )
     => Text -- ^ 'ccweDomain'
+    -> State CountClosedWorkflowExecutions a
     -> m (Either ServiceEr CountClosedWorkflowExecutionsResponse)
 countClosedWorkflowExecutionsCatch p1 s =
     sendCatch $ (mkCountClosedWorkflowExecutions p1) &~ s
@@ -315,6 +317,7 @@ countOpenWorkflowExecutions :: ( MonadCatch m
                                )
     => Text -- ^ 'coweDomain'
     -> ExecutionTimeFilter -- ^ 'coweStartTimeFilter'
+    -> State CountOpenWorkflowExecutions a
     -> m CountOpenWorkflowExecutionsResponse
 countOpenWorkflowExecutions p1 p2 s =
     send $ (mkCountOpenWorkflowExecutions p1 p2) &~ s
@@ -325,6 +328,7 @@ countOpenWorkflowExecutionsCatch :: ( MonadCatch m
                                     )
     => Text -- ^ 'coweDomain'
     -> ExecutionTimeFilter -- ^ 'coweStartTimeFilter'
+    -> State CountOpenWorkflowExecutions a
     -> m (Either ServiceEr CountOpenWorkflowExecutionsResponse)
 countOpenWorkflowExecutionsCatch p1 p2 s =
     sendCatch $ (mkCountOpenWorkflowExecutions p1 p2) &~ s
@@ -370,8 +374,8 @@ countPendingActivityTasks :: ( MonadCatch m
     => Text -- ^ 'cpatDomain'
     -> TaskList -- ^ 'cpatTaskList'
     -> m CountPendingActivityTasksResponse
-countPendingActivityTasks p1 p2 s =
-    send $ (mkCountPendingActivityTasks p1 p2) &~ s
+countPendingActivityTasks p1 p2 =
+    send (mkCountPendingActivityTasks p1 p2)
 
 countPendingActivityTasksCatch :: ( MonadCatch m
                                   , MonadResource m
@@ -380,8 +384,8 @@ countPendingActivityTasksCatch :: ( MonadCatch m
     => Text -- ^ 'cpatDomain'
     -> TaskList -- ^ 'cpatTaskList'
     -> m (Either ServiceEr CountPendingActivityTasksResponse)
-countPendingActivityTasksCatch p1 p2 s =
-    sendCatch $ (mkCountPendingActivityTasks p1 p2) &~ s
+countPendingActivityTasksCatch p1 p2 =
+    sendCatch (mkCountPendingActivityTasks p1 p2)
 
 -- $CountPendingDecisionTasks
 -- Returns the estimated number of decision tasks in the specified task list.
@@ -424,8 +428,8 @@ countPendingDecisionTasks :: ( MonadCatch m
     => Text -- ^ 'cpdtDomain'
     -> TaskList -- ^ 'cpdtTaskList'
     -> m CountPendingDecisionTasksResponse
-countPendingDecisionTasks p1 p2 s =
-    send $ (mkCountPendingDecisionTasks p1 p2) &~ s
+countPendingDecisionTasks p1 p2 =
+    send (mkCountPendingDecisionTasks p1 p2)
 
 countPendingDecisionTasksCatch :: ( MonadCatch m
                                   , MonadResource m
@@ -434,8 +438,8 @@ countPendingDecisionTasksCatch :: ( MonadCatch m
     => Text -- ^ 'cpdtDomain'
     -> TaskList -- ^ 'cpdtTaskList'
     -> m (Either ServiceEr CountPendingDecisionTasksResponse)
-countPendingDecisionTasksCatch p1 p2 s =
-    sendCatch $ (mkCountPendingDecisionTasks p1 p2) &~ s
+countPendingDecisionTasksCatch p1 p2 =
+    sendCatch (mkCountPendingDecisionTasks p1 p2)
 
 -- $DeprecateActivityType
 -- Deprecates the specified activity type. After an activity type has been
@@ -480,8 +484,8 @@ deprecateActivityType :: ( MonadCatch m
     => Text -- ^ 'datDomain'
     -> ActivityType -- ^ 'datActivityType'
     -> m DeprecateActivityTypeResponse
-deprecateActivityType p1 p2 s =
-    send $ (mkDeprecateActivityType p1 p2) &~ s
+deprecateActivityType p1 p2 =
+    send (mkDeprecateActivityType p1 p2)
 
 deprecateActivityTypeCatch :: ( MonadCatch m
                               , MonadResource m
@@ -490,8 +494,8 @@ deprecateActivityTypeCatch :: ( MonadCatch m
     => Text -- ^ 'datDomain'
     -> ActivityType -- ^ 'datActivityType'
     -> m (Either ServiceEr DeprecateActivityTypeResponse)
-deprecateActivityTypeCatch p1 p2 s =
-    sendCatch $ (mkDeprecateActivityType p1 p2) &~ s
+deprecateActivityTypeCatch p1 p2 =
+    sendCatch (mkDeprecateActivityType p1 p2)
 
 -- $DeprecateDomain
 -- Deprecates the specified domain. After a domain has been deprecated it
@@ -534,8 +538,8 @@ deprecateDomain :: ( MonadCatch m
                    )
     => Text -- ^ 'ddName'
     -> m DeprecateDomainResponse
-deprecateDomain p1 s =
-    send $ (mkDeprecateDomain p1) &~ s
+deprecateDomain p1 =
+    send (mkDeprecateDomain p1)
 
 deprecateDomainCatch :: ( MonadCatch m
                         , MonadResource m
@@ -543,8 +547,8 @@ deprecateDomainCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'ddName'
     -> m (Either ServiceEr DeprecateDomainResponse)
-deprecateDomainCatch p1 s =
-    sendCatch $ (mkDeprecateDomain p1) &~ s
+deprecateDomainCatch p1 =
+    sendCatch (mkDeprecateDomain p1)
 
 -- $DeprecateWorkflowType
 -- Deprecates the specified workflow type. After a workflow type has been
@@ -590,8 +594,8 @@ deprecateWorkflowType :: ( MonadCatch m
     => Text -- ^ 'dwtDomain'
     -> WorkflowType -- ^ 'dwtWorkflowType'
     -> m DeprecateWorkflowTypeResponse
-deprecateWorkflowType p1 p2 s =
-    send $ (mkDeprecateWorkflowType p1 p2) &~ s
+deprecateWorkflowType p1 p2 =
+    send (mkDeprecateWorkflowType p1 p2)
 
 deprecateWorkflowTypeCatch :: ( MonadCatch m
                               , MonadResource m
@@ -600,8 +604,8 @@ deprecateWorkflowTypeCatch :: ( MonadCatch m
     => Text -- ^ 'dwtDomain'
     -> WorkflowType -- ^ 'dwtWorkflowType'
     -> m (Either ServiceEr DeprecateWorkflowTypeResponse)
-deprecateWorkflowTypeCatch p1 p2 s =
-    sendCatch $ (mkDeprecateWorkflowType p1 p2) &~ s
+deprecateWorkflowTypeCatch p1 p2 =
+    sendCatch (mkDeprecateWorkflowType p1 p2)
 
 -- $DescribeActivityType
 -- Returns information about the specified activity type. This includes
@@ -651,8 +655,8 @@ describeActivityType :: ( MonadCatch m
     => Text -- ^ 'dat1Domain'
     -> ActivityType -- ^ 'dat1ActivityType'
     -> m DescribeActivityTypeResponse
-describeActivityType p1 p2 s =
-    send $ (mkDescribeActivityType p1 p2) &~ s
+describeActivityType p1 p2 =
+    send (mkDescribeActivityType p1 p2)
 
 describeActivityTypeCatch :: ( MonadCatch m
                              , MonadResource m
@@ -661,8 +665,8 @@ describeActivityTypeCatch :: ( MonadCatch m
     => Text -- ^ 'dat1Domain'
     -> ActivityType -- ^ 'dat1ActivityType'
     -> m (Either ServiceEr DescribeActivityTypeResponse)
-describeActivityTypeCatch p1 p2 s =
-    sendCatch $ (mkDescribeActivityType p1 p2) &~ s
+describeActivityTypeCatch p1 p2 =
+    sendCatch (mkDescribeActivityType p1 p2)
 
 -- $DescribeDomain
 -- Returns information about the specified domain including description and
@@ -702,8 +706,8 @@ describeDomain :: ( MonadCatch m
                   )
     => Text -- ^ 'dd1Name'
     -> m DescribeDomainResponse
-describeDomain p1 s =
-    send $ (mkDescribeDomain p1) &~ s
+describeDomain p1 =
+    send (mkDescribeDomain p1)
 
 describeDomainCatch :: ( MonadCatch m
                        , MonadResource m
@@ -711,8 +715,8 @@ describeDomainCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'dd1Name'
     -> m (Either ServiceEr DescribeDomainResponse)
-describeDomainCatch p1 s =
-    sendCatch $ (mkDescribeDomain p1) &~ s
+describeDomainCatch p1 =
+    sendCatch (mkDescribeDomain p1)
 
 -- $DescribeWorkflowExecution
 -- Returns information about the specified workflow execution including its
@@ -763,8 +767,8 @@ describeWorkflowExecution :: ( MonadCatch m
     => Text -- ^ 'dweDomain'
     -> WorkflowExecution -- ^ 'dweExecution'
     -> m DescribeWorkflowExecutionResponse
-describeWorkflowExecution p1 p2 s =
-    send $ (mkDescribeWorkflowExecution p1 p2) &~ s
+describeWorkflowExecution p1 p2 =
+    send (mkDescribeWorkflowExecution p1 p2)
 
 describeWorkflowExecutionCatch :: ( MonadCatch m
                                   , MonadResource m
@@ -773,8 +777,8 @@ describeWorkflowExecutionCatch :: ( MonadCatch m
     => Text -- ^ 'dweDomain'
     -> WorkflowExecution -- ^ 'dweExecution'
     -> m (Either ServiceEr DescribeWorkflowExecutionResponse)
-describeWorkflowExecutionCatch p1 p2 s =
-    sendCatch $ (mkDescribeWorkflowExecution p1 p2) &~ s
+describeWorkflowExecutionCatch p1 p2 =
+    sendCatch (mkDescribeWorkflowExecution p1 p2)
 
 -- $DescribeWorkflowType
 -- Returns information about the specified workflow type. This includes
@@ -823,8 +827,8 @@ describeWorkflowType :: ( MonadCatch m
     => Text -- ^ 'dwt1Domain'
     -> WorkflowType -- ^ 'dwt1WorkflowType'
     -> m DescribeWorkflowTypeResponse
-describeWorkflowType p1 p2 s =
-    send $ (mkDescribeWorkflowType p1 p2) &~ s
+describeWorkflowType p1 p2 =
+    send (mkDescribeWorkflowType p1 p2)
 
 describeWorkflowTypeCatch :: ( MonadCatch m
                              , MonadResource m
@@ -833,8 +837,8 @@ describeWorkflowTypeCatch :: ( MonadCatch m
     => Text -- ^ 'dwt1Domain'
     -> WorkflowType -- ^ 'dwt1WorkflowType'
     -> m (Either ServiceEr DescribeWorkflowTypeResponse)
-describeWorkflowTypeCatch p1 p2 s =
-    sendCatch $ (mkDescribeWorkflowType p1 p2) &~ s
+describeWorkflowTypeCatch p1 p2 =
+    sendCatch (mkDescribeWorkflowType p1 p2)
 
 -- $GetWorkflowExecutionHistory
 -- Returns the history of the specified workflow execution. The results may be
@@ -914,6 +918,7 @@ getWorkflowExecutionHistory :: ( MonadCatch m
                                )
     => Text -- ^ 'gwehDomain'
     -> WorkflowExecution -- ^ 'gwehExecution'
+    -> State GetWorkflowExecutionHistory a
     -> ResumableSource m GetWorkflowExecutionHistoryResponse
 getWorkflowExecutionHistory p1 p2 s =
     paginate $ (mkGetWorkflowExecutionHistory p1 p2) &~ s
@@ -924,6 +929,7 @@ getWorkflowExecutionHistoryCatch :: ( MonadCatch m
                                     )
     => Text -- ^ 'gwehDomain'
     -> WorkflowExecution -- ^ 'gwehExecution'
+    -> State GetWorkflowExecutionHistory a
     -> ResumableSource m (Either ServiceEr GetWorkflowExecutionHistoryResponse)
 getWorkflowExecutionHistoryCatch p1 p2 s =
     paginateCatch $ (mkGetWorkflowExecutionHistory p1 p2) &~ s
@@ -960,6 +966,7 @@ listActivityTypes :: ( MonadCatch m
                      )
     => Text -- ^ 'latDomain'
     -> RegistrationStatus -- ^ 'latRegistrationStatus'
+    -> State ListActivityTypes a
     -> ResumableSource m ListActivityTypesResponse
 listActivityTypes p1 p3 s =
     paginate $ (mkListActivityTypes p1 p3) &~ s
@@ -970,6 +977,7 @@ listActivityTypesCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'latDomain'
     -> RegistrationStatus -- ^ 'latRegistrationStatus'
+    -> State ListActivityTypes a
     -> ResumableSource m (Either ServiceEr ListActivityTypesResponse)
 listActivityTypesCatch p1 p3 s =
     paginateCatch $ (mkListActivityTypes p1 p3) &~ s
@@ -1035,6 +1043,7 @@ listClosedWorkflowExecutions :: ( MonadCatch m
                                 , MonadReader Env (ResumableSource m)
                                 )
     => Text -- ^ 'lcweDomain'
+    -> State ListClosedWorkflowExecutions a
     -> ResumableSource m ListClosedWorkflowExecutionsResponse
 listClosedWorkflowExecutions p1 s =
     paginate $ (mkListClosedWorkflowExecutions p1) &~ s
@@ -1044,6 +1053,7 @@ listClosedWorkflowExecutionsCatch :: ( MonadCatch m
                                      , MonadReader Env (ResumableSource m)
                                      )
     => Text -- ^ 'lcweDomain'
+    -> State ListClosedWorkflowExecutions a
     -> ResumableSource m (Either ServiceEr ListClosedWorkflowExecutionsResponse)
 listClosedWorkflowExecutionsCatch p1 s =
     paginateCatch $ (mkListClosedWorkflowExecutions p1) &~ s
@@ -1097,6 +1107,7 @@ listDomains :: ( MonadCatch m
                , MonadReader Env (ResumableSource m)
                )
     => RegistrationStatus -- ^ 'ldRegistrationStatus'
+    -> State ListDomains a
     -> ResumableSource m ListDomainsResponse
 listDomains p2 s =
     paginate $ (mkListDomains p2) &~ s
@@ -1106,6 +1117,7 @@ listDomainsCatch :: ( MonadCatch m
                     , MonadReader Env (ResumableSource m)
                     )
     => RegistrationStatus -- ^ 'ldRegistrationStatus'
+    -> State ListDomains a
     -> ResumableSource m (Either ServiceEr ListDomainsResponse)
 listDomainsCatch p2 s =
     paginateCatch $ (mkListDomains p2) &~ s
@@ -1160,6 +1172,7 @@ listOpenWorkflowExecutions :: ( MonadCatch m
                               )
     => Text -- ^ 'loweDomain'
     -> ExecutionTimeFilter -- ^ 'loweStartTimeFilter'
+    -> State ListOpenWorkflowExecutions a
     -> ResumableSource m ListOpenWorkflowExecutionsResponse
 listOpenWorkflowExecutions p1 p2 s =
     paginate $ (mkListOpenWorkflowExecutions p1 p2) &~ s
@@ -1170,6 +1183,7 @@ listOpenWorkflowExecutionsCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'loweDomain'
     -> ExecutionTimeFilter -- ^ 'loweStartTimeFilter'
+    -> State ListOpenWorkflowExecutions a
     -> ResumableSource m (Either ServiceEr ListOpenWorkflowExecutionsResponse)
 listOpenWorkflowExecutionsCatch p1 p2 s =
     paginateCatch $ (mkListOpenWorkflowExecutions p1 p2) &~ s
@@ -1214,6 +1228,7 @@ listWorkflowTypes :: ( MonadCatch m
                      )
     => Text -- ^ 'lwtDomain'
     -> RegistrationStatus -- ^ 'lwtRegistrationStatus'
+    -> State ListWorkflowTypes a
     -> ResumableSource m ListWorkflowTypesResponse
 listWorkflowTypes p1 p3 s =
     paginate $ (mkListWorkflowTypes p1 p3) &~ s
@@ -1224,6 +1239,7 @@ listWorkflowTypesCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'lwtDomain'
     -> RegistrationStatus -- ^ 'lwtRegistrationStatus'
+    -> State ListWorkflowTypes a
     -> ResumableSource m (Either ServiceEr ListWorkflowTypesResponse)
 listWorkflowTypesCatch p1 p3 s =
     paginateCatch $ (mkListWorkflowTypes p1 p3) &~ s
@@ -1281,6 +1297,7 @@ pollForActivityTask :: ( MonadCatch m
                        )
     => Text -- ^ 'pfatDomain'
     -> TaskList -- ^ 'pfatTaskList'
+    -> State PollForActivityTask a
     -> m PollForActivityTaskResponse
 pollForActivityTask p1 p2 s =
     send $ (mkPollForActivityTask p1 p2) &~ s
@@ -1291,6 +1308,7 @@ pollForActivityTaskCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'pfatDomain'
     -> TaskList -- ^ 'pfatTaskList'
+    -> State PollForActivityTask a
     -> m (Either ServiceEr PollForActivityTaskResponse)
 pollForActivityTaskCatch p1 p2 s =
     sendCatch $ (mkPollForActivityTask p1 p2) &~ s
@@ -1369,6 +1387,7 @@ pollForDecisionTask :: ( MonadCatch m
                        )
     => Text -- ^ 'pfdtDomain'
     -> TaskList -- ^ 'pfdtTaskList'
+    -> State PollForDecisionTask a
     -> ResumableSource m PollForDecisionTaskResponse
 pollForDecisionTask p1 p2 s =
     paginate $ (mkPollForDecisionTask p1 p2) &~ s
@@ -1379,6 +1398,7 @@ pollForDecisionTaskCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'pfdtDomain'
     -> TaskList -- ^ 'pfdtTaskList'
+    -> State PollForDecisionTask a
     -> ResumableSource m (Either ServiceEr PollForDecisionTaskResponse)
 pollForDecisionTaskCatch p1 p2 s =
     paginateCatch $ (mkPollForDecisionTask p1 p2) &~ s
@@ -1439,6 +1459,7 @@ recordActivityTaskHeartbeat :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'rathTaskToken'
+    -> State RecordActivityTaskHeartbeat a
     -> m RecordActivityTaskHeartbeatResponse
 recordActivityTaskHeartbeat p1 s =
     send $ (mkRecordActivityTaskHeartbeat p1) &~ s
@@ -1448,6 +1469,7 @@ recordActivityTaskHeartbeatCatch :: ( MonadCatch m
                                     , MonadReader Env m
                                     )
     => Text -- ^ 'rathTaskToken'
+    -> State RecordActivityTaskHeartbeat a
     -> m (Either ServiceEr RecordActivityTaskHeartbeatResponse)
 recordActivityTaskHeartbeatCatch p1 s =
     sendCatch $ (mkRecordActivityTaskHeartbeat p1) &~ s
@@ -1499,6 +1521,7 @@ registerActivityType :: ( MonadCatch m
     => Text -- ^ 'ratDomain'
     -> Text -- ^ 'ratName'
     -> Text -- ^ 'ratVersion'
+    -> State RegisterActivityType a
     -> m RegisterActivityTypeResponse
 registerActivityType p1 p2 p3 s =
     send $ (mkRegisterActivityType p1 p2 p3) &~ s
@@ -1510,6 +1533,7 @@ registerActivityTypeCatch :: ( MonadCatch m
     => Text -- ^ 'ratDomain'
     -> Text -- ^ 'ratName'
     -> Text -- ^ 'ratVersion'
+    -> State RegisterActivityType a
     -> m (Either ServiceEr RegisterActivityTypeResponse)
 registerActivityTypeCatch p1 p2 p3 s =
     sendCatch $ (mkRegisterActivityType p1 p2 p3) &~ s
@@ -1551,6 +1575,7 @@ registerDomain :: ( MonadCatch m
                   )
     => Text -- ^ 'rdName'
     -> Text -- ^ 'rdWorkflowExecutionRetentionPeriodInDays'
+    -> State RegisterDomain a
     -> m RegisterDomainResponse
 registerDomain p1 p3 s =
     send $ (mkRegisterDomain p1 p3) &~ s
@@ -1561,6 +1586,7 @@ registerDomainCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'rdName'
     -> Text -- ^ 'rdWorkflowExecutionRetentionPeriodInDays'
+    -> State RegisterDomain a
     -> m (Either ServiceEr RegisterDomainResponse)
 registerDomainCatch p1 p3 s =
     sendCatch $ (mkRegisterDomain p1 p3) &~ s
@@ -1612,6 +1638,7 @@ registerWorkflowType :: ( MonadCatch m
     => Text -- ^ 'rwtDomain'
     -> Text -- ^ 'rwtName'
     -> Text -- ^ 'rwtVersion'
+    -> State RegisterWorkflowType a
     -> m RegisterWorkflowTypeResponse
 registerWorkflowType p1 p2 p3 s =
     send $ (mkRegisterWorkflowType p1 p2 p3) &~ s
@@ -1623,6 +1650,7 @@ registerWorkflowTypeCatch :: ( MonadCatch m
     => Text -- ^ 'rwtDomain'
     -> Text -- ^ 'rwtName'
     -> Text -- ^ 'rwtVersion'
+    -> State RegisterWorkflowType a
     -> m (Either ServiceEr RegisterWorkflowTypeResponse)
 registerWorkflowTypeCatch p1 p2 p3 s =
     sendCatch $ (mkRegisterWorkflowType p1 p2 p3) &~ s
@@ -1672,6 +1700,7 @@ requestCancelWorkflowExecution :: ( MonadCatch m
                                   )
     => Text -- ^ 'rcweDomain'
     -> Text -- ^ 'rcweWorkflowId'
+    -> State RequestCancelWorkflowExecution a
     -> m RequestCancelWorkflowExecutionResponse
 requestCancelWorkflowExecution p1 p2 s =
     send $ (mkRequestCancelWorkflowExecution p1 p2) &~ s
@@ -1682,6 +1711,7 @@ requestCancelWorkflowExecutionCatch :: ( MonadCatch m
                                        )
     => Text -- ^ 'rcweDomain'
     -> Text -- ^ 'rcweWorkflowId'
+    -> State RequestCancelWorkflowExecution a
     -> m (Either ServiceEr RequestCancelWorkflowExecutionResponse)
 requestCancelWorkflowExecutionCatch p1 p2 s =
     sendCatch $ (mkRequestCancelWorkflowExecution p1 p2) &~ s
@@ -1732,6 +1762,7 @@ respondActivityTaskCanceled :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'ratcTaskToken'
+    -> State RespondActivityTaskCanceled a
     -> m RespondActivityTaskCanceledResponse
 respondActivityTaskCanceled p1 s =
     send $ (mkRespondActivityTaskCanceled p1) &~ s
@@ -1741,6 +1772,7 @@ respondActivityTaskCanceledCatch :: ( MonadCatch m
                                     , MonadReader Env m
                                     )
     => Text -- ^ 'ratcTaskToken'
+    -> State RespondActivityTaskCanceled a
     -> m (Either ServiceEr RespondActivityTaskCanceledResponse)
 respondActivityTaskCanceledCatch p1 s =
     sendCatch $ (mkRespondActivityTaskCanceled p1) &~ s
@@ -1792,6 +1824,7 @@ respondActivityTaskCompleted :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'ratc1TaskToken'
+    -> State RespondActivityTaskCompleted a
     -> m RespondActivityTaskCompletedResponse
 respondActivityTaskCompleted p1 s =
     send $ (mkRespondActivityTaskCompleted p1) &~ s
@@ -1801,6 +1834,7 @@ respondActivityTaskCompletedCatch :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => Text -- ^ 'ratc1TaskToken'
+    -> State RespondActivityTaskCompleted a
     -> m (Either ServiceEr RespondActivityTaskCompletedResponse)
 respondActivityTaskCompletedCatch p1 s =
     sendCatch $ (mkRespondActivityTaskCompleted p1) &~ s
@@ -1848,6 +1882,7 @@ respondActivityTaskFailed :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'ratfTaskToken'
+    -> State RespondActivityTaskFailed a
     -> m RespondActivityTaskFailedResponse
 respondActivityTaskFailed p1 s =
     send $ (mkRespondActivityTaskFailed p1) &~ s
@@ -1857,6 +1892,7 @@ respondActivityTaskFailedCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => Text -- ^ 'ratfTaskToken'
+    -> State RespondActivityTaskFailed a
     -> m (Either ServiceEr RespondActivityTaskFailedResponse)
 respondActivityTaskFailedCatch p1 s =
     sendCatch $ (mkRespondActivityTaskFailed p1) &~ s
@@ -1906,6 +1942,7 @@ respondDecisionTaskCompleted :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'rdtcTaskToken'
+    -> State RespondDecisionTaskCompleted a
     -> m RespondDecisionTaskCompletedResponse
 respondDecisionTaskCompleted p1 s =
     send $ (mkRespondDecisionTaskCompleted p1) &~ s
@@ -1915,6 +1952,7 @@ respondDecisionTaskCompletedCatch :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => Text -- ^ 'rdtcTaskToken'
+    -> State RespondDecisionTaskCompleted a
     -> m (Either ServiceEr RespondDecisionTaskCompletedResponse)
 respondDecisionTaskCompletedCatch p1 s =
     sendCatch $ (mkRespondDecisionTaskCompleted p1) &~ s
@@ -1964,6 +2002,7 @@ signalWorkflowExecution :: ( MonadCatch m
     => Text -- ^ 'sweDomain'
     -> Text -- ^ 'sweWorkflowId'
     -> Text -- ^ 'sweSignalName'
+    -> State SignalWorkflowExecution a
     -> m SignalWorkflowExecutionResponse
 signalWorkflowExecution p1 p2 p4 s =
     send $ (mkSignalWorkflowExecution p1 p2 p4) &~ s
@@ -1975,6 +2014,7 @@ signalWorkflowExecutionCatch :: ( MonadCatch m
     => Text -- ^ 'sweDomain'
     -> Text -- ^ 'sweWorkflowId'
     -> Text -- ^ 'sweSignalName'
+    -> State SignalWorkflowExecution a
     -> m (Either ServiceEr SignalWorkflowExecutionResponse)
 signalWorkflowExecutionCatch p1 p2 p4 s =
     sendCatch $ (mkSignalWorkflowExecution p1 p2 p4) &~ s
@@ -2031,6 +2071,7 @@ startWorkflowExecution :: ( MonadCatch m
     => Text -- ^ 'swe1Domain'
     -> Text -- ^ 'swe1WorkflowId'
     -> WorkflowType -- ^ 'swe1WorkflowType'
+    -> State StartWorkflowExecution a
     -> m StartWorkflowExecutionResponse
 startWorkflowExecution p1 p2 p3 s =
     send $ (mkStartWorkflowExecution p1 p2 p3) &~ s
@@ -2042,6 +2083,7 @@ startWorkflowExecutionCatch :: ( MonadCatch m
     => Text -- ^ 'swe1Domain'
     -> Text -- ^ 'swe1WorkflowId'
     -> WorkflowType -- ^ 'swe1WorkflowType'
+    -> State StartWorkflowExecution a
     -> m (Either ServiceEr StartWorkflowExecutionResponse)
 startWorkflowExecutionCatch p1 p2 p3 s =
     sendCatch $ (mkStartWorkflowExecution p1 p2 p3) &~ s
@@ -2093,6 +2135,7 @@ terminateWorkflowExecution :: ( MonadCatch m
                               )
     => Text -- ^ 'tweDomain'
     -> Text -- ^ 'tweWorkflowId'
+    -> State TerminateWorkflowExecution a
     -> m TerminateWorkflowExecutionResponse
 terminateWorkflowExecution p1 p2 s =
     send $ (mkTerminateWorkflowExecution p1 p2) &~ s
@@ -2103,6 +2146,7 @@ terminateWorkflowExecutionCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'tweDomain'
     -> Text -- ^ 'tweWorkflowId'
+    -> State TerminateWorkflowExecution a
     -> m (Either ServiceEr TerminateWorkflowExecutionResponse)
 terminateWorkflowExecutionCatch p1 p2 s =
     sendCatch $ (mkTerminateWorkflowExecution p1 p2) &~ s

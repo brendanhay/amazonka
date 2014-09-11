@@ -151,6 +151,7 @@ addAttachmentsToSet :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => [Attachment] -- ^ 'aatsAttachments'
+    -> State AddAttachmentsToSet a
     -> m AddAttachmentsToSetResponse
 addAttachmentsToSet p2 s =
     send $ (mkAddAttachmentsToSet p2) &~ s
@@ -160,6 +161,7 @@ addAttachmentsToSetCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => [Attachment] -- ^ 'aatsAttachments'
+    -> State AddAttachmentsToSet a
     -> m (Either ServiceEr AddAttachmentsToSetResponse)
 addAttachmentsToSetCatch p2 s =
     sendCatch $ (mkAddAttachmentsToSet p2) &~ s
@@ -181,6 +183,7 @@ addCommunicationToCase :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'actcCommunicationBody'
+    -> State AddCommunicationToCase a
     -> m AddCommunicationToCaseResponse
 addCommunicationToCase p2 s =
     send $ (mkAddCommunicationToCase p2) &~ s
@@ -190,6 +193,7 @@ addCommunicationToCaseCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'actcCommunicationBody'
+    -> State AddCommunicationToCase a
     -> m (Either ServiceEr AddCommunicationToCaseResponse)
 addCommunicationToCaseCatch p2 s =
     sendCatch $ (mkAddCommunicationToCase p2) &~ s
@@ -231,6 +235,7 @@ createCase :: ( MonadCatch m
               )
     => Text -- ^ 'ccSubject'
     -> Text -- ^ 'ccCommunicationBody'
+    -> State CreateCase a
     -> m CreateCaseResponse
 createCase p1 p5 s =
     send $ (mkCreateCase p1 p5) &~ s
@@ -241,6 +246,7 @@ createCaseCatch :: ( MonadCatch m
                    )
     => Text -- ^ 'ccSubject'
     -> Text -- ^ 'ccCommunicationBody'
+    -> State CreateCase a
     -> m (Either ServiceEr CreateCaseResponse)
 createCaseCatch p1 p5 s =
     sendCatch $ (mkCreateCase p1 p5) &~ s
@@ -261,8 +267,8 @@ describeAttachment :: ( MonadCatch m
                       )
     => Text -- ^ 'daAttachmentId'
     -> m DescribeAttachmentResponse
-describeAttachment p1 s =
-    send $ (mkDescribeAttachment p1) &~ s
+describeAttachment p1 =
+    send (mkDescribeAttachment p1)
 
 describeAttachmentCatch :: ( MonadCatch m
                            , MonadResource m
@@ -270,8 +276,8 @@ describeAttachmentCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'daAttachmentId'
     -> m (Either ServiceEr DescribeAttachmentResponse)
-describeAttachmentCatch p1 s =
-    sendCatch $ (mkDescribeAttachment p1) &~ s
+describeAttachmentCatch p1 =
+    sendCatch (mkDescribeAttachment p1)
 
 -- $DescribeCases
 -- Returns a list of cases that you specify by passing one or more case IDs.
@@ -322,6 +328,7 @@ describeCommunications :: ( MonadCatch m
                           , MonadReader Env (ResumableSource m)
                           )
     => Text -- ^ 'dc1CaseId'
+    -> State DescribeCommunications a
     -> ResumableSource m DescribeCommunicationsResponse
 describeCommunications p1 s =
     paginate $ (mkDescribeCommunications p1) &~ s
@@ -331,6 +338,7 @@ describeCommunicationsCatch :: ( MonadCatch m
                                , MonadReader Env (ResumableSource m)
                                )
     => Text -- ^ 'dc1CaseId'
+    -> State DescribeCommunications a
     -> ResumableSource m (Either ServiceEr DescribeCommunicationsResponse)
 describeCommunicationsCatch p1 s =
     paginateCatch $ (mkDescribeCommunications p1) &~ s
@@ -408,8 +416,8 @@ describeTrustedAdvisorCheckRefreshStatuses :: ( MonadCatch m
                                               )
     => [Text] -- ^ 'dtacrsCheckIds'
     -> m DescribeTrustedAdvisorCheckRefreshStatusesResponse
-describeTrustedAdvisorCheckRefreshStatuses p1 s =
-    send $ (mkDescribeTrustedAdvisorCheckRefreshStatuses p1) &~ s
+describeTrustedAdvisorCheckRefreshStatuses p1 =
+    send (mkDescribeTrustedAdvisorCheckRefreshStatuses p1)
 
 describeTrustedAdvisorCheckRefreshStatusesCatch :: ( MonadCatch m
                                                    , MonadResource m
@@ -417,8 +425,8 @@ describeTrustedAdvisorCheckRefreshStatusesCatch :: ( MonadCatch m
                                                    )
     => [Text] -- ^ 'dtacrsCheckIds'
     -> m (Either ServiceEr DescribeTrustedAdvisorCheckRefreshStatusesResponse)
-describeTrustedAdvisorCheckRefreshStatusesCatch p1 s =
-    sendCatch $ (mkDescribeTrustedAdvisorCheckRefreshStatuses p1) &~ s
+describeTrustedAdvisorCheckRefreshStatusesCatch p1 =
+    sendCatch (mkDescribeTrustedAdvisorCheckRefreshStatuses p1)
 
 -- $DescribeTrustedAdvisorCheckResult
 -- Returns the results of the Trusted Advisor check that has the specified
@@ -439,6 +447,7 @@ describeTrustedAdvisorCheckResult :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => Text -- ^ 'dtacrCheckId'
+    -> State DescribeTrustedAdvisorCheckResult a
     -> m DescribeTrustedAdvisorCheckResultResponse
 describeTrustedAdvisorCheckResult p1 s =
     send $ (mkDescribeTrustedAdvisorCheckResult p1) &~ s
@@ -448,6 +457,7 @@ describeTrustedAdvisorCheckResultCatch :: ( MonadCatch m
                                           , MonadReader Env m
                                           )
     => Text -- ^ 'dtacrCheckId'
+    -> State DescribeTrustedAdvisorCheckResult a
     -> m (Either ServiceEr DescribeTrustedAdvisorCheckResultResponse)
 describeTrustedAdvisorCheckResultCatch p1 s =
     sendCatch $ (mkDescribeTrustedAdvisorCheckResult p1) &~ s
@@ -467,8 +477,8 @@ describeTrustedAdvisorCheckSummaries :: ( MonadCatch m
                                         )
     => [Text] -- ^ 'dtacsCheckIds'
     -> m DescribeTrustedAdvisorCheckSummariesResponse
-describeTrustedAdvisorCheckSummaries p1 s =
-    send $ (mkDescribeTrustedAdvisorCheckSummaries p1) &~ s
+describeTrustedAdvisorCheckSummaries p1 =
+    send (mkDescribeTrustedAdvisorCheckSummaries p1)
 
 describeTrustedAdvisorCheckSummariesCatch :: ( MonadCatch m
                                              , MonadResource m
@@ -476,8 +486,8 @@ describeTrustedAdvisorCheckSummariesCatch :: ( MonadCatch m
                                              )
     => [Text] -- ^ 'dtacsCheckIds'
     -> m (Either ServiceEr DescribeTrustedAdvisorCheckSummariesResponse)
-describeTrustedAdvisorCheckSummariesCatch p1 s =
-    sendCatch $ (mkDescribeTrustedAdvisorCheckSummaries p1) &~ s
+describeTrustedAdvisorCheckSummariesCatch p1 =
+    sendCatch (mkDescribeTrustedAdvisorCheckSummaries p1)
 
 -- $DescribeTrustedAdvisorChecks
 -- Returns information about all available Trusted Advisor checks, including
@@ -494,8 +504,8 @@ describeTrustedAdvisorChecks :: ( MonadCatch m
                                 )
     => Text -- ^ 'dtacLanguage'
     -> m DescribeTrustedAdvisorChecksResponse
-describeTrustedAdvisorChecks p1 s =
-    send $ (mkDescribeTrustedAdvisorChecks p1) &~ s
+describeTrustedAdvisorChecks p1 =
+    send (mkDescribeTrustedAdvisorChecks p1)
 
 describeTrustedAdvisorChecksCatch :: ( MonadCatch m
                                      , MonadResource m
@@ -503,8 +513,8 @@ describeTrustedAdvisorChecksCatch :: ( MonadCatch m
                                      )
     => Text -- ^ 'dtacLanguage'
     -> m (Either ServiceEr DescribeTrustedAdvisorChecksResponse)
-describeTrustedAdvisorChecksCatch p1 s =
-    sendCatch $ (mkDescribeTrustedAdvisorChecks p1) &~ s
+describeTrustedAdvisorChecksCatch p1 =
+    sendCatch (mkDescribeTrustedAdvisorChecks p1)
 
 -- $RefreshTrustedAdvisorCheck
 -- Requests a refresh of the Trusted Advisor check that has the specified
@@ -525,8 +535,8 @@ refreshTrustedAdvisorCheck :: ( MonadCatch m
                               )
     => Text -- ^ 'rtacCheckId'
     -> m RefreshTrustedAdvisorCheckResponse
-refreshTrustedAdvisorCheck p1 s =
-    send $ (mkRefreshTrustedAdvisorCheck p1) &~ s
+refreshTrustedAdvisorCheck p1 =
+    send (mkRefreshTrustedAdvisorCheck p1)
 
 refreshTrustedAdvisorCheckCatch :: ( MonadCatch m
                                    , MonadResource m
@@ -534,8 +544,8 @@ refreshTrustedAdvisorCheckCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'rtacCheckId'
     -> m (Either ServiceEr RefreshTrustedAdvisorCheckResponse)
-refreshTrustedAdvisorCheckCatch p1 s =
-    sendCatch $ (mkRefreshTrustedAdvisorCheck p1) &~ s
+refreshTrustedAdvisorCheckCatch p1 =
+    sendCatch (mkRefreshTrustedAdvisorCheck p1)
 
 -- $ResolveCase
 -- Takes a CaseId and returns the initial state of the case along with the

@@ -179,8 +179,8 @@ createCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                         )
     => CloudFrontOriginAccessIdentityConfig -- ^ 'ccfoaiCloudFrontOriginAccessIdentityConfig'
     -> m CreateCloudFrontOriginAccessIdentityResponse
-createCloudFrontOriginAccessIdentity p1 s =
-    send $ (mkCreateCloudFrontOriginAccessIdentity p1) &~ s
+createCloudFrontOriginAccessIdentity p1 =
+    send (mkCreateCloudFrontOriginAccessIdentity p1)
 
 createCloudFrontOriginAccessIdentityCatch :: ( MonadCatch m
                                              , MonadResource m
@@ -188,8 +188,8 @@ createCloudFrontOriginAccessIdentityCatch :: ( MonadCatch m
                                              )
     => CloudFrontOriginAccessIdentityConfig -- ^ 'ccfoaiCloudFrontOriginAccessIdentityConfig'
     -> m (Either ServiceEr CreateCloudFrontOriginAccessIdentityResponse)
-createCloudFrontOriginAccessIdentityCatch p1 s =
-    sendCatch $ (mkCreateCloudFrontOriginAccessIdentity p1) &~ s
+createCloudFrontOriginAccessIdentityCatch p1 =
+    sendCatch (mkCreateCloudFrontOriginAccessIdentity p1)
 
 -- $CreateDistribution
 -- Create a new distribution.
@@ -203,8 +203,8 @@ createDistribution :: ( MonadCatch m
                       )
     => DistributionConfig -- ^ 'cdDistributionConfig'
     -> m CreateDistributionResponse
-createDistribution p1 s =
-    send $ (mkCreateDistribution p1) &~ s
+createDistribution p1 =
+    send (mkCreateDistribution p1)
 
 createDistributionCatch :: ( MonadCatch m
                            , MonadResource m
@@ -212,8 +212,8 @@ createDistributionCatch :: ( MonadCatch m
                            )
     => DistributionConfig -- ^ 'cdDistributionConfig'
     -> m (Either ServiceEr CreateDistributionResponse)
-createDistributionCatch p1 s =
-    sendCatch $ (mkCreateDistribution p1) &~ s
+createDistributionCatch p1 =
+    sendCatch (mkCreateDistribution p1)
 
 -- $CreateInvalidation
 -- Create a new invalidation.
@@ -228,8 +228,8 @@ createInvalidation :: ( MonadCatch m
     => Text -- ^ 'ciDistributionId'
     -> InvalidationBatch -- ^ 'ciInvalidationBatch'
     -> m CreateInvalidationResponse
-createInvalidation p1 p2 s =
-    send $ (mkCreateInvalidation p1 p2) &~ s
+createInvalidation p1 p2 =
+    send (mkCreateInvalidation p1 p2)
 
 createInvalidationCatch :: ( MonadCatch m
                            , MonadResource m
@@ -238,8 +238,8 @@ createInvalidationCatch :: ( MonadCatch m
     => Text -- ^ 'ciDistributionId'
     -> InvalidationBatch -- ^ 'ciInvalidationBatch'
     -> m (Either ServiceEr CreateInvalidationResponse)
-createInvalidationCatch p1 p2 s =
-    sendCatch $ (mkCreateInvalidation p1 p2) &~ s
+createInvalidationCatch p1 p2 =
+    sendCatch (mkCreateInvalidation p1 p2)
 
 -- $CreateStreamingDistribution
 -- Create a new streaming distribution.
@@ -253,8 +253,8 @@ createStreamingDistribution :: ( MonadCatch m
                                )
     => StreamingDistributionConfig -- ^ 'csdStreamingDistributionConfig'
     -> m CreateStreamingDistributionResponse
-createStreamingDistribution p1 s =
-    send $ (mkCreateStreamingDistribution p1) &~ s
+createStreamingDistribution p1 =
+    send (mkCreateStreamingDistribution p1)
 
 createStreamingDistributionCatch :: ( MonadCatch m
                                     , MonadResource m
@@ -262,8 +262,8 @@ createStreamingDistributionCatch :: ( MonadCatch m
                                     )
     => StreamingDistributionConfig -- ^ 'csdStreamingDistributionConfig'
     -> m (Either ServiceEr CreateStreamingDistributionResponse)
-createStreamingDistributionCatch p1 s =
-    sendCatch $ (mkCreateStreamingDistribution p1) &~ s
+createStreamingDistributionCatch p1 =
+    sendCatch (mkCreateStreamingDistribution p1)
 
 -- $DeleteCloudFrontOriginAccessIdentity
 -- Delete an origin access identity.
@@ -276,6 +276,7 @@ deleteCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                         , MonadReader Env m
                                         )
     => Text -- ^ 'dcfoaiId'
+    -> State DeleteCloudFrontOriginAccessIdentity a
     -> m DeleteCloudFrontOriginAccessIdentityResponse
 deleteCloudFrontOriginAccessIdentity p1 s =
     send $ (mkDeleteCloudFrontOriginAccessIdentity p1) &~ s
@@ -285,6 +286,7 @@ deleteCloudFrontOriginAccessIdentityCatch :: ( MonadCatch m
                                              , MonadReader Env m
                                              )
     => Text -- ^ 'dcfoaiId'
+    -> State DeleteCloudFrontOriginAccessIdentity a
     -> m (Either ServiceEr DeleteCloudFrontOriginAccessIdentityResponse)
 deleteCloudFrontOriginAccessIdentityCatch p1 s =
     sendCatch $ (mkDeleteCloudFrontOriginAccessIdentity p1) &~ s
@@ -300,6 +302,7 @@ deleteDistribution :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'ddId'
+    -> State DeleteDistribution a
     -> m DeleteDistributionResponse
 deleteDistribution p1 s =
     send $ (mkDeleteDistribution p1) &~ s
@@ -309,6 +312,7 @@ deleteDistributionCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'ddId'
+    -> State DeleteDistribution a
     -> m (Either ServiceEr DeleteDistributionResponse)
 deleteDistributionCatch p1 s =
     sendCatch $ (mkDeleteDistribution p1) &~ s
@@ -324,6 +328,7 @@ deleteStreamingDistribution :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'dsdId'
+    -> State DeleteStreamingDistribution a
     -> m DeleteStreamingDistributionResponse
 deleteStreamingDistribution p1 s =
     send $ (mkDeleteStreamingDistribution p1) &~ s
@@ -333,6 +338,7 @@ deleteStreamingDistributionCatch :: ( MonadCatch m
                                     , MonadReader Env m
                                     )
     => Text -- ^ 'dsdId'
+    -> State DeleteStreamingDistribution a
     -> m (Either ServiceEr DeleteStreamingDistributionResponse)
 deleteStreamingDistributionCatch p1 s =
     sendCatch $ (mkDeleteStreamingDistribution p1) &~ s
@@ -349,8 +355,8 @@ getCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                      )
     => Text -- ^ 'gcfoaiId'
     -> m GetCloudFrontOriginAccessIdentityResponse
-getCloudFrontOriginAccessIdentity p1 s =
-    send $ (mkGetCloudFrontOriginAccessIdentity p1) &~ s
+getCloudFrontOriginAccessIdentity p1 =
+    send (mkGetCloudFrontOriginAccessIdentity p1)
 
 getCloudFrontOriginAccessIdentityCatch :: ( MonadCatch m
                                           , MonadResource m
@@ -358,8 +364,8 @@ getCloudFrontOriginAccessIdentityCatch :: ( MonadCatch m
                                           )
     => Text -- ^ 'gcfoaiId'
     -> m (Either ServiceEr GetCloudFrontOriginAccessIdentityResponse)
-getCloudFrontOriginAccessIdentityCatch p1 s =
-    sendCatch $ (mkGetCloudFrontOriginAccessIdentity p1) &~ s
+getCloudFrontOriginAccessIdentityCatch p1 =
+    sendCatch (mkGetCloudFrontOriginAccessIdentity p1)
 
 -- $GetCloudFrontOriginAccessIdentityConfig
 -- Get the configuration information about an origin access identity.
@@ -373,8 +379,8 @@ getCloudFrontOriginAccessIdentityConfig :: ( MonadCatch m
                                            )
     => Text -- ^ 'gcfoaicId'
     -> m GetCloudFrontOriginAccessIdentityConfigResponse
-getCloudFrontOriginAccessIdentityConfig p1 s =
-    send $ (mkGetCloudFrontOriginAccessIdentityConfig p1) &~ s
+getCloudFrontOriginAccessIdentityConfig p1 =
+    send (mkGetCloudFrontOriginAccessIdentityConfig p1)
 
 getCloudFrontOriginAccessIdentityConfigCatch :: ( MonadCatch m
                                                 , MonadResource m
@@ -382,8 +388,8 @@ getCloudFrontOriginAccessIdentityConfigCatch :: ( MonadCatch m
                                                 )
     => Text -- ^ 'gcfoaicId'
     -> m (Either ServiceEr GetCloudFrontOriginAccessIdentityConfigResponse)
-getCloudFrontOriginAccessIdentityConfigCatch p1 s =
-    sendCatch $ (mkGetCloudFrontOriginAccessIdentityConfig p1) &~ s
+getCloudFrontOriginAccessIdentityConfigCatch p1 =
+    sendCatch (mkGetCloudFrontOriginAccessIdentityConfig p1)
 
 -- $GetDistribution
 -- Get the information about a distribution.
@@ -397,8 +403,8 @@ getDistribution :: ( MonadCatch m
                    )
     => Text -- ^ 'gdId'
     -> m GetDistributionResponse
-getDistribution p1 s =
-    send $ (mkGetDistribution p1) &~ s
+getDistribution p1 =
+    send (mkGetDistribution p1)
 
 getDistributionCatch :: ( MonadCatch m
                         , MonadResource m
@@ -406,8 +412,8 @@ getDistributionCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'gdId'
     -> m (Either ServiceEr GetDistributionResponse)
-getDistributionCatch p1 s =
-    sendCatch $ (mkGetDistribution p1) &~ s
+getDistributionCatch p1 =
+    sendCatch (mkGetDistribution p1)
 
 -- $GetDistributionConfig
 -- Get the configuration information about a distribution.
@@ -421,8 +427,8 @@ getDistributionConfig :: ( MonadCatch m
                          )
     => Text -- ^ 'gdcId'
     -> m GetDistributionConfigResponse
-getDistributionConfig p1 s =
-    send $ (mkGetDistributionConfig p1) &~ s
+getDistributionConfig p1 =
+    send (mkGetDistributionConfig p1)
 
 getDistributionConfigCatch :: ( MonadCatch m
                               , MonadResource m
@@ -430,8 +436,8 @@ getDistributionConfigCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'gdcId'
     -> m (Either ServiceEr GetDistributionConfigResponse)
-getDistributionConfigCatch p1 s =
-    sendCatch $ (mkGetDistributionConfig p1) &~ s
+getDistributionConfigCatch p1 =
+    sendCatch (mkGetDistributionConfig p1)
 
 -- $GetInvalidation
 -- Get the information about an invalidation.
@@ -446,8 +452,8 @@ getInvalidation :: ( MonadCatch m
     => Text -- ^ 'giDistributionId'
     -> Text -- ^ 'giId'
     -> m GetInvalidationResponse
-getInvalidation p1 p2 s =
-    send $ (mkGetInvalidation p1 p2) &~ s
+getInvalidation p1 p2 =
+    send (mkGetInvalidation p1 p2)
 
 getInvalidationCatch :: ( MonadCatch m
                         , MonadResource m
@@ -456,8 +462,8 @@ getInvalidationCatch :: ( MonadCatch m
     => Text -- ^ 'giDistributionId'
     -> Text -- ^ 'giId'
     -> m (Either ServiceEr GetInvalidationResponse)
-getInvalidationCatch p1 p2 s =
-    sendCatch $ (mkGetInvalidation p1 p2) &~ s
+getInvalidationCatch p1 p2 =
+    sendCatch (mkGetInvalidation p1 p2)
 
 -- $GetStreamingDistribution
 -- Get the information about a streaming distribution.
@@ -471,8 +477,8 @@ getStreamingDistribution :: ( MonadCatch m
                             )
     => Text -- ^ 'gsdId'
     -> m GetStreamingDistributionResponse
-getStreamingDistribution p1 s =
-    send $ (mkGetStreamingDistribution p1) &~ s
+getStreamingDistribution p1 =
+    send (mkGetStreamingDistribution p1)
 
 getStreamingDistributionCatch :: ( MonadCatch m
                                  , MonadResource m
@@ -480,8 +486,8 @@ getStreamingDistributionCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'gsdId'
     -> m (Either ServiceEr GetStreamingDistributionResponse)
-getStreamingDistributionCatch p1 s =
-    sendCatch $ (mkGetStreamingDistribution p1) &~ s
+getStreamingDistributionCatch p1 =
+    sendCatch (mkGetStreamingDistribution p1)
 
 -- $GetStreamingDistributionConfig
 -- Get the configuration information about a streaming distribution.
@@ -495,8 +501,8 @@ getStreamingDistributionConfig :: ( MonadCatch m
                                   )
     => Text -- ^ 'gsdcId'
     -> m GetStreamingDistributionConfigResponse
-getStreamingDistributionConfig p1 s =
-    send $ (mkGetStreamingDistributionConfig p1) &~ s
+getStreamingDistributionConfig p1 =
+    send (mkGetStreamingDistributionConfig p1)
 
 getStreamingDistributionConfigCatch :: ( MonadCatch m
                                        , MonadResource m
@@ -504,8 +510,8 @@ getStreamingDistributionConfigCatch :: ( MonadCatch m
                                        )
     => Text -- ^ 'gsdcId'
     -> m (Either ServiceEr GetStreamingDistributionConfigResponse)
-getStreamingDistributionConfigCatch p1 s =
-    sendCatch $ (mkGetStreamingDistributionConfig p1) &~ s
+getStreamingDistributionConfigCatch p1 =
+    sendCatch (mkGetStreamingDistributionConfig p1)
 
 -- $ListCloudFrontOriginAccessIdentities
 -- List origin access identities.
@@ -566,6 +572,7 @@ listInvalidations :: ( MonadCatch m
                      , MonadReader Env (ResumableSource m)
                      )
     => Text -- ^ 'liDistributionId'
+    -> State ListInvalidations a
     -> ResumableSource m ListInvalidationsResponse
 listInvalidations p1 s =
     paginate $ (mkListInvalidations p1) &~ s
@@ -575,6 +582,7 @@ listInvalidationsCatch :: ( MonadCatch m
                           , MonadReader Env (ResumableSource m)
                           )
     => Text -- ^ 'liDistributionId'
+    -> State ListInvalidations a
     -> ResumableSource m (Either ServiceEr ListInvalidationsResponse)
 listInvalidationsCatch p1 s =
     paginateCatch $ (mkListInvalidations p1) &~ s
@@ -615,6 +623,7 @@ updateCloudFrontOriginAccessIdentity :: ( MonadCatch m
                                         )
     => CloudFrontOriginAccessIdentityConfig -- ^ 'ucfoaiCloudFrontOriginAccessIdentityConfig'
     -> Text -- ^ 'ucfoaiId'
+    -> State UpdateCloudFrontOriginAccessIdentity a
     -> m UpdateCloudFrontOriginAccessIdentityResponse
 updateCloudFrontOriginAccessIdentity p1 p2 s =
     send $ (mkUpdateCloudFrontOriginAccessIdentity p1 p2) &~ s
@@ -625,6 +634,7 @@ updateCloudFrontOriginAccessIdentityCatch :: ( MonadCatch m
                                              )
     => CloudFrontOriginAccessIdentityConfig -- ^ 'ucfoaiCloudFrontOriginAccessIdentityConfig'
     -> Text -- ^ 'ucfoaiId'
+    -> State UpdateCloudFrontOriginAccessIdentity a
     -> m (Either ServiceEr UpdateCloudFrontOriginAccessIdentityResponse)
 updateCloudFrontOriginAccessIdentityCatch p1 p2 s =
     sendCatch $ (mkUpdateCloudFrontOriginAccessIdentity p1 p2) &~ s
@@ -641,6 +651,7 @@ updateDistribution :: ( MonadCatch m
                       )
     => DistributionConfig -- ^ 'udDistributionConfig'
     -> Text -- ^ 'udId'
+    -> State UpdateDistribution a
     -> m UpdateDistributionResponse
 updateDistribution p1 p2 s =
     send $ (mkUpdateDistribution p1 p2) &~ s
@@ -651,6 +662,7 @@ updateDistributionCatch :: ( MonadCatch m
                            )
     => DistributionConfig -- ^ 'udDistributionConfig'
     -> Text -- ^ 'udId'
+    -> State UpdateDistribution a
     -> m (Either ServiceEr UpdateDistributionResponse)
 updateDistributionCatch p1 p2 s =
     sendCatch $ (mkUpdateDistribution p1 p2) &~ s
@@ -667,6 +679,7 @@ updateStreamingDistribution :: ( MonadCatch m
                                )
     => StreamingDistributionConfig -- ^ 'usdStreamingDistributionConfig'
     -> Text -- ^ 'usdId'
+    -> State UpdateStreamingDistribution a
     -> m UpdateStreamingDistributionResponse
 updateStreamingDistribution p1 p2 s =
     send $ (mkUpdateStreamingDistribution p1 p2) &~ s
@@ -677,6 +690,7 @@ updateStreamingDistributionCatch :: ( MonadCatch m
                                     )
     => StreamingDistributionConfig -- ^ 'usdStreamingDistributionConfig'
     -> Text -- ^ 'usdId'
+    -> State UpdateStreamingDistribution a
     -> m (Either ServiceEr UpdateStreamingDistributionResponse)
 updateStreamingDistributionCatch p1 p2 s =
     sendCatch $ (mkUpdateStreamingDistribution p1 p2) &~ s

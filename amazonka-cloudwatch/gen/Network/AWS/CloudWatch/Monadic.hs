@@ -130,8 +130,8 @@ deleteAlarms :: ( MonadCatch m
                 )
     => [Text] -- ^ 'daAlarmNames'
     -> m DeleteAlarmsResponse
-deleteAlarms p1 s =
-    send $ (mkDeleteAlarms p1) &~ s
+deleteAlarms p1 =
+    send (mkDeleteAlarms p1)
 
 deleteAlarmsCatch :: ( MonadCatch m
                      , MonadResource m
@@ -139,8 +139,8 @@ deleteAlarmsCatch :: ( MonadCatch m
                      )
     => [Text] -- ^ 'daAlarmNames'
     -> m (Either ServiceEr DeleteAlarmsResponse)
-deleteAlarmsCatch p1 s =
-    sendCatch $ (mkDeleteAlarms p1) &~ s
+deleteAlarmsCatch p1 =
+    sendCatch (mkDeleteAlarms p1)
 
 -- $DescribeAlarmHistory
 -- Retrieves history for the specified alarm. Filter alarms by date range or
@@ -208,6 +208,7 @@ describeAlarmsForMetric :: ( MonadCatch m
                            )
     => Text -- ^ 'dafmMetricName'
     -> Text -- ^ 'dafmNamespace'
+    -> State DescribeAlarmsForMetric a
     -> m DescribeAlarmsForMetricResponse
 describeAlarmsForMetric p1 p2 s =
     send $ (mkDescribeAlarmsForMetric p1 p2) &~ s
@@ -218,6 +219,7 @@ describeAlarmsForMetricCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'dafmMetricName'
     -> Text -- ^ 'dafmNamespace'
+    -> State DescribeAlarmsForMetric a
     -> m (Either ServiceEr DescribeAlarmsForMetricResponse)
 describeAlarmsForMetricCatch p1 p2 s =
     sendCatch $ (mkDescribeAlarmsForMetric p1 p2) &~ s
@@ -236,8 +238,8 @@ disableAlarmActions :: ( MonadCatch m
                        )
     => [Text] -- ^ 'daaAlarmNames'
     -> m DisableAlarmActionsResponse
-disableAlarmActions p1 s =
-    send $ (mkDisableAlarmActions p1) &~ s
+disableAlarmActions p1 =
+    send (mkDisableAlarmActions p1)
 
 disableAlarmActionsCatch :: ( MonadCatch m
                             , MonadResource m
@@ -245,8 +247,8 @@ disableAlarmActionsCatch :: ( MonadCatch m
                             )
     => [Text] -- ^ 'daaAlarmNames'
     -> m (Either ServiceEr DisableAlarmActionsResponse)
-disableAlarmActionsCatch p1 s =
-    sendCatch $ (mkDisableAlarmActions p1) &~ s
+disableAlarmActionsCatch p1 =
+    sendCatch (mkDisableAlarmActions p1)
 
 -- $EnableAlarmActions
 -- Enables actions for the specified alarms.
@@ -260,8 +262,8 @@ enableAlarmActions :: ( MonadCatch m
                       )
     => [Text] -- ^ 'eaaAlarmNames'
     -> m EnableAlarmActionsResponse
-enableAlarmActions p1 s =
-    send $ (mkEnableAlarmActions p1) &~ s
+enableAlarmActions p1 =
+    send (mkEnableAlarmActions p1)
 
 enableAlarmActionsCatch :: ( MonadCatch m
                            , MonadResource m
@@ -269,8 +271,8 @@ enableAlarmActionsCatch :: ( MonadCatch m
                            )
     => [Text] -- ^ 'eaaAlarmNames'
     -> m (Either ServiceEr EnableAlarmActionsResponse)
-enableAlarmActionsCatch p1 s =
-    sendCatch $ (mkEnableAlarmActions p1) &~ s
+enableAlarmActionsCatch p1 =
+    sendCatch (mkEnableAlarmActions p1)
 
 -- $GetMetricStatistics
 -- Gets statistics for the specified metric. The maximum number of data points
@@ -305,6 +307,7 @@ getMetricStatistics :: ( MonadCatch m
     -> ISO8601 -- ^ 'gmsEndTime'
     -> Integer -- ^ 'gmsPeriod'
     -> List1 Statistic -- ^ 'gmsStatistics'
+    -> State GetMetricStatistics a
     -> m GetMetricStatisticsResponse
 getMetricStatistics p1 p2 p4 p5 p6 p7 s =
     send $ (mkGetMetricStatistics p1 p2 p4 p5 p6 p7) &~ s
@@ -319,6 +322,7 @@ getMetricStatisticsCatch :: ( MonadCatch m
     -> ISO8601 -- ^ 'gmsEndTime'
     -> Integer -- ^ 'gmsPeriod'
     -> List1 Statistic -- ^ 'gmsStatistics'
+    -> State GetMetricStatistics a
     -> m (Either ServiceEr GetMetricStatisticsResponse)
 getMetricStatisticsCatch p1 p2 p4 p5 p6 p7 s =
     sendCatch $ (mkGetMetricStatistics p1 p2 p4 p5 p6 p7) &~ s
@@ -377,6 +381,7 @@ putMetricAlarm :: ( MonadCatch m
     -> Text -- ^ 'pmaMetricName'
     -> Text -- ^ 'pmaNamespace'
     -> Statistic -- ^ 'pmaStatistic'
+    -> State PutMetricAlarm a
     -> m PutMetricAlarmResponse
 putMetricAlarm p1 p11 p13 p14 p15 p7 p8 p9 s =
     send $ (mkPutMetricAlarm p1 p11 p13 p14 p15 p7 p8 p9) &~ s
@@ -393,6 +398,7 @@ putMetricAlarmCatch :: ( MonadCatch m
     -> Text -- ^ 'pmaMetricName'
     -> Text -- ^ 'pmaNamespace'
     -> Statistic -- ^ 'pmaStatistic'
+    -> State PutMetricAlarm a
     -> m (Either ServiceEr PutMetricAlarmResponse)
 putMetricAlarmCatch p1 p11 p13 p14 p15 p7 p8 p9 s =
     sendCatch $ (mkPutMetricAlarm p1 p11 p13 p14 p15 p7 p8 p9) &~ s
@@ -420,8 +426,8 @@ putMetricData :: ( MonadCatch m
     => Text -- ^ 'pmdNamespace'
     -> [MetricDatum] -- ^ 'pmdMetricData'
     -> m PutMetricDataResponse
-putMetricData p1 p2 s =
-    send $ (mkPutMetricData p1 p2) &~ s
+putMetricData p1 p2 =
+    send (mkPutMetricData p1 p2)
 
 putMetricDataCatch :: ( MonadCatch m
                       , MonadResource m
@@ -430,8 +436,8 @@ putMetricDataCatch :: ( MonadCatch m
     => Text -- ^ 'pmdNamespace'
     -> [MetricDatum] -- ^ 'pmdMetricData'
     -> m (Either ServiceEr PutMetricDataResponse)
-putMetricDataCatch p1 p2 s =
-    sendCatch $ (mkPutMetricData p1 p2) &~ s
+putMetricDataCatch p1 p2 =
+    sendCatch (mkPutMetricData p1 p2)
 
 -- $SetAlarmState
 -- Temporarily sets the state of an alarm. When the updated StateValue differs
@@ -449,6 +455,7 @@ setAlarmState :: ( MonadCatch m
     => Text -- ^ 'sasAlarmName'
     -> StateValue -- ^ 'sasStateValue'
     -> Text -- ^ 'sasStateReason'
+    -> State SetAlarmState a
     -> m SetAlarmStateResponse
 setAlarmState p1 p2 p3 s =
     send $ (mkSetAlarmState p1 p2 p3) &~ s
@@ -460,6 +467,7 @@ setAlarmStateCatch :: ( MonadCatch m
     => Text -- ^ 'sasAlarmName'
     -> StateValue -- ^ 'sasStateValue'
     -> Text -- ^ 'sasStateReason'
+    -> State SetAlarmState a
     -> m (Either ServiceEr SetAlarmStateResponse)
 setAlarmStateCatch p1 p2 p3 s =
     sendCatch $ (mkSetAlarmState p1 p2 p3) &~ s

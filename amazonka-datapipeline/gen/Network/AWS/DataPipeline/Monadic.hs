@@ -165,8 +165,8 @@ activatePipeline :: ( MonadCatch m
                     )
     => Text -- ^ 'apPipelineId'
     -> m ActivatePipelineResponse
-activatePipeline p1 s =
-    send $ (mkActivatePipeline p1) &~ s
+activatePipeline p1 =
+    send (mkActivatePipeline p1)
 
 activatePipelineCatch :: ( MonadCatch m
                          , MonadResource m
@@ -174,8 +174,8 @@ activatePipelineCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'apPipelineId'
     -> m (Either ServiceEr ActivatePipelineResponse)
-activatePipelineCatch p1 s =
-    sendCatch $ (mkActivatePipeline p1) &~ s
+activatePipelineCatch p1 =
+    sendCatch (mkActivatePipeline p1)
 
 -- $CreatePipeline
 -- Creates a new empty pipeline. When this action succeeds, you can then use
@@ -198,6 +198,7 @@ createPipeline :: ( MonadCatch m
                   )
     => Text -- ^ 'cpName'
     -> Text -- ^ 'cpUniqueId'
+    -> State CreatePipeline a
     -> m CreatePipelineResponse
 createPipeline p1 p2 s =
     send $ (mkCreatePipeline p1 p2) &~ s
@@ -208,6 +209,7 @@ createPipelineCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'cpName'
     -> Text -- ^ 'cpUniqueId'
+    -> State CreatePipeline a
     -> m (Either ServiceEr CreatePipelineResponse)
 createPipelineCatch p1 p2 s =
     sendCatch $ (mkCreatePipeline p1 p2) &~ s
@@ -237,8 +239,8 @@ deletePipeline :: ( MonadCatch m
                   )
     => Text -- ^ 'dpPipelineId'
     -> m DeletePipelineResponse
-deletePipeline p1 s =
-    send $ (mkDeletePipeline p1) &~ s
+deletePipeline p1 =
+    send (mkDeletePipeline p1)
 
 deletePipelineCatch :: ( MonadCatch m
                        , MonadResource m
@@ -246,8 +248,8 @@ deletePipelineCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'dpPipelineId'
     -> m (Either ServiceEr DeletePipelineResponse)
-deletePipelineCatch p1 s =
-    sendCatch $ (mkDeletePipeline p1) &~ s
+deletePipelineCatch p1 =
+    sendCatch (mkDeletePipeline p1)
 
 -- $DescribeObjects
 -- Returns the object definitions for a set of objects associated with the
@@ -277,6 +279,7 @@ describeObjects :: ( MonadCatch m
                    )
     => Text -- ^ 'doPipelineId'
     -> [Text] -- ^ 'doObjectIds'
+    -> State DescribeObjects a
     -> ResumableSource m DescribeObjectsResponse
 describeObjects p1 p2 s =
     paginate $ (mkDescribeObjects p1 p2) &~ s
@@ -287,6 +290,7 @@ describeObjectsCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'doPipelineId'
     -> [Text] -- ^ 'doObjectIds'
+    -> State DescribeObjects a
     -> ResumableSource m (Either ServiceEr DescribeObjectsResponse)
 describeObjectsCatch p1 p2 s =
     paginateCatch $ (mkDescribeObjects p1 p2) &~ s
@@ -326,8 +330,8 @@ describePipelines :: ( MonadCatch m
                      )
     => [Text] -- ^ 'dp1PipelineIds'
     -> m DescribePipelinesResponse
-describePipelines p1 s =
-    send $ (mkDescribePipelines p1) &~ s
+describePipelines p1 =
+    send (mkDescribePipelines p1)
 
 describePipelinesCatch :: ( MonadCatch m
                           , MonadResource m
@@ -335,8 +339,8 @@ describePipelinesCatch :: ( MonadCatch m
                           )
     => [Text] -- ^ 'dp1PipelineIds'
     -> m (Either ServiceEr DescribePipelinesResponse)
-describePipelinesCatch p1 s =
-    sendCatch $ (mkDescribePipelines p1) &~ s
+describePipelinesCatch p1 =
+    sendCatch (mkDescribePipelines p1)
 
 -- $EvaluateExpression
 -- Evaluates a string in the context of a specified object. A task runner can
@@ -363,8 +367,8 @@ evaluateExpression :: ( MonadCatch m
     -> Text -- ^ 'eeObjectId'
     -> Text -- ^ 'eeExpression'
     -> m EvaluateExpressionResponse
-evaluateExpression p1 p2 p3 s =
-    send $ (mkEvaluateExpression p1 p2 p3) &~ s
+evaluateExpression p1 p2 p3 =
+    send (mkEvaluateExpression p1 p2 p3)
 
 evaluateExpressionCatch :: ( MonadCatch m
                            , MonadResource m
@@ -374,8 +378,8 @@ evaluateExpressionCatch :: ( MonadCatch m
     -> Text -- ^ 'eeObjectId'
     -> Text -- ^ 'eeExpression'
     -> m (Either ServiceEr EvaluateExpressionResponse)
-evaluateExpressionCatch p1 p2 p3 s =
-    sendCatch $ (mkEvaluateExpression p1 p2 p3) &~ s
+evaluateExpressionCatch p1 p2 p3 =
+    sendCatch (mkEvaluateExpression p1 p2 p3)
 
 -- $GetPipelineDefinition
 -- Returns the definition of the specified pipeline. You can call
@@ -406,6 +410,7 @@ getPipelineDefinition :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'gpdPipelineId'
+    -> State GetPipelineDefinition a
     -> m GetPipelineDefinitionResponse
 getPipelineDefinition p1 s =
     send $ (mkGetPipelineDefinition p1) &~ s
@@ -415,6 +420,7 @@ getPipelineDefinitionCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'gpdPipelineId'
+    -> State GetPipelineDefinition a
     -> m (Either ServiceEr GetPipelineDefinitionResponse)
 getPipelineDefinitionCatch p1 s =
     sendCatch $ (mkGetPipelineDefinition p1) &~ s
@@ -503,6 +509,7 @@ pollForTask :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'pftWorkerGroup'
+    -> State PollForTask a
     -> m PollForTaskResponse
 pollForTask p1 s =
     send $ (mkPollForTask p1) &~ s
@@ -512,6 +519,7 @@ pollForTaskCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'pftWorkerGroup'
+    -> State PollForTask a
     -> m (Either ServiceEr PollForTaskResponse)
 pollForTaskCatch p1 s =
     sendCatch $ (mkPollForTask p1) &~ s
@@ -577,8 +585,8 @@ putPipelineDefinition :: ( MonadCatch m
     => Text -- ^ 'ppdPipelineId'
     -> [PipelineObject] -- ^ 'ppdPipelineObjects'
     -> m PutPipelineDefinitionResponse
-putPipelineDefinition p1 p2 s =
-    send $ (mkPutPipelineDefinition p1 p2) &~ s
+putPipelineDefinition p1 p2 =
+    send (mkPutPipelineDefinition p1 p2)
 
 putPipelineDefinitionCatch :: ( MonadCatch m
                               , MonadResource m
@@ -587,8 +595,8 @@ putPipelineDefinitionCatch :: ( MonadCatch m
     => Text -- ^ 'ppdPipelineId'
     -> [PipelineObject] -- ^ 'ppdPipelineObjects'
     -> m (Either ServiceEr PutPipelineDefinitionResponse)
-putPipelineDefinitionCatch p1 p2 s =
-    sendCatch $ (mkPutPipelineDefinition p1 p2) &~ s
+putPipelineDefinitionCatch p1 p2 =
+    sendCatch (mkPutPipelineDefinition p1 p2)
 
 -- $QueryObjects
 -- Queries a pipeline for the names of objects that match a specified set of
@@ -616,6 +624,7 @@ queryObjects :: ( MonadCatch m
                 )
     => Text -- ^ 'qoPipelineId'
     -> Text -- ^ 'qoSphere'
+    -> State QueryObjects a
     -> ResumableSource m QueryObjectsResponse
 queryObjects p1 p3 s =
     paginate $ (mkQueryObjects p1 p3) &~ s
@@ -626,6 +635,7 @@ queryObjectsCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'qoPipelineId'
     -> Text -- ^ 'qoSphere'
+    -> State QueryObjects a
     -> ResumableSource m (Either ServiceEr QueryObjectsResponse)
 queryObjectsCatch p1 p3 s =
     paginateCatch $ (mkQueryObjects p1 p3) &~ s
@@ -662,8 +672,8 @@ reportTaskProgress :: ( MonadCatch m
                       )
     => Text -- ^ 'rtpTaskId'
     -> m ReportTaskProgressResponse
-reportTaskProgress p1 s =
-    send $ (mkReportTaskProgress p1) &~ s
+reportTaskProgress p1 =
+    send (mkReportTaskProgress p1)
 
 reportTaskProgressCatch :: ( MonadCatch m
                            , MonadResource m
@@ -671,8 +681,8 @@ reportTaskProgressCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'rtpTaskId'
     -> m (Either ServiceEr ReportTaskProgressResponse)
-reportTaskProgressCatch p1 s =
-    sendCatch $ (mkReportTaskProgress p1) &~ s
+reportTaskProgressCatch p1 =
+    sendCatch (mkReportTaskProgress p1)
 
 -- $ReportTaskRunnerHeartbeat
 -- Task runners call ReportTaskRunnerHeartbeat every 15 minutes to indicate
@@ -697,6 +707,7 @@ reportTaskRunnerHeartbeat :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'rtrhTaskrunnerId'
+    -> State ReportTaskRunnerHeartbeat a
     -> m ReportTaskRunnerHeartbeatResponse
 reportTaskRunnerHeartbeat p1 s =
     send $ (mkReportTaskRunnerHeartbeat p1) &~ s
@@ -706,6 +717,7 @@ reportTaskRunnerHeartbeatCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => Text -- ^ 'rtrhTaskrunnerId'
+    -> State ReportTaskRunnerHeartbeat a
     -> m (Either ServiceEr ReportTaskRunnerHeartbeatResponse)
 reportTaskRunnerHeartbeatCatch p1 s =
     sendCatch $ (mkReportTaskRunnerHeartbeat p1) &~ s
@@ -734,8 +746,8 @@ setStatus :: ( MonadCatch m
     -> [Text] -- ^ 'ssObjectIds'
     -> Text -- ^ 'ssStatus'
     -> m SetStatusResponse
-setStatus p1 p2 p3 s =
-    send $ (mkSetStatus p1 p2 p3) &~ s
+setStatus p1 p2 p3 =
+    send (mkSetStatus p1 p2 p3)
 
 setStatusCatch :: ( MonadCatch m
                   , MonadResource m
@@ -745,8 +757,8 @@ setStatusCatch :: ( MonadCatch m
     -> [Text] -- ^ 'ssObjectIds'
     -> Text -- ^ 'ssStatus'
     -> m (Either ServiceEr SetStatusResponse)
-setStatusCatch p1 p2 p3 s =
-    sendCatch $ (mkSetStatus p1 p2 p3) &~ s
+setStatusCatch p1 p2 p3 =
+    sendCatch (mkSetStatus p1 p2 p3)
 
 -- $SetTaskStatus
 -- Notifies AWS Data Pipeline that a task is completed and provides
@@ -772,6 +784,7 @@ setTaskStatus :: ( MonadCatch m
                  )
     => Text -- ^ 'stsTaskId'
     -> TaskStatus -- ^ 'stsTaskStatus'
+    -> State SetTaskStatus a
     -> m SetTaskStatusResponse
 setTaskStatus p1 p2 s =
     send $ (mkSetTaskStatus p1 p2) &~ s
@@ -782,6 +795,7 @@ setTaskStatusCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'stsTaskId'
     -> TaskStatus -- ^ 'stsTaskStatus'
+    -> State SetTaskStatus a
     -> m (Either ServiceEr SetTaskStatusResponse)
 setTaskStatusCatch p1 p2 s =
     sendCatch $ (mkSetTaskStatus p1 p2) &~ s
@@ -836,8 +850,8 @@ validatePipelineDefinition :: ( MonadCatch m
     => Text -- ^ 'vpdPipelineId'
     -> [PipelineObject] -- ^ 'vpdPipelineObjects'
     -> m ValidatePipelineDefinitionResponse
-validatePipelineDefinition p1 p2 s =
-    send $ (mkValidatePipelineDefinition p1 p2) &~ s
+validatePipelineDefinition p1 p2 =
+    send (mkValidatePipelineDefinition p1 p2)
 
 validatePipelineDefinitionCatch :: ( MonadCatch m
                                    , MonadResource m
@@ -846,5 +860,5 @@ validatePipelineDefinitionCatch :: ( MonadCatch m
     => Text -- ^ 'vpdPipelineId'
     -> [PipelineObject] -- ^ 'vpdPipelineObjects'
     -> m (Either ServiceEr ValidatePipelineDefinitionResponse)
-validatePipelineDefinitionCatch p1 p2 s =
-    sendCatch $ (mkValidatePipelineDefinition p1 p2) &~ s
+validatePipelineDefinitionCatch p1 p2 =
+    sendCatch (mkValidatePipelineDefinition p1 p2)

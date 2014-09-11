@@ -460,8 +460,8 @@ addRoleToInstanceProfile :: ( MonadCatch m
     => Text -- ^ 'artipInstanceProfileName'
     -> Text -- ^ 'artipRoleName'
     -> m AddRoleToInstanceProfileResponse
-addRoleToInstanceProfile p1 p2 s =
-    send $ (mkAddRoleToInstanceProfile p1 p2) &~ s
+addRoleToInstanceProfile p1 p2 =
+    send (mkAddRoleToInstanceProfile p1 p2)
 
 addRoleToInstanceProfileCatch :: ( MonadCatch m
                                  , MonadResource m
@@ -470,8 +470,8 @@ addRoleToInstanceProfileCatch :: ( MonadCatch m
     => Text -- ^ 'artipInstanceProfileName'
     -> Text -- ^ 'artipRoleName'
     -> m (Either ServiceEr AddRoleToInstanceProfileResponse)
-addRoleToInstanceProfileCatch p1 p2 s =
-    sendCatch $ (mkAddRoleToInstanceProfile p1 p2) &~ s
+addRoleToInstanceProfileCatch p1 p2 =
+    sendCatch (mkAddRoleToInstanceProfile p1 p2)
 
 -- $AddUserToGroup
 -- Adds the specified user to the specified group. https://iam.amazonaws.com/
@@ -488,8 +488,8 @@ addUserToGroup :: ( MonadCatch m
     => Text -- ^ 'autgGroupName'
     -> Text -- ^ 'autgUserName'
     -> m AddUserToGroupResponse
-addUserToGroup p1 p2 s =
-    send $ (mkAddUserToGroup p1 p2) &~ s
+addUserToGroup p1 p2 =
+    send (mkAddUserToGroup p1 p2)
 
 addUserToGroupCatch :: ( MonadCatch m
                        , MonadResource m
@@ -498,8 +498,8 @@ addUserToGroupCatch :: ( MonadCatch m
     => Text -- ^ 'autgGroupName'
     -> Text -- ^ 'autgUserName'
     -> m (Either ServiceEr AddUserToGroupResponse)
-addUserToGroupCatch p1 p2 s =
-    sendCatch $ (mkAddUserToGroup p1 p2) &~ s
+addUserToGroupCatch p1 p2 =
+    sendCatch (mkAddUserToGroup p1 p2)
 
 -- $ChangePassword
 -- Changes the password of the IAM user calling ChangePassword. The root
@@ -519,8 +519,8 @@ changePassword :: ( MonadCatch m
     => Text -- ^ 'cpOldPassword'
     -> Text -- ^ 'cpNewPassword'
     -> m ChangePasswordResponse
-changePassword p1 p2 s =
-    send $ (mkChangePassword p1 p2) &~ s
+changePassword p1 p2 =
+    send (mkChangePassword p1 p2)
 
 changePasswordCatch :: ( MonadCatch m
                        , MonadResource m
@@ -529,8 +529,8 @@ changePasswordCatch :: ( MonadCatch m
     => Text -- ^ 'cpOldPassword'
     -> Text -- ^ 'cpNewPassword'
     -> m (Either ServiceEr ChangePasswordResponse)
-changePasswordCatch p1 p2 s =
-    sendCatch $ (mkChangePassword p1 p2) &~ s
+changePasswordCatch p1 p2 =
+    sendCatch (mkChangePassword p1 p2)
 
 -- $CreateAccessKey
 -- Creates a new AWS secret access key and corresponding AWS access key ID for
@@ -587,8 +587,8 @@ createAccountAlias :: ( MonadCatch m
                       )
     => Text -- ^ 'caaAccountAlias'
     -> m CreateAccountAliasResponse
-createAccountAlias p1 s =
-    send $ (mkCreateAccountAlias p1) &~ s
+createAccountAlias p1 =
+    send (mkCreateAccountAlias p1)
 
 createAccountAliasCatch :: ( MonadCatch m
                            , MonadResource m
@@ -596,8 +596,8 @@ createAccountAliasCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'caaAccountAlias'
     -> m (Either ServiceEr CreateAccountAliasResponse)
-createAccountAliasCatch p1 s =
-    sendCatch $ (mkCreateAccountAlias p1) &~ s
+createAccountAliasCatch p1 =
+    sendCatch (mkCreateAccountAlias p1)
 
 -- $CreateGroup
 -- Creates a new group. For information about the number of groups you can
@@ -614,6 +614,7 @@ createGroup :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'cgGroupName'
+    -> State CreateGroup a
     -> m CreateGroupResponse
 createGroup p2 s =
     send $ (mkCreateGroup p2) &~ s
@@ -623,6 +624,7 @@ createGroupCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'cgGroupName'
+    -> State CreateGroup a
     -> m (Either ServiceEr CreateGroupResponse)
 createGroupCatch p2 s =
     sendCatch $ (mkCreateGroup p2) &~ s
@@ -646,6 +648,7 @@ createInstanceProfile :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'cipInstanceProfileName'
+    -> State CreateInstanceProfile a
     -> m CreateInstanceProfileResponse
 createInstanceProfile p1 s =
     send $ (mkCreateInstanceProfile p1) &~ s
@@ -655,6 +658,7 @@ createInstanceProfileCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'cipInstanceProfileName'
+    -> State CreateInstanceProfile a
     -> m (Either ServiceEr CreateInstanceProfileResponse)
 createInstanceProfileCatch p1 s =
     sendCatch $ (mkCreateInstanceProfile p1) &~ s
@@ -676,6 +680,7 @@ createLoginProfile :: ( MonadCatch m
                       )
     => Text -- ^ 'clpUserName'
     -> Text -- ^ 'clpPassword'
+    -> State CreateLoginProfile a
     -> m CreateLoginProfileResponse
 createLoginProfile p1 p2 s =
     send $ (mkCreateLoginProfile p1 p2) &~ s
@@ -686,6 +691,7 @@ createLoginProfileCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'clpUserName'
     -> Text -- ^ 'clpPassword'
+    -> State CreateLoginProfile a
     -> m (Either ServiceEr CreateLoginProfileResponse)
 createLoginProfileCatch p1 p2 s =
     sendCatch $ (mkCreateLoginProfile p1 p2) &~ s
@@ -716,6 +722,7 @@ createRole :: ( MonadCatch m
               )
     => Text -- ^ 'crRoleName'
     -> Text -- ^ 'crAssumeRolePolicyDocument'
+    -> State CreateRole a
     -> m CreateRoleResponse
 createRole p2 p3 s =
     send $ (mkCreateRole p2 p3) &~ s
@@ -726,6 +733,7 @@ createRoleCatch :: ( MonadCatch m
                    )
     => Text -- ^ 'crRoleName'
     -> Text -- ^ 'crAssumeRolePolicyDocument'
+    -> State CreateRole a
     -> m (Either ServiceEr CreateRoleResponse)
 createRoleCatch p2 p3 s =
     sendCatch $ (mkCreateRole p2 p3) &~ s
@@ -761,8 +769,8 @@ createSAMLProvider :: ( MonadCatch m
     => Text -- ^ 'csamlpSAMLMetadataDocument'
     -> Text -- ^ 'csamlpName'
     -> m CreateSAMLProviderResponse
-createSAMLProvider p1 p2 s =
-    send $ (mkCreateSAMLProvider p1 p2) &~ s
+createSAMLProvider p1 p2 =
+    send (mkCreateSAMLProvider p1 p2)
 
 createSAMLProviderCatch :: ( MonadCatch m
                            , MonadResource m
@@ -771,8 +779,8 @@ createSAMLProviderCatch :: ( MonadCatch m
     => Text -- ^ 'csamlpSAMLMetadataDocument'
     -> Text -- ^ 'csamlpName'
     -> m (Either ServiceEr CreateSAMLProviderResponse)
-createSAMLProviderCatch p1 p2 s =
-    sendCatch $ (mkCreateSAMLProvider p1 p2) &~ s
+createSAMLProviderCatch p1 p2 =
+    sendCatch (mkCreateSAMLProvider p1 p2)
 
 -- $CreateUser
 -- Creates a new user for your AWS account. For information about limitations
@@ -791,6 +799,7 @@ createUser :: ( MonadCatch m
               , MonadReader Env m
               )
     => Text -- ^ 'cuUserName'
+    -> State CreateUser a
     -> m CreateUserResponse
 createUser p2 s =
     send $ (mkCreateUser p2) &~ s
@@ -800,6 +809,7 @@ createUserCatch :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'cuUserName'
+    -> State CreateUser a
     -> m (Either ServiceEr CreateUserResponse)
 createUserCatch p2 s =
     sendCatch $ (mkCreateUser p2) &~ s
@@ -829,6 +839,7 @@ createVirtualMFADevice :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'cvmfadVirtualMFADeviceName'
+    -> State CreateVirtualMFADevice a
     -> m CreateVirtualMFADeviceResponse
 createVirtualMFADevice p2 s =
     send $ (mkCreateVirtualMFADevice p2) &~ s
@@ -838,6 +849,7 @@ createVirtualMFADeviceCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'cvmfadVirtualMFADeviceName'
+    -> State CreateVirtualMFADevice a
     -> m (Either ServiceEr CreateVirtualMFADeviceResponse)
 createVirtualMFADeviceCatch p2 s =
     sendCatch $ (mkCreateVirtualMFADevice p2) &~ s
@@ -858,8 +870,8 @@ deactivateMFADevice :: ( MonadCatch m
     => Text -- ^ 'dmfadUserName'
     -> Text -- ^ 'dmfadSerialNumber'
     -> m DeactivateMFADeviceResponse
-deactivateMFADevice p1 p2 s =
-    send $ (mkDeactivateMFADevice p1 p2) &~ s
+deactivateMFADevice p1 p2 =
+    send (mkDeactivateMFADevice p1 p2)
 
 deactivateMFADeviceCatch :: ( MonadCatch m
                             , MonadResource m
@@ -868,8 +880,8 @@ deactivateMFADeviceCatch :: ( MonadCatch m
     => Text -- ^ 'dmfadUserName'
     -> Text -- ^ 'dmfadSerialNumber'
     -> m (Either ServiceEr DeactivateMFADeviceResponse)
-deactivateMFADeviceCatch p1 p2 s =
-    sendCatch $ (mkDeactivateMFADevice p1 p2) &~ s
+deactivateMFADeviceCatch p1 p2 =
+    sendCatch (mkDeactivateMFADevice p1 p2)
 
 -- $DeleteAccessKey
 -- Deletes the access key associated with the specified user. If you do not
@@ -888,6 +900,7 @@ deleteAccessKey :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'dakAccessKeyId'
+    -> State DeleteAccessKey a
     -> m DeleteAccessKeyResponse
 deleteAccessKey p2 s =
     send $ (mkDeleteAccessKey p2) &~ s
@@ -897,6 +910,7 @@ deleteAccessKeyCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'dakAccessKeyId'
+    -> State DeleteAccessKey a
     -> m (Either ServiceEr DeleteAccessKeyResponse)
 deleteAccessKeyCatch p2 s =
     sendCatch $ (mkDeleteAccessKey p2) &~ s
@@ -917,8 +931,8 @@ deleteAccountAlias :: ( MonadCatch m
                       )
     => Text -- ^ 'daaAccountAlias'
     -> m DeleteAccountAliasResponse
-deleteAccountAlias p1 s =
-    send $ (mkDeleteAccountAlias p1) &~ s
+deleteAccountAlias p1 =
+    send (mkDeleteAccountAlias p1)
 
 deleteAccountAliasCatch :: ( MonadCatch m
                            , MonadResource m
@@ -926,8 +940,8 @@ deleteAccountAliasCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'daaAccountAlias'
     -> m (Either ServiceEr DeleteAccountAliasResponse)
-deleteAccountAliasCatch p1 s =
-    sendCatch $ (mkDeleteAccountAlias p1) &~ s
+deleteAccountAliasCatch p1 =
+    sendCatch (mkDeleteAccountAlias p1)
 
 -- $DeleteAccountPasswordPolicy
 -- Deletes the password policy for the AWS account. https://iam.amazonaws.com/
@@ -941,19 +955,17 @@ deleteAccountPasswordPolicy :: ( MonadCatch m
                                , MonadError AWS.Error m
                                , MonadReader Env m
                                )
-    => State DeleteAccountPasswordPolicy a
-    -> m DeleteAccountPasswordPolicyResponse
-deleteAccountPasswordPolicy s =
-    send (mkDeleteAccountPasswordPolicy &~ s)
+    => m DeleteAccountPasswordPolicyResponse
+deleteAccountPasswordPolicy =
+    send (mkDeleteAccountPasswordPolicy)
 
 deleteAccountPasswordPolicyCatch :: ( MonadCatch m
                                     , MonadResource m
                                     , MonadReader Env m
                                     )
-    => State DeleteAccountPasswordPolicy a
-    -> m (Either ServiceEr DeleteAccountPasswordPolicyResponse)
-deleteAccountPasswordPolicyCatch s =
-    sendCatch (mkDeleteAccountPasswordPolicy &~ s)
+    => m (Either ServiceEr DeleteAccountPasswordPolicyResponse)
+deleteAccountPasswordPolicyCatch =
+    sendCatch (mkDeleteAccountPasswordPolicy)
 
 -- $DeleteGroup
 -- Deletes the specified group. The group must not contain any users or have
@@ -970,8 +982,8 @@ deleteGroup :: ( MonadCatch m
                )
     => Text -- ^ 'dgGroupName'
     -> m DeleteGroupResponse
-deleteGroup p1 s =
-    send $ (mkDeleteGroup p1) &~ s
+deleteGroup p1 =
+    send (mkDeleteGroup p1)
 
 deleteGroupCatch :: ( MonadCatch m
                     , MonadResource m
@@ -979,8 +991,8 @@ deleteGroupCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'dgGroupName'
     -> m (Either ServiceEr DeleteGroupResponse)
-deleteGroupCatch p1 s =
-    sendCatch $ (mkDeleteGroup p1) &~ s
+deleteGroupCatch p1 =
+    sendCatch (mkDeleteGroup p1)
 
 -- $DeleteGroupPolicy
 -- Deletes the specified policy that is associated with the specified group.
@@ -997,8 +1009,8 @@ deleteGroupPolicy :: ( MonadCatch m
     => Text -- ^ 'dgpGroupName'
     -> Text -- ^ 'dgpPolicyName'
     -> m DeleteGroupPolicyResponse
-deleteGroupPolicy p1 p2 s =
-    send $ (mkDeleteGroupPolicy p1 p2) &~ s
+deleteGroupPolicy p1 p2 =
+    send (mkDeleteGroupPolicy p1 p2)
 
 deleteGroupPolicyCatch :: ( MonadCatch m
                           , MonadResource m
@@ -1007,8 +1019,8 @@ deleteGroupPolicyCatch :: ( MonadCatch m
     => Text -- ^ 'dgpGroupName'
     -> Text -- ^ 'dgpPolicyName'
     -> m (Either ServiceEr DeleteGroupPolicyResponse)
-deleteGroupPolicyCatch p1 p2 s =
-    sendCatch $ (mkDeleteGroupPolicy p1 p2) &~ s
+deleteGroupPolicyCatch p1 p2 =
+    sendCatch (mkDeleteGroupPolicy p1 p2)
 
 -- $DeleteInstanceProfile
 -- Deletes the specified instance profile. The instance profile must not have
@@ -1030,8 +1042,8 @@ deleteInstanceProfile :: ( MonadCatch m
                          )
     => Text -- ^ 'dipInstanceProfileName'
     -> m DeleteInstanceProfileResponse
-deleteInstanceProfile p1 s =
-    send $ (mkDeleteInstanceProfile p1) &~ s
+deleteInstanceProfile p1 =
+    send (mkDeleteInstanceProfile p1)
 
 deleteInstanceProfileCatch :: ( MonadCatch m
                               , MonadResource m
@@ -1039,8 +1051,8 @@ deleteInstanceProfileCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'dipInstanceProfileName'
     -> m (Either ServiceEr DeleteInstanceProfileResponse)
-deleteInstanceProfileCatch p1 s =
-    sendCatch $ (mkDeleteInstanceProfile p1) &~ s
+deleteInstanceProfileCatch p1 =
+    sendCatch (mkDeleteInstanceProfile p1)
 
 -- $DeleteLoginProfile
 -- Deletes the password for the specified user, which terminates the user's
@@ -1061,8 +1073,8 @@ deleteLoginProfile :: ( MonadCatch m
                       )
     => Text -- ^ 'dlpUserName'
     -> m DeleteLoginProfileResponse
-deleteLoginProfile p1 s =
-    send $ (mkDeleteLoginProfile p1) &~ s
+deleteLoginProfile p1 =
+    send (mkDeleteLoginProfile p1)
 
 deleteLoginProfileCatch :: ( MonadCatch m
                            , MonadResource m
@@ -1070,8 +1082,8 @@ deleteLoginProfileCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'dlpUserName'
     -> m (Either ServiceEr DeleteLoginProfileResponse)
-deleteLoginProfileCatch p1 s =
-    sendCatch $ (mkDeleteLoginProfile p1) &~ s
+deleteLoginProfileCatch p1 =
+    sendCatch (mkDeleteLoginProfile p1)
 
 -- $DeleteRole
 -- Deletes the specified role. The role must not have any policies attached.
@@ -1091,8 +1103,8 @@ deleteRole :: ( MonadCatch m
               )
     => Text -- ^ 'drRoleName'
     -> m DeleteRoleResponse
-deleteRole p1 s =
-    send $ (mkDeleteRole p1) &~ s
+deleteRole p1 =
+    send (mkDeleteRole p1)
 
 deleteRoleCatch :: ( MonadCatch m
                    , MonadResource m
@@ -1100,8 +1112,8 @@ deleteRoleCatch :: ( MonadCatch m
                    )
     => Text -- ^ 'drRoleName'
     -> m (Either ServiceEr DeleteRoleResponse)
-deleteRoleCatch p1 s =
-    sendCatch $ (mkDeleteRole p1) &~ s
+deleteRoleCatch p1 =
+    sendCatch (mkDeleteRole p1)
 
 -- $DeleteRolePolicy
 -- Deletes the specified policy associated with the specified role.
@@ -1119,8 +1131,8 @@ deleteRolePolicy :: ( MonadCatch m
     => Text -- ^ 'drpRoleName'
     -> Text -- ^ 'drpPolicyName'
     -> m DeleteRolePolicyResponse
-deleteRolePolicy p1 p2 s =
-    send $ (mkDeleteRolePolicy p1 p2) &~ s
+deleteRolePolicy p1 p2 =
+    send (mkDeleteRolePolicy p1 p2)
 
 deleteRolePolicyCatch :: ( MonadCatch m
                          , MonadResource m
@@ -1129,8 +1141,8 @@ deleteRolePolicyCatch :: ( MonadCatch m
     => Text -- ^ 'drpRoleName'
     -> Text -- ^ 'drpPolicyName'
     -> m (Either ServiceEr DeleteRolePolicyResponse)
-deleteRolePolicyCatch p1 p2 s =
-    sendCatch $ (mkDeleteRolePolicy p1 p2) &~ s
+deleteRolePolicyCatch p1 p2 =
+    sendCatch (mkDeleteRolePolicy p1 p2)
 
 -- $DeleteSAMLProvider
 -- Deletes a SAML provider. Deleting the provider does not update any roles
@@ -1150,8 +1162,8 @@ deleteSAMLProvider :: ( MonadCatch m
                       )
     => Text -- ^ 'dsamlpSAMLProviderArn'
     -> m DeleteSAMLProviderResponse
-deleteSAMLProvider p1 s =
-    send $ (mkDeleteSAMLProvider p1) &~ s
+deleteSAMLProvider p1 =
+    send (mkDeleteSAMLProvider p1)
 
 deleteSAMLProviderCatch :: ( MonadCatch m
                            , MonadResource m
@@ -1159,8 +1171,8 @@ deleteSAMLProviderCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'dsamlpSAMLProviderArn'
     -> m (Either ServiceEr DeleteSAMLProviderResponse)
-deleteSAMLProviderCatch p1 s =
-    sendCatch $ (mkDeleteSAMLProvider p1) &~ s
+deleteSAMLProviderCatch p1 =
+    sendCatch (mkDeleteSAMLProvider p1)
 
 -- $DeleteServerCertificate
 -- Deletes the specified server certificate. If you are using a server
@@ -1184,8 +1196,8 @@ deleteServerCertificate :: ( MonadCatch m
                            )
     => Text -- ^ 'dscServerCertificateName'
     -> m DeleteServerCertificateResponse
-deleteServerCertificate p1 s =
-    send $ (mkDeleteServerCertificate p1) &~ s
+deleteServerCertificate p1 =
+    send (mkDeleteServerCertificate p1)
 
 deleteServerCertificateCatch :: ( MonadCatch m
                                 , MonadResource m
@@ -1193,8 +1205,8 @@ deleteServerCertificateCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'dscServerCertificateName'
     -> m (Either ServiceEr DeleteServerCertificateResponse)
-deleteServerCertificateCatch p1 s =
-    sendCatch $ (mkDeleteServerCertificate p1) &~ s
+deleteServerCertificateCatch p1 =
+    sendCatch (mkDeleteServerCertificate p1)
 
 -- $DeleteSigningCertificate
 -- Deletes the specified signing certificate associated with the specified
@@ -1214,6 +1226,7 @@ deleteSigningCertificate :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'dsc1CertificateId'
+    -> State DeleteSigningCertificate a
     -> m DeleteSigningCertificateResponse
 deleteSigningCertificate p2 s =
     send $ (mkDeleteSigningCertificate p2) &~ s
@@ -1223,6 +1236,7 @@ deleteSigningCertificateCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'dsc1CertificateId'
+    -> State DeleteSigningCertificate a
     -> m (Either ServiceEr DeleteSigningCertificateResponse)
 deleteSigningCertificateCatch p2 s =
     sendCatch $ (mkDeleteSigningCertificate p2) &~ s
@@ -1242,8 +1256,8 @@ deleteUser :: ( MonadCatch m
               )
     => Text -- ^ 'duUserName'
     -> m DeleteUserResponse
-deleteUser p1 s =
-    send $ (mkDeleteUser p1) &~ s
+deleteUser p1 =
+    send (mkDeleteUser p1)
 
 deleteUserCatch :: ( MonadCatch m
                    , MonadResource m
@@ -1251,8 +1265,8 @@ deleteUserCatch :: ( MonadCatch m
                    )
     => Text -- ^ 'duUserName'
     -> m (Either ServiceEr DeleteUserResponse)
-deleteUserCatch p1 s =
-    sendCatch $ (mkDeleteUser p1) &~ s
+deleteUserCatch p1 =
+    sendCatch (mkDeleteUser p1)
 
 -- $DeleteUserPolicy
 -- Deletes the specified policy associated with the specified user.
@@ -1270,8 +1284,8 @@ deleteUserPolicy :: ( MonadCatch m
     => Text -- ^ 'dupUserName'
     -> Text -- ^ 'dupPolicyName'
     -> m DeleteUserPolicyResponse
-deleteUserPolicy p1 p2 s =
-    send $ (mkDeleteUserPolicy p1 p2) &~ s
+deleteUserPolicy p1 p2 =
+    send (mkDeleteUserPolicy p1 p2)
 
 deleteUserPolicyCatch :: ( MonadCatch m
                          , MonadResource m
@@ -1280,8 +1294,8 @@ deleteUserPolicyCatch :: ( MonadCatch m
     => Text -- ^ 'dupUserName'
     -> Text -- ^ 'dupPolicyName'
     -> m (Either ServiceEr DeleteUserPolicyResponse)
-deleteUserPolicyCatch p1 p2 s =
-    sendCatch $ (mkDeleteUserPolicy p1 p2) &~ s
+deleteUserPolicyCatch p1 p2 =
+    sendCatch (mkDeleteUserPolicy p1 p2)
 
 -- $DeleteVirtualMFADevice
 -- Deletes a virtual MFA device. You must deactivate a user's virtual MFA
@@ -1301,8 +1315,8 @@ deleteVirtualMFADevice :: ( MonadCatch m
                           )
     => Text -- ^ 'dvmfadSerialNumber'
     -> m DeleteVirtualMFADeviceResponse
-deleteVirtualMFADevice p1 s =
-    send $ (mkDeleteVirtualMFADevice p1) &~ s
+deleteVirtualMFADevice p1 =
+    send (mkDeleteVirtualMFADevice p1)
 
 deleteVirtualMFADeviceCatch :: ( MonadCatch m
                                , MonadResource m
@@ -1310,8 +1324,8 @@ deleteVirtualMFADeviceCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'dvmfadSerialNumber'
     -> m (Either ServiceEr DeleteVirtualMFADeviceResponse)
-deleteVirtualMFADeviceCatch p1 s =
-    sendCatch $ (mkDeleteVirtualMFADevice p1) &~ s
+deleteVirtualMFADeviceCatch p1 =
+    sendCatch (mkDeleteVirtualMFADevice p1)
 
 -- $EnableMFADevice
 -- Enables the specified MFA device and associates it with the specified user
@@ -1333,8 +1347,8 @@ enableMFADevice :: ( MonadCatch m
     -> Text -- ^ 'emfadAuthenticationCode1'
     -> Text -- ^ 'emfadAuthenticationCode2'
     -> m EnableMFADeviceResponse
-enableMFADevice p1 p2 p3 p4 s =
-    send $ (mkEnableMFADevice p1 p2 p3 p4) &~ s
+enableMFADevice p1 p2 p3 p4 =
+    send (mkEnableMFADevice p1 p2 p3 p4)
 
 enableMFADeviceCatch :: ( MonadCatch m
                         , MonadResource m
@@ -1345,8 +1359,8 @@ enableMFADeviceCatch :: ( MonadCatch m
     -> Text -- ^ 'emfadAuthenticationCode1'
     -> Text -- ^ 'emfadAuthenticationCode2'
     -> m (Either ServiceEr EnableMFADeviceResponse)
-enableMFADeviceCatch p1 p2 p3 p4 s =
-    sendCatch $ (mkEnableMFADevice p1 p2 p3 p4) &~ s
+enableMFADeviceCatch p1 p2 p3 p4 =
+    sendCatch (mkEnableMFADevice p1 p2 p3 p4)
 
 -- $GenerateCredentialReport
 -- Generates a credential report for the AWS account. For more information
@@ -1360,19 +1374,17 @@ generateCredentialReport :: ( MonadCatch m
                             , MonadError AWS.Error m
                             , MonadReader Env m
                             )
-    => State GenerateCredentialReport a
-    -> m GenerateCredentialReportResponse
-generateCredentialReport s =
-    send (mkGenerateCredentialReport &~ s)
+    => m GenerateCredentialReportResponse
+generateCredentialReport =
+    send (mkGenerateCredentialReport)
 
 generateCredentialReportCatch :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadReader Env m
                                  )
-    => State GenerateCredentialReport a
-    -> m (Either ServiceEr GenerateCredentialReportResponse)
-generateCredentialReportCatch s =
-    sendCatch (mkGenerateCredentialReport &~ s)
+    => m (Either ServiceEr GenerateCredentialReportResponse)
+generateCredentialReportCatch =
+    sendCatch (mkGenerateCredentialReport)
 
 -- $GetAccountPasswordPolicy
 -- Retrieves the password policy for the AWS account. For more information
@@ -1388,19 +1400,17 @@ getAccountPasswordPolicy :: ( MonadCatch m
                             , MonadError AWS.Error m
                             , MonadReader Env m
                             )
-    => State GetAccountPasswordPolicy a
-    -> m GetAccountPasswordPolicyResponse
-getAccountPasswordPolicy s =
-    send (mkGetAccountPasswordPolicy &~ s)
+    => m GetAccountPasswordPolicyResponse
+getAccountPasswordPolicy =
+    send (mkGetAccountPasswordPolicy)
 
 getAccountPasswordPolicyCatch :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadReader Env m
                                  )
-    => State GetAccountPasswordPolicy a
-    -> m (Either ServiceEr GetAccountPasswordPolicyResponse)
-getAccountPasswordPolicyCatch s =
-    sendCatch (mkGetAccountPasswordPolicy &~ s)
+    => m (Either ServiceEr GetAccountPasswordPolicyResponse)
+getAccountPasswordPolicyCatch =
+    sendCatch (mkGetAccountPasswordPolicy)
 
 -- $GetAccountSummary
 -- Retrieves account level information about account entity usage and IAM
@@ -1420,19 +1430,17 @@ getAccountSummary :: ( MonadCatch m
                      , MonadError AWS.Error m
                      , MonadReader Env m
                      )
-    => State GetAccountSummary a
-    -> m GetAccountSummaryResponse
-getAccountSummary s =
-    send (mkGetAccountSummary &~ s)
+    => m GetAccountSummaryResponse
+getAccountSummary =
+    send (mkGetAccountSummary)
 
 getAccountSummaryCatch :: ( MonadCatch m
                           , MonadResource m
                           , MonadReader Env m
                           )
-    => State GetAccountSummary a
-    -> m (Either ServiceEr GetAccountSummaryResponse)
-getAccountSummaryCatch s =
-    sendCatch (mkGetAccountSummary &~ s)
+    => m (Either ServiceEr GetAccountSummaryResponse)
+getAccountSummaryCatch =
+    sendCatch (mkGetAccountSummary)
 
 -- $GetCredentialReport
 -- Retrieves a credential report for the AWS account. For more information
@@ -1446,19 +1454,17 @@ getCredentialReport :: ( MonadCatch m
                        , MonadError AWS.Error m
                        , MonadReader Env m
                        )
-    => State GetCredentialReport a
-    -> m GetCredentialReportResponse
-getCredentialReport s =
-    send (mkGetCredentialReport &~ s)
+    => m GetCredentialReportResponse
+getCredentialReport =
+    send (mkGetCredentialReport)
 
 getCredentialReportCatch :: ( MonadCatch m
                             , MonadResource m
                             , MonadReader Env m
                             )
-    => State GetCredentialReport a
-    -> m (Either ServiceEr GetCredentialReportResponse)
-getCredentialReportCatch s =
-    sendCatch (mkGetCredentialReport &~ s)
+    => m (Either ServiceEr GetCredentialReportResponse)
+getCredentialReportCatch =
+    sendCatch (mkGetCredentialReport)
 
 -- $GetGroup
 -- Returns a list of users that are in the specified group. You can paginate
@@ -1480,6 +1486,7 @@ getGroup :: ( MonadCatch m
             , MonadReader Env (ResumableSource m)
             )
     => Text -- ^ 'ggGroupName'
+    -> State GetGroup a
     -> ResumableSource m GetGroupResponse
 getGroup p1 s =
     paginate $ (mkGetGroup p1) &~ s
@@ -1489,6 +1496,7 @@ getGroupCatch :: ( MonadCatch m
                  , MonadReader Env (ResumableSource m)
                  )
     => Text -- ^ 'ggGroupName'
+    -> State GetGroup a
     -> ResumableSource m (Either ServiceEr GetGroupResponse)
 getGroupCatch p1 s =
     paginateCatch $ (mkGetGroup p1) &~ s
@@ -1512,8 +1520,8 @@ getGroupPolicy :: ( MonadCatch m
     => Text -- ^ 'ggpGroupName'
     -> Text -- ^ 'ggpPolicyName'
     -> m GetGroupPolicyResponse
-getGroupPolicy p1 p2 s =
-    send $ (mkGetGroupPolicy p1 p2) &~ s
+getGroupPolicy p1 p2 =
+    send (mkGetGroupPolicy p1 p2)
 
 getGroupPolicyCatch :: ( MonadCatch m
                        , MonadResource m
@@ -1522,8 +1530,8 @@ getGroupPolicyCatch :: ( MonadCatch m
     => Text -- ^ 'ggpGroupName'
     -> Text -- ^ 'ggpPolicyName'
     -> m (Either ServiceEr GetGroupPolicyResponse)
-getGroupPolicyCatch p1 p2 s =
-    sendCatch $ (mkGetGroupPolicy p1 p2) &~ s
+getGroupPolicyCatch p1 p2 =
+    sendCatch (mkGetGroupPolicy p1 p2)
 
 -- $GetInstanceProfile
 -- Retrieves information about the specified instance profile, including the
@@ -1550,8 +1558,8 @@ getInstanceProfile :: ( MonadCatch m
                       )
     => Text -- ^ 'gipInstanceProfileName'
     -> m GetInstanceProfileResponse
-getInstanceProfile p1 s =
-    send $ (mkGetInstanceProfile p1) &~ s
+getInstanceProfile p1 =
+    send (mkGetInstanceProfile p1)
 
 getInstanceProfileCatch :: ( MonadCatch m
                            , MonadResource m
@@ -1559,8 +1567,8 @@ getInstanceProfileCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'gipInstanceProfileName'
     -> m (Either ServiceEr GetInstanceProfileResponse)
-getInstanceProfileCatch p1 s =
-    sendCatch $ (mkGetInstanceProfile p1) &~ s
+getInstanceProfileCatch p1 =
+    sendCatch (mkGetInstanceProfile p1)
 
 -- $GetLoginProfile
 -- Retrieves the user name and password-creation date for the specified user.
@@ -1578,8 +1586,8 @@ getLoginProfile :: ( MonadCatch m
                    )
     => Text -- ^ 'glpUserName'
     -> m GetLoginProfileResponse
-getLoginProfile p1 s =
-    send $ (mkGetLoginProfile p1) &~ s
+getLoginProfile p1 =
+    send (mkGetLoginProfile p1)
 
 getLoginProfileCatch :: ( MonadCatch m
                         , MonadResource m
@@ -1587,8 +1595,8 @@ getLoginProfileCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'glpUserName'
     -> m (Either ServiceEr GetLoginProfileResponse)
-getLoginProfileCatch p1 s =
-    sendCatch $ (mkGetLoginProfile p1) &~ s
+getLoginProfileCatch p1 =
+    sendCatch (mkGetLoginProfile p1)
 
 -- $GetRole
 -- Retrieves information about the specified role, including the role's path,
@@ -1614,8 +1622,8 @@ getRole :: ( MonadCatch m
            )
     => Text -- ^ 'grRoleName'
     -> m GetRoleResponse
-getRole p1 s =
-    send $ (mkGetRole p1) &~ s
+getRole p1 =
+    send (mkGetRole p1)
 
 getRoleCatch :: ( MonadCatch m
                 , MonadResource m
@@ -1623,8 +1631,8 @@ getRoleCatch :: ( MonadCatch m
                 )
     => Text -- ^ 'grRoleName'
     -> m (Either ServiceEr GetRoleResponse)
-getRoleCatch p1 s =
-    sendCatch $ (mkGetRole p1) &~ s
+getRoleCatch p1 =
+    sendCatch (mkGetRole p1)
 
 -- $GetRolePolicy
 -- Retrieves the specified policy document for the specified role. For more
@@ -1646,8 +1654,8 @@ getRolePolicy :: ( MonadCatch m
     => Text -- ^ 'grpRoleName'
     -> Text -- ^ 'grpPolicyName'
     -> m GetRolePolicyResponse
-getRolePolicy p1 p2 s =
-    send $ (mkGetRolePolicy p1 p2) &~ s
+getRolePolicy p1 p2 =
+    send (mkGetRolePolicy p1 p2)
 
 getRolePolicyCatch :: ( MonadCatch m
                       , MonadResource m
@@ -1656,8 +1664,8 @@ getRolePolicyCatch :: ( MonadCatch m
     => Text -- ^ 'grpRoleName'
     -> Text -- ^ 'grpPolicyName'
     -> m (Either ServiceEr GetRolePolicyResponse)
-getRolePolicyCatch p1 p2 s =
-    sendCatch $ (mkGetRolePolicy p1 p2) &~ s
+getRolePolicyCatch p1 p2 =
+    sendCatch (mkGetRolePolicy p1 p2)
 
 -- $GetSAMLProvider
 -- Returns the SAML provider metadocument that was uploaded when the provider
@@ -1676,8 +1684,8 @@ getSAMLProvider :: ( MonadCatch m
                    )
     => Text -- ^ 'gsamlpSAMLProviderArn'
     -> m GetSAMLProviderResponse
-getSAMLProvider p1 s =
-    send $ (mkGetSAMLProvider p1) &~ s
+getSAMLProvider p1 =
+    send (mkGetSAMLProvider p1)
 
 getSAMLProviderCatch :: ( MonadCatch m
                         , MonadResource m
@@ -1685,8 +1693,8 @@ getSAMLProviderCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'gsamlpSAMLProviderArn'
     -> m (Either ServiceEr GetSAMLProviderResponse)
-getSAMLProviderCatch p1 s =
-    sendCatch $ (mkGetSAMLProvider p1) &~ s
+getSAMLProviderCatch p1 =
+    sendCatch (mkGetSAMLProvider p1)
 
 -- $GetServerCertificate
 -- Retrieves information about the specified server certificate.
@@ -1721,8 +1729,8 @@ getServerCertificate :: ( MonadCatch m
                         )
     => Text -- ^ 'gscServerCertificateName'
     -> m GetServerCertificateResponse
-getServerCertificate p1 s =
-    send $ (mkGetServerCertificate p1) &~ s
+getServerCertificate p1 =
+    send (mkGetServerCertificate p1)
 
 getServerCertificateCatch :: ( MonadCatch m
                              , MonadResource m
@@ -1730,8 +1738,8 @@ getServerCertificateCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'gscServerCertificateName'
     -> m (Either ServiceEr GetServerCertificateResponse)
-getServerCertificateCatch p1 s =
-    sendCatch $ (mkGetServerCertificate p1) &~ s
+getServerCertificateCatch p1 =
+    sendCatch (mkGetServerCertificate p1)
 
 -- $GetUser
 -- Retrieves information about the specified user, including the user's path,
@@ -1783,8 +1791,8 @@ getUserPolicy :: ( MonadCatch m
     => Text -- ^ 'gupUserName'
     -> Text -- ^ 'gupPolicyName'
     -> m GetUserPolicyResponse
-getUserPolicy p1 p2 s =
-    send $ (mkGetUserPolicy p1 p2) &~ s
+getUserPolicy p1 p2 =
+    send (mkGetUserPolicy p1 p2)
 
 getUserPolicyCatch :: ( MonadCatch m
                       , MonadResource m
@@ -1793,8 +1801,8 @@ getUserPolicyCatch :: ( MonadCatch m
     => Text -- ^ 'gupUserName'
     -> Text -- ^ 'gupPolicyName'
     -> m (Either ServiceEr GetUserPolicyResponse)
-getUserPolicyCatch p1 p2 s =
-    sendCatch $ (mkGetUserPolicy p1 p2) &~ s
+getUserPolicyCatch p1 p2 =
+    sendCatch (mkGetUserPolicy p1 p2)
 
 -- $ListAccessKeys
 -- Returns information about the access key IDs associated with the specified
@@ -1876,6 +1884,7 @@ listGroupPolicies :: ( MonadCatch m
                      , MonadReader Env (ResumableSource m)
                      )
     => Text -- ^ 'lgpGroupName'
+    -> State ListGroupPolicies a
     -> ResumableSource m ListGroupPoliciesResponse
 listGroupPolicies p1 s =
     paginate $ (mkListGroupPolicies p1) &~ s
@@ -1885,6 +1894,7 @@ listGroupPoliciesCatch :: ( MonadCatch m
                           , MonadReader Env (ResumableSource m)
                           )
     => Text -- ^ 'lgpGroupName'
+    -> State ListGroupPolicies a
     -> ResumableSource m (Either ServiceEr ListGroupPoliciesResponse)
 listGroupPoliciesCatch p1 s =
     paginateCatch $ (mkListGroupPolicies p1) &~ s
@@ -1941,6 +1951,7 @@ listGroupsForUser :: ( MonadCatch m
                      , MonadReader Env (ResumableSource m)
                      )
     => Text -- ^ 'lgfuUserName'
+    -> State ListGroupsForUser a
     -> ResumableSource m ListGroupsForUserResponse
 listGroupsForUser p1 s =
     paginate $ (mkListGroupsForUser p1) &~ s
@@ -1950,6 +1961,7 @@ listGroupsForUserCatch :: ( MonadCatch m
                           , MonadReader Env (ResumableSource m)
                           )
     => Text -- ^ 'lgfuUserName'
+    -> State ListGroupsForUser a
     -> ResumableSource m (Either ServiceEr ListGroupsForUserResponse)
 listGroupsForUserCatch p1 s =
     paginateCatch $ (mkListGroupsForUser p1) &~ s
@@ -2013,6 +2025,7 @@ listInstanceProfilesForRole :: ( MonadCatch m
                                , MonadReader Env (ResumableSource m)
                                )
     => Text -- ^ 'lipfrRoleName'
+    -> State ListInstanceProfilesForRole a
     -> ResumableSource m ListInstanceProfilesForRoleResponse
 listInstanceProfilesForRole p1 s =
     paginate $ (mkListInstanceProfilesForRole p1) &~ s
@@ -2022,6 +2035,7 @@ listInstanceProfilesForRoleCatch :: ( MonadCatch m
                                     , MonadReader Env (ResumableSource m)
                                     )
     => Text -- ^ 'lipfrRoleName'
+    -> State ListInstanceProfilesForRole a
     -> ResumableSource m (Either ServiceEr ListInstanceProfilesForRoleResponse)
 listInstanceProfilesForRoleCatch p1 s =
     paginateCatch $ (mkListInstanceProfilesForRole p1) &~ s
@@ -2073,6 +2087,7 @@ listRolePolicies :: ( MonadCatch m
                     , MonadReader Env (ResumableSource m)
                     )
     => Text -- ^ 'lrpRoleName'
+    -> State ListRolePolicies a
     -> ResumableSource m ListRolePoliciesResponse
 listRolePolicies p1 s =
     paginate $ (mkListRolePolicies p1) &~ s
@@ -2082,6 +2097,7 @@ listRolePoliciesCatch :: ( MonadCatch m
                          , MonadReader Env (ResumableSource m)
                          )
     => Text -- ^ 'lrpRoleName'
+    -> State ListRolePolicies a
     -> ResumableSource m (Either ServiceEr ListRolePoliciesResponse)
 listRolePoliciesCatch p1 s =
     paginateCatch $ (mkListRolePolicies p1) &~ s
@@ -2143,19 +2159,17 @@ listSAMLProviders :: ( MonadCatch m
                      , MonadError AWS.Error m
                      , MonadReader Env m
                      )
-    => State ListSAMLProviders a
-    -> m ListSAMLProvidersResponse
-listSAMLProviders s =
-    send (mkListSAMLProviders &~ s)
+    => m ListSAMLProvidersResponse
+listSAMLProviders =
+    send (mkListSAMLProviders)
 
 listSAMLProvidersCatch :: ( MonadCatch m
                           , MonadResource m
                           , MonadReader Env m
                           )
-    => State ListSAMLProviders a
-    -> m (Either ServiceEr ListSAMLProvidersResponse)
-listSAMLProvidersCatch s =
-    sendCatch (mkListSAMLProviders &~ s)
+    => m (Either ServiceEr ListSAMLProvidersResponse)
+listSAMLProvidersCatch =
+    sendCatch (mkListSAMLProviders)
 
 -- $ListServerCertificates
 -- Lists the server certificates that have the specified path prefix. If none
@@ -2260,6 +2274,7 @@ listUserPolicies :: ( MonadCatch m
                     , MonadReader Env (ResumableSource m)
                     )
     => Text -- ^ 'lupUserName'
+    -> State ListUserPolicies a
     -> ResumableSource m ListUserPoliciesResponse
 listUserPolicies p1 s =
     paginate $ (mkListUserPolicies p1) &~ s
@@ -2269,6 +2284,7 @@ listUserPoliciesCatch :: ( MonadCatch m
                          , MonadReader Env (ResumableSource m)
                          )
     => Text -- ^ 'lupUserName'
+    -> State ListUserPolicies a
     -> ResumableSource m (Either ServiceEr ListUserPoliciesResponse)
 listUserPoliciesCatch p1 s =
     paginateCatch $ (mkListUserPolicies p1) &~ s
@@ -2372,8 +2388,8 @@ putGroupPolicy :: ( MonadCatch m
     -> Text -- ^ 'pgpPolicyName'
     -> Text -- ^ 'pgpPolicyDocument'
     -> m PutGroupPolicyResponse
-putGroupPolicy p1 p2 p3 s =
-    send $ (mkPutGroupPolicy p1 p2 p3) &~ s
+putGroupPolicy p1 p2 p3 =
+    send (mkPutGroupPolicy p1 p2 p3)
 
 putGroupPolicyCatch :: ( MonadCatch m
                        , MonadResource m
@@ -2383,8 +2399,8 @@ putGroupPolicyCatch :: ( MonadCatch m
     -> Text -- ^ 'pgpPolicyName'
     -> Text -- ^ 'pgpPolicyDocument'
     -> m (Either ServiceEr PutGroupPolicyResponse)
-putGroupPolicyCatch p1 p2 p3 s =
-    sendCatch $ (mkPutGroupPolicy p1 p2 p3) &~ s
+putGroupPolicyCatch p1 p2 p3 =
+    sendCatch (mkPutGroupPolicy p1 p2 p3)
 
 -- $PutRolePolicy
 -- Adds (or updates) a policy document associated with the specified role. For
@@ -2412,8 +2428,8 @@ putRolePolicy :: ( MonadCatch m
     -> Text -- ^ 'prpPolicyName'
     -> Text -- ^ 'prpPolicyDocument'
     -> m PutRolePolicyResponse
-putRolePolicy p1 p2 p3 s =
-    send $ (mkPutRolePolicy p1 p2 p3) &~ s
+putRolePolicy p1 p2 p3 =
+    send (mkPutRolePolicy p1 p2 p3)
 
 putRolePolicyCatch :: ( MonadCatch m
                       , MonadResource m
@@ -2423,8 +2439,8 @@ putRolePolicyCatch :: ( MonadCatch m
     -> Text -- ^ 'prpPolicyName'
     -> Text -- ^ 'prpPolicyDocument'
     -> m (Either ServiceEr PutRolePolicyResponse)
-putRolePolicyCatch p1 p2 p3 s =
-    sendCatch $ (mkPutRolePolicy p1 p2 p3) &~ s
+putRolePolicyCatch p1 p2 p3 =
+    sendCatch (mkPutRolePolicy p1 p2 p3)
 
 -- $PutUserPolicy
 -- Adds (or updates) a policy document associated with the specified user. For
@@ -2452,8 +2468,8 @@ putUserPolicy :: ( MonadCatch m
     -> Text -- ^ 'pupPolicyName'
     -> Text -- ^ 'pupPolicyDocument'
     -> m PutUserPolicyResponse
-putUserPolicy p1 p2 p3 s =
-    send $ (mkPutUserPolicy p1 p2 p3) &~ s
+putUserPolicy p1 p2 p3 =
+    send (mkPutUserPolicy p1 p2 p3)
 
 putUserPolicyCatch :: ( MonadCatch m
                       , MonadResource m
@@ -2463,8 +2479,8 @@ putUserPolicyCatch :: ( MonadCatch m
     -> Text -- ^ 'pupPolicyName'
     -> Text -- ^ 'pupPolicyDocument'
     -> m (Either ServiceEr PutUserPolicyResponse)
-putUserPolicyCatch p1 p2 p3 s =
-    sendCatch $ (mkPutUserPolicy p1 p2 p3) &~ s
+putUserPolicyCatch p1 p2 p3 =
+    sendCatch (mkPutUserPolicy p1 p2 p3)
 
 -- $RemoveRoleFromInstanceProfile
 -- Removes the specified role from the specified instance profile. Make sure
@@ -2488,8 +2504,8 @@ removeRoleFromInstanceProfile :: ( MonadCatch m
     => Text -- ^ 'rrfipInstanceProfileName'
     -> Text -- ^ 'rrfipRoleName'
     -> m RemoveRoleFromInstanceProfileResponse
-removeRoleFromInstanceProfile p1 p2 s =
-    send $ (mkRemoveRoleFromInstanceProfile p1 p2) &~ s
+removeRoleFromInstanceProfile p1 p2 =
+    send (mkRemoveRoleFromInstanceProfile p1 p2)
 
 removeRoleFromInstanceProfileCatch :: ( MonadCatch m
                                       , MonadResource m
@@ -2498,8 +2514,8 @@ removeRoleFromInstanceProfileCatch :: ( MonadCatch m
     => Text -- ^ 'rrfipInstanceProfileName'
     -> Text -- ^ 'rrfipRoleName'
     -> m (Either ServiceEr RemoveRoleFromInstanceProfileResponse)
-removeRoleFromInstanceProfileCatch p1 p2 s =
-    sendCatch $ (mkRemoveRoleFromInstanceProfile p1 p2) &~ s
+removeRoleFromInstanceProfileCatch p1 p2 =
+    sendCatch (mkRemoveRoleFromInstanceProfile p1 p2)
 
 -- $RemoveUserFromGroup
 -- Removes the specified user from the specified group.
@@ -2516,8 +2532,8 @@ removeUserFromGroup :: ( MonadCatch m
     => Text -- ^ 'rufgGroupName'
     -> Text -- ^ 'rufgUserName'
     -> m RemoveUserFromGroupResponse
-removeUserFromGroup p1 p2 s =
-    send $ (mkRemoveUserFromGroup p1 p2) &~ s
+removeUserFromGroup p1 p2 =
+    send (mkRemoveUserFromGroup p1 p2)
 
 removeUserFromGroupCatch :: ( MonadCatch m
                             , MonadResource m
@@ -2526,8 +2542,8 @@ removeUserFromGroupCatch :: ( MonadCatch m
     => Text -- ^ 'rufgGroupName'
     -> Text -- ^ 'rufgUserName'
     -> m (Either ServiceEr RemoveUserFromGroupResponse)
-removeUserFromGroupCatch p1 p2 s =
-    sendCatch $ (mkRemoveUserFromGroup p1 p2) &~ s
+removeUserFromGroupCatch p1 p2 =
+    sendCatch (mkRemoveUserFromGroup p1 p2)
 
 -- $ResyncMFADevice
 -- Synchronizes the specified MFA device with AWS servers.
@@ -2547,8 +2563,8 @@ resyncMFADevice :: ( MonadCatch m
     -> Text -- ^ 'rmfadAuthenticationCode1'
     -> Text -- ^ 'rmfadAuthenticationCode2'
     -> m ResyncMFADeviceResponse
-resyncMFADevice p1 p2 p3 p4 s =
-    send $ (mkResyncMFADevice p1 p2 p3 p4) &~ s
+resyncMFADevice p1 p2 p3 p4 =
+    send (mkResyncMFADevice p1 p2 p3 p4)
 
 resyncMFADeviceCatch :: ( MonadCatch m
                         , MonadResource m
@@ -2559,8 +2575,8 @@ resyncMFADeviceCatch :: ( MonadCatch m
     -> Text -- ^ 'rmfadAuthenticationCode1'
     -> Text -- ^ 'rmfadAuthenticationCode2'
     -> m (Either ServiceEr ResyncMFADeviceResponse)
-resyncMFADeviceCatch p1 p2 p3 p4 s =
-    sendCatch $ (mkResyncMFADevice p1 p2 p3 p4) &~ s
+resyncMFADeviceCatch p1 p2 p3 p4 =
+    sendCatch (mkResyncMFADevice p1 p2 p3 p4)
 
 -- $UpdateAccessKey
 -- Changes the status of the specified access key from Active to Inactive, or
@@ -2584,6 +2600,7 @@ updateAccessKey :: ( MonadCatch m
                    )
     => Text -- ^ 'uakAccessKeyId'
     -> StatusType -- ^ 'uakStatus'
+    -> State UpdateAccessKey a
     -> m UpdateAccessKeyResponse
 updateAccessKey p2 p3 s =
     send $ (mkUpdateAccessKey p2 p3) &~ s
@@ -2594,6 +2611,7 @@ updateAccessKeyCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'uakAccessKeyId'
     -> StatusType -- ^ 'uakStatus'
+    -> State UpdateAccessKey a
     -> m (Either ServiceEr UpdateAccessKeyResponse)
 updateAccessKeyCatch p2 p3 s =
     sendCatch $ (mkUpdateAccessKey p2 p3) &~ s
@@ -2647,8 +2665,8 @@ updateAssumeRolePolicy :: ( MonadCatch m
     => Text -- ^ 'uarpRoleName'
     -> Text -- ^ 'uarpPolicyDocument'
     -> m UpdateAssumeRolePolicyResponse
-updateAssumeRolePolicy p1 p2 s =
-    send $ (mkUpdateAssumeRolePolicy p1 p2) &~ s
+updateAssumeRolePolicy p1 p2 =
+    send (mkUpdateAssumeRolePolicy p1 p2)
 
 updateAssumeRolePolicyCatch :: ( MonadCatch m
                                , MonadResource m
@@ -2657,8 +2675,8 @@ updateAssumeRolePolicyCatch :: ( MonadCatch m
     => Text -- ^ 'uarpRoleName'
     -> Text -- ^ 'uarpPolicyDocument'
     -> m (Either ServiceEr UpdateAssumeRolePolicyResponse)
-updateAssumeRolePolicyCatch p1 p2 s =
-    sendCatch $ (mkUpdateAssumeRolePolicy p1 p2) &~ s
+updateAssumeRolePolicyCatch p1 p2 =
+    sendCatch (mkUpdateAssumeRolePolicy p1 p2)
 
 -- $UpdateGroup
 -- Updates the name and/or the path of the specified group. You should
@@ -2684,6 +2702,7 @@ updateGroup :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'ugGroupName'
+    -> State UpdateGroup a
     -> m UpdateGroupResponse
 updateGroup p1 s =
     send $ (mkUpdateGroup p1) &~ s
@@ -2693,6 +2712,7 @@ updateGroupCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'ugGroupName'
+    -> State UpdateGroup a
     -> m (Either ServiceEr UpdateGroupResponse)
 updateGroupCatch p1 s =
     sendCatch $ (mkUpdateGroup p1) &~ s
@@ -2710,6 +2730,7 @@ updateLoginProfile :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'ulpUserName'
+    -> State UpdateLoginProfile a
     -> m UpdateLoginProfileResponse
 updateLoginProfile p1 s =
     send $ (mkUpdateLoginProfile p1) &~ s
@@ -2719,6 +2740,7 @@ updateLoginProfileCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'ulpUserName'
+    -> State UpdateLoginProfile a
     -> m (Either ServiceEr UpdateLoginProfileResponse)
 updateLoginProfileCatch p1 s =
     sendCatch $ (mkUpdateLoginProfile p1) &~ s
@@ -2743,8 +2765,8 @@ updateSAMLProvider :: ( MonadCatch m
     => Text -- ^ 'usamlpSAMLMetadataDocument'
     -> Text -- ^ 'usamlpSAMLProviderArn'
     -> m UpdateSAMLProviderResponse
-updateSAMLProvider p1 p2 s =
-    send $ (mkUpdateSAMLProvider p1 p2) &~ s
+updateSAMLProvider p1 p2 =
+    send (mkUpdateSAMLProvider p1 p2)
 
 updateSAMLProviderCatch :: ( MonadCatch m
                            , MonadResource m
@@ -2753,8 +2775,8 @@ updateSAMLProviderCatch :: ( MonadCatch m
     => Text -- ^ 'usamlpSAMLMetadataDocument'
     -> Text -- ^ 'usamlpSAMLProviderArn'
     -> m (Either ServiceEr UpdateSAMLProviderResponse)
-updateSAMLProviderCatch p1 p2 s =
-    sendCatch $ (mkUpdateSAMLProvider p1 p2) &~ s
+updateSAMLProviderCatch p1 p2 =
+    sendCatch (mkUpdateSAMLProvider p1 p2)
 
 -- $UpdateServerCertificate
 -- Updates the name and/or the path of the specified server certificate. You
@@ -2778,6 +2800,7 @@ updateServerCertificate :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'uscServerCertificateName'
+    -> State UpdateServerCertificate a
     -> m UpdateServerCertificateResponse
 updateServerCertificate p1 s =
     send $ (mkUpdateServerCertificate p1) &~ s
@@ -2787,6 +2810,7 @@ updateServerCertificateCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'uscServerCertificateName'
+    -> State UpdateServerCertificate a
     -> m (Either ServiceEr UpdateServerCertificateResponse)
 updateServerCertificateCatch p1 s =
     sendCatch $ (mkUpdateServerCertificate p1) &~ s
@@ -2814,6 +2838,7 @@ updateSigningCertificate :: ( MonadCatch m
                             )
     => Text -- ^ 'usc1CertificateId'
     -> StatusType -- ^ 'usc1Status'
+    -> State UpdateSigningCertificate a
     -> m UpdateSigningCertificateResponse
 updateSigningCertificate p2 p3 s =
     send $ (mkUpdateSigningCertificate p2 p3) &~ s
@@ -2824,6 +2849,7 @@ updateSigningCertificateCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'usc1CertificateId'
     -> StatusType -- ^ 'usc1Status'
+    -> State UpdateSigningCertificate a
     -> m (Either ServiceEr UpdateSigningCertificateResponse)
 updateSigningCertificateCatch p2 p3 s =
     sendCatch $ (mkUpdateSigningCertificate p2 p3) &~ s
@@ -2850,6 +2876,7 @@ updateUser :: ( MonadCatch m
               , MonadReader Env m
               )
     => Text -- ^ 'uuUserName'
+    -> State UpdateUser a
     -> m UpdateUserResponse
 updateUser p1 s =
     send $ (mkUpdateUser p1) &~ s
@@ -2859,6 +2886,7 @@ updateUserCatch :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'uuUserName'
+    -> State UpdateUser a
     -> m (Either ServiceEr UpdateUserResponse)
 updateUserCatch p1 s =
     sendCatch $ (mkUpdateUser p1) &~ s
@@ -2918,6 +2946,7 @@ uploadServerCertificate :: ( MonadCatch m
     => Text -- ^ 'usc2ServerCertificateName'
     -> Text -- ^ 'usc2CertificateBody'
     -> Text -- ^ 'usc2PrivateKey'
+    -> State UploadServerCertificate a
     -> m UploadServerCertificateResponse
 uploadServerCertificate p2 p3 p4 s =
     send $ (mkUploadServerCertificate p2 p3 p4) &~ s
@@ -2929,6 +2958,7 @@ uploadServerCertificateCatch :: ( MonadCatch m
     => Text -- ^ 'usc2ServerCertificateName'
     -> Text -- ^ 'usc2CertificateBody'
     -> Text -- ^ 'usc2PrivateKey'
+    -> State UploadServerCertificate a
     -> m (Either ServiceEr UploadServerCertificateResponse)
 uploadServerCertificateCatch p2 p3 p4 s =
     sendCatch $ (mkUploadServerCertificate p2 p3 p4) &~ s
@@ -2989,6 +3019,7 @@ uploadSigningCertificate :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'usc3CertificateBody'
+    -> State UploadSigningCertificate a
     -> m UploadSigningCertificateResponse
 uploadSigningCertificate p2 s =
     send $ (mkUploadSigningCertificate p2) &~ s
@@ -2998,6 +3029,7 @@ uploadSigningCertificateCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'usc3CertificateBody'
+    -> State UploadSigningCertificate a
     -> m (Either ServiceEr UploadSigningCertificateResponse)
 uploadSigningCertificateCatch p2 s =
     sendCatch $ (mkUploadSigningCertificate p2) &~ s

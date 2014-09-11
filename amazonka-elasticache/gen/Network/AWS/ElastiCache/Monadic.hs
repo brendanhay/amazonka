@@ -257,8 +257,8 @@ authorizeCacheSecurityGroupIngress :: ( MonadCatch m
     -> Text -- ^ 'acsgiEC2SecurityGroupName'
     -> Text -- ^ 'acsgiEC2SecurityGroupOwnerId'
     -> m AuthorizeCacheSecurityGroupIngressResponse
-authorizeCacheSecurityGroupIngress p1 p2 p3 s =
-    send $ (mkAuthorizeCacheSecurityGroupIngress p1 p2 p3) &~ s
+authorizeCacheSecurityGroupIngress p1 p2 p3 =
+    send (mkAuthorizeCacheSecurityGroupIngress p1 p2 p3)
 
 authorizeCacheSecurityGroupIngressCatch :: ( MonadCatch m
                                            , MonadResource m
@@ -268,8 +268,8 @@ authorizeCacheSecurityGroupIngressCatch :: ( MonadCatch m
     -> Text -- ^ 'acsgiEC2SecurityGroupName'
     -> Text -- ^ 'acsgiEC2SecurityGroupOwnerId'
     -> m (Either ServiceEr AuthorizeCacheSecurityGroupIngressResponse)
-authorizeCacheSecurityGroupIngressCatch p1 p2 p3 s =
-    sendCatch $ (mkAuthorizeCacheSecurityGroupIngress p1 p2 p3) &~ s
+authorizeCacheSecurityGroupIngressCatch p1 p2 p3 =
+    sendCatch (mkAuthorizeCacheSecurityGroupIngress p1 p2 p3)
 
 -- $CopySnapshot
 -- The CopySnapshot operation makes a copy of an existing snapshot.
@@ -284,8 +284,8 @@ copySnapshot :: ( MonadCatch m
     => Text -- ^ 'csSourceSnapshotName'
     -> Text -- ^ 'csTargetSnapshotName'
     -> m CopySnapshotResponse
-copySnapshot p1 p2 s =
-    send $ (mkCopySnapshot p1 p2) &~ s
+copySnapshot p1 p2 =
+    send (mkCopySnapshot p1 p2)
 
 copySnapshotCatch :: ( MonadCatch m
                      , MonadResource m
@@ -294,8 +294,8 @@ copySnapshotCatch :: ( MonadCatch m
     => Text -- ^ 'csSourceSnapshotName'
     -> Text -- ^ 'csTargetSnapshotName'
     -> m (Either ServiceEr CopySnapshotResponse)
-copySnapshotCatch p1 p2 s =
-    sendCatch $ (mkCopySnapshot p1 p2) &~ s
+copySnapshotCatch p1 p2 =
+    sendCatch (mkCopySnapshot p1 p2)
 
 -- $CreateCacheCluster
 -- The CreateCacheCluster operation creates a new cache cluster. All nodes in
@@ -324,6 +324,7 @@ createCacheCluster :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'cccCacheClusterId'
+    -> State CreateCacheCluster a
     -> m CreateCacheClusterResponse
 createCacheCluster p1 s =
     send $ (mkCreateCacheCluster p1) &~ s
@@ -333,6 +334,7 @@ createCacheClusterCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'cccCacheClusterId'
+    -> State CreateCacheCluster a
     -> m (Either ServiceEr CreateCacheClusterResponse)
 createCacheClusterCatch p1 s =
     sendCatch $ (mkCreateCacheCluster p1) &~ s
@@ -361,8 +363,8 @@ createCacheParameterGroup :: ( MonadCatch m
     -> Text -- ^ 'ccpgCacheParameterGroupFamily'
     -> Text -- ^ 'ccpgDescription'
     -> m CreateCacheParameterGroupResponse
-createCacheParameterGroup p1 p2 p3 s =
-    send $ (mkCreateCacheParameterGroup p1 p2 p3) &~ s
+createCacheParameterGroup p1 p2 p3 =
+    send (mkCreateCacheParameterGroup p1 p2 p3)
 
 createCacheParameterGroupCatch :: ( MonadCatch m
                                   , MonadResource m
@@ -372,8 +374,8 @@ createCacheParameterGroupCatch :: ( MonadCatch m
     -> Text -- ^ 'ccpgCacheParameterGroupFamily'
     -> Text -- ^ 'ccpgDescription'
     -> m (Either ServiceEr CreateCacheParameterGroupResponse)
-createCacheParameterGroupCatch p1 p2 p3 s =
-    sendCatch $ (mkCreateCacheParameterGroup p1 p2 p3) &~ s
+createCacheParameterGroupCatch p1 p2 p3 =
+    sendCatch (mkCreateCacheParameterGroup p1 p2 p3)
 
 -- $CreateCacheSecurityGroup
 -- The CreateCacheSecurityGroup operation creates a new cache security group.
@@ -399,8 +401,8 @@ createCacheSecurityGroup :: ( MonadCatch m
     => Text -- ^ 'ccsgCacheSecurityGroupName'
     -> Text -- ^ 'ccsgDescription'
     -> m CreateCacheSecurityGroupResponse
-createCacheSecurityGroup p1 p2 s =
-    send $ (mkCreateCacheSecurityGroup p1 p2) &~ s
+createCacheSecurityGroup p1 p2 =
+    send (mkCreateCacheSecurityGroup p1 p2)
 
 createCacheSecurityGroupCatch :: ( MonadCatch m
                                  , MonadResource m
@@ -409,8 +411,8 @@ createCacheSecurityGroupCatch :: ( MonadCatch m
     => Text -- ^ 'ccsgCacheSecurityGroupName'
     -> Text -- ^ 'ccsgDescription'
     -> m (Either ServiceEr CreateCacheSecurityGroupResponse)
-createCacheSecurityGroupCatch p1 p2 s =
-    sendCatch $ (mkCreateCacheSecurityGroup p1 p2) &~ s
+createCacheSecurityGroupCatch p1 p2 =
+    sendCatch (mkCreateCacheSecurityGroup p1 p2)
 
 -- $CreateCacheSubnetGroup
 -- The CreateCacheSubnetGroup operation creates a new cache subnet group. Use
@@ -435,8 +437,8 @@ createCacheSubnetGroup :: ( MonadCatch m
     -> Text -- ^ 'ccsg1CacheSubnetGroupDescription'
     -> [Text] -- ^ 'ccsg1SubnetIds'
     -> m CreateCacheSubnetGroupResponse
-createCacheSubnetGroup p1 p2 p3 s =
-    send $ (mkCreateCacheSubnetGroup p1 p2 p3) &~ s
+createCacheSubnetGroup p1 p2 p3 =
+    send (mkCreateCacheSubnetGroup p1 p2 p3)
 
 createCacheSubnetGroupCatch :: ( MonadCatch m
                                , MonadResource m
@@ -446,8 +448,8 @@ createCacheSubnetGroupCatch :: ( MonadCatch m
     -> Text -- ^ 'ccsg1CacheSubnetGroupDescription'
     -> [Text] -- ^ 'ccsg1SubnetIds'
     -> m (Either ServiceEr CreateCacheSubnetGroupResponse)
-createCacheSubnetGroupCatch p1 p2 p3 s =
-    sendCatch $ (mkCreateCacheSubnetGroup p1 p2 p3) &~ s
+createCacheSubnetGroupCatch p1 p2 p3 =
+    sendCatch (mkCreateCacheSubnetGroup p1 p2 p3)
 
 -- $CreateReplicationGroup
 -- The CreateReplicationGroup operation creates a replication group. A
@@ -477,8 +479,8 @@ createReplicationGroup :: ( MonadCatch m
     -> Text -- ^ 'crgPrimaryClusterId'
     -> Text -- ^ 'crgReplicationGroupDescription'
     -> m CreateReplicationGroupResponse
-createReplicationGroup p1 p2 p3 s =
-    send $ (mkCreateReplicationGroup p1 p2 p3) &~ s
+createReplicationGroup p1 p2 p3 =
+    send (mkCreateReplicationGroup p1 p2 p3)
 
 createReplicationGroupCatch :: ( MonadCatch m
                                , MonadResource m
@@ -488,8 +490,8 @@ createReplicationGroupCatch :: ( MonadCatch m
     -> Text -- ^ 'crgPrimaryClusterId'
     -> Text -- ^ 'crgReplicationGroupDescription'
     -> m (Either ServiceEr CreateReplicationGroupResponse)
-createReplicationGroupCatch p1 p2 p3 s =
-    sendCatch $ (mkCreateReplicationGroup p1 p2 p3) &~ s
+createReplicationGroupCatch p1 p2 p3 =
+    sendCatch (mkCreateReplicationGroup p1 p2 p3)
 
 -- $CreateSnapshot
 -- The CreateSnapshot operation creates a copy of an entire cache cluster at a
@@ -512,8 +514,8 @@ createSnapshot :: ( MonadCatch m
     => Text -- ^ 'cs1CacheClusterId'
     -> Text -- ^ 'cs1SnapshotName'
     -> m CreateSnapshotResponse
-createSnapshot p1 p2 s =
-    send $ (mkCreateSnapshot p1 p2) &~ s
+createSnapshot p1 p2 =
+    send (mkCreateSnapshot p1 p2)
 
 createSnapshotCatch :: ( MonadCatch m
                        , MonadResource m
@@ -522,8 +524,8 @@ createSnapshotCatch :: ( MonadCatch m
     => Text -- ^ 'cs1CacheClusterId'
     -> Text -- ^ 'cs1SnapshotName'
     -> m (Either ServiceEr CreateSnapshotResponse)
-createSnapshotCatch p1 p2 s =
-    sendCatch $ (mkCreateSnapshot p1 p2) &~ s
+createSnapshotCatch p1 p2 =
+    sendCatch (mkCreateSnapshot p1 p2)
 
 -- $DeleteCacheCluster
 -- The DeleteCacheCluster operation deletes a previously provisioned cache
@@ -547,6 +549,7 @@ deleteCacheCluster :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'dccCacheClusterId'
+    -> State DeleteCacheCluster a
     -> m DeleteCacheClusterResponse
 deleteCacheCluster p1 s =
     send $ (mkDeleteCacheCluster p1) &~ s
@@ -556,6 +559,7 @@ deleteCacheClusterCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'dccCacheClusterId'
+    -> State DeleteCacheCluster a
     -> m (Either ServiceEr DeleteCacheClusterResponse)
 deleteCacheClusterCatch p1 s =
     sendCatch $ (mkDeleteCacheCluster p1) &~ s
@@ -579,8 +583,8 @@ deleteCacheParameterGroup :: ( MonadCatch m
                              )
     => Text -- ^ 'dcpgCacheParameterGroupName'
     -> m DeleteCacheParameterGroupResponse
-deleteCacheParameterGroup p1 s =
-    send $ (mkDeleteCacheParameterGroup p1) &~ s
+deleteCacheParameterGroup p1 =
+    send (mkDeleteCacheParameterGroup p1)
 
 deleteCacheParameterGroupCatch :: ( MonadCatch m
                                   , MonadResource m
@@ -588,8 +592,8 @@ deleteCacheParameterGroupCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'dcpgCacheParameterGroupName'
     -> m (Either ServiceEr DeleteCacheParameterGroupResponse)
-deleteCacheParameterGroupCatch p1 s =
-    sendCatch $ (mkDeleteCacheParameterGroup p1) &~ s
+deleteCacheParameterGroupCatch p1 =
+    sendCatch (mkDeleteCacheParameterGroup p1)
 
 -- $DeleteCacheSecurityGroup
 -- The DeleteCacheSecurityGroup operation deletes a cache security group. You
@@ -609,8 +613,8 @@ deleteCacheSecurityGroup :: ( MonadCatch m
                             )
     => Text -- ^ 'dcsgCacheSecurityGroupName'
     -> m DeleteCacheSecurityGroupResponse
-deleteCacheSecurityGroup p1 s =
-    send $ (mkDeleteCacheSecurityGroup p1) &~ s
+deleteCacheSecurityGroup p1 =
+    send (mkDeleteCacheSecurityGroup p1)
 
 deleteCacheSecurityGroupCatch :: ( MonadCatch m
                                  , MonadResource m
@@ -618,8 +622,8 @@ deleteCacheSecurityGroupCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'dcsgCacheSecurityGroupName'
     -> m (Either ServiceEr DeleteCacheSecurityGroupResponse)
-deleteCacheSecurityGroupCatch p1 s =
-    sendCatch $ (mkDeleteCacheSecurityGroup p1) &~ s
+deleteCacheSecurityGroupCatch p1 =
+    sendCatch (mkDeleteCacheSecurityGroup p1)
 
 -- $DeleteCacheSubnetGroup
 -- The DeleteCacheSubnetGroup operation deletes a cache subnet group. You
@@ -638,8 +642,8 @@ deleteCacheSubnetGroup :: ( MonadCatch m
                           )
     => Text -- ^ 'dcsg1CacheSubnetGroupName'
     -> m DeleteCacheSubnetGroupResponse
-deleteCacheSubnetGroup p1 s =
-    send $ (mkDeleteCacheSubnetGroup p1) &~ s
+deleteCacheSubnetGroup p1 =
+    send (mkDeleteCacheSubnetGroup p1)
 
 deleteCacheSubnetGroupCatch :: ( MonadCatch m
                                , MonadResource m
@@ -647,8 +651,8 @@ deleteCacheSubnetGroupCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'dcsg1CacheSubnetGroupName'
     -> m (Either ServiceEr DeleteCacheSubnetGroupResponse)
-deleteCacheSubnetGroupCatch p1 s =
-    sendCatch $ (mkDeleteCacheSubnetGroup p1) &~ s
+deleteCacheSubnetGroupCatch p1 =
+    sendCatch (mkDeleteCacheSubnetGroup p1)
 
 -- $DeleteReplicationGroup
 -- The DeleteReplicationGroup operation deletes an existing replication group.
@@ -673,6 +677,7 @@ deleteReplicationGroup :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'drgReplicationGroupId'
+    -> State DeleteReplicationGroup a
     -> m DeleteReplicationGroupResponse
 deleteReplicationGroup p1 s =
     send $ (mkDeleteReplicationGroup p1) &~ s
@@ -682,6 +687,7 @@ deleteReplicationGroupCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'drgReplicationGroupId'
+    -> State DeleteReplicationGroup a
     -> m (Either ServiceEr DeleteReplicationGroupResponse)
 deleteReplicationGroupCatch p1 s =
     sendCatch $ (mkDeleteReplicationGroup p1) &~ s
@@ -707,8 +713,8 @@ deleteSnapshot :: ( MonadCatch m
                   )
     => Text -- ^ 'dsSnapshotName'
     -> m DeleteSnapshotResponse
-deleteSnapshot p1 s =
-    send $ (mkDeleteSnapshot p1) &~ s
+deleteSnapshot p1 =
+    send (mkDeleteSnapshot p1)
 
 deleteSnapshotCatch :: ( MonadCatch m
                        , MonadResource m
@@ -716,8 +722,8 @@ deleteSnapshotCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'dsSnapshotName'
     -> m (Either ServiceEr DeleteSnapshotResponse)
-deleteSnapshotCatch p1 s =
-    sendCatch $ (mkDeleteSnapshot p1) &~ s
+deleteSnapshotCatch p1 =
+    sendCatch (mkDeleteSnapshot p1)
 
 -- $DescribeCacheClusters
 -- The DescribeCacheClusters operation returns information about all
@@ -855,6 +861,7 @@ describeCacheParameters :: ( MonadCatch m
                            , MonadReader Env (ResumableSource m)
                            )
     => Text -- ^ 'dcpCacheParameterGroupName'
+    -> State DescribeCacheParameters a
     -> ResumableSource m DescribeCacheParametersResponse
 describeCacheParameters p1 s =
     paginate $ (mkDescribeCacheParameters p1) &~ s
@@ -864,6 +871,7 @@ describeCacheParametersCatch :: ( MonadCatch m
                                 , MonadReader Env (ResumableSource m)
                                 )
     => Text -- ^ 'dcpCacheParameterGroupName'
+    -> State DescribeCacheParameters a
     -> ResumableSource m (Either ServiceEr DescribeCacheParametersResponse)
 describeCacheParametersCatch p1 s =
     paginateCatch $ (mkDescribeCacheParameters p1) &~ s
@@ -954,6 +962,7 @@ describeEngineDefaultParameters :: ( MonadCatch m
                                    , MonadReader Env (ResumableSource m)
                                    )
     => Text -- ^ 'dedpCacheParameterGroupFamily'
+    -> State DescribeEngineDefaultParameters a
     -> ResumableSource m DescribeEngineDefaultParametersResponse
 describeEngineDefaultParameters p1 s =
     paginate $ (mkDescribeEngineDefaultParameters p1) &~ s
@@ -963,6 +972,7 @@ describeEngineDefaultParametersCatch :: ( MonadCatch m
                                         , MonadReader Env (ResumableSource m)
                                         )
     => Text -- ^ 'dedpCacheParameterGroupFamily'
+    -> State DescribeEngineDefaultParameters a
     -> ResumableSource m (Either ServiceEr DescribeEngineDefaultParametersResponse)
 describeEngineDefaultParametersCatch p1 s =
     paginateCatch $ (mkDescribeEngineDefaultParameters p1) &~ s
@@ -1154,6 +1164,7 @@ modifyCacheCluster :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'mccCacheClusterId'
+    -> State ModifyCacheCluster a
     -> m ModifyCacheClusterResponse
 modifyCacheCluster p1 s =
     send $ (mkModifyCacheCluster p1) &~ s
@@ -1163,6 +1174,7 @@ modifyCacheClusterCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'mccCacheClusterId'
+    -> State ModifyCacheCluster a
     -> m (Either ServiceEr ModifyCacheClusterResponse)
 modifyCacheClusterCatch p1 s =
     sendCatch $ (mkModifyCacheCluster p1) &~ s
@@ -1190,8 +1202,8 @@ modifyCacheParameterGroup :: ( MonadCatch m
     => Text -- ^ 'mcpgCacheParameterGroupName'
     -> [ParameterNameValue] -- ^ 'mcpgParameterNameValues'
     -> m ModifyCacheParameterGroupResponse
-modifyCacheParameterGroup p1 p2 s =
-    send $ (mkModifyCacheParameterGroup p1 p2) &~ s
+modifyCacheParameterGroup p1 p2 =
+    send (mkModifyCacheParameterGroup p1 p2)
 
 modifyCacheParameterGroupCatch :: ( MonadCatch m
                                   , MonadResource m
@@ -1200,8 +1212,8 @@ modifyCacheParameterGroupCatch :: ( MonadCatch m
     => Text -- ^ 'mcpgCacheParameterGroupName'
     -> [ParameterNameValue] -- ^ 'mcpgParameterNameValues'
     -> m (Either ServiceEr ModifyCacheParameterGroupResponse)
-modifyCacheParameterGroupCatch p1 p2 s =
-    sendCatch $ (mkModifyCacheParameterGroup p1 p2) &~ s
+modifyCacheParameterGroupCatch p1 p2 =
+    sendCatch (mkModifyCacheParameterGroup p1 p2)
 
 -- $ModifyCacheSubnetGroup
 -- The ModifyCacheSubnetGroup operation modifies an existing cache subnet
@@ -1222,6 +1234,7 @@ modifyCacheSubnetGroup :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'mcsgCacheSubnetGroupName'
+    -> State ModifyCacheSubnetGroup a
     -> m ModifyCacheSubnetGroupResponse
 modifyCacheSubnetGroup p1 s =
     send $ (mkModifyCacheSubnetGroup p1) &~ s
@@ -1231,6 +1244,7 @@ modifyCacheSubnetGroupCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'mcsgCacheSubnetGroupName'
+    -> State ModifyCacheSubnetGroup a
     -> m (Either ServiceEr ModifyCacheSubnetGroupResponse)
 modifyCacheSubnetGroupCatch p1 s =
     sendCatch $ (mkModifyCacheSubnetGroup p1) &~ s
@@ -1259,6 +1273,7 @@ modifyReplicationGroup :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'mrgReplicationGroupId'
+    -> State ModifyReplicationGroup a
     -> m ModifyReplicationGroupResponse
 modifyReplicationGroup p1 s =
     send $ (mkModifyReplicationGroup p1) &~ s
@@ -1268,6 +1283,7 @@ modifyReplicationGroupCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'mrgReplicationGroupId'
+    -> State ModifyReplicationGroup a
     -> m (Either ServiceEr ModifyReplicationGroupResponse)
 modifyReplicationGroupCatch p1 s =
     sendCatch $ (mkModifyReplicationGroup p1) &~ s
@@ -1292,6 +1308,7 @@ purchaseReservedCacheNodesOffering :: ( MonadCatch m
                                       , MonadReader Env m
                                       )
     => Text -- ^ 'prcnoReservedCacheNodesOfferingId'
+    -> State PurchaseReservedCacheNodesOffering a
     -> m PurchaseReservedCacheNodesOfferingResponse
 purchaseReservedCacheNodesOffering p1 s =
     send $ (mkPurchaseReservedCacheNodesOffering p1) &~ s
@@ -1301,6 +1318,7 @@ purchaseReservedCacheNodesOfferingCatch :: ( MonadCatch m
                                            , MonadReader Env m
                                            )
     => Text -- ^ 'prcnoReservedCacheNodesOfferingId'
+    -> State PurchaseReservedCacheNodesOffering a
     -> m (Either ServiceEr PurchaseReservedCacheNodesOfferingResponse)
 purchaseReservedCacheNodesOfferingCatch p1 s =
     sendCatch $ (mkPurchaseReservedCacheNodesOffering p1) &~ s
@@ -1334,8 +1352,8 @@ rebootCacheCluster :: ( MonadCatch m
     => Text -- ^ 'rccCacheClusterId'
     -> [Text] -- ^ 'rccCacheNodeIdsToReboot'
     -> m RebootCacheClusterResponse
-rebootCacheCluster p1 p2 s =
-    send $ (mkRebootCacheCluster p1 p2) &~ s
+rebootCacheCluster p1 p2 =
+    send (mkRebootCacheCluster p1 p2)
 
 rebootCacheClusterCatch :: ( MonadCatch m
                            , MonadResource m
@@ -1344,8 +1362,8 @@ rebootCacheClusterCatch :: ( MonadCatch m
     => Text -- ^ 'rccCacheClusterId'
     -> [Text] -- ^ 'rccCacheNodeIdsToReboot'
     -> m (Either ServiceEr RebootCacheClusterResponse)
-rebootCacheClusterCatch p1 p2 s =
-    sendCatch $ (mkRebootCacheCluster p1 p2) &~ s
+rebootCacheClusterCatch p1 p2 =
+    sendCatch (mkRebootCacheCluster p1 p2)
 
 -- $ResetCacheParameterGroup
 -- The ResetCacheParameterGroup operation modifies the parameters of a cache
@@ -1369,6 +1387,7 @@ resetCacheParameterGroup :: ( MonadCatch m
                             )
     => Text -- ^ 'rcpgCacheParameterGroupName'
     -> [ParameterNameValue] -- ^ 'rcpgParameterNameValues'
+    -> State ResetCacheParameterGroup a
     -> m ResetCacheParameterGroupResponse
 resetCacheParameterGroup p1 p3 s =
     send $ (mkResetCacheParameterGroup p1 p3) &~ s
@@ -1379,6 +1398,7 @@ resetCacheParameterGroupCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'rcpgCacheParameterGroupName'
     -> [ParameterNameValue] -- ^ 'rcpgParameterNameValues'
+    -> State ResetCacheParameterGroup a
     -> m (Either ServiceEr ResetCacheParameterGroupResponse)
 resetCacheParameterGroupCatch p1 p3 s =
     sendCatch $ (mkResetCacheParameterGroup p1 p3) &~ s
@@ -1406,8 +1426,8 @@ revokeCacheSecurityGroupIngress :: ( MonadCatch m
     -> Text -- ^ 'rcsgiEC2SecurityGroupName'
     -> Text -- ^ 'rcsgiEC2SecurityGroupOwnerId'
     -> m RevokeCacheSecurityGroupIngressResponse
-revokeCacheSecurityGroupIngress p1 p2 p3 s =
-    send $ (mkRevokeCacheSecurityGroupIngress p1 p2 p3) &~ s
+revokeCacheSecurityGroupIngress p1 p2 p3 =
+    send (mkRevokeCacheSecurityGroupIngress p1 p2 p3)
 
 revokeCacheSecurityGroupIngressCatch :: ( MonadCatch m
                                         , MonadResource m
@@ -1417,5 +1437,5 @@ revokeCacheSecurityGroupIngressCatch :: ( MonadCatch m
     -> Text -- ^ 'rcsgiEC2SecurityGroupName'
     -> Text -- ^ 'rcsgiEC2SecurityGroupOwnerId'
     -> m (Either ServiceEr RevokeCacheSecurityGroupIngressResponse)
-revokeCacheSecurityGroupIngressCatch p1 p2 p3 s =
-    sendCatch $ (mkRevokeCacheSecurityGroupIngress p1 p2 p3) &~ s
+revokeCacheSecurityGroupIngressCatch p1 p2 p3 =
+    sendCatch (mkRevokeCacheSecurityGroupIngress p1 p2 p3)

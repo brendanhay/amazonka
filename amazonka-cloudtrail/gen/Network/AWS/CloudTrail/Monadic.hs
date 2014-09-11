@@ -110,6 +110,7 @@ createTrail :: ( MonadCatch m
                )
     => Text -- ^ 'ctName'
     -> Text -- ^ 'ctS3BucketName'
+    -> State CreateTrail a
     -> m CreateTrailResponse
 createTrail p1 p2 s =
     send $ (mkCreateTrail p1 p2) &~ s
@@ -120,6 +121,7 @@ createTrailCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'ctName'
     -> Text -- ^ 'ctS3BucketName'
+    -> State CreateTrail a
     -> m (Either ServiceEr CreateTrailResponse)
 createTrailCatch p1 p2 s =
     sendCatch $ (mkCreateTrail p1 p2) &~ s
@@ -136,8 +138,8 @@ deleteTrail :: ( MonadCatch m
                )
     => Text -- ^ 'dtName'
     -> m DeleteTrailResponse
-deleteTrail p1 s =
-    send $ (mkDeleteTrail p1) &~ s
+deleteTrail p1 =
+    send (mkDeleteTrail p1)
 
 deleteTrailCatch :: ( MonadCatch m
                     , MonadResource m
@@ -145,8 +147,8 @@ deleteTrailCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'dtName'
     -> m (Either ServiceEr DeleteTrailResponse)
-deleteTrailCatch p1 s =
-    sendCatch $ (mkDeleteTrail p1) &~ s
+deleteTrailCatch p1 =
+    sendCatch (mkDeleteTrail p1)
 
 -- $DescribeTrails
 -- Retrieves settings for the trail associated with the current region for
@@ -187,8 +189,8 @@ getTrailStatus :: ( MonadCatch m
                   )
     => Text -- ^ 'gtsName'
     -> m GetTrailStatusResponse
-getTrailStatus p1 s =
-    send $ (mkGetTrailStatus p1) &~ s
+getTrailStatus p1 =
+    send (mkGetTrailStatus p1)
 
 getTrailStatusCatch :: ( MonadCatch m
                        , MonadResource m
@@ -196,8 +198,8 @@ getTrailStatusCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'gtsName'
     -> m (Either ServiceEr GetTrailStatusResponse)
-getTrailStatusCatch p1 s =
-    sendCatch $ (mkGetTrailStatus p1) &~ s
+getTrailStatusCatch p1 =
+    sendCatch (mkGetTrailStatus p1)
 
 -- $StartLogging
 -- Starts the recording of AWS API calls and log file delivery for a trail.
@@ -211,8 +213,8 @@ startLogging :: ( MonadCatch m
                 )
     => Text -- ^ 'slName'
     -> m StartLoggingResponse
-startLogging p1 s =
-    send $ (mkStartLogging p1) &~ s
+startLogging p1 =
+    send (mkStartLogging p1)
 
 startLoggingCatch :: ( MonadCatch m
                      , MonadResource m
@@ -220,8 +222,8 @@ startLoggingCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'slName'
     -> m (Either ServiceEr StartLoggingResponse)
-startLoggingCatch p1 s =
-    sendCatch $ (mkStartLogging p1) &~ s
+startLoggingCatch p1 =
+    sendCatch (mkStartLogging p1)
 
 -- $StopLogging
 -- Suspends the recording of AWS API calls and log file delivery for the
@@ -238,8 +240,8 @@ stopLogging :: ( MonadCatch m
                )
     => Text -- ^ 'sl1Name'
     -> m StopLoggingResponse
-stopLogging p1 s =
-    send $ (mkStopLogging p1) &~ s
+stopLogging p1 =
+    send (mkStopLogging p1)
 
 stopLoggingCatch :: ( MonadCatch m
                     , MonadResource m
@@ -247,8 +249,8 @@ stopLoggingCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'sl1Name'
     -> m (Either ServiceEr StopLoggingResponse)
-stopLoggingCatch p1 s =
-    sendCatch $ (mkStopLogging p1) &~ s
+stopLoggingCatch p1 =
+    sendCatch (mkStopLogging p1)
 
 -- $UpdateTrail
 -- From the command line, use update-subscription. Updates the settings that
@@ -265,6 +267,7 @@ updateTrail :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'utName'
+    -> State UpdateTrail a
     -> m UpdateTrailResponse
 updateTrail p1 s =
     send $ (mkUpdateTrail p1) &~ s
@@ -274,6 +277,7 @@ updateTrailCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'utName'
+    -> State UpdateTrail a
     -> m (Either ServiceEr UpdateTrailResponse)
 updateTrailCatch p1 s =
     sendCatch $ (mkUpdateTrail p1) &~ s

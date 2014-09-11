@@ -178,8 +178,8 @@ addInstanceGroups :: ( MonadCatch m
     => [InstanceGroupConfig] -- ^ 'aigInstanceGroups'
     -> Text -- ^ 'aigJobFlowId'
     -> m AddInstanceGroupsResponse
-addInstanceGroups p1 p2 s =
-    send $ (mkAddInstanceGroups p1 p2) &~ s
+addInstanceGroups p1 p2 =
+    send (mkAddInstanceGroups p1 p2)
 
 addInstanceGroupsCatch :: ( MonadCatch m
                           , MonadResource m
@@ -188,8 +188,8 @@ addInstanceGroupsCatch :: ( MonadCatch m
     => [InstanceGroupConfig] -- ^ 'aigInstanceGroups'
     -> Text -- ^ 'aigJobFlowId'
     -> m (Either ServiceEr AddInstanceGroupsResponse)
-addInstanceGroupsCatch p1 p2 s =
-    sendCatch $ (mkAddInstanceGroups p1 p2) &~ s
+addInstanceGroupsCatch p1 p2 =
+    sendCatch (mkAddInstanceGroups p1 p2)
 
 -- $AddJobFlowSteps
 -- AddJobFlowSteps adds new steps to a running job flow. A maximum of 256
@@ -242,8 +242,8 @@ addJobFlowSteps :: ( MonadCatch m
     => Text -- ^ 'ajfsJobFlowId'
     -> [StepConfig] -- ^ 'ajfsSteps'
     -> m AddJobFlowStepsResponse
-addJobFlowSteps p1 p2 s =
-    send $ (mkAddJobFlowSteps p1 p2) &~ s
+addJobFlowSteps p1 p2 =
+    send (mkAddJobFlowSteps p1 p2)
 
 addJobFlowStepsCatch :: ( MonadCatch m
                         , MonadResource m
@@ -252,8 +252,8 @@ addJobFlowStepsCatch :: ( MonadCatch m
     => Text -- ^ 'ajfsJobFlowId'
     -> [StepConfig] -- ^ 'ajfsSteps'
     -> m (Either ServiceEr AddJobFlowStepsResponse)
-addJobFlowStepsCatch p1 p2 s =
-    sendCatch $ (mkAddJobFlowSteps p1 p2) &~ s
+addJobFlowStepsCatch p1 p2 =
+    sendCatch (mkAddJobFlowSteps p1 p2)
 
 -- $AddTags
 -- Adds tags to an Amazon EMR resource. Tags make it easier to associate
@@ -277,8 +277,8 @@ addTags :: ( MonadCatch m
     => Text -- ^ 'atResourceId'
     -> [Tag] -- ^ 'atTags'
     -> m AddTagsResponse
-addTags p1 p2 s =
-    send $ (mkAddTags p1 p2) &~ s
+addTags p1 p2 =
+    send (mkAddTags p1 p2)
 
 addTagsCatch :: ( MonadCatch m
                 , MonadResource m
@@ -287,8 +287,8 @@ addTagsCatch :: ( MonadCatch m
     => Text -- ^ 'atResourceId'
     -> [Tag] -- ^ 'atTags'
     -> m (Either ServiceEr AddTagsResponse)
-addTagsCatch p1 p2 s =
-    sendCatch $ (mkAddTags p1 p2) &~ s
+addTagsCatch p1 p2 =
+    sendCatch (mkAddTags p1 p2)
 
 -- $DescribeCluster
 -- Provides cluster-level details including status, hardware and software
@@ -304,8 +304,8 @@ describeCluster :: ( MonadCatch m
                    )
     => Text -- ^ 'dcClusterId'
     -> m DescribeClusterResponse
-describeCluster p1 s =
-    send $ (mkDescribeCluster p1) &~ s
+describeCluster p1 =
+    send (mkDescribeCluster p1)
 
 describeClusterCatch :: ( MonadCatch m
                         , MonadResource m
@@ -313,8 +313,8 @@ describeClusterCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'dcClusterId'
     -> m (Either ServiceEr DescribeClusterResponse)
-describeClusterCatch p1 s =
-    sendCatch $ (mkDescribeCluster p1) &~ s
+describeClusterCatch p1 =
+    sendCatch (mkDescribeCluster p1)
 
 -- $DescribeJobFlows
 -- This API is deprecated and will eventually be removed. We recommend you use
@@ -407,8 +407,8 @@ describeStep :: ( MonadCatch m
     => Text -- ^ 'dsClusterId'
     -> Text -- ^ 'dsStepId'
     -> m DescribeStepResponse
-describeStep p1 p2 s =
-    send $ (mkDescribeStep p1 p2) &~ s
+describeStep p1 p2 =
+    send (mkDescribeStep p1 p2)
 
 describeStepCatch :: ( MonadCatch m
                      , MonadResource m
@@ -417,8 +417,8 @@ describeStepCatch :: ( MonadCatch m
     => Text -- ^ 'dsClusterId'
     -> Text -- ^ 'dsStepId'
     -> m (Either ServiceEr DescribeStepResponse)
-describeStepCatch p1 p2 s =
-    sendCatch $ (mkDescribeStep p1 p2) &~ s
+describeStepCatch p1 p2 =
+    sendCatch (mkDescribeStep p1 p2)
 
 -- $ListBootstrapActions
 -- Provides information about the bootstrap actions associated with a cluster.
@@ -431,6 +431,7 @@ listBootstrapActions :: ( MonadCatch m
                         , MonadReader Env (ResumableSource m)
                         )
     => Text -- ^ 'lbaClusterId'
+    -> State ListBootstrapActions a
     -> ResumableSource m ListBootstrapActionsResponse
 listBootstrapActions p1 s =
     paginate $ (mkListBootstrapActions p1) &~ s
@@ -440,6 +441,7 @@ listBootstrapActionsCatch :: ( MonadCatch m
                              , MonadReader Env (ResumableSource m)
                              )
     => Text -- ^ 'lbaClusterId'
+    -> State ListBootstrapActions a
     -> ResumableSource m (Either ServiceEr ListBootstrapActionsResponse)
 listBootstrapActionsCatch p1 s =
     paginateCatch $ (mkListBootstrapActions p1) &~ s
@@ -483,6 +485,7 @@ listInstanceGroups :: ( MonadCatch m
                       , MonadReader Env (ResumableSource m)
                       )
     => Text -- ^ 'ligClusterId'
+    -> State ListInstanceGroups a
     -> ResumableSource m ListInstanceGroupsResponse
 listInstanceGroups p1 s =
     paginate $ (mkListInstanceGroups p1) &~ s
@@ -492,6 +495,7 @@ listInstanceGroupsCatch :: ( MonadCatch m
                            , MonadReader Env (ResumableSource m)
                            )
     => Text -- ^ 'ligClusterId'
+    -> State ListInstanceGroups a
     -> ResumableSource m (Either ServiceEr ListInstanceGroupsResponse)
 listInstanceGroupsCatch p1 s =
     paginateCatch $ (mkListInstanceGroups p1) &~ s
@@ -511,6 +515,7 @@ listInstances :: ( MonadCatch m
                  , MonadReader Env (ResumableSource m)
                  )
     => Text -- ^ 'liClusterId'
+    -> State ListInstances a
     -> ResumableSource m ListInstancesResponse
 listInstances p1 s =
     paginate $ (mkListInstances p1) &~ s
@@ -520,6 +525,7 @@ listInstancesCatch :: ( MonadCatch m
                       , MonadReader Env (ResumableSource m)
                       )
     => Text -- ^ 'liClusterId'
+    -> State ListInstances a
     -> ResumableSource m (Either ServiceEr ListInstancesResponse)
 listInstancesCatch p1 s =
     paginateCatch $ (mkListInstances p1) &~ s
@@ -535,6 +541,7 @@ listSteps :: ( MonadCatch m
              , MonadReader Env (ResumableSource m)
              )
     => Text -- ^ 'lsClusterId'
+    -> State ListSteps a
     -> ResumableSource m ListStepsResponse
 listSteps p1 s =
     paginate $ (mkListSteps p1) &~ s
@@ -544,6 +551,7 @@ listStepsCatch :: ( MonadCatch m
                   , MonadReader Env (ResumableSource m)
                   )
     => Text -- ^ 'lsClusterId'
+    -> State ListSteps a
     -> ResumableSource m (Either ServiceEr ListStepsResponse)
 listStepsCatch p1 s =
     paginateCatch $ (mkListSteps p1) &~ s
@@ -619,8 +627,8 @@ removeTags :: ( MonadCatch m
     => Text -- ^ 'rtResourceId'
     -> [Text] -- ^ 'rtTagKeys'
     -> m RemoveTagsResponse
-removeTags p1 p2 s =
-    send $ (mkRemoveTags p1 p2) &~ s
+removeTags p1 p2 =
+    send (mkRemoveTags p1 p2)
 
 removeTagsCatch :: ( MonadCatch m
                    , MonadResource m
@@ -629,8 +637,8 @@ removeTagsCatch :: ( MonadCatch m
     => Text -- ^ 'rtResourceId'
     -> [Text] -- ^ 'rtTagKeys'
     -> m (Either ServiceEr RemoveTagsResponse)
-removeTagsCatch p1 p2 s =
-    sendCatch $ (mkRemoveTags p1 p2) &~ s
+removeTagsCatch p1 p2 =
+    sendCatch (mkRemoveTags p1 p2)
 
 -- $RunJobFlow
 -- RunJobFlow creates and starts running a new job flow. The job flow will run
@@ -687,6 +695,7 @@ runJobFlow :: ( MonadCatch m
               )
     => Text -- ^ 'rjfName'
     -> JobFlowInstancesConfig -- ^ 'rjfInstances'
+    -> State RunJobFlow a
     -> m RunJobFlowResponse
 runJobFlow p1 p5 s =
     send $ (mkRunJobFlow p1 p5) &~ s
@@ -697,6 +706,7 @@ runJobFlowCatch :: ( MonadCatch m
                    )
     => Text -- ^ 'rjfName'
     -> JobFlowInstancesConfig -- ^ 'rjfInstances'
+    -> State RunJobFlow a
     -> m (Either ServiceEr RunJobFlowResponse)
 runJobFlowCatch p1 p5 s =
     sendCatch $ (mkRunJobFlow p1 p5) &~ s
@@ -742,8 +752,8 @@ setTerminationProtection :: ( MonadCatch m
     => [Text] -- ^ 'stpJobFlowIds'
     -> Bool -- ^ 'stpTerminationProtected'
     -> m SetTerminationProtectionResponse
-setTerminationProtection p1 p2 s =
-    send $ (mkSetTerminationProtection p1 p2) &~ s
+setTerminationProtection p1 p2 =
+    send (mkSetTerminationProtection p1 p2)
 
 setTerminationProtectionCatch :: ( MonadCatch m
                                  , MonadResource m
@@ -752,8 +762,8 @@ setTerminationProtectionCatch :: ( MonadCatch m
     => [Text] -- ^ 'stpJobFlowIds'
     -> Bool -- ^ 'stpTerminationProtected'
     -> m (Either ServiceEr SetTerminationProtectionResponse)
-setTerminationProtectionCatch p1 p2 s =
-    sendCatch $ (mkSetTerminationProtection p1 p2) &~ s
+setTerminationProtectionCatch p1 p2 =
+    sendCatch (mkSetTerminationProtection p1 p2)
 
 -- $SetVisibleToAllUsers
 -- Sets whether all AWS Identity and Access Management (IAM) users under your
@@ -788,8 +798,8 @@ setVisibleToAllUsers :: ( MonadCatch m
     => [Text] -- ^ 'svtauJobFlowIds'
     -> Bool -- ^ 'svtauVisibleToAllUsers'
     -> m SetVisibleToAllUsersResponse
-setVisibleToAllUsers p1 p2 s =
-    send $ (mkSetVisibleToAllUsers p1 p2) &~ s
+setVisibleToAllUsers p1 p2 =
+    send (mkSetVisibleToAllUsers p1 p2)
 
 setVisibleToAllUsersCatch :: ( MonadCatch m
                              , MonadResource m
@@ -798,8 +808,8 @@ setVisibleToAllUsersCatch :: ( MonadCatch m
     => [Text] -- ^ 'svtauJobFlowIds'
     -> Bool -- ^ 'svtauVisibleToAllUsers'
     -> m (Either ServiceEr SetVisibleToAllUsersResponse)
-setVisibleToAllUsersCatch p1 p2 s =
-    sendCatch $ (mkSetVisibleToAllUsers p1 p2) &~ s
+setVisibleToAllUsersCatch p1 p2 =
+    sendCatch (mkSetVisibleToAllUsers p1 p2)
 
 -- $TerminateJobFlows
 -- TerminateJobFlows shuts a list of job flows down. When a job flow is shut
@@ -834,8 +844,8 @@ terminateJobFlows :: ( MonadCatch m
                      )
     => [Text] -- ^ 'tjfJobFlowIds'
     -> m TerminateJobFlowsResponse
-terminateJobFlows p1 s =
-    send $ (mkTerminateJobFlows p1) &~ s
+terminateJobFlows p1 =
+    send (mkTerminateJobFlows p1)
 
 terminateJobFlowsCatch :: ( MonadCatch m
                           , MonadResource m
@@ -843,5 +853,5 @@ terminateJobFlowsCatch :: ( MonadCatch m
                           )
     => [Text] -- ^ 'tjfJobFlowIds'
     -> m (Either ServiceEr TerminateJobFlowsResponse)
-terminateJobFlowsCatch p1 s =
-    sendCatch $ (mkTerminateJobFlows p1) &~ s
+terminateJobFlowsCatch p1 =
+    sendCatch (mkTerminateJobFlows p1)

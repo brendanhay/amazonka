@@ -100,8 +100,8 @@ cancelJob :: ( MonadCatch m
              )
     => Text -- ^ 'cjJobId'
     -> m CancelJobResponse
-cancelJob p1 s =
-    send $ (mkCancelJob p1) &~ s
+cancelJob p1 =
+    send (mkCancelJob p1)
 
 cancelJobCatch :: ( MonadCatch m
                   , MonadResource m
@@ -109,8 +109,8 @@ cancelJobCatch :: ( MonadCatch m
                   )
     => Text -- ^ 'cjJobId'
     -> m (Either ServiceEr CancelJobResponse)
-cancelJobCatch p1 s =
-    sendCatch $ (mkCancelJob p1) &~ s
+cancelJobCatch p1 =
+    sendCatch (mkCancelJob p1)
 
 -- $CreateJob
 -- This operation initiates the process of scheduling an upload or download of
@@ -129,6 +129,7 @@ createJob :: ( MonadCatch m
     => JobType -- ^ 'cj1JobType'
     -> Text -- ^ 'cj1Manifest'
     -> Bool -- ^ 'cj1ValidateOnly'
+    -> State CreateJob a
     -> m CreateJobResponse
 createJob p1 p2 p4 s =
     send $ (mkCreateJob p1 p2 p4) &~ s
@@ -140,6 +141,7 @@ createJobCatch :: ( MonadCatch m
     => JobType -- ^ 'cj1JobType'
     -> Text -- ^ 'cj1Manifest'
     -> Bool -- ^ 'cj1ValidateOnly'
+    -> State CreateJob a
     -> m (Either ServiceEr CreateJobResponse)
 createJobCatch p1 p2 p4 s =
     sendCatch $ (mkCreateJob p1 p2 p4) &~ s
@@ -159,8 +161,8 @@ getStatus :: ( MonadCatch m
              )
     => Text -- ^ 'gsJobId'
     -> m GetStatusResponse
-getStatus p1 s =
-    send $ (mkGetStatus p1) &~ s
+getStatus p1 =
+    send (mkGetStatus p1)
 
 getStatusCatch :: ( MonadCatch m
                   , MonadResource m
@@ -168,8 +170,8 @@ getStatusCatch :: ( MonadCatch m
                   )
     => Text -- ^ 'gsJobId'
     -> m (Either ServiceEr GetStatusResponse)
-getStatusCatch p1 s =
-    sendCatch $ (mkGetStatus p1) &~ s
+getStatusCatch p1 =
+    sendCatch (mkGetStatus p1)
 
 -- $ListJobs
 -- This operation returns the jobs associated with the requester. AWS
@@ -218,8 +220,8 @@ updateJob :: ( MonadCatch m
     -> JobType -- ^ 'ujJobType'
     -> Bool -- ^ 'ujValidateOnly'
     -> m UpdateJobResponse
-updateJob p1 p2 p3 p4 s =
-    send $ (mkUpdateJob p1 p2 p3 p4) &~ s
+updateJob p1 p2 p3 p4 =
+    send (mkUpdateJob p1 p2 p3 p4)
 
 updateJobCatch :: ( MonadCatch m
                   , MonadResource m
@@ -230,5 +232,5 @@ updateJobCatch :: ( MonadCatch m
     -> JobType -- ^ 'ujJobType'
     -> Bool -- ^ 'ujValidateOnly'
     -> m (Either ServiceEr UpdateJobResponse)
-updateJobCatch p1 p2 p3 p4 s =
-    sendCatch $ (mkUpdateJob p1 p2 p3 p4) &~ s
+updateJobCatch p1 p2 p3 p4 =
+    sendCatch (mkUpdateJob p1 p2 p3 p4)

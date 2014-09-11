@@ -178,8 +178,8 @@ addPermission :: ( MonadCatch m
     -> [Text] -- ^ 'apAWSAccountIds'
     -> [Text] -- ^ 'apActions'
     -> m AddPermissionResponse
-addPermission p1 p2 p3 p4 s =
-    send $ (mkAddPermission p1 p2 p3 p4) &~ s
+addPermission p1 p2 p3 p4 =
+    send (mkAddPermission p1 p2 p3 p4)
 
 addPermissionCatch :: ( MonadCatch m
                       , MonadResource m
@@ -190,8 +190,8 @@ addPermissionCatch :: ( MonadCatch m
     -> [Text] -- ^ 'apAWSAccountIds'
     -> [Text] -- ^ 'apActions'
     -> m (Either ServiceEr AddPermissionResponse)
-addPermissionCatch p1 p2 p3 p4 s =
-    sendCatch $ (mkAddPermission p1 p2 p3 p4) &~ s
+addPermissionCatch p1 p2 p3 p4 =
+    sendCatch (mkAddPermission p1 p2 p3 p4)
 
 -- $ChangeMessageVisibility
 -- Changes the visibility timeout of a specified message in a queue to a new
@@ -243,8 +243,8 @@ changeMessageVisibility :: ( MonadCatch m
     -> Text -- ^ 'cmvReceiptHandle'
     -> Integer -- ^ 'cmvVisibilityTimeout'
     -> m ChangeMessageVisibilityResponse
-changeMessageVisibility p1 p2 p3 s =
-    send $ (mkChangeMessageVisibility p1 p2 p3) &~ s
+changeMessageVisibility p1 p2 p3 =
+    send (mkChangeMessageVisibility p1 p2 p3)
 
 changeMessageVisibilityCatch :: ( MonadCatch m
                                 , MonadResource m
@@ -254,8 +254,8 @@ changeMessageVisibilityCatch :: ( MonadCatch m
     -> Text -- ^ 'cmvReceiptHandle'
     -> Integer -- ^ 'cmvVisibilityTimeout'
     -> m (Either ServiceEr ChangeMessageVisibilityResponse)
-changeMessageVisibilityCatch p1 p2 p3 s =
-    sendCatch $ (mkChangeMessageVisibility p1 p2 p3) &~ s
+changeMessageVisibilityCatch p1 p2 p3 =
+    sendCatch (mkChangeMessageVisibility p1 p2 p3)
 
 -- $ChangeMessageVisibilityBatch
 -- Changes the visibility timeout of multiple messages. This is a batch
@@ -294,8 +294,8 @@ changeMessageVisibilityBatch :: ( MonadCatch m
     => Text -- ^ 'cmvbQueueUrl'
     -> [ChangeMessageVisibilityBatchRequestEntry] -- ^ 'cmvbEntries'
     -> m ChangeMessageVisibilityBatchResponse
-changeMessageVisibilityBatch p1 p2 s =
-    send $ (mkChangeMessageVisibilityBatch p1 p2) &~ s
+changeMessageVisibilityBatch p1 p2 =
+    send (mkChangeMessageVisibilityBatch p1 p2)
 
 changeMessageVisibilityBatchCatch :: ( MonadCatch m
                                      , MonadResource m
@@ -304,8 +304,8 @@ changeMessageVisibilityBatchCatch :: ( MonadCatch m
     => Text -- ^ 'cmvbQueueUrl'
     -> [ChangeMessageVisibilityBatchRequestEntry] -- ^ 'cmvbEntries'
     -> m (Either ServiceEr ChangeMessageVisibilityBatchResponse)
-changeMessageVisibilityBatchCatch p1 p2 s =
-    sendCatch $ (mkChangeMessageVisibilityBatch p1 p2) &~ s
+changeMessageVisibilityBatchCatch p1 p2 =
+    sendCatch (mkChangeMessageVisibilityBatch p1 p2)
 
 -- $CreateQueue
 -- Creates a new queue, or returns the URL of an existing one. When you
@@ -342,6 +342,7 @@ createQueue :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'cqQueueName'
+    -> State CreateQueue a
     -> m CreateQueueResponse
 createQueue p1 s =
     send $ (mkCreateQueue p1) &~ s
@@ -351,6 +352,7 @@ createQueueCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'cqQueueName'
+    -> State CreateQueue a
     -> m (Either ServiceEr CreateQueueResponse)
 createQueueCatch p1 s =
     sendCatch $ (mkCreateQueue p1) &~ s
@@ -395,8 +397,8 @@ deleteMessage :: ( MonadCatch m
     => Text -- ^ 'dmQueueUrl'
     -> Text -- ^ 'dmReceiptHandle'
     -> m DeleteMessageResponse
-deleteMessage p1 p2 s =
-    send $ (mkDeleteMessage p1 p2) &~ s
+deleteMessage p1 p2 =
+    send (mkDeleteMessage p1 p2)
 
 deleteMessageCatch :: ( MonadCatch m
                       , MonadResource m
@@ -405,8 +407,8 @@ deleteMessageCatch :: ( MonadCatch m
     => Text -- ^ 'dmQueueUrl'
     -> Text -- ^ 'dmReceiptHandle'
     -> m (Either ServiceEr DeleteMessageResponse)
-deleteMessageCatch p1 p2 s =
-    sendCatch $ (mkDeleteMessage p1 p2) &~ s
+deleteMessageCatch p1 p2 =
+    sendCatch (mkDeleteMessage p1 p2)
 
 -- $DeleteMessageBatch
 -- Deletes multiple messages. This is a batch version of DeleteMessage. The
@@ -441,8 +443,8 @@ deleteMessageBatch :: ( MonadCatch m
     => Text -- ^ 'dmbQueueUrl'
     -> [DeleteMessageBatchRequestEntry] -- ^ 'dmbEntries'
     -> m DeleteMessageBatchResponse
-deleteMessageBatch p1 p2 s =
-    send $ (mkDeleteMessageBatch p1 p2) &~ s
+deleteMessageBatch p1 p2 =
+    send (mkDeleteMessageBatch p1 p2)
 
 deleteMessageBatchCatch :: ( MonadCatch m
                            , MonadResource m
@@ -451,8 +453,8 @@ deleteMessageBatchCatch :: ( MonadCatch m
     => Text -- ^ 'dmbQueueUrl'
     -> [DeleteMessageBatchRequestEntry] -- ^ 'dmbEntries'
     -> m (Either ServiceEr DeleteMessageBatchResponse)
-deleteMessageBatchCatch p1 p2 s =
-    sendCatch $ (mkDeleteMessageBatch p1 p2) &~ s
+deleteMessageBatchCatch p1 p2 =
+    sendCatch (mkDeleteMessageBatch p1 p2)
 
 -- $DeleteQueue
 -- Deletes the queue specified by the queue URL, regardless of whether the
@@ -482,8 +484,8 @@ deleteQueue :: ( MonadCatch m
                )
     => Text -- ^ 'dqQueueUrl'
     -> m DeleteQueueResponse
-deleteQueue p1 s =
-    send $ (mkDeleteQueue p1) &~ s
+deleteQueue p1 =
+    send (mkDeleteQueue p1)
 
 deleteQueueCatch :: ( MonadCatch m
                     , MonadResource m
@@ -491,8 +493,8 @@ deleteQueueCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'dqQueueUrl'
     -> m (Either ServiceEr DeleteQueueResponse)
-deleteQueueCatch p1 s =
-    sendCatch $ (mkDeleteQueue p1) &~ s
+deleteQueueCatch p1 =
+    sendCatch (mkDeleteQueue p1)
 
 -- $GetQueueAttributes
 -- Gets attributes for the specified queue. The following attributes are
@@ -553,6 +555,7 @@ getQueueAttributes :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'gqaQueueUrl'
+    -> State GetQueueAttributes a
     -> m GetQueueAttributesResponse
 getQueueAttributes p1 s =
     send $ (mkGetQueueAttributes p1) &~ s
@@ -562,6 +565,7 @@ getQueueAttributesCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'gqaQueueUrl'
+    -> State GetQueueAttributes a
     -> m (Either ServiceEr GetQueueAttributesResponse)
 getQueueAttributesCatch p1 s =
     sendCatch $ (mkGetQueueAttributes p1) &~ s
@@ -589,6 +593,7 @@ getQueueUrl :: ( MonadCatch m
                , MonadReader Env m
                )
     => Text -- ^ 'gquQueueName'
+    -> State GetQueueUrl a
     -> m GetQueueUrlResponse
 getQueueUrl p1 s =
     send $ (mkGetQueueUrl p1) &~ s
@@ -598,6 +603,7 @@ getQueueUrlCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'gquQueueName'
+    -> State GetQueueUrl a
     -> m (Either ServiceEr GetQueueUrlResponse)
 getQueueUrlCatch p1 s =
     sendCatch $ (mkGetQueueUrl p1) &~ s
@@ -621,8 +627,8 @@ listDeadLetterSourceQueues :: ( MonadCatch m
                               )
     => Text -- ^ 'ldlsqQueueUrl'
     -> m ListDeadLetterSourceQueuesResponse
-listDeadLetterSourceQueues p1 s =
-    send $ (mkListDeadLetterSourceQueues p1) &~ s
+listDeadLetterSourceQueues p1 =
+    send (mkListDeadLetterSourceQueues p1)
 
 listDeadLetterSourceQueuesCatch :: ( MonadCatch m
                                    , MonadResource m
@@ -630,8 +636,8 @@ listDeadLetterSourceQueuesCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'ldlsqQueueUrl'
     -> m (Either ServiceEr ListDeadLetterSourceQueuesResponse)
-listDeadLetterSourceQueuesCatch p1 s =
-    sendCatch $ (mkListDeadLetterSourceQueues p1) &~ s
+listDeadLetterSourceQueuesCatch p1 =
+    sendCatch (mkListDeadLetterSourceQueues p1)
 
 -- $ListQueues
 -- Returns a list of your queues. The maximum number of queues that can be
@@ -715,6 +721,7 @@ receiveMessage :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'rmQueueUrl'
+    -> State ReceiveMessage a
     -> m ReceiveMessageResponse
 receiveMessage p1 s =
     send $ (mkReceiveMessage p1) &~ s
@@ -724,6 +731,7 @@ receiveMessageCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'rmQueueUrl'
+    -> State ReceiveMessage a
     -> m (Either ServiceEr ReceiveMessageResponse)
 receiveMessageCatch p1 s =
     sendCatch $ (mkReceiveMessage p1) &~ s
@@ -750,8 +758,8 @@ removePermission :: ( MonadCatch m
     => Text -- ^ 'rpQueueUrl'
     -> Text -- ^ 'rpLabel'
     -> m RemovePermissionResponse
-removePermission p1 p2 s =
-    send $ (mkRemovePermission p1 p2) &~ s
+removePermission p1 p2 =
+    send (mkRemovePermission p1 p2)
 
 removePermissionCatch :: ( MonadCatch m
                          , MonadResource m
@@ -760,8 +768,8 @@ removePermissionCatch :: ( MonadCatch m
     => Text -- ^ 'rpQueueUrl'
     -> Text -- ^ 'rpLabel'
     -> m (Either ServiceEr RemovePermissionResponse)
-removePermissionCatch p1 p2 s =
-    sendCatch $ (mkRemovePermission p1 p2) &~ s
+removePermissionCatch p1 p2 =
+    sendCatch (mkRemovePermission p1 p2)
 
 -- $SendMessage
 -- Delivers a message to the specified queue. With Amazon SQS, you now have
@@ -801,6 +809,7 @@ sendMessage :: ( MonadCatch m
                )
     => Text -- ^ 'smQueueUrl'
     -> Text -- ^ 'smMessageBody'
+    -> State SendMessage a
     -> m SendMessageResponse
 sendMessage p1 p2 s =
     send $ (mkSendMessage p1 p2) &~ s
@@ -811,6 +820,7 @@ sendMessageCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'smQueueUrl'
     -> Text -- ^ 'smMessageBody'
+    -> State SendMessage a
     -> m (Either ServiceEr SendMessageResponse)
 sendMessageCatch p1 p2 s =
     sendCatch $ (mkSendMessage p1 p2) &~ s
@@ -865,8 +875,8 @@ sendMessageBatch :: ( MonadCatch m
     => Text -- ^ 'smbQueueUrl'
     -> [SendMessageBatchRequestEntry] -- ^ 'smbEntries'
     -> m SendMessageBatchResponse
-sendMessageBatch p1 p2 s =
-    send $ (mkSendMessageBatch p1 p2) &~ s
+sendMessageBatch p1 p2 =
+    send (mkSendMessageBatch p1 p2)
 
 sendMessageBatchCatch :: ( MonadCatch m
                          , MonadResource m
@@ -875,8 +885,8 @@ sendMessageBatchCatch :: ( MonadCatch m
     => Text -- ^ 'smbQueueUrl'
     -> [SendMessageBatchRequestEntry] -- ^ 'smbEntries'
     -> m (Either ServiceEr SendMessageBatchResponse)
-sendMessageBatchCatch p1 p2 s =
-    sendCatch $ (mkSendMessageBatch p1 p2) &~ s
+sendMessageBatchCatch p1 p2 =
+    sendCatch (mkSendMessageBatch p1 p2)
 
 -- $SetQueueAttributes
 -- Sets the value of one or more queue attributes. When you change a queue's
@@ -925,8 +935,8 @@ setQueueAttributes :: ( MonadCatch m
     => Text -- ^ 'sqaQueueUrl'
     -> Map QueueAttributeName Text -- ^ 'sqaAttributes'
     -> m SetQueueAttributesResponse
-setQueueAttributes p1 p2 s =
-    send $ (mkSetQueueAttributes p1 p2) &~ s
+setQueueAttributes p1 p2 =
+    send (mkSetQueueAttributes p1 p2)
 
 setQueueAttributesCatch :: ( MonadCatch m
                            , MonadResource m
@@ -935,5 +945,5 @@ setQueueAttributesCatch :: ( MonadCatch m
     => Text -- ^ 'sqaQueueUrl'
     -> Map QueueAttributeName Text -- ^ 'sqaAttributes'
     -> m (Either ServiceEr SetQueueAttributesResponse)
-setQueueAttributesCatch p1 p2 s =
-    sendCatch $ (mkSetQueueAttributes p1 p2) &~ s
+setQueueAttributesCatch p1 p2 =
+    sendCatch (mkSetQueueAttributes p1 p2)

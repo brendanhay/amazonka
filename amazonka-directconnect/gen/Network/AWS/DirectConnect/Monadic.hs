@@ -175,8 +175,8 @@ allocateConnectionOnInterconnect :: ( MonadCatch m
     -> Text -- ^ 'acoiInterconnectId'
     -> Integer -- ^ 'acoiVlan'
     -> m AllocateConnectionOnInterconnectResponse
-allocateConnectionOnInterconnect p1 p2 p3 p4 p5 s =
-    send $ (mkAllocateConnectionOnInterconnect p1 p2 p3 p4 p5) &~ s
+allocateConnectionOnInterconnect p1 p2 p3 p4 p5 =
+    send (mkAllocateConnectionOnInterconnect p1 p2 p3 p4 p5)
 
 allocateConnectionOnInterconnectCatch :: ( MonadCatch m
                                          , MonadResource m
@@ -188,8 +188,8 @@ allocateConnectionOnInterconnectCatch :: ( MonadCatch m
     -> Text -- ^ 'acoiInterconnectId'
     -> Integer -- ^ 'acoiVlan'
     -> m (Either ServiceEr AllocateConnectionOnInterconnectResponse)
-allocateConnectionOnInterconnectCatch p1 p2 p3 p4 p5 s =
-    sendCatch $ (mkAllocateConnectionOnInterconnect p1 p2 p3 p4 p5) &~ s
+allocateConnectionOnInterconnectCatch p1 p2 p3 p4 p5 =
+    sendCatch (mkAllocateConnectionOnInterconnect p1 p2 p3 p4 p5)
 
 -- $AllocatePrivateVirtualInterface
 -- Provisions a private virtual interface to be owned by a different customer.
@@ -211,8 +211,8 @@ allocatePrivateVirtualInterface :: ( MonadCatch m
     -> Text -- ^ 'apviOwnerAccount'
     -> NewPrivateVirtualInterfaceAllocation -- ^ 'apviNewPrivateVirtualInterfaceAllocation'
     -> m AllocatePrivateVirtualInterfaceResponse
-allocatePrivateVirtualInterface p1 p2 p3 s =
-    send $ (mkAllocatePrivateVirtualInterface p1 p2 p3) &~ s
+allocatePrivateVirtualInterface p1 p2 p3 =
+    send (mkAllocatePrivateVirtualInterface p1 p2 p3)
 
 allocatePrivateVirtualInterfaceCatch :: ( MonadCatch m
                                         , MonadResource m
@@ -222,8 +222,8 @@ allocatePrivateVirtualInterfaceCatch :: ( MonadCatch m
     -> Text -- ^ 'apviOwnerAccount'
     -> NewPrivateVirtualInterfaceAllocation -- ^ 'apviNewPrivateVirtualInterfaceAllocation'
     -> m (Either ServiceEr AllocatePrivateVirtualInterfaceResponse)
-allocatePrivateVirtualInterfaceCatch p1 p2 p3 s =
-    sendCatch $ (mkAllocatePrivateVirtualInterface p1 p2 p3) &~ s
+allocatePrivateVirtualInterfaceCatch p1 p2 p3 =
+    sendCatch (mkAllocatePrivateVirtualInterface p1 p2 p3)
 
 -- $AllocatePublicVirtualInterface
 -- Provisions a public virtual interface to be owned by a different customer.
@@ -245,8 +245,8 @@ allocatePublicVirtualInterface :: ( MonadCatch m
     -> Text -- ^ 'apvi1OwnerAccount'
     -> NewPublicVirtualInterfaceAllocation -- ^ 'apvi1NewPublicVirtualInterfaceAllocation'
     -> m AllocatePublicVirtualInterfaceResponse
-allocatePublicVirtualInterface p1 p2 p3 s =
-    send $ (mkAllocatePublicVirtualInterface p1 p2 p3) &~ s
+allocatePublicVirtualInterface p1 p2 p3 =
+    send (mkAllocatePublicVirtualInterface p1 p2 p3)
 
 allocatePublicVirtualInterfaceCatch :: ( MonadCatch m
                                        , MonadResource m
@@ -256,8 +256,8 @@ allocatePublicVirtualInterfaceCatch :: ( MonadCatch m
     -> Text -- ^ 'apvi1OwnerAccount'
     -> NewPublicVirtualInterfaceAllocation -- ^ 'apvi1NewPublicVirtualInterfaceAllocation'
     -> m (Either ServiceEr AllocatePublicVirtualInterfaceResponse)
-allocatePublicVirtualInterfaceCatch p1 p2 p3 s =
-    sendCatch $ (mkAllocatePublicVirtualInterface p1 p2 p3) &~ s
+allocatePublicVirtualInterfaceCatch p1 p2 p3 =
+    sendCatch (mkAllocatePublicVirtualInterface p1 p2 p3)
 
 -- $ConfirmConnection
 -- Confirm the creation of a hosted connection on an interconnect. Upon
@@ -274,8 +274,8 @@ confirmConnection :: ( MonadCatch m
                      )
     => Text -- ^ 'ccConnectionId'
     -> m ConfirmConnectionResponse
-confirmConnection p1 s =
-    send $ (mkConfirmConnection p1) &~ s
+confirmConnection p1 =
+    send (mkConfirmConnection p1)
 
 confirmConnectionCatch :: ( MonadCatch m
                           , MonadResource m
@@ -283,8 +283,8 @@ confirmConnectionCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'ccConnectionId'
     -> m (Either ServiceEr ConfirmConnectionResponse)
-confirmConnectionCatch p1 s =
-    sendCatch $ (mkConfirmConnection p1) &~ s
+confirmConnectionCatch p1 =
+    sendCatch (mkConfirmConnection p1)
 
 -- $ConfirmPrivateVirtualInterface
 -- Accept ownership of a private virtual interface created by another
@@ -302,8 +302,8 @@ confirmPrivateVirtualInterface :: ( MonadCatch m
     => Text -- ^ 'cpviVirtualInterfaceId'
     -> Text -- ^ 'cpviVirtualGatewayId'
     -> m ConfirmPrivateVirtualInterfaceResponse
-confirmPrivateVirtualInterface p1 p2 s =
-    send $ (mkConfirmPrivateVirtualInterface p1 p2) &~ s
+confirmPrivateVirtualInterface p1 p2 =
+    send (mkConfirmPrivateVirtualInterface p1 p2)
 
 confirmPrivateVirtualInterfaceCatch :: ( MonadCatch m
                                        , MonadResource m
@@ -312,8 +312,8 @@ confirmPrivateVirtualInterfaceCatch :: ( MonadCatch m
     => Text -- ^ 'cpviVirtualInterfaceId'
     -> Text -- ^ 'cpviVirtualGatewayId'
     -> m (Either ServiceEr ConfirmPrivateVirtualInterfaceResponse)
-confirmPrivateVirtualInterfaceCatch p1 p2 s =
-    sendCatch $ (mkConfirmPrivateVirtualInterface p1 p2) &~ s
+confirmPrivateVirtualInterfaceCatch p1 p2 =
+    sendCatch (mkConfirmPrivateVirtualInterface p1 p2)
 
 -- $ConfirmPublicVirtualInterface
 -- Accept ownership of a public virtual interface created by another customer.
@@ -329,8 +329,8 @@ confirmPublicVirtualInterface :: ( MonadCatch m
                                  )
     => Text -- ^ 'cpvi1VirtualInterfaceId'
     -> m ConfirmPublicVirtualInterfaceResponse
-confirmPublicVirtualInterface p1 s =
-    send $ (mkConfirmPublicVirtualInterface p1) &~ s
+confirmPublicVirtualInterface p1 =
+    send (mkConfirmPublicVirtualInterface p1)
 
 confirmPublicVirtualInterfaceCatch :: ( MonadCatch m
                                       , MonadResource m
@@ -338,8 +338,8 @@ confirmPublicVirtualInterfaceCatch :: ( MonadCatch m
                                       )
     => Text -- ^ 'cpvi1VirtualInterfaceId'
     -> m (Either ServiceEr ConfirmPublicVirtualInterfaceResponse)
-confirmPublicVirtualInterfaceCatch p1 s =
-    sendCatch $ (mkConfirmPublicVirtualInterface p1) &~ s
+confirmPublicVirtualInterfaceCatch p1 =
+    sendCatch (mkConfirmPublicVirtualInterface p1)
 
 -- $CreateConnection
 -- Creates a new connection between the customer network and a specific AWS
@@ -363,8 +363,8 @@ createConnection :: ( MonadCatch m
     -> Text -- ^ 'cc1Bandwidth'
     -> Text -- ^ 'cc1ConnectionName'
     -> m CreateConnectionResponse
-createConnection p1 p2 p3 s =
-    send $ (mkCreateConnection p1 p2 p3) &~ s
+createConnection p1 p2 p3 =
+    send (mkCreateConnection p1 p2 p3)
 
 createConnectionCatch :: ( MonadCatch m
                          , MonadResource m
@@ -374,8 +374,8 @@ createConnectionCatch :: ( MonadCatch m
     -> Text -- ^ 'cc1Bandwidth'
     -> Text -- ^ 'cc1ConnectionName'
     -> m (Either ServiceEr CreateConnectionResponse)
-createConnectionCatch p1 p2 p3 s =
-    sendCatch $ (mkCreateConnection p1 p2 p3) &~ s
+createConnectionCatch p1 p2 p3 =
+    sendCatch (mkCreateConnection p1 p2 p3)
 
 -- $CreateInterconnect
 -- Creates a new interconnect between a AWS Direct Connect partner's network
@@ -403,8 +403,8 @@ createInterconnect :: ( MonadCatch m
     -> Text -- ^ 'ciBandwidth'
     -> Text -- ^ 'ciLocation'
     -> m CreateInterconnectResponse
-createInterconnect p1 p2 p3 s =
-    send $ (mkCreateInterconnect p1 p2 p3) &~ s
+createInterconnect p1 p2 p3 =
+    send (mkCreateInterconnect p1 p2 p3)
 
 createInterconnectCatch :: ( MonadCatch m
                            , MonadResource m
@@ -414,8 +414,8 @@ createInterconnectCatch :: ( MonadCatch m
     -> Text -- ^ 'ciBandwidth'
     -> Text -- ^ 'ciLocation'
     -> m (Either ServiceEr CreateInterconnectResponse)
-createInterconnectCatch p1 p2 p3 s =
-    sendCatch $ (mkCreateInterconnect p1 p2 p3) &~ s
+createInterconnectCatch p1 p2 p3 =
+    sendCatch (mkCreateInterconnect p1 p2 p3)
 
 -- $CreatePrivateVirtualInterface
 -- Creates a new private virtual interface. A virtual interface is the VLAN
@@ -432,8 +432,8 @@ createPrivateVirtualInterface :: ( MonadCatch m
     => Text -- ^ 'cpvi2ConnectionId'
     -> NewPrivateVirtualInterface -- ^ 'cpvi2NewPrivateVirtualInterface'
     -> m CreatePrivateVirtualInterfaceResponse
-createPrivateVirtualInterface p1 p2 s =
-    send $ (mkCreatePrivateVirtualInterface p1 p2) &~ s
+createPrivateVirtualInterface p1 p2 =
+    send (mkCreatePrivateVirtualInterface p1 p2)
 
 createPrivateVirtualInterfaceCatch :: ( MonadCatch m
                                       , MonadResource m
@@ -442,8 +442,8 @@ createPrivateVirtualInterfaceCatch :: ( MonadCatch m
     => Text -- ^ 'cpvi2ConnectionId'
     -> NewPrivateVirtualInterface -- ^ 'cpvi2NewPrivateVirtualInterface'
     -> m (Either ServiceEr CreatePrivateVirtualInterfaceResponse)
-createPrivateVirtualInterfaceCatch p1 p2 s =
-    sendCatch $ (mkCreatePrivateVirtualInterface p1 p2) &~ s
+createPrivateVirtualInterfaceCatch p1 p2 =
+    sendCatch (mkCreatePrivateVirtualInterface p1 p2)
 
 -- $CreatePublicVirtualInterface
 -- Creates a new public virtual interface. A virtual interface is the VLAN
@@ -461,8 +461,8 @@ createPublicVirtualInterface :: ( MonadCatch m
     => Text -- ^ 'cpvi3ConnectionId'
     -> NewPublicVirtualInterface -- ^ 'cpvi3NewPublicVirtualInterface'
     -> m CreatePublicVirtualInterfaceResponse
-createPublicVirtualInterface p1 p2 s =
-    send $ (mkCreatePublicVirtualInterface p1 p2) &~ s
+createPublicVirtualInterface p1 p2 =
+    send (mkCreatePublicVirtualInterface p1 p2)
 
 createPublicVirtualInterfaceCatch :: ( MonadCatch m
                                      , MonadResource m
@@ -471,8 +471,8 @@ createPublicVirtualInterfaceCatch :: ( MonadCatch m
     => Text -- ^ 'cpvi3ConnectionId'
     -> NewPublicVirtualInterface -- ^ 'cpvi3NewPublicVirtualInterface'
     -> m (Either ServiceEr CreatePublicVirtualInterfaceResponse)
-createPublicVirtualInterfaceCatch p1 p2 s =
-    sendCatch $ (mkCreatePublicVirtualInterface p1 p2) &~ s
+createPublicVirtualInterfaceCatch p1 p2 =
+    sendCatch (mkCreatePublicVirtualInterface p1 p2)
 
 -- $DeleteConnection
 -- Deletes the connection. Deleting a connection only stops the AWS Direct
@@ -489,8 +489,8 @@ deleteConnection :: ( MonadCatch m
                     )
     => Text -- ^ 'dcConnectionId'
     -> m DeleteConnectionResponse
-deleteConnection p1 s =
-    send $ (mkDeleteConnection p1) &~ s
+deleteConnection p1 =
+    send (mkDeleteConnection p1)
 
 deleteConnectionCatch :: ( MonadCatch m
                          , MonadResource m
@@ -498,8 +498,8 @@ deleteConnectionCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'dcConnectionId'
     -> m (Either ServiceEr DeleteConnectionResponse)
-deleteConnectionCatch p1 s =
-    sendCatch $ (mkDeleteConnection p1) &~ s
+deleteConnectionCatch p1 =
+    sendCatch (mkDeleteConnection p1)
 
 -- $DeleteInterconnect
 -- Deletes the specified interconnect.
@@ -513,8 +513,8 @@ deleteInterconnect :: ( MonadCatch m
                       )
     => Text -- ^ 'diInterconnectId'
     -> m DeleteInterconnectResponse
-deleteInterconnect p1 s =
-    send $ (mkDeleteInterconnect p1) &~ s
+deleteInterconnect p1 =
+    send (mkDeleteInterconnect p1)
 
 deleteInterconnectCatch :: ( MonadCatch m
                            , MonadResource m
@@ -522,8 +522,8 @@ deleteInterconnectCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'diInterconnectId'
     -> m (Either ServiceEr DeleteInterconnectResponse)
-deleteInterconnectCatch p1 s =
-    sendCatch $ (mkDeleteInterconnect p1) &~ s
+deleteInterconnectCatch p1 =
+    sendCatch (mkDeleteInterconnect p1)
 
 -- $DeleteVirtualInterface
 -- Deletes a virtual interface.
@@ -537,8 +537,8 @@ deleteVirtualInterface :: ( MonadCatch m
                           )
     => Text -- ^ 'dviVirtualInterfaceId'
     -> m DeleteVirtualInterfaceResponse
-deleteVirtualInterface p1 s =
-    send $ (mkDeleteVirtualInterface p1) &~ s
+deleteVirtualInterface p1 =
+    send (mkDeleteVirtualInterface p1)
 
 deleteVirtualInterfaceCatch :: ( MonadCatch m
                                , MonadResource m
@@ -546,8 +546,8 @@ deleteVirtualInterfaceCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'dviVirtualInterfaceId'
     -> m (Either ServiceEr DeleteVirtualInterfaceResponse)
-deleteVirtualInterfaceCatch p1 s =
-    sendCatch $ (mkDeleteVirtualInterface p1) &~ s
+deleteVirtualInterfaceCatch p1 =
+    sendCatch (mkDeleteVirtualInterface p1)
 
 -- $DescribeConnections
 -- Displays all connections in this region. If a connection ID is provided,
@@ -587,8 +587,8 @@ describeConnectionsOnInterconnect :: ( MonadCatch m
                                      )
     => Text -- ^ 'dcoiInterconnectId'
     -> m DescribeConnectionsOnInterconnectResponse
-describeConnectionsOnInterconnect p1 s =
-    send $ (mkDescribeConnectionsOnInterconnect p1) &~ s
+describeConnectionsOnInterconnect p1 =
+    send (mkDescribeConnectionsOnInterconnect p1)
 
 describeConnectionsOnInterconnectCatch :: ( MonadCatch m
                                           , MonadResource m
@@ -596,8 +596,8 @@ describeConnectionsOnInterconnectCatch :: ( MonadCatch m
                                           )
     => Text -- ^ 'dcoiInterconnectId'
     -> m (Either ServiceEr DescribeConnectionsOnInterconnectResponse)
-describeConnectionsOnInterconnectCatch p1 s =
-    sendCatch $ (mkDescribeConnectionsOnInterconnect p1) &~ s
+describeConnectionsOnInterconnectCatch p1 =
+    sendCatch (mkDescribeConnectionsOnInterconnect p1)
 
 -- $DescribeInterconnects
 -- Returns a list of interconnects owned by the AWS account. If an
@@ -637,19 +637,17 @@ describeLocations :: ( MonadCatch m
                      , MonadError AWS.Error m
                      , MonadReader Env m
                      )
-    => State DescribeLocations a
-    -> m DescribeLocationsResponse
-describeLocations s =
-    send (mkDescribeLocations &~ s)
+    => m DescribeLocationsResponse
+describeLocations =
+    send (mkDescribeLocations)
 
 describeLocationsCatch :: ( MonadCatch m
                           , MonadResource m
                           , MonadReader Env m
                           )
-    => State DescribeLocations a
-    -> m (Either ServiceEr DescribeLocationsResponse)
-describeLocationsCatch s =
-    sendCatch (mkDescribeLocations &~ s)
+    => m (Either ServiceEr DescribeLocationsResponse)
+describeLocationsCatch =
+    sendCatch (mkDescribeLocations)
 
 -- $DescribeVirtualGateways
 -- Returns a list of virtual private gateways owned by the AWS account. You
@@ -665,19 +663,17 @@ describeVirtualGateways :: ( MonadCatch m
                            , MonadError AWS.Error m
                            , MonadReader Env m
                            )
-    => State DescribeVirtualGateways a
-    -> m DescribeVirtualGatewaysResponse
-describeVirtualGateways s =
-    send (mkDescribeVirtualGateways &~ s)
+    => m DescribeVirtualGatewaysResponse
+describeVirtualGateways =
+    send (mkDescribeVirtualGateways)
 
 describeVirtualGatewaysCatch :: ( MonadCatch m
                                 , MonadResource m
                                 , MonadReader Env m
                                 )
-    => State DescribeVirtualGateways a
-    -> m (Either ServiceEr DescribeVirtualGatewaysResponse)
-describeVirtualGatewaysCatch s =
-    sendCatch (mkDescribeVirtualGateways &~ s)
+    => m (Either ServiceEr DescribeVirtualGatewaysResponse)
+describeVirtualGatewaysCatch =
+    sendCatch (mkDescribeVirtualGateways)
 
 -- $DescribeVirtualInterfaces
 -- Displays all virtual interfaces for an AWS account. Virtual interfaces

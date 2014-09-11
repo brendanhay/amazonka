@@ -140,8 +140,8 @@ batchDeleteAttributes :: ( MonadCatch m
     => Text -- ^ 'bdaDomainName'
     -> [DeletableItem] -- ^ 'bdaItems'
     -> m BatchDeleteAttributesResponse
-batchDeleteAttributes p1 p2 s =
-    send $ (mkBatchDeleteAttributes p1 p2) &~ s
+batchDeleteAttributes p1 p2 =
+    send (mkBatchDeleteAttributes p1 p2)
 
 batchDeleteAttributesCatch :: ( MonadCatch m
                               , MonadResource m
@@ -150,8 +150,8 @@ batchDeleteAttributesCatch :: ( MonadCatch m
     => Text -- ^ 'bdaDomainName'
     -> [DeletableItem] -- ^ 'bdaItems'
     -> m (Either ServiceEr BatchDeleteAttributesResponse)
-batchDeleteAttributesCatch p1 p2 s =
-    sendCatch $ (mkBatchDeleteAttributes p1 p2) &~ s
+batchDeleteAttributesCatch p1 p2 =
+    sendCatch (mkBatchDeleteAttributes p1 p2)
 
 -- $BatchPutAttributes
 -- The BatchPutAttributes operation creates or replaces attributes within one
@@ -200,8 +200,8 @@ batchPutAttributes :: ( MonadCatch m
     => Text -- ^ 'bpaDomainName'
     -> [ReplaceableItem] -- ^ 'bpaItems'
     -> m BatchPutAttributesResponse
-batchPutAttributes p1 p2 s =
-    send $ (mkBatchPutAttributes p1 p2) &~ s
+batchPutAttributes p1 p2 =
+    send (mkBatchPutAttributes p1 p2)
 
 batchPutAttributesCatch :: ( MonadCatch m
                            , MonadResource m
@@ -210,8 +210,8 @@ batchPutAttributesCatch :: ( MonadCatch m
     => Text -- ^ 'bpaDomainName'
     -> [ReplaceableItem] -- ^ 'bpaItems'
     -> m (Either ServiceEr BatchPutAttributesResponse)
-batchPutAttributesCatch p1 p2 s =
-    sendCatch $ (mkBatchPutAttributes p1 p2) &~ s
+batchPutAttributesCatch p1 p2 =
+    sendCatch (mkBatchPutAttributes p1 p2)
 
 -- $CreateDomain
 -- The CreateDomain operation creates a new domain. The domain name should be
@@ -232,8 +232,8 @@ createDomain :: ( MonadCatch m
                 )
     => Text -- ^ 'cdDomainName'
     -> m CreateDomainResponse
-createDomain p1 s =
-    send $ (mkCreateDomain p1) &~ s
+createDomain p1 =
+    send (mkCreateDomain p1)
 
 createDomainCatch :: ( MonadCatch m
                      , MonadResource m
@@ -241,8 +241,8 @@ createDomainCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'cdDomainName'
     -> m (Either ServiceEr CreateDomainResponse)
-createDomainCatch p1 s =
-    sendCatch $ (mkCreateDomain p1) &~ s
+createDomainCatch p1 =
+    sendCatch (mkCreateDomain p1)
 
 -- $DeleteAttributes
 -- Deletes one or more attributes associated with an item. If all attributes
@@ -265,6 +265,7 @@ deleteAttributes :: ( MonadCatch m
                     )
     => Text -- ^ 'daDomainName'
     -> Text -- ^ 'daItemName'
+    -> State DeleteAttributes a
     -> m DeleteAttributesResponse
 deleteAttributes p1 p2 s =
     send $ (mkDeleteAttributes p1 p2) &~ s
@@ -275,6 +276,7 @@ deleteAttributesCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'daDomainName'
     -> Text -- ^ 'daItemName'
+    -> State DeleteAttributes a
     -> m (Either ServiceEr DeleteAttributesResponse)
 deleteAttributesCatch p1 p2 s =
     sendCatch $ (mkDeleteAttributes p1 p2) &~ s
@@ -295,8 +297,8 @@ deleteDomain :: ( MonadCatch m
                 )
     => Text -- ^ 'ddDomainName'
     -> m DeleteDomainResponse
-deleteDomain p1 s =
-    send $ (mkDeleteDomain p1) &~ s
+deleteDomain p1 =
+    send (mkDeleteDomain p1)
 
 deleteDomainCatch :: ( MonadCatch m
                      , MonadResource m
@@ -304,8 +306,8 @@ deleteDomainCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'ddDomainName'
     -> m (Either ServiceEr DeleteDomainResponse)
-deleteDomainCatch p1 s =
-    sendCatch $ (mkDeleteDomain p1) &~ s
+deleteDomainCatch p1 =
+    sendCatch (mkDeleteDomain p1)
 
 -- $DomainMetadata
 -- Returns information about the domain, including when the domain was
@@ -321,8 +323,8 @@ domainMetadata :: ( MonadCatch m
                   )
     => Text -- ^ 'dmDomainName'
     -> m DomainMetadataResponse
-domainMetadata p1 s =
-    send $ (mkDomainMetadata p1) &~ s
+domainMetadata p1 =
+    send (mkDomainMetadata p1)
 
 domainMetadataCatch :: ( MonadCatch m
                        , MonadResource m
@@ -330,8 +332,8 @@ domainMetadataCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'dmDomainName'
     -> m (Either ServiceEr DomainMetadataResponse)
-domainMetadataCatch p1 s =
-    sendCatch $ (mkDomainMetadata p1) &~ s
+domainMetadataCatch p1 =
+    sendCatch (mkDomainMetadata p1)
 
 -- $GetAttributes
 -- Returns all of the attributes associated with the specified item.
@@ -352,6 +354,7 @@ getAttributes :: ( MonadCatch m
                  )
     => Text -- ^ 'gaDomainName'
     -> Text -- ^ 'gaItemName'
+    -> State GetAttributes a
     -> m GetAttributesResponse
 getAttributes p1 p2 s =
     send $ (mkGetAttributes p1 p2) &~ s
@@ -362,6 +365,7 @@ getAttributesCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'gaDomainName'
     -> Text -- ^ 'gaItemName'
+    -> State GetAttributes a
     -> m (Either ServiceEr GetAttributesResponse)
 getAttributesCatch p1 p2 s =
     sendCatch $ (mkGetAttributes p1 p2) &~ s
@@ -433,6 +437,7 @@ putAttributes :: ( MonadCatch m
     => Text -- ^ 'paDomainName'
     -> Text -- ^ 'paItemName'
     -> [ReplaceableAttribute] -- ^ 'paAttributes'
+    -> State PutAttributes a
     -> m PutAttributesResponse
 putAttributes p1 p2 p3 s =
     send $ (mkPutAttributes p1 p2 p3) &~ s
@@ -444,6 +449,7 @@ putAttributesCatch :: ( MonadCatch m
     => Text -- ^ 'paDomainName'
     -> Text -- ^ 'paItemName'
     -> [ReplaceableAttribute] -- ^ 'paAttributes'
+    -> State PutAttributes a
     -> m (Either ServiceEr PutAttributesResponse)
 putAttributesCatch p1 p2 p3 s =
     sendCatch $ (mkPutAttributes p1 p2 p3) &~ s
@@ -467,6 +473,7 @@ select :: ( MonadCatch m
           , MonadReader Env (ResumableSource m)
           )
     => Text -- ^ 'sSelectExpression'
+    -> State Select a
     -> ResumableSource m SelectResponse
 select p1 s =
     paginate $ (mkSelect p1) &~ s
@@ -476,6 +483,7 @@ selectCatch :: ( MonadCatch m
                , MonadReader Env (ResumableSource m)
                )
     => Text -- ^ 'sSelectExpression'
+    -> State Select a
     -> ResumableSource m (Either ServiceEr SelectResponse)
 selectCatch p1 s =
     paginateCatch $ (mkSelect p1) &~ s

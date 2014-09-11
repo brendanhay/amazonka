@@ -154,6 +154,7 @@ checkDomainAvailability :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'cdaDomainName'
+    -> State CheckDomainAvailability a
     -> m CheckDomainAvailabilityResponse
 checkDomainAvailability p1 s =
     send $ (mkCheckDomainAvailability p1) &~ s
@@ -163,6 +164,7 @@ checkDomainAvailabilityCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'cdaDomainName'
+    -> State CheckDomainAvailability a
     -> m (Either ServiceEr CheckDomainAvailabilityResponse)
 checkDomainAvailabilityCatch p1 s =
     sendCatch $ (mkCheckDomainAvailability p1) &~ s
@@ -198,8 +200,8 @@ disableDomainTransferLock :: ( MonadCatch m
                              )
     => Text -- ^ 'ddtlDomainName'
     -> m DisableDomainTransferLockResponse
-disableDomainTransferLock p1 s =
-    send $ (mkDisableDomainTransferLock p1) &~ s
+disableDomainTransferLock p1 =
+    send (mkDisableDomainTransferLock p1)
 
 disableDomainTransferLockCatch :: ( MonadCatch m
                                   , MonadResource m
@@ -207,8 +209,8 @@ disableDomainTransferLockCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'ddtlDomainName'
     -> m (Either ServiceEr DisableDomainTransferLockResponse)
-disableDomainTransferLockCatch p1 s =
-    sendCatch $ (mkDisableDomainTransferLock p1) &~ s
+disableDomainTransferLockCatch p1 =
+    sendCatch (mkDisableDomainTransferLock p1)
 
 -- $EnableDomainTransferLock
 -- This operation sets the transfer lock on the domain (specifically the
@@ -239,8 +241,8 @@ enableDomainTransferLock :: ( MonadCatch m
                             )
     => Text -- ^ 'edtlDomainName'
     -> m EnableDomainTransferLockResponse
-enableDomainTransferLock p1 s =
-    send $ (mkEnableDomainTransferLock p1) &~ s
+enableDomainTransferLock p1 =
+    send (mkEnableDomainTransferLock p1)
 
 enableDomainTransferLockCatch :: ( MonadCatch m
                                  , MonadResource m
@@ -248,8 +250,8 @@ enableDomainTransferLockCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'edtlDomainName'
     -> m (Either ServiceEr EnableDomainTransferLockResponse)
-enableDomainTransferLockCatch p1 s =
-    sendCatch $ (mkEnableDomainTransferLock p1) &~ s
+enableDomainTransferLockCatch p1 =
+    sendCatch (mkEnableDomainTransferLock p1)
 
 -- $GetDomainDetail
 -- This operation returns detailed information about the domain. The domain's
@@ -299,8 +301,8 @@ getDomainDetail :: ( MonadCatch m
                    )
     => Text -- ^ 'gddDomainName'
     -> m GetDomainDetailResponse
-getDomainDetail p1 s =
-    send $ (mkGetDomainDetail p1) &~ s
+getDomainDetail p1 =
+    send (mkGetDomainDetail p1)
 
 getDomainDetailCatch :: ( MonadCatch m
                         , MonadResource m
@@ -308,8 +310,8 @@ getDomainDetailCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'gddDomainName'
     -> m (Either ServiceEr GetDomainDetailResponse)
-getDomainDetailCatch p1 s =
-    sendCatch $ (mkGetDomainDetail p1) &~ s
+getDomainDetailCatch p1 =
+    sendCatch (mkGetDomainDetail p1)
 
 -- $GetOperationDetail
 -- This operation returns the current status of an operation that is not
@@ -340,8 +342,8 @@ getOperationDetail :: ( MonadCatch m
                       )
     => Text -- ^ 'godOperationId'
     -> m GetOperationDetailResponse
-getOperationDetail p1 s =
-    send $ (mkGetOperationDetail p1) &~ s
+getOperationDetail p1 =
+    send (mkGetOperationDetail p1)
 
 getOperationDetailCatch :: ( MonadCatch m
                            , MonadResource m
@@ -349,8 +351,8 @@ getOperationDetailCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'godOperationId'
     -> m (Either ServiceEr GetOperationDetailResponse)
-getOperationDetailCatch p1 s =
-    sendCatch $ (mkGetOperationDetail p1) &~ s
+getOperationDetailCatch p1 =
+    sendCatch (mkGetOperationDetail p1)
 
 -- $ListDomains
 -- This operation returns all the domain names registered with Amazon Route 53
@@ -498,6 +500,7 @@ registerDomain :: ( MonadCatch m
     -> ContactDetail -- ^ 'rdAdminContact'
     -> ContactDetail -- ^ 'rdRegistrantContact'
     -> ContactDetail -- ^ 'rdTechContact'
+    -> State RegisterDomain a
     -> m RegisterDomainResponse
 registerDomain p1 p3 p5 p6 p7 s =
     send $ (mkRegisterDomain p1 p3 p5 p6 p7) &~ s
@@ -511,6 +514,7 @@ registerDomainCatch :: ( MonadCatch m
     -> ContactDetail -- ^ 'rdAdminContact'
     -> ContactDetail -- ^ 'rdRegistrantContact'
     -> ContactDetail -- ^ 'rdTechContact'
+    -> State RegisterDomain a
     -> m (Either ServiceEr RegisterDomainResponse)
 registerDomainCatch p1 p3 p5 p6 p7 s =
     sendCatch $ (mkRegisterDomain p1 p3 p5 p6 p7) &~ s
@@ -541,8 +545,8 @@ retrieveDomainAuthCode :: ( MonadCatch m
                           )
     => Text -- ^ 'rdacDomainName'
     -> m RetrieveDomainAuthCodeResponse
-retrieveDomainAuthCode p1 s =
-    send $ (mkRetrieveDomainAuthCode p1) &~ s
+retrieveDomainAuthCode p1 =
+    send (mkRetrieveDomainAuthCode p1)
 
 retrieveDomainAuthCodeCatch :: ( MonadCatch m
                                , MonadResource m
@@ -550,8 +554,8 @@ retrieveDomainAuthCodeCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'rdacDomainName'
     -> m (Either ServiceEr RetrieveDomainAuthCodeResponse)
-retrieveDomainAuthCodeCatch p1 s =
-    sendCatch $ (mkRetrieveDomainAuthCode p1) &~ s
+retrieveDomainAuthCodeCatch p1 =
+    sendCatch (mkRetrieveDomainAuthCode p1)
 
 -- $TransferDomain
 -- This operation transfers a domain from another registrar to Amazon Route
@@ -617,6 +621,7 @@ transferDomain :: ( MonadCatch m
     -> ContactDetail -- ^ 'tdAdminContact'
     -> ContactDetail -- ^ 'tdRegistrantContact'
     -> ContactDetail -- ^ 'tdTechContact'
+    -> State TransferDomain a
     -> m TransferDomainResponse
 transferDomain p1 p3 p4 p7 p8 p9 s =
     send $ (mkTransferDomain p1 p3 p4 p7 p8 p9) &~ s
@@ -631,6 +636,7 @@ transferDomainCatch :: ( MonadCatch m
     -> ContactDetail -- ^ 'tdAdminContact'
     -> ContactDetail -- ^ 'tdRegistrantContact'
     -> ContactDetail -- ^ 'tdTechContact'
+    -> State TransferDomain a
     -> m (Either ServiceEr TransferDomainResponse)
 transferDomainCatch p1 p3 p4 p7 p8 p9 s =
     sendCatch $ (mkTransferDomain p1 p3 p4 p7 p8 p9) &~ s
@@ -679,6 +685,7 @@ updateDomainContact :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'udcDomainName'
+    -> State UpdateDomainContact a
     -> m UpdateDomainContactResponse
 updateDomainContact p1 s =
     send $ (mkUpdateDomainContact p1) &~ s
@@ -688,6 +695,7 @@ updateDomainContactCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'udcDomainName'
+    -> State UpdateDomainContact a
     -> m (Either ServiceEr UpdateDomainContactResponse)
 updateDomainContactCatch p1 s =
     sendCatch $ (mkUpdateDomainContact p1) &~ s
@@ -725,6 +733,7 @@ updateDomainContactPrivacy :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'udcpDomainName'
+    -> State UpdateDomainContactPrivacy a
     -> m UpdateDomainContactPrivacyResponse
 updateDomainContactPrivacy p1 s =
     send $ (mkUpdateDomainContactPrivacy p1) &~ s
@@ -734,6 +743,7 @@ updateDomainContactPrivacyCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => Text -- ^ 'udcpDomainName'
+    -> State UpdateDomainContactPrivacy a
     -> m (Either ServiceEr UpdateDomainContactPrivacyResponse)
 updateDomainContactPrivacyCatch p1 s =
     sendCatch $ (mkUpdateDomainContactPrivacy p1) &~ s
@@ -771,8 +781,8 @@ updateDomainNameservers :: ( MonadCatch m
     => Text -- ^ 'udnDomainName'
     -> [Nameserver] -- ^ 'udnNameservers'
     -> m UpdateDomainNameserversResponse
-updateDomainNameservers p1 p2 s =
-    send $ (mkUpdateDomainNameservers p1 p2) &~ s
+updateDomainNameservers p1 p2 =
+    send (mkUpdateDomainNameservers p1 p2)
 
 updateDomainNameserversCatch :: ( MonadCatch m
                                 , MonadResource m
@@ -781,5 +791,5 @@ updateDomainNameserversCatch :: ( MonadCatch m
     => Text -- ^ 'udnDomainName'
     -> [Nameserver] -- ^ 'udnNameservers'
     -> m (Either ServiceEr UpdateDomainNameserversResponse)
-updateDomainNameserversCatch p1 p2 s =
-    sendCatch $ (mkUpdateDomainNameservers p1 p2) &~ s
+updateDomainNameserversCatch p1 p2 =
+    sendCatch (mkUpdateDomainNameservers p1 p2)

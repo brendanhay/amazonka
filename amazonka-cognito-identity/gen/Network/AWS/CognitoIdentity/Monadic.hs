@@ -130,6 +130,7 @@ createIdentityPool :: ( MonadCatch m
                       )
     => Text -- ^ 'cipIdentityPoolName'
     -> Bool -- ^ 'cipAllowUnauthenticatedIdentities'
+    -> State CreateIdentityPool a
     -> m CreateIdentityPoolResponse
 createIdentityPool p1 p2 s =
     send $ (mkCreateIdentityPool p1 p2) &~ s
@@ -140,6 +141,7 @@ createIdentityPoolCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'cipIdentityPoolName'
     -> Bool -- ^ 'cipAllowUnauthenticatedIdentities'
+    -> State CreateIdentityPool a
     -> m (Either ServiceEr CreateIdentityPoolResponse)
 createIdentityPoolCatch p1 p2 s =
     sendCatch $ (mkCreateIdentityPool p1 p2) &~ s
@@ -159,8 +161,8 @@ deleteIdentityPool :: ( MonadCatch m
                       )
     => Text -- ^ 'dipIdentityPoolId'
     -> m DeleteIdentityPoolResponse
-deleteIdentityPool p1 s =
-    send $ (mkDeleteIdentityPool p1) &~ s
+deleteIdentityPool p1 =
+    send (mkDeleteIdentityPool p1)
 
 deleteIdentityPoolCatch :: ( MonadCatch m
                            , MonadResource m
@@ -168,8 +170,8 @@ deleteIdentityPoolCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'dipIdentityPoolId'
     -> m (Either ServiceEr DeleteIdentityPoolResponse)
-deleteIdentityPoolCatch p1 s =
-    sendCatch $ (mkDeleteIdentityPool p1) &~ s
+deleteIdentityPoolCatch p1 =
+    sendCatch (mkDeleteIdentityPool p1)
 
 -- $DescribeIdentityPool
 -- Gets details about a particular identity pool, including the pool name, ID
@@ -192,8 +194,8 @@ describeIdentityPool :: ( MonadCatch m
                         )
     => Text -- ^ 'dip1IdentityPoolId'
     -> m DescribeIdentityPoolResponse
-describeIdentityPool p1 s =
-    send $ (mkDescribeIdentityPool p1) &~ s
+describeIdentityPool p1 =
+    send (mkDescribeIdentityPool p1)
 
 describeIdentityPoolCatch :: ( MonadCatch m
                              , MonadResource m
@@ -201,8 +203,8 @@ describeIdentityPoolCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'dip1IdentityPoolId'
     -> m (Either ServiceEr DescribeIdentityPoolResponse)
-describeIdentityPoolCatch p1 s =
-    sendCatch $ (mkDescribeIdentityPool p1) &~ s
+describeIdentityPoolCatch p1 =
+    sendCatch (mkDescribeIdentityPool p1)
 
 -- $GetId
 -- Generates (or retrieves) a Cognito ID. Supplying multiple logins will
@@ -221,6 +223,7 @@ getId :: ( MonadCatch m
          )
     => Text -- ^ 'giAccountId'
     -> Text -- ^ 'giIdentityPoolId'
+    -> State GetId a
     -> m GetIdResponse
 getId p1 p2 s =
     send $ (mkGetId p1 p2) &~ s
@@ -231,6 +234,7 @@ getIdCatch :: ( MonadCatch m
               )
     => Text -- ^ 'giAccountId'
     -> Text -- ^ 'giIdentityPoolId'
+    -> State GetId a
     -> m (Either ServiceEr GetIdResponse)
 getIdCatch p1 p2 s =
     sendCatch $ (mkGetId p1 p2) &~ s
@@ -254,6 +258,7 @@ getOpenIdToken :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'goitIdentityId'
+    -> State GetOpenIdToken a
     -> m GetOpenIdTokenResponse
 getOpenIdToken p1 s =
     send $ (mkGetOpenIdToken p1) &~ s
@@ -263,6 +268,7 @@ getOpenIdTokenCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'goitIdentityId'
+    -> State GetOpenIdToken a
     -> m (Either ServiceEr GetOpenIdTokenResponse)
 getOpenIdTokenCatch p1 s =
     sendCatch $ (mkGetOpenIdToken p1) &~ s
@@ -286,6 +292,7 @@ listIdentities :: ( MonadCatch m
                   )
     => Text -- ^ 'liIdentityPoolId'
     -> Integer -- ^ 'liMaxResults'
+    -> State ListIdentities a
     -> m ListIdentitiesResponse
 listIdentities p1 p2 s =
     send $ (mkListIdentities p1 p2) &~ s
@@ -296,6 +303,7 @@ listIdentitiesCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'liIdentityPoolId'
     -> Integer -- ^ 'liMaxResults'
+    -> State ListIdentities a
     -> m (Either ServiceEr ListIdentitiesResponse)
 listIdentitiesCatch p1 p2 s =
     sendCatch $ (mkListIdentities p1 p2) &~ s
@@ -317,6 +325,7 @@ listIdentityPools :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Integer -- ^ 'lipMaxResults'
+    -> State ListIdentityPools a
     -> m ListIdentityPoolsResponse
 listIdentityPools p1 s =
     send $ (mkListIdentityPools p1) &~ s
@@ -326,6 +335,7 @@ listIdentityPoolsCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Integer -- ^ 'lipMaxResults'
+    -> State ListIdentityPools a
     -> m (Either ServiceEr ListIdentityPoolsResponse)
 listIdentityPoolsCatch p1 s =
     sendCatch $ (mkListIdentityPools p1) &~ s
@@ -346,8 +356,8 @@ unlinkIdentity :: ( MonadCatch m
     -> Map Text Text -- ^ 'uiLogins'
     -> [Text] -- ^ 'uiLoginsToRemove'
     -> m UnlinkIdentityResponse
-unlinkIdentity p1 p2 p3 s =
-    send $ (mkUnlinkIdentity p1 p2 p3) &~ s
+unlinkIdentity p1 p2 p3 =
+    send (mkUnlinkIdentity p1 p2 p3)
 
 unlinkIdentityCatch :: ( MonadCatch m
                        , MonadResource m
@@ -357,8 +367,8 @@ unlinkIdentityCatch :: ( MonadCatch m
     -> Map Text Text -- ^ 'uiLogins'
     -> [Text] -- ^ 'uiLoginsToRemove'
     -> m (Either ServiceEr UnlinkIdentityResponse)
-unlinkIdentityCatch p1 p2 p3 s =
-    sendCatch $ (mkUnlinkIdentity p1 p2 p3) &~ s
+unlinkIdentityCatch p1 p2 p3 =
+    sendCatch (mkUnlinkIdentity p1 p2 p3)
 
 -- $UpdateIdentityPool
 -- Updates a user pool. UpdateIdentityPool The following are a request and
@@ -385,6 +395,7 @@ updateIdentityPool :: ( MonadCatch m
     => Text -- ^ 'uipIdentityPoolId'
     -> Text -- ^ 'uipIdentityPoolName'
     -> Bool -- ^ 'uipAllowUnauthenticatedIdentities'
+    -> State UpdateIdentityPool a
     -> m UpdateIdentityPoolResponse
 updateIdentityPool p1 p2 p3 s =
     send $ (mkUpdateIdentityPool p1 p2 p3) &~ s
@@ -396,6 +407,7 @@ updateIdentityPoolCatch :: ( MonadCatch m
     => Text -- ^ 'uipIdentityPoolId'
     -> Text -- ^ 'uipIdentityPoolName'
     -> Bool -- ^ 'uipAllowUnauthenticatedIdentities'
+    -> State UpdateIdentityPool a
     -> m (Either ServiceEr UpdateIdentityPoolResponse)
 updateIdentityPoolCatch p1 p2 p3 s =
     sendCatch $ (mkUpdateIdentityPool p1 p2 p3) &~ s

@@ -13,34 +13,53 @@
   {% else %}
     -> {{ param.value.type }} -- ^ '{{ param.value.prefixed | lens }}'
   {% endif %}
-  {% if param.last && scope.exhaustive %}
-    -> State {{ scope.request.name }} a
+{% endfor %}
+{% if scope.request.exhaustive %}
+  {% if scope.request.params | mapLength > 0 %}
+    {% if scope.pagination %}
+    -> ResumableSource m (Either ServiceEr {{ scope.response.name }})
+    {% else %}
+    -> m (Either ServiceEr {{ scope.response.name }})
+    {% endif %}
+  {% else %}
+    {% if scope.pagination %}
+    => ResumableSource m (Either ServiceEr {{ scope.response.name }})
+    {% else %}
+    => m (Either ServiceEr {{ scope.response.name }})
+    {% endif %}
   {% endif %}
 {% else %}
-  {% if !scope.exhaustive %}
+  {% if scope.request.params | mapLength > 0 %}
+    -> State {{ scope.request.name }} a
+  {% else %}
     => State {{ scope.request.name }} a
   {% endif %}
-{% endfor %}
-{% if scope.pagination %}
-    -> ResumableSource m (Either ServiceEr {{ scope.response.name }})
-{% else %}
-    -> m (Either ServiceEr {{ scope.response.name }})
-{% endif %}
-{% if scope.exhaustive %}
-{{ scope.request.function }}Catch {% for param in scope.request.params -%} p{{ param.key }} {% endfor -%} =
-{% else %}
-{{ scope.request.function }}Catch {% for param in scope.request.params -%} p{{ param.key }} {% endfor -%} s =
-{% endif %}
-{% if scope.request.params | mapLength > 0 %}
   {% if scope.pagination %}
-    paginateCatch $ ({{ scope.request.smart_ctor }} {% for param in scope.request.params -%} p{{ param.key }} {% endfor -%}) &~ s
+    -> ResumableSource m (Either ServiceEr {{ scope.response.name }})
   {% else %}
-    sendCatch $ ({{ scope.request.smart_ctor }} {% for param in scope.request.params -%} p{{ param.key }} {% endfor -%}) &~ s
+    -> m (Either ServiceEr {{ scope.response.name }})
+  {% endif %}
+{% endif %}
+{% if scope.request.exhaustive %}
+{{ scope.request.function }}Catch {% for param in scope.request.params -%} p{{ param.key }} {% endfor -%} =
+  {% if scope.pagination %}
+    paginateCatch ({{ scope.request.smart_ctor }} {% for param in scope.request.params -%} p{{ param.key }} {% endfor -%})
+  {% else %}
+    sendCatch ({{ scope.request.smart_ctor }} {% for param in scope.request.params -%} p{{ param.key }} {% endfor -%})
   {% endif %}
 {% else %}
-  {% if scope.pagination %}
-    paginateCatch ({{ scope.request.smart_ctor }} &~ s)
+{{ scope.request.function }}Catch {% for param in scope.request.params -%} p{{ param.key }} {% endfor -%} s =
+  {% if scope.request.params | mapLength > 0 %}
+    {% if scope.pagination %}
+    paginateCatch $ ({{ scope.request.smart_ctor }} {% for param in scope.request.params -%} p{{ param.key }} {% endfor -%}) &~ s
+    {% else %}
+    sendCatch $ ({{ scope.request.smart_ctor }} {% for param in scope.request.params -%} p{{ param.key }} {% endfor -%}) &~ s
+    {% endif %}
   {% else %}
+    {% if scope.pagination %}
+    paginateCatch ({{ scope.request.smart_ctor }} &~ s)
+    {% else %}
     sendCatch ({{ scope.request.smart_ctor }} &~ s)
+    {% endif %}
   {% endif %}
 {% endif %}

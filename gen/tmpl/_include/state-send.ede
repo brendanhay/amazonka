@@ -2,11 +2,7 @@
 {{ scope.request.function }} :: ( MonadCatch m
 {{ scope.request.function_pad }}    , MonadResource m
 {{ scope.request.function_pad }}    , MonadError AWS.Error m
-{% if scope.pagination %}
-{{ scope.request.function_pad }}    , MonadReader Env (ResumableSource m)
-{% else %}
 {{ scope.request.function_pad }}    , MonadReader Env m
-{% endif %}
 {{ scope.request.function_pad }}    )
 {% for param in scope.request.params %}
   {% if param.first %}
@@ -18,13 +14,13 @@
 {% if scope.request.exhaustive %}
   {% if scope.request.params | mapLength > 0 %}
     {% if scope.pagination %}
-    -> ResumableSource m {{ scope.response.name }}
+    -> Source m {{ scope.response.name }}
     {% else %}
     -> m {{ scope.response.name }}
     {% endif %}
   {% else %}
     {% if scope.pagination %}
-    => ResumableSource m {{ scope.response.name }}
+    => Source m {{ scope.response.name }}
     {% else %}
     => m {{ scope.response.name }}
     {% endif %}
@@ -36,7 +32,7 @@
     => State {{ scope.request.name }} a
   {% endif %}
   {% if scope.pagination %}
-    -> ResumableSource m {{ scope.response.name }}
+    -> Source m {{ scope.response.name }}
   {% else %}
     -> m {{ scope.response.name }}
   {% endif %}

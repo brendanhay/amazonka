@@ -60,7 +60,7 @@ headerResponse :: (Monad m, AWSServiceError e)
                -> Either HttpException (ClientResponse m)
                -> m (Either e a)
 headerResponse f = receive $ \hs bdy -> do
-     bdy $$+- return ()
+     closeResumableSource bdy
      return $! serializerError `first` f hs
 
 cursorResponse :: (Monad m, AWSServiceError e)

@@ -38,13 +38,15 @@ import           Network.HTTP.Client
 import           System.IO
 
 data RsBody where
-    RsBody :: Monad m => ResumableSource m ByteString -> RsBody
+    RsBody :: forall (m :: * -> *). Monad m
+           => ResumableSource m ByteString
+           -> RsBody
 
--- connect :: forall (m :: * -> *) b. Monad m
---         => RsBody
---         -> Sink ByteString m b
---         -> m b
--- connect (RsBody src) = (src $$+-)
+connect :: forall (m :: * -> *) a. Monad m
+        => RsBody
+        -> Sink ByteString m a
+        -> m a
+connect (RsBody src) sink = src $$+- sink
 
 instance ToText RsBody where
     toText = const "RsBody <body>"

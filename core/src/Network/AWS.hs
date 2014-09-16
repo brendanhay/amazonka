@@ -94,7 +94,7 @@ send Env{..} x@(request -> rq) = go `catch` er >>= response x
         sg <- Sign.sign _envAuth _envRegion rq t
         debug _envLogging $
             "[Signed Request]\n" <> toText sg
-        rs <- http (sg ^. sgRequest) _envManager
+        rs <- http (sg^.sgRequest) _envManager
         debug _envLogging $
             "[Raw Response]\n" <> toText rs
         return (Right rs)

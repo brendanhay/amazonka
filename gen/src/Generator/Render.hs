@@ -103,7 +103,7 @@ render dir assets ss = do
     write lbl f t e = render' lbl dir f t (env e)
 
     go !as !Templates{..} !s@Service{..} = do
-        say "Create Src" src
+        say "Create Directory" src
         scriptIO (createDirectoryIfMissing True src)
 
         write "Render Types" (rel (_svcNs ^. nsTypes)) t s

@@ -187,7 +187,7 @@ class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
     type Rs a :: *
 
     request  :: a -> Request a
-    response :: Monad m
+    response :: MonadResource m
              => a
              -> Either HttpException ClientResponse
              -> m (Either (Er (Sv a)) (Rs a))

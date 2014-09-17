@@ -36,11 +36,8 @@ import           System.IO
 
 data RsBody = RsBody (ResumableSource (ResourceT IO) ByteString)
 
--- connect :: forall (m :: * -> *) a. Monad m
---         => RsBody
---         -> Sink ByteString m a
---         -> m a
--- connect (RsBody src) sink = src $$+- sink
+connectBody :: MonadResource m => RsBody -> Sink ByteString m a -> m a
+connectBody (RsBody src) sink = hoist liftResourceT src $$+- sink
 
 instance ToText RsBody where
     toText = const "RsBody <body>"

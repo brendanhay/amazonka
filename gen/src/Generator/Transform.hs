@@ -296,7 +296,7 @@ annOf rq svc s = Ann isRaw (ctorOf s) isWrapped monoid' default' req strict'
   where
     monoid'  = isMonoid s
     default' = isDefault s
-    strict'  = isStrict s
+    strict'  = isStrict s && (s^.cmnRequired)
 
     (isRaw, isWrapped) = case s of
         _ | Just x <- renameType   svc s -> (x, False)
@@ -349,8 +349,8 @@ parens True  x = "(" <> x <> ")"
 parens False x = x
 
 isStrict :: Shape -> Bool
-isStrict SPrim{} = True
-isStrict _       = False
+isStrict (SPrim p) = _prmType p `elem` [PInteger, PDouble, PBool]
+isStrict _         = False
 
 isBody :: HasCommon a => a -> Bool
 isBody s = s ^. cmnLocation == LBody && s ^. cmnStreaming

@@ -57,6 +57,11 @@
                 "ResourceType",
                 "Key",
                 "Value"
+            ],
+            "CreateKeyPairResponse": [
+                "KeyName",
+                "KeyFingerprint",
+                "KeyMaterial"
             ]
         },
         "unprefixed": [

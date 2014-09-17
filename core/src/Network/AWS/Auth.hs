@@ -32,8 +32,6 @@ module Network.AWS.Auth
 
 import           Control.Applicative
 import           Control.Concurrent
-import           Control.Monad
-import           Control.Monad.IO.Class
 import           Control.Monad.Except
 import qualified Data.Aeson                 as Aeson
 import           Data.ByteString            (ByteString)
@@ -41,11 +39,11 @@ import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy.Char8 as LBS
 import           Data.IORef
 import           Data.Monoid
-import           Data.String
 import           Data.Time
 import           Network.AWS.Data
 import           Network.AWS.EC2.Metadata
 import           Network.AWS.Types
+import           Network.HTTP.Client
 import           System.Environment
 import           System.Mem.Weak
 
@@ -97,47 +95,53 @@ instance Show Credentials where
     show = showBS
 
 -- | Retrieve authentication information from the environment or instance-data.
-getAuth :: (MonadIO m, MonadError Error m) => Credentials -> m Auth
-getAuth c = case c of
+getAuth :: (Functor m, MonadIO m)
+        => Manager
+        -> Credentials
+        -> ExceptT String m Auth
+getAuth m c = case c of
     FromKeys a s      -> return (fromKeys a s)
     FromSession a s t -> return (fromSession a s t)
-    FromProfile n     -> fromProfile' n
-    FromEnv   a s     -> fromEnv' a s
-    Discover          -> fromEnv `catchError` const fromProfile
+    FromProfile n     -> show `withExceptT` fromProfileName m n
+    FromEnv a s       -> fromEnvVars a s
+    Discover          ->
+        fromEnv `catchError` const (show `withExceptT` fromProfile m)
 
 -- | Retrieve access and secret keys from the default environment variables.
 --
 -- See: 'accessKey' and 'secretKey'
-fromEnv :: (MonadIO m, MonadError Error m) => m Auth
-fromEnv = fromEnv' accessKey secretKey
+fromEnv :: (Functor m, MonadIO m) => ExceptT String m Auth
+fromEnv = fromEnvVars accessKey secretKey
 
 -- | Retrieve access and secret keys from specific environment variables.
-fromEnv' :: (MonadIO m, MonadError Error m)
-         => ByteString
-         -> ByteString
-         -> m Auth
-fromEnv' a s = liftM Auth $ liftM4 AuthEnv
-    (AccessKey `liftM` key a)
-    (SecretKey `liftM` key s)
-    (return Nothing)
-    (return Nothing)
+fromEnvVars :: (Functor m, MonadIO m)
+            => ByteString
+            -> ByteString
+            -> ExceptT String m Auth
+fromEnvVars a s = fmap Auth $ AuthEnv
+    <$> (AccessKey <$> key a)
+    <*> (SecretKey <$> key s)
+    <*> pure Nothing
+    <*> pure Nothing
   where
-    key (BS.unpack -> k) = do
+    key (BS.unpack -> k) = ExceptT $ do
         m <- liftIO (lookupEnv k)
-        maybe (throwError . fromString $ "Unable to read ENV variable: " ++ k)
-              (return . BS.pack)
-              m
+        return $
+            maybe (Left $ "Unable to read ENV variable: " ++ k)
+                  (Right . BS.pack)
+                   m
 
 -- | Retrieve the default IAM Profile from the local EC2 instance-data.
 --
 -- This determined by Amazon as the first IAM profile found in the response from:
 -- @http://169.254.169.254/latest/meta-data/iam/security-credentials/@
-fromProfile :: (MonadIO m, MonadError Error m) => m Auth
-fromProfile = do
-    !ls <- BS.lines `liftM` metadata (IAM $ SecurityCredentials Nothing)
+fromProfile :: MonadIO m => Manager -> ExceptT HttpException m Auth
+fromProfile m = do
+    !ls <- BS.lines `liftM` metadata m (IAM $ SecurityCredentials Nothing)
     case ls of
-        (x:_) -> fromProfile' x
-        _     -> throwError "Unable to get default IAM Profile from EC2 metadata"
+        (x:_) -> fromProfileName m x
+        _     -> throwError $
+           HttpParserException "Unable to get default IAM Profile from EC2 metadata"
 
 -- | Lookup a specific IAM Profile by name from the local EC2 instance-data.
 --
@@ -150,20 +154,22 @@ fromProfile = do
 --
 -- A weak reference is used to ensure that the forked thread will eventually
 -- terminate when 'Auth' is no longer referenced.
-fromProfile' :: (MonadIO m, MonadError Error m) => ByteString -> m Auth
-fromProfile' name = auth >>= start
+fromProfileName :: MonadIO m
+                => Manager
+                -> ByteString
+                -> ExceptT HttpException m Auth
+fromProfileName m name = auth >>= start
   where
-    auth :: (MonadIO m, MonadError Error m) => m AuthEnv
+    auth :: MonadIO m => ExceptT HttpException m AuthEnv
     auth = do
-        !m <- LBS.fromStrict `liftM` metadata
+        !lbs <- LBS.fromStrict `liftM` metadata m
             (IAM . SecurityCredentials $ Just name)
-        either (throwError . fromString) return (Aeson.eitherDecode m)
+        either (throwError . HttpParserException) return (Aeson.eitherDecode lbs)
 
-    start :: (MonadIO m, MonadError Error m) => AuthEnv -> m Auth
-    start !a =
+    start !a = ExceptT . liftM Right . liftIO $
         case _authExpiry a of
             Nothing -> return (Auth a)
-            Just x  -> liftIO $ do
+            Just x  -> do
                 r <- newIORef a
                 p <- myThreadId
                 s <- timer r p x

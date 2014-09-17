@@ -34,6 +34,7 @@ module Network.AWS.EC2.Metadata
     , userdata
     ) where
 
+import           Control.Applicative
 import           Control.Exception
 import           Control.Monad
 import           Control.Monad.Except
@@ -43,7 +44,6 @@ import qualified Data.ByteString.Lazy       as LBS
 import           Data.Maybe
 import           Data.Monoid
 import           Network.AWS.Data
-import           Network.AWS.Types          (AWSError(..), Error(..))
 import           Network.HTTP.Client
 import           Network.HTTP.Types         (status404)
 
@@ -271,45 +271,56 @@ instance ToPath Info where
         SecurityCredentials r -> "security-credentials/" <> fromMaybe "" r
 
 -- | Test whether the host is running on EC2 by requesting the instance-data.
-isEC2 :: MonadIO m => m Bool
-isEC2 = liftIO (req `catch` err)
+isEC2 :: Manager -> IO Bool
+isEC2 m = liftIO (req `catch` err)
   where
     req = do
-        !_ <- request "http://instance-data/latest"
+        !_ <- request m "http://instance-data/latest"
         return True
 
     err :: IOException -> IO Bool
     err = const (return False)
 
-dynamic :: (MonadIO m, MonadError Error m) => Dynamic -> m ByteString
-dynamic = get . mappend "http://169.254.169.254/latest/dynamic/" . toPath
+dynamic :: MonadIO m
+        => Manager
+        -> Dynamic
+        -> ExceptT HttpException m ByteString
+dynamic m = get m . mappend "http://169.254.169.254/latest/dynamic/" . toPath
 
-metadata :: (MonadIO m, MonadError Error m) => Metadata -> m ByteString
-metadata = get . mappend "http://169.254.169.254/latest/meta-data/" . toPath
+metadata :: MonadIO m
+         => Manager
+         -> Metadata
+         -> ExceptT HttpException m ByteString
+metadata m = get m . mappend "http://169.254.169.254/latest/meta-data/" . toPath
 
-userdata :: (MonadIO m, MonadError Error m) => m (Maybe ByteString)
-userdata = Just
-    `liftM` get "http://169.254.169.254/latest/user-data"
+userdata :: MonadIO m
+         => Manager
+         -> ExceptT HttpException m (Maybe ByteString)
+userdata m = Just
+    `liftM` get m "http://169.254.169.254/latest/user-data"
     `catchError` err
   where
-    err (ClientError (StatusCodeException s _ _))
+    err (StatusCodeException s _ _)
         | status404 == s  = return Nothing
     err e                 = throwError e
 
-get :: (MonadIO m, MonadError Error m) => ByteString -> m ByteString
-get url = liftIO (req `catch` err) >>= either throwError return
+get :: MonadIO m
+    => Manager
+    -> ByteString
+    -> ExceptT HttpException m ByteString
+get m url = ExceptT . liftIO $ req `catch` err
   where
-    req = (Right . strip) `liftM` request url
+    req = Right . strip <$> request m url
 
     strip bs
         | BS.isSuffixOf "\n" bs = BS.init bs
         | otherwise             = bs
 
-    err :: HttpException -> IO (Either Error a)
-    err = return . Left . awsError
+    err :: HttpException -> IO (Either HttpException a)
+    err = return . Left
 
-request :: ByteString -> IO ByteString
-request url = withManager defaultManagerSettings $ \m -> do
+request :: Manager -> ByteString -> IO ByteString
+request m url = do
     rq <- parseUrl (BS.unpack url)
     rs <- httpLbs (rq { responseTimeout = Just 2 }) m
     return . LBS.toStrict $ responseBody rs

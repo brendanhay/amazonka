@@ -91,30 +91,31 @@ module Network.AWS.Types
     ) where
 
 import           Control.Applicative
-import           Control.Concurrent             (ThreadId)
-import           Control.Exception              (Exception)
-import           Control.Lens                   hiding (Action)
+import           Control.Concurrent           (ThreadId)
+import           Control.Exception            (Exception)
+import           Control.Lens                 hiding (Action)
 import           Control.Monad.IO.Class
-import           Data.Aeson                     hiding (Error)
-import qualified Data.Attoparsec.Text           as AText
-import           Data.ByteString                (ByteString)
-import qualified Data.ByteString.Base64         as Base64
+import           Control.Monad.Trans.Resource
+import           Data.Aeson                   hiding (Error)
+import qualified Data.Attoparsec.Text         as AText
+import           Data.ByteString              (ByteString)
+import qualified Data.ByteString.Base64       as Base64
 import           Data.Char
 import           Data.Conduit
 import           Data.Default
 import           Data.IORef
 import           Data.Monoid
 import           Data.String
-import           Data.Text                      (Text)
-import qualified Data.Text                      as Text
-import qualified Data.Text.Encoding             as Text
-import qualified Data.Text.Lazy                 as LText
+import           Data.Text                    (Text)
+import qualified Data.Text                    as Text
+import qualified Data.Text.Encoding           as Text
+import qualified Data.Text.Lazy               as LText
 import           Data.Time
 import           Data.Typeable
 import           GHC.Generics
 import           Network.AWS.Data
-import qualified Network.HTTP.Client            as Client
-import           Network.HTTP.Client            hiding (Request)
+import qualified Network.HTTP.Client          as Client
+import           Network.HTTP.Client          hiding (Request)
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 import           System.Locale
@@ -188,7 +189,7 @@ class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
     request  :: a -> Request a
     response :: Monad m
              => a
-             -> Either HttpException (ClientResponse m)
+             -> Either HttpException ClientResponse
              -> m (Either (Er (Sv a)) (Rs a))
 
 -- | Specify how an 'AWSRequest' and it's associated 'Rs' response can generate
@@ -446,10 +447,10 @@ instance ToJSON Base64 where
     toJSON (Base64 bs) = toJSON (Text.decodeUtf8 bs)
 
 -- | A convenience alias to avoid type ambiguity.
-type ClientRequest    = Client.Request
+type ClientRequest = Client.Request
 
 -- | A convenience alias encapsulating the common 'Response' body.
-type ClientResponse m = Response (ResumableSource m ByteString)
+type ClientResponse = Response (ResumableSource (ResourceT IO) ByteString)
 
 -- | Construct a 'ClientRequest' using common parameters such as TLS and prevent
 -- throwing errors when receiving erroneous status codes in respones.

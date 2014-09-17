@@ -68,12 +68,12 @@ makeLenses ''Env
 -- to expand/discover the supplied 'Credentials'.
 --
 -- Lenses such as 'envLogging' can be used to modify the 'Env' with a debug logger.
-newEnv :: (MonadIO m, MonadError Error m)
+newEnv :: (Functor m, MonadIO m)
        => Region
        -> Credentials
        -> Manager
-       -> m Env
-newEnv r c m = Env r None m `liftM` getAuth c
+       -> ExceptT String m Env
+newEnv r c m = Env r None m `liftM` getAuth m c
 
 -- | Send a data type which is an instance of 'AWSRequest', returning either the
 -- associated 'Rs' response type in the success case, or the related service's
@@ -91,10 +91,10 @@ send Env{..} x@(request -> rq) = go `catch` er >>= response x
         debug _envLogging $
             "[Raw Request]\n" <> toText rq
         t  <- liftIO getCurrentTime
-        sg <- Sign.sign _envAuth _envRegion rq t
+        s  <- Sign.sign _envAuth _envRegion rq t
         debug _envLogging $
-            "[Signed Request]\n" <> toText sg
-        rs <- http (sg^.sgRequest) _envManager
+            "[Signed Request]\n" <> toText s
+        rs <- liftResourceT (http (s^.sgRequest) _envManager)
         debug _envLogging $
             "[Raw Response]\n" <> toText rs
         return (Right rs)

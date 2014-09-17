@@ -1,7 +1,4 @@
-{-# LANGUAGE GADTs             #-}
-{-# LANGUAGE KindSignatures             #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RankNTypes        #-}
 
 -- Module      : Network.AWS.Internal.Data.Body
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -37,16 +34,13 @@ import           Network.AWS.Internal.Data.Text
 import           Network.HTTP.Client
 import           System.IO
 
-data RsBody where
-    RsBody :: forall (m :: * -> *). Monad m
-           => ResumableSource m ByteString
-           -> RsBody
+data RsBody = RsBody (ResumableSource (ResourceT IO) ByteString)
 
-connect :: forall (m :: * -> *) a. Monad m
-        => RsBody
-        -> Sink ByteString m a
-        -> m a
-connect (RsBody src) sink = src $$+- sink
+-- connect :: forall (m :: * -> *) a. Monad m
+--         => RsBody
+--         -> Sink ByteString m a
+--         -> m a
+-- connect (RsBody src) sink = src $$+- sink
 
 instance ToText RsBody where
     toText = const "RsBody <body>"

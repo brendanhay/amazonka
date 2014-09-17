@@ -163,9 +163,10 @@ instance MMonad AWST where
             >>= either throwError return
     {-# INLINE embed #-}
 
-instance MonadResource AWS where
-    liftResourceT f = resources >>= liftIO . runInternalState f
-    {-# INLINE liftResourceT #-}
+instance (Applicative m, MonadIO m, MonadBase IO m, MonadThrow m)
+    => MonadResource (AWST m) where
+        liftResourceT f = resources >>= liftIO . runInternalState f
+        {-# INLINE liftResourceT #-}
 
 -- | Unwrap an 'AWST' transformer, calling all of the registered 'ResourceT'
 -- release actions.

@@ -41,8 +41,8 @@
 --     onLensField1 .= y
 --     onLensField2 .= z
 --
--- -- Or to void any additional parameters outside of those required using 'Control.Applicative.empty':
--- operationName w x empty
+-- -- Or to void any additional parameters outside of those required using @return ()@:
+-- operationName w x $ return ()
 -- @
 --
 module Network.AWS.S3.Monadic

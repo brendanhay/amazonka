@@ -57,9 +57,9 @@ import Network.AWS.Prelude
 
 -- | 
 data DescribeClusters = DescribeClusters
-    { _dc1ClusterIdentifier :: !(Maybe Text)
-    , _dc1MaxRecords :: !(Maybe Integer)
-    , _dc1Marker :: !(Maybe Text)
+    { _dc1ClusterIdentifier :: Maybe Text
+    , _dc1MaxRecords :: Maybe Integer
+    , _dc1Marker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -110,7 +110,7 @@ instance ToQuery DescribeClusters where
 
 -- | Contains the output from the DescribeClusters action.
 data DescribeClustersResponse = DescribeClustersResponse
-    { _dcrrMarker :: !(Maybe Text)
+    { _dcrrMarker :: Maybe Text
     , _dcrrClusters :: [Cluster]
     } deriving (Show, Generic)
 

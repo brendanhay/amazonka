@@ -63,9 +63,9 @@ import Network.AWS.Prelude
 -- | 
 data DescribeScalingActivities = DescribeScalingActivities
     { _dsa1ActivityIds :: [Text]
-    , _dsa1AutoScalingGroupName :: !(Maybe Text)
-    , _dsa1MaxRecords :: !(Maybe Integer)
-    , _dsa1NextToken :: !(Maybe Text)
+    , _dsa1AutoScalingGroupName :: Maybe Text
+    , _dsa1MaxRecords :: Maybe Integer
+    , _dsa1NextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -118,7 +118,7 @@ instance ToQuery DescribeScalingActivities where
 -- | The output for the DescribeScalingActivities action.
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse
     { _dsarActivities :: [Activity]
-    , _dsarNextToken :: !(Maybe Text)
+    , _dsarNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

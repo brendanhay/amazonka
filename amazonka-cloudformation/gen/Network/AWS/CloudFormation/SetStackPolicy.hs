@@ -46,9 +46,9 @@ import Network.AWS.Prelude
 
 -- | The input for the SetStackPolicy action.
 data SetStackPolicy = SetStackPolicy
-    { _sspStackName :: !Text
-    , _sspStackPolicyBody :: !(Maybe Text)
-    , _sspStackPolicyURL :: !(Maybe Text)
+    { _sspStackName :: Text
+    , _sspStackPolicyBody :: Maybe Text
+    , _sspStackPolicyURL :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

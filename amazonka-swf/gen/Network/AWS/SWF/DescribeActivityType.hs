@@ -77,7 +77,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DescribeActivityType = DescribeActivityType
-    { _dat1Domain :: !Text
+    { _dat1Domain :: Text
     , _dat1ActivityType :: ActivityType
     } deriving (Show, Generic)
 

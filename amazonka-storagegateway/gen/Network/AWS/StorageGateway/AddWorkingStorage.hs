@@ -62,7 +62,7 @@ import Network.AWS.Request.JSON
 -- | A JSON object containing one or more of the following fields:
 -- AddWorkingStorageInput$DiskIds.
 data AddWorkingStorage = AddWorkingStorage
-    { _awsGatewayARN :: !Text
+    { _awsGatewayARN :: Text
     , _awsDiskIds :: [Text]
     } deriving (Show, Generic)
 

@@ -77,7 +77,7 @@ import Network.AWS.Request.JSON
 
 -- | Represents the input of a CreateStream operation.
 data CreateStream = CreateStream
-    { _csStreamName :: !Text
+    { _csStreamName :: Text
     , _csShardCount :: !Integer
     } deriving (Show, Generic)
 

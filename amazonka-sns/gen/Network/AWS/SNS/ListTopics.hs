@@ -79,7 +79,7 @@ instance ToQuery ListTopics where
 -- | Response for ListTopics action.
 data ListTopicsResponse = ListTopicsResponse
     { _ltrTopics :: [Topic]
-    , _ltrNextToken :: !(Maybe Text)
+    , _ltrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 
 -- | The input for the AttachLoadBalancerToSubnets action.
 data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets
-    { _albtsLoadBalancerName :: !Text
+    { _albtsLoadBalancerName :: Text
     , _albtsSubnets :: [Text]
     } deriving (Show, Generic)
 

@@ -55,9 +55,9 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a DeleteReplicationGroup operation.
 data DeleteReplicationGroup = DeleteReplicationGroup
-    { _drgReplicationGroupId :: !Text
-    , _drgRetainPrimaryCluster :: !(Maybe Bool)
-    , _drgFinalSnapshotIdentifier :: !(Maybe Text)
+    { _drgReplicationGroupId :: Text
+    , _drgRetainPrimaryCluster :: Maybe Bool
+    , _drgFinalSnapshotIdentifier :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

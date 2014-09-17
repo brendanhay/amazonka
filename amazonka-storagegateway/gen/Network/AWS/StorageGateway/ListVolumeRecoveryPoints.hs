@@ -95,7 +95,7 @@ instance ToHeaders ListVolumeRecoveryPoints
 instance ToJSON ListVolumeRecoveryPoints
 
 data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse
-    { _lvrprGatewayARN :: !(Maybe Text)
+    { _lvrprGatewayARN :: Maybe Text
     , _lvrprVolumeRecoveryPointInfos :: [VolumeRecoveryPointInfo]
     } deriving (Show, Generic)
 

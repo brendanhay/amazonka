@@ -82,11 +82,11 @@ import Network.AWS.Request.JSON
 
 -- | Represents the input of a PutRecord operation.
 data PutRecord = PutRecord
-    { _prStreamName :: !Text
-    , _prData :: !Base64
-    , _prPartitionKey :: !Text
-    , _prExplicitHashKey :: !(Maybe Text)
-    , _prSequenceNumberForOrdering :: !(Maybe Text)
+    { _prStreamName :: Text
+    , _prData :: Base64
+    , _prPartitionKey :: Text
+    , _prExplicitHashKey :: Maybe Text
+    , _prSequenceNumberForOrdering :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -164,8 +164,8 @@ instance ToJSON PutRecord
 
 -- | Represents the output of a PutRecord operation.
 data PutRecordResponse = PutRecordResponse
-    { _prrShardId :: !Text
-    , _prrSequenceNumber :: !Text
+    { _prrShardId :: Text
+    , _prrSequenceNumber :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

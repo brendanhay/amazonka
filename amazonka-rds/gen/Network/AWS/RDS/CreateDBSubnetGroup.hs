@@ -52,8 +52,8 @@ import Network.AWS.Prelude
 
 -- | 
 data CreateDBSubnetGroup = CreateDBSubnetGroup
-    { _cdbsg1DBSubnetGroupName :: !Text
-    , _cdbsg1DBSubnetGroupDescription :: !Text
+    { _cdbsg1DBSubnetGroupName :: Text
+    , _cdbsg1DBSubnetGroupDescription :: Text
     , _cdbsg1SubnetIds :: [Text]
     , _cdbsg1Tags :: [Tag]
     } deriving (Show, Generic)

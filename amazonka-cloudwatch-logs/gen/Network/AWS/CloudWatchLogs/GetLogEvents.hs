@@ -73,13 +73,13 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data GetLogEvents = GetLogEvents
-    { _gleLogGroupName :: !Text
-    , _gleLogStreamName :: !Text
-    , _gleStartTime :: !(Maybe Integer)
-    , _gleEndTime :: !(Maybe Integer)
-    , _gleNextToken :: !(Maybe Text)
-    , _gleLimit :: !(Maybe Integer)
-    , _gleStartFromHead :: !(Maybe Bool)
+    { _gleLogGroupName :: Text
+    , _gleLogStreamName :: Text
+    , _gleStartTime :: Maybe Integer
+    , _gleEndTime :: Maybe Integer
+    , _gleNextToken :: Maybe Text
+    , _gleLimit :: Maybe Integer
+    , _gleStartFromHead :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -157,8 +157,8 @@ instance ToJSON GetLogEvents
 
 data GetLogEventsResponse = GetLogEventsResponse
     { _glerEvents :: [OutputLogEvent]
-    , _glerNextForwardToken :: !(Maybe Text)
-    , _glerNextBackwardToken :: !(Maybe Text)
+    , _glerNextForwardToken :: Maybe Text
+    , _glerNextBackwardToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

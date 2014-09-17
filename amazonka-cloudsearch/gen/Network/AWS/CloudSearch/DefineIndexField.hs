@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 -- the name of the domain you want to update and the index field
 -- configuration.
 data DefineIndexField = DefineIndexField
-    { _difDomainName :: !Text
+    { _difDomainName :: Text
     , _difIndexField :: IndexField
     } deriving (Show, Generic)
 

@@ -61,9 +61,9 @@ import Network.AWS.Prelude
 
 -- | to be provided.
 data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings
-    { _drnoReservedNodeOfferingId :: !(Maybe Text)
-    , _drnoMaxRecords :: !(Maybe Integer)
-    , _drnoMarker :: !(Maybe Text)
+    { _drnoReservedNodeOfferingId :: Maybe Text
+    , _drnoMaxRecords :: Maybe Integer
+    , _drnoMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -112,7 +112,7 @@ instance ToQuery DescribeReservedNodeOfferings where
 
 -- | Contains the output from the DescribeReservedNodeOfferings action.
 data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse
-    { _drnorMarker :: !(Maybe Text)
+    { _drnorMarker :: Maybe Text
     , _drnorReservedNodeOfferings :: [ReservedNodeOffering]
     } deriving (Show, Generic)
 

@@ -49,8 +49,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data CreateInstanceProfile = CreateInstanceProfile
-    { _cipInstanceProfileName :: !Text
-    , _cipPath :: !(Maybe Text)
+    { _cipInstanceProfileName :: Text
+    , _cipPath :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

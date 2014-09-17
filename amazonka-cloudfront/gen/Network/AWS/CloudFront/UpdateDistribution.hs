@@ -46,8 +46,8 @@ import Network.AWS.Types (Region)
 -- | The request to update a distribution.
 data UpdateDistribution = UpdateDistribution
     { _udDistributionConfig :: DistributionConfig
-    , _udId :: !Text
-    , _udIfMatch :: !(Maybe Text)
+    , _udId :: Text
+    , _udIfMatch :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -100,7 +100,7 @@ instance ToXML UpdateDistribution where
 -- | The returned result of the corresponding request.
 data UpdateDistributionResponse = UpdateDistributionResponse
     { _udrDistribution :: Maybe Distribution
-    , _udrETag :: !(Maybe Text)
+    , _udrETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

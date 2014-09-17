@@ -57,9 +57,9 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data ListInstanceProfilesForRole = ListInstanceProfilesForRole
-    { _lipfrRoleName :: !Text
-    , _lipfrMarker :: !(Maybe Text)
-    , _lipfrMaxItems :: !(Maybe Integer)
+    { _lipfrRoleName :: Text
+    , _lipfrMarker :: Maybe Text
+    , _lipfrMaxItems :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -108,7 +108,7 @@ instance ToQuery ListInstanceProfilesForRole where
 data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
     { _lipfrrInstanceProfiles :: [InstanceProfile]
     , _lipfrrIsTruncated :: !Bool
-    , _lipfrrMarker :: !(Maybe Text)
+    , _lipfrrMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

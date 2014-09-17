@@ -60,12 +60,12 @@ import Network.AWS.Types (Region)
 type GetBucket = ListObjects
 
 data ListObjects = ListObjects
-    { _loBucket :: !BucketName
-    , _loDelimiter :: !(Maybe Char)
+    { _loBucket :: BucketName
+    , _loDelimiter :: Maybe Char
     , _loEncodingType :: Maybe EncodingType
-    , _loMarker :: !(Maybe Text)
-    , _loMaxKeys :: !(Maybe Integer)
-    , _loPrefix :: !(Maybe Text)
+    , _loMarker :: Maybe Text
+    , _loMaxKeys :: Maybe Integer
+    , _loPrefix :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -135,12 +135,12 @@ instance ToBody ListObjects
 
 data ListObjectsResponse = ListObjectsResponse
     { _lorIsTruncated :: !Bool
-    , _lorMarker :: !(Maybe Text)
-    , _lorNextMarker :: !(Maybe Text)
+    , _lorMarker :: Maybe Text
+    , _lorNextMarker :: Maybe Text
     , _lorContents :: [Object]
-    , _lorName :: !BucketName
-    , _lorPrefix :: !(Maybe Text)
-    , _lorMaxKeys :: !(Maybe Integer)
+    , _lorName :: BucketName
+    , _lorPrefix :: Maybe Text
+    , _lorMaxKeys :: Maybe Integer
     , _lorCommonPrefixes :: [CommonPrefix]
     , _lorEncodingType :: Maybe EncodingType
     } deriving (Show, Generic)

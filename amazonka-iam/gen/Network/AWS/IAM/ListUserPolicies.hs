@@ -49,9 +49,9 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data ListUserPolicies = ListUserPolicies
-    { _lupUserName :: !Text
-    , _lupMarker :: !(Maybe Text)
-    , _lupMaxItems :: !(Maybe Integer)
+    { _lupUserName :: Text
+    , _lupMarker :: Maybe Text
+    , _lupMaxItems :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -98,7 +98,7 @@ instance ToQuery ListUserPolicies where
 data ListUserPoliciesResponse = ListUserPoliciesResponse
     { _luprPolicyNames :: [Text]
     , _luprIsTruncated :: !Bool
-    , _luprMarker :: !(Maybe Text)
+    , _luprMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

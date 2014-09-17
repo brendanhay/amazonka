@@ -143,12 +143,12 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data CreateNetworkInterface = CreateNetworkInterface
-    { _cniSubnetId :: !Text
-    , _cniDescription :: !(Maybe Text)
-    , _cniPrivateIpAddress :: !(Maybe Text)
+    { _cniSubnetId :: Text
+    , _cniDescription :: Maybe Text
+    , _cniPrivateIpAddress :: Maybe Text
     , _cniGroups :: [Text]
     , _cniPrivateIpAddresses :: [PrivateIpAddressSpecification]
-    , _cniSecondaryPrivateIpAddressCount :: !(Maybe Integer)
+    , _cniSecondaryPrivateIpAddressCount :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -43,8 +43,8 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data UpdateElasticIp = UpdateElasticIp
-    { _ueiElasticIp :: !Text
-    , _ueiName :: !(Maybe Text)
+    { _ueiElasticIp :: Text
+    , _ueiName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

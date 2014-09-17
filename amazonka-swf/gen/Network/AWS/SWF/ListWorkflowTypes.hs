@@ -74,12 +74,12 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data ListWorkflowTypes = ListWorkflowTypes
-    { _lwtDomain :: !Text
-    , _lwtName :: !(Maybe Text)
+    { _lwtDomain :: Text
+    , _lwtName :: Maybe Text
     , _lwtRegistrationStatus :: RegistrationStatus
-    , _lwtNextPageToken :: !(Maybe Text)
-    , _lwtMaximumPageSize :: !(Maybe Integer)
-    , _lwtReverseOrder :: !(Maybe Bool)
+    , _lwtNextPageToken :: Maybe Text
+    , _lwtMaximumPageSize :: Maybe Integer
+    , _lwtReverseOrder :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -157,7 +157,7 @@ instance ToJSON ListWorkflowTypes
 -- | Contains a paginated list of information structures about workflow types.
 data ListWorkflowTypesResponse = ListWorkflowTypesResponse
     { _lwtrTypeInfos :: [WorkflowTypeInfo]
-    , _lwtrNextPageToken :: !(Maybe Text)
+    , _lwtrNextPageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

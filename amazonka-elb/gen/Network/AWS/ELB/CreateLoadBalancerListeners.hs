@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 
 -- | The input for the CreateLoadBalancerListeners action.
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners
-    { _clblLoadBalancerName :: !Text
+    { _clblLoadBalancerName :: Text
     , _clblListeners :: [Listener]
     } deriving (Show, Generic)
 

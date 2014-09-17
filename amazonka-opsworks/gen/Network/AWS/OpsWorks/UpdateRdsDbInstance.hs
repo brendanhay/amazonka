@@ -40,9 +40,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data UpdateRdsDbInstance = UpdateRdsDbInstance
-    { _urdiRdsDbInstanceArn :: !Text
-    , _urdiDbUser :: !(Maybe Text)
-    , _urdiDbPassword :: !(Maybe Text)
+    { _urdiRdsDbInstanceArn :: Text
+    , _urdiDbUser :: Maybe Text
+    , _urdiDbPassword :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

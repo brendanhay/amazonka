@@ -70,8 +70,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data ImportKeyPair = ImportKeyPair
-    { _ikpKeyName :: !Text
-    , _ikpPublicKeyMaterial :: !ByteString
+    { _ikpKeyName :: Text
+    , _ikpPublicKeyMaterial :: ByteString
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -105,8 +105,8 @@ instance ToQuery ImportKeyPair where
     toQuery = genericQuery def
 
 data ImportKeyPairResponse = ImportKeyPairResponse
-    { _ikprKeyName :: !(Maybe Text)
-    , _ikprKeyFingerprint :: !(Maybe Text)
+    { _ikprKeyName :: Maybe Text
+    , _ikprKeyFingerprint :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

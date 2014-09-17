@@ -100,9 +100,9 @@ import Network.AWS.Prelude
 
 -- | The result message containing the options for the specified solution stack.
 data UpdateConfigurationTemplate = UpdateConfigurationTemplate
-    { _uctApplicationName :: !Text
-    , _uctTemplateName :: !Text
-    , _uctDescription :: !(Maybe Text)
+    { _uctApplicationName :: Text
+    , _uctTemplateName :: Text
+    , _uctDescription :: Maybe Text
     , _uctOptionSettings :: [ConfigurationOptionSetting]
     , _uctOptionsToRemove :: [OptionSpecification]
     } deriving (Show, Generic)
@@ -167,14 +167,14 @@ instance ToQuery UpdateConfigurationTemplate where
 
 -- | Describes the settings for a configuration set.
 data UpdateConfigurationTemplateResponse = UpdateConfigurationTemplateResponse
-    { _uctrSolutionStackName :: !(Maybe Text)
-    , _uctrApplicationName :: !(Maybe Text)
-    , _uctrTemplateName :: !(Maybe Text)
-    , _uctrDescription :: !(Maybe Text)
-    , _uctrEnvironmentName :: !(Maybe Text)
+    { _uctrSolutionStackName :: Maybe Text
+    , _uctrApplicationName :: Maybe Text
+    , _uctrTemplateName :: Maybe Text
+    , _uctrDescription :: Maybe Text
+    , _uctrEnvironmentName :: Maybe Text
     , _uctrDeploymentStatus :: Maybe ConfigurationDeploymentStatus
-    , _uctrDateCreated :: !(Maybe ISO8601)
-    , _uctrDateUpdated :: !(Maybe ISO8601)
+    , _uctrDateCreated :: Maybe ISO8601
+    , _uctrDateUpdated :: Maybe ISO8601
     , _uctrOptionSettings :: [ConfigurationOptionSetting]
     } deriving (Show, Generic)
 

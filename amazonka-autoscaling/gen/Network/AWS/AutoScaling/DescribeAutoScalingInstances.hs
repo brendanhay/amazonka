@@ -54,8 +54,8 @@ import Network.AWS.Prelude
 
 data DescribeAutoScalingInstances = DescribeAutoScalingInstances
     { _dasiInstanceIds :: [Text]
-    , _dasiMaxRecords :: !(Maybe Integer)
-    , _dasiNextToken :: !(Maybe Text)
+    , _dasiMaxRecords :: Maybe Integer
+    , _dasiNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -99,7 +99,7 @@ instance ToQuery DescribeAutoScalingInstances where
 -- | The AutoScalingInstancesType data type.
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
     { _dasirAutoScalingInstances :: [AutoScalingInstanceDetails]
-    , _dasirNextToken :: !(Maybe Text)
+    , _dasirNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

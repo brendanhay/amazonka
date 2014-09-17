@@ -52,12 +52,12 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data CreateDeployment = CreateDeployment
-    { _cdStackId :: !Text
-    , _cdAppId :: !(Maybe Text)
+    { _cdStackId :: Text
+    , _cdAppId :: Maybe Text
     , _cdInstanceIds :: [Text]
     , _cdCommand :: DeploymentCommand
-    , _cdComment :: !(Maybe Text)
-    , _cdCustomJson :: !(Maybe Text)
+    , _cdComment :: Maybe Text
+    , _cdCustomJson :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

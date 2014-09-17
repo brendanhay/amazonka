@@ -1096,8 +1096,8 @@ instance ToJSON PlacementType
 -- arguments specifying "--edition,m3" or "--edition,m5" - launch the job flow
 -- using MapR M3 or M5 Edition, respectively.
 data Application = Application
-    { _aName :: !(Maybe Text)
-    , _aVersion :: !(Maybe Text)
+    { _aName :: Maybe Text
+    , _aVersion :: Maybe Text
     , _aArgs :: [Text]
     , _aAdditionalInfo :: Map Text Text
     } deriving (Show, Generic)
@@ -1147,7 +1147,7 @@ instance FromJSON Application
 
 -- | A description of the bootstrap action.
 data BootstrapActionConfig = BootstrapActionConfig
-    { _bacName :: !Text
+    { _bacName :: Text
     , _bacScriptBootstrapAction :: ScriptBootstrapActionConfig
     } deriving (Show, Generic)
 
@@ -1184,19 +1184,19 @@ instance ToJSON BootstrapActionConfig
 
 -- | This output contains the details for the requested cluster.
 data Cluster = Cluster
-    { _cId :: !(Maybe Text)
-    , _cName :: !(Maybe Text)
+    { _cId :: Maybe Text
+    , _cName :: Maybe Text
     , _cStatus :: Maybe ClusterStatus
     , _cEc2InstanceAttributes :: Maybe Ec2InstanceAttributes
-    , _cLogUri :: !(Maybe Text)
-    , _cRequestedAmiVersion :: !(Maybe Text)
-    , _cRunningAmiVersion :: !(Maybe Text)
-    , _cAutoTerminate :: !(Maybe Bool)
-    , _cTerminationProtected :: !(Maybe Bool)
-    , _cVisibleToAllUsers :: !(Maybe Bool)
+    , _cLogUri :: Maybe Text
+    , _cRequestedAmiVersion :: Maybe Text
+    , _cRunningAmiVersion :: Maybe Text
+    , _cAutoTerminate :: Maybe Bool
+    , _cTerminationProtected :: Maybe Bool
+    , _cVisibleToAllUsers :: Maybe Bool
     , _cApplications :: [Application]
     , _cTags :: [Tag]
-    , _cServiceRole :: !(Maybe Text)
+    , _cServiceRole :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1324,7 +1324,7 @@ instance FromJSON Cluster
 -- | The reason for the cluster status change.
 data ClusterStateChangeReason = ClusterStateChangeReason
     { _cscrCode :: Maybe ClusterStateChangeReasonCode
-    , _cscrMessage :: !(Maybe Text)
+    , _cscrMessage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1399,8 +1399,8 @@ instance ToJSON ClusterStatus
 
 -- | The summary description of the cluster.
 data ClusterSummary = ClusterSummary
-    { _csrId :: !(Maybe Text)
-    , _csrName :: !(Maybe Text)
+    { _csrId :: Maybe Text
+    , _csrName :: Maybe Text
     , _csrStatus :: Maybe ClusterStatus
     } deriving (Show, Generic)
 
@@ -1442,9 +1442,9 @@ instance FromJSON ClusterSummary
 -- | A timeline that represents the status of a cluster over the lifetime of the
 -- cluster.
 data ClusterTimeline = ClusterTimeline
-    { _ctCreationDateTime :: !(Maybe POSIX)
-    , _ctReadyDateTime :: !(Maybe POSIX)
-    , _ctEndDateTime :: !(Maybe POSIX)
+    { _ctCreationDateTime :: Maybe POSIX
+    , _ctReadyDateTime :: Maybe POSIX
+    , _ctEndDateTime :: Maybe POSIX
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1484,8 +1484,8 @@ instance ToJSON ClusterTimeline
 
 -- | An entity describing an executable that runs on a cluster.
 data Command = Command
-    { _crName :: !(Maybe Text)
-    , _crScriptPath :: !(Maybe Text)
+    { _crName :: Maybe Text
+    , _crScriptPath :: Maybe Text
     , _crArgs :: [Text]
     } deriving (Show, Generic)
 
@@ -1528,10 +1528,10 @@ instance FromJSON Command
 -- category. For example, key name, subnet ID, IAM instance profile, and so
 -- on.
 data Ec2InstanceAttributes = Ec2InstanceAttributes
-    { _eiaEc2KeyName :: !(Maybe Text)
-    , _eiaEc2SubnetId :: !(Maybe Text)
-    , _eiaEc2AvailabilityZone :: !(Maybe Text)
-    , _eiaIamInstanceProfile :: !(Maybe Text)
+    { _eiaEc2KeyName :: Maybe Text
+    , _eiaEc2SubnetId :: Maybe Text
+    , _eiaEc2AvailabilityZone :: Maybe Text
+    , _eiaIamInstanceProfile :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1588,8 +1588,8 @@ instance FromJSON Ec2InstanceAttributes
 -- | The JAR file used for the job flow step.
 data HadoopJarStepConfig = HadoopJarStepConfig
     { _hjscProperties :: [KeyValue]
-    , _hjscJar :: !Text
-    , _hjscMainClass :: !(Maybe Text)
+    , _hjscJar :: Text
+    , _hjscMainClass :: Maybe Text
     , _hjscArgs :: [Text]
     } deriving (Show, Generic)
 
@@ -1640,9 +1640,9 @@ instance ToJSON HadoopJarStepConfig
 
 -- | The Hadoop job configuration of the cluster step.
 data HadoopStepConfig = HadoopStepConfig
-    { _hscJar :: !(Maybe Text)
+    { _hscJar :: Maybe Text
     , _hscProperties :: Map Text Text
-    , _hscMainClass :: !(Maybe Text)
+    , _hscMainClass :: Maybe Text
     , _hscArgs :: [Text]
     } deriving (Show, Generic)
 
@@ -1693,12 +1693,12 @@ instance FromJSON HadoopStepConfig
 
 -- | Represents an EC2 instance provisioned as part of cluster.
 data Instance = Instance
-    { _iId :: !(Maybe Text)
-    , _iEc2InstanceId :: !(Maybe Text)
-    , _iPublicDnsName :: !(Maybe Text)
-    , _iPublicIpAddress :: !(Maybe Text)
-    , _iPrivateDnsName :: !(Maybe Text)
-    , _iPrivateIpAddress :: !(Maybe Text)
+    { _iId :: Maybe Text
+    , _iEc2InstanceId :: Maybe Text
+    , _iPublicDnsName :: Maybe Text
+    , _iPublicIpAddress :: Maybe Text
+    , _iPrivateDnsName :: Maybe Text
+    , _iPrivateIpAddress :: Maybe Text
     , _iStatus :: Maybe InstanceStatus
     } deriving (Show, Generic)
 
@@ -1771,14 +1771,14 @@ instance FromJSON Instance
 -- that have common purpose. For example, CORE instance group is used for
 -- HDFS.
 data InstanceGroup = InstanceGroup
-    { _igId :: !(Maybe Text)
-    , _igName :: !(Maybe Text)
+    { _igId :: Maybe Text
+    , _igName :: Maybe Text
     , _igMarket :: Maybe MarketType
     , _igInstanceGroupType :: Maybe InstanceGroupType
-    , _igBidPrice :: !(Maybe Text)
-    , _igInstanceType :: !(Maybe Text)
-    , _igRequestedInstanceCount :: !(Maybe Integer)
-    , _igRunningInstanceCount :: !(Maybe Integer)
+    , _igBidPrice :: Maybe Text
+    , _igInstanceType :: Maybe Text
+    , _igRequestedInstanceCount :: Maybe Integer
+    , _igRunningInstanceCount :: Maybe Integer
     , _igStatus :: Maybe InstanceGroupStatus
     } deriving (Show, Generic)
 
@@ -1867,11 +1867,11 @@ instance FromJSON InstanceGroup
 
 -- | Configuration defining a new instance group.
 data InstanceGroupConfig = InstanceGroupConfig
-    { _igcName :: !(Maybe Text)
+    { _igcName :: Maybe Text
     , _igcMarket :: Maybe MarketType
     , _igcInstanceRole :: InstanceRoleType
-    , _igcBidPrice :: !(Maybe Text)
-    , _igcInstanceType :: !Text
+    , _igcBidPrice :: Maybe Text
+    , _igcInstanceType :: Text
     , _igcInstanceCount :: !Integer
     } deriving (Show, Generic)
 
@@ -1935,20 +1935,20 @@ instance ToJSON InstanceGroupConfig
 
 -- | Detailed information about an instance group.
 data InstanceGroupDetail = InstanceGroupDetail
-    { _igdInstanceGroupId :: !(Maybe Text)
-    , _igdName :: !(Maybe Text)
+    { _igdInstanceGroupId :: Maybe Text
+    , _igdName :: Maybe Text
     , _igdMarket :: MarketType
     , _igdInstanceRole :: InstanceRoleType
-    , _igdBidPrice :: !(Maybe Text)
-    , _igdInstanceType :: !Text
+    , _igdBidPrice :: Maybe Text
+    , _igdInstanceType :: Text
     , _igdInstanceRequestCount :: !Integer
     , _igdInstanceRunningCount :: !Integer
     , _igdState :: InstanceGroupState
-    , _igdLastStateChangeReason :: !(Maybe Text)
-    , _igdCreationDateTime :: !POSIX
-    , _igdStartDateTime :: !(Maybe POSIX)
-    , _igdReadyDateTime :: !(Maybe POSIX)
-    , _igdEndDateTime :: !(Maybe POSIX)
+    , _igdLastStateChangeReason :: Maybe Text
+    , _igdCreationDateTime :: POSIX
+    , _igdStartDateTime :: Maybe POSIX
+    , _igdReadyDateTime :: Maybe POSIX
+    , _igdEndDateTime :: Maybe POSIX
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2083,8 +2083,8 @@ instance ToJSON InstanceGroupDetail
 
 -- | Modify an instance group size.
 data InstanceGroupModifyConfig = InstanceGroupModifyConfig
-    { _igmcInstanceGroupId :: !Text
-    , _igmcInstanceCount :: !(Maybe Integer)
+    { _igmcInstanceGroupId :: Text
+    , _igmcInstanceCount :: Maybe Integer
     , _igmcEC2InstanceIdsToTerminate :: [Text]
     } deriving (Show, Generic)
 
@@ -2130,7 +2130,7 @@ instance ToJSON InstanceGroupModifyConfig
 -- | The status change reason details for the instance group.
 data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason
     { _igscrCode :: Maybe InstanceGroupStateChangeReasonCode
-    , _igscrMessage :: !(Maybe Text)
+    , _igscrMessage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2204,9 +2204,9 @@ instance ToJSON InstanceGroupStatus
 
 -- | The timeline of the instance group status over time.
 data InstanceGroupTimeline = InstanceGroupTimeline
-    { _igtCreationDateTime :: !(Maybe POSIX)
-    , _igtReadyDateTime :: !(Maybe POSIX)
-    , _igtEndDateTime :: !(Maybe POSIX)
+    { _igtCreationDateTime :: Maybe POSIX
+    , _igtReadyDateTime :: Maybe POSIX
+    , _igtEndDateTime :: Maybe POSIX
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2248,7 +2248,7 @@ instance ToJSON InstanceGroupTimeline
 -- | The details of the status change reason for the instance.
 data InstanceStateChangeReason = InstanceStateChangeReason
     { _iscrCode :: Maybe InstanceStateChangeReasonCode
-    , _iscrMessage :: !(Maybe Text)
+    , _iscrMessage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2322,9 +2322,9 @@ instance ToJSON InstanceStatus
 
 -- | The timeline of the instance status over time.
 data InstanceTimeline = InstanceTimeline
-    { _itCreationDateTime :: !(Maybe POSIX)
-    , _itReadyDateTime :: !(Maybe POSIX)
-    , _itEndDateTime :: !(Maybe POSIX)
+    { _itCreationDateTime :: Maybe POSIX
+    , _itReadyDateTime :: Maybe POSIX
+    , _itEndDateTime :: Maybe POSIX
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2364,18 +2364,18 @@ instance ToJSON InstanceTimeline
 
 -- | A description of a job flow.
 data JobFlowDetail = JobFlowDetail
-    { _jfdJobFlowId :: !Text
-    , _jfdName :: !Text
-    , _jfdLogUri :: !(Maybe Text)
-    , _jfdAmiVersion :: !(Maybe Text)
+    { _jfdJobFlowId :: Text
+    , _jfdName :: Text
+    , _jfdLogUri :: Maybe Text
+    , _jfdAmiVersion :: Maybe Text
     , _jfdExecutionStatusDetail :: JobFlowExecutionStatusDetail
     , _jfdInstances :: JobFlowInstancesDetail
     , _jfdSteps :: [StepDetail]
     , _jfdBootstrapActions :: [BootstrapActionDetail]
     , _jfdSupportedProducts :: [Text]
-    , _jfdVisibleToAllUsers :: !(Maybe Bool)
-    , _jfdJobFlowRole :: !(Maybe Text)
-    , _jfdServiceRole :: !(Maybe Text)
+    , _jfdVisibleToAllUsers :: Maybe Bool
+    , _jfdJobFlowRole :: Maybe Text
+    , _jfdServiceRole :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2500,11 +2500,11 @@ instance FromJSON JobFlowDetail
 -- | Describes the execution status of the job flow.
 data JobFlowExecutionStatusDetail = JobFlowExecutionStatusDetail
     { _jfesdState :: JobFlowExecutionState
-    , _jfesdCreationDateTime :: !POSIX
-    , _jfesdStartDateTime :: !(Maybe POSIX)
-    , _jfesdReadyDateTime :: !(Maybe POSIX)
-    , _jfesdEndDateTime :: !(Maybe POSIX)
-    , _jfesdLastStateChangeReason :: !(Maybe Text)
+    , _jfesdCreationDateTime :: POSIX
+    , _jfesdStartDateTime :: Maybe POSIX
+    , _jfesdReadyDateTime :: Maybe POSIX
+    , _jfesdEndDateTime :: Maybe POSIX
+    , _jfesdLastStateChangeReason :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2574,16 +2574,16 @@ instance ToJSON JobFlowExecutionStatusDetail
 -- | A specification of the number and type of Amazon EC2 instances on which to
 -- run the job flow.
 data JobFlowInstancesConfig = JobFlowInstancesConfig
-    { _jficMasterInstanceType :: !(Maybe Text)
-    , _jficSlaveInstanceType :: !(Maybe Text)
-    , _jficInstanceCount :: !(Maybe Integer)
+    { _jficMasterInstanceType :: Maybe Text
+    , _jficSlaveInstanceType :: Maybe Text
+    , _jficInstanceCount :: Maybe Integer
     , _jficInstanceGroups :: [InstanceGroupConfig]
-    , _jficEc2KeyName :: !(Maybe Text)
+    , _jficEc2KeyName :: Maybe Text
     , _jficPlacement :: Maybe PlacementType
-    , _jficKeepJobFlowAliveWhenNoSteps :: !(Maybe Bool)
-    , _jficTerminationProtected :: !(Maybe Bool)
-    , _jficHadoopVersion :: !(Maybe Text)
-    , _jficEc2SubnetId :: !(Maybe Text)
+    , _jficKeepJobFlowAliveWhenNoSteps :: Maybe Bool
+    , _jficTerminationProtected :: Maybe Bool
+    , _jficHadoopVersion :: Maybe Text
+    , _jficEc2SubnetId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2690,19 +2690,19 @@ instance ToJSON JobFlowInstancesConfig
 
 -- | Describes the Amazon EC2 instances of the job flow.
 data JobFlowInstancesDetail = JobFlowInstancesDetail
-    { _jfidMasterInstanceType :: !Text
-    , _jfidMasterPublicDnsName :: !(Maybe Text)
-    , _jfidMasterInstanceId :: !(Maybe Text)
-    , _jfidSlaveInstanceType :: !Text
+    { _jfidMasterInstanceType :: Text
+    , _jfidMasterPublicDnsName :: Maybe Text
+    , _jfidMasterInstanceId :: Maybe Text
+    , _jfidSlaveInstanceType :: Text
     , _jfidInstanceCount :: !Integer
     , _jfidInstanceGroups :: [InstanceGroupDetail]
-    , _jfidNormalizedInstanceHours :: !(Maybe Integer)
-    , _jfidEc2KeyName :: !(Maybe Text)
-    , _jfidEc2SubnetId :: !(Maybe Text)
+    , _jfidNormalizedInstanceHours :: Maybe Integer
+    , _jfidEc2KeyName :: Maybe Text
+    , _jfidEc2SubnetId :: Maybe Text
     , _jfidPlacement :: Maybe PlacementType
-    , _jfidKeepJobFlowAliveWhenNoSteps :: !(Maybe Bool)
-    , _jfidTerminationProtected :: !(Maybe Bool)
-    , _jfidHadoopVersion :: !(Maybe Text)
+    , _jfidKeepJobFlowAliveWhenNoSteps :: Maybe Bool
+    , _jfidTerminationProtected :: Maybe Bool
+    , _jfidHadoopVersion :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2840,8 +2840,8 @@ instance ToJSON JobFlowInstancesDetail
 
 -- | A key value pair.
 data KeyValue = KeyValue
-    { _kvKey :: !(Maybe Text)
-    , _kvValue :: !(Maybe Text)
+    { _kvKey :: Maybe Text
+    , _kvValue :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2873,7 +2873,7 @@ instance ToJSON KeyValue
 
 -- | The script run by the bootstrap action.
 data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig
-    { _sbacPath :: !Text
+    { _sbacPath :: Text
     , _sbacArgs :: [Text]
     } deriving (Show, Generic)
 
@@ -2908,8 +2908,8 @@ instance ToJSON ScriptBootstrapActionConfig
 
 -- | The step details for the requested step identifier.
 data Step = Step
-    { _sId :: !(Maybe Text)
-    , _sName :: !(Maybe Text)
+    { _sId :: Maybe Text
+    , _sName :: Maybe Text
     , _sConfig :: Maybe HadoopStepConfig
     , _sActionOnFailure :: Maybe ActionOnFailure
     , _sStatus :: Maybe StepStatus
@@ -2968,7 +2968,7 @@ instance FromJSON Step
 
 -- | Specification of a job flow step.
 data StepConfig = StepConfig
-    { _scName :: !Text
+    { _scName :: Text
     , _scActionOnFailure :: Maybe ActionOnFailure
     , _scHadoopJarStep :: HadoopJarStepConfig
     } deriving (Show, Generic)
@@ -3050,10 +3050,10 @@ instance ToJSON StepDetail
 -- | The description of the step status.
 data StepExecutionStatusDetail = StepExecutionStatusDetail
     { _sesdState :: StepExecutionState
-    , _sesdCreationDateTime :: !POSIX
-    , _sesdStartDateTime :: !(Maybe POSIX)
-    , _sesdEndDateTime :: !(Maybe POSIX)
-    , _sesdLastStateChangeReason :: !(Maybe Text)
+    , _sesdCreationDateTime :: POSIX
+    , _sesdStartDateTime :: Maybe POSIX
+    , _sesdEndDateTime :: Maybe POSIX
+    , _sesdLastStateChangeReason :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3113,7 +3113,7 @@ instance ToJSON StepExecutionStatusDetail
 -- | The reason for the step execution status change.
 data StepStateChangeReason = StepStateChangeReason
     { _sscrCode :: Maybe StepStateChangeReasonCode
-    , _sscrMessage :: !(Maybe Text)
+    , _sscrMessage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3187,8 +3187,8 @@ instance ToJSON StepStatus
 
 -- | The summary of the cluster step.
 data StepSummary = StepSummary
-    { _ssrId :: !(Maybe Text)
-    , _ssrName :: !(Maybe Text)
+    { _ssrId :: Maybe Text
+    , _ssrName :: Maybe Text
     , _ssrStatus :: Maybe StepStatus
     } deriving (Show, Generic)
 
@@ -3229,9 +3229,9 @@ instance FromJSON StepSummary
 
 -- | The timeline of the cluster step status over time.
 data StepTimeline = StepTimeline
-    { _stCreationDateTime :: !(Maybe POSIX)
-    , _stStartDateTime :: !(Maybe POSIX)
-    , _stEndDateTime :: !(Maybe POSIX)
+    { _stCreationDateTime :: Maybe POSIX
+    , _stStartDateTime :: Maybe POSIX
+    , _stEndDateTime :: Maybe POSIX
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3273,7 +3273,7 @@ instance ToJSON StepTimeline
 -- arguments. EMR accepts these arguments and forwards them to the
 -- corresponding installation script as bootstrap action arguments.
 data SupportedProductConfig = SupportedProductConfig
-    { _spcName :: !(Maybe Text)
+    { _spcName :: Maybe Text
     , _spcArgs :: [Text]
     } deriving (Show, Generic)
 
@@ -3307,8 +3307,8 @@ instance ToJSON SupportedProductConfig
 -- various ways, such as grouping clu\ sters to track your Amazon EMR resource
 -- allocation costs. For more information, see Tagging Amazon EMR Resources.
 data Tag = Tag
-    { _tKey :: !(Maybe Text)
-    , _tValue :: !(Maybe Text)
+    { _tKey :: Maybe Text
+    , _tValue :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

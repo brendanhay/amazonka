@@ -49,7 +49,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data ResetSnapshotAttribute = ResetSnapshotAttribute
-    { _rsaSnapshotId :: !Text
+    { _rsaSnapshotId :: Text
     , _rsaAttribute :: SnapshotAttributeName
     } deriving (Show, Generic)
 

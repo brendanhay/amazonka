@@ -49,8 +49,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data GetUserPolicy = GetUserPolicy
-    { _gupUserName :: !Text
-    , _gupPolicyName :: !Text
+    { _gupUserName :: Text
+    , _gupPolicyName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -83,9 +83,9 @@ instance ToQuery GetUserPolicy where
 
 -- | Contains the result of a successful invocation of the GetUserPolicy action.
 data GetUserPolicyResponse = GetUserPolicyResponse
-    { _guprUserName :: !Text
-    , _guprPolicyName :: !Text
-    , _guprPolicyDocument :: !Text
+    { _guprUserName :: Text
+    , _guprPolicyName :: Text
+    , _guprPolicyDocument :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

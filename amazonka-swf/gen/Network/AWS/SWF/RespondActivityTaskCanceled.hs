@@ -74,8 +74,8 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data RespondActivityTaskCanceled = RespondActivityTaskCanceled
-    { _ratcTaskToken :: !Text
-    , _ratcDetails :: !(Maybe Text)
+    { _ratcTaskToken :: Text
+    , _ratcDetails :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

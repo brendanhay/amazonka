@@ -111,11 +111,11 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory
-    { _gwehDomain :: !Text
+    { _gwehDomain :: Text
     , _gwehExecution :: WorkflowExecution
-    , _gwehNextPageToken :: !(Maybe Text)
-    , _gwehMaximumPageSize :: !(Maybe Integer)
-    , _gwehReverseOrder :: !(Maybe Bool)
+    , _gwehNextPageToken :: Maybe Text
+    , _gwehMaximumPageSize :: Maybe Integer
+    , _gwehReverseOrder :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -190,7 +190,7 @@ instance ToJSON GetWorkflowExecutionHistory
 -- related to all tasks and events in the life of the workflow execution.
 data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse
     { _gwehrEvents :: [HistoryEvent]
-    , _gwehrNextPageToken :: !(Maybe Text)
+    , _gwehrNextPageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

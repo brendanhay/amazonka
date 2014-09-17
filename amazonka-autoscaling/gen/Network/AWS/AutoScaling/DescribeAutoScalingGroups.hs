@@ -57,8 +57,8 @@ import Network.AWS.Prelude
 -- | The AutoScalingGroupNamesType data type.
 data DescribeAutoScalingGroups = DescribeAutoScalingGroups
     { _dasg1AutoScalingGroupNames :: [Text]
-    , _dasg1NextToken :: !(Maybe Text)
-    , _dasg1MaxRecords :: !(Maybe Integer)
+    , _dasg1NextToken :: Maybe Text
+    , _dasg1MaxRecords :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -99,7 +99,7 @@ instance ToQuery DescribeAutoScalingGroups where
 -- | The AutoScalingGroupsType data type.
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
     { _dasgrAutoScalingGroups :: [AutoScalingGroup]
-    , _dasgrNextToken :: !(Maybe Text)
+    , _dasgrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

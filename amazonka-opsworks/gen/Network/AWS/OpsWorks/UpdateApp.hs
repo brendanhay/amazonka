@@ -50,14 +50,14 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data UpdateApp = UpdateApp
-    { _uaAppId :: !Text
-    , _uaName :: !(Maybe Text)
-    , _uaDescription :: !(Maybe Text)
+    { _uaAppId :: Text
+    , _uaName :: Maybe Text
+    , _uaDescription :: Maybe Text
     , _uaDataSources :: [DataSource]
     , _uaType :: Maybe AppType
     , _uaAppSource :: Maybe Source
     , _uaDomains :: [Text]
-    , _uaEnableSsl :: !(Maybe Bool)
+    , _uaEnableSsl :: Maybe Bool
     , _uaSslConfiguration :: Maybe SslConfiguration
     , _uaAttributes :: Map AppAttributesKeys Text
     } deriving (Show, Generic)

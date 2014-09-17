@@ -111,12 +111,12 @@ import Network.AWS.STS.Types
 import Network.AWS.Prelude
 
 data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity
-    { _arwwiRoleArn :: !Text
-    , _arwwiRoleSessionName :: !Text
-    , _arwwiWebIdentityToken :: !Text
-    , _arwwiProviderId :: !(Maybe Text)
-    , _arwwiPolicy :: !(Maybe Text)
-    , _arwwiDurationSeconds :: !(Maybe Integer)
+    { _arwwiRoleArn :: Text
+    , _arwwiRoleSessionName :: Text
+    , _arwwiWebIdentityToken :: Text
+    , _arwwiProviderId :: Maybe Text
+    , _arwwiPolicy :: Maybe Text
+    , _arwwiDurationSeconds :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -205,11 +205,11 @@ instance ToQuery AssumeRoleWithWebIdentity where
 -- requests.
 data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse
     { _arwwirCredentials :: Maybe Credentials
-    , _arwwirSubjectFromWebIdentityToken :: !(Maybe Text)
+    , _arwwirSubjectFromWebIdentityToken :: Maybe Text
     , _arwwirAssumedRoleUser :: Maybe AssumedRoleUser
-    , _arwwirPackedPolicySize :: !(Maybe Integer)
-    , _arwwirProvider :: !(Maybe Text)
-    , _arwwirAudience :: !(Maybe Text)
+    , _arwwirPackedPolicySize :: Maybe Integer
+    , _arwwirProvider :: Maybe Text
+    , _arwwirAudience :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

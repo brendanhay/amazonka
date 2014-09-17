@@ -61,10 +61,10 @@ import Network.AWS.Prelude
 
 -- | 
 data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions
-    { _docoClusterVersion :: !(Maybe Text)
-    , _docoNodeType :: !(Maybe Text)
-    , _docoMaxRecords :: !(Maybe Integer)
-    , _docoMarker :: !(Maybe Text)
+    { _docoClusterVersion :: Maybe Text
+    , _docoNodeType :: Maybe Text
+    , _docoMaxRecords :: Maybe Integer
+    , _docoMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -124,7 +124,7 @@ instance ToQuery DescribeOrderableClusterOptions where
 -- | Contains the output from the DescribeOrderableClusterOptions action.
 data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse
     { _docorOrderableClusterOptions :: [OrderableClusterOption]
-    , _docorMarker :: !(Maybe Text)
+    , _docorMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

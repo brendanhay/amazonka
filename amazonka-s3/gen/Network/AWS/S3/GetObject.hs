@@ -77,23 +77,23 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data GetObject = GetObject
-    { _goBucket :: !BucketName
-    , _goIfMatch :: !(Maybe Text)
-    , _goIfModifiedSince :: !(Maybe RFC822)
-    , _goIfNoneMatch :: !(Maybe Text)
-    , _goIfUnmodifiedSince :: !(Maybe RFC822)
-    , _goKey :: !ObjectKey
-    , _goRange :: !(Maybe Text)
-    , _goResponseCacheControl :: !(Maybe Text)
-    , _goResponseContentDisposition :: !(Maybe Text)
-    , _goResponseContentEncoding :: !(Maybe Text)
-    , _goResponseContentLanguage :: !(Maybe Text)
-    , _goResponseContentType :: !(Maybe Text)
-    , _goResponseExpires :: !(Maybe RFC822)
-    , _goVersionId :: !(Maybe ObjectVersionId)
-    , _goSSECustomerAlgorithm :: !(Maybe Text)
-    , _goSSECustomerKey :: !(Maybe Text)
-    , _goSSECustomerKeyMD5 :: !(Maybe Text)
+    { _goBucket :: BucketName
+    , _goIfMatch :: Maybe Text
+    , _goIfModifiedSince :: Maybe RFC822
+    , _goIfNoneMatch :: Maybe Text
+    , _goIfUnmodifiedSince :: Maybe RFC822
+    , _goKey :: ObjectKey
+    , _goRange :: Maybe Text
+    , _goResponseCacheControl :: Maybe Text
+    , _goResponseContentDisposition :: Maybe Text
+    , _goResponseContentEncoding :: Maybe Text
+    , _goResponseContentLanguage :: Maybe Text
+    , _goResponseContentType :: Maybe Text
+    , _goResponseExpires :: Maybe RFC822
+    , _goVersionId :: Maybe ObjectVersionId
+    , _goSSECustomerAlgorithm :: Maybe Text
+    , _goSSECustomerKey :: Maybe Text
+    , _goSSECustomerKeyMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -270,27 +270,27 @@ instance ToHeaders GetObject where
 instance ToBody GetObject
 
 data GetObjectResponse = GetObjectResponse
-    { _gorBody :: !RsBody
-    , _gorDeleteMarker :: !(Maybe Bool)
-    , _gorAcceptRanges :: !(Maybe Text)
-    , _gorExpiration :: !(Maybe RFC822)
-    , _gorRestore :: !(Maybe Text)
-    , _gorLastModified :: !(Maybe RFC822)
-    , _gorContentLength :: !(Maybe Integer)
-    , _gorETag :: !(Maybe ETag)
-    , _gorMissingMeta :: !(Maybe Integer)
-    , _gorVersionId :: !(Maybe ObjectVersionId)
-    , _gorCacheControl :: !(Maybe Text)
-    , _gorContentDisposition :: !(Maybe Text)
-    , _gorContentEncoding :: !(Maybe Text)
-    , _gorContentLanguage :: !(Maybe Text)
-    , _gorContentType :: !(Maybe Text)
-    , _gorExpires :: !(Maybe RFC822)
-    , _gorWebsiteRedirectLocation :: !(Maybe Text)
+    { _gorBody :: RsBody
+    , _gorDeleteMarker :: Maybe Bool
+    , _gorAcceptRanges :: Maybe Text
+    , _gorExpiration :: Maybe RFC822
+    , _gorRestore :: Maybe Text
+    , _gorLastModified :: Maybe RFC822
+    , _gorContentLength :: Maybe Integer
+    , _gorETag :: Maybe ETag
+    , _gorMissingMeta :: Maybe Integer
+    , _gorVersionId :: Maybe ObjectVersionId
+    , _gorCacheControl :: Maybe Text
+    , _gorContentDisposition :: Maybe Text
+    , _gorContentEncoding :: Maybe Text
+    , _gorContentLanguage :: Maybe Text
+    , _gorContentType :: Maybe Text
+    , _gorExpires :: Maybe RFC822
+    , _gorWebsiteRedirectLocation :: Maybe Text
     , _gorServerSideEncryption :: Maybe ServerSideEncryption
     , _gorMetadata :: Map Text Text
-    , _gorSSECustomerAlgorithm :: !(Maybe Text)
-    , _gorSSECustomerKeyMD5 :: !(Maybe Text)
+    , _gorSSECustomerAlgorithm :: Maybe Text
+    , _gorSSECustomerKeyMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

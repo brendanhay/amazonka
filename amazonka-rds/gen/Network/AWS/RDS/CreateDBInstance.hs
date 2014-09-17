@@ -76,30 +76,30 @@ import Network.AWS.Prelude
 
 -- | 
 data CreateDBInstance = CreateDBInstance
-    { _cdbiDBName :: !(Maybe Text)
-    , _cdbiDBInstanceIdentifier :: !Text
+    { _cdbiDBName :: Maybe Text
+    , _cdbiDBInstanceIdentifier :: Text
     , _cdbiAllocatedStorage :: !Integer
-    , _cdbiDBInstanceClass :: !Text
-    , _cdbiEngine :: !Text
-    , _cdbiMasterUsername :: !Text
-    , _cdbiMasterUserPassword :: !Text
+    , _cdbiDBInstanceClass :: Text
+    , _cdbiEngine :: Text
+    , _cdbiMasterUsername :: Text
+    , _cdbiMasterUserPassword :: Text
     , _cdbiDBSecurityGroups :: [Text]
     , _cdbiVpcSecurityGroupIds :: [Text]
-    , _cdbiAvailabilityZone :: !(Maybe Text)
-    , _cdbiDBSubnetGroupName :: !(Maybe Text)
-    , _cdbiPreferredMaintenanceWindow :: !(Maybe Text)
-    , _cdbiDBParameterGroupName :: !(Maybe Text)
-    , _cdbiBackupRetentionPeriod :: !(Maybe Integer)
-    , _cdbiPreferredBackupWindow :: !(Maybe Text)
-    , _cdbiPort :: !(Maybe Integer)
-    , _cdbiMultiAZ :: !(Maybe Bool)
-    , _cdbiEngineVersion :: !(Maybe Text)
-    , _cdbiAutoMinorVersionUpgrade :: !(Maybe Bool)
-    , _cdbiLicenseModel :: !(Maybe Text)
-    , _cdbiIops :: !(Maybe Integer)
-    , _cdbiOptionGroupName :: !(Maybe Text)
-    , _cdbiCharacterSetName :: !(Maybe Text)
-    , _cdbiPubliclyAccessible :: !(Maybe Bool)
+    , _cdbiAvailabilityZone :: Maybe Text
+    , _cdbiDBSubnetGroupName :: Maybe Text
+    , _cdbiPreferredMaintenanceWindow :: Maybe Text
+    , _cdbiDBParameterGroupName :: Maybe Text
+    , _cdbiBackupRetentionPeriod :: Maybe Integer
+    , _cdbiPreferredBackupWindow :: Maybe Text
+    , _cdbiPort :: Maybe Integer
+    , _cdbiMultiAZ :: Maybe Bool
+    , _cdbiEngineVersion :: Maybe Text
+    , _cdbiAutoMinorVersionUpgrade :: Maybe Bool
+    , _cdbiLicenseModel :: Maybe Text
+    , _cdbiIops :: Maybe Integer
+    , _cdbiOptionGroupName :: Maybe Text
+    , _cdbiCharacterSetName :: Maybe Text
+    , _cdbiPubliclyAccessible :: Maybe Bool
     , _cdbiTags :: [Tag]
     } deriving (Show, Generic)
 

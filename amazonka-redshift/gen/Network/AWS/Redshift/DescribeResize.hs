@@ -93,18 +93,18 @@ instance ToQuery DescribeResize where
 
 -- | Describes the result of a cluster resize operation.
 data DescribeResizeResponse = DescribeResizeResponse
-    { _drrTargetNodeType :: !(Maybe Text)
-    , _drrTargetNumberOfNodes :: !(Maybe Integer)
-    , _drrTargetClusterType :: !(Maybe Text)
-    , _drrStatus :: !(Maybe Text)
+    { _drrTargetNodeType :: Maybe Text
+    , _drrTargetNumberOfNodes :: Maybe Integer
+    , _drrTargetClusterType :: Maybe Text
+    , _drrStatus :: Maybe Text
     , _drrImportTablesCompleted :: [Text]
     , _drrImportTablesInProgress :: [Text]
     , _drrImportTablesNotStarted :: [Text]
-    , _drrAvgResizeRateInMegaBytesPerSecond :: !(Maybe Double)
-    , _drrTotalResizeDataInMegaBytes :: !(Maybe Integer)
-    , _drrProgressInMegaBytes :: !(Maybe Integer)
-    , _drrElapsedTimeInSeconds :: !(Maybe Integer)
-    , _drrEstimatedTimeToCompletionInSeconds :: !(Maybe Integer)
+    , _drrAvgResizeRateInMegaBytesPerSecond :: Maybe Double
+    , _drrTotalResizeDataInMegaBytes :: Maybe Integer
+    , _drrProgressInMegaBytes :: Maybe Integer
+    , _drrElapsedTimeInSeconds :: Maybe Integer
+    , _drrEstimatedTimeToCompletionInSeconds :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

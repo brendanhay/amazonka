@@ -64,14 +64,14 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
-    { _rsgiGroupName :: !(Maybe Text)
-    , _rsgiGroupId :: !(Maybe Text)
-    , _rsgiSourceSecurityGroupName :: !(Maybe Text)
-    , _rsgiSourceSecurityGroupOwnerId :: !(Maybe Text)
-    , _rsgiIpProtocol :: !(Maybe Text)
-    , _rsgiFromPort :: !(Maybe Integer)
-    , _rsgiToPort :: !(Maybe Integer)
-    , _rsgiCidrIp :: !(Maybe Text)
+    { _rsgiGroupName :: Maybe Text
+    , _rsgiGroupId :: Maybe Text
+    , _rsgiSourceSecurityGroupName :: Maybe Text
+    , _rsgiSourceSecurityGroupOwnerId :: Maybe Text
+    , _rsgiIpProtocol :: Maybe Text
+    , _rsgiFromPort :: Maybe Integer
+    , _rsgiToPort :: Maybe Integer
+    , _rsgiCidrIp :: Maybe Text
     , _rsgiIpPermissions :: [IpPermission]
     } deriving (Show, Generic)
 

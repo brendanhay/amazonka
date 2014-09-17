@@ -68,21 +68,21 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a ModifyReplicationGroups operation.
 data ModifyReplicationGroup = ModifyReplicationGroup
-    { _mrgReplicationGroupId :: !Text
-    , _mrgReplicationGroupDescription :: !(Maybe Text)
+    { _mrgReplicationGroupId :: Text
+    , _mrgReplicationGroupDescription :: Maybe Text
     , _mrgCacheSecurityGroupNames :: [Text]
     , _mrgSecurityGroupIds :: [Text]
-    , _mrgPreferredMaintenanceWindow :: !(Maybe Text)
-    , _mrgNotificationTopicArn :: !(Maybe Text)
-    , _mrgCacheParameterGroupName :: !(Maybe Text)
-    , _mrgNotificationTopicStatus :: !(Maybe Text)
-    , _mrgApplyImmediately :: !(Maybe Bool)
-    , _mrgEngineVersion :: !(Maybe Text)
-    , _mrgAutoMinorVersionUpgrade :: !(Maybe Bool)
-    , _mrgPrimaryClusterId :: !(Maybe Text)
-    , _mrgSnapshotRetentionLimit :: !(Maybe Integer)
-    , _mrgSnapshotWindow :: !(Maybe Text)
-    , _mrgSnapshottingClusterId :: !(Maybe Text)
+    , _mrgPreferredMaintenanceWindow :: Maybe Text
+    , _mrgNotificationTopicArn :: Maybe Text
+    , _mrgCacheParameterGroupName :: Maybe Text
+    , _mrgNotificationTopicStatus :: Maybe Text
+    , _mrgApplyImmediately :: Maybe Bool
+    , _mrgEngineVersion :: Maybe Text
+    , _mrgAutoMinorVersionUpgrade :: Maybe Bool
+    , _mrgPrimaryClusterId :: Maybe Text
+    , _mrgSnapshotRetentionLimit :: Maybe Integer
+    , _mrgSnapshotWindow :: Maybe Text
+    , _mrgSnapshottingClusterId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -47,8 +47,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data EnableVgwRoutePropagation = EnableVgwRoutePropagation
-    { _evrpRouteTableId :: !Text
-    , _evrpGatewayId :: !Text
+    { _evrpRouteTableId :: Text
+    , _evrpGatewayId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

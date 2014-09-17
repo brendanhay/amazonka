@@ -56,7 +56,7 @@ import Network.AWS.Prelude
 
 -- | 
 data ModifyClusterParameterGroup = ModifyClusterParameterGroup
-    { _mcpgParameterGroupName :: !Text
+    { _mcpgParameterGroupName :: Text
     , _mcpgParameters :: [Parameter]
     } deriving (Show, Generic)
 
@@ -98,8 +98,8 @@ instance ToQuery ModifyClusterParameterGroup where
 -- ResetClusterParameterGroup actions and indicate the parameter group
 -- involved and the status of the operation on the parameter group.
 data ModifyClusterParameterGroupResponse = ModifyClusterParameterGroupResponse
-    { _mcpgrParameterGroupName :: !(Maybe Text)
-    , _mcpgrParameterGroupStatus :: !(Maybe Text)
+    { _mcpgrParameterGroupName :: Maybe Text
+    , _mcpgrParameterGroupStatus :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -83,7 +83,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeInstanceAttribute = DescribeInstanceAttribute
-    { _dia1InstanceId :: !Text
+    { _dia1InstanceId :: Text
     , _dia1Attribute :: InstanceAttributeName
     } deriving (Show, Generic)
 
@@ -116,7 +116,7 @@ instance ToQuery DescribeInstanceAttribute where
     toQuery = genericQuery def
 
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
-    { _diarrInstanceId :: !(Maybe Text)
+    { _diarrInstanceId :: Maybe Text
     , _diarrInstanceType :: Maybe AttributeValue
     , _diarrKernelId :: Maybe AttributeValue
     , _diarrRamdiskId :: Maybe AttributeValue

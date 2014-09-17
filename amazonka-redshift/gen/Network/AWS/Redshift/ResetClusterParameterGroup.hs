@@ -56,8 +56,8 @@ import Network.AWS.Prelude
 
 -- | 
 data ResetClusterParameterGroup = ResetClusterParameterGroup
-    { _rcpgParameterGroupName :: !Text
-    , _rcpgResetAllParameters :: !(Maybe Bool)
+    { _rcpgParameterGroupName :: Text
+    , _rcpgResetAllParameters :: Maybe Bool
     , _rcpgParameters :: [Parameter]
     } deriving (Show, Generic)
 
@@ -104,8 +104,8 @@ instance ToQuery ResetClusterParameterGroup where
 -- ResetClusterParameterGroup actions and indicate the parameter group
 -- involved and the status of the operation on the parameter group.
 data ResetClusterParameterGroupResponse = ResetClusterParameterGroupResponse
-    { _rcpgrParameterGroupName :: !(Maybe Text)
-    , _rcpgrParameterGroupStatus :: !(Maybe Text)
+    { _rcpgrParameterGroupName :: Maybe Text
+    , _rcpgrParameterGroupStatus :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

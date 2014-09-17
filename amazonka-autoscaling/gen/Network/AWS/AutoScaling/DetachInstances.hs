@@ -54,7 +54,7 @@ import Network.AWS.Prelude
 
 data DetachInstances = DetachInstances
     { _diInstanceIds :: [Text]
-    , _diAutoScalingGroupName :: !Text
+    , _diAutoScalingGroupName :: Text
     , _diShouldDecrementDesiredCapacity :: !Bool
     } deriving (Show, Generic)
 

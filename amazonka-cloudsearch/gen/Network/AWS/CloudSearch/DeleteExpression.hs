@@ -45,8 +45,8 @@ import Network.AWS.Prelude
 -- the name of the domain you want to update and the name of the expression
 -- you want to delete.
 data DeleteExpression = DeleteExpression
-    { _de1DomainName :: !Text
-    , _de1ExpressionName :: !Text
+    { _de1DomainName :: Text
+    , _de1ExpressionName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

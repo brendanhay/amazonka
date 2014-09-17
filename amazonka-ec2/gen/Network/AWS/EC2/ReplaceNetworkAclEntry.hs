@@ -57,12 +57,12 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
-    { _rnaeNetworkAclId :: !Text
+    { _rnaeNetworkAclId :: Text
     , _rnaeRuleNumber :: !Integer
-    , _rnaeProtocol :: !Text
+    , _rnaeProtocol :: Text
     , _rnaeRuleAction :: RuleAction
     , _rnaeEgress :: !Bool
-    , _rnaeCidrBlock :: !Text
+    , _rnaeCidrBlock :: Text
     , _rnaeIcmpTypeCode :: Maybe IcmpTypeCode
     , _rnaePortRange :: Maybe PortRange
     } deriving (Show, Generic)

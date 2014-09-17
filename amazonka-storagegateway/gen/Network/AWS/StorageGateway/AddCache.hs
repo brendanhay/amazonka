@@ -60,7 +60,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data AddCache = AddCache
-    { _acGatewayARN :: !Text
+    { _acGatewayARN :: Text
     , _acDiskIds :: [Text]
     } deriving (Show, Generic)
 

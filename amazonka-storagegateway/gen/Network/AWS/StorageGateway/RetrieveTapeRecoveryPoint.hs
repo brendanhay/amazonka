@@ -40,8 +40,8 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint
-    { _rtrpTapeARN :: !Text
-    , _rtrpGatewayARN :: !Text
+    { _rtrpTapeARN :: Text
+    , _rtrpGatewayARN :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

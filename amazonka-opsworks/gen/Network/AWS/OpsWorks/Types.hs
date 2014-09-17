@@ -914,19 +914,19 @@ instance ToJSON StackAttributesKeys
 
 -- | A description of the app.
 data App = App
-    { _aAppId :: !(Maybe Text)
-    , _aStackId :: !(Maybe Text)
-    , _aShortname :: !(Maybe Text)
-    , _aName :: !(Maybe Text)
-    , _aDescription :: !(Maybe Text)
+    { _aAppId :: Maybe Text
+    , _aStackId :: Maybe Text
+    , _aShortname :: Maybe Text
+    , _aName :: Maybe Text
+    , _aDescription :: Maybe Text
     , _aDataSources :: [DataSource]
     , _aType :: Maybe AppType
     , _aAppSource :: Maybe Source
     , _aDomains :: [Text]
-    , _aEnableSsl :: !(Maybe Bool)
+    , _aEnableSsl :: Maybe Bool
     , _aSslConfiguration :: Maybe SslConfiguration
     , _aAttributes :: Map AppAttributesKeys Text
-    , _aCreatedAt :: !(Maybe Text)
+    , _aCreatedAt :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1040,12 +1040,12 @@ instance FromJSON App
 -- configuration, which defines how and when AWS OpsWorks increases the number
 -- of instances.
 data AutoScalingThresholds = AutoScalingThresholds
-    { _astInstanceCount :: !(Maybe Integer)
-    , _astThresholdsWaitTime :: !(Maybe Integer)
-    , _astIgnoreMetricsTime :: !(Maybe Integer)
-    , _astCpuThreshold :: !(Maybe Double)
-    , _astMemoryThreshold :: !(Maybe Double)
-    , _astLoadThreshold :: !(Maybe Double)
+    { _astInstanceCount :: Maybe Integer
+    , _astThresholdsWaitTime :: Maybe Integer
+    , _astIgnoreMetricsTime :: Maybe Integer
+    , _astCpuThreshold :: Maybe Double
+    , _astMemoryThreshold :: Maybe Double
+    , _astLoadThreshold :: Maybe Double
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1121,8 +1121,8 @@ instance ToJSON AutoScalingThresholds
 -- the Berkshelf version on Chef 11.10 stacks. For more information, see
 -- Create a New Stack.
 data ChefConfiguration = ChefConfiguration
-    { _ccManageBerkshelf :: !(Maybe Bool)
-    , _ccBerkshelfVersion :: !(Maybe Text)
+    { _ccManageBerkshelf :: Maybe Bool
+    , _ccBerkshelfVersion :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1156,16 +1156,16 @@ instance ToJSON ChefConfiguration
 
 -- | Describes a command.
 data Command = Command
-    { _cCommandId :: !(Maybe Text)
-    , _cInstanceId :: !(Maybe Text)
-    , _cDeploymentId :: !(Maybe Text)
-    , _cCreatedAt :: !(Maybe Text)
-    , _cAcknowledgedAt :: !(Maybe Text)
-    , _cCompletedAt :: !(Maybe Text)
-    , _cStatus :: !(Maybe Text)
-    , _cExitCode :: !(Maybe Integer)
-    , _cLogUrl :: !(Maybe Text)
-    , _cType :: !(Maybe Text)
+    { _cCommandId :: Maybe Text
+    , _cInstanceId :: Maybe Text
+    , _cDeploymentId :: Maybe Text
+    , _cCreatedAt :: Maybe Text
+    , _cAcknowledgedAt :: Maybe Text
+    , _cCompletedAt :: Maybe Text
+    , _cStatus :: Maybe Text
+    , _cExitCode :: Maybe Integer
+    , _cLogUrl :: Maybe Text
+    , _cType :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1256,9 +1256,9 @@ instance FromJSON Command
 
 -- | Describes an app's data source.
 data DataSource = DataSource
-    { _dsType :: !(Maybe Text)
-    , _dsArn :: !(Maybe Text)
-    , _dsDatabaseName :: !(Maybe Text)
+    { _dsType :: Maybe Text
+    , _dsArn :: Maybe Text
+    , _dsDatabaseName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1298,17 +1298,17 @@ instance ToJSON DataSource
 
 -- | Describes a deployment of a stack or app.
 data Deployment = Deployment
-    { _dDeploymentId :: !(Maybe Text)
-    , _dStackId :: !(Maybe Text)
-    , _dAppId :: !(Maybe Text)
-    , _dCreatedAt :: !(Maybe Text)
-    , _dCompletedAt :: !(Maybe Text)
-    , _dDuration :: !(Maybe Integer)
-    , _dIamUserArn :: !(Maybe Text)
-    , _dComment :: !(Maybe Text)
+    { _dDeploymentId :: Maybe Text
+    , _dStackId :: Maybe Text
+    , _dAppId :: Maybe Text
+    , _dCreatedAt :: Maybe Text
+    , _dCompletedAt :: Maybe Text
+    , _dDuration :: Maybe Integer
+    , _dIamUserArn :: Maybe Text
+    , _dComment :: Maybe Text
     , _dCommand :: Maybe DeploymentCommand
-    , _dStatus :: !(Maybe Text)
-    , _dCustomJson :: !(Maybe Text)
+    , _dStatus :: Maybe Text
+    , _dCustomJson :: Maybe Text
     , _dInstanceIds :: [Text]
     } deriving (Show, Generic)
 
@@ -1468,11 +1468,11 @@ instance ToJSON DeploymentCommand
 
 -- | Describes an Elastic IP address.
 data ElasticIp = ElasticIp
-    { _eiIp :: !(Maybe Text)
-    , _eiName :: !(Maybe Text)
-    , _eiDomain :: !(Maybe Text)
-    , _eiRegion :: !(Maybe Text)
-    , _eiInstanceId :: !(Maybe Text)
+    { _eiIp :: Maybe Text
+    , _eiName :: Maybe Text
+    , _eiDomain :: Maybe Text
+    , _eiRegion :: Maybe Text
+    , _eiInstanceId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1526,12 +1526,12 @@ instance FromJSON ElasticIp
 
 -- | Describes an Elastic Load Balancing instance.
 data ElasticLoadBalancer = ElasticLoadBalancer
-    { _elbElasticLoadBalancerName :: !(Maybe Text)
-    , _elbRegion :: !(Maybe Text)
-    , _elbDnsName :: !(Maybe Text)
-    , _elbStackId :: !(Maybe Text)
-    , _elbLayerId :: !(Maybe Text)
-    , _elbVpcId :: !(Maybe Text)
+    { _elbElasticLoadBalancerName :: Maybe Text
+    , _elbRegion :: Maybe Text
+    , _elbDnsName :: Maybe Text
+    , _elbStackId :: Maybe Text
+    , _elbLayerId :: Maybe Text
+    , _elbVpcId :: Maybe Text
     , _elbAvailabilityZones :: [Text]
     , _elbSubnetIds :: [Text]
     , _elbEc2InstanceIds :: [Text]
@@ -1621,36 +1621,36 @@ instance FromJSON ElasticLoadBalancer
 
 -- | Describes an instance.
 data Instance = Instance
-    { _iInstanceId :: !(Maybe Text)
-    , _iEc2InstanceId :: !(Maybe Text)
-    , _iVirtualizationType :: !(Maybe Text)
-    , _iHostname :: !(Maybe Text)
-    , _iStackId :: !(Maybe Text)
+    { _iInstanceId :: Maybe Text
+    , _iEc2InstanceId :: Maybe Text
+    , _iVirtualizationType :: Maybe Text
+    , _iHostname :: Maybe Text
+    , _iStackId :: Maybe Text
     , _iLayerIds :: [Text]
     , _iSecurityGroupIds :: [Text]
-    , _iInstanceType :: !(Maybe Text)
-    , _iInstanceProfileArn :: !(Maybe Text)
-    , _iStatus :: !(Maybe Text)
-    , _iOs :: !(Maybe Text)
-    , _iAmiId :: !(Maybe Text)
-    , _iAvailabilityZone :: !(Maybe Text)
-    , _iSubnetId :: !(Maybe Text)
-    , _iPublicDns :: !(Maybe Text)
-    , _iPrivateDns :: !(Maybe Text)
-    , _iPublicIp :: !(Maybe Text)
-    , _iPrivateIp :: !(Maybe Text)
-    , _iElasticIp :: !(Maybe Text)
+    , _iInstanceType :: Maybe Text
+    , _iInstanceProfileArn :: Maybe Text
+    , _iStatus :: Maybe Text
+    , _iOs :: Maybe Text
+    , _iAmiId :: Maybe Text
+    , _iAvailabilityZone :: Maybe Text
+    , _iSubnetId :: Maybe Text
+    , _iPublicDns :: Maybe Text
+    , _iPrivateDns :: Maybe Text
+    , _iPublicIp :: Maybe Text
+    , _iPrivateIp :: Maybe Text
+    , _iElasticIp :: Maybe Text
     , _iAutoScalingType :: Maybe AutoScalingType
-    , _iSshKeyName :: !(Maybe Text)
-    , _iSshHostRsaKeyFingerprint :: !(Maybe Text)
-    , _iSshHostDsaKeyFingerprint :: !(Maybe Text)
-    , _iCreatedAt :: !(Maybe Text)
-    , _iLastServiceErrorId :: !(Maybe Text)
+    , _iSshKeyName :: Maybe Text
+    , _iSshHostRsaKeyFingerprint :: Maybe Text
+    , _iSshHostDsaKeyFingerprint :: Maybe Text
+    , _iCreatedAt :: Maybe Text
+    , _iLastServiceErrorId :: Maybe Text
     , _iArchitecture :: Maybe Architecture
     , _iRootDeviceType :: Maybe RootDeviceType
-    , _iRootDeviceVolumeId :: !(Maybe Text)
-    , _iInstallUpdatesOnBoot :: !(Maybe Bool)
-    , _iEbsOptimized :: !(Maybe Bool)
+    , _iRootDeviceVolumeId :: Maybe Text
+    , _iInstallUpdatesOnBoot :: Maybe Bool
+    , _iEbsOptimized :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1912,20 +1912,20 @@ instance FromJSON Instance
 
 -- | An InstancesCount object with the number of instances in each status.
 data InstancesCount = InstancesCount
-    { _icBooting :: !(Maybe Integer)
-    , _icConnectionLost :: !(Maybe Integer)
-    , _icOnline :: !(Maybe Integer)
-    , _icPending :: !(Maybe Integer)
-    , _icRebooting :: !(Maybe Integer)
-    , _icRequested :: !(Maybe Integer)
-    , _icRunningSetup :: !(Maybe Integer)
-    , _icSetupFailed :: !(Maybe Integer)
-    , _icShuttingDown :: !(Maybe Integer)
-    , _icStartFailed :: !(Maybe Integer)
-    , _icStopped :: !(Maybe Integer)
-    , _icStopping :: !(Maybe Integer)
-    , _icTerminated :: !(Maybe Integer)
-    , _icTerminating :: !(Maybe Integer)
+    { _icBooting :: Maybe Integer
+    , _icConnectionLost :: Maybe Integer
+    , _icOnline :: Maybe Integer
+    , _icPending :: Maybe Integer
+    , _icRebooting :: Maybe Integer
+    , _icRequested :: Maybe Integer
+    , _icRunningSetup :: Maybe Integer
+    , _icSetupFailed :: Maybe Integer
+    , _icShuttingDown :: Maybe Integer
+    , _icStartFailed :: Maybe Integer
+    , _icStopped :: Maybe Integer
+    , _icStopping :: Maybe Integer
+    , _icTerminated :: Maybe Integer
+    , _icTerminating :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2043,25 +2043,25 @@ instance FromJSON InstancesCount
 
 -- | Describes a layer.
 data Layer = Layer
-    { _lStackId :: !(Maybe Text)
-    , _lLayerId :: !(Maybe Text)
+    { _lStackId :: Maybe Text
+    , _lLayerId :: Maybe Text
     , _lType :: Maybe LayerType
-    , _lName :: !(Maybe Text)
-    , _lShortname :: !(Maybe Text)
+    , _lName :: Maybe Text
+    , _lShortname :: Maybe Text
     , _lAttributes :: Map LayerAttributesKeys Text
-    , _lCustomInstanceProfileArn :: !(Maybe Text)
+    , _lCustomInstanceProfileArn :: Maybe Text
     , _lCustomSecurityGroupIds :: [Text]
     , _lDefaultSecurityGroupNames :: [Text]
     , _lPackages :: [Text]
     , _lVolumeConfigurations :: [VolumeConfiguration]
-    , _lEnableAutoHealing :: !(Maybe Bool)
-    , _lAutoAssignElasticIps :: !(Maybe Bool)
-    , _lAutoAssignPublicIps :: !(Maybe Bool)
+    , _lEnableAutoHealing :: Maybe Bool
+    , _lAutoAssignElasticIps :: Maybe Bool
+    , _lAutoAssignPublicIps :: Maybe Bool
     , _lDefaultRecipes :: Maybe Recipes
     , _lCustomRecipes :: Maybe Recipes
-    , _lCreatedAt :: !(Maybe Text)
-    , _lInstallUpdatesOnBoot :: !(Maybe Bool)
-    , _lUseEbsOptimizedInstances :: !(Maybe Bool)
+    , _lCreatedAt :: Maybe Text
+    , _lInstallUpdatesOnBoot :: Maybe Bool
+    , _lUseEbsOptimizedInstances :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2248,8 +2248,8 @@ instance FromJSON Layer
 
 -- | Describes a layer's load-based auto scaling configuration.
 data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration
-    { _lbascLayerId :: !(Maybe Text)
-    , _lbascEnable :: !(Maybe Bool)
+    { _lbascLayerId :: Maybe Text
+    , _lbascEnable :: Maybe Bool
     , _lbascUpScaling :: Maybe AutoScalingThresholds
     , _lbascDownScaling :: Maybe AutoScalingThresholds
     } deriving (Show, Generic)
@@ -2303,11 +2303,11 @@ instance FromJSON LoadBasedAutoScalingConfiguration
 
 -- | Describes stack or user permissions.
 data Permission = Permission
-    { _pStackId :: !(Maybe Text)
-    , _pIamUserArn :: !(Maybe Text)
-    , _pAllowSsh :: !(Maybe Bool)
-    , _pAllowSudo :: !(Maybe Bool)
-    , _pLevel :: !(Maybe Text)
+    { _pStackId :: Maybe Text
+    , _pIamUserArn :: Maybe Text
+    , _pAllowSsh :: Maybe Bool
+    , _pAllowSudo :: Maybe Bool
+    , _pLevel :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2364,18 +2364,18 @@ instance FromJSON Permission
 
 -- | Describes an instance's RAID array.
 data RaidArray = RaidArray
-    { _raRaidArrayId :: !(Maybe Text)
-    , _raInstanceId :: !(Maybe Text)
-    , _raName :: !(Maybe Text)
-    , _raRaidLevel :: !(Maybe Integer)
-    , _raNumberOfDisks :: !(Maybe Integer)
-    , _raSize :: !(Maybe Integer)
-    , _raDevice :: !(Maybe Text)
-    , _raMountPoint :: !(Maybe Text)
-    , _raAvailabilityZone :: !(Maybe Text)
-    , _raCreatedAt :: !(Maybe Text)
-    , _raVolumeType :: !(Maybe Text)
-    , _raIops :: !(Maybe Integer)
+    { _raRaidArrayId :: Maybe Text
+    , _raInstanceId :: Maybe Text
+    , _raName :: Maybe Text
+    , _raRaidLevel :: Maybe Integer
+    , _raNumberOfDisks :: Maybe Integer
+    , _raSize :: Maybe Integer
+    , _raDevice :: Maybe Text
+    , _raMountPoint :: Maybe Text
+    , _raAvailabilityZone :: Maybe Text
+    , _raCreatedAt :: Maybe Text
+    , _raVolumeType :: Maybe Text
+    , _raIops :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2480,15 +2480,15 @@ instance FromJSON RaidArray
 
 -- | Describes an Amazon RDS instance.
 data RdsDbInstance = RdsDbInstance
-    { _rdiRdsDbInstanceArn :: !(Maybe Text)
-    , _rdiDbInstanceIdentifier :: !(Maybe Text)
-    , _rdiDbUser :: !(Maybe Text)
-    , _rdiDbPassword :: !(Maybe Text)
-    , _rdiRegion :: !(Maybe Text)
-    , _rdiAddress :: !(Maybe Text)
-    , _rdiEngine :: !(Maybe Text)
-    , _rdiStackId :: !(Maybe Text)
-    , _rdiMissingOnRds :: !(Maybe Bool)
+    { _rdiRdsDbInstanceArn :: Maybe Text
+    , _rdiDbInstanceIdentifier :: Maybe Text
+    , _rdiDbUser :: Maybe Text
+    , _rdiDbPassword :: Maybe Text
+    , _rdiRegion :: Maybe Text
+    , _rdiAddress :: Maybe Text
+    , _rdiEngine :: Maybe Text
+    , _rdiStackId :: Maybe Text
+    , _rdiMissingOnRds :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2632,10 +2632,10 @@ instance ToJSON Recipes
 
 -- | A UserProfile object that describes the user's SSH information.
 data SelfUserProfile = SelfUserProfile
-    { _supIamUserArn :: !(Maybe Text)
-    , _supName :: !(Maybe Text)
-    , _supSshUsername :: !(Maybe Text)
-    , _supSshPublicKey :: !(Maybe Text)
+    { _supIamUserArn :: Maybe Text
+    , _supName :: Maybe Text
+    , _supSshUsername :: Maybe Text
+    , _supSshPublicKey :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2682,12 +2682,12 @@ instance FromJSON SelfUserProfile
 
 -- | Describes an AWS OpsWorks service error.
 data ServiceError = ServiceError
-    { _seServiceErrorId :: !(Maybe Text)
-    , _seStackId :: !(Maybe Text)
-    , _seInstanceId :: !(Maybe Text)
-    , _seType :: !(Maybe Text)
-    , _seMessage :: !(Maybe Text)
-    , _seCreatedAt :: !(Maybe Text)
+    { _seServiceErrorId :: Maybe Text
+    , _seStackId :: Maybe Text
+    , _seInstanceId :: Maybe Text
+    , _seType :: Maybe Text
+    , _seMessage :: Maybe Text
+    , _seCreatedAt :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2752,11 +2752,11 @@ instance FromJSON ServiceError
 -- Cookbooks.
 data Source = Source
     { _sType :: Maybe SourceType
-    , _sUrl :: !(Maybe Text)
-    , _sUsername :: !(Maybe Text)
-    , _sPassword :: !(Maybe Text)
-    , _sSshKey :: !(Maybe Text)
-    , _sRevision :: !(Maybe Text)
+    , _sUrl :: Maybe Text
+    , _sUsername :: Maybe Text
+    , _sPassword :: Maybe Text
+    , _sSshKey :: Maybe Text
+    , _sRevision :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2824,9 +2824,9 @@ instance ToJSON Source
 
 -- | An SslConfiguration object with the SSL configuration.
 data SslConfiguration = SslConfiguration
-    { _scCertificate :: !Text
-    , _scPrivateKey :: !Text
-    , _scChain :: !(Maybe Text)
+    { _scCertificate :: Text
+    , _scPrivateKey :: Text
+    , _scChain :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2868,26 +2868,26 @@ instance ToJSON SslConfiguration
 
 -- | Describes a stack.
 data Stack = Stack
-    { _srStackId :: !(Maybe Text)
-    , _srName :: !(Maybe Text)
-    , _srArn :: !(Maybe Text)
-    , _srRegion :: !(Maybe Text)
-    , _srVpcId :: !(Maybe Text)
+    { _srStackId :: Maybe Text
+    , _srName :: Maybe Text
+    , _srArn :: Maybe Text
+    , _srRegion :: Maybe Text
+    , _srVpcId :: Maybe Text
     , _srAttributes :: Map StackAttributesKeys Text
-    , _srServiceRoleArn :: !(Maybe Text)
-    , _srDefaultInstanceProfileArn :: !(Maybe Text)
-    , _srDefaultOs :: !(Maybe Text)
-    , _srHostnameTheme :: !(Maybe Text)
-    , _srDefaultAvailabilityZone :: !(Maybe Text)
-    , _srDefaultSubnetId :: !(Maybe Text)
-    , _srCustomJson :: !(Maybe Text)
+    , _srServiceRoleArn :: Maybe Text
+    , _srDefaultInstanceProfileArn :: Maybe Text
+    , _srDefaultOs :: Maybe Text
+    , _srHostnameTheme :: Maybe Text
+    , _srDefaultAvailabilityZone :: Maybe Text
+    , _srDefaultSubnetId :: Maybe Text
+    , _srCustomJson :: Maybe Text
     , _srConfigurationManager :: Maybe StackConfigurationManager
     , _srChefConfiguration :: Maybe ChefConfiguration
-    , _srUseCustomCookbooks :: !(Maybe Bool)
-    , _srUseOpsworksSecurityGroups :: !(Maybe Bool)
+    , _srUseCustomCookbooks :: Maybe Bool
+    , _srUseOpsworksSecurityGroups :: Maybe Bool
     , _srCustomCookbooksSource :: Maybe Source
-    , _srDefaultSshKeyName :: !(Maybe Text)
-    , _srCreatedAt :: !(Maybe Text)
+    , _srDefaultSshKeyName :: Maybe Text
+    , _srCreatedAt :: Maybe Text
     , _srDefaultRootDeviceType :: Maybe RootDeviceType
     } deriving (Show, Generic)
 
@@ -3088,8 +3088,8 @@ instance FromJSON Stack
 -- the configuration manager to specify the Chef version, 0.9, 11.4, or 11.10.
 -- The default value is currently 11.4.
 data StackConfigurationManager = StackConfigurationManager
-    { _scmName :: !(Maybe Text)
-    , _scmVersion :: !(Maybe Text)
+    { _scmName :: Maybe Text
+    , _scmVersion :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3122,11 +3122,11 @@ instance ToJSON StackConfigurationManager
 
 -- | A StackSummary object that contains the results.
 data StackSummary = StackSummary
-    { _ssStackId :: !(Maybe Text)
-    , _ssName :: !(Maybe Text)
-    , _ssArn :: !(Maybe Text)
-    , _ssLayersCount :: !(Maybe Integer)
-    , _ssAppsCount :: !(Maybe Integer)
+    { _ssStackId :: Maybe Text
+    , _ssName :: Maybe Text
+    , _ssArn :: Maybe Text
+    , _ssLayersCount :: Maybe Integer
+    , _ssAppsCount :: Maybe Integer
     , _ssInstancesCount :: Maybe InstancesCount
     } deriving (Show, Generic)
 
@@ -3189,7 +3189,7 @@ instance FromJSON StackSummary
 
 -- | Describes an instance's time-based auto scaling configuration.
 data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration
-    { _tbascInstanceId :: !(Maybe Text)
+    { _tbascInstanceId :: Maybe Text
     , _tbascAutoScalingSchedule :: Maybe WeeklyAutoScalingSchedule
     } deriving (Show, Generic)
 
@@ -3225,11 +3225,11 @@ instance FromJSON TimeBasedAutoScalingConfiguration
 
 -- | Describes a user's SSH information.
 data UserProfile = UserProfile
-    { _upIamUserArn :: !(Maybe Text)
-    , _upName :: !(Maybe Text)
-    , _upSshUsername :: !(Maybe Text)
-    , _upSshPublicKey :: !(Maybe Text)
-    , _upAllowSelfManagement :: !(Maybe Bool)
+    { _upIamUserArn :: Maybe Text
+    , _upName :: Maybe Text
+    , _upSshUsername :: Maybe Text
+    , _upSshPublicKey :: Maybe Text
+    , _upAllowSelfManagement :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3285,19 +3285,19 @@ instance FromJSON UserProfile
 
 -- | Describes an instance's Amazon EBS volume.
 data Volume = Volume
-    { _vVolumeId :: !(Maybe Text)
-    , _vEc2VolumeId :: !(Maybe Text)
-    , _vName :: !(Maybe Text)
-    , _vRaidArrayId :: !(Maybe Text)
-    , _vInstanceId :: !(Maybe Text)
-    , _vStatus :: !(Maybe Text)
-    , _vSize :: !(Maybe Integer)
-    , _vDevice :: !(Maybe Text)
-    , _vMountPoint :: !(Maybe Text)
-    , _vRegion :: !(Maybe Text)
-    , _vAvailabilityZone :: !(Maybe Text)
-    , _vVolumeType :: !(Maybe Text)
-    , _vIops :: !(Maybe Integer)
+    { _vVolumeId :: Maybe Text
+    , _vEc2VolumeId :: Maybe Text
+    , _vName :: Maybe Text
+    , _vRaidArrayId :: Maybe Text
+    , _vInstanceId :: Maybe Text
+    , _vStatus :: Maybe Text
+    , _vSize :: Maybe Integer
+    , _vDevice :: Maybe Text
+    , _vMountPoint :: Maybe Text
+    , _vRegion :: Maybe Text
+    , _vAvailabilityZone :: Maybe Text
+    , _vVolumeType :: Maybe Text
+    , _vIops :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3410,12 +3410,12 @@ instance FromJSON Volume
 
 -- | Describes an Amazon EBS volume configuration.
 data VolumeConfiguration = VolumeConfiguration
-    { _vcMountPoint :: !Text
-    , _vcRaidLevel :: !(Maybe Integer)
+    { _vcMountPoint :: Text
+    , _vcRaidLevel :: Maybe Integer
     , _vcNumberOfDisks :: !Integer
     , _vcSize :: !Integer
-    , _vcVolumeType :: !(Maybe Text)
-    , _vcIops :: !(Maybe Integer)
+    , _vcVolumeType :: Maybe Text
+    , _vcIops :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

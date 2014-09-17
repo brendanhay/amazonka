@@ -63,14 +63,14 @@ import Network.AWS.AutoScaling.Types
 import Network.AWS.Prelude
 
 data PutLifecycleHook = PutLifecycleHook
-    { _plhLifecycleHookName :: !Text
-    , _plhAutoScalingGroupName :: !Text
-    , _plhLifecycleTransition :: !(Maybe Text)
-    , _plhRoleARN :: !(Maybe Text)
-    , _plhNotificationTargetARN :: !(Maybe Text)
-    , _plhNotificationMetadata :: !(Maybe Text)
-    , _plhHeartbeatTimeout :: !(Maybe Integer)
-    , _plhDefaultResult :: !(Maybe Text)
+    { _plhLifecycleHookName :: Text
+    , _plhAutoScalingGroupName :: Text
+    , _plhLifecycleTransition :: Maybe Text
+    , _plhRoleARN :: Maybe Text
+    , _plhNotificationTargetARN :: Maybe Text
+    , _plhNotificationMetadata :: Maybe Text
+    , _plhHeartbeatTimeout :: Maybe Integer
+    , _plhDefaultResult :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

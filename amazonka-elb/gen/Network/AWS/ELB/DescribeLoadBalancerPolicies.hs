@@ -59,7 +59,7 @@ import Network.AWS.ELB.Types
 import Network.AWS.Prelude
 
 data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies
-    { _dlbp1LoadBalancerName :: !(Maybe Text)
+    { _dlbp1LoadBalancerName :: Maybe Text
     , _dlbp1PolicyNames :: [Text]
     } deriving (Show, Generic)
 

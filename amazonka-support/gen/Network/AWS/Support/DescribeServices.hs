@@ -51,7 +51,7 @@ import Network.AWS.Request.JSON
 
 data DescribeServices = DescribeServices
     { _dsServiceCodeList :: [Text]
-    , _dsLanguage :: !(Maybe Text)
+    , _dsLanguage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

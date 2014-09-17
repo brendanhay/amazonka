@@ -59,8 +59,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data CreateSAMLProvider = CreateSAMLProvider
-    { _csamlpSAMLMetadataDocument :: !Text
-    , _csamlpName :: !Text
+    { _csamlpSAMLMetadataDocument :: Text
+    , _csamlpName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

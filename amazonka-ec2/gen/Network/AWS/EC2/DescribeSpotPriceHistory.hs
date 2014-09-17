@@ -73,14 +73,14 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeSpotPriceHistory = DescribeSpotPriceHistory
-    { _dsphStartTime :: !(Maybe ISO8601)
-    , _dsphEndTime :: !(Maybe ISO8601)
+    { _dsphStartTime :: Maybe ISO8601
+    , _dsphEndTime :: Maybe ISO8601
     , _dsphInstanceTypes :: [InstanceType]
     , _dsphProductDescriptions :: [Text]
     , _dsphFilters :: [Filter]
-    , _dsphAvailabilityZone :: !(Maybe Text)
-    , _dsphMaxResults :: !(Maybe Integer)
-    , _dsphNextToken :: !(Maybe Text)
+    , _dsphAvailabilityZone :: Maybe Text
+    , _dsphMaxResults :: Maybe Integer
+    , _dsphNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -165,7 +165,7 @@ instance ToQuery DescribeSpotPriceHistory where
 
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
     { _dsphrSpotPriceHistory :: [SpotPrice]
-    , _dsphrNextToken :: !(Maybe Text)
+    , _dsphrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

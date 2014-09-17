@@ -74,11 +74,11 @@ import Network.AWS.Prelude
 -- consisting of source, destination, message, reply-to, and return-path
 -- parts. This object can then be sent using the SendEmail action.
 data SendEmail = SendEmail
-    { _seSource :: !Text
+    { _seSource :: Text
     , _seDestination :: Destination
     , _seMessage :: Message
     , _seReplyToAddresses :: [Text]
-    , _seReturnPath :: !(Maybe Text)
+    , _seReturnPath :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

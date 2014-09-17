@@ -57,8 +57,8 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit
-    { _dbrlGatewayARN :: !Text
-    , _dbrlBandwidthType :: !Text
+    { _dbrlGatewayARN :: Text
+    , _dbrlBandwidthType :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

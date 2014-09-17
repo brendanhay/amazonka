@@ -57,9 +57,9 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data ImportVolume = ImportVolume
-    { _ivAvailabilityZone :: !Text
+    { _ivAvailabilityZone :: Text
     , _ivImage :: DiskImageDetail
-    , _ivDescription :: !(Maybe Text)
+    , _ivDescription :: Maybe Text
     , _ivVolume :: VolumeDetail
     } deriving (Show, Generic)
 

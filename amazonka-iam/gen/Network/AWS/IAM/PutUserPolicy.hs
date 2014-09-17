@@ -52,9 +52,9 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data PutUserPolicy = PutUserPolicy
-    { _pupUserName :: !Text
-    , _pupPolicyName :: !Text
-    , _pupPolicyDocument :: !Text
+    { _pupUserName :: Text
+    , _pupPolicyName :: Text
+    , _pupPolicyDocument :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

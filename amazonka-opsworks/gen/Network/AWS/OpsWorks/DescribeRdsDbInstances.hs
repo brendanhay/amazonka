@@ -41,7 +41,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DescribeRdsDbInstances = DescribeRdsDbInstances
-    { _drdi1StackId :: !Text
+    { _drdi1StackId :: Text
     , _drdi1RdsDbInstanceArns :: [Text]
     } deriving (Show, Generic)
 

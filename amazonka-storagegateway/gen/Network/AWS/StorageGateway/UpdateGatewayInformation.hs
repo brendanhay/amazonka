@@ -56,9 +56,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data UpdateGatewayInformation = UpdateGatewayInformation
-    { _ugiGatewayARN :: !Text
-    , _ugiGatewayName :: !(Maybe Text)
-    , _ugiGatewayTimezone :: !(Maybe Text)
+    { _ugiGatewayARN :: Text
+    , _ugiGatewayName :: Maybe Text
+    , _ugiGatewayTimezone :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

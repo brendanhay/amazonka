@@ -46,7 +46,7 @@ import Network.AWS.AutoScaling.Types
 import Network.AWS.Prelude
 
 data SuspendProcesses = SuspendProcesses
-    { _sp1AutoScalingGroupName :: !Text
+    { _sp1AutoScalingGroupName :: Text
     , _sp1ScalingProcesses :: [Text]
     } deriving (Show, Generic)
 

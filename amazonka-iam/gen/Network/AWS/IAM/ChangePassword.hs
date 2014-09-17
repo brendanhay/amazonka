@@ -44,8 +44,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data ChangePassword = ChangePassword
-    { _cpOldPassword :: !Text
-    , _cpNewPassword :: !Text
+    { _cpOldPassword :: Text
+    , _cpNewPassword :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -41,8 +41,8 @@ import Network.AWS.Types (Region)
 
 -- | The request to delete a distribution.
 data DeleteDistribution = DeleteDistribution
-    { _ddId :: !Text
-    , _ddIfMatch :: !(Maybe Text)
+    { _ddId :: Text
+    , _ddIfMatch :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

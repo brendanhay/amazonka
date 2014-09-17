@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 
 data EnterStandby = EnterStandby
     { _esInstanceIds :: [Text]
-    , _esAutoScalingGroupName :: !Text
+    , _esAutoScalingGroupName :: Text
     , _esShouldDecrementDesiredCapacity :: !Bool
     } deriving (Show, Generic)
 

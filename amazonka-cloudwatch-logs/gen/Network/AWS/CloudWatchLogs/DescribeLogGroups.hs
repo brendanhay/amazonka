@@ -63,9 +63,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DescribeLogGroups = DescribeLogGroups
-    { _dlg1LogGroupNamePrefix :: !(Maybe Text)
-    , _dlg1NextToken :: !(Maybe Text)
-    , _dlg1Limit :: !(Maybe Integer)
+    { _dlg1LogGroupNamePrefix :: Maybe Text
+    , _dlg1NextToken :: Maybe Text
+    , _dlg1Limit :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -111,7 +111,7 @@ instance ToJSON DescribeLogGroups
 
 data DescribeLogGroupsResponse = DescribeLogGroupsResponse
     { _dlgrLogGroups :: [LogGroup]
-    , _dlgrNextToken :: !(Maybe Text)
+    , _dlgrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

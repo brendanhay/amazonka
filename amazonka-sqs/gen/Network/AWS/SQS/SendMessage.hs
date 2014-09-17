@@ -71,9 +71,9 @@ import Network.AWS.SQS.Types
 import Network.AWS.Prelude
 
 data SendMessage = SendMessage
-    { _smQueueUrl :: !Text
-    , _smMessageBody :: !Text
-    , _smDelaySeconds :: !(Maybe Integer)
+    { _smQueueUrl :: Text
+    , _smMessageBody :: Text
+    , _smDelaySeconds :: Maybe Integer
     , _smMessageAttributes :: Map Text MessageAttributeValue
     } deriving (Show, Generic)
 
@@ -127,9 +127,9 @@ instance ToQuery SendMessage where
 
 -- | The MD5OfMessageBody and MessageId elements.
 data SendMessageResponse = SendMessageResponse
-    { _smrMD5OfMessageBody :: !(Maybe Text)
-    , _smrMD5OfMessageAttributes :: !(Maybe Text)
-    , _smrMessageId :: !(Maybe Text)
+    { _smrMD5OfMessageBody :: Maybe Text
+    , _smrMD5OfMessageAttributes :: Maybe Text
+    , _smrMessageId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

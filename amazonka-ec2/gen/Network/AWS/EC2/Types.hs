@@ -3717,7 +3717,7 @@ instance ToQuery VpnConnectionOptionsSpecification where
 
 -- | Describes an account attribute.
 data AccountAttribute = AccountAttribute
-    { _aa1rAttributeName :: !(Maybe Text)
+    { _aa1rAttributeName :: Maybe Text
     , _aa1rAttributeValues :: [AccountAttributeValue]
     } deriving (Show, Generic)
 
@@ -3755,14 +3755,14 @@ instance FromXML AccountAttribute where
 
 -- | Describes an Elastic IP address.
 data Address = Address
-    { _aInstanceId :: !(Maybe Text)
-    , _aPublicIp :: !(Maybe Text)
-    , _aAllocationId :: !(Maybe Text)
-    , _aAssociationId :: !(Maybe Text)
+    { _aInstanceId :: Maybe Text
+    , _aPublicIp :: Maybe Text
+    , _aAllocationId :: Maybe Text
+    , _aAssociationId :: Maybe Text
     , _aDomain :: Maybe DomainType
-    , _aNetworkInterfaceId :: !(Maybe Text)
-    , _aNetworkInterfaceOwnerId :: !(Maybe Text)
-    , _aPrivateIpAddress :: !(Maybe Text)
+    , _aNetworkInterfaceId :: Maybe Text
+    , _aNetworkInterfaceOwnerId :: Maybe Text
+    , _aPrivateIpAddress :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3845,9 +3845,9 @@ instance FromXML Address where
 
 -- | Describes an Availability Zone.
 data AvailabilityZone = AvailabilityZone
-    { _azZoneName :: !(Maybe Text)
+    { _azZoneName :: Maybe Text
     , _azState :: Maybe AvailabilityZoneState
-    , _azRegionName :: !(Maybe Text)
+    , _azRegionName :: Maybe Text
     , _azMessages :: [AvailabilityZoneMessage]
     } deriving (Show, Generic)
 
@@ -3897,10 +3897,10 @@ instance FromXML AvailabilityZone where
 
 -- | Describes a block device mapping.
 data BlockDeviceMapping = BlockDeviceMapping
-    { _bdmVirtualName :: !(Maybe Text)
-    , _bdmDeviceName :: !Text
+    { _bdmVirtualName :: Maybe Text
+    , _bdmDeviceName :: Text
     , _bdmEbs :: Maybe EbsBlockDevice
-    , _bdmNoDevice :: !(Maybe Text)
+    , _bdmNoDevice :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3952,13 +3952,13 @@ instance ToQuery BlockDeviceMapping where
 
 -- | Information about the bundle task.
 data BundleTask = BundleTask
-    { _btInstanceId :: !(Maybe Text)
-    , _btBundleId :: !(Maybe Text)
+    { _btInstanceId :: Maybe Text
+    , _btBundleId :: Maybe Text
     , _btState :: Maybe BundleTaskState
-    , _btStartTime :: !(Maybe ISO8601)
-    , _btUpdateTime :: !(Maybe ISO8601)
+    , _btStartTime :: Maybe ISO8601
+    , _btUpdateTime :: Maybe ISO8601
     , _btStorage :: Maybe Storage
-    , _btProgress :: !(Maybe Text)
+    , _btProgress :: Maybe Text
     , _btBundleTaskError :: Maybe BundleTaskError
     } deriving (Show, Generic)
 
@@ -4037,8 +4037,8 @@ instance FromXML BundleTask where
 
 -- | If the task fails, a description of the error.
 data BundleTaskError = BundleTaskError
-    { _bteCode :: !(Maybe Text)
-    , _bteMessage :: !(Maybe Text)
+    { _bteCode :: Maybe Text
+    , _bteMessage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -4073,7 +4073,7 @@ instance ToQuery BundleTaskError where
 
 -- | Describes a request to cancel a Spot Instance.
 data CancelledSpotInstanceRequest = CancelledSpotInstanceRequest
-    { _csir1SpotInstanceRequestId :: !(Maybe Text)
+    { _csir1SpotInstanceRequestId :: Maybe Text
     , _csir1State :: Maybe CancelSpotInstanceRequestState
     } deriving (Show, Generic)
 
@@ -4111,12 +4111,12 @@ instance FromXML CancelledSpotInstanceRequest where
 
 -- | Describes a conversion task.
 data ConversionTask = ConversionTask
-    { _ctrConversionTaskId :: !Text
-    , _ctrExpirationTime :: !(Maybe Text)
+    { _ctrConversionTaskId :: Text
+    , _ctrExpirationTime :: Maybe Text
     , _ctrImportInstance :: Maybe ImportInstanceTaskDetails
     , _ctrImportVolume :: Maybe ImportVolumeTaskDetails
     , _ctrState :: ConversionTaskState
-    , _ctrStatusMessage :: !(Maybe Text)
+    , _ctrStatusMessage :: Maybe Text
     , _ctrTags :: [Tag]
     } deriving (Show, Generic)
 
@@ -4195,7 +4195,7 @@ instance FromXML ConversionTask where
     fromXMLRoot    = fromRoot "item"
 
 data CreateVolumePermission = CreateVolumePermission
-    { _cvpUserId :: !(Maybe Text)
+    { _cvpUserId :: Maybe Text
     , _cvpGroup :: Maybe PermissionGroup
     } deriving (Show, Generic)
 
@@ -4267,11 +4267,11 @@ instance ToQuery CreateVolumePermissionModifications where
 
 -- | Information about the customer gateway.
 data CustomerGateway = CustomerGateway
-    { _cgCustomerGatewayId :: !(Maybe Text)
-    , _cgState :: !(Maybe Text)
-    , _cgType :: !(Maybe Text)
-    , _cgIpAddress :: !(Maybe Text)
-    , _cgBgpAsn :: !(Maybe Text)
+    { _cgCustomerGatewayId :: Maybe Text
+    , _cgState :: Maybe Text
+    , _cgType :: Maybe Text
+    , _cgIpAddress :: Maybe Text
+    , _cgBgpAsn :: Maybe Text
     , _cgTags :: [Tag]
     } deriving (Show, Generic)
 
@@ -4338,7 +4338,7 @@ instance FromXML CustomerGateway where
 
 -- | Describes a DHCP configuration option.
 data DhcpConfiguration = DhcpConfiguration
-    { _dcKey :: !(Maybe Text)
+    { _dcKey :: Maybe Text
     , _dcValues :: [Text]
     } deriving (Show, Generic)
 
@@ -4374,7 +4374,7 @@ instance ToQuery DhcpConfiguration where
 
 -- | A set of DHCP options.
 data DhcpOptions = DhcpOptions
-    { _doDhcpOptionsId :: !(Maybe Text)
+    { _doDhcpOptionsId :: Maybe Text
     , _doDhcpConfigurations :: [DhcpConfiguration]
     , _doTags :: [Tag]
     } deriving (Show, Generic)
@@ -4420,7 +4420,7 @@ instance FromXML DhcpOptions where
 -- | Describes a disk image.
 data DiskImage = DiskImage
     { _di3Image :: Maybe DiskImageDetail
-    , _di3Description :: !(Maybe Text)
+    , _di3Description :: Maybe Text
     , _di3Volume :: Maybe VolumeDetail
     } deriving (Show, Generic)
 
@@ -4461,8 +4461,8 @@ instance ToQuery DiskImage where
 data DiskImageDescription = DiskImageDescription
     { _didFormat :: DiskImageFormat
     , _didSize :: !Integer
-    , _didImportManifestUrl :: !Text
-    , _didChecksum :: !(Maybe Text)
+    , _didImportManifestUrl :: Text
+    , _didChecksum :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -4520,7 +4520,7 @@ instance ToQuery DiskImageDescription where
 data DiskImageDetail = DiskImageDetail
     { _did1Format :: DiskImageFormat
     , _did1Bytes :: !Integer
-    , _did1ImportManifestUrl :: !Text
+    , _did1ImportManifestUrl :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -4570,8 +4570,8 @@ instance ToQuery DiskImageDetail where
 
 -- | The volume.
 data DiskImageVolumeDescription = DiskImageVolumeDescription
-    { _divdSize :: !(Maybe Integer)
-    , _divdId :: !Text
+    { _divdSize :: Maybe Integer
+    , _divdId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -4608,12 +4608,12 @@ instance ToQuery DiskImageVolumeDescription where
 -- | Parameters used to automatically set up Amazon EBS volumes when the
 -- instance is launched.
 data EbsBlockDevice = EbsBlockDevice
-    { _ebdSnapshotId :: !(Maybe Text)
-    , _ebdVolumeSize :: !(Maybe Integer)
-    , _ebdDeleteOnTermination :: !(Maybe Bool)
+    { _ebdSnapshotId :: Maybe Text
+    , _ebdVolumeSize :: Maybe Integer
+    , _ebdDeleteOnTermination :: Maybe Bool
     , _ebdVolumeType :: Maybe VolumeType
-    , _ebdIops :: !(Maybe Integer)
-    , _ebdEncrypted :: !(Maybe Bool)
+    , _ebdIops :: Maybe Integer
+    , _ebdEncrypted :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -4693,10 +4693,10 @@ instance ToQuery EbsBlockDevice where
 -- | Parameters used to automatically set up Amazon EBS volumes when the
 -- instance is launched.
 data EbsInstanceBlockDevice = EbsInstanceBlockDevice
-    { _eibdVolumeId :: !(Maybe Text)
+    { _eibdVolumeId :: Maybe Text
     , _eibdStatus :: Maybe AttachmentStatus
-    , _eibdAttachTime :: !(Maybe ISO8601)
-    , _eibdDeleteOnTermination :: !(Maybe Bool)
+    , _eibdAttachTime :: Maybe ISO8601
+    , _eibdDeleteOnTermination :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -4748,8 +4748,8 @@ instance ToQuery EbsInstanceBlockDevice where
 -- | Parameters used to automatically set up Amazon EBS volumes when the
 -- instance is launched.
 data EbsInstanceBlockDeviceSpecification = EbsInstanceBlockDeviceSpecification
-    { _eibdsVolumeId :: !(Maybe Text)
-    , _eibdsDeleteOnTermination :: !(Maybe Bool)
+    { _eibdsVolumeId :: Maybe Text
+    , _eibdsDeleteOnTermination :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -4785,10 +4785,10 @@ instance ToQuery EbsInstanceBlockDeviceSpecification where
     toQuery = genericQuery def
 
 data ExportTask = ExportTask
-    { _etExportTaskId :: !(Maybe Text)
-    , _etDescription :: !(Maybe Text)
+    { _etExportTaskId :: Maybe Text
+    , _etDescription :: Maybe Text
     , _etState :: Maybe ExportTaskState
-    , _etStatusMessage :: !(Maybe Text)
+    , _etStatusMessage :: Maybe Text
     , _etInstanceExportDetails :: Maybe InstanceExportDetails
     , _etExportToS3Task :: Maybe ExportToS3Task
     } deriving (Show, Generic)
@@ -4857,8 +4857,8 @@ instance FromXML ExportTask where
 data ExportToS3Task = ExportToS3Task
     { _etstDiskImageFormat :: Maybe DiskImageFormat
     , _etstContainerFormat :: Maybe ContainerFormat
-    , _etstS3Bucket :: !(Maybe Text)
-    , _etstS3Key :: !(Maybe Text)
+    , _etstS3Bucket :: Maybe Text
+    , _etstS3Key :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -4913,8 +4913,8 @@ instance ToQuery ExportToS3Task where
 data ExportToS3TaskSpecification = ExportToS3TaskSpecification
     { _etstsDiskImageFormat :: Maybe DiskImageFormat
     , _etstsContainerFormat :: Maybe ContainerFormat
-    , _etstsS3Bucket :: !(Maybe Text)
-    , _etstsS3Prefix :: !(Maybe Text)
+    , _etstsS3Bucket :: Maybe Text
+    , _etstsS3Prefix :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -4961,7 +4961,7 @@ instance ToQuery ExportToS3TaskSpecification where
     toQuery = genericQuery def
 
 data Filter = Filter
-    { _fName :: !Text
+    { _fName :: Text
     , _fValues :: [Text]
     } deriving (Show, Generic)
 
@@ -4994,8 +4994,8 @@ instance ToQuery Filter where
 
 -- | Describes a security group.
 data GroupIdentifier = GroupIdentifier
-    { _giGroupName :: !(Maybe Text)
-    , _giGroupId :: !(Maybe Text)
+    { _giGroupName :: Maybe Text
+    , _giGroupId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -5030,8 +5030,8 @@ instance ToQuery GroupIdentifier where
 
 -- | The IAM instance profile associated with the instance.
 data IamInstanceProfile = IamInstanceProfile
-    { _iipArn :: !(Maybe Text)
-    , _iipId :: !(Maybe Text)
+    { _iipArn :: Maybe Text
+    , _iipId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -5066,8 +5066,8 @@ instance ToQuery IamInstanceProfile where
 
 -- | The IAM instance profile.
 data IamInstanceProfileSpecification = IamInstanceProfileSpecification
-    { _iipsArn :: !(Maybe Text)
-    , _iipsName :: !(Maybe Text)
+    { _iipsArn :: Maybe Text
+    , _iipsName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -5102,8 +5102,8 @@ instance ToQuery IamInstanceProfileSpecification where
 
 -- | ICMP protocol: The ICMP type and code.
 data IcmpTypeCode = IcmpTypeCode
-    { _itcType :: !(Maybe Integer)
-    , _itcCode :: !(Maybe Integer)
+    { _itcType :: Maybe Integer
+    , _itcCode :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -5138,24 +5138,24 @@ instance ToQuery IcmpTypeCode where
 
 -- | Describes an image.
 data Image = Image
-    { _iImageId :: !Text
-    , _iImageLocation :: !Text
+    { _iImageId :: Text
+    , _iImageLocation :: Text
     , _iState :: ImageState
-    , _iOwnerId :: !Text
-    , _iPublic :: !Bool
+    , _iOwnerId :: Text
+    , _iPublic :: Bool
     , _iProductCodes :: [ProductCode]
     , _iArchitecture :: ArchitectureValues
     , _iImageType :: ImageTypeValues
-    , _iKernelId :: !(Maybe Text)
-    , _iRamdiskId :: !(Maybe Text)
+    , _iKernelId :: Maybe Text
+    , _iRamdiskId :: Maybe Text
     , _iPlatform :: Maybe PlatformValues
-    , _iSriovNetSupport :: !(Maybe Text)
+    , _iSriovNetSupport :: Maybe Text
     , _iStateReason :: Maybe StateReason
-    , _iImageOwnerAlias :: !(Maybe Text)
-    , _iName :: !Text
-    , _iDescription :: !(Maybe Text)
+    , _iImageOwnerAlias :: Maybe Text
+    , _iName :: Text
+    , _iDescription :: Maybe Text
     , _iRootDeviceType :: DeviceType
-    , _iRootDeviceName :: !(Maybe Text)
+    , _iRootDeviceName :: Maybe Text
     , _iBlockDeviceMappings :: [BlockDeviceMapping]
     , _iVirtualizationType :: VirtualizationType
     , _iTags :: [Tag]
@@ -5358,14 +5358,14 @@ instance FromXML Image where
 data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification
     { _iilsArchitecture :: Maybe ArchitectureValues
     , _iilsGroupNames :: [Text]
-    , _iilsAdditionalInfo :: !(Maybe Text)
-    , _iilsUserData :: !(Maybe Text)
+    , _iilsAdditionalInfo :: Maybe Text
+    , _iilsUserData :: Maybe Text
     , _iilsInstanceType :: Maybe InstanceType
     , _iilsPlacement :: Maybe Placement
-    , _iilsMonitoring :: !(Maybe Bool)
-    , _iilsSubnetId :: !(Maybe Text)
+    , _iilsMonitoring :: Maybe Bool
+    , _iilsSubnetId :: Maybe Text
     , _iilsInstanceInitiatedShutdownBehavior :: Maybe ShutdownBehavior
-    , _iilsPrivateIpAddress :: !(Maybe Text)
+    , _iilsPrivateIpAddress :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -5464,9 +5464,9 @@ instance ToQuery ImportInstanceLaunchSpecification where
 -- the import instance task.
 data ImportInstanceTaskDetails = ImportInstanceTaskDetails
     { _iitdVolumes :: [ImportInstanceVolumeDetailItem]
-    , _iitdInstanceId :: !(Maybe Text)
+    , _iitdInstanceId :: Maybe Text
     , _iitdPlatform :: Maybe PlatformValues
-    , _iitdDescription :: !(Maybe Text)
+    , _iitdDescription :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -5517,12 +5517,12 @@ instance ToQuery ImportInstanceTaskDetails where
 -- | Describes an import volume task.
 data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem
     { _iivdiBytesConverted :: !Integer
-    , _iivdiAvailabilityZone :: !Text
+    , _iivdiAvailabilityZone :: Text
     , _iivdiImage :: DiskImageDescription
     , _iivdiVolume :: DiskImageVolumeDescription
-    , _iivdiStatus :: !Text
-    , _iivdiStatusMessage :: !(Maybe Text)
-    , _iivdiDescription :: !(Maybe Text)
+    , _iivdiStatus :: Text
+    , _iivdiStatusMessage :: Maybe Text
+    , _iivdiDescription :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -5603,8 +5603,8 @@ instance ToQuery ImportInstanceVolumeDetailItem where
 -- import volume task.
 data ImportVolumeTaskDetails = ImportVolumeTaskDetails
     { _ivtdBytesConverted :: !Integer
-    , _ivtdAvailabilityZone :: !Text
-    , _ivtdDescription :: !(Maybe Text)
+    , _ivtdAvailabilityZone :: Text
+    , _ivtdDescription :: Maybe Text
     , _ivtdImage :: DiskImageDescription
     , _ivtdVolume :: DiskImageVolumeDescription
     } deriving (Show, Generic)
@@ -5668,43 +5668,43 @@ instance ToQuery ImportVolumeTaskDetails where
 
 -- | Describes an instance.
 data Instance = Instance
-    { _i1InstanceId :: !(Maybe Text)
-    , _i1ImageId :: !(Maybe Text)
+    { _i1InstanceId :: Maybe Text
+    , _i1ImageId :: Maybe Text
     , _i1State :: Maybe InstanceState
-    , _i1PrivateDnsName :: !(Maybe Text)
-    , _i1PublicDnsName :: !(Maybe Text)
-    , _i1StateTransitionReason :: !(Maybe Text)
-    , _i1KeyName :: !(Maybe Text)
-    , _i1AmiLaunchIndex :: !(Maybe Integer)
+    , _i1PrivateDnsName :: Maybe Text
+    , _i1PublicDnsName :: Maybe Text
+    , _i1StateTransitionReason :: Maybe Text
+    , _i1KeyName :: Maybe Text
+    , _i1AmiLaunchIndex :: Maybe Integer
     , _i1ProductCodes :: [ProductCode]
     , _i1InstanceType :: Maybe InstanceType
-    , _i1LaunchTime :: !(Maybe ISO8601)
+    , _i1LaunchTime :: Maybe ISO8601
     , _i1Placement :: Maybe Placement
-    , _i1KernelId :: !(Maybe Text)
-    , _i1RamdiskId :: !(Maybe Text)
+    , _i1KernelId :: Maybe Text
+    , _i1RamdiskId :: Maybe Text
     , _i1Platform :: Maybe PlatformValues
     , _i1Monitoring :: Maybe Monitoring
-    , _i1SubnetId :: !(Maybe Text)
-    , _i1VpcId :: !(Maybe Text)
-    , _i1PrivateIpAddress :: !(Maybe Text)
-    , _i1PublicIpAddress :: !(Maybe Text)
+    , _i1SubnetId :: Maybe Text
+    , _i1VpcId :: Maybe Text
+    , _i1PrivateIpAddress :: Maybe Text
+    , _i1PublicIpAddress :: Maybe Text
     , _i1StateReason :: Maybe StateReason
     , _i1Architecture :: Maybe ArchitectureValues
     , _i1RootDeviceType :: Maybe DeviceType
-    , _i1RootDeviceName :: !(Maybe Text)
+    , _i1RootDeviceName :: Maybe Text
     , _i1BlockDeviceMappings :: [InstanceBlockDeviceMapping]
     , _i1VirtualizationType :: Maybe VirtualizationType
     , _i1InstanceLifecycle :: Maybe InstanceLifecycleType
-    , _i1SpotInstanceRequestId :: !(Maybe Text)
-    , _i1ClientToken :: !(Maybe Text)
+    , _i1SpotInstanceRequestId :: Maybe Text
+    , _i1ClientToken :: Maybe Text
     , _i1Tags :: [Tag]
     , _i1SecurityGroups :: [GroupIdentifier]
-    , _i1SourceDestCheck :: !(Maybe Bool)
+    , _i1SourceDestCheck :: Maybe Bool
     , _i1Hypervisor :: Maybe HypervisorType
     , _i1NetworkInterfaces :: [InstanceNetworkInterface]
     , _i1IamInstanceProfile :: Maybe IamInstanceProfile
-    , _i1EbsOptimized :: !(Maybe Bool)
-    , _i1SriovNetSupport :: !(Maybe Text)
+    , _i1EbsOptimized :: Maybe Bool
+    , _i1SriovNetSupport :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -6018,7 +6018,7 @@ instance ToQuery Instance where
 
 -- | Describes a block device mapping.
 data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping
-    { _ibdmDeviceName :: !(Maybe Text)
+    { _ibdmDeviceName :: Maybe Text
     , _ibdmEbs :: Maybe EbsInstanceBlockDevice
     } deriving (Show, Generic)
 
@@ -6055,10 +6055,10 @@ instance ToQuery InstanceBlockDeviceMapping where
 
 -- | Describes a block device mapping entry.
 data InstanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecification
-    { _ibdmsDeviceName :: !(Maybe Text)
+    { _ibdmsDeviceName :: Maybe Text
     , _ibdmsEbs :: Maybe EbsInstanceBlockDeviceSpecification
-    , _ibdmsVirtualName :: !(Maybe Text)
-    , _ibdmsNoDevice :: !(Maybe Text)
+    , _ibdmsVirtualName :: Maybe Text
+    , _ibdmsNoDevice :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -6106,7 +6106,7 @@ instance ToQuery InstanceBlockDeviceMappingSpecification where
 -- | Describes a Reserved Instance listing state.
 data InstanceCount = InstanceCount
     { _icState :: Maybe ListingState
-    , _icInstanceCount :: !(Maybe Integer)
+    , _icInstanceCount :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -6141,7 +6141,7 @@ instance ToQuery InstanceCount where
 
 -- | The instance being exported.
 data InstanceExportDetails = InstanceExportDetails
-    { _iedInstanceId :: !(Maybe Text)
+    { _iedInstanceId :: Maybe Text
     , _iedTargetEnvironment :: Maybe ExportEnvironment
     } deriving (Show, Generic)
 
@@ -6178,7 +6178,7 @@ instance ToQuery InstanceExportDetails where
 
 -- | Describes the monitoring information of the instance.
 data InstanceMonitoring = InstanceMonitoring
-    { _imInstanceId :: !(Maybe Text)
+    { _imInstanceId :: Maybe Text
     , _imMonitoring :: Maybe Monitoring
     } deriving (Show, Generic)
 
@@ -6214,15 +6214,15 @@ instance FromXML InstanceMonitoring where
 
 -- | Describes a network interface.
 data InstanceNetworkInterface = InstanceNetworkInterface
-    { _iniNetworkInterfaceId :: !(Maybe Text)
-    , _iniSubnetId :: !(Maybe Text)
-    , _iniVpcId :: !(Maybe Text)
-    , _iniDescription :: !(Maybe Text)
-    , _iniOwnerId :: !(Maybe Text)
+    { _iniNetworkInterfaceId :: Maybe Text
+    , _iniSubnetId :: Maybe Text
+    , _iniVpcId :: Maybe Text
+    , _iniDescription :: Maybe Text
+    , _iniOwnerId :: Maybe Text
     , _iniStatus :: Maybe NetworkInterfaceStatus
-    , _iniPrivateIpAddress :: !(Maybe Text)
-    , _iniPrivateDnsName :: !(Maybe Text)
-    , _iniSourceDestCheck :: !(Maybe Bool)
+    , _iniPrivateIpAddress :: Maybe Text
+    , _iniPrivateDnsName :: Maybe Text
+    , _iniSourceDestCheck :: Maybe Bool
     , _iniGroups :: [GroupIdentifier]
     , _iniAttachment :: Maybe InstanceNetworkInterfaceAttachment
     , _iniAssociation :: Maybe InstanceNetworkInterfaceAssociation
@@ -6346,9 +6346,9 @@ instance ToQuery InstanceNetworkInterface where
 -- | The association information for an Elastic IP associated with the network
 -- interface.
 data InstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation
-    { _inia1PublicIp :: !(Maybe Text)
-    , _inia1PublicDnsName :: !(Maybe Text)
-    , _inia1IpOwnerId :: !(Maybe Text)
+    { _inia1PublicIp :: Maybe Text
+    , _inia1PublicDnsName :: Maybe Text
+    , _inia1IpOwnerId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -6391,11 +6391,11 @@ instance ToQuery InstanceNetworkInterfaceAssociation where
 
 -- | The network interface attachment.
 data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment
-    { _iniaAttachmentId :: !(Maybe Text)
-    , _iniaDeviceIndex :: !(Maybe Integer)
+    { _iniaAttachmentId :: Maybe Text
+    , _iniaDeviceIndex :: Maybe Integer
     , _iniaStatus :: Maybe AttachmentStatus
-    , _iniaAttachTime :: !(Maybe ISO8601)
-    , _iniaDeleteOnTermination :: !(Maybe Bool)
+    , _iniaAttachTime :: Maybe ISO8601
+    , _iniaDeleteOnTermination :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -6456,16 +6456,16 @@ instance ToQuery InstanceNetworkInterfaceAttachment where
 
 -- | Describes a network interface.
 data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecification
-    { _inisNetworkInterfaceId :: !(Maybe Text)
-    , _inisDeviceIndex :: !(Maybe Integer)
-    , _inisSubnetId :: !(Maybe Text)
-    , _inisDescription :: !(Maybe Text)
-    , _inisPrivateIpAddress :: !(Maybe Text)
+    { _inisNetworkInterfaceId :: Maybe Text
+    , _inisDeviceIndex :: Maybe Integer
+    , _inisSubnetId :: Maybe Text
+    , _inisDescription :: Maybe Text
+    , _inisPrivateIpAddress :: Maybe Text
     , _inisGroups :: [Text]
-    , _inisDeleteOnTermination :: !(Maybe Bool)
+    , _inisDeleteOnTermination :: Maybe Bool
     , _inisPrivateIpAddresses :: [PrivateIpAddressSpecification]
-    , _inisSecondaryPrivateIpAddressCount :: !(Maybe Integer)
-    , _inisAssociatePublicIpAddress :: !(Maybe Bool)
+    , _inisSecondaryPrivateIpAddressCount :: Maybe Integer
+    , _inisAssociatePublicIpAddress :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -6570,9 +6570,9 @@ instance ToQuery InstanceNetworkInterfaceSpecification where
 
 -- | Describes a private IP address.
 data InstancePrivateIpAddress = InstancePrivateIpAddress
-    { _ipiaPrivateIpAddress :: !(Maybe Text)
-    , _ipiaPrivateDnsName :: !(Maybe Text)
-    , _ipiaPrimary :: !(Maybe Bool)
+    { _ipiaPrivateIpAddress :: Maybe Text
+    , _ipiaPrivateDnsName :: Maybe Text
+    , _ipiaPrimary :: Maybe Bool
     , _ipiaAssociation :: Maybe InstanceNetworkInterfaceAssociation
     } deriving (Show, Generic)
 
@@ -6627,7 +6627,7 @@ instance ToQuery InstancePrivateIpAddress where
 -- | The intended state of the instance. DescribeInstanceStatus requires that an
 -- instance be in the running state.
 data InstanceState = InstanceState
-    { _is1Code :: !Integer
+    { _is1Code :: Integer
     , _is1Name :: InstanceStateName
     } deriving (Show, Generic)
 
@@ -6667,7 +6667,7 @@ instance ToQuery InstanceState where
 
 -- | Describes an instance state change.
 data InstanceStateChange = InstanceStateChange
-    { _iscInstanceId :: !(Maybe Text)
+    { _iscInstanceId :: Maybe Text
     , _iscCurrentState :: Maybe InstanceState
     , _iscPreviousState :: Maybe InstanceState
     } deriving (Show, Generic)
@@ -6712,8 +6712,8 @@ instance FromXML InstanceStateChange where
 
 -- | Describes the status of an instance.
 data InstanceStatus = InstanceStatus
-    { _isInstanceId :: !(Maybe Text)
-    , _isAvailabilityZone :: !(Maybe Text)
+    { _isInstanceId :: Maybe Text
+    , _isAvailabilityZone :: Maybe Text
     , _isEvents :: [InstanceStatusEvent]
     , _isInstanceState :: Maybe InstanceState
     , _isSystemStatus :: Maybe InstanceStatusSummary
@@ -6788,7 +6788,7 @@ instance FromXML InstanceStatus where
 data InstanceStatusDetails = InstanceStatusDetails
     { _isdName :: Maybe StatusName
     , _isdStatus :: Maybe StatusType
-    , _isdImpairedSince :: !(Maybe ISO8601)
+    , _isdImpairedSince :: Maybe ISO8601
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -6833,9 +6833,9 @@ instance ToQuery InstanceStatusDetails where
 -- | Describes an instance event.
 data InstanceStatusEvent = InstanceStatusEvent
     { _iseCode :: Maybe EventCode
-    , _iseDescription :: !(Maybe Text)
-    , _iseNotBefore :: !(Maybe ISO8601)
-    , _iseNotAfter :: !(Maybe ISO8601)
+    , _iseDescription :: Maybe Text
+    , _iseNotBefore :: Maybe ISO8601
+    , _iseNotAfter :: Maybe ISO8601
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -6922,7 +6922,7 @@ instance ToQuery InstanceStatusSummary where
 
 -- | Information about the Internet gateway.
 data InternetGateway = InternetGateway
-    { _igInternetGatewayId :: !Text
+    { _igInternetGatewayId :: Text
     , _igAttachments :: [InternetGatewayAttachment]
     , _igTags :: [Tag]
     } deriving (Show, Generic)
@@ -6968,7 +6968,7 @@ instance FromXML InternetGateway where
 
 -- | Describes the attachment of a VPC to an Internet gateway.
 data InternetGatewayAttachment = InternetGatewayAttachment
-    { _igaVpcId :: !Text
+    { _igaVpcId :: Text
     , _igaState :: AttachmentStatus
     } deriving (Show, Generic)
 
@@ -7006,9 +7006,9 @@ instance ToQuery InternetGatewayAttachment where
 
 -- | Describes a security group rule.
 data IpPermission = IpPermission
-    { _ipIpProtocol :: !Text
-    , _ipFromPort :: !Integer
-    , _ipToPort :: !Integer
+    { _ipIpProtocol :: Text
+    , _ipFromPort :: Integer
+    , _ipToPort :: Integer
     , _ipUserIdGroupPairs :: [UserIdGroupPair]
     , _ipIpRanges :: [IpRange]
     } deriving (Show, Generic)
@@ -7075,8 +7075,8 @@ instance ToQuery IpPermission where
 
 -- | Describes a key pair.
 data KeyPairInfo = KeyPairInfo
-    { _kpiKeyName :: !(Maybe Text)
-    , _kpiKeyFingerprint :: !(Maybe Text)
+    { _kpiKeyName :: Maybe Text
+    , _kpiKeyFingerprint :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -7115,7 +7115,7 @@ instance FromXML KeyPairInfo where
 
 -- | Describes a launch permission.
 data LaunchPermission = LaunchPermission
-    { _lpUserId :: !(Maybe Text)
+    { _lpUserId :: Maybe Text
     , _lpGroup :: Maybe PermissionGroup
     } deriving (Show, Generic)
 
@@ -7184,21 +7184,21 @@ instance ToQuery LaunchPermissionModifications where
 
 -- | Additional information for launching instances.
 data LaunchSpecification = LaunchSpecification
-    { _lsImageId :: !(Maybe Text)
-    , _lsKeyName :: !(Maybe Text)
+    { _lsImageId :: Maybe Text
+    , _lsKeyName :: Maybe Text
     , _lsSecurityGroups :: [GroupIdentifier]
-    , _lsUserData :: !(Maybe Text)
-    , _lsAddressingType :: !(Maybe Text)
+    , _lsUserData :: Maybe Text
+    , _lsAddressingType :: Maybe Text
     , _lsInstanceType :: Maybe InstanceType
     , _lsPlacement :: Maybe SpotPlacement
-    , _lsKernelId :: !(Maybe Text)
-    , _lsRamdiskId :: !(Maybe Text)
+    , _lsKernelId :: Maybe Text
+    , _lsRamdiskId :: Maybe Text
     , _lsBlockDeviceMappings :: [BlockDeviceMapping]
-    , _lsMonitoringEnabled :: !(Maybe Bool)
-    , _lsSubnetId :: !(Maybe Text)
+    , _lsMonitoringEnabled :: Maybe Bool
+    , _lsSubnetId :: Maybe Text
     , _lsNetworkInterfaces :: [InstanceNetworkInterfaceSpecification]
     , _lsIamInstanceProfile :: Maybe IamInstanceProfileSpecification
-    , _lsEbsOptimized :: !(Maybe Bool)
+    , _lsEbsOptimized :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -7334,9 +7334,9 @@ instance ToQuery LaunchSpecification where
 
 -- | Information about the network ACL.
 data NetworkAcl = NetworkAcl
-    { _naNetworkAclId :: !(Maybe Text)
-    , _naVpcId :: !(Maybe Text)
-    , _naIsDefault :: !(Maybe Bool)
+    { _naNetworkAclId :: Maybe Text
+    , _naVpcId :: Maybe Text
+    , _naIsDefault :: Maybe Bool
     , _naEntries :: [NetworkAclEntry]
     , _naAssociations :: [NetworkAclAssociation]
     , _naTags :: [Tag]
@@ -7402,9 +7402,9 @@ instance FromXML NetworkAcl where
 
 -- | Describes an association between a network ACL and a subnet.
 data NetworkAclAssociation = NetworkAclAssociation
-    { _naaNetworkAclAssociationId :: !(Maybe Text)
-    , _naaNetworkAclId :: !(Maybe Text)
-    , _naaSubnetId :: !(Maybe Text)
+    { _naaNetworkAclAssociationId :: Maybe Text
+    , _naaNetworkAclId :: Maybe Text
+    , _naaSubnetId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -7448,11 +7448,11 @@ instance ToQuery NetworkAclAssociation where
 
 -- | Describes an entry in a network ACL.
 data NetworkAclEntry = NetworkAclEntry
-    { _naeRuleNumber :: !(Maybe Integer)
-    , _naeProtocol :: !(Maybe Text)
+    { _naeRuleNumber :: Maybe Integer
+    , _naeProtocol :: Maybe Text
     , _naeRuleAction :: Maybe RuleAction
-    , _naeEgress :: !(Maybe Bool)
-    , _naeCidrBlock :: !(Maybe Text)
+    , _naeEgress :: Maybe Bool
+    , _naeCidrBlock :: Maybe Text
     , _naeIcmpTypeCode :: Maybe IcmpTypeCode
     , _naePortRange :: Maybe PortRange
     } deriving (Show, Generic)
@@ -7526,19 +7526,19 @@ instance ToQuery NetworkAclEntry where
 
 -- | Information about the network interface.
 data NetworkInterface = NetworkInterface
-    { _niNetworkInterfaceId :: !(Maybe Text)
-    , _niSubnetId :: !(Maybe Text)
-    , _niVpcId :: !(Maybe Text)
-    , _niAvailabilityZone :: !(Maybe Text)
-    , _niDescription :: !(Maybe Text)
-    , _niOwnerId :: !(Maybe Text)
-    , _niRequesterId :: !(Maybe Text)
-    , _niRequesterManaged :: !(Maybe Bool)
+    { _niNetworkInterfaceId :: Maybe Text
+    , _niSubnetId :: Maybe Text
+    , _niVpcId :: Maybe Text
+    , _niAvailabilityZone :: Maybe Text
+    , _niDescription :: Maybe Text
+    , _niOwnerId :: Maybe Text
+    , _niRequesterId :: Maybe Text
+    , _niRequesterManaged :: Maybe Bool
     , _niStatus :: Maybe NetworkInterfaceStatus
-    , _niMacAddress :: !(Maybe Text)
-    , _niPrivateIpAddress :: !(Maybe Text)
-    , _niPrivateDnsName :: !(Maybe Text)
-    , _niSourceDestCheck :: !(Maybe Bool)
+    , _niMacAddress :: Maybe Text
+    , _niPrivateIpAddress :: Maybe Text
+    , _niPrivateDnsName :: Maybe Text
+    , _niSourceDestCheck :: Maybe Bool
     , _niGroups :: [GroupIdentifier]
     , _niAttachment :: Maybe NetworkInterfaceAttachment
     , _niAssociation :: Maybe NetworkInterfaceAssociation
@@ -7700,11 +7700,11 @@ instance FromXML NetworkInterface where
 -- | The association information for an Elastic IP associated with the network
 -- interface.
 data NetworkInterfaceAssociation = NetworkInterfaceAssociation
-    { _niarPublicIp :: !(Maybe Text)
-    , _niarPublicDnsName :: !(Maybe Text)
-    , _niarIpOwnerId :: !(Maybe Text)
-    , _niarAllocationId :: !(Maybe Text)
-    , _niarAssociationId :: !(Maybe Text)
+    { _niarPublicIp :: Maybe Text
+    , _niarPublicDnsName :: Maybe Text
+    , _niarIpOwnerId :: Maybe Text
+    , _niarAllocationId :: Maybe Text
+    , _niarAssociationId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -7763,13 +7763,13 @@ instance ToQuery NetworkInterfaceAssociation where
 
 -- | The network interface attachment.
 data NetworkInterfaceAttachment = NetworkInterfaceAttachment
-    { _niaAttachmentId :: !(Maybe Text)
-    , _niaInstanceId :: !(Maybe Text)
-    , _niaInstanceOwnerId :: !(Maybe Text)
-    , _niaDeviceIndex :: !(Maybe Integer)
+    { _niaAttachmentId :: Maybe Text
+    , _niaInstanceId :: Maybe Text
+    , _niaInstanceOwnerId :: Maybe Text
+    , _niaDeviceIndex :: Maybe Integer
     , _niaStatus :: Maybe AttachmentStatus
-    , _niaAttachTime :: !(Maybe ISO8601)
-    , _niaDeleteOnTermination :: !(Maybe Bool)
+    , _niaAttachTime :: Maybe ISO8601
+    , _niaDeleteOnTermination :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -7842,8 +7842,8 @@ instance ToQuery NetworkInterfaceAttachment where
 
 -- | The ID of the interface attachment.
 data NetworkInterfaceAttachmentChanges = NetworkInterfaceAttachmentChanges
-    { _niacAttachmentId :: !(Maybe Text)
-    , _niacDeleteOnTermination :: !(Maybe Bool)
+    { _niacAttachmentId :: Maybe Text
+    , _niacDeleteOnTermination :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -7878,9 +7878,9 @@ instance ToQuery NetworkInterfaceAttachmentChanges where
 
 -- | Describes the private IP address of a network interface.
 data NetworkInterfacePrivateIpAddress = NetworkInterfacePrivateIpAddress
-    { _nipiaPrivateIpAddress :: !(Maybe Text)
-    , _nipiaPrivateDnsName :: !(Maybe Text)
-    , _nipiaPrimary :: !(Maybe Bool)
+    { _nipiaPrivateIpAddress :: Maybe Text
+    , _nipiaPrivateDnsName :: Maybe Text
+    , _nipiaPrimary :: Maybe Bool
     , _nipiaAssociation :: Maybe NetworkInterfaceAssociation
     } deriving (Show, Generic)
 
@@ -7935,8 +7935,8 @@ instance ToQuery NetworkInterfacePrivateIpAddress where
 
 -- | The location where the instance launched.
 data Placement = Placement
-    { _pAvailabilityZone :: !(Maybe Text)
-    , _pGroupName :: !(Maybe Text)
+    { _pAvailabilityZone :: Maybe Text
+    , _pGroupName :: Maybe Text
     , _pTenancy :: Maybe Tenancy
     } deriving (Show, Generic)
 
@@ -7982,7 +7982,7 @@ instance ToQuery Placement where
 
 -- | Describes a placement group.
 data PlacementGroup = PlacementGroup
-    { _pgGroupName :: !(Maybe Text)
+    { _pgGroupName :: Maybe Text
     , _pgStrategy :: Maybe PlacementStrategy
     , _pgState :: Maybe PlacementGroupState
     } deriving (Show, Generic)
@@ -8026,8 +8026,8 @@ instance FromXML PlacementGroup where
 
 -- | TCP or UDP protocols: The range of ports the rule applies to.
 data PortRange = PortRange
-    { _prFrom :: !(Maybe Integer)
-    , _prTo :: !(Maybe Integer)
+    { _prFrom :: Maybe Integer
+    , _prTo :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -8062,10 +8062,10 @@ instance ToQuery PortRange where
 
 -- | Describes the price for a Reserved Instance.
 data PriceSchedule = PriceSchedule
-    { _psTerm :: !(Maybe Integer)
-    , _psPrice :: !(Maybe Double)
+    { _psTerm :: Maybe Integer
+    , _psPrice :: Maybe Double
     , _psCurrencyCode :: Maybe CurrencyCodeValues
-    , _psActive :: !(Maybe Bool)
+    , _psActive :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -8123,8 +8123,8 @@ instance ToQuery PriceSchedule where
 
 -- | Describes the price for a Reserved Instance.
 data PriceScheduleSpecification = PriceScheduleSpecification
-    { _pssTerm :: !(Maybe Integer)
-    , _pssPrice :: !(Maybe Double)
+    { _pssTerm :: Maybe Integer
+    , _pssPrice :: Maybe Double
     , _pssCurrencyCode :: Maybe CurrencyCodeValues
     } deriving (Show, Generic)
 
@@ -8165,8 +8165,8 @@ instance ToQuery PriceScheduleSpecification where
 
 -- | Describes a Reserved Instance offering.
 data PricingDetail = PricingDetail
-    { _pdPrice :: !(Maybe Double)
-    , _pdCount :: !(Maybe Integer)
+    { _pdPrice :: Maybe Double
+    , _pdCount :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -8201,8 +8201,8 @@ instance ToQuery PricingDetail where
 
 -- | Describes a secondary private IP address for a network interface.
 data PrivateIpAddressSpecification = PrivateIpAddressSpecification
-    { _piasPrivateIpAddress :: !Text
-    , _piasPrimary :: !(Maybe Bool)
+    { _piasPrivateIpAddress :: Text
+    , _piasPrimary :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -8239,7 +8239,7 @@ instance ToQuery PrivateIpAddressSpecification where
 
 -- | Describes a product code.
 data ProductCode = ProductCode
-    { _pcProductCodeId :: !(Maybe Text)
+    { _pcProductCodeId :: Maybe Text
     , _pcProductCodeType :: Maybe ProductCodeValues
     } deriving (Show, Generic)
 
@@ -8277,7 +8277,7 @@ instance ToQuery ProductCode where
 -- | Describes a recurring charge.
 data RecurringCharge = RecurringCharge
     { _rcFrequency :: Maybe RecurringChargeFrequency
-    , _rcAmount :: !(Maybe Double)
+    , _rcAmount :: Maybe Double
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -8312,8 +8312,8 @@ instance ToQuery RecurringCharge where
 
 -- | Describes a region.
 data Region = Region
-    { _r1RegionName :: !(Maybe Text)
-    , _r1Endpoint :: !(Maybe Text)
+    { _r1RegionName :: Maybe Text
+    , _r1Endpoint :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -8348,9 +8348,9 @@ instance FromXML Region where
 
 -- | Describes a reservation.
 data Reservation = Reservation
-    { _rrReservationId :: !(Maybe Text)
-    , _rrOwnerId :: !(Maybe Text)
-    , _rrRequesterId :: !(Maybe Text)
+    { _rrReservationId :: Maybe Text
+    , _rrOwnerId :: Maybe Text
+    , _rrRequesterId :: Maybe Text
     , _rrGroups :: [GroupIdentifier]
     , _rrInstances :: [Instance]
     } deriving (Show, Generic)
@@ -8411,7 +8411,7 @@ instance FromXML Reservation where
 -- order and ensure that the Reserved Instances are not purchased at
 -- unexpected prices.
 data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice
-    { _rilpAmount :: !(Maybe Double)
+    { _rilpAmount :: Maybe Double
     , _rilpCurrencyCode :: Maybe CurrencyCodeValues
     } deriving (Show, Generic)
 
@@ -8446,15 +8446,15 @@ instance ToQuery ReservedInstanceLimitPrice where
 
 -- | Describes a Reserved Instance.
 data ReservedInstances = ReservedInstances
-    { _riReservedInstancesId :: !(Maybe Text)
+    { _riReservedInstancesId :: Maybe Text
     , _riInstanceType :: Maybe InstanceType
-    , _riAvailabilityZone :: !(Maybe Text)
-    , _riStart :: !(Maybe ISO8601)
-    , _riEnd :: !(Maybe ISO8601)
-    , _riDuration :: !(Maybe Integer)
-    , _riUsagePrice :: !(Maybe Double)
-    , _riFixedPrice :: !(Maybe Double)
-    , _riInstanceCount :: !(Maybe Integer)
+    , _riAvailabilityZone :: Maybe Text
+    , _riStart :: Maybe ISO8601
+    , _riEnd :: Maybe ISO8601
+    , _riDuration :: Maybe Integer
+    , _riUsagePrice :: Maybe Double
+    , _riFixedPrice :: Maybe Double
+    , _riInstanceCount :: Maybe Integer
     , _riProductDescription :: Maybe RIProductDescription
     , _riState :: Maybe ReservedInstanceState
     , _riTags :: [Tag]
@@ -8601,9 +8601,9 @@ instance FromXML ReservedInstances where
 -- | The target Reserved Instances configurations supplied as part of the
 -- modification request.
 data ReservedInstancesConfiguration = ReservedInstancesConfiguration
-    { _ricAvailabilityZone :: !(Maybe Text)
-    , _ricPlatform :: !(Maybe Text)
-    , _ricInstanceCount :: !(Maybe Integer)
+    { _ricAvailabilityZone :: Maybe Text
+    , _ricPlatform :: Maybe Text
+    , _ricInstanceCount :: Maybe Integer
     , _ricInstanceType :: Maybe InstanceType
     } deriving (Show, Generic)
 
@@ -8656,16 +8656,16 @@ instance ToQuery ReservedInstancesConfiguration where
 
 -- | Describes a Reserved Instance listing.
 data ReservedInstancesListing = ReservedInstancesListing
-    { _rilReservedInstancesListingId :: !(Maybe Text)
-    , _rilReservedInstancesId :: !(Maybe Text)
-    , _rilCreateDate :: !(Maybe ISO8601)
-    , _rilUpdateDate :: !(Maybe ISO8601)
+    { _rilReservedInstancesListingId :: Maybe Text
+    , _rilReservedInstancesId :: Maybe Text
+    , _rilCreateDate :: Maybe ISO8601
+    , _rilUpdateDate :: Maybe ISO8601
     , _rilStatus :: Maybe ListingStatus
-    , _rilStatusMessage :: !(Maybe Text)
+    , _rilStatusMessage :: Maybe Text
     , _rilInstanceCounts :: [InstanceCount]
     , _rilPriceSchedules :: [PriceSchedule]
     , _rilTags :: [Tag]
-    , _rilClientToken :: !(Maybe Text)
+    , _rilClientToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -8763,15 +8763,15 @@ instance FromXML ReservedInstancesListing where
 
 -- | Describes a Reserved Instance modification.
 data ReservedInstancesModification = ReservedInstancesModification
-    { _rimReservedInstancesModificationId :: !(Maybe Text)
+    { _rimReservedInstancesModificationId :: Maybe Text
     , _rimReservedInstancesIds :: [ReservedInstancesId]
     , _rimModificationResults :: [ReservedInstancesModificationResult]
-    , _rimCreateDate :: !(Maybe ISO8601)
-    , _rimUpdateDate :: !(Maybe ISO8601)
-    , _rimEffectiveDate :: !(Maybe ISO8601)
-    , _rimStatus :: !(Maybe Text)
-    , _rimStatusMessage :: !(Maybe Text)
-    , _rimClientToken :: !(Maybe Text)
+    , _rimCreateDate :: Maybe ISO8601
+    , _rimUpdateDate :: Maybe ISO8601
+    , _rimEffectiveDate :: Maybe ISO8601
+    , _rimStatus :: Maybe Text
+    , _rimStatusMessage :: Maybe Text
+    , _rimClientToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -8863,7 +8863,7 @@ instance FromXML ReservedInstancesModification where
     fromXMLRoot    = fromRoot "item"
 
 data ReservedInstancesModificationResult = ReservedInstancesModificationResult
-    { _rimrReservedInstancesId :: !(Maybe Text)
+    { _rimrReservedInstancesId :: Maybe Text
     , _rimrTargetConfiguration :: Maybe ReservedInstancesConfiguration
     } deriving (Show, Generic)
 
@@ -8906,18 +8906,18 @@ instance ToQuery ReservedInstancesModificationResult where
 
 -- | Describes a Reserved Instance offering.
 data ReservedInstancesOffering = ReservedInstancesOffering
-    { _rioReservedInstancesOfferingId :: !(Maybe Text)
+    { _rioReservedInstancesOfferingId :: Maybe Text
     , _rioInstanceType :: Maybe InstanceType
-    , _rioAvailabilityZone :: !(Maybe Text)
-    , _rioDuration :: !(Maybe Integer)
-    , _rioUsagePrice :: !(Maybe Double)
-    , _rioFixedPrice :: !(Maybe Double)
+    , _rioAvailabilityZone :: Maybe Text
+    , _rioDuration :: Maybe Integer
+    , _rioUsagePrice :: Maybe Double
+    , _rioFixedPrice :: Maybe Double
     , _rioProductDescription :: Maybe RIProductDescription
     , _rioInstanceTenancy :: Maybe Tenancy
     , _rioCurrencyCode :: Maybe CurrencyCodeValues
     , _rioOfferingType :: Maybe OfferingTypeValues
     , _rioRecurringCharges :: [RecurringCharge]
-    , _rioMarketplace :: !(Maybe Bool)
+    , _rioMarketplace :: Maybe Bool
     , _rioPricingDetails :: [PricingDetail]
     } deriving (Show, Generic)
 
@@ -9041,12 +9041,12 @@ instance FromXML ReservedInstancesOffering where
 
 -- | Describes a route in a route table.
 data Route = Route
-    { _rDestinationCidrBlock :: !(Maybe Text)
-    , _rGatewayId :: !(Maybe Text)
-    , _rInstanceId :: !(Maybe Text)
-    , _rInstanceOwnerId :: !(Maybe Text)
-    , _rNetworkInterfaceId :: !(Maybe Text)
-    , _rVpcPeeringConnectionId :: !(Maybe Text)
+    { _rDestinationCidrBlock :: Maybe Text
+    , _rGatewayId :: Maybe Text
+    , _rInstanceId :: Maybe Text
+    , _rInstanceOwnerId :: Maybe Text
+    , _rNetworkInterfaceId :: Maybe Text
+    , _rVpcPeeringConnectionId :: Maybe Text
     , _rState :: Maybe RouteState
     , _rOrigin :: Maybe RouteOrigin
     } deriving (Show, Generic)
@@ -9136,8 +9136,8 @@ instance ToQuery Route where
 
 -- | Information about the route table.
 data RouteTable = RouteTable
-    { _rtRouteTableId :: !(Maybe Text)
-    , _rtVpcId :: !(Maybe Text)
+    { _rtRouteTableId :: Maybe Text
+    , _rtVpcId :: Maybe Text
     , _rtRoutes :: [Route]
     , _rtAssociations :: [RouteTableAssociation]
     , _rtTags :: [Tag]
@@ -9205,10 +9205,10 @@ instance FromXML RouteTable where
 
 -- | Describes an association between a route table and a subnet.
 data RouteTableAssociation = RouteTableAssociation
-    { _rtaRouteTableAssociationId :: !(Maybe Text)
-    , _rtaRouteTableId :: !(Maybe Text)
-    , _rtaSubnetId :: !(Maybe Text)
-    , _rtaMain :: !(Maybe Bool)
+    { _rtaRouteTableAssociationId :: Maybe Text
+    , _rtaRouteTableId :: Maybe Text
+    , _rtaSubnetId :: Maybe Text
+    , _rtaMain :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -9259,11 +9259,11 @@ instance ToQuery RouteTableAssociation where
 
 -- | An Amazon S3 storage location.
 data S3Storage = S3Storage
-    { _ssBucket :: !(Maybe Text)
-    , _ssPrefix :: !(Maybe Text)
-    , _ssAWSAccessKeyId :: !(Maybe Text)
-    , _ssUploadPolicy :: !(Maybe ByteString)
-    , _ssUploadPolicySignature :: !(Maybe Text)
+    { _ssBucket :: Maybe Text
+    , _ssPrefix :: Maybe Text
+    , _ssAWSAccessKeyId :: Maybe Text
+    , _ssUploadPolicy :: Maybe ByteString
+    , _ssUploadPolicySignature :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -9327,13 +9327,13 @@ instance ToQuery S3Storage where
 
 -- | Describes a security group.
 data SecurityGroup = SecurityGroup
-    { _sgOwnerId :: !Text
-    , _sgGroupName :: !Text
-    , _sgGroupId :: !Text
-    , _sgDescription :: !Text
+    { _sgOwnerId :: Text
+    , _sgGroupName :: Text
+    , _sgGroupId :: Text
+    , _sgDescription :: Text
     , _sgIpPermissions :: [IpPermission]
     , _sgIpPermissionsEgress :: [IpPermission]
-    , _sgVpcId :: !(Maybe Text)
+    , _sgVpcId :: Maybe Text
     , _sgTags :: [Tag]
     } deriving (Show, Generic)
 
@@ -9416,17 +9416,17 @@ instance FromXML SecurityGroup where
 
 -- | Describes a snapshot.
 data Snapshot = Snapshot
-    { _s1SnapshotId :: !(Maybe Text)
-    , _s1VolumeId :: !(Maybe Text)
+    { _s1SnapshotId :: Maybe Text
+    , _s1VolumeId :: Maybe Text
     , _s1State :: Maybe SnapshotState
-    , _s1StartTime :: !(Maybe ISO8601)
-    , _s1Progress :: !(Maybe Text)
-    , _s1OwnerId :: !(Maybe Text)
-    , _s1Description :: !(Maybe Text)
-    , _s1VolumeSize :: !(Maybe Integer)
-    , _s1OwnerAlias :: !(Maybe Text)
+    , _s1StartTime :: Maybe ISO8601
+    , _s1Progress :: Maybe Text
+    , _s1OwnerId :: Maybe Text
+    , _s1Description :: Maybe Text
+    , _s1VolumeSize :: Maybe Integer
+    , _s1OwnerAlias :: Maybe Text
     , _s1Tags :: [Tag]
-    , _s1Encrypted :: !(Maybe Bool)
+    , _s1Encrypted :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -9525,9 +9525,9 @@ instance FromXML Snapshot where
 
 -- | The Spot Instance datafeed subscription.
 data SpotDatafeedSubscription = SpotDatafeedSubscription
-    { _sdsOwnerId :: !(Maybe Text)
-    , _sdsBucket :: !(Maybe Text)
-    , _sdsPrefix :: !(Maybe Text)
+    { _sdsOwnerId :: Maybe Text
+    , _sdsBucket :: Maybe Text
+    , _sdsPrefix :: Maybe Text
     , _sdsState :: Maybe DatafeedSubscriptionState
     , _sdsFault :: Maybe SpotInstanceStateFault
     } deriving (Show, Generic)
@@ -9585,22 +9585,22 @@ instance FromXML SpotDatafeedSubscription where
 
 -- | Describe a Spot Instance request.
 data SpotInstanceRequest = SpotInstanceRequest
-    { _sirSpotInstanceRequestId :: !(Maybe Text)
-    , _sirSpotPrice :: !(Maybe Text)
+    { _sirSpotInstanceRequestId :: Maybe Text
+    , _sirSpotPrice :: Maybe Text
     , _sirType :: Maybe SpotInstanceType
     , _sirState :: Maybe SpotInstanceState
     , _sirFault :: Maybe SpotInstanceStateFault
     , _sirStatus :: Maybe SpotInstanceStatus
-    , _sirValidFrom :: !(Maybe ISO8601)
-    , _sirValidUntil :: !(Maybe ISO8601)
-    , _sirLaunchGroup :: !(Maybe Text)
-    , _sirAvailabilityZoneGroup :: !(Maybe Text)
+    , _sirValidFrom :: Maybe ISO8601
+    , _sirValidUntil :: Maybe ISO8601
+    , _sirLaunchGroup :: Maybe Text
+    , _sirAvailabilityZoneGroup :: Maybe Text
     , _sirLaunchSpecification :: Maybe LaunchSpecification
-    , _sirInstanceId :: !(Maybe Text)
-    , _sirCreateTime :: !(Maybe ISO8601)
+    , _sirInstanceId :: Maybe Text
+    , _sirCreateTime :: Maybe ISO8601
     , _sirProductDescription :: Maybe RIProductDescription
     , _sirTags :: [Tag]
-    , _sirLaunchedAvailabilityZone :: !(Maybe Text)
+    , _sirLaunchedAvailabilityZone :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -9756,8 +9756,8 @@ instance FromXML SpotInstanceRequest where
 
 -- | The fault codes for the Spot Instance request, if any.
 data SpotInstanceStateFault = SpotInstanceStateFault
-    { _sisfCode :: !(Maybe Text)
-    , _sisfMessage :: !(Maybe Text)
+    { _sisfCode :: Maybe Text
+    , _sisfMessage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -9792,9 +9792,9 @@ instance ToQuery SpotInstanceStateFault where
 
 -- | The status code and status message describing the Spot Instance request.
 data SpotInstanceStatus = SpotInstanceStatus
-    { _sisCode :: !(Maybe Text)
-    , _sisUpdateTime :: !(Maybe ISO8601)
-    , _sisMessage :: !(Maybe Text)
+    { _sisCode :: Maybe Text
+    , _sisUpdateTime :: Maybe ISO8601
+    , _sisMessage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -9836,8 +9836,8 @@ instance ToQuery SpotInstanceStatus where
 
 -- | The placement information for the instance.
 data SpotPlacement = SpotPlacement
-    { _spAvailabilityZone :: !(Maybe Text)
-    , _spGroupName :: !(Maybe Text)
+    { _spAvailabilityZone :: Maybe Text
+    , _spGroupName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -9875,9 +9875,9 @@ instance ToQuery SpotPlacement where
 data SpotPrice = SpotPrice
     { _sprInstanceType :: Maybe InstanceType
     , _sprProductDescription :: Maybe RIProductDescription
-    , _sprSpotPrice :: !(Maybe Text)
-    , _sprTimestamp :: !(Maybe ISO8601)
-    , _sprAvailabilityZone :: !(Maybe Text)
+    , _sprSpotPrice :: Maybe Text
+    , _sprTimestamp :: Maybe ISO8601
+    , _sprAvailabilityZone :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -9935,8 +9935,8 @@ instance FromXML SpotPrice where
 
 -- | The reason for the state change.
 data StateReason = StateReason
-    { _sr1Code :: !(Maybe Text)
-    , _sr1Message :: !(Maybe Text)
+    { _sr1Code :: Maybe Text
+    , _sr1Message :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -9981,14 +9981,14 @@ instance ToQuery StateReason where
 
 -- | Information about the subnet.
 data Subnet = Subnet
-    { _srSubnetId :: !(Maybe Text)
+    { _srSubnetId :: Maybe Text
     , _srState :: Maybe SubnetState
-    , _srVpcId :: !(Maybe Text)
-    , _srCidrBlock :: !(Maybe Text)
-    , _srAvailableIpAddressCount :: !(Maybe Integer)
-    , _srAvailabilityZone :: !(Maybe Text)
-    , _srDefaultForAz :: !(Maybe Bool)
-    , _srMapPublicIpOnLaunch :: !(Maybe Bool)
+    , _srVpcId :: Maybe Text
+    , _srCidrBlock :: Maybe Text
+    , _srAvailableIpAddressCount :: Maybe Integer
+    , _srAvailabilityZone :: Maybe Text
+    , _srDefaultForAz :: Maybe Bool
+    , _srMapPublicIpOnLaunch :: Maybe Bool
     , _srTags :: [Tag]
     } deriving (Show, Generic)
 
@@ -10079,8 +10079,8 @@ instance FromXML Subnet where
 
 -- | Describes a tag.
 data Tag = Tag
-    { _tKey :: !Text
-    , _tValue :: !Text
+    { _tKey :: Text
+    , _tValue :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -10119,10 +10119,10 @@ instance ToQuery Tag where
 
 -- | Describes a tag.
 data TagDescription = TagDescription
-    { _tdResourceId :: !Text
+    { _tdResourceId :: Text
     , _tdResourceType :: ResourceType
-    , _tdKey :: !Text
-    , _tdValue :: !Text
+    , _tdKey :: Text
+    , _tdValue :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -10175,9 +10175,9 @@ instance FromXML TagDescription where
 
 -- | Describes a security group and AWS account ID pair for EC2-Classic.
 data UserIdGroupPair = UserIdGroupPair
-    { _uigpUserId :: !(Maybe Text)
-    , _uigpGroupName :: !(Maybe Text)
-    , _uigpGroupId :: !(Maybe Text)
+    { _uigpUserId :: Maybe Text
+    , _uigpGroupName :: Maybe Text
+    , _uigpGroupId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -10219,11 +10219,11 @@ instance ToQuery UserIdGroupPair where
 
 -- | Describes telemetry for a VPN tunnel.
 data VgwTelemetry = VgwTelemetry
-    { _vtOutsideIpAddress :: !(Maybe Text)
+    { _vtOutsideIpAddress :: Maybe Text
     , _vtStatus :: Maybe TelemetryStatus
-    , _vtLastStatusChange :: !(Maybe ISO8601)
-    , _vtStatusMessage :: !(Maybe Text)
-    , _vtAcceptedRouteCount :: !(Maybe Integer)
+    , _vtLastStatusChange :: Maybe ISO8601
+    , _vtStatusMessage :: Maybe Text
+    , _vtAcceptedRouteCount :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -10283,17 +10283,17 @@ instance ToQuery VgwTelemetry where
 
 -- | Describes a volume.
 data Volume = Volume
-    { _vrVolumeId :: !(Maybe Text)
-    , _vrSize :: !(Maybe Integer)
-    , _vrSnapshotId :: !(Maybe Text)
-    , _vrAvailabilityZone :: !(Maybe Text)
+    { _vrVolumeId :: Maybe Text
+    , _vrSize :: Maybe Integer
+    , _vrSnapshotId :: Maybe Text
+    , _vrAvailabilityZone :: Maybe Text
     , _vrState :: Maybe VolumeState
-    , _vrCreateTime :: !(Maybe ISO8601)
+    , _vrCreateTime :: Maybe ISO8601
     , _vrAttachments :: [VolumeAttachment]
     , _vrTags :: [Tag]
     , _vrVolumeType :: Maybe VolumeType
-    , _vrIops :: !(Maybe Integer)
-    , _vrEncrypted :: !(Maybe Bool)
+    , _vrIops :: Maybe Integer
+    , _vrEncrypted :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -10403,12 +10403,12 @@ instance FromXML Volume where
 
 -- | Describes volume attachment details.
 data VolumeAttachment = VolumeAttachment
-    { _varVolumeId :: !(Maybe Text)
-    , _varInstanceId :: !(Maybe Text)
-    , _varDevice :: !(Maybe Text)
+    { _varVolumeId :: Maybe Text
+    , _varInstanceId :: Maybe Text
+    , _varDevice :: Maybe Text
     , _varState :: Maybe VolumeAttachmentState
-    , _varAttachTime :: !(Maybe ISO8601)
-    , _varDeleteOnTermination :: !(Maybe Bool)
+    , _varAttachTime :: Maybe ISO8601
+    , _varDeleteOnTermination :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -10472,10 +10472,10 @@ instance ToQuery VolumeAttachment where
 
 -- | Describes a volume status operation code.
 data VolumeStatusAction = VolumeStatusAction
-    { _vsaCode :: !(Maybe Text)
-    , _vsaDescription :: !(Maybe Text)
-    , _vsaEventType :: !(Maybe Text)
-    , _vsaEventId :: !(Maybe Text)
+    { _vsaCode :: Maybe Text
+    , _vsaDescription :: Maybe Text
+    , _vsaEventType :: Maybe Text
+    , _vsaEventId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -10525,7 +10525,7 @@ instance ToQuery VolumeStatusAction where
 -- | Describes a volume status.
 data VolumeStatusDetails = VolumeStatusDetails
     { _vsdName :: Maybe VolumeStatusName
-    , _vsdStatus :: !(Maybe Text)
+    , _vsdStatus :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -10560,11 +10560,11 @@ instance ToQuery VolumeStatusDetails where
 
 -- | Describes a volume status event.
 data VolumeStatusEvent = VolumeStatusEvent
-    { _vseEventType :: !(Maybe Text)
-    , _vseDescription :: !(Maybe Text)
-    , _vseNotBefore :: !(Maybe ISO8601)
-    , _vseNotAfter :: !(Maybe ISO8601)
-    , _vseEventId :: !(Maybe Text)
+    { _vseEventType :: Maybe Text
+    , _vseDescription :: Maybe Text
+    , _vseNotBefore :: Maybe ISO8601
+    , _vseNotAfter :: Maybe ISO8601
+    , _vseEventId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -10656,8 +10656,8 @@ instance ToQuery VolumeStatusInfo where
 
 -- | Describes the volume status.
 data VolumeStatusItem = VolumeStatusItem
-    { _vsiVolumeId :: !(Maybe Text)
-    , _vsiAvailabilityZone :: !(Maybe Text)
+    { _vsiVolumeId :: Maybe Text
+    , _vsiAvailabilityZone :: Maybe Text
     , _vsiVolumeStatus :: Maybe VolumeStatusInfo
     , _vsiEvents :: [VolumeStatusEvent]
     , _vsiActions :: [VolumeStatusAction]
@@ -10717,13 +10717,13 @@ instance FromXML VolumeStatusItem where
 
 -- | Information about the VPC.
 data Vpc = Vpc
-    { _vVpcId :: !(Maybe Text)
+    { _vVpcId :: Maybe Text
     , _vState :: Maybe VpcState
-    , _vCidrBlock :: !(Maybe Text)
-    , _vDhcpOptionsId :: !(Maybe Text)
+    , _vCidrBlock :: Maybe Text
+    , _vDhcpOptionsId :: Maybe Text
     , _vTags :: [Tag]
     , _vInstanceTenancy :: Maybe Tenancy
-    , _vIsDefault :: !(Maybe Bool)
+    , _vIsDefault :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -10795,7 +10795,7 @@ instance FromXML Vpc where
 
 -- | Information about the attachment.
 data VpcAttachment = VpcAttachment
-    { _vaVpcId :: !(Maybe Text)
+    { _vaVpcId :: Maybe Text
     , _vaState :: Maybe AttachmentStatus
     } deriving (Show, Generic)
 
@@ -10832,11 +10832,11 @@ instance ToQuery VpcAttachment where
 -- | Information about the VPC peering connection.
 data VpcPeeringConnection = VpcPeeringConnection
     { _vpcAccepterVpcInfo :: Maybe VpcPeeringConnectionVpcInfo
-    , _vpcExpirationTime :: !(Maybe ISO8601)
+    , _vpcExpirationTime :: Maybe ISO8601
     , _vpcRequesterVpcInfo :: Maybe VpcPeeringConnectionVpcInfo
     , _vpcStatus :: Maybe VpcPeeringConnectionStateReason
     , _vpcTags :: [Tag]
-    , _vpcVpcPeeringConnectionId :: !(Maybe Text)
+    , _vpcVpcPeeringConnectionId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -10904,8 +10904,8 @@ instance FromXML VpcPeeringConnection where
 
 -- | The status of the VPC peering connection.
 data VpcPeeringConnectionStateReason = VpcPeeringConnectionStateReason
-    { _vpcsrCode :: !(Maybe Text)
-    , _vpcsrMessage :: !(Maybe Text)
+    { _vpcsrCode :: Maybe Text
+    , _vpcsrMessage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -10940,9 +10940,9 @@ instance ToQuery VpcPeeringConnectionStateReason where
 
 -- | The information of the peer VPC.
 data VpcPeeringConnectionVpcInfo = VpcPeeringConnectionVpcInfo
-    { _vpcviCidrBlock :: !(Maybe Text)
-    , _vpcviOwnerId :: !(Maybe Text)
-    , _vpcviVpcId :: !(Maybe Text)
+    { _vpcviCidrBlock :: Maybe Text
+    , _vpcviOwnerId :: Maybe Text
+    , _vpcviVpcId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -10984,12 +10984,12 @@ instance ToQuery VpcPeeringConnectionVpcInfo where
 
 -- | Information about the VPN connection.
 data VpnConnection = VpnConnection
-    { _vcVpnConnectionId :: !(Maybe Text)
+    { _vcVpnConnectionId :: Maybe Text
     , _vcState :: Maybe VpnState
-    , _vcCustomerGatewayConfiguration :: !(Maybe Text)
+    , _vcCustomerGatewayConfiguration :: Maybe Text
     , _vcType :: Maybe GatewayType
-    , _vcCustomerGatewayId :: !(Maybe Text)
-    , _vcVpnGatewayId :: !(Maybe Text)
+    , _vcCustomerGatewayId :: Maybe Text
+    , _vcVpnGatewayId :: Maybe Text
     , _vcTags :: [Tag]
     , _vcVgwTelemetry :: [VgwTelemetry]
     , _vcOptions :: Maybe VpnConnectionOptions
@@ -11093,10 +11093,10 @@ instance FromXML VpnConnection where
 
 -- | Information about the virtual private gateway.
 data VpnGateway = VpnGateway
-    { _vgVpnGatewayId :: !(Maybe Text)
+    { _vgVpnGatewayId :: Maybe Text
     , _vgState :: Maybe VpnState
     , _vgType :: Maybe GatewayType
-    , _vgAvailabilityZone :: !(Maybe Text)
+    , _vgAvailabilityZone :: Maybe Text
     , _vgVpcAttachments :: [VpcAttachment]
     , _vgTags :: [Tag]
     } deriving (Show, Generic)
@@ -11163,7 +11163,7 @@ instance FromXML VpnGateway where
 
 -- | Describes a static route for a VPN connection.
 data VpnStaticRoute = VpnStaticRoute
-    { _vsrDestinationCidrBlock :: !(Maybe Text)
+    { _vsrDestinationCidrBlock :: Maybe Text
     , _vsrSource :: Maybe VpnStaticRouteSource
     , _vsrState :: Maybe VpnState
     } deriving (Show, Generic)

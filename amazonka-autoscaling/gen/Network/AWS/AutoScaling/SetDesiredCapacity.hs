@@ -45,9 +45,9 @@ import Network.AWS.Prelude
 
 -- | 
 data SetDesiredCapacity = SetDesiredCapacity
-    { _sdcAutoScalingGroupName :: !Text
+    { _sdcAutoScalingGroupName :: Text
     , _sdcDesiredCapacity :: !Integer
-    , _sdcHonorCooldown :: !(Maybe Bool)
+    , _sdcHonorCooldown :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

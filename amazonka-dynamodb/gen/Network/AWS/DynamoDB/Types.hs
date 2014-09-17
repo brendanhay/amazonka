@@ -832,7 +832,7 @@ instance ToJSON PutRequest
 -- | Represents an attribute for describing the key schema for the table and
 -- indexes.
 data AttributeDefinition = AttributeDefinition
-    { _adAttributeName :: !Text
+    { _adAttributeName :: Text
     , _adAttributeType :: ScalarAttributeType
     } deriving (Show, Generic)
 
@@ -868,9 +868,9 @@ instance ToJSON AttributeDefinition
 -- | Represents the data for an attribute. You can set one, and only one, of the
 -- elements.
 data AttributeValue = AttributeValue
-    { _avS :: !(Maybe Text)
-    , _avN :: !(Maybe Text)
-    , _avB :: !(Maybe Base64)
+    { _avS :: Maybe Text
+    , _avN :: Maybe Text
+    , _avB :: Maybe Base64
     , _avSS :: [Text]
     , _avNS :: [Text]
     , _avBS :: [Base64]
@@ -1132,8 +1132,8 @@ instance ToJSON Condition
 -- is only returned if it was asked for in the request. For more information,
 -- see Provisioned Throughput in the Amazon DynamoDB Developer Guide.
 data ConsumedCapacity = ConsumedCapacity
-    { _ccTableName :: !(Maybe Text)
-    , _ccCapacityUnits :: !(Maybe Double)
+    { _ccTableName :: Maybe Text
+    , _ccCapacityUnits :: Maybe Double
     , _ccTable :: Maybe Capacity
     , _ccLocalSecondaryIndexes :: Map Text Capacity
     , _ccGlobalSecondaryIndexes :: Map Text Capacity
@@ -1200,7 +1200,7 @@ instance FromJSON ConsumedCapacity
 -- before updating it.
 data ExpectedAttributeValue = ExpectedAttributeValue
     { _eavValue :: Maybe AttributeValue
-    , _eavExists :: !(Maybe Bool)
+    , _eavExists :: Maybe Bool
     , _eavComparisonOperator :: Maybe ComparisonOperator
     , _eavAttributeValueList :: [AttributeValue]
     } deriving (Show, Generic)
@@ -1264,7 +1264,7 @@ instance ToJSON ExpectedAttributeValue
 
 -- | Represents a global secondary index.
 data GlobalSecondaryIndex = GlobalSecondaryIndex
-    { _gsiIndexName :: !Text
+    { _gsiIndexName :: Text
     , _gsiKeySchema :: List1 KeySchemaElement
     , _gsiProjection :: Projection
     , _gsiProvisionedThroughput :: ProvisionedThroughput
@@ -1324,13 +1324,13 @@ instance ToJSON GlobalSecondaryIndex
 
 -- | Represents the properties of a global secondary index.
 data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
-    { _gsidIndexName :: !(Maybe Text)
+    { _gsidIndexName :: Maybe Text
     , _gsidKeySchema :: Maybe (List1 KeySchemaElement)
     , _gsidProjection :: Maybe Projection
     , _gsidIndexStatus :: Maybe IndexStatus
     , _gsidProvisionedThroughput :: Maybe ProvisionedThroughputDescription
-    , _gsidIndexSizeBytes :: !(Maybe Integer)
-    , _gsidItemCount :: !(Maybe Integer)
+    , _gsidIndexSizeBytes :: Maybe Integer
+    , _gsidItemCount :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1462,7 +1462,7 @@ instance ToJSON ItemCollectionMetrics
 -- attributes that make up the primary key of a table, or the key attributes
 -- of an index.
 data KeySchemaElement = KeySchemaElement
-    { _kseAttributeName :: !Text
+    { _kseAttributeName :: Text
     , _kseKeyType :: KeyType
     } deriving (Show, Generic)
 
@@ -1502,7 +1502,7 @@ instance ToJSON KeySchemaElement
 data KeysAndAttributes = KeysAndAttributes
     { _kaaKeys :: List1 (Map Text AttributeValue)
     , _kaaAttributesToGet :: Maybe (List1 Text)
-    , _kaaConsistentRead :: !(Maybe Bool)
+    , _kaaConsistentRead :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1548,7 +1548,7 @@ instance ToJSON KeysAndAttributes
 
 -- | Represents a local secondary index.
 data LocalSecondaryIndex = LocalSecondaryIndex
-    { _lsiIndexName :: !Text
+    { _lsiIndexName :: Text
     , _lsiKeySchema :: List1 KeySchemaElement
     , _lsiProjection :: Projection
     } deriving (Show, Generic)
@@ -1594,11 +1594,11 @@ instance ToJSON LocalSecondaryIndex
 
 -- | Represents the properties of a local secondary index.
 data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription
-    { _lsidIndexName :: !(Maybe Text)
+    { _lsidIndexName :: Maybe Text
     , _lsidKeySchema :: Maybe (List1 KeySchemaElement)
     , _lsidProjection :: Maybe Projection
-    , _lsidIndexSizeBytes :: !(Maybe Integer)
-    , _lsidItemCount :: !(Maybe Integer)
+    , _lsidIndexSizeBytes :: Maybe Integer
+    , _lsidItemCount :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1750,11 +1750,11 @@ instance ToJSON ProvisionedThroughput
 -- | The provisioned throughput settings for the table, consisting of read and
 -- write capacity units, along with data about increases and decreases.
 data ProvisionedThroughputDescription = ProvisionedThroughputDescription
-    { _ptdLastIncreaseDateTime :: !(Maybe ISO8601)
-    , _ptdLastDecreaseDateTime :: !(Maybe ISO8601)
-    , _ptdNumberOfDecreasesToday :: !(Maybe Integer)
-    , _ptdReadCapacityUnits :: !(Maybe Integer)
-    , _ptdWriteCapacityUnits :: !(Maybe Integer)
+    { _ptdLastIncreaseDateTime :: Maybe ISO8601
+    , _ptdLastDecreaseDateTime :: Maybe ISO8601
+    , _ptdNumberOfDecreasesToday :: Maybe Integer
+    , _ptdReadCapacityUnits :: Maybe Integer
+    , _ptdWriteCapacityUnits :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1825,13 +1825,13 @@ instance ToJSON ProvisionedThroughputDescription
 -- | Represents the properties of a table.
 data TableDescription = TableDescription
     { _tdAttributeDefinitions :: [AttributeDefinition]
-    , _tdTableName :: !(Maybe Text)
+    , _tdTableName :: Maybe Text
     , _tdKeySchema :: Maybe (List1 KeySchemaElement)
     , _tdTableStatus :: Maybe TableStatus
-    , _tdCreationDateTime :: !(Maybe ISO8601)
+    , _tdCreationDateTime :: Maybe ISO8601
     , _tdProvisionedThroughput :: Maybe ProvisionedThroughputDescription
-    , _tdTableSizeBytes :: !(Maybe Integer)
-    , _tdItemCount :: !(Maybe Integer)
+    , _tdTableSizeBytes :: Maybe Integer
+    , _tdItemCount :: Maybe Integer
     , _tdLocalSecondaryIndexes :: [LocalSecondaryIndexDescription]
     , _tdGlobalSecondaryIndexes :: [GlobalSecondaryIndexDescription]
     } deriving (Show, Generic)
@@ -2002,7 +2002,7 @@ instance FromJSON TableDescription
 -- | The name of a global secondary index, along with the updated provisioned
 -- throughput settings that are to be applied to that index.
 data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction
-    { _ugsiaIndexName :: !Text
+    { _ugsiaIndexName :: Text
     , _ugsiaProvisionedThroughput :: ProvisionedThroughput
     } deriving (Show, Generic)
 

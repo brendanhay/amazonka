@@ -49,12 +49,12 @@ import Network.AWS.CloudWatch.Types
 import Network.AWS.Prelude
 
 data DescribeAlarmHistory = DescribeAlarmHistory
-    { _dahAlarmName :: !(Maybe Text)
+    { _dahAlarmName :: Maybe Text
     , _dahHistoryItemType :: Maybe HistoryItemType
-    , _dahStartDate :: !(Maybe ISO8601)
-    , _dahEndDate :: !(Maybe ISO8601)
-    , _dahMaxRecords :: !(Maybe Integer)
-    , _dahNextToken :: !(Maybe Text)
+    , _dahStartDate :: Maybe ISO8601
+    , _dahEndDate :: Maybe ISO8601
+    , _dahMaxRecords :: Maybe Integer
+    , _dahNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -116,7 +116,7 @@ instance ToQuery DescribeAlarmHistory where
 -- | The output for the DescribeAlarmHistory action.
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
     { _dahrAlarmHistoryItems :: [AlarmHistoryItem]
-    , _dahrNextToken :: !(Maybe Text)
+    , _dahrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

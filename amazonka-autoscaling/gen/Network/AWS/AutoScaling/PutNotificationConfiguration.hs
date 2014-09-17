@@ -45,8 +45,8 @@ import Network.AWS.AutoScaling.Types
 import Network.AWS.Prelude
 
 data PutNotificationConfiguration = PutNotificationConfiguration
-    { _pncAutoScalingGroupName :: !Text
-    , _pncTopicARN :: !Text
+    { _pncAutoScalingGroupName :: Text
+    , _pncTopicARN :: Text
     , _pncNotificationTypes :: [Text]
     } deriving (Show, Generic)
 

@@ -52,11 +52,11 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DescribeCommunications = DescribeCommunications
-    { _dc1CaseId :: !Text
-    , _dc1BeforeTime :: !(Maybe Text)
-    , _dc1AfterTime :: !(Maybe Text)
-    , _dc1NextToken :: !(Maybe Text)
-    , _dc1MaxResults :: !(Maybe Integer)
+    { _dc1CaseId :: Text
+    , _dc1BeforeTime :: Maybe Text
+    , _dc1AfterTime :: Maybe Text
+    , _dc1NextToken :: Maybe Text
+    , _dc1MaxResults :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -119,7 +119,7 @@ instance ToJSON DescribeCommunications
 -- | The communications returned by the DescribeCommunications operation.
 data DescribeCommunicationsResponse = DescribeCommunicationsResponse
     { _dcrrCommunications :: [Communication]
-    , _dcrrNextToken :: !(Maybe Text)
+    , _dcrrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

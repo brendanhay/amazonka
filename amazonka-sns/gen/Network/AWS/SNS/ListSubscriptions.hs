@@ -86,7 +86,7 @@ instance ToQuery ListSubscriptions where
 -- | Response for ListSubscriptions action.
 data ListSubscriptionsResponse = ListSubscriptionsResponse
     { _lsrSubscriptions :: [Subscription]
-    , _lsrNextToken :: !(Maybe Text)
+    , _lsrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

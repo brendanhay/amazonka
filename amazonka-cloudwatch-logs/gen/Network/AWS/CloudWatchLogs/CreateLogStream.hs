@@ -53,8 +53,8 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data CreateLogStream = CreateLogStream
-    { _clsLogGroupName :: !Text
-    , _clsLogStreamName :: !Text
+    { _clsLogGroupName :: Text
+    , _clsLogStreamName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

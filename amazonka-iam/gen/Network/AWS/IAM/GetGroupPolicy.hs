@@ -49,8 +49,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data GetGroupPolicy = GetGroupPolicy
-    { _ggpGroupName :: !Text
-    , _ggpPolicyName :: !Text
+    { _ggpGroupName :: Text
+    , _ggpPolicyName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -84,9 +84,9 @@ instance ToQuery GetGroupPolicy where
 -- | Contains the result of a successful invocation of the GetGroupPolicy
 -- action.
 data GetGroupPolicyResponse = GetGroupPolicyResponse
-    { _ggprGroupName :: !Text
-    , _ggprPolicyName :: !Text
-    , _ggprPolicyDocument :: !Text
+    { _ggprGroupName :: Text
+    , _ggprPolicyName :: Text
+    , _ggprPolicyDocument :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

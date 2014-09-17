@@ -53,8 +53,8 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a ResetCacheParameterGroup operation.
 data ResetCacheParameterGroup = ResetCacheParameterGroup
-    { _rcpgCacheParameterGroupName :: !Text
-    , _rcpgResetAllParameters :: !(Maybe Bool)
+    { _rcpgCacheParameterGroupName :: Text
+    , _rcpgResetAllParameters :: Maybe Bool
     , _rcpgParameterNameValues :: [ParameterNameValue]
     } deriving (Show, Generic)
 

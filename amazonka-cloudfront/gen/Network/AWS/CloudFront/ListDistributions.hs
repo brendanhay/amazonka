@@ -43,8 +43,8 @@ import Network.AWS.Types (Region)
 
 -- | The request to list your distributions.
 data ListDistributions = ListDistributions
-    { _ldMarker :: !(Maybe Text)
-    , _ldMaxItems :: !(Maybe Text)
+    { _ldMarker :: Maybe Text
+    , _ldMaxItems :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -52,9 +52,9 @@ import Network.AWS.Prelude
 
 -- | 
 data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering
-    { _prdbioReservedDBInstancesOfferingId :: !Text
-    , _prdbioReservedDBInstanceId :: !(Maybe Text)
-    , _prdbioDBInstanceCount :: !(Maybe Integer)
+    { _prdbioReservedDBInstancesOfferingId :: Text
+    , _prdbioReservedDBInstanceId :: Maybe Text
+    , _prdbioDBInstanceCount :: Maybe Integer
     , _prdbioTags :: [Tag]
     } deriving (Show, Generic)
 

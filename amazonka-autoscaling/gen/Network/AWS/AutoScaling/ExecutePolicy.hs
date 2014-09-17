@@ -40,9 +40,9 @@ import Network.AWS.AutoScaling.Types
 import Network.AWS.Prelude
 
 data ExecutePolicy = ExecutePolicy
-    { _epAutoScalingGroupName :: !(Maybe Text)
-    , _epPolicyName :: !Text
-    , _epHonorCooldown :: !(Maybe Bool)
+    { _epAutoScalingGroupName :: Maybe Text
+    , _epPolicyName :: Text
+    , _epHonorCooldown :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

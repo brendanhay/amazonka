@@ -44,8 +44,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data AddRoleToInstanceProfile = AddRoleToInstanceProfile
-    { _artipInstanceProfileName :: !Text
-    , _artipRoleName :: !Text
+    { _artipInstanceProfileName :: Text
+    , _artipRoleName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

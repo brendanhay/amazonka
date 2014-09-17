@@ -58,8 +58,8 @@ import Network.AWS.Prelude
 -- | The input for the DescribeLoadBalancers action.
 data DescribeLoadBalancers = DescribeLoadBalancers
     { _dlb1LoadBalancerNames :: [Text]
-    , _dlb1Marker :: !(Maybe Text)
-    , _dlb1PageSize :: !(Maybe Integer)
+    , _dlb1Marker :: Maybe Text
+    , _dlb1PageSize :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -101,7 +101,7 @@ instance ToQuery DescribeLoadBalancers where
 -- | The output for the DescribeLoadBalancers action.
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse
     { _dlbrrLoadBalancerDescriptions :: [LoadBalancerDescription]
-    , _dlbrrNextMarker :: !(Maybe Text)
+    , _dlbrrNextMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

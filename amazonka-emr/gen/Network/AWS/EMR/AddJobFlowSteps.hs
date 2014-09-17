@@ -80,7 +80,7 @@ import Network.AWS.Request.JSON
 
 -- | The input argument to the AddJobFlowSteps operation.
 data AddJobFlowSteps = AddJobFlowSteps
-    { _ajfsJobFlowId :: !Text
+    { _ajfsJobFlowId :: Text
     , _ajfsSteps :: [StepConfig]
     } deriving (Show, Generic)
 

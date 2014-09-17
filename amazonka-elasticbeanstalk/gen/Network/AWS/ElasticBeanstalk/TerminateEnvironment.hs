@@ -64,9 +64,9 @@ import Network.AWS.Prelude
 
 -- | This documentation target is not reported in the API reference.
 data TerminateEnvironment = TerminateEnvironment
-    { _teEnvironmentId :: !(Maybe Text)
-    , _teEnvironmentName :: !(Maybe Text)
-    , _teTerminateResources :: !(Maybe Bool)
+    { _teEnvironmentId :: Maybe Text
+    , _teEnvironmentName :: Maybe Text
+    , _teTerminateResources :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -119,17 +119,17 @@ instance ToQuery TerminateEnvironment where
 
 -- | Describes the properties of an environment.
 data TerminateEnvironmentResponse = TerminateEnvironmentResponse
-    { _terEnvironmentName :: !(Maybe Text)
-    , _terEnvironmentId :: !(Maybe Text)
-    , _terApplicationName :: !(Maybe Text)
-    , _terVersionLabel :: !(Maybe Text)
-    , _terSolutionStackName :: !(Maybe Text)
-    , _terTemplateName :: !(Maybe Text)
-    , _terDescription :: !(Maybe Text)
-    , _terEndpointURL :: !(Maybe Text)
-    , _terCNAME :: !(Maybe Text)
-    , _terDateCreated :: !(Maybe ISO8601)
-    , _terDateUpdated :: !(Maybe ISO8601)
+    { _terEnvironmentName :: Maybe Text
+    , _terEnvironmentId :: Maybe Text
+    , _terApplicationName :: Maybe Text
+    , _terVersionLabel :: Maybe Text
+    , _terSolutionStackName :: Maybe Text
+    , _terTemplateName :: Maybe Text
+    , _terDescription :: Maybe Text
+    , _terEndpointURL :: Maybe Text
+    , _terCNAME :: Maybe Text
+    , _terDateCreated :: Maybe ISO8601
+    , _terDateUpdated :: Maybe ISO8601
     , _terStatus :: Maybe EnvironmentStatus
     , _terHealth :: Maybe EnvironmentHealth
     , _terResources :: Maybe EnvironmentResourcesDescription

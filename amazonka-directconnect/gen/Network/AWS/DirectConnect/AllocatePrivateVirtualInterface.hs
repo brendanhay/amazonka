@@ -64,8 +64,8 @@ import Network.AWS.Request.JSON
 -- | Container for the parameters to the AllocatePrivateVirtualInterface
 -- operation.
 data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface
-    { _apviConnectionId :: !Text
-    , _apviOwnerAccount :: !Text
+    { _apviConnectionId :: Text
+    , _apviOwnerAccount :: Text
     , _apviNewPrivateVirtualInterfaceAllocation :: NewPrivateVirtualInterfaceAllocation
     } deriving (Show, Generic)
 
@@ -120,20 +120,20 @@ instance ToJSON AllocatePrivateVirtualInterface
 -- | A virtual interface (VLAN) transmits the traffic between the AWS Direct
 -- Connect location and the customer.
 data AllocatePrivateVirtualInterfaceResponse = AllocatePrivateVirtualInterfaceResponse
-    { _apvirOwnerAccount :: !(Maybe Text)
-    , _apvirVirtualInterfaceId :: !(Maybe Text)
-    , _apvirLocation :: !(Maybe Text)
-    , _apvirConnectionId :: !(Maybe Text)
-    , _apvirVirtualInterfaceType :: !(Maybe Text)
-    , _apvirVirtualInterfaceName :: !(Maybe Text)
-    , _apvirVlan :: !(Maybe Integer)
-    , _apvirAsn :: !(Maybe Integer)
-    , _apvirAuthKey :: !(Maybe Text)
-    , _apvirAmazonAddress :: !(Maybe Text)
-    , _apvirCustomerAddress :: !(Maybe Text)
+    { _apvirOwnerAccount :: Maybe Text
+    , _apvirVirtualInterfaceId :: Maybe Text
+    , _apvirLocation :: Maybe Text
+    , _apvirConnectionId :: Maybe Text
+    , _apvirVirtualInterfaceType :: Maybe Text
+    , _apvirVirtualInterfaceName :: Maybe Text
+    , _apvirVlan :: Maybe Integer
+    , _apvirAsn :: Maybe Integer
+    , _apvirAuthKey :: Maybe Text
+    , _apvirAmazonAddress :: Maybe Text
+    , _apvirCustomerAddress :: Maybe Text
     , _apvirVirtualInterfaceState :: Maybe VirtualInterfaceState
-    , _apvirCustomerRouterConfig :: !(Maybe Text)
-    , _apvirVirtualGatewayId :: !(Maybe Text)
+    , _apvirCustomerRouterConfig :: Maybe Text
+    , _apvirVirtualGatewayId :: Maybe Text
     , _apvirRouteFilterPrefixes :: [RouteFilterPrefix]
     } deriving (Show, Generic)
 

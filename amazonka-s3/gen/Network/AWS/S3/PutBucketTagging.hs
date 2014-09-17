@@ -41,8 +41,8 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data PutBucketTagging = PutBucketTagging
-    { _pbtBucket :: !BucketName
-    , _pbtContentMD5 :: !(Maybe Text)
+    { _pbtBucket :: BucketName
+    , _pbtContentMD5 :: Maybe Text
     , _pbtTagging :: Tagging
     } deriving (Show, Generic)
 

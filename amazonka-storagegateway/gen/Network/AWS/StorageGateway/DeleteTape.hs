@@ -40,8 +40,8 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DeleteTape = DeleteTape
-    { _dtGatewayARN :: !Text
-    , _dtTapeARN :: !Text
+    { _dtGatewayARN :: Text
+    , _dtTapeARN :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

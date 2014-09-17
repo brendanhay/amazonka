@@ -73,7 +73,7 @@ import Network.AWS.Request.JSON
 -- | Represents the input of a CreateTable operation.
 data CreateTable = CreateTable
     { _ctAttributeDefinitions :: [AttributeDefinition]
-    , _ctTableName :: !Text
+    , _ctTableName :: Text
     , _ctKeySchema :: List1 KeySchemaElement
     , _ctLocalSecondaryIndexes :: [LocalSecondaryIndex]
     , _ctGlobalSecondaryIndexes :: [GlobalSecondaryIndex]

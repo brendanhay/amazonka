@@ -76,7 +76,7 @@ instance ToXML GetCloudFrontOriginAccessIdentityConfig where
 -- | The returned result of the corresponding request.
 data GetCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccessIdentityConfigResponse
     { _gcfoaicrCloudFrontOriginAccessIdentityConfig :: Maybe CloudFrontOriginAccessIdentityConfig
-    , _gcfoaicrETag :: !(Maybe Text)
+    , _gcfoaicrETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

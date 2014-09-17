@@ -49,9 +49,9 @@ import Network.AWS.Prelude
 
 -- | 
 data EnableLogging = EnableLogging
-    { _elClusterIdentifier :: !Text
-    , _elBucketName :: !Text
-    , _elS3KeyPrefix :: !(Maybe Text)
+    { _elClusterIdentifier :: Text
+    , _elBucketName :: Text
+    , _elS3KeyPrefix :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -98,12 +98,12 @@ instance ToQuery EnableLogging where
 
 -- | Describes the status of logging for a cluster.
 data EnableLoggingResponse = EnableLoggingResponse
-    { _elrLoggingEnabled :: !(Maybe Bool)
-    , _elrBucketName :: !(Maybe Text)
-    , _elrS3KeyPrefix :: !(Maybe Text)
-    , _elrLastSuccessfulDeliveryTime :: !(Maybe ISO8601)
-    , _elrLastFailureTime :: !(Maybe ISO8601)
-    , _elrLastFailureMessage :: !(Maybe Text)
+    { _elrLoggingEnabled :: Maybe Bool
+    , _elrBucketName :: Maybe Text
+    , _elrS3KeyPrefix :: Maybe Text
+    , _elrLastSuccessfulDeliveryTime :: Maybe ISO8601
+    , _elrLastFailureTime :: Maybe ISO8601
+    , _elrLastFailureMessage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

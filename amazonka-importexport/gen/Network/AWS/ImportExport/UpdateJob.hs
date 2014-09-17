@@ -49,8 +49,8 @@ import Network.AWS.Prelude
 
 -- | Input structure for the UpateJob operation.
 data UpdateJob = UpdateJob
-    { _ujJobId :: !Text
-    , _ujManifest :: !Text
+    { _ujJobId :: Text
+    , _ujManifest :: Text
     , _ujJobType :: JobType
     , _ujValidateOnly :: !Bool
     } deriving (Show, Generic)
@@ -102,8 +102,8 @@ instance ToQuery UpdateJob where
 
 -- | Output structure for the UpateJob operation.
 data UpdateJobResponse = UpdateJobResponse
-    { _ujrSuccess :: !(Maybe Bool)
-    , _ujrWarningMessage :: !(Maybe Text)
+    { _ujrSuccess :: Maybe Bool
+    , _ujrWarningMessage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

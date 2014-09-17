@@ -92,7 +92,7 @@ import Network.AWS.Request.JSON
 
 -- | The input of the PutPipelineDefinition action.
 data PutPipelineDefinition = PutPipelineDefinition
-    { _ppdPipelineId :: !Text
+    { _ppdPipelineId :: Text
     , _ppdPipelineObjects :: [PipelineObject]
     } deriving (Show, Generic)
 

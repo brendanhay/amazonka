@@ -55,9 +55,9 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a DescribeEngineDefaultParameters operation.
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
-    { _dedpCacheParameterGroupFamily :: !Text
-    , _dedpMaxRecords :: !(Maybe Integer)
-    , _dedpMarker :: !(Maybe Text)
+    { _dedpCacheParameterGroupFamily :: Text
+    , _dedpMaxRecords :: Maybe Integer
+    , _dedpMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

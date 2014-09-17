@@ -55,7 +55,7 @@ import Network.AWS.SES.Types
 import Network.AWS.Prelude
 
 data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled
-    { _siffeIdentity :: !Text
+    { _siffeIdentity :: Text
     , _siffeForwardingEnabled :: !Bool
     } deriving (Show, Generic)
 

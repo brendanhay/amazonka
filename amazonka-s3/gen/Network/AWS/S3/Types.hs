@@ -1318,8 +1318,8 @@ instance ToXML AccessControlPolicy where
     toXMLRoot    = toRoot "AccessControlPolicy"
 
 data Bucket = Bucket
-    { _bName :: !(Maybe BucketName)
-    , _bCreationDate :: !(Maybe RFC822)
+    { _bName :: Maybe BucketName
+    , _bCreationDate :: Maybe RFC822
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1357,7 +1357,7 @@ data CORSRule = CORSRule
     , _corsrAllowedMethods :: [Text]
     , _corsrAllowedOrigins :: [Text]
     , _corsrExposeHeaders :: [Text]
-    , _corsrMaxAgeSeconds :: !(Maybe Integer)
+    , _corsrMaxAgeSeconds :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1423,8 +1423,8 @@ instance ToXML CORSRule where
     toXMLRoot    = toRoot "CORSRule"
 
 data CompletedPart = CompletedPart
-    { _cpETag :: !(Maybe ETag)
-    , _cpPartNumber :: !(Maybe Integer)
+    { _cpETag :: Maybe ETag
+    , _cpPartNumber :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1460,8 +1460,8 @@ instance ToXML CompletedPart where
 -- error 4xx, redirect request to another host where you might process the
 -- error.
 data Condition = Condition
-    { _cHttpErrorCodeReturnedEquals :: !(Maybe Text)
-    , _cKeyPrefixEquals :: !(Maybe Text)
+    { _cHttpErrorCodeReturnedEquals :: Maybe Text
+    , _cKeyPrefixEquals :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1509,8 +1509,8 @@ instance ToXML Condition where
     toXMLRoot    = toRoot "Condition"
 
 data CopyObjectResult = CopyObjectResult
-    { _corrETag :: !(Maybe ETag)
-    , _corrLastModified :: !(Maybe RFC822)
+    { _corrETag :: Maybe ETag
+    , _corrLastModified :: Maybe RFC822
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1543,8 +1543,8 @@ instance FromXML CopyObjectResult where
     fromXMLRoot    = fromRoot "CopyObjectResult"
 
 data CopyPartResult = CopyPartResult
-    { _cprrETag :: !(Maybe ETag)
-    , _cprrLastModified :: !(Maybe RFC822)
+    { _cprrETag :: Maybe ETag
+    , _cprrLastModified :: Maybe RFC822
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1580,7 +1580,7 @@ instance FromXML CopyPartResult where
 
 data Delete = Delete
     { _dObjects :: [ObjectIdentifier]
-    , _dQuiet :: !(Maybe Bool)
+    , _dQuiet :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1613,10 +1613,10 @@ instance ToXML Delete where
 
 data DeleteMarkerEntry = DeleteMarkerEntry
     { _dmeOwner :: Maybe Owner
-    , _dmeKey :: !(Maybe ObjectKey)
-    , _dmeVersionId :: !(Maybe ObjectVersionId)
-    , _dmeIsLatest :: !(Maybe Bool)
-    , _dmeLastModified :: !(Maybe RFC822)
+    , _dmeKey :: Maybe ObjectKey
+    , _dmeVersionId :: Maybe ObjectVersionId
+    , _dmeIsLatest :: Maybe Bool
+    , _dmeLastModified :: Maybe RFC822
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1671,10 +1671,10 @@ instance FromXML DeleteMarkerEntry where
     fromXMLRoot    = fromRoot "DeleteMarkerEntry"
 
 data DeletedObject = DeletedObject
-    { _do1rKey :: !(Maybe ObjectKey)
-    , _do1rVersionId :: !(Maybe ObjectVersionId)
-    , _do1rDeleteMarker :: !(Maybe Bool)
-    , _do1rDeleteMarkerVersionId :: !(Maybe Text)
+    { _do1rKey :: Maybe ObjectKey
+    , _do1rVersionId :: Maybe ObjectVersionId
+    , _do1rDeleteMarker :: Maybe Bool
+    , _do1rDeleteMarkerVersionId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1721,10 +1721,10 @@ instance FromXML DeletedObject where
     fromXMLRoot    = fromRoot "DeletedObject"
 
 data Error = Error
-    { _eKey :: !(Maybe ObjectKey)
-    , _eVersionId :: !(Maybe ObjectVersionId)
-    , _eCode :: !(Maybe Text)
-    , _eMessage :: !(Maybe Text)
+    { _eKey :: Maybe ObjectKey
+    , _eVersionId :: Maybe ObjectVersionId
+    , _eCode :: Maybe Text
+    , _eMessage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1803,11 +1803,11 @@ instance ToXML Grant where
     toXMLRoot    = toRoot "Grant"
 
 data Grantee = Grantee
-    { _g1DisplayName :: !(Maybe Text)
-    , _g1EmailAddress :: !(Maybe Text)
-    , _g1ID :: !(Maybe Text)
+    { _g1DisplayName :: Maybe Text
+    , _g1EmailAddress :: Maybe Text
+    , _g1ID :: Maybe Text
     , _g1Type :: Type
-    , _g1URI :: !(Maybe Text)
+    , _g1URI :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1865,8 +1865,8 @@ instance ToXML Grantee where
 
 -- | Identifies who initiated the multipart upload.
 data Initiator = Initiator
-    { _iID :: !(Maybe Text)
-    , _iDisplayName :: !(Maybe Text)
+    { _iID :: Maybe Text
+    , _iDisplayName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1902,8 +1902,8 @@ instance ToXML Initiator where
     toXMLRoot    = toRoot "Initiator"
 
 data LifecycleExpiration = LifecycleExpiration
-    { _leDate :: !(Maybe RFC822)
-    , _leDays :: !(Maybe Integer)
+    { _leDate :: Maybe RFC822
+    , _leDays :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1940,9 +1940,9 @@ instance ToXML LifecycleExpiration where
     toXMLRoot    = toRoot "LifecycleExpiration"
 
 data LoggingEnabled = LoggingEnabled
-    { _lerTargetBucket :: !(Maybe Text)
+    { _lerTargetBucket :: Maybe Text
     , _lerTargetGrants :: [TargetGrant]
-    , _lerTargetPrefix :: !(Maybe Text)
+    , _lerTargetPrefix :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1989,9 +1989,9 @@ instance ToXML LoggingEnabled where
     toXMLRoot    = toRoot "LoggingEnabled"
 
 data MultipartUpload = MultipartUpload
-    { _muUploadId :: !(Maybe Text)
-    , _muKey :: !(Maybe ObjectKey)
-    , _muInitiated :: !(Maybe RFC822)
+    { _muUploadId :: Maybe Text
+    , _muKey :: Maybe ObjectKey
+    , _muInitiated :: Maybe RFC822
     , _muStorageClass :: Maybe StorageClass
     , _muOwner :: Maybe Owner
     , _muInitiator :: Maybe Initiator
@@ -2060,7 +2060,7 @@ instance FromXML MultipartUpload where
 -- request that Amazon S3 transition noncurrent object versions to the GLACIER
 -- storage class at a specific period in the object's lifetime.
 data NoncurrentVersionTransition = NoncurrentVersionTransition
-    { _nvtNoncurrentDays :: !(Maybe Integer)
+    { _nvtNoncurrentDays :: Maybe Integer
     , _nvtStorageClass :: Maybe TransitionStorageClass
     } deriving (Show, Generic)
 
@@ -2100,10 +2100,10 @@ instance ToXML NoncurrentVersionTransition where
     toXMLRoot    = toRoot "NoncurrentVersionTransition"
 
 data Object = Object
-    { _orKey :: !ObjectKey
-    , _orLastModified :: !RFC822
-    , _orETag :: !ETag
-    , _orSize :: !Integer
+    { _orKey :: ObjectKey
+    , _orLastModified :: RFC822
+    , _orETag :: ETag
+    , _orSize :: Integer
     , _orStorageClass :: ObjectStorageClass
     , _orOwner :: Owner
     } deriving (Show, Generic)
@@ -2168,8 +2168,8 @@ instance FromXML Object where
     fromXMLRoot    = fromRoot "Object"
 
 data ObjectIdentifier = ObjectIdentifier
-    { _oiKey :: !ObjectKey
-    , _oiVersionId :: !(Maybe ObjectVersionId)
+    { _oiKey :: ObjectKey
+    , _oiVersionId :: Maybe ObjectVersionId
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2201,13 +2201,13 @@ instance ToXML ObjectIdentifier where
     toXMLRoot    = toRoot "ObjectIdentifier"
 
 data ObjectVersion = ObjectVersion
-    { _ovETag :: !(Maybe ETag)
-    , _ovSize :: !(Maybe Integer)
+    { _ovETag :: Maybe ETag
+    , _ovSize :: Maybe Integer
     , _ovStorageClass :: Maybe ObjectVersionStorageClass
-    , _ovKey :: !(Maybe ObjectKey)
-    , _ovVersionId :: !(Maybe ObjectVersionId)
-    , _ovIsLatest :: !(Maybe Bool)
-    , _ovLastModified :: !(Maybe RFC822)
+    , _ovKey :: Maybe ObjectKey
+    , _ovVersionId :: Maybe ObjectVersionId
+    , _ovIsLatest :: Maybe Bool
+    , _ovLastModified :: Maybe RFC822
     , _ovOwner :: Maybe Owner
     } deriving (Show, Generic)
 
@@ -2283,8 +2283,8 @@ instance FromXML ObjectVersion where
     fromXMLRoot    = fromRoot "ObjectVersion"
 
 data Owner = Owner
-    { _oDisplayName :: !(Maybe Text)
-    , _oID :: !(Maybe Text)
+    { _oDisplayName :: Maybe Text
+    , _oID :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2317,10 +2317,10 @@ instance ToXML Owner where
     toXMLRoot    = toRoot "Owner"
 
 data Part = Part
-    { _pPartNumber :: !(Maybe Integer)
-    , _pLastModified :: !(Maybe RFC822)
-    , _pETag :: !(Maybe ETag)
-    , _pSize :: !(Maybe Integer)
+    { _pPartNumber :: Maybe Integer
+    , _pLastModified :: Maybe RFC822
+    , _pETag :: Maybe ETag
+    , _pSize :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2371,11 +2371,11 @@ instance FromXML Part where
 -- host, to another page, or with another protocol. In the event of an error,
 -- you can can specify a different error code to return.
 data Redirect = Redirect
-    { _r1HostName :: !(Maybe Text)
-    , _r1HttpRedirectCode :: !(Maybe Text)
+    { _r1HostName :: Maybe Text
+    , _r1HttpRedirectCode :: Maybe Text
     , _r1Protocol :: Maybe Protocol
-    , _r1ReplaceKeyPrefixWith :: !(Maybe Text)
-    , _r1ReplaceKeyWith :: !(Maybe Text)
+    , _r1ReplaceKeyPrefixWith :: Maybe Text
+    , _r1ReplaceKeyWith :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2443,7 +2443,7 @@ instance ToXML Redirect where
     toXMLRoot    = toRoot "Redirect"
 
 data RedirectAllRequestsTo = RedirectAllRequestsTo
-    { _rartHostName :: !Text
+    { _rartHostName :: Text
     , _rartProtocol :: Maybe Protocol
     } deriving (Show, Generic)
 
@@ -2525,8 +2525,8 @@ instance ToXML RoutingRule where
 
 data Rule = Rule
     { _rExpiration :: Maybe LifecycleExpiration
-    , _rID :: !(Maybe Text)
-    , _rPrefix :: !Text
+    , _rID :: Maybe Text
+    , _rPrefix :: Text
     , _rStatus :: Switch ExpirationStatus
     , _rTransition :: Maybe Transition
     , _rNoncurrentVersionTransition :: Maybe NoncurrentVersionTransition
@@ -2614,8 +2614,8 @@ instance ToXML Rule where
     toXMLRoot    = toRoot "Rule"
 
 data Tag = Tag
-    { _trKey :: !ObjectKey
-    , _trValue :: !Text
+    { _trKey :: ObjectKey
+    , _trValue :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2688,7 +2688,7 @@ instance ToXML TargetGrant where
 
 data TopicConfiguration = TopicConfiguration
     { _tcEvent :: Maybe Event
-    , _tcTopic :: !(Maybe Text)
+    , _tcTopic :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2724,8 +2724,8 @@ instance ToXML TopicConfiguration where
     toXMLRoot    = toRoot "TopicConfiguration"
 
 data Transition = Transition
-    { _tDate :: !(Maybe RFC822)
-    , _tDays :: !(Maybe Integer)
+    { _tDate :: Maybe RFC822
+    , _tDays :: Maybe Integer
     , _tStorageClass :: Maybe TransitionStorageClass
     } deriving (Show, Generic)
 

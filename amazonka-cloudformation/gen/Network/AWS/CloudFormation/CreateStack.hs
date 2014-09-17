@@ -63,17 +63,17 @@ import Network.AWS.Prelude
 
 -- | The input for CreateStack action.
 data CreateStack = CreateStack
-    { _csStackName :: !Text
-    , _csTemplateBody :: !(Maybe Text)
-    , _csTemplateURL :: !(Maybe Text)
+    { _csStackName :: Text
+    , _csTemplateBody :: Maybe Text
+    , _csTemplateURL :: Maybe Text
     , _csParameters :: [Parameter]
-    , _csDisableRollback :: !(Maybe Bool)
-    , _csTimeoutInMinutes :: !(Maybe Integer)
+    , _csDisableRollback :: Maybe Bool
+    , _csTimeoutInMinutes :: Maybe Integer
     , _csNotificationARNs :: [Text]
     , _csCapabilities :: [Capability]
     , _csOnFailure :: Maybe OnFailure
-    , _csStackPolicyBody :: !(Maybe Text)
-    , _csStackPolicyURL :: !(Maybe Text)
+    , _csStackPolicyBody :: Maybe Text
+    , _csStackPolicyURL :: Maybe Text
     , _csTags :: [Tag]
     } deriving (Show, Generic)
 

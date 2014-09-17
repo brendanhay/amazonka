@@ -82,12 +82,12 @@ import Network.AWS.Prelude
 
 -- | 
 data CreateEventSubscription = CreateEventSubscription
-    { _cesSubscriptionName :: !Text
-    , _cesSnsTopicArn :: !Text
-    , _cesSourceType :: !(Maybe Text)
+    { _cesSubscriptionName :: Text
+    , _cesSnsTopicArn :: Text
+    , _cesSourceType :: Maybe Text
     , _cesEventCategories :: [Text]
     , _cesSourceIds :: [Text]
-    , _cesEnabled :: !(Maybe Bool)
+    , _cesEnabled :: Maybe Bool
     , _cesTags :: [Tag]
     } deriving (Show, Generic)
 

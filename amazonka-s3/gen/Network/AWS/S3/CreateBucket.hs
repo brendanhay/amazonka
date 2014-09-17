@@ -53,13 +53,13 @@ type PutBucket = CreateBucket
 
 data CreateBucket = CreateBucket
     { _cbACL :: Maybe BucketCannedACL
-    , _cbBucket :: !BucketName
+    , _cbBucket :: BucketName
     , _cbCreateBucketConfiguration :: Maybe CreateBucketConfiguration
-    , _cbGrantFullControl :: !(Maybe Text)
-    , _cbGrantRead :: !(Maybe Text)
-    , _cbGrantReadACP :: !(Maybe Text)
-    , _cbGrantWrite :: !(Maybe Text)
-    , _cbGrantWriteACP :: !(Maybe Text)
+    , _cbGrantFullControl :: Maybe Text
+    , _cbGrantRead :: Maybe Text
+    , _cbGrantReadACP :: Maybe Text
+    , _cbGrantWrite :: Maybe Text
+    , _cbGrantWriteACP :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

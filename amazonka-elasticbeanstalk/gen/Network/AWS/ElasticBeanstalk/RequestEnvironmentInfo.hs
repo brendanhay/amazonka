@@ -49,8 +49,8 @@ import Network.AWS.Prelude
 
 -- | This documentation target is not reported in the API reference.
 data RequestEnvironmentInfo = RequestEnvironmentInfo
-    { _reiEnvironmentId :: !(Maybe Text)
-    , _reiEnvironmentName :: !(Maybe Text)
+    { _reiEnvironmentId :: Maybe Text
+    , _reiEnvironmentName :: Maybe Text
     , _reiInfoType :: EnvironmentInfoType
     } deriving (Show, Generic)
 

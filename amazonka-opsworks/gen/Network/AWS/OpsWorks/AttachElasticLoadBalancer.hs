@@ -46,8 +46,8 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data AttachElasticLoadBalancer = AttachElasticLoadBalancer
-    { _aelbElasticLoadBalancerName :: !Text
-    , _aelbLayerId :: !Text
+    { _aelbElasticLoadBalancerName :: Text
+    , _aelbLayerId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

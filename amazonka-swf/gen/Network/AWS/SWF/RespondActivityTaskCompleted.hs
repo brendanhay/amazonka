@@ -75,8 +75,8 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data RespondActivityTaskCompleted = RespondActivityTaskCompleted
-    { _ratc1TaskToken :: !Text
-    , _ratc1Result :: !(Maybe Text)
+    { _ratc1TaskToken :: Text
+    , _ratc1Result :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

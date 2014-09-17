@@ -60,9 +60,9 @@ import Network.AWS.Prelude
 
 -- | 
 data DeleteDBInstance = DeleteDBInstance
-    { _ddbiDBInstanceIdentifier :: !Text
-    , _ddbiSkipFinalSnapshot :: !(Maybe Bool)
-    , _ddbiFinalDBSnapshotIdentifier :: !(Maybe Text)
+    { _ddbiDBInstanceIdentifier :: Text
+    , _ddbiSkipFinalSnapshot :: Maybe Bool
+    , _ddbiFinalDBSnapshotIdentifier :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

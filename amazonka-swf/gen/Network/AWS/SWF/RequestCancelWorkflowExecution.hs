@@ -73,9 +73,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution
-    { _rcweDomain :: !Text
-    , _rcweWorkflowId :: !Text
-    , _rcweRunId :: !(Maybe Text)
+    { _rcweDomain :: Text
+    , _rcweWorkflowId :: Text
+    , _rcweRunId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

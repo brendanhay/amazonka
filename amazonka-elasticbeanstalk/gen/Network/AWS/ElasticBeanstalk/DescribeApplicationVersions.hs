@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 
 -- | Result message containing a list of configuration descriptions.
 data DescribeApplicationVersions = DescribeApplicationVersions
-    { _dav1ApplicationName :: !(Maybe Text)
+    { _dav1ApplicationName :: Maybe Text
     , _dav1VersionLabels :: [Text]
     } deriving (Show, Generic)
 

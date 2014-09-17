@@ -55,12 +55,12 @@ import Network.AWS.AutoScaling.Types
 import Network.AWS.Prelude
 
 data PutScalingPolicy = PutScalingPolicy
-    { _pspAutoScalingGroupName :: !Text
-    , _pspPolicyName :: !Text
+    { _pspAutoScalingGroupName :: Text
+    , _pspPolicyName :: Text
     , _pspScalingAdjustment :: !Integer
-    , _pspAdjustmentType :: !Text
-    , _pspCooldown :: !(Maybe Integer)
-    , _pspMinAdjustmentStep :: !(Maybe Integer)
+    , _pspAdjustmentType :: Text
+    , _pspCooldown :: Maybe Integer
+    , _pspMinAdjustmentStep :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

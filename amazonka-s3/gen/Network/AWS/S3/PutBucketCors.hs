@@ -41,9 +41,9 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data PutBucketCors = PutBucketCors
-    { _pbcBucket :: !BucketName
+    { _pbcBucket :: BucketName
     , _pbcCORSConfiguration :: Maybe CORSConfiguration
-    , _pbcContentMD5 :: !(Maybe Text)
+    , _pbcContentMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

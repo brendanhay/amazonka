@@ -51,9 +51,9 @@ import Network.AWS.AutoScaling.Types
 import Network.AWS.Prelude
 
 data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat
-    { _rlahLifecycleHookName :: !Text
-    , _rlahAutoScalingGroupName :: !Text
-    , _rlahLifecycleActionToken :: !Text
+    { _rlahLifecycleHookName :: Text
+    , _rlahAutoScalingGroupName :: Text
+    , _rlahLifecycleActionToken :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

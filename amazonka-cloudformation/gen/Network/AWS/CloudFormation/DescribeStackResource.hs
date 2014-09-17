@@ -52,8 +52,8 @@ import Network.AWS.Prelude
 
 -- | The input for DescribeStackResource action.
 data DescribeStackResource = DescribeStackResource
-    { _dsrStackName :: !Text
-    , _dsrLogicalResourceId :: !Text
+    { _dsrStackName :: Text
+    , _dsrLogicalResourceId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

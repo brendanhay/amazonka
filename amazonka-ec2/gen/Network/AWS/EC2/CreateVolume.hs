@@ -78,12 +78,12 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data CreateVolume = CreateVolume
-    { _cvSize :: !(Maybe Integer)
-    , _cvSnapshotId :: !(Maybe Text)
-    , _cvAvailabilityZone :: !Text
+    { _cvSize :: Maybe Integer
+    , _cvSnapshotId :: Maybe Text
+    , _cvAvailabilityZone :: Text
     , _cvVolumeType :: Maybe VolumeType
-    , _cvIops :: !(Maybe Integer)
-    , _cvEncrypted :: !(Maybe Bool)
+    , _cvIops :: Maybe Integer
+    , _cvEncrypted :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -151,17 +151,17 @@ instance ToQuery CreateVolume where
     toQuery = genericQuery def
 
 data CreateVolumeResponse = CreateVolumeResponse
-    { _cvrVolumeId :: !(Maybe Text)
-    , _cvrSize :: !(Maybe Integer)
-    , _cvrSnapshotId :: !(Maybe Text)
-    , _cvrAvailabilityZone :: !(Maybe Text)
+    { _cvrVolumeId :: Maybe Text
+    , _cvrSize :: Maybe Integer
+    , _cvrSnapshotId :: Maybe Text
+    , _cvrAvailabilityZone :: Maybe Text
     , _cvrState :: Maybe VolumeState
-    , _cvrCreateTime :: !(Maybe ISO8601)
+    , _cvrCreateTime :: Maybe ISO8601
     , _cvrAttachments :: [VolumeAttachment]
     , _cvrTags :: [Tag]
     , _cvrVolumeType :: Maybe VolumeType
-    , _cvrIops :: !(Maybe Integer)
-    , _cvrEncrypted :: !(Maybe Bool)
+    , _cvrIops :: Maybe Integer
+    , _cvrEncrypted :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

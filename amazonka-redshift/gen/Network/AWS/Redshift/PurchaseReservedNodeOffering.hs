@@ -58,8 +58,8 @@ import Network.AWS.Prelude
 
 -- | 
 data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering
-    { _prnoReservedNodeOfferingId :: !Text
-    , _prnoNodeCount :: !(Maybe Integer)
+    { _prnoReservedNodeOfferingId :: Text
+    , _prnoNodeCount :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

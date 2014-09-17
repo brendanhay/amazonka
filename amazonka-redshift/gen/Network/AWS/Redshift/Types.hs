@@ -538,35 +538,35 @@ instance ToQuery AvailabilityZone where
 
 -- | Describes a cluster.
 data Cluster = Cluster
-    { _cClusterIdentifier :: !(Maybe Text)
-    , _cNodeType :: !(Maybe Text)
-    , _cClusterStatus :: !(Maybe Text)
-    , _cModifyStatus :: !(Maybe Text)
-    , _cMasterUsername :: !(Maybe Text)
-    , _cDBName :: !(Maybe Text)
+    { _cClusterIdentifier :: Maybe Text
+    , _cNodeType :: Maybe Text
+    , _cClusterStatus :: Maybe Text
+    , _cModifyStatus :: Maybe Text
+    , _cMasterUsername :: Maybe Text
+    , _cDBName :: Maybe Text
     , _cEndpoint :: Maybe Endpoint
-    , _cClusterCreateTime :: !(Maybe ISO8601)
-    , _cAutomatedSnapshotRetentionPeriod :: !(Maybe Integer)
+    , _cClusterCreateTime :: Maybe ISO8601
+    , _cAutomatedSnapshotRetentionPeriod :: Maybe Integer
     , _cClusterSecurityGroups :: [ClusterSecurityGroupMembership]
     , _cVpcSecurityGroups :: [VpcSecurityGroupMembership]
     , _cClusterParameterGroups :: [ClusterParameterGroupStatus]
-    , _cClusterSubnetGroupName :: !(Maybe Text)
-    , _cVpcId :: !(Maybe Text)
-    , _cAvailabilityZone :: !(Maybe Text)
-    , _cPreferredMaintenanceWindow :: !(Maybe Text)
+    , _cClusterSubnetGroupName :: Maybe Text
+    , _cVpcId :: Maybe Text
+    , _cAvailabilityZone :: Maybe Text
+    , _cPreferredMaintenanceWindow :: Maybe Text
     , _cPendingModifiedValues :: Maybe PendingModifiedValues
-    , _cClusterVersion :: !(Maybe Text)
-    , _cAllowVersionUpgrade :: !(Maybe Bool)
-    , _cNumberOfNodes :: !(Maybe Integer)
-    , _cPubliclyAccessible :: !(Maybe Bool)
-    , _cEncrypted :: !(Maybe Bool)
+    , _cClusterVersion :: Maybe Text
+    , _cAllowVersionUpgrade :: Maybe Bool
+    , _cNumberOfNodes :: Maybe Integer
+    , _cPubliclyAccessible :: Maybe Bool
+    , _cEncrypted :: Maybe Bool
     , _cRestoreStatus :: Maybe RestoreStatus
     , _cHsmStatus :: Maybe HsmStatus
     , _cClusterSnapshotCopyStatus :: Maybe ClusterSnapshotCopyStatus
-    , _cClusterPublicKey :: !(Maybe Text)
+    , _cClusterPublicKey :: Maybe Text
     , _cClusterNodes :: [ClusterNode]
     , _cElasticIpStatus :: Maybe ElasticIpStatus
-    , _cClusterRevisionNumber :: !(Maybe Text)
+    , _cClusterRevisionNumber :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -831,9 +831,9 @@ instance FromXML Cluster where
 
 -- | The identifier of a node in a cluster. --&gt;.
 data ClusterNode = ClusterNode
-    { _cnNodeRole :: !(Maybe Text)
-    , _cnPrivateIPAddress :: !(Maybe Text)
-    , _cnPublicIPAddress :: !(Maybe Text)
+    { _cnNodeRole :: Maybe Text
+    , _cnPrivateIPAddress :: Maybe Text
+    , _cnPublicIPAddress :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -877,9 +877,9 @@ instance ToQuery ClusterNode where
 
 -- | Describes a parameter group.
 data ClusterParameterGroup = ClusterParameterGroup
-    { _cpgParameterGroupName :: !(Maybe Text)
-    , _cpgParameterGroupFamily :: !(Maybe Text)
-    , _cpgDescription :: !(Maybe Text)
+    { _cpgParameterGroupName :: Maybe Text
+    , _cpgParameterGroupFamily :: Maybe Text
+    , _cpgDescription :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -925,8 +925,8 @@ instance FromXML ClusterParameterGroup where
 
 -- | Describes the status of a parameter group.
 data ClusterParameterGroupStatus = ClusterParameterGroupStatus
-    { _cpgsParameterGroupName :: !(Maybe Text)
-    , _cpgsParameterApplyStatus :: !(Maybe Text)
+    { _cpgsParameterGroupName :: Maybe Text
+    , _cpgsParameterApplyStatus :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -964,8 +964,8 @@ instance ToQuery ClusterParameterGroupStatus where
 
 -- | Describes a security group.
 data ClusterSecurityGroup = ClusterSecurityGroup
-    { _csgClusterSecurityGroupName :: !(Maybe Text)
-    , _csgDescription :: !(Maybe Text)
+    { _csgClusterSecurityGroupName :: Maybe Text
+    , _csgDescription :: Maybe Text
     , _csgEC2SecurityGroups :: [EC2SecurityGroup]
     , _csgIPRanges :: [IPRange]
     } deriving (Show, Generic)
@@ -1021,8 +1021,8 @@ instance FromXML ClusterSecurityGroup where
 
 -- | Describes a security group.
 data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership
-    { _csgmClusterSecurityGroupName :: !(Maybe Text)
-    , _csgmStatus :: !(Maybe Text)
+    { _csgmClusterSecurityGroupName :: Maybe Text
+    , _csgmStatus :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1060,8 +1060,8 @@ instance ToQuery ClusterSecurityGroupMembership where
 -- | Returns the destination region and retention period that are configured for
 -- cross-region snapshot copy.
 data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus
-    { _cscsDestinationRegion :: !(Maybe Text)
-    , _cscsRetentionPeriod :: !(Maybe Integer)
+    { _cscsDestinationRegion :: Maybe Text
+    , _cscsRetentionPeriod :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1100,10 +1100,10 @@ instance ToQuery ClusterSnapshotCopyStatus where
 
 -- | Describes a subnet group.
 data ClusterSubnetGroup = ClusterSubnetGroup
-    { _csgrClusterSubnetGroupName :: !(Maybe Text)
-    , _csgrDescription :: !(Maybe Text)
-    , _csgrVpcId :: !(Maybe Text)
-    , _csgrSubnetGroupStatus :: !(Maybe Text)
+    { _csgrClusterSubnetGroupName :: Maybe Text
+    , _csgrDescription :: Maybe Text
+    , _csgrVpcId :: Maybe Text
+    , _csgrSubnetGroupStatus :: Maybe Text
     , _csgrSubnets :: [Subnet]
     } deriving (Show, Generic)
 
@@ -1165,9 +1165,9 @@ instance FromXML ClusterSubnetGroup where
 -- | Describes a cluster version, including the parameter group family and
 -- description of the version.
 data ClusterVersion = ClusterVersion
-    { _cvClusterVersion :: !(Maybe Text)
-    , _cvClusterParameterGroupFamily :: !(Maybe Text)
-    , _cvDescription :: !(Maybe Text)
+    { _cvClusterVersion :: Maybe Text
+    , _cvClusterParameterGroupFamily :: Maybe Text
+    , _cvDescription :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1212,8 +1212,8 @@ instance FromXML ClusterVersion where
 
 -- | Describes the default cluster parameters for a parameter group family.
 data DefaultClusterParameters = DefaultClusterParameters
-    { _dcp1ParameterGroupFamily :: !(Maybe Text)
-    , _dcp1Marker :: !(Maybe Text)
+    { _dcp1ParameterGroupFamily :: Maybe Text
+    , _dcp1Marker :: Maybe Text
     , _dcp1Parameters :: [Parameter]
     } deriving (Show, Generic)
 
@@ -1263,9 +1263,9 @@ instance FromXML DefaultClusterParameters where
 
 -- | Describes an Amazon EC2 security group.
 data EC2SecurityGroup = EC2SecurityGroup
-    { _ecsgStatus :: !(Maybe Text)
-    , _ecsgEC2SecurityGroupName :: !(Maybe Text)
-    , _ecsgEC2SecurityGroupOwnerId :: !(Maybe Text)
+    { _ecsgStatus :: Maybe Text
+    , _ecsgEC2SecurityGroupName :: Maybe Text
+    , _ecsgEC2SecurityGroupOwnerId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1312,8 +1312,8 @@ instance ToQuery EC2SecurityGroup where
 
 -- | Describes the status of the elastic IP (EIP) address.
 data ElasticIpStatus = ElasticIpStatus
-    { _eisElasticIp :: !(Maybe Text)
-    , _eisStatus :: !(Maybe Text)
+    { _eisElasticIp :: Maybe Text
+    , _eisStatus :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1348,8 +1348,8 @@ instance ToQuery ElasticIpStatus where
 
 -- | The connection endpoint.
 data Endpoint = Endpoint
-    { _eAddress :: !(Maybe Text)
-    , _ePort :: !(Maybe Integer)
+    { _eAddress :: Maybe Text
+    , _ePort :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1384,13 +1384,13 @@ instance ToQuery Endpoint where
 
 -- | Describes an event.
 data Event = Event
-    { _erSourceIdentifier :: !(Maybe Text)
+    { _erSourceIdentifier :: Maybe Text
     , _erSourceType :: Maybe SourceType
-    , _erMessage :: !(Maybe Text)
+    , _erMessage :: Maybe Text
     , _erEventCategories :: [Text]
-    , _erSeverity :: !(Maybe Text)
-    , _erDate :: !(Maybe ISO8601)
-    , _erEventId :: !(Maybe Text)
+    , _erSeverity :: Maybe Text
+    , _erDate :: Maybe ISO8601
+    , _erEventId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1461,7 +1461,7 @@ instance FromXML Event where
     fromXMLRoot    = fromRoot "Event"
 
 data EventCategoriesMap = EventCategoriesMap
-    { _ecmSourceType :: !(Maybe Text)
+    { _ecmSourceType :: Maybe Text
     , _ecmEvents :: [EventInfoMap]
     } deriving (Show, Generic)
 
@@ -1497,10 +1497,10 @@ instance FromXML EventCategoriesMap where
     fromXMLRoot    = fromRoot "EventCategoriesMap"
 
 data EventInfoMap = EventInfoMap
-    { _eimEventId :: !(Maybe Text)
+    { _eimEventId :: Maybe Text
     , _eimEventCategories :: [Text]
-    , _eimEventDescription :: !(Maybe Text)
-    , _eimSeverity :: !(Maybe Text)
+    , _eimEventDescription :: Maybe Text
+    , _eimSeverity :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1550,16 +1550,16 @@ instance ToQuery EventInfoMap where
     toQuery = genericQuery def
 
 data EventSubscription = EventSubscription
-    { _esCustomerAwsId :: !(Maybe Text)
-    , _esCustSubscriptionId :: !(Maybe Text)
-    , _esSnsTopicArn :: !(Maybe Text)
-    , _esStatus :: !(Maybe Text)
-    , _esSubscriptionCreationTime :: !(Maybe ISO8601)
-    , _esSourceType :: !(Maybe Text)
+    { _esCustomerAwsId :: Maybe Text
+    , _esCustSubscriptionId :: Maybe Text
+    , _esSnsTopicArn :: Maybe Text
+    , _esStatus :: Maybe Text
+    , _esSubscriptionCreationTime :: Maybe ISO8601
+    , _esSourceType :: Maybe Text
     , _esSourceIdsList :: [Text]
     , _esEventCategoriesList :: [Text]
-    , _esSeverity :: !(Maybe Text)
-    , _esEnabled :: !(Maybe Bool)
+    , _esSeverity :: Maybe Text
+    , _esEnabled :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1670,8 +1670,8 @@ instance FromXML EventSubscription where
 -- stored in a secure Hardware Storage Module (HSM), and used by the Amazon
 -- Redshift cluster to encrypt data files.
 data HsmClientCertificate = HsmClientCertificate
-    { _hccHsmClientCertificateIdentifier :: !(Maybe Text)
-    , _hccHsmClientCertificatePublicKey :: !(Maybe Text)
+    { _hccHsmClientCertificateIdentifier :: Maybe Text
+    , _hccHsmClientCertificatePublicKey :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1713,10 +1713,10 @@ instance FromXML HsmClientCertificate where
 -- describes to Amazon Redshift clusters the information they require to
 -- connect to an HSM where they can store database encryption keys.
 data HsmConfiguration = HsmConfiguration
-    { _hcHsmConfigurationIdentifier :: !(Maybe Text)
-    , _hcDescription :: !(Maybe Text)
-    , _hcHsmIpAddress :: !(Maybe Text)
-    , _hcHsmPartitionName :: !(Maybe Text)
+    { _hcHsmConfigurationIdentifier :: Maybe Text
+    , _hcDescription :: Maybe Text
+    , _hcHsmIpAddress :: Maybe Text
+    , _hcHsmPartitionName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1771,9 +1771,9 @@ instance FromXML HsmConfiguration where
 -- settings changes specified in a modify cluster command. Values: active,
 -- applying.
 data HsmStatus = HsmStatus
-    { _hsHsmClientCertificateIdentifier :: !(Maybe Text)
-    , _hsHsmConfigurationIdentifier :: !(Maybe Text)
-    , _hsStatus :: !(Maybe Text)
+    { _hsHsmClientCertificateIdentifier :: Maybe Text
+    , _hsHsmConfigurationIdentifier :: Maybe Text
+    , _hsStatus :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1823,8 +1823,8 @@ instance ToQuery HsmStatus where
 
 -- | Describes an IP range used in a security group.
 data IPRange = IPRange
-    { _iprStatus :: !(Maybe Text)
-    , _iprCIDRIP :: !(Maybe Text)
+    { _iprStatus :: Maybe Text
+    , _iprCIDRIP :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1859,9 +1859,9 @@ instance ToQuery IPRange where
 
 -- | Describes an orderable cluster option.
 data OrderableClusterOption = OrderableClusterOption
-    { _ocoClusterVersion :: !(Maybe Text)
-    , _ocoClusterType :: !(Maybe Text)
-    , _ocoNodeType :: !(Maybe Text)
+    { _ocoClusterVersion :: Maybe Text
+    , _ocoClusterType :: Maybe Text
+    , _ocoNodeType :: Maybe Text
     , _ocoAvailabilityZones :: [AvailabilityZone]
     } deriving (Show, Generic)
 
@@ -1913,14 +1913,14 @@ instance FromXML OrderableClusterOption where
 
 -- | Describes a parameter in a cluster parameter group.
 data Parameter = Parameter
-    { _pParameterName :: !(Maybe Text)
-    , _pParameterValue :: !(Maybe Text)
-    , _pDescription :: !(Maybe Text)
-    , _pSource :: !(Maybe Text)
-    , _pDataType :: !(Maybe Text)
-    , _pAllowedValues :: !(Maybe Text)
-    , _pIsModifiable :: !(Maybe Bool)
-    , _pMinimumEngineVersion :: !(Maybe Text)
+    { _pParameterName :: Maybe Text
+    , _pParameterValue :: Maybe Text
+    , _pDescription :: Maybe Text
+    , _pSource :: Maybe Text
+    , _pDataType :: Maybe Text
+    , _pAllowedValues :: Maybe Text
+    , _pIsModifiable :: Maybe Bool
+    , _pMinimumEngineVersion :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2000,13 +2000,13 @@ instance ToQuery Parameter where
 -- | If present, changes to the cluster are pending. Specific pending changes
 -- are identified by subelements.
 data PendingModifiedValues = PendingModifiedValues
-    { _pmvMasterUserPassword :: !(Maybe Text)
-    , _pmvNodeType :: !(Maybe Text)
-    , _pmvNumberOfNodes :: !(Maybe Integer)
-    , _pmvClusterType :: !(Maybe Text)
-    , _pmvClusterVersion :: !(Maybe Text)
-    , _pmvAutomatedSnapshotRetentionPeriod :: !(Maybe Integer)
-    , _pmvClusterIdentifier :: !(Maybe Text)
+    { _pmvMasterUserPassword :: Maybe Text
+    , _pmvNodeType :: Maybe Text
+    , _pmvNumberOfNodes :: Maybe Integer
+    , _pmvClusterType :: Maybe Text
+    , _pmvClusterVersion :: Maybe Text
+    , _pmvAutomatedSnapshotRetentionPeriod :: Maybe Integer
+    , _pmvClusterIdentifier :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2084,8 +2084,8 @@ instance ToQuery PendingModifiedValues where
 
 -- | Describes a recurring charge.
 data RecurringCharge = RecurringCharge
-    { _rcRecurringChargeAmount :: !(Maybe Double)
-    , _rcRecurringChargeFrequency :: !(Maybe Text)
+    { _rcRecurringChargeAmount :: Maybe Double
+    , _rcRecurringChargeFrequency :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2125,17 +2125,17 @@ instance ToQuery RecurringCharge where
 
 -- | Describes a reserved node.
 data ReservedNode = ReservedNode
-    { _rnReservedNodeId :: !(Maybe Text)
-    , _rnReservedNodeOfferingId :: !(Maybe Text)
-    , _rnNodeType :: !(Maybe Text)
-    , _rnStartTime :: !(Maybe ISO8601)
-    , _rnDuration :: !(Maybe Integer)
-    , _rnFixedPrice :: !(Maybe Double)
-    , _rnUsagePrice :: !(Maybe Double)
-    , _rnCurrencyCode :: !(Maybe Text)
-    , _rnNodeCount :: !(Maybe Integer)
-    , _rnState :: !(Maybe Text)
-    , _rnOfferingType :: !(Maybe Text)
+    { _rnReservedNodeId :: Maybe Text
+    , _rnReservedNodeOfferingId :: Maybe Text
+    , _rnNodeType :: Maybe Text
+    , _rnStartTime :: Maybe ISO8601
+    , _rnDuration :: Maybe Integer
+    , _rnFixedPrice :: Maybe Double
+    , _rnUsagePrice :: Maybe Double
+    , _rnCurrencyCode :: Maybe Text
+    , _rnNodeCount :: Maybe Integer
+    , _rnState :: Maybe Text
+    , _rnOfferingType :: Maybe Text
     , _rnRecurringCharges :: [RecurringCharge]
     } deriving (Show, Generic)
 
@@ -2251,13 +2251,13 @@ instance FromXML ReservedNode where
 
 -- | Describes a reserved node offering.
 data ReservedNodeOffering = ReservedNodeOffering
-    { _rnoReservedNodeOfferingId :: !(Maybe Text)
-    , _rnoNodeType :: !(Maybe Text)
-    , _rnoDuration :: !(Maybe Integer)
-    , _rnoFixedPrice :: !(Maybe Double)
-    , _rnoUsagePrice :: !(Maybe Double)
-    , _rnoCurrencyCode :: !(Maybe Text)
-    , _rnoOfferingType :: !(Maybe Text)
+    { _rnoReservedNodeOfferingId :: Maybe Text
+    , _rnoNodeType :: Maybe Text
+    , _rnoDuration :: Maybe Integer
+    , _rnoFixedPrice :: Maybe Double
+    , _rnoUsagePrice :: Maybe Double
+    , _rnoCurrencyCode :: Maybe Text
+    , _rnoOfferingType :: Maybe Text
     , _rnoRecurringCharges :: [RecurringCharge]
     } deriving (Show, Generic)
 
@@ -2344,12 +2344,12 @@ instance FromXML ReservedNodeOffering where
 -- | Describes the status of a cluster restore action. Returns null if the
 -- cluster was not created by restoring a snapshot.
 data RestoreStatus = RestoreStatus
-    { _rsStatus :: !(Maybe Text)
-    , _rsCurrentRestoreRateInMegaBytesPerSecond :: !(Maybe Double)
-    , _rsSnapshotSizeInMegaBytes :: !(Maybe Integer)
-    , _rsProgressInMegaBytes :: !(Maybe Integer)
-    , _rsElapsedTimeInSeconds :: !(Maybe Integer)
-    , _rsEstimatedTimeToCompletionInSeconds :: !(Maybe Integer)
+    { _rsStatus :: Maybe Text
+    , _rsCurrentRestoreRateInMegaBytesPerSecond :: Maybe Double
+    , _rsSnapshotSizeInMegaBytes :: Maybe Integer
+    , _rsProgressInMegaBytes :: Maybe Integer
+    , _rsElapsedTimeInSeconds :: Maybe Integer
+    , _rsEstimatedTimeToCompletionInSeconds :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2424,31 +2424,31 @@ instance ToQuery RestoreStatus where
 
 -- | Describes a snapshot.
 data Snapshot = Snapshot
-    { _sSnapshotIdentifier :: !(Maybe Text)
-    , _sClusterIdentifier :: !(Maybe Text)
-    , _sSnapshotCreateTime :: !(Maybe ISO8601)
-    , _sStatus :: !(Maybe Text)
-    , _sPort :: !(Maybe Integer)
-    , _sAvailabilityZone :: !(Maybe Text)
-    , _sClusterCreateTime :: !(Maybe ISO8601)
-    , _sMasterUsername :: !(Maybe Text)
-    , _sClusterVersion :: !(Maybe Text)
-    , _sSnapshotType :: !(Maybe Text)
-    , _sNodeType :: !(Maybe Text)
-    , _sNumberOfNodes :: !(Maybe Integer)
-    , _sDBName :: !(Maybe Text)
-    , _sVpcId :: !(Maybe Text)
-    , _sEncrypted :: !(Maybe Bool)
-    , _sEncryptedWithHSM :: !(Maybe Bool)
+    { _sSnapshotIdentifier :: Maybe Text
+    , _sClusterIdentifier :: Maybe Text
+    , _sSnapshotCreateTime :: Maybe ISO8601
+    , _sStatus :: Maybe Text
+    , _sPort :: Maybe Integer
+    , _sAvailabilityZone :: Maybe Text
+    , _sClusterCreateTime :: Maybe ISO8601
+    , _sMasterUsername :: Maybe Text
+    , _sClusterVersion :: Maybe Text
+    , _sSnapshotType :: Maybe Text
+    , _sNodeType :: Maybe Text
+    , _sNumberOfNodes :: Maybe Integer
+    , _sDBName :: Maybe Text
+    , _sVpcId :: Maybe Text
+    , _sEncrypted :: Maybe Bool
+    , _sEncryptedWithHSM :: Maybe Bool
     , _sAccountsWithRestoreAccess :: [AccountWithRestoreAccess]
-    , _sOwnerAccount :: !(Maybe Text)
-    , _sTotalBackupSizeInMegaBytes :: !(Maybe Double)
-    , _sActualIncrementalBackupSizeInMegaBytes :: !(Maybe Double)
-    , _sBackupProgressInMegaBytes :: !(Maybe Double)
-    , _sCurrentBackupRateInMegaBytesPerSecond :: !(Maybe Double)
-    , _sEstimatedSecondsToCompletion :: !(Maybe Integer)
-    , _sElapsedTimeInSeconds :: !(Maybe Integer)
-    , _sSourceRegion :: !(Maybe Text)
+    , _sOwnerAccount :: Maybe Text
+    , _sTotalBackupSizeInMegaBytes :: Maybe Double
+    , _sActualIncrementalBackupSizeInMegaBytes :: Maybe Double
+    , _sBackupProgressInMegaBytes :: Maybe Double
+    , _sCurrentBackupRateInMegaBytesPerSecond :: Maybe Double
+    , _sEstimatedSecondsToCompletion :: Maybe Integer
+    , _sElapsedTimeInSeconds :: Maybe Integer
+    , _sSourceRegion :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2681,9 +2681,9 @@ instance FromXML Snapshot where
 
 -- | Describes a subnet.
 data Subnet = Subnet
-    { _srSubnetIdentifier :: !(Maybe Text)
+    { _srSubnetIdentifier :: Maybe Text
     , _srSubnetAvailabilityZone :: Maybe AvailabilityZone
-    , _srSubnetStatus :: !(Maybe Text)
+    , _srSubnetStatus :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2728,8 +2728,8 @@ instance ToQuery Subnet where
 
 -- | Describes the members of a VPC security group.
 data VpcSecurityGroupMembership = VpcSecurityGroupMembership
-    { _vsgmVpcSecurityGroupId :: !(Maybe Text)
-    , _vsgmStatus :: !(Maybe Text)
+    { _vsgmVpcSecurityGroupId :: Maybe Text
+    , _vsgmStatus :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

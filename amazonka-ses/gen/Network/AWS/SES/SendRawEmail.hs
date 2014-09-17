@@ -87,7 +87,7 @@ import Network.AWS.Prelude
 -- consisting of source, destination, and raw message text. This object can
 -- then be sent using the SendRawEmail action.
 data SendRawEmail = SendRawEmail
-    { _sreSource :: !(Maybe Text)
+    { _sreSource :: Maybe Text
     , _sreDestinations :: [Text]
     , _sreRawMessage :: RawMessage
     } deriving (Show, Generic)

@@ -45,8 +45,8 @@ import Network.AWS.Prelude
 
 data DescribeNotificationConfigurations = DescribeNotificationConfigurations
     { _dnc1AutoScalingGroupNames :: [Text]
-    , _dnc1NextToken :: !(Maybe Text)
-    , _dnc1MaxRecords :: !(Maybe Integer)
+    , _dnc1NextToken :: Maybe Text
+    , _dnc1MaxRecords :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -88,7 +88,7 @@ instance ToQuery DescribeNotificationConfigurations where
 -- | The output of the DescribeNotificationConfigurations action.
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse
     { _dncrNotificationConfigurations :: [NotificationConfiguration]
-    , _dncrNextToken :: !(Maybe Text)
+    , _dncrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

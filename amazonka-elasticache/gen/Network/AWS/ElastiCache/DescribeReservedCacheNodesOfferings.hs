@@ -55,13 +55,13 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a DescribeReservedCacheNodesOfferings operation.
 data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings
-    { _drcnoReservedCacheNodesOfferingId :: !(Maybe Text)
-    , _drcnoCacheNodeType :: !(Maybe Text)
-    , _drcnoDuration :: !(Maybe Text)
-    , _drcnoProductDescription :: !(Maybe Text)
-    , _drcnoOfferingType :: !(Maybe Text)
-    , _drcnoMaxRecords :: !(Maybe Integer)
-    , _drcnoMarker :: !(Maybe Text)
+    { _drcnoReservedCacheNodesOfferingId :: Maybe Text
+    , _drcnoCacheNodeType :: Maybe Text
+    , _drcnoDuration :: Maybe Text
+    , _drcnoProductDescription :: Maybe Text
+    , _drcnoOfferingType :: Maybe Text
+    , _drcnoMaxRecords :: Maybe Integer
+    , _drcnoMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -147,7 +147,7 @@ instance ToQuery DescribeReservedCacheNodesOfferings where
 
 -- | Represents the output of a DescribeReservedCacheNodesOfferings operation.
 data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOfferingsResponse
-    { _drcnorMarker :: !(Maybe Text)
+    { _drcnorMarker :: Maybe Text
     , _drcnorReservedCacheNodesOfferings :: [ReservedCacheNodesOffering]
     } deriving (Show, Generic)
 

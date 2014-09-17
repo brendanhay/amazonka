@@ -100,18 +100,18 @@ import Network.AWS.Request.JSON
 
 -- | The TransferDomain request includes the following elements.
 data TransferDomain = TransferDomain
-    { _tdDomainName :: !Text
-    , _tdIdnLangCode :: !(Maybe Text)
+    { _tdDomainName :: Text
+    , _tdIdnLangCode :: Maybe Text
     , _tdDurationInYears :: !Integer
     , _tdNameservers :: [Nameserver]
-    , _tdAuthCode :: !(Maybe Text)
-    , _tdAutoRenew :: !(Maybe Bool)
+    , _tdAuthCode :: Maybe Text
+    , _tdAutoRenew :: Maybe Bool
     , _tdAdminContact :: ContactDetail
     , _tdRegistrantContact :: ContactDetail
     , _tdTechContact :: ContactDetail
-    , _tdPrivacyProtectAdminContact :: !(Maybe Bool)
-    , _tdPrivacyProtectRegistrantContact :: !(Maybe Bool)
-    , _tdPrivacyProtectTechContact :: !(Maybe Bool)
+    , _tdPrivacyProtectAdminContact :: Maybe Bool
+    , _tdPrivacyProtectRegistrantContact :: Maybe Bool
+    , _tdPrivacyProtectTechContact :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

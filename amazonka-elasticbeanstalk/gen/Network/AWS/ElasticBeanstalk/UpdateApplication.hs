@@ -48,8 +48,8 @@ import Network.AWS.Prelude
 
 -- | This documentation target is not reported in the API reference.
 data UpdateApplication = UpdateApplication
-    { _uaApplicationName :: !Text
-    , _uaDescription :: !(Maybe Text)
+    { _uaApplicationName :: Text
+    , _uaDescription :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

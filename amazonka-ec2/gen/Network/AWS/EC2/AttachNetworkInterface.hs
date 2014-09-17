@@ -50,8 +50,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data AttachNetworkInterface = AttachNetworkInterface
-    { _aniNetworkInterfaceId :: !Text
-    , _aniInstanceId :: !Text
+    { _aniNetworkInterfaceId :: Text
+    , _aniInstanceId :: Text
     , _aniDeviceIndex :: !Integer
     } deriving (Show, Generic)
 

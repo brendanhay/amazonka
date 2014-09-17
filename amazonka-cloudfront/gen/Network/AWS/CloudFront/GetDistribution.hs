@@ -76,7 +76,7 @@ instance ToXML GetDistribution where
 -- | The returned result of the corresponding request.
 data GetDistributionResponse = GetDistributionResponse
     { _gdrDistribution :: Maybe Distribution
-    , _gdrETag :: !(Maybe Text)
+    , _gdrETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

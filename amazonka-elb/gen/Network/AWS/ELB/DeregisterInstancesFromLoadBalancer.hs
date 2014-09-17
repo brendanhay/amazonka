@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 
 -- | The input for the DeregisterInstancesFromLoadBalancer action.
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer
-    { _diflbLoadBalancerName :: !Text
+    { _diflbLoadBalancerName :: Text
     , _diflbInstances :: [Instance]
     } deriving (Show, Generic)
 

@@ -66,16 +66,16 @@ import Network.AWS.Prelude
 
 -- | The input for UpdateStack action.
 data UpdateStack = UpdateStack
-    { _usStackName :: !Text
-    , _usTemplateBody :: !(Maybe Text)
-    , _usTemplateURL :: !(Maybe Text)
-    , _usUsePreviousTemplate :: !(Maybe Bool)
-    , _usStackPolicyDuringUpdateBody :: !(Maybe Text)
-    , _usStackPolicyDuringUpdateURL :: !(Maybe Text)
+    { _usStackName :: Text
+    , _usTemplateBody :: Maybe Text
+    , _usTemplateURL :: Maybe Text
+    , _usUsePreviousTemplate :: Maybe Bool
+    , _usStackPolicyDuringUpdateBody :: Maybe Text
+    , _usStackPolicyDuringUpdateURL :: Maybe Text
     , _usParameters :: [Parameter]
     , _usCapabilities :: [Capability]
-    , _usStackPolicyBody :: !(Maybe Text)
-    , _usStackPolicyURL :: !(Maybe Text)
+    , _usStackPolicyBody :: Maybe Text
+    , _usStackPolicyURL :: Maybe Text
     , _usNotificationARNs :: [Text]
     } deriving (Show, Generic)
 

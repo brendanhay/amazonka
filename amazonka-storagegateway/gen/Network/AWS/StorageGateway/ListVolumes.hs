@@ -72,9 +72,9 @@ import Network.AWS.Request.JSON
 -- | A JSON object that contains one or more of the following fields:
 -- ListVolumesInput$Limit ListVolumesInput$Marker.
 data ListVolumes = ListVolumes
-    { _lvGatewayARN :: !Text
-    , _lvMarker :: !(Maybe Text)
-    , _lvLimit :: !(Maybe Integer)
+    { _lvGatewayARN :: Text
+    , _lvMarker :: Maybe Text
+    , _lvLimit :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -121,8 +121,8 @@ instance ToHeaders ListVolumes
 instance ToJSON ListVolumes
 
 data ListVolumesResponse = ListVolumesResponse
-    { _lvrGatewayARN :: !(Maybe Text)
-    , _lvrMarker :: !(Maybe Text)
+    { _lvrGatewayARN :: Maybe Text
+    , _lvrMarker :: Maybe Text
     , _lvrVolumeInfos :: [VolumeInformation]
     } deriving (Show, Generic)
 

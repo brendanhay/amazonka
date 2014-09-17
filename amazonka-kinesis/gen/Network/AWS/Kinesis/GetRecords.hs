@@ -80,8 +80,8 @@ import Network.AWS.Request.JSON
 
 -- | Represents the input of a GetRecords operation.
 data GetRecords = GetRecords
-    { _grShardIterator :: !Text
-    , _grLimit :: !(Maybe Integer)
+    { _grShardIterator :: Text
+    , _grLimit :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -121,7 +121,7 @@ instance ToJSON GetRecords
 -- | Represents the output of a GetRecords operation.
 data GetRecordsResponse = GetRecordsResponse
     { _grrRecords :: [Record]
-    , _grrNextShardIterator :: !(Maybe Text)
+    , _grrNextShardIterator :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

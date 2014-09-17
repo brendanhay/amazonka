@@ -46,8 +46,8 @@ import Network.AWS.Prelude
 
 -- | This documentation target is not reported in the API reference.
 data DeleteConfigurationTemplate = DeleteConfigurationTemplate
-    { _dctApplicationName :: !Text
-    , _dctTemplateName :: !Text
+    { _dctApplicationName :: Text
+    , _dctTemplateName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

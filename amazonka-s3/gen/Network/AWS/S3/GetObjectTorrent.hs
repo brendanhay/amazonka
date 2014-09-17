@@ -42,8 +42,8 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data GetObjectTorrent = GetObjectTorrent
-    { _gotBucket :: !BucketName
-    , _gotKey :: !ObjectKey
+    { _gotBucket :: BucketName
+    , _gotKey :: ObjectKey
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

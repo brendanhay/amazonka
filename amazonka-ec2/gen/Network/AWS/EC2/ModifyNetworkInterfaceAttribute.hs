@@ -51,7 +51,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
-    { _mniaNetworkInterfaceId :: !Text
+    { _mniaNetworkInterfaceId :: Text
     , _mniaDescription :: Maybe AttributeValue
     , _mniaSourceDestCheck :: Maybe AttributeBooleanValue
     , _mniaGroups :: [Text]

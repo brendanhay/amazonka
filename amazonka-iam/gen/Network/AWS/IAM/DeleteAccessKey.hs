@@ -45,8 +45,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data DeleteAccessKey = DeleteAccessKey
-    { _dakUserName :: !(Maybe Text)
-    , _dakAccessKeyId :: !Text
+    { _dakUserName :: Maybe Text
+    , _dakAccessKeyId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

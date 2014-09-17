@@ -120,10 +120,10 @@ import Network.AWS.Prelude
 
 -- | Result message containig a list of application version descriptions.
 data DescribeConfigurationOptions = DescribeConfigurationOptions
-    { _dcoApplicationName :: !(Maybe Text)
-    , _dcoTemplateName :: !(Maybe Text)
-    , _dcoEnvironmentName :: !(Maybe Text)
-    , _dcoSolutionStackName :: !(Maybe Text)
+    { _dcoApplicationName :: Maybe Text
+    , _dcoTemplateName :: Maybe Text
+    , _dcoEnvironmentName :: Maybe Text
+    , _dcoSolutionStackName :: Maybe Text
     , _dcoOptions :: [OptionSpecification]
     } deriving (Show, Generic)
 
@@ -184,7 +184,7 @@ instance ToQuery DescribeConfigurationOptions where
 
 -- | Describes the settings for a specified configuration set.
 data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
-    { _dcorSolutionStackName :: !(Maybe Text)
+    { _dcorSolutionStackName :: Maybe Text
     , _dcorOptions :: [ConfigurationOptionDescription]
     } deriving (Show, Generic)
 

@@ -42,8 +42,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data DeleteRolePolicy = DeleteRolePolicy
-    { _drpRoleName :: !Text
-    , _drpPolicyName :: !Text
+    { _drpRoleName :: Text
+    , _drpPolicyName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

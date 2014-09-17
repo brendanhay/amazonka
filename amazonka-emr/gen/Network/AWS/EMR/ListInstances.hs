@@ -49,10 +49,10 @@ import Network.AWS.Request.JSON
 
 -- | This input determines which instances to list.
 data ListInstances = ListInstances
-    { _liClusterId :: !Text
-    , _liInstanceGroupId :: !(Maybe Text)
+    { _liClusterId :: Text
+    , _liInstanceGroupId :: Maybe Text
     , _liInstanceGroupTypes :: [InstanceGroupType]
-    , _liMarker :: !(Maybe Text)
+    , _liMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -106,7 +106,7 @@ instance ToJSON ListInstances
 -- | This output contains the list of instances.
 data ListInstancesResponse = ListInstancesResponse
     { _lirInstances :: [Instance]
-    , _lirMarker :: !(Maybe Text)
+    , _lirMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

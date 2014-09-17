@@ -48,8 +48,8 @@ import Network.AWS.SQS.Types
 import Network.AWS.Prelude
 
 data RemovePermission = RemovePermission
-    { _rpQueueUrl :: !Text
-    , _rpLabel :: !Text
+    { _rpQueueUrl :: Text
+    , _rpLabel :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

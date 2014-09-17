@@ -43,8 +43,8 @@ import Network.AWS.Request.JSON
 
 -- | This input determines which instance groups to retrieve.
 data ListInstanceGroups = ListInstanceGroups
-    { _ligClusterId :: !Text
-    , _ligMarker :: !(Maybe Text)
+    { _ligClusterId :: Text
+    , _ligMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -82,7 +82,7 @@ instance ToJSON ListInstanceGroups
 -- | This input determines which instance groups to retrieve.
 data ListInstanceGroupsResponse = ListInstanceGroupsResponse
     { _ligrInstanceGroups :: [InstanceGroup]
-    , _ligrMarker :: !(Maybe Text)
+    , _ligrMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

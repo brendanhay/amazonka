@@ -95,13 +95,13 @@ instance ToJSON DescribeGatewayInformation
 
 -- | A JSON object containing the following fields:.
 data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse
-    { _dgirGatewayARN :: !(Maybe Text)
-    , _dgirGatewayId :: !(Maybe Text)
-    , _dgirGatewayTimezone :: !(Maybe Text)
-    , _dgirGatewayState :: !(Maybe Text)
+    { _dgirGatewayARN :: Maybe Text
+    , _dgirGatewayId :: Maybe Text
+    , _dgirGatewayTimezone :: Maybe Text
+    , _dgirGatewayState :: Maybe Text
     , _dgirGatewayNetworkInterfaces :: [NetworkInterface]
-    , _dgirGatewayType :: !(Maybe Text)
-    , _dgirNextUpdateAvailabilityDate :: !(Maybe Text)
+    , _dgirGatewayType :: Maybe Text
+    , _dgirNextUpdateAvailabilityDate :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

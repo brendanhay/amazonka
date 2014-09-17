@@ -113,12 +113,12 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data PollForDecisionTask = PollForDecisionTask
-    { _pfdtDomain :: !Text
+    { _pfdtDomain :: Text
     , _pfdtTaskList :: TaskList
-    , _pfdtIdentity :: !(Maybe Text)
-    , _pfdtNextPageToken :: !(Maybe Text)
-    , _pfdtMaximumPageSize :: !(Maybe Integer)
-    , _pfdtReverseOrder :: !(Maybe Bool)
+    , _pfdtIdentity :: Maybe Text
+    , _pfdtNextPageToken :: Maybe Text
+    , _pfdtMaximumPageSize :: Maybe Integer
+    , _pfdtReverseOrder :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -208,13 +208,13 @@ instance ToJSON PollForDecisionTask
 -- | A structure that represents a decision task. Decision tasks are sent to
 -- deciders in order for them to make decisions.
 data PollForDecisionTaskResponse = PollForDecisionTaskResponse
-    { _pfdtrTaskToken :: !Text
+    { _pfdtrTaskToken :: Text
     , _pfdtrStartedEventId :: !Integer
     , _pfdtrWorkflowExecution :: WorkflowExecution
     , _pfdtrWorkflowType :: WorkflowType
     , _pfdtrEvents :: [HistoryEvent]
-    , _pfdtrNextPageToken :: !(Maybe Text)
-    , _pfdtrPreviousStartedEventId :: !(Maybe Integer)
+    , _pfdtrNextPageToken :: Maybe Text
+    , _pfdtrPreviousStartedEventId :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

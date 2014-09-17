@@ -60,8 +60,8 @@ import Network.AWS.Request.JSON
 
 -- | The input for the GetPipelineDefinition action.
 data GetPipelineDefinition = GetPipelineDefinition
-    { _gpdPipelineId :: !Text
-    , _gpdVersion :: !(Maybe Text)
+    { _gpdPipelineId :: Text
+    , _gpdVersion :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

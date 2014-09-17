@@ -57,13 +57,13 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data ListMultipartUploads = ListMultipartUploads
-    { _lmuBucket :: !BucketName
-    , _lmuDelimiter :: !(Maybe Char)
+    { _lmuBucket :: BucketName
+    , _lmuDelimiter :: Maybe Char
     , _lmuEncodingType :: Maybe EncodingType
-    , _lmuKeyMarker :: !(Maybe Text)
-    , _lmuMaxUploads :: !(Maybe Integer)
-    , _lmuPrefix :: !(Maybe Text)
-    , _lmuUploadIdMarker :: !(Maybe Text)
+    , _lmuKeyMarker :: Maybe Text
+    , _lmuMaxUploads :: Maybe Integer
+    , _lmuPrefix :: Maybe Text
+    , _lmuUploadIdMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -145,13 +145,13 @@ instance ToHeaders ListMultipartUploads
 instance ToBody ListMultipartUploads
 
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse
-    { _lmurBucket :: !(Maybe BucketName)
-    , _lmurKeyMarker :: !(Maybe Text)
-    , _lmurUploadIdMarker :: !(Maybe Text)
-    , _lmurNextKeyMarker :: !(Maybe Text)
-    , _lmurPrefix :: !(Maybe Text)
-    , _lmurNextUploadIdMarker :: !(Maybe Text)
-    , _lmurMaxUploads :: !(Maybe Integer)
+    { _lmurBucket :: Maybe BucketName
+    , _lmurKeyMarker :: Maybe Text
+    , _lmurUploadIdMarker :: Maybe Text
+    , _lmurNextKeyMarker :: Maybe Text
+    , _lmurPrefix :: Maybe Text
+    , _lmurNextUploadIdMarker :: Maybe Text
+    , _lmurMaxUploads :: Maybe Integer
     , _lmurIsTruncated :: !Bool
     , _lmurUploads :: [MultipartUpload]
     , _lmurCommonPrefixes :: [CommonPrefix]

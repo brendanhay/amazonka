@@ -66,7 +66,7 @@ import Network.AWS.Request.JSON
 
 -- | Represents the input of a DeleteItem operation.
 data DeleteItem = DeleteItem
-    { _diTableName :: !Text
+    { _diTableName :: Text
     , _diKey :: Map Text AttributeValue
     , _diExpected :: Map Text ExpectedAttributeValue
     , _diConditionalOperator :: Maybe ConditionalOperator

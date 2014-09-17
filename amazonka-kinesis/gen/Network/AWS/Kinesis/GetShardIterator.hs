@@ -87,10 +87,10 @@ import Network.AWS.Request.JSON
 
 -- | Represents the input of a GetShardIterator operation.
 data GetShardIterator = GetShardIterator
-    { _gsiStreamName :: !Text
-    , _gsiShardId :: !Text
+    { _gsiStreamName :: Text
+    , _gsiShardId :: Text
     , _gsiShardIteratorType :: ShardIteratorType
-    , _gsiStartingSequenceNumber :: !(Maybe Text)
+    , _gsiStartingSequenceNumber :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

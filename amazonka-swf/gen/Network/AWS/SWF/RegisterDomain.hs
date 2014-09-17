@@ -65,9 +65,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data RegisterDomain = RegisterDomain
-    { _rdName :: !Text
-    , _rdDescription :: !(Maybe Text)
-    , _rdWorkflowExecutionRetentionPeriodInDays :: !Text
+    { _rdName :: Text
+    , _rdDescription :: Maybe Text
+    , _rdWorkflowExecutionRetentionPeriodInDays :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -70,9 +70,9 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data ModifySnapshotAttribute = ModifySnapshotAttribute
-    { _msaSnapshotId :: !Text
+    { _msaSnapshotId :: Text
     , _msaAttribute :: Maybe SnapshotAttributeName
-    , _msaOperationType :: !(Maybe Text)
+    , _msaOperationType :: Maybe Text
     , _msaUserIds :: [Text]
     , _msaGroupNames :: [Text]
     , _msaCreateVolumePermission :: Maybe CreateVolumePermissionModifications

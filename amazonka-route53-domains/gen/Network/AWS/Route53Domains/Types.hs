@@ -1349,19 +1349,19 @@ instance ToJSON OperationType
 -- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber,
 -- Email, Fax, ExtraParams.
 data ContactDetail = ContactDetail
-    { _cdFirstName :: !(Maybe Text)
-    , _cdLastName :: !(Maybe Text)
+    { _cdFirstName :: Maybe Text
+    , _cdLastName :: Maybe Text
     , _cdContactType :: Maybe ContactType
-    , _cdOrganizationName :: !(Maybe Text)
-    , _cdAddressLine1 :: !(Maybe Text)
-    , _cdAddressLine2 :: !(Maybe Text)
-    , _cdCity :: !(Maybe Text)
-    , _cdState :: !(Maybe Text)
+    , _cdOrganizationName :: Maybe Text
+    , _cdAddressLine1 :: Maybe Text
+    , _cdAddressLine2 :: Maybe Text
+    , _cdCity :: Maybe Text
+    , _cdState :: Maybe Text
     , _cdCountryCode :: Maybe CountryCode
-    , _cdZipCode :: !(Maybe Text)
-    , _cdPhoneNumber :: !(Maybe Text)
-    , _cdEmail :: !(Maybe Text)
-    , _cdFax :: !(Maybe Text)
+    , _cdZipCode :: Maybe Text
+    , _cdPhoneNumber :: Maybe Text
+    , _cdEmail :: Maybe Text
+    , _cdFax :: Maybe Text
     , _cdExtraParams :: [ExtraParam]
     } deriving (Show, Generic)
 
@@ -1513,10 +1513,10 @@ instance FromJSON ContactDetail
 instance ToJSON ContactDetail
 
 data DomainSummary = DomainSummary
-    { _dsDomainName :: !Text
-    , _dsAutoRenew :: !(Maybe Bool)
-    , _dsTransferLock :: !(Maybe Bool)
-    , _dsExpiry :: !(Maybe ISO8601)
+    { _dsDomainName :: Text
+    , _dsAutoRenew :: Maybe Bool
+    , _dsTransferLock :: Maybe Bool
+    , _dsExpiry :: Maybe ISO8601
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1568,7 +1568,7 @@ instance FromJSON DomainSummary
 -- | ExtraParam includes the following elements.
 data ExtraParam = ExtraParam
     { _epName :: ExtraParamName
-    , _epValue :: !Text
+    , _epValue :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1609,7 +1609,7 @@ instance ToJSON ExtraParam
 
 -- | Nameserver includes the following elements.
 data Nameserver = Nameserver
-    { _nName :: !Text
+    { _nName :: Text
     , _nGlueIps :: [Text]
     } deriving (Show, Generic)
 
@@ -1649,10 +1649,10 @@ instance ToJSON Nameserver
 
 -- | OperationSummary includes the following elements.
 data OperationSummary = OperationSummary
-    { _osOperationId :: !Text
+    { _osOperationId :: Text
     , _osStatus :: OperationStatus
     , _osType :: OperationType
-    , _osSubmittedDate :: !ISO8601
+    , _osSubmittedDate :: ISO8601
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling
-    { _stbasInstanceId :: !Text
+    { _stbasInstanceId :: Text
     , _stbasAutoScalingSchedule :: Maybe WeeklyAutoScalingSchedule
     } deriving (Show, Generic)
 

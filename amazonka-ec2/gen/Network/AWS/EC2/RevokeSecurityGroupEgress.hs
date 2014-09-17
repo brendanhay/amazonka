@@ -65,13 +65,13 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress
-    { _rsgeGroupId :: !Text
-    , _rsgeSourceSecurityGroupName :: !(Maybe Text)
-    , _rsgeSourceSecurityGroupOwnerId :: !(Maybe Text)
-    , _rsgeIpProtocol :: !(Maybe Text)
-    , _rsgeFromPort :: !(Maybe Integer)
-    , _rsgeToPort :: !(Maybe Integer)
-    , _rsgeCidrIp :: !(Maybe Text)
+    { _rsgeGroupId :: Text
+    , _rsgeSourceSecurityGroupName :: Maybe Text
+    , _rsgeSourceSecurityGroupOwnerId :: Maybe Text
+    , _rsgeIpProtocol :: Maybe Text
+    , _rsgeFromPort :: Maybe Integer
+    , _rsgeToPort :: Maybe Integer
+    , _rsgeCidrIp :: Maybe Text
     , _rsgeIpPermissions :: [IpPermission]
     } deriving (Show, Generic)
 

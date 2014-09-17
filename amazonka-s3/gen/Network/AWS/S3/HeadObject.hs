@@ -72,17 +72,17 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data HeadObject = HeadObject
-    { _hoBucket :: !BucketName
-    , _hoIfMatch :: !(Maybe Text)
-    , _hoIfModifiedSince :: !(Maybe RFC822)
-    , _hoIfNoneMatch :: !(Maybe Text)
-    , _hoIfUnmodifiedSince :: !(Maybe RFC822)
-    , _hoKey :: !ObjectKey
-    , _hoRange :: !(Maybe Text)
-    , _hoVersionId :: !(Maybe ObjectVersionId)
-    , _hoSSECustomerAlgorithm :: !(Maybe Text)
-    , _hoSSECustomerKey :: !(Maybe Text)
-    , _hoSSECustomerKeyMD5 :: !(Maybe Text)
+    { _hoBucket :: BucketName
+    , _hoIfMatch :: Maybe Text
+    , _hoIfModifiedSince :: Maybe RFC822
+    , _hoIfNoneMatch :: Maybe Text
+    , _hoIfUnmodifiedSince :: Maybe RFC822
+    , _hoKey :: ObjectKey
+    , _hoRange :: Maybe Text
+    , _hoVersionId :: Maybe ObjectVersionId
+    , _hoSSECustomerAlgorithm :: Maybe Text
+    , _hoSSECustomerKey :: Maybe Text
+    , _hoSSECustomerKeyMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -208,26 +208,26 @@ instance ToHeaders HeadObject where
 instance ToBody HeadObject
 
 data HeadObjectResponse = HeadObjectResponse
-    { _horDeleteMarker :: !(Maybe Bool)
-    , _horAcceptRanges :: !(Maybe Text)
-    , _horExpiration :: !(Maybe RFC822)
-    , _horRestore :: !(Maybe Text)
-    , _horLastModified :: !(Maybe RFC822)
-    , _horContentLength :: !(Maybe Integer)
-    , _horETag :: !(Maybe ETag)
-    , _horMissingMeta :: !(Maybe Integer)
-    , _horVersionId :: !(Maybe ObjectVersionId)
-    , _horCacheControl :: !(Maybe Text)
-    , _horContentDisposition :: !(Maybe Text)
-    , _horContentEncoding :: !(Maybe Text)
-    , _horContentLanguage :: !(Maybe Text)
-    , _horContentType :: !(Maybe Text)
-    , _horExpires :: !(Maybe RFC822)
-    , _horWebsiteRedirectLocation :: !(Maybe Text)
+    { _horDeleteMarker :: Maybe Bool
+    , _horAcceptRanges :: Maybe Text
+    , _horExpiration :: Maybe RFC822
+    , _horRestore :: Maybe Text
+    , _horLastModified :: Maybe RFC822
+    , _horContentLength :: Maybe Integer
+    , _horETag :: Maybe ETag
+    , _horMissingMeta :: Maybe Integer
+    , _horVersionId :: Maybe ObjectVersionId
+    , _horCacheControl :: Maybe Text
+    , _horContentDisposition :: Maybe Text
+    , _horContentEncoding :: Maybe Text
+    , _horContentLanguage :: Maybe Text
+    , _horContentType :: Maybe Text
+    , _horExpires :: Maybe RFC822
+    , _horWebsiteRedirectLocation :: Maybe Text
     , _horServerSideEncryption :: Maybe ServerSideEncryption
     , _horMetadata :: Map Text Text
-    , _horSSECustomerAlgorithm :: !(Maybe Text)
-    , _horSSECustomerKeyMD5 :: !(Maybe Text)
+    , _horSSECustomerAlgorithm :: Maybe Text
+    , _horSSECustomerKeyMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

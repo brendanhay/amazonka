@@ -46,8 +46,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DeleteRoute = DeleteRoute
-    { _drRouteTableId :: !Text
-    , _drDestinationCidrBlock :: !Text
+    { _drRouteTableId :: Text
+    , _drDestinationCidrBlock :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

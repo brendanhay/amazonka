@@ -112,12 +112,12 @@ import Network.AWS.Prelude
 
 -- | The input for the CreateLoadBalancer action.
 data CreateLoadBalancer = CreateLoadBalancer
-    { _clbLoadBalancerName :: !Text
+    { _clbLoadBalancerName :: Text
     , _clbListeners :: [Listener]
     , _clbAvailabilityZones :: [Text]
     , _clbSubnets :: [Text]
     , _clbSecurityGroups :: [Text]
-    , _clbScheme :: !(Maybe Text)
+    , _clbScheme :: Maybe Text
     , _clbTags :: Maybe (List1 Tag)
     } deriving (Show, Generic)
 

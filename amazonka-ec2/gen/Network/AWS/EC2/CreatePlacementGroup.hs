@@ -49,7 +49,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data CreatePlacementGroup = CreatePlacementGroup
-    { _cpgGroupName :: !Text
+    { _cpgGroupName :: Text
     , _cpgStrategy :: PlacementStrategy
     } deriving (Show, Generic)
 

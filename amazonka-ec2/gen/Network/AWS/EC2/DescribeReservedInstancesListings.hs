@@ -52,8 +52,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeReservedInstancesListings = DescribeReservedInstancesListings
-    { _drilReservedInstancesId :: !(Maybe Text)
-    , _drilReservedInstancesListingId :: !(Maybe Text)
+    { _drilReservedInstancesId :: Maybe Text
+    , _drilReservedInstancesListingId :: Maybe Text
     , _drilFilters :: [Filter]
     } deriving (Show, Generic)
 

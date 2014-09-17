@@ -45,8 +45,8 @@ import Network.AWS.Prelude
 -- the name of the domain you want to update and the name of the index field
 -- you want to delete.
 data DeleteIndexField = DeleteIndexField
-    { _dif1DomainName :: !Text
-    , _dif1IndexFieldName :: !Text
+    { _dif1DomainName :: Text
+    , _dif1IndexFieldName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

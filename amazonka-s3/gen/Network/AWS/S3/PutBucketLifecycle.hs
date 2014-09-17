@@ -42,8 +42,8 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data PutBucketLifecycle = PutBucketLifecycle
-    { _pblBucket :: !BucketName
-    , _pblContentMD5 :: !(Maybe Text)
+    { _pblBucket :: BucketName
+    , _pblContentMD5 :: Maybe Text
     , _pblLifecycleConfiguration :: Maybe LifecycleConfiguration
     } deriving (Show, Generic)
 

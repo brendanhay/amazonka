@@ -165,7 +165,7 @@ instance FromXML Topic where
 
 -- | Endpoint for mobile app and device.
 data Endpoint = Endpoint
-    { _eEndpointArn :: !(Maybe Text)
+    { _eEndpointArn :: Maybe Text
     , _eAttributes :: Map Text Text
     } deriving (Show, Generic)
 
@@ -208,9 +208,9 @@ instance FromXML Endpoint where
 -- (262,144 bytes). For more information, see Using Amazon SNS Message
 -- Attributes.
 data MessageAttributeValue = MessageAttributeValue
-    { _mavDataType :: !Text
-    , _mavStringValue :: !(Maybe Text)
-    , _mavBinaryValue :: !(Maybe ByteString)
+    { _mavDataType :: Text
+    , _mavStringValue :: Maybe Text
+    , _mavBinaryValue :: Maybe ByteString
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -252,7 +252,7 @@ instance ToQuery MessageAttributeValue where
 
 -- | Platform application object.
 data PlatformApplication = PlatformApplication
-    { _paPlatformApplicationArn :: !(Maybe Text)
+    { _paPlatformApplicationArn :: Maybe Text
     , _paAttributes :: Map Text Text
     } deriving (Show, Generic)
 
@@ -290,11 +290,11 @@ instance FromXML PlatformApplication where
 
 -- | A wrapper type for the attributes of an Amazon SNS subscription.
 data Subscription = Subscription
-    { _sSubscriptionArn :: !(Maybe Text)
-    , _sOwner :: !(Maybe Text)
-    , _sProtocol :: !(Maybe Text)
-    , _sEndpoint :: !(Maybe Text)
-    , _sTopicArn :: !(Maybe Text)
+    { _sSubscriptionArn :: Maybe Text
+    , _sOwner :: Maybe Text
+    , _sProtocol :: Maybe Text
+    , _sEndpoint :: Maybe Text
+    , _sTopicArn :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

@@ -53,9 +53,9 @@ import Network.AWS.Prelude
 -- schemes you want to describe. To show the active configuration and exclude
 -- any pending changes, set the Deployed option to true.
 data DescribeAnalysisSchemes = DescribeAnalysisSchemes
-    { _das2DomainName :: !Text
+    { _das2DomainName :: Text
     , _das2AnalysisSchemeNames :: [Text]
-    , _das2Deployed :: !(Maybe Bool)
+    , _das2Deployed :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

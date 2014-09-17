@@ -74,12 +74,12 @@ instance ToQuery DisableLogging where
 
 -- | Describes the status of logging for a cluster.
 data DisableLoggingResponse = DisableLoggingResponse
-    { _dlrLoggingEnabled :: !(Maybe Bool)
-    , _dlrBucketName :: !(Maybe Text)
-    , _dlrS3KeyPrefix :: !(Maybe Text)
-    , _dlrLastSuccessfulDeliveryTime :: !(Maybe ISO8601)
-    , _dlrLastFailureTime :: !(Maybe ISO8601)
-    , _dlrLastFailureMessage :: !(Maybe Text)
+    { _dlrLoggingEnabled :: Maybe Bool
+    , _dlrBucketName :: Maybe Text
+    , _dlrS3KeyPrefix :: Maybe Text
+    , _dlrLastSuccessfulDeliveryTime :: Maybe ISO8601
+    , _dlrLastFailureTime :: Maybe ISO8601
+    , _dlrLastFailureMessage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

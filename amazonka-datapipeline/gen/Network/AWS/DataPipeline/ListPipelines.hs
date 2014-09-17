@@ -86,7 +86,7 @@ instance ToJSON ListPipelines
 -- | Contains the output from the ListPipelines action.
 data ListPipelinesResponse = ListPipelinesResponse
     { _lprPipelineIdList :: [PipelineIdName]
-    , _lprMarker :: !(Maybe Text)
+    , _lprMarker :: Maybe Text
     , _lprHasMoreResults :: !Bool
     } deriving (Show, Generic)
 

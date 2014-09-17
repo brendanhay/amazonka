@@ -50,8 +50,8 @@ import Network.AWS.Prelude
 
 -- | 
 data CreateDBSecurityGroup = CreateDBSecurityGroup
-    { _cdbsgDBSecurityGroupName :: !Text
-    , _cdbsgDBSecurityGroupDescription :: !Text
+    { _cdbsgDBSecurityGroupName :: Text
+    , _cdbsgDBSecurityGroupDescription :: Text
     , _cdbsgTags :: [Tag]
     } deriving (Show, Generic)
 

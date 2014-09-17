@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 
 data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications
     { _drimReservedInstancesModificationIds :: [Text]
-    , _drimNextToken :: !(Maybe Text)
+    , _drimNextToken :: Maybe Text
     , _drimFilters :: [Filter]
     } deriving (Show, Generic)
 
@@ -111,7 +111,7 @@ instance ToQuery DescribeReservedInstancesModifications where
 
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse
     { _drimrReservedInstancesModifications :: [ReservedInstancesModification]
-    , _drimrNextToken :: !(Maybe Text)
+    , _drimrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

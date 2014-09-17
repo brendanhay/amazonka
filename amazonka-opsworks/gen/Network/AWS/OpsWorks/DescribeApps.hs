@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DescribeApps = DescribeApps
-    { _da1StackId :: !(Maybe Text)
+    { _da1StackId :: Maybe Text
     , _da1AppIds :: [Text]
     } deriving (Show, Generic)
 

@@ -54,9 +54,9 @@ import Network.AWS.Prelude
 
 -- | 
 data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups
-    { _dcsg3ClusterSubnetGroupName :: !(Maybe Text)
-    , _dcsg3MaxRecords :: !(Maybe Integer)
-    , _dcsg3Marker :: !(Maybe Text)
+    { _dcsg3ClusterSubnetGroupName :: Maybe Text
+    , _dcsg3MaxRecords :: Maybe Integer
+    , _dcsg3Marker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -105,7 +105,7 @@ instance ToQuery DescribeClusterSubnetGroups where
 
 -- | Contains the output from the DescribeClusterSubnetGroups action.
 data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
-    { _dcsgrrMarker :: !(Maybe Text)
+    { _dcsgrrMarker :: Maybe Text
     , _dcsgrrClusterSubnetGroups :: [ClusterSubnetGroup]
     } deriving (Show, Generic)
 

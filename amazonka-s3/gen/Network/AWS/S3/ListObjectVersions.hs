@@ -62,13 +62,13 @@ import Network.AWS.Types (Region)
 type GetBucketObjectVersions = ListObjectVersions
 
 data ListObjectVersions = ListObjectVersions
-    { _lovBucket :: !BucketName
-    , _lovDelimiter :: !(Maybe Char)
+    { _lovBucket :: BucketName
+    , _lovDelimiter :: Maybe Char
     , _lovEncodingType :: Maybe EncodingType
-    , _lovKeyMarker :: !(Maybe Text)
-    , _lovMaxKeys :: !(Maybe Integer)
-    , _lovPrefix :: !(Maybe Text)
-    , _lovVersionIdMarker :: !(Maybe Text)
+    , _lovKeyMarker :: Maybe Text
+    , _lovMaxKeys :: Maybe Integer
+    , _lovPrefix :: Maybe Text
+    , _lovVersionIdMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -146,15 +146,15 @@ instance ToBody ListObjectVersions
 
 data ListObjectVersionsResponse = ListObjectVersionsResponse
     { _lovrIsTruncated :: !Bool
-    , _lovrKeyMarker :: !(Maybe Text)
-    , _lovrVersionIdMarker :: !(Maybe Text)
-    , _lovrNextKeyMarker :: !(Maybe Text)
-    , _lovrNextVersionIdMarker :: !(Maybe Text)
+    , _lovrKeyMarker :: Maybe Text
+    , _lovrVersionIdMarker :: Maybe Text
+    , _lovrNextKeyMarker :: Maybe Text
+    , _lovrNextVersionIdMarker :: Maybe Text
     , _lovrVersions :: [ObjectVersion]
     , _lovrDeleteMarkers :: [DeleteMarkerEntry]
-    , _lovrName :: !(Maybe BucketName)
-    , _lovrPrefix :: !(Maybe Text)
-    , _lovrMaxKeys :: !(Maybe Integer)
+    , _lovrName :: Maybe BucketName
+    , _lovrPrefix :: Maybe Text
+    , _lovrMaxKeys :: Maybe Integer
     , _lovrCommonPrefixes :: [CommonPrefix]
     , _lovrEncodingType :: Maybe EncodingType
     } deriving (Show, Generic)

@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 
 -- | The input for the EnableAvailabilityZonesForLoadBalancer action.
 data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancer
-    { _eazflbLoadBalancerName :: !Text
+    { _eazflbLoadBalancerName :: Text
     , _eazflbAvailabilityZones :: [Text]
     } deriving (Show, Generic)
 

@@ -63,8 +63,8 @@ import Network.AWS.Types (Region)
 -- set MaxItems to a value greater than 100, Route 53 returns only the first
 -- 100.
 data ListHealthChecks = ListHealthChecks
-    { _lhcMarker :: !(Maybe Text)
-    , _lhcMaxItems :: !(Maybe Text)
+    { _lhcMarker :: Maybe Text
+    , _lhcMaxItems :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -105,10 +105,10 @@ instance ToXML ListHealthChecks where
 -- | A complex type that contains the response for the request.
 data ListHealthChecksResponse = ListHealthChecksResponse
     { _lhcrHealthChecks :: [HealthCheck]
-    , _lhcrMarker :: !Text
+    , _lhcrMarker :: Text
     , _lhcrIsTruncated :: !Bool
-    , _lhcrNextMarker :: !(Maybe Text)
-    , _lhcrMaxItems :: !Text
+    , _lhcrNextMarker :: Maybe Text
+    , _lhcrMaxItems :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

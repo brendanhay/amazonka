@@ -47,13 +47,13 @@ import Network.AWS.Prelude
 
 -- | 
 data ModifyEventSubscription = ModifyEventSubscription
-    { _mesSubscriptionName :: !Text
-    , _mesSnsTopicArn :: !(Maybe Text)
-    , _mesSourceType :: !(Maybe Text)
+    { _mesSubscriptionName :: Text
+    , _mesSnsTopicArn :: Maybe Text
+    , _mesSourceType :: Maybe Text
     , _mesSourceIds :: [Text]
     , _mesEventCategories :: [Text]
-    , _mesSeverity :: !(Maybe Text)
-    , _mesEnabled :: !(Maybe Bool)
+    , _mesSeverity :: Maybe Text
+    , _mesEnabled :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

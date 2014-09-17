@@ -500,8 +500,8 @@ instance ToXML ResourceRecord where
 -- | Alias resource record sets only: Information about the AWS resource to
 -- which you are redirecting traffic.
 data AliasTarget = AliasTarget
-    { _atHostedZoneId :: !Text
-    , _atDNSName :: !Text
+    { _atHostedZoneId :: Text
+    , _atDNSName :: Text
     , _atEvaluateTargetHealth :: !Bool
     } deriving (Show, Generic)
 
@@ -594,7 +594,7 @@ instance ToXML Change where
 
 -- | A complex type that contains an optional comment and the Changes element.
 data ChangeBatch = ChangeBatch
-    { _cbComment :: !(Maybe Text)
+    { _cbComment :: Maybe Text
     , _cbChanges :: List1 Change
     } deriving (Show, Generic)
 
@@ -631,10 +631,10 @@ instance ToXML ChangeBatch where
 -- zone. This element contains an ID that you use when performing a GetChange
 -- action to get detailed information about the change.
 data ChangeInfo = ChangeInfo
-    { _ciId :: !Text
+    { _ciId :: Text
     , _ciStatus :: ChangeStatus
-    , _ciSubmittedAt :: !ISO8601
-    , _ciComment :: !(Maybe Text)
+    , _ciSubmittedAt :: ISO8601
+    , _ciComment :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -697,9 +697,9 @@ instance FromXML ChangeInfo where
 -- have the same combination of DNS name and type, a value that specifies the
 -- geo location for the current resource record set.
 data GeoLocation = GeoLocation
-    { _glContinentCode :: !(Maybe Text)
-    , _glCountryCode :: !(Maybe Text)
-    , _glSubdivisionCode :: !(Maybe Text)
+    { _glContinentCode :: Maybe Text
+    , _glCountryCode :: Maybe Text
+    , _glSubdivisionCode :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -753,12 +753,12 @@ instance ToXML GeoLocation where
 -- | A complex type that contains the information about the specified geo
 -- location.
 data GeoLocationDetails = GeoLocationDetails
-    { _gldContinentCode :: !(Maybe Text)
-    , _gldContinentName :: !(Maybe Text)
-    , _gldCountryCode :: !(Maybe Text)
-    , _gldCountryName :: !(Maybe Text)
-    , _gldSubdivisionCode :: !(Maybe Text)
-    , _gldSubdivisionName :: !(Maybe Text)
+    { _gldContinentCode :: Maybe Text
+    , _gldContinentName :: Maybe Text
+    , _gldCountryCode :: Maybe Text
+    , _gldCountryName :: Maybe Text
+    , _gldSubdivisionCode :: Maybe Text
+    , _gldSubdivisionName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -834,8 +834,8 @@ instance FromXML GeoLocationDetails where
 -- | A complex type that contains identifying information about the health
 -- check.
 data HealthCheck = HealthCheck
-    { _hcId :: !Text
-    , _hcCallerReference :: !Text
+    { _hcId :: Text
+    , _hcCallerReference :: Text
     , _hcHealthCheckConfig :: HealthCheckConfig
     , _hcHealthCheckVersion :: !Integer
     } deriving (Show, Generic)
@@ -895,14 +895,14 @@ instance FromXML HealthCheck where
 
 -- | A complex type that contains health check configuration.
 data HealthCheckConfig = HealthCheckConfig
-    { _hccIPAddress :: !(Maybe Text)
-    , _hccPort :: !(Maybe Integer)
+    { _hccIPAddress :: Maybe Text
+    , _hccPort :: Maybe Integer
     , _hccType :: HealthCheckType
-    , _hccResourcePath :: !(Maybe Text)
-    , _hccFullyQualifiedDomainName :: !(Maybe Text)
-    , _hccSearchString :: !(Maybe Text)
-    , _hccRequestInterval :: !(Maybe Integer)
-    , _hccFailureThreshold :: !(Maybe Integer)
+    , _hccResourcePath :: Maybe Text
+    , _hccFullyQualifiedDomainName :: Maybe Text
+    , _hccSearchString :: Maybe Text
+    , _hccRequestInterval :: Maybe Integer
+    , _hccFailureThreshold :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -999,11 +999,11 @@ instance ToXML HealthCheckConfig where
 
 -- | A complex type that contains identifying information about the hosted zone.
 data HostedZone = HostedZone
-    { _hzId :: !Text
-    , _hzName :: !Text
-    , _hzCallerReference :: !Text
+    { _hzId :: Text
+    , _hzName :: Text
+    , _hzCallerReference :: Text
     , _hzConfig :: Maybe HostedZoneConfig
-    , _hzResourceRecordSetCount :: !(Maybe Integer)
+    , _hzResourceRecordSetCount :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1072,17 +1072,17 @@ instance FromXML HostedZone where
 
 -- | Information about the resource record set to create or delete.
 data ResourceRecordSet = ResourceRecordSet
-    { _rrsName :: !Text
+    { _rrsName :: Text
     , _rrsType :: RecordType
-    , _rrsSetIdentifier :: !(Maybe Text)
-    , _rrsWeight :: !(Maybe Integer)
+    , _rrsSetIdentifier :: Maybe Text
+    , _rrsWeight :: Maybe Integer
     , _rrsRegion :: Maybe Region
     , _rrsGeoLocation :: Maybe GeoLocation
     , _rrsFailover :: Maybe Failover
-    , _rrsTTL :: !(Maybe Integer)
+    , _rrsTTL :: Maybe Integer
     , _rrsResourceRecords :: List1 ResourceRecord
     , _rrsAliasTarget :: Maybe AliasTarget
-    , _rrsHealthCheckId :: !(Maybe Text)
+    , _rrsHealthCheckId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1214,7 +1214,7 @@ instance ToXML ResourceRecordSet where
 -- | A ResourceTagSet containing tags associated with the specified resource.
 data ResourceTagSet = ResourceTagSet
     { _rtsResourceType :: Maybe TagResourceType
-    , _rtsResourceId :: !(Maybe Text)
+    , _rtsResourceId :: Maybe Text
     , _rtsTags :: Maybe (List1 Tag)
     } deriving (Show, Generic)
 
@@ -1258,8 +1258,8 @@ instance FromXML ResourceTagSet where
 
 -- | A single tag containing a key and value.
 data Tag = Tag
-    { _tKey :: !(Maybe Text)
-    , _tValue :: !(Maybe Text)
+    { _tKey :: Maybe Text
+    , _tValue :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

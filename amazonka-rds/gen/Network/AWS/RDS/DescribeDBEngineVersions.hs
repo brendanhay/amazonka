@@ -75,13 +75,13 @@ import Network.AWS.RDS.Types
 import Network.AWS.Prelude
 
 data DescribeDBEngineVersions = DescribeDBEngineVersions
-    { _ddbevEngine :: !(Maybe Text)
-    , _ddbevEngineVersion :: !(Maybe Text)
-    , _ddbevDBParameterGroupFamily :: !(Maybe Text)
-    , _ddbevMaxRecords :: !(Maybe Integer)
-    , _ddbevMarker :: !(Maybe Text)
-    , _ddbevDefaultOnly :: !(Maybe Bool)
-    , _ddbevListSupportedCharacterSets :: !(Maybe Bool)
+    { _ddbevEngine :: Maybe Text
+    , _ddbevEngineVersion :: Maybe Text
+    , _ddbevDBParameterGroupFamily :: Maybe Text
+    , _ddbevMaxRecords :: Maybe Integer
+    , _ddbevMarker :: Maybe Text
+    , _ddbevDefaultOnly :: Maybe Bool
+    , _ddbevListSupportedCharacterSets :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -164,7 +164,7 @@ instance ToQuery DescribeDBEngineVersions where
 -- | Contains the result of a successful invocation of the
 -- DescribeDBEngineVersions action.
 data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
-    { _ddbevrMarker :: !(Maybe Text)
+    { _ddbevrMarker :: Maybe Text
     , _ddbevrDBEngineVersions :: [DBEngineVersion]
     } deriving (Show, Generic)
 

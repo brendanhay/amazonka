@@ -60,13 +60,13 @@ import Network.AWS.Prelude
 
 -- | 
 data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions
-    { _dodbioEngine :: !Text
-    , _dodbioEngineVersion :: !(Maybe Text)
-    , _dodbioDBInstanceClass :: !(Maybe Text)
-    , _dodbioLicenseModel :: !(Maybe Text)
-    , _dodbioVpc :: !(Maybe Bool)
-    , _dodbioMaxRecords :: !(Maybe Integer)
-    , _dodbioMarker :: !(Maybe Text)
+    { _dodbioEngine :: Text
+    , _dodbioEngineVersion :: Maybe Text
+    , _dodbioDBInstanceClass :: Maybe Text
+    , _dodbioLicenseModel :: Maybe Text
+    , _dodbioVpc :: Maybe Bool
+    , _dodbioMaxRecords :: Maybe Integer
+    , _dodbioMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -149,7 +149,7 @@ instance ToQuery DescribeOrderableDBInstanceOptions where
 -- DescribeOrderableDBInstanceOptions action.
 data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse
     { _dodbiorOrderableDBInstanceOptions :: [OrderableDBInstanceOption]
-    , _dodbiorMarker :: !(Maybe Text)
+    , _dodbiorMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

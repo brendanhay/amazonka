@@ -49,7 +49,7 @@ import Network.AWS.Types (Region)
 -- | &gt;A complex type that contains information about the request to create a
 -- health check.
 data CreateHealthCheck = CreateHealthCheck
-    { _chcCallerReference :: !Text
+    { _chcCallerReference :: Text
     , _chcHealthCheckConfig :: HealthCheckConfig
     } deriving (Show, Generic)
 
@@ -100,7 +100,7 @@ instance ToXML CreateHealthCheck where
 -- check.
 data CreateHealthCheckResponse = CreateHealthCheckResponse
     { _chcrHealthCheck :: HealthCheck
-    , _chcrLocation :: !Text
+    , _chcrLocation :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

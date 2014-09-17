@@ -47,9 +47,9 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data CreateLoginProfile = CreateLoginProfile
-    { _clpUserName :: !Text
-    , _clpPassword :: !Text
-    , _clpPasswordResetRequired :: !(Maybe Bool)
+    { _clpUserName :: Text
+    , _clpPassword :: Text
+    , _clpPasswordResetRequired :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

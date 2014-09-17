@@ -130,26 +130,26 @@ instance ToJSON GetDomainDetail
 
 -- | The GetDomainDetail response includes the following elements.
 data GetDomainDetailResponse = GetDomainDetailResponse
-    { _gddrDomainName :: !Text
+    { _gddrDomainName :: Text
     , _gddrNameservers :: [Nameserver]
-    , _gddrAutoRenew :: !(Maybe Bool)
+    , _gddrAutoRenew :: Maybe Bool
     , _gddrAdminContact :: ContactDetail
     , _gddrRegistrantContact :: ContactDetail
     , _gddrTechContact :: ContactDetail
-    , _gddrAdminPrivacy :: !(Maybe Bool)
-    , _gddrRegistrantPrivacy :: !(Maybe Bool)
-    , _gddrTechPrivacy :: !(Maybe Bool)
-    , _gddrRegistrarName :: !(Maybe Text)
-    , _gddrWhoIsServer :: !(Maybe Text)
-    , _gddrRegistrarUrl :: !(Maybe Text)
-    , _gddrAbuseContactEmail :: !(Maybe Text)
-    , _gddrAbuseContactPhone :: !(Maybe Text)
-    , _gddrRegistryDomainId :: !(Maybe Text)
-    , _gddrCreationDate :: !(Maybe ISO8601)
-    , _gddrUpdatedDate :: !(Maybe ISO8601)
-    , _gddrExpirationDate :: !(Maybe ISO8601)
-    , _gddrReseller :: !(Maybe Text)
-    , _gddrDnsSec :: !(Maybe Text)
+    , _gddrAdminPrivacy :: Maybe Bool
+    , _gddrRegistrantPrivacy :: Maybe Bool
+    , _gddrTechPrivacy :: Maybe Bool
+    , _gddrRegistrarName :: Maybe Text
+    , _gddrWhoIsServer :: Maybe Text
+    , _gddrRegistrarUrl :: Maybe Text
+    , _gddrAbuseContactEmail :: Maybe Text
+    , _gddrAbuseContactPhone :: Maybe Text
+    , _gddrRegistryDomainId :: Maybe Text
+    , _gddrCreationDate :: Maybe ISO8601
+    , _gddrUpdatedDate :: Maybe ISO8601
+    , _gddrExpirationDate :: Maybe ISO8601
+    , _gddrReseller :: Maybe Text
+    , _gddrDnsSec :: Maybe Text
     , _gddrStatusList :: [Text]
     } deriving (Show, Generic)
 

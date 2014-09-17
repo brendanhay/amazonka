@@ -73,15 +73,15 @@ import Network.AWS.Prelude
 
 -- | 
 data CreateEnvironment = CreateEnvironment
-    { _ceApplicationName :: !Text
-    , _ceEnvironmentName :: !Text
-    , _ceDescription :: !(Maybe Text)
-    , _ceCNAMEPrefix :: !(Maybe Text)
+    { _ceApplicationName :: Text
+    , _ceEnvironmentName :: Text
+    , _ceDescription :: Maybe Text
+    , _ceCNAMEPrefix :: Maybe Text
     , _ceTier :: Maybe EnvironmentTier
     , _ceTags :: [Tag]
-    , _ceVersionLabel :: !(Maybe Text)
-    , _ceTemplateName :: !(Maybe Text)
-    , _ceSolutionStackName :: !(Maybe Text)
+    , _ceVersionLabel :: Maybe Text
+    , _ceTemplateName :: Maybe Text
+    , _ceSolutionStackName :: Maybe Text
     , _ceOptionSettings :: [ConfigurationOptionSetting]
     , _ceOptionsToRemove :: [OptionSpecification]
     } deriving (Show, Generic)
@@ -215,17 +215,17 @@ instance ToQuery CreateEnvironment where
 
 -- | Describes the properties of an environment.
 data CreateEnvironmentResponse = CreateEnvironmentResponse
-    { _cerEnvironmentName :: !(Maybe Text)
-    , _cerEnvironmentId :: !(Maybe Text)
-    , _cerApplicationName :: !(Maybe Text)
-    , _cerVersionLabel :: !(Maybe Text)
-    , _cerSolutionStackName :: !(Maybe Text)
-    , _cerTemplateName :: !(Maybe Text)
-    , _cerDescription :: !(Maybe Text)
-    , _cerEndpointURL :: !(Maybe Text)
-    , _cerCNAME :: !(Maybe Text)
-    , _cerDateCreated :: !(Maybe ISO8601)
-    , _cerDateUpdated :: !(Maybe ISO8601)
+    { _cerEnvironmentName :: Maybe Text
+    , _cerEnvironmentId :: Maybe Text
+    , _cerApplicationName :: Maybe Text
+    , _cerVersionLabel :: Maybe Text
+    , _cerSolutionStackName :: Maybe Text
+    , _cerTemplateName :: Maybe Text
+    , _cerDescription :: Maybe Text
+    , _cerEndpointURL :: Maybe Text
+    , _cerCNAME :: Maybe Text
+    , _cerDateCreated :: Maybe ISO8601
+    , _cerDateUpdated :: Maybe ISO8601
     , _cerStatus :: Maybe EnvironmentStatus
     , _cerHealth :: Maybe EnvironmentHealth
     , _cerResources :: Maybe EnvironmentResourcesDescription

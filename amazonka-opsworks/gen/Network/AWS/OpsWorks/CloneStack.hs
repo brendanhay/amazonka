@@ -63,25 +63,25 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data CloneStack = CloneStack
-    { _csSourceStackId :: !Text
-    , _csName :: !(Maybe Text)
-    , _csRegion :: !(Maybe Text)
-    , _csVpcId :: !(Maybe Text)
+    { _csSourceStackId :: Text
+    , _csName :: Maybe Text
+    , _csRegion :: Maybe Text
+    , _csVpcId :: Maybe Text
     , _csAttributes :: Map StackAttributesKeys Text
-    , _csServiceRoleArn :: !Text
-    , _csDefaultInstanceProfileArn :: !(Maybe Text)
-    , _csDefaultOs :: !(Maybe Text)
-    , _csHostnameTheme :: !(Maybe Text)
-    , _csDefaultAvailabilityZone :: !(Maybe Text)
-    , _csDefaultSubnetId :: !(Maybe Text)
-    , _csCustomJson :: !(Maybe Text)
+    , _csServiceRoleArn :: Text
+    , _csDefaultInstanceProfileArn :: Maybe Text
+    , _csDefaultOs :: Maybe Text
+    , _csHostnameTheme :: Maybe Text
+    , _csDefaultAvailabilityZone :: Maybe Text
+    , _csDefaultSubnetId :: Maybe Text
+    , _csCustomJson :: Maybe Text
     , _csConfigurationManager :: Maybe StackConfigurationManager
     , _csChefConfiguration :: Maybe ChefConfiguration
-    , _csUseCustomCookbooks :: !(Maybe Bool)
-    , _csUseOpsworksSecurityGroups :: !(Maybe Bool)
+    , _csUseCustomCookbooks :: Maybe Bool
+    , _csUseOpsworksSecurityGroups :: Maybe Bool
     , _csCustomCookbooksSource :: Maybe Source
-    , _csDefaultSshKeyName :: !(Maybe Text)
-    , _csClonePermissions :: !(Maybe Bool)
+    , _csDefaultSshKeyName :: Maybe Text
+    , _csClonePermissions :: Maybe Bool
     , _csCloneAppIds :: [Text]
     , _csDefaultRootDeviceType :: Maybe RootDeviceType
     } deriving (Show, Generic)

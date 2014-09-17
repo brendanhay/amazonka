@@ -60,9 +60,9 @@ import Network.AWS.Request.JSON
 
 -- | Container for the parameters to the CreateInterconnect operation.
 data CreateInterconnect = CreateInterconnect
-    { _ciInterconnectName :: !Text
-    , _ciBandwidth :: !Text
-    , _ciLocation :: !Text
+    { _ciInterconnectName :: Text
+    , _ciBandwidth :: Text
+    , _ciLocation :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -120,12 +120,12 @@ instance ToJSON CreateInterconnect
 -- and the owner of the interconnect determines how these resources are
 -- assigned.
 data CreateInterconnectResponse = CreateInterconnectResponse
-    { _cirInterconnectId :: !(Maybe Text)
-    , _cirInterconnectName :: !(Maybe Text)
+    { _cirInterconnectId :: Maybe Text
+    , _cirInterconnectName :: Maybe Text
     , _cirInterconnectState :: Maybe InterconnectState
-    , _cirRegion :: !(Maybe Text)
-    , _cirLocation :: !(Maybe Text)
-    , _cirBandwidth :: !(Maybe Text)
+    , _cirRegion :: Maybe Text
+    , _cirLocation :: Maybe Text
+    , _cirBandwidth :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

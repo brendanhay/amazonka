@@ -74,11 +74,11 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data SignalWorkflowExecution = SignalWorkflowExecution
-    { _sweDomain :: !Text
-    , _sweWorkflowId :: !Text
-    , _sweRunId :: !(Maybe Text)
-    , _sweSignalName :: !Text
-    , _sweInput :: !(Maybe Text)
+    { _sweDomain :: Text
+    , _sweWorkflowId :: Text
+    , _sweRunId :: Maybe Text
+    , _sweSignalName :: Text
+    , _sweInput :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

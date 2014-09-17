@@ -84,8 +84,8 @@ instance ToJSON DescribeIdentityPool
 
 -- | An object representing a Cognito identity pool.
 data DescribeIdentityPoolResponse = DescribeIdentityPoolResponse
-    { _diprIdentityPoolId :: !Text
-    , _diprIdentityPoolName :: !Text
+    { _diprIdentityPoolId :: Text
+    , _diprIdentityPoolName :: Text
     , _diprAllowUnauthenticatedIdentities :: !Bool
     , _diprSupportedLoginProviders :: Map Text Text
     } deriving (Show, Generic)

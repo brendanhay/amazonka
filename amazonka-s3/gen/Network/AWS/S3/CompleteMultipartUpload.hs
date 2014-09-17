@@ -50,10 +50,10 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data CompleteMultipartUpload = CompleteMultipartUpload
-    { _cmuBucket :: !BucketName
-    , _cmuKey :: !ObjectKey
+    { _cmuBucket :: BucketName
+    , _cmuKey :: ObjectKey
     , _cmuMultipartUpload :: Maybe CompletedMultipartUpload
-    , _cmuUploadId :: !Text
+    , _cmuUploadId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -103,13 +103,13 @@ instance ToBody CompleteMultipartUpload where
     toBody = toBody . encodeXML . _cmuMultipartUpload
 
 data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
-    { _cmurLocation :: !(Maybe Text)
-    , _cmurBucket :: !(Maybe BucketName)
-    , _cmurKey :: !(Maybe ObjectKey)
-    , _cmurExpiration :: !(Maybe RFC822)
-    , _cmurETag :: !(Maybe ETag)
+    { _cmurLocation :: Maybe Text
+    , _cmurBucket :: Maybe BucketName
+    , _cmurKey :: Maybe ObjectKey
+    , _cmurExpiration :: Maybe RFC822
+    , _cmurETag :: Maybe ETag
     , _cmurServerSideEncryption :: Maybe ServerSideEncryption
-    , _cmurVersionId :: !(Maybe ObjectVersionId)
+    , _cmurVersionId :: Maybe ObjectVersionId
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -52,7 +52,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data ResetInstanceAttribute = ResetInstanceAttribute
-    { _ria1InstanceId :: !Text
+    { _ria1InstanceId :: Text
     , _ria1Attribute :: InstanceAttributeName
     } deriving (Show, Generic)
 

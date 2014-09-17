@@ -60,8 +60,8 @@ import Network.AWS.Types (Region)
 -- | A complex type that contains information about the request to create a
 -- hosted zone.
 data CreateHostedZone = CreateHostedZone
-    { _chzName :: !Text
-    , _chzCallerReference :: !Text
+    { _chzName :: Text
+    , _chzCallerReference :: Text
     , _chzHostedZoneConfig :: Maybe HostedZoneConfig
     } deriving (Show, Generic)
 
@@ -128,7 +128,7 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse
     { _chzrHostedZone :: HostedZone
     , _chzrChangeInfo :: ChangeInfo
     , _chzrDelegationSet :: DelegationSet
-    , _chzrLocation :: !Text
+    , _chzrLocation :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

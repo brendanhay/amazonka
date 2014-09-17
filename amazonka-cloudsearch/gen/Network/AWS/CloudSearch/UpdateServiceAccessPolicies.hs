@@ -46,8 +46,8 @@ import Network.AWS.Prelude
 -- Specifies the name of the domain you want to update and the access rules
 -- you want to configure.
 data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies
-    { _usapDomainName :: !Text
-    , _usapAccessPolicies :: !Text
+    { _usapDomainName :: Text
+    , _usapAccessPolicies :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

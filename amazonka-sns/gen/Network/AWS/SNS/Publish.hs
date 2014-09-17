@@ -85,11 +85,11 @@ import Network.AWS.Prelude
 
 -- | Input for Publish action.
 data Publish = Publish
-    { _pTopicArn :: !(Maybe Text)
-    , _pTargetArn :: !(Maybe Text)
-    , _pMessage :: !Text
-    , _pSubject :: !(Maybe Text)
-    , _pMessageStructure :: !(Maybe Text)
+    { _pTopicArn :: Maybe Text
+    , _pTargetArn :: Maybe Text
+    , _pMessage :: Text
+    , _pSubject :: Maybe Text
+    , _pMessageStructure :: Maybe Text
     , _pMessageAttributes :: Map Text MessageAttributeValue
     } deriving (Show, Generic)
 

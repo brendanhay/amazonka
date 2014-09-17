@@ -57,14 +57,14 @@ import Network.AWS.Request.JSON
 
 data DescribeCases = DescribeCases
     { _dcCaseIdList :: [Text]
-    , _dcDisplayId :: !(Maybe Text)
-    , _dcAfterTime :: !(Maybe Text)
-    , _dcBeforeTime :: !(Maybe Text)
-    , _dcIncludeResolvedCases :: !(Maybe Bool)
-    , _dcNextToken :: !(Maybe Text)
-    , _dcMaxResults :: !(Maybe Integer)
-    , _dcLanguage :: !(Maybe Text)
-    , _dcIncludeCommunications :: !(Maybe Bool)
+    , _dcDisplayId :: Maybe Text
+    , _dcAfterTime :: Maybe Text
+    , _dcBeforeTime :: Maybe Text
+    , _dcIncludeResolvedCases :: Maybe Bool
+    , _dcNextToken :: Maybe Text
+    , _dcMaxResults :: Maybe Integer
+    , _dcLanguage :: Maybe Text
+    , _dcIncludeCommunications :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -161,7 +161,7 @@ instance ToJSON DescribeCases
 -- point for pagination in the result set.
 data DescribeCasesResponse = DescribeCasesResponse
     { _dcrCases :: [CaseDetails]
-    , _dcrNextToken :: !(Maybe Text)
+    , _dcrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

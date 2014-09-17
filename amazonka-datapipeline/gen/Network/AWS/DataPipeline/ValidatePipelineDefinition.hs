@@ -81,7 +81,7 @@ import Network.AWS.Request.JSON
 
 -- | The input of the ValidatePipelineDefinition action.
 data ValidatePipelineDefinition = ValidatePipelineDefinition
-    { _vpdPipelineId :: !Text
+    { _vpdPipelineId :: Text
     , _vpdPipelineObjects :: [PipelineObject]
     } deriving (Show, Generic)
 

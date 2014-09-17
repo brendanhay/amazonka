@@ -58,9 +58,9 @@ import Network.AWS.Prelude
 
 -- | 
 data CreateDBParameterGroup = CreateDBParameterGroup
-    { _cdbpgDBParameterGroupName :: !Text
-    , _cdbpgDBParameterGroupFamily :: !Text
-    , _cdbpgDescription :: !Text
+    { _cdbpgDBParameterGroupName :: Text
+    , _cdbpgDBParameterGroupFamily :: Text
+    , _cdbpgDescription :: Text
     , _cdbpgTags :: [Tag]
     } deriving (Show, Generic)
 

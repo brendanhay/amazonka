@@ -56,8 +56,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data ReleaseAddress = ReleaseAddress
-    { _raPublicIp :: !(Maybe Text)
-    , _raAllocationId :: !(Maybe Text)
+    { _raPublicIp :: Maybe Text
+    , _raAllocationId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

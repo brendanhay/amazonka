@@ -61,7 +61,7 @@ import Network.AWS.Request.JSON
 -- UpdateMaintenanceStartTimeInput$HourOfDay
 -- UpdateMaintenanceStartTimeInput$MinuteOfHour.
 data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime
-    { _umstGatewayARN :: !Text
+    { _umstGatewayARN :: Text
     , _umstHourOfDay :: !Integer
     , _umstMinuteOfHour :: !Integer
     , _umstDayOfWeek :: !Integer

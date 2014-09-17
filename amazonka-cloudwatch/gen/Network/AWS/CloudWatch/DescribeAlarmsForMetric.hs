@@ -46,11 +46,11 @@ import Network.AWS.CloudWatch.Types
 import Network.AWS.Prelude
 
 data DescribeAlarmsForMetric = DescribeAlarmsForMetric
-    { _dafmMetricName :: !Text
-    , _dafmNamespace :: !Text
+    { _dafmMetricName :: Text
+    , _dafmNamespace :: Text
     , _dafmStatistic :: Maybe Statistic
     , _dafmDimensions :: [Dimension]
-    , _dafmPeriod :: !(Maybe Integer)
+    , _dafmPeriod :: Maybe Integer
     , _dafmUnit :: Maybe StandardUnit
     } deriving (Show, Generic)
 

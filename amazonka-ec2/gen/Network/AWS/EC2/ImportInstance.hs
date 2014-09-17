@@ -58,7 +58,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data ImportInstance = ImportInstance
-    { _iiDescription :: !(Maybe Text)
+    { _iiDescription :: Maybe Text
     , _iiLaunchSpecification :: Maybe ImportInstanceLaunchSpecification
     , _iiDiskImages :: [DiskImage]
     , _iiPlatform :: PlatformValues

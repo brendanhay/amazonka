@@ -62,7 +62,7 @@ import Network.AWS.Request.JSON
 
 -- | The UpdateDomainNameserver request includes the following elements.
 data UpdateDomainNameservers = UpdateDomainNameservers
-    { _udnDomainName :: !Text
+    { _udnDomainName :: Text
     , _udnNameservers :: [Nameserver]
     } deriving (Show, Generic)
 

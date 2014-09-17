@@ -67,11 +67,11 @@ import Network.AWS.Request.JSON
 -- ActivateGatewayInput$GatewayRegion ActivateGatewayInput$GatewayTimezone
 -- ActivateGatewayInput$GatewayType.
 data ActivateGateway = ActivateGateway
-    { _agActivationKey :: !Text
-    , _agGatewayName :: !Text
-    , _agGatewayTimezone :: !Text
-    , _agGatewayRegion :: !Text
-    , _agGatewayType :: !(Maybe Text)
+    { _agActivationKey :: Text
+    , _agGatewayName :: Text
+    , _agGatewayTimezone :: Text
+    , _agGatewayRegion :: Text
+    , _agGatewayType :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

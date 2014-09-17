@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers
-    { _delbStackId :: !(Maybe Text)
+    { _delbStackId :: Maybe Text
     , _delbLayerIds :: [Text]
     } deriving (Show, Generic)
 

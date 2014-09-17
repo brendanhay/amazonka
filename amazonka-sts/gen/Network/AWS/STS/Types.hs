@@ -115,8 +115,8 @@ xmlOptions = Tagged def
 -- The ARN and ID include the RoleSessionName that you specified when you
 -- called AssumeRole.
 data AssumedRoleUser = AssumedRoleUser
-    { _aruAssumedRoleId :: !Text
-    , _aruArn :: !Text
+    { _aruAssumedRoleId :: Text
+    , _aruArn :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -159,10 +159,10 @@ instance FromXML AssumedRoleUser where
 -- | The temporary security credentials, which include an access key ID, a
 -- secret access key, and a security (or session) token.
 data Credentials = Credentials
-    { _cAccessKeyId :: !Text
-    , _cSecretAccessKey :: !Text
-    , _cSessionToken :: !Text
-    , _cExpiration :: !ISO8601
+    { _cAccessKeyId :: Text
+    , _cSecretAccessKey :: Text
+    , _cSessionToken :: Text
+    , _cExpiration :: ISO8601
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -220,8 +220,8 @@ instance FromXML Credentials where
 -- use the federated user's ARN in your resource-based policies, such as an
 -- Amazon S3 bucket policy.
 data FederatedUser = FederatedUser
-    { _fuFederatedUserId :: !Text
-    , _fuArn :: !Text
+    { _fuFederatedUserId :: Text
+    , _fuArn :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

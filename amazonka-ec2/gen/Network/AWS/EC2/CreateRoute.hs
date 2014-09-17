@@ -70,12 +70,12 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data CreateRoute = CreateRoute
-    { _crRouteTableId :: !Text
-    , _crDestinationCidrBlock :: !Text
-    , _crGatewayId :: !(Maybe Text)
-    , _crInstanceId :: !(Maybe Text)
-    , _crNetworkInterfaceId :: !(Maybe Text)
-    , _crVpcPeeringConnectionId :: !(Maybe Text)
+    { _crRouteTableId :: Text
+    , _crDestinationCidrBlock :: Text
+    , _crGatewayId :: Maybe Text
+    , _crInstanceId :: Maybe Text
+    , _crNetworkInterfaceId :: Maybe Text
+    , _crVpcPeeringConnectionId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

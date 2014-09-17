@@ -45,8 +45,8 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data AssignVolume = AssignVolume
-    { _avVolumeId :: !Text
-    , _avInstanceId :: !(Maybe Text)
+    { _avVolumeId :: Text
+    , _avInstanceId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

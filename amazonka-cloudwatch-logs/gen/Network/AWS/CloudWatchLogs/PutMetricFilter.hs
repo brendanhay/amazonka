@@ -57,9 +57,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data PutMetricFilter = PutMetricFilter
-    { _pmfLogGroupName :: !Text
-    , _pmfFilterName :: !Text
-    , _pmfFilterPattern :: !Text
+    { _pmfLogGroupName :: Text
+    , _pmfFilterName :: Text
+    , _pmfFilterPattern :: Text
     , _pmfMetricTransformations :: List1 MetricTransformation
     } deriving (Show, Generic)
 

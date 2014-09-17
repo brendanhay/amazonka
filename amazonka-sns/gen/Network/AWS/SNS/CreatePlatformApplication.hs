@@ -73,8 +73,8 @@ import Network.AWS.Prelude
 
 -- | Input for CreatePlatformApplication action.
 data CreatePlatformApplication = CreatePlatformApplication
-    { _cpaName :: !Text
-    , _cpaPlatform :: !Text
+    { _cpaName :: Text
+    , _cpaPlatform :: Text
     , _cpaAttributes :: Map Text Text
     } deriving (Show, Generic)
 

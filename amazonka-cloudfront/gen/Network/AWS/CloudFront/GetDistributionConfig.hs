@@ -76,7 +76,7 @@ instance ToXML GetDistributionConfig where
 -- | The returned result of the corresponding request.
 data GetDistributionConfigResponse = GetDistributionConfigResponse
     { _gdcrDistributionConfig :: Maybe DistributionConfig
-    , _gdcrETag :: !(Maybe Text)
+    , _gdcrETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

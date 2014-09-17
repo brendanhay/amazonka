@@ -69,10 +69,10 @@ import Network.AWS.Request.JSON
 -- UpdateChapCredentialsInput$SecretToAuthenticateTarget
 -- UpdateChapCredentialsInput$TargetARN.
 data UpdateChapCredentials = UpdateChapCredentials
-    { _uccTargetARN :: !Text
-    , _uccSecretToAuthenticateInitiator :: !Text
-    , _uccInitiatorName :: !Text
-    , _uccSecretToAuthenticateTarget :: !(Maybe Text)
+    { _uccTargetARN :: Text
+    , _uccSecretToAuthenticateInitiator :: Text
+    , _uccInitiatorName :: Text
+    , _uccSecretToAuthenticateTarget :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -134,8 +134,8 @@ instance ToJSON UpdateChapCredentials
 
 -- | A JSON object containing the following fields:.
 data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse
-    { _uccrTargetARN :: !(Maybe Text)
-    , _uccrInitiatorName :: !(Maybe Text)
+    { _uccrTargetARN :: Maybe Text
+    , _uccrInitiatorName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

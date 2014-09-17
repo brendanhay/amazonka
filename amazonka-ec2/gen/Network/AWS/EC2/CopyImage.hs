@@ -57,11 +57,11 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data CopyImage = CopyImage
-    { _ciSourceRegion :: !Text
-    , _ciSourceImageId :: !Text
-    , _ciName :: !(Maybe Text)
-    , _ciDescription :: !(Maybe Text)
-    , _ciClientToken :: !(Maybe Text)
+    { _ciSourceRegion :: Text
+    , _ciSourceImageId :: Text
+    , _ciName :: Maybe Text
+    , _ciDescription :: Maybe Text
+    , _ciClientToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

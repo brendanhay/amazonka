@@ -54,20 +54,20 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data UpdateLayer = UpdateLayer
-    { _ulLayerId :: !Text
-    , _ulName :: !(Maybe Text)
-    , _ulShortname :: !(Maybe Text)
+    { _ulLayerId :: Text
+    , _ulName :: Maybe Text
+    , _ulShortname :: Maybe Text
     , _ulAttributes :: Map LayerAttributesKeys Text
-    , _ulCustomInstanceProfileArn :: !(Maybe Text)
+    , _ulCustomInstanceProfileArn :: Maybe Text
     , _ulCustomSecurityGroupIds :: [Text]
     , _ulPackages :: [Text]
     , _ulVolumeConfigurations :: [VolumeConfiguration]
-    , _ulEnableAutoHealing :: !(Maybe Bool)
-    , _ulAutoAssignElasticIps :: !(Maybe Bool)
-    , _ulAutoAssignPublicIps :: !(Maybe Bool)
+    , _ulEnableAutoHealing :: Maybe Bool
+    , _ulAutoAssignElasticIps :: Maybe Bool
+    , _ulAutoAssignPublicIps :: Maybe Bool
     , _ulCustomRecipes :: Maybe Recipes
-    , _ulInstallUpdatesOnBoot :: !(Maybe Bool)
-    , _ulUseEbsOptimizedInstances :: !(Maybe Bool)
+    , _ulInstallUpdatesOnBoot :: Maybe Bool
+    , _ulUseEbsOptimizedInstances :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

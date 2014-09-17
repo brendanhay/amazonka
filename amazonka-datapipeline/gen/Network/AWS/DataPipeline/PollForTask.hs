@@ -82,8 +82,8 @@ import Network.AWS.Request.JSON
 
 -- | The data type passed in as input to the PollForTask action.
 data PollForTask = PollForTask
-    { _pftWorkerGroup :: !Text
-    , _pftHostname :: !(Maybe Text)
+    { _pftWorkerGroup :: Text
+    , _pftHostname :: Maybe Text
     , _pftInstanceIdentity :: Maybe InstanceIdentity
     } deriving (Show, Generic)
 

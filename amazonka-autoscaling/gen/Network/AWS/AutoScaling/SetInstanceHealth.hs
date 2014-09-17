@@ -42,9 +42,9 @@ import Network.AWS.AutoScaling.Types
 import Network.AWS.Prelude
 
 data SetInstanceHealth = SetInstanceHealth
-    { _sihInstanceId :: !Text
-    , _sihHealthStatus :: !Text
-    , _sihShouldRespectGracePeriod :: !(Maybe Bool)
+    { _sihInstanceId :: Text
+    , _sihHealthStatus :: Text
+    , _sihShouldRespectGracePeriod :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -104,12 +104,12 @@ import Network.AWS.Prelude
 
 -- | This documentation target is not reported in the API reference.
 data CreateConfigurationTemplate = CreateConfigurationTemplate
-    { _cctApplicationName :: !Text
-    , _cctTemplateName :: !Text
-    , _cctSolutionStackName :: !(Maybe Text)
+    { _cctApplicationName :: Text
+    , _cctTemplateName :: Text
+    , _cctSolutionStackName :: Maybe Text
     , _cctSourceConfiguration :: Maybe SourceConfiguration
-    , _cctEnvironmentId :: !(Maybe Text)
-    , _cctDescription :: !(Maybe Text)
+    , _cctEnvironmentId :: Maybe Text
+    , _cctDescription :: Maybe Text
     , _cctOptionSettings :: [ConfigurationOptionSetting]
     } deriving (Show, Generic)
 
@@ -207,14 +207,14 @@ instance ToQuery CreateConfigurationTemplate where
 
 -- | Describes the settings for a configuration set.
 data CreateConfigurationTemplateResponse = CreateConfigurationTemplateResponse
-    { _cctrSolutionStackName :: !(Maybe Text)
-    , _cctrApplicationName :: !(Maybe Text)
-    , _cctrTemplateName :: !(Maybe Text)
-    , _cctrDescription :: !(Maybe Text)
-    , _cctrEnvironmentName :: !(Maybe Text)
+    { _cctrSolutionStackName :: Maybe Text
+    , _cctrApplicationName :: Maybe Text
+    , _cctrTemplateName :: Maybe Text
+    , _cctrDescription :: Maybe Text
+    , _cctrEnvironmentName :: Maybe Text
     , _cctrDeploymentStatus :: Maybe ConfigurationDeploymentStatus
-    , _cctrDateCreated :: !(Maybe ISO8601)
-    , _cctrDateUpdated :: !(Maybe ISO8601)
+    , _cctrDateCreated :: Maybe ISO8601
+    , _cctrDateUpdated :: Maybe ISO8601
     , _cctrOptionSettings :: [ConfigurationOptionSetting]
     } deriving (Show, Generic)
 

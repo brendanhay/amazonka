@@ -73,7 +73,7 @@ import Network.AWS.SQS.Types
 import Network.AWS.Prelude
 
 data SetQueueAttributes = SetQueueAttributes
-    { _sqaQueueUrl :: !Text
+    { _sqaQueueUrl :: Text
     , _sqaAttributes :: Map QueueAttributeName Text
     } deriving (Show, Generic)
 

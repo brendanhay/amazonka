@@ -46,8 +46,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DetachNetworkInterface = DetachNetworkInterface
-    { _dni2AttachmentId :: !Text
-    , _dni2Force :: !(Maybe Bool)
+    { _dni2AttachmentId :: Text
+    , _dni2Force :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

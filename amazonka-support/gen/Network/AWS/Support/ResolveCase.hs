@@ -73,8 +73,8 @@ instance ToJSON ResolveCase
 
 -- | The status of the case returned by the ResolveCase operation.
 data ResolveCaseResponse = ResolveCaseResponse
-    { _rcrInitialCaseStatus :: !(Maybe Text)
-    , _rcrFinalCaseStatus :: !(Maybe Text)
+    { _rcrInitialCaseStatus :: Maybe Text
+    , _rcrFinalCaseStatus :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

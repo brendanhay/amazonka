@@ -54,7 +54,7 @@ instance ToQuery GenerateCredentialReport where
 -- GenerateCredentialReport action.
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse
     { _gcrrState :: Maybe ReportStateType
-    , _gcrrDescription :: !(Maybe Text)
+    , _gcrrDescription :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -51,9 +51,9 @@ import Network.AWS.SimpleDB.Types
 import Network.AWS.Prelude
 
 data Select = Select
-    { _sSelectExpression :: !Text
-    , _sNextToken :: !(Maybe Text)
-    , _sConsistentRead :: !(Maybe Bool)
+    { _sSelectExpression :: Text
+    , _sNextToken :: Maybe Text
+    , _sConsistentRead :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -97,7 +97,7 @@ instance ToQuery Select where
 
 data SelectResponse = SelectResponse
     { _srItems :: [Item]
-    , _srNextToken :: !(Maybe Text)
+    , _srNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

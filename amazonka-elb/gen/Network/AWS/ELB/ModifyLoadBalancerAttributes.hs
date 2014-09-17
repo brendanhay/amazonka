@@ -71,7 +71,7 @@ import Network.AWS.Prelude
 
 -- | The input for the ModifyLoadBalancerAttributes action.
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes
-    { _mlbaLoadBalancerName :: !Text
+    { _mlbaLoadBalancerName :: Text
     , _mlbaLoadBalancerAttributes :: LoadBalancerAttributes
     } deriving (Show, Generic)
 
@@ -108,7 +108,7 @@ instance ToQuery ModifyLoadBalancerAttributes where
 
 -- | The output for the ModifyLoadBalancerAttributes action.
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
-    { _mlbarLoadBalancerName :: !(Maybe Text)
+    { _mlbarLoadBalancerName :: Maybe Text
     , _mlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes
     } deriving (Show, Generic)
 

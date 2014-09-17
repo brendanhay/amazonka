@@ -64,8 +64,8 @@ import Network.AWS.Prelude
 
 -- | Input for ListSubscriptionsByTopic action.
 data ListSubscriptionsByTopic = ListSubscriptionsByTopic
-    { _lsbtTopicArn :: !Text
-    , _lsbtNextToken :: !(Maybe Text)
+    { _lsbtTopicArn :: Text
+    , _lsbtNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -98,7 +98,7 @@ instance ToQuery ListSubscriptionsByTopic where
 -- | Response for ListSubscriptionsByTopic action.
 data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
     { _lsbtrSubscriptions :: [Subscription]
-    , _lsbtrNextToken :: !(Maybe Text)
+    , _lsbtrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

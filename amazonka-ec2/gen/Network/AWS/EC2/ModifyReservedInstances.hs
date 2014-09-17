@@ -54,7 +54,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data ModifyReservedInstances = ModifyReservedInstances
-    { _mriClientToken :: !(Maybe Text)
+    { _mriClientToken :: Maybe Text
     , _mriReservedInstancesIds :: [Text]
     , _mriTargetConfigurations :: [ReservedInstancesConfiguration]
     } deriving (Show, Generic)

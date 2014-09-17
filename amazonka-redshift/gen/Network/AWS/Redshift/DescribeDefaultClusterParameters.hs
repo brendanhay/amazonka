@@ -63,9 +63,9 @@ import Network.AWS.Prelude
 
 -- | 
 data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters
-    { _ddcpParameterGroupFamily :: !Text
-    , _ddcpMaxRecords :: !(Maybe Integer)
-    , _ddcpMarker :: !(Maybe Text)
+    { _ddcpParameterGroupFamily :: Text
+    , _ddcpMaxRecords :: Maybe Integer
+    , _ddcpMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

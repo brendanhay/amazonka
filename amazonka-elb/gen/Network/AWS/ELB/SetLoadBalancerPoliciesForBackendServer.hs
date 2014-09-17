@@ -57,7 +57,7 @@ import Network.AWS.Prelude
 
 -- | The input for the SetLoadBalancerPoliciesForBackendServer action.
 data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServer
-    { _slbpfbsLoadBalancerName :: !Text
+    { _slbpfbsLoadBalancerName :: Text
     , _slbpfbsInstancePort :: !Integer
     , _slbpfbsPolicyNames :: [Text]
     } deriving (Show, Generic)

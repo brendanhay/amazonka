@@ -90,11 +90,11 @@ instance ToHeaders DescribeMaintenanceStartTime
 instance ToJSON DescribeMaintenanceStartTime
 
 data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
-    { _dmstrGatewayARN :: !(Maybe Text)
-    , _dmstrHourOfDay :: !(Maybe Integer)
-    , _dmstrMinuteOfHour :: !(Maybe Integer)
-    , _dmstrDayOfWeek :: !(Maybe Integer)
-    , _dmstrTimezone :: !(Maybe Text)
+    { _dmstrGatewayARN :: Maybe Text
+    , _dmstrHourOfDay :: Maybe Integer
+    , _dmstrMinuteOfHour :: Maybe Integer
+    , _dmstrDayOfWeek :: Maybe Integer
+    , _dmstrTimezone :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

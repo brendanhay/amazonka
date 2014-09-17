@@ -58,9 +58,9 @@ import Network.AWS.Prelude
 
 -- | 
 data DescribeClusterParameterGroups = DescribeClusterParameterGroups
-    { _dcpg1ParameterGroupName :: !(Maybe Text)
-    , _dcpg1MaxRecords :: !(Maybe Integer)
-    , _dcpg1Marker :: !(Maybe Text)
+    { _dcpg1ParameterGroupName :: Maybe Text
+    , _dcpg1MaxRecords :: Maybe Integer
+    , _dcpg1Marker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -111,7 +111,7 @@ instance ToQuery DescribeClusterParameterGroups where
 
 -- | Contains the output from the DescribeClusterParameterGroups action.
 data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse
-    { _dcpgrMarker :: !(Maybe Text)
+    { _dcpgrMarker :: Maybe Text
     , _dcpgrParameterGroups :: [ClusterParameterGroup]
     } deriving (Show, Generic)
 

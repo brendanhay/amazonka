@@ -63,7 +63,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
-    { _prioReservedInstancesOfferingId :: !Text
+    { _prioReservedInstancesOfferingId :: Text
     , _prioInstanceCount :: !Integer
     , _prioLimitPrice :: Maybe ReservedInstanceLimitPrice
     } deriving (Show, Generic)

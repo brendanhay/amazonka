@@ -46,9 +46,9 @@ import Network.AWS.Types (Region)
 type PostObjectRestore = RestoreObject
 
 data RestoreObject = RestoreObject
-    { _roBucket :: !BucketName
-    , _roKey :: !ObjectKey
-    , _roVersionId :: !(Maybe ObjectVersionId)
+    { _roBucket :: BucketName
+    , _roKey :: ObjectKey
+    , _roVersionId :: Maybe ObjectVersionId
     , _roRestoreRequest :: Maybe RestoreRequest
     } deriving (Show, Generic)
 

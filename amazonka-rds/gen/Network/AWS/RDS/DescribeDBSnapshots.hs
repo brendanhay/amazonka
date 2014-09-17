@@ -58,11 +58,11 @@ import Network.AWS.Prelude
 
 -- | 
 data DescribeDBSnapshots = DescribeDBSnapshots
-    { _ddbs1DBInstanceIdentifier :: !(Maybe Text)
-    , _ddbs1DBSnapshotIdentifier :: !(Maybe Text)
-    , _ddbs1SnapshotType :: !(Maybe Text)
-    , _ddbs1MaxRecords :: !(Maybe Integer)
-    , _ddbs1Marker :: !(Maybe Text)
+    { _ddbs1DBInstanceIdentifier :: Maybe Text
+    , _ddbs1DBSnapshotIdentifier :: Maybe Text
+    , _ddbs1SnapshotType :: Maybe Text
+    , _ddbs1MaxRecords :: Maybe Integer
+    , _ddbs1Marker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -136,7 +136,7 @@ instance ToQuery DescribeDBSnapshots where
 -- | Contains the result of a successful invocation of the DescribeDBSnapshots
 -- action.
 data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse
-    { _ddbsrrMarker :: !(Maybe Text)
+    { _ddbsrrMarker :: Maybe Text
     , _ddbsrrDBSnapshots :: [DBSnapshot]
     } deriving (Show, Generic)
 

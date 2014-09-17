@@ -100,9 +100,9 @@ instance ToQuery GetConsoleOutput where
     toQuery = genericQuery def
 
 data GetConsoleOutputResponse = GetConsoleOutputResponse
-    { _gcorInstanceId :: !(Maybe Text)
-    , _gcorTimestamp :: !(Maybe ISO8601)
-    , _gcorOutput :: !(Maybe Text)
+    { _gcorInstanceId :: Maybe Text
+    , _gcorTimestamp :: Maybe ISO8601
+    , _gcorOutput :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -51,8 +51,8 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a ModifyCacheSubnetGroup operation.
 data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup
-    { _mcsgCacheSubnetGroupName :: !Text
-    , _mcsgCacheSubnetGroupDescription :: !(Maybe Text)
+    { _mcsgCacheSubnetGroupName :: Text
+    , _mcsgCacheSubnetGroupDescription :: Maybe Text
     , _mcsgSubnetIds :: [Text]
     } deriving (Show, Generic)
 

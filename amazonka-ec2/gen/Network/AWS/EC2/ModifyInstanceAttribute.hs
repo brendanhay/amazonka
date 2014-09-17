@@ -79,9 +79,9 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data ModifyInstanceAttribute = ModifyInstanceAttribute
-    { _mia1InstanceId :: !Text
+    { _mia1InstanceId :: Text
     , _mia1Attribute :: Maybe InstanceAttributeName
-    , _mia1Value :: !(Maybe Text)
+    , _mia1Value :: Maybe Text
     , _mia1BlockDeviceMappings :: [InstanceBlockDeviceMappingSpecification]
     , _mia1SourceDestCheck :: Maybe AttributeBooleanValue
     , _mia1DisableApiTermination :: Maybe AttributeBooleanValue

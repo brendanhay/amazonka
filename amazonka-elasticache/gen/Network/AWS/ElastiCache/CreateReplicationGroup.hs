@@ -57,9 +57,9 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a CreateReplicationGroup operation.
 data CreateReplicationGroup = CreateReplicationGroup
-    { _crgReplicationGroupId :: !Text
-    , _crgPrimaryClusterId :: !Text
-    , _crgReplicationGroupDescription :: !Text
+    { _crgReplicationGroupId :: Text
+    , _crgPrimaryClusterId :: Text
+    , _crgReplicationGroupDescription :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

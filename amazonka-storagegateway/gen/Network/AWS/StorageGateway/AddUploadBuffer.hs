@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data AddUploadBuffer = AddUploadBuffer
-    { _aubGatewayARN :: !Text
+    { _aubGatewayARN :: Text
     , _aubDiskIds :: [Text]
     } deriving (Show, Generic)
 

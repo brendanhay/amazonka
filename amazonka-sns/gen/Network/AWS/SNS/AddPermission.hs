@@ -56,8 +56,8 @@ import Network.AWS.SNS.Types
 import Network.AWS.Prelude
 
 data AddPermission = AddPermission
-    { _apTopicArn :: !Text
-    , _apLabel :: !Text
+    { _apTopicArn :: Text
+    , _apLabel :: Text
     , _apAWSAccountId :: [Text]
     , _apActionName :: [Text]
     } deriving (Show, Generic)

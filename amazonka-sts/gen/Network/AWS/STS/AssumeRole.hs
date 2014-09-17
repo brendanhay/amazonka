@@ -115,13 +115,13 @@ import Network.AWS.STS.Types
 import Network.AWS.Prelude
 
 data AssumeRole = AssumeRole
-    { _arRoleArn :: !Text
-    , _arRoleSessionName :: !Text
-    , _arPolicy :: !(Maybe Text)
-    , _arDurationSeconds :: !(Maybe Integer)
-    , _arExternalId :: !(Maybe Text)
-    , _arSerialNumber :: !(Maybe Text)
-    , _arTokenCode :: !(Maybe Text)
+    { _arRoleArn :: Text
+    , _arRoleSessionName :: Text
+    , _arPolicy :: Maybe Text
+    , _arDurationSeconds :: Maybe Integer
+    , _arExternalId :: Maybe Text
+    , _arSerialNumber :: Maybe Text
+    , _arTokenCode :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -221,7 +221,7 @@ instance ToQuery AssumeRole where
 data AssumeRoleResponse = AssumeRoleResponse
     { _arrCredentials :: Maybe Credentials
     , _arrAssumedRoleUser :: Maybe AssumedRoleUser
-    , _arrPackedPolicySize :: !(Maybe Integer)
+    , _arrPackedPolicySize :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

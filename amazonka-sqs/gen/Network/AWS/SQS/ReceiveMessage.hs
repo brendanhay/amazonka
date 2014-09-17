@@ -82,12 +82,12 @@ import Network.AWS.SQS.Types
 import Network.AWS.Prelude
 
 data ReceiveMessage = ReceiveMessage
-    { _rmQueueUrl :: !Text
+    { _rmQueueUrl :: Text
     , _rmAttributeNames :: [QueueAttributeName]
     , _rmMessageAttributeNames :: [Text]
-    , _rmMaxNumberOfMessages :: !(Maybe Integer)
-    , _rmVisibilityTimeout :: !(Maybe Integer)
-    , _rmWaitTimeSeconds :: !(Maybe Integer)
+    , _rmMaxNumberOfMessages :: Maybe Integer
+    , _rmVisibilityTimeout :: Maybe Integer
+    , _rmWaitTimeSeconds :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

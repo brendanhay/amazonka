@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a ModifyCacheParameterGroup operation.
 data ModifyCacheParameterGroup = ModifyCacheParameterGroup
-    { _mcpgCacheParameterGroupName :: !Text
+    { _mcpgCacheParameterGroupName :: Text
     , _mcpgParameterNameValues :: [ParameterNameValue]
     } deriving (Show, Generic)
 

@@ -53,8 +53,8 @@ import Network.AWS.Prelude
 
 -- | The input for ValidateTemplate action.
 data ValidateTemplate = ValidateTemplate
-    { _vtTemplateBody :: !(Maybe Text)
-    , _vtTemplateURL :: !(Maybe Text)
+    { _vtTemplateBody :: Maybe Text
+    , _vtTemplateURL :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -93,9 +93,9 @@ instance ToQuery ValidateTemplate where
 -- | The output for ValidateTemplate action.
 data ValidateTemplateResponse = ValidateTemplateResponse
     { _vtrParameters :: [TemplateParameter]
-    , _vtrDescription :: !(Maybe Text)
+    , _vtrDescription :: Maybe Text
     , _vtrCapabilities :: [Capability]
-    , _vtrCapabilitiesReason :: !(Maybe Text)
+    , _vtrCapabilitiesReason :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

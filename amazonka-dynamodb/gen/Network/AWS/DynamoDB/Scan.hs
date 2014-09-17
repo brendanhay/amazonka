@@ -75,16 +75,16 @@ import Network.AWS.Request.JSON
 
 -- | Represents the input of a Scan operation.
 data Scan = Scan
-    { _sTableName :: !Text
+    { _sTableName :: Text
     , _sAttributesToGet :: Maybe (List1 Text)
-    , _sLimit :: !(Maybe Integer)
+    , _sLimit :: Maybe Integer
     , _sSelect :: Maybe Select
     , _sScanFilter :: Map Text Condition
     , _sConditionalOperator :: Maybe ConditionalOperator
     , _sExclusiveStartKey :: Map Text AttributeValue
     , _sReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
-    , _sTotalSegments :: !(Maybe Integer)
-    , _sSegment :: !(Maybe Integer)
+    , _sTotalSegments :: Maybe Integer
+    , _sSegment :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -309,8 +309,8 @@ instance ToJSON Scan
 -- | Represents the output of a Scan operation.
 data ScanResponse = ScanResponse
     { _srItems :: [Map Text AttributeValue]
-    , _srCount :: !(Maybe Integer)
-    , _srScannedCount :: !(Maybe Integer)
+    , _srCount :: Maybe Integer
+    , _srScannedCount :: Maybe Integer
     , _srLastEvaluatedKey :: Map Text AttributeValue
     , _srConsumedCapacity :: Maybe ConsumedCapacity
     } deriving (Show, Generic)

@@ -65,11 +65,11 @@ import Network.AWS.CloudWatch.Types
 import Network.AWS.Prelude
 
 data GetMetricStatistics = GetMetricStatistics
-    { _gmsNamespace :: !Text
-    , _gmsMetricName :: !Text
+    { _gmsNamespace :: Text
+    , _gmsMetricName :: Text
     , _gmsDimensions :: [Dimension]
-    , _gmsStartTime :: !ISO8601
-    , _gmsEndTime :: !ISO8601
+    , _gmsStartTime :: ISO8601
+    , _gmsEndTime :: ISO8601
     , _gmsPeriod :: !Integer
     , _gmsStatistics :: List1 Statistic
     , _gmsUnit :: Maybe StandardUnit
@@ -159,7 +159,7 @@ instance ToQuery GetMetricStatistics where
 
 -- | The output for the GetMetricStatistics action.
 data GetMetricStatisticsResponse = GetMetricStatisticsResponse
-    { _gmsrLabel :: !(Maybe Text)
+    { _gmsrLabel :: Maybe Text
     , _gmsrDatapoints :: [Datapoint]
     } deriving (Show, Generic)
 

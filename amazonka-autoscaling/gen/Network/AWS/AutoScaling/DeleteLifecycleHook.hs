@@ -41,8 +41,8 @@ import Network.AWS.AutoScaling.Types
 import Network.AWS.Prelude
 
 data DeleteLifecycleHook = DeleteLifecycleHook
-    { _dlhLifecycleHookName :: !Text
-    , _dlhAutoScalingGroupName :: !Text
+    { _dlhLifecycleHookName :: Text
+    , _dlhAutoScalingGroupName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

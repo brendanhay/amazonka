@@ -44,7 +44,7 @@ import Network.AWS.Types (Region)
 
 -- | The request to create an invalidation.
 data CreateInvalidation = CreateInvalidation
-    { _ciDistributionId :: !Text
+    { _ciDistributionId :: Text
     , _ciInvalidationBatch :: InvalidationBatch
     } deriving (Show, Generic)
 
@@ -87,7 +87,7 @@ instance ToXML CreateInvalidation where
 
 -- | The returned result of the corresponding request.
 data CreateInvalidationResponse = CreateInvalidationResponse
-    { _cirLocation :: !(Maybe Text)
+    { _cirLocation :: Maybe Text
     , _cirInvalidation :: Maybe Invalidation
     } deriving (Show, Generic)
 

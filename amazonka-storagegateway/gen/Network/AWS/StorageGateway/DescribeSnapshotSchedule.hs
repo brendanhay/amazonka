@@ -92,11 +92,11 @@ instance ToHeaders DescribeSnapshotSchedule
 instance ToJSON DescribeSnapshotSchedule
 
 data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse
-    { _dssrrVolumeARN :: !(Maybe Text)
-    , _dssrrStartAt :: !(Maybe Integer)
-    , _dssrrRecurrenceInHours :: !(Maybe Integer)
-    , _dssrrDescription :: !(Maybe Text)
-    , _dssrrTimezone :: !(Maybe Text)
+    { _dssrrVolumeARN :: Maybe Text
+    , _dssrrStartAt :: Maybe Integer
+    , _dssrrRecurrenceInHours :: Maybe Integer
+    , _dssrrDescription :: Maybe Text
+    , _dssrrTimezone :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

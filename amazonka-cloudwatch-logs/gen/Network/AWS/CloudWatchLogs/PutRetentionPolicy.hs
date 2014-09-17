@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data PutRetentionPolicy = PutRetentionPolicy
-    { _prpLogGroupName :: !Text
+    { _prpLogGroupName :: Text
     , _prpRetentionInDays :: !Integer
     } deriving (Show, Generic)
 

@@ -58,7 +58,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeImageAttribute = DescribeImageAttribute
-    { _diaImageId :: !Text
+    { _diaImageId :: Text
     , _diaAttribute :: ImageAttributeName
     } deriving (Show, Generic)
 
@@ -92,7 +92,7 @@ instance ToQuery DescribeImageAttribute where
 
 -- | Information about the image attribute.
 data DescribeImageAttributeResponse = DescribeImageAttributeResponse
-    { _diarImageId :: !(Maybe Text)
+    { _diarImageId :: Maybe Text
     , _diarLaunchPermissions :: [LaunchPermission]
     , _diarProductCodes :: [ProductCode]
     , _diarKernelId :: Maybe AttributeValue

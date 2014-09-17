@@ -57,10 +57,10 @@ import Network.AWS.AutoScaling.Types
 import Network.AWS.Prelude
 
 data DescribePolicies = DescribePolicies
-    { _dp1AutoScalingGroupName :: !(Maybe Text)
+    { _dp1AutoScalingGroupName :: Maybe Text
     , _dp1PolicyNames :: [Text]
-    , _dp1NextToken :: !(Maybe Text)
-    , _dp1MaxRecords :: !(Maybe Integer)
+    , _dp1NextToken :: Maybe Text
+    , _dp1MaxRecords :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -113,7 +113,7 @@ instance ToQuery DescribePolicies where
 -- | The PoliciesType data type.
 data DescribePoliciesResponse = DescribePoliciesResponse
     { _dprScalingPolicies :: [ScalingPolicy]
-    , _dprNextToken :: !(Maybe Text)
+    , _dprNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

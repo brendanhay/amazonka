@@ -54,8 +54,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
-    { _rrtaAssociationId :: !Text
-    , _rrtaRouteTableId :: !Text
+    { _rrtaAssociationId :: Text
+    , _rrtaRouteTableId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -52,9 +52,9 @@ import Network.AWS.Prelude
 
 -- | 
 data PromoteReadReplica = PromoteReadReplica
-    { _prrDBInstanceIdentifier :: !Text
-    , _prrBackupRetentionPeriod :: !(Maybe Integer)
-    , _prrPreferredBackupWindow :: !(Maybe Text)
+    { _prrDBInstanceIdentifier :: Text
+    , _prrBackupRetentionPeriod :: Maybe Integer
+    , _prrPreferredBackupWindow :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

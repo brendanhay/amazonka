@@ -72,13 +72,13 @@ instance ToQuery DomainMetadata where
     toQuery = genericQuery def
 
 data DomainMetadataResponse = DomainMetadataResponse
-    { _dmrItemCount :: !(Maybe Integer)
-    , _dmrItemNamesSizeBytes :: !(Maybe Integer)
-    , _dmrAttributeNameCount :: !(Maybe Integer)
-    , _dmrAttributeNamesSizeBytes :: !(Maybe Integer)
-    , _dmrAttributeValueCount :: !(Maybe Integer)
-    , _dmrAttributeValuesSizeBytes :: !(Maybe Integer)
-    , _dmrTimestamp :: !(Maybe Integer)
+    { _dmrItemCount :: Maybe Integer
+    , _dmrItemNamesSizeBytes :: Maybe Integer
+    , _dmrAttributeNameCount :: Maybe Integer
+    , _dmrAttributeNamesSizeBytes :: Maybe Integer
+    , _dmrAttributeValueCount :: Maybe Integer
+    , _dmrAttributeValuesSizeBytes :: Maybe Integer
+    , _dmrTimestamp :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

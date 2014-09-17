@@ -96,13 +96,13 @@ instance ToHeaders DescribeCache
 instance ToJSON DescribeCache
 
 data DescribeCacheResponse = DescribeCacheResponse
-    { _dcrGatewayARN :: !(Maybe Text)
+    { _dcrGatewayARN :: Maybe Text
     , _dcrDiskIds :: [Text]
-    , _dcrCacheAllocatedInBytes :: !(Maybe Integer)
-    , _dcrCacheUsedPercentage :: !(Maybe Double)
-    , _dcrCacheDirtyPercentage :: !(Maybe Double)
-    , _dcrCacheHitPercentage :: !(Maybe Double)
-    , _dcrCacheMissPercentage :: !(Maybe Double)
+    , _dcrCacheAllocatedInBytes :: Maybe Integer
+    , _dcrCacheUsedPercentage :: Maybe Double
+    , _dcrCacheDirtyPercentage :: Maybe Double
+    , _dcrCacheHitPercentage :: Maybe Double
+    , _dcrCacheMissPercentage :: Maybe Double
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

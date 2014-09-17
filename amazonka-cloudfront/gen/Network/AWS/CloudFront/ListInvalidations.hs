@@ -44,9 +44,9 @@ import Network.AWS.Types (Region)
 
 -- | The request to list invalidations.
 data ListInvalidations = ListInvalidations
-    { _liDistributionId :: !Text
-    , _liMarker :: !(Maybe Text)
-    , _liMaxItems :: !(Maybe Text)
+    { _liDistributionId :: Text
+    , _liMarker :: Maybe Text
+    , _liMaxItems :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -79,17 +79,17 @@ import Network.AWS.Prelude
 
 -- | 
 data UpdateAutoScalingGroup = UpdateAutoScalingGroup
-    { _uasgAutoScalingGroupName :: !Text
-    , _uasgLaunchConfigurationName :: !(Maybe Text)
-    , _uasgMinSize :: !(Maybe Integer)
-    , _uasgMaxSize :: !(Maybe Integer)
-    , _uasgDesiredCapacity :: !(Maybe Integer)
-    , _uasgDefaultCooldown :: !(Maybe Integer)
+    { _uasgAutoScalingGroupName :: Text
+    , _uasgLaunchConfigurationName :: Maybe Text
+    , _uasgMinSize :: Maybe Integer
+    , _uasgMaxSize :: Maybe Integer
+    , _uasgDesiredCapacity :: Maybe Integer
+    , _uasgDefaultCooldown :: Maybe Integer
     , _uasgAvailabilityZones :: Maybe (List1 Text)
-    , _uasgHealthCheckType :: !(Maybe Text)
-    , _uasgHealthCheckGracePeriod :: !(Maybe Integer)
-    , _uasgPlacementGroup :: !(Maybe Text)
-    , _uasgVPCZoneIdentifier :: !(Maybe Text)
+    , _uasgHealthCheckType :: Maybe Text
+    , _uasgHealthCheckGracePeriod :: Maybe Integer
+    , _uasgPlacementGroup :: Maybe Text
+    , _uasgVPCZoneIdentifier :: Maybe Text
     , _uasgTerminationPolicies :: [Text]
     } deriving (Show, Generic)
 

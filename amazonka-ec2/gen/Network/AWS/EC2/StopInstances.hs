@@ -74,7 +74,7 @@ import Network.AWS.Prelude
 
 data StopInstances = StopInstances
     { _si1InstanceIds :: [Text]
-    , _si1Force :: !(Maybe Bool)
+    , _si1Force :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

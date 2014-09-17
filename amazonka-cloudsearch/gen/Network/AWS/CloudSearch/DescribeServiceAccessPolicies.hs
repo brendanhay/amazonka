@@ -50,8 +50,8 @@ import Network.AWS.Prelude
 -- the active configuration and exclude any pending changes, set the Deployed
 -- option to true.
 data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies
-    { _dsapDomainName :: !Text
-    , _dsapDeployed :: !(Maybe Bool)
+    { _dsapDomainName :: Text
+    , _dsapDeployed :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -73,15 +73,15 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data CreateCase = CreateCase
-    { _ccSubject :: !Text
-    , _ccServiceCode :: !(Maybe Text)
-    , _ccSeverityCode :: !(Maybe Text)
-    , _ccCategoryCode :: !(Maybe Text)
-    , _ccCommunicationBody :: !Text
+    { _ccSubject :: Text
+    , _ccServiceCode :: Maybe Text
+    , _ccSeverityCode :: Maybe Text
+    , _ccCategoryCode :: Maybe Text
+    , _ccCommunicationBody :: Text
     , _ccCcEmailAddresses :: [Text]
-    , _ccLanguage :: !(Maybe Text)
-    , _ccIssueType :: !(Maybe Text)
-    , _ccAttachmentSetId :: !(Maybe Text)
+    , _ccLanguage :: Maybe Text
+    , _ccIssueType :: Maybe Text
+    , _ccAttachmentSetId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

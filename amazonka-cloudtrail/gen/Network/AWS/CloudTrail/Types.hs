@@ -83,11 +83,11 @@ instance Exception (Er CloudTrail)
 
 -- | The settings for a trail.
 data Trail = Trail
-    { _tName :: !(Maybe Text)
-    , _tS3BucketName :: !(Maybe Text)
-    , _tS3KeyPrefix :: !(Maybe Text)
-    , _tSnsTopicName :: !(Maybe Text)
-    , _tIncludeGlobalServiceEvents :: !(Maybe Bool)
+    { _tName :: Maybe Text
+    , _tS3BucketName :: Maybe Text
+    , _tS3KeyPrefix :: Maybe Text
+    , _tSnsTopicName :: Maybe Text
+    , _tIncludeGlobalServiceEvents :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

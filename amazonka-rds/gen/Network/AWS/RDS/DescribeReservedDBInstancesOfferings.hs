@@ -55,14 +55,14 @@ import Network.AWS.Prelude
 
 -- | 
 data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
-    { _drdbioReservedDBInstancesOfferingId :: !(Maybe Text)
-    , _drdbioDBInstanceClass :: !(Maybe Text)
-    , _drdbioDuration :: !(Maybe Text)
-    , _drdbioProductDescription :: !(Maybe Text)
-    , _drdbioOfferingType :: !(Maybe Text)
-    , _drdbioMultiAZ :: !(Maybe Bool)
-    , _drdbioMaxRecords :: !(Maybe Integer)
-    , _drdbioMarker :: !(Maybe Text)
+    { _drdbioReservedDBInstancesOfferingId :: Maybe Text
+    , _drdbioDBInstanceClass :: Maybe Text
+    , _drdbioDuration :: Maybe Text
+    , _drdbioProductDescription :: Maybe Text
+    , _drdbioOfferingType :: Maybe Text
+    , _drdbioMultiAZ :: Maybe Bool
+    , _drdbioMaxRecords :: Maybe Integer
+    , _drdbioMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -157,7 +157,7 @@ instance ToQuery DescribeReservedDBInstancesOfferings where
 -- | Contains the result of a successful invocation of the
 -- DescribeReservedDBInstancesOfferings action.
 data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse
-    { _drdbiorMarker :: !(Maybe Text)
+    { _drdbiorMarker :: Maybe Text
     , _drdbiorReservedDBInstancesOfferings :: [ReservedDBInstancesOffering]
     } deriving (Show, Generic)
 

@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 
 -- | 
 data AddTagsToResource = AddTagsToResource
-    { _attrResourceName :: !Text
+    { _attrResourceName :: Text
     , _attrTags :: [Tag]
     } deriving (Show, Generic)
 

@@ -674,10 +674,10 @@ instance FromXML Trigger where
 
 -- | The ApplicationDescription of the application.
 data ApplicationDescription = ApplicationDescription
-    { _adApplicationName :: !(Maybe Text)
-    , _adDescription :: !(Maybe Text)
-    , _adDateCreated :: !(Maybe ISO8601)
-    , _adDateUpdated :: !(Maybe ISO8601)
+    { _adApplicationName :: Maybe Text
+    , _adDescription :: Maybe Text
+    , _adDateCreated :: Maybe ISO8601
+    , _adDateUpdated :: Maybe ISO8601
     , _adVersions :: [Text]
     , _adConfigurationTemplates :: [Text]
     } deriving (Show, Generic)
@@ -745,12 +745,12 @@ instance FromXML ApplicationDescription where
 
 -- | The ApplicationVersionDescription of the application version.
 data ApplicationVersionDescription = ApplicationVersionDescription
-    { _avdApplicationName :: !(Maybe Text)
-    , _avdDescription :: !(Maybe Text)
-    , _avdVersionLabel :: !(Maybe Text)
+    { _avdApplicationName :: Maybe Text
+    , _avdDescription :: Maybe Text
+    , _avdVersionLabel :: Maybe Text
     , _avdSourceBundle :: Maybe S3Location
-    , _avdDateCreated :: !(Maybe ISO8601)
-    , _avdDateUpdated :: !(Maybe ISO8601)
+    , _avdDateCreated :: Maybe ISO8601
+    , _avdDateUpdated :: Maybe ISO8601
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -814,16 +814,16 @@ instance FromXML ApplicationVersionDescription where
 
 -- | Describes the possible values for a configuration option.
 data ConfigurationOptionDescription = ConfigurationOptionDescription
-    { _codNamespace :: !(Maybe Text)
-    , _codName :: !(Maybe Text)
-    , _codDefaultValue :: !(Maybe Text)
-    , _codChangeSeverity :: !(Maybe Text)
-    , _codUserDefined :: !(Maybe Bool)
+    { _codNamespace :: Maybe Text
+    , _codName :: Maybe Text
+    , _codDefaultValue :: Maybe Text
+    , _codChangeSeverity :: Maybe Text
+    , _codUserDefined :: Maybe Bool
     , _codValueType :: Maybe ConfigurationOptionValueType
     , _codValueOptions :: [Text]
-    , _codMinValue :: !(Maybe Integer)
-    , _codMaxValue :: !(Maybe Integer)
-    , _codMaxLength :: !(Maybe Integer)
+    , _codMinValue :: Maybe Integer
+    , _codMaxValue :: Maybe Integer
+    , _codMaxLength :: Maybe Integer
     , _codRegex :: Maybe OptionRestrictionRegex
     } deriving (Show, Generic)
 
@@ -961,9 +961,9 @@ instance FromXML ConfigurationOptionDescription where
 -- its current value. For a list of possible option values, go to Option
 -- Values in the AWS Elastic Beanstalk Developer Guide.
 data ConfigurationOptionSetting = ConfigurationOptionSetting
-    { _cosNamespace :: !(Maybe Text)
-    , _cosOptionName :: !(Maybe Text)
-    , _cosValue :: !(Maybe Text)
+    { _cosNamespace :: Maybe Text
+    , _cosOptionName :: Maybe Text
+    , _cosValue :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1005,14 +1005,14 @@ instance ToQuery ConfigurationOptionSetting where
 
 -- | Describes the settings for a configuration set.
 data ConfigurationSettingsDescription = ConfigurationSettingsDescription
-    { _csdSolutionStackName :: !(Maybe Text)
-    , _csdApplicationName :: !(Maybe Text)
-    , _csdTemplateName :: !(Maybe Text)
-    , _csdDescription :: !(Maybe Text)
-    , _csdEnvironmentName :: !(Maybe Text)
+    { _csdSolutionStackName :: Maybe Text
+    , _csdApplicationName :: Maybe Text
+    , _csdTemplateName :: Maybe Text
+    , _csdDescription :: Maybe Text
+    , _csdEnvironmentName :: Maybe Text
     , _csdDeploymentStatus :: Maybe ConfigurationDeploymentStatus
-    , _csdDateCreated :: !(Maybe ISO8601)
-    , _csdDateUpdated :: !(Maybe ISO8601)
+    , _csdDateCreated :: Maybe ISO8601
+    , _csdDateUpdated :: Maybe ISO8601
     , _csdOptionSettings :: [ConfigurationOptionSetting]
     } deriving (Show, Generic)
 
@@ -1116,17 +1116,17 @@ instance FromXML ConfigurationSettingsDescription where
 
 -- | Describes the properties of an environment.
 data EnvironmentDescription = EnvironmentDescription
-    { _edEnvironmentName :: !(Maybe Text)
-    , _edEnvironmentId :: !(Maybe Text)
-    , _edApplicationName :: !(Maybe Text)
-    , _edVersionLabel :: !(Maybe Text)
-    , _edSolutionStackName :: !(Maybe Text)
-    , _edTemplateName :: !(Maybe Text)
-    , _edDescription :: !(Maybe Text)
-    , _edEndpointURL :: !(Maybe Text)
-    , _edCNAME :: !(Maybe Text)
-    , _edDateCreated :: !(Maybe ISO8601)
-    , _edDateUpdated :: !(Maybe ISO8601)
+    { _edEnvironmentName :: Maybe Text
+    , _edEnvironmentId :: Maybe Text
+    , _edApplicationName :: Maybe Text
+    , _edVersionLabel :: Maybe Text
+    , _edSolutionStackName :: Maybe Text
+    , _edTemplateName :: Maybe Text
+    , _edDescription :: Maybe Text
+    , _edEndpointURL :: Maybe Text
+    , _edCNAME :: Maybe Text
+    , _edDateCreated :: Maybe ISO8601
+    , _edDateUpdated :: Maybe ISO8601
     , _edStatus :: Maybe EnvironmentStatus
     , _edHealth :: Maybe EnvironmentHealth
     , _edResources :: Maybe EnvironmentResourcesDescription
@@ -1279,9 +1279,9 @@ instance FromXML EnvironmentDescription where
 -- | The information retrieved from the Amazon EC2 instances.
 data EnvironmentInfoDescription = EnvironmentInfoDescription
     { _eidInfoType :: Maybe EnvironmentInfoType
-    , _eidEc2InstanceId :: !(Maybe Text)
-    , _eidSampleTimestamp :: !(Maybe ISO8601)
-    , _eidMessage :: !(Maybe Text)
+    , _eidEc2InstanceId :: Maybe Text
+    , _eidSampleTimestamp :: Maybe ISO8601
+    , _eidMessage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1332,7 +1332,7 @@ instance FromXML EnvironmentInfoDescription where
 
 -- | A list of EnvironmentResourceDescription.
 data EnvironmentResourceDescription = EnvironmentResourceDescription
-    { _erdrEnvironmentName :: !(Maybe Text)
+    { _erdrEnvironmentName :: Maybe Text
     , _erdrAutoScalingGroups :: [AutoScalingGroup]
     , _erdrInstances :: [Instance]
     , _erdrLaunchConfigurations :: [LaunchConfiguration]
@@ -1413,9 +1413,9 @@ instance FromXML EnvironmentResourceDescription where
 
 -- | This specifies the tier to use for creating this environment.
 data EnvironmentTier = EnvironmentTier
-    { _etName :: !(Maybe Text)
-    , _etType :: !(Maybe Text)
-    , _etVersion :: !(Maybe Text)
+    { _etName :: Maybe Text
+    , _etType :: Maybe Text
+    , _etVersion :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1457,13 +1457,13 @@ instance ToQuery EnvironmentTier where
 
 -- | Describes an event.
 data EventDescription = EventDescription
-    { _edrEventDate :: !(Maybe ISO8601)
-    , _edrMessage :: !(Maybe Text)
-    , _edrApplicationName :: !(Maybe Text)
-    , _edrVersionLabel :: !(Maybe Text)
-    , _edrTemplateName :: !(Maybe Text)
-    , _edrEnvironmentName :: !(Maybe Text)
-    , _edrRequestId :: !(Maybe Text)
+    { _edrEventDate :: Maybe ISO8601
+    , _edrMessage :: Maybe Text
+    , _edrApplicationName :: Maybe Text
+    , _edrVersionLabel :: Maybe Text
+    , _edrTemplateName :: Maybe Text
+    , _edrEnvironmentName :: Maybe Text
+    , _edrRequestId :: Maybe Text
     , _edrSeverity :: Maybe EventSeverity
     } deriving (Show, Generic)
 
@@ -1543,8 +1543,8 @@ instance FromXML EventDescription where
 
 -- | Describes the properties of a Listener for the LoadBalancer.
 data Listener = Listener
-    { _lProtocol :: !(Maybe Text)
-    , _lPort :: !(Maybe Integer)
+    { _lProtocol :: Maybe Text
+    , _lPort :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1579,8 +1579,8 @@ instance ToQuery Listener where
 
 -- | Describes the LoadBalancer.
 data LoadBalancerDescription = LoadBalancerDescription
-    { _lbdLoadBalancerName :: !(Maybe Text)
-    , _lbdDomain :: !(Maybe Text)
+    { _lbdLoadBalancerName :: Maybe Text
+    , _lbdDomain :: Maybe Text
     , _lbdListeners :: [Listener]
     } deriving (Show, Generic)
 
@@ -1625,8 +1625,8 @@ instance ToQuery LoadBalancerDescription where
 -- | If specified, the configuration option must be a string value that
 -- satisfies this regular expression.
 data OptionRestrictionRegex = OptionRestrictionRegex
-    { _orrPattern :: !(Maybe Text)
-    , _orrLabel :: !(Maybe Text)
+    { _orrPattern :: Maybe Text
+    , _orrLabel :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1662,8 +1662,8 @@ instance ToQuery OptionRestrictionRegex where
 
 -- | A specification identifying an individual configuration option.
 data OptionSpecification = OptionSpecification
-    { _osNamespace :: !(Maybe Text)
-    , _osOptionName :: !(Maybe Text)
+    { _osNamespace :: Maybe Text
+    , _osOptionName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1694,8 +1694,8 @@ instance ToQuery OptionSpecification where
 
 -- | Describes a queue.
 data Queue = Queue
-    { _qName :: !(Maybe Text)
-    , _qURL :: !(Maybe Text)
+    { _qName :: Maybe Text
+    , _qURL :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1737,8 +1737,8 @@ instance FromXML Queue where
 -- if no data is found at the Amazon S3 location, AWS Elastic Beanstalk
 -- returns an InvalidParameterCombination error.
 data S3Location = S3Location
-    { _slS3Bucket :: !(Maybe Text)
-    , _slS3Key :: !(Maybe Text)
+    { _slS3Bucket :: Maybe Text
+    , _slS3Key :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1773,7 +1773,7 @@ instance ToQuery S3Location where
 
 -- | Describes the solution stack.
 data SolutionStackDescription = SolutionStackDescription
-    { _ssdSolutionStackName :: !(Maybe Text)
+    { _ssdSolutionStackName :: Maybe Text
     , _ssdPermittedFileTypes :: [Text]
     } deriving (Show, Generic)
 
@@ -1819,8 +1819,8 @@ instance FromXML SolutionStackDescription where
 -- match the specified solution stack name or else AWS Elastic Beanstalk
 -- returns an InvalidParameterCombination error.
 data SourceConfiguration = SourceConfiguration
-    { _scApplicationName :: !(Maybe Text)
-    , _scTemplateName :: !(Maybe Text)
+    { _scApplicationName :: Maybe Text
+    , _scTemplateName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1852,8 +1852,8 @@ instance ToQuery SourceConfiguration where
 
 -- | Describes a tag applied to a resource in an environment.
 data Tag = Tag
-    { _tKey :: !(Maybe Text)
-    , _tValue :: !(Maybe Text)
+    { _tKey :: Maybe Text
+    , _tValue :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1884,10 +1884,10 @@ instance ToQuery Tag where
 
 -- | An error or warning for a desired configuration option value.
 data ValidationMessage = ValidationMessage
-    { _vmMessage :: !(Maybe Text)
+    { _vmMessage :: Maybe Text
     , _vmSeverity :: Maybe ValidationSeverity
-    , _vmNamespace :: !(Maybe Text)
-    , _vmOptionName :: !(Maybe Text)
+    , _vmNamespace :: Maybe Text
+    , _vmOptionName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

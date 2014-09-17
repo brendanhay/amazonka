@@ -44,8 +44,8 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data PutBucketRequestPayment = PutBucketRequestPayment
-    { _pbrpBucket :: !BucketName
-    , _pbrpContentMD5 :: !(Maybe Text)
+    { _pbrpBucket :: BucketName
+    , _pbrpContentMD5 :: Maybe Text
     , _pbrpRequestPaymentConfiguration :: RequestPaymentConfiguration
     } deriving (Show, Generic)
 

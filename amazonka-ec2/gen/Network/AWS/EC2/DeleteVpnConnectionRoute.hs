@@ -51,8 +51,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
-    { _dvcrVpnConnectionId :: !Text
-    , _dvcrDestinationCidrBlock :: !Text
+    { _dvcrVpnConnectionId :: Text
+    , _dvcrDestinationCidrBlock :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

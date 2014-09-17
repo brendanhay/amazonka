@@ -65,7 +65,7 @@ import Network.AWS.SQS.Types
 import Network.AWS.Prelude
 
 data CreateQueue = CreateQueue
-    { _cqQueueName :: !Text
+    { _cqQueueName :: Text
     , _cqAttributes :: Map QueueAttributeName Text
     } deriving (Show, Generic)
 

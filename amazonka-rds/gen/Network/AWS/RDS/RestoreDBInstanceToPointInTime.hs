@@ -70,22 +70,22 @@ import Network.AWS.Prelude
 
 -- | 
 data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime
-    { _rdbitpitSourceDBInstanceIdentifier :: !Text
-    , _rdbitpitTargetDBInstanceIdentifier :: !Text
-    , _rdbitpitRestoreTime :: !(Maybe ISO8601)
-    , _rdbitpitUseLatestRestorableTime :: !(Maybe Bool)
-    , _rdbitpitDBInstanceClass :: !(Maybe Text)
-    , _rdbitpitPort :: !(Maybe Integer)
-    , _rdbitpitAvailabilityZone :: !(Maybe Text)
-    , _rdbitpitDBSubnetGroupName :: !(Maybe Text)
-    , _rdbitpitMultiAZ :: !(Maybe Bool)
-    , _rdbitpitPubliclyAccessible :: !(Maybe Bool)
-    , _rdbitpitAutoMinorVersionUpgrade :: !(Maybe Bool)
-    , _rdbitpitLicenseModel :: !(Maybe Text)
-    , _rdbitpitDBName :: !(Maybe Text)
-    , _rdbitpitEngine :: !(Maybe Text)
-    , _rdbitpitIops :: !(Maybe Integer)
-    , _rdbitpitOptionGroupName :: !(Maybe Text)
+    { _rdbitpitSourceDBInstanceIdentifier :: Text
+    , _rdbitpitTargetDBInstanceIdentifier :: Text
+    , _rdbitpitRestoreTime :: Maybe ISO8601
+    , _rdbitpitUseLatestRestorableTime :: Maybe Bool
+    , _rdbitpitDBInstanceClass :: Maybe Text
+    , _rdbitpitPort :: Maybe Integer
+    , _rdbitpitAvailabilityZone :: Maybe Text
+    , _rdbitpitDBSubnetGroupName :: Maybe Text
+    , _rdbitpitMultiAZ :: Maybe Bool
+    , _rdbitpitPubliclyAccessible :: Maybe Bool
+    , _rdbitpitAutoMinorVersionUpgrade :: Maybe Bool
+    , _rdbitpitLicenseModel :: Maybe Text
+    , _rdbitpitDBName :: Maybe Text
+    , _rdbitpitEngine :: Maybe Text
+    , _rdbitpitIops :: Maybe Integer
+    , _rdbitpitOptionGroupName :: Maybe Text
     , _rdbitpitTags :: [Tag]
     } deriving (Show, Generic)
 

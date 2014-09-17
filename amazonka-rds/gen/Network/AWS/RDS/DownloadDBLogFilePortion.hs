@@ -57,10 +57,10 @@ import Network.AWS.Prelude
 
 -- | 
 data DownloadDBLogFilePortion = DownloadDBLogFilePortion
-    { _ddblfpDBInstanceIdentifier :: !Text
-    , _ddblfpLogFileName :: !Text
-    , _ddblfpMarker :: !(Maybe Text)
-    , _ddblfpNumberOfLines :: !(Maybe Integer)
+    { _ddblfpDBInstanceIdentifier :: Text
+    , _ddblfpLogFileName :: Text
+    , _ddblfpMarker :: Maybe Text
+    , _ddblfpNumberOfLines :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -117,8 +117,8 @@ instance ToQuery DownloadDBLogFilePortion where
 -- | This data type is used as a response element to DownloadDBLogFilePortion.
 data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse
     { _ddblfprAdditionalDataPending :: !Bool
-    , _ddblfprLogFileData :: !ByteString
-    , _ddblfprMarker :: !(Maybe Text)
+    , _ddblfprLogFileData :: ByteString
+    , _ddblfprMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

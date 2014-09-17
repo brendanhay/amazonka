@@ -42,8 +42,8 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a CopySnapshotMessage operation.
 data CopySnapshot = CopySnapshot
-    { _csSourceSnapshotName :: !Text
-    , _csTargetSnapshotName :: !Text
+    { _csSourceSnapshotName :: Text
+    , _csTargetSnapshotName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

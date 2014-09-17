@@ -58,16 +58,16 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data UploadPart = UploadPart
-    { _upBody :: !RqBody
-    , _upBucket :: !BucketName
-    , _upContentLength :: !(Maybe Integer)
-    , _upContentMD5 :: !(Maybe Text)
-    , _upKey :: !ObjectKey
+    { _upBody :: RqBody
+    , _upBucket :: BucketName
+    , _upContentLength :: Maybe Integer
+    , _upContentMD5 :: Maybe Text
+    , _upKey :: ObjectKey
     , _upPartNumber :: !Integer
-    , _upUploadId :: !Text
-    , _upSSECustomerAlgorithm :: !(Maybe Text)
-    , _upSSECustomerKey :: !(Maybe Text)
-    , _upSSECustomerKeyMD5 :: !(Maybe Text)
+    , _upUploadId :: Text
+    , _upSSECustomerAlgorithm :: Maybe Text
+    , _upSSECustomerKey :: Maybe Text
+    , _upSSECustomerKeyMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -181,9 +181,9 @@ instance ToBody UploadPart where
 
 data UploadPartResponse = UploadPartResponse
     { _uprServerSideEncryption :: Maybe ServerSideEncryption
-    , _uprETag :: !(Maybe ETag)
-    , _uprSSECustomerAlgorithm :: !(Maybe Text)
-    , _uprSSECustomerKeyMD5 :: !(Maybe Text)
+    , _uprETag :: Maybe ETag
+    , _uprSSECustomerAlgorithm :: Maybe Text
+    , _uprSSECustomerKeyMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

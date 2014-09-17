@@ -67,10 +67,10 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DetachVolume = DetachVolume
-    { _dv4VolumeId :: !Text
-    , _dv4InstanceId :: !(Maybe Text)
-    , _dv4Device :: !(Maybe Text)
-    , _dv4Force :: !(Maybe Bool)
+    { _dv4VolumeId :: Text
+    , _dv4InstanceId :: Maybe Text
+    , _dv4Device :: Maybe Text
+    , _dv4Force :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -121,12 +121,12 @@ instance ToQuery DetachVolume where
     toQuery = genericQuery def
 
 data DetachVolumeResponse = DetachVolumeResponse
-    { _dvr1VolumeId :: !(Maybe Text)
-    , _dvr1InstanceId :: !(Maybe Text)
-    , _dvr1Device :: !(Maybe Text)
+    { _dvr1VolumeId :: Maybe Text
+    , _dvr1InstanceId :: Maybe Text
+    , _dvr1Device :: Maybe Text
     , _dvr1State :: Maybe VolumeAttachmentState
-    , _dvr1AttachTime :: !(Maybe ISO8601)
-    , _dvr1DeleteOnTermination :: !(Maybe Bool)
+    , _dvr1AttachTime :: Maybe ISO8601
+    , _dvr1DeleteOnTermination :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

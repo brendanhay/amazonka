@@ -69,7 +69,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DeprecateActivityType = DeprecateActivityType
-    { _datDomain :: !Text
+    { _datDomain :: Text
     , _datActivityType :: ActivityType
     } deriving (Show, Generic)
 

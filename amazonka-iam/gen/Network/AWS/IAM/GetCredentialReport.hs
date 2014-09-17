@@ -54,9 +54,9 @@ instance ToQuery GetCredentialReport where
 -- | Contains the result of a successful invocation of the GetCredentialReport
 -- action.
 data GetCredentialReportResponse = GetCredentialReportResponse
-    { _gcrrrContent :: !(Maybe ByteString)
+    { _gcrrrContent :: Maybe ByteString
     , _gcrrrReportFormat :: Maybe ReportFormatType
-    , _gcrrrGeneratedTime :: !(Maybe ISO8601)
+    , _gcrrrGeneratedTime :: Maybe ISO8601
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

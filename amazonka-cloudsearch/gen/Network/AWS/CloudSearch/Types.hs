@@ -655,7 +655,7 @@ instance ToQuery ServiceEndpoint where
 
 -- | The access rules configured for the domain specified in the request.
 data AccessPoliciesStatus = AccessPoliciesStatus
-    { _apsOptions :: !Text
+    { _apsOptions :: Text
     , _apsStatus :: OptionStatus
     } deriving (Show, Generic)
 
@@ -696,9 +696,9 @@ instance FromXML AccessPoliciesStatus where
 
 -- | Synonyms, stopwords, and stemming options for an analysis scheme.
 data AnalysisOptions = AnalysisOptions
-    { _aoSynonyms :: !(Maybe Text)
-    , _aoStopwords :: !(Maybe Text)
-    , _aoStemmingDictionary :: !(Maybe Text)
+    { _aoSynonyms :: Maybe Text
+    , _aoStopwords :: Maybe Text
+    , _aoStemmingDictionary :: Maybe Text
     , _aoAlgorithmicStemming :: Maybe AlgorithmicStemming
     } deriving (Show, Generic)
 
@@ -772,7 +772,7 @@ instance ToQuery AnalysisOptions where
 -- following options can be configured for an analysis scheme: Synonyms,
 -- Stopwords, StemmingDictionary, and AlgorithmicStemming.
 data AnalysisScheme = AnalysisScheme
-    { _asAnalysisSchemeName :: !Text
+    { _asAnalysisSchemeName :: Text
     , _asAnalysisSchemeLanguage :: AnalysisSchemeLanguage
     , _asAnalysisOptions :: Maybe AnalysisOptions
     } deriving (Show, Generic)
@@ -907,11 +907,11 @@ instance FromXML AvailabilityOptionsStatus where
 -- IndexFieldType specifies the field is of type date-array. All options are
 -- enabled by default.
 data DateArrayOptions = DateArrayOptions
-    { _dao1DefaultValue :: !(Maybe Text)
-    , _dao1SourceFields :: !(Maybe Text)
-    , _dao1FacetEnabled :: !(Maybe Bool)
-    , _dao1SearchEnabled :: !(Maybe Bool)
-    , _dao1ReturnEnabled :: !(Maybe Bool)
+    { _dao1DefaultValue :: Maybe Text
+    , _dao1SourceFields :: Maybe Text
+    , _dao1FacetEnabled :: Maybe Bool
+    , _dao1SearchEnabled :: Maybe Bool
+    , _dao1ReturnEnabled :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -975,12 +975,12 @@ instance ToQuery DateArrayOptions where
 -- IndexFieldType specifies the field is of type date. All options are enabled
 -- by default.
 data DateOptions = DateOptions
-    { _do1DefaultValue :: !(Maybe Text)
-    , _do1SourceField :: !(Maybe Text)
-    , _do1FacetEnabled :: !(Maybe Bool)
-    , _do1SearchEnabled :: !(Maybe Bool)
-    , _do1ReturnEnabled :: !(Maybe Bool)
-    , _do1SortEnabled :: !(Maybe Bool)
+    { _do1DefaultValue :: Maybe Text
+    , _do1SourceField :: Maybe Text
+    , _do1FacetEnabled :: Maybe Bool
+    , _do1SearchEnabled :: Maybe Bool
+    , _do1ReturnEnabled :: Maybe Bool
+    , _do1SortEnabled :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1048,9 +1048,9 @@ instance ToQuery DateOptions where
 
 -- | Options for a search suggester.
 data DocumentSuggesterOptions = DocumentSuggesterOptions
-    { _dsoSourceField :: !Text
+    { _dsoSourceField :: Text
     , _dsoFuzzyMatching :: Maybe SuggesterFuzzyMatching
-    , _dsoSortExpression :: !(Maybe Text)
+    , _dsoSortExpression :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1100,18 +1100,18 @@ instance ToQuery DocumentSuggesterOptions where
 
 -- | The current status of the search domain.
 data DomainStatus = DomainStatus
-    { _dsDomainId :: !Text
-    , _dsDomainName :: !Text
-    , _dsARN :: !(Maybe Text)
-    , _dsCreated :: !(Maybe Bool)
-    , _dsDeleted :: !(Maybe Bool)
+    { _dsDomainId :: Text
+    , _dsDomainName :: Text
+    , _dsARN :: Maybe Text
+    , _dsCreated :: Maybe Bool
+    , _dsDeleted :: Maybe Bool
     , _dsDocService :: Maybe ServiceEndpoint
     , _dsSearchService :: Maybe ServiceEndpoint
     , _dsRequiresIndexDocuments :: !Bool
-    , _dsProcessing :: !(Maybe Bool)
-    , _dsSearchInstanceType :: !(Maybe Text)
-    , _dsSearchPartitionCount :: !(Maybe Integer)
-    , _dsSearchInstanceCount :: !(Maybe Integer)
+    , _dsProcessing :: Maybe Bool
+    , _dsSearchInstanceType :: Maybe Text
+    , _dsSearchPartitionCount :: Maybe Integer
+    , _dsSearchInstanceCount :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1240,11 +1240,11 @@ instance FromXML DomainStatus where
 -- floating point values. Present if IndexFieldType specifies the field is of
 -- type double-array. All options are enabled by default.
 data DoubleArrayOptions = DoubleArrayOptions
-    { _daoDefaultValue :: !(Maybe Double)
-    , _daoSourceFields :: !(Maybe Text)
-    , _daoFacetEnabled :: !(Maybe Bool)
-    , _daoSearchEnabled :: !(Maybe Bool)
-    , _daoReturnEnabled :: !(Maybe Bool)
+    { _daoDefaultValue :: Maybe Double
+    , _daoSourceFields :: Maybe Text
+    , _daoFacetEnabled :: Maybe Bool
+    , _daoSearchEnabled :: Maybe Bool
+    , _daoReturnEnabled :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1304,12 +1304,12 @@ instance ToQuery DoubleArrayOptions where
 -- IndexFieldType specifies the field is of type double. All options are
 -- enabled by default.
 data DoubleOptions = DoubleOptions
-    { _doDefaultValue :: !(Maybe Double)
-    , _doSourceField :: !(Maybe Text)
-    , _doFacetEnabled :: !(Maybe Bool)
-    , _doSearchEnabled :: !(Maybe Bool)
-    , _doReturnEnabled :: !(Maybe Bool)
-    , _doSortEnabled :: !(Maybe Bool)
+    { _doDefaultValue :: Maybe Double
+    , _doSourceField :: Maybe Text
+    , _doFacetEnabled :: Maybe Bool
+    , _doSearchEnabled :: Maybe Bool
+    , _doReturnEnabled :: Maybe Bool
+    , _doSortEnabled :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1375,8 +1375,8 @@ instance ToQuery DoubleOptions where
 -- | A named expression that can be evaluated at search time. Can be used for
 -- sorting and filtering search results and constructing other expressions.
 data Expression = Expression
-    { _eExpressionName :: !Text
-    , _eExpressionValue :: !Text
+    { _eExpressionName :: Text
+    , _eExpressionValue :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1459,7 +1459,7 @@ instance FromXML ExpressionStatus where
 
 -- | The index field and field options you want to configure.
 data IndexField = IndexField
-    { _ifIndexFieldName :: !Text
+    { _ifIndexFieldName :: Text
     , _ifIndexFieldType :: IndexFieldType
     , _ifIntOptions :: Maybe IntOptions
     , _ifDoubleOptions :: Maybe DoubleOptions
@@ -1660,11 +1660,11 @@ instance FromXML IndexFieldStatus where
 -- Present if IndexFieldType specifies the field is of type int-array. All
 -- options are enabled by default.
 data IntArrayOptions = IntArrayOptions
-    { _iaoDefaultValue :: !(Maybe Integer)
-    , _iaoSourceFields :: !(Maybe Text)
-    , _iaoFacetEnabled :: !(Maybe Bool)
-    , _iaoSearchEnabled :: !(Maybe Bool)
-    , _iaoReturnEnabled :: !(Maybe Bool)
+    { _iaoDefaultValue :: Maybe Integer
+    , _iaoSourceFields :: Maybe Text
+    , _iaoFacetEnabled :: Maybe Bool
+    , _iaoSearchEnabled :: Maybe Bool
+    , _iaoReturnEnabled :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1723,12 +1723,12 @@ instance ToQuery IntArrayOptions where
 -- | Options for a 64-bit signed integer field. Present if IndexFieldType
 -- specifies the field is of type int. All options are enabled by default.
 data IntOptions = IntOptions
-    { _ioDefaultValue :: !(Maybe Integer)
-    , _ioSourceField :: !(Maybe Text)
-    , _ioFacetEnabled :: !(Maybe Bool)
-    , _ioSearchEnabled :: !(Maybe Bool)
-    , _ioReturnEnabled :: !(Maybe Bool)
-    , _ioSortEnabled :: !(Maybe Bool)
+    { _ioDefaultValue :: Maybe Integer
+    , _ioSourceField :: Maybe Text
+    , _ioFacetEnabled :: Maybe Bool
+    , _ioSearchEnabled :: Maybe Bool
+    , _ioReturnEnabled :: Maybe Bool
+    , _ioSortEnabled :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1795,12 +1795,12 @@ instance ToQuery IntOptions where
 -- latitude and longitude value pair. Present if IndexFieldType specifies the
 -- field is of type latlon. All options are enabled by default.
 data LatLonOptions = LatLonOptions
-    { _lloDefaultValue :: !(Maybe Text)
-    , _lloSourceField :: !(Maybe Text)
-    , _lloFacetEnabled :: !(Maybe Bool)
-    , _lloSearchEnabled :: !(Maybe Bool)
-    , _lloReturnEnabled :: !(Maybe Bool)
-    , _lloSortEnabled :: !(Maybe Bool)
+    { _lloDefaultValue :: Maybe Text
+    , _lloSourceField :: Maybe Text
+    , _lloFacetEnabled :: Maybe Bool
+    , _lloSearchEnabled :: Maybe Bool
+    , _lloReturnEnabled :: Maybe Bool
+    , _lloSortEnabled :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1870,11 +1870,11 @@ instance ToQuery LatLonOptions where
 -- IndexFieldType specifies the field is of type literal-array. All options
 -- are enabled by default.
 data LiteralArrayOptions = LiteralArrayOptions
-    { _laoDefaultValue :: !(Maybe Text)
-    , _laoSourceFields :: !(Maybe Text)
-    , _laoFacetEnabled :: !(Maybe Bool)
-    , _laoSearchEnabled :: !(Maybe Bool)
-    , _laoReturnEnabled :: !(Maybe Bool)
+    { _laoDefaultValue :: Maybe Text
+    , _laoSourceFields :: Maybe Text
+    , _laoFacetEnabled :: Maybe Bool
+    , _laoSearchEnabled :: Maybe Bool
+    , _laoReturnEnabled :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1933,12 +1933,12 @@ instance ToQuery LiteralArrayOptions where
 -- | Options for literal field. Present if IndexFieldType specifies the field is
 -- of type literal. All options are enabled by default.
 data LiteralOptions = LiteralOptions
-    { _loDefaultValue :: !(Maybe Text)
-    , _loSourceField :: !(Maybe Text)
-    , _loFacetEnabled :: !(Maybe Bool)
-    , _loSearchEnabled :: !(Maybe Bool)
-    , _loReturnEnabled :: !(Maybe Bool)
-    , _loSortEnabled :: !(Maybe Bool)
+    { _loDefaultValue :: Maybe Text
+    , _loSourceField :: Maybe Text
+    , _loFacetEnabled :: Maybe Bool
+    , _loSearchEnabled :: Maybe Bool
+    , _loReturnEnabled :: Maybe Bool
+    , _loSortEnabled :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2004,11 +2004,11 @@ instance ToQuery LiteralOptions where
 
 -- | The status of domain configuration option.
 data OptionStatus = OptionStatus
-    { _osCreationDate :: !ISO8601
-    , _osUpdateDate :: !ISO8601
-    , _osUpdateVersion :: !(Maybe Integer)
+    { _osCreationDate :: ISO8601
+    , _osUpdateDate :: ISO8601
+    , _osUpdateVersion :: Maybe Integer
     , _osState :: OptionState
-    , _osPendingDeletion :: !(Maybe Bool)
+    , _osPendingDeletion :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2077,8 +2077,8 @@ instance ToQuery OptionStatus where
 -- partition.
 data ScalingParameters = ScalingParameters
     { _spDesiredInstanceType :: Maybe PartitionInstanceType
-    , _spDesiredReplicationCount :: !(Maybe Integer)
-    , _spDesiredPartitionCount :: !(Maybe Integer)
+    , _spDesiredReplicationCount :: Maybe Integer
+    , _spDesiredPartitionCount :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2169,7 +2169,7 @@ instance FromXML ScalingParametersStatus where
 -- The following options can be configured for a suggester: FuzzyMatching,
 -- SortExpression.
 data Suggester = Suggester
-    { _sSuggesterName :: !Text
+    { _sSuggesterName :: Text
     , _sDocumentSuggesterOptions :: DocumentSuggesterOptions
     } deriving (Show, Generic)
 
@@ -2255,11 +2255,11 @@ instance FromXML SuggesterStatus where
 -- IndexFieldType specifies the field is of type text-array. A text-array
 -- field is always searchable. All options are enabled by default.
 data TextArrayOptions = TextArrayOptions
-    { _taoDefaultValue :: !(Maybe Text)
-    , _taoSourceFields :: !(Maybe Text)
-    , _taoReturnEnabled :: !(Maybe Bool)
-    , _taoHighlightEnabled :: !(Maybe Bool)
-    , _taoAnalysisScheme :: !(Maybe Text)
+    { _taoDefaultValue :: Maybe Text
+    , _taoSourceFields :: Maybe Text
+    , _taoReturnEnabled :: Maybe Bool
+    , _taoHighlightEnabled :: Maybe Bool
+    , _taoAnalysisScheme :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2320,12 +2320,12 @@ instance ToQuery TextArrayOptions where
 -- type text. A text field is always searchable. All options are enabled by
 -- default.
 data TextOptions = TextOptions
-    { _toDefaultValue :: !(Maybe Text)
-    , _toSourceField :: !(Maybe Text)
-    , _toReturnEnabled :: !(Maybe Bool)
-    , _toSortEnabled :: !(Maybe Bool)
-    , _toHighlightEnabled :: !(Maybe Bool)
-    , _toAnalysisScheme :: !(Maybe Text)
+    { _toDefaultValue :: Maybe Text
+    , _toSourceField :: Maybe Text
+    , _toReturnEnabled :: Maybe Bool
+    , _toSortEnabled :: Maybe Bool
+    , _toHighlightEnabled :: Maybe Bool
+    , _toAnalysisScheme :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

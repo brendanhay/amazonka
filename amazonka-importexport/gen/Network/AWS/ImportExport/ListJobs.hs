@@ -47,8 +47,8 @@ import Network.AWS.Prelude
 
 -- | Input structure for the ListJobs operation.
 data ListJobs = ListJobs
-    { _ljMaxJobs :: !(Maybe Integer)
-    , _ljMarker :: !(Maybe Text)
+    { _ljMaxJobs :: Maybe Integer
+    , _ljMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

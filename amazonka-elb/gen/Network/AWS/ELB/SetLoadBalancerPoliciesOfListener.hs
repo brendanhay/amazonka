@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 
 -- | The input for the SetLoadBalancerPoliciesOfListener action.
 data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener
-    { _slbpolLoadBalancerName :: !Text
+    { _slbpolLoadBalancerName :: Text
     , _slbpolLoadBalancerPort :: !Integer
     , _slbpolPolicyNames :: [Text]
     } deriving (Show, Generic)

@@ -357,15 +357,15 @@ instance ToJSON RouteFilterPrefix
 -- | A connection represents the physical network connection between the AWS
 -- Direct Connect location and the customer.
 data Connection = Connection
-    { _cOwnerAccount :: !(Maybe Text)
-    , _cConnectionId :: !(Maybe Text)
-    , _cConnectionName :: !(Maybe Text)
+    { _cOwnerAccount :: Maybe Text
+    , _cConnectionId :: Maybe Text
+    , _cConnectionName :: Maybe Text
     , _cConnectionState :: Maybe ConnectionState
-    , _cRegion :: !(Maybe Text)
-    , _cLocation :: !(Maybe Text)
-    , _cBandwidth :: !(Maybe Text)
-    , _cVlan :: !(Maybe Integer)
-    , _cPartnerName :: !(Maybe Text)
+    , _cRegion :: Maybe Text
+    , _cLocation :: Maybe Text
+    , _cBandwidth :: Maybe Text
+    , _cVlan :: Maybe Integer
+    , _cPartnerName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -466,12 +466,12 @@ instance FromJSON Connection
 -- and the owner of the interconnect determines how these resources are
 -- assigned.
 data Interconnect = Interconnect
-    { _iInterconnectId :: !(Maybe Text)
-    , _iInterconnectName :: !(Maybe Text)
+    { _iInterconnectId :: Maybe Text
+    , _iInterconnectName :: Maybe Text
     , _iInterconnectState :: Maybe InterconnectState
-    , _iRegion :: !(Maybe Text)
-    , _iLocation :: !(Maybe Text)
-    , _iBandwidth :: !(Maybe Text)
+    , _iRegion :: Maybe Text
+    , _iLocation :: Maybe Text
+    , _iBandwidth :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -541,8 +541,8 @@ instance FromJSON Interconnect
 -- | An AWS Direct Connect location where connections and interconnects can be
 -- requested.
 data Location = Location
-    { _lLocationCode :: !(Maybe Text)
-    , _lLocationName :: !(Maybe Text)
+    { _lLocationCode :: Maybe Text
+    , _lLocationName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -577,13 +577,13 @@ instance FromJSON Location
 -- | Detailed information for the private virtual interface to be created.
 -- Default: None.
 data NewPrivateVirtualInterface = NewPrivateVirtualInterface
-    { _npviVirtualInterfaceName :: !Text
+    { _npviVirtualInterfaceName :: Text
     , _npviVlan :: !Integer
     , _npviAsn :: !Integer
-    , _npviAuthKey :: !(Maybe Text)
-    , _npviAmazonAddress :: !(Maybe Text)
-    , _npviCustomerAddress :: !(Maybe Text)
-    , _npviVirtualGatewayId :: !Text
+    , _npviAuthKey :: Maybe Text
+    , _npviAmazonAddress :: Maybe Text
+    , _npviCustomerAddress :: Maybe Text
+    , _npviVirtualGatewayId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -661,12 +661,12 @@ instance ToJSON NewPrivateVirtualInterface
 -- | Detailed information for the private virtual interface to be provisioned.
 -- Default: None.
 data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation
-    { _npviaVirtualInterfaceName :: !Text
+    { _npviaVirtualInterfaceName :: Text
     , _npviaVlan :: !Integer
     , _npviaAsn :: !Integer
-    , _npviaAuthKey :: !(Maybe Text)
-    , _npviaAmazonAddress :: !(Maybe Text)
-    , _npviaCustomerAddress :: !(Maybe Text)
+    , _npviaAuthKey :: Maybe Text
+    , _npviaAmazonAddress :: Maybe Text
+    , _npviaCustomerAddress :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -734,12 +734,12 @@ instance ToJSON NewPrivateVirtualInterfaceAllocation
 -- | Detailed information for the public virtual interface to be created.
 -- Default: None.
 data NewPublicVirtualInterface = NewPublicVirtualInterface
-    { _npvi1VirtualInterfaceName :: !Text
+    { _npvi1VirtualInterfaceName :: Text
     , _npvi1Vlan :: !Integer
     , _npvi1Asn :: !Integer
-    , _npvi1AuthKey :: !(Maybe Text)
-    , _npvi1AmazonAddress :: !Text
-    , _npvi1CustomerAddress :: !Text
+    , _npvi1AuthKey :: Maybe Text
+    , _npvi1AmazonAddress :: Text
+    , _npvi1CustomerAddress :: Text
     , _npvi1RouteFilterPrefixes :: [RouteFilterPrefix]
     } deriving (Show, Generic)
 
@@ -821,12 +821,12 @@ instance ToJSON NewPublicVirtualInterface
 -- | Detailed information for the public virtual interface to be provisioned.
 -- Default: None.
 data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation
-    { _npvia1VirtualInterfaceName :: !Text
+    { _npvia1VirtualInterfaceName :: Text
     , _npvia1Vlan :: !Integer
     , _npvia1Asn :: !Integer
-    , _npvia1AuthKey :: !(Maybe Text)
-    , _npvia1AmazonAddress :: !Text
-    , _npvia1CustomerAddress :: !Text
+    , _npvia1AuthKey :: Maybe Text
+    , _npvia1AmazonAddress :: Text
+    , _npvia1CustomerAddress :: Text
     , _npvia1RouteFilterPrefixes :: [RouteFilterPrefix]
     } deriving (Show, Generic)
 
@@ -910,8 +910,8 @@ instance ToJSON NewPublicVirtualInterfaceAllocation
 -- managed using the Amazon Virtual Private Cloud (Amazon VPC) console or the
 -- Amazon EC2 CreateVpnGateway action.
 data VirtualGateway = VirtualGateway
-    { _vgVirtualGatewayId :: !(Maybe Text)
-    , _vgVirtualGatewayState :: !(Maybe Text)
+    { _vgVirtualGatewayId :: Maybe Text
+    , _vgVirtualGatewayState :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -952,20 +952,20 @@ instance FromJSON VirtualGateway
 -- | A virtual interface (VLAN) transmits the traffic between the AWS Direct
 -- Connect location and the customer.
 data VirtualInterface = VirtualInterface
-    { _viOwnerAccount :: !(Maybe Text)
-    , _viVirtualInterfaceId :: !(Maybe Text)
-    , _viLocation :: !(Maybe Text)
-    , _viConnectionId :: !(Maybe Text)
-    , _viVirtualInterfaceType :: !(Maybe Text)
-    , _viVirtualInterfaceName :: !(Maybe Text)
-    , _viVlan :: !(Maybe Integer)
-    , _viAsn :: !(Maybe Integer)
-    , _viAuthKey :: !(Maybe Text)
-    , _viAmazonAddress :: !(Maybe Text)
-    , _viCustomerAddress :: !(Maybe Text)
+    { _viOwnerAccount :: Maybe Text
+    , _viVirtualInterfaceId :: Maybe Text
+    , _viLocation :: Maybe Text
+    , _viConnectionId :: Maybe Text
+    , _viVirtualInterfaceType :: Maybe Text
+    , _viVirtualInterfaceName :: Maybe Text
+    , _viVlan :: Maybe Integer
+    , _viAsn :: Maybe Integer
+    , _viAuthKey :: Maybe Text
+    , _viAmazonAddress :: Maybe Text
+    , _viCustomerAddress :: Maybe Text
     , _viVirtualInterfaceState :: Maybe VirtualInterfaceState
-    , _viCustomerRouterConfig :: !(Maybe Text)
-    , _viVirtualGatewayId :: !(Maybe Text)
+    , _viCustomerRouterConfig :: Maybe Text
+    , _viVirtualGatewayId :: Maybe Text
     , _viRouteFilterPrefixes :: [RouteFilterPrefix]
     } deriving (Show, Generic)
 

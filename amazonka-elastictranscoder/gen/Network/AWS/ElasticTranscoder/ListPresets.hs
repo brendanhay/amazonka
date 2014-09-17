@@ -64,8 +64,8 @@ import Network.AWS.Request.JSON
 
 -- | The ListPresetsRequest structure.
 data ListPresets = ListPresets
-    { _lp1Ascending :: !(Maybe Text)
-    , _lp1PageToken :: !(Maybe Text)
+    { _lp1Ascending :: Maybe Text
+    , _lp1PageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -106,7 +106,7 @@ instance ToJSON ListPresets
 -- | The ListPresetsResponse structure.
 data ListPresetsResponse = ListPresetsResponse
     { _lprrPresets :: [Preset]
-    , _lprrNextPageToken :: !(Maybe Text)
+    , _lprrNextPageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

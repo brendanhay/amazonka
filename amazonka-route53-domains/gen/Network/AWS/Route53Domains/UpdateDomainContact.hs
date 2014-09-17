@@ -77,7 +77,7 @@ import Network.AWS.Request.JSON
 
 -- | The UpdateDomainContact request includes the following elements.
 data UpdateDomainContact = UpdateDomainContact
-    { _udcDomainName :: !Text
+    { _udcDomainName :: Text
     , _udcAdminContact :: Maybe ContactDetail
     , _udcRegistrantContact :: Maybe ContactDetail
     , _udcTechContact :: Maybe ContactDetail

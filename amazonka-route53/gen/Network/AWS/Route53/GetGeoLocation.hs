@@ -44,9 +44,9 @@ import Network.AWS.Types (Region)
 -- | A complex type that contains information about the request to get a geo
 -- location.
 data GetGeoLocation = GetGeoLocation
-    { _gglContinentCode :: !(Maybe Text)
-    , _gglCountryCode :: !(Maybe Text)
-    , _gglSubdivisionCode :: !(Maybe Text)
+    { _gglContinentCode :: Maybe Text
+    , _gglCountryCode :: Maybe Text
+    , _gglSubdivisionCode :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

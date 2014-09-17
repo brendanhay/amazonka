@@ -41,8 +41,8 @@ import Network.AWS.Prelude
 
 -- | 
 data DeleteScheduledAction = DeleteScheduledAction
-    { _dsaAutoScalingGroupName :: !(Maybe Text)
-    , _dsaScheduledActionName :: !Text
+    { _dsaAutoScalingGroupName :: Maybe Text
+    , _dsaScheduledActionName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

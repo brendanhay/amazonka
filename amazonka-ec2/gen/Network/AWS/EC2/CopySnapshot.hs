@@ -59,11 +59,11 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data CopySnapshot = CopySnapshot
-    { _csSourceRegion :: !Text
-    , _csSourceSnapshotId :: !Text
-    , _csDescription :: !(Maybe Text)
-    , _csDestinationRegion :: !(Maybe Text)
-    , _csPresignedUrl :: !(Maybe Text)
+    { _csSourceRegion :: Text
+    , _csSourceSnapshotId :: Text
+    , _csDescription :: Maybe Text
+    , _csDestinationRegion :: Maybe Text
+    , _csPresignedUrl :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

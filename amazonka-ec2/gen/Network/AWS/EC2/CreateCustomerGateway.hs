@@ -69,7 +69,7 @@ import Network.AWS.Prelude
 
 data CreateCustomerGateway = CreateCustomerGateway
     { _ccgType :: GatewayType
-    , _ccgPublicIp :: !Text
+    , _ccgPublicIp :: Text
     , _ccgBgpAsn :: !Integer
     } deriving (Show, Generic)
 

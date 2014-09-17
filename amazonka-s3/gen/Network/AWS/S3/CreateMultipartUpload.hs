@@ -75,25 +75,25 @@ type InitiateMultipartUpload = CreateMultipartUpload
 
 data CreateMultipartUpload = CreateMultipartUpload
     { _cmu2ACL :: Maybe ObjectCannedACL
-    , _cmu2Bucket :: !BucketName
-    , _cmu2CacheControl :: !(Maybe Text)
-    , _cmu2ContentDisposition :: !(Maybe Text)
-    , _cmu2ContentEncoding :: !(Maybe Text)
-    , _cmu2ContentLanguage :: !(Maybe Text)
-    , _cmu2ContentType :: !(Maybe Text)
-    , _cmu2Expires :: !(Maybe RFC822)
-    , _cmu2GrantFullControl :: !(Maybe Text)
-    , _cmu2GrantRead :: !(Maybe Text)
-    , _cmu2GrantReadACP :: !(Maybe Text)
-    , _cmu2GrantWriteACP :: !(Maybe Text)
-    , _cmu2Key :: !ObjectKey
+    , _cmu2Bucket :: BucketName
+    , _cmu2CacheControl :: Maybe Text
+    , _cmu2ContentDisposition :: Maybe Text
+    , _cmu2ContentEncoding :: Maybe Text
+    , _cmu2ContentLanguage :: Maybe Text
+    , _cmu2ContentType :: Maybe Text
+    , _cmu2Expires :: Maybe RFC822
+    , _cmu2GrantFullControl :: Maybe Text
+    , _cmu2GrantRead :: Maybe Text
+    , _cmu2GrantReadACP :: Maybe Text
+    , _cmu2GrantWriteACP :: Maybe Text
+    , _cmu2Key :: ObjectKey
     , _cmu2Metadata :: Map Text Text
     , _cmu2ServerSideEncryption :: Maybe ServerSideEncryption
     , _cmu2StorageClass :: Maybe StorageClass
-    , _cmu2WebsiteRedirectLocation :: !(Maybe Text)
-    , _cmu2SSECustomerAlgorithm :: !(Maybe Text)
-    , _cmu2SSECustomerKey :: !(Maybe Text)
-    , _cmu2SSECustomerKeyMD5 :: !(Maybe Text)
+    , _cmu2WebsiteRedirectLocation :: Maybe Text
+    , _cmu2SSECustomerAlgorithm :: Maybe Text
+    , _cmu2SSECustomerKey :: Maybe Text
+    , _cmu2SSECustomerKeyMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -301,12 +301,12 @@ instance ToHeaders CreateMultipartUpload where
 instance ToBody CreateMultipartUpload
 
 data CreateMultipartUploadResponse = CreateMultipartUploadResponse
-    { _cmurrBucket :: !(Maybe BucketName)
-    , _cmurrKey :: !(Maybe ObjectKey)
-    , _cmurrUploadId :: !(Maybe Text)
+    { _cmurrBucket :: Maybe BucketName
+    , _cmurrKey :: Maybe ObjectKey
+    , _cmurrUploadId :: Maybe Text
     , _cmurrServerSideEncryption :: Maybe ServerSideEncryption
-    , _cmurrSSECustomerAlgorithm :: !(Maybe Text)
-    , _cmurrSSECustomerKeyMD5 :: !(Maybe Text)
+    , _cmurrSSECustomerAlgorithm :: Maybe Text
+    , _cmurrSSECustomerKeyMD5 :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

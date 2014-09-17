@@ -64,10 +64,10 @@ import Network.AWS.Prelude
 
 -- | ???.
 data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress
-    { _acsgiClusterSecurityGroupName :: !Text
-    , _acsgiCIDRIP :: !(Maybe Text)
-    , _acsgiEC2SecurityGroupName :: !(Maybe Text)
-    , _acsgiEC2SecurityGroupOwnerId :: !(Maybe Text)
+    { _acsgiClusterSecurityGroupName :: Text
+    , _acsgiCIDRIP :: Maybe Text
+    , _acsgiEC2SecurityGroupName :: Maybe Text
+    , _acsgiEC2SecurityGroupOwnerId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

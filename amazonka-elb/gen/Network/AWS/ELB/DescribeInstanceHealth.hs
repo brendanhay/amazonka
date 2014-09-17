@@ -65,7 +65,7 @@ import Network.AWS.Prelude
 
 -- | The input for the DescribeEndPointState action.
 data DescribeInstanceHealth = DescribeInstanceHealth
-    { _dihLoadBalancerName :: !Text
+    { _dihLoadBalancerName :: Text
     , _dihInstances :: [Instance]
     } deriving (Show, Generic)
 

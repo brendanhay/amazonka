@@ -45,8 +45,8 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DescribeServiceErrors = DescribeServiceErrors
-    { _dseStackId :: !(Maybe Text)
-    , _dseInstanceId :: !(Maybe Text)
+    { _dseStackId :: Maybe Text
+    , _dseInstanceId :: Maybe Text
     , _dseServiceErrorIds :: [Text]
     } deriving (Show, Generic)
 

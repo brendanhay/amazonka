@@ -83,8 +83,8 @@ import Network.AWS.Request.JSON
 
 -- | The ListPipelineRequest structure.
 data ListPipelines = ListPipelines
-    { _lpAscending :: !(Maybe Text)
-    , _lpPageToken :: !(Maybe Text)
+    { _lpAscending :: Maybe Text
+    , _lpPageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -125,7 +125,7 @@ instance ToJSON ListPipelines
 -- | A list of the pipelines associated with the current AWS account.
 data ListPipelinesResponse = ListPipelinesResponse
     { _lprPipelines :: [Pipeline]
-    , _lprNextPageToken :: !(Maybe Text)
+    , _lprNextPageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

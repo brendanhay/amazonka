@@ -52,8 +52,8 @@ import Network.AWS.Prelude
 
 -- | 
 data ModifyDBSubnetGroup = ModifyDBSubnetGroup
-    { _mdbsgDBSubnetGroupName :: !Text
-    , _mdbsgDBSubnetGroupDescription :: !(Maybe Text)
+    { _mdbsgDBSubnetGroupName :: Text
+    , _mdbsgDBSubnetGroupDescription :: Maybe Text
     , _mdbsgSubnetIds :: [Text]
     } deriving (Show, Generic)
 

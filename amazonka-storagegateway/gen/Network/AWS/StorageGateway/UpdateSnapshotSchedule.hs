@@ -67,10 +67,10 @@ import Network.AWS.Request.JSON
 -- UpdateSnapshotScheduleInput$RecurrenceInHours
 -- UpdateSnapshotScheduleInput$StartAt UpdateSnapshotScheduleInput$VolumeARN.
 data UpdateSnapshotSchedule = UpdateSnapshotSchedule
-    { _ussVolumeARN :: !Text
+    { _ussVolumeARN :: Text
     , _ussStartAt :: !Integer
     , _ussRecurrenceInHours :: !Integer
-    , _ussDescription :: !(Maybe Text)
+    , _ussDescription :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

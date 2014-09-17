@@ -61,9 +61,9 @@ instance ToQuery GetSendQuota where
 -- | Represents the user's current activity limits returned from a successful
 -- GetSendQuota request.
 data GetSendQuotaResponse = GetSendQuotaResponse
-    { _gsqrMax24HourSend :: !(Maybe Double)
-    , _gsqrMaxSendRate :: !(Maybe Double)
-    , _gsqrSentLast24Hours :: !(Maybe Double)
+    { _gsqrMax24HourSend :: Maybe Double
+    , _gsqrMaxSendRate :: Maybe Double
+    , _gsqrSentLast24Hours :: Maybe Double
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

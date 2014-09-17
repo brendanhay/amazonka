@@ -45,8 +45,8 @@ import Network.AWS.Prelude
 -- Specifies the name of the domain you want to update and the analysis scheme
 -- you want to delete.
 data DeleteAnalysisScheme = DeleteAnalysisScheme
-    { _das1DomainName :: !Text
-    , _das1AnalysisSchemeName :: !Text
+    { _das1DomainName :: Text
+    , _das1AnalysisSchemeName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

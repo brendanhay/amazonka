@@ -46,11 +46,11 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data SetPermission = SetPermission
-    { _spStackId :: !Text
-    , _spIamUserArn :: !Text
-    , _spAllowSsh :: !(Maybe Bool)
-    , _spAllowSudo :: !(Maybe Bool)
-    , _spLevel :: !(Maybe Text)
+    { _spStackId :: Text
+    , _spIamUserArn :: Text
+    , _spAllowSsh :: Maybe Bool
+    , _spAllowSudo :: Maybe Bool
+    , _spLevel :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -48,7 +48,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DeleteNetworkAclEntry = DeleteNetworkAclEntry
-    { _dnaeNetworkAclId :: !Text
+    { _dnaeNetworkAclId :: Text
     , _dnaeRuleNumber :: !Integer
     , _dnaeEgress :: !Bool
     } deriving (Show, Generic)

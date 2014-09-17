@@ -54,12 +54,12 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a DescribeCacheEngineVersions operation.
 data DescribeCacheEngineVersions = DescribeCacheEngineVersions
-    { _dcevEngine :: !(Maybe Text)
-    , _dcevEngineVersion :: !(Maybe Text)
-    , _dcevCacheParameterGroupFamily :: !(Maybe Text)
-    , _dcevMaxRecords :: !(Maybe Integer)
-    , _dcevMarker :: !(Maybe Text)
-    , _dcevDefaultOnly :: !(Maybe Bool)
+    { _dcevEngine :: Maybe Text
+    , _dcevEngineVersion :: Maybe Text
+    , _dcevCacheParameterGroupFamily :: Maybe Text
+    , _dcevMaxRecords :: Maybe Integer
+    , _dcevMarker :: Maybe Text
+    , _dcevDefaultOnly :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -130,7 +130,7 @@ instance ToQuery DescribeCacheEngineVersions where
 
 -- | Represents the output of a DescribeCacheEngineVersions operation.
 data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse
-    { _dcevrMarker :: !(Maybe Text)
+    { _dcevrMarker :: Maybe Text
     , _dcevrCacheEngineVersions :: [CacheEngineVersion]
     } deriving (Show, Generic)
 

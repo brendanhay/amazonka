@@ -59,7 +59,7 @@ import Network.AWS.Prelude
 
 -- | 
 data ModifyDBParameterGroup = ModifyDBParameterGroup
-    { _mdbpgDBParameterGroupName :: !Text
+    { _mdbpgDBParameterGroupName :: Text
     , _mdbpgParameters :: [Parameter]
     } deriving (Show, Generic)
 

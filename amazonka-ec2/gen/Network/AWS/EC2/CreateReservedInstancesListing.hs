@@ -64,10 +64,10 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data CreateReservedInstancesListing = CreateReservedInstancesListing
-    { _cril1ReservedInstancesId :: !Text
+    { _cril1ReservedInstancesId :: Text
     , _cril1InstanceCount :: !Integer
     , _cril1PriceSchedules :: [PriceScheduleSpecification]
-    , _cril1ClientToken :: !Text
+    , _cril1ClientToken :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -51,9 +51,9 @@ import Network.AWS.Request.JSON
 
 -- | The input to the SetStatus action.
 data SetStatus = SetStatus
-    { _ssPipelineId :: !Text
+    { _ssPipelineId :: Text
     , _ssObjectIds :: [Text]
-    , _ssStatus :: !Text
+    , _ssStatus :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

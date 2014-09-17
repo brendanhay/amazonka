@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 -- the name of the domain you want to update and the expression you want to
 -- configure.
 data DefineExpression = DefineExpression
-    { _deDomainName :: !Text
+    { _deDomainName :: Text
     , _deExpression :: Expression
     } deriving (Show, Generic)
 

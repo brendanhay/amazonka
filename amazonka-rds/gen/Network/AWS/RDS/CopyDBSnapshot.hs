@@ -51,8 +51,8 @@ import Network.AWS.Prelude
 
 -- | 
 data CopyDBSnapshot = CopyDBSnapshot
-    { _cdbsSourceDBSnapshotIdentifier :: !Text
-    , _cdbsTargetDBSnapshotIdentifier :: !Text
+    { _cdbsSourceDBSnapshotIdentifier :: Text
+    , _cdbsTargetDBSnapshotIdentifier :: Text
     , _cdbsTags :: [Tag]
     } deriving (Show, Generic)
 

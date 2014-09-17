@@ -77,9 +77,9 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data CreateSecurityGroup = CreateSecurityGroup
-    { _csgGroupName :: !Text
-    , _csgDescription :: !Text
-    , _csgVpcId :: !(Maybe Text)
+    { _csgGroupName :: Text
+    , _csgDescription :: Text
+    , _csgVpcId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

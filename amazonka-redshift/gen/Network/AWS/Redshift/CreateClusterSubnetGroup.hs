@@ -56,8 +56,8 @@ import Network.AWS.Prelude
 
 -- | 
 data CreateClusterSubnetGroup = CreateClusterSubnetGroup
-    { _ccsg1ClusterSubnetGroupName :: !Text
-    , _ccsg1Description :: !Text
+    { _ccsg1ClusterSubnetGroupName :: Text
+    , _ccsg1Description :: Text
     , _ccsg1SubnetIds :: [Text]
     } deriving (Show, Generic)
 

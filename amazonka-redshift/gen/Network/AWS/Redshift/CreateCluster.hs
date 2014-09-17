@@ -89,28 +89,28 @@ import Network.AWS.Prelude
 
 -- | 
 data CreateCluster = CreateCluster
-    { _ccDBName :: !(Maybe Text)
-    , _ccClusterIdentifier :: !Text
-    , _ccClusterType :: !(Maybe Text)
-    , _ccNodeType :: !Text
-    , _ccMasterUsername :: !Text
-    , _ccMasterUserPassword :: !Text
+    { _ccDBName :: Maybe Text
+    , _ccClusterIdentifier :: Text
+    , _ccClusterType :: Maybe Text
+    , _ccNodeType :: Text
+    , _ccMasterUsername :: Text
+    , _ccMasterUserPassword :: Text
     , _ccClusterSecurityGroups :: [Text]
     , _ccVpcSecurityGroupIds :: [Text]
-    , _ccClusterSubnetGroupName :: !(Maybe Text)
-    , _ccAvailabilityZone :: !(Maybe Text)
-    , _ccPreferredMaintenanceWindow :: !(Maybe Text)
-    , _ccClusterParameterGroupName :: !(Maybe Text)
-    , _ccAutomatedSnapshotRetentionPeriod :: !(Maybe Integer)
-    , _ccPort :: !(Maybe Integer)
-    , _ccClusterVersion :: !(Maybe Text)
-    , _ccAllowVersionUpgrade :: !(Maybe Bool)
-    , _ccNumberOfNodes :: !(Maybe Integer)
-    , _ccPubliclyAccessible :: !(Maybe Bool)
-    , _ccEncrypted :: !(Maybe Bool)
-    , _ccHsmClientCertificateIdentifier :: !(Maybe Text)
-    , _ccHsmConfigurationIdentifier :: !(Maybe Text)
-    , _ccElasticIp :: !(Maybe Text)
+    , _ccClusterSubnetGroupName :: Maybe Text
+    , _ccAvailabilityZone :: Maybe Text
+    , _ccPreferredMaintenanceWindow :: Maybe Text
+    , _ccClusterParameterGroupName :: Maybe Text
+    , _ccAutomatedSnapshotRetentionPeriod :: Maybe Integer
+    , _ccPort :: Maybe Integer
+    , _ccClusterVersion :: Maybe Text
+    , _ccAllowVersionUpgrade :: Maybe Bool
+    , _ccNumberOfNodes :: Maybe Integer
+    , _ccPubliclyAccessible :: Maybe Bool
+    , _ccEncrypted :: Maybe Bool
+    , _ccHsmClientCertificateIdentifier :: Maybe Text
+    , _ccHsmConfigurationIdentifier :: Maybe Text
+    , _ccElasticIp :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

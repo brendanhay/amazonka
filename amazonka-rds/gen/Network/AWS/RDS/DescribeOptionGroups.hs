@@ -52,11 +52,11 @@ import Network.AWS.Prelude
 
 -- | 
 data DescribeOptionGroups = DescribeOptionGroups
-    { _dog1OptionGroupName :: !(Maybe Text)
-    , _dog1Marker :: !(Maybe Text)
-    , _dog1MaxRecords :: !(Maybe Integer)
-    , _dog1EngineName :: !(Maybe Text)
-    , _dog1MajorEngineVersion :: !(Maybe Text)
+    { _dog1OptionGroupName :: Maybe Text
+    , _dog1Marker :: Maybe Text
+    , _dog1MaxRecords :: Maybe Integer
+    , _dog1EngineName :: Maybe Text
+    , _dog1MajorEngineVersion :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -120,7 +120,7 @@ instance ToQuery DescribeOptionGroups where
 -- | List of option groups.
 data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse
     { _dogrOptionGroupsList :: [OptionGroup]
-    , _dogrMarker :: !(Maybe Text)
+    , _dogrMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

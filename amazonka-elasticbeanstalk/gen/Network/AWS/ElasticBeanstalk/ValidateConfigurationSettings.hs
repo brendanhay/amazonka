@@ -54,9 +54,9 @@ import Network.AWS.Prelude
 
 -- | A list of validation messages for a specified configuration template.
 data ValidateConfigurationSettings = ValidateConfigurationSettings
-    { _vcsApplicationName :: !Text
-    , _vcsTemplateName :: !(Maybe Text)
-    , _vcsEnvironmentName :: !(Maybe Text)
+    { _vcsApplicationName :: Text
+    , _vcsTemplateName :: Maybe Text
+    , _vcsEnvironmentName :: Maybe Text
     , _vcsOptionSettings :: [ConfigurationOptionSetting]
     } deriving (Show, Generic)
 

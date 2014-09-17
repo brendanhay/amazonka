@@ -74,9 +74,9 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data CreateVpcPeeringConnection = CreateVpcPeeringConnection
-    { _cvpcVpcId :: !(Maybe Text)
-    , _cvpcPeerVpcId :: !(Maybe Text)
-    , _cvpcPeerOwnerId :: !(Maybe Text)
+    { _cvpcVpcId :: Maybe Text
+    , _cvpcPeerVpcId :: Maybe Text
+    , _cvpcPeerOwnerId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -64,10 +64,10 @@ import Network.AWS.Request.JSON
 -- set of object identifiers. You can filter the results to named fields and
 -- used markers to page through the results.
 data DescribeObjects = DescribeObjects
-    { _doPipelineId :: !Text
+    { _doPipelineId :: Text
     , _doObjectIds :: [Text]
-    , _doEvaluateExpressions :: !(Maybe Bool)
-    , _doMarker :: !(Maybe Text)
+    , _doEvaluateExpressions :: Maybe Bool
+    , _doMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -128,7 +128,7 @@ instance ToJSON DescribeObjects
 -- DescribeObjects.
 data DescribeObjectsResponse = DescribeObjectsResponse
     { _dorPipelineObjects :: [PipelineObject]
-    , _dorMarker :: !(Maybe Text)
+    , _dorMarker :: Maybe Text
     , _dorHasMoreResults :: !Bool
     } deriving (Show, Generic)
 

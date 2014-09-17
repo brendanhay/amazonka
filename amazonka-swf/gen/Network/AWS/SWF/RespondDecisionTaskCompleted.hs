@@ -74,9 +74,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data RespondDecisionTaskCompleted = RespondDecisionTaskCompleted
-    { _rdtcTaskToken :: !Text
+    { _rdtcTaskToken :: Text
     , _rdtcDecisions :: [Decision]
-    , _rdtcExecutionContext :: !(Maybe Text)
+    , _rdtcExecutionContext :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

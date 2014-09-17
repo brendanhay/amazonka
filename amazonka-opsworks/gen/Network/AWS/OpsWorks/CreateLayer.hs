@@ -63,21 +63,21 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data CreateLayer = CreateLayer
-    { _clStackId :: !Text
+    { _clStackId :: Text
     , _clType :: LayerType
-    , _clName :: !Text
-    , _clShortname :: !Text
+    , _clName :: Text
+    , _clShortname :: Text
     , _clAttributes :: Map LayerAttributesKeys Text
-    , _clCustomInstanceProfileArn :: !(Maybe Text)
+    , _clCustomInstanceProfileArn :: Maybe Text
     , _clCustomSecurityGroupIds :: [Text]
     , _clPackages :: [Text]
     , _clVolumeConfigurations :: [VolumeConfiguration]
-    , _clEnableAutoHealing :: !(Maybe Bool)
-    , _clAutoAssignElasticIps :: !(Maybe Bool)
-    , _clAutoAssignPublicIps :: !(Maybe Bool)
+    , _clEnableAutoHealing :: Maybe Bool
+    , _clAutoAssignElasticIps :: Maybe Bool
+    , _clAutoAssignPublicIps :: Maybe Bool
     , _clCustomRecipes :: Maybe Recipes
-    , _clInstallUpdatesOnBoot :: !(Maybe Bool)
-    , _clUseEbsOptimizedInstances :: !(Maybe Bool)
+    , _clInstallUpdatesOnBoot :: Maybe Bool
+    , _clUseEbsOptimizedInstances :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

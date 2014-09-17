@@ -53,8 +53,8 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a DeleteCacheCluster operation.
 data DeleteCacheCluster = DeleteCacheCluster
-    { _dccCacheClusterId :: !Text
-    , _dccFinalSnapshotIdentifier :: !(Maybe Text)
+    { _dccCacheClusterId :: Text
+    , _dccFinalSnapshotIdentifier :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

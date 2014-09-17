@@ -53,9 +53,9 @@ import Network.AWS.Prelude
 
 -- | 
 data DescribeDBInstances = DescribeDBInstances
-    { _ddbi1DBInstanceIdentifier :: !(Maybe Text)
-    , _ddbi1MaxRecords :: !(Maybe Integer)
-    , _ddbi1Marker :: !(Maybe Text)
+    { _ddbi1DBInstanceIdentifier :: Maybe Text
+    , _ddbi1MaxRecords :: Maybe Integer
+    , _ddbi1Marker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -105,7 +105,7 @@ instance ToQuery DescribeDBInstances where
 -- | Contains the result of a successful invocation of the DescribeDBInstances
 -- action.
 data DescribeDBInstancesResponse = DescribeDBInstancesResponse
-    { _ddbirrMarker :: !(Maybe Text)
+    { _ddbirrMarker :: Maybe Text
     , _ddbirrDBInstances :: [DBInstance]
     } deriving (Show, Generic)
 

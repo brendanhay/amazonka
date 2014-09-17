@@ -75,8 +75,8 @@ instance ToJSON GetHostnameSuggestion
 
 -- | Contains the response to a GetHostnameSuggestion request.
 data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse
-    { _ghsrLayerId :: !(Maybe Text)
-    , _ghsrHostname :: !(Maybe Text)
+    { _ghsrLayerId :: Maybe Text
+    , _ghsrHostname :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

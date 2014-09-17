@@ -58,9 +58,9 @@ import Network.AWS.Prelude
 
 -- | Input for Subscribe action.
 data Subscribe = Subscribe
-    { _s1TopicArn :: !Text
-    , _s1Protocol :: !Text
-    , _s1Endpoint :: !(Maybe Text)
+    { _s1TopicArn :: Text
+    , _s1Protocol :: Text
+    , _s1Endpoint :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

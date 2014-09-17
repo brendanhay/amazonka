@@ -64,8 +64,8 @@ import Network.AWS.Types (Region)
 -- Developer Guide. Route 53 returns a maximum of 100 items. If you set
 -- MaxItems to a value greater than 100, Route 53 returns only the first 100.
 data ListHostedZones = ListHostedZones
-    { _lhzMarker :: !(Maybe Text)
-    , _lhzMaxItems :: !(Maybe Text)
+    { _lhzMarker :: Maybe Text
+    , _lhzMaxItems :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -106,10 +106,10 @@ instance ToXML ListHostedZones where
 -- | A complex type that contains the response for the request.
 data ListHostedZonesResponse = ListHostedZonesResponse
     { _lhzrHostedZones :: [HostedZone]
-    , _lhzrMarker :: !Text
+    , _lhzrMarker :: Text
     , _lhzrIsTruncated :: !Bool
-    , _lhzrNextMarker :: !(Maybe Text)
-    , _lhzrMaxItems :: !Text
+    , _lhzrNextMarker :: Maybe Text
+    , _lhzrMaxItems :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

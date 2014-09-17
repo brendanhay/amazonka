@@ -76,8 +76,8 @@ import Network.AWS.SQS.Types
 import Network.AWS.Prelude
 
 data ChangeMessageVisibility = ChangeMessageVisibility
-    { _cmvQueueUrl :: !Text
-    , _cmvReceiptHandle :: !Text
+    { _cmvQueueUrl :: Text
+    , _cmvReceiptHandle :: Text
     , _cmvVisibilityTimeout :: !Integer
     } deriving (Show, Generic)
 

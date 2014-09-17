@@ -70,7 +70,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data CountPendingDecisionTasks = CountPendingDecisionTasks
-    { _cpdtDomain :: !Text
+    { _cpdtDomain :: Text
     , _cpdtTaskList :: TaskList
     } deriving (Show, Generic)
 
@@ -110,7 +110,7 @@ instance ToJSON CountPendingDecisionTasks
 -- | Contains the count of tasks in a task list.
 data CountPendingDecisionTasksResponse = CountPendingDecisionTasksResponse
     { _cpdtrCount :: !Integer
-    , _cpdtrTruncated :: !(Maybe Bool)
+    , _cpdtrTruncated :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

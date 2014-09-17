@@ -102,7 +102,7 @@ instance Exception (Er CognitoIdentity)
 
 -- | A description of the identity.
 data IdentityDescription = IdentityDescription
-    { _idIdentityId :: !(Maybe Text)
+    { _idIdentityId :: Maybe Text
     , _idLogins :: [Text]
     } deriving (Show, Generic)
 
@@ -137,8 +137,8 @@ instance FromJSON IdentityDescription
 
 -- | A description of the identity pool.
 data IdentityPoolShortDescription = IdentityPoolShortDescription
-    { _ipsdIdentityPoolId :: !(Maybe Text)
-    , _ipsdIdentityPoolName :: !(Maybe Text)
+    { _ipsdIdentityPoolId :: Maybe Text
+    , _ipsdIdentityPoolName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct

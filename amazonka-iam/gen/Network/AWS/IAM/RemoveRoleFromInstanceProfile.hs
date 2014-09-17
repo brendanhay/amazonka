@@ -48,8 +48,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile
-    { _rrfipInstanceProfileName :: !Text
-    , _rrfipRoleName :: !Text
+    { _rrfipInstanceProfileName :: Text
+    , _rrfipRoleName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

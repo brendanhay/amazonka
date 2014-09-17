@@ -98,8 +98,8 @@ import Network.AWS.Request.JSON
 
 -- | The input for the DescribeJobFlows operation.
 data DescribeJobFlows = DescribeJobFlows
-    { _djfCreatedAfter :: !(Maybe POSIX)
-    , _djfCreatedBefore :: !(Maybe POSIX)
+    { _djfCreatedAfter :: Maybe POSIX
+    , _djfCreatedBefore :: Maybe POSIX
     , _djfJobFlowIds :: [Text]
     , _djfJobFlowStates :: [JobFlowExecutionState]
     } deriving (Show, Generic)

@@ -40,8 +40,8 @@ import Network.AWS.Prelude
 
 -- | 
 data DeleteNotificationConfiguration = DeleteNotificationConfiguration
-    { _dncAutoScalingGroupName :: !Text
-    , _dncTopicARN :: !Text
+    { _dncAutoScalingGroupName :: Text
+    , _dncTopicARN :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

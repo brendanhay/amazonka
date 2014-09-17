@@ -43,9 +43,9 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data AbortMultipartUpload = AbortMultipartUpload
-    { _amuBucket :: !BucketName
-    , _amuKey :: !ObjectKey
-    , _amuUploadId :: !Text
+    { _amuBucket :: BucketName
+    , _amuKey :: ObjectKey
+    , _amuUploadId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

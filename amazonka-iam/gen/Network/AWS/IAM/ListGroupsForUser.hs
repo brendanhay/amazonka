@@ -49,9 +49,9 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data ListGroupsForUser = ListGroupsForUser
-    { _lgfuUserName :: !Text
-    , _lgfuMarker :: !(Maybe Text)
-    , _lgfuMaxItems :: !(Maybe Integer)
+    { _lgfuUserName :: Text
+    , _lgfuMarker :: Maybe Text
+    , _lgfuMaxItems :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -98,7 +98,7 @@ instance ToQuery ListGroupsForUser where
 data ListGroupsForUserResponse = ListGroupsForUserResponse
     { _lgfurGroups :: [Group]
     , _lgfurIsTruncated :: !Bool
-    , _lgfurMarker :: !(Maybe Text)
+    , _lgfurMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

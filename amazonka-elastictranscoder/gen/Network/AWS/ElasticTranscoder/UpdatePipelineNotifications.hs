@@ -62,7 +62,7 @@ import Network.AWS.Request.JSON
 
 -- | The UpdatePipelineNotificationsRequest structure.
 data UpdatePipelineNotifications = UpdatePipelineNotifications
-    { _upnId :: !Text
+    { _upnId :: Text
     , _upnNotifications :: Notifications
     } deriving (Show, Generic)
 

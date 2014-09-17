@@ -50,9 +50,9 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data ListMFADevices = ListMFADevices
-    { _lmfadUserName :: !(Maybe Text)
-    , _lmfadMarker :: !(Maybe Text)
-    , _lmfadMaxItems :: !(Maybe Integer)
+    { _lmfadUserName :: Maybe Text
+    , _lmfadMarker :: Maybe Text
+    , _lmfadMaxItems :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -98,7 +98,7 @@ instance ToQuery ListMFADevices where
 data ListMFADevicesResponse = ListMFADevicesResponse
     { _lmfadrMFADevices :: [MFADevice]
     , _lmfadrIsTruncated :: !Bool
-    , _lmfadrMarker :: !(Maybe Text)
+    , _lmfadrMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

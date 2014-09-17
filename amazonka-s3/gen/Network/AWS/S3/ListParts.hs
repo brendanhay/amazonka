@@ -55,11 +55,11 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data ListParts = ListParts
-    { _lpBucket :: !BucketName
-    , _lpKey :: !ObjectKey
-    , _lpMaxParts :: !(Maybe Integer)
-    , _lpPartNumberMarker :: !(Maybe Integer)
-    , _lpUploadId :: !Text
+    { _lpBucket :: BucketName
+    , _lpKey :: ObjectKey
+    , _lpMaxParts :: Maybe Integer
+    , _lpPartNumberMarker :: Maybe Integer
+    , _lpUploadId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -118,12 +118,12 @@ instance ToHeaders ListParts
 instance ToBody ListParts
 
 data ListPartsResponse = ListPartsResponse
-    { _lprBucket :: !(Maybe BucketName)
-    , _lprKey :: !(Maybe ObjectKey)
-    , _lprUploadId :: !(Maybe Text)
-    , _lprPartNumberMarker :: !(Maybe Integer)
-    , _lprNextPartNumberMarker :: !(Maybe Integer)
-    , _lprMaxParts :: !(Maybe Integer)
+    { _lprBucket :: Maybe BucketName
+    , _lprKey :: Maybe ObjectKey
+    , _lprUploadId :: Maybe Text
+    , _lprPartNumberMarker :: Maybe Integer
+    , _lprNextPartNumberMarker :: Maybe Integer
+    , _lprMaxParts :: Maybe Integer
     , _lprIsTruncated :: !Bool
     , _lprParts :: [Part]
     , _lprInitiator :: Maybe Initiator

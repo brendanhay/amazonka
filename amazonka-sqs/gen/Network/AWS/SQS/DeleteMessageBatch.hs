@@ -62,7 +62,7 @@ import Network.AWS.SQS.Types
 import Network.AWS.Prelude
 
 data DeleteMessageBatch = DeleteMessageBatch
-    { _dmbQueueUrl :: !Text
+    { _dmbQueueUrl :: Text
     , _dmbEntries :: [DeleteMessageBatchRequestEntry]
     } deriving (Show, Generic)
 

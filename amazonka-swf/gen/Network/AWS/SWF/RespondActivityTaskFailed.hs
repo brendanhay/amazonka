@@ -72,9 +72,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data RespondActivityTaskFailed = RespondActivityTaskFailed
-    { _ratfTaskToken :: !Text
-    , _ratfReason :: !(Maybe Text)
-    , _ratfDetails :: !(Maybe Text)
+    { _ratfTaskToken :: Text
+    , _ratfReason :: Maybe Text
+    , _ratfDetails :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

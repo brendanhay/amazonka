@@ -50,9 +50,9 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data ListRolePolicies = ListRolePolicies
-    { _lrpRoleName :: !Text
-    , _lrpMarker :: !(Maybe Text)
-    , _lrpMaxItems :: !(Maybe Integer)
+    { _lrpRoleName :: Text
+    , _lrpMarker :: Maybe Text
+    , _lrpMaxItems :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -101,7 +101,7 @@ instance ToQuery ListRolePolicies where
 data ListRolePoliciesResponse = ListRolePoliciesResponse
     { _lrprPolicyNames :: [Text]
     , _lrprIsTruncated :: !Bool
-    , _lrprMarker :: !(Maybe Text)
+    , _lrprMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

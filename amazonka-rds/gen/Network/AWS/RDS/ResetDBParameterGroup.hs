@@ -57,8 +57,8 @@ import Network.AWS.Prelude
 
 -- | 
 data ResetDBParameterGroup = ResetDBParameterGroup
-    { _rdbpgDBParameterGroupName :: !Text
-    , _rdbpgResetAllParameters :: !(Maybe Bool)
+    { _rdbpgDBParameterGroupName :: Text
+    , _rdbpgResetAllParameters :: Maybe Bool
     , _rdbpgParameters :: [Parameter]
     } deriving (Show, Generic)
 

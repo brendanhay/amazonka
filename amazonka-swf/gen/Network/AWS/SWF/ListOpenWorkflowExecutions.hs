@@ -86,13 +86,13 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data ListOpenWorkflowExecutions = ListOpenWorkflowExecutions
-    { _loweDomain :: !Text
+    { _loweDomain :: Text
     , _loweStartTimeFilter :: ExecutionTimeFilter
     , _loweTypeFilter :: Maybe WorkflowTypeFilter
     , _loweTagFilter :: Maybe TagFilter
-    , _loweNextPageToken :: !(Maybe Text)
-    , _loweMaximumPageSize :: !(Maybe Integer)
-    , _loweReverseOrder :: !(Maybe Bool)
+    , _loweNextPageToken :: Maybe Text
+    , _loweMaximumPageSize :: Maybe Integer
+    , _loweReverseOrder :: Maybe Bool
     , _loweExecutionFilter :: Maybe WorkflowExecutionFilter
     } deriving (Show, Generic)
 
@@ -195,7 +195,7 @@ instance ToJSON ListOpenWorkflowExecutions
 -- | Contains a paginated list of information about workflow executions.
 data ListOpenWorkflowExecutionsResponse = ListOpenWorkflowExecutionsResponse
     { _lowerExecutionInfos :: [WorkflowExecutionInfo]
-    , _lowerNextPageToken :: !(Maybe Text)
+    , _lowerNextPageToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -55,7 +55,7 @@ import Network.AWS.Request.JSON
 
 -- | This input identifies a cluster and a list of tags to remove.
 data RemoveTags = RemoveTags
-    { _rtResourceId :: !Text
+    { _rtResourceId :: Text
     , _rtTagKeys :: [Text]
     } deriving (Show, Generic)
 

@@ -62,11 +62,11 @@ import Network.AWS.Prelude
 
 -- | 
 data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress
-    { _adbsgiDBSecurityGroupName :: !Text
-    , _adbsgiCIDRIP :: !(Maybe Text)
-    , _adbsgiEC2SecurityGroupName :: !(Maybe Text)
-    , _adbsgiEC2SecurityGroupId :: !(Maybe Text)
-    , _adbsgiEC2SecurityGroupOwnerId :: !(Maybe Text)
+    { _adbsgiDBSecurityGroupName :: Text
+    , _adbsgiCIDRIP :: Maybe Text
+    , _adbsgiEC2SecurityGroupName :: Maybe Text
+    , _adbsgiEC2SecurityGroupId :: Maybe Text
+    , _adbsgiEC2SecurityGroupOwnerId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

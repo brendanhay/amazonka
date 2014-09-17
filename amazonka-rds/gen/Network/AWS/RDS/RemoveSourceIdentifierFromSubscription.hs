@@ -50,8 +50,8 @@ import Network.AWS.Prelude
 
 -- | 
 data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscription
-    { _rsifsSubscriptionName :: !Text
-    , _rsifsSourceIdentifier :: !Text
+    { _rsifsSubscriptionName :: Text
+    , _rsifsSourceIdentifier :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

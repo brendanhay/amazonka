@@ -75,12 +75,12 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data CreateCachediSCSIVolume = CreateCachediSCSIVolume
-    { _ccscsivGatewayARN :: !Text
+    { _ccscsivGatewayARN :: Text
     , _ccscsivVolumeSizeInBytes :: !Integer
-    , _ccscsivSnapshotId :: !(Maybe Text)
-    , _ccscsivTargetName :: !Text
-    , _ccscsivNetworkInterfaceId :: !Text
-    , _ccscsivClientToken :: !Text
+    , _ccscsivSnapshotId :: Maybe Text
+    , _ccscsivTargetName :: Text
+    , _ccscsivNetworkInterfaceId :: Text
+    , _ccscsivClientToken :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -152,8 +152,8 @@ instance ToHeaders CreateCachediSCSIVolume
 instance ToJSON CreateCachediSCSIVolume
 
 data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse
-    { _ccscsivrVolumeARN :: !(Maybe Text)
-    , _ccscsivrTargetARN :: !(Maybe Text)
+    { _ccscsivrVolumeARN :: Maybe Text
+    , _ccscsivrTargetARN :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

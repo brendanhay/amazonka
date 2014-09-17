@@ -44,9 +44,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data UpdateVolume = UpdateVolume
-    { _uv1VolumeId :: !Text
-    , _uv1Name :: !(Maybe Text)
-    , _uv1MountPoint :: !(Maybe Text)
+    { _uv1VolumeId :: Text
+    , _uv1Name :: Maybe Text
+    , _uv1MountPoint :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

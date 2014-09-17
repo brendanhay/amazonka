@@ -46,7 +46,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data ResetImageAttribute = ResetImageAttribute
-    { _riaImageId :: !Text
+    { _riaImageId :: Text
     , _riaAttribute :: ResetImageAttributeName
     } deriving (Show, Generic)
 

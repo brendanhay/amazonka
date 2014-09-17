@@ -46,9 +46,9 @@ import Network.AWS.Prelude
 
 -- | 
 data DescribeHsmClientCertificates = DescribeHsmClientCertificates
-    { _dhcc1HsmClientCertificateIdentifier :: !(Maybe Text)
-    , _dhcc1MaxRecords :: !(Maybe Integer)
-    , _dhcc1Marker :: !(Maybe Text)
+    { _dhcc1HsmClientCertificateIdentifier :: Maybe Text
+    , _dhcc1MaxRecords :: Maybe Integer
+    , _dhcc1Marker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -99,7 +99,7 @@ instance ToQuery DescribeHsmClientCertificates where
 
 -- | 
 data DescribeHsmClientCertificatesResponse = DescribeHsmClientCertificatesResponse
-    { _dhccrMarker :: !(Maybe Text)
+    { _dhccrMarker :: Maybe Text
     , _dhccrHsmClientCertificates :: [HsmClientCertificate]
     } deriving (Show, Generic)
 

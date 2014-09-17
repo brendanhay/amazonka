@@ -45,9 +45,9 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DeleteInstance = DeleteInstance
-    { _diInstanceId :: !Text
-    , _diDeleteElasticIp :: !(Maybe Bool)
-    , _diDeleteVolumes :: !(Maybe Bool)
+    { _diInstanceId :: Text
+    , _diDeleteElasticIp :: Maybe Bool
+    , _diDeleteVolumes :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

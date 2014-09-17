@@ -50,8 +50,8 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling
-    { _slbasLayerId :: !Text
-    , _slbasEnable :: !(Maybe Bool)
+    { _slbasLayerId :: Text
+    , _slbasEnable :: Maybe Bool
     , _slbasUpScaling :: Maybe AutoScalingThresholds
     , _slbasDownScaling :: Maybe AutoScalingThresholds
     } deriving (Show, Generic)

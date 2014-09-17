@@ -101,17 +101,17 @@ import Network.AWS.Prelude
 data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     { _drioReservedInstancesOfferingIds :: [Text]
     , _drioInstanceType :: Maybe InstanceType
-    , _drioAvailabilityZone :: !(Maybe Text)
+    , _drioAvailabilityZone :: Maybe Text
     , _drioProductDescription :: Maybe RIProductDescription
     , _drioFilters :: [Filter]
     , _drioInstanceTenancy :: Maybe Tenancy
     , _drioOfferingType :: Maybe OfferingTypeValues
-    , _drioNextToken :: !(Maybe Text)
-    , _drioMaxResults :: !(Maybe Integer)
-    , _drioIncludeMarketplace :: !(Maybe Bool)
-    , _drioMinDuration :: !(Maybe Integer)
-    , _drioMaxDuration :: !(Maybe Integer)
-    , _drioMaxInstanceCount :: !(Maybe Integer)
+    , _drioNextToken :: Maybe Text
+    , _drioMaxResults :: Maybe Integer
+    , _drioIncludeMarketplace :: Maybe Bool
+    , _drioMinDuration :: Maybe Integer
+    , _drioMaxDuration :: Maybe Integer
+    , _drioMaxInstanceCount :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -245,7 +245,7 @@ instance ToQuery DescribeReservedInstancesOfferings where
 
 data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
     { _driorReservedInstancesOfferings :: [ReservedInstancesOffering]
-    , _driorNextToken :: !(Maybe Text)
+    , _driorNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

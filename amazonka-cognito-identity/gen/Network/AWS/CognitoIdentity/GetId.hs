@@ -48,8 +48,8 @@ import Network.AWS.Request.JSON
 
 -- | Input to the GetId action.
 data GetId = GetId
-    { _giAccountId :: !Text
-    , _giIdentityPoolId :: !Text
+    { _giAccountId :: Text
+    , _giIdentityPoolId :: Text
     , _giLogins :: Map Text Text
     } deriving (Show, Generic)
 

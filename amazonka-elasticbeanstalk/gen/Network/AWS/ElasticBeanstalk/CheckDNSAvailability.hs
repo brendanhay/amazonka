@@ -72,8 +72,8 @@ instance ToQuery CheckDNSAvailability where
 
 -- | Indicates if the specified CNAME is available.
 data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse
-    { _cdnsarAvailable :: !(Maybe Bool)
-    , _cdnsarFullyQualifiedCNAME :: !(Maybe Text)
+    { _cdnsarAvailable :: Maybe Bool
+    , _cdnsarFullyQualifiedCNAME :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

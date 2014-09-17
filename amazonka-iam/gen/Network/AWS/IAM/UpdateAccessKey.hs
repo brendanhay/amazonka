@@ -50,8 +50,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data UpdateAccessKey = UpdateAccessKey
-    { _uakUserName :: !(Maybe Text)
-    , _uakAccessKeyId :: !Text
+    { _uakUserName :: Maybe Text
+    , _uakAccessKeyId :: Text
     , _uakStatus :: StatusType
     } deriving (Show, Generic)
 

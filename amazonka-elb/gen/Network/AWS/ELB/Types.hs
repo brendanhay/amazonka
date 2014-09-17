@@ -386,9 +386,9 @@ instance ToQuery TagKeyOnly where
 -- see Enable Access Logs.
 data AccessLog = AccessLog
     { _alEnabled :: !Bool
-    , _alS3BucketName :: !(Maybe Text)
-    , _alEmitInterval :: !(Maybe Integer)
-    , _alS3BucketPrefix :: !(Maybe Text)
+    , _alS3BucketName :: Maybe Text
+    , _alEmitInterval :: Maybe Integer
+    , _alS3BucketPrefix :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -442,8 +442,8 @@ instance ToQuery AccessLog where
 
 -- | The AppCookieStickinessPolicy data type.
 data AppCookieStickinessPolicy = AppCookieStickinessPolicy
-    { _acspPolicyName :: !(Maybe Text)
-    , _acspCookieName :: !(Maybe Text)
+    { _acspPolicyName :: Maybe Text
+    , _acspCookieName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -480,7 +480,7 @@ instance ToQuery AppCookieStickinessPolicy where
 -- | This data type is used as a response element in the DescribeLoadBalancers
 -- action to describe the configuration of the back-end server.
 data BackendServerDescription = BackendServerDescription
-    { _bsdInstancePort :: !(Maybe Integer)
+    { _bsdInstancePort :: Maybe Integer
     , _bsdPolicyNames :: [Text]
     } deriving (Show, Generic)
 
@@ -520,7 +520,7 @@ instance ToQuery BackendServerDescription where
 -- information, see Enable Connection Draining.
 data ConnectionDraining = ConnectionDraining
     { _cdEnabled :: !Bool
-    , _cdTimeout :: !(Maybe Integer)
+    , _cdTimeout :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -558,7 +558,7 @@ instance ToQuery ConnectionDraining where
 -- | A structure containing the configuration information for the new
 -- healthcheck.
 data HealthCheck = HealthCheck
-    { _hcTarget :: !Text
+    { _hcTarget :: Text
     , _hcInterval :: !Integer
     , _hcTimeout :: !Integer
     , _hcUnhealthyThreshold :: !Integer
@@ -641,10 +641,10 @@ instance ToQuery HealthCheck where
 
 -- | The InstanceState data type.
 data InstanceState = InstanceState
-    { _isInstanceId :: !(Maybe Text)
-    , _isState :: !(Maybe Text)
-    , _isReasonCode :: !(Maybe Text)
-    , _isDescription :: !(Maybe Text)
+    { _isInstanceId :: Maybe Text
+    , _isState :: Maybe Text
+    , _isReasonCode :: Maybe Text
+    , _isDescription :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -696,8 +696,8 @@ instance FromXML InstanceState where
 
 -- | The LBCookieStickinessPolicy data type.
 data LBCookieStickinessPolicy = LBCookieStickinessPolicy
-    { _lbcspPolicyName :: !(Maybe Text)
-    , _lbcspCookieExpirationPeriod :: !(Maybe Integer)
+    { _lbcspPolicyName :: Maybe Text
+    , _lbcspCookieExpirationPeriod :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -737,11 +737,11 @@ instance ToQuery LBCookieStickinessPolicy where
 
 -- | The Listener data type.
 data Listener = Listener
-    { _lProtocol :: !Text
+    { _lProtocol :: Text
     , _lLoadBalancerPort :: !Integer
-    , _lInstanceProtocol :: !(Maybe Text)
+    , _lInstanceProtocol :: Maybe Text
     , _lInstancePort :: !Integer
-    , _lSSLCertificateId :: !(Maybe Text)
+    , _lSSLCertificateId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -925,22 +925,22 @@ instance ToQuery LoadBalancerAttributes where
 
 -- | Contains the result of a successful invocation of DescribeLoadBalancers.
 data LoadBalancerDescription = LoadBalancerDescription
-    { _lbdLoadBalancerName :: !(Maybe Text)
-    , _lbdDNSName :: !(Maybe Text)
-    , _lbdCanonicalHostedZoneName :: !(Maybe Text)
-    , _lbdCanonicalHostedZoneNameID :: !(Maybe Text)
+    { _lbdLoadBalancerName :: Maybe Text
+    , _lbdDNSName :: Maybe Text
+    , _lbdCanonicalHostedZoneName :: Maybe Text
+    , _lbdCanonicalHostedZoneNameID :: Maybe Text
     , _lbdListenerDescriptions :: [ListenerDescription]
     , _lbdPolicies :: Maybe Policies
     , _lbdBackendServerDescriptions :: [BackendServerDescription]
     , _lbdAvailabilityZones :: [Text]
     , _lbdSubnets :: [Text]
-    , _lbdVPCId :: !(Maybe Text)
+    , _lbdVPCId :: Maybe Text
     , _lbdInstances :: [Instance]
     , _lbdHealthCheck :: Maybe HealthCheck
     , _lbdSourceSecurityGroup :: Maybe SourceSecurityGroup
     , _lbdSecurityGroups :: [Text]
-    , _lbdCreatedTime :: !(Maybe ISO8601)
-    , _lbdScheme :: !(Maybe Text)
+    , _lbdCreatedTime :: Maybe ISO8601
+    , _lbdScheme :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1151,8 +1151,8 @@ instance ToQuery Policies where
 -- | The PolicyAttribute data type. This data type contains a key/value pair
 -- that defines properties of a specific policy.
 data PolicyAttribute = PolicyAttribute
-    { _paAttributeName :: !(Maybe Text)
-    , _paAttributeValue :: !(Maybe Text)
+    { _paAttributeName :: Maybe Text
+    , _paAttributeValue :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1185,8 +1185,8 @@ instance ToQuery PolicyAttribute where
 -- | The PolicyAttributeDescription data type. This data type is used to
 -- describe the attributes and values associated with a policy.
 data PolicyAttributeDescription = PolicyAttributeDescription
-    { _padAttributeName :: !(Maybe Text)
-    , _padAttributeValue :: !(Maybe Text)
+    { _padAttributeName :: Maybe Text
+    , _padAttributeValue :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1224,11 +1224,11 @@ instance ToQuery PolicyAttributeDescription where
 -- | The PolicyAttributeTypeDescription data type. This data type is used to
 -- describe values that are acceptable for the policy attribute.
 data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription
-    { _patdAttributeName :: !(Maybe Text)
-    , _patdAttributeType :: !(Maybe Text)
-    , _patdDescription :: !(Maybe Text)
-    , _patdDefaultValue :: !(Maybe Text)
-    , _patdCardinality :: !(Maybe Text)
+    { _patdAttributeName :: Maybe Text
+    , _patdAttributeType :: Maybe Text
+    , _patdDescription :: Maybe Text
+    , _patdDefaultValue :: Maybe Text
+    , _patdCardinality :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1290,8 +1290,8 @@ instance ToQuery PolicyAttributeTypeDescription where
 
 -- | The PolicyDescription data type.
 data PolicyDescription = PolicyDescription
-    { _pdPolicyName :: !(Maybe Text)
-    , _pdPolicyTypeName :: !(Maybe Text)
+    { _pdPolicyName :: Maybe Text
+    , _pdPolicyTypeName :: Maybe Text
     , _pdPolicyAttributeDescriptions :: [PolicyAttributeDescription]
     } deriving (Show, Generic)
 
@@ -1337,8 +1337,8 @@ instance FromXML PolicyDescription where
 
 -- | The PolicyTypeDescription data type.
 data PolicyTypeDescription = PolicyTypeDescription
-    { _ptdPolicyTypeName :: !(Maybe Text)
-    , _ptdDescription :: !(Maybe Text)
+    { _ptdPolicyTypeName :: Maybe Text
+    , _ptdDescription :: Maybe Text
     , _ptdPolicyAttributeTypeDescriptions :: [PolicyAttributeTypeDescription]
     } deriving (Show, Generic)
 
@@ -1388,8 +1388,8 @@ instance FromXML PolicyTypeDescription where
 -- traffic from load balancers, add a security group rule to your back end
 -- instance that specifies this source security group as the inbound source.
 data SourceSecurityGroup = SourceSecurityGroup
-    { _ssgOwnerAlias :: !(Maybe Text)
-    , _ssgGroupName :: !(Maybe Text)
+    { _ssgOwnerAlias :: Maybe Text
+    , _ssgGroupName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1428,8 +1428,8 @@ instance ToQuery SourceSecurityGroup where
 -- | Metadata assigned to a load balancer consisting of key-value pair. For more
 -- information, see Tagging in the Elastic Load Balancing Developer Guide.
 data Tag = Tag
-    { _tKey :: !Text
-    , _tValue :: !(Maybe Text)
+    { _tKey :: Text
+    , _tValue :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1465,7 +1465,7 @@ instance ToQuery Tag where
 
 -- | The descriptions of all the tags associated with load balancer.
 data TagDescription = TagDescription
-    { _tdLoadBalancerName :: !(Maybe Text)
+    { _tdLoadBalancerName :: Maybe Text
     , _tdTags :: Maybe (List1 Tag)
     } deriving (Show, Generic)
 

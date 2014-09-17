@@ -50,10 +50,10 @@ import Network.AWS.CloudWatch.Types
 import Network.AWS.Prelude
 
 data ListMetrics = ListMetrics
-    { _lmNamespace :: !(Maybe Text)
-    , _lmMetricName :: !(Maybe Text)
+    { _lmNamespace :: Maybe Text
+    , _lmMetricName :: Maybe Text
     , _lmDimensions :: [DimensionFilter]
-    , _lmNextToken :: !(Maybe Text)
+    , _lmNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -100,7 +100,7 @@ instance ToQuery ListMetrics where
 -- | The output for the ListMetrics action.
 data ListMetricsResponse = ListMetricsResponse
     { _lmrMetrics :: [Metric]
-    , _lmrNextToken :: !(Maybe Text)
+    , _lmrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

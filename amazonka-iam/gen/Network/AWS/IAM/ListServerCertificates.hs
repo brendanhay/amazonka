@@ -57,9 +57,9 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data ListServerCertificates = ListServerCertificates
-    { _lscPathPrefix :: !(Maybe Text)
-    , _lscMarker :: !(Maybe Text)
-    , _lscMaxItems :: !(Maybe Integer)
+    { _lscPathPrefix :: Maybe Text
+    , _lscMarker :: Maybe Text
+    , _lscMaxItems :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -109,7 +109,7 @@ instance ToQuery ListServerCertificates where
 data ListServerCertificatesResponse = ListServerCertificatesResponse
     { _lscrServerCertificateMetadataList :: [ServerCertificateMetadata]
     , _lscrIsTruncated :: !Bool
-    , _lscrMarker :: !(Maybe Text)
+    , _lscrMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -55,8 +55,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data AssociateRouteTable = AssociateRouteTable
-    { _artSubnetId :: !Text
-    , _artRouteTableId :: !Text
+    { _artSubnetId :: Text
+    , _artRouteTableId :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

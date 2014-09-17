@@ -51,9 +51,9 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data UpdateServerCertificate = UpdateServerCertificate
-    { _uscServerCertificateName :: !Text
-    , _uscNewPath :: !(Maybe Text)
-    , _uscNewServerCertificateName :: !(Maybe Text)
+    { _uscServerCertificateName :: Text
+    , _uscNewPath :: Maybe Text
+    , _uscNewServerCertificateName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

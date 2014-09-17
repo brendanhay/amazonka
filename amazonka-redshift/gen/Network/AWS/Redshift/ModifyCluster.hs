@@ -78,21 +78,21 @@ import Network.AWS.Prelude
 
 -- | 
 data ModifyCluster = ModifyCluster
-    { _mcClusterIdentifier :: !Text
-    , _mcClusterType :: !(Maybe Text)
-    , _mcNodeType :: !(Maybe Text)
-    , _mcNumberOfNodes :: !(Maybe Integer)
+    { _mcClusterIdentifier :: Text
+    , _mcClusterType :: Maybe Text
+    , _mcNodeType :: Maybe Text
+    , _mcNumberOfNodes :: Maybe Integer
     , _mcClusterSecurityGroups :: [Text]
     , _mcVpcSecurityGroupIds :: [Text]
-    , _mcMasterUserPassword :: !(Maybe Text)
-    , _mcClusterParameterGroupName :: !(Maybe Text)
-    , _mcAutomatedSnapshotRetentionPeriod :: !(Maybe Integer)
-    , _mcPreferredMaintenanceWindow :: !(Maybe Text)
-    , _mcClusterVersion :: !(Maybe Text)
-    , _mcAllowVersionUpgrade :: !(Maybe Bool)
-    , _mcHsmClientCertificateIdentifier :: !(Maybe Text)
-    , _mcHsmConfigurationIdentifier :: !(Maybe Text)
-    , _mcNewClusterIdentifier :: !(Maybe Text)
+    , _mcMasterUserPassword :: Maybe Text
+    , _mcClusterParameterGroupName :: Maybe Text
+    , _mcAutomatedSnapshotRetentionPeriod :: Maybe Integer
+    , _mcPreferredMaintenanceWindow :: Maybe Text
+    , _mcClusterVersion :: Maybe Text
+    , _mcAllowVersionUpgrade :: Maybe Bool
+    , _mcHsmClientCertificateIdentifier :: Maybe Text
+    , _mcHsmConfigurationIdentifier :: Maybe Text
+    , _mcNewClusterIdentifier :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

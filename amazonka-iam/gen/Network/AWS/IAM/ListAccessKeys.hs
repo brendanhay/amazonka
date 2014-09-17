@@ -56,9 +56,9 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data ListAccessKeys = ListAccessKeys
-    { _lakUserName :: !(Maybe Text)
-    , _lakMarker :: !(Maybe Text)
-    , _lakMaxItems :: !(Maybe Integer)
+    { _lakUserName :: Maybe Text
+    , _lakMarker :: Maybe Text
+    , _lakMaxItems :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -105,7 +105,7 @@ instance ToQuery ListAccessKeys where
 data ListAccessKeysResponse = ListAccessKeysResponse
     { _lakrAccessKeyMetadata :: [AccessKeyMetadata]
     , _lakrIsTruncated :: !Bool
-    , _lakrMarker :: !(Maybe Text)
+    , _lakrMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -86,9 +86,9 @@ instance ToQuery AllocateAddress where
     toQuery = genericQuery def
 
 data AllocateAddressResponse = AllocateAddressResponse
-    { _aarPublicIp :: !(Maybe Text)
+    { _aarPublicIp :: Maybe Text
     , _aarDomain :: Maybe DomainType
-    , _aarAllocationId :: !(Maybe Text)
+    , _aarAllocationId :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

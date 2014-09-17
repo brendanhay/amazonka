@@ -66,7 +66,7 @@ import Network.AWS.Prelude
 
 -- | The input for the RegisterInstancesWithLoadBalancer action.
 data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer
-    { _riwlbLoadBalancerName :: !Text
+    { _riwlbLoadBalancerName :: Text
     , _riwlbInstances :: [Instance]
     } deriving (Show, Generic)
 

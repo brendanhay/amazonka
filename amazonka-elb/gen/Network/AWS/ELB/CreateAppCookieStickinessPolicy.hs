@@ -58,9 +58,9 @@ import Network.AWS.Prelude
 
 -- | The input for the CreateAppCookieStickinessPolicy action.
 data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy
-    { _cacspLoadBalancerName :: !Text
-    , _cacspPolicyName :: !Text
-    , _cacspCookieName :: !Text
+    { _cacspLoadBalancerName :: Text
+    , _cacspPolicyName :: Text
+    , _cacspCookieName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

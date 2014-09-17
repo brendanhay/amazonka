@@ -70,7 +70,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data CreateVpc = CreateVpc
-    { _cv1CidrBlock :: !Text
+    { _cv1CidrBlock :: Text
     , _cv1InstanceTenancy :: Maybe Tenancy
     } deriving (Show, Generic)
 

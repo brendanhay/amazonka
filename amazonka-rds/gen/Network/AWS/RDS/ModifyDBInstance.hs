@@ -68,24 +68,24 @@ import Network.AWS.Prelude
 
 -- | 
 data ModifyDBInstance = ModifyDBInstance
-    { _mdbiDBInstanceIdentifier :: !Text
-    , _mdbiAllocatedStorage :: !(Maybe Integer)
-    , _mdbiDBInstanceClass :: !(Maybe Text)
+    { _mdbiDBInstanceIdentifier :: Text
+    , _mdbiAllocatedStorage :: Maybe Integer
+    , _mdbiDBInstanceClass :: Maybe Text
     , _mdbiDBSecurityGroups :: [Text]
     , _mdbiVpcSecurityGroupIds :: [Text]
-    , _mdbiApplyImmediately :: !(Maybe Bool)
-    , _mdbiMasterUserPassword :: !(Maybe Text)
-    , _mdbiDBParameterGroupName :: !(Maybe Text)
-    , _mdbiBackupRetentionPeriod :: !(Maybe Integer)
-    , _mdbiPreferredBackupWindow :: !(Maybe Text)
-    , _mdbiPreferredMaintenanceWindow :: !(Maybe Text)
-    , _mdbiMultiAZ :: !(Maybe Bool)
-    , _mdbiEngineVersion :: !(Maybe Text)
-    , _mdbiAllowMajorVersionUpgrade :: !(Maybe Bool)
-    , _mdbiAutoMinorVersionUpgrade :: !(Maybe Bool)
-    , _mdbiIops :: !(Maybe Integer)
-    , _mdbiOptionGroupName :: !(Maybe Text)
-    , _mdbiNewDBInstanceIdentifier :: !(Maybe Text)
+    , _mdbiApplyImmediately :: Maybe Bool
+    , _mdbiMasterUserPassword :: Maybe Text
+    , _mdbiDBParameterGroupName :: Maybe Text
+    , _mdbiBackupRetentionPeriod :: Maybe Integer
+    , _mdbiPreferredBackupWindow :: Maybe Text
+    , _mdbiPreferredMaintenanceWindow :: Maybe Text
+    , _mdbiMultiAZ :: Maybe Bool
+    , _mdbiEngineVersion :: Maybe Text
+    , _mdbiAllowMajorVersionUpgrade :: Maybe Bool
+    , _mdbiAutoMinorVersionUpgrade :: Maybe Bool
+    , _mdbiIops :: Maybe Integer
+    , _mdbiOptionGroupName :: Maybe Text
+    , _mdbiNewDBInstanceIdentifier :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

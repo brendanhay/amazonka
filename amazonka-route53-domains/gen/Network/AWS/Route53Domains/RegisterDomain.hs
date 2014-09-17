@@ -96,16 +96,16 @@ import Network.AWS.Request.JSON
 
 -- | The RegisterDomain request includes the following elements.
 data RegisterDomain = RegisterDomain
-    { _rdDomainName :: !Text
-    , _rdIdnLangCode :: !(Maybe Text)
+    { _rdDomainName :: Text
+    , _rdIdnLangCode :: Maybe Text
     , _rdDurationInYears :: !Integer
-    , _rdAutoRenew :: !(Maybe Bool)
+    , _rdAutoRenew :: Maybe Bool
     , _rdAdminContact :: ContactDetail
     , _rdRegistrantContact :: ContactDetail
     , _rdTechContact :: ContactDetail
-    , _rdPrivacyProtectAdminContact :: !(Maybe Bool)
-    , _rdPrivacyProtectRegistrantContact :: !(Maybe Bool)
-    , _rdPrivacyProtectTechContact :: !(Maybe Bool)
+    , _rdPrivacyProtectAdminContact :: Maybe Bool
+    , _rdPrivacyProtectRegistrantContact :: Maybe Bool
+    , _rdPrivacyProtectTechContact :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

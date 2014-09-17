@@ -54,9 +54,9 @@ import Network.AWS.Request.JSON
 
 -- | The input for the EvaluateExpression action.
 data EvaluateExpression = EvaluateExpression
-    { _eePipelineId :: !Text
-    , _eeObjectId :: !Text
-    , _eeExpression :: !Text
+    { _eePipelineId :: Text
+    , _eeObjectId :: Text
+    , _eeExpression :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

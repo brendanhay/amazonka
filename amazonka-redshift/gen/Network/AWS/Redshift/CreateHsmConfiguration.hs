@@ -53,12 +53,12 @@ import Network.AWS.Prelude
 
 -- | 
 data CreateHsmConfiguration = CreateHsmConfiguration
-    { _chcHsmConfigurationIdentifier :: !Text
-    , _chcDescription :: !Text
-    , _chcHsmIpAddress :: !Text
-    , _chcHsmPartitionName :: !Text
-    , _chcHsmPartitionPassword :: !Text
-    , _chcHsmServerPublicCertificate :: !Text
+    { _chcHsmConfigurationIdentifier :: Text
+    , _chcDescription :: Text
+    , _chcHsmIpAddress :: Text
+    , _chcHsmPartitionName :: Text
+    , _chcHsmPartitionPassword :: Text
+    , _chcHsmServerPublicCertificate :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -59,8 +59,8 @@ import Network.AWS.Prelude
 
 -- | The input for DescribeStackEvents action.
 data DescribeStackEvents = DescribeStackEvents
-    { _dseStackName :: !Text
-    , _dseNextToken :: !(Maybe Text)
+    { _dseStackName :: Text
+    , _dseNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -97,7 +97,7 @@ instance ToQuery DescribeStackEvents where
 -- | The output for a DescribeStackEvents action.
 data DescribeStackEventsResponse = DescribeStackEventsResponse
     { _dserStackEvents :: [StackEvent]
-    , _dserNextToken :: !(Maybe Text)
+    , _dserNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

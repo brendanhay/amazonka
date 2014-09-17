@@ -79,12 +79,12 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data RegisterWorkflowType = RegisterWorkflowType
-    { _rwtDomain :: !Text
-    , _rwtName :: !Text
-    , _rwtVersion :: !Text
-    , _rwtDescription :: !(Maybe Text)
-    , _rwtDefaultTaskStartToCloseTimeout :: !(Maybe Text)
-    , _rwtDefaultExecutionStartToCloseTimeout :: !(Maybe Text)
+    { _rwtDomain :: Text
+    , _rwtName :: Text
+    , _rwtVersion :: Text
+    , _rwtDescription :: Maybe Text
+    , _rwtDefaultTaskStartToCloseTimeout :: Maybe Text
+    , _rwtDefaultExecutionStartToCloseTimeout :: Maybe Text
     , _rwtDefaultTaskList :: Maybe TaskList
     , _rwtDefaultChildPolicy :: Maybe ChildPolicy
     } deriving (Show, Generic)

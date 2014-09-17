@@ -59,12 +59,12 @@ import Network.AWS.Prelude
 
 -- | 
 data DescribeDBLogFiles = DescribeDBLogFiles
-    { _ddblfDBInstanceIdentifier :: !Text
-    , _ddblfFilenameContains :: !(Maybe Text)
-    , _ddblfFileLastWritten :: !(Maybe Integer)
-    , _ddblfFileSize :: !(Maybe Integer)
-    , _ddblfMaxRecords :: !(Maybe Integer)
-    , _ddblfMarker :: !(Maybe Text)
+    { _ddblfDBInstanceIdentifier :: Text
+    , _ddblfFilenameContains :: Maybe Text
+    , _ddblfFileLastWritten :: Maybe Integer
+    , _ddblfFileSize :: Maybe Integer
+    , _ddblfMaxRecords :: Maybe Integer
+    , _ddblfMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -139,7 +139,7 @@ instance ToQuery DescribeDBLogFiles where
 -- | The response from a call to DescribeDBLogFiles.
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse
     { _ddblfrDescribeDBLogFiles :: [DescribeDBLogFilesDetails]
-    , _ddblfrMarker :: !(Maybe Text)
+    , _ddblfrMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

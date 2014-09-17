@@ -76,7 +76,7 @@ instance ToXML GetStreamingDistributionConfig where
 -- | The returned result of the corresponding request.
 data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse
     { _gsdcrStreamingDistributionConfig :: Maybe StreamingDistributionConfig
-    , _gsdcrETag :: !(Maybe Text)
+    , _gsdcrETag :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

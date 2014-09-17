@@ -49,8 +49,8 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult
-    { _dtacrCheckId :: !Text
-    , _dtacrLanguage :: !(Maybe Text)
+    { _dtacrCheckId :: Text
+    , _dtacrLanguage :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

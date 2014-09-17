@@ -41,8 +41,8 @@ import Network.AWS.Types (Region)
 
 -- | The request to delete a origin access identity.
 data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
-    { _dcfoaiId :: !Text
-    , _dcfoaiIfMatch :: !(Maybe Text)
+    { _dcfoaiId :: Text
+    , _dcfoaiIfMatch :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

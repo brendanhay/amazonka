@@ -44,9 +44,9 @@ import Network.AWS.Request.JSON
 
 -- | This input determines which steps to list.
 data ListSteps = ListSteps
-    { _lsClusterId :: !Text
+    { _lsClusterId :: Text
     , _lsStepStates :: [StepState]
-    , _lsMarker :: !(Maybe Text)
+    , _lsMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -91,7 +91,7 @@ instance ToJSON ListSteps
 -- | This output contains the list of steps.
 data ListStepsResponse = ListStepsResponse
     { _lsrSteps :: [StepSummary]
-    , _lsrMarker :: !(Maybe Text)
+    , _lsrMarker :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

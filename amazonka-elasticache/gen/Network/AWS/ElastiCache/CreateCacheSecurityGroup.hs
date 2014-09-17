@@ -53,8 +53,8 @@ import Network.AWS.Prelude
 
 -- | Represents the input of a CreateCacheSecurityGroup operation.
 data CreateCacheSecurityGroup = CreateCacheSecurityGroup
-    { _ccsgCacheSecurityGroupName :: !Text
-    , _ccsgDescription :: !Text
+    { _ccsgCacheSecurityGroupName :: Text
+    , _ccsgDescription :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

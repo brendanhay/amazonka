@@ -67,9 +67,9 @@ import Network.AWS.Prelude
 
 -- | Input for SetTopicAttributes action.
 data SetTopicAttributes = SetTopicAttributes
-    { _staTopicArn :: !Text
-    , _staAttributeName :: !Text
-    , _staAttributeValue :: !(Maybe Text)
+    { _staTopicArn :: Text
+    , _staAttributeName :: Text
+    , _staAttributeValue :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

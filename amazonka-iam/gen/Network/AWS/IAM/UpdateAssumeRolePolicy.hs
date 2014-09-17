@@ -44,8 +44,8 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy
-    { _uarpRoleName :: !Text
-    , _uarpPolicyDocument :: !Text
+    { _uarpRoleName :: Text
+    , _uarpPolicyDocument :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -48,12 +48,12 @@ import Network.AWS.AutoScaling.Types
 import Network.AWS.Prelude
 
 data DescribeScheduledActions = DescribeScheduledActions
-    { _dsa2AutoScalingGroupName :: !(Maybe Text)
+    { _dsa2AutoScalingGroupName :: Maybe Text
     , _dsa2ScheduledActionNames :: [Text]
-    , _dsa2StartTime :: !(Maybe ISO8601)
-    , _dsa2EndTime :: !(Maybe ISO8601)
-    , _dsa2NextToken :: !(Maybe Text)
-    , _dsa2MaxRecords :: !(Maybe Integer)
+    , _dsa2StartTime :: Maybe ISO8601
+    , _dsa2EndTime :: Maybe ISO8601
+    , _dsa2NextToken :: Maybe Text
+    , _dsa2MaxRecords :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -126,7 +126,7 @@ instance ToQuery DescribeScheduledActions where
 -- regularly on a schedule.
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse
     { _dsarrScheduledUpdateGroupActions :: [ScheduledUpdateGroupAction]
-    , _dsarrNextToken :: !(Maybe Text)
+    , _dsarrNextToken :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

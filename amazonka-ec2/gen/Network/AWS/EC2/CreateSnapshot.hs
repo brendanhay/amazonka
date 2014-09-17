@@ -83,8 +83,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data CreateSnapshot = CreateSnapshot
-    { _cs1VolumeId :: !Text
-    , _cs1Description :: !(Maybe Text)
+    { _cs1VolumeId :: Text
+    , _cs1Description :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -115,16 +115,16 @@ instance ToQuery CreateSnapshot where
     toQuery = genericQuery def
 
 data CreateSnapshotResponse = CreateSnapshotResponse
-    { _csrrSnapshotId :: !(Maybe Text)
-    , _csrrVolumeId :: !(Maybe Text)
+    { _csrrSnapshotId :: Maybe Text
+    , _csrrVolumeId :: Maybe Text
     , _csrrState :: Maybe SnapshotState
-    , _csrrStartTime :: !(Maybe ISO8601)
-    , _csrrProgress :: !(Maybe Text)
-    , _csrrOwnerId :: !(Maybe Text)
-    , _csrrDescription :: !(Maybe Text)
-    , _csrrVolumeSize :: !(Maybe Integer)
-    , _csrrOwnerAlias :: !(Maybe Text)
-    , _csrrEncrypted :: !(Maybe Bool)
+    , _csrrStartTime :: Maybe ISO8601
+    , _csrrProgress :: Maybe Text
+    , _csrrOwnerId :: Maybe Text
+    , _csrrDescription :: Maybe Text
+    , _csrrVolumeSize :: Maybe Integer
+    , _csrrOwnerAlias :: Maybe Text
+    , _csrrEncrypted :: Maybe Bool
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

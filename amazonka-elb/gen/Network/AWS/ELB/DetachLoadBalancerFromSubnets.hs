@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 
 -- | The input for the DetachLoadBalancerFromSubnets action.
 data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets
-    { _dlbfsLoadBalancerName :: !Text
+    { _dlbfsLoadBalancerName :: Text
     , _dlbfsSubnets :: [Text]
     } deriving (Show, Generic)
 

@@ -55,9 +55,9 @@ import Network.AWS.Request.JSON
 
 -- | The input for the ReportTaskRunnerHeartbeat action.
 data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat
-    { _rtrhTaskrunnerId :: !Text
-    , _rtrhWorkerGroup :: !(Maybe Text)
-    , _rtrhHostname :: !(Maybe Text)
+    { _rtrhTaskrunnerId :: Text
+    , _rtrhWorkerGroup :: Maybe Text
+    , _rtrhHostname :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

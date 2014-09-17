@@ -55,14 +55,14 @@ import Network.AWS.Types (Region)
 -- | &gt;A complex type that contains information about the request to update a
 -- health check.
 data UpdateHealthCheck = UpdateHealthCheck
-    { _uhcHealthCheckId :: !Text
-    , _uhcHealthCheckVersion :: !(Maybe Integer)
-    , _uhcIPAddress :: !(Maybe Text)
-    , _uhcPort :: !(Maybe Integer)
-    , _uhcResourcePath :: !(Maybe Text)
-    , _uhcFullyQualifiedDomainName :: !(Maybe Text)
-    , _uhcSearchString :: !(Maybe Text)
-    , _uhcFailureThreshold :: !(Maybe Integer)
+    { _uhcHealthCheckId :: Text
+    , _uhcHealthCheckVersion :: Maybe Integer
+    , _uhcIPAddress :: Maybe Text
+    , _uhcPort :: Maybe Integer
+    , _uhcResourcePath :: Maybe Text
+    , _uhcFullyQualifiedDomainName :: Maybe Text
+    , _uhcSearchString :: Maybe Text
+    , _uhcFailureThreshold :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

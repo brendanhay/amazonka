@@ -72,9 +72,9 @@ import Network.AWS.Prelude
 
 -- | Input for CreatePlatformEndpoint action.
 data CreatePlatformEndpoint = CreatePlatformEndpoint
-    { _cpePlatformApplicationArn :: !Text
-    , _cpeToken :: !Text
-    , _cpeCustomUserData :: !(Maybe Text)
+    { _cpePlatformApplicationArn :: Text
+    , _cpeToken :: Text
+    , _cpeCustomUserData :: Maybe Text
     , _cpeAttributes :: Map Text Text
     } deriving (Show, Generic)
 

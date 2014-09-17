@@ -45,10 +45,10 @@ import Network.AWS.Prelude
 
 -- | 
 data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs
-    { _secnameSourceEnvironmentId :: !(Maybe Text)
-    , _secnameSourceEnvironmentName :: !(Maybe Text)
-    , _secnameDestinationEnvironmentId :: !(Maybe Text)
-    , _secnameDestinationEnvironmentName :: !(Maybe Text)
+    { _secnameSourceEnvironmentId :: Maybe Text
+    , _secnameSourceEnvironmentName :: Maybe Text
+    , _secnameDestinationEnvironmentId :: Maybe Text
+    , _secnameDestinationEnvironmentName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

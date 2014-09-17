@@ -61,8 +61,8 @@ import Network.AWS.Request.JSON
 -- DeleteChapCredentialsInput$InitiatorName
 -- DeleteChapCredentialsInput$TargetARN.
 data DeleteChapCredentials = DeleteChapCredentials
-    { _dccTargetARN :: !Text
-    , _dccInitiatorName :: !Text
+    { _dccTargetARN :: Text
+    , _dccInitiatorName :: Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -103,8 +103,8 @@ instance ToJSON DeleteChapCredentials
 
 -- | A JSON object containing the following fields:.
 data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse
-    { _dccrTargetARN :: !(Maybe Text)
-    , _dccrInitiatorName :: !(Maybe Text)
+    { _dccrTargetARN :: Maybe Text
+    , _dccrInitiatorName :: Maybe Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

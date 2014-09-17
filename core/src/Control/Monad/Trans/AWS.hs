@@ -45,6 +45,7 @@ module Control.Monad.Trans.AWS
 
     -- * Regionalisation
     , Region      (..)
+    , region
     , within
 
     -- * Helpers
@@ -199,6 +200,10 @@ whenDebug f = do
     case l of
         Debug _ -> f
         _       -> return ()
+
+-- | Inspect the current scopes' 'Region'.
+region :: MonadReader Env m => m Region
+region = view envRegion
 
 -- | Scope a monadic action within the specific 'Region'.
 within :: MonadReader Env m => Region -> m a -> m a

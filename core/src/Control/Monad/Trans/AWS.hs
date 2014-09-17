@@ -63,14 +63,13 @@ module Control.Monad.Trans.AWS
 
     -- * Asynchronous actions
     , Async.async
-    , wait
+    , Async.wait
 
     -- * Types
     , module Network.AWS.Types
     ) where
 
 import           Control.Applicative
-import           Control.Concurrent.Async.Lifted (Async)
 import qualified Control.Concurrent.Async.Lifted as Async
 import           Control.Lens
 import           Control.Monad.Base
@@ -271,10 +270,10 @@ paginateCatch rq = scoped (`AWS.paginate` rq)
 
 -- | Wait for an asynchronous computation initiated by 'async' to complete and
 -- raise any returned error case using 'hoistEither'.
-wait :: (MonadBaseControl IO m, MonadError Error m, AWSError e)
-     => Async (StM m (Either e a))
-     -> m a
-wait = Async.wait >=> hoistEither
+-- wait :: (MonadBaseControl IO m, MonadError Error m, AWSError e)
+--      => Async (StM m (Either e a))
+--      -> m a
+-- wait = Async.wait >=> hoistEither
 
 -- | Presign a URL with expiry to be used at a later time.
 --

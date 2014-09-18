@@ -42,14 +42,14 @@ module Network.AWS.EC2.DescribeExportTasks
     -- * Request
       DescribeExportTasks
     -- ** Request constructor
-    , mkDescribeExportTasks
+    , describeExportTasks
     -- ** Request lenses
     , detExportTaskIds
 
     -- * Response
     , DescribeExportTasksResponse
     -- ** Response constructor
-    , mkDescribeExportTasksResponse
+    , describeExportTasksResponse
     -- ** Response lenses
     , detrExportTasks
     ) where
@@ -69,8 +69,8 @@ newtype DescribeExportTasks = DescribeExportTasks
 --
 -- * @ExportTaskIds ::@ @[Text]@
 --
-mkDescribeExportTasks :: DescribeExportTasks
-mkDescribeExportTasks = DescribeExportTasks
+describeExportTasks :: DescribeExportTasks
+describeExportTasks = DescribeExportTasks
     { _detExportTaskIds = mempty
     }
 
@@ -95,8 +95,8 @@ newtype DescribeExportTasksResponse = DescribeExportTasksResponse
 --
 -- * @ExportTasks ::@ @[ExportTask]@
 --
-mkDescribeExportTasksResponse :: DescribeExportTasksResponse
-mkDescribeExportTasksResponse = DescribeExportTasksResponse
+describeExportTasksResponse :: DescribeExportTasksResponse
+describeExportTasksResponse = DescribeExportTasksResponse
     { _detrExportTasks = mempty
     }
 

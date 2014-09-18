@@ -48,14 +48,14 @@ module Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
     -- * Request
       DescribeCachediSCSIVolumes
     -- ** Request constructor
-    , mkDescribeCachediSCSIVolumes
+    , describeCachediSCSIVolumes
     -- ** Request lenses
     , dcscsivVolumeARNs
 
     -- * Response
     , DescribeCachediSCSIVolumesResponse
     -- ** Response constructor
-    , mkDescribeCachediSCSIVolumesResponse
+    , describeCachediSCSIVolumesResponse
     -- ** Response lenses
     , dcscsivrCachediSCSIVolumes
     ) where
@@ -75,9 +75,9 @@ newtype DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumes
 --
 -- * @VolumeARNs ::@ @[Text]@
 --
-mkDescribeCachediSCSIVolumes :: [Text] -- ^ 'dcscsivVolumeARNs'
+describeCachediSCSIVolumes :: [Text] -- ^ 'dcscsivVolumeARNs'
                              -> DescribeCachediSCSIVolumes
-mkDescribeCachediSCSIVolumes p1 = DescribeCachediSCSIVolumes
+describeCachediSCSIVolumes p1 = DescribeCachediSCSIVolumes
     { _dcscsivVolumeARNs = p1
     }
 
@@ -107,8 +107,8 @@ newtype DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse
 --
 -- * @CachediSCSIVolumes ::@ @[CachediSCSIVolumeInformation]@
 --
-mkDescribeCachediSCSIVolumesResponse :: DescribeCachediSCSIVolumesResponse
-mkDescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse
+describeCachediSCSIVolumesResponse :: DescribeCachediSCSIVolumesResponse
+describeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse
     { _dcscsivrCachediSCSIVolumes = mempty
     }
 

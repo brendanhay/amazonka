@@ -88,7 +88,7 @@ module Network.AWS.EC2.DescribeInstanceStatus
     -- * Request
       DescribeInstanceStatus
     -- ** Request constructor
-    , mkDescribeInstanceStatus
+    , describeInstanceStatus
     -- ** Request lenses
     , disInstanceIds
     , disFilters
@@ -99,7 +99,7 @@ module Network.AWS.EC2.DescribeInstanceStatus
     -- * Response
     , DescribeInstanceStatusResponse
     -- ** Response constructor
-    , mkDescribeInstanceStatusResponse
+    , describeInstanceStatusResponse
     -- ** Response lenses
     , disrInstanceStatuses
     , disrNextToken
@@ -132,8 +132,8 @@ data DescribeInstanceStatus = DescribeInstanceStatus
 --
 -- * @IncludeAllInstances ::@ @Maybe Bool@
 --
-mkDescribeInstanceStatus :: DescribeInstanceStatus
-mkDescribeInstanceStatus = DescribeInstanceStatus
+describeInstanceStatus :: DescribeInstanceStatus
+describeInstanceStatus = DescribeInstanceStatus
     { _disInstanceIds = mempty
     , _disFilters = mempty
     , _disNextToken = Nothing
@@ -202,8 +202,8 @@ data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeInstanceStatusResponse :: DescribeInstanceStatusResponse
-mkDescribeInstanceStatusResponse = DescribeInstanceStatusResponse
+describeInstanceStatusResponse :: DescribeInstanceStatusResponse
+describeInstanceStatusResponse = DescribeInstanceStatusResponse
     { _disrInstanceStatuses = mempty
     , _disrNextToken = Nothing
     }

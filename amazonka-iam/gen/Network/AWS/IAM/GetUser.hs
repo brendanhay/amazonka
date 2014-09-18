@@ -30,14 +30,14 @@ module Network.AWS.IAM.GetUser
     -- * Request
       GetUser
     -- ** Request constructor
-    , mkGetUser
+    , getUser
     -- ** Request lenses
     , guUserName
 
     -- * Response
     , GetUserResponse
     -- ** Response constructor
-    , mkGetUserResponse
+    , getUserResponse
     -- ** Response lenses
     , gurUser
     ) where
@@ -57,8 +57,8 @@ newtype GetUser = GetUser
 --
 -- * @UserName ::@ @Maybe Text@
 --
-mkGetUser :: GetUser
-mkGetUser = GetUser
+getUser :: GetUser
+getUser = GetUser
     { _guUserName = Nothing
     }
 
@@ -84,9 +84,9 @@ newtype GetUserResponse = GetUserResponse
 --
 -- * @User ::@ @User@
 --
-mkGetUserResponse :: User -- ^ 'gurUser'
+getUserResponse :: User -- ^ 'gurUser'
                   -> GetUserResponse
-mkGetUserResponse p1 = GetUserResponse
+getUserResponse p1 = GetUserResponse
     { _gurUser = p1
     }
 

@@ -42,14 +42,14 @@ module Network.AWS.Route53Domains.DisableDomainTransferLock
     -- * Request
       DisableDomainTransferLock
     -- ** Request constructor
-    , mkDisableDomainTransferLock
+    , disableDomainTransferLock
     -- ** Request lenses
     , ddtlDomainName
 
     -- * Response
     , DisableDomainTransferLockResponse
     -- ** Response constructor
-    , mkDisableDomainTransferLockResponse
+    , disableDomainTransferLockResponse
     -- ** Response lenses
     , ddtlrOperationId
     ) where
@@ -70,9 +70,9 @@ newtype DisableDomainTransferLock = DisableDomainTransferLock
 --
 -- * @DomainName ::@ @Text@
 --
-mkDisableDomainTransferLock :: Text -- ^ 'ddtlDomainName'
+disableDomainTransferLock :: Text -- ^ 'ddtlDomainName'
                             -> DisableDomainTransferLock
-mkDisableDomainTransferLock p1 = DisableDomainTransferLock
+disableDomainTransferLock p1 = DisableDomainTransferLock
     { _ddtlDomainName = p1
     }
 
@@ -105,9 +105,9 @@ newtype DisableDomainTransferLockResponse = DisableDomainTransferLockResponse
 --
 -- * @OperationId ::@ @Text@
 --
-mkDisableDomainTransferLockResponse :: Text -- ^ 'ddtlrOperationId'
+disableDomainTransferLockResponse :: Text -- ^ 'ddtlrOperationId'
                                     -> DisableDomainTransferLockResponse
-mkDisableDomainTransferLockResponse p1 = DisableDomainTransferLockResponse
+disableDomainTransferLockResponse p1 = DisableDomainTransferLockResponse
     { _ddtlrOperationId = p1
     }
 

@@ -27,7 +27,7 @@ module Network.AWS.S3.ListObjects
     -- ** Request alias
     , GetBucket
     -- ** Request constructor
-    , mkListObjects
+    , listObjects
     -- ** Request lenses
     , loBucket
     , loDelimiter
@@ -39,7 +39,7 @@ module Network.AWS.S3.ListObjects
     -- * Response
     , ListObjectsResponse
     -- ** Response constructor
-    , mkListObjectsResponse
+    , listObjectsResponse
     -- ** Response lenses
     , lorIsTruncated
     , lorMarker
@@ -85,9 +85,9 @@ data ListObjects = ListObjects
 --
 -- * @Prefix ::@ @Maybe Text@
 --
-mkListObjects :: BucketName -- ^ 'loBucket'
+listObjects :: BucketName -- ^ 'loBucket'
               -> ListObjects
-mkListObjects p1 = ListObjects
+listObjects p1 = ListObjects
     { _loBucket = p1
     , _loDelimiter = Nothing
     , _loEncodingType = Nothing
@@ -170,10 +170,10 @@ data ListObjectsResponse = ListObjectsResponse
 --
 -- * @EncodingType ::@ @Maybe EncodingType@
 --
-mkListObjectsResponse :: Bool -- ^ 'lorIsTruncated'
+listObjectsResponse :: Bool -- ^ 'lorIsTruncated'
                       -> BucketName -- ^ 'lorName'
                       -> ListObjectsResponse
-mkListObjectsResponse p1 p5 = ListObjectsResponse
+listObjectsResponse p1 p5 = ListObjectsResponse
     { _lorIsTruncated = p1
     , _lorMarker = Nothing
     , _lorNextMarker = Nothing

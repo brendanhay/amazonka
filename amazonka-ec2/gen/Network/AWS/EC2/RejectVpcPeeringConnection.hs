@@ -33,14 +33,14 @@ module Network.AWS.EC2.RejectVpcPeeringConnection
     -- * Request
       RejectVpcPeeringConnection
     -- ** Request constructor
-    , mkRejectVpcPeeringConnection
+    , rejectVpcPeeringConnection
     -- ** Request lenses
     , rvpcVpcPeeringConnectionId
 
     -- * Response
     , RejectVpcPeeringConnectionResponse
     -- ** Response constructor
-    , mkRejectVpcPeeringConnectionResponse
+    , rejectVpcPeeringConnectionResponse
     -- ** Response lenses
     , rvpcrReturn
     ) where
@@ -60,9 +60,9 @@ newtype RejectVpcPeeringConnection = RejectVpcPeeringConnection
 --
 -- * @VpcPeeringConnectionId ::@ @Text@
 --
-mkRejectVpcPeeringConnection :: Text -- ^ 'rvpcVpcPeeringConnectionId'
+rejectVpcPeeringConnection :: Text -- ^ 'rvpcVpcPeeringConnectionId'
                              -> RejectVpcPeeringConnection
-mkRejectVpcPeeringConnection p1 = RejectVpcPeeringConnection
+rejectVpcPeeringConnection p1 = RejectVpcPeeringConnection
     { _rvpcVpcPeeringConnectionId = p1
     }
 
@@ -88,8 +88,8 @@ newtype RejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
 --
 -- * @Return ::@ @Maybe Bool@
 --
-mkRejectVpcPeeringConnectionResponse :: RejectVpcPeeringConnectionResponse
-mkRejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
+rejectVpcPeeringConnectionResponse :: RejectVpcPeeringConnectionResponse
+rejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
     { _rvpcrReturn = Nothing
     }
 

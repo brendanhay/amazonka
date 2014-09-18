@@ -35,14 +35,14 @@ module Network.AWS.ElasticTranscoder.DeletePreset
     -- * Request
       DeletePreset
     -- ** Request constructor
-    , mkDeletePreset
+    , deletePreset
     -- ** Request lenses
     , dp1Id
 
     -- * Response
     , DeletePresetResponse
     -- ** Response constructor
-    , mkDeletePresetResponse
+    , deletePresetResponse
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
@@ -61,9 +61,9 @@ newtype DeletePreset = DeletePreset
 --
 -- * @Id ::@ @Text@
 --
-mkDeletePreset :: Text -- ^ 'dp1Id'
+deletePreset :: Text -- ^ 'dp1Id'
                -> DeletePreset
-mkDeletePreset p1 = DeletePreset
+deletePreset p1 = DeletePreset
     { _dp1Id = p1
     }
 
@@ -88,8 +88,8 @@ data DeletePresetResponse = DeletePresetResponse
 -- a valid 'DeletePresetResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeletePresetResponse :: DeletePresetResponse
-mkDeletePresetResponse = DeletePresetResponse
+deletePresetResponse :: DeletePresetResponse
+deletePresetResponse = DeletePresetResponse
 
 instance AWSRequest DeletePreset where
     type Sv DeletePreset = ElasticTranscoder

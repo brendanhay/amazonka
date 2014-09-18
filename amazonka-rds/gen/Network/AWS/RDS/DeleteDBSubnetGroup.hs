@@ -28,14 +28,14 @@ module Network.AWS.RDS.DeleteDBSubnetGroup
     -- * Request
       DeleteDBSubnetGroup
     -- ** Request constructor
-    , mkDeleteDBSubnetGroup
+    , deleteDBSubnetGroup
     -- ** Request lenses
     , ddbsg1DBSubnetGroupName
 
     -- * Response
     , DeleteDBSubnetGroupResponse
     -- ** Response constructor
-    , mkDeleteDBSubnetGroupResponse
+    , deleteDBSubnetGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -54,9 +54,9 @@ newtype DeleteDBSubnetGroup = DeleteDBSubnetGroup
 --
 -- * @DBSubnetGroupName ::@ @Text@
 --
-mkDeleteDBSubnetGroup :: Text -- ^ 'ddbsg1DBSubnetGroupName'
+deleteDBSubnetGroup :: Text -- ^ 'ddbsg1DBSubnetGroupName'
                       -> DeleteDBSubnetGroup
-mkDeleteDBSubnetGroup p1 = DeleteDBSubnetGroup
+deleteDBSubnetGroup p1 = DeleteDBSubnetGroup
     { _ddbsg1DBSubnetGroupName = p1
     }
 
@@ -79,8 +79,8 @@ data DeleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse
 -- a valid 'DeleteDBSubnetGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteDBSubnetGroupResponse :: DeleteDBSubnetGroupResponse
-mkDeleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse
+deleteDBSubnetGroupResponse :: DeleteDBSubnetGroupResponse
+deleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse
 
 instance AWSRequest DeleteDBSubnetGroup where
     type Sv DeleteDBSubnetGroup = RDS

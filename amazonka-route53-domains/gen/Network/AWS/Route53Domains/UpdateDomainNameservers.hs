@@ -43,7 +43,7 @@ module Network.AWS.Route53Domains.UpdateDomainNameservers
     -- * Request
       UpdateDomainNameservers
     -- ** Request constructor
-    , mkUpdateDomainNameservers
+    , updateDomainNameservers
     -- ** Request lenses
     , udnDomainName
     , udnNameservers
@@ -51,7 +51,7 @@ module Network.AWS.Route53Domains.UpdateDomainNameservers
     -- * Response
     , UpdateDomainNameserversResponse
     -- ** Response constructor
-    , mkUpdateDomainNameserversResponse
+    , updateDomainNameserversResponse
     -- ** Response lenses
     , udnrOperationId
     ) where
@@ -75,10 +75,10 @@ data UpdateDomainNameservers = UpdateDomainNameservers
 --
 -- * @Nameservers ::@ @[Nameserver]@
 --
-mkUpdateDomainNameservers :: Text -- ^ 'udnDomainName'
+updateDomainNameservers :: Text -- ^ 'udnDomainName'
                           -> [Nameserver] -- ^ 'udnNameservers'
                           -> UpdateDomainNameservers
-mkUpdateDomainNameservers p1 p2 = UpdateDomainNameservers
+updateDomainNameservers p1 p2 = UpdateDomainNameservers
     { _udnDomainName = p1
     , _udnNameservers = p2
     }
@@ -117,9 +117,9 @@ newtype UpdateDomainNameserversResponse = UpdateDomainNameserversResponse
 --
 -- * @OperationId ::@ @Text@
 --
-mkUpdateDomainNameserversResponse :: Text -- ^ 'udnrOperationId'
+updateDomainNameserversResponse :: Text -- ^ 'udnrOperationId'
                                   -> UpdateDomainNameserversResponse
-mkUpdateDomainNameserversResponse p1 = UpdateDomainNameserversResponse
+updateDomainNameserversResponse p1 = UpdateDomainNameserversResponse
     { _udnrOperationId = p1
     }
 

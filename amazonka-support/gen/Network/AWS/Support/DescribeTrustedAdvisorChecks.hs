@@ -26,14 +26,14 @@ module Network.AWS.Support.DescribeTrustedAdvisorChecks
     -- * Request
       DescribeTrustedAdvisorChecks
     -- ** Request constructor
-    , mkDescribeTrustedAdvisorChecks
+    , describeTrustedAdvisorChecks
     -- ** Request lenses
     , dtacLanguage
 
     -- * Response
     , DescribeTrustedAdvisorChecksResponse
     -- ** Response constructor
-    , mkDescribeTrustedAdvisorChecksResponse
+    , describeTrustedAdvisorChecksResponse
     -- ** Response lenses
     , dtacr1Checks
     ) where
@@ -53,9 +53,9 @@ newtype DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks
 --
 -- * @Language ::@ @Text@
 --
-mkDescribeTrustedAdvisorChecks :: Text -- ^ 'dtacLanguage'
+describeTrustedAdvisorChecks :: Text -- ^ 'dtacLanguage'
                                -> DescribeTrustedAdvisorChecks
-mkDescribeTrustedAdvisorChecks p1 = DescribeTrustedAdvisorChecks
+describeTrustedAdvisorChecks p1 = DescribeTrustedAdvisorChecks
     { _dtacLanguage = p1
     }
 
@@ -88,9 +88,9 @@ newtype DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksRespo
 --
 -- * @Checks ::@ @[TrustedAdvisorCheckDescription]@
 --
-mkDescribeTrustedAdvisorChecksResponse :: [TrustedAdvisorCheckDescription] -- ^ 'dtacr1Checks'
+describeTrustedAdvisorChecksResponse :: [TrustedAdvisorCheckDescription] -- ^ 'dtacr1Checks'
                                        -> DescribeTrustedAdvisorChecksResponse
-mkDescribeTrustedAdvisorChecksResponse p1 = DescribeTrustedAdvisorChecksResponse
+describeTrustedAdvisorChecksResponse p1 = DescribeTrustedAdvisorChecksResponse
     { _dtacr1Checks = p1
     }
 

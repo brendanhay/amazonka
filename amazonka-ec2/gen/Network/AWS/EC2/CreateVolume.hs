@@ -46,7 +46,7 @@ module Network.AWS.EC2.CreateVolume
     -- * Request
       CreateVolume
     -- ** Request constructor
-    , mkCreateVolume
+    , createVolume
     -- ** Request lenses
     , cvSize
     , cvSnapshotId
@@ -58,7 +58,7 @@ module Network.AWS.EC2.CreateVolume
     -- * Response
     , CreateVolumeResponse
     -- ** Response constructor
-    , mkCreateVolumeResponse
+    , createVolumeResponse
     -- ** Response lenses
     , cvrVolumeId
     , cvrSize
@@ -103,9 +103,9 @@ data CreateVolume = CreateVolume
 --
 -- * @Encrypted ::@ @Maybe Bool@
 --
-mkCreateVolume :: Text -- ^ 'cvAvailabilityZone'
+createVolume :: Text -- ^ 'cvAvailabilityZone'
                -> CreateVolume
-mkCreateVolume p3 = CreateVolume
+createVolume p3 = CreateVolume
     { _cvSize = Nothing
     , _cvSnapshotId = Nothing
     , _cvAvailabilityZone = p3
@@ -193,8 +193,8 @@ data CreateVolumeResponse = CreateVolumeResponse
 --
 -- * @Encrypted ::@ @Maybe Bool@
 --
-mkCreateVolumeResponse :: CreateVolumeResponse
-mkCreateVolumeResponse = CreateVolumeResponse
+createVolumeResponse :: CreateVolumeResponse
+createVolumeResponse = CreateVolumeResponse
     { _cvrVolumeId = Nothing
     , _cvrSize = Nothing
     , _cvrSnapshotId = Nothing

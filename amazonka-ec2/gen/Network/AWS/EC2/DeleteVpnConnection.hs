@@ -32,14 +32,14 @@ module Network.AWS.EC2.DeleteVpnConnection
     -- * Request
       DeleteVpnConnection
     -- ** Request constructor
-    , mkDeleteVpnConnection
+    , deleteVpnConnection
     -- ** Request lenses
     , dvcVpnConnectionId
 
     -- * Response
     , DeleteVpnConnectionResponse
     -- ** Response constructor
-    , mkDeleteVpnConnectionResponse
+    , deleteVpnConnectionResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -57,9 +57,9 @@ newtype DeleteVpnConnection = DeleteVpnConnection
 --
 -- * @VpnConnectionId ::@ @Text@
 --
-mkDeleteVpnConnection :: Text -- ^ 'dvcVpnConnectionId'
+deleteVpnConnection :: Text -- ^ 'dvcVpnConnectionId'
                       -> DeleteVpnConnection
-mkDeleteVpnConnection p1 = DeleteVpnConnection
+deleteVpnConnection p1 = DeleteVpnConnection
     { _dvcVpnConnectionId = p1
     }
 
@@ -78,8 +78,8 @@ data DeleteVpnConnectionResponse = DeleteVpnConnectionResponse
 -- a valid 'DeleteVpnConnectionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteVpnConnectionResponse :: DeleteVpnConnectionResponse
-mkDeleteVpnConnectionResponse = DeleteVpnConnectionResponse
+deleteVpnConnectionResponse :: DeleteVpnConnectionResponse
+deleteVpnConnectionResponse = DeleteVpnConnectionResponse
 
 instance AWSRequest DeleteVpnConnection where
     type Sv DeleteVpnConnection = EC2

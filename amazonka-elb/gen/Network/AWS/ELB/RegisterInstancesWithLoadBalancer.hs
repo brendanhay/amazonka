@@ -47,7 +47,7 @@ module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     -- * Request
       RegisterInstancesWithLoadBalancer
     -- ** Request constructor
-    , mkRegisterInstancesWithLoadBalancer
+    , registerInstancesWithLoadBalancer
     -- ** Request lenses
     , riwlbLoadBalancerName
     , riwlbInstances
@@ -55,7 +55,7 @@ module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     -- * Response
     , RegisterInstancesWithLoadBalancerResponse
     -- ** Response constructor
-    , mkRegisterInstancesWithLoadBalancerResponse
+    , registerInstancesWithLoadBalancerResponse
     -- ** Response lenses
     , riwlbrInstances
     ) where
@@ -79,10 +79,10 @@ data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer
 --
 -- * @Instances ::@ @[Instance]@
 --
-mkRegisterInstancesWithLoadBalancer :: Text -- ^ 'riwlbLoadBalancerName'
+registerInstancesWithLoadBalancer :: Text -- ^ 'riwlbLoadBalancerName'
                                     -> [Instance] -- ^ 'riwlbInstances'
                                     -> RegisterInstancesWithLoadBalancer
-mkRegisterInstancesWithLoadBalancer p1 p2 = RegisterInstancesWithLoadBalancer
+registerInstancesWithLoadBalancer p1 p2 = RegisterInstancesWithLoadBalancer
     { _riwlbLoadBalancerName = p1
     , _riwlbInstances = p2
     }
@@ -114,8 +114,8 @@ newtype RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBal
 --
 -- * @Instances ::@ @[Instance]@
 --
-mkRegisterInstancesWithLoadBalancerResponse :: RegisterInstancesWithLoadBalancerResponse
-mkRegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse
+registerInstancesWithLoadBalancerResponse :: RegisterInstancesWithLoadBalancerResponse
+registerInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse
     { _riwlbrInstances = mempty
     }
 

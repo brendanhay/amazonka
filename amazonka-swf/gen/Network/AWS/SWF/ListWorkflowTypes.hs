@@ -51,7 +51,7 @@ module Network.AWS.SWF.ListWorkflowTypes
     -- * Request
       ListWorkflowTypes
     -- ** Request constructor
-    , mkListWorkflowTypes
+    , listWorkflowTypes
     -- ** Request lenses
     , lwtDomain
     , lwtName
@@ -63,7 +63,7 @@ module Network.AWS.SWF.ListWorkflowTypes
     -- * Response
     , ListWorkflowTypesResponse
     -- ** Response constructor
-    , mkListWorkflowTypesResponse
+    , listWorkflowTypesResponse
     -- ** Response lenses
     , lwtrTypeInfos
     , lwtrNextPageToken
@@ -99,10 +99,10 @@ data ListWorkflowTypes = ListWorkflowTypes
 --
 -- * @ReverseOrder ::@ @Maybe Bool@
 --
-mkListWorkflowTypes :: Text -- ^ 'lwtDomain'
+listWorkflowTypes :: Text -- ^ 'lwtDomain'
                     -> RegistrationStatus -- ^ 'lwtRegistrationStatus'
                     -> ListWorkflowTypes
-mkListWorkflowTypes p1 p3 = ListWorkflowTypes
+listWorkflowTypes p1 p3 = ListWorkflowTypes
     { _lwtDomain = p1
     , _lwtName = Nothing
     , _lwtRegistrationStatus = p3
@@ -171,9 +171,9 @@ data ListWorkflowTypesResponse = ListWorkflowTypesResponse
 --
 -- * @NextPageToken ::@ @Maybe Text@
 --
-mkListWorkflowTypesResponse :: [WorkflowTypeInfo] -- ^ 'lwtrTypeInfos'
+listWorkflowTypesResponse :: [WorkflowTypeInfo] -- ^ 'lwtrTypeInfos'
                             -> ListWorkflowTypesResponse
-mkListWorkflowTypesResponse p1 = ListWorkflowTypesResponse
+listWorkflowTypesResponse p1 = ListWorkflowTypesResponse
     { _lwtrTypeInfos = p1
     , _lwtrNextPageToken = Nothing
     }

@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.PutNotificationConfiguration
     -- * Request
       PutNotificationConfiguration
     -- ** Request constructor
-    , mkPutNotificationConfiguration
+    , putNotificationConfiguration
     -- ** Request lenses
     , pncAutoScalingGroupName
     , pncTopicARN
@@ -37,7 +37,7 @@ module Network.AWS.AutoScaling.PutNotificationConfiguration
     -- * Response
     , PutNotificationConfigurationResponse
     -- ** Response constructor
-    , mkPutNotificationConfigurationResponse
+    , putNotificationConfigurationResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -61,11 +61,11 @@ data PutNotificationConfiguration = PutNotificationConfiguration
 --
 -- * @NotificationTypes ::@ @[Text]@
 --
-mkPutNotificationConfiguration :: Text -- ^ 'pncAutoScalingGroupName'
+putNotificationConfiguration :: Text -- ^ 'pncAutoScalingGroupName'
                                -> Text -- ^ 'pncTopicARN'
                                -> [Text] -- ^ 'pncNotificationTypes'
                                -> PutNotificationConfiguration
-mkPutNotificationConfiguration p1 p2 p3 = PutNotificationConfiguration
+putNotificationConfiguration p1 p2 p3 = PutNotificationConfiguration
     { _pncAutoScalingGroupName = p1
     , _pncTopicARN = p2
     , _pncNotificationTypes = p3
@@ -99,8 +99,8 @@ data PutNotificationConfigurationResponse = PutNotificationConfigurationResponse
 -- a valid 'PutNotificationConfigurationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkPutNotificationConfigurationResponse :: PutNotificationConfigurationResponse
-mkPutNotificationConfigurationResponse = PutNotificationConfigurationResponse
+putNotificationConfigurationResponse :: PutNotificationConfigurationResponse
+putNotificationConfigurationResponse = PutNotificationConfigurationResponse
 
 instance AWSRequest PutNotificationConfiguration where
     type Sv PutNotificationConfiguration = AutoScaling

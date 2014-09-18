@@ -35,14 +35,14 @@ module Network.AWS.SES.VerifyEmailAddress
     -- * Request
       VerifyEmailAddress
     -- ** Request constructor
-    , mkVerifyEmailAddress
+    , verifyEmailAddress
     -- ** Request lenses
     , veaEmailAddress
 
     -- * Response
     , VerifyEmailAddressResponse
     -- ** Response constructor
-    , mkVerifyEmailAddressResponse
+    , verifyEmailAddressResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -62,9 +62,9 @@ newtype VerifyEmailAddress = VerifyEmailAddress
 --
 -- * @EmailAddress ::@ @Text@
 --
-mkVerifyEmailAddress :: Text -- ^ 'veaEmailAddress'
+verifyEmailAddress :: Text -- ^ 'veaEmailAddress'
                      -> VerifyEmailAddress
-mkVerifyEmailAddress p1 = VerifyEmailAddress
+verifyEmailAddress p1 = VerifyEmailAddress
     { _veaEmailAddress = p1
     }
 
@@ -82,8 +82,8 @@ data VerifyEmailAddressResponse = VerifyEmailAddressResponse
 -- a valid 'VerifyEmailAddressResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkVerifyEmailAddressResponse :: VerifyEmailAddressResponse
-mkVerifyEmailAddressResponse = VerifyEmailAddressResponse
+verifyEmailAddressResponse :: VerifyEmailAddressResponse
+verifyEmailAddressResponse = VerifyEmailAddressResponse
 
 instance AWSRequest VerifyEmailAddress where
     type Sv VerifyEmailAddress = SES

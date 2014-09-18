@@ -38,7 +38,7 @@ module Network.AWS.DynamoDB.GetItem
     -- * Request
       GetItem
     -- ** Request constructor
-    , mkGetItem
+    , getItem
     -- ** Request lenses
     , giTableName
     , giKey
@@ -49,7 +49,7 @@ module Network.AWS.DynamoDB.GetItem
     -- * Response
     , GetItemResponse
     -- ** Response constructor
-    , mkGetItemResponse
+    , getItemResponse
     -- ** Response lenses
     , girItem
     , girConsumedCapacity
@@ -83,10 +83,10 @@ data GetItem = GetItem
 --
 -- * @ReturnConsumedCapacity ::@ @Maybe ReturnConsumedCapacity@
 --
-mkGetItem :: Text -- ^ 'giTableName'
+getItem :: Text -- ^ 'giTableName'
           -> Map Text AttributeValue -- ^ 'giKey'
           -> GetItem
-mkGetItem p1 p2 = GetItem
+getItem p1 p2 = GetItem
     { _giTableName = p1
     , _giKey = p2
     , _giAttributesToGet = Nothing
@@ -150,8 +150,8 @@ data GetItemResponse = GetItemResponse
 --
 -- * @ConsumedCapacity ::@ @Maybe ConsumedCapacity@
 --
-mkGetItemResponse :: GetItemResponse
-mkGetItemResponse = GetItemResponse
+getItemResponse :: GetItemResponse
+getItemResponse = GetItemResponse
     { _girItem = mempty
     , _girConsumedCapacity = Nothing
     }

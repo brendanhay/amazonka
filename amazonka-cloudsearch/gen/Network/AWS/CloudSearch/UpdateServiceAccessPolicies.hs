@@ -25,7 +25,7 @@ module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
     -- * Request
       UpdateServiceAccessPolicies
     -- ** Request constructor
-    , mkUpdateServiceAccessPolicies
+    , updateServiceAccessPolicies
     -- ** Request lenses
     , usapDomainName
     , usapAccessPolicies
@@ -33,7 +33,7 @@ module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
     -- * Response
     , UpdateServiceAccessPoliciesResponse
     -- ** Response constructor
-    , mkUpdateServiceAccessPoliciesResponse
+    , updateServiceAccessPoliciesResponse
     -- ** Response lenses
     , usaprAccessPolicies
     ) where
@@ -59,10 +59,10 @@ data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies
 --
 -- * @AccessPolicies ::@ @Text@
 --
-mkUpdateServiceAccessPolicies :: Text -- ^ 'usapDomainName'
+updateServiceAccessPolicies :: Text -- ^ 'usapDomainName'
                               -> Text -- ^ 'usapAccessPolicies'
                               -> UpdateServiceAccessPolicies
-mkUpdateServiceAccessPolicies p1 p2 = UpdateServiceAccessPolicies
+updateServiceAccessPolicies p1 p2 = UpdateServiceAccessPolicies
     { _usapDomainName = p1
     , _usapAccessPolicies = p2
     }
@@ -98,9 +98,9 @@ newtype UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesRespons
 --
 -- * @AccessPolicies ::@ @AccessPoliciesStatus@
 --
-mkUpdateServiceAccessPoliciesResponse :: AccessPoliciesStatus -- ^ 'usaprAccessPolicies'
+updateServiceAccessPoliciesResponse :: AccessPoliciesStatus -- ^ 'usaprAccessPolicies'
                                       -> UpdateServiceAccessPoliciesResponse
-mkUpdateServiceAccessPoliciesResponse p1 = UpdateServiceAccessPoliciesResponse
+updateServiceAccessPoliciesResponse p1 = UpdateServiceAccessPoliciesResponse
     { _usaprAccessPolicies = p1
     }
 

@@ -74,7 +74,7 @@ module Network.AWS.EC2.AuthorizeSecurityGroupIngress
     -- * Request
       AuthorizeSecurityGroupIngress
     -- ** Request constructor
-    , mkAuthorizeSecurityGroupIngress
+    , authorizeSecurityGroupIngress
     -- ** Request lenses
     , asgiGroupName
     , asgiGroupId
@@ -89,7 +89,7 @@ module Network.AWS.EC2.AuthorizeSecurityGroupIngress
     -- * Response
     , AuthorizeSecurityGroupIngressResponse
     -- ** Response constructor
-    , mkAuthorizeSecurityGroupIngressResponse
+    , authorizeSecurityGroupIngressResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -131,8 +131,8 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
 --
 -- * @IpPermissions ::@ @[IpPermission]@
 --
-mkAuthorizeSecurityGroupIngress :: AuthorizeSecurityGroupIngress
-mkAuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
+authorizeSecurityGroupIngress :: AuthorizeSecurityGroupIngress
+authorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
     { _asgiGroupName = Nothing
     , _asgiGroupId = Nothing
     , _asgiSourceSecurityGroupName = Nothing
@@ -202,8 +202,8 @@ data AuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressRespon
 -- a valid 'AuthorizeSecurityGroupIngressResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkAuthorizeSecurityGroupIngressResponse :: AuthorizeSecurityGroupIngressResponse
-mkAuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse
+authorizeSecurityGroupIngressResponse :: AuthorizeSecurityGroupIngressResponse
+authorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse
 
 instance AWSRequest AuthorizeSecurityGroupIngress where
     type Sv AuthorizeSecurityGroupIngress = EC2

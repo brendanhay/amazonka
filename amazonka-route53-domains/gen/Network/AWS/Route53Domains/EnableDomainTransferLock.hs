@@ -40,14 +40,14 @@ module Network.AWS.Route53Domains.EnableDomainTransferLock
     -- * Request
       EnableDomainTransferLock
     -- ** Request constructor
-    , mkEnableDomainTransferLock
+    , enableDomainTransferLock
     -- ** Request lenses
     , edtlDomainName
 
     -- * Response
     , EnableDomainTransferLockResponse
     -- ** Response constructor
-    , mkEnableDomainTransferLockResponse
+    , enableDomainTransferLockResponse
     -- ** Response lenses
     , edtlrOperationId
     ) where
@@ -68,9 +68,9 @@ newtype EnableDomainTransferLock = EnableDomainTransferLock
 --
 -- * @DomainName ::@ @Text@
 --
-mkEnableDomainTransferLock :: Text -- ^ 'edtlDomainName'
+enableDomainTransferLock :: Text -- ^ 'edtlDomainName'
                            -> EnableDomainTransferLock
-mkEnableDomainTransferLock p1 = EnableDomainTransferLock
+enableDomainTransferLock p1 = EnableDomainTransferLock
     { _edtlDomainName = p1
     }
 
@@ -103,9 +103,9 @@ newtype EnableDomainTransferLockResponse = EnableDomainTransferLockResponse
 --
 -- * @OperationId ::@ @Text@
 --
-mkEnableDomainTransferLockResponse :: Text -- ^ 'edtlrOperationId'
+enableDomainTransferLockResponse :: Text -- ^ 'edtlrOperationId'
                                    -> EnableDomainTransferLockResponse
-mkEnableDomainTransferLockResponse p1 = EnableDomainTransferLockResponse
+enableDomainTransferLockResponse p1 = EnableDomainTransferLockResponse
     { _edtlrOperationId = p1
     }
 

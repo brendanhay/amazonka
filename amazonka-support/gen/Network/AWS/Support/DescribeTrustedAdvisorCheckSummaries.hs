@@ -26,14 +26,14 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
     -- * Request
       DescribeTrustedAdvisorCheckSummaries
     -- ** Request constructor
-    , mkDescribeTrustedAdvisorCheckSummaries
+    , describeTrustedAdvisorCheckSummaries
     -- ** Request lenses
     , dtacsCheckIds
 
     -- * Response
     , DescribeTrustedAdvisorCheckSummariesResponse
     -- ** Response constructor
-    , mkDescribeTrustedAdvisorCheckSummariesResponse
+    , describeTrustedAdvisorCheckSummariesResponse
     -- ** Response lenses
     , dtacsrSummaries
     ) where
@@ -53,9 +53,9 @@ newtype DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummar
 --
 -- * @CheckIds ::@ @[Text]@
 --
-mkDescribeTrustedAdvisorCheckSummaries :: [Text] -- ^ 'dtacsCheckIds'
+describeTrustedAdvisorCheckSummaries :: [Text] -- ^ 'dtacsCheckIds'
                                        -> DescribeTrustedAdvisorCheckSummaries
-mkDescribeTrustedAdvisorCheckSummaries p1 = DescribeTrustedAdvisorCheckSummaries
+describeTrustedAdvisorCheckSummaries p1 = DescribeTrustedAdvisorCheckSummaries
     { _dtacsCheckIds = p1
     }
 
@@ -86,9 +86,9 @@ newtype DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorChe
 --
 -- * @Summaries ::@ @[TrustedAdvisorCheckSummary]@
 --
-mkDescribeTrustedAdvisorCheckSummariesResponse :: [TrustedAdvisorCheckSummary] -- ^ 'dtacsrSummaries'
+describeTrustedAdvisorCheckSummariesResponse :: [TrustedAdvisorCheckSummary] -- ^ 'dtacsrSummaries'
                                                -> DescribeTrustedAdvisorCheckSummariesResponse
-mkDescribeTrustedAdvisorCheckSummariesResponse p1 = DescribeTrustedAdvisorCheckSummariesResponse
+describeTrustedAdvisorCheckSummariesResponse p1 = DescribeTrustedAdvisorCheckSummariesResponse
     { _dtacsrSummaries = p1
     }
 

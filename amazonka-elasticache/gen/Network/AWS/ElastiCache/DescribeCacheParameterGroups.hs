@@ -33,7 +33,7 @@ module Network.AWS.ElastiCache.DescribeCacheParameterGroups
     -- * Request
       DescribeCacheParameterGroups
     -- ** Request constructor
-    , mkDescribeCacheParameterGroups
+    , describeCacheParameterGroups
     -- ** Request lenses
     , dcpg1CacheParameterGroupName
     , dcpg1MaxRecords
@@ -42,7 +42,7 @@ module Network.AWS.ElastiCache.DescribeCacheParameterGroups
     -- * Response
     , DescribeCacheParameterGroupsResponse
     -- ** Response constructor
-    , mkDescribeCacheParameterGroupsResponse
+    , describeCacheParameterGroupsResponse
     -- ** Response lenses
     , dcpgrMarker
     , dcpgrCacheParameterGroups
@@ -70,8 +70,8 @@ data DescribeCacheParameterGroups = DescribeCacheParameterGroups
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeCacheParameterGroups :: DescribeCacheParameterGroups
-mkDescribeCacheParameterGroups = DescribeCacheParameterGroups
+describeCacheParameterGroups :: DescribeCacheParameterGroups
+describeCacheParameterGroups = DescribeCacheParameterGroups
     { _dcpg1CacheParameterGroupName = Nothing
     , _dcpg1MaxRecords = Nothing
     , _dcpg1Marker = Nothing
@@ -117,8 +117,8 @@ data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
 --
 -- * @CacheParameterGroups ::@ @[CacheParameterGroup]@
 --
-mkDescribeCacheParameterGroupsResponse :: DescribeCacheParameterGroupsResponse
-mkDescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
+describeCacheParameterGroupsResponse :: DescribeCacheParameterGroupsResponse
+describeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
     { _dcpgrMarker = Nothing
     , _dcpgrCacheParameterGroups = mempty
     }

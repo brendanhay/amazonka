@@ -44,7 +44,7 @@ module Network.AWS.EC2.CreateReservedInstancesListing
     -- * Request
       CreateReservedInstancesListing
     -- ** Request constructor
-    , mkCreateReservedInstancesListing
+    , createReservedInstancesListing
     -- ** Request lenses
     , cril1ReservedInstancesId
     , cril1InstanceCount
@@ -54,7 +54,7 @@ module Network.AWS.EC2.CreateReservedInstancesListing
     -- * Response
     , CreateReservedInstancesListingResponse
     -- ** Response constructor
-    , mkCreateReservedInstancesListingResponse
+    , createReservedInstancesListingResponse
     -- ** Response lenses
     , crilrrReservedInstancesListings
     ) where
@@ -83,12 +83,12 @@ data CreateReservedInstancesListing = CreateReservedInstancesListing
 --
 -- * @ClientToken ::@ @Text@
 --
-mkCreateReservedInstancesListing :: Text -- ^ 'cril1ReservedInstancesId'
+createReservedInstancesListing :: Text -- ^ 'cril1ReservedInstancesId'
                                  -> Integer -- ^ 'cril1InstanceCount'
                                  -> [PriceScheduleSpecification] -- ^ 'cril1PriceSchedules'
                                  -> Text -- ^ 'cril1ClientToken'
                                  -> CreateReservedInstancesListing
-mkCreateReservedInstancesListing p1 p2 p3 p4 = CreateReservedInstancesListing
+createReservedInstancesListing p1 p2 p3 p4 = CreateReservedInstancesListing
     { _cril1ReservedInstancesId = p1
     , _cril1InstanceCount = p2
     , _cril1PriceSchedules = p3
@@ -138,8 +138,8 @@ newtype CreateReservedInstancesListingResponse = CreateReservedInstancesListingR
 --
 -- * @ReservedInstancesListings ::@ @[ReservedInstancesListing]@
 --
-mkCreateReservedInstancesListingResponse :: CreateReservedInstancesListingResponse
-mkCreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse
+createReservedInstancesListingResponse :: CreateReservedInstancesListingResponse
+createReservedInstancesListingResponse = CreateReservedInstancesListingResponse
     { _crilrrReservedInstancesListings = mempty
     }
 

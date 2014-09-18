@@ -30,7 +30,7 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     -- * Request
       DescribeCacheSecurityGroups
     -- ** Request constructor
-    , mkDescribeCacheSecurityGroups
+    , describeCacheSecurityGroups
     -- ** Request lenses
     , dcsg2CacheSecurityGroupName
     , dcsg2MaxRecords
@@ -39,7 +39,7 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     -- * Response
     , DescribeCacheSecurityGroupsResponse
     -- ** Response constructor
-    , mkDescribeCacheSecurityGroupsResponse
+    , describeCacheSecurityGroupsResponse
     -- ** Response lenses
     , dcsgrMarker
     , dcsgrCacheSecurityGroups
@@ -67,8 +67,8 @@ data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeCacheSecurityGroups :: DescribeCacheSecurityGroups
-mkDescribeCacheSecurityGroups = DescribeCacheSecurityGroups
+describeCacheSecurityGroups :: DescribeCacheSecurityGroups
+describeCacheSecurityGroups = DescribeCacheSecurityGroups
     { _dcsg2CacheSecurityGroupName = Nothing
     , _dcsg2MaxRecords = Nothing
     , _dcsg2Marker = Nothing
@@ -114,8 +114,8 @@ data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
 --
 -- * @CacheSecurityGroups ::@ @[CacheSecurityGroup]@
 --
-mkDescribeCacheSecurityGroupsResponse :: DescribeCacheSecurityGroupsResponse
-mkDescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
+describeCacheSecurityGroupsResponse :: DescribeCacheSecurityGroupsResponse
+describeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
     { _dcsgrMarker = Nothing
     , _dcsgrCacheSecurityGroups = mempty
     }

@@ -42,7 +42,7 @@ module Network.AWS.EC2.DetachVolume
     -- * Request
       DetachVolume
     -- ** Request constructor
-    , mkDetachVolume
+    , detachVolume
     -- ** Request lenses
     , dv4VolumeId
     , dv4InstanceId
@@ -52,7 +52,7 @@ module Network.AWS.EC2.DetachVolume
     -- * Response
     , DetachVolumeResponse
     -- ** Response constructor
-    , mkDetachVolumeResponse
+    , detachVolumeResponse
     -- ** Response lenses
     , dvr1VolumeId
     , dvr1InstanceId
@@ -86,9 +86,9 @@ data DetachVolume = DetachVolume
 --
 -- * @Force ::@ @Maybe Bool@
 --
-mkDetachVolume :: Text -- ^ 'dv4VolumeId'
+detachVolume :: Text -- ^ 'dv4VolumeId'
                -> DetachVolume
-mkDetachVolume p1 = DetachVolume
+detachVolume p1 = DetachVolume
     { _dv4VolumeId = p1
     , _dv4InstanceId = Nothing
     , _dv4Device = Nothing
@@ -148,8 +148,8 @@ data DetachVolumeResponse = DetachVolumeResponse
 --
 -- * @DeleteOnTermination ::@ @Maybe Bool@
 --
-mkDetachVolumeResponse :: DetachVolumeResponse
-mkDetachVolumeResponse = DetachVolumeResponse
+detachVolumeResponse :: DetachVolumeResponse
+detachVolumeResponse = DetachVolumeResponse
     { _dvr1VolumeId = Nothing
     , _dvr1InstanceId = Nothing
     , _dvr1Device = Nothing

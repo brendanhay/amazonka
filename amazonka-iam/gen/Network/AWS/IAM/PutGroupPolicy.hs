@@ -35,7 +35,7 @@ module Network.AWS.IAM.PutGroupPolicy
     -- * Request
       PutGroupPolicy
     -- ** Request constructor
-    , mkPutGroupPolicy
+    , putGroupPolicy
     -- ** Request lenses
     , pgpGroupName
     , pgpPolicyName
@@ -44,7 +44,7 @@ module Network.AWS.IAM.PutGroupPolicy
     -- * Response
     , PutGroupPolicyResponse
     -- ** Response constructor
-    , mkPutGroupPolicyResponse
+    , putGroupPolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -68,11 +68,11 @@ data PutGroupPolicy = PutGroupPolicy
 --
 -- * @PolicyDocument ::@ @Text@
 --
-mkPutGroupPolicy :: Text -- ^ 'pgpGroupName'
+putGroupPolicy :: Text -- ^ 'pgpGroupName'
                  -> Text -- ^ 'pgpPolicyName'
                  -> Text -- ^ 'pgpPolicyDocument'
                  -> PutGroupPolicy
-mkPutGroupPolicy p1 p2 p3 = PutGroupPolicy
+putGroupPolicy p1 p2 p3 = PutGroupPolicy
     { _pgpGroupName = p1
     , _pgpPolicyName = p2
     , _pgpPolicyDocument = p3
@@ -101,8 +101,8 @@ data PutGroupPolicyResponse = PutGroupPolicyResponse
 -- a valid 'PutGroupPolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkPutGroupPolicyResponse :: PutGroupPolicyResponse
-mkPutGroupPolicyResponse = PutGroupPolicyResponse
+putGroupPolicyResponse :: PutGroupPolicyResponse
+putGroupPolicyResponse = PutGroupPolicyResponse
 
 instance AWSRequest PutGroupPolicy where
     type Sv PutGroupPolicy = IAM

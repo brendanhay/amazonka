@@ -23,7 +23,7 @@ module Network.AWS.S3.UploadPartCopy
     -- * Request
       UploadPartCopy
     -- ** Request constructor
-    , mkUploadPartCopy
+    , uploadPartCopy
     -- ** Request lenses
     , upcBucket
     , upcCopySource
@@ -45,7 +45,7 @@ module Network.AWS.S3.UploadPartCopy
     -- * Response
     , UploadPartCopyResponse
     -- ** Response constructor
-    , mkUploadPartCopyResponse
+    , uploadPartCopyResponse
     -- ** Response lenses
     , upcrCopySourceVersionId
     , upcrCopyPartResult
@@ -115,13 +115,13 @@ data UploadPartCopy = UploadPartCopy
 --
 -- * @CopySourceSSECustomerKeyMD5 ::@ @Maybe Text@
 --
-mkUploadPartCopy :: BucketName -- ^ 'upcBucket'
+uploadPartCopy :: BucketName -- ^ 'upcBucket'
                  -> Text -- ^ 'upcUploadId'
                  -> Text -- ^ 'upcCopySource'
                  -> ObjectKey -- ^ 'upcKey'
                  -> Integer -- ^ 'upcPartNumber'
                  -> UploadPartCopy
-mkUploadPartCopy p1 p10 p2 p8 p9 = UploadPartCopy
+uploadPartCopy p1 p10 p2 p8 p9 = UploadPartCopy
     { _upcBucket = p1
     , _upcCopySource = p2
     , _upcCopySourceIfMatch = Nothing
@@ -287,8 +287,8 @@ data UploadPartCopyResponse = UploadPartCopyResponse
 --
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
-mkUploadPartCopyResponse :: UploadPartCopyResponse
-mkUploadPartCopyResponse = UploadPartCopyResponse
+uploadPartCopyResponse :: UploadPartCopyResponse
+uploadPartCopyResponse = UploadPartCopyResponse
     { _upcrCopySourceVersionId = Nothing
     , _upcrCopyPartResult = Nothing
     , _upcrServerSideEncryption = Nothing

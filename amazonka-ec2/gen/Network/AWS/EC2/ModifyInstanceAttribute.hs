@@ -51,7 +51,7 @@ module Network.AWS.EC2.ModifyInstanceAttribute
     -- * Request
       ModifyInstanceAttribute
     -- ** Request constructor
-    , mkModifyInstanceAttribute
+    , modifyInstanceAttribute
     -- ** Request lenses
     , mia1InstanceId
     , mia1Attribute
@@ -71,7 +71,7 @@ module Network.AWS.EC2.ModifyInstanceAttribute
     -- * Response
     , ModifyInstanceAttributeResponse
     -- ** Response constructor
-    , mkModifyInstanceAttributeResponse
+    , modifyInstanceAttributeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -128,9 +128,9 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
 --
 -- * @SriovNetSupport ::@ @Maybe AttributeValue@
 --
-mkModifyInstanceAttribute :: Text -- ^ 'mia1InstanceId'
+modifyInstanceAttribute :: Text -- ^ 'mia1InstanceId'
                           -> ModifyInstanceAttribute
-mkModifyInstanceAttribute p1 = ModifyInstanceAttribute
+modifyInstanceAttribute p1 = ModifyInstanceAttribute
     { _mia1InstanceId = p1
     , _mia1Attribute = Nothing
     , _mia1Value = Nothing
@@ -248,8 +248,8 @@ data ModifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
 -- a valid 'ModifyInstanceAttributeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkModifyInstanceAttributeResponse :: ModifyInstanceAttributeResponse
-mkModifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
+modifyInstanceAttributeResponse :: ModifyInstanceAttributeResponse
+modifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
 
 instance AWSRequest ModifyInstanceAttribute where
     type Sv ModifyInstanceAttribute = EC2

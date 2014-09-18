@@ -27,7 +27,7 @@ module Network.AWS.DynamoDB.ListTables
     -- * Request
       ListTables
     -- ** Request constructor
-    , mkListTables
+    , listTables
     -- ** Request lenses
     , ltExclusiveStartTableName
     , ltLimit
@@ -35,7 +35,7 @@ module Network.AWS.DynamoDB.ListTables
     -- * Response
     , ListTablesResponse
     -- ** Response constructor
-    , mkListTablesResponse
+    , listTablesResponse
     -- ** Response lenses
     , ltrTableNames
     , ltrLastEvaluatedTableName
@@ -60,8 +60,8 @@ data ListTables = ListTables
 --
 -- * @Limit ::@ @Maybe Integer@
 --
-mkListTables :: ListTables
-mkListTables = ListTables
+listTables :: ListTables
+listTables = ListTables
     { _ltExclusiveStartTableName = Nothing
     , _ltLimit = Nothing
     }
@@ -103,8 +103,8 @@ data ListTablesResponse = ListTablesResponse
 --
 -- * @LastEvaluatedTableName ::@ @Maybe Text@
 --
-mkListTablesResponse :: ListTablesResponse
-mkListTablesResponse = ListTablesResponse
+listTablesResponse :: ListTablesResponse
+listTablesResponse = ListTablesResponse
     { _ltrTableNames = mempty
     , _ltrLastEvaluatedTableName = Nothing
     }

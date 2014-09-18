@@ -23,14 +23,14 @@ module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
     -- * Request
       GetCloudFrontOriginAccessIdentity
     -- ** Request constructor
-    , mkGetCloudFrontOriginAccessIdentity
+    , getCloudFrontOriginAccessIdentity
     -- ** Request lenses
     , gcfoaiId
 
     -- * Response
     , GetCloudFrontOriginAccessIdentityResponse
     -- ** Response constructor
-    , mkGetCloudFrontOriginAccessIdentityResponse
+    , getCloudFrontOriginAccessIdentityResponse
     -- ** Response lenses
     , gcfoairCloudFrontOriginAccessIdentity
     , gcfoairETag
@@ -53,9 +53,9 @@ newtype GetCloudFrontOriginAccessIdentity = GetCloudFrontOriginAccessIdentity
 --
 -- * @Id ::@ @Text@
 --
-mkGetCloudFrontOriginAccessIdentity :: Text -- ^ 'gcfoaiId'
+getCloudFrontOriginAccessIdentity :: Text -- ^ 'gcfoaiId'
                                     -> GetCloudFrontOriginAccessIdentity
-mkGetCloudFrontOriginAccessIdentity p1 = GetCloudFrontOriginAccessIdentity
+getCloudFrontOriginAccessIdentity p1 = GetCloudFrontOriginAccessIdentity
     { _gcfoaiId = p1
     }
 
@@ -90,8 +90,8 @@ data GetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdenti
 --
 -- * @ETag ::@ @Maybe Text@
 --
-mkGetCloudFrontOriginAccessIdentityResponse :: GetCloudFrontOriginAccessIdentityResponse
-mkGetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdentityResponse
+getCloudFrontOriginAccessIdentityResponse :: GetCloudFrontOriginAccessIdentityResponse
+getCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdentityResponse
     { _gcfoairCloudFrontOriginAccessIdentity = Nothing
     , _gcfoairETag = Nothing
     }

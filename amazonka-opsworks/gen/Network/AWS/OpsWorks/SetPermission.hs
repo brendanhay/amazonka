@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.SetPermission
     -- * Request
       SetPermission
     -- ** Request constructor
-    , mkSetPermission
+    , setPermission
     -- ** Request lenses
     , spStackId
     , spIamUserArn
@@ -38,7 +38,7 @@ module Network.AWS.OpsWorks.SetPermission
     -- * Response
     , SetPermissionResponse
     -- ** Response constructor
-    , mkSetPermissionResponse
+    , setPermissionResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -68,10 +68,10 @@ data SetPermission = SetPermission
 --
 -- * @Level ::@ @Maybe Text@
 --
-mkSetPermission :: Text -- ^ 'spStackId'
+setPermission :: Text -- ^ 'spStackId'
                 -> Text -- ^ 'spIamUserArn'
                 -> SetPermission
-mkSetPermission p1 p2 = SetPermission
+setPermission p1 p2 = SetPermission
     { _spStackId = p1
     , _spIamUserArn = p2
     , _spAllowSsh = Nothing
@@ -117,8 +117,8 @@ data SetPermissionResponse = SetPermissionResponse
 -- a valid 'SetPermissionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSetPermissionResponse :: SetPermissionResponse
-mkSetPermissionResponse = SetPermissionResponse
+setPermissionResponse :: SetPermissionResponse
+setPermissionResponse = SetPermissionResponse
 
 instance AWSRequest SetPermission where
     type Sv SetPermission = OpsWorks

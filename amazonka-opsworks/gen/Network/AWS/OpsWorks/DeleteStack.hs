@@ -27,14 +27,14 @@ module Network.AWS.OpsWorks.DeleteStack
     -- * Request
       DeleteStack
     -- ** Request constructor
-    , mkDeleteStack
+    , deleteStack
     -- ** Request lenses
     , ds1StackId
 
     -- * Response
     , DeleteStackResponse
     -- ** Response constructor
-    , mkDeleteStackResponse
+    , deleteStackResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -52,9 +52,9 @@ newtype DeleteStack = DeleteStack
 --
 -- * @StackId ::@ @Text@
 --
-mkDeleteStack :: Text -- ^ 'ds1StackId'
+deleteStack :: Text -- ^ 'ds1StackId'
               -> DeleteStack
-mkDeleteStack p1 = DeleteStack
+deleteStack p1 = DeleteStack
     { _ds1StackId = p1
     }
 
@@ -77,8 +77,8 @@ data DeleteStackResponse = DeleteStackResponse
 -- a valid 'DeleteStackResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteStackResponse :: DeleteStackResponse
-mkDeleteStackResponse = DeleteStackResponse
+deleteStackResponse :: DeleteStackResponse
+deleteStackResponse = DeleteStackResponse
 
 instance AWSRequest DeleteStack where
     type Sv DeleteStack = OpsWorks

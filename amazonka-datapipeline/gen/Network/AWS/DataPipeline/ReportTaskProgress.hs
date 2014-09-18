@@ -43,14 +43,14 @@ module Network.AWS.DataPipeline.ReportTaskProgress
     -- * Request
       ReportTaskProgress
     -- ** Request constructor
-    , mkReportTaskProgress
+    , reportTaskProgress
     -- ** Request lenses
     , rtpTaskId
 
     -- * Response
     , ReportTaskProgressResponse
     -- ** Response constructor
-    , mkReportTaskProgressResponse
+    , reportTaskProgressResponse
     -- ** Response lenses
     , rtprCanceled
     ) where
@@ -71,9 +71,9 @@ newtype ReportTaskProgress = ReportTaskProgress
 --
 -- * @TaskId ::@ @Text@
 --
-mkReportTaskProgress :: Text -- ^ 'rtpTaskId'
+reportTaskProgress :: Text -- ^ 'rtpTaskId'
                      -> ReportTaskProgress
-mkReportTaskProgress p1 = ReportTaskProgress
+reportTaskProgress p1 = ReportTaskProgress
     { _rtpTaskId = p1
     }
 
@@ -105,9 +105,9 @@ newtype ReportTaskProgressResponse = ReportTaskProgressResponse
 --
 -- * @Canceled ::@ @Bool@
 --
-mkReportTaskProgressResponse :: Bool -- ^ 'rtprCanceled'
+reportTaskProgressResponse :: Bool -- ^ 'rtprCanceled'
                              -> ReportTaskProgressResponse
-mkReportTaskProgressResponse p1 = ReportTaskProgressResponse
+reportTaskProgressResponse p1 = ReportTaskProgressResponse
     { _rtprCanceled = p1
     }
 

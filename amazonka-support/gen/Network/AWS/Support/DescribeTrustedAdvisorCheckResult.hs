@@ -31,7 +31,7 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
     -- * Request
       DescribeTrustedAdvisorCheckResult
     -- ** Request constructor
-    , mkDescribeTrustedAdvisorCheckResult
+    , describeTrustedAdvisorCheckResult
     -- ** Request lenses
     , dtacrCheckId
     , dtacrLanguage
@@ -39,7 +39,7 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
     -- * Response
     , DescribeTrustedAdvisorCheckResultResponse
     -- ** Response constructor
-    , mkDescribeTrustedAdvisorCheckResultResponse
+    , describeTrustedAdvisorCheckResultResponse
     -- ** Response lenses
     , dtacrrResult
     ) where
@@ -62,9 +62,9 @@ data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult
 --
 -- * @Language ::@ @Maybe Text@
 --
-mkDescribeTrustedAdvisorCheckResult :: Text -- ^ 'dtacrCheckId'
+describeTrustedAdvisorCheckResult :: Text -- ^ 'dtacrCheckId'
                                     -> DescribeTrustedAdvisorCheckResult
-mkDescribeTrustedAdvisorCheckResult p1 = DescribeTrustedAdvisorCheckResult
+describeTrustedAdvisorCheckResult p1 = DescribeTrustedAdvisorCheckResult
     { _dtacrCheckId = p1
     , _dtacrLanguage = Nothing
     }
@@ -102,8 +102,8 @@ newtype DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckR
 --
 -- * @Result ::@ @Maybe TrustedAdvisorCheckResult@
 --
-mkDescribeTrustedAdvisorCheckResultResponse :: DescribeTrustedAdvisorCheckResultResponse
-mkDescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse
+describeTrustedAdvisorCheckResultResponse :: DescribeTrustedAdvisorCheckResultResponse
+describeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse
     { _dtacrrResult = Nothing
     }
 

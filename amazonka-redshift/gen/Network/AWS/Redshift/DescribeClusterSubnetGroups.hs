@@ -33,7 +33,7 @@ module Network.AWS.Redshift.DescribeClusterSubnetGroups
     -- * Request
       DescribeClusterSubnetGroups
     -- ** Request constructor
-    , mkDescribeClusterSubnetGroups
+    , describeClusterSubnetGroups
     -- ** Request lenses
     , dcsg3ClusterSubnetGroupName
     , dcsg3MaxRecords
@@ -42,7 +42,7 @@ module Network.AWS.Redshift.DescribeClusterSubnetGroups
     -- * Response
     , DescribeClusterSubnetGroupsResponse
     -- ** Response constructor
-    , mkDescribeClusterSubnetGroupsResponse
+    , describeClusterSubnetGroupsResponse
     -- ** Response lenses
     , dcsgrrMarker
     , dcsgrrClusterSubnetGroups
@@ -70,8 +70,8 @@ data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeClusterSubnetGroups :: DescribeClusterSubnetGroups
-mkDescribeClusterSubnetGroups = DescribeClusterSubnetGroups
+describeClusterSubnetGroups :: DescribeClusterSubnetGroups
+describeClusterSubnetGroups = DescribeClusterSubnetGroups
     { _dcsg3ClusterSubnetGroupName = Nothing
     , _dcsg3MaxRecords = Nothing
     , _dcsg3Marker = Nothing
@@ -120,8 +120,8 @@ data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
 --
 -- * @ClusterSubnetGroups ::@ @[ClusterSubnetGroup]@
 --
-mkDescribeClusterSubnetGroupsResponse :: DescribeClusterSubnetGroupsResponse
-mkDescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
+describeClusterSubnetGroupsResponse :: DescribeClusterSubnetGroupsResponse
+describeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
     { _dcsgrrMarker = Nothing
     , _dcsgrrClusterSubnetGroups = mempty
     }

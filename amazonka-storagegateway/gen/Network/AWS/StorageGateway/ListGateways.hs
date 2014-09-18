@@ -44,7 +44,7 @@ module Network.AWS.StorageGateway.ListGateways
     -- * Request
       ListGateways
     -- ** Request constructor
-    , mkListGateways
+    , listGateways
     -- ** Request lenses
     , lgMarker
     , lgLimit
@@ -52,7 +52,7 @@ module Network.AWS.StorageGateway.ListGateways
     -- * Response
     , ListGatewaysResponse
     -- ** Response constructor
-    , mkListGatewaysResponse
+    , listGatewaysResponse
     -- ** Response lenses
     , lgrGateways
     , lgrMarker
@@ -78,8 +78,8 @@ data ListGateways = ListGateways
 --
 -- * @Limit ::@ @Maybe Integer@
 --
-mkListGateways :: ListGateways
-mkListGateways = ListGateways
+listGateways :: ListGateways
+listGateways = ListGateways
     { _lgMarker = Nothing
     , _lgLimit = Nothing
     }
@@ -118,8 +118,8 @@ data ListGatewaysResponse = ListGatewaysResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListGatewaysResponse :: ListGatewaysResponse
-mkListGatewaysResponse = ListGatewaysResponse
+listGatewaysResponse :: ListGatewaysResponse
+listGatewaysResponse = ListGatewaysResponse
     { _lgrGateways = mempty
     , _lgrMarker = Nothing
     }

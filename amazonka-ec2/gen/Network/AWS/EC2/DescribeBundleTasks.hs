@@ -38,7 +38,7 @@ module Network.AWS.EC2.DescribeBundleTasks
     -- * Request
       DescribeBundleTasks
     -- ** Request constructor
-    , mkDescribeBundleTasks
+    , describeBundleTasks
     -- ** Request lenses
     , dbtBundleIds
     , dbtFilters
@@ -46,7 +46,7 @@ module Network.AWS.EC2.DescribeBundleTasks
     -- * Response
     , DescribeBundleTasksResponse
     -- ** Response constructor
-    , mkDescribeBundleTasksResponse
+    , describeBundleTasksResponse
     -- ** Response lenses
     , dbtrBundleTasks
     ) where
@@ -69,8 +69,8 @@ data DescribeBundleTasks = DescribeBundleTasks
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribeBundleTasks :: DescribeBundleTasks
-mkDescribeBundleTasks = DescribeBundleTasks
+describeBundleTasks :: DescribeBundleTasks
+describeBundleTasks = DescribeBundleTasks
     { _dbtBundleIds = mempty
     , _dbtFilters = mempty
     }
@@ -107,8 +107,8 @@ newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse
 --
 -- * @BundleTasks ::@ @[BundleTask]@
 --
-mkDescribeBundleTasksResponse :: DescribeBundleTasksResponse
-mkDescribeBundleTasksResponse = DescribeBundleTasksResponse
+describeBundleTasksResponse :: DescribeBundleTasksResponse
+describeBundleTasksResponse = DescribeBundleTasksResponse
     { _dbtrBundleTasks = mempty
     }
 

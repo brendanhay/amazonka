@@ -57,14 +57,14 @@ module Network.AWS.EC2.GetConsoleOutput
     -- * Request
       GetConsoleOutput
     -- ** Request constructor
-    , mkGetConsoleOutput
+    , getConsoleOutput
     -- ** Request lenses
     , gcoInstanceId
 
     -- * Response
     , GetConsoleOutputResponse
     -- ** Response constructor
-    , mkGetConsoleOutputResponse
+    , getConsoleOutputResponse
     -- ** Response lenses
     , gcorInstanceId
     , gcorTimestamp
@@ -86,9 +86,9 @@ newtype GetConsoleOutput = GetConsoleOutput
 --
 -- * @InstanceId ::@ @Text@
 --
-mkGetConsoleOutput :: Text -- ^ 'gcoInstanceId'
+getConsoleOutput :: Text -- ^ 'gcoInstanceId'
                    -> GetConsoleOutput
-mkGetConsoleOutput p1 = GetConsoleOutput
+getConsoleOutput p1 = GetConsoleOutput
     { _gcoInstanceId = p1
     }
 
@@ -118,8 +118,8 @@ data GetConsoleOutputResponse = GetConsoleOutputResponse
 --
 -- * @Output ::@ @Maybe Text@
 --
-mkGetConsoleOutputResponse :: GetConsoleOutputResponse
-mkGetConsoleOutputResponse = GetConsoleOutputResponse
+getConsoleOutputResponse :: GetConsoleOutputResponse
+getConsoleOutputResponse = GetConsoleOutputResponse
     { _gcorInstanceId = Nothing
     , _gcorTimestamp = Nothing
     , _gcorOutput = Nothing

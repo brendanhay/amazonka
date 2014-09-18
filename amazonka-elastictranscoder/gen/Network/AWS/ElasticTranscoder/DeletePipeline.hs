@@ -37,14 +37,14 @@ module Network.AWS.ElasticTranscoder.DeletePipeline
     -- * Request
       DeletePipeline
     -- ** Request constructor
-    , mkDeletePipeline
+    , deletePipeline
     -- ** Request lenses
     , dpId
 
     -- * Response
     , DeletePipelineResponse
     -- ** Response constructor
-    , mkDeletePipelineResponse
+    , deletePipelineResponse
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
@@ -63,9 +63,9 @@ newtype DeletePipeline = DeletePipeline
 --
 -- * @Id ::@ @Text@
 --
-mkDeletePipeline :: Text -- ^ 'dpId'
+deletePipeline :: Text -- ^ 'dpId'
                  -> DeletePipeline
-mkDeletePipeline p1 = DeletePipeline
+deletePipeline p1 = DeletePipeline
     { _dpId = p1
     }
 
@@ -89,8 +89,8 @@ data DeletePipelineResponse = DeletePipelineResponse
 -- a valid 'DeletePipelineResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeletePipelineResponse :: DeletePipelineResponse
-mkDeletePipelineResponse = DeletePipelineResponse
+deletePipelineResponse :: DeletePipelineResponse
+deletePipelineResponse = DeletePipelineResponse
 
 instance AWSRequest DeletePipeline where
     type Sv DeletePipeline = ElasticTranscoder

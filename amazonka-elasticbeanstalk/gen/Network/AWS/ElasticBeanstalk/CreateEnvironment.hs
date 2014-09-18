@@ -31,7 +31,7 @@ module Network.AWS.ElasticBeanstalk.CreateEnvironment
     -- * Request
       CreateEnvironment
     -- ** Request constructor
-    , mkCreateEnvironment
+    , createEnvironment
     -- ** Request lenses
     , ceApplicationName
     , ceEnvironmentName
@@ -48,7 +48,7 @@ module Network.AWS.ElasticBeanstalk.CreateEnvironment
     -- * Response
     , CreateEnvironmentResponse
     -- ** Response constructor
-    , mkCreateEnvironmentResponse
+    , createEnvironmentResponse
     -- ** Response lenses
     , cerEnvironmentName
     , cerEnvironmentId
@@ -113,10 +113,10 @@ data CreateEnvironment = CreateEnvironment
 --
 -- * @OptionsToRemove ::@ @[OptionSpecification]@
 --
-mkCreateEnvironment :: Text -- ^ 'ceApplicationName'
+createEnvironment :: Text -- ^ 'ceApplicationName'
                     -> Text -- ^ 'ceEnvironmentName'
                     -> CreateEnvironment
-mkCreateEnvironment p1 p2 = CreateEnvironment
+createEnvironment p1 p2 = CreateEnvironment
     { _ceApplicationName = p1
     , _ceEnvironmentName = p2
     , _ceDescription = Nothing
@@ -269,8 +269,8 @@ data CreateEnvironmentResponse = CreateEnvironmentResponse
 --
 -- * @Tier ::@ @Maybe EnvironmentTier@
 --
-mkCreateEnvironmentResponse :: CreateEnvironmentResponse
-mkCreateEnvironmentResponse = CreateEnvironmentResponse
+createEnvironmentResponse :: CreateEnvironmentResponse
+createEnvironmentResponse = CreateEnvironmentResponse
     { _cerEnvironmentName = Nothing
     , _cerEnvironmentId = Nothing
     , _cerApplicationName = Nothing

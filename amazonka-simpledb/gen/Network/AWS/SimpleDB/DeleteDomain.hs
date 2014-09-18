@@ -27,14 +27,14 @@ module Network.AWS.SimpleDB.DeleteDomain
     -- * Request
       DeleteDomain
     -- ** Request constructor
-    , mkDeleteDomain
+    , deleteDomain
     -- ** Request lenses
     , ddDomainName
 
     -- * Response
     , DeleteDomainResponse
     -- ** Response constructor
-    , mkDeleteDomainResponse
+    , deleteDomainResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -52,9 +52,9 @@ newtype DeleteDomain = DeleteDomain
 --
 -- * @DomainName ::@ @Text@
 --
-mkDeleteDomain :: Text -- ^ 'ddDomainName'
+deleteDomain :: Text -- ^ 'ddDomainName'
                -> DeleteDomain
-mkDeleteDomain p1 = DeleteDomain
+deleteDomain p1 = DeleteDomain
     { _ddDomainName = p1
     }
 
@@ -72,8 +72,8 @@ data DeleteDomainResponse = DeleteDomainResponse
 -- a valid 'DeleteDomainResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteDomainResponse :: DeleteDomainResponse
-mkDeleteDomainResponse = DeleteDomainResponse
+deleteDomainResponse :: DeleteDomainResponse
+deleteDomainResponse = DeleteDomainResponse
 
 instance AWSRequest DeleteDomain where
     type Sv DeleteDomain = SimpleDB

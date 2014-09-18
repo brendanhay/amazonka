@@ -33,14 +33,14 @@ module Network.AWS.AutoScaling.CreateOrUpdateTags
     -- * Request
       CreateOrUpdateTags
     -- ** Request constructor
-    , mkCreateOrUpdateTags
+    , createOrUpdateTags
     -- ** Request lenses
     , coutTags
 
     -- * Response
     , CreateOrUpdateTagsResponse
     -- ** Response constructor
-    , mkCreateOrUpdateTagsResponse
+    , createOrUpdateTagsResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -59,9 +59,9 @@ newtype CreateOrUpdateTags = CreateOrUpdateTags
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkCreateOrUpdateTags :: [Tag] -- ^ 'coutTags'
+createOrUpdateTags :: [Tag] -- ^ 'coutTags'
                      -> CreateOrUpdateTags
-mkCreateOrUpdateTags p1 = CreateOrUpdateTags
+createOrUpdateTags p1 = CreateOrUpdateTags
     { _coutTags = p1
     }
 
@@ -92,8 +92,8 @@ data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse
 -- a valid 'CreateOrUpdateTagsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkCreateOrUpdateTagsResponse :: CreateOrUpdateTagsResponse
-mkCreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse
+createOrUpdateTagsResponse :: CreateOrUpdateTagsResponse
+createOrUpdateTagsResponse = CreateOrUpdateTagsResponse
 
 instance AWSRequest CreateOrUpdateTags where
     type Sv CreateOrUpdateTags = AutoScaling

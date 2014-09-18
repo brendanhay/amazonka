@@ -29,14 +29,14 @@ module Network.AWS.CloudFormation.DeleteStack
     -- * Request
       DeleteStack
     -- ** Request constructor
-    , mkDeleteStack
+    , deleteStack
     -- ** Request lenses
     , dsStackName
 
     -- * Response
     , DeleteStackResponse
     -- ** Response constructor
-    , mkDeleteStackResponse
+    , deleteStackResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -55,9 +55,9 @@ newtype DeleteStack = DeleteStack
 --
 -- * @StackName ::@ @Text@
 --
-mkDeleteStack :: Text -- ^ 'dsStackName'
+deleteStack :: Text -- ^ 'dsStackName'
               -> DeleteStack
-mkDeleteStack p1 = DeleteStack
+deleteStack p1 = DeleteStack
     { _dsStackName = p1
     }
 
@@ -75,8 +75,8 @@ data DeleteStackResponse = DeleteStackResponse
 -- a valid 'DeleteStackResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteStackResponse :: DeleteStackResponse
-mkDeleteStackResponse = DeleteStackResponse
+deleteStackResponse :: DeleteStackResponse
+deleteStackResponse = DeleteStackResponse
 
 instance AWSRequest DeleteStack where
     type Sv DeleteStack = CloudFormation

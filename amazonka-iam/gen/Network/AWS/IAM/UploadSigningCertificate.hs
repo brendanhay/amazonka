@@ -68,7 +68,7 @@ module Network.AWS.IAM.UploadSigningCertificate
     -- * Request
       UploadSigningCertificate
     -- ** Request constructor
-    , mkUploadSigningCertificate
+    , uploadSigningCertificate
     -- ** Request lenses
     , usc3UserName
     , usc3CertificateBody
@@ -76,7 +76,7 @@ module Network.AWS.IAM.UploadSigningCertificate
     -- * Response
     , UploadSigningCertificateResponse
     -- ** Response constructor
-    , mkUploadSigningCertificateResponse
+    , uploadSigningCertificateResponse
     -- ** Response lenses
     , uscrrCertificate
     ) where
@@ -99,9 +99,9 @@ data UploadSigningCertificate = UploadSigningCertificate
 --
 -- * @CertificateBody ::@ @Text@
 --
-mkUploadSigningCertificate :: Text -- ^ 'usc3CertificateBody'
+uploadSigningCertificate :: Text -- ^ 'usc3CertificateBody'
                            -> UploadSigningCertificate
-mkUploadSigningCertificate p2 = UploadSigningCertificate
+uploadSigningCertificate p2 = UploadSigningCertificate
     { _usc3UserName = Nothing
     , _usc3CertificateBody = p2
     }
@@ -133,9 +133,9 @@ newtype UploadSigningCertificateResponse = UploadSigningCertificateResponse
 --
 -- * @Certificate ::@ @SigningCertificate@
 --
-mkUploadSigningCertificateResponse :: SigningCertificate -- ^ 'uscrrCertificate'
+uploadSigningCertificateResponse :: SigningCertificate -- ^ 'uscrrCertificate'
                                    -> UploadSigningCertificateResponse
-mkUploadSigningCertificateResponse p1 = UploadSigningCertificateResponse
+uploadSigningCertificateResponse p1 = UploadSigningCertificateResponse
     { _uscrrCertificate = p1
     }
 

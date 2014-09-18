@@ -33,7 +33,7 @@ module Network.AWS.EC2.CreatePlacementGroup
     -- * Request
       CreatePlacementGroup
     -- ** Request constructor
-    , mkCreatePlacementGroup
+    , createPlacementGroup
     -- ** Request lenses
     , cpgGroupName
     , cpgStrategy
@@ -41,7 +41,7 @@ module Network.AWS.EC2.CreatePlacementGroup
     -- * Response
     , CreatePlacementGroupResponse
     -- ** Response constructor
-    , mkCreatePlacementGroupResponse
+    , createPlacementGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -62,10 +62,10 @@ data CreatePlacementGroup = CreatePlacementGroup
 --
 -- * @Strategy ::@ @PlacementStrategy@
 --
-mkCreatePlacementGroup :: Text -- ^ 'cpgGroupName'
+createPlacementGroup :: Text -- ^ 'cpgGroupName'
                        -> PlacementStrategy -- ^ 'cpgStrategy'
                        -> CreatePlacementGroup
-mkCreatePlacementGroup p1 p2 = CreatePlacementGroup
+createPlacementGroup p1 p2 = CreatePlacementGroup
     { _cpgGroupName = p1
     , _cpgStrategy = p2
     }
@@ -88,8 +88,8 @@ data CreatePlacementGroupResponse = CreatePlacementGroupResponse
 -- a valid 'CreatePlacementGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkCreatePlacementGroupResponse :: CreatePlacementGroupResponse
-mkCreatePlacementGroupResponse = CreatePlacementGroupResponse
+createPlacementGroupResponse :: CreatePlacementGroupResponse
+createPlacementGroupResponse = CreatePlacementGroupResponse
 
 instance AWSRequest CreatePlacementGroup where
     type Sv CreatePlacementGroup = EC2

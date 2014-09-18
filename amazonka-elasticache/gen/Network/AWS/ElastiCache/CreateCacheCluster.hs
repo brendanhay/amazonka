@@ -39,7 +39,7 @@ module Network.AWS.ElastiCache.CreateCacheCluster
     -- * Request
       CreateCacheCluster
     -- ** Request constructor
-    , mkCreateCacheCluster
+    , createCacheCluster
     -- ** Request lenses
     , cccCacheClusterId
     , cccReplicationGroupId
@@ -66,7 +66,7 @@ module Network.AWS.ElastiCache.CreateCacheCluster
     -- * Response
     , CreateCacheClusterResponse
     -- ** Response constructor
-    , mkCreateCacheClusterResponse
+    , createCacheClusterResponse
     -- ** Response lenses
     , cccrCacheCluster
     ) where
@@ -147,9 +147,9 @@ data CreateCacheCluster = CreateCacheCluster
 --
 -- * @SnapshotWindow ::@ @Maybe Text@
 --
-mkCreateCacheCluster :: Text -- ^ 'cccCacheClusterId'
+createCacheCluster :: Text -- ^ 'cccCacheClusterId'
                      -> CreateCacheCluster
-mkCreateCacheCluster p1 = CreateCacheCluster
+createCacheCluster p1 = CreateCacheCluster
     { _cccCacheClusterId = p1
     , _cccReplicationGroupId = Nothing
     , _cccNumCacheNodes = Nothing
@@ -371,8 +371,8 @@ newtype CreateCacheClusterResponse = CreateCacheClusterResponse
 --
 -- * @CacheCluster ::@ @Maybe CacheCluster@
 --
-mkCreateCacheClusterResponse :: CreateCacheClusterResponse
-mkCreateCacheClusterResponse = CreateCacheClusterResponse
+createCacheClusterResponse :: CreateCacheClusterResponse
+createCacheClusterResponse = CreateCacheClusterResponse
     { _cccrCacheCluster = Nothing
     }
 

@@ -34,7 +34,7 @@ module Network.AWS.RDS.CreateDBInstance
     -- * Request
       CreateDBInstance
     -- ** Request constructor
-    , mkCreateDBInstance
+    , createDBInstance
     -- ** Request lenses
     , cdbiDBName
     , cdbiDBInstanceIdentifier
@@ -65,7 +65,7 @@ module Network.AWS.RDS.CreateDBInstance
     -- * Response
     , CreateDBInstanceResponse
     -- ** Response constructor
-    , mkCreateDBInstanceResponse
+    , createDBInstanceResponse
     -- ** Response lenses
     , cdbirDBInstance
     ) where
@@ -158,14 +158,14 @@ data CreateDBInstance = CreateDBInstance
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkCreateDBInstance :: Text -- ^ 'cdbiDBInstanceIdentifier'
+createDBInstance :: Text -- ^ 'cdbiDBInstanceIdentifier'
                    -> Integer -- ^ 'cdbiAllocatedStorage'
                    -> Text -- ^ 'cdbiDBInstanceClass'
                    -> Text -- ^ 'cdbiEngine'
                    -> Text -- ^ 'cdbiMasterUsername'
                    -> Text -- ^ 'cdbiMasterUserPassword'
                    -> CreateDBInstance
-mkCreateDBInstance p2 p3 p4 p5 p6 p7 = CreateDBInstance
+createDBInstance p2 p3 p4 p5 p6 p7 = CreateDBInstance
     { _cdbiDBName = Nothing
     , _cdbiDBInstanceIdentifier = p2
     , _cdbiAllocatedStorage = p3
@@ -417,8 +417,8 @@ newtype CreateDBInstanceResponse = CreateDBInstanceResponse
 --
 -- * @DBInstance ::@ @Maybe DBInstance@
 --
-mkCreateDBInstanceResponse :: CreateDBInstanceResponse
-mkCreateDBInstanceResponse = CreateDBInstanceResponse
+createDBInstanceResponse :: CreateDBInstanceResponse
+createDBInstanceResponse = CreateDBInstanceResponse
     { _cdbirDBInstance = Nothing
     }
 

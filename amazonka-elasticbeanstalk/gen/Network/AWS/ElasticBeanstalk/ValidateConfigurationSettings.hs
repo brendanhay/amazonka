@@ -33,7 +33,7 @@ module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     -- * Request
       ValidateConfigurationSettings
     -- ** Request constructor
-    , mkValidateConfigurationSettings
+    , validateConfigurationSettings
     -- ** Request lenses
     , vcsApplicationName
     , vcsTemplateName
@@ -43,7 +43,7 @@ module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     -- * Response
     , ValidateConfigurationSettingsResponse
     -- ** Response constructor
-    , mkValidateConfigurationSettingsResponse
+    , validateConfigurationSettingsResponse
     -- ** Response lenses
     , vcsrMessages
     ) where
@@ -73,10 +73,10 @@ data ValidateConfigurationSettings = ValidateConfigurationSettings
 --
 -- * @OptionSettings ::@ @[ConfigurationOptionSetting]@
 --
-mkValidateConfigurationSettings :: Text -- ^ 'vcsApplicationName'
+validateConfigurationSettings :: Text -- ^ 'vcsApplicationName'
                                 -> [ConfigurationOptionSetting] -- ^ 'vcsOptionSettings'
                                 -> ValidateConfigurationSettings
-mkValidateConfigurationSettings p1 p4 = ValidateConfigurationSettings
+validateConfigurationSettings p1 p4 = ValidateConfigurationSettings
     { _vcsApplicationName = p1
     , _vcsTemplateName = Nothing
     , _vcsEnvironmentName = Nothing
@@ -122,8 +122,8 @@ newtype ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsRes
 --
 -- * @Messages ::@ @[ValidationMessage]@
 --
-mkValidateConfigurationSettingsResponse :: ValidateConfigurationSettingsResponse
-mkValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
+validateConfigurationSettingsResponse :: ValidateConfigurationSettingsResponse
+validateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
     { _vcsrMessages = mempty
     }
 

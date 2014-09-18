@@ -26,11 +26,11 @@ module Network.AWS.AutoScaling.DescribeAdjustmentTypes
     -- * Request
       DescribeAdjustmentTypes
     -- ** Request constructor
-    , mkDescribeAdjustmentTypes
+    , describeAdjustmentTypes
     -- * Response
     , DescribeAdjustmentTypesResponse
     -- ** Response constructor
-    , mkDescribeAdjustmentTypesResponse
+    , describeAdjustmentTypesResponse
     -- ** Response lenses
     , datrAdjustmentTypes
     ) where
@@ -44,8 +44,8 @@ data DescribeAdjustmentTypes = DescribeAdjustmentTypes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAdjustmentTypes' request.
-mkDescribeAdjustmentTypes :: DescribeAdjustmentTypes
-mkDescribeAdjustmentTypes = DescribeAdjustmentTypes
+describeAdjustmentTypes :: DescribeAdjustmentTypes
+describeAdjustmentTypes = DescribeAdjustmentTypes
 
 instance ToQuery DescribeAdjustmentTypes where
     toQuery = genericQuery def
@@ -64,8 +64,8 @@ newtype DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
 --
 -- * @AdjustmentTypes ::@ @[AdjustmentType]@
 --
-mkDescribeAdjustmentTypesResponse :: DescribeAdjustmentTypesResponse
-mkDescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
+describeAdjustmentTypesResponse :: DescribeAdjustmentTypesResponse
+describeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
     { _datrAdjustmentTypes = mempty
     }
 

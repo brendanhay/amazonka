@@ -25,7 +25,7 @@ module Network.AWS.IAM.RemoveUserFromGroup
     -- * Request
       RemoveUserFromGroup
     -- ** Request constructor
-    , mkRemoveUserFromGroup
+    , removeUserFromGroup
     -- ** Request lenses
     , rufgGroupName
     , rufgUserName
@@ -33,7 +33,7 @@ module Network.AWS.IAM.RemoveUserFromGroup
     -- * Response
     , RemoveUserFromGroupResponse
     -- ** Response constructor
-    , mkRemoveUserFromGroupResponse
+    , removeUserFromGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -54,10 +54,10 @@ data RemoveUserFromGroup = RemoveUserFromGroup
 --
 -- * @UserName ::@ @Text@
 --
-mkRemoveUserFromGroup :: Text -- ^ 'rufgGroupName'
+removeUserFromGroup :: Text -- ^ 'rufgGroupName'
                       -> Text -- ^ 'rufgUserName'
                       -> RemoveUserFromGroup
-mkRemoveUserFromGroup p1 p2 = RemoveUserFromGroup
+removeUserFromGroup p1 p2 = RemoveUserFromGroup
     { _rufgGroupName = p1
     , _rufgUserName = p2
     }
@@ -80,8 +80,8 @@ data RemoveUserFromGroupResponse = RemoveUserFromGroupResponse
 -- a valid 'RemoveUserFromGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRemoveUserFromGroupResponse :: RemoveUserFromGroupResponse
-mkRemoveUserFromGroupResponse = RemoveUserFromGroupResponse
+removeUserFromGroupResponse :: RemoveUserFromGroupResponse
+removeUserFromGroupResponse = RemoveUserFromGroupResponse
 
 instance AWSRequest RemoveUserFromGroup where
     type Sv RemoveUserFromGroup = IAM

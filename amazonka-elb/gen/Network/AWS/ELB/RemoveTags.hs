@@ -27,7 +27,7 @@ module Network.AWS.ELB.RemoveTags
     -- * Request
       RemoveTags
     -- ** Request constructor
-    , mkRemoveTags
+    , removeTags
     -- ** Request lenses
     , rtLoadBalancerNames
     , rtTags
@@ -35,7 +35,7 @@ module Network.AWS.ELB.RemoveTags
     -- * Response
     , RemoveTagsResponse
     -- ** Response constructor
-    , mkRemoveTagsResponse
+    , removeTagsResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -57,10 +57,10 @@ data RemoveTags = RemoveTags
 --
 -- * @Tags ::@ @List1 TagKeyOnly@
 --
-mkRemoveTags :: [Text] -- ^ 'rtLoadBalancerNames'
+removeTags :: [Text] -- ^ 'rtLoadBalancerNames'
              -> List1 TagKeyOnly -- ^ 'rtTags'
              -> RemoveTags
-mkRemoveTags p1 p2 = RemoveTags
+removeTags p1 p2 = RemoveTags
     { _rtLoadBalancerNames = p1
     , _rtTags = p2
     }
@@ -86,8 +86,8 @@ data RemoveTagsResponse = RemoveTagsResponse
 -- a valid 'RemoveTagsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRemoveTagsResponse :: RemoveTagsResponse
-mkRemoveTagsResponse = RemoveTagsResponse
+removeTagsResponse :: RemoveTagsResponse
+removeTagsResponse = RemoveTagsResponse
 
 instance AWSRequest RemoveTags where
     type Sv RemoveTags = ELB

@@ -29,7 +29,7 @@ module Network.AWS.CloudWatch.PutMetricAlarm
     -- * Request
       PutMetricAlarm
     -- ** Request constructor
-    , mkPutMetricAlarm
+    , putMetricAlarm
     -- ** Request lenses
     , pmaAlarmName
     , pmaAlarmDescription
@@ -50,7 +50,7 @@ module Network.AWS.CloudWatch.PutMetricAlarm
     -- * Response
     , PutMetricAlarmResponse
     -- ** Response constructor
-    , mkPutMetricAlarmResponse
+    , putMetricAlarmResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -110,7 +110,7 @@ data PutMetricAlarm = PutMetricAlarm
 --
 -- * @ComparisonOperator ::@ @ComparisonOperator@
 --
-mkPutMetricAlarm :: Text -- ^ 'pmaAlarmName'
+putMetricAlarm :: Text -- ^ 'pmaAlarmName'
                  -> Integer -- ^ 'pmaPeriod'
                  -> Integer -- ^ 'pmaEvaluationPeriods'
                  -> Double -- ^ 'pmaThreshold'
@@ -119,7 +119,7 @@ mkPutMetricAlarm :: Text -- ^ 'pmaAlarmName'
                  -> Text -- ^ 'pmaNamespace'
                  -> Statistic -- ^ 'pmaStatistic'
                  -> PutMetricAlarm
-mkPutMetricAlarm p1 p11 p13 p14 p15 p7 p8 p9 = PutMetricAlarm
+putMetricAlarm p1 p11 p13 p14 p15 p7 p8 p9 = PutMetricAlarm
     { _pmaAlarmName = p1
     , _pmaAlarmDescription = Nothing
     , _pmaActionsEnabled = Nothing
@@ -226,8 +226,8 @@ data PutMetricAlarmResponse = PutMetricAlarmResponse
 -- a valid 'PutMetricAlarmResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkPutMetricAlarmResponse :: PutMetricAlarmResponse
-mkPutMetricAlarmResponse = PutMetricAlarmResponse
+putMetricAlarmResponse :: PutMetricAlarmResponse
+putMetricAlarmResponse = PutMetricAlarmResponse
 
 instance AWSRequest PutMetricAlarm where
     type Sv PutMetricAlarm = CloudWatch

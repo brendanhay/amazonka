@@ -34,7 +34,7 @@ module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     -- * Request
       AuthorizeCacheSecurityGroupIngress
     -- ** Request constructor
-    , mkAuthorizeCacheSecurityGroupIngress
+    , authorizeCacheSecurityGroupIngress
     -- ** Request lenses
     , acsgiCacheSecurityGroupName
     , acsgiEC2SecurityGroupName
@@ -43,7 +43,7 @@ module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     -- * Response
     , AuthorizeCacheSecurityGroupIngressResponse
     -- ** Response constructor
-    , mkAuthorizeCacheSecurityGroupIngressResponse
+    , authorizeCacheSecurityGroupIngressResponse
     -- ** Response lenses
     , acsgirCacheSecurityGroup
     ) where
@@ -70,11 +70,11 @@ data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress
 --
 -- * @EC2SecurityGroupOwnerId ::@ @Text@
 --
-mkAuthorizeCacheSecurityGroupIngress :: Text -- ^ 'acsgiCacheSecurityGroupName'
+authorizeCacheSecurityGroupIngress :: Text -- ^ 'acsgiCacheSecurityGroupName'
                                      -> Text -- ^ 'acsgiEC2SecurityGroupName'
                                      -> Text -- ^ 'acsgiEC2SecurityGroupOwnerId'
                                      -> AuthorizeCacheSecurityGroupIngress
-mkAuthorizeCacheSecurityGroupIngress p1 p2 p3 = AuthorizeCacheSecurityGroupIngress
+authorizeCacheSecurityGroupIngress p1 p2 p3 = AuthorizeCacheSecurityGroupIngress
     { _acsgiCacheSecurityGroupName = p1
     , _acsgiEC2SecurityGroupName = p2
     , _acsgiEC2SecurityGroupOwnerId = p3
@@ -117,8 +117,8 @@ newtype AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroup
 --
 -- * @CacheSecurityGroup ::@ @Maybe CacheSecurityGroup@
 --
-mkAuthorizeCacheSecurityGroupIngressResponse :: AuthorizeCacheSecurityGroupIngressResponse
-mkAuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse
+authorizeCacheSecurityGroupIngressResponse :: AuthorizeCacheSecurityGroupIngressResponse
+authorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse
     { _acsgirCacheSecurityGroup = Nothing
     }
 

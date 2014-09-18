@@ -24,7 +24,7 @@ module Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
     -- * Request
       ModifySnapshotCopyRetentionPeriod
     -- ** Request constructor
-    , mkModifySnapshotCopyRetentionPeriod
+    , modifySnapshotCopyRetentionPeriod
     -- ** Request lenses
     , mscrpClusterIdentifier
     , mscrpRetentionPeriod
@@ -32,7 +32,7 @@ module Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
     -- * Response
     , ModifySnapshotCopyRetentionPeriodResponse
     -- ** Response constructor
-    , mkModifySnapshotCopyRetentionPeriodResponse
+    , modifySnapshotCopyRetentionPeriodResponse
     -- ** Response lenses
     , mscrprCluster
     ) where
@@ -56,10 +56,10 @@ data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod
 --
 -- * @RetentionPeriod ::@ @Integer@
 --
-mkModifySnapshotCopyRetentionPeriod :: Text -- ^ 'mscrpClusterIdentifier'
+modifySnapshotCopyRetentionPeriod :: Text -- ^ 'mscrpClusterIdentifier'
                                     -> Integer -- ^ 'mscrpRetentionPeriod'
                                     -> ModifySnapshotCopyRetentionPeriod
-mkModifySnapshotCopyRetentionPeriod p1 p2 = ModifySnapshotCopyRetentionPeriod
+modifySnapshotCopyRetentionPeriod p1 p2 = ModifySnapshotCopyRetentionPeriod
     { _mscrpClusterIdentifier = p1
     , _mscrpRetentionPeriod = p2
     }
@@ -98,8 +98,8 @@ newtype ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionP
 --
 -- * @Cluster ::@ @Maybe Cluster@
 --
-mkModifySnapshotCopyRetentionPeriodResponse :: ModifySnapshotCopyRetentionPeriodResponse
-mkModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse
+modifySnapshotCopyRetentionPeriodResponse :: ModifySnapshotCopyRetentionPeriodResponse
+modifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse
     { _mscrprCluster = Nothing
     }
 

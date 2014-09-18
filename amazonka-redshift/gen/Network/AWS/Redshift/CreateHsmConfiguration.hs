@@ -30,7 +30,7 @@ module Network.AWS.Redshift.CreateHsmConfiguration
     -- * Request
       CreateHsmConfiguration
     -- ** Request constructor
-    , mkCreateHsmConfiguration
+    , createHsmConfiguration
     -- ** Request lenses
     , chcHsmConfigurationIdentifier
     , chcDescription
@@ -42,7 +42,7 @@ module Network.AWS.Redshift.CreateHsmConfiguration
     -- * Response
     , CreateHsmConfigurationResponse
     -- ** Response constructor
-    , mkCreateHsmConfigurationResponse
+    , createHsmConfigurationResponse
     -- ** Response lenses
     , chcrHsmConfiguration
     ) where
@@ -78,14 +78,14 @@ data CreateHsmConfiguration = CreateHsmConfiguration
 --
 -- * @HsmServerPublicCertificate ::@ @Text@
 --
-mkCreateHsmConfiguration :: Text -- ^ 'chcHsmConfigurationIdentifier'
+createHsmConfiguration :: Text -- ^ 'chcHsmConfigurationIdentifier'
                          -> Text -- ^ 'chcDescription'
                          -> Text -- ^ 'chcHsmIpAddress'
                          -> Text -- ^ 'chcHsmPartitionName'
                          -> Text -- ^ 'chcHsmPartitionPassword'
                          -> Text -- ^ 'chcHsmServerPublicCertificate'
                          -> CreateHsmConfiguration
-mkCreateHsmConfiguration p1 p2 p3 p4 p5 p6 = CreateHsmConfiguration
+createHsmConfiguration p1 p2 p3 p4 p5 p6 = CreateHsmConfiguration
     { _chcHsmConfigurationIdentifier = p1
     , _chcDescription = p2
     , _chcHsmIpAddress = p3
@@ -143,8 +143,8 @@ newtype CreateHsmConfigurationResponse = CreateHsmConfigurationResponse
 --
 -- * @HsmConfiguration ::@ @Maybe HsmConfiguration@
 --
-mkCreateHsmConfigurationResponse :: CreateHsmConfigurationResponse
-mkCreateHsmConfigurationResponse = CreateHsmConfigurationResponse
+createHsmConfigurationResponse :: CreateHsmConfigurationResponse
+createHsmConfigurationResponse = CreateHsmConfigurationResponse
     { _chcrHsmConfiguration = Nothing
     }
 

@@ -26,7 +26,7 @@ module Network.AWS.IAM.DeleteUserPolicy
     -- * Request
       DeleteUserPolicy
     -- ** Request constructor
-    , mkDeleteUserPolicy
+    , deleteUserPolicy
     -- ** Request lenses
     , dupUserName
     , dupPolicyName
@@ -34,7 +34,7 @@ module Network.AWS.IAM.DeleteUserPolicy
     -- * Response
     , DeleteUserPolicyResponse
     -- ** Response constructor
-    , mkDeleteUserPolicyResponse
+    , deleteUserPolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -55,10 +55,10 @@ data DeleteUserPolicy = DeleteUserPolicy
 --
 -- * @PolicyName ::@ @Text@
 --
-mkDeleteUserPolicy :: Text -- ^ 'dupUserName'
+deleteUserPolicy :: Text -- ^ 'dupUserName'
                    -> Text -- ^ 'dupPolicyName'
                    -> DeleteUserPolicy
-mkDeleteUserPolicy p1 p2 = DeleteUserPolicy
+deleteUserPolicy p1 p2 = DeleteUserPolicy
     { _dupUserName = p1
     , _dupPolicyName = p2
     }
@@ -81,8 +81,8 @@ data DeleteUserPolicyResponse = DeleteUserPolicyResponse
 -- a valid 'DeleteUserPolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteUserPolicyResponse :: DeleteUserPolicyResponse
-mkDeleteUserPolicyResponse = DeleteUserPolicyResponse
+deleteUserPolicyResponse :: DeleteUserPolicyResponse
+deleteUserPolicyResponse = DeleteUserPolicyResponse
 
 instance AWSRequest DeleteUserPolicy where
     type Sv DeleteUserPolicy = IAM

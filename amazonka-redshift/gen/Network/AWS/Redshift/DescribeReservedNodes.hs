@@ -34,7 +34,7 @@ module Network.AWS.Redshift.DescribeReservedNodes
     -- * Request
       DescribeReservedNodes
     -- ** Request constructor
-    , mkDescribeReservedNodes
+    , describeReservedNodes
     -- ** Request lenses
     , drnReservedNodeId
     , drnMaxRecords
@@ -43,7 +43,7 @@ module Network.AWS.Redshift.DescribeReservedNodes
     -- * Response
     , DescribeReservedNodesResponse
     -- ** Response constructor
-    , mkDescribeReservedNodesResponse
+    , describeReservedNodesResponse
     -- ** Response lenses
     , drnrMarker
     , drnrReservedNodes
@@ -71,8 +71,8 @@ data DescribeReservedNodes = DescribeReservedNodes
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeReservedNodes :: DescribeReservedNodes
-mkDescribeReservedNodes = DescribeReservedNodes
+describeReservedNodes :: DescribeReservedNodes
+describeReservedNodes = DescribeReservedNodes
     { _drnReservedNodeId = Nothing
     , _drnMaxRecords = Nothing
     , _drnMarker = Nothing
@@ -120,8 +120,8 @@ data DescribeReservedNodesResponse = DescribeReservedNodesResponse
 --
 -- * @ReservedNodes ::@ @[ReservedNode]@
 --
-mkDescribeReservedNodesResponse :: DescribeReservedNodesResponse
-mkDescribeReservedNodesResponse = DescribeReservedNodesResponse
+describeReservedNodesResponse :: DescribeReservedNodesResponse
+describeReservedNodesResponse = DescribeReservedNodesResponse
     { _drnrMarker = Nothing
     , _drnrReservedNodes = mempty
     }

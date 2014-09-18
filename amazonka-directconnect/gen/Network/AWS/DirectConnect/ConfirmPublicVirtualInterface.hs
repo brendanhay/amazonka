@@ -25,14 +25,14 @@ module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
     -- * Request
       ConfirmPublicVirtualInterface
     -- ** Request constructor
-    , mkConfirmPublicVirtualInterface
+    , confirmPublicVirtualInterface
     -- ** Request lenses
     , cpvi1VirtualInterfaceId
 
     -- * Response
     , ConfirmPublicVirtualInterfaceResponse
     -- ** Response constructor
-    , mkConfirmPublicVirtualInterfaceResponse
+    , confirmPublicVirtualInterfaceResponse
     -- ** Response lenses
     , cpvirrVirtualInterfaceState
     ) where
@@ -54,9 +54,9 @@ newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface
 --
 -- * @VirtualInterfaceId ::@ @Text@
 --
-mkConfirmPublicVirtualInterface :: Text -- ^ 'cpvi1VirtualInterfaceId'
+confirmPublicVirtualInterface :: Text -- ^ 'cpvi1VirtualInterfaceId'
                                 -> ConfirmPublicVirtualInterface
-mkConfirmPublicVirtualInterface p1 = ConfirmPublicVirtualInterface
+confirmPublicVirtualInterface p1 = ConfirmPublicVirtualInterface
     { _cpvi1VirtualInterfaceId = p1
     }
 
@@ -88,8 +88,8 @@ newtype ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceRes
 --
 -- * @VirtualInterfaceState ::@ @Maybe VirtualInterfaceState@
 --
-mkConfirmPublicVirtualInterfaceResponse :: ConfirmPublicVirtualInterfaceResponse
-mkConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse
+confirmPublicVirtualInterfaceResponse :: ConfirmPublicVirtualInterfaceResponse
+confirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse
     { _cpvirrVirtualInterfaceState = Nothing
     }
 

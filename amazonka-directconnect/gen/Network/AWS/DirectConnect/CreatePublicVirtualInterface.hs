@@ -26,7 +26,7 @@ module Network.AWS.DirectConnect.CreatePublicVirtualInterface
     -- * Request
       CreatePublicVirtualInterface
     -- ** Request constructor
-    , mkCreatePublicVirtualInterface
+    , createPublicVirtualInterface
     -- ** Request lenses
     , cpvi3ConnectionId
     , cpvi3NewPublicVirtualInterface
@@ -34,7 +34,7 @@ module Network.AWS.DirectConnect.CreatePublicVirtualInterface
     -- * Response
     , CreatePublicVirtualInterfaceResponse
     -- ** Response constructor
-    , mkCreatePublicVirtualInterfaceResponse
+    , createPublicVirtualInterfaceResponse
     -- ** Response lenses
     , cpvir1rOwnerAccount
     , cpvir1rVirtualInterfaceId
@@ -72,10 +72,10 @@ data CreatePublicVirtualInterface = CreatePublicVirtualInterface
 --
 -- * @NewPublicVirtualInterface ::@ @NewPublicVirtualInterface@
 --
-mkCreatePublicVirtualInterface :: Text -- ^ 'cpvi3ConnectionId'
+createPublicVirtualInterface :: Text -- ^ 'cpvi3ConnectionId'
                                -> NewPublicVirtualInterface -- ^ 'cpvi3NewPublicVirtualInterface'
                                -> CreatePublicVirtualInterface
-mkCreatePublicVirtualInterface p1 p2 = CreatePublicVirtualInterface
+createPublicVirtualInterface p1 p2 = CreatePublicVirtualInterface
     { _cpvi3ConnectionId = p1
     , _cpvi3NewPublicVirtualInterface = p2
     }
@@ -157,8 +157,8 @@ data CreatePublicVirtualInterfaceResponse = CreatePublicVirtualInterfaceResponse
 --
 -- * @RouteFilterPrefixes ::@ @[RouteFilterPrefix]@
 --
-mkCreatePublicVirtualInterfaceResponse :: CreatePublicVirtualInterfaceResponse
-mkCreatePublicVirtualInterfaceResponse = CreatePublicVirtualInterfaceResponse
+createPublicVirtualInterfaceResponse :: CreatePublicVirtualInterfaceResponse
+createPublicVirtualInterfaceResponse = CreatePublicVirtualInterfaceResponse
     { _cpvir1rOwnerAccount = Nothing
     , _cpvir1rVirtualInterfaceId = Nothing
     , _cpvir1rLocation = Nothing

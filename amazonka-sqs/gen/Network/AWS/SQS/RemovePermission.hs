@@ -32,7 +32,7 @@ module Network.AWS.SQS.RemovePermission
     -- * Request
       RemovePermission
     -- ** Request constructor
-    , mkRemovePermission
+    , removePermission
     -- ** Request lenses
     , rpQueueUrl
     , rpLabel
@@ -40,7 +40,7 @@ module Network.AWS.SQS.RemovePermission
     -- * Response
     , RemovePermissionResponse
     -- ** Response constructor
-    , mkRemovePermissionResponse
+    , removePermissionResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -61,10 +61,10 @@ data RemovePermission = RemovePermission
 --
 -- * @Label ::@ @Text@
 --
-mkRemovePermission :: Text -- ^ 'rpQueueUrl'
+removePermission :: Text -- ^ 'rpQueueUrl'
                    -> Text -- ^ 'rpLabel'
                    -> RemovePermission
-mkRemovePermission p1 p2 = RemovePermission
+removePermission p1 p2 = RemovePermission
     { _rpQueueUrl = p1
     , _rpLabel = p2
     }
@@ -88,8 +88,8 @@ data RemovePermissionResponse = RemovePermissionResponse
 -- a valid 'RemovePermissionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRemovePermissionResponse :: RemovePermissionResponse
-mkRemovePermissionResponse = RemovePermissionResponse
+removePermissionResponse :: RemovePermissionResponse
+removePermissionResponse = RemovePermissionResponse
 
 instance AWSRequest RemovePermission where
     type Sv RemovePermission = SQS

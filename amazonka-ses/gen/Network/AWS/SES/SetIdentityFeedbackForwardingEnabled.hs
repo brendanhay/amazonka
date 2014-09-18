@@ -39,7 +39,7 @@ module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
     -- * Request
       SetIdentityFeedbackForwardingEnabled
     -- ** Request constructor
-    , mkSetIdentityFeedbackForwardingEnabled
+    , setIdentityFeedbackForwardingEnabled
     -- ** Request lenses
     , siffeIdentity
     , siffeForwardingEnabled
@@ -47,7 +47,7 @@ module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
     -- * Response
     , SetIdentityFeedbackForwardingEnabledResponse
     -- ** Response constructor
-    , mkSetIdentityFeedbackForwardingEnabledResponse
+    , setIdentityFeedbackForwardingEnabledResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -68,10 +68,10 @@ data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled
 --
 -- * @ForwardingEnabled ::@ @Bool@
 --
-mkSetIdentityFeedbackForwardingEnabled :: Text -- ^ 'siffeIdentity'
+setIdentityFeedbackForwardingEnabled :: Text -- ^ 'siffeIdentity'
                                        -> Bool -- ^ 'siffeForwardingEnabled'
                                        -> SetIdentityFeedbackForwardingEnabled
-mkSetIdentityFeedbackForwardingEnabled p1 p2 = SetIdentityFeedbackForwardingEnabled
+setIdentityFeedbackForwardingEnabled p1 p2 = SetIdentityFeedbackForwardingEnabled
     { _siffeIdentity = p1
     , _siffeForwardingEnabled = p2
     }
@@ -104,8 +104,8 @@ data SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardin
 -- a valid 'SetIdentityFeedbackForwardingEnabledResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSetIdentityFeedbackForwardingEnabledResponse :: SetIdentityFeedbackForwardingEnabledResponse
-mkSetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse
+setIdentityFeedbackForwardingEnabledResponse :: SetIdentityFeedbackForwardingEnabledResponse
+setIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse
 
 instance AWSRequest SetIdentityFeedbackForwardingEnabled where
     type Sv SetIdentityFeedbackForwardingEnabled = SES

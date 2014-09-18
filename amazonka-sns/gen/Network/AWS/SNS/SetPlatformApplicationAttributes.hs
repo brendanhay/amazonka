@@ -40,7 +40,7 @@ module Network.AWS.SNS.SetPlatformApplicationAttributes
     -- * Request
       SetPlatformApplicationAttributes
     -- ** Request constructor
-    , mkSetPlatformApplicationAttributes
+    , setPlatformApplicationAttributes
     -- ** Request lenses
     , spaaPlatformApplicationArn
     , spaaAttributes
@@ -48,7 +48,7 @@ module Network.AWS.SNS.SetPlatformApplicationAttributes
     -- * Response
     , SetPlatformApplicationAttributesResponse
     -- ** Response constructor
-    , mkSetPlatformApplicationAttributesResponse
+    , setPlatformApplicationAttributesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -70,10 +70,10 @@ data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes
 --
 -- * @Attributes ::@ @Map Text Text@
 --
-mkSetPlatformApplicationAttributes :: Text -- ^ 'spaaPlatformApplicationArn'
+setPlatformApplicationAttributes :: Text -- ^ 'spaaPlatformApplicationArn'
                                    -> Map Text Text -- ^ 'spaaAttributes'
                                    -> SetPlatformApplicationAttributes
-mkSetPlatformApplicationAttributes p1 p2 = SetPlatformApplicationAttributes
+setPlatformApplicationAttributes p1 p2 = SetPlatformApplicationAttributes
     { _spaaPlatformApplicationArn = p1
     , _spaaAttributes = p2
     }
@@ -112,8 +112,8 @@ data SetPlatformApplicationAttributesResponse = SetPlatformApplicationAttributes
 -- a valid 'SetPlatformApplicationAttributesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSetPlatformApplicationAttributesResponse :: SetPlatformApplicationAttributesResponse
-mkSetPlatformApplicationAttributesResponse = SetPlatformApplicationAttributesResponse
+setPlatformApplicationAttributesResponse :: SetPlatformApplicationAttributesResponse
+setPlatformApplicationAttributesResponse = SetPlatformApplicationAttributesResponse
 
 instance AWSRequest SetPlatformApplicationAttributes where
     type Sv SetPlatformApplicationAttributes = SNS

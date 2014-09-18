@@ -54,7 +54,7 @@ module Network.AWS.SWF.CountClosedWorkflowExecutions
     -- * Request
       CountClosedWorkflowExecutions
     -- ** Request constructor
-    , mkCountClosedWorkflowExecutions
+    , countClosedWorkflowExecutions
     -- ** Request lenses
     , ccweDomain
     , ccweStartTimeFilter
@@ -67,7 +67,7 @@ module Network.AWS.SWF.CountClosedWorkflowExecutions
     -- * Response
     , CountClosedWorkflowExecutionsResponse
     -- ** Response constructor
-    , mkCountClosedWorkflowExecutionsResponse
+    , countClosedWorkflowExecutionsResponse
     -- ** Response lenses
     , ccwerCount
     , ccwerTruncated
@@ -106,9 +106,9 @@ data CountClosedWorkflowExecutions = CountClosedWorkflowExecutions
 --
 -- * @CloseStatusFilter ::@ @Maybe CloseStatusFilter@
 --
-mkCountClosedWorkflowExecutions :: Text -- ^ 'ccweDomain'
+countClosedWorkflowExecutions :: Text -- ^ 'ccweDomain'
                                 -> CountClosedWorkflowExecutions
-mkCountClosedWorkflowExecutions p1 = CountClosedWorkflowExecutions
+countClosedWorkflowExecutions p1 = CountClosedWorkflowExecutions
     { _ccweDomain = p1
     , _ccweStartTimeFilter = Nothing
     , _ccweCloseTimeFilter = Nothing
@@ -190,9 +190,9 @@ data CountClosedWorkflowExecutionsResponse = CountClosedWorkflowExecutionsRespon
 --
 -- * @Truncated ::@ @Maybe Bool@
 --
-mkCountClosedWorkflowExecutionsResponse :: Integer -- ^ 'ccwerCount'
+countClosedWorkflowExecutionsResponse :: Integer -- ^ 'ccwerCount'
                                         -> CountClosedWorkflowExecutionsResponse
-mkCountClosedWorkflowExecutionsResponse p1 = CountClosedWorkflowExecutionsResponse
+countClosedWorkflowExecutionsResponse p1 = CountClosedWorkflowExecutionsResponse
     { _ccwerCount = p1
     , _ccwerTruncated = Nothing
     }

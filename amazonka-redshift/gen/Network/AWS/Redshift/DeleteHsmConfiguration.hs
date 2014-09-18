@@ -23,14 +23,14 @@ module Network.AWS.Redshift.DeleteHsmConfiguration
     -- * Request
       DeleteHsmConfiguration
     -- ** Request constructor
-    , mkDeleteHsmConfiguration
+    , deleteHsmConfiguration
     -- ** Request lenses
     , dhcHsmConfigurationIdentifier
 
     -- * Response
     , DeleteHsmConfigurationResponse
     -- ** Response constructor
-    , mkDeleteHsmConfigurationResponse
+    , deleteHsmConfigurationResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -49,9 +49,9 @@ newtype DeleteHsmConfiguration = DeleteHsmConfiguration
 --
 -- * @HsmConfigurationIdentifier ::@ @Text@
 --
-mkDeleteHsmConfiguration :: Text -- ^ 'dhcHsmConfigurationIdentifier'
+deleteHsmConfiguration :: Text -- ^ 'dhcHsmConfigurationIdentifier'
                          -> DeleteHsmConfiguration
-mkDeleteHsmConfiguration p1 = DeleteHsmConfiguration
+deleteHsmConfiguration p1 = DeleteHsmConfiguration
     { _dhcHsmConfigurationIdentifier = p1
     }
 
@@ -71,8 +71,8 @@ data DeleteHsmConfigurationResponse = DeleteHsmConfigurationResponse
 -- a valid 'DeleteHsmConfigurationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteHsmConfigurationResponse :: DeleteHsmConfigurationResponse
-mkDeleteHsmConfigurationResponse = DeleteHsmConfigurationResponse
+deleteHsmConfigurationResponse :: DeleteHsmConfigurationResponse
+deleteHsmConfigurationResponse = DeleteHsmConfigurationResponse
 
 instance AWSRequest DeleteHsmConfiguration where
     type Sv DeleteHsmConfiguration = Redshift

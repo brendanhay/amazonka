@@ -38,7 +38,7 @@ module Network.AWS.CloudFormation.UpdateStack
     -- * Request
       UpdateStack
     -- ** Request constructor
-    , mkUpdateStack
+    , updateStack
     -- ** Request lenses
     , usStackName
     , usTemplateBody
@@ -55,7 +55,7 @@ module Network.AWS.CloudFormation.UpdateStack
     -- * Response
     , UpdateStackResponse
     -- ** Response constructor
-    , mkUpdateStackResponse
+    , updateStackResponse
     -- ** Response lenses
     , usrStackId
     ) where
@@ -106,9 +106,9 @@ data UpdateStack = UpdateStack
 --
 -- * @NotificationARNs ::@ @[Text]@
 --
-mkUpdateStack :: Text -- ^ 'usStackName'
+updateStack :: Text -- ^ 'usStackName'
               -> UpdateStack
-mkUpdateStack p1 = UpdateStack
+updateStack p1 = UpdateStack
     { _usStackName = p1
     , _usTemplateBody = Nothing
     , _usTemplateURL = Nothing
@@ -229,8 +229,8 @@ newtype UpdateStackResponse = UpdateStackResponse
 --
 -- * @StackId ::@ @Maybe Text@
 --
-mkUpdateStackResponse :: UpdateStackResponse
-mkUpdateStackResponse = UpdateStackResponse
+updateStackResponse :: UpdateStackResponse
+updateStackResponse = UpdateStackResponse
     { _usrStackId = Nothing
     }
 

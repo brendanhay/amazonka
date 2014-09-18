@@ -88,7 +88,7 @@ module Network.AWS.EC2.RunInstances
     -- * Request
       RunInstances
     -- ** Request constructor
-    , mkRunInstances
+    , runInstances
     -- ** Request lenses
     , ri3ImageId
     , ri3MinCount
@@ -116,7 +116,7 @@ module Network.AWS.EC2.RunInstances
     -- * Response
     , RunInstancesResponse
     -- ** Response constructor
-    , mkRunInstancesResponse
+    , runInstancesResponse
     -- ** Response lenses
     , rirrReservationId
     , rirrOwnerId
@@ -203,11 +203,11 @@ data RunInstances = RunInstances
 --
 -- * @EbsOptimized ::@ @Maybe Bool@
 --
-mkRunInstances :: Text -- ^ 'ri3ImageId'
+runInstances :: Text -- ^ 'ri3ImageId'
                -> Integer -- ^ 'ri3MinCount'
                -> Integer -- ^ 'ri3MaxCount'
                -> RunInstances
-mkRunInstances p1 p2 p3 = RunInstances
+runInstances p1 p2 p3 = RunInstances
     { _ri3ImageId = p1
     , _ri3MinCount = p2
     , _ri3MaxCount = p3
@@ -400,8 +400,8 @@ data RunInstancesResponse = RunInstancesResponse
 --
 -- * @Instances ::@ @[Instance]@
 --
-mkRunInstancesResponse :: RunInstancesResponse
-mkRunInstancesResponse = RunInstancesResponse
+runInstancesResponse :: RunInstancesResponse
+runInstancesResponse = RunInstancesResponse
     { _rirrReservationId = Nothing
     , _rirrOwnerId = Nothing
     , _rirrRequesterId = Nothing

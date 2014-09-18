@@ -50,7 +50,7 @@ module Network.AWS.SQS.DeleteMessage
     -- * Request
       DeleteMessage
     -- ** Request constructor
-    , mkDeleteMessage
+    , deleteMessage
     -- ** Request lenses
     , dmQueueUrl
     , dmReceiptHandle
@@ -58,7 +58,7 @@ module Network.AWS.SQS.DeleteMessage
     -- * Response
     , DeleteMessageResponse
     -- ** Response constructor
-    , mkDeleteMessageResponse
+    , deleteMessageResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -79,10 +79,10 @@ data DeleteMessage = DeleteMessage
 --
 -- * @ReceiptHandle ::@ @Text@
 --
-mkDeleteMessage :: Text -- ^ 'dmQueueUrl'
+deleteMessage :: Text -- ^ 'dmQueueUrl'
                 -> Text -- ^ 'dmReceiptHandle'
                 -> DeleteMessage
-mkDeleteMessage p1 p2 = DeleteMessage
+deleteMessage p1 p2 = DeleteMessage
     { _dmQueueUrl = p1
     , _dmReceiptHandle = p2
     }
@@ -105,8 +105,8 @@ data DeleteMessageResponse = DeleteMessageResponse
 -- a valid 'DeleteMessageResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteMessageResponse :: DeleteMessageResponse
-mkDeleteMessageResponse = DeleteMessageResponse
+deleteMessageResponse :: DeleteMessageResponse
+deleteMessageResponse = DeleteMessageResponse
 
 instance AWSRequest DeleteMessage where
     type Sv DeleteMessage = SQS

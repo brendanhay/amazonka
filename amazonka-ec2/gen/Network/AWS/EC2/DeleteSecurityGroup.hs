@@ -38,7 +38,7 @@ module Network.AWS.EC2.DeleteSecurityGroup
     -- * Request
       DeleteSecurityGroup
     -- ** Request constructor
-    , mkDeleteSecurityGroup
+    , deleteSecurityGroup
     -- ** Request lenses
     , dsgGroupName
     , dsgGroupId
@@ -46,7 +46,7 @@ module Network.AWS.EC2.DeleteSecurityGroup
     -- * Response
     , DeleteSecurityGroupResponse
     -- ** Response constructor
-    , mkDeleteSecurityGroupResponse
+    , deleteSecurityGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -67,8 +67,8 @@ data DeleteSecurityGroup = DeleteSecurityGroup
 --
 -- * @GroupId ::@ @Maybe Text@
 --
-mkDeleteSecurityGroup :: DeleteSecurityGroup
-mkDeleteSecurityGroup = DeleteSecurityGroup
+deleteSecurityGroup :: DeleteSecurityGroup
+deleteSecurityGroup = DeleteSecurityGroup
     { _dsgGroupName = Nothing
     , _dsgGroupId = Nothing
     }
@@ -91,8 +91,8 @@ data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse
 -- a valid 'DeleteSecurityGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteSecurityGroupResponse :: DeleteSecurityGroupResponse
-mkDeleteSecurityGroupResponse = DeleteSecurityGroupResponse
+deleteSecurityGroupResponse :: DeleteSecurityGroupResponse
+deleteSecurityGroupResponse = DeleteSecurityGroupResponse
 
 instance AWSRequest DeleteSecurityGroup where
     type Sv DeleteSecurityGroup = EC2

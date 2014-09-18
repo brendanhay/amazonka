@@ -23,14 +23,14 @@ module Network.AWS.CloudFront.GetDistributionConfig
     -- * Request
       GetDistributionConfig
     -- ** Request constructor
-    , mkGetDistributionConfig
+    , getDistributionConfig
     -- ** Request lenses
     , gdcId
 
     -- * Response
     , GetDistributionConfigResponse
     -- ** Response constructor
-    , mkGetDistributionConfigResponse
+    , getDistributionConfigResponse
     -- ** Response lenses
     , gdcrDistributionConfig
     , gdcrETag
@@ -53,9 +53,9 @@ newtype GetDistributionConfig = GetDistributionConfig
 --
 -- * @Id ::@ @Text@
 --
-mkGetDistributionConfig :: Text -- ^ 'gdcId'
+getDistributionConfig :: Text -- ^ 'gdcId'
                         -> GetDistributionConfig
-mkGetDistributionConfig p1 = GetDistributionConfig
+getDistributionConfig p1 = GetDistributionConfig
     { _gdcId = p1
     }
 
@@ -90,8 +90,8 @@ data GetDistributionConfigResponse = GetDistributionConfigResponse
 --
 -- * @ETag ::@ @Maybe Text@
 --
-mkGetDistributionConfigResponse :: GetDistributionConfigResponse
-mkGetDistributionConfigResponse = GetDistributionConfigResponse
+getDistributionConfigResponse :: GetDistributionConfigResponse
+getDistributionConfigResponse = GetDistributionConfigResponse
     { _gdcrDistributionConfig = Nothing
     , _gdcrETag = Nothing
     }

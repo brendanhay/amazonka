@@ -26,7 +26,7 @@ module Network.AWS.CloudWatch.DescribeAlarmHistory
     -- * Request
       DescribeAlarmHistory
     -- ** Request constructor
-    , mkDescribeAlarmHistory
+    , describeAlarmHistory
     -- ** Request lenses
     , dahAlarmName
     , dahHistoryItemType
@@ -38,7 +38,7 @@ module Network.AWS.CloudWatch.DescribeAlarmHistory
     -- * Response
     , DescribeAlarmHistoryResponse
     -- ** Response constructor
-    , mkDescribeAlarmHistoryResponse
+    , describeAlarmHistoryResponse
     -- ** Response lenses
     , dahrAlarmHistoryItems
     , dahrNextToken
@@ -74,8 +74,8 @@ data DescribeAlarmHistory = DescribeAlarmHistory
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeAlarmHistory :: DescribeAlarmHistory
-mkDescribeAlarmHistory = DescribeAlarmHistory
+describeAlarmHistory :: DescribeAlarmHistory
+describeAlarmHistory = DescribeAlarmHistory
     { _dahAlarmName = Nothing
     , _dahHistoryItemType = Nothing
     , _dahStartDate = Nothing
@@ -130,8 +130,8 @@ data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeAlarmHistoryResponse :: DescribeAlarmHistoryResponse
-mkDescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
+describeAlarmHistoryResponse :: DescribeAlarmHistoryResponse
+describeAlarmHistoryResponse = DescribeAlarmHistoryResponse
     { _dahrAlarmHistoryItems = mempty
     , _dahrNextToken = Nothing
     }

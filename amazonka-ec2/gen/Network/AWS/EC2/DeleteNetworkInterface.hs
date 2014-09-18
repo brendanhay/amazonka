@@ -31,14 +31,14 @@ module Network.AWS.EC2.DeleteNetworkInterface
     -- * Request
       DeleteNetworkInterface
     -- ** Request constructor
-    , mkDeleteNetworkInterface
+    , deleteNetworkInterface
     -- ** Request lenses
     , dniNetworkInterfaceId
 
     -- * Response
     , DeleteNetworkInterfaceResponse
     -- ** Response constructor
-    , mkDeleteNetworkInterfaceResponse
+    , deleteNetworkInterfaceResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -56,9 +56,9 @@ newtype DeleteNetworkInterface = DeleteNetworkInterface
 --
 -- * @NetworkInterfaceId ::@ @Text@
 --
-mkDeleteNetworkInterface :: Text -- ^ 'dniNetworkInterfaceId'
+deleteNetworkInterface :: Text -- ^ 'dniNetworkInterfaceId'
                          -> DeleteNetworkInterface
-mkDeleteNetworkInterface p1 = DeleteNetworkInterface
+deleteNetworkInterface p1 = DeleteNetworkInterface
     { _dniNetworkInterfaceId = p1
     }
 
@@ -77,8 +77,8 @@ data DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
 -- a valid 'DeleteNetworkInterfaceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteNetworkInterfaceResponse :: DeleteNetworkInterfaceResponse
-mkDeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
+deleteNetworkInterfaceResponse :: DeleteNetworkInterfaceResponse
+deleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
 
 instance AWSRequest DeleteNetworkInterface where
     type Sv DeleteNetworkInterface = EC2

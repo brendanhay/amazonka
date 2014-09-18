@@ -36,7 +36,7 @@ module Network.AWS.ElastiCache.ModifyReplicationGroup
     -- * Request
       ModifyReplicationGroup
     -- ** Request constructor
-    , mkModifyReplicationGroup
+    , modifyReplicationGroup
     -- ** Request lenses
     , mrgReplicationGroupId
     , mrgReplicationGroupDescription
@@ -57,7 +57,7 @@ module Network.AWS.ElastiCache.ModifyReplicationGroup
     -- * Response
     , ModifyReplicationGroupResponse
     -- ** Response constructor
-    , mkModifyReplicationGroupResponse
+    , modifyReplicationGroupResponse
     -- ** Response lenses
     , mrgrReplicationGroup
     ) where
@@ -120,9 +120,9 @@ data ModifyReplicationGroup = ModifyReplicationGroup
 --
 -- * @SnapshottingClusterId ::@ @Maybe Text@
 --
-mkModifyReplicationGroup :: Text -- ^ 'mrgReplicationGroupId'
+modifyReplicationGroup :: Text -- ^ 'mrgReplicationGroupId'
                          -> ModifyReplicationGroup
-mkModifyReplicationGroup p1 = ModifyReplicationGroup
+modifyReplicationGroup p1 = ModifyReplicationGroup
     { _mrgReplicationGroupId = p1
     , _mrgReplicationGroupDescription = Nothing
     , _mrgCacheSecurityGroupNames = mempty
@@ -277,8 +277,8 @@ newtype ModifyReplicationGroupResponse = ModifyReplicationGroupResponse
 --
 -- * @ReplicationGroup ::@ @Maybe ReplicationGroup@
 --
-mkModifyReplicationGroupResponse :: ModifyReplicationGroupResponse
-mkModifyReplicationGroupResponse = ModifyReplicationGroupResponse
+modifyReplicationGroupResponse :: ModifyReplicationGroupResponse
+modifyReplicationGroupResponse = ModifyReplicationGroupResponse
     { _mrgrReplicationGroup = Nothing
     }
 

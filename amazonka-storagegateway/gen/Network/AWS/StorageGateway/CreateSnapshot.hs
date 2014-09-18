@@ -50,7 +50,7 @@ module Network.AWS.StorageGateway.CreateSnapshot
     -- * Request
       CreateSnapshot
     -- ** Request constructor
-    , mkCreateSnapshot
+    , createSnapshot
     -- ** Request lenses
     , csVolumeARN
     , csSnapshotDescription
@@ -58,7 +58,7 @@ module Network.AWS.StorageGateway.CreateSnapshot
     -- * Response
     , CreateSnapshotResponse
     -- ** Response constructor
-    , mkCreateSnapshotResponse
+    , createSnapshotResponse
     -- ** Response lenses
     , csrVolumeARN
     , csrSnapshotId
@@ -84,10 +84,10 @@ data CreateSnapshot = CreateSnapshot
 --
 -- * @SnapshotDescription ::@ @Text@
 --
-mkCreateSnapshot :: Text -- ^ 'csVolumeARN'
+createSnapshot :: Text -- ^ 'csVolumeARN'
                  -> Text -- ^ 'csSnapshotDescription'
                  -> CreateSnapshot
-mkCreateSnapshot p1 p2 = CreateSnapshot
+createSnapshot p1 p2 = CreateSnapshot
     { _csVolumeARN = p1
     , _csSnapshotDescription = p2
     }
@@ -129,8 +129,8 @@ data CreateSnapshotResponse = CreateSnapshotResponse
 --
 -- * @SnapshotId ::@ @Maybe Text@
 --
-mkCreateSnapshotResponse :: CreateSnapshotResponse
-mkCreateSnapshotResponse = CreateSnapshotResponse
+createSnapshotResponse :: CreateSnapshotResponse
+createSnapshotResponse = CreateSnapshotResponse
     { _csrVolumeARN = Nothing
     , _csrSnapshotId = Nothing
     }

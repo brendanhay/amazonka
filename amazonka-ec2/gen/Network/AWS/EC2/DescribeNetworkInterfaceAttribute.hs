@@ -34,7 +34,7 @@ module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
     -- * Request
       DescribeNetworkInterfaceAttribute
     -- ** Request constructor
-    , mkDescribeNetworkInterfaceAttribute
+    , describeNetworkInterfaceAttribute
     -- ** Request lenses
     , dniaNetworkInterfaceId
     , dniaAttribute
@@ -42,7 +42,7 @@ module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
     -- * Response
     , DescribeNetworkInterfaceAttributeResponse
     -- ** Response constructor
-    , mkDescribeNetworkInterfaceAttributeResponse
+    , describeNetworkInterfaceAttributeResponse
     -- ** Response lenses
     , dniarNetworkInterfaceId
     , dniarDescription
@@ -69,9 +69,9 @@ data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
 --
 -- * @Attribute ::@ @Maybe NetworkInterfaceAttribute@
 --
-mkDescribeNetworkInterfaceAttribute :: Text -- ^ 'dniaNetworkInterfaceId'
+describeNetworkInterfaceAttribute :: Text -- ^ 'dniaNetworkInterfaceId'
                                     -> DescribeNetworkInterfaceAttribute
-mkDescribeNetworkInterfaceAttribute p1 = DescribeNetworkInterfaceAttribute
+describeNetworkInterfaceAttribute p1 = DescribeNetworkInterfaceAttribute
     { _dniaNetworkInterfaceId = p1
     , _dniaAttribute = Nothing
     }
@@ -113,8 +113,8 @@ data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttribu
 --
 -- * @Attachment ::@ @Maybe NetworkInterfaceAttachment@
 --
-mkDescribeNetworkInterfaceAttributeResponse :: DescribeNetworkInterfaceAttributeResponse
-mkDescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse
+describeNetworkInterfaceAttributeResponse :: DescribeNetworkInterfaceAttributeResponse
+describeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse
     { _dniarNetworkInterfaceId = Nothing
     , _dniarDescription = Nothing
     , _dniarSourceDestCheck = Nothing

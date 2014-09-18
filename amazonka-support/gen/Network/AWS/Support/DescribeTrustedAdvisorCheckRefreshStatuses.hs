@@ -25,14 +25,14 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
     -- * Request
       DescribeTrustedAdvisorCheckRefreshStatuses
     -- ** Request constructor
-    , mkDescribeTrustedAdvisorCheckRefreshStatuses
+    , describeTrustedAdvisorCheckRefreshStatuses
     -- ** Request lenses
     , dtacrsCheckIds
 
     -- * Response
     , DescribeTrustedAdvisorCheckRefreshStatusesResponse
     -- ** Response constructor
-    , mkDescribeTrustedAdvisorCheckRefreshStatusesResponse
+    , describeTrustedAdvisorCheckRefreshStatusesResponse
     -- ** Response lenses
     , dtacrsrStatuses
     ) where
@@ -52,9 +52,9 @@ newtype DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheck
 --
 -- * @CheckIds ::@ @[Text]@
 --
-mkDescribeTrustedAdvisorCheckRefreshStatuses :: [Text] -- ^ 'dtacrsCheckIds'
+describeTrustedAdvisorCheckRefreshStatuses :: [Text] -- ^ 'dtacrsCheckIds'
                                              -> DescribeTrustedAdvisorCheckRefreshStatuses
-mkDescribeTrustedAdvisorCheckRefreshStatuses p1 = DescribeTrustedAdvisorCheckRefreshStatuses
+describeTrustedAdvisorCheckRefreshStatuses p1 = DescribeTrustedAdvisorCheckRefreshStatuses
     { _dtacrsCheckIds = p1
     }
 
@@ -85,9 +85,9 @@ newtype DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvi
 --
 -- * @Statuses ::@ @[TrustedAdvisorCheckRefreshStatus]@
 --
-mkDescribeTrustedAdvisorCheckRefreshStatusesResponse :: [TrustedAdvisorCheckRefreshStatus] -- ^ 'dtacrsrStatuses'
+describeTrustedAdvisorCheckRefreshStatusesResponse :: [TrustedAdvisorCheckRefreshStatus] -- ^ 'dtacrsrStatuses'
                                                      -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
-mkDescribeTrustedAdvisorCheckRefreshStatusesResponse p1 = DescribeTrustedAdvisorCheckRefreshStatusesResponse
+describeTrustedAdvisorCheckRefreshStatusesResponse p1 = DescribeTrustedAdvisorCheckRefreshStatusesResponse
     { _dtacrsrStatuses = p1
     }
 

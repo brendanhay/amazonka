@@ -57,7 +57,7 @@ module Network.AWS.STS.GetSessionToken
     -- * Request
       GetSessionToken
     -- ** Request constructor
-    , mkGetSessionToken
+    , getSessionToken
     -- ** Request lenses
     , gstDurationSeconds
     , gstSerialNumber
@@ -66,7 +66,7 @@ module Network.AWS.STS.GetSessionToken
     -- * Response
     , GetSessionTokenResponse
     -- ** Response constructor
-    , mkGetSessionTokenResponse
+    , getSessionTokenResponse
     -- ** Response lenses
     , gstrCredentials
     ) where
@@ -92,8 +92,8 @@ data GetSessionToken = GetSessionToken
 --
 -- * @TokenCode ::@ @Maybe Text@
 --
-mkGetSessionToken :: GetSessionToken
-mkGetSessionToken = GetSessionToken
+getSessionToken :: GetSessionToken
+getSessionToken = GetSessionToken
     { _gstDurationSeconds = Nothing
     , _gstSerialNumber = Nothing
     , _gstTokenCode = Nothing
@@ -147,8 +147,8 @@ newtype GetSessionTokenResponse = GetSessionTokenResponse
 --
 -- * @Credentials ::@ @Maybe Credentials@
 --
-mkGetSessionTokenResponse :: GetSessionTokenResponse
-mkGetSessionTokenResponse = GetSessionTokenResponse
+getSessionTokenResponse :: GetSessionTokenResponse
+getSessionTokenResponse = GetSessionTokenResponse
     { _gstrCredentials = Nothing
     }
 

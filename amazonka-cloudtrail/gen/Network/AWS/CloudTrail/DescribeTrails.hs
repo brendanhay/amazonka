@@ -24,14 +24,14 @@ module Network.AWS.CloudTrail.DescribeTrails
     -- * Request
       DescribeTrails
     -- ** Request constructor
-    , mkDescribeTrails
+    , describeTrails
     -- ** Request lenses
     , dt1TrailNameList
 
     -- * Response
     , DescribeTrailsResponse
     -- ** Response constructor
-    , mkDescribeTrailsResponse
+    , describeTrailsResponse
     -- ** Response lenses
     , dtrrTrailList
     ) where
@@ -52,8 +52,8 @@ newtype DescribeTrails = DescribeTrails
 --
 -- * @TrailNameList ::@ @[Text]@
 --
-mkDescribeTrails :: DescribeTrails
-mkDescribeTrails = DescribeTrails
+describeTrails :: DescribeTrails
+describeTrails = DescribeTrails
     { _dt1TrailNameList = mempty
     }
 
@@ -85,8 +85,8 @@ newtype DescribeTrailsResponse = DescribeTrailsResponse
 --
 -- * @TrailList ::@ @[Trail]@
 --
-mkDescribeTrailsResponse :: DescribeTrailsResponse
-mkDescribeTrailsResponse = DescribeTrailsResponse
+describeTrailsResponse :: DescribeTrailsResponse
+describeTrailsResponse = DescribeTrailsResponse
     { _dtrrTrailList = mempty
     }
 

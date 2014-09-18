@@ -25,14 +25,14 @@ module Network.AWS.CloudSearch.DeleteDomain
     -- * Request
       DeleteDomain
     -- ** Request constructor
-    , mkDeleteDomain
+    , deleteDomain
     -- ** Request lenses
     , ddDomainName
 
     -- * Response
     , DeleteDomainResponse
     -- ** Response constructor
-    , mkDeleteDomainResponse
+    , deleteDomainResponse
     -- ** Response lenses
     , ddrDomainStatus
     ) where
@@ -54,9 +54,9 @@ newtype DeleteDomain = DeleteDomain
 --
 -- * @DomainName ::@ @Text@
 --
-mkDeleteDomain :: Text -- ^ 'ddDomainName'
+deleteDomain :: Text -- ^ 'ddDomainName'
                -> DeleteDomain
-mkDeleteDomain p1 = DeleteDomain
+deleteDomain p1 = DeleteDomain
     { _ddDomainName = p1
     }
 
@@ -83,8 +83,8 @@ newtype DeleteDomainResponse = DeleteDomainResponse
 --
 -- * @DomainStatus ::@ @Maybe DomainStatus@
 --
-mkDeleteDomainResponse :: DeleteDomainResponse
-mkDeleteDomainResponse = DeleteDomainResponse
+deleteDomainResponse :: DeleteDomainResponse
+deleteDomainResponse = DeleteDomainResponse
     { _ddrDomainStatus = Nothing
     }
 

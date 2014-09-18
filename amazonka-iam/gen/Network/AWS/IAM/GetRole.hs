@@ -35,14 +35,14 @@ module Network.AWS.IAM.GetRole
     -- * Request
       GetRole
     -- ** Request constructor
-    , mkGetRole
+    , getRole
     -- ** Request lenses
     , grRoleName
 
     -- * Response
     , GetRoleResponse
     -- ** Response constructor
-    , mkGetRoleResponse
+    , getRoleResponse
     -- ** Response lenses
     , grrRole
     ) where
@@ -62,9 +62,9 @@ newtype GetRole = GetRole
 --
 -- * @RoleName ::@ @Text@
 --
-mkGetRole :: Text -- ^ 'grRoleName'
+getRole :: Text -- ^ 'grRoleName'
           -> GetRole
-mkGetRole p1 = GetRole
+getRole p1 = GetRole
     { _grRoleName = p1
     }
 
@@ -89,9 +89,9 @@ newtype GetRoleResponse = GetRoleResponse
 --
 -- * @Role ::@ @Role@
 --
-mkGetRoleResponse :: Role -- ^ 'grrRole'
+getRoleResponse :: Role -- ^ 'grrRole'
                   -> GetRoleResponse
-mkGetRoleResponse p1 = GetRoleResponse
+getRoleResponse p1 = GetRoleResponse
     { _grrRole = p1
     }
 

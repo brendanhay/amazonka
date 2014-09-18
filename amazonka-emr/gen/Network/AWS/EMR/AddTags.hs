@@ -32,7 +32,7 @@ module Network.AWS.EMR.AddTags
     -- * Request
       AddTags
     -- ** Request constructor
-    , mkAddTags
+    , addTags
     -- ** Request lenses
     , atResourceId
     , atTags
@@ -40,7 +40,7 @@ module Network.AWS.EMR.AddTags
     -- * Response
     , AddTagsResponse
     -- ** Response constructor
-    , mkAddTagsResponse
+    , addTagsResponse
     ) where
 
 import Network.AWS.EMR.Types
@@ -62,10 +62,10 @@ data AddTags = AddTags
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkAddTags :: Text -- ^ 'atResourceId'
+addTags :: Text -- ^ 'atResourceId'
           -> [Tag] -- ^ 'atTags'
           -> AddTags
-mkAddTags p1 p2 = AddTags
+addTags p1 p2 = AddTags
     { _atResourceId = p1
     , _atTags = p2
     }
@@ -98,8 +98,8 @@ data AddTagsResponse = AddTagsResponse
 -- a valid 'AddTagsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkAddTagsResponse :: AddTagsResponse
-mkAddTagsResponse = AddTagsResponse
+addTagsResponse :: AddTagsResponse
+addTagsResponse = AddTagsResponse
 
 instance AWSRequest AddTags where
     type Sv AddTags = EMR

@@ -34,11 +34,11 @@ module Network.AWS.SES.GetSendStatistics
     -- * Request
       GetSendStatistics
     -- ** Request constructor
-    , mkGetSendStatistics
+    , getSendStatistics
     -- * Response
     , GetSendStatisticsResponse
     -- ** Response constructor
-    , mkGetSendStatisticsResponse
+    , getSendStatisticsResponse
     -- ** Response lenses
     , gssrSendDataPoints
     ) where
@@ -52,8 +52,8 @@ data GetSendStatistics = GetSendStatistics
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetSendStatistics' request.
-mkGetSendStatistics :: GetSendStatistics
-mkGetSendStatistics = GetSendStatistics
+getSendStatistics :: GetSendStatistics
+getSendStatistics = GetSendStatistics
 
 instance ToQuery GetSendStatistics where
     toQuery = genericQuery def
@@ -74,8 +74,8 @@ newtype GetSendStatisticsResponse = GetSendStatisticsResponse
 --
 -- * @SendDataPoints ::@ @[SendDataPoint]@
 --
-mkGetSendStatisticsResponse :: GetSendStatisticsResponse
-mkGetSendStatisticsResponse = GetSendStatisticsResponse
+getSendStatisticsResponse :: GetSendStatisticsResponse
+getSendStatisticsResponse = GetSendStatisticsResponse
     { _gssrSendDataPoints = mempty
     }
 

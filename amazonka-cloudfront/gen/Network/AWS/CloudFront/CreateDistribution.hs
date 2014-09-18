@@ -23,14 +23,14 @@ module Network.AWS.CloudFront.CreateDistribution
     -- * Request
       CreateDistribution
     -- ** Request constructor
-    , mkCreateDistribution
+    , createDistribution
     -- ** Request lenses
     , cdDistributionConfig
 
     -- * Response
     , CreateDistributionResponse
     -- ** Response constructor
-    , mkCreateDistributionResponse
+    , createDistributionResponse
     -- ** Response lenses
     , cdrDistribution
     , cdrLocation
@@ -54,9 +54,9 @@ newtype CreateDistribution = CreateDistribution
 --
 -- * @DistributionConfig ::@ @DistributionConfig@
 --
-mkCreateDistribution :: DistributionConfig -- ^ 'cdDistributionConfig'
+createDistribution :: DistributionConfig -- ^ 'cdDistributionConfig'
                      -> CreateDistribution
-mkCreateDistribution p1 = CreateDistribution
+createDistribution p1 = CreateDistribution
     { _cdDistributionConfig = p1
     }
 
@@ -95,8 +95,8 @@ data CreateDistributionResponse = CreateDistributionResponse
 --
 -- * @ETag ::@ @Maybe Text@
 --
-mkCreateDistributionResponse :: CreateDistributionResponse
-mkCreateDistributionResponse = CreateDistributionResponse
+createDistributionResponse :: CreateDistributionResponse
+createDistributionResponse = CreateDistributionResponse
     { _cdrDistribution = Nothing
     , _cdrLocation = Nothing
     , _cdrETag = Nothing

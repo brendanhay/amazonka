@@ -36,7 +36,7 @@ module Network.AWS.EC2.CreateImage
     -- * Request
       CreateImage
     -- ** Request constructor
-    , mkCreateImage
+    , createImage
     -- ** Request lenses
     , ci1InstanceId
     , ci1Name
@@ -47,7 +47,7 @@ module Network.AWS.EC2.CreateImage
     -- * Response
     , CreateImageResponse
     -- ** Response constructor
-    , mkCreateImageResponse
+    , createImageResponse
     -- ** Response lenses
     , cirrImageId
     ) where
@@ -79,10 +79,10 @@ data CreateImage = CreateImage
 --
 -- * @BlockDeviceMappings ::@ @[BlockDeviceMapping]@
 --
-mkCreateImage :: Text -- ^ 'ci1InstanceId'
+createImage :: Text -- ^ 'ci1InstanceId'
               -> Text -- ^ 'ci1Name'
               -> CreateImage
-mkCreateImage p1 p2 = CreateImage
+createImage p1 p2 = CreateImage
     { _ci1InstanceId = p1
     , _ci1Name = p2
     , _ci1Description = Nothing
@@ -132,8 +132,8 @@ newtype CreateImageResponse = CreateImageResponse
 --
 -- * @ImageId ::@ @Maybe Text@
 --
-mkCreateImageResponse :: CreateImageResponse
-mkCreateImageResponse = CreateImageResponse
+createImageResponse :: CreateImageResponse
+createImageResponse = CreateImageResponse
     { _cirrImageId = Nothing
     }
 

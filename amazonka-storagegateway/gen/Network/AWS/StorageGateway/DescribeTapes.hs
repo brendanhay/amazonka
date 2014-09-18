@@ -22,7 +22,7 @@ module Network.AWS.StorageGateway.DescribeTapes
     -- * Request
       DescribeTapes
     -- ** Request constructor
-    , mkDescribeTapes
+    , describeTapes
     -- ** Request lenses
     , dt1GatewayARN
     , dt1TapeARNs
@@ -32,7 +32,7 @@ module Network.AWS.StorageGateway.DescribeTapes
     -- * Response
     , DescribeTapesResponse
     -- ** Response constructor
-    , mkDescribeTapesResponse
+    , describeTapesResponse
     -- ** Response lenses
     , dtrrTapes
     , dtrrMarker
@@ -62,9 +62,9 @@ data DescribeTapes = DescribeTapes
 --
 -- * @Limit ::@ @Maybe Integer@
 --
-mkDescribeTapes :: Text -- ^ 'dt1GatewayARN'
+describeTapes :: Text -- ^ 'dt1GatewayARN'
                 -> DescribeTapes
-mkDescribeTapes p1 = DescribeTapes
+describeTapes p1 = DescribeTapes
     { _dt1GatewayARN = p1
     , _dt1TapeARNs = mempty
     , _dt1Marker = Nothing
@@ -109,8 +109,8 @@ data DescribeTapesResponse = DescribeTapesResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeTapesResponse :: DescribeTapesResponse
-mkDescribeTapesResponse = DescribeTapesResponse
+describeTapesResponse :: DescribeTapesResponse
+describeTapesResponse = DescribeTapesResponse
     { _dtrrTapes = mempty
     , _dtrrMarker = Nothing
     }

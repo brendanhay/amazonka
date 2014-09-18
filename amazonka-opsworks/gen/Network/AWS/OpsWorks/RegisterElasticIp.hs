@@ -29,7 +29,7 @@ module Network.AWS.OpsWorks.RegisterElasticIp
     -- * Request
       RegisterElasticIp
     -- ** Request constructor
-    , mkRegisterElasticIp
+    , registerElasticIp
     -- ** Request lenses
     , reiElasticIp
     , reiStackId
@@ -37,7 +37,7 @@ module Network.AWS.OpsWorks.RegisterElasticIp
     -- * Response
     , RegisterElasticIpResponse
     -- ** Response constructor
-    , mkRegisterElasticIpResponse
+    , registerElasticIpResponse
     -- ** Response lenses
     , reirElasticIp
     ) where
@@ -60,10 +60,10 @@ data RegisterElasticIp = RegisterElasticIp
 --
 -- * @StackId ::@ @Text@
 --
-mkRegisterElasticIp :: Text -- ^ 'reiElasticIp'
+registerElasticIp :: Text -- ^ 'reiElasticIp'
                     -> Text -- ^ 'reiStackId'
                     -> RegisterElasticIp
-mkRegisterElasticIp p1 p2 = RegisterElasticIp
+registerElasticIp p1 p2 = RegisterElasticIp
     { _reiElasticIp = p1
     , _reiStackId = p2
     }
@@ -98,8 +98,8 @@ newtype RegisterElasticIpResponse = RegisterElasticIpResponse
 --
 -- * @ElasticIp ::@ @Maybe Text@
 --
-mkRegisterElasticIpResponse :: RegisterElasticIpResponse
-mkRegisterElasticIpResponse = RegisterElasticIpResponse
+registerElasticIpResponse :: RegisterElasticIpResponse
+registerElasticIpResponse = RegisterElasticIpResponse
     { _reirElasticIp = Nothing
     }
 

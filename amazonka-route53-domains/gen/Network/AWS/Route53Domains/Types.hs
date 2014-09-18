@@ -54,7 +54,7 @@ module Network.AWS.Route53Domains.Types
 
     -- * ContactDetail
     , ContactDetail
-    , mkContactDetail
+    , contactDetail
     , cdFirstName
     , cdLastName
     , cdContactType
@@ -72,7 +72,7 @@ module Network.AWS.Route53Domains.Types
 
     -- * DomainSummary
     , DomainSummary
-    , mkDomainSummary
+    , domainSummary
     , dsDomainName
     , dsAutoRenew
     , dsTransferLock
@@ -80,19 +80,19 @@ module Network.AWS.Route53Domains.Types
 
     -- * ExtraParam
     , ExtraParam
-    , mkExtraParam
+    , extraParam
     , epName
     , epValue
 
     -- * Nameserver
     , Nameserver
-    , mkNameserver
+    , nameserver
     , nName
     , nGlueIps
 
     -- * OperationSummary
     , OperationSummary
-    , mkOperationSummary
+    , operationSummary
     , osOperationId
     , osStatus
     , osType
@@ -145,8 +145,8 @@ data Route53DomainsError
         { _oleMessage :: Maybe Text
         }
     | Route53DomainsClient HttpException
-    | Route53DomainsSerializer Text
-    | Route53DomainsService Text
+    | Route53DomainsSerializer String
+    | Route53DomainsService String
       -- | The top-level domain does not support this operation.
     | TLDRulesViolation
         { _tldrvMessage :: Maybe Text
@@ -219,7 +219,7 @@ _Route53DomainsClient = prism'
         x -> Left x)
 
 -- | See: 'Route53DomainsSerializer'
-_Route53DomainsSerializer :: Prism' Route53DomainsError Text
+_Route53DomainsSerializer :: Prism' Route53DomainsError String
 _Route53DomainsSerializer = prism'
     Route53DomainsSerializer
     (\case
@@ -227,7 +227,7 @@ _Route53DomainsSerializer = prism'
         x -> Left x)
 
 -- | See: 'Route53DomainsService'
-_Route53DomainsService :: Prism' Route53DomainsError Text
+_Route53DomainsService :: Prism' Route53DomainsError String
 _Route53DomainsService = prism'
     Route53DomainsService
     (\case
@@ -1512,8 +1512,8 @@ data ContactDetail = ContactDetail
 --
 -- * @ExtraParams ::@ @[ExtraParam]@
 --
-mkContactDetail :: ContactDetail
-mkContactDetail = ContactDetail
+contactDetail :: ContactDetail
+contactDetail = ContactDetail
     { _cdFirstName = Nothing
     , _cdLastName = Nothing
     , _cdContactType = Nothing
@@ -1649,9 +1649,9 @@ data DomainSummary = DomainSummary
 --
 -- * @Expiry ::@ @Maybe ISO8601@
 --
-mkDomainSummary :: Text -- ^ 'dsDomainName'
+domainSummary :: Text -- ^ 'dsDomainName'
                 -> DomainSummary
-mkDomainSummary p1 = DomainSummary
+domainSummary p1 = DomainSummary
     { _dsDomainName = p1
     , _dsAutoRenew = Nothing
     , _dsTransferLock = Nothing
@@ -1694,10 +1694,10 @@ data ExtraParam = ExtraParam
 --
 -- * @Value ::@ @Text@
 --
-mkExtraParam :: ExtraParamName -- ^ 'epName'
+extraParam :: ExtraParamName -- ^ 'epName'
              -> Text -- ^ 'epValue'
              -> ExtraParam
-mkExtraParam p1 p2 = ExtraParam
+extraParam p1 p2 = ExtraParam
     { _epName = p1
     , _epValue = p2
     }
@@ -1736,9 +1736,9 @@ data Nameserver = Nameserver
 --
 -- * @GlueIps ::@ @[Text]@
 --
-mkNameserver :: Text -- ^ 'nName'
+nameserver :: Text -- ^ 'nName'
              -> Nameserver
-mkNameserver p1 = Nameserver
+nameserver p1 = Nameserver
     { _nName = p1
     , _nGlueIps = mempty
     }
@@ -1785,12 +1785,12 @@ data OperationSummary = OperationSummary
 --
 -- * @SubmittedDate ::@ @ISO8601@
 --
-mkOperationSummary :: Text -- ^ 'osOperationId'
+operationSummary :: Text -- ^ 'osOperationId'
                    -> OperationStatus -- ^ 'osStatus'
                    -> OperationType -- ^ 'osType'
                    -> ISO8601 -- ^ 'osSubmittedDate'
                    -> OperationSummary
-mkOperationSummary p1 p2 p3 p4 = OperationSummary
+operationSummary p1 p2 p3 p4 = OperationSummary
     { _osOperationId = p1
     , _osStatus = p2
     , _osType = p3

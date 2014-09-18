@@ -29,7 +29,7 @@ module Network.AWS.CloudSearch.DescribeAnalysisSchemes
     -- * Request
       DescribeAnalysisSchemes
     -- ** Request constructor
-    , mkDescribeAnalysisSchemes
+    , describeAnalysisSchemes
     -- ** Request lenses
     , das2DomainName
     , das2AnalysisSchemeNames
@@ -38,7 +38,7 @@ module Network.AWS.CloudSearch.DescribeAnalysisSchemes
     -- * Response
     , DescribeAnalysisSchemesResponse
     -- ** Response constructor
-    , mkDescribeAnalysisSchemesResponse
+    , describeAnalysisSchemesResponse
     -- ** Response lenses
     , dasr1AnalysisSchemes
     ) where
@@ -69,9 +69,9 @@ data DescribeAnalysisSchemes = DescribeAnalysisSchemes
 --
 -- * @Deployed ::@ @Maybe Bool@
 --
-mkDescribeAnalysisSchemes :: Text -- ^ 'das2DomainName'
+describeAnalysisSchemes :: Text -- ^ 'das2DomainName'
                           -> DescribeAnalysisSchemes
-mkDescribeAnalysisSchemes p1 = DescribeAnalysisSchemes
+describeAnalysisSchemes p1 = DescribeAnalysisSchemes
     { _das2DomainName = p1
     , _das2AnalysisSchemeNames = mempty
     , _das2Deployed = Nothing
@@ -110,9 +110,9 @@ newtype DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
 --
 -- * @AnalysisSchemes ::@ @[AnalysisSchemeStatus]@
 --
-mkDescribeAnalysisSchemesResponse :: [AnalysisSchemeStatus] -- ^ 'dasr1AnalysisSchemes'
+describeAnalysisSchemesResponse :: [AnalysisSchemeStatus] -- ^ 'dasr1AnalysisSchemes'
                                   -> DescribeAnalysisSchemesResponse
-mkDescribeAnalysisSchemesResponse p1 = DescribeAnalysisSchemesResponse
+describeAnalysisSchemesResponse p1 = DescribeAnalysisSchemesResponse
     { _dasr1AnalysisSchemes = p1
     }
 

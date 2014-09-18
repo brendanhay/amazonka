@@ -48,7 +48,7 @@ module Network.AWS.SimpleDB.PutAttributes
     -- * Request
       PutAttributes
     -- ** Request constructor
-    , mkPutAttributes
+    , putAttributes
     -- ** Request lenses
     , paDomainName
     , paItemName
@@ -58,7 +58,7 @@ module Network.AWS.SimpleDB.PutAttributes
     -- * Response
     , PutAttributesResponse
     -- ** Response constructor
-    , mkPutAttributesResponse
+    , putAttributesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -85,11 +85,11 @@ data PutAttributes = PutAttributes
 --
 -- * @Expected ::@ @Maybe UpdateCondition@
 --
-mkPutAttributes :: Text -- ^ 'paDomainName'
+putAttributes :: Text -- ^ 'paDomainName'
                 -> Text -- ^ 'paItemName'
                 -> [ReplaceableAttribute] -- ^ 'paAttributes'
                 -> PutAttributes
-mkPutAttributes p1 p2 p3 = PutAttributes
+putAttributes p1 p2 p3 = PutAttributes
     { _paDomainName = p1
     , _paItemName = p2
     , _paAttributes = p3
@@ -124,8 +124,8 @@ data PutAttributesResponse = PutAttributesResponse
 -- a valid 'PutAttributesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkPutAttributesResponse :: PutAttributesResponse
-mkPutAttributesResponse = PutAttributesResponse
+putAttributesResponse :: PutAttributesResponse
+putAttributesResponse = PutAttributesResponse
 
 instance AWSRequest PutAttributes where
     type Sv PutAttributes = SimpleDB

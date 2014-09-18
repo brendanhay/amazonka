@@ -24,14 +24,14 @@ module Network.AWS.Redshift.DisableLogging
     -- * Request
       DisableLogging
     -- ** Request constructor
-    , mkDisableLogging
+    , disableLogging
     -- ** Request lenses
     , dlClusterIdentifier
 
     -- * Response
     , DisableLoggingResponse
     -- ** Response constructor
-    , mkDisableLoggingResponse
+    , disableLoggingResponse
     -- ** Response lenses
     , dlrLoggingEnabled
     , dlrBucketName
@@ -57,9 +57,9 @@ newtype DisableLogging = DisableLogging
 --
 -- * @ClusterIdentifier ::@ @Text@
 --
-mkDisableLogging :: Text -- ^ 'dlClusterIdentifier'
+disableLogging :: Text -- ^ 'dlClusterIdentifier'
                  -> DisableLogging
-mkDisableLogging p1 = DisableLogging
+disableLogging p1 = DisableLogging
     { _dlClusterIdentifier = p1
     }
 
@@ -101,8 +101,8 @@ data DisableLoggingResponse = DisableLoggingResponse
 --
 -- * @LastFailureMessage ::@ @Maybe Text@
 --
-mkDisableLoggingResponse :: DisableLoggingResponse
-mkDisableLoggingResponse = DisableLoggingResponse
+disableLoggingResponse :: DisableLoggingResponse
+disableLoggingResponse = DisableLoggingResponse
     { _dlrLoggingEnabled = Nothing
     , _dlrBucketName = Nothing
     , _dlrS3KeyPrefix = Nothing

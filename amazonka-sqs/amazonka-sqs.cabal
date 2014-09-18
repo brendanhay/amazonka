@@ -33,7 +33,6 @@ library
 
     exposed-modules:
           Network.AWS.SQS
-        , Network.AWS.SQS.Monadic
         , Network.AWS.SQS.Types
         , Network.AWS.SQS.AddPermission
         , Network.AWS.SQS.ChangeMessageVisibility

@@ -31,7 +31,7 @@ module Network.AWS.RDS.CopyDBSnapshot
     -- * Request
       CopyDBSnapshot
     -- ** Request constructor
-    , mkCopyDBSnapshot
+    , copyDBSnapshot
     -- ** Request lenses
     , cdbsSourceDBSnapshotIdentifier
     , cdbsTargetDBSnapshotIdentifier
@@ -40,7 +40,7 @@ module Network.AWS.RDS.CopyDBSnapshot
     -- * Response
     , CopyDBSnapshotResponse
     -- ** Response constructor
-    , mkCopyDBSnapshotResponse
+    , copyDBSnapshotResponse
     -- ** Response lenses
     , cdbsrDBSnapshot
     ) where
@@ -67,10 +67,10 @@ data CopyDBSnapshot = CopyDBSnapshot
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkCopyDBSnapshot :: Text -- ^ 'cdbsSourceDBSnapshotIdentifier'
+copyDBSnapshot :: Text -- ^ 'cdbsSourceDBSnapshotIdentifier'
                  -> Text -- ^ 'cdbsTargetDBSnapshotIdentifier'
                  -> CopyDBSnapshot
-mkCopyDBSnapshot p1 p2 = CopyDBSnapshot
+copyDBSnapshot p1 p2 = CopyDBSnapshot
     { _cdbsSourceDBSnapshotIdentifier = p1
     , _cdbsTargetDBSnapshotIdentifier = p2
     , _cdbsTags = mempty
@@ -118,8 +118,8 @@ newtype CopyDBSnapshotResponse = CopyDBSnapshotResponse
 --
 -- * @DBSnapshot ::@ @Maybe DBSnapshot@
 --
-mkCopyDBSnapshotResponse :: CopyDBSnapshotResponse
-mkCopyDBSnapshotResponse = CopyDBSnapshotResponse
+copyDBSnapshotResponse :: CopyDBSnapshotResponse
+copyDBSnapshotResponse = CopyDBSnapshotResponse
     { _cdbsrDBSnapshot = Nothing
     }
 

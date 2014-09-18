@@ -43,7 +43,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
     -- * Request
       UpdatePipelineNotifications
     -- ** Request constructor
-    , mkUpdatePipelineNotifications
+    , updatePipelineNotifications
     -- ** Request lenses
     , upnId
     , upnNotifications
@@ -51,7 +51,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
     -- * Response
     , UpdatePipelineNotificationsResponse
     -- ** Response constructor
-    , mkUpdatePipelineNotificationsResponse
+    , updatePipelineNotificationsResponse
     -- ** Response lenses
     , upnrPipeline
     ) where
@@ -75,10 +75,10 @@ data UpdatePipelineNotifications = UpdatePipelineNotifications
 --
 -- * @Notifications ::@ @Notifications@
 --
-mkUpdatePipelineNotifications :: Text -- ^ 'upnId'
+updatePipelineNotifications :: Text -- ^ 'upnId'
                               -> Notifications -- ^ 'upnNotifications'
                               -> UpdatePipelineNotifications
-mkUpdatePipelineNotifications p1 p2 = UpdatePipelineNotifications
+updatePipelineNotifications p1 p2 = UpdatePipelineNotifications
     { _upnId = p1
     , _upnNotifications = p2
     }
@@ -129,8 +129,8 @@ newtype UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsRespons
 --
 -- * @Pipeline ::@ @Maybe Pipeline@
 --
-mkUpdatePipelineNotificationsResponse :: UpdatePipelineNotificationsResponse
-mkUpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse
+updatePipelineNotificationsResponse :: UpdatePipelineNotificationsResponse
+updatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse
     { _upnrPipeline = Nothing
     }
 

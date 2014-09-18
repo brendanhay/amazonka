@@ -35,7 +35,7 @@ module Network.AWS.IAM.PutRolePolicy
     -- * Request
       PutRolePolicy
     -- ** Request constructor
-    , mkPutRolePolicy
+    , putRolePolicy
     -- ** Request lenses
     , prpRoleName
     , prpPolicyName
@@ -44,7 +44,7 @@ module Network.AWS.IAM.PutRolePolicy
     -- * Response
     , PutRolePolicyResponse
     -- ** Response constructor
-    , mkPutRolePolicyResponse
+    , putRolePolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -68,11 +68,11 @@ data PutRolePolicy = PutRolePolicy
 --
 -- * @PolicyDocument ::@ @Text@
 --
-mkPutRolePolicy :: Text -- ^ 'prpRoleName'
+putRolePolicy :: Text -- ^ 'prpRoleName'
                 -> Text -- ^ 'prpPolicyName'
                 -> Text -- ^ 'prpPolicyDocument'
                 -> PutRolePolicy
-mkPutRolePolicy p1 p2 p3 = PutRolePolicy
+putRolePolicy p1 p2 p3 = PutRolePolicy
     { _prpRoleName = p1
     , _prpPolicyName = p2
     , _prpPolicyDocument = p3
@@ -101,8 +101,8 @@ data PutRolePolicyResponse = PutRolePolicyResponse
 -- a valid 'PutRolePolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkPutRolePolicyResponse :: PutRolePolicyResponse
-mkPutRolePolicyResponse = PutRolePolicyResponse
+putRolePolicyResponse :: PutRolePolicyResponse
+putRolePolicyResponse = PutRolePolicyResponse
 
 instance AWSRequest PutRolePolicy where
     type Sv PutRolePolicy = IAM

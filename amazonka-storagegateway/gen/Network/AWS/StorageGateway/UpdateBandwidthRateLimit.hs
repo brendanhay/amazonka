@@ -43,7 +43,7 @@ module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
     -- * Request
       UpdateBandwidthRateLimit
     -- ** Request constructor
-    , mkUpdateBandwidthRateLimit
+    , updateBandwidthRateLimit
     -- ** Request lenses
     , ubrlGatewayARN
     , ubrlAverageUploadRateLimitInBitsPerSec
@@ -52,7 +52,7 @@ module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
     -- * Response
     , UpdateBandwidthRateLimitResponse
     -- ** Response constructor
-    , mkUpdateBandwidthRateLimitResponse
+    , updateBandwidthRateLimitResponse
     -- ** Response lenses
     , ubrlrGatewayARN
     ) where
@@ -81,9 +81,9 @@ data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit
 --
 -- * @AverageDownloadRateLimitInBitsPerSec ::@ @Maybe Integer@
 --
-mkUpdateBandwidthRateLimit :: Text -- ^ 'ubrlGatewayARN'
+updateBandwidthRateLimit :: Text -- ^ 'ubrlGatewayARN'
                            -> UpdateBandwidthRateLimit
-mkUpdateBandwidthRateLimit p1 = UpdateBandwidthRateLimit
+updateBandwidthRateLimit p1 = UpdateBandwidthRateLimit
     { _ubrlGatewayARN = p1
     , _ubrlAverageUploadRateLimitInBitsPerSec = Nothing
     , _ubrlAverageDownloadRateLimitInBitsPerSec = Nothing
@@ -129,8 +129,8 @@ newtype UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse
 --
 -- * @GatewayARN ::@ @Maybe Text@
 --
-mkUpdateBandwidthRateLimitResponse :: UpdateBandwidthRateLimitResponse
-mkUpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse
+updateBandwidthRateLimitResponse :: UpdateBandwidthRateLimitResponse
+updateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse
     { _ubrlrGatewayARN = Nothing
     }
 

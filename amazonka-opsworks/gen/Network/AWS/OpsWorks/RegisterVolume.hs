@@ -29,7 +29,7 @@ module Network.AWS.OpsWorks.RegisterVolume
     -- * Request
       RegisterVolume
     -- ** Request constructor
-    , mkRegisterVolume
+    , registerVolume
     -- ** Request lenses
     , rvEc2VolumeId
     , rvStackId
@@ -37,7 +37,7 @@ module Network.AWS.OpsWorks.RegisterVolume
     -- * Response
     , RegisterVolumeResponse
     -- ** Response constructor
-    , mkRegisterVolumeResponse
+    , registerVolumeResponse
     -- ** Response lenses
     , rvrVolumeId
     ) where
@@ -60,9 +60,9 @@ data RegisterVolume = RegisterVolume
 --
 -- * @StackId ::@ @Text@
 --
-mkRegisterVolume :: Text -- ^ 'rvStackId'
+registerVolume :: Text -- ^ 'rvStackId'
                  -> RegisterVolume
-mkRegisterVolume p2 = RegisterVolume
+registerVolume p2 = RegisterVolume
     { _rvEc2VolumeId = Nothing
     , _rvStackId = p2
     }
@@ -97,8 +97,8 @@ newtype RegisterVolumeResponse = RegisterVolumeResponse
 --
 -- * @VolumeId ::@ @Maybe Text@
 --
-mkRegisterVolumeResponse :: RegisterVolumeResponse
-mkRegisterVolumeResponse = RegisterVolumeResponse
+registerVolumeResponse :: RegisterVolumeResponse
+registerVolumeResponse = RegisterVolumeResponse
     { _rvrVolumeId = Nothing
     }
 

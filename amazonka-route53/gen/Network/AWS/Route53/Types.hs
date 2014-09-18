@@ -71,41 +71,41 @@ module Network.AWS.Route53.Types
 
     -- * DelegationSet
     , DelegationSet
-    , mkDelegationSet
+    , delegationSet
     , dsNameServers
 
     -- * HostedZoneConfig
     , HostedZoneConfig
-    , mkHostedZoneConfig
+    , hostedZoneConfig
     , hzcComment
 
     -- * ResourceRecord
     , ResourceRecord
-    , mkResourceRecord
+    , resourceRecord
     , rrValue
 
     -- * AliasTarget
     , AliasTarget
-    , mkAliasTarget
+    , aliasTarget
     , atHostedZoneId
     , atDNSName
     , atEvaluateTargetHealth
 
     -- * Change
     , Change
-    , mkChange
+    , change
     , cAction
     , cResourceRecordSet
 
     -- * ChangeBatch
     , ChangeBatch
-    , mkChangeBatch
+    , changeBatch
     , cbComment
     , cbChanges
 
     -- * ChangeInfo
     , ChangeInfo
-    , mkChangeInfo
+    , changeInfo
     , ciId
     , ciStatus
     , ciSubmittedAt
@@ -113,14 +113,14 @@ module Network.AWS.Route53.Types
 
     -- * GeoLocation
     , GeoLocation
-    , mkGeoLocation
+    , geoLocation
     , glContinentCode
     , glCountryCode
     , glSubdivisionCode
 
     -- * GeoLocationDetails
     , GeoLocationDetails
-    , mkGeoLocationDetails
+    , geoLocationDetails
     , gldContinentCode
     , gldContinentName
     , gldCountryCode
@@ -130,7 +130,7 @@ module Network.AWS.Route53.Types
 
     -- * HealthCheck
     , HealthCheck
-    , mkHealthCheck
+    , healthCheck
     , hcId
     , hcCallerReference
     , hcHealthCheckConfig
@@ -138,7 +138,7 @@ module Network.AWS.Route53.Types
 
     -- * HealthCheckConfig
     , HealthCheckConfig
-    , mkHealthCheckConfig
+    , healthCheckConfig
     , hccIPAddress
     , hccPort
     , hccType
@@ -150,7 +150,7 @@ module Network.AWS.Route53.Types
 
     -- * HostedZone
     , HostedZone
-    , mkHostedZone
+    , hostedZone
     , hzId
     , hzName
     , hzCallerReference
@@ -159,7 +159,7 @@ module Network.AWS.Route53.Types
 
     -- * ResourceRecordSet
     , ResourceRecordSet
-    , mkResourceRecordSet
+    , resourceRecordSet
     , rrsName
     , rrsType
     , rrsSetIdentifier
@@ -174,14 +174,14 @@ module Network.AWS.Route53.Types
 
     -- * ResourceTagSet
     , ResourceTagSet
-    , mkResourceTagSet
+    , resourceTagSet
     , rtsResourceType
     , rtsResourceId
     , rtsTags
 
     -- * Tag
     , Tag
-    , mkTag
+    , tag
     , tKey
     , tValue
 
@@ -292,8 +292,8 @@ data Route53Error
         { _prncMessage :: Maybe Text
         }
     | Route53Client HttpException
-    | Route53Serializer Text
-    | Route53Service Text
+    | Route53Serializer String
+    | Route53Service String
     | ThrottlingException
         { _teMessage :: Maybe Text
         }
@@ -488,7 +488,7 @@ _Route53Client = prism'
         x -> Left x)
 
 -- | See: 'Route53Serializer'
-_Route53Serializer :: Prism' Route53Error Text
+_Route53Serializer :: Prism' Route53Error String
 _Route53Serializer = prism'
     Route53Serializer
     (\case
@@ -496,7 +496,7 @@ _Route53Serializer = prism'
         x -> Left x)
 
 -- | See: 'Route53Service'
-_Route53Service :: Prism' Route53Error Text
+_Route53Service :: Prism' Route53Error String
 _Route53Service = prism'
     Route53Service
     (\case
@@ -694,9 +694,9 @@ newtype DelegationSet = DelegationSet
 --
 -- * @NameServers ::@ @List1 Text@
 --
-mkDelegationSet :: List1 Text -- ^ 'dsNameServers'
+delegationSet :: List1 Text -- ^ 'dsNameServers'
                 -> DelegationSet
-mkDelegationSet p1 = DelegationSet
+delegationSet p1 = DelegationSet
     { _dsNameServers = p1
     }
 
@@ -722,8 +722,8 @@ newtype HostedZoneConfig = HostedZoneConfig
 --
 -- * @Comment ::@ @Maybe Text@
 --
-mkHostedZoneConfig :: HostedZoneConfig
-mkHostedZoneConfig = HostedZoneConfig
+hostedZoneConfig :: HostedZoneConfig
+hostedZoneConfig = HostedZoneConfig
     { _hzcComment = Nothing
     }
 
@@ -754,9 +754,9 @@ newtype ResourceRecord = ResourceRecord
 --
 -- * @Value ::@ @Text@
 --
-mkResourceRecord :: Text -- ^ 'rrValue'
+resourceRecord :: Text -- ^ 'rrValue'
                  -> ResourceRecord
-mkResourceRecord p1 = ResourceRecord
+resourceRecord p1 = ResourceRecord
     { _rrValue = p1
     }
 
@@ -791,11 +791,11 @@ data AliasTarget = AliasTarget
 --
 -- * @EvaluateTargetHealth ::@ @Bool@
 --
-mkAliasTarget :: Text -- ^ 'atHostedZoneId'
+aliasTarget :: Text -- ^ 'atHostedZoneId'
               -> Text -- ^ 'atDNSName'
               -> Bool -- ^ 'atEvaluateTargetHealth'
               -> AliasTarget
-mkAliasTarget p1 p2 p3 = AliasTarget
+aliasTarget p1 p2 p3 = AliasTarget
     { _atHostedZoneId = p1
     , _atDNSName = p2
     , _atEvaluateTargetHealth = p3
@@ -846,10 +846,10 @@ data Change = Change
 --
 -- * @ResourceRecordSet ::@ @ResourceRecordSet@
 --
-mkChange :: ChangeAction -- ^ 'cAction'
+change :: ChangeAction -- ^ 'cAction'
          -> ResourceRecordSet -- ^ 'cResourceRecordSet'
          -> Change
-mkChange p1 p2 = Change
+change p1 p2 = Change
     { _cAction = p1
     , _cResourceRecordSet = p2
     }
@@ -882,9 +882,9 @@ data ChangeBatch = ChangeBatch
 --
 -- * @Changes ::@ @List1 Change@
 --
-mkChangeBatch :: List1 Change -- ^ 'cbChanges'
+changeBatch :: List1 Change -- ^ 'cbChanges'
               -> ChangeBatch
-mkChangeBatch p2 = ChangeBatch
+changeBatch p2 = ChangeBatch
     { _cbComment = Nothing
     , _cbChanges = p2
     }
@@ -928,11 +928,11 @@ data ChangeInfo = ChangeInfo
 --
 -- * @Comment ::@ @Maybe Text@
 --
-mkChangeInfo :: Text -- ^ 'ciId'
+changeInfo :: Text -- ^ 'ciId'
              -> ChangeStatus -- ^ 'ciStatus'
              -> ISO8601 -- ^ 'ciSubmittedAt'
              -> ChangeInfo
-mkChangeInfo p1 p2 p3 = ChangeInfo
+changeInfo p1 p2 p3 = ChangeInfo
     { _ciId = p1
     , _ciStatus = p2
     , _ciSubmittedAt = p3
@@ -988,8 +988,8 @@ data GeoLocation = GeoLocation
 --
 -- * @SubdivisionCode ::@ @Maybe Text@
 --
-mkGeoLocation :: GeoLocation
-mkGeoLocation = GeoLocation
+geoLocation :: GeoLocation
+geoLocation = GeoLocation
     { _glContinentCode = Nothing
     , _glCountryCode = Nothing
     , _glSubdivisionCode = Nothing
@@ -1056,8 +1056,8 @@ data GeoLocationDetails = GeoLocationDetails
 --
 -- * @SubdivisionName ::@ @Maybe Text@
 --
-mkGeoLocationDetails :: GeoLocationDetails
-mkGeoLocationDetails = GeoLocationDetails
+geoLocationDetails :: GeoLocationDetails
+geoLocationDetails = GeoLocationDetails
     { _gldContinentCode = Nothing
     , _gldContinentName = Nothing
     , _gldCountryCode = Nothing
@@ -1131,12 +1131,12 @@ data HealthCheck = HealthCheck
 --
 -- * @HealthCheckVersion ::@ @Integer@
 --
-mkHealthCheck :: Text -- ^ 'hcId'
+healthCheck :: Text -- ^ 'hcId'
               -> Text -- ^ 'hcCallerReference'
               -> HealthCheckConfig -- ^ 'hcHealthCheckConfig'
               -> Integer -- ^ 'hcHealthCheckVersion'
               -> HealthCheck
-mkHealthCheck p1 p2 p3 p4 = HealthCheck
+healthCheck p1 p2 p3 p4 = HealthCheck
     { _hcId = p1
     , _hcCallerReference = p2
     , _hcHealthCheckConfig = p3
@@ -1201,9 +1201,9 @@ data HealthCheckConfig = HealthCheckConfig
 --
 -- * @FailureThreshold ::@ @Maybe Integer@
 --
-mkHealthCheckConfig :: HealthCheckType -- ^ 'hccType'
+healthCheckConfig :: HealthCheckType -- ^ 'hccType'
                     -> HealthCheckConfig
-mkHealthCheckConfig p3 = HealthCheckConfig
+healthCheckConfig p3 = HealthCheckConfig
     { _hccIPAddress = Nothing
     , _hccPort = Nothing
     , _hccType = p3
@@ -1299,11 +1299,11 @@ data HostedZone = HostedZone
 --
 -- * @ResourceRecordSetCount ::@ @Maybe Integer@
 --
-mkHostedZone :: Text -- ^ 'hzId'
+hostedZone :: Text -- ^ 'hzId'
              -> Text -- ^ 'hzName'
              -> Text -- ^ 'hzCallerReference'
              -> HostedZone
-mkHostedZone p1 p2 p3 = HostedZone
+hostedZone p1 p2 p3 = HostedZone
     { _hzId = p1
     , _hzName = p2
     , _hzCallerReference = p3
@@ -1387,11 +1387,11 @@ data ResourceRecordSet = ResourceRecordSet
 --
 -- * @HealthCheckId ::@ @Maybe Text@
 --
-mkResourceRecordSet :: Text -- ^ 'rrsName'
+resourceRecordSet :: Text -- ^ 'rrsName'
                     -> RecordType -- ^ 'rrsType'
                     -> List1 ResourceRecord -- ^ 'rrsResourceRecords'
                     -> ResourceRecordSet
-mkResourceRecordSet p1 p2 p9 = ResourceRecordSet
+resourceRecordSet p1 p2 p9 = ResourceRecordSet
     { _rrsName = p1
     , _rrsType = p2
     , _rrsSetIdentifier = Nothing
@@ -1507,8 +1507,8 @@ data ResourceTagSet = ResourceTagSet
 --
 -- * @Tags ::@ @Maybe (List1 Tag)@
 --
-mkResourceTagSet :: ResourceTagSet
-mkResourceTagSet = ResourceTagSet
+resourceTagSet :: ResourceTagSet
+resourceTagSet = ResourceTagSet
     { _rtsResourceType = Nothing
     , _rtsResourceId = Nothing
     , _rtsTags = Nothing
@@ -1546,8 +1546,8 @@ data Tag = Tag
 --
 -- * @Value ::@ @Maybe Text@
 --
-mkTag :: Tag
-mkTag = Tag
+tag :: Tag
+tag = Tag
     { _tKey = Nothing
     , _tValue = Nothing
     }

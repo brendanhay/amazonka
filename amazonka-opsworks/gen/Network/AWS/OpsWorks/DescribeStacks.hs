@@ -27,14 +27,14 @@ module Network.AWS.OpsWorks.DescribeStacks
     -- * Request
       DescribeStacks
     -- ** Request constructor
-    , mkDescribeStacks
+    , describeStacks
     -- ** Request lenses
     , ds2StackIds
 
     -- * Response
     , DescribeStacksResponse
     -- ** Response constructor
-    , mkDescribeStacksResponse
+    , describeStacksResponse
     -- ** Response lenses
     , dsrStacks
     ) where
@@ -54,8 +54,8 @@ newtype DescribeStacks = DescribeStacks
 --
 -- * @StackIds ::@ @[Text]@
 --
-mkDescribeStacks :: DescribeStacks
-mkDescribeStacks = DescribeStacks
+describeStacks :: DescribeStacks
+describeStacks = DescribeStacks
     { _ds2StackIds = mempty
     }
 
@@ -86,8 +86,8 @@ newtype DescribeStacksResponse = DescribeStacksResponse
 --
 -- * @Stacks ::@ @[Stack]@
 --
-mkDescribeStacksResponse :: DescribeStacksResponse
-mkDescribeStacksResponse = DescribeStacksResponse
+describeStacksResponse :: DescribeStacksResponse
+describeStacksResponse = DescribeStacksResponse
     { _dsrStacks = mempty
     }
 

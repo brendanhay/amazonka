@@ -56,7 +56,7 @@ module Network.AWS.Route53Domains.UpdateDomainContact
     -- * Request
       UpdateDomainContact
     -- ** Request constructor
-    , mkUpdateDomainContact
+    , updateDomainContact
     -- ** Request lenses
     , udcDomainName
     , udcAdminContact
@@ -66,7 +66,7 @@ module Network.AWS.Route53Domains.UpdateDomainContact
     -- * Response
     , UpdateDomainContactResponse
     -- ** Response constructor
-    , mkUpdateDomainContactResponse
+    , updateDomainContactResponse
     -- ** Response lenses
     , udcrOperationId
     ) where
@@ -96,9 +96,9 @@ data UpdateDomainContact = UpdateDomainContact
 --
 -- * @TechContact ::@ @Maybe ContactDetail@
 --
-mkUpdateDomainContact :: Text -- ^ 'udcDomainName'
+updateDomainContact :: Text -- ^ 'udcDomainName'
                       -> UpdateDomainContact
-mkUpdateDomainContact p1 = UpdateDomainContact
+updateDomainContact p1 = UpdateDomainContact
     { _udcDomainName = p1
     , _udcAdminContact = Nothing
     , _udcRegistrantContact = Nothing
@@ -156,9 +156,9 @@ newtype UpdateDomainContactResponse = UpdateDomainContactResponse
 --
 -- * @OperationId ::@ @Text@
 --
-mkUpdateDomainContactResponse :: Text -- ^ 'udcrOperationId'
+updateDomainContactResponse :: Text -- ^ 'udcrOperationId'
                               -> UpdateDomainContactResponse
-mkUpdateDomainContactResponse p1 = UpdateDomainContactResponse
+updateDomainContactResponse p1 = UpdateDomainContactResponse
     { _udcrOperationId = p1
     }
 

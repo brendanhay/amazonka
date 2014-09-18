@@ -27,14 +27,14 @@ module Network.AWS.IAM.GetLoginProfile
     -- * Request
       GetLoginProfile
     -- ** Request constructor
-    , mkGetLoginProfile
+    , getLoginProfile
     -- ** Request lenses
     , glpUserName
 
     -- * Response
     , GetLoginProfileResponse
     -- ** Response constructor
-    , mkGetLoginProfileResponse
+    , getLoginProfileResponse
     -- ** Response lenses
     , glprLoginProfile
     ) where
@@ -54,9 +54,9 @@ newtype GetLoginProfile = GetLoginProfile
 --
 -- * @UserName ::@ @Text@
 --
-mkGetLoginProfile :: Text -- ^ 'glpUserName'
+getLoginProfile :: Text -- ^ 'glpUserName'
                   -> GetLoginProfile
-mkGetLoginProfile p1 = GetLoginProfile
+getLoginProfile p1 = GetLoginProfile
     { _glpUserName = p1
     }
 
@@ -82,9 +82,9 @@ newtype GetLoginProfileResponse = GetLoginProfileResponse
 --
 -- * @LoginProfile ::@ @LoginProfile@
 --
-mkGetLoginProfileResponse :: LoginProfile -- ^ 'glprLoginProfile'
+getLoginProfileResponse :: LoginProfile -- ^ 'glprLoginProfile'
                           -> GetLoginProfileResponse
-mkGetLoginProfileResponse p1 = GetLoginProfileResponse
+getLoginProfileResponse p1 = GetLoginProfileResponse
     { _glprLoginProfile = p1
     }
 

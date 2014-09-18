@@ -35,7 +35,7 @@ module Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
     -- * Request
       RevokeClusterSecurityGroupIngress
     -- ** Request constructor
-    , mkRevokeClusterSecurityGroupIngress
+    , revokeClusterSecurityGroupIngress
     -- ** Request lenses
     , rcsgiClusterSecurityGroupName
     , rcsgiCIDRIP
@@ -45,7 +45,7 @@ module Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
     -- * Response
     , RevokeClusterSecurityGroupIngressResponse
     -- ** Response constructor
-    , mkRevokeClusterSecurityGroupIngressResponse
+    , revokeClusterSecurityGroupIngressResponse
     -- ** Response lenses
     , rcsgirClusterSecurityGroup
     ) where
@@ -75,9 +75,9 @@ data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress
 --
 -- * @EC2SecurityGroupOwnerId ::@ @Maybe Text@
 --
-mkRevokeClusterSecurityGroupIngress :: Text -- ^ 'rcsgiClusterSecurityGroupName'
+revokeClusterSecurityGroupIngress :: Text -- ^ 'rcsgiClusterSecurityGroupName'
                                     -> RevokeClusterSecurityGroupIngress
-mkRevokeClusterSecurityGroupIngress p1 = RevokeClusterSecurityGroupIngress
+revokeClusterSecurityGroupIngress p1 = RevokeClusterSecurityGroupIngress
     { _rcsgiClusterSecurityGroupName = p1
     , _rcsgiCIDRIP = Nothing
     , _rcsgiEC2SecurityGroupName = Nothing
@@ -130,8 +130,8 @@ newtype RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIn
 --
 -- * @ClusterSecurityGroup ::@ @Maybe ClusterSecurityGroup@
 --
-mkRevokeClusterSecurityGroupIngressResponse :: RevokeClusterSecurityGroupIngressResponse
-mkRevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse
+revokeClusterSecurityGroupIngressResponse :: RevokeClusterSecurityGroupIngressResponse
+revokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse
     { _rcsgirClusterSecurityGroup = Nothing
     }
 

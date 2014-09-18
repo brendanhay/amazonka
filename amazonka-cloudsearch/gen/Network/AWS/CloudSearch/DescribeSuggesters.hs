@@ -29,7 +29,7 @@ module Network.AWS.CloudSearch.DescribeSuggesters
     -- * Request
       DescribeSuggesters
     -- ** Request constructor
-    , mkDescribeSuggesters
+    , describeSuggesters
     -- ** Request lenses
     , ds3DomainName
     , ds3SuggesterNames
@@ -38,7 +38,7 @@ module Network.AWS.CloudSearch.DescribeSuggesters
     -- * Response
     , DescribeSuggestersResponse
     -- ** Response constructor
-    , mkDescribeSuggestersResponse
+    , describeSuggestersResponse
     -- ** Response lenses
     , dsr1Suggesters
     ) where
@@ -69,9 +69,9 @@ data DescribeSuggesters = DescribeSuggesters
 --
 -- * @Deployed ::@ @Maybe Bool@
 --
-mkDescribeSuggesters :: Text -- ^ 'ds3DomainName'
+describeSuggesters :: Text -- ^ 'ds3DomainName'
                      -> DescribeSuggesters
-mkDescribeSuggesters p1 = DescribeSuggesters
+describeSuggesters p1 = DescribeSuggesters
     { _ds3DomainName = p1
     , _ds3SuggesterNames = mempty
     , _ds3Deployed = Nothing
@@ -108,9 +108,9 @@ newtype DescribeSuggestersResponse = DescribeSuggestersResponse
 --
 -- * @Suggesters ::@ @[SuggesterStatus]@
 --
-mkDescribeSuggestersResponse :: [SuggesterStatus] -- ^ 'dsr1Suggesters'
+describeSuggestersResponse :: [SuggesterStatus] -- ^ 'dsr1Suggesters'
                              -> DescribeSuggestersResponse
-mkDescribeSuggestersResponse p1 = DescribeSuggestersResponse
+describeSuggestersResponse p1 = DescribeSuggestersResponse
     { _dsr1Suggesters = p1
     }
 

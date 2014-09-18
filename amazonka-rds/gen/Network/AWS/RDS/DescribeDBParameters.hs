@@ -32,7 +32,7 @@ module Network.AWS.RDS.DescribeDBParameters
     -- * Request
       DescribeDBParameters
     -- ** Request constructor
-    , mkDescribeDBParameters
+    , describeDBParameters
     -- ** Request lenses
     , ddbpDBParameterGroupName
     , ddbpSource
@@ -42,7 +42,7 @@ module Network.AWS.RDS.DescribeDBParameters
     -- * Response
     , DescribeDBParametersResponse
     -- ** Response constructor
-    , mkDescribeDBParametersResponse
+    , describeDBParametersResponse
     -- ** Response lenses
     , ddbprParameters
     , ddbprMarker
@@ -72,9 +72,9 @@ data DescribeDBParameters = DescribeDBParameters
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeDBParameters :: Text -- ^ 'ddbpDBParameterGroupName'
+describeDBParameters :: Text -- ^ 'ddbpDBParameterGroupName'
                        -> DescribeDBParameters
-mkDescribeDBParameters p1 = DescribeDBParameters
+describeDBParameters p1 = DescribeDBParameters
     { _ddbpDBParameterGroupName = p1
     , _ddbpSource = Nothing
     , _ddbpMaxRecords = Nothing
@@ -128,8 +128,8 @@ data DescribeDBParametersResponse = DescribeDBParametersResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeDBParametersResponse :: DescribeDBParametersResponse
-mkDescribeDBParametersResponse = DescribeDBParametersResponse
+describeDBParametersResponse :: DescribeDBParametersResponse
+describeDBParametersResponse = DescribeDBParametersResponse
     { _ddbprParameters = mempty
     , _ddbprMarker = Nothing
     }

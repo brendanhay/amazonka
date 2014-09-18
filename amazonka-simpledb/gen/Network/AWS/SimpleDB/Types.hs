@@ -63,7 +63,7 @@ module Network.AWS.SimpleDB.Types
 
     -- * Attribute
     , Attribute
-    , mkAttribute
+    , attribute
     , aName
     , aAlternateNameEncoding
     , aValue
@@ -71,33 +71,33 @@ module Network.AWS.SimpleDB.Types
 
     -- * DeletableItem
     , DeletableItem
-    , mkDeletableItem
+    , deletableItem
     , diName
     , diAttributes
 
     -- * Item
     , Item
-    , mkItem
+    , item
     , iName
     , iAlternateNameEncoding
     , iAttributes
 
     -- * ReplaceableAttribute
     , ReplaceableAttribute
-    , mkReplaceableAttribute
+    , replaceableAttribute
     , raName
     , raValue
     , raReplace
 
     -- * ReplaceableItem
     , ReplaceableItem
-    , mkReplaceableItem
+    , replaceableItem
     , riName
     , riAttributes
 
     -- * UpdateCondition
     , UpdateCondition
-    , mkUpdateCondition
+    , updateCondition
     , ucName
     , ucValue
     , ucExists
@@ -193,8 +193,8 @@ data SimpleDBError
         { _rtBoxUsage :: Maybe Double
         }
     | SimpleDBClient HttpException
-    | SimpleDBSerializer Text
-    | SimpleDBService Text
+    | SimpleDBSerializer String
+    | SimpleDBService String
       -- | Too many attributes requested.
     | TooManyRequestedAttributes
         { _tmraBoxUsage :: Maybe Double
@@ -381,7 +381,7 @@ _SimpleDBClient = prism'
         x -> Left x)
 
 -- | See: 'SimpleDBSerializer'
-_SimpleDBSerializer :: Prism' SimpleDBError Text
+_SimpleDBSerializer :: Prism' SimpleDBError String
 _SimpleDBSerializer = prism'
     SimpleDBSerializer
     (\case
@@ -389,7 +389,7 @@ _SimpleDBSerializer = prism'
         x -> Left x)
 
 -- | See: 'SimpleDBService'
-_SimpleDBService :: Prism' SimpleDBError Text
+_SimpleDBService :: Prism' SimpleDBError String
 _SimpleDBService = prism'
     SimpleDBService
     (\case
@@ -430,10 +430,10 @@ data Attribute = Attribute
 --
 -- * @AlternateValueEncoding ::@ @Maybe Text@
 --
-mkAttribute :: Text -- ^ 'aName'
+attribute :: Text -- ^ 'aName'
             -> Text -- ^ 'aValue'
             -> Attribute
-mkAttribute p1 p3 = Attribute
+attribute p1 p3 = Attribute
     { _aName = p1
     , _aAlternateNameEncoding = Nothing
     , _aValue = p3
@@ -480,9 +480,9 @@ data DeletableItem = DeletableItem
 --
 -- * @Attributes ::@ @[Attribute]@
 --
-mkDeletableItem :: Text -- ^ 'diName'
+deletableItem :: Text -- ^ 'diName'
                 -> DeletableItem
-mkDeletableItem p1 = DeletableItem
+deletableItem p1 = DeletableItem
     { _diName = p1
     , _diAttributes = mempty
     }
@@ -517,10 +517,10 @@ data Item = Item
 --
 -- * @Attributes ::@ @[Attribute]@
 --
-mkItem :: Text -- ^ 'iName'
+item :: Text -- ^ 'iName'
        -> [Attribute] -- ^ 'iAttributes'
        -> Item
-mkItem p1 p3 = Item
+item p1 p3 = Item
     { _iName = p1
     , _iAlternateNameEncoding = Nothing
     , _iAttributes = p3
@@ -561,10 +561,10 @@ data ReplaceableAttribute = ReplaceableAttribute
 --
 -- * @Replace ::@ @Maybe Bool@
 --
-mkReplaceableAttribute :: Text -- ^ 'raName'
+replaceableAttribute :: Text -- ^ 'raName'
                        -> Text -- ^ 'raValue'
                        -> ReplaceableAttribute
-mkReplaceableAttribute p1 p2 = ReplaceableAttribute
+replaceableAttribute p1 p2 = ReplaceableAttribute
     { _raName = p1
     , _raValue = p2
     , _raReplace = Nothing
@@ -605,10 +605,10 @@ data ReplaceableItem = ReplaceableItem
 --
 -- * @Attributes ::@ @[ReplaceableAttribute]@
 --
-mkReplaceableItem :: Text -- ^ 'riName'
+replaceableItem :: Text -- ^ 'riName'
                   -> [ReplaceableAttribute] -- ^ 'riAttributes'
                   -> ReplaceableItem
-mkReplaceableItem p1 p2 = ReplaceableItem
+replaceableItem p1 p2 = ReplaceableItem
     { _riName = p1
     , _riAttributes = p2
     }
@@ -644,8 +644,8 @@ data UpdateCondition = UpdateCondition
 --
 -- * @Exists ::@ @Maybe Bool@
 --
-mkUpdateCondition :: UpdateCondition
-mkUpdateCondition = UpdateCondition
+updateCondition :: UpdateCondition
+updateCondition = UpdateCondition
     { _ucName = Nothing
     , _ucValue = Nothing
     , _ucExists = Nothing

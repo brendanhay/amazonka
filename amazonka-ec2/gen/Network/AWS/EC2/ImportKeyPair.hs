@@ -51,7 +51,7 @@ module Network.AWS.EC2.ImportKeyPair
     -- * Request
       ImportKeyPair
     -- ** Request constructor
-    , mkImportKeyPair
+    , importKeyPair
     -- ** Request lenses
     , ikpKeyName
     , ikpPublicKeyMaterial
@@ -59,7 +59,7 @@ module Network.AWS.EC2.ImportKeyPair
     -- * Response
     , ImportKeyPairResponse
     -- ** Response constructor
-    , mkImportKeyPairResponse
+    , importKeyPairResponse
     -- ** Response lenses
     , ikprKeyName
     , ikprKeyFingerprint
@@ -83,10 +83,10 @@ data ImportKeyPair = ImportKeyPair
 --
 -- * @PublicKeyMaterial ::@ @ByteString@
 --
-mkImportKeyPair :: Text -- ^ 'ikpKeyName'
+importKeyPair :: Text -- ^ 'ikpKeyName'
                 -> ByteString -- ^ 'ikpPublicKeyMaterial'
                 -> ImportKeyPair
-mkImportKeyPair p1 p2 = ImportKeyPair
+importKeyPair p1 p2 = ImportKeyPair
     { _ikpKeyName = p1
     , _ikpPublicKeyMaterial = p2
     }
@@ -120,8 +120,8 @@ data ImportKeyPairResponse = ImportKeyPairResponse
 --
 -- * @KeyFingerprint ::@ @Maybe Text@
 --
-mkImportKeyPairResponse :: ImportKeyPairResponse
-mkImportKeyPairResponse = ImportKeyPairResponse
+importKeyPairResponse :: ImportKeyPairResponse
+importKeyPairResponse = ImportKeyPairResponse
     { _ikprKeyName = Nothing
     , _ikprKeyFingerprint = Nothing
     }

@@ -59,7 +59,7 @@ module Network.AWS.SWF.DescribeWorkflowExecution
     -- * Request
       DescribeWorkflowExecution
     -- ** Request constructor
-    , mkDescribeWorkflowExecution
+    , describeWorkflowExecution
     -- ** Request lenses
     , dweDomain
     , dweExecution
@@ -67,7 +67,7 @@ module Network.AWS.SWF.DescribeWorkflowExecution
     -- * Response
     , DescribeWorkflowExecutionResponse
     -- ** Response constructor
-    , mkDescribeWorkflowExecutionResponse
+    , describeWorkflowExecutionResponse
     -- ** Response lenses
     , dwerExecutionInfo
     , dwerExecutionConfiguration
@@ -94,10 +94,10 @@ data DescribeWorkflowExecution = DescribeWorkflowExecution
 --
 -- * @Execution ::@ @WorkflowExecution@
 --
-mkDescribeWorkflowExecution :: Text -- ^ 'dweDomain'
+describeWorkflowExecution :: Text -- ^ 'dweDomain'
                             -> WorkflowExecution -- ^ 'dweExecution'
                             -> DescribeWorkflowExecution
-mkDescribeWorkflowExecution p1 p2 = DescribeWorkflowExecution
+describeWorkflowExecution p1 p2 = DescribeWorkflowExecution
     { _dweDomain = p1
     , _dweExecution = p2
     }
@@ -144,11 +144,11 @@ data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse
 --
 -- * @LatestExecutionContext ::@ @Maybe Text@
 --
-mkDescribeWorkflowExecutionResponse :: WorkflowExecutionInfo -- ^ 'dwerExecutionInfo'
+describeWorkflowExecutionResponse :: WorkflowExecutionInfo -- ^ 'dwerExecutionInfo'
                                     -> WorkflowExecutionConfiguration -- ^ 'dwerExecutionConfiguration'
                                     -> WorkflowExecutionOpenCounts -- ^ 'dwerOpenCounts'
                                     -> DescribeWorkflowExecutionResponse
-mkDescribeWorkflowExecutionResponse p1 p2 p3 = DescribeWorkflowExecutionResponse
+describeWorkflowExecutionResponse p1 p2 p3 = DescribeWorkflowExecutionResponse
     { _dwerExecutionInfo = p1
     , _dwerExecutionConfiguration = p2
     , _dwerOpenCounts = p3

@@ -30,7 +30,7 @@ module Network.AWS.IAM.GetRolePolicy
     -- * Request
       GetRolePolicy
     -- ** Request constructor
-    , mkGetRolePolicy
+    , getRolePolicy
     -- ** Request lenses
     , grpRoleName
     , grpPolicyName
@@ -38,7 +38,7 @@ module Network.AWS.IAM.GetRolePolicy
     -- * Response
     , GetRolePolicyResponse
     -- ** Response constructor
-    , mkGetRolePolicyResponse
+    , getRolePolicyResponse
     -- ** Response lenses
     , grprRoleName
     , grprPolicyName
@@ -63,10 +63,10 @@ data GetRolePolicy = GetRolePolicy
 --
 -- * @PolicyName ::@ @Text@
 --
-mkGetRolePolicy :: Text -- ^ 'grpRoleName'
+getRolePolicy :: Text -- ^ 'grpRoleName'
                 -> Text -- ^ 'grpPolicyName'
                 -> GetRolePolicy
-mkGetRolePolicy p1 p2 = GetRolePolicy
+getRolePolicy p1 p2 = GetRolePolicy
     { _grpRoleName = p1
     , _grpPolicyName = p2
     }
@@ -102,11 +102,11 @@ data GetRolePolicyResponse = GetRolePolicyResponse
 --
 -- * @PolicyDocument ::@ @Text@
 --
-mkGetRolePolicyResponse :: Text -- ^ 'grprRoleName'
+getRolePolicyResponse :: Text -- ^ 'grprRoleName'
                         -> Text -- ^ 'grprPolicyName'
                         -> Text -- ^ 'grprPolicyDocument'
                         -> GetRolePolicyResponse
-mkGetRolePolicyResponse p1 p2 p3 = GetRolePolicyResponse
+getRolePolicyResponse p1 p2 p3 = GetRolePolicyResponse
     { _grprRoleName = p1
     , _grprPolicyName = p2
     , _grprPolicyDocument = p3

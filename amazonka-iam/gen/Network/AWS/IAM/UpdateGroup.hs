@@ -36,7 +36,7 @@ module Network.AWS.IAM.UpdateGroup
     -- * Request
       UpdateGroup
     -- ** Request constructor
-    , mkUpdateGroup
+    , updateGroup
     -- ** Request lenses
     , ugGroupName
     , ugNewPath
@@ -45,7 +45,7 @@ module Network.AWS.IAM.UpdateGroup
     -- * Response
     , UpdateGroupResponse
     -- ** Response constructor
-    , mkUpdateGroupResponse
+    , updateGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -69,9 +69,9 @@ data UpdateGroup = UpdateGroup
 --
 -- * @NewGroupName ::@ @Maybe Text@
 --
-mkUpdateGroup :: Text -- ^ 'ugGroupName'
+updateGroup :: Text -- ^ 'ugGroupName'
               -> UpdateGroup
-mkUpdateGroup p1 = UpdateGroup
+updateGroup p1 = UpdateGroup
     { _ugGroupName = p1
     , _ugNewPath = Nothing
     , _ugNewGroupName = Nothing
@@ -100,8 +100,8 @@ data UpdateGroupResponse = UpdateGroupResponse
 -- a valid 'UpdateGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkUpdateGroupResponse :: UpdateGroupResponse
-mkUpdateGroupResponse = UpdateGroupResponse
+updateGroupResponse :: UpdateGroupResponse
+updateGroupResponse = UpdateGroupResponse
 
 instance AWSRequest UpdateGroup where
     type Sv UpdateGroup = IAM

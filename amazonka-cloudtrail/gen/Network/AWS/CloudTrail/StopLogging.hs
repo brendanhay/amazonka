@@ -26,14 +26,14 @@ module Network.AWS.CloudTrail.StopLogging
     -- * Request
       StopLogging
     -- ** Request constructor
-    , mkStopLogging
+    , stopLogging
     -- ** Request lenses
     , sl1Name
 
     -- * Response
     , StopLoggingResponse
     -- ** Response constructor
-    , mkStopLoggingResponse
+    , stopLoggingResponse
     ) where
 
 import Network.AWS.CloudTrail.Types
@@ -53,9 +53,9 @@ newtype StopLogging = StopLogging
 --
 -- * @Name ::@ @Text@
 --
-mkStopLogging :: Text -- ^ 'sl1Name'
+stopLogging :: Text -- ^ 'sl1Name'
               -> StopLogging
-mkStopLogging p1 = StopLogging
+stopLogging p1 = StopLogging
     { _sl1Name = p1
     }
 
@@ -81,8 +81,8 @@ data StopLoggingResponse = StopLoggingResponse
 -- a valid 'StopLoggingResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkStopLoggingResponse :: StopLoggingResponse
-mkStopLoggingResponse = StopLoggingResponse
+stopLoggingResponse :: StopLoggingResponse
+stopLoggingResponse = StopLoggingResponse
 
 instance AWSRequest StopLogging where
     type Sv StopLogging = CloudTrail

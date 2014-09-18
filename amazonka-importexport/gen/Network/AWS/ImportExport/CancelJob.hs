@@ -24,14 +24,14 @@ module Network.AWS.ImportExport.CancelJob
     -- * Request
       CancelJob
     -- ** Request constructor
-    , mkCancelJob
+    , cancelJob
     -- ** Request lenses
     , cjJobId
 
     -- * Response
     , CancelJobResponse
     -- ** Response constructor
-    , mkCancelJobResponse
+    , cancelJobResponse
     -- ** Response lenses
     , cjrSuccess
     ) where
@@ -52,9 +52,9 @@ newtype CancelJob = CancelJob
 --
 -- * @JobId ::@ @Text@
 --
-mkCancelJob :: Text -- ^ 'cjJobId'
+cancelJob :: Text -- ^ 'cjJobId'
             -> CancelJob
-mkCancelJob p1 = CancelJob
+cancelJob p1 = CancelJob
     { _cjJobId = p1
     }
 
@@ -79,8 +79,8 @@ newtype CancelJobResponse = CancelJobResponse
 --
 -- * @Success ::@ @Maybe Bool@
 --
-mkCancelJobResponse :: CancelJobResponse
-mkCancelJobResponse = CancelJobResponse
+cancelJobResponse :: CancelJobResponse
+cancelJobResponse = CancelJobResponse
     { _cjrSuccess = Nothing
     }
 

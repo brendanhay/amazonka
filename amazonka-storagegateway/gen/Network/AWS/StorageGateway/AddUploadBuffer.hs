@@ -28,7 +28,7 @@ module Network.AWS.StorageGateway.AddUploadBuffer
     -- * Request
       AddUploadBuffer
     -- ** Request constructor
-    , mkAddUploadBuffer
+    , addUploadBuffer
     -- ** Request lenses
     , aubGatewayARN
     , aubDiskIds
@@ -36,7 +36,7 @@ module Network.AWS.StorageGateway.AddUploadBuffer
     -- * Response
     , AddUploadBufferResponse
     -- ** Response constructor
-    , mkAddUploadBufferResponse
+    , addUploadBufferResponse
     -- ** Response lenses
     , aubrGatewayARN
     ) where
@@ -59,10 +59,10 @@ data AddUploadBuffer = AddUploadBuffer
 --
 -- * @DiskIds ::@ @[Text]@
 --
-mkAddUploadBuffer :: Text -- ^ 'aubGatewayARN'
+addUploadBuffer :: Text -- ^ 'aubGatewayARN'
                   -> [Text] -- ^ 'aubDiskIds'
                   -> AddUploadBuffer
-mkAddUploadBuffer p1 p2 = AddUploadBuffer
+addUploadBuffer p1 p2 = AddUploadBuffer
     { _aubGatewayARN = p1
     , _aubDiskIds = p2
     }
@@ -96,8 +96,8 @@ newtype AddUploadBufferResponse = AddUploadBufferResponse
 --
 -- * @GatewayARN ::@ @Maybe Text@
 --
-mkAddUploadBufferResponse :: AddUploadBufferResponse
-mkAddUploadBufferResponse = AddUploadBufferResponse
+addUploadBufferResponse :: AddUploadBufferResponse
+addUploadBufferResponse = AddUploadBufferResponse
     { _aubrGatewayARN = Nothing
     }
 

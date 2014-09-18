@@ -33,7 +33,6 @@ library
 
     exposed-modules:
           Network.AWS.S3
-        , Network.AWS.S3.Monadic
         , Network.AWS.S3.Types
         , Network.AWS.S3.AbortMultipartUpload
         , Network.AWS.S3.CompleteMultipartUpload

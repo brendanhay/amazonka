@@ -68,7 +68,7 @@ module Network.AWS.IAM.Types
 
     -- * AccessKey
     , AccessKey
-    , mkAccessKey
+    , accessKey
     , akUserName
     , akAccessKeyId
     , akStatus
@@ -77,7 +77,7 @@ module Network.AWS.IAM.Types
 
     -- * AccessKeyMetadata
     , AccessKeyMetadata
-    , mkAccessKeyMetadata
+    , accessKeyMetadata
     , akmUserName
     , akmAccessKeyId
     , akmStatus
@@ -85,7 +85,7 @@ module Network.AWS.IAM.Types
 
     -- * Group
     , Group
-    , mkGroup
+    , group
     , gPath
     , gGroupName
     , gGroupId
@@ -94,7 +94,7 @@ module Network.AWS.IAM.Types
 
     -- * InstanceProfile
     , InstanceProfile
-    , mkInstanceProfile
+    , instanceProfile
     , ipPath
     , ipInstanceProfileName
     , ipInstanceProfileId
@@ -104,21 +104,21 @@ module Network.AWS.IAM.Types
 
     -- * LoginProfile
     , LoginProfile
-    , mkLoginProfile
+    , loginProfile
     , lpUserName
     , lpCreateDate
     , lpPasswordResetRequired
 
     -- * MFADevice
     , MFADevice
-    , mkMFADevice
+    , mFADevice
     , mfadUserName
     , mfadSerialNumber
     , mfadEnableDate
 
     -- * PasswordPolicy
     , PasswordPolicy
-    , mkPasswordPolicy
+    , passwordPolicy
     , ppMinimumPasswordLength
     , ppRequireSymbols
     , ppRequireNumbers
@@ -132,7 +132,7 @@ module Network.AWS.IAM.Types
 
     -- * Role
     , Role
-    , mkRole
+    , role
     , rPath
     , rRoleName
     , rRoleId
@@ -142,21 +142,21 @@ module Network.AWS.IAM.Types
 
     -- * SAMLProviderListEntry
     , SAMLProviderListEntry
-    , mkSAMLProviderListEntry
+    , sAMLProviderListEntry
     , samlpleArn
     , samlpleValidUntil
     , samlpleCreateDate
 
     -- * ServerCertificate
     , ServerCertificate
-    , mkServerCertificate
+    , serverCertificate
     , scServerCertificateMetadata
     , scCertificateBody
     , scCertificateChain
 
     -- * ServerCertificateMetadata
     , ServerCertificateMetadata
-    , mkServerCertificateMetadata
+    , serverCertificateMetadata
     , scmPath
     , scmServerCertificateName
     , scmServerCertificateId
@@ -166,7 +166,7 @@ module Network.AWS.IAM.Types
 
     -- * SigningCertificate
     , SigningCertificate
-    , mkSigningCertificate
+    , signingCertificate
     , scrUserName
     , scrCertificateId
     , scrCertificateBody
@@ -175,7 +175,7 @@ module Network.AWS.IAM.Types
 
     -- * User
     , User
-    , mkUser
+    , user
     , uPath
     , uUserName
     , uUserId
@@ -184,7 +184,7 @@ module Network.AWS.IAM.Types
 
     -- * VirtualMFADevice
     , VirtualMFADevice
-    , mkVirtualMFADevice
+    , virtualMFADevice
     , vmfadSerialNumber
     , vmfadBase32StringSeed
     , vmfadQRCodePNG
@@ -260,8 +260,8 @@ data IAMError
         { _etueMessage :: Maybe Text
         }
     | IAMClient HttpException
-    | IAMSerializer Text
-    | IAMService Text
+    | IAMSerializer String
+    | IAMService String
       -- | The request was rejected because the authentication code was not
       -- recognized. The error message describes the specific error.
     | InvalidAuthenticationCodeException
@@ -413,7 +413,7 @@ _IAMClient = prism'
         x -> Left x)
 
 -- | See: 'IAMSerializer'
-_IAMSerializer :: Prism' IAMError Text
+_IAMSerializer :: Prism' IAMError String
 _IAMSerializer = prism'
     IAMSerializer
     (\case
@@ -421,7 +421,7 @@ _IAMSerializer = prism'
         x -> Left x)
 
 -- | See: 'IAMService'
-_IAMService :: Prism' IAMError Text
+_IAMService :: Prism' IAMError String
 _IAMService = prism'
     IAMService
     (\case
@@ -711,12 +711,12 @@ data AccessKey = AccessKey
 --
 -- * @CreateDate ::@ @Maybe ISO8601@
 --
-mkAccessKey :: Text -- ^ 'akUserName'
+accessKey :: Text -- ^ 'akUserName'
             -> Text -- ^ 'akAccessKeyId'
             -> StatusType -- ^ 'akStatus'
             -> Text -- ^ 'akSecretAccessKey'
             -> AccessKey
-mkAccessKey p1 p2 p3 p4 = AccessKey
+accessKey p1 p2 p3 p4 = AccessKey
     { _akUserName = p1
     , _akAccessKeyId = p2
     , _akStatus = p3
@@ -776,8 +776,8 @@ data AccessKeyMetadata = AccessKeyMetadata
 --
 -- * @CreateDate ::@ @Maybe ISO8601@
 --
-mkAccessKeyMetadata :: AccessKeyMetadata
-mkAccessKeyMetadata = AccessKeyMetadata
+accessKeyMetadata :: AccessKeyMetadata
+accessKeyMetadata = AccessKeyMetadata
     { _akmUserName = Nothing
     , _akmAccessKeyId = Nothing
     , _akmStatus = Nothing
@@ -832,13 +832,13 @@ data Group = Group
 --
 -- * @CreateDate ::@ @ISO8601@
 --
-mkGroup :: Text -- ^ 'gPath'
+group :: Text -- ^ 'gPath'
         -> Text -- ^ 'gGroupName'
         -> Text -- ^ 'gGroupId'
         -> Text -- ^ 'gArn'
         -> ISO8601 -- ^ 'gCreateDate'
         -> Group
-mkGroup p1 p2 p3 p4 p5 = Group
+group p1 p2 p3 p4 p5 = Group
     { _gPath = p1
     , _gGroupName = p2
     , _gGroupId = p3
@@ -904,14 +904,14 @@ data InstanceProfile = InstanceProfile
 --
 -- * @Roles ::@ @[Role]@
 --
-mkInstanceProfile :: Text -- ^ 'ipPath'
+instanceProfile :: Text -- ^ 'ipPath'
                   -> Text -- ^ 'ipInstanceProfileName'
                   -> Text -- ^ 'ipInstanceProfileId'
                   -> Text -- ^ 'ipArn'
                   -> ISO8601 -- ^ 'ipCreateDate'
                   -> [Role] -- ^ 'ipRoles'
                   -> InstanceProfile
-mkInstanceProfile p1 p2 p3 p4 p5 p6 = InstanceProfile
+instanceProfile p1 p2 p3 p4 p5 p6 = InstanceProfile
     { _ipPath = p1
     , _ipInstanceProfileName = p2
     , _ipInstanceProfileId = p3
@@ -976,10 +976,10 @@ data LoginProfile = LoginProfile
 --
 -- * @PasswordResetRequired ::@ @Maybe Bool@
 --
-mkLoginProfile :: Text -- ^ 'lpUserName'
+loginProfile :: Text -- ^ 'lpUserName'
                -> ISO8601 -- ^ 'lpCreateDate'
                -> LoginProfile
-mkLoginProfile p1 p2 = LoginProfile
+loginProfile p1 p2 = LoginProfile
     { _lpUserName = p1
     , _lpCreateDate = p2
     , _lpPasswordResetRequired = Nothing
@@ -1027,11 +1027,11 @@ data MFADevice = MFADevice
 --
 -- * @EnableDate ::@ @ISO8601@
 --
-mkMFADevice :: Text -- ^ 'mfadUserName'
+mFADevice :: Text -- ^ 'mfadUserName'
             -> Text -- ^ 'mfadSerialNumber'
             -> ISO8601 -- ^ 'mfadEnableDate'
             -> MFADevice
-mkMFADevice p1 p2 p3 = MFADevice
+mFADevice p1 p2 p3 = MFADevice
     { _mfadUserName = p1
     , _mfadSerialNumber = p2
     , _mfadEnableDate = p3
@@ -1099,8 +1099,8 @@ data PasswordPolicy = PasswordPolicy
 --
 -- * @HardExpiry ::@ @Maybe Bool@
 --
-mkPasswordPolicy :: PasswordPolicy
-mkPasswordPolicy = PasswordPolicy
+passwordPolicy :: PasswordPolicy
+passwordPolicy = PasswordPolicy
     { _ppMinimumPasswordLength = Nothing
     , _ppRequireSymbols = Nothing
     , _ppRequireNumbers = Nothing
@@ -1203,13 +1203,13 @@ data Role = Role
 --
 -- * @AssumeRolePolicyDocument ::@ @Maybe Text@
 --
-mkRole :: Text -- ^ 'rPath'
+role :: Text -- ^ 'rPath'
        -> Text -- ^ 'rRoleName'
        -> Text -- ^ 'rRoleId'
        -> Text -- ^ 'rArn'
        -> ISO8601 -- ^ 'rCreateDate'
        -> Role
-mkRole p1 p2 p3 p4 p5 = Role
+role p1 p2 p3 p4 p5 = Role
     { _rPath = p1
     , _rRoleName = p2
     , _rRoleId = p3
@@ -1278,8 +1278,8 @@ data SAMLProviderListEntry = SAMLProviderListEntry
 --
 -- * @CreateDate ::@ @Maybe ISO8601@
 --
-mkSAMLProviderListEntry :: SAMLProviderListEntry
-mkSAMLProviderListEntry = SAMLProviderListEntry
+sAMLProviderListEntry :: SAMLProviderListEntry
+sAMLProviderListEntry = SAMLProviderListEntry
     { _samlpleArn = Nothing
     , _samlpleValidUntil = Nothing
     , _samlpleCreateDate = Nothing
@@ -1324,10 +1324,10 @@ data ServerCertificate = ServerCertificate
 --
 -- * @CertificateChain ::@ @Maybe Text@
 --
-mkServerCertificate :: ServerCertificateMetadata -- ^ 'scServerCertificateMetadata'
+serverCertificate :: ServerCertificateMetadata -- ^ 'scServerCertificateMetadata'
                     -> Text -- ^ 'scCertificateBody'
                     -> ServerCertificate
-mkServerCertificate p1 p2 = ServerCertificate
+serverCertificate p1 p2 = ServerCertificate
     { _scServerCertificateMetadata = p1
     , _scCertificateBody = p2
     , _scCertificateChain = Nothing
@@ -1385,12 +1385,12 @@ data ServerCertificateMetadata = ServerCertificateMetadata
 --
 -- * @Expiration ::@ @Maybe ISO8601@
 --
-mkServerCertificateMetadata :: Text -- ^ 'scmPath'
+serverCertificateMetadata :: Text -- ^ 'scmPath'
                             -> Text -- ^ 'scmServerCertificateName'
                             -> Text -- ^ 'scmServerCertificateId'
                             -> Text -- ^ 'scmArn'
                             -> ServerCertificateMetadata
-mkServerCertificateMetadata p1 p2 p3 p4 = ServerCertificateMetadata
+serverCertificateMetadata p1 p2 p3 p4 = ServerCertificateMetadata
     { _scmPath = p1
     , _scmServerCertificateName = p2
     , _scmServerCertificateId = p3
@@ -1464,12 +1464,12 @@ data SigningCertificate = SigningCertificate
 --
 -- * @UploadDate ::@ @Maybe ISO8601@
 --
-mkSigningCertificate :: Text -- ^ 'scrUserName'
+signingCertificate :: Text -- ^ 'scrUserName'
                      -> Text -- ^ 'scrCertificateId'
                      -> Text -- ^ 'scrCertificateBody'
                      -> StatusType -- ^ 'scrStatus'
                      -> SigningCertificate
-mkSigningCertificate p1 p2 p3 p4 = SigningCertificate
+signingCertificate p1 p2 p3 p4 = SigningCertificate
     { _scrUserName = p1
     , _scrCertificateId = p2
     , _scrCertificateBody = p3
@@ -1528,13 +1528,13 @@ data User = User
 --
 -- * @CreateDate ::@ @ISO8601@
 --
-mkUser :: Text -- ^ 'uPath'
+user :: Text -- ^ 'uPath'
        -> Text -- ^ 'uUserName'
        -> Text -- ^ 'uUserId'
        -> Text -- ^ 'uArn'
        -> ISO8601 -- ^ 'uCreateDate'
        -> User
-mkUser p1 p2 p3 p4 p5 = User
+user p1 p2 p3 p4 p5 = User
     { _uPath = p1
     , _uUserName = p2
     , _uUserId = p3
@@ -1600,9 +1600,9 @@ data VirtualMFADevice = VirtualMFADevice
 --
 -- * @EnableDate ::@ @Maybe ISO8601@
 --
-mkVirtualMFADevice :: Text -- ^ 'vmfadSerialNumber'
+virtualMFADevice :: Text -- ^ 'vmfadSerialNumber'
                    -> VirtualMFADevice
-mkVirtualMFADevice p1 = VirtualMFADevice
+virtualMFADevice p1 = VirtualMFADevice
     { _vmfadSerialNumber = p1
     , _vmfadBase32StringSeed = Nothing
     , _vmfadQRCodePNG = Nothing

@@ -40,14 +40,14 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     -- * Request
       DescribeLoadBalancerPolicyTypes
     -- ** Request constructor
-    , mkDescribeLoadBalancerPolicyTypes
+    , describeLoadBalancerPolicyTypes
     -- ** Request lenses
     , dlbptPolicyTypeNames
 
     -- * Response
     , DescribeLoadBalancerPolicyTypesResponse
     -- ** Response constructor
-    , mkDescribeLoadBalancerPolicyTypesResponse
+    , describeLoadBalancerPolicyTypesResponse
     -- ** Response lenses
     , dlbptrPolicyTypeDescriptions
     ) where
@@ -67,8 +67,8 @@ newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
 --
 -- * @PolicyTypeNames ::@ @[Text]@
 --
-mkDescribeLoadBalancerPolicyTypes :: DescribeLoadBalancerPolicyTypes
-mkDescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
+describeLoadBalancerPolicyTypes :: DescribeLoadBalancerPolicyTypes
+describeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
     { _dlbptPolicyTypeNames = mempty
     }
 
@@ -96,8 +96,8 @@ newtype DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyType
 --
 -- * @PolicyTypeDescriptions ::@ @[PolicyTypeDescription]@
 --
-mkDescribeLoadBalancerPolicyTypesResponse :: DescribeLoadBalancerPolicyTypesResponse
-mkDescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse
+describeLoadBalancerPolicyTypesResponse :: DescribeLoadBalancerPolicyTypesResponse
+describeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse
     { _dlbptrPolicyTypeDescriptions = mempty
     }
 

@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.CreateInvalidation
     -- * Request
       CreateInvalidation
     -- ** Request constructor
-    , mkCreateInvalidation
+    , createInvalidation
     -- ** Request lenses
     , ciDistributionId
     , ciInvalidationBatch
@@ -31,7 +31,7 @@ module Network.AWS.CloudFront.CreateInvalidation
     -- * Response
     , CreateInvalidationResponse
     -- ** Response constructor
-    , mkCreateInvalidationResponse
+    , createInvalidationResponse
     -- ** Response lenses
     , cirLocation
     , cirInvalidation
@@ -57,10 +57,10 @@ data CreateInvalidation = CreateInvalidation
 --
 -- * @InvalidationBatch ::@ @InvalidationBatch@
 --
-mkCreateInvalidation :: Text -- ^ 'ciDistributionId'
+createInvalidation :: Text -- ^ 'ciDistributionId'
                      -> InvalidationBatch -- ^ 'ciInvalidationBatch'
                      -> CreateInvalidation
-mkCreateInvalidation p1 p2 = CreateInvalidation
+createInvalidation p1 p2 = CreateInvalidation
     { _ciDistributionId = p1
     , _ciInvalidationBatch = p2
     }
@@ -102,8 +102,8 @@ data CreateInvalidationResponse = CreateInvalidationResponse
 --
 -- * @Invalidation ::@ @Maybe Invalidation@
 --
-mkCreateInvalidationResponse :: CreateInvalidationResponse
-mkCreateInvalidationResponse = CreateInvalidationResponse
+createInvalidationResponse :: CreateInvalidationResponse
+createInvalidationResponse = CreateInvalidationResponse
     { _cirLocation = Nothing
     , _cirInvalidation = Nothing
     }

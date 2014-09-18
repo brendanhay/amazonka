@@ -31,7 +31,6 @@ library
 
     exposed-modules:
           Network.AWS.Redshift
-        , Network.AWS.Redshift.Monadic
         , Network.AWS.Redshift.Types
         , Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
         , Network.AWS.Redshift.AuthorizeSnapshotAccess

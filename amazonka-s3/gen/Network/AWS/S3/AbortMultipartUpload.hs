@@ -25,7 +25,7 @@ module Network.AWS.S3.AbortMultipartUpload
     -- * Request
       AbortMultipartUpload
     -- ** Request constructor
-    , mkAbortMultipartUpload
+    , abortMultipartUpload
     -- ** Request lenses
     , amuBucket
     , amuKey
@@ -34,7 +34,7 @@ module Network.AWS.S3.AbortMultipartUpload
     -- * Response
     , AbortMultipartUploadResponse
     -- ** Response constructor
-    , mkAbortMultipartUploadResponse
+    , abortMultipartUploadResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -59,11 +59,11 @@ data AbortMultipartUpload = AbortMultipartUpload
 --
 -- * @UploadId ::@ @Text@
 --
-mkAbortMultipartUpload :: BucketName -- ^ 'amuBucket'
+abortMultipartUpload :: BucketName -- ^ 'amuBucket'
                        -> ObjectKey -- ^ 'amuKey'
                        -> Text -- ^ 'amuUploadId'
                        -> AbortMultipartUpload
-mkAbortMultipartUpload p1 p2 p3 = AbortMultipartUpload
+abortMultipartUpload p1 p2 p3 = AbortMultipartUpload
     { _amuBucket = p1
     , _amuKey = p2
     , _amuUploadId = p3
@@ -93,8 +93,8 @@ data AbortMultipartUploadResponse = AbortMultipartUploadResponse
 -- a valid 'AbortMultipartUploadResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkAbortMultipartUploadResponse :: AbortMultipartUploadResponse
-mkAbortMultipartUploadResponse = AbortMultipartUploadResponse
+abortMultipartUploadResponse :: AbortMultipartUploadResponse
+abortMultipartUploadResponse = AbortMultipartUploadResponse
 
 instance AWSRequest AbortMultipartUpload where
     type Sv AbortMultipartUpload = S3

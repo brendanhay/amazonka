@@ -33,14 +33,14 @@ module Network.AWS.SQS.ListQueues
     -- * Request
       ListQueues
     -- ** Request constructor
-    , mkListQueues
+    , listQueues
     -- ** Request lenses
     , lqQueueNamePrefix
 
     -- * Response
     , ListQueuesResponse
     -- ** Response constructor
-    , mkListQueuesResponse
+    , listQueuesResponse
     -- ** Response lenses
     , lqrQueueUrls
     ) where
@@ -60,8 +60,8 @@ newtype ListQueues = ListQueues
 --
 -- * @QueueNamePrefix ::@ @Maybe Text@
 --
-mkListQueues :: ListQueues
-mkListQueues = ListQueues
+listQueues :: ListQueues
+listQueues = ListQueues
     { _lqQueueNamePrefix = Nothing
     }
 
@@ -88,8 +88,8 @@ newtype ListQueuesResponse = ListQueuesResponse
 --
 -- * @QueueUrls ::@ @[Text]@
 --
-mkListQueuesResponse :: ListQueuesResponse
-mkListQueuesResponse = ListQueuesResponse
+listQueuesResponse :: ListQueuesResponse
+listQueuesResponse = ListQueuesResponse
     { _lqrQueueUrls = mempty
     }
 

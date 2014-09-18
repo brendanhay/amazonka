@@ -24,7 +24,7 @@ module Network.AWS.S3.PutBucketLifecycle
     -- * Request
       PutBucketLifecycle
     -- ** Request constructor
-    , mkPutBucketLifecycle
+    , putBucketLifecycle
     -- ** Request lenses
     , pblBucket
     , pblContentMD5
@@ -33,7 +33,7 @@ module Network.AWS.S3.PutBucketLifecycle
     -- * Response
     , PutBucketLifecycleResponse
     -- ** Response constructor
-    , mkPutBucketLifecycleResponse
+    , putBucketLifecycleResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -58,9 +58,9 @@ data PutBucketLifecycle = PutBucketLifecycle
 --
 -- * @LifecycleConfiguration ::@ @Maybe LifecycleConfiguration@
 --
-mkPutBucketLifecycle :: BucketName -- ^ 'pblBucket'
+putBucketLifecycle :: BucketName -- ^ 'pblBucket'
                      -> PutBucketLifecycle
-mkPutBucketLifecycle p1 = PutBucketLifecycle
+putBucketLifecycle p1 = PutBucketLifecycle
     { _pblBucket = p1
     , _pblContentMD5 = Nothing
     , _pblLifecycleConfiguration = Nothing
@@ -96,8 +96,8 @@ data PutBucketLifecycleResponse = PutBucketLifecycleResponse
 -- a valid 'PutBucketLifecycleResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkPutBucketLifecycleResponse :: PutBucketLifecycleResponse
-mkPutBucketLifecycleResponse = PutBucketLifecycleResponse
+putBucketLifecycleResponse :: PutBucketLifecycleResponse
+putBucketLifecycleResponse = PutBucketLifecycleResponse
 
 instance AWSRequest PutBucketLifecycle where
     type Sv PutBucketLifecycle = S3

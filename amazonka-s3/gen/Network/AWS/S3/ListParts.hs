@@ -23,7 +23,7 @@ module Network.AWS.S3.ListParts
     -- * Request
       ListParts
     -- ** Request constructor
-    , mkListParts
+    , listParts
     -- ** Request lenses
     , lpBucket
     , lpKey
@@ -34,7 +34,7 @@ module Network.AWS.S3.ListParts
     -- * Response
     , ListPartsResponse
     -- ** Response constructor
-    , mkListPartsResponse
+    , listPartsResponse
     -- ** Response lenses
     , lprBucket
     , lprKey
@@ -77,11 +77,11 @@ data ListParts = ListParts
 --
 -- * @UploadId ::@ @Text@
 --
-mkListParts :: BucketName -- ^ 'lpBucket'
+listParts :: BucketName -- ^ 'lpBucket'
             -> ObjectKey -- ^ 'lpKey'
             -> Text -- ^ 'lpUploadId'
             -> ListParts
-mkListParts p1 p2 p5 = ListParts
+listParts p1 p2 p5 = ListParts
     { _lpBucket = p1
     , _lpKey = p2
     , _lpMaxParts = Nothing
@@ -160,9 +160,9 @@ data ListPartsResponse = ListPartsResponse
 --
 -- * @StorageClass ::@ @Maybe StorageClass@
 --
-mkListPartsResponse :: Bool -- ^ 'lprIsTruncated'
+listPartsResponse :: Bool -- ^ 'lprIsTruncated'
                     -> ListPartsResponse
-mkListPartsResponse p7 = ListPartsResponse
+listPartsResponse p7 = ListPartsResponse
     { _lprBucket = Nothing
     , _lprKey = Nothing
     , _lprUploadId = Nothing

@@ -50,7 +50,7 @@ module Network.AWS.DynamoDB.UpdateTable
     -- * Request
       UpdateTable
     -- ** Request constructor
-    , mkUpdateTable
+    , updateTable
     -- ** Request lenses
     , utTableName
     , utProvisionedThroughput
@@ -59,7 +59,7 @@ module Network.AWS.DynamoDB.UpdateTable
     -- * Response
     , UpdateTableResponse
     -- ** Response constructor
-    , mkUpdateTableResponse
+    , updateTableResponse
     -- ** Response lenses
     , utrTableDescription
     ) where
@@ -86,9 +86,9 @@ data UpdateTable = UpdateTable
 --
 -- * @GlobalSecondaryIndexUpdates ::@ @[GlobalSecondaryIndexUpdate]@
 --
-mkUpdateTable :: Text -- ^ 'utTableName'
+updateTable :: Text -- ^ 'utTableName'
               -> UpdateTable
-mkUpdateTable p1 = UpdateTable
+updateTable p1 = UpdateTable
     { _utTableName = p1
     , _utProvisionedThroughput = Nothing
     , _utGlobalSecondaryIndexUpdates = mempty
@@ -136,8 +136,8 @@ newtype UpdateTableResponse = UpdateTableResponse
 --
 -- * @TableDescription ::@ @Maybe TableDescription@
 --
-mkUpdateTableResponse :: UpdateTableResponse
-mkUpdateTableResponse = UpdateTableResponse
+updateTableResponse :: UpdateTableResponse
+updateTableResponse = UpdateTableResponse
     { _utrTableDescription = Nothing
     }
 

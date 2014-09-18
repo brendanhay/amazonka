@@ -27,14 +27,14 @@ module Network.AWS.OpsWorks.StartInstance
     -- * Request
       StartInstance
     -- ** Request constructor
-    , mkStartInstance
+    , startInstance
     -- ** Request lenses
     , siInstanceId
 
     -- * Response
     , StartInstanceResponse
     -- ** Response constructor
-    , mkStartInstanceResponse
+    , startInstanceResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -52,9 +52,9 @@ newtype StartInstance = StartInstance
 --
 -- * @InstanceId ::@ @Text@
 --
-mkStartInstance :: Text -- ^ 'siInstanceId'
+startInstance :: Text -- ^ 'siInstanceId'
                 -> StartInstance
-mkStartInstance p1 = StartInstance
+startInstance p1 = StartInstance
     { _siInstanceId = p1
     }
 
@@ -77,8 +77,8 @@ data StartInstanceResponse = StartInstanceResponse
 -- a valid 'StartInstanceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkStartInstanceResponse :: StartInstanceResponse
-mkStartInstanceResponse = StartInstanceResponse
+startInstanceResponse :: StartInstanceResponse
+startInstanceResponse = StartInstanceResponse
 
 instance AWSRequest StartInstance where
     type Sv StartInstance = OpsWorks

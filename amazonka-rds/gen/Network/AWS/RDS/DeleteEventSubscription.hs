@@ -30,14 +30,14 @@ module Network.AWS.RDS.DeleteEventSubscription
     -- * Request
       DeleteEventSubscription
     -- ** Request constructor
-    , mkDeleteEventSubscription
+    , deleteEventSubscription
     -- ** Request lenses
     , desSubscriptionName
 
     -- * Response
     , DeleteEventSubscriptionResponse
     -- ** Response constructor
-    , mkDeleteEventSubscriptionResponse
+    , deleteEventSubscriptionResponse
     -- ** Response lenses
     , desrEventSubscription
     ) where
@@ -58,9 +58,9 @@ newtype DeleteEventSubscription = DeleteEventSubscription
 --
 -- * @SubscriptionName ::@ @Text@
 --
-mkDeleteEventSubscription :: Text -- ^ 'desSubscriptionName'
+deleteEventSubscription :: Text -- ^ 'desSubscriptionName'
                           -> DeleteEventSubscription
-mkDeleteEventSubscription p1 = DeleteEventSubscription
+deleteEventSubscription p1 = DeleteEventSubscription
     { _desSubscriptionName = p1
     }
 
@@ -85,8 +85,8 @@ newtype DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
 --
 -- * @EventSubscription ::@ @Maybe EventSubscription@
 --
-mkDeleteEventSubscriptionResponse :: DeleteEventSubscriptionResponse
-mkDeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
+deleteEventSubscriptionResponse :: DeleteEventSubscriptionResponse
+deleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
     { _desrEventSubscription = Nothing
     }
 

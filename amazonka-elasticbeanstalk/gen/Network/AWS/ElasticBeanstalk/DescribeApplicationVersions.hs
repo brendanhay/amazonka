@@ -27,7 +27,7 @@ module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     -- * Request
       DescribeApplicationVersions
     -- ** Request constructor
-    , mkDescribeApplicationVersions
+    , describeApplicationVersions
     -- ** Request lenses
     , dav1ApplicationName
     , dav1VersionLabels
@@ -35,7 +35,7 @@ module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     -- * Response
     , DescribeApplicationVersionsResponse
     -- ** Response constructor
-    , mkDescribeApplicationVersionsResponse
+    , describeApplicationVersionsResponse
     -- ** Response lenses
     , davrApplicationVersions
     ) where
@@ -59,8 +59,8 @@ data DescribeApplicationVersions = DescribeApplicationVersions
 --
 -- * @VersionLabels ::@ @[Text]@
 --
-mkDescribeApplicationVersions :: DescribeApplicationVersions
-mkDescribeApplicationVersions = DescribeApplicationVersions
+describeApplicationVersions :: DescribeApplicationVersions
+describeApplicationVersions = DescribeApplicationVersions
     { _dav1ApplicationName = Nothing
     , _dav1VersionLabels = mempty
     }
@@ -94,8 +94,8 @@ newtype DescribeApplicationVersionsResponse = DescribeApplicationVersionsRespons
 --
 -- * @ApplicationVersions ::@ @[ApplicationVersionDescription]@
 --
-mkDescribeApplicationVersionsResponse :: DescribeApplicationVersionsResponse
-mkDescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse
+describeApplicationVersionsResponse :: DescribeApplicationVersionsResponse
+describeApplicationVersionsResponse = DescribeApplicationVersionsResponse
     { _davrApplicationVersions = mempty
     }
 

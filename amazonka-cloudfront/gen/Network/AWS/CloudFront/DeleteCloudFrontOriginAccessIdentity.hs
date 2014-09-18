@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
     -- * Request
       DeleteCloudFrontOriginAccessIdentity
     -- ** Request constructor
-    , mkDeleteCloudFrontOriginAccessIdentity
+    , deleteCloudFrontOriginAccessIdentity
     -- ** Request lenses
     , dcfoaiId
     , dcfoaiIfMatch
@@ -31,7 +31,7 @@ module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
     -- * Response
     , DeleteCloudFrontOriginAccessIdentityResponse
     -- ** Response constructor
-    , mkDeleteCloudFrontOriginAccessIdentityResponse
+    , deleteCloudFrontOriginAccessIdentityResponse
     ) where
 
 import Network.AWS.Request.RestXML
@@ -54,9 +54,9 @@ data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
 --
 -- * @IfMatch ::@ @Maybe Text@
 --
-mkDeleteCloudFrontOriginAccessIdentity :: Text -- ^ 'dcfoaiId'
+deleteCloudFrontOriginAccessIdentity :: Text -- ^ 'dcfoaiId'
                                        -> DeleteCloudFrontOriginAccessIdentity
-mkDeleteCloudFrontOriginAccessIdentity p1 = DeleteCloudFrontOriginAccessIdentity
+deleteCloudFrontOriginAccessIdentity p1 = DeleteCloudFrontOriginAccessIdentity
     { _dcfoaiId = p1
     , _dcfoaiIfMatch = Nothing
     }
@@ -90,8 +90,8 @@ data DeleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccess
 -- a valid 'DeleteCloudFrontOriginAccessIdentityResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteCloudFrontOriginAccessIdentityResponse :: DeleteCloudFrontOriginAccessIdentityResponse
-mkDeleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdentityResponse
+deleteCloudFrontOriginAccessIdentityResponse :: DeleteCloudFrontOriginAccessIdentityResponse
+deleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdentityResponse
 
 instance AWSRequest DeleteCloudFrontOriginAccessIdentity where
     type Sv DeleteCloudFrontOriginAccessIdentity = CloudFront

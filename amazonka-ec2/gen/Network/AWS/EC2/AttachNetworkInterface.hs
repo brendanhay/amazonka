@@ -31,7 +31,7 @@ module Network.AWS.EC2.AttachNetworkInterface
     -- * Request
       AttachNetworkInterface
     -- ** Request constructor
-    , mkAttachNetworkInterface
+    , attachNetworkInterface
     -- ** Request lenses
     , aniNetworkInterfaceId
     , aniInstanceId
@@ -40,7 +40,7 @@ module Network.AWS.EC2.AttachNetworkInterface
     -- * Response
     , AttachNetworkInterfaceResponse
     -- ** Response constructor
-    , mkAttachNetworkInterfaceResponse
+    , attachNetworkInterfaceResponse
     -- ** Response lenses
     , anirAttachmentId
     ) where
@@ -66,11 +66,11 @@ data AttachNetworkInterface = AttachNetworkInterface
 --
 -- * @DeviceIndex ::@ @Integer@
 --
-mkAttachNetworkInterface :: Text -- ^ 'aniNetworkInterfaceId'
+attachNetworkInterface :: Text -- ^ 'aniNetworkInterfaceId'
                          -> Text -- ^ 'aniInstanceId'
                          -> Integer -- ^ 'aniDeviceIndex'
                          -> AttachNetworkInterface
-mkAttachNetworkInterface p1 p2 p3 = AttachNetworkInterface
+attachNetworkInterface p1 p2 p3 = AttachNetworkInterface
     { _aniNetworkInterfaceId = p1
     , _aniInstanceId = p2
     , _aniDeviceIndex = p3
@@ -105,8 +105,8 @@ newtype AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
 --
 -- * @AttachmentId ::@ @Maybe Text@
 --
-mkAttachNetworkInterfaceResponse :: AttachNetworkInterfaceResponse
-mkAttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
+attachNetworkInterfaceResponse :: AttachNetworkInterfaceResponse
+attachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
     { _anirAttachmentId = Nothing
     }
 

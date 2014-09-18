@@ -30,7 +30,7 @@ module Network.AWS.EC2.DescribeSnapshotAttribute
     -- * Request
       DescribeSnapshotAttribute
     -- ** Request constructor
-    , mkDescribeSnapshotAttribute
+    , describeSnapshotAttribute
     -- ** Request lenses
     , dsaSnapshotId
     , dsaAttribute
@@ -38,7 +38,7 @@ module Network.AWS.EC2.DescribeSnapshotAttribute
     -- * Response
     , DescribeSnapshotAttributeResponse
     -- ** Response constructor
-    , mkDescribeSnapshotAttributeResponse
+    , describeSnapshotAttributeResponse
     -- ** Response lenses
     , dsarSnapshotId
     , dsarCreateVolumePermissions
@@ -63,10 +63,10 @@ data DescribeSnapshotAttribute = DescribeSnapshotAttribute
 --
 -- * @Attribute ::@ @SnapshotAttributeName@
 --
-mkDescribeSnapshotAttribute :: Text -- ^ 'dsaSnapshotId'
+describeSnapshotAttribute :: Text -- ^ 'dsaSnapshotId'
                             -> SnapshotAttributeName -- ^ 'dsaAttribute'
                             -> DescribeSnapshotAttribute
-mkDescribeSnapshotAttribute p1 p2 = DescribeSnapshotAttribute
+describeSnapshotAttribute p1 p2 = DescribeSnapshotAttribute
     { _dsaSnapshotId = p1
     , _dsaAttribute = p2
     }
@@ -101,8 +101,8 @@ data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
 --
 -- * @ProductCodes ::@ @[ProductCode]@
 --
-mkDescribeSnapshotAttributeResponse :: DescribeSnapshotAttributeResponse
-mkDescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
+describeSnapshotAttributeResponse :: DescribeSnapshotAttributeResponse
+describeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
     { _dsarSnapshotId = Nothing
     , _dsarCreateVolumePermissions = mempty
     , _dsarProductCodes = mempty

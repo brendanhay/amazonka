@@ -22,7 +22,7 @@ module Network.AWS.StorageGateway.CreateTapes
     -- * Request
       CreateTapes
     -- ** Request constructor
-    , mkCreateTapes
+    , createTapes
     -- ** Request lenses
     , ctGatewayARN
     , ctTapeSizeInBytes
@@ -33,7 +33,7 @@ module Network.AWS.StorageGateway.CreateTapes
     -- * Response
     , CreateTapesResponse
     -- ** Response constructor
-    , mkCreateTapesResponse
+    , createTapesResponse
     -- ** Response lenses
     , ctrTapeARNs
     ) where
@@ -65,13 +65,13 @@ data CreateTapes = CreateTapes
 --
 -- * @TapeBarcodePrefix ::@ @Text@
 --
-mkCreateTapes :: Text -- ^ 'ctGatewayARN'
+createTapes :: Text -- ^ 'ctGatewayARN'
               -> Integer -- ^ 'ctTapeSizeInBytes'
               -> Text -- ^ 'ctClientToken'
               -> Integer -- ^ 'ctNumTapesToCreate'
               -> Text -- ^ 'ctTapeBarcodePrefix'
               -> CreateTapes
-mkCreateTapes p1 p2 p3 p4 p5 = CreateTapes
+createTapes p1 p2 p3 p4 p5 = CreateTapes
     { _ctGatewayARN = p1
     , _ctTapeSizeInBytes = p2
     , _ctClientToken = p3
@@ -120,8 +120,8 @@ newtype CreateTapesResponse = CreateTapesResponse
 --
 -- * @TapeARNs ::@ @[Text]@
 --
-mkCreateTapesResponse :: CreateTapesResponse
-mkCreateTapesResponse = CreateTapesResponse
+createTapesResponse :: CreateTapesResponse
+createTapesResponse = CreateTapesResponse
     { _ctrTapeARNs = mempty
     }
 

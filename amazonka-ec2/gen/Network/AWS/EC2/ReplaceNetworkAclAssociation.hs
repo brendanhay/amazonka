@@ -37,7 +37,7 @@ module Network.AWS.EC2.ReplaceNetworkAclAssociation
     -- * Request
       ReplaceNetworkAclAssociation
     -- ** Request constructor
-    , mkReplaceNetworkAclAssociation
+    , replaceNetworkAclAssociation
     -- ** Request lenses
     , rnaaAssociationId
     , rnaaNetworkAclId
@@ -45,7 +45,7 @@ module Network.AWS.EC2.ReplaceNetworkAclAssociation
     -- * Response
     , ReplaceNetworkAclAssociationResponse
     -- ** Response constructor
-    , mkReplaceNetworkAclAssociationResponse
+    , replaceNetworkAclAssociationResponse
     -- ** Response lenses
     , rnaarNewAssociationId
     ) where
@@ -68,10 +68,10 @@ data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
 --
 -- * @NetworkAclId ::@ @Text@
 --
-mkReplaceNetworkAclAssociation :: Text -- ^ 'rnaaAssociationId'
+replaceNetworkAclAssociation :: Text -- ^ 'rnaaAssociationId'
                                -> Text -- ^ 'rnaaNetworkAclId'
                                -> ReplaceNetworkAclAssociation
-mkReplaceNetworkAclAssociation p1 p2 = ReplaceNetworkAclAssociation
+replaceNetworkAclAssociation p1 p2 = ReplaceNetworkAclAssociation
     { _rnaaAssociationId = p1
     , _rnaaNetworkAclId = p2
     }
@@ -103,8 +103,8 @@ newtype ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationRespo
 --
 -- * @NewAssociationId ::@ @Maybe Text@
 --
-mkReplaceNetworkAclAssociationResponse :: ReplaceNetworkAclAssociationResponse
-mkReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
+replaceNetworkAclAssociationResponse :: ReplaceNetworkAclAssociationResponse
+replaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
     { _rnaarNewAssociationId = Nothing
     }
 

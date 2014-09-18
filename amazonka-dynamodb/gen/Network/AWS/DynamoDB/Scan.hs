@@ -44,7 +44,7 @@ module Network.AWS.DynamoDB.Scan
     -- * Request
       Scan
     -- ** Request constructor
-    , mkScan
+    , scan
     -- ** Request lenses
     , sTableName
     , sAttributesToGet
@@ -60,7 +60,7 @@ module Network.AWS.DynamoDB.Scan
     -- * Response
     , ScanResponse
     -- ** Response constructor
-    , mkScanResponse
+    , scanResponse
     -- ** Response lenses
     , srItems
     , srCount
@@ -112,9 +112,9 @@ data Scan = Scan
 --
 -- * @Segment ::@ @Maybe Integer@
 --
-mkScan :: Text -- ^ 'sTableName'
+scan :: Text -- ^ 'sTableName'
        -> Scan
-mkScan p1 = Scan
+scan p1 = Scan
     { _sTableName = p1
     , _sAttributesToGet = Nothing
     , _sLimit = Nothing
@@ -332,8 +332,8 @@ data ScanResponse = ScanResponse
 --
 -- * @ConsumedCapacity ::@ @Maybe ConsumedCapacity@
 --
-mkScanResponse :: ScanResponse
-mkScanResponse = ScanResponse
+scanResponse :: ScanResponse
+scanResponse = ScanResponse
     { _srItems = mempty
     , _srCount = Nothing
     , _srScannedCount = Nothing

@@ -31,7 +31,7 @@ module Network.AWS.SimpleDB.Select
     -- * Request
       Select
     -- ** Request constructor
-    , mkSelect
+    , select
     -- ** Request lenses
     , sSelectExpression
     , sNextToken
@@ -40,7 +40,7 @@ module Network.AWS.SimpleDB.Select
     -- * Response
     , SelectResponse
     -- ** Response constructor
-    , mkSelectResponse
+    , selectResponse
     -- ** Response lenses
     , srItems
     , srNextToken
@@ -67,9 +67,9 @@ data Select = Select
 --
 -- * @ConsistentRead ::@ @Maybe Bool@
 --
-mkSelect :: Text -- ^ 'sSelectExpression'
+select :: Text -- ^ 'sSelectExpression'
          -> Select
-mkSelect p1 = Select
+select p1 = Select
     { _sSelectExpression = p1
     , _sNextToken = Nothing
     , _sConsistentRead = Nothing
@@ -111,8 +111,8 @@ data SelectResponse = SelectResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkSelectResponse :: SelectResponse
-mkSelectResponse = SelectResponse
+selectResponse :: SelectResponse
+selectResponse = SelectResponse
     { _srItems = mempty
     , _srNextToken = Nothing
     }

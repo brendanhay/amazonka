@@ -25,14 +25,14 @@ module Network.AWS.CloudTrail.GetTrailStatus
     -- * Request
       GetTrailStatus
     -- ** Request constructor
-    , mkGetTrailStatus
+    , getTrailStatus
     -- ** Request lenses
     , gtsName
 
     -- * Response
     , GetTrailStatusResponse
     -- ** Response constructor
-    , mkGetTrailStatusResponse
+    , getTrailStatusResponse
     -- ** Response lenses
     , gtsrIsLogging
     , gtsrLatestDeliveryError
@@ -59,9 +59,9 @@ newtype GetTrailStatus = GetTrailStatus
 --
 -- * @Name ::@ @Text@
 --
-mkGetTrailStatus :: Text -- ^ 'gtsName'
+getTrailStatus :: Text -- ^ 'gtsName'
                  -> GetTrailStatus
-mkGetTrailStatus p1 = GetTrailStatus
+getTrailStatus p1 = GetTrailStatus
     { _gtsName = p1
     }
 
@@ -110,8 +110,8 @@ data GetTrailStatusResponse = GetTrailStatusResponse
 --
 -- * @StopLoggingTime ::@ @Maybe ISO8601@
 --
-mkGetTrailStatusResponse :: GetTrailStatusResponse
-mkGetTrailStatusResponse = GetTrailStatusResponse
+getTrailStatusResponse :: GetTrailStatusResponse
+getTrailStatusResponse = GetTrailStatusResponse
     { _gtsrIsLogging = Nothing
     , _gtsrLatestDeliveryError = Nothing
     , _gtsrLatestNotificationError = Nothing

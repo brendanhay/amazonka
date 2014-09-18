@@ -23,14 +23,14 @@ module Network.AWS.Redshift.RotateEncryptionKey
     -- * Request
       RotateEncryptionKey
     -- ** Request constructor
-    , mkRotateEncryptionKey
+    , rotateEncryptionKey
     -- ** Request lenses
     , rekClusterIdentifier
 
     -- * Response
     , RotateEncryptionKeyResponse
     -- ** Response constructor
-    , mkRotateEncryptionKeyResponse
+    , rotateEncryptionKeyResponse
     -- ** Response lenses
     , rekrCluster
     ) where
@@ -51,9 +51,9 @@ newtype RotateEncryptionKey = RotateEncryptionKey
 --
 -- * @ClusterIdentifier ::@ @Text@
 --
-mkRotateEncryptionKey :: Text -- ^ 'rekClusterIdentifier'
+rotateEncryptionKey :: Text -- ^ 'rekClusterIdentifier'
                       -> RotateEncryptionKey
-mkRotateEncryptionKey p1 = RotateEncryptionKey
+rotateEncryptionKey p1 = RotateEncryptionKey
     { _rekClusterIdentifier = p1
     }
 
@@ -80,8 +80,8 @@ newtype RotateEncryptionKeyResponse = RotateEncryptionKeyResponse
 --
 -- * @Cluster ::@ @Maybe Cluster@
 --
-mkRotateEncryptionKeyResponse :: RotateEncryptionKeyResponse
-mkRotateEncryptionKeyResponse = RotateEncryptionKeyResponse
+rotateEncryptionKeyResponse :: RotateEncryptionKeyResponse
+rotateEncryptionKeyResponse = RotateEncryptionKeyResponse
     { _rekrCluster = Nothing
     }
 

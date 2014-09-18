@@ -28,7 +28,7 @@ module Network.AWS.ElasticBeanstalk.RebuildEnvironment
     -- * Request
       RebuildEnvironment
     -- ** Request constructor
-    , mkRebuildEnvironment
+    , rebuildEnvironment
     -- ** Request lenses
     , reEnvironmentId
     , reEnvironmentName
@@ -36,7 +36,7 @@ module Network.AWS.ElasticBeanstalk.RebuildEnvironment
     -- * Response
     , RebuildEnvironmentResponse
     -- ** Response constructor
-    , mkRebuildEnvironmentResponse
+    , rebuildEnvironmentResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -58,8 +58,8 @@ data RebuildEnvironment = RebuildEnvironment
 --
 -- * @EnvironmentName ::@ @Maybe Text@
 --
-mkRebuildEnvironment :: RebuildEnvironment
-mkRebuildEnvironment = RebuildEnvironment
+rebuildEnvironment :: RebuildEnvironment
+rebuildEnvironment = RebuildEnvironment
     { _reEnvironmentId = Nothing
     , _reEnvironmentName = Nothing
     }
@@ -87,8 +87,8 @@ data RebuildEnvironmentResponse = RebuildEnvironmentResponse
 -- a valid 'RebuildEnvironmentResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRebuildEnvironmentResponse :: RebuildEnvironmentResponse
-mkRebuildEnvironmentResponse = RebuildEnvironmentResponse
+rebuildEnvironmentResponse :: RebuildEnvironmentResponse
+rebuildEnvironmentResponse = RebuildEnvironmentResponse
 
 instance AWSRequest RebuildEnvironment where
     type Sv RebuildEnvironment = ElasticBeanstalk

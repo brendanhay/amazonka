@@ -65,7 +65,7 @@ module Network.AWS.ElasticTranscoder.ListJobsByPipeline
     -- * Request
       ListJobsByPipeline
     -- ** Request constructor
-    , mkListJobsByPipeline
+    , listJobsByPipeline
     -- ** Request lenses
     , ljbpPipelineId
     , ljbpAscending
@@ -74,7 +74,7 @@ module Network.AWS.ElasticTranscoder.ListJobsByPipeline
     -- * Response
     , ListJobsByPipelineResponse
     -- ** Response constructor
-    , mkListJobsByPipelineResponse
+    , listJobsByPipelineResponse
     -- ** Response lenses
     , ljbprJobs
     , ljbprNextPageToken
@@ -102,9 +102,9 @@ data ListJobsByPipeline = ListJobsByPipeline
 --
 -- * @PageToken ::@ @Maybe Text@
 --
-mkListJobsByPipeline :: Text -- ^ 'ljbpPipelineId'
+listJobsByPipeline :: Text -- ^ 'ljbpPipelineId'
                      -> ListJobsByPipeline
-mkListJobsByPipeline p1 = ListJobsByPipeline
+listJobsByPipeline p1 = ListJobsByPipeline
     { _ljbpPipelineId = p1
     , _ljbpAscending = Nothing
     , _ljbpPageToken = Nothing
@@ -151,8 +151,8 @@ data ListJobsByPipelineResponse = ListJobsByPipelineResponse
 --
 -- * @NextPageToken ::@ @Maybe Text@
 --
-mkListJobsByPipelineResponse :: ListJobsByPipelineResponse
-mkListJobsByPipelineResponse = ListJobsByPipelineResponse
+listJobsByPipelineResponse :: ListJobsByPipelineResponse
+listJobsByPipelineResponse = ListJobsByPipelineResponse
     { _ljbprJobs = mempty
     , _ljbprNextPageToken = Nothing
     }

@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.ListInvalidations
     -- * Request
       ListInvalidations
     -- ** Request constructor
-    , mkListInvalidations
+    , listInvalidations
     -- ** Request lenses
     , liDistributionId
     , liMarker
@@ -32,7 +32,7 @@ module Network.AWS.CloudFront.ListInvalidations
     -- * Response
     , ListInvalidationsResponse
     -- ** Response constructor
-    , mkListInvalidationsResponse
+    , listInvalidationsResponse
     -- ** Response lenses
     , lirInvalidationList
     ) where
@@ -60,9 +60,9 @@ data ListInvalidations = ListInvalidations
 --
 -- * @MaxItems ::@ @Maybe Text@
 --
-mkListInvalidations :: Text -- ^ 'liDistributionId'
+listInvalidations :: Text -- ^ 'liDistributionId'
                     -> ListInvalidations
-mkListInvalidations p1 = ListInvalidations
+listInvalidations p1 = ListInvalidations
     { _liDistributionId = p1
     , _liMarker = Nothing
     , _liMaxItems = Nothing
@@ -111,9 +111,9 @@ newtype ListInvalidationsResponse = ListInvalidationsResponse
 --
 -- * @InvalidationList ::@ @InvalidationList@
 --
-mkListInvalidationsResponse :: InvalidationList -- ^ 'lirInvalidationList'
+listInvalidationsResponse :: InvalidationList -- ^ 'lirInvalidationList'
                             -> ListInvalidationsResponse
-mkListInvalidationsResponse p1 = ListInvalidationsResponse
+listInvalidationsResponse p1 = ListInvalidationsResponse
     { _lirInvalidationList = p1
     }
 

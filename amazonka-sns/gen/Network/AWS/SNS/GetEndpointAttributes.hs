@@ -44,14 +44,14 @@ module Network.AWS.SNS.GetEndpointAttributes
     -- * Request
       GetEndpointAttributes
     -- ** Request constructor
-    , mkGetEndpointAttributes
+    , getEndpointAttributes
     -- ** Request lenses
     , geaEndpointArn
 
     -- * Response
     , GetEndpointAttributesResponse
     -- ** Response constructor
-    , mkGetEndpointAttributesResponse
+    , getEndpointAttributesResponse
     -- ** Response lenses
     , gearAttributes
     ) where
@@ -72,9 +72,9 @@ newtype GetEndpointAttributes = GetEndpointAttributes
 --
 -- * @EndpointArn ::@ @Text@
 --
-mkGetEndpointAttributes :: Text -- ^ 'geaEndpointArn'
+getEndpointAttributes :: Text -- ^ 'geaEndpointArn'
                         -> GetEndpointAttributes
-mkGetEndpointAttributes p1 = GetEndpointAttributes
+getEndpointAttributes p1 = GetEndpointAttributes
     { _geaEndpointArn = p1
     }
 
@@ -99,8 +99,8 @@ newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
 --
 -- * @Attributes ::@ @Map Text Text@
 --
-mkGetEndpointAttributesResponse :: GetEndpointAttributesResponse
-mkGetEndpointAttributesResponse = GetEndpointAttributesResponse
+getEndpointAttributesResponse :: GetEndpointAttributesResponse
+getEndpointAttributesResponse = GetEndpointAttributesResponse
     { _gearAttributes = mempty
     }
 

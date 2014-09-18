@@ -39,7 +39,7 @@ module Network.AWS.CloudWatchLogs.PutMetricFilter
     -- * Request
       PutMetricFilter
     -- ** Request constructor
-    , mkPutMetricFilter
+    , putMetricFilter
     -- ** Request lenses
     , pmfLogGroupName
     , pmfFilterName
@@ -49,7 +49,7 @@ module Network.AWS.CloudWatchLogs.PutMetricFilter
     -- * Response
     , PutMetricFilterResponse
     -- ** Response constructor
-    , mkPutMetricFilterResponse
+    , putMetricFilterResponse
     ) where
 
 import Network.AWS.CloudWatchLogs.Types
@@ -76,12 +76,12 @@ data PutMetricFilter = PutMetricFilter
 --
 -- * @MetricTransformations ::@ @List1 MetricTransformation@
 --
-mkPutMetricFilter :: Text -- ^ 'pmfLogGroupName'
+putMetricFilter :: Text -- ^ 'pmfLogGroupName'
                   -> Text -- ^ 'pmfFilterName'
                   -> Text -- ^ 'pmfFilterPattern'
                   -> List1 MetricTransformation -- ^ 'pmfMetricTransformations'
                   -> PutMetricFilter
-mkPutMetricFilter p1 p2 p3 p4 = PutMetricFilter
+putMetricFilter p1 p2 p3 p4 = PutMetricFilter
     { _pmfLogGroupName = p1
     , _pmfFilterName = p2
     , _pmfFilterPattern = p3
@@ -119,8 +119,8 @@ data PutMetricFilterResponse = PutMetricFilterResponse
 -- a valid 'PutMetricFilterResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkPutMetricFilterResponse :: PutMetricFilterResponse
-mkPutMetricFilterResponse = PutMetricFilterResponse
+putMetricFilterResponse :: PutMetricFilterResponse
+putMetricFilterResponse = PutMetricFilterResponse
 
 instance AWSRequest PutMetricFilter where
     type Sv PutMetricFilter = CloudWatchLogs

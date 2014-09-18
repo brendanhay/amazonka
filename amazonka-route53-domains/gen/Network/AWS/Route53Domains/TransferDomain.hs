@@ -71,7 +71,7 @@ module Network.AWS.Route53Domains.TransferDomain
     -- * Request
       TransferDomain
     -- ** Request constructor
-    , mkTransferDomain
+    , transferDomain
     -- ** Request lenses
     , tdDomainName
     , tdIdnLangCode
@@ -89,7 +89,7 @@ module Network.AWS.Route53Domains.TransferDomain
     -- * Response
     , TransferDomainResponse
     -- ** Response constructor
-    , mkTransferDomainResponse
+    , transferDomainResponse
     -- ** Response lenses
     , tdrOperationId
     ) where
@@ -143,14 +143,14 @@ data TransferDomain = TransferDomain
 --
 -- * @PrivacyProtectTechContact ::@ @Maybe Bool@
 --
-mkTransferDomain :: Text -- ^ 'tdDomainName'
+transferDomain :: Text -- ^ 'tdDomainName'
                  -> Integer -- ^ 'tdDurationInYears'
                  -> [Nameserver] -- ^ 'tdNameservers'
                  -> ContactDetail -- ^ 'tdAdminContact'
                  -> ContactDetail -- ^ 'tdRegistrantContact'
                  -> ContactDetail -- ^ 'tdTechContact'
                  -> TransferDomain
-mkTransferDomain p1 p3 p4 p7 p8 p9 = TransferDomain
+transferDomain p1 p3 p4 p7 p8 p9 = TransferDomain
     { _tdDomainName = p1
     , _tdIdnLangCode = Nothing
     , _tdDurationInYears = p3
@@ -271,9 +271,9 @@ newtype TransferDomainResponse = TransferDomainResponse
 --
 -- * @OperationId ::@ @Text@
 --
-mkTransferDomainResponse :: Text -- ^ 'tdrOperationId'
+transferDomainResponse :: Text -- ^ 'tdrOperationId'
                          -> TransferDomainResponse
-mkTransferDomainResponse p1 = TransferDomainResponse
+transferDomainResponse p1 = TransferDomainResponse
     { _tdrOperationId = p1
     }
 

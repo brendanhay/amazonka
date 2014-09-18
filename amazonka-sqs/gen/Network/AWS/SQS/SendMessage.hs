@@ -49,7 +49,7 @@ module Network.AWS.SQS.SendMessage
     -- * Request
       SendMessage
     -- ** Request constructor
-    , mkSendMessage
+    , sendMessage
     -- ** Request lenses
     , smQueueUrl
     , smMessageBody
@@ -59,7 +59,7 @@ module Network.AWS.SQS.SendMessage
     -- * Response
     , SendMessageResponse
     -- ** Response constructor
-    , mkSendMessageResponse
+    , sendMessageResponse
     -- ** Response lenses
     , smrMD5OfMessageBody
     , smrMD5OfMessageAttributes
@@ -90,10 +90,10 @@ data SendMessage = SendMessage
 --
 -- * @MessageAttributes ::@ @Map Text MessageAttributeValue@
 --
-mkSendMessage :: Text -- ^ 'smQueueUrl'
+sendMessage :: Text -- ^ 'smQueueUrl'
               -> Text -- ^ 'smMessageBody'
               -> SendMessage
-mkSendMessage p1 p2 = SendMessage
+sendMessage p1 p2 = SendMessage
     { _smQueueUrl = p1
     , _smMessageBody = p2
     , _smDelaySeconds = Nothing
@@ -145,8 +145,8 @@ data SendMessageResponse = SendMessageResponse
 --
 -- * @MessageId ::@ @Maybe Text@
 --
-mkSendMessageResponse :: SendMessageResponse
-mkSendMessageResponse = SendMessageResponse
+sendMessageResponse :: SendMessageResponse
+sendMessageResponse = SendMessageResponse
     { _smrMD5OfMessageBody = Nothing
     , _smrMD5OfMessageAttributes = Nothing
     , _smrMessageId = Nothing

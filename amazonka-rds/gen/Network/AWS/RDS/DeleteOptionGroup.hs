@@ -24,14 +24,14 @@ module Network.AWS.RDS.DeleteOptionGroup
     -- * Request
       DeleteOptionGroup
     -- ** Request constructor
-    , mkDeleteOptionGroup
+    , deleteOptionGroup
     -- ** Request lenses
     , dogOptionGroupName
 
     -- * Response
     , DeleteOptionGroupResponse
     -- ** Response constructor
-    , mkDeleteOptionGroupResponse
+    , deleteOptionGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -50,9 +50,9 @@ newtype DeleteOptionGroup = DeleteOptionGroup
 --
 -- * @OptionGroupName ::@ @Text@
 --
-mkDeleteOptionGroup :: Text -- ^ 'dogOptionGroupName'
+deleteOptionGroup :: Text -- ^ 'dogOptionGroupName'
                     -> DeleteOptionGroup
-mkDeleteOptionGroup p1 = DeleteOptionGroup
+deleteOptionGroup p1 = DeleteOptionGroup
     { _dogOptionGroupName = p1
     }
 
@@ -72,8 +72,8 @@ data DeleteOptionGroupResponse = DeleteOptionGroupResponse
 -- a valid 'DeleteOptionGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteOptionGroupResponse :: DeleteOptionGroupResponse
-mkDeleteOptionGroupResponse = DeleteOptionGroupResponse
+deleteOptionGroupResponse :: DeleteOptionGroupResponse
+deleteOptionGroupResponse = DeleteOptionGroupResponse
 
 instance AWSRequest DeleteOptionGroup where
     type Sv DeleteOptionGroup = RDS

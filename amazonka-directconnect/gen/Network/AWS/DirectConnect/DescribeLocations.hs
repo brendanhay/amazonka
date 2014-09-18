@@ -25,11 +25,11 @@ module Network.AWS.DirectConnect.DescribeLocations
     -- * Request
       DescribeLocations
     -- ** Request constructor
-    , mkDescribeLocations
+    , describeLocations
     -- * Response
     , DescribeLocationsResponse
     -- ** Response constructor
-    , mkDescribeLocationsResponse
+    , describeLocationsResponse
     -- ** Response lenses
     , dlrLocations
     ) where
@@ -43,8 +43,8 @@ data DescribeLocations = DescribeLocations
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLocations' request.
-mkDescribeLocations :: DescribeLocations
-mkDescribeLocations = DescribeLocations
+describeLocations :: DescribeLocations
+describeLocations = DescribeLocations
 
 instance ToPath DescribeLocations
 
@@ -67,8 +67,8 @@ newtype DescribeLocationsResponse = DescribeLocationsResponse
 --
 -- * @Locations ::@ @[Location]@
 --
-mkDescribeLocationsResponse :: DescribeLocationsResponse
-mkDescribeLocationsResponse = DescribeLocationsResponse
+describeLocationsResponse :: DescribeLocationsResponse
+describeLocationsResponse = DescribeLocationsResponse
     { _dlrLocations = mempty
     }
 

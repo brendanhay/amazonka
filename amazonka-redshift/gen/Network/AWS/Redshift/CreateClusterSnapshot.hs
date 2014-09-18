@@ -34,7 +34,7 @@ module Network.AWS.Redshift.CreateClusterSnapshot
     -- * Request
       CreateClusterSnapshot
     -- ** Request constructor
-    , mkCreateClusterSnapshot
+    , createClusterSnapshot
     -- ** Request lenses
     , ccs1SnapshotIdentifier
     , ccs1ClusterIdentifier
@@ -42,7 +42,7 @@ module Network.AWS.Redshift.CreateClusterSnapshot
     -- * Response
     , CreateClusterSnapshotResponse
     -- ** Response constructor
-    , mkCreateClusterSnapshotResponse
+    , createClusterSnapshotResponse
     -- ** Response lenses
     , ccsrrSnapshot
     ) where
@@ -66,10 +66,10 @@ data CreateClusterSnapshot = CreateClusterSnapshot
 --
 -- * @ClusterIdentifier ::@ @Text@
 --
-mkCreateClusterSnapshot :: Text -- ^ 'ccs1SnapshotIdentifier'
+createClusterSnapshot :: Text -- ^ 'ccs1SnapshotIdentifier'
                         -> Text -- ^ 'ccs1ClusterIdentifier'
                         -> CreateClusterSnapshot
-mkCreateClusterSnapshot p1 p2 = CreateClusterSnapshot
+createClusterSnapshot p1 p2 = CreateClusterSnapshot
     { _ccs1SnapshotIdentifier = p1
     , _ccs1ClusterIdentifier = p2
     }
@@ -105,8 +105,8 @@ newtype CreateClusterSnapshotResponse = CreateClusterSnapshotResponse
 --
 -- * @Snapshot ::@ @Maybe Snapshot@
 --
-mkCreateClusterSnapshotResponse :: CreateClusterSnapshotResponse
-mkCreateClusterSnapshotResponse = CreateClusterSnapshotResponse
+createClusterSnapshotResponse :: CreateClusterSnapshotResponse
+createClusterSnapshotResponse = CreateClusterSnapshotResponse
     { _ccsrrSnapshot = Nothing
     }
 

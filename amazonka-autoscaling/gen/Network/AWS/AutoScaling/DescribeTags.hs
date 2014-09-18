@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.DescribeTags
     -- * Request
       DescribeTags
     -- ** Request constructor
-    , mkDescribeTags
+    , describeTags
     -- ** Request lenses
     , dt1Filters
     , dt1NextToken
@@ -41,7 +41,7 @@ module Network.AWS.AutoScaling.DescribeTags
     -- * Response
     , DescribeTagsResponse
     -- ** Response constructor
-    , mkDescribeTagsResponse
+    , describeTagsResponse
     -- ** Response lenses
     , dtrTags
     , dtrNextToken
@@ -69,8 +69,8 @@ data DescribeTags = DescribeTags
 --
 -- * @MaxRecords ::@ @Maybe Integer@
 --
-mkDescribeTags :: DescribeTags
-mkDescribeTags = DescribeTags
+describeTags :: DescribeTags
+describeTags = DescribeTags
     { _dt1Filters = mempty
     , _dt1NextToken = Nothing
     , _dt1MaxRecords = Nothing
@@ -111,8 +111,8 @@ data DescribeTagsResponse = DescribeTagsResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeTagsResponse :: DescribeTagsResponse
-mkDescribeTagsResponse = DescribeTagsResponse
+describeTagsResponse :: DescribeTagsResponse
+describeTagsResponse = DescribeTagsResponse
     { _dtrTags = mempty
     , _dtrNextToken = Nothing
     }

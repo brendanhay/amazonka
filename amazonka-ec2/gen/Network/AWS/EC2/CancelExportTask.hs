@@ -30,14 +30,14 @@ module Network.AWS.EC2.CancelExportTask
     -- * Request
       CancelExportTask
     -- ** Request constructor
-    , mkCancelExportTask
+    , cancelExportTask
     -- ** Request lenses
     , cetExportTaskId
 
     -- * Response
     , CancelExportTaskResponse
     -- ** Response constructor
-    , mkCancelExportTaskResponse
+    , cancelExportTaskResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -55,9 +55,9 @@ newtype CancelExportTask = CancelExportTask
 --
 -- * @ExportTaskId ::@ @Text@
 --
-mkCancelExportTask :: Text -- ^ 'cetExportTaskId'
+cancelExportTask :: Text -- ^ 'cetExportTaskId'
                    -> CancelExportTask
-mkCancelExportTask p1 = CancelExportTask
+cancelExportTask p1 = CancelExportTask
     { _cetExportTaskId = p1
     }
 
@@ -76,8 +76,8 @@ data CancelExportTaskResponse = CancelExportTaskResponse
 -- a valid 'CancelExportTaskResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkCancelExportTaskResponse :: CancelExportTaskResponse
-mkCancelExportTaskResponse = CancelExportTaskResponse
+cancelExportTaskResponse :: CancelExportTaskResponse
+cancelExportTaskResponse = CancelExportTaskResponse
 
 instance AWSRequest CancelExportTask where
     type Sv CancelExportTask = EC2

@@ -44,14 +44,14 @@ module Network.AWS.StorageGateway.DescribeUploadBuffer
     -- * Request
       DescribeUploadBuffer
     -- ** Request constructor
-    , mkDescribeUploadBuffer
+    , describeUploadBuffer
     -- ** Request lenses
     , dubGatewayARN
 
     -- * Response
     , DescribeUploadBufferResponse
     -- ** Response constructor
-    , mkDescribeUploadBufferResponse
+    , describeUploadBufferResponse
     -- ** Response lenses
     , dubrGatewayARN
     , dubrDiskIds
@@ -74,9 +74,9 @@ newtype DescribeUploadBuffer = DescribeUploadBuffer
 --
 -- * @GatewayARN ::@ @Text@
 --
-mkDescribeUploadBuffer :: Text -- ^ 'dubGatewayARN'
+describeUploadBuffer :: Text -- ^ 'dubGatewayARN'
                        -> DescribeUploadBuffer
-mkDescribeUploadBuffer p1 = DescribeUploadBuffer
+describeUploadBuffer p1 = DescribeUploadBuffer
     { _dubGatewayARN = p1
     }
 
@@ -115,8 +115,8 @@ data DescribeUploadBufferResponse = DescribeUploadBufferResponse
 --
 -- * @UploadBufferAllocatedInBytes ::@ @Maybe Integer@
 --
-mkDescribeUploadBufferResponse :: DescribeUploadBufferResponse
-mkDescribeUploadBufferResponse = DescribeUploadBufferResponse
+describeUploadBufferResponse :: DescribeUploadBufferResponse
+describeUploadBufferResponse = DescribeUploadBufferResponse
     { _dubrGatewayARN = Nothing
     , _dubrDiskIds = mempty
     , _dubrUploadBufferUsedInBytes = Nothing

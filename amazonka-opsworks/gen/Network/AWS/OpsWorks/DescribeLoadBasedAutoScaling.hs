@@ -28,14 +28,14 @@ module Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
     -- * Request
       DescribeLoadBasedAutoScaling
     -- ** Request constructor
-    , mkDescribeLoadBasedAutoScaling
+    , describeLoadBasedAutoScaling
     -- ** Request lenses
     , dlbasLayerIds
 
     -- * Response
     , DescribeLoadBasedAutoScalingResponse
     -- ** Response constructor
-    , mkDescribeLoadBasedAutoScalingResponse
+    , describeLoadBasedAutoScalingResponse
     -- ** Response lenses
     , dlbasrLoadBasedAutoScalingConfigurations
     ) where
@@ -55,9 +55,9 @@ newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling
 --
 -- * @LayerIds ::@ @[Text]@
 --
-mkDescribeLoadBasedAutoScaling :: [Text] -- ^ 'dlbasLayerIds'
+describeLoadBasedAutoScaling :: [Text] -- ^ 'dlbasLayerIds'
                                -> DescribeLoadBasedAutoScaling
-mkDescribeLoadBasedAutoScaling p1 = DescribeLoadBasedAutoScaling
+describeLoadBasedAutoScaling p1 = DescribeLoadBasedAutoScaling
     { _dlbasLayerIds = p1
     }
 
@@ -87,8 +87,8 @@ newtype DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingRespo
 --
 -- * @LoadBasedAutoScalingConfigurations ::@ @[LoadBasedAutoScalingConfiguration]@
 --
-mkDescribeLoadBasedAutoScalingResponse :: DescribeLoadBasedAutoScalingResponse
-mkDescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse
+describeLoadBasedAutoScalingResponse :: DescribeLoadBasedAutoScalingResponse
+describeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse
     { _dlbasrLoadBasedAutoScalingConfigurations = mempty
     }
 

@@ -49,14 +49,14 @@ module Network.AWS.ElasticTranscoder.ReadPreset
     -- * Request
       ReadPreset
     -- ** Request constructor
-    , mkReadPreset
+    , readPreset
     -- ** Request lenses
     , rp1Id
 
     -- * Response
     , ReadPresetResponse
     -- ** Response constructor
-    , mkReadPresetResponse
+    , readPresetResponse
     -- ** Response lenses
     , rprrPreset
     ) where
@@ -77,9 +77,9 @@ newtype ReadPreset = ReadPreset
 --
 -- * @Id ::@ @Text@
 --
-mkReadPreset :: Text -- ^ 'rp1Id'
+readPreset :: Text -- ^ 'rp1Id'
              -> ReadPreset
-mkReadPreset p1 = ReadPreset
+readPreset p1 = ReadPreset
     { _rp1Id = p1
     }
 
@@ -110,8 +110,8 @@ newtype ReadPresetResponse = ReadPresetResponse
 --
 -- * @Preset ::@ @Maybe Preset@
 --
-mkReadPresetResponse :: ReadPresetResponse
-mkReadPresetResponse = ReadPresetResponse
+readPresetResponse :: ReadPresetResponse
+readPresetResponse = ReadPresetResponse
     { _rprrPreset = Nothing
     }
 

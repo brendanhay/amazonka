@@ -47,24 +47,24 @@ module Network.AWS.Support.Types
     , _SupportService
     -- * TrustedAdvisorCategorySpecificSummary
     , TrustedAdvisorCategorySpecificSummary
-    , mkTrustedAdvisorCategorySpecificSummary
+    , trustedAdvisorCategorySpecificSummary
     , tacssCostOptimizing
 
     -- * Attachment
     , Attachment
-    , mkAttachment
+    , attachment
     , aFileName
     , aData
 
     -- * AttachmentDetails
     , AttachmentDetails
-    , mkAttachmentDetails
+    , attachmentDetails
     , adAttachmentId
     , adFileName
 
     -- * CaseDetails
     , CaseDetails
-    , mkCaseDetails
+    , caseDetails
     , cdCaseId
     , cdDisplayId
     , cdSubject
@@ -80,13 +80,13 @@ module Network.AWS.Support.Types
 
     -- * Category
     , Category
-    , mkCategory
+    , category
     , c1Code
     , c1Name
 
     -- * Communication
     , Communication
-    , mkCommunication
+    , communication
     , cCaseId
     , cBody
     , cSubmittedBy
@@ -95,26 +95,26 @@ module Network.AWS.Support.Types
 
     -- * RecentCaseCommunications
     , RecentCaseCommunications
-    , mkRecentCaseCommunications
+    , recentCaseCommunications
     , rccCommunications
     , rccNextToken
 
     -- * Service
     , Service
-    , mkService
+    , service
     , sCode
     , sName
     , sCategories
 
     -- * SeverityLevel
     , SeverityLevel
-    , mkSeverityLevel
+    , severityLevel
     , slCode
     , slName
 
     -- * TrustedAdvisorCheckDescription
     , TrustedAdvisorCheckDescription
-    , mkTrustedAdvisorCheckDescription
+    , trustedAdvisorCheckDescription
     , tacdId
     , tacdName
     , tacdDescription
@@ -123,14 +123,14 @@ module Network.AWS.Support.Types
 
     -- * TrustedAdvisorCheckRefreshStatus
     , TrustedAdvisorCheckRefreshStatus
-    , mkTrustedAdvisorCheckRefreshStatus
+    , trustedAdvisorCheckRefreshStatus
     , tacrsCheckId
     , tacrsStatus
     , tacrsMillisUntilNextRefreshable
 
     -- * TrustedAdvisorCheckResult
     , TrustedAdvisorCheckResult
-    , mkTrustedAdvisorCheckResult
+    , trustedAdvisorCheckResult
     , tacrCheckId
     , tacrTimestamp
     , tacrStatus
@@ -140,7 +140,7 @@ module Network.AWS.Support.Types
 
     -- * TrustedAdvisorCheckSummary
     , TrustedAdvisorCheckSummary
-    , mkTrustedAdvisorCheckSummary
+    , trustedAdvisorCheckSummary
     , tacsCheckId
     , tacsTimestamp
     , tacsStatus
@@ -150,13 +150,13 @@ module Network.AWS.Support.Types
 
     -- * TrustedAdvisorCostOptimizingSummary
     , TrustedAdvisorCostOptimizingSummary
-    , mkTrustedAdvisorCostOptimizingSummary
+    , trustedAdvisorCostOptimizingSummary
     , tacosEstimatedMonthlySavings
     , tacosEstimatedPercentMonthlySavings
 
     -- * TrustedAdvisorResourceDetail
     , TrustedAdvisorResourceDetail
-    , mkTrustedAdvisorResourceDetail
+    , trustedAdvisorResourceDetail
     , tardStatus
     , tardRegion
     , tardResourceId
@@ -165,7 +165,7 @@ module Network.AWS.Support.Types
 
     -- * TrustedAdvisorResourcesSummary
     , TrustedAdvisorResourcesSummary
-    , mkTrustedAdvisorResourcesSummary
+    , trustedAdvisorResourcesSummary
     , tarsResourcesProcessed
     , tarsResourcesFlagged
     , tarsResourcesIgnored
@@ -237,8 +237,8 @@ data SupportError
         { _iseMessage :: Maybe Text
         }
     | SupportClient HttpException
-    | SupportSerializer Text
-    | SupportService Text
+    | SupportSerializer String
+    | SupportService String
     deriving (Show, Generic)
 
 instance AWSError SupportError where
@@ -354,7 +354,7 @@ _SupportClient = prism'
         x -> Left x)
 
 -- | See: 'SupportSerializer'
-_SupportSerializer :: Prism' SupportError Text
+_SupportSerializer :: Prism' SupportError String
 _SupportSerializer = prism'
     SupportSerializer
     (\case
@@ -362,7 +362,7 @@ _SupportSerializer = prism'
         x -> Left x)
 
 -- | See: 'SupportService'
-_SupportService :: Prism' SupportError Text
+_SupportService :: Prism' SupportError String
 _SupportService = prism'
     SupportService
     (\case
@@ -382,8 +382,8 @@ newtype TrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSu
 --
 -- * @CostOptimizing ::@ @Maybe TrustedAdvisorCostOptimizingSummary@
 --
-mkTrustedAdvisorCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
-mkTrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary
+trustedAdvisorCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
+trustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary
     { _tacssCostOptimizing = Nothing
     }
 
@@ -413,8 +413,8 @@ data Attachment = Attachment
 --
 -- * @Data ::@ @Maybe Base64@
 --
-mkAttachment :: Attachment
-mkAttachment = Attachment
+attachment :: Attachment
+attachment = Attachment
     { _aFileName = Nothing
     , _aData = Nothing
     }
@@ -447,8 +447,8 @@ data AttachmentDetails = AttachmentDetails
 --
 -- * @FileName ::@ @Maybe Text@
 --
-mkAttachmentDetails :: AttachmentDetails
-mkAttachmentDetails = AttachmentDetails
+attachmentDetails :: AttachmentDetails
+attachmentDetails = AttachmentDetails
     { _adAttachmentId = Nothing
     , _adFileName = Nothing
     }
@@ -533,8 +533,8 @@ data CaseDetails = CaseDetails
 --
 -- * @Language ::@ @Maybe Text@
 --
-mkCaseDetails :: CaseDetails
-mkCaseDetails = CaseDetails
+caseDetails :: CaseDetails
+caseDetails = CaseDetails
     { _cdCaseId = Nothing
     , _cdDisplayId = Nothing
     , _cdSubject = Nothing
@@ -626,8 +626,8 @@ data Category = Category
 --
 -- * @Name ::@ @Maybe Text@
 --
-mkCategory :: Category
-mkCategory = Category
+category :: Category
+category = Category
     { _c1Code = Nothing
     , _c1Name = Nothing
     }
@@ -670,8 +670,8 @@ data Communication = Communication
 --
 -- * @AttachmentSet ::@ @[AttachmentDetails]@
 --
-mkCommunication :: Communication
-mkCommunication = Communication
+communication :: Communication
+communication = Communication
     { _cCaseId = Nothing
     , _cBody = Nothing
     , _cSubmittedBy = Nothing
@@ -722,8 +722,8 @@ data RecentCaseCommunications = RecentCaseCommunications
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkRecentCaseCommunications :: RecentCaseCommunications
-mkRecentCaseCommunications = RecentCaseCommunications
+recentCaseCommunications :: RecentCaseCommunications
+recentCaseCommunications = RecentCaseCommunications
     { _rccCommunications = mempty
     , _rccNextToken = Nothing
     }
@@ -763,8 +763,8 @@ data Service = Service
 --
 -- * @Categories ::@ @[Category]@
 --
-mkService :: Service
-mkService = Service
+service :: Service
+service = Service
     { _sCode = Nothing
     , _sName = Nothing
     , _sCategories = mempty
@@ -808,8 +808,8 @@ data SeverityLevel = SeverityLevel
 --
 -- * @Name ::@ @Maybe Text@
 --
-mkSeverityLevel :: SeverityLevel
-mkSeverityLevel = SeverityLevel
+severityLevel :: SeverityLevel
+severityLevel = SeverityLevel
     { _slCode = Nothing
     , _slName = Nothing
     }
@@ -852,13 +852,13 @@ data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription
 --
 -- * @Metadata ::@ @[Text]@
 --
-mkTrustedAdvisorCheckDescription :: Text -- ^ 'tacdId'
+trustedAdvisorCheckDescription :: Text -- ^ 'tacdId'
                                  -> Text -- ^ 'tacdName'
                                  -> Text -- ^ 'tacdDescription'
                                  -> Text -- ^ 'tacdCategory'
                                  -> [Text] -- ^ 'tacdMetadata'
                                  -> TrustedAdvisorCheckDescription
-mkTrustedAdvisorCheckDescription p1 p2 p3 p4 p5 = TrustedAdvisorCheckDescription
+trustedAdvisorCheckDescription p1 p2 p3 p4 p5 = TrustedAdvisorCheckDescription
     { _tacdId = p1
     , _tacdName = p2
     , _tacdDescription = p3
@@ -914,11 +914,11 @@ data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus
 --
 -- * @MillisUntilNextRefreshable ::@ @Integer@
 --
-mkTrustedAdvisorCheckRefreshStatus :: Text -- ^ 'tacrsCheckId'
+trustedAdvisorCheckRefreshStatus :: Text -- ^ 'tacrsCheckId'
                                    -> Text -- ^ 'tacrsStatus'
                                    -> Integer -- ^ 'tacrsMillisUntilNextRefreshable'
                                    -> TrustedAdvisorCheckRefreshStatus
-mkTrustedAdvisorCheckRefreshStatus p1 p2 p3 = TrustedAdvisorCheckRefreshStatus
+trustedAdvisorCheckRefreshStatus p1 p2 p3 = TrustedAdvisorCheckRefreshStatus
     { _tacrsCheckId = p1
     , _tacrsStatus = p2
     , _tacrsMillisUntilNextRefreshable = p3
@@ -972,14 +972,14 @@ data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult
 --
 -- * @FlaggedResources ::@ @[TrustedAdvisorResourceDetail]@
 --
-mkTrustedAdvisorCheckResult :: Text -- ^ 'tacrCheckId'
+trustedAdvisorCheckResult :: Text -- ^ 'tacrCheckId'
                             -> Text -- ^ 'tacrTimestamp'
                             -> Text -- ^ 'tacrStatus'
                             -> TrustedAdvisorResourcesSummary -- ^ 'tacrResourcesSummary'
                             -> TrustedAdvisorCategorySpecificSummary -- ^ 'tacrCategorySpecificSummary'
                             -> [TrustedAdvisorResourceDetail] -- ^ 'tacrFlaggedResources'
                             -> TrustedAdvisorCheckResult
-mkTrustedAdvisorCheckResult p1 p2 p3 p4 p5 p6 = TrustedAdvisorCheckResult
+trustedAdvisorCheckResult p1 p2 p3 p4 p5 p6 = TrustedAdvisorCheckResult
     { _tacrCheckId = p1
     , _tacrTimestamp = p2
     , _tacrStatus = p3
@@ -1052,13 +1052,13 @@ data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary
 --
 -- * @CategorySpecificSummary ::@ @TrustedAdvisorCategorySpecificSummary@
 --
-mkTrustedAdvisorCheckSummary :: Text -- ^ 'tacsCheckId'
+trustedAdvisorCheckSummary :: Text -- ^ 'tacsCheckId'
                              -> Text -- ^ 'tacsTimestamp'
                              -> Text -- ^ 'tacsStatus'
                              -> TrustedAdvisorResourcesSummary -- ^ 'tacsResourcesSummary'
                              -> TrustedAdvisorCategorySpecificSummary -- ^ 'tacsCategorySpecificSummary'
                              -> TrustedAdvisorCheckSummary
-mkTrustedAdvisorCheckSummary p1 p2 p3 p5 p6 = TrustedAdvisorCheckSummary
+trustedAdvisorCheckSummary p1 p2 p3 p5 p6 = TrustedAdvisorCheckSummary
     { _tacsCheckId = p1
     , _tacsTimestamp = p2
     , _tacsStatus = p3
@@ -1117,10 +1117,10 @@ data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary
 --
 -- * @EstimatedPercentMonthlySavings ::@ @Double@
 --
-mkTrustedAdvisorCostOptimizingSummary :: Double -- ^ 'tacosEstimatedMonthlySavings'
+trustedAdvisorCostOptimizingSummary :: Double -- ^ 'tacosEstimatedMonthlySavings'
                                       -> Double -- ^ 'tacosEstimatedPercentMonthlySavings'
                                       -> TrustedAdvisorCostOptimizingSummary
-mkTrustedAdvisorCostOptimizingSummary p1 p2 = TrustedAdvisorCostOptimizingSummary
+trustedAdvisorCostOptimizingSummary p1 p2 = TrustedAdvisorCostOptimizingSummary
     { _tacosEstimatedMonthlySavings = p1
     , _tacosEstimatedPercentMonthlySavings = p2
     }
@@ -1171,12 +1171,12 @@ data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail
 --
 -- * @Metadata ::@ @[Text]@
 --
-mkTrustedAdvisorResourceDetail :: Text -- ^ 'tardStatus'
+trustedAdvisorResourceDetail :: Text -- ^ 'tardStatus'
                                -> Text -- ^ 'tardRegion'
                                -> Text -- ^ 'tardResourceId'
                                -> [Text] -- ^ 'tardMetadata'
                                -> TrustedAdvisorResourceDetail
-mkTrustedAdvisorResourceDetail p1 p2 p3 p5 = TrustedAdvisorResourceDetail
+trustedAdvisorResourceDetail p1 p2 p3 p5 = TrustedAdvisorResourceDetail
     { _tardStatus = p1
     , _tardRegion = p2
     , _tardResourceId = p3
@@ -1235,12 +1235,12 @@ data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary
 --
 -- * @ResourcesSuppressed ::@ @Integer@
 --
-mkTrustedAdvisorResourcesSummary :: Integer -- ^ 'tarsResourcesProcessed'
+trustedAdvisorResourcesSummary :: Integer -- ^ 'tarsResourcesProcessed'
                                  -> Integer -- ^ 'tarsResourcesFlagged'
                                  -> Integer -- ^ 'tarsResourcesIgnored'
                                  -> Integer -- ^ 'tarsResourcesSuppressed'
                                  -> TrustedAdvisorResourcesSummary
-mkTrustedAdvisorResourcesSummary p1 p2 p3 p4 = TrustedAdvisorResourcesSummary
+trustedAdvisorResourcesSummary p1 p2 p3 p4 = TrustedAdvisorResourcesSummary
     { _tarsResourcesProcessed = p1
     , _tarsResourcesFlagged = p2
     , _tarsResourcesIgnored = p3

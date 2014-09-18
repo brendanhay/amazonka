@@ -61,18 +61,18 @@ module Network.AWS.CloudSearch.Types
 
     -- * ServiceEndpoint
     , ServiceEndpoint
-    , mkServiceEndpoint
+    , serviceEndpoint
     , seEndpoint
 
     -- * AccessPoliciesStatus
     , AccessPoliciesStatus
-    , mkAccessPoliciesStatus
+    , accessPoliciesStatus
     , apsOptions
     , apsStatus
 
     -- * AnalysisOptions
     , AnalysisOptions
-    , mkAnalysisOptions
+    , analysisOptions
     , aoSynonyms
     , aoStopwords
     , aoStemmingDictionary
@@ -80,26 +80,26 @@ module Network.AWS.CloudSearch.Types
 
     -- * AnalysisScheme
     , AnalysisScheme
-    , mkAnalysisScheme
+    , analysisScheme
     , asAnalysisSchemeName
     , asAnalysisSchemeLanguage
     , asAnalysisOptions
 
     -- * AnalysisSchemeStatus
     , AnalysisSchemeStatus
-    , mkAnalysisSchemeStatus
+    , analysisSchemeStatus
     , assOptions
     , assStatus
 
     -- * AvailabilityOptionsStatus
     , AvailabilityOptionsStatus
-    , mkAvailabilityOptionsStatus
+    , availabilityOptionsStatus
     , aosOptions
     , aosStatus
 
     -- * DateArrayOptions
     , DateArrayOptions
-    , mkDateArrayOptions
+    , dateArrayOptions
     , dao1DefaultValue
     , dao1SourceFields
     , dao1FacetEnabled
@@ -108,7 +108,7 @@ module Network.AWS.CloudSearch.Types
 
     -- * DateOptions
     , DateOptions
-    , mkDateOptions
+    , dateOptions
     , do1DefaultValue
     , do1SourceField
     , do1FacetEnabled
@@ -118,14 +118,14 @@ module Network.AWS.CloudSearch.Types
 
     -- * DocumentSuggesterOptions
     , DocumentSuggesterOptions
-    , mkDocumentSuggesterOptions
+    , documentSuggesterOptions
     , dsoSourceField
     , dsoFuzzyMatching
     , dsoSortExpression
 
     -- * DomainStatus
     , DomainStatus
-    , mkDomainStatus
+    , domainStatus
     , dsDomainId
     , dsDomainName
     , dsARN
@@ -141,7 +141,7 @@ module Network.AWS.CloudSearch.Types
 
     -- * DoubleArrayOptions
     , DoubleArrayOptions
-    , mkDoubleArrayOptions
+    , doubleArrayOptions
     , daoDefaultValue
     , daoSourceFields
     , daoFacetEnabled
@@ -150,7 +150,7 @@ module Network.AWS.CloudSearch.Types
 
     -- * DoubleOptions
     , DoubleOptions
-    , mkDoubleOptions
+    , doubleOptions
     , doDefaultValue
     , doSourceField
     , doFacetEnabled
@@ -160,19 +160,19 @@ module Network.AWS.CloudSearch.Types
 
     -- * Expression
     , Expression
-    , mkExpression
+    , expression
     , eExpressionName
     , eExpressionValue
 
     -- * ExpressionStatus
     , ExpressionStatus
-    , mkExpressionStatus
+    , expressionStatus
     , esOptions
     , esStatus
 
     -- * IndexField
     , IndexField
-    , mkIndexField
+    , indexField
     , ifIndexFieldName
     , ifIndexFieldType
     , ifIntOptions
@@ -189,13 +189,13 @@ module Network.AWS.CloudSearch.Types
 
     -- * IndexFieldStatus
     , IndexFieldStatus
-    , mkIndexFieldStatus
+    , indexFieldStatus
     , ifsOptions
     , ifsStatus
 
     -- * IntArrayOptions
     , IntArrayOptions
-    , mkIntArrayOptions
+    , intArrayOptions
     , iaoDefaultValue
     , iaoSourceFields
     , iaoFacetEnabled
@@ -204,7 +204,7 @@ module Network.AWS.CloudSearch.Types
 
     -- * IntOptions
     , IntOptions
-    , mkIntOptions
+    , intOptions
     , ioDefaultValue
     , ioSourceField
     , ioFacetEnabled
@@ -214,7 +214,7 @@ module Network.AWS.CloudSearch.Types
 
     -- * LatLonOptions
     , LatLonOptions
-    , mkLatLonOptions
+    , latLonOptions
     , lloDefaultValue
     , lloSourceField
     , lloFacetEnabled
@@ -224,7 +224,7 @@ module Network.AWS.CloudSearch.Types
 
     -- * LiteralArrayOptions
     , LiteralArrayOptions
-    , mkLiteralArrayOptions
+    , literalArrayOptions
     , laoDefaultValue
     , laoSourceFields
     , laoFacetEnabled
@@ -233,7 +233,7 @@ module Network.AWS.CloudSearch.Types
 
     -- * LiteralOptions
     , LiteralOptions
-    , mkLiteralOptions
+    , literalOptions
     , loDefaultValue
     , loSourceField
     , loFacetEnabled
@@ -243,7 +243,7 @@ module Network.AWS.CloudSearch.Types
 
     -- * OptionStatus
     , OptionStatus
-    , mkOptionStatus
+    , optionStatus
     , osCreationDate
     , osUpdateDate
     , osUpdateVersion
@@ -252,32 +252,32 @@ module Network.AWS.CloudSearch.Types
 
     -- * ScalingParameters
     , ScalingParameters
-    , mkScalingParameters
+    , scalingParameters
     , spDesiredInstanceType
     , spDesiredReplicationCount
     , spDesiredPartitionCount
 
     -- * ScalingParametersStatus
     , ScalingParametersStatus
-    , mkScalingParametersStatus
+    , scalingParametersStatus
     , spsOptions
     , spsStatus
 
     -- * Suggester
     , Suggester
-    , mkSuggester
+    , suggester
     , sSuggesterName
     , sDocumentSuggesterOptions
 
     -- * SuggesterStatus
     , SuggesterStatus
-    , mkSuggesterStatus
+    , suggesterStatus
     , ssOptions
     , ssStatus
 
     -- * TextArrayOptions
     , TextArrayOptions
-    , mkTextArrayOptions
+    , textArrayOptions
     , taoDefaultValue
     , taoSourceFields
     , taoReturnEnabled
@@ -286,7 +286,7 @@ module Network.AWS.CloudSearch.Types
 
     -- * TextOptions
     , TextOptions
-    , mkTextOptions
+    , textOptions
     , toDefaultValue
     , toSourceField
     , toReturnEnabled
@@ -325,8 +325,8 @@ data CloudSearchError
         , _beMessage :: Maybe Text
         }
     | CloudSearchClient HttpException
-    | CloudSearchSerializer Text
-    | CloudSearchService Text
+    | CloudSearchSerializer String
+    | CloudSearchService String
       -- | The request was rejected because it attempted an operation which
       -- is not enabled.
     | DisabledOperationException
@@ -371,7 +371,7 @@ _CloudSearchClient = prism'
         x -> Left x)
 
 -- | See: 'CloudSearchSerializer'
-_CloudSearchSerializer :: Prism' CloudSearchError Text
+_CloudSearchSerializer :: Prism' CloudSearchError String
 _CloudSearchSerializer = prism'
     CloudSearchSerializer
     (\case
@@ -379,7 +379,7 @@ _CloudSearchSerializer = prism'
         x -> Left x)
 
 -- | See: 'CloudSearchService'
-_CloudSearchService :: Prism' CloudSearchError Text
+_CloudSearchService :: Prism' CloudSearchError String
 _CloudSearchService = prism'
     CloudSearchService
     (\case
@@ -745,8 +745,8 @@ newtype ServiceEndpoint = ServiceEndpoint
 --
 -- * @Endpoint ::@ @Maybe Text@
 --
-mkServiceEndpoint :: ServiceEndpoint
-mkServiceEndpoint = ServiceEndpoint
+serviceEndpoint :: ServiceEndpoint
+serviceEndpoint = ServiceEndpoint
     { _seEndpoint = Nothing
     }
 
@@ -783,10 +783,10 @@ data AccessPoliciesStatus = AccessPoliciesStatus
 --
 -- * @Status ::@ @OptionStatus@
 --
-mkAccessPoliciesStatus :: Text -- ^ 'apsOptions'
+accessPoliciesStatus :: Text -- ^ 'apsOptions'
                        -> OptionStatus -- ^ 'apsStatus'
                        -> AccessPoliciesStatus
-mkAccessPoliciesStatus p1 p2 = AccessPoliciesStatus
+accessPoliciesStatus p1 p2 = AccessPoliciesStatus
     { _apsOptions = p1
     , _apsStatus = p2
     }
@@ -827,8 +827,8 @@ data AnalysisOptions = AnalysisOptions
 --
 -- * @AlgorithmicStemming ::@ @Maybe AlgorithmicStemming@
 --
-mkAnalysisOptions :: AnalysisOptions
-mkAnalysisOptions = AnalysisOptions
+analysisOptions :: AnalysisOptions
+analysisOptions = AnalysisOptions
     { _aoSynonyms = Nothing
     , _aoStopwords = Nothing
     , _aoStemmingDictionary = Nothing
@@ -900,10 +900,10 @@ data AnalysisScheme = AnalysisScheme
 --
 -- * @AnalysisOptions ::@ @Maybe AnalysisOptions@
 --
-mkAnalysisScheme :: Text -- ^ 'asAnalysisSchemeName'
+analysisScheme :: Text -- ^ 'asAnalysisSchemeName'
                  -> AnalysisSchemeLanguage -- ^ 'asAnalysisSchemeLanguage'
                  -> AnalysisScheme
-mkAnalysisScheme p1 p2 = AnalysisScheme
+analysisScheme p1 p2 = AnalysisScheme
     { _asAnalysisSchemeName = p1
     , _asAnalysisSchemeLanguage = p2
     , _asAnalysisOptions = Nothing
@@ -953,10 +953,10 @@ data AnalysisSchemeStatus = AnalysisSchemeStatus
 --
 -- * @Status ::@ @OptionStatus@
 --
-mkAnalysisSchemeStatus :: AnalysisScheme -- ^ 'assOptions'
+analysisSchemeStatus :: AnalysisScheme -- ^ 'assOptions'
                        -> OptionStatus -- ^ 'assStatus'
                        -> AnalysisSchemeStatus
-mkAnalysisSchemeStatus p1 p2 = AnalysisSchemeStatus
+analysisSchemeStatus p1 p2 = AnalysisSchemeStatus
     { _assOptions = p1
     , _assStatus = p2
     }
@@ -995,10 +995,10 @@ data AvailabilityOptionsStatus = AvailabilityOptionsStatus
 --
 -- * @Status ::@ @OptionStatus@
 --
-mkAvailabilityOptionsStatus :: Bool -- ^ 'aosOptions'
+availabilityOptionsStatus :: Bool -- ^ 'aosOptions'
                             -> OptionStatus -- ^ 'aosStatus'
                             -> AvailabilityOptionsStatus
-mkAvailabilityOptionsStatus p1 p2 = AvailabilityOptionsStatus
+availabilityOptionsStatus p1 p2 = AvailabilityOptionsStatus
     { _aosOptions = p1
     , _aosStatus = p2
     }
@@ -1041,8 +1041,8 @@ data DateArrayOptions = DateArrayOptions
 --
 -- * @ReturnEnabled ::@ @Maybe Bool@
 --
-mkDateArrayOptions :: DateArrayOptions
-mkDateArrayOptions = DateArrayOptions
+dateArrayOptions :: DateArrayOptions
+dateArrayOptions = DateArrayOptions
     { _dao1DefaultValue = Nothing
     , _dao1SourceFields = Nothing
     , _dao1FacetEnabled = Nothing
@@ -1112,8 +1112,8 @@ data DateOptions = DateOptions
 --
 -- * @SortEnabled ::@ @Maybe Bool@
 --
-mkDateOptions :: DateOptions
-mkDateOptions = DateOptions
+dateOptions :: DateOptions
+dateOptions = DateOptions
     { _do1DefaultValue = Nothing
     , _do1SourceField = Nothing
     , _do1FacetEnabled = Nothing
@@ -1176,9 +1176,9 @@ data DocumentSuggesterOptions = DocumentSuggesterOptions
 --
 -- * @SortExpression ::@ @Maybe Text@
 --
-mkDocumentSuggesterOptions :: Text -- ^ 'dsoSourceField'
+documentSuggesterOptions :: Text -- ^ 'dsoSourceField'
                            -> DocumentSuggesterOptions
-mkDocumentSuggesterOptions p1 = DocumentSuggesterOptions
+documentSuggesterOptions p1 = DocumentSuggesterOptions
     { _dsoSourceField = p1
     , _dsoFuzzyMatching = Nothing
     , _dsoSortExpression = Nothing
@@ -1258,11 +1258,11 @@ data DomainStatus = DomainStatus
 --
 -- * @SearchInstanceCount ::@ @Maybe Integer@
 --
-mkDomainStatus :: Text -- ^ 'dsDomainId'
+domainStatus :: Text -- ^ 'dsDomainId'
                -> Text -- ^ 'dsDomainName'
                -> Bool -- ^ 'dsRequiresIndexDocuments'
                -> DomainStatus
-mkDomainStatus p1 p2 p8 = DomainStatus
+domainStatus p1 p2 p8 = DomainStatus
     { _dsDomainId = p1
     , _dsDomainName = p2
     , _dsARN = Nothing
@@ -1374,8 +1374,8 @@ data DoubleArrayOptions = DoubleArrayOptions
 --
 -- * @ReturnEnabled ::@ @Maybe Bool@
 --
-mkDoubleArrayOptions :: DoubleArrayOptions
-mkDoubleArrayOptions = DoubleArrayOptions
+doubleArrayOptions :: DoubleArrayOptions
+doubleArrayOptions = DoubleArrayOptions
     { _daoDefaultValue = Nothing
     , _daoSourceFields = Nothing
     , _daoFacetEnabled = Nothing
@@ -1441,8 +1441,8 @@ data DoubleOptions = DoubleOptions
 --
 -- * @SortEnabled ::@ @Maybe Bool@
 --
-mkDoubleOptions :: DoubleOptions
-mkDoubleOptions = DoubleOptions
+doubleOptions :: DoubleOptions
+doubleOptions = DoubleOptions
     { _doDefaultValue = Nothing
     , _doSourceField = Nothing
     , _doFacetEnabled = Nothing
@@ -1500,10 +1500,10 @@ data Expression = Expression
 --
 -- * @ExpressionValue ::@ @Text@
 --
-mkExpression :: Text -- ^ 'eExpressionName'
+expression :: Text -- ^ 'eExpressionName'
              -> Text -- ^ 'eExpressionValue'
              -> Expression
-mkExpression p1 p2 = Expression
+expression p1 p2 = Expression
     { _eExpressionName = p1
     , _eExpressionValue = p2
     }
@@ -1548,10 +1548,10 @@ data ExpressionStatus = ExpressionStatus
 --
 -- * @Status ::@ @OptionStatus@
 --
-mkExpressionStatus :: Expression -- ^ 'esOptions'
+expressionStatus :: Expression -- ^ 'esOptions'
                    -> OptionStatus -- ^ 'esStatus'
                    -> ExpressionStatus
-mkExpressionStatus p1 p2 = ExpressionStatus
+expressionStatus p1 p2 = ExpressionStatus
     { _esOptions = p1
     , _esStatus = p2
     }
@@ -1617,10 +1617,10 @@ data IndexField = IndexField
 --
 -- * @DateArrayOptions ::@ @Maybe DateArrayOptions@
 --
-mkIndexField :: Text -- ^ 'ifIndexFieldName'
+indexField :: Text -- ^ 'ifIndexFieldName'
              -> IndexFieldType -- ^ 'ifIndexFieldType'
              -> IndexField
-mkIndexField p1 p2 = IndexField
+indexField p1 p2 = IndexField
     { _ifIndexFieldName = p1
     , _ifIndexFieldType = p2
     , _ifIntOptions = Nothing
@@ -1747,10 +1747,10 @@ data IndexFieldStatus = IndexFieldStatus
 --
 -- * @Status ::@ @OptionStatus@
 --
-mkIndexFieldStatus :: IndexField -- ^ 'ifsOptions'
+indexFieldStatus :: IndexField -- ^ 'ifsOptions'
                    -> OptionStatus -- ^ 'ifsStatus'
                    -> IndexFieldStatus
-mkIndexFieldStatus p1 p2 = IndexFieldStatus
+indexFieldStatus p1 p2 = IndexFieldStatus
     { _ifsOptions = p1
     , _ifsStatus = p2
     }
@@ -1794,8 +1794,8 @@ data IntArrayOptions = IntArrayOptions
 --
 -- * @ReturnEnabled ::@ @Maybe Bool@
 --
-mkIntArrayOptions :: IntArrayOptions
-mkIntArrayOptions = IntArrayOptions
+intArrayOptions :: IntArrayOptions
+intArrayOptions = IntArrayOptions
     { _iaoDefaultValue = Nothing
     , _iaoSourceFields = Nothing
     , _iaoFacetEnabled = Nothing
@@ -1860,8 +1860,8 @@ data IntOptions = IntOptions
 --
 -- * @SortEnabled ::@ @Maybe Bool@
 --
-mkIntOptions :: IntOptions
-mkIntOptions = IntOptions
+intOptions :: IntOptions
+intOptions = IntOptions
     { _ioDefaultValue = Nothing
     , _ioSourceField = Nothing
     , _ioFacetEnabled = Nothing
@@ -1932,8 +1932,8 @@ data LatLonOptions = LatLonOptions
 --
 -- * @SortEnabled ::@ @Maybe Bool@
 --
-mkLatLonOptions :: LatLonOptions
-mkLatLonOptions = LatLonOptions
+latLonOptions :: LatLonOptions
+latLonOptions = LatLonOptions
     { _lloDefaultValue = Nothing
     , _lloSourceField = Nothing
     , _lloFacetEnabled = Nothing
@@ -2004,8 +2004,8 @@ data LiteralArrayOptions = LiteralArrayOptions
 --
 -- * @ReturnEnabled ::@ @Maybe Bool@
 --
-mkLiteralArrayOptions :: LiteralArrayOptions
-mkLiteralArrayOptions = LiteralArrayOptions
+literalArrayOptions :: LiteralArrayOptions
+literalArrayOptions = LiteralArrayOptions
     { _laoDefaultValue = Nothing
     , _laoSourceFields = Nothing
     , _laoFacetEnabled = Nothing
@@ -2070,8 +2070,8 @@ data LiteralOptions = LiteralOptions
 --
 -- * @SortEnabled ::@ @Maybe Bool@
 --
-mkLiteralOptions :: LiteralOptions
-mkLiteralOptions = LiteralOptions
+literalOptions :: LiteralOptions
+literalOptions = LiteralOptions
     { _loDefaultValue = Nothing
     , _loSourceField = Nothing
     , _loFacetEnabled = Nothing
@@ -2138,11 +2138,11 @@ data OptionStatus = OptionStatus
 --
 -- * @PendingDeletion ::@ @Maybe Bool@
 --
-mkOptionStatus :: ISO8601 -- ^ 'osCreationDate'
+optionStatus :: ISO8601 -- ^ 'osCreationDate'
                -> ISO8601 -- ^ 'osUpdateDate'
                -> OptionState -- ^ 'osState'
                -> OptionStatus
-mkOptionStatus p1 p2 p4 = OptionStatus
+optionStatus p1 p2 p4 = OptionStatus
     { _osCreationDate = p1
     , _osUpdateDate = p2
     , _osUpdateVersion = Nothing
@@ -2204,8 +2204,8 @@ data ScalingParameters = ScalingParameters
 --
 -- * @DesiredPartitionCount ::@ @Maybe Integer@
 --
-mkScalingParameters :: ScalingParameters
-mkScalingParameters = ScalingParameters
+scalingParameters :: ScalingParameters
+scalingParameters = ScalingParameters
     { _spDesiredInstanceType = Nothing
     , _spDesiredReplicationCount = Nothing
     , _spDesiredPartitionCount = Nothing
@@ -2255,10 +2255,10 @@ data ScalingParametersStatus = ScalingParametersStatus
 --
 -- * @Status ::@ @OptionStatus@
 --
-mkScalingParametersStatus :: ScalingParameters -- ^ 'spsOptions'
+scalingParametersStatus :: ScalingParameters -- ^ 'spsOptions'
                           -> OptionStatus -- ^ 'spsStatus'
                           -> ScalingParametersStatus
-mkScalingParametersStatus p1 p2 = ScalingParametersStatus
+scalingParametersStatus p1 p2 = ScalingParametersStatus
     { _spsOptions = p1
     , _spsStatus = p2
     }
@@ -2294,10 +2294,10 @@ data Suggester = Suggester
 --
 -- * @DocumentSuggesterOptions ::@ @DocumentSuggesterOptions@
 --
-mkSuggester :: Text -- ^ 'sSuggesterName'
+suggester :: Text -- ^ 'sSuggesterName'
             -> DocumentSuggesterOptions -- ^ 'sDocumentSuggesterOptions'
             -> Suggester
-mkSuggester p1 p2 = Suggester
+suggester p1 p2 = Suggester
     { _sSuggesterName = p1
     , _sDocumentSuggesterOptions = p2
     }
@@ -2340,10 +2340,10 @@ data SuggesterStatus = SuggesterStatus
 --
 -- * @Status ::@ @OptionStatus@
 --
-mkSuggesterStatus :: Suggester -- ^ 'ssOptions'
+suggesterStatus :: Suggester -- ^ 'ssOptions'
                   -> OptionStatus -- ^ 'ssStatus'
                   -> SuggesterStatus
-mkSuggesterStatus p1 p2 = SuggesterStatus
+suggesterStatus p1 p2 = SuggesterStatus
     { _ssOptions = p1
     , _ssStatus = p2
     }
@@ -2389,8 +2389,8 @@ data TextArrayOptions = TextArrayOptions
 --
 -- * @AnalysisScheme ::@ @Maybe Text@
 --
-mkTextArrayOptions :: TextArrayOptions
-mkTextArrayOptions = TextArrayOptions
+textArrayOptions :: TextArrayOptions
+textArrayOptions = TextArrayOptions
     { _taoDefaultValue = Nothing
     , _taoSourceFields = Nothing
     , _taoReturnEnabled = Nothing
@@ -2457,8 +2457,8 @@ data TextOptions = TextOptions
 --
 -- * @AnalysisScheme ::@ @Maybe Text@
 --
-mkTextOptions :: TextOptions
-mkTextOptions = TextOptions
+textOptions :: TextOptions
+textOptions = TextOptions
     { _toDefaultValue = Nothing
     , _toSourceField = Nothing
     , _toReturnEnabled = Nothing

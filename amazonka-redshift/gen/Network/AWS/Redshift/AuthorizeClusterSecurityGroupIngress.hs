@@ -43,7 +43,7 @@ module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
     -- * Request
       AuthorizeClusterSecurityGroupIngress
     -- ** Request constructor
-    , mkAuthorizeClusterSecurityGroupIngress
+    , authorizeClusterSecurityGroupIngress
     -- ** Request lenses
     , acsgiClusterSecurityGroupName
     , acsgiCIDRIP
@@ -53,7 +53,7 @@ module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
     -- * Response
     , AuthorizeClusterSecurityGroupIngressResponse
     -- ** Response constructor
-    , mkAuthorizeClusterSecurityGroupIngressResponse
+    , authorizeClusterSecurityGroupIngressResponse
     -- ** Response lenses
     , acsgirClusterSecurityGroup
     ) where
@@ -83,9 +83,9 @@ data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress
 --
 -- * @EC2SecurityGroupOwnerId ::@ @Maybe Text@
 --
-mkAuthorizeClusterSecurityGroupIngress :: Text -- ^ 'acsgiClusterSecurityGroupName'
+authorizeClusterSecurityGroupIngress :: Text -- ^ 'acsgiClusterSecurityGroupName'
                                        -> AuthorizeClusterSecurityGroupIngress
-mkAuthorizeClusterSecurityGroupIngress p1 = AuthorizeClusterSecurityGroupIngress
+authorizeClusterSecurityGroupIngress p1 = AuthorizeClusterSecurityGroupIngress
     { _acsgiClusterSecurityGroupName = p1
     , _acsgiCIDRIP = Nothing
     , _acsgiEC2SecurityGroupName = Nothing
@@ -132,8 +132,8 @@ newtype AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityG
 --
 -- * @ClusterSecurityGroup ::@ @Maybe ClusterSecurityGroup@
 --
-mkAuthorizeClusterSecurityGroupIngressResponse :: AuthorizeClusterSecurityGroupIngressResponse
-mkAuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse
+authorizeClusterSecurityGroupIngressResponse :: AuthorizeClusterSecurityGroupIngressResponse
+authorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse
     { _acsgirClusterSecurityGroup = Nothing
     }
 

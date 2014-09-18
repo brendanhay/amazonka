@@ -37,7 +37,7 @@ module Network.AWS.EC2.CreateSpotDatafeedSubscription
     -- * Request
       CreateSpotDatafeedSubscription
     -- ** Request constructor
-    , mkCreateSpotDatafeedSubscription
+    , createSpotDatafeedSubscription
     -- ** Request lenses
     , csdsBucket
     , csdsPrefix
@@ -45,7 +45,7 @@ module Network.AWS.EC2.CreateSpotDatafeedSubscription
     -- * Response
     , CreateSpotDatafeedSubscriptionResponse
     -- ** Response constructor
-    , mkCreateSpotDatafeedSubscriptionResponse
+    , createSpotDatafeedSubscriptionResponse
     -- ** Response lenses
     , csdsrSpotDatafeedSubscription
     ) where
@@ -68,9 +68,9 @@ data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
 --
 -- * @Prefix ::@ @Maybe Text@
 --
-mkCreateSpotDatafeedSubscription :: Text -- ^ 'csdsBucket'
+createSpotDatafeedSubscription :: Text -- ^ 'csdsBucket'
                                  -> CreateSpotDatafeedSubscription
-mkCreateSpotDatafeedSubscription p1 = CreateSpotDatafeedSubscription
+createSpotDatafeedSubscription p1 = CreateSpotDatafeedSubscription
     { _csdsBucket = p1
     , _csdsPrefix = Nothing
     }
@@ -100,8 +100,8 @@ newtype CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionR
 --
 -- * @SpotDatafeedSubscription ::@ @Maybe SpotDatafeedSubscription@
 --
-mkCreateSpotDatafeedSubscriptionResponse :: CreateSpotDatafeedSubscriptionResponse
-mkCreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
+createSpotDatafeedSubscriptionResponse :: CreateSpotDatafeedSubscriptionResponse
+createSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
     { _csdsrSpotDatafeedSubscription = Nothing
     }
 

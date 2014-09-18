@@ -27,7 +27,6 @@ library
 
     exposed-modules:
           Network.AWS.CloudWatchLogs
-        , Network.AWS.CloudWatchLogs.Monadic
         , Network.AWS.CloudWatchLogs.Types
         , Network.AWS.CloudWatchLogs.CreateLogGroup
         , Network.AWS.CloudWatchLogs.CreateLogStream

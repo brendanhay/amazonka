@@ -45,14 +45,14 @@ module Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
     -- * Request
       DescribeStorediSCSIVolumes
     -- ** Request constructor
-    , mkDescribeStorediSCSIVolumes
+    , describeStorediSCSIVolumes
     -- ** Request lenses
     , dsscsivVolumeARNs
 
     -- * Response
     , DescribeStorediSCSIVolumesResponse
     -- ** Response constructor
-    , mkDescribeStorediSCSIVolumesResponse
+    , describeStorediSCSIVolumesResponse
     -- ** Response lenses
     , dsscsivrStorediSCSIVolumes
     ) where
@@ -74,9 +74,9 @@ newtype DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes
 --
 -- * @VolumeARNs ::@ @[Text]@
 --
-mkDescribeStorediSCSIVolumes :: [Text] -- ^ 'dsscsivVolumeARNs'
+describeStorediSCSIVolumes :: [Text] -- ^ 'dsscsivVolumeARNs'
                              -> DescribeStorediSCSIVolumes
-mkDescribeStorediSCSIVolumes p1 = DescribeStorediSCSIVolumes
+describeStorediSCSIVolumes p1 = DescribeStorediSCSIVolumes
     { _dsscsivVolumeARNs = p1
     }
 
@@ -108,8 +108,8 @@ newtype DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse
 --
 -- * @StorediSCSIVolumes ::@ @[StorediSCSIVolumeInformation]@
 --
-mkDescribeStorediSCSIVolumesResponse :: DescribeStorediSCSIVolumesResponse
-mkDescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse
+describeStorediSCSIVolumesResponse :: DescribeStorediSCSIVolumesResponse
+describeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse
     { _dsscsivrStorediSCSIVolumes = mempty
     }
 

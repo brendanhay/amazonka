@@ -31,14 +31,14 @@ module Network.AWS.ELB.DeleteLoadBalancer
     -- * Request
       DeleteLoadBalancer
     -- ** Request constructor
-    , mkDeleteLoadBalancer
+    , deleteLoadBalancer
     -- ** Request lenses
     , dlbLoadBalancerName
 
     -- * Response
     , DeleteLoadBalancerResponse
     -- ** Response constructor
-    , mkDeleteLoadBalancerResponse
+    , deleteLoadBalancerResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -57,9 +57,9 @@ newtype DeleteLoadBalancer = DeleteLoadBalancer
 --
 -- * @LoadBalancerName ::@ @Text@
 --
-mkDeleteLoadBalancer :: Text -- ^ 'dlbLoadBalancerName'
+deleteLoadBalancer :: Text -- ^ 'dlbLoadBalancerName'
                      -> DeleteLoadBalancer
-mkDeleteLoadBalancer p1 = DeleteLoadBalancer
+deleteLoadBalancer p1 = DeleteLoadBalancer
     { _dlbLoadBalancerName = p1
     }
 
@@ -79,8 +79,8 @@ data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse
 -- a valid 'DeleteLoadBalancerResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteLoadBalancerResponse :: DeleteLoadBalancerResponse
-mkDeleteLoadBalancerResponse = DeleteLoadBalancerResponse
+deleteLoadBalancerResponse :: DeleteLoadBalancerResponse
+deleteLoadBalancerResponse = DeleteLoadBalancerResponse
 
 instance AWSRequest DeleteLoadBalancer where
     type Sv DeleteLoadBalancer = ELB

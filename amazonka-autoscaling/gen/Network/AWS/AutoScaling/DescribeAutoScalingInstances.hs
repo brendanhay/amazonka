@@ -33,7 +33,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     -- * Request
       DescribeAutoScalingInstances
     -- ** Request constructor
-    , mkDescribeAutoScalingInstances
+    , describeAutoScalingInstances
     -- ** Request lenses
     , dasiInstanceIds
     , dasiMaxRecords
@@ -42,7 +42,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     -- * Response
     , DescribeAutoScalingInstancesResponse
     -- ** Response constructor
-    , mkDescribeAutoScalingInstancesResponse
+    , describeAutoScalingInstancesResponse
     -- ** Response lenses
     , dasirAutoScalingInstances
     , dasirNextToken
@@ -69,8 +69,8 @@ data DescribeAutoScalingInstances = DescribeAutoScalingInstances
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeAutoScalingInstances :: DescribeAutoScalingInstances
-mkDescribeAutoScalingInstances = DescribeAutoScalingInstances
+describeAutoScalingInstances :: DescribeAutoScalingInstances
+describeAutoScalingInstances = DescribeAutoScalingInstances
     { _dasiInstanceIds = mempty
     , _dasiMaxRecords = Nothing
     , _dasiNextToken = Nothing
@@ -113,8 +113,8 @@ data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeAutoScalingInstancesResponse :: DescribeAutoScalingInstancesResponse
-mkDescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
+describeAutoScalingInstancesResponse :: DescribeAutoScalingInstancesResponse
+describeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
     { _dasirAutoScalingInstances = mempty
     , _dasirNextToken = Nothing
     }

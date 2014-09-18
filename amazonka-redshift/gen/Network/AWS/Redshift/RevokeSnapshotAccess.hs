@@ -27,7 +27,7 @@ module Network.AWS.Redshift.RevokeSnapshotAccess
     -- * Request
       RevokeSnapshotAccess
     -- ** Request constructor
-    , mkRevokeSnapshotAccess
+    , revokeSnapshotAccess
     -- ** Request lenses
     , rsaSnapshotIdentifier
     , rsaSnapshotClusterIdentifier
@@ -36,7 +36,7 @@ module Network.AWS.Redshift.RevokeSnapshotAccess
     -- * Response
     , RevokeSnapshotAccessResponse
     -- ** Response constructor
-    , mkRevokeSnapshotAccessResponse
+    , revokeSnapshotAccessResponse
     -- ** Response lenses
     , rsarSnapshot
     ) where
@@ -63,10 +63,10 @@ data RevokeSnapshotAccess = RevokeSnapshotAccess
 --
 -- * @AccountWithRestoreAccess ::@ @Text@
 --
-mkRevokeSnapshotAccess :: Text -- ^ 'rsaSnapshotIdentifier'
+revokeSnapshotAccess :: Text -- ^ 'rsaSnapshotIdentifier'
                        -> Text -- ^ 'rsaAccountWithRestoreAccess'
                        -> RevokeSnapshotAccess
-mkRevokeSnapshotAccess p1 p3 = RevokeSnapshotAccess
+revokeSnapshotAccess p1 p3 = RevokeSnapshotAccess
     { _rsaSnapshotIdentifier = p1
     , _rsaSnapshotClusterIdentifier = Nothing
     , _rsaAccountWithRestoreAccess = p3
@@ -108,8 +108,8 @@ newtype RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse
 --
 -- * @Snapshot ::@ @Maybe Snapshot@
 --
-mkRevokeSnapshotAccessResponse :: RevokeSnapshotAccessResponse
-mkRevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse
+revokeSnapshotAccessResponse :: RevokeSnapshotAccessResponse
+revokeSnapshotAccessResponse = RevokeSnapshotAccessResponse
     { _rsarSnapshot = Nothing
     }
 

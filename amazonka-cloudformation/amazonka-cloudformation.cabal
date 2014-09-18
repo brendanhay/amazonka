@@ -35,7 +35,6 @@ library
 
     exposed-modules:
           Network.AWS.CloudFormation
-        , Network.AWS.CloudFormation.Monadic
         , Network.AWS.CloudFormation.Types
         , Network.AWS.CloudFormation.CancelUpdateStack
         , Network.AWS.CloudFormation.CreateStack

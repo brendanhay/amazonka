@@ -22,7 +22,7 @@ module Network.AWS.Route53.ListTagsForResources
     -- * Request
       ListTagsForResources
     -- ** Request constructor
-    , mkListTagsForResources
+    , listTagsForResources
     -- ** Request lenses
     , ltfr1ResourceType
     , ltfr1ResourceIds
@@ -30,7 +30,7 @@ module Network.AWS.Route53.ListTagsForResources
     -- * Response
     , ListTagsForResourcesResponse
     -- ** Response constructor
-    , mkListTagsForResourcesResponse
+    , listTagsForResourcesResponse
     -- ** Response lenses
     , ltfrrrResourceTagSets
     ) where
@@ -56,10 +56,10 @@ data ListTagsForResources = ListTagsForResources
 --
 -- * @ResourceIds ::@ @List1 Text@
 --
-mkListTagsForResources :: TagResourceType -- ^ 'ltfr1ResourceType'
+listTagsForResources :: TagResourceType -- ^ 'ltfr1ResourceType'
                        -> List1 Text -- ^ 'ltfr1ResourceIds'
                        -> ListTagsForResources
-mkListTagsForResources p1 p2 = ListTagsForResources
+listTagsForResources p1 p2 = ListTagsForResources
     { _ltfr1ResourceType = p1
     , _ltfr1ResourceIds = p2
     }
@@ -100,9 +100,9 @@ newtype ListTagsForResourcesResponse = ListTagsForResourcesResponse
 --
 -- * @ResourceTagSets ::@ @[ResourceTagSet]@
 --
-mkListTagsForResourcesResponse :: [ResourceTagSet] -- ^ 'ltfrrrResourceTagSets'
+listTagsForResourcesResponse :: [ResourceTagSet] -- ^ 'ltfrrrResourceTagSets'
                                -> ListTagsForResourcesResponse
-mkListTagsForResourcesResponse p1 = ListTagsForResourcesResponse
+listTagsForResourcesResponse p1 = ListTagsForResourcesResponse
     { _ltfrrrResourceTagSets = p1
     }
 

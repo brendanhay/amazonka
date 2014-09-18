@@ -29,14 +29,14 @@ module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
     -- * Request
       DeleteCacheSecurityGroup
     -- ** Request constructor
-    , mkDeleteCacheSecurityGroup
+    , deleteCacheSecurityGroup
     -- ** Request lenses
     , dcsgCacheSecurityGroupName
 
     -- * Response
     , DeleteCacheSecurityGroupResponse
     -- ** Response constructor
-    , mkDeleteCacheSecurityGroupResponse
+    , deleteCacheSecurityGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -55,9 +55,9 @@ newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup
 --
 -- * @CacheSecurityGroupName ::@ @Text@
 --
-mkDeleteCacheSecurityGroup :: Text -- ^ 'dcsgCacheSecurityGroupName'
+deleteCacheSecurityGroup :: Text -- ^ 'dcsgCacheSecurityGroupName'
                            -> DeleteCacheSecurityGroup
-mkDeleteCacheSecurityGroup p1 = DeleteCacheSecurityGroup
+deleteCacheSecurityGroup p1 = DeleteCacheSecurityGroup
     { _dcsgCacheSecurityGroupName = p1
     }
 
@@ -78,8 +78,8 @@ data DeleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse
 -- a valid 'DeleteCacheSecurityGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteCacheSecurityGroupResponse :: DeleteCacheSecurityGroupResponse
-mkDeleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse
+deleteCacheSecurityGroupResponse :: DeleteCacheSecurityGroupResponse
+deleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse
 
 instance AWSRequest DeleteCacheSecurityGroup where
     type Sv DeleteCacheSecurityGroup = ElastiCache

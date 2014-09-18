@@ -70,7 +70,7 @@ module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
     -- * Request
       UpdateConfigurationTemplate
     -- ** Request constructor
-    , mkUpdateConfigurationTemplate
+    , updateConfigurationTemplate
     -- ** Request lenses
     , uctApplicationName
     , uctTemplateName
@@ -81,7 +81,7 @@ module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
     -- * Response
     , UpdateConfigurationTemplateResponse
     -- ** Response constructor
-    , mkUpdateConfigurationTemplateResponse
+    , updateConfigurationTemplateResponse
     -- ** Response lenses
     , uctrSolutionStackName
     , uctrApplicationName
@@ -122,10 +122,10 @@ data UpdateConfigurationTemplate = UpdateConfigurationTemplate
 --
 -- * @OptionsToRemove ::@ @[OptionSpecification]@
 --
-mkUpdateConfigurationTemplate :: Text -- ^ 'uctApplicationName'
+updateConfigurationTemplate :: Text -- ^ 'uctApplicationName'
                               -> Text -- ^ 'uctTemplateName'
                               -> UpdateConfigurationTemplate
-mkUpdateConfigurationTemplate p1 p2 = UpdateConfigurationTemplate
+updateConfigurationTemplate p1 p2 = UpdateConfigurationTemplate
     { _uctApplicationName = p1
     , _uctTemplateName = p2
     , _uctDescription = Nothing
@@ -203,8 +203,8 @@ data UpdateConfigurationTemplateResponse = UpdateConfigurationTemplateResponse
 --
 -- * @OptionSettings ::@ @[ConfigurationOptionSetting]@
 --
-mkUpdateConfigurationTemplateResponse :: UpdateConfigurationTemplateResponse
-mkUpdateConfigurationTemplateResponse = UpdateConfigurationTemplateResponse
+updateConfigurationTemplateResponse :: UpdateConfigurationTemplateResponse
+updateConfigurationTemplateResponse = UpdateConfigurationTemplateResponse
     { _uctrSolutionStackName = Nothing
     , _uctrApplicationName = Nothing
     , _uctrTemplateName = Nothing

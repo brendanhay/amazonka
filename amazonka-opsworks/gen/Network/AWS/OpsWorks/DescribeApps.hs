@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.DescribeApps
     -- * Request
       DescribeApps
     -- ** Request constructor
-    , mkDescribeApps
+    , describeApps
     -- ** Request lenses
     , da1StackId
     , da1AppIds
@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.DescribeApps
     -- * Response
     , DescribeAppsResponse
     -- ** Response constructor
-    , mkDescribeAppsResponse
+    , describeAppsResponse
     -- ** Response lenses
     , darApps
     ) where
@@ -58,8 +58,8 @@ data DescribeApps = DescribeApps
 --
 -- * @AppIds ::@ @[Text]@
 --
-mkDescribeApps :: DescribeApps
-mkDescribeApps = DescribeApps
+describeApps :: DescribeApps
+describeApps = DescribeApps
     { _da1StackId = Nothing
     , _da1AppIds = mempty
     }
@@ -97,8 +97,8 @@ newtype DescribeAppsResponse = DescribeAppsResponse
 --
 -- * @Apps ::@ @[App]@
 --
-mkDescribeAppsResponse :: DescribeAppsResponse
-mkDescribeAppsResponse = DescribeAppsResponse
+describeAppsResponse :: DescribeAppsResponse
+describeAppsResponse = DescribeAppsResponse
     { _darApps = mempty
     }
 

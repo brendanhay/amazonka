@@ -24,7 +24,7 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     -- * Request
       DescribeAlarmsForMetric
     -- ** Request constructor
-    , mkDescribeAlarmsForMetric
+    , describeAlarmsForMetric
     -- ** Request lenses
     , dafmMetricName
     , dafmNamespace
@@ -36,7 +36,7 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     -- * Response
     , DescribeAlarmsForMetricResponse
     -- ** Response constructor
-    , mkDescribeAlarmsForMetricResponse
+    , describeAlarmsForMetricResponse
     -- ** Response lenses
     , dafmrMetricAlarms
     ) where
@@ -71,10 +71,10 @@ data DescribeAlarmsForMetric = DescribeAlarmsForMetric
 --
 -- * @Unit ::@ @Maybe StandardUnit@
 --
-mkDescribeAlarmsForMetric :: Text -- ^ 'dafmMetricName'
+describeAlarmsForMetric :: Text -- ^ 'dafmMetricName'
                           -> Text -- ^ 'dafmNamespace'
                           -> DescribeAlarmsForMetric
-mkDescribeAlarmsForMetric p1 p2 = DescribeAlarmsForMetric
+describeAlarmsForMetric p1 p2 = DescribeAlarmsForMetric
     { _dafmMetricName = p1
     , _dafmNamespace = p2
     , _dafmStatistic = Nothing
@@ -124,8 +124,8 @@ newtype DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
 --
 -- * @MetricAlarms ::@ @[MetricAlarm]@
 --
-mkDescribeAlarmsForMetricResponse :: DescribeAlarmsForMetricResponse
-mkDescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
+describeAlarmsForMetricResponse :: DescribeAlarmsForMetricResponse
+describeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
     { _dafmrMetricAlarms = mempty
     }
 

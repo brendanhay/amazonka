@@ -65,7 +65,7 @@ module Network.AWS.Kinesis.DescribeStream
     -- * Request
       DescribeStream
     -- ** Request constructor
-    , mkDescribeStream
+    , describeStream
     -- ** Request lenses
     , ds1StreamName
     , ds1Limit
@@ -74,7 +74,7 @@ module Network.AWS.Kinesis.DescribeStream
     -- * Response
     , DescribeStreamResponse
     -- ** Response constructor
-    , mkDescribeStreamResponse
+    , describeStreamResponse
     -- ** Response lenses
     , dsrStreamDescription
     ) where
@@ -101,9 +101,9 @@ data DescribeStream = DescribeStream
 --
 -- * @ExclusiveStartShardId ::@ @Maybe Text@
 --
-mkDescribeStream :: Text -- ^ 'ds1StreamName'
+describeStream :: Text -- ^ 'ds1StreamName'
                  -> DescribeStream
-mkDescribeStream p1 = DescribeStream
+describeStream p1 = DescribeStream
     { _ds1StreamName = p1
     , _ds1Limit = Nothing
     , _ds1ExclusiveStartShardId = Nothing
@@ -145,9 +145,9 @@ newtype DescribeStreamResponse = DescribeStreamResponse
 --
 -- * @StreamDescription ::@ @StreamDescription@
 --
-mkDescribeStreamResponse :: StreamDescription -- ^ 'dsrStreamDescription'
+describeStreamResponse :: StreamDescription -- ^ 'dsrStreamDescription'
                          -> DescribeStreamResponse
-mkDescribeStreamResponse p1 = DescribeStreamResponse
+describeStreamResponse p1 = DescribeStreamResponse
     { _dsrStreamDescription = p1
     }
 

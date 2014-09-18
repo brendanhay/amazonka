@@ -44,7 +44,7 @@ module Network.AWS.ElasticTranscoder.ListPresets
     -- * Request
       ListPresets
     -- ** Request constructor
-    , mkListPresets
+    , listPresets
     -- ** Request lenses
     , lp1Ascending
     , lp1PageToken
@@ -52,7 +52,7 @@ module Network.AWS.ElasticTranscoder.ListPresets
     -- * Response
     , ListPresetsResponse
     -- ** Response constructor
-    , mkListPresetsResponse
+    , listPresetsResponse
     -- ** Response lenses
     , lprrPresets
     , lprrNextPageToken
@@ -77,8 +77,8 @@ data ListPresets = ListPresets
 --
 -- * @PageToken ::@ @Maybe Text@
 --
-mkListPresets :: ListPresets
-mkListPresets = ListPresets
+listPresets :: ListPresets
+listPresets = ListPresets
     { _lp1Ascending = Nothing
     , _lp1PageToken = Nothing
     }
@@ -120,8 +120,8 @@ data ListPresetsResponse = ListPresetsResponse
 --
 -- * @NextPageToken ::@ @Maybe Text@
 --
-mkListPresetsResponse :: ListPresetsResponse
-mkListPresetsResponse = ListPresetsResponse
+listPresetsResponse :: ListPresetsResponse
+listPresetsResponse = ListPresetsResponse
     { _lprrPresets = mempty
     , _lprrNextPageToken = Nothing
     }

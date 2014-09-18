@@ -23,14 +23,14 @@ module Network.AWS.S3.GetBucketTagging
     -- * Request
       GetBucketTagging
     -- ** Request constructor
-    , mkGetBucketTagging
+    , getBucketTagging
     -- ** Request lenses
     , gbtBucket
 
     -- * Response
     , GetBucketTaggingResponse
     -- ** Response constructor
-    , mkGetBucketTaggingResponse
+    , getBucketTaggingResponse
     -- ** Response lenses
     , gbtrTagSet
     ) where
@@ -51,9 +51,9 @@ newtype GetBucketTagging = GetBucketTagging
 --
 -- * @Bucket ::@ @BucketName@
 --
-mkGetBucketTagging :: BucketName -- ^ 'gbtBucket'
+getBucketTagging :: BucketName -- ^ 'gbtBucket'
                    -> GetBucketTagging
-mkGetBucketTagging p1 = GetBucketTagging
+getBucketTagging p1 = GetBucketTagging
     { _gbtBucket = p1
     }
 
@@ -81,9 +81,9 @@ newtype GetBucketTaggingResponse = GetBucketTaggingResponse
 --
 -- * @TagSet ::@ @[Tag]@
 --
-mkGetBucketTaggingResponse :: [Tag] -- ^ 'gbtrTagSet'
+getBucketTaggingResponse :: [Tag] -- ^ 'gbtrTagSet'
                            -> GetBucketTaggingResponse
-mkGetBucketTaggingResponse p1 = GetBucketTaggingResponse
+getBucketTaggingResponse p1 = GetBucketTaggingResponse
     { _gbtrTagSet = p1
     }
 

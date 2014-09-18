@@ -24,7 +24,7 @@ module Network.AWS.CloudTrail.CreateTrail
     -- * Request
       CreateTrail
     -- ** Request constructor
-    , mkCreateTrail
+    , createTrail
     -- ** Request lenses
     , ctName
     , ctS3BucketName
@@ -35,7 +35,7 @@ module Network.AWS.CloudTrail.CreateTrail
     -- * Response
     , CreateTrailResponse
     -- ** Response constructor
-    , mkCreateTrailResponse
+    , createTrailResponse
     -- ** Response lenses
     , ctrName
     , ctrS3BucketName
@@ -72,10 +72,10 @@ data CreateTrail = CreateTrail
 --
 -- * @IncludeGlobalServiceEvents ::@ @Maybe Bool@
 --
-mkCreateTrail :: Text -- ^ 'ctName'
+createTrail :: Text -- ^ 'ctName'
               -> Text -- ^ 'ctS3BucketName'
               -> CreateTrail
-mkCreateTrail p1 p2 = CreateTrail
+createTrail p1 p2 = CreateTrail
     { _ctName = p1
     , _ctS3BucketName = p2
     , _ctS3KeyPrefix = Nothing
@@ -144,8 +144,8 @@ data CreateTrailResponse = CreateTrailResponse
 --
 -- * @IncludeGlobalServiceEvents ::@ @Maybe Bool@
 --
-mkCreateTrailResponse :: CreateTrailResponse
-mkCreateTrailResponse = CreateTrailResponse
+createTrailResponse :: CreateTrailResponse
+createTrailResponse = CreateTrailResponse
     { _ctrName = Nothing
     , _ctrS3BucketName = Nothing
     , _ctrS3KeyPrefix = Nothing

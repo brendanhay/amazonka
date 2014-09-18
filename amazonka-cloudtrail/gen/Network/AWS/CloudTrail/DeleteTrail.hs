@@ -23,14 +23,14 @@ module Network.AWS.CloudTrail.DeleteTrail
     -- * Request
       DeleteTrail
     -- ** Request constructor
-    , mkDeleteTrail
+    , deleteTrail
     -- ** Request lenses
     , dtName
 
     -- * Response
     , DeleteTrailResponse
     -- ** Response constructor
-    , mkDeleteTrailResponse
+    , deleteTrailResponse
     ) where
 
 import Network.AWS.CloudTrail.Types
@@ -49,9 +49,9 @@ newtype DeleteTrail = DeleteTrail
 --
 -- * @Name ::@ @Text@
 --
-mkDeleteTrail :: Text -- ^ 'dtName'
+deleteTrail :: Text -- ^ 'dtName'
               -> DeleteTrail
-mkDeleteTrail p1 = DeleteTrail
+deleteTrail p1 = DeleteTrail
     { _dtName = p1
     }
 
@@ -76,8 +76,8 @@ data DeleteTrailResponse = DeleteTrailResponse
 -- a valid 'DeleteTrailResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteTrailResponse :: DeleteTrailResponse
-mkDeleteTrailResponse = DeleteTrailResponse
+deleteTrailResponse :: DeleteTrailResponse
+deleteTrailResponse = DeleteTrailResponse
 
 instance AWSRequest DeleteTrail where
     type Sv DeleteTrail = CloudTrail

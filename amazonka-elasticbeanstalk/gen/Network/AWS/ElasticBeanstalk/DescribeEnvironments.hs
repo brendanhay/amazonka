@@ -30,7 +30,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     -- * Request
       DescribeEnvironments
     -- ** Request constructor
-    , mkDescribeEnvironments
+    , describeEnvironments
     -- ** Request lenses
     , deApplicationName
     , deVersionLabel
@@ -42,7 +42,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     -- * Response
     , DescribeEnvironmentsResponse
     -- ** Response constructor
-    , mkDescribeEnvironmentsResponse
+    , describeEnvironmentsResponse
     -- ** Response lenses
     , der1Environments
     ) where
@@ -78,8 +78,8 @@ data DescribeEnvironments = DescribeEnvironments
 --
 -- * @IncludedDeletedBackTo ::@ @Maybe ISO8601@
 --
-mkDescribeEnvironments :: DescribeEnvironments
-mkDescribeEnvironments = DescribeEnvironments
+describeEnvironments :: DescribeEnvironments
+describeEnvironments = DescribeEnvironments
     { _deApplicationName = Nothing
     , _deVersionLabel = Nothing
     , _deEnvironmentIds = mempty
@@ -142,8 +142,8 @@ newtype DescribeEnvironmentsResponse = DescribeEnvironmentsResponse
 --
 -- * @Environments ::@ @[EnvironmentDescription]@
 --
-mkDescribeEnvironmentsResponse :: DescribeEnvironmentsResponse
-mkDescribeEnvironmentsResponse = DescribeEnvironmentsResponse
+describeEnvironmentsResponse :: DescribeEnvironmentsResponse
+describeEnvironmentsResponse = DescribeEnvironmentsResponse
     { _der1Environments = mempty
     }
 

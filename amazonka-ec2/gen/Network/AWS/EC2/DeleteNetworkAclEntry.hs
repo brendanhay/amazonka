@@ -31,7 +31,7 @@ module Network.AWS.EC2.DeleteNetworkAclEntry
     -- * Request
       DeleteNetworkAclEntry
     -- ** Request constructor
-    , mkDeleteNetworkAclEntry
+    , deleteNetworkAclEntry
     -- ** Request lenses
     , dnaeNetworkAclId
     , dnaeRuleNumber
@@ -40,7 +40,7 @@ module Network.AWS.EC2.DeleteNetworkAclEntry
     -- * Response
     , DeleteNetworkAclEntryResponse
     -- ** Response constructor
-    , mkDeleteNetworkAclEntryResponse
+    , deleteNetworkAclEntryResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -64,11 +64,11 @@ data DeleteNetworkAclEntry = DeleteNetworkAclEntry
 --
 -- * @Egress ::@ @Bool@
 --
-mkDeleteNetworkAclEntry :: Text -- ^ 'dnaeNetworkAclId'
+deleteNetworkAclEntry :: Text -- ^ 'dnaeNetworkAclId'
                         -> Integer -- ^ 'dnaeRuleNumber'
                         -> Bool -- ^ 'dnaeEgress'
                         -> DeleteNetworkAclEntry
-mkDeleteNetworkAclEntry p1 p2 p3 = DeleteNetworkAclEntry
+deleteNetworkAclEntry p1 p2 p3 = DeleteNetworkAclEntry
     { _dnaeNetworkAclId = p1
     , _dnaeRuleNumber = p2
     , _dnaeEgress = p3
@@ -97,8 +97,8 @@ data DeleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse
 -- a valid 'DeleteNetworkAclEntryResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteNetworkAclEntryResponse :: DeleteNetworkAclEntryResponse
-mkDeleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse
+deleteNetworkAclEntryResponse :: DeleteNetworkAclEntryResponse
+deleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse
 
 instance AWSRequest DeleteNetworkAclEntry where
     type Sv DeleteNetworkAclEntry = EC2

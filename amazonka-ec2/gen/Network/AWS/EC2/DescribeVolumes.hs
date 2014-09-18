@@ -44,7 +44,7 @@ module Network.AWS.EC2.DescribeVolumes
     -- * Request
       DescribeVolumes
     -- ** Request constructor
-    , mkDescribeVolumes
+    , describeVolumes
     -- ** Request lenses
     , dv2VolumeIds
     , dv2Filters
@@ -52,7 +52,7 @@ module Network.AWS.EC2.DescribeVolumes
     -- * Response
     , DescribeVolumesResponse
     -- ** Response constructor
-    , mkDescribeVolumesResponse
+    , describeVolumesResponse
     -- ** Response lenses
     , dvrVolumes
     ) where
@@ -75,8 +75,8 @@ data DescribeVolumes = DescribeVolumes
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribeVolumes :: DescribeVolumes
-mkDescribeVolumes = DescribeVolumes
+describeVolumes :: DescribeVolumes
+describeVolumes = DescribeVolumes
     { _dv2VolumeIds = mempty
     , _dv2Filters = mempty
     }
@@ -127,8 +127,8 @@ newtype DescribeVolumesResponse = DescribeVolumesResponse
 --
 -- * @Volumes ::@ @[Volume]@
 --
-mkDescribeVolumesResponse :: DescribeVolumesResponse
-mkDescribeVolumesResponse = DescribeVolumesResponse
+describeVolumesResponse :: DescribeVolumesResponse
+describeVolumesResponse = DescribeVolumesResponse
     { _dvrVolumes = mempty
     }
 

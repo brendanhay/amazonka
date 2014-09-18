@@ -35,7 +35,7 @@ module Network.AWS.CloudWatchLogs.PutRetentionPolicy
     -- * Request
       PutRetentionPolicy
     -- ** Request constructor
-    , mkPutRetentionPolicy
+    , putRetentionPolicy
     -- ** Request lenses
     , prpLogGroupName
     , prpRetentionInDays
@@ -43,7 +43,7 @@ module Network.AWS.CloudWatchLogs.PutRetentionPolicy
     -- * Response
     , PutRetentionPolicyResponse
     -- ** Response constructor
-    , mkPutRetentionPolicyResponse
+    , putRetentionPolicyResponse
     ) where
 
 import Network.AWS.CloudWatchLogs.Types
@@ -64,10 +64,10 @@ data PutRetentionPolicy = PutRetentionPolicy
 --
 -- * @RetentionInDays ::@ @Integer@
 --
-mkPutRetentionPolicy :: Text -- ^ 'prpLogGroupName'
+putRetentionPolicy :: Text -- ^ 'prpLogGroupName'
                      -> Integer -- ^ 'prpRetentionInDays'
                      -> PutRetentionPolicy
-mkPutRetentionPolicy p1 p2 = PutRetentionPolicy
+putRetentionPolicy p1 p2 = PutRetentionPolicy
     { _prpLogGroupName = p1
     , _prpRetentionInDays = p2
     }
@@ -97,8 +97,8 @@ data PutRetentionPolicyResponse = PutRetentionPolicyResponse
 -- a valid 'PutRetentionPolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkPutRetentionPolicyResponse :: PutRetentionPolicyResponse
-mkPutRetentionPolicyResponse = PutRetentionPolicyResponse
+putRetentionPolicyResponse :: PutRetentionPolicyResponse
+putRetentionPolicyResponse = PutRetentionPolicyResponse
 
 instance AWSRequest PutRetentionPolicy where
     type Sv PutRetentionPolicy = CloudWatchLogs

@@ -31,7 +31,7 @@ module Network.AWS.ElastiCache.CreateSnapshot
     -- * Request
       CreateSnapshot
     -- ** Request constructor
-    , mkCreateSnapshot
+    , createSnapshot
     -- ** Request lenses
     , cs1CacheClusterId
     , cs1SnapshotName
@@ -39,7 +39,7 @@ module Network.AWS.ElastiCache.CreateSnapshot
     -- * Response
     , CreateSnapshotResponse
     -- ** Response constructor
-    , mkCreateSnapshotResponse
+    , createSnapshotResponse
     -- ** Response lenses
     , csrrSnapshot
     ) where
@@ -63,10 +63,10 @@ data CreateSnapshot = CreateSnapshot
 --
 -- * @SnapshotName ::@ @Text@
 --
-mkCreateSnapshot :: Text -- ^ 'cs1CacheClusterId'
+createSnapshot :: Text -- ^ 'cs1CacheClusterId'
                  -> Text -- ^ 'cs1SnapshotName'
                  -> CreateSnapshot
-mkCreateSnapshot p1 p2 = CreateSnapshot
+createSnapshot p1 p2 = CreateSnapshot
     { _cs1CacheClusterId = p1
     , _cs1SnapshotName = p2
     }
@@ -97,8 +97,8 @@ newtype CreateSnapshotResponse = CreateSnapshotResponse
 --
 -- * @Snapshot ::@ @Maybe Snapshot@
 --
-mkCreateSnapshotResponse :: CreateSnapshotResponse
-mkCreateSnapshotResponse = CreateSnapshotResponse
+createSnapshotResponse :: CreateSnapshotResponse
+createSnapshotResponse = CreateSnapshotResponse
     { _csrrSnapshot = Nothing
     }
 

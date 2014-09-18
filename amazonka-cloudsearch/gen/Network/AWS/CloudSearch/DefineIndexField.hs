@@ -30,7 +30,7 @@ module Network.AWS.CloudSearch.DefineIndexField
     -- * Request
       DefineIndexField
     -- ** Request constructor
-    , mkDefineIndexField
+    , defineIndexField
     -- ** Request lenses
     , difDomainName
     , difIndexField
@@ -38,7 +38,7 @@ module Network.AWS.CloudSearch.DefineIndexField
     -- * Response
     , DefineIndexFieldResponse
     -- ** Response constructor
-    , mkDefineIndexFieldResponse
+    , defineIndexFieldResponse
     -- ** Response lenses
     , difrIndexField
     ) where
@@ -64,10 +64,10 @@ data DefineIndexField = DefineIndexField
 --
 -- * @IndexField ::@ @IndexField@
 --
-mkDefineIndexField :: Text -- ^ 'difDomainName'
+defineIndexField :: Text -- ^ 'difDomainName'
                    -> IndexField -- ^ 'difIndexField'
                    -> DefineIndexField
-mkDefineIndexField p1 p2 = DefineIndexField
+defineIndexField p1 p2 = DefineIndexField
     { _difDomainName = p1
     , _difIndexField = p2
     }
@@ -101,9 +101,9 @@ newtype DefineIndexFieldResponse = DefineIndexFieldResponse
 --
 -- * @IndexField ::@ @IndexFieldStatus@
 --
-mkDefineIndexFieldResponse :: IndexFieldStatus -- ^ 'difrIndexField'
+defineIndexFieldResponse :: IndexFieldStatus -- ^ 'difrIndexField'
                            -> DefineIndexFieldResponse
-mkDefineIndexFieldResponse p1 = DefineIndexFieldResponse
+defineIndexFieldResponse p1 = DefineIndexFieldResponse
     { _difrIndexField = p1
     }
 

@@ -33,7 +33,7 @@ module Network.AWS.EC2.DescribeImageAttribute
     -- * Request
       DescribeImageAttribute
     -- ** Request constructor
-    , mkDescribeImageAttribute
+    , describeImageAttribute
     -- ** Request lenses
     , diaImageId
     , diaAttribute
@@ -41,7 +41,7 @@ module Network.AWS.EC2.DescribeImageAttribute
     -- * Response
     , DescribeImageAttributeResponse
     -- ** Response constructor
-    , mkDescribeImageAttributeResponse
+    , describeImageAttributeResponse
     -- ** Response lenses
     , diarImageId
     , diarLaunchPermissions
@@ -71,10 +71,10 @@ data DescribeImageAttribute = DescribeImageAttribute
 --
 -- * @Attribute ::@ @ImageAttributeName@
 --
-mkDescribeImageAttribute :: Text -- ^ 'diaImageId'
+describeImageAttribute :: Text -- ^ 'diaImageId'
                          -> ImageAttributeName -- ^ 'diaAttribute'
                          -> DescribeImageAttribute
-mkDescribeImageAttribute p1 p2 = DescribeImageAttribute
+describeImageAttribute p1 p2 = DescribeImageAttribute
     { _diaImageId = p1
     , _diaAttribute = p2
     }
@@ -125,8 +125,8 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse
 --
 -- * @BlockDeviceMappings ::@ @[BlockDeviceMapping]@
 --
-mkDescribeImageAttributeResponse :: DescribeImageAttributeResponse
-mkDescribeImageAttributeResponse = DescribeImageAttributeResponse
+describeImageAttributeResponse :: DescribeImageAttributeResponse
+describeImageAttributeResponse = DescribeImageAttributeResponse
     { _diarImageId = Nothing
     , _diarLaunchPermissions = mempty
     , _diarProductCodes = mempty

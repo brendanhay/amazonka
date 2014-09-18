@@ -42,7 +42,7 @@ module Network.AWS.SES.SetIdentityDkimEnabled
     -- * Request
       SetIdentityDkimEnabled
     -- ** Request constructor
-    , mkSetIdentityDkimEnabled
+    , setIdentityDkimEnabled
     -- ** Request lenses
     , sideIdentity
     , sideDkimEnabled
@@ -50,7 +50,7 @@ module Network.AWS.SES.SetIdentityDkimEnabled
     -- * Response
     , SetIdentityDkimEnabledResponse
     -- ** Response constructor
-    , mkSetIdentityDkimEnabledResponse
+    , setIdentityDkimEnabledResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -73,10 +73,10 @@ data SetIdentityDkimEnabled = SetIdentityDkimEnabled
 --
 -- * @DkimEnabled ::@ @Bool@
 --
-mkSetIdentityDkimEnabled :: Text -- ^ 'sideIdentity'
+setIdentityDkimEnabled :: Text -- ^ 'sideIdentity'
                          -> Bool -- ^ 'sideDkimEnabled'
                          -> SetIdentityDkimEnabled
-mkSetIdentityDkimEnabled p1 p2 = SetIdentityDkimEnabled
+setIdentityDkimEnabled p1 p2 = SetIdentityDkimEnabled
     { _sideIdentity = p1
     , _sideDkimEnabled = p2
     }
@@ -102,8 +102,8 @@ data SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
 -- a valid 'SetIdentityDkimEnabledResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSetIdentityDkimEnabledResponse :: SetIdentityDkimEnabledResponse
-mkSetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
+setIdentityDkimEnabledResponse :: SetIdentityDkimEnabledResponse
+setIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
 
 instance AWSRequest SetIdentityDkimEnabled where
     type Sv SetIdentityDkimEnabled = SES

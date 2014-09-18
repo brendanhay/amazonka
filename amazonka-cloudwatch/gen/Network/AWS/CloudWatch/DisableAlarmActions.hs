@@ -25,14 +25,14 @@ module Network.AWS.CloudWatch.DisableAlarmActions
     -- * Request
       DisableAlarmActions
     -- ** Request constructor
-    , mkDisableAlarmActions
+    , disableAlarmActions
     -- ** Request lenses
     , daaAlarmNames
 
     -- * Response
     , DisableAlarmActionsResponse
     -- ** Response constructor
-    , mkDisableAlarmActionsResponse
+    , disableAlarmActionsResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -51,9 +51,9 @@ newtype DisableAlarmActions = DisableAlarmActions
 --
 -- * @AlarmNames ::@ @[Text]@
 --
-mkDisableAlarmActions :: [Text] -- ^ 'daaAlarmNames'
+disableAlarmActions :: [Text] -- ^ 'daaAlarmNames'
                       -> DisableAlarmActions
-mkDisableAlarmActions p1 = DisableAlarmActions
+disableAlarmActions p1 = DisableAlarmActions
     { _daaAlarmNames = p1
     }
 
@@ -71,8 +71,8 @@ data DisableAlarmActionsResponse = DisableAlarmActionsResponse
 -- a valid 'DisableAlarmActionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDisableAlarmActionsResponse :: DisableAlarmActionsResponse
-mkDisableAlarmActionsResponse = DisableAlarmActionsResponse
+disableAlarmActionsResponse :: DisableAlarmActionsResponse
+disableAlarmActionsResponse = DisableAlarmActionsResponse
 
 instance AWSRequest DisableAlarmActions where
     type Sv DisableAlarmActions = CloudWatch

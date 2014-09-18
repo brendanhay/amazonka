@@ -22,7 +22,7 @@ module Network.AWS.StorageGateway.CancelRetrieval
     -- * Request
       CancelRetrieval
     -- ** Request constructor
-    , mkCancelRetrieval
+    , cancelRetrieval
     -- ** Request lenses
     , crGatewayARN
     , crTapeARN
@@ -30,7 +30,7 @@ module Network.AWS.StorageGateway.CancelRetrieval
     -- * Response
     , CancelRetrievalResponse
     -- ** Response constructor
-    , mkCancelRetrievalResponse
+    , cancelRetrievalResponse
     -- ** Response lenses
     , crrTapeARN
     ) where
@@ -53,10 +53,10 @@ data CancelRetrieval = CancelRetrieval
 --
 -- * @TapeARN ::@ @Text@
 --
-mkCancelRetrieval :: Text -- ^ 'crGatewayARN'
+cancelRetrieval :: Text -- ^ 'crGatewayARN'
                   -> Text -- ^ 'crTapeARN'
                   -> CancelRetrieval
-mkCancelRetrieval p1 p2 = CancelRetrieval
+cancelRetrieval p1 p2 = CancelRetrieval
     { _crGatewayARN = p1
     , _crTapeARN = p2
     }
@@ -90,8 +90,8 @@ newtype CancelRetrievalResponse = CancelRetrievalResponse
 --
 -- * @TapeARN ::@ @Maybe Text@
 --
-mkCancelRetrievalResponse :: CancelRetrievalResponse
-mkCancelRetrievalResponse = CancelRetrievalResponse
+cancelRetrievalResponse :: CancelRetrievalResponse
+cancelRetrievalResponse = CancelRetrievalResponse
     { _crrTapeARN = Nothing
     }
 

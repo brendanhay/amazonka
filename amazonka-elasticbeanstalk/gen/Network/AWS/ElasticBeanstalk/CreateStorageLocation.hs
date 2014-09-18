@@ -27,11 +27,11 @@ module Network.AWS.ElasticBeanstalk.CreateStorageLocation
     -- * Request
       CreateStorageLocation
     -- ** Request constructor
-    , mkCreateStorageLocation
+    , createStorageLocation
     -- * Response
     , CreateStorageLocationResponse
     -- ** Response constructor
-    , mkCreateStorageLocationResponse
+    , createStorageLocationResponse
     -- ** Response lenses
     , cslrS3Bucket
     ) where
@@ -45,8 +45,8 @@ data CreateStorageLocation = CreateStorageLocation
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStorageLocation' request.
-mkCreateStorageLocation :: CreateStorageLocation
-mkCreateStorageLocation = CreateStorageLocation
+createStorageLocation :: CreateStorageLocation
+createStorageLocation = CreateStorageLocation
 
 instance ToQuery CreateStorageLocation where
     toQuery = genericQuery def
@@ -65,8 +65,8 @@ newtype CreateStorageLocationResponse = CreateStorageLocationResponse
 --
 -- * @S3Bucket ::@ @Maybe Text@
 --
-mkCreateStorageLocationResponse :: CreateStorageLocationResponse
-mkCreateStorageLocationResponse = CreateStorageLocationResponse
+createStorageLocationResponse :: CreateStorageLocationResponse
+createStorageLocationResponse = CreateStorageLocationResponse
     { _cslrS3Bucket = Nothing
     }
 

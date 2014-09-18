@@ -35,7 +35,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingGroups
     -- * Request
       DescribeAutoScalingGroups
     -- ** Request constructor
-    , mkDescribeAutoScalingGroups
+    , describeAutoScalingGroups
     -- ** Request lenses
     , dasg1AutoScalingGroupNames
     , dasg1NextToken
@@ -44,7 +44,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingGroups
     -- * Response
     , DescribeAutoScalingGroupsResponse
     -- ** Response constructor
-    , mkDescribeAutoScalingGroupsResponse
+    , describeAutoScalingGroupsResponse
     -- ** Response lenses
     , dasgrAutoScalingGroups
     , dasgrNextToken
@@ -72,8 +72,8 @@ data DescribeAutoScalingGroups = DescribeAutoScalingGroups
 --
 -- * @MaxRecords ::@ @Maybe Integer@
 --
-mkDescribeAutoScalingGroups :: DescribeAutoScalingGroups
-mkDescribeAutoScalingGroups = DescribeAutoScalingGroups
+describeAutoScalingGroups :: DescribeAutoScalingGroups
+describeAutoScalingGroups = DescribeAutoScalingGroups
     { _dasg1AutoScalingGroupNames = mempty
     , _dasg1NextToken = Nothing
     , _dasg1MaxRecords = Nothing
@@ -113,9 +113,9 @@ data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeAutoScalingGroupsResponse :: [AutoScalingGroup] -- ^ 'dasgrAutoScalingGroups'
+describeAutoScalingGroupsResponse :: [AutoScalingGroup] -- ^ 'dasgrAutoScalingGroups'
                                     -> DescribeAutoScalingGroupsResponse
-mkDescribeAutoScalingGroupsResponse p1 = DescribeAutoScalingGroupsResponse
+describeAutoScalingGroupsResponse p1 = DescribeAutoScalingGroupsResponse
     { _dasgrAutoScalingGroups = p1
     , _dasgrNextToken = Nothing
     }

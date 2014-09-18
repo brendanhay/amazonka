@@ -27,14 +27,14 @@ module Network.AWS.IAM.DeleteAccountAlias
     -- * Request
       DeleteAccountAlias
     -- ** Request constructor
-    , mkDeleteAccountAlias
+    , deleteAccountAlias
     -- ** Request lenses
     , daaAccountAlias
 
     -- * Response
     , DeleteAccountAliasResponse
     -- ** Response constructor
-    , mkDeleteAccountAliasResponse
+    , deleteAccountAliasResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -52,9 +52,9 @@ newtype DeleteAccountAlias = DeleteAccountAlias
 --
 -- * @AccountAlias ::@ @Text@
 --
-mkDeleteAccountAlias :: Text -- ^ 'daaAccountAlias'
+deleteAccountAlias :: Text -- ^ 'daaAccountAlias'
                      -> DeleteAccountAlias
-mkDeleteAccountAlias p1 = DeleteAccountAlias
+deleteAccountAlias p1 = DeleteAccountAlias
     { _daaAccountAlias = p1
     }
 
@@ -72,8 +72,8 @@ data DeleteAccountAliasResponse = DeleteAccountAliasResponse
 -- a valid 'DeleteAccountAliasResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteAccountAliasResponse :: DeleteAccountAliasResponse
-mkDeleteAccountAliasResponse = DeleteAccountAliasResponse
+deleteAccountAliasResponse :: DeleteAccountAliasResponse
+deleteAccountAliasResponse = DeleteAccountAliasResponse
 
 instance AWSRequest DeleteAccountAlias where
     type Sv DeleteAccountAlias = IAM

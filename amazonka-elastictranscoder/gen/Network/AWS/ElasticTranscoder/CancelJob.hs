@@ -37,14 +37,14 @@ module Network.AWS.ElasticTranscoder.CancelJob
     -- * Request
       CancelJob
     -- ** Request constructor
-    , mkCancelJob
+    , cancelJob
     -- ** Request lenses
     , cjId
 
     -- * Response
     , CancelJobResponse
     -- ** Response constructor
-    , mkCancelJobResponse
+    , cancelJobResponse
     ) where
 
 import Network.AWS.ElasticTranscoder.Types
@@ -63,9 +63,9 @@ newtype CancelJob = CancelJob
 --
 -- * @Id ::@ @Text@
 --
-mkCancelJob :: Text -- ^ 'cjId'
+cancelJob :: Text -- ^ 'cjId'
             -> CancelJob
-mkCancelJob p1 = CancelJob
+cancelJob p1 = CancelJob
     { _cjId = p1
     }
 
@@ -92,8 +92,8 @@ data CancelJobResponse = CancelJobResponse
 -- a valid 'CancelJobResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkCancelJobResponse :: CancelJobResponse
-mkCancelJobResponse = CancelJobResponse
+cancelJobResponse :: CancelJobResponse
+cancelJobResponse = CancelJobResponse
 
 instance AWSRequest CancelJob where
     type Sv CancelJob = ElasticTranscoder

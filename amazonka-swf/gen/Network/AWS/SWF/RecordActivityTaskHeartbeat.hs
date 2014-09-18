@@ -68,7 +68,7 @@ module Network.AWS.SWF.RecordActivityTaskHeartbeat
     -- * Request
       RecordActivityTaskHeartbeat
     -- ** Request constructor
-    , mkRecordActivityTaskHeartbeat
+    , recordActivityTaskHeartbeat
     -- ** Request lenses
     , rathTaskToken
     , rathDetails
@@ -76,7 +76,7 @@ module Network.AWS.SWF.RecordActivityTaskHeartbeat
     -- * Response
     , RecordActivityTaskHeartbeatResponse
     -- ** Response constructor
-    , mkRecordActivityTaskHeartbeatResponse
+    , recordActivityTaskHeartbeatResponse
     -- ** Response lenses
     , rathrCancelRequested
     ) where
@@ -99,9 +99,9 @@ data RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeat
 --
 -- * @Details ::@ @Maybe Text@
 --
-mkRecordActivityTaskHeartbeat :: Text -- ^ 'rathTaskToken'
+recordActivityTaskHeartbeat :: Text -- ^ 'rathTaskToken'
                               -> RecordActivityTaskHeartbeat
-mkRecordActivityTaskHeartbeat p1 = RecordActivityTaskHeartbeat
+recordActivityTaskHeartbeat p1 = RecordActivityTaskHeartbeat
     { _rathTaskToken = p1
     , _rathDetails = Nothing
     }
@@ -139,9 +139,9 @@ newtype RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatRespons
 --
 -- * @CancelRequested ::@ @Bool@
 --
-mkRecordActivityTaskHeartbeatResponse :: Bool -- ^ 'rathrCancelRequested'
+recordActivityTaskHeartbeatResponse :: Bool -- ^ 'rathrCancelRequested'
                                       -> RecordActivityTaskHeartbeatResponse
-mkRecordActivityTaskHeartbeatResponse p1 = RecordActivityTaskHeartbeatResponse
+recordActivityTaskHeartbeatResponse p1 = RecordActivityTaskHeartbeatResponse
     { _rathrCancelRequested = p1
     }
 

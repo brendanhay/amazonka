@@ -30,7 +30,7 @@ module Network.AWS.ElastiCache.DescribeCacheEngineVersions
     -- * Request
       DescribeCacheEngineVersions
     -- ** Request constructor
-    , mkDescribeCacheEngineVersions
+    , describeCacheEngineVersions
     -- ** Request lenses
     , dcevEngine
     , dcevEngineVersion
@@ -42,7 +42,7 @@ module Network.AWS.ElastiCache.DescribeCacheEngineVersions
     -- * Response
     , DescribeCacheEngineVersionsResponse
     -- ** Response constructor
-    , mkDescribeCacheEngineVersionsResponse
+    , describeCacheEngineVersionsResponse
     -- ** Response lenses
     , dcevrMarker
     , dcevrCacheEngineVersions
@@ -79,8 +79,8 @@ data DescribeCacheEngineVersions = DescribeCacheEngineVersions
 --
 -- * @DefaultOnly ::@ @Maybe Bool@
 --
-mkDescribeCacheEngineVersions :: DescribeCacheEngineVersions
-mkDescribeCacheEngineVersions = DescribeCacheEngineVersions
+describeCacheEngineVersions :: DescribeCacheEngineVersions
+describeCacheEngineVersions = DescribeCacheEngineVersions
     { _dcevEngine = Nothing
     , _dcevEngineVersion = Nothing
     , _dcevCacheParameterGroupFamily = Nothing
@@ -145,8 +145,8 @@ data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse
 --
 -- * @CacheEngineVersions ::@ @[CacheEngineVersion]@
 --
-mkDescribeCacheEngineVersionsResponse :: DescribeCacheEngineVersionsResponse
-mkDescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse
+describeCacheEngineVersionsResponse :: DescribeCacheEngineVersionsResponse
+describeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse
     { _dcevrMarker = Nothing
     , _dcevrCacheEngineVersions = mempty
     }

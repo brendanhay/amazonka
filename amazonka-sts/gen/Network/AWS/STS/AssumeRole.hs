@@ -90,7 +90,7 @@ module Network.AWS.STS.AssumeRole
     -- * Request
       AssumeRole
     -- ** Request constructor
-    , mkAssumeRole
+    , assumeRole
     -- ** Request lenses
     , arRoleArn
     , arRoleSessionName
@@ -103,7 +103,7 @@ module Network.AWS.STS.AssumeRole
     -- * Response
     , AssumeRoleResponse
     -- ** Response constructor
-    , mkAssumeRoleResponse
+    , assumeRoleResponse
     -- ** Response lenses
     , arrCredentials
     , arrAssumedRoleUser
@@ -143,10 +143,10 @@ data AssumeRole = AssumeRole
 --
 -- * @TokenCode ::@ @Maybe Text@
 --
-mkAssumeRole :: Text -- ^ 'arRoleArn'
+assumeRole :: Text -- ^ 'arRoleArn'
              -> Text -- ^ 'arRoleSessionName'
              -> AssumeRole
-mkAssumeRole p1 p2 = AssumeRole
+assumeRole p1 p2 = AssumeRole
     { _arRoleArn = p1
     , _arRoleSessionName = p2
     , _arPolicy = Nothing
@@ -237,8 +237,8 @@ data AssumeRoleResponse = AssumeRoleResponse
 --
 -- * @PackedPolicySize ::@ @Maybe Integer@
 --
-mkAssumeRoleResponse :: AssumeRoleResponse
-mkAssumeRoleResponse = AssumeRoleResponse
+assumeRoleResponse :: AssumeRoleResponse
+assumeRoleResponse = AssumeRoleResponse
     { _arrCredentials = Nothing
     , _arrAssumedRoleUser = Nothing
     , _arrPackedPolicySize = Nothing

@@ -36,7 +36,7 @@ module Network.AWS.EC2.ReportInstanceStatus
     -- * Request
       ReportInstanceStatus
     -- ** Request constructor
-    , mkReportInstanceStatus
+    , reportInstanceStatus
     -- ** Request lenses
     , risInstances
     , risStatus
@@ -48,7 +48,7 @@ module Network.AWS.EC2.ReportInstanceStatus
     -- * Response
     , ReportInstanceStatusResponse
     -- ** Response constructor
-    , mkReportInstanceStatusResponse
+    , reportInstanceStatusResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -81,11 +81,11 @@ data ReportInstanceStatus = ReportInstanceStatus
 --
 -- * @Description ::@ @Maybe Text@
 --
-mkReportInstanceStatus :: [Text] -- ^ 'risInstances'
+reportInstanceStatus :: [Text] -- ^ 'risInstances'
                        -> ReportStatusType -- ^ 'risStatus'
                        -> [ReportInstanceReasonCodes] -- ^ 'risReasonCodes'
                        -> ReportInstanceStatus
-mkReportInstanceStatus p1 p2 p5 = ReportInstanceStatus
+reportInstanceStatus p1 p2 p5 = ReportInstanceStatus
     { _risInstances = p1
     , _risStatus = p2
     , _risStartTime = Nothing
@@ -139,8 +139,8 @@ data ReportInstanceStatusResponse = ReportInstanceStatusResponse
 -- a valid 'ReportInstanceStatusResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkReportInstanceStatusResponse :: ReportInstanceStatusResponse
-mkReportInstanceStatusResponse = ReportInstanceStatusResponse
+reportInstanceStatusResponse :: ReportInstanceStatusResponse
+reportInstanceStatusResponse = ReportInstanceStatusResponse
 
 instance AWSRequest ReportInstanceStatus where
     type Sv ReportInstanceStatus = EC2

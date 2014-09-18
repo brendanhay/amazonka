@@ -28,14 +28,14 @@ module Network.AWS.OpsWorks.DeregisterVolume
     -- * Request
       DeregisterVolume
     -- ** Request constructor
-    , mkDeregisterVolume
+    , deregisterVolume
     -- ** Request lenses
     , dvVolumeId
 
     -- * Response
     , DeregisterVolumeResponse
     -- ** Response constructor
-    , mkDeregisterVolumeResponse
+    , deregisterVolumeResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -53,9 +53,9 @@ newtype DeregisterVolume = DeregisterVolume
 --
 -- * @VolumeId ::@ @Text@
 --
-mkDeregisterVolume :: Text -- ^ 'dvVolumeId'
+deregisterVolume :: Text -- ^ 'dvVolumeId'
                    -> DeregisterVolume
-mkDeregisterVolume p1 = DeregisterVolume
+deregisterVolume p1 = DeregisterVolume
     { _dvVolumeId = p1
     }
 
@@ -78,8 +78,8 @@ data DeregisterVolumeResponse = DeregisterVolumeResponse
 -- a valid 'DeregisterVolumeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeregisterVolumeResponse :: DeregisterVolumeResponse
-mkDeregisterVolumeResponse = DeregisterVolumeResponse
+deregisterVolumeResponse :: DeregisterVolumeResponse
+deregisterVolumeResponse = DeregisterVolumeResponse
 
 instance AWSRequest DeregisterVolume where
     type Sv DeregisterVolume = OpsWorks

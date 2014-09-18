@@ -79,7 +79,7 @@ module Network.AWS.ElasticTranscoder.CreateJob
     -- * Request
       CreateJob
     -- ** Request constructor
-    , mkCreateJob
+    , createJob
     -- ** Request lenses
     , cj1PipelineId
     , cj1Input
@@ -91,7 +91,7 @@ module Network.AWS.ElasticTranscoder.CreateJob
     -- * Response
     , CreateJobResponse
     -- ** Response constructor
-    , mkCreateJobResponse
+    , createJobResponse
     -- ** Response lenses
     , cjrrJob
     ) where
@@ -127,10 +127,10 @@ data CreateJob = CreateJob
 --
 -- * @Playlists ::@ @[CreateJobPlaylist]@
 --
-mkCreateJob :: Text -- ^ 'cj1PipelineId'
+createJob :: Text -- ^ 'cj1PipelineId'
             -> JobInput -- ^ 'cj1Input'
             -> CreateJob
-mkCreateJob p1 p2 = CreateJob
+createJob p1 p2 = CreateJob
     { _cj1PipelineId = p1
     , _cj1Input = p2
     , _cj1Output = Nothing
@@ -197,8 +197,8 @@ newtype CreateJobResponse = CreateJobResponse
 --
 -- * @Job ::@ @Maybe Job@
 --
-mkCreateJobResponse :: CreateJobResponse
-mkCreateJobResponse = CreateJobResponse
+createJobResponse :: CreateJobResponse
+createJobResponse = CreateJobResponse
     { _cjrrJob = Nothing
     }
 

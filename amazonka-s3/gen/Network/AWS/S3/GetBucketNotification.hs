@@ -23,14 +23,14 @@ module Network.AWS.S3.GetBucketNotification
     -- * Request
       GetBucketNotification
     -- ** Request constructor
-    , mkGetBucketNotification
+    , getBucketNotification
     -- ** Request lenses
     , gbnBucket
 
     -- * Response
     , GetBucketNotificationResponse
     -- ** Response constructor
-    , mkGetBucketNotificationResponse
+    , getBucketNotificationResponse
     -- ** Response lenses
     , gbnrTopicConfiguration
     ) where
@@ -51,9 +51,9 @@ newtype GetBucketNotification = GetBucketNotification
 --
 -- * @Bucket ::@ @BucketName@
 --
-mkGetBucketNotification :: BucketName -- ^ 'gbnBucket'
+getBucketNotification :: BucketName -- ^ 'gbnBucket'
                         -> GetBucketNotification
-mkGetBucketNotification p1 = GetBucketNotification
+getBucketNotification p1 = GetBucketNotification
     { _gbnBucket = p1
     }
 
@@ -81,8 +81,8 @@ newtype GetBucketNotificationResponse = GetBucketNotificationResponse
 --
 -- * @TopicConfiguration ::@ @Maybe TopicConfiguration@
 --
-mkGetBucketNotificationResponse :: GetBucketNotificationResponse
-mkGetBucketNotificationResponse = GetBucketNotificationResponse
+getBucketNotificationResponse :: GetBucketNotificationResponse
+getBucketNotificationResponse = GetBucketNotificationResponse
     { _gbnrTopicConfiguration = Nothing
     }
 

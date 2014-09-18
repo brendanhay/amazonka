@@ -33,7 +33,7 @@ module Network.AWS.AutoScaling.CompleteLifecycleAction
     -- * Request
       CompleteLifecycleAction
     -- ** Request constructor
-    , mkCompleteLifecycleAction
+    , completeLifecycleAction
     -- ** Request lenses
     , claLifecycleHookName
     , claAutoScalingGroupName
@@ -43,7 +43,7 @@ module Network.AWS.AutoScaling.CompleteLifecycleAction
     -- * Response
     , CompleteLifecycleActionResponse
     -- ** Response constructor
-    , mkCompleteLifecycleActionResponse
+    , completeLifecycleActionResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -70,12 +70,12 @@ data CompleteLifecycleAction = CompleteLifecycleAction
 --
 -- * @LifecycleActionResult ::@ @Text@
 --
-mkCompleteLifecycleAction :: Text -- ^ 'claLifecycleHookName'
+completeLifecycleAction :: Text -- ^ 'claLifecycleHookName'
                           -> Text -- ^ 'claAutoScalingGroupName'
                           -> Text -- ^ 'claLifecycleActionToken'
                           -> Text -- ^ 'claLifecycleActionResult'
                           -> CompleteLifecycleAction
-mkCompleteLifecycleAction p1 p2 p3 p4 = CompleteLifecycleAction
+completeLifecycleAction p1 p2 p3 p4 = CompleteLifecycleAction
     { _claLifecycleHookName = p1
     , _claAutoScalingGroupName = p2
     , _claLifecycleActionToken = p3
@@ -119,8 +119,8 @@ data CompleteLifecycleActionResponse = CompleteLifecycleActionResponse
 -- a valid 'CompleteLifecycleActionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkCompleteLifecycleActionResponse :: CompleteLifecycleActionResponse
-mkCompleteLifecycleActionResponse = CompleteLifecycleActionResponse
+completeLifecycleActionResponse :: CompleteLifecycleActionResponse
+completeLifecycleActionResponse = CompleteLifecycleActionResponse
 
 instance AWSRequest CompleteLifecycleAction where
     type Sv CompleteLifecycleAction = AutoScaling

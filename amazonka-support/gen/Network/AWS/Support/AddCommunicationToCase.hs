@@ -29,7 +29,7 @@ module Network.AWS.Support.AddCommunicationToCase
     -- * Request
       AddCommunicationToCase
     -- ** Request constructor
-    , mkAddCommunicationToCase
+    , addCommunicationToCase
     -- ** Request lenses
     , actcCaseId
     , actcCommunicationBody
@@ -39,7 +39,7 @@ module Network.AWS.Support.AddCommunicationToCase
     -- * Response
     , AddCommunicationToCaseResponse
     -- ** Response constructor
-    , mkAddCommunicationToCaseResponse
+    , addCommunicationToCaseResponse
     -- ** Response lenses
     , actcrResult
     ) where
@@ -69,9 +69,9 @@ data AddCommunicationToCase = AddCommunicationToCase
 --
 -- * @AttachmentSetId ::@ @Maybe Text@
 --
-mkAddCommunicationToCase :: Text -- ^ 'actcCommunicationBody'
+addCommunicationToCase :: Text -- ^ 'actcCommunicationBody'
                          -> AddCommunicationToCase
-mkAddCommunicationToCase p2 = AddCommunicationToCase
+addCommunicationToCase p2 = AddCommunicationToCase
     { _actcCaseId = Nothing
     , _actcCommunicationBody = p2
     , _actcCcEmailAddresses = mempty
@@ -123,8 +123,8 @@ newtype AddCommunicationToCaseResponse = AddCommunicationToCaseResponse
 --
 -- * @Result ::@ @Maybe Bool@
 --
-mkAddCommunicationToCaseResponse :: AddCommunicationToCaseResponse
-mkAddCommunicationToCaseResponse = AddCommunicationToCaseResponse
+addCommunicationToCaseResponse :: AddCommunicationToCaseResponse
+addCommunicationToCaseResponse = AddCommunicationToCaseResponse
     { _actcrResult = Nothing
     }
 

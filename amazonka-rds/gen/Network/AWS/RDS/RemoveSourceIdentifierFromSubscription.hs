@@ -31,7 +31,7 @@ module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
     -- * Request
       RemoveSourceIdentifierFromSubscription
     -- ** Request constructor
-    , mkRemoveSourceIdentifierFromSubscription
+    , removeSourceIdentifierFromSubscription
     -- ** Request lenses
     , rsifsSubscriptionName
     , rsifsSourceIdentifier
@@ -39,7 +39,7 @@ module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
     -- * Response
     , RemoveSourceIdentifierFromSubscriptionResponse
     -- ** Response constructor
-    , mkRemoveSourceIdentifierFromSubscriptionResponse
+    , removeSourceIdentifierFromSubscriptionResponse
     -- ** Response lenses
     , rsifsrEventSubscription
     ) where
@@ -63,10 +63,10 @@ data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscrip
 --
 -- * @SourceIdentifier ::@ @Text@
 --
-mkRemoveSourceIdentifierFromSubscription :: Text -- ^ 'rsifsSubscriptionName'
+removeSourceIdentifierFromSubscription :: Text -- ^ 'rsifsSubscriptionName'
                                          -> Text -- ^ 'rsifsSourceIdentifier'
                                          -> RemoveSourceIdentifierFromSubscription
-mkRemoveSourceIdentifierFromSubscription p1 p2 = RemoveSourceIdentifierFromSubscription
+removeSourceIdentifierFromSubscription p1 p2 = RemoveSourceIdentifierFromSubscription
     { _rsifsSubscriptionName = p1
     , _rsifsSourceIdentifier = p2
     }
@@ -99,8 +99,8 @@ newtype RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierF
 --
 -- * @EventSubscription ::@ @Maybe EventSubscription@
 --
-mkRemoveSourceIdentifierFromSubscriptionResponse :: RemoveSourceIdentifierFromSubscriptionResponse
-mkRemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse
+removeSourceIdentifierFromSubscriptionResponse :: RemoveSourceIdentifierFromSubscriptionResponse
+removeSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse
     { _rsifsrEventSubscription = Nothing
     }
 

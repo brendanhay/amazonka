@@ -34,14 +34,14 @@ module Network.AWS.EC2.DeleteVpcPeeringConnection
     -- * Request
       DeleteVpcPeeringConnection
     -- ** Request constructor
-    , mkDeleteVpcPeeringConnection
+    , deleteVpcPeeringConnection
     -- ** Request lenses
     , dvpcVpcPeeringConnectionId
 
     -- * Response
     , DeleteVpcPeeringConnectionResponse
     -- ** Response constructor
-    , mkDeleteVpcPeeringConnectionResponse
+    , deleteVpcPeeringConnectionResponse
     -- ** Response lenses
     , dvpcrReturn
     ) where
@@ -61,9 +61,9 @@ newtype DeleteVpcPeeringConnection = DeleteVpcPeeringConnection
 --
 -- * @VpcPeeringConnectionId ::@ @Text@
 --
-mkDeleteVpcPeeringConnection :: Text -- ^ 'dvpcVpcPeeringConnectionId'
+deleteVpcPeeringConnection :: Text -- ^ 'dvpcVpcPeeringConnectionId'
                              -> DeleteVpcPeeringConnection
-mkDeleteVpcPeeringConnection p1 = DeleteVpcPeeringConnection
+deleteVpcPeeringConnection p1 = DeleteVpcPeeringConnection
     { _dvpcVpcPeeringConnectionId = p1
     }
 
@@ -89,8 +89,8 @@ newtype DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
 --
 -- * @Return ::@ @Maybe Bool@
 --
-mkDeleteVpcPeeringConnectionResponse :: DeleteVpcPeeringConnectionResponse
-mkDeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
+deleteVpcPeeringConnectionResponse :: DeleteVpcPeeringConnectionResponse
+deleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
     { _dvpcrReturn = Nothing
     }
 

@@ -29,7 +29,7 @@ module Network.AWS.OpsWorks.AssignVolume
     -- * Request
       AssignVolume
     -- ** Request constructor
-    , mkAssignVolume
+    , assignVolume
     -- ** Request lenses
     , avVolumeId
     , avInstanceId
@@ -37,7 +37,7 @@ module Network.AWS.OpsWorks.AssignVolume
     -- * Response
     , AssignVolumeResponse
     -- ** Response constructor
-    , mkAssignVolumeResponse
+    , assignVolumeResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -58,9 +58,9 @@ data AssignVolume = AssignVolume
 --
 -- * @InstanceId ::@ @Maybe Text@
 --
-mkAssignVolume :: Text -- ^ 'avVolumeId'
+assignVolume :: Text -- ^ 'avVolumeId'
                -> AssignVolume
-mkAssignVolume p1 = AssignVolume
+assignVolume p1 = AssignVolume
     { _avVolumeId = p1
     , _avInstanceId = Nothing
     }
@@ -88,8 +88,8 @@ data AssignVolumeResponse = AssignVolumeResponse
 -- a valid 'AssignVolumeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkAssignVolumeResponse :: AssignVolumeResponse
-mkAssignVolumeResponse = AssignVolumeResponse
+assignVolumeResponse :: AssignVolumeResponse
+assignVolumeResponse = AssignVolumeResponse
 
 instance AWSRequest AssignVolume where
     type Sv AssignVolume = OpsWorks

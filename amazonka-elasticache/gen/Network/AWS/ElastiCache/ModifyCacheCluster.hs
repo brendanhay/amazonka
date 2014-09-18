@@ -32,7 +32,7 @@ module Network.AWS.ElastiCache.ModifyCacheCluster
     -- * Request
       ModifyCacheCluster
     -- ** Request constructor
-    , mkModifyCacheCluster
+    , modifyCacheCluster
     -- ** Request lenses
     , mccCacheClusterId
     , mccNumCacheNodes
@@ -54,7 +54,7 @@ module Network.AWS.ElastiCache.ModifyCacheCluster
     -- * Response
     , ModifyCacheClusterResponse
     -- ** Response constructor
-    , mkModifyCacheClusterResponse
+    , modifyCacheClusterResponse
     -- ** Response lenses
     , mccrCacheCluster
     ) where
@@ -120,9 +120,9 @@ data ModifyCacheCluster = ModifyCacheCluster
 --
 -- * @NewAvailabilityZones ::@ @[Text]@
 --
-mkModifyCacheCluster :: Text -- ^ 'mccCacheClusterId'
+modifyCacheCluster :: Text -- ^ 'mccCacheClusterId'
                      -> ModifyCacheCluster
-mkModifyCacheCluster p1 = ModifyCacheCluster
+modifyCacheCluster p1 = ModifyCacheCluster
     { _mccCacheClusterId = p1
     , _mccNumCacheNodes = Nothing
     , _mccCacheNodeIdsToRemove = mempty
@@ -342,8 +342,8 @@ newtype ModifyCacheClusterResponse = ModifyCacheClusterResponse
 --
 -- * @CacheCluster ::@ @Maybe CacheCluster@
 --
-mkModifyCacheClusterResponse :: ModifyCacheClusterResponse
-mkModifyCacheClusterResponse = ModifyCacheClusterResponse
+modifyCacheClusterResponse :: ModifyCacheClusterResponse
+modifyCacheClusterResponse = ModifyCacheClusterResponse
     { _mccrCacheCluster = Nothing
     }
 

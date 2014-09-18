@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.DescribeVolumes
     -- * Request
       DescribeVolumes
     -- ** Request constructor
-    , mkDescribeVolumes
+    , describeVolumes
     -- ** Request lenses
     , dv1InstanceId
     , dv1StackId
@@ -37,7 +37,7 @@ module Network.AWS.OpsWorks.DescribeVolumes
     -- * Response
     , DescribeVolumesResponse
     -- ** Response constructor
-    , mkDescribeVolumesResponse
+    , describeVolumesResponse
     -- ** Response lenses
     , dvrVolumes
     ) where
@@ -66,8 +66,8 @@ data DescribeVolumes = DescribeVolumes
 --
 -- * @VolumeIds ::@ @[Text]@
 --
-mkDescribeVolumes :: DescribeVolumes
-mkDescribeVolumes = DescribeVolumes
+describeVolumes :: DescribeVolumes
+describeVolumes = DescribeVolumes
     { _dv1InstanceId = Nothing
     , _dv1StackId = Nothing
     , _dv1RaidArrayId = Nothing
@@ -116,8 +116,8 @@ newtype DescribeVolumesResponse = DescribeVolumesResponse
 --
 -- * @Volumes ::@ @[Volume]@
 --
-mkDescribeVolumesResponse :: DescribeVolumesResponse
-mkDescribeVolumesResponse = DescribeVolumesResponse
+describeVolumesResponse :: DescribeVolumesResponse
+describeVolumesResponse = DescribeVolumesResponse
     { _dvrVolumes = mempty
     }
 

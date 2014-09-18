@@ -32,14 +32,14 @@ module Network.AWS.CloudFormation.GetTemplate
     -- * Request
       GetTemplate
     -- ** Request constructor
-    , mkGetTemplate
+    , getTemplate
     -- ** Request lenses
     , gtStackName
 
     -- * Response
     , GetTemplateResponse
     -- ** Response constructor
-    , mkGetTemplateResponse
+    , getTemplateResponse
     -- ** Response lenses
     , gtrTemplateBody
     ) where
@@ -60,9 +60,9 @@ newtype GetTemplate = GetTemplate
 --
 -- * @StackName ::@ @Text@
 --
-mkGetTemplate :: Text -- ^ 'gtStackName'
+getTemplate :: Text -- ^ 'gtStackName'
               -> GetTemplate
-mkGetTemplate p1 = GetTemplate
+getTemplate p1 = GetTemplate
     { _gtStackName = p1
     }
 
@@ -90,8 +90,8 @@ newtype GetTemplateResponse = GetTemplateResponse
 --
 -- * @TemplateBody ::@ @Maybe Text@
 --
-mkGetTemplateResponse :: GetTemplateResponse
-mkGetTemplateResponse = GetTemplateResponse
+getTemplateResponse :: GetTemplateResponse
+getTemplateResponse = GetTemplateResponse
     { _gtrTemplateBody = Nothing
     }
 

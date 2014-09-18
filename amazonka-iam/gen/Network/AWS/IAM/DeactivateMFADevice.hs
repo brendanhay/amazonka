@@ -26,7 +26,7 @@ module Network.AWS.IAM.DeactivateMFADevice
     -- * Request
       DeactivateMFADevice
     -- ** Request constructor
-    , mkDeactivateMFADevice
+    , deactivateMFADevice
     -- ** Request lenses
     , dmfadUserName
     , dmfadSerialNumber
@@ -34,7 +34,7 @@ module Network.AWS.IAM.DeactivateMFADevice
     -- * Response
     , DeactivateMFADeviceResponse
     -- ** Response constructor
-    , mkDeactivateMFADeviceResponse
+    , deactivateMFADeviceResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -55,10 +55,10 @@ data DeactivateMFADevice = DeactivateMFADevice
 --
 -- * @SerialNumber ::@ @Text@
 --
-mkDeactivateMFADevice :: Text -- ^ 'dmfadUserName'
+deactivateMFADevice :: Text -- ^ 'dmfadUserName'
                       -> Text -- ^ 'dmfadSerialNumber'
                       -> DeactivateMFADevice
-mkDeactivateMFADevice p1 p2 = DeactivateMFADevice
+deactivateMFADevice p1 p2 = DeactivateMFADevice
     { _dmfadUserName = p1
     , _dmfadSerialNumber = p2
     }
@@ -83,8 +83,8 @@ data DeactivateMFADeviceResponse = DeactivateMFADeviceResponse
 -- a valid 'DeactivateMFADeviceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeactivateMFADeviceResponse :: DeactivateMFADeviceResponse
-mkDeactivateMFADeviceResponse = DeactivateMFADeviceResponse
+deactivateMFADeviceResponse :: DeactivateMFADeviceResponse
+deactivateMFADeviceResponse = DeactivateMFADeviceResponse
 
 instance AWSRequest DeactivateMFADevice where
     type Sv DeactivateMFADevice = IAM

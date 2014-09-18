@@ -35,7 +35,7 @@ module Network.AWS.CognitoIdentity.UpdateIdentityPool
     -- * Request
       UpdateIdentityPool
     -- ** Request constructor
-    , mkUpdateIdentityPool
+    , updateIdentityPool
     -- ** Request lenses
     , uipIdentityPoolId
     , uipIdentityPoolName
@@ -45,7 +45,7 @@ module Network.AWS.CognitoIdentity.UpdateIdentityPool
     -- * Response
     , UpdateIdentityPoolResponse
     -- ** Response constructor
-    , mkUpdateIdentityPoolResponse
+    , updateIdentityPoolResponse
     -- ** Response lenses
     , uiprIdentityPoolId
     , uiprIdentityPoolName
@@ -78,11 +78,11 @@ data UpdateIdentityPool = UpdateIdentityPool
 --
 -- * @SupportedLoginProviders ::@ @Map Text Text@
 --
-mkUpdateIdentityPool :: Text -- ^ 'uipIdentityPoolId'
+updateIdentityPool :: Text -- ^ 'uipIdentityPoolId'
                      -> Text -- ^ 'uipIdentityPoolName'
                      -> Bool -- ^ 'uipAllowUnauthenticatedIdentities'
                      -> UpdateIdentityPool
-mkUpdateIdentityPool p1 p2 p3 = UpdateIdentityPool
+updateIdentityPool p1 p2 p3 = UpdateIdentityPool
     { _uipIdentityPoolId = p1
     , _uipIdentityPoolName = p2
     , _uipAllowUnauthenticatedIdentities = p3
@@ -142,11 +142,11 @@ data UpdateIdentityPoolResponse = UpdateIdentityPoolResponse
 --
 -- * @SupportedLoginProviders ::@ @Map Text Text@
 --
-mkUpdateIdentityPoolResponse :: Text -- ^ 'uiprIdentityPoolId'
+updateIdentityPoolResponse :: Text -- ^ 'uiprIdentityPoolId'
                              -> Text -- ^ 'uiprIdentityPoolName'
                              -> Bool -- ^ 'uiprAllowUnauthenticatedIdentities'
                              -> UpdateIdentityPoolResponse
-mkUpdateIdentityPoolResponse p1 p2 p3 = UpdateIdentityPoolResponse
+updateIdentityPoolResponse p1 p2 p3 = UpdateIdentityPoolResponse
     { _uiprIdentityPoolId = p1
     , _uiprIdentityPoolName = p2
     , _uiprAllowUnauthenticatedIdentities = p3

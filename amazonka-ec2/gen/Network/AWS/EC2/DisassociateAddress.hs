@@ -33,7 +33,7 @@ module Network.AWS.EC2.DisassociateAddress
     -- * Request
       DisassociateAddress
     -- ** Request constructor
-    , mkDisassociateAddress
+    , disassociateAddress
     -- ** Request lenses
     , da1PublicIp
     , da1AssociationId
@@ -41,7 +41,7 @@ module Network.AWS.EC2.DisassociateAddress
     -- * Response
     , DisassociateAddressResponse
     -- ** Response constructor
-    , mkDisassociateAddressResponse
+    , disassociateAddressResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -62,8 +62,8 @@ data DisassociateAddress = DisassociateAddress
 --
 -- * @AssociationId ::@ @Maybe Text@
 --
-mkDisassociateAddress :: DisassociateAddress
-mkDisassociateAddress = DisassociateAddress
+disassociateAddress :: DisassociateAddress
+disassociateAddress = DisassociateAddress
     { _da1PublicIp = Nothing
     , _da1AssociationId = Nothing
     }
@@ -87,8 +87,8 @@ data DisassociateAddressResponse = DisassociateAddressResponse
 -- a valid 'DisassociateAddressResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDisassociateAddressResponse :: DisassociateAddressResponse
-mkDisassociateAddressResponse = DisassociateAddressResponse
+disassociateAddressResponse :: DisassociateAddressResponse
+disassociateAddressResponse = DisassociateAddressResponse
 
 instance AWSRequest DisassociateAddress where
     type Sv DisassociateAddress = EC2

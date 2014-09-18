@@ -28,7 +28,7 @@ module Network.AWS.IAM.AddRoleToInstanceProfile
     -- * Request
       AddRoleToInstanceProfile
     -- ** Request constructor
-    , mkAddRoleToInstanceProfile
+    , addRoleToInstanceProfile
     -- ** Request lenses
     , artipInstanceProfileName
     , artipRoleName
@@ -36,7 +36,7 @@ module Network.AWS.IAM.AddRoleToInstanceProfile
     -- * Response
     , AddRoleToInstanceProfileResponse
     -- ** Response constructor
-    , mkAddRoleToInstanceProfileResponse
+    , addRoleToInstanceProfileResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -57,10 +57,10 @@ data AddRoleToInstanceProfile = AddRoleToInstanceProfile
 --
 -- * @RoleName ::@ @Text@
 --
-mkAddRoleToInstanceProfile :: Text -- ^ 'artipInstanceProfileName'
+addRoleToInstanceProfile :: Text -- ^ 'artipInstanceProfileName'
                            -> Text -- ^ 'artipRoleName'
                            -> AddRoleToInstanceProfile
-mkAddRoleToInstanceProfile p1 p2 = AddRoleToInstanceProfile
+addRoleToInstanceProfile p1 p2 = AddRoleToInstanceProfile
     { _artipInstanceProfileName = p1
     , _artipRoleName = p2
     }
@@ -85,8 +85,8 @@ data AddRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
 -- a valid 'AddRoleToInstanceProfileResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkAddRoleToInstanceProfileResponse :: AddRoleToInstanceProfileResponse
-mkAddRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
+addRoleToInstanceProfileResponse :: AddRoleToInstanceProfileResponse
+addRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
 
 instance AWSRequest AddRoleToInstanceProfile where
     type Sv AddRoleToInstanceProfile = IAM

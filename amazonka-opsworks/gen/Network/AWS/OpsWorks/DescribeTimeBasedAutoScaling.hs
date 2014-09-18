@@ -28,14 +28,14 @@ module Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
     -- * Request
       DescribeTimeBasedAutoScaling
     -- ** Request constructor
-    , mkDescribeTimeBasedAutoScaling
+    , describeTimeBasedAutoScaling
     -- ** Request lenses
     , dtbasInstanceIds
 
     -- * Response
     , DescribeTimeBasedAutoScalingResponse
     -- ** Response constructor
-    , mkDescribeTimeBasedAutoScalingResponse
+    , describeTimeBasedAutoScalingResponse
     -- ** Response lenses
     , dtbasrTimeBasedAutoScalingConfigurations
     ) where
@@ -55,9 +55,9 @@ newtype DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling
 --
 -- * @InstanceIds ::@ @[Text]@
 --
-mkDescribeTimeBasedAutoScaling :: [Text] -- ^ 'dtbasInstanceIds'
+describeTimeBasedAutoScaling :: [Text] -- ^ 'dtbasInstanceIds'
                                -> DescribeTimeBasedAutoScaling
-mkDescribeTimeBasedAutoScaling p1 = DescribeTimeBasedAutoScaling
+describeTimeBasedAutoScaling p1 = DescribeTimeBasedAutoScaling
     { _dtbasInstanceIds = p1
     }
 
@@ -88,8 +88,8 @@ newtype DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingRespo
 --
 -- * @TimeBasedAutoScalingConfigurations ::@ @[TimeBasedAutoScalingConfiguration]@
 --
-mkDescribeTimeBasedAutoScalingResponse :: DescribeTimeBasedAutoScalingResponse
-mkDescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse
+describeTimeBasedAutoScalingResponse :: DescribeTimeBasedAutoScalingResponse
+describeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse
     { _dtbasrTimeBasedAutoScalingConfigurations = mempty
     }
 

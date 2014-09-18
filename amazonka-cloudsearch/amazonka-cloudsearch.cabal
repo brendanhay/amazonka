@@ -29,7 +29,6 @@ library
 
     exposed-modules:
           Network.AWS.CloudSearch
-        , Network.AWS.CloudSearch.Monadic
         , Network.AWS.CloudSearch.Types
         , Network.AWS.CloudSearch.BuildSuggesters
         , Network.AWS.CloudSearch.CreateDomain

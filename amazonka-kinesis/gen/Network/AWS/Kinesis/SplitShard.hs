@@ -67,7 +67,7 @@ module Network.AWS.Kinesis.SplitShard
     -- * Request
       SplitShard
     -- ** Request constructor
-    , mkSplitShard
+    , splitShard
     -- ** Request lenses
     , ssStreamName
     , ssShardToSplit
@@ -76,7 +76,7 @@ module Network.AWS.Kinesis.SplitShard
     -- * Response
     , SplitShardResponse
     -- ** Response constructor
-    , mkSplitShardResponse
+    , splitShardResponse
     ) where
 
 import Network.AWS.Kinesis.Types
@@ -101,11 +101,11 @@ data SplitShard = SplitShard
 --
 -- * @NewStartingHashKey ::@ @Text@
 --
-mkSplitShard :: Text -- ^ 'ssStreamName'
+splitShard :: Text -- ^ 'ssStreamName'
              -> Text -- ^ 'ssShardToSplit'
              -> Text -- ^ 'ssNewStartingHashKey'
              -> SplitShard
-mkSplitShard p1 p2 p3 = SplitShard
+splitShard p1 p2 p3 = SplitShard
     { _ssStreamName = p1
     , _ssShardToSplit = p2
     , _ssNewStartingHashKey = p3
@@ -145,8 +145,8 @@ data SplitShardResponse = SplitShardResponse
 -- a valid 'SplitShardResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSplitShardResponse :: SplitShardResponse
-mkSplitShardResponse = SplitShardResponse
+splitShardResponse :: SplitShardResponse
+splitShardResponse = SplitShardResponse
 
 instance AWSRequest SplitShard where
     type Sv SplitShard = Kinesis

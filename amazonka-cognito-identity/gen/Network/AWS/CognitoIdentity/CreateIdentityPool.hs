@@ -34,7 +34,7 @@ module Network.AWS.CognitoIdentity.CreateIdentityPool
     -- * Request
       CreateIdentityPool
     -- ** Request constructor
-    , mkCreateIdentityPool
+    , createIdentityPool
     -- ** Request lenses
     , cipIdentityPoolName
     , cipAllowUnauthenticatedIdentities
@@ -43,7 +43,7 @@ module Network.AWS.CognitoIdentity.CreateIdentityPool
     -- * Response
     , CreateIdentityPoolResponse
     -- ** Response constructor
-    , mkCreateIdentityPoolResponse
+    , createIdentityPoolResponse
     -- ** Response lenses
     , ciprIdentityPoolId
     , ciprIdentityPoolName
@@ -73,10 +73,10 @@ data CreateIdentityPool = CreateIdentityPool
 --
 -- * @SupportedLoginProviders ::@ @Map Text Text@
 --
-mkCreateIdentityPool :: Text -- ^ 'cipIdentityPoolName'
+createIdentityPool :: Text -- ^ 'cipIdentityPoolName'
                      -> Bool -- ^ 'cipAllowUnauthenticatedIdentities'
                      -> CreateIdentityPool
-mkCreateIdentityPool p1 p2 = CreateIdentityPool
+createIdentityPool p1 p2 = CreateIdentityPool
     { _cipIdentityPoolName = p1
     , _cipAllowUnauthenticatedIdentities = p2
     , _cipSupportedLoginProviders = mempty
@@ -130,11 +130,11 @@ data CreateIdentityPoolResponse = CreateIdentityPoolResponse
 --
 -- * @SupportedLoginProviders ::@ @Map Text Text@
 --
-mkCreateIdentityPoolResponse :: Text -- ^ 'ciprIdentityPoolId'
+createIdentityPoolResponse :: Text -- ^ 'ciprIdentityPoolId'
                              -> Text -- ^ 'ciprIdentityPoolName'
                              -> Bool -- ^ 'ciprAllowUnauthenticatedIdentities'
                              -> CreateIdentityPoolResponse
-mkCreateIdentityPoolResponse p1 p2 p3 = CreateIdentityPoolResponse
+createIdentityPoolResponse p1 p2 p3 = CreateIdentityPoolResponse
     { _ciprIdentityPoolId = p1
     , _ciprIdentityPoolName = p2
     , _ciprAllowUnauthenticatedIdentities = p3

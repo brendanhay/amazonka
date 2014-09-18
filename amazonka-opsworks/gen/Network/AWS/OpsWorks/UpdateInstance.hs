@@ -26,7 +26,7 @@ module Network.AWS.OpsWorks.UpdateInstance
     -- * Request
       UpdateInstance
     -- ** Request constructor
-    , mkUpdateInstance
+    , updateInstance
     -- ** Request lenses
     , uiInstanceId
     , uiLayerIds
@@ -43,7 +43,7 @@ module Network.AWS.OpsWorks.UpdateInstance
     -- * Response
     , UpdateInstanceResponse
     -- ** Response constructor
-    , mkUpdateInstanceResponse
+    , updateInstanceResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -91,9 +91,9 @@ data UpdateInstance = UpdateInstance
 --
 -- * @EbsOptimized ::@ @Maybe Bool@
 --
-mkUpdateInstance :: Text -- ^ 'uiInstanceId'
+updateInstance :: Text -- ^ 'uiInstanceId'
                  -> UpdateInstance
-mkUpdateInstance p1 = UpdateInstance
+updateInstance p1 = UpdateInstance
     { _uiInstanceId = p1
     , _uiLayerIds = mempty
     , _uiInstanceType = Nothing
@@ -193,8 +193,8 @@ data UpdateInstanceResponse = UpdateInstanceResponse
 -- a valid 'UpdateInstanceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkUpdateInstanceResponse :: UpdateInstanceResponse
-mkUpdateInstanceResponse = UpdateInstanceResponse
+updateInstanceResponse :: UpdateInstanceResponse
+updateInstanceResponse = UpdateInstanceResponse
 
 instance AWSRequest UpdateInstance where
     type Sv UpdateInstance = OpsWorks

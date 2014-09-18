@@ -35,7 +35,6 @@ library
 
     exposed-modules:
           Network.AWS.SNS
-        , Network.AWS.SNS.Monadic
         , Network.AWS.SNS.Types
         , Network.AWS.SNS.AddPermission
         , Network.AWS.SNS.ConfirmSubscription

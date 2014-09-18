@@ -27,14 +27,14 @@ module Network.AWS.Route53.GetChange
     -- * Request
       GetChange
     -- ** Request constructor
-    , mkGetChange
+    , getChange
     -- ** Request lenses
     , gcId
 
     -- * Response
     , GetChangeResponse
     -- ** Response constructor
-    , mkGetChangeResponse
+    , getChangeResponse
     -- ** Response lenses
     , gcrChangeInfo
     ) where
@@ -56,9 +56,9 @@ newtype GetChange = GetChange
 --
 -- * @Id ::@ @Text@
 --
-mkGetChange :: Text -- ^ 'gcId'
+getChange :: Text -- ^ 'gcId'
             -> GetChange
-mkGetChange p1 = GetChange
+getChange p1 = GetChange
     { _gcId = p1
     }
 
@@ -92,9 +92,9 @@ newtype GetChangeResponse = GetChangeResponse
 --
 -- * @ChangeInfo ::@ @ChangeInfo@
 --
-mkGetChangeResponse :: ChangeInfo -- ^ 'gcrChangeInfo'
+getChangeResponse :: ChangeInfo -- ^ 'gcrChangeInfo'
                     -> GetChangeResponse
-mkGetChangeResponse p1 = GetChangeResponse
+getChangeResponse p1 = GetChangeResponse
     { _gcrChangeInfo = p1
     }
 

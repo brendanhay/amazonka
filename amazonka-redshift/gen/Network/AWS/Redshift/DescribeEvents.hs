@@ -35,7 +35,7 @@ module Network.AWS.Redshift.DescribeEvents
     -- * Request
       DescribeEvents
     -- ** Request constructor
-    , mkDescribeEvents
+    , describeEvents
     -- ** Request lenses
     , deSourceIdentifier
     , deSourceType
@@ -48,7 +48,7 @@ module Network.AWS.Redshift.DescribeEvents
     -- * Response
     , DescribeEventsResponse
     -- ** Response constructor
-    , mkDescribeEventsResponse
+    , describeEventsResponse
     -- ** Response lenses
     , derMarker
     , derEvents
@@ -88,8 +88,8 @@ data DescribeEvents = DescribeEvents
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeEvents :: DescribeEvents
-mkDescribeEvents = DescribeEvents
+describeEvents :: DescribeEvents
+describeEvents = DescribeEvents
     { _deSourceIdentifier = Nothing
     , _deSourceType = Nothing
     , _deStartTime = Nothing
@@ -178,8 +178,8 @@ data DescribeEventsResponse = DescribeEventsResponse
 --
 -- * @Events ::@ @[Event]@
 --
-mkDescribeEventsResponse :: DescribeEventsResponse
-mkDescribeEventsResponse = DescribeEventsResponse
+describeEventsResponse :: DescribeEventsResponse
+describeEventsResponse = DescribeEventsResponse
     { _derMarker = Nothing
     , _derEvents = mempty
     }

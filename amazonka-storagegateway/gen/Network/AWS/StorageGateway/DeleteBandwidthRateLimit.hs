@@ -39,7 +39,7 @@ module Network.AWS.StorageGateway.DeleteBandwidthRateLimit
     -- * Request
       DeleteBandwidthRateLimit
     -- ** Request constructor
-    , mkDeleteBandwidthRateLimit
+    , deleteBandwidthRateLimit
     -- ** Request lenses
     , dbrlGatewayARN
     , dbrlBandwidthType
@@ -47,7 +47,7 @@ module Network.AWS.StorageGateway.DeleteBandwidthRateLimit
     -- * Response
     , DeleteBandwidthRateLimitResponse
     -- ** Response constructor
-    , mkDeleteBandwidthRateLimitResponse
+    , deleteBandwidthRateLimitResponse
     -- ** Response lenses
     , dbrlrGatewayARN
     ) where
@@ -70,10 +70,10 @@ data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit
 --
 -- * @BandwidthType ::@ @Text@
 --
-mkDeleteBandwidthRateLimit :: Text -- ^ 'dbrlGatewayARN'
+deleteBandwidthRateLimit :: Text -- ^ 'dbrlGatewayARN'
                            -> Text -- ^ 'dbrlBandwidthType'
                            -> DeleteBandwidthRateLimit
-mkDeleteBandwidthRateLimit p1 p2 = DeleteBandwidthRateLimit
+deleteBandwidthRateLimit p1 p2 = DeleteBandwidthRateLimit
     { _dbrlGatewayARN = p1
     , _dbrlBandwidthType = p2
     }
@@ -110,8 +110,8 @@ newtype DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse
 --
 -- * @GatewayARN ::@ @Maybe Text@
 --
-mkDeleteBandwidthRateLimitResponse :: DeleteBandwidthRateLimitResponse
-mkDeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse
+deleteBandwidthRateLimitResponse :: DeleteBandwidthRateLimitResponse
+deleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse
     { _dbrlrGatewayARN = Nothing
     }
 

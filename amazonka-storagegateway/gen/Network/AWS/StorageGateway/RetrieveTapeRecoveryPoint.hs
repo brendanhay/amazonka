@@ -22,7 +22,7 @@ module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     -- * Request
       RetrieveTapeRecoveryPoint
     -- ** Request constructor
-    , mkRetrieveTapeRecoveryPoint
+    , retrieveTapeRecoveryPoint
     -- ** Request lenses
     , rtrpTapeARN
     , rtrpGatewayARN
@@ -30,7 +30,7 @@ module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     -- * Response
     , RetrieveTapeRecoveryPointResponse
     -- ** Response constructor
-    , mkRetrieveTapeRecoveryPointResponse
+    , retrieveTapeRecoveryPointResponse
     -- ** Response lenses
     , rtrprTapeARN
     ) where
@@ -53,10 +53,10 @@ data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint
 --
 -- * @GatewayARN ::@ @Text@
 --
-mkRetrieveTapeRecoveryPoint :: Text -- ^ 'rtrpTapeARN'
+retrieveTapeRecoveryPoint :: Text -- ^ 'rtrpTapeARN'
                             -> Text -- ^ 'rtrpGatewayARN'
                             -> RetrieveTapeRecoveryPoint
-mkRetrieveTapeRecoveryPoint p1 p2 = RetrieveTapeRecoveryPoint
+retrieveTapeRecoveryPoint p1 p2 = RetrieveTapeRecoveryPoint
     { _rtrpTapeARN = p1
     , _rtrpGatewayARN = p2
     }
@@ -90,8 +90,8 @@ newtype RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
 --
 -- * @TapeARN ::@ @Maybe Text@
 --
-mkRetrieveTapeRecoveryPointResponse :: RetrieveTapeRecoveryPointResponse
-mkRetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
+retrieveTapeRecoveryPointResponse :: RetrieveTapeRecoveryPointResponse
+retrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
     { _rtrprTapeARN = Nothing
     }
 

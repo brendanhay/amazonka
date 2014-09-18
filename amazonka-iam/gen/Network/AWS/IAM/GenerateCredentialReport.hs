@@ -25,11 +25,11 @@ module Network.AWS.IAM.GenerateCredentialReport
     -- * Request
       GenerateCredentialReport
     -- ** Request constructor
-    , mkGenerateCredentialReport
+    , generateCredentialReport
     -- * Response
     , GenerateCredentialReportResponse
     -- ** Response constructor
-    , mkGenerateCredentialReportResponse
+    , generateCredentialReportResponse
     -- ** Response lenses
     , gcrrState
     , gcrrDescription
@@ -44,8 +44,8 @@ data GenerateCredentialReport = GenerateCredentialReport
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GenerateCredentialReport' request.
-mkGenerateCredentialReport :: GenerateCredentialReport
-mkGenerateCredentialReport = GenerateCredentialReport
+generateCredentialReport :: GenerateCredentialReport
+generateCredentialReport = GenerateCredentialReport
 
 instance ToQuery GenerateCredentialReport where
     toQuery = genericQuery def
@@ -68,8 +68,8 @@ data GenerateCredentialReportResponse = GenerateCredentialReportResponse
 --
 -- * @Description ::@ @Maybe Text@
 --
-mkGenerateCredentialReportResponse :: GenerateCredentialReportResponse
-mkGenerateCredentialReportResponse = GenerateCredentialReportResponse
+generateCredentialReportResponse :: GenerateCredentialReportResponse
+generateCredentialReportResponse = GenerateCredentialReportResponse
     { _gcrrState = Nothing
     , _gcrrDescription = Nothing
     }

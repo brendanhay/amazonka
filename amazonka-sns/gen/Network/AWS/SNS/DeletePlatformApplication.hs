@@ -37,14 +37,14 @@ module Network.AWS.SNS.DeletePlatformApplication
     -- * Request
       DeletePlatformApplication
     -- ** Request constructor
-    , mkDeletePlatformApplication
+    , deletePlatformApplication
     -- ** Request lenses
     , dpaPlatformApplicationArn
 
     -- * Response
     , DeletePlatformApplicationResponse
     -- ** Response constructor
-    , mkDeletePlatformApplicationResponse
+    , deletePlatformApplicationResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -63,9 +63,9 @@ newtype DeletePlatformApplication = DeletePlatformApplication
 --
 -- * @PlatformApplicationArn ::@ @Text@
 --
-mkDeletePlatformApplication :: Text -- ^ 'dpaPlatformApplicationArn'
+deletePlatformApplication :: Text -- ^ 'dpaPlatformApplicationArn'
                             -> DeletePlatformApplication
-mkDeletePlatformApplication p1 = DeletePlatformApplication
+deletePlatformApplication p1 = DeletePlatformApplication
     { _dpaPlatformApplicationArn = p1
     }
 
@@ -85,8 +85,8 @@ data DeletePlatformApplicationResponse = DeletePlatformApplicationResponse
 -- a valid 'DeletePlatformApplicationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeletePlatformApplicationResponse :: DeletePlatformApplicationResponse
-mkDeletePlatformApplicationResponse = DeletePlatformApplicationResponse
+deletePlatformApplicationResponse :: DeletePlatformApplicationResponse
+deletePlatformApplicationResponse = DeletePlatformApplicationResponse
 
 instance AWSRequest DeletePlatformApplication where
     type Sv DeletePlatformApplication = SNS

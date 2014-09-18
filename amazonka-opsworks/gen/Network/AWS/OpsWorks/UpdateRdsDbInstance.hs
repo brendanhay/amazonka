@@ -23,7 +23,7 @@ module Network.AWS.OpsWorks.UpdateRdsDbInstance
     -- * Request
       UpdateRdsDbInstance
     -- ** Request constructor
-    , mkUpdateRdsDbInstance
+    , updateRdsDbInstance
     -- ** Request lenses
     , urdiRdsDbInstanceArn
     , urdiDbUser
@@ -32,7 +32,7 @@ module Network.AWS.OpsWorks.UpdateRdsDbInstance
     -- * Response
     , UpdateRdsDbInstanceResponse
     -- ** Response constructor
-    , mkUpdateRdsDbInstanceResponse
+    , updateRdsDbInstanceResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -56,9 +56,9 @@ data UpdateRdsDbInstance = UpdateRdsDbInstance
 --
 -- * @DbPassword ::@ @Maybe Text@
 --
-mkUpdateRdsDbInstance :: Text -- ^ 'urdiRdsDbInstanceArn'
+updateRdsDbInstance :: Text -- ^ 'urdiRdsDbInstanceArn'
                       -> UpdateRdsDbInstance
-mkUpdateRdsDbInstance p1 = UpdateRdsDbInstance
+updateRdsDbInstance p1 = UpdateRdsDbInstance
     { _urdiRdsDbInstanceArn = p1
     , _urdiDbUser = Nothing
     , _urdiDbPassword = Nothing
@@ -92,8 +92,8 @@ data UpdateRdsDbInstanceResponse = UpdateRdsDbInstanceResponse
 -- a valid 'UpdateRdsDbInstanceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkUpdateRdsDbInstanceResponse :: UpdateRdsDbInstanceResponse
-mkUpdateRdsDbInstanceResponse = UpdateRdsDbInstanceResponse
+updateRdsDbInstanceResponse :: UpdateRdsDbInstanceResponse
+updateRdsDbInstanceResponse = UpdateRdsDbInstanceResponse
 
 instance AWSRequest UpdateRdsDbInstance where
     type Sv UpdateRdsDbInstance = OpsWorks

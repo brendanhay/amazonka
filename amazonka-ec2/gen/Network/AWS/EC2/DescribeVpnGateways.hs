@@ -45,7 +45,7 @@ module Network.AWS.EC2.DescribeVpnGateways
     -- * Request
       DescribeVpnGateways
     -- ** Request constructor
-    , mkDescribeVpnGateways
+    , describeVpnGateways
     -- ** Request lenses
     , dvg1VpnGatewayIds
     , dvg1Filters
@@ -53,7 +53,7 @@ module Network.AWS.EC2.DescribeVpnGateways
     -- * Response
     , DescribeVpnGatewaysResponse
     -- ** Response constructor
-    , mkDescribeVpnGatewaysResponse
+    , describeVpnGatewaysResponse
     -- ** Response lenses
     , dvgrVpnGateways
     ) where
@@ -76,8 +76,8 @@ data DescribeVpnGateways = DescribeVpnGateways
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribeVpnGateways :: DescribeVpnGateways
-mkDescribeVpnGateways = DescribeVpnGateways
+describeVpnGateways :: DescribeVpnGateways
+describeVpnGateways = DescribeVpnGateways
     { _dvg1VpnGatewayIds = mempty
     , _dvg1Filters = mempty
     }
@@ -123,8 +123,8 @@ newtype DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
 --
 -- * @VpnGateways ::@ @[VpnGateway]@
 --
-mkDescribeVpnGatewaysResponse :: DescribeVpnGatewaysResponse
-mkDescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
+describeVpnGatewaysResponse :: DescribeVpnGatewaysResponse
+describeVpnGatewaysResponse = DescribeVpnGatewaysResponse
     { _dvgrVpnGateways = mempty
     }
 

@@ -32,7 +32,7 @@ module Network.AWS.EC2.ResetNetworkInterfaceAttribute
     -- * Request
       ResetNetworkInterfaceAttribute
     -- ** Request constructor
-    , mkResetNetworkInterfaceAttribute
+    , resetNetworkInterfaceAttribute
     -- ** Request lenses
     , rniaNetworkInterfaceId
     , rniaSourceDestCheck
@@ -40,7 +40,7 @@ module Network.AWS.EC2.ResetNetworkInterfaceAttribute
     -- * Response
     , ResetNetworkInterfaceAttributeResponse
     -- ** Response constructor
-    , mkResetNetworkInterfaceAttributeResponse
+    , resetNetworkInterfaceAttributeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -61,9 +61,9 @@ data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
 --
 -- * @SourceDestCheck ::@ @Maybe Text@
 --
-mkResetNetworkInterfaceAttribute :: Text -- ^ 'rniaNetworkInterfaceId'
+resetNetworkInterfaceAttribute :: Text -- ^ 'rniaNetworkInterfaceId'
                                  -> ResetNetworkInterfaceAttribute
-mkResetNetworkInterfaceAttribute p1 = ResetNetworkInterfaceAttribute
+resetNetworkInterfaceAttribute p1 = ResetNetworkInterfaceAttribute
     { _rniaNetworkInterfaceId = p1
     , _rniaSourceDestCheck = Nothing
     }
@@ -90,8 +90,8 @@ data ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResp
 -- a valid 'ResetNetworkInterfaceAttributeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkResetNetworkInterfaceAttributeResponse :: ResetNetworkInterfaceAttributeResponse
-mkResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
+resetNetworkInterfaceAttributeResponse :: ResetNetworkInterfaceAttributeResponse
+resetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
 
 instance AWSRequest ResetNetworkInterfaceAttribute where
     type Sv ResetNetworkInterfaceAttribute = EC2

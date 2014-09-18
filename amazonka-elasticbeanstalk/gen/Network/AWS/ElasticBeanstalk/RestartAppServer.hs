@@ -27,7 +27,7 @@ module Network.AWS.ElasticBeanstalk.RestartAppServer
     -- * Request
       RestartAppServer
     -- ** Request constructor
-    , mkRestartAppServer
+    , restartAppServer
     -- ** Request lenses
     , rasEnvironmentId
     , rasEnvironmentName
@@ -35,7 +35,7 @@ module Network.AWS.ElasticBeanstalk.RestartAppServer
     -- * Response
     , RestartAppServerResponse
     -- ** Response constructor
-    , mkRestartAppServerResponse
+    , restartAppServerResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -57,8 +57,8 @@ data RestartAppServer = RestartAppServer
 --
 -- * @EnvironmentName ::@ @Maybe Text@
 --
-mkRestartAppServer :: RestartAppServer
-mkRestartAppServer = RestartAppServer
+restartAppServer :: RestartAppServer
+restartAppServer = RestartAppServer
     { _rasEnvironmentId = Nothing
     , _rasEnvironmentName = Nothing
     }
@@ -87,8 +87,8 @@ data RestartAppServerResponse = RestartAppServerResponse
 -- a valid 'RestartAppServerResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRestartAppServerResponse :: RestartAppServerResponse
-mkRestartAppServerResponse = RestartAppServerResponse
+restartAppServerResponse :: RestartAppServerResponse
+restartAppServerResponse = RestartAppServerResponse
 
 instance AWSRequest RestartAppServer where
     type Sv RestartAppServer = ElasticBeanstalk

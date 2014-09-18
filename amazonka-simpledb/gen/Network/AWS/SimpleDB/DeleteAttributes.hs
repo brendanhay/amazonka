@@ -32,7 +32,7 @@ module Network.AWS.SimpleDB.DeleteAttributes
     -- * Request
       DeleteAttributes
     -- ** Request constructor
-    , mkDeleteAttributes
+    , deleteAttributes
     -- ** Request lenses
     , daDomainName
     , daItemName
@@ -42,7 +42,7 @@ module Network.AWS.SimpleDB.DeleteAttributes
     -- * Response
     , DeleteAttributesResponse
     -- ** Response constructor
-    , mkDeleteAttributesResponse
+    , deleteAttributesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -69,10 +69,10 @@ data DeleteAttributes = DeleteAttributes
 --
 -- * @Expected ::@ @Maybe UpdateCondition@
 --
-mkDeleteAttributes :: Text -- ^ 'daDomainName'
+deleteAttributes :: Text -- ^ 'daDomainName'
                    -> Text -- ^ 'daItemName'
                    -> DeleteAttributes
-mkDeleteAttributes p1 p2 = DeleteAttributes
+deleteAttributes p1 p2 = DeleteAttributes
     { _daDomainName = p1
     , _daItemName = p2
     , _daAttributes = mempty
@@ -109,8 +109,8 @@ data DeleteAttributesResponse = DeleteAttributesResponse
 -- a valid 'DeleteAttributesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteAttributesResponse :: DeleteAttributesResponse
-mkDeleteAttributesResponse = DeleteAttributesResponse
+deleteAttributesResponse :: DeleteAttributesResponse
+deleteAttributesResponse = DeleteAttributesResponse
 
 instance AWSRequest DeleteAttributes where
     type Sv DeleteAttributes = SimpleDB

@@ -49,7 +49,7 @@ module Network.AWS.StorageGateway.ListVolumes
     -- * Request
       ListVolumes
     -- ** Request constructor
-    , mkListVolumes
+    , listVolumes
     -- ** Request lenses
     , lvGatewayARN
     , lvMarker
@@ -58,7 +58,7 @@ module Network.AWS.StorageGateway.ListVolumes
     -- * Response
     , ListVolumesResponse
     -- ** Response constructor
-    , mkListVolumesResponse
+    , listVolumesResponse
     -- ** Response lenses
     , lvrGatewayARN
     , lvrMarker
@@ -88,9 +88,9 @@ data ListVolumes = ListVolumes
 --
 -- * @Limit ::@ @Maybe Integer@
 --
-mkListVolumes :: Text -- ^ 'lvGatewayARN'
+listVolumes :: Text -- ^ 'lvGatewayARN'
               -> ListVolumes
-mkListVolumes p1 = ListVolumes
+listVolumes p1 = ListVolumes
     { _lvGatewayARN = p1
     , _lvMarker = Nothing
     , _lvLimit = Nothing
@@ -139,8 +139,8 @@ data ListVolumesResponse = ListVolumesResponse
 --
 -- * @VolumeInfos ::@ @[VolumeInformation]@
 --
-mkListVolumesResponse :: ListVolumesResponse
-mkListVolumesResponse = ListVolumesResponse
+listVolumesResponse :: ListVolumesResponse
+listVolumesResponse = ListVolumesResponse
     { _lvrGatewayARN = Nothing
     , _lvrMarker = Nothing
     , _lvrVolumeInfos = mempty

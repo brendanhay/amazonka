@@ -26,7 +26,7 @@ module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
     -- * Request
       SwapEnvironmentCNAMEs
     -- ** Request constructor
-    , mkSwapEnvironmentCNAMEs
+    , swapEnvironmentCNAMEs
     -- ** Request lenses
     , secnameSourceEnvironmentId
     , secnameSourceEnvironmentName
@@ -36,7 +36,7 @@ module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
     -- * Response
     , SwapEnvironmentCNAMEsResponse
     -- ** Response constructor
-    , mkSwapEnvironmentCNAMEsResponse
+    , swapEnvironmentCNAMEsResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -64,8 +64,8 @@ data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs
 --
 -- * @DestinationEnvironmentName ::@ @Maybe Text@
 --
-mkSwapEnvironmentCNAMEs :: SwapEnvironmentCNAMEs
-mkSwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs
+swapEnvironmentCNAMEs :: SwapEnvironmentCNAMEs
+swapEnvironmentCNAMEs = SwapEnvironmentCNAMEs
     { _secnameSourceEnvironmentId = Nothing
     , _secnameSourceEnvironmentName = Nothing
     , _secnameDestinationEnvironmentId = Nothing
@@ -118,8 +118,8 @@ data SwapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse
 -- a valid 'SwapEnvironmentCNAMEsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSwapEnvironmentCNAMEsResponse :: SwapEnvironmentCNAMEsResponse
-mkSwapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse
+swapEnvironmentCNAMEsResponse :: SwapEnvironmentCNAMEsResponse
+swapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse
 
 instance AWSRequest SwapEnvironmentCNAMEs where
     type Sv SwapEnvironmentCNAMEs = ElasticBeanstalk

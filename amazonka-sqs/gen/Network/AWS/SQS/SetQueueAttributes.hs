@@ -57,7 +57,7 @@ module Network.AWS.SQS.SetQueueAttributes
     -- * Request
       SetQueueAttributes
     -- ** Request constructor
-    , mkSetQueueAttributes
+    , setQueueAttributes
     -- ** Request lenses
     , sqaQueueUrl
     , sqaAttributes
@@ -65,7 +65,7 @@ module Network.AWS.SQS.SetQueueAttributes
     -- * Response
     , SetQueueAttributesResponse
     -- ** Response constructor
-    , mkSetQueueAttributesResponse
+    , setQueueAttributesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -86,10 +86,10 @@ data SetQueueAttributes = SetQueueAttributes
 --
 -- * @Attributes ::@ @Map QueueAttributeName Text@
 --
-mkSetQueueAttributes :: Text -- ^ 'sqaQueueUrl'
+setQueueAttributes :: Text -- ^ 'sqaQueueUrl'
                      -> Map QueueAttributeName Text -- ^ 'sqaAttributes'
                      -> SetQueueAttributes
-mkSetQueueAttributes p1 p2 = SetQueueAttributes
+setQueueAttributes p1 p2 = SetQueueAttributes
     { _sqaQueueUrl = p1
     , _sqaAttributes = p2
     }
@@ -135,8 +135,8 @@ data SetQueueAttributesResponse = SetQueueAttributesResponse
 -- a valid 'SetQueueAttributesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSetQueueAttributesResponse :: SetQueueAttributesResponse
-mkSetQueueAttributesResponse = SetQueueAttributesResponse
+setQueueAttributesResponse :: SetQueueAttributesResponse
+setQueueAttributesResponse = SetQueueAttributesResponse
 
 instance AWSRequest SetQueueAttributes where
     type Sv SetQueueAttributes = SQS

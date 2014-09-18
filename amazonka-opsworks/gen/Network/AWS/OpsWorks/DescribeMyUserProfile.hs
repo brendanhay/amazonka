@@ -26,11 +26,11 @@ module Network.AWS.OpsWorks.DescribeMyUserProfile
     -- * Request
       DescribeMyUserProfile
     -- ** Request constructor
-    , mkDescribeMyUserProfile
+    , describeMyUserProfile
     -- * Response
     , DescribeMyUserProfileResponse
     -- ** Response constructor
-    , mkDescribeMyUserProfileResponse
+    , describeMyUserProfileResponse
     -- ** Response lenses
     , dmuprUserProfile
     ) where
@@ -44,8 +44,8 @@ data DescribeMyUserProfile = DescribeMyUserProfile
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeMyUserProfile' request.
-mkDescribeMyUserProfile :: DescribeMyUserProfile
-mkDescribeMyUserProfile = DescribeMyUserProfile
+describeMyUserProfile :: DescribeMyUserProfile
+describeMyUserProfile = DescribeMyUserProfile
 
 instance ToPath DescribeMyUserProfile
 
@@ -69,8 +69,8 @@ newtype DescribeMyUserProfileResponse = DescribeMyUserProfileResponse
 --
 -- * @UserProfile ::@ @Maybe SelfUserProfile@
 --
-mkDescribeMyUserProfileResponse :: DescribeMyUserProfileResponse
-mkDescribeMyUserProfileResponse = DescribeMyUserProfileResponse
+describeMyUserProfileResponse :: DescribeMyUserProfileResponse
+describeMyUserProfileResponse = DescribeMyUserProfileResponse
     { _dmuprUserProfile = Nothing
     }
 

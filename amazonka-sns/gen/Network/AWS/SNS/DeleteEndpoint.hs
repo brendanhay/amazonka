@@ -35,14 +35,14 @@ module Network.AWS.SNS.DeleteEndpoint
     -- * Request
       DeleteEndpoint
     -- ** Request constructor
-    , mkDeleteEndpoint
+    , deleteEndpoint
     -- ** Request lenses
     , deEndpointArn
 
     -- * Response
     , DeleteEndpointResponse
     -- ** Response constructor
-    , mkDeleteEndpointResponse
+    , deleteEndpointResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -61,9 +61,9 @@ newtype DeleteEndpoint = DeleteEndpoint
 --
 -- * @EndpointArn ::@ @Text@
 --
-mkDeleteEndpoint :: Text -- ^ 'deEndpointArn'
+deleteEndpoint :: Text -- ^ 'deEndpointArn'
                  -> DeleteEndpoint
-mkDeleteEndpoint p1 = DeleteEndpoint
+deleteEndpoint p1 = DeleteEndpoint
     { _deEndpointArn = p1
     }
 
@@ -81,8 +81,8 @@ data DeleteEndpointResponse = DeleteEndpointResponse
 -- a valid 'DeleteEndpointResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteEndpointResponse :: DeleteEndpointResponse
-mkDeleteEndpointResponse = DeleteEndpointResponse
+deleteEndpointResponse :: DeleteEndpointResponse
+deleteEndpointResponse = DeleteEndpointResponse
 
 instance AWSRequest DeleteEndpoint where
     type Sv DeleteEndpoint = SNS

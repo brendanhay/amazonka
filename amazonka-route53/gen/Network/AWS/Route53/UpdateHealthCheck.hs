@@ -28,7 +28,7 @@ module Network.AWS.Route53.UpdateHealthCheck
     -- * Request
       UpdateHealthCheck
     -- ** Request constructor
-    , mkUpdateHealthCheck
+    , updateHealthCheck
     -- ** Request lenses
     , uhcHealthCheckId
     , uhcHealthCheckVersion
@@ -42,7 +42,7 @@ module Network.AWS.Route53.UpdateHealthCheck
     -- * Response
     , UpdateHealthCheckResponse
     -- ** Response constructor
-    , mkUpdateHealthCheckResponse
+    , updateHealthCheckResponse
     -- ** Response lenses
     , uhcrHealthCheck
     ) where
@@ -86,9 +86,9 @@ data UpdateHealthCheck = UpdateHealthCheck
 --
 -- * @FailureThreshold ::@ @Maybe Integer@
 --
-mkUpdateHealthCheck :: Text -- ^ 'uhcHealthCheckId'
+updateHealthCheck :: Text -- ^ 'uhcHealthCheckId'
                     -> UpdateHealthCheck
-mkUpdateHealthCheck p1 = UpdateHealthCheck
+updateHealthCheck p1 = UpdateHealthCheck
     { _uhcHealthCheckId = p1
     , _uhcHealthCheckVersion = Nothing
     , _uhcIPAddress = Nothing
@@ -178,9 +178,9 @@ newtype UpdateHealthCheckResponse = UpdateHealthCheckResponse
 --
 -- * @HealthCheck ::@ @HealthCheck@
 --
-mkUpdateHealthCheckResponse :: HealthCheck -- ^ 'uhcrHealthCheck'
+updateHealthCheckResponse :: HealthCheck -- ^ 'uhcrHealthCheck'
                             -> UpdateHealthCheckResponse
-mkUpdateHealthCheckResponse p1 = UpdateHealthCheckResponse
+updateHealthCheckResponse p1 = UpdateHealthCheckResponse
     { _uhcrHealthCheck = p1
     }
 

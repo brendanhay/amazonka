@@ -35,7 +35,7 @@ module Network.AWS.IAM.ListGroups
     -- * Request
       ListGroups
     -- ** Request constructor
-    , mkListGroups
+    , listGroups
     -- ** Request lenses
     , lgPathPrefix
     , lgMarker
@@ -44,7 +44,7 @@ module Network.AWS.IAM.ListGroups
     -- * Response
     , ListGroupsResponse
     -- ** Response constructor
-    , mkListGroupsResponse
+    , listGroupsResponse
     -- ** Response lenses
     , lgrGroups
     , lgrIsTruncated
@@ -72,8 +72,8 @@ data ListGroups = ListGroups
 --
 -- * @MaxItems ::@ @Maybe Integer@
 --
-mkListGroups :: ListGroups
-mkListGroups = ListGroups
+listGroups :: ListGroups
+listGroups = ListGroups
     { _lgPathPrefix = Nothing
     , _lgMarker = Nothing
     , _lgMaxItems = Nothing
@@ -122,10 +122,10 @@ data ListGroupsResponse = ListGroupsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListGroupsResponse :: [Group] -- ^ 'lgrGroups'
+listGroupsResponse :: [Group] -- ^ 'lgrGroups'
                      -> Bool -- ^ 'lgrIsTruncated'
                      -> ListGroupsResponse
-mkListGroupsResponse p1 p2 = ListGroupsResponse
+listGroupsResponse p1 p2 = ListGroupsResponse
     { _lgrGroups = p1
     , _lgrIsTruncated = p2
     , _lgrMarker = Nothing

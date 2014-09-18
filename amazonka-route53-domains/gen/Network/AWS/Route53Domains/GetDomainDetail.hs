@@ -59,14 +59,14 @@ module Network.AWS.Route53Domains.GetDomainDetail
     -- * Request
       GetDomainDetail
     -- ** Request constructor
-    , mkGetDomainDetail
+    , getDomainDetail
     -- ** Request lenses
     , gddDomainName
 
     -- * Response
     , GetDomainDetailResponse
     -- ** Response constructor
-    , mkGetDomainDetailResponse
+    , getDomainDetailResponse
     -- ** Response lenses
     , gddrDomainName
     , gddrNameservers
@@ -107,9 +107,9 @@ newtype GetDomainDetail = GetDomainDetail
 --
 -- * @DomainName ::@ @Text@
 --
-mkGetDomainDetail :: Text -- ^ 'gddDomainName'
+getDomainDetail :: Text -- ^ 'gddDomainName'
                   -> GetDomainDetail
-mkGetDomainDetail p1 = GetDomainDetail
+getDomainDetail p1 = GetDomainDetail
     { _gddDomainName = p1
     }
 
@@ -202,13 +202,13 @@ data GetDomainDetailResponse = GetDomainDetailResponse
 --
 -- * @StatusList ::@ @[Text]@
 --
-mkGetDomainDetailResponse :: Text -- ^ 'gddrDomainName'
+getDomainDetailResponse :: Text -- ^ 'gddrDomainName'
                           -> [Nameserver] -- ^ 'gddrNameservers'
                           -> ContactDetail -- ^ 'gddrAdminContact'
                           -> ContactDetail -- ^ 'gddrRegistrantContact'
                           -> ContactDetail -- ^ 'gddrTechContact'
                           -> GetDomainDetailResponse
-mkGetDomainDetailResponse p1 p2 p4 p5 p6 = GetDomainDetailResponse
+getDomainDetailResponse p1 p2 p4 p5 p6 = GetDomainDetailResponse
     { _gddrDomainName = p1
     , _gddrNameservers = p2
     , _gddrAutoRenew = Nothing

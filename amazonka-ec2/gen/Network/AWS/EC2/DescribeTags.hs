@@ -60,7 +60,7 @@ module Network.AWS.EC2.DescribeTags
     -- * Request
       DescribeTags
     -- ** Request constructor
-    , mkDescribeTags
+    , describeTags
     -- ** Request lenses
     , dt1Filters
     , dt1MaxResults
@@ -69,7 +69,7 @@ module Network.AWS.EC2.DescribeTags
     -- * Response
     , DescribeTagsResponse
     -- ** Response constructor
-    , mkDescribeTagsResponse
+    , describeTagsResponse
     -- ** Response lenses
     , dtrTags
     , dtrNextToken
@@ -96,8 +96,8 @@ data DescribeTags = DescribeTags
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeTags :: DescribeTags
-mkDescribeTags = DescribeTags
+describeTags :: DescribeTags
+describeTags = DescribeTags
     { _dt1Filters = mempty
     , _dt1MaxResults = Nothing
     , _dt1NextToken = Nothing
@@ -142,8 +142,8 @@ data DescribeTagsResponse = DescribeTagsResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeTagsResponse :: DescribeTagsResponse
-mkDescribeTagsResponse = DescribeTagsResponse
+describeTagsResponse :: DescribeTagsResponse
+describeTagsResponse = DescribeTagsResponse
     { _dtrTags = mempty
     , _dtrNextToken = Nothing
     }

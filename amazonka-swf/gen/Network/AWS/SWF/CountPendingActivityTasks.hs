@@ -51,7 +51,7 @@ module Network.AWS.SWF.CountPendingActivityTasks
     -- * Request
       CountPendingActivityTasks
     -- ** Request constructor
-    , mkCountPendingActivityTasks
+    , countPendingActivityTasks
     -- ** Request lenses
     , cpatDomain
     , cpatTaskList
@@ -59,7 +59,7 @@ module Network.AWS.SWF.CountPendingActivityTasks
     -- * Response
     , CountPendingActivityTasksResponse
     -- ** Response constructor
-    , mkCountPendingActivityTasksResponse
+    , countPendingActivityTasksResponse
     -- ** Response lenses
     , cpatrCount
     , cpatrTruncated
@@ -83,10 +83,10 @@ data CountPendingActivityTasks = CountPendingActivityTasks
 --
 -- * @TaskList ::@ @TaskList@
 --
-mkCountPendingActivityTasks :: Text -- ^ 'cpatDomain'
+countPendingActivityTasks :: Text -- ^ 'cpatDomain'
                             -> TaskList -- ^ 'cpatTaskList'
                             -> CountPendingActivityTasks
-mkCountPendingActivityTasks p1 p2 = CountPendingActivityTasks
+countPendingActivityTasks p1 p2 = CountPendingActivityTasks
     { _cpatDomain = p1
     , _cpatTaskList = p2
     }
@@ -124,9 +124,9 @@ data CountPendingActivityTasksResponse = CountPendingActivityTasksResponse
 --
 -- * @Truncated ::@ @Maybe Bool@
 --
-mkCountPendingActivityTasksResponse :: Integer -- ^ 'cpatrCount'
+countPendingActivityTasksResponse :: Integer -- ^ 'cpatrCount'
                                     -> CountPendingActivityTasksResponse
-mkCountPendingActivityTasksResponse p1 = CountPendingActivityTasksResponse
+countPendingActivityTasksResponse p1 = CountPendingActivityTasksResponse
     { _cpatrCount = p1
     , _cpatrTruncated = Nothing
     }

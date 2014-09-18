@@ -88,7 +88,7 @@ module Network.AWS.ELB.CreateLoadBalancer
     -- * Request
       CreateLoadBalancer
     -- ** Request constructor
-    , mkCreateLoadBalancer
+    , createLoadBalancer
     -- ** Request lenses
     , clbLoadBalancerName
     , clbListeners
@@ -101,7 +101,7 @@ module Network.AWS.ELB.CreateLoadBalancer
     -- * Response
     , CreateLoadBalancerResponse
     -- ** Response constructor
-    , mkCreateLoadBalancerResponse
+    , createLoadBalancerResponse
     -- ** Response lenses
     , clbrDNSName
     ) where
@@ -140,10 +140,10 @@ data CreateLoadBalancer = CreateLoadBalancer
 --
 -- * @Tags ::@ @Maybe (List1 Tag)@
 --
-mkCreateLoadBalancer :: Text -- ^ 'clbLoadBalancerName'
+createLoadBalancer :: Text -- ^ 'clbLoadBalancerName'
                      -> [Listener] -- ^ 'clbListeners'
                      -> CreateLoadBalancer
-mkCreateLoadBalancer p1 p2 = CreateLoadBalancer
+createLoadBalancer p1 p2 = CreateLoadBalancer
     { _clbLoadBalancerName = p1
     , _clbListeners = p2
     , _clbAvailabilityZones = mempty
@@ -216,8 +216,8 @@ newtype CreateLoadBalancerResponse = CreateLoadBalancerResponse
 --
 -- * @DNSName ::@ @Maybe Text@
 --
-mkCreateLoadBalancerResponse :: CreateLoadBalancerResponse
-mkCreateLoadBalancerResponse = CreateLoadBalancerResponse
+createLoadBalancerResponse :: CreateLoadBalancerResponse
+createLoadBalancerResponse = CreateLoadBalancerResponse
     { _clbrDNSName = Nothing
     }
 

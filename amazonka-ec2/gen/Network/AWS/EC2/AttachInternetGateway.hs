@@ -33,7 +33,7 @@ module Network.AWS.EC2.AttachInternetGateway
     -- * Request
       AttachInternetGateway
     -- ** Request constructor
-    , mkAttachInternetGateway
+    , attachInternetGateway
     -- ** Request lenses
     , aigInternetGatewayId
     , aigVpcId
@@ -41,7 +41,7 @@ module Network.AWS.EC2.AttachInternetGateway
     -- * Response
     , AttachInternetGatewayResponse
     -- ** Response constructor
-    , mkAttachInternetGatewayResponse
+    , attachInternetGatewayResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -62,10 +62,10 @@ data AttachInternetGateway = AttachInternetGateway
 --
 -- * @VpcId ::@ @Text@
 --
-mkAttachInternetGateway :: Text -- ^ 'aigInternetGatewayId'
+attachInternetGateway :: Text -- ^ 'aigInternetGatewayId'
                         -> Text -- ^ 'aigVpcId'
                         -> AttachInternetGateway
-mkAttachInternetGateway p1 p2 = AttachInternetGateway
+attachInternetGateway p1 p2 = AttachInternetGateway
     { _aigInternetGatewayId = p1
     , _aigVpcId = p2
     }
@@ -89,8 +89,8 @@ data AttachInternetGatewayResponse = AttachInternetGatewayResponse
 -- a valid 'AttachInternetGatewayResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkAttachInternetGatewayResponse :: AttachInternetGatewayResponse
-mkAttachInternetGatewayResponse = AttachInternetGatewayResponse
+attachInternetGatewayResponse :: AttachInternetGatewayResponse
+attachInternetGatewayResponse = AttachInternetGatewayResponse
 
 instance AWSRequest AttachInternetGateway where
     type Sv AttachInternetGateway = EC2

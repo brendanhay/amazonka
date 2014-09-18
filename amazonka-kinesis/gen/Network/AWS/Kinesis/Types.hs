@@ -45,26 +45,26 @@ module Network.AWS.Kinesis.Types
 
     -- * HashKeyRange
     , HashKeyRange
-    , mkHashKeyRange
+    , hashKeyRange
     , hkrStartingHashKey
     , hkrEndingHashKey
 
     -- * Record
     , Record
-    , mkRecord
+    , record
     , rSequenceNumber
     , rData
     , rPartitionKey
 
     -- * SequenceNumberRange
     , SequenceNumberRange
-    , mkSequenceNumberRange
+    , sequenceNumberRange
     , snrStartingSequenceNumber
     , snrEndingSequenceNumber
 
     -- * Shard
     , Shard
-    , mkShard
+    , shard
     , sShardId
     , sParentShardId
     , sAdjacentParentShardId
@@ -73,7 +73,7 @@ module Network.AWS.Kinesis.Types
 
     -- * StreamDescription
     , StreamDescription
-    , mkStreamDescription
+    , streamDescription
     , sdStreamName
     , sdStreamARN
     , sdStreamStatus
@@ -114,8 +114,8 @@ data KinesisError
         { _iaeMessage :: Maybe Text
         }
     | KinesisClient HttpException
-    | KinesisSerializer Text
-    | KinesisService Text
+    | KinesisSerializer String
+    | KinesisService String
       -- | 
     | LimitExceededException
         { _leeMessage :: Maybe Text
@@ -173,7 +173,7 @@ _KinesisClient = prism'
         x -> Left x)
 
 -- | See: 'KinesisSerializer'
-_KinesisSerializer :: Prism' KinesisError Text
+_KinesisSerializer :: Prism' KinesisError String
 _KinesisSerializer = prism'
     KinesisSerializer
     (\case
@@ -181,7 +181,7 @@ _KinesisSerializer = prism'
         x -> Left x)
 
 -- | See: 'KinesisService'
-_KinesisService :: Prism' KinesisError Text
+_KinesisService :: Prism' KinesisError String
 _KinesisService = prism'
     KinesisService
     (\case
@@ -314,10 +314,10 @@ data HashKeyRange = HashKeyRange
 --
 -- * @EndingHashKey ::@ @Text@
 --
-mkHashKeyRange :: Text -- ^ 'hkrStartingHashKey'
+hashKeyRange :: Text -- ^ 'hkrStartingHashKey'
                -> Text -- ^ 'hkrEndingHashKey'
                -> HashKeyRange
-mkHashKeyRange p1 p2 = HashKeyRange
+hashKeyRange p1 p2 = HashKeyRange
     { _hkrStartingHashKey = p1
     , _hkrEndingHashKey = p2
     }
@@ -358,11 +358,11 @@ data Record = Record
 --
 -- * @PartitionKey ::@ @Text@
 --
-mkRecord :: Text -- ^ 'rSequenceNumber'
+record :: Text -- ^ 'rSequenceNumber'
          -> Base64 -- ^ 'rData'
          -> Text -- ^ 'rPartitionKey'
          -> Record
-mkRecord p1 p2 p3 = Record
+record p1 p2 p3 = Record
     { _rSequenceNumber = p1
     , _rData = p2
     , _rPartitionKey = p3
@@ -400,9 +400,9 @@ data SequenceNumberRange = SequenceNumberRange
 --
 -- * @EndingSequenceNumber ::@ @Maybe Text@
 --
-mkSequenceNumberRange :: Text -- ^ 'snrStartingSequenceNumber'
+sequenceNumberRange :: Text -- ^ 'snrStartingSequenceNumber'
                       -> SequenceNumberRange
-mkSequenceNumberRange p1 = SequenceNumberRange
+sequenceNumberRange p1 = SequenceNumberRange
     { _snrStartingSequenceNumber = p1
     , _snrEndingSequenceNumber = Nothing
     }
@@ -451,11 +451,11 @@ data Shard = Shard
 --
 -- * @SequenceNumberRange ::@ @SequenceNumberRange@
 --
-mkShard :: Text -- ^ 'sShardId'
+shard :: Text -- ^ 'sShardId'
         -> HashKeyRange -- ^ 'sHashKeyRange'
         -> SequenceNumberRange -- ^ 'sSequenceNumberRange'
         -> Shard
-mkShard p1 p4 p5 = Shard
+shard p1 p4 p5 = Shard
     { _sShardId = p1
     , _sParentShardId = Nothing
     , _sAdjacentParentShardId = Nothing
@@ -517,13 +517,13 @@ data StreamDescription = StreamDescription
 --
 -- * @HasMoreShards ::@ @Bool@
 --
-mkStreamDescription :: Text -- ^ 'sdStreamName'
+streamDescription :: Text -- ^ 'sdStreamName'
                     -> Text -- ^ 'sdStreamARN'
                     -> StreamStatus -- ^ 'sdStreamStatus'
                     -> [Shard] -- ^ 'sdShards'
                     -> Bool -- ^ 'sdHasMoreShards'
                     -> StreamDescription
-mkStreamDescription p1 p2 p3 p4 p5 = StreamDescription
+streamDescription p1 p2 p3 p4 p5 = StreamDescription
     { _sdStreamName = p1
     , _sdStreamARN = p2
     , _sdStreamStatus = p3

@@ -52,7 +52,7 @@ module Network.AWS.EC2.CreateVpc
     -- * Request
       CreateVpc
     -- ** Request constructor
-    , mkCreateVpc
+    , createVpc
     -- ** Request lenses
     , cv1CidrBlock
     , cv1InstanceTenancy
@@ -60,7 +60,7 @@ module Network.AWS.EC2.CreateVpc
     -- * Response
     , CreateVpcResponse
     -- ** Response constructor
-    , mkCreateVpcResponse
+    , createVpcResponse
     -- ** Response lenses
     , cvrrVpc
     ) where
@@ -83,9 +83,9 @@ data CreateVpc = CreateVpc
 --
 -- * @InstanceTenancy ::@ @Maybe Tenancy@
 --
-mkCreateVpc :: Text -- ^ 'cv1CidrBlock'
+createVpc :: Text -- ^ 'cv1CidrBlock'
             -> CreateVpc
-mkCreateVpc p1 = CreateVpc
+createVpc p1 = CreateVpc
     { _cv1CidrBlock = p1
     , _cv1InstanceTenancy = Nothing
     }
@@ -120,8 +120,8 @@ newtype CreateVpcResponse = CreateVpcResponse
 --
 -- * @Vpc ::@ @Maybe Vpc@
 --
-mkCreateVpcResponse :: CreateVpcResponse
-mkCreateVpcResponse = CreateVpcResponse
+createVpcResponse :: CreateVpcResponse
+createVpcResponse = CreateVpcResponse
     { _cvrrVpc = Nothing
     }
 

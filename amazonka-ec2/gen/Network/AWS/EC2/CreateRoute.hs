@@ -50,7 +50,7 @@ module Network.AWS.EC2.CreateRoute
     -- * Request
       CreateRoute
     -- ** Request constructor
-    , mkCreateRoute
+    , createRoute
     -- ** Request lenses
     , crRouteTableId
     , crDestinationCidrBlock
@@ -62,7 +62,7 @@ module Network.AWS.EC2.CreateRoute
     -- * Response
     , CreateRouteResponse
     -- ** Response constructor
-    , mkCreateRouteResponse
+    , createRouteResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -95,10 +95,10 @@ data CreateRoute = CreateRoute
 --
 -- * @VpcPeeringConnectionId ::@ @Maybe Text@
 --
-mkCreateRoute :: Text -- ^ 'crRouteTableId'
+createRoute :: Text -- ^ 'crRouteTableId'
               -> Text -- ^ 'crDestinationCidrBlock'
               -> CreateRoute
-mkCreateRoute p1 p2 = CreateRoute
+createRoute p1 p2 = CreateRoute
     { _crRouteTableId = p1
     , _crDestinationCidrBlock = p2
     , _crGatewayId = Nothing
@@ -147,8 +147,8 @@ data CreateRouteResponse = CreateRouteResponse
 -- a valid 'CreateRouteResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkCreateRouteResponse :: CreateRouteResponse
-mkCreateRouteResponse = CreateRouteResponse
+createRouteResponse :: CreateRouteResponse
+createRouteResponse = CreateRouteResponse
 
 instance AWSRequest CreateRoute where
     type Sv CreateRoute = EC2

@@ -55,7 +55,7 @@ module Network.AWS.EC2.DescribeSubnets
     -- * Request
       DescribeSubnets
     -- ** Request constructor
-    , mkDescribeSubnets
+    , describeSubnets
     -- ** Request lenses
     , ds3SubnetIds
     , ds3Filters
@@ -63,7 +63,7 @@ module Network.AWS.EC2.DescribeSubnets
     -- * Response
     , DescribeSubnetsResponse
     -- ** Response constructor
-    , mkDescribeSubnetsResponse
+    , describeSubnetsResponse
     -- ** Response lenses
     , dsrrSubnets
     ) where
@@ -86,8 +86,8 @@ data DescribeSubnets = DescribeSubnets
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribeSubnets :: DescribeSubnets
-mkDescribeSubnets = DescribeSubnets
+describeSubnets :: DescribeSubnets
+describeSubnets = DescribeSubnets
     { _ds3SubnetIds = mempty
     , _ds3Filters = mempty
     }
@@ -134,8 +134,8 @@ newtype DescribeSubnetsResponse = DescribeSubnetsResponse
 --
 -- * @Subnets ::@ @[Subnet]@
 --
-mkDescribeSubnetsResponse :: DescribeSubnetsResponse
-mkDescribeSubnetsResponse = DescribeSubnetsResponse
+describeSubnetsResponse :: DescribeSubnetsResponse
+describeSubnetsResponse = DescribeSubnetsResponse
     { _dsrrSubnets = mempty
     }
 

@@ -36,7 +36,7 @@ module Network.AWS.AutoScaling.DescribePolicies
     -- * Request
       DescribePolicies
     -- ** Request constructor
-    , mkDescribePolicies
+    , describePolicies
     -- ** Request lenses
     , dp1AutoScalingGroupName
     , dp1PolicyNames
@@ -46,7 +46,7 @@ module Network.AWS.AutoScaling.DescribePolicies
     -- * Response
     , DescribePoliciesResponse
     -- ** Response constructor
-    , mkDescribePoliciesResponse
+    , describePoliciesResponse
     -- ** Response lenses
     , dprScalingPolicies
     , dprNextToken
@@ -76,8 +76,8 @@ data DescribePolicies = DescribePolicies
 --
 -- * @MaxRecords ::@ @Maybe Integer@
 --
-mkDescribePolicies :: DescribePolicies
-mkDescribePolicies = DescribePolicies
+describePolicies :: DescribePolicies
+describePolicies = DescribePolicies
     { _dp1AutoScalingGroupName = Nothing
     , _dp1PolicyNames = mempty
     , _dp1NextToken = Nothing
@@ -127,8 +127,8 @@ data DescribePoliciesResponse = DescribePoliciesResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribePoliciesResponse :: DescribePoliciesResponse
-mkDescribePoliciesResponse = DescribePoliciesResponse
+describePoliciesResponse :: DescribePoliciesResponse
+describePoliciesResponse = DescribePoliciesResponse
     { _dprScalingPolicies = mempty
     , _dprNextToken = Nothing
     }

@@ -28,7 +28,7 @@ module Network.AWS.IAM.UpdateAssumeRolePolicy
     -- * Request
       UpdateAssumeRolePolicy
     -- ** Request constructor
-    , mkUpdateAssumeRolePolicy
+    , updateAssumeRolePolicy
     -- ** Request lenses
     , uarpRoleName
     , uarpPolicyDocument
@@ -36,7 +36,7 @@ module Network.AWS.IAM.UpdateAssumeRolePolicy
     -- * Response
     , UpdateAssumeRolePolicyResponse
     -- ** Response constructor
-    , mkUpdateAssumeRolePolicyResponse
+    , updateAssumeRolePolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -57,10 +57,10 @@ data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy
 --
 -- * @PolicyDocument ::@ @Text@
 --
-mkUpdateAssumeRolePolicy :: Text -- ^ 'uarpRoleName'
+updateAssumeRolePolicy :: Text -- ^ 'uarpRoleName'
                          -> Text -- ^ 'uarpPolicyDocument'
                          -> UpdateAssumeRolePolicy
-mkUpdateAssumeRolePolicy p1 p2 = UpdateAssumeRolePolicy
+updateAssumeRolePolicy p1 p2 = UpdateAssumeRolePolicy
     { _uarpRoleName = p1
     , _uarpPolicyDocument = p2
     }
@@ -84,8 +84,8 @@ data UpdateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
 -- a valid 'UpdateAssumeRolePolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkUpdateAssumeRolePolicyResponse :: UpdateAssumeRolePolicyResponse
-mkUpdateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
+updateAssumeRolePolicyResponse :: UpdateAssumeRolePolicyResponse
+updateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
 
 instance AWSRequest UpdateAssumeRolePolicy where
     type Sv UpdateAssumeRolePolicy = IAM

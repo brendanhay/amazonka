@@ -44,7 +44,7 @@ module Network.AWS.SNS.ListSubscriptionsByTopic
     -- * Request
       ListSubscriptionsByTopic
     -- ** Request constructor
-    , mkListSubscriptionsByTopic
+    , listSubscriptionsByTopic
     -- ** Request lenses
     , lsbtTopicArn
     , lsbtNextToken
@@ -52,7 +52,7 @@ module Network.AWS.SNS.ListSubscriptionsByTopic
     -- * Response
     , ListSubscriptionsByTopicResponse
     -- ** Response constructor
-    , mkListSubscriptionsByTopicResponse
+    , listSubscriptionsByTopicResponse
     -- ** Response lenses
     , lsbtrSubscriptions
     , lsbtrNextToken
@@ -77,9 +77,9 @@ data ListSubscriptionsByTopic = ListSubscriptionsByTopic
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkListSubscriptionsByTopic :: Text -- ^ 'lsbtTopicArn'
+listSubscriptionsByTopic :: Text -- ^ 'lsbtTopicArn'
                            -> ListSubscriptionsByTopic
-mkListSubscriptionsByTopic p1 = ListSubscriptionsByTopic
+listSubscriptionsByTopic p1 = ListSubscriptionsByTopic
     { _lsbtTopicArn = p1
     , _lsbtNextToken = Nothing
     }
@@ -112,8 +112,8 @@ data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkListSubscriptionsByTopicResponse :: ListSubscriptionsByTopicResponse
-mkListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
+listSubscriptionsByTopicResponse :: ListSubscriptionsByTopicResponse
+listSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
     { _lsbtrSubscriptions = mempty
     , _lsbtrNextToken = Nothing
     }

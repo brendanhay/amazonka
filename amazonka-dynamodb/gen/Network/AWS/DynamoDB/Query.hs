@@ -44,7 +44,7 @@ module Network.AWS.DynamoDB.Query
     -- * Request
       Query
     -- ** Request constructor
-    , mkQuery
+    , query
     -- ** Request lenses
     , qTableName
     , qIndexName
@@ -62,7 +62,7 @@ module Network.AWS.DynamoDB.Query
     -- * Response
     , QueryResponse
     -- ** Response constructor
-    , mkQueryResponse
+    , queryResponse
     -- ** Response lenses
     , qrItems
     , qrCount
@@ -120,9 +120,9 @@ data Query = Query
 --
 -- * @ReturnConsumedCapacity ::@ @Maybe ReturnConsumedCapacity@
 --
-mkQuery :: Text -- ^ 'qTableName'
+query :: Text -- ^ 'qTableName'
         -> Query
-mkQuery p1 = Query
+query p1 = Query
     { _qTableName = p1
     , _qIndexName = Nothing
     , _qSelect = Nothing
@@ -352,8 +352,8 @@ data QueryResponse = QueryResponse
 --
 -- * @ConsumedCapacity ::@ @Maybe ConsumedCapacity@
 --
-mkQueryResponse :: QueryResponse
-mkQueryResponse = QueryResponse
+queryResponse :: QueryResponse
+queryResponse = QueryResponse
     { _qrItems = mempty
     , _qrCount = Nothing
     , _qrScannedCount = Nothing

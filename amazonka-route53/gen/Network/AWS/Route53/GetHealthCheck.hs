@@ -24,14 +24,14 @@ module Network.AWS.Route53.GetHealthCheck
     -- * Request
       GetHealthCheck
     -- ** Request constructor
-    , mkGetHealthCheck
+    , getHealthCheck
     -- ** Request lenses
     , ghcHealthCheckId
 
     -- * Response
     , GetHealthCheckResponse
     -- ** Response constructor
-    , mkGetHealthCheckResponse
+    , getHealthCheckResponse
     -- ** Response lenses
     , ghcrHealthCheck
     ) where
@@ -54,9 +54,9 @@ newtype GetHealthCheck = GetHealthCheck
 --
 -- * @HealthCheckId ::@ @Text@
 --
-mkGetHealthCheck :: Text -- ^ 'ghcHealthCheckId'
+getHealthCheck :: Text -- ^ 'ghcHealthCheckId'
                  -> GetHealthCheck
-mkGetHealthCheck p1 = GetHealthCheck
+getHealthCheck p1 = GetHealthCheck
     { _ghcHealthCheckId = p1
     }
 
@@ -89,9 +89,9 @@ newtype GetHealthCheckResponse = GetHealthCheckResponse
 --
 -- * @HealthCheck ::@ @HealthCheck@
 --
-mkGetHealthCheckResponse :: HealthCheck -- ^ 'ghcrHealthCheck'
+getHealthCheckResponse :: HealthCheck -- ^ 'ghcrHealthCheck'
                          -> GetHealthCheckResponse
-mkGetHealthCheckResponse p1 = GetHealthCheckResponse
+getHealthCheckResponse p1 = GetHealthCheckResponse
     { _ghcrHealthCheck = p1
     }
 

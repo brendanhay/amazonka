@@ -27,11 +27,11 @@ module Network.AWS.IAM.GetAccountPasswordPolicy
     -- * Request
       GetAccountPasswordPolicy
     -- ** Request constructor
-    , mkGetAccountPasswordPolicy
+    , getAccountPasswordPolicy
     -- * Response
     , GetAccountPasswordPolicyResponse
     -- ** Response constructor
-    , mkGetAccountPasswordPolicyResponse
+    , getAccountPasswordPolicyResponse
     -- ** Response lenses
     , gapprPasswordPolicy
     ) where
@@ -45,8 +45,8 @@ data GetAccountPasswordPolicy = GetAccountPasswordPolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetAccountPasswordPolicy' request.
-mkGetAccountPasswordPolicy :: GetAccountPasswordPolicy
-mkGetAccountPasswordPolicy = GetAccountPasswordPolicy
+getAccountPasswordPolicy :: GetAccountPasswordPolicy
+getAccountPasswordPolicy = GetAccountPasswordPolicy
 
 instance ToQuery GetAccountPasswordPolicy where
     toQuery = genericQuery def
@@ -66,9 +66,9 @@ newtype GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
 --
 -- * @PasswordPolicy ::@ @PasswordPolicy@
 --
-mkGetAccountPasswordPolicyResponse :: PasswordPolicy -- ^ 'gapprPasswordPolicy'
+getAccountPasswordPolicyResponse :: PasswordPolicy -- ^ 'gapprPasswordPolicy'
                                    -> GetAccountPasswordPolicyResponse
-mkGetAccountPasswordPolicyResponse p1 = GetAccountPasswordPolicyResponse
+getAccountPasswordPolicyResponse p1 = GetAccountPasswordPolicyResponse
     { _gapprPasswordPolicy = p1
     }
 

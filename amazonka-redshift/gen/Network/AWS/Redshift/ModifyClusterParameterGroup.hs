@@ -36,7 +36,7 @@ module Network.AWS.Redshift.ModifyClusterParameterGroup
     -- * Request
       ModifyClusterParameterGroup
     -- ** Request constructor
-    , mkModifyClusterParameterGroup
+    , modifyClusterParameterGroup
     -- ** Request lenses
     , mcpgParameterGroupName
     , mcpgParameters
@@ -44,7 +44,7 @@ module Network.AWS.Redshift.ModifyClusterParameterGroup
     -- * Response
     , ModifyClusterParameterGroupResponse
     -- ** Response constructor
-    , mkModifyClusterParameterGroupResponse
+    , modifyClusterParameterGroupResponse
     -- ** Response lenses
     , mcpgrParameterGroupName
     , mcpgrParameterGroupStatus
@@ -69,10 +69,10 @@ data ModifyClusterParameterGroup = ModifyClusterParameterGroup
 --
 -- * @Parameters ::@ @[Parameter]@
 --
-mkModifyClusterParameterGroup :: Text -- ^ 'mcpgParameterGroupName'
+modifyClusterParameterGroup :: Text -- ^ 'mcpgParameterGroupName'
                               -> [Parameter] -- ^ 'mcpgParameters'
                               -> ModifyClusterParameterGroup
-mkModifyClusterParameterGroup p1 p2 = ModifyClusterParameterGroup
+modifyClusterParameterGroup p1 p2 = ModifyClusterParameterGroup
     { _mcpgParameterGroupName = p1
     , _mcpgParameters = p2
     }
@@ -113,8 +113,8 @@ data ModifyClusterParameterGroupResponse = ModifyClusterParameterGroupResponse
 --
 -- * @ParameterGroupStatus ::@ @Maybe Text@
 --
-mkModifyClusterParameterGroupResponse :: ModifyClusterParameterGroupResponse
-mkModifyClusterParameterGroupResponse = ModifyClusterParameterGroupResponse
+modifyClusterParameterGroupResponse :: ModifyClusterParameterGroupResponse
+modifyClusterParameterGroupResponse = ModifyClusterParameterGroupResponse
     { _mcpgrParameterGroupName = Nothing
     , _mcpgrParameterGroupStatus = Nothing
     }

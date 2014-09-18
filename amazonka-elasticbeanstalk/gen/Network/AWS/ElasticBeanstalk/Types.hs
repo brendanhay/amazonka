@@ -73,37 +73,37 @@ module Network.AWS.ElasticBeanstalk.Types
 
     -- * AutoScalingGroup
     , AutoScalingGroup
-    , mkAutoScalingGroup
+    , autoScalingGroup
     , asgName
 
     -- * EnvironmentResourcesDescription
     , EnvironmentResourcesDescription
-    , mkEnvironmentResourcesDescription
+    , environmentResourcesDescription
     , erdLoadBalancer
 
     -- * Instance
     , Instance
-    , mkInstance
+    , instance
     , iId
 
     -- * LaunchConfiguration
     , LaunchConfiguration
-    , mkLaunchConfiguration
+    , launchConfiguration
     , lcName
 
     -- * LoadBalancer
     , LoadBalancer
-    , mkLoadBalancer
+    , loadBalancer
     , lbName
 
     -- * Trigger
     , Trigger
-    , mkTrigger
+    , trigger
     , trName
 
     -- * ApplicationDescription
     , ApplicationDescription
-    , mkApplicationDescription
+    , applicationDescription
     , adApplicationName
     , adDescription
     , adDateCreated
@@ -113,7 +113,7 @@ module Network.AWS.ElasticBeanstalk.Types
 
     -- * ApplicationVersionDescription
     , ApplicationVersionDescription
-    , mkApplicationVersionDescription
+    , applicationVersionDescription
     , avdApplicationName
     , avdDescription
     , avdVersionLabel
@@ -123,7 +123,7 @@ module Network.AWS.ElasticBeanstalk.Types
 
     -- * ConfigurationOptionDescription
     , ConfigurationOptionDescription
-    , mkConfigurationOptionDescription
+    , configurationOptionDescription
     , codNamespace
     , codName
     , codDefaultValue
@@ -138,14 +138,14 @@ module Network.AWS.ElasticBeanstalk.Types
 
     -- * ConfigurationOptionSetting
     , ConfigurationOptionSetting
-    , mkConfigurationOptionSetting
+    , configurationOptionSetting
     , cosNamespace
     , cosOptionName
     , cosValue
 
     -- * ConfigurationSettingsDescription
     , ConfigurationSettingsDescription
-    , mkConfigurationSettingsDescription
+    , configurationSettingsDescription
     , csdSolutionStackName
     , csdApplicationName
     , csdTemplateName
@@ -158,7 +158,7 @@ module Network.AWS.ElasticBeanstalk.Types
 
     -- * EnvironmentDescription
     , EnvironmentDescription
-    , mkEnvironmentDescription
+    , environmentDescription
     , edEnvironmentName
     , edEnvironmentId
     , edApplicationName
@@ -177,7 +177,7 @@ module Network.AWS.ElasticBeanstalk.Types
 
     -- * EnvironmentInfoDescription
     , EnvironmentInfoDescription
-    , mkEnvironmentInfoDescription
+    , environmentInfoDescription
     , eidInfoType
     , eidEc2InstanceId
     , eidSampleTimestamp
@@ -185,7 +185,7 @@ module Network.AWS.ElasticBeanstalk.Types
 
     -- * EnvironmentResourceDescription
     , EnvironmentResourceDescription
-    , mkEnvironmentResourceDescription
+    , environmentResourceDescription
     , erdrEnvironmentName
     , erdrAutoScalingGroups
     , erdrInstances
@@ -196,14 +196,14 @@ module Network.AWS.ElasticBeanstalk.Types
 
     -- * EnvironmentTier
     , EnvironmentTier
-    , mkEnvironmentTier
+    , environmentTier
     , etName
     , etType
     , etVersion
 
     -- * EventDescription
     , EventDescription
-    , mkEventDescription
+    , eventDescription
     , edrEventDate
     , edrMessage
     , edrApplicationName
@@ -215,62 +215,62 @@ module Network.AWS.ElasticBeanstalk.Types
 
     -- * Listener
     , Listener
-    , mkListener
+    , listener
     , lProtocol
     , lPort
 
     -- * LoadBalancerDescription
     , LoadBalancerDescription
-    , mkLoadBalancerDescription
+    , loadBalancerDescription
     , lbdLoadBalancerName
     , lbdDomain
     , lbdListeners
 
     -- * OptionRestrictionRegex
     , OptionRestrictionRegex
-    , mkOptionRestrictionRegex
+    , optionRestrictionRegex
     , orrPattern
     , orrLabel
 
     -- * OptionSpecification
     , OptionSpecification
-    , mkOptionSpecification
+    , optionSpecification
     , osNamespace
     , osOptionName
 
     -- * Queue
     , Queue
-    , mkQueue
+    , queue
     , qName
     , qURL
 
     -- * S3Location
     , S3Location
-    , mkS3Location
+    , s3Location
     , slS3Bucket
     , slS3Key
 
     -- * SolutionStackDescription
     , SolutionStackDescription
-    , mkSolutionStackDescription
+    , solutionStackDescription
     , ssdSolutionStackName
     , ssdPermittedFileTypes
 
     -- * SourceConfiguration
     , SourceConfiguration
-    , mkSourceConfiguration
+    , sourceConfiguration
     , scApplicationName
     , scTemplateName
 
     -- * Tag
     , Tag
-    , mkTag
+    , tag
     , tKey
     , tValue
 
     -- * ValidationMessage
     , ValidationMessage
-    , mkValidationMessage
+    , validationMessage
     , vmMessage
     , vmSeverity
     , vmNamespace
@@ -302,8 +302,8 @@ instance AWSService ElasticBeanstalk where
 -- service description where applicable.
 data ElasticBeanstalkError
     = ElasticBeanstalkClient HttpException
-    | ElasticBeanstalkSerializer Text
-    | ElasticBeanstalkService Text
+    | ElasticBeanstalkSerializer String
+    | ElasticBeanstalkService String
       -- | Unable to perform the specified operation because the user does
       -- not have enough privileges for one of more downstream aws
       -- services.
@@ -357,7 +357,7 @@ _ElasticBeanstalkClient = prism'
         x -> Left x)
 
 -- | See: 'ElasticBeanstalkSerializer'
-_ElasticBeanstalkSerializer :: Prism' ElasticBeanstalkError Text
+_ElasticBeanstalkSerializer :: Prism' ElasticBeanstalkError String
 _ElasticBeanstalkSerializer = prism'
     ElasticBeanstalkSerializer
     (\case
@@ -365,7 +365,7 @@ _ElasticBeanstalkSerializer = prism'
         x -> Left x)
 
 -- | See: 'ElasticBeanstalkService'
-_ElasticBeanstalkService :: Prism' ElasticBeanstalkError Text
+_ElasticBeanstalkService :: Prism' ElasticBeanstalkError String
 _ElasticBeanstalkService = prism'
     ElasticBeanstalkService
     (\case
@@ -694,8 +694,8 @@ newtype AutoScalingGroup = AutoScalingGroup
 --
 -- * @Name ::@ @Maybe Text@
 --
-mkAutoScalingGroup :: AutoScalingGroup
-mkAutoScalingGroup = AutoScalingGroup
+autoScalingGroup :: AutoScalingGroup
+autoScalingGroup = AutoScalingGroup
     { _asgName = Nothing
     }
 
@@ -719,8 +719,8 @@ newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription
 --
 -- * @LoadBalancer ::@ @Maybe LoadBalancerDescription@
 --
-mkEnvironmentResourcesDescription :: EnvironmentResourcesDescription
-mkEnvironmentResourcesDescription = EnvironmentResourcesDescription
+environmentResourcesDescription :: EnvironmentResourcesDescription
+environmentResourcesDescription = EnvironmentResourcesDescription
     { _erdLoadBalancer = Nothing
     }
 
@@ -750,8 +750,8 @@ newtype Instance = Instance
 --
 -- * @Id ::@ @Maybe Text@
 --
-mkInstance :: Instance
-mkInstance = Instance
+instance :: Instance
+instance = Instance
     { _iId = Nothing
     }
 
@@ -778,8 +778,8 @@ newtype LaunchConfiguration = LaunchConfiguration
 --
 -- * @Name ::@ @Maybe Text@
 --
-mkLaunchConfiguration :: LaunchConfiguration
-mkLaunchConfiguration = LaunchConfiguration
+launchConfiguration :: LaunchConfiguration
+launchConfiguration = LaunchConfiguration
     { _lcName = Nothing
     }
 
@@ -806,8 +806,8 @@ newtype LoadBalancer = LoadBalancer
 --
 -- * @Name ::@ @Maybe Text@
 --
-mkLoadBalancer :: LoadBalancer
-mkLoadBalancer = LoadBalancer
+loadBalancer :: LoadBalancer
+loadBalancer = LoadBalancer
     { _lbName = Nothing
     }
 
@@ -834,8 +834,8 @@ newtype Trigger = Trigger
 --
 -- * @Name ::@ @Maybe Text@
 --
-mkTrigger :: Trigger
-mkTrigger = Trigger
+trigger :: Trigger
+trigger = Trigger
     { _trName = Nothing
     }
 
@@ -877,8 +877,8 @@ data ApplicationDescription = ApplicationDescription
 --
 -- * @ConfigurationTemplates ::@ @[Text]@
 --
-mkApplicationDescription :: ApplicationDescription
-mkApplicationDescription = ApplicationDescription
+applicationDescription :: ApplicationDescription
+applicationDescription = ApplicationDescription
     { _adApplicationName = Nothing
     , _adDescription = Nothing
     , _adDateCreated = Nothing
@@ -948,8 +948,8 @@ data ApplicationVersionDescription = ApplicationVersionDescription
 --
 -- * @DateUpdated ::@ @Maybe ISO8601@
 --
-mkApplicationVersionDescription :: ApplicationVersionDescription
-mkApplicationVersionDescription = ApplicationVersionDescription
+applicationVersionDescription :: ApplicationVersionDescription
+applicationVersionDescription = ApplicationVersionDescription
     { _avdApplicationName = Nothing
     , _avdDescription = Nothing
     , _avdVersionLabel = Nothing
@@ -1032,8 +1032,8 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription
 --
 -- * @Regex ::@ @Maybe OptionRestrictionRegex@
 --
-mkConfigurationOptionDescription :: ConfigurationOptionDescription
-mkConfigurationOptionDescription = ConfigurationOptionDescription
+configurationOptionDescription :: ConfigurationOptionDescription
+configurationOptionDescription = ConfigurationOptionDescription
     { _codNamespace = Nothing
     , _codName = Nothing
     , _codDefaultValue = Nothing
@@ -1152,8 +1152,8 @@ data ConfigurationOptionSetting = ConfigurationOptionSetting
 --
 -- * @Value ::@ @Maybe Text@
 --
-mkConfigurationOptionSetting :: ConfigurationOptionSetting
-mkConfigurationOptionSetting = ConfigurationOptionSetting
+configurationOptionSetting :: ConfigurationOptionSetting
+configurationOptionSetting = ConfigurationOptionSetting
     { _cosNamespace = Nothing
     , _cosOptionName = Nothing
     , _cosValue = Nothing
@@ -1217,8 +1217,8 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription
 --
 -- * @OptionSettings ::@ @[ConfigurationOptionSetting]@
 --
-mkConfigurationSettingsDescription :: ConfigurationSettingsDescription
-mkConfigurationSettingsDescription = ConfigurationSettingsDescription
+configurationSettingsDescription :: ConfigurationSettingsDescription
+configurationSettingsDescription = ConfigurationSettingsDescription
     { _csdSolutionStackName = Nothing
     , _csdApplicationName = Nothing
     , _csdTemplateName = Nothing
@@ -1346,8 +1346,8 @@ data EnvironmentDescription = EnvironmentDescription
 --
 -- * @Tier ::@ @Maybe EnvironmentTier@
 --
-mkEnvironmentDescription :: EnvironmentDescription
-mkEnvironmentDescription = EnvironmentDescription
+environmentDescription :: EnvironmentDescription
+environmentDescription = EnvironmentDescription
     { _edEnvironmentName = Nothing
     , _edEnvironmentId = Nothing
     , _edApplicationName = Nothing
@@ -1475,8 +1475,8 @@ data EnvironmentInfoDescription = EnvironmentInfoDescription
 --
 -- * @Message ::@ @Maybe Text@
 --
-mkEnvironmentInfoDescription :: EnvironmentInfoDescription
-mkEnvironmentInfoDescription = EnvironmentInfoDescription
+environmentInfoDescription :: EnvironmentInfoDescription
+environmentInfoDescription = EnvironmentInfoDescription
     { _eidInfoType = Nothing
     , _eidEc2InstanceId = Nothing
     , _eidSampleTimestamp = Nothing
@@ -1538,8 +1538,8 @@ data EnvironmentResourceDescription = EnvironmentResourceDescription
 --
 -- * @Queues ::@ @[Queue]@
 --
-mkEnvironmentResourceDescription :: EnvironmentResourceDescription
-mkEnvironmentResourceDescription = EnvironmentResourceDescription
+environmentResourceDescription :: EnvironmentResourceDescription
+environmentResourceDescription = EnvironmentResourceDescription
     { _erdrEnvironmentName = Nothing
     , _erdrAutoScalingGroups = mempty
     , _erdrInstances = mempty
@@ -1604,8 +1604,8 @@ data EnvironmentTier = EnvironmentTier
 --
 -- * @Version ::@ @Maybe Text@
 --
-mkEnvironmentTier :: EnvironmentTier
-mkEnvironmentTier = EnvironmentTier
+environmentTier :: EnvironmentTier
+environmentTier = EnvironmentTier
     { _etName = Nothing
     , _etType = Nothing
     , _etVersion = Nothing
@@ -1666,8 +1666,8 @@ data EventDescription = EventDescription
 --
 -- * @Severity ::@ @Maybe EventSeverity@
 --
-mkEventDescription :: EventDescription
-mkEventDescription = EventDescription
+eventDescription :: EventDescription
+eventDescription = EventDescription
     { _edrEventDate = Nothing
     , _edrMessage = Nothing
     , _edrApplicationName = Nothing
@@ -1731,8 +1731,8 @@ data Listener = Listener
 --
 -- * @Port ::@ @Maybe Integer@
 --
-mkListener :: Listener
-mkListener = Listener
+listener :: Listener
+listener = Listener
     { _lProtocol = Nothing
     , _lPort = Nothing
     }
@@ -1770,8 +1770,8 @@ data LoadBalancerDescription = LoadBalancerDescription
 --
 -- * @Listeners ::@ @[Listener]@
 --
-mkLoadBalancerDescription :: LoadBalancerDescription
-mkLoadBalancerDescription = LoadBalancerDescription
+loadBalancerDescription :: LoadBalancerDescription
+loadBalancerDescription = LoadBalancerDescription
     { _lbdLoadBalancerName = Nothing
     , _lbdDomain = Nothing
     , _lbdListeners = mempty
@@ -1813,8 +1813,8 @@ data OptionRestrictionRegex = OptionRestrictionRegex
 --
 -- * @Label ::@ @Maybe Text@
 --
-mkOptionRestrictionRegex :: OptionRestrictionRegex
-mkOptionRestrictionRegex = OptionRestrictionRegex
+optionRestrictionRegex :: OptionRestrictionRegex
+optionRestrictionRegex = OptionRestrictionRegex
     { _orrPattern = Nothing
     , _orrLabel = Nothing
     }
@@ -1850,8 +1850,8 @@ data OptionSpecification = OptionSpecification
 --
 -- * @OptionName ::@ @Maybe Text@
 --
-mkOptionSpecification :: OptionSpecification
-mkOptionSpecification = OptionSpecification
+optionSpecification :: OptionSpecification
+optionSpecification = OptionSpecification
     { _osNamespace = Nothing
     , _osOptionName = Nothing
     }
@@ -1885,8 +1885,8 @@ data Queue = Queue
 --
 -- * @URL ::@ @Maybe Text@
 --
-mkQueue :: Queue
-mkQueue = Queue
+queue :: Queue
+queue = Queue
     { _qName = Nothing
     , _qURL = Nothing
     }
@@ -1925,8 +1925,8 @@ data S3Location = S3Location
 --
 -- * @S3Key ::@ @Maybe Text@
 --
-mkS3Location :: S3Location
-mkS3Location = S3Location
+s3Location :: S3Location
+s3Location = S3Location
     { _slS3Bucket = Nothing
     , _slS3Key = Nothing
     }
@@ -1964,8 +1964,8 @@ data SolutionStackDescription = SolutionStackDescription
 --
 -- * @PermittedFileTypes ::@ @[Text]@
 --
-mkSolutionStackDescription :: SolutionStackDescription
-mkSolutionStackDescription = SolutionStackDescription
+solutionStackDescription :: SolutionStackDescription
+solutionStackDescription = SolutionStackDescription
     { _ssdSolutionStackName = Nothing
     , _ssdPermittedFileTypes = mempty
     }
@@ -2007,8 +2007,8 @@ data SourceConfiguration = SourceConfiguration
 --
 -- * @TemplateName ::@ @Maybe Text@
 --
-mkSourceConfiguration :: SourceConfiguration
-mkSourceConfiguration = SourceConfiguration
+sourceConfiguration :: SourceConfiguration
+sourceConfiguration = SourceConfiguration
     { _scApplicationName = Nothing
     , _scTemplateName = Nothing
     }
@@ -2040,8 +2040,8 @@ data Tag = Tag
 --
 -- * @Value ::@ @Maybe Text@
 --
-mkTag :: Tag
-mkTag = Tag
+tag :: Tag
+tag = Tag
     { _tKey = Nothing
     , _tValue = Nothing
     }
@@ -2081,8 +2081,8 @@ data ValidationMessage = ValidationMessage
 --
 -- * @OptionName ::@ @Maybe Text@
 --
-mkValidationMessage :: ValidationMessage
-mkValidationMessage = ValidationMessage
+validationMessage :: ValidationMessage
+validationMessage = ValidationMessage
     { _vmMessage = Nothing
     , _vmSeverity = Nothing
     , _vmNamespace = Nothing

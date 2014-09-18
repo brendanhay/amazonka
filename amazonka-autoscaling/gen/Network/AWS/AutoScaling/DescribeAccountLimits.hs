@@ -31,11 +31,11 @@ module Network.AWS.AutoScaling.DescribeAccountLimits
     -- * Request
       DescribeAccountLimits
     -- ** Request constructor
-    , mkDescribeAccountLimits
+    , describeAccountLimits
     -- * Response
     , DescribeAccountLimitsResponse
     -- ** Response constructor
-    , mkDescribeAccountLimitsResponse
+    , describeAccountLimitsResponse
     -- ** Response lenses
     , dalrMaxNumberOfAutoScalingGroups
     , dalrMaxNumberOfLaunchConfigurations
@@ -50,8 +50,8 @@ data DescribeAccountLimits = DescribeAccountLimits
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAccountLimits' request.
-mkDescribeAccountLimits :: DescribeAccountLimits
-mkDescribeAccountLimits = DescribeAccountLimits
+describeAccountLimits :: DescribeAccountLimits
+describeAccountLimits = DescribeAccountLimits
 
 instance ToQuery DescribeAccountLimits where
     toQuery = genericQuery def
@@ -73,8 +73,8 @@ data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse
 --
 -- * @MaxNumberOfLaunchConfigurations ::@ @Maybe Integer@
 --
-mkDescribeAccountLimitsResponse :: DescribeAccountLimitsResponse
-mkDescribeAccountLimitsResponse = DescribeAccountLimitsResponse
+describeAccountLimitsResponse :: DescribeAccountLimitsResponse
+describeAccountLimitsResponse = DescribeAccountLimitsResponse
     { _dalrMaxNumberOfAutoScalingGroups = Nothing
     , _dalrMaxNumberOfLaunchConfigurations = Nothing
     }

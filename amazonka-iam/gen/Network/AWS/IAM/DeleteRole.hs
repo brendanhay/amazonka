@@ -29,14 +29,14 @@ module Network.AWS.IAM.DeleteRole
     -- * Request
       DeleteRole
     -- ** Request constructor
-    , mkDeleteRole
+    , deleteRole
     -- ** Request lenses
     , drRoleName
 
     -- * Response
     , DeleteRoleResponse
     -- ** Response constructor
-    , mkDeleteRoleResponse
+    , deleteRoleResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -54,9 +54,9 @@ newtype DeleteRole = DeleteRole
 --
 -- * @RoleName ::@ @Text@
 --
-mkDeleteRole :: Text -- ^ 'drRoleName'
+deleteRole :: Text -- ^ 'drRoleName'
              -> DeleteRole
-mkDeleteRole p1 = DeleteRole
+deleteRole p1 = DeleteRole
     { _drRoleName = p1
     }
 
@@ -74,8 +74,8 @@ data DeleteRoleResponse = DeleteRoleResponse
 -- a valid 'DeleteRoleResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteRoleResponse :: DeleteRoleResponse
-mkDeleteRoleResponse = DeleteRoleResponse
+deleteRoleResponse :: DeleteRoleResponse
+deleteRoleResponse = DeleteRoleResponse
 
 instance AWSRequest DeleteRole where
     type Sv DeleteRole = IAM

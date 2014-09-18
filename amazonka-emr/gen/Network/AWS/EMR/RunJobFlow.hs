@@ -66,7 +66,7 @@ module Network.AWS.EMR.RunJobFlow
     -- * Request
       RunJobFlow
     -- ** Request constructor
-    , mkRunJobFlow
+    , runJobFlow
     -- ** Request lenses
     , rjfName
     , rjfLogUri
@@ -85,7 +85,7 @@ module Network.AWS.EMR.RunJobFlow
     -- * Response
     , RunJobFlowResponse
     -- ** Response constructor
-    , mkRunJobFlowResponse
+    , runJobFlowResponse
     -- ** Response lenses
     , rjfrJobFlowId
     ) where
@@ -142,10 +142,10 @@ data RunJobFlow = RunJobFlow
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkRunJobFlow :: Text -- ^ 'rjfName'
+runJobFlow :: Text -- ^ 'rjfName'
              -> JobFlowInstancesConfig -- ^ 'rjfInstances'
              -> RunJobFlow
-mkRunJobFlow p1 p5 = RunJobFlow
+runJobFlow p1 p5 = RunJobFlow
     { _rjfName = p1
     , _rjfLogUri = Nothing
     , _rjfAdditionalInfo = Nothing
@@ -271,8 +271,8 @@ newtype RunJobFlowResponse = RunJobFlowResponse
 --
 -- * @JobFlowId ::@ @Maybe Text@
 --
-mkRunJobFlowResponse :: RunJobFlowResponse
-mkRunJobFlowResponse = RunJobFlowResponse
+runJobFlowResponse :: RunJobFlowResponse
+runJobFlowResponse = RunJobFlowResponse
     { _rjfrJobFlowId = Nothing
     }
 

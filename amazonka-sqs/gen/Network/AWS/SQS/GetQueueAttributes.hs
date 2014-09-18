@@ -71,7 +71,7 @@ module Network.AWS.SQS.GetQueueAttributes
     -- * Request
       GetQueueAttributes
     -- ** Request constructor
-    , mkGetQueueAttributes
+    , getQueueAttributes
     -- ** Request lenses
     , gqaQueueUrl
     , gqaAttributeNames
@@ -79,7 +79,7 @@ module Network.AWS.SQS.GetQueueAttributes
     -- * Response
     , GetQueueAttributesResponse
     -- ** Response constructor
-    , mkGetQueueAttributesResponse
+    , getQueueAttributesResponse
     -- ** Response lenses
     , gqarAttributes
     ) where
@@ -102,9 +102,9 @@ data GetQueueAttributes = GetQueueAttributes
 --
 -- * @AttributeNames ::@ @[QueueAttributeName]@
 --
-mkGetQueueAttributes :: Text -- ^ 'gqaQueueUrl'
+getQueueAttributes :: Text -- ^ 'gqaQueueUrl'
                      -> GetQueueAttributes
-mkGetQueueAttributes p1 = GetQueueAttributes
+getQueueAttributes p1 = GetQueueAttributes
     { _gqaQueueUrl = p1
     , _gqaAttributeNames = mempty
     }
@@ -135,8 +135,8 @@ newtype GetQueueAttributesResponse = GetQueueAttributesResponse
 --
 -- * @Attributes ::@ @Map QueueAttributeName Text@
 --
-mkGetQueueAttributesResponse :: GetQueueAttributesResponse
-mkGetQueueAttributesResponse = GetQueueAttributesResponse
+getQueueAttributesResponse :: GetQueueAttributesResponse
+getQueueAttributesResponse = GetQueueAttributesResponse
     { _gqarAttributes = mempty
     }
 

@@ -57,7 +57,7 @@ module Network.AWS.SWF.RespondDecisionTaskCompleted
     -- * Request
       RespondDecisionTaskCompleted
     -- ** Request constructor
-    , mkRespondDecisionTaskCompleted
+    , respondDecisionTaskCompleted
     -- ** Request lenses
     , rdtcTaskToken
     , rdtcDecisions
@@ -66,7 +66,7 @@ module Network.AWS.SWF.RespondDecisionTaskCompleted
     -- * Response
     , RespondDecisionTaskCompletedResponse
     -- ** Response constructor
-    , mkRespondDecisionTaskCompletedResponse
+    , respondDecisionTaskCompletedResponse
     ) where
 
 import Network.AWS.SWF.Types
@@ -90,9 +90,9 @@ data RespondDecisionTaskCompleted = RespondDecisionTaskCompleted
 --
 -- * @ExecutionContext ::@ @Maybe Text@
 --
-mkRespondDecisionTaskCompleted :: Text -- ^ 'rdtcTaskToken'
+respondDecisionTaskCompleted :: Text -- ^ 'rdtcTaskToken'
                                -> RespondDecisionTaskCompleted
-mkRespondDecisionTaskCompleted p1 = RespondDecisionTaskCompleted
+respondDecisionTaskCompleted p1 = RespondDecisionTaskCompleted
     { _rdtcTaskToken = p1
     , _rdtcDecisions = mempty
     , _rdtcExecutionContext = Nothing
@@ -130,8 +130,8 @@ data RespondDecisionTaskCompletedResponse = RespondDecisionTaskCompletedResponse
 -- a valid 'RespondDecisionTaskCompletedResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRespondDecisionTaskCompletedResponse :: RespondDecisionTaskCompletedResponse
-mkRespondDecisionTaskCompletedResponse = RespondDecisionTaskCompletedResponse
+respondDecisionTaskCompletedResponse :: RespondDecisionTaskCompletedResponse
+respondDecisionTaskCompletedResponse = RespondDecisionTaskCompletedResponse
 
 instance AWSRequest RespondDecisionTaskCompleted where
     type Sv RespondDecisionTaskCompleted = SWF

@@ -26,7 +26,7 @@ module Network.AWS.S3.DeleteObjects
     -- ** Request alias
     , DeleteMultipleObjects
     -- ** Request constructor
-    , mkDeleteObjects
+    , deleteObjects
     -- ** Request lenses
     , do1Bucket
     , do1Delete
@@ -35,7 +35,7 @@ module Network.AWS.S3.DeleteObjects
     -- * Response
     , DeleteObjectsResponse
     -- ** Response constructor
-    , mkDeleteObjectsResponse
+    , deleteObjectsResponse
     -- ** Response lenses
     , dorrDeleted
     , dorrErrors
@@ -65,10 +65,10 @@ data DeleteObjects = DeleteObjects
 --
 -- * @MFA ::@ @Maybe Text@
 --
-mkDeleteObjects :: BucketName -- ^ 'do1Bucket'
+deleteObjects :: BucketName -- ^ 'do1Bucket'
                 -> Delete -- ^ 'do1Delete'
                 -> DeleteObjects
-mkDeleteObjects p1 p2 = DeleteObjects
+deleteObjects p1 p2 = DeleteObjects
     { _do1Bucket = p1
     , _do1Delete = p2
     , _do1MFA = Nothing
@@ -113,8 +113,8 @@ data DeleteObjectsResponse = DeleteObjectsResponse
 --
 -- * @Errors ::@ @[Error]@
 --
-mkDeleteObjectsResponse :: DeleteObjectsResponse
-mkDeleteObjectsResponse = DeleteObjectsResponse
+deleteObjectsResponse :: DeleteObjectsResponse
+deleteObjectsResponse = DeleteObjectsResponse
     { _dorrDeleted = mempty
     , _dorrErrors = mempty
     }

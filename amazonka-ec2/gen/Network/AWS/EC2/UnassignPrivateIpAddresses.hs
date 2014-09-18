@@ -32,7 +32,7 @@ module Network.AWS.EC2.UnassignPrivateIpAddresses
     -- * Request
       UnassignPrivateIpAddresses
     -- ** Request constructor
-    , mkUnassignPrivateIpAddresses
+    , unassignPrivateIpAddresses
     -- ** Request lenses
     , upiaNetworkInterfaceId
     , upiaPrivateIpAddresses
@@ -40,7 +40,7 @@ module Network.AWS.EC2.UnassignPrivateIpAddresses
     -- * Response
     , UnassignPrivateIpAddressesResponse
     -- ** Response constructor
-    , mkUnassignPrivateIpAddressesResponse
+    , unassignPrivateIpAddressesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -61,10 +61,10 @@ data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
 --
 -- * @PrivateIpAddresses ::@ @[Text]@
 --
-mkUnassignPrivateIpAddresses :: Text -- ^ 'upiaNetworkInterfaceId'
+unassignPrivateIpAddresses :: Text -- ^ 'upiaNetworkInterfaceId'
                              -> [Text] -- ^ 'upiaPrivateIpAddresses'
                              -> UnassignPrivateIpAddresses
-mkUnassignPrivateIpAddresses p1 p2 = UnassignPrivateIpAddresses
+unassignPrivateIpAddresses p1 p2 = UnassignPrivateIpAddresses
     { _upiaNetworkInterfaceId = p1
     , _upiaPrivateIpAddresses = p2
     }
@@ -91,8 +91,8 @@ data UnassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
 -- a valid 'UnassignPrivateIpAddressesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkUnassignPrivateIpAddressesResponse :: UnassignPrivateIpAddressesResponse
-mkUnassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
+unassignPrivateIpAddressesResponse :: UnassignPrivateIpAddressesResponse
+unassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
 
 instance AWSRequest UnassignPrivateIpAddresses where
     type Sv UnassignPrivateIpAddresses = EC2

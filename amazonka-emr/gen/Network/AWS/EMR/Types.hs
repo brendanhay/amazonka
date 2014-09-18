@@ -79,17 +79,17 @@ module Network.AWS.EMR.Types
 
     -- * BootstrapActionDetail
     , BootstrapActionDetail
-    , mkBootstrapActionDetail
+    , bootstrapActionDetail
     , badBootstrapActionConfig
 
     -- * PlacementType
     , PlacementType
-    , mkPlacementType
+    , placementType
     , ptAvailabilityZone
 
     -- * Application
     , Application
-    , mkApplication
+    , application
     , aName
     , aVersion
     , aArgs
@@ -97,13 +97,13 @@ module Network.AWS.EMR.Types
 
     -- * BootstrapActionConfig
     , BootstrapActionConfig
-    , mkBootstrapActionConfig
+    , bootstrapActionConfig
     , bacName
     , bacScriptBootstrapAction
 
     -- * Cluster
     , Cluster
-    , mkCluster
+    , cluster
     , cId
     , cName
     , cStatus
@@ -120,41 +120,41 @@ module Network.AWS.EMR.Types
 
     -- * ClusterStateChangeReason
     , ClusterStateChangeReason
-    , mkClusterStateChangeReason
+    , clusterStateChangeReason
     , cscrCode
     , cscrMessage
 
     -- * ClusterStatus
     , ClusterStatus
-    , mkClusterStatus
+    , clusterStatus
     , csState
     , csStateChangeReason
     , csTimeline
 
     -- * ClusterSummary
     , ClusterSummary
-    , mkClusterSummary
+    , clusterSummary
     , csrId
     , csrName
     , csrStatus
 
     -- * ClusterTimeline
     , ClusterTimeline
-    , mkClusterTimeline
+    , clusterTimeline
     , ctCreationDateTime
     , ctReadyDateTime
     , ctEndDateTime
 
     -- * Command
     , Command
-    , mkCommand
+    , command
     , crName
     , crScriptPath
     , crArgs
 
     -- * Ec2InstanceAttributes
     , Ec2InstanceAttributes
-    , mkEc2InstanceAttributes
+    , ec2InstanceAttributes
     , eiaEc2KeyName
     , eiaEc2SubnetId
     , eiaEc2AvailabilityZone
@@ -162,7 +162,7 @@ module Network.AWS.EMR.Types
 
     -- * HadoopJarStepConfig
     , HadoopJarStepConfig
-    , mkHadoopJarStepConfig
+    , hadoopJarStepConfig
     , hjscProperties
     , hjscJar
     , hjscMainClass
@@ -170,7 +170,7 @@ module Network.AWS.EMR.Types
 
     -- * HadoopStepConfig
     , HadoopStepConfig
-    , mkHadoopStepConfig
+    , hadoopStepConfig
     , hscJar
     , hscProperties
     , hscMainClass
@@ -178,7 +178,7 @@ module Network.AWS.EMR.Types
 
     -- * Instance
     , Instance
-    , mkInstance
+    , instance
     , iId
     , iEc2InstanceId
     , iPublicDnsName
@@ -189,7 +189,7 @@ module Network.AWS.EMR.Types
 
     -- * InstanceGroup
     , InstanceGroup
-    , mkInstanceGroup
+    , instanceGroup
     , igId
     , igName
     , igMarket
@@ -202,7 +202,7 @@ module Network.AWS.EMR.Types
 
     -- * InstanceGroupConfig
     , InstanceGroupConfig
-    , mkInstanceGroupConfig
+    , instanceGroupConfig
     , igcName
     , igcMarket
     , igcInstanceRole
@@ -212,7 +212,7 @@ module Network.AWS.EMR.Types
 
     -- * InstanceGroupDetail
     , InstanceGroupDetail
-    , mkInstanceGroupDetail
+    , instanceGroupDetail
     , igdInstanceGroupId
     , igdName
     , igdMarket
@@ -230,54 +230,54 @@ module Network.AWS.EMR.Types
 
     -- * InstanceGroupModifyConfig
     , InstanceGroupModifyConfig
-    , mkInstanceGroupModifyConfig
+    , instanceGroupModifyConfig
     , igmcInstanceGroupId
     , igmcInstanceCount
     , igmcEC2InstanceIdsToTerminate
 
     -- * InstanceGroupStateChangeReason
     , InstanceGroupStateChangeReason
-    , mkInstanceGroupStateChangeReason
+    , instanceGroupStateChangeReason
     , igscrCode
     , igscrMessage
 
     -- * InstanceGroupStatus
     , InstanceGroupStatus
-    , mkInstanceGroupStatus
+    , instanceGroupStatus
     , igsState
     , igsStateChangeReason
     , igsTimeline
 
     -- * InstanceGroupTimeline
     , InstanceGroupTimeline
-    , mkInstanceGroupTimeline
+    , instanceGroupTimeline
     , igtCreationDateTime
     , igtReadyDateTime
     , igtEndDateTime
 
     -- * InstanceStateChangeReason
     , InstanceStateChangeReason
-    , mkInstanceStateChangeReason
+    , instanceStateChangeReason
     , iscrCode
     , iscrMessage
 
     -- * InstanceStatus
     , InstanceStatus
-    , mkInstanceStatus
+    , instanceStatus
     , isState
     , isStateChangeReason
     , isTimeline
 
     -- * InstanceTimeline
     , InstanceTimeline
-    , mkInstanceTimeline
+    , instanceTimeline
     , itCreationDateTime
     , itReadyDateTime
     , itEndDateTime
 
     -- * JobFlowDetail
     , JobFlowDetail
-    , mkJobFlowDetail
+    , jobFlowDetail
     , jfdJobFlowId
     , jfdName
     , jfdLogUri
@@ -293,7 +293,7 @@ module Network.AWS.EMR.Types
 
     -- * JobFlowExecutionStatusDetail
     , JobFlowExecutionStatusDetail
-    , mkJobFlowExecutionStatusDetail
+    , jobFlowExecutionStatusDetail
     , jfesdState
     , jfesdCreationDateTime
     , jfesdStartDateTime
@@ -303,7 +303,7 @@ module Network.AWS.EMR.Types
 
     -- * JobFlowInstancesConfig
     , JobFlowInstancesConfig
-    , mkJobFlowInstancesConfig
+    , jobFlowInstancesConfig
     , jficMasterInstanceType
     , jficSlaveInstanceType
     , jficInstanceCount
@@ -317,7 +317,7 @@ module Network.AWS.EMR.Types
 
     -- * JobFlowInstancesDetail
     , JobFlowInstancesDetail
-    , mkJobFlowInstancesDetail
+    , jobFlowInstancesDetail
     , jfidMasterInstanceType
     , jfidMasterPublicDnsName
     , jfidMasterInstanceId
@@ -334,19 +334,19 @@ module Network.AWS.EMR.Types
 
     -- * KeyValue
     , KeyValue
-    , mkKeyValue
+    , keyValue
     , kvKey
     , kvValue
 
     -- * ScriptBootstrapActionConfig
     , ScriptBootstrapActionConfig
-    , mkScriptBootstrapActionConfig
+    , scriptBootstrapActionConfig
     , sbacPath
     , sbacArgs
 
     -- * Step
     , Step
-    , mkStep
+    , step
     , sId
     , sName
     , sConfig
@@ -355,20 +355,20 @@ module Network.AWS.EMR.Types
 
     -- * StepConfig
     , StepConfig
-    , mkStepConfig
+    , stepConfig
     , scName
     , scActionOnFailure
     , scHadoopJarStep
 
     -- * StepDetail
     , StepDetail
-    , mkStepDetail
+    , stepDetail
     , sdStepConfig
     , sdExecutionStatusDetail
 
     -- * StepExecutionStatusDetail
     , StepExecutionStatusDetail
-    , mkStepExecutionStatusDetail
+    , stepExecutionStatusDetail
     , sesdState
     , sesdCreationDateTime
     , sesdStartDateTime
@@ -377,40 +377,40 @@ module Network.AWS.EMR.Types
 
     -- * StepStateChangeReason
     , StepStateChangeReason
-    , mkStepStateChangeReason
+    , stepStateChangeReason
     , sscrCode
     , sscrMessage
 
     -- * StepStatus
     , StepStatus
-    , mkStepStatus
+    , stepStatus
     , ssState
     , ssStateChangeReason
     , ssTimeline
 
     -- * StepSummary
     , StepSummary
-    , mkStepSummary
+    , stepSummary
     , ssrId
     , ssrName
     , ssrStatus
 
     -- * StepTimeline
     , StepTimeline
-    , mkStepTimeline
+    , stepTimeline
     , stCreationDateTime
     , stStartDateTime
     , stEndDateTime
 
     -- * SupportedProductConfig
     , SupportedProductConfig
-    , mkSupportedProductConfig
+    , supportedProductConfig
     , spcName
     , spcArgs
 
     -- * Tag
     , Tag
-    , mkTag
+    , tag
     , tKey
     , tValue
     ) where
@@ -440,8 +440,8 @@ instance AWSService EMR where
 -- service description where applicable.
 data EMRError
     = EMRClient HttpException
-    | EMRSerializer Text
-    | EMRService Text
+    | EMRSerializer String
+    | EMRService String
       -- | Indicates that an error occurred while processing the request and
       -- that the request was not completed.
     | InternalServerError
@@ -477,7 +477,7 @@ _EMRClient = prism'
         x -> Left x)
 
 -- | See: 'EMRSerializer'
-_EMRSerializer :: Prism' EMRError Text
+_EMRSerializer :: Prism' EMRError String
 _EMRSerializer = prism'
     EMRSerializer
     (\case
@@ -485,7 +485,7 @@ _EMRSerializer = prism'
         x -> Left x)
 
 -- | See: 'EMRService'
-_EMRService :: Prism' EMRError Text
+_EMRService :: Prism' EMRError String
 _EMRService = prism'
     EMRService
     (\case
@@ -1114,8 +1114,8 @@ newtype BootstrapActionDetail = BootstrapActionDetail
 --
 -- * @BootstrapActionConfig ::@ @Maybe BootstrapActionConfig@
 --
-mkBootstrapActionDetail :: BootstrapActionDetail
-mkBootstrapActionDetail = BootstrapActionDetail
+bootstrapActionDetail :: BootstrapActionDetail
+bootstrapActionDetail = BootstrapActionDetail
     { _badBootstrapActionConfig = Nothing
     }
 
@@ -1141,9 +1141,9 @@ newtype PlacementType = PlacementType
 --
 -- * @AvailabilityZone ::@ @Text@
 --
-mkPlacementType :: Text -- ^ 'ptAvailabilityZone'
+placementType :: Text -- ^ 'ptAvailabilityZone'
                 -> PlacementType
-mkPlacementType p1 = PlacementType
+placementType p1 = PlacementType
     { _ptAvailabilityZone = p1
     }
 
@@ -1189,8 +1189,8 @@ data Application = Application
 --
 -- * @AdditionalInfo ::@ @Map Text Text@
 --
-mkApplication :: Application
-mkApplication = Application
+application :: Application
+application = Application
     { _aName = Nothing
     , _aVersion = Nothing
     , _aArgs = mempty
@@ -1231,10 +1231,10 @@ data BootstrapActionConfig = BootstrapActionConfig
 --
 -- * @ScriptBootstrapAction ::@ @ScriptBootstrapActionConfig@
 --
-mkBootstrapActionConfig :: Text -- ^ 'bacName'
+bootstrapActionConfig :: Text -- ^ 'bacName'
                         -> ScriptBootstrapActionConfig -- ^ 'bacScriptBootstrapAction'
                         -> BootstrapActionConfig
-mkBootstrapActionConfig p1 p2 = BootstrapActionConfig
+bootstrapActionConfig p1 p2 = BootstrapActionConfig
     { _bacName = p1
     , _bacScriptBootstrapAction = p2
     }
@@ -1304,8 +1304,8 @@ data Cluster = Cluster
 --
 -- * @ServiceRole ::@ @Maybe Text@
 --
-mkCluster :: Cluster
-mkCluster = Cluster
+cluster :: Cluster
+cluster = Cluster
     { _cId = Nothing
     , _cName = Nothing
     , _cStatus = Nothing
@@ -1407,8 +1407,8 @@ data ClusterStateChangeReason = ClusterStateChangeReason
 --
 -- * @Message ::@ @Maybe Text@
 --
-mkClusterStateChangeReason :: ClusterStateChangeReason
-mkClusterStateChangeReason = ClusterStateChangeReason
+clusterStateChangeReason :: ClusterStateChangeReason
+clusterStateChangeReason = ClusterStateChangeReason
     { _cscrCode = Nothing
     , _cscrMessage = Nothing
     }
@@ -1443,8 +1443,8 @@ data ClusterStatus = ClusterStatus
 --
 -- * @Timeline ::@ @Maybe ClusterTimeline@
 --
-mkClusterStatus :: ClusterStatus
-mkClusterStatus = ClusterStatus
+clusterStatus :: ClusterStatus
+clusterStatus = ClusterStatus
     { _csState = Nothing
     , _csStateChangeReason = Nothing
     , _csTimeline = Nothing
@@ -1489,8 +1489,8 @@ data ClusterSummary = ClusterSummary
 --
 -- * @Status ::@ @Maybe ClusterStatus@
 --
-mkClusterSummary :: ClusterSummary
-mkClusterSummary = ClusterSummary
+clusterSummary :: ClusterSummary
+clusterSummary = ClusterSummary
     { _csrId = Nothing
     , _csrName = Nothing
     , _csrStatus = Nothing
@@ -1529,8 +1529,8 @@ data ClusterTimeline = ClusterTimeline
 --
 -- * @EndDateTime ::@ @Maybe POSIX@
 --
-mkClusterTimeline :: ClusterTimeline
-mkClusterTimeline = ClusterTimeline
+clusterTimeline :: ClusterTimeline
+clusterTimeline = ClusterTimeline
     { _ctCreationDateTime = Nothing
     , _ctReadyDateTime = Nothing
     , _ctEndDateTime = Nothing
@@ -1574,8 +1574,8 @@ data Command = Command
 --
 -- * @Args ::@ @[Text]@
 --
-mkCommand :: Command
-mkCommand = Command
+command :: Command
+command = Command
     { _crName = Nothing
     , _crScriptPath = Nothing
     , _crArgs = mempty
@@ -1621,8 +1621,8 @@ data Ec2InstanceAttributes = Ec2InstanceAttributes
 --
 -- * @IamInstanceProfile ::@ @Maybe Text@
 --
-mkEc2InstanceAttributes :: Ec2InstanceAttributes
-mkEc2InstanceAttributes = Ec2InstanceAttributes
+ec2InstanceAttributes :: Ec2InstanceAttributes
+ec2InstanceAttributes = Ec2InstanceAttributes
     { _eiaEc2KeyName = Nothing
     , _eiaEc2SubnetId = Nothing
     , _eiaEc2AvailabilityZone = Nothing
@@ -1677,9 +1677,9 @@ data HadoopJarStepConfig = HadoopJarStepConfig
 --
 -- * @Args ::@ @[Text]@
 --
-mkHadoopJarStepConfig :: Text -- ^ 'hjscJar'
+hadoopJarStepConfig :: Text -- ^ 'hjscJar'
                       -> HadoopJarStepConfig
-mkHadoopJarStepConfig p2 = HadoopJarStepConfig
+hadoopJarStepConfig p2 = HadoopJarStepConfig
     { _hjscProperties = mempty
     , _hjscJar = p2
     , _hjscMainClass = Nothing
@@ -1733,8 +1733,8 @@ data HadoopStepConfig = HadoopStepConfig
 --
 -- * @Args ::@ @[Text]@
 --
-mkHadoopStepConfig :: HadoopStepConfig
-mkHadoopStepConfig = HadoopStepConfig
+hadoopStepConfig :: HadoopStepConfig
+hadoopStepConfig = HadoopStepConfig
     { _hscJar = Nothing
     , _hscProperties = mempty
     , _hscMainClass = Nothing
@@ -1795,8 +1795,8 @@ data Instance = Instance
 --
 -- * @Status ::@ @Maybe InstanceStatus@
 --
-mkInstance :: Instance
-mkInstance = Instance
+instance :: Instance
+instance = Instance
     { _iId = Nothing
     , _iEc2InstanceId = Nothing
     , _iPublicDnsName = Nothing
@@ -1879,8 +1879,8 @@ data InstanceGroup = InstanceGroup
 --
 -- * @Status ::@ @Maybe InstanceGroupStatus@
 --
-mkInstanceGroup :: InstanceGroup
-mkInstanceGroup = InstanceGroup
+instanceGroup :: InstanceGroup
+instanceGroup = InstanceGroup
     { _igId = Nothing
     , _igName = Nothing
     , _igMarket = Nothing
@@ -1963,11 +1963,11 @@ data InstanceGroupConfig = InstanceGroupConfig
 --
 -- * @InstanceCount ::@ @Integer@
 --
-mkInstanceGroupConfig :: InstanceRoleType -- ^ 'igcInstanceRole'
+instanceGroupConfig :: InstanceRoleType -- ^ 'igcInstanceRole'
                       -> Text -- ^ 'igcInstanceType'
                       -> Integer -- ^ 'igcInstanceCount'
                       -> InstanceGroupConfig
-mkInstanceGroupConfig p3 p5 p6 = InstanceGroupConfig
+instanceGroupConfig p3 p5 p6 = InstanceGroupConfig
     { _igcName = Nothing
     , _igcMarket = Nothing
     , _igcInstanceRole = p3
@@ -2055,7 +2055,7 @@ data InstanceGroupDetail = InstanceGroupDetail
 --
 -- * @EndDateTime ::@ @Maybe POSIX@
 --
-mkInstanceGroupDetail :: POSIX -- ^ 'igdCreationDateTime'
+instanceGroupDetail :: POSIX -- ^ 'igdCreationDateTime'
                       -> MarketType -- ^ 'igdMarket'
                       -> InstanceRoleType -- ^ 'igdInstanceRole'
                       -> Text -- ^ 'igdInstanceType'
@@ -2063,7 +2063,7 @@ mkInstanceGroupDetail :: POSIX -- ^ 'igdCreationDateTime'
                       -> Integer -- ^ 'igdInstanceRunningCount'
                       -> InstanceGroupState -- ^ 'igdState'
                       -> InstanceGroupDetail
-mkInstanceGroupDetail p11 p3 p4 p6 p7 p8 p9 = InstanceGroupDetail
+instanceGroupDetail p11 p3 p4 p6 p7 p8 p9 = InstanceGroupDetail
     { _igdInstanceGroupId = Nothing
     , _igdName = Nothing
     , _igdMarket = p3
@@ -2170,9 +2170,9 @@ data InstanceGroupModifyConfig = InstanceGroupModifyConfig
 --
 -- * @EC2InstanceIdsToTerminate ::@ @[Text]@
 --
-mkInstanceGroupModifyConfig :: Text -- ^ 'igmcInstanceGroupId'
+instanceGroupModifyConfig :: Text -- ^ 'igmcInstanceGroupId'
                             -> InstanceGroupModifyConfig
-mkInstanceGroupModifyConfig p1 = InstanceGroupModifyConfig
+instanceGroupModifyConfig p1 = InstanceGroupModifyConfig
     { _igmcInstanceGroupId = p1
     , _igmcInstanceCount = Nothing
     , _igmcEC2InstanceIdsToTerminate = mempty
@@ -2213,8 +2213,8 @@ data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason
 --
 -- * @Message ::@ @Maybe Text@
 --
-mkInstanceGroupStateChangeReason :: InstanceGroupStateChangeReason
-mkInstanceGroupStateChangeReason = InstanceGroupStateChangeReason
+instanceGroupStateChangeReason :: InstanceGroupStateChangeReason
+instanceGroupStateChangeReason = InstanceGroupStateChangeReason
     { _igscrCode = Nothing
     , _igscrMessage = Nothing
     }
@@ -2249,8 +2249,8 @@ data InstanceGroupStatus = InstanceGroupStatus
 --
 -- * @Timeline ::@ @Maybe InstanceGroupTimeline@
 --
-mkInstanceGroupStatus :: InstanceGroupStatus
-mkInstanceGroupStatus = InstanceGroupStatus
+instanceGroupStatus :: InstanceGroupStatus
+instanceGroupStatus = InstanceGroupStatus
     { _igsState = Nothing
     , _igsStateChangeReason = Nothing
     , _igsTimeline = Nothing
@@ -2291,8 +2291,8 @@ data InstanceGroupTimeline = InstanceGroupTimeline
 --
 -- * @EndDateTime ::@ @Maybe POSIX@
 --
-mkInstanceGroupTimeline :: InstanceGroupTimeline
-mkInstanceGroupTimeline = InstanceGroupTimeline
+instanceGroupTimeline :: InstanceGroupTimeline
+instanceGroupTimeline = InstanceGroupTimeline
     { _igtCreationDateTime = Nothing
     , _igtReadyDateTime = Nothing
     , _igtEndDateTime = Nothing
@@ -2331,8 +2331,8 @@ data InstanceStateChangeReason = InstanceStateChangeReason
 --
 -- * @Message ::@ @Maybe Text@
 --
-mkInstanceStateChangeReason :: InstanceStateChangeReason
-mkInstanceStateChangeReason = InstanceStateChangeReason
+instanceStateChangeReason :: InstanceStateChangeReason
+instanceStateChangeReason = InstanceStateChangeReason
     { _iscrCode = Nothing
     , _iscrMessage = Nothing
     }
@@ -2367,8 +2367,8 @@ data InstanceStatus = InstanceStatus
 --
 -- * @Timeline ::@ @Maybe InstanceTimeline@
 --
-mkInstanceStatus :: InstanceStatus
-mkInstanceStatus = InstanceStatus
+instanceStatus :: InstanceStatus
+instanceStatus = InstanceStatus
     { _isState = Nothing
     , _isStateChangeReason = Nothing
     , _isTimeline = Nothing
@@ -2409,8 +2409,8 @@ data InstanceTimeline = InstanceTimeline
 --
 -- * @EndDateTime ::@ @Maybe POSIX@
 --
-mkInstanceTimeline :: InstanceTimeline
-mkInstanceTimeline = InstanceTimeline
+instanceTimeline :: InstanceTimeline
+instanceTimeline = InstanceTimeline
     { _itCreationDateTime = Nothing
     , _itReadyDateTime = Nothing
     , _itEndDateTime = Nothing
@@ -2481,12 +2481,12 @@ data JobFlowDetail = JobFlowDetail
 --
 -- * @ServiceRole ::@ @Maybe Text@
 --
-mkJobFlowDetail :: Text -- ^ 'jfdJobFlowId'
+jobFlowDetail :: Text -- ^ 'jfdJobFlowId'
                 -> Text -- ^ 'jfdName'
                 -> JobFlowExecutionStatusDetail -- ^ 'jfdExecutionStatusDetail'
                 -> JobFlowInstancesDetail -- ^ 'jfdInstances'
                 -> JobFlowDetail
-mkJobFlowDetail p1 p2 p5 p6 = JobFlowDetail
+jobFlowDetail p1 p2 p5 p6 = JobFlowDetail
     { _jfdJobFlowId = p1
     , _jfdName = p2
     , _jfdLogUri = Nothing
@@ -2595,10 +2595,10 @@ data JobFlowExecutionStatusDetail = JobFlowExecutionStatusDetail
 --
 -- * @LastStateChangeReason ::@ @Maybe Text@
 --
-mkJobFlowExecutionStatusDetail :: JobFlowExecutionState -- ^ 'jfesdState'
+jobFlowExecutionStatusDetail :: JobFlowExecutionState -- ^ 'jfesdState'
                                -> POSIX -- ^ 'jfesdCreationDateTime'
                                -> JobFlowExecutionStatusDetail
-mkJobFlowExecutionStatusDetail p1 p2 = JobFlowExecutionStatusDetail
+jobFlowExecutionStatusDetail p1 p2 = JobFlowExecutionStatusDetail
     { _jfesdState = p1
     , _jfesdCreationDateTime = p2
     , _jfesdStartDateTime = Nothing
@@ -2682,8 +2682,8 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig
 --
 -- * @Ec2SubnetId ::@ @Maybe Text@
 --
-mkJobFlowInstancesConfig :: JobFlowInstancesConfig
-mkJobFlowInstancesConfig = JobFlowInstancesConfig
+jobFlowInstancesConfig :: JobFlowInstancesConfig
+jobFlowInstancesConfig = JobFlowInstancesConfig
     { _jficMasterInstanceType = Nothing
     , _jficSlaveInstanceType = Nothing
     , _jficInstanceCount = Nothing
@@ -2807,11 +2807,11 @@ data JobFlowInstancesDetail = JobFlowInstancesDetail
 --
 -- * @HadoopVersion ::@ @Maybe Text@
 --
-mkJobFlowInstancesDetail :: Text -- ^ 'jfidMasterInstanceType'
+jobFlowInstancesDetail :: Text -- ^ 'jfidMasterInstanceType'
                          -> Text -- ^ 'jfidSlaveInstanceType'
                          -> Integer -- ^ 'jfidInstanceCount'
                          -> JobFlowInstancesDetail
-mkJobFlowInstancesDetail p1 p4 p5 = JobFlowInstancesDetail
+jobFlowInstancesDetail p1 p4 p5 = JobFlowInstancesDetail
     { _jfidMasterInstanceType = p1
     , _jfidMasterPublicDnsName = Nothing
     , _jfidMasterInstanceId = Nothing
@@ -2924,8 +2924,8 @@ data KeyValue = KeyValue
 --
 -- * @Value ::@ @Maybe Text@
 --
-mkKeyValue :: KeyValue
-mkKeyValue = KeyValue
+keyValue :: KeyValue
+keyValue = KeyValue
     { _kvKey = Nothing
     , _kvValue = Nothing
     }
@@ -2957,9 +2957,9 @@ data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig
 --
 -- * @Args ::@ @[Text]@
 --
-mkScriptBootstrapActionConfig :: Text -- ^ 'sbacPath'
+scriptBootstrapActionConfig :: Text -- ^ 'sbacPath'
                               -> ScriptBootstrapActionConfig
-mkScriptBootstrapActionConfig p1 = ScriptBootstrapActionConfig
+scriptBootstrapActionConfig p1 = ScriptBootstrapActionConfig
     { _sbacPath = p1
     , _sbacArgs = mempty
     }
@@ -3004,8 +3004,8 @@ data Step = Step
 --
 -- * @Status ::@ @Maybe StepStatus@
 --
-mkStep :: Step
-mkStep = Step
+step :: Step
+step = Step
     { _sId = Nothing
     , _sName = Nothing
     , _sConfig = Nothing
@@ -3055,10 +3055,10 @@ data StepConfig = StepConfig
 --
 -- * @HadoopJarStep ::@ @HadoopJarStepConfig@
 --
-mkStepConfig :: Text -- ^ 'scName'
+stepConfig :: Text -- ^ 'scName'
              -> HadoopJarStepConfig -- ^ 'scHadoopJarStep'
              -> StepConfig
-mkStepConfig p1 p3 = StepConfig
+stepConfig p1 p3 = StepConfig
     { _scName = p1
     , _scActionOnFailure = Nothing
     , _scHadoopJarStep = p3
@@ -3096,10 +3096,10 @@ data StepDetail = StepDetail
 --
 -- * @ExecutionStatusDetail ::@ @StepExecutionStatusDetail@
 --
-mkStepDetail :: StepConfig -- ^ 'sdStepConfig'
+stepDetail :: StepConfig -- ^ 'sdStepConfig'
              -> StepExecutionStatusDetail -- ^ 'sdExecutionStatusDetail'
              -> StepDetail
-mkStepDetail p1 p2 = StepDetail
+stepDetail p1 p2 = StepDetail
     { _sdStepConfig = p1
     , _sdExecutionStatusDetail = p2
     }
@@ -3142,10 +3142,10 @@ data StepExecutionStatusDetail = StepExecutionStatusDetail
 --
 -- * @LastStateChangeReason ::@ @Maybe Text@
 --
-mkStepExecutionStatusDetail :: StepExecutionState -- ^ 'sesdState'
+stepExecutionStatusDetail :: StepExecutionState -- ^ 'sesdState'
                             -> POSIX -- ^ 'sesdCreationDateTime'
                             -> StepExecutionStatusDetail
-mkStepExecutionStatusDetail p1 p2 = StepExecutionStatusDetail
+stepExecutionStatusDetail p1 p2 = StepExecutionStatusDetail
     { _sesdState = p1
     , _sesdCreationDateTime = p2
     , _sesdStartDateTime = Nothing
@@ -3196,8 +3196,8 @@ data StepStateChangeReason = StepStateChangeReason
 --
 -- * @Message ::@ @Maybe Text@
 --
-mkStepStateChangeReason :: StepStateChangeReason
-mkStepStateChangeReason = StepStateChangeReason
+stepStateChangeReason :: StepStateChangeReason
+stepStateChangeReason = StepStateChangeReason
     { _sscrCode = Nothing
     , _sscrMessage = Nothing
     }
@@ -3232,8 +3232,8 @@ data StepStatus = StepStatus
 --
 -- * @Timeline ::@ @Maybe StepTimeline@
 --
-mkStepStatus :: StepStatus
-mkStepStatus = StepStatus
+stepStatus :: StepStatus
+stepStatus = StepStatus
     { _ssState = Nothing
     , _ssStateChangeReason = Nothing
     , _ssTimeline = Nothing
@@ -3277,8 +3277,8 @@ data StepSummary = StepSummary
 --
 -- * @Status ::@ @Maybe StepStatus@
 --
-mkStepSummary :: StepSummary
-mkStepSummary = StepSummary
+stepSummary :: StepSummary
+stepSummary = StepSummary
     { _ssrId = Nothing
     , _ssrName = Nothing
     , _ssrStatus = Nothing
@@ -3316,8 +3316,8 @@ data StepTimeline = StepTimeline
 --
 -- * @EndDateTime ::@ @Maybe POSIX@
 --
-mkStepTimeline :: StepTimeline
-mkStepTimeline = StepTimeline
+stepTimeline :: StepTimeline
+stepTimeline = StepTimeline
     { _stCreationDateTime = Nothing
     , _stStartDateTime = Nothing
     , _stEndDateTime = Nothing
@@ -3357,8 +3357,8 @@ data SupportedProductConfig = SupportedProductConfig
 --
 -- * @Args ::@ @[Text]@
 --
-mkSupportedProductConfig :: SupportedProductConfig
-mkSupportedProductConfig = SupportedProductConfig
+supportedProductConfig :: SupportedProductConfig
+supportedProductConfig = SupportedProductConfig
     { _spcName = Nothing
     , _spcArgs = mempty
     }
@@ -3391,8 +3391,8 @@ data Tag = Tag
 --
 -- * @Value ::@ @Maybe Text@
 --
-mkTag :: Tag
-mkTag = Tag
+tag :: Tag
+tag = Tag
     { _tKey = Nothing
     , _tValue = Nothing
     }

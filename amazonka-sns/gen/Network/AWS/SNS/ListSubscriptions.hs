@@ -42,14 +42,14 @@ module Network.AWS.SNS.ListSubscriptions
     -- * Request
       ListSubscriptions
     -- ** Request constructor
-    , mkListSubscriptions
+    , listSubscriptions
     -- ** Request lenses
     , lsNextToken
 
     -- * Response
     , ListSubscriptionsResponse
     -- ** Response constructor
-    , mkListSubscriptionsResponse
+    , listSubscriptionsResponse
     -- ** Response lenses
     , lsrSubscriptions
     , lsrNextToken
@@ -71,8 +71,8 @@ newtype ListSubscriptions = ListSubscriptions
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkListSubscriptions :: ListSubscriptions
-mkListSubscriptions = ListSubscriptions
+listSubscriptions :: ListSubscriptions
+listSubscriptions = ListSubscriptions
     { _lsNextToken = Nothing
     }
 
@@ -100,8 +100,8 @@ data ListSubscriptionsResponse = ListSubscriptionsResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkListSubscriptionsResponse :: ListSubscriptionsResponse
-mkListSubscriptionsResponse = ListSubscriptionsResponse
+listSubscriptionsResponse :: ListSubscriptionsResponse
+listSubscriptionsResponse = ListSubscriptionsResponse
     { _lsrSubscriptions = mempty
     , _lsrNextToken = Nothing
     }

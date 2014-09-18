@@ -22,7 +22,7 @@ module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
     -- * Request
       DescribeTapeRecoveryPoints
     -- ** Request constructor
-    , mkDescribeTapeRecoveryPoints
+    , describeTapeRecoveryPoints
     -- ** Request lenses
     , dtrpGatewayARN
     , dtrpMarker
@@ -31,7 +31,7 @@ module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
     -- * Response
     , DescribeTapeRecoveryPointsResponse
     -- ** Response constructor
-    , mkDescribeTapeRecoveryPointsResponse
+    , describeTapeRecoveryPointsResponse
     -- ** Response lenses
     , dtrprGatewayARN
     , dtrprTapeRecoveryPointInfos
@@ -59,9 +59,9 @@ data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints
 --
 -- * @Limit ::@ @Maybe Integer@
 --
-mkDescribeTapeRecoveryPoints :: Text -- ^ 'dtrpGatewayARN'
+describeTapeRecoveryPoints :: Text -- ^ 'dtrpGatewayARN'
                              -> DescribeTapeRecoveryPoints
-mkDescribeTapeRecoveryPoints p1 = DescribeTapeRecoveryPoints
+describeTapeRecoveryPoints p1 = DescribeTapeRecoveryPoints
     { _dtrpGatewayARN = p1
     , _dtrpMarker = Nothing
     , _dtrpLimit = Nothing
@@ -105,8 +105,8 @@ data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeTapeRecoveryPointsResponse :: DescribeTapeRecoveryPointsResponse
-mkDescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse
+describeTapeRecoveryPointsResponse :: DescribeTapeRecoveryPointsResponse
+describeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse
     { _dtrprGatewayARN = Nothing
     , _dtrprTapeRecoveryPointInfos = mempty
     , _dtrprMarker = Nothing

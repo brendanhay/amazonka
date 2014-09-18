@@ -29,7 +29,7 @@ module Network.AWS.IAM.GetUserPolicy
     -- * Request
       GetUserPolicy
     -- ** Request constructor
-    , mkGetUserPolicy
+    , getUserPolicy
     -- ** Request lenses
     , gupUserName
     , gupPolicyName
@@ -37,7 +37,7 @@ module Network.AWS.IAM.GetUserPolicy
     -- * Response
     , GetUserPolicyResponse
     -- ** Response constructor
-    , mkGetUserPolicyResponse
+    , getUserPolicyResponse
     -- ** Response lenses
     , guprUserName
     , guprPolicyName
@@ -62,10 +62,10 @@ data GetUserPolicy = GetUserPolicy
 --
 -- * @PolicyName ::@ @Text@
 --
-mkGetUserPolicy :: Text -- ^ 'gupUserName'
+getUserPolicy :: Text -- ^ 'gupUserName'
                 -> Text -- ^ 'gupPolicyName'
                 -> GetUserPolicy
-mkGetUserPolicy p1 p2 = GetUserPolicy
+getUserPolicy p1 p2 = GetUserPolicy
     { _gupUserName = p1
     , _gupPolicyName = p2
     }
@@ -101,11 +101,11 @@ data GetUserPolicyResponse = GetUserPolicyResponse
 --
 -- * @PolicyDocument ::@ @Text@
 --
-mkGetUserPolicyResponse :: Text -- ^ 'guprUserName'
+getUserPolicyResponse :: Text -- ^ 'guprUserName'
                         -> Text -- ^ 'guprPolicyName'
                         -> Text -- ^ 'guprPolicyDocument'
                         -> GetUserPolicyResponse
-mkGetUserPolicyResponse p1 p2 p3 = GetUserPolicyResponse
+getUserPolicyResponse p1 p2 p3 = GetUserPolicyResponse
     { _guprUserName = p1
     , _guprPolicyName = p2
     , _guprPolicyDocument = p3

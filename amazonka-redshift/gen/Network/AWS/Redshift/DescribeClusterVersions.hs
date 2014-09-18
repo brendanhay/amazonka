@@ -33,7 +33,7 @@ module Network.AWS.Redshift.DescribeClusterVersions
     -- * Request
       DescribeClusterVersions
     -- ** Request constructor
-    , mkDescribeClusterVersions
+    , describeClusterVersions
     -- ** Request lenses
     , dcvClusterVersion
     , dcvClusterParameterGroupFamily
@@ -43,7 +43,7 @@ module Network.AWS.Redshift.DescribeClusterVersions
     -- * Response
     , DescribeClusterVersionsResponse
     -- ** Response constructor
-    , mkDescribeClusterVersionsResponse
+    , describeClusterVersionsResponse
     -- ** Response lenses
     , dcvrMarker
     , dcvrClusterVersions
@@ -73,8 +73,8 @@ data DescribeClusterVersions = DescribeClusterVersions
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeClusterVersions :: DescribeClusterVersions
-mkDescribeClusterVersions = DescribeClusterVersions
+describeClusterVersions :: DescribeClusterVersions
+describeClusterVersions = DescribeClusterVersions
     { _dcvClusterVersion = Nothing
     , _dcvClusterParameterGroupFamily = Nothing
     , _dcvMaxRecords = Nothing
@@ -132,8 +132,8 @@ data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse
 --
 -- * @ClusterVersions ::@ @[ClusterVersion]@
 --
-mkDescribeClusterVersionsResponse :: DescribeClusterVersionsResponse
-mkDescribeClusterVersionsResponse = DescribeClusterVersionsResponse
+describeClusterVersionsResponse :: DescribeClusterVersionsResponse
+describeClusterVersionsResponse = DescribeClusterVersionsResponse
     { _dcvrMarker = Nothing
     , _dcvrClusterVersions = mempty
     }

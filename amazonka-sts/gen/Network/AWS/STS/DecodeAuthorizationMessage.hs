@@ -54,14 +54,14 @@ module Network.AWS.STS.DecodeAuthorizationMessage
     -- * Request
       DecodeAuthorizationMessage
     -- ** Request constructor
-    , mkDecodeAuthorizationMessage
+    , decodeAuthorizationMessage
     -- ** Request lenses
     , damEncodedMessage
 
     -- * Response
     , DecodeAuthorizationMessageResponse
     -- ** Response constructor
-    , mkDecodeAuthorizationMessageResponse
+    , decodeAuthorizationMessageResponse
     -- ** Response lenses
     , damrDecodedMessage
     ) where
@@ -81,9 +81,9 @@ newtype DecodeAuthorizationMessage = DecodeAuthorizationMessage
 --
 -- * @EncodedMessage ::@ @Text@
 --
-mkDecodeAuthorizationMessage :: Text -- ^ 'damEncodedMessage'
+decodeAuthorizationMessage :: Text -- ^ 'damEncodedMessage'
                              -> DecodeAuthorizationMessage
-mkDecodeAuthorizationMessage p1 = DecodeAuthorizationMessage
+decodeAuthorizationMessage p1 = DecodeAuthorizationMessage
     { _damEncodedMessage = p1
     }
 
@@ -111,8 +111,8 @@ newtype DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
 --
 -- * @DecodedMessage ::@ @Maybe Text@
 --
-mkDecodeAuthorizationMessageResponse :: DecodeAuthorizationMessageResponse
-mkDecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
+decodeAuthorizationMessageResponse :: DecodeAuthorizationMessageResponse
+decodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
     { _damrDecodedMessage = Nothing
     }
 

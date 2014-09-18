@@ -38,7 +38,7 @@ module Network.AWS.EC2.ImportInstance
     -- * Request
       ImportInstance
     -- ** Request constructor
-    , mkImportInstance
+    , importInstance
     -- ** Request lenses
     , iiDescription
     , iiLaunchSpecification
@@ -48,7 +48,7 @@ module Network.AWS.EC2.ImportInstance
     -- * Response
     , ImportInstanceResponse
     -- ** Response constructor
-    , mkImportInstanceResponse
+    , importInstanceResponse
     -- ** Response lenses
     , iirConversionTask
     ) where
@@ -77,9 +77,9 @@ data ImportInstance = ImportInstance
 --
 -- * @Platform ::@ @PlatformValues@
 --
-mkImportInstance :: PlatformValues -- ^ 'iiPlatform'
+importInstance :: PlatformValues -- ^ 'iiPlatform'
                  -> ImportInstance
-mkImportInstance p4 = ImportInstance
+importInstance p4 = ImportInstance
     { _iiDescription = Nothing
     , _iiLaunchSpecification = Nothing
     , _iiDiskImages = mempty
@@ -119,8 +119,8 @@ newtype ImportInstanceResponse = ImportInstanceResponse
 --
 -- * @ConversionTask ::@ @Maybe ConversionTask@
 --
-mkImportInstanceResponse :: ImportInstanceResponse
-mkImportInstanceResponse = ImportInstanceResponse
+importInstanceResponse :: ImportInstanceResponse
+importInstanceResponse = ImportInstanceResponse
     { _iirConversionTask = Nothing
     }
 

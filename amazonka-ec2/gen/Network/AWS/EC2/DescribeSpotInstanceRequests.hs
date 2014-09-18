@@ -44,7 +44,7 @@ module Network.AWS.EC2.DescribeSpotInstanceRequests
     -- * Request
       DescribeSpotInstanceRequests
     -- ** Request constructor
-    , mkDescribeSpotInstanceRequests
+    , describeSpotInstanceRequests
     -- ** Request lenses
     , dsirSpotInstanceRequestIds
     , dsirFilters
@@ -52,7 +52,7 @@ module Network.AWS.EC2.DescribeSpotInstanceRequests
     -- * Response
     , DescribeSpotInstanceRequestsResponse
     -- ** Response constructor
-    , mkDescribeSpotInstanceRequestsResponse
+    , describeSpotInstanceRequestsResponse
     -- ** Response lenses
     , dsirrSpotInstanceRequests
     ) where
@@ -75,8 +75,8 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribeSpotInstanceRequests :: DescribeSpotInstanceRequests
-mkDescribeSpotInstanceRequests = DescribeSpotInstanceRequests
+describeSpotInstanceRequests :: DescribeSpotInstanceRequests
+describeSpotInstanceRequests = DescribeSpotInstanceRequests
     { _dsirSpotInstanceRequestIds = mempty
     , _dsirFilters = mempty
     }
@@ -157,8 +157,8 @@ newtype DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsRespo
 --
 -- * @SpotInstanceRequests ::@ @[SpotInstanceRequest]@
 --
-mkDescribeSpotInstanceRequestsResponse :: DescribeSpotInstanceRequestsResponse
-mkDescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
+describeSpotInstanceRequestsResponse :: DescribeSpotInstanceRequestsResponse
+describeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
     { _dsirrSpotInstanceRequests = mempty
     }
 

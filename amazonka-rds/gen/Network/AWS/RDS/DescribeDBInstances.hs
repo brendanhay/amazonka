@@ -32,7 +32,7 @@ module Network.AWS.RDS.DescribeDBInstances
     -- * Request
       DescribeDBInstances
     -- ** Request constructor
-    , mkDescribeDBInstances
+    , describeDBInstances
     -- ** Request lenses
     , ddbi1DBInstanceIdentifier
     , ddbi1MaxRecords
@@ -41,7 +41,7 @@ module Network.AWS.RDS.DescribeDBInstances
     -- * Response
     , DescribeDBInstancesResponse
     -- ** Response constructor
-    , mkDescribeDBInstancesResponse
+    , describeDBInstancesResponse
     -- ** Response lenses
     , ddbirrMarker
     , ddbirrDBInstances
@@ -69,8 +69,8 @@ data DescribeDBInstances = DescribeDBInstances
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeDBInstances :: DescribeDBInstances
-mkDescribeDBInstances = DescribeDBInstances
+describeDBInstances :: DescribeDBInstances
+describeDBInstances = DescribeDBInstances
     { _ddbi1DBInstanceIdentifier = Nothing
     , _ddbi1MaxRecords = Nothing
     , _ddbi1Marker = Nothing
@@ -120,8 +120,8 @@ data DescribeDBInstancesResponse = DescribeDBInstancesResponse
 --
 -- * @DBInstances ::@ @[DBInstance]@
 --
-mkDescribeDBInstancesResponse :: DescribeDBInstancesResponse
-mkDescribeDBInstancesResponse = DescribeDBInstancesResponse
+describeDBInstancesResponse :: DescribeDBInstancesResponse
+describeDBInstancesResponse = DescribeDBInstancesResponse
     { _ddbirrMarker = Nothing
     , _ddbirrDBInstances = mempty
     }

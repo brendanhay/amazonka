@@ -26,14 +26,14 @@ module Network.AWS.IAM.DeleteGroup
     -- * Request
       DeleteGroup
     -- ** Request constructor
-    , mkDeleteGroup
+    , deleteGroup
     -- ** Request lenses
     , dgGroupName
 
     -- * Response
     , DeleteGroupResponse
     -- ** Response constructor
-    , mkDeleteGroupResponse
+    , deleteGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -51,9 +51,9 @@ newtype DeleteGroup = DeleteGroup
 --
 -- * @GroupName ::@ @Text@
 --
-mkDeleteGroup :: Text -- ^ 'dgGroupName'
+deleteGroup :: Text -- ^ 'dgGroupName'
               -> DeleteGroup
-mkDeleteGroup p1 = DeleteGroup
+deleteGroup p1 = DeleteGroup
     { _dgGroupName = p1
     }
 
@@ -71,8 +71,8 @@ data DeleteGroupResponse = DeleteGroupResponse
 -- a valid 'DeleteGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteGroupResponse :: DeleteGroupResponse
-mkDeleteGroupResponse = DeleteGroupResponse
+deleteGroupResponse :: DeleteGroupResponse
+deleteGroupResponse = DeleteGroupResponse
 
 instance AWSRequest DeleteGroup where
     type Sv DeleteGroup = IAM

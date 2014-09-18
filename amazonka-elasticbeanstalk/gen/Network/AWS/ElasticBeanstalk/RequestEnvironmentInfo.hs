@@ -31,7 +31,7 @@ module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     -- * Request
       RequestEnvironmentInfo
     -- ** Request constructor
-    , mkRequestEnvironmentInfo
+    , requestEnvironmentInfo
     -- ** Request lenses
     , reiEnvironmentId
     , reiEnvironmentName
@@ -40,7 +40,7 @@ module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     -- * Response
     , RequestEnvironmentInfoResponse
     -- ** Response constructor
-    , mkRequestEnvironmentInfoResponse
+    , requestEnvironmentInfoResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -65,9 +65,9 @@ data RequestEnvironmentInfo = RequestEnvironmentInfo
 --
 -- * @InfoType ::@ @EnvironmentInfoType@
 --
-mkRequestEnvironmentInfo :: EnvironmentInfoType -- ^ 'reiInfoType'
+requestEnvironmentInfo :: EnvironmentInfoType -- ^ 'reiInfoType'
                          -> RequestEnvironmentInfo
-mkRequestEnvironmentInfo p3 = RequestEnvironmentInfo
+requestEnvironmentInfo p3 = RequestEnvironmentInfo
     { _reiEnvironmentId = Nothing
     , _reiEnvironmentName = Nothing
     , _reiInfoType = p3
@@ -105,8 +105,8 @@ data RequestEnvironmentInfoResponse = RequestEnvironmentInfoResponse
 -- a valid 'RequestEnvironmentInfoResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRequestEnvironmentInfoResponse :: RequestEnvironmentInfoResponse
-mkRequestEnvironmentInfoResponse = RequestEnvironmentInfoResponse
+requestEnvironmentInfoResponse :: RequestEnvironmentInfoResponse
+requestEnvironmentInfoResponse = RequestEnvironmentInfoResponse
 
 instance AWSRequest RequestEnvironmentInfo where
     type Sv RequestEnvironmentInfo = ElasticBeanstalk

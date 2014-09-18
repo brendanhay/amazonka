@@ -28,14 +28,14 @@ module Network.AWS.OpsWorks.DisassociateElasticIp
     -- * Request
       DisassociateElasticIp
     -- ** Request constructor
-    , mkDisassociateElasticIp
+    , disassociateElasticIp
     -- ** Request lenses
     , dei2ElasticIp
 
     -- * Response
     , DisassociateElasticIpResponse
     -- ** Response constructor
-    , mkDisassociateElasticIpResponse
+    , disassociateElasticIpResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -53,9 +53,9 @@ newtype DisassociateElasticIp = DisassociateElasticIp
 --
 -- * @ElasticIp ::@ @Text@
 --
-mkDisassociateElasticIp :: Text -- ^ 'dei2ElasticIp'
+disassociateElasticIp :: Text -- ^ 'dei2ElasticIp'
                         -> DisassociateElasticIp
-mkDisassociateElasticIp p1 = DisassociateElasticIp
+disassociateElasticIp p1 = DisassociateElasticIp
     { _dei2ElasticIp = p1
     }
 
@@ -78,8 +78,8 @@ data DisassociateElasticIpResponse = DisassociateElasticIpResponse
 -- a valid 'DisassociateElasticIpResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDisassociateElasticIpResponse :: DisassociateElasticIpResponse
-mkDisassociateElasticIpResponse = DisassociateElasticIpResponse
+disassociateElasticIpResponse :: DisassociateElasticIpResponse
+disassociateElasticIpResponse = DisassociateElasticIpResponse
 
 instance AWSRequest DisassociateElasticIp where
     type Sv DisassociateElasticIp = OpsWorks

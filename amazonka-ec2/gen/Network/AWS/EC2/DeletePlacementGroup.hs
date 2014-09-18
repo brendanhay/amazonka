@@ -32,14 +32,14 @@ module Network.AWS.EC2.DeletePlacementGroup
     -- * Request
       DeletePlacementGroup
     -- ** Request constructor
-    , mkDeletePlacementGroup
+    , deletePlacementGroup
     -- ** Request lenses
     , dpgGroupName
 
     -- * Response
     , DeletePlacementGroupResponse
     -- ** Response constructor
-    , mkDeletePlacementGroupResponse
+    , deletePlacementGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -57,9 +57,9 @@ newtype DeletePlacementGroup = DeletePlacementGroup
 --
 -- * @GroupName ::@ @Text@
 --
-mkDeletePlacementGroup :: Text -- ^ 'dpgGroupName'
+deletePlacementGroup :: Text -- ^ 'dpgGroupName'
                        -> DeletePlacementGroup
-mkDeletePlacementGroup p1 = DeletePlacementGroup
+deletePlacementGroup p1 = DeletePlacementGroup
     { _dpgGroupName = p1
     }
 
@@ -77,8 +77,8 @@ data DeletePlacementGroupResponse = DeletePlacementGroupResponse
 -- a valid 'DeletePlacementGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeletePlacementGroupResponse :: DeletePlacementGroupResponse
-mkDeletePlacementGroupResponse = DeletePlacementGroupResponse
+deletePlacementGroupResponse :: DeletePlacementGroupResponse
+deletePlacementGroupResponse = DeletePlacementGroupResponse
 
 instance AWSRequest DeletePlacementGroup where
     type Sv DeletePlacementGroup = EC2

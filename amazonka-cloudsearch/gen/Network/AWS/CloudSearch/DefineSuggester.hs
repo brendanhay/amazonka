@@ -28,7 +28,7 @@ module Network.AWS.CloudSearch.DefineSuggester
     -- * Request
       DefineSuggester
     -- ** Request constructor
-    , mkDefineSuggester
+    , defineSuggester
     -- ** Request lenses
     , ds1DomainName
     , ds1Suggester
@@ -36,7 +36,7 @@ module Network.AWS.CloudSearch.DefineSuggester
     -- * Response
     , DefineSuggesterResponse
     -- ** Response constructor
-    , mkDefineSuggesterResponse
+    , defineSuggesterResponse
     -- ** Response lenses
     , dsrSuggester
     ) where
@@ -61,10 +61,10 @@ data DefineSuggester = DefineSuggester
 --
 -- * @Suggester ::@ @Suggester@
 --
-mkDefineSuggester :: Text -- ^ 'ds1DomainName'
+defineSuggester :: Text -- ^ 'ds1DomainName'
                   -> Suggester -- ^ 'ds1Suggester'
                   -> DefineSuggester
-mkDefineSuggester p1 p2 = DefineSuggester
+defineSuggester p1 p2 = DefineSuggester
     { _ds1DomainName = p1
     , _ds1Suggester = p2
     }
@@ -101,9 +101,9 @@ newtype DefineSuggesterResponse = DefineSuggesterResponse
 --
 -- * @Suggester ::@ @SuggesterStatus@
 --
-mkDefineSuggesterResponse :: SuggesterStatus -- ^ 'dsrSuggester'
+defineSuggesterResponse :: SuggesterStatus -- ^ 'dsrSuggester'
                           -> DefineSuggesterResponse
-mkDefineSuggesterResponse p1 = DefineSuggesterResponse
+defineSuggesterResponse p1 = DefineSuggesterResponse
     { _dsrSuggester = p1
     }
 

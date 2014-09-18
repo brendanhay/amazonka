@@ -35,7 +35,7 @@ module Network.AWS.EC2.ModifyReservedInstances
     -- * Request
       ModifyReservedInstances
     -- ** Request constructor
-    , mkModifyReservedInstances
+    , modifyReservedInstances
     -- ** Request lenses
     , mriClientToken
     , mriReservedInstancesIds
@@ -44,7 +44,7 @@ module Network.AWS.EC2.ModifyReservedInstances
     -- * Response
     , ModifyReservedInstancesResponse
     -- ** Response constructor
-    , mkModifyReservedInstancesResponse
+    , modifyReservedInstancesResponse
     -- ** Response lenses
     , mrirReservedInstancesModificationId
     ) where
@@ -70,10 +70,10 @@ data ModifyReservedInstances = ModifyReservedInstances
 --
 -- * @TargetConfigurations ::@ @[ReservedInstancesConfiguration]@
 --
-mkModifyReservedInstances :: [Text] -- ^ 'mriReservedInstancesIds'
+modifyReservedInstances :: [Text] -- ^ 'mriReservedInstancesIds'
                           -> [ReservedInstancesConfiguration] -- ^ 'mriTargetConfigurations'
                           -> ModifyReservedInstances
-mkModifyReservedInstances p2 p3 = ModifyReservedInstances
+modifyReservedInstances p2 p3 = ModifyReservedInstances
     { _mriClientToken = Nothing
     , _mriReservedInstancesIds = p2
     , _mriTargetConfigurations = p3
@@ -112,8 +112,8 @@ newtype ModifyReservedInstancesResponse = ModifyReservedInstancesResponse
 --
 -- * @ReservedInstancesModificationId ::@ @Maybe Text@
 --
-mkModifyReservedInstancesResponse :: ModifyReservedInstancesResponse
-mkModifyReservedInstancesResponse = ModifyReservedInstancesResponse
+modifyReservedInstancesResponse :: ModifyReservedInstancesResponse
+modifyReservedInstancesResponse = ModifyReservedInstancesResponse
     { _mrirReservedInstancesModificationId = Nothing
     }
 

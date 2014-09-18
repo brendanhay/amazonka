@@ -23,7 +23,7 @@ module Network.AWS.EMR.ListBootstrapActions
     -- * Request
       ListBootstrapActions
     -- ** Request constructor
-    , mkListBootstrapActions
+    , listBootstrapActions
     -- ** Request lenses
     , lbaClusterId
     , lbaMarker
@@ -31,7 +31,7 @@ module Network.AWS.EMR.ListBootstrapActions
     -- * Response
     , ListBootstrapActionsResponse
     -- ** Response constructor
-    , mkListBootstrapActionsResponse
+    , listBootstrapActionsResponse
     -- ** Response lenses
     , lbarBootstrapActions
     , lbarMarker
@@ -56,9 +56,9 @@ data ListBootstrapActions = ListBootstrapActions
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListBootstrapActions :: Text -- ^ 'lbaClusterId'
+listBootstrapActions :: Text -- ^ 'lbaClusterId'
                        -> ListBootstrapActions
-mkListBootstrapActions p1 = ListBootstrapActions
+listBootstrapActions p1 = ListBootstrapActions
     { _lbaClusterId = p1
     , _lbaMarker = Nothing
     }
@@ -96,8 +96,8 @@ data ListBootstrapActionsResponse = ListBootstrapActionsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListBootstrapActionsResponse :: ListBootstrapActionsResponse
-mkListBootstrapActionsResponse = ListBootstrapActionsResponse
+listBootstrapActionsResponse :: ListBootstrapActionsResponse
+listBootstrapActionsResponse = ListBootstrapActionsResponse
     { _lbarBootstrapActions = mempty
     , _lbarMarker = Nothing
     }

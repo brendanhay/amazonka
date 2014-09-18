@@ -62,7 +62,7 @@ module Network.AWS.EC2.DescribeAddresses
     -- * Request
       DescribeAddresses
     -- ** Request constructor
-    , mkDescribeAddresses
+    , describeAddresses
     -- ** Request lenses
     , daPublicIps
     , daFilters
@@ -71,7 +71,7 @@ module Network.AWS.EC2.DescribeAddresses
     -- * Response
     , DescribeAddressesResponse
     -- ** Response constructor
-    , mkDescribeAddressesResponse
+    , describeAddressesResponse
     -- ** Response lenses
     , darAddresses
     ) where
@@ -97,8 +97,8 @@ data DescribeAddresses = DescribeAddresses
 --
 -- * @AllocationIds ::@ @[Text]@
 --
-mkDescribeAddresses :: DescribeAddresses
-mkDescribeAddresses = DescribeAddresses
+describeAddresses :: DescribeAddresses
+describeAddresses = DescribeAddresses
     { _daPublicIps = mempty
     , _daFilters = mempty
     , _daAllocationIds = mempty
@@ -142,8 +142,8 @@ newtype DescribeAddressesResponse = DescribeAddressesResponse
 --
 -- * @Addresses ::@ @[Address]@
 --
-mkDescribeAddressesResponse :: DescribeAddressesResponse
-mkDescribeAddressesResponse = DescribeAddressesResponse
+describeAddressesResponse :: DescribeAddressesResponse
+describeAddressesResponse = DescribeAddressesResponse
     { _darAddresses = mempty
     }
 

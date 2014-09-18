@@ -24,14 +24,14 @@ module Network.AWS.CloudSearch.CreateDomain
     -- * Request
       CreateDomain
     -- ** Request constructor
-    , mkCreateDomain
+    , createDomain
     -- ** Request lenses
     , cdDomainName
 
     -- * Response
     , CreateDomainResponse
     -- ** Response constructor
-    , mkCreateDomainResponse
+    , createDomainResponse
     -- ** Response lenses
     , cdrDomainStatus
     ) where
@@ -53,9 +53,9 @@ newtype CreateDomain = CreateDomain
 --
 -- * @DomainName ::@ @Text@
 --
-mkCreateDomain :: Text -- ^ 'cdDomainName'
+createDomain :: Text -- ^ 'cdDomainName'
                -> CreateDomain
-mkCreateDomain p1 = CreateDomain
+createDomain p1 = CreateDomain
     { _cdDomainName = p1
     }
 
@@ -83,8 +83,8 @@ newtype CreateDomainResponse = CreateDomainResponse
 --
 -- * @DomainStatus ::@ @Maybe DomainStatus@
 --
-mkCreateDomainResponse :: CreateDomainResponse
-mkCreateDomainResponse = CreateDomainResponse
+createDomainResponse :: CreateDomainResponse
+createDomainResponse = CreateDomainResponse
     { _cdrDomainStatus = Nothing
     }
 

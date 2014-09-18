@@ -55,7 +55,7 @@ module Network.AWS.SWF.RespondActivityTaskFailed
     -- * Request
       RespondActivityTaskFailed
     -- ** Request constructor
-    , mkRespondActivityTaskFailed
+    , respondActivityTaskFailed
     -- ** Request lenses
     , ratfTaskToken
     , ratfReason
@@ -64,7 +64,7 @@ module Network.AWS.SWF.RespondActivityTaskFailed
     -- * Response
     , RespondActivityTaskFailedResponse
     -- ** Response constructor
-    , mkRespondActivityTaskFailedResponse
+    , respondActivityTaskFailedResponse
     ) where
 
 import Network.AWS.SWF.Types
@@ -88,9 +88,9 @@ data RespondActivityTaskFailed = RespondActivityTaskFailed
 --
 -- * @Details ::@ @Maybe Text@
 --
-mkRespondActivityTaskFailed :: Text -- ^ 'ratfTaskToken'
+respondActivityTaskFailed :: Text -- ^ 'ratfTaskToken'
                             -> RespondActivityTaskFailed
-mkRespondActivityTaskFailed p1 = RespondActivityTaskFailed
+respondActivityTaskFailed p1 = RespondActivityTaskFailed
     { _ratfTaskToken = p1
     , _ratfReason = Nothing
     , _ratfDetails = Nothing
@@ -126,8 +126,8 @@ data RespondActivityTaskFailedResponse = RespondActivityTaskFailedResponse
 -- a valid 'RespondActivityTaskFailedResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRespondActivityTaskFailedResponse :: RespondActivityTaskFailedResponse
-mkRespondActivityTaskFailedResponse = RespondActivityTaskFailedResponse
+respondActivityTaskFailedResponse :: RespondActivityTaskFailedResponse
+respondActivityTaskFailedResponse = RespondActivityTaskFailedResponse
 
 instance AWSRequest RespondActivityTaskFailed where
     type Sv RespondActivityTaskFailed = SWF

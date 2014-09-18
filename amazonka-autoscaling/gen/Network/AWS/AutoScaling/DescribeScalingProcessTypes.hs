@@ -28,11 +28,11 @@ module Network.AWS.AutoScaling.DescribeScalingProcessTypes
     -- * Request
       DescribeScalingProcessTypes
     -- ** Request constructor
-    , mkDescribeScalingProcessTypes
+    , describeScalingProcessTypes
     -- * Response
     , DescribeScalingProcessTypesResponse
     -- ** Response constructor
-    , mkDescribeScalingProcessTypesResponse
+    , describeScalingProcessTypesResponse
     -- ** Response lenses
     , dsptrProcesses
     ) where
@@ -46,8 +46,8 @@ data DescribeScalingProcessTypes = DescribeScalingProcessTypes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeScalingProcessTypes' request.
-mkDescribeScalingProcessTypes :: DescribeScalingProcessTypes
-mkDescribeScalingProcessTypes = DescribeScalingProcessTypes
+describeScalingProcessTypes :: DescribeScalingProcessTypes
+describeScalingProcessTypes = DescribeScalingProcessTypes
 
 instance ToQuery DescribeScalingProcessTypes where
     toQuery = genericQuery def
@@ -66,8 +66,8 @@ newtype DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesRespons
 --
 -- * @Processes ::@ @[ProcessType]@
 --
-mkDescribeScalingProcessTypesResponse :: DescribeScalingProcessTypesResponse
-mkDescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
+describeScalingProcessTypesResponse :: DescribeScalingProcessTypesResponse
+describeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
     { _dsptrProcesses = mempty
     }
 

@@ -30,14 +30,14 @@ module Network.AWS.EC2.DeleteNetworkAcl
     -- * Request
       DeleteNetworkAcl
     -- ** Request constructor
-    , mkDeleteNetworkAcl
+    , deleteNetworkAcl
     -- ** Request lenses
     , dnaNetworkAclId
 
     -- * Response
     , DeleteNetworkAclResponse
     -- ** Response constructor
-    , mkDeleteNetworkAclResponse
+    , deleteNetworkAclResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -55,9 +55,9 @@ newtype DeleteNetworkAcl = DeleteNetworkAcl
 --
 -- * @NetworkAclId ::@ @Text@
 --
-mkDeleteNetworkAcl :: Text -- ^ 'dnaNetworkAclId'
+deleteNetworkAcl :: Text -- ^ 'dnaNetworkAclId'
                    -> DeleteNetworkAcl
-mkDeleteNetworkAcl p1 = DeleteNetworkAcl
+deleteNetworkAcl p1 = DeleteNetworkAcl
     { _dnaNetworkAclId = p1
     }
 
@@ -75,8 +75,8 @@ data DeleteNetworkAclResponse = DeleteNetworkAclResponse
 -- a valid 'DeleteNetworkAclResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteNetworkAclResponse :: DeleteNetworkAclResponse
-mkDeleteNetworkAclResponse = DeleteNetworkAclResponse
+deleteNetworkAclResponse :: DeleteNetworkAclResponse
+deleteNetworkAclResponse = DeleteNetworkAclResponse
 
 instance AWSRequest DeleteNetworkAcl where
     type Sv DeleteNetworkAcl = EC2

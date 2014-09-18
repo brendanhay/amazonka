@@ -37,7 +37,7 @@ module Network.AWS.CloudWatchLogs.CreateLogStream
     -- * Request
       CreateLogStream
     -- ** Request constructor
-    , mkCreateLogStream
+    , createLogStream
     -- ** Request lenses
     , clsLogGroupName
     , clsLogStreamName
@@ -45,7 +45,7 @@ module Network.AWS.CloudWatchLogs.CreateLogStream
     -- * Response
     , CreateLogStreamResponse
     -- ** Response constructor
-    , mkCreateLogStreamResponse
+    , createLogStreamResponse
     ) where
 
 import Network.AWS.CloudWatchLogs.Types
@@ -66,10 +66,10 @@ data CreateLogStream = CreateLogStream
 --
 -- * @LogStreamName ::@ @Text@
 --
-mkCreateLogStream :: Text -- ^ 'clsLogGroupName'
+createLogStream :: Text -- ^ 'clsLogGroupName'
                   -> Text -- ^ 'clsLogStreamName'
                   -> CreateLogStream
-mkCreateLogStream p1 p2 = CreateLogStream
+createLogStream p1 p2 = CreateLogStream
     { _clsLogGroupName = p1
     , _clsLogStreamName = p2
     }
@@ -96,8 +96,8 @@ data CreateLogStreamResponse = CreateLogStreamResponse
 -- a valid 'CreateLogStreamResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkCreateLogStreamResponse :: CreateLogStreamResponse
-mkCreateLogStreamResponse = CreateLogStreamResponse
+createLogStreamResponse :: CreateLogStreamResponse
+createLogStreamResponse = CreateLogStreamResponse
 
 instance AWSRequest CreateLogStream where
     type Sv CreateLogStream = CloudWatchLogs

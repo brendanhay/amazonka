@@ -55,7 +55,7 @@ module Network.AWS.EC2.StopInstances
     -- * Request
       StopInstances
     -- ** Request constructor
-    , mkStopInstances
+    , stopInstances
     -- ** Request lenses
     , si1InstanceIds
     , si1Force
@@ -63,7 +63,7 @@ module Network.AWS.EC2.StopInstances
     -- * Response
     , StopInstancesResponse
     -- ** Response constructor
-    , mkStopInstancesResponse
+    , stopInstancesResponse
     -- ** Response lenses
     , sir1StoppingInstances
     ) where
@@ -86,9 +86,9 @@ data StopInstances = StopInstances
 --
 -- * @Force ::@ @Maybe Bool@
 --
-mkStopInstances :: [Text] -- ^ 'si1InstanceIds'
+stopInstances :: [Text] -- ^ 'si1InstanceIds'
                 -> StopInstances
-mkStopInstances p1 = StopInstances
+stopInstances p1 = StopInstances
     { _si1InstanceIds = p1
     , _si1Force = Nothing
     }
@@ -120,8 +120,8 @@ newtype StopInstancesResponse = StopInstancesResponse
 --
 -- * @StoppingInstances ::@ @[InstanceStateChange]@
 --
-mkStopInstancesResponse :: StopInstancesResponse
-mkStopInstancesResponse = StopInstancesResponse
+stopInstancesResponse :: StopInstancesResponse
+stopInstancesResponse = StopInstancesResponse
     { _sir1StoppingInstances = mempty
     }
 

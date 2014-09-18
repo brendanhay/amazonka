@@ -44,7 +44,7 @@ module Network.AWS.SQS.AddPermission
     -- * Request
       AddPermission
     -- ** Request constructor
-    , mkAddPermission
+    , addPermission
     -- ** Request lenses
     , apQueueUrl
     , apLabel
@@ -54,7 +54,7 @@ module Network.AWS.SQS.AddPermission
     -- * Response
     , AddPermissionResponse
     -- ** Response constructor
-    , mkAddPermissionResponse
+    , addPermissionResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -81,12 +81,12 @@ data AddPermission = AddPermission
 --
 -- * @Actions ::@ @[Text]@
 --
-mkAddPermission :: Text -- ^ 'apQueueUrl'
+addPermission :: Text -- ^ 'apQueueUrl'
                 -> Text -- ^ 'apLabel'
                 -> [Text] -- ^ 'apAWSAccountIds'
                 -> [Text] -- ^ 'apActions'
                 -> AddPermission
-mkAddPermission p1 p2 p3 p4 = AddPermission
+addPermission p1 p2 p3 p4 = AddPermission
     { _apQueueUrl = p1
     , _apLabel = p2
     , _apAWSAccountIds = p3
@@ -131,8 +131,8 @@ data AddPermissionResponse = AddPermissionResponse
 -- a valid 'AddPermissionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkAddPermissionResponse :: AddPermissionResponse
-mkAddPermissionResponse = AddPermissionResponse
+addPermissionResponse :: AddPermissionResponse
+addPermissionResponse = AddPermissionResponse
 
 instance AWSRequest AddPermission where
     type Sv AddPermission = SQS

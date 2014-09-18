@@ -42,7 +42,7 @@ module Network.AWS.SNS.SetSubscriptionAttributes
     -- * Request
       SetSubscriptionAttributes
     -- ** Request constructor
-    , mkSetSubscriptionAttributes
+    , setSubscriptionAttributes
     -- ** Request lenses
     , ssaSubscriptionArn
     , ssaAttributeName
@@ -51,7 +51,7 @@ module Network.AWS.SNS.SetSubscriptionAttributes
     -- * Response
     , SetSubscriptionAttributesResponse
     -- ** Response constructor
-    , mkSetSubscriptionAttributesResponse
+    , setSubscriptionAttributesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -76,10 +76,10 @@ data SetSubscriptionAttributes = SetSubscriptionAttributes
 --
 -- * @AttributeValue ::@ @Maybe Text@
 --
-mkSetSubscriptionAttributes :: Text -- ^ 'ssaSubscriptionArn'
+setSubscriptionAttributes :: Text -- ^ 'ssaSubscriptionArn'
                             -> Text -- ^ 'ssaAttributeName'
                             -> SetSubscriptionAttributes
-mkSetSubscriptionAttributes p1 p2 = SetSubscriptionAttributes
+setSubscriptionAttributes p1 p2 = SetSubscriptionAttributes
     { _ssaSubscriptionArn = p1
     , _ssaAttributeName = p2
     , _ssaAttributeValue = Nothing
@@ -112,8 +112,8 @@ data SetSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
 -- a valid 'SetSubscriptionAttributesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSetSubscriptionAttributesResponse :: SetSubscriptionAttributesResponse
-mkSetSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
+setSubscriptionAttributesResponse :: SetSubscriptionAttributesResponse
+setSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
 
 instance AWSRequest SetSubscriptionAttributes where
     type Sv SetSubscriptionAttributes = SNS

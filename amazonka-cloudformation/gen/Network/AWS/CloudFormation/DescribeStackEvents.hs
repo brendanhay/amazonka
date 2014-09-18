@@ -39,7 +39,7 @@ module Network.AWS.CloudFormation.DescribeStackEvents
     -- * Request
       DescribeStackEvents
     -- ** Request constructor
-    , mkDescribeStackEvents
+    , describeStackEvents
     -- ** Request lenses
     , dseStackName
     , dseNextToken
@@ -47,7 +47,7 @@ module Network.AWS.CloudFormation.DescribeStackEvents
     -- * Response
     , DescribeStackEventsResponse
     -- ** Response constructor
-    , mkDescribeStackEventsResponse
+    , describeStackEventsResponse
     -- ** Response lenses
     , dserStackEvents
     , dserNextToken
@@ -72,9 +72,9 @@ data DescribeStackEvents = DescribeStackEvents
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeStackEvents :: Text -- ^ 'dseStackName'
+describeStackEvents :: Text -- ^ 'dseStackName'
                       -> DescribeStackEvents
-mkDescribeStackEvents p1 = DescribeStackEvents
+describeStackEvents p1 = DescribeStackEvents
     { _dseStackName = p1
     , _dseNextToken = Nothing
     }
@@ -111,8 +111,8 @@ data DescribeStackEventsResponse = DescribeStackEventsResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeStackEventsResponse :: DescribeStackEventsResponse
-mkDescribeStackEventsResponse = DescribeStackEventsResponse
+describeStackEventsResponse :: DescribeStackEventsResponse
+describeStackEventsResponse = DescribeStackEventsResponse
     { _dserStackEvents = mempty
     , _dserNextToken = Nothing
     }

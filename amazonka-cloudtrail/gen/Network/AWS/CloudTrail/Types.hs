@@ -44,7 +44,7 @@ module Network.AWS.CloudTrail.Types
     , _TrailNotFoundException
     -- * Trail
     , Trail
-    , mkTrail
+    , trail
     , tName
     , tS3BucketName
     , tS3KeyPrefix
@@ -77,8 +77,8 @@ instance AWSService CloudTrail where
 -- service description where applicable.
 data CloudTrailError
     = CloudTrailClient HttpException
-    | CloudTrailSerializer Text
-    | CloudTrailService Text
+    | CloudTrailSerializer String
+    | CloudTrailService String
       -- | This exception is thrown when the policy on the S3 bucket is not
       -- sufficient.
     | InsufficientS3BucketPolicyException
@@ -129,7 +129,7 @@ _CloudTrailClient = prism'
         x -> Left x)
 
 -- | See: 'CloudTrailSerializer'
-_CloudTrailSerializer :: Prism' CloudTrailError Text
+_CloudTrailSerializer :: Prism' CloudTrailError String
 _CloudTrailSerializer = prism'
     CloudTrailSerializer
     (\case
@@ -137,7 +137,7 @@ _CloudTrailSerializer = prism'
         x -> Left x)
 
 -- | See: 'CloudTrailService'
-_CloudTrailService :: Prism' CloudTrailError Text
+_CloudTrailService :: Prism' CloudTrailError String
 _CloudTrailService = prism'
     CloudTrailService
     (\case
@@ -273,8 +273,8 @@ data Trail = Trail
 --
 -- * @IncludeGlobalServiceEvents ::@ @Maybe Bool@
 --
-mkTrail :: Trail
-mkTrail = Trail
+trail :: Trail
+trail = Trail
     { _tName = Nothing
     , _tS3BucketName = Nothing
     , _tS3KeyPrefix = Nothing

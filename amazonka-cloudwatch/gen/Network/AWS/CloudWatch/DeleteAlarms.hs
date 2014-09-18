@@ -24,14 +24,14 @@ module Network.AWS.CloudWatch.DeleteAlarms
     -- * Request
       DeleteAlarms
     -- ** Request constructor
-    , mkDeleteAlarms
+    , deleteAlarms
     -- ** Request lenses
     , daAlarmNames
 
     -- * Response
     , DeleteAlarmsResponse
     -- ** Response constructor
-    , mkDeleteAlarmsResponse
+    , deleteAlarmsResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -49,9 +49,9 @@ newtype DeleteAlarms = DeleteAlarms
 --
 -- * @AlarmNames ::@ @[Text]@
 --
-mkDeleteAlarms :: [Text] -- ^ 'daAlarmNames'
+deleteAlarms :: [Text] -- ^ 'daAlarmNames'
                -> DeleteAlarms
-mkDeleteAlarms p1 = DeleteAlarms
+deleteAlarms p1 = DeleteAlarms
     { _daAlarmNames = p1
     }
 
@@ -69,8 +69,8 @@ data DeleteAlarmsResponse = DeleteAlarmsResponse
 -- a valid 'DeleteAlarmsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteAlarmsResponse :: DeleteAlarmsResponse
-mkDeleteAlarmsResponse = DeleteAlarmsResponse
+deleteAlarmsResponse :: DeleteAlarmsResponse
+deleteAlarmsResponse = DeleteAlarmsResponse
 
 instance AWSRequest DeleteAlarms where
     type Sv DeleteAlarms = CloudWatch

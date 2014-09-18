@@ -55,7 +55,7 @@ module Network.AWS.SWF.SignalWorkflowExecution
     -- * Request
       SignalWorkflowExecution
     -- ** Request constructor
-    , mkSignalWorkflowExecution
+    , signalWorkflowExecution
     -- ** Request lenses
     , sweDomain
     , sweWorkflowId
@@ -66,7 +66,7 @@ module Network.AWS.SWF.SignalWorkflowExecution
     -- * Response
     , SignalWorkflowExecutionResponse
     -- ** Response constructor
-    , mkSignalWorkflowExecutionResponse
+    , signalWorkflowExecutionResponse
     ) where
 
 import Network.AWS.SWF.Types
@@ -96,11 +96,11 @@ data SignalWorkflowExecution = SignalWorkflowExecution
 --
 -- * @Input ::@ @Maybe Text@
 --
-mkSignalWorkflowExecution :: Text -- ^ 'sweDomain'
+signalWorkflowExecution :: Text -- ^ 'sweDomain'
                           -> Text -- ^ 'sweWorkflowId'
                           -> Text -- ^ 'sweSignalName'
                           -> SignalWorkflowExecution
-mkSignalWorkflowExecution p1 p2 p4 = SignalWorkflowExecution
+signalWorkflowExecution p1 p2 p4 = SignalWorkflowExecution
     { _sweDomain = p1
     , _sweWorkflowId = p2
     , _sweRunId = Nothing
@@ -145,8 +145,8 @@ data SignalWorkflowExecutionResponse = SignalWorkflowExecutionResponse
 -- a valid 'SignalWorkflowExecutionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSignalWorkflowExecutionResponse :: SignalWorkflowExecutionResponse
-mkSignalWorkflowExecutionResponse = SignalWorkflowExecutionResponse
+signalWorkflowExecutionResponse :: SignalWorkflowExecutionResponse
+signalWorkflowExecutionResponse = SignalWorkflowExecutionResponse
 
 instance AWSRequest SignalWorkflowExecution where
     type Sv SignalWorkflowExecution = SWF

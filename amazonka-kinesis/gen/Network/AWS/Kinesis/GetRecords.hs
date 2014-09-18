@@ -60,7 +60,7 @@ module Network.AWS.Kinesis.GetRecords
     -- * Request
       GetRecords
     -- ** Request constructor
-    , mkGetRecords
+    , getRecords
     -- ** Request lenses
     , grShardIterator
     , grLimit
@@ -68,7 +68,7 @@ module Network.AWS.Kinesis.GetRecords
     -- * Response
     , GetRecordsResponse
     -- ** Response constructor
-    , mkGetRecordsResponse
+    , getRecordsResponse
     -- ** Response lenses
     , grrRecords
     , grrNextShardIterator
@@ -93,9 +93,9 @@ data GetRecords = GetRecords
 --
 -- * @Limit ::@ @Maybe Integer@
 --
-mkGetRecords :: Text -- ^ 'grShardIterator'
+getRecords :: Text -- ^ 'grShardIterator'
              -> GetRecords
-mkGetRecords p1 = GetRecords
+getRecords p1 = GetRecords
     { _grShardIterator = p1
     , _grLimit = Nothing
     }
@@ -135,9 +135,9 @@ data GetRecordsResponse = GetRecordsResponse
 --
 -- * @NextShardIterator ::@ @Maybe Text@
 --
-mkGetRecordsResponse :: [Record] -- ^ 'grrRecords'
+getRecordsResponse :: [Record] -- ^ 'grrRecords'
                      -> GetRecordsResponse
-mkGetRecordsResponse p1 = GetRecordsResponse
+getRecordsResponse p1 = GetRecordsResponse
     { _grrRecords = p1
     , _grrNextShardIterator = Nothing
     }

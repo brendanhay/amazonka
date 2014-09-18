@@ -57,7 +57,7 @@ module Network.AWS.SWF.RegisterWorkflowType
     -- * Request
       RegisterWorkflowType
     -- ** Request constructor
-    , mkRegisterWorkflowType
+    , registerWorkflowType
     -- ** Request lenses
     , rwtDomain
     , rwtName
@@ -71,7 +71,7 @@ module Network.AWS.SWF.RegisterWorkflowType
     -- * Response
     , RegisterWorkflowTypeResponse
     -- ** Response constructor
-    , mkRegisterWorkflowTypeResponse
+    , registerWorkflowTypeResponse
     ) where
 
 import Network.AWS.SWF.Types
@@ -110,11 +110,11 @@ data RegisterWorkflowType = RegisterWorkflowType
 --
 -- * @DefaultChildPolicy ::@ @Maybe ChildPolicy@
 --
-mkRegisterWorkflowType :: Text -- ^ 'rwtDomain'
+registerWorkflowType :: Text -- ^ 'rwtDomain'
                        -> Text -- ^ 'rwtName'
                        -> Text -- ^ 'rwtVersion'
                        -> RegisterWorkflowType
-mkRegisterWorkflowType p1 p2 p3 = RegisterWorkflowType
+registerWorkflowType p1 p2 p3 = RegisterWorkflowType
     { _rwtDomain = p1
     , _rwtName = p2
     , _rwtVersion = p3
@@ -213,8 +213,8 @@ data RegisterWorkflowTypeResponse = RegisterWorkflowTypeResponse
 -- a valid 'RegisterWorkflowTypeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRegisterWorkflowTypeResponse :: RegisterWorkflowTypeResponse
-mkRegisterWorkflowTypeResponse = RegisterWorkflowTypeResponse
+registerWorkflowTypeResponse :: RegisterWorkflowTypeResponse
+registerWorkflowTypeResponse = RegisterWorkflowTypeResponse
 
 instance AWSRequest RegisterWorkflowType where
     type Sv RegisterWorkflowType = SWF

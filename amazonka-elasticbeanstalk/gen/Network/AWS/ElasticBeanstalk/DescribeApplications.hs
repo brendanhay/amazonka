@@ -27,14 +27,14 @@ module Network.AWS.ElasticBeanstalk.DescribeApplications
     -- * Request
       DescribeApplications
     -- ** Request constructor
-    , mkDescribeApplications
+    , describeApplications
     -- ** Request lenses
     , da1ApplicationNames
 
     -- * Response
     , DescribeApplicationsResponse
     -- ** Response constructor
-    , mkDescribeApplicationsResponse
+    , describeApplicationsResponse
     -- ** Response lenses
     , darApplications
     ) where
@@ -55,8 +55,8 @@ newtype DescribeApplications = DescribeApplications
 --
 -- * @ApplicationNames ::@ @[Text]@
 --
-mkDescribeApplications :: DescribeApplications
-mkDescribeApplications = DescribeApplications
+describeApplications :: DescribeApplications
+describeApplications = DescribeApplications
     { _da1ApplicationNames = mempty
     }
 
@@ -83,8 +83,8 @@ newtype DescribeApplicationsResponse = DescribeApplicationsResponse
 --
 -- * @Applications ::@ @[ApplicationDescription]@
 --
-mkDescribeApplicationsResponse :: DescribeApplicationsResponse
-mkDescribeApplicationsResponse = DescribeApplicationsResponse
+describeApplicationsResponse :: DescribeApplicationsResponse
+describeApplicationsResponse = DescribeApplicationsResponse
     { _darApplications = mempty
     }
 

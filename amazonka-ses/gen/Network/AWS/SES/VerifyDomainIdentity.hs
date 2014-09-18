@@ -33,14 +33,14 @@ module Network.AWS.SES.VerifyDomainIdentity
     -- * Request
       VerifyDomainIdentity
     -- ** Request constructor
-    , mkVerifyDomainIdentity
+    , verifyDomainIdentity
     -- ** Request lenses
     , vdiDomain
 
     -- * Response
     , VerifyDomainIdentityResponse
     -- ** Response constructor
-    , mkVerifyDomainIdentityResponse
+    , verifyDomainIdentityResponse
     -- ** Response lenses
     , vdirVerificationToken
     ) where
@@ -61,9 +61,9 @@ newtype VerifyDomainIdentity = VerifyDomainIdentity
 --
 -- * @Domain ::@ @Text@
 --
-mkVerifyDomainIdentity :: Text -- ^ 'vdiDomain'
+verifyDomainIdentity :: Text -- ^ 'vdiDomain'
                        -> VerifyDomainIdentity
-mkVerifyDomainIdentity p1 = VerifyDomainIdentity
+verifyDomainIdentity p1 = VerifyDomainIdentity
     { _vdiDomain = p1
     }
 
@@ -88,9 +88,9 @@ newtype VerifyDomainIdentityResponse = VerifyDomainIdentityResponse
 --
 -- * @VerificationToken ::@ @Text@
 --
-mkVerifyDomainIdentityResponse :: Text -- ^ 'vdirVerificationToken'
+verifyDomainIdentityResponse :: Text -- ^ 'vdirVerificationToken'
                                -> VerifyDomainIdentityResponse
-mkVerifyDomainIdentityResponse p1 = VerifyDomainIdentityResponse
+verifyDomainIdentityResponse p1 = VerifyDomainIdentityResponse
     { _vdirVerificationToken = p1
     }
 

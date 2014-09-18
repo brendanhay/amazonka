@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.UpdateVolume
     -- * Request
       UpdateVolume
     -- ** Request constructor
-    , mkUpdateVolume
+    , updateVolume
     -- ** Request lenses
     , uv1VolumeId
     , uv1Name
@@ -36,7 +36,7 @@ module Network.AWS.OpsWorks.UpdateVolume
     -- * Response
     , UpdateVolumeResponse
     -- ** Response constructor
-    , mkUpdateVolumeResponse
+    , updateVolumeResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -60,9 +60,9 @@ data UpdateVolume = UpdateVolume
 --
 -- * @MountPoint ::@ @Maybe Text@
 --
-mkUpdateVolume :: Text -- ^ 'uv1VolumeId'
+updateVolume :: Text -- ^ 'uv1VolumeId'
                -> UpdateVolume
-mkUpdateVolume p1 = UpdateVolume
+updateVolume p1 = UpdateVolume
     { _uv1VolumeId = p1
     , _uv1Name = Nothing
     , _uv1MountPoint = Nothing
@@ -95,8 +95,8 @@ data UpdateVolumeResponse = UpdateVolumeResponse
 -- a valid 'UpdateVolumeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkUpdateVolumeResponse :: UpdateVolumeResponse
-mkUpdateVolumeResponse = UpdateVolumeResponse
+updateVolumeResponse :: UpdateVolumeResponse
+updateVolumeResponse = UpdateVolumeResponse
 
 instance AWSRequest UpdateVolume where
     type Sv UpdateVolume = OpsWorks

@@ -28,7 +28,7 @@ module Network.AWS.CloudSearch.DescribeServiceAccessPolicies
     -- * Request
       DescribeServiceAccessPolicies
     -- ** Request constructor
-    , mkDescribeServiceAccessPolicies
+    , describeServiceAccessPolicies
     -- ** Request lenses
     , dsapDomainName
     , dsapDeployed
@@ -36,7 +36,7 @@ module Network.AWS.CloudSearch.DescribeServiceAccessPolicies
     -- * Response
     , DescribeServiceAccessPoliciesResponse
     -- ** Response constructor
-    , mkDescribeServiceAccessPoliciesResponse
+    , describeServiceAccessPoliciesResponse
     -- ** Response lenses
     , dsaprAccessPolicies
     ) where
@@ -63,9 +63,9 @@ data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies
 --
 -- * @Deployed ::@ @Maybe Bool@
 --
-mkDescribeServiceAccessPolicies :: Text -- ^ 'dsapDomainName'
+describeServiceAccessPolicies :: Text -- ^ 'dsapDomainName'
                                 -> DescribeServiceAccessPolicies
-mkDescribeServiceAccessPolicies p1 = DescribeServiceAccessPolicies
+describeServiceAccessPolicies p1 = DescribeServiceAccessPolicies
     { _dsapDomainName = p1
     , _dsapDeployed = Nothing
     }
@@ -96,9 +96,9 @@ newtype DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesRes
 --
 -- * @AccessPolicies ::@ @AccessPoliciesStatus@
 --
-mkDescribeServiceAccessPoliciesResponse :: AccessPoliciesStatus -- ^ 'dsaprAccessPolicies'
+describeServiceAccessPoliciesResponse :: AccessPoliciesStatus -- ^ 'dsaprAccessPolicies'
                                         -> DescribeServiceAccessPoliciesResponse
-mkDescribeServiceAccessPoliciesResponse p1 = DescribeServiceAccessPoliciesResponse
+describeServiceAccessPoliciesResponse p1 = DescribeServiceAccessPoliciesResponse
     { _dsaprAccessPolicies = p1
     }
 

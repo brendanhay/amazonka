@@ -41,7 +41,7 @@ module Network.AWS.DataPipeline.GetPipelineDefinition
     -- * Request
       GetPipelineDefinition
     -- ** Request constructor
-    , mkGetPipelineDefinition
+    , getPipelineDefinition
     -- ** Request lenses
     , gpdPipelineId
     , gpdVersion
@@ -49,7 +49,7 @@ module Network.AWS.DataPipeline.GetPipelineDefinition
     -- * Response
     , GetPipelineDefinitionResponse
     -- ** Response constructor
-    , mkGetPipelineDefinitionResponse
+    , getPipelineDefinitionResponse
     -- ** Response lenses
     , gpdrPipelineObjects
     ) where
@@ -73,9 +73,9 @@ data GetPipelineDefinition = GetPipelineDefinition
 --
 -- * @Version ::@ @Maybe Text@
 --
-mkGetPipelineDefinition :: Text -- ^ 'gpdPipelineId'
+getPipelineDefinition :: Text -- ^ 'gpdPipelineId'
                         -> GetPipelineDefinition
-mkGetPipelineDefinition p1 = GetPipelineDefinition
+getPipelineDefinition p1 = GetPipelineDefinition
     { _gpdPipelineId = p1
     , _gpdVersion = Nothing
     }
@@ -113,8 +113,8 @@ newtype GetPipelineDefinitionResponse = GetPipelineDefinitionResponse
 --
 -- * @PipelineObjects ::@ @[PipelineObject]@
 --
-mkGetPipelineDefinitionResponse :: GetPipelineDefinitionResponse
-mkGetPipelineDefinitionResponse = GetPipelineDefinitionResponse
+getPipelineDefinitionResponse :: GetPipelineDefinitionResponse
+getPipelineDefinitionResponse = GetPipelineDefinitionResponse
     { _gpdrPipelineObjects = mempty
     }
 

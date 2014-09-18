@@ -23,14 +23,14 @@ module Network.AWS.CloudFront.CreateStreamingDistribution
     -- * Request
       CreateStreamingDistribution
     -- ** Request constructor
-    , mkCreateStreamingDistribution
+    , createStreamingDistribution
     -- ** Request lenses
     , csdStreamingDistributionConfig
 
     -- * Response
     , CreateStreamingDistributionResponse
     -- ** Response constructor
-    , mkCreateStreamingDistributionResponse
+    , createStreamingDistributionResponse
     -- ** Response lenses
     , csdrStreamingDistribution
     , csdrLocation
@@ -54,9 +54,9 @@ newtype CreateStreamingDistribution = CreateStreamingDistribution
 --
 -- * @StreamingDistributionConfig ::@ @StreamingDistributionConfig@
 --
-mkCreateStreamingDistribution :: StreamingDistributionConfig -- ^ 'csdStreamingDistributionConfig'
+createStreamingDistribution :: StreamingDistributionConfig -- ^ 'csdStreamingDistributionConfig'
                               -> CreateStreamingDistribution
-mkCreateStreamingDistribution p1 = CreateStreamingDistribution
+createStreamingDistribution p1 = CreateStreamingDistribution
     { _csdStreamingDistributionConfig = p1
     }
 
@@ -96,8 +96,8 @@ data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse
 --
 -- * @ETag ::@ @Maybe Text@
 --
-mkCreateStreamingDistributionResponse :: CreateStreamingDistributionResponse
-mkCreateStreamingDistributionResponse = CreateStreamingDistributionResponse
+createStreamingDistributionResponse :: CreateStreamingDistributionResponse
+createStreamingDistributionResponse = CreateStreamingDistributionResponse
     { _csdrStreamingDistribution = Nothing
     , _csdrLocation = Nothing
     , _csdrETag = Nothing

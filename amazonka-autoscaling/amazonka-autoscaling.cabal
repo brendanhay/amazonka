@@ -33,7 +33,6 @@ library
 
     exposed-modules:
           Network.AWS.AutoScaling
-        , Network.AWS.AutoScaling.Monadic
         , Network.AWS.AutoScaling.Types
         , Network.AWS.AutoScaling.AttachInstances
         , Network.AWS.AutoScaling.CompleteLifecycleAction

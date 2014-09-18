@@ -33,7 +33,6 @@ library
 
     exposed-modules:
           Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache.Monadic
         , Network.AWS.ElastiCache.Types
         , Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
         , Network.AWS.ElastiCache.CopySnapshot

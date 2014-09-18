@@ -23,7 +23,7 @@ module Network.AWS.S3.PutBucketWebsite
     -- * Request
       PutBucketWebsite
     -- ** Request constructor
-    , mkPutBucketWebsite
+    , putBucketWebsite
     -- ** Request lenses
     , pbwBucket
     , pbwContentMD5
@@ -32,7 +32,7 @@ module Network.AWS.S3.PutBucketWebsite
     -- * Response
     , PutBucketWebsiteResponse
     -- ** Response constructor
-    , mkPutBucketWebsiteResponse
+    , putBucketWebsiteResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -57,10 +57,10 @@ data PutBucketWebsite = PutBucketWebsite
 --
 -- * @WebsiteConfiguration ::@ @WebsiteConfiguration@
 --
-mkPutBucketWebsite :: BucketName -- ^ 'pbwBucket'
+putBucketWebsite :: BucketName -- ^ 'pbwBucket'
                    -> WebsiteConfiguration -- ^ 'pbwWebsiteConfiguration'
                    -> PutBucketWebsite
-mkPutBucketWebsite p1 p3 = PutBucketWebsite
+putBucketWebsite p1 p3 = PutBucketWebsite
     { _pbwBucket = p1
     , _pbwContentMD5 = Nothing
     , _pbwWebsiteConfiguration = p3
@@ -96,8 +96,8 @@ data PutBucketWebsiteResponse = PutBucketWebsiteResponse
 -- a valid 'PutBucketWebsiteResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkPutBucketWebsiteResponse :: PutBucketWebsiteResponse
-mkPutBucketWebsiteResponse = PutBucketWebsiteResponse
+putBucketWebsiteResponse :: PutBucketWebsiteResponse
+putBucketWebsiteResponse = PutBucketWebsiteResponse
 
 instance AWSRequest PutBucketWebsite where
     type Sv PutBucketWebsite = S3

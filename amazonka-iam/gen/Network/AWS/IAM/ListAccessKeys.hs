@@ -35,7 +35,7 @@ module Network.AWS.IAM.ListAccessKeys
     -- * Request
       ListAccessKeys
     -- ** Request constructor
-    , mkListAccessKeys
+    , listAccessKeys
     -- ** Request lenses
     , lakUserName
     , lakMarker
@@ -44,7 +44,7 @@ module Network.AWS.IAM.ListAccessKeys
     -- * Response
     , ListAccessKeysResponse
     -- ** Response constructor
-    , mkListAccessKeysResponse
+    , listAccessKeysResponse
     -- ** Response lenses
     , lakrAccessKeyMetadata
     , lakrIsTruncated
@@ -72,8 +72,8 @@ data ListAccessKeys = ListAccessKeys
 --
 -- * @MaxItems ::@ @Maybe Integer@
 --
-mkListAccessKeys :: ListAccessKeys
-mkListAccessKeys = ListAccessKeys
+listAccessKeys :: ListAccessKeys
+listAccessKeys = ListAccessKeys
     { _lakUserName = Nothing
     , _lakMarker = Nothing
     , _lakMaxItems = Nothing
@@ -121,10 +121,10 @@ data ListAccessKeysResponse = ListAccessKeysResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListAccessKeysResponse :: [AccessKeyMetadata] -- ^ 'lakrAccessKeyMetadata'
+listAccessKeysResponse :: [AccessKeyMetadata] -- ^ 'lakrAccessKeyMetadata'
                          -> Bool -- ^ 'lakrIsTruncated'
                          -> ListAccessKeysResponse
-mkListAccessKeysResponse p1 p2 = ListAccessKeysResponse
+listAccessKeysResponse p1 p2 = ListAccessKeysResponse
     { _lakrAccessKeyMetadata = p1
     , _lakrIsTruncated = p2
     , _lakrMarker = Nothing

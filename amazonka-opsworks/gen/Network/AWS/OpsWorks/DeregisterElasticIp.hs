@@ -28,14 +28,14 @@ module Network.AWS.OpsWorks.DeregisterElasticIp
     -- * Request
       DeregisterElasticIp
     -- ** Request constructor
-    , mkDeregisterElasticIp
+    , deregisterElasticIp
     -- ** Request lenses
     , deiElasticIp
 
     -- * Response
     , DeregisterElasticIpResponse
     -- ** Response constructor
-    , mkDeregisterElasticIpResponse
+    , deregisterElasticIpResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -53,9 +53,9 @@ newtype DeregisterElasticIp = DeregisterElasticIp
 --
 -- * @ElasticIp ::@ @Text@
 --
-mkDeregisterElasticIp :: Text -- ^ 'deiElasticIp'
+deregisterElasticIp :: Text -- ^ 'deiElasticIp'
                       -> DeregisterElasticIp
-mkDeregisterElasticIp p1 = DeregisterElasticIp
+deregisterElasticIp p1 = DeregisterElasticIp
     { _deiElasticIp = p1
     }
 
@@ -78,8 +78,8 @@ data DeregisterElasticIpResponse = DeregisterElasticIpResponse
 -- a valid 'DeregisterElasticIpResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeregisterElasticIpResponse :: DeregisterElasticIpResponse
-mkDeregisterElasticIpResponse = DeregisterElasticIpResponse
+deregisterElasticIpResponse :: DeregisterElasticIpResponse
+deregisterElasticIpResponse = DeregisterElasticIpResponse
 
 instance AWSRequest DeregisterElasticIp where
     type Sv DeregisterElasticIp = OpsWorks

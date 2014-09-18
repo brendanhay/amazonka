@@ -43,14 +43,14 @@ module Network.AWS.StorageGateway.DescribeWorkingStorage
     -- * Request
       DescribeWorkingStorage
     -- ** Request constructor
-    , mkDescribeWorkingStorage
+    , describeWorkingStorage
     -- ** Request lenses
     , dwsGatewayARN
 
     -- * Response
     , DescribeWorkingStorageResponse
     -- ** Response constructor
-    , mkDescribeWorkingStorageResponse
+    , describeWorkingStorageResponse
     -- ** Response lenses
     , dwsrGatewayARN
     , dwsrDiskIds
@@ -74,9 +74,9 @@ newtype DescribeWorkingStorage = DescribeWorkingStorage
 --
 -- * @GatewayARN ::@ @Text@
 --
-mkDescribeWorkingStorage :: Text -- ^ 'dwsGatewayARN'
+describeWorkingStorage :: Text -- ^ 'dwsGatewayARN'
                          -> DescribeWorkingStorage
-mkDescribeWorkingStorage p1 = DescribeWorkingStorage
+describeWorkingStorage p1 = DescribeWorkingStorage
     { _dwsGatewayARN = p1
     }
 
@@ -116,8 +116,8 @@ data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse
 --
 -- * @WorkingStorageAllocatedInBytes ::@ @Maybe Integer@
 --
-mkDescribeWorkingStorageResponse :: DescribeWorkingStorageResponse
-mkDescribeWorkingStorageResponse = DescribeWorkingStorageResponse
+describeWorkingStorageResponse :: DescribeWorkingStorageResponse
+describeWorkingStorageResponse = DescribeWorkingStorageResponse
     { _dwsrGatewayARN = Nothing
     , _dwsrDiskIds = mempty
     , _dwsrWorkingStorageUsedInBytes = Nothing

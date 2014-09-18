@@ -54,7 +54,7 @@ module Network.AWS.SNS.ListEndpointsByPlatformApplication
     -- * Request
       ListEndpointsByPlatformApplication
     -- ** Request constructor
-    , mkListEndpointsByPlatformApplication
+    , listEndpointsByPlatformApplication
     -- ** Request lenses
     , lebpaPlatformApplicationArn
     , lebpaNextToken
@@ -62,7 +62,7 @@ module Network.AWS.SNS.ListEndpointsByPlatformApplication
     -- * Response
     , ListEndpointsByPlatformApplicationResponse
     -- ** Response constructor
-    , mkListEndpointsByPlatformApplicationResponse
+    , listEndpointsByPlatformApplicationResponse
     -- ** Response lenses
     , lebparEndpoints
     , lebparNextToken
@@ -87,9 +87,9 @@ data ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplication
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkListEndpointsByPlatformApplication :: Text -- ^ 'lebpaPlatformApplicationArn'
+listEndpointsByPlatformApplication :: Text -- ^ 'lebpaPlatformApplicationArn'
                                      -> ListEndpointsByPlatformApplication
-mkListEndpointsByPlatformApplication p1 = ListEndpointsByPlatformApplication
+listEndpointsByPlatformApplication p1 = ListEndpointsByPlatformApplication
     { _lebpaPlatformApplicationArn = p1
     , _lebpaNextToken = Nothing
     }
@@ -126,8 +126,8 @@ data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplica
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkListEndpointsByPlatformApplicationResponse :: ListEndpointsByPlatformApplicationResponse
-mkListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse
+listEndpointsByPlatformApplicationResponse :: ListEndpointsByPlatformApplicationResponse
+listEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse
     { _lebparEndpoints = mempty
     , _lebparNextToken = Nothing
     }

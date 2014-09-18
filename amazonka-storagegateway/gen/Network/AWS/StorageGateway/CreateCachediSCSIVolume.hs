@@ -52,7 +52,7 @@ module Network.AWS.StorageGateway.CreateCachediSCSIVolume
     -- * Request
       CreateCachediSCSIVolume
     -- ** Request constructor
-    , mkCreateCachediSCSIVolume
+    , createCachediSCSIVolume
     -- ** Request lenses
     , ccscsivGatewayARN
     , ccscsivVolumeSizeInBytes
@@ -64,7 +64,7 @@ module Network.AWS.StorageGateway.CreateCachediSCSIVolume
     -- * Response
     , CreateCachediSCSIVolumeResponse
     -- ** Response constructor
-    , mkCreateCachediSCSIVolumeResponse
+    , createCachediSCSIVolumeResponse
     -- ** Response lenses
     , ccscsivrVolumeARN
     , ccscsivrTargetARN
@@ -100,13 +100,13 @@ data CreateCachediSCSIVolume = CreateCachediSCSIVolume
 --
 -- * @ClientToken ::@ @Text@
 --
-mkCreateCachediSCSIVolume :: Text -- ^ 'ccscsivGatewayARN'
+createCachediSCSIVolume :: Text -- ^ 'ccscsivGatewayARN'
                           -> Integer -- ^ 'ccscsivVolumeSizeInBytes'
                           -> Text -- ^ 'ccscsivTargetName'
                           -> Text -- ^ 'ccscsivNetworkInterfaceId'
                           -> Text -- ^ 'ccscsivClientToken'
                           -> CreateCachediSCSIVolume
-mkCreateCachediSCSIVolume p1 p2 p4 p5 p6 = CreateCachediSCSIVolume
+createCachediSCSIVolume p1 p2 p4 p5 p6 = CreateCachediSCSIVolume
     { _ccscsivGatewayARN = p1
     , _ccscsivVolumeSizeInBytes = p2
     , _ccscsivSnapshotId = Nothing
@@ -167,8 +167,8 @@ data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse
 --
 -- * @TargetARN ::@ @Maybe Text@
 --
-mkCreateCachediSCSIVolumeResponse :: CreateCachediSCSIVolumeResponse
-mkCreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse
+createCachediSCSIVolumeResponse :: CreateCachediSCSIVolumeResponse
+createCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse
     { _ccscsivrVolumeARN = Nothing
     , _ccscsivrTargetARN = Nothing
     }

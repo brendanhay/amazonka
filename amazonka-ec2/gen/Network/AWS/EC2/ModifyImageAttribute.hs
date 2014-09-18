@@ -25,7 +25,7 @@ module Network.AWS.EC2.ModifyImageAttribute
     -- * Request
       ModifyImageAttribute
     -- ** Request constructor
-    , mkModifyImageAttribute
+    , modifyImageAttribute
     -- ** Request lenses
     , miaImageId
     , miaAttribute
@@ -40,7 +40,7 @@ module Network.AWS.EC2.ModifyImageAttribute
     -- * Response
     , ModifyImageAttributeResponse
     -- ** Response constructor
-    , mkModifyImageAttributeResponse
+    , modifyImageAttributeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -82,9 +82,9 @@ data ModifyImageAttribute = ModifyImageAttribute
 --
 -- * @Description ::@ @Maybe AttributeValue@
 --
-mkModifyImageAttribute :: Text -- ^ 'miaImageId'
+modifyImageAttribute :: Text -- ^ 'miaImageId'
                        -> ModifyImageAttribute
-mkModifyImageAttribute p1 = ModifyImageAttribute
+modifyImageAttribute p1 = ModifyImageAttribute
     { _miaImageId = p1
     , _miaAttribute = Nothing
     , _miaOperationType = Nothing
@@ -148,8 +148,8 @@ data ModifyImageAttributeResponse = ModifyImageAttributeResponse
 -- a valid 'ModifyImageAttributeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkModifyImageAttributeResponse :: ModifyImageAttributeResponse
-mkModifyImageAttributeResponse = ModifyImageAttributeResponse
+modifyImageAttributeResponse :: ModifyImageAttributeResponse
+modifyImageAttributeResponse = ModifyImageAttributeResponse
 
 instance AWSRequest ModifyImageAttribute where
     type Sv ModifyImageAttribute = EC2

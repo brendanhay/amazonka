@@ -23,14 +23,14 @@ module Network.AWS.Redshift.DeleteEventSubscription
     -- * Request
       DeleteEventSubscription
     -- ** Request constructor
-    , mkDeleteEventSubscription
+    , deleteEventSubscription
     -- ** Request lenses
     , desSubscriptionName
 
     -- * Response
     , DeleteEventSubscriptionResponse
     -- ** Response constructor
-    , mkDeleteEventSubscriptionResponse
+    , deleteEventSubscriptionResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -49,9 +49,9 @@ newtype DeleteEventSubscription = DeleteEventSubscription
 --
 -- * @SubscriptionName ::@ @Text@
 --
-mkDeleteEventSubscription :: Text -- ^ 'desSubscriptionName'
+deleteEventSubscription :: Text -- ^ 'desSubscriptionName'
                           -> DeleteEventSubscription
-mkDeleteEventSubscription p1 = DeleteEventSubscription
+deleteEventSubscription p1 = DeleteEventSubscription
     { _desSubscriptionName = p1
     }
 
@@ -71,8 +71,8 @@ data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
 -- a valid 'DeleteEventSubscriptionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteEventSubscriptionResponse :: DeleteEventSubscriptionResponse
-mkDeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
+deleteEventSubscriptionResponse :: DeleteEventSubscriptionResponse
+deleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
 
 instance AWSRequest DeleteEventSubscription where
     type Sv DeleteEventSubscription = Redshift

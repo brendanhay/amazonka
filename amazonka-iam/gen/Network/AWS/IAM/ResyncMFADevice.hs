@@ -26,7 +26,7 @@ module Network.AWS.IAM.ResyncMFADevice
     -- * Request
       ResyncMFADevice
     -- ** Request constructor
-    , mkResyncMFADevice
+    , resyncMFADevice
     -- ** Request lenses
     , rmfadUserName
     , rmfadSerialNumber
@@ -36,7 +36,7 @@ module Network.AWS.IAM.ResyncMFADevice
     -- * Response
     , ResyncMFADeviceResponse
     -- ** Response constructor
-    , mkResyncMFADeviceResponse
+    , resyncMFADeviceResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -63,12 +63,12 @@ data ResyncMFADevice = ResyncMFADevice
 --
 -- * @AuthenticationCode2 ::@ @Text@
 --
-mkResyncMFADevice :: Text -- ^ 'rmfadUserName'
+resyncMFADevice :: Text -- ^ 'rmfadUserName'
                   -> Text -- ^ 'rmfadSerialNumber'
                   -> Text -- ^ 'rmfadAuthenticationCode1'
                   -> Text -- ^ 'rmfadAuthenticationCode2'
                   -> ResyncMFADevice
-mkResyncMFADevice p1 p2 p3 p4 = ResyncMFADevice
+resyncMFADevice p1 p2 p3 p4 = ResyncMFADevice
     { _rmfadUserName = p1
     , _rmfadSerialNumber = p2
     , _rmfadAuthenticationCode1 = p3
@@ -106,8 +106,8 @@ data ResyncMFADeviceResponse = ResyncMFADeviceResponse
 -- a valid 'ResyncMFADeviceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkResyncMFADeviceResponse :: ResyncMFADeviceResponse
-mkResyncMFADeviceResponse = ResyncMFADeviceResponse
+resyncMFADeviceResponse :: ResyncMFADeviceResponse
+resyncMFADeviceResponse = ResyncMFADeviceResponse
 
 instance AWSRequest ResyncMFADevice where
     type Sv ResyncMFADevice = IAM

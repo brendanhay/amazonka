@@ -32,7 +32,7 @@ module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     -- * Request
       DescribeVirtualInterfaces
     -- ** Request constructor
-    , mkDescribeVirtualInterfaces
+    , describeVirtualInterfaces
     -- ** Request lenses
     , dvi1ConnectionId
     , dvi1VirtualInterfaceId
@@ -40,7 +40,7 @@ module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     -- * Response
     , DescribeVirtualInterfacesResponse
     -- ** Response constructor
-    , mkDescribeVirtualInterfacesResponse
+    , describeVirtualInterfacesResponse
     -- ** Response lenses
     , dvirrVirtualInterfaces
     ) where
@@ -64,8 +64,8 @@ data DescribeVirtualInterfaces = DescribeVirtualInterfaces
 --
 -- * @VirtualInterfaceId ::@ @Maybe Text@
 --
-mkDescribeVirtualInterfaces :: DescribeVirtualInterfaces
-mkDescribeVirtualInterfaces = DescribeVirtualInterfaces
+describeVirtualInterfaces :: DescribeVirtualInterfaces
+describeVirtualInterfaces = DescribeVirtualInterfaces
     { _dvi1ConnectionId = Nothing
     , _dvi1VirtualInterfaceId = Nothing
     }
@@ -102,8 +102,8 @@ newtype DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse
 --
 -- * @VirtualInterfaces ::@ @[VirtualInterface]@
 --
-mkDescribeVirtualInterfacesResponse :: DescribeVirtualInterfacesResponse
-mkDescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse
+describeVirtualInterfacesResponse :: DescribeVirtualInterfacesResponse
+describeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse
     { _dvirrVirtualInterfaces = mempty
     }
 

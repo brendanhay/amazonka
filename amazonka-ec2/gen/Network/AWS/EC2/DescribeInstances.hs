@@ -129,7 +129,7 @@ module Network.AWS.EC2.DescribeInstances
     -- * Request
       DescribeInstances
     -- ** Request constructor
-    , mkDescribeInstances
+    , describeInstances
     -- ** Request lenses
     , di2InstanceIds
     , di2Filters
@@ -139,7 +139,7 @@ module Network.AWS.EC2.DescribeInstances
     -- * Response
     , DescribeInstancesResponse
     -- ** Response constructor
-    , mkDescribeInstancesResponse
+    , describeInstancesResponse
     -- ** Response lenses
     , dirrReservations
     , dirrNextToken
@@ -169,8 +169,8 @@ data DescribeInstances = DescribeInstances
 --
 -- * @MaxResults ::@ @Maybe Integer@
 --
-mkDescribeInstances :: DescribeInstances
-mkDescribeInstances = DescribeInstances
+describeInstances :: DescribeInstances
+describeInstances = DescribeInstances
     { _di2InstanceIds = mempty
     , _di2Filters = mempty
     , _di2NextToken = Nothing
@@ -336,8 +336,8 @@ data DescribeInstancesResponse = DescribeInstancesResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeInstancesResponse :: DescribeInstancesResponse
-mkDescribeInstancesResponse = DescribeInstancesResponse
+describeInstancesResponse :: DescribeInstancesResponse
+describeInstancesResponse = DescribeInstancesResponse
     { _dirrReservations = mempty
     , _dirrNextToken = Nothing
     }

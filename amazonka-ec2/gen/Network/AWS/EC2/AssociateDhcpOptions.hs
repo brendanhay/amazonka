@@ -46,7 +46,7 @@ module Network.AWS.EC2.AssociateDhcpOptions
     -- * Request
       AssociateDhcpOptions
     -- ** Request constructor
-    , mkAssociateDhcpOptions
+    , associateDhcpOptions
     -- ** Request lenses
     , adoDhcpOptionsId
     , adoVpcId
@@ -54,7 +54,7 @@ module Network.AWS.EC2.AssociateDhcpOptions
     -- * Response
     , AssociateDhcpOptionsResponse
     -- ** Response constructor
-    , mkAssociateDhcpOptionsResponse
+    , associateDhcpOptionsResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -75,10 +75,10 @@ data AssociateDhcpOptions = AssociateDhcpOptions
 --
 -- * @VpcId ::@ @Text@
 --
-mkAssociateDhcpOptions :: Text -- ^ 'adoDhcpOptionsId'
+associateDhcpOptions :: Text -- ^ 'adoDhcpOptionsId'
                        -> Text -- ^ 'adoVpcId'
                        -> AssociateDhcpOptions
-mkAssociateDhcpOptions p1 p2 = AssociateDhcpOptions
+associateDhcpOptions p1 p2 = AssociateDhcpOptions
     { _adoDhcpOptionsId = p1
     , _adoVpcId = p2
     }
@@ -103,8 +103,8 @@ data AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse
 -- a valid 'AssociateDhcpOptionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkAssociateDhcpOptionsResponse :: AssociateDhcpOptionsResponse
-mkAssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse
+associateDhcpOptionsResponse :: AssociateDhcpOptionsResponse
+associateDhcpOptionsResponse = AssociateDhcpOptionsResponse
 
 instance AWSRequest AssociateDhcpOptions where
     type Sv AssociateDhcpOptions = EC2

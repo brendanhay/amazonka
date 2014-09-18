@@ -29,14 +29,14 @@ module Network.AWS.EC2.DeleteKeyPair
     -- * Request
       DeleteKeyPair
     -- ** Request constructor
-    , mkDeleteKeyPair
+    , deleteKeyPair
     -- ** Request lenses
     , dkpKeyName
 
     -- * Response
     , DeleteKeyPairResponse
     -- ** Response constructor
-    , mkDeleteKeyPairResponse
+    , deleteKeyPairResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -54,9 +54,9 @@ newtype DeleteKeyPair = DeleteKeyPair
 --
 -- * @KeyName ::@ @Text@
 --
-mkDeleteKeyPair :: Text -- ^ 'dkpKeyName'
+deleteKeyPair :: Text -- ^ 'dkpKeyName'
                 -> DeleteKeyPair
-mkDeleteKeyPair p1 = DeleteKeyPair
+deleteKeyPair p1 = DeleteKeyPair
     { _dkpKeyName = p1
     }
 
@@ -74,8 +74,8 @@ data DeleteKeyPairResponse = DeleteKeyPairResponse
 -- a valid 'DeleteKeyPairResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteKeyPairResponse :: DeleteKeyPairResponse
-mkDeleteKeyPairResponse = DeleteKeyPairResponse
+deleteKeyPairResponse :: DeleteKeyPairResponse
+deleteKeyPairResponse = DeleteKeyPairResponse
 
 instance AWSRequest DeleteKeyPair where
     type Sv DeleteKeyPair = EC2

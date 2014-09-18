@@ -41,7 +41,7 @@ module Network.AWS.IAM.CreateSAMLProvider
     -- * Request
       CreateSAMLProvider
     -- ** Request constructor
-    , mkCreateSAMLProvider
+    , createSAMLProvider
     -- ** Request lenses
     , csamlpSAMLMetadataDocument
     , csamlpName
@@ -49,7 +49,7 @@ module Network.AWS.IAM.CreateSAMLProvider
     -- * Response
     , CreateSAMLProviderResponse
     -- ** Response constructor
-    , mkCreateSAMLProviderResponse
+    , createSAMLProviderResponse
     -- ** Response lenses
     , csamlprSAMLProviderArn
     ) where
@@ -72,10 +72,10 @@ data CreateSAMLProvider = CreateSAMLProvider
 --
 -- * @Name ::@ @Text@
 --
-mkCreateSAMLProvider :: Text -- ^ 'csamlpSAMLMetadataDocument'
+createSAMLProvider :: Text -- ^ 'csamlpSAMLMetadataDocument'
                      -> Text -- ^ 'csamlpName'
                      -> CreateSAMLProvider
-mkCreateSAMLProvider p1 p2 = CreateSAMLProvider
+createSAMLProvider p1 p2 = CreateSAMLProvider
     { _csamlpSAMLMetadataDocument = p1
     , _csamlpName = p2
     }
@@ -115,8 +115,8 @@ newtype CreateSAMLProviderResponse = CreateSAMLProviderResponse
 --
 -- * @SAMLProviderArn ::@ @Maybe Text@
 --
-mkCreateSAMLProviderResponse :: CreateSAMLProviderResponse
-mkCreateSAMLProviderResponse = CreateSAMLProviderResponse
+createSAMLProviderResponse :: CreateSAMLProviderResponse
+createSAMLProviderResponse = CreateSAMLProviderResponse
     { _csamlprSAMLProviderArn = Nothing
     }
 

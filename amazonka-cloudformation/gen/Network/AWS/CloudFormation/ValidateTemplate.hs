@@ -31,7 +31,7 @@ module Network.AWS.CloudFormation.ValidateTemplate
     -- * Request
       ValidateTemplate
     -- ** Request constructor
-    , mkValidateTemplate
+    , validateTemplate
     -- ** Request lenses
     , vtTemplateBody
     , vtTemplateURL
@@ -39,7 +39,7 @@ module Network.AWS.CloudFormation.ValidateTemplate
     -- * Response
     , ValidateTemplateResponse
     -- ** Response constructor
-    , mkValidateTemplateResponse
+    , validateTemplateResponse
     -- ** Response lenses
     , vtrParameters
     , vtrDescription
@@ -66,8 +66,8 @@ data ValidateTemplate = ValidateTemplate
 --
 -- * @TemplateURL ::@ @Maybe Text@
 --
-mkValidateTemplate :: ValidateTemplate
-mkValidateTemplate = ValidateTemplate
+validateTemplate :: ValidateTemplate
+validateTemplate = ValidateTemplate
     { _vtTemplateBody = Nothing
     , _vtTemplateURL = Nothing
     }
@@ -113,8 +113,8 @@ data ValidateTemplateResponse = ValidateTemplateResponse
 --
 -- * @CapabilitiesReason ::@ @Maybe Text@
 --
-mkValidateTemplateResponse :: ValidateTemplateResponse
-mkValidateTemplateResponse = ValidateTemplateResponse
+validateTemplateResponse :: ValidateTemplateResponse
+validateTemplateResponse = ValidateTemplateResponse
     { _vtrParameters = mempty
     , _vtrDescription = Nothing
     , _vtrCapabilities = mempty

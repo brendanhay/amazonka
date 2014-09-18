@@ -32,14 +32,14 @@ module Network.AWS.EC2.DeleteDhcpOptions
     -- * Request
       DeleteDhcpOptions
     -- ** Request constructor
-    , mkDeleteDhcpOptions
+    , deleteDhcpOptions
     -- ** Request lenses
     , ddoDhcpOptionsId
 
     -- * Response
     , DeleteDhcpOptionsResponse
     -- ** Response constructor
-    , mkDeleteDhcpOptionsResponse
+    , deleteDhcpOptionsResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -57,9 +57,9 @@ newtype DeleteDhcpOptions = DeleteDhcpOptions
 --
 -- * @DhcpOptionsId ::@ @Text@
 --
-mkDeleteDhcpOptions :: Text -- ^ 'ddoDhcpOptionsId'
+deleteDhcpOptions :: Text -- ^ 'ddoDhcpOptionsId'
                     -> DeleteDhcpOptions
-mkDeleteDhcpOptions p1 = DeleteDhcpOptions
+deleteDhcpOptions p1 = DeleteDhcpOptions
     { _ddoDhcpOptionsId = p1
     }
 
@@ -78,8 +78,8 @@ data DeleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
 -- a valid 'DeleteDhcpOptionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteDhcpOptionsResponse :: DeleteDhcpOptionsResponse
-mkDeleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
+deleteDhcpOptionsResponse :: DeleteDhcpOptionsResponse
+deleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
 
 instance AWSRequest DeleteDhcpOptions where
     type Sv DeleteDhcpOptions = EC2

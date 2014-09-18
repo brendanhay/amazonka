@@ -61,7 +61,7 @@ module Network.AWS.EMR.AddJobFlowSteps
     -- * Request
       AddJobFlowSteps
     -- ** Request constructor
-    , mkAddJobFlowSteps
+    , addJobFlowSteps
     -- ** Request lenses
     , ajfsJobFlowId
     , ajfsSteps
@@ -69,7 +69,7 @@ module Network.AWS.EMR.AddJobFlowSteps
     -- * Response
     , AddJobFlowStepsResponse
     -- ** Response constructor
-    , mkAddJobFlowStepsResponse
+    , addJobFlowStepsResponse
     -- ** Response lenses
     , ajfsrStepIds
     ) where
@@ -93,10 +93,10 @@ data AddJobFlowSteps = AddJobFlowSteps
 --
 -- * @Steps ::@ @[StepConfig]@
 --
-mkAddJobFlowSteps :: Text -- ^ 'ajfsJobFlowId'
+addJobFlowSteps :: Text -- ^ 'ajfsJobFlowId'
                   -> [StepConfig] -- ^ 'ajfsSteps'
                   -> AddJobFlowSteps
-mkAddJobFlowSteps p1 p2 = AddJobFlowSteps
+addJobFlowSteps p1 p2 = AddJobFlowSteps
     { _ajfsJobFlowId = p1
     , _ajfsSteps = p2
     }
@@ -132,8 +132,8 @@ newtype AddJobFlowStepsResponse = AddJobFlowStepsResponse
 --
 -- * @StepIds ::@ @[Text]@
 --
-mkAddJobFlowStepsResponse :: AddJobFlowStepsResponse
-mkAddJobFlowStepsResponse = AddJobFlowStepsResponse
+addJobFlowStepsResponse :: AddJobFlowStepsResponse
+addJobFlowStepsResponse = AddJobFlowStepsResponse
     { _ajfsrStepIds = mempty
     }
 

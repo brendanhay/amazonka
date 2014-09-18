@@ -32,7 +32,7 @@ module Network.AWS.RDS.AddSourceIdentifierToSubscription
     -- * Request
       AddSourceIdentifierToSubscription
     -- ** Request constructor
-    , mkAddSourceIdentifierToSubscription
+    , addSourceIdentifierToSubscription
     -- ** Request lenses
     , asitsSubscriptionName
     , asitsSourceIdentifier
@@ -40,7 +40,7 @@ module Network.AWS.RDS.AddSourceIdentifierToSubscription
     -- * Response
     , AddSourceIdentifierToSubscriptionResponse
     -- ** Response constructor
-    , mkAddSourceIdentifierToSubscriptionResponse
+    , addSourceIdentifierToSubscriptionResponse
     -- ** Response lenses
     , asitsrEventSubscription
     ) where
@@ -64,10 +64,10 @@ data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription
 --
 -- * @SourceIdentifier ::@ @Text@
 --
-mkAddSourceIdentifierToSubscription :: Text -- ^ 'asitsSubscriptionName'
+addSourceIdentifierToSubscription :: Text -- ^ 'asitsSubscriptionName'
                                     -> Text -- ^ 'asitsSourceIdentifier'
                                     -> AddSourceIdentifierToSubscription
-mkAddSourceIdentifierToSubscription p1 p2 = AddSourceIdentifierToSubscription
+addSourceIdentifierToSubscription p1 p2 = AddSourceIdentifierToSubscription
     { _asitsSubscriptionName = p1
     , _asitsSourceIdentifier = p2
     }
@@ -106,8 +106,8 @@ newtype AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscri
 --
 -- * @EventSubscription ::@ @Maybe EventSubscription@
 --
-mkAddSourceIdentifierToSubscriptionResponse :: AddSourceIdentifierToSubscriptionResponse
-mkAddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse
+addSourceIdentifierToSubscriptionResponse :: AddSourceIdentifierToSubscriptionResponse
+addSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse
     { _asitsrEventSubscription = Nothing
     }
 

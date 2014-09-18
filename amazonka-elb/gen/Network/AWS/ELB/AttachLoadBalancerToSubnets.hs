@@ -31,7 +31,7 @@ module Network.AWS.ELB.AttachLoadBalancerToSubnets
     -- * Request
       AttachLoadBalancerToSubnets
     -- ** Request constructor
-    , mkAttachLoadBalancerToSubnets
+    , attachLoadBalancerToSubnets
     -- ** Request lenses
     , albtsLoadBalancerName
     , albtsSubnets
@@ -39,7 +39,7 @@ module Network.AWS.ELB.AttachLoadBalancerToSubnets
     -- * Response
     , AttachLoadBalancerToSubnetsResponse
     -- ** Response constructor
-    , mkAttachLoadBalancerToSubnetsResponse
+    , attachLoadBalancerToSubnetsResponse
     -- ** Response lenses
     , albtsrSubnets
     ) where
@@ -63,10 +63,10 @@ data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets
 --
 -- * @Subnets ::@ @[Text]@
 --
-mkAttachLoadBalancerToSubnets :: Text -- ^ 'albtsLoadBalancerName'
+attachLoadBalancerToSubnets :: Text -- ^ 'albtsLoadBalancerName'
                               -> [Text] -- ^ 'albtsSubnets'
                               -> AttachLoadBalancerToSubnets
-mkAttachLoadBalancerToSubnets p1 p2 = AttachLoadBalancerToSubnets
+attachLoadBalancerToSubnets p1 p2 = AttachLoadBalancerToSubnets
     { _albtsLoadBalancerName = p1
     , _albtsSubnets = p2
     }
@@ -99,8 +99,8 @@ newtype AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsRespons
 --
 -- * @Subnets ::@ @[Text]@
 --
-mkAttachLoadBalancerToSubnetsResponse :: AttachLoadBalancerToSubnetsResponse
-mkAttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
+attachLoadBalancerToSubnetsResponse :: AttachLoadBalancerToSubnetsResponse
+attachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
     { _albtsrSubnets = mempty
     }
 

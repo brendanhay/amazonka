@@ -24,11 +24,11 @@ module Network.AWS.Route53.GetHealthCheckCount
     -- * Request
       GetHealthCheckCount
     -- ** Request constructor
-    , mkGetHealthCheckCount
+    , getHealthCheckCount
     -- * Response
     , GetHealthCheckCountResponse
     -- ** Response constructor
-    , mkGetHealthCheckCountResponse
+    , getHealthCheckCountResponse
     -- ** Response lenses
     , ghccrHealthCheckCount
     ) where
@@ -45,8 +45,8 @@ data GetHealthCheckCount = GetHealthCheckCount
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetHealthCheckCount' request.
-mkGetHealthCheckCount :: GetHealthCheckCount
-mkGetHealthCheckCount = GetHealthCheckCount
+getHealthCheckCount :: GetHealthCheckCount
+getHealthCheckCount = GetHealthCheckCount
 
 instance ToPath GetHealthCheckCount
 
@@ -73,9 +73,9 @@ newtype GetHealthCheckCountResponse = GetHealthCheckCountResponse
 --
 -- * @HealthCheckCount ::@ @Integer@
 --
-mkGetHealthCheckCountResponse :: Integer -- ^ 'ghccrHealthCheckCount'
+getHealthCheckCountResponse :: Integer -- ^ 'ghccrHealthCheckCount'
                               -> GetHealthCheckCountResponse
-mkGetHealthCheckCountResponse p1 = GetHealthCheckCountResponse
+getHealthCheckCountResponse p1 = GetHealthCheckCountResponse
     { _ghccrHealthCheckCount = p1
     }
 

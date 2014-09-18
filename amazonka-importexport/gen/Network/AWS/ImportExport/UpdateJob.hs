@@ -27,7 +27,7 @@ module Network.AWS.ImportExport.UpdateJob
     -- * Request
       UpdateJob
     -- ** Request constructor
-    , mkUpdateJob
+    , updateJob
     -- ** Request lenses
     , ujJobId
     , ujManifest
@@ -37,7 +37,7 @@ module Network.AWS.ImportExport.UpdateJob
     -- * Response
     , UpdateJobResponse
     -- ** Response constructor
-    , mkUpdateJobResponse
+    , updateJobResponse
     -- ** Response lenses
     , ujrSuccess
     , ujrWarningMessage
@@ -68,12 +68,12 @@ data UpdateJob = UpdateJob
 --
 -- * @ValidateOnly ::@ @Bool@
 --
-mkUpdateJob :: Text -- ^ 'ujJobId'
+updateJob :: Text -- ^ 'ujJobId'
             -> Text -- ^ 'ujManifest'
             -> JobType -- ^ 'ujJobType'
             -> Bool -- ^ 'ujValidateOnly'
             -> UpdateJob
-mkUpdateJob p1 p2 p3 p4 = UpdateJob
+updateJob p1 p2 p3 p4 = UpdateJob
     { _ujJobId = p1
     , _ujManifest = p2
     , _ujJobType = p3
@@ -117,8 +117,8 @@ data UpdateJobResponse = UpdateJobResponse
 --
 -- * @WarningMessage ::@ @Maybe Text@
 --
-mkUpdateJobResponse :: UpdateJobResponse
-mkUpdateJobResponse = UpdateJobResponse
+updateJobResponse :: UpdateJobResponse
+updateJobResponse = UpdateJobResponse
     { _ujrSuccess = Nothing
     , _ujrWarningMessage = Nothing
     }

@@ -34,14 +34,14 @@ module Network.AWS.DataPipeline.ActivatePipeline
     -- * Request
       ActivatePipeline
     -- ** Request constructor
-    , mkActivatePipeline
+    , activatePipeline
     -- ** Request lenses
     , apPipelineId
 
     -- * Response
     , ActivatePipelineResponse
     -- ** Response constructor
-    , mkActivatePipelineResponse
+    , activatePipelineResponse
     ) where
 
 import Network.AWS.DataPipeline.Types
@@ -60,9 +60,9 @@ newtype ActivatePipeline = ActivatePipeline
 --
 -- * @PipelineId ::@ @Text@
 --
-mkActivatePipeline :: Text -- ^ 'apPipelineId'
+activatePipeline :: Text -- ^ 'apPipelineId'
                    -> ActivatePipeline
-mkActivatePipeline p1 = ActivatePipeline
+activatePipeline p1 = ActivatePipeline
     { _apPipelineId = p1
     }
 
@@ -86,8 +86,8 @@ data ActivatePipelineResponse = ActivatePipelineResponse
 -- a valid 'ActivatePipelineResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkActivatePipelineResponse :: ActivatePipelineResponse
-mkActivatePipelineResponse = ActivatePipelineResponse
+activatePipelineResponse :: ActivatePipelineResponse
+activatePipelineResponse = ActivatePipelineResponse
 
 instance AWSRequest ActivatePipeline where
     type Sv ActivatePipeline = DataPipeline

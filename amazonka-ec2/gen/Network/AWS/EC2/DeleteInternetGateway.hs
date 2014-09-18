@@ -31,14 +31,14 @@ module Network.AWS.EC2.DeleteInternetGateway
     -- * Request
       DeleteInternetGateway
     -- ** Request constructor
-    , mkDeleteInternetGateway
+    , deleteInternetGateway
     -- ** Request lenses
     , digInternetGatewayId
 
     -- * Response
     , DeleteInternetGatewayResponse
     -- ** Response constructor
-    , mkDeleteInternetGatewayResponse
+    , deleteInternetGatewayResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -56,9 +56,9 @@ newtype DeleteInternetGateway = DeleteInternetGateway
 --
 -- * @InternetGatewayId ::@ @Text@
 --
-mkDeleteInternetGateway :: Text -- ^ 'digInternetGatewayId'
+deleteInternetGateway :: Text -- ^ 'digInternetGatewayId'
                         -> DeleteInternetGateway
-mkDeleteInternetGateway p1 = DeleteInternetGateway
+deleteInternetGateway p1 = DeleteInternetGateway
     { _digInternetGatewayId = p1
     }
 
@@ -77,8 +77,8 @@ data DeleteInternetGatewayResponse = DeleteInternetGatewayResponse
 -- a valid 'DeleteInternetGatewayResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteInternetGatewayResponse :: DeleteInternetGatewayResponse
-mkDeleteInternetGatewayResponse = DeleteInternetGatewayResponse
+deleteInternetGatewayResponse :: DeleteInternetGatewayResponse
+deleteInternetGatewayResponse = DeleteInternetGatewayResponse
 
 instance AWSRequest DeleteInternetGateway where
     type Sv DeleteInternetGateway = EC2

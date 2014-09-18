@@ -26,7 +26,7 @@ module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
     -- * Request
       ConfirmPrivateVirtualInterface
     -- ** Request constructor
-    , mkConfirmPrivateVirtualInterface
+    , confirmPrivateVirtualInterface
     -- ** Request lenses
     , cpviVirtualInterfaceId
     , cpviVirtualGatewayId
@@ -34,7 +34,7 @@ module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
     -- * Response
     , ConfirmPrivateVirtualInterfaceResponse
     -- ** Response constructor
-    , mkConfirmPrivateVirtualInterfaceResponse
+    , confirmPrivateVirtualInterfaceResponse
     -- ** Response lenses
     , cpvirVirtualInterfaceState
     ) where
@@ -59,10 +59,10 @@ data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface
 --
 -- * @VirtualGatewayId ::@ @Text@
 --
-mkConfirmPrivateVirtualInterface :: Text -- ^ 'cpviVirtualInterfaceId'
+confirmPrivateVirtualInterface :: Text -- ^ 'cpviVirtualInterfaceId'
                                  -> Text -- ^ 'cpviVirtualGatewayId'
                                  -> ConfirmPrivateVirtualInterface
-mkConfirmPrivateVirtualInterface p1 p2 = ConfirmPrivateVirtualInterface
+confirmPrivateVirtualInterface p1 p2 = ConfirmPrivateVirtualInterface
     { _cpviVirtualInterfaceId = p1
     , _cpviVirtualGatewayId = p2
     }
@@ -102,8 +102,8 @@ newtype ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceR
 --
 -- * @VirtualInterfaceState ::@ @Maybe VirtualInterfaceState@
 --
-mkConfirmPrivateVirtualInterfaceResponse :: ConfirmPrivateVirtualInterfaceResponse
-mkConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse
+confirmPrivateVirtualInterfaceResponse :: ConfirmPrivateVirtualInterfaceResponse
+confirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse
     { _cpvirVirtualInterfaceState = Nothing
     }
 

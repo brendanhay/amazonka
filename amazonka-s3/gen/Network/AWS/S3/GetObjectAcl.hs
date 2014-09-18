@@ -23,7 +23,7 @@ module Network.AWS.S3.GetObjectAcl
     -- * Request
       GetObjectAcl
     -- ** Request constructor
-    , mkGetObjectAcl
+    , getObjectAcl
     -- ** Request lenses
     , goaBucket
     , goaKey
@@ -32,7 +32,7 @@ module Network.AWS.S3.GetObjectAcl
     -- * Response
     , GetObjectAclResponse
     -- ** Response constructor
-    , mkGetObjectAclResponse
+    , getObjectAclResponse
     -- ** Response lenses
     , goarOwner
     , goarGrants
@@ -60,10 +60,10 @@ data GetObjectAcl = GetObjectAcl
 --
 -- * @VersionId ::@ @Maybe ObjectVersionId@
 --
-mkGetObjectAcl :: BucketName -- ^ 'goaBucket'
+getObjectAcl :: BucketName -- ^ 'goaBucket'
                -> ObjectKey -- ^ 'goaKey'
                -> GetObjectAcl
-mkGetObjectAcl p1 p2 = GetObjectAcl
+getObjectAcl p1 p2 = GetObjectAcl
     { _goaBucket = p1
     , _goaKey = p2
     , _goaVersionId = Nothing
@@ -103,8 +103,8 @@ data GetObjectAclResponse = GetObjectAclResponse
 --
 -- * @Grants ::@ @[Grant]@
 --
-mkGetObjectAclResponse :: GetObjectAclResponse
-mkGetObjectAclResponse = GetObjectAclResponse
+getObjectAclResponse :: GetObjectAclResponse
+getObjectAclResponse = GetObjectAclResponse
     { _goarOwner = Nothing
     , _goarGrants = mempty
     }

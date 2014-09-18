@@ -57,7 +57,7 @@ module Network.AWS.SWF.DescribeWorkflowType
     -- * Request
       DescribeWorkflowType
     -- ** Request constructor
-    , mkDescribeWorkflowType
+    , describeWorkflowType
     -- ** Request lenses
     , dwt1Domain
     , dwt1WorkflowType
@@ -65,7 +65,7 @@ module Network.AWS.SWF.DescribeWorkflowType
     -- * Response
     , DescribeWorkflowTypeResponse
     -- ** Response constructor
-    , mkDescribeWorkflowTypeResponse
+    , describeWorkflowTypeResponse
     -- ** Response lenses
     , dwtrTypeInfo
     , dwtrConfiguration
@@ -89,10 +89,10 @@ data DescribeWorkflowType = DescribeWorkflowType
 --
 -- * @WorkflowType ::@ @WorkflowType@
 --
-mkDescribeWorkflowType :: Text -- ^ 'dwt1Domain'
+describeWorkflowType :: Text -- ^ 'dwt1Domain'
                        -> WorkflowType -- ^ 'dwt1WorkflowType'
                        -> DescribeWorkflowType
-mkDescribeWorkflowType p1 p2 = DescribeWorkflowType
+describeWorkflowType p1 p2 = DescribeWorkflowType
     { _dwt1Domain = p1
     , _dwt1WorkflowType = p2
     }
@@ -131,10 +131,10 @@ data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse
 --
 -- * @Configuration ::@ @WorkflowTypeConfiguration@
 --
-mkDescribeWorkflowTypeResponse :: WorkflowTypeInfo -- ^ 'dwtrTypeInfo'
+describeWorkflowTypeResponse :: WorkflowTypeInfo -- ^ 'dwtrTypeInfo'
                                -> WorkflowTypeConfiguration -- ^ 'dwtrConfiguration'
                                -> DescribeWorkflowTypeResponse
-mkDescribeWorkflowTypeResponse p1 p2 = DescribeWorkflowTypeResponse
+describeWorkflowTypeResponse p1 p2 = DescribeWorkflowTypeResponse
     { _dwtrTypeInfo = p1
     , _dwtrConfiguration = p2
     }

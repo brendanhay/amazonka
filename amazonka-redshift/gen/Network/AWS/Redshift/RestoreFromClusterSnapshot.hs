@@ -42,7 +42,7 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
     -- * Request
       RestoreFromClusterSnapshot
     -- ** Request constructor
-    , mkRestoreFromClusterSnapshot
+    , restoreFromClusterSnapshot
     -- ** Request lenses
     , rfcsClusterIdentifier
     , rfcsSnapshotIdentifier
@@ -65,7 +65,7 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
     -- * Response
     , RestoreFromClusterSnapshotResponse
     -- ** Response constructor
-    , mkRestoreFromClusterSnapshotResponse
+    , restoreFromClusterSnapshotResponse
     -- ** Response lenses
     , rfcsrCluster
     ) where
@@ -134,10 +134,10 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
 --
 -- * @AutomatedSnapshotRetentionPeriod ::@ @Maybe Integer@
 --
-mkRestoreFromClusterSnapshot :: Text -- ^ 'rfcsClusterIdentifier'
+restoreFromClusterSnapshot :: Text -- ^ 'rfcsClusterIdentifier'
                              -> Text -- ^ 'rfcsSnapshotIdentifier'
                              -> RestoreFromClusterSnapshot
-mkRestoreFromClusterSnapshot p1 p2 = RestoreFromClusterSnapshot
+restoreFromClusterSnapshot p1 p2 = RestoreFromClusterSnapshot
     { _rfcsClusterIdentifier = p1
     , _rfcsSnapshotIdentifier = p2
     , _rfcsSnapshotClusterIdentifier = Nothing
@@ -303,8 +303,8 @@ newtype RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse
 --
 -- * @Cluster ::@ @Maybe Cluster@
 --
-mkRestoreFromClusterSnapshotResponse :: RestoreFromClusterSnapshotResponse
-mkRestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse
+restoreFromClusterSnapshotResponse :: RestoreFromClusterSnapshotResponse
+restoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse
     { _rfcsrCluster = Nothing
     }
 

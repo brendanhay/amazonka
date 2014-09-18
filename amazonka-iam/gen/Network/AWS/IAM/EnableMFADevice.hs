@@ -28,7 +28,7 @@ module Network.AWS.IAM.EnableMFADevice
     -- * Request
       EnableMFADevice
     -- ** Request constructor
-    , mkEnableMFADevice
+    , enableMFADevice
     -- ** Request lenses
     , emfadUserName
     , emfadSerialNumber
@@ -38,7 +38,7 @@ module Network.AWS.IAM.EnableMFADevice
     -- * Response
     , EnableMFADeviceResponse
     -- ** Response constructor
-    , mkEnableMFADeviceResponse
+    , enableMFADeviceResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -65,12 +65,12 @@ data EnableMFADevice = EnableMFADevice
 --
 -- * @AuthenticationCode2 ::@ @Text@
 --
-mkEnableMFADevice :: Text -- ^ 'emfadUserName'
+enableMFADevice :: Text -- ^ 'emfadUserName'
                   -> Text -- ^ 'emfadSerialNumber'
                   -> Text -- ^ 'emfadAuthenticationCode1'
                   -> Text -- ^ 'emfadAuthenticationCode2'
                   -> EnableMFADevice
-mkEnableMFADevice p1 p2 p3 p4 = EnableMFADevice
+enableMFADevice p1 p2 p3 p4 = EnableMFADevice
     { _emfadUserName = p1
     , _emfadSerialNumber = p2
     , _emfadAuthenticationCode1 = p3
@@ -109,8 +109,8 @@ data EnableMFADeviceResponse = EnableMFADeviceResponse
 -- a valid 'EnableMFADeviceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkEnableMFADeviceResponse :: EnableMFADeviceResponse
-mkEnableMFADeviceResponse = EnableMFADeviceResponse
+enableMFADeviceResponse :: EnableMFADeviceResponse
+enableMFADeviceResponse = EnableMFADeviceResponse
 
 instance AWSRequest EnableMFADevice where
     type Sv EnableMFADevice = IAM

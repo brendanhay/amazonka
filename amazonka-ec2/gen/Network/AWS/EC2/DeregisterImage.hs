@@ -30,14 +30,14 @@ module Network.AWS.EC2.DeregisterImage
     -- * Request
       DeregisterImage
     -- ** Request constructor
-    , mkDeregisterImage
+    , deregisterImage
     -- ** Request lenses
     , diImageId
 
     -- * Response
     , DeregisterImageResponse
     -- ** Response constructor
-    , mkDeregisterImageResponse
+    , deregisterImageResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -55,9 +55,9 @@ newtype DeregisterImage = DeregisterImage
 --
 -- * @ImageId ::@ @Text@
 --
-mkDeregisterImage :: Text -- ^ 'diImageId'
+deregisterImage :: Text -- ^ 'diImageId'
                   -> DeregisterImage
-mkDeregisterImage p1 = DeregisterImage
+deregisterImage p1 = DeregisterImage
     { _diImageId = p1
     }
 
@@ -75,8 +75,8 @@ data DeregisterImageResponse = DeregisterImageResponse
 -- a valid 'DeregisterImageResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeregisterImageResponse :: DeregisterImageResponse
-mkDeregisterImageResponse = DeregisterImageResponse
+deregisterImageResponse :: DeregisterImageResponse
+deregisterImageResponse = DeregisterImageResponse
 
 instance AWSRequest DeregisterImage where
     type Sv DeregisterImage = EC2

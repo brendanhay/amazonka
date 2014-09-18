@@ -37,7 +37,7 @@ module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
     -- * Request
       UpdateMaintenanceStartTime
     -- ** Request constructor
-    , mkUpdateMaintenanceStartTime
+    , updateMaintenanceStartTime
     -- ** Request lenses
     , umstGatewayARN
     , umstHourOfDay
@@ -47,7 +47,7 @@ module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
     -- * Response
     , UpdateMaintenanceStartTimeResponse
     -- ** Response constructor
-    , mkUpdateMaintenanceStartTimeResponse
+    , updateMaintenanceStartTimeResponse
     -- ** Response lenses
     , umstrGatewayARN
     ) where
@@ -80,12 +80,12 @@ data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime
 --
 -- * @DayOfWeek ::@ @Integer@
 --
-mkUpdateMaintenanceStartTime :: Text -- ^ 'umstGatewayARN'
+updateMaintenanceStartTime :: Text -- ^ 'umstGatewayARN'
                              -> Integer -- ^ 'umstHourOfDay'
                              -> Integer -- ^ 'umstMinuteOfHour'
                              -> Integer -- ^ 'umstDayOfWeek'
                              -> UpdateMaintenanceStartTime
-mkUpdateMaintenanceStartTime p1 p2 p3 p4 = UpdateMaintenanceStartTime
+updateMaintenanceStartTime p1 p2 p3 p4 = UpdateMaintenanceStartTime
     { _umstGatewayARN = p1
     , _umstHourOfDay = p2
     , _umstMinuteOfHour = p3
@@ -137,9 +137,9 @@ newtype UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse
 --
 -- * @GatewayARN ::@ @Text@
 --
-mkUpdateMaintenanceStartTimeResponse :: Text -- ^ 'umstrGatewayARN'
+updateMaintenanceStartTimeResponse :: Text -- ^ 'umstrGatewayARN'
                                      -> UpdateMaintenanceStartTimeResponse
-mkUpdateMaintenanceStartTimeResponse p1 = UpdateMaintenanceStartTimeResponse
+updateMaintenanceStartTimeResponse p1 = UpdateMaintenanceStartTimeResponse
     { _umstrGatewayARN = p1
     }
 

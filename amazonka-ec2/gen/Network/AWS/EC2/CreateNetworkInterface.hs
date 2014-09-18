@@ -121,7 +121,7 @@ module Network.AWS.EC2.CreateNetworkInterface
     -- * Request
       CreateNetworkInterface
     -- ** Request constructor
-    , mkCreateNetworkInterface
+    , createNetworkInterface
     -- ** Request lenses
     , cniSubnetId
     , cniDescription
@@ -133,7 +133,7 @@ module Network.AWS.EC2.CreateNetworkInterface
     -- * Response
     , CreateNetworkInterfaceResponse
     -- ** Response constructor
-    , mkCreateNetworkInterfaceResponse
+    , createNetworkInterfaceResponse
     -- ** Response lenses
     , cnirNetworkInterface
     ) where
@@ -168,9 +168,9 @@ data CreateNetworkInterface = CreateNetworkInterface
 --
 -- * @SecondaryPrivateIpAddressCount ::@ @Maybe Integer@
 --
-mkCreateNetworkInterface :: Text -- ^ 'cniSubnetId'
+createNetworkInterface :: Text -- ^ 'cniSubnetId'
                          -> CreateNetworkInterface
-mkCreateNetworkInterface p1 = CreateNetworkInterface
+createNetworkInterface p1 = CreateNetworkInterface
     { _cniSubnetId = p1
     , _cniDescription = Nothing
     , _cniPrivateIpAddress = Nothing
@@ -230,8 +230,8 @@ newtype CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
 --
 -- * @NetworkInterface ::@ @Maybe NetworkInterface@
 --
-mkCreateNetworkInterfaceResponse :: CreateNetworkInterfaceResponse
-mkCreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
+createNetworkInterfaceResponse :: CreateNetworkInterfaceResponse
+createNetworkInterfaceResponse = CreateNetworkInterfaceResponse
     { _cnirNetworkInterface = Nothing
     }
 

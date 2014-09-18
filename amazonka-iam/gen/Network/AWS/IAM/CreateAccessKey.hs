@@ -38,14 +38,14 @@ module Network.AWS.IAM.CreateAccessKey
     -- * Request
       CreateAccessKey
     -- ** Request constructor
-    , mkCreateAccessKey
+    , createAccessKey
     -- ** Request lenses
     , cakUserName
 
     -- * Response
     , CreateAccessKeyResponse
     -- ** Response constructor
-    , mkCreateAccessKeyResponse
+    , createAccessKeyResponse
     -- ** Response lenses
     , cakrAccessKey
     ) where
@@ -65,8 +65,8 @@ newtype CreateAccessKey = CreateAccessKey
 --
 -- * @UserName ::@ @Maybe Text@
 --
-mkCreateAccessKey :: CreateAccessKey
-mkCreateAccessKey = CreateAccessKey
+createAccessKey :: CreateAccessKey
+createAccessKey = CreateAccessKey
     { _cakUserName = Nothing
     }
 
@@ -92,9 +92,9 @@ newtype CreateAccessKeyResponse = CreateAccessKeyResponse
 --
 -- * @AccessKey ::@ @AccessKey@
 --
-mkCreateAccessKeyResponse :: AccessKey -- ^ 'cakrAccessKey'
+createAccessKeyResponse :: AccessKey -- ^ 'cakrAccessKey'
                           -> CreateAccessKeyResponse
-mkCreateAccessKeyResponse p1 = CreateAccessKeyResponse
+createAccessKeyResponse p1 = CreateAccessKeyResponse
     { _cakrAccessKey = p1
     }
 

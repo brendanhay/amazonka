@@ -43,7 +43,7 @@ module Network.AWS.SWF.ListActivityTypes
     -- * Request
       ListActivityTypes
     -- ** Request constructor
-    , mkListActivityTypes
+    , listActivityTypes
     -- ** Request lenses
     , latDomain
     , latName
@@ -55,7 +55,7 @@ module Network.AWS.SWF.ListActivityTypes
     -- * Response
     , ListActivityTypesResponse
     -- ** Response constructor
-    , mkListActivityTypesResponse
+    , listActivityTypesResponse
     -- ** Response lenses
     , latrTypeInfos
     , latrNextPageToken
@@ -91,10 +91,10 @@ data ListActivityTypes = ListActivityTypes
 --
 -- * @ReverseOrder ::@ @Maybe Bool@
 --
-mkListActivityTypes :: Text -- ^ 'latDomain'
+listActivityTypes :: Text -- ^ 'latDomain'
                     -> RegistrationStatus -- ^ 'latRegistrationStatus'
                     -> ListActivityTypes
-mkListActivityTypes p1 p3 = ListActivityTypes
+listActivityTypes p1 p3 = ListActivityTypes
     { _latDomain = p1
     , _latName = Nothing
     , _latRegistrationStatus = p3
@@ -163,9 +163,9 @@ data ListActivityTypesResponse = ListActivityTypesResponse
 --
 -- * @NextPageToken ::@ @Maybe Text@
 --
-mkListActivityTypesResponse :: [ActivityTypeInfo] -- ^ 'latrTypeInfos'
+listActivityTypesResponse :: [ActivityTypeInfo] -- ^ 'latrTypeInfos'
                             -> ListActivityTypesResponse
-mkListActivityTypesResponse p1 = ListActivityTypesResponse
+listActivityTypesResponse p1 = ListActivityTypesResponse
     { _latrTypeInfos = p1
     , _latrNextPageToken = Nothing
     }

@@ -27,7 +27,7 @@ module Network.AWS.ImportExport.ListJobs
     -- * Request
       ListJobs
     -- ** Request constructor
-    , mkListJobs
+    , listJobs
     -- ** Request lenses
     , ljMaxJobs
     , ljMarker
@@ -35,7 +35,7 @@ module Network.AWS.ImportExport.ListJobs
     -- * Response
     , ListJobsResponse
     -- ** Response constructor
-    , mkListJobsResponse
+    , listJobsResponse
     -- ** Response lenses
     , ljrJobs
     , ljrIsTruncated
@@ -60,8 +60,8 @@ data ListJobs = ListJobs
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListJobs :: ListJobs
-mkListJobs = ListJobs
+listJobs :: ListJobs
+listJobs = ListJobs
     { _ljMaxJobs = Nothing
     , _ljMarker = Nothing
     }
@@ -99,9 +99,9 @@ data ListJobsResponse = ListJobsResponse
 --
 -- * @IsTruncated ::@ @Bool@
 --
-mkListJobsResponse :: Bool -- ^ 'ljrIsTruncated'
+listJobsResponse :: Bool -- ^ 'ljrIsTruncated'
                    -> ListJobsResponse
-mkListJobsResponse p2 = ListJobsResponse
+listJobsResponse p2 = ListJobsResponse
     { _ljrJobs = mempty
     , _ljrIsTruncated = p2
     }

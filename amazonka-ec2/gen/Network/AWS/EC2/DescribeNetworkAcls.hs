@@ -33,7 +33,7 @@ module Network.AWS.EC2.DescribeNetworkAcls
     -- * Request
       DescribeNetworkAcls
     -- ** Request constructor
-    , mkDescribeNetworkAcls
+    , describeNetworkAcls
     -- ** Request lenses
     , dna1NetworkAclIds
     , dna1Filters
@@ -41,7 +41,7 @@ module Network.AWS.EC2.DescribeNetworkAcls
     -- * Response
     , DescribeNetworkAclsResponse
     -- ** Response constructor
-    , mkDescribeNetworkAclsResponse
+    , describeNetworkAclsResponse
     -- ** Response lenses
     , dnarNetworkAcls
     ) where
@@ -64,8 +64,8 @@ data DescribeNetworkAcls = DescribeNetworkAcls
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribeNetworkAcls :: DescribeNetworkAcls
-mkDescribeNetworkAcls = DescribeNetworkAcls
+describeNetworkAcls :: DescribeNetworkAcls
+describeNetworkAcls = DescribeNetworkAcls
     { _dna1NetworkAclIds = mempty
     , _dna1Filters = mempty
     }
@@ -118,8 +118,8 @@ newtype DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
 --
 -- * @NetworkAcls ::@ @[NetworkAcl]@
 --
-mkDescribeNetworkAclsResponse :: DescribeNetworkAclsResponse
-mkDescribeNetworkAclsResponse = DescribeNetworkAclsResponse
+describeNetworkAclsResponse :: DescribeNetworkAclsResponse
+describeNetworkAclsResponse = DescribeNetworkAclsResponse
     { _dnarNetworkAcls = mempty
     }
 

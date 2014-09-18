@@ -57,17 +57,17 @@ module Network.AWS.SQS.Types
 
     -- * ChangeMessageVisibilityBatchResultEntry
     , ChangeMessageVisibilityBatchResultEntry
-    , mkChangeMessageVisibilityBatchResultEntry
+    , changeMessageVisibilityBatchResultEntry
     , cmvbrerId
 
     -- * DeleteMessageBatchResultEntry
     , DeleteMessageBatchResultEntry
-    , mkDeleteMessageBatchResultEntry
+    , deleteMessageBatchResultEntry
     , dmbrerId
 
     -- * BatchResultErrorEntry
     , BatchResultErrorEntry
-    , mkBatchResultErrorEntry
+    , batchResultErrorEntry
     , breeId
     , breeSenderFault
     , breeCode
@@ -75,20 +75,20 @@ module Network.AWS.SQS.Types
 
     -- * ChangeMessageVisibilityBatchRequestEntry
     , ChangeMessageVisibilityBatchRequestEntry
-    , mkChangeMessageVisibilityBatchRequestEntry
+    , changeMessageVisibilityBatchRequestEntry
     , cmvbreId
     , cmvbreReceiptHandle
     , cmvbreVisibilityTimeout
 
     -- * DeleteMessageBatchRequestEntry
     , DeleteMessageBatchRequestEntry
-    , mkDeleteMessageBatchRequestEntry
+    , deleteMessageBatchRequestEntry
     , dmbreId
     , dmbreReceiptHandle
 
     -- * Message
     , Message
-    , mkMessage
+    , message
     , mMessageId
     , mReceiptHandle
     , mMD5OfBody
@@ -99,7 +99,7 @@ module Network.AWS.SQS.Types
 
     -- * MessageAttributeValue
     , MessageAttributeValue
-    , mkMessageAttributeValue
+    , messageAttributeValue
     , mavStringValue
     , mavBinaryValue
     , mavStringListValues
@@ -108,7 +108,7 @@ module Network.AWS.SQS.Types
 
     -- * SendMessageBatchRequestEntry
     , SendMessageBatchRequestEntry
-    , mkSendMessageBatchRequestEntry
+    , sendMessageBatchRequestEntry
     , smbreId
     , smbreMessageBody
     , smbreDelaySeconds
@@ -116,7 +116,7 @@ module Network.AWS.SQS.Types
 
     -- * SendMessageBatchResultEntry
     , SendMessageBatchResultEntry
-    , mkSendMessageBatchResultEntry
+    , sendMessageBatchResultEntry
     , smbrerId
     , smbrerMessageId
     , smbrerMD5OfMessageBody
@@ -183,8 +183,8 @@ data SQSError
       -- | The receipt handle provided is not valid.
     | ReceiptHandleIsInvalid
     | SQSClient HttpException
-    | SQSSerializer Text
-    | SQSService Text
+    | SQSSerializer String
+    | SQSService String
       -- | Batch request contains more number of entries than permissible.
     | TooManyEntriesInBatchRequest
       -- | Error code 400. Unsupported operation.
@@ -347,7 +347,7 @@ _SQSClient = prism'
         x -> Left x)
 
 -- | See: 'SQSSerializer'
-_SQSSerializer :: Prism' SQSError Text
+_SQSSerializer :: Prism' SQSError String
 _SQSSerializer = prism'
     SQSSerializer
     (\case
@@ -355,7 +355,7 @@ _SQSSerializer = prism'
         x -> Left x)
 
 -- | See: 'SQSService'
-_SQSService :: Prism' SQSError Text
+_SQSService :: Prism' SQSError String
 _SQSService = prism'
     SQSService
     (\case
@@ -457,9 +457,9 @@ newtype ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchRe
 --
 -- * @Id ::@ @Text@
 --
-mkChangeMessageVisibilityBatchResultEntry :: Text -- ^ 'cmvbrerId'
+changeMessageVisibilityBatchResultEntry :: Text -- ^ 'cmvbrerId'
                                           -> ChangeMessageVisibilityBatchResultEntry
-mkChangeMessageVisibilityBatchResultEntry p1 = ChangeMessageVisibilityBatchResultEntry
+changeMessageVisibilityBatchResultEntry p1 = ChangeMessageVisibilityBatchResultEntry
     { _cmvbrerId = p1
     }
 
@@ -487,9 +487,9 @@ newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry
 --
 -- * @Id ::@ @Text@
 --
-mkDeleteMessageBatchResultEntry :: Text -- ^ 'dmbrerId'
+deleteMessageBatchResultEntry :: Text -- ^ 'dmbrerId'
                                 -> DeleteMessageBatchResultEntry
-mkDeleteMessageBatchResultEntry p1 = DeleteMessageBatchResultEntry
+deleteMessageBatchResultEntry p1 = DeleteMessageBatchResultEntry
     { _dmbrerId = p1
     }
 
@@ -526,11 +526,11 @@ data BatchResultErrorEntry = BatchResultErrorEntry
 --
 -- * @Message ::@ @Maybe Text@
 --
-mkBatchResultErrorEntry :: Text -- ^ 'breeId'
+batchResultErrorEntry :: Text -- ^ 'breeId'
                         -> Bool -- ^ 'breeSenderFault'
                         -> Text -- ^ 'breeCode'
                         -> BatchResultErrorEntry
-mkBatchResultErrorEntry p1 p2 p3 = BatchResultErrorEntry
+batchResultErrorEntry p1 p2 p3 = BatchResultErrorEntry
     { _breeId = p1
     , _breeSenderFault = p2
     , _breeCode = p3
@@ -583,10 +583,10 @@ data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequ
 --
 -- * @VisibilityTimeout ::@ @Maybe Integer@
 --
-mkChangeMessageVisibilityBatchRequestEntry :: Text -- ^ 'cmvbreId'
+changeMessageVisibilityBatchRequestEntry :: Text -- ^ 'cmvbreId'
                                            -> Text -- ^ 'cmvbreReceiptHandle'
                                            -> ChangeMessageVisibilityBatchRequestEntry
-mkChangeMessageVisibilityBatchRequestEntry p1 p2 = ChangeMessageVisibilityBatchRequestEntry
+changeMessageVisibilityBatchRequestEntry p1 p2 = ChangeMessageVisibilityBatchRequestEntry
     { _cmvbreId = p1
     , _cmvbreReceiptHandle = p2
     , _cmvbreVisibilityTimeout = Nothing
@@ -627,10 +627,10 @@ data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry
 --
 -- * @ReceiptHandle ::@ @Text@
 --
-mkDeleteMessageBatchRequestEntry :: Text -- ^ 'dmbreId'
+deleteMessageBatchRequestEntry :: Text -- ^ 'dmbreId'
                                  -> Text -- ^ 'dmbreReceiptHandle'
                                  -> DeleteMessageBatchRequestEntry
-mkDeleteMessageBatchRequestEntry p1 p2 = DeleteMessageBatchRequestEntry
+deleteMessageBatchRequestEntry p1 p2 = DeleteMessageBatchRequestEntry
     { _dmbreId = p1
     , _dmbreReceiptHandle = p2
     }
@@ -682,8 +682,8 @@ data Message = Message
 --
 -- * @MessageAttributes ::@ @Map Text MessageAttributeValue@
 --
-mkMessage :: Message
-mkMessage = Message
+message :: Message
+message = Message
     { _mMessageId = Nothing
     , _mReceiptHandle = Nothing
     , _mMD5OfBody = Nothing
@@ -769,9 +769,9 @@ data MessageAttributeValue = MessageAttributeValue
 --
 -- * @DataType ::@ @Text@
 --
-mkMessageAttributeValue :: Text -- ^ 'mavDataType'
+messageAttributeValue :: Text -- ^ 'mavDataType'
                         -> MessageAttributeValue
-mkMessageAttributeValue p5 = MessageAttributeValue
+messageAttributeValue p5 = MessageAttributeValue
     { _mavStringValue = Nothing
     , _mavBinaryValue = Nothing
     , _mavStringListValues = mempty
@@ -833,10 +833,10 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry
 --
 -- * @MessageAttributes ::@ @Map Text MessageAttributeValue@
 --
-mkSendMessageBatchRequestEntry :: Text -- ^ 'smbreId'
+sendMessageBatchRequestEntry :: Text -- ^ 'smbreId'
                                -> Text -- ^ 'smbreMessageBody'
                                -> SendMessageBatchRequestEntry
-mkSendMessageBatchRequestEntry p1 p2 = SendMessageBatchRequestEntry
+sendMessageBatchRequestEntry p1 p2 = SendMessageBatchRequestEntry
     { _smbreId = p1
     , _smbreMessageBody = p2
     , _smbreDelaySeconds = Nothing
@@ -893,11 +893,11 @@ data SendMessageBatchResultEntry = SendMessageBatchResultEntry
 --
 -- * @MD5OfMessageAttributes ::@ @Maybe Text@
 --
-mkSendMessageBatchResultEntry :: Text -- ^ 'smbrerId'
+sendMessageBatchResultEntry :: Text -- ^ 'smbrerId'
                               -> Text -- ^ 'smbrerMessageId'
                               -> Text -- ^ 'smbrerMD5OfMessageBody'
                               -> SendMessageBatchResultEntry
-mkSendMessageBatchResultEntry p1 p2 p3 = SendMessageBatchResultEntry
+sendMessageBatchResultEntry p1 p2 p3 = SendMessageBatchResultEntry
     { _smbrerId = p1
     , _smbrerMessageId = p2
     , _smbrerMD5OfMessageBody = p3

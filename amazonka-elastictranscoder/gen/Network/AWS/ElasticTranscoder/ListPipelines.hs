@@ -63,7 +63,7 @@ module Network.AWS.ElasticTranscoder.ListPipelines
     -- * Request
       ListPipelines
     -- ** Request constructor
-    , mkListPipelines
+    , listPipelines
     -- ** Request lenses
     , lpAscending
     , lpPageToken
@@ -71,7 +71,7 @@ module Network.AWS.ElasticTranscoder.ListPipelines
     -- * Response
     , ListPipelinesResponse
     -- ** Response constructor
-    , mkListPipelinesResponse
+    , listPipelinesResponse
     -- ** Response lenses
     , lprPipelines
     , lprNextPageToken
@@ -96,8 +96,8 @@ data ListPipelines = ListPipelines
 --
 -- * @PageToken ::@ @Maybe Text@
 --
-mkListPipelines :: ListPipelines
-mkListPipelines = ListPipelines
+listPipelines :: ListPipelines
+listPipelines = ListPipelines
     { _lpAscending = Nothing
     , _lpPageToken = Nothing
     }
@@ -139,8 +139,8 @@ data ListPipelinesResponse = ListPipelinesResponse
 --
 -- * @NextPageToken ::@ @Maybe Text@
 --
-mkListPipelinesResponse :: ListPipelinesResponse
-mkListPipelinesResponse = ListPipelinesResponse
+listPipelinesResponse :: ListPipelinesResponse
+listPipelinesResponse = ListPipelinesResponse
     { _lprPipelines = mempty
     , _lprNextPageToken = Nothing
     }

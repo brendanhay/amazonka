@@ -27,7 +27,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipeline
     -- * Request
       UpdatePipeline
     -- ** Request constructor
-    , mkUpdatePipeline
+    , updatePipeline
     -- ** Request lenses
     , upId
     , upName
@@ -40,7 +40,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipeline
     -- * Response
     , UpdatePipelineResponse
     -- ** Response constructor
-    , mkUpdatePipelineResponse
+    , updatePipelineResponse
     -- ** Response lenses
     , uprPipeline
     ) where
@@ -79,9 +79,9 @@ data UpdatePipeline = UpdatePipeline
 --
 -- * @ThumbnailConfig ::@ @Maybe PipelineOutputConfig@
 --
-mkUpdatePipeline :: Text -- ^ 'upId'
+updatePipeline :: Text -- ^ 'upId'
                  -> UpdatePipeline
-mkUpdatePipeline p1 = UpdatePipeline
+updatePipeline p1 = UpdatePipeline
     { _upId = p1
     , _upName = Nothing
     , _upInputBucket = Nothing
@@ -224,9 +224,9 @@ newtype UpdatePipelineResponse = UpdatePipelineResponse
 --
 -- * @Pipeline ::@ @Pipeline@
 --
-mkUpdatePipelineResponse :: Pipeline -- ^ 'uprPipeline'
+updatePipelineResponse :: Pipeline -- ^ 'uprPipeline'
                          -> UpdatePipelineResponse
-mkUpdatePipelineResponse p1 = UpdatePipelineResponse
+updatePipelineResponse p1 = UpdatePipelineResponse
     { _uprPipeline = p1
     }
 

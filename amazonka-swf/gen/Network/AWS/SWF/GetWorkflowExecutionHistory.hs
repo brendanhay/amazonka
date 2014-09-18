@@ -89,7 +89,7 @@ module Network.AWS.SWF.GetWorkflowExecutionHistory
     -- * Request
       GetWorkflowExecutionHistory
     -- ** Request constructor
-    , mkGetWorkflowExecutionHistory
+    , getWorkflowExecutionHistory
     -- ** Request lenses
     , gwehDomain
     , gwehExecution
@@ -100,7 +100,7 @@ module Network.AWS.SWF.GetWorkflowExecutionHistory
     -- * Response
     , GetWorkflowExecutionHistoryResponse
     -- ** Response constructor
-    , mkGetWorkflowExecutionHistoryResponse
+    , getWorkflowExecutionHistoryResponse
     -- ** Response lenses
     , gwehrEvents
     , gwehrNextPageToken
@@ -133,10 +133,10 @@ data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory
 --
 -- * @ReverseOrder ::@ @Maybe Bool@
 --
-mkGetWorkflowExecutionHistory :: Text -- ^ 'gwehDomain'
+getWorkflowExecutionHistory :: Text -- ^ 'gwehDomain'
                               -> WorkflowExecution -- ^ 'gwehExecution'
                               -> GetWorkflowExecutionHistory
-mkGetWorkflowExecutionHistory p1 p2 = GetWorkflowExecutionHistory
+getWorkflowExecutionHistory p1 p2 = GetWorkflowExecutionHistory
     { _gwehDomain = p1
     , _gwehExecution = p2
     , _gwehNextPageToken = Nothing
@@ -204,9 +204,9 @@ data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse
 --
 -- * @NextPageToken ::@ @Maybe Text@
 --
-mkGetWorkflowExecutionHistoryResponse :: [HistoryEvent] -- ^ 'gwehrEvents'
+getWorkflowExecutionHistoryResponse :: [HistoryEvent] -- ^ 'gwehrEvents'
                                       -> GetWorkflowExecutionHistoryResponse
-mkGetWorkflowExecutionHistoryResponse p1 = GetWorkflowExecutionHistoryResponse
+getWorkflowExecutionHistoryResponse p1 = GetWorkflowExecutionHistoryResponse
     { _gwehrEvents = p1
     , _gwehrNextPageToken = Nothing
     }

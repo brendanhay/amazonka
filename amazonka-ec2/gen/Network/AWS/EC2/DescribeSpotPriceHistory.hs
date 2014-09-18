@@ -48,7 +48,7 @@ module Network.AWS.EC2.DescribeSpotPriceHistory
     -- * Request
       DescribeSpotPriceHistory
     -- ** Request constructor
-    , mkDescribeSpotPriceHistory
+    , describeSpotPriceHistory
     -- ** Request lenses
     , dsphStartTime
     , dsphEndTime
@@ -62,7 +62,7 @@ module Network.AWS.EC2.DescribeSpotPriceHistory
     -- * Response
     , DescribeSpotPriceHistoryResponse
     -- ** Response constructor
-    , mkDescribeSpotPriceHistoryResponse
+    , describeSpotPriceHistoryResponse
     -- ** Response lenses
     , dsphrSpotPriceHistory
     , dsphrNextToken
@@ -104,8 +104,8 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeSpotPriceHistory :: DescribeSpotPriceHistory
-mkDescribeSpotPriceHistory = DescribeSpotPriceHistory
+describeSpotPriceHistory :: DescribeSpotPriceHistory
+describeSpotPriceHistory = DescribeSpotPriceHistory
     { _dsphStartTime = Nothing
     , _dsphEndTime = Nothing
     , _dsphInstanceTypes = mempty
@@ -179,8 +179,8 @@ data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeSpotPriceHistoryResponse :: DescribeSpotPriceHistoryResponse
-mkDescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
+describeSpotPriceHistoryResponse :: DescribeSpotPriceHistoryResponse
+describeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
     { _dsphrSpotPriceHistory = mempty
     , _dsphrNextToken = Nothing
     }

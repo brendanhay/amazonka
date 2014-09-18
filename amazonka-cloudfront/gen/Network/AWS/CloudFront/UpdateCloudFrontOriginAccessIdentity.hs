@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     -- * Request
       UpdateCloudFrontOriginAccessIdentity
     -- ** Request constructor
-    , mkUpdateCloudFrontOriginAccessIdentity
+    , updateCloudFrontOriginAccessIdentity
     -- ** Request lenses
     , ucfoaiCloudFrontOriginAccessIdentityConfig
     , ucfoaiId
@@ -32,7 +32,7 @@ module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     -- * Response
     , UpdateCloudFrontOriginAccessIdentityResponse
     -- ** Response constructor
-    , mkUpdateCloudFrontOriginAccessIdentityResponse
+    , updateCloudFrontOriginAccessIdentityResponse
     -- ** Response lenses
     , ucfoairCloudFrontOriginAccessIdentity
     , ucfoairETag
@@ -61,10 +61,10 @@ data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity
 --
 -- * @IfMatch ::@ @Maybe Text@
 --
-mkUpdateCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -- ^ 'ucfoaiCloudFrontOriginAccessIdentityConfig'
+updateCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -- ^ 'ucfoaiCloudFrontOriginAccessIdentityConfig'
                                        -> Text -- ^ 'ucfoaiId'
                                        -> UpdateCloudFrontOriginAccessIdentity
-mkUpdateCloudFrontOriginAccessIdentity p1 p2 = UpdateCloudFrontOriginAccessIdentity
+updateCloudFrontOriginAccessIdentity p1 p2 = UpdateCloudFrontOriginAccessIdentity
     { _ucfoaiCloudFrontOriginAccessIdentityConfig = p1
     , _ucfoaiId = p2
     , _ucfoaiIfMatch = Nothing
@@ -115,8 +115,8 @@ data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccess
 --
 -- * @ETag ::@ @Maybe Text@
 --
-mkUpdateCloudFrontOriginAccessIdentityResponse :: UpdateCloudFrontOriginAccessIdentityResponse
-mkUpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse
+updateCloudFrontOriginAccessIdentityResponse :: UpdateCloudFrontOriginAccessIdentityResponse
+updateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse
     { _ucfoairCloudFrontOriginAccessIdentity = Nothing
     , _ucfoairETag = Nothing
     }

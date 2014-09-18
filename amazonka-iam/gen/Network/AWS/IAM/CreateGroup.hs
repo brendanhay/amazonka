@@ -27,7 +27,7 @@ module Network.AWS.IAM.CreateGroup
     -- * Request
       CreateGroup
     -- ** Request constructor
-    , mkCreateGroup
+    , createGroup
     -- ** Request lenses
     , cgPath
     , cgGroupName
@@ -35,7 +35,7 @@ module Network.AWS.IAM.CreateGroup
     -- * Response
     , CreateGroupResponse
     -- ** Response constructor
-    , mkCreateGroupResponse
+    , createGroupResponse
     -- ** Response lenses
     , cgrGroup
     ) where
@@ -58,9 +58,9 @@ data CreateGroup = CreateGroup
 --
 -- * @GroupName ::@ @Text@
 --
-mkCreateGroup :: Text -- ^ 'cgGroupName'
+createGroup :: Text -- ^ 'cgGroupName'
               -> CreateGroup
-mkCreateGroup p2 = CreateGroup
+createGroup p2 = CreateGroup
     { _cgPath = Nothing
     , _cgGroupName = p2
     }
@@ -92,9 +92,9 @@ newtype CreateGroupResponse = CreateGroupResponse
 --
 -- * @Group ::@ @Group@
 --
-mkCreateGroupResponse :: Group -- ^ 'cgrGroup'
+createGroupResponse :: Group -- ^ 'cgrGroup'
                       -> CreateGroupResponse
-mkCreateGroupResponse p1 = CreateGroupResponse
+createGroupResponse p1 = CreateGroupResponse
     { _cgrGroup = p1
     }
 

@@ -40,7 +40,7 @@ module Network.AWS.RDS.DeleteDBInstance
     -- * Request
       DeleteDBInstance
     -- ** Request constructor
-    , mkDeleteDBInstance
+    , deleteDBInstance
     -- ** Request lenses
     , ddbiDBInstanceIdentifier
     , ddbiSkipFinalSnapshot
@@ -49,7 +49,7 @@ module Network.AWS.RDS.DeleteDBInstance
     -- * Response
     , DeleteDBInstanceResponse
     -- ** Response constructor
-    , mkDeleteDBInstanceResponse
+    , deleteDBInstanceResponse
     -- ** Response lenses
     , ddbirDBInstance
     ) where
@@ -76,9 +76,9 @@ data DeleteDBInstance = DeleteDBInstance
 --
 -- * @FinalDBSnapshotIdentifier ::@ @Maybe Text@
 --
-mkDeleteDBInstance :: Text -- ^ 'ddbiDBInstanceIdentifier'
+deleteDBInstance :: Text -- ^ 'ddbiDBInstanceIdentifier'
                    -> DeleteDBInstance
-mkDeleteDBInstance p1 = DeleteDBInstance
+deleteDBInstance p1 = DeleteDBInstance
     { _ddbiDBInstanceIdentifier = p1
     , _ddbiSkipFinalSnapshot = Nothing
     , _ddbiFinalDBSnapshotIdentifier = Nothing
@@ -129,8 +129,8 @@ newtype DeleteDBInstanceResponse = DeleteDBInstanceResponse
 --
 -- * @DBInstance ::@ @Maybe DBInstance@
 --
-mkDeleteDBInstanceResponse :: DeleteDBInstanceResponse
-mkDeleteDBInstanceResponse = DeleteDBInstanceResponse
+deleteDBInstanceResponse :: DeleteDBInstanceResponse
+deleteDBInstanceResponse = DeleteDBInstanceResponse
     { _ddbirDBInstance = Nothing
     }
 

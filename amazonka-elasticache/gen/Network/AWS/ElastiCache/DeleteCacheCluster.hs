@@ -34,7 +34,7 @@ module Network.AWS.ElastiCache.DeleteCacheCluster
     -- * Request
       DeleteCacheCluster
     -- ** Request constructor
-    , mkDeleteCacheCluster
+    , deleteCacheCluster
     -- ** Request lenses
     , dccCacheClusterId
     , dccFinalSnapshotIdentifier
@@ -42,7 +42,7 @@ module Network.AWS.ElastiCache.DeleteCacheCluster
     -- * Response
     , DeleteCacheClusterResponse
     -- ** Response constructor
-    , mkDeleteCacheClusterResponse
+    , deleteCacheClusterResponse
     -- ** Response lenses
     , dccrCacheCluster
     ) where
@@ -66,9 +66,9 @@ data DeleteCacheCluster = DeleteCacheCluster
 --
 -- * @FinalSnapshotIdentifier ::@ @Maybe Text@
 --
-mkDeleteCacheCluster :: Text -- ^ 'dccCacheClusterId'
+deleteCacheCluster :: Text -- ^ 'dccCacheClusterId'
                      -> DeleteCacheCluster
-mkDeleteCacheCluster p1 = DeleteCacheCluster
+deleteCacheCluster p1 = DeleteCacheCluster
     { _dccCacheClusterId = p1
     , _dccFinalSnapshotIdentifier = Nothing
     }
@@ -102,8 +102,8 @@ newtype DeleteCacheClusterResponse = DeleteCacheClusterResponse
 --
 -- * @CacheCluster ::@ @Maybe CacheCluster@
 --
-mkDeleteCacheClusterResponse :: DeleteCacheClusterResponse
-mkDeleteCacheClusterResponse = DeleteCacheClusterResponse
+deleteCacheClusterResponse :: DeleteCacheClusterResponse
+deleteCacheClusterResponse = DeleteCacheClusterResponse
     { _dccrCacheCluster = Nothing
     }
 

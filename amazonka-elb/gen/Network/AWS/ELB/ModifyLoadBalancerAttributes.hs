@@ -51,7 +51,7 @@ module Network.AWS.ELB.ModifyLoadBalancerAttributes
     -- * Request
       ModifyLoadBalancerAttributes
     -- ** Request constructor
-    , mkModifyLoadBalancerAttributes
+    , modifyLoadBalancerAttributes
     -- ** Request lenses
     , mlbaLoadBalancerName
     , mlbaLoadBalancerAttributes
@@ -59,7 +59,7 @@ module Network.AWS.ELB.ModifyLoadBalancerAttributes
     -- * Response
     , ModifyLoadBalancerAttributesResponse
     -- ** Response constructor
-    , mkModifyLoadBalancerAttributesResponse
+    , modifyLoadBalancerAttributesResponse
     -- ** Response lenses
     , mlbarLoadBalancerName
     , mlbarLoadBalancerAttributes
@@ -84,10 +84,10 @@ data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes
 --
 -- * @LoadBalancerAttributes ::@ @LoadBalancerAttributes@
 --
-mkModifyLoadBalancerAttributes :: Text -- ^ 'mlbaLoadBalancerName'
+modifyLoadBalancerAttributes :: Text -- ^ 'mlbaLoadBalancerName'
                                -> LoadBalancerAttributes -- ^ 'mlbaLoadBalancerAttributes'
                                -> ModifyLoadBalancerAttributes
-mkModifyLoadBalancerAttributes p1 p2 = ModifyLoadBalancerAttributes
+modifyLoadBalancerAttributes p1 p2 = ModifyLoadBalancerAttributes
     { _mlbaLoadBalancerName = p1
     , _mlbaLoadBalancerAttributes = p2
     }
@@ -123,8 +123,8 @@ data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
 --
 -- * @LoadBalancerAttributes ::@ @Maybe LoadBalancerAttributes@
 --
-mkModifyLoadBalancerAttributesResponse :: ModifyLoadBalancerAttributesResponse
-mkModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
+modifyLoadBalancerAttributesResponse :: ModifyLoadBalancerAttributesResponse
+modifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
     { _mlbarLoadBalancerName = Nothing
     , _mlbarLoadBalancerAttributes = Nothing
     }

@@ -40,14 +40,14 @@ module Network.AWS.StorageGateway.DescribeGatewayInformation
     -- * Request
       DescribeGatewayInformation
     -- ** Request constructor
-    , mkDescribeGatewayInformation
+    , describeGatewayInformation
     -- ** Request lenses
     , dgiGatewayARN
 
     -- * Response
     , DescribeGatewayInformationResponse
     -- ** Response constructor
-    , mkDescribeGatewayInformationResponse
+    , describeGatewayInformationResponse
     -- ** Response lenses
     , dgirGatewayARN
     , dgirGatewayId
@@ -74,9 +74,9 @@ newtype DescribeGatewayInformation = DescribeGatewayInformation
 --
 -- * @GatewayARN ::@ @Text@
 --
-mkDescribeGatewayInformation :: Text -- ^ 'dgiGatewayARN'
+describeGatewayInformation :: Text -- ^ 'dgiGatewayARN'
                              -> DescribeGatewayInformation
-mkDescribeGatewayInformation p1 = DescribeGatewayInformation
+describeGatewayInformation p1 = DescribeGatewayInformation
     { _dgiGatewayARN = p1
     }
 
@@ -125,8 +125,8 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse
 --
 -- * @NextUpdateAvailabilityDate ::@ @Maybe Text@
 --
-mkDescribeGatewayInformationResponse :: DescribeGatewayInformationResponse
-mkDescribeGatewayInformationResponse = DescribeGatewayInformationResponse
+describeGatewayInformationResponse :: DescribeGatewayInformationResponse
+describeGatewayInformationResponse = DescribeGatewayInformationResponse
     { _dgirGatewayARN = Nothing
     , _dgirGatewayId = Nothing
     , _dgirGatewayTimezone = Nothing

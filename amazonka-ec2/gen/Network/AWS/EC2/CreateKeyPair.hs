@@ -55,14 +55,14 @@ module Network.AWS.EC2.CreateKeyPair
     -- * Request
       CreateKeyPair
     -- ** Request constructor
-    , mkCreateKeyPair
+    , createKeyPair
     -- ** Request lenses
     , ckpKeyName
 
     -- * Response
     , CreateKeyPairResponse
     -- ** Response constructor
-    , mkCreateKeyPairResponse
+    , createKeyPairResponse
     -- ** Response lenses
     , ckprKeyName
     , ckprKeyFingerprint
@@ -84,9 +84,9 @@ newtype CreateKeyPair = CreateKeyPair
 --
 -- * @KeyName ::@ @Text@
 --
-mkCreateKeyPair :: Text -- ^ 'ckpKeyName'
+createKeyPair :: Text -- ^ 'ckpKeyName'
                 -> CreateKeyPair
-mkCreateKeyPair p1 = CreateKeyPair
+createKeyPair p1 = CreateKeyPair
     { _ckpKeyName = p1
     }
 
@@ -116,11 +116,11 @@ data CreateKeyPairResponse = CreateKeyPairResponse
 --
 -- * @KeyMaterial ::@ @Text@
 --
-mkCreateKeyPairResponse :: Text -- ^ 'ckprKeyName'
+createKeyPairResponse :: Text -- ^ 'ckprKeyName'
                         -> Text -- ^ 'ckprKeyFingerprint'
                         -> Text -- ^ 'ckprKeyMaterial'
                         -> CreateKeyPairResponse
-mkCreateKeyPairResponse p1 p2 p3 = CreateKeyPairResponse
+createKeyPairResponse p1 p2 p3 = CreateKeyPairResponse
     { _ckprKeyName = p1
     , _ckprKeyFingerprint = p2
     , _ckprKeyMaterial = p3

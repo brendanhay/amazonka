@@ -24,14 +24,14 @@ module Network.AWS.S3.GetBucketLogging
     -- * Request
       GetBucketLogging
     -- ** Request constructor
-    , mkGetBucketLogging
+    , getBucketLogging
     -- ** Request lenses
     , gbl2Bucket
 
     -- * Response
     , GetBucketLoggingResponse
     -- ** Response constructor
-    , mkGetBucketLoggingResponse
+    , getBucketLoggingResponse
     -- ** Response lenses
     , gblr1LoggingEnabled
     ) where
@@ -52,9 +52,9 @@ newtype GetBucketLogging = GetBucketLogging
 --
 -- * @Bucket ::@ @BucketName@
 --
-mkGetBucketLogging :: BucketName -- ^ 'gbl2Bucket'
+getBucketLogging :: BucketName -- ^ 'gbl2Bucket'
                    -> GetBucketLogging
-mkGetBucketLogging p1 = GetBucketLogging
+getBucketLogging p1 = GetBucketLogging
     { _gbl2Bucket = p1
     }
 
@@ -82,8 +82,8 @@ newtype GetBucketLoggingResponse = GetBucketLoggingResponse
 --
 -- * @LoggingEnabled ::@ @Maybe LoggingEnabled@
 --
-mkGetBucketLoggingResponse :: GetBucketLoggingResponse
-mkGetBucketLoggingResponse = GetBucketLoggingResponse
+getBucketLoggingResponse :: GetBucketLoggingResponse
+getBucketLoggingResponse = GetBucketLoggingResponse
     { _gblr1LoggingEnabled = Nothing
     }
 

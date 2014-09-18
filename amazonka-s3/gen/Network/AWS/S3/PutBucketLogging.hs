@@ -25,7 +25,7 @@ module Network.AWS.S3.PutBucketLogging
     -- * Request
       PutBucketLogging
     -- ** Request constructor
-    , mkPutBucketLogging
+    , putBucketLogging
     -- ** Request lenses
     , pbl1Bucket
     , pbl1BucketLoggingStatus
@@ -34,7 +34,7 @@ module Network.AWS.S3.PutBucketLogging
     -- * Response
     , PutBucketLoggingResponse
     -- ** Response constructor
-    , mkPutBucketLoggingResponse
+    , putBucketLoggingResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -59,10 +59,10 @@ data PutBucketLogging = PutBucketLogging
 --
 -- * @ContentMD5 ::@ @Maybe Text@
 --
-mkPutBucketLogging :: BucketName -- ^ 'pbl1Bucket'
+putBucketLogging :: BucketName -- ^ 'pbl1Bucket'
                    -> BucketLoggingStatus -- ^ 'pbl1BucketLoggingStatus'
                    -> PutBucketLogging
-mkPutBucketLogging p1 p2 = PutBucketLogging
+putBucketLogging p1 p2 = PutBucketLogging
     { _pbl1Bucket = p1
     , _pbl1BucketLoggingStatus = p2
     , _pbl1ContentMD5 = Nothing
@@ -98,8 +98,8 @@ data PutBucketLoggingResponse = PutBucketLoggingResponse
 -- a valid 'PutBucketLoggingResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkPutBucketLoggingResponse :: PutBucketLoggingResponse
-mkPutBucketLoggingResponse = PutBucketLoggingResponse
+putBucketLoggingResponse :: PutBucketLoggingResponse
+putBucketLoggingResponse = PutBucketLoggingResponse
 
 instance AWSRequest PutBucketLogging where
     type Sv PutBucketLogging = S3

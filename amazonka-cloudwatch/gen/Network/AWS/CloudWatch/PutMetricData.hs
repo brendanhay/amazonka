@@ -33,7 +33,7 @@ module Network.AWS.CloudWatch.PutMetricData
     -- * Request
       PutMetricData
     -- ** Request constructor
-    , mkPutMetricData
+    , putMetricData
     -- ** Request lenses
     , pmdNamespace
     , pmdMetricData
@@ -41,7 +41,7 @@ module Network.AWS.CloudWatch.PutMetricData
     -- * Response
     , PutMetricDataResponse
     -- ** Response constructor
-    , mkPutMetricDataResponse
+    , putMetricDataResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -62,10 +62,10 @@ data PutMetricData = PutMetricData
 --
 -- * @MetricData ::@ @[MetricDatum]@
 --
-mkPutMetricData :: Text -- ^ 'pmdNamespace'
+putMetricData :: Text -- ^ 'pmdNamespace'
                 -> [MetricDatum] -- ^ 'pmdMetricData'
                 -> PutMetricData
-mkPutMetricData p1 p2 = PutMetricData
+putMetricData p1 p2 = PutMetricData
     { _pmdNamespace = p1
     , _pmdMetricData = p2
     }
@@ -88,8 +88,8 @@ data PutMetricDataResponse = PutMetricDataResponse
 -- a valid 'PutMetricDataResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkPutMetricDataResponse :: PutMetricDataResponse
-mkPutMetricDataResponse = PutMetricDataResponse
+putMetricDataResponse :: PutMetricDataResponse
+putMetricDataResponse = PutMetricDataResponse
 
 instance AWSRequest PutMetricData where
     type Sv PutMetricData = CloudWatch

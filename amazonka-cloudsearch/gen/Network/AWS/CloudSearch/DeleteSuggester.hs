@@ -24,7 +24,7 @@ module Network.AWS.CloudSearch.DeleteSuggester
     -- * Request
       DeleteSuggester
     -- ** Request constructor
-    , mkDeleteSuggester
+    , deleteSuggester
     -- ** Request lenses
     , ds2DomainName
     , ds2SuggesterName
@@ -32,7 +32,7 @@ module Network.AWS.CloudSearch.DeleteSuggester
     -- * Response
     , DeleteSuggesterResponse
     -- ** Response constructor
-    , mkDeleteSuggesterResponse
+    , deleteSuggesterResponse
     -- ** Response lenses
     , dsrrSuggester
     ) where
@@ -58,10 +58,10 @@ data DeleteSuggester = DeleteSuggester
 --
 -- * @SuggesterName ::@ @Text@
 --
-mkDeleteSuggester :: Text -- ^ 'ds2DomainName'
+deleteSuggester :: Text -- ^ 'ds2DomainName'
                   -> Text -- ^ 'ds2SuggesterName'
                   -> DeleteSuggester
-mkDeleteSuggester p1 p2 = DeleteSuggester
+deleteSuggester p1 p2 = DeleteSuggester
     { _ds2DomainName = p1
     , _ds2SuggesterName = p2
     }
@@ -96,9 +96,9 @@ newtype DeleteSuggesterResponse = DeleteSuggesterResponse
 --
 -- * @Suggester ::@ @SuggesterStatus@
 --
-mkDeleteSuggesterResponse :: SuggesterStatus -- ^ 'dsrrSuggester'
+deleteSuggesterResponse :: SuggesterStatus -- ^ 'dsrrSuggester'
                           -> DeleteSuggesterResponse
-mkDeleteSuggesterResponse p1 = DeleteSuggesterResponse
+deleteSuggesterResponse p1 = DeleteSuggesterResponse
     { _dsrrSuggester = p1
     }
 

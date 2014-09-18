@@ -28,14 +28,14 @@ module Network.AWS.ElastiCache.DeleteCacheSubnetGroup
     -- * Request
       DeleteCacheSubnetGroup
     -- ** Request constructor
-    , mkDeleteCacheSubnetGroup
+    , deleteCacheSubnetGroup
     -- ** Request lenses
     , dcsg1CacheSubnetGroupName
 
     -- * Response
     , DeleteCacheSubnetGroupResponse
     -- ** Response constructor
-    , mkDeleteCacheSubnetGroupResponse
+    , deleteCacheSubnetGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -54,9 +54,9 @@ newtype DeleteCacheSubnetGroup = DeleteCacheSubnetGroup
 --
 -- * @CacheSubnetGroupName ::@ @Text@
 --
-mkDeleteCacheSubnetGroup :: Text -- ^ 'dcsg1CacheSubnetGroupName'
+deleteCacheSubnetGroup :: Text -- ^ 'dcsg1CacheSubnetGroupName'
                          -> DeleteCacheSubnetGroup
-mkDeleteCacheSubnetGroup p1 = DeleteCacheSubnetGroup
+deleteCacheSubnetGroup p1 = DeleteCacheSubnetGroup
     { _dcsg1CacheSubnetGroupName = p1
     }
 
@@ -77,8 +77,8 @@ data DeleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse
 -- a valid 'DeleteCacheSubnetGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteCacheSubnetGroupResponse :: DeleteCacheSubnetGroupResponse
-mkDeleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse
+deleteCacheSubnetGroupResponse :: DeleteCacheSubnetGroupResponse
+deleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse
 
 instance AWSRequest DeleteCacheSubnetGroup where
     type Sv DeleteCacheSubnetGroup = ElastiCache

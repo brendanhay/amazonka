@@ -27,14 +27,14 @@ module Network.AWS.OpsWorks.RebootInstance
     -- * Request
       RebootInstance
     -- ** Request constructor
-    , mkRebootInstance
+    , rebootInstance
     -- ** Request lenses
     , riInstanceId
 
     -- * Response
     , RebootInstanceResponse
     -- ** Response constructor
-    , mkRebootInstanceResponse
+    , rebootInstanceResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -52,9 +52,9 @@ newtype RebootInstance = RebootInstance
 --
 -- * @InstanceId ::@ @Text@
 --
-mkRebootInstance :: Text -- ^ 'riInstanceId'
+rebootInstance :: Text -- ^ 'riInstanceId'
                  -> RebootInstance
-mkRebootInstance p1 = RebootInstance
+rebootInstance p1 = RebootInstance
     { _riInstanceId = p1
     }
 
@@ -77,8 +77,8 @@ data RebootInstanceResponse = RebootInstanceResponse
 -- a valid 'RebootInstanceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRebootInstanceResponse :: RebootInstanceResponse
-mkRebootInstanceResponse = RebootInstanceResponse
+rebootInstanceResponse :: RebootInstanceResponse
+rebootInstanceResponse = RebootInstanceResponse
 
 instance AWSRequest RebootInstance where
     type Sv RebootInstance = OpsWorks

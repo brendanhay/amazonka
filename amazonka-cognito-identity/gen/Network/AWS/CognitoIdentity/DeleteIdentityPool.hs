@@ -26,14 +26,14 @@ module Network.AWS.CognitoIdentity.DeleteIdentityPool
     -- * Request
       DeleteIdentityPool
     -- ** Request constructor
-    , mkDeleteIdentityPool
+    , deleteIdentityPool
     -- ** Request lenses
     , dipIdentityPoolId
 
     -- * Response
     , DeleteIdentityPoolResponse
     -- ** Response constructor
-    , mkDeleteIdentityPoolResponse
+    , deleteIdentityPoolResponse
     ) where
 
 import Network.AWS.CognitoIdentity.Types
@@ -52,9 +52,9 @@ newtype DeleteIdentityPool = DeleteIdentityPool
 --
 -- * @IdentityPoolId ::@ @Text@
 --
-mkDeleteIdentityPool :: Text -- ^ 'dipIdentityPoolId'
+deleteIdentityPool :: Text -- ^ 'dipIdentityPoolId'
                      -> DeleteIdentityPool
-mkDeleteIdentityPool p1 = DeleteIdentityPool
+deleteIdentityPool p1 = DeleteIdentityPool
     { _dipIdentityPoolId = p1
     }
 
@@ -78,8 +78,8 @@ data DeleteIdentityPoolResponse = DeleteIdentityPoolResponse
 -- a valid 'DeleteIdentityPoolResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteIdentityPoolResponse :: DeleteIdentityPoolResponse
-mkDeleteIdentityPoolResponse = DeleteIdentityPoolResponse
+deleteIdentityPoolResponse :: DeleteIdentityPoolResponse
+deleteIdentityPoolResponse = DeleteIdentityPoolResponse
 
 instance AWSRequest DeleteIdentityPool where
     type Sv DeleteIdentityPool = CognitoIdentity

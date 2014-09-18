@@ -46,7 +46,7 @@ module Network.AWS.ELB.DescribeInstanceHealth
     -- * Request
       DescribeInstanceHealth
     -- ** Request constructor
-    , mkDescribeInstanceHealth
+    , describeInstanceHealth
     -- ** Request lenses
     , dihLoadBalancerName
     , dihInstances
@@ -54,7 +54,7 @@ module Network.AWS.ELB.DescribeInstanceHealth
     -- * Response
     , DescribeInstanceHealthResponse
     -- ** Response constructor
-    , mkDescribeInstanceHealthResponse
+    , describeInstanceHealthResponse
     -- ** Response lenses
     , dihrInstanceStates
     ) where
@@ -78,9 +78,9 @@ data DescribeInstanceHealth = DescribeInstanceHealth
 --
 -- * @Instances ::@ @[Instance]@
 --
-mkDescribeInstanceHealth :: Text -- ^ 'dihLoadBalancerName'
+describeInstanceHealth :: Text -- ^ 'dihLoadBalancerName'
                          -> DescribeInstanceHealth
-mkDescribeInstanceHealth p1 = DescribeInstanceHealth
+describeInstanceHealth p1 = DescribeInstanceHealth
     { _dihLoadBalancerName = p1
     , _dihInstances = mempty
     }
@@ -111,8 +111,8 @@ newtype DescribeInstanceHealthResponse = DescribeInstanceHealthResponse
 --
 -- * @InstanceStates ::@ @[InstanceState]@
 --
-mkDescribeInstanceHealthResponse :: DescribeInstanceHealthResponse
-mkDescribeInstanceHealthResponse = DescribeInstanceHealthResponse
+describeInstanceHealthResponse :: DescribeInstanceHealthResponse
+describeInstanceHealthResponse = DescribeInstanceHealthResponse
     { _dihrInstanceStates = mempty
     }
 

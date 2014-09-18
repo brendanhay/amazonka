@@ -109,36 +109,36 @@ module Network.AWS.CloudFront.Types
 
     -- * Restrictions
     , Restrictions
-    , mkRestrictions
+    , restrictions
     , rGeoRestriction
 
     -- * S3OriginConfig
     , S3OriginConfig
-    , mkS3OriginConfig
+    , s3OriginConfig
     , socOriginAccessIdentity
 
     -- * ActiveTrustedSigners
     , ActiveTrustedSigners
-    , mkActiveTrustedSigners
+    , activeTrustedSigners
     , atsEnabled
     , atsQuantity
     , atsItems
 
     -- * Aliases
     , Aliases
-    , mkAliases
+    , aliases
     , aQuantity
     , aItems
 
     -- * AllowedMethods
     , AllowedMethods
-    , mkAllowedMethods
+    , allowedMethods
     , amQuantity
     , amItems
 
     -- * CacheBehavior
     , CacheBehavior
-    , mkCacheBehavior
+    , cacheBehavior
     , cb1PathPattern
     , cb1TargetOriginId
     , cb1ForwardedValues
@@ -150,26 +150,26 @@ module Network.AWS.CloudFront.Types
 
     -- * CacheBehaviors
     , CacheBehaviors
-    , mkCacheBehaviors
+    , cacheBehaviors
     , cbQuantity
     , cbItems
 
     -- * CloudFrontOriginAccessIdentity
     , CloudFrontOriginAccessIdentity
-    , mkCloudFrontOriginAccessIdentity
+    , cloudFrontOriginAccessIdentity
     , cfoaiId
     , cfoaiS3CanonicalUserId
     , cfoaiCloudFrontOriginAccessIdentityConfig
 
     -- * CloudFrontOriginAccessIdentityConfig
     , CloudFrontOriginAccessIdentityConfig
-    , mkCloudFrontOriginAccessIdentityConfig
+    , cloudFrontOriginAccessIdentityConfig
     , cfoaicCallerReference
     , cfoaicComment
 
     -- * CloudFrontOriginAccessIdentityList
     , CloudFrontOriginAccessIdentityList
-    , mkCloudFrontOriginAccessIdentityList
+    , cloudFrontOriginAccessIdentityList
     , cfoailMarker
     , cfoailNextMarker
     , cfoailMaxItems
@@ -179,26 +179,26 @@ module Network.AWS.CloudFront.Types
 
     -- * CloudFrontOriginAccessIdentitySummary
     , CloudFrontOriginAccessIdentitySummary
-    , mkCloudFrontOriginAccessIdentitySummary
+    , cloudFrontOriginAccessIdentitySummary
     , cfoaisId
     , cfoaisS3CanonicalUserId
     , cfoaisComment
 
     -- * CookieNames
     , CookieNames
-    , mkCookieNames
+    , cookieNames
     , cnQuantity
     , cnItems
 
     -- * CookiePreference
     , CookiePreference
-    , mkCookiePreference
+    , cookiePreference
     , cpForward
     , cpWhitelistedNames
 
     -- * CustomErrorResponse
     , CustomErrorResponse
-    , mkCustomErrorResponse
+    , customErrorResponse
     , cer1ErrorCode
     , cer1ResponsePagePath
     , cer1ResponseCode
@@ -206,20 +206,20 @@ module Network.AWS.CloudFront.Types
 
     -- * CustomErrorResponses
     , CustomErrorResponses
-    , mkCustomErrorResponses
+    , customErrorResponses
     , cerQuantity
     , cerItems
 
     -- * CustomOriginConfig
     , CustomOriginConfig
-    , mkCustomOriginConfig
+    , customOriginConfig
     , cocHTTPPort
     , cocHTTPSPort
     , cocOriginProtocolPolicy
 
     -- * DefaultCacheBehavior
     , DefaultCacheBehavior
-    , mkDefaultCacheBehavior
+    , defaultCacheBehavior
     , dcbTargetOriginId
     , dcbForwardedValues
     , dcbTrustedSigners
@@ -230,7 +230,7 @@ module Network.AWS.CloudFront.Types
 
     -- * Distribution
     , Distribution
-    , mkDistribution
+    , distribution
     , dId
     , dStatus
     , dLastModifiedTime
@@ -241,7 +241,7 @@ module Network.AWS.CloudFront.Types
 
     -- * DistributionConfig
     , DistributionConfig
-    , mkDistributionConfig
+    , distributionConfig
     , dcCallerReference
     , dcAliases
     , dcDefaultRootObject
@@ -258,7 +258,7 @@ module Network.AWS.CloudFront.Types
 
     -- * DistributionList
     , DistributionList
-    , mkDistributionList
+    , distributionList
     , dlMarker
     , dlNextMarker
     , dlMaxItems
@@ -268,7 +268,7 @@ module Network.AWS.CloudFront.Types
 
     -- * DistributionSummary
     , DistributionSummary
-    , mkDistributionSummary
+    , distributionSummary
     , dsId
     , dsStatus
     , dsLastModifiedTime
@@ -286,27 +286,27 @@ module Network.AWS.CloudFront.Types
 
     -- * ForwardedValues
     , ForwardedValues
-    , mkForwardedValues
+    , forwardedValues
     , fvQueryString
     , fvCookies
     , fvHeaders
 
     -- * GeoRestriction
     , GeoRestriction
-    , mkGeoRestriction
+    , geoRestriction
     , grRestrictionType
     , grQuantity
     , grItems
 
     -- * Headers
     , Headers
-    , mkHeaders
+    , headers
     , hQuantity
     , hItems
 
     -- * Invalidation
     , Invalidation
-    , mkInvalidation
+    , invalidation
     , iId
     , iStatus
     , iCreateTime
@@ -314,13 +314,13 @@ module Network.AWS.CloudFront.Types
 
     -- * InvalidationBatch
     , InvalidationBatch
-    , mkInvalidationBatch
+    , invalidationBatch
     , ibPaths
     , ibCallerReference
 
     -- * InvalidationList
     , InvalidationList
-    , mkInvalidationList
+    , invalidationList
     , ilMarker
     , ilNextMarker
     , ilMaxItems
@@ -330,20 +330,20 @@ module Network.AWS.CloudFront.Types
 
     -- * InvalidationSummary
     , InvalidationSummary
-    , mkInvalidationSummary
+    , invalidationSummary
     , isId
     , isCreateTime
     , isStatus
 
     -- * KeyPairIds
     , KeyPairIds
-    , mkKeyPairIds
+    , keyPairIds
     , kpiQuantity
     , kpiItems
 
     -- * LoggingConfig
     , LoggingConfig
-    , mkLoggingConfig
+    , loggingConfig
     , lcEnabled
     , lcIncludeCookies
     , lcBucket
@@ -351,7 +351,7 @@ module Network.AWS.CloudFront.Types
 
     -- * Origin
     , Origin
-    , mkOrigin
+    , origin
     , o1Id
     , o1DomainName
     , o1S3OriginConfig
@@ -359,31 +359,31 @@ module Network.AWS.CloudFront.Types
 
     -- * Origins
     , Origins
-    , mkOrigins
+    , origins
     , oQuantity
     , oItems
 
     -- * Paths
     , Paths
-    , mkPaths
+    , paths
     , pQuantity
     , pItems
 
     -- * S3Origin
     , S3Origin
-    , mkS3Origin
+    , s3Origin
     , soDomainName
     , soOriginAccessIdentity
 
     -- * Signer
     , Signer
-    , mkSigner
+    , signer
     , sAwsAccountNumber
     , sKeyPairIds
 
     -- * StreamingDistribution
     , StreamingDistribution
-    , mkStreamingDistribution
+    , streamingDistribution
     , sdId
     , sdStatus
     , sdLastModifiedTime
@@ -393,7 +393,7 @@ module Network.AWS.CloudFront.Types
 
     -- * StreamingDistributionConfig
     , StreamingDistributionConfig
-    , mkStreamingDistributionConfig
+    , streamingDistributionConfig
     , sdcCallerReference
     , sdcS3Origin
     , sdcAliases
@@ -405,7 +405,7 @@ module Network.AWS.CloudFront.Types
 
     -- * StreamingDistributionList
     , StreamingDistributionList
-    , mkStreamingDistributionList
+    , streamingDistributionList
     , sdlMarker
     , sdlNextMarker
     , sdlMaxItems
@@ -415,7 +415,7 @@ module Network.AWS.CloudFront.Types
 
     -- * StreamingDistributionSummary
     , StreamingDistributionSummary
-    , mkStreamingDistributionSummary
+    , streamingDistributionSummary
     , sdsId
     , sdsStatus
     , sdsLastModifiedTime
@@ -429,21 +429,21 @@ module Network.AWS.CloudFront.Types
 
     -- * StreamingLoggingConfig
     , StreamingLoggingConfig
-    , mkStreamingLoggingConfig
+    , streamingLoggingConfig
     , slcEnabled
     , slcBucket
     , slcPrefix
 
     -- * TrustedSigners
     , TrustedSigners
-    , mkTrustedSigners
+    , trustedSigners
     , tsEnabled
     , tsQuantity
     , tsItems
 
     -- * ViewerCertificate
     , ViewerCertificate
-    , mkViewerCertificate
+    , viewerCertificate
     , vcIAMCertificateId
     , vcCloudFrontDefaultCertificate
     , vcSSLSupportMethod
@@ -496,8 +496,8 @@ data CloudFrontError
     | CloudFrontOriginAccessIdentityInUse
         { _cfoaiiuMessage :: Maybe Text
         }
-    | CloudFrontSerializer Text
-    | CloudFrontService Text
+    | CloudFrontSerializer String
+    | CloudFrontService String
       -- | The caller reference you attempted to create the distribution
       -- with is associated with another distribution.
     | DistributionAlreadyExists
@@ -735,7 +735,7 @@ _CloudFrontOriginAccessIdentityInUse = prism'
         x -> Left x)
 
 -- | See: 'CloudFrontSerializer'
-_CloudFrontSerializer :: Prism' CloudFrontError Text
+_CloudFrontSerializer :: Prism' CloudFrontError String
 _CloudFrontSerializer = prism'
     CloudFrontSerializer
     (\case
@@ -743,7 +743,7 @@ _CloudFrontSerializer = prism'
         x -> Left x)
 
 -- | See: 'CloudFrontService'
-_CloudFrontService :: Prism' CloudFrontError Text
+_CloudFrontService :: Prism' CloudFrontError String
 _CloudFrontService = prism'
     CloudFrontService
     (\case
@@ -1384,9 +1384,9 @@ newtype Restrictions = Restrictions
 --
 -- * @GeoRestriction ::@ @GeoRestriction@
 --
-mkRestrictions :: GeoRestriction -- ^ 'rGeoRestriction'
+restrictions :: GeoRestriction -- ^ 'rGeoRestriction'
                -> Restrictions
-mkRestrictions p1 = Restrictions
+restrictions p1 = Restrictions
     { _rGeoRestriction = p1
     }
 
@@ -1420,9 +1420,9 @@ newtype S3OriginConfig = S3OriginConfig
 --
 -- * @OriginAccessIdentity ::@ @Text@
 --
-mkS3OriginConfig :: Text -- ^ 'socOriginAccessIdentity'
+s3OriginConfig :: Text -- ^ 'socOriginAccessIdentity'
                  -> S3OriginConfig
-mkS3OriginConfig p1 = S3OriginConfig
+s3OriginConfig p1 = S3OriginConfig
     { _socOriginAccessIdentity = p1
     }
 
@@ -1478,10 +1478,10 @@ data ActiveTrustedSigners = ActiveTrustedSigners
 --
 -- * @Items ::@ @[Signer]@
 --
-mkActiveTrustedSigners :: Bool -- ^ 'atsEnabled'
+activeTrustedSigners :: Bool -- ^ 'atsEnabled'
                        -> Integer -- ^ 'atsQuantity'
                        -> ActiveTrustedSigners
-mkActiveTrustedSigners p1 p2 = ActiveTrustedSigners
+activeTrustedSigners p1 p2 = ActiveTrustedSigners
     { _atsEnabled = p1
     , _atsQuantity = p2
     , _atsItems = mempty
@@ -1524,9 +1524,9 @@ data Aliases = Aliases
 --
 -- * @Items ::@ @[Text]@
 --
-mkAliases :: Integer -- ^ 'aQuantity'
+aliases :: Integer -- ^ 'aQuantity'
           -> Aliases
-mkAliases p1 = Aliases
+aliases p1 = Aliases
     { _aQuantity = p1
     , _aItems = mempty
     }
@@ -1570,9 +1570,9 @@ data AllowedMethods = AllowedMethods
 --
 -- * @Items ::@ @[Method]@
 --
-mkAllowedMethods :: Integer -- ^ 'amQuantity'
+allowedMethods :: Integer -- ^ 'amQuantity'
                  -> AllowedMethods
-mkAllowedMethods p1 = AllowedMethods
+allowedMethods p1 = AllowedMethods
     { _amQuantity = p1
     , _amItems = mempty
     }
@@ -1643,14 +1643,14 @@ data CacheBehavior = CacheBehavior
 --
 -- * @SmoothStreaming ::@ @Maybe Bool@
 --
-mkCacheBehavior :: Text -- ^ 'cb1PathPattern'
+cacheBehavior :: Text -- ^ 'cb1PathPattern'
                 -> Text -- ^ 'cb1TargetOriginId'
                 -> ForwardedValues -- ^ 'cb1ForwardedValues'
                 -> TrustedSigners -- ^ 'cb1TrustedSigners'
                 -> ViewerProtocolPolicy -- ^ 'cb1ViewerProtocolPolicy'
                 -> Integer -- ^ 'cb1MinTTL'
                 -> CacheBehavior
-mkCacheBehavior p1 p2 p3 p4 p5 p6 = CacheBehavior
+cacheBehavior p1 p2 p3 p4 p5 p6 = CacheBehavior
     { _cb1PathPattern = p1
     , _cb1TargetOriginId = p2
     , _cb1ForwardedValues = p3
@@ -1762,9 +1762,9 @@ data CacheBehaviors = CacheBehaviors
 --
 -- * @Items ::@ @[CacheBehavior]@
 --
-mkCacheBehaviors :: Integer -- ^ 'cbQuantity'
+cacheBehaviors :: Integer -- ^ 'cbQuantity'
                  -> CacheBehaviors
-mkCacheBehaviors p1 = CacheBehaviors
+cacheBehaviors p1 = CacheBehaviors
     { _cbQuantity = p1
     , _cbItems = mempty
     }
@@ -1807,10 +1807,10 @@ data CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentity
 --
 -- * @CloudFrontOriginAccessIdentityConfig ::@ @Maybe CloudFrontOriginAccessIdentityConfig@
 --
-mkCloudFrontOriginAccessIdentity :: Text -- ^ 'cfoaiId'
+cloudFrontOriginAccessIdentity :: Text -- ^ 'cfoaiId'
                                  -> Text -- ^ 'cfoaiS3CanonicalUserId'
                                  -> CloudFrontOriginAccessIdentity
-mkCloudFrontOriginAccessIdentity p1 p2 = CloudFrontOriginAccessIdentity
+cloudFrontOriginAccessIdentity p1 p2 = CloudFrontOriginAccessIdentity
     { _cfoaiId = p1
     , _cfoaiS3CanonicalUserId = p2
     , _cfoaiCloudFrontOriginAccessIdentityConfig = Nothing
@@ -1852,10 +1852,10 @@ data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig
 --
 -- * @Comment ::@ @Text@
 --
-mkCloudFrontOriginAccessIdentityConfig :: Text -- ^ 'cfoaicCallerReference'
+cloudFrontOriginAccessIdentityConfig :: Text -- ^ 'cfoaicCallerReference'
                                        -> Text -- ^ 'cfoaicComment'
                                        -> CloudFrontOriginAccessIdentityConfig
-mkCloudFrontOriginAccessIdentityConfig p1 p2 = CloudFrontOriginAccessIdentityConfig
+cloudFrontOriginAccessIdentityConfig p1 p2 = CloudFrontOriginAccessIdentityConfig
     { _cfoaicCallerReference = p1
     , _cfoaicComment = p2
     }
@@ -1918,12 +1918,12 @@ data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList
 --
 -- * @Items ::@ @[CloudFrontOriginAccessIdentitySummary]@
 --
-mkCloudFrontOriginAccessIdentityList :: Text -- ^ 'cfoailMarker'
+cloudFrontOriginAccessIdentityList :: Text -- ^ 'cfoailMarker'
                                      -> Integer -- ^ 'cfoailMaxItems'
                                      -> Bool -- ^ 'cfoailIsTruncated'
                                      -> Integer -- ^ 'cfoailQuantity'
                                      -> CloudFrontOriginAccessIdentityList
-mkCloudFrontOriginAccessIdentityList p1 p3 p4 p5 = CloudFrontOriginAccessIdentityList
+cloudFrontOriginAccessIdentityList p1 p3 p4 p5 = CloudFrontOriginAccessIdentityList
     { _cfoailMarker = p1
     , _cfoailNextMarker = Nothing
     , _cfoailMaxItems = p3
@@ -1991,11 +1991,11 @@ data CloudFrontOriginAccessIdentitySummary = CloudFrontOriginAccessIdentitySumma
 --
 -- * @Comment ::@ @Text@
 --
-mkCloudFrontOriginAccessIdentitySummary :: Text -- ^ 'cfoaisId'
+cloudFrontOriginAccessIdentitySummary :: Text -- ^ 'cfoaisId'
                                         -> Text -- ^ 'cfoaisS3CanonicalUserId'
                                         -> Text -- ^ 'cfoaisComment'
                                         -> CloudFrontOriginAccessIdentitySummary
-mkCloudFrontOriginAccessIdentitySummary p1 p2 p3 = CloudFrontOriginAccessIdentitySummary
+cloudFrontOriginAccessIdentitySummary p1 p2 p3 = CloudFrontOriginAccessIdentitySummary
     { _cfoaisId = p1
     , _cfoaisS3CanonicalUserId = p2
     , _cfoaisComment = p3
@@ -2039,9 +2039,9 @@ data CookieNames = CookieNames
 --
 -- * @Items ::@ @[Text]@
 --
-mkCookieNames :: Integer -- ^ 'cnQuantity'
+cookieNames :: Integer -- ^ 'cnQuantity'
               -> CookieNames
-mkCookieNames p1 = CookieNames
+cookieNames p1 = CookieNames
     { _cnQuantity = p1
     , _cnItems = mempty
     }
@@ -2078,9 +2078,9 @@ data CookiePreference = CookiePreference
 --
 -- * @WhitelistedNames ::@ @Maybe CookieNames@
 --
-mkCookiePreference :: ItemSelection -- ^ 'cpForward'
+cookiePreference :: ItemSelection -- ^ 'cpForward'
                    -> CookiePreference
-mkCookiePreference p1 = CookiePreference
+cookiePreference p1 = CookiePreference
     { _cpForward = p1
     , _cpWhitelistedNames = Nothing
     }
@@ -2138,9 +2138,9 @@ data CustomErrorResponse = CustomErrorResponse
 --
 -- * @ErrorCachingMinTTL ::@ @Maybe Integer@
 --
-mkCustomErrorResponse :: Integer -- ^ 'cer1ErrorCode'
+customErrorResponse :: Integer -- ^ 'cer1ErrorCode'
                       -> CustomErrorResponse
-mkCustomErrorResponse p1 = CustomErrorResponse
+customErrorResponse p1 = CustomErrorResponse
     { _cer1ErrorCode = p1
     , _cer1ResponsePagePath = Nothing
     , _cer1ResponseCode = Nothing
@@ -2199,9 +2199,9 @@ data CustomErrorResponses = CustomErrorResponses
 --
 -- * @Items ::@ @[CustomErrorResponse]@
 --
-mkCustomErrorResponses :: Integer -- ^ 'cerQuantity'
+customErrorResponses :: Integer -- ^ 'cerQuantity'
                        -> CustomErrorResponses
-mkCustomErrorResponses p1 = CustomErrorResponses
+customErrorResponses p1 = CustomErrorResponses
     { _cerQuantity = p1
     , _cerItems = mempty
     }
@@ -2242,11 +2242,11 @@ data CustomOriginConfig = CustomOriginConfig
 --
 -- * @OriginProtocolPolicy ::@ @OriginProtocolPolicy@
 --
-mkCustomOriginConfig :: Integer -- ^ 'cocHTTPPort'
+customOriginConfig :: Integer -- ^ 'cocHTTPPort'
                      -> Integer -- ^ 'cocHTTPSPort'
                      -> OriginProtocolPolicy -- ^ 'cocOriginProtocolPolicy'
                      -> CustomOriginConfig
-mkCustomOriginConfig p1 p2 p3 = CustomOriginConfig
+customOriginConfig p1 p2 p3 = CustomOriginConfig
     { _cocHTTPPort = p1
     , _cocHTTPSPort = p2
     , _cocOriginProtocolPolicy = p3
@@ -2307,13 +2307,13 @@ data DefaultCacheBehavior = DefaultCacheBehavior
 --
 -- * @SmoothStreaming ::@ @Maybe Bool@
 --
-mkDefaultCacheBehavior :: Text -- ^ 'dcbTargetOriginId'
+defaultCacheBehavior :: Text -- ^ 'dcbTargetOriginId'
                        -> ForwardedValues -- ^ 'dcbForwardedValues'
                        -> TrustedSigners -- ^ 'dcbTrustedSigners'
                        -> ViewerProtocolPolicy -- ^ 'dcbViewerProtocolPolicy'
                        -> Integer -- ^ 'dcbMinTTL'
                        -> DefaultCacheBehavior
-mkDefaultCacheBehavior p1 p2 p3 p4 p5 = DefaultCacheBehavior
+defaultCacheBehavior p1 p2 p3 p4 p5 = DefaultCacheBehavior
     { _dcbTargetOriginId = p1
     , _dcbForwardedValues = p2
     , _dcbTrustedSigners = p3
@@ -2432,7 +2432,7 @@ data Distribution = Distribution
 --
 -- * @DistributionConfig ::@ @DistributionConfig@
 --
-mkDistribution :: Text -- ^ 'dId'
+distribution :: Text -- ^ 'dId'
                -> Text -- ^ 'dStatus'
                -> ISO8601 -- ^ 'dLastModifiedTime'
                -> Integer -- ^ 'dInProgressInvalidationBatches'
@@ -2440,7 +2440,7 @@ mkDistribution :: Text -- ^ 'dId'
                -> ActiveTrustedSigners -- ^ 'dActiveTrustedSigners'
                -> DistributionConfig -- ^ 'dDistributionConfig'
                -> Distribution
-mkDistribution p1 p2 p3 p4 p5 p6 p7 = Distribution
+distribution p1 p2 p3 p4 p5 p6 p7 = Distribution
     { _dId = p1
     , _dStatus = p2
     , _dLastModifiedTime = p3
@@ -2545,7 +2545,7 @@ data DistributionConfig = DistributionConfig
 --
 -- * @Restrictions ::@ @Maybe Restrictions@
 --
-mkDistributionConfig :: Text -- ^ 'dcCallerReference'
+distributionConfig :: Text -- ^ 'dcCallerReference'
                      -> PriceClass -- ^ 'dcPriceClass'
                      -> Bool -- ^ 'dcEnabled'
                      -> Aliases -- ^ 'dcAliases'
@@ -2556,7 +2556,7 @@ mkDistributionConfig :: Text -- ^ 'dcCallerReference'
                      -> Text -- ^ 'dcComment'
                      -> LoggingConfig -- ^ 'dcLogging'
                      -> DistributionConfig
-mkDistributionConfig p1 p10 p11 p2 p3 p4 p5 p6 p8 p9 = DistributionConfig
+distributionConfig p1 p10 p11 p2 p3 p4 p5 p6 p8 p9 = DistributionConfig
     { _dcCallerReference = p1
     , _dcAliases = p2
     , _dcDefaultRootObject = p3
@@ -2696,12 +2696,12 @@ data DistributionList = DistributionList
 --
 -- * @Items ::@ @[DistributionSummary]@
 --
-mkDistributionList :: Text -- ^ 'dlMarker'
+distributionList :: Text -- ^ 'dlMarker'
                    -> Integer -- ^ 'dlMaxItems'
                    -> Bool -- ^ 'dlIsTruncated'
                    -> Integer -- ^ 'dlQuantity'
                    -> DistributionList
-mkDistributionList p1 p3 p4 p5 = DistributionList
+distributionList p1 p3 p4 p5 = DistributionList
     { _dlMarker = p1
     , _dlNextMarker = Nothing
     , _dlMaxItems = p3
@@ -2798,7 +2798,7 @@ data DistributionSummary = DistributionSummary
 --
 -- * @Restrictions ::@ @Restrictions@
 --
-mkDistributionSummary :: Text -- ^ 'dsId'
+distributionSummary :: Text -- ^ 'dsId'
                       -> Text -- ^ 'dsComment'
                       -> PriceClass -- ^ 'dsPriceClass'
                       -> Bool -- ^ 'dsEnabled'
@@ -2813,7 +2813,7 @@ mkDistributionSummary :: Text -- ^ 'dsId'
                       -> CacheBehaviors -- ^ 'dsCacheBehaviors'
                       -> CustomErrorResponses -- ^ 'dsCustomErrorResponses'
                       -> DistributionSummary
-mkDistributionSummary p1 p10 p11 p12 p13 p14 p2 p3 p4 p5 p6 p7 p8 p9 = DistributionSummary
+distributionSummary p1 p10 p11 p12 p13 p14 p2 p3 p4 p5 p6 p7 p8 p9 = DistributionSummary
     { _dsId = p1
     , _dsStatus = p2
     , _dsLastModifiedTime = p3
@@ -2924,10 +2924,10 @@ data ForwardedValues = ForwardedValues
 --
 -- * @Headers ::@ @Maybe Headers@
 --
-mkForwardedValues :: Bool -- ^ 'fvQueryString'
+forwardedValues :: Bool -- ^ 'fvQueryString'
                   -> CookiePreference -- ^ 'fvCookies'
                   -> ForwardedValues
-mkForwardedValues p1 p2 = ForwardedValues
+forwardedValues p1 p2 = ForwardedValues
     { _fvQueryString = p1
     , _fvCookies = p2
     , _fvHeaders = Nothing
@@ -2979,10 +2979,10 @@ data GeoRestriction = GeoRestriction
 --
 -- * @Items ::@ @[Text]@
 --
-mkGeoRestriction :: GeoRestrictionType -- ^ 'grRestrictionType'
+geoRestriction :: GeoRestrictionType -- ^ 'grRestrictionType'
                  -> Integer -- ^ 'grQuantity'
                  -> GeoRestriction
-mkGeoRestriction p1 p2 = GeoRestriction
+geoRestriction p1 p2 = GeoRestriction
     { _grRestrictionType = p1
     , _grQuantity = p2
     , _grItems = mempty
@@ -3041,9 +3041,9 @@ data Headers = Headers
 --
 -- * @Items ::@ @[Text]@
 --
-mkHeaders :: Integer -- ^ 'hQuantity'
+headers :: Integer -- ^ 'hQuantity'
           -> Headers
-mkHeaders p1 = Headers
+headers p1 = Headers
     { _hQuantity = p1
     , _hItems = mempty
     }
@@ -3096,12 +3096,12 @@ data Invalidation = Invalidation
 --
 -- * @InvalidationBatch ::@ @InvalidationBatch@
 --
-mkInvalidation :: Text -- ^ 'iId'
+invalidation :: Text -- ^ 'iId'
                -> Text -- ^ 'iStatus'
                -> ISO8601 -- ^ 'iCreateTime'
                -> InvalidationBatch -- ^ 'iInvalidationBatch'
                -> Invalidation
-mkInvalidation p1 p2 p3 p4 = Invalidation
+invalidation p1 p2 p3 p4 = Invalidation
     { _iId = p1
     , _iStatus = p2
     , _iCreateTime = p3
@@ -3145,10 +3145,10 @@ data InvalidationBatch = InvalidationBatch
 --
 -- * @CallerReference ::@ @Text@
 --
-mkInvalidationBatch :: Paths -- ^ 'ibPaths'
+invalidationBatch :: Paths -- ^ 'ibPaths'
                     -> Text -- ^ 'ibCallerReference'
                     -> InvalidationBatch
-mkInvalidationBatch p1 p2 = InvalidationBatch
+invalidationBatch p1 p2 = InvalidationBatch
     { _ibPaths = p1
     , _ibCallerReference = p2
     }
@@ -3214,12 +3214,12 @@ data InvalidationList = InvalidationList
 --
 -- * @Items ::@ @[InvalidationSummary]@
 --
-mkInvalidationList :: Text -- ^ 'ilMarker'
+invalidationList :: Text -- ^ 'ilMarker'
                    -> Integer -- ^ 'ilMaxItems'
                    -> Bool -- ^ 'ilIsTruncated'
                    -> Integer -- ^ 'ilQuantity'
                    -> InvalidationList
-mkInvalidationList p1 p3 p4 p5 = InvalidationList
+invalidationList p1 p3 p4 p5 = InvalidationList
     { _ilMarker = p1
     , _ilNextMarker = Nothing
     , _ilMaxItems = p3
@@ -3284,11 +3284,11 @@ data InvalidationSummary = InvalidationSummary
 --
 -- * @Status ::@ @Text@
 --
-mkInvalidationSummary :: Text -- ^ 'isId'
+invalidationSummary :: Text -- ^ 'isId'
                       -> ISO8601 -- ^ 'isCreateTime'
                       -> Text -- ^ 'isStatus'
                       -> InvalidationSummary
-mkInvalidationSummary p1 p2 p3 = InvalidationSummary
+invalidationSummary p1 p2 p3 = InvalidationSummary
     { _isId = p1
     , _isCreateTime = p2
     , _isStatus = p3
@@ -3325,9 +3325,9 @@ data KeyPairIds = KeyPairIds
 --
 -- * @Items ::@ @[Text]@
 --
-mkKeyPairIds :: Integer -- ^ 'kpiQuantity'
+keyPairIds :: Integer -- ^ 'kpiQuantity'
              -> KeyPairIds
-mkKeyPairIds p1 = KeyPairIds
+keyPairIds p1 = KeyPairIds
     { _kpiQuantity = p1
     , _kpiItems = mempty
     }
@@ -3371,12 +3371,12 @@ data LoggingConfig = LoggingConfig
 --
 -- * @Prefix ::@ @Text@
 --
-mkLoggingConfig :: Bool -- ^ 'lcEnabled'
+loggingConfig :: Bool -- ^ 'lcEnabled'
                 -> Bool -- ^ 'lcIncludeCookies'
                 -> Text -- ^ 'lcBucket'
                 -> Text -- ^ 'lcPrefix'
                 -> LoggingConfig
-mkLoggingConfig p1 p2 p3 p4 = LoggingConfig
+loggingConfig p1 p2 p3 p4 = LoggingConfig
     { _lcEnabled = p1
     , _lcIncludeCookies = p2
     , _lcBucket = p3
@@ -3445,10 +3445,10 @@ data Origin = Origin
 --
 -- * @CustomOriginConfig ::@ @Maybe CustomOriginConfig@
 --
-mkOrigin :: Text -- ^ 'o1Id'
+origin :: Text -- ^ 'o1Id'
          -> Text -- ^ 'o1DomainName'
          -> Origin
-mkOrigin p1 p2 = Origin
+origin p1 p2 = Origin
     { _o1Id = p1
     , _o1DomainName = p2
     , _o1S3OriginConfig = Nothing
@@ -3506,9 +3506,9 @@ data Origins = Origins
 --
 -- * @Items ::@ @Maybe (List1 Origin)@
 --
-mkOrigins :: Integer -- ^ 'oQuantity'
+origins :: Integer -- ^ 'oQuantity'
           -> Origins
-mkOrigins p1 = Origins
+origins p1 = Origins
     { _oQuantity = p1
     , _oItems = Nothing
     }
@@ -3550,9 +3550,9 @@ data Paths = Paths
 --
 -- * @Items ::@ @[Text]@
 --
-mkPaths :: Integer -- ^ 'pQuantity'
+paths :: Integer -- ^ 'pQuantity'
         -> Paths
-mkPaths p1 = Paths
+paths p1 = Paths
     { _pQuantity = p1
     , _pItems = mempty
     }
@@ -3590,10 +3590,10 @@ data S3Origin = S3Origin
 --
 -- * @OriginAccessIdentity ::@ @Text@
 --
-mkS3Origin :: Text -- ^ 'soDomainName'
+s3Origin :: Text -- ^ 'soDomainName'
            -> Text -- ^ 'soOriginAccessIdentity'
            -> S3Origin
-mkS3Origin p1 p2 = S3Origin
+s3Origin p1 p2 = S3Origin
     { _soDomainName = p1
     , _soOriginAccessIdentity = p2
     }
@@ -3635,8 +3635,8 @@ data Signer = Signer
 --
 -- * @KeyPairIds ::@ @Maybe KeyPairIds@
 --
-mkSigner :: Signer
-mkSigner = Signer
+signer :: Signer
+signer = Signer
     { _sAwsAccountNumber = Nothing
     , _sKeyPairIds = Nothing
     }
@@ -3688,13 +3688,13 @@ data StreamingDistribution = StreamingDistribution
 --
 -- * @StreamingDistributionConfig ::@ @StreamingDistributionConfig@
 --
-mkStreamingDistribution :: Text -- ^ 'sdId'
+streamingDistribution :: Text -- ^ 'sdId'
                         -> Text -- ^ 'sdStatus'
                         -> Text -- ^ 'sdDomainName'
                         -> ActiveTrustedSigners -- ^ 'sdActiveTrustedSigners'
                         -> StreamingDistributionConfig -- ^ 'sdStreamingDistributionConfig'
                         -> StreamingDistribution
-mkStreamingDistribution p1 p2 p4 p5 p6 = StreamingDistribution
+streamingDistribution p1 p2 p4 p5 p6 = StreamingDistribution
     { _sdId = p1
     , _sdStatus = p2
     , _sdLastModifiedTime = Nothing
@@ -3779,7 +3779,7 @@ data StreamingDistributionConfig = StreamingDistributionConfig
 --
 -- * @Enabled ::@ @Bool@
 --
-mkStreamingDistributionConfig :: Text -- ^ 'sdcCallerReference'
+streamingDistributionConfig :: Text -- ^ 'sdcCallerReference'
                               -> S3Origin -- ^ 'sdcS3Origin'
                               -> Aliases -- ^ 'sdcAliases'
                               -> Text -- ^ 'sdcComment'
@@ -3788,7 +3788,7 @@ mkStreamingDistributionConfig :: Text -- ^ 'sdcCallerReference'
                               -> PriceClass -- ^ 'sdcPriceClass'
                               -> Bool -- ^ 'sdcEnabled'
                               -> StreamingDistributionConfig
-mkStreamingDistributionConfig p1 p2 p3 p4 p5 p6 p7 p8 = StreamingDistributionConfig
+streamingDistributionConfig p1 p2 p3 p4 p5 p6 p7 p8 = StreamingDistributionConfig
     { _sdcCallerReference = p1
     , _sdcS3Origin = p2
     , _sdcAliases = p3
@@ -3897,12 +3897,12 @@ data StreamingDistributionList = StreamingDistributionList
 --
 -- * @Items ::@ @[StreamingDistributionSummary]@
 --
-mkStreamingDistributionList :: Text -- ^ 'sdlMarker'
+streamingDistributionList :: Text -- ^ 'sdlMarker'
                             -> Integer -- ^ 'sdlMaxItems'
                             -> Bool -- ^ 'sdlIsTruncated'
                             -> Integer -- ^ 'sdlQuantity'
                             -> StreamingDistributionList
-mkStreamingDistributionList p1 p3 p4 p5 = StreamingDistributionList
+streamingDistributionList p1 p3 p4 p5 = StreamingDistributionList
     { _sdlMarker = p1
     , _sdlNextMarker = Nothing
     , _sdlMaxItems = p3
@@ -3989,7 +3989,7 @@ data StreamingDistributionSummary = StreamingDistributionSummary
 --
 -- * @Enabled ::@ @Bool@
 --
-mkStreamingDistributionSummary :: Text -- ^ 'sdsId'
+streamingDistributionSummary :: Text -- ^ 'sdsId'
                                -> Bool -- ^ 'sdsEnabled'
                                -> Text -- ^ 'sdsStatus'
                                -> ISO8601 -- ^ 'sdsLastModifiedTime'
@@ -4000,7 +4000,7 @@ mkStreamingDistributionSummary :: Text -- ^ 'sdsId'
                                -> Text -- ^ 'sdsComment'
                                -> PriceClass -- ^ 'sdsPriceClass'
                                -> StreamingDistributionSummary
-mkStreamingDistributionSummary p1 p10 p2 p3 p4 p5 p6 p7 p8 p9 = StreamingDistributionSummary
+streamingDistributionSummary p1 p10 p2 p3 p4 p5 p6 p7 p8 p9 = StreamingDistributionSummary
     { _sdsId = p1
     , _sdsStatus = p2
     , _sdsLastModifiedTime = p3
@@ -4094,11 +4094,11 @@ data StreamingLoggingConfig = StreamingLoggingConfig
 --
 -- * @Prefix ::@ @Text@
 --
-mkStreamingLoggingConfig :: Bool -- ^ 'slcEnabled'
+streamingLoggingConfig :: Bool -- ^ 'slcEnabled'
                          -> Text -- ^ 'slcBucket'
                          -> Text -- ^ 'slcPrefix'
                          -> StreamingLoggingConfig
-mkStreamingLoggingConfig p1 p2 p3 = StreamingLoggingConfig
+streamingLoggingConfig p1 p2 p3 = StreamingLoggingConfig
     { _slcEnabled = p1
     , _slcBucket = p2
     , _slcPrefix = p3
@@ -4162,10 +4162,10 @@ data TrustedSigners = TrustedSigners
 --
 -- * @Items ::@ @[Text]@
 --
-mkTrustedSigners :: Bool -- ^ 'tsEnabled'
+trustedSigners :: Bool -- ^ 'tsEnabled'
                  -> Integer -- ^ 'tsQuantity'
                  -> TrustedSigners
-mkTrustedSigners p1 p2 = TrustedSigners
+trustedSigners p1 p2 = TrustedSigners
     { _tsEnabled = p1
     , _tsQuantity = p2
     , _tsItems = mempty
@@ -4212,8 +4212,8 @@ data ViewerCertificate = ViewerCertificate
 --
 -- * @SSLSupportMethod ::@ @Maybe SSLSupportMethod@
 --
-mkViewerCertificate :: ViewerCertificate
-mkViewerCertificate = ViewerCertificate
+viewerCertificate :: ViewerCertificate
+viewerCertificate = ViewerCertificate
     { _vcIAMCertificateId = Nothing
     , _vcCloudFrontDefaultCertificate = Nothing
     , _vcSSLSupportMethod = Nothing

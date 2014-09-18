@@ -28,7 +28,7 @@ module Network.AWS.SimpleDB.ListDomains
     -- * Request
       ListDomains
     -- ** Request constructor
-    , mkListDomains
+    , listDomains
     -- ** Request lenses
     , ldMaxNumberOfDomains
     , ldNextToken
@@ -36,7 +36,7 @@ module Network.AWS.SimpleDB.ListDomains
     -- * Response
     , ListDomainsResponse
     -- ** Response constructor
-    , mkListDomainsResponse
+    , listDomainsResponse
     -- ** Response lenses
     , ldrDomainNames
     , ldrNextToken
@@ -60,8 +60,8 @@ data ListDomains = ListDomains
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkListDomains :: ListDomains
-mkListDomains = ListDomains
+listDomains :: ListDomains
+listDomains = ListDomains
     { _ldMaxNumberOfDomains = Nothing
     , _ldNextToken = Nothing
     }
@@ -96,8 +96,8 @@ data ListDomainsResponse = ListDomainsResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkListDomainsResponse :: ListDomainsResponse
-mkListDomainsResponse = ListDomainsResponse
+listDomainsResponse :: ListDomainsResponse
+listDomainsResponse = ListDomainsResponse
     { _ldrDomainNames = mempty
     , _ldrNextToken = Nothing
     }

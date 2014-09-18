@@ -29,7 +29,7 @@ module Network.AWS.IAM.ListMFADevices
     -- * Request
       ListMFADevices
     -- ** Request constructor
-    , mkListMFADevices
+    , listMFADevices
     -- ** Request lenses
     , lmfadUserName
     , lmfadMarker
@@ -38,7 +38,7 @@ module Network.AWS.IAM.ListMFADevices
     -- * Response
     , ListMFADevicesResponse
     -- ** Response constructor
-    , mkListMFADevicesResponse
+    , listMFADevicesResponse
     -- ** Response lenses
     , lmfadrMFADevices
     , lmfadrIsTruncated
@@ -66,8 +66,8 @@ data ListMFADevices = ListMFADevices
 --
 -- * @MaxItems ::@ @Maybe Integer@
 --
-mkListMFADevices :: ListMFADevices
-mkListMFADevices = ListMFADevices
+listMFADevices :: ListMFADevices
+listMFADevices = ListMFADevices
     { _lmfadUserName = Nothing
     , _lmfadMarker = Nothing
     , _lmfadMaxItems = Nothing
@@ -114,10 +114,10 @@ data ListMFADevicesResponse = ListMFADevicesResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListMFADevicesResponse :: [MFADevice] -- ^ 'lmfadrMFADevices'
+listMFADevicesResponse :: [MFADevice] -- ^ 'lmfadrMFADevices'
                          -> Bool -- ^ 'lmfadrIsTruncated'
                          -> ListMFADevicesResponse
-mkListMFADevicesResponse p1 p2 = ListMFADevicesResponse
+listMFADevicesResponse p1 p2 = ListMFADevicesResponse
     { _lmfadrMFADevices = p1
     , _lmfadrIsTruncated = p2
     , _lmfadrMarker = Nothing

@@ -39,7 +39,7 @@ module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
     -- * Request
       SetLoadBalancerPoliciesForBackendServer
     -- ** Request constructor
-    , mkSetLoadBalancerPoliciesForBackendServer
+    , setLoadBalancerPoliciesForBackendServer
     -- ** Request lenses
     , slbpfbsLoadBalancerName
     , slbpfbsInstancePort
@@ -48,7 +48,7 @@ module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
     -- * Response
     , SetLoadBalancerPoliciesForBackendServerResponse
     -- ** Response constructor
-    , mkSetLoadBalancerPoliciesForBackendServerResponse
+    , setLoadBalancerPoliciesForBackendServerResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -73,11 +73,11 @@ data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackend
 --
 -- * @PolicyNames ::@ @[Text]@
 --
-mkSetLoadBalancerPoliciesForBackendServer :: Text -- ^ 'slbpfbsLoadBalancerName'
+setLoadBalancerPoliciesForBackendServer :: Text -- ^ 'slbpfbsLoadBalancerName'
                                           -> Integer -- ^ 'slbpfbsInstancePort'
                                           -> [Text] -- ^ 'slbpfbsPolicyNames'
                                           -> SetLoadBalancerPoliciesForBackendServer
-mkSetLoadBalancerPoliciesForBackendServer p1 p2 p3 = SetLoadBalancerPoliciesForBackendServer
+setLoadBalancerPoliciesForBackendServer p1 p2 p3 = SetLoadBalancerPoliciesForBackendServer
     { _slbpfbsLoadBalancerName = p1
     , _slbpfbsInstancePort = p2
     , _slbpfbsPolicyNames = p3
@@ -112,8 +112,8 @@ data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesFo
 -- a valid 'SetLoadBalancerPoliciesForBackendServerResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSetLoadBalancerPoliciesForBackendServerResponse :: SetLoadBalancerPoliciesForBackendServerResponse
-mkSetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
+setLoadBalancerPoliciesForBackendServerResponse :: SetLoadBalancerPoliciesForBackendServerResponse
+setLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
 
 instance AWSRequest SetLoadBalancerPoliciesForBackendServer where
     type Sv SetLoadBalancerPoliciesForBackendServer = ELB

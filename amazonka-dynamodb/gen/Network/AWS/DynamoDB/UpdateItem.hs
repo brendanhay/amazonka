@@ -32,7 +32,7 @@ module Network.AWS.DynamoDB.UpdateItem
     -- * Request
       UpdateItem
     -- ** Request constructor
-    , mkUpdateItem
+    , updateItem
     -- ** Request lenses
     , uiTableName
     , uiKey
@@ -46,7 +46,7 @@ module Network.AWS.DynamoDB.UpdateItem
     -- * Response
     , UpdateItemResponse
     -- ** Response constructor
-    , mkUpdateItemResponse
+    , updateItemResponse
     -- ** Response lenses
     , uirAttributes
     , uirConsumedCapacity
@@ -90,10 +90,10 @@ data UpdateItem = UpdateItem
 --
 -- * @ReturnItemCollectionMetrics ::@ @Maybe ReturnItemCollectionMetrics@
 --
-mkUpdateItem :: Text -- ^ 'uiTableName'
+updateItem :: Text -- ^ 'uiTableName'
              -> Map Text AttributeValue -- ^ 'uiKey'
              -> UpdateItem
-mkUpdateItem p1 p2 = UpdateItem
+updateItem p1 p2 = UpdateItem
     { _uiTableName = p1
     , _uiKey = p2
     , _uiAttributeUpdates = mempty
@@ -262,8 +262,8 @@ data UpdateItemResponse = UpdateItemResponse
 --
 -- * @ItemCollectionMetrics ::@ @Maybe ItemCollectionMetrics@
 --
-mkUpdateItemResponse :: UpdateItemResponse
-mkUpdateItemResponse = UpdateItemResponse
+updateItemResponse :: UpdateItemResponse
+updateItemResponse = UpdateItemResponse
     { _uirAttributes = mempty
     , _uirConsumedCapacity = Nothing
     , _uirItemCollectionMetrics = Nothing

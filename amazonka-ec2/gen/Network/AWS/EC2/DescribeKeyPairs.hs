@@ -32,7 +32,7 @@ module Network.AWS.EC2.DescribeKeyPairs
     -- * Request
       DescribeKeyPairs
     -- ** Request constructor
-    , mkDescribeKeyPairs
+    , describeKeyPairs
     -- ** Request lenses
     , dkp1KeyNames
     , dkp1Filters
@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeKeyPairs
     -- * Response
     , DescribeKeyPairsResponse
     -- ** Response constructor
-    , mkDescribeKeyPairsResponse
+    , describeKeyPairsResponse
     -- ** Response lenses
     , dkprKeyPairs
     ) where
@@ -63,8 +63,8 @@ data DescribeKeyPairs = DescribeKeyPairs
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribeKeyPairs :: DescribeKeyPairs
-mkDescribeKeyPairs = DescribeKeyPairs
+describeKeyPairs :: DescribeKeyPairs
+describeKeyPairs = DescribeKeyPairs
     { _dkp1KeyNames = mempty
     , _dkp1Filters = mempty
     }
@@ -94,8 +94,8 @@ newtype DescribeKeyPairsResponse = DescribeKeyPairsResponse
 --
 -- * @KeyPairs ::@ @[KeyPairInfo]@
 --
-mkDescribeKeyPairsResponse :: DescribeKeyPairsResponse
-mkDescribeKeyPairsResponse = DescribeKeyPairsResponse
+describeKeyPairsResponse :: DescribeKeyPairsResponse
+describeKeyPairsResponse = DescribeKeyPairsResponse
     { _dkprKeyPairs = mempty
     }
 

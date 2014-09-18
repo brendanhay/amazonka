@@ -31,7 +31,7 @@ module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
     -- * Request
       DescribeCacheSubnetGroups
     -- ** Request constructor
-    , mkDescribeCacheSubnetGroups
+    , describeCacheSubnetGroups
     -- ** Request lenses
     , dcsg3CacheSubnetGroupName
     , dcsg3MaxRecords
@@ -40,7 +40,7 @@ module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
     -- * Response
     , DescribeCacheSubnetGroupsResponse
     -- ** Response constructor
-    , mkDescribeCacheSubnetGroupsResponse
+    , describeCacheSubnetGroupsResponse
     -- ** Response lenses
     , dcsgrrMarker
     , dcsgrrCacheSubnetGroups
@@ -68,8 +68,8 @@ data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeCacheSubnetGroups :: DescribeCacheSubnetGroups
-mkDescribeCacheSubnetGroups = DescribeCacheSubnetGroups
+describeCacheSubnetGroups :: DescribeCacheSubnetGroups
+describeCacheSubnetGroups = DescribeCacheSubnetGroups
     { _dcsg3CacheSubnetGroupName = Nothing
     , _dcsg3MaxRecords = Nothing
     , _dcsg3Marker = Nothing
@@ -115,8 +115,8 @@ data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
 --
 -- * @CacheSubnetGroups ::@ @[CacheSubnetGroup]@
 --
-mkDescribeCacheSubnetGroupsResponse :: DescribeCacheSubnetGroupsResponse
-mkDescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
+describeCacheSubnetGroupsResponse :: DescribeCacheSubnetGroupsResponse
+describeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
     { _dcsgrrMarker = Nothing
     , _dcsgrrCacheSubnetGroups = mempty
     }

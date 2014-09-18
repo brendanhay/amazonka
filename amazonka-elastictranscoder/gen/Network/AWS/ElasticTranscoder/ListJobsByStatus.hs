@@ -67,7 +67,7 @@ module Network.AWS.ElasticTranscoder.ListJobsByStatus
     -- * Request
       ListJobsByStatus
     -- ** Request constructor
-    , mkListJobsByStatus
+    , listJobsByStatus
     -- ** Request lenses
     , ljbsStatus
     , ljbsAscending
@@ -76,7 +76,7 @@ module Network.AWS.ElasticTranscoder.ListJobsByStatus
     -- * Response
     , ListJobsByStatusResponse
     -- ** Response constructor
-    , mkListJobsByStatusResponse
+    , listJobsByStatusResponse
     -- ** Response lenses
     , ljbsrJobs
     , ljbsrNextPageToken
@@ -104,9 +104,9 @@ data ListJobsByStatus = ListJobsByStatus
 --
 -- * @PageToken ::@ @Maybe Text@
 --
-mkListJobsByStatus :: Text -- ^ 'ljbsStatus'
+listJobsByStatus :: Text -- ^ 'ljbsStatus'
                    -> ListJobsByStatus
-mkListJobsByStatus p1 = ListJobsByStatus
+listJobsByStatus p1 = ListJobsByStatus
     { _ljbsStatus = p1
     , _ljbsAscending = Nothing
     , _ljbsPageToken = Nothing
@@ -155,8 +155,8 @@ data ListJobsByStatusResponse = ListJobsByStatusResponse
 --
 -- * @NextPageToken ::@ @Maybe Text@
 --
-mkListJobsByStatusResponse :: ListJobsByStatusResponse
-mkListJobsByStatusResponse = ListJobsByStatusResponse
+listJobsByStatusResponse :: ListJobsByStatusResponse
+listJobsByStatusResponse = ListJobsByStatusResponse
     { _ljbsrJobs = mempty
     , _ljbsrNextPageToken = Nothing
     }

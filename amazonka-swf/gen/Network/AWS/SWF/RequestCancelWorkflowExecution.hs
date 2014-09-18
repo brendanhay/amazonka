@@ -56,7 +56,7 @@ module Network.AWS.SWF.RequestCancelWorkflowExecution
     -- * Request
       RequestCancelWorkflowExecution
     -- ** Request constructor
-    , mkRequestCancelWorkflowExecution
+    , requestCancelWorkflowExecution
     -- ** Request lenses
     , rcweDomain
     , rcweWorkflowId
@@ -65,7 +65,7 @@ module Network.AWS.SWF.RequestCancelWorkflowExecution
     -- * Response
     , RequestCancelWorkflowExecutionResponse
     -- ** Response constructor
-    , mkRequestCancelWorkflowExecutionResponse
+    , requestCancelWorkflowExecutionResponse
     ) where
 
 import Network.AWS.SWF.Types
@@ -89,10 +89,10 @@ data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution
 --
 -- * @RunId ::@ @Maybe Text@
 --
-mkRequestCancelWorkflowExecution :: Text -- ^ 'rcweDomain'
+requestCancelWorkflowExecution :: Text -- ^ 'rcweDomain'
                                  -> Text -- ^ 'rcweWorkflowId'
                                  -> RequestCancelWorkflowExecution
-mkRequestCancelWorkflowExecution p1 p2 = RequestCancelWorkflowExecution
+requestCancelWorkflowExecution p1 p2 = RequestCancelWorkflowExecution
     { _rcweDomain = p1
     , _rcweWorkflowId = p2
     , _rcweRunId = Nothing
@@ -125,8 +125,8 @@ data RequestCancelWorkflowExecutionResponse = RequestCancelWorkflowExecutionResp
 -- a valid 'RequestCancelWorkflowExecutionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRequestCancelWorkflowExecutionResponse :: RequestCancelWorkflowExecutionResponse
-mkRequestCancelWorkflowExecutionResponse = RequestCancelWorkflowExecutionResponse
+requestCancelWorkflowExecutionResponse :: RequestCancelWorkflowExecutionResponse
+requestCancelWorkflowExecutionResponse = RequestCancelWorkflowExecutionResponse
 
 instance AWSRequest RequestCancelWorkflowExecution where
     type Sv RequestCancelWorkflowExecution = SWF

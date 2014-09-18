@@ -30,14 +30,14 @@ module Network.AWS.ElastiCache.DeleteCacheParameterGroup
     -- * Request
       DeleteCacheParameterGroup
     -- ** Request constructor
-    , mkDeleteCacheParameterGroup
+    , deleteCacheParameterGroup
     -- ** Request lenses
     , dcpgCacheParameterGroupName
 
     -- * Response
     , DeleteCacheParameterGroupResponse
     -- ** Response constructor
-    , mkDeleteCacheParameterGroupResponse
+    , deleteCacheParameterGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -56,9 +56,9 @@ newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup
 --
 -- * @CacheParameterGroupName ::@ @Text@
 --
-mkDeleteCacheParameterGroup :: Text -- ^ 'dcpgCacheParameterGroupName'
+deleteCacheParameterGroup :: Text -- ^ 'dcpgCacheParameterGroupName'
                             -> DeleteCacheParameterGroup
-mkDeleteCacheParameterGroup p1 = DeleteCacheParameterGroup
+deleteCacheParameterGroup p1 = DeleteCacheParameterGroup
     { _dcpgCacheParameterGroupName = p1
     }
 
@@ -79,8 +79,8 @@ data DeleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse
 -- a valid 'DeleteCacheParameterGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteCacheParameterGroupResponse :: DeleteCacheParameterGroupResponse
-mkDeleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse
+deleteCacheParameterGroupResponse :: DeleteCacheParameterGroupResponse
+deleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse
 
 instance AWSRequest DeleteCacheParameterGroup where
     type Sv DeleteCacheParameterGroup = ElastiCache

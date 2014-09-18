@@ -37,7 +37,7 @@ module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     -- * Request
       DisableAvailabilityZonesForLoadBalancer
     -- ** Request constructor
-    , mkDisableAvailabilityZonesForLoadBalancer
+    , disableAvailabilityZonesForLoadBalancer
     -- ** Request lenses
     , dazflbLoadBalancerName
     , dazflbAvailabilityZones
@@ -45,7 +45,7 @@ module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     -- * Response
     , DisableAvailabilityZonesForLoadBalancerResponse
     -- ** Response constructor
-    , mkDisableAvailabilityZonesForLoadBalancerResponse
+    , disableAvailabilityZonesForLoadBalancerResponse
     -- ** Response lenses
     , dazflbrAvailabilityZones
     ) where
@@ -69,10 +69,10 @@ data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBa
 --
 -- * @AvailabilityZones ::@ @[Text]@
 --
-mkDisableAvailabilityZonesForLoadBalancer :: Text -- ^ 'dazflbLoadBalancerName'
+disableAvailabilityZonesForLoadBalancer :: Text -- ^ 'dazflbLoadBalancerName'
                                           -> [Text] -- ^ 'dazflbAvailabilityZones'
                                           -> DisableAvailabilityZonesForLoadBalancer
-mkDisableAvailabilityZonesForLoadBalancer p1 p2 = DisableAvailabilityZonesForLoadBalancer
+disableAvailabilityZonesForLoadBalancer p1 p2 = DisableAvailabilityZonesForLoadBalancer
     { _dazflbLoadBalancerName = p1
     , _dazflbAvailabilityZones = p2
     }
@@ -107,8 +107,8 @@ newtype DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZon
 --
 -- * @AvailabilityZones ::@ @[Text]@
 --
-mkDisableAvailabilityZonesForLoadBalancerResponse :: DisableAvailabilityZonesForLoadBalancerResponse
-mkDisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse
+disableAvailabilityZonesForLoadBalancerResponse :: DisableAvailabilityZonesForLoadBalancerResponse
+disableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse
     { _dazflbrAvailabilityZones = mempty
     }
 

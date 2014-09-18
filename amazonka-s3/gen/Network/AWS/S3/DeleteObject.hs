@@ -25,7 +25,7 @@ module Network.AWS.S3.DeleteObject
     -- * Request
       DeleteObject
     -- ** Request constructor
-    , mkDeleteObject
+    , deleteObject
     -- ** Request lenses
     , doBucket
     , doKey
@@ -35,7 +35,7 @@ module Network.AWS.S3.DeleteObject
     -- * Response
     , DeleteObjectResponse
     -- ** Response constructor
-    , mkDeleteObjectResponse
+    , deleteObjectResponse
     -- ** Response lenses
     , dorDeleteMarker
     , dorVersionId
@@ -66,10 +66,10 @@ data DeleteObject = DeleteObject
 --
 -- * @VersionId ::@ @Maybe ObjectVersionId@
 --
-mkDeleteObject :: BucketName -- ^ 'doBucket'
+deleteObject :: BucketName -- ^ 'doBucket'
                -> ObjectKey -- ^ 'doKey'
                -> DeleteObject
-mkDeleteObject p1 p2 = DeleteObject
+deleteObject p1 p2 = DeleteObject
     { _doBucket = p1
     , _doKey = p2
     , _doMFA = Nothing
@@ -118,8 +118,8 @@ data DeleteObjectResponse = DeleteObjectResponse
 --
 -- * @VersionId ::@ @Maybe ObjectVersionId@
 --
-mkDeleteObjectResponse :: DeleteObjectResponse
-mkDeleteObjectResponse = DeleteObjectResponse
+deleteObjectResponse :: DeleteObjectResponse
+deleteObjectResponse = DeleteObjectResponse
     { _dorDeleteMarker = Nothing
     , _dorVersionId = Nothing
     }

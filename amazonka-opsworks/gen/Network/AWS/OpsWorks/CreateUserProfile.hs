@@ -25,7 +25,7 @@ module Network.AWS.OpsWorks.CreateUserProfile
     -- * Request
       CreateUserProfile
     -- ** Request constructor
-    , mkCreateUserProfile
+    , createUserProfile
     -- ** Request lenses
     , cupIamUserArn
     , cupSshUsername
@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.CreateUserProfile
     -- * Response
     , CreateUserProfileResponse
     -- ** Response constructor
-    , mkCreateUserProfileResponse
+    , createUserProfileResponse
     -- ** Response lenses
     , cuprIamUserArn
     ) where
@@ -64,9 +64,9 @@ data CreateUserProfile = CreateUserProfile
 --
 -- * @AllowSelfManagement ::@ @Maybe Bool@
 --
-mkCreateUserProfile :: Text -- ^ 'cupIamUserArn'
+createUserProfile :: Text -- ^ 'cupIamUserArn'
                     -> CreateUserProfile
-mkCreateUserProfile p1 = CreateUserProfile
+createUserProfile p1 = CreateUserProfile
     { _cupIamUserArn = p1
     , _cupSshUsername = Nothing
     , _cupSshPublicKey = Nothing
@@ -117,8 +117,8 @@ newtype CreateUserProfileResponse = CreateUserProfileResponse
 --
 -- * @IamUserArn ::@ @Maybe Text@
 --
-mkCreateUserProfileResponse :: CreateUserProfileResponse
-mkCreateUserProfileResponse = CreateUserProfileResponse
+createUserProfileResponse :: CreateUserProfileResponse
+createUserProfileResponse = CreateUserProfileResponse
     { _cuprIamUserArn = Nothing
     }
 

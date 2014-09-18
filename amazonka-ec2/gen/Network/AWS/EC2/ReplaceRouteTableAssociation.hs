@@ -36,7 +36,7 @@ module Network.AWS.EC2.ReplaceRouteTableAssociation
     -- * Request
       ReplaceRouteTableAssociation
     -- ** Request constructor
-    , mkReplaceRouteTableAssociation
+    , replaceRouteTableAssociation
     -- ** Request lenses
     , rrtaAssociationId
     , rrtaRouteTableId
@@ -44,7 +44,7 @@ module Network.AWS.EC2.ReplaceRouteTableAssociation
     -- * Response
     , ReplaceRouteTableAssociationResponse
     -- ** Response constructor
-    , mkReplaceRouteTableAssociationResponse
+    , replaceRouteTableAssociationResponse
     -- ** Response lenses
     , rrtarNewAssociationId
     ) where
@@ -67,10 +67,10 @@ data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
 --
 -- * @RouteTableId ::@ @Text@
 --
-mkReplaceRouteTableAssociation :: Text -- ^ 'rrtaAssociationId'
+replaceRouteTableAssociation :: Text -- ^ 'rrtaAssociationId'
                                -> Text -- ^ 'rrtaRouteTableId'
                                -> ReplaceRouteTableAssociation
-mkReplaceRouteTableAssociation p1 p2 = ReplaceRouteTableAssociation
+replaceRouteTableAssociation p1 p2 = ReplaceRouteTableAssociation
     { _rrtaAssociationId = p1
     , _rrtaRouteTableId = p2
     }
@@ -101,8 +101,8 @@ newtype ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationRespo
 --
 -- * @NewAssociationId ::@ @Maybe Text@
 --
-mkReplaceRouteTableAssociationResponse :: ReplaceRouteTableAssociationResponse
-mkReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
+replaceRouteTableAssociationResponse :: ReplaceRouteTableAssociationResponse
+replaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
     { _rrtarNewAssociationId = Nothing
     }
 

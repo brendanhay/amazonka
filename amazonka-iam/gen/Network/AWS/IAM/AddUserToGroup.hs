@@ -25,7 +25,7 @@ module Network.AWS.IAM.AddUserToGroup
     -- * Request
       AddUserToGroup
     -- ** Request constructor
-    , mkAddUserToGroup
+    , addUserToGroup
     -- ** Request lenses
     , autgGroupName
     , autgUserName
@@ -33,7 +33,7 @@ module Network.AWS.IAM.AddUserToGroup
     -- * Response
     , AddUserToGroupResponse
     -- ** Response constructor
-    , mkAddUserToGroupResponse
+    , addUserToGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -54,10 +54,10 @@ data AddUserToGroup = AddUserToGroup
 --
 -- * @UserName ::@ @Text@
 --
-mkAddUserToGroup :: Text -- ^ 'autgGroupName'
+addUserToGroup :: Text -- ^ 'autgGroupName'
                  -> Text -- ^ 'autgUserName'
                  -> AddUserToGroup
-mkAddUserToGroup p1 p2 = AddUserToGroup
+addUserToGroup p1 p2 = AddUserToGroup
     { _autgGroupName = p1
     , _autgUserName = p2
     }
@@ -80,8 +80,8 @@ data AddUserToGroupResponse = AddUserToGroupResponse
 -- a valid 'AddUserToGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkAddUserToGroupResponse :: AddUserToGroupResponse
-mkAddUserToGroupResponse = AddUserToGroupResponse
+addUserToGroupResponse :: AddUserToGroupResponse
+addUserToGroupResponse = AddUserToGroupResponse
 
 instance AWSRequest AddUserToGroup where
     type Sv AddUserToGroup = IAM

@@ -37,14 +37,14 @@ module Network.AWS.SES.GetIdentityVerificationAttributes
     -- * Request
       GetIdentityVerificationAttributes
     -- ** Request constructor
-    , mkGetIdentityVerificationAttributes
+    , getIdentityVerificationAttributes
     -- ** Request lenses
     , givaIdentities
 
     -- * Response
     , GetIdentityVerificationAttributesResponse
     -- ** Response constructor
-    , mkGetIdentityVerificationAttributesResponse
+    , getIdentityVerificationAttributesResponse
     -- ** Response lenses
     , givarVerificationAttributes
     ) where
@@ -66,9 +66,9 @@ newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes
 --
 -- * @Identities ::@ @[Text]@
 --
-mkGetIdentityVerificationAttributes :: [Text] -- ^ 'givaIdentities'
+getIdentityVerificationAttributes :: [Text] -- ^ 'givaIdentities'
                                     -> GetIdentityVerificationAttributes
-mkGetIdentityVerificationAttributes p1 = GetIdentityVerificationAttributes
+getIdentityVerificationAttributes p1 = GetIdentityVerificationAttributes
     { _givaIdentities = p1
     }
 
@@ -93,9 +93,9 @@ newtype GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttri
 --
 -- * @VerificationAttributes ::@ @Map Text IdentityVerificationAttributes@
 --
-mkGetIdentityVerificationAttributesResponse :: Map Text IdentityVerificationAttributes -- ^ 'givarVerificationAttributes'
+getIdentityVerificationAttributesResponse :: Map Text IdentityVerificationAttributes -- ^ 'givarVerificationAttributes'
                                             -> GetIdentityVerificationAttributesResponse
-mkGetIdentityVerificationAttributesResponse p1 = GetIdentityVerificationAttributesResponse
+getIdentityVerificationAttributesResponse p1 = GetIdentityVerificationAttributesResponse
     { _givarVerificationAttributes = p1
     }
 

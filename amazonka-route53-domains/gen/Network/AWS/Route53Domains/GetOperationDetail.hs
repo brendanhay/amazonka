@@ -40,14 +40,14 @@ module Network.AWS.Route53Domains.GetOperationDetail
     -- * Request
       GetOperationDetail
     -- ** Request constructor
-    , mkGetOperationDetail
+    , getOperationDetail
     -- ** Request lenses
     , godOperationId
 
     -- * Response
     , GetOperationDetailResponse
     -- ** Response constructor
-    , mkGetOperationDetailResponse
+    , getOperationDetailResponse
     -- ** Response lenses
     , godrOperationId
     , godrStatus
@@ -73,9 +73,9 @@ newtype GetOperationDetail = GetOperationDetail
 --
 -- * @OperationId ::@ @Text@
 --
-mkGetOperationDetail :: Text -- ^ 'godOperationId'
+getOperationDetail :: Text -- ^ 'godOperationId'
                      -> GetOperationDetail
-mkGetOperationDetail p1 = GetOperationDetail
+getOperationDetail p1 = GetOperationDetail
     { _godOperationId = p1
     }
 
@@ -122,8 +122,8 @@ data GetOperationDetailResponse = GetOperationDetailResponse
 --
 -- * @SubmittedDate ::@ @Maybe ISO8601@
 --
-mkGetOperationDetailResponse :: GetOperationDetailResponse
-mkGetOperationDetailResponse = GetOperationDetailResponse
+getOperationDetailResponse :: GetOperationDetailResponse
+getOperationDetailResponse = GetOperationDetailResponse
     { _godrOperationId = Nothing
     , _godrStatus = Nothing
     , _godrMessage = Nothing

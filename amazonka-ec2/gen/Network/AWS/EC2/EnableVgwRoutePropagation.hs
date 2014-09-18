@@ -31,7 +31,7 @@ module Network.AWS.EC2.EnableVgwRoutePropagation
     -- * Request
       EnableVgwRoutePropagation
     -- ** Request constructor
-    , mkEnableVgwRoutePropagation
+    , enableVgwRoutePropagation
     -- ** Request lenses
     , evrpRouteTableId
     , evrpGatewayId
@@ -39,7 +39,7 @@ module Network.AWS.EC2.EnableVgwRoutePropagation
     -- * Response
     , EnableVgwRoutePropagationResponse
     -- ** Response constructor
-    , mkEnableVgwRoutePropagationResponse
+    , enableVgwRoutePropagationResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -60,10 +60,10 @@ data EnableVgwRoutePropagation = EnableVgwRoutePropagation
 --
 -- * @GatewayId ::@ @Text@
 --
-mkEnableVgwRoutePropagation :: Text -- ^ 'evrpRouteTableId'
+enableVgwRoutePropagation :: Text -- ^ 'evrpRouteTableId'
                             -> Text -- ^ 'evrpGatewayId'
                             -> EnableVgwRoutePropagation
-mkEnableVgwRoutePropagation p1 p2 = EnableVgwRoutePropagation
+enableVgwRoutePropagation p1 p2 = EnableVgwRoutePropagation
     { _evrpRouteTableId = p1
     , _evrpGatewayId = p2
     }
@@ -87,8 +87,8 @@ data EnableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
 -- a valid 'EnableVgwRoutePropagationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkEnableVgwRoutePropagationResponse :: EnableVgwRoutePropagationResponse
-mkEnableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
+enableVgwRoutePropagationResponse :: EnableVgwRoutePropagationResponse
+enableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
 
 instance AWSRequest EnableVgwRoutePropagation where
     type Sv EnableVgwRoutePropagation = EC2

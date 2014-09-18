@@ -32,7 +32,7 @@ module Network.AWS.DataPipeline.CreatePipeline
     -- * Request
       CreatePipeline
     -- ** Request constructor
-    , mkCreatePipeline
+    , createPipeline
     -- ** Request lenses
     , cpName
     , cpUniqueId
@@ -41,7 +41,7 @@ module Network.AWS.DataPipeline.CreatePipeline
     -- * Response
     , CreatePipelineResponse
     -- ** Response constructor
-    , mkCreatePipelineResponse
+    , createPipelineResponse
     -- ** Response lenses
     , cprPipelineId
     ) where
@@ -68,10 +68,10 @@ data CreatePipeline = CreatePipeline
 --
 -- * @Description ::@ @Maybe Text@
 --
-mkCreatePipeline :: Text -- ^ 'cpName'
+createPipeline :: Text -- ^ 'cpName'
                  -> Text -- ^ 'cpUniqueId'
                  -> CreatePipeline
-mkCreatePipeline p1 p2 = CreatePipeline
+createPipeline p1 p2 = CreatePipeline
     { _cpName = p1
     , _cpUniqueId = p2
     , _cpDescription = Nothing
@@ -124,9 +124,9 @@ newtype CreatePipelineResponse = CreatePipelineResponse
 --
 -- * @PipelineId ::@ @Text@
 --
-mkCreatePipelineResponse :: Text -- ^ 'cprPipelineId'
+createPipelineResponse :: Text -- ^ 'cprPipelineId'
                          -> CreatePipelineResponse
-mkCreatePipelineResponse p1 = CreatePipelineResponse
+createPipelineResponse p1 = CreatePipelineResponse
     { _cprPipelineId = p1
     }
 

@@ -29,7 +29,6 @@ library
 
     exposed-modules:
           Network.AWS.DataPipeline
-        , Network.AWS.DataPipeline.Monadic
         , Network.AWS.DataPipeline.Types
         , Network.AWS.DataPipeline.ActivatePipeline
         , Network.AWS.DataPipeline.CreatePipeline

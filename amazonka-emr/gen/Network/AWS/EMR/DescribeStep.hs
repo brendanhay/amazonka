@@ -23,7 +23,7 @@ module Network.AWS.EMR.DescribeStep
     -- * Request
       DescribeStep
     -- ** Request constructor
-    , mkDescribeStep
+    , describeStep
     -- ** Request lenses
     , dsClusterId
     , dsStepId
@@ -31,7 +31,7 @@ module Network.AWS.EMR.DescribeStep
     -- * Response
     , DescribeStepResponse
     -- ** Response constructor
-    , mkDescribeStepResponse
+    , describeStepResponse
     -- ** Response lenses
     , dsrStep
     ) where
@@ -55,10 +55,10 @@ data DescribeStep = DescribeStep
 --
 -- * @StepId ::@ @Text@
 --
-mkDescribeStep :: Text -- ^ 'dsClusterId'
+describeStep :: Text -- ^ 'dsClusterId'
                -> Text -- ^ 'dsStepId'
                -> DescribeStep
-mkDescribeStep p1 p2 = DescribeStep
+describeStep p1 p2 = DescribeStep
     { _dsClusterId = p1
     , _dsStepId = p2
     }
@@ -93,8 +93,8 @@ newtype DescribeStepResponse = DescribeStepResponse
 --
 -- * @Step ::@ @Maybe Step@
 --
-mkDescribeStepResponse :: DescribeStepResponse
-mkDescribeStepResponse = DescribeStepResponse
+describeStepResponse :: DescribeStepResponse
+describeStepResponse = DescribeStepResponse
     { _dsrStep = Nothing
     }
 

@@ -33,7 +33,7 @@ module Network.AWS.EC2.DescribeRouteTables
     -- * Request
       DescribeRouteTables
     -- ** Request constructor
-    , mkDescribeRouteTables
+    , describeRouteTables
     -- ** Request lenses
     , drt1RouteTableIds
     , drt1Filters
@@ -41,7 +41,7 @@ module Network.AWS.EC2.DescribeRouteTables
     -- * Response
     , DescribeRouteTablesResponse
     -- ** Response constructor
-    , mkDescribeRouteTablesResponse
+    , describeRouteTablesResponse
     -- ** Response lenses
     , drtrRouteTables
     ) where
@@ -64,8 +64,8 @@ data DescribeRouteTables = DescribeRouteTables
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribeRouteTables :: DescribeRouteTables
-mkDescribeRouteTables = DescribeRouteTables
+describeRouteTables :: DescribeRouteTables
+describeRouteTables = DescribeRouteTables
     { _drt1RouteTableIds = mempty
     , _drt1Filters = mempty
     }
@@ -119,8 +119,8 @@ newtype DescribeRouteTablesResponse = DescribeRouteTablesResponse
 --
 -- * @RouteTables ::@ @[RouteTable]@
 --
-mkDescribeRouteTablesResponse :: DescribeRouteTablesResponse
-mkDescribeRouteTablesResponse = DescribeRouteTablesResponse
+describeRouteTablesResponse :: DescribeRouteTablesResponse
+describeRouteTablesResponse = DescribeRouteTablesResponse
     { _drtrRouteTables = mempty
     }
 

@@ -31,7 +31,7 @@ module Network.AWS.CognitoIdentity.GetOpenIdToken
     -- * Request
       GetOpenIdToken
     -- ** Request constructor
-    , mkGetOpenIdToken
+    , getOpenIdToken
     -- ** Request lenses
     , goitIdentityId
     , goitLogins
@@ -39,7 +39,7 @@ module Network.AWS.CognitoIdentity.GetOpenIdToken
     -- * Response
     , GetOpenIdTokenResponse
     -- ** Response constructor
-    , mkGetOpenIdTokenResponse
+    , getOpenIdTokenResponse
     -- ** Response lenses
     , goitrIdentityId
     , goitrToken
@@ -64,9 +64,9 @@ data GetOpenIdToken = GetOpenIdToken
 --
 -- * @Logins ::@ @Map Text Text@
 --
-mkGetOpenIdToken :: Text -- ^ 'goitIdentityId'
+getOpenIdToken :: Text -- ^ 'goitIdentityId'
                  -> GetOpenIdToken
-mkGetOpenIdToken p1 = GetOpenIdToken
+getOpenIdToken p1 = GetOpenIdToken
     { _goitIdentityId = p1
     , _goitLogins = mempty
     }
@@ -105,8 +105,8 @@ data GetOpenIdTokenResponse = GetOpenIdTokenResponse
 --
 -- * @Token ::@ @Maybe Text@
 --
-mkGetOpenIdTokenResponse :: GetOpenIdTokenResponse
-mkGetOpenIdTokenResponse = GetOpenIdTokenResponse
+getOpenIdTokenResponse :: GetOpenIdTokenResponse
+getOpenIdTokenResponse = GetOpenIdTokenResponse
     { _goitrIdentityId = Nothing
     , _goitrToken = Nothing
     }

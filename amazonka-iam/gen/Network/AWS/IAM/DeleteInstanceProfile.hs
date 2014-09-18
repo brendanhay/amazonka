@@ -31,14 +31,14 @@ module Network.AWS.IAM.DeleteInstanceProfile
     -- * Request
       DeleteInstanceProfile
     -- ** Request constructor
-    , mkDeleteInstanceProfile
+    , deleteInstanceProfile
     -- ** Request lenses
     , dipInstanceProfileName
 
     -- * Response
     , DeleteInstanceProfileResponse
     -- ** Response constructor
-    , mkDeleteInstanceProfileResponse
+    , deleteInstanceProfileResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -56,9 +56,9 @@ newtype DeleteInstanceProfile = DeleteInstanceProfile
 --
 -- * @InstanceProfileName ::@ @Text@
 --
-mkDeleteInstanceProfile :: Text -- ^ 'dipInstanceProfileName'
+deleteInstanceProfile :: Text -- ^ 'dipInstanceProfileName'
                         -> DeleteInstanceProfile
-mkDeleteInstanceProfile p1 = DeleteInstanceProfile
+deleteInstanceProfile p1 = DeleteInstanceProfile
     { _dipInstanceProfileName = p1
     }
 
@@ -77,8 +77,8 @@ data DeleteInstanceProfileResponse = DeleteInstanceProfileResponse
 -- a valid 'DeleteInstanceProfileResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteInstanceProfileResponse :: DeleteInstanceProfileResponse
-mkDeleteInstanceProfileResponse = DeleteInstanceProfileResponse
+deleteInstanceProfileResponse :: DeleteInstanceProfileResponse
+deleteInstanceProfileResponse = DeleteInstanceProfileResponse
 
 instance AWSRequest DeleteInstanceProfile where
     type Sv DeleteInstanceProfile = IAM

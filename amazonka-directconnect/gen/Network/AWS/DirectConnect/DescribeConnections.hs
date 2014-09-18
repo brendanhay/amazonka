@@ -24,14 +24,14 @@ module Network.AWS.DirectConnect.DescribeConnections
     -- * Request
       DescribeConnections
     -- ** Request constructor
-    , mkDescribeConnections
+    , describeConnections
     -- ** Request lenses
     , dc1ConnectionId
 
     -- * Response
     , DescribeConnectionsResponse
     -- ** Response constructor
-    , mkDescribeConnectionsResponse
+    , describeConnectionsResponse
     -- ** Response lenses
     , dcrrConnections
     ) where
@@ -52,8 +52,8 @@ newtype DescribeConnections = DescribeConnections
 --
 -- * @ConnectionId ::@ @Maybe Text@
 --
-mkDescribeConnections :: DescribeConnections
-mkDescribeConnections = DescribeConnections
+describeConnections :: DescribeConnections
+describeConnections = DescribeConnections
     { _dc1ConnectionId = Nothing
     }
 
@@ -83,8 +83,8 @@ newtype DescribeConnectionsResponse = DescribeConnectionsResponse
 --
 -- * @Connections ::@ @[Connection]@
 --
-mkDescribeConnectionsResponse :: DescribeConnectionsResponse
-mkDescribeConnectionsResponse = DescribeConnectionsResponse
+describeConnectionsResponse :: DescribeConnectionsResponse
+describeConnectionsResponse = DescribeConnectionsResponse
     { _dcrrConnections = mempty
     }
 

@@ -46,7 +46,7 @@ module Network.AWS.EC2.CreateSubnet
     -- * Request
       CreateSubnet
     -- ** Request constructor
-    , mkCreateSubnet
+    , createSubnet
     -- ** Request lenses
     , cs2VpcId
     , cs2CidrBlock
@@ -55,7 +55,7 @@ module Network.AWS.EC2.CreateSubnet
     -- * Response
     , CreateSubnetResponse
     -- ** Response constructor
-    , mkCreateSubnetResponse
+    , createSubnetResponse
     -- ** Response lenses
     , csr1Subnet
     ) where
@@ -81,10 +81,10 @@ data CreateSubnet = CreateSubnet
 --
 -- * @AvailabilityZone ::@ @Maybe Text@
 --
-mkCreateSubnet :: Text -- ^ 'cs2VpcId'
+createSubnet :: Text -- ^ 'cs2VpcId'
                -> Text -- ^ 'cs2CidrBlock'
                -> CreateSubnet
-mkCreateSubnet p1 p2 = CreateSubnet
+createSubnet p1 p2 = CreateSubnet
     { _cs2VpcId = p1
     , _cs2CidrBlock = p2
     , _cs2AvailabilityZone = Nothing
@@ -121,8 +121,8 @@ newtype CreateSubnetResponse = CreateSubnetResponse
 --
 -- * @Subnet ::@ @Maybe Subnet@
 --
-mkCreateSubnetResponse :: CreateSubnetResponse
-mkCreateSubnetResponse = CreateSubnetResponse
+createSubnetResponse :: CreateSubnetResponse
+createSubnetResponse = CreateSubnetResponse
     { _csr1Subnet = Nothing
     }
 

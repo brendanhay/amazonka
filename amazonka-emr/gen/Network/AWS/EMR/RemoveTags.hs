@@ -38,7 +38,7 @@ module Network.AWS.EMR.RemoveTags
     -- * Request
       RemoveTags
     -- ** Request constructor
-    , mkRemoveTags
+    , removeTags
     -- ** Request lenses
     , rtResourceId
     , rtTagKeys
@@ -46,7 +46,7 @@ module Network.AWS.EMR.RemoveTags
     -- * Response
     , RemoveTagsResponse
     -- ** Response constructor
-    , mkRemoveTagsResponse
+    , removeTagsResponse
     ) where
 
 import Network.AWS.EMR.Types
@@ -68,10 +68,10 @@ data RemoveTags = RemoveTags
 --
 -- * @TagKeys ::@ @[Text]@
 --
-mkRemoveTags :: Text -- ^ 'rtResourceId'
+removeTags :: Text -- ^ 'rtResourceId'
              -> [Text] -- ^ 'rtTagKeys'
              -> RemoveTags
-mkRemoveTags p1 p2 = RemoveTags
+removeTags p1 p2 = RemoveTags
     { _rtResourceId = p1
     , _rtTagKeys = p2
     }
@@ -101,8 +101,8 @@ data RemoveTagsResponse = RemoveTagsResponse
 -- a valid 'RemoveTagsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRemoveTagsResponse :: RemoveTagsResponse
-mkRemoveTagsResponse = RemoveTagsResponse
+removeTagsResponse :: RemoveTagsResponse
+removeTagsResponse = RemoveTagsResponse
 
 instance AWSRequest RemoveTags where
     type Sv RemoveTags = EMR

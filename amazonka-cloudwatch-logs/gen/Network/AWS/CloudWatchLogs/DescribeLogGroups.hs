@@ -43,7 +43,7 @@ module Network.AWS.CloudWatchLogs.DescribeLogGroups
     -- * Request
       DescribeLogGroups
     -- ** Request constructor
-    , mkDescribeLogGroups
+    , describeLogGroups
     -- ** Request lenses
     , dlg1LogGroupNamePrefix
     , dlg1NextToken
@@ -52,7 +52,7 @@ module Network.AWS.CloudWatchLogs.DescribeLogGroups
     -- * Response
     , DescribeLogGroupsResponse
     -- ** Response constructor
-    , mkDescribeLogGroupsResponse
+    , describeLogGroupsResponse
     -- ** Response lenses
     , dlgrLogGroups
     , dlgrNextToken
@@ -79,8 +79,8 @@ data DescribeLogGroups = DescribeLogGroups
 --
 -- * @Limit ::@ @Maybe Integer@
 --
-mkDescribeLogGroups :: DescribeLogGroups
-mkDescribeLogGroups = DescribeLogGroups
+describeLogGroups :: DescribeLogGroups
+describeLogGroups = DescribeLogGroups
     { _dlg1LogGroupNamePrefix = Nothing
     , _dlg1NextToken = Nothing
     , _dlg1Limit = Nothing
@@ -125,8 +125,8 @@ data DescribeLogGroupsResponse = DescribeLogGroupsResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeLogGroupsResponse :: DescribeLogGroupsResponse
-mkDescribeLogGroupsResponse = DescribeLogGroupsResponse
+describeLogGroupsResponse :: DescribeLogGroupsResponse
+describeLogGroupsResponse = DescribeLogGroupsResponse
     { _dlgrLogGroups = mempty
     , _dlgrNextToken = Nothing
     }

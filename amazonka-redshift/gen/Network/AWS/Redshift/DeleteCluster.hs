@@ -40,7 +40,7 @@ module Network.AWS.Redshift.DeleteCluster
     -- * Request
       DeleteCluster
     -- ** Request constructor
-    , mkDeleteCluster
+    , deleteCluster
     -- ** Request lenses
     , dcClusterIdentifier
     , dcSkipFinalClusterSnapshot
@@ -49,7 +49,7 @@ module Network.AWS.Redshift.DeleteCluster
     -- * Response
     , DeleteClusterResponse
     -- ** Response constructor
-    , mkDeleteClusterResponse
+    , deleteClusterResponse
     -- ** Response lenses
     , dcrCluster
     ) where
@@ -76,9 +76,9 @@ data DeleteCluster = DeleteCluster
 --
 -- * @FinalClusterSnapshotIdentifier ::@ @Maybe Text@
 --
-mkDeleteCluster :: Text -- ^ 'dcClusterIdentifier'
+deleteCluster :: Text -- ^ 'dcClusterIdentifier'
                 -> DeleteCluster
-mkDeleteCluster p1 = DeleteCluster
+deleteCluster p1 = DeleteCluster
     { _dcClusterIdentifier = p1
     , _dcSkipFinalClusterSnapshot = Nothing
     , _dcFinalClusterSnapshotIdentifier = Nothing
@@ -128,8 +128,8 @@ newtype DeleteClusterResponse = DeleteClusterResponse
 --
 -- * @Cluster ::@ @Maybe Cluster@
 --
-mkDeleteClusterResponse :: DeleteClusterResponse
-mkDeleteClusterResponse = DeleteClusterResponse
+deleteClusterResponse :: DeleteClusterResponse
+deleteClusterResponse = DeleteClusterResponse
     { _dcrCluster = Nothing
     }
 

@@ -46,14 +46,14 @@ module Network.AWS.StorageGateway.DeleteVolume
     -- * Request
       DeleteVolume
     -- ** Request constructor
-    , mkDeleteVolume
+    , deleteVolume
     -- ** Request lenses
     , dvVolumeARN
 
     -- * Response
     , DeleteVolumeResponse
     -- ** Response constructor
-    , mkDeleteVolumeResponse
+    , deleteVolumeResponse
     -- ** Response lenses
     , dvrVolumeARN
     ) where
@@ -74,9 +74,9 @@ newtype DeleteVolume = DeleteVolume
 --
 -- * @VolumeARN ::@ @Text@
 --
-mkDeleteVolume :: Text -- ^ 'dvVolumeARN'
+deleteVolume :: Text -- ^ 'dvVolumeARN'
                -> DeleteVolume
-mkDeleteVolume p1 = DeleteVolume
+deleteVolume p1 = DeleteVolume
     { _dvVolumeARN = p1
     }
 
@@ -107,8 +107,8 @@ newtype DeleteVolumeResponse = DeleteVolumeResponse
 --
 -- * @VolumeARN ::@ @Maybe Text@
 --
-mkDeleteVolumeResponse :: DeleteVolumeResponse
-mkDeleteVolumeResponse = DeleteVolumeResponse
+deleteVolumeResponse :: DeleteVolumeResponse
+deleteVolumeResponse = DeleteVolumeResponse
     { _dvrVolumeARN = Nothing
     }
 

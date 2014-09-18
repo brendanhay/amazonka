@@ -24,14 +24,14 @@ module Network.AWS.S3.HeadBucket
     -- * Request
       HeadBucket
     -- ** Request constructor
-    , mkHeadBucket
+    , headBucket
     -- ** Request lenses
     , hbBucket
 
     -- * Response
     , HeadBucketResponse
     -- ** Response constructor
-    , mkHeadBucketResponse
+    , headBucketResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -50,9 +50,9 @@ newtype HeadBucket = HeadBucket
 --
 -- * @Bucket ::@ @BucketName@
 --
-mkHeadBucket :: BucketName -- ^ 'hbBucket'
+headBucket :: BucketName -- ^ 'hbBucket'
              -> HeadBucket
-mkHeadBucket p1 = HeadBucket
+headBucket p1 = HeadBucket
     { _hbBucket = p1
     }
 
@@ -74,8 +74,8 @@ data HeadBucketResponse = HeadBucketResponse
 -- a valid 'HeadBucketResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkHeadBucketResponse :: HeadBucketResponse
-mkHeadBucketResponse = HeadBucketResponse
+headBucketResponse :: HeadBucketResponse
+headBucketResponse = HeadBucketResponse
 
 instance AWSRequest HeadBucket where
     type Sv HeadBucket = S3

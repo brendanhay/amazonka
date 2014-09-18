@@ -59,7 +59,7 @@ module Network.AWS.SWF.RespondActivityTaskCompleted
     -- * Request
       RespondActivityTaskCompleted
     -- ** Request constructor
-    , mkRespondActivityTaskCompleted
+    , respondActivityTaskCompleted
     -- ** Request lenses
     , ratc1TaskToken
     , ratc1Result
@@ -67,7 +67,7 @@ module Network.AWS.SWF.RespondActivityTaskCompleted
     -- * Response
     , RespondActivityTaskCompletedResponse
     -- ** Response constructor
-    , mkRespondActivityTaskCompletedResponse
+    , respondActivityTaskCompletedResponse
     ) where
 
 import Network.AWS.SWF.Types
@@ -88,9 +88,9 @@ data RespondActivityTaskCompleted = RespondActivityTaskCompleted
 --
 -- * @Result ::@ @Maybe Text@
 --
-mkRespondActivityTaskCompleted :: Text -- ^ 'ratc1TaskToken'
+respondActivityTaskCompleted :: Text -- ^ 'ratc1TaskToken'
                                -> RespondActivityTaskCompleted
-mkRespondActivityTaskCompleted p1 = RespondActivityTaskCompleted
+respondActivityTaskCompleted p1 = RespondActivityTaskCompleted
     { _ratc1TaskToken = p1
     , _ratc1Result = Nothing
     }
@@ -122,8 +122,8 @@ data RespondActivityTaskCompletedResponse = RespondActivityTaskCompletedResponse
 -- a valid 'RespondActivityTaskCompletedResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRespondActivityTaskCompletedResponse :: RespondActivityTaskCompletedResponse
-mkRespondActivityTaskCompletedResponse = RespondActivityTaskCompletedResponse
+respondActivityTaskCompletedResponse :: RespondActivityTaskCompletedResponse
+respondActivityTaskCompletedResponse = RespondActivityTaskCompletedResponse
 
 instance AWSRequest RespondActivityTaskCompleted where
     type Sv RespondActivityTaskCompleted = SWF

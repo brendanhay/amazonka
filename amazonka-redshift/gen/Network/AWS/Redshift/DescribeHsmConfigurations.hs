@@ -25,7 +25,7 @@ module Network.AWS.Redshift.DescribeHsmConfigurations
     -- * Request
       DescribeHsmConfigurations
     -- ** Request constructor
-    , mkDescribeHsmConfigurations
+    , describeHsmConfigurations
     -- ** Request lenses
     , dhc1HsmConfigurationIdentifier
     , dhc1MaxRecords
@@ -34,7 +34,7 @@ module Network.AWS.Redshift.DescribeHsmConfigurations
     -- * Response
     , DescribeHsmConfigurationsResponse
     -- ** Response constructor
-    , mkDescribeHsmConfigurationsResponse
+    , describeHsmConfigurationsResponse
     -- ** Response lenses
     , dhcrMarker
     , dhcrHsmConfigurations
@@ -62,8 +62,8 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeHsmConfigurations :: DescribeHsmConfigurations
-mkDescribeHsmConfigurations = DescribeHsmConfigurations
+describeHsmConfigurations :: DescribeHsmConfigurations
+describeHsmConfigurations = DescribeHsmConfigurations
     { _dhc1HsmConfigurationIdentifier = Nothing
     , _dhc1MaxRecords = Nothing
     , _dhc1Marker = Nothing
@@ -114,8 +114,8 @@ data DescribeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
 --
 -- * @HsmConfigurations ::@ @[HsmConfiguration]@
 --
-mkDescribeHsmConfigurationsResponse :: DescribeHsmConfigurationsResponse
-mkDescribeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
+describeHsmConfigurationsResponse :: DescribeHsmConfigurationsResponse
+describeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
     { _dhcrMarker = Nothing
     , _dhcrHsmConfigurations = mempty
     }

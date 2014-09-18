@@ -34,7 +34,7 @@ module Network.AWS.AutoScaling.CreateAutoScalingGroup
     -- * Request
       CreateAutoScalingGroup
     -- ** Request constructor
-    , mkCreateAutoScalingGroup
+    , createAutoScalingGroup
     -- ** Request lenses
     , casgAutoScalingGroupName
     , casgLaunchConfigurationName
@@ -55,7 +55,7 @@ module Network.AWS.AutoScaling.CreateAutoScalingGroup
     -- * Response
     , CreateAutoScalingGroupResponse
     -- ** Response constructor
-    , mkCreateAutoScalingGroupResponse
+    , createAutoScalingGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -116,11 +116,11 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkCreateAutoScalingGroup :: Text -- ^ 'casgAutoScalingGroupName'
+createAutoScalingGroup :: Text -- ^ 'casgAutoScalingGroupName'
                          -> Integer -- ^ 'casgMinSize'
                          -> Integer -- ^ 'casgMaxSize'
                          -> CreateAutoScalingGroup
-mkCreateAutoScalingGroup p1 p4 p5 = CreateAutoScalingGroup
+createAutoScalingGroup p1 p4 p5 = CreateAutoScalingGroup
     { _casgAutoScalingGroupName = p1
     , _casgLaunchConfigurationName = Nothing
     , _casgInstanceId = Nothing
@@ -269,8 +269,8 @@ data CreateAutoScalingGroupResponse = CreateAutoScalingGroupResponse
 -- a valid 'CreateAutoScalingGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkCreateAutoScalingGroupResponse :: CreateAutoScalingGroupResponse
-mkCreateAutoScalingGroupResponse = CreateAutoScalingGroupResponse
+createAutoScalingGroupResponse :: CreateAutoScalingGroupResponse
+createAutoScalingGroupResponse = CreateAutoScalingGroupResponse
 
 instance AWSRequest CreateAutoScalingGroup where
     type Sv CreateAutoScalingGroup = AutoScaling

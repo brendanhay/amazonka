@@ -29,7 +29,6 @@ library
 
     exposed-modules:
           Network.AWS.OpsWorks
-        , Network.AWS.OpsWorks.Monadic
         , Network.AWS.OpsWorks.Types
         , Network.AWS.OpsWorks.AssignVolume
         , Network.AWS.OpsWorks.AssociateElasticIp

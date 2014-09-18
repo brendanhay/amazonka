@@ -62,7 +62,7 @@ module Network.AWS.DataPipeline.PollForTask
     -- * Request
       PollForTask
     -- ** Request constructor
-    , mkPollForTask
+    , pollForTask
     -- ** Request lenses
     , pftWorkerGroup
     , pftHostname
@@ -71,7 +71,7 @@ module Network.AWS.DataPipeline.PollForTask
     -- * Response
     , PollForTaskResponse
     -- ** Response constructor
-    , mkPollForTaskResponse
+    , pollForTaskResponse
     -- ** Response lenses
     , pftrTaskObject
     ) where
@@ -98,9 +98,9 @@ data PollForTask = PollForTask
 --
 -- * @InstanceIdentity ::@ @Maybe InstanceIdentity@
 --
-mkPollForTask :: Text -- ^ 'pftWorkerGroup'
+pollForTask :: Text -- ^ 'pftWorkerGroup'
               -> PollForTask
-mkPollForTask p1 = PollForTask
+pollForTask p1 = PollForTask
     { _pftWorkerGroup = p1
     , _pftHostname = Nothing
     , _pftInstanceIdentity = Nothing
@@ -151,8 +151,8 @@ newtype PollForTaskResponse = PollForTaskResponse
 --
 -- * @TaskObject ::@ @Maybe TaskObject@
 --
-mkPollForTaskResponse :: PollForTaskResponse
-mkPollForTaskResponse = PollForTaskResponse
+pollForTaskResponse :: PollForTaskResponse
+pollForTaskResponse = PollForTaskResponse
     { _pftrTaskObject = Nothing
     }
 

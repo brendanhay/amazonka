@@ -38,7 +38,7 @@ module Network.AWS.SimpleDB.BatchDeleteAttributes
     -- * Request
       BatchDeleteAttributes
     -- ** Request constructor
-    , mkBatchDeleteAttributes
+    , batchDeleteAttributes
     -- ** Request lenses
     , bdaDomainName
     , bdaItems
@@ -46,7 +46,7 @@ module Network.AWS.SimpleDB.BatchDeleteAttributes
     -- * Response
     , BatchDeleteAttributesResponse
     -- ** Response constructor
-    , mkBatchDeleteAttributesResponse
+    , batchDeleteAttributesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -67,10 +67,10 @@ data BatchDeleteAttributes = BatchDeleteAttributes
 --
 -- * @Items ::@ @[DeletableItem]@
 --
-mkBatchDeleteAttributes :: Text -- ^ 'bdaDomainName'
+batchDeleteAttributes :: Text -- ^ 'bdaDomainName'
                         -> [DeletableItem] -- ^ 'bdaItems'
                         -> BatchDeleteAttributes
-mkBatchDeleteAttributes p1 p2 = BatchDeleteAttributes
+batchDeleteAttributes p1 p2 = BatchDeleteAttributes
     { _bdaDomainName = p1
     , _bdaItems = p2
     }
@@ -93,8 +93,8 @@ data BatchDeleteAttributesResponse = BatchDeleteAttributesResponse
 -- a valid 'BatchDeleteAttributesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkBatchDeleteAttributesResponse :: BatchDeleteAttributesResponse
-mkBatchDeleteAttributesResponse = BatchDeleteAttributesResponse
+batchDeleteAttributesResponse :: BatchDeleteAttributesResponse
+batchDeleteAttributesResponse = BatchDeleteAttributesResponse
 
 instance AWSRequest BatchDeleteAttributes where
     type Sv BatchDeleteAttributes = SimpleDB

@@ -60,7 +60,7 @@ module Network.AWS.DataPipeline.ValidatePipelineDefinition
     -- * Request
       ValidatePipelineDefinition
     -- ** Request constructor
-    , mkValidatePipelineDefinition
+    , validatePipelineDefinition
     -- ** Request lenses
     , vpdPipelineId
     , vpdPipelineObjects
@@ -68,7 +68,7 @@ module Network.AWS.DataPipeline.ValidatePipelineDefinition
     -- * Response
     , ValidatePipelineDefinitionResponse
     -- ** Response constructor
-    , mkValidatePipelineDefinitionResponse
+    , validatePipelineDefinitionResponse
     -- ** Response lenses
     , vpdrValidationErrors
     , vpdrValidationWarnings
@@ -94,10 +94,10 @@ data ValidatePipelineDefinition = ValidatePipelineDefinition
 --
 -- * @PipelineObjects ::@ @[PipelineObject]@
 --
-mkValidatePipelineDefinition :: Text -- ^ 'vpdPipelineId'
+validatePipelineDefinition :: Text -- ^ 'vpdPipelineId'
                              -> [PipelineObject] -- ^ 'vpdPipelineObjects'
                              -> ValidatePipelineDefinition
-mkValidatePipelineDefinition p1 p2 = ValidatePipelineDefinition
+validatePipelineDefinition p1 p2 = ValidatePipelineDefinition
     { _vpdPipelineId = p1
     , _vpdPipelineObjects = p2
     }
@@ -140,9 +140,9 @@ data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse
 --
 -- * @Errored ::@ @Bool@
 --
-mkValidatePipelineDefinitionResponse :: Bool -- ^ 'vpdrErrored'
+validatePipelineDefinitionResponse :: Bool -- ^ 'vpdrErrored'
                                      -> ValidatePipelineDefinitionResponse
-mkValidatePipelineDefinitionResponse p3 = ValidatePipelineDefinitionResponse
+validatePipelineDefinitionResponse p3 = ValidatePipelineDefinitionResponse
     { _vpdrValidationErrors = mempty
     , _vpdrValidationWarnings = mempty
     , _vpdrErrored = p3

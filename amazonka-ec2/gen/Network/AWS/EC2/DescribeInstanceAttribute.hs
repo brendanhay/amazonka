@@ -53,7 +53,7 @@ module Network.AWS.EC2.DescribeInstanceAttribute
     -- * Request
       DescribeInstanceAttribute
     -- ** Request constructor
-    , mkDescribeInstanceAttribute
+    , describeInstanceAttribute
     -- ** Request lenses
     , dia1InstanceId
     , dia1Attribute
@@ -61,7 +61,7 @@ module Network.AWS.EC2.DescribeInstanceAttribute
     -- * Response
     , DescribeInstanceAttributeResponse
     -- ** Response constructor
-    , mkDescribeInstanceAttributeResponse
+    , describeInstanceAttributeResponse
     -- ** Response lenses
     , diarrInstanceId
     , diarrInstanceType
@@ -96,10 +96,10 @@ data DescribeInstanceAttribute = DescribeInstanceAttribute
 --
 -- * @Attribute ::@ @InstanceAttributeName@
 --
-mkDescribeInstanceAttribute :: Text -- ^ 'dia1InstanceId'
+describeInstanceAttribute :: Text -- ^ 'dia1InstanceId'
                             -> InstanceAttributeName -- ^ 'dia1Attribute'
                             -> DescribeInstanceAttribute
-mkDescribeInstanceAttribute p1 p2 = DescribeInstanceAttribute
+describeInstanceAttribute p1 p2 = DescribeInstanceAttribute
     { _dia1InstanceId = p1
     , _dia1Attribute = p2
     }
@@ -164,8 +164,8 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
 --
 -- * @SourceDestCheck ::@ @Maybe AttributeBooleanValue@
 --
-mkDescribeInstanceAttributeResponse :: DescribeInstanceAttributeResponse
-mkDescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
+describeInstanceAttributeResponse :: DescribeInstanceAttributeResponse
+describeInstanceAttributeResponse = DescribeInstanceAttributeResponse
     { _diarrInstanceId = Nothing
     , _diarrInstanceType = Nothing
     , _diarrKernelId = Nothing

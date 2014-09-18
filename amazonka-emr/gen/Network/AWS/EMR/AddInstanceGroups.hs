@@ -41,7 +41,7 @@ module Network.AWS.EMR.AddInstanceGroups
     -- * Request
       AddInstanceGroups
     -- ** Request constructor
-    , mkAddInstanceGroups
+    , addInstanceGroups
     -- ** Request lenses
     , aigInstanceGroups
     , aigJobFlowId
@@ -49,7 +49,7 @@ module Network.AWS.EMR.AddInstanceGroups
     -- * Response
     , AddInstanceGroupsResponse
     -- ** Response constructor
-    , mkAddInstanceGroupsResponse
+    , addInstanceGroupsResponse
     -- ** Response lenses
     , aigrJobFlowId
     , aigrInstanceGroupIds
@@ -74,10 +74,10 @@ data AddInstanceGroups = AddInstanceGroups
 --
 -- * @JobFlowId ::@ @Text@
 --
-mkAddInstanceGroups :: [InstanceGroupConfig] -- ^ 'aigInstanceGroups'
+addInstanceGroups :: [InstanceGroupConfig] -- ^ 'aigInstanceGroups'
                     -> Text -- ^ 'aigJobFlowId'
                     -> AddInstanceGroups
-mkAddInstanceGroups p1 p2 = AddInstanceGroups
+addInstanceGroups p1 p2 = AddInstanceGroups
     { _aigInstanceGroups = p1
     , _aigJobFlowId = p2
     }
@@ -116,8 +116,8 @@ data AddInstanceGroupsResponse = AddInstanceGroupsResponse
 --
 -- * @InstanceGroupIds ::@ @[Text]@
 --
-mkAddInstanceGroupsResponse :: AddInstanceGroupsResponse
-mkAddInstanceGroupsResponse = AddInstanceGroupsResponse
+addInstanceGroupsResponse :: AddInstanceGroupsResponse
+addInstanceGroupsResponse = AddInstanceGroupsResponse
     { _aigrJobFlowId = Nothing
     , _aigrInstanceGroupIds = mempty
     }

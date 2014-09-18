@@ -26,14 +26,14 @@ module Network.AWS.DirectConnect.ConfirmConnection
     -- * Request
       ConfirmConnection
     -- ** Request constructor
-    , mkConfirmConnection
+    , confirmConnection
     -- ** Request lenses
     , ccConnectionId
 
     -- * Response
     , ConfirmConnectionResponse
     -- ** Response constructor
-    , mkConfirmConnectionResponse
+    , confirmConnectionResponse
     -- ** Response lenses
     , ccrConnectionState
     ) where
@@ -54,9 +54,9 @@ newtype ConfirmConnection = ConfirmConnection
 --
 -- * @ConnectionId ::@ @Text@
 --
-mkConfirmConnection :: Text -- ^ 'ccConnectionId'
+confirmConnection :: Text -- ^ 'ccConnectionId'
                     -> ConfirmConnection
-mkConfirmConnection p1 = ConfirmConnection
+confirmConnection p1 = ConfirmConnection
     { _ccConnectionId = p1
     }
 
@@ -86,8 +86,8 @@ newtype ConfirmConnectionResponse = ConfirmConnectionResponse
 --
 -- * @ConnectionState ::@ @Maybe ConnectionState@
 --
-mkConfirmConnectionResponse :: ConfirmConnectionResponse
-mkConfirmConnectionResponse = ConfirmConnectionResponse
+confirmConnectionResponse :: ConfirmConnectionResponse
+confirmConnectionResponse = ConfirmConnectionResponse
     { _ccrConnectionState = Nothing
     }
 

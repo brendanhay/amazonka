@@ -34,7 +34,7 @@ module Network.AWS.EC2.AttachVpnGateway
     -- * Request
       AttachVpnGateway
     -- ** Request constructor
-    , mkAttachVpnGateway
+    , attachVpnGateway
     -- ** Request lenses
     , avgVpnGatewayId
     , avgVpcId
@@ -42,7 +42,7 @@ module Network.AWS.EC2.AttachVpnGateway
     -- * Response
     , AttachVpnGatewayResponse
     -- ** Response constructor
-    , mkAttachVpnGatewayResponse
+    , attachVpnGatewayResponse
     -- ** Response lenses
     , avgrVpcAttachment
     ) where
@@ -65,10 +65,10 @@ data AttachVpnGateway = AttachVpnGateway
 --
 -- * @VpcId ::@ @Text@
 --
-mkAttachVpnGateway :: Text -- ^ 'avgVpnGatewayId'
+attachVpnGateway :: Text -- ^ 'avgVpnGatewayId'
                    -> Text -- ^ 'avgVpcId'
                    -> AttachVpnGateway
-mkAttachVpnGateway p1 p2 = AttachVpnGateway
+attachVpnGateway p1 p2 = AttachVpnGateway
     { _avgVpnGatewayId = p1
     , _avgVpcId = p2
     }
@@ -97,8 +97,8 @@ newtype AttachVpnGatewayResponse = AttachVpnGatewayResponse
 --
 -- * @VpcAttachment ::@ @Maybe VpcAttachment@
 --
-mkAttachVpnGatewayResponse :: AttachVpnGatewayResponse
-mkAttachVpnGatewayResponse = AttachVpnGatewayResponse
+attachVpnGatewayResponse :: AttachVpnGatewayResponse
+attachVpnGatewayResponse = AttachVpnGatewayResponse
     { _avgrVpcAttachment = Nothing
     }
 

@@ -58,7 +58,7 @@ module Network.AWS.ImportExport.Types
 
     -- * Job
     , Job
-    , mkJob
+    , job
     , jJobId
     , jCreationDate
     , jIsCanceled
@@ -103,8 +103,8 @@ data ImportExportError
         { _ejieMessage :: Maybe Text
         }
     | ImportExportClient HttpException
-    | ImportExportSerializer Text
-    | ImportExportService Text
+    | ImportExportSerializer String
+    | ImportExportService String
       -- | The AWS Access Key ID specified in the request did not match the
       -- manifest's accessKeyId value. The manifest and the request
       -- authentication must use the same AWS Access Key ID.
@@ -224,7 +224,7 @@ _ImportExportClient = prism'
         x -> Left x)
 
 -- | See: 'ImportExportSerializer'
-_ImportExportSerializer :: Prism' ImportExportError Text
+_ImportExportSerializer :: Prism' ImportExportError String
 _ImportExportSerializer = prism'
     ImportExportSerializer
     (\case
@@ -232,7 +232,7 @@ _ImportExportSerializer = prism'
         x -> Left x)
 
 -- | See: 'ImportExportService'
-_ImportExportService :: Prism' ImportExportError Text
+_ImportExportService :: Prism' ImportExportError String
 _ImportExportService = prism'
     ImportExportService
     (\case
@@ -437,12 +437,12 @@ data Job = Job
 --
 -- * @JobType ::@ @JobType@
 --
-mkJob :: Text -- ^ 'jJobId'
+job :: Text -- ^ 'jJobId'
       -> ISO8601 -- ^ 'jCreationDate'
       -> Bool -- ^ 'jIsCanceled'
       -> JobType -- ^ 'jJobType'
       -> Job
-mkJob p1 p2 p3 p4 = Job
+job p1 p2 p3 p4 = Job
     { _jJobId = p1
     , _jCreationDate = p2
     , _jIsCanceled = p3

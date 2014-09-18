@@ -33,7 +33,7 @@ module Network.AWS.ElastiCache.CreateCacheParameterGroup
     -- * Request
       CreateCacheParameterGroup
     -- ** Request constructor
-    , mkCreateCacheParameterGroup
+    , createCacheParameterGroup
     -- ** Request lenses
     , ccpgCacheParameterGroupName
     , ccpgCacheParameterGroupFamily
@@ -42,7 +42,7 @@ module Network.AWS.ElastiCache.CreateCacheParameterGroup
     -- * Response
     , CreateCacheParameterGroupResponse
     -- ** Response constructor
-    , mkCreateCacheParameterGroupResponse
+    , createCacheParameterGroupResponse
     -- ** Response lenses
     , ccpgrCacheParameterGroup
     ) where
@@ -69,11 +69,11 @@ data CreateCacheParameterGroup = CreateCacheParameterGroup
 --
 -- * @Description ::@ @Text@
 --
-mkCreateCacheParameterGroup :: Text -- ^ 'ccpgCacheParameterGroupName'
+createCacheParameterGroup :: Text -- ^ 'ccpgCacheParameterGroupName'
                             -> Text -- ^ 'ccpgCacheParameterGroupFamily'
                             -> Text -- ^ 'ccpgDescription'
                             -> CreateCacheParameterGroup
-mkCreateCacheParameterGroup p1 p2 p3 = CreateCacheParameterGroup
+createCacheParameterGroup p1 p2 p3 = CreateCacheParameterGroup
     { _ccpgCacheParameterGroupName = p1
     , _ccpgCacheParameterGroupFamily = p2
     , _ccpgDescription = p3
@@ -112,8 +112,8 @@ newtype CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse
 --
 -- * @CacheParameterGroup ::@ @Maybe CacheParameterGroup@
 --
-mkCreateCacheParameterGroupResponse :: CreateCacheParameterGroupResponse
-mkCreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse
+createCacheParameterGroupResponse :: CreateCacheParameterGroupResponse
+createCacheParameterGroupResponse = CreateCacheParameterGroupResponse
     { _ccpgrCacheParameterGroup = Nothing
     }
 

@@ -25,7 +25,7 @@ module Network.AWS.IAM.DeleteGroupPolicy
     -- * Request
       DeleteGroupPolicy
     -- ** Request constructor
-    , mkDeleteGroupPolicy
+    , deleteGroupPolicy
     -- ** Request lenses
     , dgpGroupName
     , dgpPolicyName
@@ -33,7 +33,7 @@ module Network.AWS.IAM.DeleteGroupPolicy
     -- * Response
     , DeleteGroupPolicyResponse
     -- ** Response constructor
-    , mkDeleteGroupPolicyResponse
+    , deleteGroupPolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -54,10 +54,10 @@ data DeleteGroupPolicy = DeleteGroupPolicy
 --
 -- * @PolicyName ::@ @Text@
 --
-mkDeleteGroupPolicy :: Text -- ^ 'dgpGroupName'
+deleteGroupPolicy :: Text -- ^ 'dgpGroupName'
                     -> Text -- ^ 'dgpPolicyName'
                     -> DeleteGroupPolicy
-mkDeleteGroupPolicy p1 p2 = DeleteGroupPolicy
+deleteGroupPolicy p1 p2 = DeleteGroupPolicy
     { _dgpGroupName = p1
     , _dgpPolicyName = p2
     }
@@ -80,8 +80,8 @@ data DeleteGroupPolicyResponse = DeleteGroupPolicyResponse
 -- a valid 'DeleteGroupPolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteGroupPolicyResponse :: DeleteGroupPolicyResponse
-mkDeleteGroupPolicyResponse = DeleteGroupPolicyResponse
+deleteGroupPolicyResponse :: DeleteGroupPolicyResponse
+deleteGroupPolicyResponse = DeleteGroupPolicyResponse
 
 instance AWSRequest DeleteGroupPolicy where
     type Sv DeleteGroupPolicy = IAM

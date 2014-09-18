@@ -24,14 +24,14 @@ module Network.AWS.Redshift.DescribeLoggingStatus
     -- * Request
       DescribeLoggingStatus
     -- ** Request constructor
-    , mkDescribeLoggingStatus
+    , describeLoggingStatus
     -- ** Request lenses
     , dlsClusterIdentifier
 
     -- * Response
     , DescribeLoggingStatusResponse
     -- ** Response constructor
-    , mkDescribeLoggingStatusResponse
+    , describeLoggingStatusResponse
     -- ** Response lenses
     , dlsrLoggingEnabled
     , dlsrBucketName
@@ -57,9 +57,9 @@ newtype DescribeLoggingStatus = DescribeLoggingStatus
 --
 -- * @ClusterIdentifier ::@ @Text@
 --
-mkDescribeLoggingStatus :: Text -- ^ 'dlsClusterIdentifier'
+describeLoggingStatus :: Text -- ^ 'dlsClusterIdentifier'
                         -> DescribeLoggingStatus
-mkDescribeLoggingStatus p1 = DescribeLoggingStatus
+describeLoggingStatus p1 = DescribeLoggingStatus
     { _dlsClusterIdentifier = p1
     }
 
@@ -101,8 +101,8 @@ data DescribeLoggingStatusResponse = DescribeLoggingStatusResponse
 --
 -- * @LastFailureMessage ::@ @Maybe Text@
 --
-mkDescribeLoggingStatusResponse :: DescribeLoggingStatusResponse
-mkDescribeLoggingStatusResponse = DescribeLoggingStatusResponse
+describeLoggingStatusResponse :: DescribeLoggingStatusResponse
+describeLoggingStatusResponse = DescribeLoggingStatusResponse
     { _dlsrLoggingEnabled = Nothing
     , _dlsrBucketName = Nothing
     , _dlsrS3KeyPrefix = Nothing

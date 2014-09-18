@@ -25,7 +25,7 @@ module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
     -- * Request
       AllocateConnectionOnInterconnect
     -- ** Request constructor
-    , mkAllocateConnectionOnInterconnect
+    , allocateConnectionOnInterconnect
     -- ** Request lenses
     , acoiBandwidth
     , acoiConnectionName
@@ -36,7 +36,7 @@ module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
     -- * Response
     , AllocateConnectionOnInterconnectResponse
     -- ** Response constructor
-    , mkAllocateConnectionOnInterconnectResponse
+    , allocateConnectionOnInterconnectResponse
     -- ** Response lenses
     , acoirOwnerAccount
     , acoirConnectionId
@@ -78,13 +78,13 @@ data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect
 --
 -- * @Vlan ::@ @Integer@
 --
-mkAllocateConnectionOnInterconnect :: Text -- ^ 'acoiBandwidth'
+allocateConnectionOnInterconnect :: Text -- ^ 'acoiBandwidth'
                                    -> Text -- ^ 'acoiConnectionName'
                                    -> Text -- ^ 'acoiOwnerAccount'
                                    -> Text -- ^ 'acoiInterconnectId'
                                    -> Integer -- ^ 'acoiVlan'
                                    -> AllocateConnectionOnInterconnect
-mkAllocateConnectionOnInterconnect p1 p2 p3 p4 p5 = AllocateConnectionOnInterconnect
+allocateConnectionOnInterconnect p1 p2 p3 p4 p5 = AllocateConnectionOnInterconnect
     { _acoiBandwidth = p1
     , _acoiConnectionName = p2
     , _acoiOwnerAccount = p3
@@ -166,8 +166,8 @@ data AllocateConnectionOnInterconnectResponse = AllocateConnectionOnInterconnect
 --
 -- * @PartnerName ::@ @Maybe Text@
 --
-mkAllocateConnectionOnInterconnectResponse :: AllocateConnectionOnInterconnectResponse
-mkAllocateConnectionOnInterconnectResponse = AllocateConnectionOnInterconnectResponse
+allocateConnectionOnInterconnectResponse :: AllocateConnectionOnInterconnectResponse
+allocateConnectionOnInterconnectResponse = AllocateConnectionOnInterconnectResponse
     { _acoirOwnerAccount = Nothing
     , _acoirConnectionId = Nothing
     , _acoirConnectionName = Nothing

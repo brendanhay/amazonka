@@ -29,7 +29,6 @@ library
 
     exposed-modules:
           Network.AWS.EMR
-        , Network.AWS.EMR.Monadic
         , Network.AWS.EMR.Types
         , Network.AWS.EMR.AddInstanceGroups
         , Network.AWS.EMR.AddJobFlowSteps

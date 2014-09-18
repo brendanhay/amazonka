@@ -28,7 +28,7 @@ module Network.AWS.CloudFormation.SetStackPolicy
     -- * Request
       SetStackPolicy
     -- ** Request constructor
-    , mkSetStackPolicy
+    , setStackPolicy
     -- ** Request lenses
     , sspStackName
     , sspStackPolicyBody
@@ -37,7 +37,7 @@ module Network.AWS.CloudFormation.SetStackPolicy
     -- * Response
     , SetStackPolicyResponse
     -- ** Response constructor
-    , mkSetStackPolicyResponse
+    , setStackPolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -62,9 +62,9 @@ data SetStackPolicy = SetStackPolicy
 --
 -- * @StackPolicyURL ::@ @Maybe Text@
 --
-mkSetStackPolicy :: Text -- ^ 'sspStackName'
+setStackPolicy :: Text -- ^ 'sspStackName'
                  -> SetStackPolicy
-mkSetStackPolicy p1 = SetStackPolicy
+setStackPolicy p1 = SetStackPolicy
     { _sspStackName = p1
     , _sspStackPolicyBody = Nothing
     , _sspStackPolicyURL = Nothing
@@ -100,8 +100,8 @@ data SetStackPolicyResponse = SetStackPolicyResponse
 -- a valid 'SetStackPolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSetStackPolicyResponse :: SetStackPolicyResponse
-mkSetStackPolicyResponse = SetStackPolicyResponse
+setStackPolicyResponse :: SetStackPolicyResponse
+setStackPolicyResponse = SetStackPolicyResponse
 
 instance AWSRequest SetStackPolicy where
     type Sv SetStackPolicy = CloudFormation

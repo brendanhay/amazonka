@@ -37,14 +37,14 @@ module Network.AWS.EC2.MonitorInstances
     -- * Request
       MonitorInstances
     -- ** Request constructor
-    , mkMonitorInstances
+    , monitorInstances
     -- ** Request lenses
     , miInstanceIds
 
     -- * Response
     , MonitorInstancesResponse
     -- ** Response constructor
-    , mkMonitorInstancesResponse
+    , monitorInstancesResponse
     -- ** Response lenses
     , mirInstanceMonitorings
     ) where
@@ -64,9 +64,9 @@ newtype MonitorInstances = MonitorInstances
 --
 -- * @InstanceIds ::@ @[Text]@
 --
-mkMonitorInstances :: [Text] -- ^ 'miInstanceIds'
+monitorInstances :: [Text] -- ^ 'miInstanceIds'
                    -> MonitorInstances
-mkMonitorInstances p1 = MonitorInstances
+monitorInstances p1 = MonitorInstances
     { _miInstanceIds = p1
     }
 
@@ -90,8 +90,8 @@ newtype MonitorInstancesResponse = MonitorInstancesResponse
 --
 -- * @InstanceMonitorings ::@ @[InstanceMonitoring]@
 --
-mkMonitorInstancesResponse :: MonitorInstancesResponse
-mkMonitorInstancesResponse = MonitorInstancesResponse
+monitorInstancesResponse :: MonitorInstancesResponse
+monitorInstancesResponse = MonitorInstancesResponse
     { _mirInstanceMonitorings = mempty
     }
 

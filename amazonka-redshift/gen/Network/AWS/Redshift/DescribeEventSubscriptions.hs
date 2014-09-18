@@ -25,7 +25,7 @@ module Network.AWS.Redshift.DescribeEventSubscriptions
     -- * Request
       DescribeEventSubscriptions
     -- ** Request constructor
-    , mkDescribeEventSubscriptions
+    , describeEventSubscriptions
     -- ** Request lenses
     , des1SubscriptionName
     , des1MaxRecords
@@ -34,7 +34,7 @@ module Network.AWS.Redshift.DescribeEventSubscriptions
     -- * Response
     , DescribeEventSubscriptionsResponse
     -- ** Response constructor
-    , mkDescribeEventSubscriptionsResponse
+    , describeEventSubscriptionsResponse
     -- ** Response lenses
     , desrMarker
     , desrEventSubscriptionsList
@@ -62,8 +62,8 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeEventSubscriptions :: DescribeEventSubscriptions
-mkDescribeEventSubscriptions = DescribeEventSubscriptions
+describeEventSubscriptions :: DescribeEventSubscriptions
+describeEventSubscriptions = DescribeEventSubscriptions
     { _des1SubscriptionName = Nothing
     , _des1MaxRecords = Nothing
     , _des1Marker = Nothing
@@ -112,8 +112,8 @@ data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
 --
 -- * @EventSubscriptionsList ::@ @[EventSubscription]@
 --
-mkDescribeEventSubscriptionsResponse :: DescribeEventSubscriptionsResponse
-mkDescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
+describeEventSubscriptionsResponse :: DescribeEventSubscriptionsResponse
+describeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
     { _desrMarker = Nothing
     , _desrEventSubscriptionsList = mempty
     }

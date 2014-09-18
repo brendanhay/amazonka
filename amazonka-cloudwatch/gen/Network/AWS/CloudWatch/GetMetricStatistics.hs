@@ -40,7 +40,7 @@ module Network.AWS.CloudWatch.GetMetricStatistics
     -- * Request
       GetMetricStatistics
     -- ** Request constructor
-    , mkGetMetricStatistics
+    , getMetricStatistics
     -- ** Request lenses
     , gmsNamespace
     , gmsMetricName
@@ -54,7 +54,7 @@ module Network.AWS.CloudWatch.GetMetricStatistics
     -- * Response
     , GetMetricStatisticsResponse
     -- ** Response constructor
-    , mkGetMetricStatisticsResponse
+    , getMetricStatisticsResponse
     -- ** Response lenses
     , gmsrLabel
     , gmsrDatapoints
@@ -96,14 +96,14 @@ data GetMetricStatistics = GetMetricStatistics
 --
 -- * @Unit ::@ @Maybe StandardUnit@
 --
-mkGetMetricStatistics :: Text -- ^ 'gmsNamespace'
+getMetricStatistics :: Text -- ^ 'gmsNamespace'
                       -> Text -- ^ 'gmsMetricName'
                       -> ISO8601 -- ^ 'gmsStartTime'
                       -> ISO8601 -- ^ 'gmsEndTime'
                       -> Integer -- ^ 'gmsPeriod'
                       -> List1 Statistic -- ^ 'gmsStatistics'
                       -> GetMetricStatistics
-mkGetMetricStatistics p1 p2 p4 p5 p6 p7 = GetMetricStatistics
+getMetricStatistics p1 p2 p4 p5 p6 p7 = GetMetricStatistics
     { _gmsNamespace = p1
     , _gmsMetricName = p2
     , _gmsDimensions = mempty
@@ -174,8 +174,8 @@ data GetMetricStatisticsResponse = GetMetricStatisticsResponse
 --
 -- * @Datapoints ::@ @[Datapoint]@
 --
-mkGetMetricStatisticsResponse :: GetMetricStatisticsResponse
-mkGetMetricStatisticsResponse = GetMetricStatisticsResponse
+getMetricStatisticsResponse :: GetMetricStatisticsResponse
+getMetricStatisticsResponse = GetMetricStatisticsResponse
     { _gmsrLabel = Nothing
     , _gmsrDatapoints = mempty
     }

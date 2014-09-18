@@ -55,7 +55,7 @@ module Network.AWS.EC2.CreateVpcPeeringConnection
     -- * Request
       CreateVpcPeeringConnection
     -- ** Request constructor
-    , mkCreateVpcPeeringConnection
+    , createVpcPeeringConnection
     -- ** Request lenses
     , cvpcVpcId
     , cvpcPeerVpcId
@@ -64,7 +64,7 @@ module Network.AWS.EC2.CreateVpcPeeringConnection
     -- * Response
     , CreateVpcPeeringConnectionResponse
     -- ** Response constructor
-    , mkCreateVpcPeeringConnectionResponse
+    , createVpcPeeringConnectionResponse
     -- ** Response lenses
     , cvpcrVpcPeeringConnection
     ) where
@@ -90,8 +90,8 @@ data CreateVpcPeeringConnection = CreateVpcPeeringConnection
 --
 -- * @PeerOwnerId ::@ @Maybe Text@
 --
-mkCreateVpcPeeringConnection :: CreateVpcPeeringConnection
-mkCreateVpcPeeringConnection = CreateVpcPeeringConnection
+createVpcPeeringConnection :: CreateVpcPeeringConnection
+createVpcPeeringConnection = CreateVpcPeeringConnection
     { _cvpcVpcId = Nothing
     , _cvpcPeerVpcId = Nothing
     , _cvpcPeerOwnerId = Nothing
@@ -126,8 +126,8 @@ newtype CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
 --
 -- * @VpcPeeringConnection ::@ @Maybe VpcPeeringConnection@
 --
-mkCreateVpcPeeringConnectionResponse :: CreateVpcPeeringConnectionResponse
-mkCreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
+createVpcPeeringConnectionResponse :: CreateVpcPeeringConnectionResponse
+createVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
     { _cvpcrVpcPeeringConnection = Nothing
     }
 

@@ -41,7 +41,7 @@ module Network.AWS.EC2.RevokeSecurityGroupIngress
     -- * Request
       RevokeSecurityGroupIngress
     -- ** Request constructor
-    , mkRevokeSecurityGroupIngress
+    , revokeSecurityGroupIngress
     -- ** Request lenses
     , rsgiGroupName
     , rsgiGroupId
@@ -56,7 +56,7 @@ module Network.AWS.EC2.RevokeSecurityGroupIngress
     -- * Response
     , RevokeSecurityGroupIngressResponse
     -- ** Response constructor
-    , mkRevokeSecurityGroupIngressResponse
+    , revokeSecurityGroupIngressResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -98,8 +98,8 @@ data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
 --
 -- * @IpPermissions ::@ @[IpPermission]@
 --
-mkRevokeSecurityGroupIngress :: RevokeSecurityGroupIngress
-mkRevokeSecurityGroupIngress = RevokeSecurityGroupIngress
+revokeSecurityGroupIngress :: RevokeSecurityGroupIngress
+revokeSecurityGroupIngress = RevokeSecurityGroupIngress
     { _rsgiGroupName = Nothing
     , _rsgiGroupId = Nothing
     , _rsgiSourceSecurityGroupName = Nothing
@@ -169,8 +169,8 @@ data RevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse
 -- a valid 'RevokeSecurityGroupIngressResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRevokeSecurityGroupIngressResponse :: RevokeSecurityGroupIngressResponse
-mkRevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse
+revokeSecurityGroupIngressResponse :: RevokeSecurityGroupIngressResponse
+revokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse
 
 instance AWSRequest RevokeSecurityGroupIngress where
     type Sv RevokeSecurityGroupIngress = EC2

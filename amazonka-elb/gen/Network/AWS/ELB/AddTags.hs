@@ -32,7 +32,7 @@ module Network.AWS.ELB.AddTags
     -- * Request
       AddTags
     -- ** Request constructor
-    , mkAddTags
+    , addTags
     -- ** Request lenses
     , atLoadBalancerNames
     , atTags
@@ -40,7 +40,7 @@ module Network.AWS.ELB.AddTags
     -- * Response
     , AddTagsResponse
     -- ** Response constructor
-    , mkAddTagsResponse
+    , addTagsResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -62,10 +62,10 @@ data AddTags = AddTags
 --
 -- * @Tags ::@ @List1 Tag@
 --
-mkAddTags :: [Text] -- ^ 'atLoadBalancerNames'
+addTags :: [Text] -- ^ 'atLoadBalancerNames'
           -> List1 Tag -- ^ 'atTags'
           -> AddTags
-mkAddTags p1 p2 = AddTags
+addTags p1 p2 = AddTags
     { _atLoadBalancerNames = p1
     , _atTags = p2
     }
@@ -91,8 +91,8 @@ data AddTagsResponse = AddTagsResponse
 -- a valid 'AddTagsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkAddTagsResponse :: AddTagsResponse
-mkAddTagsResponse = AddTagsResponse
+addTagsResponse :: AddTagsResponse
+addTagsResponse = AddTagsResponse
 
 instance AWSRequest AddTags where
     type Sv AddTags = ELB

@@ -26,14 +26,14 @@ module Network.AWS.OpsWorks.UpdateMyUserProfile
     -- * Request
       UpdateMyUserProfile
     -- ** Request constructor
-    , mkUpdateMyUserProfile
+    , updateMyUserProfile
     -- ** Request lenses
     , umupSshPublicKey
 
     -- * Response
     , UpdateMyUserProfileResponse
     -- ** Response constructor
-    , mkUpdateMyUserProfileResponse
+    , updateMyUserProfileResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -51,8 +51,8 @@ newtype UpdateMyUserProfile = UpdateMyUserProfile
 --
 -- * @SshPublicKey ::@ @Maybe Text@
 --
-mkUpdateMyUserProfile :: UpdateMyUserProfile
-mkUpdateMyUserProfile = UpdateMyUserProfile
+updateMyUserProfile :: UpdateMyUserProfile
+updateMyUserProfile = UpdateMyUserProfile
     { _umupSshPublicKey = Nothing
     }
 
@@ -76,8 +76,8 @@ data UpdateMyUserProfileResponse = UpdateMyUserProfileResponse
 -- a valid 'UpdateMyUserProfileResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkUpdateMyUserProfileResponse :: UpdateMyUserProfileResponse
-mkUpdateMyUserProfileResponse = UpdateMyUserProfileResponse
+updateMyUserProfileResponse :: UpdateMyUserProfileResponse
+updateMyUserProfileResponse = UpdateMyUserProfileResponse
 
 instance AWSRequest UpdateMyUserProfile where
     type Sv UpdateMyUserProfile = OpsWorks

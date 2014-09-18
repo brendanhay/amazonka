@@ -23,14 +23,14 @@ module Network.AWS.DirectConnect.DeleteInterconnect
     -- * Request
       DeleteInterconnect
     -- ** Request constructor
-    , mkDeleteInterconnect
+    , deleteInterconnect
     -- ** Request lenses
     , diInterconnectId
 
     -- * Response
     , DeleteInterconnectResponse
     -- ** Response constructor
-    , mkDeleteInterconnectResponse
+    , deleteInterconnectResponse
     -- ** Response lenses
     , dirInterconnectState
     ) where
@@ -51,9 +51,9 @@ newtype DeleteInterconnect = DeleteInterconnect
 --
 -- * @InterconnectId ::@ @Text@
 --
-mkDeleteInterconnect :: Text -- ^ 'diInterconnectId'
+deleteInterconnect :: Text -- ^ 'diInterconnectId'
                      -> DeleteInterconnect
-mkDeleteInterconnect p1 = DeleteInterconnect
+deleteInterconnect p1 = DeleteInterconnect
     { _diInterconnectId = p1
     }
 
@@ -84,8 +84,8 @@ newtype DeleteInterconnectResponse = DeleteInterconnectResponse
 --
 -- * @InterconnectState ::@ @Maybe InterconnectState@
 --
-mkDeleteInterconnectResponse :: DeleteInterconnectResponse
-mkDeleteInterconnectResponse = DeleteInterconnectResponse
+deleteInterconnectResponse :: DeleteInterconnectResponse
+deleteInterconnectResponse = DeleteInterconnectResponse
     { _dirInterconnectState = Nothing
     }
 

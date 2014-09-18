@@ -24,14 +24,14 @@ module Network.AWS.Support.ResolveCase
     -- * Request
       ResolveCase
     -- ** Request constructor
-    , mkResolveCase
+    , resolveCase
     -- ** Request lenses
     , rcCaseId
 
     -- * Response
     , ResolveCaseResponse
     -- ** Response constructor
-    , mkResolveCaseResponse
+    , resolveCaseResponse
     -- ** Response lenses
     , rcrInitialCaseStatus
     , rcrFinalCaseStatus
@@ -52,8 +52,8 @@ newtype ResolveCase = ResolveCase
 --
 -- * @CaseId ::@ @Maybe Text@
 --
-mkResolveCase :: ResolveCase
-mkResolveCase = ResolveCase
+resolveCase :: ResolveCase
+resolveCase = ResolveCase
     { _rcCaseId = Nothing
     }
 
@@ -88,8 +88,8 @@ data ResolveCaseResponse = ResolveCaseResponse
 --
 -- * @FinalCaseStatus ::@ @Maybe Text@
 --
-mkResolveCaseResponse :: ResolveCaseResponse
-mkResolveCaseResponse = ResolveCaseResponse
+resolveCaseResponse :: ResolveCaseResponse
+resolveCaseResponse = ResolveCaseResponse
     { _rcrInitialCaseStatus = Nothing
     , _rcrFinalCaseStatus = Nothing
     }

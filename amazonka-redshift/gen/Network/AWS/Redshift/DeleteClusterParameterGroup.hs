@@ -31,14 +31,14 @@ module Network.AWS.Redshift.DeleteClusterParameterGroup
     -- * Request
       DeleteClusterParameterGroup
     -- ** Request constructor
-    , mkDeleteClusterParameterGroup
+    , deleteClusterParameterGroup
     -- ** Request lenses
     , dcpgParameterGroupName
 
     -- * Response
     , DeleteClusterParameterGroupResponse
     -- ** Response constructor
-    , mkDeleteClusterParameterGroupResponse
+    , deleteClusterParameterGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -57,9 +57,9 @@ newtype DeleteClusterParameterGroup = DeleteClusterParameterGroup
 --
 -- * @ParameterGroupName ::@ @Text@
 --
-mkDeleteClusterParameterGroup :: Text -- ^ 'dcpgParameterGroupName'
+deleteClusterParameterGroup :: Text -- ^ 'dcpgParameterGroupName'
                               -> DeleteClusterParameterGroup
-mkDeleteClusterParameterGroup p1 = DeleteClusterParameterGroup
+deleteClusterParameterGroup p1 = DeleteClusterParameterGroup
     { _dcpgParameterGroupName = p1
     }
 
@@ -80,8 +80,8 @@ data DeleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse
 -- a valid 'DeleteClusterParameterGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteClusterParameterGroupResponse :: DeleteClusterParameterGroupResponse
-mkDeleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse
+deleteClusterParameterGroupResponse :: DeleteClusterParameterGroupResponse
+deleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse
 
 instance AWSRequest DeleteClusterParameterGroup where
     type Sv DeleteClusterParameterGroup = Redshift

@@ -29,14 +29,14 @@ module Network.AWS.CloudSearch.DescribeDomains
     -- * Request
       DescribeDomains
     -- ** Request constructor
-    , mkDescribeDomains
+    , describeDomains
     -- ** Request lenses
     , dd1DomainNames
 
     -- * Response
     , DescribeDomainsResponse
     -- ** Response constructor
-    , mkDescribeDomainsResponse
+    , describeDomainsResponse
     -- ** Response lenses
     , ddrrDomainStatusList
     ) where
@@ -59,8 +59,8 @@ newtype DescribeDomains = DescribeDomains
 --
 -- * @DomainNames ::@ @[Text]@
 --
-mkDescribeDomains :: DescribeDomains
-mkDescribeDomains = DescribeDomains
+describeDomains :: DescribeDomains
+describeDomains = DescribeDomains
     { _dd1DomainNames = mempty
     }
 
@@ -86,9 +86,9 @@ newtype DescribeDomainsResponse = DescribeDomainsResponse
 --
 -- * @DomainStatusList ::@ @[DomainStatus]@
 --
-mkDescribeDomainsResponse :: [DomainStatus] -- ^ 'ddrrDomainStatusList'
+describeDomainsResponse :: [DomainStatus] -- ^ 'ddrrDomainStatusList'
                           -> DescribeDomainsResponse
-mkDescribeDomainsResponse p1 = DescribeDomainsResponse
+describeDomainsResponse p1 = DescribeDomainsResponse
     { _ddrrDomainStatusList = p1
     }
 

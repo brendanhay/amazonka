@@ -29,7 +29,7 @@ module Network.AWS.OpsWorks.AssociateElasticIp
     -- * Request
       AssociateElasticIp
     -- ** Request constructor
-    , mkAssociateElasticIp
+    , associateElasticIp
     -- ** Request lenses
     , aeiElasticIp
     , aeiInstanceId
@@ -37,7 +37,7 @@ module Network.AWS.OpsWorks.AssociateElasticIp
     -- * Response
     , AssociateElasticIpResponse
     -- ** Response constructor
-    , mkAssociateElasticIpResponse
+    , associateElasticIpResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -58,9 +58,9 @@ data AssociateElasticIp = AssociateElasticIp
 --
 -- * @InstanceId ::@ @Maybe Text@
 --
-mkAssociateElasticIp :: Text -- ^ 'aeiElasticIp'
+associateElasticIp :: Text -- ^ 'aeiElasticIp'
                      -> AssociateElasticIp
-mkAssociateElasticIp p1 = AssociateElasticIp
+associateElasticIp p1 = AssociateElasticIp
     { _aeiElasticIp = p1
     , _aeiInstanceId = Nothing
     }
@@ -88,8 +88,8 @@ data AssociateElasticIpResponse = AssociateElasticIpResponse
 -- a valid 'AssociateElasticIpResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkAssociateElasticIpResponse :: AssociateElasticIpResponse
-mkAssociateElasticIpResponse = AssociateElasticIpResponse
+associateElasticIpResponse :: AssociateElasticIpResponse
+associateElasticIpResponse = AssociateElasticIpResponse
 
 instance AWSRequest AssociateElasticIp where
     type Sv AssociateElasticIp = OpsWorks

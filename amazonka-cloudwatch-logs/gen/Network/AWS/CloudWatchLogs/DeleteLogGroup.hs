@@ -33,14 +33,14 @@ module Network.AWS.CloudWatchLogs.DeleteLogGroup
     -- * Request
       DeleteLogGroup
     -- ** Request constructor
-    , mkDeleteLogGroup
+    , deleteLogGroup
     -- ** Request lenses
     , dlgLogGroupName
 
     -- * Response
     , DeleteLogGroupResponse
     -- ** Response constructor
-    , mkDeleteLogGroupResponse
+    , deleteLogGroupResponse
     ) where
 
 import Network.AWS.CloudWatchLogs.Types
@@ -58,9 +58,9 @@ newtype DeleteLogGroup = DeleteLogGroup
 --
 -- * @LogGroupName ::@ @Text@
 --
-mkDeleteLogGroup :: Text -- ^ 'dlgLogGroupName'
+deleteLogGroup :: Text -- ^ 'dlgLogGroupName'
                  -> DeleteLogGroup
-mkDeleteLogGroup p1 = DeleteLogGroup
+deleteLogGroup p1 = DeleteLogGroup
     { _dlgLogGroupName = p1
     }
 
@@ -82,8 +82,8 @@ data DeleteLogGroupResponse = DeleteLogGroupResponse
 -- a valid 'DeleteLogGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteLogGroupResponse :: DeleteLogGroupResponse
-mkDeleteLogGroupResponse = DeleteLogGroupResponse
+deleteLogGroupResponse :: DeleteLogGroupResponse
+deleteLogGroupResponse = DeleteLogGroupResponse
 
 instance AWSRequest DeleteLogGroup where
     type Sv DeleteLogGroup = CloudWatchLogs

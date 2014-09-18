@@ -45,7 +45,7 @@ module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
     -- * Request
       UpdateDomainContactPrivacy
     -- ** Request constructor
-    , mkUpdateDomainContactPrivacy
+    , updateDomainContactPrivacy
     -- ** Request lenses
     , udcpDomainName
     , udcpAdminPrivacy
@@ -55,7 +55,7 @@ module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
     -- * Response
     , UpdateDomainContactPrivacyResponse
     -- ** Response constructor
-    , mkUpdateDomainContactPrivacyResponse
+    , updateDomainContactPrivacyResponse
     -- ** Response lenses
     , udcprOperationId
     ) where
@@ -85,9 +85,9 @@ data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy
 --
 -- * @TechPrivacy ::@ @Maybe Bool@
 --
-mkUpdateDomainContactPrivacy :: Text -- ^ 'udcpDomainName'
+updateDomainContactPrivacy :: Text -- ^ 'udcpDomainName'
                              -> UpdateDomainContactPrivacy
-mkUpdateDomainContactPrivacy p1 = UpdateDomainContactPrivacy
+updateDomainContactPrivacy p1 = UpdateDomainContactPrivacy
     { _udcpDomainName = p1
     , _udcpAdminPrivacy = Nothing
     , _udcpRegistrantPrivacy = Nothing
@@ -146,9 +146,9 @@ newtype UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse
 --
 -- * @OperationId ::@ @Text@
 --
-mkUpdateDomainContactPrivacyResponse :: Text -- ^ 'udcprOperationId'
+updateDomainContactPrivacyResponse :: Text -- ^ 'udcprOperationId'
                                      -> UpdateDomainContactPrivacyResponse
-mkUpdateDomainContactPrivacyResponse p1 = UpdateDomainContactPrivacyResponse
+updateDomainContactPrivacyResponse p1 = UpdateDomainContactPrivacyResponse
     { _udcprOperationId = p1
     }
 

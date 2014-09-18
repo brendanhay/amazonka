@@ -34,7 +34,7 @@ module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     -- * Request
       EnableAvailabilityZonesForLoadBalancer
     -- ** Request constructor
-    , mkEnableAvailabilityZonesForLoadBalancer
+    , enableAvailabilityZonesForLoadBalancer
     -- ** Request lenses
     , eazflbLoadBalancerName
     , eazflbAvailabilityZones
@@ -42,7 +42,7 @@ module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     -- * Response
     , EnableAvailabilityZonesForLoadBalancerResponse
     -- ** Response constructor
-    , mkEnableAvailabilityZonesForLoadBalancerResponse
+    , enableAvailabilityZonesForLoadBalancerResponse
     -- ** Response lenses
     , eazflbrAvailabilityZones
     ) where
@@ -66,10 +66,10 @@ data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBala
 --
 -- * @AvailabilityZones ::@ @[Text]@
 --
-mkEnableAvailabilityZonesForLoadBalancer :: Text -- ^ 'eazflbLoadBalancerName'
+enableAvailabilityZonesForLoadBalancer :: Text -- ^ 'eazflbLoadBalancerName'
                                          -> [Text] -- ^ 'eazflbAvailabilityZones'
                                          -> EnableAvailabilityZonesForLoadBalancer
-mkEnableAvailabilityZonesForLoadBalancer p1 p2 = EnableAvailabilityZonesForLoadBalancer
+enableAvailabilityZonesForLoadBalancer p1 p2 = EnableAvailabilityZonesForLoadBalancer
     { _eazflbLoadBalancerName = p1
     , _eazflbAvailabilityZones = p2
     }
@@ -103,8 +103,8 @@ newtype EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZones
 --
 -- * @AvailabilityZones ::@ @[Text]@
 --
-mkEnableAvailabilityZonesForLoadBalancerResponse :: EnableAvailabilityZonesForLoadBalancerResponse
-mkEnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse
+enableAvailabilityZonesForLoadBalancerResponse :: EnableAvailabilityZonesForLoadBalancerResponse
+enableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse
     { _eazflbrAvailabilityZones = mempty
     }
 

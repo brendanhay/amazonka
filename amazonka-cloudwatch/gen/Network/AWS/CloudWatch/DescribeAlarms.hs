@@ -25,7 +25,7 @@ module Network.AWS.CloudWatch.DescribeAlarms
     -- * Request
       DescribeAlarms
     -- ** Request constructor
-    , mkDescribeAlarms
+    , describeAlarms
     -- ** Request lenses
     , da1AlarmNames
     , da1AlarmNamePrefix
@@ -37,7 +37,7 @@ module Network.AWS.CloudWatch.DescribeAlarms
     -- * Response
     , DescribeAlarmsResponse
     -- ** Response constructor
-    , mkDescribeAlarmsResponse
+    , describeAlarmsResponse
     -- ** Response lenses
     , darMetricAlarms
     , darNextToken
@@ -73,8 +73,8 @@ data DescribeAlarms = DescribeAlarms
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeAlarms :: DescribeAlarms
-mkDescribeAlarms = DescribeAlarms
+describeAlarms :: DescribeAlarms
+describeAlarms = DescribeAlarms
     { _da1AlarmNames = mempty
     , _da1AlarmNamePrefix = Nothing
     , _da1StateValue = Nothing
@@ -130,8 +130,8 @@ data DescribeAlarmsResponse = DescribeAlarmsResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeAlarmsResponse :: DescribeAlarmsResponse
-mkDescribeAlarmsResponse = DescribeAlarmsResponse
+describeAlarmsResponse :: DescribeAlarmsResponse
+describeAlarmsResponse = DescribeAlarmsResponse
     { _darMetricAlarms = mempty
     , _darNextToken = Nothing
     }

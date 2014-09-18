@@ -42,7 +42,7 @@ module Network.AWS.StorageGateway.AddWorkingStorage
     -- * Request
       AddWorkingStorage
     -- ** Request constructor
-    , mkAddWorkingStorage
+    , addWorkingStorage
     -- ** Request lenses
     , awsGatewayARN
     , awsDiskIds
@@ -50,7 +50,7 @@ module Network.AWS.StorageGateway.AddWorkingStorage
     -- * Response
     , AddWorkingStorageResponse
     -- ** Response constructor
-    , mkAddWorkingStorageResponse
+    , addWorkingStorageResponse
     -- ** Response lenses
     , awsrGatewayARN
     ) where
@@ -75,10 +75,10 @@ data AddWorkingStorage = AddWorkingStorage
 --
 -- * @DiskIds ::@ @[Text]@
 --
-mkAddWorkingStorage :: Text -- ^ 'awsGatewayARN'
+addWorkingStorage :: Text -- ^ 'awsGatewayARN'
                     -> [Text] -- ^ 'awsDiskIds'
                     -> AddWorkingStorage
-mkAddWorkingStorage p1 p2 = AddWorkingStorage
+addWorkingStorage p1 p2 = AddWorkingStorage
     { _awsGatewayARN = p1
     , _awsDiskIds = p2
     }
@@ -117,8 +117,8 @@ newtype AddWorkingStorageResponse = AddWorkingStorageResponse
 --
 -- * @GatewayARN ::@ @Maybe Text@
 --
-mkAddWorkingStorageResponse :: AddWorkingStorageResponse
-mkAddWorkingStorageResponse = AddWorkingStorageResponse
+addWorkingStorageResponse :: AddWorkingStorageResponse
+addWorkingStorageResponse = AddWorkingStorageResponse
     { _awsrGatewayARN = Nothing
     }
 

@@ -65,7 +65,7 @@ module Network.AWS.IAM.UploadServerCertificate
     -- * Request
       UploadServerCertificate
     -- ** Request constructor
-    , mkUploadServerCertificate
+    , uploadServerCertificate
     -- ** Request lenses
     , usc2Path
     , usc2ServerCertificateName
@@ -76,7 +76,7 @@ module Network.AWS.IAM.UploadServerCertificate
     -- * Response
     , UploadServerCertificateResponse
     -- ** Response constructor
-    , mkUploadServerCertificateResponse
+    , uploadServerCertificateResponse
     -- ** Response lenses
     , uscrServerCertificateMetadata
     ) where
@@ -108,11 +108,11 @@ data UploadServerCertificate = UploadServerCertificate
 --
 -- * @CertificateChain ::@ @Maybe Text@
 --
-mkUploadServerCertificate :: Text -- ^ 'usc2ServerCertificateName'
+uploadServerCertificate :: Text -- ^ 'usc2ServerCertificateName'
                           -> Text -- ^ 'usc2CertificateBody'
                           -> Text -- ^ 'usc2PrivateKey'
                           -> UploadServerCertificate
-mkUploadServerCertificate p2 p3 p4 = UploadServerCertificate
+uploadServerCertificate p2 p3 p4 = UploadServerCertificate
     { _usc2Path = Nothing
     , _usc2ServerCertificateName = p2
     , _usc2CertificateBody = p3
@@ -169,8 +169,8 @@ newtype UploadServerCertificateResponse = UploadServerCertificateResponse
 --
 -- * @ServerCertificateMetadata ::@ @Maybe ServerCertificateMetadata@
 --
-mkUploadServerCertificateResponse :: UploadServerCertificateResponse
-mkUploadServerCertificateResponse = UploadServerCertificateResponse
+uploadServerCertificateResponse :: UploadServerCertificateResponse
+uploadServerCertificateResponse = UploadServerCertificateResponse
     { _uscrServerCertificateMetadata = Nothing
     }
 

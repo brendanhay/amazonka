@@ -33,7 +33,7 @@ module Network.AWS.Redshift.CreateClusterSecurityGroup
     -- * Request
       CreateClusterSecurityGroup
     -- ** Request constructor
-    , mkCreateClusterSecurityGroup
+    , createClusterSecurityGroup
     -- ** Request lenses
     , ccsgClusterSecurityGroupName
     , ccsgDescription
@@ -41,7 +41,7 @@ module Network.AWS.Redshift.CreateClusterSecurityGroup
     -- * Response
     , CreateClusterSecurityGroupResponse
     -- ** Response constructor
-    , mkCreateClusterSecurityGroupResponse
+    , createClusterSecurityGroupResponse
     -- ** Response lenses
     , ccsgrClusterSecurityGroup
     ) where
@@ -65,10 +65,10 @@ data CreateClusterSecurityGroup = CreateClusterSecurityGroup
 --
 -- * @Description ::@ @Text@
 --
-mkCreateClusterSecurityGroup :: Text -- ^ 'ccsgClusterSecurityGroupName'
+createClusterSecurityGroup :: Text -- ^ 'ccsgClusterSecurityGroupName'
                              -> Text -- ^ 'ccsgDescription'
                              -> CreateClusterSecurityGroup
-mkCreateClusterSecurityGroup p1 p2 = CreateClusterSecurityGroup
+createClusterSecurityGroup p1 p2 = CreateClusterSecurityGroup
     { _ccsgClusterSecurityGroupName = p1
     , _ccsgDescription = p2
     }
@@ -103,8 +103,8 @@ newtype CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse
 --
 -- * @ClusterSecurityGroup ::@ @Maybe ClusterSecurityGroup@
 --
-mkCreateClusterSecurityGroupResponse :: CreateClusterSecurityGroupResponse
-mkCreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse
+createClusterSecurityGroupResponse :: CreateClusterSecurityGroupResponse
+createClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse
     { _ccsgrClusterSecurityGroup = Nothing
     }
 

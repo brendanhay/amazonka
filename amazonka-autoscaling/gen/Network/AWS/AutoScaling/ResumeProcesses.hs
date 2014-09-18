@@ -25,7 +25,7 @@ module Network.AWS.AutoScaling.ResumeProcesses
     -- * Request
       ResumeProcesses
     -- ** Request constructor
-    , mkResumeProcesses
+    , resumeProcesses
     -- ** Request lenses
     , rpAutoScalingGroupName
     , rpScalingProcesses
@@ -33,7 +33,7 @@ module Network.AWS.AutoScaling.ResumeProcesses
     -- * Response
     , ResumeProcessesResponse
     -- ** Response constructor
-    , mkResumeProcessesResponse
+    , resumeProcessesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -54,9 +54,9 @@ data ResumeProcesses = ResumeProcesses
 --
 -- * @ScalingProcesses ::@ @[Text]@
 --
-mkResumeProcesses :: Text -- ^ 'rpAutoScalingGroupName'
+resumeProcesses :: Text -- ^ 'rpAutoScalingGroupName'
                   -> ResumeProcesses
-mkResumeProcesses p1 = ResumeProcesses
+resumeProcesses p1 = ResumeProcesses
     { _rpAutoScalingGroupName = p1
     , _rpScalingProcesses = mempty
     }
@@ -84,8 +84,8 @@ data ResumeProcessesResponse = ResumeProcessesResponse
 -- a valid 'ResumeProcessesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkResumeProcessesResponse :: ResumeProcessesResponse
-mkResumeProcessesResponse = ResumeProcessesResponse
+resumeProcessesResponse :: ResumeProcessesResponse
+resumeProcessesResponse = ResumeProcessesResponse
 
 instance AWSRequest ResumeProcesses where
     type Sv ResumeProcesses = AutoScaling

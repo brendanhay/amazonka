@@ -30,7 +30,7 @@ module Network.AWS.IAM.DeleteSigningCertificate
     -- * Request
       DeleteSigningCertificate
     -- ** Request constructor
-    , mkDeleteSigningCertificate
+    , deleteSigningCertificate
     -- ** Request lenses
     , dsc1UserName
     , dsc1CertificateId
@@ -38,7 +38,7 @@ module Network.AWS.IAM.DeleteSigningCertificate
     -- * Response
     , DeleteSigningCertificateResponse
     -- ** Response constructor
-    , mkDeleteSigningCertificateResponse
+    , deleteSigningCertificateResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -59,9 +59,9 @@ data DeleteSigningCertificate = DeleteSigningCertificate
 --
 -- * @CertificateId ::@ @Text@
 --
-mkDeleteSigningCertificate :: Text -- ^ 'dsc1CertificateId'
+deleteSigningCertificate :: Text -- ^ 'dsc1CertificateId'
                            -> DeleteSigningCertificate
-mkDeleteSigningCertificate p2 = DeleteSigningCertificate
+deleteSigningCertificate p2 = DeleteSigningCertificate
     { _dsc1UserName = Nothing
     , _dsc1CertificateId = p2
     }
@@ -85,8 +85,8 @@ data DeleteSigningCertificateResponse = DeleteSigningCertificateResponse
 -- a valid 'DeleteSigningCertificateResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteSigningCertificateResponse :: DeleteSigningCertificateResponse
-mkDeleteSigningCertificateResponse = DeleteSigningCertificateResponse
+deleteSigningCertificateResponse :: DeleteSigningCertificateResponse
+deleteSigningCertificateResponse = DeleteSigningCertificateResponse
 
 instance AWSRequest DeleteSigningCertificate where
     type Sv DeleteSigningCertificate = IAM

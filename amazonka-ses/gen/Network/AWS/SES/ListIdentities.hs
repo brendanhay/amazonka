@@ -33,7 +33,7 @@ module Network.AWS.SES.ListIdentities
     -- * Request
       ListIdentities
     -- ** Request constructor
-    , mkListIdentities
+    , listIdentities
     -- ** Request lenses
     , liIdentityType
     , liNextToken
@@ -42,7 +42,7 @@ module Network.AWS.SES.ListIdentities
     -- * Response
     , ListIdentitiesResponse
     -- ** Response constructor
-    , mkListIdentitiesResponse
+    , listIdentitiesResponse
     -- ** Response lenses
     , lirIdentities
     , lirNextToken
@@ -71,8 +71,8 @@ data ListIdentities = ListIdentities
 --
 -- * @MaxItems ::@ @Maybe Integer@
 --
-mkListIdentities :: ListIdentities
-mkListIdentities = ListIdentities
+listIdentities :: ListIdentities
+listIdentities = ListIdentities
     { _liIdentityType = Nothing
     , _liNextToken = Nothing
     , _liMaxItems = Nothing
@@ -112,9 +112,9 @@ data ListIdentitiesResponse = ListIdentitiesResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkListIdentitiesResponse :: [Text] -- ^ 'lirIdentities'
+listIdentitiesResponse :: [Text] -- ^ 'lirIdentities'
                          -> ListIdentitiesResponse
-mkListIdentitiesResponse p1 = ListIdentitiesResponse
+listIdentitiesResponse p1 = ListIdentitiesResponse
     { _lirIdentities = p1
     , _lirNextToken = Nothing
     }

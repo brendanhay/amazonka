@@ -31,7 +31,7 @@ module Network.AWS.DirectConnect.CreateConnection
     -- * Request
       CreateConnection
     -- ** Request constructor
-    , mkCreateConnection
+    , createConnection
     -- ** Request lenses
     , cc1Location
     , cc1Bandwidth
@@ -40,7 +40,7 @@ module Network.AWS.DirectConnect.CreateConnection
     -- * Response
     , CreateConnectionResponse
     -- ** Response constructor
-    , mkCreateConnectionResponse
+    , createConnectionResponse
     -- ** Response lenses
     , ccrrOwnerAccount
     , ccrrConnectionId
@@ -75,11 +75,11 @@ data CreateConnection = CreateConnection
 --
 -- * @ConnectionName ::@ @Text@
 --
-mkCreateConnection :: Text -- ^ 'cc1Location'
+createConnection :: Text -- ^ 'cc1Location'
                    -> Text -- ^ 'cc1Bandwidth'
                    -> Text -- ^ 'cc1ConnectionName'
                    -> CreateConnection
-mkCreateConnection p1 p2 p3 = CreateConnection
+createConnection p1 p2 p3 = CreateConnection
     { _cc1Location = p1
     , _cc1Bandwidth = p2
     , _cc1ConnectionName = p3
@@ -145,8 +145,8 @@ data CreateConnectionResponse = CreateConnectionResponse
 --
 -- * @PartnerName ::@ @Maybe Text@
 --
-mkCreateConnectionResponse :: CreateConnectionResponse
-mkCreateConnectionResponse = CreateConnectionResponse
+createConnectionResponse :: CreateConnectionResponse
+createConnectionResponse = CreateConnectionResponse
     { _ccrrOwnerAccount = Nothing
     , _ccrrConnectionId = Nothing
     , _ccrrConnectionName = Nothing

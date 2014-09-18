@@ -49,7 +49,7 @@ module Network.AWS.EC2.CreateCustomerGateway
     -- * Request
       CreateCustomerGateway
     -- ** Request constructor
-    , mkCreateCustomerGateway
+    , createCustomerGateway
     -- ** Request lenses
     , ccgType
     , ccgPublicIp
@@ -58,7 +58,7 @@ module Network.AWS.EC2.CreateCustomerGateway
     -- * Response
     , CreateCustomerGatewayResponse
     -- ** Response constructor
-    , mkCreateCustomerGatewayResponse
+    , createCustomerGatewayResponse
     -- ** Response lenses
     , ccgrCustomerGateway
     ) where
@@ -84,11 +84,11 @@ data CreateCustomerGateway = CreateCustomerGateway
 --
 -- * @BgpAsn ::@ @Integer@
 --
-mkCreateCustomerGateway :: GatewayType -- ^ 'ccgType'
+createCustomerGateway :: GatewayType -- ^ 'ccgType'
                         -> Text -- ^ 'ccgPublicIp'
                         -> Integer -- ^ 'ccgBgpAsn'
                         -> CreateCustomerGateway
-mkCreateCustomerGateway p1 p2 p3 = CreateCustomerGateway
+createCustomerGateway p1 p2 p3 = CreateCustomerGateway
     { _ccgType = p1
     , _ccgPublicIp = p2
     , _ccgBgpAsn = p3
@@ -124,8 +124,8 @@ newtype CreateCustomerGatewayResponse = CreateCustomerGatewayResponse
 --
 -- * @CustomerGateway ::@ @Maybe CustomerGateway@
 --
-mkCreateCustomerGatewayResponse :: CreateCustomerGatewayResponse
-mkCreateCustomerGatewayResponse = CreateCustomerGatewayResponse
+createCustomerGatewayResponse :: CreateCustomerGatewayResponse
+createCustomerGatewayResponse = CreateCustomerGatewayResponse
     { _ccgrCustomerGateway = Nothing
     }
 

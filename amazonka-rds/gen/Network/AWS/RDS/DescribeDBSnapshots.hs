@@ -35,7 +35,7 @@ module Network.AWS.RDS.DescribeDBSnapshots
     -- * Request
       DescribeDBSnapshots
     -- ** Request constructor
-    , mkDescribeDBSnapshots
+    , describeDBSnapshots
     -- ** Request lenses
     , ddbs1DBInstanceIdentifier
     , ddbs1DBSnapshotIdentifier
@@ -46,7 +46,7 @@ module Network.AWS.RDS.DescribeDBSnapshots
     -- * Response
     , DescribeDBSnapshotsResponse
     -- ** Response constructor
-    , mkDescribeDBSnapshotsResponse
+    , describeDBSnapshotsResponse
     -- ** Response lenses
     , ddbsrrMarker
     , ddbsrrDBSnapshots
@@ -80,8 +80,8 @@ data DescribeDBSnapshots = DescribeDBSnapshots
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeDBSnapshots :: DescribeDBSnapshots
-mkDescribeDBSnapshots = DescribeDBSnapshots
+describeDBSnapshots :: DescribeDBSnapshots
+describeDBSnapshots = DescribeDBSnapshots
     { _ddbs1DBInstanceIdentifier = Nothing
     , _ddbs1DBSnapshotIdentifier = Nothing
     , _ddbs1SnapshotType = Nothing
@@ -151,8 +151,8 @@ data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse
 --
 -- * @DBSnapshots ::@ @[DBSnapshot]@
 --
-mkDescribeDBSnapshotsResponse :: DescribeDBSnapshotsResponse
-mkDescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse
+describeDBSnapshotsResponse :: DescribeDBSnapshotsResponse
+describeDBSnapshotsResponse = DescribeDBSnapshotsResponse
     { _ddbsrrMarker = Nothing
     , _ddbsrrDBSnapshots = mempty
     }

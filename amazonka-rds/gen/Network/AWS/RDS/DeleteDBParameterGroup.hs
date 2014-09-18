@@ -30,14 +30,14 @@ module Network.AWS.RDS.DeleteDBParameterGroup
     -- * Request
       DeleteDBParameterGroup
     -- ** Request constructor
-    , mkDeleteDBParameterGroup
+    , deleteDBParameterGroup
     -- ** Request lenses
     , ddbpgDBParameterGroupName
 
     -- * Response
     , DeleteDBParameterGroupResponse
     -- ** Response constructor
-    , mkDeleteDBParameterGroupResponse
+    , deleteDBParameterGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -56,9 +56,9 @@ newtype DeleteDBParameterGroup = DeleteDBParameterGroup
 --
 -- * @DBParameterGroupName ::@ @Text@
 --
-mkDeleteDBParameterGroup :: Text -- ^ 'ddbpgDBParameterGroupName'
+deleteDBParameterGroup :: Text -- ^ 'ddbpgDBParameterGroupName'
                          -> DeleteDBParameterGroup
-mkDeleteDBParameterGroup p1 = DeleteDBParameterGroup
+deleteDBParameterGroup p1 = DeleteDBParameterGroup
     { _ddbpgDBParameterGroupName = p1
     }
 
@@ -80,8 +80,8 @@ data DeleteDBParameterGroupResponse = DeleteDBParameterGroupResponse
 -- a valid 'DeleteDBParameterGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteDBParameterGroupResponse :: DeleteDBParameterGroupResponse
-mkDeleteDBParameterGroupResponse = DeleteDBParameterGroupResponse
+deleteDBParameterGroupResponse :: DeleteDBParameterGroupResponse
+deleteDBParameterGroupResponse = DeleteDBParameterGroupResponse
 
 instance AWSRequest DeleteDBParameterGroup where
     type Sv DeleteDBParameterGroup = RDS

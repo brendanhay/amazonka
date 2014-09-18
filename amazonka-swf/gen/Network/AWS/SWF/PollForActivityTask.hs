@@ -64,7 +64,7 @@ module Network.AWS.SWF.PollForActivityTask
     -- * Request
       PollForActivityTask
     -- ** Request constructor
-    , mkPollForActivityTask
+    , pollForActivityTask
     -- ** Request lenses
     , pfatDomain
     , pfatTaskList
@@ -73,7 +73,7 @@ module Network.AWS.SWF.PollForActivityTask
     -- * Response
     , PollForActivityTaskResponse
     -- ** Response constructor
-    , mkPollForActivityTaskResponse
+    , pollForActivityTaskResponse
     -- ** Response lenses
     , pfatrTaskToken
     , pfatrActivityId
@@ -104,10 +104,10 @@ data PollForActivityTask = PollForActivityTask
 --
 -- * @Identity ::@ @Maybe Text@
 --
-mkPollForActivityTask :: Text -- ^ 'pfatDomain'
+pollForActivityTask :: Text -- ^ 'pfatDomain'
                       -> TaskList -- ^ 'pfatTaskList'
                       -> PollForActivityTask
-mkPollForActivityTask p1 p2 = PollForActivityTask
+pollForActivityTask p1 p2 = PollForActivityTask
     { _pfatDomain = p1
     , _pfatTaskList = p2
     , _pfatIdentity = Nothing
@@ -168,13 +168,13 @@ data PollForActivityTaskResponse = PollForActivityTaskResponse
 --
 -- * @Input ::@ @Maybe Text@
 --
-mkPollForActivityTaskResponse :: Text -- ^ 'pfatrTaskToken'
+pollForActivityTaskResponse :: Text -- ^ 'pfatrTaskToken'
                               -> Text -- ^ 'pfatrActivityId'
                               -> Integer -- ^ 'pfatrStartedEventId'
                               -> WorkflowExecution -- ^ 'pfatrWorkflowExecution'
                               -> ActivityType -- ^ 'pfatrActivityType'
                               -> PollForActivityTaskResponse
-mkPollForActivityTaskResponse p1 p2 p3 p4 p5 = PollForActivityTaskResponse
+pollForActivityTaskResponse p1 p2 p3 p4 p5 = PollForActivityTaskResponse
     { _pfatrTaskToken = p1
     , _pfatrActivityId = p2
     , _pfatrStartedEventId = p3

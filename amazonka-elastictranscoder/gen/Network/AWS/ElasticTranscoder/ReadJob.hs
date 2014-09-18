@@ -39,14 +39,14 @@ module Network.AWS.ElasticTranscoder.ReadJob
     -- * Request
       ReadJob
     -- ** Request constructor
-    , mkReadJob
+    , readJob
     -- ** Request lenses
     , rjId
 
     -- * Response
     , ReadJobResponse
     -- ** Response constructor
-    , mkReadJobResponse
+    , readJobResponse
     -- ** Response lenses
     , rjrJob
     ) where
@@ -67,9 +67,9 @@ newtype ReadJob = ReadJob
 --
 -- * @Id ::@ @Text@
 --
-mkReadJob :: Text -- ^ 'rjId'
+readJob :: Text -- ^ 'rjId'
           -> ReadJob
-mkReadJob p1 = ReadJob
+readJob p1 = ReadJob
     { _rjId = p1
     }
 
@@ -99,8 +99,8 @@ newtype ReadJobResponse = ReadJobResponse
 --
 -- * @Job ::@ @Maybe Job@
 --
-mkReadJobResponse :: ReadJobResponse
-mkReadJobResponse = ReadJobResponse
+readJobResponse :: ReadJobResponse
+readJobResponse = ReadJobResponse
     { _rjrJob = Nothing
     }
 

@@ -49,7 +49,7 @@ module Network.AWS.DynamoDB.CreateTable
     -- * Request
       CreateTable
     -- ** Request constructor
-    , mkCreateTable
+    , createTable
     -- ** Request lenses
     , ctAttributeDefinitions
     , ctTableName
@@ -61,7 +61,7 @@ module Network.AWS.DynamoDB.CreateTable
     -- * Response
     , CreateTableResponse
     -- ** Response constructor
-    , mkCreateTableResponse
+    , createTableResponse
     -- ** Response lenses
     , ctrTableDescription
     ) where
@@ -97,12 +97,12 @@ data CreateTable = CreateTable
 --
 -- * @ProvisionedThroughput ::@ @ProvisionedThroughput@
 --
-mkCreateTable :: [AttributeDefinition] -- ^ 'ctAttributeDefinitions'
+createTable :: [AttributeDefinition] -- ^ 'ctAttributeDefinitions'
               -> Text -- ^ 'ctTableName'
               -> List1 KeySchemaElement -- ^ 'ctKeySchema'
               -> ProvisionedThroughput -- ^ 'ctProvisionedThroughput'
               -> CreateTable
-mkCreateTable p1 p2 p3 p6 = CreateTable
+createTable p1 p2 p3 p6 = CreateTable
     { _ctAttributeDefinitions = p1
     , _ctTableName = p2
     , _ctKeySchema = p3
@@ -216,8 +216,8 @@ newtype CreateTableResponse = CreateTableResponse
 --
 -- * @TableDescription ::@ @Maybe TableDescription@
 --
-mkCreateTableResponse :: CreateTableResponse
-mkCreateTableResponse = CreateTableResponse
+createTableResponse :: CreateTableResponse
+createTableResponse = CreateTableResponse
     { _ctrTableDescription = Nothing
     }
 

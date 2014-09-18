@@ -23,14 +23,14 @@ module Network.AWS.S3.GetBucketPolicy
     -- * Request
       GetBucketPolicy
     -- ** Request constructor
-    , mkGetBucketPolicy
+    , getBucketPolicy
     -- ** Request lenses
     , gbpBucket
 
     -- * Response
     , GetBucketPolicyResponse
     -- ** Response constructor
-    , mkGetBucketPolicyResponse
+    , getBucketPolicyResponse
     -- ** Response lenses
     , gbprPolicy
     ) where
@@ -51,9 +51,9 @@ newtype GetBucketPolicy = GetBucketPolicy
 --
 -- * @Bucket ::@ @BucketName@
 --
-mkGetBucketPolicy :: BucketName -- ^ 'gbpBucket'
+getBucketPolicy :: BucketName -- ^ 'gbpBucket'
                   -> GetBucketPolicy
-mkGetBucketPolicy p1 = GetBucketPolicy
+getBucketPolicy p1 = GetBucketPolicy
     { _gbpBucket = p1
     }
 
@@ -81,8 +81,8 @@ newtype GetBucketPolicyResponse = GetBucketPolicyResponse
 --
 -- * @Policy ::@ @Maybe Text@
 --
-mkGetBucketPolicyResponse :: GetBucketPolicyResponse
-mkGetBucketPolicyResponse = GetBucketPolicyResponse
+getBucketPolicyResponse :: GetBucketPolicyResponse
+getBucketPolicyResponse = GetBucketPolicyResponse
     { _gbprPolicy = Nothing
     }
 

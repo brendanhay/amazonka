@@ -31,7 +31,7 @@ module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
     -- * Request
       ModifyCacheSubnetGroup
     -- ** Request constructor
-    , mkModifyCacheSubnetGroup
+    , modifyCacheSubnetGroup
     -- ** Request lenses
     , mcsgCacheSubnetGroupName
     , mcsgCacheSubnetGroupDescription
@@ -40,7 +40,7 @@ module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
     -- * Response
     , ModifyCacheSubnetGroupResponse
     -- ** Response constructor
-    , mkModifyCacheSubnetGroupResponse
+    , modifyCacheSubnetGroupResponse
     -- ** Response lenses
     , mcsgrCacheSubnetGroup
     ) where
@@ -67,9 +67,9 @@ data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup
 --
 -- * @SubnetIds ::@ @[Text]@
 --
-mkModifyCacheSubnetGroup :: Text -- ^ 'mcsgCacheSubnetGroupName'
+modifyCacheSubnetGroup :: Text -- ^ 'mcsgCacheSubnetGroupName'
                          -> ModifyCacheSubnetGroup
-mkModifyCacheSubnetGroup p1 = ModifyCacheSubnetGroup
+modifyCacheSubnetGroup p1 = ModifyCacheSubnetGroup
     { _mcsgCacheSubnetGroupName = p1
     , _mcsgCacheSubnetGroupDescription = Nothing
     , _mcsgSubnetIds = mempty
@@ -109,8 +109,8 @@ newtype ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse
 --
 -- * @CacheSubnetGroup ::@ @Maybe CacheSubnetGroup@
 --
-mkModifyCacheSubnetGroupResponse :: ModifyCacheSubnetGroupResponse
-mkModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse
+modifyCacheSubnetGroupResponse :: ModifyCacheSubnetGroupResponse
+modifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse
     { _mcsgrCacheSubnetGroup = Nothing
     }
 

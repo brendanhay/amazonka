@@ -25,7 +25,7 @@ module Network.AWS.S3.CopyObject
     -- ** Request alias
     , PutObjectCopy
     -- ** Request constructor
-    , mkCopyObject
+    , copyObject
     -- ** Request lenses
     , coACL
     , coBucket
@@ -60,7 +60,7 @@ module Network.AWS.S3.CopyObject
     -- * Response
     , CopyObjectResponse
     -- ** Response constructor
-    , mkCopyObjectResponse
+    , copyObjectResponse
     -- ** Response lenses
     , corCopyObjectResult
     , corExpiration
@@ -172,11 +172,11 @@ data CopyObject = CopyObject
 --
 -- * @CopySourceSSECustomerKeyMD5 ::@ @Maybe Text@
 --
-mkCopyObject :: ObjectKey -- ^ 'coKey'
+copyObject :: ObjectKey -- ^ 'coKey'
              -> BucketName -- ^ 'coBucket'
              -> Text -- ^ 'coCopySource'
              -> CopyObject
-mkCopyObject p18 p2 p8 = CopyObject
+copyObject p18 p2 p8 = CopyObject
     { _coACL = Nothing
     , _coBucket = p2
     , _coCacheControl = Nothing
@@ -430,8 +430,8 @@ data CopyObjectResponse = CopyObjectResponse
 --
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
-mkCopyObjectResponse :: CopyObjectResponse
-mkCopyObjectResponse = CopyObjectResponse
+copyObjectResponse :: CopyObjectResponse
+copyObjectResponse = CopyObjectResponse
     { _corCopyObjectResult = Nothing
     , _corExpiration = Nothing
     , _corCopySourceVersionId = Nothing

@@ -30,7 +30,7 @@ module Network.AWS.IAM.UpdateAccountPasswordPolicy
     -- * Request
       UpdateAccountPasswordPolicy
     -- ** Request constructor
-    , mkUpdateAccountPasswordPolicy
+    , updateAccountPasswordPolicy
     -- ** Request lenses
     , uappMinimumPasswordLength
     , uappRequireSymbols
@@ -45,7 +45,7 @@ module Network.AWS.IAM.UpdateAccountPasswordPolicy
     -- * Response
     , UpdateAccountPasswordPolicyResponse
     -- ** Response constructor
-    , mkUpdateAccountPasswordPolicyResponse
+    , updateAccountPasswordPolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -87,8 +87,8 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy
 --
 -- * @HardExpiry ::@ @Maybe Bool@
 --
-mkUpdateAccountPasswordPolicy :: UpdateAccountPasswordPolicy
-mkUpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy
+updateAccountPasswordPolicy :: UpdateAccountPasswordPolicy
+updateAccountPasswordPolicy = UpdateAccountPasswordPolicy
     { _uappMinimumPasswordLength = Nothing
     , _uappRequireSymbols = Nothing
     , _uappRequireNumbers = Nothing
@@ -168,8 +168,8 @@ data UpdateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse
 -- a valid 'UpdateAccountPasswordPolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkUpdateAccountPasswordPolicyResponse :: UpdateAccountPasswordPolicyResponse
-mkUpdateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse
+updateAccountPasswordPolicyResponse :: UpdateAccountPasswordPolicyResponse
+updateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse
 
 instance AWSRequest UpdateAccountPasswordPolicy where
     type Sv UpdateAccountPasswordPolicy = IAM

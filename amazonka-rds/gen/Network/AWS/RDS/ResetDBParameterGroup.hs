@@ -37,7 +37,7 @@ module Network.AWS.RDS.ResetDBParameterGroup
     -- * Request
       ResetDBParameterGroup
     -- ** Request constructor
-    , mkResetDBParameterGroup
+    , resetDBParameterGroup
     -- ** Request lenses
     , rdbpgDBParameterGroupName
     , rdbpgResetAllParameters
@@ -46,7 +46,7 @@ module Network.AWS.RDS.ResetDBParameterGroup
     -- * Response
     , ResetDBParameterGroupResponse
     -- ** Response constructor
-    , mkResetDBParameterGroupResponse
+    , resetDBParameterGroupResponse
     -- ** Response lenses
     , rdbpgrDBParameterGroupName
     ) where
@@ -73,9 +73,9 @@ data ResetDBParameterGroup = ResetDBParameterGroup
 --
 -- * @Parameters ::@ @[Parameter]@
 --
-mkResetDBParameterGroup :: Text -- ^ 'rdbpgDBParameterGroupName'
+resetDBParameterGroup :: Text -- ^ 'rdbpgDBParameterGroupName'
                         -> ResetDBParameterGroup
-mkResetDBParameterGroup p1 = ResetDBParameterGroup
+resetDBParameterGroup p1 = ResetDBParameterGroup
     { _rdbpgDBParameterGroupName = p1
     , _rdbpgResetAllParameters = Nothing
     , _rdbpgParameters = mempty
@@ -125,8 +125,8 @@ newtype ResetDBParameterGroupResponse = ResetDBParameterGroupResponse
 --
 -- * @DBParameterGroupName ::@ @Maybe Text@
 --
-mkResetDBParameterGroupResponse :: ResetDBParameterGroupResponse
-mkResetDBParameterGroupResponse = ResetDBParameterGroupResponse
+resetDBParameterGroupResponse :: ResetDBParameterGroupResponse
+resetDBParameterGroupResponse = ResetDBParameterGroupResponse
     { _rdbpgrDBParameterGroupName = Nothing
     }
 

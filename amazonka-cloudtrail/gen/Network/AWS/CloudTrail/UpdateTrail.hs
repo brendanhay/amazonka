@@ -27,7 +27,7 @@ module Network.AWS.CloudTrail.UpdateTrail
     -- * Request
       UpdateTrail
     -- ** Request constructor
-    , mkUpdateTrail
+    , updateTrail
     -- ** Request lenses
     , utName
     , utS3BucketName
@@ -38,7 +38,7 @@ module Network.AWS.CloudTrail.UpdateTrail
     -- * Response
     , UpdateTrailResponse
     -- ** Response constructor
-    , mkUpdateTrailResponse
+    , updateTrailResponse
     -- ** Response lenses
     , utrName
     , utrS3BucketName
@@ -75,9 +75,9 @@ data UpdateTrail = UpdateTrail
 --
 -- * @IncludeGlobalServiceEvents ::@ @Maybe Bool@
 --
-mkUpdateTrail :: Text -- ^ 'utName'
+updateTrail :: Text -- ^ 'utName'
               -> UpdateTrail
-mkUpdateTrail p1 = UpdateTrail
+updateTrail p1 = UpdateTrail
     { _utName = p1
     , _utS3BucketName = Nothing
     , _utS3KeyPrefix = Nothing
@@ -146,8 +146,8 @@ data UpdateTrailResponse = UpdateTrailResponse
 --
 -- * @IncludeGlobalServiceEvents ::@ @Maybe Bool@
 --
-mkUpdateTrailResponse :: UpdateTrailResponse
-mkUpdateTrailResponse = UpdateTrailResponse
+updateTrailResponse :: UpdateTrailResponse
+updateTrailResponse = UpdateTrailResponse
     { _utrName = Nothing
     , _utrS3BucketName = Nothing
     , _utrS3KeyPrefix = Nothing

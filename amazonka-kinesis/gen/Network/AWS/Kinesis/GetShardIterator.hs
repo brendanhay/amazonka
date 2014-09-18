@@ -66,7 +66,7 @@ module Network.AWS.Kinesis.GetShardIterator
     -- * Request
       GetShardIterator
     -- ** Request constructor
-    , mkGetShardIterator
+    , getShardIterator
     -- ** Request lenses
     , gsiStreamName
     , gsiShardId
@@ -76,7 +76,7 @@ module Network.AWS.Kinesis.GetShardIterator
     -- * Response
     , GetShardIteratorResponse
     -- ** Response constructor
-    , mkGetShardIteratorResponse
+    , getShardIteratorResponse
     -- ** Response lenses
     , gsirShardIterator
     ) where
@@ -106,11 +106,11 @@ data GetShardIterator = GetShardIterator
 --
 -- * @StartingSequenceNumber ::@ @Maybe Text@
 --
-mkGetShardIterator :: Text -- ^ 'gsiStreamName'
+getShardIterator :: Text -- ^ 'gsiStreamName'
                    -> Text -- ^ 'gsiShardId'
                    -> ShardIteratorType -- ^ 'gsiShardIteratorType'
                    -> GetShardIterator
-mkGetShardIterator p1 p2 p3 = GetShardIterator
+getShardIterator p1 p2 p3 = GetShardIterator
     { _gsiStreamName = p1
     , _gsiShardId = p2
     , _gsiShardIteratorType = p3
@@ -167,8 +167,8 @@ newtype GetShardIteratorResponse = GetShardIteratorResponse
 --
 -- * @ShardIterator ::@ @Maybe Text@
 --
-mkGetShardIteratorResponse :: GetShardIteratorResponse
-mkGetShardIteratorResponse = GetShardIteratorResponse
+getShardIteratorResponse :: GetShardIteratorResponse
+getShardIteratorResponse = GetShardIteratorResponse
     { _gsirShardIterator = Nothing
     }
 

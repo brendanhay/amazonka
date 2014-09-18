@@ -29,7 +29,7 @@ module Network.AWS.ElasticBeanstalk.UpdateApplication
     -- * Request
       UpdateApplication
     -- ** Request constructor
-    , mkUpdateApplication
+    , updateApplication
     -- ** Request lenses
     , uaApplicationName
     , uaDescription
@@ -37,7 +37,7 @@ module Network.AWS.ElasticBeanstalk.UpdateApplication
     -- * Response
     , UpdateApplicationResponse
     -- ** Response constructor
-    , mkUpdateApplicationResponse
+    , updateApplicationResponse
     -- ** Response lenses
     , uarApplication
     ) where
@@ -61,9 +61,9 @@ data UpdateApplication = UpdateApplication
 --
 -- * @Description ::@ @Maybe Text@
 --
-mkUpdateApplication :: Text -- ^ 'uaApplicationName'
+updateApplication :: Text -- ^ 'uaApplicationName'
                     -> UpdateApplication
-mkUpdateApplication p1 = UpdateApplication
+updateApplication p1 = UpdateApplication
     { _uaApplicationName = p1
     , _uaDescription = Nothing
     }
@@ -96,8 +96,8 @@ newtype UpdateApplicationResponse = UpdateApplicationResponse
 --
 -- * @Application ::@ @Maybe ApplicationDescription@
 --
-mkUpdateApplicationResponse :: UpdateApplicationResponse
-mkUpdateApplicationResponse = UpdateApplicationResponse
+updateApplicationResponse :: UpdateApplicationResponse
+updateApplicationResponse = UpdateApplicationResponse
     { _uarApplication = Nothing
     }
 

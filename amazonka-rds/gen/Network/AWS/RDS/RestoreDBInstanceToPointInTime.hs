@@ -36,7 +36,7 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     -- * Request
       RestoreDBInstanceToPointInTime
     -- ** Request constructor
-    , mkRestoreDBInstanceToPointInTime
+    , restoreDBInstanceToPointInTime
     -- ** Request lenses
     , rdbitpitSourceDBInstanceIdentifier
     , rdbitpitTargetDBInstanceIdentifier
@@ -59,7 +59,7 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     -- * Response
     , RestoreDBInstanceToPointInTimeResponse
     -- ** Response constructor
-    , mkRestoreDBInstanceToPointInTimeResponse
+    , restoreDBInstanceToPointInTimeResponse
     -- ** Response lenses
     , rdbitpitrDBInstance
     ) where
@@ -128,10 +128,10 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkRestoreDBInstanceToPointInTime :: Text -- ^ 'rdbitpitSourceDBInstanceIdentifier'
+restoreDBInstanceToPointInTime :: Text -- ^ 'rdbitpitSourceDBInstanceIdentifier'
                                  -> Text -- ^ 'rdbitpitTargetDBInstanceIdentifier'
                                  -> RestoreDBInstanceToPointInTime
-mkRestoreDBInstanceToPointInTime p1 p2 = RestoreDBInstanceToPointInTime
+restoreDBInstanceToPointInTime p1 p2 = RestoreDBInstanceToPointInTime
     { _rdbitpitSourceDBInstanceIdentifier = p1
     , _rdbitpitTargetDBInstanceIdentifier = p2
     , _rdbitpitRestoreTime = Nothing
@@ -300,8 +300,8 @@ newtype RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeR
 --
 -- * @DBInstance ::@ @Maybe DBInstance@
 --
-mkRestoreDBInstanceToPointInTimeResponse :: RestoreDBInstanceToPointInTimeResponse
-mkRestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse
+restoreDBInstanceToPointInTimeResponse :: RestoreDBInstanceToPointInTimeResponse
+restoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse
     { _rdbitpitrDBInstance = Nothing
     }
 

@@ -37,7 +37,7 @@ module Network.AWS.IAM.CreateVirtualMFADevice
     -- * Request
       CreateVirtualMFADevice
     -- ** Request constructor
-    , mkCreateVirtualMFADevice
+    , createVirtualMFADevice
     -- ** Request lenses
     , cvmfadPath
     , cvmfadVirtualMFADeviceName
@@ -45,7 +45,7 @@ module Network.AWS.IAM.CreateVirtualMFADevice
     -- * Response
     , CreateVirtualMFADeviceResponse
     -- ** Response constructor
-    , mkCreateVirtualMFADeviceResponse
+    , createVirtualMFADeviceResponse
     -- ** Response lenses
     , cvmfadrVirtualMFADevice
     ) where
@@ -68,9 +68,9 @@ data CreateVirtualMFADevice = CreateVirtualMFADevice
 --
 -- * @VirtualMFADeviceName ::@ @Text@
 --
-mkCreateVirtualMFADevice :: Text -- ^ 'cvmfadVirtualMFADeviceName'
+createVirtualMFADevice :: Text -- ^ 'cvmfadVirtualMFADeviceName'
                          -> CreateVirtualMFADevice
-mkCreateVirtualMFADevice p2 = CreateVirtualMFADevice
+createVirtualMFADevice p2 = CreateVirtualMFADevice
     { _cvmfadPath = Nothing
     , _cvmfadVirtualMFADeviceName = p2
     }
@@ -106,9 +106,9 @@ newtype CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse
 --
 -- * @VirtualMFADevice ::@ @VirtualMFADevice@
 --
-mkCreateVirtualMFADeviceResponse :: VirtualMFADevice -- ^ 'cvmfadrVirtualMFADevice'
+createVirtualMFADeviceResponse :: VirtualMFADevice -- ^ 'cvmfadrVirtualMFADevice'
                                  -> CreateVirtualMFADeviceResponse
-mkCreateVirtualMFADeviceResponse p1 = CreateVirtualMFADeviceResponse
+createVirtualMFADeviceResponse p1 = CreateVirtualMFADeviceResponse
     { _cvmfadrVirtualMFADevice = p1
     }
 

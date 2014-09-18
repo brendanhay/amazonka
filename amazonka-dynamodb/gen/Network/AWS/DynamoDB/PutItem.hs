@@ -42,7 +42,7 @@ module Network.AWS.DynamoDB.PutItem
     -- * Request
       PutItem
     -- ** Request constructor
-    , mkPutItem
+    , putItem
     -- ** Request lenses
     , piTableName
     , piItem
@@ -55,7 +55,7 @@ module Network.AWS.DynamoDB.PutItem
     -- * Response
     , PutItemResponse
     -- ** Response constructor
-    , mkPutItemResponse
+    , putItemResponse
     -- ** Response lenses
     , pirAttributes
     , pirConsumedCapacity
@@ -96,10 +96,10 @@ data PutItem = PutItem
 --
 -- * @ConditionalOperator ::@ @Maybe ConditionalOperator@
 --
-mkPutItem :: Text -- ^ 'piTableName'
+putItem :: Text -- ^ 'piTableName'
           -> Map Text AttributeValue -- ^ 'piItem'
           -> PutItem
-mkPutItem p1 p2 = PutItem
+putItem p1 p2 = PutItem
     { _piTableName = p1
     , _piItem = p2
     , _piExpected = mempty
@@ -210,8 +210,8 @@ data PutItemResponse = PutItemResponse
 --
 -- * @ItemCollectionMetrics ::@ @Maybe ItemCollectionMetrics@
 --
-mkPutItemResponse :: PutItemResponse
-mkPutItemResponse = PutItemResponse
+putItemResponse :: PutItemResponse
+putItemResponse = PutItemResponse
     { _pirAttributes = mempty
     , _pirConsumedCapacity = Nothing
     , _pirItemCollectionMetrics = Nothing

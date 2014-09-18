@@ -24,11 +24,11 @@ module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
     -- * Request
       DescribeAutoScalingNotificationTypes
     -- ** Request constructor
-    , mkDescribeAutoScalingNotificationTypes
+    , describeAutoScalingNotificationTypes
     -- * Response
     , DescribeAutoScalingNotificationTypesResponse
     -- ** Response constructor
-    , mkDescribeAutoScalingNotificationTypesResponse
+    , describeAutoScalingNotificationTypesResponse
     -- ** Response lenses
     , dasntrAutoScalingNotificationTypes
     ) where
@@ -42,8 +42,8 @@ data DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAutoScalingNotificationTypes' request.
-mkDescribeAutoScalingNotificationTypes :: DescribeAutoScalingNotificationTypes
-mkDescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
+describeAutoScalingNotificationTypes :: DescribeAutoScalingNotificationTypes
+describeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
 
 instance ToQuery DescribeAutoScalingNotificationTypes where
     toQuery = genericQuery def
@@ -62,8 +62,8 @@ newtype DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotifi
 --
 -- * @AutoScalingNotificationTypes ::@ @[Text]@
 --
-mkDescribeAutoScalingNotificationTypesResponse :: DescribeAutoScalingNotificationTypesResponse
-mkDescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse
+describeAutoScalingNotificationTypesResponse :: DescribeAutoScalingNotificationTypesResponse
+describeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse
     { _dasntrAutoScalingNotificationTypes = mempty
     }
 

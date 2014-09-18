@@ -22,7 +22,7 @@ module Network.AWS.StorageGateway.CancelArchival
     -- * Request
       CancelArchival
     -- ** Request constructor
-    , mkCancelArchival
+    , cancelArchival
     -- ** Request lenses
     , caGatewayARN
     , caTapeARN
@@ -30,7 +30,7 @@ module Network.AWS.StorageGateway.CancelArchival
     -- * Response
     , CancelArchivalResponse
     -- ** Response constructor
-    , mkCancelArchivalResponse
+    , cancelArchivalResponse
     -- ** Response lenses
     , carTapeARN
     ) where
@@ -53,10 +53,10 @@ data CancelArchival = CancelArchival
 --
 -- * @TapeARN ::@ @Text@
 --
-mkCancelArchival :: Text -- ^ 'caGatewayARN'
+cancelArchival :: Text -- ^ 'caGatewayARN'
                  -> Text -- ^ 'caTapeARN'
                  -> CancelArchival
-mkCancelArchival p1 p2 = CancelArchival
+cancelArchival p1 p2 = CancelArchival
     { _caGatewayARN = p1
     , _caTapeARN = p2
     }
@@ -90,8 +90,8 @@ newtype CancelArchivalResponse = CancelArchivalResponse
 --
 -- * @TapeARN ::@ @Maybe Text@
 --
-mkCancelArchivalResponse :: CancelArchivalResponse
-mkCancelArchivalResponse = CancelArchivalResponse
+cancelArchivalResponse :: CancelArchivalResponse
+cancelArchivalResponse = CancelArchivalResponse
     { _carTapeARN = Nothing
     }
 

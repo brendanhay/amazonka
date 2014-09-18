@@ -23,7 +23,7 @@ module Network.AWS.S3.ListMultipartUploads
     -- * Request
       ListMultipartUploads
     -- ** Request constructor
-    , mkListMultipartUploads
+    , listMultipartUploads
     -- ** Request lenses
     , lmuBucket
     , lmuDelimiter
@@ -36,7 +36,7 @@ module Network.AWS.S3.ListMultipartUploads
     -- * Response
     , ListMultipartUploadsResponse
     -- ** Response constructor
-    , mkListMultipartUploadsResponse
+    , listMultipartUploadsResponse
     -- ** Response lenses
     , lmurBucket
     , lmurKeyMarker
@@ -85,9 +85,9 @@ data ListMultipartUploads = ListMultipartUploads
 --
 -- * @UploadIdMarker ::@ @Maybe Text@
 --
-mkListMultipartUploads :: BucketName -- ^ 'lmuBucket'
+listMultipartUploads :: BucketName -- ^ 'lmuBucket'
                        -> ListMultipartUploads
-mkListMultipartUploads p1 = ListMultipartUploads
+listMultipartUploads p1 = ListMultipartUploads
     { _lmuBucket = p1
     , _lmuDelimiter = Nothing
     , _lmuEncodingType = Nothing
@@ -187,9 +187,9 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse
 --
 -- * @EncodingType ::@ @Maybe EncodingType@
 --
-mkListMultipartUploadsResponse :: Bool -- ^ 'lmurIsTruncated'
+listMultipartUploadsResponse :: Bool -- ^ 'lmurIsTruncated'
                                -> ListMultipartUploadsResponse
-mkListMultipartUploadsResponse p8 = ListMultipartUploadsResponse
+listMultipartUploadsResponse p8 = ListMultipartUploadsResponse
     { _lmurBucket = Nothing
     , _lmurKeyMarker = Nothing
     , _lmurUploadIdMarker = Nothing

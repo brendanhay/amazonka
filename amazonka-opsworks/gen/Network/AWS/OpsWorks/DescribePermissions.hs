@@ -26,7 +26,7 @@ module Network.AWS.OpsWorks.DescribePermissions
     -- * Request
       DescribePermissions
     -- ** Request constructor
-    , mkDescribePermissions
+    , describePermissions
     -- ** Request lenses
     , dpIamUserArn
     , dpStackId
@@ -34,7 +34,7 @@ module Network.AWS.OpsWorks.DescribePermissions
     -- * Response
     , DescribePermissionsResponse
     -- ** Response constructor
-    , mkDescribePermissionsResponse
+    , describePermissionsResponse
     -- ** Response lenses
     , dprPermissions
     ) where
@@ -57,8 +57,8 @@ data DescribePermissions = DescribePermissions
 --
 -- * @StackId ::@ @Maybe Text@
 --
-mkDescribePermissions :: DescribePermissions
-mkDescribePermissions = DescribePermissions
+describePermissions :: DescribePermissions
+describePermissions = DescribePermissions
     { _dpIamUserArn = Nothing
     , _dpStackId = Nothing
     }
@@ -94,8 +94,8 @@ newtype DescribePermissionsResponse = DescribePermissionsResponse
 --
 -- * @Permissions ::@ @[Permission]@
 --
-mkDescribePermissionsResponse :: DescribePermissionsResponse
-mkDescribePermissionsResponse = DescribePermissionsResponse
+describePermissionsResponse :: DescribePermissionsResponse
+describePermissionsResponse = DescribePermissionsResponse
     { _dprPermissions = mempty
     }
 

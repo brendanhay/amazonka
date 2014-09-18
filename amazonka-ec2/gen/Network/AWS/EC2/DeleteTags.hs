@@ -45,7 +45,7 @@ module Network.AWS.EC2.DeleteTags
     -- * Request
       DeleteTags
     -- ** Request constructor
-    , mkDeleteTags
+    , deleteTags
     -- ** Request lenses
     , dtResources
     , dtTags
@@ -53,7 +53,7 @@ module Network.AWS.EC2.DeleteTags
     -- * Response
     , DeleteTagsResponse
     -- ** Response constructor
-    , mkDeleteTagsResponse
+    , deleteTagsResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -74,9 +74,9 @@ data DeleteTags = DeleteTags
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkDeleteTags :: [Text] -- ^ 'dtResources'
+deleteTags :: [Text] -- ^ 'dtResources'
              -> DeleteTags
-mkDeleteTags p1 = DeleteTags
+deleteTags p1 = DeleteTags
     { _dtResources = p1
     , _dtTags = mempty
     }
@@ -103,8 +103,8 @@ data DeleteTagsResponse = DeleteTagsResponse
 -- a valid 'DeleteTagsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteTagsResponse :: DeleteTagsResponse
-mkDeleteTagsResponse = DeleteTagsResponse
+deleteTagsResponse :: DeleteTagsResponse
+deleteTagsResponse = DeleteTagsResponse
 
 instance AWSRequest DeleteTags where
     type Sv DeleteTags = EC2

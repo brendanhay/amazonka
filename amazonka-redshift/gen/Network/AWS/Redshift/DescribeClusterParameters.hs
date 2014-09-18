@@ -49,7 +49,7 @@ module Network.AWS.Redshift.DescribeClusterParameters
     -- * Request
       DescribeClusterParameters
     -- ** Request constructor
-    , mkDescribeClusterParameters
+    , describeClusterParameters
     -- ** Request lenses
     , dcpParameterGroupName
     , dcpSource
@@ -59,7 +59,7 @@ module Network.AWS.Redshift.DescribeClusterParameters
     -- * Response
     , DescribeClusterParametersResponse
     -- ** Response constructor
-    , mkDescribeClusterParametersResponse
+    , describeClusterParametersResponse
     -- ** Response lenses
     , dcprParameters
     , dcprMarker
@@ -89,9 +89,9 @@ data DescribeClusterParameters = DescribeClusterParameters
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeClusterParameters :: Text -- ^ 'dcpParameterGroupName'
+describeClusterParameters :: Text -- ^ 'dcpParameterGroupName'
                             -> DescribeClusterParameters
-mkDescribeClusterParameters p1 = DescribeClusterParameters
+describeClusterParameters p1 = DescribeClusterParameters
     { _dcpParameterGroupName = p1
     , _dcpSource = Nothing
     , _dcpMaxRecords = Nothing
@@ -147,8 +147,8 @@ data DescribeClusterParametersResponse = DescribeClusterParametersResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeClusterParametersResponse :: DescribeClusterParametersResponse
-mkDescribeClusterParametersResponse = DescribeClusterParametersResponse
+describeClusterParametersResponse :: DescribeClusterParametersResponse
+describeClusterParametersResponse = DescribeClusterParametersResponse
     { _dcprParameters = mempty
     , _dcprMarker = Nothing
     }

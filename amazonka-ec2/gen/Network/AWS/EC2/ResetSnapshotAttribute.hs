@@ -33,7 +33,7 @@ module Network.AWS.EC2.ResetSnapshotAttribute
     -- * Request
       ResetSnapshotAttribute
     -- ** Request constructor
-    , mkResetSnapshotAttribute
+    , resetSnapshotAttribute
     -- ** Request lenses
     , rsaSnapshotId
     , rsaAttribute
@@ -41,7 +41,7 @@ module Network.AWS.EC2.ResetSnapshotAttribute
     -- * Response
     , ResetSnapshotAttributeResponse
     -- ** Response constructor
-    , mkResetSnapshotAttributeResponse
+    , resetSnapshotAttributeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -62,10 +62,10 @@ data ResetSnapshotAttribute = ResetSnapshotAttribute
 --
 -- * @Attribute ::@ @SnapshotAttributeName@
 --
-mkResetSnapshotAttribute :: Text -- ^ 'rsaSnapshotId'
+resetSnapshotAttribute :: Text -- ^ 'rsaSnapshotId'
                          -> SnapshotAttributeName -- ^ 'rsaAttribute'
                          -> ResetSnapshotAttribute
-mkResetSnapshotAttribute p1 p2 = ResetSnapshotAttribute
+resetSnapshotAttribute p1 p2 = ResetSnapshotAttribute
     { _rsaSnapshotId = p1
     , _rsaAttribute = p2
     }
@@ -89,8 +89,8 @@ data ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
 -- a valid 'ResetSnapshotAttributeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkResetSnapshotAttributeResponse :: ResetSnapshotAttributeResponse
-mkResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
+resetSnapshotAttributeResponse :: ResetSnapshotAttributeResponse
+resetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
 
 instance AWSRequest ResetSnapshotAttribute where
     type Sv ResetSnapshotAttribute = EC2

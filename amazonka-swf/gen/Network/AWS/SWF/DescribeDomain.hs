@@ -49,14 +49,14 @@ module Network.AWS.SWF.DescribeDomain
     -- * Request
       DescribeDomain
     -- ** Request constructor
-    , mkDescribeDomain
+    , describeDomain
     -- ** Request lenses
     , dd1Name
 
     -- * Response
     , DescribeDomainResponse
     -- ** Response constructor
-    , mkDescribeDomainResponse
+    , describeDomainResponse
     -- ** Response lenses
     , ddrDomainInfo
     , ddrConfiguration
@@ -77,9 +77,9 @@ newtype DescribeDomain = DescribeDomain
 --
 -- * @Name ::@ @Text@
 --
-mkDescribeDomain :: Text -- ^ 'dd1Name'
+describeDomain :: Text -- ^ 'dd1Name'
                  -> DescribeDomain
-mkDescribeDomain p1 = DescribeDomain
+describeDomain p1 = DescribeDomain
     { _dd1Name = p1
     }
 
@@ -112,10 +112,10 @@ data DescribeDomainResponse = DescribeDomainResponse
 --
 -- * @Configuration ::@ @DomainConfiguration@
 --
-mkDescribeDomainResponse :: DomainInfo -- ^ 'ddrDomainInfo'
+describeDomainResponse :: DomainInfo -- ^ 'ddrDomainInfo'
                          -> DomainConfiguration -- ^ 'ddrConfiguration'
                          -> DescribeDomainResponse
-mkDescribeDomainResponse p1 p2 = DescribeDomainResponse
+describeDomainResponse p1 p2 = DescribeDomainResponse
     { _ddrDomainInfo = p1
     , _ddrConfiguration = p2
     }

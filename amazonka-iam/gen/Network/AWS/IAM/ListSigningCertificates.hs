@@ -49,7 +49,7 @@ module Network.AWS.IAM.ListSigningCertificates
     -- * Request
       ListSigningCertificates
     -- ** Request constructor
-    , mkListSigningCertificates
+    , listSigningCertificates
     -- ** Request lenses
     , lsc1UserName
     , lsc1Marker
@@ -58,7 +58,7 @@ module Network.AWS.IAM.ListSigningCertificates
     -- * Response
     , ListSigningCertificatesResponse
     -- ** Response constructor
-    , mkListSigningCertificatesResponse
+    , listSigningCertificatesResponse
     -- ** Response lenses
     , lscrrCertificates
     , lscrrIsTruncated
@@ -86,8 +86,8 @@ data ListSigningCertificates = ListSigningCertificates
 --
 -- * @MaxItems ::@ @Maybe Integer@
 --
-mkListSigningCertificates :: ListSigningCertificates
-mkListSigningCertificates = ListSigningCertificates
+listSigningCertificates :: ListSigningCertificates
+listSigningCertificates = ListSigningCertificates
     { _lsc1UserName = Nothing
     , _lsc1Marker = Nothing
     , _lsc1MaxItems = Nothing
@@ -135,10 +135,10 @@ data ListSigningCertificatesResponse = ListSigningCertificatesResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListSigningCertificatesResponse :: [SigningCertificate] -- ^ 'lscrrCertificates'
+listSigningCertificatesResponse :: [SigningCertificate] -- ^ 'lscrrCertificates'
                                   -> Bool -- ^ 'lscrrIsTruncated'
                                   -> ListSigningCertificatesResponse
-mkListSigningCertificatesResponse p1 p2 = ListSigningCertificatesResponse
+listSigningCertificatesResponse p1 p2 = ListSigningCertificatesResponse
     { _lscrrCertificates = p1
     , _lscrrIsTruncated = p2
     , _lscrrMarker = Nothing

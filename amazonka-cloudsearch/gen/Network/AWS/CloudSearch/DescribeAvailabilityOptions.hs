@@ -27,7 +27,7 @@ module Network.AWS.CloudSearch.DescribeAvailabilityOptions
     -- * Request
       DescribeAvailabilityOptions
     -- ** Request constructor
-    , mkDescribeAvailabilityOptions
+    , describeAvailabilityOptions
     -- ** Request lenses
     , dao2DomainName
     , dao2Deployed
@@ -35,7 +35,7 @@ module Network.AWS.CloudSearch.DescribeAvailabilityOptions
     -- * Response
     , DescribeAvailabilityOptionsResponse
     -- ** Response constructor
-    , mkDescribeAvailabilityOptionsResponse
+    , describeAvailabilityOptionsResponse
     -- ** Response lenses
     , daorrAvailabilityOptions
     ) where
@@ -62,9 +62,9 @@ data DescribeAvailabilityOptions = DescribeAvailabilityOptions
 --
 -- * @Deployed ::@ @Maybe Bool@
 --
-mkDescribeAvailabilityOptions :: Text -- ^ 'dao2DomainName'
+describeAvailabilityOptions :: Text -- ^ 'dao2DomainName'
                               -> DescribeAvailabilityOptions
-mkDescribeAvailabilityOptions p1 = DescribeAvailabilityOptions
+describeAvailabilityOptions p1 = DescribeAvailabilityOptions
     { _dao2DomainName = p1
     , _dao2Deployed = Nothing
     }
@@ -96,8 +96,8 @@ newtype DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsRespons
 --
 -- * @AvailabilityOptions ::@ @Maybe AvailabilityOptionsStatus@
 --
-mkDescribeAvailabilityOptionsResponse :: DescribeAvailabilityOptionsResponse
-mkDescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
+describeAvailabilityOptionsResponse :: DescribeAvailabilityOptionsResponse
+describeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
     { _daorrAvailabilityOptions = Nothing
     }
 

@@ -65,7 +65,7 @@ module Network.AWS.OpsWorks.Types
 
     -- * App
     , App
-    , mkApp
+    , app
     , aAppId
     , aStackId
     , aShortname
@@ -82,7 +82,7 @@ module Network.AWS.OpsWorks.Types
 
     -- * AutoScalingThresholds
     , AutoScalingThresholds
-    , mkAutoScalingThresholds
+    , autoScalingThresholds
     , astInstanceCount
     , astThresholdsWaitTime
     , astIgnoreMetricsTime
@@ -92,13 +92,13 @@ module Network.AWS.OpsWorks.Types
 
     -- * ChefConfiguration
     , ChefConfiguration
-    , mkChefConfiguration
+    , chefConfiguration
     , ccManageBerkshelf
     , ccBerkshelfVersion
 
     -- * Command
     , Command
-    , mkCommand
+    , command
     , cCommandId
     , cInstanceId
     , cDeploymentId
@@ -112,14 +112,14 @@ module Network.AWS.OpsWorks.Types
 
     -- * DataSource
     , DataSource
-    , mkDataSource
+    , dataSource
     , dsType
     , dsArn
     , dsDatabaseName
 
     -- * Deployment
     , Deployment
-    , mkDeployment
+    , deployment
     , dDeploymentId
     , dStackId
     , dAppId
@@ -135,13 +135,13 @@ module Network.AWS.OpsWorks.Types
 
     -- * DeploymentCommand
     , DeploymentCommand
-    , mkDeploymentCommand
+    , deploymentCommand
     , dcName
     , dcArgs
 
     -- * ElasticIp
     , ElasticIp
-    , mkElasticIp
+    , elasticIp
     , eiIp
     , eiName
     , eiDomain
@@ -150,7 +150,7 @@ module Network.AWS.OpsWorks.Types
 
     -- * ElasticLoadBalancer
     , ElasticLoadBalancer
-    , mkElasticLoadBalancer
+    , elasticLoadBalancer
     , elbElasticLoadBalancerName
     , elbRegion
     , elbDnsName
@@ -163,7 +163,7 @@ module Network.AWS.OpsWorks.Types
 
     -- * Instance
     , Instance
-    , mkInstance
+    , instance
     , iInstanceId
     , iEc2InstanceId
     , iVirtualizationType
@@ -197,7 +197,7 @@ module Network.AWS.OpsWorks.Types
 
     -- * InstancesCount
     , InstancesCount
-    , mkInstancesCount
+    , instancesCount
     , icBooting
     , icConnectionLost
     , icOnline
@@ -215,7 +215,7 @@ module Network.AWS.OpsWorks.Types
 
     -- * Layer
     , Layer
-    , mkLayer
+    , layer
     , lStackId
     , lLayerId
     , lType
@@ -238,7 +238,7 @@ module Network.AWS.OpsWorks.Types
 
     -- * LoadBasedAutoScalingConfiguration
     , LoadBasedAutoScalingConfiguration
-    , mkLoadBasedAutoScalingConfiguration
+    , loadBasedAutoScalingConfiguration
     , lbascLayerId
     , lbascEnable
     , lbascUpScaling
@@ -246,7 +246,7 @@ module Network.AWS.OpsWorks.Types
 
     -- * Permission
     , Permission
-    , mkPermission
+    , permission
     , pStackId
     , pIamUserArn
     , pAllowSsh
@@ -255,7 +255,7 @@ module Network.AWS.OpsWorks.Types
 
     -- * RaidArray
     , RaidArray
-    , mkRaidArray
+    , raidArray
     , raRaidArrayId
     , raInstanceId
     , raName
@@ -271,7 +271,7 @@ module Network.AWS.OpsWorks.Types
 
     -- * RdsDbInstance
     , RdsDbInstance
-    , mkRdsDbInstance
+    , rdsDbInstance
     , rdiRdsDbInstanceArn
     , rdiDbInstanceIdentifier
     , rdiDbUser
@@ -284,7 +284,7 @@ module Network.AWS.OpsWorks.Types
 
     -- * Recipes
     , Recipes
-    , mkRecipes
+    , recipes
     , rSetup
     , rConfigure
     , rDeploy
@@ -293,7 +293,7 @@ module Network.AWS.OpsWorks.Types
 
     -- * SelfUserProfile
     , SelfUserProfile
-    , mkSelfUserProfile
+    , selfUserProfile
     , supIamUserArn
     , supName
     , supSshUsername
@@ -301,7 +301,7 @@ module Network.AWS.OpsWorks.Types
 
     -- * ServiceError
     , ServiceError
-    , mkServiceError
+    , serviceError
     , seServiceErrorId
     , seStackId
     , seInstanceId
@@ -311,7 +311,7 @@ module Network.AWS.OpsWorks.Types
 
     -- * Source
     , Source
-    , mkSource
+    , source
     , sType
     , sUrl
     , sUsername
@@ -321,14 +321,14 @@ module Network.AWS.OpsWorks.Types
 
     -- * SslConfiguration
     , SslConfiguration
-    , mkSslConfiguration
+    , sslConfiguration
     , scCertificate
     , scPrivateKey
     , scChain
 
     -- * Stack
     , Stack
-    , mkStack
+    , stack
     , srStackId
     , srName
     , srArn
@@ -353,13 +353,13 @@ module Network.AWS.OpsWorks.Types
 
     -- * StackConfigurationManager
     , StackConfigurationManager
-    , mkStackConfigurationManager
+    , stackConfigurationManager
     , scmName
     , scmVersion
 
     -- * StackSummary
     , StackSummary
-    , mkStackSummary
+    , stackSummary
     , ssStackId
     , ssName
     , ssArn
@@ -369,13 +369,13 @@ module Network.AWS.OpsWorks.Types
 
     -- * TimeBasedAutoScalingConfiguration
     , TimeBasedAutoScalingConfiguration
-    , mkTimeBasedAutoScalingConfiguration
+    , timeBasedAutoScalingConfiguration
     , tbascInstanceId
     , tbascAutoScalingSchedule
 
     -- * UserProfile
     , UserProfile
-    , mkUserProfile
+    , userProfile
     , upIamUserArn
     , upName
     , upSshUsername
@@ -384,7 +384,7 @@ module Network.AWS.OpsWorks.Types
 
     -- * Volume
     , Volume
-    , mkVolume
+    , volume
     , vVolumeId
     , vEc2VolumeId
     , vName
@@ -401,7 +401,7 @@ module Network.AWS.OpsWorks.Types
 
     -- * VolumeConfiguration
     , VolumeConfiguration
-    , mkVolumeConfiguration
+    , volumeConfiguration
     , vcMountPoint
     , vcRaidLevel
     , vcNumberOfDisks
@@ -411,7 +411,7 @@ module Network.AWS.OpsWorks.Types
 
     -- * WeeklyAutoScalingSchedule
     , WeeklyAutoScalingSchedule
-    , mkWeeklyAutoScalingSchedule
+    , weeklyAutoScalingSchedule
     , wassMonday
     , wassTuesday
     , wassWednesday
@@ -446,8 +446,8 @@ instance AWSService OpsWorks where
 -- service description where applicable.
 data OpsWorksError
     = OpsWorksClient HttpException
-    | OpsWorksSerializer Text
-    | OpsWorksService Text
+    | OpsWorksSerializer String
+    | OpsWorksService String
       -- | Indicates that a resource was not found.
     | ResourceNotFoundException
         { _rnfeMessage :: Maybe Text
@@ -477,7 +477,7 @@ _OpsWorksClient = prism'
         x -> Left x)
 
 -- | See: 'OpsWorksSerializer'
-_OpsWorksSerializer :: Prism' OpsWorksError Text
+_OpsWorksSerializer :: Prism' OpsWorksError String
 _OpsWorksSerializer = prism'
     OpsWorksSerializer
     (\case
@@ -485,7 +485,7 @@ _OpsWorksSerializer = prism'
         x -> Left x)
 
 -- | See: 'OpsWorksService'
-_OpsWorksService :: Prism' OpsWorksError Text
+_OpsWorksService :: Prism' OpsWorksError String
 _OpsWorksService = prism'
     OpsWorksService
     (\case
@@ -1021,8 +1021,8 @@ data App = App
 --
 -- * @CreatedAt ::@ @Maybe Text@
 --
-mkApp :: App
-mkApp = App
+app :: App
+app = App
     { _aAppId = Nothing
     , _aStackId = Nothing
     , _aShortname = Nothing
@@ -1123,8 +1123,8 @@ data AutoScalingThresholds = AutoScalingThresholds
 --
 -- * @LoadThreshold ::@ @Maybe Double@
 --
-mkAutoScalingThresholds :: AutoScalingThresholds
-mkAutoScalingThresholds = AutoScalingThresholds
+autoScalingThresholds :: AutoScalingThresholds
+autoScalingThresholds = AutoScalingThresholds
     { _astInstanceCount = Nothing
     , _astThresholdsWaitTime = Nothing
     , _astIgnoreMetricsTime = Nothing
@@ -1192,8 +1192,8 @@ data ChefConfiguration = ChefConfiguration
 --
 -- * @BerkshelfVersion ::@ @Maybe Text@
 --
-mkChefConfiguration :: ChefConfiguration
-mkChefConfiguration = ChefConfiguration
+chefConfiguration :: ChefConfiguration
+chefConfiguration = ChefConfiguration
     { _ccManageBerkshelf = Nothing
     , _ccBerkshelfVersion = Nothing
     }
@@ -1254,8 +1254,8 @@ data Command = Command
 --
 -- * @Type ::@ @Maybe Text@
 --
-mkCommand :: Command
-mkCommand = Command
+command :: Command
+command = Command
     { _cCommandId = Nothing
     , _cInstanceId = Nothing
     , _cDeploymentId = Nothing
@@ -1330,8 +1330,8 @@ data DataSource = DataSource
 --
 -- * @DatabaseName ::@ @Maybe Text@
 --
-mkDataSource :: DataSource
-mkDataSource = DataSource
+dataSource :: DataSource
+dataSource = DataSource
     { _dsType = Nothing
     , _dsArn = Nothing
     , _dsDatabaseName = Nothing
@@ -1402,8 +1402,8 @@ data Deployment = Deployment
 --
 -- * @InstanceIds ::@ @[Text]@
 --
-mkDeployment :: Deployment
-mkDeployment = Deployment
+deployment :: Deployment
+deployment = Deployment
     { _dDeploymentId = Nothing
     , _dStackId = Nothing
     , _dAppId = Nothing
@@ -1488,9 +1488,9 @@ data DeploymentCommand = DeploymentCommand
 --
 -- * @Args ::@ @Map Text [Text]@
 --
-mkDeploymentCommand :: DeploymentCommandName -- ^ 'dcName'
+deploymentCommand :: DeploymentCommandName -- ^ 'dcName'
                     -> DeploymentCommand
-mkDeploymentCommand p1 = DeploymentCommand
+deploymentCommand p1 = DeploymentCommand
     { _dcName = p1
     , _dcArgs = mempty
     }
@@ -1551,8 +1551,8 @@ data ElasticIp = ElasticIp
 --
 -- * @InstanceId ::@ @Maybe Text@
 --
-mkElasticIp :: ElasticIp
-mkElasticIp = ElasticIp
+elasticIp :: ElasticIp
+elasticIp = ElasticIp
     { _eiIp = Nothing
     , _eiName = Nothing
     , _eiDomain = Nothing
@@ -1621,8 +1621,8 @@ data ElasticLoadBalancer = ElasticLoadBalancer
 --
 -- * @Ec2InstanceIds ::@ @[Text]@
 --
-mkElasticLoadBalancer :: ElasticLoadBalancer
-mkElasticLoadBalancer = ElasticLoadBalancer
+elasticLoadBalancer :: ElasticLoadBalancer
+elasticLoadBalancer = ElasticLoadBalancer
     { _elbElasticLoadBalancerName = Nothing
     , _elbRegion = Nothing
     , _elbDnsName = Nothing
@@ -1779,8 +1779,8 @@ data Instance = Instance
 --
 -- * @EbsOptimized ::@ @Maybe Bool@
 --
-mkInstance :: Instance
-mkInstance = Instance
+instance :: Instance
+instance = Instance
     { _iInstanceId = Nothing
     , _iEc2InstanceId = Nothing
     , _iVirtualizationType = Nothing
@@ -2022,8 +2022,8 @@ data InstancesCount = InstancesCount
 --
 -- * @Terminating ::@ @Maybe Integer@
 --
-mkInstancesCount :: InstancesCount
-mkInstancesCount = InstancesCount
+instancesCount :: InstancesCount
+instancesCount = InstancesCount
     { _icBooting = Nothing
     , _icConnectionLost = Nothing
     , _icOnline = Nothing
@@ -2168,8 +2168,8 @@ data Layer = Layer
 --
 -- * @UseEbsOptimizedInstances ::@ @Maybe Bool@
 --
-mkLayer :: Layer
-mkLayer = Layer
+layer :: Layer
+layer = Layer
     { _lStackId = Nothing
     , _lLayerId = Nothing
     , _lType = Nothing
@@ -2328,8 +2328,8 @@ data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration
 --
 -- * @DownScaling ::@ @Maybe AutoScalingThresholds@
 --
-mkLoadBasedAutoScalingConfiguration :: LoadBasedAutoScalingConfiguration
-mkLoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration
+loadBasedAutoScalingConfiguration :: LoadBasedAutoScalingConfiguration
+loadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration
     { _lbascLayerId = Nothing
     , _lbascEnable = Nothing
     , _lbascUpScaling = Nothing
@@ -2386,8 +2386,8 @@ data Permission = Permission
 --
 -- * @Level ::@ @Maybe Text@
 --
-mkPermission :: Permission
-mkPermission = Permission
+permission :: Permission
+permission = Permission
     { _pStackId = Nothing
     , _pIamUserArn = Nothing
     , _pAllowSsh = Nothing
@@ -2468,8 +2468,8 @@ data RaidArray = RaidArray
 --
 -- * @Iops ::@ @Maybe Integer@
 --
-mkRaidArray :: RaidArray
-mkRaidArray = RaidArray
+raidArray :: RaidArray
+raidArray = RaidArray
     { _raRaidArrayId = Nothing
     , _raInstanceId = Nothing
     , _raName = Nothing
@@ -2575,8 +2575,8 @@ data RdsDbInstance = RdsDbInstance
 --
 -- * @MissingOnRds ::@ @Maybe Bool@
 --
-mkRdsDbInstance :: RdsDbInstance
-mkRdsDbInstance = RdsDbInstance
+rdsDbInstance :: RdsDbInstance
+rdsDbInstance = RdsDbInstance
     { _rdiRdsDbInstanceArn = Nothing
     , _rdiDbInstanceIdentifier = Nothing
     , _rdiDbUser = Nothing
@@ -2655,8 +2655,8 @@ data Recipes = Recipes
 --
 -- * @Shutdown ::@ @[Text]@
 --
-mkRecipes :: Recipes
-mkRecipes = Recipes
+recipes :: Recipes
+recipes = Recipes
     { _rSetup = mempty
     , _rConfigure = mempty
     , _rDeploy = mempty
@@ -2712,8 +2712,8 @@ data SelfUserProfile = SelfUserProfile
 --
 -- * @SshPublicKey ::@ @Maybe Text@
 --
-mkSelfUserProfile :: SelfUserProfile
-mkSelfUserProfile = SelfUserProfile
+selfUserProfile :: SelfUserProfile
+selfUserProfile = SelfUserProfile
     { _supIamUserArn = Nothing
     , _supName = Nothing
     , _supSshUsername = Nothing
@@ -2768,8 +2768,8 @@ data ServiceError = ServiceError
 --
 -- * @CreatedAt ::@ @Maybe Text@
 --
-mkServiceError :: ServiceError
-mkServiceError = ServiceError
+serviceError :: ServiceError
+serviceError = ServiceError
     { _seServiceErrorId = Nothing
     , _seStackId = Nothing
     , _seInstanceId = Nothing
@@ -2834,8 +2834,8 @@ data Source = Source
 --
 -- * @Revision ::@ @Maybe Text@
 --
-mkSource :: Source
-mkSource = Source
+source :: Source
+source = Source
     { _sType = Nothing
     , _sUrl = Nothing
     , _sUsername = Nothing
@@ -2898,10 +2898,10 @@ data SslConfiguration = SslConfiguration
 --
 -- * @Chain ::@ @Maybe Text@
 --
-mkSslConfiguration :: Text -- ^ 'scCertificate'
+sslConfiguration :: Text -- ^ 'scCertificate'
                    -> Text -- ^ 'scPrivateKey'
                    -> SslConfiguration
-mkSslConfiguration p1 p2 = SslConfiguration
+sslConfiguration p1 p2 = SslConfiguration
     { _scCertificate = p1
     , _scPrivateKey = p2
     , _scChain = Nothing
@@ -2999,8 +2999,8 @@ data Stack = Stack
 --
 -- * @DefaultRootDeviceType ::@ @Maybe RootDeviceType@
 --
-mkStack :: Stack
-mkStack = Stack
+stack :: Stack
+stack = Stack
     { _srStackId = Nothing
     , _srName = Nothing
     , _srArn = Nothing
@@ -3159,8 +3159,8 @@ data StackConfigurationManager = StackConfigurationManager
 --
 -- * @Version ::@ @Maybe Text@
 --
-mkStackConfigurationManager :: StackConfigurationManager
-mkStackConfigurationManager = StackConfigurationManager
+stackConfigurationManager :: StackConfigurationManager
+stackConfigurationManager = StackConfigurationManager
     { _scmName = Nothing
     , _scmVersion = Nothing
     }
@@ -3208,8 +3208,8 @@ data StackSummary = StackSummary
 --
 -- * @InstancesCount ::@ @Maybe InstancesCount@
 --
-mkStackSummary :: StackSummary
-mkStackSummary = StackSummary
+stackSummary :: StackSummary
+stackSummary = StackSummary
     { _ssStackId = Nothing
     , _ssName = Nothing
     , _ssArn = Nothing
@@ -3263,8 +3263,8 @@ data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration
 --
 -- * @AutoScalingSchedule ::@ @Maybe WeeklyAutoScalingSchedule@
 --
-mkTimeBasedAutoScalingConfiguration :: TimeBasedAutoScalingConfiguration
-mkTimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration
+timeBasedAutoScalingConfiguration :: TimeBasedAutoScalingConfiguration
+timeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration
     { _tbascInstanceId = Nothing
     , _tbascAutoScalingSchedule = Nothing
     }
@@ -3308,8 +3308,8 @@ data UserProfile = UserProfile
 --
 -- * @AllowSelfManagement ::@ @Maybe Bool@
 --
-mkUserProfile :: UserProfile
-mkUserProfile = UserProfile
+userProfile :: UserProfile
+userProfile = UserProfile
     { _upIamUserArn = Nothing
     , _upName = Nothing
     , _upSshUsername = Nothing
@@ -3392,8 +3392,8 @@ data Volume = Volume
 --
 -- * @Iops ::@ @Maybe Integer@
 --
-mkVolume :: Volume
-mkVolume = Volume
+volume :: Volume
+volume = Volume
     { _vVolumeId = Nothing
     , _vEc2VolumeId = Nothing
     , _vName = Nothing
@@ -3493,11 +3493,11 @@ data VolumeConfiguration = VolumeConfiguration
 --
 -- * @Iops ::@ @Maybe Integer@
 --
-mkVolumeConfiguration :: Text -- ^ 'vcMountPoint'
+volumeConfiguration :: Text -- ^ 'vcMountPoint'
                       -> Integer -- ^ 'vcNumberOfDisks'
                       -> Integer -- ^ 'vcSize'
                       -> VolumeConfiguration
-mkVolumeConfiguration p1 p3 p4 = VolumeConfiguration
+volumeConfiguration p1 p3 p4 = VolumeConfiguration
     { _vcMountPoint = p1
     , _vcRaidLevel = Nothing
     , _vcNumberOfDisks = p3
@@ -3564,8 +3564,8 @@ data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule
 --
 -- * @Sunday ::@ @Map Text Text@
 --
-mkWeeklyAutoScalingSchedule :: WeeklyAutoScalingSchedule
-mkWeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule
+weeklyAutoScalingSchedule :: WeeklyAutoScalingSchedule
+weeklyAutoScalingSchedule = WeeklyAutoScalingSchedule
     { _wassMonday = mempty
     , _wassTuesday = mempty
     , _wassWednesday = mempty

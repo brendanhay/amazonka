@@ -58,7 +58,7 @@ module Network.AWS.SWF.DescribeActivityType
     -- * Request
       DescribeActivityType
     -- ** Request constructor
-    , mkDescribeActivityType
+    , describeActivityType
     -- ** Request lenses
     , dat1Domain
     , dat1ActivityType
@@ -66,7 +66,7 @@ module Network.AWS.SWF.DescribeActivityType
     -- * Response
     , DescribeActivityTypeResponse
     -- ** Response constructor
-    , mkDescribeActivityTypeResponse
+    , describeActivityTypeResponse
     -- ** Response lenses
     , datrTypeInfo
     , datrConfiguration
@@ -90,10 +90,10 @@ data DescribeActivityType = DescribeActivityType
 --
 -- * @ActivityType ::@ @ActivityType@
 --
-mkDescribeActivityType :: Text -- ^ 'dat1Domain'
+describeActivityType :: Text -- ^ 'dat1Domain'
                        -> ActivityType -- ^ 'dat1ActivityType'
                        -> DescribeActivityType
-mkDescribeActivityType p1 p2 = DescribeActivityType
+describeActivityType p1 p2 = DescribeActivityType
     { _dat1Domain = p1
     , _dat1ActivityType = p2
     }
@@ -132,10 +132,10 @@ data DescribeActivityTypeResponse = DescribeActivityTypeResponse
 --
 -- * @Configuration ::@ @ActivityTypeConfiguration@
 --
-mkDescribeActivityTypeResponse :: ActivityTypeInfo -- ^ 'datrTypeInfo'
+describeActivityTypeResponse :: ActivityTypeInfo -- ^ 'datrTypeInfo'
                                -> ActivityTypeConfiguration -- ^ 'datrConfiguration'
                                -> DescribeActivityTypeResponse
-mkDescribeActivityTypeResponse p1 p2 = DescribeActivityTypeResponse
+describeActivityTypeResponse p1 p2 = DescribeActivityTypeResponse
     { _datrTypeInfo = p1
     , _datrConfiguration = p2
     }

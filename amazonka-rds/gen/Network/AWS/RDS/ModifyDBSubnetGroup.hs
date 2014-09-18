@@ -32,7 +32,7 @@ module Network.AWS.RDS.ModifyDBSubnetGroup
     -- * Request
       ModifyDBSubnetGroup
     -- ** Request constructor
-    , mkModifyDBSubnetGroup
+    , modifyDBSubnetGroup
     -- ** Request lenses
     , mdbsgDBSubnetGroupName
     , mdbsgDBSubnetGroupDescription
@@ -41,7 +41,7 @@ module Network.AWS.RDS.ModifyDBSubnetGroup
     -- * Response
     , ModifyDBSubnetGroupResponse
     -- ** Response constructor
-    , mkModifyDBSubnetGroupResponse
+    , modifyDBSubnetGroupResponse
     -- ** Response lenses
     , mdbsgrDBSubnetGroup
     ) where
@@ -68,10 +68,10 @@ data ModifyDBSubnetGroup = ModifyDBSubnetGroup
 --
 -- * @SubnetIds ::@ @[Text]@
 --
-mkModifyDBSubnetGroup :: Text -- ^ 'mdbsgDBSubnetGroupName'
+modifyDBSubnetGroup :: Text -- ^ 'mdbsgDBSubnetGroupName'
                       -> [Text] -- ^ 'mdbsgSubnetIds'
                       -> ModifyDBSubnetGroup
-mkModifyDBSubnetGroup p1 p3 = ModifyDBSubnetGroup
+modifyDBSubnetGroup p1 p3 = ModifyDBSubnetGroup
     { _mdbsgDBSubnetGroupName = p1
     , _mdbsgDBSubnetGroupDescription = Nothing
     , _mdbsgSubnetIds = p3
@@ -110,8 +110,8 @@ newtype ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse
 --
 -- * @DBSubnetGroup ::@ @Maybe DBSubnetGroup@
 --
-mkModifyDBSubnetGroupResponse :: ModifyDBSubnetGroupResponse
-mkModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse
+modifyDBSubnetGroupResponse :: ModifyDBSubnetGroupResponse
+modifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse
     { _mdbsgrDBSubnetGroup = Nothing
     }
 

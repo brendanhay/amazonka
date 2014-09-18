@@ -39,7 +39,7 @@ module Network.AWS.Redshift.CreateClusterParameterGroup
     -- * Request
       CreateClusterParameterGroup
     -- ** Request constructor
-    , mkCreateClusterParameterGroup
+    , createClusterParameterGroup
     -- ** Request lenses
     , ccpgParameterGroupName
     , ccpgParameterGroupFamily
@@ -48,7 +48,7 @@ module Network.AWS.Redshift.CreateClusterParameterGroup
     -- * Response
     , CreateClusterParameterGroupResponse
     -- ** Response constructor
-    , mkCreateClusterParameterGroupResponse
+    , createClusterParameterGroupResponse
     -- ** Response lenses
     , ccpgrClusterParameterGroup
     ) where
@@ -75,11 +75,11 @@ data CreateClusterParameterGroup = CreateClusterParameterGroup
 --
 -- * @Description ::@ @Text@
 --
-mkCreateClusterParameterGroup :: Text -- ^ 'ccpgParameterGroupName'
+createClusterParameterGroup :: Text -- ^ 'ccpgParameterGroupName'
                               -> Text -- ^ 'ccpgParameterGroupFamily'
                               -> Text -- ^ 'ccpgDescription'
                               -> CreateClusterParameterGroup
-mkCreateClusterParameterGroup p1 p2 p3 = CreateClusterParameterGroup
+createClusterParameterGroup p1 p2 p3 = CreateClusterParameterGroup
     { _ccpgParameterGroupName = p1
     , _ccpgParameterGroupFamily = p2
     , _ccpgDescription = p3
@@ -127,8 +127,8 @@ newtype CreateClusterParameterGroupResponse = CreateClusterParameterGroupRespons
 --
 -- * @ClusterParameterGroup ::@ @Maybe ClusterParameterGroup@
 --
-mkCreateClusterParameterGroupResponse :: CreateClusterParameterGroupResponse
-mkCreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse
+createClusterParameterGroupResponse :: CreateClusterParameterGroupResponse
+createClusterParameterGroupResponse = CreateClusterParameterGroupResponse
     { _ccpgrClusterParameterGroup = Nothing
     }
 

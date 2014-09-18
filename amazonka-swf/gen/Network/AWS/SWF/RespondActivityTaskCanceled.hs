@@ -58,7 +58,7 @@ module Network.AWS.SWF.RespondActivityTaskCanceled
     -- * Request
       RespondActivityTaskCanceled
     -- ** Request constructor
-    , mkRespondActivityTaskCanceled
+    , respondActivityTaskCanceled
     -- ** Request lenses
     , ratcTaskToken
     , ratcDetails
@@ -66,7 +66,7 @@ module Network.AWS.SWF.RespondActivityTaskCanceled
     -- * Response
     , RespondActivityTaskCanceledResponse
     -- ** Response constructor
-    , mkRespondActivityTaskCanceledResponse
+    , respondActivityTaskCanceledResponse
     ) where
 
 import Network.AWS.SWF.Types
@@ -87,9 +87,9 @@ data RespondActivityTaskCanceled = RespondActivityTaskCanceled
 --
 -- * @Details ::@ @Maybe Text@
 --
-mkRespondActivityTaskCanceled :: Text -- ^ 'ratcTaskToken'
+respondActivityTaskCanceled :: Text -- ^ 'ratcTaskToken'
                               -> RespondActivityTaskCanceled
-mkRespondActivityTaskCanceled p1 = RespondActivityTaskCanceled
+respondActivityTaskCanceled p1 = RespondActivityTaskCanceled
     { _ratcTaskToken = p1
     , _ratcDetails = Nothing
     }
@@ -120,8 +120,8 @@ data RespondActivityTaskCanceledResponse = RespondActivityTaskCanceledResponse
 -- a valid 'RespondActivityTaskCanceledResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRespondActivityTaskCanceledResponse :: RespondActivityTaskCanceledResponse
-mkRespondActivityTaskCanceledResponse = RespondActivityTaskCanceledResponse
+respondActivityTaskCanceledResponse :: RespondActivityTaskCanceledResponse
+respondActivityTaskCanceledResponse = RespondActivityTaskCanceledResponse
 
 instance AWSRequest RespondActivityTaskCanceled where
     type Sv RespondActivityTaskCanceled = SWF

@@ -38,7 +38,7 @@ module Network.AWS.SNS.Subscribe
     -- * Request
       Subscribe
     -- ** Request constructor
-    , mkSubscribe
+    , subscribe
     -- ** Request lenses
     , s1TopicArn
     , s1Protocol
@@ -47,7 +47,7 @@ module Network.AWS.SNS.Subscribe
     -- * Response
     , SubscribeResponse
     -- ** Response constructor
-    , mkSubscribeResponse
+    , subscribeResponse
     -- ** Response lenses
     , srSubscriptionArn
     ) where
@@ -74,10 +74,10 @@ data Subscribe = Subscribe
 --
 -- * @Endpoint ::@ @Maybe Text@
 --
-mkSubscribe :: Text -- ^ 's1TopicArn'
+subscribe :: Text -- ^ 's1TopicArn'
             -> Text -- ^ 's1Protocol'
             -> Subscribe
-mkSubscribe p1 p2 = Subscribe
+subscribe p1 p2 = Subscribe
     { _s1TopicArn = p1
     , _s1Protocol = p2
     , _s1Endpoint = Nothing
@@ -126,8 +126,8 @@ newtype SubscribeResponse = SubscribeResponse
 --
 -- * @SubscriptionArn ::@ @Maybe Text@
 --
-mkSubscribeResponse :: SubscribeResponse
-mkSubscribeResponse = SubscribeResponse
+subscribeResponse :: SubscribeResponse
+subscribeResponse = SubscribeResponse
     { _srSubscriptionArn = Nothing
     }
 

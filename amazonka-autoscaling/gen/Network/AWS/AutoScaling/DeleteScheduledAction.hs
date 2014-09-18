@@ -24,7 +24,7 @@ module Network.AWS.AutoScaling.DeleteScheduledAction
     -- * Request
       DeleteScheduledAction
     -- ** Request constructor
-    , mkDeleteScheduledAction
+    , deleteScheduledAction
     -- ** Request lenses
     , dsaAutoScalingGroupName
     , dsaScheduledActionName
@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.DeleteScheduledAction
     -- * Response
     , DeleteScheduledActionResponse
     -- ** Response constructor
-    , mkDeleteScheduledActionResponse
+    , deleteScheduledActionResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -54,9 +54,9 @@ data DeleteScheduledAction = DeleteScheduledAction
 --
 -- * @ScheduledActionName ::@ @Text@
 --
-mkDeleteScheduledAction :: Text -- ^ 'dsaScheduledActionName'
+deleteScheduledAction :: Text -- ^ 'dsaScheduledActionName'
                         -> DeleteScheduledAction
-mkDeleteScheduledAction p2 = DeleteScheduledAction
+deleteScheduledAction p2 = DeleteScheduledAction
     { _dsaAutoScalingGroupName = Nothing
     , _dsaScheduledActionName = p2
     }
@@ -82,8 +82,8 @@ data DeleteScheduledActionResponse = DeleteScheduledActionResponse
 -- a valid 'DeleteScheduledActionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteScheduledActionResponse :: DeleteScheduledActionResponse
-mkDeleteScheduledActionResponse = DeleteScheduledActionResponse
+deleteScheduledActionResponse :: DeleteScheduledActionResponse
+deleteScheduledActionResponse = DeleteScheduledActionResponse
 
 instance AWSRequest DeleteScheduledAction where
     type Sv DeleteScheduledAction = AutoScaling

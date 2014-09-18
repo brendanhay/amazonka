@@ -30,14 +30,14 @@ module Network.AWS.OpsWorks.StopInstance
     -- * Request
       StopInstance
     -- ** Request constructor
-    , mkStopInstance
+    , stopInstance
     -- ** Request lenses
     , si1InstanceId
 
     -- * Response
     , StopInstanceResponse
     -- ** Response constructor
-    , mkStopInstanceResponse
+    , stopInstanceResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -55,9 +55,9 @@ newtype StopInstance = StopInstance
 --
 -- * @InstanceId ::@ @Text@
 --
-mkStopInstance :: Text -- ^ 'si1InstanceId'
+stopInstance :: Text -- ^ 'si1InstanceId'
                -> StopInstance
-mkStopInstance p1 = StopInstance
+stopInstance p1 = StopInstance
     { _si1InstanceId = p1
     }
 
@@ -80,8 +80,8 @@ data StopInstanceResponse = StopInstanceResponse
 -- a valid 'StopInstanceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkStopInstanceResponse :: StopInstanceResponse
-mkStopInstanceResponse = StopInstanceResponse
+stopInstanceResponse :: StopInstanceResponse
+stopInstanceResponse = StopInstanceResponse
 
 instance AWSRequest StopInstance where
     type Sv StopInstance = OpsWorks

@@ -45,7 +45,7 @@ module Network.AWS.CloudFormation.DescribeStackResources
     -- * Request
       DescribeStackResources
     -- ** Request constructor
-    , mkDescribeStackResources
+    , describeStackResources
     -- ** Request lenses
     , dsr1StackName
     , dsr1LogicalResourceId
@@ -54,7 +54,7 @@ module Network.AWS.CloudFormation.DescribeStackResources
     -- * Response
     , DescribeStackResourcesResponse
     -- ** Response constructor
-    , mkDescribeStackResourcesResponse
+    , describeStackResourcesResponse
     -- ** Response lenses
     , dsrrrStackResources
     ) where
@@ -81,8 +81,8 @@ data DescribeStackResources = DescribeStackResources
 --
 -- * @PhysicalResourceId ::@ @Maybe Text@
 --
-mkDescribeStackResources :: DescribeStackResources
-mkDescribeStackResources = DescribeStackResources
+describeStackResources :: DescribeStackResources
+describeStackResources = DescribeStackResources
     { _dsr1StackName = Nothing
     , _dsr1LogicalResourceId = Nothing
     , _dsr1PhysicalResourceId = Nothing
@@ -131,8 +131,8 @@ newtype DescribeStackResourcesResponse = DescribeStackResourcesResponse
 --
 -- * @StackResources ::@ @[StackResource]@
 --
-mkDescribeStackResourcesResponse :: DescribeStackResourcesResponse
-mkDescribeStackResourcesResponse = DescribeStackResourcesResponse
+describeStackResourcesResponse :: DescribeStackResourcesResponse
+describeStackResourcesResponse = DescribeStackResourcesResponse
     { _dsrrrStackResources = mempty
     }
 

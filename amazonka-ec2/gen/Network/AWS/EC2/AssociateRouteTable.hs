@@ -37,7 +37,7 @@ module Network.AWS.EC2.AssociateRouteTable
     -- * Request
       AssociateRouteTable
     -- ** Request constructor
-    , mkAssociateRouteTable
+    , associateRouteTable
     -- ** Request lenses
     , artSubnetId
     , artRouteTableId
@@ -45,7 +45,7 @@ module Network.AWS.EC2.AssociateRouteTable
     -- * Response
     , AssociateRouteTableResponse
     -- ** Response constructor
-    , mkAssociateRouteTableResponse
+    , associateRouteTableResponse
     -- ** Response lenses
     , artrAssociationId
     ) where
@@ -68,10 +68,10 @@ data AssociateRouteTable = AssociateRouteTable
 --
 -- * @RouteTableId ::@ @Text@
 --
-mkAssociateRouteTable :: Text -- ^ 'artSubnetId'
+associateRouteTable :: Text -- ^ 'artSubnetId'
                       -> Text -- ^ 'artRouteTableId'
                       -> AssociateRouteTable
-mkAssociateRouteTable p1 p2 = AssociateRouteTable
+associateRouteTable p1 p2 = AssociateRouteTable
     { _artSubnetId = p1
     , _artRouteTableId = p2
     }
@@ -100,8 +100,8 @@ newtype AssociateRouteTableResponse = AssociateRouteTableResponse
 --
 -- * @AssociationId ::@ @Maybe Text@
 --
-mkAssociateRouteTableResponse :: AssociateRouteTableResponse
-mkAssociateRouteTableResponse = AssociateRouteTableResponse
+associateRouteTableResponse :: AssociateRouteTableResponse
+associateRouteTableResponse = AssociateRouteTableResponse
     { _artrAssociationId = Nothing
     }
 

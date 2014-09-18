@@ -23,7 +23,7 @@ module Network.AWS.EMR.ListSteps
     -- * Request
       ListSteps
     -- ** Request constructor
-    , mkListSteps
+    , listSteps
     -- ** Request lenses
     , lsClusterId
     , lsStepStates
@@ -32,7 +32,7 @@ module Network.AWS.EMR.ListSteps
     -- * Response
     , ListStepsResponse
     -- ** Response constructor
-    , mkListStepsResponse
+    , listStepsResponse
     -- ** Response lenses
     , lsrSteps
     , lsrMarker
@@ -60,9 +60,9 @@ data ListSteps = ListSteps
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListSteps :: Text -- ^ 'lsClusterId'
+listSteps :: Text -- ^ 'lsClusterId'
             -> ListSteps
-mkListSteps p1 = ListSteps
+listSteps p1 = ListSteps
     { _lsClusterId = p1
     , _lsStepStates = mempty
     , _lsMarker = Nothing
@@ -105,8 +105,8 @@ data ListStepsResponse = ListStepsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListStepsResponse :: ListStepsResponse
-mkListStepsResponse = ListStepsResponse
+listStepsResponse :: ListStepsResponse
+listStepsResponse = ListStepsResponse
     { _lsrSteps = mempty
     , _lsrMarker = Nothing
     }

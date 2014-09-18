@@ -46,13 +46,13 @@ module Network.AWS.CognitoIdentity.Types
     , _TooManyRequestsException
     -- * IdentityDescription
     , IdentityDescription
-    , mkIdentityDescription
+    , identityDescription
     , idIdentityId
     , idLogins
 
     -- * IdentityPoolShortDescription
     , IdentityPoolShortDescription
-    , mkIdentityPoolShortDescription
+    , identityPoolShortDescription
     , ipsdIdentityPoolId
     , ipsdIdentityPoolName
     ) where
@@ -82,8 +82,8 @@ instance AWSService CognitoIdentity where
 -- service description where applicable.
 data CognitoIdentityError
     = CognitoIdentityClient HttpException
-    | CognitoIdentitySerializer Text
-    | CognitoIdentityService Text
+    | CognitoIdentitySerializer String
+    | CognitoIdentityService String
       -- | Thrown when the service encounters an error during processing the
       -- request.
     | InternalErrorException
@@ -138,7 +138,7 @@ _CognitoIdentityClient = prism'
         x -> Left x)
 
 -- | See: 'CognitoIdentitySerializer'
-_CognitoIdentitySerializer :: Prism' CognitoIdentityError Text
+_CognitoIdentitySerializer :: Prism' CognitoIdentityError String
 _CognitoIdentitySerializer = prism'
     CognitoIdentitySerializer
     (\case
@@ -146,7 +146,7 @@ _CognitoIdentitySerializer = prism'
         x -> Left x)
 
 -- | See: 'CognitoIdentityService'
-_CognitoIdentityService :: Prism' CognitoIdentityError Text
+_CognitoIdentityService :: Prism' CognitoIdentityError String
 _CognitoIdentityService = prism'
     CognitoIdentityService
     (\case
@@ -243,8 +243,8 @@ data IdentityDescription = IdentityDescription
 --
 -- * @Logins ::@ @[Text]@
 --
-mkIdentityDescription :: IdentityDescription
-mkIdentityDescription = IdentityDescription
+identityDescription :: IdentityDescription
+identityDescription = IdentityDescription
     { _idIdentityId = Nothing
     , _idLogins = mempty
     }
@@ -278,8 +278,8 @@ data IdentityPoolShortDescription = IdentityPoolShortDescription
 --
 -- * @IdentityPoolName ::@ @Maybe Text@
 --
-mkIdentityPoolShortDescription :: IdentityPoolShortDescription
-mkIdentityPoolShortDescription = IdentityPoolShortDescription
+identityPoolShortDescription :: IdentityPoolShortDescription
+identityPoolShortDescription = IdentityPoolShortDescription
     { _ipsdIdentityPoolId = Nothing
     , _ipsdIdentityPoolName = Nothing
     }

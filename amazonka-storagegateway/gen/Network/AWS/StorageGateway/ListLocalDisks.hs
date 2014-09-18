@@ -43,14 +43,14 @@ module Network.AWS.StorageGateway.ListLocalDisks
     -- * Request
       ListLocalDisks
     -- ** Request constructor
-    , mkListLocalDisks
+    , listLocalDisks
     -- ** Request lenses
     , lldGatewayARN
 
     -- * Response
     , ListLocalDisksResponse
     -- ** Response constructor
-    , mkListLocalDisksResponse
+    , listLocalDisksResponse
     -- ** Response lenses
     , lldrGatewayARN
     , lldrDisks
@@ -72,9 +72,9 @@ newtype ListLocalDisks = ListLocalDisks
 --
 -- * @GatewayARN ::@ @Text@
 --
-mkListLocalDisks :: Text -- ^ 'lldGatewayARN'
+listLocalDisks :: Text -- ^ 'lldGatewayARN'
                  -> ListLocalDisks
-mkListLocalDisks p1 = ListLocalDisks
+listLocalDisks p1 = ListLocalDisks
     { _lldGatewayARN = p1
     }
 
@@ -107,8 +107,8 @@ data ListLocalDisksResponse = ListLocalDisksResponse
 --
 -- * @Disks ::@ @[DiskInformation]@
 --
-mkListLocalDisksResponse :: ListLocalDisksResponse
-mkListLocalDisksResponse = ListLocalDisksResponse
+listLocalDisksResponse :: ListLocalDisksResponse
+listLocalDisksResponse = ListLocalDisksResponse
     { _lldrGatewayARN = Nothing
     , _lldrDisks = mempty
     }

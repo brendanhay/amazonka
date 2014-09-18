@@ -30,7 +30,7 @@ module Network.AWS.S3.CreateMultipartUpload
     -- ** Request alias
     , InitiateMultipartUpload
     -- ** Request constructor
-    , mkCreateMultipartUpload
+    , createMultipartUpload
     -- ** Request lenses
     , cmu2ACL
     , cmu2Bucket
@@ -56,7 +56,7 @@ module Network.AWS.S3.CreateMultipartUpload
     -- * Response
     , CreateMultipartUploadResponse
     -- ** Response constructor
-    , mkCreateMultipartUploadResponse
+    , createMultipartUploadResponse
     -- ** Response lenses
     , cmurrBucket
     , cmurrKey
@@ -141,10 +141,10 @@ data CreateMultipartUpload = CreateMultipartUpload
 --
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
-mkCreateMultipartUpload :: ObjectKey -- ^ 'cmu2Key'
+createMultipartUpload :: ObjectKey -- ^ 'cmu2Key'
                         -> BucketName -- ^ 'cmu2Bucket'
                         -> CreateMultipartUpload
-mkCreateMultipartUpload p13 p2 = CreateMultipartUpload
+createMultipartUpload p13 p2 = CreateMultipartUpload
     { _cmu2ACL = Nothing
     , _cmu2Bucket = p2
     , _cmu2CacheControl = Nothing
@@ -328,8 +328,8 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse
 --
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
-mkCreateMultipartUploadResponse :: CreateMultipartUploadResponse
-mkCreateMultipartUploadResponse = CreateMultipartUploadResponse
+createMultipartUploadResponse :: CreateMultipartUploadResponse
+createMultipartUploadResponse = CreateMultipartUploadResponse
     { _cmurrBucket = Nothing
     , _cmurrKey = Nothing
     , _cmurrUploadId = Nothing

@@ -74,7 +74,7 @@ module Network.AWS.EC2.CreateVpnConnection
     -- * Request
       CreateVpnConnection
     -- ** Request constructor
-    , mkCreateVpnConnection
+    , createVpnConnection
     -- ** Request lenses
     , cvcType
     , cvcCustomerGatewayId
@@ -84,7 +84,7 @@ module Network.AWS.EC2.CreateVpnConnection
     -- * Response
     , CreateVpnConnectionResponse
     -- ** Response constructor
-    , mkCreateVpnConnectionResponse
+    , createVpnConnectionResponse
     -- ** Response lenses
     , cvcrVpnConnection
     ) where
@@ -113,11 +113,11 @@ data CreateVpnConnection = CreateVpnConnection
 --
 -- * @Options ::@ @Maybe VpnConnectionOptionsSpecification@
 --
-mkCreateVpnConnection :: Text -- ^ 'cvcType'
+createVpnConnection :: Text -- ^ 'cvcType'
                       -> Text -- ^ 'cvcCustomerGatewayId'
                       -> Text -- ^ 'cvcVpnGatewayId'
                       -> CreateVpnConnection
-mkCreateVpnConnection p1 p2 p3 = CreateVpnConnection
+createVpnConnection p1 p2 p3 = CreateVpnConnection
     { _cvcType = p1
     , _cvcCustomerGatewayId = p2
     , _cvcVpnGatewayId = p3
@@ -159,8 +159,8 @@ newtype CreateVpnConnectionResponse = CreateVpnConnectionResponse
 --
 -- * @VpnConnection ::@ @Maybe VpnConnection@
 --
-mkCreateVpnConnectionResponse :: CreateVpnConnectionResponse
-mkCreateVpnConnectionResponse = CreateVpnConnectionResponse
+createVpnConnectionResponse :: CreateVpnConnectionResponse
+createVpnConnectionResponse = CreateVpnConnectionResponse
     { _cvcrVpnConnection = Nothing
     }
 

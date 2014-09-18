@@ -43,7 +43,7 @@ module Network.AWS.SQS.DeleteMessageBatch
     -- * Request
       DeleteMessageBatch
     -- ** Request constructor
-    , mkDeleteMessageBatch
+    , deleteMessageBatch
     -- ** Request lenses
     , dmbQueueUrl
     , dmbEntries
@@ -51,7 +51,7 @@ module Network.AWS.SQS.DeleteMessageBatch
     -- * Response
     , DeleteMessageBatchResponse
     -- ** Response constructor
-    , mkDeleteMessageBatchResponse
+    , deleteMessageBatchResponse
     -- ** Response lenses
     , dmbrSuccessful
     , dmbrFailed
@@ -75,10 +75,10 @@ data DeleteMessageBatch = DeleteMessageBatch
 --
 -- * @Entries ::@ @[DeleteMessageBatchRequestEntry]@
 --
-mkDeleteMessageBatch :: Text -- ^ 'dmbQueueUrl'
+deleteMessageBatch :: Text -- ^ 'dmbQueueUrl'
                      -> [DeleteMessageBatchRequestEntry] -- ^ 'dmbEntries'
                      -> DeleteMessageBatch
-mkDeleteMessageBatch p1 p2 = DeleteMessageBatch
+deleteMessageBatch p1 p2 = DeleteMessageBatch
     { _dmbQueueUrl = p1
     , _dmbEntries = p2
     }
@@ -113,10 +113,10 @@ data DeleteMessageBatchResponse = DeleteMessageBatchResponse
 --
 -- * @Failed ::@ @[BatchResultErrorEntry]@
 --
-mkDeleteMessageBatchResponse :: [DeleteMessageBatchResultEntry] -- ^ 'dmbrSuccessful'
+deleteMessageBatchResponse :: [DeleteMessageBatchResultEntry] -- ^ 'dmbrSuccessful'
                              -> [BatchResultErrorEntry] -- ^ 'dmbrFailed'
                              -> DeleteMessageBatchResponse
-mkDeleteMessageBatchResponse p1 p2 = DeleteMessageBatchResponse
+deleteMessageBatchResponse p1 p2 = DeleteMessageBatchResponse
     { _dmbrSuccessful = p1
     , _dmbrFailed = p2
     }

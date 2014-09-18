@@ -30,7 +30,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     -- * Request
       DescribeEnvironmentResources
     -- ** Request constructor
-    , mkDescribeEnvironmentResources
+    , describeEnvironmentResources
     -- ** Request lenses
     , derEnvironmentId
     , derEnvironmentName
@@ -38,7 +38,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     -- * Response
     , DescribeEnvironmentResourcesResponse
     -- ** Response constructor
-    , mkDescribeEnvironmentResourcesResponse
+    , describeEnvironmentResourcesResponse
     -- ** Response lenses
     , derrEnvironmentResources
     ) where
@@ -62,8 +62,8 @@ data DescribeEnvironmentResources = DescribeEnvironmentResources
 --
 -- * @EnvironmentName ::@ @Maybe Text@
 --
-mkDescribeEnvironmentResources :: DescribeEnvironmentResources
-mkDescribeEnvironmentResources = DescribeEnvironmentResources
+describeEnvironmentResources :: DescribeEnvironmentResources
+describeEnvironmentResources = DescribeEnvironmentResources
     { _derEnvironmentId = Nothing
     , _derEnvironmentName = Nothing
     }
@@ -101,8 +101,8 @@ newtype DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesRespo
 --
 -- * @EnvironmentResources ::@ @Maybe EnvironmentResourceDescription@
 --
-mkDescribeEnvironmentResourcesResponse :: DescribeEnvironmentResourcesResponse
-mkDescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
+describeEnvironmentResourcesResponse :: DescribeEnvironmentResourcesResponse
+describeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
     { _derrEnvironmentResources = Nothing
     }
 

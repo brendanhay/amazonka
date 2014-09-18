@@ -23,14 +23,14 @@ module Network.AWS.DirectConnect.DeleteVirtualInterface
     -- * Request
       DeleteVirtualInterface
     -- ** Request constructor
-    , mkDeleteVirtualInterface
+    , deleteVirtualInterface
     -- ** Request lenses
     , dviVirtualInterfaceId
 
     -- * Response
     , DeleteVirtualInterfaceResponse
     -- ** Response constructor
-    , mkDeleteVirtualInterfaceResponse
+    , deleteVirtualInterfaceResponse
     -- ** Response lenses
     , dvirVirtualInterfaceState
     ) where
@@ -51,9 +51,9 @@ newtype DeleteVirtualInterface = DeleteVirtualInterface
 --
 -- * @VirtualInterfaceId ::@ @Text@
 --
-mkDeleteVirtualInterface :: Text -- ^ 'dviVirtualInterfaceId'
+deleteVirtualInterface :: Text -- ^ 'dviVirtualInterfaceId'
                          -> DeleteVirtualInterface
-mkDeleteVirtualInterface p1 = DeleteVirtualInterface
+deleteVirtualInterface p1 = DeleteVirtualInterface
     { _dviVirtualInterfaceId = p1
     }
 
@@ -84,8 +84,8 @@ newtype DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse
 --
 -- * @VirtualInterfaceState ::@ @Maybe VirtualInterfaceState@
 --
-mkDeleteVirtualInterfaceResponse :: DeleteVirtualInterfaceResponse
-mkDeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse
+deleteVirtualInterfaceResponse :: DeleteVirtualInterfaceResponse
+deleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse
     { _dvirVirtualInterfaceState = Nothing
     }
 

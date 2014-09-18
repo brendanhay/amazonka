@@ -61,7 +61,7 @@ module Network.AWS.SWF.ListDomains
     -- * Request
       ListDomains
     -- ** Request constructor
-    , mkListDomains
+    , listDomains
     -- ** Request lenses
     , ldNextPageToken
     , ldRegistrationStatus
@@ -71,7 +71,7 @@ module Network.AWS.SWF.ListDomains
     -- * Response
     , ListDomainsResponse
     -- ** Response constructor
-    , mkListDomainsResponse
+    , listDomainsResponse
     -- ** Response lenses
     , ldrDomainInfos
     , ldrNextPageToken
@@ -101,9 +101,9 @@ data ListDomains = ListDomains
 --
 -- * @ReverseOrder ::@ @Maybe Bool@
 --
-mkListDomains :: RegistrationStatus -- ^ 'ldRegistrationStatus'
+listDomains :: RegistrationStatus -- ^ 'ldRegistrationStatus'
               -> ListDomains
-mkListDomains p2 = ListDomains
+listDomains p2 = ListDomains
     { _ldNextPageToken = Nothing
     , _ldRegistrationStatus = p2
     , _ldMaximumPageSize = Nothing
@@ -162,9 +162,9 @@ data ListDomainsResponse = ListDomainsResponse
 --
 -- * @NextPageToken ::@ @Maybe Text@
 --
-mkListDomainsResponse :: [DomainInfo] -- ^ 'ldrDomainInfos'
+listDomainsResponse :: [DomainInfo] -- ^ 'ldrDomainInfos'
                       -> ListDomainsResponse
-mkListDomainsResponse p1 = ListDomainsResponse
+listDomainsResponse p1 = ListDomainsResponse
     { _ldrDomainInfos = p1
     , _ldrNextPageToken = Nothing
     }

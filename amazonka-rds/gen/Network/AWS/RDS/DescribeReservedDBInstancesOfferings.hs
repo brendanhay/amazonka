@@ -29,7 +29,7 @@ module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     -- * Request
       DescribeReservedDBInstancesOfferings
     -- ** Request constructor
-    , mkDescribeReservedDBInstancesOfferings
+    , describeReservedDBInstancesOfferings
     -- ** Request lenses
     , drdbioReservedDBInstancesOfferingId
     , drdbioDBInstanceClass
@@ -43,7 +43,7 @@ module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     -- * Response
     , DescribeReservedDBInstancesOfferingsResponse
     -- ** Response constructor
-    , mkDescribeReservedDBInstancesOfferingsResponse
+    , describeReservedDBInstancesOfferingsResponse
     -- ** Response lenses
     , drdbiorMarker
     , drdbiorReservedDBInstancesOfferings
@@ -86,8 +86,8 @@ data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeReservedDBInstancesOfferings :: DescribeReservedDBInstancesOfferings
-mkDescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
+describeReservedDBInstancesOfferings :: DescribeReservedDBInstancesOfferings
+describeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
     { _drdbioReservedDBInstancesOfferingId = Nothing
     , _drdbioDBInstanceClass = Nothing
     , _drdbioDuration = Nothing
@@ -172,8 +172,8 @@ data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesO
 --
 -- * @ReservedDBInstancesOfferings ::@ @[ReservedDBInstancesOffering]@
 --
-mkDescribeReservedDBInstancesOfferingsResponse :: DescribeReservedDBInstancesOfferingsResponse
-mkDescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse
+describeReservedDBInstancesOfferingsResponse :: DescribeReservedDBInstancesOfferingsResponse
+describeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse
     { _drdbiorMarker = Nothing
     , _drdbiorReservedDBInstancesOfferings = mempty
     }

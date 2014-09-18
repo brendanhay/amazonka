@@ -55,7 +55,7 @@ module Network.AWS.EC2.DescribeVpcPeeringConnections
     -- * Request
       DescribeVpcPeeringConnections
     -- ** Request constructor
-    , mkDescribeVpcPeeringConnections
+    , describeVpcPeeringConnections
     -- ** Request lenses
     , dvpc1VpcPeeringConnectionIds
     , dvpc1Filters
@@ -63,7 +63,7 @@ module Network.AWS.EC2.DescribeVpcPeeringConnections
     -- * Response
     , DescribeVpcPeeringConnectionsResponse
     -- ** Response constructor
-    , mkDescribeVpcPeeringConnectionsResponse
+    , describeVpcPeeringConnectionsResponse
     -- ** Response lenses
     , dvpcrrVpcPeeringConnections
     ) where
@@ -86,8 +86,8 @@ data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribeVpcPeeringConnections :: DescribeVpcPeeringConnections
-mkDescribeVpcPeeringConnections = DescribeVpcPeeringConnections
+describeVpcPeeringConnections :: DescribeVpcPeeringConnections
+describeVpcPeeringConnections = DescribeVpcPeeringConnections
     { _dvpc1VpcPeeringConnectionIds = mempty
     , _dvpc1Filters = mempty
     }
@@ -138,8 +138,8 @@ newtype DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsRes
 --
 -- * @VpcPeeringConnections ::@ @[VpcPeeringConnection]@
 --
-mkDescribeVpcPeeringConnectionsResponse :: DescribeVpcPeeringConnectionsResponse
-mkDescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse
+describeVpcPeeringConnectionsResponse :: DescribeVpcPeeringConnectionsResponse
+describeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse
     { _dvpcrrVpcPeeringConnections = mempty
     }
 

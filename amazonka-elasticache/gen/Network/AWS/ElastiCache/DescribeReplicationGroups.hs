@@ -34,7 +34,7 @@ module Network.AWS.ElastiCache.DescribeReplicationGroups
     -- * Request
       DescribeReplicationGroups
     -- ** Request constructor
-    , mkDescribeReplicationGroups
+    , describeReplicationGroups
     -- ** Request lenses
     , drg1ReplicationGroupId
     , drg1MaxRecords
@@ -43,7 +43,7 @@ module Network.AWS.ElastiCache.DescribeReplicationGroups
     -- * Response
     , DescribeReplicationGroupsResponse
     -- ** Response constructor
-    , mkDescribeReplicationGroupsResponse
+    , describeReplicationGroupsResponse
     -- ** Response lenses
     , drgrrMarker
     , drgrrReplicationGroups
@@ -71,8 +71,8 @@ data DescribeReplicationGroups = DescribeReplicationGroups
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeReplicationGroups :: DescribeReplicationGroups
-mkDescribeReplicationGroups = DescribeReplicationGroups
+describeReplicationGroups :: DescribeReplicationGroups
+describeReplicationGroups = DescribeReplicationGroups
     { _drg1ReplicationGroupId = Nothing
     , _drg1MaxRecords = Nothing
     , _drg1Marker = Nothing
@@ -119,8 +119,8 @@ data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse
 --
 -- * @ReplicationGroups ::@ @[ReplicationGroup]@
 --
-mkDescribeReplicationGroupsResponse :: DescribeReplicationGroupsResponse
-mkDescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse
+describeReplicationGroupsResponse :: DescribeReplicationGroupsResponse
+describeReplicationGroupsResponse = DescribeReplicationGroupsResponse
     { _drgrrMarker = Nothing
     , _drgrrReplicationGroups = mempty
     }

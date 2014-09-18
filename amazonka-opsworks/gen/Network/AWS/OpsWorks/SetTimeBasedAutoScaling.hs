@@ -28,7 +28,7 @@ module Network.AWS.OpsWorks.SetTimeBasedAutoScaling
     -- * Request
       SetTimeBasedAutoScaling
     -- ** Request constructor
-    , mkSetTimeBasedAutoScaling
+    , setTimeBasedAutoScaling
     -- ** Request lenses
     , stbasInstanceId
     , stbasAutoScalingSchedule
@@ -36,7 +36,7 @@ module Network.AWS.OpsWorks.SetTimeBasedAutoScaling
     -- * Response
     , SetTimeBasedAutoScalingResponse
     -- ** Response constructor
-    , mkSetTimeBasedAutoScalingResponse
+    , setTimeBasedAutoScalingResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -57,9 +57,9 @@ data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling
 --
 -- * @AutoScalingSchedule ::@ @Maybe WeeklyAutoScalingSchedule@
 --
-mkSetTimeBasedAutoScaling :: Text -- ^ 'stbasInstanceId'
+setTimeBasedAutoScaling :: Text -- ^ 'stbasInstanceId'
                           -> SetTimeBasedAutoScaling
-mkSetTimeBasedAutoScaling p1 = SetTimeBasedAutoScaling
+setTimeBasedAutoScaling p1 = SetTimeBasedAutoScaling
     { _stbasInstanceId = p1
     , _stbasAutoScalingSchedule = Nothing
     }
@@ -89,8 +89,8 @@ data SetTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse
 -- a valid 'SetTimeBasedAutoScalingResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSetTimeBasedAutoScalingResponse :: SetTimeBasedAutoScalingResponse
-mkSetTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse
+setTimeBasedAutoScalingResponse :: SetTimeBasedAutoScalingResponse
+setTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse
 
 instance AWSRequest SetTimeBasedAutoScaling where
     type Sv SetTimeBasedAutoScaling = OpsWorks

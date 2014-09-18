@@ -54,7 +54,7 @@ module Network.AWS.SWF.CountOpenWorkflowExecutions
     -- * Request
       CountOpenWorkflowExecutions
     -- ** Request constructor
-    , mkCountOpenWorkflowExecutions
+    , countOpenWorkflowExecutions
     -- ** Request lenses
     , coweDomain
     , coweStartTimeFilter
@@ -65,7 +65,7 @@ module Network.AWS.SWF.CountOpenWorkflowExecutions
     -- * Response
     , CountOpenWorkflowExecutionsResponse
     -- ** Response constructor
-    , mkCountOpenWorkflowExecutionsResponse
+    , countOpenWorkflowExecutionsResponse
     -- ** Response lenses
     , cowerCount
     , cowerTruncated
@@ -98,10 +98,10 @@ data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions
 --
 -- * @ExecutionFilter ::@ @Maybe WorkflowExecutionFilter@
 --
-mkCountOpenWorkflowExecutions :: Text -- ^ 'coweDomain'
+countOpenWorkflowExecutions :: Text -- ^ 'coweDomain'
                               -> ExecutionTimeFilter -- ^ 'coweStartTimeFilter'
                               -> CountOpenWorkflowExecutions
-mkCountOpenWorkflowExecutions p1 p2 = CountOpenWorkflowExecutions
+countOpenWorkflowExecutions p1 p2 = CountOpenWorkflowExecutions
     { _coweDomain = p1
     , _coweStartTimeFilter = p2
     , _coweTypeFilter = Nothing
@@ -164,9 +164,9 @@ data CountOpenWorkflowExecutionsResponse = CountOpenWorkflowExecutionsResponse
 --
 -- * @Truncated ::@ @Maybe Bool@
 --
-mkCountOpenWorkflowExecutionsResponse :: Integer -- ^ 'cowerCount'
+countOpenWorkflowExecutionsResponse :: Integer -- ^ 'cowerCount'
                                       -> CountOpenWorkflowExecutionsResponse
-mkCountOpenWorkflowExecutionsResponse p1 = CountOpenWorkflowExecutionsResponse
+countOpenWorkflowExecutionsResponse p1 = CountOpenWorkflowExecutionsResponse
     { _cowerCount = p1
     , _cowerTruncated = Nothing
     }

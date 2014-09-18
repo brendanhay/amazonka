@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.UpdateStreamingDistribution
     -- * Request
       UpdateStreamingDistribution
     -- ** Request constructor
-    , mkUpdateStreamingDistribution
+    , updateStreamingDistribution
     -- ** Request lenses
     , usdStreamingDistributionConfig
     , usdId
@@ -32,7 +32,7 @@ module Network.AWS.CloudFront.UpdateStreamingDistribution
     -- * Response
     , UpdateStreamingDistributionResponse
     -- ** Response constructor
-    , mkUpdateStreamingDistributionResponse
+    , updateStreamingDistributionResponse
     -- ** Response lenses
     , usdrStreamingDistribution
     , usdrETag
@@ -61,10 +61,10 @@ data UpdateStreamingDistribution = UpdateStreamingDistribution
 --
 -- * @IfMatch ::@ @Maybe Text@
 --
-mkUpdateStreamingDistribution :: StreamingDistributionConfig -- ^ 'usdStreamingDistributionConfig'
+updateStreamingDistribution :: StreamingDistributionConfig -- ^ 'usdStreamingDistributionConfig'
                               -> Text -- ^ 'usdId'
                               -> UpdateStreamingDistribution
-mkUpdateStreamingDistribution p1 p2 = UpdateStreamingDistribution
+updateStreamingDistribution p1 p2 = UpdateStreamingDistribution
     { _usdStreamingDistributionConfig = p1
     , _usdId = p2
     , _usdIfMatch = Nothing
@@ -115,8 +115,8 @@ data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse
 --
 -- * @ETag ::@ @Maybe Text@
 --
-mkUpdateStreamingDistributionResponse :: UpdateStreamingDistributionResponse
-mkUpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse
+updateStreamingDistributionResponse :: UpdateStreamingDistributionResponse
+updateStreamingDistributionResponse = UpdateStreamingDistributionResponse
     { _usdrStreamingDistribution = Nothing
     , _usdrETag = Nothing
     }

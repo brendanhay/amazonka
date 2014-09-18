@@ -36,7 +36,7 @@ module Network.AWS.RDS.DescribeEngineDefaultParameters
     -- * Request
       DescribeEngineDefaultParameters
     -- ** Request constructor
-    , mkDescribeEngineDefaultParameters
+    , describeEngineDefaultParameters
     -- ** Request lenses
     , dedpDBParameterGroupFamily
     , dedpMaxRecords
@@ -45,7 +45,7 @@ module Network.AWS.RDS.DescribeEngineDefaultParameters
     -- * Response
     , DescribeEngineDefaultParametersResponse
     -- ** Response constructor
-    , mkDescribeEngineDefaultParametersResponse
+    , describeEngineDefaultParametersResponse
     -- ** Response lenses
     , dedprEngineDefaults
     ) where
@@ -72,9 +72,9 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeEngineDefaultParameters :: Text -- ^ 'dedpDBParameterGroupFamily'
+describeEngineDefaultParameters :: Text -- ^ 'dedpDBParameterGroupFamily'
                                   -> DescribeEngineDefaultParameters
-mkDescribeEngineDefaultParameters p1 = DescribeEngineDefaultParameters
+describeEngineDefaultParameters p1 = DescribeEngineDefaultParameters
     { _dedpDBParameterGroupFamily = p1
     , _dedpMaxRecords = Nothing
     , _dedpMarker = Nothing
@@ -116,9 +116,9 @@ newtype DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParameter
 --
 -- * @EngineDefaults ::@ @EngineDefaults@
 --
-mkDescribeEngineDefaultParametersResponse :: EngineDefaults -- ^ 'dedprEngineDefaults'
+describeEngineDefaultParametersResponse :: EngineDefaults -- ^ 'dedprEngineDefaults'
                                           -> DescribeEngineDefaultParametersResponse
-mkDescribeEngineDefaultParametersResponse p1 = DescribeEngineDefaultParametersResponse
+describeEngineDefaultParametersResponse p1 = DescribeEngineDefaultParametersResponse
     { _dedprEngineDefaults = p1
     }
 

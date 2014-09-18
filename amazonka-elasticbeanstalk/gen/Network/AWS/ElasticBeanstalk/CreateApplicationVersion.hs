@@ -34,7 +34,7 @@ module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     -- * Request
       CreateApplicationVersion
     -- ** Request constructor
-    , mkCreateApplicationVersion
+    , createApplicationVersion
     -- ** Request lenses
     , cavApplicationName
     , cavVersionLabel
@@ -45,7 +45,7 @@ module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     -- * Response
     , CreateApplicationVersionResponse
     -- ** Response constructor
-    , mkCreateApplicationVersionResponse
+    , createApplicationVersionResponse
     -- ** Response lenses
     , cavrApplicationVersion
     ) where
@@ -78,10 +78,10 @@ data CreateApplicationVersion = CreateApplicationVersion
 --
 -- * @AutoCreateApplication ::@ @Maybe Bool@
 --
-mkCreateApplicationVersion :: Text -- ^ 'cavApplicationName'
+createApplicationVersion :: Text -- ^ 'cavApplicationName'
                            -> Text -- ^ 'cavVersionLabel'
                            -> CreateApplicationVersion
-mkCreateApplicationVersion p1 p2 = CreateApplicationVersion
+createApplicationVersion p1 p2 = CreateApplicationVersion
     { _cavApplicationName = p1
     , _cavVersionLabel = p2
     , _cavDescription = Nothing
@@ -147,8 +147,8 @@ newtype CreateApplicationVersionResponse = CreateApplicationVersionResponse
 --
 -- * @ApplicationVersion ::@ @Maybe ApplicationVersionDescription@
 --
-mkCreateApplicationVersionResponse :: CreateApplicationVersionResponse
-mkCreateApplicationVersionResponse = CreateApplicationVersionResponse
+createApplicationVersionResponse :: CreateApplicationVersionResponse
+createApplicationVersionResponse = CreateApplicationVersionResponse
     { _cavrApplicationVersion = Nothing
     }
 

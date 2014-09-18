@@ -34,7 +34,7 @@ module Network.AWS.EC2.DescribePlacementGroups
     -- * Request
       DescribePlacementGroups
     -- ** Request constructor
-    , mkDescribePlacementGroups
+    , describePlacementGroups
     -- ** Request lenses
     , dpg1GroupNames
     , dpg1Filters
@@ -42,7 +42,7 @@ module Network.AWS.EC2.DescribePlacementGroups
     -- * Response
     , DescribePlacementGroupsResponse
     -- ** Response constructor
-    , mkDescribePlacementGroupsResponse
+    , describePlacementGroupsResponse
     -- ** Response lenses
     , dpgrPlacementGroups
     ) where
@@ -65,8 +65,8 @@ data DescribePlacementGroups = DescribePlacementGroups
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribePlacementGroups :: DescribePlacementGroups
-mkDescribePlacementGroups = DescribePlacementGroups
+describePlacementGroups :: DescribePlacementGroups
+describePlacementGroups = DescribePlacementGroups
     { _dpg1GroupNames = mempty
     , _dpg1Filters = mempty
     }
@@ -98,8 +98,8 @@ newtype DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
 --
 -- * @PlacementGroups ::@ @[PlacementGroup]@
 --
-mkDescribePlacementGroupsResponse :: DescribePlacementGroupsResponse
-mkDescribePlacementGroupsResponse = DescribePlacementGroupsResponse
+describePlacementGroupsResponse :: DescribePlacementGroupsResponse
+describePlacementGroupsResponse = DescribePlacementGroupsResponse
     { _dpgrPlacementGroups = mempty
     }
 

@@ -24,7 +24,7 @@ module Network.AWS.CloudSearch.DeleteIndexField
     -- * Request
       DeleteIndexField
     -- ** Request constructor
-    , mkDeleteIndexField
+    , deleteIndexField
     -- ** Request lenses
     , dif1DomainName
     , dif1IndexFieldName
@@ -32,7 +32,7 @@ module Network.AWS.CloudSearch.DeleteIndexField
     -- * Response
     , DeleteIndexFieldResponse
     -- ** Response constructor
-    , mkDeleteIndexFieldResponse
+    , deleteIndexFieldResponse
     -- ** Response lenses
     , difrrIndexField
     ) where
@@ -58,10 +58,10 @@ data DeleteIndexField = DeleteIndexField
 --
 -- * @IndexFieldName ::@ @Text@
 --
-mkDeleteIndexField :: Text -- ^ 'dif1DomainName'
+deleteIndexField :: Text -- ^ 'dif1DomainName'
                    -> Text -- ^ 'dif1IndexFieldName'
                    -> DeleteIndexField
-mkDeleteIndexField p1 p2 = DeleteIndexField
+deleteIndexField p1 p2 = DeleteIndexField
     { _dif1DomainName = p1
     , _dif1IndexFieldName = p2
     }
@@ -96,9 +96,9 @@ newtype DeleteIndexFieldResponse = DeleteIndexFieldResponse
 --
 -- * @IndexField ::@ @IndexFieldStatus@
 --
-mkDeleteIndexFieldResponse :: IndexFieldStatus -- ^ 'difrrIndexField'
+deleteIndexFieldResponse :: IndexFieldStatus -- ^ 'difrrIndexField'
                            -> DeleteIndexFieldResponse
-mkDeleteIndexFieldResponse p1 = DeleteIndexFieldResponse
+deleteIndexFieldResponse p1 = DeleteIndexFieldResponse
     { _difrrIndexField = p1
     }
 

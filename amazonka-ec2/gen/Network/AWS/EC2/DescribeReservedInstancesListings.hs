@@ -33,7 +33,7 @@ module Network.AWS.EC2.DescribeReservedInstancesListings
     -- * Request
       DescribeReservedInstancesListings
     -- ** Request constructor
-    , mkDescribeReservedInstancesListings
+    , describeReservedInstancesListings
     -- ** Request lenses
     , drilReservedInstancesId
     , drilReservedInstancesListingId
@@ -42,7 +42,7 @@ module Network.AWS.EC2.DescribeReservedInstancesListings
     -- * Response
     , DescribeReservedInstancesListingsResponse
     -- ** Response constructor
-    , mkDescribeReservedInstancesListingsResponse
+    , describeReservedInstancesListingsResponse
     -- ** Response lenses
     , drilrReservedInstancesListings
     ) where
@@ -68,8 +68,8 @@ data DescribeReservedInstancesListings = DescribeReservedInstancesListings
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribeReservedInstancesListings :: DescribeReservedInstancesListings
-mkDescribeReservedInstancesListings = DescribeReservedInstancesListings
+describeReservedInstancesListings :: DescribeReservedInstancesListings
+describeReservedInstancesListings = DescribeReservedInstancesListings
     { _drilReservedInstancesId = Nothing
     , _drilReservedInstancesListingId = Nothing
     , _drilFilters = mempty
@@ -110,8 +110,8 @@ newtype DescribeReservedInstancesListingsResponse = DescribeReservedInstancesLis
 --
 -- * @ReservedInstancesListings ::@ @[ReservedInstancesListing]@
 --
-mkDescribeReservedInstancesListingsResponse :: DescribeReservedInstancesListingsResponse
-mkDescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
+describeReservedInstancesListingsResponse :: DescribeReservedInstancesListingsResponse
+describeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
     { _drilrReservedInstancesListings = mempty
     }
 

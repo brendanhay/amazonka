@@ -57,7 +57,7 @@ module Network.AWS.SimpleDB.BatchPutAttributes
     -- * Request
       BatchPutAttributes
     -- ** Request constructor
-    , mkBatchPutAttributes
+    , batchPutAttributes
     -- ** Request lenses
     , bpaDomainName
     , bpaItems
@@ -65,7 +65,7 @@ module Network.AWS.SimpleDB.BatchPutAttributes
     -- * Response
     , BatchPutAttributesResponse
     -- ** Response constructor
-    , mkBatchPutAttributesResponse
+    , batchPutAttributesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -86,10 +86,10 @@ data BatchPutAttributes = BatchPutAttributes
 --
 -- * @Items ::@ @[ReplaceableItem]@
 --
-mkBatchPutAttributes :: Text -- ^ 'bpaDomainName'
+batchPutAttributes :: Text -- ^ 'bpaDomainName'
                      -> [ReplaceableItem] -- ^ 'bpaItems'
                      -> BatchPutAttributes
-mkBatchPutAttributes p1 p2 = BatchPutAttributes
+batchPutAttributes p1 p2 = BatchPutAttributes
     { _bpaDomainName = p1
     , _bpaItems = p2
     }
@@ -112,8 +112,8 @@ data BatchPutAttributesResponse = BatchPutAttributesResponse
 -- a valid 'BatchPutAttributesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkBatchPutAttributesResponse :: BatchPutAttributesResponse
-mkBatchPutAttributesResponse = BatchPutAttributesResponse
+batchPutAttributesResponse :: BatchPutAttributesResponse
+batchPutAttributesResponse = BatchPutAttributesResponse
 
 instance AWSRequest BatchPutAttributes where
     type Sv BatchPutAttributes = SimpleDB

@@ -26,7 +26,7 @@ module Network.AWS.RDS.DescribeOptionGroupOptions
     -- * Request
       DescribeOptionGroupOptions
     -- ** Request constructor
-    , mkDescribeOptionGroupOptions
+    , describeOptionGroupOptions
     -- ** Request lenses
     , dogoEngineName
     , dogoMajorEngineVersion
@@ -36,7 +36,7 @@ module Network.AWS.RDS.DescribeOptionGroupOptions
     -- * Response
     , DescribeOptionGroupOptionsResponse
     -- ** Response constructor
-    , mkDescribeOptionGroupOptionsResponse
+    , describeOptionGroupOptionsResponse
     -- ** Response lenses
     , dogorOptionGroupOptions
     , dogorMarker
@@ -67,9 +67,9 @@ data DescribeOptionGroupOptions = DescribeOptionGroupOptions
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeOptionGroupOptions :: Text -- ^ 'dogoEngineName'
+describeOptionGroupOptions :: Text -- ^ 'dogoEngineName'
                              -> DescribeOptionGroupOptions
-mkDescribeOptionGroupOptions p1 = DescribeOptionGroupOptions
+describeOptionGroupOptions p1 = DescribeOptionGroupOptions
     { _dogoEngineName = p1
     , _dogoMajorEngineVersion = Nothing
     , _dogoMaxRecords = Nothing
@@ -120,8 +120,8 @@ data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeOptionGroupOptionsResponse :: DescribeOptionGroupOptionsResponse
-mkDescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse
+describeOptionGroupOptionsResponse :: DescribeOptionGroupOptionsResponse
+describeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse
     { _dogorOptionGroupOptions = mempty
     , _dogorMarker = Nothing
     }

@@ -50,7 +50,7 @@ module Network.AWS.EC2.ModifySnapshotAttribute
     -- * Request
       ModifySnapshotAttribute
     -- ** Request constructor
-    , mkModifySnapshotAttribute
+    , modifySnapshotAttribute
     -- ** Request lenses
     , msaSnapshotId
     , msaAttribute
@@ -62,7 +62,7 @@ module Network.AWS.EC2.ModifySnapshotAttribute
     -- * Response
     , ModifySnapshotAttributeResponse
     -- ** Response constructor
-    , mkModifySnapshotAttributeResponse
+    , modifySnapshotAttributeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -95,9 +95,9 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute
 --
 -- * @CreateVolumePermission ::@ @Maybe CreateVolumePermissionModifications@
 --
-mkModifySnapshotAttribute :: Text -- ^ 'msaSnapshotId'
+modifySnapshotAttribute :: Text -- ^ 'msaSnapshotId'
                           -> ModifySnapshotAttribute
-mkModifySnapshotAttribute p1 = ModifySnapshotAttribute
+modifySnapshotAttribute p1 = ModifySnapshotAttribute
     { _msaSnapshotId = p1
     , _msaAttribute = Nothing
     , _msaOperationType = Nothing
@@ -143,8 +143,8 @@ data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
 -- a valid 'ModifySnapshotAttributeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkModifySnapshotAttributeResponse :: ModifySnapshotAttributeResponse
-mkModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
+modifySnapshotAttributeResponse :: ModifySnapshotAttributeResponse
+modifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
 
 instance AWSRequest ModifySnapshotAttribute where
     type Sv ModifySnapshotAttribute = EC2

@@ -50,7 +50,7 @@ module Network.AWS.ElasticTranscoder.TestRole
     -- * Request
       TestRole
     -- ** Request constructor
-    , mkTestRole
+    , testRole
     -- ** Request lenses
     , trRole
     , trInputBucket
@@ -60,7 +60,7 @@ module Network.AWS.ElasticTranscoder.TestRole
     -- * Response
     , TestRoleResponse
     -- ** Response constructor
-    , mkTestRoleResponse
+    , testRoleResponse
     -- ** Response lenses
     , trrSuccess
     , trrMessages
@@ -91,12 +91,12 @@ data TestRole = TestRole
 --
 -- * @Topics ::@ @[Text]@
 --
-mkTestRole :: Text -- ^ 'trRole'
+testRole :: Text -- ^ 'trRole'
            -> Text -- ^ 'trInputBucket'
            -> Text -- ^ 'trOutputBucket'
            -> [Text] -- ^ 'trTopics'
            -> TestRole
-mkTestRole p1 p2 p3 p4 = TestRole
+testRole p1 p2 p3 p4 = TestRole
     { _trRole = p1
     , _trInputBucket = p2
     , _trOutputBucket = p3
@@ -148,8 +148,8 @@ data TestRoleResponse = TestRoleResponse
 --
 -- * @Messages ::@ @[Text]@
 --
-mkTestRoleResponse :: TestRoleResponse
-mkTestRoleResponse = TestRoleResponse
+testRoleResponse :: TestRoleResponse
+testRoleResponse = TestRoleResponse
     { _trrSuccess = Nothing
     , _trrMessages = mempty
     }

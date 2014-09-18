@@ -31,7 +31,7 @@ module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     -- * Request
       ApplySecurityGroupsToLoadBalancer
     -- ** Request constructor
-    , mkApplySecurityGroupsToLoadBalancer
+    , applySecurityGroupsToLoadBalancer
     -- ** Request lenses
     , asgtlbLoadBalancerName
     , asgtlbSecurityGroups
@@ -39,7 +39,7 @@ module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     -- * Response
     , ApplySecurityGroupsToLoadBalancerResponse
     -- ** Response constructor
-    , mkApplySecurityGroupsToLoadBalancerResponse
+    , applySecurityGroupsToLoadBalancerResponse
     -- ** Response lenses
     , asgtlbrSecurityGroups
     ) where
@@ -63,10 +63,10 @@ data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer
 --
 -- * @SecurityGroups ::@ @[Text]@
 --
-mkApplySecurityGroupsToLoadBalancer :: Text -- ^ 'asgtlbLoadBalancerName'
+applySecurityGroupsToLoadBalancer :: Text -- ^ 'asgtlbLoadBalancerName'
                                     -> [Text] -- ^ 'asgtlbSecurityGroups'
                                     -> ApplySecurityGroupsToLoadBalancer
-mkApplySecurityGroupsToLoadBalancer p1 p2 = ApplySecurityGroupsToLoadBalancer
+applySecurityGroupsToLoadBalancer p1 p2 = ApplySecurityGroupsToLoadBalancer
     { _asgtlbLoadBalancerName = p1
     , _asgtlbSecurityGroups = p2
     }
@@ -101,8 +101,8 @@ newtype ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBal
 --
 -- * @SecurityGroups ::@ @[Text]@
 --
-mkApplySecurityGroupsToLoadBalancerResponse :: ApplySecurityGroupsToLoadBalancerResponse
-mkApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse
+applySecurityGroupsToLoadBalancerResponse :: ApplySecurityGroupsToLoadBalancerResponse
+applySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse
     { _asgtlbrSecurityGroups = mempty
     }
 

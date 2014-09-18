@@ -30,7 +30,7 @@ module Network.AWS.EC2.DetachNetworkInterface
     -- * Request
       DetachNetworkInterface
     -- ** Request constructor
-    , mkDetachNetworkInterface
+    , detachNetworkInterface
     -- ** Request lenses
     , dni2AttachmentId
     , dni2Force
@@ -38,7 +38,7 @@ module Network.AWS.EC2.DetachNetworkInterface
     -- * Response
     , DetachNetworkInterfaceResponse
     -- ** Response constructor
-    , mkDetachNetworkInterfaceResponse
+    , detachNetworkInterfaceResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -59,9 +59,9 @@ data DetachNetworkInterface = DetachNetworkInterface
 --
 -- * @Force ::@ @Maybe Bool@
 --
-mkDetachNetworkInterface :: Text -- ^ 'dni2AttachmentId'
+detachNetworkInterface :: Text -- ^ 'dni2AttachmentId'
                          -> DetachNetworkInterface
-mkDetachNetworkInterface p1 = DetachNetworkInterface
+detachNetworkInterface p1 = DetachNetworkInterface
     { _dni2AttachmentId = p1
     , _dni2Force = Nothing
     }
@@ -85,8 +85,8 @@ data DetachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
 -- a valid 'DetachNetworkInterfaceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDetachNetworkInterfaceResponse :: DetachNetworkInterfaceResponse
-mkDetachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
+detachNetworkInterfaceResponse :: DetachNetworkInterfaceResponse
+detachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
 
 instance AWSRequest DetachNetworkInterface where
     type Sv DetachNetworkInterface = EC2

@@ -59,7 +59,7 @@ module Network.AWS.SQS.ChangeMessageVisibility
     -- * Request
       ChangeMessageVisibility
     -- ** Request constructor
-    , mkChangeMessageVisibility
+    , changeMessageVisibility
     -- ** Request lenses
     , cmvQueueUrl
     , cmvReceiptHandle
@@ -68,7 +68,7 @@ module Network.AWS.SQS.ChangeMessageVisibility
     -- * Response
     , ChangeMessageVisibilityResponse
     -- ** Response constructor
-    , mkChangeMessageVisibilityResponse
+    , changeMessageVisibilityResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -92,11 +92,11 @@ data ChangeMessageVisibility = ChangeMessageVisibility
 --
 -- * @VisibilityTimeout ::@ @Integer@
 --
-mkChangeMessageVisibility :: Text -- ^ 'cmvQueueUrl'
+changeMessageVisibility :: Text -- ^ 'cmvQueueUrl'
                           -> Text -- ^ 'cmvReceiptHandle'
                           -> Integer -- ^ 'cmvVisibilityTimeout'
                           -> ChangeMessageVisibility
-mkChangeMessageVisibility p1 p2 p3 = ChangeMessageVisibility
+changeMessageVisibility p1 p2 p3 = ChangeMessageVisibility
     { _cmvQueueUrl = p1
     , _cmvReceiptHandle = p2
     , _cmvVisibilityTimeout = p3
@@ -128,8 +128,8 @@ data ChangeMessageVisibilityResponse = ChangeMessageVisibilityResponse
 -- a valid 'ChangeMessageVisibilityResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkChangeMessageVisibilityResponse :: ChangeMessageVisibilityResponse
-mkChangeMessageVisibilityResponse = ChangeMessageVisibilityResponse
+changeMessageVisibilityResponse :: ChangeMessageVisibilityResponse
+changeMessageVisibilityResponse = ChangeMessageVisibilityResponse
 
 instance AWSRequest ChangeMessageVisibility where
     type Sv ChangeMessageVisibility = SQS

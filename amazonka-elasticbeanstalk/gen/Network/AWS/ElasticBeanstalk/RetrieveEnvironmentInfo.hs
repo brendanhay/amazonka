@@ -30,7 +30,7 @@ module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
     -- * Request
       RetrieveEnvironmentInfo
     -- ** Request constructor
-    , mkRetrieveEnvironmentInfo
+    , retrieveEnvironmentInfo
     -- ** Request lenses
     , rei1EnvironmentId
     , rei1EnvironmentName
@@ -39,7 +39,7 @@ module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
     -- * Response
     , RetrieveEnvironmentInfoResponse
     -- ** Response constructor
-    , mkRetrieveEnvironmentInfoResponse
+    , retrieveEnvironmentInfoResponse
     -- ** Response lenses
     , reirEnvironmentInfo
     ) where
@@ -66,9 +66,9 @@ data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo
 --
 -- * @InfoType ::@ @EnvironmentInfoType@
 --
-mkRetrieveEnvironmentInfo :: EnvironmentInfoType -- ^ 'rei1InfoType'
+retrieveEnvironmentInfo :: EnvironmentInfoType -- ^ 'rei1InfoType'
                           -> RetrieveEnvironmentInfo
-mkRetrieveEnvironmentInfo p3 = RetrieveEnvironmentInfo
+retrieveEnvironmentInfo p3 = RetrieveEnvironmentInfo
     { _rei1EnvironmentId = Nothing
     , _rei1EnvironmentName = Nothing
     , _rei1InfoType = p3
@@ -111,8 +111,8 @@ newtype RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
 --
 -- * @EnvironmentInfo ::@ @[EnvironmentInfoDescription]@
 --
-mkRetrieveEnvironmentInfoResponse :: RetrieveEnvironmentInfoResponse
-mkRetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
+retrieveEnvironmentInfoResponse :: RetrieveEnvironmentInfoResponse
+retrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
     { _reirEnvironmentInfo = mempty
     }
 

@@ -27,7 +27,7 @@ module Network.AWS.EMR.ListInstances
     -- * Request
       ListInstances
     -- ** Request constructor
-    , mkListInstances
+    , listInstances
     -- ** Request lenses
     , liClusterId
     , liInstanceGroupId
@@ -37,7 +37,7 @@ module Network.AWS.EMR.ListInstances
     -- * Response
     , ListInstancesResponse
     -- ** Response constructor
-    , mkListInstancesResponse
+    , listInstancesResponse
     -- ** Response lenses
     , lirInstances
     , lirMarker
@@ -68,9 +68,9 @@ data ListInstances = ListInstances
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListInstances :: Text -- ^ 'liClusterId'
+listInstances :: Text -- ^ 'liClusterId'
                 -> ListInstances
-mkListInstances p1 = ListInstances
+listInstances p1 = ListInstances
     { _liClusterId = p1
     , _liInstanceGroupId = Nothing
     , _liInstanceGroupTypes = mempty
@@ -120,8 +120,8 @@ data ListInstancesResponse = ListInstancesResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListInstancesResponse :: ListInstancesResponse
-mkListInstancesResponse = ListInstancesResponse
+listInstancesResponse :: ListInstancesResponse
+listInstancesResponse = ListInstancesResponse
     { _lirInstances = mempty
     , _lirMarker = Nothing
     }

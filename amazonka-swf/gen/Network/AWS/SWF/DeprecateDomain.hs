@@ -52,14 +52,14 @@ module Network.AWS.SWF.DeprecateDomain
     -- * Request
       DeprecateDomain
     -- ** Request constructor
-    , mkDeprecateDomain
+    , deprecateDomain
     -- ** Request lenses
     , ddName
 
     -- * Response
     , DeprecateDomainResponse
     -- ** Response constructor
-    , mkDeprecateDomainResponse
+    , deprecateDomainResponse
     ) where
 
 import Network.AWS.SWF.Types
@@ -77,9 +77,9 @@ newtype DeprecateDomain = DeprecateDomain
 --
 -- * @Name ::@ @Text@
 --
-mkDeprecateDomain :: Text -- ^ 'ddName'
+deprecateDomain :: Text -- ^ 'ddName'
                   -> DeprecateDomain
-mkDeprecateDomain p1 = DeprecateDomain
+deprecateDomain p1 = DeprecateDomain
     { _ddName = p1
     }
 
@@ -102,8 +102,8 @@ data DeprecateDomainResponse = DeprecateDomainResponse
 -- a valid 'DeprecateDomainResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeprecateDomainResponse :: DeprecateDomainResponse
-mkDeprecateDomainResponse = DeprecateDomainResponse
+deprecateDomainResponse :: DeprecateDomainResponse
+deprecateDomainResponse = DeprecateDomainResponse
 
 instance AWSRequest DeprecateDomain where
     type Sv DeprecateDomain = SWF

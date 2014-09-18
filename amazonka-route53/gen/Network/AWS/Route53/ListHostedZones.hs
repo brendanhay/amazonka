@@ -31,7 +31,7 @@ module Network.AWS.Route53.ListHostedZones
     -- * Request
       ListHostedZones
     -- ** Request constructor
-    , mkListHostedZones
+    , listHostedZones
     -- ** Request lenses
     , lhzMarker
     , lhzMaxItems
@@ -39,7 +39,7 @@ module Network.AWS.Route53.ListHostedZones
     -- * Response
     , ListHostedZonesResponse
     -- ** Response constructor
-    , mkListHostedZonesResponse
+    , listHostedZonesResponse
     -- ** Response lenses
     , lhzrHostedZones
     , lhzrMarker
@@ -77,8 +77,8 @@ data ListHostedZones = ListHostedZones
 --
 -- * @MaxItems ::@ @Maybe Text@
 --
-mkListHostedZones :: ListHostedZones
-mkListHostedZones = ListHostedZones
+listHostedZones :: ListHostedZones
+listHostedZones = ListHostedZones
     { _lhzMarker = Nothing
     , _lhzMaxItems = Nothing
     }
@@ -129,12 +129,12 @@ data ListHostedZonesResponse = ListHostedZonesResponse
 --
 -- * @MaxItems ::@ @Text@
 --
-mkListHostedZonesResponse :: [HostedZone] -- ^ 'lhzrHostedZones'
+listHostedZonesResponse :: [HostedZone] -- ^ 'lhzrHostedZones'
                           -> Text -- ^ 'lhzrMarker'
                           -> Bool -- ^ 'lhzrIsTruncated'
                           -> Text -- ^ 'lhzrMaxItems'
                           -> ListHostedZonesResponse
-mkListHostedZonesResponse p1 p2 p3 p5 = ListHostedZonesResponse
+listHostedZonesResponse p1 p2 p3 p5 = ListHostedZonesResponse
     { _lhzrHostedZones = p1
     , _lhzrMarker = p2
     , _lhzrIsTruncated = p3

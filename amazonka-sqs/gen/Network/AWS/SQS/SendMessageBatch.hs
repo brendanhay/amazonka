@@ -60,7 +60,7 @@ module Network.AWS.SQS.SendMessageBatch
     -- * Request
       SendMessageBatch
     -- ** Request constructor
-    , mkSendMessageBatch
+    , sendMessageBatch
     -- ** Request lenses
     , smbQueueUrl
     , smbEntries
@@ -68,7 +68,7 @@ module Network.AWS.SQS.SendMessageBatch
     -- * Response
     , SendMessageBatchResponse
     -- ** Response constructor
-    , mkSendMessageBatchResponse
+    , sendMessageBatchResponse
     -- ** Response lenses
     , smbrSuccessful
     , smbrFailed
@@ -92,10 +92,10 @@ data SendMessageBatch = SendMessageBatch
 --
 -- * @Entries ::@ @[SendMessageBatchRequestEntry]@
 --
-mkSendMessageBatch :: Text -- ^ 'smbQueueUrl'
+sendMessageBatch :: Text -- ^ 'smbQueueUrl'
                    -> [SendMessageBatchRequestEntry] -- ^ 'smbEntries'
                    -> SendMessageBatch
-mkSendMessageBatch p1 p2 = SendMessageBatch
+sendMessageBatch p1 p2 = SendMessageBatch
     { _smbQueueUrl = p1
     , _smbEntries = p2
     }
@@ -130,10 +130,10 @@ data SendMessageBatchResponse = SendMessageBatchResponse
 --
 -- * @Failed ::@ @[BatchResultErrorEntry]@
 --
-mkSendMessageBatchResponse :: [SendMessageBatchResultEntry] -- ^ 'smbrSuccessful'
+sendMessageBatchResponse :: [SendMessageBatchResultEntry] -- ^ 'smbrSuccessful'
                            -> [BatchResultErrorEntry] -- ^ 'smbrFailed'
                            -> SendMessageBatchResponse
-mkSendMessageBatchResponse p1 p2 = SendMessageBatchResponse
+sendMessageBatchResponse p1 p2 = SendMessageBatchResponse
     { _smbrSuccessful = p1
     , _smbrFailed = p2
     }

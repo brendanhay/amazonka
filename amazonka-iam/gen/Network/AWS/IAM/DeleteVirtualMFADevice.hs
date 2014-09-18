@@ -29,14 +29,14 @@ module Network.AWS.IAM.DeleteVirtualMFADevice
     -- * Request
       DeleteVirtualMFADevice
     -- ** Request constructor
-    , mkDeleteVirtualMFADevice
+    , deleteVirtualMFADevice
     -- ** Request lenses
     , dvmfadSerialNumber
 
     -- * Response
     , DeleteVirtualMFADeviceResponse
     -- ** Response constructor
-    , mkDeleteVirtualMFADeviceResponse
+    , deleteVirtualMFADeviceResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -54,9 +54,9 @@ newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice
 --
 -- * @SerialNumber ::@ @Text@
 --
-mkDeleteVirtualMFADevice :: Text -- ^ 'dvmfadSerialNumber'
+deleteVirtualMFADevice :: Text -- ^ 'dvmfadSerialNumber'
                          -> DeleteVirtualMFADevice
-mkDeleteVirtualMFADevice p1 = DeleteVirtualMFADevice
+deleteVirtualMFADevice p1 = DeleteVirtualMFADevice
     { _dvmfadSerialNumber = p1
     }
 
@@ -76,8 +76,8 @@ data DeleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse
 -- a valid 'DeleteVirtualMFADeviceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteVirtualMFADeviceResponse :: DeleteVirtualMFADeviceResponse
-mkDeleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse
+deleteVirtualMFADeviceResponse :: DeleteVirtualMFADeviceResponse
+deleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse
 
 instance AWSRequest DeleteVirtualMFADevice where
     type Sv DeleteVirtualMFADevice = IAM

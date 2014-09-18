@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.DescribeInstances
     -- * Request
       DescribeInstances
     -- ** Request constructor
-    , mkDescribeInstances
+    , describeInstances
     -- ** Request lenses
     , di1StackId
     , di1LayerId
@@ -36,7 +36,7 @@ module Network.AWS.OpsWorks.DescribeInstances
     -- * Response
     , DescribeInstancesResponse
     -- ** Response constructor
-    , mkDescribeInstancesResponse
+    , describeInstancesResponse
     -- ** Response lenses
     , dirInstances
     ) where
@@ -62,8 +62,8 @@ data DescribeInstances = DescribeInstances
 --
 -- * @InstanceIds ::@ @[Text]@
 --
-mkDescribeInstances :: DescribeInstances
-mkDescribeInstances = DescribeInstances
+describeInstances :: DescribeInstances
+describeInstances = DescribeInstances
     { _di1StackId = Nothing
     , _di1LayerId = Nothing
     , _di1InstanceIds = mempty
@@ -107,8 +107,8 @@ newtype DescribeInstancesResponse = DescribeInstancesResponse
 --
 -- * @Instances ::@ @[Instance]@
 --
-mkDescribeInstancesResponse :: DescribeInstancesResponse
-mkDescribeInstancesResponse = DescribeInstancesResponse
+describeInstancesResponse :: DescribeInstancesResponse
+describeInstancesResponse = DescribeInstancesResponse
     { _dirInstances = mempty
     }
 

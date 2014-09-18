@@ -29,7 +29,6 @@ library
 
     exposed-modules:
           Network.AWS.ELB
-        , Network.AWS.ELB.Monadic
         , Network.AWS.ELB.Types
         , Network.AWS.ELB.AddTags
         , Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer

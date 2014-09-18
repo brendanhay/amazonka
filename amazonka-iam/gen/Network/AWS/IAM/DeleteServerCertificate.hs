@@ -33,14 +33,14 @@ module Network.AWS.IAM.DeleteServerCertificate
     -- * Request
       DeleteServerCertificate
     -- ** Request constructor
-    , mkDeleteServerCertificate
+    , deleteServerCertificate
     -- ** Request lenses
     , dscServerCertificateName
 
     -- * Response
     , DeleteServerCertificateResponse
     -- ** Response constructor
-    , mkDeleteServerCertificateResponse
+    , deleteServerCertificateResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -58,9 +58,9 @@ newtype DeleteServerCertificate = DeleteServerCertificate
 --
 -- * @ServerCertificateName ::@ @Text@
 --
-mkDeleteServerCertificate :: Text -- ^ 'dscServerCertificateName'
+deleteServerCertificate :: Text -- ^ 'dscServerCertificateName'
                           -> DeleteServerCertificate
-mkDeleteServerCertificate p1 = DeleteServerCertificate
+deleteServerCertificate p1 = DeleteServerCertificate
     { _dscServerCertificateName = p1
     }
 
@@ -80,8 +80,8 @@ data DeleteServerCertificateResponse = DeleteServerCertificateResponse
 -- a valid 'DeleteServerCertificateResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteServerCertificateResponse :: DeleteServerCertificateResponse
-mkDeleteServerCertificateResponse = DeleteServerCertificateResponse
+deleteServerCertificateResponse :: DeleteServerCertificateResponse
+deleteServerCertificateResponse = DeleteServerCertificateResponse
 
 instance AWSRequest DeleteServerCertificate where
     type Sv DeleteServerCertificate = IAM

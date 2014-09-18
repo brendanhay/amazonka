@@ -34,7 +34,7 @@ module Network.AWS.IAM.UpdateSigningCertificate
     -- * Request
       UpdateSigningCertificate
     -- ** Request constructor
-    , mkUpdateSigningCertificate
+    , updateSigningCertificate
     -- ** Request lenses
     , usc1UserName
     , usc1CertificateId
@@ -43,7 +43,7 @@ module Network.AWS.IAM.UpdateSigningCertificate
     -- * Response
     , UpdateSigningCertificateResponse
     -- ** Response constructor
-    , mkUpdateSigningCertificateResponse
+    , updateSigningCertificateResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -67,10 +67,10 @@ data UpdateSigningCertificate = UpdateSigningCertificate
 --
 -- * @Status ::@ @StatusType@
 --
-mkUpdateSigningCertificate :: Text -- ^ 'usc1CertificateId'
+updateSigningCertificate :: Text -- ^ 'usc1CertificateId'
                            -> StatusType -- ^ 'usc1Status'
                            -> UpdateSigningCertificate
-mkUpdateSigningCertificate p2 p3 = UpdateSigningCertificate
+updateSigningCertificate p2 p3 = UpdateSigningCertificate
     { _usc1UserName = Nothing
     , _usc1CertificateId = p2
     , _usc1Status = p3
@@ -101,8 +101,8 @@ data UpdateSigningCertificateResponse = UpdateSigningCertificateResponse
 -- a valid 'UpdateSigningCertificateResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkUpdateSigningCertificateResponse :: UpdateSigningCertificateResponse
-mkUpdateSigningCertificateResponse = UpdateSigningCertificateResponse
+updateSigningCertificateResponse :: UpdateSigningCertificateResponse
+updateSigningCertificateResponse = UpdateSigningCertificateResponse
 
 instance AWSRequest UpdateSigningCertificate where
     type Sv UpdateSigningCertificate = IAM

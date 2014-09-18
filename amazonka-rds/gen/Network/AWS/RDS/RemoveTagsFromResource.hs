@@ -24,7 +24,7 @@ module Network.AWS.RDS.RemoveTagsFromResource
     -- * Request
       RemoveTagsFromResource
     -- ** Request constructor
-    , mkRemoveTagsFromResource
+    , removeTagsFromResource
     -- ** Request lenses
     , rtfrResourceName
     , rtfrTagKeys
@@ -32,7 +32,7 @@ module Network.AWS.RDS.RemoveTagsFromResource
     -- * Response
     , RemoveTagsFromResourceResponse
     -- ** Response constructor
-    , mkRemoveTagsFromResourceResponse
+    , removeTagsFromResourceResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -54,10 +54,10 @@ data RemoveTagsFromResource = RemoveTagsFromResource
 --
 -- * @TagKeys ::@ @[Text]@
 --
-mkRemoveTagsFromResource :: Text -- ^ 'rtfrResourceName'
+removeTagsFromResource :: Text -- ^ 'rtfrResourceName'
                          -> [Text] -- ^ 'rtfrTagKeys'
                          -> RemoveTagsFromResource
-mkRemoveTagsFromResource p1 p2 = RemoveTagsFromResource
+removeTagsFromResource p1 p2 = RemoveTagsFromResource
     { _rtfrResourceName = p1
     , _rtfrTagKeys = p2
     }
@@ -83,8 +83,8 @@ data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse
 -- a valid 'RemoveTagsFromResourceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRemoveTagsFromResourceResponse :: RemoveTagsFromResourceResponse
-mkRemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse
+removeTagsFromResourceResponse :: RemoveTagsFromResourceResponse
+removeTagsFromResourceResponse = RemoveTagsFromResourceResponse
 
 instance AWSRequest RemoveTagsFromResource where
     type Sv RemoveTagsFromResource = RDS

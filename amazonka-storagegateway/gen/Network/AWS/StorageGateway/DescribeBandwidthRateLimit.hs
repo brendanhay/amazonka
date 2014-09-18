@@ -43,14 +43,14 @@ module Network.AWS.StorageGateway.DescribeBandwidthRateLimit
     -- * Request
       DescribeBandwidthRateLimit
     -- ** Request constructor
-    , mkDescribeBandwidthRateLimit
+    , describeBandwidthRateLimit
     -- ** Request lenses
     , dbrl1GatewayARN
 
     -- * Response
     , DescribeBandwidthRateLimitResponse
     -- ** Response constructor
-    , mkDescribeBandwidthRateLimitResponse
+    , describeBandwidthRateLimitResponse
     -- ** Response lenses
     , dbrlrrGatewayARN
     , dbrlrrAverageUploadRateLimitInBitsPerSec
@@ -73,9 +73,9 @@ newtype DescribeBandwidthRateLimit = DescribeBandwidthRateLimit
 --
 -- * @GatewayARN ::@ @Text@
 --
-mkDescribeBandwidthRateLimit :: Text -- ^ 'dbrl1GatewayARN'
+describeBandwidthRateLimit :: Text -- ^ 'dbrl1GatewayARN'
                              -> DescribeBandwidthRateLimit
-mkDescribeBandwidthRateLimit p1 = DescribeBandwidthRateLimit
+describeBandwidthRateLimit p1 = DescribeBandwidthRateLimit
     { _dbrl1GatewayARN = p1
     }
 
@@ -112,8 +112,8 @@ data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse
 --
 -- * @AverageDownloadRateLimitInBitsPerSec ::@ @Maybe Integer@
 --
-mkDescribeBandwidthRateLimitResponse :: DescribeBandwidthRateLimitResponse
-mkDescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse
+describeBandwidthRateLimitResponse :: DescribeBandwidthRateLimitResponse
+describeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse
     { _dbrlrrGatewayARN = Nothing
     , _dbrlrrAverageUploadRateLimitInBitsPerSec = Nothing
     , _dbrlrrAverageDownloadRateLimitInBitsPerSec = Nothing

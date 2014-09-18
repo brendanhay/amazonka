@@ -23,14 +23,14 @@ module Network.AWS.S3.GetBucketLocation
     -- * Request
       GetBucketLocation
     -- ** Request constructor
-    , mkGetBucketLocation
+    , getBucketLocation
     -- ** Request lenses
     , gbl1Bucket
 
     -- * Response
     , GetBucketLocationResponse
     -- ** Response constructor
-    , mkGetBucketLocationResponse
+    , getBucketLocationResponse
     -- ** Response lenses
     , gblrrLocationConstraint
     ) where
@@ -51,9 +51,9 @@ newtype GetBucketLocation = GetBucketLocation
 --
 -- * @Bucket ::@ @BucketName@
 --
-mkGetBucketLocation :: BucketName -- ^ 'gbl1Bucket'
+getBucketLocation :: BucketName -- ^ 'gbl1Bucket'
                     -> GetBucketLocation
-mkGetBucketLocation p1 = GetBucketLocation
+getBucketLocation p1 = GetBucketLocation
     { _gbl1Bucket = p1
     }
 
@@ -81,8 +81,8 @@ newtype GetBucketLocationResponse = GetBucketLocationResponse
 --
 -- * @LocationConstraint ::@ @Maybe Region@
 --
-mkGetBucketLocationResponse :: GetBucketLocationResponse
-mkGetBucketLocationResponse = GetBucketLocationResponse
+getBucketLocationResponse :: GetBucketLocationResponse
+getBucketLocationResponse = GetBucketLocationResponse
     { _gblrrLocationConstraint = Nothing
     }
 

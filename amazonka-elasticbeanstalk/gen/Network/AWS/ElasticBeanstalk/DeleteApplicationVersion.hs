@@ -28,7 +28,7 @@ module Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
     -- * Request
       DeleteApplicationVersion
     -- ** Request constructor
-    , mkDeleteApplicationVersion
+    , deleteApplicationVersion
     -- ** Request lenses
     , davApplicationName
     , davVersionLabel
@@ -37,7 +37,7 @@ module Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
     -- * Response
     , DeleteApplicationVersionResponse
     -- ** Response constructor
-    , mkDeleteApplicationVersionResponse
+    , deleteApplicationVersionResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -62,10 +62,10 @@ data DeleteApplicationVersion = DeleteApplicationVersion
 --
 -- * @DeleteSourceBundle ::@ @Maybe Bool@
 --
-mkDeleteApplicationVersion :: Text -- ^ 'davApplicationName'
+deleteApplicationVersion :: Text -- ^ 'davApplicationName'
                            -> Text -- ^ 'davVersionLabel'
                            -> DeleteApplicationVersion
-mkDeleteApplicationVersion p1 p2 = DeleteApplicationVersion
+deleteApplicationVersion p1 p2 = DeleteApplicationVersion
     { _davApplicationName = p1
     , _davVersionLabel = p2
     , _davDeleteSourceBundle = Nothing
@@ -98,8 +98,8 @@ data DeleteApplicationVersionResponse = DeleteApplicationVersionResponse
 -- a valid 'DeleteApplicationVersionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteApplicationVersionResponse :: DeleteApplicationVersionResponse
-mkDeleteApplicationVersionResponse = DeleteApplicationVersionResponse
+deleteApplicationVersionResponse :: DeleteApplicationVersionResponse
+deleteApplicationVersionResponse = DeleteApplicationVersionResponse
 
 instance AWSRequest DeleteApplicationVersion where
     type Sv DeleteApplicationVersion = ElasticBeanstalk

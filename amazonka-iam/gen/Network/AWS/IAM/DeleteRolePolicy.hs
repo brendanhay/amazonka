@@ -26,7 +26,7 @@ module Network.AWS.IAM.DeleteRolePolicy
     -- * Request
       DeleteRolePolicy
     -- ** Request constructor
-    , mkDeleteRolePolicy
+    , deleteRolePolicy
     -- ** Request lenses
     , drpRoleName
     , drpPolicyName
@@ -34,7 +34,7 @@ module Network.AWS.IAM.DeleteRolePolicy
     -- * Response
     , DeleteRolePolicyResponse
     -- ** Response constructor
-    , mkDeleteRolePolicyResponse
+    , deleteRolePolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -55,10 +55,10 @@ data DeleteRolePolicy = DeleteRolePolicy
 --
 -- * @PolicyName ::@ @Text@
 --
-mkDeleteRolePolicy :: Text -- ^ 'drpRoleName'
+deleteRolePolicy :: Text -- ^ 'drpRoleName'
                    -> Text -- ^ 'drpPolicyName'
                    -> DeleteRolePolicy
-mkDeleteRolePolicy p1 p2 = DeleteRolePolicy
+deleteRolePolicy p1 p2 = DeleteRolePolicy
     { _drpRoleName = p1
     , _drpPolicyName = p2
     }
@@ -81,8 +81,8 @@ data DeleteRolePolicyResponse = DeleteRolePolicyResponse
 -- a valid 'DeleteRolePolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteRolePolicyResponse :: DeleteRolePolicyResponse
-mkDeleteRolePolicyResponse = DeleteRolePolicyResponse
+deleteRolePolicyResponse :: DeleteRolePolicyResponse
+deleteRolePolicyResponse = DeleteRolePolicyResponse
 
 instance AWSRequest DeleteRolePolicy where
     type Sv DeleteRolePolicy = IAM

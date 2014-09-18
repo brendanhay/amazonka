@@ -26,7 +26,7 @@ module Network.AWS.AutoScaling.AttachInstances
     -- * Request
       AttachInstances
     -- ** Request constructor
-    , mkAttachInstances
+    , attachInstances
     -- ** Request lenses
     , aiInstanceIds
     , aiAutoScalingGroupName
@@ -34,7 +34,7 @@ module Network.AWS.AutoScaling.AttachInstances
     -- * Response
     , AttachInstancesResponse
     -- ** Response constructor
-    , mkAttachInstancesResponse
+    , attachInstancesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -55,10 +55,10 @@ data AttachInstances = AttachInstances
 --
 -- * @AutoScalingGroupName ::@ @Text@
 --
-mkAttachInstances :: List1 Text -- ^ 'aiInstanceIds'
+attachInstances :: List1 Text -- ^ 'aiInstanceIds'
                   -> Text -- ^ 'aiAutoScalingGroupName'
                   -> AttachInstances
-mkAttachInstances p1 p2 = AttachInstances
+attachInstances p1 p2 = AttachInstances
     { _aiInstanceIds = p1
     , _aiAutoScalingGroupName = p2
     }
@@ -84,8 +84,8 @@ data AttachInstancesResponse = AttachInstancesResponse
 -- a valid 'AttachInstancesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkAttachInstancesResponse :: AttachInstancesResponse
-mkAttachInstancesResponse = AttachInstancesResponse
+attachInstancesResponse :: AttachInstancesResponse
+attachInstancesResponse = AttachInstancesResponse
 
 instance AWSRequest AttachInstances where
     type Sv AttachInstances = AutoScaling

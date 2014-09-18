@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.CreateApp
     -- * Request
       CreateApp
     -- ** Request constructor
-    , mkCreateApp
+    , createApp
     -- ** Request lenses
     , caStackId
     , caShortname
@@ -44,7 +44,7 @@ module Network.AWS.OpsWorks.CreateApp
     -- * Response
     , CreateAppResponse
     -- ** Response constructor
-    , mkCreateAppResponse
+    , createAppResponse
     -- ** Response lenses
     , carAppId
     ) where
@@ -94,11 +94,11 @@ data CreateApp = CreateApp
 --
 -- * @Attributes ::@ @Map AppAttributesKeys Text@
 --
-mkCreateApp :: Text -- ^ 'caStackId'
+createApp :: Text -- ^ 'caStackId'
             -> Text -- ^ 'caName'
             -> AppType -- ^ 'caType'
             -> CreateApp
-mkCreateApp p1 p3 p6 = CreateApp
+createApp p1 p3 p6 = CreateApp
     { _caStackId = p1
     , _caShortname = Nothing
     , _caName = p3
@@ -184,8 +184,8 @@ newtype CreateAppResponse = CreateAppResponse
 --
 -- * @AppId ::@ @Maybe Text@
 --
-mkCreateAppResponse :: CreateAppResponse
-mkCreateAppResponse = CreateAppResponse
+createAppResponse :: CreateAppResponse
+createAppResponse = CreateAppResponse
     { _carAppId = Nothing
     }
 

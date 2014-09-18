@@ -32,7 +32,7 @@ module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     -- * Request
       PurchaseReservedCacheNodesOffering
     -- ** Request constructor
-    , mkPurchaseReservedCacheNodesOffering
+    , purchaseReservedCacheNodesOffering
     -- ** Request lenses
     , prcnoReservedCacheNodesOfferingId
     , prcnoReservedCacheNodeId
@@ -41,7 +41,7 @@ module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     -- * Response
     , PurchaseReservedCacheNodesOfferingResponse
     -- ** Response constructor
-    , mkPurchaseReservedCacheNodesOfferingResponse
+    , purchaseReservedCacheNodesOfferingResponse
     -- ** Response lenses
     , prcnorReservedCacheNode
     ) where
@@ -68,9 +68,9 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering
 --
 -- * @CacheNodeCount ::@ @Maybe Integer@
 --
-mkPurchaseReservedCacheNodesOffering :: Text -- ^ 'prcnoReservedCacheNodesOfferingId'
+purchaseReservedCacheNodesOffering :: Text -- ^ 'prcnoReservedCacheNodesOfferingId'
                                      -> PurchaseReservedCacheNodesOffering
-mkPurchaseReservedCacheNodesOffering p1 = PurchaseReservedCacheNodesOffering
+purchaseReservedCacheNodesOffering p1 = PurchaseReservedCacheNodesOffering
     { _prcnoReservedCacheNodesOfferingId = p1
     , _prcnoReservedCacheNodeId = Nothing
     , _prcnoCacheNodeCount = Nothing
@@ -111,8 +111,8 @@ newtype PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesO
 --
 -- * @ReservedCacheNode ::@ @Maybe ReservedCacheNode@
 --
-mkPurchaseReservedCacheNodesOfferingResponse :: PurchaseReservedCacheNodesOfferingResponse
-mkPurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse
+purchaseReservedCacheNodesOfferingResponse :: PurchaseReservedCacheNodesOfferingResponse
+purchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse
     { _prcnorReservedCacheNode = Nothing
     }
 

@@ -30,7 +30,7 @@ module Network.AWS.EC2.DeleteRoute
     -- * Request
       DeleteRoute
     -- ** Request constructor
-    , mkDeleteRoute
+    , deleteRoute
     -- ** Request lenses
     , drRouteTableId
     , drDestinationCidrBlock
@@ -38,7 +38,7 @@ module Network.AWS.EC2.DeleteRoute
     -- * Response
     , DeleteRouteResponse
     -- ** Response constructor
-    , mkDeleteRouteResponse
+    , deleteRouteResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -59,10 +59,10 @@ data DeleteRoute = DeleteRoute
 --
 -- * @DestinationCidrBlock ::@ @Text@
 --
-mkDeleteRoute :: Text -- ^ 'drRouteTableId'
+deleteRoute :: Text -- ^ 'drRouteTableId'
               -> Text -- ^ 'drDestinationCidrBlock'
               -> DeleteRoute
-mkDeleteRoute p1 p2 = DeleteRoute
+deleteRoute p1 p2 = DeleteRoute
     { _drRouteTableId = p1
     , _drDestinationCidrBlock = p2
     }
@@ -87,8 +87,8 @@ data DeleteRouteResponse = DeleteRouteResponse
 -- a valid 'DeleteRouteResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteRouteResponse :: DeleteRouteResponse
-mkDeleteRouteResponse = DeleteRouteResponse
+deleteRouteResponse :: DeleteRouteResponse
+deleteRouteResponse = DeleteRouteResponse
 
 instance AWSRequest DeleteRoute where
     type Sv DeleteRoute = EC2

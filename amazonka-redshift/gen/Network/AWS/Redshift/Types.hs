@@ -111,17 +111,17 @@ module Network.AWS.Redshift.Types
 
     -- * AccountWithRestoreAccess
     , AccountWithRestoreAccess
-    , mkAccountWithRestoreAccess
+    , accountWithRestoreAccess
     , awraAccountId
 
     -- * AvailabilityZone
     , AvailabilityZone
-    , mkAvailabilityZone
+    , availabilityZone
     , azName
 
     -- * Cluster
     , Cluster
-    , mkCluster
+    , cluster
     , cClusterIdentifier
     , cNodeType
     , cClusterStatus
@@ -154,27 +154,27 @@ module Network.AWS.Redshift.Types
 
     -- * ClusterNode
     , ClusterNode
-    , mkClusterNode
+    , clusterNode
     , cnNodeRole
     , cnPrivateIPAddress
     , cnPublicIPAddress
 
     -- * ClusterParameterGroup
     , ClusterParameterGroup
-    , mkClusterParameterGroup
+    , clusterParameterGroup
     , cpgParameterGroupName
     , cpgParameterGroupFamily
     , cpgDescription
 
     -- * ClusterParameterGroupStatus
     , ClusterParameterGroupStatus
-    , mkClusterParameterGroupStatus
+    , clusterParameterGroupStatus
     , cpgsParameterGroupName
     , cpgsParameterApplyStatus
 
     -- * ClusterSecurityGroup
     , ClusterSecurityGroup
-    , mkClusterSecurityGroup
+    , clusterSecurityGroup
     , csgClusterSecurityGroupName
     , csgDescription
     , csgEC2SecurityGroups
@@ -182,19 +182,19 @@ module Network.AWS.Redshift.Types
 
     -- * ClusterSecurityGroupMembership
     , ClusterSecurityGroupMembership
-    , mkClusterSecurityGroupMembership
+    , clusterSecurityGroupMembership
     , csgmClusterSecurityGroupName
     , csgmStatus
 
     -- * ClusterSnapshotCopyStatus
     , ClusterSnapshotCopyStatus
-    , mkClusterSnapshotCopyStatus
+    , clusterSnapshotCopyStatus
     , cscsDestinationRegion
     , cscsRetentionPeriod
 
     -- * ClusterSubnetGroup
     , ClusterSubnetGroup
-    , mkClusterSubnetGroup
+    , clusterSubnetGroup
     , csgrClusterSubnetGroupName
     , csgrDescription
     , csgrVpcId
@@ -203,40 +203,40 @@ module Network.AWS.Redshift.Types
 
     -- * ClusterVersion
     , ClusterVersion
-    , mkClusterVersion
+    , clusterVersion
     , cvClusterVersion
     , cvClusterParameterGroupFamily
     , cvDescription
 
     -- * DefaultClusterParameters
     , DefaultClusterParameters
-    , mkDefaultClusterParameters
+    , defaultClusterParameters
     , dcp1ParameterGroupFamily
     , dcp1Marker
     , dcp1Parameters
 
     -- * EC2SecurityGroup
     , EC2SecurityGroup
-    , mkEC2SecurityGroup
+    , eC2SecurityGroup
     , ecsgStatus
     , ecsgEC2SecurityGroupName
     , ecsgEC2SecurityGroupOwnerId
 
     -- * ElasticIpStatus
     , ElasticIpStatus
-    , mkElasticIpStatus
+    , elasticIpStatus
     , eisElasticIp
     , eisStatus
 
     -- * Endpoint
     , Endpoint
-    , mkEndpoint
+    , endpoint
     , eAddress
     , ePort
 
     -- * Event
     , Event
-    , mkEvent
+    , event
     , erSourceIdentifier
     , erSourceType
     , erMessage
@@ -247,13 +247,13 @@ module Network.AWS.Redshift.Types
 
     -- * EventCategoriesMap
     , EventCategoriesMap
-    , mkEventCategoriesMap
+    , eventCategoriesMap
     , ecmSourceType
     , ecmEvents
 
     -- * EventInfoMap
     , EventInfoMap
-    , mkEventInfoMap
+    , eventInfoMap
     , eimEventId
     , eimEventCategories
     , eimEventDescription
@@ -261,7 +261,7 @@ module Network.AWS.Redshift.Types
 
     -- * EventSubscription
     , EventSubscription
-    , mkEventSubscription
+    , eventSubscription
     , esCustomerAwsId
     , esCustSubscriptionId
     , esSnsTopicArn
@@ -275,13 +275,13 @@ module Network.AWS.Redshift.Types
 
     -- * HsmClientCertificate
     , HsmClientCertificate
-    , mkHsmClientCertificate
+    , hsmClientCertificate
     , hccHsmClientCertificateIdentifier
     , hccHsmClientCertificatePublicKey
 
     -- * HsmConfiguration
     , HsmConfiguration
-    , mkHsmConfiguration
+    , hsmConfiguration
     , hcHsmConfigurationIdentifier
     , hcDescription
     , hcHsmIpAddress
@@ -289,20 +289,20 @@ module Network.AWS.Redshift.Types
 
     -- * HsmStatus
     , HsmStatus
-    , mkHsmStatus
+    , hsmStatus
     , hsHsmClientCertificateIdentifier
     , hsHsmConfigurationIdentifier
     , hsStatus
 
     -- * IPRange
     , IPRange
-    , mkIPRange
+    , iPRange
     , iprStatus
     , iprCIDRIP
 
     -- * OrderableClusterOption
     , OrderableClusterOption
-    , mkOrderableClusterOption
+    , orderableClusterOption
     , ocoClusterVersion
     , ocoClusterType
     , ocoNodeType
@@ -310,7 +310,7 @@ module Network.AWS.Redshift.Types
 
     -- * Parameter
     , Parameter
-    , mkParameter
+    , parameter
     , pParameterName
     , pParameterValue
     , pDescription
@@ -322,7 +322,7 @@ module Network.AWS.Redshift.Types
 
     -- * PendingModifiedValues
     , PendingModifiedValues
-    , mkPendingModifiedValues
+    , pendingModifiedValues
     , pmvMasterUserPassword
     , pmvNodeType
     , pmvNumberOfNodes
@@ -333,13 +333,13 @@ module Network.AWS.Redshift.Types
 
     -- * RecurringCharge
     , RecurringCharge
-    , mkRecurringCharge
+    , recurringCharge
     , rcRecurringChargeAmount
     , rcRecurringChargeFrequency
 
     -- * ReservedNode
     , ReservedNode
-    , mkReservedNode
+    , reservedNode
     , rnReservedNodeId
     , rnReservedNodeOfferingId
     , rnNodeType
@@ -355,7 +355,7 @@ module Network.AWS.Redshift.Types
 
     -- * ReservedNodeOffering
     , ReservedNodeOffering
-    , mkReservedNodeOffering
+    , reservedNodeOffering
     , rnoReservedNodeOfferingId
     , rnoNodeType
     , rnoDuration
@@ -367,7 +367,7 @@ module Network.AWS.Redshift.Types
 
     -- * RestoreStatus
     , RestoreStatus
-    , mkRestoreStatus
+    , restoreStatus
     , rsStatus
     , rsCurrentRestoreRateInMegaBytesPerSecond
     , rsSnapshotSizeInMegaBytes
@@ -377,7 +377,7 @@ module Network.AWS.Redshift.Types
 
     -- * Snapshot
     , Snapshot
-    , mkSnapshot
+    , snapshot
     , sSnapshotIdentifier
     , sClusterIdentifier
     , sSnapshotCreateTime
@@ -406,14 +406,14 @@ module Network.AWS.Redshift.Types
 
     -- * Subnet
     , Subnet
-    , mkSubnet
+    , subnet
     , srSubnetIdentifier
     , srSubnetAvailabilityZone
     , srSubnetStatus
 
     -- * VpcSecurityGroupMembership
     , VpcSecurityGroupMembership
-    , mkVpcSecurityGroupMembership
+    , vpcSecurityGroupMembership
     , vsgmVpcSecurityGroupId
     , vsgmStatus
     ) where
@@ -597,8 +597,8 @@ data RedshiftError
       -- Guide.
     | NumberOfNodesQuotaExceededFault
     | RedshiftClient HttpException
-    | RedshiftSerializer Text
-    | RedshiftService Text
+    | RedshiftSerializer String
+    | RedshiftService String
       -- | User already has a reservation with the given identifier.
     | ReservedNodeAlreadyExistsFault
       -- | The specified reserved compute node not found.
@@ -1209,7 +1209,7 @@ _RedshiftClient = prism'
         x -> Left x)
 
 -- | See: 'RedshiftSerializer'
-_RedshiftSerializer :: Prism' RedshiftError Text
+_RedshiftSerializer :: Prism' RedshiftError String
 _RedshiftSerializer = prism'
     RedshiftSerializer
     (\case
@@ -1217,7 +1217,7 @@ _RedshiftSerializer = prism'
         x -> Left x)
 
 -- | See: 'RedshiftService'
-_RedshiftService :: Prism' RedshiftError Text
+_RedshiftService :: Prism' RedshiftError String
 _RedshiftService = prism'
     RedshiftService
     (\case
@@ -1491,8 +1491,8 @@ newtype AccountWithRestoreAccess = AccountWithRestoreAccess
 --
 -- * @AccountId ::@ @Maybe Text@
 --
-mkAccountWithRestoreAccess :: AccountWithRestoreAccess
-mkAccountWithRestoreAccess = AccountWithRestoreAccess
+accountWithRestoreAccess :: AccountWithRestoreAccess
+accountWithRestoreAccess = AccountWithRestoreAccess
     { _awraAccountId = Nothing
     }
 
@@ -1519,8 +1519,8 @@ newtype AvailabilityZone = AvailabilityZone
 --
 -- * @Name ::@ @Maybe Text@
 --
-mkAvailabilityZone :: AvailabilityZone
-mkAvailabilityZone = AvailabilityZone
+availabilityZone :: AvailabilityZone
+availabilityZone = AvailabilityZone
     { _azName = Nothing
     }
 
@@ -1634,8 +1634,8 @@ data Cluster = Cluster
 --
 -- * @ClusterRevisionNumber ::@ @Maybe Text@
 --
-mkCluster :: Cluster
-mkCluster = Cluster
+cluster :: Cluster
+cluster = Cluster
     { _cClusterIdentifier = Nothing
     , _cNodeType = Nothing
     , _cClusterStatus = Nothing
@@ -1846,8 +1846,8 @@ data ClusterNode = ClusterNode
 --
 -- * @PublicIPAddress ::@ @Maybe Text@
 --
-mkClusterNode :: ClusterNode
-mkClusterNode = ClusterNode
+clusterNode :: ClusterNode
+clusterNode = ClusterNode
     { _cnNodeRole = Nothing
     , _cnPrivateIPAddress = Nothing
     , _cnPublicIPAddress = Nothing
@@ -1895,8 +1895,8 @@ data ClusterParameterGroup = ClusterParameterGroup
 --
 -- * @Description ::@ @Maybe Text@
 --
-mkClusterParameterGroup :: ClusterParameterGroup
-mkClusterParameterGroup = ClusterParameterGroup
+clusterParameterGroup :: ClusterParameterGroup
+clusterParameterGroup = ClusterParameterGroup
     { _cpgParameterGroupName = Nothing
     , _cpgParameterGroupFamily = Nothing
     , _cpgDescription = Nothing
@@ -1937,8 +1937,8 @@ data ClusterParameterGroupStatus = ClusterParameterGroupStatus
 --
 -- * @ParameterApplyStatus ::@ @Maybe Text@
 --
-mkClusterParameterGroupStatus :: ClusterParameterGroupStatus
-mkClusterParameterGroupStatus = ClusterParameterGroupStatus
+clusterParameterGroupStatus :: ClusterParameterGroupStatus
+clusterParameterGroupStatus = ClusterParameterGroupStatus
     { _cpgsParameterGroupName = Nothing
     , _cpgsParameterApplyStatus = Nothing
     }
@@ -1985,8 +1985,8 @@ data ClusterSecurityGroup = ClusterSecurityGroup
 --
 -- * @IPRanges ::@ @[IPRange]@
 --
-mkClusterSecurityGroup :: ClusterSecurityGroup
-mkClusterSecurityGroup = ClusterSecurityGroup
+clusterSecurityGroup :: ClusterSecurityGroup
+clusterSecurityGroup = ClusterSecurityGroup
     { _csgClusterSecurityGroupName = Nothing
     , _csgDescription = Nothing
     , _csgEC2SecurityGroups = mempty
@@ -2033,8 +2033,8 @@ data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership
 --
 -- * @Status ::@ @Maybe Text@
 --
-mkClusterSecurityGroupMembership :: ClusterSecurityGroupMembership
-mkClusterSecurityGroupMembership = ClusterSecurityGroupMembership
+clusterSecurityGroupMembership :: ClusterSecurityGroupMembership
+clusterSecurityGroupMembership = ClusterSecurityGroupMembership
     { _csgmClusterSecurityGroupName = Nothing
     , _csgmStatus = Nothing
     }
@@ -2072,8 +2072,8 @@ data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus
 --
 -- * @RetentionPeriod ::@ @Maybe Integer@
 --
-mkClusterSnapshotCopyStatus :: ClusterSnapshotCopyStatus
-mkClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus
+clusterSnapshotCopyStatus :: ClusterSnapshotCopyStatus
+clusterSnapshotCopyStatus = ClusterSnapshotCopyStatus
     { _cscsDestinationRegion = Nothing
     , _cscsRetentionPeriod = Nothing
     }
@@ -2124,8 +2124,8 @@ data ClusterSubnetGroup = ClusterSubnetGroup
 --
 -- * @Subnets ::@ @[Subnet]@
 --
-mkClusterSubnetGroup :: ClusterSubnetGroup
-mkClusterSubnetGroup = ClusterSubnetGroup
+clusterSubnetGroup :: ClusterSubnetGroup
+clusterSubnetGroup = ClusterSubnetGroup
     { _csgrClusterSubnetGroupName = Nothing
     , _csgrDescription = Nothing
     , _csgrVpcId = Nothing
@@ -2183,8 +2183,8 @@ data ClusterVersion = ClusterVersion
 --
 -- * @Description ::@ @Maybe Text@
 --
-mkClusterVersion :: ClusterVersion
-mkClusterVersion = ClusterVersion
+clusterVersion :: ClusterVersion
+clusterVersion = ClusterVersion
     { _cvClusterVersion = Nothing
     , _cvClusterParameterGroupFamily = Nothing
     , _cvDescription = Nothing
@@ -2230,8 +2230,8 @@ data DefaultClusterParameters = DefaultClusterParameters
 --
 -- * @Parameters ::@ @[Parameter]@
 --
-mkDefaultClusterParameters :: DefaultClusterParameters
-mkDefaultClusterParameters = DefaultClusterParameters
+defaultClusterParameters :: DefaultClusterParameters
+defaultClusterParameters = DefaultClusterParameters
     { _dcp1ParameterGroupFamily = Nothing
     , _dcp1Marker = Nothing
     , _dcp1Parameters = mempty
@@ -2278,8 +2278,8 @@ data EC2SecurityGroup = EC2SecurityGroup
 --
 -- * @EC2SecurityGroupOwnerId ::@ @Maybe Text@
 --
-mkEC2SecurityGroup :: EC2SecurityGroup
-mkEC2SecurityGroup = EC2SecurityGroup
+eC2SecurityGroup :: EC2SecurityGroup
+eC2SecurityGroup = EC2SecurityGroup
     { _ecsgStatus = Nothing
     , _ecsgEC2SecurityGroupName = Nothing
     , _ecsgEC2SecurityGroupOwnerId = Nothing
@@ -2324,8 +2324,8 @@ data ElasticIpStatus = ElasticIpStatus
 --
 -- * @Status ::@ @Maybe Text@
 --
-mkElasticIpStatus :: ElasticIpStatus
-mkElasticIpStatus = ElasticIpStatus
+elasticIpStatus :: ElasticIpStatus
+elasticIpStatus = ElasticIpStatus
     { _eisElasticIp = Nothing
     , _eisStatus = Nothing
     }
@@ -2360,8 +2360,8 @@ data Endpoint = Endpoint
 --
 -- * @Port ::@ @Maybe Integer@
 --
-mkEndpoint :: Endpoint
-mkEndpoint = Endpoint
+endpoint :: Endpoint
+endpoint = Endpoint
     { _eAddress = Nothing
     , _ePort = Nothing
     }
@@ -2414,8 +2414,8 @@ data Event = Event
 --
 -- * @EventId ::@ @Maybe Text@
 --
-mkEvent :: Event
-mkEvent = Event
+event :: Event
+event = Event
     { _erSourceIdentifier = Nothing
     , _erSourceType = Nothing
     , _erMessage = Nothing
@@ -2476,8 +2476,8 @@ data EventCategoriesMap = EventCategoriesMap
 --
 -- * @Events ::@ @[EventInfoMap]@
 --
-mkEventCategoriesMap :: EventCategoriesMap
-mkEventCategoriesMap = EventCategoriesMap
+eventCategoriesMap :: EventCategoriesMap
+eventCategoriesMap = EventCategoriesMap
     { _ecmSourceType = Nothing
     , _ecmEvents = mempty
     }
@@ -2515,8 +2515,8 @@ data EventInfoMap = EventInfoMap
 --
 -- * @Severity ::@ @Maybe Text@
 --
-mkEventInfoMap :: EventInfoMap
-mkEventInfoMap = EventInfoMap
+eventInfoMap :: EventInfoMap
+eventInfoMap = EventInfoMap
     { _eimEventId = Nothing
     , _eimEventCategories = mempty
     , _eimEventDescription = Nothing
@@ -2589,8 +2589,8 @@ data EventSubscription = EventSubscription
 --
 -- * @Enabled ::@ @Maybe Bool@
 --
-mkEventSubscription :: EventSubscription
-mkEventSubscription = EventSubscription
+eventSubscription :: EventSubscription
+eventSubscription = EventSubscription
     { _esCustomerAwsId = Nothing
     , _esCustSubscriptionId = Nothing
     , _esSnsTopicArn = Nothing
@@ -2685,8 +2685,8 @@ data HsmClientCertificate = HsmClientCertificate
 --
 -- * @HsmClientCertificatePublicKey ::@ @Maybe Text@
 --
-mkHsmClientCertificate :: HsmClientCertificate
-mkHsmClientCertificate = HsmClientCertificate
+hsmClientCertificate :: HsmClientCertificate
+hsmClientCertificate = HsmClientCertificate
     { _hccHsmClientCertificateIdentifier = Nothing
     , _hccHsmClientCertificatePublicKey = Nothing
     }
@@ -2734,8 +2734,8 @@ data HsmConfiguration = HsmConfiguration
 --
 -- * @HsmPartitionName ::@ @Maybe Text@
 --
-mkHsmConfiguration :: HsmConfiguration
-mkHsmConfiguration = HsmConfiguration
+hsmConfiguration :: HsmConfiguration
+hsmConfiguration = HsmConfiguration
     { _hcHsmConfigurationIdentifier = Nothing
     , _hcDescription = Nothing
     , _hcHsmIpAddress = Nothing
@@ -2786,8 +2786,8 @@ data HsmStatus = HsmStatus
 --
 -- * @Status ::@ @Maybe Text@
 --
-mkHsmStatus :: HsmStatus
-mkHsmStatus = HsmStatus
+hsmStatus :: HsmStatus
+hsmStatus = HsmStatus
     { _hsHsmClientCertificateIdentifier = Nothing
     , _hsHsmConfigurationIdentifier = Nothing
     , _hsStatus = Nothing
@@ -2835,8 +2835,8 @@ data IPRange = IPRange
 --
 -- * @CIDRIP ::@ @Maybe Text@
 --
-mkIPRange :: IPRange
-mkIPRange = IPRange
+iPRange :: IPRange
+iPRange = IPRange
     { _iprStatus = Nothing
     , _iprCIDRIP = Nothing
     }
@@ -2880,8 +2880,8 @@ data OrderableClusterOption = OrderableClusterOption
 --
 -- * @AvailabilityZones ::@ @[AvailabilityZone]@
 --
-mkOrderableClusterOption :: OrderableClusterOption
-mkOrderableClusterOption = OrderableClusterOption
+orderableClusterOption :: OrderableClusterOption
+orderableClusterOption = OrderableClusterOption
     { _ocoClusterVersion = Nothing
     , _ocoClusterType = Nothing
     , _ocoNodeType = Nothing
@@ -2943,8 +2943,8 @@ data Parameter = Parameter
 --
 -- * @MinimumEngineVersion ::@ @Maybe Text@
 --
-mkParameter :: Parameter
-mkParameter = Parameter
+parameter :: Parameter
+parameter = Parameter
     { _pParameterName = Nothing
     , _pParameterValue = Nothing
     , _pDescription = Nothing
@@ -3027,8 +3027,8 @@ data PendingModifiedValues = PendingModifiedValues
 --
 -- * @ClusterIdentifier ::@ @Maybe Text@
 --
-mkPendingModifiedValues :: PendingModifiedValues
-mkPendingModifiedValues = PendingModifiedValues
+pendingModifiedValues :: PendingModifiedValues
+pendingModifiedValues = PendingModifiedValues
     { _pmvMasterUserPassword = Nothing
     , _pmvNodeType = Nothing
     , _pmvNumberOfNodes = Nothing
@@ -3096,8 +3096,8 @@ data RecurringCharge = RecurringCharge
 --
 -- * @RecurringChargeFrequency ::@ @Maybe Text@
 --
-mkRecurringCharge :: RecurringCharge
-mkRecurringCharge = RecurringCharge
+recurringCharge :: RecurringCharge
+recurringCharge = RecurringCharge
     { _rcRecurringChargeAmount = Nothing
     , _rcRecurringChargeFrequency = Nothing
     }
@@ -3170,8 +3170,8 @@ data ReservedNode = ReservedNode
 --
 -- * @RecurringCharges ::@ @[RecurringCharge]@
 --
-mkReservedNode :: ReservedNode
-mkReservedNode = ReservedNode
+reservedNode :: ReservedNode
+reservedNode = ReservedNode
     { _rnReservedNodeId = Nothing
     , _rnReservedNodeOfferingId = Nothing
     , _rnNodeType = Nothing
@@ -3284,8 +3284,8 @@ data ReservedNodeOffering = ReservedNodeOffering
 --
 -- * @RecurringCharges ::@ @[RecurringCharge]@
 --
-mkReservedNodeOffering :: ReservedNodeOffering
-mkReservedNodeOffering = ReservedNodeOffering
+reservedNodeOffering :: ReservedNodeOffering
+reservedNodeOffering = ReservedNodeOffering
     { _rnoReservedNodeOfferingId = Nothing
     , _rnoNodeType = Nothing
     , _rnoDuration = Nothing
@@ -3368,8 +3368,8 @@ data RestoreStatus = RestoreStatus
 --
 -- * @EstimatedTimeToCompletionInSeconds ::@ @Maybe Integer@
 --
-mkRestoreStatus :: RestoreStatus
-mkRestoreStatus = RestoreStatus
+restoreStatus :: RestoreStatus
+restoreStatus = RestoreStatus
     { _rsStatus = Nothing
     , _rsCurrentRestoreRateInMegaBytesPerSecond = Nothing
     , _rsSnapshotSizeInMegaBytes = Nothing
@@ -3508,8 +3508,8 @@ data Snapshot = Snapshot
 --
 -- * @SourceRegion ::@ @Maybe Text@
 --
-mkSnapshot :: Snapshot
-mkSnapshot = Snapshot
+snapshot :: Snapshot
+snapshot = Snapshot
     { _sSnapshotIdentifier = Nothing
     , _sClusterIdentifier = Nothing
     , _sSnapshotCreateTime = Nothing
@@ -3696,8 +3696,8 @@ data Subnet = Subnet
 --
 -- * @SubnetStatus ::@ @Maybe Text@
 --
-mkSubnet :: Subnet
-mkSubnet = Subnet
+subnet :: Subnet
+subnet = Subnet
     { _srSubnetIdentifier = Nothing
     , _srSubnetAvailabilityZone = Nothing
     , _srSubnetStatus = Nothing
@@ -3740,8 +3740,8 @@ data VpcSecurityGroupMembership = VpcSecurityGroupMembership
 --
 -- * @Status ::@ @Maybe Text@
 --
-mkVpcSecurityGroupMembership :: VpcSecurityGroupMembership
-mkVpcSecurityGroupMembership = VpcSecurityGroupMembership
+vpcSecurityGroupMembership :: VpcSecurityGroupMembership
+vpcSecurityGroupMembership = VpcSecurityGroupMembership
     { _vsgmVpcSecurityGroupId = Nothing
     , _vsgmStatus = Nothing
     }

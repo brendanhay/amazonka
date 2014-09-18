@@ -46,14 +46,14 @@ module Network.AWS.DataPipeline.DescribePipelines
     -- * Request
       DescribePipelines
     -- ** Request constructor
-    , mkDescribePipelines
+    , describePipelines
     -- ** Request lenses
     , dp1PipelineIds
 
     -- * Response
     , DescribePipelinesResponse
     -- ** Response constructor
-    , mkDescribePipelinesResponse
+    , describePipelinesResponse
     -- ** Response lenses
     , dprPipelineDescriptionList
     ) where
@@ -74,9 +74,9 @@ newtype DescribePipelines = DescribePipelines
 --
 -- * @PipelineIds ::@ @[Text]@
 --
-mkDescribePipelines :: [Text] -- ^ 'dp1PipelineIds'
+describePipelines :: [Text] -- ^ 'dp1PipelineIds'
                     -> DescribePipelines
-mkDescribePipelines p1 = DescribePipelines
+describePipelines p1 = DescribePipelines
     { _dp1PipelineIds = p1
     }
 
@@ -108,9 +108,9 @@ newtype DescribePipelinesResponse = DescribePipelinesResponse
 --
 -- * @PipelineDescriptionList ::@ @[PipelineDescription]@
 --
-mkDescribePipelinesResponse :: [PipelineDescription] -- ^ 'dprPipelineDescriptionList'
+describePipelinesResponse :: [PipelineDescription] -- ^ 'dprPipelineDescriptionList'
                             -> DescribePipelinesResponse
-mkDescribePipelinesResponse p1 = DescribePipelinesResponse
+describePipelinesResponse p1 = DescribePipelinesResponse
     { _dprPipelineDescriptionList = p1
     }
 

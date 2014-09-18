@@ -23,11 +23,11 @@ module Network.AWS.CloudSearch.ListDomainNames
     -- * Request
       ListDomainNames
     -- ** Request constructor
-    , mkListDomainNames
+    , listDomainNames
     -- * Response
     , ListDomainNamesResponse
     -- ** Response constructor
-    , mkListDomainNamesResponse
+    , listDomainNamesResponse
     -- ** Response lenses
     , ldnrDomainNames
     ) where
@@ -41,8 +41,8 @@ data ListDomainNames = ListDomainNames
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDomainNames' request.
-mkListDomainNames :: ListDomainNames
-mkListDomainNames = ListDomainNames
+listDomainNames :: ListDomainNames
+listDomainNames = ListDomainNames
 
 instance ToQuery ListDomainNames where
     toQuery = genericQuery def
@@ -62,8 +62,8 @@ newtype ListDomainNamesResponse = ListDomainNamesResponse
 --
 -- * @DomainNames ::@ @Map Text Text@
 --
-mkListDomainNamesResponse :: ListDomainNamesResponse
-mkListDomainNamesResponse = ListDomainNamesResponse
+listDomainNamesResponse :: ListDomainNamesResponse
+listDomainNamesResponse = ListDomainNamesResponse
     { _ldnrDomainNames = mempty
     }
 

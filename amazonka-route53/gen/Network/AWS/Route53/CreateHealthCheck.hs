@@ -27,7 +27,7 @@ module Network.AWS.Route53.CreateHealthCheck
     -- * Request
       CreateHealthCheck
     -- ** Request constructor
-    , mkCreateHealthCheck
+    , createHealthCheck
     -- ** Request lenses
     , chcCallerReference
     , chcHealthCheckConfig
@@ -35,7 +35,7 @@ module Network.AWS.Route53.CreateHealthCheck
     -- * Response
     , CreateHealthCheckResponse
     -- ** Response constructor
-    , mkCreateHealthCheckResponse
+    , createHealthCheckResponse
     -- ** Response lenses
     , chcrHealthCheck
     , chcrLocation
@@ -62,10 +62,10 @@ data CreateHealthCheck = CreateHealthCheck
 --
 -- * @HealthCheckConfig ::@ @HealthCheckConfig@
 --
-mkCreateHealthCheck :: Text -- ^ 'chcCallerReference'
+createHealthCheck :: Text -- ^ 'chcCallerReference'
                     -> HealthCheckConfig -- ^ 'chcHealthCheckConfig'
                     -> CreateHealthCheck
-mkCreateHealthCheck p1 p2 = CreateHealthCheck
+createHealthCheck p1 p2 = CreateHealthCheck
     { _chcCallerReference = p1
     , _chcHealthCheckConfig = p2
     }
@@ -114,10 +114,10 @@ data CreateHealthCheckResponse = CreateHealthCheckResponse
 --
 -- * @Location ::@ @Text@
 --
-mkCreateHealthCheckResponse :: HealthCheck -- ^ 'chcrHealthCheck'
+createHealthCheckResponse :: HealthCheck -- ^ 'chcrHealthCheck'
                             -> Text -- ^ 'chcrLocation'
                             -> CreateHealthCheckResponse
-mkCreateHealthCheckResponse p1 p2 = CreateHealthCheckResponse
+createHealthCheckResponse p1 p2 = CreateHealthCheckResponse
     { _chcrHealthCheck = p1
     , _chcrLocation = p2
     }

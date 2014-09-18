@@ -97,7 +97,7 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     -- * Request
       DescribeConfigurationOptions
     -- ** Request constructor
-    , mkDescribeConfigurationOptions
+    , describeConfigurationOptions
     -- ** Request lenses
     , dcoApplicationName
     , dcoTemplateName
@@ -108,7 +108,7 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     -- * Response
     , DescribeConfigurationOptionsResponse
     -- ** Response constructor
-    , mkDescribeConfigurationOptionsResponse
+    , describeConfigurationOptionsResponse
     -- ** Response lenses
     , dcorSolutionStackName
     , dcorOptions
@@ -142,8 +142,8 @@ data DescribeConfigurationOptions = DescribeConfigurationOptions
 --
 -- * @Options ::@ @[OptionSpecification]@
 --
-mkDescribeConfigurationOptions :: DescribeConfigurationOptions
-mkDescribeConfigurationOptions = DescribeConfigurationOptions
+describeConfigurationOptions :: DescribeConfigurationOptions
+describeConfigurationOptions = DescribeConfigurationOptions
     { _dcoApplicationName = Nothing
     , _dcoTemplateName = Nothing
     , _dcoEnvironmentName = Nothing
@@ -199,8 +199,8 @@ data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
 --
 -- * @Options ::@ @[ConfigurationOptionDescription]@
 --
-mkDescribeConfigurationOptionsResponse :: DescribeConfigurationOptionsResponse
-mkDescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
+describeConfigurationOptionsResponse :: DescribeConfigurationOptionsResponse
+describeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
     { _dcorSolutionStackName = Nothing
     , _dcorOptions = mempty
     }

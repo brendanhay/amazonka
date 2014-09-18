@@ -29,7 +29,7 @@ module Network.AWS.CognitoIdentity.ListIdentityPools
     -- * Request
       ListIdentityPools
     -- ** Request constructor
-    , mkListIdentityPools
+    , listIdentityPools
     -- ** Request lenses
     , lipMaxResults
     , lipNextToken
@@ -37,7 +37,7 @@ module Network.AWS.CognitoIdentity.ListIdentityPools
     -- * Response
     , ListIdentityPoolsResponse
     -- ** Response constructor
-    , mkListIdentityPoolsResponse
+    , listIdentityPoolsResponse
     -- ** Response lenses
     , liprIdentityPools
     , liprNextToken
@@ -62,9 +62,9 @@ data ListIdentityPools = ListIdentityPools
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkListIdentityPools :: Integer -- ^ 'lipMaxResults'
+listIdentityPools :: Integer -- ^ 'lipMaxResults'
                     -> ListIdentityPools
-mkListIdentityPools p1 = ListIdentityPools
+listIdentityPools p1 = ListIdentityPools
     { _lipMaxResults = p1
     , _lipNextToken = Nothing
     }
@@ -102,8 +102,8 @@ data ListIdentityPoolsResponse = ListIdentityPoolsResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkListIdentityPoolsResponse :: ListIdentityPoolsResponse
-mkListIdentityPoolsResponse = ListIdentityPoolsResponse
+listIdentityPoolsResponse :: ListIdentityPoolsResponse
+listIdentityPoolsResponse = ListIdentityPoolsResponse
     { _liprIdentityPools = mempty
     , _liprNextToken = Nothing
     }

@@ -26,7 +26,7 @@ module Network.AWS.OpsWorks.UpdateUserProfile
     -- * Request
       UpdateUserProfile
     -- ** Request constructor
-    , mkUpdateUserProfile
+    , updateUserProfile
     -- ** Request lenses
     , uupIamUserArn
     , uupSshUsername
@@ -36,7 +36,7 @@ module Network.AWS.OpsWorks.UpdateUserProfile
     -- * Response
     , UpdateUserProfileResponse
     -- ** Response constructor
-    , mkUpdateUserProfileResponse
+    , updateUserProfileResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -63,9 +63,9 @@ data UpdateUserProfile = UpdateUserProfile
 --
 -- * @AllowSelfManagement ::@ @Maybe Bool@
 --
-mkUpdateUserProfile :: Text -- ^ 'uupIamUserArn'
+updateUserProfile :: Text -- ^ 'uupIamUserArn'
                     -> UpdateUserProfile
-mkUpdateUserProfile p1 = UpdateUserProfile
+updateUserProfile p1 = UpdateUserProfile
     { _uupIamUserArn = p1
     , _uupSshUsername = Nothing
     , _uupSshPublicKey = Nothing
@@ -109,8 +109,8 @@ data UpdateUserProfileResponse = UpdateUserProfileResponse
 -- a valid 'UpdateUserProfileResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkUpdateUserProfileResponse :: UpdateUserProfileResponse
-mkUpdateUserProfileResponse = UpdateUserProfileResponse
+updateUserProfileResponse :: UpdateUserProfileResponse
+updateUserProfileResponse = UpdateUserProfileResponse
 
 instance AWSRequest UpdateUserProfile where
     type Sv UpdateUserProfile = OpsWorks

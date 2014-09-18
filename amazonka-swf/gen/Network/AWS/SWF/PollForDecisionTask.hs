@@ -85,7 +85,7 @@ module Network.AWS.SWF.PollForDecisionTask
     -- * Request
       PollForDecisionTask
     -- ** Request constructor
-    , mkPollForDecisionTask
+    , pollForDecisionTask
     -- ** Request lenses
     , pfdtDomain
     , pfdtTaskList
@@ -97,7 +97,7 @@ module Network.AWS.SWF.PollForDecisionTask
     -- * Response
     , PollForDecisionTaskResponse
     -- ** Response constructor
-    , mkPollForDecisionTaskResponse
+    , pollForDecisionTaskResponse
     -- ** Response lenses
     , pfdtrTaskToken
     , pfdtrStartedEventId
@@ -138,10 +138,10 @@ data PollForDecisionTask = PollForDecisionTask
 --
 -- * @ReverseOrder ::@ @Maybe Bool@
 --
-mkPollForDecisionTask :: Text -- ^ 'pfdtDomain'
+pollForDecisionTask :: Text -- ^ 'pfdtDomain'
                       -> TaskList -- ^ 'pfdtTaskList'
                       -> PollForDecisionTask
-mkPollForDecisionTask p1 p2 = PollForDecisionTask
+pollForDecisionTask p1 p2 = PollForDecisionTask
     { _pfdtDomain = p1
     , _pfdtTaskList = p2
     , _pfdtIdentity = Nothing
@@ -238,13 +238,13 @@ data PollForDecisionTaskResponse = PollForDecisionTaskResponse
 --
 -- * @PreviousStartedEventId ::@ @Maybe Integer@
 --
-mkPollForDecisionTaskResponse :: Text -- ^ 'pfdtrTaskToken'
+pollForDecisionTaskResponse :: Text -- ^ 'pfdtrTaskToken'
                               -> Integer -- ^ 'pfdtrStartedEventId'
                               -> WorkflowExecution -- ^ 'pfdtrWorkflowExecution'
                               -> WorkflowType -- ^ 'pfdtrWorkflowType'
                               -> [HistoryEvent] -- ^ 'pfdtrEvents'
                               -> PollForDecisionTaskResponse
-mkPollForDecisionTaskResponse p1 p2 p3 p4 p5 = PollForDecisionTaskResponse
+pollForDecisionTaskResponse p1 p2 p3 p4 p5 = PollForDecisionTaskResponse
     { _pfdtrTaskToken = p1
     , _pfdtrStartedEventId = p2
     , _pfdtrWorkflowExecution = p3

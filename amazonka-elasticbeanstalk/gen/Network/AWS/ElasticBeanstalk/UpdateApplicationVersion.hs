@@ -30,7 +30,7 @@ module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
     -- * Request
       UpdateApplicationVersion
     -- ** Request constructor
-    , mkUpdateApplicationVersion
+    , updateApplicationVersion
     -- ** Request lenses
     , uavApplicationName
     , uavVersionLabel
@@ -39,7 +39,7 @@ module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
     -- * Response
     , UpdateApplicationVersionResponse
     -- ** Response constructor
-    , mkUpdateApplicationVersionResponse
+    , updateApplicationVersionResponse
     -- ** Response lenses
     , uavrApplicationVersion
     ) where
@@ -66,10 +66,10 @@ data UpdateApplicationVersion = UpdateApplicationVersion
 --
 -- * @Description ::@ @Maybe Text@
 --
-mkUpdateApplicationVersion :: Text -- ^ 'uavApplicationName'
+updateApplicationVersion :: Text -- ^ 'uavApplicationName'
                            -> Text -- ^ 'uavVersionLabel'
                            -> UpdateApplicationVersion
-mkUpdateApplicationVersion p1 p2 = UpdateApplicationVersion
+updateApplicationVersion p1 p2 = UpdateApplicationVersion
     { _uavApplicationName = p1
     , _uavVersionLabel = p2
     , _uavDescription = Nothing
@@ -108,8 +108,8 @@ newtype UpdateApplicationVersionResponse = UpdateApplicationVersionResponse
 --
 -- * @ApplicationVersion ::@ @Maybe ApplicationVersionDescription@
 --
-mkUpdateApplicationVersionResponse :: UpdateApplicationVersionResponse
-mkUpdateApplicationVersionResponse = UpdateApplicationVersionResponse
+updateApplicationVersionResponse :: UpdateApplicationVersionResponse
+updateApplicationVersionResponse = UpdateApplicationVersionResponse
     { _uavrApplicationVersion = Nothing
     }
 

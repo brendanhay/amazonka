@@ -25,7 +25,7 @@ module Network.AWS.Redshift.DescribeHsmClientCertificates
     -- * Request
       DescribeHsmClientCertificates
     -- ** Request constructor
-    , mkDescribeHsmClientCertificates
+    , describeHsmClientCertificates
     -- ** Request lenses
     , dhcc1HsmClientCertificateIdentifier
     , dhcc1MaxRecords
@@ -34,7 +34,7 @@ module Network.AWS.Redshift.DescribeHsmClientCertificates
     -- * Response
     , DescribeHsmClientCertificatesResponse
     -- ** Response constructor
-    , mkDescribeHsmClientCertificatesResponse
+    , describeHsmClientCertificatesResponse
     -- ** Response lenses
     , dhccrMarker
     , dhccrHsmClientCertificates
@@ -62,8 +62,8 @@ data DescribeHsmClientCertificates = DescribeHsmClientCertificates
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeHsmClientCertificates :: DescribeHsmClientCertificates
-mkDescribeHsmClientCertificates = DescribeHsmClientCertificates
+describeHsmClientCertificates :: DescribeHsmClientCertificates
+describeHsmClientCertificates = DescribeHsmClientCertificates
     { _dhcc1HsmClientCertificateIdentifier = Nothing
     , _dhcc1MaxRecords = Nothing
     , _dhcc1Marker = Nothing
@@ -114,8 +114,8 @@ data DescribeHsmClientCertificatesResponse = DescribeHsmClientCertificatesRespon
 --
 -- * @HsmClientCertificates ::@ @[HsmClientCertificate]@
 --
-mkDescribeHsmClientCertificatesResponse :: DescribeHsmClientCertificatesResponse
-mkDescribeHsmClientCertificatesResponse = DescribeHsmClientCertificatesResponse
+describeHsmClientCertificatesResponse :: DescribeHsmClientCertificatesResponse
+describeHsmClientCertificatesResponse = DescribeHsmClientCertificatesResponse
     { _dhccrMarker = Nothing
     , _dhccrHsmClientCertificates = mempty
     }

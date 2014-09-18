@@ -44,14 +44,14 @@ module Network.AWS.IAM.GetServerCertificate
     -- * Request
       GetServerCertificate
     -- ** Request constructor
-    , mkGetServerCertificate
+    , getServerCertificate
     -- ** Request lenses
     , gscServerCertificateName
 
     -- * Response
     , GetServerCertificateResponse
     -- ** Response constructor
-    , mkGetServerCertificateResponse
+    , getServerCertificateResponse
     -- ** Response lenses
     , gscrServerCertificate
     ) where
@@ -71,9 +71,9 @@ newtype GetServerCertificate = GetServerCertificate
 --
 -- * @ServerCertificateName ::@ @Text@
 --
-mkGetServerCertificate :: Text -- ^ 'gscServerCertificateName'
+getServerCertificate :: Text -- ^ 'gscServerCertificateName'
                        -> GetServerCertificate
-mkGetServerCertificate p1 = GetServerCertificate
+getServerCertificate p1 = GetServerCertificate
     { _gscServerCertificateName = p1
     }
 
@@ -101,9 +101,9 @@ newtype GetServerCertificateResponse = GetServerCertificateResponse
 --
 -- * @ServerCertificate ::@ @ServerCertificate@
 --
-mkGetServerCertificateResponse :: ServerCertificate -- ^ 'gscrServerCertificate'
+getServerCertificateResponse :: ServerCertificate -- ^ 'gscrServerCertificate'
                                -> GetServerCertificateResponse
-mkGetServerCertificateResponse p1 = GetServerCertificateResponse
+getServerCertificateResponse p1 = GetServerCertificateResponse
     { _gscrServerCertificate = p1
     }
 

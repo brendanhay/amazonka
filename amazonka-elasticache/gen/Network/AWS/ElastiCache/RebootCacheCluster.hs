@@ -39,7 +39,7 @@ module Network.AWS.ElastiCache.RebootCacheCluster
     -- * Request
       RebootCacheCluster
     -- ** Request constructor
-    , mkRebootCacheCluster
+    , rebootCacheCluster
     -- ** Request lenses
     , rccCacheClusterId
     , rccCacheNodeIdsToReboot
@@ -47,7 +47,7 @@ module Network.AWS.ElastiCache.RebootCacheCluster
     -- * Response
     , RebootCacheClusterResponse
     -- ** Response constructor
-    , mkRebootCacheClusterResponse
+    , rebootCacheClusterResponse
     -- ** Response lenses
     , rccrCacheCluster
     ) where
@@ -71,10 +71,10 @@ data RebootCacheCluster = RebootCacheCluster
 --
 -- * @CacheNodeIdsToReboot ::@ @[Text]@
 --
-mkRebootCacheCluster :: Text -- ^ 'rccCacheClusterId'
+rebootCacheCluster :: Text -- ^ 'rccCacheClusterId'
                      -> [Text] -- ^ 'rccCacheNodeIdsToReboot'
                      -> RebootCacheCluster
-mkRebootCacheCluster p1 p2 = RebootCacheCluster
+rebootCacheCluster p1 p2 = RebootCacheCluster
     { _rccCacheClusterId = p1
     , _rccCacheNodeIdsToReboot = p2
     }
@@ -109,8 +109,8 @@ newtype RebootCacheClusterResponse = RebootCacheClusterResponse
 --
 -- * @CacheCluster ::@ @Maybe CacheCluster@
 --
-mkRebootCacheClusterResponse :: RebootCacheClusterResponse
-mkRebootCacheClusterResponse = RebootCacheClusterResponse
+rebootCacheClusterResponse :: RebootCacheClusterResponse
+rebootCacheClusterResponse = RebootCacheClusterResponse
     { _rccrCacheCluster = Nothing
     }
 

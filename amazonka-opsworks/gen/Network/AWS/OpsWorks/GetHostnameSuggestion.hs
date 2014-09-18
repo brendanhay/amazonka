@@ -27,14 +27,14 @@ module Network.AWS.OpsWorks.GetHostnameSuggestion
     -- * Request
       GetHostnameSuggestion
     -- ** Request constructor
-    , mkGetHostnameSuggestion
+    , getHostnameSuggestion
     -- ** Request lenses
     , ghsLayerId
 
     -- * Response
     , GetHostnameSuggestionResponse
     -- ** Response constructor
-    , mkGetHostnameSuggestionResponse
+    , getHostnameSuggestionResponse
     -- ** Response lenses
     , ghsrLayerId
     , ghsrHostname
@@ -55,9 +55,9 @@ newtype GetHostnameSuggestion = GetHostnameSuggestion
 --
 -- * @LayerId ::@ @Text@
 --
-mkGetHostnameSuggestion :: Text -- ^ 'ghsLayerId'
+getHostnameSuggestion :: Text -- ^ 'ghsLayerId'
                         -> GetHostnameSuggestion
-mkGetHostnameSuggestion p1 = GetHostnameSuggestion
+getHostnameSuggestion p1 = GetHostnameSuggestion
     { _ghsLayerId = p1
     }
 
@@ -90,8 +90,8 @@ data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse
 --
 -- * @Hostname ::@ @Maybe Text@
 --
-mkGetHostnameSuggestionResponse :: GetHostnameSuggestionResponse
-mkGetHostnameSuggestionResponse = GetHostnameSuggestionResponse
+getHostnameSuggestionResponse :: GetHostnameSuggestionResponse
+getHostnameSuggestionResponse = GetHostnameSuggestionResponse
     { _ghsrLayerId = Nothing
     , _ghsrHostname = Nothing
     }

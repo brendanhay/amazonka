@@ -27,11 +27,11 @@ module Network.AWS.Route53.GetCheckerIpRanges
     -- * Request
       GetCheckerIpRanges
     -- ** Request constructor
-    , mkGetCheckerIpRanges
+    , getCheckerIpRanges
     -- * Response
     , GetCheckerIpRangesResponse
     -- ** Response constructor
-    , mkGetCheckerIpRangesResponse
+    , getCheckerIpRangesResponse
     -- ** Response lenses
     , gcirrCheckerIpRanges
     ) where
@@ -47,8 +47,8 @@ data GetCheckerIpRanges = GetCheckerIpRanges
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetCheckerIpRanges' request.
-mkGetCheckerIpRanges :: GetCheckerIpRanges
-mkGetCheckerIpRanges = GetCheckerIpRanges
+getCheckerIpRanges :: GetCheckerIpRanges
+getCheckerIpRanges = GetCheckerIpRanges
 
 instance ToPath GetCheckerIpRanges
 
@@ -74,9 +74,9 @@ newtype GetCheckerIpRangesResponse = GetCheckerIpRangesResponse
 --
 -- * @CheckerIpRanges ::@ @[Text]@
 --
-mkGetCheckerIpRangesResponse :: [Text] -- ^ 'gcirrCheckerIpRanges'
+getCheckerIpRangesResponse :: [Text] -- ^ 'gcirrCheckerIpRanges'
                              -> GetCheckerIpRangesResponse
-mkGetCheckerIpRangesResponse p1 = GetCheckerIpRangesResponse
+getCheckerIpRangesResponse p1 = GetCheckerIpRangesResponse
     { _gcirrCheckerIpRanges = p1
     }
 

@@ -44,7 +44,7 @@ module Network.AWS.EC2.DescribeCustomerGateways
     -- * Request
       DescribeCustomerGateways
     -- ** Request constructor
-    , mkDescribeCustomerGateways
+    , describeCustomerGateways
     -- ** Request lenses
     , dcg1CustomerGatewayIds
     , dcg1Filters
@@ -52,7 +52,7 @@ module Network.AWS.EC2.DescribeCustomerGateways
     -- * Response
     , DescribeCustomerGatewaysResponse
     -- ** Response constructor
-    , mkDescribeCustomerGatewaysResponse
+    , describeCustomerGatewaysResponse
     -- ** Response lenses
     , dcgrCustomerGateways
     ) where
@@ -75,8 +75,8 @@ data DescribeCustomerGateways = DescribeCustomerGateways
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribeCustomerGateways :: DescribeCustomerGateways
-mkDescribeCustomerGateways = DescribeCustomerGateways
+describeCustomerGateways :: DescribeCustomerGateways
+describeCustomerGateways = DescribeCustomerGateways
     { _dcg1CustomerGatewayIds = mempty
     , _dcg1Filters = mempty
     }
@@ -121,8 +121,8 @@ newtype DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
 --
 -- * @CustomerGateways ::@ @[CustomerGateway]@
 --
-mkDescribeCustomerGatewaysResponse :: DescribeCustomerGatewaysResponse
-mkDescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
+describeCustomerGatewaysResponse :: DescribeCustomerGatewaysResponse
+describeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
     { _dcgrCustomerGateways = mempty
     }
 

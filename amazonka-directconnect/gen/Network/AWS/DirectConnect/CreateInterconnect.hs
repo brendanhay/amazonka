@@ -35,7 +35,7 @@ module Network.AWS.DirectConnect.CreateInterconnect
     -- * Request
       CreateInterconnect
     -- ** Request constructor
-    , mkCreateInterconnect
+    , createInterconnect
     -- ** Request lenses
     , ciInterconnectName
     , ciBandwidth
@@ -44,7 +44,7 @@ module Network.AWS.DirectConnect.CreateInterconnect
     -- * Response
     , CreateInterconnectResponse
     -- ** Response constructor
-    , mkCreateInterconnectResponse
+    , createInterconnectResponse
     -- ** Response lenses
     , cirInterconnectId
     , cirInterconnectName
@@ -76,11 +76,11 @@ data CreateInterconnect = CreateInterconnect
 --
 -- * @Location ::@ @Text@
 --
-mkCreateInterconnect :: Text -- ^ 'ciInterconnectName'
+createInterconnect :: Text -- ^ 'ciInterconnectName'
                      -> Text -- ^ 'ciBandwidth'
                      -> Text -- ^ 'ciLocation'
                      -> CreateInterconnect
-mkCreateInterconnect p1 p2 p3 = CreateInterconnect
+createInterconnect p1 p2 p3 = CreateInterconnect
     { _ciInterconnectName = p1
     , _ciBandwidth = p2
     , _ciLocation = p3
@@ -147,8 +147,8 @@ data CreateInterconnectResponse = CreateInterconnectResponse
 --
 -- * @Bandwidth ::@ @Maybe Text@
 --
-mkCreateInterconnectResponse :: CreateInterconnectResponse
-mkCreateInterconnectResponse = CreateInterconnectResponse
+createInterconnectResponse :: CreateInterconnectResponse
+createInterconnectResponse = CreateInterconnectResponse
     { _cirInterconnectId = Nothing
     , _cirInterconnectName = Nothing
     , _cirInterconnectState = Nothing

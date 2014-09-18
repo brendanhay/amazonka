@@ -33,7 +33,7 @@ module Network.AWS.DataPipeline.SetStatus
     -- * Request
       SetStatus
     -- ** Request constructor
-    , mkSetStatus
+    , setStatus
     -- ** Request lenses
     , ssPipelineId
     , ssObjectIds
@@ -42,7 +42,7 @@ module Network.AWS.DataPipeline.SetStatus
     -- * Response
     , SetStatusResponse
     -- ** Response constructor
-    , mkSetStatusResponse
+    , setStatusResponse
     ) where
 
 import Network.AWS.DataPipeline.Types
@@ -67,11 +67,11 @@ data SetStatus = SetStatus
 --
 -- * @Status ::@ @Text@
 --
-mkSetStatus :: Text -- ^ 'ssPipelineId'
+setStatus :: Text -- ^ 'ssPipelineId'
             -> [Text] -- ^ 'ssObjectIds'
             -> Text -- ^ 'ssStatus'
             -> SetStatus
-mkSetStatus p1 p2 p3 = SetStatus
+setStatus p1 p2 p3 = SetStatus
     { _ssPipelineId = p1
     , _ssObjectIds = p2
     , _ssStatus = p3
@@ -107,8 +107,8 @@ data SetStatusResponse = SetStatusResponse
 -- a valid 'SetStatusResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSetStatusResponse :: SetStatusResponse
-mkSetStatusResponse = SetStatusResponse
+setStatusResponse :: SetStatusResponse
+setStatusResponse = SetStatusResponse
 
 instance AWSRequest SetStatus where
     type Sv SetStatus = DataPipeline

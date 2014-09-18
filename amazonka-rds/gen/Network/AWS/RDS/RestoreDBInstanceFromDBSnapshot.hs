@@ -33,7 +33,7 @@ module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     -- * Request
       RestoreDBInstanceFromDBSnapshot
     -- ** Request constructor
-    , mkRestoreDBInstanceFromDBSnapshot
+    , restoreDBInstanceFromDBSnapshot
     -- ** Request lenses
     , rdbifdbsDBInstanceIdentifier
     , rdbifdbsDBSnapshotIdentifier
@@ -54,7 +54,7 @@ module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     -- * Response
     , RestoreDBInstanceFromDBSnapshotResponse
     -- ** Response constructor
-    , mkRestoreDBInstanceFromDBSnapshotResponse
+    , restoreDBInstanceFromDBSnapshotResponse
     -- ** Response lenses
     , rdbifdbsrDBInstance
     ) where
@@ -117,10 +117,10 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkRestoreDBInstanceFromDBSnapshot :: Text -- ^ 'rdbifdbsDBInstanceIdentifier'
+restoreDBInstanceFromDBSnapshot :: Text -- ^ 'rdbifdbsDBInstanceIdentifier'
                                   -> Text -- ^ 'rdbifdbsDBSnapshotIdentifier'
                                   -> RestoreDBInstanceFromDBSnapshot
-mkRestoreDBInstanceFromDBSnapshot p1 p2 = RestoreDBInstanceFromDBSnapshot
+restoreDBInstanceFromDBSnapshot p1 p2 = RestoreDBInstanceFromDBSnapshot
     { _rdbifdbsDBInstanceIdentifier = p1
     , _rdbifdbsDBSnapshotIdentifier = p2
     , _rdbifdbsDBInstanceClass = Nothing
@@ -273,8 +273,8 @@ newtype RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapsho
 --
 -- * @DBInstance ::@ @Maybe DBInstance@
 --
-mkRestoreDBInstanceFromDBSnapshotResponse :: RestoreDBInstanceFromDBSnapshotResponse
-mkRestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse
+restoreDBInstanceFromDBSnapshotResponse :: RestoreDBInstanceFromDBSnapshotResponse
+restoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse
     { _rdbifdbsrDBInstance = Nothing
     }
 

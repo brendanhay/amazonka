@@ -53,7 +53,7 @@ module Network.AWS.SNS.CreatePlatformApplication
     -- * Request
       CreatePlatformApplication
     -- ** Request constructor
-    , mkCreatePlatformApplication
+    , createPlatformApplication
     -- ** Request lenses
     , cpaName
     , cpaPlatform
@@ -62,7 +62,7 @@ module Network.AWS.SNS.CreatePlatformApplication
     -- * Response
     , CreatePlatformApplicationResponse
     -- ** Response constructor
-    , mkCreatePlatformApplicationResponse
+    , createPlatformApplicationResponse
     -- ** Response lenses
     , cparPlatformApplicationArn
     ) where
@@ -89,11 +89,11 @@ data CreatePlatformApplication = CreatePlatformApplication
 --
 -- * @Attributes ::@ @Map Text Text@
 --
-mkCreatePlatformApplication :: Text -- ^ 'cpaName'
+createPlatformApplication :: Text -- ^ 'cpaName'
                             -> Text -- ^ 'cpaPlatform'
                             -> Map Text Text -- ^ 'cpaAttributes'
                             -> CreatePlatformApplication
-mkCreatePlatformApplication p1 p2 p3 = CreatePlatformApplication
+createPlatformApplication p1 p2 p3 = CreatePlatformApplication
     { _cpaName = p1
     , _cpaPlatform = p2
     , _cpaAttributes = p3
@@ -132,8 +132,8 @@ newtype CreatePlatformApplicationResponse = CreatePlatformApplicationResponse
 --
 -- * @PlatformApplicationArn ::@ @Maybe Text@
 --
-mkCreatePlatformApplicationResponse :: CreatePlatformApplicationResponse
-mkCreatePlatformApplicationResponse = CreatePlatformApplicationResponse
+createPlatformApplicationResponse :: CreatePlatformApplicationResponse
+createPlatformApplicationResponse = CreatePlatformApplicationResponse
     { _cparPlatformApplicationArn = Nothing
     }
 

@@ -29,7 +29,7 @@ module Network.AWS.IAM.CreateUser
     -- * Request
       CreateUser
     -- ** Request constructor
-    , mkCreateUser
+    , createUser
     -- ** Request lenses
     , cuPath
     , cuUserName
@@ -37,7 +37,7 @@ module Network.AWS.IAM.CreateUser
     -- * Response
     , CreateUserResponse
     -- ** Response constructor
-    , mkCreateUserResponse
+    , createUserResponse
     -- ** Response lenses
     , curUser
     ) where
@@ -60,9 +60,9 @@ data CreateUser = CreateUser
 --
 -- * @UserName ::@ @Text@
 --
-mkCreateUser :: Text -- ^ 'cuUserName'
+createUser :: Text -- ^ 'cuUserName'
              -> CreateUser
-mkCreateUser p2 = CreateUser
+createUser p2 = CreateUser
     { _cuPath = Nothing
     , _cuUserName = p2
     }
@@ -94,8 +94,8 @@ newtype CreateUserResponse = CreateUserResponse
 --
 -- * @User ::@ @Maybe User@
 --
-mkCreateUserResponse :: CreateUserResponse
-mkCreateUserResponse = CreateUserResponse
+createUserResponse :: CreateUserResponse
+createUserResponse = CreateUserResponse
     { _curUser = Nothing
     }
 

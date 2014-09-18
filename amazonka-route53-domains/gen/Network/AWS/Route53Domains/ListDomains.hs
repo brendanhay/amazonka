@@ -42,7 +42,7 @@ module Network.AWS.Route53Domains.ListDomains
     -- * Request
       ListDomains
     -- ** Request constructor
-    , mkListDomains
+    , listDomains
     -- ** Request lenses
     , ldMarker
     , ldMaxItems
@@ -50,7 +50,7 @@ module Network.AWS.Route53Domains.ListDomains
     -- * Response
     , ListDomainsResponse
     -- ** Response constructor
-    , mkListDomainsResponse
+    , listDomainsResponse
     -- ** Response lenses
     , ldrDomains
     , ldrNextPageMarker
@@ -75,8 +75,8 @@ data ListDomains = ListDomains
 --
 -- * @MaxItems ::@ @Maybe Integer@
 --
-mkListDomains :: ListDomains
-mkListDomains = ListDomains
+listDomains :: ListDomains
+listDomains = ListDomains
     { _ldMarker = Nothing
     , _ldMaxItems = Nothing
     }
@@ -122,9 +122,9 @@ data ListDomainsResponse = ListDomainsResponse
 --
 -- * @NextPageMarker ::@ @Maybe Text@
 --
-mkListDomainsResponse :: [DomainSummary] -- ^ 'ldrDomains'
+listDomainsResponse :: [DomainSummary] -- ^ 'ldrDomains'
                       -> ListDomainsResponse
-mkListDomainsResponse p1 = ListDomainsResponse
+listDomainsResponse p1 = ListDomainsResponse
     { _ldrDomains = p1
     , _ldrNextPageMarker = Nothing
     }

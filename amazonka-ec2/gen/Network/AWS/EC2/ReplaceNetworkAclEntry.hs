@@ -35,7 +35,7 @@ module Network.AWS.EC2.ReplaceNetworkAclEntry
     -- * Request
       ReplaceNetworkAclEntry
     -- ** Request constructor
-    , mkReplaceNetworkAclEntry
+    , replaceNetworkAclEntry
     -- ** Request lenses
     , rnaeNetworkAclId
     , rnaeRuleNumber
@@ -49,7 +49,7 @@ module Network.AWS.EC2.ReplaceNetworkAclEntry
     -- * Response
     , ReplaceNetworkAclEntryResponse
     -- ** Response constructor
-    , mkReplaceNetworkAclEntryResponse
+    , replaceNetworkAclEntryResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -88,14 +88,14 @@ data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
 --
 -- * @PortRange ::@ @Maybe PortRange@
 --
-mkReplaceNetworkAclEntry :: Text -- ^ 'rnaeNetworkAclId'
+replaceNetworkAclEntry :: Text -- ^ 'rnaeNetworkAclId'
                          -> Integer -- ^ 'rnaeRuleNumber'
                          -> Text -- ^ 'rnaeProtocol'
                          -> RuleAction -- ^ 'rnaeRuleAction'
                          -> Bool -- ^ 'rnaeEgress'
                          -> Text -- ^ 'rnaeCidrBlock'
                          -> ReplaceNetworkAclEntry
-mkReplaceNetworkAclEntry p1 p2 p3 p4 p5 p6 = ReplaceNetworkAclEntry
+replaceNetworkAclEntry p1 p2 p3 p4 p5 p6 = ReplaceNetworkAclEntry
     { _rnaeNetworkAclId = p1
     , _rnaeRuleNumber = p2
     , _rnaeProtocol = p3
@@ -151,8 +151,8 @@ data ReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
 -- a valid 'ReplaceNetworkAclEntryResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkReplaceNetworkAclEntryResponse :: ReplaceNetworkAclEntryResponse
-mkReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
+replaceNetworkAclEntryResponse :: ReplaceNetworkAclEntryResponse
+replaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
 
 instance AWSRequest ReplaceNetworkAclEntry where
     type Sv ReplaceNetworkAclEntry = EC2

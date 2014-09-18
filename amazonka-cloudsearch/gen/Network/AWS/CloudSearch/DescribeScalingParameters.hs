@@ -26,14 +26,14 @@ module Network.AWS.CloudSearch.DescribeScalingParameters
     -- * Request
       DescribeScalingParameters
     -- ** Request constructor
-    , mkDescribeScalingParameters
+    , describeScalingParameters
     -- ** Request lenses
     , dspDomainName
 
     -- * Response
     , DescribeScalingParametersResponse
     -- ** Response constructor
-    , mkDescribeScalingParametersResponse
+    , describeScalingParametersResponse
     -- ** Response lenses
     , dsprScalingParameters
     ) where
@@ -55,9 +55,9 @@ newtype DescribeScalingParameters = DescribeScalingParameters
 --
 -- * @DomainName ::@ @Text@
 --
-mkDescribeScalingParameters :: Text -- ^ 'dspDomainName'
+describeScalingParameters :: Text -- ^ 'dspDomainName'
                             -> DescribeScalingParameters
-mkDescribeScalingParameters p1 = DescribeScalingParameters
+describeScalingParameters p1 = DescribeScalingParameters
     { _dspDomainName = p1
     }
 
@@ -86,9 +86,9 @@ newtype DescribeScalingParametersResponse = DescribeScalingParametersResponse
 --
 -- * @ScalingParameters ::@ @ScalingParametersStatus@
 --
-mkDescribeScalingParametersResponse :: ScalingParametersStatus -- ^ 'dsprScalingParameters'
+describeScalingParametersResponse :: ScalingParametersStatus -- ^ 'dsprScalingParameters'
                                     -> DescribeScalingParametersResponse
-mkDescribeScalingParametersResponse p1 = DescribeScalingParametersResponse
+describeScalingParametersResponse p1 = DescribeScalingParametersResponse
     { _dsprScalingParameters = p1
     }
 

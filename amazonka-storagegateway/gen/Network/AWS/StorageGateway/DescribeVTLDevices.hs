@@ -22,7 +22,7 @@ module Network.AWS.StorageGateway.DescribeVTLDevices
     -- * Request
       DescribeVTLDevices
     -- ** Request constructor
-    , mkDescribeVTLDevices
+    , describeVTLDevices
     -- ** Request lenses
     , dvtldGatewayARN
     , dvtldVTLDeviceARNs
@@ -32,7 +32,7 @@ module Network.AWS.StorageGateway.DescribeVTLDevices
     -- * Response
     , DescribeVTLDevicesResponse
     -- ** Response constructor
-    , mkDescribeVTLDevicesResponse
+    , describeVTLDevicesResponse
     -- ** Response lenses
     , dvtldrGatewayARN
     , dvtldrVTLDevices
@@ -63,9 +63,9 @@ data DescribeVTLDevices = DescribeVTLDevices
 --
 -- * @Limit ::@ @Maybe Integer@
 --
-mkDescribeVTLDevices :: Text -- ^ 'dvtldGatewayARN'
+describeVTLDevices :: Text -- ^ 'dvtldGatewayARN'
                      -> DescribeVTLDevices
-mkDescribeVTLDevices p1 = DescribeVTLDevices
+describeVTLDevices p1 = DescribeVTLDevices
     { _dvtldGatewayARN = p1
     , _dvtldVTLDeviceARNs = mempty
     , _dvtldMarker = Nothing
@@ -114,8 +114,8 @@ data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeVTLDevicesResponse :: DescribeVTLDevicesResponse
-mkDescribeVTLDevicesResponse = DescribeVTLDevicesResponse
+describeVTLDevicesResponse :: DescribeVTLDevicesResponse
+describeVTLDevicesResponse = DescribeVTLDevicesResponse
     { _dvtldrGatewayARN = Nothing
     , _dvtldrVTLDevices = mempty
     , _dvtldrMarker = Nothing

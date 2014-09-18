@@ -40,14 +40,14 @@ module Network.AWS.ElasticTranscoder.ReadPipeline
     -- * Request
       ReadPipeline
     -- ** Request constructor
-    , mkReadPipeline
+    , readPipeline
     -- ** Request lenses
     , rpId
 
     -- * Response
     , ReadPipelineResponse
     -- ** Response constructor
-    , mkReadPipelineResponse
+    , readPipelineResponse
     -- ** Response lenses
     , rprPipeline
     ) where
@@ -68,9 +68,9 @@ newtype ReadPipeline = ReadPipeline
 --
 -- * @Id ::@ @Text@
 --
-mkReadPipeline :: Text -- ^ 'rpId'
+readPipeline :: Text -- ^ 'rpId'
                -> ReadPipeline
-mkReadPipeline p1 = ReadPipeline
+readPipeline p1 = ReadPipeline
     { _rpId = p1
     }
 
@@ -100,8 +100,8 @@ newtype ReadPipelineResponse = ReadPipelineResponse
 --
 -- * @Pipeline ::@ @Maybe Pipeline@
 --
-mkReadPipelineResponse :: ReadPipelineResponse
-mkReadPipelineResponse = ReadPipelineResponse
+readPipelineResponse :: ReadPipelineResponse
+readPipelineResponse = ReadPipelineResponse
     { _rprPipeline = Nothing
     }
 

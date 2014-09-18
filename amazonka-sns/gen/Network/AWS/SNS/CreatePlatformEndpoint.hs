@@ -51,7 +51,7 @@ module Network.AWS.SNS.CreatePlatformEndpoint
     -- * Request
       CreatePlatformEndpoint
     -- ** Request constructor
-    , mkCreatePlatformEndpoint
+    , createPlatformEndpoint
     -- ** Request lenses
     , cpePlatformApplicationArn
     , cpeToken
@@ -61,7 +61,7 @@ module Network.AWS.SNS.CreatePlatformEndpoint
     -- * Response
     , CreatePlatformEndpointResponse
     -- ** Response constructor
-    , mkCreatePlatformEndpointResponse
+    , createPlatformEndpointResponse
     -- ** Response lenses
     , cperEndpointArn
     ) where
@@ -91,10 +91,10 @@ data CreatePlatformEndpoint = CreatePlatformEndpoint
 --
 -- * @Attributes ::@ @Map Text Text@
 --
-mkCreatePlatformEndpoint :: Text -- ^ 'cpePlatformApplicationArn'
+createPlatformEndpoint :: Text -- ^ 'cpePlatformApplicationArn'
                          -> Text -- ^ 'cpeToken'
                          -> CreatePlatformEndpoint
-mkCreatePlatformEndpoint p1 p2 = CreatePlatformEndpoint
+createPlatformEndpoint p1 p2 = CreatePlatformEndpoint
     { _cpePlatformApplicationArn = p1
     , _cpeToken = p2
     , _cpeCustomUserData = Nothing
@@ -143,8 +143,8 @@ newtype CreatePlatformEndpointResponse = CreatePlatformEndpointResponse
 --
 -- * @EndpointArn ::@ @Maybe Text@
 --
-mkCreatePlatformEndpointResponse :: CreatePlatformEndpointResponse
-mkCreatePlatformEndpointResponse = CreatePlatformEndpointResponse
+createPlatformEndpointResponse :: CreatePlatformEndpointResponse
+createPlatformEndpointResponse = CreatePlatformEndpointResponse
     { _cperEndpointArn = Nothing
     }
 

@@ -25,7 +25,7 @@ module Network.AWS.S3.RestoreObject
     -- ** Request alias
     , PostObjectRestore
     -- ** Request constructor
-    , mkRestoreObject
+    , restoreObject
     -- ** Request lenses
     , roBucket
     , roKey
@@ -35,7 +35,7 @@ module Network.AWS.S3.RestoreObject
     -- * Response
     , RestoreObjectResponse
     -- ** Response constructor
-    , mkRestoreObjectResponse
+    , restoreObjectResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -65,10 +65,10 @@ data RestoreObject = RestoreObject
 --
 -- * @RestoreRequest ::@ @Maybe RestoreRequest@
 --
-mkRestoreObject :: BucketName -- ^ 'roBucket'
+restoreObject :: BucketName -- ^ 'roBucket'
                 -> ObjectKey -- ^ 'roKey'
                 -> RestoreObject
-mkRestoreObject p1 p2 = RestoreObject
+restoreObject p1 p2 = RestoreObject
     { _roBucket = p1
     , _roKey = p2
     , _roVersionId = Nothing
@@ -104,8 +104,8 @@ data RestoreObjectResponse = RestoreObjectResponse
 -- a valid 'RestoreObjectResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRestoreObjectResponse :: RestoreObjectResponse
-mkRestoreObjectResponse = RestoreObjectResponse
+restoreObjectResponse :: RestoreObjectResponse
+restoreObjectResponse = RestoreObjectResponse
 
 instance AWSRequest RestoreObject where
     type Sv RestoreObject = S3

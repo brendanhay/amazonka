@@ -42,7 +42,7 @@ module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     -- * Request
       DescribeMetricFilters
     -- ** Request constructor
-    , mkDescribeMetricFilters
+    , describeMetricFilters
     -- ** Request lenses
     , dmf1LogGroupName
     , dmf1FilterNamePrefix
@@ -52,7 +52,7 @@ module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     -- * Response
     , DescribeMetricFiltersResponse
     -- ** Response constructor
-    , mkDescribeMetricFiltersResponse
+    , describeMetricFiltersResponse
     -- ** Response lenses
     , dmfrMetricFilters
     , dmfrNextToken
@@ -82,9 +82,9 @@ data DescribeMetricFilters = DescribeMetricFilters
 --
 -- * @Limit ::@ @Maybe Integer@
 --
-mkDescribeMetricFilters :: Text -- ^ 'dmf1LogGroupName'
+describeMetricFilters :: Text -- ^ 'dmf1LogGroupName'
                         -> DescribeMetricFilters
-mkDescribeMetricFilters p1 = DescribeMetricFilters
+describeMetricFilters p1 = DescribeMetricFilters
     { _dmf1LogGroupName = p1
     , _dmf1FilterNamePrefix = Nothing
     , _dmf1NextToken = Nothing
@@ -135,8 +135,8 @@ data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeMetricFiltersResponse :: DescribeMetricFiltersResponse
-mkDescribeMetricFiltersResponse = DescribeMetricFiltersResponse
+describeMetricFiltersResponse :: DescribeMetricFiltersResponse
+describeMetricFiltersResponse = DescribeMetricFiltersResponse
     { _dmfrMetricFilters = mempty
     , _dmfrNextToken = Nothing
     }

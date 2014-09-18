@@ -42,14 +42,14 @@ module Network.AWS.EMR.ModifyInstanceGroups
     -- * Request
       ModifyInstanceGroups
     -- ** Request constructor
-    , mkModifyInstanceGroups
+    , modifyInstanceGroups
     -- ** Request lenses
     , migInstanceGroups
 
     -- * Response
     , ModifyInstanceGroupsResponse
     -- ** Response constructor
-    , mkModifyInstanceGroupsResponse
+    , modifyInstanceGroupsResponse
     ) where
 
 import Network.AWS.EMR.Types
@@ -68,8 +68,8 @@ newtype ModifyInstanceGroups = ModifyInstanceGroups
 --
 -- * @InstanceGroups ::@ @[InstanceGroupModifyConfig]@
 --
-mkModifyInstanceGroups :: ModifyInstanceGroups
-mkModifyInstanceGroups = ModifyInstanceGroups
+modifyInstanceGroups :: ModifyInstanceGroups
+modifyInstanceGroups = ModifyInstanceGroups
     { _migInstanceGroups = mempty
     }
 
@@ -93,8 +93,8 @@ data ModifyInstanceGroupsResponse = ModifyInstanceGroupsResponse
 -- a valid 'ModifyInstanceGroupsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkModifyInstanceGroupsResponse :: ModifyInstanceGroupsResponse
-mkModifyInstanceGroupsResponse = ModifyInstanceGroupsResponse
+modifyInstanceGroupsResponse :: ModifyInstanceGroupsResponse
+modifyInstanceGroupsResponse = ModifyInstanceGroupsResponse
 
 instance AWSRequest ModifyInstanceGroups where
     type Sv ModifyInstanceGroups = EMR

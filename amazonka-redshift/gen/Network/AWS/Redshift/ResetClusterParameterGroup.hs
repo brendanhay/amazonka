@@ -35,7 +35,7 @@ module Network.AWS.Redshift.ResetClusterParameterGroup
     -- * Request
       ResetClusterParameterGroup
     -- ** Request constructor
-    , mkResetClusterParameterGroup
+    , resetClusterParameterGroup
     -- ** Request lenses
     , rcpgParameterGroupName
     , rcpgResetAllParameters
@@ -44,7 +44,7 @@ module Network.AWS.Redshift.ResetClusterParameterGroup
     -- * Response
     , ResetClusterParameterGroupResponse
     -- ** Response constructor
-    , mkResetClusterParameterGroupResponse
+    , resetClusterParameterGroupResponse
     -- ** Response lenses
     , rcpgrParameterGroupName
     , rcpgrParameterGroupStatus
@@ -72,9 +72,9 @@ data ResetClusterParameterGroup = ResetClusterParameterGroup
 --
 -- * @Parameters ::@ @[Parameter]@
 --
-mkResetClusterParameterGroup :: Text -- ^ 'rcpgParameterGroupName'
+resetClusterParameterGroup :: Text -- ^ 'rcpgParameterGroupName'
                              -> ResetClusterParameterGroup
-mkResetClusterParameterGroup p1 = ResetClusterParameterGroup
+resetClusterParameterGroup p1 = ResetClusterParameterGroup
     { _rcpgParameterGroupName = p1
     , _rcpgResetAllParameters = Nothing
     , _rcpgParameters = mempty
@@ -119,8 +119,8 @@ data ResetClusterParameterGroupResponse = ResetClusterParameterGroupResponse
 --
 -- * @ParameterGroupStatus ::@ @Maybe Text@
 --
-mkResetClusterParameterGroupResponse :: ResetClusterParameterGroupResponse
-mkResetClusterParameterGroupResponse = ResetClusterParameterGroupResponse
+resetClusterParameterGroupResponse :: ResetClusterParameterGroupResponse
+resetClusterParameterGroupResponse = ResetClusterParameterGroupResponse
     { _rcpgrParameterGroupName = Nothing
     , _rcpgrParameterGroupStatus = Nothing
     }

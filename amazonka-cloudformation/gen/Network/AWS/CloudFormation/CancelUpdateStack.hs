@@ -30,14 +30,14 @@ module Network.AWS.CloudFormation.CancelUpdateStack
     -- * Request
       CancelUpdateStack
     -- ** Request constructor
-    , mkCancelUpdateStack
+    , cancelUpdateStack
     -- ** Request lenses
     , cusStackName
 
     -- * Response
     , CancelUpdateStackResponse
     -- ** Response constructor
-    , mkCancelUpdateStackResponse
+    , cancelUpdateStackResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -56,9 +56,9 @@ newtype CancelUpdateStack = CancelUpdateStack
 --
 -- * @StackName ::@ @Text@
 --
-mkCancelUpdateStack :: Text -- ^ 'cusStackName'
+cancelUpdateStack :: Text -- ^ 'cusStackName'
                     -> CancelUpdateStack
-mkCancelUpdateStack p1 = CancelUpdateStack
+cancelUpdateStack p1 = CancelUpdateStack
     { _cusStackName = p1
     }
 
@@ -76,8 +76,8 @@ data CancelUpdateStackResponse = CancelUpdateStackResponse
 -- a valid 'CancelUpdateStackResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkCancelUpdateStackResponse :: CancelUpdateStackResponse
-mkCancelUpdateStackResponse = CancelUpdateStackResponse
+cancelUpdateStackResponse :: CancelUpdateStackResponse
+cancelUpdateStackResponse = CancelUpdateStackResponse
 
 instance AWSRequest CancelUpdateStack where
     type Sv CancelUpdateStack = CloudFormation

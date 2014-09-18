@@ -32,14 +32,14 @@ module Network.AWS.EC2.CreateRouteTable
     -- * Request
       CreateRouteTable
     -- ** Request constructor
-    , mkCreateRouteTable
+    , createRouteTable
     -- ** Request lenses
     , crtVpcId
 
     -- * Response
     , CreateRouteTableResponse
     -- ** Response constructor
-    , mkCreateRouteTableResponse
+    , createRouteTableResponse
     -- ** Response lenses
     , crtrRouteTable
     ) where
@@ -59,9 +59,9 @@ newtype CreateRouteTable = CreateRouteTable
 --
 -- * @VpcId ::@ @Text@
 --
-mkCreateRouteTable :: Text -- ^ 'crtVpcId'
+createRouteTable :: Text -- ^ 'crtVpcId'
                    -> CreateRouteTable
-mkCreateRouteTable p1 = CreateRouteTable
+createRouteTable p1 = CreateRouteTable
     { _crtVpcId = p1
     }
 
@@ -85,8 +85,8 @@ newtype CreateRouteTableResponse = CreateRouteTableResponse
 --
 -- * @RouteTable ::@ @Maybe RouteTable@
 --
-mkCreateRouteTableResponse :: CreateRouteTableResponse
-mkCreateRouteTableResponse = CreateRouteTableResponse
+createRouteTableResponse :: CreateRouteTableResponse
+createRouteTableResponse = CreateRouteTableResponse
     { _crtrRouteTable = Nothing
     }
 

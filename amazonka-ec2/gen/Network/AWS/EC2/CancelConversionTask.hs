@@ -33,7 +33,7 @@ module Network.AWS.EC2.CancelConversionTask
     -- * Request
       CancelConversionTask
     -- ** Request constructor
-    , mkCancelConversionTask
+    , cancelConversionTask
     -- ** Request lenses
     , cctConversionTaskId
     , cctReasonMessage
@@ -41,7 +41,7 @@ module Network.AWS.EC2.CancelConversionTask
     -- * Response
     , CancelConversionTaskResponse
     -- ** Response constructor
-    , mkCancelConversionTaskResponse
+    , cancelConversionTaskResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -62,9 +62,9 @@ data CancelConversionTask = CancelConversionTask
 --
 -- * @ReasonMessage ::@ @Maybe Text@
 --
-mkCancelConversionTask :: Text -- ^ 'cctConversionTaskId'
+cancelConversionTask :: Text -- ^ 'cctConversionTaskId'
                        -> CancelConversionTask
-mkCancelConversionTask p1 = CancelConversionTask
+cancelConversionTask p1 = CancelConversionTask
     { _cctConversionTaskId = p1
     , _cctReasonMessage = Nothing
     }
@@ -89,8 +89,8 @@ data CancelConversionTaskResponse = CancelConversionTaskResponse
 -- a valid 'CancelConversionTaskResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkCancelConversionTaskResponse :: CancelConversionTaskResponse
-mkCancelConversionTaskResponse = CancelConversionTaskResponse
+cancelConversionTaskResponse :: CancelConversionTaskResponse
+cancelConversionTaskResponse = CancelConversionTaskResponse
 
 instance AWSRequest CancelConversionTask where
     type Sv CancelConversionTask = EC2

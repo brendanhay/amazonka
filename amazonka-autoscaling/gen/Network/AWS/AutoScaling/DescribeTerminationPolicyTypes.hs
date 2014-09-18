@@ -27,11 +27,11 @@ module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
     -- * Request
       DescribeTerminationPolicyTypes
     -- ** Request constructor
-    , mkDescribeTerminationPolicyTypes
+    , describeTerminationPolicyTypes
     -- * Response
     , DescribeTerminationPolicyTypesResponse
     -- ** Response constructor
-    , mkDescribeTerminationPolicyTypesResponse
+    , describeTerminationPolicyTypesResponse
     -- ** Response lenses
     , dtptrTerminationPolicyTypes
     ) where
@@ -45,8 +45,8 @@ data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTerminationPolicyTypes' request.
-mkDescribeTerminationPolicyTypes :: DescribeTerminationPolicyTypes
-mkDescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes
+describeTerminationPolicyTypes :: DescribeTerminationPolicyTypes
+describeTerminationPolicyTypes = DescribeTerminationPolicyTypes
 
 instance ToQuery DescribeTerminationPolicyTypes where
     toQuery = genericQuery def
@@ -65,8 +65,8 @@ newtype DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesR
 --
 -- * @TerminationPolicyTypes ::@ @[Text]@
 --
-mkDescribeTerminationPolicyTypesResponse :: DescribeTerminationPolicyTypesResponse
-mkDescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
+describeTerminationPolicyTypesResponse :: DescribeTerminationPolicyTypesResponse
+describeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
     { _dtptrTerminationPolicyTypes = mempty
     }
 

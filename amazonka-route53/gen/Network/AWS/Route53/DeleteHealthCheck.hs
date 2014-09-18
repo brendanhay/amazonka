@@ -31,14 +31,14 @@ module Network.AWS.Route53.DeleteHealthCheck
     -- * Request
       DeleteHealthCheck
     -- ** Request constructor
-    , mkDeleteHealthCheck
+    , deleteHealthCheck
     -- ** Request lenses
     , dhcHealthCheckId
 
     -- * Response
     , DeleteHealthCheckResponse
     -- ** Response constructor
-    , mkDeleteHealthCheckResponse
+    , deleteHealthCheckResponse
     ) where
 
 import Network.AWS.Request.RestXML
@@ -58,9 +58,9 @@ newtype DeleteHealthCheck = DeleteHealthCheck
 --
 -- * @HealthCheckId ::@ @Text@
 --
-mkDeleteHealthCheck :: Text -- ^ 'dhcHealthCheckId'
+deleteHealthCheck :: Text -- ^ 'dhcHealthCheckId'
                     -> DeleteHealthCheck
-mkDeleteHealthCheck p1 = DeleteHealthCheck
+deleteHealthCheck p1 = DeleteHealthCheck
     { _dhcHealthCheckId = p1
     }
 
@@ -87,8 +87,8 @@ data DeleteHealthCheckResponse = DeleteHealthCheckResponse
 -- a valid 'DeleteHealthCheckResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteHealthCheckResponse :: DeleteHealthCheckResponse
-mkDeleteHealthCheckResponse = DeleteHealthCheckResponse
+deleteHealthCheckResponse :: DeleteHealthCheckResponse
+deleteHealthCheckResponse = DeleteHealthCheckResponse
 
 instance AWSRequest DeleteHealthCheck where
     type Sv DeleteHealthCheck = Route53

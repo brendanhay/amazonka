@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.DescribeDeployments
     -- * Request
       DescribeDeployments
     -- ** Request constructor
-    , mkDescribeDeployments
+    , describeDeployments
     -- ** Request lenses
     , ddStackId
     , ddAppId
@@ -36,7 +36,7 @@ module Network.AWS.OpsWorks.DescribeDeployments
     -- * Response
     , DescribeDeploymentsResponse
     -- ** Response constructor
-    , mkDescribeDeploymentsResponse
+    , describeDeploymentsResponse
     -- ** Response lenses
     , ddrDeployments
     ) where
@@ -62,8 +62,8 @@ data DescribeDeployments = DescribeDeployments
 --
 -- * @DeploymentIds ::@ @[Text]@
 --
-mkDescribeDeployments :: DescribeDeployments
-mkDescribeDeployments = DescribeDeployments
+describeDeployments :: DescribeDeployments
+describeDeployments = DescribeDeployments
     { _ddStackId = Nothing
     , _ddAppId = Nothing
     , _ddDeploymentIds = mempty
@@ -107,8 +107,8 @@ newtype DescribeDeploymentsResponse = DescribeDeploymentsResponse
 --
 -- * @Deployments ::@ @[Deployment]@
 --
-mkDescribeDeploymentsResponse :: DescribeDeploymentsResponse
-mkDescribeDeploymentsResponse = DescribeDeploymentsResponse
+describeDeploymentsResponse :: DescribeDeploymentsResponse
+describeDeploymentsResponse = DescribeDeploymentsResponse
     { _ddrDeployments = mempty
     }
 

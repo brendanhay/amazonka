@@ -65,7 +65,7 @@ module Network.AWS.CloudWatch.Types
 
     -- * AlarmHistoryItem
     , AlarmHistoryItem
-    , mkAlarmHistoryItem
+    , alarmHistoryItem
     , ahiAlarmName
     , ahiTimestamp
     , ahiHistoryItemType
@@ -74,7 +74,7 @@ module Network.AWS.CloudWatch.Types
 
     -- * Datapoint
     , Datapoint
-    , mkDatapoint
+    , datapoint
     , drTimestamp
     , drSampleCount
     , drAverage
@@ -85,26 +85,26 @@ module Network.AWS.CloudWatch.Types
 
     -- * Dimension
     , Dimension
-    , mkDimension
+    , dimension
     , dName
     , dValue
 
     -- * DimensionFilter
     , DimensionFilter
-    , mkDimensionFilter
+    , dimensionFilter
     , dfName
     , dfValue
 
     -- * Metric
     , Metric
-    , mkMetric
+    , metric
     , mNamespace
     , mMetricName
     , mDimensions
 
     -- * MetricAlarm
     , MetricAlarm
-    , mkMetricAlarm
+    , metricAlarm
     , maAlarmName
     , maAlarmArn
     , maAlarmDescription
@@ -129,7 +129,7 @@ module Network.AWS.CloudWatch.Types
 
     -- * MetricDatum
     , MetricDatum
-    , mkMetricDatum
+    , metricDatum
     , mdMetricName
     , mdDimensions
     , mdTimestamp
@@ -139,7 +139,7 @@ module Network.AWS.CloudWatch.Types
 
     -- * StatisticSet
     , StatisticSet
-    , mkStatisticSet
+    , statisticSet
     , ssSampleCount
     , ssSum
     , ssMinimum
@@ -171,8 +171,8 @@ instance AWSService CloudWatch where
 -- service description where applicable.
 data CloudWatchError
     = CloudWatchClient HttpException
-    | CloudWatchSerializer Text
-    | CloudWatchService Text
+    | CloudWatchSerializer String
+    | CloudWatchService String
       -- | Indicates that the request processing has failed due to some
       -- unknown error, exception, or failure.
     | InternalServiceFault
@@ -228,7 +228,7 @@ _CloudWatchClient = prism'
         x -> Left x)
 
 -- | See: 'CloudWatchSerializer'
-_CloudWatchSerializer :: Prism' CloudWatchError Text
+_CloudWatchSerializer :: Prism' CloudWatchError String
 _CloudWatchSerializer = prism'
     CloudWatchSerializer
     (\case
@@ -236,7 +236,7 @@ _CloudWatchSerializer = prism'
         x -> Left x)
 
 -- | See: 'CloudWatchService'
-_CloudWatchService :: Prism' CloudWatchError Text
+_CloudWatchService :: Prism' CloudWatchError String
 _CloudWatchService = prism'
     CloudWatchService
     (\case
@@ -574,8 +574,8 @@ data AlarmHistoryItem = AlarmHistoryItem
 --
 -- * @HistoryData ::@ @Maybe Text@
 --
-mkAlarmHistoryItem :: AlarmHistoryItem
-mkAlarmHistoryItem = AlarmHistoryItem
+alarmHistoryItem :: AlarmHistoryItem
+alarmHistoryItem = AlarmHistoryItem
     { _ahiAlarmName = Nothing
     , _ahiTimestamp = Nothing
     , _ahiHistoryItemType = Nothing
@@ -643,8 +643,8 @@ data Datapoint = Datapoint
 --
 -- * @Unit ::@ @Maybe StandardUnit@
 --
-mkDatapoint :: Datapoint
-mkDatapoint = Datapoint
+datapoint :: Datapoint
+datapoint = Datapoint
     { _drTimestamp = Nothing
     , _drSampleCount = Nothing
     , _drAverage = Nothing
@@ -703,10 +703,10 @@ data Dimension = Dimension
 --
 -- * @Value ::@ @Text@
 --
-mkDimension :: Text -- ^ 'dName'
+dimension :: Text -- ^ 'dName'
             -> Text -- ^ 'dValue'
             -> Dimension
-mkDimension p1 p2 = Dimension
+dimension p1 p2 = Dimension
     { _dName = p1
     , _dValue = p2
     }
@@ -741,9 +741,9 @@ data DimensionFilter = DimensionFilter
 --
 -- * @Value ::@ @Maybe Text@
 --
-mkDimensionFilter :: Text -- ^ 'dfName'
+dimensionFilter :: Text -- ^ 'dfName'
                   -> DimensionFilter
-mkDimensionFilter p1 = DimensionFilter
+dimensionFilter p1 = DimensionFilter
     { _dfName = p1
     , _dfValue = Nothing
     }
@@ -783,8 +783,8 @@ data Metric = Metric
 --
 -- * @Dimensions ::@ @[Dimension]@
 --
-mkMetric :: Metric
-mkMetric = Metric
+metric :: Metric
+metric = Metric
     { _mNamespace = Nothing
     , _mMetricName = Nothing
     , _mDimensions = mempty
@@ -882,8 +882,8 @@ data MetricAlarm = MetricAlarm
 --
 -- * @ComparisonOperator ::@ @Maybe ComparisonOperator@
 --
-mkMetricAlarm :: MetricAlarm
-mkMetricAlarm = MetricAlarm
+metricAlarm :: MetricAlarm
+metricAlarm = MetricAlarm
     { _maAlarmName = Nothing
     , _maAlarmArn = Nothing
     , _maAlarmDescription = Nothing
@@ -1047,9 +1047,9 @@ data MetricDatum = MetricDatum
 --
 -- * @Unit ::@ @Maybe StandardUnit@
 --
-mkMetricDatum :: Text -- ^ 'mdMetricName'
+metricDatum :: Text -- ^ 'mdMetricName'
               -> MetricDatum
-mkMetricDatum p1 = MetricDatum
+metricDatum p1 = MetricDatum
     { _mdMetricName = p1
     , _mdDimensions = mempty
     , _mdTimestamp = Nothing
@@ -1112,12 +1112,12 @@ data StatisticSet = StatisticSet
 --
 -- * @Maximum ::@ @Double@
 --
-mkStatisticSet :: Double -- ^ 'ssSampleCount'
+statisticSet :: Double -- ^ 'ssSampleCount'
                -> Double -- ^ 'ssSum'
                -> Double -- ^ 'ssMinimum'
                -> Double -- ^ 'ssMaximum'
                -> StatisticSet
-mkStatisticSet p1 p2 p3 p4 = StatisticSet
+statisticSet p1 p2 p3 p4 = StatisticSet
     { _ssSampleCount = p1
     , _ssSum = p2
     , _ssMinimum = p3

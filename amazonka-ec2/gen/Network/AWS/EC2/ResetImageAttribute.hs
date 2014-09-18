@@ -30,7 +30,7 @@ module Network.AWS.EC2.ResetImageAttribute
     -- * Request
       ResetImageAttribute
     -- ** Request constructor
-    , mkResetImageAttribute
+    , resetImageAttribute
     -- ** Request lenses
     , riaImageId
     , riaAttribute
@@ -38,7 +38,7 @@ module Network.AWS.EC2.ResetImageAttribute
     -- * Response
     , ResetImageAttributeResponse
     -- ** Response constructor
-    , mkResetImageAttributeResponse
+    , resetImageAttributeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -59,10 +59,10 @@ data ResetImageAttribute = ResetImageAttribute
 --
 -- * @Attribute ::@ @ResetImageAttributeName@
 --
-mkResetImageAttribute :: Text -- ^ 'riaImageId'
+resetImageAttribute :: Text -- ^ 'riaImageId'
                       -> ResetImageAttributeName -- ^ 'riaAttribute'
                       -> ResetImageAttribute
-mkResetImageAttribute p1 p2 = ResetImageAttribute
+resetImageAttribute p1 p2 = ResetImageAttribute
     { _riaImageId = p1
     , _riaAttribute = p2
     }
@@ -86,8 +86,8 @@ data ResetImageAttributeResponse = ResetImageAttributeResponse
 -- a valid 'ResetImageAttributeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkResetImageAttributeResponse :: ResetImageAttributeResponse
-mkResetImageAttributeResponse = ResetImageAttributeResponse
+resetImageAttributeResponse :: ResetImageAttributeResponse
+resetImageAttributeResponse = ResetImageAttributeResponse
 
 instance AWSRequest ResetImageAttribute where
     type Sv ResetImageAttribute = EC2

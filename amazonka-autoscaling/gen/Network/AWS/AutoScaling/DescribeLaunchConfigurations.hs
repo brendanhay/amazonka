@@ -31,7 +31,7 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     -- * Request
       DescribeLaunchConfigurations
     -- ** Request constructor
-    , mkDescribeLaunchConfigurations
+    , describeLaunchConfigurations
     -- ** Request lenses
     , dlc1LaunchConfigurationNames
     , dlc1NextToken
@@ -40,7 +40,7 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     -- * Response
     , DescribeLaunchConfigurationsResponse
     -- ** Response constructor
-    , mkDescribeLaunchConfigurationsResponse
+    , describeLaunchConfigurationsResponse
     -- ** Response lenses
     , dlcrLaunchConfigurations
     , dlcrNextToken
@@ -68,8 +68,8 @@ data DescribeLaunchConfigurations = DescribeLaunchConfigurations
 --
 -- * @MaxRecords ::@ @Maybe Integer@
 --
-mkDescribeLaunchConfigurations :: DescribeLaunchConfigurations
-mkDescribeLaunchConfigurations = DescribeLaunchConfigurations
+describeLaunchConfigurations :: DescribeLaunchConfigurations
+describeLaunchConfigurations = DescribeLaunchConfigurations
     { _dlc1LaunchConfigurationNames = mempty
     , _dlc1NextToken = Nothing
     , _dlc1MaxRecords = Nothing
@@ -109,9 +109,9 @@ data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeLaunchConfigurationsResponse :: [LaunchConfiguration] -- ^ 'dlcrLaunchConfigurations'
+describeLaunchConfigurationsResponse :: [LaunchConfiguration] -- ^ 'dlcrLaunchConfigurations'
                                        -> DescribeLaunchConfigurationsResponse
-mkDescribeLaunchConfigurationsResponse p1 = DescribeLaunchConfigurationsResponse
+describeLaunchConfigurationsResponse p1 = DescribeLaunchConfigurationsResponse
     { _dlcrLaunchConfigurations = p1
     , _dlcrNextToken = Nothing
     }

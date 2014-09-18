@@ -24,7 +24,7 @@ module Network.AWS.S3.PutBucketPolicy
     -- * Request
       PutBucketPolicy
     -- ** Request constructor
-    , mkPutBucketPolicy
+    , putBucketPolicy
     -- ** Request lenses
     , pbpBucket
     , pbpContentMD5
@@ -33,7 +33,7 @@ module Network.AWS.S3.PutBucketPolicy
     -- * Response
     , PutBucketPolicyResponse
     -- ** Response constructor
-    , mkPutBucketPolicyResponse
+    , putBucketPolicyResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -58,10 +58,10 @@ data PutBucketPolicy = PutBucketPolicy
 --
 -- * @Policy ::@ @Text@
 --
-mkPutBucketPolicy :: BucketName -- ^ 'pbpBucket'
+putBucketPolicy :: BucketName -- ^ 'pbpBucket'
                   -> Text -- ^ 'pbpPolicy'
                   -> PutBucketPolicy
-mkPutBucketPolicy p1 p3 = PutBucketPolicy
+putBucketPolicy p1 p3 = PutBucketPolicy
     { _pbpBucket = p1
     , _pbpContentMD5 = Nothing
     , _pbpPolicy = p3
@@ -96,8 +96,8 @@ data PutBucketPolicyResponse = PutBucketPolicyResponse
 -- a valid 'PutBucketPolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkPutBucketPolicyResponse :: PutBucketPolicyResponse
-mkPutBucketPolicyResponse = PutBucketPolicyResponse
+putBucketPolicyResponse :: PutBucketPolicyResponse
+putBucketPolicyResponse = PutBucketPolicyResponse
 
 instance AWSRequest PutBucketPolicy where
     type Sv PutBucketPolicy = S3

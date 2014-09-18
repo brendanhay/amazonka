@@ -23,14 +23,14 @@ module Network.AWS.AutoScaling.DeleteTags
     -- * Request
       DeleteTags
     -- ** Request constructor
-    , mkDeleteTags
+    , deleteTags
     -- ** Request lenses
     , dtTags
 
     -- * Response
     , DeleteTagsResponse
     -- ** Response constructor
-    , mkDeleteTagsResponse
+    , deleteTagsResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -49,9 +49,9 @@ newtype DeleteTags = DeleteTags
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkDeleteTags :: [Tag] -- ^ 'dtTags'
+deleteTags :: [Tag] -- ^ 'dtTags'
              -> DeleteTags
-mkDeleteTags p1 = DeleteTags
+deleteTags p1 = DeleteTags
     { _dtTags = p1
     }
 
@@ -72,8 +72,8 @@ data DeleteTagsResponse = DeleteTagsResponse
 -- a valid 'DeleteTagsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteTagsResponse :: DeleteTagsResponse
-mkDeleteTagsResponse = DeleteTagsResponse
+deleteTagsResponse :: DeleteTagsResponse
+deleteTagsResponse = DeleteTagsResponse
 
 instance AWSRequest DeleteTags where
     type Sv DeleteTags = AutoScaling

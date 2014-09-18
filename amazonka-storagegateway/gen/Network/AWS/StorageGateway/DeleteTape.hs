@@ -22,7 +22,7 @@ module Network.AWS.StorageGateway.DeleteTape
     -- * Request
       DeleteTape
     -- ** Request constructor
-    , mkDeleteTape
+    , deleteTape
     -- ** Request lenses
     , dtGatewayARN
     , dtTapeARN
@@ -30,7 +30,7 @@ module Network.AWS.StorageGateway.DeleteTape
     -- * Response
     , DeleteTapeResponse
     -- ** Response constructor
-    , mkDeleteTapeResponse
+    , deleteTapeResponse
     -- ** Response lenses
     , dtrTapeARN
     ) where
@@ -53,10 +53,10 @@ data DeleteTape = DeleteTape
 --
 -- * @TapeARN ::@ @Text@
 --
-mkDeleteTape :: Text -- ^ 'dtGatewayARN'
+deleteTape :: Text -- ^ 'dtGatewayARN'
              -> Text -- ^ 'dtTapeARN'
              -> DeleteTape
-mkDeleteTape p1 p2 = DeleteTape
+deleteTape p1 p2 = DeleteTape
     { _dtGatewayARN = p1
     , _dtTapeARN = p2
     }
@@ -90,8 +90,8 @@ newtype DeleteTapeResponse = DeleteTapeResponse
 --
 -- * @TapeARN ::@ @Maybe Text@
 --
-mkDeleteTapeResponse :: DeleteTapeResponse
-mkDeleteTapeResponse = DeleteTapeResponse
+deleteTapeResponse :: DeleteTapeResponse
+deleteTapeResponse = DeleteTapeResponse
     { _dtrTapeARN = Nothing
     }
 

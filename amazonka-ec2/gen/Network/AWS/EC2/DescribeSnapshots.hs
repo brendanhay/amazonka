@@ -61,7 +61,7 @@ module Network.AWS.EC2.DescribeSnapshots
     -- * Request
       DescribeSnapshots
     -- ** Request constructor
-    , mkDescribeSnapshots
+    , describeSnapshots
     -- ** Request lenses
     , ds2SnapshotIds
     , ds2OwnerIds
@@ -71,7 +71,7 @@ module Network.AWS.EC2.DescribeSnapshots
     -- * Response
     , DescribeSnapshotsResponse
     -- ** Response constructor
-    , mkDescribeSnapshotsResponse
+    , describeSnapshotsResponse
     -- ** Response lenses
     , dsrSnapshots
     ) where
@@ -100,8 +100,8 @@ data DescribeSnapshots = DescribeSnapshots
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribeSnapshots :: DescribeSnapshots
-mkDescribeSnapshots = DescribeSnapshots
+describeSnapshots :: DescribeSnapshots
+describeSnapshots = DescribeSnapshots
     { _ds2SnapshotIds = mempty
     , _ds2OwnerIds = mempty
     , _ds2RestorableByUserIds = mempty
@@ -159,8 +159,8 @@ newtype DescribeSnapshotsResponse = DescribeSnapshotsResponse
 --
 -- * @Snapshots ::@ @[Snapshot]@
 --
-mkDescribeSnapshotsResponse :: DescribeSnapshotsResponse
-mkDescribeSnapshotsResponse = DescribeSnapshotsResponse
+describeSnapshotsResponse :: DescribeSnapshotsResponse
+describeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrSnapshots = mempty
     }
 

@@ -25,7 +25,7 @@ module Network.AWS.S3.HeadObject
     -- * Request
       HeadObject
     -- ** Request constructor
-    , mkHeadObject
+    , headObject
     -- ** Request lenses
     , hoBucket
     , hoIfMatch
@@ -42,7 +42,7 @@ module Network.AWS.S3.HeadObject
     -- * Response
     , HeadObjectResponse
     -- ** Response constructor
-    , mkHeadObjectResponse
+    , headObjectResponse
     -- ** Response lenses
     , horDeleteMarker
     , horAcceptRanges
@@ -112,10 +112,10 @@ data HeadObject = HeadObject
 --
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
-mkHeadObject :: BucketName -- ^ 'hoBucket'
+headObject :: BucketName -- ^ 'hoBucket'
              -> ObjectKey -- ^ 'hoKey'
              -> HeadObject
-mkHeadObject p1 p6 = HeadObject
+headObject p1 p6 = HeadObject
     { _hoBucket = p1
     , _hoIfMatch = Nothing
     , _hoIfModifiedSince = Nothing
@@ -277,8 +277,8 @@ data HeadObjectResponse = HeadObjectResponse
 --
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
-mkHeadObjectResponse :: HeadObjectResponse
-mkHeadObjectResponse = HeadObjectResponse
+headObjectResponse :: HeadObjectResponse
+headObjectResponse = HeadObjectResponse
     { _horDeleteMarker = Nothing
     , _horAcceptRanges = Nothing
     , _horExpiration = Nothing

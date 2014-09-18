@@ -33,7 +33,7 @@ module Network.AWS.RDS.ModifyDBInstance
     -- * Request
       ModifyDBInstance
     -- ** Request constructor
-    , mkModifyDBInstance
+    , modifyDBInstance
     -- ** Request lenses
     , mdbiDBInstanceIdentifier
     , mdbiAllocatedStorage
@@ -57,7 +57,7 @@ module Network.AWS.RDS.ModifyDBInstance
     -- * Response
     , ModifyDBInstanceResponse
     -- ** Response constructor
-    , mkModifyDBInstanceResponse
+    , modifyDBInstanceResponse
     -- ** Response lenses
     , mdbirDBInstance
     ) where
@@ -129,9 +129,9 @@ data ModifyDBInstance = ModifyDBInstance
 --
 -- * @NewDBInstanceIdentifier ::@ @Maybe Text@
 --
-mkModifyDBInstance :: Text -- ^ 'mdbiDBInstanceIdentifier'
+modifyDBInstance :: Text -- ^ 'mdbiDBInstanceIdentifier'
                    -> ModifyDBInstance
-mkModifyDBInstance p1 = ModifyDBInstance
+modifyDBInstance p1 = ModifyDBInstance
     { _mdbiDBInstanceIdentifier = p1
     , _mdbiAllocatedStorage = Nothing
     , _mdbiDBInstanceClass = Nothing
@@ -408,8 +408,8 @@ newtype ModifyDBInstanceResponse = ModifyDBInstanceResponse
 --
 -- * @DBInstance ::@ @Maybe DBInstance@
 --
-mkModifyDBInstanceResponse :: ModifyDBInstanceResponse
-mkModifyDBInstanceResponse = ModifyDBInstanceResponse
+modifyDBInstanceResponse :: ModifyDBInstanceResponse
+modifyDBInstanceResponse = ModifyDBInstanceResponse
     { _mdbirDBInstance = Nothing
     }
 

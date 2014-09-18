@@ -26,7 +26,7 @@ module Network.AWS.OpsWorks.UpdateStack
     -- * Request
       UpdateStack
     -- ** Request constructor
-    , mkUpdateStack
+    , updateStack
     -- ** Request lenses
     , usStackId
     , usName
@@ -49,7 +49,7 @@ module Network.AWS.OpsWorks.UpdateStack
     -- * Response
     , UpdateStackResponse
     -- ** Response constructor
-    , mkUpdateStackResponse
+    , updateStackResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -115,9 +115,9 @@ data UpdateStack = UpdateStack
 --
 -- * @UseOpsworksSecurityGroups ::@ @Maybe Bool@
 --
-mkUpdateStack :: Text -- ^ 'usStackId'
+updateStack :: Text -- ^ 'usStackId'
               -> UpdateStack
-mkUpdateStack p1 = UpdateStack
+updateStack p1 = UpdateStack
     { _usStackId = p1
     , _usName = Nothing
     , _usAttributes = mempty
@@ -287,8 +287,8 @@ data UpdateStackResponse = UpdateStackResponse
 -- a valid 'UpdateStackResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkUpdateStackResponse :: UpdateStackResponse
-mkUpdateStackResponse = UpdateStackResponse
+updateStackResponse :: UpdateStackResponse
+updateStackResponse = UpdateStackResponse
 
 instance AWSRequest UpdateStack where
     type Sv UpdateStack = OpsWorks

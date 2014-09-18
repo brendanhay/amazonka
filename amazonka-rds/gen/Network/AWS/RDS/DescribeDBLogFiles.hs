@@ -35,7 +35,7 @@ module Network.AWS.RDS.DescribeDBLogFiles
     -- * Request
       DescribeDBLogFiles
     -- ** Request constructor
-    , mkDescribeDBLogFiles
+    , describeDBLogFiles
     -- ** Request lenses
     , ddblfDBInstanceIdentifier
     , ddblfFilenameContains
@@ -47,7 +47,7 @@ module Network.AWS.RDS.DescribeDBLogFiles
     -- * Response
     , DescribeDBLogFilesResponse
     -- ** Response constructor
-    , mkDescribeDBLogFilesResponse
+    , describeDBLogFilesResponse
     -- ** Response lenses
     , ddblfrDescribeDBLogFiles
     , ddblfrMarker
@@ -84,9 +84,9 @@ data DescribeDBLogFiles = DescribeDBLogFiles
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeDBLogFiles :: Text -- ^ 'ddblfDBInstanceIdentifier'
+describeDBLogFiles :: Text -- ^ 'ddblfDBInstanceIdentifier'
                      -> DescribeDBLogFiles
-mkDescribeDBLogFiles p1 = DescribeDBLogFiles
+describeDBLogFiles p1 = DescribeDBLogFiles
     { _ddblfDBInstanceIdentifier = p1
     , _ddblfFilenameContains = Nothing
     , _ddblfFileLastWritten = Nothing
@@ -153,8 +153,8 @@ data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeDBLogFilesResponse :: DescribeDBLogFilesResponse
-mkDescribeDBLogFilesResponse = DescribeDBLogFilesResponse
+describeDBLogFilesResponse :: DescribeDBLogFilesResponse
+describeDBLogFilesResponse = DescribeDBLogFilesResponse
     { _ddblfrDescribeDBLogFiles = mempty
     , _ddblfrMarker = Nothing
     }

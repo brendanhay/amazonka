@@ -28,7 +28,7 @@ module Network.AWS.IAM.ListUserPolicies
     -- * Request
       ListUserPolicies
     -- ** Request constructor
-    , mkListUserPolicies
+    , listUserPolicies
     -- ** Request lenses
     , lupUserName
     , lupMarker
@@ -37,7 +37,7 @@ module Network.AWS.IAM.ListUserPolicies
     -- * Response
     , ListUserPoliciesResponse
     -- ** Response constructor
-    , mkListUserPoliciesResponse
+    , listUserPoliciesResponse
     -- ** Response lenses
     , luprPolicyNames
     , luprIsTruncated
@@ -65,9 +65,9 @@ data ListUserPolicies = ListUserPolicies
 --
 -- * @MaxItems ::@ @Maybe Integer@
 --
-mkListUserPolicies :: Text -- ^ 'lupUserName'
+listUserPolicies :: Text -- ^ 'lupUserName'
                    -> ListUserPolicies
-mkListUserPolicies p1 = ListUserPolicies
+listUserPolicies p1 = ListUserPolicies
     { _lupUserName = p1
     , _lupMarker = Nothing
     , _lupMaxItems = Nothing
@@ -114,10 +114,10 @@ data ListUserPoliciesResponse = ListUserPoliciesResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListUserPoliciesResponse :: [Text] -- ^ 'luprPolicyNames'
+listUserPoliciesResponse :: [Text] -- ^ 'luprPolicyNames'
                            -> Bool -- ^ 'luprIsTruncated'
                            -> ListUserPoliciesResponse
-mkListUserPoliciesResponse p1 p2 = ListUserPoliciesResponse
+listUserPoliciesResponse p1 p2 = ListUserPoliciesResponse
     { _luprPolicyNames = p1
     , _luprIsTruncated = p2
     , _luprMarker = Nothing

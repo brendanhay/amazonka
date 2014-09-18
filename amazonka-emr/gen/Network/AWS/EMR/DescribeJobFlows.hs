@@ -77,7 +77,7 @@ module Network.AWS.EMR.DescribeJobFlows
     -- * Request
       DescribeJobFlows
     -- ** Request constructor
-    , mkDescribeJobFlows
+    , describeJobFlows
     -- ** Request lenses
     , djfCreatedAfter
     , djfCreatedBefore
@@ -87,7 +87,7 @@ module Network.AWS.EMR.DescribeJobFlows
     -- * Response
     , DescribeJobFlowsResponse
     -- ** Response constructor
-    , mkDescribeJobFlowsResponse
+    , describeJobFlowsResponse
     -- ** Response lenses
     , djfrJobFlows
     ) where
@@ -117,8 +117,8 @@ data DescribeJobFlows = DescribeJobFlows
 --
 -- * @JobFlowStates ::@ @[JobFlowExecutionState]@
 --
-mkDescribeJobFlows :: DescribeJobFlows
-mkDescribeJobFlows = DescribeJobFlows
+describeJobFlows :: DescribeJobFlows
+describeJobFlows = DescribeJobFlows
     { _djfCreatedAfter = Nothing
     , _djfCreatedBefore = Nothing
     , _djfJobFlowIds = mempty
@@ -165,8 +165,8 @@ newtype DescribeJobFlowsResponse = DescribeJobFlowsResponse
 --
 -- * @JobFlows ::@ @[JobFlowDetail]@
 --
-mkDescribeJobFlowsResponse :: DescribeJobFlowsResponse
-mkDescribeJobFlowsResponse = DescribeJobFlowsResponse
+describeJobFlowsResponse :: DescribeJobFlowsResponse
+describeJobFlowsResponse = DescribeJobFlowsResponse
     { _djfrJobFlows = mempty
     }
 

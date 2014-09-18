@@ -56,27 +56,27 @@ module Network.AWS.ELB.Types
 
     -- * ConnectionSettings
     , ConnectionSettings
-    , mkConnectionSettings
+    , connectionSettings
     , csIdleTimeout
 
     -- * CrossZoneLoadBalancing
     , CrossZoneLoadBalancing
-    , mkCrossZoneLoadBalancing
+    , crossZoneLoadBalancing
     , czlbEnabled
 
     -- * Instance
     , Instance
-    , mkInstance
+    , instance
     , iInstanceId
 
     -- * TagKeyOnly
     , TagKeyOnly
-    , mkTagKeyOnly
+    , tagKeyOnly
     , tkoKey
 
     -- * AccessLog
     , AccessLog
-    , mkAccessLog
+    , accessLog
     , alEnabled
     , alS3BucketName
     , alEmitInterval
@@ -84,25 +84,25 @@ module Network.AWS.ELB.Types
 
     -- * AppCookieStickinessPolicy
     , AppCookieStickinessPolicy
-    , mkAppCookieStickinessPolicy
+    , appCookieStickinessPolicy
     , acspPolicyName
     , acspCookieName
 
     -- * BackendServerDescription
     , BackendServerDescription
-    , mkBackendServerDescription
+    , backendServerDescription
     , bsdInstancePort
     , bsdPolicyNames
 
     -- * ConnectionDraining
     , ConnectionDraining
-    , mkConnectionDraining
+    , connectionDraining
     , cdEnabled
     , cdTimeout
 
     -- * HealthCheck
     , HealthCheck
-    , mkHealthCheck
+    , healthCheck
     , hcTarget
     , hcInterval
     , hcTimeout
@@ -111,7 +111,7 @@ module Network.AWS.ELB.Types
 
     -- * InstanceState
     , InstanceState
-    , mkInstanceState
+    , instanceState
     , isInstanceId
     , isState
     , isReasonCode
@@ -119,13 +119,13 @@ module Network.AWS.ELB.Types
 
     -- * LBCookieStickinessPolicy
     , LBCookieStickinessPolicy
-    , mkLBCookieStickinessPolicy
+    , lBCookieStickinessPolicy
     , lbcspPolicyName
     , lbcspCookieExpirationPeriod
 
     -- * Listener
     , Listener
-    , mkListener
+    , listener
     , lProtocol
     , lLoadBalancerPort
     , lInstanceProtocol
@@ -134,13 +134,13 @@ module Network.AWS.ELB.Types
 
     -- * ListenerDescription
     , ListenerDescription
-    , mkListenerDescription
+    , listenerDescription
     , ldListener
     , ldPolicyNames
 
     -- * LoadBalancerAttributes
     , LoadBalancerAttributes
-    , mkLoadBalancerAttributes
+    , loadBalancerAttributes
     , lbaCrossZoneLoadBalancing
     , lbaAccessLog
     , lbaConnectionDraining
@@ -148,7 +148,7 @@ module Network.AWS.ELB.Types
 
     -- * LoadBalancerDescription
     , LoadBalancerDescription
-    , mkLoadBalancerDescription
+    , loadBalancerDescription
     , lbdLoadBalancerName
     , lbdDNSName
     , lbdCanonicalHostedZoneName
@@ -168,26 +168,26 @@ module Network.AWS.ELB.Types
 
     -- * Policies
     , Policies
-    , mkPolicies
+    , policies
     , pAppCookieStickinessPolicies
     , pLBCookieStickinessPolicies
     , pOtherPolicies
 
     -- * PolicyAttribute
     , PolicyAttribute
-    , mkPolicyAttribute
+    , policyAttribute
     , paAttributeName
     , paAttributeValue
 
     -- * PolicyAttributeDescription
     , PolicyAttributeDescription
-    , mkPolicyAttributeDescription
+    , policyAttributeDescription
     , padAttributeName
     , padAttributeValue
 
     -- * PolicyAttributeTypeDescription
     , PolicyAttributeTypeDescription
-    , mkPolicyAttributeTypeDescription
+    , policyAttributeTypeDescription
     , patdAttributeName
     , patdAttributeType
     , patdDescription
@@ -196,33 +196,33 @@ module Network.AWS.ELB.Types
 
     -- * PolicyDescription
     , PolicyDescription
-    , mkPolicyDescription
+    , policyDescription
     , pdPolicyName
     , pdPolicyTypeName
     , pdPolicyAttributeDescriptions
 
     -- * PolicyTypeDescription
     , PolicyTypeDescription
-    , mkPolicyTypeDescription
+    , policyTypeDescription
     , ptdPolicyTypeName
     , ptdDescription
     , ptdPolicyAttributeTypeDescriptions
 
     -- * SourceSecurityGroup
     , SourceSecurityGroup
-    , mkSourceSecurityGroup
+    , sourceSecurityGroup
     , ssgOwnerAlias
     , ssgGroupName
 
     -- * Tag
     , Tag
-    , mkTag
+    , tag
     , tKey
     , tValue
 
     -- * TagDescription
     , TagDescription
-    , mkTagDescription
+    , tagDescription
     , tdLoadBalancerName
     , tdTags
     ) where
@@ -269,8 +269,8 @@ data ELBError
       -- | The same tag key specified multiple times.
     | DuplicateTagKeysException
     | ELBClient HttpException
-    | ELBSerializer Text
-    | ELBService Text
+    | ELBSerializer String
+    | ELBService String
       -- | Requested configuration change is invalid.
     | InvalidConfigurationRequestException
       -- | The specified EndPoint is not valid.
@@ -388,7 +388,7 @@ _ELBClient = prism'
         x -> Left x)
 
 -- | See: 'ELBSerializer'
-_ELBSerializer :: Prism' ELBError Text
+_ELBSerializer :: Prism' ELBError String
 _ELBSerializer = prism'
     ELBSerializer
     (\case
@@ -396,7 +396,7 @@ _ELBSerializer = prism'
         x -> Left x)
 
 -- | See: 'ELBService'
-_ELBService :: Prism' ELBError Text
+_ELBService :: Prism' ELBError String
 _ELBService = prism'
     ELBService
     (\case
@@ -556,9 +556,9 @@ newtype ConnectionSettings = ConnectionSettings
 --
 -- * @IdleTimeout ::@ @Integer@
 --
-mkConnectionSettings :: Integer -- ^ 'csIdleTimeout'
+connectionSettings :: Integer -- ^ 'csIdleTimeout'
                      -> ConnectionSettings
-mkConnectionSettings p1 = ConnectionSettings
+connectionSettings p1 = ConnectionSettings
     { _csIdleTimeout = p1
     }
 
@@ -590,9 +590,9 @@ newtype CrossZoneLoadBalancing = CrossZoneLoadBalancing
 --
 -- * @Enabled ::@ @Bool@
 --
-mkCrossZoneLoadBalancing :: Bool -- ^ 'czlbEnabled'
+crossZoneLoadBalancing :: Bool -- ^ 'czlbEnabled'
                          -> CrossZoneLoadBalancing
-mkCrossZoneLoadBalancing p1 = CrossZoneLoadBalancing
+crossZoneLoadBalancing p1 = CrossZoneLoadBalancing
     { _czlbEnabled = p1
     }
 
@@ -620,8 +620,8 @@ newtype Instance = Instance
 --
 -- * @InstanceId ::@ @Maybe Text@
 --
-mkInstance :: Instance
-mkInstance = Instance
+instance :: Instance
+instance = Instance
     { _iInstanceId = Nothing
     }
 
@@ -648,8 +648,8 @@ newtype TagKeyOnly = TagKeyOnly
 --
 -- * @Key ::@ @Maybe Text@
 --
-mkTagKeyOnly :: TagKeyOnly
-mkTagKeyOnly = TagKeyOnly
+tagKeyOnly :: TagKeyOnly
+tagKeyOnly = TagKeyOnly
     { _tkoKey = Nothing
     }
 
@@ -684,9 +684,9 @@ data AccessLog = AccessLog
 --
 -- * @S3BucketPrefix ::@ @Maybe Text@
 --
-mkAccessLog :: Bool -- ^ 'alEnabled'
+accessLog :: Bool -- ^ 'alEnabled'
             -> AccessLog
-mkAccessLog p1 = AccessLog
+accessLog p1 = AccessLog
     { _alEnabled = p1
     , _alS3BucketName = Nothing
     , _alEmitInterval = Nothing
@@ -735,8 +735,8 @@ data AppCookieStickinessPolicy = AppCookieStickinessPolicy
 --
 -- * @CookieName ::@ @Maybe Text@
 --
-mkAppCookieStickinessPolicy :: AppCookieStickinessPolicy
-mkAppCookieStickinessPolicy = AppCookieStickinessPolicy
+appCookieStickinessPolicy :: AppCookieStickinessPolicy
+appCookieStickinessPolicy = AppCookieStickinessPolicy
     { _acspPolicyName = Nothing
     , _acspCookieName = Nothing
     }
@@ -773,8 +773,8 @@ data BackendServerDescription = BackendServerDescription
 --
 -- * @PolicyNames ::@ @[Text]@
 --
-mkBackendServerDescription :: BackendServerDescription
-mkBackendServerDescription = BackendServerDescription
+backendServerDescription :: BackendServerDescription
+backendServerDescription = BackendServerDescription
     { _bsdInstancePort = Nothing
     , _bsdPolicyNames = mempty
     }
@@ -812,9 +812,9 @@ data ConnectionDraining = ConnectionDraining
 --
 -- * @Timeout ::@ @Maybe Integer@
 --
-mkConnectionDraining :: Bool -- ^ 'cdEnabled'
+connectionDraining :: Bool -- ^ 'cdEnabled'
                      -> ConnectionDraining
-mkConnectionDraining p1 = ConnectionDraining
+connectionDraining p1 = ConnectionDraining
     { _cdEnabled = p1
     , _cdTimeout = Nothing
     }
@@ -860,13 +860,13 @@ data HealthCheck = HealthCheck
 --
 -- * @HealthyThreshold ::@ @Integer@
 --
-mkHealthCheck :: Text -- ^ 'hcTarget'
+healthCheck :: Text -- ^ 'hcTarget'
               -> Integer -- ^ 'hcInterval'
               -> Integer -- ^ 'hcTimeout'
               -> Integer -- ^ 'hcUnhealthyThreshold'
               -> Integer -- ^ 'hcHealthyThreshold'
               -> HealthCheck
-mkHealthCheck p1 p2 p3 p4 p5 = HealthCheck
+healthCheck p1 p2 p3 p4 p5 = HealthCheck
     { _hcTarget = p1
     , _hcInterval = p2
     , _hcTimeout = p3
@@ -943,8 +943,8 @@ data InstanceState = InstanceState
 --
 -- * @Description ::@ @Maybe Text@
 --
-mkInstanceState :: InstanceState
-mkInstanceState = InstanceState
+instanceState :: InstanceState
+instanceState = InstanceState
     { _isInstanceId = Nothing
     , _isState = Nothing
     , _isReasonCode = Nothing
@@ -989,8 +989,8 @@ data LBCookieStickinessPolicy = LBCookieStickinessPolicy
 --
 -- * @CookieExpirationPeriod ::@ @Maybe Integer@
 --
-mkLBCookieStickinessPolicy :: LBCookieStickinessPolicy
-mkLBCookieStickinessPolicy = LBCookieStickinessPolicy
+lBCookieStickinessPolicy :: LBCookieStickinessPolicy
+lBCookieStickinessPolicy = LBCookieStickinessPolicy
     { _lbcspPolicyName = Nothing
     , _lbcspCookieExpirationPeriod = Nothing
     }
@@ -1039,11 +1039,11 @@ data Listener = Listener
 --
 -- * @SSLCertificateId ::@ @Maybe Text@
 --
-mkListener :: Text -- ^ 'lProtocol'
+listener :: Text -- ^ 'lProtocol'
            -> Integer -- ^ 'lLoadBalancerPort'
            -> Integer -- ^ 'lInstancePort'
            -> Listener
-mkListener p1 p2 p4 = Listener
+listener p1 p2 p4 = Listener
     { _lProtocol = p1
     , _lLoadBalancerPort = p2
     , _lInstanceProtocol = Nothing
@@ -1111,8 +1111,8 @@ data ListenerDescription = ListenerDescription
 --
 -- * @PolicyNames ::@ @[Text]@
 --
-mkListenerDescription :: ListenerDescription
-mkListenerDescription = ListenerDescription
+listenerDescription :: ListenerDescription
+listenerDescription = ListenerDescription
     { _ldListener = Nothing
     , _ldPolicyNames = mempty
     }
@@ -1154,8 +1154,8 @@ data LoadBalancerAttributes = LoadBalancerAttributes
 --
 -- * @ConnectionSettings ::@ @Maybe ConnectionSettings@
 --
-mkLoadBalancerAttributes :: LoadBalancerAttributes
-mkLoadBalancerAttributes = LoadBalancerAttributes
+loadBalancerAttributes :: LoadBalancerAttributes
+loadBalancerAttributes = LoadBalancerAttributes
     { _lbaCrossZoneLoadBalancing = Nothing
     , _lbaAccessLog = Nothing
     , _lbaConnectionDraining = Nothing
@@ -1263,8 +1263,8 @@ data LoadBalancerDescription = LoadBalancerDescription
 --
 -- * @Scheme ::@ @Maybe Text@
 --
-mkLoadBalancerDescription :: LoadBalancerDescription
-mkLoadBalancerDescription = LoadBalancerDescription
+loadBalancerDescription :: LoadBalancerDescription
+loadBalancerDescription = LoadBalancerDescription
     { _lbdLoadBalancerName = Nothing
     , _lbdDNSName = Nothing
     , _lbdCanonicalHostedZoneName = Nothing
@@ -1396,8 +1396,8 @@ data Policies = Policies
 --
 -- * @OtherPolicies ::@ @[Text]@
 --
-mkPolicies :: Policies
-mkPolicies = Policies
+policies :: Policies
+policies = Policies
     { _pAppCookieStickinessPolicies = mempty
     , _pLBCookieStickinessPolicies = mempty
     , _pOtherPolicies = mempty
@@ -1444,8 +1444,8 @@ data PolicyAttribute = PolicyAttribute
 --
 -- * @AttributeValue ::@ @Maybe Text@
 --
-mkPolicyAttribute :: PolicyAttribute
-mkPolicyAttribute = PolicyAttribute
+policyAttribute :: PolicyAttribute
+policyAttribute = PolicyAttribute
     { _paAttributeName = Nothing
     , _paAttributeValue = Nothing
     }
@@ -1478,8 +1478,8 @@ data PolicyAttributeDescription = PolicyAttributeDescription
 --
 -- * @AttributeValue ::@ @Maybe Text@
 --
-mkPolicyAttributeDescription :: PolicyAttributeDescription
-mkPolicyAttributeDescription = PolicyAttributeDescription
+policyAttributeDescription :: PolicyAttributeDescription
+policyAttributeDescription = PolicyAttributeDescription
     { _padAttributeName = Nothing
     , _padAttributeValue = Nothing
     }
@@ -1526,8 +1526,8 @@ data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription
 --
 -- * @Cardinality ::@ @Maybe Text@
 --
-mkPolicyAttributeTypeDescription :: PolicyAttributeTypeDescription
-mkPolicyAttributeTypeDescription = PolicyAttributeTypeDescription
+policyAttributeTypeDescription :: PolicyAttributeTypeDescription
+policyAttributeTypeDescription = PolicyAttributeTypeDescription
     { _patdAttributeName = Nothing
     , _patdAttributeType = Nothing
     , _patdDescription = Nothing
@@ -1589,8 +1589,8 @@ data PolicyDescription = PolicyDescription
 --
 -- * @PolicyAttributeDescriptions ::@ @[PolicyAttributeDescription]@
 --
-mkPolicyDescription :: PolicyDescription
-mkPolicyDescription = PolicyDescription
+policyDescription :: PolicyDescription
+policyDescription = PolicyDescription
     { _pdPolicyName = Nothing
     , _pdPolicyTypeName = Nothing
     , _pdPolicyAttributeDescriptions = mempty
@@ -1636,8 +1636,8 @@ data PolicyTypeDescription = PolicyTypeDescription
 --
 -- * @PolicyAttributeTypeDescriptions ::@ @[PolicyAttributeTypeDescription]@
 --
-mkPolicyTypeDescription :: PolicyTypeDescription
-mkPolicyTypeDescription = PolicyTypeDescription
+policyTypeDescription :: PolicyTypeDescription
+policyTypeDescription = PolicyTypeDescription
     { _ptdPolicyTypeName = Nothing
     , _ptdDescription = Nothing
     , _ptdPolicyAttributeTypeDescriptions = mempty
@@ -1681,8 +1681,8 @@ data SourceSecurityGroup = SourceSecurityGroup
 --
 -- * @GroupName ::@ @Maybe Text@
 --
-mkSourceSecurityGroup :: SourceSecurityGroup
-mkSourceSecurityGroup = SourceSecurityGroup
+sourceSecurityGroup :: SourceSecurityGroup
+sourceSecurityGroup = SourceSecurityGroup
     { _ssgOwnerAlias = Nothing
     , _ssgGroupName = Nothing
     }
@@ -1721,9 +1721,9 @@ data Tag = Tag
 --
 -- * @Value ::@ @Maybe Text@
 --
-mkTag :: Text -- ^ 'tKey'
+tag :: Text -- ^ 'tKey'
       -> Tag
-mkTag p1 = Tag
+tag p1 = Tag
     { _tKey = p1
     , _tValue = Nothing
     }
@@ -1761,8 +1761,8 @@ data TagDescription = TagDescription
 --
 -- * @Tags ::@ @Maybe (List1 Tag)@
 --
-mkTagDescription :: TagDescription
-mkTagDescription = TagDescription
+tagDescription :: TagDescription
+tagDescription = TagDescription
     { _tdLoadBalancerName = Nothing
     , _tdTags = Nothing
     }

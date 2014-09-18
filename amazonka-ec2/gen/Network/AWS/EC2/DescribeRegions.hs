@@ -31,7 +31,7 @@ module Network.AWS.EC2.DescribeRegions
     -- * Request
       DescribeRegions
     -- ** Request constructor
-    , mkDescribeRegions
+    , describeRegions
     -- ** Request lenses
     , dr1RegionNames
     , dr1Filters
@@ -39,7 +39,7 @@ module Network.AWS.EC2.DescribeRegions
     -- * Response
     , DescribeRegionsResponse
     -- ** Response constructor
-    , mkDescribeRegionsResponse
+    , describeRegionsResponse
     -- ** Response lenses
     , drrRegions
     ) where
@@ -62,8 +62,8 @@ data DescribeRegions = DescribeRegions
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribeRegions :: DescribeRegions
-mkDescribeRegions = DescribeRegions
+describeRegions :: DescribeRegions
+describeRegions = DescribeRegions
     { _dr1RegionNames = mempty
     , _dr1Filters = mempty
     }
@@ -94,8 +94,8 @@ newtype DescribeRegionsResponse = DescribeRegionsResponse
 --
 -- * @Regions ::@ @[Region]@
 --
-mkDescribeRegionsResponse :: DescribeRegionsResponse
-mkDescribeRegionsResponse = DescribeRegionsResponse
+describeRegionsResponse :: DescribeRegionsResponse
+describeRegionsResponse = DescribeRegionsResponse
     { _drrRegions = mempty
     }
 

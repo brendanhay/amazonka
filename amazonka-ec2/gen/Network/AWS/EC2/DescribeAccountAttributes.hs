@@ -70,14 +70,14 @@ module Network.AWS.EC2.DescribeAccountAttributes
     -- * Request
       DescribeAccountAttributes
     -- ** Request constructor
-    , mkDescribeAccountAttributes
+    , describeAccountAttributes
     -- ** Request lenses
     , daaAttributeNames
 
     -- * Response
     , DescribeAccountAttributesResponse
     -- ** Response constructor
-    , mkDescribeAccountAttributesResponse
+    , describeAccountAttributesResponse
     -- ** Response lenses
     , daarAccountAttributes
     ) where
@@ -97,8 +97,8 @@ newtype DescribeAccountAttributes = DescribeAccountAttributes
 --
 -- * @AttributeNames ::@ @[AccountAttributeName]@
 --
-mkDescribeAccountAttributes :: DescribeAccountAttributes
-mkDescribeAccountAttributes = DescribeAccountAttributes
+describeAccountAttributes :: DescribeAccountAttributes
+describeAccountAttributes = DescribeAccountAttributes
     { _daaAttributeNames = mempty
     }
 
@@ -123,8 +123,8 @@ newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
 --
 -- * @AccountAttributes ::@ @[AccountAttribute]@
 --
-mkDescribeAccountAttributesResponse :: DescribeAccountAttributesResponse
-mkDescribeAccountAttributesResponse = DescribeAccountAttributesResponse
+describeAccountAttributesResponse :: DescribeAccountAttributesResponse
+describeAccountAttributesResponse = DescribeAccountAttributesResponse
     { _daarAccountAttributes = mempty
     }
 

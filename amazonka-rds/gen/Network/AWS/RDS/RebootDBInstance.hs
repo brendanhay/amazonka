@@ -45,7 +45,7 @@ module Network.AWS.RDS.RebootDBInstance
     -- * Request
       RebootDBInstance
     -- ** Request constructor
-    , mkRebootDBInstance
+    , rebootDBInstance
     -- ** Request lenses
     , rdbi1DBInstanceIdentifier
     , rdbi1ForceFailover
@@ -53,7 +53,7 @@ module Network.AWS.RDS.RebootDBInstance
     -- * Response
     , RebootDBInstanceResponse
     -- ** Response constructor
-    , mkRebootDBInstanceResponse
+    , rebootDBInstanceResponse
     -- ** Response lenses
     , rdbirDBInstance
     ) where
@@ -77,9 +77,9 @@ data RebootDBInstance = RebootDBInstance
 --
 -- * @ForceFailover ::@ @Maybe Bool@
 --
-mkRebootDBInstance :: Text -- ^ 'rdbi1DBInstanceIdentifier'
+rebootDBInstance :: Text -- ^ 'rdbi1DBInstanceIdentifier'
                    -> RebootDBInstance
-mkRebootDBInstance p1 = RebootDBInstance
+rebootDBInstance p1 = RebootDBInstance
     { _rdbi1DBInstanceIdentifier = p1
     , _rdbi1ForceFailover = Nothing
     }
@@ -116,8 +116,8 @@ newtype RebootDBInstanceResponse = RebootDBInstanceResponse
 --
 -- * @DBInstance ::@ @Maybe DBInstance@
 --
-mkRebootDBInstanceResponse :: RebootDBInstanceResponse
-mkRebootDBInstanceResponse = RebootDBInstanceResponse
+rebootDBInstanceResponse :: RebootDBInstanceResponse
+rebootDBInstanceResponse = RebootDBInstanceResponse
     { _rdbirDBInstance = Nothing
     }
 

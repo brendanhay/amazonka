@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.CreateLaunchConfiguration
     -- * Request
       CreateLaunchConfiguration
     -- ** Request constructor
-    , mkCreateLaunchConfiguration
+    , createLaunchConfiguration
     -- ** Request lenses
     , clcLaunchConfigurationName
     , clcImageId
@@ -54,7 +54,7 @@ module Network.AWS.AutoScaling.CreateLaunchConfiguration
     -- * Response
     , CreateLaunchConfigurationResponse
     -- ** Response constructor
-    , mkCreateLaunchConfigurationResponse
+    , createLaunchConfigurationResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -118,9 +118,9 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration
 --
 -- * @PlacementTenancy ::@ @Maybe Text@
 --
-mkCreateLaunchConfiguration :: Text -- ^ 'clcLaunchConfigurationName'
+createLaunchConfiguration :: Text -- ^ 'clcLaunchConfigurationName'
                             -> CreateLaunchConfiguration
-mkCreateLaunchConfiguration p1 = CreateLaunchConfiguration
+createLaunchConfiguration p1 = CreateLaunchConfiguration
     { _clcLaunchConfigurationName = p1
     , _clcImageId = Nothing
     , _clcKeyName = Nothing
@@ -292,8 +292,8 @@ data CreateLaunchConfigurationResponse = CreateLaunchConfigurationResponse
 -- a valid 'CreateLaunchConfigurationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkCreateLaunchConfigurationResponse :: CreateLaunchConfigurationResponse
-mkCreateLaunchConfigurationResponse = CreateLaunchConfigurationResponse
+createLaunchConfigurationResponse :: CreateLaunchConfigurationResponse
+createLaunchConfigurationResponse = CreateLaunchConfigurationResponse
 
 instance AWSRequest CreateLaunchConfiguration where
     type Sv CreateLaunchConfiguration = AutoScaling

@@ -37,7 +37,7 @@ module Network.AWS.IAM.ListVirtualMFADevices
     -- * Request
       ListVirtualMFADevices
     -- ** Request constructor
-    , mkListVirtualMFADevices
+    , listVirtualMFADevices
     -- ** Request lenses
     , lvmfadAssignmentStatus
     , lvmfadMarker
@@ -46,7 +46,7 @@ module Network.AWS.IAM.ListVirtualMFADevices
     -- * Response
     , ListVirtualMFADevicesResponse
     -- ** Response constructor
-    , mkListVirtualMFADevicesResponse
+    , listVirtualMFADevicesResponse
     -- ** Response lenses
     , lvmfadrVirtualMFADevices
     , lvmfadrIsTruncated
@@ -74,8 +74,8 @@ data ListVirtualMFADevices = ListVirtualMFADevices
 --
 -- * @MaxItems ::@ @Maybe Integer@
 --
-mkListVirtualMFADevices :: ListVirtualMFADevices
-mkListVirtualMFADevices = ListVirtualMFADevices
+listVirtualMFADevices :: ListVirtualMFADevices
+listVirtualMFADevices = ListVirtualMFADevices
     { _lvmfadAssignmentStatus = Nothing
     , _lvmfadMarker = Nothing
     , _lvmfadMaxItems = Nothing
@@ -127,10 +127,10 @@ data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListVirtualMFADevicesResponse :: [VirtualMFADevice] -- ^ 'lvmfadrVirtualMFADevices'
+listVirtualMFADevicesResponse :: [VirtualMFADevice] -- ^ 'lvmfadrVirtualMFADevices'
                                 -> Bool -- ^ 'lvmfadrIsTruncated'
                                 -> ListVirtualMFADevicesResponse
-mkListVirtualMFADevicesResponse p1 p2 = ListVirtualMFADevicesResponse
+listVirtualMFADevicesResponse p1 p2 = ListVirtualMFADevicesResponse
     { _lvmfadrVirtualMFADevices = p1
     , _lvmfadrIsTruncated = p2
     , _lvmfadrMarker = Nothing

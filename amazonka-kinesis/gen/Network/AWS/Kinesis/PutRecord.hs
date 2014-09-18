@@ -59,7 +59,7 @@ module Network.AWS.Kinesis.PutRecord
     -- * Request
       PutRecord
     -- ** Request constructor
-    , mkPutRecord
+    , putRecord
     -- ** Request lenses
     , prStreamName
     , prData
@@ -70,7 +70,7 @@ module Network.AWS.Kinesis.PutRecord
     -- * Response
     , PutRecordResponse
     -- ** Response constructor
-    , mkPutRecordResponse
+    , putRecordResponse
     -- ** Response lenses
     , prrShardId
     , prrSequenceNumber
@@ -104,11 +104,11 @@ data PutRecord = PutRecord
 --
 -- * @SequenceNumberForOrdering ::@ @Maybe Text@
 --
-mkPutRecord :: Text -- ^ 'prStreamName'
+putRecord :: Text -- ^ 'prStreamName'
             -> Base64 -- ^ 'prData'
             -> Text -- ^ 'prPartitionKey'
             -> PutRecord
-mkPutRecord p1 p2 p3 = PutRecord
+putRecord p1 p2 p3 = PutRecord
     { _prStreamName = p1
     , _prData = p2
     , _prPartitionKey = p3
@@ -179,10 +179,10 @@ data PutRecordResponse = PutRecordResponse
 --
 -- * @SequenceNumber ::@ @Text@
 --
-mkPutRecordResponse :: Text -- ^ 'prrShardId'
+putRecordResponse :: Text -- ^ 'prrShardId'
                     -> Text -- ^ 'prrSequenceNumber'
                     -> PutRecordResponse
-mkPutRecordResponse p1 p2 = PutRecordResponse
+putRecordResponse p1 p2 = PutRecordResponse
     { _prrShardId = p1
     , _prrSequenceNumber = p2
     }

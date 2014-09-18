@@ -44,14 +44,14 @@ module Network.AWS.SES.VerifyDomainDkim
     -- * Request
       VerifyDomainDkim
     -- ** Request constructor
-    , mkVerifyDomainDkim
+    , verifyDomainDkim
     -- ** Request lenses
     , vddDomain
 
     -- * Response
     , VerifyDomainDkimResponse
     -- ** Response constructor
-    , mkVerifyDomainDkimResponse
+    , verifyDomainDkimResponse
     -- ** Response lenses
     , vddrDkimTokens
     ) where
@@ -73,9 +73,9 @@ newtype VerifyDomainDkim = VerifyDomainDkim
 --
 -- * @Domain ::@ @Text@
 --
-mkVerifyDomainDkim :: Text -- ^ 'vddDomain'
+verifyDomainDkim :: Text -- ^ 'vddDomain'
                    -> VerifyDomainDkim
-mkVerifyDomainDkim p1 = VerifyDomainDkim
+verifyDomainDkim p1 = VerifyDomainDkim
     { _vddDomain = p1
     }
 
@@ -101,9 +101,9 @@ newtype VerifyDomainDkimResponse = VerifyDomainDkimResponse
 --
 -- * @DkimTokens ::@ @[Text]@
 --
-mkVerifyDomainDkimResponse :: [Text] -- ^ 'vddrDkimTokens'
+verifyDomainDkimResponse :: [Text] -- ^ 'vddrDkimTokens'
                            -> VerifyDomainDkimResponse
-mkVerifyDomainDkimResponse p1 = VerifyDomainDkimResponse
+verifyDomainDkimResponse p1 = VerifyDomainDkimResponse
     { _vddrDkimTokens = p1
     }
 

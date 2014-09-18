@@ -39,7 +39,7 @@ module Network.AWS.Route53Domains.CheckDomainAvailability
     -- * Request
       CheckDomainAvailability
     -- ** Request constructor
-    , mkCheckDomainAvailability
+    , checkDomainAvailability
     -- ** Request lenses
     , cdaDomainName
     , cdaIdnLangCode
@@ -47,7 +47,7 @@ module Network.AWS.Route53Domains.CheckDomainAvailability
     -- * Response
     , CheckDomainAvailabilityResponse
     -- ** Response constructor
-    , mkCheckDomainAvailabilityResponse
+    , checkDomainAvailabilityResponse
     -- ** Response lenses
     , cdarAvailability
     ) where
@@ -71,9 +71,9 @@ data CheckDomainAvailability = CheckDomainAvailability
 --
 -- * @IdnLangCode ::@ @Maybe Text@
 --
-mkCheckDomainAvailability :: Text -- ^ 'cdaDomainName'
+checkDomainAvailability :: Text -- ^ 'cdaDomainName'
                           -> CheckDomainAvailability
-mkCheckDomainAvailability p1 = CheckDomainAvailability
+checkDomainAvailability p1 = CheckDomainAvailability
     { _cdaDomainName = p1
     , _cdaIdnLangCode = Nothing
     }
@@ -111,9 +111,9 @@ newtype CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse
 --
 -- * @Availability ::@ @DomainAvailability@
 --
-mkCheckDomainAvailabilityResponse :: DomainAvailability -- ^ 'cdarAvailability'
+checkDomainAvailabilityResponse :: DomainAvailability -- ^ 'cdarAvailability'
                                   -> CheckDomainAvailabilityResponse
-mkCheckDomainAvailabilityResponse p1 = CheckDomainAvailabilityResponse
+checkDomainAvailabilityResponse p1 = CheckDomainAvailabilityResponse
     { _cdarAvailability = p1
     }
 

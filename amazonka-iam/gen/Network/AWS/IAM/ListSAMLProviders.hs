@@ -30,11 +30,11 @@ module Network.AWS.IAM.ListSAMLProviders
     -- * Request
       ListSAMLProviders
     -- ** Request constructor
-    , mkListSAMLProviders
+    , listSAMLProviders
     -- * Response
     , ListSAMLProvidersResponse
     -- ** Response constructor
-    , mkListSAMLProvidersResponse
+    , listSAMLProvidersResponse
     -- ** Response lenses
     , lsamlprSAMLProviderList
     ) where
@@ -48,8 +48,8 @@ data ListSAMLProviders = ListSAMLProviders
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListSAMLProviders' request.
-mkListSAMLProviders :: ListSAMLProviders
-mkListSAMLProviders = ListSAMLProviders
+listSAMLProviders :: ListSAMLProviders
+listSAMLProviders = ListSAMLProviders
 
 instance ToQuery ListSAMLProviders where
     toQuery = genericQuery def
@@ -69,8 +69,8 @@ newtype ListSAMLProvidersResponse = ListSAMLProvidersResponse
 --
 -- * @SAMLProviderList ::@ @[SAMLProviderListEntry]@
 --
-mkListSAMLProvidersResponse :: ListSAMLProvidersResponse
-mkListSAMLProvidersResponse = ListSAMLProvidersResponse
+listSAMLProvidersResponse :: ListSAMLProvidersResponse
+listSAMLProvidersResponse = ListSAMLProvidersResponse
     { _lsamlprSAMLProviderList = mempty
     }
 

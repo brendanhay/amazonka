@@ -31,7 +31,7 @@ module Network.AWS.IAM.CreateInstanceProfile
     -- * Request
       CreateInstanceProfile
     -- ** Request constructor
-    , mkCreateInstanceProfile
+    , createInstanceProfile
     -- ** Request lenses
     , cipInstanceProfileName
     , cipPath
@@ -39,7 +39,7 @@ module Network.AWS.IAM.CreateInstanceProfile
     -- * Response
     , CreateInstanceProfileResponse
     -- ** Response constructor
-    , mkCreateInstanceProfileResponse
+    , createInstanceProfileResponse
     -- ** Response lenses
     , ciprInstanceProfile
     ) where
@@ -62,9 +62,9 @@ data CreateInstanceProfile = CreateInstanceProfile
 --
 -- * @Path ::@ @Maybe Text@
 --
-mkCreateInstanceProfile :: Text -- ^ 'cipInstanceProfileName'
+createInstanceProfile :: Text -- ^ 'cipInstanceProfileName'
                         -> CreateInstanceProfile
-mkCreateInstanceProfile p1 = CreateInstanceProfile
+createInstanceProfile p1 = CreateInstanceProfile
     { _cipInstanceProfileName = p1
     , _cipPath = Nothing
     }
@@ -98,9 +98,9 @@ newtype CreateInstanceProfileResponse = CreateInstanceProfileResponse
 --
 -- * @InstanceProfile ::@ @InstanceProfile@
 --
-mkCreateInstanceProfileResponse :: InstanceProfile -- ^ 'ciprInstanceProfile'
+createInstanceProfileResponse :: InstanceProfile -- ^ 'ciprInstanceProfile'
                                 -> CreateInstanceProfileResponse
-mkCreateInstanceProfileResponse p1 = CreateInstanceProfileResponse
+createInstanceProfileResponse p1 = CreateInstanceProfileResponse
     { _ciprInstanceProfile = p1
     }
 

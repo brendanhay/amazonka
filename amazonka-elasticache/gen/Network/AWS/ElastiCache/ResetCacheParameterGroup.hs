@@ -33,7 +33,7 @@ module Network.AWS.ElastiCache.ResetCacheParameterGroup
     -- * Request
       ResetCacheParameterGroup
     -- ** Request constructor
-    , mkResetCacheParameterGroup
+    , resetCacheParameterGroup
     -- ** Request lenses
     , rcpgCacheParameterGroupName
     , rcpgResetAllParameters
@@ -42,7 +42,7 @@ module Network.AWS.ElastiCache.ResetCacheParameterGroup
     -- * Response
     , ResetCacheParameterGroupResponse
     -- ** Response constructor
-    , mkResetCacheParameterGroupResponse
+    , resetCacheParameterGroupResponse
     -- ** Response lenses
     , rcpgrCacheParameterGroupName
     ) where
@@ -69,10 +69,10 @@ data ResetCacheParameterGroup = ResetCacheParameterGroup
 --
 -- * @ParameterNameValues ::@ @[ParameterNameValue]@
 --
-mkResetCacheParameterGroup :: Text -- ^ 'rcpgCacheParameterGroupName'
+resetCacheParameterGroup :: Text -- ^ 'rcpgCacheParameterGroupName'
                            -> [ParameterNameValue] -- ^ 'rcpgParameterNameValues'
                            -> ResetCacheParameterGroup
-mkResetCacheParameterGroup p1 p3 = ResetCacheParameterGroup
+resetCacheParameterGroup p1 p3 = ResetCacheParameterGroup
     { _rcpgCacheParameterGroupName = p1
     , _rcpgResetAllParameters = Nothing
     , _rcpgParameterNameValues = p3
@@ -116,8 +116,8 @@ newtype ResetCacheParameterGroupResponse = ResetCacheParameterGroupResponse
 --
 -- * @CacheParameterGroupName ::@ @Maybe Text@
 --
-mkResetCacheParameterGroupResponse :: ResetCacheParameterGroupResponse
-mkResetCacheParameterGroupResponse = ResetCacheParameterGroupResponse
+resetCacheParameterGroupResponse :: ResetCacheParameterGroupResponse
+resetCacheParameterGroupResponse = ResetCacheParameterGroupResponse
     { _rcpgrCacheParameterGroupName = Nothing
     }
 

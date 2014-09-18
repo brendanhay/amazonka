@@ -32,7 +32,7 @@ module Network.AWS.EC2.ModifyNetworkInterfaceAttribute
     -- * Request
       ModifyNetworkInterfaceAttribute
     -- ** Request constructor
-    , mkModifyNetworkInterfaceAttribute
+    , modifyNetworkInterfaceAttribute
     -- ** Request lenses
     , mniaNetworkInterfaceId
     , mniaDescription
@@ -43,7 +43,7 @@ module Network.AWS.EC2.ModifyNetworkInterfaceAttribute
     -- * Response
     , ModifyNetworkInterfaceAttributeResponse
     -- ** Response constructor
-    , mkModifyNetworkInterfaceAttributeResponse
+    , modifyNetworkInterfaceAttributeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -73,9 +73,9 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
 --
 -- * @Attachment ::@ @Maybe NetworkInterfaceAttachmentChanges@
 --
-mkModifyNetworkInterfaceAttribute :: Text -- ^ 'mniaNetworkInterfaceId'
+modifyNetworkInterfaceAttribute :: Text -- ^ 'mniaNetworkInterfaceId'
                                   -> ModifyNetworkInterfaceAttribute
-mkModifyNetworkInterfaceAttribute p1 = ModifyNetworkInterfaceAttribute
+modifyNetworkInterfaceAttribute p1 = ModifyNetworkInterfaceAttribute
     { _mniaNetworkInterfaceId = p1
     , _mniaDescription = Nothing
     , _mniaSourceDestCheck = Nothing
@@ -121,8 +121,8 @@ data ModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeRe
 -- a valid 'ModifyNetworkInterfaceAttributeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkModifyNetworkInterfaceAttributeResponse :: ModifyNetworkInterfaceAttributeResponse
-mkModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse
+modifyNetworkInterfaceAttributeResponse :: ModifyNetworkInterfaceAttributeResponse
+modifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse
 
 instance AWSRequest ModifyNetworkInterfaceAttribute where
     type Sv ModifyNetworkInterfaceAttribute = EC2

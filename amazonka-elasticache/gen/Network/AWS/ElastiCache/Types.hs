@@ -85,17 +85,17 @@ module Network.AWS.ElastiCache.Types
 
     -- * AvailabilityZone
     , AvailabilityZone
-    , mkAvailabilityZone
+    , availabilityZone
     , azName
 
     -- * ReplicationGroupPendingModifiedValues
     , ReplicationGroupPendingModifiedValues
-    , mkReplicationGroupPendingModifiedValues
+    , replicationGroupPendingModifiedValues
     , rgpmvPrimaryClusterId
 
     -- * CacheCluster
     , CacheCluster
-    , mkCacheCluster
+    , cacheCluster
     , ccCacheClusterId
     , ccConfigurationEndpoint
     , ccClientDownloadLandingPage
@@ -121,7 +121,7 @@ module Network.AWS.ElastiCache.Types
 
     -- * CacheEngineVersion
     , CacheEngineVersion
-    , mkCacheEngineVersion
+    , cacheEngineVersion
     , cevEngine
     , cevEngineVersion
     , cevCacheParameterGroupFamily
@@ -130,7 +130,7 @@ module Network.AWS.ElastiCache.Types
 
     -- * CacheNode
     , CacheNode
-    , mkCacheNode
+    , cacheNode
     , cnCacheNodeId
     , cnCacheNodeStatus
     , cnCacheNodeCreateTime
@@ -141,7 +141,7 @@ module Network.AWS.ElastiCache.Types
 
     -- * CacheNodeTypeSpecificParameter
     , CacheNodeTypeSpecificParameter
-    , mkCacheNodeTypeSpecificParameter
+    , cacheNodeTypeSpecificParameter
     , cntspParameterName
     , cntspDescription
     , cntspSource
@@ -153,27 +153,27 @@ module Network.AWS.ElastiCache.Types
 
     -- * CacheNodeTypeSpecificValue
     , CacheNodeTypeSpecificValue
-    , mkCacheNodeTypeSpecificValue
+    , cacheNodeTypeSpecificValue
     , cntsvCacheNodeType
     , cntsvValue
 
     -- * CacheParameterGroup
     , CacheParameterGroup
-    , mkCacheParameterGroup
+    , cacheParameterGroup
     , cpgCacheParameterGroupName
     , cpgCacheParameterGroupFamily
     , cpgDescription
 
     -- * CacheParameterGroupStatus
     , CacheParameterGroupStatus
-    , mkCacheParameterGroupStatus
+    , cacheParameterGroupStatus
     , cpgsCacheParameterGroupName
     , cpgsParameterApplyStatus
     , cpgsCacheNodeIdsToReboot
 
     -- * CacheSecurityGroup
     , CacheSecurityGroup
-    , mkCacheSecurityGroup
+    , cacheSecurityGroup
     , csgOwnerId
     , csgCacheSecurityGroupName
     , csgDescription
@@ -181,13 +181,13 @@ module Network.AWS.ElastiCache.Types
 
     -- * CacheSecurityGroupMembership
     , CacheSecurityGroupMembership
-    , mkCacheSecurityGroupMembership
+    , cacheSecurityGroupMembership
     , csgmCacheSecurityGroupName
     , csgmStatus
 
     -- * CacheSubnetGroup
     , CacheSubnetGroup
-    , mkCacheSubnetGroup
+    , cacheSubnetGroup
     , csgrCacheSubnetGroupName
     , csgrCacheSubnetGroupDescription
     , csgrVpcId
@@ -195,20 +195,20 @@ module Network.AWS.ElastiCache.Types
 
     -- * EC2SecurityGroup
     , EC2SecurityGroup
-    , mkEC2SecurityGroup
+    , eC2SecurityGroup
     , ecsgStatus
     , ecsgEC2SecurityGroupName
     , ecsgEC2SecurityGroupOwnerId
 
     -- * Endpoint
     , Endpoint
-    , mkEndpoint
+    , endpoint
     , eAddress
     , ePort
 
     -- * EngineDefaults
     , EngineDefaults
-    , mkEngineDefaults
+    , engineDefaults
     , edCacheParameterGroupFamily
     , edMarker
     , edParameters
@@ -216,7 +216,7 @@ module Network.AWS.ElastiCache.Types
 
     -- * Event
     , Event
-    , mkEvent
+    , event
     , erSourceIdentifier
     , erSourceType
     , erMessage
@@ -224,7 +224,7 @@ module Network.AWS.ElastiCache.Types
 
     -- * NodeGroup
     , NodeGroup
-    , mkNodeGroup
+    , nodeGroup
     , ngNodeGroupId
     , ngStatus
     , ngPrimaryEndpoint
@@ -232,7 +232,7 @@ module Network.AWS.ElastiCache.Types
 
     -- * NodeGroupMember
     , NodeGroupMember
-    , mkNodeGroupMember
+    , nodeGroupMember
     , ngmCacheClusterId
     , ngmCacheNodeId
     , ngmReadEndpoint
@@ -241,7 +241,7 @@ module Network.AWS.ElastiCache.Types
 
     -- * NodeSnapshot
     , NodeSnapshot
-    , mkNodeSnapshot
+    , nodeSnapshot
     , nsCacheNodeId
     , nsCacheSize
     , nsCacheNodeCreateTime
@@ -249,13 +249,13 @@ module Network.AWS.ElastiCache.Types
 
     -- * NotificationConfiguration
     , NotificationConfiguration
-    , mkNotificationConfiguration
+    , notificationConfiguration
     , ncTopicArn
     , ncTopicStatus
 
     -- * Parameter
     , Parameter
-    , mkParameter
+    , parameter
     , pParameterName
     , pParameterValue
     , pDescription
@@ -267,26 +267,26 @@ module Network.AWS.ElastiCache.Types
 
     -- * ParameterNameValue
     , ParameterNameValue
-    , mkParameterNameValue
+    , parameterNameValue
     , pnvParameterName
     , pnvParameterValue
 
     -- * PendingModifiedValues
     , PendingModifiedValues
-    , mkPendingModifiedValues
+    , pendingModifiedValues
     , pmvNumCacheNodes
     , pmvCacheNodeIdsToRemove
     , pmvEngineVersion
 
     -- * RecurringCharge
     , RecurringCharge
-    , mkRecurringCharge
+    , recurringCharge
     , rcRecurringChargeAmount
     , rcRecurringChargeFrequency
 
     -- * ReplicationGroup
     , ReplicationGroup
-    , mkReplicationGroup
+    , replicationGroup
     , rgReplicationGroupId
     , rgDescription
     , rgStatus
@@ -297,7 +297,7 @@ module Network.AWS.ElastiCache.Types
 
     -- * ReservedCacheNode
     , ReservedCacheNode
-    , mkReservedCacheNode
+    , reservedCacheNode
     , rcnReservedCacheNodeId
     , rcnReservedCacheNodesOfferingId
     , rcnCacheNodeType
@@ -313,7 +313,7 @@ module Network.AWS.ElastiCache.Types
 
     -- * ReservedCacheNodesOffering
     , ReservedCacheNodesOffering
-    , mkReservedCacheNodesOffering
+    , reservedCacheNodesOffering
     , rcnoReservedCacheNodesOfferingId
     , rcnoCacheNodeType
     , rcnoDuration
@@ -325,13 +325,13 @@ module Network.AWS.ElastiCache.Types
 
     -- * SecurityGroupMembership
     , SecurityGroupMembership
-    , mkSecurityGroupMembership
+    , securityGroupMembership
     , sgmSecurityGroupId
     , sgmStatus
 
     -- * Snapshot
     , Snapshot
-    , mkSnapshot
+    , snapshot
     , sSnapshotName
     , sCacheClusterId
     , sSnapshotStatus
@@ -355,7 +355,7 @@ module Network.AWS.ElastiCache.Types
 
     -- * Subnet
     , Subnet
-    , mkSubnet
+    , subnet
     , srSubnetIdentifier
     , srSubnetAvailabilityZone
     ) where
@@ -429,8 +429,8 @@ data ElastiCacheError
       -- allowed number of cache clusters per customer.
     | ClusterQuotaForCustomerExceededFault
     | ElastiCacheClient HttpException
-    | ElastiCacheSerializer Text
-    | ElastiCacheService Text
+    | ElastiCacheSerializer String
+    | ElastiCacheService String
       -- | The requested cache node type is not available in the specified
       -- Availability Zone.
     | InsufficientCacheClusterCapacityFault
@@ -685,7 +685,7 @@ _ElastiCacheClient = prism'
         x -> Left x)
 
 -- | See: 'ElastiCacheSerializer'
-_ElastiCacheSerializer :: Prism' ElastiCacheError Text
+_ElastiCacheSerializer :: Prism' ElastiCacheError String
 _ElastiCacheSerializer = prism'
     ElastiCacheSerializer
     (\case
@@ -693,7 +693,7 @@ _ElastiCacheSerializer = prism'
         x -> Left x)
 
 -- | See: 'ElastiCacheService'
-_ElastiCacheService :: Prism' ElastiCacheError Text
+_ElastiCacheService :: Prism' ElastiCacheError String
 _ElastiCacheService = prism'
     ElastiCacheService
     (\case
@@ -985,8 +985,8 @@ newtype AvailabilityZone = AvailabilityZone
 --
 -- * @Name ::@ @Maybe Text@
 --
-mkAvailabilityZone :: AvailabilityZone
-mkAvailabilityZone = AvailabilityZone
+availabilityZone :: AvailabilityZone
+availabilityZone = AvailabilityZone
     { _azName = Nothing
     }
 
@@ -1014,8 +1014,8 @@ newtype ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedV
 --
 -- * @PrimaryClusterId ::@ @Maybe Text@
 --
-mkReplicationGroupPendingModifiedValues :: ReplicationGroupPendingModifiedValues
-mkReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues
+replicationGroupPendingModifiedValues :: ReplicationGroupPendingModifiedValues
+replicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues
     { _rgpmvPrimaryClusterId = Nothing
     }
 
@@ -1110,8 +1110,8 @@ data CacheCluster = CacheCluster
 --
 -- * @SnapshotWindow ::@ @Maybe Text@
 --
-mkCacheCluster :: CacheCluster
-mkCacheCluster = CacheCluster
+cacheCluster :: CacheCluster
+cacheCluster = CacheCluster
     { _ccCacheClusterId = Nothing
     , _ccConfigurationEndpoint = Nothing
     , _ccClientDownloadLandingPage = Nothing
@@ -1298,8 +1298,8 @@ data CacheEngineVersion = CacheEngineVersion
 --
 -- * @CacheEngineVersionDescription ::@ @Maybe Text@
 --
-mkCacheEngineVersion :: CacheEngineVersion
-mkCacheEngineVersion = CacheEngineVersion
+cacheEngineVersion :: CacheEngineVersion
+cacheEngineVersion = CacheEngineVersion
     { _cevEngine = Nothing
     , _cevEngineVersion = Nothing
     , _cevCacheParameterGroupFamily = Nothing
@@ -1371,8 +1371,8 @@ data CacheNode = CacheNode
 --
 -- * @CustomerAvailabilityZone ::@ @Maybe Text@
 --
-mkCacheNode :: CacheNode
-mkCacheNode = CacheNode
+cacheNode :: CacheNode
+cacheNode = CacheNode
     { _cnCacheNodeId = Nothing
     , _cnCacheNodeStatus = Nothing
     , _cnCacheNodeCreateTime = Nothing
@@ -1465,8 +1465,8 @@ data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter
 --
 -- * @CacheNodeTypeSpecificValues ::@ @[CacheNodeTypeSpecificValue]@
 --
-mkCacheNodeTypeSpecificParameter :: CacheNodeTypeSpecificParameter
-mkCacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter
+cacheNodeTypeSpecificParameter :: CacheNodeTypeSpecificParameter
+cacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter
     { _cntspParameterName = Nothing
     , _cntspDescription = Nothing
     , _cntspSource = Nothing
@@ -1539,8 +1539,8 @@ data CacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue
 --
 -- * @Value ::@ @Maybe Text@
 --
-mkCacheNodeTypeSpecificValue :: CacheNodeTypeSpecificValue
-mkCacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue
+cacheNodeTypeSpecificValue :: CacheNodeTypeSpecificValue
+cacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue
     { _cntsvCacheNodeType = Nothing
     , _cntsvValue = Nothing
     }
@@ -1582,8 +1582,8 @@ data CacheParameterGroup = CacheParameterGroup
 --
 -- * @Description ::@ @Maybe Text@
 --
-mkCacheParameterGroup :: CacheParameterGroup
-mkCacheParameterGroup = CacheParameterGroup
+cacheParameterGroup :: CacheParameterGroup
+cacheParameterGroup = CacheParameterGroup
     { _cpgCacheParameterGroupName = Nothing
     , _cpgCacheParameterGroupFamily = Nothing
     , _cpgDescription = Nothing
@@ -1628,8 +1628,8 @@ data CacheParameterGroupStatus = CacheParameterGroupStatus
 --
 -- * @CacheNodeIdsToReboot ::@ @[Text]@
 --
-mkCacheParameterGroupStatus :: CacheParameterGroupStatus
-mkCacheParameterGroupStatus = CacheParameterGroupStatus
+cacheParameterGroupStatus :: CacheParameterGroupStatus
+cacheParameterGroupStatus = CacheParameterGroupStatus
     { _cpgsCacheParameterGroupName = Nothing
     , _cpgsParameterApplyStatus = Nothing
     , _cpgsCacheNodeIdsToReboot = mempty
@@ -1688,8 +1688,8 @@ data CacheSecurityGroup = CacheSecurityGroup
 --
 -- * @EC2SecurityGroups ::@ @[EC2SecurityGroup]@
 --
-mkCacheSecurityGroup :: CacheSecurityGroup
-mkCacheSecurityGroup = CacheSecurityGroup
+cacheSecurityGroup :: CacheSecurityGroup
+cacheSecurityGroup = CacheSecurityGroup
     { _csgOwnerId = Nothing
     , _csgCacheSecurityGroupName = Nothing
     , _csgDescription = Nothing
@@ -1736,8 +1736,8 @@ data CacheSecurityGroupMembership = CacheSecurityGroupMembership
 --
 -- * @Status ::@ @Maybe Text@
 --
-mkCacheSecurityGroupMembership :: CacheSecurityGroupMembership
-mkCacheSecurityGroupMembership = CacheSecurityGroupMembership
+cacheSecurityGroupMembership :: CacheSecurityGroupMembership
+cacheSecurityGroupMembership = CacheSecurityGroupMembership
     { _csgmCacheSecurityGroupName = Nothing
     , _csgmStatus = Nothing
     }
@@ -1786,8 +1786,8 @@ data CacheSubnetGroup = CacheSubnetGroup
 --
 -- * @Subnets ::@ @[Subnet]@
 --
-mkCacheSubnetGroup :: CacheSubnetGroup
-mkCacheSubnetGroup = CacheSubnetGroup
+cacheSubnetGroup :: CacheSubnetGroup
+cacheSubnetGroup = CacheSubnetGroup
     { _csgrCacheSubnetGroupName = Nothing
     , _csgrCacheSubnetGroupDescription = Nothing
     , _csgrVpcId = Nothing
@@ -1837,8 +1837,8 @@ data EC2SecurityGroup = EC2SecurityGroup
 --
 -- * @EC2SecurityGroupOwnerId ::@ @Maybe Text@
 --
-mkEC2SecurityGroup :: EC2SecurityGroup
-mkEC2SecurityGroup = EC2SecurityGroup
+eC2SecurityGroup :: EC2SecurityGroup
+eC2SecurityGroup = EC2SecurityGroup
     { _ecsgStatus = Nothing
     , _ecsgEC2SecurityGroupName = Nothing
     , _ecsgEC2SecurityGroupOwnerId = Nothing
@@ -1883,8 +1883,8 @@ data Endpoint = Endpoint
 --
 -- * @Port ::@ @Maybe Integer@
 --
-mkEndpoint :: Endpoint
-mkEndpoint = Endpoint
+endpoint :: Endpoint
+endpoint = Endpoint
     { _eAddress = Nothing
     , _ePort = Nothing
     }
@@ -1928,8 +1928,8 @@ data EngineDefaults = EngineDefaults
 --
 -- * @CacheNodeTypeSpecificParameters ::@ @[CacheNodeTypeSpecificParameter]@
 --
-mkEngineDefaults :: EngineDefaults
-mkEngineDefaults = EngineDefaults
+engineDefaults :: EngineDefaults
+engineDefaults = EngineDefaults
     { _edCacheParameterGroupFamily = Nothing
     , _edMarker = Nothing
     , _edParameters = mempty
@@ -1988,8 +1988,8 @@ data Event = Event
 --
 -- * @Date ::@ @Maybe ISO8601@
 --
-mkEvent :: Event
-mkEvent = Event
+event :: Event
+event = Event
     { _erSourceIdentifier = Nothing
     , _erSourceType = Nothing
     , _erMessage = Nothing
@@ -2041,8 +2041,8 @@ data NodeGroup = NodeGroup
 --
 -- * @NodeGroupMembers ::@ @[NodeGroupMember]@
 --
-mkNodeGroup :: NodeGroup
-mkNodeGroup = NodeGroup
+nodeGroup :: NodeGroup
+nodeGroup = NodeGroup
     { _ngNodeGroupId = Nothing
     , _ngStatus = Nothing
     , _ngPrimaryEndpoint = Nothing
@@ -2100,8 +2100,8 @@ data NodeGroupMember = NodeGroupMember
 --
 -- * @CurrentRole ::@ @Maybe Text@
 --
-mkNodeGroupMember :: NodeGroupMember
-mkNodeGroupMember = NodeGroupMember
+nodeGroupMember :: NodeGroupMember
+nodeGroupMember = NodeGroupMember
     { _ngmCacheClusterId = Nothing
     , _ngmCacheNodeId = Nothing
     , _ngmReadEndpoint = Nothing
@@ -2162,8 +2162,8 @@ data NodeSnapshot = NodeSnapshot
 --
 -- * @SnapshotCreateTime ::@ @Maybe ISO8601@
 --
-mkNodeSnapshot :: NodeSnapshot
-mkNodeSnapshot = NodeSnapshot
+nodeSnapshot :: NodeSnapshot
+nodeSnapshot = NodeSnapshot
     { _nsCacheNodeId = Nothing
     , _nsCacheSize = Nothing
     , _nsCacheNodeCreateTime = Nothing
@@ -2214,8 +2214,8 @@ data NotificationConfiguration = NotificationConfiguration
 --
 -- * @TopicStatus ::@ @Maybe Text@
 --
-mkNotificationConfiguration :: NotificationConfiguration
-mkNotificationConfiguration = NotificationConfiguration
+notificationConfiguration :: NotificationConfiguration
+notificationConfiguration = NotificationConfiguration
     { _ncTopicArn = Nothing
     , _ncTopicStatus = Nothing
     }
@@ -2272,8 +2272,8 @@ data Parameter = Parameter
 --
 -- * @MinimumEngineVersion ::@ @Maybe Text@
 --
-mkParameter :: Parameter
-mkParameter = Parameter
+parameter :: Parameter
+parameter = Parameter
     { _pParameterName = Nothing
     , _pParameterValue = Nothing
     , _pDescription = Nothing
@@ -2339,8 +2339,8 @@ data ParameterNameValue = ParameterNameValue
 --
 -- * @ParameterValue ::@ @Maybe Text@
 --
-mkParameterNameValue :: ParameterNameValue
-mkParameterNameValue = ParameterNameValue
+parameterNameValue :: ParameterNameValue
+parameterNameValue = ParameterNameValue
     { _pnvParameterName = Nothing
     , _pnvParameterValue = Nothing
     }
@@ -2377,8 +2377,8 @@ data PendingModifiedValues = PendingModifiedValues
 --
 -- * @EngineVersion ::@ @Maybe Text@
 --
-mkPendingModifiedValues :: PendingModifiedValues
-mkPendingModifiedValues = PendingModifiedValues
+pendingModifiedValues :: PendingModifiedValues
+pendingModifiedValues = PendingModifiedValues
     { _pmvNumCacheNodes = Nothing
     , _pmvCacheNodeIdsToRemove = mempty
     , _pmvEngineVersion = Nothing
@@ -2424,8 +2424,8 @@ data RecurringCharge = RecurringCharge
 --
 -- * @RecurringChargeFrequency ::@ @Maybe Text@
 --
-mkRecurringCharge :: RecurringCharge
-mkRecurringCharge = RecurringCharge
+recurringCharge :: RecurringCharge
+recurringCharge = RecurringCharge
     { _rcRecurringChargeAmount = Nothing
     , _rcRecurringChargeFrequency = Nothing
     }
@@ -2482,8 +2482,8 @@ data ReplicationGroup = ReplicationGroup
 --
 -- * @SnapshottingClusterId ::@ @Maybe Text@
 --
-mkReplicationGroup :: ReplicationGroup
-mkReplicationGroup = ReplicationGroup
+replicationGroup :: ReplicationGroup
+replicationGroup = ReplicationGroup
     { _rgReplicationGroupId = Nothing
     , _rgDescription = Nothing
     , _rgStatus = Nothing
@@ -2583,8 +2583,8 @@ data ReservedCacheNode = ReservedCacheNode
 --
 -- * @RecurringCharges ::@ @[RecurringCharge]@
 --
-mkReservedCacheNode :: ReservedCacheNode
-mkReservedCacheNode = ReservedCacheNode
+reservedCacheNode :: ReservedCacheNode
+reservedCacheNode = ReservedCacheNode
     { _rcnReservedCacheNodeId = Nothing
     , _rcnReservedCacheNodesOfferingId = Nothing
     , _rcnCacheNodeType = Nothing
@@ -2694,8 +2694,8 @@ data ReservedCacheNodesOffering = ReservedCacheNodesOffering
 --
 -- * @RecurringCharges ::@ @[RecurringCharge]@
 --
-mkReservedCacheNodesOffering :: ReservedCacheNodesOffering
-mkReservedCacheNodesOffering = ReservedCacheNodesOffering
+reservedCacheNodesOffering :: ReservedCacheNodesOffering
+reservedCacheNodesOffering = ReservedCacheNodesOffering
     { _rcnoReservedCacheNodesOfferingId = Nothing
     , _rcnoCacheNodeType = Nothing
     , _rcnoDuration = Nothing
@@ -2763,8 +2763,8 @@ data SecurityGroupMembership = SecurityGroupMembership
 --
 -- * @Status ::@ @Maybe Text@
 --
-mkSecurityGroupMembership :: SecurityGroupMembership
-mkSecurityGroupMembership = SecurityGroupMembership
+securityGroupMembership :: SecurityGroupMembership
+securityGroupMembership = SecurityGroupMembership
     { _sgmSecurityGroupId = Nothing
     , _sgmStatus = Nothing
     }
@@ -2860,8 +2860,8 @@ data Snapshot = Snapshot
 --
 -- * @NodeSnapshots ::@ @[NodeSnapshot]@
 --
-mkSnapshot :: Snapshot
-mkSnapshot = Snapshot
+snapshot :: Snapshot
+snapshot = Snapshot
     { _sSnapshotName = Nothing
     , _sCacheClusterId = Nothing
     , _sSnapshotStatus = Nothing
@@ -3017,8 +3017,8 @@ data Subnet = Subnet
 --
 -- * @SubnetAvailabilityZone ::@ @Maybe AvailabilityZone@
 --
-mkSubnet :: Subnet
-mkSubnet = Subnet
+subnet :: Subnet
+subnet = Subnet
     { _srSubnetIdentifier = Nothing
     , _srSubnetAvailabilityZone = Nothing
     }

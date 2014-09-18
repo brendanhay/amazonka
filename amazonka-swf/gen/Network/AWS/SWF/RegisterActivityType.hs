@@ -57,7 +57,7 @@ module Network.AWS.SWF.RegisterActivityType
     -- * Request
       RegisterActivityType
     -- ** Request constructor
-    , mkRegisterActivityType
+    , registerActivityType
     -- ** Request lenses
     , ratDomain
     , ratName
@@ -72,7 +72,7 @@ module Network.AWS.SWF.RegisterActivityType
     -- * Response
     , RegisterActivityTypeResponse
     -- ** Response constructor
-    , mkRegisterActivityTypeResponse
+    , registerActivityTypeResponse
     ) where
 
 import Network.AWS.SWF.Types
@@ -114,11 +114,11 @@ data RegisterActivityType = RegisterActivityType
 --
 -- * @DefaultTaskScheduleToCloseTimeout ::@ @Maybe Text@
 --
-mkRegisterActivityType :: Text -- ^ 'ratDomain'
+registerActivityType :: Text -- ^ 'ratDomain'
                        -> Text -- ^ 'ratName'
                        -> Text -- ^ 'ratVersion'
                        -> RegisterActivityType
-mkRegisterActivityType p1 p2 p3 = RegisterActivityType
+registerActivityType p1 p2 p3 = RegisterActivityType
     { _ratDomain = p1
     , _ratName = p2
     , _ratVersion = p3
@@ -226,8 +226,8 @@ data RegisterActivityTypeResponse = RegisterActivityTypeResponse
 -- a valid 'RegisterActivityTypeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRegisterActivityTypeResponse :: RegisterActivityTypeResponse
-mkRegisterActivityTypeResponse = RegisterActivityTypeResponse
+registerActivityTypeResponse :: RegisterActivityTypeResponse
+registerActivityTypeResponse = RegisterActivityTypeResponse
 
 instance AWSRequest RegisterActivityType where
     type Sv RegisterActivityType = SWF

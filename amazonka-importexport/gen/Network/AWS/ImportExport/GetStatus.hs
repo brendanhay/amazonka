@@ -26,14 +26,14 @@ module Network.AWS.ImportExport.GetStatus
     -- * Request
       GetStatus
     -- ** Request constructor
-    , mkGetStatus
+    , getStatus
     -- ** Request lenses
     , gsJobId
 
     -- * Response
     , GetStatusResponse
     -- ** Response constructor
-    , mkGetStatusResponse
+    , getStatusResponse
     -- ** Response lenses
     , gsrJobId
     , gsrJobType
@@ -69,9 +69,9 @@ newtype GetStatus = GetStatus
 --
 -- * @JobId ::@ @Text@
 --
-mkGetStatus :: Text -- ^ 'gsJobId'
+getStatus :: Text -- ^ 'gsJobId'
             -> GetStatus
-mkGetStatus p1 = GetStatus
+getStatus p1 = GetStatus
     { _gsJobId = p1
     }
 
@@ -141,8 +141,8 @@ data GetStatusResponse = GetStatusResponse
 --
 -- * @CreationDate ::@ @Maybe ISO8601@
 --
-mkGetStatusResponse :: GetStatusResponse
-mkGetStatusResponse = GetStatusResponse
+getStatusResponse :: GetStatusResponse
+getStatusResponse = GetStatusResponse
     { _gsrJobId = Nothing
     , _gsrJobType = Nothing
     , _gsrAwsShippingAddress = Nothing

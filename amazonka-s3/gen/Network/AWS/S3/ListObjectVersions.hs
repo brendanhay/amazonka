@@ -25,7 +25,7 @@ module Network.AWS.S3.ListObjectVersions
     -- ** Request alias
     , GetBucketObjectVersions
     -- ** Request constructor
-    , mkListObjectVersions
+    , listObjectVersions
     -- ** Request lenses
     , lovBucket
     , lovDelimiter
@@ -38,7 +38,7 @@ module Network.AWS.S3.ListObjectVersions
     -- * Response
     , ListObjectVersionsResponse
     -- ** Response constructor
-    , mkListObjectVersionsResponse
+    , listObjectVersionsResponse
     -- ** Response lenses
     , lovrIsTruncated
     , lovrKeyMarker
@@ -90,9 +90,9 @@ data ListObjectVersions = ListObjectVersions
 --
 -- * @VersionIdMarker ::@ @Maybe Text@
 --
-mkListObjectVersions :: BucketName -- ^ 'lovBucket'
+listObjectVersions :: BucketName -- ^ 'lovBucket'
                      -> ListObjectVersions
-mkListObjectVersions p1 = ListObjectVersions
+listObjectVersions p1 = ListObjectVersions
     { _lovBucket = p1
     , _lovDelimiter = Nothing
     , _lovEncodingType = Nothing
@@ -190,9 +190,9 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse
 --
 -- * @EncodingType ::@ @Maybe EncodingType@
 --
-mkListObjectVersionsResponse :: Bool -- ^ 'lovrIsTruncated'
+listObjectVersionsResponse :: Bool -- ^ 'lovrIsTruncated'
                              -> ListObjectVersionsResponse
-mkListObjectVersionsResponse p1 = ListObjectVersionsResponse
+listObjectVersionsResponse p1 = ListObjectVersionsResponse
     { _lovrIsTruncated = p1
     , _lovrKeyMarker = Nothing
     , _lovrVersionIdMarker = Nothing

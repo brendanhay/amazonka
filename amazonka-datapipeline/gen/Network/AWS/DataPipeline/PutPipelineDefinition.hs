@@ -71,7 +71,7 @@ module Network.AWS.DataPipeline.PutPipelineDefinition
     -- * Request
       PutPipelineDefinition
     -- ** Request constructor
-    , mkPutPipelineDefinition
+    , putPipelineDefinition
     -- ** Request lenses
     , ppdPipelineId
     , ppdPipelineObjects
@@ -79,7 +79,7 @@ module Network.AWS.DataPipeline.PutPipelineDefinition
     -- * Response
     , PutPipelineDefinitionResponse
     -- ** Response constructor
-    , mkPutPipelineDefinitionResponse
+    , putPipelineDefinitionResponse
     -- ** Response lenses
     , ppdrValidationErrors
     , ppdrValidationWarnings
@@ -105,10 +105,10 @@ data PutPipelineDefinition = PutPipelineDefinition
 --
 -- * @PipelineObjects ::@ @[PipelineObject]@
 --
-mkPutPipelineDefinition :: Text -- ^ 'ppdPipelineId'
+putPipelineDefinition :: Text -- ^ 'ppdPipelineId'
                         -> [PipelineObject] -- ^ 'ppdPipelineObjects'
                         -> PutPipelineDefinition
-mkPutPipelineDefinition p1 p2 = PutPipelineDefinition
+putPipelineDefinition p1 p2 = PutPipelineDefinition
     { _ppdPipelineId = p1
     , _ppdPipelineObjects = p2
     }
@@ -151,9 +151,9 @@ data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse
 --
 -- * @Errored ::@ @Bool@
 --
-mkPutPipelineDefinitionResponse :: Bool -- ^ 'ppdrErrored'
+putPipelineDefinitionResponse :: Bool -- ^ 'ppdrErrored'
                                 -> PutPipelineDefinitionResponse
-mkPutPipelineDefinitionResponse p3 = PutPipelineDefinitionResponse
+putPipelineDefinitionResponse p3 = PutPipelineDefinitionResponse
     { _ppdrValidationErrors = mempty
     , _ppdrValidationWarnings = mempty
     , _ppdrErrored = p3

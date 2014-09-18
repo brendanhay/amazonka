@@ -28,7 +28,7 @@ module Network.AWS.IAM.CreateLoginProfile
     -- * Request
       CreateLoginProfile
     -- ** Request constructor
-    , mkCreateLoginProfile
+    , createLoginProfile
     -- ** Request lenses
     , clpUserName
     , clpPassword
@@ -37,7 +37,7 @@ module Network.AWS.IAM.CreateLoginProfile
     -- * Response
     , CreateLoginProfileResponse
     -- ** Response constructor
-    , mkCreateLoginProfileResponse
+    , createLoginProfileResponse
     -- ** Response lenses
     , clprLoginProfile
     ) where
@@ -63,10 +63,10 @@ data CreateLoginProfile = CreateLoginProfile
 --
 -- * @PasswordResetRequired ::@ @Maybe Bool@
 --
-mkCreateLoginProfile :: Text -- ^ 'clpUserName'
+createLoginProfile :: Text -- ^ 'clpUserName'
                      -> Text -- ^ 'clpPassword'
                      -> CreateLoginProfile
-mkCreateLoginProfile p1 p2 = CreateLoginProfile
+createLoginProfile p1 p2 = CreateLoginProfile
     { _clpUserName = p1
     , _clpPassword = p2
     , _clpPasswordResetRequired = Nothing
@@ -105,9 +105,9 @@ newtype CreateLoginProfileResponse = CreateLoginProfileResponse
 --
 -- * @LoginProfile ::@ @LoginProfile@
 --
-mkCreateLoginProfileResponse :: LoginProfile -- ^ 'clprLoginProfile'
+createLoginProfileResponse :: LoginProfile -- ^ 'clprLoginProfile'
                              -> CreateLoginProfileResponse
-mkCreateLoginProfileResponse p1 = CreateLoginProfileResponse
+createLoginProfileResponse p1 = CreateLoginProfileResponse
     { _clprLoginProfile = p1
     }
 

@@ -24,7 +24,7 @@ module Network.AWS.S3.PutBucketVersioning
     -- * Request
       PutBucketVersioning
     -- ** Request constructor
-    , mkPutBucketVersioning
+    , putBucketVersioning
     -- ** Request lenses
     , pbvBucket
     , pbvContentMD5
@@ -34,7 +34,7 @@ module Network.AWS.S3.PutBucketVersioning
     -- * Response
     , PutBucketVersioningResponse
     -- ** Response constructor
-    , mkPutBucketVersioningResponse
+    , putBucketVersioningResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -62,10 +62,10 @@ data PutBucketVersioning = PutBucketVersioning
 --
 -- * @VersioningConfiguration ::@ @VersioningConfiguration@
 --
-mkPutBucketVersioning :: BucketName -- ^ 'pbvBucket'
+putBucketVersioning :: BucketName -- ^ 'pbvBucket'
                       -> VersioningConfiguration -- ^ 'pbvVersioningConfiguration'
                       -> PutBucketVersioning
-mkPutBucketVersioning p1 p4 = PutBucketVersioning
+putBucketVersioning p1 p4 = PutBucketVersioning
     { _pbvBucket = p1
     , _pbvContentMD5 = Nothing
     , _pbvMFA = Nothing
@@ -108,8 +108,8 @@ data PutBucketVersioningResponse = PutBucketVersioningResponse
 -- a valid 'PutBucketVersioningResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkPutBucketVersioningResponse :: PutBucketVersioningResponse
-mkPutBucketVersioningResponse = PutBucketVersioningResponse
+putBucketVersioningResponse :: PutBucketVersioningResponse
+putBucketVersioningResponse = PutBucketVersioningResponse
 
 instance AWSRequest PutBucketVersioning where
     type Sv PutBucketVersioning = S3

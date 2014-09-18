@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.UpdateElasticIp
     -- * Request
       UpdateElasticIp
     -- ** Request constructor
-    , mkUpdateElasticIp
+    , updateElasticIp
     -- ** Request lenses
     , ueiElasticIp
     , ueiName
@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.UpdateElasticIp
     -- * Response
     , UpdateElasticIpResponse
     -- ** Response constructor
-    , mkUpdateElasticIpResponse
+    , updateElasticIpResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -56,9 +56,9 @@ data UpdateElasticIp = UpdateElasticIp
 --
 -- * @Name ::@ @Maybe Text@
 --
-mkUpdateElasticIp :: Text -- ^ 'ueiElasticIp'
+updateElasticIp :: Text -- ^ 'ueiElasticIp'
                   -> UpdateElasticIp
-mkUpdateElasticIp p1 = UpdateElasticIp
+updateElasticIp p1 = UpdateElasticIp
     { _ueiElasticIp = p1
     , _ueiName = Nothing
     }
@@ -86,8 +86,8 @@ data UpdateElasticIpResponse = UpdateElasticIpResponse
 -- a valid 'UpdateElasticIpResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkUpdateElasticIpResponse :: UpdateElasticIpResponse
-mkUpdateElasticIpResponse = UpdateElasticIpResponse
+updateElasticIpResponse :: UpdateElasticIpResponse
+updateElasticIpResponse = UpdateElasticIpResponse
 
 instance AWSRequest UpdateElasticIp where
     type Sv UpdateElasticIp = OpsWorks

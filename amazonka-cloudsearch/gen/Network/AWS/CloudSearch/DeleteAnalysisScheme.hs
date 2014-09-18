@@ -24,7 +24,7 @@ module Network.AWS.CloudSearch.DeleteAnalysisScheme
     -- * Request
       DeleteAnalysisScheme
     -- ** Request constructor
-    , mkDeleteAnalysisScheme
+    , deleteAnalysisScheme
     -- ** Request lenses
     , das1DomainName
     , das1AnalysisSchemeName
@@ -32,7 +32,7 @@ module Network.AWS.CloudSearch.DeleteAnalysisScheme
     -- * Response
     , DeleteAnalysisSchemeResponse
     -- ** Response constructor
-    , mkDeleteAnalysisSchemeResponse
+    , deleteAnalysisSchemeResponse
     -- ** Response lenses
     , dasrrAnalysisScheme
     ) where
@@ -58,10 +58,10 @@ data DeleteAnalysisScheme = DeleteAnalysisScheme
 --
 -- * @AnalysisSchemeName ::@ @Text@
 --
-mkDeleteAnalysisScheme :: Text -- ^ 'das1DomainName'
+deleteAnalysisScheme :: Text -- ^ 'das1DomainName'
                        -> Text -- ^ 'das1AnalysisSchemeName'
                        -> DeleteAnalysisScheme
-mkDeleteAnalysisScheme p1 p2 = DeleteAnalysisScheme
+deleteAnalysisScheme p1 p2 = DeleteAnalysisScheme
     { _das1DomainName = p1
     , _das1AnalysisSchemeName = p2
     }
@@ -96,9 +96,9 @@ newtype DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse
 --
 -- * @AnalysisScheme ::@ @AnalysisSchemeStatus@
 --
-mkDeleteAnalysisSchemeResponse :: AnalysisSchemeStatus -- ^ 'dasrrAnalysisScheme'
+deleteAnalysisSchemeResponse :: AnalysisSchemeStatus -- ^ 'dasrrAnalysisScheme'
                                -> DeleteAnalysisSchemeResponse
-mkDeleteAnalysisSchemeResponse p1 = DeleteAnalysisSchemeResponse
+deleteAnalysisSchemeResponse p1 = DeleteAnalysisSchemeResponse
     { _dasrrAnalysisScheme = p1
     }
 

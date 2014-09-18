@@ -28,7 +28,7 @@ module Network.AWS.CognitoIdentity.GetId
     -- * Request
       GetId
     -- ** Request constructor
-    , mkGetId
+    , getId
     -- ** Request lenses
     , giAccountId
     , giIdentityPoolId
@@ -37,7 +37,7 @@ module Network.AWS.CognitoIdentity.GetId
     -- * Response
     , GetIdResponse
     -- ** Response constructor
-    , mkGetIdResponse
+    , getIdResponse
     -- ** Response lenses
     , girIdentityId
     ) where
@@ -64,10 +64,10 @@ data GetId = GetId
 --
 -- * @Logins ::@ @Map Text Text@
 --
-mkGetId :: Text -- ^ 'giAccountId'
+getId :: Text -- ^ 'giAccountId'
         -> Text -- ^ 'giIdentityPoolId'
         -> GetId
-mkGetId p1 p2 = GetId
+getId p1 p2 = GetId
     { _giAccountId = p1
     , _giIdentityPoolId = p2
     , _giLogins = mempty
@@ -109,8 +109,8 @@ newtype GetIdResponse = GetIdResponse
 --
 -- * @IdentityId ::@ @Maybe Text@
 --
-mkGetIdResponse :: GetIdResponse
-mkGetIdResponse = GetIdResponse
+getIdResponse :: GetIdResponse
+getIdResponse = GetIdResponse
     { _girIdentityId = Nothing
     }
 

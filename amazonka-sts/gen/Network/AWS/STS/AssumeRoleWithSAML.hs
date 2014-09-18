@@ -59,7 +59,7 @@ module Network.AWS.STS.AssumeRoleWithSAML
     -- * Request
       AssumeRoleWithSAML
     -- ** Request constructor
-    , mkAssumeRoleWithSAML
+    , assumeRoleWithSAML
     -- ** Request lenses
     , arwsamlRoleArn
     , arwsamlPrincipalArn
@@ -70,7 +70,7 @@ module Network.AWS.STS.AssumeRoleWithSAML
     -- * Response
     , AssumeRoleWithSAMLResponse
     -- ** Response constructor
-    , mkAssumeRoleWithSAMLResponse
+    , assumeRoleWithSAMLResponse
     -- ** Response lenses
     , arwsamlrCredentials
     , arwsamlrAssumedRoleUser
@@ -109,11 +109,11 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML
 --
 -- * @DurationSeconds ::@ @Maybe Integer@
 --
-mkAssumeRoleWithSAML :: Text -- ^ 'arwsamlRoleArn'
+assumeRoleWithSAML :: Text -- ^ 'arwsamlRoleArn'
                      -> Text -- ^ 'arwsamlPrincipalArn'
                      -> Text -- ^ 'arwsamlSAMLAssertion'
                      -> AssumeRoleWithSAML
-mkAssumeRoleWithSAML p1 p2 p3 = AssumeRoleWithSAML
+assumeRoleWithSAML p1 p2 p3 = AssumeRoleWithSAML
     { _arwsamlRoleArn = p1
     , _arwsamlPrincipalArn = p2
     , _arwsamlSAMLAssertion = p3
@@ -201,8 +201,8 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse
 --
 -- * @NameQualifier ::@ @Maybe Text@
 --
-mkAssumeRoleWithSAMLResponse :: AssumeRoleWithSAMLResponse
-mkAssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse
+assumeRoleWithSAMLResponse :: AssumeRoleWithSAMLResponse
+assumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse
     { _arwsamlrCredentials = Nothing
     , _arwsamlrAssumedRoleUser = Nothing
     , _arwsamlrPackedPolicySize = Nothing

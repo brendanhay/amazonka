@@ -34,7 +34,7 @@ module Network.AWS.AutoScaling.DetachInstances
     -- * Request
       DetachInstances
     -- ** Request constructor
-    , mkDetachInstances
+    , detachInstances
     -- ** Request lenses
     , diInstanceIds
     , diAutoScalingGroupName
@@ -43,7 +43,7 @@ module Network.AWS.AutoScaling.DetachInstances
     -- * Response
     , DetachInstancesResponse
     -- ** Response constructor
-    , mkDetachInstancesResponse
+    , detachInstancesResponse
     -- ** Response lenses
     , dirActivities
     ) where
@@ -69,10 +69,10 @@ data DetachInstances = DetachInstances
 --
 -- * @ShouldDecrementDesiredCapacity ::@ @Bool@
 --
-mkDetachInstances :: Text -- ^ 'diAutoScalingGroupName'
+detachInstances :: Text -- ^ 'diAutoScalingGroupName'
                   -> Bool -- ^ 'diShouldDecrementDesiredCapacity'
                   -> DetachInstances
-mkDetachInstances p2 p3 = DetachInstances
+detachInstances p2 p3 = DetachInstances
     { _diInstanceIds = mempty
     , _diAutoScalingGroupName = p2
     , _diShouldDecrementDesiredCapacity = p3
@@ -113,8 +113,8 @@ newtype DetachInstancesResponse = DetachInstancesResponse
 --
 -- * @Activities ::@ @[Activity]@
 --
-mkDetachInstancesResponse :: DetachInstancesResponse
-mkDetachInstancesResponse = DetachInstancesResponse
+detachInstancesResponse :: DetachInstancesResponse
+detachInstancesResponse = DetachInstancesResponse
     { _dirActivities = mempty
     }
 

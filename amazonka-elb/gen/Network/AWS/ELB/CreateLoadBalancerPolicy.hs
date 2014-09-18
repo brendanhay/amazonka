@@ -32,7 +32,7 @@ module Network.AWS.ELB.CreateLoadBalancerPolicy
     -- * Request
       CreateLoadBalancerPolicy
     -- ** Request constructor
-    , mkCreateLoadBalancerPolicy
+    , createLoadBalancerPolicy
     -- ** Request lenses
     , clbpLoadBalancerName
     , clbpPolicyName
@@ -42,7 +42,7 @@ module Network.AWS.ELB.CreateLoadBalancerPolicy
     -- * Response
     , CreateLoadBalancerPolicyResponse
     -- ** Response constructor
-    , mkCreateLoadBalancerPolicyResponse
+    , createLoadBalancerPolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -69,11 +69,11 @@ data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy
 --
 -- * @PolicyAttributes ::@ @[PolicyAttribute]@
 --
-mkCreateLoadBalancerPolicy :: Text -- ^ 'clbpLoadBalancerName'
+createLoadBalancerPolicy :: Text -- ^ 'clbpLoadBalancerName'
                            -> Text -- ^ 'clbpPolicyName'
                            -> Text -- ^ 'clbpPolicyTypeName'
                            -> CreateLoadBalancerPolicy
-mkCreateLoadBalancerPolicy p1 p2 p3 = CreateLoadBalancerPolicy
+createLoadBalancerPolicy p1 p2 p3 = CreateLoadBalancerPolicy
     { _clbpLoadBalancerName = p1
     , _clbpPolicyName = p2
     , _clbpPolicyTypeName = p3
@@ -113,8 +113,8 @@ data CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
 -- a valid 'CreateLoadBalancerPolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkCreateLoadBalancerPolicyResponse :: CreateLoadBalancerPolicyResponse
-mkCreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
+createLoadBalancerPolicyResponse :: CreateLoadBalancerPolicyResponse
+createLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
 
 instance AWSRequest CreateLoadBalancerPolicy where
     type Sv CreateLoadBalancerPolicy = ELB

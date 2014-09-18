@@ -39,7 +39,7 @@ module Network.AWS.SNS.SetEndpointAttributes
     -- * Request
       SetEndpointAttributes
     -- ** Request constructor
-    , mkSetEndpointAttributes
+    , setEndpointAttributes
     -- ** Request lenses
     , seaEndpointArn
     , seaAttributes
@@ -47,7 +47,7 @@ module Network.AWS.SNS.SetEndpointAttributes
     -- * Response
     , SetEndpointAttributesResponse
     -- ** Response constructor
-    , mkSetEndpointAttributesResponse
+    , setEndpointAttributesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -69,10 +69,10 @@ data SetEndpointAttributes = SetEndpointAttributes
 --
 -- * @Attributes ::@ @Map Text Text@
 --
-mkSetEndpointAttributes :: Text -- ^ 'seaEndpointArn'
+setEndpointAttributes :: Text -- ^ 'seaEndpointArn'
                         -> Map Text Text -- ^ 'seaAttributes'
                         -> SetEndpointAttributes
-mkSetEndpointAttributes p1 p2 = SetEndpointAttributes
+setEndpointAttributes p1 p2 = SetEndpointAttributes
     { _seaEndpointArn = p1
     , _seaAttributes = p2
     }
@@ -104,8 +104,8 @@ data SetEndpointAttributesResponse = SetEndpointAttributesResponse
 -- a valid 'SetEndpointAttributesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSetEndpointAttributesResponse :: SetEndpointAttributesResponse
-mkSetEndpointAttributesResponse = SetEndpointAttributesResponse
+setEndpointAttributesResponse :: SetEndpointAttributesResponse
+setEndpointAttributesResponse = SetEndpointAttributesResponse
 
 instance AWSRequest SetEndpointAttributes where
     type Sv SetEndpointAttributes = SNS

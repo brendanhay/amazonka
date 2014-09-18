@@ -30,7 +30,7 @@ module Network.AWS.RDS.CreateDBSecurityGroup
     -- * Request
       CreateDBSecurityGroup
     -- ** Request constructor
-    , mkCreateDBSecurityGroup
+    , createDBSecurityGroup
     -- ** Request lenses
     , cdbsgDBSecurityGroupName
     , cdbsgDBSecurityGroupDescription
@@ -39,7 +39,7 @@ module Network.AWS.RDS.CreateDBSecurityGroup
     -- * Response
     , CreateDBSecurityGroupResponse
     -- ** Response constructor
-    , mkCreateDBSecurityGroupResponse
+    , createDBSecurityGroupResponse
     -- ** Response lenses
     , cdbsgrDBSecurityGroup
     ) where
@@ -66,10 +66,10 @@ data CreateDBSecurityGroup = CreateDBSecurityGroup
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkCreateDBSecurityGroup :: Text -- ^ 'cdbsgDBSecurityGroupName'
+createDBSecurityGroup :: Text -- ^ 'cdbsgDBSecurityGroupName'
                         -> Text -- ^ 'cdbsgDBSecurityGroupDescription'
                         -> CreateDBSecurityGroup
-mkCreateDBSecurityGroup p1 p2 = CreateDBSecurityGroup
+createDBSecurityGroup p1 p2 = CreateDBSecurityGroup
     { _cdbsgDBSecurityGroupName = p1
     , _cdbsgDBSecurityGroupDescription = p2
     , _cdbsgTags = mempty
@@ -111,8 +111,8 @@ newtype CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse
 --
 -- * @DBSecurityGroup ::@ @Maybe DBSecurityGroup@
 --
-mkCreateDBSecurityGroupResponse :: CreateDBSecurityGroupResponse
-mkCreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse
+createDBSecurityGroupResponse :: CreateDBSecurityGroupResponse
+createDBSecurityGroupResponse = CreateDBSecurityGroupResponse
     { _cdbsgrDBSecurityGroup = Nothing
     }
 

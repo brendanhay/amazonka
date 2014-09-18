@@ -30,7 +30,7 @@ module Network.AWS.OpsWorks.AttachElasticLoadBalancer
     -- * Request
       AttachElasticLoadBalancer
     -- ** Request constructor
-    , mkAttachElasticLoadBalancer
+    , attachElasticLoadBalancer
     -- ** Request lenses
     , aelbElasticLoadBalancerName
     , aelbLayerId
@@ -38,7 +38,7 @@ module Network.AWS.OpsWorks.AttachElasticLoadBalancer
     -- * Response
     , AttachElasticLoadBalancerResponse
     -- ** Response constructor
-    , mkAttachElasticLoadBalancerResponse
+    , attachElasticLoadBalancerResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -59,10 +59,10 @@ data AttachElasticLoadBalancer = AttachElasticLoadBalancer
 --
 -- * @LayerId ::@ @Text@
 --
-mkAttachElasticLoadBalancer :: Text -- ^ 'aelbElasticLoadBalancerName'
+attachElasticLoadBalancer :: Text -- ^ 'aelbElasticLoadBalancerName'
                             -> Text -- ^ 'aelbLayerId'
                             -> AttachElasticLoadBalancer
-mkAttachElasticLoadBalancer p1 p2 = AttachElasticLoadBalancer
+attachElasticLoadBalancer p1 p2 = AttachElasticLoadBalancer
     { _aelbElasticLoadBalancerName = p1
     , _aelbLayerId = p2
     }
@@ -93,8 +93,8 @@ data AttachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse
 -- a valid 'AttachElasticLoadBalancerResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkAttachElasticLoadBalancerResponse :: AttachElasticLoadBalancerResponse
-mkAttachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse
+attachElasticLoadBalancerResponse :: AttachElasticLoadBalancerResponse
+attachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse
 
 instance AWSRequest AttachElasticLoadBalancer where
     type Sv AttachElasticLoadBalancer = OpsWorks

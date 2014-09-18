@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.CreateInstance
     -- * Request
       CreateInstance
     -- ** Request constructor
-    , mkCreateInstance
+    , createInstance
     -- ** Request lenses
     , ciStackId
     , ciLayerIds
@@ -48,7 +48,7 @@ module Network.AWS.OpsWorks.CreateInstance
     -- * Response
     , CreateInstanceResponse
     -- ** Response constructor
-    , mkCreateInstanceResponse
+    , createInstanceResponse
     -- ** Response lenses
     , cirInstanceId
     ) where
@@ -110,11 +110,11 @@ data CreateInstance = CreateInstance
 --
 -- * @EbsOptimized ::@ @Maybe Bool@
 --
-mkCreateInstance :: Text -- ^ 'ciStackId'
+createInstance :: Text -- ^ 'ciStackId'
                  -> [Text] -- ^ 'ciLayerIds'
                  -> Text -- ^ 'ciInstanceType'
                  -> CreateInstance
-mkCreateInstance p1 p2 p3 = CreateInstance
+createInstance p1 p2 p3 = CreateInstance
     { _ciStackId = p1
     , _ciLayerIds = p2
     , _ciInstanceType = p3
@@ -251,8 +251,8 @@ newtype CreateInstanceResponse = CreateInstanceResponse
 --
 -- * @InstanceId ::@ @Maybe Text@
 --
-mkCreateInstanceResponse :: CreateInstanceResponse
-mkCreateInstanceResponse = CreateInstanceResponse
+createInstanceResponse :: CreateInstanceResponse
+createInstanceResponse = CreateInstanceResponse
     { _cirInstanceId = Nothing
     }
 

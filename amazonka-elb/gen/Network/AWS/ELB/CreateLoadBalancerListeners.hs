@@ -36,7 +36,7 @@ module Network.AWS.ELB.CreateLoadBalancerListeners
     -- * Request
       CreateLoadBalancerListeners
     -- ** Request constructor
-    , mkCreateLoadBalancerListeners
+    , createLoadBalancerListeners
     -- ** Request lenses
     , clblLoadBalancerName
     , clblListeners
@@ -44,7 +44,7 @@ module Network.AWS.ELB.CreateLoadBalancerListeners
     -- * Response
     , CreateLoadBalancerListenersResponse
     -- ** Response constructor
-    , mkCreateLoadBalancerListenersResponse
+    , createLoadBalancerListenersResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -66,10 +66,10 @@ data CreateLoadBalancerListeners = CreateLoadBalancerListeners
 --
 -- * @Listeners ::@ @[Listener]@
 --
-mkCreateLoadBalancerListeners :: Text -- ^ 'clblLoadBalancerName'
+createLoadBalancerListeners :: Text -- ^ 'clblLoadBalancerName'
                               -> [Listener] -- ^ 'clblListeners'
                               -> CreateLoadBalancerListeners
-mkCreateLoadBalancerListeners p1 p2 = CreateLoadBalancerListeners
+createLoadBalancerListeners p1 p2 = CreateLoadBalancerListeners
     { _clblLoadBalancerName = p1
     , _clblListeners = p2
     }
@@ -95,8 +95,8 @@ data CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
 -- a valid 'CreateLoadBalancerListenersResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkCreateLoadBalancerListenersResponse :: CreateLoadBalancerListenersResponse
-mkCreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
+createLoadBalancerListenersResponse :: CreateLoadBalancerListenersResponse
+createLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
 
 instance AWSRequest CreateLoadBalancerListeners where
     type Sv CreateLoadBalancerListeners = ELB

@@ -30,14 +30,14 @@ module Network.AWS.SimpleDB.CreateDomain
     -- * Request
       CreateDomain
     -- ** Request constructor
-    , mkCreateDomain
+    , createDomain
     -- ** Request lenses
     , cdDomainName
 
     -- * Response
     , CreateDomainResponse
     -- ** Response constructor
-    , mkCreateDomainResponse
+    , createDomainResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -55,9 +55,9 @@ newtype CreateDomain = CreateDomain
 --
 -- * @DomainName ::@ @Text@
 --
-mkCreateDomain :: Text -- ^ 'cdDomainName'
+createDomain :: Text -- ^ 'cdDomainName'
                -> CreateDomain
-mkCreateDomain p1 = CreateDomain
+createDomain p1 = CreateDomain
     { _cdDomainName = p1
     }
 
@@ -77,8 +77,8 @@ data CreateDomainResponse = CreateDomainResponse
 -- a valid 'CreateDomainResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkCreateDomainResponse :: CreateDomainResponse
-mkCreateDomainResponse = CreateDomainResponse
+createDomainResponse :: CreateDomainResponse
+createDomainResponse = CreateDomainResponse
 
 instance AWSRequest CreateDomain where
     type Sv CreateDomain = SimpleDB

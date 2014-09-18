@@ -37,14 +37,14 @@ module Network.AWS.DynamoDB.DeleteTable
     -- * Request
       DeleteTable
     -- ** Request constructor
-    , mkDeleteTable
+    , deleteTable
     -- ** Request lenses
     , dtTableName
 
     -- * Response
     , DeleteTableResponse
     -- ** Response constructor
-    , mkDeleteTableResponse
+    , deleteTableResponse
     -- ** Response lenses
     , dtrTableDescription
     ) where
@@ -65,9 +65,9 @@ newtype DeleteTable = DeleteTable
 --
 -- * @TableName ::@ @Text@
 --
-mkDeleteTable :: Text -- ^ 'dtTableName'
+deleteTable :: Text -- ^ 'dtTableName'
               -> DeleteTable
-mkDeleteTable p1 = DeleteTable
+deleteTable p1 = DeleteTable
     { _dtTableName = p1
     }
 
@@ -97,8 +97,8 @@ newtype DeleteTableResponse = DeleteTableResponse
 --
 -- * @TableDescription ::@ @Maybe TableDescription@
 --
-mkDeleteTableResponse :: DeleteTableResponse
-mkDeleteTableResponse = DeleteTableResponse
+deleteTableResponse :: DeleteTableResponse
+deleteTableResponse = DeleteTableResponse
     { _dtrTableDescription = Nothing
     }
 

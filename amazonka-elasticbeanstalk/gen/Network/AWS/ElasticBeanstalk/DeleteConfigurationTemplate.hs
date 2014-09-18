@@ -29,7 +29,7 @@ module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
     -- * Request
       DeleteConfigurationTemplate
     -- ** Request constructor
-    , mkDeleteConfigurationTemplate
+    , deleteConfigurationTemplate
     -- ** Request lenses
     , dctApplicationName
     , dctTemplateName
@@ -37,7 +37,7 @@ module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
     -- * Response
     , DeleteConfigurationTemplateResponse
     -- ** Response constructor
-    , mkDeleteConfigurationTemplateResponse
+    , deleteConfigurationTemplateResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -59,10 +59,10 @@ data DeleteConfigurationTemplate = DeleteConfigurationTemplate
 --
 -- * @TemplateName ::@ @Text@
 --
-mkDeleteConfigurationTemplate :: Text -- ^ 'dctApplicationName'
+deleteConfigurationTemplate :: Text -- ^ 'dctApplicationName'
                               -> Text -- ^ 'dctTemplateName'
                               -> DeleteConfigurationTemplate
-mkDeleteConfigurationTemplate p1 p2 = DeleteConfigurationTemplate
+deleteConfigurationTemplate p1 p2 = DeleteConfigurationTemplate
     { _dctApplicationName = p1
     , _dctTemplateName = p2
     }
@@ -86,8 +86,8 @@ data DeleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse
 -- a valid 'DeleteConfigurationTemplateResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteConfigurationTemplateResponse :: DeleteConfigurationTemplateResponse
-mkDeleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse
+deleteConfigurationTemplateResponse :: DeleteConfigurationTemplateResponse
+deleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse
 
 instance AWSRequest DeleteConfigurationTemplate where
     type Sv DeleteConfigurationTemplate = ElasticBeanstalk

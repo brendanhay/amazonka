@@ -58,7 +58,7 @@ module Network.AWS.SWF.TerminateWorkflowExecution
     -- * Request
       TerminateWorkflowExecution
     -- ** Request constructor
-    , mkTerminateWorkflowExecution
+    , terminateWorkflowExecution
     -- ** Request lenses
     , tweDomain
     , tweWorkflowId
@@ -70,7 +70,7 @@ module Network.AWS.SWF.TerminateWorkflowExecution
     -- * Response
     , TerminateWorkflowExecutionResponse
     -- ** Response constructor
-    , mkTerminateWorkflowExecutionResponse
+    , terminateWorkflowExecutionResponse
     ) where
 
 import Network.AWS.SWF.Types
@@ -103,10 +103,10 @@ data TerminateWorkflowExecution = TerminateWorkflowExecution
 --
 -- * @ChildPolicy ::@ @Maybe ChildPolicy@
 --
-mkTerminateWorkflowExecution :: Text -- ^ 'tweDomain'
+terminateWorkflowExecution :: Text -- ^ 'tweDomain'
                              -> Text -- ^ 'tweWorkflowId'
                              -> TerminateWorkflowExecution
-mkTerminateWorkflowExecution p1 p2 = TerminateWorkflowExecution
+terminateWorkflowExecution p1 p2 = TerminateWorkflowExecution
     { _tweDomain = p1
     , _tweWorkflowId = p2
     , _tweRunId = Nothing
@@ -166,8 +166,8 @@ data TerminateWorkflowExecutionResponse = TerminateWorkflowExecutionResponse
 -- a valid 'TerminateWorkflowExecutionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkTerminateWorkflowExecutionResponse :: TerminateWorkflowExecutionResponse
-mkTerminateWorkflowExecutionResponse = TerminateWorkflowExecutionResponse
+terminateWorkflowExecutionResponse :: TerminateWorkflowExecutionResponse
+terminateWorkflowExecutionResponse = TerminateWorkflowExecutionResponse
 
 instance AWSRequest TerminateWorkflowExecution where
     type Sv TerminateWorkflowExecution = SWF

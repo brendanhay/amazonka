@@ -23,7 +23,7 @@ module Network.AWS.S3.PutBucketTagging
     -- * Request
       PutBucketTagging
     -- ** Request constructor
-    , mkPutBucketTagging
+    , putBucketTagging
     -- ** Request lenses
     , pbtBucket
     , pbtContentMD5
@@ -32,7 +32,7 @@ module Network.AWS.S3.PutBucketTagging
     -- * Response
     , PutBucketTaggingResponse
     -- ** Response constructor
-    , mkPutBucketTaggingResponse
+    , putBucketTaggingResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -57,10 +57,10 @@ data PutBucketTagging = PutBucketTagging
 --
 -- * @Tagging ::@ @Tagging@
 --
-mkPutBucketTagging :: BucketName -- ^ 'pbtBucket'
+putBucketTagging :: BucketName -- ^ 'pbtBucket'
                    -> Tagging -- ^ 'pbtTagging'
                    -> PutBucketTagging
-mkPutBucketTagging p1 p3 = PutBucketTagging
+putBucketTagging p1 p3 = PutBucketTagging
     { _pbtBucket = p1
     , _pbtContentMD5 = Nothing
     , _pbtTagging = p3
@@ -94,8 +94,8 @@ data PutBucketTaggingResponse = PutBucketTaggingResponse
 -- a valid 'PutBucketTaggingResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkPutBucketTaggingResponse :: PutBucketTaggingResponse
-mkPutBucketTaggingResponse = PutBucketTaggingResponse
+putBucketTaggingResponse :: PutBucketTaggingResponse
+putBucketTaggingResponse = PutBucketTaggingResponse
 
 instance AWSRequest PutBucketTagging where
     type Sv PutBucketTagging = S3

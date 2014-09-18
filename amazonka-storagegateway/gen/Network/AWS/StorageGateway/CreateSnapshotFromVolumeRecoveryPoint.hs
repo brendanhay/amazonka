@@ -55,7 +55,7 @@ module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     -- * Request
       CreateSnapshotFromVolumeRecoveryPoint
     -- ** Request constructor
-    , mkCreateSnapshotFromVolumeRecoveryPoint
+    , createSnapshotFromVolumeRecoveryPoint
     -- ** Request lenses
     , csfvrpVolumeARN
     , csfvrpSnapshotDescription
@@ -63,7 +63,7 @@ module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     -- * Response
     , CreateSnapshotFromVolumeRecoveryPointResponse
     -- ** Response constructor
-    , mkCreateSnapshotFromVolumeRecoveryPointResponse
+    , createSnapshotFromVolumeRecoveryPointResponse
     -- ** Response lenses
     , csfvrprSnapshotId
     , csfvrprVolumeARN
@@ -88,10 +88,10 @@ data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoi
 --
 -- * @SnapshotDescription ::@ @Text@
 --
-mkCreateSnapshotFromVolumeRecoveryPoint :: Text -- ^ 'csfvrpVolumeARN'
+createSnapshotFromVolumeRecoveryPoint :: Text -- ^ 'csfvrpVolumeARN'
                                         -> Text -- ^ 'csfvrpSnapshotDescription'
                                         -> CreateSnapshotFromVolumeRecoveryPoint
-mkCreateSnapshotFromVolumeRecoveryPoint p1 p2 = CreateSnapshotFromVolumeRecoveryPoint
+createSnapshotFromVolumeRecoveryPoint p1 p2 = CreateSnapshotFromVolumeRecoveryPoint
     { _csfvrpVolumeARN = p1
     , _csfvrpSnapshotDescription = p2
     }
@@ -131,8 +131,8 @@ data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRec
 --
 -- * @VolumeRecoveryPointTime ::@ @Maybe Text@
 --
-mkCreateSnapshotFromVolumeRecoveryPointResponse :: CreateSnapshotFromVolumeRecoveryPointResponse
-mkCreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRecoveryPointResponse
+createSnapshotFromVolumeRecoveryPointResponse :: CreateSnapshotFromVolumeRecoveryPointResponse
+createSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRecoveryPointResponse
     { _csfvrprSnapshotId = Nothing
     , _csfvrprVolumeARN = Nothing
     , _csfvrprVolumeRecoveryPointTime = Nothing

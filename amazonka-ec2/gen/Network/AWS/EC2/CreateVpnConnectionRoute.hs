@@ -38,7 +38,7 @@ module Network.AWS.EC2.CreateVpnConnectionRoute
     -- * Request
       CreateVpnConnectionRoute
     -- ** Request constructor
-    , mkCreateVpnConnectionRoute
+    , createVpnConnectionRoute
     -- ** Request lenses
     , cvcr1VpnConnectionId
     , cvcr1DestinationCidrBlock
@@ -46,7 +46,7 @@ module Network.AWS.EC2.CreateVpnConnectionRoute
     -- * Response
     , CreateVpnConnectionRouteResponse
     -- ** Response constructor
-    , mkCreateVpnConnectionRouteResponse
+    , createVpnConnectionRouteResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -67,10 +67,10 @@ data CreateVpnConnectionRoute = CreateVpnConnectionRoute
 --
 -- * @DestinationCidrBlock ::@ @Text@
 --
-mkCreateVpnConnectionRoute :: Text -- ^ 'cvcr1VpnConnectionId'
+createVpnConnectionRoute :: Text -- ^ 'cvcr1VpnConnectionId'
                            -> Text -- ^ 'cvcr1DestinationCidrBlock'
                            -> CreateVpnConnectionRoute
-mkCreateVpnConnectionRoute p1 p2 = CreateVpnConnectionRoute
+createVpnConnectionRoute p1 p2 = CreateVpnConnectionRoute
     { _cvcr1VpnConnectionId = p1
     , _cvcr1DestinationCidrBlock = p2
     }
@@ -96,8 +96,8 @@ data CreateVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse
 -- a valid 'CreateVpnConnectionRouteResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkCreateVpnConnectionRouteResponse :: CreateVpnConnectionRouteResponse
-mkCreateVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse
+createVpnConnectionRouteResponse :: CreateVpnConnectionRouteResponse
+createVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse
 
 instance AWSRequest CreateVpnConnectionRoute where
     type Sv CreateVpnConnectionRoute = EC2

@@ -35,14 +35,14 @@ module Network.AWS.EC2.CreateNetworkAcl
     -- * Request
       CreateNetworkAcl
     -- ** Request constructor
-    , mkCreateNetworkAcl
+    , createNetworkAcl
     -- ** Request lenses
     , cnaVpcId
 
     -- * Response
     , CreateNetworkAclResponse
     -- ** Response constructor
-    , mkCreateNetworkAclResponse
+    , createNetworkAclResponse
     -- ** Response lenses
     , cnarNetworkAcl
     ) where
@@ -62,9 +62,9 @@ newtype CreateNetworkAcl = CreateNetworkAcl
 --
 -- * @VpcId ::@ @Text@
 --
-mkCreateNetworkAcl :: Text -- ^ 'cnaVpcId'
+createNetworkAcl :: Text -- ^ 'cnaVpcId'
                    -> CreateNetworkAcl
-mkCreateNetworkAcl p1 = CreateNetworkAcl
+createNetworkAcl p1 = CreateNetworkAcl
     { _cnaVpcId = p1
     }
 
@@ -88,8 +88,8 @@ newtype CreateNetworkAclResponse = CreateNetworkAclResponse
 --
 -- * @NetworkAcl ::@ @Maybe NetworkAcl@
 --
-mkCreateNetworkAclResponse :: CreateNetworkAclResponse
-mkCreateNetworkAclResponse = CreateNetworkAclResponse
+createNetworkAclResponse :: CreateNetworkAclResponse
+createNetworkAclResponse = CreateNetworkAclResponse
     { _cnarNetworkAcl = Nothing
     }
 

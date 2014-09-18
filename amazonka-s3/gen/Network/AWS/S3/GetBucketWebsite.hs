@@ -23,14 +23,14 @@ module Network.AWS.S3.GetBucketWebsite
     -- * Request
       GetBucketWebsite
     -- ** Request constructor
-    , mkGetBucketWebsite
+    , getBucketWebsite
     -- ** Request lenses
     , gbwBucket
 
     -- * Response
     , GetBucketWebsiteResponse
     -- ** Response constructor
-    , mkGetBucketWebsiteResponse
+    , getBucketWebsiteResponse
     -- ** Response lenses
     , gbwrRedirectAllRequestsTo
     , gbwrIndexDocument
@@ -54,9 +54,9 @@ newtype GetBucketWebsite = GetBucketWebsite
 --
 -- * @Bucket ::@ @BucketName@
 --
-mkGetBucketWebsite :: BucketName -- ^ 'gbwBucket'
+getBucketWebsite :: BucketName -- ^ 'gbwBucket'
                    -> GetBucketWebsite
-mkGetBucketWebsite p1 = GetBucketWebsite
+getBucketWebsite p1 = GetBucketWebsite
     { _gbwBucket = p1
     }
 
@@ -93,8 +93,8 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse
 --
 -- * @RoutingRules ::@ @[RoutingRule]@
 --
-mkGetBucketWebsiteResponse :: GetBucketWebsiteResponse
-mkGetBucketWebsiteResponse = GetBucketWebsiteResponse
+getBucketWebsiteResponse :: GetBucketWebsiteResponse
+getBucketWebsiteResponse = GetBucketWebsiteResponse
     { _gbwrRedirectAllRequestsTo = Nothing
     , _gbwrIndexDocument = Nothing
     , _gbwrErrorDocument = Nothing

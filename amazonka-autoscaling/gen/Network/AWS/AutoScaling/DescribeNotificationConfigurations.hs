@@ -24,7 +24,7 @@ module Network.AWS.AutoScaling.DescribeNotificationConfigurations
     -- * Request
       DescribeNotificationConfigurations
     -- ** Request constructor
-    , mkDescribeNotificationConfigurations
+    , describeNotificationConfigurations
     -- ** Request lenses
     , dnc1AutoScalingGroupNames
     , dnc1NextToken
@@ -33,7 +33,7 @@ module Network.AWS.AutoScaling.DescribeNotificationConfigurations
     -- * Response
     , DescribeNotificationConfigurationsResponse
     -- ** Response constructor
-    , mkDescribeNotificationConfigurationsResponse
+    , describeNotificationConfigurationsResponse
     -- ** Response lenses
     , dncrNotificationConfigurations
     , dncrNextToken
@@ -60,8 +60,8 @@ data DescribeNotificationConfigurations = DescribeNotificationConfigurations
 --
 -- * @MaxRecords ::@ @Maybe Integer@
 --
-mkDescribeNotificationConfigurations :: DescribeNotificationConfigurations
-mkDescribeNotificationConfigurations = DescribeNotificationConfigurations
+describeNotificationConfigurations :: DescribeNotificationConfigurations
+describeNotificationConfigurations = DescribeNotificationConfigurations
     { _dnc1AutoScalingGroupNames = mempty
     , _dnc1NextToken = Nothing
     , _dnc1MaxRecords = Nothing
@@ -102,9 +102,9 @@ data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurat
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeNotificationConfigurationsResponse :: [NotificationConfiguration] -- ^ 'dncrNotificationConfigurations'
+describeNotificationConfigurationsResponse :: [NotificationConfiguration] -- ^ 'dncrNotificationConfigurations'
                                              -> DescribeNotificationConfigurationsResponse
-mkDescribeNotificationConfigurationsResponse p1 = DescribeNotificationConfigurationsResponse
+describeNotificationConfigurationsResponse p1 = DescribeNotificationConfigurationsResponse
     { _dncrNotificationConfigurations = p1
     , _dncrNextToken = Nothing
     }

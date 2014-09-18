@@ -37,7 +37,7 @@ module Network.AWS.RDS.CreateDBParameterGroup
     -- * Request
       CreateDBParameterGroup
     -- ** Request constructor
-    , mkCreateDBParameterGroup
+    , createDBParameterGroup
     -- ** Request lenses
     , cdbpgDBParameterGroupName
     , cdbpgDBParameterGroupFamily
@@ -47,7 +47,7 @@ module Network.AWS.RDS.CreateDBParameterGroup
     -- * Response
     , CreateDBParameterGroupResponse
     -- ** Response constructor
-    , mkCreateDBParameterGroupResponse
+    , createDBParameterGroupResponse
     -- ** Response lenses
     , cdbpgrDBParameterGroup
     ) where
@@ -77,11 +77,11 @@ data CreateDBParameterGroup = CreateDBParameterGroup
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkCreateDBParameterGroup :: Text -- ^ 'cdbpgDBParameterGroupName'
+createDBParameterGroup :: Text -- ^ 'cdbpgDBParameterGroupName'
                          -> Text -- ^ 'cdbpgDBParameterGroupFamily'
                          -> Text -- ^ 'cdbpgDescription'
                          -> CreateDBParameterGroup
-mkCreateDBParameterGroup p1 p2 p3 = CreateDBParameterGroup
+createDBParameterGroup p1 p2 p3 = CreateDBParameterGroup
     { _cdbpgDBParameterGroupName = p1
     , _cdbpgDBParameterGroupFamily = p2
     , _cdbpgDescription = p3
@@ -131,8 +131,8 @@ newtype CreateDBParameterGroupResponse = CreateDBParameterGroupResponse
 --
 -- * @DBParameterGroup ::@ @Maybe DBParameterGroup@
 --
-mkCreateDBParameterGroupResponse :: CreateDBParameterGroupResponse
-mkCreateDBParameterGroupResponse = CreateDBParameterGroupResponse
+createDBParameterGroupResponse :: CreateDBParameterGroupResponse
+createDBParameterGroupResponse = CreateDBParameterGroupResponse
     { _cdbpgrDBParameterGroup = Nothing
     }
 

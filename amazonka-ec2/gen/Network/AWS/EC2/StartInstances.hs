@@ -46,7 +46,7 @@ module Network.AWS.EC2.StartInstances
     -- * Request
       StartInstances
     -- ** Request constructor
-    , mkStartInstances
+    , startInstances
     -- ** Request lenses
     , siInstanceIds
     , siAdditionalInfo
@@ -54,7 +54,7 @@ module Network.AWS.EC2.StartInstances
     -- * Response
     , StartInstancesResponse
     -- ** Response constructor
-    , mkStartInstancesResponse
+    , startInstancesResponse
     -- ** Response lenses
     , sirrStartingInstances
     ) where
@@ -77,9 +77,9 @@ data StartInstances = StartInstances
 --
 -- * @AdditionalInfo ::@ @Maybe Text@
 --
-mkStartInstances :: [Text] -- ^ 'siInstanceIds'
+startInstances :: [Text] -- ^ 'siInstanceIds'
                  -> StartInstances
-mkStartInstances p1 = StartInstances
+startInstances p1 = StartInstances
     { _siInstanceIds = p1
     , _siAdditionalInfo = Nothing
     }
@@ -109,8 +109,8 @@ newtype StartInstancesResponse = StartInstancesResponse
 --
 -- * @StartingInstances ::@ @[InstanceStateChange]@
 --
-mkStartInstancesResponse :: StartInstancesResponse
-mkStartInstancesResponse = StartInstancesResponse
+startInstancesResponse :: StartInstancesResponse
+startInstancesResponse = StartInstancesResponse
     { _sirrStartingInstances = mempty
     }
 

@@ -25,14 +25,14 @@ module Network.AWS.OpsWorks.DescribeUserProfiles
     -- * Request
       DescribeUserProfiles
     -- ** Request constructor
-    , mkDescribeUserProfiles
+    , describeUserProfiles
     -- ** Request lenses
     , dup1IamUserArns
 
     -- * Response
     , DescribeUserProfilesResponse
     -- ** Response constructor
-    , mkDescribeUserProfilesResponse
+    , describeUserProfilesResponse
     -- ** Response lenses
     , duprUserProfiles
     ) where
@@ -52,8 +52,8 @@ newtype DescribeUserProfiles = DescribeUserProfiles
 --
 -- * @IamUserArns ::@ @[Text]@
 --
-mkDescribeUserProfiles :: DescribeUserProfiles
-mkDescribeUserProfiles = DescribeUserProfiles
+describeUserProfiles :: DescribeUserProfiles
+describeUserProfiles = DescribeUserProfiles
     { _dup1IamUserArns = mempty
     }
 
@@ -83,8 +83,8 @@ newtype DescribeUserProfilesResponse = DescribeUserProfilesResponse
 --
 -- * @UserProfiles ::@ @[UserProfile]@
 --
-mkDescribeUserProfilesResponse :: DescribeUserProfilesResponse
-mkDescribeUserProfilesResponse = DescribeUserProfilesResponse
+describeUserProfilesResponse :: DescribeUserProfilesResponse
+describeUserProfilesResponse = DescribeUserProfilesResponse
     { _duprUserProfiles = mempty
     }
 

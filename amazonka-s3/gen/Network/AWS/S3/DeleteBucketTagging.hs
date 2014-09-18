@@ -23,14 +23,14 @@ module Network.AWS.S3.DeleteBucketTagging
     -- * Request
       DeleteBucketTagging
     -- ** Request constructor
-    , mkDeleteBucketTagging
+    , deleteBucketTagging
     -- ** Request lenses
     , dbtBucket
 
     -- * Response
     , DeleteBucketTaggingResponse
     -- ** Response constructor
-    , mkDeleteBucketTaggingResponse
+    , deleteBucketTaggingResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -49,9 +49,9 @@ newtype DeleteBucketTagging = DeleteBucketTagging
 --
 -- * @Bucket ::@ @BucketName@
 --
-mkDeleteBucketTagging :: BucketName -- ^ 'dbtBucket'
+deleteBucketTagging :: BucketName -- ^ 'dbtBucket'
                       -> DeleteBucketTagging
-mkDeleteBucketTagging p1 = DeleteBucketTagging
+deleteBucketTagging p1 = DeleteBucketTagging
     { _dbtBucket = p1
     }
 
@@ -73,8 +73,8 @@ data DeleteBucketTaggingResponse = DeleteBucketTaggingResponse
 -- a valid 'DeleteBucketTaggingResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteBucketTaggingResponse :: DeleteBucketTaggingResponse
-mkDeleteBucketTaggingResponse = DeleteBucketTaggingResponse
+deleteBucketTaggingResponse :: DeleteBucketTaggingResponse
+deleteBucketTaggingResponse = DeleteBucketTaggingResponse
 
 instance AWSRequest DeleteBucketTagging where
     type Sv DeleteBucketTagging = S3

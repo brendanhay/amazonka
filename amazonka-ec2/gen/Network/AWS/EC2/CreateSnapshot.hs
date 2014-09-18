@@ -56,7 +56,7 @@ module Network.AWS.EC2.CreateSnapshot
     -- * Request
       CreateSnapshot
     -- ** Request constructor
-    , mkCreateSnapshot
+    , createSnapshot
     -- ** Request lenses
     , cs1VolumeId
     , cs1Description
@@ -64,7 +64,7 @@ module Network.AWS.EC2.CreateSnapshot
     -- * Response
     , CreateSnapshotResponse
     -- ** Response constructor
-    , mkCreateSnapshotResponse
+    , createSnapshotResponse
     -- ** Response lenses
     , csrrSnapshotId
     , csrrVolumeId
@@ -96,9 +96,9 @@ data CreateSnapshot = CreateSnapshot
 --
 -- * @Description ::@ @Maybe Text@
 --
-mkCreateSnapshot :: Text -- ^ 'cs1VolumeId'
+createSnapshot :: Text -- ^ 'cs1VolumeId'
                  -> CreateSnapshot
-mkCreateSnapshot p1 = CreateSnapshot
+createSnapshot p1 = CreateSnapshot
     { _cs1VolumeId = p1
     , _cs1Description = Nothing
     }
@@ -154,8 +154,8 @@ data CreateSnapshotResponse = CreateSnapshotResponse
 --
 -- * @Encrypted ::@ @Maybe Bool@
 --
-mkCreateSnapshotResponse :: CreateSnapshotResponse
-mkCreateSnapshotResponse = CreateSnapshotResponse
+createSnapshotResponse :: CreateSnapshotResponse
+createSnapshotResponse = CreateSnapshotResponse
     { _csrrSnapshotId = Nothing
     , _csrrVolumeId = Nothing
     , _csrrState = Nothing

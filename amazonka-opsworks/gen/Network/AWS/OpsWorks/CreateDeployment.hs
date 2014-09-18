@@ -30,7 +30,7 @@ module Network.AWS.OpsWorks.CreateDeployment
     -- * Request
       CreateDeployment
     -- ** Request constructor
-    , mkCreateDeployment
+    , createDeployment
     -- ** Request lenses
     , cdStackId
     , cdAppId
@@ -42,7 +42,7 @@ module Network.AWS.OpsWorks.CreateDeployment
     -- * Response
     , CreateDeploymentResponse
     -- ** Response constructor
-    , mkCreateDeploymentResponse
+    , createDeploymentResponse
     -- ** Response lenses
     , cdrDeploymentId
     ) where
@@ -77,10 +77,10 @@ data CreateDeployment = CreateDeployment
 --
 -- * @CustomJson ::@ @Maybe Text@
 --
-mkCreateDeployment :: Text -- ^ 'cdStackId'
+createDeployment :: Text -- ^ 'cdStackId'
                    -> DeploymentCommand -- ^ 'cdCommand'
                    -> CreateDeployment
-mkCreateDeployment p1 p4 = CreateDeployment
+createDeployment p1 p4 = CreateDeployment
     { _cdStackId = p1
     , _cdAppId = Nothing
     , _cdInstanceIds = mempty
@@ -141,8 +141,8 @@ newtype CreateDeploymentResponse = CreateDeploymentResponse
 --
 -- * @DeploymentId ::@ @Maybe Text@
 --
-mkCreateDeploymentResponse :: CreateDeploymentResponse
-mkCreateDeploymentResponse = CreateDeploymentResponse
+createDeploymentResponse :: CreateDeploymentResponse
+createDeploymentResponse = CreateDeploymentResponse
     { _cdrDeploymentId = Nothing
     }
 

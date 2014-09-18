@@ -26,14 +26,14 @@ module Network.AWS.DirectConnect.DeleteConnection
     -- * Request
       DeleteConnection
     -- ** Request constructor
-    , mkDeleteConnection
+    , deleteConnection
     -- ** Request lenses
     , dcConnectionId
 
     -- * Response
     , DeleteConnectionResponse
     -- ** Response constructor
-    , mkDeleteConnectionResponse
+    , deleteConnectionResponse
     -- ** Response lenses
     , dcrOwnerAccount
     , dcrConnectionId
@@ -62,9 +62,9 @@ newtype DeleteConnection = DeleteConnection
 --
 -- * @ConnectionId ::@ @Text@
 --
-mkDeleteConnection :: Text -- ^ 'dcConnectionId'
+deleteConnection :: Text -- ^ 'dcConnectionId'
                    -> DeleteConnection
-mkDeleteConnection p1 = DeleteConnection
+deleteConnection p1 = DeleteConnection
     { _dcConnectionId = p1
     }
 
@@ -119,8 +119,8 @@ data DeleteConnectionResponse = DeleteConnectionResponse
 --
 -- * @PartnerName ::@ @Maybe Text@
 --
-mkDeleteConnectionResponse :: DeleteConnectionResponse
-mkDeleteConnectionResponse = DeleteConnectionResponse
+deleteConnectionResponse :: DeleteConnectionResponse
+deleteConnectionResponse = DeleteConnectionResponse
     { _dcrOwnerAccount = Nothing
     , _dcrConnectionId = Nothing
     , _dcrConnectionName = Nothing

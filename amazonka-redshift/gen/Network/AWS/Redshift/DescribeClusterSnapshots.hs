@@ -37,7 +37,7 @@ module Network.AWS.Redshift.DescribeClusterSnapshots
     -- * Request
       DescribeClusterSnapshots
     -- ** Request constructor
-    , mkDescribeClusterSnapshots
+    , describeClusterSnapshots
     -- ** Request lenses
     , dcs1ClusterIdentifier
     , dcs1SnapshotIdentifier
@@ -51,7 +51,7 @@ module Network.AWS.Redshift.DescribeClusterSnapshots
     -- * Response
     , DescribeClusterSnapshotsResponse
     -- ** Response constructor
-    , mkDescribeClusterSnapshotsResponse
+    , describeClusterSnapshotsResponse
     -- ** Response lenses
     , dcsrrMarker
     , dcsrrSnapshots
@@ -94,8 +94,8 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots
 --
 -- * @OwnerAccount ::@ @Maybe Text@
 --
-mkDescribeClusterSnapshots :: DescribeClusterSnapshots
-mkDescribeClusterSnapshots = DescribeClusterSnapshots
+describeClusterSnapshots :: DescribeClusterSnapshots
+describeClusterSnapshots = DescribeClusterSnapshots
     { _dcs1ClusterIdentifier = Nothing
     , _dcs1SnapshotIdentifier = Nothing
     , _dcs1SnapshotType = Nothing
@@ -182,8 +182,8 @@ data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
 --
 -- * @Snapshots ::@ @[Snapshot]@
 --
-mkDescribeClusterSnapshotsResponse :: DescribeClusterSnapshotsResponse
-mkDescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
+describeClusterSnapshotsResponse :: DescribeClusterSnapshotsResponse
+describeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
     { _dcsrrMarker = Nothing
     , _dcsrrSnapshots = mempty
     }

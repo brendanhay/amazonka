@@ -63,14 +63,14 @@ module Network.AWS.EC2.CreateDhcpOptions
     -- * Request
       CreateDhcpOptions
     -- ** Request constructor
-    , mkCreateDhcpOptions
+    , createDhcpOptions
     -- ** Request lenses
     , cdoDhcpConfigurations
 
     -- * Response
     , CreateDhcpOptionsResponse
     -- ** Response constructor
-    , mkCreateDhcpOptionsResponse
+    , createDhcpOptionsResponse
     -- ** Response lenses
     , cdorDhcpOptions
     ) where
@@ -90,9 +90,9 @@ newtype CreateDhcpOptions = CreateDhcpOptions
 --
 -- * @DhcpConfigurations ::@ @[DhcpConfiguration]@
 --
-mkCreateDhcpOptions :: [DhcpConfiguration] -- ^ 'cdoDhcpConfigurations'
+createDhcpOptions :: [DhcpConfiguration] -- ^ 'cdoDhcpConfigurations'
                     -> CreateDhcpOptions
-mkCreateDhcpOptions p1 = CreateDhcpOptions
+createDhcpOptions p1 = CreateDhcpOptions
     { _cdoDhcpConfigurations = p1
     }
 
@@ -117,8 +117,8 @@ newtype CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
 --
 -- * @DhcpOptions ::@ @Maybe DhcpOptions@
 --
-mkCreateDhcpOptionsResponse :: CreateDhcpOptionsResponse
-mkCreateDhcpOptionsResponse = CreateDhcpOptionsResponse
+createDhcpOptionsResponse :: CreateDhcpOptionsResponse
+createDhcpOptionsResponse = CreateDhcpOptionsResponse
     { _cdorDhcpOptions = Nothing
     }
 

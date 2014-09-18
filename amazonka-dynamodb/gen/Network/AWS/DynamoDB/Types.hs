@@ -80,33 +80,33 @@ module Network.AWS.DynamoDB.Types
 
     -- * Capacity
     , Capacity
-    , mkCapacity
+    , capacity
     , cCapacityUnits
 
     -- * DeleteRequest
     , DeleteRequest
-    , mkDeleteRequest
+    , deleteRequest
     , drKey
 
     -- * GlobalSecondaryIndexUpdate
     , GlobalSecondaryIndexUpdate
-    , mkGlobalSecondaryIndexUpdate
+    , globalSecondaryIndexUpdate
     , gsiuUpdate
 
     -- * PutRequest
     , PutRequest
-    , mkPutRequest
+    , putRequest
     , prItem
 
     -- * AttributeDefinition
     , AttributeDefinition
-    , mkAttributeDefinition
+    , attributeDefinition
     , adAttributeName
     , adAttributeType
 
     -- * AttributeValue
     , AttributeValue
-    , mkAttributeValue
+    , attributeValue
     , avS
     , avN
     , avB
@@ -116,19 +116,19 @@ module Network.AWS.DynamoDB.Types
 
     -- * AttributeValueUpdate
     , AttributeValueUpdate
-    , mkAttributeValueUpdate
+    , attributeValueUpdate
     , avuValue
     , avuAction
 
     -- * Condition
     , Condition
-    , mkCondition
+    , condition
     , c1AttributeValueList
     , c1ComparisonOperator
 
     -- * ConsumedCapacity
     , ConsumedCapacity
-    , mkConsumedCapacity
+    , consumedCapacity
     , ccTableName
     , ccCapacityUnits
     , ccTable
@@ -137,7 +137,7 @@ module Network.AWS.DynamoDB.Types
 
     -- * ExpectedAttributeValue
     , ExpectedAttributeValue
-    , mkExpectedAttributeValue
+    , expectedAttributeValue
     , eavValue
     , eavExists
     , eavComparisonOperator
@@ -145,7 +145,7 @@ module Network.AWS.DynamoDB.Types
 
     -- * GlobalSecondaryIndex
     , GlobalSecondaryIndex
-    , mkGlobalSecondaryIndex
+    , globalSecondaryIndex
     , gsiIndexName
     , gsiKeySchema
     , gsiProjection
@@ -153,7 +153,7 @@ module Network.AWS.DynamoDB.Types
 
     -- * GlobalSecondaryIndexDescription
     , GlobalSecondaryIndexDescription
-    , mkGlobalSecondaryIndexDescription
+    , globalSecondaryIndexDescription
     , gsidIndexName
     , gsidKeySchema
     , gsidProjection
@@ -164,33 +164,33 @@ module Network.AWS.DynamoDB.Types
 
     -- * ItemCollectionMetrics
     , ItemCollectionMetrics
-    , mkItemCollectionMetrics
+    , itemCollectionMetrics
     , icmItemCollectionKey
     , icmSizeEstimateRangeGB
 
     -- * KeySchemaElement
     , KeySchemaElement
-    , mkKeySchemaElement
+    , keySchemaElement
     , kseAttributeName
     , kseKeyType
 
     -- * KeysAndAttributes
     , KeysAndAttributes
-    , mkKeysAndAttributes
+    , keysAndAttributes
     , kaaKeys
     , kaaAttributesToGet
     , kaaConsistentRead
 
     -- * LocalSecondaryIndex
     , LocalSecondaryIndex
-    , mkLocalSecondaryIndex
+    , localSecondaryIndex
     , lsiIndexName
     , lsiKeySchema
     , lsiProjection
 
     -- * LocalSecondaryIndexDescription
     , LocalSecondaryIndexDescription
-    , mkLocalSecondaryIndexDescription
+    , localSecondaryIndexDescription
     , lsidIndexName
     , lsidKeySchema
     , lsidProjection
@@ -199,19 +199,19 @@ module Network.AWS.DynamoDB.Types
 
     -- * Projection
     , Projection
-    , mkProjection
+    , projection
     , pProjectionType
     , pNonKeyAttributes
 
     -- * ProvisionedThroughput
     , ProvisionedThroughput
-    , mkProvisionedThroughput
+    , provisionedThroughput
     , ptReadCapacityUnits
     , ptWriteCapacityUnits
 
     -- * ProvisionedThroughputDescription
     , ProvisionedThroughputDescription
-    , mkProvisionedThroughputDescription
+    , provisionedThroughputDescription
     , ptdLastIncreaseDateTime
     , ptdLastDecreaseDateTime
     , ptdNumberOfDecreasesToday
@@ -220,7 +220,7 @@ module Network.AWS.DynamoDB.Types
 
     -- * TableDescription
     , TableDescription
-    , mkTableDescription
+    , tableDescription
     , tdAttributeDefinitions
     , tdTableName
     , tdKeySchema
@@ -234,13 +234,13 @@ module Network.AWS.DynamoDB.Types
 
     -- * UpdateGlobalSecondaryIndexAction
     , UpdateGlobalSecondaryIndexAction
-    , mkUpdateGlobalSecondaryIndexAction
+    , updateGlobalSecondaryIndexAction
     , ugsiaIndexName
     , ugsiaProvisionedThroughput
 
     -- * WriteRequest
     , WriteRequest
-    , mkWriteRequest
+    , writeRequest
     , wrPutRequest
     , wrDeleteRequest
     ) where
@@ -274,8 +274,8 @@ data DynamoDBError
         { _ccfeMessage :: Maybe Text
         }
     | DynamoDBClient HttpException
-    | DynamoDBSerializer Text
-    | DynamoDBService Text
+    | DynamoDBSerializer String
+    | DynamoDBService String
       -- | An error occurred on the server side.
     | InternalServerError
         { _iseMessage :: Maybe Text
@@ -349,7 +349,7 @@ _DynamoDBClient = prism'
         x -> Left x)
 
 -- | See: 'DynamoDBSerializer'
-_DynamoDBSerializer :: Prism' DynamoDBError Text
+_DynamoDBSerializer :: Prism' DynamoDBError String
 _DynamoDBSerializer = prism'
     DynamoDBSerializer
     (\case
@@ -357,7 +357,7 @@ _DynamoDBSerializer = prism'
         x -> Left x)
 
 -- | See: 'DynamoDBService'
-_DynamoDBService :: Prism' DynamoDBError Text
+_DynamoDBService :: Prism' DynamoDBError String
 _DynamoDBService = prism'
     DynamoDBService
     (\case
@@ -883,8 +883,8 @@ newtype Capacity = Capacity
 --
 -- * @CapacityUnits ::@ @Maybe Double@
 --
-mkCapacity :: Capacity
-mkCapacity = Capacity
+capacity :: Capacity
+capacity = Capacity
     { _cCapacityUnits = Nothing
     }
 
@@ -908,9 +908,9 @@ newtype DeleteRequest = DeleteRequest
 --
 -- * @Key ::@ @Map Text AttributeValue@
 --
-mkDeleteRequest :: Map Text AttributeValue -- ^ 'drKey'
+deleteRequest :: Map Text AttributeValue -- ^ 'drKey'
                 -> DeleteRequest
-mkDeleteRequest p1 = DeleteRequest
+deleteRequest p1 = DeleteRequest
     { _drKey = p1
     }
 
@@ -937,8 +937,8 @@ newtype GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate
 --
 -- * @Update ::@ @Maybe UpdateGlobalSecondaryIndexAction@
 --
-mkGlobalSecondaryIndexUpdate :: GlobalSecondaryIndexUpdate
-mkGlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate
+globalSecondaryIndexUpdate :: GlobalSecondaryIndexUpdate
+globalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate
     { _gsiuUpdate = Nothing
     }
 
@@ -961,9 +961,9 @@ newtype PutRequest = PutRequest
 --
 -- * @Item ::@ @Map Text AttributeValue@
 --
-mkPutRequest :: Map Text AttributeValue -- ^ 'prItem'
+putRequest :: Map Text AttributeValue -- ^ 'prItem'
              -> PutRequest
-mkPutRequest p1 = PutRequest
+putRequest p1 = PutRequest
     { _prItem = p1
     }
 
@@ -996,10 +996,10 @@ data AttributeDefinition = AttributeDefinition
 --
 -- * @AttributeType ::@ @ScalarAttributeType@
 --
-mkAttributeDefinition :: Text -- ^ 'adAttributeName'
+attributeDefinition :: Text -- ^ 'adAttributeName'
                       -> ScalarAttributeType -- ^ 'adAttributeType'
                       -> AttributeDefinition
-mkAttributeDefinition p1 p2 = AttributeDefinition
+attributeDefinition p1 p2 = AttributeDefinition
     { _adAttributeName = p1
     , _adAttributeType = p2
     }
@@ -1044,8 +1044,8 @@ data AttributeValue = AttributeValue
 --
 -- * @BS ::@ @[Base64]@
 --
-mkAttributeValue :: AttributeValue
-mkAttributeValue = AttributeValue
+attributeValue :: AttributeValue
+attributeValue = AttributeValue
     { _avS = Nothing
     , _avN = Nothing
     , _avB = Nothing
@@ -1104,8 +1104,8 @@ data AttributeValueUpdate = AttributeValueUpdate
 --
 -- * @Action ::@ @Maybe AttributeAction@
 --
-mkAttributeValueUpdate :: AttributeValueUpdate
-mkAttributeValueUpdate = AttributeValueUpdate
+attributeValueUpdate :: AttributeValueUpdate
+attributeValueUpdate = AttributeValueUpdate
     { _avuValue = Nothing
     , _avuAction = Nothing
     }
@@ -1182,9 +1182,9 @@ data Condition = Condition
 --
 -- * @ComparisonOperator ::@ @ComparisonOperator@
 --
-mkCondition :: ComparisonOperator -- ^ 'c1ComparisonOperator'
+condition :: ComparisonOperator -- ^ 'c1ComparisonOperator'
             -> Condition
-mkCondition p2 = Condition
+condition p2 = Condition
     { _c1AttributeValueList = mempty
     , _c1ComparisonOperator = p2
     }
@@ -1308,8 +1308,8 @@ data ConsumedCapacity = ConsumedCapacity
 --
 -- * @GlobalSecondaryIndexes ::@ @Map Text Capacity@
 --
-mkConsumedCapacity :: ConsumedCapacity
-mkConsumedCapacity = ConsumedCapacity
+consumedCapacity :: ConsumedCapacity
+consumedCapacity = ConsumedCapacity
     { _ccTableName = Nothing
     , _ccCapacityUnits = Nothing
     , _ccTable = Nothing
@@ -1369,8 +1369,8 @@ data ExpectedAttributeValue = ExpectedAttributeValue
 --
 -- * @AttributeValueList ::@ @[AttributeValue]@
 --
-mkExpectedAttributeValue :: ExpectedAttributeValue
-mkExpectedAttributeValue = ExpectedAttributeValue
+expectedAttributeValue :: ExpectedAttributeValue
+expectedAttributeValue = ExpectedAttributeValue
     { _eavValue = Nothing
     , _eavExists = Nothing
     , _eavComparisonOperator = Nothing
@@ -1434,12 +1434,12 @@ data GlobalSecondaryIndex = GlobalSecondaryIndex
 --
 -- * @ProvisionedThroughput ::@ @ProvisionedThroughput@
 --
-mkGlobalSecondaryIndex :: Text -- ^ 'gsiIndexName'
+globalSecondaryIndex :: Text -- ^ 'gsiIndexName'
                        -> List1 KeySchemaElement -- ^ 'gsiKeySchema'
                        -> Projection -- ^ 'gsiProjection'
                        -> ProvisionedThroughput -- ^ 'gsiProvisionedThroughput'
                        -> GlobalSecondaryIndex
-mkGlobalSecondaryIndex p1 p2 p3 p4 = GlobalSecondaryIndex
+globalSecondaryIndex p1 p2 p3 p4 = GlobalSecondaryIndex
     { _gsiIndexName = p1
     , _gsiKeySchema = p2
     , _gsiProjection = p3
@@ -1506,8 +1506,8 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
 --
 -- * @ItemCount ::@ @Maybe Integer@
 --
-mkGlobalSecondaryIndexDescription :: GlobalSecondaryIndexDescription
-mkGlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
+globalSecondaryIndexDescription :: GlobalSecondaryIndexDescription
+globalSecondaryIndexDescription = GlobalSecondaryIndexDescription
     { _gsidIndexName = Nothing
     , _gsidKeySchema = Nothing
     , _gsidProjection = Nothing
@@ -1581,8 +1581,8 @@ data ItemCollectionMetrics = ItemCollectionMetrics
 --
 -- * @SizeEstimateRangeGB ::@ @[Double]@
 --
-mkItemCollectionMetrics :: ItemCollectionMetrics
-mkItemCollectionMetrics = ItemCollectionMetrics
+itemCollectionMetrics :: ItemCollectionMetrics
+itemCollectionMetrics = ItemCollectionMetrics
     { _icmItemCollectionKey = mempty
     , _icmSizeEstimateRangeGB = mempty
     }
@@ -1626,10 +1626,10 @@ data KeySchemaElement = KeySchemaElement
 --
 -- * @KeyType ::@ @KeyType@
 --
-mkKeySchemaElement :: Text -- ^ 'kseAttributeName'
+keySchemaElement :: Text -- ^ 'kseAttributeName'
                    -> KeyType -- ^ 'kseKeyType'
                    -> KeySchemaElement
-mkKeySchemaElement p1 p2 = KeySchemaElement
+keySchemaElement p1 p2 = KeySchemaElement
     { _kseAttributeName = p1
     , _kseKeyType = p2
     }
@@ -1667,9 +1667,9 @@ data KeysAndAttributes = KeysAndAttributes
 --
 -- * @ConsistentRead ::@ @Maybe Bool@
 --
-mkKeysAndAttributes :: List1 (Map Text AttributeValue) -- ^ 'kaaKeys'
+keysAndAttributes :: List1 (Map Text AttributeValue) -- ^ 'kaaKeys'
                     -> KeysAndAttributes
-mkKeysAndAttributes p1 = KeysAndAttributes
+keysAndAttributes p1 = KeysAndAttributes
     { _kaaKeys = p1
     , _kaaAttributesToGet = Nothing
     , _kaaConsistentRead = Nothing
@@ -1715,11 +1715,11 @@ data LocalSecondaryIndex = LocalSecondaryIndex
 --
 -- * @Projection ::@ @Projection@
 --
-mkLocalSecondaryIndex :: Text -- ^ 'lsiIndexName'
+localSecondaryIndex :: Text -- ^ 'lsiIndexName'
                       -> List1 KeySchemaElement -- ^ 'lsiKeySchema'
                       -> Projection -- ^ 'lsiProjection'
                       -> LocalSecondaryIndex
-mkLocalSecondaryIndex p1 p2 p3 = LocalSecondaryIndex
+localSecondaryIndex p1 p2 p3 = LocalSecondaryIndex
     { _lsiIndexName = p1
     , _lsiKeySchema = p2
     , _lsiProjection = p3
@@ -1770,8 +1770,8 @@ data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription
 --
 -- * @ItemCount ::@ @Maybe Integer@
 --
-mkLocalSecondaryIndexDescription :: LocalSecondaryIndexDescription
-mkLocalSecondaryIndexDescription = LocalSecondaryIndexDescription
+localSecondaryIndexDescription :: LocalSecondaryIndexDescription
+localSecondaryIndexDescription = LocalSecondaryIndexDescription
     { _lsidIndexName = Nothing
     , _lsidKeySchema = Nothing
     , _lsidProjection = Nothing
@@ -1826,8 +1826,8 @@ data Projection = Projection
 --
 -- * @NonKeyAttributes ::@ @Maybe (List1 Text)@
 --
-mkProjection :: Projection
-mkProjection = Projection
+projection :: Projection
+projection = Projection
     { _pProjectionType = Nothing
     , _pNonKeyAttributes = Nothing
     }
@@ -1871,10 +1871,10 @@ data ProvisionedThroughput = ProvisionedThroughput
 --
 -- * @WriteCapacityUnits ::@ @Integer@
 --
-mkProvisionedThroughput :: Integer -- ^ 'ptReadCapacityUnits'
+provisionedThroughput :: Integer -- ^ 'ptReadCapacityUnits'
                         -> Integer -- ^ 'ptWriteCapacityUnits'
                         -> ProvisionedThroughput
-mkProvisionedThroughput p1 p2 = ProvisionedThroughput
+provisionedThroughput p1 p2 = ProvisionedThroughput
     { _ptReadCapacityUnits = p1
     , _ptWriteCapacityUnits = p2
     }
@@ -1923,8 +1923,8 @@ data ProvisionedThroughputDescription = ProvisionedThroughputDescription
 --
 -- * @WriteCapacityUnits ::@ @Maybe Integer@
 --
-mkProvisionedThroughputDescription :: ProvisionedThroughputDescription
-mkProvisionedThroughputDescription = ProvisionedThroughputDescription
+provisionedThroughputDescription :: ProvisionedThroughputDescription
+provisionedThroughputDescription = ProvisionedThroughputDescription
     { _ptdLastIncreaseDateTime = Nothing
     , _ptdLastDecreaseDateTime = Nothing
     , _ptdNumberOfDecreasesToday = Nothing
@@ -2015,8 +2015,8 @@ data TableDescription = TableDescription
 --
 -- * @GlobalSecondaryIndexes ::@ @[GlobalSecondaryIndexDescription]@
 --
-mkTableDescription :: TableDescription
-mkTableDescription = TableDescription
+tableDescription :: TableDescription
+tableDescription = TableDescription
     { _tdAttributeDefinitions = mempty
     , _tdTableName = Nothing
     , _tdKeySchema = Nothing
@@ -2166,10 +2166,10 @@ data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction
 --
 -- * @ProvisionedThroughput ::@ @ProvisionedThroughput@
 --
-mkUpdateGlobalSecondaryIndexAction :: Text -- ^ 'ugsiaIndexName'
+updateGlobalSecondaryIndexAction :: Text -- ^ 'ugsiaIndexName'
                                    -> ProvisionedThroughput -- ^ 'ugsiaProvisionedThroughput'
                                    -> UpdateGlobalSecondaryIndexAction
-mkUpdateGlobalSecondaryIndexAction p1 p2 = UpdateGlobalSecondaryIndexAction
+updateGlobalSecondaryIndexAction p1 p2 = UpdateGlobalSecondaryIndexAction
     { _ugsiaIndexName = p1
     , _ugsiaProvisionedThroughput = p2
     }
@@ -2209,8 +2209,8 @@ data WriteRequest = WriteRequest
 --
 -- * @DeleteRequest ::@ @Maybe DeleteRequest@
 --
-mkWriteRequest :: WriteRequest
-mkWriteRequest = WriteRequest
+writeRequest :: WriteRequest
+writeRequest = WriteRequest
     { _wrPutRequest = Nothing
     , _wrDeleteRequest = Nothing
     }

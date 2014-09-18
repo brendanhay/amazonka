@@ -25,7 +25,7 @@ module Network.AWS.CognitoIdentity.UnlinkIdentity
     -- * Request
       UnlinkIdentity
     -- ** Request constructor
-    , mkUnlinkIdentity
+    , unlinkIdentity
     -- ** Request lenses
     , uiIdentityId
     , uiLogins
@@ -34,7 +34,7 @@ module Network.AWS.CognitoIdentity.UnlinkIdentity
     -- * Response
     , UnlinkIdentityResponse
     -- ** Response constructor
-    , mkUnlinkIdentityResponse
+    , unlinkIdentityResponse
     ) where
 
 import Network.AWS.CognitoIdentity.Types
@@ -59,11 +59,11 @@ data UnlinkIdentity = UnlinkIdentity
 --
 -- * @LoginsToRemove ::@ @[Text]@
 --
-mkUnlinkIdentity :: Text -- ^ 'uiIdentityId'
+unlinkIdentity :: Text -- ^ 'uiIdentityId'
                  -> Map Text Text -- ^ 'uiLogins'
                  -> [Text] -- ^ 'uiLoginsToRemove'
                  -> UnlinkIdentity
-mkUnlinkIdentity p1 p2 p3 = UnlinkIdentity
+unlinkIdentity p1 p2 p3 = UnlinkIdentity
     { _uiIdentityId = p1
     , _uiLogins = p2
     , _uiLoginsToRemove = p3
@@ -98,8 +98,8 @@ data UnlinkIdentityResponse = UnlinkIdentityResponse
 -- a valid 'UnlinkIdentityResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkUnlinkIdentityResponse :: UnlinkIdentityResponse
-mkUnlinkIdentityResponse = UnlinkIdentityResponse
+unlinkIdentityResponse :: UnlinkIdentityResponse
+unlinkIdentityResponse = UnlinkIdentityResponse
 
 instance AWSRequest UnlinkIdentity where
     type Sv UnlinkIdentity = CognitoIdentity

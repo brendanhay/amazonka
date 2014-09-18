@@ -22,7 +22,7 @@ module Network.AWS.Route53.ChangeTagsForResource
     -- * Request
       ChangeTagsForResource
     -- ** Request constructor
-    , mkChangeTagsForResource
+    , changeTagsForResource
     -- ** Request lenses
     , ctfrResourceType
     , ctfrResourceId
@@ -32,7 +32,7 @@ module Network.AWS.Route53.ChangeTagsForResource
     -- * Response
     , ChangeTagsForResourceResponse
     -- ** Response constructor
-    , mkChangeTagsForResourceResponse
+    , changeTagsForResourceResponse
     ) where
 
 import Network.AWS.Request.RestXML
@@ -62,10 +62,10 @@ data ChangeTagsForResource = ChangeTagsForResource
 --
 -- * @RemoveTagKeys ::@ @Maybe (List1 Text)@
 --
-mkChangeTagsForResource :: TagResourceType -- ^ 'ctfrResourceType'
+changeTagsForResource :: TagResourceType -- ^ 'ctfrResourceType'
                         -> Text -- ^ 'ctfrResourceId'
                         -> ChangeTagsForResource
-mkChangeTagsForResource p1 p2 = ChangeTagsForResource
+changeTagsForResource p1 p2 = ChangeTagsForResource
     { _ctfrResourceType = p1
     , _ctfrResourceId = p2
     , _ctfrAddTags = Nothing
@@ -110,8 +110,8 @@ data ChangeTagsForResourceResponse = ChangeTagsForResourceResponse
 -- a valid 'ChangeTagsForResourceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkChangeTagsForResourceResponse :: ChangeTagsForResourceResponse
-mkChangeTagsForResourceResponse = ChangeTagsForResourceResponse
+changeTagsForResourceResponse :: ChangeTagsForResourceResponse
+changeTagsForResourceResponse = ChangeTagsForResourceResponse
 
 instance AWSRequest ChangeTagsForResource where
     type Sv ChangeTagsForResource = Route53

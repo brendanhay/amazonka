@@ -23,7 +23,7 @@ module Network.AWS.S3.GetObject
     -- * Request
       GetObject
     -- ** Request constructor
-    , mkGetObject
+    , getObject
     -- ** Request lenses
     , goBucket
     , goIfMatch
@@ -46,7 +46,7 @@ module Network.AWS.S3.GetObject
     -- * Response
     , GetObjectResponse
     -- ** Response constructor
-    , mkGetObjectResponse
+    , getObjectResponse
     -- ** Response lenses
     , gorBody
     , gorDeleteMarker
@@ -135,10 +135,10 @@ data GetObject = GetObject
 --
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
-mkGetObject :: BucketName -- ^ 'goBucket'
+getObject :: BucketName -- ^ 'goBucket'
             -> ObjectKey -- ^ 'goKey'
             -> GetObject
-mkGetObject p1 p6 = GetObject
+getObject p1 p6 = GetObject
     { _goBucket = p1
     , _goIfMatch = Nothing
     , _goIfModifiedSince = Nothing
@@ -342,9 +342,9 @@ data GetObjectResponse = GetObjectResponse
 --
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
-mkGetObjectResponse :: RsBody -- ^ 'gorBody'
+getObjectResponse :: RsBody -- ^ 'gorBody'
                     -> GetObjectResponse
-mkGetObjectResponse p1 = GetObjectResponse
+getObjectResponse p1 = GetObjectResponse
     { _gorBody = p1
     , _gorDeleteMarker = Nothing
     , _gorAcceptRanges = Nothing

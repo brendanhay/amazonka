@@ -30,7 +30,7 @@ module Network.AWS.IAM.UpdateSAMLProvider
     -- * Request
       UpdateSAMLProvider
     -- ** Request constructor
-    , mkUpdateSAMLProvider
+    , updateSAMLProvider
     -- ** Request lenses
     , usamlpSAMLMetadataDocument
     , usamlpSAMLProviderArn
@@ -38,7 +38,7 @@ module Network.AWS.IAM.UpdateSAMLProvider
     -- * Response
     , UpdateSAMLProviderResponse
     -- ** Response constructor
-    , mkUpdateSAMLProviderResponse
+    , updateSAMLProviderResponse
     -- ** Response lenses
     , usamlprSAMLProviderArn
     ) where
@@ -61,10 +61,10 @@ data UpdateSAMLProvider = UpdateSAMLProvider
 --
 -- * @SAMLProviderArn ::@ @Text@
 --
-mkUpdateSAMLProvider :: Text -- ^ 'usamlpSAMLMetadataDocument'
+updateSAMLProvider :: Text -- ^ 'usamlpSAMLMetadataDocument'
                      -> Text -- ^ 'usamlpSAMLProviderArn'
                      -> UpdateSAMLProvider
-mkUpdateSAMLProvider p1 p2 = UpdateSAMLProvider
+updateSAMLProvider p1 p2 = UpdateSAMLProvider
     { _usamlpSAMLMetadataDocument = p1
     , _usamlpSAMLProviderArn = p2
     }
@@ -103,8 +103,8 @@ newtype UpdateSAMLProviderResponse = UpdateSAMLProviderResponse
 --
 -- * @SAMLProviderArn ::@ @Maybe Text@
 --
-mkUpdateSAMLProviderResponse :: UpdateSAMLProviderResponse
-mkUpdateSAMLProviderResponse = UpdateSAMLProviderResponse
+updateSAMLProviderResponse :: UpdateSAMLProviderResponse
+updateSAMLProviderResponse = UpdateSAMLProviderResponse
     { _usamlprSAMLProviderArn = Nothing
     }
 

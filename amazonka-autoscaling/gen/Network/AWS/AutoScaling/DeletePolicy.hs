@@ -23,7 +23,7 @@ module Network.AWS.AutoScaling.DeletePolicy
     -- * Request
       DeletePolicy
     -- ** Request constructor
-    , mkDeletePolicy
+    , deletePolicy
     -- ** Request lenses
     , dpAutoScalingGroupName
     , dpPolicyName
@@ -31,7 +31,7 @@ module Network.AWS.AutoScaling.DeletePolicy
     -- * Response
     , DeletePolicyResponse
     -- ** Response constructor
-    , mkDeletePolicyResponse
+    , deletePolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -53,9 +53,9 @@ data DeletePolicy = DeletePolicy
 --
 -- * @PolicyName ::@ @Text@
 --
-mkDeletePolicy :: Text -- ^ 'dpPolicyName'
+deletePolicy :: Text -- ^ 'dpPolicyName'
                -> DeletePolicy
-mkDeletePolicy p2 = DeletePolicy
+deletePolicy p2 = DeletePolicy
     { _dpAutoScalingGroupName = Nothing
     , _dpPolicyName = p2
     }
@@ -79,8 +79,8 @@ data DeletePolicyResponse = DeletePolicyResponse
 -- a valid 'DeletePolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeletePolicyResponse :: DeletePolicyResponse
-mkDeletePolicyResponse = DeletePolicyResponse
+deletePolicyResponse :: DeletePolicyResponse
+deletePolicyResponse = DeletePolicyResponse
 
 instance AWSRequest DeletePolicy where
     type Sv DeletePolicy = AutoScaling

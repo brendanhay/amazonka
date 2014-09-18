@@ -40,7 +40,7 @@ module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     -- * Request
       CreateAppCookieStickinessPolicy
     -- ** Request constructor
-    , mkCreateAppCookieStickinessPolicy
+    , createAppCookieStickinessPolicy
     -- ** Request lenses
     , cacspLoadBalancerName
     , cacspPolicyName
@@ -49,7 +49,7 @@ module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     -- * Response
     , CreateAppCookieStickinessPolicyResponse
     -- ** Response constructor
-    , mkCreateAppCookieStickinessPolicyResponse
+    , createAppCookieStickinessPolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -74,11 +74,11 @@ data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy
 --
 -- * @CookieName ::@ @Text@
 --
-mkCreateAppCookieStickinessPolicy :: Text -- ^ 'cacspLoadBalancerName'
+createAppCookieStickinessPolicy :: Text -- ^ 'cacspLoadBalancerName'
                                   -> Text -- ^ 'cacspPolicyName'
                                   -> Text -- ^ 'cacspCookieName'
                                   -> CreateAppCookieStickinessPolicy
-mkCreateAppCookieStickinessPolicy p1 p2 p3 = CreateAppCookieStickinessPolicy
+createAppCookieStickinessPolicy p1 p2 p3 = CreateAppCookieStickinessPolicy
     { _cacspLoadBalancerName = p1
     , _cacspPolicyName = p2
     , _cacspCookieName = p3
@@ -109,8 +109,8 @@ data CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyRe
 -- a valid 'CreateAppCookieStickinessPolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkCreateAppCookieStickinessPolicyResponse :: CreateAppCookieStickinessPolicyResponse
-mkCreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse
+createAppCookieStickinessPolicyResponse :: CreateAppCookieStickinessPolicyResponse
+createAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse
 
 instance AWSRequest CreateAppCookieStickinessPolicy where
     type Sv CreateAppCookieStickinessPolicy = ELB

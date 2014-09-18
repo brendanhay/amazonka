@@ -32,14 +32,14 @@ module Network.AWS.Route53.DeleteHostedZone
     -- * Request
       DeleteHostedZone
     -- ** Request constructor
-    , mkDeleteHostedZone
+    , deleteHostedZone
     -- ** Request lenses
     , dhzId
 
     -- * Response
     , DeleteHostedZoneResponse
     -- ** Response constructor
-    , mkDeleteHostedZoneResponse
+    , deleteHostedZoneResponse
     -- ** Response lenses
     , dhzrChangeInfo
     ) where
@@ -61,9 +61,9 @@ newtype DeleteHostedZone = DeleteHostedZone
 --
 -- * @Id ::@ @Text@
 --
-mkDeleteHostedZone :: Text -- ^ 'dhzId'
+deleteHostedZone :: Text -- ^ 'dhzId'
                    -> DeleteHostedZone
-mkDeleteHostedZone p1 = DeleteHostedZone
+deleteHostedZone p1 = DeleteHostedZone
     { _dhzId = p1
     }
 
@@ -96,9 +96,9 @@ newtype DeleteHostedZoneResponse = DeleteHostedZoneResponse
 --
 -- * @ChangeInfo ::@ @ChangeInfo@
 --
-mkDeleteHostedZoneResponse :: ChangeInfo -- ^ 'dhzrChangeInfo'
+deleteHostedZoneResponse :: ChangeInfo -- ^ 'dhzrChangeInfo'
                            -> DeleteHostedZoneResponse
-mkDeleteHostedZoneResponse p1 = DeleteHostedZoneResponse
+deleteHostedZoneResponse p1 = DeleteHostedZoneResponse
     { _dhzrChangeInfo = p1
     }
 

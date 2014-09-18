@@ -32,14 +32,14 @@ module Network.AWS.EC2.DeleteVolume
     -- * Request
       DeleteVolume
     -- ** Request constructor
-    , mkDeleteVolume
+    , deleteVolume
     -- ** Request lenses
     , dvVolumeId
 
     -- * Response
     , DeleteVolumeResponse
     -- ** Response constructor
-    , mkDeleteVolumeResponse
+    , deleteVolumeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -57,9 +57,9 @@ newtype DeleteVolume = DeleteVolume
 --
 -- * @VolumeId ::@ @Text@
 --
-mkDeleteVolume :: Text -- ^ 'dvVolumeId'
+deleteVolume :: Text -- ^ 'dvVolumeId'
                -> DeleteVolume
-mkDeleteVolume p1 = DeleteVolume
+deleteVolume p1 = DeleteVolume
     { _dvVolumeId = p1
     }
 
@@ -77,8 +77,8 @@ data DeleteVolumeResponse = DeleteVolumeResponse
 -- a valid 'DeleteVolumeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteVolumeResponse :: DeleteVolumeResponse
-mkDeleteVolumeResponse = DeleteVolumeResponse
+deleteVolumeResponse :: DeleteVolumeResponse
+deleteVolumeResponse = DeleteVolumeResponse
 
 instance AWSRequest DeleteVolume where
     type Sv DeleteVolume = EC2

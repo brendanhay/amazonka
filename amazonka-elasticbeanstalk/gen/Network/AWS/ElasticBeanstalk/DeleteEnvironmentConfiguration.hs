@@ -32,7 +32,7 @@ module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
     -- * Request
       DeleteEnvironmentConfiguration
     -- ** Request constructor
-    , mkDeleteEnvironmentConfiguration
+    , deleteEnvironmentConfiguration
     -- ** Request lenses
     , decApplicationName
     , decEnvironmentName
@@ -40,7 +40,7 @@ module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
     -- * Response
     , DeleteEnvironmentConfigurationResponse
     -- ** Response constructor
-    , mkDeleteEnvironmentConfigurationResponse
+    , deleteEnvironmentConfigurationResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -62,10 +62,10 @@ data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration
 --
 -- * @EnvironmentName ::@ @Text@
 --
-mkDeleteEnvironmentConfiguration :: Text -- ^ 'decApplicationName'
+deleteEnvironmentConfiguration :: Text -- ^ 'decApplicationName'
                                  -> Text -- ^ 'decEnvironmentName'
                                  -> DeleteEnvironmentConfiguration
-mkDeleteEnvironmentConfiguration p1 p2 = DeleteEnvironmentConfiguration
+deleteEnvironmentConfiguration p1 p2 = DeleteEnvironmentConfiguration
     { _decApplicationName = p1
     , _decEnvironmentName = p2
     }
@@ -90,8 +90,8 @@ data DeleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResp
 -- a valid 'DeleteEnvironmentConfigurationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteEnvironmentConfigurationResponse :: DeleteEnvironmentConfigurationResponse
-mkDeleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse
+deleteEnvironmentConfigurationResponse :: DeleteEnvironmentConfigurationResponse
+deleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse
 
 instance AWSRequest DeleteEnvironmentConfiguration where
     type Sv DeleteEnvironmentConfiguration = ElasticBeanstalk

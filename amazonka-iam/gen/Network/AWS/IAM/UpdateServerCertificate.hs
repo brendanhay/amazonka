@@ -34,7 +34,7 @@ module Network.AWS.IAM.UpdateServerCertificate
     -- * Request
       UpdateServerCertificate
     -- ** Request constructor
-    , mkUpdateServerCertificate
+    , updateServerCertificate
     -- ** Request lenses
     , uscServerCertificateName
     , uscNewPath
@@ -43,7 +43,7 @@ module Network.AWS.IAM.UpdateServerCertificate
     -- * Response
     , UpdateServerCertificateResponse
     -- ** Response constructor
-    , mkUpdateServerCertificateResponse
+    , updateServerCertificateResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -67,9 +67,9 @@ data UpdateServerCertificate = UpdateServerCertificate
 --
 -- * @NewServerCertificateName ::@ @Maybe Text@
 --
-mkUpdateServerCertificate :: Text -- ^ 'uscServerCertificateName'
+updateServerCertificate :: Text -- ^ 'uscServerCertificateName'
                           -> UpdateServerCertificate
-mkUpdateServerCertificate p1 = UpdateServerCertificate
+updateServerCertificate p1 = UpdateServerCertificate
     { _uscServerCertificateName = p1
     , _uscNewPath = Nothing
     , _uscNewServerCertificateName = Nothing
@@ -103,8 +103,8 @@ data UpdateServerCertificateResponse = UpdateServerCertificateResponse
 -- a valid 'UpdateServerCertificateResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkUpdateServerCertificateResponse :: UpdateServerCertificateResponse
-mkUpdateServerCertificateResponse = UpdateServerCertificateResponse
+updateServerCertificateResponse :: UpdateServerCertificateResponse
+updateServerCertificateResponse = UpdateServerCertificateResponse
 
 instance AWSRequest UpdateServerCertificate where
     type Sv UpdateServerCertificate = IAM

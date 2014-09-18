@@ -42,7 +42,7 @@ module Network.AWS.Route53.ChangeResourceRecordSets
     -- * Request
       ChangeResourceRecordSets
     -- ** Request constructor
-    , mkChangeResourceRecordSets
+    , changeResourceRecordSets
     -- ** Request lenses
     , crrsHostedZoneId
     , crrsChangeBatch
@@ -50,7 +50,7 @@ module Network.AWS.Route53.ChangeResourceRecordSets
     -- * Response
     , ChangeResourceRecordSetsResponse
     -- ** Response constructor
-    , mkChangeResourceRecordSetsResponse
+    , changeResourceRecordSetsResponse
     -- ** Response lenses
     , crrsrChangeInfo
     ) where
@@ -75,10 +75,10 @@ data ChangeResourceRecordSets = ChangeResourceRecordSets
 --
 -- * @ChangeBatch ::@ @ChangeBatch@
 --
-mkChangeResourceRecordSets :: Text -- ^ 'crrsHostedZoneId'
+changeResourceRecordSets :: Text -- ^ 'crrsHostedZoneId'
                            -> ChangeBatch -- ^ 'crrsChangeBatch'
                            -> ChangeResourceRecordSets
-mkChangeResourceRecordSets p1 p2 = ChangeResourceRecordSets
+changeResourceRecordSets p1 p2 = ChangeResourceRecordSets
     { _crrsHostedZoneId = p1
     , _crrsChangeBatch = p2
     }
@@ -117,9 +117,9 @@ newtype ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
 --
 -- * @ChangeInfo ::@ @ChangeInfo@
 --
-mkChangeResourceRecordSetsResponse :: ChangeInfo -- ^ 'crrsrChangeInfo'
+changeResourceRecordSetsResponse :: ChangeInfo -- ^ 'crrsrChangeInfo'
                                    -> ChangeResourceRecordSetsResponse
-mkChangeResourceRecordSetsResponse p1 = ChangeResourceRecordSetsResponse
+changeResourceRecordSetsResponse p1 = ChangeResourceRecordSetsResponse
     { _crrsrChangeInfo = p1
     }
 

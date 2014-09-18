@@ -37,7 +37,6 @@ library
 
     exposed-modules:
           Network.AWS.CognitoIdentity
-        , Network.AWS.CognitoIdentity.Monadic
         , Network.AWS.CognitoIdentity.Types
         , Network.AWS.CognitoIdentity.CreateIdentityPool
         , Network.AWS.CognitoIdentity.DeleteIdentityPool

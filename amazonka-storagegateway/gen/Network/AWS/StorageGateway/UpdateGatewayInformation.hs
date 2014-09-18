@@ -37,7 +37,7 @@ module Network.AWS.StorageGateway.UpdateGatewayInformation
     -- * Request
       UpdateGatewayInformation
     -- ** Request constructor
-    , mkUpdateGatewayInformation
+    , updateGatewayInformation
     -- ** Request lenses
     , ugiGatewayARN
     , ugiGatewayName
@@ -46,7 +46,7 @@ module Network.AWS.StorageGateway.UpdateGatewayInformation
     -- * Response
     , UpdateGatewayInformationResponse
     -- ** Response constructor
-    , mkUpdateGatewayInformationResponse
+    , updateGatewayInformationResponse
     -- ** Response lenses
     , ugirGatewayARN
     ) where
@@ -72,9 +72,9 @@ data UpdateGatewayInformation = UpdateGatewayInformation
 --
 -- * @GatewayTimezone ::@ @Maybe Text@
 --
-mkUpdateGatewayInformation :: Text -- ^ 'ugiGatewayARN'
+updateGatewayInformation :: Text -- ^ 'ugiGatewayARN'
                            -> UpdateGatewayInformation
-mkUpdateGatewayInformation p1 = UpdateGatewayInformation
+updateGatewayInformation p1 = UpdateGatewayInformation
     { _ugiGatewayARN = p1
     , _ugiGatewayName = Nothing
     , _ugiGatewayTimezone = Nothing
@@ -117,8 +117,8 @@ newtype UpdateGatewayInformationResponse = UpdateGatewayInformationResponse
 --
 -- * @GatewayARN ::@ @Maybe Text@
 --
-mkUpdateGatewayInformationResponse :: UpdateGatewayInformationResponse
-mkUpdateGatewayInformationResponse = UpdateGatewayInformationResponse
+updateGatewayInformationResponse :: UpdateGatewayInformationResponse
+updateGatewayInformationResponse = UpdateGatewayInformationResponse
     { _ugirGatewayARN = Nothing
     }
 

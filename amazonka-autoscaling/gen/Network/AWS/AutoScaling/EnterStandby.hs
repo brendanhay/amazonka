@@ -33,7 +33,7 @@ module Network.AWS.AutoScaling.EnterStandby
     -- * Request
       EnterStandby
     -- ** Request constructor
-    , mkEnterStandby
+    , enterStandby
     -- ** Request lenses
     , esInstanceIds
     , esAutoScalingGroupName
@@ -42,7 +42,7 @@ module Network.AWS.AutoScaling.EnterStandby
     -- * Response
     , EnterStandbyResponse
     -- ** Response constructor
-    , mkEnterStandbyResponse
+    , enterStandbyResponse
     -- ** Response lenses
     , esrActivities
     ) where
@@ -68,10 +68,10 @@ data EnterStandby = EnterStandby
 --
 -- * @ShouldDecrementDesiredCapacity ::@ @Bool@
 --
-mkEnterStandby :: Text -- ^ 'esAutoScalingGroupName'
+enterStandby :: Text -- ^ 'esAutoScalingGroupName'
                -> Bool -- ^ 'esShouldDecrementDesiredCapacity'
                -> EnterStandby
-mkEnterStandby p2 p3 = EnterStandby
+enterStandby p2 p3 = EnterStandby
     { _esInstanceIds = mempty
     , _esAutoScalingGroupName = p2
     , _esShouldDecrementDesiredCapacity = p3
@@ -114,8 +114,8 @@ newtype EnterStandbyResponse = EnterStandbyResponse
 --
 -- * @Activities ::@ @[Activity]@
 --
-mkEnterStandbyResponse :: EnterStandbyResponse
-mkEnterStandbyResponse = EnterStandbyResponse
+enterStandbyResponse :: EnterStandbyResponse
+enterStandbyResponse = EnterStandbyResponse
     { _esrActivities = mempty
     }
 

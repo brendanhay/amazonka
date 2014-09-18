@@ -30,14 +30,14 @@ module Network.AWS.EC2.EnableVolumeIO
     -- * Request
       EnableVolumeIO
     -- ** Request constructor
-    , mkEnableVolumeIO
+    , enableVolumeIO
     -- ** Request lenses
     , evioVolumeId
 
     -- * Response
     , EnableVolumeIOResponse
     -- ** Response constructor
-    , mkEnableVolumeIOResponse
+    , enableVolumeIOResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -55,9 +55,9 @@ newtype EnableVolumeIO = EnableVolumeIO
 --
 -- * @VolumeId ::@ @Text@
 --
-mkEnableVolumeIO :: Text -- ^ 'evioVolumeId'
+enableVolumeIO :: Text -- ^ 'evioVolumeId'
                  -> EnableVolumeIO
-mkEnableVolumeIO p1 = EnableVolumeIO
+enableVolumeIO p1 = EnableVolumeIO
     { _evioVolumeId = p1
     }
 
@@ -75,8 +75,8 @@ data EnableVolumeIOResponse = EnableVolumeIOResponse
 -- a valid 'EnableVolumeIOResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkEnableVolumeIOResponse :: EnableVolumeIOResponse
-mkEnableVolumeIOResponse = EnableVolumeIOResponse
+enableVolumeIOResponse :: EnableVolumeIOResponse
+enableVolumeIOResponse = EnableVolumeIOResponse
 
 instance AWSRequest EnableVolumeIO where
     type Sv EnableVolumeIO = EC2

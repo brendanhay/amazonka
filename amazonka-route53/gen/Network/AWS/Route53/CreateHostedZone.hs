@@ -35,7 +35,7 @@ module Network.AWS.Route53.CreateHostedZone
     -- * Request
       CreateHostedZone
     -- ** Request constructor
-    , mkCreateHostedZone
+    , createHostedZone
     -- ** Request lenses
     , chzName
     , chzCallerReference
@@ -44,7 +44,7 @@ module Network.AWS.Route53.CreateHostedZone
     -- * Response
     , CreateHostedZoneResponse
     -- ** Response constructor
-    , mkCreateHostedZoneResponse
+    , createHostedZoneResponse
     -- ** Response lenses
     , chzrHostedZone
     , chzrChangeInfo
@@ -76,10 +76,10 @@ data CreateHostedZone = CreateHostedZone
 --
 -- * @HostedZoneConfig ::@ @Maybe HostedZoneConfig@
 --
-mkCreateHostedZone :: Text -- ^ 'chzName'
+createHostedZone :: Text -- ^ 'chzName'
                    -> Text -- ^ 'chzCallerReference'
                    -> CreateHostedZone
-mkCreateHostedZone p1 p2 = CreateHostedZone
+createHostedZone p1 p2 = CreateHostedZone
     { _chzName = p1
     , _chzCallerReference = p2
     , _chzHostedZoneConfig = Nothing
@@ -146,12 +146,12 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse
 --
 -- * @Location ::@ @Text@
 --
-mkCreateHostedZoneResponse :: HostedZone -- ^ 'chzrHostedZone'
+createHostedZoneResponse :: HostedZone -- ^ 'chzrHostedZone'
                            -> ChangeInfo -- ^ 'chzrChangeInfo'
                            -> DelegationSet -- ^ 'chzrDelegationSet'
                            -> Text -- ^ 'chzrLocation'
                            -> CreateHostedZoneResponse
-mkCreateHostedZoneResponse p1 p2 p3 p4 = CreateHostedZoneResponse
+createHostedZoneResponse p1 p2 p3 p4 = CreateHostedZoneResponse
     { _chzrHostedZone = p1
     , _chzrChangeInfo = p2
     , _chzrDelegationSet = p3

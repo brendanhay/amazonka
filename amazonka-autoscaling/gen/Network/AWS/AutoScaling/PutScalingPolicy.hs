@@ -33,7 +33,7 @@ module Network.AWS.AutoScaling.PutScalingPolicy
     -- * Request
       PutScalingPolicy
     -- ** Request constructor
-    , mkPutScalingPolicy
+    , putScalingPolicy
     -- ** Request lenses
     , pspAutoScalingGroupName
     , pspPolicyName
@@ -45,7 +45,7 @@ module Network.AWS.AutoScaling.PutScalingPolicy
     -- * Response
     , PutScalingPolicyResponse
     -- ** Response constructor
-    , mkPutScalingPolicyResponse
+    , putScalingPolicyResponse
     -- ** Response lenses
     , psprPolicyARN
     ) where
@@ -80,12 +80,12 @@ data PutScalingPolicy = PutScalingPolicy
 --
 -- * @MinAdjustmentStep ::@ @Maybe Integer@
 --
-mkPutScalingPolicy :: Text -- ^ 'pspAutoScalingGroupName'
+putScalingPolicy :: Text -- ^ 'pspAutoScalingGroupName'
                    -> Text -- ^ 'pspPolicyName'
                    -> Integer -- ^ 'pspScalingAdjustment'
                    -> Text -- ^ 'pspAdjustmentType'
                    -> PutScalingPolicy
-mkPutScalingPolicy p1 p2 p3 p4 = PutScalingPolicy
+putScalingPolicy p1 p2 p3 p4 = PutScalingPolicy
     { _pspAutoScalingGroupName = p1
     , _pspPolicyName = p2
     , _pspScalingAdjustment = p3
@@ -153,8 +153,8 @@ newtype PutScalingPolicyResponse = PutScalingPolicyResponse
 --
 -- * @PolicyARN ::@ @Maybe Text@
 --
-mkPutScalingPolicyResponse :: PutScalingPolicyResponse
-mkPutScalingPolicyResponse = PutScalingPolicyResponse
+putScalingPolicyResponse :: PutScalingPolicyResponse
+putScalingPolicyResponse = PutScalingPolicyResponse
     { _psprPolicyARN = Nothing
     }
 

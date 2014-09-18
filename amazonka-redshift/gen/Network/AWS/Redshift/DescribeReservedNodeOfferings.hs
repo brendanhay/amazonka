@@ -40,7 +40,7 @@ module Network.AWS.Redshift.DescribeReservedNodeOfferings
     -- * Request
       DescribeReservedNodeOfferings
     -- ** Request constructor
-    , mkDescribeReservedNodeOfferings
+    , describeReservedNodeOfferings
     -- ** Request lenses
     , drnoReservedNodeOfferingId
     , drnoMaxRecords
@@ -49,7 +49,7 @@ module Network.AWS.Redshift.DescribeReservedNodeOfferings
     -- * Response
     , DescribeReservedNodeOfferingsResponse
     -- ** Response constructor
-    , mkDescribeReservedNodeOfferingsResponse
+    , describeReservedNodeOfferingsResponse
     -- ** Response lenses
     , drnorMarker
     , drnorReservedNodeOfferings
@@ -77,8 +77,8 @@ data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeReservedNodeOfferings :: DescribeReservedNodeOfferings
-mkDescribeReservedNodeOfferings = DescribeReservedNodeOfferings
+describeReservedNodeOfferings :: DescribeReservedNodeOfferings
+describeReservedNodeOfferings = DescribeReservedNodeOfferings
     { _drnoReservedNodeOfferingId = Nothing
     , _drnoMaxRecords = Nothing
     , _drnoMarker = Nothing
@@ -127,8 +127,8 @@ data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsRespon
 --
 -- * @ReservedNodeOfferings ::@ @[ReservedNodeOffering]@
 --
-mkDescribeReservedNodeOfferingsResponse :: DescribeReservedNodeOfferingsResponse
-mkDescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse
+describeReservedNodeOfferingsResponse :: DescribeReservedNodeOfferingsResponse
+describeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse
     { _drnorMarker = Nothing
     , _drnorReservedNodeOfferings = mempty
     }

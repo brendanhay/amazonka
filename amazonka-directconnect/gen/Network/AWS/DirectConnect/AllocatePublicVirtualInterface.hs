@@ -29,7 +29,7 @@ module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
     -- * Request
       AllocatePublicVirtualInterface
     -- ** Request constructor
-    , mkAllocatePublicVirtualInterface
+    , allocatePublicVirtualInterface
     -- ** Request lenses
     , apvi1ConnectionId
     , apvi1OwnerAccount
@@ -38,7 +38,7 @@ module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
     -- * Response
     , AllocatePublicVirtualInterfaceResponse
     -- ** Response constructor
-    , mkAllocatePublicVirtualInterfaceResponse
+    , allocatePublicVirtualInterfaceResponse
     -- ** Response lenses
     , apvirrOwnerAccount
     , apvirrVirtualInterfaceId
@@ -80,11 +80,11 @@ data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface
 --
 -- * @NewPublicVirtualInterfaceAllocation ::@ @NewPublicVirtualInterfaceAllocation@
 --
-mkAllocatePublicVirtualInterface :: Text -- ^ 'apvi1ConnectionId'
+allocatePublicVirtualInterface :: Text -- ^ 'apvi1ConnectionId'
                                  -> Text -- ^ 'apvi1OwnerAccount'
                                  -> NewPublicVirtualInterfaceAllocation -- ^ 'apvi1NewPublicVirtualInterfaceAllocation'
                                  -> AllocatePublicVirtualInterface
-mkAllocatePublicVirtualInterface p1 p2 p3 = AllocatePublicVirtualInterface
+allocatePublicVirtualInterface p1 p2 p3 = AllocatePublicVirtualInterface
     { _apvi1ConnectionId = p1
     , _apvi1OwnerAccount = p2
     , _apvi1NewPublicVirtualInterfaceAllocation = p3
@@ -174,8 +174,8 @@ data AllocatePublicVirtualInterfaceResponse = AllocatePublicVirtualInterfaceResp
 --
 -- * @RouteFilterPrefixes ::@ @[RouteFilterPrefix]@
 --
-mkAllocatePublicVirtualInterfaceResponse :: AllocatePublicVirtualInterfaceResponse
-mkAllocatePublicVirtualInterfaceResponse = AllocatePublicVirtualInterfaceResponse
+allocatePublicVirtualInterfaceResponse :: AllocatePublicVirtualInterfaceResponse
+allocatePublicVirtualInterfaceResponse = AllocatePublicVirtualInterfaceResponse
     { _apvirrOwnerAccount = Nothing
     , _apvirrVirtualInterfaceId = Nothing
     , _apvirrLocation = Nothing

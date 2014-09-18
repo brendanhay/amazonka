@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.DescribeCommands
     -- * Request
       DescribeCommands
     -- ** Request constructor
-    , mkDescribeCommands
+    , describeCommands
     -- ** Request lenses
     , dc1DeploymentId
     , dc1InstanceId
@@ -36,7 +36,7 @@ module Network.AWS.OpsWorks.DescribeCommands
     -- * Response
     , DescribeCommandsResponse
     -- ** Response constructor
-    , mkDescribeCommandsResponse
+    , describeCommandsResponse
     -- ** Response lenses
     , dcrCommands
     ) where
@@ -62,8 +62,8 @@ data DescribeCommands = DescribeCommands
 --
 -- * @CommandIds ::@ @[Text]@
 --
-mkDescribeCommands :: DescribeCommands
-mkDescribeCommands = DescribeCommands
+describeCommands :: DescribeCommands
+describeCommands = DescribeCommands
     { _dc1DeploymentId = Nothing
     , _dc1InstanceId = Nothing
     , _dc1CommandIds = mempty
@@ -107,8 +107,8 @@ newtype DescribeCommandsResponse = DescribeCommandsResponse
 --
 -- * @Commands ::@ @[Command]@
 --
-mkDescribeCommandsResponse :: DescribeCommandsResponse
-mkDescribeCommandsResponse = DescribeCommandsResponse
+describeCommandsResponse :: DescribeCommandsResponse
+describeCommandsResponse = DescribeCommandsResponse
     { _dcrCommands = mempty
     }
 

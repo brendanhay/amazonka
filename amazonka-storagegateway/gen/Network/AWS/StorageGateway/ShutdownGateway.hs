@@ -49,14 +49,14 @@ module Network.AWS.StorageGateway.ShutdownGateway
     -- * Request
       ShutdownGateway
     -- ** Request constructor
-    , mkShutdownGateway
+    , shutdownGateway
     -- ** Request lenses
     , sgGatewayARN
 
     -- * Response
     , ShutdownGatewayResponse
     -- ** Response constructor
-    , mkShutdownGatewayResponse
+    , shutdownGatewayResponse
     -- ** Response lenses
     , sgrGatewayARN
     ) where
@@ -77,9 +77,9 @@ newtype ShutdownGateway = ShutdownGateway
 --
 -- * @GatewayARN ::@ @Text@
 --
-mkShutdownGateway :: Text -- ^ 'sgGatewayARN'
+shutdownGateway :: Text -- ^ 'sgGatewayARN'
                   -> ShutdownGateway
-mkShutdownGateway p1 = ShutdownGateway
+shutdownGateway p1 = ShutdownGateway
     { _sgGatewayARN = p1
     }
 
@@ -110,8 +110,8 @@ newtype ShutdownGatewayResponse = ShutdownGatewayResponse
 --
 -- * @GatewayARN ::@ @Maybe Text@
 --
-mkShutdownGatewayResponse :: ShutdownGatewayResponse
-mkShutdownGatewayResponse = ShutdownGatewayResponse
+shutdownGatewayResponse :: ShutdownGatewayResponse
+shutdownGatewayResponse = ShutdownGatewayResponse
     { _sgrGatewayARN = Nothing
     }
 

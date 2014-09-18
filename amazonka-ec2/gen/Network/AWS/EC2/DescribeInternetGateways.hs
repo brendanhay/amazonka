@@ -27,7 +27,7 @@ module Network.AWS.EC2.DescribeInternetGateways
     -- * Request
       DescribeInternetGateways
     -- ** Request constructor
-    , mkDescribeInternetGateways
+    , describeInternetGateways
     -- ** Request lenses
     , dig1InternetGatewayIds
     , dig1Filters
@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribeInternetGateways
     -- * Response
     , DescribeInternetGatewaysResponse
     -- ** Response constructor
-    , mkDescribeInternetGatewaysResponse
+    , describeInternetGatewaysResponse
     -- ** Response lenses
     , digrInternetGateways
     ) where
@@ -58,8 +58,8 @@ data DescribeInternetGateways = DescribeInternetGateways
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribeInternetGateways :: DescribeInternetGateways
-mkDescribeInternetGateways = DescribeInternetGateways
+describeInternetGateways :: DescribeInternetGateways
+describeInternetGateways = DescribeInternetGateways
     { _dig1InternetGatewayIds = mempty
     , _dig1Filters = mempty
     }
@@ -101,8 +101,8 @@ newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
 --
 -- * @InternetGateways ::@ @[InternetGateway]@
 --
-mkDescribeInternetGatewaysResponse :: DescribeInternetGatewaysResponse
-mkDescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
+describeInternetGatewaysResponse :: DescribeInternetGatewaysResponse
+describeInternetGatewaysResponse = DescribeInternetGatewaysResponse
     { _digrInternetGateways = mempty
     }
 

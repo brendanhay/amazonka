@@ -32,7 +32,7 @@ module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
     -- * Request
       RevokeCacheSecurityGroupIngress
     -- ** Request constructor
-    , mkRevokeCacheSecurityGroupIngress
+    , revokeCacheSecurityGroupIngress
     -- ** Request lenses
     , rcsgiCacheSecurityGroupName
     , rcsgiEC2SecurityGroupName
@@ -41,7 +41,7 @@ module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
     -- * Response
     , RevokeCacheSecurityGroupIngressResponse
     -- ** Response constructor
-    , mkRevokeCacheSecurityGroupIngressResponse
+    , revokeCacheSecurityGroupIngressResponse
     -- ** Response lenses
     , rcsgirCacheSecurityGroup
     ) where
@@ -68,11 +68,11 @@ data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress
 --
 -- * @EC2SecurityGroupOwnerId ::@ @Text@
 --
-mkRevokeCacheSecurityGroupIngress :: Text -- ^ 'rcsgiCacheSecurityGroupName'
+revokeCacheSecurityGroupIngress :: Text -- ^ 'rcsgiCacheSecurityGroupName'
                                   -> Text -- ^ 'rcsgiEC2SecurityGroupName'
                                   -> Text -- ^ 'rcsgiEC2SecurityGroupOwnerId'
                                   -> RevokeCacheSecurityGroupIngress
-mkRevokeCacheSecurityGroupIngress p1 p2 p3 = RevokeCacheSecurityGroupIngress
+revokeCacheSecurityGroupIngress p1 p2 p3 = RevokeCacheSecurityGroupIngress
     { _rcsgiCacheSecurityGroupName = p1
     , _rcsgiEC2SecurityGroupName = p2
     , _rcsgiEC2SecurityGroupOwnerId = p3
@@ -114,8 +114,8 @@ newtype RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngres
 --
 -- * @CacheSecurityGroup ::@ @Maybe CacheSecurityGroup@
 --
-mkRevokeCacheSecurityGroupIngressResponse :: RevokeCacheSecurityGroupIngressResponse
-mkRevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse
+revokeCacheSecurityGroupIngressResponse :: RevokeCacheSecurityGroupIngressResponse
+revokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse
     { _rcsgirCacheSecurityGroup = Nothing
     }
 

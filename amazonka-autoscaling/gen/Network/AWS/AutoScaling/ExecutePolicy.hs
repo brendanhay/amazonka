@@ -23,7 +23,7 @@ module Network.AWS.AutoScaling.ExecutePolicy
     -- * Request
       ExecutePolicy
     -- ** Request constructor
-    , mkExecutePolicy
+    , executePolicy
     -- ** Request lenses
     , epAutoScalingGroupName
     , epPolicyName
@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.ExecutePolicy
     -- * Response
     , ExecutePolicyResponse
     -- ** Response constructor
-    , mkExecutePolicyResponse
+    , executePolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -56,9 +56,9 @@ data ExecutePolicy = ExecutePolicy
 --
 -- * @HonorCooldown ::@ @Maybe Bool@
 --
-mkExecutePolicy :: Text -- ^ 'epPolicyName'
+executePolicy :: Text -- ^ 'epPolicyName'
                 -> ExecutePolicy
-mkExecutePolicy p2 = ExecutePolicy
+executePolicy p2 = ExecutePolicy
     { _epAutoScalingGroupName = Nothing
     , _epPolicyName = p2
     , _epHonorCooldown = Nothing
@@ -92,8 +92,8 @@ data ExecutePolicyResponse = ExecutePolicyResponse
 -- a valid 'ExecutePolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkExecutePolicyResponse :: ExecutePolicyResponse
-mkExecutePolicyResponse = ExecutePolicyResponse
+executePolicyResponse :: ExecutePolicyResponse
+executePolicyResponse = ExecutePolicyResponse
 
 instance AWSRequest ExecutePolicy where
     type Sv ExecutePolicy = AutoScaling

@@ -23,14 +23,14 @@ module Network.AWS.CloudTrail.StartLogging
     -- * Request
       StartLogging
     -- ** Request constructor
-    , mkStartLogging
+    , startLogging
     -- ** Request lenses
     , slName
 
     -- * Response
     , StartLoggingResponse
     -- ** Response constructor
-    , mkStartLoggingResponse
+    , startLoggingResponse
     ) where
 
 import Network.AWS.CloudTrail.Types
@@ -49,9 +49,9 @@ newtype StartLogging = StartLogging
 --
 -- * @Name ::@ @Text@
 --
-mkStartLogging :: Text -- ^ 'slName'
+startLogging :: Text -- ^ 'slName'
                -> StartLogging
-mkStartLogging p1 = StartLogging
+startLogging p1 = StartLogging
     { _slName = p1
     }
 
@@ -76,8 +76,8 @@ data StartLoggingResponse = StartLoggingResponse
 -- a valid 'StartLoggingResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkStartLoggingResponse :: StartLoggingResponse
-mkStartLoggingResponse = StartLoggingResponse
+startLoggingResponse :: StartLoggingResponse
+startLoggingResponse = StartLoggingResponse
 
 instance AWSRequest StartLogging where
     type Sv StartLogging = CloudTrail

@@ -43,14 +43,14 @@ module Network.AWS.StorageGateway.DescribeCache
     -- * Request
       DescribeCache
     -- ** Request constructor
-    , mkDescribeCache
+    , describeCache
     -- ** Request lenses
     , dcGatewayARN
 
     -- * Response
     , DescribeCacheResponse
     -- ** Response constructor
-    , mkDescribeCacheResponse
+    , describeCacheResponse
     -- ** Response lenses
     , dcrGatewayARN
     , dcrDiskIds
@@ -76,9 +76,9 @@ newtype DescribeCache = DescribeCache
 --
 -- * @GatewayARN ::@ @Text@
 --
-mkDescribeCache :: Text -- ^ 'dcGatewayARN'
+describeCache :: Text -- ^ 'dcGatewayARN'
                 -> DescribeCache
-mkDescribeCache p1 = DescribeCache
+describeCache p1 = DescribeCache
     { _dcGatewayARN = p1
     }
 
@@ -126,8 +126,8 @@ data DescribeCacheResponse = DescribeCacheResponse
 --
 -- * @CacheMissPercentage ::@ @Maybe Double@
 --
-mkDescribeCacheResponse :: DescribeCacheResponse
-mkDescribeCacheResponse = DescribeCacheResponse
+describeCacheResponse :: DescribeCacheResponse
+describeCacheResponse = DescribeCacheResponse
     { _dcrGatewayARN = Nothing
     , _dcrDiskIds = mempty
     , _dcrCacheAllocatedInBytes = Nothing

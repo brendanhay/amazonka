@@ -30,7 +30,7 @@ module Network.AWS.AutoScaling.SuspendProcesses
     -- * Request
       SuspendProcesses
     -- ** Request constructor
-    , mkSuspendProcesses
+    , suspendProcesses
     -- ** Request lenses
     , sp1AutoScalingGroupName
     , sp1ScalingProcesses
@@ -38,7 +38,7 @@ module Network.AWS.AutoScaling.SuspendProcesses
     -- * Response
     , SuspendProcessesResponse
     -- ** Response constructor
-    , mkSuspendProcessesResponse
+    , suspendProcessesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -59,9 +59,9 @@ data SuspendProcesses = SuspendProcesses
 --
 -- * @ScalingProcesses ::@ @[Text]@
 --
-mkSuspendProcesses :: Text -- ^ 'sp1AutoScalingGroupName'
+suspendProcesses :: Text -- ^ 'sp1AutoScalingGroupName'
                    -> SuspendProcesses
-mkSuspendProcesses p1 = SuspendProcesses
+suspendProcesses p1 = SuspendProcesses
     { _sp1AutoScalingGroupName = p1
     , _sp1ScalingProcesses = mempty
     }
@@ -90,8 +90,8 @@ data SuspendProcessesResponse = SuspendProcessesResponse
 -- a valid 'SuspendProcessesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSuspendProcessesResponse :: SuspendProcessesResponse
-mkSuspendProcessesResponse = SuspendProcessesResponse
+suspendProcessesResponse :: SuspendProcessesResponse
+suspendProcessesResponse = SuspendProcessesResponse
 
 instance AWSRequest SuspendProcesses where
     type Sv SuspendProcesses = AutoScaling

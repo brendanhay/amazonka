@@ -43,7 +43,7 @@ module Network.AWS.StorageGateway.UpdateSnapshotSchedule
     -- * Request
       UpdateSnapshotSchedule
     -- ** Request constructor
-    , mkUpdateSnapshotSchedule
+    , updateSnapshotSchedule
     -- ** Request lenses
     , ussVolumeARN
     , ussStartAt
@@ -53,7 +53,7 @@ module Network.AWS.StorageGateway.UpdateSnapshotSchedule
     -- * Response
     , UpdateSnapshotScheduleResponse
     -- ** Response constructor
-    , mkUpdateSnapshotScheduleResponse
+    , updateSnapshotScheduleResponse
     -- ** Response lenses
     , ussrVolumeARN
     ) where
@@ -86,11 +86,11 @@ data UpdateSnapshotSchedule = UpdateSnapshotSchedule
 --
 -- * @Description ::@ @Maybe Text@
 --
-mkUpdateSnapshotSchedule :: Text -- ^ 'ussVolumeARN'
+updateSnapshotSchedule :: Text -- ^ 'ussVolumeARN'
                          -> Integer -- ^ 'ussStartAt'
                          -> Integer -- ^ 'ussRecurrenceInHours'
                          -> UpdateSnapshotSchedule
-mkUpdateSnapshotSchedule p1 p2 p3 = UpdateSnapshotSchedule
+updateSnapshotSchedule p1 p2 p3 = UpdateSnapshotSchedule
     { _ussVolumeARN = p1
     , _ussStartAt = p2
     , _ussRecurrenceInHours = p3
@@ -140,8 +140,8 @@ newtype UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse
 --
 -- * @VolumeARN ::@ @Maybe Text@
 --
-mkUpdateSnapshotScheduleResponse :: UpdateSnapshotScheduleResponse
-mkUpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse
+updateSnapshotScheduleResponse :: UpdateSnapshotScheduleResponse
+updateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse
     { _ussrVolumeARN = Nothing
     }
 

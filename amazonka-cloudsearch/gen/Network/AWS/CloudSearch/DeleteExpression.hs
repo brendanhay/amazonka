@@ -24,7 +24,7 @@ module Network.AWS.CloudSearch.DeleteExpression
     -- * Request
       DeleteExpression
     -- ** Request constructor
-    , mkDeleteExpression
+    , deleteExpression
     -- ** Request lenses
     , de1DomainName
     , de1ExpressionName
@@ -32,7 +32,7 @@ module Network.AWS.CloudSearch.DeleteExpression
     -- * Response
     , DeleteExpressionResponse
     -- ** Response constructor
-    , mkDeleteExpressionResponse
+    , deleteExpressionResponse
     -- ** Response lenses
     , derrExpression
     ) where
@@ -58,10 +58,10 @@ data DeleteExpression = DeleteExpression
 --
 -- * @ExpressionName ::@ @Text@
 --
-mkDeleteExpression :: Text -- ^ 'de1DomainName'
+deleteExpression :: Text -- ^ 'de1DomainName'
                    -> Text -- ^ 'de1ExpressionName'
                    -> DeleteExpression
-mkDeleteExpression p1 p2 = DeleteExpression
+deleteExpression p1 p2 = DeleteExpression
     { _de1DomainName = p1
     , _de1ExpressionName = p2
     }
@@ -96,9 +96,9 @@ newtype DeleteExpressionResponse = DeleteExpressionResponse
 --
 -- * @Expression ::@ @ExpressionStatus@
 --
-mkDeleteExpressionResponse :: ExpressionStatus -- ^ 'derrExpression'
+deleteExpressionResponse :: ExpressionStatus -- ^ 'derrExpression'
                            -> DeleteExpressionResponse
-mkDeleteExpressionResponse p1 = DeleteExpressionResponse
+deleteExpressionResponse p1 = DeleteExpressionResponse
     { _derrExpression = p1
     }
 

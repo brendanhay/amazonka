@@ -37,7 +37,7 @@ module Network.AWS.EC2.ImportVolume
     -- * Request
       ImportVolume
     -- ** Request constructor
-    , mkImportVolume
+    , importVolume
     -- ** Request lenses
     , ivAvailabilityZone
     , ivImage
@@ -47,7 +47,7 @@ module Network.AWS.EC2.ImportVolume
     -- * Response
     , ImportVolumeResponse
     -- ** Response constructor
-    , mkImportVolumeResponse
+    , importVolumeResponse
     -- ** Response lenses
     , ivrConversionTask
     ) where
@@ -76,11 +76,11 @@ data ImportVolume = ImportVolume
 --
 -- * @Volume ::@ @VolumeDetail@
 --
-mkImportVolume :: Text -- ^ 'ivAvailabilityZone'
+importVolume :: Text -- ^ 'ivAvailabilityZone'
                -> DiskImageDetail -- ^ 'ivImage'
                -> VolumeDetail -- ^ 'ivVolume'
                -> ImportVolume
-mkImportVolume p1 p2 p4 = ImportVolume
+importVolume p1 p2 p4 = ImportVolume
     { _ivAvailabilityZone = p1
     , _ivImage = p2
     , _ivDescription = Nothing
@@ -120,8 +120,8 @@ newtype ImportVolumeResponse = ImportVolumeResponse
 --
 -- * @ConversionTask ::@ @Maybe ConversionTask@
 --
-mkImportVolumeResponse :: ImportVolumeResponse
-mkImportVolumeResponse = ImportVolumeResponse
+importVolumeResponse :: ImportVolumeResponse
+importVolumeResponse = ImportVolumeResponse
     { _ivrConversionTask = Nothing
     }
 

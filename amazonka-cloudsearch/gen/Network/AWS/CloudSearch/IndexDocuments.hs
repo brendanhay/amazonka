@@ -25,14 +25,14 @@ module Network.AWS.CloudSearch.IndexDocuments
     -- * Request
       IndexDocuments
     -- ** Request constructor
-    , mkIndexDocuments
+    , indexDocuments
     -- ** Request lenses
     , idDomainName
 
     -- * Response
     , IndexDocumentsResponse
     -- ** Response constructor
-    , mkIndexDocumentsResponse
+    , indexDocumentsResponse
     -- ** Response lenses
     , idrFieldNames
     ) where
@@ -54,9 +54,9 @@ newtype IndexDocuments = IndexDocuments
 --
 -- * @DomainName ::@ @Text@
 --
-mkIndexDocuments :: Text -- ^ 'idDomainName'
+indexDocuments :: Text -- ^ 'idDomainName'
                  -> IndexDocuments
-mkIndexDocuments p1 = IndexDocuments
+indexDocuments p1 = IndexDocuments
     { _idDomainName = p1
     }
 
@@ -85,8 +85,8 @@ newtype IndexDocumentsResponse = IndexDocumentsResponse
 --
 -- * @FieldNames ::@ @[Text]@
 --
-mkIndexDocumentsResponse :: IndexDocumentsResponse
-mkIndexDocumentsResponse = IndexDocumentsResponse
+indexDocumentsResponse :: IndexDocumentsResponse
+indexDocumentsResponse = IndexDocumentsResponse
     { _idrFieldNames = mempty
     }
 

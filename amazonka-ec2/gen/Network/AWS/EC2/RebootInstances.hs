@@ -36,14 +36,14 @@ module Network.AWS.EC2.RebootInstances
     -- * Request
       RebootInstances
     -- ** Request constructor
-    , mkRebootInstances
+    , rebootInstances
     -- ** Request lenses
     , ri1InstanceIds
 
     -- * Response
     , RebootInstancesResponse
     -- ** Response constructor
-    , mkRebootInstancesResponse
+    , rebootInstancesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -61,9 +61,9 @@ newtype RebootInstances = RebootInstances
 --
 -- * @InstanceIds ::@ @[Text]@
 --
-mkRebootInstances :: [Text] -- ^ 'ri1InstanceIds'
+rebootInstances :: [Text] -- ^ 'ri1InstanceIds'
                   -> RebootInstances
-mkRebootInstances p1 = RebootInstances
+rebootInstances p1 = RebootInstances
     { _ri1InstanceIds = p1
     }
 
@@ -81,8 +81,8 @@ data RebootInstancesResponse = RebootInstancesResponse
 -- a valid 'RebootInstancesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRebootInstancesResponse :: RebootInstancesResponse
-mkRebootInstancesResponse = RebootInstancesResponse
+rebootInstancesResponse :: RebootInstancesResponse
+rebootInstancesResponse = RebootInstancesResponse
 
 instance AWSRequest RebootInstances where
     type Sv RebootInstances = EC2

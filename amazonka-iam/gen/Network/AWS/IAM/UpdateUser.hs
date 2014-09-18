@@ -34,7 +34,7 @@ module Network.AWS.IAM.UpdateUser
     -- * Request
       UpdateUser
     -- ** Request constructor
-    , mkUpdateUser
+    , updateUser
     -- ** Request lenses
     , uuUserName
     , uuNewPath
@@ -43,7 +43,7 @@ module Network.AWS.IAM.UpdateUser
     -- * Response
     , UpdateUserResponse
     -- ** Response constructor
-    , mkUpdateUserResponse
+    , updateUserResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -67,9 +67,9 @@ data UpdateUser = UpdateUser
 --
 -- * @NewUserName ::@ @Maybe Text@
 --
-mkUpdateUser :: Text -- ^ 'uuUserName'
+updateUser :: Text -- ^ 'uuUserName'
              -> UpdateUser
-mkUpdateUser p1 = UpdateUser
+updateUser p1 = UpdateUser
     { _uuUserName = p1
     , _uuNewPath = Nothing
     , _uuNewUserName = Nothing
@@ -100,8 +100,8 @@ data UpdateUserResponse = UpdateUserResponse
 -- a valid 'UpdateUserResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkUpdateUserResponse :: UpdateUserResponse
-mkUpdateUserResponse = UpdateUserResponse
+updateUserResponse :: UpdateUserResponse
+updateUserResponse = UpdateUserResponse
 
 instance AWSRequest UpdateUser where
     type Sv UpdateUser = IAM

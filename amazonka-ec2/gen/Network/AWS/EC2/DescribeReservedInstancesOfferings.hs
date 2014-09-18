@@ -69,7 +69,7 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
     -- * Request
       DescribeReservedInstancesOfferings
     -- ** Request constructor
-    , mkDescribeReservedInstancesOfferings
+    , describeReservedInstancesOfferings
     -- ** Request lenses
     , drioReservedInstancesOfferingIds
     , drioInstanceType
@@ -88,7 +88,7 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
     -- * Response
     , DescribeReservedInstancesOfferingsResponse
     -- ** Response constructor
-    , mkDescribeReservedInstancesOfferingsResponse
+    , describeReservedInstancesOfferingsResponse
     -- ** Response lenses
     , driorReservedInstancesOfferings
     , driorNextToken
@@ -145,8 +145,8 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
 --
 -- * @MaxInstanceCount ::@ @Maybe Integer@
 --
-mkDescribeReservedInstancesOfferings :: DescribeReservedInstancesOfferings
-mkDescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
+describeReservedInstancesOfferings :: DescribeReservedInstancesOfferings
+describeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     { _drioReservedInstancesOfferingIds = mempty
     , _drioInstanceType = Nothing
     , _drioAvailabilityZone = Nothing
@@ -259,8 +259,8 @@ data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOffer
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeReservedInstancesOfferingsResponse :: DescribeReservedInstancesOfferingsResponse
-mkDescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
+describeReservedInstancesOfferingsResponse :: DescribeReservedInstancesOfferingsResponse
+describeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
     { _driorReservedInstancesOfferings = mempty
     , _driorNextToken = Nothing
     }

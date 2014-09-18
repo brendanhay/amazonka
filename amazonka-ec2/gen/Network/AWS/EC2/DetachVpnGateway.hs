@@ -36,7 +36,7 @@ module Network.AWS.EC2.DetachVpnGateway
     -- * Request
       DetachVpnGateway
     -- ** Request constructor
-    , mkDetachVpnGateway
+    , detachVpnGateway
     -- ** Request lenses
     , dvg2VpnGatewayId
     , dvg2VpcId
@@ -44,7 +44,7 @@ module Network.AWS.EC2.DetachVpnGateway
     -- * Response
     , DetachVpnGatewayResponse
     -- ** Response constructor
-    , mkDetachVpnGatewayResponse
+    , detachVpnGatewayResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -65,10 +65,10 @@ data DetachVpnGateway = DetachVpnGateway
 --
 -- * @VpcId ::@ @Text@
 --
-mkDetachVpnGateway :: Text -- ^ 'dvg2VpnGatewayId'
+detachVpnGateway :: Text -- ^ 'dvg2VpnGatewayId'
                    -> Text -- ^ 'dvg2VpcId'
                    -> DetachVpnGateway
-mkDetachVpnGateway p1 p2 = DetachVpnGateway
+detachVpnGateway p1 p2 = DetachVpnGateway
     { _dvg2VpnGatewayId = p1
     , _dvg2VpcId = p2
     }
@@ -92,8 +92,8 @@ data DetachVpnGatewayResponse = DetachVpnGatewayResponse
 -- a valid 'DetachVpnGatewayResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDetachVpnGatewayResponse :: DetachVpnGatewayResponse
-mkDetachVpnGatewayResponse = DetachVpnGatewayResponse
+detachVpnGatewayResponse :: DetachVpnGatewayResponse
+detachVpnGatewayResponse = DetachVpnGatewayResponse
 
 instance AWSRequest DetachVpnGateway where
     type Sv DetachVpnGateway = EC2

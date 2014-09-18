@@ -25,14 +25,14 @@ module Network.AWS.Support.DescribeSeverityLevels
     -- * Request
       DescribeSeverityLevels
     -- ** Request constructor
-    , mkDescribeSeverityLevels
+    , describeSeverityLevels
     -- ** Request lenses
     , dslLanguage
 
     -- * Response
     , DescribeSeverityLevelsResponse
     -- ** Response constructor
-    , mkDescribeSeverityLevelsResponse
+    , describeSeverityLevelsResponse
     -- ** Response lenses
     , dslrSeverityLevels
     ) where
@@ -52,8 +52,8 @@ newtype DescribeSeverityLevels = DescribeSeverityLevels
 --
 -- * @Language ::@ @Maybe Text@
 --
-mkDescribeSeverityLevels :: DescribeSeverityLevels
-mkDescribeSeverityLevels = DescribeSeverityLevels
+describeSeverityLevels :: DescribeSeverityLevels
+describeSeverityLevels = DescribeSeverityLevels
     { _dslLanguage = Nothing
     }
 
@@ -86,8 +86,8 @@ newtype DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse
 --
 -- * @SeverityLevels ::@ @[SeverityLevel]@
 --
-mkDescribeSeverityLevelsResponse :: DescribeSeverityLevelsResponse
-mkDescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse
+describeSeverityLevelsResponse :: DescribeSeverityLevelsResponse
+describeSeverityLevelsResponse = DescribeSeverityLevelsResponse
     { _dslrSeverityLevels = mempty
     }
 

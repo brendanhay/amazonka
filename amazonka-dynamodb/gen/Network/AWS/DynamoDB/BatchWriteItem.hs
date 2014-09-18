@@ -71,7 +71,7 @@ module Network.AWS.DynamoDB.BatchWriteItem
     -- * Request
       BatchWriteItem
     -- ** Request constructor
-    , mkBatchWriteItem
+    , batchWriteItem
     -- ** Request lenses
     , bwiRequestItems
     , bwiReturnConsumedCapacity
@@ -80,7 +80,7 @@ module Network.AWS.DynamoDB.BatchWriteItem
     -- * Response
     , BatchWriteItemResponse
     -- ** Response constructor
-    , mkBatchWriteItemResponse
+    , batchWriteItemResponse
     -- ** Response lenses
     , bwirUnprocessedItems
     , bwirItemCollectionMetrics
@@ -109,9 +109,9 @@ data BatchWriteItem = BatchWriteItem
 --
 -- * @ReturnItemCollectionMetrics ::@ @Maybe ReturnItemCollectionMetrics@
 --
-mkBatchWriteItem :: Map Text (List1 WriteRequest) -- ^ 'bwiRequestItems'
+batchWriteItem :: Map Text (List1 WriteRequest) -- ^ 'bwiRequestItems'
                  -> BatchWriteItem
-mkBatchWriteItem p1 = BatchWriteItem
+batchWriteItem p1 = BatchWriteItem
     { _bwiRequestItems = p1
     , _bwiReturnConsumedCapacity = Nothing
     , _bwiReturnItemCollectionMetrics = Nothing
@@ -181,8 +181,8 @@ data BatchWriteItemResponse = BatchWriteItemResponse
 --
 -- * @ConsumedCapacity ::@ @[ConsumedCapacity]@
 --
-mkBatchWriteItemResponse :: BatchWriteItemResponse
-mkBatchWriteItemResponse = BatchWriteItemResponse
+batchWriteItemResponse :: BatchWriteItemResponse
+batchWriteItemResponse = BatchWriteItemResponse
     { _bwirUnprocessedItems = mempty
     , _bwirItemCollectionMetrics = mempty
     , _bwirConsumedCapacity = mempty

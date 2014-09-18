@@ -51,7 +51,7 @@ module Network.AWS.EC2.CreateInstanceExportTask
     -- * Request
       CreateInstanceExportTask
     -- ** Request constructor
-    , mkCreateInstanceExportTask
+    , createInstanceExportTask
     -- ** Request lenses
     , cietDescription
     , cietInstanceId
@@ -61,7 +61,7 @@ module Network.AWS.EC2.CreateInstanceExportTask
     -- * Response
     , CreateInstanceExportTaskResponse
     -- ** Response constructor
-    , mkCreateInstanceExportTaskResponse
+    , createInstanceExportTaskResponse
     -- ** Response lenses
     , cietrExportTask
     ) where
@@ -90,9 +90,9 @@ data CreateInstanceExportTask = CreateInstanceExportTask
 --
 -- * @ExportToS3Task ::@ @Maybe ExportToS3TaskSpecification@
 --
-mkCreateInstanceExportTask :: Text -- ^ 'cietInstanceId'
+createInstanceExportTask :: Text -- ^ 'cietInstanceId'
                            -> CreateInstanceExportTask
-mkCreateInstanceExportTask p2 = CreateInstanceExportTask
+createInstanceExportTask p2 = CreateInstanceExportTask
     { _cietDescription = Nothing
     , _cietInstanceId = p2
     , _cietTargetEnvironment = Nothing
@@ -134,8 +134,8 @@ newtype CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
 --
 -- * @ExportTask ::@ @Maybe ExportTask@
 --
-mkCreateInstanceExportTaskResponse :: CreateInstanceExportTaskResponse
-mkCreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
+createInstanceExportTaskResponse :: CreateInstanceExportTaskResponse
+createInstanceExportTaskResponse = CreateInstanceExportTaskResponse
     { _cietrExportTask = Nothing
     }
 

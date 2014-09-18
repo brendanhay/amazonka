@@ -37,7 +37,7 @@ module Network.AWS.IAM.CreateRole
     -- * Request
       CreateRole
     -- ** Request constructor
-    , mkCreateRole
+    , createRole
     -- ** Request lenses
     , crPath
     , crRoleName
@@ -46,7 +46,7 @@ module Network.AWS.IAM.CreateRole
     -- * Response
     , CreateRoleResponse
     -- ** Response constructor
-    , mkCreateRoleResponse
+    , createRoleResponse
     -- ** Response lenses
     , crrRole
     ) where
@@ -72,10 +72,10 @@ data CreateRole = CreateRole
 --
 -- * @AssumeRolePolicyDocument ::@ @Text@
 --
-mkCreateRole :: Text -- ^ 'crRoleName'
+createRole :: Text -- ^ 'crRoleName'
              -> Text -- ^ 'crAssumeRolePolicyDocument'
              -> CreateRole
-mkCreateRole p2 p3 = CreateRole
+createRole p2 p3 = CreateRole
     { _crPath = Nothing
     , _crRoleName = p2
     , _crAssumeRolePolicyDocument = p3
@@ -114,9 +114,9 @@ newtype CreateRoleResponse = CreateRoleResponse
 --
 -- * @Role ::@ @Role@
 --
-mkCreateRoleResponse :: Role -- ^ 'crrRole'
+createRoleResponse :: Role -- ^ 'crrRole'
                      -> CreateRoleResponse
-mkCreateRoleResponse p1 = CreateRoleResponse
+createRoleResponse p1 = CreateRoleResponse
     { _crrRole = p1
     }
 

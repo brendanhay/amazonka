@@ -51,32 +51,32 @@ module Network.AWS.AutoScaling.Types
 
     -- * AdjustmentType
     , AdjustmentType
-    , mkAdjustmentType
+    , adjustmentType
     , atAdjustmentType
 
     -- * InstanceMonitoring
     , InstanceMonitoring
-    , mkInstanceMonitoring
+    , instanceMonitoring
     , imEnabled
 
     -- * MetricCollectionType
     , MetricCollectionType
-    , mkMetricCollectionType
+    , metricCollectionType
     , mctMetric
 
     -- * MetricGranularityType
     , MetricGranularityType
-    , mkMetricGranularityType
+    , metricGranularityType
     , mgtGranularity
 
     -- * ProcessType
     , ProcessType
-    , mkProcessType
+    , processType
     , ptProcessName
 
     -- * Activity
     , Activity
-    , mkActivity
+    , activity
     , arActivityId
     , arAutoScalingGroupName
     , arDescription
@@ -90,13 +90,13 @@ module Network.AWS.AutoScaling.Types
 
     -- * Alarm
     , Alarm
-    , mkAlarm
+    , alarm
     , aAlarmName
     , aAlarmARN
 
     -- * AutoScalingGroup
     , AutoScalingGroup
-    , mkAutoScalingGroup
+    , autoScalingGroup
     , asgAutoScalingGroupName
     , asgAutoScalingGroupARN
     , asgLaunchConfigurationName
@@ -120,7 +120,7 @@ module Network.AWS.AutoScaling.Types
 
     -- * AutoScalingInstanceDetails
     , AutoScalingInstanceDetails
-    , mkAutoScalingInstanceDetails
+    , autoScalingInstanceDetails
     , asidInstanceId
     , asidAutoScalingGroupName
     , asidAvailabilityZone
@@ -130,7 +130,7 @@ module Network.AWS.AutoScaling.Types
 
     -- * BlockDeviceMapping
     , BlockDeviceMapping
-    , mkBlockDeviceMapping
+    , blockDeviceMapping
     , bdmVirtualName
     , bdmDeviceName
     , bdmEbs
@@ -138,7 +138,7 @@ module Network.AWS.AutoScaling.Types
 
     -- * Ebs
     , Ebs
-    , mkEbs
+    , ebs
     , eSnapshotId
     , eVolumeSize
     , eVolumeType
@@ -147,19 +147,19 @@ module Network.AWS.AutoScaling.Types
 
     -- * EnabledMetric
     , EnabledMetric
-    , mkEnabledMetric
+    , enabledMetric
     , emMetric
     , emGranularity
 
     -- * Filter
     , Filter
-    , mkFilter
+    , filter
     , fName
     , fValues
 
     -- * Instance
     , Instance
-    , mkInstance
+    , instance
     , iInstanceId
     , iAvailabilityZone
     , iLifecycleState
@@ -168,7 +168,7 @@ module Network.AWS.AutoScaling.Types
 
     -- * LaunchConfiguration
     , LaunchConfiguration
-    , mkLaunchConfiguration
+    , launchConfiguration
     , lcLaunchConfigurationName
     , lcLaunchConfigurationARN
     , lcImageId
@@ -189,7 +189,7 @@ module Network.AWS.AutoScaling.Types
 
     -- * LifecycleHook
     , LifecycleHook
-    , mkLifecycleHook
+    , lifecycleHook
     , lhLifecycleHookName
     , lhAutoScalingGroupName
     , lhLifecycleTransition
@@ -202,14 +202,14 @@ module Network.AWS.AutoScaling.Types
 
     -- * NotificationConfiguration
     , NotificationConfiguration
-    , mkNotificationConfiguration
+    , notificationConfiguration
     , ncAutoScalingGroupName
     , ncTopicARN
     , ncNotificationType
 
     -- * ScalingPolicy
     , ScalingPolicy
-    , mkScalingPolicy
+    , scalingPolicy
     , sprAutoScalingGroupName
     , sprPolicyName
     , sprScalingAdjustment
@@ -221,7 +221,7 @@ module Network.AWS.AutoScaling.Types
 
     -- * ScheduledUpdateGroupAction
     , ScheduledUpdateGroupAction
-    , mkScheduledUpdateGroupAction
+    , scheduledUpdateGroupAction
     , sugaAutoScalingGroupName
     , sugaScheduledActionName
     , sugaScheduledActionARN
@@ -235,13 +235,13 @@ module Network.AWS.AutoScaling.Types
 
     -- * SuspendedProcess
     , SuspendedProcess
-    , mkSuspendedProcess
+    , suspendedProcess
     , spProcessName
     , spSuspensionReason
 
     -- * Tag
     , Tag
-    , mkTag
+    , tag
     , tResourceId
     , tResourceType
     , tKey
@@ -250,7 +250,7 @@ module Network.AWS.AutoScaling.Types
 
     -- * TagDescription
     , TagDescription
-    , mkTagDescription
+    , tagDescription
     , tdResourceId
     , tdResourceType
     , tdKey
@@ -288,8 +288,8 @@ data AutoScalingError
         { _aefMessage :: Maybe Text
         }
     | AutoScalingClient HttpException
-    | AutoScalingSerializer Text
-    | AutoScalingService Text
+    | AutoScalingSerializer String
+    | AutoScalingService String
       -- | The NextToken value is invalid.
     | InvalidNextToken
         { _intMessage :: Maybe Text
@@ -340,7 +340,7 @@ _AutoScalingClient = prism'
         x -> Left x)
 
 -- | See: 'AutoScalingSerializer'
-_AutoScalingSerializer :: Prism' AutoScalingError Text
+_AutoScalingSerializer :: Prism' AutoScalingError String
 _AutoScalingSerializer = prism'
     AutoScalingSerializer
     (\case
@@ -348,7 +348,7 @@ _AutoScalingSerializer = prism'
         x -> Left x)
 
 -- | See: 'AutoScalingService'
-_AutoScalingService :: Prism' AutoScalingError Text
+_AutoScalingService :: Prism' AutoScalingError String
 _AutoScalingService = prism'
     AutoScalingService
     (\case
@@ -522,8 +522,8 @@ newtype AdjustmentType = AdjustmentType
 --
 -- * @AdjustmentType ::@ @Maybe Text@
 --
-mkAdjustmentType :: AdjustmentType
-mkAdjustmentType = AdjustmentType
+adjustmentType :: AdjustmentType
+adjustmentType = AdjustmentType
     { _atAdjustmentType = Nothing
     }
 
@@ -555,8 +555,8 @@ newtype InstanceMonitoring = InstanceMonitoring
 --
 -- * @Enabled ::@ @Maybe Bool@
 --
-mkInstanceMonitoring :: InstanceMonitoring
-mkInstanceMonitoring = InstanceMonitoring
+instanceMonitoring :: InstanceMonitoring
+instanceMonitoring = InstanceMonitoring
     { _imEnabled = Nothing
     }
 
@@ -586,8 +586,8 @@ newtype MetricCollectionType = MetricCollectionType
 --
 -- * @Metric ::@ @Maybe Text@
 --
-mkMetricCollectionType :: MetricCollectionType
-mkMetricCollectionType = MetricCollectionType
+metricCollectionType :: MetricCollectionType
+metricCollectionType = MetricCollectionType
     { _mctMetric = Nothing
     }
 
@@ -614,8 +614,8 @@ newtype MetricGranularityType = MetricGranularityType
 --
 -- * @Granularity ::@ @Maybe Text@
 --
-mkMetricGranularityType :: MetricGranularityType
-mkMetricGranularityType = MetricGranularityType
+metricGranularityType :: MetricGranularityType
+metricGranularityType = MetricGranularityType
     { _mgtGranularity = Nothing
     }
 
@@ -700,9 +700,9 @@ newtype ProcessType = ProcessType
 --
 -- * @ProcessName ::@ @Text@
 --
-mkProcessType :: Text -- ^ 'ptProcessName'
+processType :: Text -- ^ 'ptProcessName'
               -> ProcessType
-mkProcessType p1 = ProcessType
+processType p1 = ProcessType
     { _ptProcessName = p1
     }
 
@@ -759,13 +759,13 @@ data Activity = Activity
 --
 -- * @Details ::@ @Maybe Text@
 --
-mkActivity :: Text -- ^ 'arActivityId'
+activity :: Text -- ^ 'arActivityId'
            -> Text -- ^ 'arAutoScalingGroupName'
            -> Text -- ^ 'arCause'
            -> ISO8601 -- ^ 'arStartTime'
            -> ScalingActivityStatusCode -- ^ 'arStatusCode'
            -> Activity
-mkActivity p1 p2 p4 p5 p7 = Activity
+activity p1 p2 p4 p5 p7 = Activity
     { _arActivityId = p1
     , _arAutoScalingGroupName = p2
     , _arDescription = Nothing
@@ -839,8 +839,8 @@ data Alarm = Alarm
 --
 -- * @AlarmARN ::@ @Maybe Text@
 --
-mkAlarm :: Alarm
-mkAlarm = Alarm
+alarm :: Alarm
+alarm = Alarm
     { _aAlarmName = Nothing
     , _aAlarmARN = Nothing
     }
@@ -932,7 +932,7 @@ data AutoScalingGroup = AutoScalingGroup
 --
 -- * @TerminationPolicies ::@ @[Text]@
 --
-mkAutoScalingGroup :: Text -- ^ 'asgAutoScalingGroupName'
+autoScalingGroup :: Text -- ^ 'asgAutoScalingGroupName'
                    -> Text -- ^ 'asgHealthCheckType'
                    -> ISO8601 -- ^ 'asgCreatedTime'
                    -> Text -- ^ 'asgLaunchConfigurationName'
@@ -942,7 +942,7 @@ mkAutoScalingGroup :: Text -- ^ 'asgAutoScalingGroupName'
                    -> Integer -- ^ 'asgDefaultCooldown'
                    -> List1 Text -- ^ 'asgAvailabilityZones'
                    -> AutoScalingGroup
-mkAutoScalingGroup p1 p10 p13 p3 p4 p5 p6 p7 p8 = AutoScalingGroup
+autoScalingGroup p1 p10 p13 p3 p4 p5 p6 p7 p8 = AutoScalingGroup
     { _asgAutoScalingGroupName = p1
     , _asgAutoScalingGroupARN = Nothing
     , _asgLaunchConfigurationName = p3
@@ -1105,14 +1105,14 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails
 --
 -- * @LaunchConfigurationName ::@ @Text@
 --
-mkAutoScalingInstanceDetails :: Text -- ^ 'asidInstanceId'
+autoScalingInstanceDetails :: Text -- ^ 'asidInstanceId'
                              -> Text -- ^ 'asidAutoScalingGroupName'
                              -> Text -- ^ 'asidAvailabilityZone'
                              -> Text -- ^ 'asidLifecycleState'
                              -> Text -- ^ 'asidHealthStatus'
                              -> Text -- ^ 'asidLaunchConfigurationName'
                              -> AutoScalingInstanceDetails
-mkAutoScalingInstanceDetails p1 p2 p3 p4 p5 p6 = AutoScalingInstanceDetails
+autoScalingInstanceDetails p1 p2 p3 p4 p5 p6 = AutoScalingInstanceDetails
     { _asidInstanceId = p1
     , _asidAutoScalingGroupName = p2
     , _asidAvailabilityZone = p3
@@ -1180,9 +1180,9 @@ data BlockDeviceMapping = BlockDeviceMapping
 --
 -- * @NoDevice ::@ @Maybe Bool@
 --
-mkBlockDeviceMapping :: Text -- ^ 'bdmDeviceName'
+blockDeviceMapping :: Text -- ^ 'bdmDeviceName'
                      -> BlockDeviceMapping
-mkBlockDeviceMapping p2 = BlockDeviceMapping
+blockDeviceMapping p2 = BlockDeviceMapping
     { _bdmVirtualName = Nothing
     , _bdmDeviceName = p2
     , _bdmEbs = Nothing
@@ -1238,8 +1238,8 @@ data Ebs = Ebs
 --
 -- * @Iops ::@ @Maybe Integer@
 --
-mkEbs :: Ebs
-mkEbs = Ebs
+ebs :: Ebs
+ebs = Ebs
     { _eSnapshotId = Nothing
     , _eVolumeSize = Nothing
     , _eVolumeType = Nothing
@@ -1296,8 +1296,8 @@ data EnabledMetric = EnabledMetric
 --
 -- * @Granularity ::@ @Maybe Text@
 --
-mkEnabledMetric :: EnabledMetric
-mkEnabledMetric = EnabledMetric
+enabledMetric :: EnabledMetric
+enabledMetric = EnabledMetric
     { _emMetric = Nothing
     , _emGranularity = Nothing
     }
@@ -1332,9 +1332,9 @@ data Filter = Filter
 --
 -- * @Values ::@ @[Text]@
 --
-mkFilter :: Text -- ^ 'fName'
+filter :: Text -- ^ 'fName'
          -> Filter
-mkFilter p1 = Filter
+filter p1 = Filter
     { _fName = p1
     , _fValues = mempty
     }
@@ -1375,13 +1375,13 @@ data Instance = Instance
 --
 -- * @LaunchConfigurationName ::@ @Text@
 --
-mkInstance :: Text -- ^ 'iInstanceId'
+instance :: Text -- ^ 'iInstanceId'
            -> Text -- ^ 'iAvailabilityZone'
            -> LifecycleState -- ^ 'iLifecycleState'
            -> Text -- ^ 'iHealthStatus'
            -> Text -- ^ 'iLaunchConfigurationName'
            -> Instance
-mkInstance p1 p2 p3 p4 p5 = Instance
+instance p1 p2 p3 p4 p5 = Instance
     { _iInstanceId = p1
     , _iAvailabilityZone = p2
     , _iLifecycleState = p3
@@ -1483,12 +1483,12 @@ data LaunchConfiguration = LaunchConfiguration
 --
 -- * @PlacementTenancy ::@ @Maybe Text@
 --
-mkLaunchConfiguration :: Text -- ^ 'lcLaunchConfigurationName'
+launchConfiguration :: Text -- ^ 'lcLaunchConfigurationName'
                       -> ISO8601 -- ^ 'lcCreatedTime'
                       -> Text -- ^ 'lcImageId'
                       -> Text -- ^ 'lcInstanceType'
                       -> LaunchConfiguration
-mkLaunchConfiguration p1 p14 p3 p7 = LaunchConfiguration
+launchConfiguration p1 p14 p3 p7 = LaunchConfiguration
     { _lcLaunchConfigurationName = p1
     , _lcLaunchConfigurationARN = Nothing
     , _lcImageId = p3
@@ -1645,8 +1645,8 @@ data LifecycleHook = LifecycleHook
 --
 -- * @DefaultResult ::@ @Maybe Text@
 --
-mkLifecycleHook :: LifecycleHook
-mkLifecycleHook = LifecycleHook
+lifecycleHook :: LifecycleHook
+lifecycleHook = LifecycleHook
     { _lhLifecycleHookName = Nothing
     , _lhAutoScalingGroupName = Nothing
     , _lhLifecycleTransition = Nothing
@@ -1742,8 +1742,8 @@ data NotificationConfiguration = NotificationConfiguration
 --
 -- * @NotificationType ::@ @Maybe Text@
 --
-mkNotificationConfiguration :: NotificationConfiguration
-mkNotificationConfiguration = NotificationConfiguration
+notificationConfiguration :: NotificationConfiguration
+notificationConfiguration = NotificationConfiguration
     { _ncAutoScalingGroupName = Nothing
     , _ncTopicARN = Nothing
     , _ncNotificationType = Nothing
@@ -1804,8 +1804,8 @@ data ScalingPolicy = ScalingPolicy
 --
 -- * @MinAdjustmentStep ::@ @Maybe Integer@
 --
-mkScalingPolicy :: ScalingPolicy
-mkScalingPolicy = ScalingPolicy
+scalingPolicy :: ScalingPolicy
+scalingPolicy = ScalingPolicy
     { _sprAutoScalingGroupName = Nothing
     , _sprPolicyName = Nothing
     , _sprScalingAdjustment = Nothing
@@ -1906,8 +1906,8 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction
 --
 -- * @DesiredCapacity ::@ @Maybe Integer@
 --
-mkScheduledUpdateGroupAction :: ScheduledUpdateGroupAction
-mkScheduledUpdateGroupAction = ScheduledUpdateGroupAction
+scheduledUpdateGroupAction :: ScheduledUpdateGroupAction
+scheduledUpdateGroupAction = ScheduledUpdateGroupAction
     { _sugaAutoScalingGroupName = Nothing
     , _sugaScheduledActionName = Nothing
     , _sugaScheduledActionARN = Nothing
@@ -1991,8 +1991,8 @@ data SuspendedProcess = SuspendedProcess
 --
 -- * @SuspensionReason ::@ @Maybe Text@
 --
-mkSuspendedProcess :: SuspendedProcess
-mkSuspendedProcess = SuspendedProcess
+suspendedProcess :: SuspendedProcess
+suspendedProcess = SuspendedProcess
     { _spProcessName = Nothing
     , _spSuspensionReason = Nothing
     }
@@ -2037,13 +2037,13 @@ data Tag = Tag
 --
 -- * @PropagateAtLaunch ::@ @Bool@
 --
-mkTag :: Text -- ^ 'tResourceId'
+tag :: Text -- ^ 'tResourceId'
       -> Text -- ^ 'tResourceType'
       -> Text -- ^ 'tKey'
       -> Text -- ^ 'tValue'
       -> Bool -- ^ 'tPropagateAtLaunch'
       -> Tag
-mkTag p1 p2 p3 p4 p5 = Tag
+tag p1 p2 p3 p4 p5 = Tag
     { _tResourceId = p1
     , _tResourceType = p2
     , _tKey = p3
@@ -2103,13 +2103,13 @@ data TagDescription = TagDescription
 --
 -- * @PropagateAtLaunch ::@ @Bool@
 --
-mkTagDescription :: Text -- ^ 'tdResourceId'
+tagDescription :: Text -- ^ 'tdResourceId'
                  -> Text -- ^ 'tdResourceType'
                  -> Text -- ^ 'tdKey'
                  -> Text -- ^ 'tdValue'
                  -> Bool -- ^ 'tdPropagateAtLaunch'
                  -> TagDescription
-mkTagDescription p1 p2 p3 p4 p5 = TagDescription
+tagDescription p1 p2 p3 p4 p5 = TagDescription
     { _tdResourceId = p1
     , _tdResourceType = p2
     , _tdKey = p3

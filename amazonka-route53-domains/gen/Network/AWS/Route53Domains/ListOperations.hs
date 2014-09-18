@@ -41,7 +41,7 @@ module Network.AWS.Route53Domains.ListOperations
     -- * Request
       ListOperations
     -- ** Request constructor
-    , mkListOperations
+    , listOperations
     -- ** Request lenses
     , loMarker
     , loMaxItems
@@ -49,7 +49,7 @@ module Network.AWS.Route53Domains.ListOperations
     -- * Response
     , ListOperationsResponse
     -- ** Response constructor
-    , mkListOperationsResponse
+    , listOperationsResponse
     -- ** Response lenses
     , lorOperations
     , lorNextPageMarker
@@ -74,8 +74,8 @@ data ListOperations = ListOperations
 --
 -- * @MaxItems ::@ @Maybe Integer@
 --
-mkListOperations :: ListOperations
-mkListOperations = ListOperations
+listOperations :: ListOperations
+listOperations = ListOperations
     { _loMarker = Nothing
     , _loMaxItems = Nothing
     }
@@ -119,9 +119,9 @@ data ListOperationsResponse = ListOperationsResponse
 --
 -- * @NextPageMarker ::@ @Maybe Text@
 --
-mkListOperationsResponse :: [OperationSummary] -- ^ 'lorOperations'
+listOperationsResponse :: [OperationSummary] -- ^ 'lorOperations'
                          -> ListOperationsResponse
-mkListOperationsResponse p1 = ListOperationsResponse
+listOperationsResponse p1 = ListOperationsResponse
     { _lorOperations = p1
     , _lorNextPageMarker = Nothing
     }

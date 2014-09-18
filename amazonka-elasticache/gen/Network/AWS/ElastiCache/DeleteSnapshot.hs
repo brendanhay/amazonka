@@ -32,14 +32,14 @@ module Network.AWS.ElastiCache.DeleteSnapshot
     -- * Request
       DeleteSnapshot
     -- ** Request constructor
-    , mkDeleteSnapshot
+    , deleteSnapshot
     -- ** Request lenses
     , dsSnapshotName
 
     -- * Response
     , DeleteSnapshotResponse
     -- ** Response constructor
-    , mkDeleteSnapshotResponse
+    , deleteSnapshotResponse
     -- ** Response lenses
     , dsrSnapshot
     ) where
@@ -60,9 +60,9 @@ newtype DeleteSnapshot = DeleteSnapshot
 --
 -- * @SnapshotName ::@ @Text@
 --
-mkDeleteSnapshot :: Text -- ^ 'dsSnapshotName'
+deleteSnapshot :: Text -- ^ 'dsSnapshotName'
                  -> DeleteSnapshot
-mkDeleteSnapshot p1 = DeleteSnapshot
+deleteSnapshot p1 = DeleteSnapshot
     { _dsSnapshotName = p1
     }
 
@@ -86,8 +86,8 @@ newtype DeleteSnapshotResponse = DeleteSnapshotResponse
 --
 -- * @Snapshot ::@ @Maybe Snapshot@
 --
-mkDeleteSnapshotResponse :: DeleteSnapshotResponse
-mkDeleteSnapshotResponse = DeleteSnapshotResponse
+deleteSnapshotResponse :: DeleteSnapshotResponse
+deleteSnapshotResponse = DeleteSnapshotResponse
     { _dsrSnapshot = Nothing
     }
 

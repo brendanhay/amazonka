@@ -25,14 +25,14 @@ module Network.AWS.SimpleDB.DomainMetadata
     -- * Request
       DomainMetadata
     -- ** Request constructor
-    , mkDomainMetadata
+    , domainMetadata
     -- ** Request lenses
     , dmDomainName
 
     -- * Response
     , DomainMetadataResponse
     -- ** Response constructor
-    , mkDomainMetadataResponse
+    , domainMetadataResponse
     -- ** Response lenses
     , dmrItemCount
     , dmrItemNamesSizeBytes
@@ -58,9 +58,9 @@ newtype DomainMetadata = DomainMetadata
 --
 -- * @DomainName ::@ @Text@
 --
-mkDomainMetadata :: Text -- ^ 'dmDomainName'
+domainMetadata :: Text -- ^ 'dmDomainName'
                  -> DomainMetadata
-mkDomainMetadata p1 = DomainMetadata
+domainMetadata p1 = DomainMetadata
     { _dmDomainName = p1
     }
 
@@ -102,8 +102,8 @@ data DomainMetadataResponse = DomainMetadataResponse
 --
 -- * @Timestamp ::@ @Maybe Integer@
 --
-mkDomainMetadataResponse :: DomainMetadataResponse
-mkDomainMetadataResponse = DomainMetadataResponse
+domainMetadataResponse :: DomainMetadataResponse
+domainMetadataResponse = DomainMetadataResponse
     { _dmrItemCount = Nothing
     , _dmrItemNamesSizeBytes = Nothing
     , _dmrAttributeNameCount = Nothing

@@ -33,14 +33,14 @@ module Network.AWS.EC2.DeleteVpc
     -- * Request
       DeleteVpc
     -- ** Request constructor
-    , mkDeleteVpc
+    , deleteVpc
     -- ** Request lenses
     , dv1VpcId
 
     -- * Response
     , DeleteVpcResponse
     -- ** Response constructor
-    , mkDeleteVpcResponse
+    , deleteVpcResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -58,9 +58,9 @@ newtype DeleteVpc = DeleteVpc
 --
 -- * @VpcId ::@ @Text@
 --
-mkDeleteVpc :: Text -- ^ 'dv1VpcId'
+deleteVpc :: Text -- ^ 'dv1VpcId'
             -> DeleteVpc
-mkDeleteVpc p1 = DeleteVpc
+deleteVpc p1 = DeleteVpc
     { _dv1VpcId = p1
     }
 
@@ -78,8 +78,8 @@ data DeleteVpcResponse = DeleteVpcResponse
 -- a valid 'DeleteVpcResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteVpcResponse :: DeleteVpcResponse
-mkDeleteVpcResponse = DeleteVpcResponse
+deleteVpcResponse :: DeleteVpcResponse
+deleteVpcResponse = DeleteVpcResponse
 
 instance AWSRequest DeleteVpc where
     type Sv DeleteVpc = EC2

@@ -24,7 +24,7 @@ module Network.AWS.Redshift.EnableLogging
     -- * Request
       EnableLogging
     -- ** Request constructor
-    , mkEnableLogging
+    , enableLogging
     -- ** Request lenses
     , elClusterIdentifier
     , elBucketName
@@ -33,7 +33,7 @@ module Network.AWS.Redshift.EnableLogging
     -- * Response
     , EnableLoggingResponse
     -- ** Response constructor
-    , mkEnableLoggingResponse
+    , enableLoggingResponse
     -- ** Response lenses
     , elrLoggingEnabled
     , elrBucketName
@@ -65,10 +65,10 @@ data EnableLogging = EnableLogging
 --
 -- * @S3KeyPrefix ::@ @Maybe Text@
 --
-mkEnableLogging :: Text -- ^ 'elClusterIdentifier'
+enableLogging :: Text -- ^ 'elClusterIdentifier'
                 -> Text -- ^ 'elBucketName'
                 -> EnableLogging
-mkEnableLogging p1 p2 = EnableLogging
+enableLogging p1 p2 = EnableLogging
     { _elClusterIdentifier = p1
     , _elBucketName = p2
     , _elS3KeyPrefix = Nothing
@@ -125,8 +125,8 @@ data EnableLoggingResponse = EnableLoggingResponse
 --
 -- * @LastFailureMessage ::@ @Maybe Text@
 --
-mkEnableLoggingResponse :: EnableLoggingResponse
-mkEnableLoggingResponse = EnableLoggingResponse
+enableLoggingResponse :: EnableLoggingResponse
+enableLoggingResponse = EnableLoggingResponse
     { _elrLoggingEnabled = Nothing
     , _elrBucketName = Nothing
     , _elrS3KeyPrefix = Nothing

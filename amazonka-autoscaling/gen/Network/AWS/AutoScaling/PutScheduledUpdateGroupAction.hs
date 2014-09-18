@@ -39,7 +39,7 @@ module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
     -- * Request
       PutScheduledUpdateGroupAction
     -- ** Request constructor
-    , mkPutScheduledUpdateGroupAction
+    , putScheduledUpdateGroupAction
     -- ** Request lenses
     , psugaAutoScalingGroupName
     , psugaScheduledActionName
@@ -54,7 +54,7 @@ module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
     -- * Response
     , PutScheduledUpdateGroupActionResponse
     -- ** Response constructor
-    , mkPutScheduledUpdateGroupActionResponse
+    , putScheduledUpdateGroupActionResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -96,10 +96,10 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
 --
 -- * @DesiredCapacity ::@ @Maybe Integer@
 --
-mkPutScheduledUpdateGroupAction :: Text -- ^ 'psugaAutoScalingGroupName'
+putScheduledUpdateGroupAction :: Text -- ^ 'psugaAutoScalingGroupName'
                                 -> Text -- ^ 'psugaScheduledActionName'
                                 -> PutScheduledUpdateGroupAction
-mkPutScheduledUpdateGroupAction p1 p2 = PutScheduledUpdateGroupAction
+putScheduledUpdateGroupAction p1 p2 = PutScheduledUpdateGroupAction
     { _psugaAutoScalingGroupName = p1
     , _psugaScheduledActionName = p2
     , _psugaTime = Nothing
@@ -172,8 +172,8 @@ data PutScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionRespon
 -- a valid 'PutScheduledUpdateGroupActionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkPutScheduledUpdateGroupActionResponse :: PutScheduledUpdateGroupActionResponse
-mkPutScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse
+putScheduledUpdateGroupActionResponse :: PutScheduledUpdateGroupActionResponse
+putScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse
 
 instance AWSRequest PutScheduledUpdateGroupAction where
     type Sv PutScheduledUpdateGroupAction = AutoScaling

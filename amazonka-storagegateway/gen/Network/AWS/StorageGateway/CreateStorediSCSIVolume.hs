@@ -49,7 +49,7 @@ module Network.AWS.StorageGateway.CreateStorediSCSIVolume
     -- * Request
       CreateStorediSCSIVolume
     -- ** Request constructor
-    , mkCreateStorediSCSIVolume
+    , createStorediSCSIVolume
     -- ** Request lenses
     , csscsivGatewayARN
     , csscsivDiskId
@@ -61,7 +61,7 @@ module Network.AWS.StorageGateway.CreateStorediSCSIVolume
     -- * Response
     , CreateStorediSCSIVolumeResponse
     -- ** Response constructor
-    , mkCreateStorediSCSIVolumeResponse
+    , createStorediSCSIVolumeResponse
     -- ** Response lenses
     , csscsivrVolumeARN
     , csscsivrVolumeSizeInBytes
@@ -104,13 +104,13 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume
 --
 -- * @NetworkInterfaceId ::@ @Text@
 --
-mkCreateStorediSCSIVolume :: Text -- ^ 'csscsivGatewayARN'
+createStorediSCSIVolume :: Text -- ^ 'csscsivGatewayARN'
                           -> Text -- ^ 'csscsivDiskId'
                           -> Bool -- ^ 'csscsivPreserveExistingData'
                           -> Text -- ^ 'csscsivTargetName'
                           -> Text -- ^ 'csscsivNetworkInterfaceId'
                           -> CreateStorediSCSIVolume
-mkCreateStorediSCSIVolume p1 p2 p4 p5 p6 = CreateStorediSCSIVolume
+createStorediSCSIVolume p1 p2 p4 p5 p6 = CreateStorediSCSIVolume
     { _csscsivGatewayARN = p1
     , _csscsivDiskId = p2
     , _csscsivSnapshotId = Nothing
@@ -193,8 +193,8 @@ data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse
 --
 -- * @TargetARN ::@ @Maybe Text@
 --
-mkCreateStorediSCSIVolumeResponse :: CreateStorediSCSIVolumeResponse
-mkCreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse
+createStorediSCSIVolumeResponse :: CreateStorediSCSIVolumeResponse
+createStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse
     { _csscsivrVolumeARN = Nothing
     , _csscsivrVolumeSizeInBytes = Nothing
     , _csscsivrTargetARN = Nothing

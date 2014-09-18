@@ -72,7 +72,7 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     -- * Request
       CreateConfigurationTemplate
     -- ** Request constructor
-    , mkCreateConfigurationTemplate
+    , createConfigurationTemplate
     -- ** Request lenses
     , cctApplicationName
     , cctTemplateName
@@ -85,7 +85,7 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     -- * Response
     , CreateConfigurationTemplateResponse
     -- ** Response constructor
-    , mkCreateConfigurationTemplateResponse
+    , createConfigurationTemplateResponse
     -- ** Response lenses
     , cctrSolutionStackName
     , cctrApplicationName
@@ -132,10 +132,10 @@ data CreateConfigurationTemplate = CreateConfigurationTemplate
 --
 -- * @OptionSettings ::@ @[ConfigurationOptionSetting]@
 --
-mkCreateConfigurationTemplate :: Text -- ^ 'cctApplicationName'
+createConfigurationTemplate :: Text -- ^ 'cctApplicationName'
                               -> Text -- ^ 'cctTemplateName'
                               -> CreateConfigurationTemplate
-mkCreateConfigurationTemplate p1 p2 = CreateConfigurationTemplate
+createConfigurationTemplate p1 p2 = CreateConfigurationTemplate
     { _cctApplicationName = p1
     , _cctTemplateName = p2
     , _cctSolutionStackName = Nothing
@@ -243,8 +243,8 @@ data CreateConfigurationTemplateResponse = CreateConfigurationTemplateResponse
 --
 -- * @OptionSettings ::@ @[ConfigurationOptionSetting]@
 --
-mkCreateConfigurationTemplateResponse :: CreateConfigurationTemplateResponse
-mkCreateConfigurationTemplateResponse = CreateConfigurationTemplateResponse
+createConfigurationTemplateResponse :: CreateConfigurationTemplateResponse
+createConfigurationTemplateResponse = CreateConfigurationTemplateResponse
     { _cctrSolutionStackName = Nothing
     , _cctrApplicationName = Nothing
     , _cctrTemplateName = Nothing

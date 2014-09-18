@@ -30,7 +30,7 @@ module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     -- * Request
       TerminateEnvironment
     -- ** Request constructor
-    , mkTerminateEnvironment
+    , terminateEnvironment
     -- ** Request lenses
     , teEnvironmentId
     , teEnvironmentName
@@ -39,7 +39,7 @@ module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     -- * Response
     , TerminateEnvironmentResponse
     -- ** Response constructor
-    , mkTerminateEnvironmentResponse
+    , terminateEnvironmentResponse
     -- ** Response lenses
     , terEnvironmentName
     , terEnvironmentId
@@ -80,8 +80,8 @@ data TerminateEnvironment = TerminateEnvironment
 --
 -- * @TerminateResources ::@ @Maybe Bool@
 --
-mkTerminateEnvironment :: TerminateEnvironment
-mkTerminateEnvironment = TerminateEnvironment
+terminateEnvironment :: TerminateEnvironment
+terminateEnvironment = TerminateEnvironment
     { _teEnvironmentId = Nothing
     , _teEnvironmentName = Nothing
     , _teTerminateResources = Nothing
@@ -173,8 +173,8 @@ data TerminateEnvironmentResponse = TerminateEnvironmentResponse
 --
 -- * @Tier ::@ @Maybe EnvironmentTier@
 --
-mkTerminateEnvironmentResponse :: TerminateEnvironmentResponse
-mkTerminateEnvironmentResponse = TerminateEnvironmentResponse
+terminateEnvironmentResponse :: TerminateEnvironmentResponse
+terminateEnvironmentResponse = TerminateEnvironmentResponse
     { _terEnvironmentName = Nothing
     , _terEnvironmentId = Nothing
     , _terApplicationName = Nothing

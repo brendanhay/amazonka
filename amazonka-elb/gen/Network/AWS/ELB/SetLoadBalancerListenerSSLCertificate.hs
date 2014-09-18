@@ -32,7 +32,7 @@ module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
     -- * Request
       SetLoadBalancerListenerSSLCertificate
     -- ** Request constructor
-    , mkSetLoadBalancerListenerSSLCertificate
+    , setLoadBalancerListenerSSLCertificate
     -- ** Request lenses
     , slblsslcLoadBalancerName
     , slblsslcLoadBalancerPort
@@ -41,7 +41,7 @@ module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
     -- * Response
     , SetLoadBalancerListenerSSLCertificateResponse
     -- ** Response constructor
-    , mkSetLoadBalancerListenerSSLCertificateResponse
+    , setLoadBalancerListenerSSLCertificateResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -66,11 +66,11 @@ data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertifica
 --
 -- * @SSLCertificateId ::@ @Text@
 --
-mkSetLoadBalancerListenerSSLCertificate :: Text -- ^ 'slblsslcLoadBalancerName'
+setLoadBalancerListenerSSLCertificate :: Text -- ^ 'slblsslcLoadBalancerName'
                                         -> Integer -- ^ 'slblsslcLoadBalancerPort'
                                         -> Text -- ^ 'slblsslcSSLCertificateId'
                                         -> SetLoadBalancerListenerSSLCertificate
-mkSetLoadBalancerListenerSSLCertificate p1 p2 p3 = SetLoadBalancerListenerSSLCertificate
+setLoadBalancerListenerSSLCertificate p1 p2 p3 = SetLoadBalancerListenerSSLCertificate
     { _slblsslcLoadBalancerName = p1
     , _slblsslcLoadBalancerPort = p2
     , _slblsslcSSLCertificateId = p3
@@ -107,8 +107,8 @@ data SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLC
 -- a valid 'SetLoadBalancerListenerSSLCertificateResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSetLoadBalancerListenerSSLCertificateResponse :: SetLoadBalancerListenerSSLCertificateResponse
-mkSetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse
+setLoadBalancerListenerSSLCertificateResponse :: SetLoadBalancerListenerSSLCertificateResponse
+setLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse
 
 instance AWSRequest SetLoadBalancerListenerSSLCertificate where
     type Sv SetLoadBalancerListenerSSLCertificate = ELB

@@ -64,7 +64,7 @@ module Network.AWS.SES.SendRawEmail
     -- * Request
       SendRawEmail
     -- ** Request constructor
-    , mkSendRawEmail
+    , sendRawEmail
     -- ** Request lenses
     , sreSource
     , sreDestinations
@@ -73,7 +73,7 @@ module Network.AWS.SES.SendRawEmail
     -- * Response
     , SendRawEmailResponse
     -- ** Response constructor
-    , mkSendRawEmailResponse
+    , sendRawEmailResponse
     -- ** Response lenses
     , srerMessageId
     ) where
@@ -103,9 +103,9 @@ data SendRawEmail = SendRawEmail
 --
 -- * @RawMessage ::@ @RawMessage@
 --
-mkSendRawEmail :: RawMessage -- ^ 'sreRawMessage'
+sendRawEmail :: RawMessage -- ^ 'sreRawMessage'
                -> SendRawEmail
-mkSendRawEmail p3 = SendRawEmail
+sendRawEmail p3 = SendRawEmail
     { _sreSource = Nothing
     , _sreDestinations = mempty
     , _sreRawMessage = p3
@@ -155,9 +155,9 @@ newtype SendRawEmailResponse = SendRawEmailResponse
 --
 -- * @MessageId ::@ @Text@
 --
-mkSendRawEmailResponse :: Text -- ^ 'srerMessageId'
+sendRawEmailResponse :: Text -- ^ 'srerMessageId'
                        -> SendRawEmailResponse
-mkSendRawEmailResponse p1 = SendRawEmailResponse
+sendRawEmailResponse p1 = SendRawEmailResponse
     { _srerMessageId = p1
     }
 

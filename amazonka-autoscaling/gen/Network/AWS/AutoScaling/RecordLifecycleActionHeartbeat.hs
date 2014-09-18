@@ -34,7 +34,7 @@ module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
     -- * Request
       RecordLifecycleActionHeartbeat
     -- ** Request constructor
-    , mkRecordLifecycleActionHeartbeat
+    , recordLifecycleActionHeartbeat
     -- ** Request lenses
     , rlahLifecycleHookName
     , rlahAutoScalingGroupName
@@ -43,7 +43,7 @@ module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
     -- * Response
     , RecordLifecycleActionHeartbeatResponse
     -- ** Response constructor
-    , mkRecordLifecycleActionHeartbeatResponse
+    , recordLifecycleActionHeartbeatResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -67,11 +67,11 @@ data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat
 --
 -- * @LifecycleActionToken ::@ @Text@
 --
-mkRecordLifecycleActionHeartbeat :: Text -- ^ 'rlahLifecycleHookName'
+recordLifecycleActionHeartbeat :: Text -- ^ 'rlahLifecycleHookName'
                                  -> Text -- ^ 'rlahAutoScalingGroupName'
                                  -> Text -- ^ 'rlahLifecycleActionToken'
                                  -> RecordLifecycleActionHeartbeat
-mkRecordLifecycleActionHeartbeat p1 p2 p3 = RecordLifecycleActionHeartbeat
+recordLifecycleActionHeartbeat p1 p2 p3 = RecordLifecycleActionHeartbeat
     { _rlahLifecycleHookName = p1
     , _rlahAutoScalingGroupName = p2
     , _rlahLifecycleActionToken = p3
@@ -107,8 +107,8 @@ data RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResp
 -- a valid 'RecordLifecycleActionHeartbeatResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRecordLifecycleActionHeartbeatResponse :: RecordLifecycleActionHeartbeatResponse
-mkRecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse
+recordLifecycleActionHeartbeatResponse :: RecordLifecycleActionHeartbeatResponse
+recordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse
 
 instance AWSRequest RecordLifecycleActionHeartbeat where
     type Sv RecordLifecycleActionHeartbeat = AutoScaling

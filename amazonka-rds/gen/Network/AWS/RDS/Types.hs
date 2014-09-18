@@ -98,19 +98,19 @@ module Network.AWS.RDS.Types
 
     -- * AvailabilityZone
     , AvailabilityZone
-    , mkAvailabilityZone
+    , availabilityZone
     , azName
     , azProvisionedIopsCapable
 
     -- * CharacterSet
     , CharacterSet
-    , mkCharacterSet
+    , characterSet
     , csCharacterSetName
     , csCharacterSetDescription
 
     -- * DBEngineVersion
     , DBEngineVersion
-    , mkDBEngineVersion
+    , dBEngineVersion
     , dbevEngine
     , dbevEngineVersion
     , dbevDBParameterGroupFamily
@@ -121,7 +121,7 @@ module Network.AWS.RDS.Types
 
     -- * DBInstance
     , DBInstance
-    , mkDBInstance
+    , dBInstance
     , dbiDBInstanceIdentifier
     , dbiDBInstanceClass
     , dbiEngine
@@ -156,7 +156,7 @@ module Network.AWS.RDS.Types
 
     -- * DBInstanceStatusInfo
     , DBInstanceStatusInfo
-    , mkDBInstanceStatusInfo
+    , dBInstanceStatusInfo
     , dbisiStatusType
     , dbisiNormal
     , dbisiStatus
@@ -164,20 +164,20 @@ module Network.AWS.RDS.Types
 
     -- * DBParameterGroup
     , DBParameterGroup
-    , mkDBParameterGroup
+    , dBParameterGroup
     , dbpgDBParameterGroupName
     , dbpgDBParameterGroupFamily
     , dbpgDescription
 
     -- * DBParameterGroupStatus
     , DBParameterGroupStatus
-    , mkDBParameterGroupStatus
+    , dBParameterGroupStatus
     , dbpgsDBParameterGroupName
     , dbpgsParameterApplyStatus
 
     -- * DBSecurityGroup
     , DBSecurityGroup
-    , mkDBSecurityGroup
+    , dBSecurityGroup
     , dbsgOwnerId
     , dbsgDBSecurityGroupName
     , dbsgDBSecurityGroupDescription
@@ -187,13 +187,13 @@ module Network.AWS.RDS.Types
 
     -- * DBSecurityGroupMembership
     , DBSecurityGroupMembership
-    , mkDBSecurityGroupMembership
+    , dBSecurityGroupMembership
     , dbsgmDBSecurityGroupName
     , dbsgmStatus
 
     -- * DBSnapshot
     , DBSnapshot
-    , mkDBSnapshot
+    , dBSnapshot
     , dbsDBSnapshotIdentifier
     , dbsDBInstanceIdentifier
     , dbsSnapshotCreateTime
@@ -215,7 +215,7 @@ module Network.AWS.RDS.Types
 
     -- * DBSubnetGroup
     , DBSubnetGroup
-    , mkDBSubnetGroup
+    , dBSubnetGroup
     , dbsgrDBSubnetGroupName
     , dbsgrDBSubnetGroupDescription
     , dbsgrVpcId
@@ -224,14 +224,14 @@ module Network.AWS.RDS.Types
 
     -- * DescribeDBLogFilesDetails
     , DescribeDBLogFilesDetails
-    , mkDescribeDBLogFilesDetails
+    , describeDBLogFilesDetails
     , ddblfdLogFileName
     , ddblfdLastWritten
     , ddblfdSize
 
     -- * EC2SecurityGroup
     , EC2SecurityGroup
-    , mkEC2SecurityGroup
+    , eC2SecurityGroup
     , ecsgStatus
     , ecsgEC2SecurityGroupName
     , ecsgEC2SecurityGroupId
@@ -239,20 +239,20 @@ module Network.AWS.RDS.Types
 
     -- * Endpoint
     , Endpoint
-    , mkEndpoint
+    , endpoint
     , eAddress
     , ePort
 
     -- * EngineDefaults
     , EngineDefaults
-    , mkEngineDefaults
+    , engineDefaults
     , edDBParameterGroupFamily
     , edMarker
     , edParameters
 
     -- * Event
     , Event
-    , mkEvent
+    , event
     , erSourceIdentifier
     , erSourceType
     , erMessage
@@ -261,13 +261,13 @@ module Network.AWS.RDS.Types
 
     -- * EventCategoriesMap
     , EventCategoriesMap
-    , mkEventCategoriesMap
+    , eventCategoriesMap
     , ecmSourceType
     , ecmEventCategories
 
     -- * EventSubscription
     , EventSubscription
-    , mkEventSubscription
+    , eventSubscription
     , esCustomerAwsId
     , esCustSubscriptionId
     , esSnsTopicArn
@@ -280,13 +280,13 @@ module Network.AWS.RDS.Types
 
     -- * IPRange
     , IPRange
-    , mkIPRange
+    , iPRange
     , iprStatus
     , iprCIDRIP
 
     -- * Option
     , Option
-    , mkOption
+    , option
     , oOptionName
     , oOptionDescription
     , oPersistent
@@ -298,7 +298,7 @@ module Network.AWS.RDS.Types
 
     -- * OptionConfiguration
     , OptionConfiguration
-    , mkOptionConfiguration
+    , optionConfiguration
     , ocOptionName
     , ocPort
     , ocDBSecurityGroupMemberships
@@ -307,7 +307,7 @@ module Network.AWS.RDS.Types
 
     -- * OptionGroup
     , OptionGroup
-    , mkOptionGroup
+    , optionGroup
     , ogOptionGroupName
     , ogOptionGroupDescription
     , ogEngineName
@@ -318,13 +318,13 @@ module Network.AWS.RDS.Types
 
     -- * OptionGroupMembership
     , OptionGroupMembership
-    , mkOptionGroupMembership
+    , optionGroupMembership
     , ogmOptionGroupName
     , ogmStatus
 
     -- * OptionGroupOption
     , OptionGroupOption
-    , mkOptionGroupOption
+    , optionGroupOption
     , ogoName
     , ogoDescription
     , ogoEngineName
@@ -339,7 +339,7 @@ module Network.AWS.RDS.Types
 
     -- * OptionGroupOptionSetting
     , OptionGroupOptionSetting
-    , mkOptionGroupOptionSetting
+    , optionGroupOptionSetting
     , ogosSettingName
     , ogosSettingDescription
     , ogosDefaultValue
@@ -349,7 +349,7 @@ module Network.AWS.RDS.Types
 
     -- * OptionSetting
     , OptionSetting
-    , mkOptionSetting
+    , optionSetting
     , osName
     , osValue
     , osDefaultValue
@@ -362,7 +362,7 @@ module Network.AWS.RDS.Types
 
     -- * OrderableDBInstanceOption
     , OrderableDBInstanceOption
-    , mkOrderableDBInstanceOption
+    , orderableDBInstanceOption
     , odbioEngine
     , odbioEngineVersion
     , odbioDBInstanceClass
@@ -374,7 +374,7 @@ module Network.AWS.RDS.Types
 
     -- * Parameter
     , Parameter
-    , mkParameter
+    , parameter
     , pParameterName
     , pParameterValue
     , pDescription
@@ -388,7 +388,7 @@ module Network.AWS.RDS.Types
 
     -- * PendingModifiedValues
     , PendingModifiedValues
-    , mkPendingModifiedValues
+    , pendingModifiedValues
     , pmvDBInstanceClass
     , pmvAllocatedStorage
     , pmvMasterUserPassword
@@ -401,13 +401,13 @@ module Network.AWS.RDS.Types
 
     -- * RecurringCharge
     , RecurringCharge
-    , mkRecurringCharge
+    , recurringCharge
     , rcRecurringChargeAmount
     , rcRecurringChargeFrequency
 
     -- * ReservedDBInstance
     , ReservedDBInstance
-    , mkReservedDBInstance
+    , reservedDBInstance
     , rdbiReservedDBInstanceId
     , rdbiReservedDBInstancesOfferingId
     , rdbiDBInstanceClass
@@ -425,7 +425,7 @@ module Network.AWS.RDS.Types
 
     -- * ReservedDBInstancesOffering
     , ReservedDBInstancesOffering
-    , mkReservedDBInstancesOffering
+    , reservedDBInstancesOffering
     , rdbioReservedDBInstancesOfferingId
     , rdbioDBInstanceClass
     , rdbioDuration
@@ -439,20 +439,20 @@ module Network.AWS.RDS.Types
 
     -- * Subnet
     , Subnet
-    , mkSubnet
+    , subnet
     , sSubnetIdentifier
     , sSubnetAvailabilityZone
     , sSubnetStatus
 
     -- * Tag
     , Tag
-    , mkTag
+    , tag
     , tKey
     , tValue
 
     -- * VpcSecurityGroupMembership
     , VpcSecurityGroupMembership
-    , mkVpcSecurityGroupMembership
+    , vpcSecurityGroupMembership
     , vsgmVpcSecurityGroupId
     , vsgmStatus
     ) where
@@ -586,8 +586,8 @@ data RDSError
       -- Zone.
     | ProvisionedIopsNotAvailableInAZFault
     | RDSClient HttpException
-    | RDSSerializer Text
-    | RDSService Text
+    | RDSSerializer String
+    | RDSService String
       -- | User already has a reservation with the given identifier.
     | ReservedDBInstanceAlreadyExistsFault
       -- | The specified reserved DB Instance not found.
@@ -1066,7 +1066,7 @@ _RDSClient = prism'
         x -> Left x)
 
 -- | See: 'RDSSerializer'
-_RDSSerializer :: Prism' RDSError Text
+_RDSSerializer :: Prism' RDSError String
 _RDSSerializer = prism'
     RDSSerializer
     (\case
@@ -1074,7 +1074,7 @@ _RDSSerializer = prism'
         x -> Left x)
 
 -- | See: 'RDSService'
-_RDSService :: Prism' RDSError Text
+_RDSService :: Prism' RDSError String
 _RDSService = prism'
     RDSService
     (\case
@@ -1295,8 +1295,8 @@ data AvailabilityZone = AvailabilityZone
 --
 -- * @ProvisionedIopsCapable ::@ @Maybe Bool@
 --
-mkAvailabilityZone :: AvailabilityZone
-mkAvailabilityZone = AvailabilityZone
+availabilityZone :: AvailabilityZone
+availabilityZone = AvailabilityZone
     { _azName = Nothing
     , _azProvisionedIopsCapable = Nothing
     }
@@ -1334,8 +1334,8 @@ data CharacterSet = CharacterSet
 --
 -- * @CharacterSetDescription ::@ @Maybe Text@
 --
-mkCharacterSet :: CharacterSet
-mkCharacterSet = CharacterSet
+characterSet :: CharacterSet
+characterSet = CharacterSet
     { _csCharacterSetName = Nothing
     , _csCharacterSetDescription = Nothing
     }
@@ -1392,8 +1392,8 @@ data DBEngineVersion = DBEngineVersion
 --
 -- * @SupportedCharacterSets ::@ @[CharacterSet]@
 --
-mkDBEngineVersion :: DBEngineVersion
-mkDBEngineVersion = DBEngineVersion
+dBEngineVersion :: DBEngineVersion
+dBEngineVersion = DBEngineVersion
     { _dbevEngine = Nothing
     , _dbevEngineVersion = Nothing
     , _dbevDBParameterGroupFamily = Nothing
@@ -1555,8 +1555,8 @@ data DBInstance = DBInstance
 --
 -- * @StatusInfos ::@ @[DBInstanceStatusInfo]@
 --
-mkDBInstance :: DBInstance
-mkDBInstance = DBInstance
+dBInstance :: DBInstance
+dBInstance = DBInstance
     { _dbiDBInstanceIdentifier = Nothing
     , _dbiDBInstanceClass = Nothing
     , _dbiEngine = Nothing
@@ -1808,8 +1808,8 @@ data DBInstanceStatusInfo = DBInstanceStatusInfo
 --
 -- * @Message ::@ @Maybe Text@
 --
-mkDBInstanceStatusInfo :: DBInstanceStatusInfo
-mkDBInstanceStatusInfo = DBInstanceStatusInfo
+dBInstanceStatusInfo :: DBInstanceStatusInfo
+dBInstanceStatusInfo = DBInstanceStatusInfo
     { _dbisiStatusType = Nothing
     , _dbisiNormal = Nothing
     , _dbisiStatus = Nothing
@@ -1866,8 +1866,8 @@ data DBParameterGroup = DBParameterGroup
 --
 -- * @Description ::@ @Maybe Text@
 --
-mkDBParameterGroup :: DBParameterGroup
-mkDBParameterGroup = DBParameterGroup
+dBParameterGroup :: DBParameterGroup
+dBParameterGroup = DBParameterGroup
     { _dbpgDBParameterGroupName = Nothing
     , _dbpgDBParameterGroupFamily = Nothing
     , _dbpgDescription = Nothing
@@ -1912,8 +1912,8 @@ data DBParameterGroupStatus = DBParameterGroupStatus
 --
 -- * @ParameterApplyStatus ::@ @Maybe Text@
 --
-mkDBParameterGroupStatus :: DBParameterGroupStatus
-mkDBParameterGroupStatus = DBParameterGroupStatus
+dBParameterGroupStatus :: DBParameterGroupStatus
+dBParameterGroupStatus = DBParameterGroupStatus
     { _dbpgsDBParameterGroupName = Nothing
     , _dbpgsParameterApplyStatus = Nothing
     }
@@ -1970,8 +1970,8 @@ data DBSecurityGroup = DBSecurityGroup
 --
 -- * @IPRanges ::@ @[IPRange]@
 --
-mkDBSecurityGroup :: DBSecurityGroup
-mkDBSecurityGroup = DBSecurityGroup
+dBSecurityGroup :: DBSecurityGroup
+dBSecurityGroup = DBSecurityGroup
     { _dbsgOwnerId = Nothing
     , _dbsgDBSecurityGroupName = Nothing
     , _dbsgDBSecurityGroupDescription = Nothing
@@ -2030,8 +2030,8 @@ data DBSecurityGroupMembership = DBSecurityGroupMembership
 --
 -- * @Status ::@ @Maybe Text@
 --
-mkDBSecurityGroupMembership :: DBSecurityGroupMembership
-mkDBSecurityGroupMembership = DBSecurityGroupMembership
+dBSecurityGroupMembership :: DBSecurityGroupMembership
+dBSecurityGroupMembership = DBSecurityGroupMembership
     { _dbsgmDBSecurityGroupName = Nothing
     , _dbsgmStatus = Nothing
     }
@@ -2121,8 +2121,8 @@ data DBSnapshot = DBSnapshot
 --
 -- * @SourceRegion ::@ @Maybe Text@
 --
-mkDBSnapshot :: DBSnapshot
-mkDBSnapshot = DBSnapshot
+dBSnapshot :: DBSnapshot
+dBSnapshot = DBSnapshot
     { _dbsDBSnapshotIdentifier = Nothing
     , _dbsDBInstanceIdentifier = Nothing
     , _dbsSnapshotCreateTime = Nothing
@@ -2260,8 +2260,8 @@ data DBSubnetGroup = DBSubnetGroup
 --
 -- * @Subnets ::@ @[Subnet]@
 --
-mkDBSubnetGroup :: DBSubnetGroup
-mkDBSubnetGroup = DBSubnetGroup
+dBSubnetGroup :: DBSubnetGroup
+dBSubnetGroup = DBSubnetGroup
     { _dbsgrDBSubnetGroupName = Nothing
     , _dbsgrDBSubnetGroupDescription = Nothing
     , _dbsgrVpcId = Nothing
@@ -2321,8 +2321,8 @@ data DescribeDBLogFilesDetails = DescribeDBLogFilesDetails
 --
 -- * @Size ::@ @Maybe Integer@
 --
-mkDescribeDBLogFilesDetails :: DescribeDBLogFilesDetails
-mkDescribeDBLogFilesDetails = DescribeDBLogFilesDetails
+describeDBLogFilesDetails :: DescribeDBLogFilesDetails
+describeDBLogFilesDetails = DescribeDBLogFilesDetails
     { _ddblfdLogFileName = Nothing
     , _ddblfdLastWritten = Nothing
     , _ddblfdSize = Nothing
@@ -2369,8 +2369,8 @@ data EC2SecurityGroup = EC2SecurityGroup
 --
 -- * @EC2SecurityGroupOwnerId ::@ @Maybe Text@
 --
-mkEC2SecurityGroup :: EC2SecurityGroup
-mkEC2SecurityGroup = EC2SecurityGroup
+eC2SecurityGroup :: EC2SecurityGroup
+eC2SecurityGroup = EC2SecurityGroup
     { _ecsgStatus = Nothing
     , _ecsgEC2SecurityGroupName = Nothing
     , _ecsgEC2SecurityGroupId = Nothing
@@ -2422,8 +2422,8 @@ data Endpoint = Endpoint
 --
 -- * @Port ::@ @Maybe Integer@
 --
-mkEndpoint :: Endpoint
-mkEndpoint = Endpoint
+endpoint :: Endpoint
+endpoint = Endpoint
     { _eAddress = Nothing
     , _ePort = Nothing
     }
@@ -2465,8 +2465,8 @@ data EngineDefaults = EngineDefaults
 --
 -- * @Parameters ::@ @[Parameter]@
 --
-mkEngineDefaults :: EngineDefaults
-mkEngineDefaults = EngineDefaults
+engineDefaults :: EngineDefaults
+engineDefaults = EngineDefaults
     { _edDBParameterGroupFamily = Nothing
     , _edMarker = Nothing
     , _edParameters = mempty
@@ -2520,8 +2520,8 @@ data Event = Event
 --
 -- * @Date ::@ @Maybe ISO8601@
 --
-mkEvent :: Event
-mkEvent = Event
+event :: Event
+event = Event
     { _erSourceIdentifier = Nothing
     , _erSourceType = Nothing
     , _erMessage = Nothing
@@ -2574,8 +2574,8 @@ data EventCategoriesMap = EventCategoriesMap
 --
 -- * @EventCategories ::@ @[Text]@
 --
-mkEventCategoriesMap :: EventCategoriesMap
-mkEventCategoriesMap = EventCategoriesMap
+eventCategoriesMap :: EventCategoriesMap
+eventCategoriesMap = EventCategoriesMap
     { _ecmSourceType = Nothing
     , _ecmEventCategories = mempty
     }
@@ -2633,8 +2633,8 @@ data EventSubscription = EventSubscription
 --
 -- * @Enabled ::@ @Maybe Bool@
 --
-mkEventSubscription :: EventSubscription
-mkEventSubscription = EventSubscription
+eventSubscription :: EventSubscription
+eventSubscription = EventSubscription
     { _esCustomerAwsId = Nothing
     , _esCustSubscriptionId = Nothing
     , _esSnsTopicArn = Nothing
@@ -2713,8 +2713,8 @@ data IPRange = IPRange
 --
 -- * @CIDRIP ::@ @Maybe Text@
 --
-mkIPRange :: IPRange
-mkIPRange = IPRange
+iPRange :: IPRange
+iPRange = IPRange
     { _iprStatus = Nothing
     , _iprCIDRIP = Nothing
     }
@@ -2768,8 +2768,8 @@ data Option = Option
 --
 -- * @VpcSecurityGroupMemberships ::@ @[VpcSecurityGroupMembership]@
 --
-mkOption :: Option
-mkOption = Option
+option :: Option
+option = Option
     { _oOptionName = Nothing
     , _oOptionDescription = Nothing
     , _oPersistent = Nothing
@@ -2850,9 +2850,9 @@ data OptionConfiguration = OptionConfiguration
 --
 -- * @OptionSettings ::@ @[OptionSetting]@
 --
-mkOptionConfiguration :: Text -- ^ 'ocOptionName'
+optionConfiguration :: Text -- ^ 'ocOptionName'
                       -> OptionConfiguration
-mkOptionConfiguration p1 = OptionConfiguration
+optionConfiguration p1 = OptionConfiguration
     { _ocOptionName = p1
     , _ocPort = Nothing
     , _ocDBSecurityGroupMemberships = mempty
@@ -2921,8 +2921,8 @@ data OptionGroup = OptionGroup
 --
 -- * @VpcId ::@ @Maybe Text@
 --
-mkOptionGroup :: OptionGroup
-mkOptionGroup = OptionGroup
+optionGroup :: OptionGroup
+optionGroup = OptionGroup
     { _ogOptionGroupName = Nothing
     , _ogOptionGroupDescription = Nothing
     , _ogEngineName = Nothing
@@ -2991,8 +2991,8 @@ data OptionGroupMembership = OptionGroupMembership
 --
 -- * @Status ::@ @Maybe Text@
 --
-mkOptionGroupMembership :: OptionGroupMembership
-mkOptionGroupMembership = OptionGroupMembership
+optionGroupMembership :: OptionGroupMembership
+optionGroupMembership = OptionGroupMembership
     { _ogmOptionGroupName = Nothing
     , _ogmStatus = Nothing
     }
@@ -3059,8 +3059,8 @@ data OptionGroupOption = OptionGroupOption
 --
 -- * @OptionGroupOptionSettings ::@ @[OptionGroupOptionSetting]@
 --
-mkOptionGroupOption :: OptionGroupOption
-mkOptionGroupOption = OptionGroupOption
+optionGroupOption :: OptionGroupOption
+optionGroupOption = OptionGroupOption
     { _ogoName = Nothing
     , _ogoDescription = Nothing
     , _ogoEngineName = Nothing
@@ -3163,8 +3163,8 @@ data OptionGroupOptionSetting = OptionGroupOptionSetting
 --
 -- * @IsModifiable ::@ @Maybe Bool@
 --
-mkOptionGroupOptionSetting :: OptionGroupOptionSetting
-mkOptionGroupOptionSetting = OptionGroupOptionSetting
+optionGroupOptionSetting :: OptionGroupOptionSetting
+optionGroupOptionSetting = OptionGroupOptionSetting
     { _ogosSettingName = Nothing
     , _ogosSettingDescription = Nothing
     , _ogosDefaultValue = Nothing
@@ -3248,8 +3248,8 @@ data OptionSetting = OptionSetting
 --
 -- * @IsCollection ::@ @Maybe Bool@
 --
-mkOptionSetting :: OptionSetting
-mkOptionSetting = OptionSetting
+optionSetting :: OptionSetting
+optionSetting = OptionSetting
     { _osName = Nothing
     , _osValue = Nothing
     , _osDefaultValue = Nothing
@@ -3343,8 +3343,8 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption
 --
 -- * @Vpc ::@ @Maybe Bool@
 --
-mkOrderableDBInstanceOption :: OrderableDBInstanceOption
-mkOrderableDBInstanceOption = OrderableDBInstanceOption
+orderableDBInstanceOption :: OrderableDBInstanceOption
+orderableDBInstanceOption = OrderableDBInstanceOption
     { _odbioEngine = Nothing
     , _odbioEngineVersion = Nothing
     , _odbioDBInstanceClass = Nothing
@@ -3440,8 +3440,8 @@ data Parameter = Parameter
 --
 -- * @ApplyMethod ::@ @Maybe ApplyMethod@
 --
-mkParameter :: Parameter
-mkParameter = Parameter
+parameter :: Parameter
+parameter = Parameter
     { _pParameterName = Nothing
     , _pParameterValue = Nothing
     , _pDescription = Nothing
@@ -3542,8 +3542,8 @@ data PendingModifiedValues = PendingModifiedValues
 --
 -- * @DBInstanceIdentifier ::@ @Maybe Text@
 --
-mkPendingModifiedValues :: PendingModifiedValues
-mkPendingModifiedValues = PendingModifiedValues
+pendingModifiedValues :: PendingModifiedValues
+pendingModifiedValues = PendingModifiedValues
     { _pmvDBInstanceClass = Nothing
     , _pmvAllocatedStorage = Nothing
     , _pmvMasterUserPassword = Nothing
@@ -3630,8 +3630,8 @@ data RecurringCharge = RecurringCharge
 --
 -- * @RecurringChargeFrequency ::@ @Maybe Text@
 --
-mkRecurringCharge :: RecurringCharge
-mkRecurringCharge = RecurringCharge
+recurringCharge :: RecurringCharge
+recurringCharge = RecurringCharge
     { _rcRecurringChargeAmount = Nothing
     , _rcRecurringChargeFrequency = Nothing
     }
@@ -3711,8 +3711,8 @@ data ReservedDBInstance = ReservedDBInstance
 --
 -- * @RecurringCharges ::@ @[RecurringCharge]@
 --
-mkReservedDBInstance :: ReservedDBInstance
-mkReservedDBInstance = ReservedDBInstance
+reservedDBInstance :: ReservedDBInstance
+reservedDBInstance = ReservedDBInstance
     { _rdbiReservedDBInstanceId = Nothing
     , _rdbiReservedDBInstancesOfferingId = Nothing
     , _rdbiDBInstanceClass = Nothing
@@ -3842,8 +3842,8 @@ data ReservedDBInstancesOffering = ReservedDBInstancesOffering
 --
 -- * @RecurringCharges ::@ @[RecurringCharge]@
 --
-mkReservedDBInstancesOffering :: ReservedDBInstancesOffering
-mkReservedDBInstancesOffering = ReservedDBInstancesOffering
+reservedDBInstancesOffering :: ReservedDBInstancesOffering
+reservedDBInstancesOffering = ReservedDBInstancesOffering
     { _rdbioReservedDBInstancesOfferingId = Nothing
     , _rdbioDBInstanceClass = Nothing
     , _rdbioDuration = Nothing
@@ -3927,8 +3927,8 @@ data Subnet = Subnet
 --
 -- * @SubnetStatus ::@ @Maybe Text@
 --
-mkSubnet :: Subnet
-mkSubnet = Subnet
+subnet :: Subnet
+subnet = Subnet
     { _sSubnetIdentifier = Nothing
     , _sSubnetAvailabilityZone = Nothing
     , _sSubnetStatus = Nothing
@@ -3972,8 +3972,8 @@ data Tag = Tag
 --
 -- * @Value ::@ @Maybe Text@
 --
-mkTag :: Tag
-mkTag = Tag
+tag :: Tag
+tag = Tag
     { _tKey = Nothing
     , _tValue = Nothing
     }
@@ -4017,8 +4017,8 @@ data VpcSecurityGroupMembership = VpcSecurityGroupMembership
 --
 -- * @Status ::@ @Maybe Text@
 --
-mkVpcSecurityGroupMembership :: VpcSecurityGroupMembership
-mkVpcSecurityGroupMembership = VpcSecurityGroupMembership
+vpcSecurityGroupMembership :: VpcSecurityGroupMembership
+vpcSecurityGroupMembership = VpcSecurityGroupMembership
     { _vsgmVpcSecurityGroupId = Nothing
     , _vsgmStatus = Nothing
     }

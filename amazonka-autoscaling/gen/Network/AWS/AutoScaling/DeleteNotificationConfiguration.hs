@@ -23,7 +23,7 @@ module Network.AWS.AutoScaling.DeleteNotificationConfiguration
     -- * Request
       DeleteNotificationConfiguration
     -- ** Request constructor
-    , mkDeleteNotificationConfiguration
+    , deleteNotificationConfiguration
     -- ** Request lenses
     , dncAutoScalingGroupName
     , dncTopicARN
@@ -31,7 +31,7 @@ module Network.AWS.AutoScaling.DeleteNotificationConfiguration
     -- * Response
     , DeleteNotificationConfigurationResponse
     -- ** Response constructor
-    , mkDeleteNotificationConfigurationResponse
+    , deleteNotificationConfigurationResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -53,10 +53,10 @@ data DeleteNotificationConfiguration = DeleteNotificationConfiguration
 --
 -- * @TopicARN ::@ @Text@
 --
-mkDeleteNotificationConfiguration :: Text -- ^ 'dncAutoScalingGroupName'
+deleteNotificationConfiguration :: Text -- ^ 'dncAutoScalingGroupName'
                                   -> Text -- ^ 'dncTopicARN'
                                   -> DeleteNotificationConfiguration
-mkDeleteNotificationConfiguration p1 p2 = DeleteNotificationConfiguration
+deleteNotificationConfiguration p1 p2 = DeleteNotificationConfiguration
     { _dncAutoScalingGroupName = p1
     , _dncTopicARN = p2
     }
@@ -82,8 +82,8 @@ data DeleteNotificationConfigurationResponse = DeleteNotificationConfigurationRe
 -- a valid 'DeleteNotificationConfigurationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteNotificationConfigurationResponse :: DeleteNotificationConfigurationResponse
-mkDeleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse
+deleteNotificationConfigurationResponse :: DeleteNotificationConfigurationResponse
+deleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse
 
 instance AWSRequest DeleteNotificationConfiguration where
     type Sv DeleteNotificationConfiguration = AutoScaling

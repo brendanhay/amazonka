@@ -23,14 +23,14 @@ module Network.AWS.S3.GetBucketCors
     -- * Request
       GetBucketCors
     -- ** Request constructor
-    , mkGetBucketCors
+    , getBucketCors
     -- ** Request lenses
     , gbcBucket
 
     -- * Response
     , GetBucketCorsResponse
     -- ** Response constructor
-    , mkGetBucketCorsResponse
+    , getBucketCorsResponse
     -- ** Response lenses
     , gbcrCORSRules
     ) where
@@ -51,9 +51,9 @@ newtype GetBucketCors = GetBucketCors
 --
 -- * @Bucket ::@ @BucketName@
 --
-mkGetBucketCors :: BucketName -- ^ 'gbcBucket'
+getBucketCors :: BucketName -- ^ 'gbcBucket'
                 -> GetBucketCors
-mkGetBucketCors p1 = GetBucketCors
+getBucketCors p1 = GetBucketCors
     { _gbcBucket = p1
     }
 
@@ -81,8 +81,8 @@ newtype GetBucketCorsResponse = GetBucketCorsResponse
 --
 -- * @CORSRules ::@ @[CORSRule]@
 --
-mkGetBucketCorsResponse :: GetBucketCorsResponse
-mkGetBucketCorsResponse = GetBucketCorsResponse
+getBucketCorsResponse :: GetBucketCorsResponse
+getBucketCorsResponse = GetBucketCorsResponse
     { _gbcrCORSRules = mempty
     }
 

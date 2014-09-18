@@ -31,7 +31,7 @@ module Network.AWS.Support.AddAttachmentsToSet
     -- * Request
       AddAttachmentsToSet
     -- ** Request constructor
-    , mkAddAttachmentsToSet
+    , addAttachmentsToSet
     -- ** Request lenses
     , aatsAttachmentSetId
     , aatsAttachments
@@ -39,7 +39,7 @@ module Network.AWS.Support.AddAttachmentsToSet
     -- * Response
     , AddAttachmentsToSetResponse
     -- ** Response constructor
-    , mkAddAttachmentsToSetResponse
+    , addAttachmentsToSetResponse
     -- ** Response lenses
     , aatsrAttachmentSetId
     , aatsrExpiryTime
@@ -63,9 +63,9 @@ data AddAttachmentsToSet = AddAttachmentsToSet
 --
 -- * @Attachments ::@ @[Attachment]@
 --
-mkAddAttachmentsToSet :: [Attachment] -- ^ 'aatsAttachments'
+addAttachmentsToSet :: [Attachment] -- ^ 'aatsAttachments'
                       -> AddAttachmentsToSet
-mkAddAttachmentsToSet p2 = AddAttachmentsToSet
+addAttachmentsToSet p2 = AddAttachmentsToSet
     { _aatsAttachmentSetId = Nothing
     , _aatsAttachments = p2
     }
@@ -109,8 +109,8 @@ data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse
 --
 -- * @ExpiryTime ::@ @Maybe Text@
 --
-mkAddAttachmentsToSetResponse :: AddAttachmentsToSetResponse
-mkAddAttachmentsToSetResponse = AddAttachmentsToSetResponse
+addAttachmentsToSetResponse :: AddAttachmentsToSetResponse
+addAttachmentsToSetResponse = AddAttachmentsToSetResponse
     { _aatsrAttachmentSetId = Nothing
     , _aatsrExpiryTime = Nothing
     }

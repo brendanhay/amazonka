@@ -37,7 +37,7 @@ module Network.AWS.ElastiCache.CreateReplicationGroup
     -- * Request
       CreateReplicationGroup
     -- ** Request constructor
-    , mkCreateReplicationGroup
+    , createReplicationGroup
     -- ** Request lenses
     , crgReplicationGroupId
     , crgPrimaryClusterId
@@ -46,7 +46,7 @@ module Network.AWS.ElastiCache.CreateReplicationGroup
     -- * Response
     , CreateReplicationGroupResponse
     -- ** Response constructor
-    , mkCreateReplicationGroupResponse
+    , createReplicationGroupResponse
     -- ** Response lenses
     , crgrReplicationGroup
     ) where
@@ -73,11 +73,11 @@ data CreateReplicationGroup = CreateReplicationGroup
 --
 -- * @ReplicationGroupDescription ::@ @Text@
 --
-mkCreateReplicationGroup :: Text -- ^ 'crgReplicationGroupId'
+createReplicationGroup :: Text -- ^ 'crgReplicationGroupId'
                          -> Text -- ^ 'crgPrimaryClusterId'
                          -> Text -- ^ 'crgReplicationGroupDescription'
                          -> CreateReplicationGroup
-mkCreateReplicationGroup p1 p2 p3 = CreateReplicationGroup
+createReplicationGroup p1 p2 p3 = CreateReplicationGroup
     { _crgReplicationGroupId = p1
     , _crgPrimaryClusterId = p2
     , _crgReplicationGroupDescription = p3
@@ -120,8 +120,8 @@ newtype CreateReplicationGroupResponse = CreateReplicationGroupResponse
 --
 -- * @ReplicationGroup ::@ @Maybe ReplicationGroup@
 --
-mkCreateReplicationGroupResponse :: CreateReplicationGroupResponse
-mkCreateReplicationGroupResponse = CreateReplicationGroupResponse
+createReplicationGroupResponse :: CreateReplicationGroupResponse
+createReplicationGroupResponse = CreateReplicationGroupResponse
     { _crgrReplicationGroup = Nothing
     }
 

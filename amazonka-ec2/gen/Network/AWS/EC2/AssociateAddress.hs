@@ -53,7 +53,7 @@ module Network.AWS.EC2.AssociateAddress
     -- * Request
       AssociateAddress
     -- ** Request constructor
-    , mkAssociateAddress
+    , associateAddress
     -- ** Request lenses
     , aa1InstanceId
     , aa1PublicIp
@@ -65,7 +65,7 @@ module Network.AWS.EC2.AssociateAddress
     -- * Response
     , AssociateAddressResponse
     -- ** Response constructor
-    , mkAssociateAddressResponse
+    , associateAddressResponse
     -- ** Response lenses
     , aarrAssociationId
     ) where
@@ -100,8 +100,8 @@ data AssociateAddress = AssociateAddress
 --
 -- * @AllowReassociation ::@ @Maybe Bool@
 --
-mkAssociateAddress :: AssociateAddress
-mkAssociateAddress = AssociateAddress
+associateAddress :: AssociateAddress
+associateAddress = AssociateAddress
     { _aa1InstanceId = Nothing
     , _aa1PublicIp = Nothing
     , _aa1AllocationId = Nothing
@@ -160,8 +160,8 @@ newtype AssociateAddressResponse = AssociateAddressResponse
 --
 -- * @AssociationId ::@ @Maybe Text@
 --
-mkAssociateAddressResponse :: AssociateAddressResponse
-mkAssociateAddressResponse = AssociateAddressResponse
+associateAddressResponse :: AssociateAddressResponse
+associateAddressResponse = AssociateAddressResponse
     { _aarrAssociationId = Nothing
     }
 

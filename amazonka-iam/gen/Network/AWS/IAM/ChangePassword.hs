@@ -28,7 +28,7 @@ module Network.AWS.IAM.ChangePassword
     -- * Request
       ChangePassword
     -- ** Request constructor
-    , mkChangePassword
+    , changePassword
     -- ** Request lenses
     , cpOldPassword
     , cpNewPassword
@@ -36,7 +36,7 @@ module Network.AWS.IAM.ChangePassword
     -- * Response
     , ChangePasswordResponse
     -- ** Response constructor
-    , mkChangePasswordResponse
+    , changePasswordResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -57,10 +57,10 @@ data ChangePassword = ChangePassword
 --
 -- * @NewPassword ::@ @Text@
 --
-mkChangePassword :: Text -- ^ 'cpOldPassword'
+changePassword :: Text -- ^ 'cpOldPassword'
                  -> Text -- ^ 'cpNewPassword'
                  -> ChangePassword
-mkChangePassword p1 p2 = ChangePassword
+changePassword p1 p2 = ChangePassword
     { _cpOldPassword = p1
     , _cpNewPassword = p2
     }
@@ -84,8 +84,8 @@ data ChangePasswordResponse = ChangePasswordResponse
 -- a valid 'ChangePasswordResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkChangePasswordResponse :: ChangePasswordResponse
-mkChangePasswordResponse = ChangePasswordResponse
+changePasswordResponse :: ChangePasswordResponse
+changePasswordResponse = ChangePasswordResponse
 
 instance AWSRequest ChangePassword where
     type Sv ChangePassword = IAM

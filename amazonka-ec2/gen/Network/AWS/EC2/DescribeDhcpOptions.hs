@@ -47,7 +47,7 @@ module Network.AWS.EC2.DescribeDhcpOptions
     -- * Request
       DescribeDhcpOptions
     -- ** Request constructor
-    , mkDescribeDhcpOptions
+    , describeDhcpOptions
     -- ** Request lenses
     , ddo1DhcpOptionsIds
     , ddo1Filters
@@ -55,7 +55,7 @@ module Network.AWS.EC2.DescribeDhcpOptions
     -- * Response
     , DescribeDhcpOptionsResponse
     -- ** Response constructor
-    , mkDescribeDhcpOptionsResponse
+    , describeDhcpOptionsResponse
     -- ** Response lenses
     , ddorDhcpOptions
     ) where
@@ -78,8 +78,8 @@ data DescribeDhcpOptions = DescribeDhcpOptions
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribeDhcpOptions :: DescribeDhcpOptions
-mkDescribeDhcpOptions = DescribeDhcpOptions
+describeDhcpOptions :: DescribeDhcpOptions
+describeDhcpOptions = DescribeDhcpOptions
     { _ddo1DhcpOptionsIds = mempty
     , _ddo1Filters = mempty
     }
@@ -120,8 +120,8 @@ newtype DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
 --
 -- * @DhcpOptions ::@ @[DhcpOptions]@
 --
-mkDescribeDhcpOptionsResponse :: DescribeDhcpOptionsResponse
-mkDescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
+describeDhcpOptionsResponse :: DescribeDhcpOptionsResponse
+describeDhcpOptionsResponse = DescribeDhcpOptionsResponse
     { _ddorDhcpOptions = mempty
     }
 

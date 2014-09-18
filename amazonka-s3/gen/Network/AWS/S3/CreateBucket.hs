@@ -25,7 +25,7 @@ module Network.AWS.S3.CreateBucket
     -- ** Request alias
     , PutBucket
     -- ** Request constructor
-    , mkCreateBucket
+    , createBucket
     -- ** Request lenses
     , cbACL
     , cbBucket
@@ -39,7 +39,7 @@ module Network.AWS.S3.CreateBucket
     -- * Response
     , CreateBucketResponse
     -- ** Response constructor
-    , mkCreateBucketResponse
+    , createBucketResponse
     -- ** Response lenses
     , cbrLocation
     ) where
@@ -83,9 +83,9 @@ data CreateBucket = CreateBucket
 --
 -- * @GrantWriteACP ::@ @Maybe Text@
 --
-mkCreateBucket :: BucketName -- ^ 'cbBucket'
+createBucket :: BucketName -- ^ 'cbBucket'
                -> CreateBucket
-mkCreateBucket p2 = CreateBucket
+createBucket p2 = CreateBucket
     { _cbACL = Nothing
     , _cbBucket = p2
     , _cbCreateBucketConfiguration = Nothing
@@ -160,8 +160,8 @@ newtype CreateBucketResponse = CreateBucketResponse
 --
 -- * @Location ::@ @Maybe Text@
 --
-mkCreateBucketResponse :: CreateBucketResponse
-mkCreateBucketResponse = CreateBucketResponse
+createBucketResponse :: CreateBucketResponse
+createBucketResponse = CreateBucketResponse
     { _cbrLocation = Nothing
     }
 

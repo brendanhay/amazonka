@@ -34,14 +34,14 @@ module Network.AWS.EC2.DisassociateRouteTable
     -- * Request
       DisassociateRouteTable
     -- ** Request constructor
-    , mkDisassociateRouteTable
+    , disassociateRouteTable
     -- ** Request lenses
     , drt2AssociationId
 
     -- * Response
     , DisassociateRouteTableResponse
     -- ** Response constructor
-    , mkDisassociateRouteTableResponse
+    , disassociateRouteTableResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -59,9 +59,9 @@ newtype DisassociateRouteTable = DisassociateRouteTable
 --
 -- * @AssociationId ::@ @Text@
 --
-mkDisassociateRouteTable :: Text -- ^ 'drt2AssociationId'
+disassociateRouteTable :: Text -- ^ 'drt2AssociationId'
                          -> DisassociateRouteTable
-mkDisassociateRouteTable p1 = DisassociateRouteTable
+disassociateRouteTable p1 = DisassociateRouteTable
     { _drt2AssociationId = p1
     }
 
@@ -81,8 +81,8 @@ data DisassociateRouteTableResponse = DisassociateRouteTableResponse
 -- a valid 'DisassociateRouteTableResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDisassociateRouteTableResponse :: DisassociateRouteTableResponse
-mkDisassociateRouteTableResponse = DisassociateRouteTableResponse
+disassociateRouteTableResponse :: DisassociateRouteTableResponse
+disassociateRouteTableResponse = DisassociateRouteTableResponse
 
 instance AWSRequest DisassociateRouteTable where
     type Sv DisassociateRouteTable = EC2

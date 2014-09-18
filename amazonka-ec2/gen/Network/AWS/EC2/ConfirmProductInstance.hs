@@ -35,7 +35,7 @@ module Network.AWS.EC2.ConfirmProductInstance
     -- * Request
       ConfirmProductInstance
     -- ** Request constructor
-    , mkConfirmProductInstance
+    , confirmProductInstance
     -- ** Request lenses
     , cpiProductCode
     , cpiInstanceId
@@ -43,7 +43,7 @@ module Network.AWS.EC2.ConfirmProductInstance
     -- * Response
     , ConfirmProductInstanceResponse
     -- ** Response constructor
-    , mkConfirmProductInstanceResponse
+    , confirmProductInstanceResponse
     -- ** Response lenses
     , cpirOwnerId
     ) where
@@ -66,10 +66,10 @@ data ConfirmProductInstance = ConfirmProductInstance
 --
 -- * @InstanceId ::@ @Text@
 --
-mkConfirmProductInstance :: Text -- ^ 'cpiProductCode'
+confirmProductInstance :: Text -- ^ 'cpiProductCode'
                          -> Text -- ^ 'cpiInstanceId'
                          -> ConfirmProductInstance
-mkConfirmProductInstance p1 p2 = ConfirmProductInstance
+confirmProductInstance p1 p2 = ConfirmProductInstance
     { _cpiProductCode = p1
     , _cpiInstanceId = p2
     }
@@ -98,8 +98,8 @@ newtype ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
 --
 -- * @OwnerId ::@ @Maybe Text@
 --
-mkConfirmProductInstanceResponse :: ConfirmProductInstanceResponse
-mkConfirmProductInstanceResponse = ConfirmProductInstanceResponse
+confirmProductInstanceResponse :: ConfirmProductInstanceResponse
+confirmProductInstanceResponse = ConfirmProductInstanceResponse
     { _cpirOwnerId = Nothing
     }
 

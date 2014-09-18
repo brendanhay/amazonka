@@ -22,7 +22,7 @@ module Network.AWS.Route53.GetGeoLocation
     -- * Request
       GetGeoLocation
     -- ** Request constructor
-    , mkGetGeoLocation
+    , getGeoLocation
     -- ** Request lenses
     , gglContinentCode
     , gglCountryCode
@@ -31,7 +31,7 @@ module Network.AWS.Route53.GetGeoLocation
     -- * Response
     , GetGeoLocationResponse
     -- ** Response constructor
-    , mkGetGeoLocationResponse
+    , getGeoLocationResponse
     -- ** Response lenses
     , gglrGeoLocationDetails
     ) where
@@ -60,8 +60,8 @@ data GetGeoLocation = GetGeoLocation
 --
 -- * @SubdivisionCode ::@ @Maybe Text@
 --
-mkGetGeoLocation :: GetGeoLocation
-mkGetGeoLocation = GetGeoLocation
+getGeoLocation :: GetGeoLocation
+getGeoLocation = GetGeoLocation
     { _gglContinentCode = Nothing
     , _gglCountryCode = Nothing
     , _gglSubdivisionCode = Nothing
@@ -114,9 +114,9 @@ newtype GetGeoLocationResponse = GetGeoLocationResponse
 --
 -- * @GeoLocationDetails ::@ @GeoLocationDetails@
 --
-mkGetGeoLocationResponse :: GeoLocationDetails -- ^ 'gglrGeoLocationDetails'
+getGeoLocationResponse :: GeoLocationDetails -- ^ 'gglrGeoLocationDetails'
                          -> GetGeoLocationResponse
-mkGetGeoLocationResponse p1 = GetGeoLocationResponse
+getGeoLocationResponse p1 = GetGeoLocationResponse
     { _gglrGeoLocationDetails = p1
     }
 

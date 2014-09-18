@@ -33,7 +33,6 @@ library
 
     exposed-modules:
           Network.AWS.SES
-        , Network.AWS.SES.Monadic
         , Network.AWS.SES.Types
         , Network.AWS.SES.DeleteIdentity
         , Network.AWS.SES.DeleteVerifiedEmailAddress

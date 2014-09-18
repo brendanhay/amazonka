@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.DescribeElasticIps
     -- * Request
       DescribeElasticIps
     -- ** Request constructor
-    , mkDescribeElasticIps
+    , describeElasticIps
     -- ** Request lenses
     , dei1InstanceId
     , dei1StackId
@@ -36,7 +36,7 @@ module Network.AWS.OpsWorks.DescribeElasticIps
     -- * Response
     , DescribeElasticIpsResponse
     -- ** Response constructor
-    , mkDescribeElasticIpsResponse
+    , describeElasticIpsResponse
     -- ** Response lenses
     , deirElasticIps
     ) where
@@ -62,8 +62,8 @@ data DescribeElasticIps = DescribeElasticIps
 --
 -- * @Ips ::@ @[Text]@
 --
-mkDescribeElasticIps :: DescribeElasticIps
-mkDescribeElasticIps = DescribeElasticIps
+describeElasticIps :: DescribeElasticIps
+describeElasticIps = DescribeElasticIps
     { _dei1InstanceId = Nothing
     , _dei1StackId = Nothing
     , _dei1Ips = mempty
@@ -110,8 +110,8 @@ newtype DescribeElasticIpsResponse = DescribeElasticIpsResponse
 --
 -- * @ElasticIps ::@ @[ElasticIp]@
 --
-mkDescribeElasticIpsResponse :: DescribeElasticIpsResponse
-mkDescribeElasticIpsResponse = DescribeElasticIpsResponse
+describeElasticIpsResponse :: DescribeElasticIpsResponse
+describeElasticIpsResponse = DescribeElasticIpsResponse
     { _deirElasticIps = mempty
     }
 

@@ -39,14 +39,14 @@ module Network.AWS.SNS.Unsubscribe
     -- * Request
       Unsubscribe
     -- ** Request constructor
-    , mkUnsubscribe
+    , unsubscribe
     -- ** Request lenses
     , uSubscriptionArn
 
     -- * Response
     , UnsubscribeResponse
     -- ** Response constructor
-    , mkUnsubscribeResponse
+    , unsubscribeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -65,9 +65,9 @@ newtype Unsubscribe = Unsubscribe
 --
 -- * @SubscriptionArn ::@ @Text@
 --
-mkUnsubscribe :: Text -- ^ 'uSubscriptionArn'
+unsubscribe :: Text -- ^ 'uSubscriptionArn'
               -> Unsubscribe
-mkUnsubscribe p1 = Unsubscribe
+unsubscribe p1 = Unsubscribe
     { _uSubscriptionArn = p1
     }
 
@@ -86,8 +86,8 @@ data UnsubscribeResponse = UnsubscribeResponse
 -- a valid 'UnsubscribeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkUnsubscribeResponse :: UnsubscribeResponse
-mkUnsubscribeResponse = UnsubscribeResponse
+unsubscribeResponse :: UnsubscribeResponse
+unsubscribeResponse = UnsubscribeResponse
 
 instance AWSRequest Unsubscribe where
     type Sv Unsubscribe = SNS

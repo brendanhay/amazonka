@@ -38,7 +38,7 @@ module Network.AWS.StorageGateway.Types
 
     -- * CachediSCSIVolumeInformation
     , CachediSCSIVolumeInformation
-    , mkCachediSCSIVolumeInformation
+    , cachediSCSIVolumeInformation
     , cscsiviVolumeARN
     , cscsiviVolumeId
     , cscsiviVolumeType
@@ -50,7 +50,7 @@ module Network.AWS.StorageGateway.Types
 
     -- * ChapInfo
     , ChapInfo
-    , mkChapInfo
+    , chapInfo
     , ciTargetARN
     , ciSecretToAuthenticateInitiator
     , ciInitiatorName
@@ -58,7 +58,7 @@ module Network.AWS.StorageGateway.Types
 
     -- * DeviceiSCSIAttributes
     , DeviceiSCSIAttributes
-    , mkDeviceiSCSIAttributes
+    , deviceiSCSIAttributes
     , dscsiaTargetARN
     , dscsiaNetworkInterfaceId
     , dscsiaNetworkInterfacePort
@@ -66,7 +66,7 @@ module Network.AWS.StorageGateway.Types
 
     -- * DiskInformation
     , DiskInformation
-    , mkDiskInformation
+    , diskInformation
     , diDiskId
     , diDiskPath
     , diDiskNode
@@ -76,26 +76,26 @@ module Network.AWS.StorageGateway.Types
 
     -- * GatewayInformation
     , GatewayInformation
-    , mkGatewayInformation
+    , gatewayInformation
     , giGatewayARN
     , giGatewayType
 
     -- * NetworkInterface
     , NetworkInterface
-    , mkNetworkInterface
+    , networkInterface
     , niIpv4Address
     , niMacAddress
     , niIpv6Address
 
     -- * StorageGatewayError
     , StorageGatewayError
-    , mkStorageGatewayError
+    , storageGatewayError
     , sgeErrorCode
     , sgeErrorDetails
 
     -- * StorediSCSIVolumeInformation
     , StorediSCSIVolumeInformation
-    , mkStorediSCSIVolumeInformation
+    , storediSCSIVolumeInformation
     , sscsiviVolumeARN
     , sscsiviVolumeId
     , sscsiviVolumeType
@@ -109,7 +109,7 @@ module Network.AWS.StorageGateway.Types
 
     -- * Tape
     , Tape
-    , mkTape
+    , tape
     , tTapeARN
     , tTapeBarcode
     , tTapeSizeInBytes
@@ -119,7 +119,7 @@ module Network.AWS.StorageGateway.Types
 
     -- * TapeArchive
     , TapeArchive
-    , mkTapeArchive
+    , tapeArchive
     , taTapeARN
     , taTapeBarcode
     , taTapeSizeInBytes
@@ -129,26 +129,26 @@ module Network.AWS.StorageGateway.Types
 
     -- * TapeRecoveryPointInfo
     , TapeRecoveryPointInfo
-    , mkTapeRecoveryPointInfo
+    , tapeRecoveryPointInfo
     , trpiTapeARN
     , trpiTapeRecoveryPointTime
     , trpiTapeSizeInBytes
 
     -- * VTLDevice
     , VTLDevice
-    , mkVTLDevice
+    , vTLDevice
     , vtldVTLDeviceARN
     , vtldDeviceiSCSIAttributes
 
     -- * VolumeInformation
     , VolumeInformation
-    , mkVolumeInformation
+    , volumeInformation
     , viVolumeARN
     , viVolumeType
 
     -- * VolumeRecoveryPointInfo
     , VolumeRecoveryPointInfo
-    , mkVolumeRecoveryPointInfo
+    , volumeRecoveryPointInfo
     , vrpiVolumeARN
     , vrpiVolumeSizeInBytes
     , vrpiVolumeUsageInBytes
@@ -156,7 +156,7 @@ module Network.AWS.StorageGateway.Types
 
     -- * VolumeiSCSIAttributes
     , VolumeiSCSIAttributes
-    , mkVolumeiSCSIAttributes
+    , volumeiSCSIAttributes
     , vscsiaTargetARN
     , vscsiaNetworkInterfaceId
     , vscsiaNetworkInterfacePort
@@ -202,8 +202,8 @@ data StorageGatewayError
         , _igreError :: Maybe StorageGatewayError
         }
     | StorageGatewayClient HttpException
-    | StorageGatewaySerializer Text
-    | StorageGatewayService Text
+    | StorageGatewaySerializer String
+    | StorageGatewayService String
     deriving (Show, Generic)
 
 instance AWSError StorageGatewayError where
@@ -241,7 +241,7 @@ _StorageGatewayClient = prism'
         x -> Left x)
 
 -- | See: 'StorageGatewaySerializer'
-_StorageGatewaySerializer :: Prism' StorageGatewayError Text
+_StorageGatewaySerializer :: Prism' StorageGatewayError String
 _StorageGatewaySerializer = prism'
     StorageGatewaySerializer
     (\case
@@ -249,7 +249,7 @@ _StorageGatewaySerializer = prism'
         x -> Left x)
 
 -- | See: 'StorageGatewayService'
-_StorageGatewayService :: Prism' StorageGatewayError Text
+_StorageGatewayService :: Prism' StorageGatewayError String
 _StorageGatewayService = prism'
     StorageGatewayService
     (\case
@@ -556,8 +556,8 @@ data CachediSCSIVolumeInformation = CachediSCSIVolumeInformation
 --
 -- * @VolumeiSCSIAttributes ::@ @Maybe VolumeiSCSIAttributes@
 --
-mkCachediSCSIVolumeInformation :: CachediSCSIVolumeInformation
-mkCachediSCSIVolumeInformation = CachediSCSIVolumeInformation
+cachediSCSIVolumeInformation :: CachediSCSIVolumeInformation
+cachediSCSIVolumeInformation = CachediSCSIVolumeInformation
     { _cscsiviVolumeARN = Nothing
     , _cscsiviVolumeId = Nothing
     , _cscsiviVolumeType = Nothing
@@ -630,8 +630,8 @@ data ChapInfo = ChapInfo
 --
 -- * @SecretToAuthenticateTarget ::@ @Maybe Text@
 --
-mkChapInfo :: ChapInfo
-mkChapInfo = ChapInfo
+chapInfo :: ChapInfo
+chapInfo = ChapInfo
     { _ciTargetARN = Nothing
     , _ciSecretToAuthenticateInitiator = Nothing
     , _ciInitiatorName = Nothing
@@ -683,8 +683,8 @@ data DeviceiSCSIAttributes = DeviceiSCSIAttributes
 --
 -- * @ChapEnabled ::@ @Maybe Bool@
 --
-mkDeviceiSCSIAttributes :: DeviceiSCSIAttributes
-mkDeviceiSCSIAttributes = DeviceiSCSIAttributes
+deviceiSCSIAttributes :: DeviceiSCSIAttributes
+deviceiSCSIAttributes = DeviceiSCSIAttributes
     { _dscsiaTargetARN = Nothing
     , _dscsiaNetworkInterfaceId = Nothing
     , _dscsiaNetworkInterfacePort = Nothing
@@ -741,8 +741,8 @@ data DiskInformation = DiskInformation
 --
 -- * @DiskAllocationResource ::@ @Maybe Text@
 --
-mkDiskInformation :: DiskInformation
-mkDiskInformation = DiskInformation
+diskInformation :: DiskInformation
+diskInformation = DiskInformation
     { _diDiskId = Nothing
     , _diDiskPath = Nothing
     , _diDiskNode = Nothing
@@ -792,8 +792,8 @@ data GatewayInformation = GatewayInformation
 --
 -- * @GatewayType ::@ @Maybe Text@
 --
-mkGatewayInformation :: GatewayInformation
-mkGatewayInformation = GatewayInformation
+gatewayInformation :: GatewayInformation
+gatewayInformation = GatewayInformation
     { _giGatewayARN = Nothing
     , _giGatewayType = Nothing
     }
@@ -829,8 +829,8 @@ data NetworkInterface = NetworkInterface
 --
 -- * @Ipv6Address ::@ @Maybe Text@
 --
-mkNetworkInterface :: NetworkInterface
-mkNetworkInterface = NetworkInterface
+networkInterface :: NetworkInterface
+networkInterface = NetworkInterface
     { _niIpv4Address = Nothing
     , _niMacAddress = Nothing
     , _niIpv6Address = Nothing
@@ -868,8 +868,8 @@ data StorageGatewayError = StorageGatewayError
 --
 -- * @ErrorDetails ::@ @Map Text Text@
 --
-mkStorageGatewayError :: StorageGatewayError
-mkStorageGatewayError = StorageGatewayError
+storageGatewayError :: StorageGatewayError
+storageGatewayError = StorageGatewayError
     { _sgeErrorCode = Nothing
     , _sgeErrorDetails = mempty
     }
@@ -927,8 +927,8 @@ data StorediSCSIVolumeInformation = StorediSCSIVolumeInformation
 --
 -- * @VolumeiSCSIAttributes ::@ @Maybe VolumeiSCSIAttributes@
 --
-mkStorediSCSIVolumeInformation :: StorediSCSIVolumeInformation
-mkStorediSCSIVolumeInformation = StorediSCSIVolumeInformation
+storediSCSIVolumeInformation :: StorediSCSIVolumeInformation
+storediSCSIVolumeInformation = StorediSCSIVolumeInformation
     { _sscsiviVolumeARN = Nothing
     , _sscsiviVolumeId = Nothing
     , _sscsiviVolumeType = Nothing
@@ -1016,8 +1016,8 @@ data Tape = Tape
 --
 -- * @Progress ::@ @Maybe Double@
 --
-mkTape :: Tape
-mkTape = Tape
+tape :: Tape
+tape = Tape
     { _tTapeARN = Nothing
     , _tTapeBarcode = Nothing
     , _tTapeSizeInBytes = Nothing
@@ -1076,8 +1076,8 @@ data TapeArchive = TapeArchive
 --
 -- * @TapeStatus ::@ @Maybe Text@
 --
-mkTapeArchive :: TapeArchive
-mkTapeArchive = TapeArchive
+tapeArchive :: TapeArchive
+tapeArchive = TapeArchive
     { _taTapeARN = Nothing
     , _taTapeBarcode = Nothing
     , _taTapeSizeInBytes = Nothing
@@ -1130,8 +1130,8 @@ data TapeRecoveryPointInfo = TapeRecoveryPointInfo
 --
 -- * @TapeSizeInBytes ::@ @Maybe Integer@
 --
-mkTapeRecoveryPointInfo :: TapeRecoveryPointInfo
-mkTapeRecoveryPointInfo = TapeRecoveryPointInfo
+tapeRecoveryPointInfo :: TapeRecoveryPointInfo
+tapeRecoveryPointInfo = TapeRecoveryPointInfo
     { _trpiTapeARN = Nothing
     , _trpiTapeRecoveryPointTime = Nothing
     , _trpiTapeSizeInBytes = Nothing
@@ -1168,8 +1168,8 @@ data VTLDevice = VTLDevice
 --
 -- * @DeviceiSCSIAttributes ::@ @Maybe DeviceiSCSIAttributes@
 --
-mkVTLDevice :: VTLDevice
-mkVTLDevice = VTLDevice
+vTLDevice :: VTLDevice
+vTLDevice = VTLDevice
     { _vtldVTLDeviceARN = Nothing
     , _vtldDeviceiSCSIAttributes = Nothing
     }
@@ -1202,8 +1202,8 @@ data VolumeInformation = VolumeInformation
 --
 -- * @VolumeType ::@ @Maybe Text@
 --
-mkVolumeInformation :: VolumeInformation
-mkVolumeInformation = VolumeInformation
+volumeInformation :: VolumeInformation
+volumeInformation = VolumeInformation
     { _viVolumeARN = Nothing
     , _viVolumeType = Nothing
     }
@@ -1239,8 +1239,8 @@ data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo
 --
 -- * @VolumeRecoveryPointTime ::@ @Maybe Text@
 --
-mkVolumeRecoveryPointInfo :: VolumeRecoveryPointInfo
-mkVolumeRecoveryPointInfo = VolumeRecoveryPointInfo
+volumeRecoveryPointInfo :: VolumeRecoveryPointInfo
+volumeRecoveryPointInfo = VolumeRecoveryPointInfo
     { _vrpiVolumeARN = Nothing
     , _vrpiVolumeSizeInBytes = Nothing
     , _vrpiVolumeUsageInBytes = Nothing
@@ -1289,8 +1289,8 @@ data VolumeiSCSIAttributes = VolumeiSCSIAttributes
 --
 -- * @ChapEnabled ::@ @Maybe Bool@
 --
-mkVolumeiSCSIAttributes :: VolumeiSCSIAttributes
-mkVolumeiSCSIAttributes = VolumeiSCSIAttributes
+volumeiSCSIAttributes :: VolumeiSCSIAttributes
+volumeiSCSIAttributes = VolumeiSCSIAttributes
     { _vscsiaTargetARN = Nothing
     , _vscsiaNetworkInterfaceId = Nothing
     , _vscsiaNetworkInterfacePort = Nothing

@@ -36,7 +36,7 @@ module Network.AWS.Redshift.CreateClusterSubnetGroup
     -- * Request
       CreateClusterSubnetGroup
     -- ** Request constructor
-    , mkCreateClusterSubnetGroup
+    , createClusterSubnetGroup
     -- ** Request lenses
     , ccsg1ClusterSubnetGroupName
     , ccsg1Description
@@ -45,7 +45,7 @@ module Network.AWS.Redshift.CreateClusterSubnetGroup
     -- * Response
     , CreateClusterSubnetGroupResponse
     -- ** Response constructor
-    , mkCreateClusterSubnetGroupResponse
+    , createClusterSubnetGroupResponse
     -- ** Response lenses
     , ccsgrrClusterSubnetGroup
     ) where
@@ -72,11 +72,11 @@ data CreateClusterSubnetGroup = CreateClusterSubnetGroup
 --
 -- * @SubnetIds ::@ @[Text]@
 --
-mkCreateClusterSubnetGroup :: Text -- ^ 'ccsg1ClusterSubnetGroupName'
+createClusterSubnetGroup :: Text -- ^ 'ccsg1ClusterSubnetGroupName'
                            -> Text -- ^ 'ccsg1Description'
                            -> [Text] -- ^ 'ccsg1SubnetIds'
                            -> CreateClusterSubnetGroup
-mkCreateClusterSubnetGroup p1 p2 p3 = CreateClusterSubnetGroup
+createClusterSubnetGroup p1 p2 p3 = CreateClusterSubnetGroup
     { _ccsg1ClusterSubnetGroupName = p1
     , _ccsg1Description = p2
     , _ccsg1SubnetIds = p3
@@ -117,8 +117,8 @@ newtype CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse
 --
 -- * @ClusterSubnetGroup ::@ @Maybe ClusterSubnetGroup@
 --
-mkCreateClusterSubnetGroupResponse :: CreateClusterSubnetGroupResponse
-mkCreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse
+createClusterSubnetGroupResponse :: CreateClusterSubnetGroupResponse
+createClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse
     { _ccsgrrClusterSubnetGroup = Nothing
     }
 

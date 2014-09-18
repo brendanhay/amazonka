@@ -36,14 +36,14 @@ module Network.AWS.SNS.DeleteTopic
     -- * Request
       DeleteTopic
     -- ** Request constructor
-    , mkDeleteTopic
+    , deleteTopic
     -- ** Request lenses
     , dtTopicArn
 
     -- * Response
     , DeleteTopicResponse
     -- ** Response constructor
-    , mkDeleteTopicResponse
+    , deleteTopicResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -61,9 +61,9 @@ newtype DeleteTopic = DeleteTopic
 --
 -- * @TopicArn ::@ @Text@
 --
-mkDeleteTopic :: Text -- ^ 'dtTopicArn'
+deleteTopic :: Text -- ^ 'dtTopicArn'
               -> DeleteTopic
-mkDeleteTopic p1 = DeleteTopic
+deleteTopic p1 = DeleteTopic
     { _dtTopicArn = p1
     }
 
@@ -92,8 +92,8 @@ data DeleteTopicResponse = DeleteTopicResponse
 -- a valid 'DeleteTopicResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteTopicResponse :: DeleteTopicResponse
-mkDeleteTopicResponse = DeleteTopicResponse
+deleteTopicResponse :: DeleteTopicResponse
+deleteTopicResponse = DeleteTopicResponse
 
 instance AWSRequest DeleteTopic where
     type Sv DeleteTopic = SNS

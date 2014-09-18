@@ -32,7 +32,7 @@ module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     -- * Request
       CreateCacheSubnetGroup
     -- ** Request constructor
-    , mkCreateCacheSubnetGroup
+    , createCacheSubnetGroup
     -- ** Request lenses
     , ccsg1CacheSubnetGroupName
     , ccsg1CacheSubnetGroupDescription
@@ -41,7 +41,7 @@ module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     -- * Response
     , CreateCacheSubnetGroupResponse
     -- ** Response constructor
-    , mkCreateCacheSubnetGroupResponse
+    , createCacheSubnetGroupResponse
     -- ** Response lenses
     , ccsgrrCacheSubnetGroup
     ) where
@@ -68,11 +68,11 @@ data CreateCacheSubnetGroup = CreateCacheSubnetGroup
 --
 -- * @SubnetIds ::@ @[Text]@
 --
-mkCreateCacheSubnetGroup :: Text -- ^ 'ccsg1CacheSubnetGroupName'
+createCacheSubnetGroup :: Text -- ^ 'ccsg1CacheSubnetGroupName'
                          -> Text -- ^ 'ccsg1CacheSubnetGroupDescription'
                          -> [Text] -- ^ 'ccsg1SubnetIds'
                          -> CreateCacheSubnetGroup
-mkCreateCacheSubnetGroup p1 p2 p3 = CreateCacheSubnetGroup
+createCacheSubnetGroup p1 p2 p3 = CreateCacheSubnetGroup
     { _ccsg1CacheSubnetGroupName = p1
     , _ccsg1CacheSubnetGroupDescription = p2
     , _ccsg1SubnetIds = p3
@@ -112,8 +112,8 @@ newtype CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse
 --
 -- * @CacheSubnetGroup ::@ @Maybe CacheSubnetGroup@
 --
-mkCreateCacheSubnetGroupResponse :: CreateCacheSubnetGroupResponse
-mkCreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse
+createCacheSubnetGroupResponse :: CreateCacheSubnetGroupResponse
+createCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse
     { _ccsgrrCacheSubnetGroup = Nothing
     }
 

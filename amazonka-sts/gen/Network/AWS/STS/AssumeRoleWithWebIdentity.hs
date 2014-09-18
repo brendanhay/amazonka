@@ -84,7 +84,7 @@ module Network.AWS.STS.AssumeRoleWithWebIdentity
     -- * Request
       AssumeRoleWithWebIdentity
     -- ** Request constructor
-    , mkAssumeRoleWithWebIdentity
+    , assumeRoleWithWebIdentity
     -- ** Request lenses
     , arwwiRoleArn
     , arwwiRoleSessionName
@@ -96,7 +96,7 @@ module Network.AWS.STS.AssumeRoleWithWebIdentity
     -- * Response
     , AssumeRoleWithWebIdentityResponse
     -- ** Response constructor
-    , mkAssumeRoleWithWebIdentityResponse
+    , assumeRoleWithWebIdentityResponse
     -- ** Response lenses
     , arwwirCredentials
     , arwwirSubjectFromWebIdentityToken
@@ -136,11 +136,11 @@ data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity
 --
 -- * @DurationSeconds ::@ @Maybe Integer@
 --
-mkAssumeRoleWithWebIdentity :: Text -- ^ 'arwwiRoleArn'
+assumeRoleWithWebIdentity :: Text -- ^ 'arwwiRoleArn'
                             -> Text -- ^ 'arwwiRoleSessionName'
                             -> Text -- ^ 'arwwiWebIdentityToken'
                             -> AssumeRoleWithWebIdentity
-mkAssumeRoleWithWebIdentity p1 p2 p3 = AssumeRoleWithWebIdentity
+assumeRoleWithWebIdentity p1 p2 p3 = AssumeRoleWithWebIdentity
     { _arwwiRoleArn = p1
     , _arwwiRoleSessionName = p2
     , _arwwiWebIdentityToken = p3
@@ -231,8 +231,8 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse
 --
 -- * @Audience ::@ @Maybe Text@
 --
-mkAssumeRoleWithWebIdentityResponse :: AssumeRoleWithWebIdentityResponse
-mkAssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse
+assumeRoleWithWebIdentityResponse :: AssumeRoleWithWebIdentityResponse
+assumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse
     { _arwwirCredentials = Nothing
     , _arwwirSubjectFromWebIdentityToken = Nothing
     , _arwwirAssumedRoleUser = Nothing

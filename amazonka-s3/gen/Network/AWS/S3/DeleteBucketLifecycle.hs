@@ -23,14 +23,14 @@ module Network.AWS.S3.DeleteBucketLifecycle
     -- * Request
       DeleteBucketLifecycle
     -- ** Request constructor
-    , mkDeleteBucketLifecycle
+    , deleteBucketLifecycle
     -- ** Request lenses
     , dblBucket
 
     -- * Response
     , DeleteBucketLifecycleResponse
     -- ** Response constructor
-    , mkDeleteBucketLifecycleResponse
+    , deleteBucketLifecycleResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -49,9 +49,9 @@ newtype DeleteBucketLifecycle = DeleteBucketLifecycle
 --
 -- * @Bucket ::@ @BucketName@
 --
-mkDeleteBucketLifecycle :: BucketName -- ^ 'dblBucket'
+deleteBucketLifecycle :: BucketName -- ^ 'dblBucket'
                         -> DeleteBucketLifecycle
-mkDeleteBucketLifecycle p1 = DeleteBucketLifecycle
+deleteBucketLifecycle p1 = DeleteBucketLifecycle
     { _dblBucket = p1
     }
 
@@ -73,8 +73,8 @@ data DeleteBucketLifecycleResponse = DeleteBucketLifecycleResponse
 -- a valid 'DeleteBucketLifecycleResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteBucketLifecycleResponse :: DeleteBucketLifecycleResponse
-mkDeleteBucketLifecycleResponse = DeleteBucketLifecycleResponse
+deleteBucketLifecycleResponse :: DeleteBucketLifecycleResponse
+deleteBucketLifecycleResponse = DeleteBucketLifecycleResponse
 
 instance AWSRequest DeleteBucketLifecycle where
     type Sv DeleteBucketLifecycle = S3

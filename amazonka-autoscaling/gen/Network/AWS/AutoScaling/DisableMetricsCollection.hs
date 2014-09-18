@@ -25,7 +25,7 @@ module Network.AWS.AutoScaling.DisableMetricsCollection
     -- * Request
       DisableMetricsCollection
     -- ** Request constructor
-    , mkDisableMetricsCollection
+    , disableMetricsCollection
     -- ** Request lenses
     , dmcAutoScalingGroupName
     , dmcMetrics
@@ -33,7 +33,7 @@ module Network.AWS.AutoScaling.DisableMetricsCollection
     -- * Response
     , DisableMetricsCollectionResponse
     -- ** Response constructor
-    , mkDisableMetricsCollectionResponse
+    , disableMetricsCollectionResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -54,9 +54,9 @@ data DisableMetricsCollection = DisableMetricsCollection
 --
 -- * @Metrics ::@ @[Text]@
 --
-mkDisableMetricsCollection :: Text -- ^ 'dmcAutoScalingGroupName'
+disableMetricsCollection :: Text -- ^ 'dmcAutoScalingGroupName'
                            -> DisableMetricsCollection
-mkDisableMetricsCollection p1 = DisableMetricsCollection
+disableMetricsCollection p1 = DisableMetricsCollection
     { _dmcAutoScalingGroupName = p1
     , _dmcMetrics = mempty
     }
@@ -85,8 +85,8 @@ data DisableMetricsCollectionResponse = DisableMetricsCollectionResponse
 -- a valid 'DisableMetricsCollectionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDisableMetricsCollectionResponse :: DisableMetricsCollectionResponse
-mkDisableMetricsCollectionResponse = DisableMetricsCollectionResponse
+disableMetricsCollectionResponse :: DisableMetricsCollectionResponse
+disableMetricsCollectionResponse = DisableMetricsCollectionResponse
 
 instance AWSRequest DisableMetricsCollection where
     type Sv DisableMetricsCollection = AutoScaling

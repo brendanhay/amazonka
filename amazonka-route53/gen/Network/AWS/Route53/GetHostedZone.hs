@@ -26,14 +26,14 @@ module Network.AWS.Route53.GetHostedZone
     -- * Request
       GetHostedZone
     -- ** Request constructor
-    , mkGetHostedZone
+    , getHostedZone
     -- ** Request lenses
     , ghzId
 
     -- * Response
     , GetHostedZoneResponse
     -- ** Response constructor
-    , mkGetHostedZoneResponse
+    , getHostedZoneResponse
     -- ** Response lenses
     , ghzrHostedZone
     , ghzrDelegationSet
@@ -56,9 +56,9 @@ newtype GetHostedZone = GetHostedZone
 --
 -- * @Id ::@ @Text@
 --
-mkGetHostedZone :: Text -- ^ 'ghzId'
+getHostedZone :: Text -- ^ 'ghzId'
                 -> GetHostedZone
-mkGetHostedZone p1 = GetHostedZone
+getHostedZone p1 = GetHostedZone
     { _ghzId = p1
     }
 
@@ -94,10 +94,10 @@ data GetHostedZoneResponse = GetHostedZoneResponse
 --
 -- * @DelegationSet ::@ @DelegationSet@
 --
-mkGetHostedZoneResponse :: HostedZone -- ^ 'ghzrHostedZone'
+getHostedZoneResponse :: HostedZone -- ^ 'ghzrHostedZone'
                         -> DelegationSet -- ^ 'ghzrDelegationSet'
                         -> GetHostedZoneResponse
-mkGetHostedZoneResponse p1 p2 = GetHostedZoneResponse
+getHostedZoneResponse p1 p2 = GetHostedZoneResponse
     { _ghzrHostedZone = p1
     , _ghzrDelegationSet = p2
     }

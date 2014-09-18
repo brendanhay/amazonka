@@ -45,7 +45,7 @@ module Network.AWS.EC2.CreateNetworkAclEntry
     -- * Request
       CreateNetworkAclEntry
     -- ** Request constructor
-    , mkCreateNetworkAclEntry
+    , createNetworkAclEntry
     -- ** Request lenses
     , cnaeNetworkAclId
     , cnaeRuleNumber
@@ -59,7 +59,7 @@ module Network.AWS.EC2.CreateNetworkAclEntry
     -- * Response
     , CreateNetworkAclEntryResponse
     -- ** Response constructor
-    , mkCreateNetworkAclEntryResponse
+    , createNetworkAclEntryResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -98,14 +98,14 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry
 --
 -- * @PortRange ::@ @Maybe PortRange@
 --
-mkCreateNetworkAclEntry :: Text -- ^ 'cnaeNetworkAclId'
+createNetworkAclEntry :: Text -- ^ 'cnaeNetworkAclId'
                         -> Integer -- ^ 'cnaeRuleNumber'
                         -> Text -- ^ 'cnaeProtocol'
                         -> RuleAction -- ^ 'cnaeRuleAction'
                         -> Bool -- ^ 'cnaeEgress'
                         -> Text -- ^ 'cnaeCidrBlock'
                         -> CreateNetworkAclEntry
-mkCreateNetworkAclEntry p1 p2 p3 p4 p5 p6 = CreateNetworkAclEntry
+createNetworkAclEntry p1 p2 p3 p4 p5 p6 = CreateNetworkAclEntry
     { _cnaeNetworkAclId = p1
     , _cnaeRuleNumber = p2
     , _cnaeProtocol = p3
@@ -163,8 +163,8 @@ data CreateNetworkAclEntryResponse = CreateNetworkAclEntryResponse
 -- a valid 'CreateNetworkAclEntryResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkCreateNetworkAclEntryResponse :: CreateNetworkAclEntryResponse
-mkCreateNetworkAclEntryResponse = CreateNetworkAclEntryResponse
+createNetworkAclEntryResponse :: CreateNetworkAclEntryResponse
+createNetworkAclEntryResponse = CreateNetworkAclEntryResponse
 
 instance AWSRequest CreateNetworkAclEntry where
     type Sv CreateNetworkAclEntry = EC2

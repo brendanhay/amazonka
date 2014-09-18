@@ -34,7 +34,7 @@ module Network.AWS.IAM.ListInstanceProfiles
     -- * Request
       ListInstanceProfiles
     -- ** Request constructor
-    , mkListInstanceProfiles
+    , listInstanceProfiles
     -- ** Request lenses
     , lipPathPrefix
     , lipMarker
@@ -43,7 +43,7 @@ module Network.AWS.IAM.ListInstanceProfiles
     -- * Response
     , ListInstanceProfilesResponse
     -- ** Response constructor
-    , mkListInstanceProfilesResponse
+    , listInstanceProfilesResponse
     -- ** Response lenses
     , liprInstanceProfiles
     , liprIsTruncated
@@ -71,8 +71,8 @@ data ListInstanceProfiles = ListInstanceProfiles
 --
 -- * @MaxItems ::@ @Maybe Integer@
 --
-mkListInstanceProfiles :: ListInstanceProfiles
-mkListInstanceProfiles = ListInstanceProfiles
+listInstanceProfiles :: ListInstanceProfiles
+listInstanceProfiles = ListInstanceProfiles
     { _lipPathPrefix = Nothing
     , _lipMarker = Nothing
     , _lipMaxItems = Nothing
@@ -125,10 +125,10 @@ data ListInstanceProfilesResponse = ListInstanceProfilesResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListInstanceProfilesResponse :: [InstanceProfile] -- ^ 'liprInstanceProfiles'
+listInstanceProfilesResponse :: [InstanceProfile] -- ^ 'liprInstanceProfiles'
                                -> Bool -- ^ 'liprIsTruncated'
                                -> ListInstanceProfilesResponse
-mkListInstanceProfilesResponse p1 p2 = ListInstanceProfilesResponse
+listInstanceProfilesResponse p1 p2 = ListInstanceProfilesResponse
     { _liprInstanceProfiles = p1
     , _liprIsTruncated = p2
     , _liprMarker = Nothing

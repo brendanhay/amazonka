@@ -248,78 +248,78 @@ module Network.AWS.EC2.Types
 
     -- * AccountAttributeValue
     , AccountAttributeValue
-    , mkAccountAttributeValue
+    , accountAttributeValue
     , aavAttributeValue
 
     -- * AttributeBooleanValue
     , AttributeBooleanValue
-    , mkAttributeBooleanValue
+    , attributeBooleanValue
     , abvValue
 
     -- * AttributeValue
     , AttributeValue
-    , mkAttributeValue
+    , attributeValue
     , av1Value
 
     -- * AvailabilityZoneMessage
     , AvailabilityZoneMessage
-    , mkAvailabilityZoneMessage
+    , availabilityZoneMessage
     , azmMessage
 
     -- * IpRange
     , IpRange
-    , mkIpRange
+    , ipRange
     , irCidrIp
 
     -- * Monitoring
     , Monitoring
-    , mkMonitoring
+    , monitoring
     , mState
 
     -- * PropagatingVgw
     , PropagatingVgw
-    , mkPropagatingVgw
+    , propagatingVgw
     , pvGatewayId
 
     -- * ReservedInstancesId
     , ReservedInstancesId
-    , mkReservedInstancesId
+    , reservedInstancesId
     , riiReservedInstancesId
 
     -- * RunInstancesMonitoringEnabled
     , RunInstancesMonitoringEnabled
-    , mkRunInstancesMonitoringEnabled
+    , runInstancesMonitoringEnabled
     , rimeEnabled
 
     -- * Storage
     , Storage
-    , mkStorage
+    , storage
     , sS3
 
     -- * VolumeDetail
     , VolumeDetail
-    , mkVolumeDetail
+    , volumeDetail
     , vdSize
 
     -- * VpnConnectionOptions
     , VpnConnectionOptions
-    , mkVpnConnectionOptions
+    , vpnConnectionOptions
     , vcoStaticRoutesOnly
 
     -- * VpnConnectionOptionsSpecification
     , VpnConnectionOptionsSpecification
-    , mkVpnConnectionOptionsSpecification
+    , vpnConnectionOptionsSpecification
     , vcosStaticRoutesOnly
 
     -- * AccountAttribute
     , AccountAttribute
-    , mkAccountAttribute
+    , accountAttribute
     , aa1rAttributeName
     , aa1rAttributeValues
 
     -- * Address
     , Address
-    , mkAddress
+    , address
     , aInstanceId
     , aPublicIp
     , aAllocationId
@@ -331,7 +331,7 @@ module Network.AWS.EC2.Types
 
     -- * AvailabilityZone
     , AvailabilityZone
-    , mkAvailabilityZone
+    , availabilityZone
     , azZoneName
     , azState
     , azRegionName
@@ -339,7 +339,7 @@ module Network.AWS.EC2.Types
 
     -- * BlockDeviceMapping
     , BlockDeviceMapping
-    , mkBlockDeviceMapping
+    , blockDeviceMapping
     , bdmVirtualName
     , bdmDeviceName
     , bdmEbs
@@ -347,7 +347,7 @@ module Network.AWS.EC2.Types
 
     -- * BundleTask
     , BundleTask
-    , mkBundleTask
+    , bundleTask
     , btInstanceId
     , btBundleId
     , btState
@@ -359,19 +359,19 @@ module Network.AWS.EC2.Types
 
     -- * BundleTaskError
     , BundleTaskError
-    , mkBundleTaskError
+    , bundleTaskError
     , bteCode
     , bteMessage
 
     -- * CancelledSpotInstanceRequest
     , CancelledSpotInstanceRequest
-    , mkCancelledSpotInstanceRequest
+    , cancelledSpotInstanceRequest
     , csir1SpotInstanceRequestId
     , csir1State
 
     -- * ConversionTask
     , ConversionTask
-    , mkConversionTask
+    , conversionTask
     , ctrConversionTaskId
     , ctrExpirationTime
     , ctrImportInstance
@@ -382,19 +382,19 @@ module Network.AWS.EC2.Types
 
     -- * CreateVolumePermission
     , CreateVolumePermission
-    , mkCreateVolumePermission
+    , createVolumePermission
     , cvpUserId
     , cvpGroup
 
     -- * CreateVolumePermissionModifications
     , CreateVolumePermissionModifications
-    , mkCreateVolumePermissionModifications
+    , createVolumePermissionModifications
     , cvpmAdd
     , cvpmRemove
 
     -- * CustomerGateway
     , CustomerGateway
-    , mkCustomerGateway
+    , customerGateway
     , cgCustomerGatewayId
     , cgState
     , cgType
@@ -404,27 +404,27 @@ module Network.AWS.EC2.Types
 
     -- * DhcpConfiguration
     , DhcpConfiguration
-    , mkDhcpConfiguration
+    , dhcpConfiguration
     , dcKey
     , dcValues
 
     -- * DhcpOptions
     , DhcpOptions
-    , mkDhcpOptions
+    , dhcpOptions
     , doDhcpOptionsId
     , doDhcpConfigurations
     , doTags
 
     -- * DiskImage
     , DiskImage
-    , mkDiskImage
+    , diskImage
     , di3Image
     , di3Description
     , di3Volume
 
     -- * DiskImageDescription
     , DiskImageDescription
-    , mkDiskImageDescription
+    , diskImageDescription
     , didFormat
     , didSize
     , didImportManifestUrl
@@ -432,20 +432,20 @@ module Network.AWS.EC2.Types
 
     -- * DiskImageDetail
     , DiskImageDetail
-    , mkDiskImageDetail
+    , diskImageDetail
     , did1Format
     , did1Bytes
     , did1ImportManifestUrl
 
     -- * DiskImageVolumeDescription
     , DiskImageVolumeDescription
-    , mkDiskImageVolumeDescription
+    , diskImageVolumeDescription
     , divdSize
     , divdId
 
     -- * EbsBlockDevice
     , EbsBlockDevice
-    , mkEbsBlockDevice
+    , ebsBlockDevice
     , ebdSnapshotId
     , ebdVolumeSize
     , ebdDeleteOnTermination
@@ -455,7 +455,7 @@ module Network.AWS.EC2.Types
 
     -- * EbsInstanceBlockDevice
     , EbsInstanceBlockDevice
-    , mkEbsInstanceBlockDevice
+    , ebsInstanceBlockDevice
     , eibdVolumeId
     , eibdStatus
     , eibdAttachTime
@@ -463,13 +463,13 @@ module Network.AWS.EC2.Types
 
     -- * EbsInstanceBlockDeviceSpecification
     , EbsInstanceBlockDeviceSpecification
-    , mkEbsInstanceBlockDeviceSpecification
+    , ebsInstanceBlockDeviceSpecification
     , eibdsVolumeId
     , eibdsDeleteOnTermination
 
     -- * ExportTask
     , ExportTask
-    , mkExportTask
+    , exportTask
     , etExportTaskId
     , etDescription
     , etState
@@ -479,7 +479,7 @@ module Network.AWS.EC2.Types
 
     -- * ExportToS3Task
     , ExportToS3Task
-    , mkExportToS3Task
+    , exportToS3Task
     , etstDiskImageFormat
     , etstContainerFormat
     , etstS3Bucket
@@ -487,7 +487,7 @@ module Network.AWS.EC2.Types
 
     -- * ExportToS3TaskSpecification
     , ExportToS3TaskSpecification
-    , mkExportToS3TaskSpecification
+    , exportToS3TaskSpecification
     , etstsDiskImageFormat
     , etstsContainerFormat
     , etstsS3Bucket
@@ -495,37 +495,37 @@ module Network.AWS.EC2.Types
 
     -- * Filter
     , Filter
-    , mkFilter
+    , filter
     , fName
     , fValues
 
     -- * GroupIdentifier
     , GroupIdentifier
-    , mkGroupIdentifier
+    , groupIdentifier
     , giGroupName
     , giGroupId
 
     -- * IamInstanceProfile
     , IamInstanceProfile
-    , mkIamInstanceProfile
+    , iamInstanceProfile
     , iipArn
     , iipId
 
     -- * IamInstanceProfileSpecification
     , IamInstanceProfileSpecification
-    , mkIamInstanceProfileSpecification
+    , iamInstanceProfileSpecification
     , iipsArn
     , iipsName
 
     -- * IcmpTypeCode
     , IcmpTypeCode
-    , mkIcmpTypeCode
+    , icmpTypeCode
     , itcType
     , itcCode
 
     -- * Image
     , Image
-    , mkImage
+    , image
     , iImageId
     , iImageLocation
     , iState
@@ -551,7 +551,7 @@ module Network.AWS.EC2.Types
 
     -- * ImportInstanceLaunchSpecification
     , ImportInstanceLaunchSpecification
-    , mkImportInstanceLaunchSpecification
+    , importInstanceLaunchSpecification
     , iilsArchitecture
     , iilsGroupNames
     , iilsAdditionalInfo
@@ -565,7 +565,7 @@ module Network.AWS.EC2.Types
 
     -- * ImportInstanceTaskDetails
     , ImportInstanceTaskDetails
-    , mkImportInstanceTaskDetails
+    , importInstanceTaskDetails
     , iitdVolumes
     , iitdInstanceId
     , iitdPlatform
@@ -573,7 +573,7 @@ module Network.AWS.EC2.Types
 
     -- * ImportInstanceVolumeDetailItem
     , ImportInstanceVolumeDetailItem
-    , mkImportInstanceVolumeDetailItem
+    , importInstanceVolumeDetailItem
     , iivdiBytesConverted
     , iivdiAvailabilityZone
     , iivdiImage
@@ -584,7 +584,7 @@ module Network.AWS.EC2.Types
 
     -- * ImportVolumeTaskDetails
     , ImportVolumeTaskDetails
-    , mkImportVolumeTaskDetails
+    , importVolumeTaskDetails
     , ivtdBytesConverted
     , ivtdAvailabilityZone
     , ivtdDescription
@@ -593,7 +593,7 @@ module Network.AWS.EC2.Types
 
     -- * Instance
     , Instance
-    , mkInstance
+    , instance
     , i1InstanceId
     , i1ImageId
     , i1State
@@ -634,13 +634,13 @@ module Network.AWS.EC2.Types
 
     -- * InstanceBlockDeviceMapping
     , InstanceBlockDeviceMapping
-    , mkInstanceBlockDeviceMapping
+    , instanceBlockDeviceMapping
     , ibdmDeviceName
     , ibdmEbs
 
     -- * InstanceBlockDeviceMappingSpecification
     , InstanceBlockDeviceMappingSpecification
-    , mkInstanceBlockDeviceMappingSpecification
+    , instanceBlockDeviceMappingSpecification
     , ibdmsDeviceName
     , ibdmsEbs
     , ibdmsVirtualName
@@ -648,25 +648,25 @@ module Network.AWS.EC2.Types
 
     -- * InstanceCount
     , InstanceCount
-    , mkInstanceCount
+    , instanceCount
     , icState
     , icInstanceCount
 
     -- * InstanceExportDetails
     , InstanceExportDetails
-    , mkInstanceExportDetails
+    , instanceExportDetails
     , iedInstanceId
     , iedTargetEnvironment
 
     -- * InstanceMonitoring
     , InstanceMonitoring
-    , mkInstanceMonitoring
+    , instanceMonitoring
     , imInstanceId
     , imMonitoring
 
     -- * InstanceNetworkInterface
     , InstanceNetworkInterface
-    , mkInstanceNetworkInterface
+    , instanceNetworkInterface
     , iniNetworkInterfaceId
     , iniSubnetId
     , iniVpcId
@@ -683,14 +683,14 @@ module Network.AWS.EC2.Types
 
     -- * InstanceNetworkInterfaceAssociation
     , InstanceNetworkInterfaceAssociation
-    , mkInstanceNetworkInterfaceAssociation
+    , instanceNetworkInterfaceAssociation
     , inia1PublicIp
     , inia1PublicDnsName
     , inia1IpOwnerId
 
     -- * InstanceNetworkInterfaceAttachment
     , InstanceNetworkInterfaceAttachment
-    , mkInstanceNetworkInterfaceAttachment
+    , instanceNetworkInterfaceAttachment
     , iniaAttachmentId
     , iniaDeviceIndex
     , iniaStatus
@@ -699,7 +699,7 @@ module Network.AWS.EC2.Types
 
     -- * InstanceNetworkInterfaceSpecification
     , InstanceNetworkInterfaceSpecification
-    , mkInstanceNetworkInterfaceSpecification
+    , instanceNetworkInterfaceSpecification
     , inisNetworkInterfaceId
     , inisDeviceIndex
     , inisSubnetId
@@ -713,7 +713,7 @@ module Network.AWS.EC2.Types
 
     -- * InstancePrivateIpAddress
     , InstancePrivateIpAddress
-    , mkInstancePrivateIpAddress
+    , instancePrivateIpAddress
     , ipiaPrivateIpAddress
     , ipiaPrivateDnsName
     , ipiaPrimary
@@ -721,20 +721,20 @@ module Network.AWS.EC2.Types
 
     -- * InstanceState
     , InstanceState
-    , mkInstanceState
+    , instanceState
     , is1Code
     , is1Name
 
     -- * InstanceStateChange
     , InstanceStateChange
-    , mkInstanceStateChange
+    , instanceStateChange
     , iscInstanceId
     , iscCurrentState
     , iscPreviousState
 
     -- * InstanceStatus
     , InstanceStatus
-    , mkInstanceStatus
+    , instanceStatus
     , isInstanceId
     , isAvailabilityZone
     , isEvents
@@ -744,14 +744,14 @@ module Network.AWS.EC2.Types
 
     -- * InstanceStatusDetails
     , InstanceStatusDetails
-    , mkInstanceStatusDetails
+    , instanceStatusDetails
     , isdName
     , isdStatus
     , isdImpairedSince
 
     -- * InstanceStatusEvent
     , InstanceStatusEvent
-    , mkInstanceStatusEvent
+    , instanceStatusEvent
     , iseCode
     , iseDescription
     , iseNotBefore
@@ -759,26 +759,26 @@ module Network.AWS.EC2.Types
 
     -- * InstanceStatusSummary
     , InstanceStatusSummary
-    , mkInstanceStatusSummary
+    , instanceStatusSummary
     , issStatus
     , issDetails
 
     -- * InternetGateway
     , InternetGateway
-    , mkInternetGateway
+    , internetGateway
     , igInternetGatewayId
     , igAttachments
     , igTags
 
     -- * InternetGatewayAttachment
     , InternetGatewayAttachment
-    , mkInternetGatewayAttachment
+    , internetGatewayAttachment
     , igaVpcId
     , igaState
 
     -- * IpPermission
     , IpPermission
-    , mkIpPermission
+    , ipPermission
     , ipIpProtocol
     , ipFromPort
     , ipToPort
@@ -787,25 +787,25 @@ module Network.AWS.EC2.Types
 
     -- * KeyPairInfo
     , KeyPairInfo
-    , mkKeyPairInfo
+    , keyPairInfo
     , kpiKeyName
     , kpiKeyFingerprint
 
     -- * LaunchPermission
     , LaunchPermission
-    , mkLaunchPermission
+    , launchPermission
     , lpUserId
     , lpGroup
 
     -- * LaunchPermissionModifications
     , LaunchPermissionModifications
-    , mkLaunchPermissionModifications
+    , launchPermissionModifications
     , lpmAdd
     , lpmRemove
 
     -- * LaunchSpecification
     , LaunchSpecification
-    , mkLaunchSpecification
+    , launchSpecification
     , lsImageId
     , lsKeyName
     , lsSecurityGroups
@@ -824,7 +824,7 @@ module Network.AWS.EC2.Types
 
     -- * NetworkAcl
     , NetworkAcl
-    , mkNetworkAcl
+    , networkAcl
     , naNetworkAclId
     , naVpcId
     , naIsDefault
@@ -834,14 +834,14 @@ module Network.AWS.EC2.Types
 
     -- * NetworkAclAssociation
     , NetworkAclAssociation
-    , mkNetworkAclAssociation
+    , networkAclAssociation
     , naaNetworkAclAssociationId
     , naaNetworkAclId
     , naaSubnetId
 
     -- * NetworkAclEntry
     , NetworkAclEntry
-    , mkNetworkAclEntry
+    , networkAclEntry
     , naeRuleNumber
     , naeProtocol
     , naeRuleAction
@@ -852,7 +852,7 @@ module Network.AWS.EC2.Types
 
     -- * NetworkInterface
     , NetworkInterface
-    , mkNetworkInterface
+    , networkInterface
     , niNetworkInterfaceId
     , niSubnetId
     , niVpcId
@@ -874,7 +874,7 @@ module Network.AWS.EC2.Types
 
     -- * NetworkInterfaceAssociation
     , NetworkInterfaceAssociation
-    , mkNetworkInterfaceAssociation
+    , networkInterfaceAssociation
     , niarPublicIp
     , niarPublicDnsName
     , niarIpOwnerId
@@ -883,7 +883,7 @@ module Network.AWS.EC2.Types
 
     -- * NetworkInterfaceAttachment
     , NetworkInterfaceAttachment
-    , mkNetworkInterfaceAttachment
+    , networkInterfaceAttachment
     , niaAttachmentId
     , niaInstanceId
     , niaInstanceOwnerId
@@ -894,13 +894,13 @@ module Network.AWS.EC2.Types
 
     -- * NetworkInterfaceAttachmentChanges
     , NetworkInterfaceAttachmentChanges
-    , mkNetworkInterfaceAttachmentChanges
+    , networkInterfaceAttachmentChanges
     , niacAttachmentId
     , niacDeleteOnTermination
 
     -- * NetworkInterfacePrivateIpAddress
     , NetworkInterfacePrivateIpAddress
-    , mkNetworkInterfacePrivateIpAddress
+    , networkInterfacePrivateIpAddress
     , nipiaPrivateIpAddress
     , nipiaPrivateDnsName
     , nipiaPrimary
@@ -908,27 +908,27 @@ module Network.AWS.EC2.Types
 
     -- * Placement
     , Placement
-    , mkPlacement
+    , placement
     , pAvailabilityZone
     , pGroupName
     , pTenancy
 
     -- * PlacementGroup
     , PlacementGroup
-    , mkPlacementGroup
+    , placementGroup
     , pgGroupName
     , pgStrategy
     , pgState
 
     -- * PortRange
     , PortRange
-    , mkPortRange
+    , portRange
     , prFrom
     , prTo
 
     -- * PriceSchedule
     , PriceSchedule
-    , mkPriceSchedule
+    , priceSchedule
     , psTerm
     , psPrice
     , psCurrencyCode
@@ -936,44 +936,44 @@ module Network.AWS.EC2.Types
 
     -- * PriceScheduleSpecification
     , PriceScheduleSpecification
-    , mkPriceScheduleSpecification
+    , priceScheduleSpecification
     , pssTerm
     , pssPrice
     , pssCurrencyCode
 
     -- * PricingDetail
     , PricingDetail
-    , mkPricingDetail
+    , pricingDetail
     , pdPrice
     , pdCount
 
     -- * PrivateIpAddressSpecification
     , PrivateIpAddressSpecification
-    , mkPrivateIpAddressSpecification
+    , privateIpAddressSpecification
     , piasPrivateIpAddress
     , piasPrimary
 
     -- * ProductCode
     , ProductCode
-    , mkProductCode
+    , productCode
     , pcProductCodeId
     , pcProductCodeType
 
     -- * RecurringCharge
     , RecurringCharge
-    , mkRecurringCharge
+    , recurringCharge
     , rcFrequency
     , rcAmount
 
     -- * Region
     , Region
-    , mkRegion
+    , region
     , r1RegionName
     , r1Endpoint
 
     -- * Reservation
     , Reservation
-    , mkReservation
+    , reservation
     , rrReservationId
     , rrOwnerId
     , rrRequesterId
@@ -982,13 +982,13 @@ module Network.AWS.EC2.Types
 
     -- * ReservedInstanceLimitPrice
     , ReservedInstanceLimitPrice
-    , mkReservedInstanceLimitPrice
+    , reservedInstanceLimitPrice
     , rilpAmount
     , rilpCurrencyCode
 
     -- * ReservedInstances
     , ReservedInstances
-    , mkReservedInstances
+    , reservedInstances
     , riReservedInstancesId
     , riInstanceType
     , riAvailabilityZone
@@ -1008,7 +1008,7 @@ module Network.AWS.EC2.Types
 
     -- * ReservedInstancesConfiguration
     , ReservedInstancesConfiguration
-    , mkReservedInstancesConfiguration
+    , reservedInstancesConfiguration
     , ricAvailabilityZone
     , ricPlatform
     , ricInstanceCount
@@ -1016,7 +1016,7 @@ module Network.AWS.EC2.Types
 
     -- * ReservedInstancesListing
     , ReservedInstancesListing
-    , mkReservedInstancesListing
+    , reservedInstancesListing
     , rilReservedInstancesListingId
     , rilReservedInstancesId
     , rilCreateDate
@@ -1030,7 +1030,7 @@ module Network.AWS.EC2.Types
 
     -- * ReservedInstancesModification
     , ReservedInstancesModification
-    , mkReservedInstancesModification
+    , reservedInstancesModification
     , rimReservedInstancesModificationId
     , rimReservedInstancesIds
     , rimModificationResults
@@ -1043,13 +1043,13 @@ module Network.AWS.EC2.Types
 
     -- * ReservedInstancesModificationResult
     , ReservedInstancesModificationResult
-    , mkReservedInstancesModificationResult
+    , reservedInstancesModificationResult
     , rimrReservedInstancesId
     , rimrTargetConfiguration
 
     -- * ReservedInstancesOffering
     , ReservedInstancesOffering
-    , mkReservedInstancesOffering
+    , reservedInstancesOffering
     , rioReservedInstancesOfferingId
     , rioInstanceType
     , rioAvailabilityZone
@@ -1066,7 +1066,7 @@ module Network.AWS.EC2.Types
 
     -- * Route
     , Route
-    , mkRoute
+    , route
     , rDestinationCidrBlock
     , rGatewayId
     , rInstanceId
@@ -1078,7 +1078,7 @@ module Network.AWS.EC2.Types
 
     -- * RouteTable
     , RouteTable
-    , mkRouteTable
+    , routeTable
     , rtRouteTableId
     , rtVpcId
     , rtRoutes
@@ -1088,7 +1088,7 @@ module Network.AWS.EC2.Types
 
     -- * RouteTableAssociation
     , RouteTableAssociation
-    , mkRouteTableAssociation
+    , routeTableAssociation
     , rtaRouteTableAssociationId
     , rtaRouteTableId
     , rtaSubnetId
@@ -1096,7 +1096,7 @@ module Network.AWS.EC2.Types
 
     -- * S3Storage
     , S3Storage
-    , mkS3Storage
+    , s3Storage
     , ssBucket
     , ssPrefix
     , ssAWSAccessKeyId
@@ -1105,7 +1105,7 @@ module Network.AWS.EC2.Types
 
     -- * SecurityGroup
     , SecurityGroup
-    , mkSecurityGroup
+    , securityGroup
     , sgOwnerId
     , sgGroupName
     , sgGroupId
@@ -1117,7 +1117,7 @@ module Network.AWS.EC2.Types
 
     -- * Snapshot
     , Snapshot
-    , mkSnapshot
+    , snapshot
     , s1SnapshotId
     , s1VolumeId
     , s1State
@@ -1132,7 +1132,7 @@ module Network.AWS.EC2.Types
 
     -- * SpotDatafeedSubscription
     , SpotDatafeedSubscription
-    , mkSpotDatafeedSubscription
+    , spotDatafeedSubscription
     , sdsOwnerId
     , sdsBucket
     , sdsPrefix
@@ -1141,7 +1141,7 @@ module Network.AWS.EC2.Types
 
     -- * SpotInstanceRequest
     , SpotInstanceRequest
-    , mkSpotInstanceRequest
+    , spotInstanceRequest
     , sirSpotInstanceRequestId
     , sirSpotPrice
     , sirType
@@ -1161,26 +1161,26 @@ module Network.AWS.EC2.Types
 
     -- * SpotInstanceStateFault
     , SpotInstanceStateFault
-    , mkSpotInstanceStateFault
+    , spotInstanceStateFault
     , sisfCode
     , sisfMessage
 
     -- * SpotInstanceStatus
     , SpotInstanceStatus
-    , mkSpotInstanceStatus
+    , spotInstanceStatus
     , sisCode
     , sisUpdateTime
     , sisMessage
 
     -- * SpotPlacement
     , SpotPlacement
-    , mkSpotPlacement
+    , spotPlacement
     , spAvailabilityZone
     , spGroupName
 
     -- * SpotPrice
     , SpotPrice
-    , mkSpotPrice
+    , spotPrice
     , sprInstanceType
     , sprProductDescription
     , sprSpotPrice
@@ -1189,13 +1189,13 @@ module Network.AWS.EC2.Types
 
     -- * StateReason
     , StateReason
-    , mkStateReason
+    , stateReason
     , sr1Code
     , sr1Message
 
     -- * Subnet
     , Subnet
-    , mkSubnet
+    , subnet
     , srSubnetId
     , srState
     , srVpcId
@@ -1208,13 +1208,13 @@ module Network.AWS.EC2.Types
 
     -- * Tag
     , Tag
-    , mkTag
+    , tag
     , tKey
     , tValue
 
     -- * TagDescription
     , TagDescription
-    , mkTagDescription
+    , tagDescription
     , tdResourceId
     , tdResourceType
     , tdKey
@@ -1222,14 +1222,14 @@ module Network.AWS.EC2.Types
 
     -- * UserIdGroupPair
     , UserIdGroupPair
-    , mkUserIdGroupPair
+    , userIdGroupPair
     , uigpUserId
     , uigpGroupName
     , uigpGroupId
 
     -- * VgwTelemetry
     , VgwTelemetry
-    , mkVgwTelemetry
+    , vgwTelemetry
     , vtOutsideIpAddress
     , vtStatus
     , vtLastStatusChange
@@ -1238,7 +1238,7 @@ module Network.AWS.EC2.Types
 
     -- * Volume
     , Volume
-    , mkVolume
+    , volume
     , vrVolumeId
     , vrSize
     , vrSnapshotId
@@ -1253,7 +1253,7 @@ module Network.AWS.EC2.Types
 
     -- * VolumeAttachment
     , VolumeAttachment
-    , mkVolumeAttachment
+    , volumeAttachment
     , varVolumeId
     , varInstanceId
     , varDevice
@@ -1263,7 +1263,7 @@ module Network.AWS.EC2.Types
 
     -- * VolumeStatusAction
     , VolumeStatusAction
-    , mkVolumeStatusAction
+    , volumeStatusAction
     , vsaCode
     , vsaDescription
     , vsaEventType
@@ -1271,13 +1271,13 @@ module Network.AWS.EC2.Types
 
     -- * VolumeStatusDetails
     , VolumeStatusDetails
-    , mkVolumeStatusDetails
+    , volumeStatusDetails
     , vsdName
     , vsdStatus
 
     -- * VolumeStatusEvent
     , VolumeStatusEvent
-    , mkVolumeStatusEvent
+    , volumeStatusEvent
     , vseEventType
     , vseDescription
     , vseNotBefore
@@ -1286,13 +1286,13 @@ module Network.AWS.EC2.Types
 
     -- * VolumeStatusInfo
     , VolumeStatusInfo
-    , mkVolumeStatusInfo
+    , volumeStatusInfo
     , vsi1Status
     , vsi1Details
 
     -- * VolumeStatusItem
     , VolumeStatusItem
-    , mkVolumeStatusItem
+    , volumeStatusItem
     , vsiVolumeId
     , vsiAvailabilityZone
     , vsiVolumeStatus
@@ -1301,7 +1301,7 @@ module Network.AWS.EC2.Types
 
     -- * Vpc
     , Vpc
-    , mkVpc
+    , vpc
     , vVpcId
     , vState
     , vCidrBlock
@@ -1312,13 +1312,13 @@ module Network.AWS.EC2.Types
 
     -- * VpcAttachment
     , VpcAttachment
-    , mkVpcAttachment
+    , vpcAttachment
     , vaVpcId
     , vaState
 
     -- * VpcPeeringConnection
     , VpcPeeringConnection
-    , mkVpcPeeringConnection
+    , vpcPeeringConnection
     , vpcAccepterVpcInfo
     , vpcExpirationTime
     , vpcRequesterVpcInfo
@@ -1328,20 +1328,20 @@ module Network.AWS.EC2.Types
 
     -- * VpcPeeringConnectionStateReason
     , VpcPeeringConnectionStateReason
-    , mkVpcPeeringConnectionStateReason
+    , vpcPeeringConnectionStateReason
     , vpcsrCode
     , vpcsrMessage
 
     -- * VpcPeeringConnectionVpcInfo
     , VpcPeeringConnectionVpcInfo
-    , mkVpcPeeringConnectionVpcInfo
+    , vpcPeeringConnectionVpcInfo
     , vpcviCidrBlock
     , vpcviOwnerId
     , vpcviVpcId
 
     -- * VpnConnection
     , VpnConnection
-    , mkVpnConnection
+    , vpnConnection
     , vcVpnConnectionId
     , vcState
     , vcCustomerGatewayConfiguration
@@ -1355,7 +1355,7 @@ module Network.AWS.EC2.Types
 
     -- * VpnGateway
     , VpnGateway
-    , mkVpnGateway
+    , vpnGateway
     , vgVpnGatewayId
     , vgState
     , vgType
@@ -1365,7 +1365,7 @@ module Network.AWS.EC2.Types
 
     -- * VpnStaticRoute
     , VpnStaticRoute
-    , mkVpnStaticRoute
+    , vpnStaticRoute
     , vsrDestinationCidrBlock
     , vsrSource
     , vsrState
@@ -1396,8 +1396,8 @@ instance AWSService EC2 where
 -- service description where applicable.
 data EC2Error
     = EC2Client HttpException
-    | EC2Serializer Text
-    | EC2Service Text
+    | EC2Serializer String
+    | EC2Service String
     deriving (Show, Generic)
 
 instance AWSError EC2Error where
@@ -1419,7 +1419,7 @@ _EC2Client = prism'
         x -> Left x)
 
 -- | See: 'EC2Serializer'
-_EC2Serializer :: Prism' EC2Error Text
+_EC2Serializer :: Prism' EC2Error String
 _EC2Serializer = prism'
     EC2Serializer
     (\case
@@ -1427,7 +1427,7 @@ _EC2Serializer = prism'
         x -> Left x)
 
 -- | See: 'EC2Service'
-_EC2Service :: Prism' EC2Error Text
+_EC2Service :: Prism' EC2Error String
 _EC2Service = prism'
     EC2Service
     (\case
@@ -3391,8 +3391,8 @@ newtype AccountAttributeValue = AccountAttributeValue
 --
 -- * @AttributeValue ::@ @Maybe Text@
 --
-mkAccountAttributeValue :: AccountAttributeValue
-mkAccountAttributeValue = AccountAttributeValue
+accountAttributeValue :: AccountAttributeValue
+accountAttributeValue = AccountAttributeValue
     { _aavAttributeValue = Nothing
     }
 
@@ -3421,8 +3421,8 @@ newtype AttributeBooleanValue = AttributeBooleanValue
 --
 -- * @Value ::@ @Maybe Bool@
 --
-mkAttributeBooleanValue :: AttributeBooleanValue
-mkAttributeBooleanValue = AttributeBooleanValue
+attributeBooleanValue :: AttributeBooleanValue
+attributeBooleanValue = AttributeBooleanValue
     { _abvValue = Nothing
     }
 
@@ -3449,8 +3449,8 @@ newtype AttributeValue = AttributeValue
 --
 -- * @Value ::@ @Maybe Text@
 --
-mkAttributeValue :: AttributeValue
-mkAttributeValue = AttributeValue
+attributeValue :: AttributeValue
+attributeValue = AttributeValue
     { _av1Value = Nothing
     }
 
@@ -3477,8 +3477,8 @@ newtype AvailabilityZoneMessage = AvailabilityZoneMessage
 --
 -- * @Message ::@ @Maybe Text@
 --
-mkAvailabilityZoneMessage :: AvailabilityZoneMessage
-mkAvailabilityZoneMessage = AvailabilityZoneMessage
+availabilityZoneMessage :: AvailabilityZoneMessage
+availabilityZoneMessage = AvailabilityZoneMessage
     { _azmMessage = Nothing
     }
 
@@ -3505,9 +3505,9 @@ newtype IpRange = IpRange
 --
 -- * @CidrIp ::@ @Text@
 --
-mkIpRange :: Text -- ^ 'irCidrIp'
+ipRange :: Text -- ^ 'irCidrIp'
           -> IpRange
-mkIpRange p1 = IpRange
+ipRange p1 = IpRange
     { _irCidrIp = p1
     }
 
@@ -3535,8 +3535,8 @@ newtype Monitoring = Monitoring
 --
 -- * @State ::@ @Maybe MonitoringState@
 --
-mkMonitoring :: Monitoring
-mkMonitoring = Monitoring
+monitoring :: Monitoring
+monitoring = Monitoring
     { _mState = Nothing
     }
 
@@ -3563,8 +3563,8 @@ newtype PropagatingVgw = PropagatingVgw
 --
 -- * @GatewayId ::@ @Maybe Text@
 --
-mkPropagatingVgw :: PropagatingVgw
-mkPropagatingVgw = PropagatingVgw
+propagatingVgw :: PropagatingVgw
+propagatingVgw = PropagatingVgw
     { _pvGatewayId = Nothing
     }
 
@@ -3591,8 +3591,8 @@ newtype ReservedInstancesId = ReservedInstancesId
 --
 -- * @ReservedInstancesId ::@ @Maybe Text@
 --
-mkReservedInstancesId :: ReservedInstancesId
-mkReservedInstancesId = ReservedInstancesId
+reservedInstancesId :: ReservedInstancesId
+reservedInstancesId = ReservedInstancesId
     { _riiReservedInstancesId = Nothing
     }
 
@@ -3620,9 +3620,9 @@ newtype RunInstancesMonitoringEnabled = RunInstancesMonitoringEnabled
 --
 -- * @Enabled ::@ @Bool@
 --
-mkRunInstancesMonitoringEnabled :: Bool -- ^ 'rimeEnabled'
+runInstancesMonitoringEnabled :: Bool -- ^ 'rimeEnabled'
                                 -> RunInstancesMonitoringEnabled
-mkRunInstancesMonitoringEnabled p1 = RunInstancesMonitoringEnabled
+runInstancesMonitoringEnabled p1 = RunInstancesMonitoringEnabled
     { _rimeEnabled = p1
     }
 
@@ -3647,8 +3647,8 @@ newtype Storage = Storage
 --
 -- * @S3 ::@ @Maybe S3Storage@
 --
-mkStorage :: Storage
-mkStorage = Storage
+storage :: Storage
+storage = Storage
     { _sS3 = Nothing
     }
 
@@ -3674,9 +3674,9 @@ newtype VolumeDetail = VolumeDetail
 --
 -- * @Size ::@ @Integer@
 --
-mkVolumeDetail :: Integer -- ^ 'vdSize'
+volumeDetail :: Integer -- ^ 'vdSize'
                -> VolumeDetail
-mkVolumeDetail p1 = VolumeDetail
+volumeDetail p1 = VolumeDetail
     { _vdSize = p1
     }
 
@@ -3703,8 +3703,8 @@ newtype VpnConnectionOptions = VpnConnectionOptions
 --
 -- * @StaticRoutesOnly ::@ @Maybe Bool@
 --
-mkVpnConnectionOptions :: VpnConnectionOptions
-mkVpnConnectionOptions = VpnConnectionOptions
+vpnConnectionOptions :: VpnConnectionOptions
+vpnConnectionOptions = VpnConnectionOptions
     { _vcoStaticRoutesOnly = Nothing
     }
 
@@ -3735,8 +3735,8 @@ newtype VpnConnectionOptionsSpecification = VpnConnectionOptionsSpecification
 --
 -- * @StaticRoutesOnly ::@ @Maybe Bool@
 --
-mkVpnConnectionOptionsSpecification :: VpnConnectionOptionsSpecification
-mkVpnConnectionOptionsSpecification = VpnConnectionOptionsSpecification
+vpnConnectionOptionsSpecification :: VpnConnectionOptionsSpecification
+vpnConnectionOptionsSpecification = VpnConnectionOptionsSpecification
     { _vcosStaticRoutesOnly = Nothing
     }
 
@@ -3767,8 +3767,8 @@ data AccountAttribute = AccountAttribute
 --
 -- * @AttributeValues ::@ @[AccountAttributeValue]@
 --
-mkAccountAttribute :: AccountAttribute
-mkAccountAttribute = AccountAttribute
+accountAttribute :: AccountAttribute
+accountAttribute = AccountAttribute
     { _aa1rAttributeName = Nothing
     , _aa1rAttributeValues = mempty
     }
@@ -3823,8 +3823,8 @@ data Address = Address
 --
 -- * @PrivateIpAddress ::@ @Maybe Text@
 --
-mkAddress :: Address
-mkAddress = Address
+address :: Address
+address = Address
     { _aInstanceId = Nothing
     , _aPublicIp = Nothing
     , _aAllocationId = Nothing
@@ -3901,8 +3901,8 @@ data AvailabilityZone = AvailabilityZone
 --
 -- * @Messages ::@ @[AvailabilityZoneMessage]@
 --
-mkAvailabilityZone :: AvailabilityZone
-mkAvailabilityZone = AvailabilityZone
+availabilityZone :: AvailabilityZone
+availabilityZone = AvailabilityZone
     { _azZoneName = Nothing
     , _azState = Nothing
     , _azRegionName = Nothing
@@ -3950,9 +3950,9 @@ data BlockDeviceMapping = BlockDeviceMapping
 --
 -- * @NoDevice ::@ @Maybe Text@
 --
-mkBlockDeviceMapping :: Text -- ^ 'bdmDeviceName'
+blockDeviceMapping :: Text -- ^ 'bdmDeviceName'
                      -> BlockDeviceMapping
-mkBlockDeviceMapping p2 = BlockDeviceMapping
+blockDeviceMapping p2 = BlockDeviceMapping
     { _bdmVirtualName = Nothing
     , _bdmDeviceName = p2
     , _bdmEbs = Nothing
@@ -4020,8 +4020,8 @@ data BundleTask = BundleTask
 --
 -- * @BundleTaskError ::@ @Maybe BundleTaskError@
 --
-mkBundleTask :: BundleTask
-mkBundleTask = BundleTask
+bundleTask :: BundleTask
+bundleTask = BundleTask
     { _btInstanceId = Nothing
     , _btBundleId = Nothing
     , _btState = Nothing
@@ -4084,8 +4084,8 @@ data BundleTaskError = BundleTaskError
 --
 -- * @Message ::@ @Maybe Text@
 --
-mkBundleTaskError :: BundleTaskError
-mkBundleTaskError = BundleTaskError
+bundleTaskError :: BundleTaskError
+bundleTaskError = BundleTaskError
     { _bteCode = Nothing
     , _bteMessage = Nothing
     }
@@ -4123,8 +4123,8 @@ data CancelledSpotInstanceRequest = CancelledSpotInstanceRequest
 --
 -- * @State ::@ @Maybe CancelSpotInstanceRequestState@
 --
-mkCancelledSpotInstanceRequest :: CancelledSpotInstanceRequest
-mkCancelledSpotInstanceRequest = CancelledSpotInstanceRequest
+cancelledSpotInstanceRequest :: CancelledSpotInstanceRequest
+cancelledSpotInstanceRequest = CancelledSpotInstanceRequest
     { _csir1SpotInstanceRequestId = Nothing
     , _csir1State = Nothing
     }
@@ -4176,10 +4176,10 @@ data ConversionTask = ConversionTask
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkConversionTask :: Text -- ^ 'ctrConversionTaskId'
+conversionTask :: Text -- ^ 'ctrConversionTaskId'
                  -> ConversionTaskState -- ^ 'ctrState'
                  -> ConversionTask
-mkConversionTask p1 p5 = ConversionTask
+conversionTask p1 p5 = ConversionTask
     { _ctrConversionTaskId = p1
     , _ctrExpirationTime = Nothing
     , _ctrImportInstance = Nothing
@@ -4242,8 +4242,8 @@ data CreateVolumePermission = CreateVolumePermission
 --
 -- * @Group ::@ @Maybe PermissionGroup@
 --
-mkCreateVolumePermission :: CreateVolumePermission
-mkCreateVolumePermission = CreateVolumePermission
+createVolumePermission :: CreateVolumePermission
+createVolumePermission = CreateVolumePermission
     { _cvpUserId = Nothing
     , _cvpGroup = Nothing
     }
@@ -4280,8 +4280,8 @@ data CreateVolumePermissionModifications = CreateVolumePermissionModifications
 --
 -- * @Remove ::@ @[CreateVolumePermission]@
 --
-mkCreateVolumePermissionModifications :: CreateVolumePermissionModifications
-mkCreateVolumePermissionModifications = CreateVolumePermissionModifications
+createVolumePermissionModifications :: CreateVolumePermissionModifications
+createVolumePermissionModifications = CreateVolumePermissionModifications
     { _cvpmAdd = mempty
     , _cvpmRemove = mempty
     }
@@ -4329,8 +4329,8 @@ data CustomerGateway = CustomerGateway
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkCustomerGateway :: CustomerGateway
-mkCustomerGateway = CustomerGateway
+customerGateway :: CustomerGateway
+customerGateway = CustomerGateway
     { _cgCustomerGatewayId = Nothing
     , _cgState = Nothing
     , _cgType = Nothing
@@ -4385,8 +4385,8 @@ data DhcpConfiguration = DhcpConfiguration
 --
 -- * @Values ::@ @[Text]@
 --
-mkDhcpConfiguration :: DhcpConfiguration
-mkDhcpConfiguration = DhcpConfiguration
+dhcpConfiguration :: DhcpConfiguration
+dhcpConfiguration = DhcpConfiguration
     { _dcKey = Nothing
     , _dcValues = mempty
     }
@@ -4427,8 +4427,8 @@ data DhcpOptions = DhcpOptions
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkDhcpOptions :: DhcpOptions
-mkDhcpOptions = DhcpOptions
+dhcpOptions :: DhcpOptions
+dhcpOptions = DhcpOptions
     { _doDhcpOptionsId = Nothing
     , _doDhcpConfigurations = mempty
     , _doTags = mempty
@@ -4469,8 +4469,8 @@ data DiskImage = DiskImage
 --
 -- * @Volume ::@ @Maybe VolumeDetail@
 --
-mkDiskImage :: DiskImage
-mkDiskImage = DiskImage
+diskImage :: DiskImage
+diskImage = DiskImage
     { _di3Image = Nothing
     , _di3Description = Nothing
     , _di3Volume = Nothing
@@ -4512,11 +4512,11 @@ data DiskImageDescription = DiskImageDescription
 --
 -- * @Checksum ::@ @Maybe Text@
 --
-mkDiskImageDescription :: DiskImageFormat -- ^ 'didFormat'
+diskImageDescription :: DiskImageFormat -- ^ 'didFormat'
                        -> Integer -- ^ 'didSize'
                        -> Text -- ^ 'didImportManifestUrl'
                        -> DiskImageDescription
-mkDiskImageDescription p1 p2 p3 = DiskImageDescription
+diskImageDescription p1 p2 p3 = DiskImageDescription
     { _didFormat = p1
     , _didSize = p2
     , _didImportManifestUrl = p3
@@ -4568,11 +4568,11 @@ data DiskImageDetail = DiskImageDetail
 --
 -- * @ImportManifestUrl ::@ @Text@
 --
-mkDiskImageDetail :: DiskImageFormat -- ^ 'did1Format'
+diskImageDetail :: DiskImageFormat -- ^ 'did1Format'
                   -> Integer -- ^ 'did1Bytes'
                   -> Text -- ^ 'did1ImportManifestUrl'
                   -> DiskImageDetail
-mkDiskImageDetail p1 p2 p3 = DiskImageDetail
+diskImageDetail p1 p2 p3 = DiskImageDetail
     { _did1Format = p1
     , _did1Bytes = p2
     , _did1ImportManifestUrl = p3
@@ -4617,9 +4617,9 @@ data DiskImageVolumeDescription = DiskImageVolumeDescription
 --
 -- * @Id ::@ @Text@
 --
-mkDiskImageVolumeDescription :: Text -- ^ 'divdId'
+diskImageVolumeDescription :: Text -- ^ 'divdId'
                              -> DiskImageVolumeDescription
-mkDiskImageVolumeDescription p2 = DiskImageVolumeDescription
+diskImageVolumeDescription p2 = DiskImageVolumeDescription
     { _divdSize = Nothing
     , _divdId = p2
     }
@@ -4667,8 +4667,8 @@ data EbsBlockDevice = EbsBlockDevice
 --
 -- * @Encrypted ::@ @Maybe Bool@
 --
-mkEbsBlockDevice :: EbsBlockDevice
-mkEbsBlockDevice = EbsBlockDevice
+ebsBlockDevice :: EbsBlockDevice
+ebsBlockDevice = EbsBlockDevice
     { _ebdSnapshotId = Nothing
     , _ebdVolumeSize = Nothing
     , _ebdDeleteOnTermination = Nothing
@@ -4746,8 +4746,8 @@ data EbsInstanceBlockDevice = EbsInstanceBlockDevice
 --
 -- * @DeleteOnTermination ::@ @Maybe Bool@
 --
-mkEbsInstanceBlockDevice :: EbsInstanceBlockDevice
-mkEbsInstanceBlockDevice = EbsInstanceBlockDevice
+ebsInstanceBlockDevice :: EbsInstanceBlockDevice
+ebsInstanceBlockDevice = EbsInstanceBlockDevice
     { _eibdVolumeId = Nothing
     , _eibdStatus = Nothing
     , _eibdAttachTime = Nothing
@@ -4795,8 +4795,8 @@ data EbsInstanceBlockDeviceSpecification = EbsInstanceBlockDeviceSpecification
 --
 -- * @DeleteOnTermination ::@ @Maybe Bool@
 --
-mkEbsInstanceBlockDeviceSpecification :: EbsInstanceBlockDeviceSpecification
-mkEbsInstanceBlockDeviceSpecification = EbsInstanceBlockDeviceSpecification
+ebsInstanceBlockDeviceSpecification :: EbsInstanceBlockDeviceSpecification
+ebsInstanceBlockDeviceSpecification = EbsInstanceBlockDeviceSpecification
     { _eibdsVolumeId = Nothing
     , _eibdsDeleteOnTermination = Nothing
     }
@@ -4847,8 +4847,8 @@ data ExportTask = ExportTask
 --
 -- * @ExportToS3Task ::@ @Maybe ExportToS3Task@
 --
-mkExportTask :: ExportTask
-mkExportTask = ExportTask
+exportTask :: ExportTask
+exportTask = ExportTask
     { _etExportTaskId = Nothing
     , _etDescription = Nothing
     , _etState = Nothing
@@ -4908,8 +4908,8 @@ data ExportToS3Task = ExportToS3Task
 --
 -- * @S3Key ::@ @Maybe Text@
 --
-mkExportToS3Task :: ExportToS3Task
-mkExportToS3Task = ExportToS3Task
+exportToS3Task :: ExportToS3Task
+exportToS3Task = ExportToS3Task
     { _etstDiskImageFormat = Nothing
     , _etstContainerFormat = Nothing
     , _etstS3Bucket = Nothing
@@ -4964,8 +4964,8 @@ data ExportToS3TaskSpecification = ExportToS3TaskSpecification
 --
 -- * @S3Prefix ::@ @Maybe Text@
 --
-mkExportToS3TaskSpecification :: ExportToS3TaskSpecification
-mkExportToS3TaskSpecification = ExportToS3TaskSpecification
+exportToS3TaskSpecification :: ExportToS3TaskSpecification
+exportToS3TaskSpecification = ExportToS3TaskSpecification
     { _etstsDiskImageFormat = Nothing
     , _etstsContainerFormat = Nothing
     , _etstsS3Bucket = Nothing
@@ -5008,9 +5008,9 @@ data Filter = Filter
 --
 -- * @Values ::@ @[Text]@
 --
-mkFilter :: Text -- ^ 'fName'
+filter :: Text -- ^ 'fName'
          -> Filter
-mkFilter p1 = Filter
+filter p1 = Filter
     { _fName = p1
     , _fValues = mempty
     }
@@ -5041,8 +5041,8 @@ data GroupIdentifier = GroupIdentifier
 --
 -- * @GroupId ::@ @Maybe Text@
 --
-mkGroupIdentifier :: GroupIdentifier
-mkGroupIdentifier = GroupIdentifier
+groupIdentifier :: GroupIdentifier
+groupIdentifier = GroupIdentifier
     { _giGroupName = Nothing
     , _giGroupId = Nothing
     }
@@ -5077,8 +5077,8 @@ data IamInstanceProfile = IamInstanceProfile
 --
 -- * @Id ::@ @Maybe Text@
 --
-mkIamInstanceProfile :: IamInstanceProfile
-mkIamInstanceProfile = IamInstanceProfile
+iamInstanceProfile :: IamInstanceProfile
+iamInstanceProfile = IamInstanceProfile
     { _iipArn = Nothing
     , _iipId = Nothing
     }
@@ -5113,8 +5113,8 @@ data IamInstanceProfileSpecification = IamInstanceProfileSpecification
 --
 -- * @Name ::@ @Maybe Text@
 --
-mkIamInstanceProfileSpecification :: IamInstanceProfileSpecification
-mkIamInstanceProfileSpecification = IamInstanceProfileSpecification
+iamInstanceProfileSpecification :: IamInstanceProfileSpecification
+iamInstanceProfileSpecification = IamInstanceProfileSpecification
     { _iipsArn = Nothing
     , _iipsName = Nothing
     }
@@ -5149,8 +5149,8 @@ data IcmpTypeCode = IcmpTypeCode
 --
 -- * @Code ::@ @Maybe Integer@
 --
-mkIcmpTypeCode :: IcmpTypeCode
-mkIcmpTypeCode = IcmpTypeCode
+icmpTypeCode :: IcmpTypeCode
+icmpTypeCode = IcmpTypeCode
     { _itcType = Nothing
     , _itcCode = Nothing
     }
@@ -5248,7 +5248,7 @@ data Image = Image
 --
 -- * @Hypervisor ::@ @HypervisorType@
 --
-mkImage :: Text -- ^ 'iImageId'
+image :: Text -- ^ 'iImageId'
         -> Text -- ^ 'iName'
         -> DeviceType -- ^ 'iRootDeviceType'
         -> Text -- ^ 'iImageLocation'
@@ -5260,7 +5260,7 @@ mkImage :: Text -- ^ 'iImageId'
         -> ArchitectureValues -- ^ 'iArchitecture'
         -> ImageTypeValues -- ^ 'iImageType'
         -> Image
-mkImage p1 p15 p17 p2 p20 p22 p3 p4 p5 p7 p8 = Image
+image p1 p15 p17 p2 p20 p22 p3 p4 p5 p7 p8 = Image
     { _iImageId = p1
     , _iImageLocation = p2
     , _iState = p3
@@ -5427,8 +5427,8 @@ data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification
 --
 -- * @PrivateIpAddress ::@ @Maybe Text@
 --
-mkImportInstanceLaunchSpecification :: ImportInstanceLaunchSpecification
-mkImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification
+importInstanceLaunchSpecification :: ImportInstanceLaunchSpecification
+importInstanceLaunchSpecification = ImportInstanceLaunchSpecification
     { _iilsArchitecture = Nothing
     , _iilsGroupNames = mempty
     , _iilsAdditionalInfo = Nothing
@@ -5516,9 +5516,9 @@ data ImportInstanceTaskDetails = ImportInstanceTaskDetails
 --
 -- * @Description ::@ @Maybe Text@
 --
-mkImportInstanceTaskDetails :: [ImportInstanceVolumeDetailItem] -- ^ 'iitdVolumes'
+importInstanceTaskDetails :: [ImportInstanceVolumeDetailItem] -- ^ 'iitdVolumes'
                             -> ImportInstanceTaskDetails
-mkImportInstanceTaskDetails p1 = ImportInstanceTaskDetails
+importInstanceTaskDetails p1 = ImportInstanceTaskDetails
     { _iitdVolumes = p1
     , _iitdInstanceId = Nothing
     , _iitdPlatform = Nothing
@@ -5578,13 +5578,13 @@ data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem
 --
 -- * @Description ::@ @Maybe Text@
 --
-mkImportInstanceVolumeDetailItem :: Integer -- ^ 'iivdiBytesConverted'
+importInstanceVolumeDetailItem :: Integer -- ^ 'iivdiBytesConverted'
                                  -> Text -- ^ 'iivdiAvailabilityZone'
                                  -> DiskImageDescription -- ^ 'iivdiImage'
                                  -> DiskImageVolumeDescription -- ^ 'iivdiVolume'
                                  -> Text -- ^ 'iivdiStatus'
                                  -> ImportInstanceVolumeDetailItem
-mkImportInstanceVolumeDetailItem p1 p2 p3 p4 p5 = ImportInstanceVolumeDetailItem
+importInstanceVolumeDetailItem p1 p2 p3 p4 p5 = ImportInstanceVolumeDetailItem
     { _iivdiBytesConverted = p1
     , _iivdiAvailabilityZone = p2
     , _iivdiImage = p3
@@ -5658,12 +5658,12 @@ data ImportVolumeTaskDetails = ImportVolumeTaskDetails
 --
 -- * @Volume ::@ @DiskImageVolumeDescription@
 --
-mkImportVolumeTaskDetails :: Integer -- ^ 'ivtdBytesConverted'
+importVolumeTaskDetails :: Integer -- ^ 'ivtdBytesConverted'
                           -> Text -- ^ 'ivtdAvailabilityZone'
                           -> DiskImageDescription -- ^ 'ivtdImage'
                           -> DiskImageVolumeDescription -- ^ 'ivtdVolume'
                           -> ImportVolumeTaskDetails
-mkImportVolumeTaskDetails p1 p2 p4 p5 = ImportVolumeTaskDetails
+importVolumeTaskDetails p1 p2 p4 p5 = ImportVolumeTaskDetails
     { _ivtdBytesConverted = p1
     , _ivtdAvailabilityZone = p2
     , _ivtdDescription = Nothing
@@ -5820,8 +5820,8 @@ data Instance = Instance
 --
 -- * @SriovNetSupport ::@ @Maybe Text@
 --
-mkInstance :: Instance
-mkInstance = Instance
+instance :: Instance
+instance = Instance
     { _i1InstanceId = Nothing
     , _i1ImageId = Nothing
     , _i1State = Nothing
@@ -6065,8 +6065,8 @@ data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping
 --
 -- * @Ebs ::@ @Maybe EbsInstanceBlockDevice@
 --
-mkInstanceBlockDeviceMapping :: InstanceBlockDeviceMapping
-mkInstanceBlockDeviceMapping = InstanceBlockDeviceMapping
+instanceBlockDeviceMapping :: InstanceBlockDeviceMapping
+instanceBlockDeviceMapping = InstanceBlockDeviceMapping
     { _ibdmDeviceName = Nothing
     , _ibdmEbs = Nothing
     }
@@ -6108,8 +6108,8 @@ data InstanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecifi
 --
 -- * @NoDevice ::@ @Maybe Text@
 --
-mkInstanceBlockDeviceMappingSpecification :: InstanceBlockDeviceMappingSpecification
-mkInstanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecification
+instanceBlockDeviceMappingSpecification :: InstanceBlockDeviceMappingSpecification
+instanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecification
     { _ibdmsDeviceName = Nothing
     , _ibdmsEbs = Nothing
     , _ibdmsVirtualName = Nothing
@@ -6152,8 +6152,8 @@ data InstanceCount = InstanceCount
 --
 -- * @InstanceCount ::@ @Maybe Integer@
 --
-mkInstanceCount :: InstanceCount
-mkInstanceCount = InstanceCount
+instanceCount :: InstanceCount
+instanceCount = InstanceCount
     { _icState = Nothing
     , _icInstanceCount = Nothing
     }
@@ -6188,8 +6188,8 @@ data InstanceExportDetails = InstanceExportDetails
 --
 -- * @TargetEnvironment ::@ @Maybe ExportEnvironment@
 --
-mkInstanceExportDetails :: InstanceExportDetails
-mkInstanceExportDetails = InstanceExportDetails
+instanceExportDetails :: InstanceExportDetails
+instanceExportDetails = InstanceExportDetails
     { _iedInstanceId = Nothing
     , _iedTargetEnvironment = Nothing
     }
@@ -6228,8 +6228,8 @@ data InstanceMonitoring = InstanceMonitoring
 --
 -- * @Monitoring ::@ @Maybe Monitoring@
 --
-mkInstanceMonitoring :: InstanceMonitoring
-mkInstanceMonitoring = InstanceMonitoring
+instanceMonitoring :: InstanceMonitoring
+instanceMonitoring = InstanceMonitoring
     { _imInstanceId = Nothing
     , _imMonitoring = Nothing
     }
@@ -6294,8 +6294,8 @@ data InstanceNetworkInterface = InstanceNetworkInterface
 --
 -- * @PrivateIpAddresses ::@ @[InstancePrivateIpAddress]@
 --
-mkInstanceNetworkInterface :: InstanceNetworkInterface
-mkInstanceNetworkInterface = InstanceNetworkInterface
+instanceNetworkInterface :: InstanceNetworkInterface
+instanceNetworkInterface = InstanceNetworkInterface
     { _iniNetworkInterfaceId = Nothing
     , _iniSubnetId = Nothing
     , _iniVpcId = Nothing
@@ -6396,8 +6396,8 @@ data InstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation
 --
 -- * @IpOwnerId ::@ @Maybe Text@
 --
-mkInstanceNetworkInterfaceAssociation :: InstanceNetworkInterfaceAssociation
-mkInstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation
+instanceNetworkInterfaceAssociation :: InstanceNetworkInterfaceAssociation
+instanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation
     { _inia1PublicIp = Nothing
     , _inia1PublicDnsName = Nothing
     , _inia1IpOwnerId = Nothing
@@ -6447,8 +6447,8 @@ data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment
 --
 -- * @DeleteOnTermination ::@ @Maybe Bool@
 --
-mkInstanceNetworkInterfaceAttachment :: InstanceNetworkInterfaceAttachment
-mkInstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment
+instanceNetworkInterfaceAttachment :: InstanceNetworkInterfaceAttachment
+instanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment
     { _iniaAttachmentId = Nothing
     , _iniaDeviceIndex = Nothing
     , _iniaStatus = Nothing
@@ -6527,8 +6527,8 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
 --
 -- * @AssociatePublicIpAddress ::@ @Maybe Bool@
 --
-mkInstanceNetworkInterfaceSpecification :: InstanceNetworkInterfaceSpecification
-mkInstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecification
+instanceNetworkInterfaceSpecification :: InstanceNetworkInterfaceSpecification
+instanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecification
     { _inisNetworkInterfaceId = Nothing
     , _inisDeviceIndex = Nothing
     , _inisSubnetId = Nothing
@@ -6623,8 +6623,8 @@ data InstancePrivateIpAddress = InstancePrivateIpAddress
 --
 -- * @Association ::@ @Maybe InstanceNetworkInterfaceAssociation@
 --
-mkInstancePrivateIpAddress :: InstancePrivateIpAddress
-mkInstancePrivateIpAddress = InstancePrivateIpAddress
+instancePrivateIpAddress :: InstancePrivateIpAddress
+instancePrivateIpAddress = InstancePrivateIpAddress
     { _ipiaPrivateIpAddress = Nothing
     , _ipiaPrivateDnsName = Nothing
     , _ipiaPrimary = Nothing
@@ -6674,10 +6674,10 @@ data InstanceState = InstanceState
 --
 -- * @Name ::@ @InstanceStateName@
 --
-mkInstanceState :: Integer -- ^ 'is1Code'
+instanceState :: Integer -- ^ 'is1Code'
                 -> InstanceStateName -- ^ 'is1Name'
                 -> InstanceState
-mkInstanceState p1 p2 = InstanceState
+instanceState p1 p2 = InstanceState
     { _is1Code = p1
     , _is1Name = p2
     }
@@ -6720,8 +6720,8 @@ data InstanceStateChange = InstanceStateChange
 --
 -- * @PreviousState ::@ @Maybe InstanceState@
 --
-mkInstanceStateChange :: InstanceStateChange
-mkInstanceStateChange = InstanceStateChange
+instanceStateChange :: InstanceStateChange
+instanceStateChange = InstanceStateChange
     { _iscInstanceId = Nothing
     , _iscCurrentState = Nothing
     , _iscPreviousState = Nothing
@@ -6774,8 +6774,8 @@ data InstanceStatus = InstanceStatus
 --
 -- * @InstanceStatus ::@ @Maybe InstanceStatusSummary@
 --
-mkInstanceStatus :: InstanceStatus
-mkInstanceStatus = InstanceStatus
+instanceStatus :: InstanceStatus
+instanceStatus = InstanceStatus
     { _isInstanceId = Nothing
     , _isAvailabilityZone = Nothing
     , _isEvents = mempty
@@ -6836,8 +6836,8 @@ data InstanceStatusDetails = InstanceStatusDetails
 --
 -- * @ImpairedSince ::@ @Maybe ISO8601@
 --
-mkInstanceStatusDetails :: InstanceStatusDetails
-mkInstanceStatusDetails = InstanceStatusDetails
+instanceStatusDetails :: InstanceStatusDetails
+instanceStatusDetails = InstanceStatusDetails
     { _isdName = Nothing
     , _isdStatus = Nothing
     , _isdImpairedSince = Nothing
@@ -6885,8 +6885,8 @@ data InstanceStatusEvent = InstanceStatusEvent
 --
 -- * @NotAfter ::@ @Maybe ISO8601@
 --
-mkInstanceStatusEvent :: InstanceStatusEvent
-mkInstanceStatusEvent = InstanceStatusEvent
+instanceStatusEvent :: InstanceStatusEvent
+instanceStatusEvent = InstanceStatusEvent
     { _iseCode = Nothing
     , _iseDescription = Nothing
     , _iseNotBefore = Nothing
@@ -6933,8 +6933,8 @@ data InstanceStatusSummary = InstanceStatusSummary
 --
 -- * @Details ::@ @[InstanceStatusDetails]@
 --
-mkInstanceStatusSummary :: InstanceStatusSummary
-mkInstanceStatusSummary = InstanceStatusSummary
+instanceStatusSummary :: InstanceStatusSummary
+instanceStatusSummary = InstanceStatusSummary
     { _issStatus = Nothing
     , _issDetails = mempty
     }
@@ -6975,9 +6975,9 @@ data InternetGateway = InternetGateway
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkInternetGateway :: Text -- ^ 'igInternetGatewayId'
+internetGateway :: Text -- ^ 'igInternetGatewayId'
                   -> InternetGateway
-mkInternetGateway p1 = InternetGateway
+internetGateway p1 = InternetGateway
     { _igInternetGatewayId = p1
     , _igAttachments = mempty
     , _igTags = mempty
@@ -7015,10 +7015,10 @@ data InternetGatewayAttachment = InternetGatewayAttachment
 --
 -- * @State ::@ @AttachmentStatus@
 --
-mkInternetGatewayAttachment :: Text -- ^ 'igaVpcId'
+internetGatewayAttachment :: Text -- ^ 'igaVpcId'
                             -> AttachmentStatus -- ^ 'igaState'
                             -> InternetGatewayAttachment
-mkInternetGatewayAttachment p1 p2 = InternetGatewayAttachment
+internetGatewayAttachment p1 p2 = InternetGatewayAttachment
     { _igaVpcId = p1
     , _igaState = p2
     }
@@ -7062,11 +7062,11 @@ data IpPermission = IpPermission
 --
 -- * @IpRanges ::@ @[IpRange]@
 --
-mkIpPermission :: Text -- ^ 'ipIpProtocol'
+ipPermission :: Text -- ^ 'ipIpProtocol'
                -> Integer -- ^ 'ipFromPort'
                -> Integer -- ^ 'ipToPort'
                -> IpPermission
-mkIpPermission p1 p2 p3 = IpPermission
+ipPermission p1 p2 p3 = IpPermission
     { _ipIpProtocol = p1
     , _ipFromPort = p2
     , _ipToPort = p3
@@ -7125,8 +7125,8 @@ data KeyPairInfo = KeyPairInfo
 --
 -- * @KeyFingerprint ::@ @Maybe Text@
 --
-mkKeyPairInfo :: KeyPairInfo
-mkKeyPairInfo = KeyPairInfo
+keyPairInfo :: KeyPairInfo
+keyPairInfo = KeyPairInfo
     { _kpiKeyName = Nothing
     , _kpiKeyFingerprint = Nothing
     }
@@ -7162,8 +7162,8 @@ data LaunchPermission = LaunchPermission
 --
 -- * @Group ::@ @Maybe PermissionGroup@
 --
-mkLaunchPermission :: LaunchPermission
-mkLaunchPermission = LaunchPermission
+launchPermission :: LaunchPermission
+launchPermission = LaunchPermission
     { _lpUserId = Nothing
     , _lpGroup = Nothing
     }
@@ -7198,8 +7198,8 @@ data LaunchPermissionModifications = LaunchPermissionModifications
 --
 -- * @Remove ::@ @[LaunchPermission]@
 --
-mkLaunchPermissionModifications :: LaunchPermissionModifications
-mkLaunchPermissionModifications = LaunchPermissionModifications
+launchPermissionModifications :: LaunchPermissionModifications
+launchPermissionModifications = LaunchPermissionModifications
     { _lpmAdd = mempty
     , _lpmRemove = mempty
     }
@@ -7270,8 +7270,8 @@ data LaunchSpecification = LaunchSpecification
 --
 -- * @EbsOptimized ::@ @Maybe Bool@
 --
-mkLaunchSpecification :: LaunchSpecification
-mkLaunchSpecification = LaunchSpecification
+launchSpecification :: LaunchSpecification
+launchSpecification = LaunchSpecification
     { _lsImageId = Nothing
     , _lsKeyName = Nothing
     , _lsSecurityGroups = mempty
@@ -7396,8 +7396,8 @@ data NetworkAcl = NetworkAcl
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkNetworkAcl :: NetworkAcl
-mkNetworkAcl = NetworkAcl
+networkAcl :: NetworkAcl
+networkAcl = NetworkAcl
     { _naNetworkAclId = Nothing
     , _naVpcId = Nothing
     , _naIsDefault = Nothing
@@ -7452,8 +7452,8 @@ data NetworkAclAssociation = NetworkAclAssociation
 --
 -- * @SubnetId ::@ @Maybe Text@
 --
-mkNetworkAclAssociation :: NetworkAclAssociation
-mkNetworkAclAssociation = NetworkAclAssociation
+networkAclAssociation :: NetworkAclAssociation
+networkAclAssociation = NetworkAclAssociation
     { _naaNetworkAclAssociationId = Nothing
     , _naaNetworkAclId = Nothing
     , _naaSubnetId = Nothing
@@ -7510,8 +7510,8 @@ data NetworkAclEntry = NetworkAclEntry
 --
 -- * @PortRange ::@ @Maybe PortRange@
 --
-mkNetworkAclEntry :: NetworkAclEntry
-mkNetworkAclEntry = NetworkAclEntry
+networkAclEntry :: NetworkAclEntry
+networkAclEntry = NetworkAclEntry
     { _naeRuleNumber = Nothing
     , _naeProtocol = Nothing
     , _naeRuleAction = Nothing
@@ -7624,8 +7624,8 @@ data NetworkInterface = NetworkInterface
 --
 -- * @PrivateIpAddresses ::@ @[NetworkInterfacePrivateIpAddress]@
 --
-mkNetworkInterface :: NetworkInterface
-mkNetworkInterface = NetworkInterface
+networkInterface :: NetworkInterface
+networkInterface = NetworkInterface
     { _niNetworkInterfaceId = Nothing
     , _niSubnetId = Nothing
     , _niVpcId = Nothing
@@ -7756,8 +7756,8 @@ data NetworkInterfaceAssociation = NetworkInterfaceAssociation
 --
 -- * @AssociationId ::@ @Maybe Text@
 --
-mkNetworkInterfaceAssociation :: NetworkInterfaceAssociation
-mkNetworkInterfaceAssociation = NetworkInterfaceAssociation
+networkInterfaceAssociation :: NetworkInterfaceAssociation
+networkInterfaceAssociation = NetworkInterfaceAssociation
     { _niarPublicIp = Nothing
     , _niarPublicDnsName = Nothing
     , _niarIpOwnerId = Nothing
@@ -7825,8 +7825,8 @@ data NetworkInterfaceAttachment = NetworkInterfaceAttachment
 --
 -- * @DeleteOnTermination ::@ @Maybe Bool@
 --
-mkNetworkInterfaceAttachment :: NetworkInterfaceAttachment
-mkNetworkInterfaceAttachment = NetworkInterfaceAttachment
+networkInterfaceAttachment :: NetworkInterfaceAttachment
+networkInterfaceAttachment = NetworkInterfaceAttachment
     { _niaAttachmentId = Nothing
     , _niaInstanceId = Nothing
     , _niaInstanceOwnerId = Nothing
@@ -7889,8 +7889,8 @@ data NetworkInterfaceAttachmentChanges = NetworkInterfaceAttachmentChanges
 --
 -- * @DeleteOnTermination ::@ @Maybe Bool@
 --
-mkNetworkInterfaceAttachmentChanges :: NetworkInterfaceAttachmentChanges
-mkNetworkInterfaceAttachmentChanges = NetworkInterfaceAttachmentChanges
+networkInterfaceAttachmentChanges :: NetworkInterfaceAttachmentChanges
+networkInterfaceAttachmentChanges = NetworkInterfaceAttachmentChanges
     { _niacAttachmentId = Nothing
     , _niacDeleteOnTermination = Nothing
     }
@@ -7931,8 +7931,8 @@ data NetworkInterfacePrivateIpAddress = NetworkInterfacePrivateIpAddress
 --
 -- * @Association ::@ @Maybe NetworkInterfaceAssociation@
 --
-mkNetworkInterfacePrivateIpAddress :: NetworkInterfacePrivateIpAddress
-mkNetworkInterfacePrivateIpAddress = NetworkInterfacePrivateIpAddress
+networkInterfacePrivateIpAddress :: NetworkInterfacePrivateIpAddress
+networkInterfacePrivateIpAddress = NetworkInterfacePrivateIpAddress
     { _nipiaPrivateIpAddress = Nothing
     , _nipiaPrivateDnsName = Nothing
     , _nipiaPrimary = Nothing
@@ -7985,8 +7985,8 @@ data Placement = Placement
 --
 -- * @Tenancy ::@ @Maybe Tenancy@
 --
-mkPlacement :: Placement
-mkPlacement = Placement
+placement :: Placement
+placement = Placement
     { _pAvailabilityZone = Nothing
     , _pGroupName = Nothing
     , _pTenancy = Nothing
@@ -8035,8 +8035,8 @@ data PlacementGroup = PlacementGroup
 --
 -- * @State ::@ @Maybe PlacementGroupState@
 --
-mkPlacementGroup :: PlacementGroup
-mkPlacementGroup = PlacementGroup
+placementGroup :: PlacementGroup
+placementGroup = PlacementGroup
     { _pgGroupName = Nothing
     , _pgStrategy = Nothing
     , _pgState = Nothing
@@ -8073,8 +8073,8 @@ data PortRange = PortRange
 --
 -- * @To ::@ @Maybe Integer@
 --
-mkPortRange :: PortRange
-mkPortRange = PortRange
+portRange :: PortRange
+portRange = PortRange
     { _prFrom = Nothing
     , _prTo = Nothing
     }
@@ -8115,8 +8115,8 @@ data PriceSchedule = PriceSchedule
 --
 -- * @Active ::@ @Maybe Bool@
 --
-mkPriceSchedule :: PriceSchedule
-mkPriceSchedule = PriceSchedule
+priceSchedule :: PriceSchedule
+priceSchedule = PriceSchedule
     { _psTerm = Nothing
     , _psPrice = Nothing
     , _psCurrencyCode = Nothing
@@ -8173,8 +8173,8 @@ data PriceScheduleSpecification = PriceScheduleSpecification
 --
 -- * @CurrencyCode ::@ @Maybe CurrencyCodeValues@
 --
-mkPriceScheduleSpecification :: PriceScheduleSpecification
-mkPriceScheduleSpecification = PriceScheduleSpecification
+priceScheduleSpecification :: PriceScheduleSpecification
+priceScheduleSpecification = PriceScheduleSpecification
     { _pssTerm = Nothing
     , _pssPrice = Nothing
     , _pssCurrencyCode = Nothing
@@ -8212,8 +8212,8 @@ data PricingDetail = PricingDetail
 --
 -- * @Count ::@ @Maybe Integer@
 --
-mkPricingDetail :: PricingDetail
-mkPricingDetail = PricingDetail
+pricingDetail :: PricingDetail
+pricingDetail = PricingDetail
     { _pdPrice = Nothing
     , _pdCount = Nothing
     }
@@ -8248,9 +8248,9 @@ data PrivateIpAddressSpecification = PrivateIpAddressSpecification
 --
 -- * @Primary ::@ @Maybe Bool@
 --
-mkPrivateIpAddressSpecification :: Text -- ^ 'piasPrivateIpAddress'
+privateIpAddressSpecification :: Text -- ^ 'piasPrivateIpAddress'
                                 -> PrivateIpAddressSpecification
-mkPrivateIpAddressSpecification p1 = PrivateIpAddressSpecification
+privateIpAddressSpecification p1 = PrivateIpAddressSpecification
     { _piasPrivateIpAddress = p1
     , _piasPrimary = Nothing
     }
@@ -8286,8 +8286,8 @@ data ProductCode = ProductCode
 --
 -- * @ProductCodeType ::@ @Maybe ProductCodeValues@
 --
-mkProductCode :: ProductCode
-mkProductCode = ProductCode
+productCode :: ProductCode
+productCode = ProductCode
     { _pcProductCodeId = Nothing
     , _pcProductCodeType = Nothing
     }
@@ -8323,8 +8323,8 @@ data RecurringCharge = RecurringCharge
 --
 -- * @Amount ::@ @Maybe Double@
 --
-mkRecurringCharge :: RecurringCharge
-mkRecurringCharge = RecurringCharge
+recurringCharge :: RecurringCharge
+recurringCharge = RecurringCharge
     { _rcFrequency = Nothing
     , _rcAmount = Nothing
     }
@@ -8362,8 +8362,8 @@ data Region = Region
 --
 -- * @Endpoint ::@ @Maybe Text@
 --
-mkRegion :: Region
-mkRegion = Region
+region :: Region
+region = Region
     { _r1RegionName = Nothing
     , _r1Endpoint = Nothing
     }
@@ -8407,8 +8407,8 @@ data Reservation = Reservation
 --
 -- * @Instances ::@ @[Instance]@
 --
-mkReservation :: Reservation
-mkReservation = Reservation
+reservation :: Reservation
+reservation = Reservation
     { _rrReservationId = Nothing
     , _rrOwnerId = Nothing
     , _rrRequesterId = Nothing
@@ -8458,8 +8458,8 @@ data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice
 --
 -- * @CurrencyCode ::@ @Maybe CurrencyCodeValues@
 --
-mkReservedInstanceLimitPrice :: ReservedInstanceLimitPrice
-mkReservedInstanceLimitPrice = ReservedInstanceLimitPrice
+reservedInstanceLimitPrice :: ReservedInstanceLimitPrice
+reservedInstanceLimitPrice = ReservedInstanceLimitPrice
     { _rilpAmount = Nothing
     , _rilpCurrencyCode = Nothing
     }
@@ -8538,8 +8538,8 @@ data ReservedInstances = ReservedInstances
 --
 -- * @RecurringCharges ::@ @[RecurringCharge]@
 --
-mkReservedInstances :: ReservedInstances
-mkReservedInstances = ReservedInstances
+reservedInstances :: ReservedInstances
+reservedInstances = ReservedInstances
     { _riReservedInstancesId = Nothing
     , _riInstanceType = Nothing
     , _riAvailabilityZone = Nothing
@@ -8654,8 +8654,8 @@ data ReservedInstancesConfiguration = ReservedInstancesConfiguration
 --
 -- * @InstanceType ::@ @Maybe InstanceType@
 --
-mkReservedInstancesConfiguration :: ReservedInstancesConfiguration
-mkReservedInstancesConfiguration = ReservedInstancesConfiguration
+reservedInstancesConfiguration :: ReservedInstancesConfiguration
+reservedInstancesConfiguration = ReservedInstancesConfiguration
     { _ricAvailabilityZone = Nothing
     , _ricPlatform = Nothing
     , _ricInstanceCount = Nothing
@@ -8730,8 +8730,8 @@ data ReservedInstancesListing = ReservedInstancesListing
 --
 -- * @ClientToken ::@ @Maybe Text@
 --
-mkReservedInstancesListing :: ReservedInstancesListing
-mkReservedInstancesListing = ReservedInstancesListing
+reservedInstancesListing :: ReservedInstancesListing
+reservedInstancesListing = ReservedInstancesListing
     { _rilReservedInstancesListingId = Nothing
     , _rilReservedInstancesId = Nothing
     , _rilCreateDate = Nothing
@@ -8834,8 +8834,8 @@ data ReservedInstancesModification = ReservedInstancesModification
 --
 -- * @ClientToken ::@ @Maybe Text@
 --
-mkReservedInstancesModification :: ReservedInstancesModification
-mkReservedInstancesModification = ReservedInstancesModification
+reservedInstancesModification :: ReservedInstancesModification
+reservedInstancesModification = ReservedInstancesModification
     { _rimReservedInstancesModificationId = Nothing
     , _rimReservedInstancesIds = mempty
     , _rimModificationResults = mempty
@@ -8910,8 +8910,8 @@ data ReservedInstancesModificationResult = ReservedInstancesModificationResult
 --
 -- * @TargetConfiguration ::@ @Maybe ReservedInstancesConfiguration@
 --
-mkReservedInstancesModificationResult :: ReservedInstancesModificationResult
-mkReservedInstancesModificationResult = ReservedInstancesModificationResult
+reservedInstancesModificationResult :: ReservedInstancesModificationResult
+reservedInstancesModificationResult = ReservedInstancesModificationResult
     { _rimrReservedInstancesId = Nothing
     , _rimrTargetConfiguration = Nothing
     }
@@ -8989,8 +8989,8 @@ data ReservedInstancesOffering = ReservedInstancesOffering
 --
 -- * @PricingDetails ::@ @[PricingDetail]@
 --
-mkReservedInstancesOffering :: ReservedInstancesOffering
-mkReservedInstancesOffering = ReservedInstancesOffering
+reservedInstancesOffering :: ReservedInstancesOffering
+reservedInstancesOffering = ReservedInstancesOffering
     { _rioReservedInstancesOfferingId = Nothing
     , _rioInstanceType = Nothing
     , _rioAvailabilityZone = Nothing
@@ -9106,8 +9106,8 @@ data Route = Route
 --
 -- * @Origin ::@ @Maybe RouteOrigin@
 --
-mkRoute :: Route
-mkRoute = Route
+route :: Route
+route = Route
     { _rDestinationCidrBlock = Nothing
     , _rGatewayId = Nothing
     , _rInstanceId = Nothing
@@ -9198,8 +9198,8 @@ data RouteTable = RouteTable
 --
 -- * @PropagatingVgws ::@ @[PropagatingVgw]@
 --
-mkRouteTable :: RouteTable
-mkRouteTable = RouteTable
+routeTable :: RouteTable
+routeTable = RouteTable
     { _rtRouteTableId = Nothing
     , _rtVpcId = Nothing
     , _rtRoutes = mempty
@@ -9258,8 +9258,8 @@ data RouteTableAssociation = RouteTableAssociation
 --
 -- * @Main ::@ @Maybe Bool@
 --
-mkRouteTableAssociation :: RouteTableAssociation
-mkRouteTableAssociation = RouteTableAssociation
+routeTableAssociation :: RouteTableAssociation
+routeTableAssociation = RouteTableAssociation
     { _rtaRouteTableAssociationId = Nothing
     , _rtaRouteTableId = Nothing
     , _rtaSubnetId = Nothing
@@ -9315,8 +9315,8 @@ data S3Storage = S3Storage
 --
 -- * @UploadPolicySignature ::@ @Maybe Text@
 --
-mkS3Storage :: S3Storage
-mkS3Storage = S3Storage
+s3Storage :: S3Storage
+s3Storage = S3Storage
     { _ssBucket = Nothing
     , _ssPrefix = Nothing
     , _ssAWSAccessKeyId = Nothing
@@ -9395,12 +9395,12 @@ data SecurityGroup = SecurityGroup
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkSecurityGroup :: Text -- ^ 'sgOwnerId'
+securityGroup :: Text -- ^ 'sgOwnerId'
                 -> Text -- ^ 'sgGroupName'
                 -> Text -- ^ 'sgGroupId'
                 -> Text -- ^ 'sgDescription'
                 -> SecurityGroup
-mkSecurityGroup p1 p2 p3 p4 = SecurityGroup
+securityGroup p1 p2 p3 p4 = SecurityGroup
     { _sgOwnerId = p1
     , _sgGroupName = p2
     , _sgGroupId = p3
@@ -9493,8 +9493,8 @@ data Snapshot = Snapshot
 --
 -- * @Encrypted ::@ @Maybe Bool@
 --
-mkSnapshot :: Snapshot
-mkSnapshot = Snapshot
+snapshot :: Snapshot
+snapshot = Snapshot
     { _s1SnapshotId = Nothing
     , _s1VolumeId = Nothing
     , _s1State = Nothing
@@ -9584,8 +9584,8 @@ data SpotDatafeedSubscription = SpotDatafeedSubscription
 --
 -- * @Fault ::@ @Maybe SpotInstanceStateFault@
 --
-mkSpotDatafeedSubscription :: SpotDatafeedSubscription
-mkSpotDatafeedSubscription = SpotDatafeedSubscription
+spotDatafeedSubscription :: SpotDatafeedSubscription
+spotDatafeedSubscription = SpotDatafeedSubscription
     { _sdsOwnerId = Nothing
     , _sdsBucket = Nothing
     , _sdsPrefix = Nothing
@@ -9677,8 +9677,8 @@ data SpotInstanceRequest = SpotInstanceRequest
 --
 -- * @LaunchedAvailabilityZone ::@ @Maybe Text@
 --
-mkSpotInstanceRequest :: SpotInstanceRequest
-mkSpotInstanceRequest = SpotInstanceRequest
+spotInstanceRequest :: SpotInstanceRequest
+spotInstanceRequest = SpotInstanceRequest
     { _sirSpotInstanceRequestId = Nothing
     , _sirSpotPrice = Nothing
     , _sirType = Nothing
@@ -9803,8 +9803,8 @@ data SpotInstanceStateFault = SpotInstanceStateFault
 --
 -- * @Message ::@ @Maybe Text@
 --
-mkSpotInstanceStateFault :: SpotInstanceStateFault
-mkSpotInstanceStateFault = SpotInstanceStateFault
+spotInstanceStateFault :: SpotInstanceStateFault
+spotInstanceStateFault = SpotInstanceStateFault
     { _sisfCode = Nothing
     , _sisfMessage = Nothing
     }
@@ -9842,8 +9842,8 @@ data SpotInstanceStatus = SpotInstanceStatus
 --
 -- * @Message ::@ @Maybe Text@
 --
-mkSpotInstanceStatus :: SpotInstanceStatus
-mkSpotInstanceStatus = SpotInstanceStatus
+spotInstanceStatus :: SpotInstanceStatus
+spotInstanceStatus = SpotInstanceStatus
     { _sisCode = Nothing
     , _sisUpdateTime = Nothing
     , _sisMessage = Nothing
@@ -9883,8 +9883,8 @@ data SpotPlacement = SpotPlacement
 --
 -- * @GroupName ::@ @Maybe Text@
 --
-mkSpotPlacement :: SpotPlacement
-mkSpotPlacement = SpotPlacement
+spotPlacement :: SpotPlacement
+spotPlacement = SpotPlacement
     { _spAvailabilityZone = Nothing
     , _spGroupName = Nothing
     }
@@ -9932,8 +9932,8 @@ data SpotPrice = SpotPrice
 --
 -- * @AvailabilityZone ::@ @Maybe Text@
 --
-mkSpotPrice :: SpotPrice
-mkSpotPrice = SpotPrice
+spotPrice :: SpotPrice
+spotPrice = SpotPrice
     { _sprInstanceType = Nothing
     , _sprProductDescription = Nothing
     , _sprSpotPrice = Nothing
@@ -9982,8 +9982,8 @@ data StateReason = StateReason
 --
 -- * @Message ::@ @Maybe Text@
 --
-mkStateReason :: StateReason
-mkStateReason = StateReason
+stateReason :: StateReason
+stateReason = StateReason
     { _sr1Code = Nothing
     , _sr1Message = Nothing
     }
@@ -10052,8 +10052,8 @@ data Subnet = Subnet
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkSubnet :: Subnet
-mkSubnet = Subnet
+subnet :: Subnet
+subnet = Subnet
     { _srSubnetId = Nothing
     , _srState = Nothing
     , _srVpcId = Nothing
@@ -10126,10 +10126,10 @@ data Tag = Tag
 --
 -- * @Value ::@ @Text@
 --
-mkTag :: Text -- ^ 'tKey'
+tag :: Text -- ^ 'tKey'
       -> Text -- ^ 'tValue'
       -> Tag
-mkTag p1 p2 = Tag
+tag p1 p2 = Tag
     { _tKey = p1
     , _tValue = p2
     }
@@ -10175,12 +10175,12 @@ data TagDescription = TagDescription
 --
 -- * @Value ::@ @Text@
 --
-mkTagDescription :: Text -- ^ 'tdResourceId'
+tagDescription :: Text -- ^ 'tdResourceId'
                  -> ResourceType -- ^ 'tdResourceType'
                  -> Text -- ^ 'tdKey'
                  -> Text -- ^ 'tdValue'
                  -> TagDescription
-mkTagDescription p1 p2 p3 p4 = TagDescription
+tagDescription p1 p2 p3 p4 = TagDescription
     { _tdResourceId = p1
     , _tdResourceType = p2
     , _tdKey = p3
@@ -10225,8 +10225,8 @@ data UserIdGroupPair = UserIdGroupPair
 --
 -- * @GroupId ::@ @Maybe Text@
 --
-mkUserIdGroupPair :: UserIdGroupPair
-mkUserIdGroupPair = UserIdGroupPair
+userIdGroupPair :: UserIdGroupPair
+userIdGroupPair = UserIdGroupPair
     { _uigpUserId = Nothing
     , _uigpGroupName = Nothing
     , _uigpGroupId = Nothing
@@ -10275,8 +10275,8 @@ data VgwTelemetry = VgwTelemetry
 --
 -- * @AcceptedRouteCount ::@ @Maybe Integer@
 --
-mkVgwTelemetry :: VgwTelemetry
-mkVgwTelemetry = VgwTelemetry
+vgwTelemetry :: VgwTelemetry
+vgwTelemetry = VgwTelemetry
     { _vtOutsideIpAddress = Nothing
     , _vtStatus = Nothing
     , _vtLastStatusChange = Nothing
@@ -10360,8 +10360,8 @@ data Volume = Volume
 --
 -- * @Encrypted ::@ @Maybe Bool@
 --
-mkVolume :: Volume
-mkVolume = Volume
+volume :: Volume
+volume = Volume
     { _vrVolumeId = Nothing
     , _vrSize = Nothing
     , _vrSnapshotId = Nothing
@@ -10462,8 +10462,8 @@ data VolumeAttachment = VolumeAttachment
 --
 -- * @DeleteOnTermination ::@ @Maybe Bool@
 --
-mkVolumeAttachment :: VolumeAttachment
-mkVolumeAttachment = VolumeAttachment
+volumeAttachment :: VolumeAttachment
+volumeAttachment = VolumeAttachment
     { _varVolumeId = Nothing
     , _varInstanceId = Nothing
     , _varDevice = Nothing
@@ -10525,8 +10525,8 @@ data VolumeStatusAction = VolumeStatusAction
 --
 -- * @EventId ::@ @Maybe Text@
 --
-mkVolumeStatusAction :: VolumeStatusAction
-mkVolumeStatusAction = VolumeStatusAction
+volumeStatusAction :: VolumeStatusAction
+volumeStatusAction = VolumeStatusAction
     { _vsaCode = Nothing
     , _vsaDescription = Nothing
     , _vsaEventType = Nothing
@@ -10571,8 +10571,8 @@ data VolumeStatusDetails = VolumeStatusDetails
 --
 -- * @Status ::@ @Maybe Text@
 --
-mkVolumeStatusDetails :: VolumeStatusDetails
-mkVolumeStatusDetails = VolumeStatusDetails
+volumeStatusDetails :: VolumeStatusDetails
+volumeStatusDetails = VolumeStatusDetails
     { _vsdName = Nothing
     , _vsdStatus = Nothing
     }
@@ -10616,8 +10616,8 @@ data VolumeStatusEvent = VolumeStatusEvent
 --
 -- * @EventId ::@ @Maybe Text@
 --
-mkVolumeStatusEvent :: VolumeStatusEvent
-mkVolumeStatusEvent = VolumeStatusEvent
+volumeStatusEvent :: VolumeStatusEvent
+volumeStatusEvent = VolumeStatusEvent
     { _vseEventType = Nothing
     , _vseDescription = Nothing
     , _vseNotBefore = Nothing
@@ -10667,8 +10667,8 @@ data VolumeStatusInfo = VolumeStatusInfo
 --
 -- * @Details ::@ @[VolumeStatusDetails]@
 --
-mkVolumeStatusInfo :: VolumeStatusInfo
-mkVolumeStatusInfo = VolumeStatusInfo
+volumeStatusInfo :: VolumeStatusInfo
+volumeStatusInfo = VolumeStatusInfo
     { _vsi1Status = Nothing
     , _vsi1Details = mempty
     }
@@ -10715,8 +10715,8 @@ data VolumeStatusItem = VolumeStatusItem
 --
 -- * @Actions ::@ @[VolumeStatusAction]@
 --
-mkVolumeStatusItem :: VolumeStatusItem
-mkVolumeStatusItem = VolumeStatusItem
+volumeStatusItem :: VolumeStatusItem
+volumeStatusItem = VolumeStatusItem
     { _vsiVolumeId = Nothing
     , _vsiAvailabilityZone = Nothing
     , _vsiVolumeStatus = Nothing
@@ -10782,8 +10782,8 @@ data Vpc = Vpc
 --
 -- * @IsDefault ::@ @Maybe Bool@
 --
-mkVpc :: Vpc
-mkVpc = Vpc
+vpc :: Vpc
+vpc = Vpc
     { _vVpcId = Nothing
     , _vState = Nothing
     , _vCidrBlock = Nothing
@@ -10842,8 +10842,8 @@ data VpcAttachment = VpcAttachment
 --
 -- * @State ::@ @Maybe AttachmentStatus@
 --
-mkVpcAttachment :: VpcAttachment
-mkVpcAttachment = VpcAttachment
+vpcAttachment :: VpcAttachment
+vpcAttachment = VpcAttachment
     { _vaVpcId = Nothing
     , _vaState = Nothing
     }
@@ -10893,8 +10893,8 @@ data VpcPeeringConnection = VpcPeeringConnection
 --
 -- * @VpcPeeringConnectionId ::@ @Maybe Text@
 --
-mkVpcPeeringConnection :: VpcPeeringConnection
-mkVpcPeeringConnection = VpcPeeringConnection
+vpcPeeringConnection :: VpcPeeringConnection
+vpcPeeringConnection = VpcPeeringConnection
     { _vpcAccepterVpcInfo = Nothing
     , _vpcExpirationTime = Nothing
     , _vpcRequesterVpcInfo = Nothing
@@ -10951,8 +10951,8 @@ data VpcPeeringConnectionStateReason = VpcPeeringConnectionStateReason
 --
 -- * @Message ::@ @Maybe Text@
 --
-mkVpcPeeringConnectionStateReason :: VpcPeeringConnectionStateReason
-mkVpcPeeringConnectionStateReason = VpcPeeringConnectionStateReason
+vpcPeeringConnectionStateReason :: VpcPeeringConnectionStateReason
+vpcPeeringConnectionStateReason = VpcPeeringConnectionStateReason
     { _vpcsrCode = Nothing
     , _vpcsrMessage = Nothing
     }
@@ -10990,8 +10990,8 @@ data VpcPeeringConnectionVpcInfo = VpcPeeringConnectionVpcInfo
 --
 -- * @VpcId ::@ @Maybe Text@
 --
-mkVpcPeeringConnectionVpcInfo :: VpcPeeringConnectionVpcInfo
-mkVpcPeeringConnectionVpcInfo = VpcPeeringConnectionVpcInfo
+vpcPeeringConnectionVpcInfo :: VpcPeeringConnectionVpcInfo
+vpcPeeringConnectionVpcInfo = VpcPeeringConnectionVpcInfo
     { _vpcviCidrBlock = Nothing
     , _vpcviOwnerId = Nothing
     , _vpcviVpcId = Nothing
@@ -11058,8 +11058,8 @@ data VpnConnection = VpnConnection
 --
 -- * @Routes ::@ @[VpnStaticRoute]@
 --
-mkVpnConnection :: VpnConnection
-mkVpnConnection = VpnConnection
+vpnConnection :: VpnConnection
+vpnConnection = VpnConnection
     { _vcVpnConnectionId = Nothing
     , _vcState = Nothing
     , _vcCustomerGatewayConfiguration = Nothing
@@ -11155,8 +11155,8 @@ data VpnGateway = VpnGateway
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkVpnGateway :: VpnGateway
-mkVpnGateway = VpnGateway
+vpnGateway :: VpnGateway
+vpnGateway = VpnGateway
     { _vgVpnGatewayId = Nothing
     , _vgState = Nothing
     , _vgType = Nothing
@@ -11213,8 +11213,8 @@ data VpnStaticRoute = VpnStaticRoute
 --
 -- * @State ::@ @Maybe VpnState@
 --
-mkVpnStaticRoute :: VpnStaticRoute
-mkVpnStaticRoute = VpnStaticRoute
+vpnStaticRoute :: VpnStaticRoute
+vpnStaticRoute = VpnStaticRoute
     { _vsrDestinationCidrBlock = Nothing
     , _vsrSource = Nothing
     , _vsrState = Nothing

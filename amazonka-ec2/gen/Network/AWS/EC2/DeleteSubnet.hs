@@ -29,14 +29,14 @@ module Network.AWS.EC2.DeleteSubnet
     -- * Request
       DeleteSubnet
     -- ** Request constructor
-    , mkDeleteSubnet
+    , deleteSubnet
     -- ** Request lenses
     , ds1SubnetId
 
     -- * Response
     , DeleteSubnetResponse
     -- ** Response constructor
-    , mkDeleteSubnetResponse
+    , deleteSubnetResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -54,9 +54,9 @@ newtype DeleteSubnet = DeleteSubnet
 --
 -- * @SubnetId ::@ @Text@
 --
-mkDeleteSubnet :: Text -- ^ 'ds1SubnetId'
+deleteSubnet :: Text -- ^ 'ds1SubnetId'
                -> DeleteSubnet
-mkDeleteSubnet p1 = DeleteSubnet
+deleteSubnet p1 = DeleteSubnet
     { _ds1SubnetId = p1
     }
 
@@ -74,8 +74,8 @@ data DeleteSubnetResponse = DeleteSubnetResponse
 -- a valid 'DeleteSubnetResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteSubnetResponse :: DeleteSubnetResponse
-mkDeleteSubnetResponse = DeleteSubnetResponse
+deleteSubnetResponse :: DeleteSubnetResponse
+deleteSubnetResponse = DeleteSubnetResponse
 
 instance AWSRequest DeleteSubnet where
     type Sv DeleteSubnet = EC2

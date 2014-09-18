@@ -51,7 +51,7 @@ module Network.AWS.SWF.CountPendingDecisionTasks
     -- * Request
       CountPendingDecisionTasks
     -- ** Request constructor
-    , mkCountPendingDecisionTasks
+    , countPendingDecisionTasks
     -- ** Request lenses
     , cpdtDomain
     , cpdtTaskList
@@ -59,7 +59,7 @@ module Network.AWS.SWF.CountPendingDecisionTasks
     -- * Response
     , CountPendingDecisionTasksResponse
     -- ** Response constructor
-    , mkCountPendingDecisionTasksResponse
+    , countPendingDecisionTasksResponse
     -- ** Response lenses
     , cpdtrCount
     , cpdtrTruncated
@@ -83,10 +83,10 @@ data CountPendingDecisionTasks = CountPendingDecisionTasks
 --
 -- * @TaskList ::@ @TaskList@
 --
-mkCountPendingDecisionTasks :: Text -- ^ 'cpdtDomain'
+countPendingDecisionTasks :: Text -- ^ 'cpdtDomain'
                             -> TaskList -- ^ 'cpdtTaskList'
                             -> CountPendingDecisionTasks
-mkCountPendingDecisionTasks p1 p2 = CountPendingDecisionTasks
+countPendingDecisionTasks p1 p2 = CountPendingDecisionTasks
     { _cpdtDomain = p1
     , _cpdtTaskList = p2
     }
@@ -124,9 +124,9 @@ data CountPendingDecisionTasksResponse = CountPendingDecisionTasksResponse
 --
 -- * @Truncated ::@ @Maybe Bool@
 --
-mkCountPendingDecisionTasksResponse :: Integer -- ^ 'cpdtrCount'
+countPendingDecisionTasksResponse :: Integer -- ^ 'cpdtrCount'
                                     -> CountPendingDecisionTasksResponse
-mkCountPendingDecisionTasksResponse p1 = CountPendingDecisionTasksResponse
+countPendingDecisionTasksResponse p1 = CountPendingDecisionTasksResponse
     { _cpdtrCount = p1
     , _cpdtrTruncated = Nothing
     }

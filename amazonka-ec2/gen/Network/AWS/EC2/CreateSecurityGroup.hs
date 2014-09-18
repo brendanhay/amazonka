@@ -58,7 +58,7 @@ module Network.AWS.EC2.CreateSecurityGroup
     -- * Request
       CreateSecurityGroup
     -- ** Request constructor
-    , mkCreateSecurityGroup
+    , createSecurityGroup
     -- ** Request lenses
     , csgGroupName
     , csgDescription
@@ -67,7 +67,7 @@ module Network.AWS.EC2.CreateSecurityGroup
     -- * Response
     , CreateSecurityGroupResponse
     -- ** Response constructor
-    , mkCreateSecurityGroupResponse
+    , createSecurityGroupResponse
     -- ** Response lenses
     , csgrGroupId
     ) where
@@ -93,10 +93,10 @@ data CreateSecurityGroup = CreateSecurityGroup
 --
 -- * @VpcId ::@ @Maybe Text@
 --
-mkCreateSecurityGroup :: Text -- ^ 'csgGroupName'
+createSecurityGroup :: Text -- ^ 'csgGroupName'
                       -> Text -- ^ 'csgDescription'
                       -> CreateSecurityGroup
-mkCreateSecurityGroup p1 p2 = CreateSecurityGroup
+createSecurityGroup p1 p2 = CreateSecurityGroup
     { _csgGroupName = p1
     , _csgDescription = p2
     , _csgVpcId = Nothing
@@ -132,8 +132,8 @@ newtype CreateSecurityGroupResponse = CreateSecurityGroupResponse
 --
 -- * @GroupId ::@ @Maybe Text@
 --
-mkCreateSecurityGroupResponse :: CreateSecurityGroupResponse
-mkCreateSecurityGroupResponse = CreateSecurityGroupResponse
+createSecurityGroupResponse :: CreateSecurityGroupResponse
+createSecurityGroupResponse = CreateSecurityGroupResponse
     { _csgrGroupId = Nothing
     }
 

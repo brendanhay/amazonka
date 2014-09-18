@@ -35,7 +35,7 @@ module Network.AWS.EC2.DeleteVpnConnectionRoute
     -- * Request
       DeleteVpnConnectionRoute
     -- ** Request constructor
-    , mkDeleteVpnConnectionRoute
+    , deleteVpnConnectionRoute
     -- ** Request lenses
     , dvcrVpnConnectionId
     , dvcrDestinationCidrBlock
@@ -43,7 +43,7 @@ module Network.AWS.EC2.DeleteVpnConnectionRoute
     -- * Response
     , DeleteVpnConnectionRouteResponse
     -- ** Response constructor
-    , mkDeleteVpnConnectionRouteResponse
+    , deleteVpnConnectionRouteResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -64,10 +64,10 @@ data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
 --
 -- * @DestinationCidrBlock ::@ @Text@
 --
-mkDeleteVpnConnectionRoute :: Text -- ^ 'dvcrVpnConnectionId'
+deleteVpnConnectionRoute :: Text -- ^ 'dvcrVpnConnectionId'
                            -> Text -- ^ 'dvcrDestinationCidrBlock'
                            -> DeleteVpnConnectionRoute
-mkDeleteVpnConnectionRoute p1 p2 = DeleteVpnConnectionRoute
+deleteVpnConnectionRoute p1 p2 = DeleteVpnConnectionRoute
     { _dvcrVpnConnectionId = p1
     , _dvcrDestinationCidrBlock = p2
     }
@@ -93,8 +93,8 @@ data DeleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
 -- a valid 'DeleteVpnConnectionRouteResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteVpnConnectionRouteResponse :: DeleteVpnConnectionRouteResponse
-mkDeleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
+deleteVpnConnectionRouteResponse :: DeleteVpnConnectionRouteResponse
+deleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
 
 instance AWSRequest DeleteVpnConnectionRoute where
     type Sv DeleteVpnConnectionRoute = EC2

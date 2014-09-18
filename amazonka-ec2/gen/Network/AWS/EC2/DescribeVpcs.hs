@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeVpcs
     -- * Request
       DescribeVpcs
     -- ** Request constructor
-    , mkDescribeVpcs
+    , describeVpcs
     -- ** Request lenses
     , dv3VpcIds
     , dv3Filters
@@ -48,7 +48,7 @@ module Network.AWS.EC2.DescribeVpcs
     -- * Response
     , DescribeVpcsResponse
     -- ** Response constructor
-    , mkDescribeVpcsResponse
+    , describeVpcsResponse
     -- ** Response lenses
     , dvrrVpcs
     ) where
@@ -71,8 +71,8 @@ data DescribeVpcs = DescribeVpcs
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribeVpcs :: DescribeVpcs
-mkDescribeVpcs = DescribeVpcs
+describeVpcs :: DescribeVpcs
+describeVpcs = DescribeVpcs
     { _dv3VpcIds = mempty
     , _dv3Filters = mempty
     }
@@ -114,8 +114,8 @@ newtype DescribeVpcsResponse = DescribeVpcsResponse
 --
 -- * @Vpcs ::@ @[Vpc]@
 --
-mkDescribeVpcsResponse :: DescribeVpcsResponse
-mkDescribeVpcsResponse = DescribeVpcsResponse
+describeVpcsResponse :: DescribeVpcsResponse
+describeVpcsResponse = DescribeVpcsResponse
     { _dvrrVpcs = mempty
     }
 

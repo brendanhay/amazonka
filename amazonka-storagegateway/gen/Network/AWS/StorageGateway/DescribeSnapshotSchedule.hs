@@ -39,14 +39,14 @@ module Network.AWS.StorageGateway.DescribeSnapshotSchedule
     -- * Request
       DescribeSnapshotSchedule
     -- ** Request constructor
-    , mkDescribeSnapshotSchedule
+    , describeSnapshotSchedule
     -- ** Request lenses
     , dss1VolumeARN
 
     -- * Response
     , DescribeSnapshotScheduleResponse
     -- ** Response constructor
-    , mkDescribeSnapshotScheduleResponse
+    , describeSnapshotScheduleResponse
     -- ** Response lenses
     , dssrrVolumeARN
     , dssrrStartAt
@@ -72,9 +72,9 @@ newtype DescribeSnapshotSchedule = DescribeSnapshotSchedule
 --
 -- * @VolumeARN ::@ @Text@
 --
-mkDescribeSnapshotSchedule :: Text -- ^ 'dss1VolumeARN'
+describeSnapshotSchedule :: Text -- ^ 'dss1VolumeARN'
                            -> DescribeSnapshotSchedule
-mkDescribeSnapshotSchedule p1 = DescribeSnapshotSchedule
+describeSnapshotSchedule p1 = DescribeSnapshotSchedule
     { _dss1VolumeARN = p1
     }
 
@@ -116,8 +116,8 @@ data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse
 --
 -- * @Timezone ::@ @Maybe Text@
 --
-mkDescribeSnapshotScheduleResponse :: DescribeSnapshotScheduleResponse
-mkDescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse
+describeSnapshotScheduleResponse :: DescribeSnapshotScheduleResponse
+describeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse
     { _dssrrVolumeARN = Nothing
     , _dssrrStartAt = Nothing
     , _dssrrRecurrenceInHours = Nothing

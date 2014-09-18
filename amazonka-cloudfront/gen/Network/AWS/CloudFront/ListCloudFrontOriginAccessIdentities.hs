@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     -- * Request
       ListCloudFrontOriginAccessIdentities
     -- ** Request constructor
-    , mkListCloudFrontOriginAccessIdentities
+    , listCloudFrontOriginAccessIdentities
     -- ** Request lenses
     , lcfoaiMarker
     , lcfoaiMaxItems
@@ -31,7 +31,7 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     -- * Response
     , ListCloudFrontOriginAccessIdentitiesResponse
     -- ** Response constructor
-    , mkListCloudFrontOriginAccessIdentitiesResponse
+    , listCloudFrontOriginAccessIdentitiesResponse
     -- ** Response lenses
     , lcfoairCloudFrontOriginAccessIdentityList
     ) where
@@ -56,8 +56,8 @@ data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
 --
 -- * @MaxItems ::@ @Maybe Text@
 --
-mkListCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentities
-mkListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
+listCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentities
+listCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
     { _lcfoaiMarker = Nothing
     , _lcfoaiMaxItems = Nothing
     }
@@ -99,9 +99,9 @@ newtype ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAcces
 --
 -- * @CloudFrontOriginAccessIdentityList ::@ @CloudFrontOriginAccessIdentityList@
 --
-mkListCloudFrontOriginAccessIdentitiesResponse :: CloudFrontOriginAccessIdentityList -- ^ 'lcfoairCloudFrontOriginAccessIdentityList'
+listCloudFrontOriginAccessIdentitiesResponse :: CloudFrontOriginAccessIdentityList -- ^ 'lcfoairCloudFrontOriginAccessIdentityList'
                                                -> ListCloudFrontOriginAccessIdentitiesResponse
-mkListCloudFrontOriginAccessIdentitiesResponse p1 = ListCloudFrontOriginAccessIdentitiesResponse
+listCloudFrontOriginAccessIdentitiesResponse p1 = ListCloudFrontOriginAccessIdentitiesResponse
     { _lcfoairCloudFrontOriginAccessIdentityList = p1
     }
 

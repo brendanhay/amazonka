@@ -23,7 +23,7 @@ module Network.AWS.S3.GetObjectTorrent
     -- * Request
       GetObjectTorrent
     -- ** Request constructor
-    , mkGetObjectTorrent
+    , getObjectTorrent
     -- ** Request lenses
     , gotBucket
     , gotKey
@@ -31,7 +31,7 @@ module Network.AWS.S3.GetObjectTorrent
     -- * Response
     , GetObjectTorrentResponse
     -- ** Response constructor
-    , mkGetObjectTorrentResponse
+    , getObjectTorrentResponse
     -- ** Response lenses
     , gotrBody
     ) where
@@ -55,10 +55,10 @@ data GetObjectTorrent = GetObjectTorrent
 --
 -- * @Key ::@ @ObjectKey@
 --
-mkGetObjectTorrent :: BucketName -- ^ 'gotBucket'
+getObjectTorrent :: BucketName -- ^ 'gotBucket'
                    -> ObjectKey -- ^ 'gotKey'
                    -> GetObjectTorrent
-mkGetObjectTorrent p1 p2 = GetObjectTorrent
+getObjectTorrent p1 p2 = GetObjectTorrent
     { _gotBucket = p1
     , _gotKey = p2
     }
@@ -90,9 +90,9 @@ newtype GetObjectTorrentResponse = GetObjectTorrentResponse
 --
 -- * @Body ::@ @RsBody@
 --
-mkGetObjectTorrentResponse :: RsBody -- ^ 'gotrBody'
+getObjectTorrentResponse :: RsBody -- ^ 'gotrBody'
                            -> GetObjectTorrentResponse
-mkGetObjectTorrentResponse p1 = GetObjectTorrentResponse
+getObjectTorrentResponse p1 = GetObjectTorrentResponse
     { _gotrBody = p1
     }
 

@@ -39,7 +39,7 @@ module Network.AWS.DataPipeline.DescribeObjects
     -- * Request
       DescribeObjects
     -- ** Request constructor
-    , mkDescribeObjects
+    , describeObjects
     -- ** Request lenses
     , doPipelineId
     , doObjectIds
@@ -49,7 +49,7 @@ module Network.AWS.DataPipeline.DescribeObjects
     -- * Response
     , DescribeObjectsResponse
     -- ** Response constructor
-    , mkDescribeObjectsResponse
+    , describeObjectsResponse
     -- ** Response lenses
     , dorPipelineObjects
     , dorMarker
@@ -83,10 +83,10 @@ data DescribeObjects = DescribeObjects
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeObjects :: Text -- ^ 'doPipelineId'
+describeObjects :: Text -- ^ 'doPipelineId'
                   -> [Text] -- ^ 'doObjectIds'
                   -> DescribeObjects
-mkDescribeObjects p1 p2 = DescribeObjects
+describeObjects p1 p2 = DescribeObjects
     { _doPipelineId = p1
     , _doObjectIds = p2
     , _doEvaluateExpressions = Nothing
@@ -145,10 +145,10 @@ data DescribeObjectsResponse = DescribeObjectsResponse
 --
 -- * @HasMoreResults ::@ @Bool@
 --
-mkDescribeObjectsResponse :: [PipelineObject] -- ^ 'dorPipelineObjects'
+describeObjectsResponse :: [PipelineObject] -- ^ 'dorPipelineObjects'
                           -> Bool -- ^ 'dorHasMoreResults'
                           -> DescribeObjectsResponse
-mkDescribeObjectsResponse p1 p3 = DescribeObjectsResponse
+describeObjectsResponse p1 p3 = DescribeObjectsResponse
     { _dorPipelineObjects = p1
     , _dorMarker = Nothing
     , _dorHasMoreResults = p3

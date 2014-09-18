@@ -44,31 +44,31 @@ module Network.AWS.DataPipeline.Types
 
     -- * Query
     , Query
-    , mkQuery
+    , query
     , qSelectors
 
     -- * Field
     , Field
-    , mkField
+    , field
     , fKey
     , fStringValue
     , fRefValue
 
     -- * InstanceIdentity
     , InstanceIdentity
-    , mkInstanceIdentity
+    , instanceIdentity
     , iiDocument
     , iiSignature
 
     -- * Operator
     , Operator
-    , mkOperator
+    , operator
     , oType
     , oValues
 
     -- * PipelineDescription
     , PipelineDescription
-    , mkPipelineDescription
+    , pipelineDescription
     , pdPipelineId
     , pdName
     , pdFields
@@ -76,26 +76,26 @@ module Network.AWS.DataPipeline.Types
 
     -- * PipelineIdName
     , PipelineIdName
-    , mkPipelineIdName
+    , pipelineIdName
     , pinId
     , pinName
 
     -- * PipelineObject
     , PipelineObject
-    , mkPipelineObject
+    , pipelineObject
     , poId
     , poName
     , poFields
 
     -- * Selector
     , Selector
-    , mkSelector
+    , selector
     , sFieldName
     , sOperator
 
     -- * TaskObject
     , TaskObject
-    , mkTaskObject
+    , taskObject
     , toTaskId
     , toPipelineId
     , toAttemptId
@@ -103,13 +103,13 @@ module Network.AWS.DataPipeline.Types
 
     -- * ValidationError
     , ValidationError
-    , mkValidationError
+    , validationError
     , veId
     , veErrors
 
     -- * ValidationWarning
     , ValidationWarning
-    , mkValidationWarning
+    , validationWarning
     , vwId
     , vwWarnings
     ) where
@@ -139,8 +139,8 @@ instance AWSService DataPipeline where
 -- service description where applicable.
 data DataPipelineError
     = DataPipelineClient HttpException
-    | DataPipelineSerializer Text
-    | DataPipelineService Text
+    | DataPipelineSerializer String
+    | DataPipelineService String
       -- | An internal service error occurred.
     | InternalServiceError
         { _iseMessage :: Maybe Text
@@ -186,7 +186,7 @@ _DataPipelineClient = prism'
         x -> Left x)
 
 -- | See: 'DataPipelineSerializer'
-_DataPipelineSerializer :: Prism' DataPipelineError Text
+_DataPipelineSerializer :: Prism' DataPipelineError String
 _DataPipelineSerializer = prism'
     DataPipelineSerializer
     (\case
@@ -194,7 +194,7 @@ _DataPipelineSerializer = prism'
         x -> Left x)
 
 -- | See: 'DataPipelineService'
-_DataPipelineService :: Prism' DataPipelineError Text
+_DataPipelineService :: Prism' DataPipelineError String
 _DataPipelineService = prism'
     DataPipelineService
     (\case
@@ -341,8 +341,8 @@ newtype Query = Query
 --
 -- * @Selectors ::@ @[Selector]@
 --
-mkQuery :: Query
-mkQuery = Query
+query :: Query
+query = Query
     { _qSelectors = mempty
     }
 
@@ -373,9 +373,9 @@ data Field = Field
 --
 -- * @RefValue ::@ @Maybe Text@
 --
-mkField :: Text -- ^ 'fKey'
+field :: Text -- ^ 'fKey'
         -> Field
-mkField p1 = Field
+field p1 = Field
     { _fKey = p1
     , _fStringValue = Nothing
     , _fRefValue = Nothing
@@ -418,8 +418,8 @@ data InstanceIdentity = InstanceIdentity
 --
 -- * @Signature ::@ @Maybe Text@
 --
-mkInstanceIdentity :: InstanceIdentity
-mkInstanceIdentity = InstanceIdentity
+instanceIdentity :: InstanceIdentity
+instanceIdentity = InstanceIdentity
     { _iiDocument = Nothing
     , _iiSignature = Nothing
     }
@@ -453,8 +453,8 @@ data Operator = Operator
 --
 -- * @Values ::@ @[Text]@
 --
-mkOperator :: Operator
-mkOperator = Operator
+operator :: Operator
+operator = Operator
     { _oType = Nothing
     , _oValues = mempty
     }
@@ -509,11 +509,11 @@ data PipelineDescription = PipelineDescription
 --
 -- * @Description ::@ @Maybe Text@
 --
-mkPipelineDescription :: Text -- ^ 'pdPipelineId'
+pipelineDescription :: Text -- ^ 'pdPipelineId'
                       -> Text -- ^ 'pdName'
                       -> [Field] -- ^ 'pdFields'
                       -> PipelineDescription
-mkPipelineDescription p1 p2 p3 = PipelineDescription
+pipelineDescription p1 p2 p3 = PipelineDescription
     { _pdPipelineId = p1
     , _pdName = p2
     , _pdFields = p3
@@ -558,8 +558,8 @@ data PipelineIdName = PipelineIdName
 --
 -- * @Name ::@ @Maybe Text@
 --
-mkPipelineIdName :: PipelineIdName
-mkPipelineIdName = PipelineIdName
+pipelineIdName :: PipelineIdName
+pipelineIdName = PipelineIdName
     { _pinId = Nothing
     , _pinName = Nothing
     }
@@ -595,11 +595,11 @@ data PipelineObject = PipelineObject
 --
 -- * @Fields ::@ @[Field]@
 --
-mkPipelineObject :: Text -- ^ 'poId'
+pipelineObject :: Text -- ^ 'poId'
                  -> Text -- ^ 'poName'
                  -> [Field] -- ^ 'poFields'
                  -> PipelineObject
-mkPipelineObject p1 p2 p3 = PipelineObject
+pipelineObject p1 p2 p3 = PipelineObject
     { _poId = p1
     , _poName = p2
     , _poFields = p3
@@ -637,8 +637,8 @@ data Selector = Selector
 --
 -- * @Operator ::@ @Maybe Operator@
 --
-mkSelector :: Selector
-mkSelector = Selector
+selector :: Selector
+selector = Selector
     { _sFieldName = Nothing
     , _sOperator = Nothing
     }
@@ -686,8 +686,8 @@ data TaskObject = TaskObject
 --
 -- * @Objects ::@ @Map Text PipelineObject@
 --
-mkTaskObject :: TaskObject
-mkTaskObject = TaskObject
+taskObject :: TaskObject
+taskObject = TaskObject
     { _toTaskId = Nothing
     , _toPipelineId = Nothing
     , _toAttemptId = Nothing
@@ -736,8 +736,8 @@ data ValidationError = ValidationError
 --
 -- * @Errors ::@ @[Text]@
 --
-mkValidationError :: ValidationError
-mkValidationError = ValidationError
+validationError :: ValidationError
+validationError = ValidationError
     { _veId = Nothing
     , _veErrors = mempty
     }
@@ -773,8 +773,8 @@ data ValidationWarning = ValidationWarning
 --
 -- * @Warnings ::@ @[Text]@
 --
-mkValidationWarning :: ValidationWarning
-mkValidationWarning = ValidationWarning
+validationWarning :: ValidationWarning
+validationWarning = ValidationWarning
     { _vwId = Nothing
     , _vwWarnings = mempty
     }

@@ -32,7 +32,7 @@ module Network.AWS.RDS.DescribeDBSecurityGroups
     -- * Request
       DescribeDBSecurityGroups
     -- ** Request constructor
-    , mkDescribeDBSecurityGroups
+    , describeDBSecurityGroups
     -- ** Request lenses
     , ddbsg2DBSecurityGroupName
     , ddbsg2MaxRecords
@@ -41,7 +41,7 @@ module Network.AWS.RDS.DescribeDBSecurityGroups
     -- * Response
     , DescribeDBSecurityGroupsResponse
     -- ** Response constructor
-    , mkDescribeDBSecurityGroupsResponse
+    , describeDBSecurityGroupsResponse
     -- ** Response lenses
     , ddbsgrMarker
     , ddbsgrDBSecurityGroups
@@ -69,8 +69,8 @@ data DescribeDBSecurityGroups = DescribeDBSecurityGroups
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeDBSecurityGroups :: DescribeDBSecurityGroups
-mkDescribeDBSecurityGroups = DescribeDBSecurityGroups
+describeDBSecurityGroups :: DescribeDBSecurityGroups
+describeDBSecurityGroups = DescribeDBSecurityGroups
     { _ddbsg2DBSecurityGroupName = Nothing
     , _ddbsg2MaxRecords = Nothing
     , _ddbsg2Marker = Nothing
@@ -118,8 +118,8 @@ data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse
 --
 -- * @DBSecurityGroups ::@ @[DBSecurityGroup]@
 --
-mkDescribeDBSecurityGroupsResponse :: DescribeDBSecurityGroupsResponse
-mkDescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse
+describeDBSecurityGroupsResponse :: DescribeDBSecurityGroupsResponse
+describeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse
     { _ddbsgrMarker = Nothing
     , _ddbsgrDBSecurityGroups = mempty
     }

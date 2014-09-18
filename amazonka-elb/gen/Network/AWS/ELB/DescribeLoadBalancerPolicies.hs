@@ -41,7 +41,7 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicies
     -- * Request
       DescribeLoadBalancerPolicies
     -- ** Request constructor
-    , mkDescribeLoadBalancerPolicies
+    , describeLoadBalancerPolicies
     -- ** Request lenses
     , dlbp1LoadBalancerName
     , dlbp1PolicyNames
@@ -49,7 +49,7 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicies
     -- * Response
     , DescribeLoadBalancerPoliciesResponse
     -- ** Response constructor
-    , mkDescribeLoadBalancerPoliciesResponse
+    , describeLoadBalancerPoliciesResponse
     -- ** Response lenses
     , dlbprrPolicyDescriptions
     ) where
@@ -72,8 +72,8 @@ data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies
 --
 -- * @PolicyNames ::@ @[Text]@
 --
-mkDescribeLoadBalancerPolicies :: DescribeLoadBalancerPolicies
-mkDescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies
+describeLoadBalancerPolicies :: DescribeLoadBalancerPolicies
+describeLoadBalancerPolicies = DescribeLoadBalancerPolicies
     { _dlbp1LoadBalancerName = Nothing
     , _dlbp1PolicyNames = mempty
     }
@@ -109,8 +109,8 @@ newtype DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesRespo
 --
 -- * @PolicyDescriptions ::@ @[PolicyDescription]@
 --
-mkDescribeLoadBalancerPoliciesResponse :: DescribeLoadBalancerPoliciesResponse
-mkDescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
+describeLoadBalancerPoliciesResponse :: DescribeLoadBalancerPoliciesResponse
+describeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
     { _dlbprrPolicyDescriptions = mempty
     }
 

@@ -31,7 +31,7 @@ module Network.AWS.RDS.ModifyOptionGroup
     -- * Request
       ModifyOptionGroup
     -- ** Request constructor
-    , mkModifyOptionGroup
+    , modifyOptionGroup
     -- ** Request lenses
     , mogOptionGroupName
     , mogOptionsToInclude
@@ -41,7 +41,7 @@ module Network.AWS.RDS.ModifyOptionGroup
     -- * Response
     , ModifyOptionGroupResponse
     -- ** Response constructor
-    , mkModifyOptionGroupResponse
+    , modifyOptionGroupResponse
     -- ** Response lenses
     , mogrOptionGroup
     ) where
@@ -71,9 +71,9 @@ data ModifyOptionGroup = ModifyOptionGroup
 --
 -- * @ApplyImmediately ::@ @Maybe Bool@
 --
-mkModifyOptionGroup :: Text -- ^ 'mogOptionGroupName'
+modifyOptionGroup :: Text -- ^ 'mogOptionGroupName'
                     -> ModifyOptionGroup
-mkModifyOptionGroup p1 = ModifyOptionGroup
+modifyOptionGroup p1 = ModifyOptionGroup
     { _mogOptionGroupName = p1
     , _mogOptionsToInclude = mempty
     , _mogOptionsToRemove = mempty
@@ -122,8 +122,8 @@ newtype ModifyOptionGroupResponse = ModifyOptionGroupResponse
 --
 -- * @OptionGroup ::@ @Maybe OptionGroup@
 --
-mkModifyOptionGroupResponse :: ModifyOptionGroupResponse
-mkModifyOptionGroupResponse = ModifyOptionGroupResponse
+modifyOptionGroupResponse :: ModifyOptionGroupResponse
+modifyOptionGroupResponse = ModifyOptionGroupResponse
     { _mogrOptionGroup = Nothing
     }
 

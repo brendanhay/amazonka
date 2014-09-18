@@ -38,7 +38,7 @@ module Network.AWS.EC2.CopySnapshot
     -- * Request
       CopySnapshot
     -- ** Request constructor
-    , mkCopySnapshot
+    , copySnapshot
     -- ** Request lenses
     , csSourceRegion
     , csSourceSnapshotId
@@ -49,7 +49,7 @@ module Network.AWS.EC2.CopySnapshot
     -- * Response
     , CopySnapshotResponse
     -- ** Response constructor
-    , mkCopySnapshotResponse
+    , copySnapshotResponse
     -- ** Response lenses
     , csrSnapshotId
     ) where
@@ -81,10 +81,10 @@ data CopySnapshot = CopySnapshot
 --
 -- * @PresignedUrl ::@ @Maybe Text@
 --
-mkCopySnapshot :: Text -- ^ 'csSourceRegion'
+copySnapshot :: Text -- ^ 'csSourceRegion'
                -> Text -- ^ 'csSourceSnapshotId'
                -> CopySnapshot
-mkCopySnapshot p1 p2 = CopySnapshot
+copySnapshot p1 p2 = CopySnapshot
     { _csSourceRegion = p1
     , _csSourceSnapshotId = p2
     , _csDescription = Nothing
@@ -142,8 +142,8 @@ newtype CopySnapshotResponse = CopySnapshotResponse
 --
 -- * @SnapshotId ::@ @Maybe Text@
 --
-mkCopySnapshotResponse :: CopySnapshotResponse
-mkCopySnapshotResponse = CopySnapshotResponse
+copySnapshotResponse :: CopySnapshotResponse
+copySnapshotResponse = CopySnapshotResponse
     { _csrSnapshotId = Nothing
     }
 

@@ -27,7 +27,6 @@ library
 
     exposed-modules:
           Network.AWS.Route53Domains
-        , Network.AWS.Route53Domains.Monadic
         , Network.AWS.Route53Domains.Types
         , Network.AWS.Route53Domains.CheckDomainAvailability
         , Network.AWS.Route53Domains.DisableDomainTransferLock

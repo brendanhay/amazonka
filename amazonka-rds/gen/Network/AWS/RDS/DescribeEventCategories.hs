@@ -31,14 +31,14 @@ module Network.AWS.RDS.DescribeEventCategories
     -- * Request
       DescribeEventCategories
     -- ** Request constructor
-    , mkDescribeEventCategories
+    , describeEventCategories
     -- ** Request lenses
     , decSourceType
 
     -- * Response
     , DescribeEventCategoriesResponse
     -- ** Response constructor
-    , mkDescribeEventCategoriesResponse
+    , describeEventCategoriesResponse
     -- ** Response lenses
     , decrEventCategoriesMapList
     ) where
@@ -59,8 +59,8 @@ newtype DescribeEventCategories = DescribeEventCategories
 --
 -- * @SourceType ::@ @Maybe Text@
 --
-mkDescribeEventCategories :: DescribeEventCategories
-mkDescribeEventCategories = DescribeEventCategories
+describeEventCategories :: DescribeEventCategories
+describeEventCategories = DescribeEventCategories
     { _decSourceType = Nothing
     }
 
@@ -86,8 +86,8 @@ newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
 --
 -- * @EventCategoriesMapList ::@ @[EventCategoriesMap]@
 --
-mkDescribeEventCategoriesResponse :: DescribeEventCategoriesResponse
-mkDescribeEventCategoriesResponse = DescribeEventCategoriesResponse
+describeEventCategoriesResponse :: DescribeEventCategoriesResponse
+describeEventCategoriesResponse = DescribeEventCategoriesResponse
     { _decrEventCategoriesMapList = mempty
     }
 

@@ -26,11 +26,11 @@ module Network.AWS.S3.ListBuckets
     -- ** Request alias
     , GetService
     -- ** Request constructor
-    , mkListBuckets
+    , listBuckets
     -- * Response
     , ListBucketsResponse
     -- ** Response constructor
-    , mkListBucketsResponse
+    , listBucketsResponse
     -- ** Response lenses
     , lbrBuckets
     , lbrOwner
@@ -48,8 +48,8 @@ data ListBuckets = ListBuckets
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListBuckets' request.
-mkListBuckets :: ListBuckets
-mkListBuckets = ListBuckets
+listBuckets :: ListBuckets
+listBuckets = ListBuckets
 
 instance ToPath ListBuckets
 
@@ -75,8 +75,8 @@ data ListBucketsResponse = ListBucketsResponse
 --
 -- * @Owner ::@ @Maybe Owner@
 --
-mkListBucketsResponse :: ListBucketsResponse
-mkListBucketsResponse = ListBucketsResponse
+listBucketsResponse :: ListBucketsResponse
+listBucketsResponse = ListBucketsResponse
     { _lbrBuckets = mempty
     , _lbrOwner = Nothing
     }

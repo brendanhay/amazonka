@@ -36,7 +36,7 @@ module Network.AWS.ELB.DescribeLoadBalancers
     -- * Request
       DescribeLoadBalancers
     -- ** Request constructor
-    , mkDescribeLoadBalancers
+    , describeLoadBalancers
     -- ** Request lenses
     , dlb1LoadBalancerNames
     , dlb1Marker
@@ -45,7 +45,7 @@ module Network.AWS.ELB.DescribeLoadBalancers
     -- * Response
     , DescribeLoadBalancersResponse
     -- ** Response constructor
-    , mkDescribeLoadBalancersResponse
+    , describeLoadBalancersResponse
     -- ** Response lenses
     , dlbrrLoadBalancerDescriptions
     , dlbrrNextMarker
@@ -73,8 +73,8 @@ data DescribeLoadBalancers = DescribeLoadBalancers
 --
 -- * @PageSize ::@ @Maybe Integer@
 --
-mkDescribeLoadBalancers :: DescribeLoadBalancers
-mkDescribeLoadBalancers = DescribeLoadBalancers
+describeLoadBalancers :: DescribeLoadBalancers
+describeLoadBalancers = DescribeLoadBalancers
     { _dlb1LoadBalancerNames = mempty
     , _dlb1Marker = Nothing
     , _dlb1PageSize = Nothing
@@ -115,8 +115,8 @@ data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse
 --
 -- * @NextMarker ::@ @Maybe Text@
 --
-mkDescribeLoadBalancersResponse :: DescribeLoadBalancersResponse
-mkDescribeLoadBalancersResponse = DescribeLoadBalancersResponse
+describeLoadBalancersResponse :: DescribeLoadBalancersResponse
+describeLoadBalancersResponse = DescribeLoadBalancersResponse
     { _dlbrrLoadBalancerDescriptions = mempty
     , _dlbrrNextMarker = Nothing
     }

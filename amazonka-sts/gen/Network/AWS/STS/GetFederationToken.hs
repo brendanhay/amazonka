@@ -84,7 +84,7 @@ module Network.AWS.STS.GetFederationToken
     -- * Request
       GetFederationToken
     -- ** Request constructor
-    , mkGetFederationToken
+    , getFederationToken
     -- ** Request lenses
     , gftName
     , gftPolicy
@@ -93,7 +93,7 @@ module Network.AWS.STS.GetFederationToken
     -- * Response
     , GetFederationTokenResponse
     -- ** Response constructor
-    , mkGetFederationTokenResponse
+    , getFederationTokenResponse
     -- ** Response lenses
     , gftrCredentials
     , gftrFederatedUser
@@ -121,9 +121,9 @@ data GetFederationToken = GetFederationToken
 --
 -- * @DurationSeconds ::@ @Maybe Integer@
 --
-mkGetFederationToken :: Text -- ^ 'gftName'
+getFederationToken :: Text -- ^ 'gftName'
                      -> GetFederationToken
-mkGetFederationToken p1 = GetFederationToken
+getFederationToken p1 = GetFederationToken
     { _gftName = p1
     , _gftPolicy = Nothing
     , _gftDurationSeconds = Nothing
@@ -188,8 +188,8 @@ data GetFederationTokenResponse = GetFederationTokenResponse
 --
 -- * @PackedPolicySize ::@ @Maybe Integer@
 --
-mkGetFederationTokenResponse :: GetFederationTokenResponse
-mkGetFederationTokenResponse = GetFederationTokenResponse
+getFederationTokenResponse :: GetFederationTokenResponse
+getFederationTokenResponse = GetFederationTokenResponse
     { _gftrCredentials = Nothing
     , _gftrFederatedUser = Nothing
     , _gftrPackedPolicySize = Nothing

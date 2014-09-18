@@ -43,7 +43,7 @@ module Network.AWS.EMR.SetVisibleToAllUsers
     -- * Request
       SetVisibleToAllUsers
     -- ** Request constructor
-    , mkSetVisibleToAllUsers
+    , setVisibleToAllUsers
     -- ** Request lenses
     , svtauJobFlowIds
     , svtauVisibleToAllUsers
@@ -51,7 +51,7 @@ module Network.AWS.EMR.SetVisibleToAllUsers
     -- * Response
     , SetVisibleToAllUsersResponse
     -- ** Response constructor
-    , mkSetVisibleToAllUsersResponse
+    , setVisibleToAllUsersResponse
     ) where
 
 import Network.AWS.EMR.Types
@@ -73,10 +73,10 @@ data SetVisibleToAllUsers = SetVisibleToAllUsers
 --
 -- * @VisibleToAllUsers ::@ @Bool@
 --
-mkSetVisibleToAllUsers :: [Text] -- ^ 'svtauJobFlowIds'
+setVisibleToAllUsers :: [Text] -- ^ 'svtauJobFlowIds'
                        -> Bool -- ^ 'svtauVisibleToAllUsers'
                        -> SetVisibleToAllUsers
-mkSetVisibleToAllUsers p1 p2 = SetVisibleToAllUsers
+setVisibleToAllUsers p1 p2 = SetVisibleToAllUsers
     { _svtauJobFlowIds = p1
     , _svtauVisibleToAllUsers = p2
     }
@@ -109,8 +109,8 @@ data SetVisibleToAllUsersResponse = SetVisibleToAllUsersResponse
 -- a valid 'SetVisibleToAllUsersResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSetVisibleToAllUsersResponse :: SetVisibleToAllUsersResponse
-mkSetVisibleToAllUsersResponse = SetVisibleToAllUsersResponse
+setVisibleToAllUsersResponse :: SetVisibleToAllUsersResponse
+setVisibleToAllUsersResponse = SetVisibleToAllUsersResponse
 
 instance AWSRequest SetVisibleToAllUsers where
     type Sv SetVisibleToAllUsers = EMR

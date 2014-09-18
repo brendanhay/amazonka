@@ -25,7 +25,7 @@ module Network.AWS.IAM.UpdateLoginProfile
     -- * Request
       UpdateLoginProfile
     -- ** Request constructor
-    , mkUpdateLoginProfile
+    , updateLoginProfile
     -- ** Request lenses
     , ulpUserName
     , ulpPassword
@@ -34,7 +34,7 @@ module Network.AWS.IAM.UpdateLoginProfile
     -- * Response
     , UpdateLoginProfileResponse
     -- ** Response constructor
-    , mkUpdateLoginProfileResponse
+    , updateLoginProfileResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -58,9 +58,9 @@ data UpdateLoginProfile = UpdateLoginProfile
 --
 -- * @PasswordResetRequired ::@ @Maybe Bool@
 --
-mkUpdateLoginProfile :: Text -- ^ 'ulpUserName'
+updateLoginProfile :: Text -- ^ 'ulpUserName'
                      -> UpdateLoginProfile
-mkUpdateLoginProfile p1 = UpdateLoginProfile
+updateLoginProfile p1 = UpdateLoginProfile
     { _ulpUserName = p1
     , _ulpPassword = Nothing
     , _ulpPasswordResetRequired = Nothing
@@ -90,8 +90,8 @@ data UpdateLoginProfileResponse = UpdateLoginProfileResponse
 -- a valid 'UpdateLoginProfileResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkUpdateLoginProfileResponse :: UpdateLoginProfileResponse
-mkUpdateLoginProfileResponse = UpdateLoginProfileResponse
+updateLoginProfileResponse :: UpdateLoginProfileResponse
+updateLoginProfileResponse = UpdateLoginProfileResponse
 
 instance AWSRequest UpdateLoginProfile where
     type Sv UpdateLoginProfile = IAM

@@ -54,7 +54,7 @@ module Network.AWS.SWF.DeprecateWorkflowType
     -- * Request
       DeprecateWorkflowType
     -- ** Request constructor
-    , mkDeprecateWorkflowType
+    , deprecateWorkflowType
     -- ** Request lenses
     , dwtDomain
     , dwtWorkflowType
@@ -62,7 +62,7 @@ module Network.AWS.SWF.DeprecateWorkflowType
     -- * Response
     , DeprecateWorkflowTypeResponse
     -- ** Response constructor
-    , mkDeprecateWorkflowTypeResponse
+    , deprecateWorkflowTypeResponse
     ) where
 
 import Network.AWS.SWF.Types
@@ -83,10 +83,10 @@ data DeprecateWorkflowType = DeprecateWorkflowType
 --
 -- * @WorkflowType ::@ @WorkflowType@
 --
-mkDeprecateWorkflowType :: Text -- ^ 'dwtDomain'
+deprecateWorkflowType :: Text -- ^ 'dwtDomain'
                         -> WorkflowType -- ^ 'dwtWorkflowType'
                         -> DeprecateWorkflowType
-mkDeprecateWorkflowType p1 p2 = DeprecateWorkflowType
+deprecateWorkflowType p1 p2 = DeprecateWorkflowType
     { _dwtDomain = p1
     , _dwtWorkflowType = p2
     }
@@ -114,8 +114,8 @@ data DeprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse
 -- a valid 'DeprecateWorkflowTypeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeprecateWorkflowTypeResponse :: DeprecateWorkflowTypeResponse
-mkDeprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse
+deprecateWorkflowTypeResponse :: DeprecateWorkflowTypeResponse
+deprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse
 
 instance AWSRequest DeprecateWorkflowType where
     type Sv DeprecateWorkflowType = SWF

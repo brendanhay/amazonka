@@ -38,14 +38,14 @@ module Network.AWS.SNS.CreateTopic
     -- * Request
       CreateTopic
     -- ** Request constructor
-    , mkCreateTopic
+    , createTopic
     -- ** Request lenses
     , ctName
 
     -- * Response
     , CreateTopicResponse
     -- ** Response constructor
-    , mkCreateTopicResponse
+    , createTopicResponse
     -- ** Response lenses
     , ctrTopicArn
     ) where
@@ -66,9 +66,9 @@ newtype CreateTopic = CreateTopic
 --
 -- * @Name ::@ @Text@
 --
-mkCreateTopic :: Text -- ^ 'ctName'
+createTopic :: Text -- ^ 'ctName'
               -> CreateTopic
-mkCreateTopic p1 = CreateTopic
+createTopic p1 = CreateTopic
     { _ctName = p1
     }
 
@@ -95,8 +95,8 @@ newtype CreateTopicResponse = CreateTopicResponse
 --
 -- * @TopicArn ::@ @Maybe Text@
 --
-mkCreateTopicResponse :: CreateTopicResponse
-mkCreateTopicResponse = CreateTopicResponse
+createTopicResponse :: CreateTopicResponse
+createTopicResponse = CreateTopicResponse
     { _ctrTopicArn = Nothing
     }
 

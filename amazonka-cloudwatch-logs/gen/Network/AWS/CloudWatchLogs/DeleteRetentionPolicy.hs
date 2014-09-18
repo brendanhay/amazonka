@@ -33,14 +33,14 @@ module Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
     -- * Request
       DeleteRetentionPolicy
     -- ** Request constructor
-    , mkDeleteRetentionPolicy
+    , deleteRetentionPolicy
     -- ** Request lenses
     , drpLogGroupName
 
     -- * Response
     , DeleteRetentionPolicyResponse
     -- ** Response constructor
-    , mkDeleteRetentionPolicyResponse
+    , deleteRetentionPolicyResponse
     ) where
 
 import Network.AWS.CloudWatchLogs.Types
@@ -58,9 +58,9 @@ newtype DeleteRetentionPolicy = DeleteRetentionPolicy
 --
 -- * @LogGroupName ::@ @Text@
 --
-mkDeleteRetentionPolicy :: Text -- ^ 'drpLogGroupName'
+deleteRetentionPolicy :: Text -- ^ 'drpLogGroupName'
                         -> DeleteRetentionPolicy
-mkDeleteRetentionPolicy p1 = DeleteRetentionPolicy
+deleteRetentionPolicy p1 = DeleteRetentionPolicy
     { _drpLogGroupName = p1
     }
 
@@ -82,8 +82,8 @@ data DeleteRetentionPolicyResponse = DeleteRetentionPolicyResponse
 -- a valid 'DeleteRetentionPolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteRetentionPolicyResponse :: DeleteRetentionPolicyResponse
-mkDeleteRetentionPolicyResponse = DeleteRetentionPolicyResponse
+deleteRetentionPolicyResponse :: DeleteRetentionPolicyResponse
+deleteRetentionPolicyResponse = DeleteRetentionPolicyResponse
 
 instance AWSRequest DeleteRetentionPolicy where
     type Sv DeleteRetentionPolicy = CloudWatchLogs

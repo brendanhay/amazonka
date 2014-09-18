@@ -23,14 +23,14 @@ module Network.AWS.CloudSearch.BuildSuggesters
     -- * Request
       BuildSuggesters
     -- ** Request constructor
-    , mkBuildSuggesters
+    , buildSuggesters
     -- ** Request lenses
     , bsDomainName
 
     -- * Response
     , BuildSuggestersResponse
     -- ** Response constructor
-    , mkBuildSuggestersResponse
+    , buildSuggestersResponse
     -- ** Response lenses
     , bsrFieldNames
     ) where
@@ -52,9 +52,9 @@ newtype BuildSuggesters = BuildSuggesters
 --
 -- * @DomainName ::@ @Text@
 --
-mkBuildSuggesters :: Text -- ^ 'bsDomainName'
+buildSuggesters :: Text -- ^ 'bsDomainName'
                   -> BuildSuggesters
-mkBuildSuggesters p1 = BuildSuggesters
+buildSuggesters p1 = BuildSuggesters
     { _bsDomainName = p1
     }
 
@@ -83,8 +83,8 @@ newtype BuildSuggestersResponse = BuildSuggestersResponse
 --
 -- * @FieldNames ::@ @[Text]@
 --
-mkBuildSuggestersResponse :: BuildSuggestersResponse
-mkBuildSuggestersResponse = BuildSuggestersResponse
+buildSuggestersResponse :: BuildSuggestersResponse
+buildSuggestersResponse = BuildSuggestersResponse
     { _bsrFieldNames = mempty
     }
 

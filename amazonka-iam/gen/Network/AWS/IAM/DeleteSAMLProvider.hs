@@ -29,14 +29,14 @@ module Network.AWS.IAM.DeleteSAMLProvider
     -- * Request
       DeleteSAMLProvider
     -- ** Request constructor
-    , mkDeleteSAMLProvider
+    , deleteSAMLProvider
     -- ** Request lenses
     , dsamlpSAMLProviderArn
 
     -- * Response
     , DeleteSAMLProviderResponse
     -- ** Response constructor
-    , mkDeleteSAMLProviderResponse
+    , deleteSAMLProviderResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -54,9 +54,9 @@ newtype DeleteSAMLProvider = DeleteSAMLProvider
 --
 -- * @SAMLProviderArn ::@ @Text@
 --
-mkDeleteSAMLProvider :: Text -- ^ 'dsamlpSAMLProviderArn'
+deleteSAMLProvider :: Text -- ^ 'dsamlpSAMLProviderArn'
                      -> DeleteSAMLProvider
-mkDeleteSAMLProvider p1 = DeleteSAMLProvider
+deleteSAMLProvider p1 = DeleteSAMLProvider
     { _dsamlpSAMLProviderArn = p1
     }
 
@@ -75,8 +75,8 @@ data DeleteSAMLProviderResponse = DeleteSAMLProviderResponse
 -- a valid 'DeleteSAMLProviderResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteSAMLProviderResponse :: DeleteSAMLProviderResponse
-mkDeleteSAMLProviderResponse = DeleteSAMLProviderResponse
+deleteSAMLProviderResponse :: DeleteSAMLProviderResponse
+deleteSAMLProviderResponse = DeleteSAMLProviderResponse
 
 instance AWSRequest DeleteSAMLProvider where
     type Sv DeleteSAMLProvider = IAM

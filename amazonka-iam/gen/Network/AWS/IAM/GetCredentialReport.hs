@@ -25,11 +25,11 @@ module Network.AWS.IAM.GetCredentialReport
     -- * Request
       GetCredentialReport
     -- ** Request constructor
-    , mkGetCredentialReport
+    , getCredentialReport
     -- * Response
     , GetCredentialReportResponse
     -- ** Response constructor
-    , mkGetCredentialReportResponse
+    , getCredentialReportResponse
     -- ** Response lenses
     , gcrrrContent
     , gcrrrReportFormat
@@ -45,8 +45,8 @@ data GetCredentialReport = GetCredentialReport
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetCredentialReport' request.
-mkGetCredentialReport :: GetCredentialReport
-mkGetCredentialReport = GetCredentialReport
+getCredentialReport :: GetCredentialReport
+getCredentialReport = GetCredentialReport
 
 instance ToQuery GetCredentialReport where
     toQuery = genericQuery def
@@ -72,8 +72,8 @@ data GetCredentialReportResponse = GetCredentialReportResponse
 --
 -- * @GeneratedTime ::@ @Maybe ISO8601@
 --
-mkGetCredentialReportResponse :: GetCredentialReportResponse
-mkGetCredentialReportResponse = GetCredentialReportResponse
+getCredentialReportResponse :: GetCredentialReportResponse
+getCredentialReportResponse = GetCredentialReportResponse
     { _gcrrrContent = Nothing
     , _gcrrrReportFormat = Nothing
     , _gcrrrGeneratedTime = Nothing

@@ -36,7 +36,7 @@ module Network.AWS.IAM.ListInstanceProfilesForRole
     -- * Request
       ListInstanceProfilesForRole
     -- ** Request constructor
-    , mkListInstanceProfilesForRole
+    , listInstanceProfilesForRole
     -- ** Request lenses
     , lipfrRoleName
     , lipfrMarker
@@ -45,7 +45,7 @@ module Network.AWS.IAM.ListInstanceProfilesForRole
     -- * Response
     , ListInstanceProfilesForRoleResponse
     -- ** Response constructor
-    , mkListInstanceProfilesForRoleResponse
+    , listInstanceProfilesForRoleResponse
     -- ** Response lenses
     , lipfrrInstanceProfiles
     , lipfrrIsTruncated
@@ -73,9 +73,9 @@ data ListInstanceProfilesForRole = ListInstanceProfilesForRole
 --
 -- * @MaxItems ::@ @Maybe Integer@
 --
-mkListInstanceProfilesForRole :: Text -- ^ 'lipfrRoleName'
+listInstanceProfilesForRole :: Text -- ^ 'lipfrRoleName'
                               -> ListInstanceProfilesForRole
-mkListInstanceProfilesForRole p1 = ListInstanceProfilesForRole
+listInstanceProfilesForRole p1 = ListInstanceProfilesForRole
     { _lipfrRoleName = p1
     , _lipfrMarker = Nothing
     , _lipfrMaxItems = Nothing
@@ -124,10 +124,10 @@ data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListInstanceProfilesForRoleResponse :: [InstanceProfile] -- ^ 'lipfrrInstanceProfiles'
+listInstanceProfilesForRoleResponse :: [InstanceProfile] -- ^ 'lipfrrInstanceProfiles'
                                       -> Bool -- ^ 'lipfrrIsTruncated'
                                       -> ListInstanceProfilesForRoleResponse
-mkListInstanceProfilesForRoleResponse p1 p2 = ListInstanceProfilesForRoleResponse
+listInstanceProfilesForRoleResponse p1 p2 = ListInstanceProfilesForRoleResponse
     { _lipfrrInstanceProfiles = p1
     , _lipfrrIsTruncated = p2
     , _lipfrrMarker = Nothing

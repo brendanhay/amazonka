@@ -31,7 +31,7 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodes
     -- * Request
       DescribeReservedCacheNodes
     -- ** Request constructor
-    , mkDescribeReservedCacheNodes
+    , describeReservedCacheNodes
     -- ** Request lenses
     , drcnReservedCacheNodeId
     , drcnReservedCacheNodesOfferingId
@@ -45,7 +45,7 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodes
     -- * Response
     , DescribeReservedCacheNodesResponse
     -- ** Response constructor
-    , mkDescribeReservedCacheNodesResponse
+    , describeReservedCacheNodesResponse
     -- ** Response lenses
     , drcnrMarker
     , drcnrReservedCacheNodes
@@ -88,8 +88,8 @@ data DescribeReservedCacheNodes = DescribeReservedCacheNodes
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeReservedCacheNodes :: DescribeReservedCacheNodes
-mkDescribeReservedCacheNodes = DescribeReservedCacheNodes
+describeReservedCacheNodes :: DescribeReservedCacheNodes
+describeReservedCacheNodes = DescribeReservedCacheNodes
     { _drcnReservedCacheNodeId = Nothing
     , _drcnReservedCacheNodesOfferingId = Nothing
     , _drcnCacheNodeType = Nothing
@@ -173,8 +173,8 @@ data DescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse
 --
 -- * @ReservedCacheNodes ::@ @[ReservedCacheNode]@
 --
-mkDescribeReservedCacheNodesResponse :: DescribeReservedCacheNodesResponse
-mkDescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse
+describeReservedCacheNodesResponse :: DescribeReservedCacheNodesResponse
+describeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse
     { _drcnrMarker = Nothing
     , _drcnrReservedCacheNodes = mempty
     }

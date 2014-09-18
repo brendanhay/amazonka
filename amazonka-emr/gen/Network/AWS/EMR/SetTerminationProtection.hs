@@ -51,7 +51,7 @@ module Network.AWS.EMR.SetTerminationProtection
     -- * Request
       SetTerminationProtection
     -- ** Request constructor
-    , mkSetTerminationProtection
+    , setTerminationProtection
     -- ** Request lenses
     , stpJobFlowIds
     , stpTerminationProtected
@@ -59,7 +59,7 @@ module Network.AWS.EMR.SetTerminationProtection
     -- * Response
     , SetTerminationProtectionResponse
     -- ** Response constructor
-    , mkSetTerminationProtectionResponse
+    , setTerminationProtectionResponse
     ) where
 
 import Network.AWS.EMR.Types
@@ -81,10 +81,10 @@ data SetTerminationProtection = SetTerminationProtection
 --
 -- * @TerminationProtected ::@ @Bool@
 --
-mkSetTerminationProtection :: [Text] -- ^ 'stpJobFlowIds'
+setTerminationProtection :: [Text] -- ^ 'stpJobFlowIds'
                            -> Bool -- ^ 'stpTerminationProtected'
                            -> SetTerminationProtection
-mkSetTerminationProtection p1 p2 = SetTerminationProtection
+setTerminationProtection p1 p2 = SetTerminationProtection
     { _stpJobFlowIds = p1
     , _stpTerminationProtected = p2
     }
@@ -118,8 +118,8 @@ data SetTerminationProtectionResponse = SetTerminationProtectionResponse
 -- a valid 'SetTerminationProtectionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSetTerminationProtectionResponse :: SetTerminationProtectionResponse
-mkSetTerminationProtectionResponse = SetTerminationProtectionResponse
+setTerminationProtectionResponse :: SetTerminationProtectionResponse
+setTerminationProtectionResponse = SetTerminationProtectionResponse
 
 instance AWSRequest SetTerminationProtection where
     type Sv SetTerminationProtection = EMR

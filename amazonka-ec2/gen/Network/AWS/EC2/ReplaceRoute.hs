@@ -35,7 +35,7 @@ module Network.AWS.EC2.ReplaceRoute
     -- * Request
       ReplaceRoute
     -- ** Request constructor
-    , mkReplaceRoute
+    , replaceRoute
     -- ** Request lenses
     , rr1RouteTableId
     , rr1DestinationCidrBlock
@@ -47,7 +47,7 @@ module Network.AWS.EC2.ReplaceRoute
     -- * Response
     , ReplaceRouteResponse
     -- ** Response constructor
-    , mkReplaceRouteResponse
+    , replaceRouteResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -80,10 +80,10 @@ data ReplaceRoute = ReplaceRoute
 --
 -- * @VpcPeeringConnectionId ::@ @Maybe Text@
 --
-mkReplaceRoute :: Text -- ^ 'rr1RouteTableId'
+replaceRoute :: Text -- ^ 'rr1RouteTableId'
                -> Text -- ^ 'rr1DestinationCidrBlock'
                -> ReplaceRoute
-mkReplaceRoute p1 p2 = ReplaceRoute
+replaceRoute p1 p2 = ReplaceRoute
     { _rr1RouteTableId = p1
     , _rr1DestinationCidrBlock = p2
     , _rr1GatewayId = Nothing
@@ -132,8 +132,8 @@ data ReplaceRouteResponse = ReplaceRouteResponse
 -- a valid 'ReplaceRouteResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkReplaceRouteResponse :: ReplaceRouteResponse
-mkReplaceRouteResponse = ReplaceRouteResponse
+replaceRouteResponse :: ReplaceRouteResponse
+replaceRouteResponse = ReplaceRouteResponse
 
 instance AWSRequest ReplaceRoute where
     type Sv ReplaceRoute = EC2

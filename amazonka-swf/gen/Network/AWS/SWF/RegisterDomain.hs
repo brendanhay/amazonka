@@ -48,7 +48,7 @@ module Network.AWS.SWF.RegisterDomain
     -- * Request
       RegisterDomain
     -- ** Request constructor
-    , mkRegisterDomain
+    , registerDomain
     -- ** Request lenses
     , rdName
     , rdDescription
@@ -57,7 +57,7 @@ module Network.AWS.SWF.RegisterDomain
     -- * Response
     , RegisterDomainResponse
     -- ** Response constructor
-    , mkRegisterDomainResponse
+    , registerDomainResponse
     ) where
 
 import Network.AWS.SWF.Types
@@ -81,10 +81,10 @@ data RegisterDomain = RegisterDomain
 --
 -- * @WorkflowExecutionRetentionPeriodInDays ::@ @Text@
 --
-mkRegisterDomain :: Text -- ^ 'rdName'
+registerDomain :: Text -- ^ 'rdName'
                  -> Text -- ^ 'rdWorkflowExecutionRetentionPeriodInDays'
                  -> RegisterDomain
-mkRegisterDomain p1 p3 = RegisterDomain
+registerDomain p1 p3 = RegisterDomain
     { _rdName = p1
     , _rdDescription = Nothing
     , _rdWorkflowExecutionRetentionPeriodInDays = p3
@@ -128,8 +128,8 @@ data RegisterDomainResponse = RegisterDomainResponse
 -- a valid 'RegisterDomainResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRegisterDomainResponse :: RegisterDomainResponse
-mkRegisterDomainResponse = RegisterDomainResponse
+registerDomainResponse :: RegisterDomainResponse
+registerDomainResponse = RegisterDomainResponse
 
 instance AWSRequest RegisterDomain where
     type Sv RegisterDomain = SWF

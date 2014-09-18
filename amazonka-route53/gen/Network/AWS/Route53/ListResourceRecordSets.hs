@@ -54,7 +54,7 @@ module Network.AWS.Route53.ListResourceRecordSets
     -- * Request
       ListResourceRecordSets
     -- ** Request constructor
-    , mkListResourceRecordSets
+    , listResourceRecordSets
     -- ** Request lenses
     , lrrsHostedZoneId
     , lrrsStartRecordName
@@ -65,7 +65,7 @@ module Network.AWS.Route53.ListResourceRecordSets
     -- * Response
     , ListResourceRecordSetsResponse
     -- ** Response constructor
-    , mkListResourceRecordSetsResponse
+    , listResourceRecordSetsResponse
     -- ** Response lenses
     , lrrsrResourceRecordSets
     , lrrsrIsTruncated
@@ -104,9 +104,9 @@ data ListResourceRecordSets = ListResourceRecordSets
 --
 -- * @MaxItems ::@ @Maybe Text@
 --
-mkListResourceRecordSets :: Text -- ^ 'lrrsHostedZoneId'
+listResourceRecordSets :: Text -- ^ 'lrrsHostedZoneId'
                          -> ListResourceRecordSets
-mkListResourceRecordSets p1 = ListResourceRecordSets
+listResourceRecordSets p1 = ListResourceRecordSets
     { _lrrsHostedZoneId = p1
     , _lrrsStartRecordName = Nothing
     , _lrrsStartRecordType = Nothing
@@ -190,11 +190,11 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
 --
 -- * @MaxItems ::@ @Text@
 --
-mkListResourceRecordSetsResponse :: [ResourceRecordSet] -- ^ 'lrrsrResourceRecordSets'
+listResourceRecordSetsResponse :: [ResourceRecordSet] -- ^ 'lrrsrResourceRecordSets'
                                  -> Bool -- ^ 'lrrsrIsTruncated'
                                  -> Text -- ^ 'lrrsrMaxItems'
                                  -> ListResourceRecordSetsResponse
-mkListResourceRecordSetsResponse p1 p2 p6 = ListResourceRecordSetsResponse
+listResourceRecordSetsResponse p1 p2 p6 = ListResourceRecordSetsResponse
     { _lrrsrResourceRecordSets = p1
     , _lrrsrIsTruncated = p2
     , _lrrsrNextRecordName = Nothing

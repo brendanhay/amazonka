@@ -30,14 +30,14 @@ module Network.AWS.IAM.DeleteLoginProfile
     -- * Request
       DeleteLoginProfile
     -- ** Request constructor
-    , mkDeleteLoginProfile
+    , deleteLoginProfile
     -- ** Request lenses
     , dlpUserName
 
     -- * Response
     , DeleteLoginProfileResponse
     -- ** Response constructor
-    , mkDeleteLoginProfileResponse
+    , deleteLoginProfileResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -55,9 +55,9 @@ newtype DeleteLoginProfile = DeleteLoginProfile
 --
 -- * @UserName ::@ @Text@
 --
-mkDeleteLoginProfile :: Text -- ^ 'dlpUserName'
+deleteLoginProfile :: Text -- ^ 'dlpUserName'
                      -> DeleteLoginProfile
-mkDeleteLoginProfile p1 = DeleteLoginProfile
+deleteLoginProfile p1 = DeleteLoginProfile
     { _dlpUserName = p1
     }
 
@@ -75,8 +75,8 @@ data DeleteLoginProfileResponse = DeleteLoginProfileResponse
 -- a valid 'DeleteLoginProfileResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteLoginProfileResponse :: DeleteLoginProfileResponse
-mkDeleteLoginProfileResponse = DeleteLoginProfileResponse
+deleteLoginProfileResponse :: DeleteLoginProfileResponse
+deleteLoginProfileResponse = DeleteLoginProfileResponse
 
 instance AWSRequest DeleteLoginProfile where
     type Sv DeleteLoginProfile = IAM

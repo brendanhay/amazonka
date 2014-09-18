@@ -49,7 +49,7 @@ module Network.AWS.EC2.DescribeVpnConnections
     -- * Request
       DescribeVpnConnections
     -- ** Request constructor
-    , mkDescribeVpnConnections
+    , describeVpnConnections
     -- ** Request lenses
     , dvc1VpnConnectionIds
     , dvc1Filters
@@ -57,7 +57,7 @@ module Network.AWS.EC2.DescribeVpnConnections
     -- * Response
     , DescribeVpnConnectionsResponse
     -- ** Response constructor
-    , mkDescribeVpnConnectionsResponse
+    , describeVpnConnectionsResponse
     -- ** Response lenses
     , dvcrrVpnConnections
     ) where
@@ -80,8 +80,8 @@ data DescribeVpnConnections = DescribeVpnConnections
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribeVpnConnections :: DescribeVpnConnections
-mkDescribeVpnConnections = DescribeVpnConnections
+describeVpnConnections :: DescribeVpnConnections
+describeVpnConnections = DescribeVpnConnections
     { _dvc1VpnConnectionIds = mempty
     , _dvc1Filters = mempty
     }
@@ -131,8 +131,8 @@ newtype DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
 --
 -- * @VpnConnections ::@ @[VpnConnection]@
 --
-mkDescribeVpnConnectionsResponse :: DescribeVpnConnectionsResponse
-mkDescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
+describeVpnConnectionsResponse :: DescribeVpnConnectionsResponse
+describeVpnConnectionsResponse = DescribeVpnConnectionsResponse
     { _dvcrrVpnConnections = mempty
     }
 

@@ -28,7 +28,7 @@ module Network.AWS.OpsWorks.DeleteInstance
     -- * Request
       DeleteInstance
     -- ** Request constructor
-    , mkDeleteInstance
+    , deleteInstance
     -- ** Request lenses
     , diInstanceId
     , diDeleteElasticIp
@@ -37,7 +37,7 @@ module Network.AWS.OpsWorks.DeleteInstance
     -- * Response
     , DeleteInstanceResponse
     -- ** Response constructor
-    , mkDeleteInstanceResponse
+    , deleteInstanceResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -61,9 +61,9 @@ data DeleteInstance = DeleteInstance
 --
 -- * @DeleteVolumes ::@ @Maybe Bool@
 --
-mkDeleteInstance :: Text -- ^ 'diInstanceId'
+deleteInstance :: Text -- ^ 'diInstanceId'
                  -> DeleteInstance
-mkDeleteInstance p1 = DeleteInstance
+deleteInstance p1 = DeleteInstance
     { _diInstanceId = p1
     , _diDeleteElasticIp = Nothing
     , _diDeleteVolumes = Nothing
@@ -97,8 +97,8 @@ data DeleteInstanceResponse = DeleteInstanceResponse
 -- a valid 'DeleteInstanceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteInstanceResponse :: DeleteInstanceResponse
-mkDeleteInstanceResponse = DeleteInstanceResponse
+deleteInstanceResponse :: DeleteInstanceResponse
+deleteInstanceResponse = DeleteInstanceResponse
 
 instance AWSRequest DeleteInstance where
     type Sv DeleteInstance = OpsWorks

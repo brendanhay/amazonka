@@ -28,7 +28,7 @@ module Network.AWS.IAM.ListGroupsForUser
     -- * Request
       ListGroupsForUser
     -- ** Request constructor
-    , mkListGroupsForUser
+    , listGroupsForUser
     -- ** Request lenses
     , lgfuUserName
     , lgfuMarker
@@ -37,7 +37,7 @@ module Network.AWS.IAM.ListGroupsForUser
     -- * Response
     , ListGroupsForUserResponse
     -- ** Response constructor
-    , mkListGroupsForUserResponse
+    , listGroupsForUserResponse
     -- ** Response lenses
     , lgfurGroups
     , lgfurIsTruncated
@@ -65,9 +65,9 @@ data ListGroupsForUser = ListGroupsForUser
 --
 -- * @MaxItems ::@ @Maybe Integer@
 --
-mkListGroupsForUser :: Text -- ^ 'lgfuUserName'
+listGroupsForUser :: Text -- ^ 'lgfuUserName'
                     -> ListGroupsForUser
-mkListGroupsForUser p1 = ListGroupsForUser
+listGroupsForUser p1 = ListGroupsForUser
     { _lgfuUserName = p1
     , _lgfuMarker = Nothing
     , _lgfuMaxItems = Nothing
@@ -114,10 +114,10 @@ data ListGroupsForUserResponse = ListGroupsForUserResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListGroupsForUserResponse :: [Group] -- ^ 'lgfurGroups'
+listGroupsForUserResponse :: [Group] -- ^ 'lgfurGroups'
                             -> Bool -- ^ 'lgfurIsTruncated'
                             -> ListGroupsForUserResponse
-mkListGroupsForUserResponse p1 p2 = ListGroupsForUserResponse
+listGroupsForUserResponse p1 p2 = ListGroupsForUserResponse
     { _lgfurGroups = p1
     , _lgfurIsTruncated = p2
     , _lgfurMarker = Nothing

@@ -46,12 +46,12 @@ module Network.AWS.DirectConnect.Types
 
     -- * RouteFilterPrefix
     , RouteFilterPrefix
-    , mkRouteFilterPrefix
+    , routeFilterPrefix
     , rfpCidr
 
     -- * Connection
     , Connection
-    , mkConnection
+    , connection
     , cOwnerAccount
     , cConnectionId
     , cConnectionName
@@ -64,7 +64,7 @@ module Network.AWS.DirectConnect.Types
 
     -- * Interconnect
     , Interconnect
-    , mkInterconnect
+    , interconnect
     , iInterconnectId
     , iInterconnectName
     , iInterconnectState
@@ -74,13 +74,13 @@ module Network.AWS.DirectConnect.Types
 
     -- * Location
     , Location
-    , mkLocation
+    , location
     , lLocationCode
     , lLocationName
 
     -- * NewPrivateVirtualInterface
     , NewPrivateVirtualInterface
-    , mkNewPrivateVirtualInterface
+    , newPrivateVirtualInterface
     , npviVirtualInterfaceName
     , npviVlan
     , npviAsn
@@ -91,7 +91,7 @@ module Network.AWS.DirectConnect.Types
 
     -- * NewPrivateVirtualInterfaceAllocation
     , NewPrivateVirtualInterfaceAllocation
-    , mkNewPrivateVirtualInterfaceAllocation
+    , newPrivateVirtualInterfaceAllocation
     , npviaVirtualInterfaceName
     , npviaVlan
     , npviaAsn
@@ -101,7 +101,7 @@ module Network.AWS.DirectConnect.Types
 
     -- * NewPublicVirtualInterface
     , NewPublicVirtualInterface
-    , mkNewPublicVirtualInterface
+    , newPublicVirtualInterface
     , npvi1VirtualInterfaceName
     , npvi1Vlan
     , npvi1Asn
@@ -112,7 +112,7 @@ module Network.AWS.DirectConnect.Types
 
     -- * NewPublicVirtualInterfaceAllocation
     , NewPublicVirtualInterfaceAllocation
-    , mkNewPublicVirtualInterfaceAllocation
+    , newPublicVirtualInterfaceAllocation
     , npvia1VirtualInterfaceName
     , npvia1Vlan
     , npvia1Asn
@@ -123,13 +123,13 @@ module Network.AWS.DirectConnect.Types
 
     -- * VirtualGateway
     , VirtualGateway
-    , mkVirtualGateway
+    , virtualGateway
     , vgVirtualGatewayId
     , vgVirtualGatewayState
 
     -- * VirtualInterface
     , VirtualInterface
-    , mkVirtualInterface
+    , virtualInterface
     , viOwnerAccount
     , viVirtualInterfaceId
     , viLocation
@@ -177,13 +177,13 @@ data DirectConnectError
     | DirectConnectClientException
         { _dcceMessage :: Maybe Text
         }
-    | DirectConnectSerializer Text
+    | DirectConnectSerializer String
       -- | A server-side error occurred during the API call. The error
       -- message will contain additional details about the cause.
     | DirectConnectServerException
         { _dcseMessage :: Maybe Text
         }
-    | DirectConnectService Text
+    | DirectConnectService String
     deriving (Show, Generic)
 
 instance AWSError DirectConnectError where
@@ -216,7 +216,7 @@ _DirectConnectClientException = prism'
         x -> Left x)
 
 -- | See: 'DirectConnectSerializer'
-_DirectConnectSerializer :: Prism' DirectConnectError Text
+_DirectConnectSerializer :: Prism' DirectConnectError String
 _DirectConnectSerializer = prism'
     DirectConnectSerializer
     (\case
@@ -235,7 +235,7 @@ _DirectConnectServerException = prism'
         x -> Left x)
 
 -- | See: 'DirectConnectService'
-_DirectConnectService :: Prism' DirectConnectError Text
+_DirectConnectService :: Prism' DirectConnectError String
 _DirectConnectService = prism'
     DirectConnectService
     (\case
@@ -402,8 +402,8 @@ newtype RouteFilterPrefix = RouteFilterPrefix
 --
 -- * @Cidr ::@ @Maybe Text@
 --
-mkRouteFilterPrefix :: RouteFilterPrefix
-mkRouteFilterPrefix = RouteFilterPrefix
+routeFilterPrefix :: RouteFilterPrefix
+routeFilterPrefix = RouteFilterPrefix
     { _rfpCidr = Nothing
     }
 
@@ -456,8 +456,8 @@ data Connection = Connection
 --
 -- * @PartnerName ::@ @Maybe Text@
 --
-mkConnection :: Connection
-mkConnection = Connection
+connection :: Connection
+connection = Connection
     { _cOwnerAccount = Nothing
     , _cConnectionId = Nothing
     , _cConnectionName = Nothing
@@ -556,8 +556,8 @@ data Interconnect = Interconnect
 --
 -- * @Bandwidth ::@ @Maybe Text@
 --
-mkInterconnect :: Interconnect
-mkInterconnect = Interconnect
+interconnect :: Interconnect
+interconnect = Interconnect
     { _iInterconnectId = Nothing
     , _iInterconnectName = Nothing
     , _iInterconnectState = Nothing
@@ -619,8 +619,8 @@ data Location = Location
 --
 -- * @LocationName ::@ @Maybe Text@
 --
-mkLocation :: Location
-mkLocation = Location
+location :: Location
+location = Location
     { _lLocationCode = Nothing
     , _lLocationName = Nothing
     }
@@ -667,12 +667,12 @@ data NewPrivateVirtualInterface = NewPrivateVirtualInterface
 --
 -- * @VirtualGatewayId ::@ @Text@
 --
-mkNewPrivateVirtualInterface :: Text -- ^ 'npviVirtualInterfaceName'
+newPrivateVirtualInterface :: Text -- ^ 'npviVirtualInterfaceName'
                              -> Integer -- ^ 'npviVlan'
                              -> Integer -- ^ 'npviAsn'
                              -> Text -- ^ 'npviVirtualGatewayId'
                              -> NewPrivateVirtualInterface
-mkNewPrivateVirtualInterface p1 p2 p3 p7 = NewPrivateVirtualInterface
+newPrivateVirtualInterface p1 p2 p3 p7 = NewPrivateVirtualInterface
     { _npviVirtualInterfaceName = p1
     , _npviVlan = p2
     , _npviAsn = p3
@@ -748,11 +748,11 @@ data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation
 --
 -- * @CustomerAddress ::@ @Maybe Text@
 --
-mkNewPrivateVirtualInterfaceAllocation :: Text -- ^ 'npviaVirtualInterfaceName'
+newPrivateVirtualInterfaceAllocation :: Text -- ^ 'npviaVirtualInterfaceName'
                                        -> Integer -- ^ 'npviaVlan'
                                        -> Integer -- ^ 'npviaAsn'
                                        -> NewPrivateVirtualInterfaceAllocation
-mkNewPrivateVirtualInterfaceAllocation p1 p2 p3 = NewPrivateVirtualInterfaceAllocation
+newPrivateVirtualInterfaceAllocation p1 p2 p3 = NewPrivateVirtualInterfaceAllocation
     { _npviaVirtualInterfaceName = p1
     , _npviaVlan = p2
     , _npviaAsn = p3
@@ -824,14 +824,14 @@ data NewPublicVirtualInterface = NewPublicVirtualInterface
 --
 -- * @RouteFilterPrefixes ::@ @[RouteFilterPrefix]@
 --
-mkNewPublicVirtualInterface :: Text -- ^ 'npvi1VirtualInterfaceName'
+newPublicVirtualInterface :: Text -- ^ 'npvi1VirtualInterfaceName'
                             -> Integer -- ^ 'npvi1Vlan'
                             -> Integer -- ^ 'npvi1Asn'
                             -> Text -- ^ 'npvi1AmazonAddress'
                             -> Text -- ^ 'npvi1CustomerAddress'
                             -> [RouteFilterPrefix] -- ^ 'npvi1RouteFilterPrefixes'
                             -> NewPublicVirtualInterface
-mkNewPublicVirtualInterface p1 p2 p3 p5 p6 p7 = NewPublicVirtualInterface
+newPublicVirtualInterface p1 p2 p3 p5 p6 p7 = NewPublicVirtualInterface
     { _npvi1VirtualInterfaceName = p1
     , _npvi1Vlan = p2
     , _npvi1Asn = p3
@@ -911,14 +911,14 @@ data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation
 --
 -- * @RouteFilterPrefixes ::@ @[RouteFilterPrefix]@
 --
-mkNewPublicVirtualInterfaceAllocation :: Text -- ^ 'npvia1VirtualInterfaceName'
+newPublicVirtualInterfaceAllocation :: Text -- ^ 'npvia1VirtualInterfaceName'
                                       -> Integer -- ^ 'npvia1Vlan'
                                       -> Integer -- ^ 'npvia1Asn'
                                       -> Text -- ^ 'npvia1AmazonAddress'
                                       -> Text -- ^ 'npvia1CustomerAddress'
                                       -> [RouteFilterPrefix] -- ^ 'npvia1RouteFilterPrefixes'
                                       -> NewPublicVirtualInterfaceAllocation
-mkNewPublicVirtualInterfaceAllocation p1 p2 p3 p5 p6 p7 = NewPublicVirtualInterfaceAllocation
+newPublicVirtualInterfaceAllocation p1 p2 p3 p5 p6 p7 = NewPublicVirtualInterfaceAllocation
     { _npvia1VirtualInterfaceName = p1
     , _npvia1Vlan = p2
     , _npvia1Asn = p3
@@ -988,8 +988,8 @@ data VirtualGateway = VirtualGateway
 --
 -- * @VirtualGatewayState ::@ @Maybe Text@
 --
-mkVirtualGateway :: VirtualGateway
-mkVirtualGateway = VirtualGateway
+virtualGateway :: VirtualGateway
+virtualGateway = VirtualGateway
     { _vgVirtualGatewayId = Nothing
     , _vgVirtualGatewayState = Nothing
     }
@@ -1069,8 +1069,8 @@ data VirtualInterface = VirtualInterface
 --
 -- * @RouteFilterPrefixes ::@ @[RouteFilterPrefix]@
 --
-mkVirtualInterface :: VirtualInterface
-mkVirtualInterface = VirtualInterface
+virtualInterface :: VirtualInterface
+virtualInterface = VirtualInterface
     { _viOwnerAccount = Nothing
     , _viVirtualInterfaceId = Nothing
     , _viLocation = Nothing

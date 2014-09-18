@@ -41,7 +41,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
     -- * Request
       UpdatePipelineStatus
     -- ** Request constructor
-    , mkUpdatePipelineStatus
+    , updatePipelineStatus
     -- ** Request lenses
     , upsId
     , upsStatus
@@ -49,7 +49,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
     -- * Response
     , UpdatePipelineStatusResponse
     -- ** Response constructor
-    , mkUpdatePipelineStatusResponse
+    , updatePipelineStatusResponse
     -- ** Response lenses
     , upsrPipeline
     ) where
@@ -73,10 +73,10 @@ data UpdatePipelineStatus = UpdatePipelineStatus
 --
 -- * @Status ::@ @Text@
 --
-mkUpdatePipelineStatus :: Text -- ^ 'upsId'
+updatePipelineStatus :: Text -- ^ 'upsId'
                        -> Text -- ^ 'upsStatus'
                        -> UpdatePipelineStatus
-mkUpdatePipelineStatus p1 p2 = UpdatePipelineStatus
+updatePipelineStatus p1 p2 = UpdatePipelineStatus
     { _upsId = p1
     , _upsStatus = p2
     }
@@ -113,8 +113,8 @@ newtype UpdatePipelineStatusResponse = UpdatePipelineStatusResponse
 --
 -- * @Pipeline ::@ @Maybe Pipeline@
 --
-mkUpdatePipelineStatusResponse :: UpdatePipelineStatusResponse
-mkUpdatePipelineStatusResponse = UpdatePipelineStatusResponse
+updatePipelineStatusResponse :: UpdatePipelineStatusResponse
+updatePipelineStatusResponse = UpdatePipelineStatusResponse
     { _upsrPipeline = Nothing
     }
 

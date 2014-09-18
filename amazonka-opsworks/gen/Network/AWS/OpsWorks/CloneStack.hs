@@ -26,7 +26,7 @@ module Network.AWS.OpsWorks.CloneStack
     -- * Request
       CloneStack
     -- ** Request constructor
-    , mkCloneStack
+    , cloneStack
     -- ** Request lenses
     , csSourceStackId
     , csName
@@ -53,7 +53,7 @@ module Network.AWS.OpsWorks.CloneStack
     -- * Response
     , CloneStackResponse
     -- ** Response constructor
-    , mkCloneStackResponse
+    , cloneStackResponse
     -- ** Response lenses
     , csrStackId
     ) where
@@ -133,10 +133,10 @@ data CloneStack = CloneStack
 --
 -- * @DefaultRootDeviceType ::@ @Maybe RootDeviceType@
 --
-mkCloneStack :: Text -- ^ 'csSourceStackId'
+cloneStack :: Text -- ^ 'csSourceStackId'
              -> Text -- ^ 'csServiceRoleArn'
              -> CloneStack
-mkCloneStack p1 p6 = CloneStack
+cloneStack p1 p6 = CloneStack
     { _csSourceStackId = p1
     , _csName = Nothing
     , _csRegion = Nothing
@@ -352,8 +352,8 @@ newtype CloneStackResponse = CloneStackResponse
 --
 -- * @StackId ::@ @Maybe Text@
 --
-mkCloneStackResponse :: CloneStackResponse
-mkCloneStackResponse = CloneStackResponse
+cloneStackResponse :: CloneStackResponse
+cloneStackResponse = CloneStackResponse
     { _csrStackId = Nothing
     }
 

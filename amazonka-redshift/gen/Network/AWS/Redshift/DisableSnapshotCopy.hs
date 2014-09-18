@@ -24,14 +24,14 @@ module Network.AWS.Redshift.DisableSnapshotCopy
     -- * Request
       DisableSnapshotCopy
     -- ** Request constructor
-    , mkDisableSnapshotCopy
+    , disableSnapshotCopy
     -- ** Request lenses
     , dscClusterIdentifier
 
     -- * Response
     , DisableSnapshotCopyResponse
     -- ** Response constructor
-    , mkDisableSnapshotCopyResponse
+    , disableSnapshotCopyResponse
     -- ** Response lenses
     , dscrCluster
     ) where
@@ -52,9 +52,9 @@ newtype DisableSnapshotCopy = DisableSnapshotCopy
 --
 -- * @ClusterIdentifier ::@ @Text@
 --
-mkDisableSnapshotCopy :: Text -- ^ 'dscClusterIdentifier'
+disableSnapshotCopy :: Text -- ^ 'dscClusterIdentifier'
                       -> DisableSnapshotCopy
-mkDisableSnapshotCopy p1 = DisableSnapshotCopy
+disableSnapshotCopy p1 = DisableSnapshotCopy
     { _dscClusterIdentifier = p1
     }
 
@@ -82,8 +82,8 @@ newtype DisableSnapshotCopyResponse = DisableSnapshotCopyResponse
 --
 -- * @Cluster ::@ @Maybe Cluster@
 --
-mkDisableSnapshotCopyResponse :: DisableSnapshotCopyResponse
-mkDisableSnapshotCopyResponse = DisableSnapshotCopyResponse
+disableSnapshotCopyResponse :: DisableSnapshotCopyResponse
+disableSnapshotCopyResponse = DisableSnapshotCopyResponse
     { _dscrCluster = Nothing
     }
 

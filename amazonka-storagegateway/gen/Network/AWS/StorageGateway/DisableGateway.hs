@@ -22,14 +22,14 @@ module Network.AWS.StorageGateway.DisableGateway
     -- * Request
       DisableGateway
     -- ** Request constructor
-    , mkDisableGateway
+    , disableGateway
     -- ** Request lenses
     , dg1GatewayARN
 
     -- * Response
     , DisableGatewayResponse
     -- ** Response constructor
-    , mkDisableGatewayResponse
+    , disableGatewayResponse
     -- ** Response lenses
     , dgrrGatewayARN
     ) where
@@ -49,9 +49,9 @@ newtype DisableGateway = DisableGateway
 --
 -- * @GatewayARN ::@ @Text@
 --
-mkDisableGateway :: Text -- ^ 'dg1GatewayARN'
+disableGateway :: Text -- ^ 'dg1GatewayARN'
                  -> DisableGateway
-mkDisableGateway p1 = DisableGateway
+disableGateway p1 = DisableGateway
     { _dg1GatewayARN = p1
     }
 
@@ -81,8 +81,8 @@ newtype DisableGatewayResponse = DisableGatewayResponse
 --
 -- * @GatewayARN ::@ @Maybe Text@
 --
-mkDisableGatewayResponse :: DisableGatewayResponse
-mkDisableGatewayResponse = DisableGatewayResponse
+disableGatewayResponse :: DisableGatewayResponse
+disableGatewayResponse = DisableGatewayResponse
     { _dgrrGatewayARN = Nothing
     }
 

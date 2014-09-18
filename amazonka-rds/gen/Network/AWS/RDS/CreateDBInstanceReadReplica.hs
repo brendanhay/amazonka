@@ -36,7 +36,7 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
     -- * Request
       CreateDBInstanceReadReplica
     -- ** Request constructor
-    , mkCreateDBInstanceReadReplica
+    , createDBInstanceReadReplica
     -- ** Request lenses
     , cdbirrDBInstanceIdentifier
     , cdbirrSourceDBInstanceIdentifier
@@ -53,7 +53,7 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
     -- * Response
     , CreateDBInstanceReadReplicaResponse
     -- ** Response constructor
-    , mkCreateDBInstanceReadReplicaResponse
+    , createDBInstanceReadReplicaResponse
     -- ** Response lenses
     , cdbirrrDBInstance
     ) where
@@ -103,10 +103,10 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica
 --
 -- * @DBSubnetGroupName ::@ @Maybe Text@
 --
-mkCreateDBInstanceReadReplica :: Text -- ^ 'cdbirrDBInstanceIdentifier'
+createDBInstanceReadReplica :: Text -- ^ 'cdbirrDBInstanceIdentifier'
                               -> Text -- ^ 'cdbirrSourceDBInstanceIdentifier'
                               -> CreateDBInstanceReadReplica
-mkCreateDBInstanceReadReplica p1 p2 = CreateDBInstanceReadReplica
+createDBInstanceReadReplica p1 p2 = CreateDBInstanceReadReplica
     { _cdbirrDBInstanceIdentifier = p1
     , _cdbirrSourceDBInstanceIdentifier = p2
     , _cdbirrDBInstanceClass = Nothing
@@ -222,8 +222,8 @@ newtype CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaRespons
 --
 -- * @DBInstance ::@ @Maybe DBInstance@
 --
-mkCreateDBInstanceReadReplicaResponse :: CreateDBInstanceReadReplicaResponse
-mkCreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse
+createDBInstanceReadReplicaResponse :: CreateDBInstanceReadReplicaResponse
+createDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse
     { _cdbirrrDBInstance = Nothing
     }
 

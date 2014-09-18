@@ -29,7 +29,7 @@ module Network.AWS.CloudSearch.UpdateScalingParameters
     -- * Request
       UpdateScalingParameters
     -- ** Request constructor
-    , mkUpdateScalingParameters
+    , updateScalingParameters
     -- ** Request lenses
     , uspDomainName
     , uspScalingParameters
@@ -37,7 +37,7 @@ module Network.AWS.CloudSearch.UpdateScalingParameters
     -- * Response
     , UpdateScalingParametersResponse
     -- ** Response constructor
-    , mkUpdateScalingParametersResponse
+    , updateScalingParametersResponse
     -- ** Response lenses
     , usprScalingParameters
     ) where
@@ -63,10 +63,10 @@ data UpdateScalingParameters = UpdateScalingParameters
 --
 -- * @ScalingParameters ::@ @ScalingParameters@
 --
-mkUpdateScalingParameters :: Text -- ^ 'uspDomainName'
+updateScalingParameters :: Text -- ^ 'uspDomainName'
                           -> ScalingParameters -- ^ 'uspScalingParameters'
                           -> UpdateScalingParameters
-mkUpdateScalingParameters p1 p2 = UpdateScalingParameters
+updateScalingParameters p1 p2 = UpdateScalingParameters
     { _uspDomainName = p1
     , _uspScalingParameters = p2
     }
@@ -102,9 +102,9 @@ newtype UpdateScalingParametersResponse = UpdateScalingParametersResponse
 --
 -- * @ScalingParameters ::@ @ScalingParametersStatus@
 --
-mkUpdateScalingParametersResponse :: ScalingParametersStatus -- ^ 'usprScalingParameters'
+updateScalingParametersResponse :: ScalingParametersStatus -- ^ 'usprScalingParameters'
                                   -> UpdateScalingParametersResponse
-mkUpdateScalingParametersResponse p1 = UpdateScalingParametersResponse
+updateScalingParametersResponse p1 = UpdateScalingParametersResponse
     { _usprScalingParameters = p1
     }
 

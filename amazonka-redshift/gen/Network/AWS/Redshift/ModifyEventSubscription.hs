@@ -23,7 +23,7 @@ module Network.AWS.Redshift.ModifyEventSubscription
     -- * Request
       ModifyEventSubscription
     -- ** Request constructor
-    , mkModifyEventSubscription
+    , modifyEventSubscription
     -- ** Request lenses
     , mesSubscriptionName
     , mesSnsTopicArn
@@ -36,7 +36,7 @@ module Network.AWS.Redshift.ModifyEventSubscription
     -- * Response
     , ModifyEventSubscriptionResponse
     -- ** Response constructor
-    , mkModifyEventSubscriptionResponse
+    , modifyEventSubscriptionResponse
     -- ** Response lenses
     , mesrEventSubscription
     ) where
@@ -75,9 +75,9 @@ data ModifyEventSubscription = ModifyEventSubscription
 --
 -- * @Enabled ::@ @Maybe Bool@
 --
-mkModifyEventSubscription :: Text -- ^ 'mesSubscriptionName'
+modifyEventSubscription :: Text -- ^ 'mesSubscriptionName'
                           -> ModifyEventSubscription
-mkModifyEventSubscription p1 = ModifyEventSubscription
+modifyEventSubscription p1 = ModifyEventSubscription
     { _mesSubscriptionName = p1
     , _mesSnsTopicArn = Nothing
     , _mesSourceType = Nothing
@@ -148,8 +148,8 @@ newtype ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse
 --
 -- * @EventSubscription ::@ @Maybe EventSubscription@
 --
-mkModifyEventSubscriptionResponse :: ModifyEventSubscriptionResponse
-mkModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse
+modifyEventSubscriptionResponse :: ModifyEventSubscriptionResponse
+modifyEventSubscriptionResponse = ModifyEventSubscriptionResponse
     { _mesrEventSubscription = Nothing
     }
 

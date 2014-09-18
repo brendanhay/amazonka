@@ -51,7 +51,7 @@ module Network.AWS.RDS.DescribeDBEngineVersions
     -- * Request
       DescribeDBEngineVersions
     -- ** Request constructor
-    , mkDescribeDBEngineVersions
+    , describeDBEngineVersions
     -- ** Request lenses
     , ddbevEngine
     , ddbevEngineVersion
@@ -64,7 +64,7 @@ module Network.AWS.RDS.DescribeDBEngineVersions
     -- * Response
     , DescribeDBEngineVersionsResponse
     -- ** Response constructor
-    , mkDescribeDBEngineVersionsResponse
+    , describeDBEngineVersionsResponse
     -- ** Response lenses
     , ddbevrMarker
     , ddbevrDBEngineVersions
@@ -103,8 +103,8 @@ data DescribeDBEngineVersions = DescribeDBEngineVersions
 --
 -- * @ListSupportedCharacterSets ::@ @Maybe Bool@
 --
-mkDescribeDBEngineVersions :: DescribeDBEngineVersions
-mkDescribeDBEngineVersions = DescribeDBEngineVersions
+describeDBEngineVersions :: DescribeDBEngineVersions
+describeDBEngineVersions = DescribeDBEngineVersions
     { _ddbevEngine = Nothing
     , _ddbevEngineVersion = Nothing
     , _ddbevDBParameterGroupFamily = Nothing
@@ -179,8 +179,8 @@ data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
 --
 -- * @DBEngineVersions ::@ @[DBEngineVersion]@
 --
-mkDescribeDBEngineVersionsResponse :: DescribeDBEngineVersionsResponse
-mkDescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
+describeDBEngineVersionsResponse :: DescribeDBEngineVersionsResponse
+describeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
     { _ddbevrMarker = Nothing
     , _ddbevrDBEngineVersions = mempty
     }

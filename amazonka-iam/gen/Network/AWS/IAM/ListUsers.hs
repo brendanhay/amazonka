@@ -34,7 +34,7 @@ module Network.AWS.IAM.ListUsers
     -- * Request
       ListUsers
     -- ** Request constructor
-    , mkListUsers
+    , listUsers
     -- ** Request lenses
     , luPathPrefix
     , luMarker
@@ -43,7 +43,7 @@ module Network.AWS.IAM.ListUsers
     -- * Response
     , ListUsersResponse
     -- ** Response constructor
-    , mkListUsersResponse
+    , listUsersResponse
     -- ** Response lenses
     , lurUsers
     , lurIsTruncated
@@ -71,8 +71,8 @@ data ListUsers = ListUsers
 --
 -- * @MaxItems ::@ @Maybe Integer@
 --
-mkListUsers :: ListUsers
-mkListUsers = ListUsers
+listUsers :: ListUsers
+listUsers = ListUsers
     { _luPathPrefix = Nothing
     , _luMarker = Nothing
     , _luMaxItems = Nothing
@@ -123,10 +123,10 @@ data ListUsersResponse = ListUsersResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListUsersResponse :: [User] -- ^ 'lurUsers'
+listUsersResponse :: [User] -- ^ 'lurUsers'
                     -> Bool -- ^ 'lurIsTruncated'
                     -> ListUsersResponse
-mkListUsersResponse p1 p2 = ListUsersResponse
+listUsersResponse p1 p2 = ListUsersResponse
     { _lurUsers = p1
     , _lurIsTruncated = p2
     , _lurMarker = Nothing

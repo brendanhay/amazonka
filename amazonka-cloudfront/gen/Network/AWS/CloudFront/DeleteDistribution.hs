@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.DeleteDistribution
     -- * Request
       DeleteDistribution
     -- ** Request constructor
-    , mkDeleteDistribution
+    , deleteDistribution
     -- ** Request lenses
     , ddId
     , ddIfMatch
@@ -31,7 +31,7 @@ module Network.AWS.CloudFront.DeleteDistribution
     -- * Response
     , DeleteDistributionResponse
     -- ** Response constructor
-    , mkDeleteDistributionResponse
+    , deleteDistributionResponse
     ) where
 
 import Network.AWS.Request.RestXML
@@ -54,9 +54,9 @@ data DeleteDistribution = DeleteDistribution
 --
 -- * @IfMatch ::@ @Maybe Text@
 --
-mkDeleteDistribution :: Text -- ^ 'ddId'
+deleteDistribution :: Text -- ^ 'ddId'
                      -> DeleteDistribution
-mkDeleteDistribution p1 = DeleteDistribution
+deleteDistribution p1 = DeleteDistribution
     { _ddId = p1
     , _ddIfMatch = Nothing
     }
@@ -90,8 +90,8 @@ data DeleteDistributionResponse = DeleteDistributionResponse
 -- a valid 'DeleteDistributionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteDistributionResponse :: DeleteDistributionResponse
-mkDeleteDistributionResponse = DeleteDistributionResponse
+deleteDistributionResponse :: DeleteDistributionResponse
+deleteDistributionResponse = DeleteDistributionResponse
 
 instance AWSRequest DeleteDistribution where
     type Sv DeleteDistribution = CloudFront

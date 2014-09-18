@@ -32,7 +32,7 @@ module Network.AWS.Support.DescribeServices
     -- * Request
       DescribeServices
     -- ** Request constructor
-    , mkDescribeServices
+    , describeServices
     -- ** Request lenses
     , dsServiceCodeList
     , dsLanguage
@@ -40,7 +40,7 @@ module Network.AWS.Support.DescribeServices
     -- * Response
     , DescribeServicesResponse
     -- ** Response constructor
-    , mkDescribeServicesResponse
+    , describeServicesResponse
     -- ** Response lenses
     , dsrServices
     ) where
@@ -63,8 +63,8 @@ data DescribeServices = DescribeServices
 --
 -- * @Language ::@ @Maybe Text@
 --
-mkDescribeServices :: DescribeServices
-mkDescribeServices = DescribeServices
+describeServices :: DescribeServices
+describeServices = DescribeServices
     { _dsServiceCodeList = mempty
     , _dsLanguage = Nothing
     }
@@ -102,8 +102,8 @@ newtype DescribeServicesResponse = DescribeServicesResponse
 --
 -- * @Services ::@ @[Service]@
 --
-mkDescribeServicesResponse :: DescribeServicesResponse
-mkDescribeServicesResponse = DescribeServicesResponse
+describeServicesResponse :: DescribeServicesResponse
+describeServicesResponse = DescribeServicesResponse
     { _dsrServices = mempty
     }
 

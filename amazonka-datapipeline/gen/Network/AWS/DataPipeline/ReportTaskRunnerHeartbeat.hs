@@ -35,7 +35,7 @@ module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
     -- * Request
       ReportTaskRunnerHeartbeat
     -- ** Request constructor
-    , mkReportTaskRunnerHeartbeat
+    , reportTaskRunnerHeartbeat
     -- ** Request lenses
     , rtrhTaskrunnerId
     , rtrhWorkerGroup
@@ -44,7 +44,7 @@ module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
     -- * Response
     , ReportTaskRunnerHeartbeatResponse
     -- ** Response constructor
-    , mkReportTaskRunnerHeartbeatResponse
+    , reportTaskRunnerHeartbeatResponse
     -- ** Response lenses
     , rtrhrTerminate
     ) where
@@ -71,9 +71,9 @@ data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat
 --
 -- * @Hostname ::@ @Maybe Text@
 --
-mkReportTaskRunnerHeartbeat :: Text -- ^ 'rtrhTaskrunnerId'
+reportTaskRunnerHeartbeat :: Text -- ^ 'rtrhTaskrunnerId'
                             -> ReportTaskRunnerHeartbeat
-mkReportTaskRunnerHeartbeat p1 = ReportTaskRunnerHeartbeat
+reportTaskRunnerHeartbeat p1 = ReportTaskRunnerHeartbeat
     { _rtrhTaskrunnerId = p1
     , _rtrhWorkerGroup = Nothing
     , _rtrhHostname = Nothing
@@ -123,9 +123,9 @@ newtype ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse
 --
 -- * @Terminate ::@ @Bool@
 --
-mkReportTaskRunnerHeartbeatResponse :: Bool -- ^ 'rtrhrTerminate'
+reportTaskRunnerHeartbeatResponse :: Bool -- ^ 'rtrhrTerminate'
                                     -> ReportTaskRunnerHeartbeatResponse
-mkReportTaskRunnerHeartbeatResponse p1 = ReportTaskRunnerHeartbeatResponse
+reportTaskRunnerHeartbeatResponse p1 = ReportTaskRunnerHeartbeatResponse
     { _rtrhrTerminate = p1
     }
 

@@ -36,14 +36,14 @@ module Network.AWS.IAM.GetInstanceProfile
     -- * Request
       GetInstanceProfile
     -- ** Request constructor
-    , mkGetInstanceProfile
+    , getInstanceProfile
     -- ** Request lenses
     , gipInstanceProfileName
 
     -- * Response
     , GetInstanceProfileResponse
     -- ** Response constructor
-    , mkGetInstanceProfileResponse
+    , getInstanceProfileResponse
     -- ** Response lenses
     , giprInstanceProfile
     ) where
@@ -63,9 +63,9 @@ newtype GetInstanceProfile = GetInstanceProfile
 --
 -- * @InstanceProfileName ::@ @Text@
 --
-mkGetInstanceProfile :: Text -- ^ 'gipInstanceProfileName'
+getInstanceProfile :: Text -- ^ 'gipInstanceProfileName'
                      -> GetInstanceProfile
-mkGetInstanceProfile p1 = GetInstanceProfile
+getInstanceProfile p1 = GetInstanceProfile
     { _gipInstanceProfileName = p1
     }
 
@@ -92,9 +92,9 @@ newtype GetInstanceProfileResponse = GetInstanceProfileResponse
 --
 -- * @InstanceProfile ::@ @InstanceProfile@
 --
-mkGetInstanceProfileResponse :: InstanceProfile -- ^ 'giprInstanceProfile'
+getInstanceProfileResponse :: InstanceProfile -- ^ 'giprInstanceProfile'
                              -> GetInstanceProfileResponse
-mkGetInstanceProfileResponse p1 = GetInstanceProfileResponse
+getInstanceProfileResponse p1 = GetInstanceProfileResponse
     { _giprInstanceProfile = p1
     }
 

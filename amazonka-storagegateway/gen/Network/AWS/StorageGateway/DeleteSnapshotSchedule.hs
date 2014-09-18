@@ -43,14 +43,14 @@ module Network.AWS.StorageGateway.DeleteSnapshotSchedule
     -- * Request
       DeleteSnapshotSchedule
     -- ** Request constructor
-    , mkDeleteSnapshotSchedule
+    , deleteSnapshotSchedule
     -- ** Request lenses
     , dssVolumeARN
 
     -- * Response
     , DeleteSnapshotScheduleResponse
     -- ** Response constructor
-    , mkDeleteSnapshotScheduleResponse
+    , deleteSnapshotScheduleResponse
     -- ** Response lenses
     , dssrVolumeARN
     ) where
@@ -70,9 +70,9 @@ newtype DeleteSnapshotSchedule = DeleteSnapshotSchedule
 --
 -- * @VolumeARN ::@ @Text@
 --
-mkDeleteSnapshotSchedule :: Text -- ^ 'dssVolumeARN'
+deleteSnapshotSchedule :: Text -- ^ 'dssVolumeARN'
                          -> DeleteSnapshotSchedule
-mkDeleteSnapshotSchedule p1 = DeleteSnapshotSchedule
+deleteSnapshotSchedule p1 = DeleteSnapshotSchedule
     { _dssVolumeARN = p1
     }
 
@@ -100,8 +100,8 @@ newtype DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse
 --
 -- * @VolumeARN ::@ @Maybe Text@
 --
-mkDeleteSnapshotScheduleResponse :: DeleteSnapshotScheduleResponse
-mkDeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse
+deleteSnapshotScheduleResponse :: DeleteSnapshotScheduleResponse
+deleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse
     { _dssrVolumeARN = Nothing
     }
 

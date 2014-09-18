@@ -24,7 +24,7 @@ module Network.AWS.ELB.DeleteLoadBalancerPolicy
     -- * Request
       DeleteLoadBalancerPolicy
     -- ** Request constructor
-    , mkDeleteLoadBalancerPolicy
+    , deleteLoadBalancerPolicy
     -- ** Request lenses
     , dlbpLoadBalancerName
     , dlbpPolicyName
@@ -32,7 +32,7 @@ module Network.AWS.ELB.DeleteLoadBalancerPolicy
     -- * Response
     , DeleteLoadBalancerPolicyResponse
     -- ** Response constructor
-    , mkDeleteLoadBalancerPolicyResponse
+    , deleteLoadBalancerPolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -54,10 +54,10 @@ data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy
 --
 -- * @PolicyName ::@ @Text@
 --
-mkDeleteLoadBalancerPolicy :: Text -- ^ 'dlbpLoadBalancerName'
+deleteLoadBalancerPolicy :: Text -- ^ 'dlbpLoadBalancerName'
                            -> Text -- ^ 'dlbpPolicyName'
                            -> DeleteLoadBalancerPolicy
-mkDeleteLoadBalancerPolicy p1 p2 = DeleteLoadBalancerPolicy
+deleteLoadBalancerPolicy p1 p2 = DeleteLoadBalancerPolicy
     { _dlbpLoadBalancerName = p1
     , _dlbpPolicyName = p2
     }
@@ -82,8 +82,8 @@ data DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse
 -- a valid 'DeleteLoadBalancerPolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteLoadBalancerPolicyResponse :: DeleteLoadBalancerPolicyResponse
-mkDeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse
+deleteLoadBalancerPolicyResponse :: DeleteLoadBalancerPolicyResponse
+deleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse
 
 instance AWSRequest DeleteLoadBalancerPolicy where
     type Sv DeleteLoadBalancerPolicy = ELB

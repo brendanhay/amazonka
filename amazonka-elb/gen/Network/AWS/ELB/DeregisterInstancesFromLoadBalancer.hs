@@ -34,7 +34,7 @@ module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     -- * Request
       DeregisterInstancesFromLoadBalancer
     -- ** Request constructor
-    , mkDeregisterInstancesFromLoadBalancer
+    , deregisterInstancesFromLoadBalancer
     -- ** Request lenses
     , diflbLoadBalancerName
     , diflbInstances
@@ -42,7 +42,7 @@ module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     -- * Response
     , DeregisterInstancesFromLoadBalancerResponse
     -- ** Response constructor
-    , mkDeregisterInstancesFromLoadBalancerResponse
+    , deregisterInstancesFromLoadBalancerResponse
     -- ** Response lenses
     , diflbrInstances
     ) where
@@ -66,10 +66,10 @@ data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer
 --
 -- * @Instances ::@ @[Instance]@
 --
-mkDeregisterInstancesFromLoadBalancer :: Text -- ^ 'diflbLoadBalancerName'
+deregisterInstancesFromLoadBalancer :: Text -- ^ 'diflbLoadBalancerName'
                                       -> [Instance] -- ^ 'diflbInstances'
                                       -> DeregisterInstancesFromLoadBalancer
-mkDeregisterInstancesFromLoadBalancer p1 p2 = DeregisterInstancesFromLoadBalancer
+deregisterInstancesFromLoadBalancer p1 p2 = DeregisterInstancesFromLoadBalancer
     { _diflbLoadBalancerName = p1
     , _diflbInstances = p2
     }
@@ -100,8 +100,8 @@ newtype DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoa
 --
 -- * @Instances ::@ @[Instance]@
 --
-mkDeregisterInstancesFromLoadBalancerResponse :: DeregisterInstancesFromLoadBalancerResponse
-mkDeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse
+deregisterInstancesFromLoadBalancerResponse :: DeregisterInstancesFromLoadBalancerResponse
+deregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse
     { _diflbrInstances = mempty
     }
 

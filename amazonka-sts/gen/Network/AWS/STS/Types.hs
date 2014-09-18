@@ -43,13 +43,13 @@ module Network.AWS.STS.Types
 
     -- * AssumedRoleUser
     , AssumedRoleUser
-    , mkAssumedRoleUser
+    , assumedRoleUser
     , aruAssumedRoleId
     , aruArn
 
     -- * Credentials
     , Credentials
-    , mkCredentials
+    , credentials
     , cAccessKeyId
     , cSecretAccessKey
     , cSessionToken
@@ -57,7 +57,7 @@ module Network.AWS.STS.Types
 
     -- * FederatedUser
     , FederatedUser
-    , mkFederatedUser
+    , federatedUser
     , fuFederatedUserId
     , fuArn
     ) where
@@ -133,8 +133,8 @@ data STSError
         { _pptleMessage :: Maybe Text
         }
     | STSClient HttpException
-    | STSSerializer Text
-    | STSService Text
+    | STSSerializer String
+    | STSService String
     deriving (Show, Generic)
 
 instance AWSError STSError where
@@ -241,7 +241,7 @@ _STSClient = prism'
         x -> Left x)
 
 -- | See: 'STSSerializer'
-_STSSerializer :: Prism' STSError Text
+_STSSerializer :: Prism' STSError String
 _STSSerializer = prism'
     STSSerializer
     (\case
@@ -249,7 +249,7 @@ _STSSerializer = prism'
         x -> Left x)
 
 -- | See: 'STSService'
-_STSService :: Prism' STSError Text
+_STSService :: Prism' STSError String
 _STSService = prism'
     STSService
     (\case
@@ -282,10 +282,10 @@ data AssumedRoleUser = AssumedRoleUser
 --
 -- * @Arn ::@ @Text@
 --
-mkAssumedRoleUser :: Text -- ^ 'aruAssumedRoleId'
+assumedRoleUser :: Text -- ^ 'aruAssumedRoleId'
                   -> Text -- ^ 'aruArn'
                   -> AssumedRoleUser
-mkAssumedRoleUser p1 p2 = AssumedRoleUser
+assumedRoleUser p1 p2 = AssumedRoleUser
     { _aruAssumedRoleId = p1
     , _aruArn = p2
     }
@@ -332,12 +332,12 @@ data Credentials = Credentials
 --
 -- * @Expiration ::@ @ISO8601@
 --
-mkCredentials :: Text -- ^ 'cAccessKeyId'
+credentials :: Text -- ^ 'cAccessKeyId'
               -> Text -- ^ 'cSecretAccessKey'
               -> Text -- ^ 'cSessionToken'
               -> ISO8601 -- ^ 'cExpiration'
               -> Credentials
-mkCredentials p1 p2 p3 p4 = Credentials
+credentials p1 p2 p3 p4 = Credentials
     { _cAccessKeyId = p1
     , _cSecretAccessKey = p2
     , _cSessionToken = p3
@@ -387,10 +387,10 @@ data FederatedUser = FederatedUser
 --
 -- * @Arn ::@ @Text@
 --
-mkFederatedUser :: Text -- ^ 'fuFederatedUserId'
+federatedUser :: Text -- ^ 'fuFederatedUserId'
                 -> Text -- ^ 'fuArn'
                 -> FederatedUser
-mkFederatedUser p1 p2 = FederatedUser
+federatedUser p1 p2 = FederatedUser
     { _fuFederatedUserId = p1
     , _fuArn = p2
     }

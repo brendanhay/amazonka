@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.DeleteStreamingDistribution
     -- * Request
       DeleteStreamingDistribution
     -- ** Request constructor
-    , mkDeleteStreamingDistribution
+    , deleteStreamingDistribution
     -- ** Request lenses
     , dsdId
     , dsdIfMatch
@@ -31,7 +31,7 @@ module Network.AWS.CloudFront.DeleteStreamingDistribution
     -- * Response
     , DeleteStreamingDistributionResponse
     -- ** Response constructor
-    , mkDeleteStreamingDistributionResponse
+    , deleteStreamingDistributionResponse
     ) where
 
 import Network.AWS.Request.RestXML
@@ -54,9 +54,9 @@ data DeleteStreamingDistribution = DeleteStreamingDistribution
 --
 -- * @IfMatch ::@ @Maybe Text@
 --
-mkDeleteStreamingDistribution :: Text -- ^ 'dsdId'
+deleteStreamingDistribution :: Text -- ^ 'dsdId'
                               -> DeleteStreamingDistribution
-mkDeleteStreamingDistribution p1 = DeleteStreamingDistribution
+deleteStreamingDistribution p1 = DeleteStreamingDistribution
     { _dsdId = p1
     , _dsdIfMatch = Nothing
     }
@@ -90,8 +90,8 @@ data DeleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
 -- a valid 'DeleteStreamingDistributionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteStreamingDistributionResponse :: DeleteStreamingDistributionResponse
-mkDeleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
+deleteStreamingDistributionResponse :: DeleteStreamingDistributionResponse
+deleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
 
 instance AWSRequest DeleteStreamingDistribution where
     type Sv DeleteStreamingDistribution = CloudFront

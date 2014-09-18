@@ -24,14 +24,14 @@ module Network.AWS.RDS.ListTagsForResource
     -- * Request
       ListTagsForResource
     -- ** Request constructor
-    , mkListTagsForResource
+    , listTagsForResource
     -- ** Request lenses
     , ltfrResourceName
 
     -- * Response
     , ListTagsForResourceResponse
     -- ** Response constructor
-    , mkListTagsForResourceResponse
+    , listTagsForResourceResponse
     -- ** Response lenses
     , ltfrrTagList
     ) where
@@ -52,9 +52,9 @@ newtype ListTagsForResource = ListTagsForResource
 --
 -- * @ResourceName ::@ @Text@
 --
-mkListTagsForResource :: Text -- ^ 'ltfrResourceName'
+listTagsForResource :: Text -- ^ 'ltfrResourceName'
                       -> ListTagsForResource
-mkListTagsForResource p1 = ListTagsForResource
+listTagsForResource p1 = ListTagsForResource
     { _ltfrResourceName = p1
     }
 
@@ -82,8 +82,8 @@ newtype ListTagsForResourceResponse = ListTagsForResourceResponse
 --
 -- * @TagList ::@ @[Tag]@
 --
-mkListTagsForResourceResponse :: ListTagsForResourceResponse
-mkListTagsForResourceResponse = ListTagsForResourceResponse
+listTagsForResourceResponse :: ListTagsForResourceResponse
+listTagsForResourceResponse = ListTagsForResourceResponse
     { _ltfrrTagList = mempty
     }
 

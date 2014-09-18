@@ -38,14 +38,14 @@ module Network.AWS.EC2.DeleteSnapshot
     -- * Request
       DeleteSnapshot
     -- ** Request constructor
-    , mkDeleteSnapshot
+    , deleteSnapshot
     -- ** Request lenses
     , dsSnapshotId
 
     -- * Response
     , DeleteSnapshotResponse
     -- ** Response constructor
-    , mkDeleteSnapshotResponse
+    , deleteSnapshotResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -63,9 +63,9 @@ newtype DeleteSnapshot = DeleteSnapshot
 --
 -- * @SnapshotId ::@ @Text@
 --
-mkDeleteSnapshot :: Text -- ^ 'dsSnapshotId'
+deleteSnapshot :: Text -- ^ 'dsSnapshotId'
                  -> DeleteSnapshot
-mkDeleteSnapshot p1 = DeleteSnapshot
+deleteSnapshot p1 = DeleteSnapshot
     { _dsSnapshotId = p1
     }
 
@@ -83,8 +83,8 @@ data DeleteSnapshotResponse = DeleteSnapshotResponse
 -- a valid 'DeleteSnapshotResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteSnapshotResponse :: DeleteSnapshotResponse
-mkDeleteSnapshotResponse = DeleteSnapshotResponse
+deleteSnapshotResponse :: DeleteSnapshotResponse
+deleteSnapshotResponse = DeleteSnapshotResponse
 
 instance AWSRequest DeleteSnapshot where
     type Sv DeleteSnapshot = EC2

@@ -23,14 +23,14 @@ module Network.AWS.S3.DeleteBucketPolicy
     -- * Request
       DeleteBucketPolicy
     -- ** Request constructor
-    , mkDeleteBucketPolicy
+    , deleteBucketPolicy
     -- ** Request lenses
     , dbpBucket
 
     -- * Response
     , DeleteBucketPolicyResponse
     -- ** Response constructor
-    , mkDeleteBucketPolicyResponse
+    , deleteBucketPolicyResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -49,9 +49,9 @@ newtype DeleteBucketPolicy = DeleteBucketPolicy
 --
 -- * @Bucket ::@ @BucketName@
 --
-mkDeleteBucketPolicy :: BucketName -- ^ 'dbpBucket'
+deleteBucketPolicy :: BucketName -- ^ 'dbpBucket'
                      -> DeleteBucketPolicy
-mkDeleteBucketPolicy p1 = DeleteBucketPolicy
+deleteBucketPolicy p1 = DeleteBucketPolicy
     { _dbpBucket = p1
     }
 
@@ -73,8 +73,8 @@ data DeleteBucketPolicyResponse = DeleteBucketPolicyResponse
 -- a valid 'DeleteBucketPolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteBucketPolicyResponse :: DeleteBucketPolicyResponse
-mkDeleteBucketPolicyResponse = DeleteBucketPolicyResponse
+deleteBucketPolicyResponse :: DeleteBucketPolicyResponse
+deleteBucketPolicyResponse = DeleteBucketPolicyResponse
 
 instance AWSRequest DeleteBucketPolicy where
     type Sv DeleteBucketPolicy = S3

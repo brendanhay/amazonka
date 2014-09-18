@@ -27,7 +27,7 @@ module Network.AWS.EC2.ModifyVpcAttribute
     -- * Request
       ModifyVpcAttribute
     -- ** Request constructor
-    , mkModifyVpcAttribute
+    , modifyVpcAttribute
     -- ** Request lenses
     , mva1VpcId
     , mva1EnableDnsSupport
@@ -36,7 +36,7 @@ module Network.AWS.EC2.ModifyVpcAttribute
     -- * Response
     , ModifyVpcAttributeResponse
     -- ** Response constructor
-    , mkModifyVpcAttributeResponse
+    , modifyVpcAttributeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -60,9 +60,9 @@ data ModifyVpcAttribute = ModifyVpcAttribute
 --
 -- * @EnableDnsHostnames ::@ @Maybe AttributeBooleanValue@
 --
-mkModifyVpcAttribute :: Text -- ^ 'mva1VpcId'
+modifyVpcAttribute :: Text -- ^ 'mva1VpcId'
                      -> ModifyVpcAttribute
-mkModifyVpcAttribute p1 = ModifyVpcAttribute
+modifyVpcAttribute p1 = ModifyVpcAttribute
     { _mva1VpcId = p1
     , _mva1EnableDnsSupport = Nothing
     , _mva1EnableDnsHostnames = Nothing
@@ -100,8 +100,8 @@ data ModifyVpcAttributeResponse = ModifyVpcAttributeResponse
 -- a valid 'ModifyVpcAttributeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkModifyVpcAttributeResponse :: ModifyVpcAttributeResponse
-mkModifyVpcAttributeResponse = ModifyVpcAttributeResponse
+modifyVpcAttributeResponse :: ModifyVpcAttributeResponse
+modifyVpcAttributeResponse = ModifyVpcAttributeResponse
 
 instance AWSRequest ModifyVpcAttribute where
     type Sv ModifyVpcAttribute = EC2

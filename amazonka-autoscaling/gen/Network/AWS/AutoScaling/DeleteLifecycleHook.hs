@@ -25,7 +25,7 @@ module Network.AWS.AutoScaling.DeleteLifecycleHook
     -- * Request
       DeleteLifecycleHook
     -- ** Request constructor
-    , mkDeleteLifecycleHook
+    , deleteLifecycleHook
     -- ** Request lenses
     , dlhLifecycleHookName
     , dlhAutoScalingGroupName
@@ -33,7 +33,7 @@ module Network.AWS.AutoScaling.DeleteLifecycleHook
     -- * Response
     , DeleteLifecycleHookResponse
     -- ** Response constructor
-    , mkDeleteLifecycleHookResponse
+    , deleteLifecycleHookResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -54,10 +54,10 @@ data DeleteLifecycleHook = DeleteLifecycleHook
 --
 -- * @AutoScalingGroupName ::@ @Text@
 --
-mkDeleteLifecycleHook :: Text -- ^ 'dlhLifecycleHookName'
+deleteLifecycleHook :: Text -- ^ 'dlhLifecycleHookName'
                       -> Text -- ^ 'dlhAutoScalingGroupName'
                       -> DeleteLifecycleHook
-mkDeleteLifecycleHook p1 p2 = DeleteLifecycleHook
+deleteLifecycleHook p1 p2 = DeleteLifecycleHook
     { _dlhLifecycleHookName = p1
     , _dlhAutoScalingGroupName = p2
     }
@@ -84,8 +84,8 @@ data DeleteLifecycleHookResponse = DeleteLifecycleHookResponse
 -- a valid 'DeleteLifecycleHookResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteLifecycleHookResponse :: DeleteLifecycleHookResponse
-mkDeleteLifecycleHookResponse = DeleteLifecycleHookResponse
+deleteLifecycleHookResponse :: DeleteLifecycleHookResponse
+deleteLifecycleHookResponse = DeleteLifecycleHookResponse
 
 instance AWSRequest DeleteLifecycleHook where
     type Sv DeleteLifecycleHook = AutoScaling

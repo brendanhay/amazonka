@@ -39,7 +39,7 @@ module Network.AWS.StorageGateway.DeleteChapCredentials
     -- * Request
       DeleteChapCredentials
     -- ** Request constructor
-    , mkDeleteChapCredentials
+    , deleteChapCredentials
     -- ** Request lenses
     , dccTargetARN
     , dccInitiatorName
@@ -47,7 +47,7 @@ module Network.AWS.StorageGateway.DeleteChapCredentials
     -- * Response
     , DeleteChapCredentialsResponse
     -- ** Response constructor
-    , mkDeleteChapCredentialsResponse
+    , deleteChapCredentialsResponse
     -- ** Response lenses
     , dccrTargetARN
     , dccrInitiatorName
@@ -74,10 +74,10 @@ data DeleteChapCredentials = DeleteChapCredentials
 --
 -- * @InitiatorName ::@ @Text@
 --
-mkDeleteChapCredentials :: Text -- ^ 'dccTargetARN'
+deleteChapCredentials :: Text -- ^ 'dccTargetARN'
                         -> Text -- ^ 'dccInitiatorName'
                         -> DeleteChapCredentials
-mkDeleteChapCredentials p1 p2 = DeleteChapCredentials
+deleteChapCredentials p1 p2 = DeleteChapCredentials
     { _dccTargetARN = p1
     , _dccInitiatorName = p2
     }
@@ -118,8 +118,8 @@ data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse
 --
 -- * @InitiatorName ::@ @Maybe Text@
 --
-mkDeleteChapCredentialsResponse :: DeleteChapCredentialsResponse
-mkDeleteChapCredentialsResponse = DeleteChapCredentialsResponse
+deleteChapCredentialsResponse :: DeleteChapCredentialsResponse
+deleteChapCredentialsResponse = DeleteChapCredentialsResponse
     { _dccrTargetARN = Nothing
     , _dccrInitiatorName = Nothing
     }

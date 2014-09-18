@@ -31,11 +31,11 @@ module Network.AWS.IAM.GetAccountSummary
     -- * Request
       GetAccountSummary
     -- ** Request constructor
-    , mkGetAccountSummary
+    , getAccountSummary
     -- * Response
     , GetAccountSummaryResponse
     -- ** Response constructor
-    , mkGetAccountSummaryResponse
+    , getAccountSummaryResponse
     -- ** Response lenses
     , gasrSummaryMap
     ) where
@@ -49,8 +49,8 @@ data GetAccountSummary = GetAccountSummary
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetAccountSummary' request.
-mkGetAccountSummary :: GetAccountSummary
-mkGetAccountSummary = GetAccountSummary
+getAccountSummary :: GetAccountSummary
+getAccountSummary = GetAccountSummary
 
 instance ToQuery GetAccountSummary where
     toQuery = genericQuery def
@@ -70,8 +70,8 @@ newtype GetAccountSummaryResponse = GetAccountSummaryResponse
 --
 -- * @SummaryMap ::@ @Map SummaryKeyType Integer@
 --
-mkGetAccountSummaryResponse :: GetAccountSummaryResponse
-mkGetAccountSummaryResponse = GetAccountSummaryResponse
+getAccountSummaryResponse :: GetAccountSummaryResponse
+getAccountSummaryResponse = GetAccountSummaryResponse
     { _gasrSummaryMap = mempty
     }
 

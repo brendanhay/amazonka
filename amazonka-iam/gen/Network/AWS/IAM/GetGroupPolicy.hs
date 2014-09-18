@@ -29,7 +29,7 @@ module Network.AWS.IAM.GetGroupPolicy
     -- * Request
       GetGroupPolicy
     -- ** Request constructor
-    , mkGetGroupPolicy
+    , getGroupPolicy
     -- ** Request lenses
     , ggpGroupName
     , ggpPolicyName
@@ -37,7 +37,7 @@ module Network.AWS.IAM.GetGroupPolicy
     -- * Response
     , GetGroupPolicyResponse
     -- ** Response constructor
-    , mkGetGroupPolicyResponse
+    , getGroupPolicyResponse
     -- ** Response lenses
     , ggprGroupName
     , ggprPolicyName
@@ -62,10 +62,10 @@ data GetGroupPolicy = GetGroupPolicy
 --
 -- * @PolicyName ::@ @Text@
 --
-mkGetGroupPolicy :: Text -- ^ 'ggpGroupName'
+getGroupPolicy :: Text -- ^ 'ggpGroupName'
                  -> Text -- ^ 'ggpPolicyName'
                  -> GetGroupPolicy
-mkGetGroupPolicy p1 p2 = GetGroupPolicy
+getGroupPolicy p1 p2 = GetGroupPolicy
     { _ggpGroupName = p1
     , _ggpPolicyName = p2
     }
@@ -102,11 +102,11 @@ data GetGroupPolicyResponse = GetGroupPolicyResponse
 --
 -- * @PolicyDocument ::@ @Text@
 --
-mkGetGroupPolicyResponse :: Text -- ^ 'ggprGroupName'
+getGroupPolicyResponse :: Text -- ^ 'ggprGroupName'
                          -> Text -- ^ 'ggprPolicyName'
                          -> Text -- ^ 'ggprPolicyDocument'
                          -> GetGroupPolicyResponse
-mkGetGroupPolicyResponse p1 p2 p3 = GetGroupPolicyResponse
+getGroupPolicyResponse p1 p2 p3 = GetGroupPolicyResponse
     { _ggprGroupName = p1
     , _ggprPolicyName = p2
     , _ggprPolicyDocument = p3

@@ -30,7 +30,7 @@ module Network.AWS.RDS.CreateDBSnapshot
     -- * Request
       CreateDBSnapshot
     -- ** Request constructor
-    , mkCreateDBSnapshot
+    , createDBSnapshot
     -- ** Request lenses
     , cdbs1DBSnapshotIdentifier
     , cdbs1DBInstanceIdentifier
@@ -39,7 +39,7 @@ module Network.AWS.RDS.CreateDBSnapshot
     -- * Response
     , CreateDBSnapshotResponse
     -- ** Response constructor
-    , mkCreateDBSnapshotResponse
+    , createDBSnapshotResponse
     -- ** Response lenses
     , cdbsrrDBSnapshot
     ) where
@@ -66,10 +66,10 @@ data CreateDBSnapshot = CreateDBSnapshot
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkCreateDBSnapshot :: Text -- ^ 'cdbs1DBSnapshotIdentifier'
+createDBSnapshot :: Text -- ^ 'cdbs1DBSnapshotIdentifier'
                    -> Text -- ^ 'cdbs1DBInstanceIdentifier'
                    -> CreateDBSnapshot
-mkCreateDBSnapshot p1 p2 = CreateDBSnapshot
+createDBSnapshot p1 p2 = CreateDBSnapshot
     { _cdbs1DBSnapshotIdentifier = p1
     , _cdbs1DBInstanceIdentifier = p2
     , _cdbs1Tags = mempty
@@ -113,8 +113,8 @@ newtype CreateDBSnapshotResponse = CreateDBSnapshotResponse
 --
 -- * @DBSnapshot ::@ @Maybe DBSnapshot@
 --
-mkCreateDBSnapshotResponse :: CreateDBSnapshotResponse
-mkCreateDBSnapshotResponse = CreateDBSnapshotResponse
+createDBSnapshotResponse :: CreateDBSnapshotResponse
+createDBSnapshotResponse = CreateDBSnapshotResponse
     { _cdbsrrDBSnapshot = Nothing
     }
 

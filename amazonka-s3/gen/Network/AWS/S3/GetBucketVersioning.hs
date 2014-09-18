@@ -23,14 +23,14 @@ module Network.AWS.S3.GetBucketVersioning
     -- * Request
       GetBucketVersioning
     -- ** Request constructor
-    , mkGetBucketVersioning
+    , getBucketVersioning
     -- ** Request lenses
     , gbvBucket
 
     -- * Response
     , GetBucketVersioningResponse
     -- ** Response constructor
-    , mkGetBucketVersioningResponse
+    , getBucketVersioningResponse
     -- ** Response lenses
     , gbvrStatus
     , gbvrMfaDelete
@@ -52,9 +52,9 @@ newtype GetBucketVersioning = GetBucketVersioning
 --
 -- * @Bucket ::@ @BucketName@
 --
-mkGetBucketVersioning :: BucketName -- ^ 'gbvBucket'
+getBucketVersioning :: BucketName -- ^ 'gbvBucket'
                       -> GetBucketVersioning
-mkGetBucketVersioning p1 = GetBucketVersioning
+getBucketVersioning p1 = GetBucketVersioning
     { _gbvBucket = p1
     }
 
@@ -85,8 +85,8 @@ data GetBucketVersioningResponse = GetBucketVersioningResponse
 --
 -- * @MfaDelete ::@ @Maybe (Switch MFADeleteStatus)@
 --
-mkGetBucketVersioningResponse :: GetBucketVersioningResponse
-mkGetBucketVersioningResponse = GetBucketVersioningResponse
+getBucketVersioningResponse :: GetBucketVersioningResponse
+getBucketVersioningResponse = GetBucketVersioningResponse
     { _gbvrStatus = Nothing
     , _gbvrMfaDelete = Nothing
     }

@@ -28,14 +28,14 @@ module Network.AWS.RDS.DeleteDBSecurityGroup
     -- * Request
       DeleteDBSecurityGroup
     -- ** Request constructor
-    , mkDeleteDBSecurityGroup
+    , deleteDBSecurityGroup
     -- ** Request lenses
     , ddbsgDBSecurityGroupName
 
     -- * Response
     , DeleteDBSecurityGroupResponse
     -- ** Response constructor
-    , mkDeleteDBSecurityGroupResponse
+    , deleteDBSecurityGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -54,9 +54,9 @@ newtype DeleteDBSecurityGroup = DeleteDBSecurityGroup
 --
 -- * @DBSecurityGroupName ::@ @Text@
 --
-mkDeleteDBSecurityGroup :: Text -- ^ 'ddbsgDBSecurityGroupName'
+deleteDBSecurityGroup :: Text -- ^ 'ddbsgDBSecurityGroupName'
                         -> DeleteDBSecurityGroup
-mkDeleteDBSecurityGroup p1 = DeleteDBSecurityGroup
+deleteDBSecurityGroup p1 = DeleteDBSecurityGroup
     { _ddbsgDBSecurityGroupName = p1
     }
 
@@ -79,8 +79,8 @@ data DeleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse
 -- a valid 'DeleteDBSecurityGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteDBSecurityGroupResponse :: DeleteDBSecurityGroupResponse
-mkDeleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse
+deleteDBSecurityGroupResponse :: DeleteDBSecurityGroupResponse
+deleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse
 
 instance AWSRequest DeleteDBSecurityGroup where
     type Sv DeleteDBSecurityGroup = RDS

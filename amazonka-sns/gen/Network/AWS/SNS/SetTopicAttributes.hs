@@ -49,7 +49,7 @@ module Network.AWS.SNS.SetTopicAttributes
     -- * Request
       SetTopicAttributes
     -- ** Request constructor
-    , mkSetTopicAttributes
+    , setTopicAttributes
     -- ** Request lenses
     , staTopicArn
     , staAttributeName
@@ -58,7 +58,7 @@ module Network.AWS.SNS.SetTopicAttributes
     -- * Response
     , SetTopicAttributesResponse
     -- ** Response constructor
-    , mkSetTopicAttributesResponse
+    , setTopicAttributesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -83,10 +83,10 @@ data SetTopicAttributes = SetTopicAttributes
 --
 -- * @AttributeValue ::@ @Maybe Text@
 --
-mkSetTopicAttributes :: Text -- ^ 'staTopicArn'
+setTopicAttributes :: Text -- ^ 'staTopicArn'
                      -> Text -- ^ 'staAttributeName'
                      -> SetTopicAttributes
-mkSetTopicAttributes p1 p2 = SetTopicAttributes
+setTopicAttributes p1 p2 = SetTopicAttributes
     { _staTopicArn = p1
     , _staAttributeName = p2
     , _staAttributeValue = Nothing
@@ -118,8 +118,8 @@ data SetTopicAttributesResponse = SetTopicAttributesResponse
 -- a valid 'SetTopicAttributesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSetTopicAttributesResponse :: SetTopicAttributesResponse
-mkSetTopicAttributesResponse = SetTopicAttributesResponse
+setTopicAttributesResponse :: SetTopicAttributesResponse
+setTopicAttributesResponse = SetTopicAttributesResponse
 
 instance AWSRequest SetTopicAttributes where
     type Sv SetTopicAttributes = SNS

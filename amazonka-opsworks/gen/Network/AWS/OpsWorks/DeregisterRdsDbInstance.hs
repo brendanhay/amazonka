@@ -23,14 +23,14 @@ module Network.AWS.OpsWorks.DeregisterRdsDbInstance
     -- * Request
       DeregisterRdsDbInstance
     -- ** Request constructor
-    , mkDeregisterRdsDbInstance
+    , deregisterRdsDbInstance
     -- ** Request lenses
     , drdiRdsDbInstanceArn
 
     -- * Response
     , DeregisterRdsDbInstanceResponse
     -- ** Response constructor
-    , mkDeregisterRdsDbInstanceResponse
+    , deregisterRdsDbInstanceResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -48,9 +48,9 @@ newtype DeregisterRdsDbInstance = DeregisterRdsDbInstance
 --
 -- * @RdsDbInstanceArn ::@ @Text@
 --
-mkDeregisterRdsDbInstance :: Text -- ^ 'drdiRdsDbInstanceArn'
+deregisterRdsDbInstance :: Text -- ^ 'drdiRdsDbInstanceArn'
                           -> DeregisterRdsDbInstance
-mkDeregisterRdsDbInstance p1 = DeregisterRdsDbInstance
+deregisterRdsDbInstance p1 = DeregisterRdsDbInstance
     { _drdiRdsDbInstanceArn = p1
     }
 
@@ -74,8 +74,8 @@ data DeregisterRdsDbInstanceResponse = DeregisterRdsDbInstanceResponse
 -- a valid 'DeregisterRdsDbInstanceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeregisterRdsDbInstanceResponse :: DeregisterRdsDbInstanceResponse
-mkDeregisterRdsDbInstanceResponse = DeregisterRdsDbInstanceResponse
+deregisterRdsDbInstanceResponse :: DeregisterRdsDbInstanceResponse
+deregisterRdsDbInstanceResponse = DeregisterRdsDbInstanceResponse
 
 instance AWSRequest DeregisterRdsDbInstance where
     type Sv DeregisterRdsDbInstance = OpsWorks

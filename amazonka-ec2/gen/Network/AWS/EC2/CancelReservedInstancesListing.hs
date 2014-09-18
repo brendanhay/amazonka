@@ -34,14 +34,14 @@ module Network.AWS.EC2.CancelReservedInstancesListing
     -- * Request
       CancelReservedInstancesListing
     -- ** Request constructor
-    , mkCancelReservedInstancesListing
+    , cancelReservedInstancesListing
     -- ** Request lenses
     , crilReservedInstancesListingId
 
     -- * Response
     , CancelReservedInstancesListingResponse
     -- ** Response constructor
-    , mkCancelReservedInstancesListingResponse
+    , cancelReservedInstancesListingResponse
     -- ** Response lenses
     , crilrReservedInstancesListings
     ) where
@@ -61,9 +61,9 @@ newtype CancelReservedInstancesListing = CancelReservedInstancesListing
 --
 -- * @ReservedInstancesListingId ::@ @Text@
 --
-mkCancelReservedInstancesListing :: Text -- ^ 'crilReservedInstancesListingId'
+cancelReservedInstancesListing :: Text -- ^ 'crilReservedInstancesListingId'
                                  -> CancelReservedInstancesListing
-mkCancelReservedInstancesListing p1 = CancelReservedInstancesListing
+cancelReservedInstancesListing p1 = CancelReservedInstancesListing
     { _crilReservedInstancesListingId = p1
     }
 
@@ -89,8 +89,8 @@ newtype CancelReservedInstancesListingResponse = CancelReservedInstancesListingR
 --
 -- * @ReservedInstancesListings ::@ @[ReservedInstancesListing]@
 --
-mkCancelReservedInstancesListingResponse :: CancelReservedInstancesListingResponse
-mkCancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
+cancelReservedInstancesListingResponse :: CancelReservedInstancesListingResponse
+cancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
     { _crilrReservedInstancesListings = mempty
     }
 

@@ -26,7 +26,7 @@ module Network.AWS.CloudWatch.SetAlarmState
     -- * Request
       SetAlarmState
     -- ** Request constructor
-    , mkSetAlarmState
+    , setAlarmState
     -- ** Request lenses
     , sasAlarmName
     , sasStateValue
@@ -36,7 +36,7 @@ module Network.AWS.CloudWatch.SetAlarmState
     -- * Response
     , SetAlarmStateResponse
     -- ** Response constructor
-    , mkSetAlarmStateResponse
+    , setAlarmStateResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -63,11 +63,11 @@ data SetAlarmState = SetAlarmState
 --
 -- * @StateReasonData ::@ @Maybe Text@
 --
-mkSetAlarmState :: Text -- ^ 'sasAlarmName'
+setAlarmState :: Text -- ^ 'sasAlarmName'
                 -> StateValue -- ^ 'sasStateValue'
                 -> Text -- ^ 'sasStateReason'
                 -> SetAlarmState
-mkSetAlarmState p1 p2 p3 = SetAlarmState
+setAlarmState p1 p2 p3 = SetAlarmState
     { _sasAlarmName = p1
     , _sasStateValue = p2
     , _sasStateReason = p3
@@ -104,8 +104,8 @@ data SetAlarmStateResponse = SetAlarmStateResponse
 -- a valid 'SetAlarmStateResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSetAlarmStateResponse :: SetAlarmStateResponse
-mkSetAlarmStateResponse = SetAlarmStateResponse
+setAlarmStateResponse :: SetAlarmStateResponse
+setAlarmStateResponse = SetAlarmStateResponse
 
 instance AWSRequest SetAlarmState where
     type Sv SetAlarmState = CloudWatch

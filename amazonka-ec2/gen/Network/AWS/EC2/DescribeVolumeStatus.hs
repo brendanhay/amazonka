@@ -66,7 +66,7 @@ module Network.AWS.EC2.DescribeVolumeStatus
     -- * Request
       DescribeVolumeStatus
     -- ** Request constructor
-    , mkDescribeVolumeStatus
+    , describeVolumeStatus
     -- ** Request lenses
     , dvsVolumeIds
     , dvsFilters
@@ -76,7 +76,7 @@ module Network.AWS.EC2.DescribeVolumeStatus
     -- * Response
     , DescribeVolumeStatusResponse
     -- ** Response constructor
-    , mkDescribeVolumeStatusResponse
+    , describeVolumeStatusResponse
     -- ** Response lenses
     , dvsrVolumeStatuses
     , dvsrNextToken
@@ -106,8 +106,8 @@ data DescribeVolumeStatus = DescribeVolumeStatus
 --
 -- * @MaxResults ::@ @Maybe Integer@
 --
-mkDescribeVolumeStatus :: DescribeVolumeStatus
-mkDescribeVolumeStatus = DescribeVolumeStatus
+describeVolumeStatus :: DescribeVolumeStatus
+describeVolumeStatus = DescribeVolumeStatus
     { _dvsVolumeIds = mempty
     , _dvsFilters = mempty
     , _dvsNextToken = Nothing
@@ -164,8 +164,8 @@ data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeVolumeStatusResponse :: DescribeVolumeStatusResponse
-mkDescribeVolumeStatusResponse = DescribeVolumeStatusResponse
+describeVolumeStatusResponse :: DescribeVolumeStatusResponse
+describeVolumeStatusResponse = DescribeVolumeStatusResponse
     { _dvsrVolumeStatuses = mempty
     , _dvsrNextToken = Nothing
     }

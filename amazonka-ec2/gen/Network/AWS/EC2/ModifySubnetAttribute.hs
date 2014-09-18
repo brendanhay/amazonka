@@ -28,7 +28,7 @@ module Network.AWS.EC2.ModifySubnetAttribute
     -- * Request
       ModifySubnetAttribute
     -- ** Request constructor
-    , mkModifySubnetAttribute
+    , modifySubnetAttribute
     -- ** Request lenses
     , msa1SubnetId
     , msa1MapPublicIpOnLaunch
@@ -36,7 +36,7 @@ module Network.AWS.EC2.ModifySubnetAttribute
     -- * Response
     , ModifySubnetAttributeResponse
     -- ** Response constructor
-    , mkModifySubnetAttributeResponse
+    , modifySubnetAttributeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -57,9 +57,9 @@ data ModifySubnetAttribute = ModifySubnetAttribute
 --
 -- * @MapPublicIpOnLaunch ::@ @Maybe AttributeBooleanValue@
 --
-mkModifySubnetAttribute :: Text -- ^ 'msa1SubnetId'
+modifySubnetAttribute :: Text -- ^ 'msa1SubnetId'
                         -> ModifySubnetAttribute
-mkModifySubnetAttribute p1 = ModifySubnetAttribute
+modifySubnetAttribute p1 = ModifySubnetAttribute
     { _msa1SubnetId = p1
     , _msa1MapPublicIpOnLaunch = Nothing
     }
@@ -84,8 +84,8 @@ data ModifySubnetAttributeResponse = ModifySubnetAttributeResponse
 -- a valid 'ModifySubnetAttributeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkModifySubnetAttributeResponse :: ModifySubnetAttributeResponse
-mkModifySubnetAttributeResponse = ModifySubnetAttributeResponse
+modifySubnetAttributeResponse :: ModifySubnetAttributeResponse
+modifySubnetAttributeResponse = ModifySubnetAttributeResponse
 
 instance AWSRequest ModifySubnetAttribute where
     type Sv ModifySubnetAttribute = EC2

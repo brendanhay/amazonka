@@ -43,14 +43,14 @@ module Network.AWS.EC2.AllocateAddress
     -- * Request
       AllocateAddress
     -- ** Request constructor
-    , mkAllocateAddress
+    , allocateAddress
     -- ** Request lenses
     , aaDomain
 
     -- * Response
     , AllocateAddressResponse
     -- ** Response constructor
-    , mkAllocateAddressResponse
+    , allocateAddressResponse
     -- ** Response lenses
     , aarPublicIp
     , aarDomain
@@ -72,8 +72,8 @@ newtype AllocateAddress = AllocateAddress
 --
 -- * @Domain ::@ @Maybe DomainType@
 --
-mkAllocateAddress :: AllocateAddress
-mkAllocateAddress = AllocateAddress
+allocateAddress :: AllocateAddress
+allocateAddress = AllocateAddress
     { _aaDomain = Nothing
     }
 
@@ -104,8 +104,8 @@ data AllocateAddressResponse = AllocateAddressResponse
 --
 -- * @AllocationId ::@ @Maybe Text@
 --
-mkAllocateAddressResponse :: AllocateAddressResponse
-mkAllocateAddressResponse = AllocateAddressResponse
+allocateAddressResponse :: AllocateAddressResponse
+allocateAddressResponse = AllocateAddressResponse
     { _aarPublicIp = Nothing
     , _aarDomain = Nothing
     , _aarAllocationId = Nothing

@@ -48,7 +48,7 @@ module Network.AWS.CloudWatchLogs.GetLogEvents
     -- * Request
       GetLogEvents
     -- ** Request constructor
-    , mkGetLogEvents
+    , getLogEvents
     -- ** Request lenses
     , gleLogGroupName
     , gleLogStreamName
@@ -61,7 +61,7 @@ module Network.AWS.CloudWatchLogs.GetLogEvents
     -- * Response
     , GetLogEventsResponse
     -- ** Response constructor
-    , mkGetLogEventsResponse
+    , getLogEventsResponse
     -- ** Response lenses
     , glerEvents
     , glerNextForwardToken
@@ -101,10 +101,10 @@ data GetLogEvents = GetLogEvents
 --
 -- * @StartFromHead ::@ @Maybe Bool@
 --
-mkGetLogEvents :: Text -- ^ 'gleLogGroupName'
+getLogEvents :: Text -- ^ 'gleLogGroupName'
                -> Text -- ^ 'gleLogStreamName'
                -> GetLogEvents
-mkGetLogEvents p1 p2 = GetLogEvents
+getLogEvents p1 p2 = GetLogEvents
     { _gleLogGroupName = p1
     , _gleLogStreamName = p2
     , _gleStartTime = Nothing
@@ -174,8 +174,8 @@ data GetLogEventsResponse = GetLogEventsResponse
 --
 -- * @NextBackwardToken ::@ @Maybe Text@
 --
-mkGetLogEventsResponse :: GetLogEventsResponse
-mkGetLogEventsResponse = GetLogEventsResponse
+getLogEventsResponse :: GetLogEventsResponse
+getLogEventsResponse = GetLogEventsResponse
     { _glerEvents = mempty
     , _glerNextForwardToken = Nothing
     , _glerNextBackwardToken = Nothing

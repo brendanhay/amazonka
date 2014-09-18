@@ -30,7 +30,7 @@ module Network.AWS.Support.DescribeCases
     -- * Request
       DescribeCases
     -- ** Request constructor
-    , mkDescribeCases
+    , describeCases
     -- ** Request lenses
     , dcCaseIdList
     , dcDisplayId
@@ -45,7 +45,7 @@ module Network.AWS.Support.DescribeCases
     -- * Response
     , DescribeCasesResponse
     -- ** Response constructor
-    , mkDescribeCasesResponse
+    , describeCasesResponse
     -- ** Response lenses
     , dcrCases
     , dcrNextToken
@@ -90,8 +90,8 @@ data DescribeCases = DescribeCases
 --
 -- * @IncludeCommunications ::@ @Maybe Bool@
 --
-mkDescribeCases :: DescribeCases
-mkDescribeCases = DescribeCases
+describeCases :: DescribeCases
+describeCases = DescribeCases
     { _dcCaseIdList = mempty
     , _dcDisplayId = Nothing
     , _dcAfterTime = Nothing
@@ -175,8 +175,8 @@ data DescribeCasesResponse = DescribeCasesResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeCasesResponse :: DescribeCasesResponse
-mkDescribeCasesResponse = DescribeCasesResponse
+describeCasesResponse :: DescribeCasesResponse
+describeCasesResponse = DescribeCasesResponse
     { _dcrCases = mempty
     , _dcrNextToken = Nothing
     }

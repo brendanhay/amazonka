@@ -30,7 +30,7 @@ module Network.AWS.SimpleDB.GetAttributes
     -- * Request
       GetAttributes
     -- ** Request constructor
-    , mkGetAttributes
+    , getAttributes
     -- ** Request lenses
     , gaDomainName
     , gaItemName
@@ -40,7 +40,7 @@ module Network.AWS.SimpleDB.GetAttributes
     -- * Response
     , GetAttributesResponse
     -- ** Response constructor
-    , mkGetAttributesResponse
+    , getAttributesResponse
     -- ** Response lenses
     , garAttributes
     ) where
@@ -69,10 +69,10 @@ data GetAttributes = GetAttributes
 --
 -- * @ConsistentRead ::@ @Maybe Bool@
 --
-mkGetAttributes :: Text -- ^ 'gaDomainName'
+getAttributes :: Text -- ^ 'gaDomainName'
                 -> Text -- ^ 'gaItemName'
                 -> GetAttributes
-mkGetAttributes p1 p2 = GetAttributes
+getAttributes p1 p2 = GetAttributes
     { _gaDomainName = p1
     , _gaItemName = p2
     , _gaAttributeNames = mempty
@@ -116,8 +116,8 @@ newtype GetAttributesResponse = GetAttributesResponse
 --
 -- * @Attributes ::@ @[Attribute]@
 --
-mkGetAttributesResponse :: GetAttributesResponse
-mkGetAttributesResponse = GetAttributesResponse
+getAttributesResponse :: GetAttributesResponse
+getAttributesResponse = GetAttributesResponse
     { _garAttributes = mempty
     }
 

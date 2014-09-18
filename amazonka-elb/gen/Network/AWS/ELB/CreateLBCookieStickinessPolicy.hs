@@ -40,7 +40,7 @@ module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     -- * Request
       CreateLBCookieStickinessPolicy
     -- ** Request constructor
-    , mkCreateLBCookieStickinessPolicy
+    , createLBCookieStickinessPolicy
     -- ** Request lenses
     , clbcspLoadBalancerName
     , clbcspPolicyName
@@ -49,7 +49,7 @@ module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     -- * Response
     , CreateLBCookieStickinessPolicyResponse
     -- ** Response constructor
-    , mkCreateLBCookieStickinessPolicyResponse
+    , createLBCookieStickinessPolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -74,10 +74,10 @@ data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy
 --
 -- * @CookieExpirationPeriod ::@ @Maybe Integer@
 --
-mkCreateLBCookieStickinessPolicy :: Text -- ^ 'clbcspLoadBalancerName'
+createLBCookieStickinessPolicy :: Text -- ^ 'clbcspLoadBalancerName'
                                  -> Text -- ^ 'clbcspPolicyName'
                                  -> CreateLBCookieStickinessPolicy
-mkCreateLBCookieStickinessPolicy p1 p2 = CreateLBCookieStickinessPolicy
+createLBCookieStickinessPolicy p1 p2 = CreateLBCookieStickinessPolicy
     { _clbcspLoadBalancerName = p1
     , _clbcspPolicyName = p2
     , _clbcspCookieExpirationPeriod = Nothing
@@ -113,8 +113,8 @@ data CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResp
 -- a valid 'CreateLBCookieStickinessPolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkCreateLBCookieStickinessPolicyResponse :: CreateLBCookieStickinessPolicyResponse
-mkCreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse
+createLBCookieStickinessPolicyResponse :: CreateLBCookieStickinessPolicyResponse
+createLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse
 
 instance AWSRequest CreateLBCookieStickinessPolicy where
     type Sv CreateLBCookieStickinessPolicy = ELB

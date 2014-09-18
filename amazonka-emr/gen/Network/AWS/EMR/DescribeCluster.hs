@@ -25,14 +25,14 @@ module Network.AWS.EMR.DescribeCluster
     -- * Request
       DescribeCluster
     -- ** Request constructor
-    , mkDescribeCluster
+    , describeCluster
     -- ** Request lenses
     , dcClusterId
 
     -- * Response
     , DescribeClusterResponse
     -- ** Response constructor
-    , mkDescribeClusterResponse
+    , describeClusterResponse
     -- ** Response lenses
     , dcrCluster
     ) where
@@ -53,9 +53,9 @@ newtype DescribeCluster = DescribeCluster
 --
 -- * @ClusterId ::@ @Text@
 --
-mkDescribeCluster :: Text -- ^ 'dcClusterId'
+describeCluster :: Text -- ^ 'dcClusterId'
                   -> DescribeCluster
-mkDescribeCluster p1 = DescribeCluster
+describeCluster p1 = DescribeCluster
     { _dcClusterId = p1
     }
 
@@ -85,8 +85,8 @@ newtype DescribeClusterResponse = DescribeClusterResponse
 --
 -- * @Cluster ::@ @Maybe Cluster@
 --
-mkDescribeClusterResponse :: DescribeClusterResponse
-mkDescribeClusterResponse = DescribeClusterResponse
+describeClusterResponse :: DescribeClusterResponse
+describeClusterResponse = DescribeClusterResponse
     { _dcrCluster = Nothing
     }
 

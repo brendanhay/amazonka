@@ -36,7 +36,7 @@ module Network.AWS.EC2.ModifyVolumeAttribute
     -- * Request
       ModifyVolumeAttribute
     -- ** Request constructor
-    , mkModifyVolumeAttribute
+    , modifyVolumeAttribute
     -- ** Request lenses
     , mvaVolumeId
     , mvaAutoEnableIO
@@ -44,7 +44,7 @@ module Network.AWS.EC2.ModifyVolumeAttribute
     -- * Response
     , ModifyVolumeAttributeResponse
     -- ** Response constructor
-    , mkModifyVolumeAttributeResponse
+    , modifyVolumeAttributeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -65,9 +65,9 @@ data ModifyVolumeAttribute = ModifyVolumeAttribute
 --
 -- * @AutoEnableIO ::@ @Maybe AttributeBooleanValue@
 --
-mkModifyVolumeAttribute :: Text -- ^ 'mvaVolumeId'
+modifyVolumeAttribute :: Text -- ^ 'mvaVolumeId'
                         -> ModifyVolumeAttribute
-mkModifyVolumeAttribute p1 = ModifyVolumeAttribute
+modifyVolumeAttribute p1 = ModifyVolumeAttribute
     { _mvaVolumeId = p1
     , _mvaAutoEnableIO = Nothing
     }
@@ -90,8 +90,8 @@ data ModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
 -- a valid 'ModifyVolumeAttributeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkModifyVolumeAttributeResponse :: ModifyVolumeAttributeResponse
-mkModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
+modifyVolumeAttributeResponse :: ModifyVolumeAttributeResponse
+modifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
 
 instance AWSRequest ModifyVolumeAttribute where
     type Sv ModifyVolumeAttribute = EC2

@@ -28,7 +28,7 @@ module Network.AWS.RDS.CreateOptionGroup
     -- * Request
       CreateOptionGroup
     -- ** Request constructor
-    , mkCreateOptionGroup
+    , createOptionGroup
     -- ** Request lenses
     , cogOptionGroupName
     , cogEngineName
@@ -39,7 +39,7 @@ module Network.AWS.RDS.CreateOptionGroup
     -- * Response
     , CreateOptionGroupResponse
     -- ** Response constructor
-    , mkCreateOptionGroupResponse
+    , createOptionGroupResponse
     -- ** Response lenses
     , cogrOptionGroup
     ) where
@@ -72,12 +72,12 @@ data CreateOptionGroup = CreateOptionGroup
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkCreateOptionGroup :: Text -- ^ 'cogOptionGroupName'
+createOptionGroup :: Text -- ^ 'cogOptionGroupName'
                     -> Text -- ^ 'cogEngineName'
                     -> Text -- ^ 'cogMajorEngineVersion'
                     -> Text -- ^ 'cogOptionGroupDescription'
                     -> CreateOptionGroup
-mkCreateOptionGroup p1 p2 p3 p4 = CreateOptionGroup
+createOptionGroup p1 p2 p3 p4 = CreateOptionGroup
     { _cogOptionGroupName = p1
     , _cogEngineName = p2
     , _cogMajorEngineVersion = p3
@@ -130,8 +130,8 @@ newtype CreateOptionGroupResponse = CreateOptionGroupResponse
 --
 -- * @OptionGroup ::@ @Maybe OptionGroup@
 --
-mkCreateOptionGroupResponse :: CreateOptionGroupResponse
-mkCreateOptionGroupResponse = CreateOptionGroupResponse
+createOptionGroupResponse :: CreateOptionGroupResponse
+createOptionGroupResponse = CreateOptionGroupResponse
     { _cogrOptionGroup = Nothing
     }
 

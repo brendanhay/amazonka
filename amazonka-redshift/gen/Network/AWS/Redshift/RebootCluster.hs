@@ -38,14 +38,14 @@ module Network.AWS.Redshift.RebootCluster
     -- * Request
       RebootCluster
     -- ** Request constructor
-    , mkRebootCluster
+    , rebootCluster
     -- ** Request lenses
     , rc1ClusterIdentifier
 
     -- * Response
     , RebootClusterResponse
     -- ** Response constructor
-    , mkRebootClusterResponse
+    , rebootClusterResponse
     -- ** Response lenses
     , rcrCluster
     ) where
@@ -66,9 +66,9 @@ newtype RebootCluster = RebootCluster
 --
 -- * @ClusterIdentifier ::@ @Text@
 --
-mkRebootCluster :: Text -- ^ 'rc1ClusterIdentifier'
+rebootCluster :: Text -- ^ 'rc1ClusterIdentifier'
                 -> RebootCluster
-mkRebootCluster p1 = RebootCluster
+rebootCluster p1 = RebootCluster
     { _rc1ClusterIdentifier = p1
     }
 
@@ -93,8 +93,8 @@ newtype RebootClusterResponse = RebootClusterResponse
 --
 -- * @Cluster ::@ @Maybe Cluster@
 --
-mkRebootClusterResponse :: RebootClusterResponse
-mkRebootClusterResponse = RebootClusterResponse
+rebootClusterResponse :: RebootClusterResponse
+rebootClusterResponse = RebootClusterResponse
     { _rcrCluster = Nothing
     }
 

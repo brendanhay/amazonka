@@ -29,7 +29,7 @@ module Network.AWS.IAM.ListRolePolicies
     -- * Request
       ListRolePolicies
     -- ** Request constructor
-    , mkListRolePolicies
+    , listRolePolicies
     -- ** Request lenses
     , lrpRoleName
     , lrpMarker
@@ -38,7 +38,7 @@ module Network.AWS.IAM.ListRolePolicies
     -- * Response
     , ListRolePoliciesResponse
     -- ** Response constructor
-    , mkListRolePoliciesResponse
+    , listRolePoliciesResponse
     -- ** Response lenses
     , lrprPolicyNames
     , lrprIsTruncated
@@ -66,9 +66,9 @@ data ListRolePolicies = ListRolePolicies
 --
 -- * @MaxItems ::@ @Maybe Integer@
 --
-mkListRolePolicies :: Text -- ^ 'lrpRoleName'
+listRolePolicies :: Text -- ^ 'lrpRoleName'
                    -> ListRolePolicies
-mkListRolePolicies p1 = ListRolePolicies
+listRolePolicies p1 = ListRolePolicies
     { _lrpRoleName = p1
     , _lrpMarker = Nothing
     , _lrpMaxItems = Nothing
@@ -117,10 +117,10 @@ data ListRolePoliciesResponse = ListRolePoliciesResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListRolePoliciesResponse :: [Text] -- ^ 'lrprPolicyNames'
+listRolePoliciesResponse :: [Text] -- ^ 'lrprPolicyNames'
                            -> Bool -- ^ 'lrprIsTruncated'
                            -> ListRolePoliciesResponse
-mkListRolePoliciesResponse p1 p2 = ListRolePoliciesResponse
+listRolePoliciesResponse p1 p2 = ListRolePoliciesResponse
     { _lrprPolicyNames = p1
     , _lrprIsTruncated = p2
     , _lrprMarker = Nothing

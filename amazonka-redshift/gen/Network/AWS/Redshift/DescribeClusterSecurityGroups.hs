@@ -34,7 +34,7 @@ module Network.AWS.Redshift.DescribeClusterSecurityGroups
     -- * Request
       DescribeClusterSecurityGroups
     -- ** Request constructor
-    , mkDescribeClusterSecurityGroups
+    , describeClusterSecurityGroups
     -- ** Request lenses
     , dcsg2ClusterSecurityGroupName
     , dcsg2MaxRecords
@@ -43,7 +43,7 @@ module Network.AWS.Redshift.DescribeClusterSecurityGroups
     -- * Response
     , DescribeClusterSecurityGroupsResponse
     -- ** Response constructor
-    , mkDescribeClusterSecurityGroupsResponse
+    , describeClusterSecurityGroupsResponse
     -- ** Response lenses
     , dcsgrMarker
     , dcsgrClusterSecurityGroups
@@ -71,8 +71,8 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeClusterSecurityGroups :: DescribeClusterSecurityGroups
-mkDescribeClusterSecurityGroups = DescribeClusterSecurityGroups
+describeClusterSecurityGroups :: DescribeClusterSecurityGroups
+describeClusterSecurityGroups = DescribeClusterSecurityGroups
     { _dcsg2ClusterSecurityGroupName = Nothing
     , _dcsg2MaxRecords = Nothing
     , _dcsg2Marker = Nothing
@@ -124,8 +124,8 @@ data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsRespon
 --
 -- * @ClusterSecurityGroups ::@ @[ClusterSecurityGroup]@
 --
-mkDescribeClusterSecurityGroupsResponse :: DescribeClusterSecurityGroupsResponse
-mkDescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse
+describeClusterSecurityGroupsResponse :: DescribeClusterSecurityGroupsResponse
+describeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse
     { _dcsgrMarker = Nothing
     , _dcsgrClusterSecurityGroups = mempty
     }

@@ -38,7 +38,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     -- * Request
       DescribeEvents
     -- ** Request constructor
-    , mkDescribeEvents
+    , describeEvents
     -- ** Request lenses
     , de1ApplicationName
     , de1VersionLabel
@@ -55,7 +55,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     -- * Response
     , DescribeEventsResponse
     -- ** Response constructor
-    , mkDescribeEventsResponse
+    , describeEventsResponse
     -- ** Response lenses
     , der1rEvents
     , der1rNextToken
@@ -107,8 +107,8 @@ data DescribeEvents = DescribeEvents
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeEvents :: DescribeEvents
-mkDescribeEvents = DescribeEvents
+describeEvents :: DescribeEvents
+describeEvents = DescribeEvents
     { _de1ApplicationName = Nothing
     , _de1VersionLabel = Nothing
     , _de1TemplateName = Nothing
@@ -200,8 +200,8 @@ data DescribeEventsResponse = DescribeEventsResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeEventsResponse :: DescribeEventsResponse
-mkDescribeEventsResponse = DescribeEventsResponse
+describeEventsResponse :: DescribeEventsResponse
+describeEventsResponse = DescribeEventsResponse
     { _der1rEvents = mempty
     , _der1rNextToken = Nothing
     }

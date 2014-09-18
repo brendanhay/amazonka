@@ -38,14 +38,14 @@ module Network.AWS.StorageGateway.DescribeMaintenanceStartTime
     -- * Request
       DescribeMaintenanceStartTime
     -- ** Request constructor
-    , mkDescribeMaintenanceStartTime
+    , describeMaintenanceStartTime
     -- ** Request lenses
     , dmstGatewayARN
 
     -- * Response
     , DescribeMaintenanceStartTimeResponse
     -- ** Response constructor
-    , mkDescribeMaintenanceStartTimeResponse
+    , describeMaintenanceStartTimeResponse
     -- ** Response lenses
     , dmstrGatewayARN
     , dmstrHourOfDay
@@ -70,9 +70,9 @@ newtype DescribeMaintenanceStartTime = DescribeMaintenanceStartTime
 --
 -- * @GatewayARN ::@ @Text@
 --
-mkDescribeMaintenanceStartTime :: Text -- ^ 'dmstGatewayARN'
+describeMaintenanceStartTime :: Text -- ^ 'dmstGatewayARN'
                                -> DescribeMaintenanceStartTime
-mkDescribeMaintenanceStartTime p1 = DescribeMaintenanceStartTime
+describeMaintenanceStartTime p1 = DescribeMaintenanceStartTime
     { _dmstGatewayARN = p1
     }
 
@@ -114,8 +114,8 @@ data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
 --
 -- * @Timezone ::@ @Maybe Text@
 --
-mkDescribeMaintenanceStartTimeResponse :: DescribeMaintenanceStartTimeResponse
-mkDescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
+describeMaintenanceStartTimeResponse :: DescribeMaintenanceStartTimeResponse
+describeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
     { _dmstrGatewayARN = Nothing
     , _dmstrHourOfDay = Nothing
     , _dmstrMinuteOfHour = Nothing

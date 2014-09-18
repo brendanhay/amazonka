@@ -23,7 +23,7 @@ module Network.AWS.EMR.ListInstanceGroups
     -- * Request
       ListInstanceGroups
     -- ** Request constructor
-    , mkListInstanceGroups
+    , listInstanceGroups
     -- ** Request lenses
     , ligClusterId
     , ligMarker
@@ -31,7 +31,7 @@ module Network.AWS.EMR.ListInstanceGroups
     -- * Response
     , ListInstanceGroupsResponse
     -- ** Response constructor
-    , mkListInstanceGroupsResponse
+    , listInstanceGroupsResponse
     -- ** Response lenses
     , ligrInstanceGroups
     , ligrMarker
@@ -56,9 +56,9 @@ data ListInstanceGroups = ListInstanceGroups
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListInstanceGroups :: Text -- ^ 'ligClusterId'
+listInstanceGroups :: Text -- ^ 'ligClusterId'
                      -> ListInstanceGroups
-mkListInstanceGroups p1 = ListInstanceGroups
+listInstanceGroups p1 = ListInstanceGroups
     { _ligClusterId = p1
     , _ligMarker = Nothing
     }
@@ -96,8 +96,8 @@ data ListInstanceGroupsResponse = ListInstanceGroupsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListInstanceGroupsResponse :: ListInstanceGroupsResponse
-mkListInstanceGroupsResponse = ListInstanceGroupsResponse
+listInstanceGroupsResponse :: ListInstanceGroupsResponse
+listInstanceGroupsResponse = ListInstanceGroupsResponse
     { _ligrInstanceGroups = mempty
     , _ligrMarker = Nothing
     }

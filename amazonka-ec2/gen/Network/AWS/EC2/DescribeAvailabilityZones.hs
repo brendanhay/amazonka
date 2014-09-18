@@ -49,7 +49,7 @@ module Network.AWS.EC2.DescribeAvailabilityZones
     -- * Request
       DescribeAvailabilityZones
     -- ** Request constructor
-    , mkDescribeAvailabilityZones
+    , describeAvailabilityZones
     -- ** Request lenses
     , dazZoneNames
     , dazFilters
@@ -57,7 +57,7 @@ module Network.AWS.EC2.DescribeAvailabilityZones
     -- * Response
     , DescribeAvailabilityZonesResponse
     -- ** Response constructor
-    , mkDescribeAvailabilityZonesResponse
+    , describeAvailabilityZonesResponse
     -- ** Response lenses
     , dazrAvailabilityZones
     ) where
@@ -80,8 +80,8 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribeAvailabilityZones :: DescribeAvailabilityZones
-mkDescribeAvailabilityZones = DescribeAvailabilityZones
+describeAvailabilityZones :: DescribeAvailabilityZones
+describeAvailabilityZones = DescribeAvailabilityZones
     { _dazZoneNames = mempty
     , _dazFilters = mempty
     }
@@ -114,8 +114,8 @@ newtype DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
 --
 -- * @AvailabilityZones ::@ @[AvailabilityZone]@
 --
-mkDescribeAvailabilityZonesResponse :: DescribeAvailabilityZonesResponse
-mkDescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
+describeAvailabilityZonesResponse :: DescribeAvailabilityZonesResponse
+describeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
     { _dazrAvailabilityZones = mempty
     }
 

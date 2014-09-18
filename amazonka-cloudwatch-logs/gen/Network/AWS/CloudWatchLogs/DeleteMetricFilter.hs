@@ -33,7 +33,7 @@ module Network.AWS.CloudWatchLogs.DeleteMetricFilter
     -- * Request
       DeleteMetricFilter
     -- ** Request constructor
-    , mkDeleteMetricFilter
+    , deleteMetricFilter
     -- ** Request lenses
     , dmfLogGroupName
     , dmfFilterName
@@ -41,7 +41,7 @@ module Network.AWS.CloudWatchLogs.DeleteMetricFilter
     -- * Response
     , DeleteMetricFilterResponse
     -- ** Response constructor
-    , mkDeleteMetricFilterResponse
+    , deleteMetricFilterResponse
     ) where
 
 import Network.AWS.CloudWatchLogs.Types
@@ -62,10 +62,10 @@ data DeleteMetricFilter = DeleteMetricFilter
 --
 -- * @FilterName ::@ @Text@
 --
-mkDeleteMetricFilter :: Text -- ^ 'dmfLogGroupName'
+deleteMetricFilter :: Text -- ^ 'dmfLogGroupName'
                      -> Text -- ^ 'dmfFilterName'
                      -> DeleteMetricFilter
-mkDeleteMetricFilter p1 p2 = DeleteMetricFilter
+deleteMetricFilter p1 p2 = DeleteMetricFilter
     { _dmfLogGroupName = p1
     , _dmfFilterName = p2
     }
@@ -92,8 +92,8 @@ data DeleteMetricFilterResponse = DeleteMetricFilterResponse
 -- a valid 'DeleteMetricFilterResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteMetricFilterResponse :: DeleteMetricFilterResponse
-mkDeleteMetricFilterResponse = DeleteMetricFilterResponse
+deleteMetricFilterResponse :: DeleteMetricFilterResponse
+deleteMetricFilterResponse = DeleteMetricFilterResponse
 
 instance AWSRequest DeleteMetricFilter where
     type Sv DeleteMetricFilter = CloudWatchLogs

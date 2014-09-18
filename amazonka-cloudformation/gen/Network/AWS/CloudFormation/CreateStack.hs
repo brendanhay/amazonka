@@ -34,7 +34,7 @@ module Network.AWS.CloudFormation.CreateStack
     -- * Request
       CreateStack
     -- ** Request constructor
-    , mkCreateStack
+    , createStack
     -- ** Request lenses
     , csStackName
     , csTemplateBody
@@ -52,7 +52,7 @@ module Network.AWS.CloudFormation.CreateStack
     -- * Response
     , CreateStackResponse
     -- ** Response constructor
-    , mkCreateStackResponse
+    , createStackResponse
     -- ** Response lenses
     , csrStackId
     ) where
@@ -106,9 +106,9 @@ data CreateStack = CreateStack
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkCreateStack :: Text -- ^ 'csStackName'
+createStack :: Text -- ^ 'csStackName'
               -> CreateStack
-mkCreateStack p1 = CreateStack
+createStack p1 = CreateStack
     { _csStackName = p1
     , _csTemplateBody = Nothing
     , _csTemplateURL = Nothing
@@ -227,8 +227,8 @@ newtype CreateStackResponse = CreateStackResponse
 --
 -- * @StackId ::@ @Maybe Text@
 --
-mkCreateStackResponse :: CreateStackResponse
-mkCreateStackResponse = CreateStackResponse
+createStackResponse :: CreateStackResponse
+createStackResponse = CreateStackResponse
     { _csrStackId = Nothing
     }
 

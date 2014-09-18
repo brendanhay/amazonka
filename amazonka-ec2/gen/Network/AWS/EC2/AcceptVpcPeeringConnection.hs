@@ -43,14 +43,14 @@ module Network.AWS.EC2.AcceptVpcPeeringConnection
     -- * Request
       AcceptVpcPeeringConnection
     -- ** Request constructor
-    , mkAcceptVpcPeeringConnection
+    , acceptVpcPeeringConnection
     -- ** Request lenses
     , avpcVpcPeeringConnectionId
 
     -- * Response
     , AcceptVpcPeeringConnectionResponse
     -- ** Response constructor
-    , mkAcceptVpcPeeringConnectionResponse
+    , acceptVpcPeeringConnectionResponse
     -- ** Response lenses
     , avpcrVpcPeeringConnection
     ) where
@@ -70,8 +70,8 @@ newtype AcceptVpcPeeringConnection = AcceptVpcPeeringConnection
 --
 -- * @VpcPeeringConnectionId ::@ @Maybe Text@
 --
-mkAcceptVpcPeeringConnection :: AcceptVpcPeeringConnection
-mkAcceptVpcPeeringConnection = AcceptVpcPeeringConnection
+acceptVpcPeeringConnection :: AcceptVpcPeeringConnection
+acceptVpcPeeringConnection = AcceptVpcPeeringConnection
     { _avpcVpcPeeringConnectionId = Nothing
     }
 
@@ -97,8 +97,8 @@ newtype AcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
 --
 -- * @VpcPeeringConnection ::@ @Maybe VpcPeeringConnection@
 --
-mkAcceptVpcPeeringConnectionResponse :: AcceptVpcPeeringConnectionResponse
-mkAcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
+acceptVpcPeeringConnectionResponse :: AcceptVpcPeeringConnectionResponse
+acceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
     { _avpcrVpcPeeringConnection = Nothing
     }
 

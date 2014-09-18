@@ -35,7 +35,6 @@ library
 
     exposed-modules:
           Network.AWS.CloudWatch
-        , Network.AWS.CloudWatch.Monadic
         , Network.AWS.CloudWatch.Types
         , Network.AWS.CloudWatch.DeleteAlarms
         , Network.AWS.CloudWatch.DescribeAlarmHistory

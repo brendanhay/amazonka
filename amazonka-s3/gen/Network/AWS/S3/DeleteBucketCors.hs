@@ -23,14 +23,14 @@ module Network.AWS.S3.DeleteBucketCors
     -- * Request
       DeleteBucketCors
     -- ** Request constructor
-    , mkDeleteBucketCors
+    , deleteBucketCors
     -- ** Request lenses
     , dbcBucket
 
     -- * Response
     , DeleteBucketCorsResponse
     -- ** Response constructor
-    , mkDeleteBucketCorsResponse
+    , deleteBucketCorsResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -49,9 +49,9 @@ newtype DeleteBucketCors = DeleteBucketCors
 --
 -- * @Bucket ::@ @BucketName@
 --
-mkDeleteBucketCors :: BucketName -- ^ 'dbcBucket'
+deleteBucketCors :: BucketName -- ^ 'dbcBucket'
                    -> DeleteBucketCors
-mkDeleteBucketCors p1 = DeleteBucketCors
+deleteBucketCors p1 = DeleteBucketCors
     { _dbcBucket = p1
     }
 
@@ -73,8 +73,8 @@ data DeleteBucketCorsResponse = DeleteBucketCorsResponse
 -- a valid 'DeleteBucketCorsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteBucketCorsResponse :: DeleteBucketCorsResponse
-mkDeleteBucketCorsResponse = DeleteBucketCorsResponse
+deleteBucketCorsResponse :: DeleteBucketCorsResponse
+deleteBucketCorsResponse = DeleteBucketCorsResponse
 
 instance AWSRequest DeleteBucketCors where
     type Sv DeleteBucketCors = S3

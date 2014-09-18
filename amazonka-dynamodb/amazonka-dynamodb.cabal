@@ -31,7 +31,6 @@ library
 
     exposed-modules:
           Network.AWS.DynamoDB
-        , Network.AWS.DynamoDB.Monadic
         , Network.AWS.DynamoDB.Types
         , Network.AWS.DynamoDB.BatchGetItem
         , Network.AWS.DynamoDB.BatchWriteItem

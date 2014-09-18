@@ -41,14 +41,14 @@ module Network.AWS.SNS.GetSubscriptionAttributes
     -- * Request
       GetSubscriptionAttributes
     -- ** Request constructor
-    , mkGetSubscriptionAttributes
+    , getSubscriptionAttributes
     -- ** Request lenses
     , gsaSubscriptionArn
 
     -- * Response
     , GetSubscriptionAttributesResponse
     -- ** Response constructor
-    , mkGetSubscriptionAttributesResponse
+    , getSubscriptionAttributesResponse
     -- ** Response lenses
     , gsarAttributes
     ) where
@@ -69,9 +69,9 @@ newtype GetSubscriptionAttributes = GetSubscriptionAttributes
 --
 -- * @SubscriptionArn ::@ @Text@
 --
-mkGetSubscriptionAttributes :: Text -- ^ 'gsaSubscriptionArn'
+getSubscriptionAttributes :: Text -- ^ 'gsaSubscriptionArn'
                             -> GetSubscriptionAttributes
-mkGetSubscriptionAttributes p1 = GetSubscriptionAttributes
+getSubscriptionAttributes p1 = GetSubscriptionAttributes
     { _gsaSubscriptionArn = p1
     }
 
@@ -97,8 +97,8 @@ newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
 --
 -- * @Attributes ::@ @Map Text Text@
 --
-mkGetSubscriptionAttributesResponse :: GetSubscriptionAttributesResponse
-mkGetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
+getSubscriptionAttributesResponse :: GetSubscriptionAttributesResponse
+getSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
     { _gsarAttributes = mempty
     }
 

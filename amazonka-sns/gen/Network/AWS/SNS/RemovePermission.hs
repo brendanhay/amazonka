@@ -34,7 +34,7 @@ module Network.AWS.SNS.RemovePermission
     -- * Request
       RemovePermission
     -- ** Request constructor
-    , mkRemovePermission
+    , removePermission
     -- ** Request lenses
     , rpTopicArn
     , rpLabel
@@ -42,7 +42,7 @@ module Network.AWS.SNS.RemovePermission
     -- * Response
     , RemovePermissionResponse
     -- ** Response constructor
-    , mkRemovePermissionResponse
+    , removePermissionResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -64,10 +64,10 @@ data RemovePermission = RemovePermission
 --
 -- * @Label ::@ @Text@
 --
-mkRemovePermission :: Text -- ^ 'rpTopicArn'
+removePermission :: Text -- ^ 'rpTopicArn'
                    -> Text -- ^ 'rpLabel'
                    -> RemovePermission
-mkRemovePermission p1 p2 = RemovePermission
+removePermission p1 p2 = RemovePermission
     { _rpTopicArn = p1
     , _rpLabel = p2
     }
@@ -90,8 +90,8 @@ data RemovePermissionResponse = RemovePermissionResponse
 -- a valid 'RemovePermissionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRemovePermissionResponse :: RemovePermissionResponse
-mkRemovePermissionResponse = RemovePermissionResponse
+removePermissionResponse :: RemovePermissionResponse
+removePermissionResponse = RemovePermissionResponse
 
 instance AWSRequest RemovePermission where
     type Sv RemovePermission = SNS

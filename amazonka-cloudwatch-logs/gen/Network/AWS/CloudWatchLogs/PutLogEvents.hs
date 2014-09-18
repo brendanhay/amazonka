@@ -47,7 +47,7 @@ module Network.AWS.CloudWatchLogs.PutLogEvents
     -- * Request
       PutLogEvents
     -- ** Request constructor
-    , mkPutLogEvents
+    , putLogEvents
     -- ** Request lenses
     , pleLogGroupName
     , pleLogStreamName
@@ -57,7 +57,7 @@ module Network.AWS.CloudWatchLogs.PutLogEvents
     -- * Response
     , PutLogEventsResponse
     -- ** Response constructor
-    , mkPutLogEventsResponse
+    , putLogEventsResponse
     -- ** Response lenses
     , plerNextSequenceToken
     ) where
@@ -86,11 +86,11 @@ data PutLogEvents = PutLogEvents
 --
 -- * @SequenceToken ::@ @Maybe Text@
 --
-mkPutLogEvents :: Text -- ^ 'pleLogGroupName'
+putLogEvents :: Text -- ^ 'pleLogGroupName'
                -> Text -- ^ 'pleLogStreamName'
                -> List1 InputLogEvent -- ^ 'pleLogEvents'
                -> PutLogEvents
-mkPutLogEvents p1 p2 p3 = PutLogEvents
+putLogEvents p1 p2 p3 = PutLogEvents
     { _pleLogGroupName = p1
     , _pleLogStreamName = p2
     , _pleLogEvents = p3
@@ -135,8 +135,8 @@ newtype PutLogEventsResponse = PutLogEventsResponse
 --
 -- * @NextSequenceToken ::@ @Maybe Text@
 --
-mkPutLogEventsResponse :: PutLogEventsResponse
-mkPutLogEventsResponse = PutLogEventsResponse
+putLogEventsResponse :: PutLogEventsResponse
+putLogEventsResponse = PutLogEventsResponse
     { _plerNextSequenceToken = Nothing
     }
 

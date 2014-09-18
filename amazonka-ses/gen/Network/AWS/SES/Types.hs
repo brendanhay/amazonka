@@ -50,38 +50,38 @@ module Network.AWS.SES.Types
 
     -- * RawMessage
     , RawMessage
-    , mkRawMessage
+    , rawMessage
     , rmData
 
     -- * Body
     , Body
-    , mkBody
+    , body
     , bText
     , bHtml
 
     -- * Content
     , Content
-    , mkContent
+    , content
     , cData
     , cCharset
 
     -- * Destination
     , Destination
-    , mkDestination
+    , destination
     , dToAddresses
     , dCcAddresses
     , dBccAddresses
 
     -- * IdentityDkimAttributes
     , IdentityDkimAttributes
-    , mkIdentityDkimAttributes
+    , identityDkimAttributes
     , idaDkimEnabled
     , idaDkimVerificationStatus
     , idaDkimTokens
 
     -- * IdentityNotificationAttributes
     , IdentityNotificationAttributes
-    , mkIdentityNotificationAttributes
+    , identityNotificationAttributes
     , inaBounceTopic
     , inaComplaintTopic
     , inaDeliveryTopic
@@ -89,19 +89,19 @@ module Network.AWS.SES.Types
 
     -- * IdentityVerificationAttributes
     , IdentityVerificationAttributes
-    , mkIdentityVerificationAttributes
+    , identityVerificationAttributes
     , ivaVerificationStatus
     , ivaVerificationToken
 
     -- * Message
     , Message
-    , mkMessage
+    , message
     , mSubject
     , mBody
 
     -- * SendDataPoint
     , SendDataPoint
-    , mkSendDataPoint
+    , sendDataPoint
     , sdpTimestamp
     , sdpDeliveryAttempts
     , sdpBounces
@@ -138,8 +138,8 @@ data SESError
       -- caused the error.
     = MessageRejected
     | SESClient HttpException
-    | SESSerializer Text
-    | SESService Text
+    | SESSerializer String
+    | SESService String
     deriving (Show, Generic)
 
 instance AWSError SESError where
@@ -172,7 +172,7 @@ _SESClient = prism'
         x -> Left x)
 
 -- | See: 'SESSerializer'
-_SESSerializer :: Prism' SESError Text
+_SESSerializer :: Prism' SESError String
 _SESSerializer = prism'
     SESSerializer
     (\case
@@ -180,7 +180,7 @@ _SESSerializer = prism'
         x -> Left x)
 
 -- | See: 'SESService'
-_SESService :: Prism' SESError Text
+_SESService :: Prism' SESError String
 _SESService = prism'
     SESService
     (\case
@@ -283,9 +283,9 @@ newtype RawMessage = RawMessage
 --
 -- * @Data ::@ @ByteString@
 --
-mkRawMessage :: ByteString -- ^ 'rmData'
+rawMessage :: ByteString -- ^ 'rmData'
              -> RawMessage
-mkRawMessage p1 = RawMessage
+rawMessage p1 = RawMessage
     { _rmData = p1
     }
 
@@ -315,8 +315,8 @@ data Body = Body
 --
 -- * @Html ::@ @Maybe Content@
 --
-mkBody :: Body
-mkBody = Body
+body :: Body
+body = Body
     { _bText = Nothing
     , _bHtml = Nothing
     }
@@ -351,9 +351,9 @@ data Content = Content
 --
 -- * @Charset ::@ @Maybe Text@
 --
-mkContent :: Text -- ^ 'cData'
+content :: Text -- ^ 'cData'
           -> Content
-mkContent p1 = Content
+content p1 = Content
     { _cData = p1
     , _cCharset = Nothing
     }
@@ -387,8 +387,8 @@ data Destination = Destination
 --
 -- * @BccAddresses ::@ @[Text]@
 --
-mkDestination :: Destination
-mkDestination = Destination
+destination :: Destination
+destination = Destination
     { _dToAddresses = mempty
     , _dCcAddresses = mempty
     , _dBccAddresses = mempty
@@ -430,10 +430,10 @@ data IdentityDkimAttributes = IdentityDkimAttributes
 --
 -- * @DkimTokens ::@ @[Text]@
 --
-mkIdentityDkimAttributes :: Bool -- ^ 'idaDkimEnabled'
+identityDkimAttributes :: Bool -- ^ 'idaDkimEnabled'
                          -> VerificationStatus -- ^ 'idaDkimVerificationStatus'
                          -> IdentityDkimAttributes
-mkIdentityDkimAttributes p1 p2 = IdentityDkimAttributes
+identityDkimAttributes p1 p2 = IdentityDkimAttributes
     { _idaDkimEnabled = p1
     , _idaDkimVerificationStatus = p2
     , _idaDkimTokens = mempty
@@ -495,12 +495,12 @@ data IdentityNotificationAttributes = IdentityNotificationAttributes
 --
 -- * @ForwardingEnabled ::@ @Bool@
 --
-mkIdentityNotificationAttributes :: Text -- ^ 'inaBounceTopic'
+identityNotificationAttributes :: Text -- ^ 'inaBounceTopic'
                                  -> Text -- ^ 'inaComplaintTopic'
                                  -> Text -- ^ 'inaDeliveryTopic'
                                  -> Bool -- ^ 'inaForwardingEnabled'
                                  -> IdentityNotificationAttributes
-mkIdentityNotificationAttributes p1 p2 p3 p4 = IdentityNotificationAttributes
+identityNotificationAttributes p1 p2 p3 p4 = IdentityNotificationAttributes
     { _inaBounceTopic = p1
     , _inaComplaintTopic = p2
     , _inaDeliveryTopic = p3
@@ -555,9 +555,9 @@ data IdentityVerificationAttributes = IdentityVerificationAttributes
 --
 -- * @VerificationToken ::@ @Maybe Text@
 --
-mkIdentityVerificationAttributes :: VerificationStatus -- ^ 'ivaVerificationStatus'
+identityVerificationAttributes :: VerificationStatus -- ^ 'ivaVerificationStatus'
                                  -> IdentityVerificationAttributes
-mkIdentityVerificationAttributes p1 = IdentityVerificationAttributes
+identityVerificationAttributes p1 = IdentityVerificationAttributes
     { _ivaVerificationStatus = p1
     , _ivaVerificationToken = Nothing
     }
@@ -593,10 +593,10 @@ data Message = Message
 --
 -- * @Body ::@ @Body@
 --
-mkMessage :: Content -- ^ 'mSubject'
+message :: Content -- ^ 'mSubject'
           -> Body -- ^ 'mBody'
           -> Message
-mkMessage p1 p2 = Message
+message p1 p2 = Message
     { _mSubject = p1
     , _mBody = p2
     }
@@ -641,8 +641,8 @@ data SendDataPoint = SendDataPoint
 --
 -- * @Rejects ::@ @Maybe Integer@
 --
-mkSendDataPoint :: SendDataPoint
-mkSendDataPoint = SendDataPoint
+sendDataPoint :: SendDataPoint
+sendDataPoint = SendDataPoint
     { _sdpTimestamp = Nothing
     , _sdpDeliveryAttempts = Nothing
     , _sdpBounces = Nothing

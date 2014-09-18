@@ -23,7 +23,7 @@ module Network.AWS.OpsWorks.RegisterRdsDbInstance
     -- * Request
       RegisterRdsDbInstance
     -- ** Request constructor
-    , mkRegisterRdsDbInstance
+    , registerRdsDbInstance
     -- ** Request lenses
     , rrdiStackId
     , rrdiRdsDbInstanceArn
@@ -33,7 +33,7 @@ module Network.AWS.OpsWorks.RegisterRdsDbInstance
     -- * Response
     , RegisterRdsDbInstanceResponse
     -- ** Response constructor
-    , mkRegisterRdsDbInstanceResponse
+    , registerRdsDbInstanceResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -60,12 +60,12 @@ data RegisterRdsDbInstance = RegisterRdsDbInstance
 --
 -- * @DbPassword ::@ @Text@
 --
-mkRegisterRdsDbInstance :: Text -- ^ 'rrdiStackId'
+registerRdsDbInstance :: Text -- ^ 'rrdiStackId'
                         -> Text -- ^ 'rrdiRdsDbInstanceArn'
                         -> Text -- ^ 'rrdiDbUser'
                         -> Text -- ^ 'rrdiDbPassword'
                         -> RegisterRdsDbInstance
-mkRegisterRdsDbInstance p1 p2 p3 p4 = RegisterRdsDbInstance
+registerRdsDbInstance p1 p2 p3 p4 = RegisterRdsDbInstance
     { _rrdiStackId = p1
     , _rrdiRdsDbInstanceArn = p2
     , _rrdiDbUser = p3
@@ -104,8 +104,8 @@ data RegisterRdsDbInstanceResponse = RegisterRdsDbInstanceResponse
 -- a valid 'RegisterRdsDbInstanceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRegisterRdsDbInstanceResponse :: RegisterRdsDbInstanceResponse
-mkRegisterRdsDbInstanceResponse = RegisterRdsDbInstanceResponse
+registerRdsDbInstanceResponse :: RegisterRdsDbInstanceResponse
+registerRdsDbInstanceResponse = RegisterRdsDbInstanceResponse
 
 instance AWSRequest RegisterRdsDbInstance where
     type Sv RegisterRdsDbInstance = OpsWorks

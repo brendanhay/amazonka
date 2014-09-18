@@ -25,14 +25,14 @@ module Network.AWS.S3.DeleteBucket
     -- * Request
       DeleteBucket
     -- ** Request constructor
-    , mkDeleteBucket
+    , deleteBucket
     -- ** Request lenses
     , dbBucket
 
     -- * Response
     , DeleteBucketResponse
     -- ** Response constructor
-    , mkDeleteBucketResponse
+    , deleteBucketResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -51,9 +51,9 @@ newtype DeleteBucket = DeleteBucket
 --
 -- * @Bucket ::@ @BucketName@
 --
-mkDeleteBucket :: BucketName -- ^ 'dbBucket'
+deleteBucket :: BucketName -- ^ 'dbBucket'
                -> DeleteBucket
-mkDeleteBucket p1 = DeleteBucket
+deleteBucket p1 = DeleteBucket
     { _dbBucket = p1
     }
 
@@ -75,8 +75,8 @@ data DeleteBucketResponse = DeleteBucketResponse
 -- a valid 'DeleteBucketResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteBucketResponse :: DeleteBucketResponse
-mkDeleteBucketResponse = DeleteBucketResponse
+deleteBucketResponse :: DeleteBucketResponse
+deleteBucketResponse = DeleteBucketResponse
 
 instance AWSRequest DeleteBucket where
     type Sv DeleteBucket = S3

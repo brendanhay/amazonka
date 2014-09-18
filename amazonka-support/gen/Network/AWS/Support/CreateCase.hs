@@ -48,7 +48,7 @@ module Network.AWS.Support.CreateCase
     -- * Request
       CreateCase
     -- ** Request constructor
-    , mkCreateCase
+    , createCase
     -- ** Request lenses
     , ccSubject
     , ccServiceCode
@@ -63,7 +63,7 @@ module Network.AWS.Support.CreateCase
     -- * Response
     , CreateCaseResponse
     -- ** Response constructor
-    , mkCreateCaseResponse
+    , createCaseResponse
     -- ** Response lenses
     , ccrCaseId
     ) where
@@ -107,10 +107,10 @@ data CreateCase = CreateCase
 --
 -- * @AttachmentSetId ::@ @Maybe Text@
 --
-mkCreateCase :: Text -- ^ 'ccSubject'
+createCase :: Text -- ^ 'ccSubject'
              -> Text -- ^ 'ccCommunicationBody'
              -> CreateCase
-mkCreateCase p1 p5 = CreateCase
+createCase p1 p5 = CreateCase
     { _ccSubject = p1
     , _ccServiceCode = Nothing
     , _ccSeverityCode = Nothing
@@ -193,8 +193,8 @@ newtype CreateCaseResponse = CreateCaseResponse
 --
 -- * @CaseId ::@ @Maybe Text@
 --
-mkCreateCaseResponse :: CreateCaseResponse
-mkCreateCaseResponse = CreateCaseResponse
+createCaseResponse :: CreateCaseResponse
+createCaseResponse = CreateCaseResponse
     { _ccrCaseId = Nothing
     }
 

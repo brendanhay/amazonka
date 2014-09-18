@@ -73,7 +73,7 @@ module Network.AWS.SWF.ListClosedWorkflowExecutions
     -- * Request
       ListClosedWorkflowExecutions
     -- ** Request constructor
-    , mkListClosedWorkflowExecutions
+    , listClosedWorkflowExecutions
     -- ** Request lenses
     , lcweDomain
     , lcweStartTimeFilter
@@ -89,7 +89,7 @@ module Network.AWS.SWF.ListClosedWorkflowExecutions
     -- * Response
     , ListClosedWorkflowExecutionsResponse
     -- ** Response constructor
-    , mkListClosedWorkflowExecutionsResponse
+    , listClosedWorkflowExecutionsResponse
     -- ** Response lenses
     , lcwerExecutionInfos
     , lcwerNextPageToken
@@ -137,9 +137,9 @@ data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions
 --
 -- * @ReverseOrder ::@ @Maybe Bool@
 --
-mkListClosedWorkflowExecutions :: Text -- ^ 'lcweDomain'
+listClosedWorkflowExecutions :: Text -- ^ 'lcweDomain'
                                -> ListClosedWorkflowExecutions
-mkListClosedWorkflowExecutions p1 = ListClosedWorkflowExecutions
+listClosedWorkflowExecutions p1 = ListClosedWorkflowExecutions
     { _lcweDomain = p1
     , _lcweStartTimeFilter = Nothing
     , _lcweCloseTimeFilter = Nothing
@@ -254,9 +254,9 @@ data ListClosedWorkflowExecutionsResponse = ListClosedWorkflowExecutionsResponse
 --
 -- * @NextPageToken ::@ @Maybe Text@
 --
-mkListClosedWorkflowExecutionsResponse :: [WorkflowExecutionInfo] -- ^ 'lcwerExecutionInfos'
+listClosedWorkflowExecutionsResponse :: [WorkflowExecutionInfo] -- ^ 'lcwerExecutionInfos'
                                        -> ListClosedWorkflowExecutionsResponse
-mkListClosedWorkflowExecutionsResponse p1 = ListClosedWorkflowExecutionsResponse
+listClosedWorkflowExecutionsResponse p1 = ListClosedWorkflowExecutionsResponse
     { _lcwerExecutionInfos = p1
     , _lcwerNextPageToken = Nothing
     }

@@ -37,14 +37,14 @@ module Network.AWS.EC2.CancelBundleTask
     -- * Request
       CancelBundleTask
     -- ** Request constructor
-    , mkCancelBundleTask
+    , cancelBundleTask
     -- ** Request lenses
     , cbtBundleId
 
     -- * Response
     , CancelBundleTaskResponse
     -- ** Response constructor
-    , mkCancelBundleTaskResponse
+    , cancelBundleTaskResponse
     -- ** Response lenses
     , cbtrBundleTask
     ) where
@@ -64,9 +64,9 @@ newtype CancelBundleTask = CancelBundleTask
 --
 -- * @BundleId ::@ @Text@
 --
-mkCancelBundleTask :: Text -- ^ 'cbtBundleId'
+cancelBundleTask :: Text -- ^ 'cbtBundleId'
                    -> CancelBundleTask
-mkCancelBundleTask p1 = CancelBundleTask
+cancelBundleTask p1 = CancelBundleTask
     { _cbtBundleId = p1
     }
 
@@ -90,8 +90,8 @@ newtype CancelBundleTaskResponse = CancelBundleTaskResponse
 --
 -- * @BundleTask ::@ @Maybe BundleTask@
 --
-mkCancelBundleTaskResponse :: CancelBundleTaskResponse
-mkCancelBundleTaskResponse = CancelBundleTaskResponse
+cancelBundleTaskResponse :: CancelBundleTaskResponse
+cancelBundleTaskResponse = CancelBundleTaskResponse
     { _cbtrBundleTask = Nothing
     }
 

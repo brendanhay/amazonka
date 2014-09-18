@@ -39,7 +39,7 @@ module Network.AWS.IAM.ListRoles
     -- * Request
       ListRoles
     -- ** Request constructor
-    , mkListRoles
+    , listRoles
     -- ** Request lenses
     , lrPathPrefix
     , lrMarker
@@ -48,7 +48,7 @@ module Network.AWS.IAM.ListRoles
     -- * Response
     , ListRolesResponse
     -- ** Response constructor
-    , mkListRolesResponse
+    , listRolesResponse
     -- ** Response lenses
     , lrrRoles
     , lrrIsTruncated
@@ -76,8 +76,8 @@ data ListRoles = ListRoles
 --
 -- * @MaxItems ::@ @Maybe Integer@
 --
-mkListRoles :: ListRoles
-mkListRoles = ListRoles
+listRoles :: ListRoles
+listRoles = ListRoles
     { _lrPathPrefix = Nothing
     , _lrMarker = Nothing
     , _lrMaxItems = Nothing
@@ -128,10 +128,10 @@ data ListRolesResponse = ListRolesResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListRolesResponse :: [Role] -- ^ 'lrrRoles'
+listRolesResponse :: [Role] -- ^ 'lrrRoles'
                     -> Bool -- ^ 'lrrIsTruncated'
                     -> ListRolesResponse
-mkListRolesResponse p1 p2 = ListRolesResponse
+listRolesResponse p1 p2 = ListRolesResponse
     { _lrrRoles = p1
     , _lrrIsTruncated = p2
     , _lrrMarker = Nothing

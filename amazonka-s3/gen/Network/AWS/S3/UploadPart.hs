@@ -28,7 +28,7 @@ module Network.AWS.S3.UploadPart
     -- * Request
       UploadPart
     -- ** Request constructor
-    , mkUploadPart
+    , uploadPart
     -- ** Request lenses
     , upBody
     , upBucket
@@ -44,7 +44,7 @@ module Network.AWS.S3.UploadPart
     -- * Response
     , UploadPartResponse
     -- ** Response constructor
-    , mkUploadPartResponse
+    , uploadPartResponse
     -- ** Response lenses
     , uprServerSideEncryption
     , uprETag
@@ -95,13 +95,13 @@ data UploadPart = UploadPart
 --
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
-mkUploadPart :: RqBody -- ^ 'upBody'
+uploadPart :: RqBody -- ^ 'upBody'
              -> BucketName -- ^ 'upBucket'
              -> ObjectKey -- ^ 'upKey'
              -> Integer -- ^ 'upPartNumber'
              -> Text -- ^ 'upUploadId'
              -> UploadPart
-mkUploadPart p1 p2 p5 p6 p7 = UploadPart
+uploadPart p1 p2 p5 p6 p7 = UploadPart
     { _upBody = p1
     , _upBucket = p2
     , _upContentLength = Nothing
@@ -201,8 +201,8 @@ data UploadPartResponse = UploadPartResponse
 --
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
-mkUploadPartResponse :: UploadPartResponse
-mkUploadPartResponse = UploadPartResponse
+uploadPartResponse :: UploadPartResponse
+uploadPartResponse = UploadPartResponse
     { _uprServerSideEncryption = Nothing
     , _uprETag = Nothing
     , _uprSSECustomerAlgorithm = Nothing

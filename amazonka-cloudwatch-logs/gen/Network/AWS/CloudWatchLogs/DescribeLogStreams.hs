@@ -49,7 +49,7 @@ module Network.AWS.CloudWatchLogs.DescribeLogStreams
     -- * Request
       DescribeLogStreams
     -- ** Request constructor
-    , mkDescribeLogStreams
+    , describeLogStreams
     -- ** Request lenses
     , dls1LogGroupName
     , dls1LogStreamNamePrefix
@@ -59,7 +59,7 @@ module Network.AWS.CloudWatchLogs.DescribeLogStreams
     -- * Response
     , DescribeLogStreamsResponse
     -- ** Response constructor
-    , mkDescribeLogStreamsResponse
+    , describeLogStreamsResponse
     -- ** Response lenses
     , dlsrLogStreams
     , dlsrNextToken
@@ -89,9 +89,9 @@ data DescribeLogStreams = DescribeLogStreams
 --
 -- * @Limit ::@ @Maybe Integer@
 --
-mkDescribeLogStreams :: Text -- ^ 'dls1LogGroupName'
+describeLogStreams :: Text -- ^ 'dls1LogGroupName'
                      -> DescribeLogStreams
-mkDescribeLogStreams p1 = DescribeLogStreams
+describeLogStreams p1 = DescribeLogStreams
     { _dls1LogGroupName = p1
     , _dls1LogStreamNamePrefix = Nothing
     , _dls1NextToken = Nothing
@@ -142,8 +142,8 @@ data DescribeLogStreamsResponse = DescribeLogStreamsResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeLogStreamsResponse :: DescribeLogStreamsResponse
-mkDescribeLogStreamsResponse = DescribeLogStreamsResponse
+describeLogStreamsResponse :: DescribeLogStreamsResponse
+describeLogStreamsResponse = DescribeLogStreamsResponse
     { _dlsrLogStreams = mempty
     , _dlsrNextToken = Nothing
     }

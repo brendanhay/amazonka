@@ -32,11 +32,11 @@ module Network.AWS.SES.GetSendQuota
     -- * Request
       GetSendQuota
     -- ** Request constructor
-    , mkGetSendQuota
+    , getSendQuota
     -- * Response
     , GetSendQuotaResponse
     -- ** Response constructor
-    , mkGetSendQuotaResponse
+    , getSendQuotaResponse
     -- ** Response lenses
     , gsqrMax24HourSend
     , gsqrMaxSendRate
@@ -52,8 +52,8 @@ data GetSendQuota = GetSendQuota
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetSendQuota' request.
-mkGetSendQuota :: GetSendQuota
-mkGetSendQuota = GetSendQuota
+getSendQuota :: GetSendQuota
+getSendQuota = GetSendQuota
 
 instance ToQuery GetSendQuota where
     toQuery = genericQuery def
@@ -79,8 +79,8 @@ data GetSendQuotaResponse = GetSendQuotaResponse
 --
 -- * @SentLast24Hours ::@ @Maybe Double@
 --
-mkGetSendQuotaResponse :: GetSendQuotaResponse
-mkGetSendQuotaResponse = GetSendQuotaResponse
+getSendQuotaResponse :: GetSendQuotaResponse
+getSendQuotaResponse = GetSendQuotaResponse
     { _gsqrMax24HourSend = Nothing
     , _gsqrMaxSendRate = Nothing
     , _gsqrSentLast24Hours = Nothing

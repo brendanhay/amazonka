@@ -36,7 +36,7 @@ module Network.AWS.EC2.CopyImage
     -- * Request
       CopyImage
     -- ** Request constructor
-    , mkCopyImage
+    , copyImage
     -- ** Request lenses
     , ciSourceRegion
     , ciSourceImageId
@@ -47,7 +47,7 @@ module Network.AWS.EC2.CopyImage
     -- * Response
     , CopyImageResponse
     -- ** Response constructor
-    , mkCopyImageResponse
+    , copyImageResponse
     -- ** Response lenses
     , cirImageId
     ) where
@@ -79,10 +79,10 @@ data CopyImage = CopyImage
 --
 -- * @ClientToken ::@ @Maybe Text@
 --
-mkCopyImage :: Text -- ^ 'ciSourceRegion'
+copyImage :: Text -- ^ 'ciSourceRegion'
             -> Text -- ^ 'ciSourceImageId'
             -> CopyImage
-mkCopyImage p1 p2 = CopyImage
+copyImage p1 p2 = CopyImage
     { _ciSourceRegion = p1
     , _ciSourceImageId = p2
     , _ciName = Nothing
@@ -128,8 +128,8 @@ newtype CopyImageResponse = CopyImageResponse
 --
 -- * @ImageId ::@ @Maybe Text@
 --
-mkCopyImageResponse :: CopyImageResponse
-mkCopyImageResponse = CopyImageResponse
+copyImageResponse :: CopyImageResponse
+copyImageResponse = CopyImageResponse
     { _cirImageId = Nothing
     }
 

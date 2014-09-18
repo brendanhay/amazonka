@@ -190,7 +190,7 @@ module Network.AWS.CloudWatchLogs.TestMetricFilter
     -- * Request
       TestMetricFilter
     -- ** Request constructor
-    , mkTestMetricFilter
+    , testMetricFilter
     -- ** Request lenses
     , tmfFilterPattern
     , tmfLogEventMessages
@@ -198,7 +198,7 @@ module Network.AWS.CloudWatchLogs.TestMetricFilter
     -- * Response
     , TestMetricFilterResponse
     -- ** Response constructor
-    , mkTestMetricFilterResponse
+    , testMetricFilterResponse
     -- ** Response lenses
     , tmfrMatches
     ) where
@@ -221,10 +221,10 @@ data TestMetricFilter = TestMetricFilter
 --
 -- * @LogEventMessages ::@ @List1 Text@
 --
-mkTestMetricFilter :: Text -- ^ 'tmfFilterPattern'
+testMetricFilter :: Text -- ^ 'tmfFilterPattern'
                    -> List1 Text -- ^ 'tmfLogEventMessages'
                    -> TestMetricFilter
-mkTestMetricFilter p1 p2 = TestMetricFilter
+testMetricFilter p1 p2 = TestMetricFilter
     { _tmfFilterPattern = p1
     , _tmfLogEventMessages = p2
     }
@@ -258,8 +258,8 @@ newtype TestMetricFilterResponse = TestMetricFilterResponse
 --
 -- * @Matches ::@ @[MetricFilterMatchRecord]@
 --
-mkTestMetricFilterResponse :: TestMetricFilterResponse
-mkTestMetricFilterResponse = TestMetricFilterResponse
+testMetricFilterResponse :: TestMetricFilterResponse
+testMetricFilterResponse = TestMetricFilterResponse
     { _tmfrMatches = mempty
     }
 

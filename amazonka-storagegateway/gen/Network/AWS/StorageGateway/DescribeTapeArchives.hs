@@ -22,7 +22,7 @@ module Network.AWS.StorageGateway.DescribeTapeArchives
     -- * Request
       DescribeTapeArchives
     -- ** Request constructor
-    , mkDescribeTapeArchives
+    , describeTapeArchives
     -- ** Request lenses
     , dta1TapeARNs
     , dta1Marker
@@ -31,7 +31,7 @@ module Network.AWS.StorageGateway.DescribeTapeArchives
     -- * Response
     , DescribeTapeArchivesResponse
     -- ** Response constructor
-    , mkDescribeTapeArchivesResponse
+    , describeTapeArchivesResponse
     -- ** Response lenses
     , dtarrTapeArchives
     , dtarrMarker
@@ -58,8 +58,8 @@ data DescribeTapeArchives = DescribeTapeArchives
 --
 -- * @Limit ::@ @Maybe Integer@
 --
-mkDescribeTapeArchives :: DescribeTapeArchives
-mkDescribeTapeArchives = DescribeTapeArchives
+describeTapeArchives :: DescribeTapeArchives
+describeTapeArchives = DescribeTapeArchives
     { _dta1TapeARNs = mempty
     , _dta1Marker = Nothing
     , _dta1Limit = Nothing
@@ -98,8 +98,8 @@ data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeTapeArchivesResponse :: DescribeTapeArchivesResponse
-mkDescribeTapeArchivesResponse = DescribeTapeArchivesResponse
+describeTapeArchivesResponse :: DescribeTapeArchivesResponse
+describeTapeArchivesResponse = DescribeTapeArchivesResponse
     { _dtarrTapeArchives = mempty
     , _dtarrMarker = Nothing
     }

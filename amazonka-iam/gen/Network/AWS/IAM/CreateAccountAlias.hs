@@ -27,14 +27,14 @@ module Network.AWS.IAM.CreateAccountAlias
     -- * Request
       CreateAccountAlias
     -- ** Request constructor
-    , mkCreateAccountAlias
+    , createAccountAlias
     -- ** Request lenses
     , caaAccountAlias
 
     -- * Response
     , CreateAccountAliasResponse
     -- ** Response constructor
-    , mkCreateAccountAliasResponse
+    , createAccountAliasResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -52,9 +52,9 @@ newtype CreateAccountAlias = CreateAccountAlias
 --
 -- * @AccountAlias ::@ @Text@
 --
-mkCreateAccountAlias :: Text -- ^ 'caaAccountAlias'
+createAccountAlias :: Text -- ^ 'caaAccountAlias'
                      -> CreateAccountAlias
-mkCreateAccountAlias p1 = CreateAccountAlias
+createAccountAlias p1 = CreateAccountAlias
     { _caaAccountAlias = p1
     }
 
@@ -72,8 +72,8 @@ data CreateAccountAliasResponse = CreateAccountAliasResponse
 -- a valid 'CreateAccountAliasResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkCreateAccountAliasResponse :: CreateAccountAliasResponse
-mkCreateAccountAliasResponse = CreateAccountAliasResponse
+createAccountAliasResponse :: CreateAccountAliasResponse
+createAccountAliasResponse = CreateAccountAliasResponse
 
 instance AWSRequest CreateAccountAlias where
     type Sv CreateAccountAlias = IAM

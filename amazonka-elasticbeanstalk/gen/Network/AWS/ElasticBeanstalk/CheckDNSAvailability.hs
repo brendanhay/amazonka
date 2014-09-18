@@ -27,14 +27,14 @@ module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
     -- * Request
       CheckDNSAvailability
     -- ** Request constructor
-    , mkCheckDNSAvailability
+    , checkDNSAvailability
     -- ** Request lenses
     , cdnsaCNAMEPrefix
 
     -- * Response
     , CheckDNSAvailabilityResponse
     -- ** Response constructor
-    , mkCheckDNSAvailabilityResponse
+    , checkDNSAvailabilityResponse
     -- ** Response lenses
     , cdnsarAvailable
     , cdnsarFullyQualifiedCNAME
@@ -56,9 +56,9 @@ newtype CheckDNSAvailability = CheckDNSAvailability
 --
 -- * @CNAMEPrefix ::@ @Text@
 --
-mkCheckDNSAvailability :: Text -- ^ 'cdnsaCNAMEPrefix'
+checkDNSAvailability :: Text -- ^ 'cdnsaCNAMEPrefix'
                        -> CheckDNSAvailability
-mkCheckDNSAvailability p1 = CheckDNSAvailability
+checkDNSAvailability p1 = CheckDNSAvailability
     { _cdnsaCNAMEPrefix = p1
     }
 
@@ -87,8 +87,8 @@ data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse
 --
 -- * @FullyQualifiedCNAME ::@ @Maybe Text@
 --
-mkCheckDNSAvailabilityResponse :: CheckDNSAvailabilityResponse
-mkCheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse
+checkDNSAvailabilityResponse :: CheckDNSAvailabilityResponse
+checkDNSAvailabilityResponse = CheckDNSAvailabilityResponse
     { _cdnsarAvailable = Nothing
     , _cdnsarFullyQualifiedCNAME = Nothing
     }

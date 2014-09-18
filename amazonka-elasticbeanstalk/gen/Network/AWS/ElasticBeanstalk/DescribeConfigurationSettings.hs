@@ -73,7 +73,7 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     -- * Request
       DescribeConfigurationSettings
     -- ** Request constructor
-    , mkDescribeConfigurationSettings
+    , describeConfigurationSettings
     -- ** Request lenses
     , dcsApplicationName
     , dcsTemplateName
@@ -82,7 +82,7 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     -- * Response
     , DescribeConfigurationSettingsResponse
     -- ** Response constructor
-    , mkDescribeConfigurationSettingsResponse
+    , describeConfigurationSettingsResponse
     -- ** Response lenses
     , dcsrConfigurationSettings
     ) where
@@ -110,9 +110,9 @@ data DescribeConfigurationSettings = DescribeConfigurationSettings
 --
 -- * @EnvironmentName ::@ @Maybe Text@
 --
-mkDescribeConfigurationSettings :: Text -- ^ 'dcsApplicationName'
+describeConfigurationSettings :: Text -- ^ 'dcsApplicationName'
                                 -> DescribeConfigurationSettings
-mkDescribeConfigurationSettings p1 = DescribeConfigurationSettings
+describeConfigurationSettings p1 = DescribeConfigurationSettings
     { _dcsApplicationName = p1
     , _dcsTemplateName = Nothing
     , _dcsEnvironmentName = Nothing
@@ -158,8 +158,8 @@ newtype DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsRes
 --
 -- * @ConfigurationSettings ::@ @[ConfigurationSettingsDescription]@
 --
-mkDescribeConfigurationSettingsResponse :: DescribeConfigurationSettingsResponse
-mkDescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse
+describeConfigurationSettingsResponse :: DescribeConfigurationSettingsResponse
+describeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse
     { _dcsrConfigurationSettings = mempty
     }
 

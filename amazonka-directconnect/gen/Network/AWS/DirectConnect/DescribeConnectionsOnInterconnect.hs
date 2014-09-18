@@ -24,14 +24,14 @@ module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
     -- * Request
       DescribeConnectionsOnInterconnect
     -- ** Request constructor
-    , mkDescribeConnectionsOnInterconnect
+    , describeConnectionsOnInterconnect
     -- ** Request lenses
     , dcoiInterconnectId
 
     -- * Response
     , DescribeConnectionsOnInterconnectResponse
     -- ** Response constructor
-    , mkDescribeConnectionsOnInterconnectResponse
+    , describeConnectionsOnInterconnectResponse
     -- ** Response lenses
     , dcoirConnections
     ) where
@@ -53,9 +53,9 @@ newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect
 --
 -- * @InterconnectId ::@ @Text@
 --
-mkDescribeConnectionsOnInterconnect :: Text -- ^ 'dcoiInterconnectId'
+describeConnectionsOnInterconnect :: Text -- ^ 'dcoiInterconnectId'
                                     -> DescribeConnectionsOnInterconnect
-mkDescribeConnectionsOnInterconnect p1 = DescribeConnectionsOnInterconnect
+describeConnectionsOnInterconnect p1 = DescribeConnectionsOnInterconnect
     { _dcoiInterconnectId = p1
     }
 
@@ -87,8 +87,8 @@ newtype DescribeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterco
 --
 -- * @Connections ::@ @[Connection]@
 --
-mkDescribeConnectionsOnInterconnectResponse :: DescribeConnectionsOnInterconnectResponse
-mkDescribeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterconnectResponse
+describeConnectionsOnInterconnectResponse :: DescribeConnectionsOnInterconnectResponse
+describeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterconnectResponse
     { _dcoirConnections = mempty
     }
 

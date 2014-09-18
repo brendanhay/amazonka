@@ -34,14 +34,14 @@ module Network.AWS.SES.DeleteVerifiedEmailAddress
     -- * Request
       DeleteVerifiedEmailAddress
     -- ** Request constructor
-    , mkDeleteVerifiedEmailAddress
+    , deleteVerifiedEmailAddress
     -- ** Request lenses
     , dveaEmailAddress
 
     -- * Response
     , DeleteVerifiedEmailAddressResponse
     -- ** Response constructor
-    , mkDeleteVerifiedEmailAddressResponse
+    , deleteVerifiedEmailAddressResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -61,9 +61,9 @@ newtype DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress
 --
 -- * @EmailAddress ::@ @Text@
 --
-mkDeleteVerifiedEmailAddress :: Text -- ^ 'dveaEmailAddress'
+deleteVerifiedEmailAddress :: Text -- ^ 'dveaEmailAddress'
                              -> DeleteVerifiedEmailAddress
-mkDeleteVerifiedEmailAddress p1 = DeleteVerifiedEmailAddress
+deleteVerifiedEmailAddress p1 = DeleteVerifiedEmailAddress
     { _dveaEmailAddress = p1
     }
 
@@ -82,8 +82,8 @@ data DeleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse
 -- a valid 'DeleteVerifiedEmailAddressResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteVerifiedEmailAddressResponse :: DeleteVerifiedEmailAddressResponse
-mkDeleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse
+deleteVerifiedEmailAddressResponse :: DeleteVerifiedEmailAddressResponse
+deleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse
 
 instance AWSRequest DeleteVerifiedEmailAddress where
     type Sv DeleteVerifiedEmailAddress = SES

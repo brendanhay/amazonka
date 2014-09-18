@@ -36,14 +36,14 @@ module Network.AWS.SNS.ListTopics
     -- * Request
       ListTopics
     -- ** Request constructor
-    , mkListTopics
+    , listTopics
     -- ** Request lenses
     , ltNextToken
 
     -- * Response
     , ListTopicsResponse
     -- ** Response constructor
-    , mkListTopicsResponse
+    , listTopicsResponse
     -- ** Response lenses
     , ltrTopics
     , ltrNextToken
@@ -64,8 +64,8 @@ newtype ListTopics = ListTopics
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkListTopics :: ListTopics
-mkListTopics = ListTopics
+listTopics :: ListTopics
+listTopics = ListTopics
     { _ltNextToken = Nothing
     }
 
@@ -93,8 +93,8 @@ data ListTopicsResponse = ListTopicsResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkListTopicsResponse :: ListTopicsResponse
-mkListTopicsResponse = ListTopicsResponse
+listTopicsResponse :: ListTopicsResponse
+listTopicsResponse = ListTopicsResponse
     { _ltrTopics = mempty
     , _ltrNextToken = Nothing
     }

@@ -33,7 +33,7 @@ module Network.AWS.IAM.UpdateAccessKey
     -- * Request
       UpdateAccessKey
     -- ** Request constructor
-    , mkUpdateAccessKey
+    , updateAccessKey
     -- ** Request lenses
     , uakUserName
     , uakAccessKeyId
@@ -42,7 +42,7 @@ module Network.AWS.IAM.UpdateAccessKey
     -- * Response
     , UpdateAccessKeyResponse
     -- ** Response constructor
-    , mkUpdateAccessKeyResponse
+    , updateAccessKeyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -66,10 +66,10 @@ data UpdateAccessKey = UpdateAccessKey
 --
 -- * @Status ::@ @StatusType@
 --
-mkUpdateAccessKey :: Text -- ^ 'uakAccessKeyId'
+updateAccessKey :: Text -- ^ 'uakAccessKeyId'
                   -> StatusType -- ^ 'uakStatus'
                   -> UpdateAccessKey
-mkUpdateAccessKey p2 p3 = UpdateAccessKey
+updateAccessKey p2 p3 = UpdateAccessKey
     { _uakUserName = Nothing
     , _uakAccessKeyId = p2
     , _uakStatus = p3
@@ -99,8 +99,8 @@ data UpdateAccessKeyResponse = UpdateAccessKeyResponse
 -- a valid 'UpdateAccessKeyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkUpdateAccessKeyResponse :: UpdateAccessKeyResponse
-mkUpdateAccessKeyResponse = UpdateAccessKeyResponse
+updateAccessKeyResponse :: UpdateAccessKeyResponse
+updateAccessKeyResponse = UpdateAccessKeyResponse
 
 instance AWSRequest UpdateAccessKey where
     type Sv UpdateAccessKey = IAM

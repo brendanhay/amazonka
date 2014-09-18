@@ -23,14 +23,14 @@ module Network.AWS.S3.GetBucketRequestPayment
     -- * Request
       GetBucketRequestPayment
     -- ** Request constructor
-    , mkGetBucketRequestPayment
+    , getBucketRequestPayment
     -- ** Request lenses
     , gbrpBucket
 
     -- * Response
     , GetBucketRequestPaymentResponse
     -- ** Response constructor
-    , mkGetBucketRequestPaymentResponse
+    , getBucketRequestPaymentResponse
     -- ** Response lenses
     , gbrprPayer
     ) where
@@ -51,9 +51,9 @@ newtype GetBucketRequestPayment = GetBucketRequestPayment
 --
 -- * @Bucket ::@ @BucketName@
 --
-mkGetBucketRequestPayment :: BucketName -- ^ 'gbrpBucket'
+getBucketRequestPayment :: BucketName -- ^ 'gbrpBucket'
                           -> GetBucketRequestPayment
-mkGetBucketRequestPayment p1 = GetBucketRequestPayment
+getBucketRequestPayment p1 = GetBucketRequestPayment
     { _gbrpBucket = p1
     }
 
@@ -81,8 +81,8 @@ newtype GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
 --
 -- * @Payer ::@ @Maybe Payer@
 --
-mkGetBucketRequestPaymentResponse :: GetBucketRequestPaymentResponse
-mkGetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
+getBucketRequestPaymentResponse :: GetBucketRequestPaymentResponse
+getBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
     { _gbrprPayer = Nothing
     }
 

@@ -53,14 +53,14 @@ module Network.AWS.SNS.ListPlatformApplications
     -- * Request
       ListPlatformApplications
     -- ** Request constructor
-    , mkListPlatformApplications
+    , listPlatformApplications
     -- ** Request lenses
     , lpaNextToken
 
     -- * Response
     , ListPlatformApplicationsResponse
     -- ** Response constructor
-    , mkListPlatformApplicationsResponse
+    , listPlatformApplicationsResponse
     -- ** Response lenses
     , lparPlatformApplications
     , lparNextToken
@@ -82,8 +82,8 @@ newtype ListPlatformApplications = ListPlatformApplications
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkListPlatformApplications :: ListPlatformApplications
-mkListPlatformApplications = ListPlatformApplications
+listPlatformApplications :: ListPlatformApplications
+listPlatformApplications = ListPlatformApplications
     { _lpaNextToken = Nothing
     }
 
@@ -113,8 +113,8 @@ data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkListPlatformApplicationsResponse :: ListPlatformApplicationsResponse
-mkListPlatformApplicationsResponse = ListPlatformApplicationsResponse
+listPlatformApplicationsResponse :: ListPlatformApplicationsResponse
+listPlatformApplicationsResponse = ListPlatformApplicationsResponse
     { _lparPlatformApplications = mempty
     , _lparNextToken = Nothing
     }

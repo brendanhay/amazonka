@@ -25,7 +25,7 @@ module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
     -- * Request
       CreatePrivateVirtualInterface
     -- ** Request constructor
-    , mkCreatePrivateVirtualInterface
+    , createPrivateVirtualInterface
     -- ** Request lenses
     , cpvi2ConnectionId
     , cpvi2NewPrivateVirtualInterface
@@ -33,7 +33,7 @@ module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
     -- * Response
     , CreatePrivateVirtualInterfaceResponse
     -- ** Response constructor
-    , mkCreatePrivateVirtualInterfaceResponse
+    , createPrivateVirtualInterfaceResponse
     -- ** Response lenses
     , cpvir1OwnerAccount
     , cpvir1VirtualInterfaceId
@@ -72,10 +72,10 @@ data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface
 --
 -- * @NewPrivateVirtualInterface ::@ @NewPrivateVirtualInterface@
 --
-mkCreatePrivateVirtualInterface :: Text -- ^ 'cpvi2ConnectionId'
+createPrivateVirtualInterface :: Text -- ^ 'cpvi2ConnectionId'
                                 -> NewPrivateVirtualInterface -- ^ 'cpvi2NewPrivateVirtualInterface'
                                 -> CreatePrivateVirtualInterface
-mkCreatePrivateVirtualInterface p1 p2 = CreatePrivateVirtualInterface
+createPrivateVirtualInterface p1 p2 = CreatePrivateVirtualInterface
     { _cpvi2ConnectionId = p1
     , _cpvi2NewPrivateVirtualInterface = p2
     }
@@ -157,8 +157,8 @@ data CreatePrivateVirtualInterfaceResponse = CreatePrivateVirtualInterfaceRespon
 --
 -- * @RouteFilterPrefixes ::@ @[RouteFilterPrefix]@
 --
-mkCreatePrivateVirtualInterfaceResponse :: CreatePrivateVirtualInterfaceResponse
-mkCreatePrivateVirtualInterfaceResponse = CreatePrivateVirtualInterfaceResponse
+createPrivateVirtualInterfaceResponse :: CreatePrivateVirtualInterfaceResponse
+createPrivateVirtualInterfaceResponse = CreatePrivateVirtualInterfaceResponse
     { _cpvir1OwnerAccount = Nothing
     , _cpvir1VirtualInterfaceId = Nothing
     , _cpvir1Location = Nothing

@@ -47,7 +47,7 @@ module Network.AWS.SQS.ChangeMessageVisibilityBatch
     -- * Request
       ChangeMessageVisibilityBatch
     -- ** Request constructor
-    , mkChangeMessageVisibilityBatch
+    , changeMessageVisibilityBatch
     -- ** Request lenses
     , cmvbQueueUrl
     , cmvbEntries
@@ -55,7 +55,7 @@ module Network.AWS.SQS.ChangeMessageVisibilityBatch
     -- * Response
     , ChangeMessageVisibilityBatchResponse
     -- ** Response constructor
-    , mkChangeMessageVisibilityBatchResponse
+    , changeMessageVisibilityBatchResponse
     -- ** Response lenses
     , cmvbrSuccessful
     , cmvbrFailed
@@ -79,10 +79,10 @@ data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch
 --
 -- * @Entries ::@ @[ChangeMessageVisibilityBatchRequestEntry]@
 --
-mkChangeMessageVisibilityBatch :: Text -- ^ 'cmvbQueueUrl'
+changeMessageVisibilityBatch :: Text -- ^ 'cmvbQueueUrl'
                                -> [ChangeMessageVisibilityBatchRequestEntry] -- ^ 'cmvbEntries'
                                -> ChangeMessageVisibilityBatch
-mkChangeMessageVisibilityBatch p1 p2 = ChangeMessageVisibilityBatch
+changeMessageVisibilityBatch p1 p2 = ChangeMessageVisibilityBatch
     { _cmvbQueueUrl = p1
     , _cmvbEntries = p2
     }
@@ -118,10 +118,10 @@ data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
 --
 -- * @Failed ::@ @[BatchResultErrorEntry]@
 --
-mkChangeMessageVisibilityBatchResponse :: [ChangeMessageVisibilityBatchResultEntry] -- ^ 'cmvbrSuccessful'
+changeMessageVisibilityBatchResponse :: [ChangeMessageVisibilityBatchResultEntry] -- ^ 'cmvbrSuccessful'
                                        -> [BatchResultErrorEntry] -- ^ 'cmvbrFailed'
                                        -> ChangeMessageVisibilityBatchResponse
-mkChangeMessageVisibilityBatchResponse p1 p2 = ChangeMessageVisibilityBatchResponse
+changeMessageVisibilityBatchResponse p1 p2 = ChangeMessageVisibilityBatchResponse
     { _cmvbrSuccessful = p1
     , _cmvbrFailed = p2
     }

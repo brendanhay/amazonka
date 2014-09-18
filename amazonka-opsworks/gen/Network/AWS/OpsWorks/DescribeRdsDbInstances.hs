@@ -23,7 +23,7 @@ module Network.AWS.OpsWorks.DescribeRdsDbInstances
     -- * Request
       DescribeRdsDbInstances
     -- ** Request constructor
-    , mkDescribeRdsDbInstances
+    , describeRdsDbInstances
     -- ** Request lenses
     , drdi1StackId
     , drdi1RdsDbInstanceArns
@@ -31,7 +31,7 @@ module Network.AWS.OpsWorks.DescribeRdsDbInstances
     -- * Response
     , DescribeRdsDbInstancesResponse
     -- ** Response constructor
-    , mkDescribeRdsDbInstancesResponse
+    , describeRdsDbInstancesResponse
     -- ** Response lenses
     , drdirRdsDbInstances
     ) where
@@ -54,9 +54,9 @@ data DescribeRdsDbInstances = DescribeRdsDbInstances
 --
 -- * @RdsDbInstanceArns ::@ @[Text]@
 --
-mkDescribeRdsDbInstances :: Text -- ^ 'drdi1StackId'
+describeRdsDbInstances :: Text -- ^ 'drdi1StackId'
                          -> DescribeRdsDbInstances
-mkDescribeRdsDbInstances p1 = DescribeRdsDbInstances
+describeRdsDbInstances p1 = DescribeRdsDbInstances
     { _drdi1StackId = p1
     , _drdi1RdsDbInstanceArns = mempty
     }
@@ -93,8 +93,8 @@ newtype DescribeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse
 --
 -- * @RdsDbInstances ::@ @[RdsDbInstance]@
 --
-mkDescribeRdsDbInstancesResponse :: DescribeRdsDbInstancesResponse
-mkDescribeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse
+describeRdsDbInstancesResponse :: DescribeRdsDbInstancesResponse
+describeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse
     { _drdirRdsDbInstances = mempty
     }
 

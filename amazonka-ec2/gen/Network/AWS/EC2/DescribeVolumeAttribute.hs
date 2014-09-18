@@ -46,7 +46,7 @@ module Network.AWS.EC2.DescribeVolumeAttribute
     -- * Request
       DescribeVolumeAttribute
     -- ** Request constructor
-    , mkDescribeVolumeAttribute
+    , describeVolumeAttribute
     -- ** Request lenses
     , dvaVolumeId
     , dvaAttribute
@@ -54,7 +54,7 @@ module Network.AWS.EC2.DescribeVolumeAttribute
     -- * Response
     , DescribeVolumeAttributeResponse
     -- ** Response constructor
-    , mkDescribeVolumeAttributeResponse
+    , describeVolumeAttributeResponse
     -- ** Response lenses
     , dvarVolumeId
     , dvarAutoEnableIO
@@ -79,9 +79,9 @@ data DescribeVolumeAttribute = DescribeVolumeAttribute
 --
 -- * @Attribute ::@ @Maybe VolumeAttributeName@
 --
-mkDescribeVolumeAttribute :: Text -- ^ 'dvaVolumeId'
+describeVolumeAttribute :: Text -- ^ 'dvaVolumeId'
                           -> DescribeVolumeAttribute
-mkDescribeVolumeAttribute p1 = DescribeVolumeAttribute
+describeVolumeAttribute p1 = DescribeVolumeAttribute
     { _dvaVolumeId = p1
     , _dvaAttribute = Nothing
     }
@@ -116,8 +116,8 @@ data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
 --
 -- * @ProductCodes ::@ @[ProductCode]@
 --
-mkDescribeVolumeAttributeResponse :: DescribeVolumeAttributeResponse
-mkDescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
+describeVolumeAttributeResponse :: DescribeVolumeAttributeResponse
+describeVolumeAttributeResponse = DescribeVolumeAttributeResponse
     { _dvarVolumeId = Nothing
     , _dvarAutoEnableIO = Nothing
     , _dvarProductCodes = mempty

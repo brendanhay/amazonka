@@ -28,11 +28,11 @@ module Network.AWS.EC2.DescribeSpotDatafeedSubscription
     -- * Request
       DescribeSpotDatafeedSubscription
     -- ** Request constructor
-    , mkDescribeSpotDatafeedSubscription
+    , describeSpotDatafeedSubscription
     -- * Response
     , DescribeSpotDatafeedSubscriptionResponse
     -- ** Response constructor
-    , mkDescribeSpotDatafeedSubscriptionResponse
+    , describeSpotDatafeedSubscriptionResponse
     -- ** Response lenses
     , dsdsrSpotDatafeedSubscription
     ) where
@@ -46,8 +46,8 @@ data DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSpotDatafeedSubscription' request.
-mkDescribeSpotDatafeedSubscription :: DescribeSpotDatafeedSubscription
-mkDescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
+describeSpotDatafeedSubscription :: DescribeSpotDatafeedSubscription
+describeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
 
 instance ToQuery DescribeSpotDatafeedSubscription where
     toQuery = genericQuery def
@@ -65,8 +65,8 @@ newtype DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscript
 --
 -- * @SpotDatafeedSubscription ::@ @Maybe SpotDatafeedSubscription@
 --
-mkDescribeSpotDatafeedSubscriptionResponse :: DescribeSpotDatafeedSubscriptionResponse
-mkDescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
+describeSpotDatafeedSubscriptionResponse :: DescribeSpotDatafeedSubscriptionResponse
+describeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
     { _dsdsrSpotDatafeedSubscription = Nothing
     }
 

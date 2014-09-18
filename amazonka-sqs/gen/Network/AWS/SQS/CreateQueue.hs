@@ -47,7 +47,7 @@ module Network.AWS.SQS.CreateQueue
     -- * Request
       CreateQueue
     -- ** Request constructor
-    , mkCreateQueue
+    , createQueue
     -- ** Request lenses
     , cqQueueName
     , cqAttributes
@@ -55,7 +55,7 @@ module Network.AWS.SQS.CreateQueue
     -- * Response
     , CreateQueueResponse
     -- ** Response constructor
-    , mkCreateQueueResponse
+    , createQueueResponse
     -- ** Response lenses
     , cqrQueueUrl
     ) where
@@ -78,9 +78,9 @@ data CreateQueue = CreateQueue
 --
 -- * @Attributes ::@ @Map QueueAttributeName Text@
 --
-mkCreateQueue :: Text -- ^ 'cqQueueName'
+createQueue :: Text -- ^ 'cqQueueName'
               -> CreateQueue
-mkCreateQueue p1 = CreateQueue
+createQueue p1 = CreateQueue
     { _cqQueueName = p1
     , _cqAttributes = mempty
     }
@@ -130,8 +130,8 @@ newtype CreateQueueResponse = CreateQueueResponse
 --
 -- * @QueueUrl ::@ @Maybe Text@
 --
-mkCreateQueueResponse :: CreateQueueResponse
-mkCreateQueueResponse = CreateQueueResponse
+createQueueResponse :: CreateQueueResponse
+createQueueResponse = CreateQueueResponse
     { _cqrQueueUrl = Nothing
     }
 

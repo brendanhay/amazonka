@@ -37,7 +37,7 @@ module Network.AWS.DataPipeline.QueryObjects
     -- * Request
       QueryObjects
     -- ** Request constructor
-    , mkQueryObjects
+    , queryObjects
     -- ** Request lenses
     , qoPipelineId
     , qoQuery
@@ -48,7 +48,7 @@ module Network.AWS.DataPipeline.QueryObjects
     -- * Response
     , QueryObjectsResponse
     -- ** Response constructor
-    , mkQueryObjectsResponse
+    , queryObjectsResponse
     -- ** Response lenses
     , qorIds
     , qorMarker
@@ -83,10 +83,10 @@ data QueryObjects = QueryObjects
 --
 -- * @Limit ::@ @Maybe Integer@
 --
-mkQueryObjects :: Text -- ^ 'qoPipelineId'
+queryObjects :: Text -- ^ 'qoPipelineId'
                -> Text -- ^ 'qoSphere'
                -> QueryObjects
-mkQueryObjects p1 p3 = QueryObjects
+queryObjects p1 p3 = QueryObjects
     { _qoPipelineId = p1
     , _qoQuery = Nothing
     , _qoSphere = p3
@@ -150,9 +150,9 @@ data QueryObjectsResponse = QueryObjectsResponse
 --
 -- * @HasMoreResults ::@ @Bool@
 --
-mkQueryObjectsResponse :: Bool -- ^ 'qorHasMoreResults'
+queryObjectsResponse :: Bool -- ^ 'qorHasMoreResults'
                        -> QueryObjectsResponse
-mkQueryObjectsResponse p3 = QueryObjectsResponse
+queryObjectsResponse p3 = QueryObjectsResponse
     { _qorIds = mempty
     , _qorMarker = Nothing
     , _qorHasMoreResults = p3

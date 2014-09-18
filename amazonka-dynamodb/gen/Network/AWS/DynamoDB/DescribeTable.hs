@@ -38,14 +38,14 @@ module Network.AWS.DynamoDB.DescribeTable
     -- * Request
       DescribeTable
     -- ** Request constructor
-    , mkDescribeTable
+    , describeTable
     -- ** Request lenses
     , dt1TableName
 
     -- * Response
     , DescribeTableResponse
     -- ** Response constructor
-    , mkDescribeTableResponse
+    , describeTableResponse
     -- ** Response lenses
     , dtrrTable
     ) where
@@ -66,9 +66,9 @@ newtype DescribeTable = DescribeTable
 --
 -- * @TableName ::@ @Text@
 --
-mkDescribeTable :: Text -- ^ 'dt1TableName'
+describeTable :: Text -- ^ 'dt1TableName'
                 -> DescribeTable
-mkDescribeTable p1 = DescribeTable
+describeTable p1 = DescribeTable
     { _dt1TableName = p1
     }
 
@@ -98,8 +98,8 @@ newtype DescribeTableResponse = DescribeTableResponse
 --
 -- * @Table ::@ @Maybe TableDescription@
 --
-mkDescribeTableResponse :: DescribeTableResponse
-mkDescribeTableResponse = DescribeTableResponse
+describeTableResponse :: DescribeTableResponse
+describeTableResponse = DescribeTableResponse
     { _dtrrTable = Nothing
     }
 

@@ -28,7 +28,7 @@ module Network.AWS.CloudSearch.UpdateAvailabilityOptions
     -- * Request
       UpdateAvailabilityOptions
     -- ** Request constructor
-    , mkUpdateAvailabilityOptions
+    , updateAvailabilityOptions
     -- ** Request lenses
     , uaoDomainName
     , uaoMultiAZ
@@ -36,7 +36,7 @@ module Network.AWS.CloudSearch.UpdateAvailabilityOptions
     -- * Response
     , UpdateAvailabilityOptionsResponse
     -- ** Response constructor
-    , mkUpdateAvailabilityOptionsResponse
+    , updateAvailabilityOptionsResponse
     -- ** Response lenses
     , uaorAvailabilityOptions
     ) where
@@ -62,10 +62,10 @@ data UpdateAvailabilityOptions = UpdateAvailabilityOptions
 --
 -- * @MultiAZ ::@ @Bool@
 --
-mkUpdateAvailabilityOptions :: Text -- ^ 'uaoDomainName'
+updateAvailabilityOptions :: Text -- ^ 'uaoDomainName'
                             -> Bool -- ^ 'uaoMultiAZ'
                             -> UpdateAvailabilityOptions
-mkUpdateAvailabilityOptions p1 p2 = UpdateAvailabilityOptions
+updateAvailabilityOptions p1 p2 = UpdateAvailabilityOptions
     { _uaoDomainName = p1
     , _uaoMultiAZ = p2
     }
@@ -102,8 +102,8 @@ newtype UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
 --
 -- * @AvailabilityOptions ::@ @Maybe AvailabilityOptionsStatus@
 --
-mkUpdateAvailabilityOptionsResponse :: UpdateAvailabilityOptionsResponse
-mkUpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
+updateAvailabilityOptionsResponse :: UpdateAvailabilityOptionsResponse
+updateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
     { _uaorAvailabilityOptions = Nothing
     }
 

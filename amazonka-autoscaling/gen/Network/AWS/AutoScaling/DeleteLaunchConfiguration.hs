@@ -28,14 +28,14 @@ module Network.AWS.AutoScaling.DeleteLaunchConfiguration
     -- * Request
       DeleteLaunchConfiguration
     -- ** Request constructor
-    , mkDeleteLaunchConfiguration
+    , deleteLaunchConfiguration
     -- ** Request lenses
     , dlcLaunchConfigurationName
 
     -- * Response
     , DeleteLaunchConfigurationResponse
     -- ** Response constructor
-    , mkDeleteLaunchConfigurationResponse
+    , deleteLaunchConfigurationResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -54,9 +54,9 @@ newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration
 --
 -- * @LaunchConfigurationName ::@ @Text@
 --
-mkDeleteLaunchConfiguration :: Text -- ^ 'dlcLaunchConfigurationName'
+deleteLaunchConfiguration :: Text -- ^ 'dlcLaunchConfigurationName'
                             -> DeleteLaunchConfiguration
-mkDeleteLaunchConfiguration p1 = DeleteLaunchConfiguration
+deleteLaunchConfiguration p1 = DeleteLaunchConfiguration
     { _dlcLaunchConfigurationName = p1
     }
 
@@ -76,8 +76,8 @@ data DeleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
 -- a valid 'DeleteLaunchConfigurationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteLaunchConfigurationResponse :: DeleteLaunchConfigurationResponse
-mkDeleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
+deleteLaunchConfigurationResponse :: DeleteLaunchConfigurationResponse
+deleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
 
 instance AWSRequest DeleteLaunchConfiguration where
     type Sv DeleteLaunchConfiguration = AutoScaling

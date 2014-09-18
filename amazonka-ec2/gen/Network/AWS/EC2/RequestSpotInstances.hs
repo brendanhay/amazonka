@@ -45,7 +45,7 @@ module Network.AWS.EC2.RequestSpotInstances
     -- * Request
       RequestSpotInstances
     -- ** Request constructor
-    , mkRequestSpotInstances
+    , requestSpotInstances
     -- ** Request lenses
     , rsiSpotPrice
     , rsiInstanceCount
@@ -59,7 +59,7 @@ module Network.AWS.EC2.RequestSpotInstances
     -- * Response
     , RequestSpotInstancesResponse
     -- ** Response constructor
-    , mkRequestSpotInstancesResponse
+    , requestSpotInstancesResponse
     -- ** Response lenses
     , rsirSpotInstanceRequests
     ) where
@@ -100,9 +100,9 @@ data RequestSpotInstances = RequestSpotInstances
 --
 -- * @LaunchSpecification ::@ @Maybe LaunchSpecification@
 --
-mkRequestSpotInstances :: Text -- ^ 'rsiSpotPrice'
+requestSpotInstances :: Text -- ^ 'rsiSpotPrice'
                        -> RequestSpotInstances
-mkRequestSpotInstances p1 = RequestSpotInstances
+requestSpotInstances p1 = RequestSpotInstances
     { _rsiSpotPrice = p1
     , _rsiInstanceCount = Nothing
     , _rsiType = Nothing
@@ -192,8 +192,8 @@ newtype RequestSpotInstancesResponse = RequestSpotInstancesResponse
 --
 -- * @SpotInstanceRequests ::@ @[SpotInstanceRequest]@
 --
-mkRequestSpotInstancesResponse :: RequestSpotInstancesResponse
-mkRequestSpotInstancesResponse = RequestSpotInstancesResponse
+requestSpotInstancesResponse :: RequestSpotInstancesResponse
+requestSpotInstancesResponse = RequestSpotInstancesResponse
     { _rsirSpotInstanceRequests = mempty
     }
 

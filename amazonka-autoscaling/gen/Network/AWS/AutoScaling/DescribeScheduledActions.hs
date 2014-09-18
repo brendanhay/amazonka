@@ -25,7 +25,7 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     -- * Request
       DescribeScheduledActions
     -- ** Request constructor
-    , mkDescribeScheduledActions
+    , describeScheduledActions
     -- ** Request lenses
     , dsa2AutoScalingGroupName
     , dsa2ScheduledActionNames
@@ -37,7 +37,7 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     -- * Response
     , DescribeScheduledActionsResponse
     -- ** Response constructor
-    , mkDescribeScheduledActionsResponse
+    , describeScheduledActionsResponse
     -- ** Response lenses
     , dsarrScheduledUpdateGroupActions
     , dsarrNextToken
@@ -73,8 +73,8 @@ data DescribeScheduledActions = DescribeScheduledActions
 --
 -- * @MaxRecords ::@ @Maybe Integer@
 --
-mkDescribeScheduledActions :: DescribeScheduledActions
-mkDescribeScheduledActions = DescribeScheduledActions
+describeScheduledActions :: DescribeScheduledActions
+describeScheduledActions = DescribeScheduledActions
     { _dsa2AutoScalingGroupName = Nothing
     , _dsa2ScheduledActionNames = mempty
     , _dsa2StartTime = Nothing
@@ -140,8 +140,8 @@ data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeScheduledActionsResponse :: DescribeScheduledActionsResponse
-mkDescribeScheduledActionsResponse = DescribeScheduledActionsResponse
+describeScheduledActionsResponse :: DescribeScheduledActionsResponse
+describeScheduledActionsResponse = DescribeScheduledActionsResponse
     { _dsarrScheduledUpdateGroupActions = mempty
     , _dsarrNextToken = Nothing
     }

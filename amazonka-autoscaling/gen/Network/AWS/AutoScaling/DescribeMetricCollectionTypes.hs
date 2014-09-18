@@ -31,11 +31,11 @@ module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
     -- * Request
       DescribeMetricCollectionTypes
     -- ** Request constructor
-    , mkDescribeMetricCollectionTypes
+    , describeMetricCollectionTypes
     -- * Response
     , DescribeMetricCollectionTypesResponse
     -- ** Response constructor
-    , mkDescribeMetricCollectionTypesResponse
+    , describeMetricCollectionTypesResponse
     -- ** Response lenses
     , dmctrMetrics
     , dmctrGranularities
@@ -50,8 +50,8 @@ data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeMetricCollectionTypes' request.
-mkDescribeMetricCollectionTypes :: DescribeMetricCollectionTypes
-mkDescribeMetricCollectionTypes = DescribeMetricCollectionTypes
+describeMetricCollectionTypes :: DescribeMetricCollectionTypes
+describeMetricCollectionTypes = DescribeMetricCollectionTypes
 
 instance ToQuery DescribeMetricCollectionTypes where
     toQuery = genericQuery def
@@ -73,8 +73,8 @@ data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesRespon
 --
 -- * @Granularities ::@ @[MetricGranularityType]@
 --
-mkDescribeMetricCollectionTypesResponse :: DescribeMetricCollectionTypesResponse
-mkDescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
+describeMetricCollectionTypesResponse :: DescribeMetricCollectionTypesResponse
+describeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
     { _dmctrMetrics = mempty
     , _dmctrGranularities = mempty
     }

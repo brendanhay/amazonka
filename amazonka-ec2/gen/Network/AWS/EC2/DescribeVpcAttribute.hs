@@ -44,7 +44,7 @@ module Network.AWS.EC2.DescribeVpcAttribute
     -- * Request
       DescribeVpcAttribute
     -- ** Request constructor
-    , mkDescribeVpcAttribute
+    , describeVpcAttribute
     -- ** Request lenses
     , dva1VpcId
     , dva1Attribute
@@ -52,7 +52,7 @@ module Network.AWS.EC2.DescribeVpcAttribute
     -- * Response
     , DescribeVpcAttributeResponse
     -- ** Response constructor
-    , mkDescribeVpcAttributeResponse
+    , describeVpcAttributeResponse
     -- ** Response lenses
     , dvarrVpcId
     , dvarrEnableDnsSupport
@@ -77,9 +77,9 @@ data DescribeVpcAttribute = DescribeVpcAttribute
 --
 -- * @Attribute ::@ @Maybe VpcAttributeName@
 --
-mkDescribeVpcAttribute :: Text -- ^ 'dva1VpcId'
+describeVpcAttribute :: Text -- ^ 'dva1VpcId'
                        -> DescribeVpcAttribute
-mkDescribeVpcAttribute p1 = DescribeVpcAttribute
+describeVpcAttribute p1 = DescribeVpcAttribute
     { _dva1VpcId = p1
     , _dva1Attribute = Nothing
     }
@@ -114,8 +114,8 @@ data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
 --
 -- * @EnableDnsHostnames ::@ @Maybe AttributeBooleanValue@
 --
-mkDescribeVpcAttributeResponse :: DescribeVpcAttributeResponse
-mkDescribeVpcAttributeResponse = DescribeVpcAttributeResponse
+describeVpcAttributeResponse :: DescribeVpcAttributeResponse
+describeVpcAttributeResponse = DescribeVpcAttributeResponse
     { _dvarrVpcId = Nothing
     , _dvarrEnableDnsSupport = Nothing
     , _dvarrEnableDnsHostnames = Nothing

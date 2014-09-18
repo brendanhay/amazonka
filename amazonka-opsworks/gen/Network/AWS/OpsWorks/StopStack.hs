@@ -26,14 +26,14 @@ module Network.AWS.OpsWorks.StopStack
     -- * Request
       StopStack
     -- ** Request constructor
-    , mkStopStack
+    , stopStack
     -- ** Request lenses
     , ss2StackId
 
     -- * Response
     , StopStackResponse
     -- ** Response constructor
-    , mkStopStackResponse
+    , stopStackResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -51,9 +51,9 @@ newtype StopStack = StopStack
 --
 -- * @StackId ::@ @Text@
 --
-mkStopStack :: Text -- ^ 'ss2StackId'
+stopStack :: Text -- ^ 'ss2StackId'
             -> StopStack
-mkStopStack p1 = StopStack
+stopStack p1 = StopStack
     { _ss2StackId = p1
     }
 
@@ -76,8 +76,8 @@ data StopStackResponse = StopStackResponse
 -- a valid 'StopStackResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkStopStackResponse :: StopStackResponse
-mkStopStackResponse = StopStackResponse
+stopStackResponse :: StopStackResponse
+stopStackResponse = StopStackResponse
 
 instance AWSRequest StopStack where
     type Sv StopStack = OpsWorks

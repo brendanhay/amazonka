@@ -41,7 +41,7 @@ module Network.AWS.SES.SetIdentityNotificationTopic
     -- * Request
       SetIdentityNotificationTopic
     -- ** Request constructor
-    , mkSetIdentityNotificationTopic
+    , setIdentityNotificationTopic
     -- ** Request lenses
     , sintIdentity
     , sintNotificationType
@@ -50,7 +50,7 @@ module Network.AWS.SES.SetIdentityNotificationTopic
     -- * Response
     , SetIdentityNotificationTopicResponse
     -- ** Response constructor
-    , mkSetIdentityNotificationTopicResponse
+    , setIdentityNotificationTopicResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -75,10 +75,10 @@ data SetIdentityNotificationTopic = SetIdentityNotificationTopic
 --
 -- * @SnsTopic ::@ @Maybe Text@
 --
-mkSetIdentityNotificationTopic :: Text -- ^ 'sintIdentity'
+setIdentityNotificationTopic :: Text -- ^ 'sintIdentity'
                                -> NotificationType -- ^ 'sintNotificationType'
                                -> SetIdentityNotificationTopic
-mkSetIdentityNotificationTopic p1 p2 = SetIdentityNotificationTopic
+setIdentityNotificationTopic p1 p2 = SetIdentityNotificationTopic
     { _sintIdentity = p1
     , _sintNotificationType = p2
     , _sintSnsTopic = Nothing
@@ -113,8 +113,8 @@ data SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
 -- a valid 'SetIdentityNotificationTopicResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSetIdentityNotificationTopicResponse :: SetIdentityNotificationTopicResponse
-mkSetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
+setIdentityNotificationTopicResponse :: SetIdentityNotificationTopicResponse
+setIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
 
 instance AWSRequest SetIdentityNotificationTopic where
     type Sv SetIdentityNotificationTopic = SES

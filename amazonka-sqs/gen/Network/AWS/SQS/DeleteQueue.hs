@@ -39,14 +39,14 @@ module Network.AWS.SQS.DeleteQueue
     -- * Request
       DeleteQueue
     -- ** Request constructor
-    , mkDeleteQueue
+    , deleteQueue
     -- ** Request lenses
     , dqQueueUrl
 
     -- * Response
     , DeleteQueueResponse
     -- ** Response constructor
-    , mkDeleteQueueResponse
+    , deleteQueueResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -64,9 +64,9 @@ newtype DeleteQueue = DeleteQueue
 --
 -- * @QueueUrl ::@ @Text@
 --
-mkDeleteQueue :: Text -- ^ 'dqQueueUrl'
+deleteQueue :: Text -- ^ 'dqQueueUrl'
               -> DeleteQueue
-mkDeleteQueue p1 = DeleteQueue
+deleteQueue p1 = DeleteQueue
     { _dqQueueUrl = p1
     }
 
@@ -84,8 +84,8 @@ data DeleteQueueResponse = DeleteQueueResponse
 -- a valid 'DeleteQueueResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteQueueResponse :: DeleteQueueResponse
-mkDeleteQueueResponse = DeleteQueueResponse
+deleteQueueResponse :: DeleteQueueResponse
+deleteQueueResponse = DeleteQueueResponse
 
 instance AWSRequest DeleteQueue where
     type Sv DeleteQueue = SQS

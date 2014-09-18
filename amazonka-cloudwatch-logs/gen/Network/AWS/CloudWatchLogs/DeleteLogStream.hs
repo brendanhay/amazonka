@@ -33,7 +33,7 @@ module Network.AWS.CloudWatchLogs.DeleteLogStream
     -- * Request
       DeleteLogStream
     -- ** Request constructor
-    , mkDeleteLogStream
+    , deleteLogStream
     -- ** Request lenses
     , dlsLogGroupName
     , dlsLogStreamName
@@ -41,7 +41,7 @@ module Network.AWS.CloudWatchLogs.DeleteLogStream
     -- * Response
     , DeleteLogStreamResponse
     -- ** Response constructor
-    , mkDeleteLogStreamResponse
+    , deleteLogStreamResponse
     ) where
 
 import Network.AWS.CloudWatchLogs.Types
@@ -62,10 +62,10 @@ data DeleteLogStream = DeleteLogStream
 --
 -- * @LogStreamName ::@ @Text@
 --
-mkDeleteLogStream :: Text -- ^ 'dlsLogGroupName'
+deleteLogStream :: Text -- ^ 'dlsLogGroupName'
                   -> Text -- ^ 'dlsLogStreamName'
                   -> DeleteLogStream
-mkDeleteLogStream p1 p2 = DeleteLogStream
+deleteLogStream p1 p2 = DeleteLogStream
     { _dlsLogGroupName = p1
     , _dlsLogStreamName = p2
     }
@@ -92,8 +92,8 @@ data DeleteLogStreamResponse = DeleteLogStreamResponse
 -- a valid 'DeleteLogStreamResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteLogStreamResponse :: DeleteLogStreamResponse
-mkDeleteLogStreamResponse = DeleteLogStreamResponse
+deleteLogStreamResponse :: DeleteLogStreamResponse
+deleteLogStreamResponse = DeleteLogStreamResponse
 
 instance AWSRequest DeleteLogStream where
     type Sv DeleteLogStream = CloudWatchLogs

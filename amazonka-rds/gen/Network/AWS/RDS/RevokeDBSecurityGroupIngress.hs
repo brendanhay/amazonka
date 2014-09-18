@@ -32,7 +32,7 @@ module Network.AWS.RDS.RevokeDBSecurityGroupIngress
     -- * Request
       RevokeDBSecurityGroupIngress
     -- ** Request constructor
-    , mkRevokeDBSecurityGroupIngress
+    , revokeDBSecurityGroupIngress
     -- ** Request lenses
     , rdbsgiDBSecurityGroupName
     , rdbsgiCIDRIP
@@ -43,7 +43,7 @@ module Network.AWS.RDS.RevokeDBSecurityGroupIngress
     -- * Response
     , RevokeDBSecurityGroupIngressResponse
     -- ** Response constructor
-    , mkRevokeDBSecurityGroupIngressResponse
+    , revokeDBSecurityGroupIngressResponse
     -- ** Response lenses
     , rdbsgirDBSecurityGroup
     ) where
@@ -76,9 +76,9 @@ data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress
 --
 -- * @EC2SecurityGroupOwnerId ::@ @Maybe Text@
 --
-mkRevokeDBSecurityGroupIngress :: Text -- ^ 'rdbsgiDBSecurityGroupName'
+revokeDBSecurityGroupIngress :: Text -- ^ 'rdbsgiDBSecurityGroupName'
                                -> RevokeDBSecurityGroupIngress
-mkRevokeDBSecurityGroupIngress p1 = RevokeDBSecurityGroupIngress
+revokeDBSecurityGroupIngress p1 = RevokeDBSecurityGroupIngress
     { _rdbsgiDBSecurityGroupName = p1
     , _rdbsgiCIDRIP = Nothing
     , _rdbsgiEC2SecurityGroupName = Nothing
@@ -142,8 +142,8 @@ newtype RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressRespo
 --
 -- * @DBSecurityGroup ::@ @Maybe DBSecurityGroup@
 --
-mkRevokeDBSecurityGroupIngressResponse :: RevokeDBSecurityGroupIngressResponse
-mkRevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse
+revokeDBSecurityGroupIngressResponse :: RevokeDBSecurityGroupIngressResponse
+revokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse
     { _rdbsgirDBSecurityGroup = Nothing
     }
 

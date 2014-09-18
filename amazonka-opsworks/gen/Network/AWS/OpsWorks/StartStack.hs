@@ -26,14 +26,14 @@ module Network.AWS.OpsWorks.StartStack
     -- * Request
       StartStack
     -- ** Request constructor
-    , mkStartStack
+    , startStack
     -- ** Request lenses
     , ss1StackId
 
     -- * Response
     , StartStackResponse
     -- ** Response constructor
-    , mkStartStackResponse
+    , startStackResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -51,9 +51,9 @@ newtype StartStack = StartStack
 --
 -- * @StackId ::@ @Text@
 --
-mkStartStack :: Text -- ^ 'ss1StackId'
+startStack :: Text -- ^ 'ss1StackId'
              -> StartStack
-mkStartStack p1 = StartStack
+startStack p1 = StartStack
     { _ss1StackId = p1
     }
 
@@ -76,8 +76,8 @@ data StartStackResponse = StartStackResponse
 -- a valid 'StartStackResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkStartStackResponse :: StartStackResponse
-mkStartStackResponse = StartStackResponse
+startStackResponse :: StartStackResponse
+startStackResponse = StartStackResponse
 
 instance AWSRequest StartStack where
     type Sv StartStack = OpsWorks

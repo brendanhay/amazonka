@@ -25,7 +25,7 @@ module Network.AWS.AutoScaling.SetInstanceHealth
     -- * Request
       SetInstanceHealth
     -- ** Request constructor
-    , mkSetInstanceHealth
+    , setInstanceHealth
     -- ** Request lenses
     , sihInstanceId
     , sihHealthStatus
@@ -34,7 +34,7 @@ module Network.AWS.AutoScaling.SetInstanceHealth
     -- * Response
     , SetInstanceHealthResponse
     -- ** Response constructor
-    , mkSetInstanceHealthResponse
+    , setInstanceHealthResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -58,10 +58,10 @@ data SetInstanceHealth = SetInstanceHealth
 --
 -- * @ShouldRespectGracePeriod ::@ @Maybe Bool@
 --
-mkSetInstanceHealth :: Text -- ^ 'sihInstanceId'
+setInstanceHealth :: Text -- ^ 'sihInstanceId'
                     -> Text -- ^ 'sihHealthStatus'
                     -> SetInstanceHealth
-mkSetInstanceHealth p1 p2 = SetInstanceHealth
+setInstanceHealth p1 p2 = SetInstanceHealth
     { _sihInstanceId = p1
     , _sihHealthStatus = p2
     , _sihShouldRespectGracePeriod = Nothing
@@ -98,8 +98,8 @@ data SetInstanceHealthResponse = SetInstanceHealthResponse
 -- a valid 'SetInstanceHealthResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSetInstanceHealthResponse :: SetInstanceHealthResponse
-mkSetInstanceHealthResponse = SetInstanceHealthResponse
+setInstanceHealthResponse :: SetInstanceHealthResponse
+setInstanceHealthResponse = SetInstanceHealthResponse
 
 instance AWSRequest SetInstanceHealth where
     type Sv SetInstanceHealth = AutoScaling

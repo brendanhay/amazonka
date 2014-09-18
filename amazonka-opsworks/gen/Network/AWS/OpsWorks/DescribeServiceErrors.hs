@@ -26,7 +26,7 @@ module Network.AWS.OpsWorks.DescribeServiceErrors
     -- * Request
       DescribeServiceErrors
     -- ** Request constructor
-    , mkDescribeServiceErrors
+    , describeServiceErrors
     -- ** Request lenses
     , dseStackId
     , dseInstanceId
@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.DescribeServiceErrors
     -- * Response
     , DescribeServiceErrorsResponse
     -- ** Response constructor
-    , mkDescribeServiceErrorsResponse
+    , describeServiceErrorsResponse
     -- ** Response lenses
     , dserServiceErrors
     ) where
@@ -61,8 +61,8 @@ data DescribeServiceErrors = DescribeServiceErrors
 --
 -- * @ServiceErrorIds ::@ @[Text]@
 --
-mkDescribeServiceErrors :: DescribeServiceErrors
-mkDescribeServiceErrors = DescribeServiceErrors
+describeServiceErrors :: DescribeServiceErrors
+describeServiceErrors = DescribeServiceErrors
     { _dseStackId = Nothing
     , _dseInstanceId = Nothing
     , _dseServiceErrorIds = mempty
@@ -107,8 +107,8 @@ newtype DescribeServiceErrorsResponse = DescribeServiceErrorsResponse
 --
 -- * @ServiceErrors ::@ @[ServiceError]@
 --
-mkDescribeServiceErrorsResponse :: DescribeServiceErrorsResponse
-mkDescribeServiceErrorsResponse = DescribeServiceErrorsResponse
+describeServiceErrorsResponse :: DescribeServiceErrorsResponse
+describeServiceErrorsResponse = DescribeServiceErrorsResponse
     { _dserServiceErrors = mempty
     }
 

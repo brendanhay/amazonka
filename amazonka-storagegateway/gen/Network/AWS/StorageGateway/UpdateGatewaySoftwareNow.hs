@@ -47,14 +47,14 @@ module Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
     -- * Request
       UpdateGatewaySoftwareNow
     -- ** Request constructor
-    , mkUpdateGatewaySoftwareNow
+    , updateGatewaySoftwareNow
     -- ** Request lenses
     , ugsnGatewayARN
 
     -- * Response
     , UpdateGatewaySoftwareNowResponse
     -- ** Response constructor
-    , mkUpdateGatewaySoftwareNowResponse
+    , updateGatewaySoftwareNowResponse
     -- ** Response lenses
     , ugsnrGatewayARN
     ) where
@@ -75,9 +75,9 @@ newtype UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow
 --
 -- * @GatewayARN ::@ @Text@
 --
-mkUpdateGatewaySoftwareNow :: Text -- ^ 'ugsnGatewayARN'
+updateGatewaySoftwareNow :: Text -- ^ 'ugsnGatewayARN'
                            -> UpdateGatewaySoftwareNow
-mkUpdateGatewaySoftwareNow p1 = UpdateGatewaySoftwareNow
+updateGatewaySoftwareNow p1 = UpdateGatewaySoftwareNow
     { _ugsnGatewayARN = p1
     }
 
@@ -108,8 +108,8 @@ newtype UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse
 --
 -- * @GatewayARN ::@ @Maybe Text@
 --
-mkUpdateGatewaySoftwareNowResponse :: UpdateGatewaySoftwareNowResponse
-mkUpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse
+updateGatewaySoftwareNowResponse :: UpdateGatewaySoftwareNowResponse
+updateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse
     { _ugsnrGatewayARN = Nothing
     }
 

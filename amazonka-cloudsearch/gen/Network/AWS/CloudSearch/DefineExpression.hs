@@ -26,7 +26,7 @@ module Network.AWS.CloudSearch.DefineExpression
     -- * Request
       DefineExpression
     -- ** Request constructor
-    , mkDefineExpression
+    , defineExpression
     -- ** Request lenses
     , deDomainName
     , deExpression
@@ -34,7 +34,7 @@ module Network.AWS.CloudSearch.DefineExpression
     -- * Response
     , DefineExpressionResponse
     -- ** Response constructor
-    , mkDefineExpressionResponse
+    , defineExpressionResponse
     -- ** Response lenses
     , derExpression
     ) where
@@ -60,10 +60,10 @@ data DefineExpression = DefineExpression
 --
 -- * @Expression ::@ @Expression@
 --
-mkDefineExpression :: Text -- ^ 'deDomainName'
+defineExpression :: Text -- ^ 'deDomainName'
                    -> Expression -- ^ 'deExpression'
                    -> DefineExpression
-mkDefineExpression p1 p2 = DefineExpression
+defineExpression p1 p2 = DefineExpression
     { _deDomainName = p1
     , _deExpression = p2
     }
@@ -98,9 +98,9 @@ newtype DefineExpressionResponse = DefineExpressionResponse
 --
 -- * @Expression ::@ @ExpressionStatus@
 --
-mkDefineExpressionResponse :: ExpressionStatus -- ^ 'derExpression'
+defineExpressionResponse :: ExpressionStatus -- ^ 'derExpression'
                            -> DefineExpressionResponse
-mkDefineExpressionResponse p1 = DefineExpressionResponse
+defineExpressionResponse p1 = DefineExpressionResponse
     { _derExpression = p1
     }
 

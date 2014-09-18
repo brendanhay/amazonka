@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.DescribeElasticLoadBalancers
     -- * Request
       DescribeElasticLoadBalancers
     -- ** Request constructor
-    , mkDescribeElasticLoadBalancers
+    , describeElasticLoadBalancers
     -- ** Request lenses
     , delbStackId
     , delbLayerIds
@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.DescribeElasticLoadBalancers
     -- * Response
     , DescribeElasticLoadBalancersResponse
     -- ** Response constructor
-    , mkDescribeElasticLoadBalancersResponse
+    , describeElasticLoadBalancersResponse
     -- ** Response lenses
     , delbrElasticLoadBalancers
     ) where
@@ -58,8 +58,8 @@ data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers
 --
 -- * @LayerIds ::@ @[Text]@
 --
-mkDescribeElasticLoadBalancers :: DescribeElasticLoadBalancers
-mkDescribeElasticLoadBalancers = DescribeElasticLoadBalancers
+describeElasticLoadBalancers :: DescribeElasticLoadBalancers
+describeElasticLoadBalancers = DescribeElasticLoadBalancers
     { _delbStackId = Nothing
     , _delbLayerIds = mempty
     }
@@ -96,8 +96,8 @@ newtype DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersRespo
 --
 -- * @ElasticLoadBalancers ::@ @[ElasticLoadBalancer]@
 --
-mkDescribeElasticLoadBalancersResponse :: DescribeElasticLoadBalancersResponse
-mkDescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse
+describeElasticLoadBalancersResponse :: DescribeElasticLoadBalancersResponse
+describeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse
     { _delbrElasticLoadBalancers = mempty
     }
 

@@ -61,7 +61,7 @@ module Network.AWS.SWF.ListOpenWorkflowExecutions
     -- * Request
       ListOpenWorkflowExecutions
     -- ** Request constructor
-    , mkListOpenWorkflowExecutions
+    , listOpenWorkflowExecutions
     -- ** Request lenses
     , loweDomain
     , loweStartTimeFilter
@@ -75,7 +75,7 @@ module Network.AWS.SWF.ListOpenWorkflowExecutions
     -- * Response
     , ListOpenWorkflowExecutionsResponse
     -- ** Response constructor
-    , mkListOpenWorkflowExecutionsResponse
+    , listOpenWorkflowExecutionsResponse
     -- ** Response lenses
     , lowerExecutionInfos
     , lowerNextPageToken
@@ -117,10 +117,10 @@ data ListOpenWorkflowExecutions = ListOpenWorkflowExecutions
 --
 -- * @ExecutionFilter ::@ @Maybe WorkflowExecutionFilter@
 --
-mkListOpenWorkflowExecutions :: Text -- ^ 'loweDomain'
+listOpenWorkflowExecutions :: Text -- ^ 'loweDomain'
                              -> ExecutionTimeFilter -- ^ 'loweStartTimeFilter'
                              -> ListOpenWorkflowExecutions
-mkListOpenWorkflowExecutions p1 p2 = ListOpenWorkflowExecutions
+listOpenWorkflowExecutions p1 p2 = ListOpenWorkflowExecutions
     { _loweDomain = p1
     , _loweStartTimeFilter = p2
     , _loweTypeFilter = Nothing
@@ -209,9 +209,9 @@ data ListOpenWorkflowExecutionsResponse = ListOpenWorkflowExecutionsResponse
 --
 -- * @NextPageToken ::@ @Maybe Text@
 --
-mkListOpenWorkflowExecutionsResponse :: [WorkflowExecutionInfo] -- ^ 'lowerExecutionInfos'
+listOpenWorkflowExecutionsResponse :: [WorkflowExecutionInfo] -- ^ 'lowerExecutionInfos'
                                      -> ListOpenWorkflowExecutionsResponse
-mkListOpenWorkflowExecutionsResponse p1 = ListOpenWorkflowExecutionsResponse
+listOpenWorkflowExecutionsResponse p1 = ListOpenWorkflowExecutionsResponse
     { _lowerExecutionInfos = p1
     , _lowerNextPageToken = Nothing
     }

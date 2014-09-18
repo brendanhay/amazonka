@@ -35,7 +35,7 @@ module Network.AWS.DataPipeline.SetTaskStatus
     -- * Request
       SetTaskStatus
     -- ** Request constructor
-    , mkSetTaskStatus
+    , setTaskStatus
     -- ** Request lenses
     , stsTaskId
     , stsTaskStatus
@@ -46,7 +46,7 @@ module Network.AWS.DataPipeline.SetTaskStatus
     -- * Response
     , SetTaskStatusResponse
     -- ** Response constructor
-    , mkSetTaskStatusResponse
+    , setTaskStatusResponse
     ) where
 
 import Network.AWS.DataPipeline.Types
@@ -77,10 +77,10 @@ data SetTaskStatus = SetTaskStatus
 --
 -- * @ErrorStackTrace ::@ @Maybe Text@
 --
-mkSetTaskStatus :: Text -- ^ 'stsTaskId'
+setTaskStatus :: Text -- ^ 'stsTaskId'
                 -> TaskStatus -- ^ 'stsTaskStatus'
                 -> SetTaskStatus
-mkSetTaskStatus p1 p2 = SetTaskStatus
+setTaskStatus p1 p2 = SetTaskStatus
     { _stsTaskId = p1
     , _stsTaskStatus = p2
     , _stsErrorId = Nothing
@@ -136,8 +136,8 @@ data SetTaskStatusResponse = SetTaskStatusResponse
 -- a valid 'SetTaskStatusResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSetTaskStatusResponse :: SetTaskStatusResponse
-mkSetTaskStatusResponse = SetTaskStatusResponse
+setTaskStatusResponse :: SetTaskStatusResponse
+setTaskStatusResponse = SetTaskStatusResponse
 
 instance AWSRequest SetTaskStatus where
     type Sv SetTaskStatus = DataPipeline

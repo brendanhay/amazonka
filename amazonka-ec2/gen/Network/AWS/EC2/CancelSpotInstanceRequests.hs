@@ -40,14 +40,14 @@ module Network.AWS.EC2.CancelSpotInstanceRequests
     -- * Request
       CancelSpotInstanceRequests
     -- ** Request constructor
-    , mkCancelSpotInstanceRequests
+    , cancelSpotInstanceRequests
     -- ** Request lenses
     , csirSpotInstanceRequestIds
 
     -- * Response
     , CancelSpotInstanceRequestsResponse
     -- ** Response constructor
-    , mkCancelSpotInstanceRequestsResponse
+    , cancelSpotInstanceRequestsResponse
     -- ** Response lenses
     , csirrCancelledSpotInstanceRequests
     ) where
@@ -67,9 +67,9 @@ newtype CancelSpotInstanceRequests = CancelSpotInstanceRequests
 --
 -- * @SpotInstanceRequestIds ::@ @[Text]@
 --
-mkCancelSpotInstanceRequests :: [Text] -- ^ 'csirSpotInstanceRequestIds'
+cancelSpotInstanceRequests :: [Text] -- ^ 'csirSpotInstanceRequestIds'
                              -> CancelSpotInstanceRequests
-mkCancelSpotInstanceRequests p1 = CancelSpotInstanceRequests
+cancelSpotInstanceRequests p1 = CancelSpotInstanceRequests
     { _csirSpotInstanceRequestIds = p1
     }
 
@@ -95,8 +95,8 @@ newtype CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
 --
 -- * @CancelledSpotInstanceRequests ::@ @[CancelledSpotInstanceRequest]@
 --
-mkCancelSpotInstanceRequestsResponse :: CancelSpotInstanceRequestsResponse
-mkCancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
+cancelSpotInstanceRequestsResponse :: CancelSpotInstanceRequestsResponse
+cancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
     { _csirrCancelledSpotInstanceRequests = mempty
     }
 

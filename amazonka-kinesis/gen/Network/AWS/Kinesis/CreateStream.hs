@@ -60,7 +60,7 @@ module Network.AWS.Kinesis.CreateStream
     -- * Request
       CreateStream
     -- ** Request constructor
-    , mkCreateStream
+    , createStream
     -- ** Request lenses
     , csStreamName
     , csShardCount
@@ -68,7 +68,7 @@ module Network.AWS.Kinesis.CreateStream
     -- * Response
     , CreateStreamResponse
     -- ** Response constructor
-    , mkCreateStreamResponse
+    , createStreamResponse
     ) where
 
 import Network.AWS.Kinesis.Types
@@ -90,10 +90,10 @@ data CreateStream = CreateStream
 --
 -- * @ShardCount ::@ @Integer@
 --
-mkCreateStream :: Text -- ^ 'csStreamName'
+createStream :: Text -- ^ 'csStreamName'
                -> Integer -- ^ 'csShardCount'
                -> CreateStream
-mkCreateStream p1 p2 = CreateStream
+createStream p1 p2 = CreateStream
     { _csStreamName = p1
     , _csShardCount = p2
     }
@@ -129,8 +129,8 @@ data CreateStreamResponse = CreateStreamResponse
 -- a valid 'CreateStreamResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkCreateStreamResponse :: CreateStreamResponse
-mkCreateStreamResponse = CreateStreamResponse
+createStreamResponse :: CreateStreamResponse
+createStreamResponse = CreateStreamResponse
 
 instance AWSRequest CreateStream where
     type Sv CreateStream = Kinesis

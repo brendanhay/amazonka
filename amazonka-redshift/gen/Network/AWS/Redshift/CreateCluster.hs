@@ -50,7 +50,7 @@ module Network.AWS.Redshift.CreateCluster
     -- * Request
       CreateCluster
     -- ** Request constructor
-    , mkCreateCluster
+    , createCluster
     -- ** Request lenses
     , ccDBName
     , ccClusterIdentifier
@@ -78,7 +78,7 @@ module Network.AWS.Redshift.CreateCluster
     -- * Response
     , CreateClusterResponse
     -- ** Response constructor
-    , mkCreateClusterResponse
+    , createClusterResponse
     -- ** Response lenses
     , ccrCluster
     ) where
@@ -162,12 +162,12 @@ data CreateCluster = CreateCluster
 --
 -- * @ElasticIp ::@ @Maybe Text@
 --
-mkCreateCluster :: Text -- ^ 'ccClusterIdentifier'
+createCluster :: Text -- ^ 'ccClusterIdentifier'
                 -> Text -- ^ 'ccNodeType'
                 -> Text -- ^ 'ccMasterUsername'
                 -> Text -- ^ 'ccMasterUserPassword'
                 -> CreateCluster
-mkCreateCluster p2 p4 p5 p6 = CreateCluster
+createCluster p2 p4 p5 p6 = CreateCluster
     { _ccDBName = Nothing
     , _ccClusterIdentifier = p2
     , _ccClusterType = Nothing
@@ -395,8 +395,8 @@ newtype CreateClusterResponse = CreateClusterResponse
 --
 -- * @Cluster ::@ @Maybe Cluster@
 --
-mkCreateClusterResponse :: CreateClusterResponse
-mkCreateClusterResponse = CreateClusterResponse
+createClusterResponse :: CreateClusterResponse
+createClusterResponse = CreateClusterResponse
     { _ccrCluster = Nothing
     }
 

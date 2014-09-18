@@ -40,7 +40,7 @@ module Network.AWS.EC2.ReleaseAddress
     -- * Request
       ReleaseAddress
     -- ** Request constructor
-    , mkReleaseAddress
+    , releaseAddress
     -- ** Request lenses
     , raPublicIp
     , raAllocationId
@@ -48,7 +48,7 @@ module Network.AWS.EC2.ReleaseAddress
     -- * Response
     , ReleaseAddressResponse
     -- ** Response constructor
-    , mkReleaseAddressResponse
+    , releaseAddressResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -69,8 +69,8 @@ data ReleaseAddress = ReleaseAddress
 --
 -- * @AllocationId ::@ @Maybe Text@
 --
-mkReleaseAddress :: ReleaseAddress
-mkReleaseAddress = ReleaseAddress
+releaseAddress :: ReleaseAddress
+releaseAddress = ReleaseAddress
     { _raPublicIp = Nothing
     , _raAllocationId = Nothing
     }
@@ -93,8 +93,8 @@ data ReleaseAddressResponse = ReleaseAddressResponse
 -- a valid 'ReleaseAddressResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkReleaseAddressResponse :: ReleaseAddressResponse
-mkReleaseAddressResponse = ReleaseAddressResponse
+releaseAddressResponse :: ReleaseAddressResponse
+releaseAddressResponse = ReleaseAddressResponse
 
 instance AWSRequest ReleaseAddress where
     type Sv ReleaseAddress = EC2

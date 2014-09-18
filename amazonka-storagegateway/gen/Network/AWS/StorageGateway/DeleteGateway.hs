@@ -47,14 +47,14 @@ module Network.AWS.StorageGateway.DeleteGateway
     -- * Request
       DeleteGateway
     -- ** Request constructor
-    , mkDeleteGateway
+    , deleteGateway
     -- ** Request lenses
     , dgGatewayARN
 
     -- * Response
     , DeleteGatewayResponse
     -- ** Response constructor
-    , mkDeleteGatewayResponse
+    , deleteGatewayResponse
     -- ** Response lenses
     , dgrGatewayARN
     ) where
@@ -75,9 +75,9 @@ newtype DeleteGateway = DeleteGateway
 --
 -- * @GatewayARN ::@ @Text@
 --
-mkDeleteGateway :: Text -- ^ 'dgGatewayARN'
+deleteGateway :: Text -- ^ 'dgGatewayARN'
                 -> DeleteGateway
-mkDeleteGateway p1 = DeleteGateway
+deleteGateway p1 = DeleteGateway
     { _dgGatewayARN = p1
     }
 
@@ -108,8 +108,8 @@ newtype DeleteGatewayResponse = DeleteGatewayResponse
 --
 -- * @GatewayARN ::@ @Maybe Text@
 --
-mkDeleteGatewayResponse :: DeleteGatewayResponse
-mkDeleteGatewayResponse = DeleteGatewayResponse
+deleteGatewayResponse :: DeleteGatewayResponse
+deleteGatewayResponse = DeleteGatewayResponse
     { _dgrGatewayARN = Nothing
     }
 

@@ -23,7 +23,7 @@ module Network.AWS.ELB.DeleteLoadBalancerListeners
     -- * Request
       DeleteLoadBalancerListeners
     -- ** Request constructor
-    , mkDeleteLoadBalancerListeners
+    , deleteLoadBalancerListeners
     -- ** Request lenses
     , dlblLoadBalancerName
     , dlblLoadBalancerPorts
@@ -31,7 +31,7 @@ module Network.AWS.ELB.DeleteLoadBalancerListeners
     -- * Response
     , DeleteLoadBalancerListenersResponse
     -- ** Response constructor
-    , mkDeleteLoadBalancerListenersResponse
+    , deleteLoadBalancerListenersResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -53,10 +53,10 @@ data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners
 --
 -- * @LoadBalancerPorts ::@ @[Integer]@
 --
-mkDeleteLoadBalancerListeners :: Text -- ^ 'dlblLoadBalancerName'
+deleteLoadBalancerListeners :: Text -- ^ 'dlblLoadBalancerName'
                               -> [Integer] -- ^ 'dlblLoadBalancerPorts'
                               -> DeleteLoadBalancerListeners
-mkDeleteLoadBalancerListeners p1 p2 = DeleteLoadBalancerListeners
+deleteLoadBalancerListeners p1 p2 = DeleteLoadBalancerListeners
     { _dlblLoadBalancerName = p1
     , _dlblLoadBalancerPorts = p2
     }
@@ -82,8 +82,8 @@ data DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
 -- a valid 'DeleteLoadBalancerListenersResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteLoadBalancerListenersResponse :: DeleteLoadBalancerListenersResponse
-mkDeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
+deleteLoadBalancerListenersResponse :: DeleteLoadBalancerListenersResponse
+deleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
 
 instance AWSRequest DeleteLoadBalancerListeners where
     type Sv DeleteLoadBalancerListeners = ELB

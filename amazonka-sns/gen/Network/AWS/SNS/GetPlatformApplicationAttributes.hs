@@ -41,14 +41,14 @@ module Network.AWS.SNS.GetPlatformApplicationAttributes
     -- * Request
       GetPlatformApplicationAttributes
     -- ** Request constructor
-    , mkGetPlatformApplicationAttributes
+    , getPlatformApplicationAttributes
     -- ** Request lenses
     , gpaaPlatformApplicationArn
 
     -- * Response
     , GetPlatformApplicationAttributesResponse
     -- ** Response constructor
-    , mkGetPlatformApplicationAttributesResponse
+    , getPlatformApplicationAttributesResponse
     -- ** Response lenses
     , gpaarAttributes
     ) where
@@ -69,9 +69,9 @@ newtype GetPlatformApplicationAttributes = GetPlatformApplicationAttributes
 --
 -- * @PlatformApplicationArn ::@ @Text@
 --
-mkGetPlatformApplicationAttributes :: Text -- ^ 'gpaaPlatformApplicationArn'
+getPlatformApplicationAttributes :: Text -- ^ 'gpaaPlatformApplicationArn'
                                    -> GetPlatformApplicationAttributes
-mkGetPlatformApplicationAttributes p1 = GetPlatformApplicationAttributes
+getPlatformApplicationAttributes p1 = GetPlatformApplicationAttributes
     { _gpaaPlatformApplicationArn = p1
     }
 
@@ -98,8 +98,8 @@ newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttribu
 --
 -- * @Attributes ::@ @Map Text Text@
 --
-mkGetPlatformApplicationAttributesResponse :: GetPlatformApplicationAttributesResponse
-mkGetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse
+getPlatformApplicationAttributesResponse :: GetPlatformApplicationAttributesResponse
+getPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse
     { _gpaarAttributes = mempty
     }
 

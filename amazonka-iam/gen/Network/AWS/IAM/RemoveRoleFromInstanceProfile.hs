@@ -32,7 +32,7 @@ module Network.AWS.IAM.RemoveRoleFromInstanceProfile
     -- * Request
       RemoveRoleFromInstanceProfile
     -- ** Request constructor
-    , mkRemoveRoleFromInstanceProfile
+    , removeRoleFromInstanceProfile
     -- ** Request lenses
     , rrfipInstanceProfileName
     , rrfipRoleName
@@ -40,7 +40,7 @@ module Network.AWS.IAM.RemoveRoleFromInstanceProfile
     -- * Response
     , RemoveRoleFromInstanceProfileResponse
     -- ** Response constructor
-    , mkRemoveRoleFromInstanceProfileResponse
+    , removeRoleFromInstanceProfileResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -61,10 +61,10 @@ data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile
 --
 -- * @RoleName ::@ @Text@
 --
-mkRemoveRoleFromInstanceProfile :: Text -- ^ 'rrfipInstanceProfileName'
+removeRoleFromInstanceProfile :: Text -- ^ 'rrfipInstanceProfileName'
                                 -> Text -- ^ 'rrfipRoleName'
                                 -> RemoveRoleFromInstanceProfile
-mkRemoveRoleFromInstanceProfile p1 p2 = RemoveRoleFromInstanceProfile
+removeRoleFromInstanceProfile p1 p2 = RemoveRoleFromInstanceProfile
     { _rrfipInstanceProfileName = p1
     , _rrfipRoleName = p2
     }
@@ -89,8 +89,8 @@ data RemoveRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileRespon
 -- a valid 'RemoveRoleFromInstanceProfileResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkRemoveRoleFromInstanceProfileResponse :: RemoveRoleFromInstanceProfileResponse
-mkRemoveRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse
+removeRoleFromInstanceProfileResponse :: RemoveRoleFromInstanceProfileResponse
+removeRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse
 
 instance AWSRequest RemoveRoleFromInstanceProfile where
     type Sv RemoveRoleFromInstanceProfile = IAM

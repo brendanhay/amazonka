@@ -55,7 +55,7 @@ module Network.AWS.EC2.AttachVolume
     -- * Request
       AttachVolume
     -- ** Request constructor
-    , mkAttachVolume
+    , attachVolume
     -- ** Request lenses
     , avVolumeId
     , avInstanceId
@@ -64,7 +64,7 @@ module Network.AWS.EC2.AttachVolume
     -- * Response
     , AttachVolumeResponse
     -- ** Response constructor
-    , mkAttachVolumeResponse
+    , attachVolumeResponse
     -- ** Response lenses
     , avrVolumeId
     , avrInstanceId
@@ -95,11 +95,11 @@ data AttachVolume = AttachVolume
 --
 -- * @Device ::@ @Text@
 --
-mkAttachVolume :: Text -- ^ 'avVolumeId'
+attachVolume :: Text -- ^ 'avVolumeId'
                -> Text -- ^ 'avInstanceId'
                -> Text -- ^ 'avDevice'
                -> AttachVolume
-mkAttachVolume p1 p2 p3 = AttachVolume
+attachVolume p1 p2 p3 = AttachVolume
     { _avVolumeId = p1
     , _avInstanceId = p2
     , _avDevice = p3
@@ -149,8 +149,8 @@ data AttachVolumeResponse = AttachVolumeResponse
 --
 -- * @DeleteOnTermination ::@ @Maybe Bool@
 --
-mkAttachVolumeResponse :: AttachVolumeResponse
-mkAttachVolumeResponse = AttachVolumeResponse
+attachVolumeResponse :: AttachVolumeResponse
+attachVolumeResponse = AttachVolumeResponse
     { _avrVolumeId = Nothing
     , _avrInstanceId = Nothing
     , _avrDevice = Nothing

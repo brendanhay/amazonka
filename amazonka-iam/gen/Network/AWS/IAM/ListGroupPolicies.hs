@@ -27,7 +27,7 @@ module Network.AWS.IAM.ListGroupPolicies
     -- * Request
       ListGroupPolicies
     -- ** Request constructor
-    , mkListGroupPolicies
+    , listGroupPolicies
     -- ** Request lenses
     , lgpGroupName
     , lgpMarker
@@ -36,7 +36,7 @@ module Network.AWS.IAM.ListGroupPolicies
     -- * Response
     , ListGroupPoliciesResponse
     -- ** Response constructor
-    , mkListGroupPoliciesResponse
+    , listGroupPoliciesResponse
     -- ** Response lenses
     , lgprPolicyNames
     , lgprIsTruncated
@@ -64,9 +64,9 @@ data ListGroupPolicies = ListGroupPolicies
 --
 -- * @MaxItems ::@ @Maybe Integer@
 --
-mkListGroupPolicies :: Text -- ^ 'lgpGroupName'
+listGroupPolicies :: Text -- ^ 'lgpGroupName'
                     -> ListGroupPolicies
-mkListGroupPolicies p1 = ListGroupPolicies
+listGroupPolicies p1 = ListGroupPolicies
     { _lgpGroupName = p1
     , _lgpMarker = Nothing
     , _lgpMaxItems = Nothing
@@ -113,10 +113,10 @@ data ListGroupPoliciesResponse = ListGroupPoliciesResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListGroupPoliciesResponse :: [Text] -- ^ 'lgprPolicyNames'
+listGroupPoliciesResponse :: [Text] -- ^ 'lgprPolicyNames'
                             -> Bool -- ^ 'lgprIsTruncated'
                             -> ListGroupPoliciesResponse
-mkListGroupPoliciesResponse p1 p2 = ListGroupPoliciesResponse
+listGroupPoliciesResponse p1 p2 = ListGroupPoliciesResponse
     { _lgprPolicyNames = p1
     , _lgprIsTruncated = p2
     , _lgprMarker = Nothing

@@ -32,7 +32,7 @@ module Network.AWS.OpsWorks.SetLoadBasedAutoScaling
     -- * Request
       SetLoadBasedAutoScaling
     -- ** Request constructor
-    , mkSetLoadBasedAutoScaling
+    , setLoadBasedAutoScaling
     -- ** Request lenses
     , slbasLayerId
     , slbasEnable
@@ -42,7 +42,7 @@ module Network.AWS.OpsWorks.SetLoadBasedAutoScaling
     -- * Response
     , SetLoadBasedAutoScalingResponse
     -- ** Response constructor
-    , mkSetLoadBasedAutoScalingResponse
+    , setLoadBasedAutoScalingResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -69,9 +69,9 @@ data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling
 --
 -- * @DownScaling ::@ @Maybe AutoScalingThresholds@
 --
-mkSetLoadBasedAutoScaling :: Text -- ^ 'slbasLayerId'
+setLoadBasedAutoScaling :: Text -- ^ 'slbasLayerId'
                           -> SetLoadBasedAutoScaling
-mkSetLoadBasedAutoScaling p1 = SetLoadBasedAutoScaling
+setLoadBasedAutoScaling p1 = SetLoadBasedAutoScaling
     { _slbasLayerId = p1
     , _slbasEnable = Nothing
     , _slbasUpScaling = Nothing
@@ -114,8 +114,8 @@ data SetLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse
 -- a valid 'SetLoadBasedAutoScalingResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSetLoadBasedAutoScalingResponse :: SetLoadBasedAutoScalingResponse
-mkSetLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse
+setLoadBasedAutoScalingResponse :: SetLoadBasedAutoScalingResponse
+setLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse
 
 instance AWSRequest SetLoadBasedAutoScaling where
     type Sv SetLoadBasedAutoScaling = OpsWorks

@@ -35,7 +35,7 @@ module Network.AWS.EC2.CreateTags
     -- * Request
       CreateTags
     -- ** Request constructor
-    , mkCreateTags
+    , createTags
     -- ** Request lenses
     , ctResources
     , ctTags
@@ -43,7 +43,7 @@ module Network.AWS.EC2.CreateTags
     -- * Response
     , CreateTagsResponse
     -- ** Response constructor
-    , mkCreateTagsResponse
+    , createTagsResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -64,10 +64,10 @@ data CreateTags = CreateTags
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkCreateTags :: [Text] -- ^ 'ctResources'
+createTags :: [Text] -- ^ 'ctResources'
              -> [Tag] -- ^ 'ctTags'
              -> CreateTags
-mkCreateTags p1 p2 = CreateTags
+createTags p1 p2 = CreateTags
     { _ctResources = p1
     , _ctTags = p2
     }
@@ -92,8 +92,8 @@ data CreateTagsResponse = CreateTagsResponse
 -- a valid 'CreateTagsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkCreateTagsResponse :: CreateTagsResponse
-mkCreateTagsResponse = CreateTagsResponse
+createTagsResponse :: CreateTagsResponse
+createTagsResponse = CreateTagsResponse
 
 instance AWSRequest CreateTags where
     type Sv CreateTags = EC2

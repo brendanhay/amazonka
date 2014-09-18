@@ -23,7 +23,7 @@ module Network.AWS.S3.CompleteMultipartUpload
     -- * Request
       CompleteMultipartUpload
     -- ** Request constructor
-    , mkCompleteMultipartUpload
+    , completeMultipartUpload
     -- ** Request lenses
     , cmuBucket
     , cmuKey
@@ -33,7 +33,7 @@ module Network.AWS.S3.CompleteMultipartUpload
     -- * Response
     , CompleteMultipartUploadResponse
     -- ** Response constructor
-    , mkCompleteMultipartUploadResponse
+    , completeMultipartUploadResponse
     -- ** Response lenses
     , cmurLocation
     , cmurBucket
@@ -69,11 +69,11 @@ data CompleteMultipartUpload = CompleteMultipartUpload
 --
 -- * @UploadId ::@ @Text@
 --
-mkCompleteMultipartUpload :: BucketName -- ^ 'cmuBucket'
+completeMultipartUpload :: BucketName -- ^ 'cmuBucket'
                           -> ObjectKey -- ^ 'cmuKey'
                           -> Text -- ^ 'cmuUploadId'
                           -> CompleteMultipartUpload
-mkCompleteMultipartUpload p1 p2 p4 = CompleteMultipartUpload
+completeMultipartUpload p1 p2 p4 = CompleteMultipartUpload
     { _cmuBucket = p1
     , _cmuKey = p2
     , _cmuMultipartUpload = Nothing
@@ -133,8 +133,8 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
 --
 -- * @VersionId ::@ @Maybe ObjectVersionId@
 --
-mkCompleteMultipartUploadResponse :: CompleteMultipartUploadResponse
-mkCompleteMultipartUploadResponse = CompleteMultipartUploadResponse
+completeMultipartUploadResponse :: CompleteMultipartUploadResponse
+completeMultipartUploadResponse = CompleteMultipartUploadResponse
     { _cmurLocation = Nothing
     , _cmurBucket = Nothing
     , _cmurKey = Nothing

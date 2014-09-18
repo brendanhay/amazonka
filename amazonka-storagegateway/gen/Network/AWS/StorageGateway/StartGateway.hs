@@ -43,14 +43,14 @@ module Network.AWS.StorageGateway.StartGateway
     -- * Request
       StartGateway
     -- ** Request constructor
-    , mkStartGateway
+    , startGateway
     -- ** Request lenses
     , sg1GatewayARN
 
     -- * Response
     , StartGatewayResponse
     -- ** Response constructor
-    , mkStartGatewayResponse
+    , startGatewayResponse
     -- ** Response lenses
     , sgrrGatewayARN
     ) where
@@ -71,9 +71,9 @@ newtype StartGateway = StartGateway
 --
 -- * @GatewayARN ::@ @Text@
 --
-mkStartGateway :: Text -- ^ 'sg1GatewayARN'
+startGateway :: Text -- ^ 'sg1GatewayARN'
                -> StartGateway
-mkStartGateway p1 = StartGateway
+startGateway p1 = StartGateway
     { _sg1GatewayARN = p1
     }
 
@@ -104,8 +104,8 @@ newtype StartGatewayResponse = StartGatewayResponse
 --
 -- * @GatewayARN ::@ @Maybe Text@
 --
-mkStartGatewayResponse :: StartGatewayResponse
-mkStartGatewayResponse = StartGatewayResponse
+startGatewayResponse :: StartGatewayResponse
+startGatewayResponse = StartGatewayResponse
     { _sgrrGatewayARN = Nothing
     }
 

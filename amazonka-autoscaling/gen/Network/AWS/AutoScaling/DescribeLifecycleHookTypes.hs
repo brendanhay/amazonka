@@ -23,11 +23,11 @@ module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
     -- * Request
       DescribeLifecycleHookTypes
     -- ** Request constructor
-    , mkDescribeLifecycleHookTypes
+    , describeLifecycleHookTypes
     -- * Response
     , DescribeLifecycleHookTypesResponse
     -- ** Response constructor
-    , mkDescribeLifecycleHookTypesResponse
+    , describeLifecycleHookTypesResponse
     -- ** Response lenses
     , dlhtrLifecycleHookTypes
     ) where
@@ -41,8 +41,8 @@ data DescribeLifecycleHookTypes = DescribeLifecycleHookTypes
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLifecycleHookTypes' request.
-mkDescribeLifecycleHookTypes :: DescribeLifecycleHookTypes
-mkDescribeLifecycleHookTypes = DescribeLifecycleHookTypes
+describeLifecycleHookTypes :: DescribeLifecycleHookTypes
+describeLifecycleHookTypes = DescribeLifecycleHookTypes
 
 instance ToQuery DescribeLifecycleHookTypes where
     toQuery = genericQuery def
@@ -60,8 +60,8 @@ newtype DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
 --
 -- * @LifecycleHookTypes ::@ @[Text]@
 --
-mkDescribeLifecycleHookTypesResponse :: DescribeLifecycleHookTypesResponse
-mkDescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
+describeLifecycleHookTypesResponse :: DescribeLifecycleHookTypesResponse
+describeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
     { _dlhtrLifecycleHookTypes = mempty
     }
 

@@ -57,7 +57,7 @@ module Network.AWS.ElasticTranscoder.CreatePipeline
     -- * Request
       CreatePipeline
     -- ** Request constructor
-    , mkCreatePipeline
+    , createPipeline
     -- ** Request lenses
     , cpName
     , cpInputBucket
@@ -70,7 +70,7 @@ module Network.AWS.ElasticTranscoder.CreatePipeline
     -- * Response
     , CreatePipelineResponse
     -- ** Response constructor
-    , mkCreatePipelineResponse
+    , createPipelineResponse
     -- ** Response lenses
     , cprPipeline
     ) where
@@ -109,11 +109,11 @@ data CreatePipeline = CreatePipeline
 --
 -- * @ThumbnailConfig ::@ @Maybe PipelineOutputConfig@
 --
-mkCreatePipeline :: Text -- ^ 'cpName'
+createPipeline :: Text -- ^ 'cpName'
                  -> Text -- ^ 'cpInputBucket'
                  -> Text -- ^ 'cpRole'
                  -> CreatePipeline
-mkCreatePipeline p1 p2 p4 = CreatePipeline
+createPipeline p1 p2 p4 = CreatePipeline
     { _cpName = p1
     , _cpInputBucket = p2
     , _cpOutputBucket = Nothing
@@ -285,8 +285,8 @@ newtype CreatePipelineResponse = CreatePipelineResponse
 --
 -- * @Pipeline ::@ @Maybe Pipeline@
 --
-mkCreatePipelineResponse :: CreatePipelineResponse
-mkCreatePipelineResponse = CreatePipelineResponse
+createPipelineResponse :: CreatePipelineResponse
+createPipelineResponse = CreatePipelineResponse
     { _cprPipeline = Nothing
     }
 

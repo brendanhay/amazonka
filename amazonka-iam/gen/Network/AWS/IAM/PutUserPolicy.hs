@@ -35,7 +35,7 @@ module Network.AWS.IAM.PutUserPolicy
     -- * Request
       PutUserPolicy
     -- ** Request constructor
-    , mkPutUserPolicy
+    , putUserPolicy
     -- ** Request lenses
     , pupUserName
     , pupPolicyName
@@ -44,7 +44,7 @@ module Network.AWS.IAM.PutUserPolicy
     -- * Response
     , PutUserPolicyResponse
     -- ** Response constructor
-    , mkPutUserPolicyResponse
+    , putUserPolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -68,11 +68,11 @@ data PutUserPolicy = PutUserPolicy
 --
 -- * @PolicyDocument ::@ @Text@
 --
-mkPutUserPolicy :: Text -- ^ 'pupUserName'
+putUserPolicy :: Text -- ^ 'pupUserName'
                 -> Text -- ^ 'pupPolicyName'
                 -> Text -- ^ 'pupPolicyDocument'
                 -> PutUserPolicy
-mkPutUserPolicy p1 p2 p3 = PutUserPolicy
+putUserPolicy p1 p2 p3 = PutUserPolicy
     { _pupUserName = p1
     , _pupPolicyName = p2
     , _pupPolicyDocument = p3
@@ -101,8 +101,8 @@ data PutUserPolicyResponse = PutUserPolicyResponse
 -- a valid 'PutUserPolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkPutUserPolicyResponse :: PutUserPolicyResponse
-mkPutUserPolicyResponse = PutUserPolicyResponse
+putUserPolicyResponse :: PutUserPolicyResponse
+putUserPolicyResponse = PutUserPolicyResponse
 
 instance AWSRequest PutUserPolicy where
     type Sv PutUserPolicy = IAM

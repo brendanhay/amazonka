@@ -23,7 +23,7 @@ module Network.AWS.S3.PutBucketCors
     -- * Request
       PutBucketCors
     -- ** Request constructor
-    , mkPutBucketCors
+    , putBucketCors
     -- ** Request lenses
     , pbcBucket
     , pbcCORSConfiguration
@@ -32,7 +32,7 @@ module Network.AWS.S3.PutBucketCors
     -- * Response
     , PutBucketCorsResponse
     -- ** Response constructor
-    , mkPutBucketCorsResponse
+    , putBucketCorsResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -57,9 +57,9 @@ data PutBucketCors = PutBucketCors
 --
 -- * @ContentMD5 ::@ @Maybe Text@
 --
-mkPutBucketCors :: BucketName -- ^ 'pbcBucket'
+putBucketCors :: BucketName -- ^ 'pbcBucket'
                 -> PutBucketCors
-mkPutBucketCors p1 = PutBucketCors
+putBucketCors p1 = PutBucketCors
     { _pbcBucket = p1
     , _pbcCORSConfiguration = Nothing
     , _pbcContentMD5 = Nothing
@@ -94,8 +94,8 @@ data PutBucketCorsResponse = PutBucketCorsResponse
 -- a valid 'PutBucketCorsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkPutBucketCorsResponse :: PutBucketCorsResponse
-mkPutBucketCorsResponse = PutBucketCorsResponse
+putBucketCorsResponse :: PutBucketCorsResponse
+putBucketCorsResponse = PutBucketCorsResponse
 
 instance AWSRequest PutBucketCors where
     type Sv PutBucketCors = S3

@@ -32,7 +32,7 @@ module Network.AWS.OpsWorks.CreateLayer
     -- * Request
       CreateLayer
     -- ** Request constructor
-    , mkCreateLayer
+    , createLayer
     -- ** Request lenses
     , clStackId
     , clType
@@ -53,7 +53,7 @@ module Network.AWS.OpsWorks.CreateLayer
     -- * Response
     , CreateLayerResponse
     -- ** Response constructor
-    , mkCreateLayerResponse
+    , createLayerResponse
     -- ** Response lenses
     , clrLayerId
     ) where
@@ -115,12 +115,12 @@ data CreateLayer = CreateLayer
 --
 -- * @UseEbsOptimizedInstances ::@ @Maybe Bool@
 --
-mkCreateLayer :: Text -- ^ 'clStackId'
+createLayer :: Text -- ^ 'clStackId'
               -> LayerType -- ^ 'clType'
               -> Text -- ^ 'clName'
               -> Text -- ^ 'clShortname'
               -> CreateLayer
-mkCreateLayer p1 p2 p3 p4 = CreateLayer
+createLayer p1 p2 p3 p4 = CreateLayer
     { _clStackId = p1
     , _clType = p2
     , _clName = p3
@@ -252,8 +252,8 @@ newtype CreateLayerResponse = CreateLayerResponse
 --
 -- * @LayerId ::@ @Maybe Text@
 --
-mkCreateLayerResponse :: CreateLayerResponse
-mkCreateLayerResponse = CreateLayerResponse
+createLayerResponse :: CreateLayerResponse
+createLayerResponse = CreateLayerResponse
     { _clrLayerId = Nothing
     }
 

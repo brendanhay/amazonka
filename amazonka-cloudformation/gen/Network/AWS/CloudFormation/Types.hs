@@ -58,21 +58,21 @@ module Network.AWS.CloudFormation.Types
 
     -- * Output
     , Output
-    , mkOutput
+    , output
     , oOutputKey
     , oOutputValue
     , oDescription
 
     -- * Parameter
     , Parameter
-    , mkParameter
+    , parameter
     , pParameterKey
     , pParameterValue
     , pUsePreviousValue
 
     -- * Stack
     , Stack
-    , mkStack
+    , stack
     , sStackId
     , sStackName
     , sDescription
@@ -90,7 +90,7 @@ module Network.AWS.CloudFormation.Types
 
     -- * StackEvent
     , StackEvent
-    , mkStackEvent
+    , stackEvent
     , seStackId
     , seEventId
     , seStackName
@@ -104,7 +104,7 @@ module Network.AWS.CloudFormation.Types
 
     -- * StackResource
     , StackResource
-    , mkStackResource
+    , stackResource
     , srStackName
     , srStackId
     , srLogicalResourceId
@@ -117,7 +117,7 @@ module Network.AWS.CloudFormation.Types
 
     -- * StackResourceDetail
     , StackResourceDetail
-    , mkStackResourceDetail
+    , stackResourceDetail
     , srdStackName
     , srdStackId
     , srdLogicalResourceId
@@ -131,7 +131,7 @@ module Network.AWS.CloudFormation.Types
 
     -- * StackResourceSummary
     , StackResourceSummary
-    , mkStackResourceSummary
+    , stackResourceSummary
     , srsLogicalResourceId
     , srsPhysicalResourceId
     , srsResourceType
@@ -141,7 +141,7 @@ module Network.AWS.CloudFormation.Types
 
     -- * StackSummary
     , StackSummary
-    , mkStackSummary
+    , stackSummary
     , ssStackId
     , ssStackName
     , ssTemplateDescription
@@ -153,13 +153,13 @@ module Network.AWS.CloudFormation.Types
 
     -- * Tag
     , Tag
-    , mkTag
+    , tag
     , tKey
     , tValue
 
     -- * TemplateParameter
     , TemplateParameter
-    , mkTemplateParameter
+    , templateParameter
     , tpParameterKey
     , tpDefaultValue
     , tpNoEcho
@@ -193,8 +193,8 @@ data CloudFormationError
       -- | Resource with the name requested already exists.
     = AlreadyExistsException
     | CloudFormationClient HttpException
-    | CloudFormationSerializer Text
-    | CloudFormationService Text
+    | CloudFormationSerializer String
+    | CloudFormationService String
       -- | The template contains resources with capabilities that were not
       -- specified in the Capabilities parameter.
     | InsufficientCapabilitiesException
@@ -231,7 +231,7 @@ _CloudFormationClient = prism'
         x -> Left x)
 
 -- | See: 'CloudFormationSerializer'
-_CloudFormationSerializer :: Prism' CloudFormationError Text
+_CloudFormationSerializer :: Prism' CloudFormationError String
 _CloudFormationSerializer = prism'
     CloudFormationSerializer
     (\case
@@ -239,7 +239,7 @@ _CloudFormationSerializer = prism'
         x -> Left x)
 
 -- | See: 'CloudFormationService'
-_CloudFormationService :: Prism' CloudFormationError Text
+_CloudFormationService :: Prism' CloudFormationError String
 _CloudFormationService = prism'
     CloudFormationService
     (\case
@@ -443,8 +443,8 @@ data Output = Output
 --
 -- * @Description ::@ @Maybe Text@
 --
-mkOutput :: Output
-mkOutput = Output
+output :: Output
+output = Output
     { _oOutputKey = Nothing
     , _oOutputValue = Nothing
     , _oDescription = Nothing
@@ -487,8 +487,8 @@ data Parameter = Parameter
 --
 -- * @UsePreviousValue ::@ @Maybe Bool@
 --
-mkParameter :: Parameter
-mkParameter = Parameter
+parameter :: Parameter
+parameter = Parameter
     { _pParameterKey = Nothing
     , _pParameterValue = Nothing
     , _pUsePreviousValue = Nothing
@@ -569,11 +569,11 @@ data Stack = Stack
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkStack :: Text -- ^ 'sStackName'
+stack :: Text -- ^ 'sStackName'
         -> ISO8601 -- ^ 'sCreationTime'
         -> StackStatus -- ^ 'sStackStatus'
         -> Stack
-mkStack p2 p5 p7 = Stack
+stack p2 p5 p7 = Stack
     { _sStackId = Nothing
     , _sStackName = p2
     , _sDescription = Nothing
@@ -699,12 +699,12 @@ data StackEvent = StackEvent
 --
 -- * @ResourceProperties ::@ @Maybe Text@
 --
-mkStackEvent :: Text -- ^ 'seStackId'
+stackEvent :: Text -- ^ 'seStackId'
              -> Text -- ^ 'seEventId'
              -> Text -- ^ 'seStackName'
              -> ISO8601 -- ^ 'seTimestamp'
              -> StackEvent
-mkStackEvent p1 p2 p3 p7 = StackEvent
+stackEvent p1 p2 p3 p7 = StackEvent
     { _seStackId = p1
     , _seEventId = p2
     , _seStackName = p3
@@ -807,12 +807,12 @@ data StackResource = StackResource
 --
 -- * @Description ::@ @Maybe Text@
 --
-mkStackResource :: Text -- ^ 'srLogicalResourceId'
+stackResource :: Text -- ^ 'srLogicalResourceId'
                 -> Text -- ^ 'srResourceType'
                 -> ISO8601 -- ^ 'srTimestamp'
                 -> ResourceStatus -- ^ 'srResourceStatus'
                 -> StackResource
-mkStackResource p3 p5 p6 p7 = StackResource
+stackResource p3 p5 p6 p7 = StackResource
     { _srStackName = Nothing
     , _srStackId = Nothing
     , _srLogicalResourceId = p3
@@ -913,12 +913,12 @@ data StackResourceDetail = StackResourceDetail
 --
 -- * @Metadata ::@ @Maybe Text@
 --
-mkStackResourceDetail :: Text -- ^ 'srdLogicalResourceId'
+stackResourceDetail :: Text -- ^ 'srdLogicalResourceId'
                       -> Text -- ^ 'srdResourceType'
                       -> ISO8601 -- ^ 'srdLastUpdatedTimestamp'
                       -> ResourceStatus -- ^ 'srdResourceStatus'
                       -> StackResourceDetail
-mkStackResourceDetail p3 p5 p6 p7 = StackResourceDetail
+stackResourceDetail p3 p5 p6 p7 = StackResourceDetail
     { _srdStackName = Nothing
     , _srdStackId = Nothing
     , _srdLogicalResourceId = p3
@@ -1016,12 +1016,12 @@ data StackResourceSummary = StackResourceSummary
 --
 -- * @ResourceStatusReason ::@ @Maybe Text@
 --
-mkStackResourceSummary :: Text -- ^ 'srsLogicalResourceId'
+stackResourceSummary :: Text -- ^ 'srsLogicalResourceId'
                        -> Text -- ^ 'srsResourceType'
                        -> ISO8601 -- ^ 'srsLastUpdatedTimestamp'
                        -> ResourceStatus -- ^ 'srsResourceStatus'
                        -> StackResourceSummary
-mkStackResourceSummary p1 p3 p4 p5 = StackResourceSummary
+stackResourceSummary p1 p3 p4 p5 = StackResourceSummary
     { _srsLogicalResourceId = p1
     , _srsPhysicalResourceId = Nothing
     , _srsResourceType = p3
@@ -1103,11 +1103,11 @@ data StackSummary = StackSummary
 --
 -- * @StackStatusReason ::@ @Maybe Text@
 --
-mkStackSummary :: Text -- ^ 'ssStackName'
+stackSummary :: Text -- ^ 'ssStackName'
                -> ISO8601 -- ^ 'ssCreationTime'
                -> StackStatus -- ^ 'ssStackStatus'
                -> StackSummary
-mkStackSummary p2 p4 p7 = StackSummary
+stackSummary p2 p4 p7 = StackSummary
     { _ssStackId = Nothing
     , _ssStackName = p2
     , _ssTemplateDescription = Nothing
@@ -1175,8 +1175,8 @@ data Tag = Tag
 --
 -- * @Value ::@ @Maybe Text@
 --
-mkTag :: Tag
-mkTag = Tag
+tag :: Tag
+tag = Tag
     { _tKey = Nothing
     , _tValue = Nothing
     }
@@ -1223,8 +1223,8 @@ data TemplateParameter = TemplateParameter
 --
 -- * @Description ::@ @Maybe Text@
 --
-mkTemplateParameter :: TemplateParameter
-mkTemplateParameter = TemplateParameter
+templateParameter :: TemplateParameter
+templateParameter = TemplateParameter
     { _tpParameterKey = Nothing
     , _tpDefaultValue = Nothing
     , _tpNoEcho = Nothing

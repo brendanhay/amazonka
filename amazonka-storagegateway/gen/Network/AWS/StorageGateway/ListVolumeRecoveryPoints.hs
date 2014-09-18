@@ -47,14 +47,14 @@ module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
     -- * Request
       ListVolumeRecoveryPoints
     -- ** Request constructor
-    , mkListVolumeRecoveryPoints
+    , listVolumeRecoveryPoints
     -- ** Request lenses
     , lvrpGatewayARN
 
     -- * Response
     , ListVolumeRecoveryPointsResponse
     -- ** Response constructor
-    , mkListVolumeRecoveryPointsResponse
+    , listVolumeRecoveryPointsResponse
     -- ** Response lenses
     , lvrprGatewayARN
     , lvrprVolumeRecoveryPointInfos
@@ -75,9 +75,9 @@ newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints
 --
 -- * @GatewayARN ::@ @Text@
 --
-mkListVolumeRecoveryPoints :: Text -- ^ 'lvrpGatewayARN'
+listVolumeRecoveryPoints :: Text -- ^ 'lvrpGatewayARN'
                            -> ListVolumeRecoveryPoints
-mkListVolumeRecoveryPoints p1 = ListVolumeRecoveryPoints
+listVolumeRecoveryPoints p1 = ListVolumeRecoveryPoints
     { _lvrpGatewayARN = p1
     }
 
@@ -110,8 +110,8 @@ data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse
 --
 -- * @VolumeRecoveryPointInfos ::@ @[VolumeRecoveryPointInfo]@
 --
-mkListVolumeRecoveryPointsResponse :: ListVolumeRecoveryPointsResponse
-mkListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse
+listVolumeRecoveryPointsResponse :: ListVolumeRecoveryPointsResponse
+listVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse
     { _lvrprGatewayARN = Nothing
     , _lvrprVolumeRecoveryPointInfos = mempty
     }

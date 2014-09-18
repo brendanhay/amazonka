@@ -39,7 +39,6 @@ library
 
     exposed-modules:
           Network.AWS.EC2
-        , Network.AWS.EC2.Monadic
         , Network.AWS.EC2.Types
         , Network.AWS.EC2.AcceptVpcPeeringConnection
         , Network.AWS.EC2.AllocateAddress

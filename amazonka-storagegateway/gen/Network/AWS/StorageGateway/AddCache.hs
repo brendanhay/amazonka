@@ -42,7 +42,7 @@ module Network.AWS.StorageGateway.AddCache
     -- * Request
       AddCache
     -- ** Request constructor
-    , mkAddCache
+    , addCache
     -- ** Request lenses
     , acGatewayARN
     , acDiskIds
@@ -50,7 +50,7 @@ module Network.AWS.StorageGateway.AddCache
     -- * Response
     , AddCacheResponse
     -- ** Response constructor
-    , mkAddCacheResponse
+    , addCacheResponse
     -- ** Response lenses
     , acrGatewayARN
     ) where
@@ -73,10 +73,10 @@ data AddCache = AddCache
 --
 -- * @DiskIds ::@ @[Text]@
 --
-mkAddCache :: Text -- ^ 'acGatewayARN'
+addCache :: Text -- ^ 'acGatewayARN'
            -> [Text] -- ^ 'acDiskIds'
            -> AddCache
-mkAddCache p1 p2 = AddCache
+addCache p1 p2 = AddCache
     { _acGatewayARN = p1
     , _acDiskIds = p2
     }
@@ -110,8 +110,8 @@ newtype AddCacheResponse = AddCacheResponse
 --
 -- * @GatewayARN ::@ @Maybe Text@
 --
-mkAddCacheResponse :: AddCacheResponse
-mkAddCacheResponse = AddCacheResponse
+addCacheResponse :: AddCacheResponse
+addCacheResponse = AddCacheResponse
     { _acrGatewayARN = Nothing
     }
 

@@ -29,7 +29,7 @@ module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
     -- * Request
       AllocatePrivateVirtualInterface
     -- ** Request constructor
-    , mkAllocatePrivateVirtualInterface
+    , allocatePrivateVirtualInterface
     -- ** Request lenses
     , apviConnectionId
     , apviOwnerAccount
@@ -38,7 +38,7 @@ module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
     -- * Response
     , AllocatePrivateVirtualInterfaceResponse
     -- ** Response constructor
-    , mkAllocatePrivateVirtualInterfaceResponse
+    , allocatePrivateVirtualInterfaceResponse
     -- ** Response lenses
     , apvirOwnerAccount
     , apvirVirtualInterfaceId
@@ -80,11 +80,11 @@ data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface
 --
 -- * @NewPrivateVirtualInterfaceAllocation ::@ @NewPrivateVirtualInterfaceAllocation@
 --
-mkAllocatePrivateVirtualInterface :: Text -- ^ 'apviConnectionId'
+allocatePrivateVirtualInterface :: Text -- ^ 'apviConnectionId'
                                   -> Text -- ^ 'apviOwnerAccount'
                                   -> NewPrivateVirtualInterfaceAllocation -- ^ 'apviNewPrivateVirtualInterfaceAllocation'
                                   -> AllocatePrivateVirtualInterface
-mkAllocatePrivateVirtualInterface p1 p2 p3 = AllocatePrivateVirtualInterface
+allocatePrivateVirtualInterface p1 p2 p3 = AllocatePrivateVirtualInterface
     { _apviConnectionId = p1
     , _apviOwnerAccount = p2
     , _apviNewPrivateVirtualInterfaceAllocation = p3
@@ -174,8 +174,8 @@ data AllocatePrivateVirtualInterfaceResponse = AllocatePrivateVirtualInterfaceRe
 --
 -- * @RouteFilterPrefixes ::@ @[RouteFilterPrefix]@
 --
-mkAllocatePrivateVirtualInterfaceResponse :: AllocatePrivateVirtualInterfaceResponse
-mkAllocatePrivateVirtualInterfaceResponse = AllocatePrivateVirtualInterfaceResponse
+allocatePrivateVirtualInterfaceResponse :: AllocatePrivateVirtualInterfaceResponse
+allocatePrivateVirtualInterfaceResponse = AllocatePrivateVirtualInterfaceResponse
     { _apvirOwnerAccount = Nothing
     , _apvirVirtualInterfaceId = Nothing
     , _apvirLocation = Nothing

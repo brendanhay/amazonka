@@ -44,7 +44,7 @@ module Network.AWS.EC2.PurchaseReservedInstancesOffering
     -- * Request
       PurchaseReservedInstancesOffering
     -- ** Request constructor
-    , mkPurchaseReservedInstancesOffering
+    , purchaseReservedInstancesOffering
     -- ** Request lenses
     , prioReservedInstancesOfferingId
     , prioInstanceCount
@@ -53,7 +53,7 @@ module Network.AWS.EC2.PurchaseReservedInstancesOffering
     -- * Response
     , PurchaseReservedInstancesOfferingResponse
     -- ** Response constructor
-    , mkPurchaseReservedInstancesOfferingResponse
+    , purchaseReservedInstancesOfferingResponse
     -- ** Response lenses
     , priorReservedInstancesId
     ) where
@@ -79,10 +79,10 @@ data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
 --
 -- * @LimitPrice ::@ @Maybe ReservedInstanceLimitPrice@
 --
-mkPurchaseReservedInstancesOffering :: Text -- ^ 'prioReservedInstancesOfferingId'
+purchaseReservedInstancesOffering :: Text -- ^ 'prioReservedInstancesOfferingId'
                                     -> Integer -- ^ 'prioInstanceCount'
                                     -> PurchaseReservedInstancesOffering
-mkPurchaseReservedInstancesOffering p1 p2 = PurchaseReservedInstancesOffering
+purchaseReservedInstancesOffering p1 p2 = PurchaseReservedInstancesOffering
     { _prioReservedInstancesOfferingId = p1
     , _prioInstanceCount = p2
     , _prioLimitPrice = Nothing
@@ -121,8 +121,8 @@ newtype PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOff
 --
 -- * @ReservedInstancesId ::@ @Maybe Text@
 --
-mkPurchaseReservedInstancesOfferingResponse :: PurchaseReservedInstancesOfferingResponse
-mkPurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
+purchaseReservedInstancesOfferingResponse :: PurchaseReservedInstancesOfferingResponse
+purchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
     { _priorReservedInstancesId = Nothing
     }
 

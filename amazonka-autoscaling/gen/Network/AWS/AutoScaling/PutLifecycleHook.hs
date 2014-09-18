@@ -41,7 +41,7 @@ module Network.AWS.AutoScaling.PutLifecycleHook
     -- * Request
       PutLifecycleHook
     -- ** Request constructor
-    , mkPutLifecycleHook
+    , putLifecycleHook
     -- ** Request lenses
     , plhLifecycleHookName
     , plhAutoScalingGroupName
@@ -55,7 +55,7 @@ module Network.AWS.AutoScaling.PutLifecycleHook
     -- * Response
     , PutLifecycleHookResponse
     -- ** Response constructor
-    , mkPutLifecycleHookResponse
+    , putLifecycleHookResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -94,10 +94,10 @@ data PutLifecycleHook = PutLifecycleHook
 --
 -- * @DefaultResult ::@ @Maybe Text@
 --
-mkPutLifecycleHook :: Text -- ^ 'plhLifecycleHookName'
+putLifecycleHook :: Text -- ^ 'plhLifecycleHookName'
                    -> Text -- ^ 'plhAutoScalingGroupName'
                    -> PutLifecycleHook
-mkPutLifecycleHook p1 p2 = PutLifecycleHook
+putLifecycleHook p1 p2 = PutLifecycleHook
     { _plhLifecycleHookName = p1
     , _plhAutoScalingGroupName = p2
     , _plhLifecycleTransition = Nothing
@@ -190,8 +190,8 @@ data PutLifecycleHookResponse = PutLifecycleHookResponse
 -- a valid 'PutLifecycleHookResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkPutLifecycleHookResponse :: PutLifecycleHookResponse
-mkPutLifecycleHookResponse = PutLifecycleHookResponse
+putLifecycleHookResponse :: PutLifecycleHookResponse
+putLifecycleHookResponse = PutLifecycleHookResponse
 
 instance AWSRequest PutLifecycleHook where
     type Sv PutLifecycleHook = AutoScaling

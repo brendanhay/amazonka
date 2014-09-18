@@ -31,7 +31,7 @@ module Network.AWS.RDS.DescribeDBParameterGroups
     -- * Request
       DescribeDBParameterGroups
     -- ** Request constructor
-    , mkDescribeDBParameterGroups
+    , describeDBParameterGroups
     -- ** Request lenses
     , ddbpg1DBParameterGroupName
     , ddbpg1MaxRecords
@@ -40,7 +40,7 @@ module Network.AWS.RDS.DescribeDBParameterGroups
     -- * Response
     , DescribeDBParameterGroupsResponse
     -- ** Response constructor
-    , mkDescribeDBParameterGroupsResponse
+    , describeDBParameterGroupsResponse
     -- ** Response lenses
     , ddbpgrMarker
     , ddbpgrDBParameterGroups
@@ -68,8 +68,8 @@ data DescribeDBParameterGroups = DescribeDBParameterGroups
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeDBParameterGroups :: DescribeDBParameterGroups
-mkDescribeDBParameterGroups = DescribeDBParameterGroups
+describeDBParameterGroups :: DescribeDBParameterGroups
+describeDBParameterGroups = DescribeDBParameterGroups
     { _ddbpg1DBParameterGroupName = Nothing
     , _ddbpg1MaxRecords = Nothing
     , _ddbpg1Marker = Nothing
@@ -119,8 +119,8 @@ data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse
 --
 -- * @DBParameterGroups ::@ @[DBParameterGroup]@
 --
-mkDescribeDBParameterGroupsResponse :: DescribeDBParameterGroupsResponse
-mkDescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse
+describeDBParameterGroupsResponse :: DescribeDBParameterGroupsResponse
+describeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse
     { _ddbpgrMarker = Nothing
     , _ddbpgrDBParameterGroups = mempty
     }

@@ -23,14 +23,14 @@ module Network.AWS.CloudWatch.EnableAlarmActions
     -- * Request
       EnableAlarmActions
     -- ** Request constructor
-    , mkEnableAlarmActions
+    , enableAlarmActions
     -- ** Request lenses
     , eaaAlarmNames
 
     -- * Response
     , EnableAlarmActionsResponse
     -- ** Response constructor
-    , mkEnableAlarmActionsResponse
+    , enableAlarmActionsResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -48,9 +48,9 @@ newtype EnableAlarmActions = EnableAlarmActions
 --
 -- * @AlarmNames ::@ @[Text]@
 --
-mkEnableAlarmActions :: [Text] -- ^ 'eaaAlarmNames'
+enableAlarmActions :: [Text] -- ^ 'eaaAlarmNames'
                      -> EnableAlarmActions
-mkEnableAlarmActions p1 = EnableAlarmActions
+enableAlarmActions p1 = EnableAlarmActions
     { _eaaAlarmNames = p1
     }
 
@@ -68,8 +68,8 @@ data EnableAlarmActionsResponse = EnableAlarmActionsResponse
 -- a valid 'EnableAlarmActionsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkEnableAlarmActionsResponse :: EnableAlarmActionsResponse
-mkEnableAlarmActionsResponse = EnableAlarmActionsResponse
+enableAlarmActionsResponse :: EnableAlarmActionsResponse
+enableAlarmActionsResponse = EnableAlarmActionsResponse
 
 instance AWSRequest EnableAlarmActions where
     type Sv EnableAlarmActions = CloudWatch

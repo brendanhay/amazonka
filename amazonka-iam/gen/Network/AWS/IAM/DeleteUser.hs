@@ -26,14 +26,14 @@ module Network.AWS.IAM.DeleteUser
     -- * Request
       DeleteUser
     -- ** Request constructor
-    , mkDeleteUser
+    , deleteUser
     -- ** Request lenses
     , duUserName
 
     -- * Response
     , DeleteUserResponse
     -- ** Response constructor
-    , mkDeleteUserResponse
+    , deleteUserResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -51,9 +51,9 @@ newtype DeleteUser = DeleteUser
 --
 -- * @UserName ::@ @Text@
 --
-mkDeleteUser :: Text -- ^ 'duUserName'
+deleteUser :: Text -- ^ 'duUserName'
              -> DeleteUser
-mkDeleteUser p1 = DeleteUser
+deleteUser p1 = DeleteUser
     { _duUserName = p1
     }
 
@@ -71,8 +71,8 @@ data DeleteUserResponse = DeleteUserResponse
 -- a valid 'DeleteUserResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteUserResponse :: DeleteUserResponse
-mkDeleteUserResponse = DeleteUserResponse
+deleteUserResponse :: DeleteUserResponse
+deleteUserResponse = DeleteUserResponse
 
 instance AWSRequest DeleteUser where
     type Sv DeleteUser = IAM

@@ -23,14 +23,14 @@ module Network.AWS.S3.GetBucketAcl
     -- * Request
       GetBucketAcl
     -- ** Request constructor
-    , mkGetBucketAcl
+    , getBucketAcl
     -- ** Request lenses
     , gbaBucket
 
     -- * Response
     , GetBucketAclResponse
     -- ** Response constructor
-    , mkGetBucketAclResponse
+    , getBucketAclResponse
     -- ** Response lenses
     , gbarOwner
     , gbarGrants
@@ -52,9 +52,9 @@ newtype GetBucketAcl = GetBucketAcl
 --
 -- * @Bucket ::@ @BucketName@
 --
-mkGetBucketAcl :: BucketName -- ^ 'gbaBucket'
+getBucketAcl :: BucketName -- ^ 'gbaBucket'
                -> GetBucketAcl
-mkGetBucketAcl p1 = GetBucketAcl
+getBucketAcl p1 = GetBucketAcl
     { _gbaBucket = p1
     }
 
@@ -85,8 +85,8 @@ data GetBucketAclResponse = GetBucketAclResponse
 --
 -- * @Grants ::@ @[Grant]@
 --
-mkGetBucketAclResponse :: GetBucketAclResponse
-mkGetBucketAclResponse = GetBucketAclResponse
+getBucketAclResponse :: GetBucketAclResponse
+getBucketAclResponse = GetBucketAclResponse
     { _gbarOwner = Nothing
     , _gbarGrants = mempty
     }

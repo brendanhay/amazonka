@@ -28,11 +28,11 @@ module Network.AWS.EC2.CreateInternetGateway
     -- * Request
       CreateInternetGateway
     -- ** Request constructor
-    , mkCreateInternetGateway
+    , createInternetGateway
     -- * Response
     , CreateInternetGatewayResponse
     -- ** Response constructor
-    , mkCreateInternetGatewayResponse
+    , createInternetGatewayResponse
     -- ** Response lenses
     , cigrInternetGateway
     ) where
@@ -46,8 +46,8 @@ data CreateInternetGateway = CreateInternetGateway
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateInternetGateway' request.
-mkCreateInternetGateway :: CreateInternetGateway
-mkCreateInternetGateway = CreateInternetGateway
+createInternetGateway :: CreateInternetGateway
+createInternetGateway = CreateInternetGateway
 
 instance ToQuery CreateInternetGateway where
     toQuery = genericQuery def
@@ -65,8 +65,8 @@ newtype CreateInternetGatewayResponse = CreateInternetGatewayResponse
 --
 -- * @InternetGateway ::@ @Maybe InternetGateway@
 --
-mkCreateInternetGatewayResponse :: CreateInternetGatewayResponse
-mkCreateInternetGatewayResponse = CreateInternetGatewayResponse
+createInternetGatewayResponse :: CreateInternetGatewayResponse
+createInternetGatewayResponse = CreateInternetGatewayResponse
     { _cigrInternetGateway = Nothing
     }
 

@@ -28,7 +28,7 @@ module Network.AWS.CloudSearch.DescribeIndexFields
     -- * Request
       DescribeIndexFields
     -- ** Request constructor
-    , mkDescribeIndexFields
+    , describeIndexFields
     -- ** Request lenses
     , dif2DomainName
     , dif2FieldNames
@@ -37,7 +37,7 @@ module Network.AWS.CloudSearch.DescribeIndexFields
     -- * Response
     , DescribeIndexFieldsResponse
     -- ** Response constructor
-    , mkDescribeIndexFieldsResponse
+    , describeIndexFieldsResponse
     -- ** Response lenses
     , difr1IndexFields
     ) where
@@ -68,9 +68,9 @@ data DescribeIndexFields = DescribeIndexFields
 --
 -- * @Deployed ::@ @Maybe Bool@
 --
-mkDescribeIndexFields :: Text -- ^ 'dif2DomainName'
+describeIndexFields :: Text -- ^ 'dif2DomainName'
                       -> DescribeIndexFields
-mkDescribeIndexFields p1 = DescribeIndexFields
+describeIndexFields p1 = DescribeIndexFields
     { _dif2DomainName = p1
     , _dif2FieldNames = mempty
     , _dif2Deployed = Nothing
@@ -108,9 +108,9 @@ newtype DescribeIndexFieldsResponse = DescribeIndexFieldsResponse
 --
 -- * @IndexFields ::@ @[IndexFieldStatus]@
 --
-mkDescribeIndexFieldsResponse :: [IndexFieldStatus] -- ^ 'difr1IndexFields'
+describeIndexFieldsResponse :: [IndexFieldStatus] -- ^ 'difr1IndexFields'
                               -> DescribeIndexFieldsResponse
-mkDescribeIndexFieldsResponse p1 = DescribeIndexFieldsResponse
+describeIndexFieldsResponse p1 = DescribeIndexFieldsResponse
     { _difr1IndexFields = p1
     }
 

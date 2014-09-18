@@ -32,14 +32,14 @@ module Network.AWS.EC2.DeleteVpnGateway
     -- * Request
       DeleteVpnGateway
     -- ** Request constructor
-    , mkDeleteVpnGateway
+    , deleteVpnGateway
     -- ** Request lenses
     , dvgVpnGatewayId
 
     -- * Response
     , DeleteVpnGatewayResponse
     -- ** Response constructor
-    , mkDeleteVpnGatewayResponse
+    , deleteVpnGatewayResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -57,9 +57,9 @@ newtype DeleteVpnGateway = DeleteVpnGateway
 --
 -- * @VpnGatewayId ::@ @Text@
 --
-mkDeleteVpnGateway :: Text -- ^ 'dvgVpnGatewayId'
+deleteVpnGateway :: Text -- ^ 'dvgVpnGatewayId'
                    -> DeleteVpnGateway
-mkDeleteVpnGateway p1 = DeleteVpnGateway
+deleteVpnGateway p1 = DeleteVpnGateway
     { _dvgVpnGatewayId = p1
     }
 
@@ -77,8 +77,8 @@ data DeleteVpnGatewayResponse = DeleteVpnGatewayResponse
 -- a valid 'DeleteVpnGatewayResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteVpnGatewayResponse :: DeleteVpnGatewayResponse
-mkDeleteVpnGatewayResponse = DeleteVpnGatewayResponse
+deleteVpnGatewayResponse :: DeleteVpnGatewayResponse
+deleteVpnGatewayResponse = DeleteVpnGatewayResponse
 
 instance AWSRequest DeleteVpnGateway where
     type Sv DeleteVpnGateway = EC2

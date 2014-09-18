@@ -28,14 +28,14 @@ module Network.AWS.IAM.GetSAMLProvider
     -- * Request
       GetSAMLProvider
     -- ** Request constructor
-    , mkGetSAMLProvider
+    , getSAMLProvider
     -- ** Request lenses
     , gsamlpSAMLProviderArn
 
     -- * Response
     , GetSAMLProviderResponse
     -- ** Response constructor
-    , mkGetSAMLProviderResponse
+    , getSAMLProviderResponse
     -- ** Response lenses
     , gsamlprSAMLMetadataDocument
     , gsamlprCreateDate
@@ -57,9 +57,9 @@ newtype GetSAMLProvider = GetSAMLProvider
 --
 -- * @SAMLProviderArn ::@ @Text@
 --
-mkGetSAMLProvider :: Text -- ^ 'gsamlpSAMLProviderArn'
+getSAMLProvider :: Text -- ^ 'gsamlpSAMLProviderArn'
                   -> GetSAMLProvider
-mkGetSAMLProvider p1 = GetSAMLProvider
+getSAMLProvider p1 = GetSAMLProvider
     { _gsamlpSAMLProviderArn = p1
     }
 
@@ -93,8 +93,8 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse
 --
 -- * @ValidUntil ::@ @Maybe ISO8601@
 --
-mkGetSAMLProviderResponse :: GetSAMLProviderResponse
-mkGetSAMLProviderResponse = GetSAMLProviderResponse
+getSAMLProviderResponse :: GetSAMLProviderResponse
+getSAMLProviderResponse = GetSAMLProviderResponse
     { _gsamlprSAMLMetadataDocument = Nothing
     , _gsamlprCreateDate = Nothing
     , _gsamlprValidUntil = Nothing

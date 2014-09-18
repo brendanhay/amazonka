@@ -52,7 +52,7 @@ module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     -- * Request
       UpdateAutoScalingGroup
     -- ** Request constructor
-    , mkUpdateAutoScalingGroup
+    , updateAutoScalingGroup
     -- ** Request lenses
     , uasgAutoScalingGroupName
     , uasgLaunchConfigurationName
@@ -70,7 +70,7 @@ module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     -- * Response
     , UpdateAutoScalingGroupResponse
     -- ** Response constructor
-    , mkUpdateAutoScalingGroupResponse
+    , updateAutoScalingGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -122,9 +122,9 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup
 --
 -- * @TerminationPolicies ::@ @[Text]@
 --
-mkUpdateAutoScalingGroup :: Text -- ^ 'uasgAutoScalingGroupName'
+updateAutoScalingGroup :: Text -- ^ 'uasgAutoScalingGroupName'
                          -> UpdateAutoScalingGroup
-mkUpdateAutoScalingGroup p1 = UpdateAutoScalingGroup
+updateAutoScalingGroup p1 = UpdateAutoScalingGroup
     { _uasgAutoScalingGroupName = p1
     , _uasgLaunchConfigurationName = Nothing
     , _uasgMinSize = Nothing
@@ -229,8 +229,8 @@ data UpdateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse
 -- a valid 'UpdateAutoScalingGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkUpdateAutoScalingGroupResponse :: UpdateAutoScalingGroupResponse
-mkUpdateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse
+updateAutoScalingGroupResponse :: UpdateAutoScalingGroupResponse
+updateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse
 
 instance AWSRequest UpdateAutoScalingGroup where
     type Sv UpdateAutoScalingGroup = AutoScaling

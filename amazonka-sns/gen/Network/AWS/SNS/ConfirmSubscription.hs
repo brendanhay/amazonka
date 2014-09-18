@@ -41,7 +41,7 @@ module Network.AWS.SNS.ConfirmSubscription
     -- * Request
       ConfirmSubscription
     -- ** Request constructor
-    , mkConfirmSubscription
+    , confirmSubscription
     -- ** Request lenses
     , csTopicArn
     , csToken
@@ -50,7 +50,7 @@ module Network.AWS.SNS.ConfirmSubscription
     -- * Response
     , ConfirmSubscriptionResponse
     -- ** Response constructor
-    , mkConfirmSubscriptionResponse
+    , confirmSubscriptionResponse
     -- ** Response lenses
     , csrSubscriptionArn
     ) where
@@ -77,10 +77,10 @@ data ConfirmSubscription = ConfirmSubscription
 --
 -- * @AuthenticateOnUnsubscribe ::@ @Maybe Text@
 --
-mkConfirmSubscription :: Text -- ^ 'csTopicArn'
+confirmSubscription :: Text -- ^ 'csTopicArn'
                       -> Text -- ^ 'csToken'
                       -> ConfirmSubscription
-mkConfirmSubscription p1 p2 = ConfirmSubscription
+confirmSubscription p1 p2 = ConfirmSubscription
     { _csTopicArn = p1
     , _csToken = p2
     , _csAuthenticateOnUnsubscribe = Nothing
@@ -120,8 +120,8 @@ newtype ConfirmSubscriptionResponse = ConfirmSubscriptionResponse
 --
 -- * @SubscriptionArn ::@ @Maybe Text@
 --
-mkConfirmSubscriptionResponse :: ConfirmSubscriptionResponse
-mkConfirmSubscriptionResponse = ConfirmSubscriptionResponse
+confirmSubscriptionResponse :: ConfirmSubscriptionResponse
+confirmSubscriptionResponse = ConfirmSubscriptionResponse
     { _csrSubscriptionArn = Nothing
     }
 

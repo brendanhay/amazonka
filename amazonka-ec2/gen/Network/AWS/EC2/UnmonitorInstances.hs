@@ -37,14 +37,14 @@ module Network.AWS.EC2.UnmonitorInstances
     -- * Request
       UnmonitorInstances
     -- ** Request constructor
-    , mkUnmonitorInstances
+    , unmonitorInstances
     -- ** Request lenses
     , uiInstanceIds
 
     -- * Response
     , UnmonitorInstancesResponse
     -- ** Response constructor
-    , mkUnmonitorInstancesResponse
+    , unmonitorInstancesResponse
     -- ** Response lenses
     , uirInstanceMonitorings
     ) where
@@ -64,9 +64,9 @@ newtype UnmonitorInstances = UnmonitorInstances
 --
 -- * @InstanceIds ::@ @[Text]@
 --
-mkUnmonitorInstances :: [Text] -- ^ 'uiInstanceIds'
+unmonitorInstances :: [Text] -- ^ 'uiInstanceIds'
                      -> UnmonitorInstances
-mkUnmonitorInstances p1 = UnmonitorInstances
+unmonitorInstances p1 = UnmonitorInstances
     { _uiInstanceIds = p1
     }
 
@@ -90,8 +90,8 @@ newtype UnmonitorInstancesResponse = UnmonitorInstancesResponse
 --
 -- * @InstanceMonitorings ::@ @[InstanceMonitoring]@
 --
-mkUnmonitorInstancesResponse :: UnmonitorInstancesResponse
-mkUnmonitorInstancesResponse = UnmonitorInstancesResponse
+unmonitorInstancesResponse :: UnmonitorInstancesResponse
+unmonitorInstancesResponse = UnmonitorInstancesResponse
     { _uirInstanceMonitorings = mempty
     }
 

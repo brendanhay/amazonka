@@ -29,7 +29,7 @@ module Network.AWS.AutoScaling.DeleteAutoScalingGroup
     -- * Request
       DeleteAutoScalingGroup
     -- ** Request constructor
-    , mkDeleteAutoScalingGroup
+    , deleteAutoScalingGroup
     -- ** Request lenses
     , dasgAutoScalingGroupName
     , dasgForceDelete
@@ -37,7 +37,7 @@ module Network.AWS.AutoScaling.DeleteAutoScalingGroup
     -- * Response
     , DeleteAutoScalingGroupResponse
     -- ** Response constructor
-    , mkDeleteAutoScalingGroupResponse
+    , deleteAutoScalingGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -59,9 +59,9 @@ data DeleteAutoScalingGroup = DeleteAutoScalingGroup
 --
 -- * @ForceDelete ::@ @Maybe Bool@
 --
-mkDeleteAutoScalingGroup :: Text -- ^ 'dasgAutoScalingGroupName'
+deleteAutoScalingGroup :: Text -- ^ 'dasgAutoScalingGroupName'
                          -> DeleteAutoScalingGroup
-mkDeleteAutoScalingGroup p1 = DeleteAutoScalingGroup
+deleteAutoScalingGroup p1 = DeleteAutoScalingGroup
     { _dasgAutoScalingGroupName = p1
     , _dasgForceDelete = Nothing
     }
@@ -89,8 +89,8 @@ data DeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
 -- a valid 'DeleteAutoScalingGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteAutoScalingGroupResponse :: DeleteAutoScalingGroupResponse
-mkDeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
+deleteAutoScalingGroupResponse :: DeleteAutoScalingGroupResponse
+deleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
 
 instance AWSRequest DeleteAutoScalingGroup where
     type Sv DeleteAutoScalingGroup = AutoScaling

@@ -30,14 +30,14 @@ module Network.AWS.Redshift.DeleteClusterSubnetGroup
     -- * Request
       DeleteClusterSubnetGroup
     -- ** Request constructor
-    , mkDeleteClusterSubnetGroup
+    , deleteClusterSubnetGroup
     -- ** Request lenses
     , dcsg1ClusterSubnetGroupName
 
     -- * Response
     , DeleteClusterSubnetGroupResponse
     -- ** Response constructor
-    , mkDeleteClusterSubnetGroupResponse
+    , deleteClusterSubnetGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -55,9 +55,9 @@ newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup
 --
 -- * @ClusterSubnetGroupName ::@ @Text@
 --
-mkDeleteClusterSubnetGroup :: Text -- ^ 'dcsg1ClusterSubnetGroupName'
+deleteClusterSubnetGroup :: Text -- ^ 'dcsg1ClusterSubnetGroupName'
                            -> DeleteClusterSubnetGroup
-mkDeleteClusterSubnetGroup p1 = DeleteClusterSubnetGroup
+deleteClusterSubnetGroup p1 = DeleteClusterSubnetGroup
     { _dcsg1ClusterSubnetGroupName = p1
     }
 
@@ -77,8 +77,8 @@ data DeleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse
 -- a valid 'DeleteClusterSubnetGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteClusterSubnetGroupResponse :: DeleteClusterSubnetGroupResponse
-mkDeleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse
+deleteClusterSubnetGroupResponse :: DeleteClusterSubnetGroupResponse
+deleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse
 
 instance AWSRequest DeleteClusterSubnetGroup where
     type Sv DeleteClusterSubnetGroup = Redshift

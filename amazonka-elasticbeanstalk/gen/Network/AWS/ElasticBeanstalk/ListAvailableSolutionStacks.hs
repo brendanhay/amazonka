@@ -27,11 +27,11 @@ module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
     -- * Request
       ListAvailableSolutionStacks
     -- ** Request constructor
-    , mkListAvailableSolutionStacks
+    , listAvailableSolutionStacks
     -- * Response
     , ListAvailableSolutionStacksResponse
     -- ** Response constructor
-    , mkListAvailableSolutionStacksResponse
+    , listAvailableSolutionStacksResponse
     -- ** Response lenses
     , lassrSolutionStacks
     , lassrSolutionStackDetails
@@ -46,8 +46,8 @@ data ListAvailableSolutionStacks = ListAvailableSolutionStacks
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListAvailableSolutionStacks' request.
-mkListAvailableSolutionStacks :: ListAvailableSolutionStacks
-mkListAvailableSolutionStacks = ListAvailableSolutionStacks
+listAvailableSolutionStacks :: ListAvailableSolutionStacks
+listAvailableSolutionStacks = ListAvailableSolutionStacks
 
 instance ToQuery ListAvailableSolutionStacks where
     toQuery = genericQuery def
@@ -69,8 +69,8 @@ data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse
 --
 -- * @SolutionStackDetails ::@ @[SolutionStackDescription]@
 --
-mkListAvailableSolutionStacksResponse :: ListAvailableSolutionStacksResponse
-mkListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse
+listAvailableSolutionStacksResponse :: ListAvailableSolutionStacksResponse
+listAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse
     { _lassrSolutionStacks = mempty
     , _lassrSolutionStackDetails = mempty
     }

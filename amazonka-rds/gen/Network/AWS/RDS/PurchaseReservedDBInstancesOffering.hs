@@ -31,7 +31,7 @@ module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     -- * Request
       PurchaseReservedDBInstancesOffering
     -- ** Request constructor
-    , mkPurchaseReservedDBInstancesOffering
+    , purchaseReservedDBInstancesOffering
     -- ** Request lenses
     , prdbioReservedDBInstancesOfferingId
     , prdbioReservedDBInstanceId
@@ -41,7 +41,7 @@ module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     -- * Response
     , PurchaseReservedDBInstancesOfferingResponse
     -- ** Response constructor
-    , mkPurchaseReservedDBInstancesOfferingResponse
+    , purchaseReservedDBInstancesOfferingResponse
     -- ** Response lenses
     , prdbiorReservedDBInstance
     ) where
@@ -71,9 +71,9 @@ data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkPurchaseReservedDBInstancesOffering :: Text -- ^ 'prdbioReservedDBInstancesOfferingId'
+purchaseReservedDBInstancesOffering :: Text -- ^ 'prdbioReservedDBInstancesOfferingId'
                                       -> PurchaseReservedDBInstancesOffering
-mkPurchaseReservedDBInstancesOffering p1 = PurchaseReservedDBInstancesOffering
+purchaseReservedDBInstancesOffering p1 = PurchaseReservedDBInstancesOffering
     { _prdbioReservedDBInstancesOfferingId = p1
     , _prdbioReservedDBInstanceId = Nothing
     , _prdbioDBInstanceCount = Nothing
@@ -119,8 +119,8 @@ newtype PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstance
 --
 -- * @ReservedDBInstance ::@ @Maybe ReservedDBInstance@
 --
-mkPurchaseReservedDBInstancesOfferingResponse :: PurchaseReservedDBInstancesOfferingResponse
-mkPurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse
+purchaseReservedDBInstancesOfferingResponse :: PurchaseReservedDBInstancesOfferingResponse
+purchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse
     { _prdbiorReservedDBInstance = Nothing
     }
 

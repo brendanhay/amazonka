@@ -39,14 +39,14 @@ module Network.AWS.StorageGateway.DescribeChapCredentials
     -- * Request
       DescribeChapCredentials
     -- ** Request constructor
-    , mkDescribeChapCredentials
+    , describeChapCredentials
     -- ** Request lenses
     , dcc1TargetARN
 
     -- * Response
     , DescribeChapCredentialsResponse
     -- ** Response constructor
-    , mkDescribeChapCredentialsResponse
+    , describeChapCredentialsResponse
     -- ** Response lenses
     , dccrrChapCredentials
     ) where
@@ -68,9 +68,9 @@ newtype DescribeChapCredentials = DescribeChapCredentials
 --
 -- * @TargetARN ::@ @Text@
 --
-mkDescribeChapCredentials :: Text -- ^ 'dcc1TargetARN'
+describeChapCredentials :: Text -- ^ 'dcc1TargetARN'
                           -> DescribeChapCredentials
-mkDescribeChapCredentials p1 = DescribeChapCredentials
+describeChapCredentials p1 = DescribeChapCredentials
     { _dcc1TargetARN = p1
     }
 
@@ -102,8 +102,8 @@ newtype DescribeChapCredentialsResponse = DescribeChapCredentialsResponse
 --
 -- * @ChapCredentials ::@ @[ChapInfo]@
 --
-mkDescribeChapCredentialsResponse :: DescribeChapCredentialsResponse
-mkDescribeChapCredentialsResponse = DescribeChapCredentialsResponse
+describeChapCredentialsResponse :: DescribeChapCredentialsResponse
+describeChapCredentialsResponse = DescribeChapCredentialsResponse
     { _dccrrChapCredentials = mempty
     }
 

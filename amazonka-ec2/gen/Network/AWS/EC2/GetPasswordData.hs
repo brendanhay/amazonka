@@ -39,14 +39,14 @@ module Network.AWS.EC2.GetPasswordData
     -- * Request
       GetPasswordData
     -- ** Request constructor
-    , mkGetPasswordData
+    , getPasswordData
     -- ** Request lenses
     , gpdInstanceId
 
     -- * Response
     , GetPasswordDataResponse
     -- ** Response constructor
-    , mkGetPasswordDataResponse
+    , getPasswordDataResponse
     -- ** Response lenses
     , gpdrInstanceId
     , gpdrTimestamp
@@ -68,9 +68,9 @@ newtype GetPasswordData = GetPasswordData
 --
 -- * @InstanceId ::@ @Text@
 --
-mkGetPasswordData :: Text -- ^ 'gpdInstanceId'
+getPasswordData :: Text -- ^ 'gpdInstanceId'
                   -> GetPasswordData
-mkGetPasswordData p1 = GetPasswordData
+getPasswordData p1 = GetPasswordData
     { _gpdInstanceId = p1
     }
 
@@ -100,8 +100,8 @@ data GetPasswordDataResponse = GetPasswordDataResponse
 --
 -- * @PasswordData ::@ @Maybe Text@
 --
-mkGetPasswordDataResponse :: GetPasswordDataResponse
-mkGetPasswordDataResponse = GetPasswordDataResponse
+getPasswordDataResponse :: GetPasswordDataResponse
+getPasswordDataResponse = GetPasswordDataResponse
     { _gpdrInstanceId = Nothing
     , _gpdrTimestamp = Nothing
     , _gpdrPasswordData = Nothing

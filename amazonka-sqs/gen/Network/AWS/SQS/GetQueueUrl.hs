@@ -35,7 +35,7 @@ module Network.AWS.SQS.GetQueueUrl
     -- * Request
       GetQueueUrl
     -- ** Request constructor
-    , mkGetQueueUrl
+    , getQueueUrl
     -- ** Request lenses
     , gquQueueName
     , gquQueueOwnerAWSAccountId
@@ -43,7 +43,7 @@ module Network.AWS.SQS.GetQueueUrl
     -- * Response
     , GetQueueUrlResponse
     -- ** Response constructor
-    , mkGetQueueUrlResponse
+    , getQueueUrlResponse
     -- ** Response lenses
     , gqurQueueUrl
     ) where
@@ -66,9 +66,9 @@ data GetQueueUrl = GetQueueUrl
 --
 -- * @QueueOwnerAWSAccountId ::@ @Maybe Text@
 --
-mkGetQueueUrl :: Text -- ^ 'gquQueueName'
+getQueueUrl :: Text -- ^ 'gquQueueName'
               -> GetQueueUrl
-mkGetQueueUrl p1 = GetQueueUrl
+getQueueUrl p1 = GetQueueUrl
     { _gquQueueName = p1
     , _gquQueueOwnerAWSAccountId = Nothing
     }
@@ -101,8 +101,8 @@ newtype GetQueueUrlResponse = GetQueueUrlResponse
 --
 -- * @QueueUrl ::@ @Maybe Text@
 --
-mkGetQueueUrlResponse :: GetQueueUrlResponse
-mkGetQueueUrlResponse = GetQueueUrlResponse
+getQueueUrlResponse :: GetQueueUrlResponse
+getQueueUrlResponse = GetQueueUrlResponse
     { _gqurQueueUrl = Nothing
     }
 

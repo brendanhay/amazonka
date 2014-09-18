@@ -43,7 +43,7 @@ module Network.AWS.Redshift.DescribeDefaultClusterParameters
     -- * Request
       DescribeDefaultClusterParameters
     -- ** Request constructor
-    , mkDescribeDefaultClusterParameters
+    , describeDefaultClusterParameters
     -- ** Request lenses
     , ddcpParameterGroupFamily
     , ddcpMaxRecords
@@ -52,7 +52,7 @@ module Network.AWS.Redshift.DescribeDefaultClusterParameters
     -- * Response
     , DescribeDefaultClusterParametersResponse
     -- ** Response constructor
-    , mkDescribeDefaultClusterParametersResponse
+    , describeDefaultClusterParametersResponse
     -- ** Response lenses
     , ddcprDefaultClusterParameters
     ) where
@@ -79,9 +79,9 @@ data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeDefaultClusterParameters :: Text -- ^ 'ddcpParameterGroupFamily'
+describeDefaultClusterParameters :: Text -- ^ 'ddcpParameterGroupFamily'
                                    -> DescribeDefaultClusterParameters
-mkDescribeDefaultClusterParameters p1 = DescribeDefaultClusterParameters
+describeDefaultClusterParameters p1 = DescribeDefaultClusterParameters
     { _ddcpParameterGroupFamily = p1
     , _ddcpMaxRecords = Nothing
     , _ddcpMarker = Nothing
@@ -126,9 +126,9 @@ newtype DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParamet
 --
 -- * @DefaultClusterParameters ::@ @DefaultClusterParameters@
 --
-mkDescribeDefaultClusterParametersResponse :: DefaultClusterParameters -- ^ 'ddcprDefaultClusterParameters'
+describeDefaultClusterParametersResponse :: DefaultClusterParameters -- ^ 'ddcprDefaultClusterParameters'
                                            -> DescribeDefaultClusterParametersResponse
-mkDescribeDefaultClusterParametersResponse p1 = DescribeDefaultClusterParametersResponse
+describeDefaultClusterParametersResponse p1 = DescribeDefaultClusterParametersResponse
     { _ddcprDefaultClusterParameters = p1
     }
 

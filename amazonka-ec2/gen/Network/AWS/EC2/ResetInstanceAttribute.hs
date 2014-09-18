@@ -36,7 +36,7 @@ module Network.AWS.EC2.ResetInstanceAttribute
     -- * Request
       ResetInstanceAttribute
     -- ** Request constructor
-    , mkResetInstanceAttribute
+    , resetInstanceAttribute
     -- ** Request lenses
     , ria1InstanceId
     , ria1Attribute
@@ -44,7 +44,7 @@ module Network.AWS.EC2.ResetInstanceAttribute
     -- * Response
     , ResetInstanceAttributeResponse
     -- ** Response constructor
-    , mkResetInstanceAttributeResponse
+    , resetInstanceAttributeResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -65,10 +65,10 @@ data ResetInstanceAttribute = ResetInstanceAttribute
 --
 -- * @Attribute ::@ @InstanceAttributeName@
 --
-mkResetInstanceAttribute :: Text -- ^ 'ria1InstanceId'
+resetInstanceAttribute :: Text -- ^ 'ria1InstanceId'
                          -> InstanceAttributeName -- ^ 'ria1Attribute'
                          -> ResetInstanceAttribute
-mkResetInstanceAttribute p1 p2 = ResetInstanceAttribute
+resetInstanceAttribute p1 p2 = ResetInstanceAttribute
     { _ria1InstanceId = p1
     , _ria1Attribute = p2
     }
@@ -91,8 +91,8 @@ data ResetInstanceAttributeResponse = ResetInstanceAttributeResponse
 -- a valid 'ResetInstanceAttributeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkResetInstanceAttributeResponse :: ResetInstanceAttributeResponse
-mkResetInstanceAttributeResponse = ResetInstanceAttributeResponse
+resetInstanceAttributeResponse :: ResetInstanceAttributeResponse
+resetInstanceAttributeResponse = ResetInstanceAttributeResponse
 
 instance AWSRequest ResetInstanceAttribute where
     type Sv ResetInstanceAttribute = EC2

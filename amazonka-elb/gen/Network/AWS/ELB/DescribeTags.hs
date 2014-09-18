@@ -27,14 +27,14 @@ module Network.AWS.ELB.DescribeTags
     -- * Request
       DescribeTags
     -- ** Request constructor
-    , mkDescribeTags
+    , describeTags
     -- ** Request lenses
     , dtLoadBalancerNames
 
     -- * Response
     , DescribeTagsResponse
     -- ** Response constructor
-    , mkDescribeTagsResponse
+    , describeTagsResponse
     -- ** Response lenses
     , dtrTagDescriptions
     ) where
@@ -55,9 +55,9 @@ newtype DescribeTags = DescribeTags
 --
 -- * @LoadBalancerNames ::@ @List1 Text@
 --
-mkDescribeTags :: List1 Text -- ^ 'dtLoadBalancerNames'
+describeTags :: List1 Text -- ^ 'dtLoadBalancerNames'
                -> DescribeTags
-mkDescribeTags p1 = DescribeTags
+describeTags p1 = DescribeTags
     { _dtLoadBalancerNames = p1
     }
 
@@ -83,8 +83,8 @@ newtype DescribeTagsResponse = DescribeTagsResponse
 --
 -- * @TagDescriptions ::@ @[TagDescription]@
 --
-mkDescribeTagsResponse :: DescribeTagsResponse
-mkDescribeTagsResponse = DescribeTagsResponse
+describeTagsResponse :: DescribeTagsResponse
+describeTagsResponse = DescribeTagsResponse
     { _dtrTagDescriptions = mempty
     }
 

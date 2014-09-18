@@ -33,14 +33,14 @@ module Network.AWS.Redshift.DeleteClusterSecurityGroup
     -- * Request
       DeleteClusterSecurityGroup
     -- ** Request constructor
-    , mkDeleteClusterSecurityGroup
+    , deleteClusterSecurityGroup
     -- ** Request lenses
     , dcsgClusterSecurityGroupName
 
     -- * Response
     , DeleteClusterSecurityGroupResponse
     -- ** Response constructor
-    , mkDeleteClusterSecurityGroupResponse
+    , deleteClusterSecurityGroupResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -59,9 +59,9 @@ newtype DeleteClusterSecurityGroup = DeleteClusterSecurityGroup
 --
 -- * @ClusterSecurityGroupName ::@ @Text@
 --
-mkDeleteClusterSecurityGroup :: Text -- ^ 'dcsgClusterSecurityGroupName'
+deleteClusterSecurityGroup :: Text -- ^ 'dcsgClusterSecurityGroupName'
                              -> DeleteClusterSecurityGroup
-mkDeleteClusterSecurityGroup p1 = DeleteClusterSecurityGroup
+deleteClusterSecurityGroup p1 = DeleteClusterSecurityGroup
     { _dcsgClusterSecurityGroupName = p1
     }
 
@@ -81,8 +81,8 @@ data DeleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse
 -- a valid 'DeleteClusterSecurityGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteClusterSecurityGroupResponse :: DeleteClusterSecurityGroupResponse
-mkDeleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse
+deleteClusterSecurityGroupResponse :: DeleteClusterSecurityGroupResponse
+deleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse
 
 instance AWSRequest DeleteClusterSecurityGroup where
     type Sv DeleteClusterSecurityGroup = Redshift

@@ -31,14 +31,14 @@ module Network.AWS.EC2.DeleteCustomerGateway
     -- * Request
       DeleteCustomerGateway
     -- ** Request constructor
-    , mkDeleteCustomerGateway
+    , deleteCustomerGateway
     -- ** Request lenses
     , dcgCustomerGatewayId
 
     -- * Response
     , DeleteCustomerGatewayResponse
     -- ** Response constructor
-    , mkDeleteCustomerGatewayResponse
+    , deleteCustomerGatewayResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -56,9 +56,9 @@ newtype DeleteCustomerGateway = DeleteCustomerGateway
 --
 -- * @CustomerGatewayId ::@ @Text@
 --
-mkDeleteCustomerGateway :: Text -- ^ 'dcgCustomerGatewayId'
+deleteCustomerGateway :: Text -- ^ 'dcgCustomerGatewayId'
                         -> DeleteCustomerGateway
-mkDeleteCustomerGateway p1 = DeleteCustomerGateway
+deleteCustomerGateway p1 = DeleteCustomerGateway
     { _dcgCustomerGatewayId = p1
     }
 
@@ -77,8 +77,8 @@ data DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
 -- a valid 'DeleteCustomerGatewayResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteCustomerGatewayResponse :: DeleteCustomerGatewayResponse
-mkDeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
+deleteCustomerGatewayResponse :: DeleteCustomerGatewayResponse
+deleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
 
 instance AWSRequest DeleteCustomerGateway where
     type Sv DeleteCustomerGateway = EC2

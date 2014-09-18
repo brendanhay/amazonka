@@ -36,14 +36,14 @@ module Network.AWS.DataPipeline.DeletePipeline
     -- * Request
       DeletePipeline
     -- ** Request constructor
-    , mkDeletePipeline
+    , deletePipeline
     -- ** Request lenses
     , dpPipelineId
 
     -- * Response
     , DeletePipelineResponse
     -- ** Response constructor
-    , mkDeletePipelineResponse
+    , deletePipelineResponse
     ) where
 
 import Network.AWS.DataPipeline.Types
@@ -62,9 +62,9 @@ newtype DeletePipeline = DeletePipeline
 --
 -- * @PipelineId ::@ @Text@
 --
-mkDeletePipeline :: Text -- ^ 'dpPipelineId'
+deletePipeline :: Text -- ^ 'dpPipelineId'
                  -> DeletePipeline
-mkDeletePipeline p1 = DeletePipeline
+deletePipeline p1 = DeletePipeline
     { _dpPipelineId = p1
     }
 
@@ -87,8 +87,8 @@ data DeletePipelineResponse = DeletePipelineResponse
 -- a valid 'DeletePipelineResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeletePipelineResponse :: DeletePipelineResponse
-mkDeletePipelineResponse = DeletePipelineResponse
+deletePipelineResponse :: DeletePipelineResponse
+deletePipelineResponse = DeletePipelineResponse
 
 instance AWSRequest DeletePipeline where
     type Sv DeletePipeline = DataPipeline

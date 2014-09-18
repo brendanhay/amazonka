@@ -23,14 +23,14 @@ module Network.AWS.CloudFront.GetDistribution
     -- * Request
       GetDistribution
     -- ** Request constructor
-    , mkGetDistribution
+    , getDistribution
     -- ** Request lenses
     , gdId
 
     -- * Response
     , GetDistributionResponse
     -- ** Response constructor
-    , mkGetDistributionResponse
+    , getDistributionResponse
     -- ** Response lenses
     , gdrDistribution
     , gdrETag
@@ -53,9 +53,9 @@ newtype GetDistribution = GetDistribution
 --
 -- * @Id ::@ @Text@
 --
-mkGetDistribution :: Text -- ^ 'gdId'
+getDistribution :: Text -- ^ 'gdId'
                   -> GetDistribution
-mkGetDistribution p1 = GetDistribution
+getDistribution p1 = GetDistribution
     { _gdId = p1
     }
 
@@ -90,8 +90,8 @@ data GetDistributionResponse = GetDistributionResponse
 --
 -- * @ETag ::@ @Maybe Text@
 --
-mkGetDistributionResponse :: GetDistributionResponse
-mkGetDistributionResponse = GetDistributionResponse
+getDistributionResponse :: GetDistributionResponse
+getDistributionResponse = GetDistributionResponse
     { _gdrDistribution = Nothing
     , _gdrETag = Nothing
     }

@@ -28,14 +28,14 @@ module Network.AWS.OpsWorks.DescribeStackSummary
     -- * Request
       DescribeStackSummary
     -- ** Request constructor
-    , mkDescribeStackSummary
+    , describeStackSummary
     -- ** Request lenses
     , dssStackId
 
     -- * Response
     , DescribeStackSummaryResponse
     -- ** Response constructor
-    , mkDescribeStackSummaryResponse
+    , describeStackSummaryResponse
     -- ** Response lenses
     , dssrStackSummary
     ) where
@@ -55,9 +55,9 @@ newtype DescribeStackSummary = DescribeStackSummary
 --
 -- * @StackId ::@ @Text@
 --
-mkDescribeStackSummary :: Text -- ^ 'dssStackId'
+describeStackSummary :: Text -- ^ 'dssStackId'
                        -> DescribeStackSummary
-mkDescribeStackSummary p1 = DescribeStackSummary
+describeStackSummary p1 = DescribeStackSummary
     { _dssStackId = p1
     }
 
@@ -87,8 +87,8 @@ newtype DescribeStackSummaryResponse = DescribeStackSummaryResponse
 --
 -- * @StackSummary ::@ @Maybe StackSummary@
 --
-mkDescribeStackSummaryResponse :: DescribeStackSummaryResponse
-mkDescribeStackSummaryResponse = DescribeStackSummaryResponse
+describeStackSummaryResponse :: DescribeStackSummaryResponse
+describeStackSummaryResponse = DescribeStackSummaryResponse
     { _dssrStackSummary = Nothing
     }
 

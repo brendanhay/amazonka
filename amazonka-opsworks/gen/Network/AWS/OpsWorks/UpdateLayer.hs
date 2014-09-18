@@ -26,7 +26,7 @@ module Network.AWS.OpsWorks.UpdateLayer
     -- * Request
       UpdateLayer
     -- ** Request constructor
-    , mkUpdateLayer
+    , updateLayer
     -- ** Request lenses
     , ulLayerId
     , ulName
@@ -46,7 +46,7 @@ module Network.AWS.OpsWorks.UpdateLayer
     -- * Response
     , UpdateLayerResponse
     -- ** Response constructor
-    , mkUpdateLayerResponse
+    , updateLayerResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -103,9 +103,9 @@ data UpdateLayer = UpdateLayer
 --
 -- * @UseEbsOptimizedInstances ::@ @Maybe Bool@
 --
-mkUpdateLayer :: Text -- ^ 'ulLayerId'
+updateLayer :: Text -- ^ 'ulLayerId'
               -> UpdateLayer
-mkUpdateLayer p1 = UpdateLayer
+updateLayer p1 = UpdateLayer
     { _ulLayerId = p1
     , _ulName = Nothing
     , _ulShortname = Nothing
@@ -219,8 +219,8 @@ data UpdateLayerResponse = UpdateLayerResponse
 -- a valid 'UpdateLayerResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkUpdateLayerResponse :: UpdateLayerResponse
-mkUpdateLayerResponse = UpdateLayerResponse
+updateLayerResponse :: UpdateLayerResponse
+updateLayerResponse = UpdateLayerResponse
 
 instance AWSRequest UpdateLayer where
     type Sv UpdateLayer = OpsWorks

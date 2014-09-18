@@ -27,7 +27,7 @@ module Network.AWS.EMR.ListClusters
     -- * Request
       ListClusters
     -- ** Request constructor
-    , mkListClusters
+    , listClusters
     -- ** Request lenses
     , lcCreatedAfter
     , lcCreatedBefore
@@ -37,7 +37,7 @@ module Network.AWS.EMR.ListClusters
     -- * Response
     , ListClustersResponse
     -- ** Response constructor
-    , mkListClustersResponse
+    , listClustersResponse
     -- ** Response lenses
     , lcrClusters
     , lcrMarker
@@ -69,8 +69,8 @@ data ListClusters = ListClusters
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListClusters :: ListClusters
-mkListClusters = ListClusters
+listClusters :: ListClusters
+listClusters = ListClusters
     { _lcCreatedAfter = Nothing
     , _lcCreatedBefore = Nothing
     , _lcClusterStates = mempty
@@ -119,8 +119,8 @@ data ListClustersResponse = ListClustersResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListClustersResponse :: ListClustersResponse
-mkListClustersResponse = ListClustersResponse
+listClustersResponse :: ListClustersResponse
+listClustersResponse = ListClustersResponse
     { _lcrClusters = mempty
     , _lcrMarker = Nothing
     }

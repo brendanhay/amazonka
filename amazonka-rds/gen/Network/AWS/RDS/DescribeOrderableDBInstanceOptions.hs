@@ -35,7 +35,7 @@ module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     -- * Request
       DescribeOrderableDBInstanceOptions
     -- ** Request constructor
-    , mkDescribeOrderableDBInstanceOptions
+    , describeOrderableDBInstanceOptions
     -- ** Request lenses
     , dodbioEngine
     , dodbioEngineVersion
@@ -48,7 +48,7 @@ module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     -- * Response
     , DescribeOrderableDBInstanceOptionsResponse
     -- ** Response constructor
-    , mkDescribeOrderableDBInstanceOptionsResponse
+    , describeOrderableDBInstanceOptionsResponse
     -- ** Response lenses
     , dodbiorOrderableDBInstanceOptions
     , dodbiorMarker
@@ -88,9 +88,9 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeOrderableDBInstanceOptions :: Text -- ^ 'dodbioEngine'
+describeOrderableDBInstanceOptions :: Text -- ^ 'dodbioEngine'
                                      -> DescribeOrderableDBInstanceOptions
-mkDescribeOrderableDBInstanceOptions p1 = DescribeOrderableDBInstanceOptions
+describeOrderableDBInstanceOptions p1 = DescribeOrderableDBInstanceOptions
     { _dodbioEngine = p1
     , _dodbioEngineVersion = Nothing
     , _dodbioDBInstanceClass = Nothing
@@ -163,8 +163,8 @@ data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOpt
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeOrderableDBInstanceOptionsResponse :: DescribeOrderableDBInstanceOptionsResponse
-mkDescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse
+describeOrderableDBInstanceOptionsResponse :: DescribeOrderableDBInstanceOptionsResponse
+describeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse
     { _dodbiorOrderableDBInstanceOptions = mempty
     , _dodbiorMarker = Nothing
     }

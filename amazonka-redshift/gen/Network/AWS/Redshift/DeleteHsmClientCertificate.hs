@@ -23,14 +23,14 @@ module Network.AWS.Redshift.DeleteHsmClientCertificate
     -- * Request
       DeleteHsmClientCertificate
     -- ** Request constructor
-    , mkDeleteHsmClientCertificate
+    , deleteHsmClientCertificate
     -- ** Request lenses
     , dhccHsmClientCertificateIdentifier
 
     -- * Response
     , DeleteHsmClientCertificateResponse
     -- ** Response constructor
-    , mkDeleteHsmClientCertificateResponse
+    , deleteHsmClientCertificateResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -49,9 +49,9 @@ newtype DeleteHsmClientCertificate = DeleteHsmClientCertificate
 --
 -- * @HsmClientCertificateIdentifier ::@ @Text@
 --
-mkDeleteHsmClientCertificate :: Text -- ^ 'dhccHsmClientCertificateIdentifier'
+deleteHsmClientCertificate :: Text -- ^ 'dhccHsmClientCertificateIdentifier'
                              -> DeleteHsmClientCertificate
-mkDeleteHsmClientCertificate p1 = DeleteHsmClientCertificate
+deleteHsmClientCertificate p1 = DeleteHsmClientCertificate
     { _dhccHsmClientCertificateIdentifier = p1
     }
 
@@ -71,8 +71,8 @@ data DeleteHsmClientCertificateResponse = DeleteHsmClientCertificateResponse
 -- a valid 'DeleteHsmClientCertificateResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteHsmClientCertificateResponse :: DeleteHsmClientCertificateResponse
-mkDeleteHsmClientCertificateResponse = DeleteHsmClientCertificateResponse
+deleteHsmClientCertificateResponse :: DeleteHsmClientCertificateResponse
+deleteHsmClientCertificateResponse = DeleteHsmClientCertificateResponse
 
 instance AWSRequest DeleteHsmClientCertificate where
     type Sv DeleteHsmClientCertificate = Redshift

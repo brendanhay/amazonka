@@ -34,7 +34,7 @@ module Network.AWS.ElastiCache.DescribeCacheParameters
     -- * Request
       DescribeCacheParameters
     -- ** Request constructor
-    , mkDescribeCacheParameters
+    , describeCacheParameters
     -- ** Request lenses
     , dcpCacheParameterGroupName
     , dcpSource
@@ -44,7 +44,7 @@ module Network.AWS.ElastiCache.DescribeCacheParameters
     -- * Response
     , DescribeCacheParametersResponse
     -- ** Response constructor
-    , mkDescribeCacheParametersResponse
+    , describeCacheParametersResponse
     -- ** Response lenses
     , dcprMarker
     , dcprParameters
@@ -76,9 +76,9 @@ data DescribeCacheParameters = DescribeCacheParameters
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeCacheParameters :: Text -- ^ 'dcpCacheParameterGroupName'
+describeCacheParameters :: Text -- ^ 'dcpCacheParameterGroupName'
                           -> DescribeCacheParameters
-mkDescribeCacheParameters p1 = DescribeCacheParameters
+describeCacheParameters p1 = DescribeCacheParameters
     { _dcpCacheParameterGroupName = p1
     , _dcpSource = Nothing
     , _dcpMaxRecords = Nothing
@@ -133,8 +133,8 @@ data DescribeCacheParametersResponse = DescribeCacheParametersResponse
 --
 -- * @CacheNodeTypeSpecificParameters ::@ @[CacheNodeTypeSpecificParameter]@
 --
-mkDescribeCacheParametersResponse :: DescribeCacheParametersResponse
-mkDescribeCacheParametersResponse = DescribeCacheParametersResponse
+describeCacheParametersResponse :: DescribeCacheParametersResponse
+describeCacheParametersResponse = DescribeCacheParametersResponse
     { _dcprMarker = Nothing
     , _dcprParameters = mempty
     , _dcprCacheNodeTypeSpecificParameters = mempty

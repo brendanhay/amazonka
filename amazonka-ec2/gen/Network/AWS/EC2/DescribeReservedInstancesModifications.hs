@@ -31,7 +31,7 @@ module Network.AWS.EC2.DescribeReservedInstancesModifications
     -- * Request
       DescribeReservedInstancesModifications
     -- ** Request constructor
-    , mkDescribeReservedInstancesModifications
+    , describeReservedInstancesModifications
     -- ** Request lenses
     , drimReservedInstancesModificationIds
     , drimNextToken
@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeReservedInstancesModifications
     -- * Response
     , DescribeReservedInstancesModificationsResponse
     -- ** Response constructor
-    , mkDescribeReservedInstancesModificationsResponse
+    , describeReservedInstancesModificationsResponse
     -- ** Response lenses
     , drimrReservedInstancesModifications
     , drimrNextToken
@@ -67,8 +67,8 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribeReservedInstancesModifications :: DescribeReservedInstancesModifications
-mkDescribeReservedInstancesModifications = DescribeReservedInstancesModifications
+describeReservedInstancesModifications :: DescribeReservedInstancesModifications
+describeReservedInstancesModifications = DescribeReservedInstancesModifications
     { _drimReservedInstancesModificationIds = mempty
     , _drimNextToken = Nothing
     , _drimFilters = mempty
@@ -125,8 +125,8 @@ data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesM
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeReservedInstancesModificationsResponse :: DescribeReservedInstancesModificationsResponse
-mkDescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse
+describeReservedInstancesModificationsResponse :: DescribeReservedInstancesModificationsResponse
+describeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse
     { _drimrReservedInstancesModifications = mempty
     , _drimrNextToken = Nothing
     }

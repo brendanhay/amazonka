@@ -23,7 +23,7 @@ module Network.AWS.S3.PutObject
     -- * Request
       PutObject
     -- ** Request constructor
-    , mkPutObject
+    , putObject
     -- ** Request lenses
     , poACL
     , poBody
@@ -52,7 +52,7 @@ module Network.AWS.S3.PutObject
     -- * Response
     , PutObjectResponse
     -- ** Response constructor
-    , mkPutObjectResponse
+    , putObjectResponse
     -- ** Response lenses
     , porExpiration
     , porETag
@@ -144,11 +144,11 @@ data PutObject = PutObject
 --
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
-mkPutObject :: ObjectKey -- ^ 'poKey'
+putObject :: ObjectKey -- ^ 'poKey'
             -> RqBody -- ^ 'poBody'
             -> BucketName -- ^ 'poBucket'
             -> PutObject
-mkPutObject p16 p2 p3 = PutObject
+putObject p16 p2 p3 = PutObject
     { _poACL = Nothing
     , _poBody = p2
     , _poBucket = p3
@@ -343,8 +343,8 @@ data PutObjectResponse = PutObjectResponse
 --
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
-mkPutObjectResponse :: PutObjectResponse
-mkPutObjectResponse = PutObjectResponse
+putObjectResponse :: PutObjectResponse
+putObjectResponse = PutObjectResponse
     { _porExpiration = Nothing
     , _porETag = Nothing
     , _porServerSideEncryption = Nothing

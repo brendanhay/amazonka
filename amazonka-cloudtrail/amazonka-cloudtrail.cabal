@@ -29,7 +29,6 @@ library
 
     exposed-modules:
           Network.AWS.CloudTrail
-        , Network.AWS.CloudTrail.Monadic
         , Network.AWS.CloudTrail.Types
         , Network.AWS.CloudTrail.CreateTrail
         , Network.AWS.CloudTrail.DeleteTrail

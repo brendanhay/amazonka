@@ -28,14 +28,14 @@ module Network.AWS.OpsWorks.UnassignVolume
     -- * Request
       UnassignVolume
     -- ** Request constructor
-    , mkUnassignVolume
+    , unassignVolume
     -- ** Request lenses
     , uvVolumeId
 
     -- * Response
     , UnassignVolumeResponse
     -- ** Response constructor
-    , mkUnassignVolumeResponse
+    , unassignVolumeResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -53,9 +53,9 @@ newtype UnassignVolume = UnassignVolume
 --
 -- * @VolumeId ::@ @Text@
 --
-mkUnassignVolume :: Text -- ^ 'uvVolumeId'
+unassignVolume :: Text -- ^ 'uvVolumeId'
                  -> UnassignVolume
-mkUnassignVolume p1 = UnassignVolume
+unassignVolume p1 = UnassignVolume
     { _uvVolumeId = p1
     }
 
@@ -78,8 +78,8 @@ data UnassignVolumeResponse = UnassignVolumeResponse
 -- a valid 'UnassignVolumeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkUnassignVolumeResponse :: UnassignVolumeResponse
-mkUnassignVolumeResponse = UnassignVolumeResponse
+unassignVolumeResponse :: UnassignVolumeResponse
+unassignVolumeResponse = UnassignVolumeResponse
 
 instance AWSRequest UnassignVolume where
     type Sv UnassignVolume = OpsWorks

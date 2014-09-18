@@ -41,17 +41,17 @@ module Network.AWS.ElasticTranscoder.Types
     , _ValidationException
     -- * AudioCodecOptions
     , AudioCodecOptions
-    , mkAudioCodecOptions
+    , audioCodecOptions
     , acoProfile
 
     -- * Clip
     , Clip
-    , mkClip
+    , clip
     , cTimeSpan
 
     -- * Artwork
     , Artwork
-    , mkArtwork
+    , artwork
     , aInputKey
     , aMaxWidth
     , aMaxHeight
@@ -61,7 +61,7 @@ module Network.AWS.ElasticTranscoder.Types
 
     -- * AudioParameters
     , AudioParameters
-    , mkAudioParameters
+    , audioParameters
     , apCodec
     , apSampleRate
     , apBitRate
@@ -70,13 +70,13 @@ module Network.AWS.ElasticTranscoder.Types
 
     -- * CaptionFormat
     , CaptionFormat
-    , mkCaptionFormat
+    , captionFormat
     , cfFormat
     , cfPattern
 
     -- * CaptionSource
     , CaptionSource
-    , mkCaptionSource
+    , captionSource
     , csKey
     , csLanguage
     , csTimeOffset
@@ -84,14 +84,14 @@ module Network.AWS.ElasticTranscoder.Types
 
     -- * Captions
     , Captions
-    , mkCaptions
+    , captions
     , c1MergePolicy
     , c1CaptionSources
     , c1CaptionFormats
 
     -- * CreateJobOutput
     , CreateJobOutput
-    , mkCreateJobOutput
+    , createJobOutput
     , cjoKey
     , cjoThumbnailPattern
     , cjoRotate
@@ -104,14 +104,14 @@ module Network.AWS.ElasticTranscoder.Types
 
     -- * CreateJobPlaylist
     , CreateJobPlaylist
-    , mkCreateJobPlaylist
+    , createJobPlaylist
     , cjpName
     , cjpFormat
     , cjpOutputKeys
 
     -- * Job
     , Job
-    , mkJob
+    , job
     , jId
     , jArn
     , jPipelineId
@@ -124,13 +124,13 @@ module Network.AWS.ElasticTranscoder.Types
 
     -- * JobAlbumArt
     , JobAlbumArt
-    , mkJobAlbumArt
+    , jobAlbumArt
     , jaaMergePolicy
     , jaaArtwork
 
     -- * JobInput
     , JobInput
-    , mkJobInput
+    , jobInput
     , jiKey
     , jiFrameRate
     , jiResolution
@@ -140,7 +140,7 @@ module Network.AWS.ElasticTranscoder.Types
 
     -- * JobOutput
     , JobOutput
-    , mkJobOutput
+    , jobOutput
     , joId
     , joKey
     , joThumbnailPattern
@@ -159,13 +159,13 @@ module Network.AWS.ElasticTranscoder.Types
 
     -- * JobWatermark
     , JobWatermark
-    , mkJobWatermark
+    , jobWatermark
     , jwPresetWatermarkId
     , jwInputKey
 
     -- * Notifications
     , Notifications
-    , mkNotifications
+    , notifications
     , nProgressing
     , nCompleted
     , nWarning
@@ -173,14 +173,14 @@ module Network.AWS.ElasticTranscoder.Types
 
     -- * Permission
     , Permission
-    , mkPermission
+    , permission
     , p1GranteeType
     , p1Grantee
     , p1Access
 
     -- * Pipeline
     , Pipeline
-    , mkPipeline
+    , pipeline
     , prId
     , prArn
     , prName
@@ -194,14 +194,14 @@ module Network.AWS.ElasticTranscoder.Types
 
     -- * PipelineOutputConfig
     , PipelineOutputConfig
-    , mkPipelineOutputConfig
+    , pipelineOutputConfig
     , pocBucket
     , pocStorageClass
     , pocPermissions
 
     -- * Playlist
     , Playlist
-    , mkPlaylist
+    , playlist
     , pName
     , pFormat
     , pOutputKeys
@@ -210,7 +210,7 @@ module Network.AWS.ElasticTranscoder.Types
 
     -- * Preset
     , Preset
-    , mkPreset
+    , preset
     , p1rId
     , p1rArn
     , p1rName
@@ -223,7 +223,7 @@ module Network.AWS.ElasticTranscoder.Types
 
     -- * PresetWatermark
     , PresetWatermark
-    , mkPresetWatermark
+    , presetWatermark
     , pwId
     , pwMaxWidth
     , pwMaxHeight
@@ -237,7 +237,7 @@ module Network.AWS.ElasticTranscoder.Types
 
     -- * Thumbnails
     , Thumbnails
-    , mkThumbnails
+    , thumbnails
     , tFormat
     , tInterval
     , tResolution
@@ -249,13 +249,13 @@ module Network.AWS.ElasticTranscoder.Types
 
     -- * TimeSpan
     , TimeSpan
-    , mkTimeSpan
+    , timeSpan
     , tsStartTime
     , tsDuration
 
     -- * VideoParameters
     , VideoParameters
-    , mkVideoParameters
+    , videoParameters
     , vpCodec
     , vpCodecOptions
     , vpKeyframesMaxDist
@@ -301,8 +301,8 @@ data ElasticTranscoderError
       -- correctly.
     = AccessDeniedException
     | ElasticTranscoderClient HttpException
-    | ElasticTranscoderSerializer Text
-    | ElasticTranscoderService Text
+    | ElasticTranscoderSerializer String
+    | ElasticTranscoderService String
     | IncompatibleVersionException
       -- | Elastic Transcoder encountered an unexpected exception while
       -- trying to fulfill the request.
@@ -351,7 +351,7 @@ _ElasticTranscoderClient = prism'
         x -> Left x)
 
 -- | See: 'ElasticTranscoderSerializer'
-_ElasticTranscoderSerializer :: Prism' ElasticTranscoderError Text
+_ElasticTranscoderSerializer :: Prism' ElasticTranscoderError String
 _ElasticTranscoderSerializer = prism'
     ElasticTranscoderSerializer
     (\case
@@ -359,7 +359,7 @@ _ElasticTranscoderSerializer = prism'
         x -> Left x)
 
 -- | See: 'ElasticTranscoderService'
-_ElasticTranscoderService :: Prism' ElasticTranscoderError Text
+_ElasticTranscoderService :: Prism' ElasticTranscoderError String
 _ElasticTranscoderService = prism'
     ElasticTranscoderService
     (\case
@@ -444,8 +444,8 @@ newtype AudioCodecOptions = AudioCodecOptions
 --
 -- * @Profile ::@ @Maybe Text@
 --
-mkAudioCodecOptions :: AudioCodecOptions
-mkAudioCodecOptions = AudioCodecOptions
+audioCodecOptions :: AudioCodecOptions
+audioCodecOptions = AudioCodecOptions
     { _acoProfile = Nothing
     }
 
@@ -480,8 +480,8 @@ newtype Clip = Clip
 --
 -- * @TimeSpan ::@ @Maybe TimeSpan@
 --
-mkClip :: Clip
-mkClip = Clip
+clip :: Clip
+clip = Clip
     { _cTimeSpan = Nothing
     }
 
@@ -525,8 +525,8 @@ data Artwork = Artwork
 --
 -- * @AlbumArtFormat ::@ @Maybe Text@
 --
-mkArtwork :: Artwork
-mkArtwork = Artwork
+artwork :: Artwork
+artwork = Artwork
     { _aInputKey = Nothing
     , _aMaxWidth = Nothing
     , _aMaxHeight = Nothing
@@ -619,8 +619,8 @@ data AudioParameters = AudioParameters
 --
 -- * @CodecOptions ::@ @Maybe AudioCodecOptions@
 --
-mkAudioParameters :: AudioParameters
-mkAudioParameters = AudioParameters
+audioParameters :: AudioParameters
+audioParameters = AudioParameters
     { _apCodec = Nothing
     , _apSampleRate = Nothing
     , _apBitRate = Nothing
@@ -677,8 +677,8 @@ data CaptionFormat = CaptionFormat
 --
 -- * @Pattern ::@ @Maybe Text@
 --
-mkCaptionFormat :: CaptionFormat
-mkCaptionFormat = CaptionFormat
+captionFormat :: CaptionFormat
+captionFormat = CaptionFormat
     { _cfFormat = Nothing
     , _cfPattern = Nothing
     }
@@ -733,8 +733,8 @@ data CaptionSource = CaptionSource
 --
 -- * @Label ::@ @Maybe Text@
 --
-mkCaptionSource :: CaptionSource
-mkCaptionSource = CaptionSource
+captionSource :: CaptionSource
+captionSource = CaptionSource
     { _csKey = Nothing
     , _csLanguage = Nothing
     , _csTimeOffset = Nothing
@@ -814,8 +814,8 @@ data Captions = Captions
 --
 -- * @CaptionFormats ::@ @[CaptionFormat]@
 --
-mkCaptions :: Captions
-mkCaptions = Captions
+captions :: Captions
+captions = Captions
     { _c1MergePolicy = Nothing
     , _c1CaptionSources = mempty
     , _c1CaptionFormats = mempty
@@ -889,8 +889,8 @@ data CreateJobOutput = CreateJobOutput
 --
 -- * @Captions ::@ @Maybe Captions@
 --
-mkCreateJobOutput :: CreateJobOutput
-mkCreateJobOutput = CreateJobOutput
+createJobOutput :: CreateJobOutput
+createJobOutput = CreateJobOutput
     { _cjoKey = Nothing
     , _cjoThumbnailPattern = Nothing
     , _cjoRotate = Nothing
@@ -1025,8 +1025,8 @@ data CreateJobPlaylist = CreateJobPlaylist
 --
 -- * @OutputKeys ::@ @[Text]@
 --
-mkCreateJobPlaylist :: CreateJobPlaylist
-mkCreateJobPlaylist = CreateJobPlaylist
+createJobPlaylist :: CreateJobPlaylist
+createJobPlaylist = CreateJobPlaylist
     { _cjpName = Nothing
     , _cjpFormat = Nothing
     , _cjpOutputKeys = mempty
@@ -1094,8 +1094,8 @@ data Job = Job
 --
 -- * @Status ::@ @Maybe Text@
 --
-mkJob :: Job
-mkJob = Job
+job :: Job
+job = Job
     { _jId = Nothing
     , _jArn = Nothing
     , _jPipelineId = Nothing
@@ -1187,8 +1187,8 @@ data JobAlbumArt = JobAlbumArt
 --
 -- * @Artwork ::@ @[Artwork]@
 --
-mkJobAlbumArt :: JobAlbumArt
-mkJobAlbumArt = JobAlbumArt
+jobAlbumArt :: JobAlbumArt
+jobAlbumArt = JobAlbumArt
     { _jaaMergePolicy = Nothing
     , _jaaArtwork = mempty
     }
@@ -1241,8 +1241,8 @@ data JobInput = JobInput
 --
 -- * @Container ::@ @Maybe Text@
 --
-mkJobInput :: JobInput
-mkJobInput = JobInput
+jobInput :: JobInput
+jobInput = JobInput
     { _jiKey = Nothing
     , _jiFrameRate = Nothing
     , _jiResolution = Nothing
@@ -1361,8 +1361,8 @@ data JobOutput = JobOutput
 --
 -- * @Captions ::@ @Maybe Captions@
 --
-mkJobOutput :: JobOutput
-mkJobOutput = JobOutput
+jobOutput :: JobOutput
+jobOutput = JobOutput
     { _joId = Nothing
     , _joKey = Nothing
     , _joThumbnailPattern = Nothing
@@ -1554,8 +1554,8 @@ data JobWatermark = JobWatermark
 --
 -- * @InputKey ::@ @Maybe Text@
 --
-mkJobWatermark :: JobWatermark
-mkJobWatermark = JobWatermark
+jobWatermark :: JobWatermark
+jobWatermark = JobWatermark
     { _jwPresetWatermarkId = Nothing
     , _jwInputKey = Nothing
     }
@@ -1619,8 +1619,8 @@ data Notifications = Notifications
 --
 -- * @Error ::@ @Maybe Text@
 --
-mkNotifications :: Notifications
-mkNotifications = Notifications
+notifications :: Notifications
+notifications = Notifications
     { _nProgressing = Nothing
     , _nCompleted = Nothing
     , _nWarning = Nothing
@@ -1669,8 +1669,8 @@ data Permission = Permission
 --
 -- * @Access ::@ @[Text]@
 --
-mkPermission :: Permission
-mkPermission = Permission
+permission :: Permission
+permission = Permission
     { _p1GranteeType = Nothing
     , _p1Grantee = Nothing
     , _p1Access = mempty
@@ -1752,8 +1752,8 @@ data Pipeline = Pipeline
 --
 -- * @ThumbnailConfig ::@ @Maybe PipelineOutputConfig@
 --
-mkPipeline :: Pipeline
-mkPipeline = Pipeline
+pipeline :: Pipeline
+pipeline = Pipeline
     { _prId = Nothing
     , _prArn = Nothing
     , _prName = Nothing
@@ -1932,8 +1932,8 @@ data PipelineOutputConfig = PipelineOutputConfig
 --
 -- * @Permissions ::@ @[Permission]@
 --
-mkPipelineOutputConfig :: PipelineOutputConfig
-mkPipelineOutputConfig = PipelineOutputConfig
+pipelineOutputConfig :: PipelineOutputConfig
+pipelineOutputConfig = PipelineOutputConfig
     { _pocBucket = Nothing
     , _pocStorageClass = Nothing
     , _pocPermissions = mempty
@@ -2006,8 +2006,8 @@ data Playlist = Playlist
 --
 -- * @StatusDetail ::@ @Maybe Text@
 --
-mkPlaylist :: Playlist
-mkPlaylist = Playlist
+playlist :: Playlist
+playlist = Playlist
     { _pName = Nothing
     , _pFormat = Nothing
     , _pOutputKeys = mempty
@@ -2087,8 +2087,8 @@ data Preset = Preset
 --
 -- * @Type ::@ @Maybe Text@
 --
-mkPreset :: Preset
-mkPreset = Preset
+preset :: Preset
+preset = Preset
     { _p1rId = Nothing
     , _p1rArn = Nothing
     , _p1rName = Nothing
@@ -2194,8 +2194,8 @@ data PresetWatermark = PresetWatermark
 --
 -- * @Target ::@ @Maybe Text@
 --
-mkPresetWatermark :: PresetWatermark
-mkPresetWatermark = PresetWatermark
+presetWatermark :: PresetWatermark
+presetWatermark = PresetWatermark
     { _pwId = Nothing
     , _pwMaxWidth = Nothing
     , _pwMaxHeight = Nothing
@@ -2363,8 +2363,8 @@ data Thumbnails = Thumbnails
 --
 -- * @PaddingPolicy ::@ @Maybe Text@
 --
-mkThumbnails :: Thumbnails
-mkThumbnails = Thumbnails
+thumbnails :: Thumbnails
+thumbnails = Thumbnails
     { _tFormat = Nothing
     , _tInterval = Nothing
     , _tResolution = Nothing
@@ -2467,8 +2467,8 @@ data TimeSpan = TimeSpan
 --
 -- * @Duration ::@ @Maybe Text@
 --
-mkTimeSpan :: TimeSpan
-mkTimeSpan = TimeSpan
+timeSpan :: TimeSpan
+timeSpan = TimeSpan
     { _tsStartTime = Nothing
     , _tsDuration = Nothing
     }
@@ -2547,8 +2547,8 @@ data VideoParameters = VideoParameters
 --
 -- * @Watermarks ::@ @[PresetWatermark]@
 --
-mkVideoParameters :: VideoParameters
-mkVideoParameters = VideoParameters
+videoParameters :: VideoParameters
+videoParameters = VideoParameters
     { _vpCodec = Nothing
     , _vpCodecOptions = mempty
     , _vpKeyframesMaxDist = Nothing

@@ -40,14 +40,14 @@ module Network.AWS.SES.GetIdentityNotificationAttributes
     -- * Request
       GetIdentityNotificationAttributes
     -- ** Request constructor
-    , mkGetIdentityNotificationAttributes
+    , getIdentityNotificationAttributes
     -- ** Request lenses
     , ginaIdentities
 
     -- * Response
     , GetIdentityNotificationAttributesResponse
     -- ** Response constructor
-    , mkGetIdentityNotificationAttributesResponse
+    , getIdentityNotificationAttributesResponse
     -- ** Response lenses
     , ginarNotificationAttributes
     ) where
@@ -69,9 +69,9 @@ newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes
 --
 -- * @Identities ::@ @[Text]@
 --
-mkGetIdentityNotificationAttributes :: [Text] -- ^ 'ginaIdentities'
+getIdentityNotificationAttributes :: [Text] -- ^ 'ginaIdentities'
                                     -> GetIdentityNotificationAttributes
-mkGetIdentityNotificationAttributes p1 = GetIdentityNotificationAttributes
+getIdentityNotificationAttributes p1 = GetIdentityNotificationAttributes
     { _ginaIdentities = p1
     }
 
@@ -99,9 +99,9 @@ newtype GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttri
 --
 -- * @NotificationAttributes ::@ @Map Text IdentityNotificationAttributes@
 --
-mkGetIdentityNotificationAttributesResponse :: Map Text IdentityNotificationAttributes -- ^ 'ginarNotificationAttributes'
+getIdentityNotificationAttributesResponse :: Map Text IdentityNotificationAttributes -- ^ 'ginarNotificationAttributes'
                                             -> GetIdentityNotificationAttributesResponse
-mkGetIdentityNotificationAttributesResponse p1 = GetIdentityNotificationAttributesResponse
+getIdentityNotificationAttributesResponse p1 = GetIdentityNotificationAttributesResponse
     { _ginarNotificationAttributes = p1
     }
 

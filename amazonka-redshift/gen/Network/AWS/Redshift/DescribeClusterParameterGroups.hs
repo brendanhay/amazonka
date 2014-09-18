@@ -37,7 +37,7 @@ module Network.AWS.Redshift.DescribeClusterParameterGroups
     -- * Request
       DescribeClusterParameterGroups
     -- ** Request constructor
-    , mkDescribeClusterParameterGroups
+    , describeClusterParameterGroups
     -- ** Request lenses
     , dcpg1ParameterGroupName
     , dcpg1MaxRecords
@@ -46,7 +46,7 @@ module Network.AWS.Redshift.DescribeClusterParameterGroups
     -- * Response
     , DescribeClusterParameterGroupsResponse
     -- ** Response constructor
-    , mkDescribeClusterParameterGroupsResponse
+    , describeClusterParameterGroupsResponse
     -- ** Response lenses
     , dcpgrMarker
     , dcpgrParameterGroups
@@ -74,8 +74,8 @@ data DescribeClusterParameterGroups = DescribeClusterParameterGroups
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeClusterParameterGroups :: DescribeClusterParameterGroups
-mkDescribeClusterParameterGroups = DescribeClusterParameterGroups
+describeClusterParameterGroups :: DescribeClusterParameterGroups
+describeClusterParameterGroups = DescribeClusterParameterGroups
     { _dcpg1ParameterGroupName = Nothing
     , _dcpg1MaxRecords = Nothing
     , _dcpg1Marker = Nothing
@@ -126,8 +126,8 @@ data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResp
 --
 -- * @ParameterGroups ::@ @[ClusterParameterGroup]@
 --
-mkDescribeClusterParameterGroupsResponse :: DescribeClusterParameterGroupsResponse
-mkDescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse
+describeClusterParameterGroupsResponse :: DescribeClusterParameterGroupsResponse
+describeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse
     { _dcpgrMarker = Nothing
     , _dcpgrParameterGroups = mempty
     }

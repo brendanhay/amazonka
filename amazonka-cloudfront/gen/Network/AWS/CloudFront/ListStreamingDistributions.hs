@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.ListStreamingDistributions
     -- * Request
       ListStreamingDistributions
     -- ** Request constructor
-    , mkListStreamingDistributions
+    , listStreamingDistributions
     -- ** Request lenses
     , lsdMarker
     , lsdMaxItems
@@ -31,7 +31,7 @@ module Network.AWS.CloudFront.ListStreamingDistributions
     -- * Response
     , ListStreamingDistributionsResponse
     -- ** Response constructor
-    , mkListStreamingDistributionsResponse
+    , listStreamingDistributionsResponse
     -- ** Response lenses
     , lsdrStreamingDistributionList
     ) where
@@ -56,8 +56,8 @@ data ListStreamingDistributions = ListStreamingDistributions
 --
 -- * @MaxItems ::@ @Maybe Text@
 --
-mkListStreamingDistributions :: ListStreamingDistributions
-mkListStreamingDistributions = ListStreamingDistributions
+listStreamingDistributions :: ListStreamingDistributions
+listStreamingDistributions = ListStreamingDistributions
     { _lsdMarker = Nothing
     , _lsdMaxItems = Nothing
     }
@@ -99,9 +99,9 @@ newtype ListStreamingDistributionsResponse = ListStreamingDistributionsResponse
 --
 -- * @StreamingDistributionList ::@ @StreamingDistributionList@
 --
-mkListStreamingDistributionsResponse :: StreamingDistributionList -- ^ 'lsdrStreamingDistributionList'
+listStreamingDistributionsResponse :: StreamingDistributionList -- ^ 'lsdrStreamingDistributionList'
                                      -> ListStreamingDistributionsResponse
-mkListStreamingDistributionsResponse p1 = ListStreamingDistributionsResponse
+listStreamingDistributionsResponse p1 = ListStreamingDistributionsResponse
     { _lsdrStreamingDistributionList = p1
     }
 

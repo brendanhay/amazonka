@@ -28,14 +28,14 @@ module Network.AWS.OpsWorks.DeleteLayer
     -- * Request
       DeleteLayer
     -- ** Request constructor
-    , mkDeleteLayer
+    , deleteLayer
     -- ** Request lenses
     , dlLayerId
 
     -- * Response
     , DeleteLayerResponse
     -- ** Response constructor
-    , mkDeleteLayerResponse
+    , deleteLayerResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -53,9 +53,9 @@ newtype DeleteLayer = DeleteLayer
 --
 -- * @LayerId ::@ @Text@
 --
-mkDeleteLayer :: Text -- ^ 'dlLayerId'
+deleteLayer :: Text -- ^ 'dlLayerId'
               -> DeleteLayer
-mkDeleteLayer p1 = DeleteLayer
+deleteLayer p1 = DeleteLayer
     { _dlLayerId = p1
     }
 
@@ -78,8 +78,8 @@ data DeleteLayerResponse = DeleteLayerResponse
 -- a valid 'DeleteLayerResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteLayerResponse :: DeleteLayerResponse
-mkDeleteLayerResponse = DeleteLayerResponse
+deleteLayerResponse :: DeleteLayerResponse
+deleteLayerResponse = DeleteLayerResponse
 
 instance AWSRequest DeleteLayer where
     type Sv DeleteLayer = OpsWorks

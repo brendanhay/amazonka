@@ -33,7 +33,7 @@ module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     -- * Request
       ModifyCacheParameterGroup
     -- ** Request constructor
-    , mkModifyCacheParameterGroup
+    , modifyCacheParameterGroup
     -- ** Request lenses
     , mcpgCacheParameterGroupName
     , mcpgParameterNameValues
@@ -41,7 +41,7 @@ module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     -- * Response
     , ModifyCacheParameterGroupResponse
     -- ** Response constructor
-    , mkModifyCacheParameterGroupResponse
+    , modifyCacheParameterGroupResponse
     -- ** Response lenses
     , mcpgrCacheParameterGroupName
     ) where
@@ -65,10 +65,10 @@ data ModifyCacheParameterGroup = ModifyCacheParameterGroup
 --
 -- * @ParameterNameValues ::@ @[ParameterNameValue]@
 --
-mkModifyCacheParameterGroup :: Text -- ^ 'mcpgCacheParameterGroupName'
+modifyCacheParameterGroup :: Text -- ^ 'mcpgCacheParameterGroupName'
                             -> [ParameterNameValue] -- ^ 'mcpgParameterNameValues'
                             -> ModifyCacheParameterGroup
-mkModifyCacheParameterGroup p1 p2 = ModifyCacheParameterGroup
+modifyCacheParameterGroup p1 p2 = ModifyCacheParameterGroup
     { _mcpgCacheParameterGroupName = p1
     , _mcpgParameterNameValues = p2
     }
@@ -105,8 +105,8 @@ newtype ModifyCacheParameterGroupResponse = ModifyCacheParameterGroupResponse
 --
 -- * @CacheParameterGroupName ::@ @Maybe Text@
 --
-mkModifyCacheParameterGroupResponse :: ModifyCacheParameterGroupResponse
-mkModifyCacheParameterGroupResponse = ModifyCacheParameterGroupResponse
+modifyCacheParameterGroupResponse :: ModifyCacheParameterGroupResponse
+modifyCacheParameterGroupResponse = ModifyCacheParameterGroupResponse
     { _mcpgrCacheParameterGroupName = Nothing
     }
 

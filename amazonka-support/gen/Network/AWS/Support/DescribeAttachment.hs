@@ -27,14 +27,14 @@ module Network.AWS.Support.DescribeAttachment
     -- * Request
       DescribeAttachment
     -- ** Request constructor
-    , mkDescribeAttachment
+    , describeAttachment
     -- ** Request lenses
     , daAttachmentId
 
     -- * Response
     , DescribeAttachmentResponse
     -- ** Response constructor
-    , mkDescribeAttachmentResponse
+    , describeAttachmentResponse
     -- ** Response lenses
     , darAttachment
     ) where
@@ -54,9 +54,9 @@ newtype DescribeAttachment = DescribeAttachment
 --
 -- * @AttachmentId ::@ @Text@
 --
-mkDescribeAttachment :: Text -- ^ 'daAttachmentId'
+describeAttachment :: Text -- ^ 'daAttachmentId'
                      -> DescribeAttachment
-mkDescribeAttachment p1 = DescribeAttachment
+describeAttachment p1 = DescribeAttachment
     { _daAttachmentId = p1
     }
 
@@ -88,8 +88,8 @@ newtype DescribeAttachmentResponse = DescribeAttachmentResponse
 --
 -- * @Attachment ::@ @Maybe Attachment@
 --
-mkDescribeAttachmentResponse :: DescribeAttachmentResponse
-mkDescribeAttachmentResponse = DescribeAttachmentResponse
+describeAttachmentResponse :: DescribeAttachmentResponse
+describeAttachmentResponse = DescribeAttachmentResponse
     { _darAttachment = Nothing
     }
 

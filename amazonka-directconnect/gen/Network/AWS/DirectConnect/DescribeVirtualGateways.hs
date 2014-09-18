@@ -27,11 +27,11 @@ module Network.AWS.DirectConnect.DescribeVirtualGateways
     -- * Request
       DescribeVirtualGateways
     -- ** Request constructor
-    , mkDescribeVirtualGateways
+    , describeVirtualGateways
     -- * Response
     , DescribeVirtualGatewaysResponse
     -- ** Response constructor
-    , mkDescribeVirtualGatewaysResponse
+    , describeVirtualGatewaysResponse
     -- ** Response lenses
     , dvgrVirtualGateways
     ) where
@@ -45,8 +45,8 @@ data DescribeVirtualGateways = DescribeVirtualGateways
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVirtualGateways' request.
-mkDescribeVirtualGateways :: DescribeVirtualGateways
-mkDescribeVirtualGateways = DescribeVirtualGateways
+describeVirtualGateways :: DescribeVirtualGateways
+describeVirtualGateways = DescribeVirtualGateways
 
 instance ToPath DescribeVirtualGateways
 
@@ -70,8 +70,8 @@ newtype DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse
 --
 -- * @VirtualGateways ::@ @[VirtualGateway]@
 --
-mkDescribeVirtualGatewaysResponse :: DescribeVirtualGatewaysResponse
-mkDescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse
+describeVirtualGatewaysResponse :: DescribeVirtualGatewaysResponse
+describeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse
     { _dvgrVirtualGateways = mempty
     }
 

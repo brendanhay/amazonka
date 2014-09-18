@@ -23,7 +23,7 @@ module Network.AWS.S3.PutBucketAcl
     -- * Request
       PutBucketAcl
     -- ** Request constructor
-    , mkPutBucketAcl
+    , putBucketAcl
     -- ** Request lenses
     , pbaACL
     , pbaAccessControlPolicy
@@ -38,7 +38,7 @@ module Network.AWS.S3.PutBucketAcl
     -- * Response
     , PutBucketAclResponse
     -- ** Response constructor
-    , mkPutBucketAclResponse
+    , putBucketAclResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -81,9 +81,9 @@ data PutBucketAcl = PutBucketAcl
 --
 -- * @GrantWriteACP ::@ @Maybe Text@
 --
-mkPutBucketAcl :: BucketName -- ^ 'pbaBucket'
+putBucketAcl :: BucketName -- ^ 'pbaBucket'
                -> PutBucketAcl
-mkPutBucketAcl p3 = PutBucketAcl
+putBucketAcl p3 = PutBucketAcl
     { _pbaACL = Nothing
     , _pbaAccessControlPolicy = Nothing
     , _pbaBucket = p3
@@ -157,8 +157,8 @@ data PutBucketAclResponse = PutBucketAclResponse
 -- a valid 'PutBucketAclResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkPutBucketAclResponse :: PutBucketAclResponse
-mkPutBucketAclResponse = PutBucketAclResponse
+putBucketAclResponse :: PutBucketAclResponse
+putBucketAclResponse = PutBucketAclResponse
 
 instance AWSRequest PutBucketAcl where
     type Sv PutBucketAcl = S3

@@ -33,7 +33,7 @@ module Network.AWS.ElastiCache.DescribeSnapshots
     -- * Request
       DescribeSnapshots
     -- ** Request constructor
-    , mkDescribeSnapshots
+    , describeSnapshots
     -- ** Request lenses
     , ds1CacheClusterId
     , ds1SnapshotName
@@ -44,7 +44,7 @@ module Network.AWS.ElastiCache.DescribeSnapshots
     -- * Response
     , DescribeSnapshotsResponse
     -- ** Response constructor
-    , mkDescribeSnapshotsResponse
+    , describeSnapshotsResponse
     -- ** Response lenses
     , dsrrMarker
     , dsrrSnapshots
@@ -78,8 +78,8 @@ data DescribeSnapshots = DescribeSnapshots
 --
 -- * @MaxRecords ::@ @Maybe Integer@
 --
-mkDescribeSnapshots :: DescribeSnapshots
-mkDescribeSnapshots = DescribeSnapshots
+describeSnapshots :: DescribeSnapshots
+describeSnapshots = DescribeSnapshots
     { _ds1CacheClusterId = Nothing
     , _ds1SnapshotName = Nothing
     , _ds1SnapshotSource = Nothing
@@ -140,8 +140,8 @@ data DescribeSnapshotsResponse = DescribeSnapshotsResponse
 --
 -- * @Snapshots ::@ @[Snapshot]@
 --
-mkDescribeSnapshotsResponse :: DescribeSnapshotsResponse
-mkDescribeSnapshotsResponse = DescribeSnapshotsResponse
+describeSnapshotsResponse :: DescribeSnapshotsResponse
+describeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrrMarker = Nothing
     , _dsrrSnapshots = mempty
     }

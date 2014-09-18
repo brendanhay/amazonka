@@ -30,7 +30,7 @@ module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
     -- * Request
       SetLoadBalancerPoliciesOfListener
     -- ** Request constructor
-    , mkSetLoadBalancerPoliciesOfListener
+    , setLoadBalancerPoliciesOfListener
     -- ** Request lenses
     , slbpolLoadBalancerName
     , slbpolLoadBalancerPort
@@ -39,7 +39,7 @@ module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
     -- * Response
     , SetLoadBalancerPoliciesOfListenerResponse
     -- ** Response constructor
-    , mkSetLoadBalancerPoliciesOfListenerResponse
+    , setLoadBalancerPoliciesOfListenerResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -64,11 +64,11 @@ data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener
 --
 -- * @PolicyNames ::@ @[Text]@
 --
-mkSetLoadBalancerPoliciesOfListener :: Text -- ^ 'slbpolLoadBalancerName'
+setLoadBalancerPoliciesOfListener :: Text -- ^ 'slbpolLoadBalancerName'
                                     -> Integer -- ^ 'slbpolLoadBalancerPort'
                                     -> [Text] -- ^ 'slbpolPolicyNames'
                                     -> SetLoadBalancerPoliciesOfListener
-mkSetLoadBalancerPoliciesOfListener p1 p2 p3 = SetLoadBalancerPoliciesOfListener
+setLoadBalancerPoliciesOfListener p1 p2 p3 = SetLoadBalancerPoliciesOfListener
     { _slbpolLoadBalancerName = p1
     , _slbpolLoadBalancerPort = p2
     , _slbpolPolicyNames = p3
@@ -101,8 +101,8 @@ data SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListen
 -- a valid 'SetLoadBalancerPoliciesOfListenerResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSetLoadBalancerPoliciesOfListenerResponse :: SetLoadBalancerPoliciesOfListenerResponse
-mkSetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse
+setLoadBalancerPoliciesOfListenerResponse :: SetLoadBalancerPoliciesOfListenerResponse
+setLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse
 
 instance AWSRequest SetLoadBalancerPoliciesOfListener where
     type Sv SetLoadBalancerPoliciesOfListener = ELB

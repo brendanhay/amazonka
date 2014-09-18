@@ -25,14 +25,14 @@ module Network.AWS.OpsWorks.DeleteUserProfile
     -- * Request
       DeleteUserProfile
     -- ** Request constructor
-    , mkDeleteUserProfile
+    , deleteUserProfile
     -- ** Request lenses
     , dupIamUserArn
 
     -- * Response
     , DeleteUserProfileResponse
     -- ** Response constructor
-    , mkDeleteUserProfileResponse
+    , deleteUserProfileResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -50,9 +50,9 @@ newtype DeleteUserProfile = DeleteUserProfile
 --
 -- * @IamUserArn ::@ @Text@
 --
-mkDeleteUserProfile :: Text -- ^ 'dupIamUserArn'
+deleteUserProfile :: Text -- ^ 'dupIamUserArn'
                     -> DeleteUserProfile
-mkDeleteUserProfile p1 = DeleteUserProfile
+deleteUserProfile p1 = DeleteUserProfile
     { _dupIamUserArn = p1
     }
 
@@ -75,8 +75,8 @@ data DeleteUserProfileResponse = DeleteUserProfileResponse
 -- a valid 'DeleteUserProfileResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteUserProfileResponse :: DeleteUserProfileResponse
-mkDeleteUserProfileResponse = DeleteUserProfileResponse
+deleteUserProfileResponse :: DeleteUserProfileResponse
+deleteUserProfileResponse = DeleteUserProfileResponse
 
 instance AWSRequest DeleteUserProfile where
     type Sv DeleteUserProfile = OpsWorks

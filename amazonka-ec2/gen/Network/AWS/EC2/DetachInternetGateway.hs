@@ -32,7 +32,7 @@ module Network.AWS.EC2.DetachInternetGateway
     -- * Request
       DetachInternetGateway
     -- ** Request constructor
-    , mkDetachInternetGateway
+    , detachInternetGateway
     -- ** Request lenses
     , dig2InternetGatewayId
     , dig2VpcId
@@ -40,7 +40,7 @@ module Network.AWS.EC2.DetachInternetGateway
     -- * Response
     , DetachInternetGatewayResponse
     -- ** Response constructor
-    , mkDetachInternetGatewayResponse
+    , detachInternetGatewayResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -61,10 +61,10 @@ data DetachInternetGateway = DetachInternetGateway
 --
 -- * @VpcId ::@ @Text@
 --
-mkDetachInternetGateway :: Text -- ^ 'dig2InternetGatewayId'
+detachInternetGateway :: Text -- ^ 'dig2InternetGatewayId'
                         -> Text -- ^ 'dig2VpcId'
                         -> DetachInternetGateway
-mkDetachInternetGateway p1 p2 = DetachInternetGateway
+detachInternetGateway p1 p2 = DetachInternetGateway
     { _dig2InternetGatewayId = p1
     , _dig2VpcId = p2
     }
@@ -88,8 +88,8 @@ data DetachInternetGatewayResponse = DetachInternetGatewayResponse
 -- a valid 'DetachInternetGatewayResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDetachInternetGatewayResponse :: DetachInternetGatewayResponse
-mkDetachInternetGatewayResponse = DetachInternetGatewayResponse
+detachInternetGatewayResponse :: DetachInternetGatewayResponse
+detachInternetGatewayResponse = DetachInternetGatewayResponse
 
 instance AWSRequest DetachInternetGateway where
     type Sv DetachInternetGateway = EC2

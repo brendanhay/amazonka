@@ -29,7 +29,7 @@ module Network.AWS.IAM.DeleteAccessKey
     -- * Request
       DeleteAccessKey
     -- ** Request constructor
-    , mkDeleteAccessKey
+    , deleteAccessKey
     -- ** Request lenses
     , dakUserName
     , dakAccessKeyId
@@ -37,7 +37,7 @@ module Network.AWS.IAM.DeleteAccessKey
     -- * Response
     , DeleteAccessKeyResponse
     -- ** Response constructor
-    , mkDeleteAccessKeyResponse
+    , deleteAccessKeyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -58,9 +58,9 @@ data DeleteAccessKey = DeleteAccessKey
 --
 -- * @AccessKeyId ::@ @Text@
 --
-mkDeleteAccessKey :: Text -- ^ 'dakAccessKeyId'
+deleteAccessKey :: Text -- ^ 'dakAccessKeyId'
                   -> DeleteAccessKey
-mkDeleteAccessKey p2 = DeleteAccessKey
+deleteAccessKey p2 = DeleteAccessKey
     { _dakUserName = Nothing
     , _dakAccessKeyId = p2
     }
@@ -84,8 +84,8 @@ data DeleteAccessKeyResponse = DeleteAccessKeyResponse
 -- a valid 'DeleteAccessKeyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteAccessKeyResponse :: DeleteAccessKeyResponse
-mkDeleteAccessKeyResponse = DeleteAccessKeyResponse
+deleteAccessKeyResponse :: DeleteAccessKeyResponse
+deleteAccessKeyResponse = DeleteAccessKeyResponse
 
 instance AWSRequest DeleteAccessKey where
     type Sv DeleteAccessKey = IAM

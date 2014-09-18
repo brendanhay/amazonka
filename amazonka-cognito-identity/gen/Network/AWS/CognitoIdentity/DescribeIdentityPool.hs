@@ -32,14 +32,14 @@ module Network.AWS.CognitoIdentity.DescribeIdentityPool
     -- * Request
       DescribeIdentityPool
     -- ** Request constructor
-    , mkDescribeIdentityPool
+    , describeIdentityPool
     -- ** Request lenses
     , dip1IdentityPoolId
 
     -- * Response
     , DescribeIdentityPoolResponse
     -- ** Response constructor
-    , mkDescribeIdentityPoolResponse
+    , describeIdentityPoolResponse
     -- ** Response lenses
     , diprIdentityPoolId
     , diprIdentityPoolName
@@ -63,9 +63,9 @@ newtype DescribeIdentityPool = DescribeIdentityPool
 --
 -- * @IdentityPoolId ::@ @Text@
 --
-mkDescribeIdentityPool :: Text -- ^ 'dip1IdentityPoolId'
+describeIdentityPool :: Text -- ^ 'dip1IdentityPoolId'
                        -> DescribeIdentityPool
-mkDescribeIdentityPool p1 = DescribeIdentityPool
+describeIdentityPool p1 = DescribeIdentityPool
     { _dip1IdentityPoolId = p1
     }
 
@@ -105,11 +105,11 @@ data DescribeIdentityPoolResponse = DescribeIdentityPoolResponse
 --
 -- * @SupportedLoginProviders ::@ @Map Text Text@
 --
-mkDescribeIdentityPoolResponse :: Text -- ^ 'diprIdentityPoolId'
+describeIdentityPoolResponse :: Text -- ^ 'diprIdentityPoolId'
                                -> Text -- ^ 'diprIdentityPoolName'
                                -> Bool -- ^ 'diprAllowUnauthenticatedIdentities'
                                -> DescribeIdentityPoolResponse
-mkDescribeIdentityPoolResponse p1 p2 p3 = DescribeIdentityPoolResponse
+describeIdentityPoolResponse p1 p2 p3 = DescribeIdentityPoolResponse
     { _diprIdentityPoolId = p1
     , _diprIdentityPoolName = p2
     , _diprAllowUnauthenticatedIdentities = p3

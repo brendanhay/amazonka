@@ -48,7 +48,7 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
     -- * Request
       DescribeCacheClusters
     -- ** Request constructor
-    , mkDescribeCacheClusters
+    , describeCacheClusters
     -- ** Request lenses
     , dcc1CacheClusterId
     , dcc1MaxRecords
@@ -58,7 +58,7 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
     -- * Response
     , DescribeCacheClustersResponse
     -- ** Response constructor
-    , mkDescribeCacheClustersResponse
+    , describeCacheClustersResponse
     -- ** Response lenses
     , dccrrMarker
     , dccrrCacheClusters
@@ -89,8 +89,8 @@ data DescribeCacheClusters = DescribeCacheClusters
 --
 -- * @ShowCacheNodeInfo ::@ @Maybe Bool@
 --
-mkDescribeCacheClusters :: DescribeCacheClusters
-mkDescribeCacheClusters = DescribeCacheClusters
+describeCacheClusters :: DescribeCacheClusters
+describeCacheClusters = DescribeCacheClusters
     { _dcc1CacheClusterId = Nothing
     , _dcc1MaxRecords = Nothing
     , _dcc1Marker = Nothing
@@ -144,8 +144,8 @@ data DescribeCacheClustersResponse = DescribeCacheClustersResponse
 --
 -- * @CacheClusters ::@ @[CacheCluster]@
 --
-mkDescribeCacheClustersResponse :: DescribeCacheClustersResponse
-mkDescribeCacheClustersResponse = DescribeCacheClustersResponse
+describeCacheClustersResponse :: DescribeCacheClustersResponse
+describeCacheClustersResponse = DescribeCacheClustersResponse
     { _dccrrMarker = Nothing
     , _dccrrCacheClusters = mempty
     }

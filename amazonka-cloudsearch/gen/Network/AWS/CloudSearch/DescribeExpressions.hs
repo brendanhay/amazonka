@@ -28,7 +28,7 @@ module Network.AWS.CloudSearch.DescribeExpressions
     -- * Request
       DescribeExpressions
     -- ** Request constructor
-    , mkDescribeExpressions
+    , describeExpressions
     -- ** Request lenses
     , de2DomainName
     , de2ExpressionNames
@@ -37,7 +37,7 @@ module Network.AWS.CloudSearch.DescribeExpressions
     -- * Response
     , DescribeExpressionsResponse
     -- ** Response constructor
-    , mkDescribeExpressionsResponse
+    , describeExpressionsResponse
     -- ** Response lenses
     , der1Expressions
     ) where
@@ -68,9 +68,9 @@ data DescribeExpressions = DescribeExpressions
 --
 -- * @Deployed ::@ @Maybe Bool@
 --
-mkDescribeExpressions :: Text -- ^ 'de2DomainName'
+describeExpressions :: Text -- ^ 'de2DomainName'
                       -> DescribeExpressions
-mkDescribeExpressions p1 = DescribeExpressions
+describeExpressions p1 = DescribeExpressions
     { _de2DomainName = p1
     , _de2ExpressionNames = mempty
     , _de2Deployed = Nothing
@@ -109,9 +109,9 @@ newtype DescribeExpressionsResponse = DescribeExpressionsResponse
 --
 -- * @Expressions ::@ @[ExpressionStatus]@
 --
-mkDescribeExpressionsResponse :: [ExpressionStatus] -- ^ 'der1Expressions'
+describeExpressionsResponse :: [ExpressionStatus] -- ^ 'der1Expressions'
                               -> DescribeExpressionsResponse
-mkDescribeExpressionsResponse p1 = DescribeExpressionsResponse
+describeExpressionsResponse p1 = DescribeExpressionsResponse
     { _der1Expressions = p1
     }
 

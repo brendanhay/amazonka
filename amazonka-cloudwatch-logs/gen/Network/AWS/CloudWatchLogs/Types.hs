@@ -39,13 +39,13 @@ module Network.AWS.CloudWatchLogs.Types
     , _ServiceUnavailableException
     -- * InputLogEvent
     , InputLogEvent
-    , mkInputLogEvent
+    , inputLogEvent
     , ileTimestamp
     , ileMessage
 
     -- * LogGroup
     , LogGroup
-    , mkLogGroup
+    , logGroup
     , lgLogGroupName
     , lgCreationTime
     , lgRetentionInDays
@@ -55,7 +55,7 @@ module Network.AWS.CloudWatchLogs.Types
 
     -- * LogStream
     , LogStream
-    , mkLogStream
+    , logStream
     , lsLogStreamName
     , lsCreationTime
     , lsFirstEventTimestamp
@@ -67,7 +67,7 @@ module Network.AWS.CloudWatchLogs.Types
 
     -- * MetricFilter
     , MetricFilter
-    , mkMetricFilter
+    , metricFilter
     , mfFilterName
     , mfFilterPattern
     , mfMetricTransformations
@@ -75,21 +75,21 @@ module Network.AWS.CloudWatchLogs.Types
 
     -- * MetricFilterMatchRecord
     , MetricFilterMatchRecord
-    , mkMetricFilterMatchRecord
+    , metricFilterMatchRecord
     , mfmrEventNumber
     , mfmrEventMessage
     , mfmrExtractedValues
 
     -- * MetricTransformation
     , MetricTransformation
-    , mkMetricTransformation
+    , metricTransformation
     , mtMetricName
     , mtMetricNamespace
     , mtMetricValue
 
     -- * OutputLogEvent
     , OutputLogEvent
-    , mkOutputLogEvent
+    , outputLogEvent
     , oleTimestamp
     , oleMessage
     , oleIngestionTime
@@ -120,8 +120,8 @@ instance AWSService CloudWatchLogs where
 -- service description where applicable.
 data CloudWatchLogsError
     = CloudWatchLogsClient HttpException
-    | CloudWatchLogsSerializer Text
-    | CloudWatchLogsService Text
+    | CloudWatchLogsSerializer String
+    | CloudWatchLogsService String
     | DataAlreadyAcceptedException
         { _daaeExpectedSequenceToken :: Maybe Text
         }
@@ -163,7 +163,7 @@ _CloudWatchLogsClient = prism'
         x -> Left x)
 
 -- | See: 'CloudWatchLogsSerializer'
-_CloudWatchLogsSerializer :: Prism' CloudWatchLogsError Text
+_CloudWatchLogsSerializer :: Prism' CloudWatchLogsError String
 _CloudWatchLogsSerializer = prism'
     CloudWatchLogsSerializer
     (\case
@@ -171,7 +171,7 @@ _CloudWatchLogsSerializer = prism'
         x -> Left x)
 
 -- | See: 'CloudWatchLogsService'
-_CloudWatchLogsService :: Prism' CloudWatchLogsError Text
+_CloudWatchLogsService :: Prism' CloudWatchLogsError String
 _CloudWatchLogsService = prism'
     CloudWatchLogsService
     (\case
@@ -273,10 +273,10 @@ data InputLogEvent = InputLogEvent
 --
 -- * @Message ::@ @Text@
 --
-mkInputLogEvent :: Integer -- ^ 'ileTimestamp'
+inputLogEvent :: Integer -- ^ 'ileTimestamp'
                 -> Text -- ^ 'ileMessage'
                 -> InputLogEvent
-mkInputLogEvent p1 p2 = InputLogEvent
+inputLogEvent p1 p2 = InputLogEvent
     { _ileTimestamp = p1
     , _ileMessage = p2
     }
@@ -320,8 +320,8 @@ data LogGroup = LogGroup
 --
 -- * @StoredBytes ::@ @Maybe Integer@
 --
-mkLogGroup :: LogGroup
-mkLogGroup = LogGroup
+logGroup :: LogGroup
+logGroup = LogGroup
     { _lgLogGroupName = Nothing
     , _lgCreationTime = Nothing
     , _lgRetentionInDays = Nothing
@@ -394,8 +394,8 @@ data LogStream = LogStream
 --
 -- * @StoredBytes ::@ @Maybe Integer@
 --
-mkLogStream :: LogStream
-mkLogStream = LogStream
+logStream :: LogStream
+logStream = LogStream
     { _lsLogStreamName = Nothing
     , _lsCreationTime = Nothing
     , _lsFirstEventTimestamp = Nothing
@@ -473,8 +473,8 @@ data MetricFilter = MetricFilter
 --
 -- * @CreationTime ::@ @Maybe Integer@
 --
-mkMetricFilter :: MetricFilter
-mkMetricFilter = MetricFilter
+metricFilter :: MetricFilter
+metricFilter = MetricFilter
     { _mfFilterName = Nothing
     , _mfFilterPattern = Nothing
     , _mfMetricTransformations = Nothing
@@ -520,8 +520,8 @@ data MetricFilterMatchRecord = MetricFilterMatchRecord
 --
 -- * @ExtractedValues ::@ @Map Text Text@
 --
-mkMetricFilterMatchRecord :: MetricFilterMatchRecord
-mkMetricFilterMatchRecord = MetricFilterMatchRecord
+metricFilterMatchRecord :: MetricFilterMatchRecord
+metricFilterMatchRecord = MetricFilterMatchRecord
     { _mfmrEventNumber = Nothing
     , _mfmrEventMessage = Nothing
     , _mfmrExtractedValues = mempty
@@ -557,11 +557,11 @@ data MetricTransformation = MetricTransformation
 --
 -- * @MetricValue ::@ @Text@
 --
-mkMetricTransformation :: Text -- ^ 'mtMetricName'
+metricTransformation :: Text -- ^ 'mtMetricName'
                        -> Text -- ^ 'mtMetricNamespace'
                        -> Text -- ^ 'mtMetricValue'
                        -> MetricTransformation
-mkMetricTransformation p1 p2 p3 = MetricTransformation
+metricTransformation p1 p2 p3 = MetricTransformation
     { _mtMetricName = p1
     , _mtMetricNamespace = p2
     , _mtMetricValue = p3
@@ -601,8 +601,8 @@ data OutputLogEvent = OutputLogEvent
 --
 -- * @IngestionTime ::@ @Maybe Integer@
 --
-mkOutputLogEvent :: OutputLogEvent
-mkOutputLogEvent = OutputLogEvent
+outputLogEvent :: OutputLogEvent
+outputLogEvent = OutputLogEvent
     { _oleTimestamp = Nothing
     , _oleMessage = Nothing
     , _oleIngestionTime = Nothing

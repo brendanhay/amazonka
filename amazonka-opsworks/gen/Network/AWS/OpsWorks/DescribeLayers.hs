@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.DescribeLayers
     -- * Request
       DescribeLayers
     -- ** Request constructor
-    , mkDescribeLayers
+    , describeLayers
     -- ** Request lenses
     , dl1StackId
     , dl1LayerIds
@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.DescribeLayers
     -- * Response
     , DescribeLayersResponse
     -- ** Response constructor
-    , mkDescribeLayersResponse
+    , describeLayersResponse
     -- ** Response lenses
     , dlrLayers
     ) where
@@ -58,8 +58,8 @@ data DescribeLayers = DescribeLayers
 --
 -- * @LayerIds ::@ @[Text]@
 --
-mkDescribeLayers :: DescribeLayers
-mkDescribeLayers = DescribeLayers
+describeLayers :: DescribeLayers
+describeLayers = DescribeLayers
     { _dl1StackId = Nothing
     , _dl1LayerIds = mempty
     }
@@ -96,8 +96,8 @@ newtype DescribeLayersResponse = DescribeLayersResponse
 --
 -- * @Layers ::@ @[Layer]@
 --
-mkDescribeLayersResponse :: DescribeLayersResponse
-mkDescribeLayersResponse = DescribeLayersResponse
+describeLayersResponse :: DescribeLayersResponse
+describeLayersResponse = DescribeLayersResponse
     { _dlrLayers = mempty
     }
 

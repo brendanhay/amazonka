@@ -34,7 +34,7 @@ module Network.AWS.RDS.DownloadDBLogFilePortion
     -- * Request
       DownloadDBLogFilePortion
     -- ** Request constructor
-    , mkDownloadDBLogFilePortion
+    , downloadDBLogFilePortion
     -- ** Request lenses
     , ddblfpDBInstanceIdentifier
     , ddblfpLogFileName
@@ -44,7 +44,7 @@ module Network.AWS.RDS.DownloadDBLogFilePortion
     -- * Response
     , DownloadDBLogFilePortionResponse
     -- ** Response constructor
-    , mkDownloadDBLogFilePortionResponse
+    , downloadDBLogFilePortionResponse
     -- ** Response lenses
     , ddblfprAdditionalDataPending
     , ddblfprLogFileData
@@ -76,10 +76,10 @@ data DownloadDBLogFilePortion = DownloadDBLogFilePortion
 --
 -- * @NumberOfLines ::@ @Maybe Integer@
 --
-mkDownloadDBLogFilePortion :: Text -- ^ 'ddblfpDBInstanceIdentifier'
+downloadDBLogFilePortion :: Text -- ^ 'ddblfpDBInstanceIdentifier'
                            -> Text -- ^ 'ddblfpLogFileName'
                            -> DownloadDBLogFilePortion
-mkDownloadDBLogFilePortion p1 p2 = DownloadDBLogFilePortion
+downloadDBLogFilePortion p1 p2 = DownloadDBLogFilePortion
     { _ddblfpDBInstanceIdentifier = p1
     , _ddblfpLogFileName = p2
     , _ddblfpMarker = Nothing
@@ -134,10 +134,10 @@ data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDownloadDBLogFilePortionResponse :: Bool -- ^ 'ddblfprAdditionalDataPending'
+downloadDBLogFilePortionResponse :: Bool -- ^ 'ddblfprAdditionalDataPending'
                                    -> ByteString -- ^ 'ddblfprLogFileData'
                                    -> DownloadDBLogFilePortionResponse
-mkDownloadDBLogFilePortionResponse p1 p2 = DownloadDBLogFilePortionResponse
+downloadDBLogFilePortionResponse p1 p2 = DownloadDBLogFilePortionResponse
     { _ddblfprAdditionalDataPending = p1
     , _ddblfprLogFileData = p2
     , _ddblfprMarker = Nothing

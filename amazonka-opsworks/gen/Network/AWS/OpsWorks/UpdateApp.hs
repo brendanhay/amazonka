@@ -26,7 +26,7 @@ module Network.AWS.OpsWorks.UpdateApp
     -- * Request
       UpdateApp
     -- ** Request constructor
-    , mkUpdateApp
+    , updateApp
     -- ** Request lenses
     , uaAppId
     , uaName
@@ -42,7 +42,7 @@ module Network.AWS.OpsWorks.UpdateApp
     -- * Response
     , UpdateAppResponse
     -- ** Response constructor
-    , mkUpdateAppResponse
+    , updateAppResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -87,9 +87,9 @@ data UpdateApp = UpdateApp
 --
 -- * @Attributes ::@ @Map AppAttributesKeys Text@
 --
-mkUpdateApp :: Text -- ^ 'uaAppId'
+updateApp :: Text -- ^ 'uaAppId'
             -> UpdateApp
-mkUpdateApp p1 = UpdateApp
+updateApp p1 = UpdateApp
     { _uaAppId = p1
     , _uaName = Nothing
     , _uaDescription = Nothing
@@ -160,8 +160,8 @@ data UpdateAppResponse = UpdateAppResponse
 -- a valid 'UpdateAppResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkUpdateAppResponse :: UpdateAppResponse
-mkUpdateAppResponse = UpdateAppResponse
+updateAppResponse :: UpdateAppResponse
+updateAppResponse = UpdateAppResponse
 
 instance AWSRequest UpdateApp where
     type Sv UpdateApp = OpsWorks

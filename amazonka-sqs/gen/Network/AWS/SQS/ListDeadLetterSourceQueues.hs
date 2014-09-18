@@ -30,14 +30,14 @@ module Network.AWS.SQS.ListDeadLetterSourceQueues
     -- * Request
       ListDeadLetterSourceQueues
     -- ** Request constructor
-    , mkListDeadLetterSourceQueues
+    , listDeadLetterSourceQueues
     -- ** Request lenses
     , ldlsqQueueUrl
 
     -- * Response
     , ListDeadLetterSourceQueuesResponse
     -- ** Response constructor
-    , mkListDeadLetterSourceQueuesResponse
+    , listDeadLetterSourceQueuesResponse
     -- ** Response lenses
     , ldlsqrQueueUrls
     ) where
@@ -57,9 +57,9 @@ newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues
 --
 -- * @QueueUrl ::@ @Text@
 --
-mkListDeadLetterSourceQueues :: Text -- ^ 'ldlsqQueueUrl'
+listDeadLetterSourceQueues :: Text -- ^ 'ldlsqQueueUrl'
                              -> ListDeadLetterSourceQueues
-mkListDeadLetterSourceQueues p1 = ListDeadLetterSourceQueues
+listDeadLetterSourceQueues p1 = ListDeadLetterSourceQueues
     { _ldlsqQueueUrl = p1
     }
 
@@ -84,9 +84,9 @@ newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
 --
 -- * @QueueUrls ::@ @[Text]@
 --
-mkListDeadLetterSourceQueuesResponse :: [Text] -- ^ 'ldlsqrQueueUrls'
+listDeadLetterSourceQueuesResponse :: [Text] -- ^ 'ldlsqrQueueUrls'
                                      -> ListDeadLetterSourceQueuesResponse
-mkListDeadLetterSourceQueuesResponse p1 = ListDeadLetterSourceQueuesResponse
+listDeadLetterSourceQueuesResponse p1 = ListDeadLetterSourceQueuesResponse
     { _ldlsqrQueueUrls = p1
     }
 

@@ -31,7 +31,7 @@ module Network.AWS.RDS.CreateDBSubnetGroup
     -- * Request
       CreateDBSubnetGroup
     -- ** Request constructor
-    , mkCreateDBSubnetGroup
+    , createDBSubnetGroup
     -- ** Request lenses
     , cdbsg1DBSubnetGroupName
     , cdbsg1DBSubnetGroupDescription
@@ -41,7 +41,7 @@ module Network.AWS.RDS.CreateDBSubnetGroup
     -- * Response
     , CreateDBSubnetGroupResponse
     -- ** Response constructor
-    , mkCreateDBSubnetGroupResponse
+    , createDBSubnetGroupResponse
     -- ** Response lenses
     , cdbsgrrDBSubnetGroup
     ) where
@@ -71,11 +71,11 @@ data CreateDBSubnetGroup = CreateDBSubnetGroup
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkCreateDBSubnetGroup :: Text -- ^ 'cdbsg1DBSubnetGroupName'
+createDBSubnetGroup :: Text -- ^ 'cdbsg1DBSubnetGroupName'
                       -> Text -- ^ 'cdbsg1DBSubnetGroupDescription'
                       -> [Text] -- ^ 'cdbsg1SubnetIds'
                       -> CreateDBSubnetGroup
-mkCreateDBSubnetGroup p1 p2 p3 = CreateDBSubnetGroup
+createDBSubnetGroup p1 p2 p3 = CreateDBSubnetGroup
     { _cdbsg1DBSubnetGroupName = p1
     , _cdbsg1DBSubnetGroupDescription = p2
     , _cdbsg1SubnetIds = p3
@@ -120,8 +120,8 @@ newtype CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse
 --
 -- * @DBSubnetGroup ::@ @Maybe DBSubnetGroup@
 --
-mkCreateDBSubnetGroupResponse :: CreateDBSubnetGroupResponse
-mkCreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse
+createDBSubnetGroupResponse :: CreateDBSubnetGroupResponse
+createDBSubnetGroupResponse = CreateDBSubnetGroupResponse
     { _cdbsgrrDBSubnetGroup = Nothing
     }
 

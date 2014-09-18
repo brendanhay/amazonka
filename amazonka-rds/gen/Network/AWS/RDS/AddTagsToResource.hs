@@ -27,7 +27,7 @@ module Network.AWS.RDS.AddTagsToResource
     -- * Request
       AddTagsToResource
     -- ** Request constructor
-    , mkAddTagsToResource
+    , addTagsToResource
     -- ** Request lenses
     , attrResourceName
     , attrTags
@@ -35,7 +35,7 @@ module Network.AWS.RDS.AddTagsToResource
     -- * Response
     , AddTagsToResourceResponse
     -- ** Response constructor
-    , mkAddTagsToResourceResponse
+    , addTagsToResourceResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -57,10 +57,10 @@ data AddTagsToResource = AddTagsToResource
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkAddTagsToResource :: Text -- ^ 'attrResourceName'
+addTagsToResource :: Text -- ^ 'attrResourceName'
                     -> [Tag] -- ^ 'attrTags'
                     -> AddTagsToResource
-mkAddTagsToResource p1 p2 = AddTagsToResource
+addTagsToResource p1 p2 = AddTagsToResource
     { _attrResourceName = p1
     , _attrTags = p2
     }
@@ -86,8 +86,8 @@ data AddTagsToResourceResponse = AddTagsToResourceResponse
 -- a valid 'AddTagsToResourceResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkAddTagsToResourceResponse :: AddTagsToResourceResponse
-mkAddTagsToResourceResponse = AddTagsToResourceResponse
+addTagsToResourceResponse :: AddTagsToResourceResponse
+addTagsToResourceResponse = AddTagsToResourceResponse
 
 instance AWSRequest AddTagsToResource where
     type Sv AddTagsToResource = RDS

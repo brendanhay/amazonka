@@ -46,7 +46,7 @@ module Network.AWS.Redshift.ModifyCluster
     -- * Request
       ModifyCluster
     -- ** Request constructor
-    , mkModifyCluster
+    , modifyCluster
     -- ** Request lenses
     , mcClusterIdentifier
     , mcClusterType
@@ -67,7 +67,7 @@ module Network.AWS.Redshift.ModifyCluster
     -- * Response
     , ModifyClusterResponse
     -- ** Response constructor
-    , mkModifyClusterResponse
+    , modifyClusterResponse
     -- ** Response lenses
     , mcrCluster
     ) where
@@ -130,9 +130,9 @@ data ModifyCluster = ModifyCluster
 --
 -- * @NewClusterIdentifier ::@ @Maybe Text@
 --
-mkModifyCluster :: Text -- ^ 'mcClusterIdentifier'
+modifyCluster :: Text -- ^ 'mcClusterIdentifier'
                 -> ModifyCluster
-mkModifyCluster p1 = ModifyCluster
+modifyCluster p1 = ModifyCluster
     { _mcClusterIdentifier = p1
     , _mcClusterType = Nothing
     , _mcNodeType = Nothing
@@ -315,8 +315,8 @@ newtype ModifyClusterResponse = ModifyClusterResponse
 --
 -- * @Cluster ::@ @Maybe Cluster@
 --
-mkModifyClusterResponse :: ModifyClusterResponse
-mkModifyClusterResponse = ModifyClusterResponse
+modifyClusterResponse :: ModifyClusterResponse
+modifyClusterResponse = ModifyClusterResponse
     { _mcrCluster = Nothing
     }
 

@@ -26,14 +26,14 @@ module Network.AWS.OpsWorks.DeleteApp
     -- * Request
       DeleteApp
     -- ** Request constructor
-    , mkDeleteApp
+    , deleteApp
     -- ** Request lenses
     , daAppId
 
     -- * Response
     , DeleteAppResponse
     -- ** Response constructor
-    , mkDeleteAppResponse
+    , deleteAppResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -51,9 +51,9 @@ newtype DeleteApp = DeleteApp
 --
 -- * @AppId ::@ @Text@
 --
-mkDeleteApp :: Text -- ^ 'daAppId'
+deleteApp :: Text -- ^ 'daAppId'
             -> DeleteApp
-mkDeleteApp p1 = DeleteApp
+deleteApp p1 = DeleteApp
     { _daAppId = p1
     }
 
@@ -76,8 +76,8 @@ data DeleteAppResponse = DeleteAppResponse
 -- a valid 'DeleteAppResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteAppResponse :: DeleteAppResponse
-mkDeleteAppResponse = DeleteAppResponse
+deleteAppResponse :: DeleteAppResponse
+deleteAppResponse = DeleteAppResponse
 
 instance AWSRequest DeleteApp where
     type Sv DeleteApp = OpsWorks

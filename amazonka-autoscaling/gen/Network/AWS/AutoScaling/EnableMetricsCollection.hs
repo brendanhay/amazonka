@@ -27,7 +27,7 @@ module Network.AWS.AutoScaling.EnableMetricsCollection
     -- * Request
       EnableMetricsCollection
     -- ** Request constructor
-    , mkEnableMetricsCollection
+    , enableMetricsCollection
     -- ** Request lenses
     , emcAutoScalingGroupName
     , emcMetrics
@@ -36,7 +36,7 @@ module Network.AWS.AutoScaling.EnableMetricsCollection
     -- * Response
     , EnableMetricsCollectionResponse
     -- ** Response constructor
-    , mkEnableMetricsCollectionResponse
+    , enableMetricsCollectionResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -60,10 +60,10 @@ data EnableMetricsCollection = EnableMetricsCollection
 --
 -- * @Granularity ::@ @Text@
 --
-mkEnableMetricsCollection :: Text -- ^ 'emcAutoScalingGroupName'
+enableMetricsCollection :: Text -- ^ 'emcAutoScalingGroupName'
                           -> Text -- ^ 'emcGranularity'
                           -> EnableMetricsCollection
-mkEnableMetricsCollection p1 p3 = EnableMetricsCollection
+enableMetricsCollection p1 p3 = EnableMetricsCollection
     { _emcAutoScalingGroupName = p1
     , _emcMetrics = mempty
     , _emcGranularity = p3
@@ -99,8 +99,8 @@ data EnableMetricsCollectionResponse = EnableMetricsCollectionResponse
 -- a valid 'EnableMetricsCollectionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkEnableMetricsCollectionResponse :: EnableMetricsCollectionResponse
-mkEnableMetricsCollectionResponse = EnableMetricsCollectionResponse
+enableMetricsCollectionResponse :: EnableMetricsCollectionResponse
+enableMetricsCollectionResponse = EnableMetricsCollectionResponse
 
 instance AWSRequest EnableMetricsCollection where
     type Sv EnableMetricsCollection = AutoScaling

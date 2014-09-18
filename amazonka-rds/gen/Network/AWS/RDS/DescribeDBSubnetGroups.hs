@@ -33,7 +33,7 @@ module Network.AWS.RDS.DescribeDBSubnetGroups
     -- * Request
       DescribeDBSubnetGroups
     -- ** Request constructor
-    , mkDescribeDBSubnetGroups
+    , describeDBSubnetGroups
     -- ** Request lenses
     , ddbsg3DBSubnetGroupName
     , ddbsg3MaxRecords
@@ -42,7 +42,7 @@ module Network.AWS.RDS.DescribeDBSubnetGroups
     -- * Response
     , DescribeDBSubnetGroupsResponse
     -- ** Response constructor
-    , mkDescribeDBSubnetGroupsResponse
+    , describeDBSubnetGroupsResponse
     -- ** Response lenses
     , ddbsgrrMarker
     , ddbsgrrDBSubnetGroups
@@ -70,8 +70,8 @@ data DescribeDBSubnetGroups = DescribeDBSubnetGroups
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeDBSubnetGroups :: DescribeDBSubnetGroups
-mkDescribeDBSubnetGroups = DescribeDBSubnetGroups
+describeDBSubnetGroups :: DescribeDBSubnetGroups
+describeDBSubnetGroups = DescribeDBSubnetGroups
     { _ddbsg3DBSubnetGroupName = Nothing
     , _ddbsg3MaxRecords = Nothing
     , _ddbsg3Marker = Nothing
@@ -118,8 +118,8 @@ data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
 --
 -- * @DBSubnetGroups ::@ @[DBSubnetGroup]@
 --
-mkDescribeDBSubnetGroupsResponse :: DescribeDBSubnetGroupsResponse
-mkDescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
+describeDBSubnetGroupsResponse :: DescribeDBSubnetGroupsResponse
+describeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
     { _ddbsgrrMarker = Nothing
     , _ddbsgrrDBSubnetGroups = mempty
     }

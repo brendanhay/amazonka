@@ -30,14 +30,14 @@ module Network.AWS.Support.RefreshTrustedAdvisorCheck
     -- * Request
       RefreshTrustedAdvisorCheck
     -- ** Request constructor
-    , mkRefreshTrustedAdvisorCheck
+    , refreshTrustedAdvisorCheck
     -- ** Request lenses
     , rtacCheckId
 
     -- * Response
     , RefreshTrustedAdvisorCheckResponse
     -- ** Response constructor
-    , mkRefreshTrustedAdvisorCheckResponse
+    , refreshTrustedAdvisorCheckResponse
     -- ** Response lenses
     , rtacrStatus
     ) where
@@ -57,9 +57,9 @@ newtype RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck
 --
 -- * @CheckId ::@ @Text@
 --
-mkRefreshTrustedAdvisorCheck :: Text -- ^ 'rtacCheckId'
+refreshTrustedAdvisorCheck :: Text -- ^ 'rtacCheckId'
                              -> RefreshTrustedAdvisorCheck
-mkRefreshTrustedAdvisorCheck p1 = RefreshTrustedAdvisorCheck
+refreshTrustedAdvisorCheck p1 = RefreshTrustedAdvisorCheck
     { _rtacCheckId = p1
     }
 
@@ -89,9 +89,9 @@ newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse
 --
 -- * @Status ::@ @TrustedAdvisorCheckRefreshStatus@
 --
-mkRefreshTrustedAdvisorCheckResponse :: TrustedAdvisorCheckRefreshStatus -- ^ 'rtacrStatus'
+refreshTrustedAdvisorCheckResponse :: TrustedAdvisorCheckRefreshStatus -- ^ 'rtacrStatus'
                                      -> RefreshTrustedAdvisorCheckResponse
-mkRefreshTrustedAdvisorCheckResponse p1 = RefreshTrustedAdvisorCheckResponse
+refreshTrustedAdvisorCheckResponse p1 = RefreshTrustedAdvisorCheckResponse
     { _rtacrStatus = p1
     }
 

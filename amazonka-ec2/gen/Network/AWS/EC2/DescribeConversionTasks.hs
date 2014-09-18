@@ -30,7 +30,7 @@ module Network.AWS.EC2.DescribeConversionTasks
     -- * Request
       DescribeConversionTasks
     -- ** Request constructor
-    , mkDescribeConversionTasks
+    , describeConversionTasks
     -- ** Request lenses
     , dctFilters
     , dctConversionTaskIds
@@ -38,7 +38,7 @@ module Network.AWS.EC2.DescribeConversionTasks
     -- * Response
     , DescribeConversionTasksResponse
     -- ** Response constructor
-    , mkDescribeConversionTasksResponse
+    , describeConversionTasksResponse
     -- ** Response lenses
     , dctrConversionTasks
     ) where
@@ -61,8 +61,8 @@ data DescribeConversionTasks = DescribeConversionTasks
 --
 -- * @ConversionTaskIds ::@ @[Text]@
 --
-mkDescribeConversionTasks :: DescribeConversionTasks
-mkDescribeConversionTasks = DescribeConversionTasks
+describeConversionTasks :: DescribeConversionTasks
+describeConversionTasks = DescribeConversionTasks
     { _dctFilters = mempty
     , _dctConversionTaskIds = mempty
     }
@@ -92,8 +92,8 @@ newtype DescribeConversionTasksResponse = DescribeConversionTasksResponse
 --
 -- * @ConversionTasks ::@ @[ConversionTask]@
 --
-mkDescribeConversionTasksResponse :: DescribeConversionTasksResponse
-mkDescribeConversionTasksResponse = DescribeConversionTasksResponse
+describeConversionTasksResponse :: DescribeConversionTasksResponse
+describeConversionTasksResponse = DescribeConversionTasksResponse
     { _dctrConversionTasks = mempty
     }
 

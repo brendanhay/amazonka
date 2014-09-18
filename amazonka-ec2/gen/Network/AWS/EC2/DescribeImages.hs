@@ -51,7 +51,7 @@ module Network.AWS.EC2.DescribeImages
     -- * Request
       DescribeImages
     -- ** Request constructor
-    , mkDescribeImages
+    , describeImages
     -- ** Request lenses
     , di1ImageIds
     , di1Owners
@@ -61,7 +61,7 @@ module Network.AWS.EC2.DescribeImages
     -- * Response
     , DescribeImagesResponse
     -- ** Response constructor
-    , mkDescribeImagesResponse
+    , describeImagesResponse
     -- ** Response lenses
     , dirImages
     ) where
@@ -90,8 +90,8 @@ data DescribeImages = DescribeImages
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribeImages :: DescribeImages
-mkDescribeImages = DescribeImages
+describeImages :: DescribeImages
+describeImages = DescribeImages
     { _di1ImageIds = mempty
     , _di1Owners = mempty
     , _di1ExecutableUsers = mempty
@@ -166,8 +166,8 @@ newtype DescribeImagesResponse = DescribeImagesResponse
 --
 -- * @Images ::@ @[Image]@
 --
-mkDescribeImagesResponse :: DescribeImagesResponse
-mkDescribeImagesResponse = DescribeImagesResponse
+describeImagesResponse :: DescribeImagesResponse
+describeImagesResponse = DescribeImagesResponse
     { _dirImages = mempty
     }
 

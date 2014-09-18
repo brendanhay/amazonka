@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.UpdateDistribution
     -- * Request
       UpdateDistribution
     -- ** Request constructor
-    , mkUpdateDistribution
+    , updateDistribution
     -- ** Request lenses
     , udDistributionConfig
     , udId
@@ -32,7 +32,7 @@ module Network.AWS.CloudFront.UpdateDistribution
     -- * Response
     , UpdateDistributionResponse
     -- ** Response constructor
-    , mkUpdateDistributionResponse
+    , updateDistributionResponse
     -- ** Response lenses
     , udrDistribution
     , udrETag
@@ -61,10 +61,10 @@ data UpdateDistribution = UpdateDistribution
 --
 -- * @IfMatch ::@ @Maybe Text@
 --
-mkUpdateDistribution :: DistributionConfig -- ^ 'udDistributionConfig'
+updateDistribution :: DistributionConfig -- ^ 'udDistributionConfig'
                      -> Text -- ^ 'udId'
                      -> UpdateDistribution
-mkUpdateDistribution p1 p2 = UpdateDistribution
+updateDistribution p1 p2 = UpdateDistribution
     { _udDistributionConfig = p1
     , _udId = p2
     , _udIfMatch = Nothing
@@ -114,8 +114,8 @@ data UpdateDistributionResponse = UpdateDistributionResponse
 --
 -- * @ETag ::@ @Maybe Text@
 --
-mkUpdateDistributionResponse :: UpdateDistributionResponse
-mkUpdateDistributionResponse = UpdateDistributionResponse
+updateDistributionResponse :: UpdateDistributionResponse
+updateDistributionResponse = UpdateDistributionResponse
     { _udrDistribution = Nothing
     , _udrETag = Nothing
     }

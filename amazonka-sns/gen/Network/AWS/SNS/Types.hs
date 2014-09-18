@@ -52,31 +52,31 @@ module Network.AWS.SNS.Types
 
     -- * Topic
     , Topic
-    , mkTopic
+    , topic
     , tTopicArn
 
     -- * Endpoint
     , Endpoint
-    , mkEndpoint
+    , endpoint
     , eEndpointArn
     , eAttributes
 
     -- * MessageAttributeValue
     , MessageAttributeValue
-    , mkMessageAttributeValue
+    , messageAttributeValue
     , mavDataType
     , mavStringValue
     , mavBinaryValue
 
     -- * PlatformApplication
     , PlatformApplication
-    , mkPlatformApplication
+    , platformApplication
     , paPlatformApplicationArn
     , paAttributes
 
     -- * Subscription
     , Subscription
-    , mkSubscription
+    , subscription
     , sSubscriptionArn
     , sOwner
     , sProtocol
@@ -140,8 +140,8 @@ data SNSError
         { _padeMessage :: Maybe Text
         }
     | SNSClient HttpException
-    | SNSSerializer Text
-    | SNSService Text
+    | SNSSerializer String
+    | SNSService String
       -- | Indicates that the customer already owns the maximum allowed
       -- number of subscriptions.
     | SubscriptionLimitExceededException
@@ -245,7 +245,7 @@ _SNSClient = prism'
         x -> Left x)
 
 -- | See: 'SNSSerializer'
-_SNSSerializer :: Prism' SNSError Text
+_SNSSerializer :: Prism' SNSError String
 _SNSSerializer = prism'
     SNSSerializer
     (\case
@@ -253,7 +253,7 @@ _SNSSerializer = prism'
         x -> Left x)
 
 -- | See: 'SNSService'
-_SNSService :: Prism' SNSError Text
+_SNSService :: Prism' SNSError String
 _SNSService = prism'
     SNSService
     (\case
@@ -301,8 +301,8 @@ newtype Topic = Topic
 --
 -- * @TopicArn ::@ @Maybe Text@
 --
-mkTopic :: Topic
-mkTopic = Topic
+topic :: Topic
+topic = Topic
     { _tTopicArn = Nothing
     }
 
@@ -332,8 +332,8 @@ data Endpoint = Endpoint
 --
 -- * @Attributes ::@ @Map Text Text@
 --
-mkEndpoint :: Endpoint
-mkEndpoint = Endpoint
+endpoint :: Endpoint
+endpoint = Endpoint
     { _eEndpointArn = Nothing
     , _eAttributes = mempty
     }
@@ -375,9 +375,9 @@ data MessageAttributeValue = MessageAttributeValue
 --
 -- * @BinaryValue ::@ @Maybe ByteString@
 --
-mkMessageAttributeValue :: Text -- ^ 'mavDataType'
+messageAttributeValue :: Text -- ^ 'mavDataType'
                         -> MessageAttributeValue
-mkMessageAttributeValue p1 = MessageAttributeValue
+messageAttributeValue p1 = MessageAttributeValue
     { _mavDataType = p1
     , _mavStringValue = Nothing
     , _mavBinaryValue = Nothing
@@ -419,8 +419,8 @@ data PlatformApplication = PlatformApplication
 --
 -- * @Attributes ::@ @Map Text Text@
 --
-mkPlatformApplication :: PlatformApplication
-mkPlatformApplication = PlatformApplication
+platformApplication :: PlatformApplication
+platformApplication = PlatformApplication
     { _paPlatformApplicationArn = Nothing
     , _paAttributes = mempty
     }
@@ -466,8 +466,8 @@ data Subscription = Subscription
 --
 -- * @TopicArn ::@ @Maybe Text@
 --
-mkSubscription :: Subscription
-mkSubscription = Subscription
+subscription :: Subscription
+subscription = Subscription
     { _sSubscriptionArn = Nothing
     , _sOwner = Nothing
     , _sProtocol = Nothing

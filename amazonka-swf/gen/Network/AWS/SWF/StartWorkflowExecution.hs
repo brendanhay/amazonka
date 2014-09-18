@@ -62,7 +62,7 @@ module Network.AWS.SWF.StartWorkflowExecution
     -- * Request
       StartWorkflowExecution
     -- ** Request constructor
-    , mkStartWorkflowExecution
+    , startWorkflowExecution
     -- ** Request lenses
     , swe1Domain
     , swe1WorkflowId
@@ -77,7 +77,7 @@ module Network.AWS.SWF.StartWorkflowExecution
     -- * Response
     , StartWorkflowExecutionResponse
     -- ** Response constructor
-    , mkStartWorkflowExecutionResponse
+    , startWorkflowExecutionResponse
     -- ** Response lenses
     , swerRunId
     ) where
@@ -121,11 +121,11 @@ data StartWorkflowExecution = StartWorkflowExecution
 --
 -- * @ChildPolicy ::@ @Maybe ChildPolicy@
 --
-mkStartWorkflowExecution :: Text -- ^ 'swe1Domain'
+startWorkflowExecution :: Text -- ^ 'swe1Domain'
                          -> Text -- ^ 'swe1WorkflowId'
                          -> WorkflowType -- ^ 'swe1WorkflowType'
                          -> StartWorkflowExecution
-mkStartWorkflowExecution p1 p2 p3 = StartWorkflowExecution
+startWorkflowExecution p1 p2 p3 = StartWorkflowExecution
     { _swe1Domain = p1
     , _swe1WorkflowId = p2
     , _swe1WorkflowType = p3
@@ -255,8 +255,8 @@ newtype StartWorkflowExecutionResponse = StartWorkflowExecutionResponse
 --
 -- * @RunId ::@ @Maybe Text@
 --
-mkStartWorkflowExecutionResponse :: StartWorkflowExecutionResponse
-mkStartWorkflowExecutionResponse = StartWorkflowExecutionResponse
+startWorkflowExecutionResponse :: StartWorkflowExecutionResponse
+startWorkflowExecutionResponse = StartWorkflowExecutionResponse
     { _swerRunId = Nothing
     }
 

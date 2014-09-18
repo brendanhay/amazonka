@@ -33,7 +33,7 @@ module Network.AWS.CloudFormation.DescribeStackResource
     -- * Request
       DescribeStackResource
     -- ** Request constructor
-    , mkDescribeStackResource
+    , describeStackResource
     -- ** Request lenses
     , dsrStackName
     , dsrLogicalResourceId
@@ -41,7 +41,7 @@ module Network.AWS.CloudFormation.DescribeStackResource
     -- * Response
     , DescribeStackResourceResponse
     -- ** Response constructor
-    , mkDescribeStackResourceResponse
+    , describeStackResourceResponse
     -- ** Response lenses
     , dsrrStackResourceDetail
     ) where
@@ -65,10 +65,10 @@ data DescribeStackResource = DescribeStackResource
 --
 -- * @LogicalResourceId ::@ @Text@
 --
-mkDescribeStackResource :: Text -- ^ 'dsrStackName'
+describeStackResource :: Text -- ^ 'dsrStackName'
                         -> Text -- ^ 'dsrLogicalResourceId'
                         -> DescribeStackResource
-mkDescribeStackResource p1 p2 = DescribeStackResource
+describeStackResource p1 p2 = DescribeStackResource
     { _dsrStackName = p1
     , _dsrLogicalResourceId = p2
     }
@@ -103,8 +103,8 @@ newtype DescribeStackResourceResponse = DescribeStackResourceResponse
 --
 -- * @StackResourceDetail ::@ @Maybe StackResourceDetail@
 --
-mkDescribeStackResourceResponse :: DescribeStackResourceResponse
-mkDescribeStackResourceResponse = DescribeStackResourceResponse
+describeStackResourceResponse :: DescribeStackResourceResponse
+describeStackResourceResponse = DescribeStackResourceResponse
     { _dsrrStackResourceDetail = Nothing
     }
 

@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.DetachElasticLoadBalancer
     -- * Request
       DetachElasticLoadBalancer
     -- ** Request constructor
-    , mkDetachElasticLoadBalancer
+    , detachElasticLoadBalancer
     -- ** Request lenses
     , delb1ElasticLoadBalancerName
     , delb1LayerId
@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.DetachElasticLoadBalancer
     -- * Response
     , DetachElasticLoadBalancerResponse
     -- ** Response constructor
-    , mkDetachElasticLoadBalancerResponse
+    , detachElasticLoadBalancerResponse
     ) where
 
 import Network.AWS.OpsWorks.Types
@@ -56,10 +56,10 @@ data DetachElasticLoadBalancer = DetachElasticLoadBalancer
 --
 -- * @LayerId ::@ @Text@
 --
-mkDetachElasticLoadBalancer :: Text -- ^ 'delb1ElasticLoadBalancerName'
+detachElasticLoadBalancer :: Text -- ^ 'delb1ElasticLoadBalancerName'
                             -> Text -- ^ 'delb1LayerId'
                             -> DetachElasticLoadBalancer
-mkDetachElasticLoadBalancer p1 p2 = DetachElasticLoadBalancer
+detachElasticLoadBalancer p1 p2 = DetachElasticLoadBalancer
     { _delb1ElasticLoadBalancerName = p1
     , _delb1LayerId = p2
     }
@@ -90,8 +90,8 @@ data DetachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse
 -- a valid 'DetachElasticLoadBalancerResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDetachElasticLoadBalancerResponse :: DetachElasticLoadBalancerResponse
-mkDetachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse
+detachElasticLoadBalancerResponse :: DetachElasticLoadBalancerResponse
+detachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse
 
 instance AWSRequest DetachElasticLoadBalancer where
     type Sv DetachElasticLoadBalancer = OpsWorks

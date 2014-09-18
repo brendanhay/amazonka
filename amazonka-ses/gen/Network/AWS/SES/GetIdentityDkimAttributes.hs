@@ -47,14 +47,14 @@ module Network.AWS.SES.GetIdentityDkimAttributes
     -- * Request
       GetIdentityDkimAttributes
     -- ** Request constructor
-    , mkGetIdentityDkimAttributes
+    , getIdentityDkimAttributes
     -- ** Request lenses
     , gidaIdentities
 
     -- * Response
     , GetIdentityDkimAttributesResponse
     -- ** Response constructor
-    , mkGetIdentityDkimAttributesResponse
+    , getIdentityDkimAttributesResponse
     -- ** Response lenses
     , gidarDkimAttributes
     ) where
@@ -80,9 +80,9 @@ newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes
 --
 -- * @Identities ::@ @[Text]@
 --
-mkGetIdentityDkimAttributes :: [Text] -- ^ 'gidaIdentities'
+getIdentityDkimAttributes :: [Text] -- ^ 'gidaIdentities'
                             -> GetIdentityDkimAttributes
-mkGetIdentityDkimAttributes p1 = GetIdentityDkimAttributes
+getIdentityDkimAttributes p1 = GetIdentityDkimAttributes
     { _gidaIdentities = p1
     }
 
@@ -108,9 +108,9 @@ newtype GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
 --
 -- * @DkimAttributes ::@ @Map Text IdentityDkimAttributes@
 --
-mkGetIdentityDkimAttributesResponse :: Map Text IdentityDkimAttributes -- ^ 'gidarDkimAttributes'
+getIdentityDkimAttributesResponse :: Map Text IdentityDkimAttributes -- ^ 'gidarDkimAttributes'
                                     -> GetIdentityDkimAttributesResponse
-mkGetIdentityDkimAttributesResponse p1 = GetIdentityDkimAttributesResponse
+getIdentityDkimAttributesResponse p1 = GetIdentityDkimAttributesResponse
     { _gidarDkimAttributes = p1
     }
 

@@ -27,7 +27,7 @@ module Network.AWS.ImportExport.CreateJob
     -- * Request
       CreateJob
     -- ** Request constructor
-    , mkCreateJob
+    , createJob
     -- ** Request lenses
     , cj1JobType
     , cj1Manifest
@@ -37,7 +37,7 @@ module Network.AWS.ImportExport.CreateJob
     -- * Response
     , CreateJobResponse
     -- ** Response constructor
-    , mkCreateJobResponse
+    , createJobResponse
     -- ** Response lenses
     , cjrrJobId
     , cjrrJobType
@@ -72,11 +72,11 @@ data CreateJob = CreateJob
 --
 -- * @ValidateOnly ::@ @Bool@
 --
-mkCreateJob :: JobType -- ^ 'cj1JobType'
+createJob :: JobType -- ^ 'cj1JobType'
             -> Text -- ^ 'cj1Manifest'
             -> Bool -- ^ 'cj1ValidateOnly'
             -> CreateJob
-mkCreateJob p1 p2 p4 = CreateJob
+createJob p1 p2 p4 = CreateJob
     { _cj1JobType = p1
     , _cj1Manifest = p2
     , _cj1ManifestAddendum = Nothing
@@ -133,8 +133,8 @@ data CreateJobResponse = CreateJobResponse
 --
 -- * @WarningMessage ::@ @Maybe Text@
 --
-mkCreateJobResponse :: CreateJobResponse
-mkCreateJobResponse = CreateJobResponse
+createJobResponse :: CreateJobResponse
+createJobResponse = CreateJobResponse
     { _cjrrJobId = Nothing
     , _cjrrJobType = Nothing
     , _cjrrAwsShippingAddress = Nothing

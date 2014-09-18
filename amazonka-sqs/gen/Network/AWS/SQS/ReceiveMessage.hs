@@ -60,7 +60,7 @@ module Network.AWS.SQS.ReceiveMessage
     -- * Request
       ReceiveMessage
     -- ** Request constructor
-    , mkReceiveMessage
+    , receiveMessage
     -- ** Request lenses
     , rmQueueUrl
     , rmAttributeNames
@@ -72,7 +72,7 @@ module Network.AWS.SQS.ReceiveMessage
     -- * Response
     , ReceiveMessageResponse
     -- ** Response constructor
-    , mkReceiveMessageResponse
+    , receiveMessageResponse
     -- ** Response lenses
     , rmrMessages
     ) where
@@ -107,9 +107,9 @@ data ReceiveMessage = ReceiveMessage
 --
 -- * @WaitTimeSeconds ::@ @Maybe Integer@
 --
-mkReceiveMessage :: Text -- ^ 'rmQueueUrl'
+receiveMessage :: Text -- ^ 'rmQueueUrl'
                  -> ReceiveMessage
-mkReceiveMessage p1 = ReceiveMessage
+receiveMessage p1 = ReceiveMessage
     { _rmQueueUrl = p1
     , _rmAttributeNames = mempty
     , _rmMessageAttributeNames = mempty
@@ -186,8 +186,8 @@ newtype ReceiveMessageResponse = ReceiveMessageResponse
 --
 -- * @Messages ::@ @[Message]@
 --
-mkReceiveMessageResponse :: ReceiveMessageResponse
-mkReceiveMessageResponse = ReceiveMessageResponse
+receiveMessageResponse :: ReceiveMessageResponse
+receiveMessageResponse = ReceiveMessageResponse
     { _rmrMessages = mempty
     }
 

@@ -26,7 +26,7 @@ module Network.AWS.S3.PutBucketRequestPayment
     -- * Request
       PutBucketRequestPayment
     -- ** Request constructor
-    , mkPutBucketRequestPayment
+    , putBucketRequestPayment
     -- ** Request lenses
     , pbrpBucket
     , pbrpContentMD5
@@ -35,7 +35,7 @@ module Network.AWS.S3.PutBucketRequestPayment
     -- * Response
     , PutBucketRequestPaymentResponse
     -- ** Response constructor
-    , mkPutBucketRequestPaymentResponse
+    , putBucketRequestPaymentResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -60,10 +60,10 @@ data PutBucketRequestPayment = PutBucketRequestPayment
 --
 -- * @RequestPaymentConfiguration ::@ @RequestPaymentConfiguration@
 --
-mkPutBucketRequestPayment :: BucketName -- ^ 'pbrpBucket'
+putBucketRequestPayment :: BucketName -- ^ 'pbrpBucket'
                           -> RequestPaymentConfiguration -- ^ 'pbrpRequestPaymentConfiguration'
                           -> PutBucketRequestPayment
-mkPutBucketRequestPayment p1 p3 = PutBucketRequestPayment
+putBucketRequestPayment p1 p3 = PutBucketRequestPayment
     { _pbrpBucket = p1
     , _pbrpContentMD5 = Nothing
     , _pbrpRequestPaymentConfiguration = p3
@@ -99,8 +99,8 @@ data PutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
 -- a valid 'PutBucketRequestPaymentResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkPutBucketRequestPaymentResponse :: PutBucketRequestPaymentResponse
-mkPutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
+putBucketRequestPaymentResponse :: PutBucketRequestPaymentResponse
+putBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
 
 instance AWSRequest PutBucketRequestPayment where
     type Sv PutBucketRequestPayment = S3

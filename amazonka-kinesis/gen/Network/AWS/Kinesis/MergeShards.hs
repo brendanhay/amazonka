@@ -60,7 +60,7 @@ module Network.AWS.Kinesis.MergeShards
     -- * Request
       MergeShards
     -- ** Request constructor
-    , mkMergeShards
+    , mergeShards
     -- ** Request lenses
     , msStreamName
     , msShardToMerge
@@ -69,7 +69,7 @@ module Network.AWS.Kinesis.MergeShards
     -- * Response
     , MergeShardsResponse
     -- ** Response constructor
-    , mkMergeShardsResponse
+    , mergeShardsResponse
     ) where
 
 import Network.AWS.Kinesis.Types
@@ -94,11 +94,11 @@ data MergeShards = MergeShards
 --
 -- * @AdjacentShardToMerge ::@ @Text@
 --
-mkMergeShards :: Text -- ^ 'msStreamName'
+mergeShards :: Text -- ^ 'msStreamName'
               -> Text -- ^ 'msShardToMerge'
               -> Text -- ^ 'msAdjacentShardToMerge'
               -> MergeShards
-mkMergeShards p1 p2 p3 = MergeShards
+mergeShards p1 p2 p3 = MergeShards
     { _msStreamName = p1
     , _msShardToMerge = p2
     , _msAdjacentShardToMerge = p3
@@ -132,8 +132,8 @@ data MergeShardsResponse = MergeShardsResponse
 -- a valid 'MergeShardsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkMergeShardsResponse :: MergeShardsResponse
-mkMergeShardsResponse = MergeShardsResponse
+mergeShardsResponse :: MergeShardsResponse
+mergeShardsResponse = MergeShardsResponse
 
 instance AWSRequest MergeShards where
     type Sv MergeShards = Kinesis

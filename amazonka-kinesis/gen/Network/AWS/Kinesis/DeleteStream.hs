@@ -43,14 +43,14 @@ module Network.AWS.Kinesis.DeleteStream
     -- * Request
       DeleteStream
     -- ** Request constructor
-    , mkDeleteStream
+    , deleteStream
     -- ** Request lenses
     , dsStreamName
 
     -- * Response
     , DeleteStreamResponse
     -- ** Response constructor
-    , mkDeleteStreamResponse
+    , deleteStreamResponse
     ) where
 
 import Network.AWS.Kinesis.Types
@@ -69,9 +69,9 @@ newtype DeleteStream = DeleteStream
 --
 -- * @StreamName ::@ @Text@
 --
-mkDeleteStream :: Text -- ^ 'dsStreamName'
+deleteStream :: Text -- ^ 'dsStreamName'
                -> DeleteStream
-mkDeleteStream p1 = DeleteStream
+deleteStream p1 = DeleteStream
     { _dsStreamName = p1
     }
 
@@ -94,8 +94,8 @@ data DeleteStreamResponse = DeleteStreamResponse
 -- a valid 'DeleteStreamResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteStreamResponse :: DeleteStreamResponse
-mkDeleteStreamResponse = DeleteStreamResponse
+deleteStreamResponse :: DeleteStreamResponse
+deleteStreamResponse = DeleteStreamResponse
 
 instance AWSRequest DeleteStream where
     type Sv DeleteStream = Kinesis

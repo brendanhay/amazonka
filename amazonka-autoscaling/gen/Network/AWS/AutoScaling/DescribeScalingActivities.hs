@@ -40,7 +40,7 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
     -- * Request
       DescribeScalingActivities
     -- ** Request constructor
-    , mkDescribeScalingActivities
+    , describeScalingActivities
     -- ** Request lenses
     , dsa1ActivityIds
     , dsa1AutoScalingGroupName
@@ -50,7 +50,7 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
     -- * Response
     , DescribeScalingActivitiesResponse
     -- ** Response constructor
-    , mkDescribeScalingActivitiesResponse
+    , describeScalingActivitiesResponse
     -- ** Response lenses
     , dsarActivities
     , dsarNextToken
@@ -81,8 +81,8 @@ data DescribeScalingActivities = DescribeScalingActivities
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeScalingActivities :: DescribeScalingActivities
-mkDescribeScalingActivities = DescribeScalingActivities
+describeScalingActivities :: DescribeScalingActivities
+describeScalingActivities = DescribeScalingActivities
     { _dsa1ActivityIds = mempty
     , _dsa1AutoScalingGroupName = Nothing
     , _dsa1MaxRecords = Nothing
@@ -132,9 +132,9 @@ data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeScalingActivitiesResponse :: [Activity] -- ^ 'dsarActivities'
+describeScalingActivitiesResponse :: [Activity] -- ^ 'dsarActivities'
                                     -> DescribeScalingActivitiesResponse
-mkDescribeScalingActivitiesResponse p1 = DescribeScalingActivitiesResponse
+describeScalingActivitiesResponse p1 = DescribeScalingActivitiesResponse
     { _dsarActivities = p1
     , _dsarNextToken = Nothing
     }

@@ -102,84 +102,84 @@ module Network.AWS.S3.Types
 
     -- * BucketLoggingStatus
     , BucketLoggingStatus
-    , mkBucketLoggingStatus
+    , bucketLoggingStatus
     , blsLoggingEnabled
 
     -- * CORSConfiguration
     , CORSConfiguration
-    , mkCORSConfiguration
+    , cORSConfiguration
     , corscCORSRules
 
     -- * CommonPrefix
     , CommonPrefix
-    , mkCommonPrefix
+    , commonPrefix
     , cprPrefix
 
     -- * CompletedMultipartUpload
     , CompletedMultipartUpload
-    , mkCompletedMultipartUpload
+    , completedMultipartUpload
     , cmu1Parts
 
     -- * CreateBucketConfiguration
     , CreateBucketConfiguration
-    , mkCreateBucketConfiguration
+    , createBucketConfiguration
     , cbcLocationConstraint
 
     -- * ErrorDocument
     , ErrorDocument
-    , mkErrorDocument
+    , errorDocument
     , edKey
 
     -- * IndexDocument
     , IndexDocument
-    , mkIndexDocument
+    , indexDocument
     , idSuffix
 
     -- * LifecycleConfiguration
     , LifecycleConfiguration
-    , mkLifecycleConfiguration
+    , lifecycleConfiguration
     , lcRules
 
     -- * NoncurrentVersionExpiration
     , NoncurrentVersionExpiration
-    , mkNoncurrentVersionExpiration
+    , noncurrentVersionExpiration
     , nveNoncurrentDays
 
     -- * NotificationConfiguration
     , NotificationConfiguration
-    , mkNotificationConfiguration
+    , notificationConfiguration
     , ncTopicConfiguration
 
     -- * RequestPaymentConfiguration
     , RequestPaymentConfiguration
-    , mkRequestPaymentConfiguration
+    , requestPaymentConfiguration
     , rpcPayer
 
     -- * RestoreRequest
     , RestoreRequest
-    , mkRestoreRequest
+    , restoreRequest
     , rr1Days
 
     -- * Tagging
     , Tagging
-    , mkTagging
+    , tagging
     , t1TagSet
 
     -- * AccessControlPolicy
     , AccessControlPolicy
-    , mkAccessControlPolicy
+    , accessControlPolicy
     , acpGrants
     , acpOwner
 
     -- * Bucket
     , Bucket
-    , mkBucket
+    , bucket
     , bName
     , bCreationDate
 
     -- * CORSRule
     , CORSRule
-    , mkCORSRule
+    , cORSRule
     , corsrAllowedHeaders
     , corsrAllowedMethods
     , corsrAllowedOrigins
@@ -188,37 +188,37 @@ module Network.AWS.S3.Types
 
     -- * CompletedPart
     , CompletedPart
-    , mkCompletedPart
+    , completedPart
     , cpETag
     , cpPartNumber
 
     -- * Condition
     , Condition
-    , mkCondition
+    , condition
     , cHttpErrorCodeReturnedEquals
     , cKeyPrefixEquals
 
     -- * CopyObjectResult
     , CopyObjectResult
-    , mkCopyObjectResult
+    , copyObjectResult
     , corrETag
     , corrLastModified
 
     -- * CopyPartResult
     , CopyPartResult
-    , mkCopyPartResult
+    , copyPartResult
     , cprrETag
     , cprrLastModified
 
     -- * Delete
     , Delete
-    , mkDelete
+    , delete
     , dObjects
     , dQuiet
 
     -- * DeleteMarkerEntry
     , DeleteMarkerEntry
-    , mkDeleteMarkerEntry
+    , deleteMarkerEntry
     , dmeOwner
     , dmeKey
     , dmeVersionId
@@ -227,7 +227,7 @@ module Network.AWS.S3.Types
 
     -- * DeletedObject
     , DeletedObject
-    , mkDeletedObject
+    , deletedObject
     , do1rKey
     , do1rVersionId
     , do1rDeleteMarker
@@ -235,7 +235,7 @@ module Network.AWS.S3.Types
 
     -- * Error
     , Error
-    , mkError
+    , error
     , eKey
     , eVersionId
     , eCode
@@ -243,13 +243,13 @@ module Network.AWS.S3.Types
 
     -- * Grant
     , Grant
-    , mkGrant
+    , grant
     , gGrantee
     , gPermission
 
     -- * Grantee
     , Grantee
-    , mkGrantee
+    , grantee
     , g1DisplayName
     , g1EmailAddress
     , g1ID
@@ -258,26 +258,26 @@ module Network.AWS.S3.Types
 
     -- * Initiator
     , Initiator
-    , mkInitiator
+    , initiator
     , iID
     , iDisplayName
 
     -- * LifecycleExpiration
     , LifecycleExpiration
-    , mkLifecycleExpiration
+    , lifecycleExpiration
     , leDate
     , leDays
 
     -- * LoggingEnabled
     , LoggingEnabled
-    , mkLoggingEnabled
+    , loggingEnabled
     , lerTargetBucket
     , lerTargetGrants
     , lerTargetPrefix
 
     -- * MultipartUpload
     , MultipartUpload
-    , mkMultipartUpload
+    , multipartUpload
     , muUploadId
     , muKey
     , muInitiated
@@ -287,13 +287,13 @@ module Network.AWS.S3.Types
 
     -- * NoncurrentVersionTransition
     , NoncurrentVersionTransition
-    , mkNoncurrentVersionTransition
+    , noncurrentVersionTransition
     , nvtNoncurrentDays
     , nvtStorageClass
 
     -- * Object
     , Object
-    , mkObject
+    , object
     , orKey
     , orLastModified
     , orETag
@@ -303,13 +303,13 @@ module Network.AWS.S3.Types
 
     -- * ObjectIdentifier
     , ObjectIdentifier
-    , mkObjectIdentifier
+    , objectIdentifier
     , oiKey
     , oiVersionId
 
     -- * ObjectVersion
     , ObjectVersion
-    , mkObjectVersion
+    , objectVersion
     , ovETag
     , ovSize
     , ovStorageClass
@@ -321,13 +321,13 @@ module Network.AWS.S3.Types
 
     -- * Owner
     , Owner
-    , mkOwner
+    , owner
     , oDisplayName
     , oID
 
     -- * Part
     , Part
-    , mkPart
+    , part
     , pPartNumber
     , pLastModified
     , pETag
@@ -335,7 +335,7 @@ module Network.AWS.S3.Types
 
     -- * Redirect
     , Redirect
-    , mkRedirect
+    , redirect
     , r1HostName
     , r1HttpRedirectCode
     , r1Protocol
@@ -344,19 +344,19 @@ module Network.AWS.S3.Types
 
     -- * RedirectAllRequestsTo
     , RedirectAllRequestsTo
-    , mkRedirectAllRequestsTo
+    , redirectAllRequestsTo
     , rartHostName
     , rartProtocol
 
     -- * RoutingRule
     , RoutingRule
-    , mkRoutingRule
+    , routingRule
     , rrCondition
     , rrRedirect
 
     -- * Rule
     , Rule
-    , mkRule
+    , rule
     , rExpiration
     , rID
     , rPrefix
@@ -367,38 +367,38 @@ module Network.AWS.S3.Types
 
     -- * Tag
     , Tag
-    , mkTag
+    , tag
     , trKey
     , trValue
 
     -- * TargetGrant
     , TargetGrant
-    , mkTargetGrant
+    , targetGrant
     , tgGrantee
     , tgPermission
 
     -- * TopicConfiguration
     , TopicConfiguration
-    , mkTopicConfiguration
+    , topicConfiguration
     , tcEvent
     , tcTopic
 
     -- * Transition
     , Transition
-    , mkTransition
+    , transition
     , tDate
     , tDays
     , tStorageClass
 
     -- * VersioningConfiguration
     , VersioningConfiguration
-    , mkVersioningConfiguration
+    , versioningConfiguration
     , vcStatus
     , vcMfaDelete
 
     -- * WebsiteConfiguration
     , WebsiteConfiguration
-    , mkWebsiteConfiguration
+    , websiteConfiguration
     , wcErrorDocument
     , wcIndexDocument
     , wcRedirectAllRequestsTo
@@ -450,8 +450,8 @@ data S3Error
       -- and is only stored in Amazon Glacier.
     | ObjectNotInActiveTierError
     | S3Client HttpException
-    | S3Serializer Text
-    | S3Service Text
+    | S3Serializer String
+    | S3Service String
     deriving (Show, Generic)
 
 instance AWSError S3Error where
@@ -535,7 +535,7 @@ _S3Client = prism'
         x -> Left x)
 
 -- | See: 'S3Serializer'
-_S3Serializer :: Prism' S3Error Text
+_S3Serializer :: Prism' S3Error String
 _S3Serializer = prism'
     S3Serializer
     (\case
@@ -543,7 +543,7 @@ _S3Serializer = prism'
         x -> Left x)
 
 -- | See: 'S3Service'
-_S3Service :: Prism' S3Error Text
+_S3Service :: Prism' S3Error String
 _S3Service = prism'
     S3Service
     (\case
@@ -1065,8 +1065,8 @@ newtype BucketLoggingStatus = BucketLoggingStatus
 --
 -- * @LoggingEnabled ::@ @Maybe LoggingEnabled@
 --
-mkBucketLoggingStatus :: BucketLoggingStatus
-mkBucketLoggingStatus = BucketLoggingStatus
+bucketLoggingStatus :: BucketLoggingStatus
+bucketLoggingStatus = BucketLoggingStatus
     { _blsLoggingEnabled = Nothing
     }
 
@@ -1089,8 +1089,8 @@ newtype CORSConfiguration = CORSConfiguration
 --
 -- * @CORSRules ::@ @[CORSRule]@
 --
-mkCORSConfiguration :: CORSConfiguration
-mkCORSConfiguration = CORSConfiguration
+cORSConfiguration :: CORSConfiguration
+cORSConfiguration = CORSConfiguration
     { _corscCORSRules = mempty
     }
 
@@ -1115,8 +1115,8 @@ newtype CommonPrefix = CommonPrefix
 --
 -- * @Prefix ::@ @Maybe Text@
 --
-mkCommonPrefix :: CommonPrefix
-mkCommonPrefix = CommonPrefix
+commonPrefix :: CommonPrefix
+commonPrefix = CommonPrefix
     { _cprPrefix = Nothing
     }
 
@@ -1138,8 +1138,8 @@ newtype CompletedMultipartUpload = CompletedMultipartUpload
 --
 -- * @Parts ::@ @[CompletedPart]@
 --
-mkCompletedMultipartUpload :: CompletedMultipartUpload
-mkCompletedMultipartUpload = CompletedMultipartUpload
+completedMultipartUpload :: CompletedMultipartUpload
+completedMultipartUpload = CompletedMultipartUpload
     { _cmu1Parts = mempty
     }
 
@@ -1161,8 +1161,8 @@ newtype CreateBucketConfiguration = CreateBucketConfiguration
 --
 -- * @LocationConstraint ::@ @Maybe Region@
 --
-mkCreateBucketConfiguration :: CreateBucketConfiguration
-mkCreateBucketConfiguration = CreateBucketConfiguration
+createBucketConfiguration :: CreateBucketConfiguration
+createBucketConfiguration = CreateBucketConfiguration
     { _cbcLocationConstraint = Nothing
     }
 
@@ -1186,9 +1186,9 @@ newtype ErrorDocument = ErrorDocument
 --
 -- * @Key ::@ @ObjectKey@
 --
-mkErrorDocument :: ObjectKey -- ^ 'edKey'
+errorDocument :: ObjectKey -- ^ 'edKey'
                 -> ErrorDocument
-mkErrorDocument p1 = ErrorDocument
+errorDocument p1 = ErrorDocument
     { _edKey = p1
     }
 
@@ -1215,9 +1215,9 @@ newtype IndexDocument = IndexDocument
 --
 -- * @Suffix ::@ @Text@
 --
-mkIndexDocument :: Text -- ^ 'idSuffix'
+indexDocument :: Text -- ^ 'idSuffix'
                 -> IndexDocument
-mkIndexDocument p1 = IndexDocument
+indexDocument p1 = IndexDocument
     { _idSuffix = p1
     }
 
@@ -1248,9 +1248,9 @@ newtype LifecycleConfiguration = LifecycleConfiguration
 --
 -- * @Rules ::@ @[Rule]@
 --
-mkLifecycleConfiguration :: [Rule] -- ^ 'lcRules'
+lifecycleConfiguration :: [Rule] -- ^ 'lcRules'
                          -> LifecycleConfiguration
-mkLifecycleConfiguration p1 = LifecycleConfiguration
+lifecycleConfiguration p1 = LifecycleConfiguration
     { _lcRules = p1
     }
 
@@ -1277,8 +1277,8 @@ newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration
 --
 -- * @NoncurrentDays ::@ @Maybe Integer@
 --
-mkNoncurrentVersionExpiration :: NoncurrentVersionExpiration
-mkNoncurrentVersionExpiration = NoncurrentVersionExpiration
+noncurrentVersionExpiration :: NoncurrentVersionExpiration
+noncurrentVersionExpiration = NoncurrentVersionExpiration
     { _nveNoncurrentDays = Nothing
     }
 
@@ -1309,9 +1309,9 @@ newtype NotificationConfiguration = NotificationConfiguration
 --
 -- * @TopicConfiguration ::@ @TopicConfiguration@
 --
-mkNotificationConfiguration :: TopicConfiguration -- ^ 'ncTopicConfiguration'
+notificationConfiguration :: TopicConfiguration -- ^ 'ncTopicConfiguration'
                             -> NotificationConfiguration
-mkNotificationConfiguration p1 = NotificationConfiguration
+notificationConfiguration p1 = NotificationConfiguration
     { _ncTopicConfiguration = p1
     }
 
@@ -1334,9 +1334,9 @@ newtype RequestPaymentConfiguration = RequestPaymentConfiguration
 --
 -- * @Payer ::@ @Payer@
 --
-mkRequestPaymentConfiguration :: Payer -- ^ 'rpcPayer'
+requestPaymentConfiguration :: Payer -- ^ 'rpcPayer'
                               -> RequestPaymentConfiguration
-mkRequestPaymentConfiguration p1 = RequestPaymentConfiguration
+requestPaymentConfiguration p1 = RequestPaymentConfiguration
     { _rpcPayer = p1
     }
 
@@ -1359,9 +1359,9 @@ newtype RestoreRequest = RestoreRequest
 --
 -- * @Days ::@ @Integer@
 --
-mkRestoreRequest :: Integer -- ^ 'rr1Days'
+restoreRequest :: Integer -- ^ 'rr1Days'
                  -> RestoreRequest
-mkRestoreRequest p1 = RestoreRequest
+restoreRequest p1 = RestoreRequest
     { _rr1Days = p1
     }
 
@@ -1384,9 +1384,9 @@ newtype Tagging = Tagging
 --
 -- * @TagSet ::@ @[Tag]@
 --
-mkTagging :: [Tag] -- ^ 't1TagSet'
+tagging :: [Tag] -- ^ 't1TagSet'
           -> Tagging
-mkTagging p1 = Tagging
+tagging p1 = Tagging
     { _t1TagSet = p1
     }
 
@@ -1411,8 +1411,8 @@ data AccessControlPolicy = AccessControlPolicy
 --
 -- * @Owner ::@ @Maybe Owner@
 --
-mkAccessControlPolicy :: AccessControlPolicy
-mkAccessControlPolicy = AccessControlPolicy
+accessControlPolicy :: AccessControlPolicy
+accessControlPolicy = AccessControlPolicy
     { _acpGrants = mempty
     , _acpOwner = Nothing
     }
@@ -1445,8 +1445,8 @@ data Bucket = Bucket
 --
 -- * @CreationDate ::@ @Maybe RFC822@
 --
-mkBucket :: Bucket
-mkBucket = Bucket
+bucket :: Bucket
+bucket = Bucket
     { _bName = Nothing
     , _bCreationDate = Nothing
     }
@@ -1486,8 +1486,8 @@ data CORSRule = CORSRule
 --
 -- * @MaxAgeSeconds ::@ @Maybe Integer@
 --
-mkCORSRule :: CORSRule
-mkCORSRule = CORSRule
+cORSRule :: CORSRule
+cORSRule = CORSRule
     { _corsrAllowedHeaders = mempty
     , _corsrAllowedMethods = mempty
     , _corsrAllowedOrigins = mempty
@@ -1547,8 +1547,8 @@ data CompletedPart = CompletedPart
 --
 -- * @PartNumber ::@ @Maybe Integer@
 --
-mkCompletedPart :: CompletedPart
-mkCompletedPart = CompletedPart
+completedPart :: CompletedPart
+completedPart = CompletedPart
     { _cpETag = Nothing
     , _cpPartNumber = Nothing
     }
@@ -1584,8 +1584,8 @@ data Condition = Condition
 --
 -- * @KeyPrefixEquals ::@ @Maybe Text@
 --
-mkCondition :: Condition
-mkCondition = Condition
+condition :: Condition
+condition = Condition
     { _cHttpErrorCodeReturnedEquals = Nothing
     , _cKeyPrefixEquals = Nothing
     }
@@ -1636,8 +1636,8 @@ data CopyObjectResult = CopyObjectResult
 --
 -- * @LastModified ::@ @Maybe RFC822@
 --
-mkCopyObjectResult :: CopyObjectResult
-mkCopyObjectResult = CopyObjectResult
+copyObjectResult :: CopyObjectResult
+copyObjectResult = CopyObjectResult
     { _corrETag = Nothing
     , _corrLastModified = Nothing
     }
@@ -1670,8 +1670,8 @@ data CopyPartResult = CopyPartResult
 --
 -- * @LastModified ::@ @Maybe RFC822@
 --
-mkCopyPartResult :: CopyPartResult
-mkCopyPartResult = CopyPartResult
+copyPartResult :: CopyPartResult
+copyPartResult = CopyPartResult
     { _cprrETag = Nothing
     , _cprrLastModified = Nothing
     }
@@ -1703,9 +1703,9 @@ data Delete = Delete
 --
 -- * @Quiet ::@ @Maybe Bool@
 --
-mkDelete :: [ObjectIdentifier] -- ^ 'dObjects'
+delete :: [ObjectIdentifier] -- ^ 'dObjects'
          -> Delete
-mkDelete p1 = Delete
+delete p1 = Delete
     { _dObjects = p1
     , _dQuiet = Nothing
     }
@@ -1748,8 +1748,8 @@ data DeleteMarkerEntry = DeleteMarkerEntry
 --
 -- * @LastModified ::@ @Maybe RFC822@
 --
-mkDeleteMarkerEntry :: DeleteMarkerEntry
-mkDeleteMarkerEntry = DeleteMarkerEntry
+deleteMarkerEntry :: DeleteMarkerEntry
+deleteMarkerEntry = DeleteMarkerEntry
     { _dmeOwner = Nothing
     , _dmeKey = Nothing
     , _dmeVersionId = Nothing
@@ -1804,8 +1804,8 @@ data DeletedObject = DeletedObject
 --
 -- * @DeleteMarkerVersionId ::@ @Maybe Text@
 --
-mkDeletedObject :: DeletedObject
-mkDeletedObject = DeletedObject
+deletedObject :: DeletedObject
+deletedObject = DeletedObject
     { _do1rKey = Nothing
     , _do1rVersionId = Nothing
     , _do1rDeleteMarker = Nothing
@@ -1854,8 +1854,8 @@ data Error = Error
 --
 -- * @Message ::@ @Maybe Text@
 --
-mkError :: Error
-mkError = Error
+error :: Error
+error = Error
     { _eKey = Nothing
     , _eVersionId = Nothing
     , _eCode = Nothing
@@ -1892,8 +1892,8 @@ data Grant = Grant
 --
 -- * @Permission ::@ @Maybe Permission@
 --
-mkGrant :: Grant
-mkGrant = Grant
+grant :: Grant
+grant = Grant
     { _gGrantee = Nothing
     , _gPermission = Nothing
     }
@@ -1936,9 +1936,9 @@ data Grantee = Grantee
 --
 -- * @URI ::@ @Maybe Text@
 --
-mkGrantee :: Type -- ^ 'g1Type'
+grantee :: Type -- ^ 'g1Type'
           -> Grantee
-mkGrantee p4 = Grantee
+grantee p4 = Grantee
     { _g1DisplayName = Nothing
     , _g1EmailAddress = Nothing
     , _g1ID = Nothing
@@ -1989,8 +1989,8 @@ data Initiator = Initiator
 --
 -- * @DisplayName ::@ @Maybe Text@
 --
-mkInitiator :: Initiator
-mkInitiator = Initiator
+initiator :: Initiator
+initiator = Initiator
     { _iID = Nothing
     , _iDisplayName = Nothing
     }
@@ -2026,8 +2026,8 @@ data LifecycleExpiration = LifecycleExpiration
 --
 -- * @Days ::@ @Maybe Integer@
 --
-mkLifecycleExpiration :: LifecycleExpiration
-mkLifecycleExpiration = LifecycleExpiration
+lifecycleExpiration :: LifecycleExpiration
+lifecycleExpiration = LifecycleExpiration
     { _leDate = Nothing
     , _leDays = Nothing
     }
@@ -2067,8 +2067,8 @@ data LoggingEnabled = LoggingEnabled
 --
 -- * @TargetPrefix ::@ @Maybe Text@
 --
-mkLoggingEnabled :: LoggingEnabled
-mkLoggingEnabled = LoggingEnabled
+loggingEnabled :: LoggingEnabled
+loggingEnabled = LoggingEnabled
     { _lerTargetBucket = Nothing
     , _lerTargetGrants = mempty
     , _lerTargetPrefix = Nothing
@@ -2128,8 +2128,8 @@ data MultipartUpload = MultipartUpload
 --
 -- * @Initiator ::@ @Maybe Initiator@
 --
-mkMultipartUpload :: MultipartUpload
-mkMultipartUpload = MultipartUpload
+multipartUpload :: MultipartUpload
+multipartUpload = MultipartUpload
     { _muUploadId = Nothing
     , _muKey = Nothing
     , _muInitiated = Nothing
@@ -2184,8 +2184,8 @@ data NoncurrentVersionTransition = NoncurrentVersionTransition
 --
 -- * @StorageClass ::@ @Maybe TransitionStorageClass@
 --
-mkNoncurrentVersionTransition :: NoncurrentVersionTransition
-mkNoncurrentVersionTransition = NoncurrentVersionTransition
+noncurrentVersionTransition :: NoncurrentVersionTransition
+noncurrentVersionTransition = NoncurrentVersionTransition
     { _nvtNoncurrentDays = Nothing
     , _nvtStorageClass = Nothing
     }
@@ -2239,14 +2239,14 @@ data Object = Object
 --
 -- * @Owner ::@ @Owner@
 --
-mkObject :: ObjectKey -- ^ 'orKey'
+object :: ObjectKey -- ^ 'orKey'
          -> RFC822 -- ^ 'orLastModified'
          -> ETag -- ^ 'orETag'
          -> Integer -- ^ 'orSize'
          -> ObjectStorageClass -- ^ 'orStorageClass'
          -> Owner -- ^ 'orOwner'
          -> Object
-mkObject p1 p2 p3 p4 p5 p6 = Object
+object p1 p2 p3 p4 p5 p6 = Object
     { _orKey = p1
     , _orLastModified = p2
     , _orETag = p3
@@ -2292,9 +2292,9 @@ data ObjectIdentifier = ObjectIdentifier
 --
 -- * @VersionId ::@ @Maybe ObjectVersionId@
 --
-mkObjectIdentifier :: ObjectKey -- ^ 'oiKey'
+objectIdentifier :: ObjectKey -- ^ 'oiKey'
                    -> ObjectIdentifier
-mkObjectIdentifier p1 = ObjectIdentifier
+objectIdentifier p1 = ObjectIdentifier
     { _oiKey = p1
     , _oiVersionId = Nothing
     }
@@ -2346,8 +2346,8 @@ data ObjectVersion = ObjectVersion
 --
 -- * @Owner ::@ @Maybe Owner@
 --
-mkObjectVersion :: ObjectVersion
-mkObjectVersion = ObjectVersion
+objectVersion :: ObjectVersion
+objectVersion = ObjectVersion
     { _ovETag = Nothing
     , _ovSize = Nothing
     , _ovStorageClass = Nothing
@@ -2407,8 +2407,8 @@ data Owner = Owner
 --
 -- * @ID ::@ @Maybe Text@
 --
-mkOwner :: Owner
-mkOwner = Owner
+owner :: Owner
+owner = Owner
     { _oDisplayName = Nothing
     , _oID = Nothing
     }
@@ -2450,8 +2450,8 @@ data Part = Part
 --
 -- * @Size ::@ @Maybe Integer@
 --
-mkPart :: Part
-mkPart = Part
+part :: Part
+part = Part
     { _pPartNumber = Nothing
     , _pLastModified = Nothing
     , _pETag = Nothing
@@ -2504,8 +2504,8 @@ data Redirect = Redirect
 --
 -- * @ReplaceKeyWith ::@ @Maybe Text@
 --
-mkRedirect :: Redirect
-mkRedirect = Redirect
+redirect :: Redirect
+redirect = Redirect
     { _r1HostName = Nothing
     , _r1HttpRedirectCode = Nothing
     , _r1Protocol = Nothing
@@ -2567,9 +2567,9 @@ data RedirectAllRequestsTo = RedirectAllRequestsTo
 --
 -- * @Protocol ::@ @Maybe Protocol@
 --
-mkRedirectAllRequestsTo :: Text -- ^ 'rartHostName'
+redirectAllRequestsTo :: Text -- ^ 'rartHostName'
                         -> RedirectAllRequestsTo
-mkRedirectAllRequestsTo p1 = RedirectAllRequestsTo
+redirectAllRequestsTo p1 = RedirectAllRequestsTo
     { _rartHostName = p1
     , _rartProtocol = Nothing
     }
@@ -2605,9 +2605,9 @@ data RoutingRule = RoutingRule
 --
 -- * @Redirect ::@ @Redirect@
 --
-mkRoutingRule :: Redirect -- ^ 'rrRedirect'
+routingRule :: Redirect -- ^ 'rrRedirect'
               -> RoutingRule
-mkRoutingRule p2 = RoutingRule
+routingRule p2 = RoutingRule
     { _rrCondition = Nothing
     , _rrRedirect = p2
     }
@@ -2663,10 +2663,10 @@ data Rule = Rule
 --
 -- * @NoncurrentVersionExpiration ::@ @Maybe NoncurrentVersionExpiration@
 --
-mkRule :: Text -- ^ 'rPrefix'
+rule :: Text -- ^ 'rPrefix'
        -> Switch ExpirationStatus -- ^ 'rStatus'
        -> Rule
-mkRule p3 p4 = Rule
+rule p3 p4 = Rule
     { _rExpiration = Nothing
     , _rID = Nothing
     , _rPrefix = p3
@@ -2738,10 +2738,10 @@ data Tag = Tag
 --
 -- * @Value ::@ @Text@
 --
-mkTag :: ObjectKey -- ^ 'trKey'
+tag :: ObjectKey -- ^ 'trKey'
       -> Text -- ^ 'trValue'
       -> Tag
-mkTag p1 p2 = Tag
+tag p1 p2 = Tag
     { _trKey = p1
     , _trValue = p2
     }
@@ -2776,8 +2776,8 @@ data TargetGrant = TargetGrant
 --
 -- * @Permission ::@ @Maybe BucketLogsPermission@
 --
-mkTargetGrant :: TargetGrant
-mkTargetGrant = TargetGrant
+targetGrant :: TargetGrant
+targetGrant = TargetGrant
     { _tgGrantee = Nothing
     , _tgPermission = Nothing
     }
@@ -2811,8 +2811,8 @@ data TopicConfiguration = TopicConfiguration
 --
 -- * @Topic ::@ @Maybe Text@
 --
-mkTopicConfiguration :: TopicConfiguration
-mkTopicConfiguration = TopicConfiguration
+topicConfiguration :: TopicConfiguration
+topicConfiguration = TopicConfiguration
     { _tcEvent = Nothing
     , _tcTopic = Nothing
     }
@@ -2851,8 +2851,8 @@ data Transition = Transition
 --
 -- * @StorageClass ::@ @Maybe TransitionStorageClass@
 --
-mkTransition :: Transition
-mkTransition = Transition
+transition :: Transition
+transition = Transition
     { _tDate = Nothing
     , _tDays = Nothing
     , _tStorageClass = Nothing
@@ -2894,8 +2894,8 @@ data VersioningConfiguration = VersioningConfiguration
 --
 -- * @MfaDelete ::@ @Maybe (Switch MFADelete)@
 --
-mkVersioningConfiguration :: VersioningConfiguration
-mkVersioningConfiguration = VersioningConfiguration
+versioningConfiguration :: VersioningConfiguration
+versioningConfiguration = VersioningConfiguration
     { _vcStatus = Nothing
     , _vcMfaDelete = Nothing
     }
@@ -2935,8 +2935,8 @@ data WebsiteConfiguration = WebsiteConfiguration
 --
 -- * @RoutingRules ::@ @[RoutingRule]@
 --
-mkWebsiteConfiguration :: WebsiteConfiguration
-mkWebsiteConfiguration = WebsiteConfiguration
+websiteConfiguration :: WebsiteConfiguration
+websiteConfiguration = WebsiteConfiguration
     { _wcErrorDocument = Nothing
     , _wcIndexDocument = Nothing
     , _wcRedirectAllRequestsTo = Nothing

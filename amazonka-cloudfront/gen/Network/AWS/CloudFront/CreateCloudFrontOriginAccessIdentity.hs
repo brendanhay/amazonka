@@ -23,14 +23,14 @@ module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
     -- * Request
       CreateCloudFrontOriginAccessIdentity
     -- ** Request constructor
-    , mkCreateCloudFrontOriginAccessIdentity
+    , createCloudFrontOriginAccessIdentity
     -- ** Request lenses
     , ccfoaiCloudFrontOriginAccessIdentityConfig
 
     -- * Response
     , CreateCloudFrontOriginAccessIdentityResponse
     -- ** Response constructor
-    , mkCreateCloudFrontOriginAccessIdentityResponse
+    , createCloudFrontOriginAccessIdentityResponse
     -- ** Response lenses
     , ccfoairCloudFrontOriginAccessIdentity
     , ccfoairLocation
@@ -54,9 +54,9 @@ newtype CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdent
 --
 -- * @CloudFrontOriginAccessIdentityConfig ::@ @CloudFrontOriginAccessIdentityConfig@
 --
-mkCreateCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -- ^ 'ccfoaiCloudFrontOriginAccessIdentityConfig'
+createCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -- ^ 'ccfoaiCloudFrontOriginAccessIdentityConfig'
                                        -> CreateCloudFrontOriginAccessIdentity
-mkCreateCloudFrontOriginAccessIdentity p1 = CreateCloudFrontOriginAccessIdentity
+createCloudFrontOriginAccessIdentity p1 = CreateCloudFrontOriginAccessIdentity
     { _ccfoaiCloudFrontOriginAccessIdentityConfig = p1
     }
 
@@ -96,8 +96,8 @@ data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccess
 --
 -- * @ETag ::@ @Maybe Text@
 --
-mkCreateCloudFrontOriginAccessIdentityResponse :: CreateCloudFrontOriginAccessIdentityResponse
-mkCreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse
+createCloudFrontOriginAccessIdentityResponse :: CreateCloudFrontOriginAccessIdentityResponse
+createCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse
     { _ccfoairCloudFrontOriginAccessIdentity = Nothing
     , _ccfoairLocation = Nothing
     , _ccfoairETag = Nothing

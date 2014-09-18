@@ -53,7 +53,7 @@ module Network.AWS.SWF.DeprecateActivityType
     -- * Request
       DeprecateActivityType
     -- ** Request constructor
-    , mkDeprecateActivityType
+    , deprecateActivityType
     -- ** Request lenses
     , datDomain
     , datActivityType
@@ -61,7 +61,7 @@ module Network.AWS.SWF.DeprecateActivityType
     -- * Response
     , DeprecateActivityTypeResponse
     -- ** Response constructor
-    , mkDeprecateActivityTypeResponse
+    , deprecateActivityTypeResponse
     ) where
 
 import Network.AWS.SWF.Types
@@ -82,10 +82,10 @@ data DeprecateActivityType = DeprecateActivityType
 --
 -- * @ActivityType ::@ @ActivityType@
 --
-mkDeprecateActivityType :: Text -- ^ 'datDomain'
+deprecateActivityType :: Text -- ^ 'datDomain'
                         -> ActivityType -- ^ 'datActivityType'
                         -> DeprecateActivityType
-mkDeprecateActivityType p1 p2 = DeprecateActivityType
+deprecateActivityType p1 p2 = DeprecateActivityType
     { _datDomain = p1
     , _datActivityType = p2
     }
@@ -113,8 +113,8 @@ data DeprecateActivityTypeResponse = DeprecateActivityTypeResponse
 -- a valid 'DeprecateActivityTypeResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeprecateActivityTypeResponse :: DeprecateActivityTypeResponse
-mkDeprecateActivityTypeResponse = DeprecateActivityTypeResponse
+deprecateActivityTypeResponse :: DeprecateActivityTypeResponse
+deprecateActivityTypeResponse = DeprecateActivityTypeResponse
 
 instance AWSRequest DeprecateActivityType where
     type Sv DeprecateActivityType = SWF

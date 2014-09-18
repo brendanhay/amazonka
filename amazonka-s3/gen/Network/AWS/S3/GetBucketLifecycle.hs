@@ -23,14 +23,14 @@ module Network.AWS.S3.GetBucketLifecycle
     -- * Request
       GetBucketLifecycle
     -- ** Request constructor
-    , mkGetBucketLifecycle
+    , getBucketLifecycle
     -- ** Request lenses
     , gblBucket
 
     -- * Response
     , GetBucketLifecycleResponse
     -- ** Response constructor
-    , mkGetBucketLifecycleResponse
+    , getBucketLifecycleResponse
     -- ** Response lenses
     , gblrRules
     ) where
@@ -51,9 +51,9 @@ newtype GetBucketLifecycle = GetBucketLifecycle
 --
 -- * @Bucket ::@ @BucketName@
 --
-mkGetBucketLifecycle :: BucketName -- ^ 'gblBucket'
+getBucketLifecycle :: BucketName -- ^ 'gblBucket'
                      -> GetBucketLifecycle
-mkGetBucketLifecycle p1 = GetBucketLifecycle
+getBucketLifecycle p1 = GetBucketLifecycle
     { _gblBucket = p1
     }
 
@@ -81,8 +81,8 @@ newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse
 --
 -- * @Rules ::@ @[Rule]@
 --
-mkGetBucketLifecycleResponse :: GetBucketLifecycleResponse
-mkGetBucketLifecycleResponse = GetBucketLifecycleResponse
+getBucketLifecycleResponse :: GetBucketLifecycleResponse
+getBucketLifecycleResponse = GetBucketLifecycleResponse
     { _gblrRules = mempty
     }
 

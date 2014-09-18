@@ -49,7 +49,7 @@ module Network.AWS.SES.SendEmail
     -- * Request
       SendEmail
     -- ** Request constructor
-    , mkSendEmail
+    , sendEmail
     -- ** Request lenses
     , seSource
     , seDestination
@@ -60,7 +60,7 @@ module Network.AWS.SES.SendEmail
     -- * Response
     , SendEmailResponse
     -- ** Response constructor
-    , mkSendEmailResponse
+    , sendEmailResponse
     -- ** Response lenses
     , serMessageId
     ) where
@@ -96,11 +96,11 @@ data SendEmail = SendEmail
 --
 -- * @ReturnPath ::@ @Maybe Text@
 --
-mkSendEmail :: Text -- ^ 'seSource'
+sendEmail :: Text -- ^ 'seSource'
             -> Destination -- ^ 'seDestination'
             -> Message -- ^ 'seMessage'
             -> SendEmail
-mkSendEmail p1 p2 p3 = SendEmail
+sendEmail p1 p2 p3 = SendEmail
     { _seSource = p1
     , _seDestination = p2
     , _seMessage = p3
@@ -156,9 +156,9 @@ newtype SendEmailResponse = SendEmailResponse
 --
 -- * @MessageId ::@ @Text@
 --
-mkSendEmailResponse :: Text -- ^ 'serMessageId'
+sendEmailResponse :: Text -- ^ 'serMessageId'
                     -> SendEmailResponse
-mkSendEmailResponse p1 = SendEmailResponse
+sendEmailResponse p1 = SendEmailResponse
     { _serMessageId = p1
     }
 

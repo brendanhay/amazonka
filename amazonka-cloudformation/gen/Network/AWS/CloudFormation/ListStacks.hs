@@ -39,7 +39,7 @@ module Network.AWS.CloudFormation.ListStacks
     -- * Request
       ListStacks
     -- ** Request constructor
-    , mkListStacks
+    , listStacks
     -- ** Request lenses
     , lsNextToken
     , lsStackStatusFilter
@@ -47,7 +47,7 @@ module Network.AWS.CloudFormation.ListStacks
     -- * Response
     , ListStacksResponse
     -- ** Response constructor
-    , mkListStacksResponse
+    , listStacksResponse
     -- ** Response lenses
     , lsr1StackSummaries
     , lsr1NextToken
@@ -72,8 +72,8 @@ data ListStacks = ListStacks
 --
 -- * @StackStatusFilter ::@ @[StackStatus]@
 --
-mkListStacks :: ListStacks
-mkListStacks = ListStacks
+listStacks :: ListStacks
+listStacks = ListStacks
     { _lsNextToken = Nothing
     , _lsStackStatusFilter = mempty
     }
@@ -110,8 +110,8 @@ data ListStacksResponse = ListStacksResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkListStacksResponse :: ListStacksResponse
-mkListStacksResponse = ListStacksResponse
+listStacksResponse :: ListStacksResponse
+listStacksResponse = ListStacksResponse
     { _lsr1StackSummaries = mempty
     , _lsr1NextToken = Nothing
     }

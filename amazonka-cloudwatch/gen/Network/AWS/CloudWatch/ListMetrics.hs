@@ -29,7 +29,7 @@ module Network.AWS.CloudWatch.ListMetrics
     -- * Request
       ListMetrics
     -- ** Request constructor
-    , mkListMetrics
+    , listMetrics
     -- ** Request lenses
     , lmNamespace
     , lmMetricName
@@ -39,7 +39,7 @@ module Network.AWS.CloudWatch.ListMetrics
     -- * Response
     , ListMetricsResponse
     -- ** Response constructor
-    , mkListMetricsResponse
+    , listMetricsResponse
     -- ** Response lenses
     , lmrMetrics
     , lmrNextToken
@@ -69,8 +69,8 @@ data ListMetrics = ListMetrics
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkListMetrics :: ListMetrics
-mkListMetrics = ListMetrics
+listMetrics :: ListMetrics
+listMetrics = ListMetrics
     { _lmNamespace = Nothing
     , _lmMetricName = Nothing
     , _lmDimensions = mempty
@@ -114,8 +114,8 @@ data ListMetricsResponse = ListMetricsResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkListMetricsResponse :: ListMetricsResponse
-mkListMetricsResponse = ListMetricsResponse
+listMetricsResponse :: ListMetricsResponse
+listMetricsResponse = ListMetricsResponse
     { _lmrMetrics = mempty
     , _lmrNextToken = Nothing
     }

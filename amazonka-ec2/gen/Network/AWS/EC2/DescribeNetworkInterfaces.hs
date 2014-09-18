@@ -85,7 +85,7 @@ module Network.AWS.EC2.DescribeNetworkInterfaces
     -- * Request
       DescribeNetworkInterfaces
     -- ** Request constructor
-    , mkDescribeNetworkInterfaces
+    , describeNetworkInterfaces
     -- ** Request lenses
     , dni1NetworkInterfaceIds
     , dni1Filters
@@ -93,7 +93,7 @@ module Network.AWS.EC2.DescribeNetworkInterfaces
     -- * Response
     , DescribeNetworkInterfacesResponse
     -- ** Response constructor
-    , mkDescribeNetworkInterfacesResponse
+    , describeNetworkInterfacesResponse
     -- ** Response lenses
     , dnirNetworkInterfaces
     ) where
@@ -116,8 +116,8 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribeNetworkInterfaces :: DescribeNetworkInterfaces
-mkDescribeNetworkInterfaces = DescribeNetworkInterfaces
+describeNetworkInterfaces :: DescribeNetworkInterfaces
+describeNetworkInterfaces = DescribeNetworkInterfaces
     { _dni1NetworkInterfaceIds = mempty
     , _dni1Filters = mempty
     }
@@ -201,8 +201,8 @@ newtype DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
 --
 -- * @NetworkInterfaces ::@ @[NetworkInterface]@
 --
-mkDescribeNetworkInterfacesResponse :: DescribeNetworkInterfacesResponse
-mkDescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
+describeNetworkInterfacesResponse :: DescribeNetworkInterfacesResponse
+describeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
     { _dnirNetworkInterfaces = mempty
     }
 

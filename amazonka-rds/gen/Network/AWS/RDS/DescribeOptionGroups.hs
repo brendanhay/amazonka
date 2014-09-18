@@ -29,7 +29,7 @@ module Network.AWS.RDS.DescribeOptionGroups
     -- * Request
       DescribeOptionGroups
     -- ** Request constructor
-    , mkDescribeOptionGroups
+    , describeOptionGroups
     -- ** Request lenses
     , dog1OptionGroupName
     , dog1Marker
@@ -40,7 +40,7 @@ module Network.AWS.RDS.DescribeOptionGroups
     -- * Response
     , DescribeOptionGroupsResponse
     -- ** Response constructor
-    , mkDescribeOptionGroupsResponse
+    , describeOptionGroupsResponse
     -- ** Response lenses
     , dogrOptionGroupsList
     , dogrMarker
@@ -74,8 +74,8 @@ data DescribeOptionGroups = DescribeOptionGroups
 --
 -- * @MajorEngineVersion ::@ @Maybe Text@
 --
-mkDescribeOptionGroups :: DescribeOptionGroups
-mkDescribeOptionGroups = DescribeOptionGroups
+describeOptionGroups :: DescribeOptionGroups
+describeOptionGroups = DescribeOptionGroups
     { _dog1OptionGroupName = Nothing
     , _dog1Marker = Nothing
     , _dog1MaxRecords = Nothing
@@ -134,8 +134,8 @@ data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeOptionGroupsResponse :: DescribeOptionGroupsResponse
-mkDescribeOptionGroupsResponse = DescribeOptionGroupsResponse
+describeOptionGroupsResponse :: DescribeOptionGroupsResponse
+describeOptionGroupsResponse = DescribeOptionGroupsResponse
     { _dogrOptionGroupsList = mempty
     , _dogrMarker = Nothing
     }

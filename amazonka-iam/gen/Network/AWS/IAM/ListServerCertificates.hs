@@ -36,7 +36,7 @@ module Network.AWS.IAM.ListServerCertificates
     -- * Request
       ListServerCertificates
     -- ** Request constructor
-    , mkListServerCertificates
+    , listServerCertificates
     -- ** Request lenses
     , lscPathPrefix
     , lscMarker
@@ -45,7 +45,7 @@ module Network.AWS.IAM.ListServerCertificates
     -- * Response
     , ListServerCertificatesResponse
     -- ** Response constructor
-    , mkListServerCertificatesResponse
+    , listServerCertificatesResponse
     -- ** Response lenses
     , lscrServerCertificateMetadataList
     , lscrIsTruncated
@@ -73,8 +73,8 @@ data ListServerCertificates = ListServerCertificates
 --
 -- * @MaxItems ::@ @Maybe Integer@
 --
-mkListServerCertificates :: ListServerCertificates
-mkListServerCertificates = ListServerCertificates
+listServerCertificates :: ListServerCertificates
+listServerCertificates = ListServerCertificates
     { _lscPathPrefix = Nothing
     , _lscMarker = Nothing
     , _lscMaxItems = Nothing
@@ -125,10 +125,10 @@ data ListServerCertificatesResponse = ListServerCertificatesResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListServerCertificatesResponse :: [ServerCertificateMetadata] -- ^ 'lscrServerCertificateMetadataList'
+listServerCertificatesResponse :: [ServerCertificateMetadata] -- ^ 'lscrServerCertificateMetadataList'
                                  -> Bool -- ^ 'lscrIsTruncated'
                                  -> ListServerCertificatesResponse
-mkListServerCertificatesResponse p1 p2 = ListServerCertificatesResponse
+listServerCertificatesResponse p1 p2 = ListServerCertificatesResponse
     { _lscrServerCertificateMetadataList = p1
     , _lscrIsTruncated = p2
     , _lscrMarker = Nothing

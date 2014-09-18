@@ -30,14 +30,14 @@ module Network.AWS.RDS.DeleteDBSnapshot
     -- * Request
       DeleteDBSnapshot
     -- ** Request constructor
-    , mkDeleteDBSnapshot
+    , deleteDBSnapshot
     -- ** Request lenses
     , ddbsDBSnapshotIdentifier
 
     -- * Response
     , DeleteDBSnapshotResponse
     -- ** Response constructor
-    , mkDeleteDBSnapshotResponse
+    , deleteDBSnapshotResponse
     -- ** Response lenses
     , ddbsrDBSnapshot
     ) where
@@ -58,9 +58,9 @@ newtype DeleteDBSnapshot = DeleteDBSnapshot
 --
 -- * @DBSnapshotIdentifier ::@ @Text@
 --
-mkDeleteDBSnapshot :: Text -- ^ 'ddbsDBSnapshotIdentifier'
+deleteDBSnapshot :: Text -- ^ 'ddbsDBSnapshotIdentifier'
                    -> DeleteDBSnapshot
-mkDeleteDBSnapshot p1 = DeleteDBSnapshot
+deleteDBSnapshot p1 = DeleteDBSnapshot
     { _ddbsDBSnapshotIdentifier = p1
     }
 
@@ -87,8 +87,8 @@ newtype DeleteDBSnapshotResponse = DeleteDBSnapshotResponse
 --
 -- * @DBSnapshot ::@ @Maybe DBSnapshot@
 --
-mkDeleteDBSnapshotResponse :: DeleteDBSnapshotResponse
-mkDeleteDBSnapshotResponse = DeleteDBSnapshotResponse
+deleteDBSnapshotResponse :: DeleteDBSnapshotResponse
+deleteDBSnapshotResponse = DeleteDBSnapshotResponse
     { _ddbsrDBSnapshot = Nothing
     }
 

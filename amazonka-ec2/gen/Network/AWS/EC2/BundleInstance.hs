@@ -49,7 +49,7 @@ module Network.AWS.EC2.BundleInstance
     -- * Request
       BundleInstance
     -- ** Request constructor
-    , mkBundleInstance
+    , bundleInstance
     -- ** Request lenses
     , biInstanceId
     , biStorage
@@ -57,7 +57,7 @@ module Network.AWS.EC2.BundleInstance
     -- * Response
     , BundleInstanceResponse
     -- ** Response constructor
-    , mkBundleInstanceResponse
+    , bundleInstanceResponse
     -- ** Response lenses
     , birBundleTask
     ) where
@@ -80,10 +80,10 @@ data BundleInstance = BundleInstance
 --
 -- * @Storage ::@ @Storage@
 --
-mkBundleInstance :: Text -- ^ 'biInstanceId'
+bundleInstance :: Text -- ^ 'biInstanceId'
                  -> Storage -- ^ 'biStorage'
                  -> BundleInstance
-mkBundleInstance p1 p2 = BundleInstance
+bundleInstance p1 p2 = BundleInstance
     { _biInstanceId = p1
     , _biStorage = p2
     }
@@ -114,8 +114,8 @@ newtype BundleInstanceResponse = BundleInstanceResponse
 --
 -- * @BundleTask ::@ @Maybe BundleTask@
 --
-mkBundleInstanceResponse :: BundleInstanceResponse
-mkBundleInstanceResponse = BundleInstanceResponse
+bundleInstanceResponse :: BundleInstanceResponse
+bundleInstanceResponse = BundleInstanceResponse
     { _birBundleTask = Nothing
     }
 

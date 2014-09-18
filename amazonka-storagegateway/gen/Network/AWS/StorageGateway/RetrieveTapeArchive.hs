@@ -22,7 +22,7 @@ module Network.AWS.StorageGateway.RetrieveTapeArchive
     -- * Request
       RetrieveTapeArchive
     -- ** Request constructor
-    , mkRetrieveTapeArchive
+    , retrieveTapeArchive
     -- ** Request lenses
     , rtaTapeARN
     , rtaGatewayARN
@@ -30,7 +30,7 @@ module Network.AWS.StorageGateway.RetrieveTapeArchive
     -- * Response
     , RetrieveTapeArchiveResponse
     -- ** Response constructor
-    , mkRetrieveTapeArchiveResponse
+    , retrieveTapeArchiveResponse
     -- ** Response lenses
     , rtarTapeARN
     ) where
@@ -53,10 +53,10 @@ data RetrieveTapeArchive = RetrieveTapeArchive
 --
 -- * @GatewayARN ::@ @Text@
 --
-mkRetrieveTapeArchive :: Text -- ^ 'rtaTapeARN'
+retrieveTapeArchive :: Text -- ^ 'rtaTapeARN'
                       -> Text -- ^ 'rtaGatewayARN'
                       -> RetrieveTapeArchive
-mkRetrieveTapeArchive p1 p2 = RetrieveTapeArchive
+retrieveTapeArchive p1 p2 = RetrieveTapeArchive
     { _rtaTapeARN = p1
     , _rtaGatewayARN = p2
     }
@@ -90,8 +90,8 @@ newtype RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse
 --
 -- * @TapeARN ::@ @Maybe Text@
 --
-mkRetrieveTapeArchiveResponse :: RetrieveTapeArchiveResponse
-mkRetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse
+retrieveTapeArchiveResponse :: RetrieveTapeArchiveResponse
+retrieveTapeArchiveResponse = RetrieveTapeArchiveResponse
     { _rtarTapeARN = Nothing
     }
 

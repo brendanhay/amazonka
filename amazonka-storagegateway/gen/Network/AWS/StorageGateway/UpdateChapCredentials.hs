@@ -43,7 +43,7 @@ module Network.AWS.StorageGateway.UpdateChapCredentials
     -- * Request
       UpdateChapCredentials
     -- ** Request constructor
-    , mkUpdateChapCredentials
+    , updateChapCredentials
     -- ** Request lenses
     , uccTargetARN
     , uccSecretToAuthenticateInitiator
@@ -53,7 +53,7 @@ module Network.AWS.StorageGateway.UpdateChapCredentials
     -- * Response
     , UpdateChapCredentialsResponse
     -- ** Response constructor
-    , mkUpdateChapCredentialsResponse
+    , updateChapCredentialsResponse
     -- ** Response lenses
     , uccrTargetARN
     , uccrInitiatorName
@@ -88,11 +88,11 @@ data UpdateChapCredentials = UpdateChapCredentials
 --
 -- * @SecretToAuthenticateTarget ::@ @Maybe Text@
 --
-mkUpdateChapCredentials :: Text -- ^ 'uccTargetARN'
+updateChapCredentials :: Text -- ^ 'uccTargetARN'
                         -> Text -- ^ 'uccSecretToAuthenticateInitiator'
                         -> Text -- ^ 'uccInitiatorName'
                         -> UpdateChapCredentials
-mkUpdateChapCredentials p1 p2 p3 = UpdateChapCredentials
+updateChapCredentials p1 p2 p3 = UpdateChapCredentials
     { _uccTargetARN = p1
     , _uccSecretToAuthenticateInitiator = p2
     , _uccInitiatorName = p3
@@ -149,8 +149,8 @@ data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse
 --
 -- * @InitiatorName ::@ @Maybe Text@
 --
-mkUpdateChapCredentialsResponse :: UpdateChapCredentialsResponse
-mkUpdateChapCredentialsResponse = UpdateChapCredentialsResponse
+updateChapCredentialsResponse :: UpdateChapCredentialsResponse
+updateChapCredentialsResponse = UpdateChapCredentialsResponse
     { _uccrTargetARN = Nothing
     , _uccrInitiatorName = Nothing
     }

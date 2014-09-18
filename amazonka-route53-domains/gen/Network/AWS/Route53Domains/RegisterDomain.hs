@@ -69,7 +69,7 @@ module Network.AWS.Route53Domains.RegisterDomain
     -- * Request
       RegisterDomain
     -- ** Request constructor
-    , mkRegisterDomain
+    , registerDomain
     -- ** Request lenses
     , rdDomainName
     , rdIdnLangCode
@@ -85,7 +85,7 @@ module Network.AWS.Route53Domains.RegisterDomain
     -- * Response
     , RegisterDomainResponse
     -- ** Response constructor
-    , mkRegisterDomainResponse
+    , registerDomainResponse
     -- ** Response lenses
     , rdrOperationId
     ) where
@@ -133,13 +133,13 @@ data RegisterDomain = RegisterDomain
 --
 -- * @PrivacyProtectTechContact ::@ @Maybe Bool@
 --
-mkRegisterDomain :: Text -- ^ 'rdDomainName'
+registerDomain :: Text -- ^ 'rdDomainName'
                  -> Integer -- ^ 'rdDurationInYears'
                  -> ContactDetail -- ^ 'rdAdminContact'
                  -> ContactDetail -- ^ 'rdRegistrantContact'
                  -> ContactDetail -- ^ 'rdTechContact'
                  -> RegisterDomain
-mkRegisterDomain p1 p3 p5 p6 p7 = RegisterDomain
+registerDomain p1 p3 p5 p6 p7 = RegisterDomain
     { _rdDomainName = p1
     , _rdIdnLangCode = Nothing
     , _rdDurationInYears = p3
@@ -248,9 +248,9 @@ newtype RegisterDomainResponse = RegisterDomainResponse
 --
 -- * @OperationId ::@ @Text@
 --
-mkRegisterDomainResponse :: Text -- ^ 'rdrOperationId'
+registerDomainResponse :: Text -- ^ 'rdrOperationId'
                          -> RegisterDomainResponse
-mkRegisterDomainResponse p1 = RegisterDomainResponse
+registerDomainResponse p1 = RegisterDomainResponse
     { _rdrOperationId = p1
     }
 

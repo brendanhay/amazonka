@@ -28,14 +28,14 @@ module Network.AWS.ELB.DescribeLoadBalancerAttributes
     -- * Request
       DescribeLoadBalancerAttributes
     -- ** Request constructor
-    , mkDescribeLoadBalancerAttributes
+    , describeLoadBalancerAttributes
     -- ** Request lenses
     , dlbaLoadBalancerName
 
     -- * Response
     , DescribeLoadBalancerAttributesResponse
     -- ** Response constructor
-    , mkDescribeLoadBalancerAttributesResponse
+    , describeLoadBalancerAttributesResponse
     -- ** Response lenses
     , dlbarLoadBalancerAttributes
     ) where
@@ -56,9 +56,9 @@ newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes
 --
 -- * @LoadBalancerName ::@ @Text@
 --
-mkDescribeLoadBalancerAttributes :: Text -- ^ 'dlbaLoadBalancerName'
+describeLoadBalancerAttributes :: Text -- ^ 'dlbaLoadBalancerName'
                                  -> DescribeLoadBalancerAttributes
-mkDescribeLoadBalancerAttributes p1 = DescribeLoadBalancerAttributes
+describeLoadBalancerAttributes p1 = DescribeLoadBalancerAttributes
     { _dlbaLoadBalancerName = p1
     }
 
@@ -85,8 +85,8 @@ newtype DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesR
 --
 -- * @LoadBalancerAttributes ::@ @Maybe LoadBalancerAttributes@
 --
-mkDescribeLoadBalancerAttributesResponse :: DescribeLoadBalancerAttributesResponse
-mkDescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse
+describeLoadBalancerAttributesResponse :: DescribeLoadBalancerAttributesResponse
+describeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse
     { _dlbarLoadBalancerAttributes = Nothing
     }
 

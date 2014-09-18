@@ -76,7 +76,7 @@ module Network.AWS.ElasticTranscoder.CreatePreset
     -- * Request
       CreatePreset
     -- ** Request constructor
-    , mkCreatePreset
+    , createPreset
     -- ** Request lenses
     , cp1Name
     , cp1Description
@@ -88,7 +88,7 @@ module Network.AWS.ElasticTranscoder.CreatePreset
     -- * Response
     , CreatePresetResponse
     -- ** Response constructor
-    , mkCreatePresetResponse
+    , createPresetResponse
     -- ** Response lenses
     , cprrPreset
     , cprrWarning
@@ -125,10 +125,10 @@ data CreatePreset = CreatePreset
 --
 -- * @Thumbnails ::@ @Maybe Thumbnails@
 --
-mkCreatePreset :: Text -- ^ 'cp1Name'
+createPreset :: Text -- ^ 'cp1Name'
                -> Text -- ^ 'cp1Container'
                -> CreatePreset
-mkCreatePreset p1 p3 = CreatePreset
+createPreset p1 p3 = CreatePreset
     { _cp1Name = p1
     , _cp1Description = Nothing
     , _cp1Container = p3
@@ -189,8 +189,8 @@ data CreatePresetResponse = CreatePresetResponse
 --
 -- * @Warning ::@ @Maybe Text@
 --
-mkCreatePresetResponse :: CreatePresetResponse
-mkCreatePresetResponse = CreatePresetResponse
+createPresetResponse :: CreatePresetResponse
+createPresetResponse = CreatePresetResponse
     { _cprrPreset = Nothing
     , _cprrWarning = Nothing
     }

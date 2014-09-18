@@ -23,7 +23,7 @@ module Network.AWS.CloudFront.GetInvalidation
     -- * Request
       GetInvalidation
     -- ** Request constructor
-    , mkGetInvalidation
+    , getInvalidation
     -- ** Request lenses
     , giDistributionId
     , giId
@@ -31,7 +31,7 @@ module Network.AWS.CloudFront.GetInvalidation
     -- * Response
     , GetInvalidationResponse
     -- ** Response constructor
-    , mkGetInvalidationResponse
+    , getInvalidationResponse
     -- ** Response lenses
     , girInvalidation
     ) where
@@ -56,10 +56,10 @@ data GetInvalidation = GetInvalidation
 --
 -- * @Id ::@ @Text@
 --
-mkGetInvalidation :: Text -- ^ 'giDistributionId'
+getInvalidation :: Text -- ^ 'giDistributionId'
                   -> Text -- ^ 'giId'
                   -> GetInvalidation
-mkGetInvalidation p1 p2 = GetInvalidation
+getInvalidation p1 p2 = GetInvalidation
     { _giDistributionId = p1
     , _giId = p2
     }
@@ -97,8 +97,8 @@ newtype GetInvalidationResponse = GetInvalidationResponse
 --
 -- * @Invalidation ::@ @Maybe Invalidation@
 --
-mkGetInvalidationResponse :: GetInvalidationResponse
-mkGetInvalidationResponse = GetInvalidationResponse
+getInvalidationResponse :: GetInvalidationResponse
+getInvalidationResponse = GetInvalidationResponse
     { _girInvalidation = Nothing
     }
 

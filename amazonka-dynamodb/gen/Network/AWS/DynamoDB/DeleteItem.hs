@@ -40,7 +40,7 @@ module Network.AWS.DynamoDB.DeleteItem
     -- * Request
       DeleteItem
     -- ** Request constructor
-    , mkDeleteItem
+    , deleteItem
     -- ** Request lenses
     , diTableName
     , diKey
@@ -53,7 +53,7 @@ module Network.AWS.DynamoDB.DeleteItem
     -- * Response
     , DeleteItemResponse
     -- ** Response constructor
-    , mkDeleteItemResponse
+    , deleteItemResponse
     -- ** Response lenses
     , dirAttributes
     , dirConsumedCapacity
@@ -94,10 +94,10 @@ data DeleteItem = DeleteItem
 --
 -- * @ReturnItemCollectionMetrics ::@ @Maybe ReturnItemCollectionMetrics@
 --
-mkDeleteItem :: Text -- ^ 'diTableName'
+deleteItem :: Text -- ^ 'diTableName'
              -> Map Text AttributeValue -- ^ 'diKey'
              -> DeleteItem
-mkDeleteItem p1 p2 = DeleteItem
+deleteItem p1 p2 = DeleteItem
     { _diTableName = p1
     , _diKey = p2
     , _diExpected = mempty
@@ -202,8 +202,8 @@ data DeleteItemResponse = DeleteItemResponse
 --
 -- * @ItemCollectionMetrics ::@ @Maybe ItemCollectionMetrics@
 --
-mkDeleteItemResponse :: DeleteItemResponse
-mkDeleteItemResponse = DeleteItemResponse
+deleteItemResponse :: DeleteItemResponse
+deleteItemResponse = DeleteItemResponse
     { _dirAttributes = mempty
     , _dirConsumedCapacity = Nothing
     , _dirItemCollectionMetrics = Nothing

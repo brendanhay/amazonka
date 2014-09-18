@@ -27,7 +27,7 @@ module Network.AWS.AutoScaling.SetDesiredCapacity
     -- * Request
       SetDesiredCapacity
     -- ** Request constructor
-    , mkSetDesiredCapacity
+    , setDesiredCapacity
     -- ** Request lenses
     , sdcAutoScalingGroupName
     , sdcDesiredCapacity
@@ -36,7 +36,7 @@ module Network.AWS.AutoScaling.SetDesiredCapacity
     -- * Response
     , SetDesiredCapacityResponse
     -- ** Response constructor
-    , mkSetDesiredCapacityResponse
+    , setDesiredCapacityResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -61,10 +61,10 @@ data SetDesiredCapacity = SetDesiredCapacity
 --
 -- * @HonorCooldown ::@ @Maybe Bool@
 --
-mkSetDesiredCapacity :: Text -- ^ 'sdcAutoScalingGroupName'
+setDesiredCapacity :: Text -- ^ 'sdcAutoScalingGroupName'
                      -> Integer -- ^ 'sdcDesiredCapacity'
                      -> SetDesiredCapacity
-mkSetDesiredCapacity p1 p2 = SetDesiredCapacity
+setDesiredCapacity p1 p2 = SetDesiredCapacity
     { _sdcAutoScalingGroupName = p1
     , _sdcDesiredCapacity = p2
     , _sdcHonorCooldown = Nothing
@@ -100,8 +100,8 @@ data SetDesiredCapacityResponse = SetDesiredCapacityResponse
 -- a valid 'SetDesiredCapacityResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkSetDesiredCapacityResponse :: SetDesiredCapacityResponse
-mkSetDesiredCapacityResponse = SetDesiredCapacityResponse
+setDesiredCapacityResponse :: SetDesiredCapacityResponse
+setDesiredCapacityResponse = SetDesiredCapacityResponse
 
 instance AWSRequest SetDesiredCapacity where
     type Sv SetDesiredCapacity = AutoScaling

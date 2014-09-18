@@ -62,7 +62,7 @@ module Network.AWS.SNS.Publish
     -- * Request
       Publish
     -- ** Request constructor
-    , mkPublish
+    , publish
     -- ** Request lenses
     , pTopicArn
     , pTargetArn
@@ -74,7 +74,7 @@ module Network.AWS.SNS.Publish
     -- * Response
     , PublishResponse
     -- ** Response constructor
-    , mkPublishResponse
+    , publishResponse
     -- ** Response lenses
     , prMessageId
     ) where
@@ -110,9 +110,9 @@ data Publish = Publish
 --
 -- * @MessageAttributes ::@ @Map Text MessageAttributeValue@
 --
-mkPublish :: Text -- ^ 'pMessage'
+publish :: Text -- ^ 'pMessage'
           -> Publish
-mkPublish p3 = Publish
+publish p3 = Publish
     { _pTopicArn = Nothing
     , _pTargetArn = Nothing
     , _pMessage = p3
@@ -197,8 +197,8 @@ newtype PublishResponse = PublishResponse
 --
 -- * @MessageId ::@ @Maybe Text@
 --
-mkPublishResponse :: PublishResponse
-mkPublishResponse = PublishResponse
+publishResponse :: PublishResponse
+publishResponse = PublishResponse
     { _prMessageId = Nothing
     }
 

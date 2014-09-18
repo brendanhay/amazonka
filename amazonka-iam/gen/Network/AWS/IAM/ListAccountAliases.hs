@@ -28,7 +28,7 @@ module Network.AWS.IAM.ListAccountAliases
     -- * Request
       ListAccountAliases
     -- ** Request constructor
-    , mkListAccountAliases
+    , listAccountAliases
     -- ** Request lenses
     , laaMarker
     , laaMaxItems
@@ -36,7 +36,7 @@ module Network.AWS.IAM.ListAccountAliases
     -- * Response
     , ListAccountAliasesResponse
     -- ** Response constructor
-    , mkListAccountAliasesResponse
+    , listAccountAliasesResponse
     -- ** Response lenses
     , laarAccountAliases
     , laarIsTruncated
@@ -61,8 +61,8 @@ data ListAccountAliases = ListAccountAliases
 --
 -- * @MaxItems ::@ @Maybe Integer@
 --
-mkListAccountAliases :: ListAccountAliases
-mkListAccountAliases = ListAccountAliases
+listAccountAliases :: ListAccountAliases
+listAccountAliases = ListAccountAliases
     { _laaMarker = Nothing
     , _laaMaxItems = Nothing
     }
@@ -105,10 +105,10 @@ data ListAccountAliasesResponse = ListAccountAliasesResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListAccountAliasesResponse :: [Text] -- ^ 'laarAccountAliases'
+listAccountAliasesResponse :: [Text] -- ^ 'laarAccountAliases'
                              -> Bool -- ^ 'laarIsTruncated'
                              -> ListAccountAliasesResponse
-mkListAccountAliasesResponse p1 p2 = ListAccountAliasesResponse
+listAccountAliasesResponse p1 p2 = ListAccountAliasesResponse
     { _laarAccountAliases = p1
     , _laarIsTruncated = p2
     , _laarMarker = Nothing

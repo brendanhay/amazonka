@@ -37,14 +37,14 @@ module Network.AWS.Route53Domains.RetrieveDomainAuthCode
     -- * Request
       RetrieveDomainAuthCode
     -- ** Request constructor
-    , mkRetrieveDomainAuthCode
+    , retrieveDomainAuthCode
     -- ** Request lenses
     , rdacDomainName
 
     -- * Response
     , RetrieveDomainAuthCodeResponse
     -- ** Response constructor
-    , mkRetrieveDomainAuthCodeResponse
+    , retrieveDomainAuthCodeResponse
     -- ** Response lenses
     , rdacrAuthCode
     ) where
@@ -65,9 +65,9 @@ newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode
 --
 -- * @DomainName ::@ @Text@
 --
-mkRetrieveDomainAuthCode :: Text -- ^ 'rdacDomainName'
+retrieveDomainAuthCode :: Text -- ^ 'rdacDomainName'
                          -> RetrieveDomainAuthCode
-mkRetrieveDomainAuthCode p1 = RetrieveDomainAuthCode
+retrieveDomainAuthCode p1 = RetrieveDomainAuthCode
     { _rdacDomainName = p1
     }
 
@@ -100,9 +100,9 @@ newtype RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse
 --
 -- * @AuthCode ::@ @Text@
 --
-mkRetrieveDomainAuthCodeResponse :: Text -- ^ 'rdacrAuthCode'
+retrieveDomainAuthCodeResponse :: Text -- ^ 'rdacrAuthCode'
                                  -> RetrieveDomainAuthCodeResponse
-mkRetrieveDomainAuthCodeResponse p1 = RetrieveDomainAuthCodeResponse
+retrieveDomainAuthCodeResponse p1 = RetrieveDomainAuthCodeResponse
     { _rdacrAuthCode = p1
     }
 

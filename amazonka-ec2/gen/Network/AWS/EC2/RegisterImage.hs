@@ -67,7 +67,7 @@ module Network.AWS.EC2.RegisterImage
     -- * Request
       RegisterImage
     -- ** Request constructor
-    , mkRegisterImage
+    , registerImage
     -- ** Request lenses
     , ri2ImageLocation
     , ri2Name
@@ -83,7 +83,7 @@ module Network.AWS.EC2.RegisterImage
     -- * Response
     , RegisterImageResponse
     -- ** Response constructor
-    , mkRegisterImageResponse
+    , registerImageResponse
     -- ** Response lenses
     , rirImageId
     ) where
@@ -130,9 +130,9 @@ data RegisterImage = RegisterImage
 --
 -- * @SriovNetSupport ::@ @Maybe Text@
 --
-mkRegisterImage :: Text -- ^ 'ri2Name'
+registerImage :: Text -- ^ 'ri2Name'
                 -> RegisterImage
-mkRegisterImage p2 = RegisterImage
+registerImage p2 = RegisterImage
     { _ri2ImageLocation = Nothing
     , _ri2Name = p2
     , _ri2Description = Nothing
@@ -213,8 +213,8 @@ newtype RegisterImageResponse = RegisterImageResponse
 --
 -- * @ImageId ::@ @Maybe Text@
 --
-mkRegisterImageResponse :: RegisterImageResponse
-mkRegisterImageResponse = RegisterImageResponse
+registerImageResponse :: RegisterImageResponse
+registerImageResponse = RegisterImageResponse
     { _rirImageId = Nothing
     }
 

@@ -33,14 +33,14 @@ module Network.AWS.DataPipeline.ListPipelines
     -- * Request
       ListPipelines
     -- ** Request constructor
-    , mkListPipelines
+    , listPipelines
     -- ** Request lenses
     , lpMarker
 
     -- * Response
     , ListPipelinesResponse
     -- ** Response constructor
-    , mkListPipelinesResponse
+    , listPipelinesResponse
     -- ** Response lenses
     , lprPipelineIdList
     , lprMarker
@@ -63,8 +63,8 @@ newtype ListPipelines = ListPipelines
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkListPipelines :: ListPipelines
-mkListPipelines = ListPipelines
+listPipelines :: ListPipelines
+listPipelines = ListPipelines
     { _lpMarker = Nothing
     }
 
@@ -103,10 +103,10 @@ data ListPipelinesResponse = ListPipelinesResponse
 --
 -- * @HasMoreResults ::@ @Bool@
 --
-mkListPipelinesResponse :: [PipelineIdName] -- ^ 'lprPipelineIdList'
+listPipelinesResponse :: [PipelineIdName] -- ^ 'lprPipelineIdList'
                         -> Bool -- ^ 'lprHasMoreResults'
                         -> ListPipelinesResponse
-mkListPipelinesResponse p1 p3 = ListPipelinesResponse
+listPipelinesResponse p1 p3 = ListPipelinesResponse
     { _lprPipelineIdList = p1
     , _lprMarker = Nothing
     , _lprHasMoreResults = p3

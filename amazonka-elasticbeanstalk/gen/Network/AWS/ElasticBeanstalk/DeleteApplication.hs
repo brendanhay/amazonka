@@ -29,7 +29,7 @@ module Network.AWS.ElasticBeanstalk.DeleteApplication
     -- * Request
       DeleteApplication
     -- ** Request constructor
-    , mkDeleteApplication
+    , deleteApplication
     -- ** Request lenses
     , daApplicationName
     , daTerminateEnvByForce
@@ -37,7 +37,7 @@ module Network.AWS.ElasticBeanstalk.DeleteApplication
     -- * Response
     , DeleteApplicationResponse
     -- ** Response constructor
-    , mkDeleteApplicationResponse
+    , deleteApplicationResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -59,9 +59,9 @@ data DeleteApplication = DeleteApplication
 --
 -- * @TerminateEnvByForce ::@ @Maybe Bool@
 --
-mkDeleteApplication :: Text -- ^ 'daApplicationName'
+deleteApplication :: Text -- ^ 'daApplicationName'
                     -> DeleteApplication
-mkDeleteApplication p1 = DeleteApplication
+deleteApplication p1 = DeleteApplication
     { _daApplicationName = p1
     , _daTerminateEnvByForce = Nothing
     }
@@ -87,8 +87,8 @@ data DeleteApplicationResponse = DeleteApplicationResponse
 -- a valid 'DeleteApplicationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteApplicationResponse :: DeleteApplicationResponse
-mkDeleteApplicationResponse = DeleteApplicationResponse
+deleteApplicationResponse :: DeleteApplicationResponse
+deleteApplicationResponse = DeleteApplicationResponse
 
 instance AWSRequest DeleteApplication where
     type Sv DeleteApplication = ElasticBeanstalk

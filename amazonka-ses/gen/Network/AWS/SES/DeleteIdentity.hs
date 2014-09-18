@@ -33,14 +33,14 @@ module Network.AWS.SES.DeleteIdentity
     -- * Request
       DeleteIdentity
     -- ** Request constructor
-    , mkDeleteIdentity
+    , deleteIdentity
     -- ** Request lenses
     , diIdentity
 
     -- * Response
     , DeleteIdentityResponse
     -- ** Response constructor
-    , mkDeleteIdentityResponse
+    , deleteIdentityResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -60,9 +60,9 @@ newtype DeleteIdentity = DeleteIdentity
 --
 -- * @Identity ::@ @Text@
 --
-mkDeleteIdentity :: Text -- ^ 'diIdentity'
+deleteIdentity :: Text -- ^ 'diIdentity'
                  -> DeleteIdentity
-mkDeleteIdentity p1 = DeleteIdentity
+deleteIdentity p1 = DeleteIdentity
     { _diIdentity = p1
     }
 
@@ -82,8 +82,8 @@ data DeleteIdentityResponse = DeleteIdentityResponse
 -- a valid 'DeleteIdentityResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteIdentityResponse :: DeleteIdentityResponse
-mkDeleteIdentityResponse = DeleteIdentityResponse
+deleteIdentityResponse :: DeleteIdentityResponse
+deleteIdentityResponse = DeleteIdentityResponse
 
 instance AWSRequest DeleteIdentity where
     type Sv DeleteIdentity = SES

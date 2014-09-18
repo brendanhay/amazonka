@@ -58,7 +58,7 @@ module Network.AWS.RDS.CreateEventSubscription
     -- * Request
       CreateEventSubscription
     -- ** Request constructor
-    , mkCreateEventSubscription
+    , createEventSubscription
     -- ** Request lenses
     , cesSubscriptionName
     , cesSnsTopicArn
@@ -71,7 +71,7 @@ module Network.AWS.RDS.CreateEventSubscription
     -- * Response
     , CreateEventSubscriptionResponse
     -- ** Response constructor
-    , mkCreateEventSubscriptionResponse
+    , createEventSubscriptionResponse
     -- ** Response lenses
     , cesrEventSubscription
     ) where
@@ -110,10 +110,10 @@ data CreateEventSubscription = CreateEventSubscription
 --
 -- * @Tags ::@ @[Tag]@
 --
-mkCreateEventSubscription :: Text -- ^ 'cesSubscriptionName'
+createEventSubscription :: Text -- ^ 'cesSubscriptionName'
                           -> Text -- ^ 'cesSnsTopicArn'
                           -> CreateEventSubscription
-mkCreateEventSubscription p1 p2 = CreateEventSubscription
+createEventSubscription p1 p2 = CreateEventSubscription
     { _cesSubscriptionName = p1
     , _cesSnsTopicArn = p2
     , _cesSourceType = Nothing
@@ -189,8 +189,8 @@ newtype CreateEventSubscriptionResponse = CreateEventSubscriptionResponse
 --
 -- * @EventSubscription ::@ @Maybe EventSubscription@
 --
-mkCreateEventSubscriptionResponse :: CreateEventSubscriptionResponse
-mkCreateEventSubscriptionResponse = CreateEventSubscriptionResponse
+createEventSubscriptionResponse :: CreateEventSubscriptionResponse
+createEventSubscriptionResponse = CreateEventSubscriptionResponse
     { _cesrEventSubscription = Nothing
     }
 

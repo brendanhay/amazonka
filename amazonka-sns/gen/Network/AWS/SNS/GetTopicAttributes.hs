@@ -48,14 +48,14 @@ module Network.AWS.SNS.GetTopicAttributes
     -- * Request
       GetTopicAttributes
     -- ** Request constructor
-    , mkGetTopicAttributes
+    , getTopicAttributes
     -- ** Request lenses
     , gtaTopicArn
 
     -- * Response
     , GetTopicAttributesResponse
     -- ** Response constructor
-    , mkGetTopicAttributesResponse
+    , getTopicAttributesResponse
     -- ** Response lenses
     , gtarAttributes
     ) where
@@ -76,9 +76,9 @@ newtype GetTopicAttributes = GetTopicAttributes
 --
 -- * @TopicArn ::@ @Text@
 --
-mkGetTopicAttributes :: Text -- ^ 'gtaTopicArn'
+getTopicAttributes :: Text -- ^ 'gtaTopicArn'
                      -> GetTopicAttributes
-mkGetTopicAttributes p1 = GetTopicAttributes
+getTopicAttributes p1 = GetTopicAttributes
     { _gtaTopicArn = p1
     }
 
@@ -103,8 +103,8 @@ newtype GetTopicAttributesResponse = GetTopicAttributesResponse
 --
 -- * @Attributes ::@ @Map Text Text@
 --
-mkGetTopicAttributesResponse :: GetTopicAttributesResponse
-mkGetTopicAttributesResponse = GetTopicAttributesResponse
+getTopicAttributesResponse :: GetTopicAttributesResponse
+getTopicAttributesResponse = GetTopicAttributesResponse
     { _gtarAttributes = mempty
     }
 

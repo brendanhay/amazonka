@@ -38,7 +38,7 @@ module Network.AWS.SNS.AddPermission
     -- * Request
       AddPermission
     -- ** Request constructor
-    , mkAddPermission
+    , addPermission
     -- ** Request lenses
     , apTopicArn
     , apLabel
@@ -48,7 +48,7 @@ module Network.AWS.SNS.AddPermission
     -- * Response
     , AddPermissionResponse
     -- ** Response constructor
-    , mkAddPermissionResponse
+    , addPermissionResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -75,12 +75,12 @@ data AddPermission = AddPermission
 --
 -- * @ActionName ::@ @[Text]@
 --
-mkAddPermission :: Text -- ^ 'apTopicArn'
+addPermission :: Text -- ^ 'apTopicArn'
                 -> Text -- ^ 'apLabel'
                 -> [Text] -- ^ 'apAWSAccountId'
                 -> [Text] -- ^ 'apActionName'
                 -> AddPermission
-mkAddPermission p1 p2 p3 p4 = AddPermission
+addPermission p1 p2 p3 p4 = AddPermission
     { _apTopicArn = p1
     , _apLabel = p2
     , _apAWSAccountId = p3
@@ -116,8 +116,8 @@ data AddPermissionResponse = AddPermissionResponse
 -- a valid 'AddPermissionResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkAddPermissionResponse :: AddPermissionResponse
-mkAddPermissionResponse = AddPermissionResponse
+addPermissionResponse :: AddPermissionResponse
+addPermissionResponse = AddPermissionResponse
 
 instance AWSRequest AddPermission where
     type Sv AddPermission = SNS

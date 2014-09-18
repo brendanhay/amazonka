@@ -31,7 +31,7 @@ module Network.AWS.Route53.ListHealthChecks
     -- * Request
       ListHealthChecks
     -- ** Request constructor
-    , mkListHealthChecks
+    , listHealthChecks
     -- ** Request lenses
     , lhcMarker
     , lhcMaxItems
@@ -39,7 +39,7 @@ module Network.AWS.Route53.ListHealthChecks
     -- * Response
     , ListHealthChecksResponse
     -- ** Response constructor
-    , mkListHealthChecksResponse
+    , listHealthChecksResponse
     -- ** Response lenses
     , lhcrHealthChecks
     , lhcrMarker
@@ -76,8 +76,8 @@ data ListHealthChecks = ListHealthChecks
 --
 -- * @MaxItems ::@ @Maybe Text@
 --
-mkListHealthChecks :: ListHealthChecks
-mkListHealthChecks = ListHealthChecks
+listHealthChecks :: ListHealthChecks
+listHealthChecks = ListHealthChecks
     { _lhcMarker = Nothing
     , _lhcMaxItems = Nothing
     }
@@ -128,12 +128,12 @@ data ListHealthChecksResponse = ListHealthChecksResponse
 --
 -- * @MaxItems ::@ @Text@
 --
-mkListHealthChecksResponse :: [HealthCheck] -- ^ 'lhcrHealthChecks'
+listHealthChecksResponse :: [HealthCheck] -- ^ 'lhcrHealthChecks'
                            -> Text -- ^ 'lhcrMarker'
                            -> Bool -- ^ 'lhcrIsTruncated'
                            -> Text -- ^ 'lhcrMaxItems'
                            -> ListHealthChecksResponse
-mkListHealthChecksResponse p1 p2 p3 p5 = ListHealthChecksResponse
+listHealthChecksResponse p1 p2 p3 p5 = ListHealthChecksResponse
     { _lhcrHealthChecks = p1
     , _lhcrMarker = p2
     , _lhcrIsTruncated = p3

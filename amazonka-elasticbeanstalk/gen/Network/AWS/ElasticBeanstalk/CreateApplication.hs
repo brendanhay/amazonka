@@ -31,7 +31,7 @@ module Network.AWS.ElasticBeanstalk.CreateApplication
     -- * Request
       CreateApplication
     -- ** Request constructor
-    , mkCreateApplication
+    , createApplication
     -- ** Request lenses
     , caApplicationName
     , caDescription
@@ -39,7 +39,7 @@ module Network.AWS.ElasticBeanstalk.CreateApplication
     -- * Response
     , CreateApplicationResponse
     -- ** Response constructor
-    , mkCreateApplicationResponse
+    , createApplicationResponse
     -- ** Response lenses
     , carApplication
     ) where
@@ -63,9 +63,9 @@ data CreateApplication = CreateApplication
 --
 -- * @Description ::@ @Maybe Text@
 --
-mkCreateApplication :: Text -- ^ 'caApplicationName'
+createApplication :: Text -- ^ 'caApplicationName'
                     -> CreateApplication
-mkCreateApplication p1 = CreateApplication
+createApplication p1 = CreateApplication
     { _caApplicationName = p1
     , _caDescription = Nothing
     }
@@ -98,8 +98,8 @@ newtype CreateApplicationResponse = CreateApplicationResponse
 --
 -- * @Application ::@ @Maybe ApplicationDescription@
 --
-mkCreateApplicationResponse :: CreateApplicationResponse
-mkCreateApplicationResponse = CreateApplicationResponse
+createApplicationResponse :: CreateApplicationResponse
+createApplicationResponse = CreateApplicationResponse
     { _carApplication = Nothing
     }
 

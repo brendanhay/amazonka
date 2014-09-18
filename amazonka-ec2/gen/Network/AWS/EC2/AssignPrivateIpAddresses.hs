@@ -49,7 +49,7 @@ module Network.AWS.EC2.AssignPrivateIpAddresses
     -- * Request
       AssignPrivateIpAddresses
     -- ** Request constructor
-    , mkAssignPrivateIpAddresses
+    , assignPrivateIpAddresses
     -- ** Request lenses
     , apiaNetworkInterfaceId
     , apiaPrivateIpAddresses
@@ -59,7 +59,7 @@ module Network.AWS.EC2.AssignPrivateIpAddresses
     -- * Response
     , AssignPrivateIpAddressesResponse
     -- ** Response constructor
-    , mkAssignPrivateIpAddressesResponse
+    , assignPrivateIpAddressesResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -86,9 +86,9 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses
 --
 -- * @AllowReassignment ::@ @Maybe Bool@
 --
-mkAssignPrivateIpAddresses :: Text -- ^ 'apiaNetworkInterfaceId'
+assignPrivateIpAddresses :: Text -- ^ 'apiaNetworkInterfaceId'
                            -> AssignPrivateIpAddresses
-mkAssignPrivateIpAddresses p1 = AssignPrivateIpAddresses
+assignPrivateIpAddresses p1 = AssignPrivateIpAddresses
     { _apiaNetworkInterfaceId = p1
     , _apiaPrivateIpAddresses = mempty
     , _apiaSecondaryPrivateIpAddressCount = Nothing
@@ -130,8 +130,8 @@ data AssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
 -- a valid 'AssignPrivateIpAddressesResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkAssignPrivateIpAddressesResponse :: AssignPrivateIpAddressesResponse
-mkAssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
+assignPrivateIpAddressesResponse :: AssignPrivateIpAddressesResponse
+assignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
 
 instance AWSRequest AssignPrivateIpAddresses where
     type Sv AssignPrivateIpAddresses = EC2

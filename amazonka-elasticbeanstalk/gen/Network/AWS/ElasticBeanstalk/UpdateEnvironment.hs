@@ -41,7 +41,7 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     -- * Request
       UpdateEnvironment
     -- ** Request constructor
-    , mkUpdateEnvironment
+    , updateEnvironment
     -- ** Request lenses
     , ueEnvironmentId
     , ueEnvironmentName
@@ -55,7 +55,7 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     -- * Response
     , UpdateEnvironmentResponse
     -- ** Response constructor
-    , mkUpdateEnvironmentResponse
+    , updateEnvironmentResponse
     -- ** Response lenses
     , uerEnvironmentName
     , uerEnvironmentId
@@ -111,8 +111,8 @@ data UpdateEnvironment = UpdateEnvironment
 --
 -- * @OptionsToRemove ::@ @[OptionSpecification]@
 --
-mkUpdateEnvironment :: UpdateEnvironment
-mkUpdateEnvironment = UpdateEnvironment
+updateEnvironment :: UpdateEnvironment
+updateEnvironment = UpdateEnvironment
     { _ueEnvironmentId = Nothing
     , _ueEnvironmentName = Nothing
     , _ueDescription = Nothing
@@ -236,8 +236,8 @@ data UpdateEnvironmentResponse = UpdateEnvironmentResponse
 --
 -- * @Tier ::@ @Maybe EnvironmentTier@
 --
-mkUpdateEnvironmentResponse :: UpdateEnvironmentResponse
-mkUpdateEnvironmentResponse = UpdateEnvironmentResponse
+updateEnvironmentResponse :: UpdateEnvironmentResponse
+updateEnvironmentResponse = UpdateEnvironmentResponse
     { _uerEnvironmentName = Nothing
     , _uerEnvironmentId = Nothing
     , _uerApplicationName = Nothing

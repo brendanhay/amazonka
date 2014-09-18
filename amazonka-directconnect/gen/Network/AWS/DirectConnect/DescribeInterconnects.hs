@@ -25,14 +25,14 @@ module Network.AWS.DirectConnect.DescribeInterconnects
     -- * Request
       DescribeInterconnects
     -- ** Request constructor
-    , mkDescribeInterconnects
+    , describeInterconnects
     -- ** Request lenses
     , di1InterconnectId
 
     -- * Response
     , DescribeInterconnectsResponse
     -- ** Response constructor
-    , mkDescribeInterconnectsResponse
+    , describeInterconnectsResponse
     -- ** Response lenses
     , dirrInterconnects
     ) where
@@ -53,8 +53,8 @@ newtype DescribeInterconnects = DescribeInterconnects
 --
 -- * @InterconnectId ::@ @Maybe Text@
 --
-mkDescribeInterconnects :: DescribeInterconnects
-mkDescribeInterconnects = DescribeInterconnects
+describeInterconnects :: DescribeInterconnects
+describeInterconnects = DescribeInterconnects
     { _di1InterconnectId = Nothing
     }
 
@@ -85,8 +85,8 @@ newtype DescribeInterconnectsResponse = DescribeInterconnectsResponse
 --
 -- * @Interconnects ::@ @[Interconnect]@
 --
-mkDescribeInterconnectsResponse :: DescribeInterconnectsResponse
-mkDescribeInterconnectsResponse = DescribeInterconnectsResponse
+describeInterconnectsResponse :: DescribeInterconnectsResponse
+describeInterconnectsResponse = DescribeInterconnectsResponse
     { _dirrInterconnects = mempty
     }
 

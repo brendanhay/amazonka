@@ -40,7 +40,7 @@ module Network.AWS.RDS.ModifyDBParameterGroup
     -- * Request
       ModifyDBParameterGroup
     -- ** Request constructor
-    , mkModifyDBParameterGroup
+    , modifyDBParameterGroup
     -- ** Request lenses
     , mdbpgDBParameterGroupName
     , mdbpgParameters
@@ -48,7 +48,7 @@ module Network.AWS.RDS.ModifyDBParameterGroup
     -- * Response
     , ModifyDBParameterGroupResponse
     -- ** Response constructor
-    , mkModifyDBParameterGroupResponse
+    , modifyDBParameterGroupResponse
     -- ** Response lenses
     , mdbpgrDBParameterGroupName
     ) where
@@ -72,10 +72,10 @@ data ModifyDBParameterGroup = ModifyDBParameterGroup
 --
 -- * @Parameters ::@ @[Parameter]@
 --
-mkModifyDBParameterGroup :: Text -- ^ 'mdbpgDBParameterGroupName'
+modifyDBParameterGroup :: Text -- ^ 'mdbpgDBParameterGroupName'
                          -> [Parameter] -- ^ 'mdbpgParameters'
                          -> ModifyDBParameterGroup
-mkModifyDBParameterGroup p1 p2 = ModifyDBParameterGroup
+modifyDBParameterGroup p1 p2 = ModifyDBParameterGroup
     { _mdbpgDBParameterGroupName = p1
     , _mdbpgParameters = p2
     }
@@ -117,8 +117,8 @@ newtype ModifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
 --
 -- * @DBParameterGroupName ::@ @Maybe Text@
 --
-mkModifyDBParameterGroupResponse :: ModifyDBParameterGroupResponse
-mkModifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
+modifyDBParameterGroupResponse :: ModifyDBParameterGroupResponse
+modifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
     { _mdbpgrDBParameterGroupName = Nothing
     }
 

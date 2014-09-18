@@ -48,14 +48,14 @@ module Network.AWS.EC2.TerminateInstances
     -- * Request
       TerminateInstances
     -- ** Request constructor
-    , mkTerminateInstances
+    , terminateInstances
     -- ** Request lenses
     , tiInstanceIds
 
     -- * Response
     , TerminateInstancesResponse
     -- ** Response constructor
-    , mkTerminateInstancesResponse
+    , terminateInstancesResponse
     -- ** Response lenses
     , tirTerminatingInstances
     ) where
@@ -75,9 +75,9 @@ newtype TerminateInstances = TerminateInstances
 --
 -- * @InstanceIds ::@ @[Text]@
 --
-mkTerminateInstances :: [Text] -- ^ 'tiInstanceIds'
+terminateInstances :: [Text] -- ^ 'tiInstanceIds'
                      -> TerminateInstances
-mkTerminateInstances p1 = TerminateInstances
+terminateInstances p1 = TerminateInstances
     { _tiInstanceIds = p1
     }
 
@@ -101,8 +101,8 @@ newtype TerminateInstancesResponse = TerminateInstancesResponse
 --
 -- * @TerminatingInstances ::@ @[InstanceStateChange]@
 --
-mkTerminateInstancesResponse :: TerminateInstancesResponse
-mkTerminateInstancesResponse = TerminateInstancesResponse
+terminateInstancesResponse :: TerminateInstancesResponse
+terminateInstancesResponse = TerminateInstancesResponse
     { _tirTerminatingInstances = mempty
     }
 

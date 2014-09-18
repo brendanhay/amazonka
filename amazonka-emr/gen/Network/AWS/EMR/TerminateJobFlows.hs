@@ -44,14 +44,14 @@ module Network.AWS.EMR.TerminateJobFlows
     -- * Request
       TerminateJobFlows
     -- ** Request constructor
-    , mkTerminateJobFlows
+    , terminateJobFlows
     -- ** Request lenses
     , tjfJobFlowIds
 
     -- * Response
     , TerminateJobFlowsResponse
     -- ** Response constructor
-    , mkTerminateJobFlowsResponse
+    , terminateJobFlowsResponse
     ) where
 
 import Network.AWS.EMR.Types
@@ -70,9 +70,9 @@ newtype TerminateJobFlows = TerminateJobFlows
 --
 -- * @JobFlowIds ::@ @[Text]@
 --
-mkTerminateJobFlows :: [Text] -- ^ 'tjfJobFlowIds'
+terminateJobFlows :: [Text] -- ^ 'tjfJobFlowIds'
                     -> TerminateJobFlows
-mkTerminateJobFlows p1 = TerminateJobFlows
+terminateJobFlows p1 = TerminateJobFlows
     { _tjfJobFlowIds = p1
     }
 
@@ -95,8 +95,8 @@ data TerminateJobFlowsResponse = TerminateJobFlowsResponse
 -- a valid 'TerminateJobFlowsResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkTerminateJobFlowsResponse :: TerminateJobFlowsResponse
-mkTerminateJobFlowsResponse = TerminateJobFlowsResponse
+terminateJobFlowsResponse :: TerminateJobFlowsResponse
+terminateJobFlowsResponse = TerminateJobFlowsResponse
 
 instance AWSRequest TerminateJobFlows where
     type Sv TerminateJobFlows = EMR

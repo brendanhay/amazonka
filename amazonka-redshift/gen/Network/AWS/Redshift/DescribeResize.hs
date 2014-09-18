@@ -36,14 +36,14 @@ module Network.AWS.Redshift.DescribeResize
     -- * Request
       DescribeResize
     -- ** Request constructor
-    , mkDescribeResize
+    , describeResize
     -- ** Request lenses
     , drClusterIdentifier
 
     -- * Response
     , DescribeResizeResponse
     -- ** Response constructor
-    , mkDescribeResizeResponse
+    , describeResizeResponse
     -- ** Response lenses
     , drrTargetNodeType
     , drrTargetNumberOfNodes
@@ -75,9 +75,9 @@ newtype DescribeResize = DescribeResize
 --
 -- * @ClusterIdentifier ::@ @Text@
 --
-mkDescribeResize :: Text -- ^ 'drClusterIdentifier'
+describeResize :: Text -- ^ 'drClusterIdentifier'
                  -> DescribeResize
-mkDescribeResize p1 = DescribeResize
+describeResize p1 = DescribeResize
     { _drClusterIdentifier = p1
     }
 
@@ -138,8 +138,8 @@ data DescribeResizeResponse = DescribeResizeResponse
 --
 -- * @EstimatedTimeToCompletionInSeconds ::@ @Maybe Integer@
 --
-mkDescribeResizeResponse :: DescribeResizeResponse
-mkDescribeResizeResponse = DescribeResizeResponse
+describeResizeResponse :: DescribeResizeResponse
+describeResizeResponse = DescribeResizeResponse
     { _drrTargetNodeType = Nothing
     , _drrTargetNumberOfNodes = Nothing
     , _drrTargetClusterType = Nothing

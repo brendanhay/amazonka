@@ -43,7 +43,7 @@ module Network.AWS.EC2.DescribeSecurityGroups
     -- * Request
       DescribeSecurityGroups
     -- ** Request constructor
-    , mkDescribeSecurityGroups
+    , describeSecurityGroups
     -- ** Request lenses
     , dsg1GroupNames
     , dsg1GroupIds
@@ -52,7 +52,7 @@ module Network.AWS.EC2.DescribeSecurityGroups
     -- * Response
     , DescribeSecurityGroupsResponse
     -- ** Response constructor
-    , mkDescribeSecurityGroupsResponse
+    , describeSecurityGroupsResponse
     -- ** Response lenses
     , dsgrSecurityGroups
     ) where
@@ -78,8 +78,8 @@ data DescribeSecurityGroups = DescribeSecurityGroups
 --
 -- * @Filters ::@ @[Filter]@
 --
-mkDescribeSecurityGroups :: DescribeSecurityGroups
-mkDescribeSecurityGroups = DescribeSecurityGroups
+describeSecurityGroups :: DescribeSecurityGroups
+describeSecurityGroups = DescribeSecurityGroups
     { _dsg1GroupNames = mempty
     , _dsg1GroupIds = mempty
     , _dsg1Filters = mempty
@@ -129,8 +129,8 @@ newtype DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
 --
 -- * @SecurityGroups ::@ @[SecurityGroup]@
 --
-mkDescribeSecurityGroupsResponse :: DescribeSecurityGroupsResponse
-mkDescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
+describeSecurityGroupsResponse :: DescribeSecurityGroupsResponse
+describeSecurityGroupsResponse = DescribeSecurityGroupsResponse
     { _dsgrSecurityGroups = mempty
     }
 

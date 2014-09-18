@@ -26,7 +26,7 @@ module Network.AWS.CloudSearch.DefineAnalysisScheme
     -- * Request
       DefineAnalysisScheme
     -- ** Request constructor
-    , mkDefineAnalysisScheme
+    , defineAnalysisScheme
     -- ** Request lenses
     , dasDomainName
     , dasAnalysisScheme
@@ -34,7 +34,7 @@ module Network.AWS.CloudSearch.DefineAnalysisScheme
     -- * Response
     , DefineAnalysisSchemeResponse
     -- ** Response constructor
-    , mkDefineAnalysisSchemeResponse
+    , defineAnalysisSchemeResponse
     -- ** Response lenses
     , dasrAnalysisScheme
     ) where
@@ -60,10 +60,10 @@ data DefineAnalysisScheme = DefineAnalysisScheme
 --
 -- * @AnalysisScheme ::@ @AnalysisScheme@
 --
-mkDefineAnalysisScheme :: Text -- ^ 'dasDomainName'
+defineAnalysisScheme :: Text -- ^ 'dasDomainName'
                        -> AnalysisScheme -- ^ 'dasAnalysisScheme'
                        -> DefineAnalysisScheme
-mkDefineAnalysisScheme p1 p2 = DefineAnalysisScheme
+defineAnalysisScheme p1 p2 = DefineAnalysisScheme
     { _dasDomainName = p1
     , _dasAnalysisScheme = p2
     }
@@ -101,9 +101,9 @@ newtype DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse
 --
 -- * @AnalysisScheme ::@ @AnalysisSchemeStatus@
 --
-mkDefineAnalysisSchemeResponse :: AnalysisSchemeStatus -- ^ 'dasrAnalysisScheme'
+defineAnalysisSchemeResponse :: AnalysisSchemeStatus -- ^ 'dasrAnalysisScheme'
                                -> DefineAnalysisSchemeResponse
-mkDefineAnalysisSchemeResponse p1 = DefineAnalysisSchemeResponse
+defineAnalysisSchemeResponse p1 = DefineAnalysisSchemeResponse
     { _dasrAnalysisScheme = p1
     }
 

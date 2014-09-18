@@ -34,7 +34,7 @@ module Network.AWS.DataPipeline.EvaluateExpression
     -- * Request
       EvaluateExpression
     -- ** Request constructor
-    , mkEvaluateExpression
+    , evaluateExpression
     -- ** Request lenses
     , eePipelineId
     , eeObjectId
@@ -43,7 +43,7 @@ module Network.AWS.DataPipeline.EvaluateExpression
     -- * Response
     , EvaluateExpressionResponse
     -- ** Response constructor
-    , mkEvaluateExpressionResponse
+    , evaluateExpressionResponse
     -- ** Response lenses
     , eerEvaluatedExpression
     ) where
@@ -70,11 +70,11 @@ data EvaluateExpression = EvaluateExpression
 --
 -- * @Expression ::@ @Text@
 --
-mkEvaluateExpression :: Text -- ^ 'eePipelineId'
+evaluateExpression :: Text -- ^ 'eePipelineId'
                      -> Text -- ^ 'eeObjectId'
                      -> Text -- ^ 'eeExpression'
                      -> EvaluateExpression
-mkEvaluateExpression p1 p2 p3 = EvaluateExpression
+evaluateExpression p1 p2 p3 = EvaluateExpression
     { _eePipelineId = p1
     , _eeObjectId = p2
     , _eeExpression = p3
@@ -114,9 +114,9 @@ newtype EvaluateExpressionResponse = EvaluateExpressionResponse
 --
 -- * @EvaluatedExpression ::@ @Text@
 --
-mkEvaluateExpressionResponse :: Text -- ^ 'eerEvaluatedExpression'
+evaluateExpressionResponse :: Text -- ^ 'eerEvaluatedExpression'
                              -> EvaluateExpressionResponse
-mkEvaluateExpressionResponse p1 = EvaluateExpressionResponse
+evaluateExpressionResponse p1 = EvaluateExpressionResponse
     { _eerEvaluatedExpression = p1
     }
 

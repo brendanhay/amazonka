@@ -39,7 +39,7 @@ module Network.AWS.Redshift.DescribeOrderableClusterOptions
     -- * Request
       DescribeOrderableClusterOptions
     -- ** Request constructor
-    , mkDescribeOrderableClusterOptions
+    , describeOrderableClusterOptions
     -- ** Request lenses
     , docoClusterVersion
     , docoNodeType
@@ -49,7 +49,7 @@ module Network.AWS.Redshift.DescribeOrderableClusterOptions
     -- * Response
     , DescribeOrderableClusterOptionsResponse
     -- ** Response constructor
-    , mkDescribeOrderableClusterOptionsResponse
+    , describeOrderableClusterOptionsResponse
     -- ** Response lenses
     , docorOrderableClusterOptions
     , docorMarker
@@ -80,8 +80,8 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeOrderableClusterOptions :: DescribeOrderableClusterOptions
-mkDescribeOrderableClusterOptions = DescribeOrderableClusterOptions
+describeOrderableClusterOptions :: DescribeOrderableClusterOptions
+describeOrderableClusterOptions = DescribeOrderableClusterOptions
     { _docoClusterVersion = Nothing
     , _docoNodeType = Nothing
     , _docoMaxRecords = Nothing
@@ -138,8 +138,8 @@ data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsRe
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkDescribeOrderableClusterOptionsResponse :: DescribeOrderableClusterOptionsResponse
-mkDescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse
+describeOrderableClusterOptionsResponse :: DescribeOrderableClusterOptionsResponse
+describeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse
     { _docorOrderableClusterOptions = mempty
     , _docorMarker = Nothing
     }

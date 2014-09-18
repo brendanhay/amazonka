@@ -35,11 +35,11 @@ module Network.AWS.SES.ListVerifiedEmailAddresses
     -- * Request
       ListVerifiedEmailAddresses
     -- ** Request constructor
-    , mkListVerifiedEmailAddresses
+    , listVerifiedEmailAddresses
     -- * Response
     , ListVerifiedEmailAddressesResponse
     -- ** Response constructor
-    , mkListVerifiedEmailAddressesResponse
+    , listVerifiedEmailAddressesResponse
     -- ** Response lenses
     , lvearVerifiedEmailAddresses
     ) where
@@ -53,8 +53,8 @@ data ListVerifiedEmailAddresses = ListVerifiedEmailAddresses
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListVerifiedEmailAddresses' request.
-mkListVerifiedEmailAddresses :: ListVerifiedEmailAddresses
-mkListVerifiedEmailAddresses = ListVerifiedEmailAddresses
+listVerifiedEmailAddresses :: ListVerifiedEmailAddresses
+listVerifiedEmailAddresses = ListVerifiedEmailAddresses
 
 instance ToQuery ListVerifiedEmailAddresses where
     toQuery = genericQuery def
@@ -73,8 +73,8 @@ newtype ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
 --
 -- * @VerifiedEmailAddresses ::@ @[Text]@
 --
-mkListVerifiedEmailAddressesResponse :: ListVerifiedEmailAddressesResponse
-mkListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
+listVerifiedEmailAddressesResponse :: ListVerifiedEmailAddressesResponse
+listVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
     { _lvearVerifiedEmailAddresses = mempty
     }
 

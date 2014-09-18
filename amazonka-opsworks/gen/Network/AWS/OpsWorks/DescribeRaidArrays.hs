@@ -27,7 +27,7 @@ module Network.AWS.OpsWorks.DescribeRaidArrays
     -- * Request
       DescribeRaidArrays
     -- ** Request constructor
-    , mkDescribeRaidArrays
+    , describeRaidArrays
     -- ** Request lenses
     , draInstanceId
     , draRaidArrayIds
@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.DescribeRaidArrays
     -- * Response
     , DescribeRaidArraysResponse
     -- ** Response constructor
-    , mkDescribeRaidArraysResponse
+    , describeRaidArraysResponse
     -- ** Response lenses
     , drarRaidArrays
     ) where
@@ -58,8 +58,8 @@ data DescribeRaidArrays = DescribeRaidArrays
 --
 -- * @RaidArrayIds ::@ @[Text]@
 --
-mkDescribeRaidArrays :: DescribeRaidArrays
-mkDescribeRaidArrays = DescribeRaidArrays
+describeRaidArrays :: DescribeRaidArrays
+describeRaidArrays = DescribeRaidArrays
     { _draInstanceId = Nothing
     , _draRaidArrayIds = mempty
     }
@@ -97,8 +97,8 @@ newtype DescribeRaidArraysResponse = DescribeRaidArraysResponse
 --
 -- * @RaidArrays ::@ @[RaidArray]@
 --
-mkDescribeRaidArraysResponse :: DescribeRaidArraysResponse
-mkDescribeRaidArraysResponse = DescribeRaidArraysResponse
+describeRaidArraysResponse :: DescribeRaidArraysResponse
+describeRaidArraysResponse = DescribeRaidArraysResponse
     { _drarRaidArrays = mempty
     }
 

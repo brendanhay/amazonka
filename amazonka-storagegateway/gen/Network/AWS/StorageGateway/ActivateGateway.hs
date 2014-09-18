@@ -42,7 +42,7 @@ module Network.AWS.StorageGateway.ActivateGateway
     -- * Request
       ActivateGateway
     -- ** Request constructor
-    , mkActivateGateway
+    , activateGateway
     -- ** Request lenses
     , agActivationKey
     , agGatewayName
@@ -53,7 +53,7 @@ module Network.AWS.StorageGateway.ActivateGateway
     -- * Response
     , ActivateGatewayResponse
     -- ** Response constructor
-    , mkActivateGatewayResponse
+    , activateGatewayResponse
     -- ** Response lenses
     , agrGatewayARN
     ) where
@@ -89,12 +89,12 @@ data ActivateGateway = ActivateGateway
 --
 -- * @GatewayType ::@ @Maybe Text@
 --
-mkActivateGateway :: Text -- ^ 'agActivationKey'
+activateGateway :: Text -- ^ 'agActivationKey'
                   -> Text -- ^ 'agGatewayName'
                   -> Text -- ^ 'agGatewayTimezone'
                   -> Text -- ^ 'agGatewayRegion'
                   -> ActivateGateway
-mkActivateGateway p1 p2 p3 p4 = ActivateGateway
+activateGateway p1 p2 p3 p4 = ActivateGateway
     { _agActivationKey = p1
     , _agGatewayName = p2
     , _agGatewayTimezone = p3
@@ -166,8 +166,8 @@ newtype ActivateGatewayResponse = ActivateGatewayResponse
 --
 -- * @GatewayARN ::@ @Maybe Text@
 --
-mkActivateGatewayResponse :: ActivateGatewayResponse
-mkActivateGatewayResponse = ActivateGatewayResponse
+activateGatewayResponse :: ActivateGatewayResponse
+activateGatewayResponse = ActivateGatewayResponse
     { _agrGatewayARN = Nothing
     }
 

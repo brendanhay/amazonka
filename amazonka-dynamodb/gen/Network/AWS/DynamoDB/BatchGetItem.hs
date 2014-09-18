@@ -58,7 +58,7 @@ module Network.AWS.DynamoDB.BatchGetItem
     -- * Request
       BatchGetItem
     -- ** Request constructor
-    , mkBatchGetItem
+    , batchGetItem
     -- ** Request lenses
     , bgiRequestItems
     , bgiReturnConsumedCapacity
@@ -66,7 +66,7 @@ module Network.AWS.DynamoDB.BatchGetItem
     -- * Response
     , BatchGetItemResponse
     -- ** Response constructor
-    , mkBatchGetItemResponse
+    , batchGetItemResponse
     -- ** Response lenses
     , bgirResponses
     , bgirUnprocessedKeys
@@ -92,9 +92,9 @@ data BatchGetItem = BatchGetItem
 --
 -- * @ReturnConsumedCapacity ::@ @Maybe ReturnConsumedCapacity@
 --
-mkBatchGetItem :: Map Text KeysAndAttributes -- ^ 'bgiRequestItems'
+batchGetItem :: Map Text KeysAndAttributes -- ^ 'bgiRequestItems'
                -> BatchGetItem
-mkBatchGetItem p1 = BatchGetItem
+batchGetItem p1 = BatchGetItem
     { _bgiRequestItems = p1
     , _bgiReturnConsumedCapacity = Nothing
     }
@@ -148,8 +148,8 @@ data BatchGetItemResponse = BatchGetItemResponse
 --
 -- * @ConsumedCapacity ::@ @[ConsumedCapacity]@
 --
-mkBatchGetItemResponse :: BatchGetItemResponse
-mkBatchGetItemResponse = BatchGetItemResponse
+batchGetItemResponse :: BatchGetItemResponse
+batchGetItemResponse = BatchGetItemResponse
     { _bgirResponses = mempty
     , _bgirUnprocessedKeys = mempty
     , _bgirConsumedCapacity = mempty

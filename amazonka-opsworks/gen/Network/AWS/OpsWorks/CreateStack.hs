@@ -26,7 +26,7 @@ module Network.AWS.OpsWorks.CreateStack
     -- * Request
       CreateStack
     -- ** Request constructor
-    , mkCreateStack
+    , createStack
     -- ** Request lenses
     , cs1Name
     , cs1Region
@@ -50,7 +50,7 @@ module Network.AWS.OpsWorks.CreateStack
     -- * Response
     , CreateStackResponse
     -- ** Response constructor
-    , mkCreateStackResponse
+    , createStackResponse
     -- ** Response lenses
     , csrrStackId
     ) where
@@ -121,12 +121,12 @@ data CreateStack = CreateStack
 --
 -- * @DefaultRootDeviceType ::@ @Maybe RootDeviceType@
 --
-mkCreateStack :: Text -- ^ 'cs1Name'
+createStack :: Text -- ^ 'cs1Name'
               -> Text -- ^ 'cs1Region'
               -> Text -- ^ 'cs1ServiceRoleArn'
               -> Text -- ^ 'cs1DefaultInstanceProfileArn'
               -> CreateStack
-mkCreateStack p1 p2 p5 p6 = CreateStack
+createStack p1 p2 p5 p6 = CreateStack
     { _cs1Name = p1
     , _cs1Region = p2
     , _cs1VpcId = Nothing
@@ -324,8 +324,8 @@ newtype CreateStackResponse = CreateStackResponse
 --
 -- * @StackId ::@ @Maybe Text@
 --
-mkCreateStackResponse :: CreateStackResponse
-mkCreateStackResponse = CreateStackResponse
+createStackResponse :: CreateStackResponse
+createStackResponse = CreateStackResponse
     { _csrrStackId = Nothing
     }
 

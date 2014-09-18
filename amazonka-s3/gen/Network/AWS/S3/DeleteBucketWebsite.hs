@@ -23,14 +23,14 @@ module Network.AWS.S3.DeleteBucketWebsite
     -- * Request
       DeleteBucketWebsite
     -- ** Request constructor
-    , mkDeleteBucketWebsite
+    , deleteBucketWebsite
     -- ** Request lenses
     , dbwBucket
 
     -- * Response
     , DeleteBucketWebsiteResponse
     -- ** Response constructor
-    , mkDeleteBucketWebsiteResponse
+    , deleteBucketWebsiteResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -49,9 +49,9 @@ newtype DeleteBucketWebsite = DeleteBucketWebsite
 --
 -- * @Bucket ::@ @BucketName@
 --
-mkDeleteBucketWebsite :: BucketName -- ^ 'dbwBucket'
+deleteBucketWebsite :: BucketName -- ^ 'dbwBucket'
                       -> DeleteBucketWebsite
-mkDeleteBucketWebsite p1 = DeleteBucketWebsite
+deleteBucketWebsite p1 = DeleteBucketWebsite
     { _dbwBucket = p1
     }
 
@@ -73,8 +73,8 @@ data DeleteBucketWebsiteResponse = DeleteBucketWebsiteResponse
 -- a valid 'DeleteBucketWebsiteResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteBucketWebsiteResponse :: DeleteBucketWebsiteResponse
-mkDeleteBucketWebsiteResponse = DeleteBucketWebsiteResponse
+deleteBucketWebsiteResponse :: DeleteBucketWebsiteResponse
+deleteBucketWebsiteResponse = DeleteBucketWebsiteResponse
 
 instance AWSRequest DeleteBucketWebsite where
     type Sv DeleteBucketWebsite = S3

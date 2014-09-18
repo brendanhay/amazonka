@@ -30,7 +30,7 @@ module Network.AWS.ELB.ConfigureHealthCheck
     -- * Request
       ConfigureHealthCheck
     -- ** Request constructor
-    , mkConfigureHealthCheck
+    , configureHealthCheck
     -- ** Request lenses
     , chcLoadBalancerName
     , chcHealthCheck
@@ -38,7 +38,7 @@ module Network.AWS.ELB.ConfigureHealthCheck
     -- * Response
     , ConfigureHealthCheckResponse
     -- ** Response constructor
-    , mkConfigureHealthCheckResponse
+    , configureHealthCheckResponse
     -- ** Response lenses
     , chcrHealthCheck
     ) where
@@ -62,10 +62,10 @@ data ConfigureHealthCheck = ConfigureHealthCheck
 --
 -- * @HealthCheck ::@ @HealthCheck@
 --
-mkConfigureHealthCheck :: Text -- ^ 'chcLoadBalancerName'
+configureHealthCheck :: Text -- ^ 'chcLoadBalancerName'
                        -> HealthCheck -- ^ 'chcHealthCheck'
                        -> ConfigureHealthCheck
-mkConfigureHealthCheck p1 p2 = ConfigureHealthCheck
+configureHealthCheck p1 p2 = ConfigureHealthCheck
     { _chcLoadBalancerName = p1
     , _chcHealthCheck = p2
     }
@@ -98,8 +98,8 @@ newtype ConfigureHealthCheckResponse = ConfigureHealthCheckResponse
 --
 -- * @HealthCheck ::@ @Maybe HealthCheck@
 --
-mkConfigureHealthCheckResponse :: ConfigureHealthCheckResponse
-mkConfigureHealthCheckResponse = ConfigureHealthCheckResponse
+configureHealthCheckResponse :: ConfigureHealthCheckResponse
+configureHealthCheckResponse = ConfigureHealthCheckResponse
     { _chcrHealthCheck = Nothing
     }
 

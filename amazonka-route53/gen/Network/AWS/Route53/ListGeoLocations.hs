@@ -22,7 +22,7 @@ module Network.AWS.Route53.ListGeoLocations
     -- * Request
       ListGeoLocations
     -- ** Request constructor
-    , mkListGeoLocations
+    , listGeoLocations
     -- ** Request lenses
     , lglStartContinentCode
     , lglStartCountryCode
@@ -32,7 +32,7 @@ module Network.AWS.Route53.ListGeoLocations
     -- * Response
     , ListGeoLocationsResponse
     -- ** Response constructor
-    , mkListGeoLocationsResponse
+    , listGeoLocationsResponse
     -- ** Response lenses
     , lglrGeoLocationDetailsList
     , lglrIsTruncated
@@ -68,8 +68,8 @@ data ListGeoLocations = ListGeoLocations
 --
 -- * @MaxItems ::@ @Maybe Text@
 --
-mkListGeoLocations :: ListGeoLocations
-mkListGeoLocations = ListGeoLocations
+listGeoLocations :: ListGeoLocations
+listGeoLocations = ListGeoLocations
     { _lglStartContinentCode = Nothing
     , _lglStartCountryCode = Nothing
     , _lglStartSubdivisionCode = Nothing
@@ -145,11 +145,11 @@ data ListGeoLocationsResponse = ListGeoLocationsResponse
 --
 -- * @MaxItems ::@ @Text@
 --
-mkListGeoLocationsResponse :: [GeoLocationDetails] -- ^ 'lglrGeoLocationDetailsList'
+listGeoLocationsResponse :: [GeoLocationDetails] -- ^ 'lglrGeoLocationDetailsList'
                            -> Bool -- ^ 'lglrIsTruncated'
                            -> Text -- ^ 'lglrMaxItems'
                            -> ListGeoLocationsResponse
-mkListGeoLocationsResponse p1 p2 p6 = ListGeoLocationsResponse
+listGeoLocationsResponse p1 p2 p6 = ListGeoLocationsResponse
     { _lglrGeoLocationDetailsList = p1
     , _lglrIsTruncated = p2
     , _lglrNextContinentCode = Nothing

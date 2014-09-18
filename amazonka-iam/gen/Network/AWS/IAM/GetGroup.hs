@@ -32,7 +32,7 @@ module Network.AWS.IAM.GetGroup
     -- * Request
       GetGroup
     -- ** Request constructor
-    , mkGetGroup
+    , getGroup
     -- ** Request lenses
     , ggGroupName
     , ggMarker
@@ -41,7 +41,7 @@ module Network.AWS.IAM.GetGroup
     -- * Response
     , GetGroupResponse
     -- ** Response constructor
-    , mkGetGroupResponse
+    , getGroupResponse
     -- ** Response lenses
     , ggrGroup
     , ggrUsers
@@ -70,9 +70,9 @@ data GetGroup = GetGroup
 --
 -- * @MaxItems ::@ @Maybe Integer@
 --
-mkGetGroup :: Text -- ^ 'ggGroupName'
+getGroup :: Text -- ^ 'ggGroupName'
            -> GetGroup
-mkGetGroup p1 = GetGroup
+getGroup p1 = GetGroup
     { _ggGroupName = p1
     , _ggMarker = Nothing
     , _ggMaxItems = Nothing
@@ -121,11 +121,11 @@ data GetGroupResponse = GetGroupResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
-mkGetGroupResponse :: Group -- ^ 'ggrGroup'
+getGroupResponse :: Group -- ^ 'ggrGroup'
                    -> [User] -- ^ 'ggrUsers'
                    -> Bool -- ^ 'ggrIsTruncated'
                    -> GetGroupResponse
-mkGetGroupResponse p1 p2 p3 = GetGroupResponse
+getGroupResponse p1 p2 p3 = GetGroupResponse
     { _ggrGroup = p1
     , _ggrUsers = p2
     , _ggrIsTruncated = p3

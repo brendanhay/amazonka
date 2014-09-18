@@ -23,7 +23,7 @@ module Network.AWS.S3.PutBucketNotification
     -- * Request
       PutBucketNotification
     -- ** Request constructor
-    , mkPutBucketNotification
+    , putBucketNotification
     -- ** Request lenses
     , pbnBucket
     , pbnContentMD5
@@ -32,7 +32,7 @@ module Network.AWS.S3.PutBucketNotification
     -- * Response
     , PutBucketNotificationResponse
     -- ** Response constructor
-    , mkPutBucketNotificationResponse
+    , putBucketNotificationResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -57,10 +57,10 @@ data PutBucketNotification = PutBucketNotification
 --
 -- * @NotificationConfiguration ::@ @NotificationConfiguration@
 --
-mkPutBucketNotification :: BucketName -- ^ 'pbnBucket'
+putBucketNotification :: BucketName -- ^ 'pbnBucket'
                         -> NotificationConfiguration -- ^ 'pbnNotificationConfiguration'
                         -> PutBucketNotification
-mkPutBucketNotification p1 p3 = PutBucketNotification
+putBucketNotification p1 p3 = PutBucketNotification
     { _pbnBucket = p1
     , _pbnContentMD5 = Nothing
     , _pbnNotificationConfiguration = p3
@@ -96,8 +96,8 @@ data PutBucketNotificationResponse = PutBucketNotificationResponse
 -- a valid 'PutBucketNotificationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkPutBucketNotificationResponse :: PutBucketNotificationResponse
-mkPutBucketNotificationResponse = PutBucketNotificationResponse
+putBucketNotificationResponse :: PutBucketNotificationResponse
+putBucketNotificationResponse = PutBucketNotificationResponse
 
 instance AWSRequest PutBucketNotification where
     type Sv PutBucketNotification = S3

@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.ExitStandby
     -- * Request
       ExitStandby
     -- ** Request constructor
-    , mkExitStandby
+    , exitStandby
     -- ** Request lenses
     , es1InstanceIds
     , es1AutoScalingGroupName
@@ -40,7 +40,7 @@ module Network.AWS.AutoScaling.ExitStandby
     -- * Response
     , ExitStandbyResponse
     -- ** Response constructor
-    , mkExitStandbyResponse
+    , exitStandbyResponse
     -- ** Response lenses
     , esrrActivities
     ) where
@@ -63,9 +63,9 @@ data ExitStandby = ExitStandby
 --
 -- * @AutoScalingGroupName ::@ @Text@
 --
-mkExitStandby :: Text -- ^ 'es1AutoScalingGroupName'
+exitStandby :: Text -- ^ 'es1AutoScalingGroupName'
               -> ExitStandby
-mkExitStandby p2 = ExitStandby
+exitStandby p2 = ExitStandby
     { _es1InstanceIds = mempty
     , _es1AutoScalingGroupName = p2
     }
@@ -99,8 +99,8 @@ newtype ExitStandbyResponse = ExitStandbyResponse
 --
 -- * @Activities ::@ @[Activity]@
 --
-mkExitStandbyResponse :: ExitStandbyResponse
-mkExitStandbyResponse = ExitStandbyResponse
+exitStandbyResponse :: ExitStandbyResponse
+exitStandbyResponse = ExitStandbyResponse
     { _esrrActivities = mempty
     }
 

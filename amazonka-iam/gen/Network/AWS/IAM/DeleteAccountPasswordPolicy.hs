@@ -25,11 +25,11 @@ module Network.AWS.IAM.DeleteAccountPasswordPolicy
     -- * Request
       DeleteAccountPasswordPolicy
     -- ** Request constructor
-    , mkDeleteAccountPasswordPolicy
+    , deleteAccountPasswordPolicy
     -- * Response
     , DeleteAccountPasswordPolicyResponse
     -- ** Response constructor
-    , mkDeleteAccountPasswordPolicyResponse
+    , deleteAccountPasswordPolicyResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -41,8 +41,8 @@ data DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAccountPasswordPolicy' request.
-mkDeleteAccountPasswordPolicy :: DeleteAccountPasswordPolicy
-mkDeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
+deleteAccountPasswordPolicy :: DeleteAccountPasswordPolicy
+deleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
 
 instance ToQuery DeleteAccountPasswordPolicy where
     toQuery = genericQuery def
@@ -54,8 +54,8 @@ data DeleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
 -- a valid 'DeleteAccountPasswordPolicyResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDeleteAccountPasswordPolicyResponse :: DeleteAccountPasswordPolicyResponse
-mkDeleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
+deleteAccountPasswordPolicyResponse :: DeleteAccountPasswordPolicyResponse
+deleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
 
 instance AWSRequest DeleteAccountPasswordPolicy where
     type Sv DeleteAccountPasswordPolicy = IAM

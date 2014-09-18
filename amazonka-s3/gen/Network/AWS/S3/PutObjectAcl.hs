@@ -24,7 +24,7 @@ module Network.AWS.S3.PutObjectAcl
     -- * Request
       PutObjectAcl
     -- ** Request constructor
-    , mkPutObjectAcl
+    , putObjectAcl
     -- ** Request lenses
     , poaACL
     , poaAccessControlPolicy
@@ -40,7 +40,7 @@ module Network.AWS.S3.PutObjectAcl
     -- * Response
     , PutObjectAclResponse
     -- ** Response constructor
-    , mkPutObjectAclResponse
+    , putObjectAclResponse
     ) where
 
 import Network.AWS.Request.RestS3
@@ -86,10 +86,10 @@ data PutObjectAcl = PutObjectAcl
 --
 -- * @Key ::@ @ObjectKey@
 --
-mkPutObjectAcl :: ObjectKey -- ^ 'poaKey'
+putObjectAcl :: ObjectKey -- ^ 'poaKey'
                -> BucketName -- ^ 'poaBucket'
                -> PutObjectAcl
-mkPutObjectAcl p10 p3 = PutObjectAcl
+putObjectAcl p10 p3 = PutObjectAcl
     { _poaACL = Nothing
     , _poaAccessControlPolicy = Nothing
     , _poaBucket = p3
@@ -167,8 +167,8 @@ data PutObjectAclResponse = PutObjectAclResponse
 -- a valid 'PutObjectAclResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkPutObjectAclResponse :: PutObjectAclResponse
-mkPutObjectAclResponse = PutObjectAclResponse
+putObjectAclResponse :: PutObjectAclResponse
+putObjectAclResponse = PutObjectAclResponse
 
 instance AWSRequest PutObjectAcl where
     type Sv PutObjectAcl = S3

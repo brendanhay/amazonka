@@ -30,7 +30,7 @@ module Network.AWS.Support.DescribeCommunications
     -- * Request
       DescribeCommunications
     -- ** Request constructor
-    , mkDescribeCommunications
+    , describeCommunications
     -- ** Request lenses
     , dc1CaseId
     , dc1BeforeTime
@@ -41,7 +41,7 @@ module Network.AWS.Support.DescribeCommunications
     -- * Response
     , DescribeCommunicationsResponse
     -- ** Response constructor
-    , mkDescribeCommunicationsResponse
+    , describeCommunicationsResponse
     -- ** Response lenses
     , dcrrCommunications
     , dcrrNextToken
@@ -74,9 +74,9 @@ data DescribeCommunications = DescribeCommunications
 --
 -- * @MaxResults ::@ @Maybe Integer@
 --
-mkDescribeCommunications :: Text -- ^ 'dc1CaseId'
+describeCommunications :: Text -- ^ 'dc1CaseId'
                          -> DescribeCommunications
-mkDescribeCommunications p1 = DescribeCommunications
+describeCommunications p1 = DescribeCommunications
     { _dc1CaseId = p1
     , _dc1BeforeTime = Nothing
     , _dc1AfterTime = Nothing
@@ -133,8 +133,8 @@ data DescribeCommunicationsResponse = DescribeCommunicationsResponse
 --
 -- * @NextToken ::@ @Maybe Text@
 --
-mkDescribeCommunicationsResponse :: DescribeCommunicationsResponse
-mkDescribeCommunicationsResponse = DescribeCommunicationsResponse
+describeCommunicationsResponse :: DescribeCommunicationsResponse
+describeCommunicationsResponse = DescribeCommunicationsResponse
     { _dcrrCommunications = mempty
     , _dcrrNextToken = Nothing
     }

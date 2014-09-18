@@ -33,7 +33,7 @@ module Network.AWS.EC2.DisableVgwRoutePropagation
     -- * Request
       DisableVgwRoutePropagation
     -- ** Request constructor
-    , mkDisableVgwRoutePropagation
+    , disableVgwRoutePropagation
     -- ** Request lenses
     , dvrpRouteTableId
     , dvrpGatewayId
@@ -41,7 +41,7 @@ module Network.AWS.EC2.DisableVgwRoutePropagation
     -- * Response
     , DisableVgwRoutePropagationResponse
     -- ** Response constructor
-    , mkDisableVgwRoutePropagationResponse
+    , disableVgwRoutePropagationResponse
     ) where
 
 import Network.AWS.Request.Query
@@ -62,10 +62,10 @@ data DisableVgwRoutePropagation = DisableVgwRoutePropagation
 --
 -- * @GatewayId ::@ @Text@
 --
-mkDisableVgwRoutePropagation :: Text -- ^ 'dvrpRouteTableId'
+disableVgwRoutePropagation :: Text -- ^ 'dvrpRouteTableId'
                              -> Text -- ^ 'dvrpGatewayId'
                              -> DisableVgwRoutePropagation
-mkDisableVgwRoutePropagation p1 p2 = DisableVgwRoutePropagation
+disableVgwRoutePropagation p1 p2 = DisableVgwRoutePropagation
     { _dvrpRouteTableId = p1
     , _dvrpGatewayId = p2
     }
@@ -89,8 +89,8 @@ data DisableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
 -- a valid 'DisableVgwRoutePropagationResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkDisableVgwRoutePropagationResponse :: DisableVgwRoutePropagationResponse
-mkDisableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
+disableVgwRoutePropagationResponse :: DisableVgwRoutePropagationResponse
+disableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
 
 instance AWSRequest DisableVgwRoutePropagation where
     type Sv DisableVgwRoutePropagation = EC2

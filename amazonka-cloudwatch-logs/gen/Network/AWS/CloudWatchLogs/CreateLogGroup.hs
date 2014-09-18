@@ -36,14 +36,14 @@ module Network.AWS.CloudWatchLogs.CreateLogGroup
     -- * Request
       CreateLogGroup
     -- ** Request constructor
-    , mkCreateLogGroup
+    , createLogGroup
     -- ** Request lenses
     , clgLogGroupName
 
     -- * Response
     , CreateLogGroupResponse
     -- ** Response constructor
-    , mkCreateLogGroupResponse
+    , createLogGroupResponse
     ) where
 
 import Network.AWS.CloudWatchLogs.Types
@@ -61,9 +61,9 @@ newtype CreateLogGroup = CreateLogGroup
 --
 -- * @LogGroupName ::@ @Text@
 --
-mkCreateLogGroup :: Text -- ^ 'clgLogGroupName'
+createLogGroup :: Text -- ^ 'clgLogGroupName'
                  -> CreateLogGroup
-mkCreateLogGroup p1 = CreateLogGroup
+createLogGroup p1 = CreateLogGroup
     { _clgLogGroupName = p1
     }
 
@@ -85,8 +85,8 @@ data CreateLogGroupResponse = CreateLogGroupResponse
 -- a valid 'CreateLogGroupResponse' response.
 --
 -- This constructor is provided for convenience and testing purposes.
-mkCreateLogGroupResponse :: CreateLogGroupResponse
-mkCreateLogGroupResponse = CreateLogGroupResponse
+createLogGroupResponse :: CreateLogGroupResponse
+createLogGroupResponse = CreateLogGroupResponse
 
 instance AWSRequest CreateLogGroup where
     type Sv CreateLogGroup = CloudWatchLogs

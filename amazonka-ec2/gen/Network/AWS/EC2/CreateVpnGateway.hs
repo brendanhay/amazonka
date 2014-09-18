@@ -37,7 +37,7 @@ module Network.AWS.EC2.CreateVpnGateway
     -- * Request
       CreateVpnGateway
     -- ** Request constructor
-    , mkCreateVpnGateway
+    , createVpnGateway
     -- ** Request lenses
     , cvgType
     , cvgAvailabilityZone
@@ -45,7 +45,7 @@ module Network.AWS.EC2.CreateVpnGateway
     -- * Response
     , CreateVpnGatewayResponse
     -- ** Response constructor
-    , mkCreateVpnGatewayResponse
+    , createVpnGatewayResponse
     -- ** Response lenses
     , cvgrVpnGateway
     ) where
@@ -68,9 +68,9 @@ data CreateVpnGateway = CreateVpnGateway
 --
 -- * @AvailabilityZone ::@ @Maybe Text@
 --
-mkCreateVpnGateway :: GatewayType -- ^ 'cvgType'
+createVpnGateway :: GatewayType -- ^ 'cvgType'
                    -> CreateVpnGateway
-mkCreateVpnGateway p1 = CreateVpnGateway
+createVpnGateway p1 = CreateVpnGateway
     { _cvgType = p1
     , _cvgAvailabilityZone = Nothing
     }
@@ -100,8 +100,8 @@ newtype CreateVpnGatewayResponse = CreateVpnGatewayResponse
 --
 -- * @VpnGateway ::@ @Maybe VpnGateway@
 --
-mkCreateVpnGatewayResponse :: CreateVpnGatewayResponse
-mkCreateVpnGatewayResponse = CreateVpnGatewayResponse
+createVpnGatewayResponse :: CreateVpnGatewayResponse
+createVpnGatewayResponse = CreateVpnGatewayResponse
     { _cvgrVpnGateway = Nothing
     }
 

@@ -46,7 +46,7 @@ module Network.AWS.Kinesis.ListStreams
     -- * Request
       ListStreams
     -- ** Request constructor
-    , mkListStreams
+    , listStreams
     -- ** Request lenses
     , lsLimit
     , lsExclusiveStartStreamName
@@ -54,7 +54,7 @@ module Network.AWS.Kinesis.ListStreams
     -- * Response
     , ListStreamsResponse
     -- ** Response constructor
-    , mkListStreamsResponse
+    , listStreamsResponse
     -- ** Response lenses
     , lsrStreamNames
     , lsrHasMoreStreams
@@ -79,8 +79,8 @@ data ListStreams = ListStreams
 --
 -- * @ExclusiveStartStreamName ::@ @Maybe Text@
 --
-mkListStreams :: ListStreams
-mkListStreams = ListStreams
+listStreams :: ListStreams
+listStreams = ListStreams
     { _lsLimit = Nothing
     , _lsExclusiveStartStreamName = Nothing
     }
@@ -120,10 +120,10 @@ data ListStreamsResponse = ListStreamsResponse
 --
 -- * @HasMoreStreams ::@ @Bool@
 --
-mkListStreamsResponse :: [Text] -- ^ 'lsrStreamNames'
+listStreamsResponse :: [Text] -- ^ 'lsrStreamNames'
                       -> Bool -- ^ 'lsrHasMoreStreams'
                       -> ListStreamsResponse
-mkListStreamsResponse p1 p2 = ListStreamsResponse
+listStreamsResponse p1 p2 = ListStreamsResponse
     { _lsrStreamNames = p1
     , _lsrHasMoreStreams = p2
     }

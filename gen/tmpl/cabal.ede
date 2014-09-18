@@ -27,7 +27,6 @@ library
 
     exposed-modules:
           {{ ns.root }}
-        , {{ ns.monadic }}
         , {{ ns.types }}
 {% for op in operations %}
         , {{ op.value.namespace }}

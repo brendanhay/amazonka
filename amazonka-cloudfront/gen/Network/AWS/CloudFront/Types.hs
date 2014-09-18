@@ -682,6 +682,7 @@ instance Exception CloudFrontError
 --
 -- See: 'AccessDenied'
 _AccessDenied :: Prism' CloudFrontError (Maybe Text)
+_AccessDenied = prism
     AccessDenied
     (\case
         AccessDenied p1 -> Right p1
@@ -689,6 +690,7 @@ _AccessDenied :: Prism' CloudFrontError (Maybe Text)
 
 -- | See: 'BatchTooLarge'
 _BatchTooLarge :: Prism' CloudFrontError (Maybe Text)
+_BatchTooLarge = prism
     BatchTooLarge
     (\case
         BatchTooLarge p1 -> Right p1
@@ -696,6 +698,7 @@ _BatchTooLarge :: Prism' CloudFrontError (Maybe Text)
 
 -- | See: 'CNAMEAlreadyExists'
 _CNAMEAlreadyExists :: Prism' CloudFrontError (Maybe Text)
+_CNAMEAlreadyExists = prism
     CNAMEAlreadyExists
     (\case
         CNAMEAlreadyExists p1 -> Right p1
@@ -703,6 +706,7 @@ _CNAMEAlreadyExists :: Prism' CloudFrontError (Maybe Text)
 
 -- | See: 'CloudFrontClient'
 _CloudFrontClient :: Prism' CloudFrontError HttpException
+_CloudFrontClient = prism
     CloudFrontClient
     (\case
         CloudFrontClient p1 -> Right p1
@@ -716,6 +720,7 @@ _CloudFrontClient :: Prism' CloudFrontError HttpException
 --
 -- See: 'CloudFrontOriginAccessIdentityAlreadyExists'
 _CloudFrontOriginAccessIdentityAlreadyExists :: Prism' CloudFrontError (Maybe Text)
+_CloudFrontOriginAccessIdentityAlreadyExists = prism
     CloudFrontOriginAccessIdentityAlreadyExists
     (\case
         CloudFrontOriginAccessIdentityAlreadyExists p1 -> Right p1
@@ -723,6 +728,7 @@ _CloudFrontOriginAccessIdentityAlreadyExists :: Prism' CloudFrontError (Maybe Te
 
 -- | See: 'CloudFrontOriginAccessIdentityInUse'
 _CloudFrontOriginAccessIdentityInUse :: Prism' CloudFrontError (Maybe Text)
+_CloudFrontOriginAccessIdentityInUse = prism
     CloudFrontOriginAccessIdentityInUse
     (\case
         CloudFrontOriginAccessIdentityInUse p1 -> Right p1
@@ -730,6 +736,7 @@ _CloudFrontOriginAccessIdentityInUse :: Prism' CloudFrontError (Maybe Text)
 
 -- | See: 'CloudFrontSerializer'
 _CloudFrontSerializer :: Prism' CloudFrontError String
+_CloudFrontSerializer = prism
     CloudFrontSerializer
     (\case
         CloudFrontSerializer p1 -> Right p1
@@ -737,6 +744,7 @@ _CloudFrontSerializer :: Prism' CloudFrontError String
 
 -- | See: 'CloudFrontService'
 _CloudFrontService :: Prism' CloudFrontError String
+_CloudFrontService = prism
     CloudFrontService
     (\case
         CloudFrontService p1 -> Right p1
@@ -747,6 +755,7 @@ _CloudFrontService :: Prism' CloudFrontError String
 --
 -- See: 'DistributionAlreadyExists'
 _DistributionAlreadyExists :: Prism' CloudFrontError (Maybe Text)
+_DistributionAlreadyExists = prism
     DistributionAlreadyExists
     (\case
         DistributionAlreadyExists p1 -> Right p1
@@ -754,6 +763,7 @@ _DistributionAlreadyExists :: Prism' CloudFrontError (Maybe Text)
 
 -- | See: 'DistributionNotDisabled'
 _DistributionNotDisabled :: Prism' CloudFrontError (Maybe Text)
+_DistributionNotDisabled = prism
     DistributionNotDisabled
     (\case
         DistributionNotDisabled p1 -> Right p1
@@ -763,6 +773,7 @@ _DistributionNotDisabled :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'IllegalUpdate'
 _IllegalUpdate :: Prism' CloudFrontError (Maybe Text)
+_IllegalUpdate = prism
     IllegalUpdate
     (\case
         IllegalUpdate p1 -> Right p1
@@ -772,6 +783,7 @@ _IllegalUpdate :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'InconsistentQuantities'
 _InconsistentQuantities :: Prism' CloudFrontError (Maybe Text)
+_InconsistentQuantities = prism
     InconsistentQuantities
     (\case
         InconsistentQuantities p1 -> Right p1
@@ -781,6 +793,7 @@ _InconsistentQuantities :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'InvalidArgument'
 _InvalidArgument :: Prism' CloudFrontError (Maybe Text)
+_InvalidArgument = prism
     InvalidArgument
     (\case
         InvalidArgument p1 -> Right p1
@@ -791,6 +804,7 @@ _InvalidArgument :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'InvalidDefaultRootObject'
 _InvalidDefaultRootObject :: Prism' CloudFrontError (Maybe Text)
+_InvalidDefaultRootObject = prism
     InvalidDefaultRootObject
     (\case
         InvalidDefaultRootObject p1 -> Right p1
@@ -798,6 +812,7 @@ _InvalidDefaultRootObject :: Prism' CloudFrontError (Maybe Text)
 
 -- | See: 'InvalidErrorCode'
 _InvalidErrorCode :: Prism' CloudFrontError (Maybe Text)
+_InvalidErrorCode = prism
     InvalidErrorCode
     (\case
         InvalidErrorCode p1 -> Right p1
@@ -810,6 +825,7 @@ _InvalidErrorCode :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'InvalidForwardCookies'
 _InvalidForwardCookies :: Prism' CloudFrontError (Maybe Text)
+_InvalidForwardCookies = prism
     InvalidForwardCookies
     (\case
         InvalidForwardCookies p1 -> Right p1
@@ -817,6 +833,7 @@ _InvalidForwardCookies :: Prism' CloudFrontError (Maybe Text)
 
 -- | See: 'InvalidGeoRestrictionParameter'
 _InvalidGeoRestrictionParameter :: Prism' CloudFrontError (Maybe Text)
+_InvalidGeoRestrictionParameter = prism
     InvalidGeoRestrictionParameter
     (\case
         InvalidGeoRestrictionParameter p1 -> Right p1
@@ -824,6 +841,7 @@ _InvalidGeoRestrictionParameter :: Prism' CloudFrontError (Maybe Text)
 
 -- | See: 'InvalidHeadersForS3Origin'
 _InvalidHeadersForS3Origin :: Prism' CloudFrontError (Maybe Text)
+_InvalidHeadersForS3Origin = prism
     InvalidHeadersForS3Origin
     (\case
         InvalidHeadersForS3Origin p1 -> Right p1
@@ -833,6 +851,7 @@ _InvalidHeadersForS3Origin :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'InvalidIfMatchVersion'
 _InvalidIfMatchVersion :: Prism' CloudFrontError (Maybe Text)
+_InvalidIfMatchVersion = prism
     InvalidIfMatchVersion
     (\case
         InvalidIfMatchVersion p1 -> Right p1
@@ -840,6 +859,7 @@ _InvalidIfMatchVersion :: Prism' CloudFrontError (Maybe Text)
 
 -- | See: 'InvalidLocationCode'
 _InvalidLocationCode :: Prism' CloudFrontError (Maybe Text)
+_InvalidLocationCode = prism
     InvalidLocationCode
     (\case
         InvalidLocationCode p1 -> Right p1
@@ -850,6 +870,7 @@ _InvalidLocationCode :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'InvalidOrigin'
 _InvalidOrigin :: Prism' CloudFrontError (Maybe Text)
+_InvalidOrigin = prism
     InvalidOrigin
     (\case
         InvalidOrigin p1 -> Right p1
@@ -859,6 +880,7 @@ _InvalidOrigin :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'InvalidOriginAccessIdentity'
 _InvalidOriginAccessIdentity :: Prism' CloudFrontError (Maybe Text)
+_InvalidOriginAccessIdentity = prism
     InvalidOriginAccessIdentity
     (\case
         InvalidOriginAccessIdentity p1 -> Right p1
@@ -869,6 +891,7 @@ _InvalidOriginAccessIdentity :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'InvalidRelativePath'
 _InvalidRelativePath :: Prism' CloudFrontError (Maybe Text)
+_InvalidRelativePath = prism
     InvalidRelativePath
     (\case
         InvalidRelativePath p1 -> Right p1
@@ -880,6 +903,7 @@ _InvalidRelativePath :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'InvalidRequiredProtocol'
 _InvalidRequiredProtocol :: Prism' CloudFrontError (Maybe Text)
+_InvalidRequiredProtocol = prism
     InvalidRequiredProtocol
     (\case
         InvalidRequiredProtocol p1 -> Right p1
@@ -887,6 +911,7 @@ _InvalidRequiredProtocol :: Prism' CloudFrontError (Maybe Text)
 
 -- | See: 'InvalidResponseCode'
 _InvalidResponseCode :: Prism' CloudFrontError (Maybe Text)
+_InvalidResponseCode = prism
     InvalidResponseCode
     (\case
         InvalidResponseCode p1 -> Right p1
@@ -894,6 +919,7 @@ _InvalidResponseCode :: Prism' CloudFrontError (Maybe Text)
 
 -- | See: 'InvalidViewerCertificate'
 _InvalidViewerCertificate :: Prism' CloudFrontError (Maybe Text)
+_InvalidViewerCertificate = prism
     InvalidViewerCertificate
     (\case
         InvalidViewerCertificate p1 -> Right p1
@@ -904,6 +930,7 @@ _InvalidViewerCertificate :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'MissingBody'
 _MissingBody :: Prism' CloudFrontError (Maybe Text)
+_MissingBody = prism
     MissingBody
     (\case
         MissingBody p1 -> Right p1
@@ -913,6 +940,7 @@ _MissingBody :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'NoSuchCloudFrontOriginAccessIdentity'
 _NoSuchCloudFrontOriginAccessIdentity :: Prism' CloudFrontError (Maybe Text)
+_NoSuchCloudFrontOriginAccessIdentity = prism
     NoSuchCloudFrontOriginAccessIdentity
     (\case
         NoSuchCloudFrontOriginAccessIdentity p1 -> Right p1
@@ -922,6 +950,7 @@ _NoSuchCloudFrontOriginAccessIdentity :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'NoSuchDistribution'
 _NoSuchDistribution :: Prism' CloudFrontError (Maybe Text)
+_NoSuchDistribution = prism
     NoSuchDistribution
     (\case
         NoSuchDistribution p1 -> Right p1
@@ -931,6 +960,7 @@ _NoSuchDistribution :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'NoSuchInvalidation'
 _NoSuchInvalidation :: Prism' CloudFrontError (Maybe Text)
+_NoSuchInvalidation = prism
     NoSuchInvalidation
     (\case
         NoSuchInvalidation p1 -> Right p1
@@ -940,6 +970,7 @@ _NoSuchInvalidation :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'NoSuchOrigin'
 _NoSuchOrigin :: Prism' CloudFrontError (Maybe Text)
+_NoSuchOrigin = prism
     NoSuchOrigin
     (\case
         NoSuchOrigin p1 -> Right p1
@@ -949,6 +980,7 @@ _NoSuchOrigin :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'NoSuchStreamingDistribution'
 _NoSuchStreamingDistribution :: Prism' CloudFrontError (Maybe Text)
+_NoSuchStreamingDistribution = prism
     NoSuchStreamingDistribution
     (\case
         NoSuchStreamingDistribution p1 -> Right p1
@@ -959,6 +991,7 @@ _NoSuchStreamingDistribution :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'PreconditionFailed'
 _PreconditionFailed :: Prism' CloudFrontError (Maybe Text)
+_PreconditionFailed = prism
     PreconditionFailed
     (\case
         PreconditionFailed p1 -> Right p1
@@ -966,6 +999,7 @@ _PreconditionFailed :: Prism' CloudFrontError (Maybe Text)
 
 -- | See: 'StreamingDistributionAlreadyExists'
 _StreamingDistributionAlreadyExists :: Prism' CloudFrontError (Maybe Text)
+_StreamingDistributionAlreadyExists = prism
     StreamingDistributionAlreadyExists
     (\case
         StreamingDistributionAlreadyExists p1 -> Right p1
@@ -973,6 +1007,7 @@ _StreamingDistributionAlreadyExists :: Prism' CloudFrontError (Maybe Text)
 
 -- | See: 'StreamingDistributionNotDisabled'
 _StreamingDistributionNotDisabled :: Prism' CloudFrontError (Maybe Text)
+_StreamingDistributionNotDisabled = prism
     StreamingDistributionNotDisabled
     (\case
         StreamingDistributionNotDisabled p1 -> Right p1
@@ -982,6 +1017,7 @@ _StreamingDistributionNotDisabled :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'TooManyCacheBehaviors'
 _TooManyCacheBehaviors :: Prism' CloudFrontError (Maybe Text)
+_TooManyCacheBehaviors = prism
     TooManyCacheBehaviors
     (\case
         TooManyCacheBehaviors p1 -> Right p1
@@ -991,6 +1027,7 @@ _TooManyCacheBehaviors :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'TooManyCertificates'
 _TooManyCertificates :: Prism' CloudFrontError (Maybe Text)
+_TooManyCertificates = prism
     TooManyCertificates
     (\case
         TooManyCertificates p1 -> Right p1
@@ -1001,6 +1038,7 @@ _TooManyCertificates :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'TooManyCloudFrontOriginAccessIdentities'
 _TooManyCloudFrontOriginAccessIdentities :: Prism' CloudFrontError (Maybe Text)
+_TooManyCloudFrontOriginAccessIdentities = prism
     TooManyCloudFrontOriginAccessIdentities
     (\case
         TooManyCloudFrontOriginAccessIdentities p1 -> Right p1
@@ -1011,6 +1049,7 @@ _TooManyCloudFrontOriginAccessIdentities :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'TooManyCookieNamesInWhiteList'
 _TooManyCookieNamesInWhiteList :: Prism' CloudFrontError (Maybe Text)
+_TooManyCookieNamesInWhiteList = prism
     TooManyCookieNamesInWhiteList
     (\case
         TooManyCookieNamesInWhiteList p1 -> Right p1
@@ -1020,6 +1059,7 @@ _TooManyCookieNamesInWhiteList :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'TooManyDistributionCNAMEs'
 _TooManyDistributionCNAMEs :: Prism' CloudFrontError (Maybe Text)
+_TooManyDistributionCNAMEs = prism
     TooManyDistributionCNAMEs
     (\case
         TooManyDistributionCNAMEs p1 -> Right p1
@@ -1030,6 +1070,7 @@ _TooManyDistributionCNAMEs :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'TooManyDistributions'
 _TooManyDistributions :: Prism' CloudFrontError (Maybe Text)
+_TooManyDistributions = prism
     TooManyDistributions
     (\case
         TooManyDistributions p1 -> Right p1
@@ -1037,6 +1078,7 @@ _TooManyDistributions :: Prism' CloudFrontError (Maybe Text)
 
 -- | See: 'TooManyHeadersInForwardedValues'
 _TooManyHeadersInForwardedValues :: Prism' CloudFrontError (Maybe Text)
+_TooManyHeadersInForwardedValues = prism
     TooManyHeadersInForwardedValues
     (\case
         TooManyHeadersInForwardedValues p1 -> Right p1
@@ -1047,6 +1089,7 @@ _TooManyHeadersInForwardedValues :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'TooManyInvalidationsInProgress'
 _TooManyInvalidationsInProgress :: Prism' CloudFrontError (Maybe Text)
+_TooManyInvalidationsInProgress = prism
     TooManyInvalidationsInProgress
     (\case
         TooManyInvalidationsInProgress p1 -> Right p1
@@ -1056,6 +1099,7 @@ _TooManyInvalidationsInProgress :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'TooManyOrigins'
 _TooManyOrigins :: Prism' CloudFrontError (Maybe Text)
+_TooManyOrigins = prism
     TooManyOrigins
     (\case
         TooManyOrigins p1 -> Right p1
@@ -1063,6 +1107,7 @@ _TooManyOrigins :: Prism' CloudFrontError (Maybe Text)
 
 -- | See: 'TooManyStreamingDistributionCNAMEs'
 _TooManyStreamingDistributionCNAMEs :: Prism' CloudFrontError (Maybe Text)
+_TooManyStreamingDistributionCNAMEs = prism
     TooManyStreamingDistributionCNAMEs
     (\case
         TooManyStreamingDistributionCNAMEs p1 -> Right p1
@@ -1073,6 +1118,7 @@ _TooManyStreamingDistributionCNAMEs :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'TooManyStreamingDistributions'
 _TooManyStreamingDistributions :: Prism' CloudFrontError (Maybe Text)
+_TooManyStreamingDistributions = prism
     TooManyStreamingDistributions
     (\case
         TooManyStreamingDistributions p1 -> Right p1
@@ -1083,6 +1129,7 @@ _TooManyStreamingDistributions :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'TooManyTrustedSigners'
 _TooManyTrustedSigners :: Prism' CloudFrontError (Maybe Text)
+_TooManyTrustedSigners = prism
     TooManyTrustedSigners
     (\case
         TooManyTrustedSigners p1 -> Right p1
@@ -1092,6 +1139,7 @@ _TooManyTrustedSigners :: Prism' CloudFrontError (Maybe Text)
 --
 -- See: 'TrustedSignerDoesNotExist'
 _TrustedSignerDoesNotExist :: Prism' CloudFrontError (Maybe Text)
+_TrustedSignerDoesNotExist = prism
     TrustedSignerDoesNotExist
     (\case
         TrustedSignerDoesNotExist p1 -> Right p1

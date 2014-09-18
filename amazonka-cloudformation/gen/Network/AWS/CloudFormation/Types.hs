@@ -224,6 +224,7 @@ _AlreadyExistsException = prism
 
 -- | See: 'CloudFormationClient'
 _CloudFormationClient :: Prism' CloudFormationError HttpException
+_CloudFormationClient = prism
     CloudFormationClient
     (\case
         CloudFormationClient p1 -> Right p1
@@ -231,6 +232,7 @@ _CloudFormationClient :: Prism' CloudFormationError HttpException
 
 -- | See: 'CloudFormationSerializer'
 _CloudFormationSerializer :: Prism' CloudFormationError String
+_CloudFormationSerializer = prism
     CloudFormationSerializer
     (\case
         CloudFormationSerializer p1 -> Right p1
@@ -238,6 +240,7 @@ _CloudFormationSerializer :: Prism' CloudFormationError String
 
 -- | See: 'CloudFormationService'
 _CloudFormationService :: Prism' CloudFormationError String
+_CloudFormationService = prism
     CloudFormationService
     (\case
         CloudFormationService p1 -> Right p1

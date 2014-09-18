@@ -171,6 +171,7 @@ instance Exception Route53DomainsError
 --
 -- See: 'DomainLimitExceeded'
 _DomainLimitExceeded :: Prism' Route53DomainsError (Maybe Text)
+_DomainLimitExceeded = prism
     DomainLimitExceeded
     (\case
         DomainLimitExceeded p1 -> Right p1
@@ -180,6 +181,7 @@ _DomainLimitExceeded :: Prism' Route53DomainsError (Maybe Text)
 --
 -- See: 'DuplicateRequest'
 _DuplicateRequest :: Prism' Route53DomainsError (Maybe Text)
+_DuplicateRequest = prism
     DuplicateRequest
     (\case
         DuplicateRequest p1 -> Right p1
@@ -191,6 +193,7 @@ _DuplicateRequest :: Prism' Route53DomainsError (Maybe Text)
 --
 -- See: 'InvalidInput'
 _InvalidInput :: Prism' Route53DomainsError (Maybe Text)
+_InvalidInput = prism
     InvalidInput
     (\case
         InvalidInput p1 -> Right p1
@@ -201,6 +204,7 @@ _InvalidInput :: Prism' Route53DomainsError (Maybe Text)
 --
 -- See: 'OperationLimitExceeded'
 _OperationLimitExceeded :: Prism' Route53DomainsError (Maybe Text)
+_OperationLimitExceeded = prism
     OperationLimitExceeded
     (\case
         OperationLimitExceeded p1 -> Right p1
@@ -208,6 +212,7 @@ _OperationLimitExceeded :: Prism' Route53DomainsError (Maybe Text)
 
 -- | See: 'Route53DomainsClient'
 _Route53DomainsClient :: Prism' Route53DomainsError HttpException
+_Route53DomainsClient = prism
     Route53DomainsClient
     (\case
         Route53DomainsClient p1 -> Right p1
@@ -215,6 +220,7 @@ _Route53DomainsClient :: Prism' Route53DomainsError HttpException
 
 -- | See: 'Route53DomainsSerializer'
 _Route53DomainsSerializer :: Prism' Route53DomainsError String
+_Route53DomainsSerializer = prism
     Route53DomainsSerializer
     (\case
         Route53DomainsSerializer p1 -> Right p1
@@ -222,6 +228,7 @@ _Route53DomainsSerializer :: Prism' Route53DomainsError String
 
 -- | See: 'Route53DomainsService'
 _Route53DomainsService :: Prism' Route53DomainsError String
+_Route53DomainsService = prism
     Route53DomainsService
     (\case
         Route53DomainsService p1 -> Right p1
@@ -231,6 +238,7 @@ _Route53DomainsService :: Prism' Route53DomainsError String
 --
 -- See: 'TLDRulesViolation'
 _TLDRulesViolation :: Prism' Route53DomainsError (Maybe Text)
+_TLDRulesViolation = prism
     TLDRulesViolation
     (\case
         TLDRulesViolation p1 -> Right p1
@@ -240,6 +248,7 @@ _TLDRulesViolation :: Prism' Route53DomainsError (Maybe Text)
 --
 -- See: 'UnsupportedTLD'
 _UnsupportedTLD :: Prism' Route53DomainsError (Maybe Text)
+_UnsupportedTLD = prism
     UnsupportedTLD
     (\case
         UnsupportedTLD p1 -> Right p1

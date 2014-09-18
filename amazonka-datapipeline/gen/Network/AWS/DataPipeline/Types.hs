@@ -179,6 +179,7 @@ instance Exception DataPipelineError
 
 -- | See: 'DataPipelineClient'
 _DataPipelineClient :: Prism' DataPipelineError HttpException
+_DataPipelineClient = prism
     DataPipelineClient
     (\case
         DataPipelineClient p1 -> Right p1
@@ -186,6 +187,7 @@ _DataPipelineClient :: Prism' DataPipelineError HttpException
 
 -- | See: 'DataPipelineSerializer'
 _DataPipelineSerializer :: Prism' DataPipelineError String
+_DataPipelineSerializer = prism
     DataPipelineSerializer
     (\case
         DataPipelineSerializer p1 -> Right p1
@@ -193,6 +195,7 @@ _DataPipelineSerializer :: Prism' DataPipelineError String
 
 -- | See: 'DataPipelineService'
 _DataPipelineService :: Prism' DataPipelineError String
+_DataPipelineService = prism
     DataPipelineService
     (\case
         DataPipelineService p1 -> Right p1
@@ -202,6 +205,7 @@ _DataPipelineService :: Prism' DataPipelineError String
 --
 -- See: 'InternalServiceError'
 _InternalServiceError :: Prism' DataPipelineError (Maybe Text)
+_InternalServiceError = prism
     InternalServiceError
     (\case
         InternalServiceError p1 -> Right p1
@@ -213,6 +217,7 @@ _InternalServiceError :: Prism' DataPipelineError (Maybe Text)
 --
 -- See: 'InvalidRequestException'
 _InvalidRequestException :: Prism' DataPipelineError (Maybe Text)
+_InvalidRequestException = prism
     InvalidRequestException
     (\case
         InvalidRequestException p1 -> Right p1
@@ -222,6 +227,7 @@ _InvalidRequestException :: Prism' DataPipelineError (Maybe Text)
 --
 -- See: 'PipelineDeletedException'
 _PipelineDeletedException :: Prism' DataPipelineError (Maybe Text)
+_PipelineDeletedException = prism
     PipelineDeletedException
     (\case
         PipelineDeletedException p1 -> Right p1
@@ -232,6 +238,7 @@ _PipelineDeletedException :: Prism' DataPipelineError (Maybe Text)
 --
 -- See: 'PipelineNotFoundException'
 _PipelineNotFoundException :: Prism' DataPipelineError (Maybe Text)
+_PipelineNotFoundException = prism
     PipelineNotFoundException
     (\case
         PipelineNotFoundException p1 -> Right p1
@@ -241,6 +248,7 @@ _PipelineNotFoundException :: Prism' DataPipelineError (Maybe Text)
 --
 -- See: 'TaskNotFoundException'
 _TaskNotFoundException :: Prism' DataPipelineError (Maybe Text)
+_TaskNotFoundException = prism
     TaskNotFoundException
     (\case
         TaskNotFoundException p1 -> Right p1

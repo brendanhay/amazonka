@@ -381,6 +381,7 @@ _DuplicateTagKeysException = prism
 
 -- | See: 'ELBClient'
 _ELBClient :: Prism' ELBError HttpException
+_ELBClient = prism
     ELBClient
     (\case
         ELBClient p1 -> Right p1
@@ -388,6 +389,7 @@ _ELBClient :: Prism' ELBError HttpException
 
 -- | See: 'ELBSerializer'
 _ELBSerializer :: Prism' ELBError String
+_ELBSerializer = prism
     ELBSerializer
     (\case
         ELBSerializer p1 -> Right p1
@@ -395,6 +397,7 @@ _ELBSerializer :: Prism' ELBError String
 
 -- | See: 'ELBService'
 _ELBService :: Prism' ELBError String
+_ELBService = prism
     ELBService
     (\case
         ELBService p1 -> Right p1

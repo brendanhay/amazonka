@@ -255,6 +255,7 @@ instance Exception SupportError
 --
 -- See: 'AttachmentIdNotFound'
 _AttachmentIdNotFound :: Prism' SupportError (Maybe Text)
+_AttachmentIdNotFound = prism
     AttachmentIdNotFound
     (\case
         AttachmentIdNotFound p1 -> Right p1
@@ -265,6 +266,7 @@ _AttachmentIdNotFound :: Prism' SupportError (Maybe Text)
 --
 -- See: 'AttachmentLimitExceeded'
 _AttachmentLimitExceeded :: Prism' SupportError (Maybe Text)
+_AttachmentLimitExceeded = prism
     AttachmentLimitExceeded
     (\case
         AttachmentLimitExceeded p1 -> Right p1
@@ -275,6 +277,7 @@ _AttachmentLimitExceeded :: Prism' SupportError (Maybe Text)
 --
 -- See: 'AttachmentSetExpired'
 _AttachmentSetExpired :: Prism' SupportError (Maybe Text)
+_AttachmentSetExpired = prism
     AttachmentSetExpired
     (\case
         AttachmentSetExpired p1 -> Right p1
@@ -284,6 +287,7 @@ _AttachmentSetExpired :: Prism' SupportError (Maybe Text)
 --
 -- See: 'AttachmentSetIdNotFound'
 _AttachmentSetIdNotFound :: Prism' SupportError (Maybe Text)
+_AttachmentSetIdNotFound = prism
     AttachmentSetIdNotFound
     (\case
         AttachmentSetIdNotFound p1 -> Right p1
@@ -294,6 +298,7 @@ _AttachmentSetIdNotFound :: Prism' SupportError (Maybe Text)
 --
 -- See: 'AttachmentSetSizeLimitExceeded'
 _AttachmentSetSizeLimitExceeded :: Prism' SupportError (Maybe Text)
+_AttachmentSetSizeLimitExceeded = prism
     AttachmentSetSizeLimitExceeded
     (\case
         AttachmentSetSizeLimitExceeded p1 -> Right p1
@@ -303,6 +308,7 @@ _AttachmentSetSizeLimitExceeded :: Prism' SupportError (Maybe Text)
 --
 -- See: 'CaseCreationLimitExceeded'
 _CaseCreationLimitExceeded :: Prism' SupportError (Maybe Text)
+_CaseCreationLimitExceeded = prism
     CaseCreationLimitExceeded
     (\case
         CaseCreationLimitExceeded p1 -> Right p1
@@ -312,6 +318,7 @@ _CaseCreationLimitExceeded :: Prism' SupportError (Maybe Text)
 --
 -- See: 'CaseIdNotFound'
 _CaseIdNotFound :: Prism' SupportError (Maybe Text)
+_CaseIdNotFound = prism
     CaseIdNotFound
     (\case
         CaseIdNotFound p1 -> Right p1
@@ -322,6 +329,7 @@ _CaseIdNotFound :: Prism' SupportError (Maybe Text)
 --
 -- See: 'DescribeAttachmentLimitExceeded'
 _DescribeAttachmentLimitExceeded :: Prism' SupportError (Maybe Text)
+_DescribeAttachmentLimitExceeded = prism
     DescribeAttachmentLimitExceeded
     (\case
         DescribeAttachmentLimitExceeded p1 -> Right p1
@@ -331,6 +339,7 @@ _DescribeAttachmentLimitExceeded :: Prism' SupportError (Maybe Text)
 --
 -- See: 'InternalServerError'
 _InternalServerError :: Prism' SupportError (Maybe Text)
+_InternalServerError = prism
     InternalServerError
     (\case
         InternalServerError p1 -> Right p1
@@ -338,6 +347,7 @@ _InternalServerError :: Prism' SupportError (Maybe Text)
 
 -- | See: 'SupportClient'
 _SupportClient :: Prism' SupportError HttpException
+_SupportClient = prism
     SupportClient
     (\case
         SupportClient p1 -> Right p1
@@ -345,6 +355,7 @@ _SupportClient :: Prism' SupportError HttpException
 
 -- | See: 'SupportSerializer'
 _SupportSerializer :: Prism' SupportError String
+_SupportSerializer = prism
     SupportSerializer
     (\case
         SupportSerializer p1 -> Right p1
@@ -352,6 +363,7 @@ _SupportSerializer :: Prism' SupportError String
 
 -- | See: 'SupportService'
 _SupportService :: Prism' SupportError String
+_SupportService = prism
     SupportService
     (\case
         SupportService p1 -> Right p1

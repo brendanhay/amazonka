@@ -326,6 +326,7 @@ instance Exception Route53Error
 --
 -- See: 'DelegationSetNotAvailable'
 _DelegationSetNotAvailable :: Prism' Route53Error (Maybe Text)
+_DelegationSetNotAvailable = prism
     DelegationSetNotAvailable
     (\case
         DelegationSetNotAvailable p1 -> Right p1
@@ -337,6 +338,7 @@ _DelegationSetNotAvailable :: Prism' Route53Error (Maybe Text)
 --
 -- See: 'HealthCheckAlreadyExists'
 _HealthCheckAlreadyExists :: Prism' Route53Error (Maybe Text)
+_HealthCheckAlreadyExists = prism
     HealthCheckAlreadyExists
     (\case
         HealthCheckAlreadyExists p1 -> Right p1
@@ -348,6 +350,7 @@ _HealthCheckAlreadyExists :: Prism' Route53Error (Maybe Text)
 --
 -- See: 'HealthCheckInUse'
 _HealthCheckInUse :: Prism' Route53Error (Maybe Text)
+_HealthCheckInUse = prism
     HealthCheckInUse
     (\case
         HealthCheckInUse p1 -> Right p1
@@ -355,6 +358,7 @@ _HealthCheckInUse :: Prism' Route53Error (Maybe Text)
 
 -- | See: 'HealthCheckVersionMismatch'
 _HealthCheckVersionMismatch :: Prism' Route53Error (Maybe Text)
+_HealthCheckVersionMismatch = prism
     HealthCheckVersionMismatch
     (\case
         HealthCheckVersionMismatch p1 -> Right p1
@@ -366,6 +370,7 @@ _HealthCheckVersionMismatch :: Prism' Route53Error (Maybe Text)
 --
 -- See: 'HostedZoneAlreadyExists'
 _HostedZoneAlreadyExists :: Prism' Route53Error (Maybe Text)
+_HostedZoneAlreadyExists = prism
     HostedZoneAlreadyExists
     (\case
         HostedZoneAlreadyExists p1 -> Right p1
@@ -377,6 +382,7 @@ _HostedZoneAlreadyExists :: Prism' Route53Error (Maybe Text)
 --
 -- See: 'HostedZoneNotEmpty'
 _HostedZoneNotEmpty :: Prism' Route53Error (Maybe Text)
+_HostedZoneNotEmpty = prism
     HostedZoneNotEmpty
     (\case
         HostedZoneNotEmpty p1 -> Right p1
@@ -387,6 +393,7 @@ _HostedZoneNotEmpty :: Prism' Route53Error (Maybe Text)
 --
 -- See: 'IncompatibleVersion'
 _IncompatibleVersion :: Prism' Route53Error (Maybe Text)
+_IncompatibleVersion = prism
     IncompatibleVersion
     (\case
         IncompatibleVersion p1 -> Right p1
@@ -398,6 +405,7 @@ _IncompatibleVersion :: Prism' Route53Error (Maybe Text)
 --
 -- See: 'InvalidChangeBatch'
 _InvalidChangeBatch :: Prism' Route53Error [Text]
+_InvalidChangeBatch = prism
     InvalidChangeBatch
     (\case
         InvalidChangeBatch p1 -> Right p1
@@ -407,6 +415,7 @@ _InvalidChangeBatch :: Prism' Route53Error [Text]
 --
 -- See: 'InvalidDomainName'
 _InvalidDomainName :: Prism' Route53Error (Maybe Text)
+_InvalidDomainName = prism
     InvalidDomainName
     (\case
         InvalidDomainName p1 -> Right p1
@@ -417,6 +426,7 @@ _InvalidDomainName :: Prism' Route53Error (Maybe Text)
 --
 -- See: 'InvalidInput'
 _InvalidInput :: Prism' Route53Error (Maybe Text)
+_InvalidInput = prism
     InvalidInput
     (\case
         InvalidInput p1 -> Right p1
@@ -424,6 +434,7 @@ _InvalidInput :: Prism' Route53Error (Maybe Text)
 
 -- | See: 'NoSuchChange'
 _NoSuchChange :: Prism' Route53Error (Maybe Text)
+_NoSuchChange = prism
     NoSuchChange
     (\case
         NoSuchChange p1 -> Right p1
@@ -433,6 +444,7 @@ _NoSuchChange :: Prism' Route53Error (Maybe Text)
 --
 -- See: 'NoSuchGeoLocation'
 _NoSuchGeoLocation :: Prism' Route53Error (Maybe Text)
+_NoSuchGeoLocation = prism
     NoSuchGeoLocation
     (\case
         NoSuchGeoLocation p1 -> Right p1
@@ -442,6 +454,7 @@ _NoSuchGeoLocation :: Prism' Route53Error (Maybe Text)
 --
 -- See: 'NoSuchHealthCheck'
 _NoSuchHealthCheck :: Prism' Route53Error (Maybe Text)
+_NoSuchHealthCheck = prism
     NoSuchHealthCheck
     (\case
         NoSuchHealthCheck p1 -> Right p1
@@ -449,6 +462,7 @@ _NoSuchHealthCheck :: Prism' Route53Error (Maybe Text)
 
 -- | See: 'NoSuchHostedZone'
 _NoSuchHostedZone :: Prism' Route53Error (Maybe Text)
+_NoSuchHostedZone = prism
     NoSuchHostedZone
     (\case
         NoSuchHostedZone p1 -> Right p1
@@ -459,6 +473,7 @@ _NoSuchHostedZone :: Prism' Route53Error (Maybe Text)
 --
 -- See: 'PriorRequestNotComplete'
 _PriorRequestNotComplete :: Prism' Route53Error (Maybe Text)
+_PriorRequestNotComplete = prism
     PriorRequestNotComplete
     (\case
         PriorRequestNotComplete p1 -> Right p1
@@ -466,6 +481,7 @@ _PriorRequestNotComplete :: Prism' Route53Error (Maybe Text)
 
 -- | See: 'Route53Client'
 _Route53Client :: Prism' Route53Error HttpException
+_Route53Client = prism
     Route53Client
     (\case
         Route53Client p1 -> Right p1
@@ -473,6 +489,7 @@ _Route53Client :: Prism' Route53Error HttpException
 
 -- | See: 'Route53Serializer'
 _Route53Serializer :: Prism' Route53Error String
+_Route53Serializer = prism
     Route53Serializer
     (\case
         Route53Serializer p1 -> Right p1
@@ -480,6 +497,7 @@ _Route53Serializer :: Prism' Route53Error String
 
 -- | See: 'Route53Service'
 _Route53Service :: Prism' Route53Error String
+_Route53Service = prism
     Route53Service
     (\case
         Route53Service p1 -> Right p1
@@ -487,6 +505,7 @@ _Route53Service :: Prism' Route53Error String
 
 -- | See: 'ThrottlingException'
 _ThrottlingException :: Prism' Route53Error (Maybe Text)
+_ThrottlingException = prism
     ThrottlingException
     (\case
         ThrottlingException p1 -> Right p1
@@ -494,6 +513,7 @@ _ThrottlingException :: Prism' Route53Error (Maybe Text)
 
 -- | See: 'TooManyHealthChecks'
 _TooManyHealthChecks :: Prism' Route53Error (Maybe Text)
+_TooManyHealthChecks = prism
     TooManyHealthChecks
     (\case
         TooManyHealthChecks p1 -> Right p1
@@ -505,6 +525,7 @@ _TooManyHealthChecks :: Prism' Route53Error (Maybe Text)
 --
 -- See: 'TooManyHostedZones'
 _TooManyHostedZones :: Prism' Route53Error (Maybe Text)
+_TooManyHostedZones = prism
     TooManyHostedZones
     (\case
         TooManyHostedZones p1 -> Right p1

@@ -470,6 +470,7 @@ instance Exception OpsWorksError
 
 -- | See: 'OpsWorksClient'
 _OpsWorksClient :: Prism' OpsWorksError HttpException
+_OpsWorksClient = prism
     OpsWorksClient
     (\case
         OpsWorksClient p1 -> Right p1
@@ -477,6 +478,7 @@ _OpsWorksClient :: Prism' OpsWorksError HttpException
 
 -- | See: 'OpsWorksSerializer'
 _OpsWorksSerializer :: Prism' OpsWorksError String
+_OpsWorksSerializer = prism
     OpsWorksSerializer
     (\case
         OpsWorksSerializer p1 -> Right p1
@@ -484,6 +486,7 @@ _OpsWorksSerializer :: Prism' OpsWorksError String
 
 -- | See: 'OpsWorksService'
 _OpsWorksService :: Prism' OpsWorksError String
+_OpsWorksService = prism
     OpsWorksService
     (\case
         OpsWorksService p1 -> Right p1
@@ -493,6 +496,7 @@ _OpsWorksService :: Prism' OpsWorksError String
 --
 -- See: 'ResourceNotFoundException'
 _ResourceNotFoundException :: Prism' OpsWorksError (Maybe Text)
+_ResourceNotFoundException = prism
     ResourceNotFoundException
     (\case
         ResourceNotFoundException p1 -> Right p1
@@ -502,6 +506,7 @@ _ResourceNotFoundException :: Prism' OpsWorksError (Maybe Text)
 --
 -- See: 'ValidationException'
 _ValidationException :: Prism' OpsWorksError (Maybe Text)
+_ValidationException = prism
     ValidationException
     (\case
         ValidationException p1 -> Right p1

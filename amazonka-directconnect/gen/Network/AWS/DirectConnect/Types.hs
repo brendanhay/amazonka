@@ -198,6 +198,7 @@ instance Exception DirectConnectError
 
 -- | See: 'DirectConnectClient'
 _DirectConnectClient :: Prism' DirectConnectError HttpException
+_DirectConnectClient = prism
     DirectConnectClient
     (\case
         DirectConnectClient p1 -> Right p1
@@ -208,6 +209,7 @@ _DirectConnectClient :: Prism' DirectConnectError HttpException
 --
 -- See: 'DirectConnectClientException'
 _DirectConnectClientException :: Prism' DirectConnectError (Maybe Text)
+_DirectConnectClientException = prism
     DirectConnectClientException
     (\case
         DirectConnectClientException p1 -> Right p1
@@ -215,6 +217,7 @@ _DirectConnectClientException :: Prism' DirectConnectError (Maybe Text)
 
 -- | See: 'DirectConnectSerializer'
 _DirectConnectSerializer :: Prism' DirectConnectError String
+_DirectConnectSerializer = prism
     DirectConnectSerializer
     (\case
         DirectConnectSerializer p1 -> Right p1
@@ -225,6 +228,7 @@ _DirectConnectSerializer :: Prism' DirectConnectError String
 --
 -- See: 'DirectConnectServerException'
 _DirectConnectServerException :: Prism' DirectConnectError (Maybe Text)
+_DirectConnectServerException = prism
     DirectConnectServerException
     (\case
         DirectConnectServerException p1 -> Right p1
@@ -232,6 +236,7 @@ _DirectConnectServerException :: Prism' DirectConnectError (Maybe Text)
 
 -- | See: 'DirectConnectService'
 _DirectConnectService :: Prism' DirectConnectError String
+_DirectConnectService = prism
     DirectConnectService
     (\case
         DirectConnectService p1 -> Right p1

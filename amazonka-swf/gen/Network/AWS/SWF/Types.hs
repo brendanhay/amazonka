@@ -864,6 +864,7 @@ instance Exception SWFError
 
 -- | See: 'DefaultUndefinedFault'
 _DefaultUndefinedFault :: Prism' SWFError (Maybe Text)
+_DefaultUndefinedFault = prism
     DefaultUndefinedFault
     (\case
         DefaultUndefinedFault p1 -> Right p1
@@ -874,6 +875,7 @@ _DefaultUndefinedFault :: Prism' SWFError (Maybe Text)
 --
 -- See: 'DomainAlreadyExistsFault'
 _DomainAlreadyExistsFault :: Prism' SWFError (Maybe Text)
+_DomainAlreadyExistsFault = prism
     DomainAlreadyExistsFault
     (\case
         DomainAlreadyExistsFault p1 -> Right p1
@@ -883,6 +885,7 @@ _DomainAlreadyExistsFault :: Prism' SWFError (Maybe Text)
 --
 -- See: 'DomainDeprecatedFault'
 _DomainDeprecatedFault :: Prism' SWFError (Maybe Text)
+_DomainDeprecatedFault = prism
     DomainDeprecatedFault
     (\case
         DomainDeprecatedFault p1 -> Right p1
@@ -894,6 +897,7 @@ _DomainDeprecatedFault :: Prism' SWFError (Maybe Text)
 --
 -- See: 'LimitExceededFault'
 _LimitExceededFault :: Prism' SWFError (Maybe Text)
+_LimitExceededFault = prism
     LimitExceededFault
     (\case
         LimitExceededFault p1 -> Right p1
@@ -904,6 +908,7 @@ _LimitExceededFault :: Prism' SWFError (Maybe Text)
 --
 -- See: 'OperationNotPermittedFault'
 _OperationNotPermittedFault :: Prism' SWFError (Maybe Text)
+_OperationNotPermittedFault = prism
     OperationNotPermittedFault
     (\case
         OperationNotPermittedFault p1 -> Right p1
@@ -911,6 +916,7 @@ _OperationNotPermittedFault :: Prism' SWFError (Maybe Text)
 
 -- | See: 'SWFClient'
 _SWFClient :: Prism' SWFError HttpException
+_SWFClient = prism
     SWFClient
     (\case
         SWFClient p1 -> Right p1
@@ -918,6 +924,7 @@ _SWFClient :: Prism' SWFError HttpException
 
 -- | See: 'SWFSerializer'
 _SWFSerializer :: Prism' SWFError String
+_SWFSerializer = prism
     SWFSerializer
     (\case
         SWFSerializer p1 -> Right p1
@@ -925,6 +932,7 @@ _SWFSerializer :: Prism' SWFError String
 
 -- | See: 'SWFService'
 _SWFService :: Prism' SWFError String
+_SWFService = prism
     SWFService
     (\case
         SWFService p1 -> Right p1
@@ -937,6 +945,7 @@ _SWFService :: Prism' SWFError String
 --
 -- See: 'TypeAlreadyExistsFault'
 _TypeAlreadyExistsFault :: Prism' SWFError (Maybe Text)
+_TypeAlreadyExistsFault = prism
     TypeAlreadyExistsFault
     (\case
         TypeAlreadyExistsFault p1 -> Right p1
@@ -947,6 +956,7 @@ _TypeAlreadyExistsFault :: Prism' SWFError (Maybe Text)
 --
 -- See: 'TypeDeprecatedFault'
 _TypeDeprecatedFault :: Prism' SWFError (Maybe Text)
+_TypeDeprecatedFault = prism
     TypeDeprecatedFault
     (\case
         TypeDeprecatedFault p1 -> Right p1
@@ -958,6 +968,7 @@ _TypeDeprecatedFault :: Prism' SWFError (Maybe Text)
 --
 -- See: 'UnknownResourceFault'
 _UnknownResourceFault :: Prism' SWFError (Maybe Text)
+_UnknownResourceFault = prism
     UnknownResourceFault
     (\case
         UnknownResourceFault p1 -> Right p1
@@ -968,6 +979,7 @@ _UnknownResourceFault :: Prism' SWFError (Maybe Text)
 --
 -- See: 'WorkflowExecutionAlreadyStartedFault'
 _WorkflowExecutionAlreadyStartedFault :: Prism' SWFError (Maybe Text)
+_WorkflowExecutionAlreadyStartedFault = prism
     WorkflowExecutionAlreadyStartedFault
     (\case
         WorkflowExecutionAlreadyStartedFault p1 -> Right p1

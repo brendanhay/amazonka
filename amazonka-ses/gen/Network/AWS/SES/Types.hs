@@ -165,6 +165,7 @@ _MessageRejected = prism
 
 -- | See: 'SESClient'
 _SESClient :: Prism' SESError HttpException
+_SESClient = prism
     SESClient
     (\case
         SESClient p1 -> Right p1
@@ -172,6 +173,7 @@ _SESClient :: Prism' SESError HttpException
 
 -- | See: 'SESSerializer'
 _SESSerializer :: Prism' SESError String
+_SESSerializer = prism
     SESSerializer
     (\case
         SESSerializer p1 -> Right p1
@@ -179,6 +181,7 @@ _SESSerializer :: Prism' SESError String
 
 -- | See: 'SESService'
 _SESService :: Prism' SESError String
+_SESService = prism
     SESService
     (\case
         SESService p1 -> Right p1

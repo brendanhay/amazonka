@@ -148,6 +148,7 @@ instance Exception KinesisError
 --
 -- See: 'ExpiredIteratorException'
 _ExpiredIteratorException :: Prism' KinesisError (Maybe Text)
+_ExpiredIteratorException = prism
     ExpiredIteratorException
     (\case
         ExpiredIteratorException p1 -> Right p1
@@ -157,6 +158,7 @@ _ExpiredIteratorException :: Prism' KinesisError (Maybe Text)
 --
 -- See: 'InvalidArgumentException'
 _InvalidArgumentException :: Prism' KinesisError (Maybe Text)
+_InvalidArgumentException = prism
     InvalidArgumentException
     (\case
         InvalidArgumentException p1 -> Right p1
@@ -164,6 +166,7 @@ _InvalidArgumentException :: Prism' KinesisError (Maybe Text)
 
 -- | See: 'KinesisClient'
 _KinesisClient :: Prism' KinesisError HttpException
+_KinesisClient = prism
     KinesisClient
     (\case
         KinesisClient p1 -> Right p1
@@ -171,6 +174,7 @@ _KinesisClient :: Prism' KinesisError HttpException
 
 -- | See: 'KinesisSerializer'
 _KinesisSerializer :: Prism' KinesisError String
+_KinesisSerializer = prism
     KinesisSerializer
     (\case
         KinesisSerializer p1 -> Right p1
@@ -178,6 +182,7 @@ _KinesisSerializer :: Prism' KinesisError String
 
 -- | See: 'KinesisService'
 _KinesisService :: Prism' KinesisError String
+_KinesisService = prism
     KinesisService
     (\case
         KinesisService p1 -> Right p1
@@ -187,6 +192,7 @@ _KinesisService :: Prism' KinesisError String
 --
 -- See: 'LimitExceededException'
 _LimitExceededException :: Prism' KinesisError (Maybe Text)
+_LimitExceededException = prism
     LimitExceededException
     (\case
         LimitExceededException p1 -> Right p1
@@ -196,6 +202,7 @@ _LimitExceededException :: Prism' KinesisError (Maybe Text)
 --
 -- See: 'ProvisionedThroughputExceededException'
 _ProvisionedThroughputExceededException :: Prism' KinesisError (Maybe Text)
+_ProvisionedThroughputExceededException = prism
     ProvisionedThroughputExceededException
     (\case
         ProvisionedThroughputExceededException p1 -> Right p1
@@ -205,6 +212,7 @@ _ProvisionedThroughputExceededException :: Prism' KinesisError (Maybe Text)
 --
 -- See: 'ResourceInUseException'
 _ResourceInUseException :: Prism' KinesisError (Maybe Text)
+_ResourceInUseException = prism
     ResourceInUseException
     (\case
         ResourceInUseException p1 -> Right p1
@@ -214,6 +222,7 @@ _ResourceInUseException :: Prism' KinesisError (Maybe Text)
 --
 -- See: 'ResourceNotFoundException'
 _ResourceNotFoundException :: Prism' KinesisError (Maybe Text)
+_ResourceNotFoundException = prism
     ResourceNotFoundException
     (\case
         ResourceNotFoundException p1 -> Right p1

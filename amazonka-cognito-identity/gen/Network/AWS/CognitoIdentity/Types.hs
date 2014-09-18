@@ -131,6 +131,7 @@ instance Exception CognitoIdentityError
 
 -- | See: 'CognitoIdentityClient'
 _CognitoIdentityClient :: Prism' CognitoIdentityError HttpException
+_CognitoIdentityClient = prism
     CognitoIdentityClient
     (\case
         CognitoIdentityClient p1 -> Right p1
@@ -138,6 +139,7 @@ _CognitoIdentityClient :: Prism' CognitoIdentityError HttpException
 
 -- | See: 'CognitoIdentitySerializer'
 _CognitoIdentitySerializer :: Prism' CognitoIdentityError String
+_CognitoIdentitySerializer = prism
     CognitoIdentitySerializer
     (\case
         CognitoIdentitySerializer p1 -> Right p1
@@ -145,6 +147,7 @@ _CognitoIdentitySerializer :: Prism' CognitoIdentityError String
 
 -- | See: 'CognitoIdentityService'
 _CognitoIdentityService :: Prism' CognitoIdentityError String
+_CognitoIdentityService = prism
     CognitoIdentityService
     (\case
         CognitoIdentityService p1 -> Right p1
@@ -154,6 +157,7 @@ _CognitoIdentityService :: Prism' CognitoIdentityError String
 --
 -- See: 'InternalErrorException'
 _InternalErrorException :: Prism' CognitoIdentityError (Maybe Text)
+_InternalErrorException = prism
     InternalErrorException
     (\case
         InternalErrorException p1 -> Right p1
@@ -163,6 +167,7 @@ _InternalErrorException :: Prism' CognitoIdentityError (Maybe Text)
 --
 -- See: 'InvalidParameterException'
 _InvalidParameterException :: Prism' CognitoIdentityError (Maybe Text)
+_InvalidParameterException = prism
     InvalidParameterException
     (\case
         InvalidParameterException p1 -> Right p1
@@ -172,6 +177,7 @@ _InvalidParameterException :: Prism' CognitoIdentityError (Maybe Text)
 --
 -- See: 'LimitExceededException'
 _LimitExceededException :: Prism' CognitoIdentityError (Maybe Text)
+_LimitExceededException = prism
     LimitExceededException
     (\case
         LimitExceededException p1 -> Right p1
@@ -181,6 +187,7 @@ _LimitExceededException :: Prism' CognitoIdentityError (Maybe Text)
 --
 -- See: 'NotAuthorizedException'
 _NotAuthorizedException :: Prism' CognitoIdentityError (Maybe Text)
+_NotAuthorizedException = prism
     NotAuthorizedException
     (\case
         NotAuthorizedException p1 -> Right p1
@@ -191,6 +198,7 @@ _NotAuthorizedException :: Prism' CognitoIdentityError (Maybe Text)
 --
 -- See: 'ResourceConflictException'
 _ResourceConflictException :: Prism' CognitoIdentityError (Maybe Text)
+_ResourceConflictException = prism
     ResourceConflictException
     (\case
         ResourceConflictException p1 -> Right p1
@@ -201,6 +209,7 @@ _ResourceConflictException :: Prism' CognitoIdentityError (Maybe Text)
 --
 -- See: 'ResourceNotFoundException'
 _ResourceNotFoundException :: Prism' CognitoIdentityError (Maybe Text)
+_ResourceNotFoundException = prism
     ResourceNotFoundException
     (\case
         ResourceNotFoundException p1 -> Right p1
@@ -210,6 +219,7 @@ _ResourceNotFoundException :: Prism' CognitoIdentityError (Maybe Text)
 --
 -- See: 'TooManyRequestsException'
 _TooManyRequestsException :: Prism' CognitoIdentityError (Maybe Text)
+_TooManyRequestsException = prism
     TooManyRequestsException
     (\case
         TooManyRequestsException p1 -> Right p1

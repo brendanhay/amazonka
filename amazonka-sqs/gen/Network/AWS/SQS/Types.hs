@@ -340,6 +340,7 @@ _ReceiptHandleIsInvalid = prism
 
 -- | See: 'SQSClient'
 _SQSClient :: Prism' SQSError HttpException
+_SQSClient = prism
     SQSClient
     (\case
         SQSClient p1 -> Right p1
@@ -347,6 +348,7 @@ _SQSClient :: Prism' SQSError HttpException
 
 -- | See: 'SQSSerializer'
 _SQSSerializer :: Prism' SQSError String
+_SQSSerializer = prism
     SQSSerializer
     (\case
         SQSSerializer p1 -> Right p1
@@ -354,6 +356,7 @@ _SQSSerializer :: Prism' SQSError String
 
 -- | See: 'SQSService'
 _SQSService :: Prism' SQSError String
+_SQSService = prism
     SQSService
     (\case
         SQSService p1 -> Right p1

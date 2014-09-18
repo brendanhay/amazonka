@@ -15,6 +15,7 @@
         x -> Left x)
   {% else %}
 {{ branch.key | prism }} :: Prism' {{ scope.name }} {{ branch.value.fields | prismTypes }}
+{{ branch.key | prism }} = prism
     {% if branch.value.fields | listLength == 1 %}
     {{ branch.key }}
     {% else %}

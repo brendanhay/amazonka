@@ -329,6 +329,7 @@ instance Exception IAMError
 --
 -- See: 'CredentialReportExpiredException'
 _CredentialReportExpiredException :: Prism' IAMError (Maybe Text)
+_CredentialReportExpiredException = prism
     CredentialReportExpiredException
     (\case
         CredentialReportExpiredException p1 -> Right p1
@@ -339,6 +340,7 @@ _CredentialReportExpiredException :: Prism' IAMError (Maybe Text)
 --
 -- See: 'CredentialReportNotPresentException'
 _CredentialReportNotPresentException :: Prism' IAMError (Maybe Text)
+_CredentialReportNotPresentException = prism
     CredentialReportNotPresentException
     (\case
         CredentialReportNotPresentException p1 -> Right p1
@@ -349,6 +351,7 @@ _CredentialReportNotPresentException :: Prism' IAMError (Maybe Text)
 --
 -- See: 'CredentialReportNotReadyException'
 _CredentialReportNotReadyException :: Prism' IAMError (Maybe Text)
+_CredentialReportNotReadyException = prism
     CredentialReportNotReadyException
     (\case
         CredentialReportNotReadyException p1 -> Right p1
@@ -359,6 +362,7 @@ _CredentialReportNotReadyException :: Prism' IAMError (Maybe Text)
 --
 -- See: 'DeleteConflictException'
 _DeleteConflictException :: Prism' IAMError (Maybe Text)
+_DeleteConflictException = prism
     DeleteConflictException
     (\case
         DeleteConflictException p1 -> Right p1
@@ -369,6 +373,7 @@ _DeleteConflictException :: Prism' IAMError (Maybe Text)
 --
 -- See: 'DuplicateCertificateException'
 _DuplicateCertificateException :: Prism' IAMError (Maybe Text)
+_DuplicateCertificateException = prism
     DuplicateCertificateException
     (\case
         DuplicateCertificateException p1 -> Right p1
@@ -379,6 +384,7 @@ _DuplicateCertificateException :: Prism' IAMError (Maybe Text)
 --
 -- See: 'EntityAlreadyExistsException'
 _EntityAlreadyExistsException :: Prism' IAMError (Maybe Text)
+_EntityAlreadyExistsException = prism
     EntityAlreadyExistsException
     (\case
         EntityAlreadyExistsException p1 -> Right p1
@@ -392,6 +398,7 @@ _EntityAlreadyExistsException :: Prism' IAMError (Maybe Text)
 --
 -- See: 'EntityTemporarilyUnmodifiableException'
 _EntityTemporarilyUnmodifiableException :: Prism' IAMError (Maybe Text)
+_EntityTemporarilyUnmodifiableException = prism
     EntityTemporarilyUnmodifiableException
     (\case
         EntityTemporarilyUnmodifiableException p1 -> Right p1
@@ -399,6 +406,7 @@ _EntityTemporarilyUnmodifiableException :: Prism' IAMError (Maybe Text)
 
 -- | See: 'IAMClient'
 _IAMClient :: Prism' IAMError HttpException
+_IAMClient = prism
     IAMClient
     (\case
         IAMClient p1 -> Right p1
@@ -406,6 +414,7 @@ _IAMClient :: Prism' IAMError HttpException
 
 -- | See: 'IAMSerializer'
 _IAMSerializer :: Prism' IAMError String
+_IAMSerializer = prism
     IAMSerializer
     (\case
         IAMSerializer p1 -> Right p1
@@ -413,6 +422,7 @@ _IAMSerializer :: Prism' IAMError String
 
 -- | See: 'IAMService'
 _IAMService :: Prism' IAMError String
+_IAMService = prism
     IAMService
     (\case
         IAMService p1 -> Right p1
@@ -423,6 +433,7 @@ _IAMService :: Prism' IAMError String
 --
 -- See: 'InvalidAuthenticationCodeException'
 _InvalidAuthenticationCodeException :: Prism' IAMError (Maybe Text)
+_InvalidAuthenticationCodeException = prism
     InvalidAuthenticationCodeException
     (\case
         InvalidAuthenticationCodeException p1 -> Right p1
@@ -432,6 +443,7 @@ _InvalidAuthenticationCodeException :: Prism' IAMError (Maybe Text)
 --
 -- See: 'InvalidCertificateException'
 _InvalidCertificateException :: Prism' IAMError (Maybe Text)
+_InvalidCertificateException = prism
     InvalidCertificateException
     (\case
         InvalidCertificateException p1 -> Right p1
@@ -439,6 +451,7 @@ _InvalidCertificateException :: Prism' IAMError (Maybe Text)
 
 -- | See: 'InvalidInputException'
 _InvalidInputException :: Prism' IAMError (Maybe Text)
+_InvalidInputException = prism
     InvalidInputException
     (\case
         InvalidInputException p1 -> Right p1
@@ -449,6 +462,7 @@ _InvalidInputException :: Prism' IAMError (Maybe Text)
 --
 -- See: 'InvalidUserTypeException'
 _InvalidUserTypeException :: Prism' IAMError (Maybe Text)
+_InvalidUserTypeException = prism
     InvalidUserTypeException
     (\case
         InvalidUserTypeException p1 -> Right p1
@@ -459,6 +473,7 @@ _InvalidUserTypeException :: Prism' IAMError (Maybe Text)
 --
 -- See: 'KeyPairMismatchException'
 _KeyPairMismatchException :: Prism' IAMError (Maybe Text)
+_KeyPairMismatchException = prism
     KeyPairMismatchException
     (\case
         KeyPairMismatchException p1 -> Right p1
@@ -470,6 +485,7 @@ _KeyPairMismatchException :: Prism' IAMError (Maybe Text)
 --
 -- See: 'LimitExceededException'
 _LimitExceededException :: Prism' IAMError (Maybe Text)
+_LimitExceededException = prism
     LimitExceededException
     (\case
         LimitExceededException p1 -> Right p1
@@ -480,6 +496,7 @@ _LimitExceededException :: Prism' IAMError (Maybe Text)
 --
 -- See: 'MalformedCertificateException'
 _MalformedCertificateException :: Prism' IAMError (Maybe Text)
+_MalformedCertificateException = prism
     MalformedCertificateException
     (\case
         MalformedCertificateException p1 -> Right p1
@@ -490,6 +507,7 @@ _MalformedCertificateException :: Prism' IAMError (Maybe Text)
 --
 -- See: 'MalformedPolicyDocumentException'
 _MalformedPolicyDocumentException :: Prism' IAMError (Maybe Text)
+_MalformedPolicyDocumentException = prism
     MalformedPolicyDocumentException
     (\case
         MalformedPolicyDocumentException p1 -> Right p1
@@ -500,6 +518,7 @@ _MalformedPolicyDocumentException :: Prism' IAMError (Maybe Text)
 --
 -- See: 'NoSuchEntityException'
 _NoSuchEntityException :: Prism' IAMError (Maybe Text)
+_NoSuchEntityException = prism
     NoSuchEntityException
     (\case
         NoSuchEntityException p1 -> Right p1
@@ -510,6 +529,7 @@ _NoSuchEntityException :: Prism' IAMError (Maybe Text)
 --
 -- See: 'PasswordPolicyViolationException'
 _PasswordPolicyViolationException :: Prism' IAMError (Maybe Text)
+_PasswordPolicyViolationException = prism
     PasswordPolicyViolationException
     (\case
         PasswordPolicyViolationException p1 -> Right p1

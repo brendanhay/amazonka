@@ -325,6 +325,7 @@ instance Exception AutoScalingError
 --
 -- See: 'AlreadyExistsFault'
 _AlreadyExistsFault :: Prism' AutoScalingError (Maybe Text)
+_AlreadyExistsFault = prism
     AlreadyExistsFault
     (\case
         AlreadyExistsFault p1 -> Right p1
@@ -332,6 +333,7 @@ _AlreadyExistsFault :: Prism' AutoScalingError (Maybe Text)
 
 -- | See: 'AutoScalingClient'
 _AutoScalingClient :: Prism' AutoScalingError HttpException
+_AutoScalingClient = prism
     AutoScalingClient
     (\case
         AutoScalingClient p1 -> Right p1
@@ -339,6 +341,7 @@ _AutoScalingClient :: Prism' AutoScalingError HttpException
 
 -- | See: 'AutoScalingSerializer'
 _AutoScalingSerializer :: Prism' AutoScalingError String
+_AutoScalingSerializer = prism
     AutoScalingSerializer
     (\case
         AutoScalingSerializer p1 -> Right p1
@@ -346,6 +349,7 @@ _AutoScalingSerializer :: Prism' AutoScalingError String
 
 -- | See: 'AutoScalingService'
 _AutoScalingService :: Prism' AutoScalingError String
+_AutoScalingService = prism
     AutoScalingService
     (\case
         AutoScalingService p1 -> Right p1
@@ -355,6 +359,7 @@ _AutoScalingService :: Prism' AutoScalingError String
 --
 -- See: 'InvalidNextToken'
 _InvalidNextToken :: Prism' AutoScalingError (Maybe Text)
+_InvalidNextToken = prism
     InvalidNextToken
     (\case
         InvalidNextToken p1 -> Right p1
@@ -365,6 +370,7 @@ _InvalidNextToken :: Prism' AutoScalingError (Maybe Text)
 --
 -- See: 'LimitExceededFault'
 _LimitExceededFault :: Prism' AutoScalingError (Maybe Text)
+_LimitExceededFault = prism
     LimitExceededFault
     (\case
         LimitExceededFault p1 -> Right p1
@@ -375,6 +381,7 @@ _LimitExceededFault :: Prism' AutoScalingError (Maybe Text)
 --
 -- See: 'ResourceInUseFault'
 _ResourceInUseFault :: Prism' AutoScalingError (Maybe Text)
+_ResourceInUseFault = prism
     ResourceInUseFault
     (\case
         ResourceInUseFault p1 -> Right p1
@@ -385,6 +392,7 @@ _ResourceInUseFault :: Prism' AutoScalingError (Maybe Text)
 --
 -- See: 'ScalingActivityInProgressFault'
 _ScalingActivityInProgressFault :: Prism' AutoScalingError (Maybe Text)
+_ScalingActivityInProgressFault = prism
     ScalingActivityInProgressFault
     (\case
         ScalingActivityInProgressFault p1 -> Right p1

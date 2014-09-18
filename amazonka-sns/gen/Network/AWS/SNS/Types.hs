@@ -168,7 +168,6 @@ instance Exception SNSError
 --
 -- See: 'AuthorizationErrorException'
 _AuthorizationErrorException :: Prism' SNSError (Maybe Text)
-_AuthorizationErrorException = prism
     AuthorizationErrorException
     (\case
         AuthorizationErrorException p1 -> Right p1
@@ -178,7 +177,6 @@ _AuthorizationErrorException = prism
 --
 -- See: 'EndpointDisabledException'
 _EndpointDisabledException :: Prism' SNSError (Maybe Text)
-_EndpointDisabledException = prism
     EndpointDisabledException
     (\case
         EndpointDisabledException p1 -> Right p1
@@ -188,7 +186,6 @@ _EndpointDisabledException = prism
 --
 -- See: 'InternalErrorException'
 _InternalErrorException :: Prism' SNSError (Maybe Text)
-_InternalErrorException = prism
     InternalErrorException
     (\case
         InternalErrorException p1 -> Right p1
@@ -199,7 +196,6 @@ _InternalErrorException = prism
 --
 -- See: 'InvalidParameterException'
 _InvalidParameterException :: Prism' SNSError (Maybe Text)
-_InvalidParameterException = prism
     InvalidParameterException
     (\case
         InvalidParameterException p1 -> Right p1
@@ -210,7 +206,6 @@ _InvalidParameterException = prism
 --
 -- See: 'InvalidParameterValueException'
 _InvalidParameterValueException :: Prism' SNSError (Maybe Text)
-_InvalidParameterValueException = prism
     InvalidParameterValueException
     (\case
         InvalidParameterValueException p1 -> Right p1
@@ -220,7 +215,6 @@ _InvalidParameterValueException = prism
 --
 -- See: 'NotFoundException'
 _NotFoundException :: Prism' SNSError (Maybe Text)
-_NotFoundException = prism
     NotFoundException
     (\case
         NotFoundException p1 -> Right p1
@@ -230,7 +224,6 @@ _NotFoundException = prism
 --
 -- See: 'PlatformApplicationDisabledException'
 _PlatformApplicationDisabledException :: Prism' SNSError (Maybe Text)
-_PlatformApplicationDisabledException = prism
     PlatformApplicationDisabledException
     (\case
         PlatformApplicationDisabledException p1 -> Right p1
@@ -238,7 +231,6 @@ _PlatformApplicationDisabledException = prism
 
 -- | See: 'SNSClient'
 _SNSClient :: Prism' SNSError HttpException
-_SNSClient = prism
     SNSClient
     (\case
         SNSClient p1 -> Right p1
@@ -246,7 +238,6 @@ _SNSClient = prism
 
 -- | See: 'SNSSerializer'
 _SNSSerializer :: Prism' SNSError String
-_SNSSerializer = prism
     SNSSerializer
     (\case
         SNSSerializer p1 -> Right p1
@@ -254,7 +245,6 @@ _SNSSerializer = prism
 
 -- | See: 'SNSService'
 _SNSService :: Prism' SNSError String
-_SNSService = prism
     SNSService
     (\case
         SNSService p1 -> Right p1
@@ -265,7 +255,6 @@ _SNSService = prism
 --
 -- See: 'SubscriptionLimitExceededException'
 _SubscriptionLimitExceededException :: Prism' SNSError (Maybe Text)
-_SubscriptionLimitExceededException = prism
     SubscriptionLimitExceededException
     (\case
         SubscriptionLimitExceededException p1 -> Right p1
@@ -276,7 +265,6 @@ _SubscriptionLimitExceededException = prism
 --
 -- See: 'TopicLimitExceededException'
 _TopicLimitExceededException :: Prism' SNSError (Maybe Text)
-_TopicLimitExceededException = prism
     TopicLimitExceededException
     (\case
         TopicLimitExceededException p1 -> Right p1

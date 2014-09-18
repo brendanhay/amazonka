@@ -528,7 +528,6 @@ _ObjectNotInActiveTierError = prism
 
 -- | See: 'S3Client'
 _S3Client :: Prism' S3Error HttpException
-_S3Client = prism
     S3Client
     (\case
         S3Client p1 -> Right p1
@@ -536,7 +535,6 @@ _S3Client = prism
 
 -- | See: 'S3Serializer'
 _S3Serializer :: Prism' S3Error String
-_S3Serializer = prism
     S3Serializer
     (\case
         S3Serializer p1 -> Right p1
@@ -544,7 +542,6 @@ _S3Serializer = prism
 
 -- | See: 'S3Service'
 _S3Service :: Prism' S3Error String
-_S3Service = prism
     S3Service
     (\case
         S3Service p1 -> Right p1

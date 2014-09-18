@@ -156,7 +156,6 @@ instance Exception CloudWatchLogsError
 
 -- | See: 'CloudWatchLogsClient'
 _CloudWatchLogsClient :: Prism' CloudWatchLogsError HttpException
-_CloudWatchLogsClient = prism
     CloudWatchLogsClient
     (\case
         CloudWatchLogsClient p1 -> Right p1
@@ -164,7 +163,6 @@ _CloudWatchLogsClient = prism
 
 -- | See: 'CloudWatchLogsSerializer'
 _CloudWatchLogsSerializer :: Prism' CloudWatchLogsError String
-_CloudWatchLogsSerializer = prism
     CloudWatchLogsSerializer
     (\case
         CloudWatchLogsSerializer p1 -> Right p1
@@ -172,7 +170,6 @@ _CloudWatchLogsSerializer = prism
 
 -- | See: 'CloudWatchLogsService'
 _CloudWatchLogsService :: Prism' CloudWatchLogsError String
-_CloudWatchLogsService = prism
     CloudWatchLogsService
     (\case
         CloudWatchLogsService p1 -> Right p1
@@ -180,7 +177,6 @@ _CloudWatchLogsService = prism
 
 -- | See: 'DataAlreadyAcceptedException'
 _DataAlreadyAcceptedException :: Prism' CloudWatchLogsError (Maybe Text)
-_DataAlreadyAcceptedException = prism
     DataAlreadyAcceptedException
     (\case
         DataAlreadyAcceptedException p1 -> Right p1
@@ -198,7 +194,6 @@ _InvalidParameterException = prism
 
 -- | See: 'InvalidSequenceTokenException'
 _InvalidSequenceTokenException :: Prism' CloudWatchLogsError (Maybe Text)
-_InvalidSequenceTokenException = prism
     InvalidSequenceTokenException
     (\case
         InvalidSequenceTokenException p1 -> Right p1

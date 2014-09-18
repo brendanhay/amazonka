@@ -122,7 +122,6 @@ instance Exception CloudTrailError
 
 -- | See: 'CloudTrailClient'
 _CloudTrailClient :: Prism' CloudTrailError HttpException
-_CloudTrailClient = prism
     CloudTrailClient
     (\case
         CloudTrailClient p1 -> Right p1
@@ -130,7 +129,6 @@ _CloudTrailClient = prism
 
 -- | See: 'CloudTrailSerializer'
 _CloudTrailSerializer :: Prism' CloudTrailError String
-_CloudTrailSerializer = prism
     CloudTrailSerializer
     (\case
         CloudTrailSerializer p1 -> Right p1
@@ -138,7 +136,6 @@ _CloudTrailSerializer = prism
 
 -- | See: 'CloudTrailService'
 _CloudTrailService :: Prism' CloudTrailError String
-_CloudTrailService = prism
     CloudTrailService
     (\case
         CloudTrailService p1 -> Right p1

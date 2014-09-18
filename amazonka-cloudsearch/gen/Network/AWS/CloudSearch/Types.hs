@@ -359,12 +359,13 @@ instance Exception CloudSearchError
 --
 -- See: 'BaseException'
 _BaseException :: Prism' CloudSearchError (Maybe Text, Maybe Text)
-_BaseException = prism
-FIXME: Oh noes!
+    (\(p1, p2) -> BaseException p1 p2)
+    (\case
+        BaseException p1 p2 -> Right (p1, p2)
+        x -> Left x)
 
 -- | See: 'CloudSearchClient'
 _CloudSearchClient :: Prism' CloudSearchError HttpException
-_CloudSearchClient = prism
     CloudSearchClient
     (\case
         CloudSearchClient p1 -> Right p1
@@ -372,7 +373,6 @@ _CloudSearchClient = prism
 
 -- | See: 'CloudSearchSerializer'
 _CloudSearchSerializer :: Prism' CloudSearchError String
-_CloudSearchSerializer = prism
     CloudSearchSerializer
     (\case
         CloudSearchSerializer p1 -> Right p1
@@ -380,7 +380,6 @@ _CloudSearchSerializer = prism
 
 -- | See: 'CloudSearchService'
 _CloudSearchService :: Prism' CloudSearchError String
-_CloudSearchService = prism
     CloudSearchService
     (\case
         CloudSearchService p1 -> Right p1

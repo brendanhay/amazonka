@@ -325,7 +325,6 @@ instance Exception AutoScalingError
 --
 -- See: 'AlreadyExistsFault'
 _AlreadyExistsFault :: Prism' AutoScalingError (Maybe Text)
-_AlreadyExistsFault = prism
     AlreadyExistsFault
     (\case
         AlreadyExistsFault p1 -> Right p1
@@ -333,7 +332,6 @@ _AlreadyExistsFault = prism
 
 -- | See: 'AutoScalingClient'
 _AutoScalingClient :: Prism' AutoScalingError HttpException
-_AutoScalingClient = prism
     AutoScalingClient
     (\case
         AutoScalingClient p1 -> Right p1
@@ -341,7 +339,6 @@ _AutoScalingClient = prism
 
 -- | See: 'AutoScalingSerializer'
 _AutoScalingSerializer :: Prism' AutoScalingError String
-_AutoScalingSerializer = prism
     AutoScalingSerializer
     (\case
         AutoScalingSerializer p1 -> Right p1
@@ -349,7 +346,6 @@ _AutoScalingSerializer = prism
 
 -- | See: 'AutoScalingService'
 _AutoScalingService :: Prism' AutoScalingError String
-_AutoScalingService = prism
     AutoScalingService
     (\case
         AutoScalingService p1 -> Right p1
@@ -359,7 +355,6 @@ _AutoScalingService = prism
 --
 -- See: 'InvalidNextToken'
 _InvalidNextToken :: Prism' AutoScalingError (Maybe Text)
-_InvalidNextToken = prism
     InvalidNextToken
     (\case
         InvalidNextToken p1 -> Right p1
@@ -370,7 +365,6 @@ _InvalidNextToken = prism
 --
 -- See: 'LimitExceededFault'
 _LimitExceededFault :: Prism' AutoScalingError (Maybe Text)
-_LimitExceededFault = prism
     LimitExceededFault
     (\case
         LimitExceededFault p1 -> Right p1
@@ -381,7 +375,6 @@ _LimitExceededFault = prism
 --
 -- See: 'ResourceInUseFault'
 _ResourceInUseFault :: Prism' AutoScalingError (Maybe Text)
-_ResourceInUseFault = prism
     ResourceInUseFault
     (\case
         ResourceInUseFault p1 -> Right p1
@@ -392,7 +385,6 @@ _ResourceInUseFault = prism
 --
 -- See: 'ScalingActivityInProgressFault'
 _ScalingActivityInProgressFault :: Prism' AutoScalingError (Maybe Text)
-_ScalingActivityInProgressFault = prism
     ScalingActivityInProgressFault
     (\case
         ScalingActivityInProgressFault p1 -> Right p1

@@ -1059,7 +1059,6 @@ _ProvisionedIopsNotAvailableInAZFault = prism
 
 -- | See: 'RDSClient'
 _RDSClient :: Prism' RDSError HttpException
-_RDSClient = prism
     RDSClient
     (\case
         RDSClient p1 -> Right p1
@@ -1067,7 +1066,6 @@ _RDSClient = prism
 
 -- | See: 'RDSSerializer'
 _RDSSerializer :: Prism' RDSError String
-_RDSSerializer = prism
     RDSSerializer
     (\case
         RDSSerializer p1 -> Right p1
@@ -1075,7 +1073,6 @@ _RDSSerializer = prism
 
 -- | See: 'RDSService'
 _RDSService :: Prism' RDSError String
-_RDSService = prism
     RDSService
     (\case
         RDSService p1 -> Right p1

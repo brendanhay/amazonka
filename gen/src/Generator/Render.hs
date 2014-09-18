@@ -1,8 +1,9 @@
-{-# LANGUAGE BangPatterns      #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TupleSections     #-}
+{-# LANGUAGE BangPatterns        #-}
+{-# LANGUAGE FlexibleInstances   #-}
+{-# LANGUAGE OverloadedStrings   #-}
+{-# LANGUAGE RecordWildCards     #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TupleSections       #-}
 
 -- Module      : Generator.Render
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -170,6 +171,8 @@ filters = EDE.defaultFilters
          , ("field",        Fun TText TText fieldPrefix)
          , ("haddock",      Fun TText TText haddock)
          , ("prismTypes",   Fun TList TText prismTypes)
+         , ("fieldParams",  Fun TList TText (Text.intercalate " " . fieldParams))
+         , ("tupleParams",  Fun TList TText (tuple . fieldParams))
          ]
       where
         haddock t = case Text.splitOn "." t of
@@ -184,14 +187,18 @@ filters = EDE.defaultFilters
                 [x] -> maybeToList (obj "wrapped" x)
                 xs  -> mapMaybe (obj "type") xs
           where
+
             obj k (Object o) = Map.lookup k o >>= text
             obj _ _          = Nothing
 
             text (String t) = Just t
             text _          = Nothing
 
-            tuple [x] = x
-            tuple xs  = "(" <> Text.intercalate ", " xs <> ")"
+        fieldParams v =
+            map (mappend "p" . Text.pack . show) [1..Vector.length v]
+
+        tuple [x] = x
+        tuple xs  = "(" <> Text.intercalate ", " xs <> ")"
 
 say' :: Text -> String -> Script ()
 say' lbl = scriptIO . say lbl

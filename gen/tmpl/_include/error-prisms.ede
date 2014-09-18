@@ -8,24 +8,22 @@
   {% endif %}
   {% if branch.value.fields | listLength == 0 %}
 {{ branch.key | prism }} :: Prism' {{ scope.name }} ()
-  {% else %}
-{{ branch.key | prism }} :: Prism' {{ scope.name }} {{ branch.value.fields | prismTypes }}
-  {% endif %}
 {{ branch.key | prism }} = prism
-  {% case branch.value.fields | listLength %}
-  {% when 0 %}
     (const {{ branch.key }})
     (\case
         {{ branch.key }} -> Right ()
         x -> Left x)
-  {% when 1 %}
-    {{ branch.key }}
-    (\case
-        {{ branch.key }} p1 -> Right p1
-        x -> Left x)
   {% else %}
-FIXME: Oh noes!
-  {% endcase %}
+{{ branch.key | prism }} :: Prism' {{ scope.name }} {{ branch.value.fields | prismTypes }}
+    {% if branch.value.fields | listLength == 1 %}
+    {{ branch.key }}
+    {% else %}
+    (\{{ branch.value.fields | tupleParams }} -> {{ branch.key }} {{ branch.value.fields | fieldParams }})
+    {% endif %}
+    (\case
+        {{ branch.key }} {{ branch.value.fields | fieldParams }} -> Right {{ branch.value.fields | tupleParams }}
+        x -> Left x)
+  {% endif %}
   {% if !branch.last %}
 
   {% endif %}

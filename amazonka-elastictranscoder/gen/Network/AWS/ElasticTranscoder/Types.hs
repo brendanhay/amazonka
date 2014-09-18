@@ -344,7 +344,6 @@ _AccessDeniedException = prism
 
 -- | See: 'ElasticTranscoderClient'
 _ElasticTranscoderClient :: Prism' ElasticTranscoderError HttpException
-_ElasticTranscoderClient = prism
     ElasticTranscoderClient
     (\case
         ElasticTranscoderClient p1 -> Right p1
@@ -352,7 +351,6 @@ _ElasticTranscoderClient = prism
 
 -- | See: 'ElasticTranscoderSerializer'
 _ElasticTranscoderSerializer :: Prism' ElasticTranscoderError String
-_ElasticTranscoderSerializer = prism
     ElasticTranscoderSerializer
     (\case
         ElasticTranscoderSerializer p1 -> Right p1
@@ -360,7 +358,6 @@ _ElasticTranscoderSerializer = prism
 
 -- | See: 'ElasticTranscoderService'
 _ElasticTranscoderService :: Prism' ElasticTranscoderError String
-_ElasticTranscoderService = prism
     ElasticTranscoderService
     (\case
         ElasticTranscoderService p1 -> Right p1

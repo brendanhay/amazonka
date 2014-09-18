@@ -678,7 +678,6 @@ _ClusterQuotaForCustomerExceededFault = prism
 
 -- | See: 'ElastiCacheClient'
 _ElastiCacheClient :: Prism' ElastiCacheError HttpException
-_ElastiCacheClient = prism
     ElastiCacheClient
     (\case
         ElastiCacheClient p1 -> Right p1
@@ -686,7 +685,6 @@ _ElastiCacheClient = prism
 
 -- | See: 'ElastiCacheSerializer'
 _ElastiCacheSerializer :: Prism' ElastiCacheError String
-_ElastiCacheSerializer = prism
     ElastiCacheSerializer
     (\case
         ElastiCacheSerializer p1 -> Right p1
@@ -694,7 +692,6 @@ _ElastiCacheSerializer = prism
 
 -- | See: 'ElastiCacheService'
 _ElastiCacheService :: Prism' ElastiCacheError String
-_ElastiCacheService = prism
     ElastiCacheService
     (\case
         ElastiCacheService p1 -> Right p1
@@ -746,7 +743,6 @@ _InvalidCacheSecurityGroupStateFault = prism
 --
 -- See: 'InvalidParameterCombinationException'
 _InvalidParameterCombinationException :: Prism' ElastiCacheError (Maybe Text)
-_InvalidParameterCombinationException = prism
     InvalidParameterCombinationException
     (\case
         InvalidParameterCombinationException p1 -> Right p1
@@ -756,7 +752,6 @@ _InvalidParameterCombinationException = prism
 --
 -- See: 'InvalidParameterValueException'
 _InvalidParameterValueException :: Prism' ElastiCacheError (Maybe Text)
-_InvalidParameterValueException = prism
     InvalidParameterValueException
     (\case
         InvalidParameterValueException p1 -> Right p1

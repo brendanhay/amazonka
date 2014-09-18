@@ -221,20 +221,23 @@ instance Exception StorageGatewayError
 --
 -- See: 'InternalServerError'
 _InternalServerError :: Prism' StorageGatewayError (Maybe Text, Maybe StorageGatewayError)
-_InternalServerError = prism
-FIXME: Oh noes!
+    (\(p1, p2) -> InternalServerError p1 p2)
+    (\case
+        InternalServerError p1 p2 -> Right (p1, p2)
+        x -> Left x)
 
 -- | An exception occured because an invalid gateway request was issued to the
 -- service. See the error and message fields for more information.
 --
 -- See: 'InvalidGatewayRequestException'
 _InvalidGatewayRequestException :: Prism' StorageGatewayError (Maybe Text, Maybe StorageGatewayError)
-_InvalidGatewayRequestException = prism
-FIXME: Oh noes!
+    (\(p1, p2) -> InvalidGatewayRequestException p1 p2)
+    (\case
+        InvalidGatewayRequestException p1 p2 -> Right (p1, p2)
+        x -> Left x)
 
 -- | See: 'StorageGatewayClient'
 _StorageGatewayClient :: Prism' StorageGatewayError HttpException
-_StorageGatewayClient = prism
     StorageGatewayClient
     (\case
         StorageGatewayClient p1 -> Right p1
@@ -242,7 +245,6 @@ _StorageGatewayClient = prism
 
 -- | See: 'StorageGatewaySerializer'
 _StorageGatewaySerializer :: Prism' StorageGatewayError String
-_StorageGatewaySerializer = prism
     StorageGatewaySerializer
     (\case
         StorageGatewaySerializer p1 -> Right p1
@@ -250,7 +252,6 @@ _StorageGatewaySerializer = prism
 
 -- | See: 'StorageGatewayService'
 _StorageGatewayService :: Prism' StorageGatewayError String
-_StorageGatewayService = prism
     StorageGatewayService
     (\case
         StorageGatewayService p1 -> Right p1

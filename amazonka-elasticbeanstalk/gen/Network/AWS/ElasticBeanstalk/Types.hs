@@ -350,7 +350,6 @@ instance Exception ElasticBeanstalkError
 
 -- | See: 'ElasticBeanstalkClient'
 _ElasticBeanstalkClient :: Prism' ElasticBeanstalkError HttpException
-_ElasticBeanstalkClient = prism
     ElasticBeanstalkClient
     (\case
         ElasticBeanstalkClient p1 -> Right p1
@@ -358,7 +357,6 @@ _ElasticBeanstalkClient = prism
 
 -- | See: 'ElasticBeanstalkSerializer'
 _ElasticBeanstalkSerializer :: Prism' ElasticBeanstalkError String
-_ElasticBeanstalkSerializer = prism
     ElasticBeanstalkSerializer
     (\case
         ElasticBeanstalkSerializer p1 -> Right p1
@@ -366,7 +364,6 @@ _ElasticBeanstalkSerializer = prism
 
 -- | See: 'ElasticBeanstalkService'
 _ElasticBeanstalkService :: Prism' ElasticBeanstalkError String
-_ElasticBeanstalkService = prism
     ElasticBeanstalkService
     (\case
         ElasticBeanstalkService p1 -> Right p1

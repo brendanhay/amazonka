@@ -470,7 +470,6 @@ instance Exception EMRError
 
 -- | See: 'EMRClient'
 _EMRClient :: Prism' EMRError HttpException
-_EMRClient = prism
     EMRClient
     (\case
         EMRClient p1 -> Right p1
@@ -478,7 +477,6 @@ _EMRClient = prism
 
 -- | See: 'EMRSerializer'
 _EMRSerializer :: Prism' EMRError String
-_EMRSerializer = prism
     EMRSerializer
     (\case
         EMRSerializer p1 -> Right p1
@@ -486,7 +484,6 @@ _EMRSerializer = prism
 
 -- | See: 'EMRService'
 _EMRService :: Prism' EMRError String
-_EMRService = prism
     EMRService
     (\case
         EMRService p1 -> Right p1
@@ -507,7 +504,6 @@ _InternalServerError = prism
 --
 -- See: 'InternalServerException'
 _InternalServerException :: Prism' EMRError (Maybe Text)
-_InternalServerException = prism
     InternalServerException
     (\case
         InternalServerException p1 -> Right p1
@@ -517,8 +513,10 @@ _InternalServerException = prism
 --
 -- See: 'InvalidRequestException'
 _InvalidRequestException :: Prism' EMRError (Maybe Text, Maybe Text)
-_InvalidRequestException = prism
-FIXME: Oh noes!
+    (\(p1, p2) -> InvalidRequestException p1 p2)
+    (\case
+        InvalidRequestException p1 p2 -> Right (p1, p2)
+        x -> Left x)
 
 data ActionOnFailure
     = ActionOnFailureCancelAndWait -- ^ CANCEL_AND_WAIT

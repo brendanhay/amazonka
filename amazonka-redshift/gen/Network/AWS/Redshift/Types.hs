@@ -1202,7 +1202,6 @@ _NumberOfNodesQuotaExceededFault = prism
 
 -- | See: 'RedshiftClient'
 _RedshiftClient :: Prism' RedshiftError HttpException
-_RedshiftClient = prism
     RedshiftClient
     (\case
         RedshiftClient p1 -> Right p1
@@ -1210,7 +1209,6 @@ _RedshiftClient = prism
 
 -- | See: 'RedshiftSerializer'
 _RedshiftSerializer :: Prism' RedshiftError String
-_RedshiftSerializer = prism
     RedshiftSerializer
     (\case
         RedshiftSerializer p1 -> Right p1
@@ -1218,7 +1216,6 @@ _RedshiftSerializer = prism
 
 -- | See: 'RedshiftService'
 _RedshiftService :: Prism' RedshiftError String
-_RedshiftService = prism
     RedshiftService
     (\case
         RedshiftService p1 -> Right p1

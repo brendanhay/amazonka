@@ -334,7 +334,6 @@ instance Exception DynamoDBError
 --
 -- See: 'ConditionalCheckFailedException'
 _ConditionalCheckFailedException :: Prism' DynamoDBError (Maybe Text)
-_ConditionalCheckFailedException = prism
     ConditionalCheckFailedException
     (\case
         ConditionalCheckFailedException p1 -> Right p1
@@ -342,7 +341,6 @@ _ConditionalCheckFailedException = prism
 
 -- | See: 'DynamoDBClient'
 _DynamoDBClient :: Prism' DynamoDBError HttpException
-_DynamoDBClient = prism
     DynamoDBClient
     (\case
         DynamoDBClient p1 -> Right p1
@@ -350,7 +348,6 @@ _DynamoDBClient = prism
 
 -- | See: 'DynamoDBSerializer'
 _DynamoDBSerializer :: Prism' DynamoDBError String
-_DynamoDBSerializer = prism
     DynamoDBSerializer
     (\case
         DynamoDBSerializer p1 -> Right p1
@@ -358,7 +355,6 @@ _DynamoDBSerializer = prism
 
 -- | See: 'DynamoDBService'
 _DynamoDBService :: Prism' DynamoDBError String
-_DynamoDBService = prism
     DynamoDBService
     (\case
         DynamoDBService p1 -> Right p1
@@ -368,7 +364,6 @@ _DynamoDBService = prism
 --
 -- See: 'InternalServerError'
 _InternalServerError :: Prism' DynamoDBError (Maybe Text)
-_InternalServerError = prism
     InternalServerError
     (\case
         InternalServerError p1 -> Right p1
@@ -379,7 +374,6 @@ _InternalServerError = prism
 --
 -- See: 'ItemCollectionSizeLimitExceededException'
 _ItemCollectionSizeLimitExceededException :: Prism' DynamoDBError (Maybe Text)
-_ItemCollectionSizeLimitExceededException = prism
     ItemCollectionSizeLimitExceededException
     (\case
         ItemCollectionSizeLimitExceededException p1 -> Right p1
@@ -394,7 +388,6 @@ _ItemCollectionSizeLimitExceededException = prism
 --
 -- See: 'LimitExceededException'
 _LimitExceededException :: Prism' DynamoDBError (Maybe Text)
-_LimitExceededException = prism
     LimitExceededException
     (\case
         LimitExceededException p1 -> Right p1
@@ -410,7 +403,6 @@ _LimitExceededException = prism
 --
 -- See: 'ProvisionedThroughputExceededException'
 _ProvisionedThroughputExceededException :: Prism' DynamoDBError (Maybe Text)
-_ProvisionedThroughputExceededException = prism
     ProvisionedThroughputExceededException
     (\case
         ProvisionedThroughputExceededException p1 -> Right p1
@@ -422,7 +414,6 @@ _ProvisionedThroughputExceededException = prism
 --
 -- See: 'ResourceInUseException'
 _ResourceInUseException :: Prism' DynamoDBError (Maybe Text)
-_ResourceInUseException = prism
     ResourceInUseException
     (\case
         ResourceInUseException p1 -> Right p1
@@ -433,7 +424,6 @@ _ResourceInUseException = prism
 --
 -- See: 'ResourceNotFoundException'
 _ResourceNotFoundException :: Prism' DynamoDBError (Maybe Text)
-_ResourceNotFoundException = prism
     ResourceNotFoundException
     (\case
         ResourceNotFoundException p1 -> Right p1

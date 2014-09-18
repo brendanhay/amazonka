@@ -1412,7 +1412,6 @@ instance Exception EC2Error
 
 -- | See: 'EC2Client'
 _EC2Client :: Prism' EC2Error HttpException
-_EC2Client = prism
     EC2Client
     (\case
         EC2Client p1 -> Right p1
@@ -1420,7 +1419,6 @@ _EC2Client = prism
 
 -- | See: 'EC2Serializer'
 _EC2Serializer :: Prism' EC2Error String
-_EC2Serializer = prism
     EC2Serializer
     (\case
         EC2Serializer p1 -> Right p1
@@ -1428,7 +1426,6 @@ _EC2Serializer = prism
 
 -- | See: 'EC2Service'
 _EC2Service :: Prism' EC2Error String
-_EC2Service = prism
     EC2Service
     (\case
         EC2Service p1 -> Right p1

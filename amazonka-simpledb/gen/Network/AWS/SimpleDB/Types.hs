@@ -215,7 +215,6 @@ instance Exception SimpleDBError
 --
 -- See: 'AttributeDoesNotExist'
 _AttributeDoesNotExist :: Prism' SimpleDBError (Maybe Double)
-_AttributeDoesNotExist = prism
     AttributeDoesNotExist
     (\case
         AttributeDoesNotExist p1 -> Right p1
@@ -225,7 +224,6 @@ _AttributeDoesNotExist = prism
 --
 -- See: 'DuplicateItemName'
 _DuplicateItemName :: Prism' SimpleDBError (Maybe Double)
-_DuplicateItemName = prism
     DuplicateItemName
     (\case
         DuplicateItemName p1 -> Right p1
@@ -235,7 +233,6 @@ _DuplicateItemName = prism
 --
 -- See: 'InvalidNextToken'
 _InvalidNextToken :: Prism' SimpleDBError (Maybe Double)
-_InvalidNextToken = prism
     InvalidNextToken
     (\case
         InvalidNextToken p1 -> Right p1
@@ -245,7 +242,6 @@ _InvalidNextToken = prism
 --
 -- See: 'InvalidNumberPredicates'
 _InvalidNumberPredicates :: Prism' SimpleDBError (Maybe Double)
-_InvalidNumberPredicates = prism
     InvalidNumberPredicates
     (\case
         InvalidNumberPredicates p1 -> Right p1
@@ -255,7 +251,6 @@ _InvalidNumberPredicates = prism
 --
 -- See: 'InvalidNumberValueTests'
 _InvalidNumberValueTests :: Prism' SimpleDBError (Maybe Double)
-_InvalidNumberValueTests = prism
     InvalidNumberValueTests
     (\case
         InvalidNumberValueTests p1 -> Right p1
@@ -265,7 +260,6 @@ _InvalidNumberValueTests = prism
 --
 -- See: 'InvalidParameterValue'
 _InvalidParameterValue :: Prism' SimpleDBError (Maybe Double)
-_InvalidParameterValue = prism
     InvalidParameterValue
     (\case
         InvalidParameterValue p1 -> Right p1
@@ -275,7 +269,6 @@ _InvalidParameterValue = prism
 --
 -- See: 'InvalidQueryExpression'
 _InvalidQueryExpression :: Prism' SimpleDBError (Maybe Double)
-_InvalidQueryExpression = prism
     InvalidQueryExpression
     (\case
         InvalidQueryExpression p1 -> Right p1
@@ -285,7 +278,6 @@ _InvalidQueryExpression = prism
 --
 -- See: 'MissingParameter'
 _MissingParameter :: Prism' SimpleDBError (Maybe Double)
-_MissingParameter = prism
     MissingParameter
     (\case
         MissingParameter p1 -> Right p1
@@ -295,7 +287,6 @@ _MissingParameter = prism
 --
 -- See: 'NoSuchDomain'
 _NoSuchDomain :: Prism' SimpleDBError (Maybe Double)
-_NoSuchDomain = prism
     NoSuchDomain
     (\case
         NoSuchDomain p1 -> Right p1
@@ -305,7 +296,6 @@ _NoSuchDomain = prism
 --
 -- See: 'NumberDomainAttributesExceeded'
 _NumberDomainAttributesExceeded :: Prism' SimpleDBError (Maybe Double)
-_NumberDomainAttributesExceeded = prism
     NumberDomainAttributesExceeded
     (\case
         NumberDomainAttributesExceeded p1 -> Right p1
@@ -315,7 +305,6 @@ _NumberDomainAttributesExceeded = prism
 --
 -- See: 'NumberDomainBytesExceeded'
 _NumberDomainBytesExceeded :: Prism' SimpleDBError (Maybe Double)
-_NumberDomainBytesExceeded = prism
     NumberDomainBytesExceeded
     (\case
         NumberDomainBytesExceeded p1 -> Right p1
@@ -325,7 +314,6 @@ _NumberDomainBytesExceeded = prism
 --
 -- See: 'NumberDomainsExceeded'
 _NumberDomainsExceeded :: Prism' SimpleDBError (Maybe Double)
-_NumberDomainsExceeded = prism
     NumberDomainsExceeded
     (\case
         NumberDomainsExceeded p1 -> Right p1
@@ -335,7 +323,6 @@ _NumberDomainsExceeded = prism
 --
 -- See: 'NumberItemAttributesExceeded'
 _NumberItemAttributesExceeded :: Prism' SimpleDBError (Maybe Double)
-_NumberItemAttributesExceeded = prism
     NumberItemAttributesExceeded
     (\case
         NumberItemAttributesExceeded p1 -> Right p1
@@ -345,7 +332,6 @@ _NumberItemAttributesExceeded = prism
 --
 -- See: 'NumberSubmittedAttributesExceeded'
 _NumberSubmittedAttributesExceeded :: Prism' SimpleDBError (Maybe Double)
-_NumberSubmittedAttributesExceeded = prism
     NumberSubmittedAttributesExceeded
     (\case
         NumberSubmittedAttributesExceeded p1 -> Right p1
@@ -355,7 +341,6 @@ _NumberSubmittedAttributesExceeded = prism
 --
 -- See: 'NumberSubmittedItemsExceeded'
 _NumberSubmittedItemsExceeded :: Prism' SimpleDBError (Maybe Double)
-_NumberSubmittedItemsExceeded = prism
     NumberSubmittedItemsExceeded
     (\case
         NumberSubmittedItemsExceeded p1 -> Right p1
@@ -366,7 +351,6 @@ _NumberSubmittedItemsExceeded = prism
 --
 -- See: 'RequestTimeout'
 _RequestTimeout :: Prism' SimpleDBError (Maybe Double)
-_RequestTimeout = prism
     RequestTimeout
     (\case
         RequestTimeout p1 -> Right p1
@@ -374,7 +358,6 @@ _RequestTimeout = prism
 
 -- | See: 'SimpleDBClient'
 _SimpleDBClient :: Prism' SimpleDBError HttpException
-_SimpleDBClient = prism
     SimpleDBClient
     (\case
         SimpleDBClient p1 -> Right p1
@@ -382,7 +365,6 @@ _SimpleDBClient = prism
 
 -- | See: 'SimpleDBSerializer'
 _SimpleDBSerializer :: Prism' SimpleDBError String
-_SimpleDBSerializer = prism
     SimpleDBSerializer
     (\case
         SimpleDBSerializer p1 -> Right p1
@@ -390,7 +372,6 @@ _SimpleDBSerializer = prism
 
 -- | See: 'SimpleDBService'
 _SimpleDBService :: Prism' SimpleDBError String
-_SimpleDBService = prism
     SimpleDBService
     (\case
         SimpleDBService p1 -> Right p1
@@ -400,7 +381,6 @@ _SimpleDBService = prism
 --
 -- See: 'TooManyRequestedAttributes'
 _TooManyRequestedAttributes :: Prism' SimpleDBError (Maybe Double)
-_TooManyRequestedAttributes = prism
     TooManyRequestedAttributes
     (\case
         TooManyRequestedAttributes p1 -> Right p1

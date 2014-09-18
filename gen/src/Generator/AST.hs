@@ -266,14 +266,14 @@ instance Default Ctor where
     def = CData
 
 data Ann = Ann
-   { _anRaw'     :: !Text
-   , _anCtor     :: !Ctor
-   , _anWrap     :: !Bool
-   , _anMonoid   :: !Bool
-   , _anDefault  :: !Bool
-   , _anRequired :: !Bool
-   , _anStrict   :: !Bool
-   } deriving (Eq, Show, Generic)
+    { _anRaw'     :: !Text
+    , _anCtor     :: !Ctor
+    , _anWrap     :: !Bool
+    , _anMonoid   :: !Bool
+    , _anDefault  :: !Bool
+    , _anRequired :: !Bool
+    , _anStrict   :: !Bool
+    } deriving (Eq, Show, Generic)
 
 instance Default Ann where
     def = Ann "Default" def False False False False False
@@ -518,7 +518,6 @@ defaultService a = Service
     }
 
 makeLenses ''Request
-makeLenses ''Ann
 makeLenses ''Field
 makeLenses ''Error
 makeLenses ''Token
@@ -535,8 +534,15 @@ makeLenses ''Sum
 makeLenses ''Prim
 makeLenses ''QueryPart
 
+makeClassy ''Ann
 makeClassy ''TypeOverride
 makeClassy ''FieldOverride
+
+instance HasAnn Field where
+    ann = fldAnn
+
+instance HasAnn Type' where
+    ann = typAnn
 
 instance HasTypeOverride Service where
     typeOverride = svcTypeOverride

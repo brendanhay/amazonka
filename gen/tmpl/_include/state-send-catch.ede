@@ -13,15 +13,15 @@
 {% if scope.request.exhaustive %}
   {% if scope.request.params | mapLength > 0 %}
     {% if scope.pagination %}
-    -> Source m (Either ServiceEr {{ scope.response.name }})
+    -> Source m (Either {{ scope.service }}Error {{ scope.response.name }})
     {% else %}
-    -> m (Either ServiceEr {{ scope.response.name }})
+    -> m (Either {{ scope.service }}Error {{ scope.response.name }})
     {% endif %}
   {% else %}
     {% if scope.pagination %}
-    => Source m (Either ServiceEr {{ scope.response.name }})
+    => Source m (Either {{ scope.service }}Error {{ scope.response.name }})
     {% else %}
-    => m (Either ServiceEr {{ scope.response.name }})
+    => m (Either {{ scope.service }}Error {{ scope.response.name }})
     {% endif %}
   {% endif %}
 {% else %}
@@ -31,9 +31,9 @@
     => State {{ scope.request.name }} a
   {% endif %}
   {% if scope.pagination %}
-    -> Source m (Either ServiceEr {{ scope.response.name }})
+    -> Source m (Either {{ scope.service }}Error {{ scope.response.name }})
   {% else %}
-    -> m (Either ServiceEr {{ scope.response.name }})
+    -> m (Either {{ scope.service }}Error {{ scope.response.name }})
   {% endif %}
 {% endif %}
 {% if scope.request.exhaustive %}

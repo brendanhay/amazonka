@@ -42,3 +42,4 @@ executable amazonka-gen
         , text
         , transformers
         , unordered-containers
+        , vector

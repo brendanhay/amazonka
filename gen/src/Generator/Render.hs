@@ -26,11 +26,13 @@ import qualified Data.Foldable       as Fold
 import           Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as Map
 import           Data.List           (intersperse)
+import           Data.Maybe
 import           Data.Monoid
 import           Data.Text           (Text)
 import qualified Data.Text           as Text
 import qualified Data.Text.Lazy.IO   as LText
 import           Data.Text.Util
+import qualified Data.Vector         as Vector
 import           Generator.AST       hiding (HashMap)
 import           Generator.Log
 import           Generator.ToJSON    ()
@@ -154,31 +156,45 @@ filters = EDE.defaultFilters
       ++ funN "wrap"    (wrap "")   [66, 76, 80]
       ++ funN "above"   (wrap "| ") [66, 76]
       ++ funN "below"   (wrap "^ ") [66, 76]
+      where
+        funN k g = Fold.foldl' (f k g) []
 
-    gs = [ ("dropLower",    Fun TText TText (Text.dropWhile (not . isUpper)))
-         , ("notEmptyText", Fun TText TBool (not . Text.null . Text.strip))
-         , ("lens",         Fun TText TText lensPrefix)
-         , ("iso",          Fun TText TText isoPrefix)
-         , ("field",        Fun TText TText fieldPrefix)
-         , ("haddock",      Fun TText TText haddock)
-         ]
-
-    haddock t =
-        case Text.splitOn "." t of
-            [] -> ""
-            xs -> Text.intercalate "\n"
-                . intersperse "."
-                . map ((<> ".") . Text.strip)
-                $ init xs
+        f k g xs n = (k <> Text.pack (show n), Fun TText TText (g n)) : xs
 
     wrap p n t =
         case normalise n t of
             []     -> ""
             (x:xs) -> Text.intercalate "\n" . map ("-- " <>) $ p <> x : xs
 
-    funN k g = Fold.foldl' (f k g) []
+    gs = [ ("dropLower",    Fun TText TText (Text.dropWhile (not . isUpper)))
+         , ("notEmptyText", Fun TText TBool (not . Text.null . Text.strip))
+         , ("lens",         Fun TText TText lensPrefix)
+         , ("prism",        Fun TText TText prismPrefix)
+         , ("field",        Fun TText TText fieldPrefix)
+         , ("haddock",      Fun TText TText haddock)
+         , ("prismTypes",   Fun TList TText prismTypes)
+         ]
+      where
+        haddock t = case Text.splitOn "." t of
+            [] -> ""
+            xs -> Text.intercalate "\n"
+                . intersperse "."
+                . map ((<> ".") . Text.strip)
+                $ init xs
 
-    f k g xs n = (k <> Text.pack (show n), Fun TText TText (g n)) : xs
+        prismTypes v = tuple $
+            case Vector.toList v of
+                [x] -> maybeToList (obj "wrapped" x)
+                xs  -> mapMaybe (obj "type") xs
+          where
+            obj k (Object o) = Map.lookup k o >>= text
+            obj _ _          = Nothing
+
+            text (String t) = Just t
+            text _          = Nothing
+
+            tuple [x] = x
+            tuple xs  = "(" <> Text.intercalate ", " xs <> ")"
 
 say' :: Text -> String -> Script ()
 say' lbl = scriptIO . say lbl

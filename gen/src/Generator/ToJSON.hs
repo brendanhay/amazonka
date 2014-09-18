@@ -159,16 +159,16 @@ instance ToJSON Primitive where
     toJSON = toCtor (drop 1)
 
 instance ToJSON Ann where
-    toJSON ann = Object (x <> y)
+    toJSON a = Object (x <> y)
       where
         Object x = object
             [ "wrapped" .= wtyp
             , "type"    .= typ
-            , "strict"  .= if _anStrict ann then "!" <> wtyp else typ
+            , "strict"  .= if _anStrict a then "!" <> wtyp else typ
             ]
-        Object y = toField (recase Camel Under . drop 3) ann
+        Object y = toField (recase Camel Under . drop 3) a
 
-        (wtyp, typ) = typeOf ann
+        (wtyp, typ) = typeOf a
 
 instance ToJSON Ctor where
     toJSON = toJSON . lowered . drop 1 . show

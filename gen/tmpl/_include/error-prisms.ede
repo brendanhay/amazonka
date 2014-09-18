@@ -1,0 +1,25 @@
+{% for branch in scope.ctors %}
+  {% if branch.value.fields | listLength == 0 %}
+{{ branch.key | prism }} :: Prism' {{ scope.name }} ()
+  {% else %}
+{{ branch.key | prism }} :: Prism' {{ scope.name }} {{ branch.value.fields | prismTypes }}
+  {% endif %}
+{{ branch.key | prism }} = prism'
+  {% case branch.value.fields | listLength %}
+  {% when 0 %}
+    (const {{ branch.key }})
+    (\case
+        {{ branch.key }} -> Right ()
+        x -> Left x)
+  {% when 1 %}
+    {{ branch.key }}
+    (\case
+        {{ branch.key }} p1 -> Right p1
+        x -> Left x)
+  {% else %}
+Oh noes!
+  {% endcase %}
+  {% if !branch.last %}
+
+  {% endif %}
+{% endfor %}

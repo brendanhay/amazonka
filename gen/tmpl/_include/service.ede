@@ -4,12 +4,7 @@ data {{ scope.name }} deriving (Typeable)
 
 instance AWSService {{ scope.name }} where
     type Sg {{ scope.name }} = {{ scope.signature }}
-    {% if scope.error.shapes | listLength == 0 %}
-    data Er {{ scope.name }} = {{ scope.error.name }}
-    {% else %}
-    data Er {{ scope.name }}
-      {% include "error-sum.ede" with scope.error %}
-    {% endif %}
+    type Er {{ scope.name }} = {{ scope.error.name }}
 
     service = Service'
         { _svcEndpoint = {% if global_endpoint -%} Global{% else -%} Regional{% endif -%}
@@ -18,15 +13,4 @@ instance AWSService {{ scope.name }} where
         , _svcTarget   = {% if target_prefix -%} (Just "{{ scope.target_prefix }}"){% else -%} Nothing {% endif -%}
         }
 
-deriving instance Show    (Er {{ scope.name }})
-deriving instance Generic (Er {{ scope.name }})
-
-instance AWSError (Er {{ scope.name }}) where
-    awsError = const "{{ scope.error.name }}"
-
-instance AWSServiceError (Er {{ scope.name }}) where
-    serviceError    = {{ scope.name }}Service
-    clientError     = {{ scope.name }}Client
-    serializerError = {{ scope.name }}Serializer
-
-instance Exception (Er {{ scope.name }})
+{% include "error.ede" with scope %}

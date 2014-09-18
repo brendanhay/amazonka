@@ -2,32 +2,32 @@
   {% case branch.value.ctor %}
   {% when "error" %}
     {% if branch.first %}
-        = {{ branch.key }} {% include "error-product.ede" with branch.value.fields %}
+    = {{ branch.key }} {% include "error-product.ede" with branch.value.fields %}
 
     {% else %}
-        | {{ branch.key }} {% include "error-product.ede" with branch.value.fields %}
+    | {{ branch.key }} {% include "error-product.ede" with branch.value.fields %}
 
     {% endif %}
   {% when "nullary" %}
     {% if branch.first %}
-        = {{ branch.key }}
+    = {{ branch.key }}
     {% else %}
-        | {{ branch.key }}
+    | {{ branch.key }}
     {% endif %}
   {% else %}
     {% for field in branch.value.fields %}
       {% if field.first %}
         {% if branch.first %}
-        = {{ branch.key }}
+    = {{ branch.key }}
         {% else %}
-        | {{ branch.key }}
+    | {{ branch.key }}
         {% endif %}
-            { {{ field.value.prefixed }} :: {{ field.value.type }}
+        { {{ field.value.prefixed }} :: {{ field.value.type }}
       {% else %}
-            , {{ field.value.prefixed }} :: {{ field.value.type }}
+        , {{ field.value.prefixed }} :: {{ field.value.type }}
       {% endif %}
       {% if field.last %}
-            }
+        }
       {% endif %}
     {% endfor %}
   {% endcase %}

@@ -49,9 +49,9 @@ lowerFirstWord = f . map Text.pack . splitBy isUpper . Text.unpack
     f []     = ""
     f (x:xs) = Text.toLower x <> Text.concat xs
 
-lensPrefix, isoPrefix, fieldPrefix :: Text -> Text
+lensPrefix, prismPrefix, fieldPrefix :: Text -> Text
 lensPrefix t = reserved $ fromMaybe t (Text.stripPrefix "_" t)
-isoPrefix    = mappend "_" . reserved
+prismPrefix  = mappend "_" . reserved
 fieldPrefix  = reserved . Text.dropWhile (not . isUpper)
 
 reserved :: Text -> Text

@@ -308,14 +308,14 @@ annOf rq svc s = Ann isRaw (ctorOf s) isWrapped monoid' default' req strict'
             | l^.lstMinLength > 0
             -- This seems to be an incorrect assumption, that a list that
             -- is 'required' is equivalient to min_length > 0 || l^.cmnRequired
-                -> let (r, w) = ann (_lstItem l)
+                -> let (r, w) = ann' (_lstItem l)
                     in ("List1 " <> parens w r, True)
 
         SList l -> ("[" <> raw (_lstItem l) <> "]", False)
 
         SMap  m ->
-            let (kr, kw) = ann (_mapKey m)
-                (vr, vw) = ann (_mapValue m)
+            let (kr, kw) = ann' (_mapKey m)
+                (vr, vw) = ann' (_mapValue m)
              in ("Map " <> parens kw kr <> " " <> parens vw vr, True)
 
         SSum _
@@ -327,8 +327,8 @@ annOf rq svc s = Ann isRaw (ctorOf s) isWrapped monoid' default' req strict'
             | body       -> ("RsBody", False)
             | otherwise  -> (formatPrim svc p, False)
 
-    raw   = fst . ann
-    ann x = let y = annOf rq svc x in (_anRaw' y, _anWrap y)
+    raw    = fst . ann'
+    ann' x = let y = annOf rq svc x in (_anRaw' y, _anWrap y)
 
     switch = name `elem` switches
 
@@ -364,11 +364,10 @@ renameType svc x = Map.lookup (x ^. cmnName) (svc ^. tRename)
 formatPrim :: Service -> Prim -> Text
 formatPrim Service{..} Prim{..} = Text.pack $
     case _prmType of
-        PUTCTime -> show _svcTimestamp
+        PUTCTime               -> show _svcTimestamp
         PByteString
             | _svcType == Json -> "Base64"
-           -- _svcName `elem` ["Kinesis", "DynamoDB"] -> "Base64"
-        _        -> drop 1 (show _prmType)
+        _                      -> drop 1 (show _prmType)
 
 switches :: [Text]
 switches =
@@ -510,30 +509,24 @@ serviceError a os = Error (unAbbrev a <> "Error") (es ++ cs) ts
          $ map (bimap (view cmnName) custom . join (,)) cs
         ++ map (bimap (view cmnName) (shapeType True svc) . join (,)) es
 
-    cs = [ except "Serializer" "String"
+    cs = [ except "Serializer" "Text"
          , except "Client"     "HttpException"
-         , except "Service"    "String"
+         , except "Service"    "Text"
          ]
 
     es = nub (concatMap _opErrors os)
 
-    custom s = Type
-        { _typShape    = s
-        , _typAnn      = annOf True svc s & anCtor .~ CError
-        , _typPayload  = Nothing
-        , _typFields   = fields True svc s
-        , _typHeaders  = []
-        }
+    custom s = shapeType True svc s & anCtor .~ CError
 
-    svc = defaultService a
-
-    except k v = SStruct (Struct [("", field)] ctor)
+    except k v = SStruct (Struct [(v, field)] ctor)
       where
         field = SStruct . Struct mempty $ def
             & cmnName .~ v
             & cmnRequired .~ True
 
         ctor = def & cmnName .~ (unAbbrev a <> k)
+
+    svc = defaultService a
 
 requireField :: [CI Text] -> Field -> Field
 requireField cs f

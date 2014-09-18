@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -17,6 +17,11 @@ module {{ scope.ns.types }}
     (
     -- * Service
       {{ scope.name }}
+    -- ** Errors
+    , {{ scope.error.name }} (..)
+{% for branch in scope.error.ctors %}
+    , {{ branch.key | prism }}
+{% endfor %}
 {% case scope.type %}
 {% when "json" %}
 {% when "restjson" %}

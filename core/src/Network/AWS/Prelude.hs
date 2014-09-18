@@ -18,7 +18,6 @@ module Network.AWS.Prelude
     , Typeable
 
     -- * Primitives
-    , Source
     , Base64
     , ByteString
     , Exception
@@ -62,7 +61,6 @@ import Control.Monad.Trans.Resource (MonadResource(..))
 import Data.Aeson                   (FromJSON(..), ToJSON(..))
 import Data.Bifunctor               as Export
 import Data.ByteString              (ByteString)
-import Data.Conduit                 (Source)
 import Data.Default                 as Export
 import Data.Hashable                as Export
 import Data.Maybe                   as Export

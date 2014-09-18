@@ -64,6 +64,11 @@ smartCtor = f . lowerFirstWord
         , "where"
         ]
 
+    reserved = Set.fromList
+        [ "filter"
+        , "error"
+        ]
+
 firstAcronym :: Text -> Maybe Text
 firstAcronym t
     | Text.length x > 1 = Just x

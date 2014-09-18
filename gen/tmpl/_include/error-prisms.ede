@@ -11,7 +11,7 @@
   {% else %}
 {{ branch.key | prism }} :: Prism' {{ scope.name }} {{ branch.value.fields | prismTypes }}
   {% endif %}
-{{ branch.key | prism }} = prism'
+{{ branch.key | prism }} = prism
   {% case branch.value.fields | listLength %}
   {% when 0 %}
     (const {{ branch.key }})

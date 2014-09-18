@@ -132,7 +132,7 @@ data Error
 instance Exception Error
 
 instance IsString Error where
-    fromString = ServiceError . Text.pack
+    fromString = ServiceError
 
 instance Monoid Error where
     mempty      = Nested []
@@ -148,20 +148,23 @@ class AWSError a where
 instance AWSError Error where
     awsError = id
 
-instance AWSError Text where
+instance AWSError String where
     awsError = ServiceError
 
+instance AWSError Text where
+    awsError = ServiceError . Text.unpack
+
 instance AWSError LText.Text where
-    awsError = ServiceError . LText.toStrict
+    awsError = ServiceError . LText.unpack
 
 instance AWSError HttpException where
     awsError = ClientError
 
 -- | Convert from service specific errors to the more general service error.
 class AWSError a => AWSServiceError a where
-    serviceError    :: Text        -> a
+    serviceError    :: String        -> a
     clientError     :: HttpException -> a
-    serializerError :: Text        -> a
+    serializerError :: String        -> a
 
 instance AWSServiceError Error where
     serviceError    = ServiceError

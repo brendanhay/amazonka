@@ -1,9 +1,0 @@
-
--- ${{ scope.request.name }}
-{% if scope.documentation %}
-{{ scope.documentation | wrap76 }}
---
-{% endif %}
--- See: '{{ scope.namespace }}'
-{% include "state-send.ede" with scope %}
-{% include "state-send-catch.ede" with scope %}

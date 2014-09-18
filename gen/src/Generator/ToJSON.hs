@@ -97,17 +97,11 @@ instance ToJSON Operation where
     toJSON = toField (recase Camel Under . drop 3)
 
 instance ToJSON Request where
-    toJSON rq@Request{..} = Object (w <> x <> y <> z)
+    toJSON rq@Request{..} = Object (x <> y <> z)
       where
-        Object w = toJSON _rqHttp
-        Object x = toField (recase Camel Under . drop 3) rq
-        Object y = toJSON _rqType
-        Object z = object
-          [ "function"     .= name
-          , "function_pad" .= Text.replicate (Text.length name) " "
-          ]
-
-        name = lowerFirstWord (rq ^. cmnName)
+        Object x = toJSON _rqHttp
+        Object y = toField (recase Camel Under . drop 3) rq
+        Object z = toJSON _rqType
 
 instance ToJSON Style where
     toJSON = toCtor (recase Camel Under . drop 1)
@@ -149,7 +143,7 @@ instance ToJSON Shape where
                 SSum    s' -> toField f s'
                 SPrim   s' -> toField f s'
 
-        Object y = toJSON (s ^. common)
+        Object y = toJSON (s^.common)
         Object z = object
             [ "default" .= isDefault s
             , "monoid"  .= isMonoid s
@@ -178,7 +172,7 @@ instance ToJSON Type' where
       where
         Object x = object
             [ "smart_pad"  .= Text.replicate (Text.length name + 2) " "
-            , "smart_ctor" .= mappend "mk" name
+            , "smart_ctor" .= lowerFirstWord name
             , "fields"     .= _typFields
             , "payload"    .= _typPayload
             , "params"     .= object params
@@ -186,15 +180,15 @@ instance ToJSON Type' where
             , "headers"    .= _typHeaders
             ]
 
-        Object y = toJSON (t ^. typAnn)
-        Object z = toJSON (t ^. typShape)
+        Object y = toJSON (t^.typAnn)
+        Object z = toJSON (t^.typShape)
 
-        name = t ^. cmnName
+        name = t^.cmnName
 
         params = foldl' param [] $ zip [1..] _typFields
 
         param xs (i :: Int, f)
-            | f ^. cmnRequired = (Text.pack $ show i, toJSON f) : xs
+            | f^.cmnRequired = (Text.pack $ show i, toJSON f) : xs
             | otherwise        = xs
 
 instance ToJSON Field where
@@ -203,10 +197,10 @@ instance ToJSON Field where
         Object x = object
             [ "length"   .= (Text.length prefix + 1)
             , "prefixed" .= prefix
-            , "lens"     .= lowerFirst (f ^. cmnName)
+            , "lens"     .= lowerFirst (f^.cmnName)
             ]
 
-        Object y = toJSON (f ^. fldAnn)
+        Object y = toJSON (f^.fldAnn)
         Object z = toJSON (_fldCommon f)
 
         prefix = accessor (_fldPrefixed f)

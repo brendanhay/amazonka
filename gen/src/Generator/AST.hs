@@ -435,7 +435,6 @@ instance Default FieldOverride where
 
 data Namespaces = Namespaces
     { _nsRoot    :: !NS
-    , _nsMonadic :: !NS
     , _nsTypes   :: !NS
     , _nsRequest :: !NS
     } deriving (Eq, Show, Generic)
@@ -443,7 +442,6 @@ data Namespaces = Namespaces
 namespacesFromAbbrev :: Abbrev -> ServiceType -> Namespaces
 namespacesFromAbbrev a t = Namespaces
     { _nsRoot    = root
-    , _nsMonadic = root <> "Monadic"
     , _nsTypes   = root <> "Types"
     , _nsRequest = NS ["Network", "AWS", "Request", fromString (show t)]
     }

@@ -90,8 +90,8 @@ transform = map eval . sort . nub
   where
     eval x =
         let os  = evalState (mapM (operation x) (_svcOperations x)) mempty
-            y   = x & svcOperations .~ os
-            z   = y & svcTypes .~ serviceTypes y
+            y   = x & svcOperations.~os
+            z   = y & svcTypes.~serviceTypes y
             p o = o & opPagination %~ fmap (pagination z o)
          in z & svcOperations %~ map p
 
@@ -105,51 +105,51 @@ current = mapMaybe latest . groupBy identical
 
 operation :: Service -> Operation -> State (HashMap Text Text) Operation
 operation svc@Service{..} o = do
-    let x = o & opService            .~ _svcName
-              & opNs                 .~ _svcNs
-              & opNamespace          .~ operationNS svc o
+    let x = o & opService           .~_svcName
+              & opNs                .~_svcNs
+              & opNamespace         .~operationNS svc o
 
-    let y = x & opRequest.cmnName    .~ (x ^. opName)
-              & opRequest.cmnPrefix  .~ casedChars (x ^. opName)
-              & opResponse.cmnName   .~ (x ^. opName <> "Response")
-              & opResponse.cmnPrefix .~ casedChars (x ^. opName) <> "r"
+    let y = x & opRequest.cmnName   .~(x^.opName)
+              & opRequest.cmnPrefix .~casedChars (x^.opName)
+              & opResponse.cmnName  .~(x^.opName <> "Response")
+              & opResponse.cmnPrefix.~casedChars (x^.opName) <> "r"
 
-    rq <- uniquify svc (y ^. opRequest.typShape)
-    rs <- uniquify svc (y ^. opResponse.typShape)
+    rq <- uniquify svc (y^.opRequest.typShape)
+    rs <- uniquify svc (y^.opResponse.typShape)
 
-    let z = y & opRequest.typShape  .~ rq
-              & opRequest.rqType    .~ shapeType True svc rq
+    let z = y & opRequest.typShape .~rq
+              & opRequest.rqType   .~shapeType True svc rq
               & opRequest.rqHttp    %~ http rq
-              & opResponse.typShape .~ rs
+              & opResponse.typShape.~rs
               & opResponse          %~ response svc
 
     return z
 
 operationNS :: Service -> Operation -> NS
-operationNS svc o = svc ^. svcNs.nsRoot <> NS [o ^. opName]
+operationNS svc o = svc^.svcNs.nsRoot <> NS [o^.opName]
 
 response :: Service -> Response -> Response
-response svc@Service{..} rs = rs' & rsStyle .~ style _svcType rs'
+response svc@Service{..} rs = rs' & rsStyle.~style _svcType rs'
   where
-    rs' = rs & rsType .~ shapeType False svc (rs ^. typShape)
+    rs' = rs & rsType.~shapeType False svc (rs^.typShape)
 
 uniquify :: Service -> Shape -> State (HashMap Text Text) Shape
 uniquify svc (special svc -> s)
-    | "Unknown" <- s ^. cmnName       = return s
+    | "Unknown" <- s^.cmnName       = return s
     | Just _    <- existingType svc s = return s
     | otherwise = do
         case s of
             SStruct c@Struct{..} -> do
-                x  <- go (s ^. cmnPrefix) (s ^. cmnName) (s ^. cmnDirection)
+                x  <- go (s^.cmnPrefix) (s^.cmnName) (s^.cmnDirection)
                 fs <- traverse (\(k, v) -> (k,) <$> uniquify svc v) _sctFields
-                return . SStruct $ c & cmnPrefix .~ x & sctFields .~ fs
+                return . SStruct $ c & cmnPrefix.~x & sctFields.~fs
             SList l@List{..} -> do
                 i <- uniquify svc _lstItem
-                return . SList $ l & lstItem .~ i
+                return . SList $ l & lstItem.~i
             SMap m@Map{..} -> do
                 k <- uniquify svc _mapKey
                 v <- uniquify svc _mapValue
-                return . SMap $ m & mapKey .~ k & mapValue .~ v
+                return . SMap $ m & mapKey.~k & mapValue.~v
             _ -> return s
   where
     go :: Text -> Text -> Direction -> State (HashMap Text Text) Text
@@ -174,11 +174,11 @@ uniquify svc (special svc -> s)
             Nothing             -> True
 
 special :: HasCommon a => Service -> a -> a
-special svc s = f (_svcName svc) (s ^. cmnName) s
+special svc s = f (_svcName svc) (s^.cmnName) s
   where
     -- FIXME: Special case for erroneous service model types
-    f "EC2" "String" = cmnName .~ "VirtualizationType"
-    f _     n        = cmnName .~ fromMaybe n (renameType svc s)
+    f "EC2" "String" = cmnName.~"VirtualizationType"
+    f _     n        = cmnName.~fromMaybe n (renameType svc s)
 
 http :: Shape -> HTTP -> HTTP
 http p h = h & hPath %~ map f & hQuery %~ map g
@@ -205,23 +205,23 @@ style t rs@Response{..} =
         _ | bdy         -> SXml
         _               -> SXmlCursor
   where
-    str = maybe False (view cmnStreaming) (rs ^. typPayload)
+    str = maybe False (view cmnStreaming) (rs^.typPayload)
 
-    bdy = isJust (rs ^. typPayload)
-    fs  = length (rs ^. typFields)
-    hs  = length (rs ^. typHeaders)
+    bdy = isJust (rs^.typPayload)
+    fs  = length (rs^.typFields)
+    hs  = length (rs^.typHeaders)
 
 pagination :: Service -> Operation -> Pagination -> Pagination
 pagination svc o p = case p of
-    More m t -> More (labeled (rs ^. cmnName) m) (map token t)
-    Next r t -> Next (labeled (rs ^. cmnName) r) (token t)
+    More m t -> More (labeled (rs^.cmnName) m) (map token t)
+    Next r t -> Next (labeled (rs^.cmnName) r) (token t)
   where
     token t = t
-        & tokInput  %~ labeled (rq ^. cmnName)
-        & tokOutput %~ labeled (rs ^. cmnName)
+        & tokInput  %~ labeled (rq^.cmnName)
+        & tokOutput %~ labeled (rs^.cmnName)
 
-    rq = o ^. opRequest.typShape
-    rs = o ^. opResponse.typShape
+    rq = o^.opRequest.typShape
+    rs = o^.opResponse.typShape
 
     types = shapeType True svc rq
           : shapeType False svc rs
@@ -262,12 +262,12 @@ fields rq svc s = case s of
   where
     f :: (Text, Shape) -> Field
     f (k, v) =
-        let p = (`elem` (svc ^. fRequired)) . CI.mk
-            x = if p k then v & cmnRequired .~ True else v
-         in Field (annOf rq svc x) k (prefixed s k) (x ^. common)
+        let p = (`elem` (svc^.fRequired)) . CI.mk
+            x = if p k then v & cmnRequired.~True else v
+         in Field (annOf rq svc x) k (prefixed s k) (x^.common)
 
 prefixed :: HasCommon a => a -> Text -> Text
-prefixed p = accessor . mappend (p ^. cmnPrefix) . upperFirst
+prefixed p = accessor . mappend (p^.cmnPrefix) . upperFirst
 
 shapeType :: Bool -> Service -> Shape -> Type'
 shapeType rq svc@Service{..} s = Type
@@ -282,14 +282,14 @@ shapeType rq svc@Service{..} s = Type
     hs  = filter ((== LHeader) . view cmnLocation) fs
     fs  = map (requireField overrides . upd) (fields rq svc shape)
 
-    overrides = fromMaybe [] $ Map.lookup name (svc ^. tRequired)
+    overrides = fromMaybe [] $ Map.lookup name (svc^.tRequired)
 
-    upd f | f ^. cmnLocation == LBody
-          , f ^. cmnStreaming = f & cmnRequired .~ True & fldAnn.anRequired .~ True
+    upd f | f^.cmnLocation == LBody
+          , f^.cmnStreaming = f & cmnRequired.~True & fldAnn.anRequired.~True
           | otherwise         = f
 
-    shape = ignoreFields (svc ^. fIgnored) s
-    name  = s ^. cmnName
+    shape = ignoreFields (svc^.fIgnored) s
+    name  = s^.cmnName
 
 annOf :: Bool -> Service -> Shape -> Ann
 annOf rq svc s = Ann isRaw (ctorOf s) isWrapped monoid' default' req strict'
@@ -332,8 +332,8 @@ annOf rq svc s = Ann isRaw (ctorOf s) isWrapped monoid' default' req strict'
 
     switch = name `elem` switches
 
-    name = s ^. cmnName
-    req  = body || s ^. cmnRequired
+    name = s^.cmnName
+    req  = body || s^.cmnRequired
     body = isBody s
 
 typeOf :: Ann -> (Text, Text)
@@ -353,13 +353,13 @@ isStrict (SPrim p) = _prmType p `elem` [PInteger, PDouble, PBool]
 isStrict _         = False
 
 isBody :: HasCommon a => a -> Bool
-isBody s = s ^. cmnLocation == LBody && s ^. cmnStreaming
+isBody s = s^.cmnLocation == LBody && s^.cmnStreaming
 
 existingType :: HasCommon a => Service -> a -> Maybe Text
-existingType svc x = Map.lookup (x ^. cmnName) (svc ^. tExisting)
+existingType svc x = Map.lookup (x^.cmnName) (svc^.tExisting)
 
 renameType :: HasCommon a => Service -> a -> Maybe Text
-renameType svc x = Map.lookup (x ^. cmnName) (svc ^. tRename)
+renameType svc x = Map.lookup (x^.cmnName) (svc^.tRename)
 
 formatPrim :: Service -> Prim -> Text
 formatPrim Service{..} Prim{..} = Text.pack $
@@ -384,7 +384,7 @@ ctorOf s =
             | length _sctFields == 1     -> CNewtype
             | null _sctFields            -> CNullary
         SSum{}
-            | (s ^. cmnName) `elem` switches -> CSwitch
+            | (s^.cmnName) `elem` switches -> CSwitch
             | otherwise                      -> CSum
         _                                    -> CData
 
@@ -421,7 +421,7 @@ setDirection d s =
             SPrim (dir x)
   where
     dir :: HasCommon a => a -> a
-    dir = cmnDirection .~ d
+    dir = cmnDirection.~d
 
 serviceTypes :: Service -> [Type']
 serviceTypes svc@Service{..} = map override
@@ -437,37 +437,37 @@ serviceTypes svc@Service{..} = map override
         | otherwise       = t & typFields %~ map (requireField candidates)
       where
         candidates = fromMaybe [] $
-            Map.lookup (t ^. cmnName) (svc ^. tRequired)
+            Map.lookup (t^.cmnName) (svc^.tRequired)
 
     exclude :: (a, Shape) -> Maybe (a, Shape)
     exclude x = maybe (Just x) (const Nothing) (existingType svc (snd x))
 
     uniq :: Type' -> State (HashMap Text Type') ()
     uniq x = modify $ \m ->
-        let n = x ^. cmnName
+        let n = x^.cmnName
             y = Map.lookup n m
-            z = maybe x (cmnDirection <>~ (x ^. cmnDirection)) y
+            z = maybe x (cmnDirection <>~ (x^.cmnDirection)) y
          in Map.insert n z m
 
     opfields o =
-           descend (_opRequest  o ^. typShape)
-        ++ descend (_opResponse o ^. typShape)
+           descend (_opRequest  o^.typShape)
+        ++ descend (_opResponse o^.typShape)
         ++ concatMap descend (_opErrors o)
 
     descend (SStruct Struct{..}) = concatMap (uncurry flat) _sctFields
     descend _                    = []
 
     flat p s@SStruct {}         = (p, s) : descend s
-    flat _ s@(SList  List {..}) = flat (s ^. cmnName) _lstItem
-    flat _ s@(SMap   Map  {..}) = flat (s ^. cmnName) _mapKey ++ flat (s ^. cmnName) _mapValue
+    flat _ s@(SList  List {..}) = flat (s^.cmnName) _lstItem
+    flat _ s@(SMap   Map  {..}) = flat (s^.cmnName) _mapKey ++ flat (s^.cmnName) _mapValue
     flat p (SSum     x)         = [(p, SSum $ rename x)]
     flat _ _                    = []
 
     rename s@Sum{..}
-        | (s ^. cmnName) `elem` switches = s { _sumValues = ss }
+        | (s^.cmnName) `elem` switches = s { _sumValues = ss }
         | otherwise                      = s { _sumValues = es }
       where
-        es = enumPairs svc (s ^. cmnName) (Map.elems _sumValues)
+        es = enumPairs svc (s^.cmnName) (Map.elems _sumValues)
 
         ss = Map.fromList . map f $ Map.toList _sumValues
 
@@ -481,7 +481,7 @@ enumPairs svc@Service{..} n =
     trans = first (mappend (reserve n) . rules) . join (,)
 
     reserve x
-        | x `elem` (svc ^. tUnprefixed) = ""
+        | x `elem` (svc^.tUnprefixed) = ""
         | otherwise                     = x
 
     rules x =
@@ -516,22 +516,22 @@ serviceError a os = Error (unAbbrev a <> "Error") (es ++ cs) ts
 
     es = nub (concatMap _opErrors os)
 
-    custom s = shapeType True svc s & anCtor .~ CError
+    custom s = shapeType True svc s & anCtor.~CError
 
     except k v = SStruct (Struct [(v, field)] ctor)
       where
         field = SStruct . Struct mempty $ def
-            & cmnName .~ v
-            & cmnRequired .~ True
+            & cmnName.~v
+            & cmnRequired.~True
 
-        ctor = def & cmnName .~ (unAbbrev a <> k)
+        ctor = def & cmnName.~(unAbbrev a <> k)
 
     svc = defaultService a
 
 requireField :: [CI Text] -> Field -> Field
 requireField cs f
     | CI.mk (_fldName f) `notElem` cs = f
-    | otherwise = f & cmnRequired .~ True & fldAnn.anRequired .~ True
+    | otherwise = f & cmnRequired.~True & fldAnn.anRequired.~True
 
 ignoreFields :: [CI Text] -> Shape -> Shape
 ignoreFields cs (SStruct s) =

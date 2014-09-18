@@ -26,7 +26,6 @@ import qualified Data.Foldable       as Fold
 import           Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as Map
 import           Data.List           (intersperse)
-import           Data.Maybe
 import           Data.Monoid
 import           Data.Text           (Text)
 import qualified Data.Text           as Text
@@ -60,7 +59,6 @@ instance ToPath NS where
 data Templates = Templates
     { tmplCabal   :: Template
     , tmplRoot    :: Template
-    , tmplMonadic :: Template
     , tmplService :: ServiceType -> (Template, Template)
     }
 
@@ -70,7 +68,7 @@ getTemplates = do
 
     let load f = loadTemplate (dir </> "tmpl" </> f <.> "ede")
 
-    ctor <- Templates <$> load "cabal" <*> load "root" <*> load "monadic"
+    ctor <- Templates <$> load "cabal" <*> load "root"
 
     !xml <- (,) <$> load "types-xml"   <*> load "operation-xml"
     !js  <- (,) <$> load "types-json"  <*> load "operation-json"
@@ -113,9 +111,8 @@ render dir assets ss = do
         forM_ _svcOperations $ \x ->
             write "Render Operation" (rel (_opNamespace x)) o x
 
-        write "Render Root"    (rel (_svcNs ^. nsRoot))    tmplRoot s
-        write "Render Monadic" (rel (_svcNs ^. nsMonadic)) tmplMonadic s
-        write "Render Cabal"   (rel (lib <.> "cabal"))     tmplCabal s
+        write "Render Root"  (rel (_svcNs ^. nsRoot)) tmplRoot s
+        write "Render Cabal" (rel (lib <.> "cabal"))  tmplCabal s
 
         forM_ as $ \x ->
             let f = rel (takeFileName x)

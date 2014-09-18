@@ -1,6 +1,5 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE NoImplicitPrelude #-}
-{-# LANGUAGE TypeFamilies      #-}
 
 {% include "_include/license.ede" with ns.monadic %}
 
@@ -21,22 +20,22 @@
 --      & onLensField2 .~ z
 -- @
 --
--- Versus using "{{ ns.monadic }}" with the 'State' operator variants from
--- "Control.Lens.Setter" such as '.=' to modify any additional request
+-- Versus using "{{ ns.monadic }}" with lenses to modify any optional request
 -- parameters before sending:
 --
 -- @
--- import Control.Applicative
 -- import {{ ns.monadic }}
 --
--- operationName w x $ do
---     onLensField1 .= y
---     onLensField2 .= z
+-- operationName w x
+--     & onLensField1 .~ y
+--     & onLensField2 .~ z
 --
--- -- Or to void any additional parameters outside of those required using @return ()@:
--- operationName w x $ return ()
+-- -- Or to void any additional parameters outside of those required using @id@:
+-- operationName w x id
 -- @
 --
+-- Additionaly this module hides the type family machinery for determining
+-- response and error types behind the actual concrete types for each operation.
 module {{ ns.monadic }}
     (
 {% for oper in operations %}
@@ -56,10 +55,10 @@ module {{ ns.monadic }}
     -- * Re-exported
     , module {{ ns.root }}
 
-    , (.=)
-    , (?=)
-    , (<>=)
-    , (%=)
+    , (.~)
+    , (?~)
+    , (<>~)
+    , (%~)
     ) where
 
 import Control.Monad.Trans.AWS as AWS

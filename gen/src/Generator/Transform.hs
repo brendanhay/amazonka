@@ -509,9 +509,9 @@ serviceError a os = Error (unAbbrev a <> "Error") (es ++ cs) ts
          $ map (bimap (view cmnName) custom . join (,)) cs
         ++ map (bimap (view cmnName) (shapeType True svc) . join (,)) es
 
-    cs = [ except "Serializer" "Text"
+    cs = [ except "Serializer" "String"
          , except "Client"     "HttpException"
-         , except "Service"    "Text"
+         , except "Service"    "String"
          ]
 
     es = nub (concatMap _opErrors os)

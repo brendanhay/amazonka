@@ -1,3 +1,8 @@
+-- | A sum type representing possible errors returned by the '{{ scope.name }}' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
 {% if scope.error.shapes | listLength == 0 %}
 data {{ scope.error.name }} = {{ scope.error.name }}
 {% else %}

@@ -1,4 +1,7 @@
 {% for branch in scope.ctors %}
+  {% if branch.value.documentation %}
+{{ branch.value.documentation | above66 | indent6 }}
+  {% endif %}
   {% case branch.value.ctor %}
   {% when "error" %}
     {% if branch.first %}

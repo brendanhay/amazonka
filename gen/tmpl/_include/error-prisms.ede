@@ -1,4 +1,11 @@
 {% for branch in scope.ctors %}
+  {% if branch.value.documentation %}
+{{ branch.value.documentation | above76 }}
+--
+-- See: '{{ branch.key }}'
+  {% else %}
+-- | See: '{{ branch.key }}'
+  {% endif %}
   {% if branch.value.fields | listLength == 0 %}
 {{ branch.key | prism }} :: Prism' {{ scope.name }} ()
   {% else %}
@@ -17,7 +24,7 @@
         {{ branch.key }} p1 -> Right p1
         x -> Left x)
   {% else %}
-Oh noes!
+FIXME: Oh noes!
   {% endcase %}
   {% if !branch.last %}
 

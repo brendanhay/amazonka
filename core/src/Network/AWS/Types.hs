@@ -123,9 +123,9 @@ import           System.Locale
 -- | An error type representing the subset of errors that can be directly
 -- attributed to this library.
 data Error
-    = ServiceError    Text
+    = ServiceError    String
     | ClientError     HttpException
-    | SerializerError Text
+    | SerializerError String
     | Nested          [Error]
       deriving (Show, Typeable)
 

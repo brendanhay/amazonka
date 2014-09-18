@@ -101,7 +101,7 @@ module Network.AWS.Support.Types
 
     -- * Service
     , Service
-    , service
+    , service'
     , sCode
     , sName
     , sCategories
@@ -763,8 +763,8 @@ data Service = Service
 --
 -- * @Categories ::@ @[Category]@
 --
-service :: Service
-service = Service
+service' :: Service
+service' = Service
     { _sCode = Nothing
     , _sName = Nothing
     , _sCategories = mempty

@@ -301,7 +301,7 @@ module Network.AWS.OpsWorks.Types
 
     -- * ServiceError
     , ServiceError
-    , serviceError
+    , serviceError'
     , seServiceErrorId
     , seStackId
     , seInstanceId
@@ -2768,8 +2768,8 @@ data ServiceError = ServiceError
 --
 -- * @CreatedAt ::@ @Maybe Text@
 --
-serviceError :: ServiceError
-serviceError = ServiceError
+serviceError' :: ServiceError
+serviceError' = ServiceError
     { _seServiceErrorId = Nothing
     , _seStackId = Nothing
     , _seInstanceId = Nothing

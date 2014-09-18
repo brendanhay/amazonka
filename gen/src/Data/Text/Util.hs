@@ -69,6 +69,14 @@ smartCtor = f . lowerFirstWord
     functions =
         [ "filter"
         , "error"
+        , "awsError"
+        , "serviceError"
+        , "clientError"
+        , "serializerError"
+        , "request"
+        , "response"
+        , "service"
+        , "next"
         ]
 
 firstAcronym :: Text -> Maybe Text

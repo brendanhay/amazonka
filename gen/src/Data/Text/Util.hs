@@ -28,10 +28,12 @@ accessor t
 smartCtor :: Text -> Text
 smartCtor = f . lowerFirstWord
   where
-    f x | x `Set.member` keywords = x `Text.snoc` '\''
-        | otherwise               = x
+    f x | x `Set.member` invalid = x `Text.snoc` '\''
+        | otherwise              = x
 
-    keywords = Set.fromList
+    invalid = Set.fromList (keywords ++ functions)
+
+    keywords =
         [ "as"
         , "case"
         , "of"
@@ -64,7 +66,7 @@ smartCtor = f . lowerFirstWord
         , "where"
         ]
 
-    reserved = Set.fromList
+    functions =
         [ "filter"
         , "error"
         ]

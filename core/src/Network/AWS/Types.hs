@@ -161,7 +161,7 @@ instance AWSError HttpException where
     awsError = ClientError
 
 -- | Convert from service specific errors to the more general service error.
-class AWSError a => AWSServiceError a where
+class (Typeable a, AWSError a) => AWSServiceError a where
     serviceError    :: String        -> a
     clientError     :: HttpException -> a
     serializerError :: String        -> a
@@ -175,11 +175,9 @@ instance AWSServiceError Error where
 -- associated signing algorithm and error types.
 class (AWSSigner (Sg a), AWSServiceError (Er a)) => AWSService a where
     type Sg a :: *
-    data Er a :: *
+    type Er a :: *
 
     service :: Service' a
-
-deriving instance Typeable Er
 
 -- | Specify how a data type can be de/serialised.
 class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where

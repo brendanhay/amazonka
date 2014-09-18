@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,6 +26,17 @@ module Network.AWS.Kinesis.Types
     (
     -- * Service
       Kinesis
+    -- ** Errors
+    , KinesisError (..)
+    , _ExpiredIteratorException
+    , _InvalidArgumentException
+    , _KinesisClient
+    , _KinesisSerializer
+    , _KinesisService
+    , _LimitExceededException
+    , _ProvisionedThroughputExceededException
+    , _ResourceInUseException
+    , _ResourceNotFoundException
     -- * ShardIteratorType
     , ShardIteratorType (..)
 
@@ -79,28 +90,7 @@ data Kinesis deriving (Typeable)
 
 instance AWSService Kinesis where
     type Sg Kinesis = V4
-    data Er Kinesis
-        = ExpiredIteratorException
-            { _eieMessage :: Maybe Text
-            }
-        | InvalidArgumentException
-            { _iaeMessage :: Maybe Text
-            }
-        | KinesisClient HttpException
-        | KinesisSerializer String
-        | KinesisService String
-        | LimitExceededException
-            { _leeMessage :: Maybe Text
-            }
-        | ProvisionedThroughputExceededException
-            { _pteeMessage :: Maybe Text
-            }
-        | ResourceInUseException
-            { _riueMessage :: Maybe Text
-            }
-        | ResourceNotFoundException
-            { _rnfeMessage :: Maybe Text
-            }
+    type Er Kinesis = KinesisError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -109,18 +99,134 @@ instance AWSService Kinesis where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er Kinesis)
-deriving instance Generic (Er Kinesis)
+-- | A sum type representing possible errors returned by the 'Kinesis' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data KinesisError
+      -- | 
+    = ExpiredIteratorException
+        { _eieMessage :: Maybe Text
+        }
+      -- | 
+    | InvalidArgumentException
+        { _iaeMessage :: Maybe Text
+        }
+    | KinesisClient HttpException
+    | KinesisSerializer Text
+    | KinesisService Text
+      -- | 
+    | LimitExceededException
+        { _leeMessage :: Maybe Text
+        }
+      -- | 
+    | ProvisionedThroughputExceededException
+        { _pteeMessage :: Maybe Text
+        }
+      -- | 
+    | ResourceInUseException
+        { _riueMessage :: Maybe Text
+        }
+      -- | 
+    | ResourceNotFoundException
+        { _rnfeMessage :: Maybe Text
+        }
+    deriving (Show, Generic)
 
-instance AWSError (Er Kinesis) where
+instance AWSError KinesisError where
     awsError = const "KinesisError"
 
-instance AWSServiceError (Er Kinesis) where
+instance AWSServiceError KinesisError where
     serviceError    = KinesisService
     clientError     = KinesisClient
     serializerError = KinesisSerializer
 
-instance Exception (Er Kinesis)
+instance Exception KinesisError
+
+-- | 
+--
+-- See: 'ExpiredIteratorException'
+_ExpiredIteratorException :: Prism' KinesisError (Maybe Text)
+_ExpiredIteratorException = prism'
+    ExpiredIteratorException
+    (\case
+        ExpiredIteratorException p1 -> Right p1
+        x -> Left x)
+
+-- | 
+--
+-- See: 'InvalidArgumentException'
+_InvalidArgumentException :: Prism' KinesisError (Maybe Text)
+_InvalidArgumentException = prism'
+    InvalidArgumentException
+    (\case
+        InvalidArgumentException p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'KinesisClient'
+_KinesisClient :: Prism' KinesisError HttpException
+_KinesisClient = prism'
+    KinesisClient
+    (\case
+        KinesisClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'KinesisSerializer'
+_KinesisSerializer :: Prism' KinesisError Text
+_KinesisSerializer = prism'
+    KinesisSerializer
+    (\case
+        KinesisSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'KinesisService'
+_KinesisService :: Prism' KinesisError Text
+_KinesisService = prism'
+    KinesisService
+    (\case
+        KinesisService p1 -> Right p1
+        x -> Left x)
+
+-- | 
+--
+-- See: 'LimitExceededException'
+_LimitExceededException :: Prism' KinesisError (Maybe Text)
+_LimitExceededException = prism'
+    LimitExceededException
+    (\case
+        LimitExceededException p1 -> Right p1
+        x -> Left x)
+
+-- | 
+--
+-- See: 'ProvisionedThroughputExceededException'
+_ProvisionedThroughputExceededException :: Prism' KinesisError (Maybe Text)
+_ProvisionedThroughputExceededException = prism'
+    ProvisionedThroughputExceededException
+    (\case
+        ProvisionedThroughputExceededException p1 -> Right p1
+        x -> Left x)
+
+-- | 
+--
+-- See: 'ResourceInUseException'
+_ResourceInUseException :: Prism' KinesisError (Maybe Text)
+_ResourceInUseException = prism'
+    ResourceInUseException
+    (\case
+        ResourceInUseException p1 -> Right p1
+        x -> Left x)
+
+-- | 
+--
+-- See: 'ResourceNotFoundException'
+_ResourceNotFoundException :: Prism' KinesisError (Maybe Text)
+_ResourceNotFoundException = prism'
+    ResourceNotFoundException
+    (\case
+        ResourceNotFoundException p1 -> Right p1
+        x -> Left x)
 
 data ShardIteratorType
     = ShardIteratorTypeAfterSequenceNumber -- ^ AFTER_SEQUENCE_NUMBER

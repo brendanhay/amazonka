@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,6 +26,13 @@ module Network.AWS.OpsWorks.Types
     (
     -- * Service
       OpsWorks
+    -- ** Errors
+    , OpsWorksError (..)
+    , _OpsWorksClient
+    , _OpsWorksSerializer
+    , _OpsWorksService
+    , _ResourceNotFoundException
+    , _ValidationException
     -- * AppAttributesKeys
     , AppAttributesKeys (..)
 
@@ -423,16 +430,7 @@ data OpsWorks deriving (Typeable)
 
 instance AWSService OpsWorks where
     type Sg OpsWorks = V4
-    data Er OpsWorks
-        = OpsWorksClient HttpException
-        | OpsWorksSerializer String
-        | OpsWorksService String
-        | ResourceNotFoundException
-            { _rnfeMessage :: Maybe Text
-            }
-        | ValidationException
-            { _veMessage :: Maybe Text
-            }
+    type Er OpsWorks = OpsWorksError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -441,18 +439,78 @@ instance AWSService OpsWorks where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er OpsWorks)
-deriving instance Generic (Er OpsWorks)
+-- | A sum type representing possible errors returned by the 'OpsWorks' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data OpsWorksError
+    = OpsWorksClient HttpException
+    | OpsWorksSerializer Text
+    | OpsWorksService Text
+      -- | Indicates that a resource was not found.
+    | ResourceNotFoundException
+        { _rnfeMessage :: Maybe Text
+        }
+      -- | Indicates that a request was invalid.
+    | ValidationException
+        { _veMessage :: Maybe Text
+        }
+    deriving (Show, Generic)
 
-instance AWSError (Er OpsWorks) where
+instance AWSError OpsWorksError where
     awsError = const "OpsWorksError"
 
-instance AWSServiceError (Er OpsWorks) where
+instance AWSServiceError OpsWorksError where
     serviceError    = OpsWorksService
     clientError     = OpsWorksClient
     serializerError = OpsWorksSerializer
 
-instance Exception (Er OpsWorks)
+instance Exception OpsWorksError
+
+-- | See: 'OpsWorksClient'
+_OpsWorksClient :: Prism' OpsWorksError HttpException
+_OpsWorksClient = prism'
+    OpsWorksClient
+    (\case
+        OpsWorksClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'OpsWorksSerializer'
+_OpsWorksSerializer :: Prism' OpsWorksError Text
+_OpsWorksSerializer = prism'
+    OpsWorksSerializer
+    (\case
+        OpsWorksSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'OpsWorksService'
+_OpsWorksService :: Prism' OpsWorksError Text
+_OpsWorksService = prism'
+    OpsWorksService
+    (\case
+        OpsWorksService p1 -> Right p1
+        x -> Left x)
+
+-- | Indicates that a resource was not found.
+--
+-- See: 'ResourceNotFoundException'
+_ResourceNotFoundException :: Prism' OpsWorksError (Maybe Text)
+_ResourceNotFoundException = prism'
+    ResourceNotFoundException
+    (\case
+        ResourceNotFoundException p1 -> Right p1
+        x -> Left x)
+
+-- | Indicates that a request was invalid.
+--
+-- See: 'ValidationException'
+_ValidationException :: Prism' OpsWorksError (Maybe Text)
+_ValidationException = prism'
+    ValidationException
+    (\case
+        ValidationException p1 -> Right p1
+        x -> Left x)
 
 data AppAttributesKeys
     = AppAttributesKeysAutoBundleOnDeploy -- ^ AutoBundleOnDeploy

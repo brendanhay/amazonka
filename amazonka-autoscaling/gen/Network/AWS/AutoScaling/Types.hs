@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,6 +30,16 @@ module Network.AWS.AutoScaling.Types
     (
     -- * Service
       AutoScaling
+    -- ** Errors
+    , AutoScalingError (..)
+    , _AlreadyExistsFault
+    , _AutoScalingClient
+    , _AutoScalingSerializer
+    , _AutoScalingService
+    , _InvalidNextToken
+    , _LimitExceededFault
+    , _ResourceInUseFault
+    , _ScalingActivityInProgressFault
     -- ** XML
     , xmlOptions
 
@@ -257,25 +267,7 @@ data AutoScaling deriving (Typeable)
 
 instance AWSService AutoScaling where
     type Sg AutoScaling = V4
-    data Er AutoScaling
-        = AlreadyExistsFault
-            { _aefMessage :: Maybe Text
-            }
-        | AutoScalingClient HttpException
-        | AutoScalingSerializer String
-        | AutoScalingService String
-        | InvalidNextToken
-            { _intMessage :: Maybe Text
-            }
-        | LimitExceededFault
-            { _lefMessage :: Maybe Text
-            }
-        | ResourceInUseFault
-            { _riufMessage :: Maybe Text
-            }
-        | ScalingActivityInProgressFault
-            { _saipfMessage :: Maybe Text
-            }
+    type Er AutoScaling = AutoScalingError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -284,18 +276,127 @@ instance AWSService AutoScaling where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er AutoScaling)
-deriving instance Generic (Er AutoScaling)
+-- | A sum type representing possible errors returned by the 'AutoScaling' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data AutoScalingError
+      -- | The named Auto Scaling group or launch configuration already
+      -- exists.
+    = AlreadyExistsFault
+        { _aefMessage :: Maybe Text
+        }
+    | AutoScalingClient HttpException
+    | AutoScalingSerializer Text
+    | AutoScalingService Text
+      -- | The NextToken value is invalid.
+    | InvalidNextToken
+        { _intMessage :: Maybe Text
+        }
+      -- | The quota for capacity groups or launch configurations for this
+      -- customer has already been reached.
+    | LimitExceededFault
+        { _lefMessage :: Maybe Text
+        }
+      -- | This is returned when you cannot delete a launch configuration or
+      -- Auto Scaling group because it is being used.
+    | ResourceInUseFault
+        { _riufMessage :: Maybe Text
+        }
+      -- | You cannot delete an Auto Scaling group while there are scaling
+      -- activities in progress for that group.
+    | ScalingActivityInProgressFault
+        { _saipfMessage :: Maybe Text
+        }
+    deriving (Show, Generic)
 
-instance AWSError (Er AutoScaling) where
+instance AWSError AutoScalingError where
     awsError = const "AutoScalingError"
 
-instance AWSServiceError (Er AutoScaling) where
+instance AWSServiceError AutoScalingError where
     serviceError    = AutoScalingService
     clientError     = AutoScalingClient
     serializerError = AutoScalingSerializer
 
-instance Exception (Er AutoScaling)
+instance Exception AutoScalingError
+
+-- | The named Auto Scaling group or launch configuration already exists.
+--
+-- See: 'AlreadyExistsFault'
+_AlreadyExistsFault :: Prism' AutoScalingError (Maybe Text)
+_AlreadyExistsFault = prism'
+    AlreadyExistsFault
+    (\case
+        AlreadyExistsFault p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'AutoScalingClient'
+_AutoScalingClient :: Prism' AutoScalingError HttpException
+_AutoScalingClient = prism'
+    AutoScalingClient
+    (\case
+        AutoScalingClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'AutoScalingSerializer'
+_AutoScalingSerializer :: Prism' AutoScalingError Text
+_AutoScalingSerializer = prism'
+    AutoScalingSerializer
+    (\case
+        AutoScalingSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'AutoScalingService'
+_AutoScalingService :: Prism' AutoScalingError Text
+_AutoScalingService = prism'
+    AutoScalingService
+    (\case
+        AutoScalingService p1 -> Right p1
+        x -> Left x)
+
+-- | The NextToken value is invalid.
+--
+-- See: 'InvalidNextToken'
+_InvalidNextToken :: Prism' AutoScalingError (Maybe Text)
+_InvalidNextToken = prism'
+    InvalidNextToken
+    (\case
+        InvalidNextToken p1 -> Right p1
+        x -> Left x)
+
+-- | The quota for capacity groups or launch configurations for this customer
+-- has already been reached.
+--
+-- See: 'LimitExceededFault'
+_LimitExceededFault :: Prism' AutoScalingError (Maybe Text)
+_LimitExceededFault = prism'
+    LimitExceededFault
+    (\case
+        LimitExceededFault p1 -> Right p1
+        x -> Left x)
+
+-- | This is returned when you cannot delete a launch configuration or Auto
+-- Scaling group because it is being used.
+--
+-- See: 'ResourceInUseFault'
+_ResourceInUseFault :: Prism' AutoScalingError (Maybe Text)
+_ResourceInUseFault = prism'
+    ResourceInUseFault
+    (\case
+        ResourceInUseFault p1 -> Right p1
+        x -> Left x)
+
+-- | You cannot delete an Auto Scaling group while there are scaling activities
+-- in progress for that group.
+--
+-- See: 'ScalingActivityInProgressFault'
+_ScalingActivityInProgressFault :: Prism' AutoScalingError (Maybe Text)
+_ScalingActivityInProgressFault = prism'
+    ScalingActivityInProgressFault
+    (\case
+        ScalingActivityInProgressFault p1 -> Right p1
+        x -> Left x)
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

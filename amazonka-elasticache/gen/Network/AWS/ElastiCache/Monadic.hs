@@ -230,7 +230,6 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.ElastiCache
 
-type ServiceEr = Er ElastiCache
 
 -- $AuthorizeCacheSecurityGroupIngress
 -- The AuthorizeCacheSecurityGroupIngress operation allows network ingress to
@@ -267,7 +266,7 @@ authorizeCacheSecurityGroupIngressCatch :: ( MonadCatch m
     => Text -- ^ 'acsgiCacheSecurityGroupName'
     -> Text -- ^ 'acsgiEC2SecurityGroupName'
     -> Text -- ^ 'acsgiEC2SecurityGroupOwnerId'
-    -> m (Either ServiceEr AuthorizeCacheSecurityGroupIngressResponse)
+    -> m (Either ElastiCacheError AuthorizeCacheSecurityGroupIngressResponse)
 authorizeCacheSecurityGroupIngressCatch p1 p2 p3 =
     sendCatch (mkAuthorizeCacheSecurityGroupIngress p1 p2 p3)
 
@@ -293,7 +292,7 @@ copySnapshotCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'csSourceSnapshotName'
     -> Text -- ^ 'csTargetSnapshotName'
-    -> m (Either ServiceEr CopySnapshotResponse)
+    -> m (Either ElastiCacheError CopySnapshotResponse)
 copySnapshotCatch p1 p2 =
     sendCatch (mkCopySnapshot p1 p2)
 
@@ -335,7 +334,7 @@ createCacheClusterCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'cccCacheClusterId'
     -> State CreateCacheCluster a
-    -> m (Either ServiceEr CreateCacheClusterResponse)
+    -> m (Either ElastiCacheError CreateCacheClusterResponse)
 createCacheClusterCatch p1 s =
     sendCatch $ (mkCreateCacheCluster p1) &~ s
 
@@ -373,7 +372,7 @@ createCacheParameterGroupCatch :: ( MonadCatch m
     => Text -- ^ 'ccpgCacheParameterGroupName'
     -> Text -- ^ 'ccpgCacheParameterGroupFamily'
     -> Text -- ^ 'ccpgDescription'
-    -> m (Either ServiceEr CreateCacheParameterGroupResponse)
+    -> m (Either ElastiCacheError CreateCacheParameterGroupResponse)
 createCacheParameterGroupCatch p1 p2 p3 =
     sendCatch (mkCreateCacheParameterGroup p1 p2 p3)
 
@@ -410,7 +409,7 @@ createCacheSecurityGroupCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'ccsgCacheSecurityGroupName'
     -> Text -- ^ 'ccsgDescription'
-    -> m (Either ServiceEr CreateCacheSecurityGroupResponse)
+    -> m (Either ElastiCacheError CreateCacheSecurityGroupResponse)
 createCacheSecurityGroupCatch p1 p2 =
     sendCatch (mkCreateCacheSecurityGroup p1 p2)
 
@@ -447,7 +446,7 @@ createCacheSubnetGroupCatch :: ( MonadCatch m
     => Text -- ^ 'ccsg1CacheSubnetGroupName'
     -> Text -- ^ 'ccsg1CacheSubnetGroupDescription'
     -> [Text] -- ^ 'ccsg1SubnetIds'
-    -> m (Either ServiceEr CreateCacheSubnetGroupResponse)
+    -> m (Either ElastiCacheError CreateCacheSubnetGroupResponse)
 createCacheSubnetGroupCatch p1 p2 p3 =
     sendCatch (mkCreateCacheSubnetGroup p1 p2 p3)
 
@@ -489,7 +488,7 @@ createReplicationGroupCatch :: ( MonadCatch m
     => Text -- ^ 'crgReplicationGroupId'
     -> Text -- ^ 'crgPrimaryClusterId'
     -> Text -- ^ 'crgReplicationGroupDescription'
-    -> m (Either ServiceEr CreateReplicationGroupResponse)
+    -> m (Either ElastiCacheError CreateReplicationGroupResponse)
 createReplicationGroupCatch p1 p2 p3 =
     sendCatch (mkCreateReplicationGroup p1 p2 p3)
 
@@ -523,7 +522,7 @@ createSnapshotCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'cs1CacheClusterId'
     -> Text -- ^ 'cs1SnapshotName'
-    -> m (Either ServiceEr CreateSnapshotResponse)
+    -> m (Either ElastiCacheError CreateSnapshotResponse)
 createSnapshotCatch p1 p2 =
     sendCatch (mkCreateSnapshot p1 p2)
 
@@ -560,7 +559,7 @@ deleteCacheClusterCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'dccCacheClusterId'
     -> State DeleteCacheCluster a
-    -> m (Either ServiceEr DeleteCacheClusterResponse)
+    -> m (Either ElastiCacheError DeleteCacheClusterResponse)
 deleteCacheClusterCatch p1 s =
     sendCatch $ (mkDeleteCacheCluster p1) &~ s
 
@@ -591,7 +590,7 @@ deleteCacheParameterGroupCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => Text -- ^ 'dcpgCacheParameterGroupName'
-    -> m (Either ServiceEr DeleteCacheParameterGroupResponse)
+    -> m (Either ElastiCacheError DeleteCacheParameterGroupResponse)
 deleteCacheParameterGroupCatch p1 =
     sendCatch (mkDeleteCacheParameterGroup p1)
 
@@ -621,7 +620,7 @@ deleteCacheSecurityGroupCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'dcsgCacheSecurityGroupName'
-    -> m (Either ServiceEr DeleteCacheSecurityGroupResponse)
+    -> m (Either ElastiCacheError DeleteCacheSecurityGroupResponse)
 deleteCacheSecurityGroupCatch p1 =
     sendCatch (mkDeleteCacheSecurityGroup p1)
 
@@ -650,7 +649,7 @@ deleteCacheSubnetGroupCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'dcsg1CacheSubnetGroupName'
-    -> m (Either ServiceEr DeleteCacheSubnetGroupResponse)
+    -> m (Either ElastiCacheError DeleteCacheSubnetGroupResponse)
 deleteCacheSubnetGroupCatch p1 =
     sendCatch (mkDeleteCacheSubnetGroup p1)
 
@@ -688,7 +687,7 @@ deleteReplicationGroupCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'drgReplicationGroupId'
     -> State DeleteReplicationGroup a
-    -> m (Either ServiceEr DeleteReplicationGroupResponse)
+    -> m (Either ElastiCacheError DeleteReplicationGroupResponse)
 deleteReplicationGroupCatch p1 s =
     sendCatch $ (mkDeleteReplicationGroup p1) &~ s
 
@@ -721,7 +720,7 @@ deleteSnapshotCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'dsSnapshotName'
-    -> m (Either ServiceEr DeleteSnapshotResponse)
+    -> m (Either ElastiCacheError DeleteSnapshotResponse)
 deleteSnapshotCatch p1 =
     sendCatch (mkDeleteSnapshot p1)
 
@@ -770,7 +769,7 @@ describeCacheClustersCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => State DescribeCacheClusters a
-    -> Source m (Either ServiceEr DescribeCacheClustersResponse)
+    -> Source m (Either ElastiCacheError DescribeCacheClustersResponse)
 describeCacheClustersCatch s =
     paginateCatch (mkDescribeCacheClusters &~ s)
 
@@ -801,7 +800,7 @@ describeCacheEngineVersionsCatch :: ( MonadCatch m
                                     , MonadReader Env m
                                     )
     => State DescribeCacheEngineVersions a
-    -> Source m (Either ServiceEr DescribeCacheEngineVersionsResponse)
+    -> Source m (Either ElastiCacheError DescribeCacheEngineVersionsResponse)
 describeCacheEngineVersionsCatch s =
     paginateCatch (mkDescribeCacheEngineVersions &~ s)
 
@@ -835,7 +834,7 @@ describeCacheParameterGroupsCatch :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => State DescribeCacheParameterGroups a
-    -> Source m (Either ServiceEr DescribeCacheParameterGroupsResponse)
+    -> Source m (Either ElastiCacheError DescribeCacheParameterGroupsResponse)
 describeCacheParameterGroupsCatch s =
     paginateCatch (mkDescribeCacheParameterGroups &~ s)
 
@@ -872,7 +871,7 @@ describeCacheParametersCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'dcpCacheParameterGroupName'
     -> State DescribeCacheParameters a
-    -> Source m (Either ServiceEr DescribeCacheParametersResponse)
+    -> Source m (Either ElastiCacheError DescribeCacheParametersResponse)
 describeCacheParametersCatch p1 s =
     paginateCatch $ (mkDescribeCacheParameters p1) &~ s
 
@@ -903,7 +902,7 @@ describeCacheSecurityGroupsCatch :: ( MonadCatch m
                                     , MonadReader Env m
                                     )
     => State DescribeCacheSecurityGroups a
-    -> Source m (Either ServiceEr DescribeCacheSecurityGroupsResponse)
+    -> Source m (Either ElastiCacheError DescribeCacheSecurityGroupsResponse)
 describeCacheSecurityGroupsCatch s =
     paginateCatch (mkDescribeCacheSecurityGroups &~ s)
 
@@ -935,7 +934,7 @@ describeCacheSubnetGroupsCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => State DescribeCacheSubnetGroups a
-    -> Source m (Either ServiceEr DescribeCacheSubnetGroupsResponse)
+    -> Source m (Either ElastiCacheError DescribeCacheSubnetGroupsResponse)
 describeCacheSubnetGroupsCatch s =
     paginateCatch (mkDescribeCacheSubnetGroups &~ s)
 
@@ -973,7 +972,7 @@ describeEngineDefaultParametersCatch :: ( MonadCatch m
                                         )
     => Text -- ^ 'dedpCacheParameterGroupFamily'
     -> State DescribeEngineDefaultParameters a
-    -> Source m (Either ServiceEr DescribeEngineDefaultParametersResponse)
+    -> Source m (Either ElastiCacheError DescribeEngineDefaultParametersResponse)
 describeEngineDefaultParametersCatch p1 s =
     paginateCatch $ (mkDescribeEngineDefaultParameters p1) &~ s
 
@@ -1008,7 +1007,7 @@ describeEventsCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => State DescribeEvents a
-    -> Source m (Either ServiceEr DescribeEventsResponse)
+    -> Source m (Either ElastiCacheError DescribeEventsResponse)
 describeEventsCatch s =
     paginateCatch (mkDescribeEvents &~ s)
 
@@ -1043,7 +1042,7 @@ describeReplicationGroupsCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => State DescribeReplicationGroups a
-    -> Source m (Either ServiceEr DescribeReplicationGroupsResponse)
+    -> Source m (Either ElastiCacheError DescribeReplicationGroupsResponse)
 describeReplicationGroupsCatch s =
     paginateCatch (mkDescribeReplicationGroups &~ s)
 
@@ -1075,7 +1074,7 @@ describeReservedCacheNodesCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => State DescribeReservedCacheNodes a
-    -> Source m (Either ServiceEr DescribeReservedCacheNodesResponse)
+    -> Source m (Either ElastiCacheError DescribeReservedCacheNodesResponse)
 describeReservedCacheNodesCatch s =
     paginateCatch (mkDescribeReservedCacheNodes &~ s)
 
@@ -1106,7 +1105,7 @@ describeReservedCacheNodesOfferingsCatch :: ( MonadCatch m
                                             , MonadReader Env m
                                             )
     => State DescribeReservedCacheNodesOfferings a
-    -> Source m (Either ServiceEr DescribeReservedCacheNodesOfferingsResponse)
+    -> Source m (Either ElastiCacheError DescribeReservedCacheNodesOfferingsResponse)
 describeReservedCacheNodesOfferingsCatch s =
     paginateCatch (mkDescribeReservedCacheNodesOfferings &~ s)
 
@@ -1140,7 +1139,7 @@ describeSnapshotsCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => State DescribeSnapshots a
-    -> m (Either ServiceEr DescribeSnapshotsResponse)
+    -> m (Either ElastiCacheError DescribeSnapshotsResponse)
 describeSnapshotsCatch s =
     sendCatch (mkDescribeSnapshots &~ s)
 
@@ -1175,7 +1174,7 @@ modifyCacheClusterCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'mccCacheClusterId'
     -> State ModifyCacheCluster a
-    -> m (Either ServiceEr ModifyCacheClusterResponse)
+    -> m (Either ElastiCacheError ModifyCacheClusterResponse)
 modifyCacheClusterCatch p1 s =
     sendCatch $ (mkModifyCacheCluster p1) &~ s
 
@@ -1211,7 +1210,7 @@ modifyCacheParameterGroupCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'mcpgCacheParameterGroupName'
     -> [ParameterNameValue] -- ^ 'mcpgParameterNameValues'
-    -> m (Either ServiceEr ModifyCacheParameterGroupResponse)
+    -> m (Either ElastiCacheError ModifyCacheParameterGroupResponse)
 modifyCacheParameterGroupCatch p1 p2 =
     sendCatch (mkModifyCacheParameterGroup p1 p2)
 
@@ -1245,7 +1244,7 @@ modifyCacheSubnetGroupCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'mcsgCacheSubnetGroupName'
     -> State ModifyCacheSubnetGroup a
-    -> m (Either ServiceEr ModifyCacheSubnetGroupResponse)
+    -> m (Either ElastiCacheError ModifyCacheSubnetGroupResponse)
 modifyCacheSubnetGroupCatch p1 s =
     sendCatch $ (mkModifyCacheSubnetGroup p1) &~ s
 
@@ -1284,7 +1283,7 @@ modifyReplicationGroupCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'mrgReplicationGroupId'
     -> State ModifyReplicationGroup a
-    -> m (Either ServiceEr ModifyReplicationGroupResponse)
+    -> m (Either ElastiCacheError ModifyReplicationGroupResponse)
 modifyReplicationGroupCatch p1 s =
     sendCatch $ (mkModifyReplicationGroup p1) &~ s
 
@@ -1319,7 +1318,7 @@ purchaseReservedCacheNodesOfferingCatch :: ( MonadCatch m
                                            )
     => Text -- ^ 'prcnoReservedCacheNodesOfferingId'
     -> State PurchaseReservedCacheNodesOffering a
-    -> m (Either ServiceEr PurchaseReservedCacheNodesOfferingResponse)
+    -> m (Either ElastiCacheError PurchaseReservedCacheNodesOfferingResponse)
 purchaseReservedCacheNodesOfferingCatch p1 s =
     sendCatch $ (mkPurchaseReservedCacheNodesOffering p1) &~ s
 
@@ -1361,7 +1360,7 @@ rebootCacheClusterCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'rccCacheClusterId'
     -> [Text] -- ^ 'rccCacheNodeIdsToReboot'
-    -> m (Either ServiceEr RebootCacheClusterResponse)
+    -> m (Either ElastiCacheError RebootCacheClusterResponse)
 rebootCacheClusterCatch p1 p2 =
     sendCatch (mkRebootCacheCluster p1 p2)
 
@@ -1399,7 +1398,7 @@ resetCacheParameterGroupCatch :: ( MonadCatch m
     => Text -- ^ 'rcpgCacheParameterGroupName'
     -> [ParameterNameValue] -- ^ 'rcpgParameterNameValues'
     -> State ResetCacheParameterGroup a
-    -> m (Either ServiceEr ResetCacheParameterGroupResponse)
+    -> m (Either ElastiCacheError ResetCacheParameterGroupResponse)
 resetCacheParameterGroupCatch p1 p3 s =
     sendCatch $ (mkResetCacheParameterGroup p1 p3) &~ s
 
@@ -1436,6 +1435,6 @@ revokeCacheSecurityGroupIngressCatch :: ( MonadCatch m
     => Text -- ^ 'rcsgiCacheSecurityGroupName'
     -> Text -- ^ 'rcsgiEC2SecurityGroupName'
     -> Text -- ^ 'rcsgiEC2SecurityGroupOwnerId'
-    -> m (Either ServiceEr RevokeCacheSecurityGroupIngressResponse)
+    -> m (Either ElastiCacheError RevokeCacheSecurityGroupIngressResponse)
 revokeCacheSecurityGroupIngressCatch p1 p2 p3 =
     sendCatch (mkRevokeCacheSecurityGroupIngress p1 p2 p3)

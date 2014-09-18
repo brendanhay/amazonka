@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,6 +28,81 @@ module Network.AWS.Redshift.Types
     (
     -- * Service
       Redshift
+    -- ** Errors
+    , RedshiftError (..)
+    , _AccessToSnapshotDeniedFault
+    , _AuthorizationAlreadyExistsFault
+    , _AuthorizationNotFoundFault
+    , _AuthorizationQuotaExceededFault
+    , _BucketNotFoundFault
+    , _ClusterAlreadyExistsFault
+    , _ClusterNotFoundFault
+    , _ClusterParameterGroupAlreadyExistsFault
+    , _ClusterParameterGroupNotFoundFault
+    , _ClusterParameterGroupQuotaExceededFault
+    , _ClusterQuotaExceededFault
+    , _ClusterSecurityGroupAlreadyExistsFault
+    , _ClusterSecurityGroupNotFoundFault
+    , _ClusterSecurityGroupQuotaExceededFault
+    , _ClusterSnapshotAlreadyExistsFault
+    , _ClusterSnapshotNotFoundFault
+    , _ClusterSnapshotQuotaExceededFault
+    , _ClusterSubnetGroupAlreadyExistsFault
+    , _ClusterSubnetGroupNotFoundFault
+    , _ClusterSubnetGroupQuotaExceededFault
+    , _ClusterSubnetQuotaExceededFault
+    , _CopyToRegionDisabledFault
+    , _EventSubscriptionQuotaExceededFault
+    , _HsmClientCertificateAlreadyExistsFault
+    , _HsmClientCertificateNotFoundFault
+    , _HsmClientCertificateQuotaExceededFault
+    , _HsmConfigurationAlreadyExistsFault
+    , _HsmConfigurationNotFoundFault
+    , _HsmConfigurationQuotaExceededFault
+    , _IncompatibleOrderableOptions
+    , _InsufficientClusterCapacityFault
+    , _InsufficientS3BucketPolicyFault
+    , _InvalidClusterParameterGroupStateFault
+    , _InvalidClusterSecurityGroupStateFault
+    , _InvalidClusterSnapshotStateFault
+    , _InvalidClusterStateFault
+    , _InvalidClusterSubnetGroupStateFault
+    , _InvalidClusterSubnetStateFault
+    , _InvalidElasticIpFault
+    , _InvalidHsmClientCertificateStateFault
+    , _InvalidHsmConfigurationStateFault
+    , _InvalidRestoreFault
+    , _InvalidS3BucketNameFault
+    , _InvalidS3KeyPrefixFault
+    , _InvalidSubnet
+    , _InvalidSubscriptionStateFault
+    , _InvalidVPCNetworkStateFault
+    , _NumberOfNodesPerClusterLimitExceededFault
+    , _NumberOfNodesQuotaExceededFault
+    , _RedshiftClient
+    , _RedshiftSerializer
+    , _RedshiftService
+    , _ReservedNodeAlreadyExistsFault
+    , _ReservedNodeNotFoundFault
+    , _ReservedNodeOfferingNotFoundFault
+    , _ReservedNodeQuotaExceededFault
+    , _ResizeNotFoundFault
+    , _SNSInvalidTopicFault
+    , _SNSNoAuthorizationFault
+    , _SNSTopicArnNotFoundFault
+    , _SnapshotCopyAlreadyDisabledFault
+    , _SnapshotCopyAlreadyEnabledFault
+    , _SnapshotCopyDisabledFault
+    , _SourceNotFoundFault
+    , _SubnetAlreadyInUse
+    , _SubscriptionAlreadyExistFault
+    , _SubscriptionCategoryNotFoundFault
+    , _SubscriptionEventIdNotFoundFault
+    , _SubscriptionNotFoundFault
+    , _SubscriptionSeverityNotFoundFault
+    , _UnauthorizedOperation
+    , _UnknownSnapshotCopyRegionFault
+    , _UnsupportedOptionFault
     -- ** XML
     , xmlOptions
 
@@ -352,80 +427,7 @@ data Redshift deriving (Typeable)
 
 instance AWSService Redshift where
     type Sg Redshift = V4
-    data Er Redshift
-        = AccessToSnapshotDeniedFault
-        | AuthorizationAlreadyExistsFault
-        | AuthorizationNotFoundFault
-        | AuthorizationQuotaExceededFault
-        | BucketNotFoundFault
-        | ClusterAlreadyExistsFault
-        | ClusterNotFoundFault
-        | ClusterParameterGroupAlreadyExistsFault
-        | ClusterParameterGroupNotFoundFault
-        | ClusterParameterGroupQuotaExceededFault
-        | ClusterQuotaExceededFault
-        | ClusterSecurityGroupAlreadyExistsFault
-        | ClusterSecurityGroupNotFoundFault
-        | ClusterSecurityGroupQuotaExceededFault
-        | ClusterSnapshotAlreadyExistsFault
-        | ClusterSnapshotNotFoundFault
-        | ClusterSnapshotQuotaExceededFault
-        | ClusterSubnetGroupAlreadyExistsFault
-        | ClusterSubnetGroupNotFoundFault
-        | ClusterSubnetGroupQuotaExceededFault
-        | ClusterSubnetQuotaExceededFault
-        | CopyToRegionDisabledFault
-        | EventSubscriptionQuotaExceededFault
-        | HsmClientCertificateAlreadyExistsFault
-        | HsmClientCertificateNotFoundFault
-        | HsmClientCertificateQuotaExceededFault
-        | HsmConfigurationAlreadyExistsFault
-        | HsmConfigurationNotFoundFault
-        | HsmConfigurationQuotaExceededFault
-        | IncompatibleOrderableOptions
-        | InsufficientClusterCapacityFault
-        | InsufficientS3BucketPolicyFault
-        | InvalidClusterParameterGroupStateFault
-        | InvalidClusterSecurityGroupStateFault
-        | InvalidClusterSnapshotStateFault
-        | InvalidClusterStateFault
-        | InvalidClusterSubnetGroupStateFault
-        | InvalidClusterSubnetStateFault
-        | InvalidElasticIpFault
-        | InvalidHsmClientCertificateStateFault
-        | InvalidHsmConfigurationStateFault
-        | InvalidRestoreFault
-        | InvalidS3BucketNameFault
-        | InvalidS3KeyPrefixFault
-        | InvalidSubnet
-        | InvalidSubscriptionStateFault
-        | InvalidVPCNetworkStateFault
-        | NumberOfNodesPerClusterLimitExceededFault
-        | NumberOfNodesQuotaExceededFault
-        | RedshiftClient HttpException
-        | RedshiftSerializer String
-        | RedshiftService String
-        | ReservedNodeAlreadyExistsFault
-        | ReservedNodeNotFoundFault
-        | ReservedNodeOfferingNotFoundFault
-        | ReservedNodeQuotaExceededFault
-        | ResizeNotFoundFault
-        | SNSInvalidTopicFault
-        | SNSNoAuthorizationFault
-        | SNSTopicArnNotFoundFault
-        | SnapshotCopyAlreadyDisabledFault
-        | SnapshotCopyAlreadyEnabledFault
-        | SnapshotCopyDisabledFault
-        | SourceNotFoundFault
-        | SubnetAlreadyInUse
-        | SubscriptionAlreadyExistFault
-        | SubscriptionCategoryNotFoundFault
-        | SubscriptionEventIdNotFoundFault
-        | SubscriptionNotFoundFault
-        | SubscriptionSeverityNotFoundFault
-        | UnauthorizedOperation
-        | UnknownSnapshotCopyRegionFault
-        | UnsupportedOptionFault
+    type Er Redshift = RedshiftError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -434,18 +436,1015 @@ instance AWSService Redshift where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er Redshift)
-deriving instance Generic (Er Redshift)
+-- | A sum type representing possible errors returned by the 'Redshift' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data RedshiftError
+      -- | The owner of the specified snapshot has not authorized your
+      -- account to access the snapshot.
+    = AccessToSnapshotDeniedFault
+      -- | The specified CIDR block or EC2 security group is already
+      -- authorized for the specified cluster security group.
+    | AuthorizationAlreadyExistsFault
+      -- | The specified CIDR IP range or EC2 security group is not
+      -- authorized for the specified cluster security group.
+    | AuthorizationNotFoundFault
+      -- | The authorization quota for the cluster security group has been
+      -- reached.
+    | AuthorizationQuotaExceededFault
+      -- | Could not find the specified S3 bucket.
+    | BucketNotFoundFault
+      -- | The account already has a cluster with the given identifier.
+    | ClusterAlreadyExistsFault
+      -- | The ClusterIdentifier parameter does not refer to an existing
+      -- cluster.
+    | ClusterNotFoundFault
+      -- | A cluster parameter group with the same name already exists.
+    | ClusterParameterGroupAlreadyExistsFault
+      -- | The parameter group name does not refer to an existing parameter
+      -- group.
+    | ClusterParameterGroupNotFoundFault
+      -- | The request would result in the user exceeding the allowed number
+      -- of cluster parameter groups. For information about increasing
+      -- your quota, go to Limits in Amazon Redshift in the Amazon
+      -- Redshift Management Guide.
+    | ClusterParameterGroupQuotaExceededFault
+      -- | The request would exceed the allowed number of cluster instances
+      -- for this account. For information about increasing your quota, go
+      -- to Limits in Amazon Redshift in the Amazon Redshift Management
+      -- Guide.
+    | ClusterQuotaExceededFault
+      -- | A cluster security group with the same name already exists.
+    | ClusterSecurityGroupAlreadyExistsFault
+      -- | The cluster security group name does not refer to an existing
+      -- cluster security group.
+    | ClusterSecurityGroupNotFoundFault
+      -- | The request would result in the user exceeding the allowed number
+      -- of cluster security groups. For information about increasing your
+      -- quota, go to Limits in Amazon Redshift in the Amazon Redshift
+      -- Management Guide.
+    | ClusterSecurityGroupQuotaExceededFault
+      -- | The value specified as a snapshot identifier is already used by
+      -- an existing snapshot.
+    | ClusterSnapshotAlreadyExistsFault
+      -- | The snapshot identifier does not refer to an existing cluster
+      -- snapshot.
+    | ClusterSnapshotNotFoundFault
+      -- | The request would result in the user exceeding the allowed number
+      -- of cluster snapshots.
+    | ClusterSnapshotQuotaExceededFault
+      -- | A ClusterSubnetGroupName is already used by an existing cluster
+      -- subnet group.
+    | ClusterSubnetGroupAlreadyExistsFault
+      -- | The cluster subnet group name does not refer to an existing
+      -- cluster subnet group.
+    | ClusterSubnetGroupNotFoundFault
+      -- | The request would result in user exceeding the allowed number of
+      -- cluster subnet groups. For information about increasing your
+      -- quota, go to Limits in Amazon Redshift in the Amazon Redshift
+      -- Management Guide.
+    | ClusterSubnetGroupQuotaExceededFault
+      -- | The request would result in user exceeding the allowed number of
+      -- subnets in a cluster subnet groups. For information about
+      -- increasing your quota, go to Limits in Amazon Redshift in the
+      -- Amazon Redshift Management Guide.
+    | ClusterSubnetQuotaExceededFault
+      -- | Cross-region snapshot copy was temporarily disabled. Try your
+      -- request again.
+    | CopyToRegionDisabledFault
+      -- | The request would exceed the allowed number of event
+      -- subscriptions for this account. For information about increasing
+      -- your quota, go to Limits in Amazon Redshift in the Amazon
+      -- Redshift Management Guide.
+    | EventSubscriptionQuotaExceededFault
+      -- | There is already an existing Amazon Redshift HSM client
+      -- certificate with the specified identifier.
+    | HsmClientCertificateAlreadyExistsFault
+      -- | There is no Amazon Redshift HSM client certificate with the
+      -- specified identifier.
+    | HsmClientCertificateNotFoundFault
+      -- | The quota for HSM client certificates has been reached. For
+      -- information about increasing your quota, go to Limits in Amazon
+      -- Redshift in the Amazon Redshift Management Guide.
+    | HsmClientCertificateQuotaExceededFault
+      -- | There is already an existing Amazon Redshift HSM configuration
+      -- with the specified identifier.
+    | HsmConfigurationAlreadyExistsFault
+      -- | There is no Amazon Redshift HSM configuration with the specified
+      -- identifier.
+    | HsmConfigurationNotFoundFault
+      -- | The quota for HSM configurations has been reached. For
+      -- information about increasing your quota, go to Limits in Amazon
+      -- Redshift in the Amazon Redshift Management Guide.
+    | HsmConfigurationQuotaExceededFault
+      -- | The specified options are incompatible.
+    | IncompatibleOrderableOptions
+      -- | The number of nodes specified exceeds the allotted capacity of
+      -- the cluster.
+    | InsufficientClusterCapacityFault
+      -- | The cluster does not have read bucket or put object permissions
+      -- on the S3 bucket specified when enabling logging.
+    | InsufficientS3BucketPolicyFault
+      -- | The cluster parameter group action can not be completed because
+      -- another task is in progress that involves the parameter group.
+      -- Wait a few moments and try the operation again.
+    | InvalidClusterParameterGroupStateFault
+      -- | The state of the cluster security group is not available.
+    | InvalidClusterSecurityGroupStateFault
+      -- | The state of the cluster snapshot is not available, or other
+      -- accounts are authorized to access the snapshot.
+    | InvalidClusterSnapshotStateFault
+      -- | The specified cluster is not in the available state.
+    | InvalidClusterStateFault
+      -- | The cluster subnet group cannot be deleted because it is in use.
+    | InvalidClusterSubnetGroupStateFault
+      -- | The state of the subnet is invalid.
+    | InvalidClusterSubnetStateFault
+      -- | The Elastic IP (EIP) is invalid or cannot be found.
+    | InvalidElasticIpFault
+      -- | The specified HSM client certificate is not in the available
+      -- state, or it is still in use by one or more Amazon Redshift
+      -- clusters.
+    | InvalidHsmClientCertificateStateFault
+      -- | The specified HSM configuration is not in the available state, or
+      -- it is still in use by one or more Amazon Redshift clusters.
+    | InvalidHsmConfigurationStateFault
+      -- | The restore is invalid.
+    | InvalidRestoreFault
+      -- | The S3 bucket name is invalid. For more information about naming
+      -- rules, go to Bucket Restrictions and Limitations in the Amazon
+      -- Simple Storage Service (S3) Developer Guide.
+    | InvalidS3BucketNameFault
+      -- | The string specified for the logging S3 key prefix does not
+      -- comply with the documented constraints.
+    | InvalidS3KeyPrefixFault
+      -- | The requested subnet is not valid, or not all of the subnets are
+      -- in the same VPC.
+    | InvalidSubnet
+      -- | The subscription request is invalid because it is a duplicate
+      -- request. This subscription request is already in progress.
+    | InvalidSubscriptionStateFault
+      -- | The cluster subnet group does not cover all Availability Zones.
+    | InvalidVPCNetworkStateFault
+      -- | The operation would exceed the number of nodes allowed for a
+      -- cluster.
+    | NumberOfNodesPerClusterLimitExceededFault
+      -- | The operation would exceed the number of nodes allotted to the
+      -- account. For information about increasing your quota, go to
+      -- Limits in Amazon Redshift in the Amazon Redshift Management
+      -- Guide.
+    | NumberOfNodesQuotaExceededFault
+    | RedshiftClient HttpException
+    | RedshiftSerializer Text
+    | RedshiftService Text
+      -- | User already has a reservation with the given identifier.
+    | ReservedNodeAlreadyExistsFault
+      -- | The specified reserved compute node not found.
+    | ReservedNodeNotFoundFault
+      -- | Specified offering does not exist.
+    | ReservedNodeOfferingNotFoundFault
+      -- | Request would exceed the user's compute node quota. For
+      -- information about increasing your quota, go to Limits in Amazon
+      -- Redshift in the Amazon Redshift Management Guide.
+    | ReservedNodeQuotaExceededFault
+      -- | A resize operation for the specified cluster is not found.
+    | ResizeNotFoundFault
+      -- | Amazon SNS has responded that there is a problem with the
+      -- specified Amazon SNS topic.
+    | SNSInvalidTopicFault
+      -- | You do not have permission to publish to the specified Amazon SNS
+      -- topic.
+    | SNSNoAuthorizationFault
+      -- | An Amazon SNS topic with the specified Amazon Resource Name (ARN)
+      -- does not exist.
+    | SNSTopicArnNotFoundFault
+      -- | The cluster already has cross-region snapshot copy disabled.
+    | SnapshotCopyAlreadyDisabledFault
+      -- | The cluster already has cross-region snapshot copy enabled.
+    | SnapshotCopyAlreadyEnabledFault
+      -- | Cross-region snapshot copy was temporarily disabled. Try your
+      -- request again.
+    | SnapshotCopyDisabledFault
+      -- | The specified Amazon Redshift event source could not be found.
+    | SourceNotFoundFault
+      -- | A specified subnet is already in use by another cluster.
+    | SubnetAlreadyInUse
+      -- | There is already an existing event notification subscription with
+      -- the specified name.
+    | SubscriptionAlreadyExistFault
+      -- | The value specified for the event category was not one of the
+      -- allowed values, or it specified a category that does not apply to
+      -- the specified source type. The allowed values are Configuration,
+      -- Management, Monitoring, and Security.
+    | SubscriptionCategoryNotFoundFault
+      -- | An Amazon Redshift event with the specified event ID does not
+      -- exist.
+    | SubscriptionEventIdNotFoundFault
+      -- | An Amazon Redshift event notification subscription with the
+      -- specified name does not exist.
+    | SubscriptionNotFoundFault
+      -- | The value specified for the event severity was not one of the
+      -- allowed values, or it specified a severity that does not apply to
+      -- the specified source type. The allowed values are ERROR and INFO.
+    | SubscriptionSeverityNotFoundFault
+      -- | Your account is not authorized to perform the requested
+      -- operation.
+    | UnauthorizedOperation
+      -- | The specified region is incorrect or does not exist.
+    | UnknownSnapshotCopyRegionFault
+      -- | A request option was specified that is not supported.
+    | UnsupportedOptionFault
+    deriving (Show, Generic)
 
-instance AWSError (Er Redshift) where
+instance AWSError RedshiftError where
     awsError = const "RedshiftError"
 
-instance AWSServiceError (Er Redshift) where
+instance AWSServiceError RedshiftError where
     serviceError    = RedshiftService
     clientError     = RedshiftClient
     serializerError = RedshiftSerializer
 
-instance Exception (Er Redshift)
+instance Exception RedshiftError
+
+-- | The owner of the specified snapshot has not authorized your account to
+-- access the snapshot.
+--
+-- See: 'AccessToSnapshotDeniedFault'
+_AccessToSnapshotDeniedFault :: Prism' RedshiftError ()
+_AccessToSnapshotDeniedFault = prism'
+    (const AccessToSnapshotDeniedFault)
+    (\case
+        AccessToSnapshotDeniedFault -> Right ()
+        x -> Left x)
+
+-- | The specified CIDR block or EC2 security group is already authorized for
+-- the specified cluster security group.
+--
+-- See: 'AuthorizationAlreadyExistsFault'
+_AuthorizationAlreadyExistsFault :: Prism' RedshiftError ()
+_AuthorizationAlreadyExistsFault = prism'
+    (const AuthorizationAlreadyExistsFault)
+    (\case
+        AuthorizationAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | The specified CIDR IP range or EC2 security group is not authorized for the
+-- specified cluster security group.
+--
+-- See: 'AuthorizationNotFoundFault'
+_AuthorizationNotFoundFault :: Prism' RedshiftError ()
+_AuthorizationNotFoundFault = prism'
+    (const AuthorizationNotFoundFault)
+    (\case
+        AuthorizationNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | The authorization quota for the cluster security group has been reached.
+--
+-- See: 'AuthorizationQuotaExceededFault'
+_AuthorizationQuotaExceededFault :: Prism' RedshiftError ()
+_AuthorizationQuotaExceededFault = prism'
+    (const AuthorizationQuotaExceededFault)
+    (\case
+        AuthorizationQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | Could not find the specified S3 bucket.
+--
+-- See: 'BucketNotFoundFault'
+_BucketNotFoundFault :: Prism' RedshiftError ()
+_BucketNotFoundFault = prism'
+    (const BucketNotFoundFault)
+    (\case
+        BucketNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | The account already has a cluster with the given identifier.
+--
+-- See: 'ClusterAlreadyExistsFault'
+_ClusterAlreadyExistsFault :: Prism' RedshiftError ()
+_ClusterAlreadyExistsFault = prism'
+    (const ClusterAlreadyExistsFault)
+    (\case
+        ClusterAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | The ClusterIdentifier parameter does not refer to an existing cluster.
+--
+-- See: 'ClusterNotFoundFault'
+_ClusterNotFoundFault :: Prism' RedshiftError ()
+_ClusterNotFoundFault = prism'
+    (const ClusterNotFoundFault)
+    (\case
+        ClusterNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | A cluster parameter group with the same name already exists.
+--
+-- See: 'ClusterParameterGroupAlreadyExistsFault'
+_ClusterParameterGroupAlreadyExistsFault :: Prism' RedshiftError ()
+_ClusterParameterGroupAlreadyExistsFault = prism'
+    (const ClusterParameterGroupAlreadyExistsFault)
+    (\case
+        ClusterParameterGroupAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | The parameter group name does not refer to an existing parameter group.
+--
+-- See: 'ClusterParameterGroupNotFoundFault'
+_ClusterParameterGroupNotFoundFault :: Prism' RedshiftError ()
+_ClusterParameterGroupNotFoundFault = prism'
+    (const ClusterParameterGroupNotFoundFault)
+    (\case
+        ClusterParameterGroupNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | The request would result in the user exceeding the allowed number of
+-- cluster parameter groups. For information about increasing your quota, go
+-- to Limits in Amazon Redshift in the Amazon Redshift Management Guide.
+--
+-- See: 'ClusterParameterGroupQuotaExceededFault'
+_ClusterParameterGroupQuotaExceededFault :: Prism' RedshiftError ()
+_ClusterParameterGroupQuotaExceededFault = prism'
+    (const ClusterParameterGroupQuotaExceededFault)
+    (\case
+        ClusterParameterGroupQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | The request would exceed the allowed number of cluster instances for this
+-- account. For information about increasing your quota, go to Limits in
+-- Amazon Redshift in the Amazon Redshift Management Guide.
+--
+-- See: 'ClusterQuotaExceededFault'
+_ClusterQuotaExceededFault :: Prism' RedshiftError ()
+_ClusterQuotaExceededFault = prism'
+    (const ClusterQuotaExceededFault)
+    (\case
+        ClusterQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | A cluster security group with the same name already exists.
+--
+-- See: 'ClusterSecurityGroupAlreadyExistsFault'
+_ClusterSecurityGroupAlreadyExistsFault :: Prism' RedshiftError ()
+_ClusterSecurityGroupAlreadyExistsFault = prism'
+    (const ClusterSecurityGroupAlreadyExistsFault)
+    (\case
+        ClusterSecurityGroupAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | The cluster security group name does not refer to an existing cluster
+-- security group.
+--
+-- See: 'ClusterSecurityGroupNotFoundFault'
+_ClusterSecurityGroupNotFoundFault :: Prism' RedshiftError ()
+_ClusterSecurityGroupNotFoundFault = prism'
+    (const ClusterSecurityGroupNotFoundFault)
+    (\case
+        ClusterSecurityGroupNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | The request would result in the user exceeding the allowed number of
+-- cluster security groups. For information about increasing your quota, go to
+-- Limits in Amazon Redshift in the Amazon Redshift Management Guide.
+--
+-- See: 'ClusterSecurityGroupQuotaExceededFault'
+_ClusterSecurityGroupQuotaExceededFault :: Prism' RedshiftError ()
+_ClusterSecurityGroupQuotaExceededFault = prism'
+    (const ClusterSecurityGroupQuotaExceededFault)
+    (\case
+        ClusterSecurityGroupQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | The value specified as a snapshot identifier is already used by an existing
+-- snapshot.
+--
+-- See: 'ClusterSnapshotAlreadyExistsFault'
+_ClusterSnapshotAlreadyExistsFault :: Prism' RedshiftError ()
+_ClusterSnapshotAlreadyExistsFault = prism'
+    (const ClusterSnapshotAlreadyExistsFault)
+    (\case
+        ClusterSnapshotAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | The snapshot identifier does not refer to an existing cluster snapshot.
+--
+-- See: 'ClusterSnapshotNotFoundFault'
+_ClusterSnapshotNotFoundFault :: Prism' RedshiftError ()
+_ClusterSnapshotNotFoundFault = prism'
+    (const ClusterSnapshotNotFoundFault)
+    (\case
+        ClusterSnapshotNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | The request would result in the user exceeding the allowed number of
+-- cluster snapshots.
+--
+-- See: 'ClusterSnapshotQuotaExceededFault'
+_ClusterSnapshotQuotaExceededFault :: Prism' RedshiftError ()
+_ClusterSnapshotQuotaExceededFault = prism'
+    (const ClusterSnapshotQuotaExceededFault)
+    (\case
+        ClusterSnapshotQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | A ClusterSubnetGroupName is already used by an existing cluster subnet
+-- group.
+--
+-- See: 'ClusterSubnetGroupAlreadyExistsFault'
+_ClusterSubnetGroupAlreadyExistsFault :: Prism' RedshiftError ()
+_ClusterSubnetGroupAlreadyExistsFault = prism'
+    (const ClusterSubnetGroupAlreadyExistsFault)
+    (\case
+        ClusterSubnetGroupAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | The cluster subnet group name does not refer to an existing cluster subnet
+-- group.
+--
+-- See: 'ClusterSubnetGroupNotFoundFault'
+_ClusterSubnetGroupNotFoundFault :: Prism' RedshiftError ()
+_ClusterSubnetGroupNotFoundFault = prism'
+    (const ClusterSubnetGroupNotFoundFault)
+    (\case
+        ClusterSubnetGroupNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | The request would result in user exceeding the allowed number of cluster
+-- subnet groups. For information about increasing your quota, go to Limits in
+-- Amazon Redshift in the Amazon Redshift Management Guide.
+--
+-- See: 'ClusterSubnetGroupQuotaExceededFault'
+_ClusterSubnetGroupQuotaExceededFault :: Prism' RedshiftError ()
+_ClusterSubnetGroupQuotaExceededFault = prism'
+    (const ClusterSubnetGroupQuotaExceededFault)
+    (\case
+        ClusterSubnetGroupQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | The request would result in user exceeding the allowed number of subnets in
+-- a cluster subnet groups. For information about increasing your quota, go to
+-- Limits in Amazon Redshift in the Amazon Redshift Management Guide.
+--
+-- See: 'ClusterSubnetQuotaExceededFault'
+_ClusterSubnetQuotaExceededFault :: Prism' RedshiftError ()
+_ClusterSubnetQuotaExceededFault = prism'
+    (const ClusterSubnetQuotaExceededFault)
+    (\case
+        ClusterSubnetQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | Cross-region snapshot copy was temporarily disabled. Try your request
+-- again.
+--
+-- See: 'CopyToRegionDisabledFault'
+_CopyToRegionDisabledFault :: Prism' RedshiftError ()
+_CopyToRegionDisabledFault = prism'
+    (const CopyToRegionDisabledFault)
+    (\case
+        CopyToRegionDisabledFault -> Right ()
+        x -> Left x)
+
+-- | The request would exceed the allowed number of event subscriptions for this
+-- account. For information about increasing your quota, go to Limits in
+-- Amazon Redshift in the Amazon Redshift Management Guide.
+--
+-- See: 'EventSubscriptionQuotaExceededFault'
+_EventSubscriptionQuotaExceededFault :: Prism' RedshiftError ()
+_EventSubscriptionQuotaExceededFault = prism'
+    (const EventSubscriptionQuotaExceededFault)
+    (\case
+        EventSubscriptionQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | There is already an existing Amazon Redshift HSM client certificate with
+-- the specified identifier.
+--
+-- See: 'HsmClientCertificateAlreadyExistsFault'
+_HsmClientCertificateAlreadyExistsFault :: Prism' RedshiftError ()
+_HsmClientCertificateAlreadyExistsFault = prism'
+    (const HsmClientCertificateAlreadyExistsFault)
+    (\case
+        HsmClientCertificateAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | There is no Amazon Redshift HSM client certificate with the specified
+-- identifier.
+--
+-- See: 'HsmClientCertificateNotFoundFault'
+_HsmClientCertificateNotFoundFault :: Prism' RedshiftError ()
+_HsmClientCertificateNotFoundFault = prism'
+    (const HsmClientCertificateNotFoundFault)
+    (\case
+        HsmClientCertificateNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | The quota for HSM client certificates has been reached. For information
+-- about increasing your quota, go to Limits in Amazon Redshift in the Amazon
+-- Redshift Management Guide.
+--
+-- See: 'HsmClientCertificateQuotaExceededFault'
+_HsmClientCertificateQuotaExceededFault :: Prism' RedshiftError ()
+_HsmClientCertificateQuotaExceededFault = prism'
+    (const HsmClientCertificateQuotaExceededFault)
+    (\case
+        HsmClientCertificateQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | There is already an existing Amazon Redshift HSM configuration with the
+-- specified identifier.
+--
+-- See: 'HsmConfigurationAlreadyExistsFault'
+_HsmConfigurationAlreadyExistsFault :: Prism' RedshiftError ()
+_HsmConfigurationAlreadyExistsFault = prism'
+    (const HsmConfigurationAlreadyExistsFault)
+    (\case
+        HsmConfigurationAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | There is no Amazon Redshift HSM configuration with the specified
+-- identifier.
+--
+-- See: 'HsmConfigurationNotFoundFault'
+_HsmConfigurationNotFoundFault :: Prism' RedshiftError ()
+_HsmConfigurationNotFoundFault = prism'
+    (const HsmConfigurationNotFoundFault)
+    (\case
+        HsmConfigurationNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | The quota for HSM configurations has been reached. For information about
+-- increasing your quota, go to Limits in Amazon Redshift in the Amazon
+-- Redshift Management Guide.
+--
+-- See: 'HsmConfigurationQuotaExceededFault'
+_HsmConfigurationQuotaExceededFault :: Prism' RedshiftError ()
+_HsmConfigurationQuotaExceededFault = prism'
+    (const HsmConfigurationQuotaExceededFault)
+    (\case
+        HsmConfigurationQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | The specified options are incompatible.
+--
+-- See: 'IncompatibleOrderableOptions'
+_IncompatibleOrderableOptions :: Prism' RedshiftError ()
+_IncompatibleOrderableOptions = prism'
+    (const IncompatibleOrderableOptions)
+    (\case
+        IncompatibleOrderableOptions -> Right ()
+        x -> Left x)
+
+-- | The number of nodes specified exceeds the allotted capacity of the cluster.
+--
+-- See: 'InsufficientClusterCapacityFault'
+_InsufficientClusterCapacityFault :: Prism' RedshiftError ()
+_InsufficientClusterCapacityFault = prism'
+    (const InsufficientClusterCapacityFault)
+    (\case
+        InsufficientClusterCapacityFault -> Right ()
+        x -> Left x)
+
+-- | The cluster does not have read bucket or put object permissions on the S3
+-- bucket specified when enabling logging.
+--
+-- See: 'InsufficientS3BucketPolicyFault'
+_InsufficientS3BucketPolicyFault :: Prism' RedshiftError ()
+_InsufficientS3BucketPolicyFault = prism'
+    (const InsufficientS3BucketPolicyFault)
+    (\case
+        InsufficientS3BucketPolicyFault -> Right ()
+        x -> Left x)
+
+-- | The cluster parameter group action can not be completed because another
+-- task is in progress that involves the parameter group. Wait a few moments
+-- and try the operation again.
+--
+-- See: 'InvalidClusterParameterGroupStateFault'
+_InvalidClusterParameterGroupStateFault :: Prism' RedshiftError ()
+_InvalidClusterParameterGroupStateFault = prism'
+    (const InvalidClusterParameterGroupStateFault)
+    (\case
+        InvalidClusterParameterGroupStateFault -> Right ()
+        x -> Left x)
+
+-- | The state of the cluster security group is not available.
+--
+-- See: 'InvalidClusterSecurityGroupStateFault'
+_InvalidClusterSecurityGroupStateFault :: Prism' RedshiftError ()
+_InvalidClusterSecurityGroupStateFault = prism'
+    (const InvalidClusterSecurityGroupStateFault)
+    (\case
+        InvalidClusterSecurityGroupStateFault -> Right ()
+        x -> Left x)
+
+-- | The state of the cluster snapshot is not available, or other accounts are
+-- authorized to access the snapshot.
+--
+-- See: 'InvalidClusterSnapshotStateFault'
+_InvalidClusterSnapshotStateFault :: Prism' RedshiftError ()
+_InvalidClusterSnapshotStateFault = prism'
+    (const InvalidClusterSnapshotStateFault)
+    (\case
+        InvalidClusterSnapshotStateFault -> Right ()
+        x -> Left x)
+
+-- | The specified cluster is not in the available state.
+--
+-- See: 'InvalidClusterStateFault'
+_InvalidClusterStateFault :: Prism' RedshiftError ()
+_InvalidClusterStateFault = prism'
+    (const InvalidClusterStateFault)
+    (\case
+        InvalidClusterStateFault -> Right ()
+        x -> Left x)
+
+-- | The cluster subnet group cannot be deleted because it is in use.
+--
+-- See: 'InvalidClusterSubnetGroupStateFault'
+_InvalidClusterSubnetGroupStateFault :: Prism' RedshiftError ()
+_InvalidClusterSubnetGroupStateFault = prism'
+    (const InvalidClusterSubnetGroupStateFault)
+    (\case
+        InvalidClusterSubnetGroupStateFault -> Right ()
+        x -> Left x)
+
+-- | The state of the subnet is invalid.
+--
+-- See: 'InvalidClusterSubnetStateFault'
+_InvalidClusterSubnetStateFault :: Prism' RedshiftError ()
+_InvalidClusterSubnetStateFault = prism'
+    (const InvalidClusterSubnetStateFault)
+    (\case
+        InvalidClusterSubnetStateFault -> Right ()
+        x -> Left x)
+
+-- | The Elastic IP (EIP) is invalid or cannot be found.
+--
+-- See: 'InvalidElasticIpFault'
+_InvalidElasticIpFault :: Prism' RedshiftError ()
+_InvalidElasticIpFault = prism'
+    (const InvalidElasticIpFault)
+    (\case
+        InvalidElasticIpFault -> Right ()
+        x -> Left x)
+
+-- | The specified HSM client certificate is not in the available state, or it
+-- is still in use by one or more Amazon Redshift clusters.
+--
+-- See: 'InvalidHsmClientCertificateStateFault'
+_InvalidHsmClientCertificateStateFault :: Prism' RedshiftError ()
+_InvalidHsmClientCertificateStateFault = prism'
+    (const InvalidHsmClientCertificateStateFault)
+    (\case
+        InvalidHsmClientCertificateStateFault -> Right ()
+        x -> Left x)
+
+-- | The specified HSM configuration is not in the available state, or it is
+-- still in use by one or more Amazon Redshift clusters.
+--
+-- See: 'InvalidHsmConfigurationStateFault'
+_InvalidHsmConfigurationStateFault :: Prism' RedshiftError ()
+_InvalidHsmConfigurationStateFault = prism'
+    (const InvalidHsmConfigurationStateFault)
+    (\case
+        InvalidHsmConfigurationStateFault -> Right ()
+        x -> Left x)
+
+-- | The restore is invalid.
+--
+-- See: 'InvalidRestoreFault'
+_InvalidRestoreFault :: Prism' RedshiftError ()
+_InvalidRestoreFault = prism'
+    (const InvalidRestoreFault)
+    (\case
+        InvalidRestoreFault -> Right ()
+        x -> Left x)
+
+-- | The S3 bucket name is invalid. For more information about naming rules, go
+-- to Bucket Restrictions and Limitations in the Amazon Simple Storage Service
+-- (S3) Developer Guide.
+--
+-- See: 'InvalidS3BucketNameFault'
+_InvalidS3BucketNameFault :: Prism' RedshiftError ()
+_InvalidS3BucketNameFault = prism'
+    (const InvalidS3BucketNameFault)
+    (\case
+        InvalidS3BucketNameFault -> Right ()
+        x -> Left x)
+
+-- | The string specified for the logging S3 key prefix does not comply with the
+-- documented constraints.
+--
+-- See: 'InvalidS3KeyPrefixFault'
+_InvalidS3KeyPrefixFault :: Prism' RedshiftError ()
+_InvalidS3KeyPrefixFault = prism'
+    (const InvalidS3KeyPrefixFault)
+    (\case
+        InvalidS3KeyPrefixFault -> Right ()
+        x -> Left x)
+
+-- | The requested subnet is not valid, or not all of the subnets are in the
+-- same VPC.
+--
+-- See: 'InvalidSubnet'
+_InvalidSubnet :: Prism' RedshiftError ()
+_InvalidSubnet = prism'
+    (const InvalidSubnet)
+    (\case
+        InvalidSubnet -> Right ()
+        x -> Left x)
+
+-- | The subscription request is invalid because it is a duplicate request. This
+-- subscription request is already in progress.
+--
+-- See: 'InvalidSubscriptionStateFault'
+_InvalidSubscriptionStateFault :: Prism' RedshiftError ()
+_InvalidSubscriptionStateFault = prism'
+    (const InvalidSubscriptionStateFault)
+    (\case
+        InvalidSubscriptionStateFault -> Right ()
+        x -> Left x)
+
+-- | The cluster subnet group does not cover all Availability Zones.
+--
+-- See: 'InvalidVPCNetworkStateFault'
+_InvalidVPCNetworkStateFault :: Prism' RedshiftError ()
+_InvalidVPCNetworkStateFault = prism'
+    (const InvalidVPCNetworkStateFault)
+    (\case
+        InvalidVPCNetworkStateFault -> Right ()
+        x -> Left x)
+
+-- | The operation would exceed the number of nodes allowed for a cluster.
+--
+-- See: 'NumberOfNodesPerClusterLimitExceededFault'
+_NumberOfNodesPerClusterLimitExceededFault :: Prism' RedshiftError ()
+_NumberOfNodesPerClusterLimitExceededFault = prism'
+    (const NumberOfNodesPerClusterLimitExceededFault)
+    (\case
+        NumberOfNodesPerClusterLimitExceededFault -> Right ()
+        x -> Left x)
+
+-- | The operation would exceed the number of nodes allotted to the account. For
+-- information about increasing your quota, go to Limits in Amazon Redshift in
+-- the Amazon Redshift Management Guide.
+--
+-- See: 'NumberOfNodesQuotaExceededFault'
+_NumberOfNodesQuotaExceededFault :: Prism' RedshiftError ()
+_NumberOfNodesQuotaExceededFault = prism'
+    (const NumberOfNodesQuotaExceededFault)
+    (\case
+        NumberOfNodesQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | See: 'RedshiftClient'
+_RedshiftClient :: Prism' RedshiftError HttpException
+_RedshiftClient = prism'
+    RedshiftClient
+    (\case
+        RedshiftClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'RedshiftSerializer'
+_RedshiftSerializer :: Prism' RedshiftError Text
+_RedshiftSerializer = prism'
+    RedshiftSerializer
+    (\case
+        RedshiftSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'RedshiftService'
+_RedshiftService :: Prism' RedshiftError Text
+_RedshiftService = prism'
+    RedshiftService
+    (\case
+        RedshiftService p1 -> Right p1
+        x -> Left x)
+
+-- | User already has a reservation with the given identifier.
+--
+-- See: 'ReservedNodeAlreadyExistsFault'
+_ReservedNodeAlreadyExistsFault :: Prism' RedshiftError ()
+_ReservedNodeAlreadyExistsFault = prism'
+    (const ReservedNodeAlreadyExistsFault)
+    (\case
+        ReservedNodeAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | The specified reserved compute node not found.
+--
+-- See: 'ReservedNodeNotFoundFault'
+_ReservedNodeNotFoundFault :: Prism' RedshiftError ()
+_ReservedNodeNotFoundFault = prism'
+    (const ReservedNodeNotFoundFault)
+    (\case
+        ReservedNodeNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | Specified offering does not exist.
+--
+-- See: 'ReservedNodeOfferingNotFoundFault'
+_ReservedNodeOfferingNotFoundFault :: Prism' RedshiftError ()
+_ReservedNodeOfferingNotFoundFault = prism'
+    (const ReservedNodeOfferingNotFoundFault)
+    (\case
+        ReservedNodeOfferingNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | Request would exceed the user's compute node quota. For information about
+-- increasing your quota, go to Limits in Amazon Redshift in the Amazon
+-- Redshift Management Guide.
+--
+-- See: 'ReservedNodeQuotaExceededFault'
+_ReservedNodeQuotaExceededFault :: Prism' RedshiftError ()
+_ReservedNodeQuotaExceededFault = prism'
+    (const ReservedNodeQuotaExceededFault)
+    (\case
+        ReservedNodeQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | A resize operation for the specified cluster is not found.
+--
+-- See: 'ResizeNotFoundFault'
+_ResizeNotFoundFault :: Prism' RedshiftError ()
+_ResizeNotFoundFault = prism'
+    (const ResizeNotFoundFault)
+    (\case
+        ResizeNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | Amazon SNS has responded that there is a problem with the specified Amazon
+-- SNS topic.
+--
+-- See: 'SNSInvalidTopicFault'
+_SNSInvalidTopicFault :: Prism' RedshiftError ()
+_SNSInvalidTopicFault = prism'
+    (const SNSInvalidTopicFault)
+    (\case
+        SNSInvalidTopicFault -> Right ()
+        x -> Left x)
+
+-- | You do not have permission to publish to the specified Amazon SNS topic.
+--
+-- See: 'SNSNoAuthorizationFault'
+_SNSNoAuthorizationFault :: Prism' RedshiftError ()
+_SNSNoAuthorizationFault = prism'
+    (const SNSNoAuthorizationFault)
+    (\case
+        SNSNoAuthorizationFault -> Right ()
+        x -> Left x)
+
+-- | An Amazon SNS topic with the specified Amazon Resource Name (ARN) does not
+-- exist.
+--
+-- See: 'SNSTopicArnNotFoundFault'
+_SNSTopicArnNotFoundFault :: Prism' RedshiftError ()
+_SNSTopicArnNotFoundFault = prism'
+    (const SNSTopicArnNotFoundFault)
+    (\case
+        SNSTopicArnNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | The cluster already has cross-region snapshot copy disabled.
+--
+-- See: 'SnapshotCopyAlreadyDisabledFault'
+_SnapshotCopyAlreadyDisabledFault :: Prism' RedshiftError ()
+_SnapshotCopyAlreadyDisabledFault = prism'
+    (const SnapshotCopyAlreadyDisabledFault)
+    (\case
+        SnapshotCopyAlreadyDisabledFault -> Right ()
+        x -> Left x)
+
+-- | The cluster already has cross-region snapshot copy enabled.
+--
+-- See: 'SnapshotCopyAlreadyEnabledFault'
+_SnapshotCopyAlreadyEnabledFault :: Prism' RedshiftError ()
+_SnapshotCopyAlreadyEnabledFault = prism'
+    (const SnapshotCopyAlreadyEnabledFault)
+    (\case
+        SnapshotCopyAlreadyEnabledFault -> Right ()
+        x -> Left x)
+
+-- | Cross-region snapshot copy was temporarily disabled. Try your request
+-- again.
+--
+-- See: 'SnapshotCopyDisabledFault'
+_SnapshotCopyDisabledFault :: Prism' RedshiftError ()
+_SnapshotCopyDisabledFault = prism'
+    (const SnapshotCopyDisabledFault)
+    (\case
+        SnapshotCopyDisabledFault -> Right ()
+        x -> Left x)
+
+-- | The specified Amazon Redshift event source could not be found.
+--
+-- See: 'SourceNotFoundFault'
+_SourceNotFoundFault :: Prism' RedshiftError ()
+_SourceNotFoundFault = prism'
+    (const SourceNotFoundFault)
+    (\case
+        SourceNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | A specified subnet is already in use by another cluster.
+--
+-- See: 'SubnetAlreadyInUse'
+_SubnetAlreadyInUse :: Prism' RedshiftError ()
+_SubnetAlreadyInUse = prism'
+    (const SubnetAlreadyInUse)
+    (\case
+        SubnetAlreadyInUse -> Right ()
+        x -> Left x)
+
+-- | There is already an existing event notification subscription with the
+-- specified name.
+--
+-- See: 'SubscriptionAlreadyExistFault'
+_SubscriptionAlreadyExistFault :: Prism' RedshiftError ()
+_SubscriptionAlreadyExistFault = prism'
+    (const SubscriptionAlreadyExistFault)
+    (\case
+        SubscriptionAlreadyExistFault -> Right ()
+        x -> Left x)
+
+-- | The value specified for the event category was not one of the allowed
+-- values, or it specified a category that does not apply to the specified
+-- source type. The allowed values are Configuration, Management, Monitoring,
+-- and Security.
+--
+-- See: 'SubscriptionCategoryNotFoundFault'
+_SubscriptionCategoryNotFoundFault :: Prism' RedshiftError ()
+_SubscriptionCategoryNotFoundFault = prism'
+    (const SubscriptionCategoryNotFoundFault)
+    (\case
+        SubscriptionCategoryNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | An Amazon Redshift event with the specified event ID does not exist.
+--
+-- See: 'SubscriptionEventIdNotFoundFault'
+_SubscriptionEventIdNotFoundFault :: Prism' RedshiftError ()
+_SubscriptionEventIdNotFoundFault = prism'
+    (const SubscriptionEventIdNotFoundFault)
+    (\case
+        SubscriptionEventIdNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | An Amazon Redshift event notification subscription with the specified name
+-- does not exist.
+--
+-- See: 'SubscriptionNotFoundFault'
+_SubscriptionNotFoundFault :: Prism' RedshiftError ()
+_SubscriptionNotFoundFault = prism'
+    (const SubscriptionNotFoundFault)
+    (\case
+        SubscriptionNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | The value specified for the event severity was not one of the allowed
+-- values, or it specified a severity that does not apply to the specified
+-- source type. The allowed values are ERROR and INFO.
+--
+-- See: 'SubscriptionSeverityNotFoundFault'
+_SubscriptionSeverityNotFoundFault :: Prism' RedshiftError ()
+_SubscriptionSeverityNotFoundFault = prism'
+    (const SubscriptionSeverityNotFoundFault)
+    (\case
+        SubscriptionSeverityNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | Your account is not authorized to perform the requested operation.
+--
+-- See: 'UnauthorizedOperation'
+_UnauthorizedOperation :: Prism' RedshiftError ()
+_UnauthorizedOperation = prism'
+    (const UnauthorizedOperation)
+    (\case
+        UnauthorizedOperation -> Right ()
+        x -> Left x)
+
+-- | The specified region is incorrect or does not exist.
+--
+-- See: 'UnknownSnapshotCopyRegionFault'
+_UnknownSnapshotCopyRegionFault :: Prism' RedshiftError ()
+_UnknownSnapshotCopyRegionFault = prism'
+    (const UnknownSnapshotCopyRegionFault)
+    (\case
+        UnknownSnapshotCopyRegionFault -> Right ()
+        x -> Left x)
+
+-- | A request option was specified that is not supported.
+--
+-- See: 'UnsupportedOptionFault'
+_UnsupportedOptionFault :: Prism' RedshiftError ()
+_UnsupportedOptionFault = prism'
+    (const UnsupportedOptionFault)
+    (\case
+        UnsupportedOptionFault -> Right ()
+        x -> Left x)
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

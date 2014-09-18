@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,6 +27,66 @@ module Network.AWS.RDS.Types
     (
     -- * Service
       RDS
+    -- ** Errors
+    , RDSError (..)
+    , _AuthorizationAlreadyExistsFault
+    , _AuthorizationNotFoundFault
+    , _AuthorizationQuotaExceededFault
+    , _DBInstanceAlreadyExistsFault
+    , _DBInstanceNotFoundFault
+    , _DBParameterGroupAlreadyExistsFault
+    , _DBParameterGroupNotFoundFault
+    , _DBParameterGroupQuotaExceededFault
+    , _DBSecurityGroupAlreadyExistsFault
+    , _DBSecurityGroupNotFoundFault
+    , _DBSecurityGroupNotSupportedFault
+    , _DBSecurityGroupQuotaExceededFault
+    , _DBSnapshotAlreadyExistsFault
+    , _DBSnapshotNotFoundFault
+    , _DBSubnetGroupAlreadyExistsFault
+    , _DBSubnetGroupDoesNotCoverEnoughAZs
+    , _DBSubnetGroupNotAllowedFault
+    , _DBSubnetGroupNotFoundFault
+    , _DBSubnetGroupQuotaExceededFault
+    , _DBSubnetQuotaExceededFault
+    , _DBUpgradeDependencyFailureFault
+    , _EventSubscriptionQuotaExceededFault
+    , _InstanceQuotaExceededFault
+    , _InsufficientDBInstanceCapacityFault
+    , _InvalidDBInstanceStateFault
+    , _InvalidDBParameterGroupStateFault
+    , _InvalidDBSecurityGroupStateFault
+    , _InvalidDBSnapshotStateFault
+    , _InvalidDBSubnetGroupFault
+    , _InvalidDBSubnetGroupStateFault
+    , _InvalidDBSubnetStateFault
+    , _InvalidEventSubscriptionStateFault
+    , _InvalidOptionGroupStateFault
+    , _InvalidRestoreFault
+    , _InvalidSubnet
+    , _InvalidVPCNetworkStateFault
+    , _OptionGroupAlreadyExistsFault
+    , _OptionGroupNotFoundFault
+    , _OptionGroupQuotaExceededFault
+    , _PointInTimeRestoreNotEnabledFault
+    , _ProvisionedIopsNotAvailableInAZFault
+    , _RDSClient
+    , _RDSSerializer
+    , _RDSService
+    , _ReservedDBInstanceAlreadyExistsFault
+    , _ReservedDBInstanceNotFoundFault
+    , _ReservedDBInstanceQuotaExceededFault
+    , _ReservedDBInstancesOfferingNotFoundFault
+    , _SNSInvalidTopicFault
+    , _SNSNoAuthorizationFault
+    , _SNSTopicArnNotFoundFault
+    , _SnapshotQuotaExceededFault
+    , _SourceNotFoundFault
+    , _StorageQuotaExceededFault
+    , _SubnetAlreadyInUse
+    , _SubscriptionAlreadyExistFault
+    , _SubscriptionCategoryNotFoundFault
+    , _SubscriptionNotFoundFault
     -- ** XML
     , xmlOptions
 
@@ -406,65 +466,7 @@ data RDS deriving (Typeable)
 
 instance AWSService RDS where
     type Sg RDS = V4
-    data Er RDS
-        = AuthorizationAlreadyExistsFault
-        | AuthorizationNotFoundFault
-        | AuthorizationQuotaExceededFault
-        | DBInstanceAlreadyExistsFault
-        | DBInstanceNotFoundFault
-        | DBParameterGroupAlreadyExistsFault
-        | DBParameterGroupNotFoundFault
-        | DBParameterGroupQuotaExceededFault
-        | DBSecurityGroupAlreadyExistsFault
-        | DBSecurityGroupNotFoundFault
-        | DBSecurityGroupNotSupportedFault
-        | DBSecurityGroupQuotaExceededFault
-        | DBSnapshotAlreadyExistsFault
-        | DBSnapshotNotFoundFault
-        | DBSubnetGroupAlreadyExistsFault
-        | DBSubnetGroupDoesNotCoverEnoughAZs
-        | DBSubnetGroupNotAllowedFault
-        | DBSubnetGroupNotFoundFault
-        | DBSubnetGroupQuotaExceededFault
-        | DBSubnetQuotaExceededFault
-        | DBUpgradeDependencyFailureFault
-        | EventSubscriptionQuotaExceededFault
-        | InstanceQuotaExceededFault
-        | InsufficientDBInstanceCapacityFault
-        | InvalidDBInstanceStateFault
-        | InvalidDBParameterGroupStateFault
-        | InvalidDBSecurityGroupStateFault
-        | InvalidDBSnapshotStateFault
-        | InvalidDBSubnetGroupFault
-        | InvalidDBSubnetGroupStateFault
-        | InvalidDBSubnetStateFault
-        | InvalidEventSubscriptionStateFault
-        | InvalidOptionGroupStateFault
-        | InvalidRestoreFault
-        | InvalidSubnet
-        | InvalidVPCNetworkStateFault
-        | OptionGroupAlreadyExistsFault
-        | OptionGroupNotFoundFault
-        | OptionGroupQuotaExceededFault
-        | PointInTimeRestoreNotEnabledFault
-        | ProvisionedIopsNotAvailableInAZFault
-        | RDSClient HttpException
-        | RDSSerializer String
-        | RDSService String
-        | ReservedDBInstanceAlreadyExistsFault
-        | ReservedDBInstanceNotFoundFault
-        | ReservedDBInstanceQuotaExceededFault
-        | ReservedDBInstancesOfferingNotFoundFault
-        | SNSInvalidTopicFault
-        | SNSNoAuthorizationFault
-        | SNSTopicArnNotFoundFault
-        | SnapshotQuotaExceededFault
-        | SourceNotFoundFault
-        | StorageQuotaExceededFault
-        | SubnetAlreadyInUse
-        | SubscriptionAlreadyExistFault
-        | SubscriptionCategoryNotFoundFault
-        | SubscriptionNotFoundFault
+    type Er RDS = RDSError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -473,18 +475,752 @@ instance AWSService RDS where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er RDS)
-deriving instance Generic (Er RDS)
+-- | A sum type representing possible errors returned by the 'RDS' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data RDSError
+      -- | The specified CIDRIP or EC2 security group is already authorized
+      -- for the specified DB security group.
+    = AuthorizationAlreadyExistsFault
+      -- | Specified CIDRIP or EC2 security group is not authorized for the
+      -- specified DB security group.
+    | AuthorizationNotFoundFault
+      -- | DB security group authorization quota has been reached.
+    | AuthorizationQuotaExceededFault
+      -- | User already has a DB instance with the given identifier.
+    | DBInstanceAlreadyExistsFault
+      -- | DBInstanceIdentifier does not refer to an existing DB instance.
+    | DBInstanceNotFoundFault
+      -- | A DB parameter group with the same name exists.
+    | DBParameterGroupAlreadyExistsFault
+      -- | DBParameterGroupName does not refer to an existing DB parameter
+      -- group.
+    | DBParameterGroupNotFoundFault
+      -- | Request would result in user exceeding the allowed number of DB
+      -- parameter groups.
+    | DBParameterGroupQuotaExceededFault
+      -- | A DB security group with the name specified in
+      -- DBSecurityGroupName already exists.
+    | DBSecurityGroupAlreadyExistsFault
+      -- | DBSecurityGroupName does not refer to an existing DB security
+      -- group.
+    | DBSecurityGroupNotFoundFault
+      -- | A DB security group is not allowed for this action.
+    | DBSecurityGroupNotSupportedFault
+      -- | Request would result in user exceeding the allowed number of DB
+      -- security groups.
+    | DBSecurityGroupQuotaExceededFault
+      -- | DBSnapshotIdentifier is already used by an existing snapshot.
+    | DBSnapshotAlreadyExistsFault
+      -- | DBSnapshotIdentifier does not refer to an existing DB snapshot.
+    | DBSnapshotNotFoundFault
+      -- | DBSubnetGroupName is already used by an existing DB subnet group.
+    | DBSubnetGroupAlreadyExistsFault
+      -- | Subnets in the DB subnet group should cover at least 2
+      -- Availability Zones unless there is only 1 availablility zone.
+    | DBSubnetGroupDoesNotCoverEnoughAZs
+      -- | Indicates that the DBSubnetGroup should not be specified while
+      -- creating read replicas that lie in the same region as the source
+      -- instance.
+    | DBSubnetGroupNotAllowedFault
+      -- | DBSubnetGroupName does not refer to an existing DB subnet group.
+    | DBSubnetGroupNotFoundFault
+      -- | Request would result in user exceeding the allowed number of DB
+      -- subnet groups.
+    | DBSubnetGroupQuotaExceededFault
+      -- | Request would result in user exceeding the allowed number of
+      -- subnets in a DB subnet groups.
+    | DBSubnetQuotaExceededFault
+      -- | The DB upgrade failed because a resource the DB depends on could
+      -- not be modified.
+    | DBUpgradeDependencyFailureFault
+      -- | You have reached the maximum number of event subscriptions.
+    | EventSubscriptionQuotaExceededFault
+      -- | Request would result in user exceeding the allowed number of DB
+      -- instances.
+    | InstanceQuotaExceededFault
+      -- | Specified DB instance class is not available in the specified
+      -- Availability Zone.
+    | InsufficientDBInstanceCapacityFault
+      -- | The specified DB instance is not in the available state.
+    | InvalidDBInstanceStateFault
+      -- | The DB parameter group cannot be deleted because it is in use.
+    | InvalidDBParameterGroupStateFault
+      -- | The state of the DB security group does not allow deletion.
+    | InvalidDBSecurityGroupStateFault
+      -- | The state of the DB snapshot does not allow deletion.
+    | InvalidDBSnapshotStateFault
+      -- | Indicates the DBSubnetGroup does not belong to the same VPC as
+      -- that of an existing cross region read replica of the same source
+      -- instance.
+    | InvalidDBSubnetGroupFault
+      -- | The DB subnet group cannot be deleted because it is in use.
+    | InvalidDBSubnetGroupStateFault
+      -- | The DB subnet is not in the available state.
+    | InvalidDBSubnetStateFault
+      -- | This error can occur if someone else is modifying a subscription.
+      -- You should retry the action.
+    | InvalidEventSubscriptionStateFault
+      -- | The option group is not in the available state.
+    | InvalidOptionGroupStateFault
+      -- | Cannot restore from vpc backup to non-vpc DB instance.
+    | InvalidRestoreFault
+      -- | The requested subnet is invalid, or multiple subnets were
+      -- requested that are not all in a common VPC.
+    | InvalidSubnet
+      -- | DB subnet group does not cover all Availability Zones after it is
+      -- created because users' change.
+    | InvalidVPCNetworkStateFault
+      -- | The option group you are trying to create already exists.
+    | OptionGroupAlreadyExistsFault
+      -- | The specified option group could not be found.
+    | OptionGroupNotFoundFault
+      -- | The quota of 20 option groups was exceeded for this AWS account.
+    | OptionGroupQuotaExceededFault
+      -- | SourceDBInstanceIdentifier refers to a DB instance with
+      -- BackupRetentionPeriod equal to 0.
+    | PointInTimeRestoreNotEnabledFault
+      -- | Provisioned IOPS not available in the specified Availability
+      -- Zone.
+    | ProvisionedIopsNotAvailableInAZFault
+    | RDSClient HttpException
+    | RDSSerializer Text
+    | RDSService Text
+      -- | User already has a reservation with the given identifier.
+    | ReservedDBInstanceAlreadyExistsFault
+      -- | The specified reserved DB Instance not found.
+    | ReservedDBInstanceNotFoundFault
+      -- | Request would exceed the user's DB Instance quota.
+    | ReservedDBInstanceQuotaExceededFault
+      -- | Specified offering does not exist.
+    | ReservedDBInstancesOfferingNotFoundFault
+      -- | SNS has responded that there is a problem with the SND topic
+      -- specified.
+    | SNSInvalidTopicFault
+      -- | You do not have permission to publish to the SNS topic ARN.
+    | SNSNoAuthorizationFault
+      -- | The SNS topic ARN does not exist.
+    | SNSTopicArnNotFoundFault
+      -- | Request would result in user exceeding the allowed number of DB
+      -- snapshots.
+    | SnapshotQuotaExceededFault
+      -- | The requested source could not be found.
+    | SourceNotFoundFault
+      -- | Request would result in user exceeding the allowed amount of
+      -- storage available across all DB instances.
+    | StorageQuotaExceededFault
+      -- | The DB subnet is already in use in the Availability Zone.
+    | SubnetAlreadyInUse
+      -- | The supplied subscription name already exists.
+    | SubscriptionAlreadyExistFault
+      -- | The supplied category does not exist.
+    | SubscriptionCategoryNotFoundFault
+      -- | The subscription name does not exist.
+    | SubscriptionNotFoundFault
+    deriving (Show, Generic)
 
-instance AWSError (Er RDS) where
+instance AWSError RDSError where
     awsError = const "RDSError"
 
-instance AWSServiceError (Er RDS) where
+instance AWSServiceError RDSError where
     serviceError    = RDSService
     clientError     = RDSClient
     serializerError = RDSSerializer
 
-instance Exception (Er RDS)
+instance Exception RDSError
+
+-- | The specified CIDRIP or EC2 security group is already authorized for the
+-- specified DB security group.
+--
+-- See: 'AuthorizationAlreadyExistsFault'
+_AuthorizationAlreadyExistsFault :: Prism' RDSError ()
+_AuthorizationAlreadyExistsFault = prism'
+    (const AuthorizationAlreadyExistsFault)
+    (\case
+        AuthorizationAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | Specified CIDRIP or EC2 security group is not authorized for the specified
+-- DB security group.
+--
+-- See: 'AuthorizationNotFoundFault'
+_AuthorizationNotFoundFault :: Prism' RDSError ()
+_AuthorizationNotFoundFault = prism'
+    (const AuthorizationNotFoundFault)
+    (\case
+        AuthorizationNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | DB security group authorization quota has been reached.
+--
+-- See: 'AuthorizationQuotaExceededFault'
+_AuthorizationQuotaExceededFault :: Prism' RDSError ()
+_AuthorizationQuotaExceededFault = prism'
+    (const AuthorizationQuotaExceededFault)
+    (\case
+        AuthorizationQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | User already has a DB instance with the given identifier.
+--
+-- See: 'DBInstanceAlreadyExistsFault'
+_DBInstanceAlreadyExistsFault :: Prism' RDSError ()
+_DBInstanceAlreadyExistsFault = prism'
+    (const DBInstanceAlreadyExistsFault)
+    (\case
+        DBInstanceAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | DBInstanceIdentifier does not refer to an existing DB instance.
+--
+-- See: 'DBInstanceNotFoundFault'
+_DBInstanceNotFoundFault :: Prism' RDSError ()
+_DBInstanceNotFoundFault = prism'
+    (const DBInstanceNotFoundFault)
+    (\case
+        DBInstanceNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | A DB parameter group with the same name exists.
+--
+-- See: 'DBParameterGroupAlreadyExistsFault'
+_DBParameterGroupAlreadyExistsFault :: Prism' RDSError ()
+_DBParameterGroupAlreadyExistsFault = prism'
+    (const DBParameterGroupAlreadyExistsFault)
+    (\case
+        DBParameterGroupAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | DBParameterGroupName does not refer to an existing DB parameter group.
+--
+-- See: 'DBParameterGroupNotFoundFault'
+_DBParameterGroupNotFoundFault :: Prism' RDSError ()
+_DBParameterGroupNotFoundFault = prism'
+    (const DBParameterGroupNotFoundFault)
+    (\case
+        DBParameterGroupNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | Request would result in user exceeding the allowed number of DB parameter
+-- groups.
+--
+-- See: 'DBParameterGroupQuotaExceededFault'
+_DBParameterGroupQuotaExceededFault :: Prism' RDSError ()
+_DBParameterGroupQuotaExceededFault = prism'
+    (const DBParameterGroupQuotaExceededFault)
+    (\case
+        DBParameterGroupQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | A DB security group with the name specified in DBSecurityGroupName already
+-- exists.
+--
+-- See: 'DBSecurityGroupAlreadyExistsFault'
+_DBSecurityGroupAlreadyExistsFault :: Prism' RDSError ()
+_DBSecurityGroupAlreadyExistsFault = prism'
+    (const DBSecurityGroupAlreadyExistsFault)
+    (\case
+        DBSecurityGroupAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | DBSecurityGroupName does not refer to an existing DB security group.
+--
+-- See: 'DBSecurityGroupNotFoundFault'
+_DBSecurityGroupNotFoundFault :: Prism' RDSError ()
+_DBSecurityGroupNotFoundFault = prism'
+    (const DBSecurityGroupNotFoundFault)
+    (\case
+        DBSecurityGroupNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | A DB security group is not allowed for this action.
+--
+-- See: 'DBSecurityGroupNotSupportedFault'
+_DBSecurityGroupNotSupportedFault :: Prism' RDSError ()
+_DBSecurityGroupNotSupportedFault = prism'
+    (const DBSecurityGroupNotSupportedFault)
+    (\case
+        DBSecurityGroupNotSupportedFault -> Right ()
+        x -> Left x)
+
+-- | Request would result in user exceeding the allowed number of DB security
+-- groups.
+--
+-- See: 'DBSecurityGroupQuotaExceededFault'
+_DBSecurityGroupQuotaExceededFault :: Prism' RDSError ()
+_DBSecurityGroupQuotaExceededFault = prism'
+    (const DBSecurityGroupQuotaExceededFault)
+    (\case
+        DBSecurityGroupQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | DBSnapshotIdentifier is already used by an existing snapshot.
+--
+-- See: 'DBSnapshotAlreadyExistsFault'
+_DBSnapshotAlreadyExistsFault :: Prism' RDSError ()
+_DBSnapshotAlreadyExistsFault = prism'
+    (const DBSnapshotAlreadyExistsFault)
+    (\case
+        DBSnapshotAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | DBSnapshotIdentifier does not refer to an existing DB snapshot.
+--
+-- See: 'DBSnapshotNotFoundFault'
+_DBSnapshotNotFoundFault :: Prism' RDSError ()
+_DBSnapshotNotFoundFault = prism'
+    (const DBSnapshotNotFoundFault)
+    (\case
+        DBSnapshotNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | DBSubnetGroupName is already used by an existing DB subnet group.
+--
+-- See: 'DBSubnetGroupAlreadyExistsFault'
+_DBSubnetGroupAlreadyExistsFault :: Prism' RDSError ()
+_DBSubnetGroupAlreadyExistsFault = prism'
+    (const DBSubnetGroupAlreadyExistsFault)
+    (\case
+        DBSubnetGroupAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | Subnets in the DB subnet group should cover at least 2 Availability Zones
+-- unless there is only 1 availablility zone.
+--
+-- See: 'DBSubnetGroupDoesNotCoverEnoughAZs'
+_DBSubnetGroupDoesNotCoverEnoughAZs :: Prism' RDSError ()
+_DBSubnetGroupDoesNotCoverEnoughAZs = prism'
+    (const DBSubnetGroupDoesNotCoverEnoughAZs)
+    (\case
+        DBSubnetGroupDoesNotCoverEnoughAZs -> Right ()
+        x -> Left x)
+
+-- | Indicates that the DBSubnetGroup should not be specified while creating
+-- read replicas that lie in the same region as the source instance.
+--
+-- See: 'DBSubnetGroupNotAllowedFault'
+_DBSubnetGroupNotAllowedFault :: Prism' RDSError ()
+_DBSubnetGroupNotAllowedFault = prism'
+    (const DBSubnetGroupNotAllowedFault)
+    (\case
+        DBSubnetGroupNotAllowedFault -> Right ()
+        x -> Left x)
+
+-- | DBSubnetGroupName does not refer to an existing DB subnet group.
+--
+-- See: 'DBSubnetGroupNotFoundFault'
+_DBSubnetGroupNotFoundFault :: Prism' RDSError ()
+_DBSubnetGroupNotFoundFault = prism'
+    (const DBSubnetGroupNotFoundFault)
+    (\case
+        DBSubnetGroupNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | Request would result in user exceeding the allowed number of DB subnet
+-- groups.
+--
+-- See: 'DBSubnetGroupQuotaExceededFault'
+_DBSubnetGroupQuotaExceededFault :: Prism' RDSError ()
+_DBSubnetGroupQuotaExceededFault = prism'
+    (const DBSubnetGroupQuotaExceededFault)
+    (\case
+        DBSubnetGroupQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | Request would result in user exceeding the allowed number of subnets in a
+-- DB subnet groups.
+--
+-- See: 'DBSubnetQuotaExceededFault'
+_DBSubnetQuotaExceededFault :: Prism' RDSError ()
+_DBSubnetQuotaExceededFault = prism'
+    (const DBSubnetQuotaExceededFault)
+    (\case
+        DBSubnetQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | The DB upgrade failed because a resource the DB depends on could not be
+-- modified.
+--
+-- See: 'DBUpgradeDependencyFailureFault'
+_DBUpgradeDependencyFailureFault :: Prism' RDSError ()
+_DBUpgradeDependencyFailureFault = prism'
+    (const DBUpgradeDependencyFailureFault)
+    (\case
+        DBUpgradeDependencyFailureFault -> Right ()
+        x -> Left x)
+
+-- | You have reached the maximum number of event subscriptions.
+--
+-- See: 'EventSubscriptionQuotaExceededFault'
+_EventSubscriptionQuotaExceededFault :: Prism' RDSError ()
+_EventSubscriptionQuotaExceededFault = prism'
+    (const EventSubscriptionQuotaExceededFault)
+    (\case
+        EventSubscriptionQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | Request would result in user exceeding the allowed number of DB instances.
+--
+-- See: 'InstanceQuotaExceededFault'
+_InstanceQuotaExceededFault :: Prism' RDSError ()
+_InstanceQuotaExceededFault = prism'
+    (const InstanceQuotaExceededFault)
+    (\case
+        InstanceQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | Specified DB instance class is not available in the specified Availability
+-- Zone.
+--
+-- See: 'InsufficientDBInstanceCapacityFault'
+_InsufficientDBInstanceCapacityFault :: Prism' RDSError ()
+_InsufficientDBInstanceCapacityFault = prism'
+    (const InsufficientDBInstanceCapacityFault)
+    (\case
+        InsufficientDBInstanceCapacityFault -> Right ()
+        x -> Left x)
+
+-- | The specified DB instance is not in the available state.
+--
+-- See: 'InvalidDBInstanceStateFault'
+_InvalidDBInstanceStateFault :: Prism' RDSError ()
+_InvalidDBInstanceStateFault = prism'
+    (const InvalidDBInstanceStateFault)
+    (\case
+        InvalidDBInstanceStateFault -> Right ()
+        x -> Left x)
+
+-- | The DB parameter group cannot be deleted because it is in use.
+--
+-- See: 'InvalidDBParameterGroupStateFault'
+_InvalidDBParameterGroupStateFault :: Prism' RDSError ()
+_InvalidDBParameterGroupStateFault = prism'
+    (const InvalidDBParameterGroupStateFault)
+    (\case
+        InvalidDBParameterGroupStateFault -> Right ()
+        x -> Left x)
+
+-- | The state of the DB security group does not allow deletion.
+--
+-- See: 'InvalidDBSecurityGroupStateFault'
+_InvalidDBSecurityGroupStateFault :: Prism' RDSError ()
+_InvalidDBSecurityGroupStateFault = prism'
+    (const InvalidDBSecurityGroupStateFault)
+    (\case
+        InvalidDBSecurityGroupStateFault -> Right ()
+        x -> Left x)
+
+-- | The state of the DB snapshot does not allow deletion.
+--
+-- See: 'InvalidDBSnapshotStateFault'
+_InvalidDBSnapshotStateFault :: Prism' RDSError ()
+_InvalidDBSnapshotStateFault = prism'
+    (const InvalidDBSnapshotStateFault)
+    (\case
+        InvalidDBSnapshotStateFault -> Right ()
+        x -> Left x)
+
+-- | Indicates the DBSubnetGroup does not belong to the same VPC as that of an
+-- existing cross region read replica of the same source instance.
+--
+-- See: 'InvalidDBSubnetGroupFault'
+_InvalidDBSubnetGroupFault :: Prism' RDSError ()
+_InvalidDBSubnetGroupFault = prism'
+    (const InvalidDBSubnetGroupFault)
+    (\case
+        InvalidDBSubnetGroupFault -> Right ()
+        x -> Left x)
+
+-- | The DB subnet group cannot be deleted because it is in use.
+--
+-- See: 'InvalidDBSubnetGroupStateFault'
+_InvalidDBSubnetGroupStateFault :: Prism' RDSError ()
+_InvalidDBSubnetGroupStateFault = prism'
+    (const InvalidDBSubnetGroupStateFault)
+    (\case
+        InvalidDBSubnetGroupStateFault -> Right ()
+        x -> Left x)
+
+-- | The DB subnet is not in the available state.
+--
+-- See: 'InvalidDBSubnetStateFault'
+_InvalidDBSubnetStateFault :: Prism' RDSError ()
+_InvalidDBSubnetStateFault = prism'
+    (const InvalidDBSubnetStateFault)
+    (\case
+        InvalidDBSubnetStateFault -> Right ()
+        x -> Left x)
+
+-- | This error can occur if someone else is modifying a subscription. You
+-- should retry the action.
+--
+-- See: 'InvalidEventSubscriptionStateFault'
+_InvalidEventSubscriptionStateFault :: Prism' RDSError ()
+_InvalidEventSubscriptionStateFault = prism'
+    (const InvalidEventSubscriptionStateFault)
+    (\case
+        InvalidEventSubscriptionStateFault -> Right ()
+        x -> Left x)
+
+-- | The option group is not in the available state.
+--
+-- See: 'InvalidOptionGroupStateFault'
+_InvalidOptionGroupStateFault :: Prism' RDSError ()
+_InvalidOptionGroupStateFault = prism'
+    (const InvalidOptionGroupStateFault)
+    (\case
+        InvalidOptionGroupStateFault -> Right ()
+        x -> Left x)
+
+-- | Cannot restore from vpc backup to non-vpc DB instance.
+--
+-- See: 'InvalidRestoreFault'
+_InvalidRestoreFault :: Prism' RDSError ()
+_InvalidRestoreFault = prism'
+    (const InvalidRestoreFault)
+    (\case
+        InvalidRestoreFault -> Right ()
+        x -> Left x)
+
+-- | The requested subnet is invalid, or multiple subnets were requested that
+-- are not all in a common VPC.
+--
+-- See: 'InvalidSubnet'
+_InvalidSubnet :: Prism' RDSError ()
+_InvalidSubnet = prism'
+    (const InvalidSubnet)
+    (\case
+        InvalidSubnet -> Right ()
+        x -> Left x)
+
+-- | DB subnet group does not cover all Availability Zones after it is created
+-- because users' change.
+--
+-- See: 'InvalidVPCNetworkStateFault'
+_InvalidVPCNetworkStateFault :: Prism' RDSError ()
+_InvalidVPCNetworkStateFault = prism'
+    (const InvalidVPCNetworkStateFault)
+    (\case
+        InvalidVPCNetworkStateFault -> Right ()
+        x -> Left x)
+
+-- | The option group you are trying to create already exists.
+--
+-- See: 'OptionGroupAlreadyExistsFault'
+_OptionGroupAlreadyExistsFault :: Prism' RDSError ()
+_OptionGroupAlreadyExistsFault = prism'
+    (const OptionGroupAlreadyExistsFault)
+    (\case
+        OptionGroupAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | The specified option group could not be found.
+--
+-- See: 'OptionGroupNotFoundFault'
+_OptionGroupNotFoundFault :: Prism' RDSError ()
+_OptionGroupNotFoundFault = prism'
+    (const OptionGroupNotFoundFault)
+    (\case
+        OptionGroupNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | The quota of 20 option groups was exceeded for this AWS account.
+--
+-- See: 'OptionGroupQuotaExceededFault'
+_OptionGroupQuotaExceededFault :: Prism' RDSError ()
+_OptionGroupQuotaExceededFault = prism'
+    (const OptionGroupQuotaExceededFault)
+    (\case
+        OptionGroupQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | SourceDBInstanceIdentifier refers to a DB instance with
+-- BackupRetentionPeriod equal to 0.
+--
+-- See: 'PointInTimeRestoreNotEnabledFault'
+_PointInTimeRestoreNotEnabledFault :: Prism' RDSError ()
+_PointInTimeRestoreNotEnabledFault = prism'
+    (const PointInTimeRestoreNotEnabledFault)
+    (\case
+        PointInTimeRestoreNotEnabledFault -> Right ()
+        x -> Left x)
+
+-- | Provisioned IOPS not available in the specified Availability Zone.
+--
+-- See: 'ProvisionedIopsNotAvailableInAZFault'
+_ProvisionedIopsNotAvailableInAZFault :: Prism' RDSError ()
+_ProvisionedIopsNotAvailableInAZFault = prism'
+    (const ProvisionedIopsNotAvailableInAZFault)
+    (\case
+        ProvisionedIopsNotAvailableInAZFault -> Right ()
+        x -> Left x)
+
+-- | See: 'RDSClient'
+_RDSClient :: Prism' RDSError HttpException
+_RDSClient = prism'
+    RDSClient
+    (\case
+        RDSClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'RDSSerializer'
+_RDSSerializer :: Prism' RDSError Text
+_RDSSerializer = prism'
+    RDSSerializer
+    (\case
+        RDSSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'RDSService'
+_RDSService :: Prism' RDSError Text
+_RDSService = prism'
+    RDSService
+    (\case
+        RDSService p1 -> Right p1
+        x -> Left x)
+
+-- | User already has a reservation with the given identifier.
+--
+-- See: 'ReservedDBInstanceAlreadyExistsFault'
+_ReservedDBInstanceAlreadyExistsFault :: Prism' RDSError ()
+_ReservedDBInstanceAlreadyExistsFault = prism'
+    (const ReservedDBInstanceAlreadyExistsFault)
+    (\case
+        ReservedDBInstanceAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | The specified reserved DB Instance not found.
+--
+-- See: 'ReservedDBInstanceNotFoundFault'
+_ReservedDBInstanceNotFoundFault :: Prism' RDSError ()
+_ReservedDBInstanceNotFoundFault = prism'
+    (const ReservedDBInstanceNotFoundFault)
+    (\case
+        ReservedDBInstanceNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | Request would exceed the user's DB Instance quota.
+--
+-- See: 'ReservedDBInstanceQuotaExceededFault'
+_ReservedDBInstanceQuotaExceededFault :: Prism' RDSError ()
+_ReservedDBInstanceQuotaExceededFault = prism'
+    (const ReservedDBInstanceQuotaExceededFault)
+    (\case
+        ReservedDBInstanceQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | Specified offering does not exist.
+--
+-- See: 'ReservedDBInstancesOfferingNotFoundFault'
+_ReservedDBInstancesOfferingNotFoundFault :: Prism' RDSError ()
+_ReservedDBInstancesOfferingNotFoundFault = prism'
+    (const ReservedDBInstancesOfferingNotFoundFault)
+    (\case
+        ReservedDBInstancesOfferingNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | SNS has responded that there is a problem with the SND topic specified.
+--
+-- See: 'SNSInvalidTopicFault'
+_SNSInvalidTopicFault :: Prism' RDSError ()
+_SNSInvalidTopicFault = prism'
+    (const SNSInvalidTopicFault)
+    (\case
+        SNSInvalidTopicFault -> Right ()
+        x -> Left x)
+
+-- | You do not have permission to publish to the SNS topic ARN.
+--
+-- See: 'SNSNoAuthorizationFault'
+_SNSNoAuthorizationFault :: Prism' RDSError ()
+_SNSNoAuthorizationFault = prism'
+    (const SNSNoAuthorizationFault)
+    (\case
+        SNSNoAuthorizationFault -> Right ()
+        x -> Left x)
+
+-- | The SNS topic ARN does not exist.
+--
+-- See: 'SNSTopicArnNotFoundFault'
+_SNSTopicArnNotFoundFault :: Prism' RDSError ()
+_SNSTopicArnNotFoundFault = prism'
+    (const SNSTopicArnNotFoundFault)
+    (\case
+        SNSTopicArnNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | Request would result in user exceeding the allowed number of DB snapshots.
+--
+-- See: 'SnapshotQuotaExceededFault'
+_SnapshotQuotaExceededFault :: Prism' RDSError ()
+_SnapshotQuotaExceededFault = prism'
+    (const SnapshotQuotaExceededFault)
+    (\case
+        SnapshotQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | The requested source could not be found.
+--
+-- See: 'SourceNotFoundFault'
+_SourceNotFoundFault :: Prism' RDSError ()
+_SourceNotFoundFault = prism'
+    (const SourceNotFoundFault)
+    (\case
+        SourceNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | Request would result in user exceeding the allowed amount of storage
+-- available across all DB instances.
+--
+-- See: 'StorageQuotaExceededFault'
+_StorageQuotaExceededFault :: Prism' RDSError ()
+_StorageQuotaExceededFault = prism'
+    (const StorageQuotaExceededFault)
+    (\case
+        StorageQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | The DB subnet is already in use in the Availability Zone.
+--
+-- See: 'SubnetAlreadyInUse'
+_SubnetAlreadyInUse :: Prism' RDSError ()
+_SubnetAlreadyInUse = prism'
+    (const SubnetAlreadyInUse)
+    (\case
+        SubnetAlreadyInUse -> Right ()
+        x -> Left x)
+
+-- | The supplied subscription name already exists.
+--
+-- See: 'SubscriptionAlreadyExistFault'
+_SubscriptionAlreadyExistFault :: Prism' RDSError ()
+_SubscriptionAlreadyExistFault = prism'
+    (const SubscriptionAlreadyExistFault)
+    (\case
+        SubscriptionAlreadyExistFault -> Right ()
+        x -> Left x)
+
+-- | The supplied category does not exist.
+--
+-- See: 'SubscriptionCategoryNotFoundFault'
+_SubscriptionCategoryNotFoundFault :: Prism' RDSError ()
+_SubscriptionCategoryNotFoundFault = prism'
+    (const SubscriptionCategoryNotFoundFault)
+    (\case
+        SubscriptionCategoryNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | The subscription name does not exist.
+--
+-- See: 'SubscriptionNotFoundFault'
+_SubscriptionNotFoundFault :: Prism' RDSError ()
+_SubscriptionNotFoundFault = prism'
+    (const SubscriptionNotFoundFault)
+    (\case
+        SubscriptionNotFoundFault -> Right ()
+        x -> Left x)
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

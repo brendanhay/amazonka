@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,6 +31,20 @@ module Network.AWS.SWF.Types
     (
     -- * Service
       SWF
+    -- ** Errors
+    , SWFError (..)
+    , _DefaultUndefinedFault
+    , _DomainAlreadyExistsFault
+    , _DomainDeprecatedFault
+    , _LimitExceededFault
+    , _OperationNotPermittedFault
+    , _SWFClient
+    , _SWFSerializer
+    , _SWFService
+    , _TypeAlreadyExistsFault
+    , _TypeDeprecatedFault
+    , _UnknownResourceFault
+    , _WorkflowExecutionAlreadyStartedFault
     -- * ActivityTaskTimeoutType
     , ActivityTaskTimeoutType (..)
 
@@ -771,37 +785,7 @@ data SWF deriving (Typeable)
 
 instance AWSService SWF where
     type Sg SWF = V4
-    data Er SWF
-        = DefaultUndefinedFault
-            { _dufMessage :: Maybe Text
-            }
-        | DomainAlreadyExistsFault
-            { _daefMessage :: Maybe Text
-            }
-        | DomainDeprecatedFault
-            { _ddfMessage :: Maybe Text
-            }
-        | LimitExceededFault
-            { _lefMessage :: Maybe Text
-            }
-        | OperationNotPermittedFault
-            { _onpfMessage :: Maybe Text
-            }
-        | SWFClient HttpException
-        | SWFSerializer String
-        | SWFService String
-        | TypeAlreadyExistsFault
-            { _taefMessage :: Maybe Text
-            }
-        | TypeDeprecatedFault
-            { _tdfMessage :: Maybe Text
-            }
-        | UnknownResourceFault
-            { _urfMessage :: Maybe Text
-            }
-        | WorkflowExecutionAlreadyStartedFault
-            { _weasfMessage :: Maybe Text
-            }
+    type Er SWF = SWFError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -810,18 +794,196 @@ instance AWSService SWF where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er SWF)
-deriving instance Generic (Er SWF)
+-- | A sum type representing possible errors returned by the 'SWF' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data SWFError
+    = DefaultUndefinedFault
+        { _dufMessage :: Maybe Text
+        }
+      -- | Returned if the specified domain already exists. You will get
+      -- this fault even if the existing domain is in deprecated status.
+    | DomainAlreadyExistsFault
+        { _daefMessage :: Maybe Text
+        }
+      -- | Returned when the specified domain has been deprecated.
+    | DomainDeprecatedFault
+        { _ddfMessage :: Maybe Text
+        }
+      -- | Returned by any operation if a system imposed limitation has been
+      -- reached. To address this fault you should either clean up unused
+      -- resources or increase the limit by contacting AWS.
+    | LimitExceededFault
+        { _lefMessage :: Maybe Text
+        }
+      -- | Returned when the caller does not have sufficient permissions to
+      -- invoke the action.
+    | OperationNotPermittedFault
+        { _onpfMessage :: Maybe Text
+        }
+    | SWFClient HttpException
+    | SWFSerializer Text
+    | SWFService Text
+      -- | Returned if the type already exists in the specified domain. You
+      -- will get this fault even if the existing type is in deprecated
+      -- status. You can specify another version if the intent is to
+      -- create a new distinct version of the type.
+    | TypeAlreadyExistsFault
+        { _taefMessage :: Maybe Text
+        }
+      -- | Returned when the specified activity or workflow type was already
+      -- deprecated.
+    | TypeDeprecatedFault
+        { _tdfMessage :: Maybe Text
+        }
+      -- | Returned when the named resource cannot be found with in the
+      -- scope of this operation (region or domain). This could happen if
+      -- the named resource was never created or is no longer available
+      -- for this operation.
+    | UnknownResourceFault
+        { _urfMessage :: Maybe Text
+        }
+      -- | Returned by StartWorkflowExecution when an open execution with
+      -- the same workflowId is already running in the specified domain.
+    | WorkflowExecutionAlreadyStartedFault
+        { _weasfMessage :: Maybe Text
+        }
+    deriving (Show, Generic)
 
-instance AWSError (Er SWF) where
+instance AWSError SWFError where
     awsError = const "SWFError"
 
-instance AWSServiceError (Er SWF) where
+instance AWSServiceError SWFError where
     serviceError    = SWFService
     clientError     = SWFClient
     serializerError = SWFSerializer
 
-instance Exception (Er SWF)
+instance Exception SWFError
+
+-- | See: 'DefaultUndefinedFault'
+_DefaultUndefinedFault :: Prism' SWFError (Maybe Text)
+_DefaultUndefinedFault = prism'
+    DefaultUndefinedFault
+    (\case
+        DefaultUndefinedFault p1 -> Right p1
+        x -> Left x)
+
+-- | Returned if the specified domain already exists. You will get this fault
+-- even if the existing domain is in deprecated status.
+--
+-- See: 'DomainAlreadyExistsFault'
+_DomainAlreadyExistsFault :: Prism' SWFError (Maybe Text)
+_DomainAlreadyExistsFault = prism'
+    DomainAlreadyExistsFault
+    (\case
+        DomainAlreadyExistsFault p1 -> Right p1
+        x -> Left x)
+
+-- | Returned when the specified domain has been deprecated.
+--
+-- See: 'DomainDeprecatedFault'
+_DomainDeprecatedFault :: Prism' SWFError (Maybe Text)
+_DomainDeprecatedFault = prism'
+    DomainDeprecatedFault
+    (\case
+        DomainDeprecatedFault p1 -> Right p1
+        x -> Left x)
+
+-- | Returned by any operation if a system imposed limitation has been reached.
+-- To address this fault you should either clean up unused resources or
+-- increase the limit by contacting AWS.
+--
+-- See: 'LimitExceededFault'
+_LimitExceededFault :: Prism' SWFError (Maybe Text)
+_LimitExceededFault = prism'
+    LimitExceededFault
+    (\case
+        LimitExceededFault p1 -> Right p1
+        x -> Left x)
+
+-- | Returned when the caller does not have sufficient permissions to invoke the
+-- action.
+--
+-- See: 'OperationNotPermittedFault'
+_OperationNotPermittedFault :: Prism' SWFError (Maybe Text)
+_OperationNotPermittedFault = prism'
+    OperationNotPermittedFault
+    (\case
+        OperationNotPermittedFault p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'SWFClient'
+_SWFClient :: Prism' SWFError HttpException
+_SWFClient = prism'
+    SWFClient
+    (\case
+        SWFClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'SWFSerializer'
+_SWFSerializer :: Prism' SWFError Text
+_SWFSerializer = prism'
+    SWFSerializer
+    (\case
+        SWFSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'SWFService'
+_SWFService :: Prism' SWFError Text
+_SWFService = prism'
+    SWFService
+    (\case
+        SWFService p1 -> Right p1
+        x -> Left x)
+
+-- | Returned if the type already exists in the specified domain. You will get
+-- this fault even if the existing type is in deprecated status. You can
+-- specify another version if the intent is to create a new distinct version
+-- of the type.
+--
+-- See: 'TypeAlreadyExistsFault'
+_TypeAlreadyExistsFault :: Prism' SWFError (Maybe Text)
+_TypeAlreadyExistsFault = prism'
+    TypeAlreadyExistsFault
+    (\case
+        TypeAlreadyExistsFault p1 -> Right p1
+        x -> Left x)
+
+-- | Returned when the specified activity or workflow type was already
+-- deprecated.
+--
+-- See: 'TypeDeprecatedFault'
+_TypeDeprecatedFault :: Prism' SWFError (Maybe Text)
+_TypeDeprecatedFault = prism'
+    TypeDeprecatedFault
+    (\case
+        TypeDeprecatedFault p1 -> Right p1
+        x -> Left x)
+
+-- | Returned when the named resource cannot be found with in the scope of this
+-- operation (region or domain). This could happen if the named resource was
+-- never created or is no longer available for this operation.
+--
+-- See: 'UnknownResourceFault'
+_UnknownResourceFault :: Prism' SWFError (Maybe Text)
+_UnknownResourceFault = prism'
+    UnknownResourceFault
+    (\case
+        UnknownResourceFault p1 -> Right p1
+        x -> Left x)
+
+-- | Returned by StartWorkflowExecution when an open execution with the same
+-- workflowId is already running in the specified domain.
+--
+-- See: 'WorkflowExecutionAlreadyStartedFault'
+_WorkflowExecutionAlreadyStartedFault :: Prism' SWFError (Maybe Text)
+_WorkflowExecutionAlreadyStartedFault = prism'
+    WorkflowExecutionAlreadyStartedFault
+    (\case
+        WorkflowExecutionAlreadyStartedFault p1 -> Right p1
+        x -> Left x)
 
 data ActivityTaskTimeoutType
     = ActivityTaskTimeoutTypeHeartbeat -- ^ HEARTBEAT

@@ -125,7 +125,6 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.Route53Domains
 
-type ServiceEr = Er Route53Domains
 
 -- $CheckDomainAvailability
 -- This operation checks the availability of one domain name. You can access
@@ -165,7 +164,7 @@ checkDomainAvailabilityCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'cdaDomainName'
     -> State CheckDomainAvailability a
-    -> m (Either ServiceEr CheckDomainAvailabilityResponse)
+    -> m (Either Route53DomainsError CheckDomainAvailabilityResponse)
 checkDomainAvailabilityCatch p1 s =
     sendCatch $ (mkCheckDomainAvailability p1) &~ s
 
@@ -208,7 +207,7 @@ disableDomainTransferLockCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => Text -- ^ 'ddtlDomainName'
-    -> m (Either ServiceEr DisableDomainTransferLockResponse)
+    -> m (Either Route53DomainsError DisableDomainTransferLockResponse)
 disableDomainTransferLockCatch p1 =
     sendCatch (mkDisableDomainTransferLock p1)
 
@@ -249,7 +248,7 @@ enableDomainTransferLockCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'edtlDomainName'
-    -> m (Either ServiceEr EnableDomainTransferLockResponse)
+    -> m (Either Route53DomainsError EnableDomainTransferLockResponse)
 enableDomainTransferLockCatch p1 =
     sendCatch (mkEnableDomainTransferLock p1)
 
@@ -309,7 +308,7 @@ getDomainDetailCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'gddDomainName'
-    -> m (Either ServiceEr GetDomainDetailResponse)
+    -> m (Either Route53DomainsError GetDomainDetailResponse)
 getDomainDetailCatch p1 =
     sendCatch (mkGetDomainDetail p1)
 
@@ -350,7 +349,7 @@ getOperationDetailCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'godOperationId'
-    -> m (Either ServiceEr GetOperationDetailResponse)
+    -> m (Either Route53DomainsError GetOperationDetailResponse)
 getOperationDetailCatch p1 =
     sendCatch (mkGetOperationDetail p1)
 
@@ -393,7 +392,7 @@ listDomainsCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => State ListDomains a
-    -> m (Either ServiceEr ListDomainsResponse)
+    -> m (Either Route53DomainsError ListDomainsResponse)
 listDomainsCatch s =
     sendCatch (mkListDomains &~ s)
 
@@ -435,7 +434,7 @@ listOperationsCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => State ListOperations a
-    -> m (Either ServiceEr ListOperationsResponse)
+    -> m (Either Route53DomainsError ListOperationsResponse)
 listOperationsCatch s =
     sendCatch (mkListOperations &~ s)
 
@@ -515,7 +514,7 @@ registerDomainCatch :: ( MonadCatch m
     -> ContactDetail -- ^ 'rdRegistrantContact'
     -> ContactDetail -- ^ 'rdTechContact'
     -> State RegisterDomain a
-    -> m (Either ServiceEr RegisterDomainResponse)
+    -> m (Either Route53DomainsError RegisterDomainResponse)
 registerDomainCatch p1 p3 p5 p6 p7 s =
     sendCatch $ (mkRegisterDomain p1 p3 p5 p6 p7) &~ s
 
@@ -553,7 +552,7 @@ retrieveDomainAuthCodeCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'rdacDomainName'
-    -> m (Either ServiceEr RetrieveDomainAuthCodeResponse)
+    -> m (Either Route53DomainsError RetrieveDomainAuthCodeResponse)
 retrieveDomainAuthCodeCatch p1 =
     sendCatch (mkRetrieveDomainAuthCode p1)
 
@@ -637,7 +636,7 @@ transferDomainCatch :: ( MonadCatch m
     -> ContactDetail -- ^ 'tdRegistrantContact'
     -> ContactDetail -- ^ 'tdTechContact'
     -> State TransferDomain a
-    -> m (Either ServiceEr TransferDomainResponse)
+    -> m (Either Route53DomainsError TransferDomainResponse)
 transferDomainCatch p1 p3 p4 p7 p8 p9 s =
     sendCatch $ (mkTransferDomain p1 p3 p4 p7 p8 p9) &~ s
 
@@ -696,7 +695,7 @@ updateDomainContactCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'udcDomainName'
     -> State UpdateDomainContact a
-    -> m (Either ServiceEr UpdateDomainContactResponse)
+    -> m (Either Route53DomainsError UpdateDomainContactResponse)
 updateDomainContactCatch p1 s =
     sendCatch $ (mkUpdateDomainContact p1) &~ s
 
@@ -744,7 +743,7 @@ updateDomainContactPrivacyCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'udcpDomainName'
     -> State UpdateDomainContactPrivacy a
-    -> m (Either ServiceEr UpdateDomainContactPrivacyResponse)
+    -> m (Either Route53DomainsError UpdateDomainContactPrivacyResponse)
 updateDomainContactPrivacyCatch p1 s =
     sendCatch $ (mkUpdateDomainContactPrivacy p1) &~ s
 
@@ -790,6 +789,6 @@ updateDomainNameserversCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'udnDomainName'
     -> [Nameserver] -- ^ 'udnNameservers'
-    -> m (Either ServiceEr UpdateDomainNameserversResponse)
+    -> m (Either Route53DomainsError UpdateDomainNameserversResponse)
 updateDomainNameserversCatch p1 p2 =
     sendCatch (mkUpdateDomainNameservers p1 p2)

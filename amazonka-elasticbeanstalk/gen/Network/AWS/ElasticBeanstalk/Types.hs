@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,6 +32,21 @@ module Network.AWS.ElasticBeanstalk.Types
     (
     -- * Service
       ElasticBeanstalk
+    -- ** Errors
+    , ElasticBeanstalkError (..)
+    , _ElasticBeanstalkClient
+    , _ElasticBeanstalkSerializer
+    , _ElasticBeanstalkService
+    , _InsufficientPrivilegesException
+    , _OperationInProgressException
+    , _S3LocationNotInServiceRegionException
+    , _S3SubscriptionRequiredException
+    , _SourceBundleDeletionException
+    , _TooManyApplicationVersionsException
+    , _TooManyApplicationsException
+    , _TooManyBucketsException
+    , _TooManyConfigurationTemplatesException
+    , _TooManyEnvironmentsException
     -- ** XML
     , xmlOptions
 
@@ -271,20 +286,7 @@ data ElasticBeanstalk deriving (Typeable)
 
 instance AWSService ElasticBeanstalk where
     type Sg ElasticBeanstalk = V4
-    data Er ElasticBeanstalk
-        = ElasticBeanstalkClient HttpException
-        | ElasticBeanstalkSerializer String
-        | ElasticBeanstalkService String
-        | InsufficientPrivilegesException
-        | OperationInProgressException
-        | S3LocationNotInServiceRegionException
-        | S3SubscriptionRequiredException
-        | SourceBundleDeletionException
-        | TooManyApplicationVersionsException
-        | TooManyApplicationsException
-        | TooManyBucketsException
-        | TooManyConfigurationTemplatesException
-        | TooManyEnvironmentsException
+    type Er ElasticBeanstalk = ElasticBeanstalkError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -293,18 +295,191 @@ instance AWSService ElasticBeanstalk where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er ElasticBeanstalk)
-deriving instance Generic (Er ElasticBeanstalk)
+-- | A sum type representing possible errors returned by the 'ElasticBeanstalk' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data ElasticBeanstalkError
+    = ElasticBeanstalkClient HttpException
+    | ElasticBeanstalkSerializer Text
+    | ElasticBeanstalkService Text
+      -- | Unable to perform the specified operation because the user does
+      -- not have enough privileges for one of more downstream aws
+      -- services.
+    | InsufficientPrivilegesException
+      -- | Unable to perform the specified operation because another
+      -- operation is already in progress affecting an an element in this
+      -- activity.
+    | OperationInProgressException
+      -- | The specified S3 bucket does not belong to the S3 region in which
+      -- the service is running.
+    | S3LocationNotInServiceRegionException
+      -- | The caller does not have a subscription to Amazon S3.
+    | S3SubscriptionRequiredException
+      -- | Unable to delete the Amazon S3 source bundle associated with the
+      -- application version, although the application version deleted
+      -- successfully.
+    | SourceBundleDeletionException
+      -- | The caller has exceeded the limit on the number of application
+      -- versions associated with their account.
+    | TooManyApplicationVersionsException
+      -- | The caller has exceeded the limit on the number of applications
+      -- associated with their account.
+    | TooManyApplicationsException
+      -- | The web service attempted to create a bucket in an Amazon S3
+      -- account that already has 100 buckets.
+    | TooManyBucketsException
+      -- | The caller has exceeded the limit on the number of configuration
+      -- templates associated with their account.
+    | TooManyConfigurationTemplatesException
+      -- | The caller has exceeded the limit of allowed environments
+      -- associated with the account.
+    | TooManyEnvironmentsException
+    deriving (Show, Generic)
 
-instance AWSError (Er ElasticBeanstalk) where
+instance AWSError ElasticBeanstalkError where
     awsError = const "ElasticBeanstalkError"
 
-instance AWSServiceError (Er ElasticBeanstalk) where
+instance AWSServiceError ElasticBeanstalkError where
     serviceError    = ElasticBeanstalkService
     clientError     = ElasticBeanstalkClient
     serializerError = ElasticBeanstalkSerializer
 
-instance Exception (Er ElasticBeanstalk)
+instance Exception ElasticBeanstalkError
+
+-- | See: 'ElasticBeanstalkClient'
+_ElasticBeanstalkClient :: Prism' ElasticBeanstalkError HttpException
+_ElasticBeanstalkClient = prism'
+    ElasticBeanstalkClient
+    (\case
+        ElasticBeanstalkClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'ElasticBeanstalkSerializer'
+_ElasticBeanstalkSerializer :: Prism' ElasticBeanstalkError Text
+_ElasticBeanstalkSerializer = prism'
+    ElasticBeanstalkSerializer
+    (\case
+        ElasticBeanstalkSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'ElasticBeanstalkService'
+_ElasticBeanstalkService :: Prism' ElasticBeanstalkError Text
+_ElasticBeanstalkService = prism'
+    ElasticBeanstalkService
+    (\case
+        ElasticBeanstalkService p1 -> Right p1
+        x -> Left x)
+
+-- | Unable to perform the specified operation because the user does not have
+-- enough privileges for one of more downstream aws services.
+--
+-- See: 'InsufficientPrivilegesException'
+_InsufficientPrivilegesException :: Prism' ElasticBeanstalkError ()
+_InsufficientPrivilegesException = prism'
+    (const InsufficientPrivilegesException)
+    (\case
+        InsufficientPrivilegesException -> Right ()
+        x -> Left x)
+
+-- | Unable to perform the specified operation because another operation is
+-- already in progress affecting an an element in this activity.
+--
+-- See: 'OperationInProgressException'
+_OperationInProgressException :: Prism' ElasticBeanstalkError ()
+_OperationInProgressException = prism'
+    (const OperationInProgressException)
+    (\case
+        OperationInProgressException -> Right ()
+        x -> Left x)
+
+-- | The specified S3 bucket does not belong to the S3 region in which the
+-- service is running.
+--
+-- See: 'S3LocationNotInServiceRegionException'
+_S3LocationNotInServiceRegionException :: Prism' ElasticBeanstalkError ()
+_S3LocationNotInServiceRegionException = prism'
+    (const S3LocationNotInServiceRegionException)
+    (\case
+        S3LocationNotInServiceRegionException -> Right ()
+        x -> Left x)
+
+-- | The caller does not have a subscription to Amazon S3.
+--
+-- See: 'S3SubscriptionRequiredException'
+_S3SubscriptionRequiredException :: Prism' ElasticBeanstalkError ()
+_S3SubscriptionRequiredException = prism'
+    (const S3SubscriptionRequiredException)
+    (\case
+        S3SubscriptionRequiredException -> Right ()
+        x -> Left x)
+
+-- | Unable to delete the Amazon S3 source bundle associated with the
+-- application version, although the application version deleted successfully.
+--
+-- See: 'SourceBundleDeletionException'
+_SourceBundleDeletionException :: Prism' ElasticBeanstalkError ()
+_SourceBundleDeletionException = prism'
+    (const SourceBundleDeletionException)
+    (\case
+        SourceBundleDeletionException -> Right ()
+        x -> Left x)
+
+-- | The caller has exceeded the limit on the number of application versions
+-- associated with their account.
+--
+-- See: 'TooManyApplicationVersionsException'
+_TooManyApplicationVersionsException :: Prism' ElasticBeanstalkError ()
+_TooManyApplicationVersionsException = prism'
+    (const TooManyApplicationVersionsException)
+    (\case
+        TooManyApplicationVersionsException -> Right ()
+        x -> Left x)
+
+-- | The caller has exceeded the limit on the number of applications associated
+-- with their account.
+--
+-- See: 'TooManyApplicationsException'
+_TooManyApplicationsException :: Prism' ElasticBeanstalkError ()
+_TooManyApplicationsException = prism'
+    (const TooManyApplicationsException)
+    (\case
+        TooManyApplicationsException -> Right ()
+        x -> Left x)
+
+-- | The web service attempted to create a bucket in an Amazon S3 account that
+-- already has 100 buckets.
+--
+-- See: 'TooManyBucketsException'
+_TooManyBucketsException :: Prism' ElasticBeanstalkError ()
+_TooManyBucketsException = prism'
+    (const TooManyBucketsException)
+    (\case
+        TooManyBucketsException -> Right ()
+        x -> Left x)
+
+-- | The caller has exceeded the limit on the number of configuration templates
+-- associated with their account.
+--
+-- See: 'TooManyConfigurationTemplatesException'
+_TooManyConfigurationTemplatesException :: Prism' ElasticBeanstalkError ()
+_TooManyConfigurationTemplatesException = prism'
+    (const TooManyConfigurationTemplatesException)
+    (\case
+        TooManyConfigurationTemplatesException -> Right ()
+        x -> Left x)
+
+-- | The caller has exceeded the limit of allowed environments associated with
+-- the account.
+--
+-- See: 'TooManyEnvironmentsException'
+_TooManyEnvironmentsException :: Prism' ElasticBeanstalkError ()
+_TooManyEnvironmentsException = prism'
+    (const TooManyEnvironmentsException)
+    (\case
+        TooManyEnvironmentsException -> Right ()
+        x -> Left x)
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

@@ -85,7 +85,6 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.ImportExport
 
-type ServiceEr = Er ImportExport
 
 -- $CancelJob
 -- This operation cancels a specified job. Only the job owner can cancel it.
@@ -108,7 +107,7 @@ cancelJobCatch :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'cjJobId'
-    -> m (Either ServiceEr CancelJobResponse)
+    -> m (Either ImportExportError CancelJobResponse)
 cancelJobCatch p1 =
     sendCatch (mkCancelJob p1)
 
@@ -142,7 +141,7 @@ createJobCatch :: ( MonadCatch m
     -> Text -- ^ 'cj1Manifest'
     -> Bool -- ^ 'cj1ValidateOnly'
     -> State CreateJob a
-    -> m (Either ServiceEr CreateJobResponse)
+    -> m (Either ImportExportError CreateJobResponse)
 createJobCatch p1 p2 p4 s =
     sendCatch $ (mkCreateJob p1 p2 p4) &~ s
 
@@ -169,7 +168,7 @@ getStatusCatch :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'gsJobId'
-    -> m (Either ServiceEr GetStatusResponse)
+    -> m (Either ImportExportError GetStatusResponse)
 getStatusCatch p1 =
     sendCatch (mkGetStatus p1)
 
@@ -197,7 +196,7 @@ listJobsCatch :: ( MonadCatch m
                  , MonadReader Env m
                  )
     => State ListJobs a
-    -> Source m (Either ServiceEr ListJobsResponse)
+    -> Source m (Either ImportExportError ListJobsResponse)
 listJobsCatch s =
     paginateCatch (mkListJobs &~ s)
 
@@ -231,6 +230,6 @@ updateJobCatch :: ( MonadCatch m
     -> Text -- ^ 'ujManifest'
     -> JobType -- ^ 'ujJobType'
     -> Bool -- ^ 'ujValidateOnly'
-    -> m (Either ServiceEr UpdateJobResponse)
+    -> m (Either ImportExportError UpdateJobResponse)
 updateJobCatch p1 p2 p3 p4 =
     sendCatch (mkUpdateJob p1 p2 p3 p4)

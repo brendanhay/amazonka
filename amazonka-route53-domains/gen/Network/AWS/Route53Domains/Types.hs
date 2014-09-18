@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -23,6 +23,17 @@ module Network.AWS.Route53Domains.Types
     (
     -- * Service
       Route53Domains
+    -- ** Errors
+    , Route53DomainsError (..)
+    , _DomainLimitExceeded
+    , _DuplicateRequest
+    , _InvalidInput
+    , _OperationLimitExceeded
+    , _Route53DomainsClient
+    , _Route53DomainsSerializer
+    , _Route53DomainsService
+    , _TLDRulesViolation
+    , _UnsupportedTLD
     -- * ContactType
     , ContactType (..)
 
@@ -97,28 +108,7 @@ data Route53Domains deriving (Typeable)
 
 instance AWSService Route53Domains where
     type Sg Route53Domains = V4
-    data Er Route53Domains
-        = DomainLimitExceeded
-            { _dleMessage :: Maybe Text
-            }
-        | DuplicateRequest
-            { _drMessage :: Maybe Text
-            }
-        | InvalidInput
-            { _iiMessage :: Maybe Text
-            }
-        | OperationLimitExceeded
-            { _oleMessage :: Maybe Text
-            }
-        | Route53DomainsClient HttpException
-        | Route53DomainsSerializer String
-        | Route53DomainsService String
-        | TLDRulesViolation
-            { _tldrvMessage :: Maybe Text
-            }
-        | UnsupportedTLD
-            { _utldMessage :: Maybe Text
-            }
+    type Er Route53Domains = Route53DomainsError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -127,18 +117,142 @@ instance AWSService Route53Domains where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er Route53Domains)
-deriving instance Generic (Er Route53Domains)
+-- | A sum type representing possible errors returned by the 'Route53Domains' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data Route53DomainsError
+      -- | The number of domains has exceeded the allowed threshold for the
+      -- account.
+    = DomainLimitExceeded
+        { _dleMessage :: Maybe Text
+        }
+      -- | The request is already in progress for the domain.
+    | DuplicateRequest
+        { _drMessage :: Maybe Text
+        }
+      -- | The requested item is not acceptable. For example, for an
+      -- OperationId it may refer to the ID of an operation that is
+      -- already completed. For a domain name, it may not be a valid
+      -- domain name or belong to the requester account.
+    | InvalidInput
+        { _iiMessage :: Maybe Text
+        }
+      -- | The number of operations or jobs running exceeded the allowed
+      -- threshold for the account.
+    | OperationLimitExceeded
+        { _oleMessage :: Maybe Text
+        }
+    | Route53DomainsClient HttpException
+    | Route53DomainsSerializer Text
+    | Route53DomainsService Text
+      -- | The top-level domain does not support this operation.
+    | TLDRulesViolation
+        { _tldrvMessage :: Maybe Text
+        }
+      -- | Amazon Route 53 does not support this top-level domain.
+    | UnsupportedTLD
+        { _utldMessage :: Maybe Text
+        }
+    deriving (Show, Generic)
 
-instance AWSError (Er Route53Domains) where
+instance AWSError Route53DomainsError where
     awsError = const "Route53DomainsError"
 
-instance AWSServiceError (Er Route53Domains) where
+instance AWSServiceError Route53DomainsError where
     serviceError    = Route53DomainsService
     clientError     = Route53DomainsClient
     serializerError = Route53DomainsSerializer
 
-instance Exception (Er Route53Domains)
+instance Exception Route53DomainsError
+
+-- | The number of domains has exceeded the allowed threshold for the account.
+--
+-- See: 'DomainLimitExceeded'
+_DomainLimitExceeded :: Prism' Route53DomainsError (Maybe Text)
+_DomainLimitExceeded = prism'
+    DomainLimitExceeded
+    (\case
+        DomainLimitExceeded p1 -> Right p1
+        x -> Left x)
+
+-- | The request is already in progress for the domain.
+--
+-- See: 'DuplicateRequest'
+_DuplicateRequest :: Prism' Route53DomainsError (Maybe Text)
+_DuplicateRequest = prism'
+    DuplicateRequest
+    (\case
+        DuplicateRequest p1 -> Right p1
+        x -> Left x)
+
+-- | The requested item is not acceptable. For example, for an OperationId it
+-- may refer to the ID of an operation that is already completed. For a domain
+-- name, it may not be a valid domain name or belong to the requester account.
+--
+-- See: 'InvalidInput'
+_InvalidInput :: Prism' Route53DomainsError (Maybe Text)
+_InvalidInput = prism'
+    InvalidInput
+    (\case
+        InvalidInput p1 -> Right p1
+        x -> Left x)
+
+-- | The number of operations or jobs running exceeded the allowed threshold for
+-- the account.
+--
+-- See: 'OperationLimitExceeded'
+_OperationLimitExceeded :: Prism' Route53DomainsError (Maybe Text)
+_OperationLimitExceeded = prism'
+    OperationLimitExceeded
+    (\case
+        OperationLimitExceeded p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'Route53DomainsClient'
+_Route53DomainsClient :: Prism' Route53DomainsError HttpException
+_Route53DomainsClient = prism'
+    Route53DomainsClient
+    (\case
+        Route53DomainsClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'Route53DomainsSerializer'
+_Route53DomainsSerializer :: Prism' Route53DomainsError Text
+_Route53DomainsSerializer = prism'
+    Route53DomainsSerializer
+    (\case
+        Route53DomainsSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'Route53DomainsService'
+_Route53DomainsService :: Prism' Route53DomainsError Text
+_Route53DomainsService = prism'
+    Route53DomainsService
+    (\case
+        Route53DomainsService p1 -> Right p1
+        x -> Left x)
+
+-- | The top-level domain does not support this operation.
+--
+-- See: 'TLDRulesViolation'
+_TLDRulesViolation :: Prism' Route53DomainsError (Maybe Text)
+_TLDRulesViolation = prism'
+    TLDRulesViolation
+    (\case
+        TLDRulesViolation p1 -> Right p1
+        x -> Left x)
+
+-- | Amazon Route 53 does not support this top-level domain.
+--
+-- See: 'UnsupportedTLD'
+_UnsupportedTLD :: Prism' Route53DomainsError (Maybe Text)
+_UnsupportedTLD = prism'
+    UnsupportedTLD
+    (\case
+        UnsupportedTLD p1 -> Right p1
+        x -> Left x)
 
 data ContactType
     = ContactTypeAssociation -- ^ ASSOCIATION

@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,6 +33,50 @@ module Network.AWS.ElastiCache.Types
     (
     -- * Service
       ElastiCache
+    -- ** Errors
+    , ElastiCacheError (..)
+    , _AuthorizationAlreadyExistsFault
+    , _AuthorizationNotFoundFault
+    , _CacheClusterAlreadyExistsFault
+    , _CacheClusterNotFoundFault
+    , _CacheParameterGroupAlreadyExistsFault
+    , _CacheParameterGroupNotFoundFault
+    , _CacheParameterGroupQuotaExceededFault
+    , _CacheSecurityGroupAlreadyExistsFault
+    , _CacheSecurityGroupNotFoundFault
+    , _CacheSecurityGroupQuotaExceededFault
+    , _CacheSubnetGroupAlreadyExistsFault
+    , _CacheSubnetGroupInUse
+    , _CacheSubnetGroupNotFoundFault
+    , _CacheSubnetGroupQuotaExceededFault
+    , _CacheSubnetQuotaExceededFault
+    , _ClusterQuotaForCustomerExceededFault
+    , _ElastiCacheClient
+    , _ElastiCacheSerializer
+    , _ElastiCacheService
+    , _InsufficientCacheClusterCapacityFault
+    , _InvalidCacheClusterStateFault
+    , _InvalidCacheParameterGroupStateFault
+    , _InvalidCacheSecurityGroupStateFault
+    , _InvalidParameterCombinationException
+    , _InvalidParameterValueException
+    , _InvalidReplicationGroupStateFault
+    , _InvalidSnapshotStateFault
+    , _InvalidSubnet
+    , _InvalidVPCNetworkStateFault
+    , _NodeQuotaForClusterExceededFault
+    , _NodeQuotaForCustomerExceededFault
+    , _ReplicationGroupAlreadyExistsFault
+    , _ReplicationGroupNotFoundFault
+    , _ReservedCacheNodeAlreadyExistsFault
+    , _ReservedCacheNodeNotFoundFault
+    , _ReservedCacheNodeQuotaExceededFault
+    , _ReservedCacheNodesOfferingNotFoundFault
+    , _SnapshotAlreadyExistsFault
+    , _SnapshotFeatureNotSupportedFault
+    , _SnapshotNotFoundFault
+    , _SnapshotQuotaExceededFault
+    , _SubnetInUse
     -- ** XML
     , xmlOptions
 
@@ -325,53 +369,7 @@ data ElastiCache deriving (Typeable)
 
 instance AWSService ElastiCache where
     type Sg ElastiCache = V4
-    data Er ElastiCache
-        = AuthorizationAlreadyExistsFault
-        | AuthorizationNotFoundFault
-        | CacheClusterAlreadyExistsFault
-        | CacheClusterNotFoundFault
-        | CacheParameterGroupAlreadyExistsFault
-        | CacheParameterGroupNotFoundFault
-        | CacheParameterGroupQuotaExceededFault
-        | CacheSecurityGroupAlreadyExistsFault
-        | CacheSecurityGroupNotFoundFault
-        | CacheSecurityGroupQuotaExceededFault
-        | CacheSubnetGroupAlreadyExistsFault
-        | CacheSubnetGroupInUse
-        | CacheSubnetGroupNotFoundFault
-        | CacheSubnetGroupQuotaExceededFault
-        | CacheSubnetQuotaExceededFault
-        | ClusterQuotaForCustomerExceededFault
-        | ElastiCacheClient HttpException
-        | ElastiCacheSerializer String
-        | ElastiCacheService String
-        | InsufficientCacheClusterCapacityFault
-        | InvalidCacheClusterStateFault
-        | InvalidCacheParameterGroupStateFault
-        | InvalidCacheSecurityGroupStateFault
-        | InvalidParameterCombinationException
-            { _ipceMessage :: Maybe Text
-            }
-        | InvalidParameterValueException
-            { _ipveMessage :: Maybe Text
-            }
-        | InvalidReplicationGroupStateFault
-        | InvalidSnapshotStateFault
-        | InvalidSubnet
-        | InvalidVPCNetworkStateFault
-        | NodeQuotaForClusterExceededFault
-        | NodeQuotaForCustomerExceededFault
-        | ReplicationGroupAlreadyExistsFault
-        | ReplicationGroupNotFoundFault
-        | ReservedCacheNodeAlreadyExistsFault
-        | ReservedCacheNodeNotFoundFault
-        | ReservedCacheNodeQuotaExceededFault
-        | ReservedCacheNodesOfferingNotFoundFault
-        | SnapshotAlreadyExistsFault
-        | SnapshotFeatureNotSupportedFault
-        | SnapshotNotFoundFault
-        | SnapshotQuotaExceededFault
-        | SubnetInUse
+    type Er ElastiCache = ElastiCacheError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -380,18 +378,567 @@ instance AWSService ElastiCache where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er ElastiCache)
-deriving instance Generic (Er ElastiCache)
+-- | A sum type representing possible errors returned by the 'ElastiCache' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data ElastiCacheError
+      -- | The specified Amazon EC2 security group is already authorized for
+      -- the specified cache security group.
+    = AuthorizationAlreadyExistsFault
+      -- | The specified Amazon EC2 security group is not authorized for the
+      -- specified cache security group.
+    | AuthorizationNotFoundFault
+      -- | You already have a cache cluster with the given identifier.
+    | CacheClusterAlreadyExistsFault
+      -- | The requested cache cluster ID does not refer to an existing
+      -- cache cluster.
+    | CacheClusterNotFoundFault
+      -- | A cache parameter group with the requested name already exists.
+    | CacheParameterGroupAlreadyExistsFault
+      -- | The requested cache parameter group name does not refer to an
+      -- existing cache parameter group.
+    | CacheParameterGroupNotFoundFault
+      -- | The request cannot be processed because it would exceed the
+      -- maximum number of cache security groups.
+    | CacheParameterGroupQuotaExceededFault
+      -- | A cache security group with the specified name already exists.
+    | CacheSecurityGroupAlreadyExistsFault
+      -- | The requested cache security group name does not refer to an
+      -- existing cache security group.
+    | CacheSecurityGroupNotFoundFault
+      -- | The request cannot be processed because it would exceed the
+      -- allowed number of cache security groups.
+    | CacheSecurityGroupQuotaExceededFault
+      -- | The requested cache subnet group name is already in use by an
+      -- existing cache subnet group.
+    | CacheSubnetGroupAlreadyExistsFault
+      -- | The requested cache subnet group is currently in use.
+    | CacheSubnetGroupInUse
+      -- | The requested cache subnet group name does not refer to an
+      -- existing cache subnet group.
+    | CacheSubnetGroupNotFoundFault
+      -- | The request cannot be processed because it would exceed the
+      -- allowed number of cache subnet groups.
+    | CacheSubnetGroupQuotaExceededFault
+      -- | The request cannot be processed because it would exceed the
+      -- allowed number of subnets in a cache subnet group.
+    | CacheSubnetQuotaExceededFault
+      -- | The request cannot be processed because it would exceed the
+      -- allowed number of cache clusters per customer.
+    | ClusterQuotaForCustomerExceededFault
+    | ElastiCacheClient HttpException
+    | ElastiCacheSerializer Text
+    | ElastiCacheService Text
+      -- | The requested cache node type is not available in the specified
+      -- Availability Zone.
+    | InsufficientCacheClusterCapacityFault
+      -- | The requested cache cluster is not in the available state.
+    | InvalidCacheClusterStateFault
+      -- | The current state of the cache parameter group does not allow the
+      -- requested action to occur.
+    | InvalidCacheParameterGroupStateFault
+      -- | The current state of the cache security group does not allow
+      -- deletion.
+    | InvalidCacheSecurityGroupStateFault
+      -- | Two or more incompatible parameters were specified.
+    | InvalidParameterCombinationException
+        { _ipceMessage :: Maybe Text
+        }
+      -- | The value for a parameter is invalid.
+    | InvalidParameterValueException
+        { _ipveMessage :: Maybe Text
+        }
+      -- | The requested replication group is not in the available state.
+    | InvalidReplicationGroupStateFault
+      -- | The current state of the snapshot does not allow the requested
+      -- action to occur.
+    | InvalidSnapshotStateFault
+      -- | An invalid subnet identifier was specified.
+    | InvalidSubnet
+      -- | The VPC network is in an invalid state.
+    | InvalidVPCNetworkStateFault
+      -- | The request cannot be processed because it would exceed the
+      -- allowed number of cache nodes in a single cache cluster.
+    | NodeQuotaForClusterExceededFault
+      -- | The request cannot be processed because it would exceed the
+      -- allowed number of cache nodes per customer.
+    | NodeQuotaForCustomerExceededFault
+      -- | The specified replication group already exists.
+    | ReplicationGroupAlreadyExistsFault
+      -- | The specified replication group does not exist.
+    | ReplicationGroupNotFoundFault
+      -- | You already have a reservation with the given identifier.
+    | ReservedCacheNodeAlreadyExistsFault
+      -- | The requested reserved cache node was not found.
+    | ReservedCacheNodeNotFoundFault
+      -- | The request cannot be processed because it would exceed the
+      -- user's cache node quota.
+    | ReservedCacheNodeQuotaExceededFault
+      -- | The requested cache node offering does not exist.
+    | ReservedCacheNodesOfferingNotFoundFault
+      -- | You already have a snapshot with the given name.
+    | SnapshotAlreadyExistsFault
+      -- | You attempted one of the following actions: Creating a snapshot
+      -- of a Redis cache cluster running on a a t1.micro cache node.
+      -- Creating a snapshot of a cache cluster that is running Memcached
+      -- rather than Redis. Neither of these are supported by ElastiCache.
+    | SnapshotFeatureNotSupportedFault
+      -- | The requested snapshot name does not refer to an existing
+      -- snapshot.
+    | SnapshotNotFoundFault
+      -- | The request cannot be processed because it would exceed the
+      -- maximum number of snapshots.
+    | SnapshotQuotaExceededFault
+      -- | The requested subnet is being used by another cache subnet group.
+    | SubnetInUse
+    deriving (Show, Generic)
 
-instance AWSError (Er ElastiCache) where
+instance AWSError ElastiCacheError where
     awsError = const "ElastiCacheError"
 
-instance AWSServiceError (Er ElastiCache) where
+instance AWSServiceError ElastiCacheError where
     serviceError    = ElastiCacheService
     clientError     = ElastiCacheClient
     serializerError = ElastiCacheSerializer
 
-instance Exception (Er ElastiCache)
+instance Exception ElastiCacheError
+
+-- | The specified Amazon EC2 security group is already authorized for the
+-- specified cache security group.
+--
+-- See: 'AuthorizationAlreadyExistsFault'
+_AuthorizationAlreadyExistsFault :: Prism' ElastiCacheError ()
+_AuthorizationAlreadyExistsFault = prism'
+    (const AuthorizationAlreadyExistsFault)
+    (\case
+        AuthorizationAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | The specified Amazon EC2 security group is not authorized for the specified
+-- cache security group.
+--
+-- See: 'AuthorizationNotFoundFault'
+_AuthorizationNotFoundFault :: Prism' ElastiCacheError ()
+_AuthorizationNotFoundFault = prism'
+    (const AuthorizationNotFoundFault)
+    (\case
+        AuthorizationNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | You already have a cache cluster with the given identifier.
+--
+-- See: 'CacheClusterAlreadyExistsFault'
+_CacheClusterAlreadyExistsFault :: Prism' ElastiCacheError ()
+_CacheClusterAlreadyExistsFault = prism'
+    (const CacheClusterAlreadyExistsFault)
+    (\case
+        CacheClusterAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | The requested cache cluster ID does not refer to an existing cache cluster.
+--
+-- See: 'CacheClusterNotFoundFault'
+_CacheClusterNotFoundFault :: Prism' ElastiCacheError ()
+_CacheClusterNotFoundFault = prism'
+    (const CacheClusterNotFoundFault)
+    (\case
+        CacheClusterNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | A cache parameter group with the requested name already exists.
+--
+-- See: 'CacheParameterGroupAlreadyExistsFault'
+_CacheParameterGroupAlreadyExistsFault :: Prism' ElastiCacheError ()
+_CacheParameterGroupAlreadyExistsFault = prism'
+    (const CacheParameterGroupAlreadyExistsFault)
+    (\case
+        CacheParameterGroupAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | The requested cache parameter group name does not refer to an existing
+-- cache parameter group.
+--
+-- See: 'CacheParameterGroupNotFoundFault'
+_CacheParameterGroupNotFoundFault :: Prism' ElastiCacheError ()
+_CacheParameterGroupNotFoundFault = prism'
+    (const CacheParameterGroupNotFoundFault)
+    (\case
+        CacheParameterGroupNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | The request cannot be processed because it would exceed the maximum number
+-- of cache security groups.
+--
+-- See: 'CacheParameterGroupQuotaExceededFault'
+_CacheParameterGroupQuotaExceededFault :: Prism' ElastiCacheError ()
+_CacheParameterGroupQuotaExceededFault = prism'
+    (const CacheParameterGroupQuotaExceededFault)
+    (\case
+        CacheParameterGroupQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | A cache security group with the specified name already exists.
+--
+-- See: 'CacheSecurityGroupAlreadyExistsFault'
+_CacheSecurityGroupAlreadyExistsFault :: Prism' ElastiCacheError ()
+_CacheSecurityGroupAlreadyExistsFault = prism'
+    (const CacheSecurityGroupAlreadyExistsFault)
+    (\case
+        CacheSecurityGroupAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | The requested cache security group name does not refer to an existing cache
+-- security group.
+--
+-- See: 'CacheSecurityGroupNotFoundFault'
+_CacheSecurityGroupNotFoundFault :: Prism' ElastiCacheError ()
+_CacheSecurityGroupNotFoundFault = prism'
+    (const CacheSecurityGroupNotFoundFault)
+    (\case
+        CacheSecurityGroupNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | The request cannot be processed because it would exceed the allowed number
+-- of cache security groups.
+--
+-- See: 'CacheSecurityGroupQuotaExceededFault'
+_CacheSecurityGroupQuotaExceededFault :: Prism' ElastiCacheError ()
+_CacheSecurityGroupQuotaExceededFault = prism'
+    (const CacheSecurityGroupQuotaExceededFault)
+    (\case
+        CacheSecurityGroupQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | The requested cache subnet group name is already in use by an existing
+-- cache subnet group.
+--
+-- See: 'CacheSubnetGroupAlreadyExistsFault'
+_CacheSubnetGroupAlreadyExistsFault :: Prism' ElastiCacheError ()
+_CacheSubnetGroupAlreadyExistsFault = prism'
+    (const CacheSubnetGroupAlreadyExistsFault)
+    (\case
+        CacheSubnetGroupAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | The requested cache subnet group is currently in use.
+--
+-- See: 'CacheSubnetGroupInUse'
+_CacheSubnetGroupInUse :: Prism' ElastiCacheError ()
+_CacheSubnetGroupInUse = prism'
+    (const CacheSubnetGroupInUse)
+    (\case
+        CacheSubnetGroupInUse -> Right ()
+        x -> Left x)
+
+-- | The requested cache subnet group name does not refer to an existing cache
+-- subnet group.
+--
+-- See: 'CacheSubnetGroupNotFoundFault'
+_CacheSubnetGroupNotFoundFault :: Prism' ElastiCacheError ()
+_CacheSubnetGroupNotFoundFault = prism'
+    (const CacheSubnetGroupNotFoundFault)
+    (\case
+        CacheSubnetGroupNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | The request cannot be processed because it would exceed the allowed number
+-- of cache subnet groups.
+--
+-- See: 'CacheSubnetGroupQuotaExceededFault'
+_CacheSubnetGroupQuotaExceededFault :: Prism' ElastiCacheError ()
+_CacheSubnetGroupQuotaExceededFault = prism'
+    (const CacheSubnetGroupQuotaExceededFault)
+    (\case
+        CacheSubnetGroupQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | The request cannot be processed because it would exceed the allowed number
+-- of subnets in a cache subnet group.
+--
+-- See: 'CacheSubnetQuotaExceededFault'
+_CacheSubnetQuotaExceededFault :: Prism' ElastiCacheError ()
+_CacheSubnetQuotaExceededFault = prism'
+    (const CacheSubnetQuotaExceededFault)
+    (\case
+        CacheSubnetQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | The request cannot be processed because it would exceed the allowed number
+-- of cache clusters per customer.
+--
+-- See: 'ClusterQuotaForCustomerExceededFault'
+_ClusterQuotaForCustomerExceededFault :: Prism' ElastiCacheError ()
+_ClusterQuotaForCustomerExceededFault = prism'
+    (const ClusterQuotaForCustomerExceededFault)
+    (\case
+        ClusterQuotaForCustomerExceededFault -> Right ()
+        x -> Left x)
+
+-- | See: 'ElastiCacheClient'
+_ElastiCacheClient :: Prism' ElastiCacheError HttpException
+_ElastiCacheClient = prism'
+    ElastiCacheClient
+    (\case
+        ElastiCacheClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'ElastiCacheSerializer'
+_ElastiCacheSerializer :: Prism' ElastiCacheError Text
+_ElastiCacheSerializer = prism'
+    ElastiCacheSerializer
+    (\case
+        ElastiCacheSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'ElastiCacheService'
+_ElastiCacheService :: Prism' ElastiCacheError Text
+_ElastiCacheService = prism'
+    ElastiCacheService
+    (\case
+        ElastiCacheService p1 -> Right p1
+        x -> Left x)
+
+-- | The requested cache node type is not available in the specified
+-- Availability Zone.
+--
+-- See: 'InsufficientCacheClusterCapacityFault'
+_InsufficientCacheClusterCapacityFault :: Prism' ElastiCacheError ()
+_InsufficientCacheClusterCapacityFault = prism'
+    (const InsufficientCacheClusterCapacityFault)
+    (\case
+        InsufficientCacheClusterCapacityFault -> Right ()
+        x -> Left x)
+
+-- | The requested cache cluster is not in the available state.
+--
+-- See: 'InvalidCacheClusterStateFault'
+_InvalidCacheClusterStateFault :: Prism' ElastiCacheError ()
+_InvalidCacheClusterStateFault = prism'
+    (const InvalidCacheClusterStateFault)
+    (\case
+        InvalidCacheClusterStateFault -> Right ()
+        x -> Left x)
+
+-- | The current state of the cache parameter group does not allow the requested
+-- action to occur.
+--
+-- See: 'InvalidCacheParameterGroupStateFault'
+_InvalidCacheParameterGroupStateFault :: Prism' ElastiCacheError ()
+_InvalidCacheParameterGroupStateFault = prism'
+    (const InvalidCacheParameterGroupStateFault)
+    (\case
+        InvalidCacheParameterGroupStateFault -> Right ()
+        x -> Left x)
+
+-- | The current state of the cache security group does not allow deletion.
+--
+-- See: 'InvalidCacheSecurityGroupStateFault'
+_InvalidCacheSecurityGroupStateFault :: Prism' ElastiCacheError ()
+_InvalidCacheSecurityGroupStateFault = prism'
+    (const InvalidCacheSecurityGroupStateFault)
+    (\case
+        InvalidCacheSecurityGroupStateFault -> Right ()
+        x -> Left x)
+
+-- | Two or more incompatible parameters were specified.
+--
+-- See: 'InvalidParameterCombinationException'
+_InvalidParameterCombinationException :: Prism' ElastiCacheError (Maybe Text)
+_InvalidParameterCombinationException = prism'
+    InvalidParameterCombinationException
+    (\case
+        InvalidParameterCombinationException p1 -> Right p1
+        x -> Left x)
+
+-- | The value for a parameter is invalid.
+--
+-- See: 'InvalidParameterValueException'
+_InvalidParameterValueException :: Prism' ElastiCacheError (Maybe Text)
+_InvalidParameterValueException = prism'
+    InvalidParameterValueException
+    (\case
+        InvalidParameterValueException p1 -> Right p1
+        x -> Left x)
+
+-- | The requested replication group is not in the available state.
+--
+-- See: 'InvalidReplicationGroupStateFault'
+_InvalidReplicationGroupStateFault :: Prism' ElastiCacheError ()
+_InvalidReplicationGroupStateFault = prism'
+    (const InvalidReplicationGroupStateFault)
+    (\case
+        InvalidReplicationGroupStateFault -> Right ()
+        x -> Left x)
+
+-- | The current state of the snapshot does not allow the requested action to
+-- occur.
+--
+-- See: 'InvalidSnapshotStateFault'
+_InvalidSnapshotStateFault :: Prism' ElastiCacheError ()
+_InvalidSnapshotStateFault = prism'
+    (const InvalidSnapshotStateFault)
+    (\case
+        InvalidSnapshotStateFault -> Right ()
+        x -> Left x)
+
+-- | An invalid subnet identifier was specified.
+--
+-- See: 'InvalidSubnet'
+_InvalidSubnet :: Prism' ElastiCacheError ()
+_InvalidSubnet = prism'
+    (const InvalidSubnet)
+    (\case
+        InvalidSubnet -> Right ()
+        x -> Left x)
+
+-- | The VPC network is in an invalid state.
+--
+-- See: 'InvalidVPCNetworkStateFault'
+_InvalidVPCNetworkStateFault :: Prism' ElastiCacheError ()
+_InvalidVPCNetworkStateFault = prism'
+    (const InvalidVPCNetworkStateFault)
+    (\case
+        InvalidVPCNetworkStateFault -> Right ()
+        x -> Left x)
+
+-- | The request cannot be processed because it would exceed the allowed number
+-- of cache nodes in a single cache cluster.
+--
+-- See: 'NodeQuotaForClusterExceededFault'
+_NodeQuotaForClusterExceededFault :: Prism' ElastiCacheError ()
+_NodeQuotaForClusterExceededFault = prism'
+    (const NodeQuotaForClusterExceededFault)
+    (\case
+        NodeQuotaForClusterExceededFault -> Right ()
+        x -> Left x)
+
+-- | The request cannot be processed because it would exceed the allowed number
+-- of cache nodes per customer.
+--
+-- See: 'NodeQuotaForCustomerExceededFault'
+_NodeQuotaForCustomerExceededFault :: Prism' ElastiCacheError ()
+_NodeQuotaForCustomerExceededFault = prism'
+    (const NodeQuotaForCustomerExceededFault)
+    (\case
+        NodeQuotaForCustomerExceededFault -> Right ()
+        x -> Left x)
+
+-- | The specified replication group already exists.
+--
+-- See: 'ReplicationGroupAlreadyExistsFault'
+_ReplicationGroupAlreadyExistsFault :: Prism' ElastiCacheError ()
+_ReplicationGroupAlreadyExistsFault = prism'
+    (const ReplicationGroupAlreadyExistsFault)
+    (\case
+        ReplicationGroupAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | The specified replication group does not exist.
+--
+-- See: 'ReplicationGroupNotFoundFault'
+_ReplicationGroupNotFoundFault :: Prism' ElastiCacheError ()
+_ReplicationGroupNotFoundFault = prism'
+    (const ReplicationGroupNotFoundFault)
+    (\case
+        ReplicationGroupNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | You already have a reservation with the given identifier.
+--
+-- See: 'ReservedCacheNodeAlreadyExistsFault'
+_ReservedCacheNodeAlreadyExistsFault :: Prism' ElastiCacheError ()
+_ReservedCacheNodeAlreadyExistsFault = prism'
+    (const ReservedCacheNodeAlreadyExistsFault)
+    (\case
+        ReservedCacheNodeAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | The requested reserved cache node was not found.
+--
+-- See: 'ReservedCacheNodeNotFoundFault'
+_ReservedCacheNodeNotFoundFault :: Prism' ElastiCacheError ()
+_ReservedCacheNodeNotFoundFault = prism'
+    (const ReservedCacheNodeNotFoundFault)
+    (\case
+        ReservedCacheNodeNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | The request cannot be processed because it would exceed the user's cache
+-- node quota.
+--
+-- See: 'ReservedCacheNodeQuotaExceededFault'
+_ReservedCacheNodeQuotaExceededFault :: Prism' ElastiCacheError ()
+_ReservedCacheNodeQuotaExceededFault = prism'
+    (const ReservedCacheNodeQuotaExceededFault)
+    (\case
+        ReservedCacheNodeQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | The requested cache node offering does not exist.
+--
+-- See: 'ReservedCacheNodesOfferingNotFoundFault'
+_ReservedCacheNodesOfferingNotFoundFault :: Prism' ElastiCacheError ()
+_ReservedCacheNodesOfferingNotFoundFault = prism'
+    (const ReservedCacheNodesOfferingNotFoundFault)
+    (\case
+        ReservedCacheNodesOfferingNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | You already have a snapshot with the given name.
+--
+-- See: 'SnapshotAlreadyExistsFault'
+_SnapshotAlreadyExistsFault :: Prism' ElastiCacheError ()
+_SnapshotAlreadyExistsFault = prism'
+    (const SnapshotAlreadyExistsFault)
+    (\case
+        SnapshotAlreadyExistsFault -> Right ()
+        x -> Left x)
+
+-- | You attempted one of the following actions: Creating a snapshot of a Redis
+-- cache cluster running on a a t1.micro cache node. Creating a snapshot of a
+-- cache cluster that is running Memcached rather than Redis. Neither of these
+-- are supported by ElastiCache.
+--
+-- See: 'SnapshotFeatureNotSupportedFault'
+_SnapshotFeatureNotSupportedFault :: Prism' ElastiCacheError ()
+_SnapshotFeatureNotSupportedFault = prism'
+    (const SnapshotFeatureNotSupportedFault)
+    (\case
+        SnapshotFeatureNotSupportedFault -> Right ()
+        x -> Left x)
+
+-- | The requested snapshot name does not refer to an existing snapshot.
+--
+-- See: 'SnapshotNotFoundFault'
+_SnapshotNotFoundFault :: Prism' ElastiCacheError ()
+_SnapshotNotFoundFault = prism'
+    (const SnapshotNotFoundFault)
+    (\case
+        SnapshotNotFoundFault -> Right ()
+        x -> Left x)
+
+-- | The request cannot be processed because it would exceed the maximum number
+-- of snapshots.
+--
+-- See: 'SnapshotQuotaExceededFault'
+_SnapshotQuotaExceededFault :: Prism' ElastiCacheError ()
+_SnapshotQuotaExceededFault = prism'
+    (const SnapshotQuotaExceededFault)
+    (\case
+        SnapshotQuotaExceededFault -> Right ()
+        x -> Left x)
+
+-- | The requested subnet is being used by another cache subnet group.
+--
+-- See: 'SubnetInUse'
+_SubnetInUse :: Prism' ElastiCacheError ()
+_SubnetInUse = prism'
+    (const SubnetInUse)
+    (\case
+        SubnetInUse -> Right ()
+        x -> Left x)
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

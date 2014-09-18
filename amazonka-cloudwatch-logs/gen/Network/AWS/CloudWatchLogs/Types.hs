@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -24,6 +24,19 @@ module Network.AWS.CloudWatchLogs.Types
     (
     -- * Service
       CloudWatchLogs
+    -- ** Errors
+    , CloudWatchLogsError (..)
+    , _CloudWatchLogsClient
+    , _CloudWatchLogsSerializer
+    , _CloudWatchLogsService
+    , _DataAlreadyAcceptedException
+    , _InvalidParameterException
+    , _InvalidSequenceTokenException
+    , _LimitExceededException
+    , _OperationAbortedException
+    , _ResourceAlreadyExistsException
+    , _ResourceNotFoundException
+    , _ServiceUnavailableException
     -- * InputLogEvent
     , InputLogEvent
     , mkInputLogEvent
@@ -91,22 +104,7 @@ data CloudWatchLogs deriving (Typeable)
 
 instance AWSService CloudWatchLogs where
     type Sg CloudWatchLogs = V4
-    data Er CloudWatchLogs
-        = CloudWatchLogsClient HttpException
-        | CloudWatchLogsSerializer String
-        | CloudWatchLogsService String
-        | DataAlreadyAcceptedException
-            { _daaeExpectedSequenceToken :: Maybe Text
-            }
-        | InvalidParameterException
-        | InvalidSequenceTokenException
-            { _isteExpectedSequenceToken :: Maybe Text
-            }
-        | LimitExceededException
-        | OperationAbortedException
-        | ResourceAlreadyExistsException
-        | ResourceNotFoundException
-        | ServiceUnavailableException
+    type Er CloudWatchLogs = CloudWatchLogsError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -115,18 +113,147 @@ instance AWSService CloudWatchLogs where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er CloudWatchLogs)
-deriving instance Generic (Er CloudWatchLogs)
+-- | A sum type representing possible errors returned by the 'CloudWatchLogs' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data CloudWatchLogsError
+    = CloudWatchLogsClient HttpException
+    | CloudWatchLogsSerializer Text
+    | CloudWatchLogsService Text
+    | DataAlreadyAcceptedException
+        { _daaeExpectedSequenceToken :: Maybe Text
+        }
+      -- | Returned if a parameter of the request is incorrectly specified.
+    | InvalidParameterException
+    | InvalidSequenceTokenException
+        { _isteExpectedSequenceToken :: Maybe Text
+        }
+      -- | Returned if you have reached the maximum number of resources that
+      -- can be created.
+    | LimitExceededException
+      -- | Returned if multiple requests to update the same resource were in
+      -- conflict.
+    | OperationAbortedException
+      -- | Returned if the specified resource already exists.
+    | ResourceAlreadyExistsException
+      -- | Returned if the specified resource does not exist.
+    | ResourceNotFoundException
+      -- | Returned if the service cannot complete the request.
+    | ServiceUnavailableException
+    deriving (Show, Generic)
 
-instance AWSError (Er CloudWatchLogs) where
+instance AWSError CloudWatchLogsError where
     awsError = const "CloudWatchLogsError"
 
-instance AWSServiceError (Er CloudWatchLogs) where
+instance AWSServiceError CloudWatchLogsError where
     serviceError    = CloudWatchLogsService
     clientError     = CloudWatchLogsClient
     serializerError = CloudWatchLogsSerializer
 
-instance Exception (Er CloudWatchLogs)
+instance Exception CloudWatchLogsError
+
+-- | See: 'CloudWatchLogsClient'
+_CloudWatchLogsClient :: Prism' CloudWatchLogsError HttpException
+_CloudWatchLogsClient = prism'
+    CloudWatchLogsClient
+    (\case
+        CloudWatchLogsClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'CloudWatchLogsSerializer'
+_CloudWatchLogsSerializer :: Prism' CloudWatchLogsError Text
+_CloudWatchLogsSerializer = prism'
+    CloudWatchLogsSerializer
+    (\case
+        CloudWatchLogsSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'CloudWatchLogsService'
+_CloudWatchLogsService :: Prism' CloudWatchLogsError Text
+_CloudWatchLogsService = prism'
+    CloudWatchLogsService
+    (\case
+        CloudWatchLogsService p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'DataAlreadyAcceptedException'
+_DataAlreadyAcceptedException :: Prism' CloudWatchLogsError (Maybe Text)
+_DataAlreadyAcceptedException = prism'
+    DataAlreadyAcceptedException
+    (\case
+        DataAlreadyAcceptedException p1 -> Right p1
+        x -> Left x)
+
+-- | Returned if a parameter of the request is incorrectly specified.
+--
+-- See: 'InvalidParameterException'
+_InvalidParameterException :: Prism' CloudWatchLogsError ()
+_InvalidParameterException = prism'
+    (const InvalidParameterException)
+    (\case
+        InvalidParameterException -> Right ()
+        x -> Left x)
+
+-- | See: 'InvalidSequenceTokenException'
+_InvalidSequenceTokenException :: Prism' CloudWatchLogsError (Maybe Text)
+_InvalidSequenceTokenException = prism'
+    InvalidSequenceTokenException
+    (\case
+        InvalidSequenceTokenException p1 -> Right p1
+        x -> Left x)
+
+-- | Returned if you have reached the maximum number of resources that can be
+-- created.
+--
+-- See: 'LimitExceededException'
+_LimitExceededException :: Prism' CloudWatchLogsError ()
+_LimitExceededException = prism'
+    (const LimitExceededException)
+    (\case
+        LimitExceededException -> Right ()
+        x -> Left x)
+
+-- | Returned if multiple requests to update the same resource were in conflict.
+--
+-- See: 'OperationAbortedException'
+_OperationAbortedException :: Prism' CloudWatchLogsError ()
+_OperationAbortedException = prism'
+    (const OperationAbortedException)
+    (\case
+        OperationAbortedException -> Right ()
+        x -> Left x)
+
+-- | Returned if the specified resource already exists.
+--
+-- See: 'ResourceAlreadyExistsException'
+_ResourceAlreadyExistsException :: Prism' CloudWatchLogsError ()
+_ResourceAlreadyExistsException = prism'
+    (const ResourceAlreadyExistsException)
+    (\case
+        ResourceAlreadyExistsException -> Right ()
+        x -> Left x)
+
+-- | Returned if the specified resource does not exist.
+--
+-- See: 'ResourceNotFoundException'
+_ResourceNotFoundException :: Prism' CloudWatchLogsError ()
+_ResourceNotFoundException = prism'
+    (const ResourceNotFoundException)
+    (\case
+        ResourceNotFoundException -> Right ()
+        x -> Left x)
+
+-- | Returned if the service cannot complete the request.
+--
+-- See: 'ServiceUnavailableException'
+_ServiceUnavailableException :: Prism' CloudWatchLogsError ()
+_ServiceUnavailableException = prism'
+    (const ServiceUnavailableException)
+    (\case
+        ServiceUnavailableException -> Right ()
+        x -> Left x)
 
 -- | A log event is a record of some activity that was recorded by the
 -- application or resource being monitored. The log event record that Amazon

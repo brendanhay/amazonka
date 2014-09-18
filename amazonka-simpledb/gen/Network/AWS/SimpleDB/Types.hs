@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -36,6 +36,28 @@ module Network.AWS.SimpleDB.Types
     (
     -- * Service
       SimpleDB
+    -- ** Errors
+    , SimpleDBError (..)
+    , _AttributeDoesNotExist
+    , _DuplicateItemName
+    , _InvalidNextToken
+    , _InvalidNumberPredicates
+    , _InvalidNumberValueTests
+    , _InvalidParameterValue
+    , _InvalidQueryExpression
+    , _MissingParameter
+    , _NoSuchDomain
+    , _NumberDomainAttributesExceeded
+    , _NumberDomainBytesExceeded
+    , _NumberDomainsExceeded
+    , _NumberItemAttributesExceeded
+    , _NumberSubmittedAttributesExceeded
+    , _NumberSubmittedItemsExceeded
+    , _RequestTimeout
+    , _SimpleDBClient
+    , _SimpleDBSerializer
+    , _SimpleDBService
+    , _TooManyRequestedAttributes
     -- ** XML
     , xmlOptions
 
@@ -90,61 +112,7 @@ data SimpleDB deriving (Typeable)
 
 instance AWSService SimpleDB where
     type Sg SimpleDB = V2
-    data Er SimpleDB
-        = AttributeDoesNotExist
-            { _adneBoxUsage :: Maybe Double
-            }
-        | DuplicateItemName
-            { _dinBoxUsage :: Maybe Double
-            }
-        | InvalidNextToken
-            { _intBoxUsage :: Maybe Double
-            }
-        | InvalidNumberPredicates
-            { _inpBoxUsage :: Maybe Double
-            }
-        | InvalidNumberValueTests
-            { _invtBoxUsage :: Maybe Double
-            }
-        | InvalidParameterValue
-            { _ipvBoxUsage :: Maybe Double
-            }
-        | InvalidQueryExpression
-            { _iqeBoxUsage :: Maybe Double
-            }
-        | MissingParameter
-            { _mpBoxUsage :: Maybe Double
-            }
-        | NoSuchDomain
-            { _nsdBoxUsage :: Maybe Double
-            }
-        | NumberDomainAttributesExceeded
-            { _ndaeBoxUsage :: Maybe Double
-            }
-        | NumberDomainBytesExceeded
-            { _ndbeBoxUsage :: Maybe Double
-            }
-        | NumberDomainsExceeded
-            { _ndeBoxUsage :: Maybe Double
-            }
-        | NumberItemAttributesExceeded
-            { _niaeBoxUsage :: Maybe Double
-            }
-        | NumberSubmittedAttributesExceeded
-            { _nsaeBoxUsage :: Maybe Double
-            }
-        | NumberSubmittedItemsExceeded
-            { _nsieBoxUsage :: Maybe Double
-            }
-        | RequestTimeout
-            { _rtBoxUsage :: Maybe Double
-            }
-        | SimpleDBClient HttpException
-        | SimpleDBSerializer String
-        | SimpleDBService String
-        | TooManyRequestedAttributes
-            { _tmraBoxUsage :: Maybe Double
-            }
+    type Er SimpleDB = SimpleDBError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -153,18 +121,290 @@ instance AWSService SimpleDB where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er SimpleDB)
-deriving instance Generic (Er SimpleDB)
+-- | A sum type representing possible errors returned by the 'SimpleDB' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data SimpleDBError
+      -- | The specified attribute does not exist.
+    = AttributeDoesNotExist
+        { _adneBoxUsage :: Maybe Double
+        }
+      -- | The item name was specified more than once.
+    | DuplicateItemName
+        { _dinBoxUsage :: Maybe Double
+        }
+      -- | The specified NextToken is not valid.
+    | InvalidNextToken
+        { _intBoxUsage :: Maybe Double
+        }
+      -- | Too many predicates exist in the query expression.
+    | InvalidNumberPredicates
+        { _inpBoxUsage :: Maybe Double
+        }
+      -- | Too many predicates exist in the query expression.
+    | InvalidNumberValueTests
+        { _invtBoxUsage :: Maybe Double
+        }
+      -- | The value for a parameter is invalid.
+    | InvalidParameterValue
+        { _ipvBoxUsage :: Maybe Double
+        }
+      -- | The specified query expression syntax is not valid.
+    | InvalidQueryExpression
+        { _iqeBoxUsage :: Maybe Double
+        }
+      -- | The request must contain the specified missing parameter.
+    | MissingParameter
+        { _mpBoxUsage :: Maybe Double
+        }
+      -- | The specified domain does not exist.
+    | NoSuchDomain
+        { _nsdBoxUsage :: Maybe Double
+        }
+      -- | Too many attributes in this domain.
+    | NumberDomainAttributesExceeded
+        { _ndaeBoxUsage :: Maybe Double
+        }
+      -- | Too many bytes in this domain.
+    | NumberDomainBytesExceeded
+        { _ndbeBoxUsage :: Maybe Double
+        }
+      -- | Too many domains exist per this account.
+    | NumberDomainsExceeded
+        { _ndeBoxUsage :: Maybe Double
+        }
+      -- | Too many attributes in this item.
+    | NumberItemAttributesExceeded
+        { _niaeBoxUsage :: Maybe Double
+        }
+      -- | Too many attributes exist in a single call.
+    | NumberSubmittedAttributesExceeded
+        { _nsaeBoxUsage :: Maybe Double
+        }
+      -- | Too many items exist in a single call.
+    | NumberSubmittedItemsExceeded
+        { _nsieBoxUsage :: Maybe Double
+        }
+      -- | A timeout occurred when attempting to query the specified domain
+      -- with specified query expression.
+    | RequestTimeout
+        { _rtBoxUsage :: Maybe Double
+        }
+    | SimpleDBClient HttpException
+    | SimpleDBSerializer Text
+    | SimpleDBService Text
+      -- | Too many attributes requested.
+    | TooManyRequestedAttributes
+        { _tmraBoxUsage :: Maybe Double
+        }
+    deriving (Show, Generic)
 
-instance AWSError (Er SimpleDB) where
+instance AWSError SimpleDBError where
     awsError = const "SimpleDBError"
 
-instance AWSServiceError (Er SimpleDB) where
+instance AWSServiceError SimpleDBError where
     serviceError    = SimpleDBService
     clientError     = SimpleDBClient
     serializerError = SimpleDBSerializer
 
-instance Exception (Er SimpleDB)
+instance Exception SimpleDBError
+
+-- | The specified attribute does not exist.
+--
+-- See: 'AttributeDoesNotExist'
+_AttributeDoesNotExist :: Prism' SimpleDBError (Maybe Double)
+_AttributeDoesNotExist = prism'
+    AttributeDoesNotExist
+    (\case
+        AttributeDoesNotExist p1 -> Right p1
+        x -> Left x)
+
+-- | The item name was specified more than once.
+--
+-- See: 'DuplicateItemName'
+_DuplicateItemName :: Prism' SimpleDBError (Maybe Double)
+_DuplicateItemName = prism'
+    DuplicateItemName
+    (\case
+        DuplicateItemName p1 -> Right p1
+        x -> Left x)
+
+-- | The specified NextToken is not valid.
+--
+-- See: 'InvalidNextToken'
+_InvalidNextToken :: Prism' SimpleDBError (Maybe Double)
+_InvalidNextToken = prism'
+    InvalidNextToken
+    (\case
+        InvalidNextToken p1 -> Right p1
+        x -> Left x)
+
+-- | Too many predicates exist in the query expression.
+--
+-- See: 'InvalidNumberPredicates'
+_InvalidNumberPredicates :: Prism' SimpleDBError (Maybe Double)
+_InvalidNumberPredicates = prism'
+    InvalidNumberPredicates
+    (\case
+        InvalidNumberPredicates p1 -> Right p1
+        x -> Left x)
+
+-- | Too many predicates exist in the query expression.
+--
+-- See: 'InvalidNumberValueTests'
+_InvalidNumberValueTests :: Prism' SimpleDBError (Maybe Double)
+_InvalidNumberValueTests = prism'
+    InvalidNumberValueTests
+    (\case
+        InvalidNumberValueTests p1 -> Right p1
+        x -> Left x)
+
+-- | The value for a parameter is invalid.
+--
+-- See: 'InvalidParameterValue'
+_InvalidParameterValue :: Prism' SimpleDBError (Maybe Double)
+_InvalidParameterValue = prism'
+    InvalidParameterValue
+    (\case
+        InvalidParameterValue p1 -> Right p1
+        x -> Left x)
+
+-- | The specified query expression syntax is not valid.
+--
+-- See: 'InvalidQueryExpression'
+_InvalidQueryExpression :: Prism' SimpleDBError (Maybe Double)
+_InvalidQueryExpression = prism'
+    InvalidQueryExpression
+    (\case
+        InvalidQueryExpression p1 -> Right p1
+        x -> Left x)
+
+-- | The request must contain the specified missing parameter.
+--
+-- See: 'MissingParameter'
+_MissingParameter :: Prism' SimpleDBError (Maybe Double)
+_MissingParameter = prism'
+    MissingParameter
+    (\case
+        MissingParameter p1 -> Right p1
+        x -> Left x)
+
+-- | The specified domain does not exist.
+--
+-- See: 'NoSuchDomain'
+_NoSuchDomain :: Prism' SimpleDBError (Maybe Double)
+_NoSuchDomain = prism'
+    NoSuchDomain
+    (\case
+        NoSuchDomain p1 -> Right p1
+        x -> Left x)
+
+-- | Too many attributes in this domain.
+--
+-- See: 'NumberDomainAttributesExceeded'
+_NumberDomainAttributesExceeded :: Prism' SimpleDBError (Maybe Double)
+_NumberDomainAttributesExceeded = prism'
+    NumberDomainAttributesExceeded
+    (\case
+        NumberDomainAttributesExceeded p1 -> Right p1
+        x -> Left x)
+
+-- | Too many bytes in this domain.
+--
+-- See: 'NumberDomainBytesExceeded'
+_NumberDomainBytesExceeded :: Prism' SimpleDBError (Maybe Double)
+_NumberDomainBytesExceeded = prism'
+    NumberDomainBytesExceeded
+    (\case
+        NumberDomainBytesExceeded p1 -> Right p1
+        x -> Left x)
+
+-- | Too many domains exist per this account.
+--
+-- See: 'NumberDomainsExceeded'
+_NumberDomainsExceeded :: Prism' SimpleDBError (Maybe Double)
+_NumberDomainsExceeded = prism'
+    NumberDomainsExceeded
+    (\case
+        NumberDomainsExceeded p1 -> Right p1
+        x -> Left x)
+
+-- | Too many attributes in this item.
+--
+-- See: 'NumberItemAttributesExceeded'
+_NumberItemAttributesExceeded :: Prism' SimpleDBError (Maybe Double)
+_NumberItemAttributesExceeded = prism'
+    NumberItemAttributesExceeded
+    (\case
+        NumberItemAttributesExceeded p1 -> Right p1
+        x -> Left x)
+
+-- | Too many attributes exist in a single call.
+--
+-- See: 'NumberSubmittedAttributesExceeded'
+_NumberSubmittedAttributesExceeded :: Prism' SimpleDBError (Maybe Double)
+_NumberSubmittedAttributesExceeded = prism'
+    NumberSubmittedAttributesExceeded
+    (\case
+        NumberSubmittedAttributesExceeded p1 -> Right p1
+        x -> Left x)
+
+-- | Too many items exist in a single call.
+--
+-- See: 'NumberSubmittedItemsExceeded'
+_NumberSubmittedItemsExceeded :: Prism' SimpleDBError (Maybe Double)
+_NumberSubmittedItemsExceeded = prism'
+    NumberSubmittedItemsExceeded
+    (\case
+        NumberSubmittedItemsExceeded p1 -> Right p1
+        x -> Left x)
+
+-- | A timeout occurred when attempting to query the specified domain with
+-- specified query expression.
+--
+-- See: 'RequestTimeout'
+_RequestTimeout :: Prism' SimpleDBError (Maybe Double)
+_RequestTimeout = prism'
+    RequestTimeout
+    (\case
+        RequestTimeout p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'SimpleDBClient'
+_SimpleDBClient :: Prism' SimpleDBError HttpException
+_SimpleDBClient = prism'
+    SimpleDBClient
+    (\case
+        SimpleDBClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'SimpleDBSerializer'
+_SimpleDBSerializer :: Prism' SimpleDBError Text
+_SimpleDBSerializer = prism'
+    SimpleDBSerializer
+    (\case
+        SimpleDBSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'SimpleDBService'
+_SimpleDBService :: Prism' SimpleDBError Text
+_SimpleDBService = prism'
+    SimpleDBService
+    (\case
+        SimpleDBService p1 -> Right p1
+        x -> Left x)
+
+-- | Too many attributes requested.
+--
+-- See: 'TooManyRequestedAttributes'
+_TooManyRequestedAttributes :: Prism' SimpleDBError (Maybe Double)
+_TooManyRequestedAttributes = prism'
+    TooManyRequestedAttributes
+    (\case
+        TooManyRequestedAttributes p1 -> Right p1
+        x -> Left x)
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

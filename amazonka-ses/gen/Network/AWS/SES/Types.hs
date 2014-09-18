@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,6 +30,12 @@ module Network.AWS.SES.Types
     (
     -- * Service
       SES
+    -- ** Errors
+    , SESError (..)
+    , _MessageRejected
+    , _SESClient
+    , _SESSerializer
+    , _SESService
     -- ** XML
     , xmlOptions
 
@@ -112,11 +118,7 @@ data SES deriving (Typeable)
 
 instance AWSService SES where
     type Sg SES = V4
-    data Er SES
-        = MessageRejected
-        | SESClient HttpException
-        | SESSerializer String
-        | SESService String
+    type Er SES = SESError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -125,18 +127,65 @@ instance AWSService SES where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er SES)
-deriving instance Generic (Er SES)
+-- | A sum type representing possible errors returned by the 'SES' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data SESError
+      -- | Indicates that the action failed, and the message could not be
+      -- sent. Check the error stack for more information about what
+      -- caused the error.
+    = MessageRejected
+    | SESClient HttpException
+    | SESSerializer Text
+    | SESService Text
+    deriving (Show, Generic)
 
-instance AWSError (Er SES) where
+instance AWSError SESError where
     awsError = const "SESError"
 
-instance AWSServiceError (Er SES) where
+instance AWSServiceError SESError where
     serviceError    = SESService
     clientError     = SESClient
     serializerError = SESSerializer
 
-instance Exception (Er SES)
+instance Exception SESError
+
+-- | Indicates that the action failed, and the message could not be sent. Check
+-- the error stack for more information about what caused the error.
+--
+-- See: 'MessageRejected'
+_MessageRejected :: Prism' SESError ()
+_MessageRejected = prism'
+    (const MessageRejected)
+    (\case
+        MessageRejected -> Right ()
+        x -> Left x)
+
+-- | See: 'SESClient'
+_SESClient :: Prism' SESError HttpException
+_SESClient = prism'
+    SESClient
+    (\case
+        SESClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'SESSerializer'
+_SESSerializer :: Prism' SESError Text
+_SESSerializer = prism'
+    SESSerializer
+    (\case
+        SESSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'SESService'
+_SESService :: Prism' SESError Text
+_SESService = prism'
+    SESService
+    (\case
+        SESService p1 -> Right p1
+        x -> Left x)
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

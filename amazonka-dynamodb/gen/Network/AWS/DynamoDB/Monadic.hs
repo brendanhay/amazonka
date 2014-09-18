@@ -125,7 +125,6 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.DynamoDB
 
-type ServiceEr = Er DynamoDB
 
 -- $BatchGetItem
 -- The BatchGetItem operation returns the attributes of one or more items from
@@ -184,7 +183,7 @@ batchGetItemCatch :: ( MonadCatch m
                      )
     => Map Text KeysAndAttributes -- ^ 'bgiRequestItems'
     -> State BatchGetItem a
-    -> m (Either ServiceEr BatchGetItemResponse)
+    -> m (Either DynamoDBError BatchGetItemResponse)
 batchGetItemCatch p1 s =
     sendCatch $ (mkBatchGetItem p1) &~ s
 
@@ -258,7 +257,7 @@ batchWriteItemCatch :: ( MonadCatch m
                        )
     => Map Text (List1 WriteRequest) -- ^ 'bwiRequestItems'
     -> State BatchWriteItem a
-    -> m (Either ServiceEr BatchWriteItemResponse)
+    -> m (Either DynamoDBError BatchWriteItemResponse)
 batchWriteItemCatch p1 s =
     sendCatch $ (mkBatchWriteItem p1) &~ s
 
@@ -316,7 +315,7 @@ createTableCatch :: ( MonadCatch m
     -> List1 KeySchemaElement -- ^ 'ctKeySchema'
     -> ProvisionedThroughput -- ^ 'ctProvisionedThroughput'
     -> State CreateTable a
-    -> m (Either ServiceEr CreateTableResponse)
+    -> m (Either DynamoDBError CreateTableResponse)
 createTableCatch p1 p2 p3 p6 s =
     sendCatch $ (mkCreateTable p1 p2 p3 p6) &~ s
 
@@ -361,7 +360,7 @@ deleteItemCatch :: ( MonadCatch m
     => Text -- ^ 'diTableName'
     -> Map Text AttributeValue -- ^ 'diKey'
     -> State DeleteItem a
-    -> m (Either ServiceEr DeleteItemResponse)
+    -> m (Either DynamoDBError DeleteItemResponse)
 deleteItemCatch p1 p2 s =
     sendCatch $ (mkDeleteItem p1 p2) &~ s
 
@@ -399,7 +398,7 @@ deleteTableCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'dtTableName'
-    -> m (Either ServiceEr DeleteTableResponse)
+    -> m (Either DynamoDBError DeleteTableResponse)
 deleteTableCatch p1 =
     sendCatch (mkDeleteTable p1)
 
@@ -438,7 +437,7 @@ describeTableCatch :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'dt1TableName'
-    -> m (Either ServiceEr DescribeTableResponse)
+    -> m (Either DynamoDBError DescribeTableResponse)
 describeTableCatch p1 =
     sendCatch (mkDescribeTable p1)
 
@@ -481,7 +480,7 @@ getItemCatch :: ( MonadCatch m
     => Text -- ^ 'giTableName'
     -> Map Text AttributeValue -- ^ 'giKey'
     -> State GetItem a
-    -> m (Either ServiceEr GetItemResponse)
+    -> m (Either DynamoDBError GetItemResponse)
 getItemCatch p1 p2 s =
     sendCatch $ (mkGetItem p1 p2) &~ s
 
@@ -509,7 +508,7 @@ listTablesCatch :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => State ListTables a
-    -> Source m (Either ServiceEr ListTablesResponse)
+    -> Source m (Either DynamoDBError ListTablesResponse)
 listTablesCatch s =
     paginateCatch (mkListTables &~ s)
 
@@ -556,7 +555,7 @@ putItemCatch :: ( MonadCatch m
     => Text -- ^ 'piTableName'
     -> Map Text AttributeValue -- ^ 'piItem'
     -> State PutItem a
-    -> m (Either ServiceEr PutItemResponse)
+    -> m (Either DynamoDBError PutItemResponse)
 putItemCatch p1 p2 s =
     sendCatch $ (mkPutItem p1 p2) &~ s
 
@@ -603,7 +602,7 @@ queryCatch :: ( MonadCatch m
               )
     => Text -- ^ 'qTableName'
     -> State Query a
-    -> Source m (Either ServiceEr QueryResponse)
+    -> Source m (Either DynamoDBError QueryResponse)
 queryCatch p1 s =
     paginateCatch $ (mkQuery p1) &~ s
 
@@ -650,7 +649,7 @@ scanCatch :: ( MonadCatch m
              )
     => Text -- ^ 'sTableName'
     -> State Scan a
-    -> Source m (Either ServiceEr ScanResponse)
+    -> Source m (Either DynamoDBError ScanResponse)
 scanCatch p1 s =
     paginateCatch $ (mkScan p1) &~ s
 
@@ -687,7 +686,7 @@ updateItemCatch :: ( MonadCatch m
     => Text -- ^ 'uiTableName'
     -> Map Text AttributeValue -- ^ 'uiKey'
     -> State UpdateItem a
-    -> m (Either ServiceEr UpdateItemResponse)
+    -> m (Either DynamoDBError UpdateItemResponse)
 updateItemCatch p1 p2 s =
     sendCatch $ (mkUpdateItem p1 p2) &~ s
 
@@ -740,6 +739,6 @@ updateTableCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'utTableName'
     -> State UpdateTable a
-    -> m (Either ServiceEr UpdateTableResponse)
+    -> m (Either DynamoDBError UpdateTableResponse)
 updateTableCatch p1 s =
     sendCatch $ (mkUpdateTable p1) &~ s

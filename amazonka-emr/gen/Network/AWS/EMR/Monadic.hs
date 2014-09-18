@@ -145,7 +145,6 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.EMR
 
-type ServiceEr = Er EMR
 
 -- $AddInstanceGroups
 -- AddInstanceGroups adds an instance group to a running cluster. POST /
@@ -187,7 +186,7 @@ addInstanceGroupsCatch :: ( MonadCatch m
                           )
     => [InstanceGroupConfig] -- ^ 'aigInstanceGroups'
     -> Text -- ^ 'aigJobFlowId'
-    -> m (Either ServiceEr AddInstanceGroupsResponse)
+    -> m (Either EMRError AddInstanceGroupsResponse)
 addInstanceGroupsCatch p1 p2 =
     sendCatch (mkAddInstanceGroups p1 p2)
 
@@ -251,7 +250,7 @@ addJobFlowStepsCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'ajfsJobFlowId'
     -> [StepConfig] -- ^ 'ajfsSteps'
-    -> m (Either ServiceEr AddJobFlowStepsResponse)
+    -> m (Either EMRError AddJobFlowStepsResponse)
 addJobFlowStepsCatch p1 p2 =
     sendCatch (mkAddJobFlowSteps p1 p2)
 
@@ -286,7 +285,7 @@ addTagsCatch :: ( MonadCatch m
                 )
     => Text -- ^ 'atResourceId'
     -> [Tag] -- ^ 'atTags'
-    -> m (Either ServiceEr AddTagsResponse)
+    -> m (Either EMRError AddTagsResponse)
 addTagsCatch p1 p2 =
     sendCatch (mkAddTags p1 p2)
 
@@ -312,7 +311,7 @@ describeClusterCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'dcClusterId'
-    -> m (Either ServiceEr DescribeClusterResponse)
+    -> m (Either EMRError DescribeClusterResponse)
 describeClusterCatch p1 =
     sendCatch (mkDescribeCluster p1)
 
@@ -390,7 +389,7 @@ describeJobFlowsCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => State DescribeJobFlows a
-    -> m (Either ServiceEr DescribeJobFlowsResponse)
+    -> m (Either EMRError DescribeJobFlowsResponse)
 describeJobFlowsCatch s =
     sendCatch (mkDescribeJobFlows &~ s)
 
@@ -416,7 +415,7 @@ describeStepCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'dsClusterId'
     -> Text -- ^ 'dsStepId'
-    -> m (Either ServiceEr DescribeStepResponse)
+    -> m (Either EMRError DescribeStepResponse)
 describeStepCatch p1 p2 =
     sendCatch (mkDescribeStep p1 p2)
 
@@ -442,7 +441,7 @@ listBootstrapActionsCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'lbaClusterId'
     -> State ListBootstrapActions a
-    -> Source m (Either ServiceEr ListBootstrapActionsResponse)
+    -> Source m (Either EMRError ListBootstrapActionsResponse)
 listBootstrapActionsCatch p1 s =
     paginateCatch $ (mkListBootstrapActions p1) &~ s
 
@@ -470,7 +469,7 @@ listClustersCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => State ListClusters a
-    -> Source m (Either ServiceEr ListClustersResponse)
+    -> Source m (Either EMRError ListClustersResponse)
 listClustersCatch s =
     paginateCatch (mkListClusters &~ s)
 
@@ -496,7 +495,7 @@ listInstanceGroupsCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'ligClusterId'
     -> State ListInstanceGroups a
-    -> Source m (Either ServiceEr ListInstanceGroupsResponse)
+    -> Source m (Either EMRError ListInstanceGroupsResponse)
 listInstanceGroupsCatch p1 s =
     paginateCatch $ (mkListInstanceGroups p1) &~ s
 
@@ -526,7 +525,7 @@ listInstancesCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'liClusterId'
     -> State ListInstances a
-    -> Source m (Either ServiceEr ListInstancesResponse)
+    -> Source m (Either EMRError ListInstancesResponse)
 listInstancesCatch p1 s =
     paginateCatch $ (mkListInstances p1) &~ s
 
@@ -552,7 +551,7 @@ listStepsCatch :: ( MonadCatch m
                   )
     => Text -- ^ 'lsClusterId'
     -> State ListSteps a
-    -> Source m (Either ServiceEr ListStepsResponse)
+    -> Source m (Either EMRError ListStepsResponse)
 listStepsCatch p1 s =
     paginateCatch $ (mkListSteps p1) &~ s
 
@@ -595,7 +594,7 @@ modifyInstanceGroupsCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => State ModifyInstanceGroups a
-    -> m (Either ServiceEr ModifyInstanceGroupsResponse)
+    -> m (Either EMRError ModifyInstanceGroupsResponse)
 modifyInstanceGroupsCatch s =
     sendCatch (mkModifyInstanceGroups &~ s)
 
@@ -636,7 +635,7 @@ removeTagsCatch :: ( MonadCatch m
                    )
     => Text -- ^ 'rtResourceId'
     -> [Text] -- ^ 'rtTagKeys'
-    -> m (Either ServiceEr RemoveTagsResponse)
+    -> m (Either EMRError RemoveTagsResponse)
 removeTagsCatch p1 p2 =
     sendCatch (mkRemoveTags p1 p2)
 
@@ -707,7 +706,7 @@ runJobFlowCatch :: ( MonadCatch m
     => Text -- ^ 'rjfName'
     -> JobFlowInstancesConfig -- ^ 'rjfInstances'
     -> State RunJobFlow a
-    -> m (Either ServiceEr RunJobFlowResponse)
+    -> m (Either EMRError RunJobFlowResponse)
 runJobFlowCatch p1 p5 s =
     sendCatch $ (mkRunJobFlow p1 p5) &~ s
 
@@ -761,7 +760,7 @@ setTerminationProtectionCatch :: ( MonadCatch m
                                  )
     => [Text] -- ^ 'stpJobFlowIds'
     -> Bool -- ^ 'stpTerminationProtected'
-    -> m (Either ServiceEr SetTerminationProtectionResponse)
+    -> m (Either EMRError SetTerminationProtectionResponse)
 setTerminationProtectionCatch p1 p2 =
     sendCatch (mkSetTerminationProtection p1 p2)
 
@@ -807,7 +806,7 @@ setVisibleToAllUsersCatch :: ( MonadCatch m
                              )
     => [Text] -- ^ 'svtauJobFlowIds'
     -> Bool -- ^ 'svtauVisibleToAllUsers'
-    -> m (Either ServiceEr SetVisibleToAllUsersResponse)
+    -> m (Either EMRError SetVisibleToAllUsersResponse)
 setVisibleToAllUsersCatch p1 p2 =
     sendCatch (mkSetVisibleToAllUsers p1 p2)
 
@@ -852,6 +851,6 @@ terminateJobFlowsCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => [Text] -- ^ 'tjfJobFlowIds'
-    -> m (Either ServiceEr TerminateJobFlowsResponse)
+    -> m (Either EMRError TerminateJobFlowsResponse)
 terminateJobFlowsCatch p1 =
     sendCatch (mkTerminateJobFlows p1)

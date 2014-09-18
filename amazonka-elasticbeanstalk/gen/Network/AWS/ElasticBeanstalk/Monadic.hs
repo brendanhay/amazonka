@@ -205,7 +205,6 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.ElasticBeanstalk
 
-type ServiceEr = Er ElasticBeanstalk
 
 -- $CheckDNSAvailability
 -- Checks if the specified CNAME is available.
@@ -231,7 +230,7 @@ checkDNSAvailabilityCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'cdnsaCNAMEPrefix'
-    -> m (Either ServiceEr CheckDNSAvailabilityResponse)
+    -> m (Either ElasticBeanstalkError CheckDNSAvailabilityResponse)
 checkDNSAvailabilityCatch p1 =
     sendCatch (mkCheckDNSAvailability p1)
 
@@ -265,7 +264,7 @@ createApplicationCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'caApplicationName'
     -> State CreateApplication a
-    -> m (Either ServiceEr CreateApplicationResponse)
+    -> m (Either ElasticBeanstalkError CreateApplicationResponse)
 createApplicationCatch p1 s =
     sendCatch $ (mkCreateApplication p1) &~ s
 
@@ -304,7 +303,7 @@ createApplicationVersionCatch :: ( MonadCatch m
     => Text -- ^ 'cavApplicationName'
     -> Text -- ^ 'cavVersionLabel'
     -> State CreateApplicationVersion a
-    -> m (Either ServiceEr CreateApplicationVersionResponse)
+    -> m (Either ElasticBeanstalkError CreateApplicationVersionResponse)
 createApplicationVersionCatch p1 p2 s =
     sendCatch $ (mkCreateApplicationVersion p1 p2) &~ s
 
@@ -381,7 +380,7 @@ createConfigurationTemplateCatch :: ( MonadCatch m
     => Text -- ^ 'cctApplicationName'
     -> Text -- ^ 'cctTemplateName'
     -> State CreateConfigurationTemplate a
-    -> m (Either ServiceEr CreateConfigurationTemplateResponse)
+    -> m (Either ElasticBeanstalkError CreateConfigurationTemplateResponse)
 createConfigurationTemplateCatch p1 p2 s =
     sendCatch $ (mkCreateConfigurationTemplate p1 p2) &~ s
 
@@ -417,7 +416,7 @@ createEnvironmentCatch :: ( MonadCatch m
     => Text -- ^ 'ceApplicationName'
     -> Text -- ^ 'ceEnvironmentName'
     -> State CreateEnvironment a
-    -> m (Either ServiceEr CreateEnvironmentResponse)
+    -> m (Either ElasticBeanstalkError CreateEnvironmentResponse)
 createEnvironmentCatch p1 p2 s =
     sendCatch $ (mkCreateEnvironment p1 p2) &~ s
 
@@ -443,7 +442,7 @@ createStorageLocationCatch :: ( MonadCatch m
                               , MonadResource m
                               , MonadReader Env m
                               )
-    => m (Either ServiceEr CreateStorageLocationResponse)
+    => m (Either ElasticBeanstalkError CreateStorageLocationResponse)
 createStorageLocationCatch =
     sendCatch (mkCreateStorageLocation)
 
@@ -475,7 +474,7 @@ deleteApplicationCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'daApplicationName'
     -> State DeleteApplication a
-    -> m (Either ServiceEr DeleteApplicationResponse)
+    -> m (Either ElasticBeanstalkError DeleteApplicationResponse)
 deleteApplicationCatch p1 s =
     sendCatch $ (mkDeleteApplication p1) &~ s
 
@@ -508,7 +507,7 @@ deleteApplicationVersionCatch :: ( MonadCatch m
     => Text -- ^ 'davApplicationName'
     -> Text -- ^ 'davVersionLabel'
     -> State DeleteApplicationVersion a
-    -> m (Either ServiceEr DeleteApplicationVersionResponse)
+    -> m (Either ElasticBeanstalkError DeleteApplicationVersionResponse)
 deleteApplicationVersionCatch p1 p2 s =
     sendCatch $ (mkDeleteApplicationVersion p1 p2) &~ s
 
@@ -540,7 +539,7 @@ deleteConfigurationTemplateCatch :: ( MonadCatch m
                                     )
     => Text -- ^ 'dctApplicationName'
     -> Text -- ^ 'dctTemplateName'
-    -> m (Either ServiceEr DeleteConfigurationTemplateResponse)
+    -> m (Either ElasticBeanstalkError DeleteConfigurationTemplateResponse)
 deleteConfigurationTemplateCatch p1 p2 =
     sendCatch (mkDeleteConfigurationTemplate p1 p2)
 
@@ -575,7 +574,7 @@ deleteEnvironmentConfigurationCatch :: ( MonadCatch m
                                        )
     => Text -- ^ 'decApplicationName'
     -> Text -- ^ 'decEnvironmentName'
-    -> m (Either ServiceEr DeleteEnvironmentConfigurationResponse)
+    -> m (Either ElasticBeanstalkError DeleteEnvironmentConfigurationResponse)
 deleteEnvironmentConfigurationCatch p1 p2 =
     sendCatch (mkDeleteEnvironmentConfiguration p1 p2)
 
@@ -603,7 +602,7 @@ describeApplicationVersionsCatch :: ( MonadCatch m
                                     , MonadReader Env m
                                     )
     => State DescribeApplicationVersions a
-    -> m (Either ServiceEr DescribeApplicationVersionsResponse)
+    -> m (Either ElasticBeanstalkError DescribeApplicationVersionsResponse)
 describeApplicationVersionsCatch s =
     sendCatch (mkDescribeApplicationVersions &~ s)
 
@@ -631,7 +630,7 @@ describeApplicationsCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => State DescribeApplications a
-    -> m (Either ServiceEr DescribeApplicationsResponse)
+    -> m (Either ElasticBeanstalkError DescribeApplicationsResponse)
 describeApplicationsCatch s =
     sendCatch (mkDescribeApplications &~ s)
 
@@ -729,7 +728,7 @@ describeConfigurationOptionsCatch :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => State DescribeConfigurationOptions a
-    -> m (Either ServiceEr DescribeConfigurationOptionsResponse)
+    -> m (Either ElasticBeanstalkError DescribeConfigurationOptionsResponse)
 describeConfigurationOptionsCatch s =
     sendCatch (mkDescribeConfigurationOptions &~ s)
 
@@ -805,7 +804,7 @@ describeConfigurationSettingsCatch :: ( MonadCatch m
                                       )
     => Text -- ^ 'dcsApplicationName'
     -> State DescribeConfigurationSettings a
-    -> m (Either ServiceEr DescribeConfigurationSettingsResponse)
+    -> m (Either ElasticBeanstalkError DescribeConfigurationSettingsResponse)
 describeConfigurationSettingsCatch p1 s =
     sendCatch $ (mkDescribeConfigurationSettings p1) &~ s
 
@@ -836,7 +835,7 @@ describeEnvironmentResourcesCatch :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => State DescribeEnvironmentResources a
-    -> m (Either ServiceEr DescribeEnvironmentResourcesResponse)
+    -> m (Either ElasticBeanstalkError DescribeEnvironmentResourcesResponse)
 describeEnvironmentResourcesCatch s =
     sendCatch (mkDescribeEnvironmentResources &~ s)
 
@@ -867,7 +866,7 @@ describeEnvironmentsCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => State DescribeEnvironments a
-    -> m (Either ServiceEr DescribeEnvironmentsResponse)
+    -> m (Either ElasticBeanstalkError DescribeEnvironmentsResponse)
 describeEnvironmentsCatch s =
     sendCatch (mkDescribeEnvironments &~ s)
 
@@ -906,7 +905,7 @@ describeEventsCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => State DescribeEvents a
-    -> Source m (Either ServiceEr DescribeEventsResponse)
+    -> Source m (Either ElasticBeanstalkError DescribeEventsResponse)
 describeEventsCatch s =
     paginateCatch (mkDescribeEvents &~ s)
 
@@ -932,7 +931,7 @@ listAvailableSolutionStacksCatch :: ( MonadCatch m
                                     , MonadResource m
                                     , MonadReader Env m
                                     )
-    => m (Either ServiceEr ListAvailableSolutionStacksResponse)
+    => m (Either ElasticBeanstalkError ListAvailableSolutionStacksResponse)
 listAvailableSolutionStacksCatch =
     sendCatch (mkListAvailableSolutionStacks)
 
@@ -961,7 +960,7 @@ rebuildEnvironmentCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => State RebuildEnvironment a
-    -> m (Either ServiceEr RebuildEnvironmentResponse)
+    -> m (Either ElasticBeanstalkError RebuildEnvironmentResponse)
 rebuildEnvironmentCatch s =
     sendCatch (mkRebuildEnvironment &~ s)
 
@@ -995,7 +994,7 @@ requestEnvironmentInfoCatch :: ( MonadCatch m
                                )
     => EnvironmentInfoType -- ^ 'reiInfoType'
     -> State RequestEnvironmentInfo a
-    -> m (Either ServiceEr RequestEnvironmentInfoResponse)
+    -> m (Either ElasticBeanstalkError RequestEnvironmentInfoResponse)
 requestEnvironmentInfoCatch p3 s =
     sendCatch $ (mkRequestEnvironmentInfo p3) &~ s
 
@@ -1023,7 +1022,7 @@ restartAppServerCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => State RestartAppServer a
-    -> m (Either ServiceEr RestartAppServerResponse)
+    -> m (Either ElasticBeanstalkError RestartAppServerResponse)
 restartAppServerCatch s =
     sendCatch (mkRestartAppServer &~ s)
 
@@ -1056,7 +1055,7 @@ retrieveEnvironmentInfoCatch :: ( MonadCatch m
                                 )
     => EnvironmentInfoType -- ^ 'rei1InfoType'
     -> State RetrieveEnvironmentInfo a
-    -> m (Either ServiceEr RetrieveEnvironmentInfoResponse)
+    -> m (Either ElasticBeanstalkError RetrieveEnvironmentInfoResponse)
 retrieveEnvironmentInfoCatch p3 s =
     sendCatch $ (mkRetrieveEnvironmentInfo p3) &~ s
 
@@ -1083,7 +1082,7 @@ swapEnvironmentCNAMEsCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => State SwapEnvironmentCNAMEs a
-    -> m (Either ServiceEr SwapEnvironmentCNAMEsResponse)
+    -> m (Either ElasticBeanstalkError SwapEnvironmentCNAMEsResponse)
 swapEnvironmentCNAMEsCatch s =
     sendCatch (mkSwapEnvironmentCNAMEs &~ s)
 
@@ -1114,7 +1113,7 @@ terminateEnvironmentCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => State TerminateEnvironment a
-    -> m (Either ServiceEr TerminateEnvironmentResponse)
+    -> m (Either ElasticBeanstalkError TerminateEnvironmentResponse)
 terminateEnvironmentCatch s =
     sendCatch (mkTerminateEnvironment &~ s)
 
@@ -1146,7 +1145,7 @@ updateApplicationCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'uaApplicationName'
     -> State UpdateApplication a
-    -> m (Either ServiceEr UpdateApplicationResponse)
+    -> m (Either ElasticBeanstalkError UpdateApplicationResponse)
 updateApplicationCatch p1 s =
     sendCatch $ (mkUpdateApplication p1) &~ s
 
@@ -1181,7 +1180,7 @@ updateApplicationVersionCatch :: ( MonadCatch m
     => Text -- ^ 'uavApplicationName'
     -> Text -- ^ 'uavVersionLabel'
     -> State UpdateApplicationVersion a
-    -> m (Either ServiceEr UpdateApplicationVersionResponse)
+    -> m (Either ElasticBeanstalkError UpdateApplicationVersionResponse)
 updateApplicationVersionCatch p1 p2 s =
     sendCatch $ (mkUpdateApplicationVersion p1 p2) &~ s
 
@@ -1256,7 +1255,7 @@ updateConfigurationTemplateCatch :: ( MonadCatch m
     => Text -- ^ 'uctApplicationName'
     -> Text -- ^ 'uctTemplateName'
     -> State UpdateConfigurationTemplate a
-    -> m (Either ServiceEr UpdateConfigurationTemplateResponse)
+    -> m (Either ElasticBeanstalkError UpdateConfigurationTemplateResponse)
 updateConfigurationTemplateCatch p1 p2 s =
     sendCatch $ (mkUpdateConfigurationTemplate p1 p2) &~ s
 
@@ -1298,7 +1297,7 @@ updateEnvironmentCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => State UpdateEnvironment a
-    -> m (Either ServiceEr UpdateEnvironmentResponse)
+    -> m (Either ElasticBeanstalkError UpdateEnvironmentResponse)
 updateEnvironmentCatch s =
     sendCatch (mkUpdateEnvironment &~ s)
 
@@ -1336,6 +1335,6 @@ validateConfigurationSettingsCatch :: ( MonadCatch m
     => Text -- ^ 'vcsApplicationName'
     -> [ConfigurationOptionSetting] -- ^ 'vcsOptionSettings'
     -> State ValidateConfigurationSettings a
-    -> m (Either ServiceEr ValidateConfigurationSettingsResponse)
+    -> m (Either ElasticBeanstalkError ValidateConfigurationSettingsResponse)
 validateConfigurationSettingsCatch p1 p4 s =
     sendCatch $ (mkValidateConfigurationSettings p1 p4) &~ s

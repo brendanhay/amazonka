@@ -180,7 +180,6 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CloudSearch
 
-type ServiceEr = Er CloudSearch
 
 -- $BuildSuggesters
 -- Indexes the search suggestions.
@@ -202,7 +201,7 @@ buildSuggestersCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'bsDomainName'
-    -> m (Either ServiceEr BuildSuggestersResponse)
+    -> m (Either CloudSearchError BuildSuggestersResponse)
 buildSuggestersCatch p1 =
     sendCatch (mkBuildSuggesters p1)
 
@@ -227,7 +226,7 @@ createDomainCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'cdDomainName'
-    -> m (Either ServiceEr CreateDomainResponse)
+    -> m (Either CloudSearchError CreateDomainResponse)
 createDomainCatch p1 =
     sendCatch (mkCreateDomain p1)
 
@@ -256,7 +255,7 @@ defineAnalysisSchemeCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'dasDomainName'
     -> AnalysisScheme -- ^ 'dasAnalysisScheme'
-    -> m (Either ServiceEr DefineAnalysisSchemeResponse)
+    -> m (Either CloudSearchError DefineAnalysisSchemeResponse)
 defineAnalysisSchemeCatch p1 p2 =
     sendCatch (mkDefineAnalysisScheme p1 p2)
 
@@ -285,7 +284,7 @@ defineExpressionCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'deDomainName'
     -> Expression -- ^ 'deExpression'
-    -> m (Either ServiceEr DefineExpressionResponse)
+    -> m (Either CloudSearchError DefineExpressionResponse)
 defineExpressionCatch p1 p2 =
     sendCatch (mkDefineExpression p1 p2)
 
@@ -318,7 +317,7 @@ defineIndexFieldCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'difDomainName'
     -> IndexField -- ^ 'difIndexField'
-    -> m (Either ServiceEr DefineIndexFieldResponse)
+    -> m (Either CloudSearchError DefineIndexFieldResponse)
 defineIndexFieldCatch p1 p2 =
     sendCatch (mkDefineIndexField p1 p2)
 
@@ -349,7 +348,7 @@ defineSuggesterCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'ds1DomainName'
     -> Suggester -- ^ 'ds1Suggester'
-    -> m (Either ServiceEr DefineSuggesterResponse)
+    -> m (Either CloudSearchError DefineSuggesterResponse)
 defineSuggesterCatch p1 p2 =
     sendCatch (mkDefineSuggester p1 p2)
 
@@ -376,7 +375,7 @@ deleteAnalysisSchemeCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'das1DomainName'
     -> Text -- ^ 'das1AnalysisSchemeName'
-    -> m (Either ServiceEr DeleteAnalysisSchemeResponse)
+    -> m (Either CloudSearchError DeleteAnalysisSchemeResponse)
 deleteAnalysisSchemeCatch p1 p2 =
     sendCatch (mkDeleteAnalysisScheme p1 p2)
 
@@ -402,7 +401,7 @@ deleteDomainCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'ddDomainName'
-    -> m (Either ServiceEr DeleteDomainResponse)
+    -> m (Either CloudSearchError DeleteDomainResponse)
 deleteDomainCatch p1 =
     sendCatch (mkDeleteDomain p1)
 
@@ -429,7 +428,7 @@ deleteExpressionCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'de1DomainName'
     -> Text -- ^ 'de1ExpressionName'
-    -> m (Either ServiceEr DeleteExpressionResponse)
+    -> m (Either CloudSearchError DeleteExpressionResponse)
 deleteExpressionCatch p1 p2 =
     sendCatch (mkDeleteExpression p1 p2)
 
@@ -456,7 +455,7 @@ deleteIndexFieldCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'dif1DomainName'
     -> Text -- ^ 'dif1IndexFieldName'
-    -> m (Either ServiceEr DeleteIndexFieldResponse)
+    -> m (Either CloudSearchError DeleteIndexFieldResponse)
 deleteIndexFieldCatch p1 p2 =
     sendCatch (mkDeleteIndexField p1 p2)
 
@@ -483,7 +482,7 @@ deleteSuggesterCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'ds2DomainName'
     -> Text -- ^ 'ds2SuggesterName'
-    -> m (Either ServiceEr DeleteSuggesterResponse)
+    -> m (Either CloudSearchError DeleteSuggesterResponse)
 deleteSuggesterCatch p1 p2 =
     sendCatch (mkDeleteSuggester p1 p2)
 
@@ -515,7 +514,7 @@ describeAnalysisSchemesCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'das2DomainName'
     -> State DescribeAnalysisSchemes a
-    -> m (Either ServiceEr DescribeAnalysisSchemesResponse)
+    -> m (Either CloudSearchError DescribeAnalysisSchemesResponse)
 describeAnalysisSchemesCatch p1 s =
     sendCatch $ (mkDescribeAnalysisSchemes p1) &~ s
 
@@ -545,7 +544,7 @@ describeAvailabilityOptionsCatch :: ( MonadCatch m
                                     )
     => Text -- ^ 'dao2DomainName'
     -> State DescribeAvailabilityOptions a
-    -> m (Either ServiceEr DescribeAvailabilityOptionsResponse)
+    -> m (Either CloudSearchError DescribeAvailabilityOptionsResponse)
 describeAvailabilityOptionsCatch p1 s =
     sendCatch $ (mkDescribeAvailabilityOptions p1) &~ s
 
@@ -575,7 +574,7 @@ describeDomainsCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => State DescribeDomains a
-    -> m (Either ServiceEr DescribeDomainsResponse)
+    -> m (Either CloudSearchError DescribeDomainsResponse)
 describeDomainsCatch s =
     sendCatch (mkDescribeDomains &~ s)
 
@@ -606,7 +605,7 @@ describeExpressionsCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'de2DomainName'
     -> State DescribeExpressions a
-    -> m (Either ServiceEr DescribeExpressionsResponse)
+    -> m (Either CloudSearchError DescribeExpressionsResponse)
 describeExpressionsCatch p1 s =
     sendCatch $ (mkDescribeExpressions p1) &~ s
 
@@ -637,7 +636,7 @@ describeIndexFieldsCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'dif2DomainName'
     -> State DescribeIndexFields a
-    -> m (Either ServiceEr DescribeIndexFieldsResponse)
+    -> m (Either CloudSearchError DescribeIndexFieldsResponse)
 describeIndexFieldsCatch p1 s =
     sendCatch $ (mkDescribeIndexFields p1) &~ s
 
@@ -664,7 +663,7 @@ describeScalingParametersCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => Text -- ^ 'dspDomainName'
-    -> m (Either ServiceEr DescribeScalingParametersResponse)
+    -> m (Either CloudSearchError DescribeScalingParametersResponse)
 describeScalingParametersCatch p1 =
     sendCatch (mkDescribeScalingParameters p1)
 
@@ -695,7 +694,7 @@ describeServiceAccessPoliciesCatch :: ( MonadCatch m
                                       )
     => Text -- ^ 'dsapDomainName'
     -> State DescribeServiceAccessPolicies a
-    -> m (Either ServiceEr DescribeServiceAccessPoliciesResponse)
+    -> m (Either CloudSearchError DescribeServiceAccessPoliciesResponse)
 describeServiceAccessPoliciesCatch p1 s =
     sendCatch $ (mkDescribeServiceAccessPolicies p1) &~ s
 
@@ -727,7 +726,7 @@ describeSuggestersCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'ds3DomainName'
     -> State DescribeSuggesters a
-    -> m (Either ServiceEr DescribeSuggestersResponse)
+    -> m (Either CloudSearchError DescribeSuggestersResponse)
 describeSuggestersCatch p1 s =
     sendCatch $ (mkDescribeSuggesters p1) &~ s
 
@@ -753,7 +752,7 @@ indexDocumentsCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'idDomainName'
-    -> m (Either ServiceEr IndexDocumentsResponse)
+    -> m (Either CloudSearchError IndexDocumentsResponse)
 indexDocumentsCatch p1 =
     sendCatch (mkIndexDocuments p1)
 
@@ -775,7 +774,7 @@ listDomainNamesCatch :: ( MonadCatch m
                         , MonadResource m
                         , MonadReader Env m
                         )
-    => m (Either ServiceEr ListDomainNamesResponse)
+    => m (Either CloudSearchError ListDomainNamesResponse)
 listDomainNamesCatch =
     sendCatch (mkListDomainNames)
 
@@ -806,7 +805,7 @@ updateAvailabilityOptionsCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'uaoDomainName'
     -> Bool -- ^ 'uaoMultiAZ'
-    -> m (Either ServiceEr UpdateAvailabilityOptionsResponse)
+    -> m (Either CloudSearchError UpdateAvailabilityOptionsResponse)
 updateAvailabilityOptionsCatch p1 p2 =
     sendCatch (mkUpdateAvailabilityOptions p1 p2)
 
@@ -838,7 +837,7 @@ updateScalingParametersCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'uspDomainName'
     -> ScalingParameters -- ^ 'uspScalingParameters'
-    -> m (Either ServiceEr UpdateScalingParametersResponse)
+    -> m (Either CloudSearchError UpdateScalingParametersResponse)
 updateScalingParametersCatch p1 p2 =
     sendCatch (mkUpdateScalingParameters p1 p2)
 
@@ -866,6 +865,6 @@ updateServiceAccessPoliciesCatch :: ( MonadCatch m
                                     )
     => Text -- ^ 'usapDomainName'
     -> Text -- ^ 'usapAccessPolicies'
-    -> m (Either ServiceEr UpdateServiceAccessPoliciesResponse)
+    -> m (Either CloudSearchError UpdateServiceAccessPoliciesResponse)
 updateServiceAccessPoliciesCatch p1 p2 =
     sendCatch (mkUpdateServiceAccessPolicies p1 p2)

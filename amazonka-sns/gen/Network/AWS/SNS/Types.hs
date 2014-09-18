@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,6 +33,20 @@ module Network.AWS.SNS.Types
     (
     -- * Service
       SNS
+    -- ** Errors
+    , SNSError (..)
+    , _AuthorizationErrorException
+    , _EndpointDisabledException
+    , _InternalErrorException
+    , _InvalidParameterException
+    , _InvalidParameterValueException
+    , _NotFoundException
+    , _PlatformApplicationDisabledException
+    , _SNSClient
+    , _SNSSerializer
+    , _SNSService
+    , _SubscriptionLimitExceededException
+    , _TopicLimitExceededException
     -- ** XML
     , xmlOptions
 
@@ -79,37 +93,7 @@ data SNS deriving (Typeable)
 
 instance AWSService SNS where
     type Sg SNS = V4
-    data Er SNS
-        = AuthorizationErrorException
-            { _aeeMessage :: Maybe Text
-            }
-        | EndpointDisabledException
-            { _edeMessage :: Maybe Text
-            }
-        | InternalErrorException
-            { _ieeMessage :: Maybe Text
-            }
-        | InvalidParameterException
-            { _ipeMessage :: Maybe Text
-            }
-        | InvalidParameterValueException
-            { _ipveMessage :: Maybe Text
-            }
-        | NotFoundException
-            { _nfeMessage :: Maybe Text
-            }
-        | PlatformApplicationDisabledException
-            { _padeMessage :: Maybe Text
-            }
-        | SNSClient HttpException
-        | SNSSerializer String
-        | SNSService String
-        | SubscriptionLimitExceededException
-            { _sleeMessage :: Maybe Text
-            }
-        | TopicLimitExceededException
-            { _tleeMessage :: Maybe Text
-            }
+    type Er SNS = SNSError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -118,18 +102,185 @@ instance AWSService SNS where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er SNS)
-deriving instance Generic (Er SNS)
+-- | A sum type representing possible errors returned by the 'SNS' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data SNSError
+      -- | Indicates that the user has been denied access to the requested
+      -- resource.
+    = AuthorizationErrorException
+        { _aeeMessage :: Maybe Text
+        }
+      -- | Exception error indicating endpoint disabled.
+    | EndpointDisabledException
+        { _edeMessage :: Maybe Text
+        }
+      -- | Indicates an internal service error.
+    | InternalErrorException
+        { _ieeMessage :: Maybe Text
+        }
+      -- | Indicates that a request parameter does not comply with the
+      -- associated constraints.
+    | InvalidParameterException
+        { _ipeMessage :: Maybe Text
+        }
+      -- | Indicates that a request parameter does not comply with the
+      -- associated constraints.
+    | InvalidParameterValueException
+        { _ipveMessage :: Maybe Text
+        }
+      -- | Indicates that the requested resource does not exist.
+    | NotFoundException
+        { _nfeMessage :: Maybe Text
+        }
+      -- | Exception error indicating platform application disabled.
+    | PlatformApplicationDisabledException
+        { _padeMessage :: Maybe Text
+        }
+    | SNSClient HttpException
+    | SNSSerializer Text
+    | SNSService Text
+      -- | Indicates that the customer already owns the maximum allowed
+      -- number of subscriptions.
+    | SubscriptionLimitExceededException
+        { _sleeMessage :: Maybe Text
+        }
+      -- | Indicates that the customer already owns the maximum allowed
+      -- number of topics.
+    | TopicLimitExceededException
+        { _tleeMessage :: Maybe Text
+        }
+    deriving (Show, Generic)
 
-instance AWSError (Er SNS) where
+instance AWSError SNSError where
     awsError = const "SNSError"
 
-instance AWSServiceError (Er SNS) where
+instance AWSServiceError SNSError where
     serviceError    = SNSService
     clientError     = SNSClient
     serializerError = SNSSerializer
 
-instance Exception (Er SNS)
+instance Exception SNSError
+
+-- | Indicates that the user has been denied access to the requested resource.
+--
+-- See: 'AuthorizationErrorException'
+_AuthorizationErrorException :: Prism' SNSError (Maybe Text)
+_AuthorizationErrorException = prism'
+    AuthorizationErrorException
+    (\case
+        AuthorizationErrorException p1 -> Right p1
+        x -> Left x)
+
+-- | Exception error indicating endpoint disabled.
+--
+-- See: 'EndpointDisabledException'
+_EndpointDisabledException :: Prism' SNSError (Maybe Text)
+_EndpointDisabledException = prism'
+    EndpointDisabledException
+    (\case
+        EndpointDisabledException p1 -> Right p1
+        x -> Left x)
+
+-- | Indicates an internal service error.
+--
+-- See: 'InternalErrorException'
+_InternalErrorException :: Prism' SNSError (Maybe Text)
+_InternalErrorException = prism'
+    InternalErrorException
+    (\case
+        InternalErrorException p1 -> Right p1
+        x -> Left x)
+
+-- | Indicates that a request parameter does not comply with the associated
+-- constraints.
+--
+-- See: 'InvalidParameterException'
+_InvalidParameterException :: Prism' SNSError (Maybe Text)
+_InvalidParameterException = prism'
+    InvalidParameterException
+    (\case
+        InvalidParameterException p1 -> Right p1
+        x -> Left x)
+
+-- | Indicates that a request parameter does not comply with the associated
+-- constraints.
+--
+-- See: 'InvalidParameterValueException'
+_InvalidParameterValueException :: Prism' SNSError (Maybe Text)
+_InvalidParameterValueException = prism'
+    InvalidParameterValueException
+    (\case
+        InvalidParameterValueException p1 -> Right p1
+        x -> Left x)
+
+-- | Indicates that the requested resource does not exist.
+--
+-- See: 'NotFoundException'
+_NotFoundException :: Prism' SNSError (Maybe Text)
+_NotFoundException = prism'
+    NotFoundException
+    (\case
+        NotFoundException p1 -> Right p1
+        x -> Left x)
+
+-- | Exception error indicating platform application disabled.
+--
+-- See: 'PlatformApplicationDisabledException'
+_PlatformApplicationDisabledException :: Prism' SNSError (Maybe Text)
+_PlatformApplicationDisabledException = prism'
+    PlatformApplicationDisabledException
+    (\case
+        PlatformApplicationDisabledException p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'SNSClient'
+_SNSClient :: Prism' SNSError HttpException
+_SNSClient = prism'
+    SNSClient
+    (\case
+        SNSClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'SNSSerializer'
+_SNSSerializer :: Prism' SNSError Text
+_SNSSerializer = prism'
+    SNSSerializer
+    (\case
+        SNSSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'SNSService'
+_SNSService :: Prism' SNSError Text
+_SNSService = prism'
+    SNSService
+    (\case
+        SNSService p1 -> Right p1
+        x -> Left x)
+
+-- | Indicates that the customer already owns the maximum allowed number of
+-- subscriptions.
+--
+-- See: 'SubscriptionLimitExceededException'
+_SubscriptionLimitExceededException :: Prism' SNSError (Maybe Text)
+_SubscriptionLimitExceededException = prism'
+    SubscriptionLimitExceededException
+    (\case
+        SubscriptionLimitExceededException p1 -> Right p1
+        x -> Left x)
+
+-- | Indicates that the customer already owns the maximum allowed number of
+-- topics.
+--
+-- See: 'TopicLimitExceededException'
+_TopicLimitExceededException :: Prism' SNSError (Maybe Text)
+_TopicLimitExceededException = prism'
+    TopicLimitExceededException
+    (\case
+        TopicLimitExceededException p1 -> Right p1
+        x -> Left x)
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

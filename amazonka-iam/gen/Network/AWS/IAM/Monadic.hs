@@ -440,7 +440,6 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.IAM
 
-type ServiceEr = Er IAM
 
 -- $AddRoleToInstanceProfile
 -- Adds the specified role to the specified instance profile. For more
@@ -469,7 +468,7 @@ addRoleToInstanceProfileCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'artipInstanceProfileName'
     -> Text -- ^ 'artipRoleName'
-    -> m (Either ServiceEr AddRoleToInstanceProfileResponse)
+    -> m (Either IAMError AddRoleToInstanceProfileResponse)
 addRoleToInstanceProfileCatch p1 p2 =
     sendCatch (mkAddRoleToInstanceProfile p1 p2)
 
@@ -497,7 +496,7 @@ addUserToGroupCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'autgGroupName'
     -> Text -- ^ 'autgUserName'
-    -> m (Either ServiceEr AddUserToGroupResponse)
+    -> m (Either IAMError AddUserToGroupResponse)
 addUserToGroupCatch p1 p2 =
     sendCatch (mkAddUserToGroup p1 p2)
 
@@ -528,7 +527,7 @@ changePasswordCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'cpOldPassword'
     -> Text -- ^ 'cpNewPassword'
-    -> m (Either ServiceEr ChangePasswordResponse)
+    -> m (Either IAMError ChangePasswordResponse)
 changePasswordCatch p1 p2 =
     sendCatch (mkChangePassword p1 p2)
 
@@ -567,7 +566,7 @@ createAccessKeyCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => State CreateAccessKey a
-    -> m (Either ServiceEr CreateAccessKeyResponse)
+    -> m (Either IAMError CreateAccessKeyResponse)
 createAccessKeyCatch s =
     sendCatch (mkCreateAccessKey &~ s)
 
@@ -595,7 +594,7 @@ createAccountAliasCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'caaAccountAlias'
-    -> m (Either ServiceEr CreateAccountAliasResponse)
+    -> m (Either IAMError CreateAccountAliasResponse)
 createAccountAliasCatch p1 =
     sendCatch (mkCreateAccountAlias p1)
 
@@ -625,7 +624,7 @@ createGroupCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'cgGroupName'
     -> State CreateGroup a
-    -> m (Either ServiceEr CreateGroupResponse)
+    -> m (Either IAMError CreateGroupResponse)
 createGroupCatch p2 s =
     sendCatch $ (mkCreateGroup p2) &~ s
 
@@ -659,7 +658,7 @@ createInstanceProfileCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'cipInstanceProfileName'
     -> State CreateInstanceProfile a
-    -> m (Either ServiceEr CreateInstanceProfileResponse)
+    -> m (Either IAMError CreateInstanceProfileResponse)
 createInstanceProfileCatch p1 s =
     sendCatch $ (mkCreateInstanceProfile p1) &~ s
 
@@ -692,7 +691,7 @@ createLoginProfileCatch :: ( MonadCatch m
     => Text -- ^ 'clpUserName'
     -> Text -- ^ 'clpPassword'
     -> State CreateLoginProfile a
-    -> m (Either ServiceEr CreateLoginProfileResponse)
+    -> m (Either IAMError CreateLoginProfileResponse)
 createLoginProfileCatch p1 p2 s =
     sendCatch $ (mkCreateLoginProfile p1 p2) &~ s
 
@@ -734,7 +733,7 @@ createRoleCatch :: ( MonadCatch m
     => Text -- ^ 'crRoleName'
     -> Text -- ^ 'crAssumeRolePolicyDocument'
     -> State CreateRole a
-    -> m (Either ServiceEr CreateRoleResponse)
+    -> m (Either IAMError CreateRoleResponse)
 createRoleCatch p2 p3 s =
     sendCatch $ (mkCreateRole p2 p3) &~ s
 
@@ -778,7 +777,7 @@ createSAMLProviderCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'csamlpSAMLMetadataDocument'
     -> Text -- ^ 'csamlpName'
-    -> m (Either ServiceEr CreateSAMLProviderResponse)
+    -> m (Either IAMError CreateSAMLProviderResponse)
 createSAMLProviderCatch p1 p2 =
     sendCatch (mkCreateSAMLProvider p1 p2)
 
@@ -810,7 +809,7 @@ createUserCatch :: ( MonadCatch m
                    )
     => Text -- ^ 'cuUserName'
     -> State CreateUser a
-    -> m (Either ServiceEr CreateUserResponse)
+    -> m (Either IAMError CreateUserResponse)
 createUserCatch p2 s =
     sendCatch $ (mkCreateUser p2) &~ s
 
@@ -850,7 +849,7 @@ createVirtualMFADeviceCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'cvmfadVirtualMFADeviceName'
     -> State CreateVirtualMFADevice a
-    -> m (Either ServiceEr CreateVirtualMFADeviceResponse)
+    -> m (Either IAMError CreateVirtualMFADeviceResponse)
 createVirtualMFADeviceCatch p2 s =
     sendCatch $ (mkCreateVirtualMFADevice p2) &~ s
 
@@ -879,7 +878,7 @@ deactivateMFADeviceCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'dmfadUserName'
     -> Text -- ^ 'dmfadSerialNumber'
-    -> m (Either ServiceEr DeactivateMFADeviceResponse)
+    -> m (Either IAMError DeactivateMFADeviceResponse)
 deactivateMFADeviceCatch p1 p2 =
     sendCatch (mkDeactivateMFADevice p1 p2)
 
@@ -911,7 +910,7 @@ deleteAccessKeyCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'dakAccessKeyId'
     -> State DeleteAccessKey a
-    -> m (Either ServiceEr DeleteAccessKeyResponse)
+    -> m (Either IAMError DeleteAccessKeyResponse)
 deleteAccessKeyCatch p2 s =
     sendCatch $ (mkDeleteAccessKey p2) &~ s
 
@@ -939,7 +938,7 @@ deleteAccountAliasCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'daaAccountAlias'
-    -> m (Either ServiceEr DeleteAccountAliasResponse)
+    -> m (Either IAMError DeleteAccountAliasResponse)
 deleteAccountAliasCatch p1 =
     sendCatch (mkDeleteAccountAlias p1)
 
@@ -963,7 +962,7 @@ deleteAccountPasswordPolicyCatch :: ( MonadCatch m
                                     , MonadResource m
                                     , MonadReader Env m
                                     )
-    => m (Either ServiceEr DeleteAccountPasswordPolicyResponse)
+    => m (Either IAMError DeleteAccountPasswordPolicyResponse)
 deleteAccountPasswordPolicyCatch =
     sendCatch (mkDeleteAccountPasswordPolicy)
 
@@ -990,7 +989,7 @@ deleteGroupCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'dgGroupName'
-    -> m (Either ServiceEr DeleteGroupResponse)
+    -> m (Either IAMError DeleteGroupResponse)
 deleteGroupCatch p1 =
     sendCatch (mkDeleteGroup p1)
 
@@ -1018,7 +1017,7 @@ deleteGroupPolicyCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'dgpGroupName'
     -> Text -- ^ 'dgpPolicyName'
-    -> m (Either ServiceEr DeleteGroupPolicyResponse)
+    -> m (Either IAMError DeleteGroupPolicyResponse)
 deleteGroupPolicyCatch p1 p2 =
     sendCatch (mkDeleteGroupPolicy p1 p2)
 
@@ -1050,7 +1049,7 @@ deleteInstanceProfileCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'dipInstanceProfileName'
-    -> m (Either ServiceEr DeleteInstanceProfileResponse)
+    -> m (Either IAMError DeleteInstanceProfileResponse)
 deleteInstanceProfileCatch p1 =
     sendCatch (mkDeleteInstanceProfile p1)
 
@@ -1081,7 +1080,7 @@ deleteLoginProfileCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'dlpUserName'
-    -> m (Either ServiceEr DeleteLoginProfileResponse)
+    -> m (Either IAMError DeleteLoginProfileResponse)
 deleteLoginProfileCatch p1 =
     sendCatch (mkDeleteLoginProfile p1)
 
@@ -1111,7 +1110,7 @@ deleteRoleCatch :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'drRoleName'
-    -> m (Either ServiceEr DeleteRoleResponse)
+    -> m (Either IAMError DeleteRoleResponse)
 deleteRoleCatch p1 =
     sendCatch (mkDeleteRole p1)
 
@@ -1140,7 +1139,7 @@ deleteRolePolicyCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'drpRoleName'
     -> Text -- ^ 'drpPolicyName'
-    -> m (Either ServiceEr DeleteRolePolicyResponse)
+    -> m (Either IAMError DeleteRolePolicyResponse)
 deleteRolePolicyCatch p1 p2 =
     sendCatch (mkDeleteRolePolicy p1 p2)
 
@@ -1170,7 +1169,7 @@ deleteSAMLProviderCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'dsamlpSAMLProviderArn'
-    -> m (Either ServiceEr DeleteSAMLProviderResponse)
+    -> m (Either IAMError DeleteSAMLProviderResponse)
 deleteSAMLProviderCatch p1 =
     sendCatch (mkDeleteSAMLProvider p1)
 
@@ -1204,7 +1203,7 @@ deleteServerCertificateCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'dscServerCertificateName'
-    -> m (Either ServiceEr DeleteServerCertificateResponse)
+    -> m (Either IAMError DeleteServerCertificateResponse)
 deleteServerCertificateCatch p1 =
     sendCatch (mkDeleteServerCertificate p1)
 
@@ -1237,7 +1236,7 @@ deleteSigningCertificateCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'dsc1CertificateId'
     -> State DeleteSigningCertificate a
-    -> m (Either ServiceEr DeleteSigningCertificateResponse)
+    -> m (Either IAMError DeleteSigningCertificateResponse)
 deleteSigningCertificateCatch p2 s =
     sendCatch $ (mkDeleteSigningCertificate p2) &~ s
 
@@ -1264,7 +1263,7 @@ deleteUserCatch :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'duUserName'
-    -> m (Either ServiceEr DeleteUserResponse)
+    -> m (Either IAMError DeleteUserResponse)
 deleteUserCatch p1 =
     sendCatch (mkDeleteUser p1)
 
@@ -1293,7 +1292,7 @@ deleteUserPolicyCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'dupUserName'
     -> Text -- ^ 'dupPolicyName'
-    -> m (Either ServiceEr DeleteUserPolicyResponse)
+    -> m (Either IAMError DeleteUserPolicyResponse)
 deleteUserPolicyCatch p1 p2 =
     sendCatch (mkDeleteUserPolicy p1 p2)
 
@@ -1323,7 +1322,7 @@ deleteVirtualMFADeviceCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'dvmfadSerialNumber'
-    -> m (Either ServiceEr DeleteVirtualMFADeviceResponse)
+    -> m (Either IAMError DeleteVirtualMFADeviceResponse)
 deleteVirtualMFADeviceCatch p1 =
     sendCatch (mkDeleteVirtualMFADevice p1)
 
@@ -1358,7 +1357,7 @@ enableMFADeviceCatch :: ( MonadCatch m
     -> Text -- ^ 'emfadSerialNumber'
     -> Text -- ^ 'emfadAuthenticationCode1'
     -> Text -- ^ 'emfadAuthenticationCode2'
-    -> m (Either ServiceEr EnableMFADeviceResponse)
+    -> m (Either IAMError EnableMFADeviceResponse)
 enableMFADeviceCatch p1 p2 p3 p4 =
     sendCatch (mkEnableMFADevice p1 p2 p3 p4)
 
@@ -1382,7 +1381,7 @@ generateCredentialReportCatch :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadReader Env m
                                  )
-    => m (Either ServiceEr GenerateCredentialReportResponse)
+    => m (Either IAMError GenerateCredentialReportResponse)
 generateCredentialReportCatch =
     sendCatch (mkGenerateCredentialReport)
 
@@ -1408,7 +1407,7 @@ getAccountPasswordPolicyCatch :: ( MonadCatch m
                                  , MonadResource m
                                  , MonadReader Env m
                                  )
-    => m (Either ServiceEr GetAccountPasswordPolicyResponse)
+    => m (Either IAMError GetAccountPasswordPolicyResponse)
 getAccountPasswordPolicyCatch =
     sendCatch (mkGetAccountPasswordPolicy)
 
@@ -1438,7 +1437,7 @@ getAccountSummaryCatch :: ( MonadCatch m
                           , MonadResource m
                           , MonadReader Env m
                           )
-    => m (Either ServiceEr GetAccountSummaryResponse)
+    => m (Either IAMError GetAccountSummaryResponse)
 getAccountSummaryCatch =
     sendCatch (mkGetAccountSummary)
 
@@ -1462,7 +1461,7 @@ getCredentialReportCatch :: ( MonadCatch m
                             , MonadResource m
                             , MonadReader Env m
                             )
-    => m (Either ServiceEr GetCredentialReportResponse)
+    => m (Either IAMError GetCredentialReportResponse)
 getCredentialReportCatch =
     sendCatch (mkGetCredentialReport)
 
@@ -1497,7 +1496,7 @@ getGroupCatch :: ( MonadCatch m
                  )
     => Text -- ^ 'ggGroupName'
     -> State GetGroup a
-    -> Source m (Either ServiceEr GetGroupResponse)
+    -> Source m (Either IAMError GetGroupResponse)
 getGroupCatch p1 s =
     paginateCatch $ (mkGetGroup p1) &~ s
 
@@ -1529,7 +1528,7 @@ getGroupPolicyCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'ggpGroupName'
     -> Text -- ^ 'ggpPolicyName'
-    -> m (Either ServiceEr GetGroupPolicyResponse)
+    -> m (Either IAMError GetGroupPolicyResponse)
 getGroupPolicyCatch p1 p2 =
     sendCatch (mkGetGroupPolicy p1 p2)
 
@@ -1566,7 +1565,7 @@ getInstanceProfileCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'gipInstanceProfileName'
-    -> m (Either ServiceEr GetInstanceProfileResponse)
+    -> m (Either IAMError GetInstanceProfileResponse)
 getInstanceProfileCatch p1 =
     sendCatch (mkGetInstanceProfile p1)
 
@@ -1594,7 +1593,7 @@ getLoginProfileCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'glpUserName'
-    -> m (Either ServiceEr GetLoginProfileResponse)
+    -> m (Either IAMError GetLoginProfileResponse)
 getLoginProfileCatch p1 =
     sendCatch (mkGetLoginProfile p1)
 
@@ -1630,7 +1629,7 @@ getRoleCatch :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => Text -- ^ 'grRoleName'
-    -> m (Either ServiceEr GetRoleResponse)
+    -> m (Either IAMError GetRoleResponse)
 getRoleCatch p1 =
     sendCatch (mkGetRole p1)
 
@@ -1663,7 +1662,7 @@ getRolePolicyCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'grpRoleName'
     -> Text -- ^ 'grpPolicyName'
-    -> m (Either ServiceEr GetRolePolicyResponse)
+    -> m (Either IAMError GetRolePolicyResponse)
 getRolePolicyCatch p1 p2 =
     sendCatch (mkGetRolePolicy p1 p2)
 
@@ -1692,7 +1691,7 @@ getSAMLProviderCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'gsamlpSAMLProviderArn'
-    -> m (Either ServiceEr GetSAMLProviderResponse)
+    -> m (Either IAMError GetSAMLProviderResponse)
 getSAMLProviderCatch p1 =
     sendCatch (mkGetSAMLProvider p1)
 
@@ -1737,7 +1736,7 @@ getServerCertificateCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'gscServerCertificateName'
-    -> m (Either ServiceEr GetServerCertificateResponse)
+    -> m (Either IAMError GetServerCertificateResponse)
 getServerCertificateCatch p1 =
     sendCatch (mkGetServerCertificate p1)
 
@@ -1768,7 +1767,7 @@ getUserCatch :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => State GetUser a
-    -> m (Either ServiceEr GetUserResponse)
+    -> m (Either IAMError GetUserResponse)
 getUserCatch s =
     sendCatch (mkGetUser &~ s)
 
@@ -1800,7 +1799,7 @@ getUserPolicyCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'gupUserName'
     -> Text -- ^ 'gupPolicyName'
-    -> m (Either ServiceEr GetUserPolicyResponse)
+    -> m (Either IAMError GetUserPolicyResponse)
 getUserPolicyCatch p1 p2 =
     sendCatch (mkGetUserPolicy p1 p2)
 
@@ -1836,7 +1835,7 @@ listAccessKeysCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => State ListAccessKeys a
-    -> Source m (Either ServiceEr ListAccessKeysResponse)
+    -> Source m (Either IAMError ListAccessKeysResponse)
 listAccessKeysCatch s =
     paginateCatch (mkListAccessKeys &~ s)
 
@@ -1865,7 +1864,7 @@ listAccountAliasesCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => State ListAccountAliases a
-    -> Source m (Either ServiceEr ListAccountAliasesResponse)
+    -> Source m (Either IAMError ListAccountAliasesResponse)
 listAccountAliasesCatch s =
     paginateCatch (mkListAccountAliases &~ s)
 
@@ -1895,7 +1894,7 @@ listGroupPoliciesCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'lgpGroupName'
     -> State ListGroupPolicies a
-    -> Source m (Either ServiceEr ListGroupPoliciesResponse)
+    -> Source m (Either IAMError ListGroupPoliciesResponse)
 listGroupPoliciesCatch p1 s =
     paginateCatch $ (mkListGroupPolicies p1) &~ s
 
@@ -1931,7 +1930,7 @@ listGroupsCatch :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => State ListGroups a
-    -> Source m (Either ServiceEr ListGroupsResponse)
+    -> Source m (Either IAMError ListGroupsResponse)
 listGroupsCatch s =
     paginateCatch (mkListGroups &~ s)
 
@@ -1962,7 +1961,7 @@ listGroupsForUserCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'lgfuUserName'
     -> State ListGroupsForUser a
-    -> Source m (Either ServiceEr ListGroupsForUserResponse)
+    -> Source m (Either IAMError ListGroupsForUserResponse)
 listGroupsForUserCatch p1 s =
     paginateCatch $ (mkListGroupsForUser p1) &~ s
 
@@ -1997,7 +1996,7 @@ listInstanceProfilesCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => State ListInstanceProfiles a
-    -> Source m (Either ServiceEr ListInstanceProfilesResponse)
+    -> Source m (Either IAMError ListInstanceProfilesResponse)
 listInstanceProfilesCatch s =
     paginateCatch (mkListInstanceProfiles &~ s)
 
@@ -2036,7 +2035,7 @@ listInstanceProfilesForRoleCatch :: ( MonadCatch m
                                     )
     => Text -- ^ 'lipfrRoleName'
     -> State ListInstanceProfilesForRole a
-    -> Source m (Either ServiceEr ListInstanceProfilesForRoleResponse)
+    -> Source m (Either IAMError ListInstanceProfilesForRoleResponse)
 listInstanceProfilesForRoleCatch p1 s =
     paginateCatch $ (mkListInstanceProfilesForRole p1) &~ s
 
@@ -2066,7 +2065,7 @@ listMFADevicesCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => State ListMFADevices a
-    -> Source m (Either ServiceEr ListMFADevicesResponse)
+    -> Source m (Either IAMError ListMFADevicesResponse)
 listMFADevicesCatch s =
     paginateCatch (mkListMFADevices &~ s)
 
@@ -2098,7 +2097,7 @@ listRolePoliciesCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'lrpRoleName'
     -> State ListRolePolicies a
-    -> Source m (Either ServiceEr ListRolePoliciesResponse)
+    -> Source m (Either IAMError ListRolePoliciesResponse)
 listRolePoliciesCatch p1 s =
     paginateCatch $ (mkListRolePolicies p1) &~ s
 
@@ -2138,7 +2137,7 @@ listRolesCatch :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => State ListRoles a
-    -> Source m (Either ServiceEr ListRolesResponse)
+    -> Source m (Either IAMError ListRolesResponse)
 listRolesCatch s =
     paginateCatch (mkListRoles &~ s)
 
@@ -2167,7 +2166,7 @@ listSAMLProvidersCatch :: ( MonadCatch m
                           , MonadResource m
                           , MonadReader Env m
                           )
-    => m (Either ServiceEr ListSAMLProvidersResponse)
+    => m (Either IAMError ListSAMLProvidersResponse)
 listSAMLProvidersCatch =
     sendCatch (mkListSAMLProviders)
 
@@ -2204,7 +2203,7 @@ listServerCertificatesCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => State ListServerCertificates a
-    -> Source m (Either ServiceEr ListServerCertificatesResponse)
+    -> Source m (Either IAMError ListServerCertificatesResponse)
 listServerCertificatesCatch s =
     paginateCatch (mkListServerCertificates &~ s)
 
@@ -2254,7 +2253,7 @@ listSigningCertificatesCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => State ListSigningCertificates a
-    -> Source m (Either ServiceEr ListSigningCertificatesResponse)
+    -> Source m (Either IAMError ListSigningCertificatesResponse)
 listSigningCertificatesCatch s =
     paginateCatch (mkListSigningCertificates &~ s)
 
@@ -2285,7 +2284,7 @@ listUserPoliciesCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'lupUserName'
     -> State ListUserPolicies a
-    -> Source m (Either ServiceEr ListUserPoliciesResponse)
+    -> Source m (Either IAMError ListUserPoliciesResponse)
 listUserPoliciesCatch p1 s =
     paginateCatch $ (mkListUserPolicies p1) &~ s
 
@@ -2320,7 +2319,7 @@ listUsersCatch :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => State ListUsers a
-    -> Source m (Either ServiceEr ListUsersResponse)
+    -> Source m (Either IAMError ListUsersResponse)
 listUsersCatch s =
     paginateCatch (mkListUsers &~ s)
 
@@ -2358,7 +2357,7 @@ listVirtualMFADevicesCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => State ListVirtualMFADevices a
-    -> Source m (Either ServiceEr ListVirtualMFADevicesResponse)
+    -> Source m (Either IAMError ListVirtualMFADevicesResponse)
 listVirtualMFADevicesCatch s =
     paginateCatch (mkListVirtualMFADevices &~ s)
 
@@ -2398,7 +2397,7 @@ putGroupPolicyCatch :: ( MonadCatch m
     => Text -- ^ 'pgpGroupName'
     -> Text -- ^ 'pgpPolicyName'
     -> Text -- ^ 'pgpPolicyDocument'
-    -> m (Either ServiceEr PutGroupPolicyResponse)
+    -> m (Either IAMError PutGroupPolicyResponse)
 putGroupPolicyCatch p1 p2 p3 =
     sendCatch (mkPutGroupPolicy p1 p2 p3)
 
@@ -2438,7 +2437,7 @@ putRolePolicyCatch :: ( MonadCatch m
     => Text -- ^ 'prpRoleName'
     -> Text -- ^ 'prpPolicyName'
     -> Text -- ^ 'prpPolicyDocument'
-    -> m (Either ServiceEr PutRolePolicyResponse)
+    -> m (Either IAMError PutRolePolicyResponse)
 putRolePolicyCatch p1 p2 p3 =
     sendCatch (mkPutRolePolicy p1 p2 p3)
 
@@ -2478,7 +2477,7 @@ putUserPolicyCatch :: ( MonadCatch m
     => Text -- ^ 'pupUserName'
     -> Text -- ^ 'pupPolicyName'
     -> Text -- ^ 'pupPolicyDocument'
-    -> m (Either ServiceEr PutUserPolicyResponse)
+    -> m (Either IAMError PutUserPolicyResponse)
 putUserPolicyCatch p1 p2 p3 =
     sendCatch (mkPutUserPolicy p1 p2 p3)
 
@@ -2513,7 +2512,7 @@ removeRoleFromInstanceProfileCatch :: ( MonadCatch m
                                       )
     => Text -- ^ 'rrfipInstanceProfileName'
     -> Text -- ^ 'rrfipRoleName'
-    -> m (Either ServiceEr RemoveRoleFromInstanceProfileResponse)
+    -> m (Either IAMError RemoveRoleFromInstanceProfileResponse)
 removeRoleFromInstanceProfileCatch p1 p2 =
     sendCatch (mkRemoveRoleFromInstanceProfile p1 p2)
 
@@ -2541,7 +2540,7 @@ removeUserFromGroupCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'rufgGroupName'
     -> Text -- ^ 'rufgUserName'
-    -> m (Either ServiceEr RemoveUserFromGroupResponse)
+    -> m (Either IAMError RemoveUserFromGroupResponse)
 removeUserFromGroupCatch p1 p2 =
     sendCatch (mkRemoveUserFromGroup p1 p2)
 
@@ -2574,7 +2573,7 @@ resyncMFADeviceCatch :: ( MonadCatch m
     -> Text -- ^ 'rmfadSerialNumber'
     -> Text -- ^ 'rmfadAuthenticationCode1'
     -> Text -- ^ 'rmfadAuthenticationCode2'
-    -> m (Either ServiceEr ResyncMFADeviceResponse)
+    -> m (Either IAMError ResyncMFADeviceResponse)
 resyncMFADeviceCatch p1 p2 p3 p4 =
     sendCatch (mkResyncMFADevice p1 p2 p3 p4)
 
@@ -2612,7 +2611,7 @@ updateAccessKeyCatch :: ( MonadCatch m
     => Text -- ^ 'uakAccessKeyId'
     -> StatusType -- ^ 'uakStatus'
     -> State UpdateAccessKey a
-    -> m (Either ServiceEr UpdateAccessKeyResponse)
+    -> m (Either IAMError UpdateAccessKeyResponse)
 updateAccessKeyCatch p2 p3 s =
     sendCatch $ (mkUpdateAccessKey p2 p3) &~ s
 
@@ -2643,7 +2642,7 @@ updateAccountPasswordPolicyCatch :: ( MonadCatch m
                                     , MonadReader Env m
                                     )
     => State UpdateAccountPasswordPolicy a
-    -> m (Either ServiceEr UpdateAccountPasswordPolicyResponse)
+    -> m (Either IAMError UpdateAccountPasswordPolicyResponse)
 updateAccountPasswordPolicyCatch s =
     sendCatch (mkUpdateAccountPasswordPolicy &~ s)
 
@@ -2674,7 +2673,7 @@ updateAssumeRolePolicyCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'uarpRoleName'
     -> Text -- ^ 'uarpPolicyDocument'
-    -> m (Either ServiceEr UpdateAssumeRolePolicyResponse)
+    -> m (Either IAMError UpdateAssumeRolePolicyResponse)
 updateAssumeRolePolicyCatch p1 p2 =
     sendCatch (mkUpdateAssumeRolePolicy p1 p2)
 
@@ -2713,7 +2712,7 @@ updateGroupCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'ugGroupName'
     -> State UpdateGroup a
-    -> m (Either ServiceEr UpdateGroupResponse)
+    -> m (Either IAMError UpdateGroupResponse)
 updateGroupCatch p1 s =
     sendCatch $ (mkUpdateGroup p1) &~ s
 
@@ -2741,7 +2740,7 @@ updateLoginProfileCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'ulpUserName'
     -> State UpdateLoginProfile a
-    -> m (Either ServiceEr UpdateLoginProfileResponse)
+    -> m (Either IAMError UpdateLoginProfileResponse)
 updateLoginProfileCatch p1 s =
     sendCatch $ (mkUpdateLoginProfile p1) &~ s
 
@@ -2774,7 +2773,7 @@ updateSAMLProviderCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'usamlpSAMLMetadataDocument'
     -> Text -- ^ 'usamlpSAMLProviderArn'
-    -> m (Either ServiceEr UpdateSAMLProviderResponse)
+    -> m (Either IAMError UpdateSAMLProviderResponse)
 updateSAMLProviderCatch p1 p2 =
     sendCatch (mkUpdateSAMLProvider p1 p2)
 
@@ -2811,7 +2810,7 @@ updateServerCertificateCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'uscServerCertificateName'
     -> State UpdateServerCertificate a
-    -> m (Either ServiceEr UpdateServerCertificateResponse)
+    -> m (Either IAMError UpdateServerCertificateResponse)
 updateServerCertificateCatch p1 s =
     sendCatch $ (mkUpdateServerCertificate p1) &~ s
 
@@ -2850,7 +2849,7 @@ updateSigningCertificateCatch :: ( MonadCatch m
     => Text -- ^ 'usc1CertificateId'
     -> StatusType -- ^ 'usc1Status'
     -> State UpdateSigningCertificate a
-    -> m (Either ServiceEr UpdateSigningCertificateResponse)
+    -> m (Either IAMError UpdateSigningCertificateResponse)
 updateSigningCertificateCatch p2 p3 s =
     sendCatch $ (mkUpdateSigningCertificate p2 p3) &~ s
 
@@ -2887,7 +2886,7 @@ updateUserCatch :: ( MonadCatch m
                    )
     => Text -- ^ 'uuUserName'
     -> State UpdateUser a
-    -> m (Either ServiceEr UpdateUserResponse)
+    -> m (Either IAMError UpdateUserResponse)
 updateUserCatch p1 s =
     sendCatch $ (mkUpdateUser p1) &~ s
 
@@ -2959,7 +2958,7 @@ uploadServerCertificateCatch :: ( MonadCatch m
     -> Text -- ^ 'usc2CertificateBody'
     -> Text -- ^ 'usc2PrivateKey'
     -> State UploadServerCertificate a
-    -> m (Either ServiceEr UploadServerCertificateResponse)
+    -> m (Either IAMError UploadServerCertificateResponse)
 uploadServerCertificateCatch p2 p3 p4 s =
     sendCatch $ (mkUploadServerCertificate p2 p3 p4) &~ s
 
@@ -3030,6 +3029,6 @@ uploadSigningCertificateCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'usc3CertificateBody'
     -> State UploadSigningCertificate a
-    -> m (Either ServiceEr UploadSigningCertificateResponse)
+    -> m (Either IAMError UploadSigningCertificateResponse)
 uploadSigningCertificateCatch p2 s =
     sendCatch $ (mkUploadSigningCertificate p2) &~ s

@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,6 +28,13 @@ module Network.AWS.DirectConnect.Types
     (
     -- * Service
       DirectConnect
+    -- ** Errors
+    , DirectConnectError (..)
+    , _DirectConnectClient
+    , _DirectConnectClientException
+    , _DirectConnectSerializer
+    , _DirectConnectServerException
+    , _DirectConnectService
     -- * ConnectionState
     , ConnectionState (..)
 
@@ -149,16 +156,7 @@ data DirectConnect deriving (Typeable)
 
 instance AWSService DirectConnect where
     type Sg DirectConnect = V4
-    data Er DirectConnect
-        = DirectConnectClient HttpException
-        | DirectConnectClientException
-            { _dcceMessage :: Maybe Text
-            }
-        | DirectConnectSerializer String
-        | DirectConnectServerException
-            { _dcseMessage :: Maybe Text
-            }
-        | DirectConnectService String
+    type Er DirectConnect = DirectConnectError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -167,18 +165,82 @@ instance AWSService DirectConnect where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er DirectConnect)
-deriving instance Generic (Er DirectConnect)
+-- | A sum type representing possible errors returned by the 'DirectConnect' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data DirectConnectError
+    = DirectConnectClient HttpException
+      -- | The API was called with invalid parameters. The error message
+      -- will contain additional details about the cause.
+    | DirectConnectClientException
+        { _dcceMessage :: Maybe Text
+        }
+    | DirectConnectSerializer Text
+      -- | A server-side error occurred during the API call. The error
+      -- message will contain additional details about the cause.
+    | DirectConnectServerException
+        { _dcseMessage :: Maybe Text
+        }
+    | DirectConnectService Text
+    deriving (Show, Generic)
 
-instance AWSError (Er DirectConnect) where
+instance AWSError DirectConnectError where
     awsError = const "DirectConnectError"
 
-instance AWSServiceError (Er DirectConnect) where
+instance AWSServiceError DirectConnectError where
     serviceError    = DirectConnectService
     clientError     = DirectConnectClient
     serializerError = DirectConnectSerializer
 
-instance Exception (Er DirectConnect)
+instance Exception DirectConnectError
+
+-- | See: 'DirectConnectClient'
+_DirectConnectClient :: Prism' DirectConnectError HttpException
+_DirectConnectClient = prism'
+    DirectConnectClient
+    (\case
+        DirectConnectClient p1 -> Right p1
+        x -> Left x)
+
+-- | The API was called with invalid parameters. The error message will contain
+-- additional details about the cause.
+--
+-- See: 'DirectConnectClientException'
+_DirectConnectClientException :: Prism' DirectConnectError (Maybe Text)
+_DirectConnectClientException = prism'
+    DirectConnectClientException
+    (\case
+        DirectConnectClientException p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'DirectConnectSerializer'
+_DirectConnectSerializer :: Prism' DirectConnectError Text
+_DirectConnectSerializer = prism'
+    DirectConnectSerializer
+    (\case
+        DirectConnectSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | A server-side error occurred during the API call. The error message will
+-- contain additional details about the cause.
+--
+-- See: 'DirectConnectServerException'
+_DirectConnectServerException :: Prism' DirectConnectError (Maybe Text)
+_DirectConnectServerException = prism'
+    DirectConnectServerException
+    (\case
+        DirectConnectServerException p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'DirectConnectService'
+_DirectConnectService :: Prism' DirectConnectError Text
+_DirectConnectService = prism'
+    DirectConnectService
+    (\case
+        DirectConnectService p1 -> Right p1
+        x -> Left x)
 
 data ConnectionState
     = ConnectionStateAvailable -- ^ available

@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -34,6 +34,11 @@ module Network.AWS.EC2.Types
     (
     -- * Service
       EC2
+    -- ** Errors
+    , EC2Error (..)
+    , _EC2Client
+    , _EC2Serializer
+    , _EC2Service
     -- ** XML
     , xmlOptions
 
@@ -1375,10 +1380,7 @@ data EC2 deriving (Typeable)
 
 instance AWSService EC2 where
     type Sg EC2 = V4
-    data Er EC2
-        = EC2Client HttpException
-        | EC2Serializer String
-        | EC2Service String
+    type Er EC2 = EC2Error
 
     service = Service'
         { _svcEndpoint = Regional
@@ -1387,18 +1389,50 @@ instance AWSService EC2 where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er EC2)
-deriving instance Generic (Er EC2)
+-- | A sum type representing possible errors returned by the 'EC2' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data EC2Error
+    = EC2Client HttpException
+    | EC2Serializer Text
+    | EC2Service Text
+    deriving (Show, Generic)
 
-instance AWSError (Er EC2) where
+instance AWSError EC2Error where
     awsError = const "EC2Error"
 
-instance AWSServiceError (Er EC2) where
+instance AWSServiceError EC2Error where
     serviceError    = EC2Service
     clientError     = EC2Client
     serializerError = EC2Serializer
 
-instance Exception (Er EC2)
+instance Exception EC2Error
+
+-- | See: 'EC2Client'
+_EC2Client :: Prism' EC2Error HttpException
+_EC2Client = prism'
+    EC2Client
+    (\case
+        EC2Client p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'EC2Serializer'
+_EC2Serializer :: Prism' EC2Error Text
+_EC2Serializer = prism'
+    EC2Serializer
+    (\case
+        EC2Serializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'EC2Service'
+_EC2Service :: Prism' EC2Error Text
+_EC2Service = prism'
+    EC2Service
+    (\case
+        EC2Service p1 -> Right p1
+        x -> Left x)
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

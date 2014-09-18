@@ -830,7 +830,6 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.EC2
 
-type ServiceEr = Er EC2
 
 -- $AcceptVpcPeeringConnection
 -- Accept a VPC peering connection request. To accept a request, the VPC
@@ -872,7 +871,7 @@ acceptVpcPeeringConnectionCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => State AcceptVpcPeeringConnection a
-    -> m (Either ServiceEr AcceptVpcPeeringConnectionResponse)
+    -> m (Either EC2Error AcceptVpcPeeringConnectionResponse)
 acceptVpcPeeringConnectionCatch s =
     sendCatch (mkAcceptVpcPeeringConnection &~ s)
 
@@ -916,7 +915,7 @@ allocateAddressCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => State AllocateAddress a
-    -> m (Either ServiceEr AllocateAddressResponse)
+    -> m (Either EC2Error AllocateAddressResponse)
 allocateAddressCatch s =
     sendCatch (mkAllocateAddress &~ s)
 
@@ -968,7 +967,7 @@ assignPrivateIpAddressesCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'apiaNetworkInterfaceId'
     -> State AssignPrivateIpAddresses a
-    -> m (Either ServiceEr AssignPrivateIpAddressesResponse)
+    -> m (Either EC2Error AssignPrivateIpAddressesResponse)
 assignPrivateIpAddressesCatch p1 s =
     sendCatch $ (mkAssignPrivateIpAddresses p1) &~ s
 
@@ -1022,7 +1021,7 @@ associateAddressCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => State AssociateAddress a
-    -> m (Either ServiceEr AssociateAddressResponse)
+    -> m (Either EC2Error AssociateAddressResponse)
 associateAddressCatch s =
     sendCatch (mkAssociateAddress &~ s)
 
@@ -1071,7 +1070,7 @@ associateDhcpOptionsCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'adoDhcpOptionsId'
     -> Text -- ^ 'adoVpcId'
-    -> m (Either ServiceEr AssociateDhcpOptionsResponse)
+    -> m (Either EC2Error AssociateDhcpOptionsResponse)
 associateDhcpOptionsCatch p1 p2 =
     sendCatch (mkAssociateDhcpOptions p1 p2)
 
@@ -1111,7 +1110,7 @@ associateRouteTableCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'artSubnetId'
     -> Text -- ^ 'artRouteTableId'
-    -> m (Either ServiceEr AssociateRouteTableResponse)
+    -> m (Either EC2Error AssociateRouteTableResponse)
 associateRouteTableCatch p1 p2 =
     sendCatch (mkAssociateRouteTable p1 p2)
 
@@ -1147,7 +1146,7 @@ attachInternetGatewayCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'aigInternetGatewayId'
     -> Text -- ^ 'aigVpcId'
-    -> m (Either ServiceEr AttachInternetGatewayResponse)
+    -> m (Either EC2Error AttachInternetGatewayResponse)
 attachInternetGatewayCatch p1 p2 =
     sendCatch (mkAttachInternetGateway p1 p2)
 
@@ -1183,7 +1182,7 @@ attachNetworkInterfaceCatch :: ( MonadCatch m
     => Text -- ^ 'aniNetworkInterfaceId'
     -> Text -- ^ 'aniInstanceId'
     -> Integer -- ^ 'aniDeviceIndex'
-    -> m (Either ServiceEr AttachNetworkInterfaceResponse)
+    -> m (Either EC2Error AttachNetworkInterfaceResponse)
 attachNetworkInterfaceCatch p1 p2 p3 =
     sendCatch (mkAttachNetworkInterface p1 p2 p3)
 
@@ -1243,7 +1242,7 @@ attachVolumeCatch :: ( MonadCatch m
     => Text -- ^ 'avVolumeId'
     -> Text -- ^ 'avInstanceId'
     -> Text -- ^ 'avDevice'
-    -> m (Either ServiceEr AttachVolumeResponse)
+    -> m (Either EC2Error AttachVolumeResponse)
 attachVolumeCatch p1 p2 p3 =
     sendCatch (mkAttachVolume p1 p2 p3)
 
@@ -1280,7 +1279,7 @@ attachVpnGatewayCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'avgVpnGatewayId'
     -> Text -- ^ 'avgVpcId'
-    -> m (Either ServiceEr AttachVpnGatewayResponse)
+    -> m (Either EC2Error AttachVpnGatewayResponse)
 attachVpnGatewayCatch p1 p2 =
     sendCatch (mkAttachVpnGateway p1 p2)
 
@@ -1342,7 +1341,7 @@ authorizeSecurityGroupEgressCatch :: ( MonadCatch m
                                      )
     => Text -- ^ 'asgeGroupId'
     -> State AuthorizeSecurityGroupEgress a
-    -> m (Either ServiceEr AuthorizeSecurityGroupEgressResponse)
+    -> m (Either EC2Error AuthorizeSecurityGroupEgressResponse)
 authorizeSecurityGroupEgressCatch p1 s =
     sendCatch $ (mkAuthorizeSecurityGroupEgress p1) &~ s
 
@@ -1417,7 +1416,7 @@ authorizeSecurityGroupIngressCatch :: ( MonadCatch m
                                       , MonadReader Env m
                                       )
     => State AuthorizeSecurityGroupIngress a
-    -> m (Either ServiceEr AuthorizeSecurityGroupIngressResponse)
+    -> m (Either EC2Error AuthorizeSecurityGroupIngressResponse)
 authorizeSecurityGroupIngressCatch s =
     sendCatch (mkAuthorizeSecurityGroupIngress &~ s)
 
@@ -1469,7 +1468,7 @@ bundleInstanceCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'biInstanceId'
     -> Storage -- ^ 'biStorage'
-    -> m (Either ServiceEr BundleInstanceResponse)
+    -> m (Either EC2Error BundleInstanceResponse)
 bundleInstanceCatch p1 p2 =
     sendCatch (mkBundleInstance p1 p2)
 
@@ -1507,7 +1506,7 @@ cancelBundleTaskCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'cbtBundleId'
-    -> m (Either ServiceEr CancelBundleTaskResponse)
+    -> m (Either EC2Error CancelBundleTaskResponse)
 cancelBundleTaskCatch p1 =
     sendCatch (mkCancelBundleTask p1)
 
@@ -1543,7 +1542,7 @@ cancelConversionTaskCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'cctConversionTaskId'
     -> State CancelConversionTask a
-    -> m (Either ServiceEr CancelConversionTaskResponse)
+    -> m (Either EC2Error CancelConversionTaskResponse)
 cancelConversionTaskCatch p1 s =
     sendCatch $ (mkCancelConversionTask p1) &~ s
 
@@ -1574,7 +1573,7 @@ cancelExportTaskCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'cetExportTaskId'
-    -> m (Either ServiceEr CancelExportTaskResponse)
+    -> m (Either EC2Error CancelExportTaskResponse)
 cancelExportTaskCatch p1 =
     sendCatch (mkCancelExportTask p1)
 
@@ -1609,7 +1608,7 @@ cancelReservedInstancesListingCatch :: ( MonadCatch m
                                        , MonadReader Env m
                                        )
     => Text -- ^ 'crilReservedInstancesListingId'
-    -> m (Either ServiceEr CancelReservedInstancesListingResponse)
+    -> m (Either EC2Error CancelReservedInstancesListingResponse)
 cancelReservedInstancesListingCatch p1 =
     sendCatch (mkCancelReservedInstancesListing p1)
 
@@ -1650,7 +1649,7 @@ cancelSpotInstanceRequestsCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => [Text] -- ^ 'csirSpotInstanceRequestIds'
-    -> m (Either ServiceEr CancelSpotInstanceRequestsResponse)
+    -> m (Either EC2Error CancelSpotInstanceRequestsResponse)
 cancelSpotInstanceRequestsCatch p1 =
     sendCatch (mkCancelSpotInstanceRequests p1)
 
@@ -1688,7 +1687,7 @@ confirmProductInstanceCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'cpiProductCode'
     -> Text -- ^ 'cpiInstanceId'
-    -> m (Either ServiceEr ConfirmProductInstanceResponse)
+    -> m (Either EC2Error ConfirmProductInstanceResponse)
 confirmProductInstanceCatch p1 p2 =
     sendCatch (mkConfirmProductInstance p1 p2)
 
@@ -1729,7 +1728,7 @@ copyImageCatch :: ( MonadCatch m
     => Text -- ^ 'ciSourceRegion'
     -> Text -- ^ 'ciSourceImageId'
     -> State CopyImage a
-    -> m (Either ServiceEr CopyImageResponse)
+    -> m (Either EC2Error CopyImageResponse)
 copyImageCatch p1 p2 s =
     sendCatch $ (mkCopyImage p1 p2) &~ s
 
@@ -1772,7 +1771,7 @@ copySnapshotCatch :: ( MonadCatch m
     => Text -- ^ 'csSourceRegion'
     -> Text -- ^ 'csSourceSnapshotId'
     -> State CopySnapshot a
-    -> m (Either ServiceEr CopySnapshotResponse)
+    -> m (Either EC2Error CopySnapshotResponse)
 copySnapshotCatch p1 p2 s =
     sendCatch $ (mkCopySnapshot p1 p2) &~ s
 
@@ -1826,7 +1825,7 @@ createCustomerGatewayCatch :: ( MonadCatch m
     => GatewayType -- ^ 'ccgType'
     -> Text -- ^ 'ccgPublicIp'
     -> Integer -- ^ 'ccgBgpAsn'
-    -> m (Either ServiceEr CreateCustomerGatewayResponse)
+    -> m (Either EC2Error CreateCustomerGatewayResponse)
 createCustomerGatewayCatch p1 p2 p3 =
     sendCatch (mkCreateCustomerGateway p1 p2 p3)
 
@@ -1890,7 +1889,7 @@ createDhcpOptionsCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => [DhcpConfiguration] -- ^ 'cdoDhcpConfigurations'
-    -> m (Either ServiceEr CreateDhcpOptionsResponse)
+    -> m (Either EC2Error CreateDhcpOptionsResponse)
 createDhcpOptionsCatch p1 =
     sendCatch (mkCreateDhcpOptions p1)
 
@@ -1931,7 +1930,7 @@ createImageCatch :: ( MonadCatch m
     => Text -- ^ 'ci1InstanceId'
     -> Text -- ^ 'ci1Name'
     -> State CreateImage a
-    -> m (Either ServiceEr CreateImageResponse)
+    -> m (Either EC2Error CreateImageResponse)
 createImageCatch p1 p2 s =
     sendCatch $ (mkCreateImage p1 p2) &~ s
 
@@ -1985,7 +1984,7 @@ createInstanceExportTaskCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'cietInstanceId'
     -> State CreateInstanceExportTask a
-    -> m (Either ServiceEr CreateInstanceExportTaskResponse)
+    -> m (Either EC2Error CreateInstanceExportTaskResponse)
 createInstanceExportTaskCatch p2 s =
     sendCatch $ (mkCreateInstanceExportTask p2) &~ s
 
@@ -2012,7 +2011,7 @@ createInternetGatewayCatch :: ( MonadCatch m
                               , MonadResource m
                               , MonadReader Env m
                               )
-    => m (Either ServiceEr CreateInternetGatewayResponse)
+    => m (Either EC2Error CreateInternetGatewayResponse)
 createInternetGatewayCatch =
     sendCatch (mkCreateInternetGateway)
 
@@ -2068,7 +2067,7 @@ createKeyPairCatch :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'ckpKeyName'
-    -> m (Either ServiceEr CreateKeyPairResponse)
+    -> m (Either EC2Error CreateKeyPairResponse)
 createKeyPairCatch p1 =
     sendCatch (mkCreateKeyPair p1)
 
@@ -2104,7 +2103,7 @@ createNetworkAclCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'cnaVpcId'
-    -> m (Either ServiceEr CreateNetworkAclResponse)
+    -> m (Either EC2Error CreateNetworkAclResponse)
 createNetworkAclCatch p1 =
     sendCatch (mkCreateNetworkAcl p1)
 
@@ -2162,7 +2161,7 @@ createNetworkAclEntryCatch :: ( MonadCatch m
     -> Bool -- ^ 'cnaeEgress'
     -> Text -- ^ 'cnaeCidrBlock'
     -> State CreateNetworkAclEntry a
-    -> m (Either ServiceEr CreateNetworkAclEntryResponse)
+    -> m (Either EC2Error CreateNetworkAclEntryResponse)
 createNetworkAclEntryCatch p1 p2 p3 p4 p5 p6 s =
     sendCatch $ (mkCreateNetworkAclEntry p1 p2 p3 p4 p5 p6) &~ s
 
@@ -2286,7 +2285,7 @@ createNetworkInterfaceCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'cniSubnetId'
     -> State CreateNetworkInterface a
-    -> m (Either ServiceEr CreateNetworkInterfaceResponse)
+    -> m (Either EC2Error CreateNetworkInterfaceResponse)
 createNetworkInterfaceCatch p1 s =
     sendCatch $ (mkCreateNetworkInterface p1) &~ s
 
@@ -2322,7 +2321,7 @@ createPlacementGroupCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'cpgGroupName'
     -> PlacementStrategy -- ^ 'cpgStrategy'
-    -> m (Either ServiceEr CreatePlacementGroupResponse)
+    -> m (Either EC2Error CreatePlacementGroupResponse)
 createPlacementGroupCatch p1 p2 =
     sendCatch (mkCreatePlacementGroup p1 p2)
 
@@ -2373,7 +2372,7 @@ createReservedInstancesListingCatch :: ( MonadCatch m
     -> Integer -- ^ 'cril1InstanceCount'
     -> [PriceScheduleSpecification] -- ^ 'cril1PriceSchedules'
     -> Text -- ^ 'cril1ClientToken'
-    -> m (Either ServiceEr CreateReservedInstancesListingResponse)
+    -> m (Either EC2Error CreateReservedInstancesListingResponse)
 createReservedInstancesListingCatch p1 p2 p3 p4 =
     sendCatch (mkCreateReservedInstancesListing p1 p2 p3 p4)
 
@@ -2428,7 +2427,7 @@ createRouteCatch :: ( MonadCatch m
     => Text -- ^ 'crRouteTableId'
     -> Text -- ^ 'crDestinationCidrBlock'
     -> State CreateRoute a
-    -> m (Either ServiceEr CreateRouteResponse)
+    -> m (Either EC2Error CreateRouteResponse)
 createRouteCatch p1 p2 s =
     sendCatch $ (mkCreateRoute p1 p2) &~ s
 
@@ -2461,7 +2460,7 @@ createRouteTableCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'crtVpcId'
-    -> m (Either ServiceEr CreateRouteTableResponse)
+    -> m (Either EC2Error CreateRouteTableResponse)
 createRouteTableCatch p1 =
     sendCatch (mkCreateRouteTable p1)
 
@@ -2524,7 +2523,7 @@ createSecurityGroupCatch :: ( MonadCatch m
     => Text -- ^ 'csgGroupName'
     -> Text -- ^ 'csgDescription'
     -> State CreateSecurityGroup a
-    -> m (Either ServiceEr CreateSecurityGroupResponse)
+    -> m (Either EC2Error CreateSecurityGroupResponse)
 createSecurityGroupCatch p1 p2 s =
     sendCatch $ (mkCreateSecurityGroup p1 p2) &~ s
 
@@ -2583,7 +2582,7 @@ createSnapshotCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'cs1VolumeId'
     -> State CreateSnapshot a
-    -> m (Either ServiceEr CreateSnapshotResponse)
+    -> m (Either EC2Error CreateSnapshotResponse)
 createSnapshotCatch p1 s =
     sendCatch $ (mkCreateSnapshot p1) &~ s
 
@@ -2623,7 +2622,7 @@ createSpotDatafeedSubscriptionCatch :: ( MonadCatch m
                                        )
     => Text -- ^ 'csdsBucket'
     -> State CreateSpotDatafeedSubscription a
-    -> m (Either ServiceEr CreateSpotDatafeedSubscriptionResponse)
+    -> m (Either EC2Error CreateSpotDatafeedSubscriptionResponse)
 createSpotDatafeedSubscriptionCatch p1 s =
     sendCatch $ (mkCreateSpotDatafeedSubscription p1) &~ s
 
@@ -2674,7 +2673,7 @@ createSubnetCatch :: ( MonadCatch m
     => Text -- ^ 'cs2VpcId'
     -> Text -- ^ 'cs2CidrBlock'
     -> State CreateSubnet a
-    -> m (Either ServiceEr CreateSubnetResponse)
+    -> m (Either EC2Error CreateSubnetResponse)
 createSubnetCatch p1 p2 s =
     sendCatch $ (mkCreateSubnet p1 p2) &~ s
 
@@ -2712,7 +2711,7 @@ createTagsCatch :: ( MonadCatch m
                    )
     => [Text] -- ^ 'ctResources'
     -> [Tag] -- ^ 'ctTags'
-    -> m (Either ServiceEr CreateTagsResponse)
+    -> m (Either EC2Error CreateTagsResponse)
 createTagsCatch p1 p2 =
     sendCatch (mkCreateTags p1 p2)
 
@@ -2761,7 +2760,7 @@ createVolumeCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'cvAvailabilityZone'
     -> State CreateVolume a
-    -> m (Either ServiceEr CreateVolumeResponse)
+    -> m (Either EC2Error CreateVolumeResponse)
 createVolumeCatch p3 s =
     sendCatch $ (mkCreateVolume p3) &~ s
 
@@ -2816,7 +2815,7 @@ createVpcCatch :: ( MonadCatch m
                   )
     => Text -- ^ 'cv1CidrBlock'
     -> State CreateVpc a
-    -> m (Either ServiceEr CreateVpcResponse)
+    -> m (Either EC2Error CreateVpcResponse)
 createVpcCatch p1 s =
     sendCatch $ (mkCreateVpc p1) &~ s
 
@@ -2872,7 +2871,7 @@ createVpcPeeringConnectionCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => State CreateVpcPeeringConnection a
-    -> m (Either ServiceEr CreateVpcPeeringConnectionResponse)
+    -> m (Either EC2Error CreateVpcPeeringConnectionResponse)
 createVpcPeeringConnectionCatch s =
     sendCatch (mkCreateVpcPeeringConnection &~ s)
 
@@ -2953,7 +2952,7 @@ createVpnConnectionCatch :: ( MonadCatch m
     -> Text -- ^ 'cvcCustomerGatewayId'
     -> Text -- ^ 'cvcVpnGatewayId'
     -> State CreateVpnConnection a
-    -> m (Either ServiceEr CreateVpnConnectionResponse)
+    -> m (Either EC2Error CreateVpnConnectionResponse)
 createVpnConnectionCatch p1 p2 p3 s =
     sendCatch $ (mkCreateVpnConnection p1 p2 p3) &~ s
 
@@ -2994,7 +2993,7 @@ createVpnConnectionRouteCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'cvcr1VpnConnectionId'
     -> Text -- ^ 'cvcr1DestinationCidrBlock'
-    -> m (Either ServiceEr CreateVpnConnectionRouteResponse)
+    -> m (Either EC2Error CreateVpnConnectionRouteResponse)
 createVpnConnectionRouteCatch p1 p2 =
     sendCatch (mkCreateVpnConnectionRoute p1 p2)
 
@@ -3034,7 +3033,7 @@ createVpnGatewayCatch :: ( MonadCatch m
                          )
     => GatewayType -- ^ 'cvgType'
     -> State CreateVpnGateway a
-    -> m (Either ServiceEr CreateVpnGatewayResponse)
+    -> m (Either EC2Error CreateVpnGatewayResponse)
 createVpnGatewayCatch p1 s =
     sendCatch $ (mkCreateVpnGateway p1) &~ s
 
@@ -3066,7 +3065,7 @@ deleteCustomerGatewayCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'dcgCustomerGatewayId'
-    -> m (Either ServiceEr DeleteCustomerGatewayResponse)
+    -> m (Either EC2Error DeleteCustomerGatewayResponse)
 deleteCustomerGatewayCatch p1 =
     sendCatch (mkDeleteCustomerGateway p1)
 
@@ -3099,7 +3098,7 @@ deleteDhcpOptionsCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'ddoDhcpOptionsId'
-    -> m (Either ServiceEr DeleteDhcpOptionsResponse)
+    -> m (Either EC2Error DeleteDhcpOptionsResponse)
 deleteDhcpOptionsCatch p1 =
     sendCatch (mkDeleteDhcpOptions p1)
 
@@ -3131,7 +3130,7 @@ deleteInternetGatewayCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'digInternetGatewayId'
-    -> m (Either ServiceEr DeleteInternetGatewayResponse)
+    -> m (Either EC2Error DeleteInternetGatewayResponse)
 deleteInternetGatewayCatch p1 =
     sendCatch (mkDeleteInternetGateway p1)
 
@@ -3161,7 +3160,7 @@ deleteKeyPairCatch :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'dkpKeyName'
-    -> m (Either ServiceEr DeleteKeyPairResponse)
+    -> m (Either EC2Error DeleteKeyPairResponse)
 deleteKeyPairCatch p1 =
     sendCatch (mkDeleteKeyPair p1)
 
@@ -3192,7 +3191,7 @@ deleteNetworkAclCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'dnaNetworkAclId'
-    -> m (Either ServiceEr DeleteNetworkAclResponse)
+    -> m (Either EC2Error DeleteNetworkAclResponse)
 deleteNetworkAclCatch p1 =
     sendCatch (mkDeleteNetworkAcl p1)
 
@@ -3228,7 +3227,7 @@ deleteNetworkAclEntryCatch :: ( MonadCatch m
     => Text -- ^ 'dnaeNetworkAclId'
     -> Integer -- ^ 'dnaeRuleNumber'
     -> Bool -- ^ 'dnaeEgress'
-    -> m (Either ServiceEr DeleteNetworkAclEntryResponse)
+    -> m (Either EC2Error DeleteNetworkAclEntryResponse)
 deleteNetworkAclEntryCatch p1 p2 p3 =
     sendCatch (mkDeleteNetworkAclEntry p1 p2 p3)
 
@@ -3260,7 +3259,7 @@ deleteNetworkInterfaceCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'dniNetworkInterfaceId'
-    -> m (Either ServiceEr DeleteNetworkInterfaceResponse)
+    -> m (Either EC2Error DeleteNetworkInterfaceResponse)
 deleteNetworkInterfaceCatch p1 =
     sendCatch (mkDeleteNetworkInterface p1)
 
@@ -3293,7 +3292,7 @@ deletePlacementGroupCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'dpgGroupName'
-    -> m (Either ServiceEr DeletePlacementGroupResponse)
+    -> m (Either EC2Error DeletePlacementGroupResponse)
 deletePlacementGroupCatch p1 =
     sendCatch (mkDeletePlacementGroup p1)
 
@@ -3326,7 +3325,7 @@ deleteRouteCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'drRouteTableId'
     -> Text -- ^ 'drDestinationCidrBlock'
-    -> m (Either ServiceEr DeleteRouteResponse)
+    -> m (Either EC2Error DeleteRouteResponse)
 deleteRouteCatch p1 p2 =
     sendCatch (mkDeleteRoute p1 p2)
 
@@ -3357,7 +3356,7 @@ deleteRouteTableCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'drtRouteTableId'
-    -> m (Either ServiceEr DeleteRouteTableResponse)
+    -> m (Either EC2Error DeleteRouteTableResponse)
 deleteRouteTableCatch p1 =
     sendCatch (mkDeleteRouteTable p1)
 
@@ -3396,7 +3395,7 @@ deleteSecurityGroupCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => State DeleteSecurityGroup a
-    -> m (Either ServiceEr DeleteSecurityGroupResponse)
+    -> m (Either EC2Error DeleteSecurityGroupResponse)
 deleteSecurityGroupCatch s =
     sendCatch (mkDeleteSecurityGroup &~ s)
 
@@ -3435,7 +3434,7 @@ deleteSnapshotCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'dsSnapshotId'
-    -> m (Either ServiceEr DeleteSnapshotResponse)
+    -> m (Either EC2Error DeleteSnapshotResponse)
 deleteSnapshotCatch p1 =
     sendCatch (mkDeleteSnapshot p1)
 
@@ -3465,7 +3464,7 @@ deleteSpotDatafeedSubscriptionCatch :: ( MonadCatch m
                                        , MonadResource m
                                        , MonadReader Env m
                                        )
-    => m (Either ServiceEr DeleteSpotDatafeedSubscriptionResponse)
+    => m (Either EC2Error DeleteSpotDatafeedSubscriptionResponse)
 deleteSpotDatafeedSubscriptionCatch =
     sendCatch (mkDeleteSpotDatafeedSubscription)
 
@@ -3495,7 +3494,7 @@ deleteSubnetCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'ds1SubnetId'
-    -> m (Either ServiceEr DeleteSubnetResponse)
+    -> m (Either EC2Error DeleteSubnetResponse)
 deleteSubnetCatch p1 =
     sendCatch (mkDeleteSubnet p1)
 
@@ -3543,7 +3542,7 @@ deleteTagsCatch :: ( MonadCatch m
                    )
     => [Text] -- ^ 'dtResources'
     -> State DeleteTags a
-    -> m (Either ServiceEr DeleteTagsResponse)
+    -> m (Either EC2Error DeleteTagsResponse)
 deleteTagsCatch p1 s =
     sendCatch $ (mkDeleteTags p1) &~ s
 
@@ -3576,7 +3575,7 @@ deleteVolumeCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'dvVolumeId'
-    -> m (Either ServiceEr DeleteVolumeResponse)
+    -> m (Either EC2Error DeleteVolumeResponse)
 deleteVolumeCatch p1 =
     sendCatch (mkDeleteVolume p1)
 
@@ -3610,7 +3609,7 @@ deleteVpcCatch :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'dv1VpcId'
-    -> m (Either ServiceEr DeleteVpcResponse)
+    -> m (Either EC2Error DeleteVpcResponse)
 deleteVpcCatch p1 =
     sendCatch (mkDeleteVpc p1)
 
@@ -3645,7 +3644,7 @@ deleteVpcPeeringConnectionCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => Text -- ^ 'dvpcVpcPeeringConnectionId'
-    -> m (Either ServiceEr DeleteVpcPeeringConnectionResponse)
+    -> m (Either EC2Error DeleteVpcPeeringConnectionResponse)
 deleteVpcPeeringConnectionCatch p1 =
     sendCatch (mkDeleteVpcPeeringConnection p1)
 
@@ -3678,7 +3677,7 @@ deleteVpnConnectionCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'dvcVpnConnectionId'
-    -> m (Either ServiceEr DeleteVpnConnectionResponse)
+    -> m (Either EC2Error DeleteVpnConnectionResponse)
 deleteVpnConnectionCatch p1 =
     sendCatch (mkDeleteVpnConnection p1)
 
@@ -3716,7 +3715,7 @@ deleteVpnConnectionRouteCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'dvcrVpnConnectionId'
     -> Text -- ^ 'dvcrDestinationCidrBlock'
-    -> m (Either ServiceEr DeleteVpnConnectionRouteResponse)
+    -> m (Either EC2Error DeleteVpnConnectionRouteResponse)
 deleteVpnConnectionRouteCatch p1 p2 =
     sendCatch (mkDeleteVpnConnectionRoute p1 p2)
 
@@ -3749,7 +3748,7 @@ deleteVpnGatewayCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'dvgVpnGatewayId'
-    -> m (Either ServiceEr DeleteVpnGatewayResponse)
+    -> m (Either EC2Error DeleteVpnGatewayResponse)
 deleteVpnGatewayCatch p1 =
     sendCatch (mkDeleteVpnGateway p1)
 
@@ -3780,7 +3779,7 @@ deregisterImageCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'diImageId'
-    -> m (Either ServiceEr DeregisterImageResponse)
+    -> m (Either EC2Error DeregisterImageResponse)
 deregisterImageCatch p1 =
     sendCatch (mkDeregisterImage p1)
 
@@ -3851,7 +3850,7 @@ describeAccountAttributesCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => State DescribeAccountAttributes a
-    -> m (Either ServiceEr DescribeAccountAttributesResponse)
+    -> m (Either EC2Error DescribeAccountAttributesResponse)
 describeAccountAttributesCatch s =
     sendCatch (mkDescribeAccountAttributes &~ s)
 
@@ -3914,7 +3913,7 @@ describeAddressesCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => State DescribeAddresses a
-    -> m (Either ServiceEr DescribeAddressesResponse)
+    -> m (Either EC2Error DescribeAddressesResponse)
 describeAddressesCatch s =
     sendCatch (mkDescribeAddresses &~ s)
 
@@ -3964,7 +3963,7 @@ describeAvailabilityZonesCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => State DescribeAvailabilityZones a
-    -> m (Either ServiceEr DescribeAvailabilityZonesResponse)
+    -> m (Either EC2Error DescribeAvailabilityZonesResponse)
 describeAvailabilityZonesCatch s =
     sendCatch (mkDescribeAvailabilityZones &~ s)
 
@@ -4003,7 +4002,7 @@ describeBundleTasksCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => State DescribeBundleTasks a
-    -> m (Either ServiceEr DescribeBundleTasksResponse)
+    -> m (Either EC2Error DescribeBundleTasksResponse)
 describeBundleTasksCatch s =
     sendCatch (mkDescribeBundleTasks &~ s)
 
@@ -4034,7 +4033,7 @@ describeConversionTasksCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => State DescribeConversionTasks a
-    -> m (Either ServiceEr DescribeConversionTasksResponse)
+    -> m (Either EC2Error DescribeConversionTasksResponse)
 describeConversionTasksCatch s =
     sendCatch (mkDescribeConversionTasks &~ s)
 
@@ -4079,7 +4078,7 @@ describeCustomerGatewaysCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => State DescribeCustomerGateways a
-    -> m (Either ServiceEr DescribeCustomerGatewaysResponse)
+    -> m (Either EC2Error DescribeCustomerGatewaysResponse)
 describeCustomerGatewaysCatch s =
     sendCatch (mkDescribeCustomerGateways &~ s)
 
@@ -4127,7 +4126,7 @@ describeDhcpOptionsCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => State DescribeDhcpOptions a
-    -> m (Either ServiceEr DescribeDhcpOptionsResponse)
+    -> m (Either EC2Error DescribeDhcpOptionsResponse)
 describeDhcpOptionsCatch s =
     sendCatch (mkDescribeDhcpOptions &~ s)
 
@@ -4170,7 +4169,7 @@ describeExportTasksCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => State DescribeExportTasks a
-    -> m (Either ServiceEr DescribeExportTasksResponse)
+    -> m (Either EC2Error DescribeExportTasksResponse)
 describeExportTasksCatch s =
     sendCatch (mkDescribeExportTasks &~ s)
 
@@ -4206,7 +4205,7 @@ describeImageAttributeCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'diaImageId'
     -> ImageAttributeName -- ^ 'diaAttribute'
-    -> m (Either ServiceEr DescribeImageAttributeResponse)
+    -> m (Either EC2Error DescribeImageAttributeResponse)
 describeImageAttributeCatch p1 p2 =
     sendCatch (mkDescribeImageAttribute p1 p2)
 
@@ -4258,7 +4257,7 @@ describeImagesCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => State DescribeImages a
-    -> m (Either ServiceEr DescribeImagesResponse)
+    -> m (Either EC2Error DescribeImagesResponse)
 describeImagesCatch s =
     sendCatch (mkDescribeImages &~ s)
 
@@ -4314,7 +4313,7 @@ describeInstanceAttributeCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'dia1InstanceId'
     -> InstanceAttributeName -- ^ 'dia1Attribute'
-    -> m (Either ServiceEr DescribeInstanceAttributeResponse)
+    -> m (Either EC2Error DescribeInstanceAttributeResponse)
 describeInstanceAttributeCatch p1 p2 =
     sendCatch (mkDescribeInstanceAttribute p1 p2)
 
@@ -4403,7 +4402,7 @@ describeInstanceStatusCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => State DescribeInstanceStatus a
-    -> Source m (Either ServiceEr DescribeInstanceStatusResponse)
+    -> Source m (Either EC2Error DescribeInstanceStatusResponse)
 describeInstanceStatusCatch s =
     paginateCatch (mkDescribeInstanceStatus &~ s)
 
@@ -4533,7 +4532,7 @@ describeInstancesCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => State DescribeInstances a
-    -> Source m (Either ServiceEr DescribeInstancesResponse)
+    -> Source m (Either EC2Error DescribeInstancesResponse)
 describeInstancesCatch s =
     paginateCatch (mkDescribeInstances &~ s)
 
@@ -4561,7 +4560,7 @@ describeInternetGatewaysCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => State DescribeInternetGateways a
-    -> m (Either ServiceEr DescribeInternetGatewaysResponse)
+    -> m (Either EC2Error DescribeInternetGatewaysResponse)
 describeInternetGatewaysCatch s =
     sendCatch (mkDescribeInternetGateways &~ s)
 
@@ -4594,7 +4593,7 @@ describeKeyPairsCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => State DescribeKeyPairs a
-    -> m (Either ServiceEr DescribeKeyPairsResponse)
+    -> m (Either EC2Error DescribeKeyPairsResponse)
 describeKeyPairsCatch s =
     sendCatch (mkDescribeKeyPairs &~ s)
 
@@ -4628,7 +4627,7 @@ describeNetworkAclsCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => State DescribeNetworkAcls a
-    -> m (Either ServiceEr DescribeNetworkAclsResponse)
+    -> m (Either EC2Error DescribeNetworkAclsResponse)
 describeNetworkAclsCatch s =
     sendCatch (mkDescribeNetworkAcls &~ s)
 
@@ -4665,7 +4664,7 @@ describeNetworkInterfaceAttributeCatch :: ( MonadCatch m
                                           )
     => Text -- ^ 'dniaNetworkInterfaceId'
     -> State DescribeNetworkInterfaceAttribute a
-    -> m (Either ServiceEr DescribeNetworkInterfaceAttributeResponse)
+    -> m (Either EC2Error DescribeNetworkInterfaceAttributeResponse)
 describeNetworkInterfaceAttributeCatch p1 s =
     sendCatch $ (mkDescribeNetworkInterfaceAttribute p1) &~ s
 
@@ -4751,7 +4750,7 @@ describeNetworkInterfacesCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => State DescribeNetworkInterfaces a
-    -> m (Either ServiceEr DescribeNetworkInterfacesResponse)
+    -> m (Either EC2Error DescribeNetworkInterfacesResponse)
 describeNetworkInterfacesCatch s =
     sendCatch (mkDescribeNetworkInterfaces &~ s)
 
@@ -4786,7 +4785,7 @@ describePlacementGroupsCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => State DescribePlacementGroups a
-    -> m (Either ServiceEr DescribePlacementGroupsResponse)
+    -> m (Either EC2Error DescribePlacementGroupsResponse)
 describePlacementGroupsCatch s =
     sendCatch (mkDescribePlacementGroups &~ s)
 
@@ -4818,7 +4817,7 @@ describeRegionsCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => State DescribeRegions a
-    -> m (Either ServiceEr DescribeRegionsResponse)
+    -> m (Either EC2Error DescribeRegionsResponse)
 describeRegionsCatch s =
     sendCatch (mkDescribeRegions &~ s)
 
@@ -4857,7 +4856,7 @@ describeReservedInstancesCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => State DescribeReservedInstances a
-    -> m (Either ServiceEr DescribeReservedInstancesResponse)
+    -> m (Either EC2Error DescribeReservedInstancesResponse)
 describeReservedInstancesCatch s =
     sendCatch (mkDescribeReservedInstances &~ s)
 
@@ -4891,7 +4890,7 @@ describeReservedInstancesListingsCatch :: ( MonadCatch m
                                           , MonadReader Env m
                                           )
     => State DescribeReservedInstancesListings a
-    -> m (Either ServiceEr DescribeReservedInstancesListingsResponse)
+    -> m (Either EC2Error DescribeReservedInstancesListingsResponse)
 describeReservedInstancesListingsCatch s =
     sendCatch (mkDescribeReservedInstancesListings &~ s)
 
@@ -4923,7 +4922,7 @@ describeReservedInstancesModificationsCatch :: ( MonadCatch m
                                                , MonadReader Env m
                                                )
     => State DescribeReservedInstancesModifications a
-    -> Source m (Either ServiceEr DescribeReservedInstancesModificationsResponse)
+    -> Source m (Either EC2Error DescribeReservedInstancesModificationsResponse)
 describeReservedInstancesModificationsCatch s =
     paginateCatch (mkDescribeReservedInstancesModifications &~ s)
 
@@ -4993,7 +4992,7 @@ describeReservedInstancesOfferingsCatch :: ( MonadCatch m
                                            , MonadReader Env m
                                            )
     => State DescribeReservedInstancesOfferings a
-    -> Source m (Either ServiceEr DescribeReservedInstancesOfferingsResponse)
+    -> Source m (Either EC2Error DescribeReservedInstancesOfferingsResponse)
 describeReservedInstancesOfferingsCatch s =
     paginateCatch (mkDescribeReservedInstancesOfferings &~ s)
 
@@ -5027,7 +5026,7 @@ describeRouteTablesCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => State DescribeRouteTables a
-    -> m (Either ServiceEr DescribeRouteTablesResponse)
+    -> m (Either EC2Error DescribeRouteTablesResponse)
 describeRouteTablesCatch s =
     sendCatch (mkDescribeRouteTables &~ s)
 
@@ -5071,7 +5070,7 @@ describeSecurityGroupsCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => State DescribeSecurityGroups a
-    -> m (Either ServiceEr DescribeSecurityGroupsResponse)
+    -> m (Either EC2Error DescribeSecurityGroupsResponse)
 describeSecurityGroupsCatch s =
     sendCatch (mkDescribeSecurityGroups &~ s)
 
@@ -5104,7 +5103,7 @@ describeSnapshotAttributeCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'dsaSnapshotId'
     -> SnapshotAttributeName -- ^ 'dsaAttribute'
-    -> m (Either ServiceEr DescribeSnapshotAttributeResponse)
+    -> m (Either EC2Error DescribeSnapshotAttributeResponse)
 describeSnapshotAttributeCatch p1 p2 =
     sendCatch (mkDescribeSnapshotAttribute p1 p2)
 
@@ -5166,7 +5165,7 @@ describeSnapshotsCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => State DescribeSnapshots a
-    -> m (Either ServiceEr DescribeSnapshotsResponse)
+    -> m (Either EC2Error DescribeSnapshotsResponse)
 describeSnapshotsCatch s =
     sendCatch (mkDescribeSnapshots &~ s)
 
@@ -5193,7 +5192,7 @@ describeSpotDatafeedSubscriptionCatch :: ( MonadCatch m
                                          , MonadResource m
                                          , MonadReader Env m
                                          )
-    => m (Either ServiceEr DescribeSpotDatafeedSubscriptionResponse)
+    => m (Either EC2Error DescribeSpotDatafeedSubscriptionResponse)
 describeSpotDatafeedSubscriptionCatch =
     sendCatch (mkDescribeSpotDatafeedSubscription)
 
@@ -5238,7 +5237,7 @@ describeSpotInstanceRequestsCatch :: ( MonadCatch m
                                      , MonadReader Env m
                                      )
     => State DescribeSpotInstanceRequests a
-    -> m (Either ServiceEr DescribeSpotInstanceRequestsResponse)
+    -> m (Either EC2Error DescribeSpotInstanceRequestsResponse)
 describeSpotInstanceRequestsCatch s =
     sendCatch (mkDescribeSpotInstanceRequests &~ s)
 
@@ -5287,7 +5286,7 @@ describeSpotPriceHistoryCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => State DescribeSpotPriceHistory a
-    -> Source m (Either ServiceEr DescribeSpotPriceHistoryResponse)
+    -> Source m (Either EC2Error DescribeSpotPriceHistoryResponse)
 describeSpotPriceHistoryCatch s =
     paginateCatch (mkDescribeSpotPriceHistory &~ s)
 
@@ -5343,7 +5342,7 @@ describeSubnetsCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => State DescribeSubnets a
-    -> m (Either ServiceEr DescribeSubnetsResponse)
+    -> m (Either EC2Error DescribeSubnetsResponse)
 describeSubnetsCatch s =
     sendCatch (mkDescribeSubnets &~ s)
 
@@ -5404,7 +5403,7 @@ describeTagsCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => State DescribeTags a
-    -> Source m (Either ServiceEr DescribeTagsResponse)
+    -> Source m (Either EC2Error DescribeTagsResponse)
 describeTagsCatch s =
     paginateCatch (mkDescribeTags &~ s)
 
@@ -5453,7 +5452,7 @@ describeVolumeAttributeCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'dvaVolumeId'
     -> State DescribeVolumeAttribute a
-    -> m (Either ServiceEr DescribeVolumeAttributeResponse)
+    -> m (Either EC2Error DescribeVolumeAttributeResponse)
 describeVolumeAttributeCatch p1 s =
     sendCatch $ (mkDescribeVolumeAttribute p1) &~ s
 
@@ -5520,7 +5519,7 @@ describeVolumeStatusCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => State DescribeVolumeStatus a
-    -> Source m (Either ServiceEr DescribeVolumeStatusResponse)
+    -> Source m (Either EC2Error DescribeVolumeStatusResponse)
 describeVolumeStatusCatch s =
     paginateCatch (mkDescribeVolumeStatus &~ s)
 
@@ -5565,7 +5564,7 @@ describeVolumesCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => State DescribeVolumes a
-    -> m (Either ServiceEr DescribeVolumesResponse)
+    -> m (Either EC2Error DescribeVolumesResponse)
 describeVolumesCatch s =
     sendCatch (mkDescribeVolumes &~ s)
 
@@ -5612,7 +5611,7 @@ describeVpcAttributeCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'dva1VpcId'
     -> State DescribeVpcAttribute a
-    -> m (Either ServiceEr DescribeVpcAttributeResponse)
+    -> m (Either EC2Error DescribeVpcAttributeResponse)
 describeVpcAttributeCatch p1 s =
     sendCatch $ (mkDescribeVpcAttribute p1) &~ s
 
@@ -5668,7 +5667,7 @@ describeVpcPeeringConnectionsCatch :: ( MonadCatch m
                                       , MonadReader Env m
                                       )
     => State DescribeVpcPeeringConnections a
-    -> m (Either ServiceEr DescribeVpcPeeringConnectionsResponse)
+    -> m (Either EC2Error DescribeVpcPeeringConnectionsResponse)
 describeVpcPeeringConnectionsCatch s =
     sendCatch (mkDescribeVpcPeeringConnections &~ s)
 
@@ -5709,7 +5708,7 @@ describeVpcsCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => State DescribeVpcs a
-    -> m (Either ServiceEr DescribeVpcsResponse)
+    -> m (Either EC2Error DescribeVpcsResponse)
 describeVpcsCatch s =
     sendCatch (mkDescribeVpcs &~ s)
 
@@ -5759,7 +5758,7 @@ describeVpnConnectionsCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => State DescribeVpnConnections a
-    -> m (Either ServiceEr DescribeVpnConnectionsResponse)
+    -> m (Either EC2Error DescribeVpnConnectionsResponse)
 describeVpnConnectionsCatch s =
     sendCatch (mkDescribeVpnConnections &~ s)
 
@@ -5805,7 +5804,7 @@ describeVpnGatewaysCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => State DescribeVpnGateways a
-    -> m (Either ServiceEr DescribeVpnGatewaysResponse)
+    -> m (Either EC2Error DescribeVpnGatewaysResponse)
 describeVpnGatewaysCatch s =
     sendCatch (mkDescribeVpnGateways &~ s)
 
@@ -5840,7 +5839,7 @@ detachInternetGatewayCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'dig2InternetGatewayId'
     -> Text -- ^ 'dig2VpcId'
-    -> m (Either ServiceEr DetachInternetGatewayResponse)
+    -> m (Either EC2Error DetachInternetGatewayResponse)
 detachInternetGatewayCatch p1 p2 =
     sendCatch (mkDetachInternetGateway p1 p2)
 
@@ -5873,7 +5872,7 @@ detachNetworkInterfaceCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'dni2AttachmentId'
     -> State DetachNetworkInterface a
-    -> m (Either ServiceEr DetachNetworkInterfaceResponse)
+    -> m (Either EC2Error DetachNetworkInterfaceResponse)
 detachNetworkInterfaceCatch p1 s =
     sendCatch $ (mkDetachNetworkInterface p1) &~ s
 
@@ -5918,7 +5917,7 @@ detachVolumeCatch :: ( MonadCatch m
                      )
     => Text -- ^ 'dv4VolumeId'
     -> State DetachVolume a
-    -> m (Either ServiceEr DetachVolumeResponse)
+    -> m (Either EC2Error DetachVolumeResponse)
 detachVolumeCatch p1 s =
     sendCatch $ (mkDetachVolume p1) &~ s
 
@@ -5957,7 +5956,7 @@ detachVpnGatewayCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'dvg2VpnGatewayId'
     -> Text -- ^ 'dvg2VpcId'
-    -> m (Either ServiceEr DetachVpnGatewayResponse)
+    -> m (Either EC2Error DetachVpnGatewayResponse)
 detachVpnGatewayCatch p1 p2 =
     sendCatch (mkDetachVpnGateway p1 p2)
 
@@ -5993,7 +5992,7 @@ disableVgwRoutePropagationCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'dvrpRouteTableId'
     -> Text -- ^ 'dvrpGatewayId'
-    -> m (Either ServiceEr DisableVgwRoutePropagationResponse)
+    -> m (Either EC2Error DisableVgwRoutePropagationResponse)
 disableVgwRoutePropagationCatch p1 p2 =
     sendCatch (mkDisableVgwRoutePropagation p1 p2)
 
@@ -6027,7 +6026,7 @@ disassociateAddressCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => State DisassociateAddress a
-    -> m (Either ServiceEr DisassociateAddressResponse)
+    -> m (Either EC2Error DisassociateAddressResponse)
 disassociateAddressCatch s =
     sendCatch (mkDisassociateAddress &~ s)
 
@@ -6062,7 +6061,7 @@ disassociateRouteTableCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'drt2AssociationId'
-    -> m (Either ServiceEr DisassociateRouteTableResponse)
+    -> m (Either EC2Error DisassociateRouteTableResponse)
 disassociateRouteTableCatch p1 =
     sendCatch (mkDisassociateRouteTable p1)
 
@@ -6096,7 +6095,7 @@ enableVgwRoutePropagationCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'evrpRouteTableId'
     -> Text -- ^ 'evrpGatewayId'
-    -> m (Either ServiceEr EnableVgwRoutePropagationResponse)
+    -> m (Either EC2Error EnableVgwRoutePropagationResponse)
 enableVgwRoutePropagationCatch p1 p2 =
     sendCatch (mkEnableVgwRoutePropagation p1 p2)
 
@@ -6127,7 +6126,7 @@ enableVolumeIOCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'evioVolumeId'
-    -> m (Either ServiceEr EnableVolumeIOResponse)
+    -> m (Either EC2Error EnableVolumeIOResponse)
 enableVolumeIOCatch p1 =
     sendCatch (mkEnableVolumeIO p1)
 
@@ -6185,7 +6184,7 @@ getConsoleOutputCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'gcoInstanceId'
-    -> m (Either ServiceEr GetConsoleOutputResponse)
+    -> m (Either EC2Error GetConsoleOutputResponse)
 getConsoleOutputCatch p1 =
     sendCatch (mkGetConsoleOutput p1)
 
@@ -6225,7 +6224,7 @@ getPasswordDataCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'gpdInstanceId'
-    -> m (Either ServiceEr GetPasswordDataResponse)
+    -> m (Either EC2Error GetPasswordDataResponse)
 getPasswordDataCatch p1 =
     sendCatch (mkGetPasswordData p1)
 
@@ -6266,7 +6265,7 @@ importInstanceCatch :: ( MonadCatch m
                        )
     => PlatformValues -- ^ 'iiPlatform'
     -> State ImportInstance a
-    -> m (Either ServiceEr ImportInstanceResponse)
+    -> m (Either EC2Error ImportInstanceResponse)
 importInstanceCatch p4 s =
     sendCatch $ (mkImportInstance p4) &~ s
 
@@ -6320,7 +6319,7 @@ importKeyPairCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'ikpKeyName'
     -> ByteString -- ^ 'ikpPublicKeyMaterial'
-    -> m (Either ServiceEr ImportKeyPairResponse)
+    -> m (Either EC2Error ImportKeyPairResponse)
 importKeyPairCatch p1 p2 =
     sendCatch (mkImportKeyPair p1 p2)
 
@@ -6364,7 +6363,7 @@ importVolumeCatch :: ( MonadCatch m
     -> DiskImageDetail -- ^ 'ivImage'
     -> VolumeDetail -- ^ 'ivVolume'
     -> State ImportVolume a
-    -> m (Either ServiceEr ImportVolumeResponse)
+    -> m (Either EC2Error ImportVolumeResponse)
 importVolumeCatch p1 p2 p4 s =
     sendCatch $ (mkImportVolume p1 p2 p4) &~ s
 
@@ -6392,7 +6391,7 @@ modifyImageAttributeCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'miaImageId'
     -> State ModifyImageAttribute a
-    -> m (Either ServiceEr ModifyImageAttributeResponse)
+    -> m (Either EC2Error ModifyImageAttributeResponse)
 modifyImageAttributeCatch p1 s =
     sendCatch $ (mkModifyImageAttribute p1) &~ s
 
@@ -6446,7 +6445,7 @@ modifyInstanceAttributeCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'mia1InstanceId'
     -> State ModifyInstanceAttribute a
-    -> m (Either ServiceEr ModifyInstanceAttributeResponse)
+    -> m (Either EC2Error ModifyInstanceAttributeResponse)
 modifyInstanceAttributeCatch p1 s =
     sendCatch $ (mkModifyInstanceAttribute p1) &~ s
 
@@ -6481,7 +6480,7 @@ modifyNetworkInterfaceAttributeCatch :: ( MonadCatch m
                                         )
     => Text -- ^ 'mniaNetworkInterfaceId'
     -> State ModifyNetworkInterfaceAttribute a
-    -> m (Either ServiceEr ModifyNetworkInterfaceAttributeResponse)
+    -> m (Either EC2Error ModifyNetworkInterfaceAttributeResponse)
 modifyNetworkInterfaceAttributeCatch p1 s =
     sendCatch $ (mkModifyNetworkInterfaceAttribute p1) &~ s
 
@@ -6521,7 +6520,7 @@ modifyReservedInstancesCatch :: ( MonadCatch m
     => [Text] -- ^ 'mriReservedInstancesIds'
     -> [ReservedInstancesConfiguration] -- ^ 'mriTargetConfigurations'
     -> State ModifyReservedInstances a
-    -> m (Either ServiceEr ModifyReservedInstancesResponse)
+    -> m (Either EC2Error ModifyReservedInstancesResponse)
 modifyReservedInstancesCatch p2 p3 s =
     sendCatch $ (mkModifyReservedInstances p2 p3) &~ s
 
@@ -6574,7 +6573,7 @@ modifySnapshotAttributeCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'msaSnapshotId'
     -> State ModifySnapshotAttribute a
-    -> m (Either ServiceEr ModifySnapshotAttributeResponse)
+    -> m (Either EC2Error ModifySnapshotAttributeResponse)
 modifySnapshotAttributeCatch p1 s =
     sendCatch $ (mkModifySnapshotAttribute p1) &~ s
 
@@ -6605,7 +6604,7 @@ modifySubnetAttributeCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'msa1SubnetId'
     -> State ModifySubnetAttribute a
-    -> m (Either ServiceEr ModifySubnetAttributeResponse)
+    -> m (Either EC2Error ModifySubnetAttributeResponse)
 modifySubnetAttributeCatch p1 s =
     sendCatch $ (mkModifySubnetAttribute p1) &~ s
 
@@ -6644,7 +6643,7 @@ modifyVolumeAttributeCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'mvaVolumeId'
     -> State ModifyVolumeAttribute a
-    -> m (Either ServiceEr ModifyVolumeAttributeResponse)
+    -> m (Either EC2Error ModifyVolumeAttributeResponse)
 modifyVolumeAttributeCatch p1 s =
     sendCatch $ (mkModifyVolumeAttribute p1) &~ s
 
@@ -6674,7 +6673,7 @@ modifyVpcAttributeCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'mva1VpcId'
     -> State ModifyVpcAttribute a
-    -> m (Either ServiceEr ModifyVpcAttributeResponse)
+    -> m (Either EC2Error ModifyVpcAttributeResponse)
 modifyVpcAttributeCatch p1 s =
     sendCatch $ (mkModifyVpcAttribute p1) &~ s
 
@@ -6712,7 +6711,7 @@ monitorInstancesCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => [Text] -- ^ 'miInstanceIds'
-    -> m (Either ServiceEr MonitorInstancesResponse)
+    -> m (Either EC2Error MonitorInstancesResponse)
 monitorInstancesCatch p1 =
     sendCatch (mkMonitorInstances p1)
 
@@ -6761,7 +6760,7 @@ purchaseReservedInstancesOfferingCatch :: ( MonadCatch m
     => Text -- ^ 'prioReservedInstancesOfferingId'
     -> Integer -- ^ 'prioInstanceCount'
     -> State PurchaseReservedInstancesOffering a
-    -> m (Either ServiceEr PurchaseReservedInstancesOfferingResponse)
+    -> m (Either EC2Error PurchaseReservedInstancesOfferingResponse)
 purchaseReservedInstancesOfferingCatch p1 p2 s =
     sendCatch $ (mkPurchaseReservedInstancesOffering p1 p2) &~ s
 
@@ -6798,7 +6797,7 @@ rebootInstancesCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => [Text] -- ^ 'ri1InstanceIds'
-    -> m (Either ServiceEr RebootInstancesResponse)
+    -> m (Either EC2Error RebootInstancesResponse)
 rebootInstancesCatch p1 =
     sendCatch (mkRebootInstances p1)
 
@@ -6868,7 +6867,7 @@ registerImageCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'ri2Name'
     -> State RegisterImage a
-    -> m (Either ServiceEr RegisterImageResponse)
+    -> m (Either EC2Error RegisterImageResponse)
 registerImageCatch p2 s =
     sendCatch $ (mkRegisterImage p2) &~ s
 
@@ -6902,7 +6901,7 @@ rejectVpcPeeringConnectionCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => Text -- ^ 'rvpcVpcPeeringConnectionId'
-    -> m (Either ServiceEr RejectVpcPeeringConnectionResponse)
+    -> m (Either EC2Error RejectVpcPeeringConnectionResponse)
 rejectVpcPeeringConnectionCatch p1 =
     sendCatch (mkRejectVpcPeeringConnection p1)
 
@@ -6943,7 +6942,7 @@ releaseAddressCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => State ReleaseAddress a
-    -> m (Either ServiceEr ReleaseAddressResponse)
+    -> m (Either EC2Error ReleaseAddressResponse)
 releaseAddressCatch s =
     sendCatch (mkReleaseAddress &~ s)
 
@@ -6983,7 +6982,7 @@ replaceNetworkAclAssociationCatch :: ( MonadCatch m
                                      )
     => Text -- ^ 'rnaaAssociationId'
     -> Text -- ^ 'rnaaNetworkAclId'
-    -> m (Either ServiceEr ReplaceNetworkAclAssociationResponse)
+    -> m (Either EC2Error ReplaceNetworkAclAssociationResponse)
 replaceNetworkAclAssociationCatch p1 p2 =
     sendCatch (mkReplaceNetworkAclAssociation p1 p2)
 
@@ -7031,7 +7030,7 @@ replaceNetworkAclEntryCatch :: ( MonadCatch m
     -> Bool -- ^ 'rnaeEgress'
     -> Text -- ^ 'rnaeCidrBlock'
     -> State ReplaceNetworkAclEntry a
-    -> m (Either ServiceEr ReplaceNetworkAclEntryResponse)
+    -> m (Either EC2Error ReplaceNetworkAclEntryResponse)
 replaceNetworkAclEntryCatch p1 p2 p3 p4 p5 p6 s =
     sendCatch $ (mkReplaceNetworkAclEntry p1 p2 p3 p4 p5 p6) &~ s
 
@@ -7071,7 +7070,7 @@ replaceRouteCatch :: ( MonadCatch m
     => Text -- ^ 'rr1RouteTableId'
     -> Text -- ^ 'rr1DestinationCidrBlock'
     -> State ReplaceRoute a
-    -> m (Either ServiceEr ReplaceRouteResponse)
+    -> m (Either EC2Error ReplaceRouteResponse)
 replaceRouteCatch p1 p2 s =
     sendCatch $ (mkReplaceRoute p1 p2) &~ s
 
@@ -7110,7 +7109,7 @@ replaceRouteTableAssociationCatch :: ( MonadCatch m
                                      )
     => Text -- ^ 'rrtaAssociationId'
     -> Text -- ^ 'rrtaRouteTableId'
-    -> m (Either ServiceEr ReplaceRouteTableAssociationResponse)
+    -> m (Either EC2Error ReplaceRouteTableAssociationResponse)
 replaceRouteTableAssociationCatch p1 p2 =
     sendCatch (mkReplaceRouteTableAssociation p1 p2)
 
@@ -7153,7 +7152,7 @@ reportInstanceStatusCatch :: ( MonadCatch m
     -> ReportStatusType -- ^ 'risStatus'
     -> [ReportInstanceReasonCodes] -- ^ 'risReasonCodes'
     -> State ReportInstanceStatus a
-    -> m (Either ServiceEr ReportInstanceStatusResponse)
+    -> m (Either EC2Error ReportInstanceStatusResponse)
 reportInstanceStatusCatch p1 p2 p5 s =
     sendCatch $ (mkReportInstanceStatus p1 p2 p5) &~ s
 
@@ -7201,7 +7200,7 @@ requestSpotInstancesCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'rsiSpotPrice'
     -> State RequestSpotInstances a
-    -> m (Either ServiceEr RequestSpotInstancesResponse)
+    -> m (Either EC2Error RequestSpotInstancesResponse)
 requestSpotInstancesCatch p1 s =
     sendCatch $ (mkRequestSpotInstances p1) &~ s
 
@@ -7234,7 +7233,7 @@ resetImageAttributeCatch :: ( MonadCatch m
                             )
     => Text -- ^ 'riaImageId'
     -> ResetImageAttributeName -- ^ 'riaAttribute'
-    -> m (Either ServiceEr ResetImageAttributeResponse)
+    -> m (Either EC2Error ResetImageAttributeResponse)
 resetImageAttributeCatch p1 p2 =
     sendCatch (mkResetImageAttribute p1 p2)
 
@@ -7273,7 +7272,7 @@ resetInstanceAttributeCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'ria1InstanceId'
     -> InstanceAttributeName -- ^ 'ria1Attribute'
-    -> m (Either ServiceEr ResetInstanceAttributeResponse)
+    -> m (Either EC2Error ResetInstanceAttributeResponse)
 resetInstanceAttributeCatch p1 p2 =
     sendCatch (mkResetInstanceAttribute p1 p2)
 
@@ -7308,7 +7307,7 @@ resetNetworkInterfaceAttributeCatch :: ( MonadCatch m
                                        )
     => Text -- ^ 'rniaNetworkInterfaceId'
     -> State ResetNetworkInterfaceAttribute a
-    -> m (Either ServiceEr ResetNetworkInterfaceAttributeResponse)
+    -> m (Either EC2Error ResetNetworkInterfaceAttributeResponse)
 resetNetworkInterfaceAttributeCatch p1 s =
     sendCatch $ (mkResetNetworkInterfaceAttribute p1) &~ s
 
@@ -7344,7 +7343,7 @@ resetSnapshotAttributeCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'rsaSnapshotId'
     -> SnapshotAttributeName -- ^ 'rsaAttribute'
-    -> m (Either ServiceEr ResetSnapshotAttributeResponse)
+    -> m (Either EC2Error ResetSnapshotAttributeResponse)
 resetSnapshotAttributeCatch p1 p2 =
     sendCatch (mkResetSnapshotAttribute p1 p2)
 
@@ -7390,7 +7389,7 @@ revokeSecurityGroupEgressCatch :: ( MonadCatch m
                                   )
     => Text -- ^ 'rsgeGroupId'
     -> State RevokeSecurityGroupEgress a
-    -> m (Either ServiceEr RevokeSecurityGroupEgressResponse)
+    -> m (Either EC2Error RevokeSecurityGroupEgressResponse)
 revokeSecurityGroupEgressCatch p1 s =
     sendCatch $ (mkRevokeSecurityGroupEgress p1) &~ s
 
@@ -7432,7 +7431,7 @@ revokeSecurityGroupIngressCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => State RevokeSecurityGroupIngress a
-    -> m (Either ServiceEr RevokeSecurityGroupIngressResponse)
+    -> m (Either EC2Error RevokeSecurityGroupIngressResponse)
 revokeSecurityGroupIngressCatch s =
     sendCatch (mkRevokeSecurityGroupIngress &~ s)
 
@@ -7527,7 +7526,7 @@ runInstancesCatch :: ( MonadCatch m
     -> Integer -- ^ 'ri3MinCount'
     -> Integer -- ^ 'ri3MaxCount'
     -> State RunInstances a
-    -> m (Either ServiceEr RunInstancesResponse)
+    -> m (Either EC2Error RunInstancesResponse)
 runInstancesCatch p1 p2 p3 s =
     sendCatch $ (mkRunInstances p1 p2 p3) &~ s
 
@@ -7576,7 +7575,7 @@ startInstancesCatch :: ( MonadCatch m
                        )
     => [Text] -- ^ 'siInstanceIds'
     -> State StartInstances a
-    -> m (Either ServiceEr StartInstancesResponse)
+    -> m (Either EC2Error StartInstancesResponse)
 startInstancesCatch p1 s =
     sendCatch $ (mkStartInstances p1) &~ s
 
@@ -7634,7 +7633,7 @@ stopInstancesCatch :: ( MonadCatch m
                       )
     => [Text] -- ^ 'si1InstanceIds'
     -> State StopInstances a
-    -> m (Either ServiceEr StopInstancesResponse)
+    -> m (Either EC2Error StopInstancesResponse)
 stopInstancesCatch p1 s =
     sendCatch $ (mkStopInstances p1) &~ s
 
@@ -7683,7 +7682,7 @@ terminateInstancesCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => [Text] -- ^ 'tiInstanceIds'
-    -> m (Either ServiceEr TerminateInstancesResponse)
+    -> m (Either EC2Error TerminateInstancesResponse)
 terminateInstancesCatch p1 =
     sendCatch (mkTerminateInstances p1)
 
@@ -7718,7 +7717,7 @@ unassignPrivateIpAddressesCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'upiaNetworkInterfaceId'
     -> [Text] -- ^ 'upiaPrivateIpAddresses'
-    -> m (Either ServiceEr UnassignPrivateIpAddressesResponse)
+    -> m (Either EC2Error UnassignPrivateIpAddressesResponse)
 unassignPrivateIpAddressesCatch p1 p2 =
     sendCatch (mkUnassignPrivateIpAddresses p1 p2)
 
@@ -7756,6 +7755,6 @@ unmonitorInstancesCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => [Text] -- ^ 'uiInstanceIds'
-    -> m (Either ServiceEr UnmonitorInstancesResponse)
+    -> m (Either EC2Error UnmonitorInstancesResponse)
 unmonitorInstancesCatch p1 =
     sendCatch (mkUnmonitorInstances p1)

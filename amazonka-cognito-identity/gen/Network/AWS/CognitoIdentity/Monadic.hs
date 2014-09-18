@@ -105,7 +105,6 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CognitoIdentity
 
-type ServiceEr = Er CognitoIdentity
 
 -- $CreateIdentityPool
 -- Creates a new identity pool. The identity pool is a store of user identity
@@ -142,7 +141,7 @@ createIdentityPoolCatch :: ( MonadCatch m
     => Text -- ^ 'cipIdentityPoolName'
     -> Bool -- ^ 'cipAllowUnauthenticatedIdentities'
     -> State CreateIdentityPool a
-    -> m (Either ServiceEr CreateIdentityPoolResponse)
+    -> m (Either CognitoIdentityError CreateIdentityPoolResponse)
 createIdentityPoolCatch p1 p2 s =
     sendCatch $ (mkCreateIdentityPool p1 p2) &~ s
 
@@ -169,7 +168,7 @@ deleteIdentityPoolCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => Text -- ^ 'dipIdentityPoolId'
-    -> m (Either ServiceEr DeleteIdentityPoolResponse)
+    -> m (Either CognitoIdentityError DeleteIdentityPoolResponse)
 deleteIdentityPoolCatch p1 =
     sendCatch (mkDeleteIdentityPool p1)
 
@@ -202,7 +201,7 @@ describeIdentityPoolCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => Text -- ^ 'dip1IdentityPoolId'
-    -> m (Either ServiceEr DescribeIdentityPoolResponse)
+    -> m (Either CognitoIdentityError DescribeIdentityPoolResponse)
 describeIdentityPoolCatch p1 =
     sendCatch (mkDescribeIdentityPool p1)
 
@@ -235,7 +234,7 @@ getIdCatch :: ( MonadCatch m
     => Text -- ^ 'giAccountId'
     -> Text -- ^ 'giIdentityPoolId'
     -> State GetId a
-    -> m (Either ServiceEr GetIdResponse)
+    -> m (Either CognitoIdentityError GetIdResponse)
 getIdCatch p1 p2 s =
     sendCatch $ (mkGetId p1 p2) &~ s
 
@@ -269,7 +268,7 @@ getOpenIdTokenCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'goitIdentityId'
     -> State GetOpenIdToken a
-    -> m (Either ServiceEr GetOpenIdTokenResponse)
+    -> m (Either CognitoIdentityError GetOpenIdTokenResponse)
 getOpenIdTokenCatch p1 s =
     sendCatch $ (mkGetOpenIdToken p1) &~ s
 
@@ -304,7 +303,7 @@ listIdentitiesCatch :: ( MonadCatch m
     => Text -- ^ 'liIdentityPoolId'
     -> Integer -- ^ 'liMaxResults'
     -> State ListIdentities a
-    -> m (Either ServiceEr ListIdentitiesResponse)
+    -> m (Either CognitoIdentityError ListIdentitiesResponse)
 listIdentitiesCatch p1 p2 s =
     sendCatch $ (mkListIdentities p1 p2) &~ s
 
@@ -336,7 +335,7 @@ listIdentityPoolsCatch :: ( MonadCatch m
                           )
     => Integer -- ^ 'lipMaxResults'
     -> State ListIdentityPools a
-    -> m (Either ServiceEr ListIdentityPoolsResponse)
+    -> m (Either CognitoIdentityError ListIdentityPoolsResponse)
 listIdentityPoolsCatch p1 s =
     sendCatch $ (mkListIdentityPools p1) &~ s
 
@@ -366,7 +365,7 @@ unlinkIdentityCatch :: ( MonadCatch m
     => Text -- ^ 'uiIdentityId'
     -> Map Text Text -- ^ 'uiLogins'
     -> [Text] -- ^ 'uiLoginsToRemove'
-    -> m (Either ServiceEr UnlinkIdentityResponse)
+    -> m (Either CognitoIdentityError UnlinkIdentityResponse)
 unlinkIdentityCatch p1 p2 p3 =
     sendCatch (mkUnlinkIdentity p1 p2 p3)
 
@@ -408,6 +407,6 @@ updateIdentityPoolCatch :: ( MonadCatch m
     -> Text -- ^ 'uipIdentityPoolName'
     -> Bool -- ^ 'uipAllowUnauthenticatedIdentities'
     -> State UpdateIdentityPool a
-    -> m (Either ServiceEr UpdateIdentityPoolResponse)
+    -> m (Either CognitoIdentityError UpdateIdentityPoolResponse)
 updateIdentityPoolCatch p1 p2 p3 s =
     sendCatch $ (mkUpdateIdentityPool p1 p2 p3) &~ s

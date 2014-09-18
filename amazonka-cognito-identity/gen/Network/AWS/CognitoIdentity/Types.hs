@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,6 +32,18 @@ module Network.AWS.CognitoIdentity.Types
     (
     -- * Service
       CognitoIdentity
+    -- ** Errors
+    , CognitoIdentityError (..)
+    , _CognitoIdentityClient
+    , _CognitoIdentitySerializer
+    , _CognitoIdentityService
+    , _InternalErrorException
+    , _InvalidParameterException
+    , _LimitExceededException
+    , _NotAuthorizedException
+    , _ResourceConflictException
+    , _ResourceNotFoundException
+    , _TooManyRequestsException
     -- * IdentityDescription
     , IdentityDescription
     , mkIdentityDescription
@@ -54,31 +66,7 @@ data CognitoIdentity deriving (Typeable)
 
 instance AWSService CognitoIdentity where
     type Sg CognitoIdentity = V4
-    data Er CognitoIdentity
-        = CognitoIdentityClient HttpException
-        | CognitoIdentitySerializer String
-        | CognitoIdentityService String
-        | InternalErrorException
-            { _ieeMessage :: Maybe Text
-            }
-        | InvalidParameterException
-            { _ipeMessage :: Maybe Text
-            }
-        | LimitExceededException
-            { _leeMessage :: Maybe Text
-            }
-        | NotAuthorizedException
-            { _naeMessage :: Maybe Text
-            }
-        | ResourceConflictException
-            { _rceMessage :: Maybe Text
-            }
-        | ResourceNotFoundException
-            { _rnfeMessage :: Maybe Text
-            }
-        | TooManyRequestsException
-            { _tmreMessage :: Maybe Text
-            }
+    type Er CognitoIdentity = CognitoIdentityError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -87,18 +75,155 @@ instance AWSService CognitoIdentity where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er CognitoIdentity)
-deriving instance Generic (Er CognitoIdentity)
+-- | A sum type representing possible errors returned by the 'CognitoIdentity' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data CognitoIdentityError
+    = CognitoIdentityClient HttpException
+    | CognitoIdentitySerializer Text
+    | CognitoIdentityService Text
+      -- | Thrown when the service encounters an error during processing the
+      -- request.
+    | InternalErrorException
+        { _ieeMessage :: Maybe Text
+        }
+      -- | Thrown for missing or bad input parameter(s).
+    | InvalidParameterException
+        { _ipeMessage :: Maybe Text
+        }
+      -- | Thrown when the total number of user pools has exceeded a preset
+      -- limit.
+    | LimitExceededException
+        { _leeMessage :: Maybe Text
+        }
+      -- | Thrown when a user is not authorized to access the requested
+      -- resource.
+    | NotAuthorizedException
+        { _naeMessage :: Maybe Text
+        }
+      -- | Thrown when a user tries to use a login which is already linked
+      -- to another account.
+    | ResourceConflictException
+        { _rceMessage :: Maybe Text
+        }
+      -- | Thrown when the requested resource (for example, a dataset or
+      -- record) does not exist.
+    | ResourceNotFoundException
+        { _rnfeMessage :: Maybe Text
+        }
+      -- | Thrown when a request is throttled.
+    | TooManyRequestsException
+        { _tmreMessage :: Maybe Text
+        }
+    deriving (Show, Generic)
 
-instance AWSError (Er CognitoIdentity) where
+instance AWSError CognitoIdentityError where
     awsError = const "CognitoIdentityError"
 
-instance AWSServiceError (Er CognitoIdentity) where
+instance AWSServiceError CognitoIdentityError where
     serviceError    = CognitoIdentityService
     clientError     = CognitoIdentityClient
     serializerError = CognitoIdentitySerializer
 
-instance Exception (Er CognitoIdentity)
+instance Exception CognitoIdentityError
+
+-- | See: 'CognitoIdentityClient'
+_CognitoIdentityClient :: Prism' CognitoIdentityError HttpException
+_CognitoIdentityClient = prism'
+    CognitoIdentityClient
+    (\case
+        CognitoIdentityClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'CognitoIdentitySerializer'
+_CognitoIdentitySerializer :: Prism' CognitoIdentityError Text
+_CognitoIdentitySerializer = prism'
+    CognitoIdentitySerializer
+    (\case
+        CognitoIdentitySerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'CognitoIdentityService'
+_CognitoIdentityService :: Prism' CognitoIdentityError Text
+_CognitoIdentityService = prism'
+    CognitoIdentityService
+    (\case
+        CognitoIdentityService p1 -> Right p1
+        x -> Left x)
+
+-- | Thrown when the service encounters an error during processing the request.
+--
+-- See: 'InternalErrorException'
+_InternalErrorException :: Prism' CognitoIdentityError (Maybe Text)
+_InternalErrorException = prism'
+    InternalErrorException
+    (\case
+        InternalErrorException p1 -> Right p1
+        x -> Left x)
+
+-- | Thrown for missing or bad input parameter(s).
+--
+-- See: 'InvalidParameterException'
+_InvalidParameterException :: Prism' CognitoIdentityError (Maybe Text)
+_InvalidParameterException = prism'
+    InvalidParameterException
+    (\case
+        InvalidParameterException p1 -> Right p1
+        x -> Left x)
+
+-- | Thrown when the total number of user pools has exceeded a preset limit.
+--
+-- See: 'LimitExceededException'
+_LimitExceededException :: Prism' CognitoIdentityError (Maybe Text)
+_LimitExceededException = prism'
+    LimitExceededException
+    (\case
+        LimitExceededException p1 -> Right p1
+        x -> Left x)
+
+-- | Thrown when a user is not authorized to access the requested resource.
+--
+-- See: 'NotAuthorizedException'
+_NotAuthorizedException :: Prism' CognitoIdentityError (Maybe Text)
+_NotAuthorizedException = prism'
+    NotAuthorizedException
+    (\case
+        NotAuthorizedException p1 -> Right p1
+        x -> Left x)
+
+-- | Thrown when a user tries to use a login which is already linked to another
+-- account.
+--
+-- See: 'ResourceConflictException'
+_ResourceConflictException :: Prism' CognitoIdentityError (Maybe Text)
+_ResourceConflictException = prism'
+    ResourceConflictException
+    (\case
+        ResourceConflictException p1 -> Right p1
+        x -> Left x)
+
+-- | Thrown when the requested resource (for example, a dataset or record) does
+-- not exist.
+--
+-- See: 'ResourceNotFoundException'
+_ResourceNotFoundException :: Prism' CognitoIdentityError (Maybe Text)
+_ResourceNotFoundException = prism'
+    ResourceNotFoundException
+    (\case
+        ResourceNotFoundException p1 -> Right p1
+        x -> Left x)
+
+-- | Thrown when a request is throttled.
+--
+-- See: 'TooManyRequestsException'
+_TooManyRequestsException :: Prism' CognitoIdentityError (Maybe Text)
+_TooManyRequestsException = prism'
+    TooManyRequestsException
+    (\case
+        TooManyRequestsException p1 -> Right p1
+        x -> Left x)
 
 -- | A description of the identity.
 data IdentityDescription = IdentityDescription

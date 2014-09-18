@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,6 +26,16 @@ module Network.AWS.DataPipeline.Types
     (
     -- * Service
       DataPipeline
+    -- ** Errors
+    , DataPipelineError (..)
+    , _DataPipelineClient
+    , _DataPipelineSerializer
+    , _DataPipelineService
+    , _InternalServiceError
+    , _InvalidRequestException
+    , _PipelineDeletedException
+    , _PipelineNotFoundException
+    , _TaskNotFoundException
     -- * OperatorType
     , OperatorType (..)
 
@@ -113,25 +123,7 @@ data DataPipeline deriving (Typeable)
 
 instance AWSService DataPipeline where
     type Sg DataPipeline = V4
-    data Er DataPipeline
-        = DataPipelineClient HttpException
-        | DataPipelineSerializer String
-        | DataPipelineService String
-        | InternalServiceError
-            { _iseMessage :: Maybe Text
-            }
-        | InvalidRequestException
-            { _ireMessage :: Maybe Text
-            }
-        | PipelineDeletedException
-            { _pdeMessage :: Maybe Text
-            }
-        | PipelineNotFoundException
-            { _pnfeMessage :: Maybe Text
-            }
-        | TaskNotFoundException
-            { _tnfeMessage :: Maybe Text
-            }
+    type Er DataPipeline = DataPipelineError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -140,18 +132,127 @@ instance AWSService DataPipeline where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er DataPipeline)
-deriving instance Generic (Er DataPipeline)
+-- | A sum type representing possible errors returned by the 'DataPipeline' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data DataPipelineError
+    = DataPipelineClient HttpException
+    | DataPipelineSerializer Text
+    | DataPipelineService Text
+      -- | An internal service error occurred.
+    | InternalServiceError
+        { _iseMessage :: Maybe Text
+        }
+      -- | The request was not valid. Verify that your request was properly
+      -- formatted, that the signature was generated with the correct
+      -- credentials, and that you haven't exceeded any of the service
+      -- limits for your account.
+    | InvalidRequestException
+        { _ireMessage :: Maybe Text
+        }
+      -- | The specified pipeline has been deleted.
+    | PipelineDeletedException
+        { _pdeMessage :: Maybe Text
+        }
+      -- | The specified pipeline was not found. Verify that you used the
+      -- correct user and account identifiers.
+    | PipelineNotFoundException
+        { _pnfeMessage :: Maybe Text
+        }
+      -- | The specified task was not found.
+    | TaskNotFoundException
+        { _tnfeMessage :: Maybe Text
+        }
+    deriving (Show, Generic)
 
-instance AWSError (Er DataPipeline) where
+instance AWSError DataPipelineError where
     awsError = const "DataPipelineError"
 
-instance AWSServiceError (Er DataPipeline) where
+instance AWSServiceError DataPipelineError where
     serviceError    = DataPipelineService
     clientError     = DataPipelineClient
     serializerError = DataPipelineSerializer
 
-instance Exception (Er DataPipeline)
+instance Exception DataPipelineError
+
+-- | See: 'DataPipelineClient'
+_DataPipelineClient :: Prism' DataPipelineError HttpException
+_DataPipelineClient = prism'
+    DataPipelineClient
+    (\case
+        DataPipelineClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'DataPipelineSerializer'
+_DataPipelineSerializer :: Prism' DataPipelineError Text
+_DataPipelineSerializer = prism'
+    DataPipelineSerializer
+    (\case
+        DataPipelineSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'DataPipelineService'
+_DataPipelineService :: Prism' DataPipelineError Text
+_DataPipelineService = prism'
+    DataPipelineService
+    (\case
+        DataPipelineService p1 -> Right p1
+        x -> Left x)
+
+-- | An internal service error occurred.
+--
+-- See: 'InternalServiceError'
+_InternalServiceError :: Prism' DataPipelineError (Maybe Text)
+_InternalServiceError = prism'
+    InternalServiceError
+    (\case
+        InternalServiceError p1 -> Right p1
+        x -> Left x)
+
+-- | The request was not valid. Verify that your request was properly formatted,
+-- that the signature was generated with the correct credentials, and that you
+-- haven't exceeded any of the service limits for your account.
+--
+-- See: 'InvalidRequestException'
+_InvalidRequestException :: Prism' DataPipelineError (Maybe Text)
+_InvalidRequestException = prism'
+    InvalidRequestException
+    (\case
+        InvalidRequestException p1 -> Right p1
+        x -> Left x)
+
+-- | The specified pipeline has been deleted.
+--
+-- See: 'PipelineDeletedException'
+_PipelineDeletedException :: Prism' DataPipelineError (Maybe Text)
+_PipelineDeletedException = prism'
+    PipelineDeletedException
+    (\case
+        PipelineDeletedException p1 -> Right p1
+        x -> Left x)
+
+-- | The specified pipeline was not found. Verify that you used the correct user
+-- and account identifiers.
+--
+-- See: 'PipelineNotFoundException'
+_PipelineNotFoundException :: Prism' DataPipelineError (Maybe Text)
+_PipelineNotFoundException = prism'
+    PipelineNotFoundException
+    (\case
+        PipelineNotFoundException p1 -> Right p1
+        x -> Left x)
+
+-- | The specified task was not found.
+--
+-- See: 'TaskNotFoundException'
+_TaskNotFoundException :: Prism' DataPipelineError (Maybe Text)
+_TaskNotFoundException = prism'
+    TaskNotFoundException
+    (\case
+        TaskNotFoundException p1 -> Right p1
+        x -> Left x)
 
 data OperatorType
     = OperatorTypeBetween -- ^ BETWEEN

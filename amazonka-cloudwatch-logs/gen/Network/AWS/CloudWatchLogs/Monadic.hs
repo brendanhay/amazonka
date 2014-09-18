@@ -130,7 +130,6 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CloudWatchLogs
 
-type ServiceEr = Er CloudWatchLogs
 
 -- $CreateLogGroup
 -- Creates a new log group with the specified name. The name of the log group
@@ -165,7 +164,7 @@ createLogGroupCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'clgLogGroupName'
-    -> m (Either ServiceEr CreateLogGroupResponse)
+    -> m (Either CloudWatchLogsError CreateLogGroupResponse)
 createLogGroupCatch p1 =
     sendCatch (mkCreateLogGroup p1)
 
@@ -205,7 +204,7 @@ createLogStreamCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'clsLogGroupName'
     -> Text -- ^ 'clsLogStreamName'
-    -> m (Either ServiceEr CreateLogStreamResponse)
+    -> m (Either CloudWatchLogsError CreateLogStreamResponse)
 createLogStreamCatch p1 p2 =
     sendCatch (mkCreateLogStream p1 p2)
 
@@ -239,7 +238,7 @@ deleteLogGroupCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'dlgLogGroupName'
-    -> m (Either ServiceEr DeleteLogGroupResponse)
+    -> m (Either CloudWatchLogsError DeleteLogGroupResponse)
 deleteLogGroupCatch p1 =
     sendCatch (mkDeleteLogGroup p1)
 
@@ -275,7 +274,7 @@ deleteLogStreamCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'dlsLogGroupName'
     -> Text -- ^ 'dlsLogStreamName'
-    -> m (Either ServiceEr DeleteLogStreamResponse)
+    -> m (Either CloudWatchLogsError DeleteLogStreamResponse)
 deleteLogStreamCatch p1 p2 =
     sendCatch (mkDeleteLogStream p1 p2)
 
@@ -311,7 +310,7 @@ deleteMetricFilterCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'dmfLogGroupName'
     -> Text -- ^ 'dmfFilterName'
-    -> m (Either ServiceEr DeleteMetricFilterResponse)
+    -> m (Either CloudWatchLogsError DeleteMetricFilterResponse)
 deleteMetricFilterCatch p1 p2 =
     sendCatch (mkDeleteMetricFilter p1 p2)
 
@@ -345,7 +344,7 @@ deleteRetentionPolicyCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'drpLogGroupName'
-    -> m (Either ServiceEr DeleteRetentionPolicyResponse)
+    -> m (Either CloudWatchLogsError DeleteRetentionPolicyResponse)
 deleteRetentionPolicyCatch p1 =
     sendCatch (mkDeleteRetentionPolicy p1)
 
@@ -389,7 +388,7 @@ describeLogGroupsCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => State DescribeLogGroups a
-    -> Source m (Either ServiceEr DescribeLogGroupsResponse)
+    -> Source m (Either CloudWatchLogsError DescribeLogGroupsResponse)
 describeLogGroupsCatch s =
     paginateCatch (mkDescribeLogGroups &~ s)
 
@@ -441,7 +440,7 @@ describeLogStreamsCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'dls1LogGroupName'
     -> State DescribeLogStreams a
-    -> Source m (Either ServiceEr DescribeLogStreamsResponse)
+    -> Source m (Either CloudWatchLogsError DescribeLogStreamsResponse)
 describeLogStreamsCatch p1 s =
     paginateCatch $ (mkDescribeLogStreams p1) &~ s
 
@@ -486,7 +485,7 @@ describeMetricFiltersCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'dmf1LogGroupName'
     -> State DescribeMetricFilters a
-    -> Source m (Either ServiceEr DescribeMetricFiltersResponse)
+    -> Source m (Either CloudWatchLogsError DescribeMetricFiltersResponse)
 describeMetricFiltersCatch p1 s =
     paginateCatch $ (mkDescribeMetricFilters p1) &~ s
 
@@ -539,7 +538,7 @@ getLogEventsCatch :: ( MonadCatch m
     => Text -- ^ 'gleLogGroupName'
     -> Text -- ^ 'gleLogStreamName'
     -> State GetLogEvents a
-    -> m (Either ServiceEr GetLogEventsResponse)
+    -> m (Either CloudWatchLogsError GetLogEventsResponse)
 getLogEventsCatch p1 p2 s =
     sendCatch $ (mkGetLogEvents p1 p2) &~ s
 
@@ -593,7 +592,7 @@ putLogEventsCatch :: ( MonadCatch m
     -> Text -- ^ 'pleLogStreamName'
     -> List1 InputLogEvent -- ^ 'pleLogEvents'
     -> State PutLogEvents a
-    -> m (Either ServiceEr PutLogEventsResponse)
+    -> m (Either CloudWatchLogsError PutLogEventsResponse)
 putLogEventsCatch p1 p2 p3 s =
     sendCatch $ (mkPutLogEvents p1 p2 p3) &~ s
 
@@ -639,7 +638,7 @@ putMetricFilterCatch :: ( MonadCatch m
     -> Text -- ^ 'pmfFilterName'
     -> Text -- ^ 'pmfFilterPattern'
     -> List1 MetricTransformation -- ^ 'pmfMetricTransformations'
-    -> m (Either ServiceEr PutMetricFilterResponse)
+    -> m (Either CloudWatchLogsError PutMetricFilterResponse)
 putMetricFilterCatch p1 p2 p3 p4 =
     sendCatch (mkPutMetricFilter p1 p2 p3 p4)
 
@@ -677,7 +676,7 @@ putRetentionPolicyCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'prpLogGroupName'
     -> Integer -- ^ 'prpRetentionInDays'
-    -> m (Either ServiceEr PutRetentionPolicyResponse)
+    -> m (Either CloudWatchLogsError PutRetentionPolicyResponse)
 putRetentionPolicyCatch p1 p2 =
     sendCatch (mkPutRetentionPolicy p1 p2)
 
@@ -870,6 +869,6 @@ testMetricFilterCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'tmfFilterPattern'
     -> List1 Text -- ^ 'tmfLogEventMessages'
-    -> m (Either ServiceEr TestMetricFilterResponse)
+    -> m (Either CloudWatchLogsError TestMetricFilterResponse)
 testMetricFilterCatch p1 p2 =
     sendCatch (mkTestMetricFilter p1 p2)

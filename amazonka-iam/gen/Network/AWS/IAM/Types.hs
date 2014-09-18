@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,6 +26,28 @@ module Network.AWS.IAM.Types
     (
     -- * Service
       IAM
+    -- ** Errors
+    , IAMError (..)
+    , _CredentialReportExpiredException
+    , _CredentialReportNotPresentException
+    , _CredentialReportNotReadyException
+    , _DeleteConflictException
+    , _DuplicateCertificateException
+    , _EntityAlreadyExistsException
+    , _EntityTemporarilyUnmodifiableException
+    , _IAMClient
+    , _IAMSerializer
+    , _IAMService
+    , _InvalidAuthenticationCodeException
+    , _InvalidCertificateException
+    , _InvalidInputException
+    , _InvalidUserTypeException
+    , _KeyPairMismatchException
+    , _LimitExceededException
+    , _MalformedCertificateException
+    , _MalformedPolicyDocumentException
+    , _NoSuchEntityException
+    , _PasswordPolicyViolationException
     -- ** XML
     , xmlOptions
 
@@ -179,61 +201,7 @@ data IAM deriving (Typeable)
 
 instance AWSService IAM where
     type Sg IAM = V4
-    data Er IAM
-        = CredentialReportExpiredException
-            { _creeMessage :: Maybe Text
-            }
-        | CredentialReportNotPresentException
-            { _crnpeMessage :: Maybe Text
-            }
-        | CredentialReportNotReadyException
-            { _crnreMessage :: Maybe Text
-            }
-        | DeleteConflictException
-            { _dceMessage :: Maybe Text
-            }
-        | DuplicateCertificateException
-            { _dceMessage :: Maybe Text
-            }
-        | EntityAlreadyExistsException
-            { _eaeeMessage :: Maybe Text
-            }
-        | EntityTemporarilyUnmodifiableException
-            { _etueMessage :: Maybe Text
-            }
-        | IAMClient HttpException
-        | IAMSerializer String
-        | IAMService String
-        | InvalidAuthenticationCodeException
-            { _iaceMessage :: Maybe Text
-            }
-        | InvalidCertificateException
-            { _iceMessage :: Maybe Text
-            }
-        | InvalidInputException
-            { _iieMessage :: Maybe Text
-            }
-        | InvalidUserTypeException
-            { _iuteMessage :: Maybe Text
-            }
-        | KeyPairMismatchException
-            { _kpmeMessage :: Maybe Text
-            }
-        | LimitExceededException
-            { _leeMessage :: Maybe Text
-            }
-        | MalformedCertificateException
-            { _mceMessage :: Maybe Text
-            }
-        | MalformedPolicyDocumentException
-            { _mpdeMessage :: Maybe Text
-            }
-        | NoSuchEntityException
-            { _nseeMessage :: Maybe Text
-            }
-        | PasswordPolicyViolationException
-            { _ppveMessage :: Maybe Text
-            }
+    type Er IAM = IAMError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -242,18 +210,330 @@ instance AWSService IAM where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er IAM)
-deriving instance Generic (Er IAM)
+-- | A sum type representing possible errors returned by the 'IAM' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data IAMError
+      -- | The request was rejected because the most recent credential
+      -- report has expired. To generate a new credential report, use
+      -- GenerateCredentialReport. For more information about credential
+      -- report expiration, see Getting Credential Reports in the Using
+      -- IAM guide.
+    = CredentialReportExpiredException
+        { _creeMessage :: Maybe Text
+        }
+      -- | The request was rejected because the credential report does not
+      -- exist. To generate a credential report, use
+      -- GenerateCredentialReport.
+    | CredentialReportNotPresentException
+        { _crnpeMessage :: Maybe Text
+        }
+      -- | The request was rejected because the credential report is still
+      -- being generated.
+    | CredentialReportNotReadyException
+        { _crnreMessage :: Maybe Text
+        }
+      -- | The request was rejected because it attempted to delete a
+      -- resource that has attached subordinate entities. The error
+      -- message describes these entities.
+    | DeleteConflictException
+        { _dceMessage :: Maybe Text
+        }
+      -- | The request was rejected because the same certificate is
+      -- associated to another user under the account.
+    | DuplicateCertificateException
+        { _dceMessage :: Maybe Text
+        }
+      -- | The request was rejected because it attempted to create a
+      -- resource that already exists.
+    | EntityAlreadyExistsException
+        { _eaeeMessage :: Maybe Text
+        }
+      -- | The request was rejected because it referenced an entity that is
+      -- temporarily unmodifiable, such as a user name that was deleted
+      -- and then recreated. The error indicates that the request is
+      -- likely to succeed if you try again after waiting several minutes.
+      -- The error message describes the entity.
+    | EntityTemporarilyUnmodifiableException
+        { _etueMessage :: Maybe Text
+        }
+    | IAMClient HttpException
+    | IAMSerializer Text
+    | IAMService Text
+      -- | The request was rejected because the authentication code was not
+      -- recognized. The error message describes the specific error.
+    | InvalidAuthenticationCodeException
+        { _iaceMessage :: Maybe Text
+        }
+      -- | The request was rejected because the certificate is invalid.
+    | InvalidCertificateException
+        { _iceMessage :: Maybe Text
+        }
+    | InvalidInputException
+        { _iieMessage :: Maybe Text
+        }
+      -- | The request was rejected because the type of user for the
+      -- transaction was incorrect.
+    | InvalidUserTypeException
+        { _iuteMessage :: Maybe Text
+        }
+      -- | The request was rejected because the public key certificate and
+      -- the private key do not match.
+    | KeyPairMismatchException
+        { _kpmeMessage :: Maybe Text
+        }
+      -- | The request was rejected because it attempted to create resources
+      -- beyond the current AWS account limits. The error message
+      -- describes the limit exceeded.
+    | LimitExceededException
+        { _leeMessage :: Maybe Text
+        }
+      -- | The request was rejected because the certificate was malformed or
+      -- expired. The error message describes the specific error.
+    | MalformedCertificateException
+        { _mceMessage :: Maybe Text
+        }
+      -- | The request was rejected because the policy document was
+      -- malformed. The error message describes the specific error.
+    | MalformedPolicyDocumentException
+        { _mpdeMessage :: Maybe Text
+        }
+      -- | The request was rejected because it referenced an entity that
+      -- does not exist. The error message describes the entity.
+    | NoSuchEntityException
+        { _nseeMessage :: Maybe Text
+        }
+      -- | The request was rejected because the provided password did not
+      -- meet the requirements imposed by the account password policy.
+    | PasswordPolicyViolationException
+        { _ppveMessage :: Maybe Text
+        }
+    deriving (Show, Generic)
 
-instance AWSError (Er IAM) where
+instance AWSError IAMError where
     awsError = const "IAMError"
 
-instance AWSServiceError (Er IAM) where
+instance AWSServiceError IAMError where
     serviceError    = IAMService
     clientError     = IAMClient
     serializerError = IAMSerializer
 
-instance Exception (Er IAM)
+instance Exception IAMError
+
+-- | The request was rejected because the most recent credential report has
+-- expired. To generate a new credential report, use GenerateCredentialReport.
+-- For more information about credential report expiration, see Getting
+-- Credential Reports in the Using IAM guide.
+--
+-- See: 'CredentialReportExpiredException'
+_CredentialReportExpiredException :: Prism' IAMError (Maybe Text)
+_CredentialReportExpiredException = prism'
+    CredentialReportExpiredException
+    (\case
+        CredentialReportExpiredException p1 -> Right p1
+        x -> Left x)
+
+-- | The request was rejected because the credential report does not exist. To
+-- generate a credential report, use GenerateCredentialReport.
+--
+-- See: 'CredentialReportNotPresentException'
+_CredentialReportNotPresentException :: Prism' IAMError (Maybe Text)
+_CredentialReportNotPresentException = prism'
+    CredentialReportNotPresentException
+    (\case
+        CredentialReportNotPresentException p1 -> Right p1
+        x -> Left x)
+
+-- | The request was rejected because the credential report is still being
+-- generated.
+--
+-- See: 'CredentialReportNotReadyException'
+_CredentialReportNotReadyException :: Prism' IAMError (Maybe Text)
+_CredentialReportNotReadyException = prism'
+    CredentialReportNotReadyException
+    (\case
+        CredentialReportNotReadyException p1 -> Right p1
+        x -> Left x)
+
+-- | The request was rejected because it attempted to delete a resource that has
+-- attached subordinate entities. The error message describes these entities.
+--
+-- See: 'DeleteConflictException'
+_DeleteConflictException :: Prism' IAMError (Maybe Text)
+_DeleteConflictException = prism'
+    DeleteConflictException
+    (\case
+        DeleteConflictException p1 -> Right p1
+        x -> Left x)
+
+-- | The request was rejected because the same certificate is associated to
+-- another user under the account.
+--
+-- See: 'DuplicateCertificateException'
+_DuplicateCertificateException :: Prism' IAMError (Maybe Text)
+_DuplicateCertificateException = prism'
+    DuplicateCertificateException
+    (\case
+        DuplicateCertificateException p1 -> Right p1
+        x -> Left x)
+
+-- | The request was rejected because it attempted to create a resource that
+-- already exists.
+--
+-- See: 'EntityAlreadyExistsException'
+_EntityAlreadyExistsException :: Prism' IAMError (Maybe Text)
+_EntityAlreadyExistsException = prism'
+    EntityAlreadyExistsException
+    (\case
+        EntityAlreadyExistsException p1 -> Right p1
+        x -> Left x)
+
+-- | The request was rejected because it referenced an entity that is
+-- temporarily unmodifiable, such as a user name that was deleted and then
+-- recreated. The error indicates that the request is likely to succeed if you
+-- try again after waiting several minutes. The error message describes the
+-- entity.
+--
+-- See: 'EntityTemporarilyUnmodifiableException'
+_EntityTemporarilyUnmodifiableException :: Prism' IAMError (Maybe Text)
+_EntityTemporarilyUnmodifiableException = prism'
+    EntityTemporarilyUnmodifiableException
+    (\case
+        EntityTemporarilyUnmodifiableException p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'IAMClient'
+_IAMClient :: Prism' IAMError HttpException
+_IAMClient = prism'
+    IAMClient
+    (\case
+        IAMClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'IAMSerializer'
+_IAMSerializer :: Prism' IAMError Text
+_IAMSerializer = prism'
+    IAMSerializer
+    (\case
+        IAMSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'IAMService'
+_IAMService :: Prism' IAMError Text
+_IAMService = prism'
+    IAMService
+    (\case
+        IAMService p1 -> Right p1
+        x -> Left x)
+
+-- | The request was rejected because the authentication code was not
+-- recognized. The error message describes the specific error.
+--
+-- See: 'InvalidAuthenticationCodeException'
+_InvalidAuthenticationCodeException :: Prism' IAMError (Maybe Text)
+_InvalidAuthenticationCodeException = prism'
+    InvalidAuthenticationCodeException
+    (\case
+        InvalidAuthenticationCodeException p1 -> Right p1
+        x -> Left x)
+
+-- | The request was rejected because the certificate is invalid.
+--
+-- See: 'InvalidCertificateException'
+_InvalidCertificateException :: Prism' IAMError (Maybe Text)
+_InvalidCertificateException = prism'
+    InvalidCertificateException
+    (\case
+        InvalidCertificateException p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'InvalidInputException'
+_InvalidInputException :: Prism' IAMError (Maybe Text)
+_InvalidInputException = prism'
+    InvalidInputException
+    (\case
+        InvalidInputException p1 -> Right p1
+        x -> Left x)
+
+-- | The request was rejected because the type of user for the transaction was
+-- incorrect.
+--
+-- See: 'InvalidUserTypeException'
+_InvalidUserTypeException :: Prism' IAMError (Maybe Text)
+_InvalidUserTypeException = prism'
+    InvalidUserTypeException
+    (\case
+        InvalidUserTypeException p1 -> Right p1
+        x -> Left x)
+
+-- | The request was rejected because the public key certificate and the private
+-- key do not match.
+--
+-- See: 'KeyPairMismatchException'
+_KeyPairMismatchException :: Prism' IAMError (Maybe Text)
+_KeyPairMismatchException = prism'
+    KeyPairMismatchException
+    (\case
+        KeyPairMismatchException p1 -> Right p1
+        x -> Left x)
+
+-- | The request was rejected because it attempted to create resources beyond
+-- the current AWS account limits. The error message describes the limit
+-- exceeded.
+--
+-- See: 'LimitExceededException'
+_LimitExceededException :: Prism' IAMError (Maybe Text)
+_LimitExceededException = prism'
+    LimitExceededException
+    (\case
+        LimitExceededException p1 -> Right p1
+        x -> Left x)
+
+-- | The request was rejected because the certificate was malformed or expired.
+-- The error message describes the specific error.
+--
+-- See: 'MalformedCertificateException'
+_MalformedCertificateException :: Prism' IAMError (Maybe Text)
+_MalformedCertificateException = prism'
+    MalformedCertificateException
+    (\case
+        MalformedCertificateException p1 -> Right p1
+        x -> Left x)
+
+-- | The request was rejected because the policy document was malformed. The
+-- error message describes the specific error.
+--
+-- See: 'MalformedPolicyDocumentException'
+_MalformedPolicyDocumentException :: Prism' IAMError (Maybe Text)
+_MalformedPolicyDocumentException = prism'
+    MalformedPolicyDocumentException
+    (\case
+        MalformedPolicyDocumentException p1 -> Right p1
+        x -> Left x)
+
+-- | The request was rejected because it referenced an entity that does not
+-- exist. The error message describes the entity.
+--
+-- See: 'NoSuchEntityException'
+_NoSuchEntityException :: Prism' IAMError (Maybe Text)
+_NoSuchEntityException = prism'
+    NoSuchEntityException
+    (\case
+        NoSuchEntityException p1 -> Right p1
+        x -> Left x)
+
+-- | The request was rejected because the provided password did not meet the
+-- requirements imposed by the account password policy.
+--
+-- See: 'PasswordPolicyViolationException'
+_PasswordPolicyViolationException :: Prism' IAMError (Maybe Text)
+_PasswordPolicyViolationException = prism'
+    PasswordPolicyViolationException
+    (\case
+        PasswordPolicyViolationException p1 -> Right p1
+        x -> Left x)
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

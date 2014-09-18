@@ -123,16 +123,16 @@ import           System.Locale
 -- | An error type representing the subset of errors that can be directly
 -- attributed to this library.
 data Error
-    = ServiceError    String
+    = ServiceError    Text
     | ClientError     HttpException
-    | SerializerError String
+    | SerializerError Text
     | Nested          [Error]
       deriving (Show, Typeable)
 
 instance Exception Error
 
 instance IsString Error where
-    fromString = ServiceError
+    fromString = ServiceError . Text.pack
 
 instance Monoid Error where
     mempty      = Nested []
@@ -148,23 +148,20 @@ class AWSError a where
 instance AWSError Error where
     awsError = id
 
-instance AWSError String where
+instance AWSError Text where
     awsError = ServiceError
 
-instance AWSError Text where
-    awsError = ServiceError . Text.unpack
-
 instance AWSError LText.Text where
-    awsError = ServiceError . LText.unpack
+    awsError = ServiceError . LText.toStrict
 
 instance AWSError HttpException where
     awsError = ClientError
 
 -- | Convert from service specific errors to the more general service error.
 class AWSError a => AWSServiceError a where
-    serviceError    :: String        -> a
+    serviceError    :: Text        -> a
     clientError     :: HttpException -> a
-    serializerError :: String        -> a
+    serializerError :: Text        -> a
 
 instance AWSServiceError Error where
     serviceError    = ServiceError

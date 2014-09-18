@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,6 +26,18 @@ module Network.AWS.STS.Types
     (
     -- * Service
       STS
+    -- ** Errors
+    , STSError (..)
+    , _ExpiredTokenException
+    , _IDPCommunicationErrorException
+    , _IDPRejectedClaimException
+    , _InvalidAuthorizationMessageException
+    , _InvalidIdentityTokenException
+    , _MalformedPolicyDocumentException
+    , _PackedPolicyTooLargeException
+    , _STSClient
+    , _STSSerializer
+    , _STSService
     -- ** XML
     , xmlOptions
 
@@ -59,31 +71,7 @@ data STS deriving (Typeable)
 
 instance AWSService STS where
     type Sg STS = V4
-    data Er STS
-        = ExpiredTokenException
-            { _eteMessage :: Maybe Text
-            }
-        | IDPCommunicationErrorException
-            { _idpceeMessage :: Maybe Text
-            }
-        | IDPRejectedClaimException
-            { _idprceMessage :: Maybe Text
-            }
-        | InvalidAuthorizationMessageException
-            { _iameMessage :: Maybe Text
-            }
-        | InvalidIdentityTokenException
-            { _iiteMessage :: Maybe Text
-            }
-        | MalformedPolicyDocumentException
-            { _mpdeMessage :: Maybe Text
-            }
-        | PackedPolicyTooLargeException
-            { _pptleMessage :: Maybe Text
-            }
-        | STSClient HttpException
-        | STSSerializer String
-        | STSService String
+    type Er STS = STSError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -92,18 +80,181 @@ instance AWSService STS where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er STS)
-deriving instance Generic (Er STS)
+-- | A sum type representing possible errors returned by the 'STS' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data STSError
+      -- | The web identity token that was passed is expired or is not
+      -- valid. Get a new identity token from the identity provider and
+      -- then retry the request.
+    = ExpiredTokenException
+        { _eteMessage :: Maybe Text
+        }
+      -- | The request could not be fulfilled because the non-AWS identity
+      -- provider (IDP) that was asked to verify the incoming identity
+      -- token could not be reached. This is often a transient error
+      -- caused by network conditions. Retry the request a limited number
+      -- of times so that you don't exceed the request rate. If the error
+      -- persists, the non-AWS identity provider might be down or not
+      -- responding.
+    | IDPCommunicationErrorException
+        { _idpceeMessage :: Maybe Text
+        }
+      -- | The identity provider (IdP) reported that authentication failed.
+      -- This might be because the claim is invalid. If this error is
+      -- returned for the AssumeRoleWithWebIdentity operation, it can also
+      -- mean that the claim has expired or has been explicitly revoked.
+    | IDPRejectedClaimException
+        { _idprceMessage :: Maybe Text
+        }
+      -- | The error returned if the message passed to
+      -- DecodeAuthorizationMessage was invalid. This can happen if the
+      -- token contains invalid characters, such as linebreaks.
+    | InvalidAuthorizationMessageException
+        { _iameMessage :: Maybe Text
+        }
+      -- | The web identity token that was passed could not be validated by
+      -- AWS. Get a new identity token from the identity provider and then
+      -- retry the request.
+    | InvalidIdentityTokenException
+        { _iiteMessage :: Maybe Text
+        }
+      -- | The request was rejected because the policy document was
+      -- malformed. The error message describes the specific error.
+    | MalformedPolicyDocumentException
+        { _mpdeMessage :: Maybe Text
+        }
+      -- | The request was rejected because the policy document was too
+      -- large. The error message describes how big the policy document
+      -- is, in packed form, as a percentage of what the API allows.
+    | PackedPolicyTooLargeException
+        { _pptleMessage :: Maybe Text
+        }
+    | STSClient HttpException
+    | STSSerializer Text
+    | STSService Text
+    deriving (Show, Generic)
 
-instance AWSError (Er STS) where
+instance AWSError STSError where
     awsError = const "STSError"
 
-instance AWSServiceError (Er STS) where
+instance AWSServiceError STSError where
     serviceError    = STSService
     clientError     = STSClient
     serializerError = STSSerializer
 
-instance Exception (Er STS)
+instance Exception STSError
+
+-- | The web identity token that was passed is expired or is not valid. Get a
+-- new identity token from the identity provider and then retry the request.
+--
+-- See: 'ExpiredTokenException'
+_ExpiredTokenException :: Prism' STSError (Maybe Text)
+_ExpiredTokenException = prism'
+    ExpiredTokenException
+    (\case
+        ExpiredTokenException p1 -> Right p1
+        x -> Left x)
+
+-- | The request could not be fulfilled because the non-AWS identity provider
+-- (IDP) that was asked to verify the incoming identity token could not be
+-- reached. This is often a transient error caused by network conditions.
+-- Retry the request a limited number of times so that you don't exceed the
+-- request rate. If the error persists, the non-AWS identity provider might be
+-- down or not responding.
+--
+-- See: 'IDPCommunicationErrorException'
+_IDPCommunicationErrorException :: Prism' STSError (Maybe Text)
+_IDPCommunicationErrorException = prism'
+    IDPCommunicationErrorException
+    (\case
+        IDPCommunicationErrorException p1 -> Right p1
+        x -> Left x)
+
+-- | The identity provider (IdP) reported that authentication failed. This might
+-- be because the claim is invalid. If this error is returned for the
+-- AssumeRoleWithWebIdentity operation, it can also mean that the claim has
+-- expired or has been explicitly revoked.
+--
+-- See: 'IDPRejectedClaimException'
+_IDPRejectedClaimException :: Prism' STSError (Maybe Text)
+_IDPRejectedClaimException = prism'
+    IDPRejectedClaimException
+    (\case
+        IDPRejectedClaimException p1 -> Right p1
+        x -> Left x)
+
+-- | The error returned if the message passed to DecodeAuthorizationMessage was
+-- invalid. This can happen if the token contains invalid characters, such as
+-- linebreaks.
+--
+-- See: 'InvalidAuthorizationMessageException'
+_InvalidAuthorizationMessageException :: Prism' STSError (Maybe Text)
+_InvalidAuthorizationMessageException = prism'
+    InvalidAuthorizationMessageException
+    (\case
+        InvalidAuthorizationMessageException p1 -> Right p1
+        x -> Left x)
+
+-- | The web identity token that was passed could not be validated by AWS. Get a
+-- new identity token from the identity provider and then retry the request.
+--
+-- See: 'InvalidIdentityTokenException'
+_InvalidIdentityTokenException :: Prism' STSError (Maybe Text)
+_InvalidIdentityTokenException = prism'
+    InvalidIdentityTokenException
+    (\case
+        InvalidIdentityTokenException p1 -> Right p1
+        x -> Left x)
+
+-- | The request was rejected because the policy document was malformed. The
+-- error message describes the specific error.
+--
+-- See: 'MalformedPolicyDocumentException'
+_MalformedPolicyDocumentException :: Prism' STSError (Maybe Text)
+_MalformedPolicyDocumentException = prism'
+    MalformedPolicyDocumentException
+    (\case
+        MalformedPolicyDocumentException p1 -> Right p1
+        x -> Left x)
+
+-- | The request was rejected because the policy document was too large. The
+-- error message describes how big the policy document is, in packed form, as
+-- a percentage of what the API allows.
+--
+-- See: 'PackedPolicyTooLargeException'
+_PackedPolicyTooLargeException :: Prism' STSError (Maybe Text)
+_PackedPolicyTooLargeException = prism'
+    PackedPolicyTooLargeException
+    (\case
+        PackedPolicyTooLargeException p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'STSClient'
+_STSClient :: Prism' STSError HttpException
+_STSClient = prism'
+    STSClient
+    (\case
+        STSClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'STSSerializer'
+_STSSerializer :: Prism' STSError Text
+_STSSerializer = prism'
+    STSSerializer
+    (\case
+        STSSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'STSService'
+_STSService :: Prism' STSError Text
+_STSService = prism'
+    STSService
+    (\case
+        STSService p1 -> Right p1
+        x -> Left x)
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

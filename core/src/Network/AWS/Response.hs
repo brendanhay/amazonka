@@ -59,7 +59,7 @@ lastMay (x:xs) = Just (go x xs)
     go _ (y:ys) = go y ys
 
 headerResponse :: (MonadResource m, AWSServiceError e)
-               => (ResponseHeaders -> Either String a)
+               => (ResponseHeaders -> Either Text a)
                -> Either HttpException ClientResponse
                -> m (Either e a)
 headerResponse f = receive $ \hs bdy -> do
@@ -67,7 +67,7 @@ headerResponse f = receive $ \hs bdy -> do
      return $! serializerError `first` f hs
 
 cursorResponse :: (MonadResource m, AWSServiceError e)
-               => (ResponseHeaders -> Cursor -> Either String a)
+               => (ResponseHeaders -> Cursor -> Either Text a)
                -> Either HttpException ClientResponse
                -> m (Either e a)
 cursorResponse f = receive $ \hs bdy -> do
@@ -94,7 +94,7 @@ jsonResponse = receive $ \_ bdy -> do
     return $! serializerError `first` eitherDecode lbs
 
 bodyResponse :: (Monad m, AWSServiceError e)
-             => (ResponseHeaders -> a -> m (Either String b))
+             => (ResponseHeaders -> a -> m (Either Text b))
              -> Either HttpException (Response a)
              -> m (Either e b)
 bodyResponse f = receive (\hs bdy -> first serializerError `liftM` f hs bdy)

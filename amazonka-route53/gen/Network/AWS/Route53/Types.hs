@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -28,6 +28,29 @@ module Network.AWS.Route53.Types
     (
     -- * Service
       Route53
+    -- ** Errors
+    , Route53Error (..)
+    , _DelegationSetNotAvailable
+    , _HealthCheckAlreadyExists
+    , _HealthCheckInUse
+    , _HealthCheckVersionMismatch
+    , _HostedZoneAlreadyExists
+    , _HostedZoneNotEmpty
+    , _IncompatibleVersion
+    , _InvalidChangeBatch
+    , _InvalidDomainName
+    , _InvalidInput
+    , _NoSuchChange
+    , _NoSuchGeoLocation
+    , _NoSuchHealthCheck
+    , _NoSuchHostedZone
+    , _PriorRequestNotComplete
+    , _Route53Client
+    , _Route53Serializer
+    , _Route53Service
+    , _ThrottlingException
+    , _TooManyHealthChecks
+    , _TooManyHostedZones
     -- ** XML
     , xmlOptions
 
@@ -177,64 +200,7 @@ data Route53 deriving (Typeable)
 
 instance AWSService Route53 where
     type Sg Route53 = V3
-    data Er Route53
-        = DelegationSetNotAvailable
-            { _dsnaMessage :: Maybe Text
-            }
-        | HealthCheckAlreadyExists
-            { _hcaeMessage :: Maybe Text
-            }
-        | HealthCheckInUse
-            { _hciuMessage :: Maybe Text
-            }
-        | HealthCheckVersionMismatch
-            { _hcvmMessage :: Maybe Text
-            }
-        | HostedZoneAlreadyExists
-            { _hzaeMessage :: Maybe Text
-            }
-        | HostedZoneNotEmpty
-            { _hzneMessage :: Maybe Text
-            }
-        | IncompatibleVersion
-            { _ivMessage :: Maybe Text
-            }
-        | InvalidChangeBatch
-            { _icbMessages :: [Text]
-            }
-        | InvalidDomainName
-            { _idnMessage :: Maybe Text
-            }
-        | InvalidInput
-            { _iiMessage :: Maybe Text
-            }
-        | NoSuchChange
-            { _nscMessage :: Maybe Text
-            }
-        | NoSuchGeoLocation
-            { _nsglMessage :: Maybe Text
-            }
-        | NoSuchHealthCheck
-            { _nshcMessage :: Maybe Text
-            }
-        | NoSuchHostedZone
-            { _nshzMessage :: Maybe Text
-            }
-        | PriorRequestNotComplete
-            { _prncMessage :: Maybe Text
-            }
-        | Route53Client HttpException
-        | Route53Serializer String
-        | Route53Service String
-        | ThrottlingException
-            { _teMessage :: Maybe Text
-            }
-        | TooManyHealthChecks
-            { _tmhcMessage :: Maybe Text
-            }
-        | TooManyHostedZones
-            { _tmhzMessage :: Maybe Text
-            }
+    type Er Route53 = Route53Error
 
     service = Service'
         { _svcEndpoint = Regional
@@ -243,18 +209,327 @@ instance AWSService Route53 where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er Route53)
-deriving instance Generic (Er Route53)
+-- | A sum type representing possible errors returned by the 'Route53' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data Route53Error
+      -- | Route 53 allows some duplicate domain names, but there is a
+      -- maximum number of duplicate names. This error indicates that you
+      -- have reached that maximum. If you want to create another hosted
+      -- zone with the same name and Route 53 generates this error, you
+      -- can request an increase to the limit on the Contact Us page.
+    = DelegationSetNotAvailable
+        { _dsnaMessage :: Maybe Text
+        }
+      -- | The health check you are trying to create already exists. Route
+      -- 53 returns this error when a health check has already been
+      -- created with the specified CallerReference.
+    | HealthCheckAlreadyExists
+        { _hcaeMessage :: Maybe Text
+        }
+      -- | There are resource records associated with this health check.
+      -- Before you can delete the health check, you must disassociate it
+      -- from the resource record sets.
+    | HealthCheckInUse
+        { _hciuMessage :: Maybe Text
+        }
+    | HealthCheckVersionMismatch
+        { _hcvmMessage :: Maybe Text
+        }
+      -- | The hosted zone you are trying to create already exists. Route 53
+      -- returns this error when a hosted zone has already been created
+      -- with the specified CallerReference.
+    | HostedZoneAlreadyExists
+        { _hzaeMessage :: Maybe Text
+        }
+      -- | The hosted zone contains resource record sets in addition to the
+      -- default NS and SOA resource record sets. Before you can delete
+      -- the hosted zone, you must delete the additional resource record
+      -- sets.
+    | HostedZoneNotEmpty
+        { _hzneMessage :: Maybe Text
+        }
+      -- | The resource you are trying to access is unsupported on this
+      -- Route 53 endpoint. Please consider using a newer endpoint or a
+      -- tool that does so.
+    | IncompatibleVersion
+        { _ivMessage :: Maybe Text
+        }
+      -- | This error contains a list of one or more error messages. Each
+      -- error message indicates one error in the change batch. For more
+      -- information, see Example InvalidChangeBatch Errors.
+    | InvalidChangeBatch
+        { _icbMessages :: [Text]
+        }
+      -- | This error indicates that the specified domain name is not valid.
+    | InvalidDomainName
+        { _idnMessage :: Maybe Text
+        }
+      -- | Some value specified in the request is invalid or the XML
+      -- document is malformed.
+    | InvalidInput
+        { _iiMessage :: Maybe Text
+        }
+    | NoSuchChange
+        { _nscMessage :: Maybe Text
+        }
+      -- | The geo location you are trying to get does not exist.
+    | NoSuchGeoLocation
+        { _nsglMessage :: Maybe Text
+        }
+      -- | The health check you are trying to get or delete does not exist.
+    | NoSuchHealthCheck
+        { _nshcMessage :: Maybe Text
+        }
+    | NoSuchHostedZone
+        { _nshzMessage :: Maybe Text
+        }
+      -- | The request was rejected because Route 53 was still processing a
+      -- prior request.
+    | PriorRequestNotComplete
+        { _prncMessage :: Maybe Text
+        }
+    | Route53Client HttpException
+    | Route53Serializer Text
+    | Route53Service Text
+    | ThrottlingException
+        { _teMessage :: Maybe Text
+        }
+    | TooManyHealthChecks
+        { _tmhcMessage :: Maybe Text
+        }
+      -- | This error indicates that you've reached the maximum number of
+      -- hosted zones that can be created for the current AWS account. You
+      -- can request an increase to the limit on the Contact Us page.
+    | TooManyHostedZones
+        { _tmhzMessage :: Maybe Text
+        }
+    deriving (Show, Generic)
 
-instance AWSError (Er Route53) where
+instance AWSError Route53Error where
     awsError = const "Route53Error"
 
-instance AWSServiceError (Er Route53) where
+instance AWSServiceError Route53Error where
     serviceError    = Route53Service
     clientError     = Route53Client
     serializerError = Route53Serializer
 
-instance Exception (Er Route53)
+instance Exception Route53Error
+
+-- | Route 53 allows some duplicate domain names, but there is a maximum number
+-- of duplicate names. This error indicates that you have reached that
+-- maximum. If you want to create another hosted zone with the same name and
+-- Route 53 generates this error, you can request an increase to the limit on
+-- the Contact Us page.
+--
+-- See: 'DelegationSetNotAvailable'
+_DelegationSetNotAvailable :: Prism' Route53Error (Maybe Text)
+_DelegationSetNotAvailable = prism'
+    DelegationSetNotAvailable
+    (\case
+        DelegationSetNotAvailable p1 -> Right p1
+        x -> Left x)
+
+-- | The health check you are trying to create already exists. Route 53 returns
+-- this error when a health check has already been created with the specified
+-- CallerReference.
+--
+-- See: 'HealthCheckAlreadyExists'
+_HealthCheckAlreadyExists :: Prism' Route53Error (Maybe Text)
+_HealthCheckAlreadyExists = prism'
+    HealthCheckAlreadyExists
+    (\case
+        HealthCheckAlreadyExists p1 -> Right p1
+        x -> Left x)
+
+-- | There are resource records associated with this health check. Before you
+-- can delete the health check, you must disassociate it from the resource
+-- record sets.
+--
+-- See: 'HealthCheckInUse'
+_HealthCheckInUse :: Prism' Route53Error (Maybe Text)
+_HealthCheckInUse = prism'
+    HealthCheckInUse
+    (\case
+        HealthCheckInUse p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'HealthCheckVersionMismatch'
+_HealthCheckVersionMismatch :: Prism' Route53Error (Maybe Text)
+_HealthCheckVersionMismatch = prism'
+    HealthCheckVersionMismatch
+    (\case
+        HealthCheckVersionMismatch p1 -> Right p1
+        x -> Left x)
+
+-- | The hosted zone you are trying to create already exists. Route 53 returns
+-- this error when a hosted zone has already been created with the specified
+-- CallerReference.
+--
+-- See: 'HostedZoneAlreadyExists'
+_HostedZoneAlreadyExists :: Prism' Route53Error (Maybe Text)
+_HostedZoneAlreadyExists = prism'
+    HostedZoneAlreadyExists
+    (\case
+        HostedZoneAlreadyExists p1 -> Right p1
+        x -> Left x)
+
+-- | The hosted zone contains resource record sets in addition to the default NS
+-- and SOA resource record sets. Before you can delete the hosted zone, you
+-- must delete the additional resource record sets.
+--
+-- See: 'HostedZoneNotEmpty'
+_HostedZoneNotEmpty :: Prism' Route53Error (Maybe Text)
+_HostedZoneNotEmpty = prism'
+    HostedZoneNotEmpty
+    (\case
+        HostedZoneNotEmpty p1 -> Right p1
+        x -> Left x)
+
+-- | The resource you are trying to access is unsupported on this Route 53
+-- endpoint. Please consider using a newer endpoint or a tool that does so.
+--
+-- See: 'IncompatibleVersion'
+_IncompatibleVersion :: Prism' Route53Error (Maybe Text)
+_IncompatibleVersion = prism'
+    IncompatibleVersion
+    (\case
+        IncompatibleVersion p1 -> Right p1
+        x -> Left x)
+
+-- | This error contains a list of one or more error messages. Each error
+-- message indicates one error in the change batch. For more information, see
+-- Example InvalidChangeBatch Errors.
+--
+-- See: 'InvalidChangeBatch'
+_InvalidChangeBatch :: Prism' Route53Error [Text]
+_InvalidChangeBatch = prism'
+    InvalidChangeBatch
+    (\case
+        InvalidChangeBatch p1 -> Right p1
+        x -> Left x)
+
+-- | This error indicates that the specified domain name is not valid.
+--
+-- See: 'InvalidDomainName'
+_InvalidDomainName :: Prism' Route53Error (Maybe Text)
+_InvalidDomainName = prism'
+    InvalidDomainName
+    (\case
+        InvalidDomainName p1 -> Right p1
+        x -> Left x)
+
+-- | Some value specified in the request is invalid or the XML document is
+-- malformed.
+--
+-- See: 'InvalidInput'
+_InvalidInput :: Prism' Route53Error (Maybe Text)
+_InvalidInput = prism'
+    InvalidInput
+    (\case
+        InvalidInput p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'NoSuchChange'
+_NoSuchChange :: Prism' Route53Error (Maybe Text)
+_NoSuchChange = prism'
+    NoSuchChange
+    (\case
+        NoSuchChange p1 -> Right p1
+        x -> Left x)
+
+-- | The geo location you are trying to get does not exist.
+--
+-- See: 'NoSuchGeoLocation'
+_NoSuchGeoLocation :: Prism' Route53Error (Maybe Text)
+_NoSuchGeoLocation = prism'
+    NoSuchGeoLocation
+    (\case
+        NoSuchGeoLocation p1 -> Right p1
+        x -> Left x)
+
+-- | The health check you are trying to get or delete does not exist.
+--
+-- See: 'NoSuchHealthCheck'
+_NoSuchHealthCheck :: Prism' Route53Error (Maybe Text)
+_NoSuchHealthCheck = prism'
+    NoSuchHealthCheck
+    (\case
+        NoSuchHealthCheck p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'NoSuchHostedZone'
+_NoSuchHostedZone :: Prism' Route53Error (Maybe Text)
+_NoSuchHostedZone = prism'
+    NoSuchHostedZone
+    (\case
+        NoSuchHostedZone p1 -> Right p1
+        x -> Left x)
+
+-- | The request was rejected because Route 53 was still processing a prior
+-- request.
+--
+-- See: 'PriorRequestNotComplete'
+_PriorRequestNotComplete :: Prism' Route53Error (Maybe Text)
+_PriorRequestNotComplete = prism'
+    PriorRequestNotComplete
+    (\case
+        PriorRequestNotComplete p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'Route53Client'
+_Route53Client :: Prism' Route53Error HttpException
+_Route53Client = prism'
+    Route53Client
+    (\case
+        Route53Client p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'Route53Serializer'
+_Route53Serializer :: Prism' Route53Error Text
+_Route53Serializer = prism'
+    Route53Serializer
+    (\case
+        Route53Serializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'Route53Service'
+_Route53Service :: Prism' Route53Error Text
+_Route53Service = prism'
+    Route53Service
+    (\case
+        Route53Service p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'ThrottlingException'
+_ThrottlingException :: Prism' Route53Error (Maybe Text)
+_ThrottlingException = prism'
+    ThrottlingException
+    (\case
+        ThrottlingException p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'TooManyHealthChecks'
+_TooManyHealthChecks :: Prism' Route53Error (Maybe Text)
+_TooManyHealthChecks = prism'
+    TooManyHealthChecks
+    (\case
+        TooManyHealthChecks p1 -> Right p1
+        x -> Left x)
+
+-- | This error indicates that you've reached the maximum number of hosted zones
+-- that can be created for the current AWS account. You can request an
+-- increase to the limit on the Contact Us page.
+--
+-- See: 'TooManyHostedZones'
+_TooManyHostedZones :: Prism' Route53Error (Maybe Text)
+_TooManyHostedZones = prism'
+    TooManyHostedZones
+    (\case
+        TooManyHostedZones p1 -> Right p1
+        x -> Left x)
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

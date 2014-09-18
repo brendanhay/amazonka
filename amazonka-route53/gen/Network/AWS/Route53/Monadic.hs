@@ -155,7 +155,6 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.Route53
 
-type ServiceEr = Er Route53
 
 -- $ChangeResourceRecordSets
 -- Use this action to create or change your authoritative DNS information. To
@@ -198,7 +197,7 @@ changeResourceRecordSetsCatch :: ( MonadCatch m
                                  )
     => Text -- ^ 'crrsHostedZoneId'
     -> ChangeBatch -- ^ 'crrsChangeBatch'
-    -> m (Either ServiceEr ChangeResourceRecordSetsResponse)
+    -> m (Either Route53Error ChangeResourceRecordSetsResponse)
 changeResourceRecordSetsCatch p1 p2 =
     sendCatch (mkChangeResourceRecordSets p1 p2)
 
@@ -224,7 +223,7 @@ changeTagsForResourceCatch :: ( MonadCatch m
     => TagResourceType -- ^ 'ctfrResourceType'
     -> Text -- ^ 'ctfrResourceId'
     -> State ChangeTagsForResource a
-    -> m (Either ServiceEr ChangeTagsForResourceResponse)
+    -> m (Either Route53Error ChangeTagsForResourceResponse)
 changeTagsForResourceCatch p1 p2 s =
     sendCatch $ (mkChangeTagsForResource p1 p2) &~ s
 
@@ -254,7 +253,7 @@ createHealthCheckCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'chcCallerReference'
     -> HealthCheckConfig -- ^ 'chcHealthCheckConfig'
-    -> m (Either ServiceEr CreateHealthCheckResponse)
+    -> m (Either Route53Error CreateHealthCheckResponse)
 createHealthCheckCatch p1 p2 =
     sendCatch (mkCreateHealthCheck p1 p2)
 
@@ -294,7 +293,7 @@ createHostedZoneCatch :: ( MonadCatch m
     => Text -- ^ 'chzName'
     -> Text -- ^ 'chzCallerReference'
     -> State CreateHostedZone a
-    -> m (Either ServiceEr CreateHostedZoneResponse)
+    -> m (Either Route53Error CreateHostedZoneResponse)
 createHostedZoneCatch p1 p2 s =
     sendCatch $ (mkCreateHostedZone p1 p2) &~ s
 
@@ -326,7 +325,7 @@ deleteHealthCheckCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'dhcHealthCheckId'
-    -> m (Either ServiceEr DeleteHealthCheckResponse)
+    -> m (Either Route53Error DeleteHealthCheckResponse)
 deleteHealthCheckCatch p1 =
     sendCatch (mkDeleteHealthCheck p1)
 
@@ -359,7 +358,7 @@ deleteHostedZoneCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'dhzId'
-    -> m (Either ServiceEr DeleteHostedZoneResponse)
+    -> m (Either Route53Error DeleteHostedZoneResponse)
 deleteHostedZoneCatch p1 =
     sendCatch (mkDeleteHostedZone p1)
 
@@ -387,7 +386,7 @@ getChangeCatch :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'gcId'
-    -> m (Either ServiceEr GetChangeResponse)
+    -> m (Either Route53Error GetChangeResponse)
 getChangeCatch p1 =
     sendCatch (mkGetChange p1)
 
@@ -413,7 +412,7 @@ getCheckerIpRangesCatch :: ( MonadCatch m
                            , MonadResource m
                            , MonadReader Env m
                            )
-    => m (Either ServiceEr GetCheckerIpRangesResponse)
+    => m (Either Route53Error GetCheckerIpRangesResponse)
 getCheckerIpRangesCatch =
     sendCatch (mkGetCheckerIpRanges)
 
@@ -435,7 +434,7 @@ getGeoLocationCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => State GetGeoLocation a
-    -> m (Either ServiceEr GetGeoLocationResponse)
+    -> m (Either Route53Error GetGeoLocationResponse)
 getGeoLocationCatch s =
     sendCatch (mkGetGeoLocation &~ s)
 
@@ -460,7 +459,7 @@ getHealthCheckCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'ghcHealthCheckId'
-    -> m (Either ServiceEr GetHealthCheckResponse)
+    -> m (Either Route53Error GetHealthCheckResponse)
 getHealthCheckCatch p1 =
     sendCatch (mkGetHealthCheck p1)
 
@@ -483,7 +482,7 @@ getHealthCheckCountCatch :: ( MonadCatch m
                             , MonadResource m
                             , MonadReader Env m
                             )
-    => m (Either ServiceEr GetHealthCheckCountResponse)
+    => m (Either Route53Error GetHealthCheckCountResponse)
 getHealthCheckCountCatch =
     sendCatch (mkGetHealthCheckCount)
 
@@ -510,7 +509,7 @@ getHostedZoneCatch :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => Text -- ^ 'ghzId'
-    -> m (Either ServiceEr GetHostedZoneResponse)
+    -> m (Either Route53Error GetHostedZoneResponse)
 getHostedZoneCatch p1 =
     sendCatch (mkGetHostedZone p1)
 
@@ -532,7 +531,7 @@ listGeoLocationsCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => State ListGeoLocations a
-    -> m (Either ServiceEr ListGeoLocationsResponse)
+    -> m (Either Route53Error ListGeoLocationsResponse)
 listGeoLocationsCatch s =
     sendCatch (mkListGeoLocations &~ s)
 
@@ -564,7 +563,7 @@ listHealthChecksCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => State ListHealthChecks a
-    -> Source m (Either ServiceEr ListHealthChecksResponse)
+    -> Source m (Either Route53Error ListHealthChecksResponse)
 listHealthChecksCatch s =
     paginateCatch (mkListHealthChecks &~ s)
 
@@ -596,7 +595,7 @@ listHostedZonesCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => State ListHostedZones a
-    -> Source m (Either ServiceEr ListHostedZonesResponse)
+    -> Source m (Either Route53Error ListHostedZonesResponse)
 listHostedZonesCatch s =
     paginateCatch (mkListHostedZones &~ s)
 
@@ -653,7 +652,7 @@ listResourceRecordSetsCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'lrrsHostedZoneId'
     -> State ListResourceRecordSets a
-    -> Source m (Either ServiceEr ListResourceRecordSetsResponse)
+    -> Source m (Either Route53Error ListResourceRecordSetsResponse)
 listResourceRecordSetsCatch p1 s =
     paginateCatch $ (mkListResourceRecordSets p1) &~ s
 
@@ -677,7 +676,7 @@ listTagsForResourceCatch :: ( MonadCatch m
                             )
     => TagResourceType -- ^ 'ltfrResourceType'
     -> Text -- ^ 'ltfrResourceId'
-    -> m (Either ServiceEr ListTagsForResourceResponse)
+    -> m (Either Route53Error ListTagsForResourceResponse)
 listTagsForResourceCatch p1 p2 =
     sendCatch (mkListTagsForResource p1 p2)
 
@@ -701,7 +700,7 @@ listTagsForResourcesCatch :: ( MonadCatch m
                              )
     => TagResourceType -- ^ 'ltfr1ResourceType'
     -> List1 Text -- ^ 'ltfr1ResourceIds'
-    -> m (Either ServiceEr ListTagsForResourcesResponse)
+    -> m (Either Route53Error ListTagsForResourcesResponse)
 listTagsForResourcesCatch p1 p2 =
     sendCatch (mkListTagsForResources p1 p2)
 
@@ -732,6 +731,6 @@ updateHealthCheckCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'uhcHealthCheckId'
     -> State UpdateHealthCheck a
-    -> m (Either ServiceEr UpdateHealthCheckResponse)
+    -> m (Either Route53Error UpdateHealthCheckResponse)
 updateHealthCheckCatch p1 s =
     sendCatch $ (mkUpdateHealthCheck p1) &~ s

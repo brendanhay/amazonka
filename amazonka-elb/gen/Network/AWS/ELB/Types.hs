@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,6 +27,30 @@ module Network.AWS.ELB.Types
     (
     -- * Service
       ELB
+    -- ** Errors
+    , ELBError (..)
+    , _AccessPointNotFoundException
+    , _CertificateNotFoundException
+    , _DuplicateAccessPointNameException
+    , _DuplicateListenerException
+    , _DuplicatePolicyNameException
+    , _DuplicateTagKeysException
+    , _ELBClient
+    , _ELBSerializer
+    , _ELBService
+    , _InvalidConfigurationRequestException
+    , _InvalidEndPointException
+    , _InvalidSchemeException
+    , _InvalidSecurityGroupException
+    , _InvalidSubnetException
+    , _ListenerNotFoundException
+    , _LoadBalancerAttributeNotFoundException
+    , _PolicyNotFoundException
+    , _PolicyTypeNotFoundException
+    , _SubnetNotFoundException
+    , _TooManyAccessPointsException
+    , _TooManyPoliciesException
+    , _TooManyTagsException
     -- ** XML
     , xmlOptions
 
@@ -212,29 +236,7 @@ data ELB deriving (Typeable)
 
 instance AWSService ELB where
     type Sg ELB = V4
-    data Er ELB
-        = AccessPointNotFoundException
-        | CertificateNotFoundException
-        | DuplicateAccessPointNameException
-        | DuplicateListenerException
-        | DuplicatePolicyNameException
-        | DuplicateTagKeysException
-        | ELBClient HttpException
-        | ELBSerializer String
-        | ELBService String
-        | InvalidConfigurationRequestException
-        | InvalidEndPointException
-        | InvalidSchemeException
-        | InvalidSecurityGroupException
-        | InvalidSubnetException
-        | ListenerNotFoundException
-        | LoadBalancerAttributeNotFoundException
-        | PolicyNotFoundException
-        | PolicyTypeNotFoundException
-        | SubnetNotFoundException
-        | TooManyAccessPointsException
-        | TooManyPoliciesException
-        | TooManyTagsException
+    type Er ELB = ELBError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -243,18 +245,296 @@ instance AWSService ELB where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er ELB)
-deriving instance Generic (Er ELB)
+-- | A sum type representing possible errors returned by the 'ELB' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data ELBError
+      -- | The specified load balancer could not be found.
+    = AccessPointNotFoundException
+      -- | The specified SSL ID does not refer to a valid SSL certificate in
+      -- the AWS Identity and Access Management Service.
+    | CertificateNotFoundException
+      -- | The load balancer name already exists for this account. Please
+      -- choose another name.
+    | DuplicateAccessPointNameException
+      -- | A Listener already exists for the given LoadBalancerName and
+      -- LoadBalancerPort, but with a different InstancePort, Protocol, or
+      -- SSLCertificateId.
+    | DuplicateListenerException
+      -- | Policy with the same name exists for this load balancer. Please
+      -- choose another name.
+    | DuplicatePolicyNameException
+      -- | The same tag key specified multiple times.
+    | DuplicateTagKeysException
+    | ELBClient HttpException
+    | ELBSerializer Text
+    | ELBService Text
+      -- | Requested configuration change is invalid.
+    | InvalidConfigurationRequestException
+      -- | The specified EndPoint is not valid.
+    | InvalidEndPointException
+      -- | Invalid value for scheme. Scheme can only be specified for load
+      -- balancers in VPC.
+    | InvalidSchemeException
+      -- | One or more specified security groups do not exist.
+    | InvalidSecurityGroupException
+      -- | The VPC has no Internet gateway.
+    | InvalidSubnetException
+      -- | Load balancer does not have a listener configured at the given
+      -- port.
+    | ListenerNotFoundException
+      -- | The specified load balancer attribute could not be found.
+    | LoadBalancerAttributeNotFoundException
+      -- | One or more specified policies were not found.
+    | PolicyNotFoundException
+      -- | One or more of the specified policy types do not exist.
+    | PolicyTypeNotFoundException
+      -- | One or more subnets were not found.
+    | SubnetNotFoundException
+      -- | The quota for the number of load balancers has already been
+      -- reached.
+    | TooManyAccessPointsException
+      -- | Quota for number of policies for this load balancer has already
+      -- been reached.
+    | TooManyPoliciesException
+      -- | The quota for the number of tags that can be assigned to a load
+      -- balancer has been reached.
+    | TooManyTagsException
+    deriving (Show, Generic)
 
-instance AWSError (Er ELB) where
+instance AWSError ELBError where
     awsError = const "ELBError"
 
-instance AWSServiceError (Er ELB) where
+instance AWSServiceError ELBError where
     serviceError    = ELBService
     clientError     = ELBClient
     serializerError = ELBSerializer
 
-instance Exception (Er ELB)
+instance Exception ELBError
+
+-- | The specified load balancer could not be found.
+--
+-- See: 'AccessPointNotFoundException'
+_AccessPointNotFoundException :: Prism' ELBError ()
+_AccessPointNotFoundException = prism'
+    (const AccessPointNotFoundException)
+    (\case
+        AccessPointNotFoundException -> Right ()
+        x -> Left x)
+
+-- | The specified SSL ID does not refer to a valid SSL certificate in the AWS
+-- Identity and Access Management Service.
+--
+-- See: 'CertificateNotFoundException'
+_CertificateNotFoundException :: Prism' ELBError ()
+_CertificateNotFoundException = prism'
+    (const CertificateNotFoundException)
+    (\case
+        CertificateNotFoundException -> Right ()
+        x -> Left x)
+
+-- | The load balancer name already exists for this account. Please choose
+-- another name.
+--
+-- See: 'DuplicateAccessPointNameException'
+_DuplicateAccessPointNameException :: Prism' ELBError ()
+_DuplicateAccessPointNameException = prism'
+    (const DuplicateAccessPointNameException)
+    (\case
+        DuplicateAccessPointNameException -> Right ()
+        x -> Left x)
+
+-- | A Listener already exists for the given LoadBalancerName and
+-- LoadBalancerPort, but with a different InstancePort, Protocol, or
+-- SSLCertificateId.
+--
+-- See: 'DuplicateListenerException'
+_DuplicateListenerException :: Prism' ELBError ()
+_DuplicateListenerException = prism'
+    (const DuplicateListenerException)
+    (\case
+        DuplicateListenerException -> Right ()
+        x -> Left x)
+
+-- | Policy with the same name exists for this load balancer. Please choose
+-- another name.
+--
+-- See: 'DuplicatePolicyNameException'
+_DuplicatePolicyNameException :: Prism' ELBError ()
+_DuplicatePolicyNameException = prism'
+    (const DuplicatePolicyNameException)
+    (\case
+        DuplicatePolicyNameException -> Right ()
+        x -> Left x)
+
+-- | The same tag key specified multiple times.
+--
+-- See: 'DuplicateTagKeysException'
+_DuplicateTagKeysException :: Prism' ELBError ()
+_DuplicateTagKeysException = prism'
+    (const DuplicateTagKeysException)
+    (\case
+        DuplicateTagKeysException -> Right ()
+        x -> Left x)
+
+-- | See: 'ELBClient'
+_ELBClient :: Prism' ELBError HttpException
+_ELBClient = prism'
+    ELBClient
+    (\case
+        ELBClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'ELBSerializer'
+_ELBSerializer :: Prism' ELBError Text
+_ELBSerializer = prism'
+    ELBSerializer
+    (\case
+        ELBSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'ELBService'
+_ELBService :: Prism' ELBError Text
+_ELBService = prism'
+    ELBService
+    (\case
+        ELBService p1 -> Right p1
+        x -> Left x)
+
+-- | Requested configuration change is invalid.
+--
+-- See: 'InvalidConfigurationRequestException'
+_InvalidConfigurationRequestException :: Prism' ELBError ()
+_InvalidConfigurationRequestException = prism'
+    (const InvalidConfigurationRequestException)
+    (\case
+        InvalidConfigurationRequestException -> Right ()
+        x -> Left x)
+
+-- | The specified EndPoint is not valid.
+--
+-- See: 'InvalidEndPointException'
+_InvalidEndPointException :: Prism' ELBError ()
+_InvalidEndPointException = prism'
+    (const InvalidEndPointException)
+    (\case
+        InvalidEndPointException -> Right ()
+        x -> Left x)
+
+-- | Invalid value for scheme. Scheme can only be specified for load balancers
+-- in VPC.
+--
+-- See: 'InvalidSchemeException'
+_InvalidSchemeException :: Prism' ELBError ()
+_InvalidSchemeException = prism'
+    (const InvalidSchemeException)
+    (\case
+        InvalidSchemeException -> Right ()
+        x -> Left x)
+
+-- | One or more specified security groups do not exist.
+--
+-- See: 'InvalidSecurityGroupException'
+_InvalidSecurityGroupException :: Prism' ELBError ()
+_InvalidSecurityGroupException = prism'
+    (const InvalidSecurityGroupException)
+    (\case
+        InvalidSecurityGroupException -> Right ()
+        x -> Left x)
+
+-- | The VPC has no Internet gateway.
+--
+-- See: 'InvalidSubnetException'
+_InvalidSubnetException :: Prism' ELBError ()
+_InvalidSubnetException = prism'
+    (const InvalidSubnetException)
+    (\case
+        InvalidSubnetException -> Right ()
+        x -> Left x)
+
+-- | Load balancer does not have a listener configured at the given port.
+--
+-- See: 'ListenerNotFoundException'
+_ListenerNotFoundException :: Prism' ELBError ()
+_ListenerNotFoundException = prism'
+    (const ListenerNotFoundException)
+    (\case
+        ListenerNotFoundException -> Right ()
+        x -> Left x)
+
+-- | The specified load balancer attribute could not be found.
+--
+-- See: 'LoadBalancerAttributeNotFoundException'
+_LoadBalancerAttributeNotFoundException :: Prism' ELBError ()
+_LoadBalancerAttributeNotFoundException = prism'
+    (const LoadBalancerAttributeNotFoundException)
+    (\case
+        LoadBalancerAttributeNotFoundException -> Right ()
+        x -> Left x)
+
+-- | One or more specified policies were not found.
+--
+-- See: 'PolicyNotFoundException'
+_PolicyNotFoundException :: Prism' ELBError ()
+_PolicyNotFoundException = prism'
+    (const PolicyNotFoundException)
+    (\case
+        PolicyNotFoundException -> Right ()
+        x -> Left x)
+
+-- | One or more of the specified policy types do not exist.
+--
+-- See: 'PolicyTypeNotFoundException'
+_PolicyTypeNotFoundException :: Prism' ELBError ()
+_PolicyTypeNotFoundException = prism'
+    (const PolicyTypeNotFoundException)
+    (\case
+        PolicyTypeNotFoundException -> Right ()
+        x -> Left x)
+
+-- | One or more subnets were not found.
+--
+-- See: 'SubnetNotFoundException'
+_SubnetNotFoundException :: Prism' ELBError ()
+_SubnetNotFoundException = prism'
+    (const SubnetNotFoundException)
+    (\case
+        SubnetNotFoundException -> Right ()
+        x -> Left x)
+
+-- | The quota for the number of load balancers has already been reached.
+--
+-- See: 'TooManyAccessPointsException'
+_TooManyAccessPointsException :: Prism' ELBError ()
+_TooManyAccessPointsException = prism'
+    (const TooManyAccessPointsException)
+    (\case
+        TooManyAccessPointsException -> Right ()
+        x -> Left x)
+
+-- | Quota for number of policies for this load balancer has already been
+-- reached.
+--
+-- See: 'TooManyPoliciesException'
+_TooManyPoliciesException :: Prism' ELBError ()
+_TooManyPoliciesException = prism'
+    (const TooManyPoliciesException)
+    (\case
+        TooManyPoliciesException -> Right ()
+        x -> Left x)
+
+-- | The quota for the number of tags that can be assigned to a load balancer
+-- has been reached.
+--
+-- See: 'TooManyTagsException'
+_TooManyTagsException :: Prism' ELBError ()
+_TooManyTagsException = prism'
+    (const TooManyTagsException)
+    (\case
+        TooManyTagsException -> Right ()
+        x -> Left x)
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -30,6 +30,18 @@ module Network.AWS.DynamoDB.Types
     (
     -- * Service
       DynamoDB
+    -- ** Errors
+    , DynamoDBError (..)
+    , _ConditionalCheckFailedException
+    , _DynamoDBClient
+    , _DynamoDBSerializer
+    , _DynamoDBService
+    , _InternalServerError
+    , _ItemCollectionSizeLimitExceededException
+    , _LimitExceededException
+    , _ProvisionedThroughputExceededException
+    , _ResourceInUseException
+    , _ResourceNotFoundException
     -- * AttributeAction
     , AttributeAction (..)
 
@@ -242,31 +254,7 @@ data DynamoDB deriving (Typeable)
 
 instance AWSService DynamoDB where
     type Sg DynamoDB = V4
-    data Er DynamoDB
-        = ConditionalCheckFailedException
-            { _ccfeMessage :: Maybe Text
-            }
-        | DynamoDBClient HttpException
-        | DynamoDBSerializer String
-        | DynamoDBService String
-        | InternalServerError
-            { _iseMessage :: Maybe Text
-            }
-        | ItemCollectionSizeLimitExceededException
-            { _icsleeMessage :: Maybe Text
-            }
-        | LimitExceededException
-            { _leeMessage :: Maybe Text
-            }
-        | ProvisionedThroughputExceededException
-            { _pteeMessage :: Maybe Text
-            }
-        | ResourceInUseException
-            { _riueMessage :: Maybe Text
-            }
-        | ResourceNotFoundException
-            { _rnfeMessage :: Maybe Text
-            }
+    type Er DynamoDB = DynamoDBError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -275,18 +263,181 @@ instance AWSService DynamoDB where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er DynamoDB)
-deriving instance Generic (Er DynamoDB)
+-- | A sum type representing possible errors returned by the 'DynamoDB' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data DynamoDBError
+      -- | A condition specified in the operation could not be evaluated.
+    = ConditionalCheckFailedException
+        { _ccfeMessage :: Maybe Text
+        }
+    | DynamoDBClient HttpException
+    | DynamoDBSerializer Text
+    | DynamoDBService Text
+      -- | An error occurred on the server side.
+    | InternalServerError
+        { _iseMessage :: Maybe Text
+        }
+      -- | An item collection is too large. This exception is only returned
+      -- for tables that have one or more local secondary indexes.
+    | ItemCollectionSizeLimitExceededException
+        { _icsleeMessage :: Maybe Text
+        }
+      -- | The number of concurrent table requests (cumulative number of
+      -- tables in the CREATING, DELETING or UPDATING state) exceeds the
+      -- maximum allowed of 10. Also, for tables with secondary indexes,
+      -- only one of those tables can be in the CREATING state at any
+      -- point in time. Do not attempt to create more than one such table
+      -- simultaneously. The total limit of tables in the ACTIVE state is
+      -- 250.
+    | LimitExceededException
+        { _leeMessage :: Maybe Text
+        }
+      -- | The request rate is too high, or the request is too large, for
+      -- the available throughput to accommodate. The AWS SDKs
+      -- automatically retry requests that receive this exception;
+      -- therefore, your request will eventually succeed, unless the
+      -- request is too large or your retry queue is too large to finish.
+      -- Reduce the frequency of requests by using the strategies listed
+      -- in Error Retries and Exponential Backoff in the Amazon DynamoDB
+      -- Developer Guide.
+    | ProvisionedThroughputExceededException
+        { _pteeMessage :: Maybe Text
+        }
+      -- | The operation conflicts with the resource's availability. For
+      -- example, you attempted to recreate an existing table, or tried to
+      -- delete a table currently in the CREATING state.
+    | ResourceInUseException
+        { _riueMessage :: Maybe Text
+        }
+      -- | The operation tried to access a nonexistent table or index. The
+      -- resource may not be specified correctly, or its status may not be
+      -- ACTIVE.
+    | ResourceNotFoundException
+        { _rnfeMessage :: Maybe Text
+        }
+    deriving (Show, Generic)
 
-instance AWSError (Er DynamoDB) where
+instance AWSError DynamoDBError where
     awsError = const "DynamoDBError"
 
-instance AWSServiceError (Er DynamoDB) where
+instance AWSServiceError DynamoDBError where
     serviceError    = DynamoDBService
     clientError     = DynamoDBClient
     serializerError = DynamoDBSerializer
 
-instance Exception (Er DynamoDB)
+instance Exception DynamoDBError
+
+-- | A condition specified in the operation could not be evaluated.
+--
+-- See: 'ConditionalCheckFailedException'
+_ConditionalCheckFailedException :: Prism' DynamoDBError (Maybe Text)
+_ConditionalCheckFailedException = prism'
+    ConditionalCheckFailedException
+    (\case
+        ConditionalCheckFailedException p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'DynamoDBClient'
+_DynamoDBClient :: Prism' DynamoDBError HttpException
+_DynamoDBClient = prism'
+    DynamoDBClient
+    (\case
+        DynamoDBClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'DynamoDBSerializer'
+_DynamoDBSerializer :: Prism' DynamoDBError Text
+_DynamoDBSerializer = prism'
+    DynamoDBSerializer
+    (\case
+        DynamoDBSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'DynamoDBService'
+_DynamoDBService :: Prism' DynamoDBError Text
+_DynamoDBService = prism'
+    DynamoDBService
+    (\case
+        DynamoDBService p1 -> Right p1
+        x -> Left x)
+
+-- | An error occurred on the server side.
+--
+-- See: 'InternalServerError'
+_InternalServerError :: Prism' DynamoDBError (Maybe Text)
+_InternalServerError = prism'
+    InternalServerError
+    (\case
+        InternalServerError p1 -> Right p1
+        x -> Left x)
+
+-- | An item collection is too large. This exception is only returned for tables
+-- that have one or more local secondary indexes.
+--
+-- See: 'ItemCollectionSizeLimitExceededException'
+_ItemCollectionSizeLimitExceededException :: Prism' DynamoDBError (Maybe Text)
+_ItemCollectionSizeLimitExceededException = prism'
+    ItemCollectionSizeLimitExceededException
+    (\case
+        ItemCollectionSizeLimitExceededException p1 -> Right p1
+        x -> Left x)
+
+-- | The number of concurrent table requests (cumulative number of tables in the
+-- CREATING, DELETING or UPDATING state) exceeds the maximum allowed of 10.
+-- Also, for tables with secondary indexes, only one of those tables can be in
+-- the CREATING state at any point in time. Do not attempt to create more than
+-- one such table simultaneously. The total limit of tables in the ACTIVE
+-- state is 250.
+--
+-- See: 'LimitExceededException'
+_LimitExceededException :: Prism' DynamoDBError (Maybe Text)
+_LimitExceededException = prism'
+    LimitExceededException
+    (\case
+        LimitExceededException p1 -> Right p1
+        x -> Left x)
+
+-- | The request rate is too high, or the request is too large, for the
+-- available throughput to accommodate. The AWS SDKs automatically retry
+-- requests that receive this exception; therefore, your request will
+-- eventually succeed, unless the request is too large or your retry queue is
+-- too large to finish. Reduce the frequency of requests by using the
+-- strategies listed in Error Retries and Exponential Backoff in the Amazon
+-- DynamoDB Developer Guide.
+--
+-- See: 'ProvisionedThroughputExceededException'
+_ProvisionedThroughputExceededException :: Prism' DynamoDBError (Maybe Text)
+_ProvisionedThroughputExceededException = prism'
+    ProvisionedThroughputExceededException
+    (\case
+        ProvisionedThroughputExceededException p1 -> Right p1
+        x -> Left x)
+
+-- | The operation conflicts with the resource's availability. For example, you
+-- attempted to recreate an existing table, or tried to delete a table
+-- currently in the CREATING state.
+--
+-- See: 'ResourceInUseException'
+_ResourceInUseException :: Prism' DynamoDBError (Maybe Text)
+_ResourceInUseException = prism'
+    ResourceInUseException
+    (\case
+        ResourceInUseException p1 -> Right p1
+        x -> Left x)
+
+-- | The operation tried to access a nonexistent table or index. The resource
+-- may not be specified correctly, or its status may not be ACTIVE.
+--
+-- See: 'ResourceNotFoundException'
+_ResourceNotFoundException :: Prism' DynamoDBError (Maybe Text)
+_ResourceNotFoundException = prism'
+    ResourceNotFoundException
+    (\case
+        ResourceNotFoundException p1 -> Right p1
+        x -> Left x)
 
 data AttributeAction
     = AttributeActionAdd -- ^ ADD

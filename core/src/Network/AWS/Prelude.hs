@@ -79,6 +79,7 @@ import Prelude                      as Export hiding (head, error)
 
 import Control.Lens as Lens
     ( Lens'
+    , Prism'
     , (<&>)
     , (&)
     , (^.)
@@ -92,5 +93,6 @@ import Control.Lens as Lens
     , (<>=)
     , (%=)
     , lens
+    , prism'
     , to
     )

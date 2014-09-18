@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,6 +29,26 @@ module Network.AWS.SQS.Types
     (
     -- * Service
       SQS
+    -- ** Errors
+    , SQSError (..)
+    , _BatchEntryIdsNotDistinct
+    , _BatchRequestTooLong
+    , _EmptyBatchRequest
+    , _InvalidAttributeName
+    , _InvalidBatchEntryId
+    , _InvalidIdFormat
+    , _InvalidMessageContents
+    , _MessageNotInflight
+    , _OverLimit
+    , _QueueDeletedRecently
+    , _QueueDoesNotExist
+    , _QueueNameExists
+    , _ReceiptHandleIsInvalid
+    , _SQSClient
+    , _SQSSerializer
+    , _SQSService
+    , _TooManyEntriesInBatchRequest
+    , _UnsupportedOperation
     -- ** XML
     , xmlOptions
 
@@ -112,25 +132,7 @@ data SQS deriving (Typeable)
 
 instance AWSService SQS where
     type Sg SQS = V4
-    data Er SQS
-        = BatchEntryIdsNotDistinct
-        | BatchRequestTooLong
-        | EmptyBatchRequest
-        | InvalidAttributeName
-        | InvalidBatchEntryId
-        | InvalidIdFormat
-        | InvalidMessageContents
-        | MessageNotInflight
-        | OverLimit
-        | QueueDeletedRecently
-        | QueueDoesNotExist
-        | QueueNameExists
-        | ReceiptHandleIsInvalid
-        | SQSClient HttpException
-        | SQSSerializer String
-        | SQSService String
-        | TooManyEntriesInBatchRequest
-        | UnsupportedOperation
+    type Er SQS = SQSError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -139,18 +141,246 @@ instance AWSService SQS where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er SQS)
-deriving instance Generic (Er SQS)
+-- | A sum type representing possible errors returned by the 'SQS' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data SQSError
+      -- | Two or more batch entries have the same Id in the request.
+    = BatchEntryIdsNotDistinct
+      -- | The length of all the messages put together is more than the
+      -- limit.
+    | BatchRequestTooLong
+      -- | Batch request does not contain an entry.
+    | EmptyBatchRequest
+      -- | The attribute referred to does not exist.
+    | InvalidAttributeName
+      -- | The Id of a batch entry in a batch request does not abide by the
+      -- specification.
+    | InvalidBatchEntryId
+      -- | The receipt handle is not valid for the current version.
+    | InvalidIdFormat
+      -- | The message contains characters outside the allowed set.
+    | InvalidMessageContents
+      -- | The message referred to is not in flight.
+    | MessageNotInflight
+      -- | The action that you requested would violate a limit. For example,
+      -- ReceiveMessage returns this error if the maximum number of
+      -- messages inflight has already been reached. AddPermission returns
+      -- this error if the maximum number of permissions for the queue has
+      -- already been reached.
+    | OverLimit
+      -- | You must wait 60 seconds after deleting a queue before you can
+      -- create another with the same name.
+    | QueueDeletedRecently
+      -- | The queue referred to does not exist.
+    | QueueDoesNotExist
+      -- | A queue already exists with this name. Amazon SQS returns this
+      -- error only if the request includes attributes whose values differ
+      -- from those of the existing queue.
+    | QueueNameExists
+      -- | The receipt handle provided is not valid.
+    | ReceiptHandleIsInvalid
+    | SQSClient HttpException
+    | SQSSerializer Text
+    | SQSService Text
+      -- | Batch request contains more number of entries than permissible.
+    | TooManyEntriesInBatchRequest
+      -- | Error code 400. Unsupported operation.
+    | UnsupportedOperation
+    deriving (Show, Generic)
 
-instance AWSError (Er SQS) where
+instance AWSError SQSError where
     awsError = const "SQSError"
 
-instance AWSServiceError (Er SQS) where
+instance AWSServiceError SQSError where
     serviceError    = SQSService
     clientError     = SQSClient
     serializerError = SQSSerializer
 
-instance Exception (Er SQS)
+instance Exception SQSError
+
+-- | Two or more batch entries have the same Id in the request.
+--
+-- See: 'BatchEntryIdsNotDistinct'
+_BatchEntryIdsNotDistinct :: Prism' SQSError ()
+_BatchEntryIdsNotDistinct = prism'
+    (const BatchEntryIdsNotDistinct)
+    (\case
+        BatchEntryIdsNotDistinct -> Right ()
+        x -> Left x)
+
+-- | The length of all the messages put together is more than the limit.
+--
+-- See: 'BatchRequestTooLong'
+_BatchRequestTooLong :: Prism' SQSError ()
+_BatchRequestTooLong = prism'
+    (const BatchRequestTooLong)
+    (\case
+        BatchRequestTooLong -> Right ()
+        x -> Left x)
+
+-- | Batch request does not contain an entry.
+--
+-- See: 'EmptyBatchRequest'
+_EmptyBatchRequest :: Prism' SQSError ()
+_EmptyBatchRequest = prism'
+    (const EmptyBatchRequest)
+    (\case
+        EmptyBatchRequest -> Right ()
+        x -> Left x)
+
+-- | The attribute referred to does not exist.
+--
+-- See: 'InvalidAttributeName'
+_InvalidAttributeName :: Prism' SQSError ()
+_InvalidAttributeName = prism'
+    (const InvalidAttributeName)
+    (\case
+        InvalidAttributeName -> Right ()
+        x -> Left x)
+
+-- | The Id of a batch entry in a batch request does not abide by the
+-- specification.
+--
+-- See: 'InvalidBatchEntryId'
+_InvalidBatchEntryId :: Prism' SQSError ()
+_InvalidBatchEntryId = prism'
+    (const InvalidBatchEntryId)
+    (\case
+        InvalidBatchEntryId -> Right ()
+        x -> Left x)
+
+-- | The receipt handle is not valid for the current version.
+--
+-- See: 'InvalidIdFormat'
+_InvalidIdFormat :: Prism' SQSError ()
+_InvalidIdFormat = prism'
+    (const InvalidIdFormat)
+    (\case
+        InvalidIdFormat -> Right ()
+        x -> Left x)
+
+-- | The message contains characters outside the allowed set.
+--
+-- See: 'InvalidMessageContents'
+_InvalidMessageContents :: Prism' SQSError ()
+_InvalidMessageContents = prism'
+    (const InvalidMessageContents)
+    (\case
+        InvalidMessageContents -> Right ()
+        x -> Left x)
+
+-- | The message referred to is not in flight.
+--
+-- See: 'MessageNotInflight'
+_MessageNotInflight :: Prism' SQSError ()
+_MessageNotInflight = prism'
+    (const MessageNotInflight)
+    (\case
+        MessageNotInflight -> Right ()
+        x -> Left x)
+
+-- | The action that you requested would violate a limit. For example,
+-- ReceiveMessage returns this error if the maximum number of messages
+-- inflight has already been reached. AddPermission returns this error if the
+-- maximum number of permissions for the queue has already been reached.
+--
+-- See: 'OverLimit'
+_OverLimit :: Prism' SQSError ()
+_OverLimit = prism'
+    (const OverLimit)
+    (\case
+        OverLimit -> Right ()
+        x -> Left x)
+
+-- | You must wait 60 seconds after deleting a queue before you can create
+-- another with the same name.
+--
+-- See: 'QueueDeletedRecently'
+_QueueDeletedRecently :: Prism' SQSError ()
+_QueueDeletedRecently = prism'
+    (const QueueDeletedRecently)
+    (\case
+        QueueDeletedRecently -> Right ()
+        x -> Left x)
+
+-- | The queue referred to does not exist.
+--
+-- See: 'QueueDoesNotExist'
+_QueueDoesNotExist :: Prism' SQSError ()
+_QueueDoesNotExist = prism'
+    (const QueueDoesNotExist)
+    (\case
+        QueueDoesNotExist -> Right ()
+        x -> Left x)
+
+-- | A queue already exists with this name. Amazon SQS returns this error only
+-- if the request includes attributes whose values differ from those of the
+-- existing queue.
+--
+-- See: 'QueueNameExists'
+_QueueNameExists :: Prism' SQSError ()
+_QueueNameExists = prism'
+    (const QueueNameExists)
+    (\case
+        QueueNameExists -> Right ()
+        x -> Left x)
+
+-- | The receipt handle provided is not valid.
+--
+-- See: 'ReceiptHandleIsInvalid'
+_ReceiptHandleIsInvalid :: Prism' SQSError ()
+_ReceiptHandleIsInvalid = prism'
+    (const ReceiptHandleIsInvalid)
+    (\case
+        ReceiptHandleIsInvalid -> Right ()
+        x -> Left x)
+
+-- | See: 'SQSClient'
+_SQSClient :: Prism' SQSError HttpException
+_SQSClient = prism'
+    SQSClient
+    (\case
+        SQSClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'SQSSerializer'
+_SQSSerializer :: Prism' SQSError Text
+_SQSSerializer = prism'
+    SQSSerializer
+    (\case
+        SQSSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'SQSService'
+_SQSService :: Prism' SQSError Text
+_SQSService = prism'
+    SQSService
+    (\case
+        SQSService p1 -> Right p1
+        x -> Left x)
+
+-- | Batch request contains more number of entries than permissible.
+--
+-- See: 'TooManyEntriesInBatchRequest'
+_TooManyEntriesInBatchRequest :: Prism' SQSError ()
+_TooManyEntriesInBatchRequest = prism'
+    (const TooManyEntriesInBatchRequest)
+    (\case
+        TooManyEntriesInBatchRequest -> Right ()
+        x -> Left x)
+
+-- | Error code 400. Unsupported operation.
+--
+-- See: 'UnsupportedOperation'
+_UnsupportedOperation :: Prism' SQSError ()
+_UnsupportedOperation = prism'
+    (const UnsupportedOperation)
+    (\case
+        UnsupportedOperation -> Right ()
+        x -> Left x)
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

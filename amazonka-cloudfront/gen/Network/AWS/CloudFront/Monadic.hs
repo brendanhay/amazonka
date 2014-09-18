@@ -165,7 +165,6 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CloudFront
 
-type ServiceEr = Er CloudFront
 
 -- $CreateCloudFrontOriginAccessIdentity
 -- Create a new origin access identity.
@@ -187,7 +186,7 @@ createCloudFrontOriginAccessIdentityCatch :: ( MonadCatch m
                                              , MonadReader Env m
                                              )
     => CloudFrontOriginAccessIdentityConfig -- ^ 'ccfoaiCloudFrontOriginAccessIdentityConfig'
-    -> m (Either ServiceEr CreateCloudFrontOriginAccessIdentityResponse)
+    -> m (Either CloudFrontError CreateCloudFrontOriginAccessIdentityResponse)
 createCloudFrontOriginAccessIdentityCatch p1 =
     sendCatch (mkCreateCloudFrontOriginAccessIdentity p1)
 
@@ -211,7 +210,7 @@ createDistributionCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => DistributionConfig -- ^ 'cdDistributionConfig'
-    -> m (Either ServiceEr CreateDistributionResponse)
+    -> m (Either CloudFrontError CreateDistributionResponse)
 createDistributionCatch p1 =
     sendCatch (mkCreateDistribution p1)
 
@@ -237,7 +236,7 @@ createInvalidationCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'ciDistributionId'
     -> InvalidationBatch -- ^ 'ciInvalidationBatch'
-    -> m (Either ServiceEr CreateInvalidationResponse)
+    -> m (Either CloudFrontError CreateInvalidationResponse)
 createInvalidationCatch p1 p2 =
     sendCatch (mkCreateInvalidation p1 p2)
 
@@ -261,7 +260,7 @@ createStreamingDistributionCatch :: ( MonadCatch m
                                     , MonadReader Env m
                                     )
     => StreamingDistributionConfig -- ^ 'csdStreamingDistributionConfig'
-    -> m (Either ServiceEr CreateStreamingDistributionResponse)
+    -> m (Either CloudFrontError CreateStreamingDistributionResponse)
 createStreamingDistributionCatch p1 =
     sendCatch (mkCreateStreamingDistribution p1)
 
@@ -287,7 +286,7 @@ deleteCloudFrontOriginAccessIdentityCatch :: ( MonadCatch m
                                              )
     => Text -- ^ 'dcfoaiId'
     -> State DeleteCloudFrontOriginAccessIdentity a
-    -> m (Either ServiceEr DeleteCloudFrontOriginAccessIdentityResponse)
+    -> m (Either CloudFrontError DeleteCloudFrontOriginAccessIdentityResponse)
 deleteCloudFrontOriginAccessIdentityCatch p1 s =
     sendCatch $ (mkDeleteCloudFrontOriginAccessIdentity p1) &~ s
 
@@ -313,7 +312,7 @@ deleteDistributionCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'ddId'
     -> State DeleteDistribution a
-    -> m (Either ServiceEr DeleteDistributionResponse)
+    -> m (Either CloudFrontError DeleteDistributionResponse)
 deleteDistributionCatch p1 s =
     sendCatch $ (mkDeleteDistribution p1) &~ s
 
@@ -339,7 +338,7 @@ deleteStreamingDistributionCatch :: ( MonadCatch m
                                     )
     => Text -- ^ 'dsdId'
     -> State DeleteStreamingDistribution a
-    -> m (Either ServiceEr DeleteStreamingDistributionResponse)
+    -> m (Either CloudFrontError DeleteStreamingDistributionResponse)
 deleteStreamingDistributionCatch p1 s =
     sendCatch $ (mkDeleteStreamingDistribution p1) &~ s
 
@@ -363,7 +362,7 @@ getCloudFrontOriginAccessIdentityCatch :: ( MonadCatch m
                                           , MonadReader Env m
                                           )
     => Text -- ^ 'gcfoaiId'
-    -> m (Either ServiceEr GetCloudFrontOriginAccessIdentityResponse)
+    -> m (Either CloudFrontError GetCloudFrontOriginAccessIdentityResponse)
 getCloudFrontOriginAccessIdentityCatch p1 =
     sendCatch (mkGetCloudFrontOriginAccessIdentity p1)
 
@@ -387,7 +386,7 @@ getCloudFrontOriginAccessIdentityConfigCatch :: ( MonadCatch m
                                                 , MonadReader Env m
                                                 )
     => Text -- ^ 'gcfoaicId'
-    -> m (Either ServiceEr GetCloudFrontOriginAccessIdentityConfigResponse)
+    -> m (Either CloudFrontError GetCloudFrontOriginAccessIdentityConfigResponse)
 getCloudFrontOriginAccessIdentityConfigCatch p1 =
     sendCatch (mkGetCloudFrontOriginAccessIdentityConfig p1)
 
@@ -411,7 +410,7 @@ getDistributionCatch :: ( MonadCatch m
                         , MonadReader Env m
                         )
     => Text -- ^ 'gdId'
-    -> m (Either ServiceEr GetDistributionResponse)
+    -> m (Either CloudFrontError GetDistributionResponse)
 getDistributionCatch p1 =
     sendCatch (mkGetDistribution p1)
 
@@ -435,7 +434,7 @@ getDistributionConfigCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'gdcId'
-    -> m (Either ServiceEr GetDistributionConfigResponse)
+    -> m (Either CloudFrontError GetDistributionConfigResponse)
 getDistributionConfigCatch p1 =
     sendCatch (mkGetDistributionConfig p1)
 
@@ -461,7 +460,7 @@ getInvalidationCatch :: ( MonadCatch m
                         )
     => Text -- ^ 'giDistributionId'
     -> Text -- ^ 'giId'
-    -> m (Either ServiceEr GetInvalidationResponse)
+    -> m (Either CloudFrontError GetInvalidationResponse)
 getInvalidationCatch p1 p2 =
     sendCatch (mkGetInvalidation p1 p2)
 
@@ -485,7 +484,7 @@ getStreamingDistributionCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => Text -- ^ 'gsdId'
-    -> m (Either ServiceEr GetStreamingDistributionResponse)
+    -> m (Either CloudFrontError GetStreamingDistributionResponse)
 getStreamingDistributionCatch p1 =
     sendCatch (mkGetStreamingDistribution p1)
 
@@ -509,7 +508,7 @@ getStreamingDistributionConfigCatch :: ( MonadCatch m
                                        , MonadReader Env m
                                        )
     => Text -- ^ 'gsdcId'
-    -> m (Either ServiceEr GetStreamingDistributionConfigResponse)
+    -> m (Either CloudFrontError GetStreamingDistributionConfigResponse)
 getStreamingDistributionConfigCatch p1 =
     sendCatch (mkGetStreamingDistributionConfig p1)
 
@@ -533,7 +532,7 @@ listCloudFrontOriginAccessIdentitiesCatch :: ( MonadCatch m
                                              , MonadReader Env m
                                              )
     => State ListCloudFrontOriginAccessIdentities a
-    -> Source m (Either ServiceEr ListCloudFrontOriginAccessIdentitiesResponse)
+    -> Source m (Either CloudFrontError ListCloudFrontOriginAccessIdentitiesResponse)
 listCloudFrontOriginAccessIdentitiesCatch s =
     paginateCatch (mkListCloudFrontOriginAccessIdentities &~ s)
 
@@ -557,7 +556,7 @@ listDistributionsCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => State ListDistributions a
-    -> Source m (Either ServiceEr ListDistributionsResponse)
+    -> Source m (Either CloudFrontError ListDistributionsResponse)
 listDistributionsCatch s =
     paginateCatch (mkListDistributions &~ s)
 
@@ -583,7 +582,7 @@ listInvalidationsCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'liDistributionId'
     -> State ListInvalidations a
-    -> Source m (Either ServiceEr ListInvalidationsResponse)
+    -> Source m (Either CloudFrontError ListInvalidationsResponse)
 listInvalidationsCatch p1 s =
     paginateCatch $ (mkListInvalidations p1) &~ s
 
@@ -607,7 +606,7 @@ listStreamingDistributionsCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => State ListStreamingDistributions a
-    -> Source m (Either ServiceEr ListStreamingDistributionsResponse)
+    -> Source m (Either CloudFrontError ListStreamingDistributionsResponse)
 listStreamingDistributionsCatch s =
     paginateCatch (mkListStreamingDistributions &~ s)
 
@@ -635,7 +634,7 @@ updateCloudFrontOriginAccessIdentityCatch :: ( MonadCatch m
     => CloudFrontOriginAccessIdentityConfig -- ^ 'ucfoaiCloudFrontOriginAccessIdentityConfig'
     -> Text -- ^ 'ucfoaiId'
     -> State UpdateCloudFrontOriginAccessIdentity a
-    -> m (Either ServiceEr UpdateCloudFrontOriginAccessIdentityResponse)
+    -> m (Either CloudFrontError UpdateCloudFrontOriginAccessIdentityResponse)
 updateCloudFrontOriginAccessIdentityCatch p1 p2 s =
     sendCatch $ (mkUpdateCloudFrontOriginAccessIdentity p1 p2) &~ s
 
@@ -663,7 +662,7 @@ updateDistributionCatch :: ( MonadCatch m
     => DistributionConfig -- ^ 'udDistributionConfig'
     -> Text -- ^ 'udId'
     -> State UpdateDistribution a
-    -> m (Either ServiceEr UpdateDistributionResponse)
+    -> m (Either CloudFrontError UpdateDistributionResponse)
 updateDistributionCatch p1 p2 s =
     sendCatch $ (mkUpdateDistribution p1 p2) &~ s
 
@@ -691,6 +690,6 @@ updateStreamingDistributionCatch :: ( MonadCatch m
     => StreamingDistributionConfig -- ^ 'usdStreamingDistributionConfig'
     -> Text -- ^ 'usdId'
     -> State UpdateStreamingDistribution a
-    -> m (Either ServiceEr UpdateStreamingDistributionResponse)
+    -> m (Either CloudFrontError UpdateStreamingDistributionResponse)
 updateStreamingDistributionCatch p1 p2 s =
     sendCatch $ (mkUpdateStreamingDistribution p1 p2) &~ s

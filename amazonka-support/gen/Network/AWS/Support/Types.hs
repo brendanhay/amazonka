@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -31,6 +31,20 @@ module Network.AWS.Support.Types
     (
     -- * Service
       Support
+    -- ** Errors
+    , SupportError (..)
+    , _AttachmentIdNotFound
+    , _AttachmentLimitExceeded
+    , _AttachmentSetExpired
+    , _AttachmentSetIdNotFound
+    , _AttachmentSetSizeLimitExceeded
+    , _CaseCreationLimitExceeded
+    , _CaseIdNotFound
+    , _DescribeAttachmentLimitExceeded
+    , _InternalServerError
+    , _SupportClient
+    , _SupportSerializer
+    , _SupportService
     -- * TrustedAdvisorCategorySpecificSummary
     , TrustedAdvisorCategorySpecificSummary
     , mkTrustedAdvisorCategorySpecificSummary
@@ -167,37 +181,7 @@ data Support deriving (Typeable)
 
 instance AWSService Support where
     type Sg Support = V4
-    data Er Support
-        = AttachmentIdNotFound
-            { _ainfMessage :: Maybe Text
-            }
-        | AttachmentLimitExceeded
-            { _aleMessage :: Maybe Text
-            }
-        | AttachmentSetExpired
-            { _aseMessage :: Maybe Text
-            }
-        | AttachmentSetIdNotFound
-            { _asinfMessage :: Maybe Text
-            }
-        | AttachmentSetSizeLimitExceeded
-            { _assleMessage :: Maybe Text
-            }
-        | CaseCreationLimitExceeded
-            { _ccleMessage :: Maybe Text
-            }
-        | CaseIdNotFound
-            { _cinfMessage :: Maybe Text
-            }
-        | DescribeAttachmentLimitExceeded
-            { _daleMessage :: Maybe Text
-            }
-        | InternalServerError
-            { _iseMessage :: Maybe Text
-            }
-        | SupportClient HttpException
-        | SupportSerializer String
-        | SupportService String
+    type Er Support = SupportError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -206,18 +190,184 @@ instance AWSService Support where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er Support)
-deriving instance Generic (Er Support)
+-- | A sum type representing possible errors returned by the 'Support' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data SupportError
+      -- | An attachment with the specified ID could not be found.
+    = AttachmentIdNotFound
+        { _ainfMessage :: Maybe Text
+        }
+      -- | The limit for the number of attachment sets created in a short
+      -- period of time has been exceeded.
+    | AttachmentLimitExceeded
+        { _aleMessage :: Maybe Text
+        }
+      -- | The expiration time of the attachment set has passed. The set
+      -- expires 1 hour after it is created.
+    | AttachmentSetExpired
+        { _aseMessage :: Maybe Text
+        }
+      -- | An attachment set with the specified ID could not be found.
+    | AttachmentSetIdNotFound
+        { _asinfMessage :: Maybe Text
+        }
+      -- | A limit for the size of an attachment set has been exceeded. The
+      -- limits are 3 attachments and 5 MB per attachment.
+    | AttachmentSetSizeLimitExceeded
+        { _assleMessage :: Maybe Text
+        }
+      -- | The case creation limit for the account has been exceeded.
+    | CaseCreationLimitExceeded
+        { _ccleMessage :: Maybe Text
+        }
+      -- | The requested CaseId could not be located.
+    | CaseIdNotFound
+        { _cinfMessage :: Maybe Text
+        }
+      -- | The limit for the number of DescribeAttachment requests in a
+      -- short period of time has been exceeded.
+    | DescribeAttachmentLimitExceeded
+        { _daleMessage :: Maybe Text
+        }
+      -- | An internal server error occurred.
+    | InternalServerError
+        { _iseMessage :: Maybe Text
+        }
+    | SupportClient HttpException
+    | SupportSerializer Text
+    | SupportService Text
+    deriving (Show, Generic)
 
-instance AWSError (Er Support) where
+instance AWSError SupportError where
     awsError = const "SupportError"
 
-instance AWSServiceError (Er Support) where
+instance AWSServiceError SupportError where
     serviceError    = SupportService
     clientError     = SupportClient
     serializerError = SupportSerializer
 
-instance Exception (Er Support)
+instance Exception SupportError
+
+-- | An attachment with the specified ID could not be found.
+--
+-- See: 'AttachmentIdNotFound'
+_AttachmentIdNotFound :: Prism' SupportError (Maybe Text)
+_AttachmentIdNotFound = prism'
+    AttachmentIdNotFound
+    (\case
+        AttachmentIdNotFound p1 -> Right p1
+        x -> Left x)
+
+-- | The limit for the number of attachment sets created in a short period of
+-- time has been exceeded.
+--
+-- See: 'AttachmentLimitExceeded'
+_AttachmentLimitExceeded :: Prism' SupportError (Maybe Text)
+_AttachmentLimitExceeded = prism'
+    AttachmentLimitExceeded
+    (\case
+        AttachmentLimitExceeded p1 -> Right p1
+        x -> Left x)
+
+-- | The expiration time of the attachment set has passed. The set expires 1
+-- hour after it is created.
+--
+-- See: 'AttachmentSetExpired'
+_AttachmentSetExpired :: Prism' SupportError (Maybe Text)
+_AttachmentSetExpired = prism'
+    AttachmentSetExpired
+    (\case
+        AttachmentSetExpired p1 -> Right p1
+        x -> Left x)
+
+-- | An attachment set with the specified ID could not be found.
+--
+-- See: 'AttachmentSetIdNotFound'
+_AttachmentSetIdNotFound :: Prism' SupportError (Maybe Text)
+_AttachmentSetIdNotFound = prism'
+    AttachmentSetIdNotFound
+    (\case
+        AttachmentSetIdNotFound p1 -> Right p1
+        x -> Left x)
+
+-- | A limit for the size of an attachment set has been exceeded. The limits are
+-- 3 attachments and 5 MB per attachment.
+--
+-- See: 'AttachmentSetSizeLimitExceeded'
+_AttachmentSetSizeLimitExceeded :: Prism' SupportError (Maybe Text)
+_AttachmentSetSizeLimitExceeded = prism'
+    AttachmentSetSizeLimitExceeded
+    (\case
+        AttachmentSetSizeLimitExceeded p1 -> Right p1
+        x -> Left x)
+
+-- | The case creation limit for the account has been exceeded.
+--
+-- See: 'CaseCreationLimitExceeded'
+_CaseCreationLimitExceeded :: Prism' SupportError (Maybe Text)
+_CaseCreationLimitExceeded = prism'
+    CaseCreationLimitExceeded
+    (\case
+        CaseCreationLimitExceeded p1 -> Right p1
+        x -> Left x)
+
+-- | The requested CaseId could not be located.
+--
+-- See: 'CaseIdNotFound'
+_CaseIdNotFound :: Prism' SupportError (Maybe Text)
+_CaseIdNotFound = prism'
+    CaseIdNotFound
+    (\case
+        CaseIdNotFound p1 -> Right p1
+        x -> Left x)
+
+-- | The limit for the number of DescribeAttachment requests in a short period
+-- of time has been exceeded.
+--
+-- See: 'DescribeAttachmentLimitExceeded'
+_DescribeAttachmentLimitExceeded :: Prism' SupportError (Maybe Text)
+_DescribeAttachmentLimitExceeded = prism'
+    DescribeAttachmentLimitExceeded
+    (\case
+        DescribeAttachmentLimitExceeded p1 -> Right p1
+        x -> Left x)
+
+-- | An internal server error occurred.
+--
+-- See: 'InternalServerError'
+_InternalServerError :: Prism' SupportError (Maybe Text)
+_InternalServerError = prism'
+    InternalServerError
+    (\case
+        InternalServerError p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'SupportClient'
+_SupportClient :: Prism' SupportError HttpException
+_SupportClient = prism'
+    SupportClient
+    (\case
+        SupportClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'SupportSerializer'
+_SupportSerializer :: Prism' SupportError Text
+_SupportSerializer = prism'
+    SupportSerializer
+    (\case
+        SupportSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'SupportService'
+_SupportService :: Prism' SupportError Text
+_SupportService = prism'
+    SupportService
+    (\case
+        SupportService p1 -> Right p1
+        x -> Left x)
 
 -- | Summary information that relates to the category of the check. Cost
 -- Optimizing is the only category that is currently supported.

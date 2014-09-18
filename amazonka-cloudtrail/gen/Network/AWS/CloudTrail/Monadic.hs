@@ -95,7 +95,6 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CloudTrail
 
-type ServiceEr = Er CloudTrail
 
 -- $CreateTrail
 -- From the command line, use create-subscription. Creates a trail that
@@ -122,7 +121,7 @@ createTrailCatch :: ( MonadCatch m
     => Text -- ^ 'ctName'
     -> Text -- ^ 'ctS3BucketName'
     -> State CreateTrail a
-    -> m (Either ServiceEr CreateTrailResponse)
+    -> m (Either CloudTrailError CreateTrailResponse)
 createTrailCatch p1 p2 s =
     sendCatch $ (mkCreateTrail p1 p2) &~ s
 
@@ -146,7 +145,7 @@ deleteTrailCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'dtName'
-    -> m (Either ServiceEr DeleteTrailResponse)
+    -> m (Either CloudTrailError DeleteTrailResponse)
 deleteTrailCatch p1 =
     sendCatch (mkDeleteTrail p1)
 
@@ -171,7 +170,7 @@ describeTrailsCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => State DescribeTrails a
-    -> m (Either ServiceEr DescribeTrailsResponse)
+    -> m (Either CloudTrailError DescribeTrailsResponse)
 describeTrailsCatch s =
     sendCatch (mkDescribeTrails &~ s)
 
@@ -197,7 +196,7 @@ getTrailStatusCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'gtsName'
-    -> m (Either ServiceEr GetTrailStatusResponse)
+    -> m (Either CloudTrailError GetTrailStatusResponse)
 getTrailStatusCatch p1 =
     sendCatch (mkGetTrailStatus p1)
 
@@ -221,7 +220,7 @@ startLoggingCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'slName'
-    -> m (Either ServiceEr StartLoggingResponse)
+    -> m (Either CloudTrailError StartLoggingResponse)
 startLoggingCatch p1 =
     sendCatch (mkStartLogging p1)
 
@@ -248,7 +247,7 @@ stopLoggingCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => Text -- ^ 'sl1Name'
-    -> m (Either ServiceEr StopLoggingResponse)
+    -> m (Either CloudTrailError StopLoggingResponse)
 stopLoggingCatch p1 =
     sendCatch (mkStopLogging p1)
 
@@ -278,6 +277,6 @@ updateTrailCatch :: ( MonadCatch m
                     )
     => Text -- ^ 'utName'
     -> State UpdateTrail a
-    -> m (Either ServiceEr UpdateTrailResponse)
+    -> m (Either CloudTrailError UpdateTrailResponse)
 updateTrailCatch p1 s =
     sendCatch $ (mkUpdateTrail p1) &~ s

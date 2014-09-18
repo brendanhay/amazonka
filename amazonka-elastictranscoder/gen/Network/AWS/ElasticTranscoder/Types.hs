@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,6 +27,18 @@ module Network.AWS.ElasticTranscoder.Types
     (
     -- * Service
       ElasticTranscoder
+    -- ** Errors
+    , ElasticTranscoderError (..)
+    , _AccessDeniedException
+    , _ElasticTranscoderClient
+    , _ElasticTranscoderSerializer
+    , _ElasticTranscoderService
+    , _IncompatibleVersionException
+    , _InternalServiceException
+    , _LimitExceededException
+    , _ResourceInUseException
+    , _ResourceNotFoundException
+    , _ValidationException
     -- * AudioCodecOptions
     , AudioCodecOptions
     , mkAudioCodecOptions
@@ -270,17 +282,7 @@ data ElasticTranscoder deriving (Typeable)
 
 instance AWSService ElasticTranscoder where
     type Sg ElasticTranscoder = V4
-    data Er ElasticTranscoder
-        = AccessDeniedException
-        | ElasticTranscoderClient HttpException
-        | ElasticTranscoderSerializer String
-        | ElasticTranscoderService String
-        | IncompatibleVersionException
-        | InternalServiceException
-        | LimitExceededException
-        | ResourceInUseException
-        | ResourceNotFoundException
-        | ValidationException
+    type Er ElasticTranscoder = ElasticTranscoderError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -289,18 +291,143 @@ instance AWSService ElasticTranscoder where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er ElasticTranscoder)
-deriving instance Generic (Er ElasticTranscoder)
+-- | A sum type representing possible errors returned by the 'ElasticTranscoder' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data ElasticTranscoderError
+      -- | General authentication failure. The request was not signed
+      -- correctly.
+    = AccessDeniedException
+    | ElasticTranscoderClient HttpException
+    | ElasticTranscoderSerializer Text
+    | ElasticTranscoderService Text
+    | IncompatibleVersionException
+      -- | Elastic Transcoder encountered an unexpected exception while
+      -- trying to fulfill the request.
+    | InternalServiceException
+      -- | Too many operations for a given AWS account. For example, the
+      -- number of pipelines exceeds the maximum allowed.
+    | LimitExceededException
+      -- | The resource you are attempting to change is in use. For example,
+      -- you are attempting to delete a pipeline that is currently in use.
+    | ResourceInUseException
+      -- | The requested resource does not exist or is not available. For
+      -- example, the pipeline to which you're trying to add a job doesn't
+      -- exist or is still being created.
+    | ResourceNotFoundException
+      -- | One or more required parameter values were not provided in the
+      -- request.
+    | ValidationException
+    deriving (Show, Generic)
 
-instance AWSError (Er ElasticTranscoder) where
+instance AWSError ElasticTranscoderError where
     awsError = const "ElasticTranscoderError"
 
-instance AWSServiceError (Er ElasticTranscoder) where
+instance AWSServiceError ElasticTranscoderError where
     serviceError    = ElasticTranscoderService
     clientError     = ElasticTranscoderClient
     serializerError = ElasticTranscoderSerializer
 
-instance Exception (Er ElasticTranscoder)
+instance Exception ElasticTranscoderError
+
+-- | General authentication failure. The request was not signed correctly.
+--
+-- See: 'AccessDeniedException'
+_AccessDeniedException :: Prism' ElasticTranscoderError ()
+_AccessDeniedException = prism'
+    (const AccessDeniedException)
+    (\case
+        AccessDeniedException -> Right ()
+        x -> Left x)
+
+-- | See: 'ElasticTranscoderClient'
+_ElasticTranscoderClient :: Prism' ElasticTranscoderError HttpException
+_ElasticTranscoderClient = prism'
+    ElasticTranscoderClient
+    (\case
+        ElasticTranscoderClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'ElasticTranscoderSerializer'
+_ElasticTranscoderSerializer :: Prism' ElasticTranscoderError Text
+_ElasticTranscoderSerializer = prism'
+    ElasticTranscoderSerializer
+    (\case
+        ElasticTranscoderSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'ElasticTranscoderService'
+_ElasticTranscoderService :: Prism' ElasticTranscoderError Text
+_ElasticTranscoderService = prism'
+    ElasticTranscoderService
+    (\case
+        ElasticTranscoderService p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'IncompatibleVersionException'
+_IncompatibleVersionException :: Prism' ElasticTranscoderError ()
+_IncompatibleVersionException = prism'
+    (const IncompatibleVersionException)
+    (\case
+        IncompatibleVersionException -> Right ()
+        x -> Left x)
+
+-- | Elastic Transcoder encountered an unexpected exception while trying to
+-- fulfill the request.
+--
+-- See: 'InternalServiceException'
+_InternalServiceException :: Prism' ElasticTranscoderError ()
+_InternalServiceException = prism'
+    (const InternalServiceException)
+    (\case
+        InternalServiceException -> Right ()
+        x -> Left x)
+
+-- | Too many operations for a given AWS account. For example, the number of
+-- pipelines exceeds the maximum allowed.
+--
+-- See: 'LimitExceededException'
+_LimitExceededException :: Prism' ElasticTranscoderError ()
+_LimitExceededException = prism'
+    (const LimitExceededException)
+    (\case
+        LimitExceededException -> Right ()
+        x -> Left x)
+
+-- | The resource you are attempting to change is in use. For example, you are
+-- attempting to delete a pipeline that is currently in use.
+--
+-- See: 'ResourceInUseException'
+_ResourceInUseException :: Prism' ElasticTranscoderError ()
+_ResourceInUseException = prism'
+    (const ResourceInUseException)
+    (\case
+        ResourceInUseException -> Right ()
+        x -> Left x)
+
+-- | The requested resource does not exist or is not available. For example, the
+-- pipeline to which you're trying to add a job doesn't exist or is still
+-- being created.
+--
+-- See: 'ResourceNotFoundException'
+_ResourceNotFoundException :: Prism' ElasticTranscoderError ()
+_ResourceNotFoundException = prism'
+    (const ResourceNotFoundException)
+    (\case
+        ResourceNotFoundException -> Right ()
+        x -> Left x)
+
+-- | One or more required parameter values were not provided in the request.
+--
+-- See: 'ValidationException'
+_ValidationException :: Prism' ElasticTranscoderError ()
+_ValidationException = prism'
+    (const ValidationException)
+    (\case
+        ValidationException -> Right ()
+        x -> Left x)
 
 -- | If you specified AAC for Audio:Codec, this is the AAC compression profile
 -- to use. Valid values include: auto, AAC-LC, HE-AAC, HE-AACv2 If you specify

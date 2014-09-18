@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -29,6 +29,17 @@ module Network.AWS.S3.Types
     (
     -- * Service
       S3
+    -- ** Errors
+    , S3Error (..)
+    , _BucketAlreadyExists
+    , _NoSuchBucket
+    , _NoSuchKey
+    , _NoSuchUpload
+    , _ObjectAlreadyInActiveTierError
+    , _ObjectNotInActiveTierError
+    , _S3Client
+    , _S3Serializer
+    , _S3Service
     -- ** XML
     , xmlOptions
 
@@ -408,16 +419,7 @@ data S3 deriving (Typeable)
 
 instance AWSService S3 where
     type Sg S3 = V4
-    data Er S3
-        = BucketAlreadyExists
-        | NoSuchBucket
-        | NoSuchKey
-        | NoSuchUpload
-        | ObjectAlreadyInActiveTierError
-        | ObjectNotInActiveTierError
-        | S3Client HttpException
-        | S3Serializer String
-        | S3Service String
+    type Er S3 = S3Error
 
     service = Service'
         { _svcEndpoint = Regional
@@ -426,18 +428,127 @@ instance AWSService S3 where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er S3)
-deriving instance Generic (Er S3)
+-- | A sum type representing possible errors returned by the 'S3' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data S3Error
+      -- | The requested bucket name is not available. The bucket namespace
+      -- is shared by all users of the system. Please select a different
+      -- name and try again.
+    = BucketAlreadyExists
+      -- | The specified bucket does not exist.
+    | NoSuchBucket
+      -- | The specified key does not exist.
+    | NoSuchKey
+      -- | The specified multipart upload does not exist.
+    | NoSuchUpload
+      -- | This operation is not allowed against this storage tier.
+    | ObjectAlreadyInActiveTierError
+      -- | The source object of the COPY operation is not in the active tier
+      -- and is only stored in Amazon Glacier.
+    | ObjectNotInActiveTierError
+    | S3Client HttpException
+    | S3Serializer Text
+    | S3Service Text
+    deriving (Show, Generic)
 
-instance AWSError (Er S3) where
+instance AWSError S3Error where
     awsError = const "S3Error"
 
-instance AWSServiceError (Er S3) where
+instance AWSServiceError S3Error where
     serviceError    = S3Service
     clientError     = S3Client
     serializerError = S3Serializer
 
-instance Exception (Er S3)
+instance Exception S3Error
+
+-- | The requested bucket name is not available. The bucket namespace is shared
+-- by all users of the system. Please select a different name and try again.
+--
+-- See: 'BucketAlreadyExists'
+_BucketAlreadyExists :: Prism' S3Error ()
+_BucketAlreadyExists = prism'
+    (const BucketAlreadyExists)
+    (\case
+        BucketAlreadyExists -> Right ()
+        x -> Left x)
+
+-- | The specified bucket does not exist.
+--
+-- See: 'NoSuchBucket'
+_NoSuchBucket :: Prism' S3Error ()
+_NoSuchBucket = prism'
+    (const NoSuchBucket)
+    (\case
+        NoSuchBucket -> Right ()
+        x -> Left x)
+
+-- | The specified key does not exist.
+--
+-- See: 'NoSuchKey'
+_NoSuchKey :: Prism' S3Error ()
+_NoSuchKey = prism'
+    (const NoSuchKey)
+    (\case
+        NoSuchKey -> Right ()
+        x -> Left x)
+
+-- | The specified multipart upload does not exist.
+--
+-- See: 'NoSuchUpload'
+_NoSuchUpload :: Prism' S3Error ()
+_NoSuchUpload = prism'
+    (const NoSuchUpload)
+    (\case
+        NoSuchUpload -> Right ()
+        x -> Left x)
+
+-- | This operation is not allowed against this storage tier.
+--
+-- See: 'ObjectAlreadyInActiveTierError'
+_ObjectAlreadyInActiveTierError :: Prism' S3Error ()
+_ObjectAlreadyInActiveTierError = prism'
+    (const ObjectAlreadyInActiveTierError)
+    (\case
+        ObjectAlreadyInActiveTierError -> Right ()
+        x -> Left x)
+
+-- | The source object of the COPY operation is not in the active tier and is
+-- only stored in Amazon Glacier.
+--
+-- See: 'ObjectNotInActiveTierError'
+_ObjectNotInActiveTierError :: Prism' S3Error ()
+_ObjectNotInActiveTierError = prism'
+    (const ObjectNotInActiveTierError)
+    (\case
+        ObjectNotInActiveTierError -> Right ()
+        x -> Left x)
+
+-- | See: 'S3Client'
+_S3Client :: Prism' S3Error HttpException
+_S3Client = prism'
+    S3Client
+    (\case
+        S3Client p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'S3Serializer'
+_S3Serializer :: Prism' S3Error Text
+_S3Serializer = prism'
+    S3Serializer
+    (\case
+        S3Serializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'S3Service'
+_S3Service :: Prism' S3Error Text
+_S3Service = prism'
+    S3Service
+    (\case
+        S3Service p1 -> Right p1
+        x -> Left x)
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

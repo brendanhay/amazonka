@@ -320,7 +320,6 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.RDS
 
-type ServiceEr = Er RDS
 
 -- $DownloadDBLogFilePortion
 -- Downloads the last line of the specified log file.
@@ -357,7 +356,7 @@ downloadDBLogFilePortionCatch :: ( MonadCatch m
     => Text -- ^ 'ddblfpDBInstanceIdentifier'
     -> Text -- ^ 'ddblfpLogFileName'
     -> State DownloadDBLogFilePortion a
-    -> Source m (Either ServiceEr DownloadDBLogFilePortionResponse)
+    -> Source m (Either RDSError DownloadDBLogFilePortionResponse)
 downloadDBLogFilePortionCatch p1 p2 s =
     paginateCatch $ (mkDownloadDBLogFilePortion p1 p2) &~ s
 
@@ -392,7 +391,7 @@ addSourceIdentifierToSubscriptionCatch :: ( MonadCatch m
                                           )
     => Text -- ^ 'asitsSubscriptionName'
     -> Text -- ^ 'asitsSourceIdentifier'
-    -> m (Either ServiceEr AddSourceIdentifierToSubscriptionResponse)
+    -> m (Either RDSError AddSourceIdentifierToSubscriptionResponse)
 addSourceIdentifierToSubscriptionCatch p1 p2 =
     sendCatch (mkAddSourceIdentifierToSubscription p1 p2)
 
@@ -422,7 +421,7 @@ addTagsToResourceCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'attrResourceName'
     -> [Tag] -- ^ 'attrTags'
-    -> m (Either ServiceEr AddTagsToResourceResponse)
+    -> m (Either RDSError AddTagsToResourceResponse)
 addTagsToResourceCatch p1 p2 =
     sendCatch (mkAddTagsToResource p1 p2)
 
@@ -465,7 +464,7 @@ authorizeDBSecurityGroupIngressCatch :: ( MonadCatch m
                                         )
     => Text -- ^ 'adbsgiDBSecurityGroupName'
     -> State AuthorizeDBSecurityGroupIngress a
-    -> m (Either ServiceEr AuthorizeDBSecurityGroupIngressResponse)
+    -> m (Either RDSError AuthorizeDBSecurityGroupIngressResponse)
 authorizeDBSecurityGroupIngressCatch p1 s =
     sendCatch $ (mkAuthorizeDBSecurityGroupIngress p1) &~ s
 
@@ -501,7 +500,7 @@ copyDBSnapshotCatch :: ( MonadCatch m
     => Text -- ^ 'cdbsSourceDBSnapshotIdentifier'
     -> Text -- ^ 'cdbsTargetDBSnapshotIdentifier'
     -> State CopyDBSnapshot a
-    -> m (Either ServiceEr CopyDBSnapshotResponse)
+    -> m (Either RDSError CopyDBSnapshotResponse)
 copyDBSnapshotCatch p1 p2 s =
     sendCatch $ (mkCopyDBSnapshot p1 p2) &~ s
 
@@ -548,7 +547,7 @@ createDBInstanceCatch :: ( MonadCatch m
     -> Text -- ^ 'cdbiMasterUsername'
     -> Text -- ^ 'cdbiMasterUserPassword'
     -> State CreateDBInstance a
-    -> m (Either ServiceEr CreateDBInstanceResponse)
+    -> m (Either RDSError CreateDBInstanceResponse)
 createDBInstanceCatch p2 p3 p4 p5 p6 p7 s =
     sendCatch $ (mkCreateDBInstance p2 p3 p4 p5 p6 p7) &~ s
 
@@ -589,7 +588,7 @@ createDBInstanceReadReplicaCatch :: ( MonadCatch m
     => Text -- ^ 'cdbirrDBInstanceIdentifier'
     -> Text -- ^ 'cdbirrSourceDBInstanceIdentifier'
     -> State CreateDBInstanceReadReplica a
-    -> m (Either ServiceEr CreateDBInstanceReadReplicaResponse)
+    -> m (Either RDSError CreateDBInstanceReadReplicaResponse)
 createDBInstanceReadReplicaCatch p1 p2 s =
     sendCatch $ (mkCreateDBInstanceReadReplica p1 p2) &~ s
 
@@ -633,7 +632,7 @@ createDBParameterGroupCatch :: ( MonadCatch m
     -> Text -- ^ 'cdbpgDBParameterGroupFamily'
     -> Text -- ^ 'cdbpgDescription'
     -> State CreateDBParameterGroup a
-    -> m (Either ServiceEr CreateDBParameterGroupResponse)
+    -> m (Either RDSError CreateDBParameterGroupResponse)
 createDBParameterGroupCatch p1 p2 p3 s =
     sendCatch $ (mkCreateDBParameterGroup p1 p2 p3) &~ s
 
@@ -668,7 +667,7 @@ createDBSecurityGroupCatch :: ( MonadCatch m
     => Text -- ^ 'cdbsgDBSecurityGroupName'
     -> Text -- ^ 'cdbsgDBSecurityGroupDescription'
     -> State CreateDBSecurityGroup a
-    -> m (Either ServiceEr CreateDBSecurityGroupResponse)
+    -> m (Either RDSError CreateDBSecurityGroupResponse)
 createDBSecurityGroupCatch p1 p2 s =
     sendCatch $ (mkCreateDBSecurityGroup p1 p2) &~ s
 
@@ -703,7 +702,7 @@ createDBSnapshotCatch :: ( MonadCatch m
     => Text -- ^ 'cdbs1DBSnapshotIdentifier'
     -> Text -- ^ 'cdbs1DBInstanceIdentifier'
     -> State CreateDBSnapshot a
-    -> m (Either ServiceEr CreateDBSnapshotResponse)
+    -> m (Either RDSError CreateDBSnapshotResponse)
 createDBSnapshotCatch p1 p2 s =
     sendCatch $ (mkCreateDBSnapshot p1 p2) &~ s
 
@@ -741,7 +740,7 @@ createDBSubnetGroupCatch :: ( MonadCatch m
     -> Text -- ^ 'cdbsg1DBSubnetGroupDescription'
     -> [Text] -- ^ 'cdbsg1SubnetIds'
     -> State CreateDBSubnetGroup a
-    -> m (Either ServiceEr CreateDBSubnetGroupResponse)
+    -> m (Either RDSError CreateDBSubnetGroupResponse)
 createDBSubnetGroupCatch p1 p2 p3 s =
     sendCatch $ (mkCreateDBSubnetGroup p1 p2 p3) &~ s
 
@@ -804,7 +803,7 @@ createEventSubscriptionCatch :: ( MonadCatch m
     => Text -- ^ 'cesSubscriptionName'
     -> Text -- ^ 'cesSnsTopicArn'
     -> State CreateEventSubscription a
-    -> m (Either ServiceEr CreateEventSubscriptionResponse)
+    -> m (Either RDSError CreateEventSubscriptionResponse)
 createEventSubscriptionCatch p1 p2 s =
     sendCatch $ (mkCreateEventSubscription p1 p2) &~ s
 
@@ -841,7 +840,7 @@ createOptionGroupCatch :: ( MonadCatch m
     -> Text -- ^ 'cogMajorEngineVersion'
     -> Text -- ^ 'cogOptionGroupDescription'
     -> State CreateOptionGroup a
-    -> m (Either ServiceEr CreateOptionGroupResponse)
+    -> m (Either RDSError CreateOptionGroupResponse)
 createOptionGroupCatch p1 p2 p3 p4 s =
     sendCatch $ (mkCreateOptionGroup p1 p2 p3 p4) &~ s
 
@@ -884,7 +883,7 @@ deleteDBInstanceCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'ddbiDBInstanceIdentifier'
     -> State DeleteDBInstance a
-    -> m (Either ServiceEr DeleteDBInstanceResponse)
+    -> m (Either RDSError DeleteDBInstanceResponse)
 deleteDBInstanceCatch p1 s =
     sendCatch $ (mkDeleteDBInstance p1) &~ s
 
@@ -915,7 +914,7 @@ deleteDBParameterGroupCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => Text -- ^ 'ddbpgDBParameterGroupName'
-    -> m (Either ServiceEr DeleteDBParameterGroupResponse)
+    -> m (Either RDSError DeleteDBParameterGroupResponse)
 deleteDBParameterGroupCatch p1 =
     sendCatch (mkDeleteDBParameterGroup p1)
 
@@ -944,7 +943,7 @@ deleteDBSecurityGroupCatch :: ( MonadCatch m
                               , MonadReader Env m
                               )
     => Text -- ^ 'ddbsgDBSecurityGroupName'
-    -> m (Either ServiceEr DeleteDBSecurityGroupResponse)
+    -> m (Either RDSError DeleteDBSecurityGroupResponse)
 deleteDBSecurityGroupCatch p1 =
     sendCatch (mkDeleteDBSecurityGroup p1)
 
@@ -975,7 +974,7 @@ deleteDBSnapshotCatch :: ( MonadCatch m
                          , MonadReader Env m
                          )
     => Text -- ^ 'ddbsDBSnapshotIdentifier'
-    -> m (Either ServiceEr DeleteDBSnapshotResponse)
+    -> m (Either RDSError DeleteDBSnapshotResponse)
 deleteDBSnapshotCatch p1 =
     sendCatch (mkDeleteDBSnapshot p1)
 
@@ -1004,7 +1003,7 @@ deleteDBSubnetGroupCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'ddbsg1DBSubnetGroupName'
-    -> m (Either ServiceEr DeleteDBSubnetGroupResponse)
+    -> m (Either RDSError DeleteDBSubnetGroupResponse)
 deleteDBSubnetGroupCatch p1 =
     sendCatch (mkDeleteDBSubnetGroup p1)
 
@@ -1035,7 +1034,7 @@ deleteEventSubscriptionCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => Text -- ^ 'desSubscriptionName'
-    -> m (Either ServiceEr DeleteEventSubscriptionResponse)
+    -> m (Either RDSError DeleteEventSubscriptionResponse)
 deleteEventSubscriptionCatch p1 =
     sendCatch (mkDeleteEventSubscription p1)
 
@@ -1060,7 +1059,7 @@ deleteOptionGroupCatch :: ( MonadCatch m
                           , MonadReader Env m
                           )
     => Text -- ^ 'dogOptionGroupName'
-    -> m (Either ServiceEr DeleteOptionGroupResponse)
+    -> m (Either RDSError DeleteOptionGroupResponse)
 deleteOptionGroupCatch p1 =
     sendCatch (mkDeleteOptionGroup p1)
 
@@ -1112,7 +1111,7 @@ describeDBEngineVersionsCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => State DescribeDBEngineVersions a
-    -> Source m (Either ServiceEr DescribeDBEngineVersionsResponse)
+    -> Source m (Either RDSError DescribeDBEngineVersionsResponse)
 describeDBEngineVersionsCatch s =
     paginateCatch (mkDescribeDBEngineVersions &~ s)
 
@@ -1145,7 +1144,7 @@ describeDBInstancesCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => State DescribeDBInstances a
-    -> Source m (Either ServiceEr DescribeDBInstancesResponse)
+    -> Source m (Either RDSError DescribeDBInstancesResponse)
 describeDBInstancesCatch s =
     paginateCatch (mkDescribeDBInstances &~ s)
 
@@ -1183,7 +1182,7 @@ describeDBLogFilesCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'ddblfDBInstanceIdentifier'
     -> State DescribeDBLogFiles a
-    -> Source m (Either ServiceEr DescribeDBLogFilesResponse)
+    -> Source m (Either RDSError DescribeDBLogFilesResponse)
 describeDBLogFilesCatch p1 s =
     paginateCatch $ (mkDescribeDBLogFiles p1) &~ s
 
@@ -1215,7 +1214,7 @@ describeDBParameterGroupsCatch :: ( MonadCatch m
                                   , MonadReader Env m
                                   )
     => State DescribeDBParameterGroups a
-    -> Source m (Either ServiceEr DescribeDBParameterGroupsResponse)
+    -> Source m (Either RDSError DescribeDBParameterGroupsResponse)
 describeDBParameterGroupsCatch s =
     paginateCatch (mkDescribeDBParameterGroups &~ s)
 
@@ -1250,7 +1249,7 @@ describeDBParametersCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'ddbpDBParameterGroupName'
     -> State DescribeDBParameters a
-    -> Source m (Either ServiceEr DescribeDBParametersResponse)
+    -> Source m (Either RDSError DescribeDBParametersResponse)
 describeDBParametersCatch p1 s =
     paginateCatch $ (mkDescribeDBParameters p1) &~ s
 
@@ -1283,7 +1282,7 @@ describeDBSecurityGroupsCatch :: ( MonadCatch m
                                  , MonadReader Env m
                                  )
     => State DescribeDBSecurityGroups a
-    -> Source m (Either ServiceEr DescribeDBSecurityGroupsResponse)
+    -> Source m (Either RDSError DescribeDBSecurityGroupsResponse)
 describeDBSecurityGroupsCatch s =
     paginateCatch (mkDescribeDBSecurityGroups &~ s)
 
@@ -1319,7 +1318,7 @@ describeDBSnapshotsCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => State DescribeDBSnapshots a
-    -> Source m (Either ServiceEr DescribeDBSnapshotsResponse)
+    -> Source m (Either RDSError DescribeDBSnapshotsResponse)
 describeDBSnapshotsCatch s =
     paginateCatch (mkDescribeDBSnapshots &~ s)
 
@@ -1353,7 +1352,7 @@ describeDBSubnetGroupsCatch :: ( MonadCatch m
                                , MonadReader Env m
                                )
     => State DescribeDBSubnetGroups a
-    -> Source m (Either ServiceEr DescribeDBSubnetGroupsResponse)
+    -> Source m (Either RDSError DescribeDBSubnetGroupsResponse)
 describeDBSubnetGroupsCatch s =
     paginateCatch (mkDescribeDBSubnetGroups &~ s)
 
@@ -1392,7 +1391,7 @@ describeEngineDefaultParametersCatch :: ( MonadCatch m
                                         )
     => Text -- ^ 'dedpDBParameterGroupFamily'
     -> State DescribeEngineDefaultParameters a
-    -> Source m (Either ServiceEr DescribeEngineDefaultParametersResponse)
+    -> Source m (Either RDSError DescribeEngineDefaultParametersResponse)
 describeEngineDefaultParametersCatch p1 s =
     paginateCatch $ (mkDescribeEngineDefaultParameters p1) &~ s
 
@@ -1424,7 +1423,7 @@ describeEventCategoriesCatch :: ( MonadCatch m
                                 , MonadReader Env m
                                 )
     => State DescribeEventCategories a
-    -> m (Either ServiceEr DescribeEventCategoriesResponse)
+    -> m (Either RDSError DescribeEventCategoriesResponse)
 describeEventCategoriesCatch s =
     sendCatch (mkDescribeEventCategories &~ s)
 
@@ -1459,7 +1458,7 @@ describeEventSubscriptionsCatch :: ( MonadCatch m
                                    , MonadReader Env m
                                    )
     => State DescribeEventSubscriptions a
-    -> Source m (Either ServiceEr DescribeEventSubscriptionsResponse)
+    -> Source m (Either RDSError DescribeEventSubscriptionsResponse)
 describeEventSubscriptionsCatch s =
     paginateCatch (mkDescribeEventSubscriptions &~ s)
 
@@ -1497,7 +1496,7 @@ describeEventsCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => State DescribeEvents a
-    -> Source m (Either ServiceEr DescribeEventsResponse)
+    -> Source m (Either RDSError DescribeEventsResponse)
 describeEventsCatch s =
     paginateCatch (mkDescribeEvents &~ s)
 
@@ -1526,7 +1525,7 @@ describeOptionGroupOptionsCatch :: ( MonadCatch m
                                    )
     => Text -- ^ 'dogoEngineName'
     -> State DescribeOptionGroupOptions a
-    -> Source m (Either ServiceEr DescribeOptionGroupOptionsResponse)
+    -> Source m (Either RDSError DescribeOptionGroupOptionsResponse)
 describeOptionGroupOptionsCatch p1 s =
     paginateCatch $ (mkDescribeOptionGroupOptions p1) &~ s
 
@@ -1556,7 +1555,7 @@ describeOptionGroupsCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => State DescribeOptionGroups a
-    -> Source m (Either ServiceEr DescribeOptionGroupsResponse)
+    -> Source m (Either RDSError DescribeOptionGroupsResponse)
 describeOptionGroupsCatch s =
     paginateCatch (mkDescribeOptionGroups &~ s)
 
@@ -1594,7 +1593,7 @@ describeOrderableDBInstanceOptionsCatch :: ( MonadCatch m
                                            )
     => Text -- ^ 'dodbioEngine'
     -> State DescribeOrderableDBInstanceOptions a
-    -> Source m (Either ServiceEr DescribeOrderableDBInstanceOptionsResponse)
+    -> Source m (Either RDSError DescribeOrderableDBInstanceOptionsResponse)
 describeOrderableDBInstanceOptionsCatch p1 s =
     paginateCatch $ (mkDescribeOrderableDBInstanceOptions p1) &~ s
 
@@ -1626,7 +1625,7 @@ describeReservedDBInstancesCatch :: ( MonadCatch m
                                     , MonadReader Env m
                                     )
     => State DescribeReservedDBInstances a
-    -> Source m (Either ServiceEr DescribeReservedDBInstancesResponse)
+    -> Source m (Either RDSError DescribeReservedDBInstancesResponse)
 describeReservedDBInstancesCatch s =
     paginateCatch (mkDescribeReservedDBInstances &~ s)
 
@@ -1656,7 +1655,7 @@ describeReservedDBInstancesOfferingsCatch :: ( MonadCatch m
                                              , MonadReader Env m
                                              )
     => State DescribeReservedDBInstancesOfferings a
-    -> Source m (Either ServiceEr DescribeReservedDBInstancesOfferingsResponse)
+    -> Source m (Either RDSError DescribeReservedDBInstancesOfferingsResponse)
 describeReservedDBInstancesOfferingsCatch s =
     paginateCatch (mkDescribeReservedDBInstancesOfferings &~ s)
 
@@ -1681,7 +1680,7 @@ listTagsForResourceCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => Text -- ^ 'ltfrResourceName'
-    -> m (Either ServiceEr ListTagsForResourceResponse)
+    -> m (Either RDSError ListTagsForResourceResponse)
 listTagsForResourceCatch p1 =
     sendCatch (mkListTagsForResource p1)
 
@@ -1717,7 +1716,7 @@ modifyDBInstanceCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'mdbiDBInstanceIdentifier'
     -> State ModifyDBInstance a
-    -> m (Either ServiceEr ModifyDBInstanceResponse)
+    -> m (Either RDSError ModifyDBInstanceResponse)
 modifyDBInstanceCatch p1 s =
     sendCatch $ (mkModifyDBInstance p1) &~ s
 
@@ -1760,7 +1759,7 @@ modifyDBParameterGroupCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'mdbpgDBParameterGroupName'
     -> [Parameter] -- ^ 'mdbpgParameters'
-    -> m (Either ServiceEr ModifyDBParameterGroupResponse)
+    -> m (Either RDSError ModifyDBParameterGroupResponse)
 modifyDBParameterGroupCatch p1 p2 =
     sendCatch (mkModifyDBParameterGroup p1 p2)
 
@@ -1797,7 +1796,7 @@ modifyDBSubnetGroupCatch :: ( MonadCatch m
     => Text -- ^ 'mdbsgDBSubnetGroupName'
     -> [Text] -- ^ 'mdbsgSubnetIds'
     -> State ModifyDBSubnetGroup a
-    -> m (Either ServiceEr ModifyDBSubnetGroupResponse)
+    -> m (Either RDSError ModifyDBSubnetGroupResponse)
 modifyDBSubnetGroupCatch p1 p3 s =
     sendCatch $ (mkModifyDBSubnetGroup p1 p3) &~ s
 
@@ -1836,7 +1835,7 @@ modifyEventSubscriptionCatch :: ( MonadCatch m
                                 )
     => Text -- ^ 'mesSubscriptionName'
     -> State ModifyEventSubscription a
-    -> m (Either ServiceEr ModifyEventSubscriptionResponse)
+    -> m (Either RDSError ModifyEventSubscriptionResponse)
 modifyEventSubscriptionCatch p1 s =
     sendCatch $ (mkModifyEventSubscription p1) &~ s
 
@@ -1870,7 +1869,7 @@ modifyOptionGroupCatch :: ( MonadCatch m
                           )
     => Text -- ^ 'mogOptionGroupName'
     -> State ModifyOptionGroup a
-    -> m (Either ServiceEr ModifyOptionGroupResponse)
+    -> m (Either RDSError ModifyOptionGroupResponse)
 modifyOptionGroupCatch p1 s =
     sendCatch $ (mkModifyOptionGroup p1) &~ s
 
@@ -1905,7 +1904,7 @@ promoteReadReplicaCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'prrDBInstanceIdentifier'
     -> State PromoteReadReplica a
-    -> m (Either ServiceEr PromoteReadReplicaResponse)
+    -> m (Either RDSError PromoteReadReplicaResponse)
 promoteReadReplicaCatch p1 s =
     sendCatch $ (mkPromoteReadReplica p1) &~ s
 
@@ -1939,7 +1938,7 @@ purchaseReservedDBInstancesOfferingCatch :: ( MonadCatch m
                                             )
     => Text -- ^ 'prdbioReservedDBInstancesOfferingId'
     -> State PurchaseReservedDBInstancesOffering a
-    -> m (Either ServiceEr PurchaseReservedDBInstancesOfferingResponse)
+    -> m (Either RDSError PurchaseReservedDBInstancesOfferingResponse)
 purchaseReservedDBInstancesOfferingCatch p1 s =
     sendCatch $ (mkPurchaseReservedDBInstancesOffering p1) &~ s
 
@@ -1987,7 +1986,7 @@ rebootDBInstanceCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'rdbi1DBInstanceIdentifier'
     -> State RebootDBInstance a
-    -> m (Either ServiceEr RebootDBInstanceResponse)
+    -> m (Either RDSError RebootDBInstanceResponse)
 rebootDBInstanceCatch p1 s =
     sendCatch $ (mkRebootDBInstance p1) &~ s
 
@@ -2021,7 +2020,7 @@ removeSourceIdentifierFromSubscriptionCatch :: ( MonadCatch m
                                                )
     => Text -- ^ 'rsifsSubscriptionName'
     -> Text -- ^ 'rsifsSourceIdentifier'
-    -> m (Either ServiceEr RemoveSourceIdentifierFromSubscriptionResponse)
+    -> m (Either RDSError RemoveSourceIdentifierFromSubscriptionResponse)
 removeSourceIdentifierFromSubscriptionCatch p1 p2 =
     sendCatch (mkRemoveSourceIdentifierFromSubscription p1 p2)
 
@@ -2048,7 +2047,7 @@ removeTagsFromResourceCatch :: ( MonadCatch m
                                )
     => Text -- ^ 'rtfrResourceName'
     -> [Text] -- ^ 'rtfrTagKeys'
-    -> m (Either ServiceEr RemoveTagsFromResourceResponse)
+    -> m (Either RDSError RemoveTagsFromResourceResponse)
 removeTagsFromResourceCatch p1 p2 =
     sendCatch (mkRemoveTagsFromResource p1 p2)
 
@@ -2088,7 +2087,7 @@ resetDBParameterGroupCatch :: ( MonadCatch m
                               )
     => Text -- ^ 'rdbpgDBParameterGroupName'
     -> State ResetDBParameterGroup a
-    -> m (Either ServiceEr ResetDBParameterGroupResponse)
+    -> m (Either RDSError ResetDBParameterGroupResponse)
 resetDBParameterGroupCatch p1 s =
     sendCatch $ (mkResetDBParameterGroup p1) &~ s
 
@@ -2126,7 +2125,7 @@ restoreDBInstanceFromDBSnapshotCatch :: ( MonadCatch m
     => Text -- ^ 'rdbifdbsDBInstanceIdentifier'
     -> Text -- ^ 'rdbifdbsDBSnapshotIdentifier'
     -> State RestoreDBInstanceFromDBSnapshot a
-    -> m (Either ServiceEr RestoreDBInstanceFromDBSnapshotResponse)
+    -> m (Either RDSError RestoreDBInstanceFromDBSnapshotResponse)
 restoreDBInstanceFromDBSnapshotCatch p1 p2 s =
     sendCatch $ (mkRestoreDBInstanceFromDBSnapshot p1 p2) &~ s
 
@@ -2167,7 +2166,7 @@ restoreDBInstanceToPointInTimeCatch :: ( MonadCatch m
     => Text -- ^ 'rdbitpitSourceDBInstanceIdentifier'
     -> Text -- ^ 'rdbitpitTargetDBInstanceIdentifier'
     -> State RestoreDBInstanceToPointInTime a
-    -> m (Either ServiceEr RestoreDBInstanceToPointInTimeResponse)
+    -> m (Either RDSError RestoreDBInstanceToPointInTimeResponse)
 restoreDBInstanceToPointInTimeCatch p1 p2 s =
     sendCatch $ (mkRestoreDBInstanceToPointInTime p1 p2) &~ s
 
@@ -2202,6 +2201,6 @@ revokeDBSecurityGroupIngressCatch :: ( MonadCatch m
                                      )
     => Text -- ^ 'rdbsgiDBSecurityGroupName'
     -> State RevokeDBSecurityGroupIngress a
-    -> m (Either ServiceEr RevokeDBSecurityGroupIngressResponse)
+    -> m (Either RDSError RevokeDBSecurityGroupIngressResponse)
 revokeDBSecurityGroupIngressCatch p1 s =
     sendCatch $ (mkRevokeDBSecurityGroupIngress p1) &~ s

@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,6 +33,56 @@ module Network.AWS.CloudFront.Types
     (
     -- * Service
       CloudFront
+    -- ** Errors
+    , CloudFrontError (..)
+    , _AccessDenied
+    , _BatchTooLarge
+    , _CNAMEAlreadyExists
+    , _CloudFrontClient
+    , _CloudFrontOriginAccessIdentityAlreadyExists
+    , _CloudFrontOriginAccessIdentityInUse
+    , _CloudFrontSerializer
+    , _CloudFrontService
+    , _DistributionAlreadyExists
+    , _DistributionNotDisabled
+    , _IllegalUpdate
+    , _InconsistentQuantities
+    , _InvalidArgument
+    , _InvalidDefaultRootObject
+    , _InvalidErrorCode
+    , _InvalidForwardCookies
+    , _InvalidGeoRestrictionParameter
+    , _InvalidHeadersForS3Origin
+    , _InvalidIfMatchVersion
+    , _InvalidLocationCode
+    , _InvalidOrigin
+    , _InvalidOriginAccessIdentity
+    , _InvalidRelativePath
+    , _InvalidRequiredProtocol
+    , _InvalidResponseCode
+    , _InvalidViewerCertificate
+    , _MissingBody
+    , _NoSuchCloudFrontOriginAccessIdentity
+    , _NoSuchDistribution
+    , _NoSuchInvalidation
+    , _NoSuchOrigin
+    , _NoSuchStreamingDistribution
+    , _PreconditionFailed
+    , _StreamingDistributionAlreadyExists
+    , _StreamingDistributionNotDisabled
+    , _TooManyCacheBehaviors
+    , _TooManyCertificates
+    , _TooManyCloudFrontOriginAccessIdentities
+    , _TooManyCookieNamesInWhiteList
+    , _TooManyDistributionCNAMEs
+    , _TooManyDistributions
+    , _TooManyHeadersInForwardedValues
+    , _TooManyInvalidationsInProgress
+    , _TooManyOrigins
+    , _TooManyStreamingDistributionCNAMEs
+    , _TooManyStreamingDistributions
+    , _TooManyTrustedSigners
+    , _TrustedSignerDoesNotExist
     -- ** XML
     , xmlOptions
 
@@ -409,145 +459,7 @@ data CloudFront deriving (Typeable)
 
 instance AWSService CloudFront where
     type Sg CloudFront = V4
-    data Er CloudFront
-        = AccessDenied
-            { _adMessage :: Maybe Text
-            }
-        | BatchTooLarge
-            { _btlMessage :: Maybe Text
-            }
-        | CNAMEAlreadyExists
-            { _cnameaeMessage :: Maybe Text
-            }
-        | CloudFrontClient HttpException
-        | CloudFrontOriginAccessIdentityAlreadyExists
-            { _cfoaiaeMessage :: Maybe Text
-            }
-        | CloudFrontOriginAccessIdentityInUse
-            { _cfoaiiuMessage :: Maybe Text
-            }
-        | CloudFrontSerializer String
-        | CloudFrontService String
-        | DistributionAlreadyExists
-            { _daeMessage :: Maybe Text
-            }
-        | DistributionNotDisabled
-            { _dndMessage :: Maybe Text
-            }
-        | IllegalUpdate
-            { _iuMessage :: Maybe Text
-            }
-        | InconsistentQuantities
-            { _iqMessage :: Maybe Text
-            }
-        | InvalidArgument
-            { _iaMessage :: Maybe Text
-            }
-        | InvalidDefaultRootObject
-            { _idroMessage :: Maybe Text
-            }
-        | InvalidErrorCode
-            { _iecMessage :: Maybe Text
-            }
-        | InvalidForwardCookies
-            { _ifcMessage :: Maybe Text
-            }
-        | InvalidGeoRestrictionParameter
-            { _igrpMessage :: Maybe Text
-            }
-        | InvalidHeadersForS3Origin
-            { _ihfsoMessage :: Maybe Text
-            }
-        | InvalidIfMatchVersion
-            { _iimvMessage :: Maybe Text
-            }
-        | InvalidLocationCode
-            { _ilcMessage :: Maybe Text
-            }
-        | InvalidOrigin
-            { _ioMessage :: Maybe Text
-            }
-        | InvalidOriginAccessIdentity
-            { _ioaiMessage :: Maybe Text
-            }
-        | InvalidRelativePath
-            { _irpMessage :: Maybe Text
-            }
-        | InvalidRequiredProtocol
-            { _irpMessage :: Maybe Text
-            }
-        | InvalidResponseCode
-            { _ircMessage :: Maybe Text
-            }
-        | InvalidViewerCertificate
-            { _ivcMessage :: Maybe Text
-            }
-        | MissingBody
-            { _mbMessage :: Maybe Text
-            }
-        | NoSuchCloudFrontOriginAccessIdentity
-            { _nscfoaiMessage :: Maybe Text
-            }
-        | NoSuchDistribution
-            { _nsdMessage :: Maybe Text
-            }
-        | NoSuchInvalidation
-            { _nsiMessage :: Maybe Text
-            }
-        | NoSuchOrigin
-            { _nsoMessage :: Maybe Text
-            }
-        | NoSuchStreamingDistribution
-            { _nssdMessage :: Maybe Text
-            }
-        | PreconditionFailed
-            { _pfMessage :: Maybe Text
-            }
-        | StreamingDistributionAlreadyExists
-            { _sdaeMessage :: Maybe Text
-            }
-        | StreamingDistributionNotDisabled
-            { _sdndMessage :: Maybe Text
-            }
-        | TooManyCacheBehaviors
-            { _tmcbMessage :: Maybe Text
-            }
-        | TooManyCertificates
-            { _tmcMessage :: Maybe Text
-            }
-        | TooManyCloudFrontOriginAccessIdentities
-            { _tmcfoaiMessage :: Maybe Text
-            }
-        | TooManyCookieNamesInWhiteList
-            { _tmcniwlMessage :: Maybe Text
-            }
-        | TooManyDistributionCNAMEs
-            { _tmdcnameMessage :: Maybe Text
-            }
-        | TooManyDistributions
-            { _tmdMessage :: Maybe Text
-            }
-        | TooManyHeadersInForwardedValues
-            { _tmhifvMessage :: Maybe Text
-            }
-        | TooManyInvalidationsInProgress
-            { _tmiipMessage :: Maybe Text
-            }
-        | TooManyOrigins
-            { _tmoMessage :: Maybe Text
-            }
-        | TooManyStreamingDistributionCNAMEs
-            { _tmsdcnameMessage :: Maybe Text
-            }
-        | TooManyStreamingDistributions
-            { _tmsdMessage :: Maybe Text
-            }
-        | TooManyTrustedSigners
-            { _tmtsMessage :: Maybe Text
-            }
-        | TrustedSignerDoesNotExist
-            { _tsdneMessage :: Maybe Text
-            }
+    type Er CloudFront = CloudFrontError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -556,18 +468,682 @@ instance AWSService CloudFront where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er CloudFront)
-deriving instance Generic (Er CloudFront)
+-- | A sum type representing possible errors returned by the 'CloudFront' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data CloudFrontError
+      -- | Access denied.
+    = AccessDenied
+        { _adMessage :: Maybe Text
+        }
+    | BatchTooLarge
+        { _btlMessage :: Maybe Text
+        }
+    | CNAMEAlreadyExists
+        { _cnameaeMessage :: Maybe Text
+        }
+    | CloudFrontClient HttpException
+      -- | If the CallerReference is a value you already sent in a previous
+      -- request to create an identity but the content of the
+      -- CloudFrontOriginAccessIdentityConfig is different from the
+      -- original request, CloudFront returns a
+      -- CloudFrontOriginAccessIdentityAlreadyExists error.
+    | CloudFrontOriginAccessIdentityAlreadyExists
+        { _cfoaiaeMessage :: Maybe Text
+        }
+    | CloudFrontOriginAccessIdentityInUse
+        { _cfoaiiuMessage :: Maybe Text
+        }
+    | CloudFrontSerializer Text
+    | CloudFrontService Text
+      -- | The caller reference you attempted to create the distribution
+      -- with is associated with another distribution.
+    | DistributionAlreadyExists
+        { _daeMessage :: Maybe Text
+        }
+    | DistributionNotDisabled
+        { _dndMessage :: Maybe Text
+        }
+      -- | Origin and CallerReference cannot be updated.
+    | IllegalUpdate
+        { _iuMessage :: Maybe Text
+        }
+      -- | The value of Quantity and the size of Items do not match.
+    | InconsistentQuantities
+        { _iqMessage :: Maybe Text
+        }
+      -- | The argument is invalid.
+    | InvalidArgument
+        { _iaMessage :: Maybe Text
+        }
+      -- | The default root object file name is too big or contains an
+      -- invalid character.
+    | InvalidDefaultRootObject
+        { _idroMessage :: Maybe Text
+        }
+    | InvalidErrorCode
+        { _iecMessage :: Maybe Text
+        }
+      -- | Your request contains forward cookies option which doesn't match
+      -- with the expectation for the whitelisted list of cookie names.
+      -- Either list of cookie names has been specified when not allowed
+      -- or list of cookie names is missing when expected.
+    | InvalidForwardCookies
+        { _ifcMessage :: Maybe Text
+        }
+    | InvalidGeoRestrictionParameter
+        { _igrpMessage :: Maybe Text
+        }
+    | InvalidHeadersForS3Origin
+        { _ihfsoMessage :: Maybe Text
+        }
+      -- | The If-Match version is missing or not valid for the
+      -- distribution.
+    | InvalidIfMatchVersion
+        { _iimvMessage :: Maybe Text
+        }
+    | InvalidLocationCode
+        { _ilcMessage :: Maybe Text
+        }
+      -- | The Amazon S3 origin server specified does not refer to a valid
+      -- Amazon S3 bucket.
+    | InvalidOrigin
+        { _ioMessage :: Maybe Text
+        }
+      -- | The origin access identity is not valid or doesn't exist.
+    | InvalidOriginAccessIdentity
+        { _ioaiMessage :: Maybe Text
+        }
+      -- | The relative path is too big, is not URL-encoded, or does not
+      -- begin with a slash (/).
+    | InvalidRelativePath
+        { _irpMessage :: Maybe Text
+        }
+      -- | This operation requires the HTTPS protocol. Ensure that you
+      -- specify the HTTPS protocol in your request, or omit the
+      -- RequiredProtocols element from your distribution configuration.
+    | InvalidRequiredProtocol
+        { _irpMessage :: Maybe Text
+        }
+    | InvalidResponseCode
+        { _ircMessage :: Maybe Text
+        }
+    | InvalidViewerCertificate
+        { _ivcMessage :: Maybe Text
+        }
+      -- | This operation requires a body. Ensure that the body is present
+      -- and the Content-Type header is set.
+    | MissingBody
+        { _mbMessage :: Maybe Text
+        }
+      -- | The specified origin access identity does not exist.
+    | NoSuchCloudFrontOriginAccessIdentity
+        { _nscfoaiMessage :: Maybe Text
+        }
+      -- | The specified distribution does not exist.
+    | NoSuchDistribution
+        { _nsdMessage :: Maybe Text
+        }
+      -- | The specified invalidation does not exist.
+    | NoSuchInvalidation
+        { _nsiMessage :: Maybe Text
+        }
+      -- | No origin exists with the specified Origin Id.
+    | NoSuchOrigin
+        { _nsoMessage :: Maybe Text
+        }
+      -- | The specified streaming distribution does not exist.
+    | NoSuchStreamingDistribution
+        { _nssdMessage :: Maybe Text
+        }
+      -- | The precondition given in one or more of the request-header
+      -- fields evaluated to false.
+    | PreconditionFailed
+        { _pfMessage :: Maybe Text
+        }
+    | StreamingDistributionAlreadyExists
+        { _sdaeMessage :: Maybe Text
+        }
+    | StreamingDistributionNotDisabled
+        { _sdndMessage :: Maybe Text
+        }
+      -- | You cannot create anymore cache behaviors for the distribution.
+    | TooManyCacheBehaviors
+        { _tmcbMessage :: Maybe Text
+        }
+      -- | You cannot create anymore custom ssl certificates.
+    | TooManyCertificates
+        { _tmcMessage :: Maybe Text
+        }
+      -- | Processing your request would cause you to exceed the maximum
+      -- number of origin access identities allowed.
+    | TooManyCloudFrontOriginAccessIdentities
+        { _tmcfoaiMessage :: Maybe Text
+        }
+      -- | Your request contains more cookie names in the whitelist than are
+      -- allowed per cache behavior.
+    | TooManyCookieNamesInWhiteList
+        { _tmcniwlMessage :: Maybe Text
+        }
+      -- | Your request contains more CNAMEs than are allowed per
+      -- distribution.
+    | TooManyDistributionCNAMEs
+        { _tmdcnameMessage :: Maybe Text
+        }
+      -- | Processing your request would cause you to exceed the maximum
+      -- number of distributions allowed.
+    | TooManyDistributions
+        { _tmdMessage :: Maybe Text
+        }
+    | TooManyHeadersInForwardedValues
+        { _tmhifvMessage :: Maybe Text
+        }
+      -- | You have exceeded the maximum number of allowable InProgress
+      -- invalidation batch requests, or invalidation objects.
+    | TooManyInvalidationsInProgress
+        { _tmiipMessage :: Maybe Text
+        }
+      -- | You cannot create anymore origins for the distribution.
+    | TooManyOrigins
+        { _tmoMessage :: Maybe Text
+        }
+    | TooManyStreamingDistributionCNAMEs
+        { _tmsdcnameMessage :: Maybe Text
+        }
+      -- | Processing your request would cause you to exceed the maximum
+      -- number of streaming distributions allowed.
+    | TooManyStreamingDistributions
+        { _tmsdMessage :: Maybe Text
+        }
+      -- | Your request contains more trusted signers than are allowed per
+      -- distribution.
+    | TooManyTrustedSigners
+        { _tmtsMessage :: Maybe Text
+        }
+      -- | One or more of your trusted signers do not exist.
+    | TrustedSignerDoesNotExist
+        { _tsdneMessage :: Maybe Text
+        }
+    deriving (Show, Generic)
 
-instance AWSError (Er CloudFront) where
+instance AWSError CloudFrontError where
     awsError = const "CloudFrontError"
 
-instance AWSServiceError (Er CloudFront) where
+instance AWSServiceError CloudFrontError where
     serviceError    = CloudFrontService
     clientError     = CloudFrontClient
     serializerError = CloudFrontSerializer
 
-instance Exception (Er CloudFront)
+instance Exception CloudFrontError
+
+-- | Access denied.
+--
+-- See: 'AccessDenied'
+_AccessDenied :: Prism' CloudFrontError (Maybe Text)
+_AccessDenied = prism'
+    AccessDenied
+    (\case
+        AccessDenied p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'BatchTooLarge'
+_BatchTooLarge :: Prism' CloudFrontError (Maybe Text)
+_BatchTooLarge = prism'
+    BatchTooLarge
+    (\case
+        BatchTooLarge p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'CNAMEAlreadyExists'
+_CNAMEAlreadyExists :: Prism' CloudFrontError (Maybe Text)
+_CNAMEAlreadyExists = prism'
+    CNAMEAlreadyExists
+    (\case
+        CNAMEAlreadyExists p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'CloudFrontClient'
+_CloudFrontClient :: Prism' CloudFrontError HttpException
+_CloudFrontClient = prism'
+    CloudFrontClient
+    (\case
+        CloudFrontClient p1 -> Right p1
+        x -> Left x)
+
+-- | If the CallerReference is a value you already sent in a previous request to
+-- create an identity but the content of the
+-- CloudFrontOriginAccessIdentityConfig is different from the original
+-- request, CloudFront returns a CloudFrontOriginAccessIdentityAlreadyExists
+-- error.
+--
+-- See: 'CloudFrontOriginAccessIdentityAlreadyExists'
+_CloudFrontOriginAccessIdentityAlreadyExists :: Prism' CloudFrontError (Maybe Text)
+_CloudFrontOriginAccessIdentityAlreadyExists = prism'
+    CloudFrontOriginAccessIdentityAlreadyExists
+    (\case
+        CloudFrontOriginAccessIdentityAlreadyExists p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'CloudFrontOriginAccessIdentityInUse'
+_CloudFrontOriginAccessIdentityInUse :: Prism' CloudFrontError (Maybe Text)
+_CloudFrontOriginAccessIdentityInUse = prism'
+    CloudFrontOriginAccessIdentityInUse
+    (\case
+        CloudFrontOriginAccessIdentityInUse p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'CloudFrontSerializer'
+_CloudFrontSerializer :: Prism' CloudFrontError Text
+_CloudFrontSerializer = prism'
+    CloudFrontSerializer
+    (\case
+        CloudFrontSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'CloudFrontService'
+_CloudFrontService :: Prism' CloudFrontError Text
+_CloudFrontService = prism'
+    CloudFrontService
+    (\case
+        CloudFrontService p1 -> Right p1
+        x -> Left x)
+
+-- | The caller reference you attempted to create the distribution with is
+-- associated with another distribution.
+--
+-- See: 'DistributionAlreadyExists'
+_DistributionAlreadyExists :: Prism' CloudFrontError (Maybe Text)
+_DistributionAlreadyExists = prism'
+    DistributionAlreadyExists
+    (\case
+        DistributionAlreadyExists p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'DistributionNotDisabled'
+_DistributionNotDisabled :: Prism' CloudFrontError (Maybe Text)
+_DistributionNotDisabled = prism'
+    DistributionNotDisabled
+    (\case
+        DistributionNotDisabled p1 -> Right p1
+        x -> Left x)
+
+-- | Origin and CallerReference cannot be updated.
+--
+-- See: 'IllegalUpdate'
+_IllegalUpdate :: Prism' CloudFrontError (Maybe Text)
+_IllegalUpdate = prism'
+    IllegalUpdate
+    (\case
+        IllegalUpdate p1 -> Right p1
+        x -> Left x)
+
+-- | The value of Quantity and the size of Items do not match.
+--
+-- See: 'InconsistentQuantities'
+_InconsistentQuantities :: Prism' CloudFrontError (Maybe Text)
+_InconsistentQuantities = prism'
+    InconsistentQuantities
+    (\case
+        InconsistentQuantities p1 -> Right p1
+        x -> Left x)
+
+-- | The argument is invalid.
+--
+-- See: 'InvalidArgument'
+_InvalidArgument :: Prism' CloudFrontError (Maybe Text)
+_InvalidArgument = prism'
+    InvalidArgument
+    (\case
+        InvalidArgument p1 -> Right p1
+        x -> Left x)
+
+-- | The default root object file name is too big or contains an invalid
+-- character.
+--
+-- See: 'InvalidDefaultRootObject'
+_InvalidDefaultRootObject :: Prism' CloudFrontError (Maybe Text)
+_InvalidDefaultRootObject = prism'
+    InvalidDefaultRootObject
+    (\case
+        InvalidDefaultRootObject p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'InvalidErrorCode'
+_InvalidErrorCode :: Prism' CloudFrontError (Maybe Text)
+_InvalidErrorCode = prism'
+    InvalidErrorCode
+    (\case
+        InvalidErrorCode p1 -> Right p1
+        x -> Left x)
+
+-- | Your request contains forward cookies option which doesn't match with the
+-- expectation for the whitelisted list of cookie names. Either list of cookie
+-- names has been specified when not allowed or list of cookie names is
+-- missing when expected.
+--
+-- See: 'InvalidForwardCookies'
+_InvalidForwardCookies :: Prism' CloudFrontError (Maybe Text)
+_InvalidForwardCookies = prism'
+    InvalidForwardCookies
+    (\case
+        InvalidForwardCookies p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'InvalidGeoRestrictionParameter'
+_InvalidGeoRestrictionParameter :: Prism' CloudFrontError (Maybe Text)
+_InvalidGeoRestrictionParameter = prism'
+    InvalidGeoRestrictionParameter
+    (\case
+        InvalidGeoRestrictionParameter p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'InvalidHeadersForS3Origin'
+_InvalidHeadersForS3Origin :: Prism' CloudFrontError (Maybe Text)
+_InvalidHeadersForS3Origin = prism'
+    InvalidHeadersForS3Origin
+    (\case
+        InvalidHeadersForS3Origin p1 -> Right p1
+        x -> Left x)
+
+-- | The If-Match version is missing or not valid for the distribution.
+--
+-- See: 'InvalidIfMatchVersion'
+_InvalidIfMatchVersion :: Prism' CloudFrontError (Maybe Text)
+_InvalidIfMatchVersion = prism'
+    InvalidIfMatchVersion
+    (\case
+        InvalidIfMatchVersion p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'InvalidLocationCode'
+_InvalidLocationCode :: Prism' CloudFrontError (Maybe Text)
+_InvalidLocationCode = prism'
+    InvalidLocationCode
+    (\case
+        InvalidLocationCode p1 -> Right p1
+        x -> Left x)
+
+-- | The Amazon S3 origin server specified does not refer to a valid Amazon S3
+-- bucket.
+--
+-- See: 'InvalidOrigin'
+_InvalidOrigin :: Prism' CloudFrontError (Maybe Text)
+_InvalidOrigin = prism'
+    InvalidOrigin
+    (\case
+        InvalidOrigin p1 -> Right p1
+        x -> Left x)
+
+-- | The origin access identity is not valid or doesn't exist.
+--
+-- See: 'InvalidOriginAccessIdentity'
+_InvalidOriginAccessIdentity :: Prism' CloudFrontError (Maybe Text)
+_InvalidOriginAccessIdentity = prism'
+    InvalidOriginAccessIdentity
+    (\case
+        InvalidOriginAccessIdentity p1 -> Right p1
+        x -> Left x)
+
+-- | The relative path is too big, is not URL-encoded, or does not begin with a
+-- slash (/).
+--
+-- See: 'InvalidRelativePath'
+_InvalidRelativePath :: Prism' CloudFrontError (Maybe Text)
+_InvalidRelativePath = prism'
+    InvalidRelativePath
+    (\case
+        InvalidRelativePath p1 -> Right p1
+        x -> Left x)
+
+-- | This operation requires the HTTPS protocol. Ensure that you specify the
+-- HTTPS protocol in your request, or omit the RequiredProtocols element from
+-- your distribution configuration.
+--
+-- See: 'InvalidRequiredProtocol'
+_InvalidRequiredProtocol :: Prism' CloudFrontError (Maybe Text)
+_InvalidRequiredProtocol = prism'
+    InvalidRequiredProtocol
+    (\case
+        InvalidRequiredProtocol p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'InvalidResponseCode'
+_InvalidResponseCode :: Prism' CloudFrontError (Maybe Text)
+_InvalidResponseCode = prism'
+    InvalidResponseCode
+    (\case
+        InvalidResponseCode p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'InvalidViewerCertificate'
+_InvalidViewerCertificate :: Prism' CloudFrontError (Maybe Text)
+_InvalidViewerCertificate = prism'
+    InvalidViewerCertificate
+    (\case
+        InvalidViewerCertificate p1 -> Right p1
+        x -> Left x)
+
+-- | This operation requires a body. Ensure that the body is present and the
+-- Content-Type header is set.
+--
+-- See: 'MissingBody'
+_MissingBody :: Prism' CloudFrontError (Maybe Text)
+_MissingBody = prism'
+    MissingBody
+    (\case
+        MissingBody p1 -> Right p1
+        x -> Left x)
+
+-- | The specified origin access identity does not exist.
+--
+-- See: 'NoSuchCloudFrontOriginAccessIdentity'
+_NoSuchCloudFrontOriginAccessIdentity :: Prism' CloudFrontError (Maybe Text)
+_NoSuchCloudFrontOriginAccessIdentity = prism'
+    NoSuchCloudFrontOriginAccessIdentity
+    (\case
+        NoSuchCloudFrontOriginAccessIdentity p1 -> Right p1
+        x -> Left x)
+
+-- | The specified distribution does not exist.
+--
+-- See: 'NoSuchDistribution'
+_NoSuchDistribution :: Prism' CloudFrontError (Maybe Text)
+_NoSuchDistribution = prism'
+    NoSuchDistribution
+    (\case
+        NoSuchDistribution p1 -> Right p1
+        x -> Left x)
+
+-- | The specified invalidation does not exist.
+--
+-- See: 'NoSuchInvalidation'
+_NoSuchInvalidation :: Prism' CloudFrontError (Maybe Text)
+_NoSuchInvalidation = prism'
+    NoSuchInvalidation
+    (\case
+        NoSuchInvalidation p1 -> Right p1
+        x -> Left x)
+
+-- | No origin exists with the specified Origin Id.
+--
+-- See: 'NoSuchOrigin'
+_NoSuchOrigin :: Prism' CloudFrontError (Maybe Text)
+_NoSuchOrigin = prism'
+    NoSuchOrigin
+    (\case
+        NoSuchOrigin p1 -> Right p1
+        x -> Left x)
+
+-- | The specified streaming distribution does not exist.
+--
+-- See: 'NoSuchStreamingDistribution'
+_NoSuchStreamingDistribution :: Prism' CloudFrontError (Maybe Text)
+_NoSuchStreamingDistribution = prism'
+    NoSuchStreamingDistribution
+    (\case
+        NoSuchStreamingDistribution p1 -> Right p1
+        x -> Left x)
+
+-- | The precondition given in one or more of the request-header fields
+-- evaluated to false.
+--
+-- See: 'PreconditionFailed'
+_PreconditionFailed :: Prism' CloudFrontError (Maybe Text)
+_PreconditionFailed = prism'
+    PreconditionFailed
+    (\case
+        PreconditionFailed p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'StreamingDistributionAlreadyExists'
+_StreamingDistributionAlreadyExists :: Prism' CloudFrontError (Maybe Text)
+_StreamingDistributionAlreadyExists = prism'
+    StreamingDistributionAlreadyExists
+    (\case
+        StreamingDistributionAlreadyExists p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'StreamingDistributionNotDisabled'
+_StreamingDistributionNotDisabled :: Prism' CloudFrontError (Maybe Text)
+_StreamingDistributionNotDisabled = prism'
+    StreamingDistributionNotDisabled
+    (\case
+        StreamingDistributionNotDisabled p1 -> Right p1
+        x -> Left x)
+
+-- | You cannot create anymore cache behaviors for the distribution.
+--
+-- See: 'TooManyCacheBehaviors'
+_TooManyCacheBehaviors :: Prism' CloudFrontError (Maybe Text)
+_TooManyCacheBehaviors = prism'
+    TooManyCacheBehaviors
+    (\case
+        TooManyCacheBehaviors p1 -> Right p1
+        x -> Left x)
+
+-- | You cannot create anymore custom ssl certificates.
+--
+-- See: 'TooManyCertificates'
+_TooManyCertificates :: Prism' CloudFrontError (Maybe Text)
+_TooManyCertificates = prism'
+    TooManyCertificates
+    (\case
+        TooManyCertificates p1 -> Right p1
+        x -> Left x)
+
+-- | Processing your request would cause you to exceed the maximum number of
+-- origin access identities allowed.
+--
+-- See: 'TooManyCloudFrontOriginAccessIdentities'
+_TooManyCloudFrontOriginAccessIdentities :: Prism' CloudFrontError (Maybe Text)
+_TooManyCloudFrontOriginAccessIdentities = prism'
+    TooManyCloudFrontOriginAccessIdentities
+    (\case
+        TooManyCloudFrontOriginAccessIdentities p1 -> Right p1
+        x -> Left x)
+
+-- | Your request contains more cookie names in the whitelist than are allowed
+-- per cache behavior.
+--
+-- See: 'TooManyCookieNamesInWhiteList'
+_TooManyCookieNamesInWhiteList :: Prism' CloudFrontError (Maybe Text)
+_TooManyCookieNamesInWhiteList = prism'
+    TooManyCookieNamesInWhiteList
+    (\case
+        TooManyCookieNamesInWhiteList p1 -> Right p1
+        x -> Left x)
+
+-- | Your request contains more CNAMEs than are allowed per distribution.
+--
+-- See: 'TooManyDistributionCNAMEs'
+_TooManyDistributionCNAMEs :: Prism' CloudFrontError (Maybe Text)
+_TooManyDistributionCNAMEs = prism'
+    TooManyDistributionCNAMEs
+    (\case
+        TooManyDistributionCNAMEs p1 -> Right p1
+        x -> Left x)
+
+-- | Processing your request would cause you to exceed the maximum number of
+-- distributions allowed.
+--
+-- See: 'TooManyDistributions'
+_TooManyDistributions :: Prism' CloudFrontError (Maybe Text)
+_TooManyDistributions = prism'
+    TooManyDistributions
+    (\case
+        TooManyDistributions p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'TooManyHeadersInForwardedValues'
+_TooManyHeadersInForwardedValues :: Prism' CloudFrontError (Maybe Text)
+_TooManyHeadersInForwardedValues = prism'
+    TooManyHeadersInForwardedValues
+    (\case
+        TooManyHeadersInForwardedValues p1 -> Right p1
+        x -> Left x)
+
+-- | You have exceeded the maximum number of allowable InProgress invalidation
+-- batch requests, or invalidation objects.
+--
+-- See: 'TooManyInvalidationsInProgress'
+_TooManyInvalidationsInProgress :: Prism' CloudFrontError (Maybe Text)
+_TooManyInvalidationsInProgress = prism'
+    TooManyInvalidationsInProgress
+    (\case
+        TooManyInvalidationsInProgress p1 -> Right p1
+        x -> Left x)
+
+-- | You cannot create anymore origins for the distribution.
+--
+-- See: 'TooManyOrigins'
+_TooManyOrigins :: Prism' CloudFrontError (Maybe Text)
+_TooManyOrigins = prism'
+    TooManyOrigins
+    (\case
+        TooManyOrigins p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'TooManyStreamingDistributionCNAMEs'
+_TooManyStreamingDistributionCNAMEs :: Prism' CloudFrontError (Maybe Text)
+_TooManyStreamingDistributionCNAMEs = prism'
+    TooManyStreamingDistributionCNAMEs
+    (\case
+        TooManyStreamingDistributionCNAMEs p1 -> Right p1
+        x -> Left x)
+
+-- | Processing your request would cause you to exceed the maximum number of
+-- streaming distributions allowed.
+--
+-- See: 'TooManyStreamingDistributions'
+_TooManyStreamingDistributions :: Prism' CloudFrontError (Maybe Text)
+_TooManyStreamingDistributions = prism'
+    TooManyStreamingDistributions
+    (\case
+        TooManyStreamingDistributions p1 -> Right p1
+        x -> Left x)
+
+-- | Your request contains more trusted signers than are allowed per
+-- distribution.
+--
+-- See: 'TooManyTrustedSigners'
+_TooManyTrustedSigners :: Prism' CloudFrontError (Maybe Text)
+_TooManyTrustedSigners = prism'
+    TooManyTrustedSigners
+    (\case
+        TooManyTrustedSigners p1 -> Right p1
+        x -> Left x)
+
+-- | One or more of your trusted signers do not exist.
+--
+-- See: 'TrustedSignerDoesNotExist'
+_TrustedSignerDoesNotExist :: Prism' CloudFrontError (Maybe Text)
+_TrustedSignerDoesNotExist = prism'
+    TrustedSignerDoesNotExist
+    (\case
+        TrustedSignerDoesNotExist p1 -> Right p1
+        x -> Left x)
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

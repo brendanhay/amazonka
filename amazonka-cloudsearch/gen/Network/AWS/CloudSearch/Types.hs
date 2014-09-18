@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,6 +27,17 @@ module Network.AWS.CloudSearch.Types
     (
     -- * Service
       CloudSearch
+    -- ** Errors
+    , CloudSearchError (..)
+    , _BaseException
+    , _CloudSearchClient
+    , _CloudSearchSerializer
+    , _CloudSearchService
+    , _DisabledOperationException
+    , _InternalException
+    , _InvalidTypeException
+    , _LimitExceededException
+    , _ResourceNotFoundException
     -- ** XML
     , xmlOptions
 
@@ -293,19 +304,7 @@ data CloudSearch deriving (Typeable)
 
 instance AWSService CloudSearch where
     type Sg CloudSearch = V4
-    data Er CloudSearch
-        = BaseException
-            { _beCode :: Maybe Text
-            , _beMessage :: Maybe Text
-            }
-        | CloudSearchClient HttpException
-        | CloudSearchSerializer String
-        | CloudSearchService String
-        | DisabledOperationException
-        | InternalException
-        | InvalidTypeException
-        | LimitExceededException
-        | ResourceNotFoundException
+    type Er CloudSearch = CloudSearchError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -314,18 +313,131 @@ instance AWSService CloudSearch where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er CloudSearch)
-deriving instance Generic (Er CloudSearch)
+-- | A sum type representing possible errors returned by the 'CloudSearch' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data CloudSearchError
+      -- | An error occurred while processing the request.
+    = BaseException
+        { _beCode :: Maybe Text
+        , _beMessage :: Maybe Text
+        }
+    | CloudSearchClient HttpException
+    | CloudSearchSerializer Text
+    | CloudSearchService Text
+      -- | The request was rejected because it attempted an operation which
+      -- is not enabled.
+    | DisabledOperationException
+      -- | An internal error occurred while processing the request. If this
+      -- problem persists, report an issue from the Service Health
+      -- Dashboard.
+    | InternalException
+      -- | The request was rejected because it specified an invalid type
+      -- definition.
+    | InvalidTypeException
+      -- | The request was rejected because a resource limit has already
+      -- been met.
+    | LimitExceededException
+      -- | The request was rejected because it attempted to reference a
+      -- resource that does not exist.
+    | ResourceNotFoundException
+    deriving (Show, Generic)
 
-instance AWSError (Er CloudSearch) where
+instance AWSError CloudSearchError where
     awsError = const "CloudSearchError"
 
-instance AWSServiceError (Er CloudSearch) where
+instance AWSServiceError CloudSearchError where
     serviceError    = CloudSearchService
     clientError     = CloudSearchClient
     serializerError = CloudSearchSerializer
 
-instance Exception (Er CloudSearch)
+instance Exception CloudSearchError
+
+-- | An error occurred while processing the request.
+--
+-- See: 'BaseException'
+_BaseException :: Prism' CloudSearchError (Maybe Text, Maybe Text)
+_BaseException = prism'
+FIXME: Oh noes!
+
+-- | See: 'CloudSearchClient'
+_CloudSearchClient :: Prism' CloudSearchError HttpException
+_CloudSearchClient = prism'
+    CloudSearchClient
+    (\case
+        CloudSearchClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'CloudSearchSerializer'
+_CloudSearchSerializer :: Prism' CloudSearchError Text
+_CloudSearchSerializer = prism'
+    CloudSearchSerializer
+    (\case
+        CloudSearchSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'CloudSearchService'
+_CloudSearchService :: Prism' CloudSearchError Text
+_CloudSearchService = prism'
+    CloudSearchService
+    (\case
+        CloudSearchService p1 -> Right p1
+        x -> Left x)
+
+-- | The request was rejected because it attempted an operation which is not
+-- enabled.
+--
+-- See: 'DisabledOperationException'
+_DisabledOperationException :: Prism' CloudSearchError ()
+_DisabledOperationException = prism'
+    (const DisabledOperationException)
+    (\case
+        DisabledOperationException -> Right ()
+        x -> Left x)
+
+-- | An internal error occurred while processing the request. If this problem
+-- persists, report an issue from the Service Health Dashboard.
+--
+-- See: 'InternalException'
+_InternalException :: Prism' CloudSearchError ()
+_InternalException = prism'
+    (const InternalException)
+    (\case
+        InternalException -> Right ()
+        x -> Left x)
+
+-- | The request was rejected because it specified an invalid type definition.
+--
+-- See: 'InvalidTypeException'
+_InvalidTypeException :: Prism' CloudSearchError ()
+_InvalidTypeException = prism'
+    (const InvalidTypeException)
+    (\case
+        InvalidTypeException -> Right ()
+        x -> Left x)
+
+-- | The request was rejected because a resource limit has already been met.
+--
+-- See: 'LimitExceededException'
+_LimitExceededException :: Prism' CloudSearchError ()
+_LimitExceededException = prism'
+    (const LimitExceededException)
+    (\case
+        LimitExceededException -> Right ()
+        x -> Left x)
+
+-- | The request was rejected because it attempted to reference a resource that
+-- does not exist.
+--
+-- See: 'ResourceNotFoundException'
+_ResourceNotFoundException :: Prism' CloudSearchError ()
+_ResourceNotFoundException = prism'
+    (const ResourceNotFoundException)
+    (\case
+        ResourceNotFoundException -> Right ()
+        x -> Left x)
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -32,6 +32,19 @@ module Network.AWS.CloudWatch.Types
     (
     -- * Service
       CloudWatch
+    -- ** Errors
+    , CloudWatchError (..)
+    , _CloudWatchClient
+    , _CloudWatchSerializer
+    , _CloudWatchService
+    , _InternalServiceFault
+    , _InvalidFormatFault
+    , _InvalidNextToken
+    , _InvalidParameterCombinationException
+    , _InvalidParameterValueException
+    , _LimitExceededFault
+    , _MissingRequiredParameterException
+    , _ResourceNotFound
     -- ** XML
     , xmlOptions
 
@@ -142,34 +155,7 @@ data CloudWatch deriving (Typeable)
 
 instance AWSService CloudWatch where
     type Sg CloudWatch = V4
-    data Er CloudWatch
-        = CloudWatchClient HttpException
-        | CloudWatchSerializer String
-        | CloudWatchService String
-        | InternalServiceFault
-            { _isfMessage :: Maybe Text
-            }
-        | InvalidFormatFault
-            { _iffMessage :: Maybe Text
-            }
-        | InvalidNextToken
-            { _intMessage :: Maybe Text
-            }
-        | InvalidParameterCombinationException
-            { _ipceMessage :: Maybe Text
-            }
-        | InvalidParameterValueException
-            { _ipveMessage :: Maybe Text
-            }
-        | LimitExceededFault
-            { _lefMessage :: Maybe Text
-            }
-        | MissingRequiredParameterException
-            { _mrpeMessage :: Maybe Text
-            }
-        | ResourceNotFound
-            { _rnfMessage :: Maybe Text
-            }
+    type Er CloudWatch = CloudWatchError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -178,18 +164,166 @@ instance AWSService CloudWatch where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er CloudWatch)
-deriving instance Generic (Er CloudWatch)
+-- | A sum type representing possible errors returned by the 'CloudWatch' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data CloudWatchError
+    = CloudWatchClient HttpException
+    | CloudWatchSerializer Text
+    | CloudWatchService Text
+      -- | Indicates that the request processing has failed due to some
+      -- unknown error, exception, or failure.
+    | InternalServiceFault
+        { _isfMessage :: Maybe Text
+        }
+      -- | Data was not syntactically valid JSON.
+    | InvalidFormatFault
+        { _iffMessage :: Maybe Text
+        }
+      -- | The next token specified is invalid.
+    | InvalidNextToken
+        { _intMessage :: Maybe Text
+        }
+      -- | Parameters that must not be used together were used together.
+    | InvalidParameterCombinationException
+        { _ipceMessage :: Maybe Text
+        }
+      -- | Bad or out-of-range value was supplied for the input parameter.
+    | InvalidParameterValueException
+        { _ipveMessage :: Maybe Text
+        }
+      -- | The quota for alarms for this customer has already been reached.
+    | LimitExceededFault
+        { _lefMessage :: Maybe Text
+        }
+      -- | An input parameter that is mandatory for processing the request
+      -- is not supplied.
+    | MissingRequiredParameterException
+        { _mrpeMessage :: Maybe Text
+        }
+      -- | The named resource does not exist.
+    | ResourceNotFound
+        { _rnfMessage :: Maybe Text
+        }
+    deriving (Show, Generic)
 
-instance AWSError (Er CloudWatch) where
+instance AWSError CloudWatchError where
     awsError = const "CloudWatchError"
 
-instance AWSServiceError (Er CloudWatch) where
+instance AWSServiceError CloudWatchError where
     serviceError    = CloudWatchService
     clientError     = CloudWatchClient
     serializerError = CloudWatchSerializer
 
-instance Exception (Er CloudWatch)
+instance Exception CloudWatchError
+
+-- | See: 'CloudWatchClient'
+_CloudWatchClient :: Prism' CloudWatchError HttpException
+_CloudWatchClient = prism'
+    CloudWatchClient
+    (\case
+        CloudWatchClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'CloudWatchSerializer'
+_CloudWatchSerializer :: Prism' CloudWatchError Text
+_CloudWatchSerializer = prism'
+    CloudWatchSerializer
+    (\case
+        CloudWatchSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'CloudWatchService'
+_CloudWatchService :: Prism' CloudWatchError Text
+_CloudWatchService = prism'
+    CloudWatchService
+    (\case
+        CloudWatchService p1 -> Right p1
+        x -> Left x)
+
+-- | Indicates that the request processing has failed due to some unknown error,
+-- exception, or failure.
+--
+-- See: 'InternalServiceFault'
+_InternalServiceFault :: Prism' CloudWatchError (Maybe Text)
+_InternalServiceFault = prism'
+    InternalServiceFault
+    (\case
+        InternalServiceFault p1 -> Right p1
+        x -> Left x)
+
+-- | Data was not syntactically valid JSON.
+--
+-- See: 'InvalidFormatFault'
+_InvalidFormatFault :: Prism' CloudWatchError (Maybe Text)
+_InvalidFormatFault = prism'
+    InvalidFormatFault
+    (\case
+        InvalidFormatFault p1 -> Right p1
+        x -> Left x)
+
+-- | The next token specified is invalid.
+--
+-- See: 'InvalidNextToken'
+_InvalidNextToken :: Prism' CloudWatchError (Maybe Text)
+_InvalidNextToken = prism'
+    InvalidNextToken
+    (\case
+        InvalidNextToken p1 -> Right p1
+        x -> Left x)
+
+-- | Parameters that must not be used together were used together.
+--
+-- See: 'InvalidParameterCombinationException'
+_InvalidParameterCombinationException :: Prism' CloudWatchError (Maybe Text)
+_InvalidParameterCombinationException = prism'
+    InvalidParameterCombinationException
+    (\case
+        InvalidParameterCombinationException p1 -> Right p1
+        x -> Left x)
+
+-- | Bad or out-of-range value was supplied for the input parameter.
+--
+-- See: 'InvalidParameterValueException'
+_InvalidParameterValueException :: Prism' CloudWatchError (Maybe Text)
+_InvalidParameterValueException = prism'
+    InvalidParameterValueException
+    (\case
+        InvalidParameterValueException p1 -> Right p1
+        x -> Left x)
+
+-- | The quota for alarms for this customer has already been reached.
+--
+-- See: 'LimitExceededFault'
+_LimitExceededFault :: Prism' CloudWatchError (Maybe Text)
+_LimitExceededFault = prism'
+    LimitExceededFault
+    (\case
+        LimitExceededFault p1 -> Right p1
+        x -> Left x)
+
+-- | An input parameter that is mandatory for processing the request is not
+-- supplied.
+--
+-- See: 'MissingRequiredParameterException'
+_MissingRequiredParameterException :: Prism' CloudWatchError (Maybe Text)
+_MissingRequiredParameterException = prism'
+    MissingRequiredParameterException
+    (\case
+        MissingRequiredParameterException p1 -> Right p1
+        x -> Left x)
+
+-- | The named resource does not exist.
+--
+-- See: 'ResourceNotFound'
+_ResourceNotFound :: Prism' CloudWatchError (Maybe Text)
+_ResourceNotFound = prism'
+    ResourceNotFound
+    (\case
+        ResourceNotFound p1 -> Right p1
+        x -> Left x)
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

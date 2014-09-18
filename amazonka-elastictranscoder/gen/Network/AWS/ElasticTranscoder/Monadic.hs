@@ -145,7 +145,6 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.ElasticTranscoder
 
-type ServiceEr = Er ElasticTranscoder
 
 -- $CancelJob
 -- The CancelJob operation cancels an unfinished job. You can only cancel a
@@ -181,7 +180,7 @@ cancelJobCatch :: ( MonadCatch m
                   , MonadReader Env m
                   )
     => Text -- ^ 'cjId'
-    -> m (Either ServiceEr CancelJobResponse)
+    -> m (Either ElasticTranscoderError CancelJobResponse)
 cancelJobCatch p1 =
     sendCatch (mkCancelJob p1)
 
@@ -265,7 +264,7 @@ createJobCatch :: ( MonadCatch m
     => Text -- ^ 'cj1PipelineId'
     -> JobInput -- ^ 'cj1Input'
     -> State CreateJob a
-    -> m (Either ServiceEr CreateJobResponse)
+    -> m (Either ElasticTranscoderError CreateJobResponse)
 createJobCatch p1 p2 s =
     sendCatch $ (mkCreateJob p1 p2) &~ s
 
@@ -329,7 +328,7 @@ createPipelineCatch :: ( MonadCatch m
     -> Text -- ^ 'cpInputBucket'
     -> Text -- ^ 'cpRole'
     -> State CreatePipeline a
-    -> m (Either ServiceEr CreatePipelineResponse)
+    -> m (Either ElasticTranscoderError CreatePipelineResponse)
 createPipelineCatch p1 p2 p4 s =
     sendCatch $ (mkCreatePipeline p1 p2 p4) &~ s
 
@@ -410,7 +409,7 @@ createPresetCatch :: ( MonadCatch m
     => Text -- ^ 'cp1Name'
     -> Text -- ^ 'cp1Container'
     -> State CreatePreset a
-    -> m (Either ServiceEr CreatePresetResponse)
+    -> m (Either ElasticTranscoderError CreatePresetResponse)
 createPresetCatch p1 p3 s =
     sendCatch $ (mkCreatePreset p1 p3) &~ s
 
@@ -448,7 +447,7 @@ deletePipelineCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => Text -- ^ 'dpId'
-    -> m (Either ServiceEr DeletePipelineResponse)
+    -> m (Either ElasticTranscoderError DeletePipelineResponse)
 deletePipelineCatch p1 =
     sendCatch (mkDeletePipeline p1)
 
@@ -484,7 +483,7 @@ deletePresetCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'dp1Id'
-    -> m (Either ServiceEr DeletePresetResponse)
+    -> m (Either ElasticTranscoderError DeletePresetResponse)
 deletePresetCatch p1 =
     sendCatch (mkDeletePreset p1)
 
@@ -552,7 +551,7 @@ listJobsByPipelineCatch :: ( MonadCatch m
                            )
     => Text -- ^ 'ljbpPipelineId'
     -> State ListJobsByPipeline a
-    -> Source m (Either ServiceEr ListJobsByPipelineResponse)
+    -> Source m (Either ElasticTranscoderError ListJobsByPipelineResponse)
 listJobsByPipelineCatch p1 s =
     paginateCatch $ (mkListJobsByPipeline p1) &~ s
 
@@ -622,7 +621,7 @@ listJobsByStatusCatch :: ( MonadCatch m
                          )
     => Text -- ^ 'ljbsStatus'
     -> State ListJobsByStatus a
-    -> Source m (Either ServiceEr ListJobsByStatusResponse)
+    -> Source m (Either ElasticTranscoderError ListJobsByStatusResponse)
 listJobsByStatusCatch p1 s =
     paginateCatch $ (mkListJobsByStatus p1) &~ s
 
@@ -686,7 +685,7 @@ listPipelinesCatch :: ( MonadCatch m
                       , MonadReader Env m
                       )
     => State ListPipelines a
-    -> Source m (Either ServiceEr ListPipelinesResponse)
+    -> Source m (Either ElasticTranscoderError ListPipelinesResponse)
 listPipelinesCatch s =
     paginateCatch (mkListPipelines &~ s)
 
@@ -731,7 +730,7 @@ listPresetsCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => State ListPresets a
-    -> Source m (Either ServiceEr ListPresetsResponse)
+    -> Source m (Either ElasticTranscoderError ListPresetsResponse)
 listPresetsCatch s =
     paginateCatch (mkListPresets &~ s)
 
@@ -771,7 +770,7 @@ readJobCatch :: ( MonadCatch m
                 , MonadReader Env m
                 )
     => Text -- ^ 'rjId'
-    -> m (Either ServiceEr ReadJobResponse)
+    -> m (Either ElasticTranscoderError ReadJobResponse)
 readJobCatch p1 =
     sendCatch (mkReadJob p1)
 
@@ -812,7 +811,7 @@ readPipelineCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => Text -- ^ 'rpId'
-    -> m (Either ServiceEr ReadPipelineResponse)
+    -> m (Either ElasticTranscoderError ReadPipelineResponse)
 readPipelineCatch p1 =
     sendCatch (mkReadPipeline p1)
 
@@ -862,7 +861,7 @@ readPresetCatch :: ( MonadCatch m
                    , MonadReader Env m
                    )
     => Text -- ^ 'rp1Id'
-    -> m (Either ServiceEr ReadPresetResponse)
+    -> m (Either ElasticTranscoderError ReadPresetResponse)
 readPresetCatch p1 =
     sendCatch (mkReadPreset p1)
 
@@ -919,7 +918,7 @@ testRoleCatch :: ( MonadCatch m
     -> Text -- ^ 'trInputBucket'
     -> Text -- ^ 'trOutputBucket'
     -> [Text] -- ^ 'trTopics'
-    -> m (Either ServiceEr TestRoleResponse)
+    -> m (Either ElasticTranscoderError TestRoleResponse)
 testRoleCatch p1 p2 p3 p4 =
     sendCatch (mkTestRole p1 p2 p3 p4)
 
@@ -949,7 +948,7 @@ updatePipelineCatch :: ( MonadCatch m
                        )
     => Text -- ^ 'upId'
     -> State UpdatePipeline a
-    -> m (Either ServiceEr UpdatePipelineResponse)
+    -> m (Either ElasticTranscoderError UpdatePipelineResponse)
 updatePipelineCatch p1 s =
     sendCatch $ (mkUpdatePipeline p1) &~ s
 
@@ -995,7 +994,7 @@ updatePipelineNotificationsCatch :: ( MonadCatch m
                                     )
     => Text -- ^ 'upnId'
     -> Notifications -- ^ 'upnNotifications'
-    -> m (Either ServiceEr UpdatePipelineNotificationsResponse)
+    -> m (Either ElasticTranscoderError UpdatePipelineNotificationsResponse)
 updatePipelineNotificationsCatch p1 p2 =
     sendCatch (mkUpdatePipelineNotifications p1 p2)
 
@@ -1039,6 +1038,6 @@ updatePipelineStatusCatch :: ( MonadCatch m
                              )
     => Text -- ^ 'upsId'
     -> Text -- ^ 'upsStatus'
-    -> m (Either ServiceEr UpdatePipelineStatusResponse)
+    -> m (Either ElasticTranscoderError UpdatePipelineStatusResponse)
 updatePipelineStatusCatch p1 p2 =
     sendCatch (mkUpdatePipelineStatus p1 p2)

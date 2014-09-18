@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -33,6 +33,14 @@ module Network.AWS.CloudFormation.Types
     (
     -- * Service
       CloudFormation
+    -- ** Errors
+    , CloudFormationError (..)
+    , _AlreadyExistsException
+    , _CloudFormationClient
+    , _CloudFormationSerializer
+    , _CloudFormationService
+    , _InsufficientCapabilitiesException
+    , _LimitExceededException
     -- ** XML
     , xmlOptions
 
@@ -167,13 +175,7 @@ data CloudFormation deriving (Typeable)
 
 instance AWSService CloudFormation where
     type Sg CloudFormation = V4
-    data Er CloudFormation
-        = AlreadyExistsException
-        | CloudFormationClient HttpException
-        | CloudFormationSerializer String
-        | CloudFormationService String
-        | InsufficientCapabilitiesException
-        | LimitExceededException
+    type Er CloudFormation = CloudFormationError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -182,18 +184,88 @@ instance AWSService CloudFormation where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er CloudFormation)
-deriving instance Generic (Er CloudFormation)
+-- | A sum type representing possible errors returned by the 'CloudFormation' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data CloudFormationError
+      -- | Resource with the name requested already exists.
+    = AlreadyExistsException
+    | CloudFormationClient HttpException
+    | CloudFormationSerializer Text
+    | CloudFormationService Text
+      -- | The template contains resources with capabilities that were not
+      -- specified in the Capabilities parameter.
+    | InsufficientCapabilitiesException
+      -- | Quota for the resource has already been reached.
+    | LimitExceededException
+    deriving (Show, Generic)
 
-instance AWSError (Er CloudFormation) where
+instance AWSError CloudFormationError where
     awsError = const "CloudFormationError"
 
-instance AWSServiceError (Er CloudFormation) where
+instance AWSServiceError CloudFormationError where
     serviceError    = CloudFormationService
     clientError     = CloudFormationClient
     serializerError = CloudFormationSerializer
 
-instance Exception (Er CloudFormation)
+instance Exception CloudFormationError
+
+-- | Resource with the name requested already exists.
+--
+-- See: 'AlreadyExistsException'
+_AlreadyExistsException :: Prism' CloudFormationError ()
+_AlreadyExistsException = prism'
+    (const AlreadyExistsException)
+    (\case
+        AlreadyExistsException -> Right ()
+        x -> Left x)
+
+-- | See: 'CloudFormationClient'
+_CloudFormationClient :: Prism' CloudFormationError HttpException
+_CloudFormationClient = prism'
+    CloudFormationClient
+    (\case
+        CloudFormationClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'CloudFormationSerializer'
+_CloudFormationSerializer :: Prism' CloudFormationError Text
+_CloudFormationSerializer = prism'
+    CloudFormationSerializer
+    (\case
+        CloudFormationSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'CloudFormationService'
+_CloudFormationService :: Prism' CloudFormationError Text
+_CloudFormationService = prism'
+    CloudFormationService
+    (\case
+        CloudFormationService p1 -> Right p1
+        x -> Left x)
+
+-- | The template contains resources with capabilities that were not specified
+-- in the Capabilities parameter.
+--
+-- See: 'InsufficientCapabilitiesException'
+_InsufficientCapabilitiesException :: Prism' CloudFormationError ()
+_InsufficientCapabilitiesException = prism'
+    (const InsufficientCapabilitiesException)
+    (\case
+        InsufficientCapabilitiesException -> Right ()
+        x -> Left x)
+
+-- | Quota for the resource has already been reached.
+--
+-- See: 'LimitExceededException'
+_LimitExceededException :: Prism' CloudFormationError ()
+_LimitExceededException = prism'
+    (const LimitExceededException)
+    (\case
+        LimitExceededException -> Right ()
+        x -> Left x)
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

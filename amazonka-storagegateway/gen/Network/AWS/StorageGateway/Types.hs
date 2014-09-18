@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -26,6 +26,13 @@ module Network.AWS.StorageGateway.Types
     (
     -- * Service
       StorageGateway
+    -- ** Errors
+    , StorageGatewayError (..)
+    , _InternalServerError
+    , _InvalidGatewayRequestException
+    , _StorageGatewayClient
+    , _StorageGatewaySerializer
+    , _StorageGatewayService
     -- * ErrorCode
     , ErrorCode (..)
 
@@ -166,18 +173,7 @@ data StorageGateway deriving (Typeable)
 
 instance AWSService StorageGateway where
     type Sg StorageGateway = V4
-    data Er StorageGateway
-        = InternalServerError
-            { _iseMessage :: Maybe Text
-            , _iseError :: Maybe StorageGatewayError
-            }
-        | InvalidGatewayRequestException
-            { _igreMessage :: Maybe Text
-            , _igreError :: Maybe StorageGatewayError
-            }
-        | StorageGatewayClient HttpException
-        | StorageGatewaySerializer String
-        | StorageGatewayService String
+    type Er StorageGateway = StorageGatewayError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -186,18 +182,79 @@ instance AWSService StorageGateway where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er StorageGateway)
-deriving instance Generic (Er StorageGateway)
+-- | A sum type representing possible errors returned by the 'StorageGateway' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data StorageGatewayError
+      -- | An internal server error has occured during the request. See the
+      -- error and message fields for more information.
+    = InternalServerError
+        { _iseMessage :: Maybe Text
+        , _iseError :: Maybe StorageGatewayError
+        }
+      -- | An exception occured because an invalid gateway request was
+      -- issued to the service. See the error and message fields for more
+      -- information.
+    | InvalidGatewayRequestException
+        { _igreMessage :: Maybe Text
+        , _igreError :: Maybe StorageGatewayError
+        }
+    | StorageGatewayClient HttpException
+    | StorageGatewaySerializer Text
+    | StorageGatewayService Text
+    deriving (Show, Generic)
 
-instance AWSError (Er StorageGateway) where
+instance AWSError StorageGatewayError where
     awsError = const "StorageGatewayError"
 
-instance AWSServiceError (Er StorageGateway) where
+instance AWSServiceError StorageGatewayError where
     serviceError    = StorageGatewayService
     clientError     = StorageGatewayClient
     serializerError = StorageGatewaySerializer
 
-instance Exception (Er StorageGateway)
+instance Exception StorageGatewayError
+
+-- | An internal server error has occured during the request. See the error and
+-- message fields for more information.
+--
+-- See: 'InternalServerError'
+_InternalServerError :: Prism' StorageGatewayError (Maybe Text, Maybe StorageGatewayError)
+_InternalServerError = prism'
+FIXME: Oh noes!
+
+-- | An exception occured because an invalid gateway request was issued to the
+-- service. See the error and message fields for more information.
+--
+-- See: 'InvalidGatewayRequestException'
+_InvalidGatewayRequestException :: Prism' StorageGatewayError (Maybe Text, Maybe StorageGatewayError)
+_InvalidGatewayRequestException = prism'
+FIXME: Oh noes!
+
+-- | See: 'StorageGatewayClient'
+_StorageGatewayClient :: Prism' StorageGatewayError HttpException
+_StorageGatewayClient = prism'
+    StorageGatewayClient
+    (\case
+        StorageGatewayClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'StorageGatewaySerializer'
+_StorageGatewaySerializer :: Prism' StorageGatewayError Text
+_StorageGatewaySerializer = prism'
+    StorageGatewaySerializer
+    (\case
+        StorageGatewaySerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'StorageGatewayService'
+_StorageGatewayService :: Prism' StorageGatewayError Text
+_StorageGatewayService = prism'
+    StorageGatewayService
+    (\case
+        StorageGatewayService p1 -> Right p1
+        x -> Left x)
 
 data ErrorCode
     = ErrorCodeActivationKeyExpired -- ^ ActivationKeyExpired

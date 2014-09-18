@@ -115,7 +115,6 @@ import Control.Monad.Trans.AWS as AWS
 import Network.AWS.Prelude
 import Network.AWS.CloudWatch
 
-type ServiceEr = Er CloudWatch
 
 -- $DeleteAlarms
 -- Deletes all specified alarms. In the event of an error, no alarms are
@@ -138,7 +137,7 @@ deleteAlarmsCatch :: ( MonadCatch m
                      , MonadReader Env m
                      )
     => [Text] -- ^ 'daAlarmNames'
-    -> m (Either ServiceEr DeleteAlarmsResponse)
+    -> m (Either CloudWatchError DeleteAlarmsResponse)
 deleteAlarmsCatch p1 =
     sendCatch (mkDeleteAlarms p1)
 
@@ -165,7 +164,7 @@ describeAlarmHistoryCatch :: ( MonadCatch m
                              , MonadReader Env m
                              )
     => State DescribeAlarmHistory a
-    -> Source m (Either ServiceEr DescribeAlarmHistoryResponse)
+    -> Source m (Either CloudWatchError DescribeAlarmHistoryResponse)
 describeAlarmHistoryCatch s =
     paginateCatch (mkDescribeAlarmHistory &~ s)
 
@@ -191,7 +190,7 @@ describeAlarmsCatch :: ( MonadCatch m
                        , MonadReader Env m
                        )
     => State DescribeAlarms a
-    -> Source m (Either ServiceEr DescribeAlarmsResponse)
+    -> Source m (Either CloudWatchError DescribeAlarmsResponse)
 describeAlarmsCatch s =
     paginateCatch (mkDescribeAlarms &~ s)
 
@@ -220,7 +219,7 @@ describeAlarmsForMetricCatch :: ( MonadCatch m
     => Text -- ^ 'dafmMetricName'
     -> Text -- ^ 'dafmNamespace'
     -> State DescribeAlarmsForMetric a
-    -> m (Either ServiceEr DescribeAlarmsForMetricResponse)
+    -> m (Either CloudWatchError DescribeAlarmsForMetricResponse)
 describeAlarmsForMetricCatch p1 p2 s =
     sendCatch $ (mkDescribeAlarmsForMetric p1 p2) &~ s
 
@@ -246,7 +245,7 @@ disableAlarmActionsCatch :: ( MonadCatch m
                             , MonadReader Env m
                             )
     => [Text] -- ^ 'daaAlarmNames'
-    -> m (Either ServiceEr DisableAlarmActionsResponse)
+    -> m (Either CloudWatchError DisableAlarmActionsResponse)
 disableAlarmActionsCatch p1 =
     sendCatch (mkDisableAlarmActions p1)
 
@@ -270,7 +269,7 @@ enableAlarmActionsCatch :: ( MonadCatch m
                            , MonadReader Env m
                            )
     => [Text] -- ^ 'eaaAlarmNames'
-    -> m (Either ServiceEr EnableAlarmActionsResponse)
+    -> m (Either CloudWatchError EnableAlarmActionsResponse)
 enableAlarmActionsCatch p1 =
     sendCatch (mkEnableAlarmActions p1)
 
@@ -323,7 +322,7 @@ getMetricStatisticsCatch :: ( MonadCatch m
     -> Integer -- ^ 'gmsPeriod'
     -> List1 Statistic -- ^ 'gmsStatistics'
     -> State GetMetricStatistics a
-    -> m (Either ServiceEr GetMetricStatisticsResponse)
+    -> m (Either CloudWatchError GetMetricStatisticsResponse)
 getMetricStatisticsCatch p1 p2 p4 p5 p6 p7 s =
     sendCatch $ (mkGetMetricStatistics p1 p2 p4 p5 p6 p7) &~ s
 
@@ -353,7 +352,7 @@ listMetricsCatch :: ( MonadCatch m
                     , MonadReader Env m
                     )
     => State ListMetrics a
-    -> Source m (Either ServiceEr ListMetricsResponse)
+    -> Source m (Either CloudWatchError ListMetricsResponse)
 listMetricsCatch s =
     paginateCatch (mkListMetrics &~ s)
 
@@ -399,7 +398,7 @@ putMetricAlarmCatch :: ( MonadCatch m
     -> Text -- ^ 'pmaNamespace'
     -> Statistic -- ^ 'pmaStatistic'
     -> State PutMetricAlarm a
-    -> m (Either ServiceEr PutMetricAlarmResponse)
+    -> m (Either CloudWatchError PutMetricAlarmResponse)
 putMetricAlarmCatch p1 p11 p13 p14 p15 p7 p8 p9 s =
     sendCatch $ (mkPutMetricAlarm p1 p11 p13 p14 p15 p7 p8 p9) &~ s
 
@@ -435,7 +434,7 @@ putMetricDataCatch :: ( MonadCatch m
                       )
     => Text -- ^ 'pmdNamespace'
     -> [MetricDatum] -- ^ 'pmdMetricData'
-    -> m (Either ServiceEr PutMetricDataResponse)
+    -> m (Either CloudWatchError PutMetricDataResponse)
 putMetricDataCatch p1 p2 =
     sendCatch (mkPutMetricData p1 p2)
 
@@ -468,6 +467,6 @@ setAlarmStateCatch :: ( MonadCatch m
     -> StateValue -- ^ 'sasStateValue'
     -> Text -- ^ 'sasStateReason'
     -> State SetAlarmState a
-    -> m (Either ServiceEr SetAlarmStateResponse)
+    -> m (Either CloudWatchError SetAlarmStateResponse)
 setAlarmStateCatch p1 p2 p3 s =
     sendCatch $ (mkSetAlarmState p1 p2 p3) &~ s

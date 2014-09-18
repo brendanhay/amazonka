@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveDataTypeable          #-}
 {-# LANGUAGE DeriveGeneric               #-}
 {-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE LambdaCase                  #-}
 {-# LANGUAGE NoImplicitPrelude           #-}
 {-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE StandaloneDeriving          #-}
 {-# LANGUAGE TypeFamilies                #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
@@ -27,6 +27,14 @@ module Network.AWS.EMR.Types
     (
     -- * Service
       EMR
+    -- ** Errors
+    , EMRError (..)
+    , _EMRClient
+    , _EMRSerializer
+    , _EMRService
+    , _InternalServerError
+    , _InternalServerException
+    , _InvalidRequestException
     -- * ActionOnFailure
     , ActionOnFailure (..)
 
@@ -416,18 +424,7 @@ data EMR deriving (Typeable)
 
 instance AWSService EMR where
     type Sg EMR = V4
-    data Er EMR
-        = EMRClient HttpException
-        | EMRSerializer String
-        | EMRService String
-        | InternalServerError
-        | InternalServerException
-            { _iseMessage :: Maybe Text
-            }
-        | InvalidRequestException
-            { _ireErrorCode :: Maybe Text
-            , _ireMessage :: Maybe Text
-            }
+    type Er EMR = EMRError
 
     service = Service'
         { _svcEndpoint = Regional
@@ -436,18 +433,92 @@ instance AWSService EMR where
         , _svcTarget   = Nothing
         }
 
-deriving instance Show    (Er EMR)
-deriving instance Generic (Er EMR)
+-- | A sum type representing possible errors returned by the 'EMR' service.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data EMRError
+    = EMRClient HttpException
+    | EMRSerializer Text
+    | EMRService Text
+      -- | Indicates that an error occurred while processing the request and
+      -- that the request was not completed.
+    | InternalServerError
+      -- | This exception occurs when there is an internal failure in the
+      -- EMR service.
+    | InternalServerException
+        { _iseMessage :: Maybe Text
+        }
+      -- | This exception occurs when there is something wrong with user
+      -- input.
+    | InvalidRequestException
+        { _ireErrorCode :: Maybe Text
+        , _ireMessage :: Maybe Text
+        }
+    deriving (Show, Generic)
 
-instance AWSError (Er EMR) where
+instance AWSError EMRError where
     awsError = const "EMRError"
 
-instance AWSServiceError (Er EMR) where
+instance AWSServiceError EMRError where
     serviceError    = EMRService
     clientError     = EMRClient
     serializerError = EMRSerializer
 
-instance Exception (Er EMR)
+instance Exception EMRError
+
+-- | See: 'EMRClient'
+_EMRClient :: Prism' EMRError HttpException
+_EMRClient = prism'
+    EMRClient
+    (\case
+        EMRClient p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'EMRSerializer'
+_EMRSerializer :: Prism' EMRError Text
+_EMRSerializer = prism'
+    EMRSerializer
+    (\case
+        EMRSerializer p1 -> Right p1
+        x -> Left x)
+
+-- | See: 'EMRService'
+_EMRService :: Prism' EMRError Text
+_EMRService = prism'
+    EMRService
+    (\case
+        EMRService p1 -> Right p1
+        x -> Left x)
+
+-- | Indicates that an error occurred while processing the request and that the
+-- request was not completed.
+--
+-- See: 'InternalServerError'
+_InternalServerError :: Prism' EMRError ()
+_InternalServerError = prism'
+    (const InternalServerError)
+    (\case
+        InternalServerError -> Right ()
+        x -> Left x)
+
+-- | This exception occurs when there is an internal failure in the EMR service.
+--
+-- See: 'InternalServerException'
+_InternalServerException :: Prism' EMRError (Maybe Text)
+_InternalServerException = prism'
+    InternalServerException
+    (\case
+        InternalServerException p1 -> Right p1
+        x -> Left x)
+
+-- | This exception occurs when there is something wrong with user input.
+--
+-- See: 'InvalidRequestException'
+_InvalidRequestException :: Prism' EMRError (Maybe Text, Maybe Text)
+_InvalidRequestException = prism'
+FIXME: Oh noes!
 
 data ActionOnFailure
     = ActionOnFailureCancelAndWait -- ^ CANCEL_AND_WAIT

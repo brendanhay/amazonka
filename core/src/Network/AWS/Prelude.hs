@@ -93,6 +93,6 @@ import Control.Lens as Lens
     , (<>=)
     , (%=)
     , lens
-    , prism'
+    , prism
     , to
     )

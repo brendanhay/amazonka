@@ -13,6 +13,7 @@
 module Data.Text.Util where
 
 import           Data.Char
+import qualified Data.HashSet               as Set
 import           Data.Maybe
 import           Data.Monoid
 import           Data.String.CaseConversion
@@ -23,6 +24,45 @@ accessor :: Text -> Text
 accessor t
     | "_" `Text.isPrefixOf` t = t
     | otherwise               = "_" <> t
+
+smartCtor :: Text -> Text
+smartCtor = f . lowerFirstWord
+  where
+    f x | x `Set.member` keywords = x `Text.snoc` '\''
+        | otherwise               = x
+
+    keywords = Set.fromList
+        [ "as"
+        , "case"
+        , "of"
+        , "class"
+        , "data"
+        , "family"
+        , "default"
+        , "deriving"
+        , "do"
+        , "forall"
+        , "foreign"
+        , "hiding"
+        , "if"
+        , "then"
+        , "else"
+        , "import"
+        , "infix"
+        , "infixl"
+        , "infixr"
+        , "instance"
+        , "let"
+        , "in"
+        , "mdo"
+        , "module"
+        , "newtype"
+        , "proc"
+        , "qualified"
+        , "rec"
+        , "type"
+        , "where"
+        ]
 
 firstAcronym :: Text -> Maybe Text
 firstAcronym t

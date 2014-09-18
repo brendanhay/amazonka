@@ -172,7 +172,7 @@ instance ToJSON Type' where
       where
         Object x = object
             [ "smart_pad"  .= Text.replicate (Text.length name + 2) " "
-            , "smart_ctor" .= lowerFirstWord name
+            , "smart_ctor" .= smartCtor name
             , "fields"     .= _typFields
             , "payload"    .= _typPayload
             , "params"     .= object params

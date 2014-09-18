@@ -5,11 +5,12 @@
 -- service description where applicable.
 {% if scope.error.shapes | listLength == 0 %}
 data {{ scope.error.name }} = {{ scope.error.name }}
+    deriving (Show, Generic)
 {% else %}
 data {{ scope.error.name }}
   {% include "error-sum.ede" with scope.error %}
+      deriving (Show, Generic)
 {% endif %}
-    deriving (Show, Generic)
 
 instance AWSError {{ scope.error.name }} where
     awsError = const "{{ scope.error.name }}"

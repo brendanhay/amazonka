@@ -343,7 +343,7 @@ data CloudSearchError
       -- | The request was rejected because it attempted to reference a
       -- resource that does not exist.
     | ResourceNotFoundException
-    deriving (Show, Generic)
+      deriving (Show, Typeable, Generic)
 
 instance AWSError CloudSearchError where
     awsError = const "CloudSearchError"
@@ -359,12 +359,12 @@ instance Exception CloudSearchError
 --
 -- See: 'BaseException'
 _BaseException :: Prism' CloudSearchError (Maybe Text, Maybe Text)
-_BaseException = prism'
+_BaseException = prism
 FIXME: Oh noes!
 
 -- | See: 'CloudSearchClient'
 _CloudSearchClient :: Prism' CloudSearchError HttpException
-_CloudSearchClient = prism'
+_CloudSearchClient = prism
     CloudSearchClient
     (\case
         CloudSearchClient p1 -> Right p1
@@ -372,7 +372,7 @@ _CloudSearchClient = prism'
 
 -- | See: 'CloudSearchSerializer'
 _CloudSearchSerializer :: Prism' CloudSearchError String
-_CloudSearchSerializer = prism'
+_CloudSearchSerializer = prism
     CloudSearchSerializer
     (\case
         CloudSearchSerializer p1 -> Right p1
@@ -380,7 +380,7 @@ _CloudSearchSerializer = prism'
 
 -- | See: 'CloudSearchService'
 _CloudSearchService :: Prism' CloudSearchError String
-_CloudSearchService = prism'
+_CloudSearchService = prism
     CloudSearchService
     (\case
         CloudSearchService p1 -> Right p1
@@ -391,7 +391,7 @@ _CloudSearchService = prism'
 --
 -- See: 'DisabledOperationException'
 _DisabledOperationException :: Prism' CloudSearchError ()
-_DisabledOperationException = prism'
+_DisabledOperationException = prism
     (const DisabledOperationException)
     (\case
         DisabledOperationException -> Right ()
@@ -402,7 +402,7 @@ _DisabledOperationException = prism'
 --
 -- See: 'InternalException'
 _InternalException :: Prism' CloudSearchError ()
-_InternalException = prism'
+_InternalException = prism
     (const InternalException)
     (\case
         InternalException -> Right ()
@@ -412,7 +412,7 @@ _InternalException = prism'
 --
 -- See: 'InvalidTypeException'
 _InvalidTypeException :: Prism' CloudSearchError ()
-_InvalidTypeException = prism'
+_InvalidTypeException = prism
     (const InvalidTypeException)
     (\case
         InvalidTypeException -> Right ()
@@ -422,7 +422,7 @@ _InvalidTypeException = prism'
 --
 -- See: 'LimitExceededException'
 _LimitExceededException :: Prism' CloudSearchError ()
-_LimitExceededException = prism'
+_LimitExceededException = prism
     (const LimitExceededException)
     (\case
         LimitExceededException -> Right ()
@@ -433,7 +433,7 @@ _LimitExceededException = prism'
 --
 -- See: 'ResourceNotFoundException'
 _ResourceNotFoundException :: Prism' CloudSearchError ()
-_ResourceNotFoundException = prism'
+_ResourceNotFoundException = prism
     (const ResourceNotFoundException)
     (\case
         ResourceNotFoundException -> Right ()

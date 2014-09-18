@@ -320,7 +320,7 @@ data ElasticTranscoderError
       -- | One or more required parameter values were not provided in the
       -- request.
     | ValidationException
-    deriving (Show, Generic)
+      deriving (Show, Typeable, Generic)
 
 instance AWSError ElasticTranscoderError where
     awsError = const "ElasticTranscoderError"
@@ -336,7 +336,7 @@ instance Exception ElasticTranscoderError
 --
 -- See: 'AccessDeniedException'
 _AccessDeniedException :: Prism' ElasticTranscoderError ()
-_AccessDeniedException = prism'
+_AccessDeniedException = prism
     (const AccessDeniedException)
     (\case
         AccessDeniedException -> Right ()
@@ -344,7 +344,7 @@ _AccessDeniedException = prism'
 
 -- | See: 'ElasticTranscoderClient'
 _ElasticTranscoderClient :: Prism' ElasticTranscoderError HttpException
-_ElasticTranscoderClient = prism'
+_ElasticTranscoderClient = prism
     ElasticTranscoderClient
     (\case
         ElasticTranscoderClient p1 -> Right p1
@@ -352,7 +352,7 @@ _ElasticTranscoderClient = prism'
 
 -- | See: 'ElasticTranscoderSerializer'
 _ElasticTranscoderSerializer :: Prism' ElasticTranscoderError String
-_ElasticTranscoderSerializer = prism'
+_ElasticTranscoderSerializer = prism
     ElasticTranscoderSerializer
     (\case
         ElasticTranscoderSerializer p1 -> Right p1
@@ -360,7 +360,7 @@ _ElasticTranscoderSerializer = prism'
 
 -- | See: 'ElasticTranscoderService'
 _ElasticTranscoderService :: Prism' ElasticTranscoderError String
-_ElasticTranscoderService = prism'
+_ElasticTranscoderService = prism
     ElasticTranscoderService
     (\case
         ElasticTranscoderService p1 -> Right p1
@@ -368,7 +368,7 @@ _ElasticTranscoderService = prism'
 
 -- | See: 'IncompatibleVersionException'
 _IncompatibleVersionException :: Prism' ElasticTranscoderError ()
-_IncompatibleVersionException = prism'
+_IncompatibleVersionException = prism
     (const IncompatibleVersionException)
     (\case
         IncompatibleVersionException -> Right ()
@@ -379,7 +379,7 @@ _IncompatibleVersionException = prism'
 --
 -- See: 'InternalServiceException'
 _InternalServiceException :: Prism' ElasticTranscoderError ()
-_InternalServiceException = prism'
+_InternalServiceException = prism
     (const InternalServiceException)
     (\case
         InternalServiceException -> Right ()
@@ -390,7 +390,7 @@ _InternalServiceException = prism'
 --
 -- See: 'LimitExceededException'
 _LimitExceededException :: Prism' ElasticTranscoderError ()
-_LimitExceededException = prism'
+_LimitExceededException = prism
     (const LimitExceededException)
     (\case
         LimitExceededException -> Right ()
@@ -401,7 +401,7 @@ _LimitExceededException = prism'
 --
 -- See: 'ResourceInUseException'
 _ResourceInUseException :: Prism' ElasticTranscoderError ()
-_ResourceInUseException = prism'
+_ResourceInUseException = prism
     (const ResourceInUseException)
     (\case
         ResourceInUseException -> Right ()
@@ -413,7 +413,7 @@ _ResourceInUseException = prism'
 --
 -- See: 'ResourceNotFoundException'
 _ResourceNotFoundException :: Prism' ElasticTranscoderError ()
-_ResourceNotFoundException = prism'
+_ResourceNotFoundException = prism
     (const ResourceNotFoundException)
     (\case
         ResourceNotFoundException -> Right ()
@@ -423,7 +423,7 @@ _ResourceNotFoundException = prism'
 --
 -- See: 'ValidationException'
 _ValidationException :: Prism' ElasticTranscoderError ()
-_ValidationException = prism'
+_ValidationException = prism
     (const ValidationException)
     (\case
         ValidationException -> Right ()

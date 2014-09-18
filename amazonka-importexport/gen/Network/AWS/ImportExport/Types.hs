@@ -173,7 +173,7 @@ data ImportExportError
     | UnableToCancelJobIdException
         { _utcjieMessage :: Maybe Text
         }
-    deriving (Show, Generic)
+      deriving (Show, Typeable, Generic)
 
 instance AWSError ImportExportError where
     awsError = const "ImportExportError"
@@ -189,7 +189,7 @@ instance Exception ImportExportError
 --
 -- See: 'BucketPermissionException'
 _BucketPermissionException :: Prism' ImportExportError (Maybe Text)
-_BucketPermissionException = prism'
+_BucketPermissionException = prism
     BucketPermissionException
     (\case
         BucketPermissionException p1 -> Right p1
@@ -199,7 +199,7 @@ _BucketPermissionException = prism'
 --
 -- See: 'CanceledJobIdException'
 _CanceledJobIdException :: Prism' ImportExportError (Maybe Text)
-_CanceledJobIdException = prism'
+_CanceledJobIdException = prism
     CanceledJobIdException
     (\case
         CanceledJobIdException p1 -> Right p1
@@ -209,7 +209,7 @@ _CanceledJobIdException = prism'
 --
 -- See: 'ExpiredJobIdException'
 _ExpiredJobIdException :: Prism' ImportExportError (Maybe Text)
-_ExpiredJobIdException = prism'
+_ExpiredJobIdException = prism
     ExpiredJobIdException
     (\case
         ExpiredJobIdException p1 -> Right p1
@@ -217,7 +217,7 @@ _ExpiredJobIdException = prism'
 
 -- | See: 'ImportExportClient'
 _ImportExportClient :: Prism' ImportExportError HttpException
-_ImportExportClient = prism'
+_ImportExportClient = prism
     ImportExportClient
     (\case
         ImportExportClient p1 -> Right p1
@@ -225,7 +225,7 @@ _ImportExportClient = prism'
 
 -- | See: 'ImportExportSerializer'
 _ImportExportSerializer :: Prism' ImportExportError String
-_ImportExportSerializer = prism'
+_ImportExportSerializer = prism
     ImportExportSerializer
     (\case
         ImportExportSerializer p1 -> Right p1
@@ -233,7 +233,7 @@ _ImportExportSerializer = prism'
 
 -- | See: 'ImportExportService'
 _ImportExportService :: Prism' ImportExportError String
-_ImportExportService = prism'
+_ImportExportService = prism
     ImportExportService
     (\case
         ImportExportService p1 -> Right p1
@@ -245,7 +245,7 @@ _ImportExportService = prism'
 --
 -- See: 'InvalidAccessKeyIdException'
 _InvalidAccessKeyIdException :: Prism' ImportExportError (Maybe Text)
-_InvalidAccessKeyIdException = prism'
+_InvalidAccessKeyIdException = prism
     InvalidAccessKeyIdException
     (\case
         InvalidAccessKeyIdException p1 -> Right p1
@@ -255,7 +255,7 @@ _InvalidAccessKeyIdException = prism'
 --
 -- See: 'InvalidAddressException'
 _InvalidAddressException :: Prism' ImportExportError (Maybe Text)
-_InvalidAddressException = prism'
+_InvalidAddressException = prism
     InvalidAddressException
     (\case
         InvalidAddressException p1 -> Right p1
@@ -265,7 +265,7 @@ _InvalidAddressException = prism'
 --
 -- See: 'InvalidCustomsException'
 _InvalidCustomsException :: Prism' ImportExportError (Maybe Text)
-_InvalidCustomsException = prism'
+_InvalidCustomsException = prism
     InvalidCustomsException
     (\case
         InvalidCustomsException p1 -> Right p1
@@ -275,7 +275,7 @@ _InvalidCustomsException = prism'
 --
 -- See: 'InvalidFileSystemException'
 _InvalidFileSystemException :: Prism' ImportExportError (Maybe Text)
-_InvalidFileSystemException = prism'
+_InvalidFileSystemException = prism
     InvalidFileSystemException
     (\case
         InvalidFileSystemException p1 -> Right p1
@@ -285,7 +285,7 @@ _InvalidFileSystemException = prism'
 --
 -- See: 'InvalidJobIdException'
 _InvalidJobIdException :: Prism' ImportExportError (Maybe Text)
-_InvalidJobIdException = prism'
+_InvalidJobIdException = prism
     InvalidJobIdException
     (\case
         InvalidJobIdException p1 -> Right p1
@@ -295,7 +295,7 @@ _InvalidJobIdException = prism'
 --
 -- See: 'InvalidManifestFieldException'
 _InvalidManifestFieldException :: Prism' ImportExportError (Maybe Text)
-_InvalidManifestFieldException = prism'
+_InvalidManifestFieldException = prism
     InvalidManifestFieldException
     (\case
         InvalidManifestFieldException p1 -> Right p1
@@ -305,7 +305,7 @@ _InvalidManifestFieldException = prism'
 --
 -- See: 'InvalidParameterException'
 _InvalidParameterException :: Prism' ImportExportError (Maybe Text)
-_InvalidParameterException = prism'
+_InvalidParameterException = prism
     InvalidParameterException
     (\case
         InvalidParameterException p1 -> Right p1
@@ -315,7 +315,7 @@ _InvalidParameterException = prism'
 --
 -- See: 'MalformedManifestException'
 _MalformedManifestException :: Prism' ImportExportError (Maybe Text)
-_MalformedManifestException = prism'
+_MalformedManifestException = prism
     MalformedManifestException
     (\case
         MalformedManifestException p1 -> Right p1
@@ -325,7 +325,7 @@ _MalformedManifestException = prism'
 --
 -- See: 'MissingCustomsException'
 _MissingCustomsException :: Prism' ImportExportError (Maybe Text)
-_MissingCustomsException = prism'
+_MissingCustomsException = prism
     MissingCustomsException
     (\case
         MissingCustomsException p1 -> Right p1
@@ -336,7 +336,7 @@ _MissingCustomsException = prism'
 --
 -- See: 'MissingManifestFieldException'
 _MissingManifestFieldException :: Prism' ImportExportError (Maybe Text)
-_MissingManifestFieldException = prism'
+_MissingManifestFieldException = prism
     MissingManifestFieldException
     (\case
         MissingManifestFieldException p1 -> Right p1
@@ -346,7 +346,7 @@ _MissingManifestFieldException = prism'
 --
 -- See: 'MissingParameterException'
 _MissingParameterException :: Prism' ImportExportError (Maybe Text)
-_MissingParameterException = prism'
+_MissingParameterException = prism
     MissingParameterException
     (\case
         MissingParameterException p1 -> Right p1
@@ -357,7 +357,7 @@ _MissingParameterException = prism'
 --
 -- See: 'MultipleRegionsException'
 _MultipleRegionsException :: Prism' ImportExportError (Maybe Text)
-_MultipleRegionsException = prism'
+_MultipleRegionsException = prism
     MultipleRegionsException
     (\case
         MultipleRegionsException p1 -> Right p1
@@ -370,7 +370,7 @@ _MultipleRegionsException = prism'
 --
 -- See: 'NoSuchBucketException'
 _NoSuchBucketException :: Prism' ImportExportError (Maybe Text)
-_NoSuchBucketException = prism'
+_NoSuchBucketException = prism
     NoSuchBucketException
     (\case
         NoSuchBucketException p1 -> Right p1
@@ -380,7 +380,7 @@ _NoSuchBucketException = prism'
 --
 -- See: 'UnableToCancelJobIdException'
 _UnableToCancelJobIdException :: Prism' ImportExportError (Maybe Text)
-_UnableToCancelJobIdException = prism'
+_UnableToCancelJobIdException = prism
     UnableToCancelJobIdException
     (\case
         UnableToCancelJobIdException p1 -> Right p1

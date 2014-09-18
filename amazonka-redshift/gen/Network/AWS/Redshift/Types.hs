@@ -656,7 +656,7 @@ data RedshiftError
     | UnknownSnapshotCopyRegionFault
       -- | A request option was specified that is not supported.
     | UnsupportedOptionFault
-    deriving (Show, Generic)
+      deriving (Show, Typeable, Generic)
 
 instance AWSError RedshiftError where
     awsError = const "RedshiftError"
@@ -673,7 +673,7 @@ instance Exception RedshiftError
 --
 -- See: 'AccessToSnapshotDeniedFault'
 _AccessToSnapshotDeniedFault :: Prism' RedshiftError ()
-_AccessToSnapshotDeniedFault = prism'
+_AccessToSnapshotDeniedFault = prism
     (const AccessToSnapshotDeniedFault)
     (\case
         AccessToSnapshotDeniedFault -> Right ()
@@ -684,7 +684,7 @@ _AccessToSnapshotDeniedFault = prism'
 --
 -- See: 'AuthorizationAlreadyExistsFault'
 _AuthorizationAlreadyExistsFault :: Prism' RedshiftError ()
-_AuthorizationAlreadyExistsFault = prism'
+_AuthorizationAlreadyExistsFault = prism
     (const AuthorizationAlreadyExistsFault)
     (\case
         AuthorizationAlreadyExistsFault -> Right ()
@@ -695,7 +695,7 @@ _AuthorizationAlreadyExistsFault = prism'
 --
 -- See: 'AuthorizationNotFoundFault'
 _AuthorizationNotFoundFault :: Prism' RedshiftError ()
-_AuthorizationNotFoundFault = prism'
+_AuthorizationNotFoundFault = prism
     (const AuthorizationNotFoundFault)
     (\case
         AuthorizationNotFoundFault -> Right ()
@@ -705,7 +705,7 @@ _AuthorizationNotFoundFault = prism'
 --
 -- See: 'AuthorizationQuotaExceededFault'
 _AuthorizationQuotaExceededFault :: Prism' RedshiftError ()
-_AuthorizationQuotaExceededFault = prism'
+_AuthorizationQuotaExceededFault = prism
     (const AuthorizationQuotaExceededFault)
     (\case
         AuthorizationQuotaExceededFault -> Right ()
@@ -715,7 +715,7 @@ _AuthorizationQuotaExceededFault = prism'
 --
 -- See: 'BucketNotFoundFault'
 _BucketNotFoundFault :: Prism' RedshiftError ()
-_BucketNotFoundFault = prism'
+_BucketNotFoundFault = prism
     (const BucketNotFoundFault)
     (\case
         BucketNotFoundFault -> Right ()
@@ -725,7 +725,7 @@ _BucketNotFoundFault = prism'
 --
 -- See: 'ClusterAlreadyExistsFault'
 _ClusterAlreadyExistsFault :: Prism' RedshiftError ()
-_ClusterAlreadyExistsFault = prism'
+_ClusterAlreadyExistsFault = prism
     (const ClusterAlreadyExistsFault)
     (\case
         ClusterAlreadyExistsFault -> Right ()
@@ -735,7 +735,7 @@ _ClusterAlreadyExistsFault = prism'
 --
 -- See: 'ClusterNotFoundFault'
 _ClusterNotFoundFault :: Prism' RedshiftError ()
-_ClusterNotFoundFault = prism'
+_ClusterNotFoundFault = prism
     (const ClusterNotFoundFault)
     (\case
         ClusterNotFoundFault -> Right ()
@@ -745,7 +745,7 @@ _ClusterNotFoundFault = prism'
 --
 -- See: 'ClusterParameterGroupAlreadyExistsFault'
 _ClusterParameterGroupAlreadyExistsFault :: Prism' RedshiftError ()
-_ClusterParameterGroupAlreadyExistsFault = prism'
+_ClusterParameterGroupAlreadyExistsFault = prism
     (const ClusterParameterGroupAlreadyExistsFault)
     (\case
         ClusterParameterGroupAlreadyExistsFault -> Right ()
@@ -755,7 +755,7 @@ _ClusterParameterGroupAlreadyExistsFault = prism'
 --
 -- See: 'ClusterParameterGroupNotFoundFault'
 _ClusterParameterGroupNotFoundFault :: Prism' RedshiftError ()
-_ClusterParameterGroupNotFoundFault = prism'
+_ClusterParameterGroupNotFoundFault = prism
     (const ClusterParameterGroupNotFoundFault)
     (\case
         ClusterParameterGroupNotFoundFault -> Right ()
@@ -767,7 +767,7 @@ _ClusterParameterGroupNotFoundFault = prism'
 --
 -- See: 'ClusterParameterGroupQuotaExceededFault'
 _ClusterParameterGroupQuotaExceededFault :: Prism' RedshiftError ()
-_ClusterParameterGroupQuotaExceededFault = prism'
+_ClusterParameterGroupQuotaExceededFault = prism
     (const ClusterParameterGroupQuotaExceededFault)
     (\case
         ClusterParameterGroupQuotaExceededFault -> Right ()
@@ -779,7 +779,7 @@ _ClusterParameterGroupQuotaExceededFault = prism'
 --
 -- See: 'ClusterQuotaExceededFault'
 _ClusterQuotaExceededFault :: Prism' RedshiftError ()
-_ClusterQuotaExceededFault = prism'
+_ClusterQuotaExceededFault = prism
     (const ClusterQuotaExceededFault)
     (\case
         ClusterQuotaExceededFault -> Right ()
@@ -789,7 +789,7 @@ _ClusterQuotaExceededFault = prism'
 --
 -- See: 'ClusterSecurityGroupAlreadyExistsFault'
 _ClusterSecurityGroupAlreadyExistsFault :: Prism' RedshiftError ()
-_ClusterSecurityGroupAlreadyExistsFault = prism'
+_ClusterSecurityGroupAlreadyExistsFault = prism
     (const ClusterSecurityGroupAlreadyExistsFault)
     (\case
         ClusterSecurityGroupAlreadyExistsFault -> Right ()
@@ -800,7 +800,7 @@ _ClusterSecurityGroupAlreadyExistsFault = prism'
 --
 -- See: 'ClusterSecurityGroupNotFoundFault'
 _ClusterSecurityGroupNotFoundFault :: Prism' RedshiftError ()
-_ClusterSecurityGroupNotFoundFault = prism'
+_ClusterSecurityGroupNotFoundFault = prism
     (const ClusterSecurityGroupNotFoundFault)
     (\case
         ClusterSecurityGroupNotFoundFault -> Right ()
@@ -812,7 +812,7 @@ _ClusterSecurityGroupNotFoundFault = prism'
 --
 -- See: 'ClusterSecurityGroupQuotaExceededFault'
 _ClusterSecurityGroupQuotaExceededFault :: Prism' RedshiftError ()
-_ClusterSecurityGroupQuotaExceededFault = prism'
+_ClusterSecurityGroupQuotaExceededFault = prism
     (const ClusterSecurityGroupQuotaExceededFault)
     (\case
         ClusterSecurityGroupQuotaExceededFault -> Right ()
@@ -823,7 +823,7 @@ _ClusterSecurityGroupQuotaExceededFault = prism'
 --
 -- See: 'ClusterSnapshotAlreadyExistsFault'
 _ClusterSnapshotAlreadyExistsFault :: Prism' RedshiftError ()
-_ClusterSnapshotAlreadyExistsFault = prism'
+_ClusterSnapshotAlreadyExistsFault = prism
     (const ClusterSnapshotAlreadyExistsFault)
     (\case
         ClusterSnapshotAlreadyExistsFault -> Right ()
@@ -833,7 +833,7 @@ _ClusterSnapshotAlreadyExistsFault = prism'
 --
 -- See: 'ClusterSnapshotNotFoundFault'
 _ClusterSnapshotNotFoundFault :: Prism' RedshiftError ()
-_ClusterSnapshotNotFoundFault = prism'
+_ClusterSnapshotNotFoundFault = prism
     (const ClusterSnapshotNotFoundFault)
     (\case
         ClusterSnapshotNotFoundFault -> Right ()
@@ -844,7 +844,7 @@ _ClusterSnapshotNotFoundFault = prism'
 --
 -- See: 'ClusterSnapshotQuotaExceededFault'
 _ClusterSnapshotQuotaExceededFault :: Prism' RedshiftError ()
-_ClusterSnapshotQuotaExceededFault = prism'
+_ClusterSnapshotQuotaExceededFault = prism
     (const ClusterSnapshotQuotaExceededFault)
     (\case
         ClusterSnapshotQuotaExceededFault -> Right ()
@@ -855,7 +855,7 @@ _ClusterSnapshotQuotaExceededFault = prism'
 --
 -- See: 'ClusterSubnetGroupAlreadyExistsFault'
 _ClusterSubnetGroupAlreadyExistsFault :: Prism' RedshiftError ()
-_ClusterSubnetGroupAlreadyExistsFault = prism'
+_ClusterSubnetGroupAlreadyExistsFault = prism
     (const ClusterSubnetGroupAlreadyExistsFault)
     (\case
         ClusterSubnetGroupAlreadyExistsFault -> Right ()
@@ -866,7 +866,7 @@ _ClusterSubnetGroupAlreadyExistsFault = prism'
 --
 -- See: 'ClusterSubnetGroupNotFoundFault'
 _ClusterSubnetGroupNotFoundFault :: Prism' RedshiftError ()
-_ClusterSubnetGroupNotFoundFault = prism'
+_ClusterSubnetGroupNotFoundFault = prism
     (const ClusterSubnetGroupNotFoundFault)
     (\case
         ClusterSubnetGroupNotFoundFault -> Right ()
@@ -878,7 +878,7 @@ _ClusterSubnetGroupNotFoundFault = prism'
 --
 -- See: 'ClusterSubnetGroupQuotaExceededFault'
 _ClusterSubnetGroupQuotaExceededFault :: Prism' RedshiftError ()
-_ClusterSubnetGroupQuotaExceededFault = prism'
+_ClusterSubnetGroupQuotaExceededFault = prism
     (const ClusterSubnetGroupQuotaExceededFault)
     (\case
         ClusterSubnetGroupQuotaExceededFault -> Right ()
@@ -890,7 +890,7 @@ _ClusterSubnetGroupQuotaExceededFault = prism'
 --
 -- See: 'ClusterSubnetQuotaExceededFault'
 _ClusterSubnetQuotaExceededFault :: Prism' RedshiftError ()
-_ClusterSubnetQuotaExceededFault = prism'
+_ClusterSubnetQuotaExceededFault = prism
     (const ClusterSubnetQuotaExceededFault)
     (\case
         ClusterSubnetQuotaExceededFault -> Right ()
@@ -901,7 +901,7 @@ _ClusterSubnetQuotaExceededFault = prism'
 --
 -- See: 'CopyToRegionDisabledFault'
 _CopyToRegionDisabledFault :: Prism' RedshiftError ()
-_CopyToRegionDisabledFault = prism'
+_CopyToRegionDisabledFault = prism
     (const CopyToRegionDisabledFault)
     (\case
         CopyToRegionDisabledFault -> Right ()
@@ -913,7 +913,7 @@ _CopyToRegionDisabledFault = prism'
 --
 -- See: 'EventSubscriptionQuotaExceededFault'
 _EventSubscriptionQuotaExceededFault :: Prism' RedshiftError ()
-_EventSubscriptionQuotaExceededFault = prism'
+_EventSubscriptionQuotaExceededFault = prism
     (const EventSubscriptionQuotaExceededFault)
     (\case
         EventSubscriptionQuotaExceededFault -> Right ()
@@ -924,7 +924,7 @@ _EventSubscriptionQuotaExceededFault = prism'
 --
 -- See: 'HsmClientCertificateAlreadyExistsFault'
 _HsmClientCertificateAlreadyExistsFault :: Prism' RedshiftError ()
-_HsmClientCertificateAlreadyExistsFault = prism'
+_HsmClientCertificateAlreadyExistsFault = prism
     (const HsmClientCertificateAlreadyExistsFault)
     (\case
         HsmClientCertificateAlreadyExistsFault -> Right ()
@@ -935,7 +935,7 @@ _HsmClientCertificateAlreadyExistsFault = prism'
 --
 -- See: 'HsmClientCertificateNotFoundFault'
 _HsmClientCertificateNotFoundFault :: Prism' RedshiftError ()
-_HsmClientCertificateNotFoundFault = prism'
+_HsmClientCertificateNotFoundFault = prism
     (const HsmClientCertificateNotFoundFault)
     (\case
         HsmClientCertificateNotFoundFault -> Right ()
@@ -947,7 +947,7 @@ _HsmClientCertificateNotFoundFault = prism'
 --
 -- See: 'HsmClientCertificateQuotaExceededFault'
 _HsmClientCertificateQuotaExceededFault :: Prism' RedshiftError ()
-_HsmClientCertificateQuotaExceededFault = prism'
+_HsmClientCertificateQuotaExceededFault = prism
     (const HsmClientCertificateQuotaExceededFault)
     (\case
         HsmClientCertificateQuotaExceededFault -> Right ()
@@ -958,7 +958,7 @@ _HsmClientCertificateQuotaExceededFault = prism'
 --
 -- See: 'HsmConfigurationAlreadyExistsFault'
 _HsmConfigurationAlreadyExistsFault :: Prism' RedshiftError ()
-_HsmConfigurationAlreadyExistsFault = prism'
+_HsmConfigurationAlreadyExistsFault = prism
     (const HsmConfigurationAlreadyExistsFault)
     (\case
         HsmConfigurationAlreadyExistsFault -> Right ()
@@ -969,7 +969,7 @@ _HsmConfigurationAlreadyExistsFault = prism'
 --
 -- See: 'HsmConfigurationNotFoundFault'
 _HsmConfigurationNotFoundFault :: Prism' RedshiftError ()
-_HsmConfigurationNotFoundFault = prism'
+_HsmConfigurationNotFoundFault = prism
     (const HsmConfigurationNotFoundFault)
     (\case
         HsmConfigurationNotFoundFault -> Right ()
@@ -981,7 +981,7 @@ _HsmConfigurationNotFoundFault = prism'
 --
 -- See: 'HsmConfigurationQuotaExceededFault'
 _HsmConfigurationQuotaExceededFault :: Prism' RedshiftError ()
-_HsmConfigurationQuotaExceededFault = prism'
+_HsmConfigurationQuotaExceededFault = prism
     (const HsmConfigurationQuotaExceededFault)
     (\case
         HsmConfigurationQuotaExceededFault -> Right ()
@@ -991,7 +991,7 @@ _HsmConfigurationQuotaExceededFault = prism'
 --
 -- See: 'IncompatibleOrderableOptions'
 _IncompatibleOrderableOptions :: Prism' RedshiftError ()
-_IncompatibleOrderableOptions = prism'
+_IncompatibleOrderableOptions = prism
     (const IncompatibleOrderableOptions)
     (\case
         IncompatibleOrderableOptions -> Right ()
@@ -1001,7 +1001,7 @@ _IncompatibleOrderableOptions = prism'
 --
 -- See: 'InsufficientClusterCapacityFault'
 _InsufficientClusterCapacityFault :: Prism' RedshiftError ()
-_InsufficientClusterCapacityFault = prism'
+_InsufficientClusterCapacityFault = prism
     (const InsufficientClusterCapacityFault)
     (\case
         InsufficientClusterCapacityFault -> Right ()
@@ -1012,7 +1012,7 @@ _InsufficientClusterCapacityFault = prism'
 --
 -- See: 'InsufficientS3BucketPolicyFault'
 _InsufficientS3BucketPolicyFault :: Prism' RedshiftError ()
-_InsufficientS3BucketPolicyFault = prism'
+_InsufficientS3BucketPolicyFault = prism
     (const InsufficientS3BucketPolicyFault)
     (\case
         InsufficientS3BucketPolicyFault -> Right ()
@@ -1024,7 +1024,7 @@ _InsufficientS3BucketPolicyFault = prism'
 --
 -- See: 'InvalidClusterParameterGroupStateFault'
 _InvalidClusterParameterGroupStateFault :: Prism' RedshiftError ()
-_InvalidClusterParameterGroupStateFault = prism'
+_InvalidClusterParameterGroupStateFault = prism
     (const InvalidClusterParameterGroupStateFault)
     (\case
         InvalidClusterParameterGroupStateFault -> Right ()
@@ -1034,7 +1034,7 @@ _InvalidClusterParameterGroupStateFault = prism'
 --
 -- See: 'InvalidClusterSecurityGroupStateFault'
 _InvalidClusterSecurityGroupStateFault :: Prism' RedshiftError ()
-_InvalidClusterSecurityGroupStateFault = prism'
+_InvalidClusterSecurityGroupStateFault = prism
     (const InvalidClusterSecurityGroupStateFault)
     (\case
         InvalidClusterSecurityGroupStateFault -> Right ()
@@ -1045,7 +1045,7 @@ _InvalidClusterSecurityGroupStateFault = prism'
 --
 -- See: 'InvalidClusterSnapshotStateFault'
 _InvalidClusterSnapshotStateFault :: Prism' RedshiftError ()
-_InvalidClusterSnapshotStateFault = prism'
+_InvalidClusterSnapshotStateFault = prism
     (const InvalidClusterSnapshotStateFault)
     (\case
         InvalidClusterSnapshotStateFault -> Right ()
@@ -1055,7 +1055,7 @@ _InvalidClusterSnapshotStateFault = prism'
 --
 -- See: 'InvalidClusterStateFault'
 _InvalidClusterStateFault :: Prism' RedshiftError ()
-_InvalidClusterStateFault = prism'
+_InvalidClusterStateFault = prism
     (const InvalidClusterStateFault)
     (\case
         InvalidClusterStateFault -> Right ()
@@ -1065,7 +1065,7 @@ _InvalidClusterStateFault = prism'
 --
 -- See: 'InvalidClusterSubnetGroupStateFault'
 _InvalidClusterSubnetGroupStateFault :: Prism' RedshiftError ()
-_InvalidClusterSubnetGroupStateFault = prism'
+_InvalidClusterSubnetGroupStateFault = prism
     (const InvalidClusterSubnetGroupStateFault)
     (\case
         InvalidClusterSubnetGroupStateFault -> Right ()
@@ -1075,7 +1075,7 @@ _InvalidClusterSubnetGroupStateFault = prism'
 --
 -- See: 'InvalidClusterSubnetStateFault'
 _InvalidClusterSubnetStateFault :: Prism' RedshiftError ()
-_InvalidClusterSubnetStateFault = prism'
+_InvalidClusterSubnetStateFault = prism
     (const InvalidClusterSubnetStateFault)
     (\case
         InvalidClusterSubnetStateFault -> Right ()
@@ -1085,7 +1085,7 @@ _InvalidClusterSubnetStateFault = prism'
 --
 -- See: 'InvalidElasticIpFault'
 _InvalidElasticIpFault :: Prism' RedshiftError ()
-_InvalidElasticIpFault = prism'
+_InvalidElasticIpFault = prism
     (const InvalidElasticIpFault)
     (\case
         InvalidElasticIpFault -> Right ()
@@ -1096,7 +1096,7 @@ _InvalidElasticIpFault = prism'
 --
 -- See: 'InvalidHsmClientCertificateStateFault'
 _InvalidHsmClientCertificateStateFault :: Prism' RedshiftError ()
-_InvalidHsmClientCertificateStateFault = prism'
+_InvalidHsmClientCertificateStateFault = prism
     (const InvalidHsmClientCertificateStateFault)
     (\case
         InvalidHsmClientCertificateStateFault -> Right ()
@@ -1107,7 +1107,7 @@ _InvalidHsmClientCertificateStateFault = prism'
 --
 -- See: 'InvalidHsmConfigurationStateFault'
 _InvalidHsmConfigurationStateFault :: Prism' RedshiftError ()
-_InvalidHsmConfigurationStateFault = prism'
+_InvalidHsmConfigurationStateFault = prism
     (const InvalidHsmConfigurationStateFault)
     (\case
         InvalidHsmConfigurationStateFault -> Right ()
@@ -1117,7 +1117,7 @@ _InvalidHsmConfigurationStateFault = prism'
 --
 -- See: 'InvalidRestoreFault'
 _InvalidRestoreFault :: Prism' RedshiftError ()
-_InvalidRestoreFault = prism'
+_InvalidRestoreFault = prism
     (const InvalidRestoreFault)
     (\case
         InvalidRestoreFault -> Right ()
@@ -1129,7 +1129,7 @@ _InvalidRestoreFault = prism'
 --
 -- See: 'InvalidS3BucketNameFault'
 _InvalidS3BucketNameFault :: Prism' RedshiftError ()
-_InvalidS3BucketNameFault = prism'
+_InvalidS3BucketNameFault = prism
     (const InvalidS3BucketNameFault)
     (\case
         InvalidS3BucketNameFault -> Right ()
@@ -1140,7 +1140,7 @@ _InvalidS3BucketNameFault = prism'
 --
 -- See: 'InvalidS3KeyPrefixFault'
 _InvalidS3KeyPrefixFault :: Prism' RedshiftError ()
-_InvalidS3KeyPrefixFault = prism'
+_InvalidS3KeyPrefixFault = prism
     (const InvalidS3KeyPrefixFault)
     (\case
         InvalidS3KeyPrefixFault -> Right ()
@@ -1151,7 +1151,7 @@ _InvalidS3KeyPrefixFault = prism'
 --
 -- See: 'InvalidSubnet'
 _InvalidSubnet :: Prism' RedshiftError ()
-_InvalidSubnet = prism'
+_InvalidSubnet = prism
     (const InvalidSubnet)
     (\case
         InvalidSubnet -> Right ()
@@ -1162,7 +1162,7 @@ _InvalidSubnet = prism'
 --
 -- See: 'InvalidSubscriptionStateFault'
 _InvalidSubscriptionStateFault :: Prism' RedshiftError ()
-_InvalidSubscriptionStateFault = prism'
+_InvalidSubscriptionStateFault = prism
     (const InvalidSubscriptionStateFault)
     (\case
         InvalidSubscriptionStateFault -> Right ()
@@ -1172,7 +1172,7 @@ _InvalidSubscriptionStateFault = prism'
 --
 -- See: 'InvalidVPCNetworkStateFault'
 _InvalidVPCNetworkStateFault :: Prism' RedshiftError ()
-_InvalidVPCNetworkStateFault = prism'
+_InvalidVPCNetworkStateFault = prism
     (const InvalidVPCNetworkStateFault)
     (\case
         InvalidVPCNetworkStateFault -> Right ()
@@ -1182,7 +1182,7 @@ _InvalidVPCNetworkStateFault = prism'
 --
 -- See: 'NumberOfNodesPerClusterLimitExceededFault'
 _NumberOfNodesPerClusterLimitExceededFault :: Prism' RedshiftError ()
-_NumberOfNodesPerClusterLimitExceededFault = prism'
+_NumberOfNodesPerClusterLimitExceededFault = prism
     (const NumberOfNodesPerClusterLimitExceededFault)
     (\case
         NumberOfNodesPerClusterLimitExceededFault -> Right ()
@@ -1194,7 +1194,7 @@ _NumberOfNodesPerClusterLimitExceededFault = prism'
 --
 -- See: 'NumberOfNodesQuotaExceededFault'
 _NumberOfNodesQuotaExceededFault :: Prism' RedshiftError ()
-_NumberOfNodesQuotaExceededFault = prism'
+_NumberOfNodesQuotaExceededFault = prism
     (const NumberOfNodesQuotaExceededFault)
     (\case
         NumberOfNodesQuotaExceededFault -> Right ()
@@ -1202,7 +1202,7 @@ _NumberOfNodesQuotaExceededFault = prism'
 
 -- | See: 'RedshiftClient'
 _RedshiftClient :: Prism' RedshiftError HttpException
-_RedshiftClient = prism'
+_RedshiftClient = prism
     RedshiftClient
     (\case
         RedshiftClient p1 -> Right p1
@@ -1210,7 +1210,7 @@ _RedshiftClient = prism'
 
 -- | See: 'RedshiftSerializer'
 _RedshiftSerializer :: Prism' RedshiftError String
-_RedshiftSerializer = prism'
+_RedshiftSerializer = prism
     RedshiftSerializer
     (\case
         RedshiftSerializer p1 -> Right p1
@@ -1218,7 +1218,7 @@ _RedshiftSerializer = prism'
 
 -- | See: 'RedshiftService'
 _RedshiftService :: Prism' RedshiftError String
-_RedshiftService = prism'
+_RedshiftService = prism
     RedshiftService
     (\case
         RedshiftService p1 -> Right p1
@@ -1228,7 +1228,7 @@ _RedshiftService = prism'
 --
 -- See: 'ReservedNodeAlreadyExistsFault'
 _ReservedNodeAlreadyExistsFault :: Prism' RedshiftError ()
-_ReservedNodeAlreadyExistsFault = prism'
+_ReservedNodeAlreadyExistsFault = prism
     (const ReservedNodeAlreadyExistsFault)
     (\case
         ReservedNodeAlreadyExistsFault -> Right ()
@@ -1238,7 +1238,7 @@ _ReservedNodeAlreadyExistsFault = prism'
 --
 -- See: 'ReservedNodeNotFoundFault'
 _ReservedNodeNotFoundFault :: Prism' RedshiftError ()
-_ReservedNodeNotFoundFault = prism'
+_ReservedNodeNotFoundFault = prism
     (const ReservedNodeNotFoundFault)
     (\case
         ReservedNodeNotFoundFault -> Right ()
@@ -1248,7 +1248,7 @@ _ReservedNodeNotFoundFault = prism'
 --
 -- See: 'ReservedNodeOfferingNotFoundFault'
 _ReservedNodeOfferingNotFoundFault :: Prism' RedshiftError ()
-_ReservedNodeOfferingNotFoundFault = prism'
+_ReservedNodeOfferingNotFoundFault = prism
     (const ReservedNodeOfferingNotFoundFault)
     (\case
         ReservedNodeOfferingNotFoundFault -> Right ()
@@ -1260,7 +1260,7 @@ _ReservedNodeOfferingNotFoundFault = prism'
 --
 -- See: 'ReservedNodeQuotaExceededFault'
 _ReservedNodeQuotaExceededFault :: Prism' RedshiftError ()
-_ReservedNodeQuotaExceededFault = prism'
+_ReservedNodeQuotaExceededFault = prism
     (const ReservedNodeQuotaExceededFault)
     (\case
         ReservedNodeQuotaExceededFault -> Right ()
@@ -1270,7 +1270,7 @@ _ReservedNodeQuotaExceededFault = prism'
 --
 -- See: 'ResizeNotFoundFault'
 _ResizeNotFoundFault :: Prism' RedshiftError ()
-_ResizeNotFoundFault = prism'
+_ResizeNotFoundFault = prism
     (const ResizeNotFoundFault)
     (\case
         ResizeNotFoundFault -> Right ()
@@ -1281,7 +1281,7 @@ _ResizeNotFoundFault = prism'
 --
 -- See: 'SNSInvalidTopicFault'
 _SNSInvalidTopicFault :: Prism' RedshiftError ()
-_SNSInvalidTopicFault = prism'
+_SNSInvalidTopicFault = prism
     (const SNSInvalidTopicFault)
     (\case
         SNSInvalidTopicFault -> Right ()
@@ -1291,7 +1291,7 @@ _SNSInvalidTopicFault = prism'
 --
 -- See: 'SNSNoAuthorizationFault'
 _SNSNoAuthorizationFault :: Prism' RedshiftError ()
-_SNSNoAuthorizationFault = prism'
+_SNSNoAuthorizationFault = prism
     (const SNSNoAuthorizationFault)
     (\case
         SNSNoAuthorizationFault -> Right ()
@@ -1302,7 +1302,7 @@ _SNSNoAuthorizationFault = prism'
 --
 -- See: 'SNSTopicArnNotFoundFault'
 _SNSTopicArnNotFoundFault :: Prism' RedshiftError ()
-_SNSTopicArnNotFoundFault = prism'
+_SNSTopicArnNotFoundFault = prism
     (const SNSTopicArnNotFoundFault)
     (\case
         SNSTopicArnNotFoundFault -> Right ()
@@ -1312,7 +1312,7 @@ _SNSTopicArnNotFoundFault = prism'
 --
 -- See: 'SnapshotCopyAlreadyDisabledFault'
 _SnapshotCopyAlreadyDisabledFault :: Prism' RedshiftError ()
-_SnapshotCopyAlreadyDisabledFault = prism'
+_SnapshotCopyAlreadyDisabledFault = prism
     (const SnapshotCopyAlreadyDisabledFault)
     (\case
         SnapshotCopyAlreadyDisabledFault -> Right ()
@@ -1322,7 +1322,7 @@ _SnapshotCopyAlreadyDisabledFault = prism'
 --
 -- See: 'SnapshotCopyAlreadyEnabledFault'
 _SnapshotCopyAlreadyEnabledFault :: Prism' RedshiftError ()
-_SnapshotCopyAlreadyEnabledFault = prism'
+_SnapshotCopyAlreadyEnabledFault = prism
     (const SnapshotCopyAlreadyEnabledFault)
     (\case
         SnapshotCopyAlreadyEnabledFault -> Right ()
@@ -1333,7 +1333,7 @@ _SnapshotCopyAlreadyEnabledFault = prism'
 --
 -- See: 'SnapshotCopyDisabledFault'
 _SnapshotCopyDisabledFault :: Prism' RedshiftError ()
-_SnapshotCopyDisabledFault = prism'
+_SnapshotCopyDisabledFault = prism
     (const SnapshotCopyDisabledFault)
     (\case
         SnapshotCopyDisabledFault -> Right ()
@@ -1343,7 +1343,7 @@ _SnapshotCopyDisabledFault = prism'
 --
 -- See: 'SourceNotFoundFault'
 _SourceNotFoundFault :: Prism' RedshiftError ()
-_SourceNotFoundFault = prism'
+_SourceNotFoundFault = prism
     (const SourceNotFoundFault)
     (\case
         SourceNotFoundFault -> Right ()
@@ -1353,7 +1353,7 @@ _SourceNotFoundFault = prism'
 --
 -- See: 'SubnetAlreadyInUse'
 _SubnetAlreadyInUse :: Prism' RedshiftError ()
-_SubnetAlreadyInUse = prism'
+_SubnetAlreadyInUse = prism
     (const SubnetAlreadyInUse)
     (\case
         SubnetAlreadyInUse -> Right ()
@@ -1364,7 +1364,7 @@ _SubnetAlreadyInUse = prism'
 --
 -- See: 'SubscriptionAlreadyExistFault'
 _SubscriptionAlreadyExistFault :: Prism' RedshiftError ()
-_SubscriptionAlreadyExistFault = prism'
+_SubscriptionAlreadyExistFault = prism
     (const SubscriptionAlreadyExistFault)
     (\case
         SubscriptionAlreadyExistFault -> Right ()
@@ -1377,7 +1377,7 @@ _SubscriptionAlreadyExistFault = prism'
 --
 -- See: 'SubscriptionCategoryNotFoundFault'
 _SubscriptionCategoryNotFoundFault :: Prism' RedshiftError ()
-_SubscriptionCategoryNotFoundFault = prism'
+_SubscriptionCategoryNotFoundFault = prism
     (const SubscriptionCategoryNotFoundFault)
     (\case
         SubscriptionCategoryNotFoundFault -> Right ()
@@ -1387,7 +1387,7 @@ _SubscriptionCategoryNotFoundFault = prism'
 --
 -- See: 'SubscriptionEventIdNotFoundFault'
 _SubscriptionEventIdNotFoundFault :: Prism' RedshiftError ()
-_SubscriptionEventIdNotFoundFault = prism'
+_SubscriptionEventIdNotFoundFault = prism
     (const SubscriptionEventIdNotFoundFault)
     (\case
         SubscriptionEventIdNotFoundFault -> Right ()
@@ -1398,7 +1398,7 @@ _SubscriptionEventIdNotFoundFault = prism'
 --
 -- See: 'SubscriptionNotFoundFault'
 _SubscriptionNotFoundFault :: Prism' RedshiftError ()
-_SubscriptionNotFoundFault = prism'
+_SubscriptionNotFoundFault = prism
     (const SubscriptionNotFoundFault)
     (\case
         SubscriptionNotFoundFault -> Right ()
@@ -1410,7 +1410,7 @@ _SubscriptionNotFoundFault = prism'
 --
 -- See: 'SubscriptionSeverityNotFoundFault'
 _SubscriptionSeverityNotFoundFault :: Prism' RedshiftError ()
-_SubscriptionSeverityNotFoundFault = prism'
+_SubscriptionSeverityNotFoundFault = prism
     (const SubscriptionSeverityNotFoundFault)
     (\case
         SubscriptionSeverityNotFoundFault -> Right ()
@@ -1420,7 +1420,7 @@ _SubscriptionSeverityNotFoundFault = prism'
 --
 -- See: 'UnauthorizedOperation'
 _UnauthorizedOperation :: Prism' RedshiftError ()
-_UnauthorizedOperation = prism'
+_UnauthorizedOperation = prism
     (const UnauthorizedOperation)
     (\case
         UnauthorizedOperation -> Right ()
@@ -1430,7 +1430,7 @@ _UnauthorizedOperation = prism'
 --
 -- See: 'UnknownSnapshotCopyRegionFault'
 _UnknownSnapshotCopyRegionFault :: Prism' RedshiftError ()
-_UnknownSnapshotCopyRegionFault = prism'
+_UnknownSnapshotCopyRegionFault = prism
     (const UnknownSnapshotCopyRegionFault)
     (\case
         UnknownSnapshotCopyRegionFault -> Right ()
@@ -1440,7 +1440,7 @@ _UnknownSnapshotCopyRegionFault = prism'
 --
 -- See: 'UnsupportedOptionFault'
 _UnsupportedOptionFault :: Prism' RedshiftError ()
-_UnsupportedOptionFault = prism'
+_UnsupportedOptionFault = prism
     (const UnsupportedOptionFault)
     (\case
         UnsupportedOptionFault -> Right ()

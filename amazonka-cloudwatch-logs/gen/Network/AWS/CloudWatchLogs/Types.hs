@@ -142,7 +142,7 @@ data CloudWatchLogsError
     | ResourceNotFoundException
       -- | Returned if the service cannot complete the request.
     | ServiceUnavailableException
-    deriving (Show, Generic)
+      deriving (Show, Typeable, Generic)
 
 instance AWSError CloudWatchLogsError where
     awsError = const "CloudWatchLogsError"
@@ -156,7 +156,7 @@ instance Exception CloudWatchLogsError
 
 -- | See: 'CloudWatchLogsClient'
 _CloudWatchLogsClient :: Prism' CloudWatchLogsError HttpException
-_CloudWatchLogsClient = prism'
+_CloudWatchLogsClient = prism
     CloudWatchLogsClient
     (\case
         CloudWatchLogsClient p1 -> Right p1
@@ -164,7 +164,7 @@ _CloudWatchLogsClient = prism'
 
 -- | See: 'CloudWatchLogsSerializer'
 _CloudWatchLogsSerializer :: Prism' CloudWatchLogsError String
-_CloudWatchLogsSerializer = prism'
+_CloudWatchLogsSerializer = prism
     CloudWatchLogsSerializer
     (\case
         CloudWatchLogsSerializer p1 -> Right p1
@@ -172,7 +172,7 @@ _CloudWatchLogsSerializer = prism'
 
 -- | See: 'CloudWatchLogsService'
 _CloudWatchLogsService :: Prism' CloudWatchLogsError String
-_CloudWatchLogsService = prism'
+_CloudWatchLogsService = prism
     CloudWatchLogsService
     (\case
         CloudWatchLogsService p1 -> Right p1
@@ -180,7 +180,7 @@ _CloudWatchLogsService = prism'
 
 -- | See: 'DataAlreadyAcceptedException'
 _DataAlreadyAcceptedException :: Prism' CloudWatchLogsError (Maybe Text)
-_DataAlreadyAcceptedException = prism'
+_DataAlreadyAcceptedException = prism
     DataAlreadyAcceptedException
     (\case
         DataAlreadyAcceptedException p1 -> Right p1
@@ -190,7 +190,7 @@ _DataAlreadyAcceptedException = prism'
 --
 -- See: 'InvalidParameterException'
 _InvalidParameterException :: Prism' CloudWatchLogsError ()
-_InvalidParameterException = prism'
+_InvalidParameterException = prism
     (const InvalidParameterException)
     (\case
         InvalidParameterException -> Right ()
@@ -198,7 +198,7 @@ _InvalidParameterException = prism'
 
 -- | See: 'InvalidSequenceTokenException'
 _InvalidSequenceTokenException :: Prism' CloudWatchLogsError (Maybe Text)
-_InvalidSequenceTokenException = prism'
+_InvalidSequenceTokenException = prism
     InvalidSequenceTokenException
     (\case
         InvalidSequenceTokenException p1 -> Right p1
@@ -209,7 +209,7 @@ _InvalidSequenceTokenException = prism'
 --
 -- See: 'LimitExceededException'
 _LimitExceededException :: Prism' CloudWatchLogsError ()
-_LimitExceededException = prism'
+_LimitExceededException = prism
     (const LimitExceededException)
     (\case
         LimitExceededException -> Right ()
@@ -219,7 +219,7 @@ _LimitExceededException = prism'
 --
 -- See: 'OperationAbortedException'
 _OperationAbortedException :: Prism' CloudWatchLogsError ()
-_OperationAbortedException = prism'
+_OperationAbortedException = prism
     (const OperationAbortedException)
     (\case
         OperationAbortedException -> Right ()
@@ -229,7 +229,7 @@ _OperationAbortedException = prism'
 --
 -- See: 'ResourceAlreadyExistsException'
 _ResourceAlreadyExistsException :: Prism' CloudWatchLogsError ()
-_ResourceAlreadyExistsException = prism'
+_ResourceAlreadyExistsException = prism
     (const ResourceAlreadyExistsException)
     (\case
         ResourceAlreadyExistsException -> Right ()
@@ -239,7 +239,7 @@ _ResourceAlreadyExistsException = prism'
 --
 -- See: 'ResourceNotFoundException'
 _ResourceNotFoundException :: Prism' CloudWatchLogsError ()
-_ResourceNotFoundException = prism'
+_ResourceNotFoundException = prism
     (const ResourceNotFoundException)
     (\case
         ResourceNotFoundException -> Right ()
@@ -249,7 +249,7 @@ _ResourceNotFoundException = prism'
 --
 -- See: 'ServiceUnavailableException'
 _ServiceUnavailableException :: Prism' CloudWatchLogsError ()
-_ServiceUnavailableException = prism'
+_ServiceUnavailableException = prism
     (const ServiceUnavailableException)
     (\case
         ServiceUnavailableException -> Right ()

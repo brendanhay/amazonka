@@ -135,7 +135,7 @@ data STSError
     | STSClient HttpException
     | STSSerializer String
     | STSService String
-    deriving (Show, Generic)
+      deriving (Show, Typeable, Generic)
 
 instance AWSError STSError where
     awsError = const "STSError"
@@ -152,7 +152,7 @@ instance Exception STSError
 --
 -- See: 'ExpiredTokenException'
 _ExpiredTokenException :: Prism' STSError (Maybe Text)
-_ExpiredTokenException = prism'
+_ExpiredTokenException = prism
     ExpiredTokenException
     (\case
         ExpiredTokenException p1 -> Right p1
@@ -167,7 +167,7 @@ _ExpiredTokenException = prism'
 --
 -- See: 'IDPCommunicationErrorException'
 _IDPCommunicationErrorException :: Prism' STSError (Maybe Text)
-_IDPCommunicationErrorException = prism'
+_IDPCommunicationErrorException = prism
     IDPCommunicationErrorException
     (\case
         IDPCommunicationErrorException p1 -> Right p1
@@ -180,7 +180,7 @@ _IDPCommunicationErrorException = prism'
 --
 -- See: 'IDPRejectedClaimException'
 _IDPRejectedClaimException :: Prism' STSError (Maybe Text)
-_IDPRejectedClaimException = prism'
+_IDPRejectedClaimException = prism
     IDPRejectedClaimException
     (\case
         IDPRejectedClaimException p1 -> Right p1
@@ -192,7 +192,7 @@ _IDPRejectedClaimException = prism'
 --
 -- See: 'InvalidAuthorizationMessageException'
 _InvalidAuthorizationMessageException :: Prism' STSError (Maybe Text)
-_InvalidAuthorizationMessageException = prism'
+_InvalidAuthorizationMessageException = prism
     InvalidAuthorizationMessageException
     (\case
         InvalidAuthorizationMessageException p1 -> Right p1
@@ -203,7 +203,7 @@ _InvalidAuthorizationMessageException = prism'
 --
 -- See: 'InvalidIdentityTokenException'
 _InvalidIdentityTokenException :: Prism' STSError (Maybe Text)
-_InvalidIdentityTokenException = prism'
+_InvalidIdentityTokenException = prism
     InvalidIdentityTokenException
     (\case
         InvalidIdentityTokenException p1 -> Right p1
@@ -214,7 +214,7 @@ _InvalidIdentityTokenException = prism'
 --
 -- See: 'MalformedPolicyDocumentException'
 _MalformedPolicyDocumentException :: Prism' STSError (Maybe Text)
-_MalformedPolicyDocumentException = prism'
+_MalformedPolicyDocumentException = prism
     MalformedPolicyDocumentException
     (\case
         MalformedPolicyDocumentException p1 -> Right p1
@@ -226,7 +226,7 @@ _MalformedPolicyDocumentException = prism'
 --
 -- See: 'PackedPolicyTooLargeException'
 _PackedPolicyTooLargeException :: Prism' STSError (Maybe Text)
-_PackedPolicyTooLargeException = prism'
+_PackedPolicyTooLargeException = prism
     PackedPolicyTooLargeException
     (\case
         PackedPolicyTooLargeException p1 -> Right p1
@@ -234,7 +234,7 @@ _PackedPolicyTooLargeException = prism'
 
 -- | See: 'STSClient'
 _STSClient :: Prism' STSError HttpException
-_STSClient = prism'
+_STSClient = prism
     STSClient
     (\case
         STSClient p1 -> Right p1
@@ -242,7 +242,7 @@ _STSClient = prism'
 
 -- | See: 'STSSerializer'
 _STSSerializer :: Prism' STSError String
-_STSSerializer = prism'
+_STSSerializer = prism
     STSSerializer
     (\case
         STSSerializer p1 -> Right p1
@@ -250,7 +250,7 @@ _STSSerializer = prism'
 
 -- | See: 'STSService'
 _STSService :: Prism' STSError String
-_STSService = prism'
+_STSService = prism
     STSService
     (\case
         STSService p1 -> Right p1

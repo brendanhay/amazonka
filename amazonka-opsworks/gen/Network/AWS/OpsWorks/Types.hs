@@ -163,7 +163,7 @@ module Network.AWS.OpsWorks.Types
 
     -- * Instance
     , Instance
-    , instance
+    , instance'
     , iInstanceId
     , iEc2InstanceId
     , iVirtualizationType
@@ -456,7 +456,7 @@ data OpsWorksError
     | ValidationException
         { _veMessage :: Maybe Text
         }
-    deriving (Show, Generic)
+      deriving (Show, Typeable, Generic)
 
 instance AWSError OpsWorksError where
     awsError = const "OpsWorksError"
@@ -470,7 +470,7 @@ instance Exception OpsWorksError
 
 -- | See: 'OpsWorksClient'
 _OpsWorksClient :: Prism' OpsWorksError HttpException
-_OpsWorksClient = prism'
+_OpsWorksClient = prism
     OpsWorksClient
     (\case
         OpsWorksClient p1 -> Right p1
@@ -478,7 +478,7 @@ _OpsWorksClient = prism'
 
 -- | See: 'OpsWorksSerializer'
 _OpsWorksSerializer :: Prism' OpsWorksError String
-_OpsWorksSerializer = prism'
+_OpsWorksSerializer = prism
     OpsWorksSerializer
     (\case
         OpsWorksSerializer p1 -> Right p1
@@ -486,7 +486,7 @@ _OpsWorksSerializer = prism'
 
 -- | See: 'OpsWorksService'
 _OpsWorksService :: Prism' OpsWorksError String
-_OpsWorksService = prism'
+_OpsWorksService = prism
     OpsWorksService
     (\case
         OpsWorksService p1 -> Right p1
@@ -496,7 +496,7 @@ _OpsWorksService = prism'
 --
 -- See: 'ResourceNotFoundException'
 _ResourceNotFoundException :: Prism' OpsWorksError (Maybe Text)
-_ResourceNotFoundException = prism'
+_ResourceNotFoundException = prism
     ResourceNotFoundException
     (\case
         ResourceNotFoundException p1 -> Right p1
@@ -506,7 +506,7 @@ _ResourceNotFoundException = prism'
 --
 -- See: 'ValidationException'
 _ValidationException :: Prism' OpsWorksError (Maybe Text)
-_ValidationException = prism'
+_ValidationException = prism
     ValidationException
     (\case
         ValidationException p1 -> Right p1
@@ -1779,8 +1779,8 @@ data Instance = Instance
 --
 -- * @EbsOptimized ::@ @Maybe Bool@
 --
-instance :: Instance
-instance = Instance
+instance' :: Instance
+instance' = Instance
     { _iInstanceId = Nothing
     , _iEc2InstanceId = Nothing
     , _iVirtualizationType = Nothing

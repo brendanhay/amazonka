@@ -83,7 +83,7 @@ module Network.AWS.ElasticBeanstalk.Types
 
     -- * Instance
     , Instance
-    , instance
+    , instance'
     , iId
 
     -- * LaunchConfiguration
@@ -336,7 +336,7 @@ data ElasticBeanstalkError
       -- | The caller has exceeded the limit of allowed environments
       -- associated with the account.
     | TooManyEnvironmentsException
-    deriving (Show, Generic)
+      deriving (Show, Typeable, Generic)
 
 instance AWSError ElasticBeanstalkError where
     awsError = const "ElasticBeanstalkError"
@@ -350,7 +350,7 @@ instance Exception ElasticBeanstalkError
 
 -- | See: 'ElasticBeanstalkClient'
 _ElasticBeanstalkClient :: Prism' ElasticBeanstalkError HttpException
-_ElasticBeanstalkClient = prism'
+_ElasticBeanstalkClient = prism
     ElasticBeanstalkClient
     (\case
         ElasticBeanstalkClient p1 -> Right p1
@@ -358,7 +358,7 @@ _ElasticBeanstalkClient = prism'
 
 -- | See: 'ElasticBeanstalkSerializer'
 _ElasticBeanstalkSerializer :: Prism' ElasticBeanstalkError String
-_ElasticBeanstalkSerializer = prism'
+_ElasticBeanstalkSerializer = prism
     ElasticBeanstalkSerializer
     (\case
         ElasticBeanstalkSerializer p1 -> Right p1
@@ -366,7 +366,7 @@ _ElasticBeanstalkSerializer = prism'
 
 -- | See: 'ElasticBeanstalkService'
 _ElasticBeanstalkService :: Prism' ElasticBeanstalkError String
-_ElasticBeanstalkService = prism'
+_ElasticBeanstalkService = prism
     ElasticBeanstalkService
     (\case
         ElasticBeanstalkService p1 -> Right p1
@@ -377,7 +377,7 @@ _ElasticBeanstalkService = prism'
 --
 -- See: 'InsufficientPrivilegesException'
 _InsufficientPrivilegesException :: Prism' ElasticBeanstalkError ()
-_InsufficientPrivilegesException = prism'
+_InsufficientPrivilegesException = prism
     (const InsufficientPrivilegesException)
     (\case
         InsufficientPrivilegesException -> Right ()
@@ -388,7 +388,7 @@ _InsufficientPrivilegesException = prism'
 --
 -- See: 'OperationInProgressException'
 _OperationInProgressException :: Prism' ElasticBeanstalkError ()
-_OperationInProgressException = prism'
+_OperationInProgressException = prism
     (const OperationInProgressException)
     (\case
         OperationInProgressException -> Right ()
@@ -399,7 +399,7 @@ _OperationInProgressException = prism'
 --
 -- See: 'S3LocationNotInServiceRegionException'
 _S3LocationNotInServiceRegionException :: Prism' ElasticBeanstalkError ()
-_S3LocationNotInServiceRegionException = prism'
+_S3LocationNotInServiceRegionException = prism
     (const S3LocationNotInServiceRegionException)
     (\case
         S3LocationNotInServiceRegionException -> Right ()
@@ -409,7 +409,7 @@ _S3LocationNotInServiceRegionException = prism'
 --
 -- See: 'S3SubscriptionRequiredException'
 _S3SubscriptionRequiredException :: Prism' ElasticBeanstalkError ()
-_S3SubscriptionRequiredException = prism'
+_S3SubscriptionRequiredException = prism
     (const S3SubscriptionRequiredException)
     (\case
         S3SubscriptionRequiredException -> Right ()
@@ -420,7 +420,7 @@ _S3SubscriptionRequiredException = prism'
 --
 -- See: 'SourceBundleDeletionException'
 _SourceBundleDeletionException :: Prism' ElasticBeanstalkError ()
-_SourceBundleDeletionException = prism'
+_SourceBundleDeletionException = prism
     (const SourceBundleDeletionException)
     (\case
         SourceBundleDeletionException -> Right ()
@@ -431,7 +431,7 @@ _SourceBundleDeletionException = prism'
 --
 -- See: 'TooManyApplicationVersionsException'
 _TooManyApplicationVersionsException :: Prism' ElasticBeanstalkError ()
-_TooManyApplicationVersionsException = prism'
+_TooManyApplicationVersionsException = prism
     (const TooManyApplicationVersionsException)
     (\case
         TooManyApplicationVersionsException -> Right ()
@@ -442,7 +442,7 @@ _TooManyApplicationVersionsException = prism'
 --
 -- See: 'TooManyApplicationsException'
 _TooManyApplicationsException :: Prism' ElasticBeanstalkError ()
-_TooManyApplicationsException = prism'
+_TooManyApplicationsException = prism
     (const TooManyApplicationsException)
     (\case
         TooManyApplicationsException -> Right ()
@@ -453,7 +453,7 @@ _TooManyApplicationsException = prism'
 --
 -- See: 'TooManyBucketsException'
 _TooManyBucketsException :: Prism' ElasticBeanstalkError ()
-_TooManyBucketsException = prism'
+_TooManyBucketsException = prism
     (const TooManyBucketsException)
     (\case
         TooManyBucketsException -> Right ()
@@ -464,7 +464,7 @@ _TooManyBucketsException = prism'
 --
 -- See: 'TooManyConfigurationTemplatesException'
 _TooManyConfigurationTemplatesException :: Prism' ElasticBeanstalkError ()
-_TooManyConfigurationTemplatesException = prism'
+_TooManyConfigurationTemplatesException = prism
     (const TooManyConfigurationTemplatesException)
     (\case
         TooManyConfigurationTemplatesException -> Right ()
@@ -475,7 +475,7 @@ _TooManyConfigurationTemplatesException = prism'
 --
 -- See: 'TooManyEnvironmentsException'
 _TooManyEnvironmentsException :: Prism' ElasticBeanstalkError ()
-_TooManyEnvironmentsException = prism'
+_TooManyEnvironmentsException = prism
     (const TooManyEnvironmentsException)
     (\case
         TooManyEnvironmentsException -> Right ()
@@ -750,8 +750,8 @@ newtype Instance = Instance
 --
 -- * @Id ::@ @Maybe Text@
 --
-instance :: Instance
-instance = Instance
+instance' :: Instance
+instance' = Instance
     { _iId = Nothing
     }
 

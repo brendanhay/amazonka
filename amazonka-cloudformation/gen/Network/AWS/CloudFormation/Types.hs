@@ -200,7 +200,7 @@ data CloudFormationError
     | InsufficientCapabilitiesException
       -- | Quota for the resource has already been reached.
     | LimitExceededException
-    deriving (Show, Generic)
+      deriving (Show, Typeable, Generic)
 
 instance AWSError CloudFormationError where
     awsError = const "CloudFormationError"
@@ -216,7 +216,7 @@ instance Exception CloudFormationError
 --
 -- See: 'AlreadyExistsException'
 _AlreadyExistsException :: Prism' CloudFormationError ()
-_AlreadyExistsException = prism'
+_AlreadyExistsException = prism
     (const AlreadyExistsException)
     (\case
         AlreadyExistsException -> Right ()
@@ -224,7 +224,7 @@ _AlreadyExistsException = prism'
 
 -- | See: 'CloudFormationClient'
 _CloudFormationClient :: Prism' CloudFormationError HttpException
-_CloudFormationClient = prism'
+_CloudFormationClient = prism
     CloudFormationClient
     (\case
         CloudFormationClient p1 -> Right p1
@@ -232,7 +232,7 @@ _CloudFormationClient = prism'
 
 -- | See: 'CloudFormationSerializer'
 _CloudFormationSerializer :: Prism' CloudFormationError String
-_CloudFormationSerializer = prism'
+_CloudFormationSerializer = prism
     CloudFormationSerializer
     (\case
         CloudFormationSerializer p1 -> Right p1
@@ -240,7 +240,7 @@ _CloudFormationSerializer = prism'
 
 -- | See: 'CloudFormationService'
 _CloudFormationService :: Prism' CloudFormationError String
-_CloudFormationService = prism'
+_CloudFormationService = prism
     CloudFormationService
     (\case
         CloudFormationService p1 -> Right p1
@@ -251,7 +251,7 @@ _CloudFormationService = prism'
 --
 -- See: 'InsufficientCapabilitiesException'
 _InsufficientCapabilitiesException :: Prism' CloudFormationError ()
-_InsufficientCapabilitiesException = prism'
+_InsufficientCapabilitiesException = prism
     (const InsufficientCapabilitiesException)
     (\case
         InsufficientCapabilitiesException -> Right ()
@@ -261,7 +261,7 @@ _InsufficientCapabilitiesException = prism'
 --
 -- See: 'LimitExceededException'
 _LimitExceededException :: Prism' CloudFormationError ()
-_LimitExceededException = prism'
+_LimitExceededException = prism
     (const LimitExceededException)
     (\case
         LimitExceededException -> Right ()

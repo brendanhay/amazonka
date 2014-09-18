@@ -189,7 +189,7 @@ data SQSError
     | TooManyEntriesInBatchRequest
       -- | Error code 400. Unsupported operation.
     | UnsupportedOperation
-    deriving (Show, Generic)
+      deriving (Show, Typeable, Generic)
 
 instance AWSError SQSError where
     awsError = const "SQSError"
@@ -205,7 +205,7 @@ instance Exception SQSError
 --
 -- See: 'BatchEntryIdsNotDistinct'
 _BatchEntryIdsNotDistinct :: Prism' SQSError ()
-_BatchEntryIdsNotDistinct = prism'
+_BatchEntryIdsNotDistinct = prism
     (const BatchEntryIdsNotDistinct)
     (\case
         BatchEntryIdsNotDistinct -> Right ()
@@ -215,7 +215,7 @@ _BatchEntryIdsNotDistinct = prism'
 --
 -- See: 'BatchRequestTooLong'
 _BatchRequestTooLong :: Prism' SQSError ()
-_BatchRequestTooLong = prism'
+_BatchRequestTooLong = prism
     (const BatchRequestTooLong)
     (\case
         BatchRequestTooLong -> Right ()
@@ -225,7 +225,7 @@ _BatchRequestTooLong = prism'
 --
 -- See: 'EmptyBatchRequest'
 _EmptyBatchRequest :: Prism' SQSError ()
-_EmptyBatchRequest = prism'
+_EmptyBatchRequest = prism
     (const EmptyBatchRequest)
     (\case
         EmptyBatchRequest -> Right ()
@@ -235,7 +235,7 @@ _EmptyBatchRequest = prism'
 --
 -- See: 'InvalidAttributeName'
 _InvalidAttributeName :: Prism' SQSError ()
-_InvalidAttributeName = prism'
+_InvalidAttributeName = prism
     (const InvalidAttributeName)
     (\case
         InvalidAttributeName -> Right ()
@@ -246,7 +246,7 @@ _InvalidAttributeName = prism'
 --
 -- See: 'InvalidBatchEntryId'
 _InvalidBatchEntryId :: Prism' SQSError ()
-_InvalidBatchEntryId = prism'
+_InvalidBatchEntryId = prism
     (const InvalidBatchEntryId)
     (\case
         InvalidBatchEntryId -> Right ()
@@ -256,7 +256,7 @@ _InvalidBatchEntryId = prism'
 --
 -- See: 'InvalidIdFormat'
 _InvalidIdFormat :: Prism' SQSError ()
-_InvalidIdFormat = prism'
+_InvalidIdFormat = prism
     (const InvalidIdFormat)
     (\case
         InvalidIdFormat -> Right ()
@@ -266,7 +266,7 @@ _InvalidIdFormat = prism'
 --
 -- See: 'InvalidMessageContents'
 _InvalidMessageContents :: Prism' SQSError ()
-_InvalidMessageContents = prism'
+_InvalidMessageContents = prism
     (const InvalidMessageContents)
     (\case
         InvalidMessageContents -> Right ()
@@ -276,7 +276,7 @@ _InvalidMessageContents = prism'
 --
 -- See: 'MessageNotInflight'
 _MessageNotInflight :: Prism' SQSError ()
-_MessageNotInflight = prism'
+_MessageNotInflight = prism
     (const MessageNotInflight)
     (\case
         MessageNotInflight -> Right ()
@@ -289,7 +289,7 @@ _MessageNotInflight = prism'
 --
 -- See: 'OverLimit'
 _OverLimit :: Prism' SQSError ()
-_OverLimit = prism'
+_OverLimit = prism
     (const OverLimit)
     (\case
         OverLimit -> Right ()
@@ -300,7 +300,7 @@ _OverLimit = prism'
 --
 -- See: 'QueueDeletedRecently'
 _QueueDeletedRecently :: Prism' SQSError ()
-_QueueDeletedRecently = prism'
+_QueueDeletedRecently = prism
     (const QueueDeletedRecently)
     (\case
         QueueDeletedRecently -> Right ()
@@ -310,7 +310,7 @@ _QueueDeletedRecently = prism'
 --
 -- See: 'QueueDoesNotExist'
 _QueueDoesNotExist :: Prism' SQSError ()
-_QueueDoesNotExist = prism'
+_QueueDoesNotExist = prism
     (const QueueDoesNotExist)
     (\case
         QueueDoesNotExist -> Right ()
@@ -322,7 +322,7 @@ _QueueDoesNotExist = prism'
 --
 -- See: 'QueueNameExists'
 _QueueNameExists :: Prism' SQSError ()
-_QueueNameExists = prism'
+_QueueNameExists = prism
     (const QueueNameExists)
     (\case
         QueueNameExists -> Right ()
@@ -332,7 +332,7 @@ _QueueNameExists = prism'
 --
 -- See: 'ReceiptHandleIsInvalid'
 _ReceiptHandleIsInvalid :: Prism' SQSError ()
-_ReceiptHandleIsInvalid = prism'
+_ReceiptHandleIsInvalid = prism
     (const ReceiptHandleIsInvalid)
     (\case
         ReceiptHandleIsInvalid -> Right ()
@@ -340,7 +340,7 @@ _ReceiptHandleIsInvalid = prism'
 
 -- | See: 'SQSClient'
 _SQSClient :: Prism' SQSError HttpException
-_SQSClient = prism'
+_SQSClient = prism
     SQSClient
     (\case
         SQSClient p1 -> Right p1
@@ -348,7 +348,7 @@ _SQSClient = prism'
 
 -- | See: 'SQSSerializer'
 _SQSSerializer :: Prism' SQSError String
-_SQSSerializer = prism'
+_SQSSerializer = prism
     SQSSerializer
     (\case
         SQSSerializer p1 -> Right p1
@@ -356,7 +356,7 @@ _SQSSerializer = prism'
 
 -- | See: 'SQSService'
 _SQSService :: Prism' SQSError String
-_SQSService = prism'
+_SQSService = prism
     SQSService
     (\case
         SQSService p1 -> Right p1
@@ -366,7 +366,7 @@ _SQSService = prism'
 --
 -- See: 'TooManyEntriesInBatchRequest'
 _TooManyEntriesInBatchRequest :: Prism' SQSError ()
-_TooManyEntriesInBatchRequest = prism'
+_TooManyEntriesInBatchRequest = prism
     (const TooManyEntriesInBatchRequest)
     (\case
         TooManyEntriesInBatchRequest -> Right ()
@@ -376,7 +376,7 @@ _TooManyEntriesInBatchRequest = prism'
 --
 -- See: 'UnsupportedOperation'
 _UnsupportedOperation :: Prism' SQSError ()
-_UnsupportedOperation = prism'
+_UnsupportedOperation = prism
     (const UnsupportedOperation)
     (\case
         UnsupportedOperation -> Right ()

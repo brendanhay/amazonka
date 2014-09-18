@@ -495,7 +495,7 @@ module Network.AWS.EC2.Types
 
     -- * Filter
     , Filter
-    , filter
+    , filter'
     , fName
     , fValues
 
@@ -593,7 +593,7 @@ module Network.AWS.EC2.Types
 
     -- * Instance
     , Instance
-    , instance
+    , instance'
     , i1InstanceId
     , i1ImageId
     , i1State
@@ -1398,7 +1398,7 @@ data EC2Error
     = EC2Client HttpException
     | EC2Serializer String
     | EC2Service String
-    deriving (Show, Generic)
+      deriving (Show, Typeable, Generic)
 
 instance AWSError EC2Error where
     awsError = const "EC2Error"
@@ -1412,7 +1412,7 @@ instance Exception EC2Error
 
 -- | See: 'EC2Client'
 _EC2Client :: Prism' EC2Error HttpException
-_EC2Client = prism'
+_EC2Client = prism
     EC2Client
     (\case
         EC2Client p1 -> Right p1
@@ -1420,7 +1420,7 @@ _EC2Client = prism'
 
 -- | See: 'EC2Serializer'
 _EC2Serializer :: Prism' EC2Error String
-_EC2Serializer = prism'
+_EC2Serializer = prism
     EC2Serializer
     (\case
         EC2Serializer p1 -> Right p1
@@ -1428,7 +1428,7 @@ _EC2Serializer = prism'
 
 -- | See: 'EC2Service'
 _EC2Service :: Prism' EC2Error String
-_EC2Service = prism'
+_EC2Service = prism
     EC2Service
     (\case
         EC2Service p1 -> Right p1
@@ -5008,9 +5008,9 @@ data Filter = Filter
 --
 -- * @Values ::@ @[Text]@
 --
-filter :: Text -- ^ 'fName'
+filter' :: Text -- ^ 'fName'
          -> Filter
-filter p1 = Filter
+filter' p1 = Filter
     { _fName = p1
     , _fValues = mempty
     }
@@ -5820,8 +5820,8 @@ data Instance = Instance
 --
 -- * @SriovNetSupport ::@ @Maybe Text@
 --
-instance :: Instance
-instance = Instance
+instance' :: Instance
+instance' = Instance
     { _i1InstanceId = Nothing
     , _i1ImageId = Nothing
     , _i1State = Nothing

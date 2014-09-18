@@ -235,7 +235,7 @@ module Network.AWS.S3.Types
 
     -- * Error
     , Error
-    , error
+    , error'
     , eKey
     , eVersionId
     , eCode
@@ -452,7 +452,7 @@ data S3Error
     | S3Client HttpException
     | S3Serializer String
     | S3Service String
-    deriving (Show, Generic)
+      deriving (Show, Typeable, Generic)
 
 instance AWSError S3Error where
     awsError = const "S3Error"
@@ -469,7 +469,7 @@ instance Exception S3Error
 --
 -- See: 'BucketAlreadyExists'
 _BucketAlreadyExists :: Prism' S3Error ()
-_BucketAlreadyExists = prism'
+_BucketAlreadyExists = prism
     (const BucketAlreadyExists)
     (\case
         BucketAlreadyExists -> Right ()
@@ -479,7 +479,7 @@ _BucketAlreadyExists = prism'
 --
 -- See: 'NoSuchBucket'
 _NoSuchBucket :: Prism' S3Error ()
-_NoSuchBucket = prism'
+_NoSuchBucket = prism
     (const NoSuchBucket)
     (\case
         NoSuchBucket -> Right ()
@@ -489,7 +489,7 @@ _NoSuchBucket = prism'
 --
 -- See: 'NoSuchKey'
 _NoSuchKey :: Prism' S3Error ()
-_NoSuchKey = prism'
+_NoSuchKey = prism
     (const NoSuchKey)
     (\case
         NoSuchKey -> Right ()
@@ -499,7 +499,7 @@ _NoSuchKey = prism'
 --
 -- See: 'NoSuchUpload'
 _NoSuchUpload :: Prism' S3Error ()
-_NoSuchUpload = prism'
+_NoSuchUpload = prism
     (const NoSuchUpload)
     (\case
         NoSuchUpload -> Right ()
@@ -509,7 +509,7 @@ _NoSuchUpload = prism'
 --
 -- See: 'ObjectAlreadyInActiveTierError'
 _ObjectAlreadyInActiveTierError :: Prism' S3Error ()
-_ObjectAlreadyInActiveTierError = prism'
+_ObjectAlreadyInActiveTierError = prism
     (const ObjectAlreadyInActiveTierError)
     (\case
         ObjectAlreadyInActiveTierError -> Right ()
@@ -520,7 +520,7 @@ _ObjectAlreadyInActiveTierError = prism'
 --
 -- See: 'ObjectNotInActiveTierError'
 _ObjectNotInActiveTierError :: Prism' S3Error ()
-_ObjectNotInActiveTierError = prism'
+_ObjectNotInActiveTierError = prism
     (const ObjectNotInActiveTierError)
     (\case
         ObjectNotInActiveTierError -> Right ()
@@ -528,7 +528,7 @@ _ObjectNotInActiveTierError = prism'
 
 -- | See: 'S3Client'
 _S3Client :: Prism' S3Error HttpException
-_S3Client = prism'
+_S3Client = prism
     S3Client
     (\case
         S3Client p1 -> Right p1
@@ -536,7 +536,7 @@ _S3Client = prism'
 
 -- | See: 'S3Serializer'
 _S3Serializer :: Prism' S3Error String
-_S3Serializer = prism'
+_S3Serializer = prism
     S3Serializer
     (\case
         S3Serializer p1 -> Right p1
@@ -544,7 +544,7 @@ _S3Serializer = prism'
 
 -- | See: 'S3Service'
 _S3Service :: Prism' S3Error String
-_S3Service = prism'
+_S3Service = prism
     S3Service
     (\case
         S3Service p1 -> Right p1
@@ -1854,8 +1854,8 @@ data Error = Error
 --
 -- * @Message ::@ @Maybe Text@
 --
-error :: Error
-error = Error
+error' :: Error
+error' = Error
     { _eKey = Nothing
     , _eVersionId = Nothing
     , _eCode = Nothing

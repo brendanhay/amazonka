@@ -108,7 +108,7 @@ data CloudTrailError
       -- | This exception is thrown when the trail with the given name is
       -- not found.
     | TrailNotFoundException
-    deriving (Show, Generic)
+      deriving (Show, Typeable, Generic)
 
 instance AWSError CloudTrailError where
     awsError = const "CloudTrailError"
@@ -122,7 +122,7 @@ instance Exception CloudTrailError
 
 -- | See: 'CloudTrailClient'
 _CloudTrailClient :: Prism' CloudTrailError HttpException
-_CloudTrailClient = prism'
+_CloudTrailClient = prism
     CloudTrailClient
     (\case
         CloudTrailClient p1 -> Right p1
@@ -130,7 +130,7 @@ _CloudTrailClient = prism'
 
 -- | See: 'CloudTrailSerializer'
 _CloudTrailSerializer :: Prism' CloudTrailError String
-_CloudTrailSerializer = prism'
+_CloudTrailSerializer = prism
     CloudTrailSerializer
     (\case
         CloudTrailSerializer p1 -> Right p1
@@ -138,7 +138,7 @@ _CloudTrailSerializer = prism'
 
 -- | See: 'CloudTrailService'
 _CloudTrailService :: Prism' CloudTrailError String
-_CloudTrailService = prism'
+_CloudTrailService = prism
     CloudTrailService
     (\case
         CloudTrailService p1 -> Right p1
@@ -149,7 +149,7 @@ _CloudTrailService = prism'
 --
 -- See: 'InsufficientS3BucketPolicyException'
 _InsufficientS3BucketPolicyException :: Prism' CloudTrailError ()
-_InsufficientS3BucketPolicyException = prism'
+_InsufficientS3BucketPolicyException = prism
     (const InsufficientS3BucketPolicyException)
     (\case
         InsufficientS3BucketPolicyException -> Right ()
@@ -160,7 +160,7 @@ _InsufficientS3BucketPolicyException = prism'
 --
 -- See: 'InsufficientSnsTopicPolicyException'
 _InsufficientSnsTopicPolicyException :: Prism' CloudTrailError ()
-_InsufficientSnsTopicPolicyException = prism'
+_InsufficientSnsTopicPolicyException = prism
     (const InsufficientSnsTopicPolicyException)
     (\case
         InsufficientSnsTopicPolicyException -> Right ()
@@ -170,7 +170,7 @@ _InsufficientSnsTopicPolicyException = prism'
 --
 -- See: 'InvalidS3BucketNameException'
 _InvalidS3BucketNameException :: Prism' CloudTrailError ()
-_InvalidS3BucketNameException = prism'
+_InvalidS3BucketNameException = prism
     (const InvalidS3BucketNameException)
     (\case
         InvalidS3BucketNameException -> Right ()
@@ -180,7 +180,7 @@ _InvalidS3BucketNameException = prism'
 --
 -- See: 'InvalidS3PrefixException'
 _InvalidS3PrefixException :: Prism' CloudTrailError ()
-_InvalidS3PrefixException = prism'
+_InvalidS3PrefixException = prism
     (const InvalidS3PrefixException)
     (\case
         InvalidS3PrefixException -> Right ()
@@ -190,7 +190,7 @@ _InvalidS3PrefixException = prism'
 --
 -- See: 'InvalidSnsTopicNameException'
 _InvalidSnsTopicNameException :: Prism' CloudTrailError ()
-_InvalidSnsTopicNameException = prism'
+_InvalidSnsTopicNameException = prism
     (const InvalidSnsTopicNameException)
     (\case
         InvalidSnsTopicNameException -> Right ()
@@ -200,7 +200,7 @@ _InvalidSnsTopicNameException = prism'
 --
 -- See: 'InvalidTrailNameException'
 _InvalidTrailNameException :: Prism' CloudTrailError ()
-_InvalidTrailNameException = prism'
+_InvalidTrailNameException = prism
     (const InvalidTrailNameException)
     (\case
         InvalidTrailNameException -> Right ()
@@ -210,7 +210,7 @@ _InvalidTrailNameException = prism'
 --
 -- See: 'MaximumNumberOfTrailsExceededException'
 _MaximumNumberOfTrailsExceededException :: Prism' CloudTrailError ()
-_MaximumNumberOfTrailsExceededException = prism'
+_MaximumNumberOfTrailsExceededException = prism
     (const MaximumNumberOfTrailsExceededException)
     (\case
         MaximumNumberOfTrailsExceededException -> Right ()
@@ -220,7 +220,7 @@ _MaximumNumberOfTrailsExceededException = prism'
 --
 -- See: 'S3BucketDoesNotExistException'
 _S3BucketDoesNotExistException :: Prism' CloudTrailError ()
-_S3BucketDoesNotExistException = prism'
+_S3BucketDoesNotExistException = prism
     (const S3BucketDoesNotExistException)
     (\case
         S3BucketDoesNotExistException -> Right ()
@@ -230,7 +230,7 @@ _S3BucketDoesNotExistException = prism'
 --
 -- See: 'TrailAlreadyExistsException'
 _TrailAlreadyExistsException :: Prism' CloudTrailError ()
-_TrailAlreadyExistsException = prism'
+_TrailAlreadyExistsException = prism
     (const TrailAlreadyExistsException)
     (\case
         TrailAlreadyExistsException -> Right ()
@@ -240,7 +240,7 @@ _TrailAlreadyExistsException = prism'
 --
 -- See: 'TrailNotFoundException'
 _TrailNotFoundException :: Prism' CloudTrailError ()
-_TrailNotFoundException = prism'
+_TrailNotFoundException = prism
     (const TrailNotFoundException)
     (\case
         TrailNotFoundException -> Right ()

@@ -207,7 +207,7 @@ data CloudWatchError
     | ResourceNotFound
         { _rnfMessage :: Maybe Text
         }
-    deriving (Show, Generic)
+      deriving (Show, Typeable, Generic)
 
 instance AWSError CloudWatchError where
     awsError = const "CloudWatchError"
@@ -221,7 +221,7 @@ instance Exception CloudWatchError
 
 -- | See: 'CloudWatchClient'
 _CloudWatchClient :: Prism' CloudWatchError HttpException
-_CloudWatchClient = prism'
+_CloudWatchClient = prism
     CloudWatchClient
     (\case
         CloudWatchClient p1 -> Right p1
@@ -229,7 +229,7 @@ _CloudWatchClient = prism'
 
 -- | See: 'CloudWatchSerializer'
 _CloudWatchSerializer :: Prism' CloudWatchError String
-_CloudWatchSerializer = prism'
+_CloudWatchSerializer = prism
     CloudWatchSerializer
     (\case
         CloudWatchSerializer p1 -> Right p1
@@ -237,7 +237,7 @@ _CloudWatchSerializer = prism'
 
 -- | See: 'CloudWatchService'
 _CloudWatchService :: Prism' CloudWatchError String
-_CloudWatchService = prism'
+_CloudWatchService = prism
     CloudWatchService
     (\case
         CloudWatchService p1 -> Right p1
@@ -248,7 +248,7 @@ _CloudWatchService = prism'
 --
 -- See: 'InternalServiceFault'
 _InternalServiceFault :: Prism' CloudWatchError (Maybe Text)
-_InternalServiceFault = prism'
+_InternalServiceFault = prism
     InternalServiceFault
     (\case
         InternalServiceFault p1 -> Right p1
@@ -258,7 +258,7 @@ _InternalServiceFault = prism'
 --
 -- See: 'InvalidFormatFault'
 _InvalidFormatFault :: Prism' CloudWatchError (Maybe Text)
-_InvalidFormatFault = prism'
+_InvalidFormatFault = prism
     InvalidFormatFault
     (\case
         InvalidFormatFault p1 -> Right p1
@@ -268,7 +268,7 @@ _InvalidFormatFault = prism'
 --
 -- See: 'InvalidNextToken'
 _InvalidNextToken :: Prism' CloudWatchError (Maybe Text)
-_InvalidNextToken = prism'
+_InvalidNextToken = prism
     InvalidNextToken
     (\case
         InvalidNextToken p1 -> Right p1
@@ -278,7 +278,7 @@ _InvalidNextToken = prism'
 --
 -- See: 'InvalidParameterCombinationException'
 _InvalidParameterCombinationException :: Prism' CloudWatchError (Maybe Text)
-_InvalidParameterCombinationException = prism'
+_InvalidParameterCombinationException = prism
     InvalidParameterCombinationException
     (\case
         InvalidParameterCombinationException p1 -> Right p1
@@ -288,7 +288,7 @@ _InvalidParameterCombinationException = prism'
 --
 -- See: 'InvalidParameterValueException'
 _InvalidParameterValueException :: Prism' CloudWatchError (Maybe Text)
-_InvalidParameterValueException = prism'
+_InvalidParameterValueException = prism
     InvalidParameterValueException
     (\case
         InvalidParameterValueException p1 -> Right p1
@@ -298,7 +298,7 @@ _InvalidParameterValueException = prism'
 --
 -- See: 'LimitExceededFault'
 _LimitExceededFault :: Prism' CloudWatchError (Maybe Text)
-_LimitExceededFault = prism'
+_LimitExceededFault = prism
     LimitExceededFault
     (\case
         LimitExceededFault p1 -> Right p1
@@ -309,7 +309,7 @@ _LimitExceededFault = prism'
 --
 -- See: 'MissingRequiredParameterException'
 _MissingRequiredParameterException :: Prism' CloudWatchError (Maybe Text)
-_MissingRequiredParameterException = prism'
+_MissingRequiredParameterException = prism
     MissingRequiredParameterException
     (\case
         MissingRequiredParameterException p1 -> Right p1
@@ -319,7 +319,7 @@ _MissingRequiredParameterException = prism'
 --
 -- See: 'ResourceNotFound'
 _ResourceNotFound :: Prism' CloudWatchError (Maybe Text)
-_ResourceNotFound = prism'
+_ResourceNotFound = prism
     ResourceNotFound
     (\case
         ResourceNotFound p1 -> Right p1

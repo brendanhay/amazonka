@@ -178,7 +178,7 @@ module Network.AWS.EMR.Types
 
     -- * Instance
     , Instance
-    , instance
+    , instance'
     , iId
     , iEc2InstanceId
     , iPublicDnsName
@@ -456,7 +456,7 @@ data EMRError
         { _ireErrorCode :: Maybe Text
         , _ireMessage :: Maybe Text
         }
-    deriving (Show, Generic)
+      deriving (Show, Typeable, Generic)
 
 instance AWSError EMRError where
     awsError = const "EMRError"
@@ -470,7 +470,7 @@ instance Exception EMRError
 
 -- | See: 'EMRClient'
 _EMRClient :: Prism' EMRError HttpException
-_EMRClient = prism'
+_EMRClient = prism
     EMRClient
     (\case
         EMRClient p1 -> Right p1
@@ -478,7 +478,7 @@ _EMRClient = prism'
 
 -- | See: 'EMRSerializer'
 _EMRSerializer :: Prism' EMRError String
-_EMRSerializer = prism'
+_EMRSerializer = prism
     EMRSerializer
     (\case
         EMRSerializer p1 -> Right p1
@@ -486,7 +486,7 @@ _EMRSerializer = prism'
 
 -- | See: 'EMRService'
 _EMRService :: Prism' EMRError String
-_EMRService = prism'
+_EMRService = prism
     EMRService
     (\case
         EMRService p1 -> Right p1
@@ -497,7 +497,7 @@ _EMRService = prism'
 --
 -- See: 'InternalServerError'
 _InternalServerError :: Prism' EMRError ()
-_InternalServerError = prism'
+_InternalServerError = prism
     (const InternalServerError)
     (\case
         InternalServerError -> Right ()
@@ -507,7 +507,7 @@ _InternalServerError = prism'
 --
 -- See: 'InternalServerException'
 _InternalServerException :: Prism' EMRError (Maybe Text)
-_InternalServerException = prism'
+_InternalServerException = prism
     InternalServerException
     (\case
         InternalServerException p1 -> Right p1
@@ -517,7 +517,7 @@ _InternalServerException = prism'
 --
 -- See: 'InvalidRequestException'
 _InvalidRequestException :: Prism' EMRError (Maybe Text, Maybe Text)
-_InvalidRequestException = prism'
+_InvalidRequestException = prism
 FIXME: Oh noes!
 
 data ActionOnFailure
@@ -1795,8 +1795,8 @@ data Instance = Instance
 --
 -- * @Status ::@ @Maybe InstanceStatus@
 --
-instance :: Instance
-instance = Instance
+instance' :: Instance
+instance' = Instance
     { _iId = Nothing
     , _iEc2InstanceId = Nothing
     , _iPublicDnsName = Nothing

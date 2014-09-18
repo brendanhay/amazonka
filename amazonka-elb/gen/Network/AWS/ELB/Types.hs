@@ -66,7 +66,7 @@ module Network.AWS.ELB.Types
 
     -- * Instance
     , Instance
-    , instance
+    , instance'
     , iInstanceId
 
     -- * TagKeyOnly
@@ -302,7 +302,7 @@ data ELBError
       -- | The quota for the number of tags that can be assigned to a load
       -- balancer has been reached.
     | TooManyTagsException
-    deriving (Show, Generic)
+      deriving (Show, Typeable, Generic)
 
 instance AWSError ELBError where
     awsError = const "ELBError"
@@ -318,7 +318,7 @@ instance Exception ELBError
 --
 -- See: 'AccessPointNotFoundException'
 _AccessPointNotFoundException :: Prism' ELBError ()
-_AccessPointNotFoundException = prism'
+_AccessPointNotFoundException = prism
     (const AccessPointNotFoundException)
     (\case
         AccessPointNotFoundException -> Right ()
@@ -329,7 +329,7 @@ _AccessPointNotFoundException = prism'
 --
 -- See: 'CertificateNotFoundException'
 _CertificateNotFoundException :: Prism' ELBError ()
-_CertificateNotFoundException = prism'
+_CertificateNotFoundException = prism
     (const CertificateNotFoundException)
     (\case
         CertificateNotFoundException -> Right ()
@@ -340,7 +340,7 @@ _CertificateNotFoundException = prism'
 --
 -- See: 'DuplicateAccessPointNameException'
 _DuplicateAccessPointNameException :: Prism' ELBError ()
-_DuplicateAccessPointNameException = prism'
+_DuplicateAccessPointNameException = prism
     (const DuplicateAccessPointNameException)
     (\case
         DuplicateAccessPointNameException -> Right ()
@@ -352,7 +352,7 @@ _DuplicateAccessPointNameException = prism'
 --
 -- See: 'DuplicateListenerException'
 _DuplicateListenerException :: Prism' ELBError ()
-_DuplicateListenerException = prism'
+_DuplicateListenerException = prism
     (const DuplicateListenerException)
     (\case
         DuplicateListenerException -> Right ()
@@ -363,7 +363,7 @@ _DuplicateListenerException = prism'
 --
 -- See: 'DuplicatePolicyNameException'
 _DuplicatePolicyNameException :: Prism' ELBError ()
-_DuplicatePolicyNameException = prism'
+_DuplicatePolicyNameException = prism
     (const DuplicatePolicyNameException)
     (\case
         DuplicatePolicyNameException -> Right ()
@@ -373,7 +373,7 @@ _DuplicatePolicyNameException = prism'
 --
 -- See: 'DuplicateTagKeysException'
 _DuplicateTagKeysException :: Prism' ELBError ()
-_DuplicateTagKeysException = prism'
+_DuplicateTagKeysException = prism
     (const DuplicateTagKeysException)
     (\case
         DuplicateTagKeysException -> Right ()
@@ -381,7 +381,7 @@ _DuplicateTagKeysException = prism'
 
 -- | See: 'ELBClient'
 _ELBClient :: Prism' ELBError HttpException
-_ELBClient = prism'
+_ELBClient = prism
     ELBClient
     (\case
         ELBClient p1 -> Right p1
@@ -389,7 +389,7 @@ _ELBClient = prism'
 
 -- | See: 'ELBSerializer'
 _ELBSerializer :: Prism' ELBError String
-_ELBSerializer = prism'
+_ELBSerializer = prism
     ELBSerializer
     (\case
         ELBSerializer p1 -> Right p1
@@ -397,7 +397,7 @@ _ELBSerializer = prism'
 
 -- | See: 'ELBService'
 _ELBService :: Prism' ELBError String
-_ELBService = prism'
+_ELBService = prism
     ELBService
     (\case
         ELBService p1 -> Right p1
@@ -407,7 +407,7 @@ _ELBService = prism'
 --
 -- See: 'InvalidConfigurationRequestException'
 _InvalidConfigurationRequestException :: Prism' ELBError ()
-_InvalidConfigurationRequestException = prism'
+_InvalidConfigurationRequestException = prism
     (const InvalidConfigurationRequestException)
     (\case
         InvalidConfigurationRequestException -> Right ()
@@ -417,7 +417,7 @@ _InvalidConfigurationRequestException = prism'
 --
 -- See: 'InvalidEndPointException'
 _InvalidEndPointException :: Prism' ELBError ()
-_InvalidEndPointException = prism'
+_InvalidEndPointException = prism
     (const InvalidEndPointException)
     (\case
         InvalidEndPointException -> Right ()
@@ -428,7 +428,7 @@ _InvalidEndPointException = prism'
 --
 -- See: 'InvalidSchemeException'
 _InvalidSchemeException :: Prism' ELBError ()
-_InvalidSchemeException = prism'
+_InvalidSchemeException = prism
     (const InvalidSchemeException)
     (\case
         InvalidSchemeException -> Right ()
@@ -438,7 +438,7 @@ _InvalidSchemeException = prism'
 --
 -- See: 'InvalidSecurityGroupException'
 _InvalidSecurityGroupException :: Prism' ELBError ()
-_InvalidSecurityGroupException = prism'
+_InvalidSecurityGroupException = prism
     (const InvalidSecurityGroupException)
     (\case
         InvalidSecurityGroupException -> Right ()
@@ -448,7 +448,7 @@ _InvalidSecurityGroupException = prism'
 --
 -- See: 'InvalidSubnetException'
 _InvalidSubnetException :: Prism' ELBError ()
-_InvalidSubnetException = prism'
+_InvalidSubnetException = prism
     (const InvalidSubnetException)
     (\case
         InvalidSubnetException -> Right ()
@@ -458,7 +458,7 @@ _InvalidSubnetException = prism'
 --
 -- See: 'ListenerNotFoundException'
 _ListenerNotFoundException :: Prism' ELBError ()
-_ListenerNotFoundException = prism'
+_ListenerNotFoundException = prism
     (const ListenerNotFoundException)
     (\case
         ListenerNotFoundException -> Right ()
@@ -468,7 +468,7 @@ _ListenerNotFoundException = prism'
 --
 -- See: 'LoadBalancerAttributeNotFoundException'
 _LoadBalancerAttributeNotFoundException :: Prism' ELBError ()
-_LoadBalancerAttributeNotFoundException = prism'
+_LoadBalancerAttributeNotFoundException = prism
     (const LoadBalancerAttributeNotFoundException)
     (\case
         LoadBalancerAttributeNotFoundException -> Right ()
@@ -478,7 +478,7 @@ _LoadBalancerAttributeNotFoundException = prism'
 --
 -- See: 'PolicyNotFoundException'
 _PolicyNotFoundException :: Prism' ELBError ()
-_PolicyNotFoundException = prism'
+_PolicyNotFoundException = prism
     (const PolicyNotFoundException)
     (\case
         PolicyNotFoundException -> Right ()
@@ -488,7 +488,7 @@ _PolicyNotFoundException = prism'
 --
 -- See: 'PolicyTypeNotFoundException'
 _PolicyTypeNotFoundException :: Prism' ELBError ()
-_PolicyTypeNotFoundException = prism'
+_PolicyTypeNotFoundException = prism
     (const PolicyTypeNotFoundException)
     (\case
         PolicyTypeNotFoundException -> Right ()
@@ -498,7 +498,7 @@ _PolicyTypeNotFoundException = prism'
 --
 -- See: 'SubnetNotFoundException'
 _SubnetNotFoundException :: Prism' ELBError ()
-_SubnetNotFoundException = prism'
+_SubnetNotFoundException = prism
     (const SubnetNotFoundException)
     (\case
         SubnetNotFoundException -> Right ()
@@ -508,7 +508,7 @@ _SubnetNotFoundException = prism'
 --
 -- See: 'TooManyAccessPointsException'
 _TooManyAccessPointsException :: Prism' ELBError ()
-_TooManyAccessPointsException = prism'
+_TooManyAccessPointsException = prism
     (const TooManyAccessPointsException)
     (\case
         TooManyAccessPointsException -> Right ()
@@ -519,7 +519,7 @@ _TooManyAccessPointsException = prism'
 --
 -- See: 'TooManyPoliciesException'
 _TooManyPoliciesException :: Prism' ELBError ()
-_TooManyPoliciesException = prism'
+_TooManyPoliciesException = prism
     (const TooManyPoliciesException)
     (\case
         TooManyPoliciesException -> Right ()
@@ -530,7 +530,7 @@ _TooManyPoliciesException = prism'
 --
 -- See: 'TooManyTagsException'
 _TooManyTagsException :: Prism' ELBError ()
-_TooManyTagsException = prism'
+_TooManyTagsException = prism
     (const TooManyTagsException)
     (\case
         TooManyTagsException -> Right ()
@@ -620,8 +620,8 @@ newtype Instance = Instance
 --
 -- * @InstanceId ::@ @Maybe Text@
 --
-instance :: Instance
-instance = Instance
+instance' :: Instance
+instance' = Instance
     { _iInstanceId = Nothing
     }
 

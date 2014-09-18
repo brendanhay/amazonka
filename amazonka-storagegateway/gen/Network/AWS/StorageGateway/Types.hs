@@ -204,7 +204,7 @@ data StorageGatewayError
     | StorageGatewayClient HttpException
     | StorageGatewaySerializer String
     | StorageGatewayService String
-    deriving (Show, Generic)
+      deriving (Show, Typeable, Generic)
 
 instance AWSError StorageGatewayError where
     awsError = const "StorageGatewayError"
@@ -221,7 +221,7 @@ instance Exception StorageGatewayError
 --
 -- See: 'InternalServerError'
 _InternalServerError :: Prism' StorageGatewayError (Maybe Text, Maybe StorageGatewayError)
-_InternalServerError = prism'
+_InternalServerError = prism
 FIXME: Oh noes!
 
 -- | An exception occured because an invalid gateway request was issued to the
@@ -229,12 +229,12 @@ FIXME: Oh noes!
 --
 -- See: 'InvalidGatewayRequestException'
 _InvalidGatewayRequestException :: Prism' StorageGatewayError (Maybe Text, Maybe StorageGatewayError)
-_InvalidGatewayRequestException = prism'
+_InvalidGatewayRequestException = prism
 FIXME: Oh noes!
 
 -- | See: 'StorageGatewayClient'
 _StorageGatewayClient :: Prism' StorageGatewayError HttpException
-_StorageGatewayClient = prism'
+_StorageGatewayClient = prism
     StorageGatewayClient
     (\case
         StorageGatewayClient p1 -> Right p1
@@ -242,7 +242,7 @@ _StorageGatewayClient = prism'
 
 -- | See: 'StorageGatewaySerializer'
 _StorageGatewaySerializer :: Prism' StorageGatewayError String
-_StorageGatewaySerializer = prism'
+_StorageGatewaySerializer = prism
     StorageGatewaySerializer
     (\case
         StorageGatewaySerializer p1 -> Right p1
@@ -250,7 +250,7 @@ _StorageGatewaySerializer = prism'
 
 -- | See: 'StorageGatewayService'
 _StorageGatewayService :: Prism' StorageGatewayError String
-_StorageGatewayService = prism'
+_StorageGatewayService = prism
     StorageGatewayService
     (\case
         StorageGatewayService p1 -> Right p1

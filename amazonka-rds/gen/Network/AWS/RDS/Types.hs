@@ -619,7 +619,7 @@ data RDSError
     | SubscriptionCategoryNotFoundFault
       -- | The subscription name does not exist.
     | SubscriptionNotFoundFault
-    deriving (Show, Generic)
+      deriving (Show, Typeable, Generic)
 
 instance AWSError RDSError where
     awsError = const "RDSError"
@@ -636,7 +636,7 @@ instance Exception RDSError
 --
 -- See: 'AuthorizationAlreadyExistsFault'
 _AuthorizationAlreadyExistsFault :: Prism' RDSError ()
-_AuthorizationAlreadyExistsFault = prism'
+_AuthorizationAlreadyExistsFault = prism
     (const AuthorizationAlreadyExistsFault)
     (\case
         AuthorizationAlreadyExistsFault -> Right ()
@@ -647,7 +647,7 @@ _AuthorizationAlreadyExistsFault = prism'
 --
 -- See: 'AuthorizationNotFoundFault'
 _AuthorizationNotFoundFault :: Prism' RDSError ()
-_AuthorizationNotFoundFault = prism'
+_AuthorizationNotFoundFault = prism
     (const AuthorizationNotFoundFault)
     (\case
         AuthorizationNotFoundFault -> Right ()
@@ -657,7 +657,7 @@ _AuthorizationNotFoundFault = prism'
 --
 -- See: 'AuthorizationQuotaExceededFault'
 _AuthorizationQuotaExceededFault :: Prism' RDSError ()
-_AuthorizationQuotaExceededFault = prism'
+_AuthorizationQuotaExceededFault = prism
     (const AuthorizationQuotaExceededFault)
     (\case
         AuthorizationQuotaExceededFault -> Right ()
@@ -667,7 +667,7 @@ _AuthorizationQuotaExceededFault = prism'
 --
 -- See: 'DBInstanceAlreadyExistsFault'
 _DBInstanceAlreadyExistsFault :: Prism' RDSError ()
-_DBInstanceAlreadyExistsFault = prism'
+_DBInstanceAlreadyExistsFault = prism
     (const DBInstanceAlreadyExistsFault)
     (\case
         DBInstanceAlreadyExistsFault -> Right ()
@@ -677,7 +677,7 @@ _DBInstanceAlreadyExistsFault = prism'
 --
 -- See: 'DBInstanceNotFoundFault'
 _DBInstanceNotFoundFault :: Prism' RDSError ()
-_DBInstanceNotFoundFault = prism'
+_DBInstanceNotFoundFault = prism
     (const DBInstanceNotFoundFault)
     (\case
         DBInstanceNotFoundFault -> Right ()
@@ -687,7 +687,7 @@ _DBInstanceNotFoundFault = prism'
 --
 -- See: 'DBParameterGroupAlreadyExistsFault'
 _DBParameterGroupAlreadyExistsFault :: Prism' RDSError ()
-_DBParameterGroupAlreadyExistsFault = prism'
+_DBParameterGroupAlreadyExistsFault = prism
     (const DBParameterGroupAlreadyExistsFault)
     (\case
         DBParameterGroupAlreadyExistsFault -> Right ()
@@ -697,7 +697,7 @@ _DBParameterGroupAlreadyExistsFault = prism'
 --
 -- See: 'DBParameterGroupNotFoundFault'
 _DBParameterGroupNotFoundFault :: Prism' RDSError ()
-_DBParameterGroupNotFoundFault = prism'
+_DBParameterGroupNotFoundFault = prism
     (const DBParameterGroupNotFoundFault)
     (\case
         DBParameterGroupNotFoundFault -> Right ()
@@ -708,7 +708,7 @@ _DBParameterGroupNotFoundFault = prism'
 --
 -- See: 'DBParameterGroupQuotaExceededFault'
 _DBParameterGroupQuotaExceededFault :: Prism' RDSError ()
-_DBParameterGroupQuotaExceededFault = prism'
+_DBParameterGroupQuotaExceededFault = prism
     (const DBParameterGroupQuotaExceededFault)
     (\case
         DBParameterGroupQuotaExceededFault -> Right ()
@@ -719,7 +719,7 @@ _DBParameterGroupQuotaExceededFault = prism'
 --
 -- See: 'DBSecurityGroupAlreadyExistsFault'
 _DBSecurityGroupAlreadyExistsFault :: Prism' RDSError ()
-_DBSecurityGroupAlreadyExistsFault = prism'
+_DBSecurityGroupAlreadyExistsFault = prism
     (const DBSecurityGroupAlreadyExistsFault)
     (\case
         DBSecurityGroupAlreadyExistsFault -> Right ()
@@ -729,7 +729,7 @@ _DBSecurityGroupAlreadyExistsFault = prism'
 --
 -- See: 'DBSecurityGroupNotFoundFault'
 _DBSecurityGroupNotFoundFault :: Prism' RDSError ()
-_DBSecurityGroupNotFoundFault = prism'
+_DBSecurityGroupNotFoundFault = prism
     (const DBSecurityGroupNotFoundFault)
     (\case
         DBSecurityGroupNotFoundFault -> Right ()
@@ -739,7 +739,7 @@ _DBSecurityGroupNotFoundFault = prism'
 --
 -- See: 'DBSecurityGroupNotSupportedFault'
 _DBSecurityGroupNotSupportedFault :: Prism' RDSError ()
-_DBSecurityGroupNotSupportedFault = prism'
+_DBSecurityGroupNotSupportedFault = prism
     (const DBSecurityGroupNotSupportedFault)
     (\case
         DBSecurityGroupNotSupportedFault -> Right ()
@@ -750,7 +750,7 @@ _DBSecurityGroupNotSupportedFault = prism'
 --
 -- See: 'DBSecurityGroupQuotaExceededFault'
 _DBSecurityGroupQuotaExceededFault :: Prism' RDSError ()
-_DBSecurityGroupQuotaExceededFault = prism'
+_DBSecurityGroupQuotaExceededFault = prism
     (const DBSecurityGroupQuotaExceededFault)
     (\case
         DBSecurityGroupQuotaExceededFault -> Right ()
@@ -760,7 +760,7 @@ _DBSecurityGroupQuotaExceededFault = prism'
 --
 -- See: 'DBSnapshotAlreadyExistsFault'
 _DBSnapshotAlreadyExistsFault :: Prism' RDSError ()
-_DBSnapshotAlreadyExistsFault = prism'
+_DBSnapshotAlreadyExistsFault = prism
     (const DBSnapshotAlreadyExistsFault)
     (\case
         DBSnapshotAlreadyExistsFault -> Right ()
@@ -770,7 +770,7 @@ _DBSnapshotAlreadyExistsFault = prism'
 --
 -- See: 'DBSnapshotNotFoundFault'
 _DBSnapshotNotFoundFault :: Prism' RDSError ()
-_DBSnapshotNotFoundFault = prism'
+_DBSnapshotNotFoundFault = prism
     (const DBSnapshotNotFoundFault)
     (\case
         DBSnapshotNotFoundFault -> Right ()
@@ -780,7 +780,7 @@ _DBSnapshotNotFoundFault = prism'
 --
 -- See: 'DBSubnetGroupAlreadyExistsFault'
 _DBSubnetGroupAlreadyExistsFault :: Prism' RDSError ()
-_DBSubnetGroupAlreadyExistsFault = prism'
+_DBSubnetGroupAlreadyExistsFault = prism
     (const DBSubnetGroupAlreadyExistsFault)
     (\case
         DBSubnetGroupAlreadyExistsFault -> Right ()
@@ -791,7 +791,7 @@ _DBSubnetGroupAlreadyExistsFault = prism'
 --
 -- See: 'DBSubnetGroupDoesNotCoverEnoughAZs'
 _DBSubnetGroupDoesNotCoverEnoughAZs :: Prism' RDSError ()
-_DBSubnetGroupDoesNotCoverEnoughAZs = prism'
+_DBSubnetGroupDoesNotCoverEnoughAZs = prism
     (const DBSubnetGroupDoesNotCoverEnoughAZs)
     (\case
         DBSubnetGroupDoesNotCoverEnoughAZs -> Right ()
@@ -802,7 +802,7 @@ _DBSubnetGroupDoesNotCoverEnoughAZs = prism'
 --
 -- See: 'DBSubnetGroupNotAllowedFault'
 _DBSubnetGroupNotAllowedFault :: Prism' RDSError ()
-_DBSubnetGroupNotAllowedFault = prism'
+_DBSubnetGroupNotAllowedFault = prism
     (const DBSubnetGroupNotAllowedFault)
     (\case
         DBSubnetGroupNotAllowedFault -> Right ()
@@ -812,7 +812,7 @@ _DBSubnetGroupNotAllowedFault = prism'
 --
 -- See: 'DBSubnetGroupNotFoundFault'
 _DBSubnetGroupNotFoundFault :: Prism' RDSError ()
-_DBSubnetGroupNotFoundFault = prism'
+_DBSubnetGroupNotFoundFault = prism
     (const DBSubnetGroupNotFoundFault)
     (\case
         DBSubnetGroupNotFoundFault -> Right ()
@@ -823,7 +823,7 @@ _DBSubnetGroupNotFoundFault = prism'
 --
 -- See: 'DBSubnetGroupQuotaExceededFault'
 _DBSubnetGroupQuotaExceededFault :: Prism' RDSError ()
-_DBSubnetGroupQuotaExceededFault = prism'
+_DBSubnetGroupQuotaExceededFault = prism
     (const DBSubnetGroupQuotaExceededFault)
     (\case
         DBSubnetGroupQuotaExceededFault -> Right ()
@@ -834,7 +834,7 @@ _DBSubnetGroupQuotaExceededFault = prism'
 --
 -- See: 'DBSubnetQuotaExceededFault'
 _DBSubnetQuotaExceededFault :: Prism' RDSError ()
-_DBSubnetQuotaExceededFault = prism'
+_DBSubnetQuotaExceededFault = prism
     (const DBSubnetQuotaExceededFault)
     (\case
         DBSubnetQuotaExceededFault -> Right ()
@@ -845,7 +845,7 @@ _DBSubnetQuotaExceededFault = prism'
 --
 -- See: 'DBUpgradeDependencyFailureFault'
 _DBUpgradeDependencyFailureFault :: Prism' RDSError ()
-_DBUpgradeDependencyFailureFault = prism'
+_DBUpgradeDependencyFailureFault = prism
     (const DBUpgradeDependencyFailureFault)
     (\case
         DBUpgradeDependencyFailureFault -> Right ()
@@ -855,7 +855,7 @@ _DBUpgradeDependencyFailureFault = prism'
 --
 -- See: 'EventSubscriptionQuotaExceededFault'
 _EventSubscriptionQuotaExceededFault :: Prism' RDSError ()
-_EventSubscriptionQuotaExceededFault = prism'
+_EventSubscriptionQuotaExceededFault = prism
     (const EventSubscriptionQuotaExceededFault)
     (\case
         EventSubscriptionQuotaExceededFault -> Right ()
@@ -865,7 +865,7 @@ _EventSubscriptionQuotaExceededFault = prism'
 --
 -- See: 'InstanceQuotaExceededFault'
 _InstanceQuotaExceededFault :: Prism' RDSError ()
-_InstanceQuotaExceededFault = prism'
+_InstanceQuotaExceededFault = prism
     (const InstanceQuotaExceededFault)
     (\case
         InstanceQuotaExceededFault -> Right ()
@@ -876,7 +876,7 @@ _InstanceQuotaExceededFault = prism'
 --
 -- See: 'InsufficientDBInstanceCapacityFault'
 _InsufficientDBInstanceCapacityFault :: Prism' RDSError ()
-_InsufficientDBInstanceCapacityFault = prism'
+_InsufficientDBInstanceCapacityFault = prism
     (const InsufficientDBInstanceCapacityFault)
     (\case
         InsufficientDBInstanceCapacityFault -> Right ()
@@ -886,7 +886,7 @@ _InsufficientDBInstanceCapacityFault = prism'
 --
 -- See: 'InvalidDBInstanceStateFault'
 _InvalidDBInstanceStateFault :: Prism' RDSError ()
-_InvalidDBInstanceStateFault = prism'
+_InvalidDBInstanceStateFault = prism
     (const InvalidDBInstanceStateFault)
     (\case
         InvalidDBInstanceStateFault -> Right ()
@@ -896,7 +896,7 @@ _InvalidDBInstanceStateFault = prism'
 --
 -- See: 'InvalidDBParameterGroupStateFault'
 _InvalidDBParameterGroupStateFault :: Prism' RDSError ()
-_InvalidDBParameterGroupStateFault = prism'
+_InvalidDBParameterGroupStateFault = prism
     (const InvalidDBParameterGroupStateFault)
     (\case
         InvalidDBParameterGroupStateFault -> Right ()
@@ -906,7 +906,7 @@ _InvalidDBParameterGroupStateFault = prism'
 --
 -- See: 'InvalidDBSecurityGroupStateFault'
 _InvalidDBSecurityGroupStateFault :: Prism' RDSError ()
-_InvalidDBSecurityGroupStateFault = prism'
+_InvalidDBSecurityGroupStateFault = prism
     (const InvalidDBSecurityGroupStateFault)
     (\case
         InvalidDBSecurityGroupStateFault -> Right ()
@@ -916,7 +916,7 @@ _InvalidDBSecurityGroupStateFault = prism'
 --
 -- See: 'InvalidDBSnapshotStateFault'
 _InvalidDBSnapshotStateFault :: Prism' RDSError ()
-_InvalidDBSnapshotStateFault = prism'
+_InvalidDBSnapshotStateFault = prism
     (const InvalidDBSnapshotStateFault)
     (\case
         InvalidDBSnapshotStateFault -> Right ()
@@ -927,7 +927,7 @@ _InvalidDBSnapshotStateFault = prism'
 --
 -- See: 'InvalidDBSubnetGroupFault'
 _InvalidDBSubnetGroupFault :: Prism' RDSError ()
-_InvalidDBSubnetGroupFault = prism'
+_InvalidDBSubnetGroupFault = prism
     (const InvalidDBSubnetGroupFault)
     (\case
         InvalidDBSubnetGroupFault -> Right ()
@@ -937,7 +937,7 @@ _InvalidDBSubnetGroupFault = prism'
 --
 -- See: 'InvalidDBSubnetGroupStateFault'
 _InvalidDBSubnetGroupStateFault :: Prism' RDSError ()
-_InvalidDBSubnetGroupStateFault = prism'
+_InvalidDBSubnetGroupStateFault = prism
     (const InvalidDBSubnetGroupStateFault)
     (\case
         InvalidDBSubnetGroupStateFault -> Right ()
@@ -947,7 +947,7 @@ _InvalidDBSubnetGroupStateFault = prism'
 --
 -- See: 'InvalidDBSubnetStateFault'
 _InvalidDBSubnetStateFault :: Prism' RDSError ()
-_InvalidDBSubnetStateFault = prism'
+_InvalidDBSubnetStateFault = prism
     (const InvalidDBSubnetStateFault)
     (\case
         InvalidDBSubnetStateFault -> Right ()
@@ -958,7 +958,7 @@ _InvalidDBSubnetStateFault = prism'
 --
 -- See: 'InvalidEventSubscriptionStateFault'
 _InvalidEventSubscriptionStateFault :: Prism' RDSError ()
-_InvalidEventSubscriptionStateFault = prism'
+_InvalidEventSubscriptionStateFault = prism
     (const InvalidEventSubscriptionStateFault)
     (\case
         InvalidEventSubscriptionStateFault -> Right ()
@@ -968,7 +968,7 @@ _InvalidEventSubscriptionStateFault = prism'
 --
 -- See: 'InvalidOptionGroupStateFault'
 _InvalidOptionGroupStateFault :: Prism' RDSError ()
-_InvalidOptionGroupStateFault = prism'
+_InvalidOptionGroupStateFault = prism
     (const InvalidOptionGroupStateFault)
     (\case
         InvalidOptionGroupStateFault -> Right ()
@@ -978,7 +978,7 @@ _InvalidOptionGroupStateFault = prism'
 --
 -- See: 'InvalidRestoreFault'
 _InvalidRestoreFault :: Prism' RDSError ()
-_InvalidRestoreFault = prism'
+_InvalidRestoreFault = prism
     (const InvalidRestoreFault)
     (\case
         InvalidRestoreFault -> Right ()
@@ -989,7 +989,7 @@ _InvalidRestoreFault = prism'
 --
 -- See: 'InvalidSubnet'
 _InvalidSubnet :: Prism' RDSError ()
-_InvalidSubnet = prism'
+_InvalidSubnet = prism
     (const InvalidSubnet)
     (\case
         InvalidSubnet -> Right ()
@@ -1000,7 +1000,7 @@ _InvalidSubnet = prism'
 --
 -- See: 'InvalidVPCNetworkStateFault'
 _InvalidVPCNetworkStateFault :: Prism' RDSError ()
-_InvalidVPCNetworkStateFault = prism'
+_InvalidVPCNetworkStateFault = prism
     (const InvalidVPCNetworkStateFault)
     (\case
         InvalidVPCNetworkStateFault -> Right ()
@@ -1010,7 +1010,7 @@ _InvalidVPCNetworkStateFault = prism'
 --
 -- See: 'OptionGroupAlreadyExistsFault'
 _OptionGroupAlreadyExistsFault :: Prism' RDSError ()
-_OptionGroupAlreadyExistsFault = prism'
+_OptionGroupAlreadyExistsFault = prism
     (const OptionGroupAlreadyExistsFault)
     (\case
         OptionGroupAlreadyExistsFault -> Right ()
@@ -1020,7 +1020,7 @@ _OptionGroupAlreadyExistsFault = prism'
 --
 -- See: 'OptionGroupNotFoundFault'
 _OptionGroupNotFoundFault :: Prism' RDSError ()
-_OptionGroupNotFoundFault = prism'
+_OptionGroupNotFoundFault = prism
     (const OptionGroupNotFoundFault)
     (\case
         OptionGroupNotFoundFault -> Right ()
@@ -1030,7 +1030,7 @@ _OptionGroupNotFoundFault = prism'
 --
 -- See: 'OptionGroupQuotaExceededFault'
 _OptionGroupQuotaExceededFault :: Prism' RDSError ()
-_OptionGroupQuotaExceededFault = prism'
+_OptionGroupQuotaExceededFault = prism
     (const OptionGroupQuotaExceededFault)
     (\case
         OptionGroupQuotaExceededFault -> Right ()
@@ -1041,7 +1041,7 @@ _OptionGroupQuotaExceededFault = prism'
 --
 -- See: 'PointInTimeRestoreNotEnabledFault'
 _PointInTimeRestoreNotEnabledFault :: Prism' RDSError ()
-_PointInTimeRestoreNotEnabledFault = prism'
+_PointInTimeRestoreNotEnabledFault = prism
     (const PointInTimeRestoreNotEnabledFault)
     (\case
         PointInTimeRestoreNotEnabledFault -> Right ()
@@ -1051,7 +1051,7 @@ _PointInTimeRestoreNotEnabledFault = prism'
 --
 -- See: 'ProvisionedIopsNotAvailableInAZFault'
 _ProvisionedIopsNotAvailableInAZFault :: Prism' RDSError ()
-_ProvisionedIopsNotAvailableInAZFault = prism'
+_ProvisionedIopsNotAvailableInAZFault = prism
     (const ProvisionedIopsNotAvailableInAZFault)
     (\case
         ProvisionedIopsNotAvailableInAZFault -> Right ()
@@ -1059,7 +1059,7 @@ _ProvisionedIopsNotAvailableInAZFault = prism'
 
 -- | See: 'RDSClient'
 _RDSClient :: Prism' RDSError HttpException
-_RDSClient = prism'
+_RDSClient = prism
     RDSClient
     (\case
         RDSClient p1 -> Right p1
@@ -1067,7 +1067,7 @@ _RDSClient = prism'
 
 -- | See: 'RDSSerializer'
 _RDSSerializer :: Prism' RDSError String
-_RDSSerializer = prism'
+_RDSSerializer = prism
     RDSSerializer
     (\case
         RDSSerializer p1 -> Right p1
@@ -1075,7 +1075,7 @@ _RDSSerializer = prism'
 
 -- | See: 'RDSService'
 _RDSService :: Prism' RDSError String
-_RDSService = prism'
+_RDSService = prism
     RDSService
     (\case
         RDSService p1 -> Right p1
@@ -1085,7 +1085,7 @@ _RDSService = prism'
 --
 -- See: 'ReservedDBInstanceAlreadyExistsFault'
 _ReservedDBInstanceAlreadyExistsFault :: Prism' RDSError ()
-_ReservedDBInstanceAlreadyExistsFault = prism'
+_ReservedDBInstanceAlreadyExistsFault = prism
     (const ReservedDBInstanceAlreadyExistsFault)
     (\case
         ReservedDBInstanceAlreadyExistsFault -> Right ()
@@ -1095,7 +1095,7 @@ _ReservedDBInstanceAlreadyExistsFault = prism'
 --
 -- See: 'ReservedDBInstanceNotFoundFault'
 _ReservedDBInstanceNotFoundFault :: Prism' RDSError ()
-_ReservedDBInstanceNotFoundFault = prism'
+_ReservedDBInstanceNotFoundFault = prism
     (const ReservedDBInstanceNotFoundFault)
     (\case
         ReservedDBInstanceNotFoundFault -> Right ()
@@ -1105,7 +1105,7 @@ _ReservedDBInstanceNotFoundFault = prism'
 --
 -- See: 'ReservedDBInstanceQuotaExceededFault'
 _ReservedDBInstanceQuotaExceededFault :: Prism' RDSError ()
-_ReservedDBInstanceQuotaExceededFault = prism'
+_ReservedDBInstanceQuotaExceededFault = prism
     (const ReservedDBInstanceQuotaExceededFault)
     (\case
         ReservedDBInstanceQuotaExceededFault -> Right ()
@@ -1115,7 +1115,7 @@ _ReservedDBInstanceQuotaExceededFault = prism'
 --
 -- See: 'ReservedDBInstancesOfferingNotFoundFault'
 _ReservedDBInstancesOfferingNotFoundFault :: Prism' RDSError ()
-_ReservedDBInstancesOfferingNotFoundFault = prism'
+_ReservedDBInstancesOfferingNotFoundFault = prism
     (const ReservedDBInstancesOfferingNotFoundFault)
     (\case
         ReservedDBInstancesOfferingNotFoundFault -> Right ()
@@ -1125,7 +1125,7 @@ _ReservedDBInstancesOfferingNotFoundFault = prism'
 --
 -- See: 'SNSInvalidTopicFault'
 _SNSInvalidTopicFault :: Prism' RDSError ()
-_SNSInvalidTopicFault = prism'
+_SNSInvalidTopicFault = prism
     (const SNSInvalidTopicFault)
     (\case
         SNSInvalidTopicFault -> Right ()
@@ -1135,7 +1135,7 @@ _SNSInvalidTopicFault = prism'
 --
 -- See: 'SNSNoAuthorizationFault'
 _SNSNoAuthorizationFault :: Prism' RDSError ()
-_SNSNoAuthorizationFault = prism'
+_SNSNoAuthorizationFault = prism
     (const SNSNoAuthorizationFault)
     (\case
         SNSNoAuthorizationFault -> Right ()
@@ -1145,7 +1145,7 @@ _SNSNoAuthorizationFault = prism'
 --
 -- See: 'SNSTopicArnNotFoundFault'
 _SNSTopicArnNotFoundFault :: Prism' RDSError ()
-_SNSTopicArnNotFoundFault = prism'
+_SNSTopicArnNotFoundFault = prism
     (const SNSTopicArnNotFoundFault)
     (\case
         SNSTopicArnNotFoundFault -> Right ()
@@ -1155,7 +1155,7 @@ _SNSTopicArnNotFoundFault = prism'
 --
 -- See: 'SnapshotQuotaExceededFault'
 _SnapshotQuotaExceededFault :: Prism' RDSError ()
-_SnapshotQuotaExceededFault = prism'
+_SnapshotQuotaExceededFault = prism
     (const SnapshotQuotaExceededFault)
     (\case
         SnapshotQuotaExceededFault -> Right ()
@@ -1165,7 +1165,7 @@ _SnapshotQuotaExceededFault = prism'
 --
 -- See: 'SourceNotFoundFault'
 _SourceNotFoundFault :: Prism' RDSError ()
-_SourceNotFoundFault = prism'
+_SourceNotFoundFault = prism
     (const SourceNotFoundFault)
     (\case
         SourceNotFoundFault -> Right ()
@@ -1176,7 +1176,7 @@ _SourceNotFoundFault = prism'
 --
 -- See: 'StorageQuotaExceededFault'
 _StorageQuotaExceededFault :: Prism' RDSError ()
-_StorageQuotaExceededFault = prism'
+_StorageQuotaExceededFault = prism
     (const StorageQuotaExceededFault)
     (\case
         StorageQuotaExceededFault -> Right ()
@@ -1186,7 +1186,7 @@ _StorageQuotaExceededFault = prism'
 --
 -- See: 'SubnetAlreadyInUse'
 _SubnetAlreadyInUse :: Prism' RDSError ()
-_SubnetAlreadyInUse = prism'
+_SubnetAlreadyInUse = prism
     (const SubnetAlreadyInUse)
     (\case
         SubnetAlreadyInUse -> Right ()
@@ -1196,7 +1196,7 @@ _SubnetAlreadyInUse = prism'
 --
 -- See: 'SubscriptionAlreadyExistFault'
 _SubscriptionAlreadyExistFault :: Prism' RDSError ()
-_SubscriptionAlreadyExistFault = prism'
+_SubscriptionAlreadyExistFault = prism
     (const SubscriptionAlreadyExistFault)
     (\case
         SubscriptionAlreadyExistFault -> Right ()
@@ -1206,7 +1206,7 @@ _SubscriptionAlreadyExistFault = prism'
 --
 -- See: 'SubscriptionCategoryNotFoundFault'
 _SubscriptionCategoryNotFoundFault :: Prism' RDSError ()
-_SubscriptionCategoryNotFoundFault = prism'
+_SubscriptionCategoryNotFoundFault = prism
     (const SubscriptionCategoryNotFoundFault)
     (\case
         SubscriptionCategoryNotFoundFault -> Right ()
@@ -1216,7 +1216,7 @@ _SubscriptionCategoryNotFoundFault = prism'
 --
 -- See: 'SubscriptionNotFoundFault'
 _SubscriptionNotFoundFault :: Prism' RDSError ()
-_SubscriptionNotFoundFault = prism'
+_SubscriptionNotFoundFault = prism
     (const SubscriptionNotFoundFault)
     (\case
         SubscriptionNotFoundFault -> Right ()

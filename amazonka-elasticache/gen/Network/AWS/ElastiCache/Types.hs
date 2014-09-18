@@ -493,7 +493,7 @@ data ElastiCacheError
     | SnapshotQuotaExceededFault
       -- | The requested subnet is being used by another cache subnet group.
     | SubnetInUse
-    deriving (Show, Generic)
+      deriving (Show, Typeable, Generic)
 
 instance AWSError ElastiCacheError where
     awsError = const "ElastiCacheError"
@@ -510,7 +510,7 @@ instance Exception ElastiCacheError
 --
 -- See: 'AuthorizationAlreadyExistsFault'
 _AuthorizationAlreadyExistsFault :: Prism' ElastiCacheError ()
-_AuthorizationAlreadyExistsFault = prism'
+_AuthorizationAlreadyExistsFault = prism
     (const AuthorizationAlreadyExistsFault)
     (\case
         AuthorizationAlreadyExistsFault -> Right ()
@@ -521,7 +521,7 @@ _AuthorizationAlreadyExistsFault = prism'
 --
 -- See: 'AuthorizationNotFoundFault'
 _AuthorizationNotFoundFault :: Prism' ElastiCacheError ()
-_AuthorizationNotFoundFault = prism'
+_AuthorizationNotFoundFault = prism
     (const AuthorizationNotFoundFault)
     (\case
         AuthorizationNotFoundFault -> Right ()
@@ -531,7 +531,7 @@ _AuthorizationNotFoundFault = prism'
 --
 -- See: 'CacheClusterAlreadyExistsFault'
 _CacheClusterAlreadyExistsFault :: Prism' ElastiCacheError ()
-_CacheClusterAlreadyExistsFault = prism'
+_CacheClusterAlreadyExistsFault = prism
     (const CacheClusterAlreadyExistsFault)
     (\case
         CacheClusterAlreadyExistsFault -> Right ()
@@ -541,7 +541,7 @@ _CacheClusterAlreadyExistsFault = prism'
 --
 -- See: 'CacheClusterNotFoundFault'
 _CacheClusterNotFoundFault :: Prism' ElastiCacheError ()
-_CacheClusterNotFoundFault = prism'
+_CacheClusterNotFoundFault = prism
     (const CacheClusterNotFoundFault)
     (\case
         CacheClusterNotFoundFault -> Right ()
@@ -551,7 +551,7 @@ _CacheClusterNotFoundFault = prism'
 --
 -- See: 'CacheParameterGroupAlreadyExistsFault'
 _CacheParameterGroupAlreadyExistsFault :: Prism' ElastiCacheError ()
-_CacheParameterGroupAlreadyExistsFault = prism'
+_CacheParameterGroupAlreadyExistsFault = prism
     (const CacheParameterGroupAlreadyExistsFault)
     (\case
         CacheParameterGroupAlreadyExistsFault -> Right ()
@@ -562,7 +562,7 @@ _CacheParameterGroupAlreadyExistsFault = prism'
 --
 -- See: 'CacheParameterGroupNotFoundFault'
 _CacheParameterGroupNotFoundFault :: Prism' ElastiCacheError ()
-_CacheParameterGroupNotFoundFault = prism'
+_CacheParameterGroupNotFoundFault = prism
     (const CacheParameterGroupNotFoundFault)
     (\case
         CacheParameterGroupNotFoundFault -> Right ()
@@ -573,7 +573,7 @@ _CacheParameterGroupNotFoundFault = prism'
 --
 -- See: 'CacheParameterGroupQuotaExceededFault'
 _CacheParameterGroupQuotaExceededFault :: Prism' ElastiCacheError ()
-_CacheParameterGroupQuotaExceededFault = prism'
+_CacheParameterGroupQuotaExceededFault = prism
     (const CacheParameterGroupQuotaExceededFault)
     (\case
         CacheParameterGroupQuotaExceededFault -> Right ()
@@ -583,7 +583,7 @@ _CacheParameterGroupQuotaExceededFault = prism'
 --
 -- See: 'CacheSecurityGroupAlreadyExistsFault'
 _CacheSecurityGroupAlreadyExistsFault :: Prism' ElastiCacheError ()
-_CacheSecurityGroupAlreadyExistsFault = prism'
+_CacheSecurityGroupAlreadyExistsFault = prism
     (const CacheSecurityGroupAlreadyExistsFault)
     (\case
         CacheSecurityGroupAlreadyExistsFault -> Right ()
@@ -594,7 +594,7 @@ _CacheSecurityGroupAlreadyExistsFault = prism'
 --
 -- See: 'CacheSecurityGroupNotFoundFault'
 _CacheSecurityGroupNotFoundFault :: Prism' ElastiCacheError ()
-_CacheSecurityGroupNotFoundFault = prism'
+_CacheSecurityGroupNotFoundFault = prism
     (const CacheSecurityGroupNotFoundFault)
     (\case
         CacheSecurityGroupNotFoundFault -> Right ()
@@ -605,7 +605,7 @@ _CacheSecurityGroupNotFoundFault = prism'
 --
 -- See: 'CacheSecurityGroupQuotaExceededFault'
 _CacheSecurityGroupQuotaExceededFault :: Prism' ElastiCacheError ()
-_CacheSecurityGroupQuotaExceededFault = prism'
+_CacheSecurityGroupQuotaExceededFault = prism
     (const CacheSecurityGroupQuotaExceededFault)
     (\case
         CacheSecurityGroupQuotaExceededFault -> Right ()
@@ -616,7 +616,7 @@ _CacheSecurityGroupQuotaExceededFault = prism'
 --
 -- See: 'CacheSubnetGroupAlreadyExistsFault'
 _CacheSubnetGroupAlreadyExistsFault :: Prism' ElastiCacheError ()
-_CacheSubnetGroupAlreadyExistsFault = prism'
+_CacheSubnetGroupAlreadyExistsFault = prism
     (const CacheSubnetGroupAlreadyExistsFault)
     (\case
         CacheSubnetGroupAlreadyExistsFault -> Right ()
@@ -626,7 +626,7 @@ _CacheSubnetGroupAlreadyExistsFault = prism'
 --
 -- See: 'CacheSubnetGroupInUse'
 _CacheSubnetGroupInUse :: Prism' ElastiCacheError ()
-_CacheSubnetGroupInUse = prism'
+_CacheSubnetGroupInUse = prism
     (const CacheSubnetGroupInUse)
     (\case
         CacheSubnetGroupInUse -> Right ()
@@ -637,7 +637,7 @@ _CacheSubnetGroupInUse = prism'
 --
 -- See: 'CacheSubnetGroupNotFoundFault'
 _CacheSubnetGroupNotFoundFault :: Prism' ElastiCacheError ()
-_CacheSubnetGroupNotFoundFault = prism'
+_CacheSubnetGroupNotFoundFault = prism
     (const CacheSubnetGroupNotFoundFault)
     (\case
         CacheSubnetGroupNotFoundFault -> Right ()
@@ -648,7 +648,7 @@ _CacheSubnetGroupNotFoundFault = prism'
 --
 -- See: 'CacheSubnetGroupQuotaExceededFault'
 _CacheSubnetGroupQuotaExceededFault :: Prism' ElastiCacheError ()
-_CacheSubnetGroupQuotaExceededFault = prism'
+_CacheSubnetGroupQuotaExceededFault = prism
     (const CacheSubnetGroupQuotaExceededFault)
     (\case
         CacheSubnetGroupQuotaExceededFault -> Right ()
@@ -659,7 +659,7 @@ _CacheSubnetGroupQuotaExceededFault = prism'
 --
 -- See: 'CacheSubnetQuotaExceededFault'
 _CacheSubnetQuotaExceededFault :: Prism' ElastiCacheError ()
-_CacheSubnetQuotaExceededFault = prism'
+_CacheSubnetQuotaExceededFault = prism
     (const CacheSubnetQuotaExceededFault)
     (\case
         CacheSubnetQuotaExceededFault -> Right ()
@@ -670,7 +670,7 @@ _CacheSubnetQuotaExceededFault = prism'
 --
 -- See: 'ClusterQuotaForCustomerExceededFault'
 _ClusterQuotaForCustomerExceededFault :: Prism' ElastiCacheError ()
-_ClusterQuotaForCustomerExceededFault = prism'
+_ClusterQuotaForCustomerExceededFault = prism
     (const ClusterQuotaForCustomerExceededFault)
     (\case
         ClusterQuotaForCustomerExceededFault -> Right ()
@@ -678,7 +678,7 @@ _ClusterQuotaForCustomerExceededFault = prism'
 
 -- | See: 'ElastiCacheClient'
 _ElastiCacheClient :: Prism' ElastiCacheError HttpException
-_ElastiCacheClient = prism'
+_ElastiCacheClient = prism
     ElastiCacheClient
     (\case
         ElastiCacheClient p1 -> Right p1
@@ -686,7 +686,7 @@ _ElastiCacheClient = prism'
 
 -- | See: 'ElastiCacheSerializer'
 _ElastiCacheSerializer :: Prism' ElastiCacheError String
-_ElastiCacheSerializer = prism'
+_ElastiCacheSerializer = prism
     ElastiCacheSerializer
     (\case
         ElastiCacheSerializer p1 -> Right p1
@@ -694,7 +694,7 @@ _ElastiCacheSerializer = prism'
 
 -- | See: 'ElastiCacheService'
 _ElastiCacheService :: Prism' ElastiCacheError String
-_ElastiCacheService = prism'
+_ElastiCacheService = prism
     ElastiCacheService
     (\case
         ElastiCacheService p1 -> Right p1
@@ -705,7 +705,7 @@ _ElastiCacheService = prism'
 --
 -- See: 'InsufficientCacheClusterCapacityFault'
 _InsufficientCacheClusterCapacityFault :: Prism' ElastiCacheError ()
-_InsufficientCacheClusterCapacityFault = prism'
+_InsufficientCacheClusterCapacityFault = prism
     (const InsufficientCacheClusterCapacityFault)
     (\case
         InsufficientCacheClusterCapacityFault -> Right ()
@@ -715,7 +715,7 @@ _InsufficientCacheClusterCapacityFault = prism'
 --
 -- See: 'InvalidCacheClusterStateFault'
 _InvalidCacheClusterStateFault :: Prism' ElastiCacheError ()
-_InvalidCacheClusterStateFault = prism'
+_InvalidCacheClusterStateFault = prism
     (const InvalidCacheClusterStateFault)
     (\case
         InvalidCacheClusterStateFault -> Right ()
@@ -726,7 +726,7 @@ _InvalidCacheClusterStateFault = prism'
 --
 -- See: 'InvalidCacheParameterGroupStateFault'
 _InvalidCacheParameterGroupStateFault :: Prism' ElastiCacheError ()
-_InvalidCacheParameterGroupStateFault = prism'
+_InvalidCacheParameterGroupStateFault = prism
     (const InvalidCacheParameterGroupStateFault)
     (\case
         InvalidCacheParameterGroupStateFault -> Right ()
@@ -736,7 +736,7 @@ _InvalidCacheParameterGroupStateFault = prism'
 --
 -- See: 'InvalidCacheSecurityGroupStateFault'
 _InvalidCacheSecurityGroupStateFault :: Prism' ElastiCacheError ()
-_InvalidCacheSecurityGroupStateFault = prism'
+_InvalidCacheSecurityGroupStateFault = prism
     (const InvalidCacheSecurityGroupStateFault)
     (\case
         InvalidCacheSecurityGroupStateFault -> Right ()
@@ -746,7 +746,7 @@ _InvalidCacheSecurityGroupStateFault = prism'
 --
 -- See: 'InvalidParameterCombinationException'
 _InvalidParameterCombinationException :: Prism' ElastiCacheError (Maybe Text)
-_InvalidParameterCombinationException = prism'
+_InvalidParameterCombinationException = prism
     InvalidParameterCombinationException
     (\case
         InvalidParameterCombinationException p1 -> Right p1
@@ -756,7 +756,7 @@ _InvalidParameterCombinationException = prism'
 --
 -- See: 'InvalidParameterValueException'
 _InvalidParameterValueException :: Prism' ElastiCacheError (Maybe Text)
-_InvalidParameterValueException = prism'
+_InvalidParameterValueException = prism
     InvalidParameterValueException
     (\case
         InvalidParameterValueException p1 -> Right p1
@@ -766,7 +766,7 @@ _InvalidParameterValueException = prism'
 --
 -- See: 'InvalidReplicationGroupStateFault'
 _InvalidReplicationGroupStateFault :: Prism' ElastiCacheError ()
-_InvalidReplicationGroupStateFault = prism'
+_InvalidReplicationGroupStateFault = prism
     (const InvalidReplicationGroupStateFault)
     (\case
         InvalidReplicationGroupStateFault -> Right ()
@@ -777,7 +777,7 @@ _InvalidReplicationGroupStateFault = prism'
 --
 -- See: 'InvalidSnapshotStateFault'
 _InvalidSnapshotStateFault :: Prism' ElastiCacheError ()
-_InvalidSnapshotStateFault = prism'
+_InvalidSnapshotStateFault = prism
     (const InvalidSnapshotStateFault)
     (\case
         InvalidSnapshotStateFault -> Right ()
@@ -787,7 +787,7 @@ _InvalidSnapshotStateFault = prism'
 --
 -- See: 'InvalidSubnet'
 _InvalidSubnet :: Prism' ElastiCacheError ()
-_InvalidSubnet = prism'
+_InvalidSubnet = prism
     (const InvalidSubnet)
     (\case
         InvalidSubnet -> Right ()
@@ -797,7 +797,7 @@ _InvalidSubnet = prism'
 --
 -- See: 'InvalidVPCNetworkStateFault'
 _InvalidVPCNetworkStateFault :: Prism' ElastiCacheError ()
-_InvalidVPCNetworkStateFault = prism'
+_InvalidVPCNetworkStateFault = prism
     (const InvalidVPCNetworkStateFault)
     (\case
         InvalidVPCNetworkStateFault -> Right ()
@@ -808,7 +808,7 @@ _InvalidVPCNetworkStateFault = prism'
 --
 -- See: 'NodeQuotaForClusterExceededFault'
 _NodeQuotaForClusterExceededFault :: Prism' ElastiCacheError ()
-_NodeQuotaForClusterExceededFault = prism'
+_NodeQuotaForClusterExceededFault = prism
     (const NodeQuotaForClusterExceededFault)
     (\case
         NodeQuotaForClusterExceededFault -> Right ()
@@ -819,7 +819,7 @@ _NodeQuotaForClusterExceededFault = prism'
 --
 -- See: 'NodeQuotaForCustomerExceededFault'
 _NodeQuotaForCustomerExceededFault :: Prism' ElastiCacheError ()
-_NodeQuotaForCustomerExceededFault = prism'
+_NodeQuotaForCustomerExceededFault = prism
     (const NodeQuotaForCustomerExceededFault)
     (\case
         NodeQuotaForCustomerExceededFault -> Right ()
@@ -829,7 +829,7 @@ _NodeQuotaForCustomerExceededFault = prism'
 --
 -- See: 'ReplicationGroupAlreadyExistsFault'
 _ReplicationGroupAlreadyExistsFault :: Prism' ElastiCacheError ()
-_ReplicationGroupAlreadyExistsFault = prism'
+_ReplicationGroupAlreadyExistsFault = prism
     (const ReplicationGroupAlreadyExistsFault)
     (\case
         ReplicationGroupAlreadyExistsFault -> Right ()
@@ -839,7 +839,7 @@ _ReplicationGroupAlreadyExistsFault = prism'
 --
 -- See: 'ReplicationGroupNotFoundFault'
 _ReplicationGroupNotFoundFault :: Prism' ElastiCacheError ()
-_ReplicationGroupNotFoundFault = prism'
+_ReplicationGroupNotFoundFault = prism
     (const ReplicationGroupNotFoundFault)
     (\case
         ReplicationGroupNotFoundFault -> Right ()
@@ -849,7 +849,7 @@ _ReplicationGroupNotFoundFault = prism'
 --
 -- See: 'ReservedCacheNodeAlreadyExistsFault'
 _ReservedCacheNodeAlreadyExistsFault :: Prism' ElastiCacheError ()
-_ReservedCacheNodeAlreadyExistsFault = prism'
+_ReservedCacheNodeAlreadyExistsFault = prism
     (const ReservedCacheNodeAlreadyExistsFault)
     (\case
         ReservedCacheNodeAlreadyExistsFault -> Right ()
@@ -859,7 +859,7 @@ _ReservedCacheNodeAlreadyExistsFault = prism'
 --
 -- See: 'ReservedCacheNodeNotFoundFault'
 _ReservedCacheNodeNotFoundFault :: Prism' ElastiCacheError ()
-_ReservedCacheNodeNotFoundFault = prism'
+_ReservedCacheNodeNotFoundFault = prism
     (const ReservedCacheNodeNotFoundFault)
     (\case
         ReservedCacheNodeNotFoundFault -> Right ()
@@ -870,7 +870,7 @@ _ReservedCacheNodeNotFoundFault = prism'
 --
 -- See: 'ReservedCacheNodeQuotaExceededFault'
 _ReservedCacheNodeQuotaExceededFault :: Prism' ElastiCacheError ()
-_ReservedCacheNodeQuotaExceededFault = prism'
+_ReservedCacheNodeQuotaExceededFault = prism
     (const ReservedCacheNodeQuotaExceededFault)
     (\case
         ReservedCacheNodeQuotaExceededFault -> Right ()
@@ -880,7 +880,7 @@ _ReservedCacheNodeQuotaExceededFault = prism'
 --
 -- See: 'ReservedCacheNodesOfferingNotFoundFault'
 _ReservedCacheNodesOfferingNotFoundFault :: Prism' ElastiCacheError ()
-_ReservedCacheNodesOfferingNotFoundFault = prism'
+_ReservedCacheNodesOfferingNotFoundFault = prism
     (const ReservedCacheNodesOfferingNotFoundFault)
     (\case
         ReservedCacheNodesOfferingNotFoundFault -> Right ()
@@ -890,7 +890,7 @@ _ReservedCacheNodesOfferingNotFoundFault = prism'
 --
 -- See: 'SnapshotAlreadyExistsFault'
 _SnapshotAlreadyExistsFault :: Prism' ElastiCacheError ()
-_SnapshotAlreadyExistsFault = prism'
+_SnapshotAlreadyExistsFault = prism
     (const SnapshotAlreadyExistsFault)
     (\case
         SnapshotAlreadyExistsFault -> Right ()
@@ -903,7 +903,7 @@ _SnapshotAlreadyExistsFault = prism'
 --
 -- See: 'SnapshotFeatureNotSupportedFault'
 _SnapshotFeatureNotSupportedFault :: Prism' ElastiCacheError ()
-_SnapshotFeatureNotSupportedFault = prism'
+_SnapshotFeatureNotSupportedFault = prism
     (const SnapshotFeatureNotSupportedFault)
     (\case
         SnapshotFeatureNotSupportedFault -> Right ()
@@ -913,7 +913,7 @@ _SnapshotFeatureNotSupportedFault = prism'
 --
 -- See: 'SnapshotNotFoundFault'
 _SnapshotNotFoundFault :: Prism' ElastiCacheError ()
-_SnapshotNotFoundFault = prism'
+_SnapshotNotFoundFault = prism
     (const SnapshotNotFoundFault)
     (\case
         SnapshotNotFoundFault -> Right ()
@@ -924,7 +924,7 @@ _SnapshotNotFoundFault = prism'
 --
 -- See: 'SnapshotQuotaExceededFault'
 _SnapshotQuotaExceededFault :: Prism' ElastiCacheError ()
-_SnapshotQuotaExceededFault = prism'
+_SnapshotQuotaExceededFault = prism
     (const SnapshotQuotaExceededFault)
     (\case
         SnapshotQuotaExceededFault -> Right ()
@@ -934,7 +934,7 @@ _SnapshotQuotaExceededFault = prism'
 --
 -- See: 'SubnetInUse'
 _SubnetInUse :: Prism' ElastiCacheError ()
-_SubnetInUse = prism'
+_SubnetInUse = prism
     (const SubnetInUse)
     (\case
         SubnetInUse -> Right ()

@@ -140,7 +140,7 @@ data SESError
     | SESClient HttpException
     | SESSerializer String
     | SESService String
-    deriving (Show, Generic)
+      deriving (Show, Typeable, Generic)
 
 instance AWSError SESError where
     awsError = const "SESError"
@@ -157,7 +157,7 @@ instance Exception SESError
 --
 -- See: 'MessageRejected'
 _MessageRejected :: Prism' SESError ()
-_MessageRejected = prism'
+_MessageRejected = prism
     (const MessageRejected)
     (\case
         MessageRejected -> Right ()
@@ -165,7 +165,7 @@ _MessageRejected = prism'
 
 -- | See: 'SESClient'
 _SESClient :: Prism' SESError HttpException
-_SESClient = prism'
+_SESClient = prism
     SESClient
     (\case
         SESClient p1 -> Right p1
@@ -173,7 +173,7 @@ _SESClient = prism'
 
 -- | See: 'SESSerializer'
 _SESSerializer :: Prism' SESError String
-_SESSerializer = prism'
+_SESSerializer = prism
     SESSerializer
     (\case
         SESSerializer p1 -> Right p1
@@ -181,7 +181,7 @@ _SESSerializer = prism'
 
 -- | See: 'SESService'
 _SESService :: Prism' SESError String
-_SESService = prism'
+_SESService = prism
     SESService
     (\case
         SESService p1 -> Right p1

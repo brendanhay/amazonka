@@ -13,25 +13,31 @@
 -- data records that can then be consumed in real time by multiple
 -- data-processing applications that can be run on Amazon EC2 instances.
 module Network.AWS.Kinesis
-    ( module Network.AWS.Kinesis.CreateStream
+    ( module Network.AWS.Kinesis.AddTagsToStream
+    , module Network.AWS.Kinesis.CreateStream
     , module Network.AWS.Kinesis.DeleteStream
     , module Network.AWS.Kinesis.DescribeStream
     , module Network.AWS.Kinesis.GetRecords
     , module Network.AWS.Kinesis.GetShardIterator
     , module Network.AWS.Kinesis.ListStreams
+    , module Network.AWS.Kinesis.ListTagsForStream
     , module Network.AWS.Kinesis.MergeShards
     , module Network.AWS.Kinesis.PutRecord
+    , module Network.AWS.Kinesis.RemoveTagsFromStream
     , module Network.AWS.Kinesis.SplitShard
     , module Network.AWS.Kinesis.Types
     ) where
 
+import Network.AWS.Kinesis.AddTagsToStream
 import Network.AWS.Kinesis.CreateStream
 import Network.AWS.Kinesis.DeleteStream
 import Network.AWS.Kinesis.DescribeStream
 import Network.AWS.Kinesis.GetRecords
 import Network.AWS.Kinesis.GetShardIterator
 import Network.AWS.Kinesis.ListStreams
+import Network.AWS.Kinesis.ListTagsForStream
 import Network.AWS.Kinesis.MergeShards
 import Network.AWS.Kinesis.PutRecord
+import Network.AWS.Kinesis.RemoveTagsFromStream
 import Network.AWS.Kinesis.SplitShard
 import Network.AWS.Kinesis.Types

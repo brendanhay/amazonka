@@ -17,35 +17,34 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | This operation puts a data record into an Amazon Kinesis stream from a
--- producer. This operation must be called to send data from the producer into
--- the Amazon Kinesis stream for real-time ingestion and subsequent
--- processing. The PutRecord operation requires the name of the stream that
--- captures, stores, and transports the data; a partition key; and the data
--- blob itself. The data blob could be a segment from a log file,
--- geographic/location data, website clickstream data, or any other data type.
--- The partition key is used to distribute data across shards. Amazon Kinesis
--- segregates the data records that belong to a data stream into multiple
--- shards, using the partition key associated with each data record to
--- determine which shard a given data record belongs to. Partition keys are
--- Unicode strings, with a maximum length limit of 256 bytes. An MD5 hash
--- function is used to map partition keys to 128-bit integer values and to map
--- associated data records to shards using the hash key ranges of the shards.
--- You can override hashing the partition key to determine the shard by
--- explicitly specifying a hash value using the ExplicitHashKey parameter. For
--- more information, see the Amazon Kinesis Developer Guide. PutRecord returns
--- the shard ID of where the data record was placed and the sequence number
--- that was assigned to the data record. Sequence numbers generally increase
--- over time. To guarantee strictly increasing ordering, use the
--- SequenceNumberForOrdering parameter. For more information, see the Amazon
--- Kinesis Developer Guide. If a PutRecord request cannot be processed because
--- of insufficient provisioned throughput on the shard involved in the
--- request, PutRecord throws ProvisionedThroughputExceededException. Data
--- records are accessible for only 24 hours from the time that they are added
--- to an Amazon Kinesis stream. Add Data to a Stream The following is an
--- example of an Amazon Kinesis PutRecord request and response. POST /
--- HTTP/1.1 Host: kinesis.. x-amz-Date: Authorization: AWS4-HMAC-SHA256
--- Credential=,
+-- | Puts a data record from a producer into an Amazon Kinesis stream. You must
+-- call PutRecord to send data from the producer into the Amazon Kinesis
+-- stream for real-time ingestion and subsequent processing. You must specify
+-- the name of the stream that captures, stores, and transports the data; a
+-- partition key; and the data blob itself. The data blob could be a segment
+-- from a log file, geographic/location data, website clickstream data, or any
+-- other data type. The partition key is used to distribute data across
+-- shards. Amazon Kinesis segregates the data records that belong to a data
+-- stream into multiple shards, using the partition key associated with each
+-- data record to determine which shard a given data record belongs to.
+-- Partition keys are Unicode strings, with a maximum length limit of 256
+-- bytes. An MD5 hash function is used to map partition keys to 128-bit
+-- integer values and to map associated data records to shards using the hash
+-- key ranges of the shards. You can override hashing the partition key to
+-- determine the shard by explicitly specifying a hash value using the
+-- ExplicitHashKey parameter. For more information, see the Amazon Kinesis
+-- Developer Guide. PutRecord returns the shard ID of where the data record
+-- was placed and the sequence number that was assigned to the data record.
+-- Sequence numbers generally increase over time. To guarantee strictly
+-- increasing ordering, use the SequenceNumberForOrdering parameter. For more
+-- information, see the Amazon Kinesis Developer Guide. If a PutRecord request
+-- cannot be processed because of insufficient provisioned throughput on the
+-- shard involved in the request, PutRecord throws
+-- ProvisionedThroughputExceededException. Data records are accessible for
+-- only 24 hours from the time that they are added to an Amazon Kinesis
+-- stream. To add data to a stream The following example add data to the
+-- specified stream. POST / HTTP/1.1 Host: kinesis.. x-amz-Date:
+-- Authorization: AWS4-HMAC-SHA256 Credential=,
 -- SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
 -- Signature= User-Agent: Content-Type: application/x-amz-json-1.1
 -- Content-Length: Connection: Keep-Alive]]> X-Amz-Target:
@@ -80,7 +79,7 @@ import Network.AWS.Kinesis.Types
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
--- | Represents the input of a PutRecord operation.
+-- | Represents the input for PutRecord.
 data PutRecord = PutRecord
     { _prStreamName :: Text
     , _prData :: Base64
@@ -162,7 +161,7 @@ instance ToHeaders PutRecord
 
 instance ToJSON PutRecord
 
--- | Represents the output of a PutRecord operation.
+-- | Represents the output for PutRecord.
 data PutRecordResponse = PutRecordResponse
     { _prrShardId :: Text
     , _prrSequenceNumber :: Text

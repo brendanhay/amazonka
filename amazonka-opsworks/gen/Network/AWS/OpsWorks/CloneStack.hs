@@ -174,8 +174,8 @@ csRegion :: Lens' CloneStack (Maybe Text)
 csRegion = lens _csRegion (\s a -> s { _csRegion = a })
 
 -- | The ID of the VPC that the cloned stack is to be launched into. It must be
--- in the specified region. All instances will be launched into this VPC, and
--- you cannot change the ID later. If your account supports EC2 Classic, the
+-- in the specified region. All instances are launched into this VPC, and you
+-- cannot change the ID later. If your account supports EC2 Classic, the
 -- default value is no VPC. If your account does not support EC2 Classic, the
 -- default value is the default VPC for the specified region. If the VPC ID
 -- corresponds to a default VPC and you have specified either the
@@ -218,7 +218,8 @@ csDefaultInstanceProfileArn =
          (\s a -> s { _csDefaultInstanceProfileArn = a })
 
 -- | The cloned stack's default operating system, which must be set to Amazon
--- Linux or Ubuntu 12.04 LTS. The default option is Amazon Linux.
+-- Linux, Ubuntu 12.04 LTS, or Ubuntu 14.04 LTS. The default option is Amazon
+-- Linux.
 csDefaultOs :: Lens' CloneStack (Maybe Text)
 csDefaultOs = lens _csDefaultOs (\s a -> s { _csDefaultOs = a })
 
@@ -243,10 +244,11 @@ csDefaultAvailabilityZone =
     lens _csDefaultAvailabilityZone
          (\s a -> s { _csDefaultAvailabilityZone = a })
 
--- | The stack's default subnet ID. All instances will be launched into this
--- subnet unless you specify otherwise when you create the instance. If you
--- also specify a value for DefaultAvailabilityZone, the subnet must be in the
--- same zone. For information on default values and when this parameter is
+-- | The stack's default VPC subnet ID. This parameter is required if you
+-- specify a value for the VpcId parameter. All instances are launched into
+-- this subnet unless you specify otherwise when you create the instance. If
+-- you also specify a value for DefaultAvailabilityZone, the subnet must be in
+-- that zone. For information on default values and when this parameter is
 -- required, see the VpcId parameter description.
 csDefaultSubnetId :: Lens' CloneStack (Maybe Text)
 csDefaultSubnetId =

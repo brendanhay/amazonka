@@ -17,7 +17,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Describes Amazon RDS instances.
+-- | Describes Amazon RDS instances. Required Permissions: To use this action,
+-- an IAM user must have a Show, Deploy, or Manage permissions level for the
+-- stack, or an attached policy that explicitly grants permissions. For more
+-- information on user permissions, see Managing User Permissions.
 module Network.AWS.OpsWorks.DescribeRdsDbInstances
     (
     -- * Request

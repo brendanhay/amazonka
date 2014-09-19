@@ -17,27 +17,25 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | This operation returns the following information about the stream: the
--- current status of the stream, the stream Amazon Resource Name (ARN), and an
--- array of shard objects that comprise the stream. For each shard object
--- there is information about the hash key and sequence number ranges that the
--- shard spans, and the IDs of any earlier shards that played in a role in a
--- MergeShards or SplitShard operation that created the shard. A sequence
--- number is the identifier associated with every record ingested in the
--- Amazon Kinesis stream. The sequence number is assigned by the Amazon
--- Kinesis service when a record is put into the stream. You can limit the
--- number of returned shards using the Limit parameter. The number of shards
--- in a stream may be too large to return from a single call to
--- DescribeStream. You can detect this by using the HasMoreShards flag in the
--- returned output. HasMoreShards is set to true when there is more data
--- available. If there are more shards available, you can request more shards
--- by using the shard ID of the last shard returned by the DescribeStream
--- request, in the ExclusiveStartShardId parameter in a subsequent request to
--- DescribeStream. DescribeStream is a paginated operation. DescribeStream has
--- a limit of 10 transactions per second per account. Obtain Information About
--- a Stream The following is an example of an Amazon Kinesis DescribeStream
--- request and response. POST / HTTP/1.1 Host: kinesis.. x-amz-Date:
--- Authorization: AWS4-HMAC-SHA256 Credential=,
+-- | Describes the specified stream. The information about the stream includes
+-- its current status, its Amazon Resource Name (ARN), and an array of shard
+-- objects. For each shard object, there is information about the hash key and
+-- sequence number ranges that the shard spans, and the IDs of any earlier
+-- shards that played in a role in creating the shard. A sequence number is
+-- the identifier associated with every record ingested in the Amazon Kinesis
+-- stream. The sequence number is assigned when a record is put into the
+-- stream. You can limit the number of returned shards using the Limit
+-- parameter. The number of shards in a stream may be too large to return from
+-- a single call to DescribeStream. You can detect this by using the
+-- HasMoreShards flag in the returned output. HasMoreShards is set to true
+-- when there is more data available. DescribeStream is a paginated operation.
+-- If there are more shards available, you can request them using the shard ID
+-- of the last shard returned. Specify this ID in the ExclusiveStartShardId
+-- parameter in a subsequent request to DescribeStream. DescribeStream has a
+-- limit of 10 transactions per second per account. To get information about a
+-- stream The following example describes the specified stream. POST /
+-- HTTP/1.1 Host: kinesis.. x-amz-Date: Authorization: AWS4-HMAC-SHA256
+-- Credential=,
 -- SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
 -- Signature= User-Agent: Content-Type: application/x-amz-json-1.1
 -- Content-Length: Connection: Keep-Alive]]> X-Amz-Target:
@@ -83,7 +81,7 @@ import Network.AWS.Kinesis.Types
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
--- | Represents the input of a DescribeStream operation.
+-- | Represents the input for DescribeStream.
 data DescribeStream = DescribeStream
     { _ds1StreamName :: Text
     , _ds1Limit :: Maybe Integer
@@ -117,7 +115,7 @@ ds1StreamName = lens _ds1StreamName (\s a -> s { _ds1StreamName = a })
 ds1Limit :: Lens' DescribeStream (Maybe Integer)
 ds1Limit = lens _ds1Limit (\s a -> s { _ds1Limit = a })
 
--- | The shard ID of the shard to start with for the stream description.
+-- | The shard ID of the shard to start with.
 ds1ExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
 ds1ExclusiveStartShardId =
     lens _ds1ExclusiveStartShardId
@@ -131,7 +129,7 @@ instance ToHeaders DescribeStream
 
 instance ToJSON DescribeStream
 
--- | Represents the output of a DescribeStream operation.
+-- | Represents the output for DescribeStream.
 newtype DescribeStreamResponse = DescribeStreamResponse
     { _dsrStreamDescription :: StreamDescription
     } deriving (Show, Generic)
@@ -151,9 +149,9 @@ describeStreamResponse p1 = DescribeStreamResponse
     { _dsrStreamDescription = p1
     }
 
--- | Contains the current status of the stream, the stream ARN, an array of
--- shard objects that comprise the stream, and states whether there are more
--- shards available.
+-- | The current status of the stream, the stream ARN, an array of shard objects
+-- that comprise the stream, and states whether there are more shards
+-- available.
 dsrStreamDescription :: Lens' DescribeStreamResponse StreamDescription
 dsrStreamDescription =
     lens _dsrStreamDescription (\s a -> s { _dsrStreamDescription = a })

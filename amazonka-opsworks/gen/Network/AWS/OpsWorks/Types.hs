@@ -64,6 +64,9 @@ module Network.AWS.OpsWorks.Types
     -- * StackAttributesKeys
     , StackAttributesKeys (..)
 
+    -- * VirtualizationType
+    , VirtualizationType (..)
+
     -- * App
     , App
     , app
@@ -80,6 +83,7 @@ module Network.AWS.OpsWorks.Types
     , aSslConfiguration
     , aAttributes
     , aCreatedAt
+    , aEnvironment
 
     -- * AutoScalingThresholds
     , AutoScalingThresholds
@@ -161,6 +165,13 @@ module Network.AWS.OpsWorks.Types
     , elbAvailabilityZones
     , elbSubnetIds
     , elbEc2InstanceIds
+
+    -- * EnvironmentVariable
+    , EnvironmentVariable
+    , environmentVariable
+    , evKey
+    , evValue
+    , evSecure
 
     -- * Instance
     , Instance
@@ -267,6 +278,7 @@ module Network.AWS.OpsWorks.Types
     , raMountPoint
     , raAvailabilityZone
     , raCreatedAt
+    , raStackId
     , raVolumeType
     , raIops
 
@@ -547,7 +559,8 @@ instance FromJSON AppAttributesKeys
 instance ToJSON AppAttributesKeys
 
 data AppType
-    = AppTypeNodejs -- ^ nodejs
+    = AppTypeJava -- ^ java
+    | AppTypeNodejs -- ^ nodejs
     | AppTypeOther -- ^ other
     | AppTypePhp -- ^ php
     | AppTypeRails -- ^ rails
@@ -557,13 +570,15 @@ data AppType
 instance Hashable AppType
 
 instance FromText AppType where
-    parser = match "nodejs" AppTypeNodejs
+    parser = match "java" AppTypeJava
+         <|> match "nodejs" AppTypeNodejs
          <|> match "other" AppTypeOther
          <|> match "php" AppTypePhp
          <|> match "rails" AppTypeRails
          <|> match "static" AppTypeStatic
 
 instance ToText AppType where
+    toText AppTypeJava = "java"
     toText AppTypeNodejs = "nodejs"
     toText AppTypeOther = "other"
     toText AppTypePhp = "php"
@@ -571,6 +586,7 @@ instance ToText AppType where
     toText AppTypeStatic = "static"
 
 instance ToByteString AppType where
+    toBS AppTypeJava = "java"
     toBS AppTypeNodejs = "nodejs"
     toBS AppTypeOther = "other"
     toBS AppTypePhp = "php"
@@ -826,6 +842,7 @@ instance ToJSON LayerAttributesKeys
 data LayerType
     = LayerTypeCustom -- ^ custom
     | LayerTypeDbMaster -- ^ db-master
+    | LayerTypeJavaApp -- ^ java-app
     | LayerTypeLb -- ^ lb
     | LayerTypeMemcached -- ^ memcached
     | LayerTypeMonitoringMaster -- ^ monitoring-master
@@ -840,6 +857,7 @@ instance Hashable LayerType
 instance FromText LayerType where
     parser = match "custom" LayerTypeCustom
          <|> match "db-master" LayerTypeDbMaster
+         <|> match "java-app" LayerTypeJavaApp
          <|> match "lb" LayerTypeLb
          <|> match "memcached" LayerTypeMemcached
          <|> match "monitoring-master" LayerTypeMonitoringMaster
@@ -851,6 +869,7 @@ instance FromText LayerType where
 instance ToText LayerType where
     toText LayerTypeCustom = "custom"
     toText LayerTypeDbMaster = "db-master"
+    toText LayerTypeJavaApp = "java-app"
     toText LayerTypeLb = "lb"
     toText LayerTypeMemcached = "memcached"
     toText LayerTypeMonitoringMaster = "monitoring-master"
@@ -862,6 +881,7 @@ instance ToText LayerType where
 instance ToByteString LayerType where
     toBS LayerTypeCustom = "custom"
     toBS LayerTypeDbMaster = "db-master"
+    toBS LayerTypeJavaApp = "java-app"
     toBS LayerTypeLb = "lb"
     toBS LayerTypeMemcached = "memcached"
     toBS LayerTypeMonitoringMaster = "monitoring-master"
@@ -971,6 +991,35 @@ instance FromJSON StackAttributesKeys
 
 instance ToJSON StackAttributesKeys
 
+data VirtualizationType
+    = VirtualizationTypeHvm -- ^ hvm
+    | VirtualizationTypeParavirtual -- ^ paravirtual
+      deriving (Eq, Show, Generic)
+
+instance Hashable VirtualizationType
+
+instance FromText VirtualizationType where
+    parser = match "hvm" VirtualizationTypeHvm
+         <|> match "paravirtual" VirtualizationTypeParavirtual
+
+instance ToText VirtualizationType where
+    toText VirtualizationTypeHvm = "hvm"
+    toText VirtualizationTypeParavirtual = "paravirtual"
+
+instance ToByteString VirtualizationType where
+    toBS VirtualizationTypeHvm = "hvm"
+    toBS VirtualizationTypeParavirtual = "paravirtual"
+
+instance ToHeader VirtualizationType where
+    toHeader k = toHeader k . toBS
+
+instance ToQuery VirtualizationType where
+    toQuery = toQuery . toBS
+
+instance FromJSON VirtualizationType
+
+instance ToJSON VirtualizationType
+
 -- | A description of the app.
 data App = App
     { _aAppId :: Maybe Text
@@ -986,6 +1035,7 @@ data App = App
     , _aSslConfiguration :: Maybe SslConfiguration
     , _aAttributes :: Map AppAttributesKeys Text
     , _aCreatedAt :: Maybe Text
+    , _aEnvironment :: [EnvironmentVariable]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1022,6 +1072,8 @@ data App = App
 --
 -- * @CreatedAt ::@ @Maybe Text@
 --
+-- * @Environment ::@ @[EnvironmentVariable]@
+--
 app :: App
 app = App
     { _aAppId = Nothing
@@ -1037,6 +1089,7 @@ app = App
     , _aSslConfiguration = Nothing
     , _aAttributes = mempty
     , _aCreatedAt = Nothing
+    , _aEnvironment = mempty
     }
 
 -- | The app ID.
@@ -1092,6 +1145,13 @@ aAttributes = lens _aAttributes (\s a -> s { _aAttributes = a })
 -- | When the app was created.
 aCreatedAt :: Lens' App (Maybe Text)
 aCreatedAt = lens _aCreatedAt (\s a -> s { _aCreatedAt = a })
+
+-- | An array of EnvironmentVariable objects that specify environment variables
+-- to be associated with the app. You can specify up to ten environment
+-- variables. After you deploy the app, these variables are defined on the
+-- associated app server instances.
+aEnvironment :: Lens' App [EnvironmentVariable]
+aEnvironment = lens _aEnvironment (\s a -> s { _aEnvironment = a })
 
 instance FromJSON App
 
@@ -1678,11 +1738,62 @@ elbEc2InstanceIds =
 
 instance FromJSON ElasticLoadBalancer
 
+-- | Represents an app's environment variable.
+data EnvironmentVariable = EnvironmentVariable
+    { _evKey :: Text
+    , _evValue :: Text
+    , _evSecure :: Maybe Bool
+    } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'EnvironmentVariable' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @Text@
+--
+-- * @Value ::@ @Text@
+--
+-- * @Secure ::@ @Maybe Bool@
+--
+environmentVariable :: Text -- ^ 'evKey'
+                      -> Text -- ^ 'evValue'
+                      -> EnvironmentVariable
+environmentVariable p1 p2 = EnvironmentVariable
+    { _evKey = p1
+    , _evValue = p2
+    , _evSecure = Nothing
+    }
+
+-- | (Required) The environment variable's name, which can consist of up to 64
+-- characters and must be specified. The name can contain upper- and lowercase
+-- letters, numbers, and underscores (_), but it must start with a letter or
+-- underscore.
+evKey :: Lens' EnvironmentVariable Text
+evKey = lens _evKey (\s a -> s { _evKey = a })
+
+-- | (Optional) The environment variable's value, which can be left empty. If
+-- you specify a value, it can contain up to 256 characters, which must all be
+-- printable.
+evValue :: Lens' EnvironmentVariable Text
+evValue = lens _evValue (\s a -> s { _evValue = a })
+
+-- | (Optional) Whether the variable's value will be returned by the
+-- DescribeApps action. To conceal an environment variable's value, set Secure
+-- to true. DescribeApps then returns **Filtered** instead of the actual
+-- value. The default value for Secure is false.
+evSecure :: Lens' EnvironmentVariable (Maybe Bool)
+evSecure = lens _evSecure (\s a -> s { _evSecure = a })
+
+instance FromJSON EnvironmentVariable
+
+instance ToJSON EnvironmentVariable
+
 -- | Describes an instance.
 data Instance = Instance
     { _iInstanceId :: Maybe Text
     , _iEc2InstanceId :: Maybe Text
-    , _iVirtualizationType :: Maybe Text
+    , _iVirtualizationType :: Maybe VirtualizationType
     , _iHostname :: Maybe Text
     , _iStackId :: Maybe Text
     , _iLayerIds :: [Text]
@@ -1724,7 +1835,7 @@ data Instance = Instance
 --
 -- * @Ec2InstanceId ::@ @Maybe Text@
 --
--- * @VirtualizationType ::@ @Maybe Text@
+-- * @VirtualizationType ::@ @Maybe VirtualizationType@
 --
 -- * @Hostname ::@ @Maybe Text@
 --
@@ -1823,7 +1934,7 @@ iEc2InstanceId :: Lens' Instance (Maybe Text)
 iEc2InstanceId = lens _iEc2InstanceId (\s a -> s { _iEc2InstanceId = a })
 
 -- | The instance's virtualization type, paravirtual or hvm.
-iVirtualizationType :: Lens' Instance (Maybe Text)
+iVirtualizationType :: Lens' Instance (Maybe VirtualizationType)
 iVirtualizationType =
     lens _iVirtualizationType (\s a -> s { _iVirtualizationType = a })
 
@@ -1857,8 +1968,9 @@ iInstanceProfileArn :: Lens' Instance (Maybe Text)
 iInstanceProfileArn =
     lens _iInstanceProfileArn (\s a -> s { _iInstanceProfileArn = a })
 
--- | The instance status: requested booting running_setup online setup_failed
--- start_failed terminating terminated stopped connection_lost.
+-- | The instance status: booting connection_lost online pending rebooting
+-- requested running_setup setup_failed shutting_down start_failed stopped
+-- stopping terminated terminating.
 iStatus :: Lens' Instance (Maybe Text)
 iStatus = lens _iStatus (\s a -> s { _iStatus = a })
 
@@ -1867,8 +1979,8 @@ iOs :: Lens' Instance (Maybe Text)
 iOs = lens _iOs (\s a -> s { _iOs = a })
 
 -- | A custom AMI ID to be used to create the instance. The AMI should be based
--- on one of the standard AWS OpsWorks APIs: Amazon Linux or Ubuntu 12.04 LTS.
--- For more information, see Instances.
+-- on one of the standard AWS OpsWorks APIs: Amazon Linux, Ubuntu 12.04 LTS,
+-- or Ubuntu 14.04 LTS. For more information, see Instances.
 iAmiId :: Lens' Instance (Maybe Text)
 iAmiId = lens _iAmiId (\s a -> s { _iAmiId = a })
 
@@ -1902,12 +2014,7 @@ iPrivateIp = lens _iPrivateIp (\s a -> s { _iPrivateIp = a })
 iElasticIp :: Lens' Instance (Maybe Text)
 iElasticIp = lens _iElasticIp (\s a -> s { _iElasticIp = a })
 
--- | The instance's auto scaling type, which has three possible values:
--- AlwaysRunning: A 24/7 instance, which is not affected by auto scaling.
--- TimeBasedAutoScaling: A time-based auto scaling instance, which is started
--- and stopped based on a specified schedule. LoadBasedAutoScaling: A
--- load-based auto scaling instance, which is started and stopped based on
--- load metrics.
+-- | For load-based or time-based instances, the type.
 iAutoScalingType :: Lens' Instance (Maybe AutoScalingType)
 iAutoScalingType =
     lens _iAutoScalingType (\s a -> s { _iAutoScalingType = a })
@@ -2433,6 +2540,7 @@ data RaidArray = RaidArray
     , _raMountPoint :: Maybe Text
     , _raAvailabilityZone :: Maybe Text
     , _raCreatedAt :: Maybe Text
+    , _raStackId :: Maybe Text
     , _raVolumeType :: Maybe Text
     , _raIops :: Maybe Integer
     } deriving (Show, Generic)
@@ -2465,6 +2573,8 @@ data RaidArray = RaidArray
 --
 -- * @CreatedAt ::@ @Maybe Text@
 --
+-- * @StackId ::@ @Maybe Text@
+--
 -- * @VolumeType ::@ @Maybe Text@
 --
 -- * @Iops ::@ @Maybe Integer@
@@ -2481,6 +2591,7 @@ raidArray = RaidArray
     , _raMountPoint = Nothing
     , _raAvailabilityZone = Nothing
     , _raCreatedAt = Nothing
+    , _raStackId = Nothing
     , _raVolumeType = Nothing
     , _raIops = Nothing
     }
@@ -2526,6 +2637,10 @@ raAvailabilityZone =
 -- | When the RAID array was created.
 raCreatedAt :: Lens' RaidArray (Maybe Text)
 raCreatedAt = lens _raCreatedAt (\s a -> s { _raCreatedAt = a })
+
+-- | The stack ID.
+raStackId :: Lens' RaidArray (Maybe Text)
+raStackId = lens _raStackId (\s a -> s { _raStackId = a })
 
 -- | The volume type, standard or PIOPS.
 raVolumeType :: Lens' RaidArray (Maybe Text)
@@ -3063,8 +3178,8 @@ srDefaultInstanceProfileArn =
     lens _srDefaultInstanceProfileArn
          (\s a -> s { _srDefaultInstanceProfileArn = a })
 
--- | The stack's default operating system, which must be set to Amazon Linux or
--- Ubuntu 12.04 LTS. The default option is Amazon Linux.
+-- | The stack's default operating system, which must be set to Amazon Linux,
+-- Ubuntu 12.04 LTS, or Ubuntu 14.04 LTS. The default option is Amazon Linux.
 srDefaultOs :: Lens' Stack (Maybe Text)
 srDefaultOs = lens _srDefaultOs (\s a -> s { _srDefaultOs = a })
 
@@ -3523,7 +3638,7 @@ vcNumberOfDisks = lens _vcNumberOfDisks (\s a -> s { _vcNumberOfDisks = a })
 vcSize :: Lens' VolumeConfiguration Integer
 vcSize = lens _vcSize (\s a -> s { _vcSize = a })
 
--- | The volume type, standard or PIOPS.
+-- | The volume type: standard, PIOPS, or gp2.
 vcVolumeType :: Lens' VolumeConfiguration (Maybe Text)
 vcVolumeType = lens _vcVolumeType (\s a -> s { _vcVolumeType = a })
 

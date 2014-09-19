@@ -17,44 +17,41 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | This operation adds a new Amazon Kinesis stream to your AWS account. A
--- stream captures and transports data records that are continuously emitted
--- from different data sources or producers. Scale-out within an Amazon
--- Kinesis stream is explicitly supported by means of shards, which are
--- uniquely identified groups of data records in an Amazon Kinesis stream. You
--- specify and control the number of shards that a stream is composed of. Each
--- open shard can support up to 5 read transactions per second, up to a
--- maximum total of 2 MB of data read per second. Each shard can support up to
--- 1000 write transactions per second, up to a maximum total of 1 MB data
--- written per second. You can add shards to a stream if the amount of data
--- input increases and you can remove shards if the amount of data input
--- decreases. The stream name identifies the stream. The name is scoped to the
--- AWS account used by the application. It is also scoped by region. That is,
--- two streams in two different accounts can have the same name, and two
--- streams in the same account, but in two different regions, can have the
--- same name. CreateStream is an asynchronous operation. Upon receiving a
--- CreateStream request, Amazon Kinesis immediately returns and sets the
--- stream status to CREATING. After the stream is created, Amazon Kinesis sets
--- the stream status to ACTIVE. You should perform read and write operations
--- only on an ACTIVE stream. You receive a LimitExceededException when making
--- a CreateStream request if you try to do one of the following: Have more
--- than five streams in the CREATING state at any point in time. Create more
--- shards than are authorized for your account. Note: The default limit for an
--- AWS account is 10 shards per stream. If you need to create a stream with
--- more than 10 shards, contact AWS Support to increase the limit on your
--- account. You can use the DescribeStream operation to check the stream
--- status, which is returned in StreamStatus. CreateStream has a limit of 5
--- transactions per second per account. Create a Stream The following is an
--- example of an Amazon Kinesis CreateStream request and response. POST /
--- HTTP/1.1 Host: kinesis.. x-amz-Date: Authorization: AWS4-HMAC-SHA256
--- Credential=,
+-- | Creates a Amazon Kinesis stream. A stream captures and transports data
+-- records that are continuously emitted from different data sources or
+-- producers. Scale-out within an Amazon Kinesis stream is explicitly
+-- supported by means of shards, which are uniquely identified groups of data
+-- records in an Amazon Kinesis stream. You specify and control the number of
+-- shards that a stream is composed of. Each open shard can support up to 5
+-- read transactions per second, up to a maximum total of 2 MB of data read
+-- per second. Each shard can support up to 1000 write transactions per
+-- second, up to a maximum total of 1 MB data written per second. You can add
+-- shards to a stream if the amount of data input increases and you can remove
+-- shards if the amount of data input decreases. The stream name identifies
+-- the stream. The name is scoped to the AWS account used by the application.
+-- It is also scoped by region. That is, two streams in two different accounts
+-- can have the same name, and two streams in the same account, but in two
+-- different regions, can have the same name. CreateStream is an asynchronous
+-- operation. Upon receiving a CreateStream request, Amazon Kinesis
+-- immediately returns and sets the stream status to CREATING. After the
+-- stream is created, Amazon Kinesis sets the stream status to ACTIVE. You
+-- should perform read and write operations only on an ACTIVE stream. You
+-- receive a LimitExceededException when making a CreateStream request if you
+-- try to do one of the following: Have more than five streams in the CREATING
+-- state at any point in time. Create more shards than are authorized for your
+-- account. The default limit for an AWS account is 10 shards per stream. If
+-- you need to create a stream with more than 10 shards, contact AWS Support
+-- to increase the limit on your account. You can use DescribeStream to check
+-- the stream status, which is returned in StreamStatus. CreateStream has a
+-- limit of 5 transactions per second per account. To create a stream The
+-- following example creates a stream with 3 shards. POST / HTTP/1.1 Host:
+-- kinesis.. x-amz-Date: Authorization: AWS4-HMAC-SHA256 Credential=,
 -- SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
 -- Signature= User-Agent: Content-Type: application/x-amz-json-1.1
 -- Content-Length: Connection: Keep-Alive]]> X-Amz-Target:
--- Kinesis_20131202.CreateStream {
--- "StreamName":"exampleStreamName","ShardCount":3 } HTTP/1.1 200 OK
--- x-amzn-RequestId: Content-Type: application/x-amz-json-1.1 Content-Length:
--- Date: ]]>.
+-- Kinesis_20131202.CreateStream { "StreamName": "exampleStreamName",
+-- "ShardCount":3 } HTTP/1.1 200 OK x-amzn-RequestId: Content-Type:
+-- application/x-amz-json-1.1 Content-Length: Date: ]]>.
 module Network.AWS.Kinesis.CreateStream
     (
     -- * Request
@@ -75,7 +72,7 @@ import Network.AWS.Kinesis.Types
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
--- | Represents the input of a CreateStream operation.
+-- | Represents the input for CreateStream.
 data CreateStream = CreateStream
     { _csStreamName :: Text
     , _csShardCount :: !Integer

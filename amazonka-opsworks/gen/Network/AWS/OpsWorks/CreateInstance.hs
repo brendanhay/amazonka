@@ -148,14 +148,7 @@ ciLayerIds = lens _ciLayerIds (\s a -> s { _ciLayerIds = a })
 ciInstanceType :: Lens' CreateInstance Text
 ciInstanceType = lens _ciInstanceType (\s a -> s { _ciInstanceType = a })
 
--- | The instance auto scaling type, which has three possible values:
--- AlwaysRunning: A 24/7 instance, which is not affected by auto scaling.
--- TimeBasedAutoScaling: A time-based auto scaling instance, which is started
--- and stopped based on a specified schedule. To specify the schedule, call
--- SetTimeBasedAutoScaling. LoadBasedAutoScaling: A load-based auto scaling
--- instance, which is started and stopped based on load metrics. To use
--- load-based auto scaling, you must enable it for the instance layer and
--- configure the thresholds by calling SetLoadBasedAutoScaling.
+-- | For load-based or time-based instances, the type.
 ciAutoScalingType :: Lens' CreateInstance (Maybe AutoScalingType)
 ciAutoScalingType =
     lens _ciAutoScalingType (\s a -> s { _ciAutoScalingType = a })
@@ -165,18 +158,19 @@ ciHostname :: Lens' CreateInstance (Maybe Text)
 ciHostname = lens _ciHostname (\s a -> s { _ciHostname = a })
 
 -- | The instance operating system, which must be set to one of the following.
--- Standard operating systems: Amazon Linux or Ubuntu 12.04 LTS Custom AMIs:
--- Custom The default option is Amazon Linux. If you set this parameter to
--- Custom, you must use the CreateInstance action's AmiId parameter to specify
--- the custom AMI that you want to use. For more information on the standard
--- operating systems, see Operating SystemsFor more information on how to use
--- custom AMIs with OpsWorks, see Using Custom AMIs.
+-- Standard operating systems: Amazon Linux, Ubuntu 12.04 LTS, or Ubuntu 14.04
+-- LTS. Custom AMIs: Custom The default option is Amazon Linux. If you set
+-- this parameter to Custom, you must use the CreateInstance action's AmiId
+-- parameter to specify the custom AMI that you want to use. For more
+-- information on the standard operating systems, see Operating SystemsFor
+-- more information on how to use custom AMIs with OpsWorks, see Using Custom
+-- AMIs.
 ciOs :: Lens' CreateInstance (Maybe Text)
 ciOs = lens _ciOs (\s a -> s { _ciOs = a })
 
 -- | A custom AMI ID to be used to create the instance. The AMI should be based
--- on one of the standard AWS OpsWorks APIs: Amazon Linux or Ubuntu 12.04 LTS.
--- For more information, see Instances.
+-- on one of the standard AWS OpsWorks AMIs: Amazon Linux, Ubuntu 12.04 LTS,
+-- or Ubuntu 14.04 LTS. For more information, see Instances.
 ciAmiId :: Lens' CreateInstance (Maybe Text)
 ciAmiId = lens _ciAmiId (\s a -> s { _ciAmiId = a })
 

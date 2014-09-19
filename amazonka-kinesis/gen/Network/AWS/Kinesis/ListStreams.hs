@@ -17,24 +17,21 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | This operation returns an array of the names of all the streams that are
--- associated with the AWS account making the ListStreams request. A given AWS
--- account can have many streams active at one time. The number of streams may
--- be too large to return from a single call to ListStreams. You can limit the
--- number of returned streams using the Limit parameter. If you do not specify
--- a value for the Limit parameter, Amazon Kinesis uses the default limit,
--- which is currently 10. You can detect if there are more streams available
--- to list by using the HasMoreStreams flag from the returned output. If there
--- are more streams available, you can request more streams by using the name
--- of the last stream returned by the ListStreams request in the
--- ExclusiveStartStreamName parameter in a subsequent request to ListStreams.
--- The group of stream names returned by the subsequent request is then added
--- to the list. You can continue this process until all the stream names have
--- been collected in the list. ListStreams has a limit of 5 transactions per
--- second per account. List the Streams for an AWS Account The following is an
--- example of an Amazon Kinesis ListStreams request and response. POST /
--- HTTP/1.1 Host: kinesis.. x-amz-Date: Authorization: AWS4-HMAC-SHA256
--- Credential=,
+-- | Lists your streams. The number of streams may be too large to return from a
+-- single call to ListStreams. You can limit the number of returned streams
+-- using the Limit parameter. If you do not specify a value for the Limit
+-- parameter, Amazon Kinesis uses the default limit, which is currently 10.
+-- You can detect if there are more streams available to list by using the
+-- HasMoreStreams flag from the returned output. If there are more streams
+-- available, you can request more streams by using the name of the last
+-- stream returned by the ListStreams request in the ExclusiveStartStreamName
+-- parameter in a subsequent request to ListStreams. The group of stream names
+-- returned by the subsequent request is then added to the list. You can
+-- continue this process until all the stream names have been collected in the
+-- list. ListStreams has a limit of 5 transactions per second per account. To
+-- list your streams The following example lists your streams, starting with
+-- the specified stream. POST / HTTP/1.1 Host: kinesis.. x-amz-Date:
+-- Authorization: AWS4-HMAC-SHA256 Credential=,
 -- SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
 -- Signature= User-Agent: Content-Type: application/x-amz-json-1.1
 -- Content-Length: Connection: Keep-Alive]]> X-Amz-Target:
@@ -64,7 +61,7 @@ import Network.AWS.Kinesis.Types
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
--- | Represents the input of a ListStreams operation.
+-- | Represents the input for ListStreams.
 data ListStreams = ListStreams
     { _lsLimit :: Maybe Integer
     , _lsExclusiveStartStreamName :: Maybe Text
@@ -103,7 +100,7 @@ instance ToHeaders ListStreams
 
 instance ToJSON ListStreams
 
--- | Represents the output of a ListStreams operation.
+-- | Represents the output for ListStreams.
 data ListStreamsResponse = ListStreamsResponse
     { _lsrStreamNames :: [Text]
     , _lsrHasMoreStreams :: !Bool

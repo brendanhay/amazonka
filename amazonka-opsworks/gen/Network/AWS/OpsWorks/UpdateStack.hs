@@ -169,8 +169,8 @@ usDefaultInstanceProfileArn =
     lens _usDefaultInstanceProfileArn
          (\s a -> s { _usDefaultInstanceProfileArn = a })
 
--- | The stack's default operating system, which must be set to Amazon Linux or
--- Ubuntu 12.04 LTS. The default option is Amazon Linux.
+-- | The stack's default operating system, which must be set to Amazon Linux,
+-- Ubuntu 12.04 LTS, or Ubuntu 14.04 LTS. The default option is Amazon Linux.
 usDefaultOs :: Lens' UpdateStack (Maybe Text)
 usDefaultOs = lens _usDefaultOs (\s a -> s { _usDefaultOs = a })
 
@@ -195,10 +195,12 @@ usDefaultAvailabilityZone =
     lens _usDefaultAvailabilityZone
          (\s a -> s { _usDefaultAvailabilityZone = a })
 
--- | The stack's default subnet ID. All instances will be launched into this
--- subnet unless you specify otherwise when you create the instance. If you
--- also specify a value for DefaultAvailabilityZone, the subnet must be in
--- that zone. For more information, see CreateStack.
+-- | The stack's default VPC subnet ID. This parameter is required if you
+-- specify a value for the VpcId parameter. All instances are launched into
+-- this subnet unless you specify otherwise when you create the instance. If
+-- you also specify a value for DefaultAvailabilityZone, the subnet must be in
+-- that zone. For information on default values and when this parameter is
+-- required, see the VpcId parameter description.
 usDefaultSubnetId :: Lens' UpdateStack (Maybe Text)
 usDefaultSubnetId =
     lens _usDefaultSubnetId (\s a -> s { _usDefaultSubnetId = a })

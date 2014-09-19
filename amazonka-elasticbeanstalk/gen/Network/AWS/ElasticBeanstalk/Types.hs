@@ -566,15 +566,18 @@ instance ToQuery EnvironmentHealth where
     toQuery = genericQuery def
 
 data EnvironmentInfoType
-    = EnvironmentInfoTypeTail -- ^ tail
+    = EnvironmentInfoTypeBundle -- ^ bundle
+    | EnvironmentInfoTypeTail -- ^ tail
       deriving (Eq, Show, Generic)
 
 instance Hashable EnvironmentInfoType
 
 instance FromText EnvironmentInfoType where
-    parser = match "tail" EnvironmentInfoTypeTail
+    parser = match "bundle" EnvironmentInfoTypeBundle
+         <|> match "tail" EnvironmentInfoTypeTail
 
 instance ToText EnvironmentInfoType where
+    toText EnvironmentInfoTypeBundle = "bundle"
     toText EnvironmentInfoTypeTail = "tail"
 
 instance ToByteString EnvironmentInfoType

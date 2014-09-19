@@ -20,8 +20,10 @@
 -- | Initiates a request to compile the specified type of information of the
 -- deployed environment. Setting the InfoType to tail compiles the last lines
 -- from the application server log files of every Amazon EC2 instance in your
--- environment. Use RetrieveEnvironmentInfo to access the compiled
--- information. Related Topics RetrieveEnvironmentInfo
+-- environment. Setting the InfoType to bundle compresses the application
+-- server log files for every Amazon EC2 instance into a .zip file. Legacy and
+-- .NET containers do not support bundle logs. Use RetrieveEnvironmentInfo to
+-- obtain the set of logs. Related Topics RetrieveEnvironmentInfo
 -- https://elasticbeanstalk.us-east-1.amazon.com/?EnvironmentId=e-hc8mvnayrx
 -- &EnvironmentName=SampleAppVersion &InfoType=tail
 -- &Operation=RequestEnvironmentInfo &AuthParams

@@ -17,7 +17,10 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Registers an Amazon RDS instance with a stack.
+-- | Registers an Amazon RDS instance with a stack. Required Permissions: To use
+-- this action, an IAM user must have a Manage permissions level for the
+-- stack, or an attached policy that explicitly grants permissions. For more
+-- information on user permissions, see Managing User Permissions.
 module Network.AWS.OpsWorks.RegisterRdsDbInstance
     (
     -- * Request

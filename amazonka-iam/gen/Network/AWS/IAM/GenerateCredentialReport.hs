@@ -19,7 +19,9 @@
 
 -- | Generates a credential report for the AWS account. For more information
 -- about the credential report, see Getting Credential Reports in the Using
--- IAM guide.
+-- IAM guide. https://iam.amazonaws.com/ ?Action=GenerateCredentialReport
+-- &Version=2010-05-08 &AUTHPARAMS No report exists. Starting a new report
+-- generation task STARTED 29f47818-99f5-11e1-a4c3-27EXAMPLE804.
 module Network.AWS.IAM.GenerateCredentialReport
     (
     -- * Request

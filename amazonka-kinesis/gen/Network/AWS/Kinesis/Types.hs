@@ -80,6 +80,12 @@ module Network.AWS.Kinesis.Types
     , sdStreamStatus
     , sdShards
     , sdHasMoreShards
+
+    -- * Tag
+    , Tag
+    , tag
+    , tKey
+    , tValue
     ) where
 
 import Network.AWS.Prelude
@@ -106,30 +112,39 @@ instance AWSService Kinesis where
 -- mechanisms, serialisation errors, and typed errors as specified by the
 -- service description where applicable.
 data KinesisError
-      -- | 
+      -- | The provided iterator exceeds the maximum age allowed.
     = ExpiredIteratorException
         { _eieMessage :: Maybe Text
         }
-      -- | 
+      -- | A specified parameter exceeds its restrictions, is not supported,
+      -- or can't be used. For more information, see the returned message.
     | InvalidArgumentException
         { _iaeMessage :: Maybe Text
         }
     | KinesisClient HttpException
     | KinesisSerializer String
     | KinesisService String
-      -- | 
+      -- | The requested resource exceeds the maximum number allowed, or the
+      -- number of concurrent stream requests exceeds the maximum number
+      -- allowed (5).
     | LimitExceededException
         { _leeMessage :: Maybe Text
         }
-      -- | 
+      -- | The request rate is too high, or the requested data is too large
+      -- for the available throughput. Reduce the frequency or size of
+      -- your requests. For more information, see Error Retries and
+      -- Exponential Backoff in AWS in the AWS General Reference.
     | ProvisionedThroughputExceededException
         { _pteeMessage :: Maybe Text
         }
-      -- | 
+      -- | The resource is not available for this operation. For example,
+      -- you attempted to split a shard but the stream is not in the
+      -- ACTIVE state.
     | ResourceInUseException
         { _riueMessage :: Maybe Text
         }
-      -- | 
+      -- | The requested resource could not be found. It might not be
+      -- specified correctly, or it might not be in the ACTIVE state.
     | ResourceNotFoundException
         { _rnfeMessage :: Maybe Text
         }
@@ -145,7 +160,7 @@ instance AWSServiceError KinesisError where
 
 instance Exception KinesisError
 
--- | 
+-- | The provided iterator exceeds the maximum age allowed.
 --
 -- See: 'ExpiredIteratorException'
 _ExpiredIteratorException :: Prism' KinesisError (Maybe Text)
@@ -155,7 +170,8 @@ _ExpiredIteratorException = prism
         ExpiredIteratorException p1 -> Right p1
         x -> Left x)
 
--- | 
+-- | A specified parameter exceeds its restrictions, is not supported, or can't
+-- be used. For more information, see the returned message.
 --
 -- See: 'InvalidArgumentException'
 _InvalidArgumentException :: Prism' KinesisError (Maybe Text)
@@ -189,7 +205,8 @@ _KinesisService = prism
         KinesisService p1 -> Right p1
         x -> Left x)
 
--- | 
+-- | The requested resource exceeds the maximum number allowed, or the number of
+-- concurrent stream requests exceeds the maximum number allowed (5).
 --
 -- See: 'LimitExceededException'
 _LimitExceededException :: Prism' KinesisError (Maybe Text)
@@ -199,7 +216,10 @@ _LimitExceededException = prism
         LimitExceededException p1 -> Right p1
         x -> Left x)
 
--- | 
+-- | The request rate is too high, or the requested data is too large for the
+-- available throughput. Reduce the frequency or size of your requests. For
+-- more information, see Error Retries and Exponential Backoff in AWS in the
+-- AWS General Reference.
 --
 -- See: 'ProvisionedThroughputExceededException'
 _ProvisionedThroughputExceededException :: Prism' KinesisError (Maybe Text)
@@ -209,7 +229,8 @@ _ProvisionedThroughputExceededException = prism
         ProvisionedThroughputExceededException p1 -> Right p1
         x -> Left x)
 
--- | 
+-- | The resource is not available for this operation. For example, you
+-- attempted to split a shard but the stream is not in the ACTIVE state.
 --
 -- See: 'ResourceInUseException'
 _ResourceInUseException :: Prism' KinesisError (Maybe Text)
@@ -219,7 +240,8 @@ _ResourceInUseException = prism
         ResourceInUseException p1 -> Right p1
         x -> Left x)
 
--- | 
+-- | The requested resource could not be found. It might not be specified
+-- correctly, or it might not be in the ACTIVE state.
 --
 -- See: 'ResourceNotFoundException'
 _ResourceNotFoundException :: Prism' KinesisError (Maybe Text)
@@ -489,9 +511,9 @@ sSequenceNumberRange =
 
 instance FromJSON Shard
 
--- | Contains the current status of the stream, the stream ARN, an array of
--- shard objects that comprise the stream, and states whether there are more
--- shards available.
+-- | The current status of the stream, the stream ARN, an array of shard objects
+-- that comprise the stream, and states whether there are more shards
+-- available.
 data StreamDescription = StreamDescription
     { _sdStreamName :: Text
     , _sdStreamARN :: Text
@@ -541,10 +563,9 @@ sdStreamARN :: Lens' StreamDescription Text
 sdStreamARN = lens _sdStreamARN (\s a -> s { _sdStreamARN = a })
 
 -- | The current status of the stream being described. The stream status is one
--- of the following states: CREATING - The stream is being created. Upon
--- receiving a CreateStream request, Amazon Kinesis immediately returns and
--- sets StreamStatus to CREATING. DELETING - The stream is being deleted.
--- After a DeleteStream request, the specified stream is in the DELETING state
+-- of the following states: CREATING - The stream is being created. Amazon
+-- Kinesis immediately returns and sets StreamStatus to CREATING. DELETING -
+-- The stream is being deleted. The specified stream is in the DELETING state
 -- until Amazon Kinesis completes the deletion. ACTIVE - The stream exists and
 -- is ready for read and write operations or deletion. You should perform read
 -- and write operations only on an ACTIVE stream. UPDATING - Shards in the
@@ -557,8 +578,46 @@ sdStreamStatus = lens _sdStreamStatus (\s a -> s { _sdStreamStatus = a })
 sdShards :: Lens' StreamDescription [Shard]
 sdShards = lens _sdShards (\s a -> s { _sdShards = a })
 
--- | If set to true there are more shards in the stream available to describe.
+-- | If set to true, more shards in the stream are available to describe.
 sdHasMoreShards :: Lens' StreamDescription Bool
 sdHasMoreShards = lens _sdHasMoreShards (\s a -> s { _sdHasMoreShards = a })
 
 instance FromJSON StreamDescription
+
+-- | Metadata assigned to the stream, consisting of a key-value pair.
+data Tag = Tag
+    { _tKey :: Text
+    , _tValue :: Maybe Text
+    } deriving (Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Tag' data type.
+--
+-- 'Tag' is exclusively used in responses and this constructor
+-- is provided for convenience and testing purposes.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @Key ::@ @Text@
+--
+-- * @Value ::@ @Maybe Text@
+--
+tag :: Text -- ^ 'tKey'
+      -> Tag
+tag p1 = Tag
+    { _tKey = p1
+    , _tValue = Nothing
+    }
+
+-- | A unique identifier for the tag. Maximum length: 128 characters. Valid
+-- characters: Unicode letters, digits, white space, _ . / = + - % @.
+tKey :: Lens' Tag Text
+tKey = lens _tKey (\s a -> s { _tKey = a })
+
+-- | An optional string, typically used to describe or define the tag. Maximum
+-- length: 256 characters. Valid characters: Unicode letters, digits, white
+-- space, _ . / = + - % @.
+tValue :: Lens' Tag (Maybe Text)
+tValue = lens _tValue (\s a -> s { _tValue = a })
+
+instance FromJSON Tag

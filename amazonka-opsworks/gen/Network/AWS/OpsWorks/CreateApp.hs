@@ -40,6 +40,7 @@ module Network.AWS.OpsWorks.CreateApp
     , caEnableSsl
     , caSslConfiguration
     , caAttributes
+    , caEnvironment
 
     -- * Response
     , CreateAppResponse
@@ -65,6 +66,7 @@ data CreateApp = CreateApp
     , _caEnableSsl :: Maybe Bool
     , _caSslConfiguration :: Maybe SslConfiguration
     , _caAttributes :: Map AppAttributesKeys Text
+    , _caEnvironment :: [EnvironmentVariable]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -94,6 +96,8 @@ data CreateApp = CreateApp
 --
 -- * @Attributes ::@ @Map AppAttributesKeys Text@
 --
+-- * @Environment ::@ @[EnvironmentVariable]@
+--
 createApp :: Text -- ^ 'caStackId'
             -> Text -- ^ 'caName'
             -> AppType -- ^ 'caType'
@@ -110,6 +114,7 @@ createApp p1 p3 p6 = CreateApp
     , _caEnableSsl = Nothing
     , _caSslConfiguration = Nothing
     , _caAttributes = mempty
+    , _caEnvironment = mempty
     }
 
 -- | The stack ID.
@@ -161,6 +166,15 @@ caSslConfiguration =
 -- attributes.
 caAttributes :: Lens' CreateApp (Map AppAttributesKeys Text)
 caAttributes = lens _caAttributes (\s a -> s { _caAttributes = a })
+
+-- | An array of EnvironmentVariable objects that specify environment variables
+-- to be associated with the app. You can specify up to ten environment
+-- variables. After you deploy the app, these variables are defined on the
+-- associated app server instance. This parameter is supported only by Chef
+-- 11.10 stacks. If you have specified one or more environment variables, you
+-- cannot modify the stack's Chef version.
+caEnvironment :: Lens' CreateApp [EnvironmentVariable]
+caEnvironment = lens _caEnvironment (\s a -> s { _caEnvironment = a })
 
 instance ToPath CreateApp
 

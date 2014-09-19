@@ -17,21 +17,21 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | This operation deletes a stream and all of its shards and data. You must
--- shut down any applications that are operating on the stream before you
--- delete the stream. If an application attempts to operate on a deleted
--- stream, it will receive the exception ResourceNotFoundException. If the
--- stream is in the ACTIVE state, you can delete it. After a DeleteStream
--- request, the specified stream is in the DELETING state until Amazon Kinesis
--- completes the deletion. Note: Amazon Kinesis might continue to accept data
--- read and write operations, such as PutRecord and GetRecords, on a stream in
--- the DELETING state until the stream deletion is complete. When you delete a
--- stream, any shards in that stream are also deleted. You can use the
--- DescribeStream operation to check the state of the stream, which is
--- returned in StreamStatus. DeleteStream has a limit of 5 transactions per
--- second per account. Delete a Stream The following is an example of an
--- Amazon Kinesis DeleteStream request and response. POST / HTTP/1.1 Host:
--- kinesis.. x-amz-Date: Authorization: AWS4-HMAC-SHA256 Credential=,
+-- | Deletes a stream and all its shards and data. You must shut down any
+-- applications that are operating on the stream before you delete the stream.
+-- If an application attempts to operate on a deleted stream, it will receive
+-- the exception ResourceNotFoundException. If the stream is in the ACTIVE
+-- state, you can delete it. After a DeleteStream request, the specified
+-- stream is in the DELETING state until Amazon Kinesis completes the
+-- deletion. Note: Amazon Kinesis might continue to accept data read and write
+-- operations, such as PutRecord and GetRecords, on a stream in the DELETING
+-- state until the stream deletion is complete. When you delete a stream, any
+-- shards in that stream are also deleted, and any tags are dissociated from
+-- the stream. You can use the DescribeStream operation to check the state of
+-- the stream, which is returned in StreamStatus. DeleteStream has a limit of
+-- 5 transactions per second per account. To delete a stream The following
+-- example deletes the specified stream. POST / HTTP/1.1 Host: kinesis..
+-- x-amz-Date: Authorization: AWS4-HMAC-SHA256 Credential=,
 -- SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
 -- Signature= User-Agent: Content-Type: application/x-amz-json-1.1
 -- Content-Length: Connection: Keep-Alive]]> X-Amz-Target:
@@ -57,7 +57,7 @@ import Network.AWS.Kinesis.Types
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
--- | Represents the input of a DeleteStream operation.
+-- | Represents the input for DeleteStream.
 newtype DeleteStream = DeleteStream
     { _dsStreamName :: Text
     } deriving (Show, Generic)

@@ -157,10 +157,10 @@ cs1Region :: Lens' CreateStack Text
 cs1Region = lens _cs1Region (\s a -> s { _cs1Region = a })
 
 -- | The ID of the VPC that the stack is to be launched into. It must be in the
--- specified region. All instances will be launched into this VPC, and you
--- cannot change the ID later. If your account supports EC2 Classic, the
--- default value is no VPC. If your account does not support EC2 Classic, the
--- default value is the default VPC for the specified region. If the VPC ID
+-- specified region. All instances are launched into this VPC, and you cannot
+-- change the ID later. If your account supports EC2 Classic, the default
+-- value is no VPC. If your account does not support EC2 Classic, the default
+-- value is the default VPC for the specified region. If the VPC ID
 -- corresponds to a default VPC and you have specified either the
 -- DefaultAvailabilityZone or the DefaultSubnetId parameter only, AWS OpsWorks
 -- infers the value of the other parameter. If you specify neither parameter,
@@ -195,8 +195,8 @@ cs1DefaultInstanceProfileArn =
     lens _cs1DefaultInstanceProfileArn
          (\s a -> s { _cs1DefaultInstanceProfileArn = a })
 
--- | The stack's default operating system, which must be set to Amazon Linux or
--- Ubuntu 12.04 LTS. The default option is Amazon Linux.
+-- | The stack's default operating system, which must be set to Amazon Linux,
+-- Ubuntu 12.04 LTS, or Ubuntu 14.04 LTS. The default option is Amazon Linux.
 cs1DefaultOs :: Lens' CreateStack (Maybe Text)
 cs1DefaultOs = lens _cs1DefaultOs (\s a -> s { _cs1DefaultOs = a })
 
@@ -222,9 +222,10 @@ cs1DefaultAvailabilityZone =
     lens _cs1DefaultAvailabilityZone
          (\s a -> s { _cs1DefaultAvailabilityZone = a })
 
--- | The stack's default subnet ID. All instances will be launched into this
--- subnet unless you specify otherwise when you create the instance. If you
--- also specify a value for DefaultAvailabilityZone, the subnet must be in
+-- | The stack's default VPC subnet ID. This parameter is required if you
+-- specify a value for the VpcId parameter. All instances are launched into
+-- this subnet unless you specify otherwise when you create the instance. If
+-- you also specify a value for DefaultAvailabilityZone, the subnet must be in
 -- that zone. For information on default values and when this parameter is
 -- required, see the VpcId parameter description.
 cs1DefaultSubnetId :: Lens' CreateStack (Maybe Text)

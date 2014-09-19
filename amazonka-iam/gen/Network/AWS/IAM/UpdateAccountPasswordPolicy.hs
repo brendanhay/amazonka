@@ -17,13 +17,16 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | Updates the password policy settings for the account. For more information
--- about using a password policy, see Managing an IAM Password Policy in the
--- Using IAM guide. https://iam.amazonaws.com/
--- ?Action=UpdateAccountPasswordPolicy &MinimumPasswordLength=12
--- &RequireSymbols=false &RequireNumbers=true &RequireUppercaseCharacters=true
--- &RequireLowercaseCharacters=true &AllowUsersToChangePassword=true
--- &MaxPasswordAge=90 &PasswordReusePrevention=6 &HardExpiry=false
+-- | Updates the password policy settings for the AWS account. This API does not
+-- support partial updates. No parameters are required, but if you do not
+-- specify a parameter, that parameter's value reverts to its default value.
+-- See the Request Parameters section for each parameter's default value. For
+-- more information about using a password policy, see Managing an IAM
+-- Password Policy in the Using IAM guide. https://iam.amazonaws.com/
+-- ?Action=UpdateAccountPasswordPolicy &AllowUsersToChangePassword=true
+-- &HardExpiry=false &MaxPasswordAge=90 &MinimumPasswordLength=12
+-- &PasswordReusePrevention=12 &RequireLowercaseCharacters=true
+-- &RequireNumbers=true &RequireSymbols=true &RequireUppercaseCharacters=true
 -- &Version=2010-05-08 &AUTHPARAMS 7a62c49f-347e-4fc4-9331-6e8eEXAMPLE.
 module Network.AWS.IAM.UpdateAccountPasswordPolicy
     (
@@ -100,7 +103,8 @@ updateAccountPasswordPolicy = UpdateAccountPasswordPolicy
     , _uappHardExpiry = Nothing
     }
 
--- | The minimum number of characters allowed in an IAM user password.
+-- | The minimum number of characters allowed in an IAM user password. Default
+-- value: 6.
 uappMinimumPasswordLength :: Lens' UpdateAccountPasswordPolicy (Maybe Integer)
 uappMinimumPasswordLength =
     lens _uappMinimumPasswordLength
@@ -108,26 +112,26 @@ uappMinimumPasswordLength =
 
 -- | Specifies whether IAM user passwords must contain at least one of the
 -- following non-alphanumeric characters: ! @ # $ % ^ &amp; * ( ) _ + - = [ ]
--- { } | '.
+-- { } | ' Default value: false.
 uappRequireSymbols :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappRequireSymbols =
     lens _uappRequireSymbols (\s a -> s { _uappRequireSymbols = a })
 
 -- | Specifies whether IAM user passwords must contain at least one numeric
--- character (0 to 9).
+-- character (0 to 9). Default value: false.
 uappRequireNumbers :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappRequireNumbers =
     lens _uappRequireNumbers (\s a -> s { _uappRequireNumbers = a })
 
 -- | Specifies whether IAM user passwords must contain at least one uppercase
--- character from the ISO basic Latin alphabet (A to Z).
+-- character from the ISO basic Latin alphabet (A to Z). Default value: false.
 uappRequireUppercaseCharacters :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappRequireUppercaseCharacters =
     lens _uappRequireUppercaseCharacters
          (\s a -> s { _uappRequireUppercaseCharacters = a })
 
 -- | Specifies whether IAM user passwords must contain at least one lowercase
--- character from the ISO basic Latin alphabet (a to z).
+-- character from the ISO basic Latin alphabet (a to z). Default value: false.
 uappRequireLowercaseCharacters :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappRequireLowercaseCharacters =
     lens _uappRequireLowercaseCharacters
@@ -135,26 +139,28 @@ uappRequireLowercaseCharacters =
 
 -- | Allows all IAM users in your account to use the AWS Management Console to
 -- change their own passwords. For more information, see Letting IAM Users
--- Change Their Own Passwords in the Using IAM guide.
+-- Change Their Own Passwords in the Using IAM guide. Default value: false.
 uappAllowUsersToChangePassword :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappAllowUsersToChangePassword =
     lens _uappAllowUsersToChangePassword
          (\s a -> s { _uappAllowUsersToChangePassword = a })
 
--- | The number of days that an IAM user password is valid.
+-- | The number of days that an IAM user password is valid. The default value of
+-- 0 means IAM user passwords never expire. Default value: 0.
 uappMaxPasswordAge :: Lens' UpdateAccountPasswordPolicy (Maybe Integer)
 uappMaxPasswordAge =
     lens _uappMaxPasswordAge (\s a -> s { _uappMaxPasswordAge = a })
 
 -- | Specifies the number of previous passwords that IAM users are prevented
--- from reusing.
+-- from reusing. The default value of 0 means IAM users are not prevented from
+-- reusing previous passwords. Default value: 0.
 uappPasswordReusePrevention :: Lens' UpdateAccountPasswordPolicy (Maybe Integer)
 uappPasswordReusePrevention =
     lens _uappPasswordReusePrevention
          (\s a -> s { _uappPasswordReusePrevention = a })
 
 -- | Prevents IAM users from setting a new password after their password has
--- expired.
+-- expired. Default value: false.
 uappHardExpiry :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappHardExpiry = lens _uappHardExpiry (\s a -> s { _uappHardExpiry = a })
 

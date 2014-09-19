@@ -19,7 +19,9 @@
 
 -- | Retrieves a credential report for the AWS account. For more information
 -- about the credential report, see Getting Credential Reports in the Using
--- IAM guide.
+-- IAM guide. https://iam.amazonaws.com/ ?Action=GetCredentialReport
+-- &Version=2010-05-08 &AUTHPARAMS BASE-64 ENCODED FILE CONTENTS text/csv
+-- 2014-08-28T21:42:50Z 29f47818-99f5-11e1-a4c3-27EXAMPLE804.
 module Network.AWS.IAM.GetCredentialReport
     (
     -- * Request

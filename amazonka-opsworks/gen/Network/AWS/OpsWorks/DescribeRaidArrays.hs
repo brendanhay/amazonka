@@ -30,6 +30,7 @@ module Network.AWS.OpsWorks.DescribeRaidArrays
     , describeRaidArrays
     -- ** Request lenses
     , draInstanceId
+    , draStackId
     , draRaidArrayIds
 
     -- * Response
@@ -46,6 +47,7 @@ import Network.AWS.Request.JSON
 
 data DescribeRaidArrays = DescribeRaidArrays
     { _draInstanceId :: Maybe Text
+    , _draStackId :: Maybe Text
     , _draRaidArrayIds :: [Text]
     } deriving (Show, Generic)
 
@@ -56,11 +58,14 @@ data DescribeRaidArrays = DescribeRaidArrays
 --
 -- * @InstanceId ::@ @Maybe Text@
 --
+-- * @StackId ::@ @Maybe Text@
+--
 -- * @RaidArrayIds ::@ @[Text]@
 --
 describeRaidArrays :: DescribeRaidArrays
 describeRaidArrays = DescribeRaidArrays
     { _draInstanceId = Nothing
+    , _draStackId = Nothing
     , _draRaidArrayIds = mempty
     }
 
@@ -68,6 +73,10 @@ describeRaidArrays = DescribeRaidArrays
 -- descriptions of the RAID arrays associated with the specified instance.
 draInstanceId :: Lens' DescribeRaidArrays (Maybe Text)
 draInstanceId = lens _draInstanceId (\s a -> s { _draInstanceId = a })
+
+-- | The stack ID.
+draStackId :: Lens' DescribeRaidArrays (Maybe Text)
+draStackId = lens _draStackId (\s a -> s { _draStackId = a })
 
 -- | An array of RAID array IDs. If you use this parameter, DescribeRaidArrays
 -- returns descriptions of the specified arrays. Otherwise, it returns a

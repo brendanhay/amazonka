@@ -38,6 +38,7 @@ module Network.AWS.OpsWorks.UpdateApp
     , uaEnableSsl
     , uaSslConfiguration
     , uaAttributes
+    , uaEnvironment
 
     -- * Response
     , UpdateAppResponse
@@ -60,6 +61,7 @@ data UpdateApp = UpdateApp
     , _uaEnableSsl :: Maybe Bool
     , _uaSslConfiguration :: Maybe SslConfiguration
     , _uaAttributes :: Map AppAttributesKeys Text
+    , _uaEnvironment :: [EnvironmentVariable]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -87,6 +89,8 @@ data UpdateApp = UpdateApp
 --
 -- * @Attributes ::@ @Map AppAttributesKeys Text@
 --
+-- * @Environment ::@ @[EnvironmentVariable]@
+--
 updateApp :: Text -- ^ 'uaAppId'
             -> UpdateApp
 updateApp p1 = UpdateApp
@@ -100,6 +104,7 @@ updateApp p1 = UpdateApp
     , _uaEnableSsl = Nothing
     , _uaSslConfiguration = Nothing
     , _uaAttributes = mempty
+    , _uaEnvironment = mempty
     }
 
 -- | The app ID.
@@ -144,6 +149,15 @@ uaSslConfiguration =
 -- attributes.
 uaAttributes :: Lens' UpdateApp (Map AppAttributesKeys Text)
 uaAttributes = lens _uaAttributes (\s a -> s { _uaAttributes = a })
+
+-- | An array of EnvironmentVariable objects that specify environment variables
+-- to be associated with the app. You can specify up to ten environment
+-- variables. After you deploy the app, these variables are defined on the
+-- associated app server instances. This parameter is supported only by Chef
+-- 11.10 stacks. If you have specified one or more environment variables, you
+-- cannot modify the stack's Chef version.
+uaEnvironment :: Lens' UpdateApp [EnvironmentVariable]
+uaEnvironment = lens _uaEnvironment (\s a -> s { _uaEnvironment = a })
 
 instance ToPath UpdateApp
 

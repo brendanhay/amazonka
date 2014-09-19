@@ -17,14 +17,13 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
--- | This operation returns a shard iterator in ShardIterator. The shard
--- iterator specifies the position in the shard from which you want to start
--- reading data records sequentially. A shard iterator specifies this position
--- using the sequence number of a data record in a shard. A sequence number is
--- the identifier associated with every record ingested in the Amazon Kinesis
--- stream. The sequence number is assigned by the Amazon Kinesis service when
--- a record is put into the stream. You must specify the shard iterator type
--- in the GetShardIterator request. For example, you can set the
+-- | Gets a shard iterator in ShardIterator. The shard iterator specifies the
+-- position in the shard from which you want to start reading data records
+-- sequentially. A shard iterator specifies this position using the sequence
+-- number of a data record in a shard. A sequence number is the identifier
+-- associated with every record ingested in the Amazon Kinesis stream. The
+-- sequence number is assigned when a record is put into the stream. You must
+-- specify the shard iterator type. For example, you can set the
 -- ShardIteratorType parameter to read exactly from the position denoted by a
 -- specific sequence number by using the AT_SEQUENCE_NUMBER shard iterator
 -- type, or right after the sequence number by using the AFTER_SEQUENCE_NUMBER
@@ -47,11 +46,11 @@
 -- throughput limits, see the Amazon Kinesis Developer Guide. GetShardIterator
 -- can return null for its ShardIterator to indicate that the shard has been
 -- closed and that the requested iterator will return no more data. A shard
--- can be closed by a SplitShard or MergeShards operation. GetShardIterator
--- has a limit of 5 transactions per second per account per open shard. Get a
--- Shard Iterator The following is an example of an Amazon Kinesis
--- GetShardIterator request and response. POST / HTTP/1.1 Host: kinesis..
--- x-amz-Date: Authorization: AWS4-HMAC-SHA256 Credential=,
+-- can be closed by SplitShard or MergeShards. GetShardIterator has a limit of
+-- 5 transactions per second per account per open shard. To get a shard
+-- iterator The following example gets the specified shard iterator. POST /
+-- HTTP/1.1 Host: kinesis.. x-amz-Date: Authorization: AWS4-HMAC-SHA256
+-- Credential=,
 -- SignedHeaders=content-type;date;host;user-agent;x-amz-date;x-amz-target;x-amzn-requestid,
 -- Signature= User-Agent: Content-Type: application/x-amz-json-1.1
 -- Content-Length: Connection: Keep-Alive]]> X-Amz-Target:
@@ -85,7 +84,7 @@ import Network.AWS.Kinesis.Types
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
--- | Represents the input of a GetShardIterator operation.
+-- | Represents the input for GetShardIterator.
 data GetShardIterator = GetShardIterator
     { _gsiStreamName :: Text
     , _gsiShardId :: Text
@@ -153,7 +152,7 @@ instance ToHeaders GetShardIterator
 
 instance ToJSON GetShardIterator
 
--- | Represents the output of a GetShardIterator operation.
+-- | Represents the output for GetShardIterator.
 newtype GetShardIteratorResponse = GetShardIteratorResponse
     { _gsirShardIterator :: Maybe Text
     } deriving (Show, Generic)

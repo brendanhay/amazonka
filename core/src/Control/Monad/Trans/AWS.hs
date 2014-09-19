@@ -35,6 +35,7 @@ module Control.Monad.Trans.AWS
     , envRegion
     , envManager
     , envLogging
+    , scoped
     -- ** Creating the environment
     , Credentials (..)
     , newEnv
@@ -45,12 +46,13 @@ module Control.Monad.Trans.AWS
 
     -- * Regionalisation
     , Region      (..)
-    , region
     , within
 
-    -- * Helpers
+    -- * Errors
     , hoistEither
-    , scoped
+    , throwAWSError
+    , verify
+    , verify'
 
     -- * Requests
     -- ** Synchronous
@@ -182,7 +184,30 @@ resources = AWST (ReaderT (return . snd))
 
 -- | Hoist an 'Either' throwing the 'Left' case, and returning the 'Right'.
 hoistEither :: (MonadError Error m, AWSError e) => Either e a -> m a
-hoistEither = either (throwError . awsError) return
+hoistEither = either throwAWSError return
+
+throwAWSError :: (MonadError Error m, AWSError e) => e -> m a
+throwAWSError = throwError . awsError
+
+verify :: (AWSError e, MonadError Error m)
+       => Prism' e a
+       -> (a -> Bool)
+       -> e
+       -> m ()
+verify p f e = either (const err) g (matching p e)
+  where
+    g x | f x       = return ()
+        | otherwise = err
+
+    err = throwAWSError e
+
+verify' :: (AWSError e, MonadError Error m)
+        => Prism' e a
+        -> e
+        -> m ()
+verify' p e
+    | isn't p e = throwAWSError e
+    | otherwise = return ()
 
 -- | Pass the current environment to a function.
 scoped :: MonadReader Env m => (Env -> m a) -> m a
@@ -201,10 +226,6 @@ whenDebug f = do
     case l of
         Debug _ -> f
         _       -> return ()
-
--- | Inspect the current scopes' 'Region'.
-region :: MonadReader Env m => m Region
-region = view envRegion
 
 -- | Scope a monadic action within the specific 'Region'.
 within :: MonadReader Env m => Region -> m a -> m a

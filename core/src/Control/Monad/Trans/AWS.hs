@@ -103,11 +103,11 @@ type AWS = AWST IO
 --
 -- Note: requires the @ConstraintKinds@ extension.
 type MonadAWS m =
-    ( MonadBaseControl IO m -- ^ async
-    , MonadCatch m          -- ^ send/sendCatch
-    , MonadResource m       -- ^ send/sendCatch
-    , MonadError Error m    -- ^ send
-    , MonadReader Env m     -- ^ *
+    ( MonadBaseControl IO m
+    , MonadCatch m
+    , MonadResource m
+    , MonadError Error m
+    , MonadReader Env m
     )
 
 -- | The transformer. This satisfies all of the constraints that the functions

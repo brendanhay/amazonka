@@ -13,11 +13,12 @@
 
 module Network.AWS.Route53.Internal.Types where
 
+import Data.String
 import GHC.Generics
 import Network.AWS.Prelude
 
 newtype ResourceId = ResourceId Text
-    deriving (Eq, Show, Generic, IsString)
+    deriving (Eq, Show, Generic)
 
 instance FromText     ResourceId where parser = ResourceId <$> takeText
 instance ToText       ResourceId where toText (ResourceId t) = t
@@ -25,6 +26,7 @@ instance ToByteString ResourceId
 instance FromXML      ResourceId
 instance ToXML        ResourceId
 instance ToQuery      ResourceId where toQuery = toQuery . toBS
+instance IsString     ResourceId where fromString = ResourceId . fromString
 
 data RecordType = A | AAAA | CNAME | MX | NS | PTR | SOA | SPF | SRV | TXT
     deriving (Eq, Read, Show, Ord, Generic)

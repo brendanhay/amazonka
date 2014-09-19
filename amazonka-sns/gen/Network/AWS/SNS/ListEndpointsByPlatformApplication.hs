@@ -111,7 +111,7 @@ instance ToQuery ListEndpointsByPlatformApplication where
 
 -- | Response for ListEndpointsByPlatformApplication action.
 data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse
-    { _lebparEndpoints :: [Endpoint]
+    { _lebparEndpoints :: [Endpoint']
     , _lebparNextToken :: Maybe Text
     } deriving (Show, Generic)
 
@@ -122,7 +122,7 @@ data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplica
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Endpoints ::@ @[Endpoint]@
+-- * @Endpoints ::@ @[Endpoint']@
 --
 -- * @NextToken ::@ @Maybe Text@
 --
@@ -133,7 +133,7 @@ listEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationR
     }
 
 -- | Endpoints returned for ListEndpointsByPlatformApplication action.
-lebparEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse [Endpoint]
+lebparEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse [Endpoint']
 lebparEndpoints = lens _lebparEndpoints (\s a -> s { _lebparEndpoints = a })
 
 -- | NextToken string is returned when calling

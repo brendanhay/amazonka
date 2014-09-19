@@ -100,8 +100,8 @@ module Network.AWS.Support.Types
     , rccCommunications
     , rccNextToken
 
-    -- * Service
-    , Service
+    -- * Service'
+    , Service'
     , service'
     , sCode
     , sName
@@ -744,16 +744,16 @@ instance ToJSON RecentCaseCommunications
 
 -- | Information about an AWS service returned by the DescribeServices
 -- operation.
-data Service = Service
+data Service' = Service'
     { _sCode :: Maybe Text
     , _sName :: Maybe Text
     , _sCategories :: [Category]
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Service' data type.
+-- a valid 'Service'' data type.
 --
--- 'Service' is exclusively used in responses and this constructor
+-- 'Service'' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
 --
 -- The fields accessible through corresponding lenses are:
@@ -764,8 +764,8 @@ data Service = Service
 --
 -- * @Categories ::@ @[Category]@
 --
-service' :: Service
-service' = Service
+service' :: Service'
+service' = Service'
     { _sCode = Nothing
     , _sName = Nothing
     , _sCategories = mempty
@@ -773,22 +773,22 @@ service' = Service
 
 -- | The code for an AWS service returned by the DescribeServices response. The
 -- Name element contains the corresponding friendly name.
-sCode :: Lens' Service (Maybe Text)
+sCode :: Lens' Service' (Maybe Text)
 sCode = lens _sCode (\s a -> s { _sCode = a })
 
 -- | The friendly name for an AWS service. The Code element contains the
 -- corresponding code.
-sName :: Lens' Service (Maybe Text)
+sName :: Lens' Service' (Maybe Text)
 sName = lens _sName (\s a -> s { _sName = a })
 
 -- | A list of categories that describe the type of support issue a case
 -- describes. Categories consist of a category name and a category code.
 -- Category names and codes are passed to AWS Support when you call
 -- CreateCase.
-sCategories :: Lens' Service [Category]
+sCategories :: Lens' Service' [Category]
 sCategories = lens _sCategories (\s a -> s { _sCategories = a })
 
-instance FromJSON Service
+instance FromJSON Service'
 
 -- | A code and name pair that represent a severity level that can be applied to
 -- a support case.

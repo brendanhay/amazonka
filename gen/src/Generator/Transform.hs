@@ -361,7 +361,15 @@ renameCommon svc c = c &
         (_,     n)        -> cmnName.~fromMaybe n (renameName svc n)
 
 renameName :: Service -> Text -> Maybe Text
-renameName svc x = Map.lookup x (svc^.tRename)
+renameName svc x
+    | x `elem` core = Just (x `Text.snoc` '\'')
+    | otherwise     = Map.lookup x (svc^.tRename)
+  where
+    core =
+        [ "Source"
+        , "Endpoint"
+        , "Service"
+        ]
 
 formatPrim :: Service -> Prim -> Text
 formatPrim Service{..} Prim{..} = Text.pack $

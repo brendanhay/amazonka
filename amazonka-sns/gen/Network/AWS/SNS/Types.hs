@@ -55,9 +55,9 @@ module Network.AWS.SNS.Types
     , topic
     , tTopicArn
 
-    -- * Endpoint
-    , Endpoint
-    , endpoint
+    -- * Endpoint'
+    , Endpoint'
+    , endpoint'
     , eEndpointArn
     , eAttributes
 
@@ -315,15 +315,15 @@ instance FromXML Topic where
     fromXMLRoot    = fromRoot "Topic"
 
 -- | Endpoint for mobile app and device.
-data Endpoint = Endpoint
+data Endpoint' = Endpoint'
     { _eEndpointArn :: Maybe Text
     , _eAttributes :: Map Text Text
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Endpoint' data type.
+-- a valid 'Endpoint'' data type.
 --
--- 'Endpoint' is exclusively used in responses and this constructor
+-- 'Endpoint'' is exclusively used in responses and this constructor
 -- is provided for convenience and testing purposes.
 --
 -- The fields accessible through corresponding lenses are:
@@ -332,21 +332,21 @@ data Endpoint = Endpoint
 --
 -- * @Attributes ::@ @Map Text Text@
 --
-endpoint :: Endpoint
-endpoint = Endpoint
+endpoint' :: Endpoint'
+endpoint' = Endpoint'
     { _eEndpointArn = Nothing
     , _eAttributes = mempty
     }
 
 -- | EndpointArn for mobile app and device.
-eEndpointArn :: Lens' Endpoint (Maybe Text)
+eEndpointArn :: Lens' Endpoint' (Maybe Text)
 eEndpointArn = lens _eEndpointArn (\s a -> s { _eEndpointArn = a })
 
 -- | Attributes for endpoint.
-eAttributes :: Lens' Endpoint (Map Text Text)
+eAttributes :: Lens' Endpoint' (Map Text Text)
 eAttributes = lens _eAttributes (\s a -> s { _eAttributes = a })
 
-instance FromXML Endpoint where
+instance FromXML Endpoint' where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "Endpoint"
 

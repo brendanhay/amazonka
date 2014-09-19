@@ -228,9 +228,9 @@ module Network.AWS.Redshift.Types
     , eisElasticIp
     , eisStatus
 
-    -- * Endpoint
-    , Endpoint
-    , endpoint
+    -- * Endpoint'
+    , Endpoint'
+    , endpoint'
     , eAddress
     , ePort
 
@@ -1543,7 +1543,7 @@ data Cluster = Cluster
     , _cModifyStatus :: Maybe Text
     , _cMasterUsername :: Maybe Text
     , _cDBName :: Maybe Text
-    , _cEndpoint :: Maybe Endpoint
+    , _cEndpoint :: Maybe Endpoint'
     , _cClusterCreateTime :: Maybe ISO8601
     , _cAutomatedSnapshotRetentionPeriod :: Maybe Integer
     , _cClusterSecurityGroups :: [ClusterSecurityGroupMembership]
@@ -1588,7 +1588,7 @@ data Cluster = Cluster
 --
 -- * @DBName ::@ @Maybe Text@
 --
--- * @Endpoint ::@ @Maybe Endpoint@
+-- * @Endpoint ::@ @Maybe Endpoint'@
 --
 -- * @ClusterCreateTime ::@ @Maybe ISO8601@
 --
@@ -1698,7 +1698,7 @@ cDBName :: Lens' Cluster (Maybe Text)
 cDBName = lens _cDBName (\s a -> s { _cDBName = a })
 
 -- | The connection endpoint.
-cEndpoint :: Lens' Cluster (Maybe Endpoint)
+cEndpoint :: Lens' Cluster (Maybe Endpoint')
 cEndpoint = lens _cEndpoint (\s a -> s { _cEndpoint = a })
 
 -- | The date and time that the cluster was created.
@@ -2346,13 +2346,13 @@ instance ToQuery ElasticIpStatus where
     toQuery = genericQuery def
 
 -- | The connection endpoint.
-data Endpoint = Endpoint
+data Endpoint' = Endpoint'
     { _eAddress :: Maybe Text
     , _ePort :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Endpoint' data type to populate a request.
+-- a valid 'Endpoint'' data type to populate a request.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2360,25 +2360,25 @@ data Endpoint = Endpoint
 --
 -- * @Port ::@ @Maybe Integer@
 --
-endpoint :: Endpoint
-endpoint = Endpoint
+endpoint' :: Endpoint'
+endpoint' = Endpoint'
     { _eAddress = Nothing
     , _ePort = Nothing
     }
 
 -- | The DNS address of the Cluster.
-eAddress :: Lens' Endpoint (Maybe Text)
+eAddress :: Lens' Endpoint' (Maybe Text)
 eAddress = lens _eAddress (\s a -> s { _eAddress = a })
 
 -- | The port that the database engine is listening on.
-ePort :: Lens' Endpoint (Maybe Integer)
+ePort :: Lens' Endpoint' (Maybe Integer)
 ePort = lens _ePort (\s a -> s { _ePort = a })
 
-instance FromXML Endpoint where
+instance FromXML Endpoint' where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "Endpoint"
 
-instance ToQuery Endpoint where
+instance ToQuery Endpoint' where
     toQuery = genericQuery def
 
 -- | Describes an event.

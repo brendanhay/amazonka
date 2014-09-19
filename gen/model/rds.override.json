@@ -21,9 +21,6 @@
             "DescribeEngineDefaultParametersResponse": [
                 "EngineDefaults"
             ]
-        },
-        "rename": {
-            "Endpoint": "Endpoint'"
         }
     }
 }

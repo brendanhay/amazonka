@@ -90,7 +90,7 @@ instance ToJSON DescribeServices
 
 -- | The list of AWS services returned by the DescribeServices operation.
 newtype DescribeServicesResponse = DescribeServicesResponse
-    { _dsrServices :: [Service]
+    { _dsrServices :: [Service']
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -100,7 +100,7 @@ newtype DescribeServicesResponse = DescribeServicesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Services ::@ @[Service]@
+-- * @Services ::@ @[Service']@
 --
 describeServicesResponse :: DescribeServicesResponse
 describeServicesResponse = DescribeServicesResponse
@@ -108,7 +108,7 @@ describeServicesResponse = DescribeServicesResponse
     }
 
 -- | A JSON-formatted list of AWS services.
-dsrServices :: Lens' DescribeServicesResponse [Service]
+dsrServices :: Lens' DescribeServicesResponse [Service']
 dsrServices = lens _dsrServices (\s a -> s { _dsrServices = a })
 
 instance FromJSON DescribeServicesResponse

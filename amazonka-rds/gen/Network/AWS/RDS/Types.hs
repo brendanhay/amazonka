@@ -237,9 +237,9 @@ module Network.AWS.RDS.Types
     , ecsgEC2SecurityGroupId
     , ecsgEC2SecurityGroupOwnerId
 
-    -- * Endpoint
-    , Endpoint
-    , endpoint
+    -- * Endpoint'
+    , Endpoint'
+    , endpoint'
     , eAddress
     , ePort
 
@@ -1458,7 +1458,7 @@ data DBInstance = DBInstance
     , _dbiDBInstanceStatus :: Maybe Text
     , _dbiMasterUsername :: Maybe Text
     , _dbiDBName :: Maybe Text
-    , _dbiEndpoint :: Maybe Endpoint
+    , _dbiEndpoint :: Maybe Endpoint'
     , _dbiAllocatedStorage :: Maybe Integer
     , _dbiInstanceCreateTime :: Maybe ISO8601
     , _dbiPreferredBackupWindow :: Maybe Text
@@ -1505,7 +1505,7 @@ data DBInstance = DBInstance
 --
 -- * @DBName ::@ @Maybe Text@
 --
--- * @Endpoint ::@ @Maybe Endpoint@
+-- * @Endpoint ::@ @Maybe Endpoint'@
 --
 -- * @AllocatedStorage ::@ @Maybe Integer@
 --
@@ -1630,7 +1630,7 @@ dbiDBName :: Lens' DBInstance (Maybe Text)
 dbiDBName = lens _dbiDBName (\s a -> s { _dbiDBName = a })
 
 -- | Specifies the connection endpoint.
-dbiEndpoint :: Lens' DBInstance (Maybe Endpoint)
+dbiEndpoint :: Lens' DBInstance (Maybe Endpoint')
 dbiEndpoint = lens _dbiEndpoint (\s a -> s { _dbiEndpoint = a })
 
 -- | Specifies the allocated storage size specified in gigabytes.
@@ -2408,13 +2408,13 @@ instance ToQuery EC2SecurityGroup where
     toQuery = genericQuery def
 
 -- | Specifies the connection endpoint.
-data Endpoint = Endpoint
+data Endpoint' = Endpoint'
     { _eAddress :: Maybe Text
     , _ePort :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Endpoint' data type to populate a request.
+-- a valid 'Endpoint'' data type to populate a request.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2422,25 +2422,25 @@ data Endpoint = Endpoint
 --
 -- * @Port ::@ @Maybe Integer@
 --
-endpoint :: Endpoint
-endpoint = Endpoint
+endpoint' :: Endpoint'
+endpoint' = Endpoint'
     { _eAddress = Nothing
     , _ePort = Nothing
     }
 
 -- | Specifies the DNS address of the DB instance.
-eAddress :: Lens' Endpoint (Maybe Text)
+eAddress :: Lens' Endpoint' (Maybe Text)
 eAddress = lens _eAddress (\s a -> s { _eAddress = a })
 
 -- | Specifies the port that the database engine is listening on.
-ePort :: Lens' Endpoint (Maybe Integer)
+ePort :: Lens' Endpoint' (Maybe Integer)
 ePort = lens _ePort (\s a -> s { _ePort = a })
 
-instance FromXML Endpoint where
+instance FromXML Endpoint' where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "Endpoint"
 
-instance ToQuery Endpoint where
+instance ToQuery Endpoint' where
     toQuery = genericQuery def
 
 -- | Contains the result of a successful invocation of the

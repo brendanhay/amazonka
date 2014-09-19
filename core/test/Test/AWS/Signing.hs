@@ -69,7 +69,7 @@ instance AWSService Test where
     service = Service "host.foo.com" "host" "2011-08" Nothing
 
 instance AWSRequest Test where
-    type Service'  Test = Test
+    type Service  Test = Test
     type Response' Test = ()
 
     request  = undefined

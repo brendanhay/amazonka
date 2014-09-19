@@ -116,14 +116,14 @@ algorithm = "AWS4-HMAC-SHA256"
 
 finalise :: Maybe ByteString
          -> (ByteString -> ByteString -> Query -> Query)
-         -> Service' (Sv a)
+         -> Service (Sv a)
          -> AuthEnv
          -> Region
          -> Request a
          -> TimeLocale
          -> UTCTime
          -> Signed a V4
-finalise p qry s@Service'{..} AuthEnv{..} r Request{..} l t = Signed meta rq
+finalise p qry s@Service{..} AuthEnv{..} r Request{..} l t = Signed meta rq
   where
     meta = Meta
         { _mAlgorithm = algorithm

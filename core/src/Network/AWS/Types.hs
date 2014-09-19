@@ -49,9 +49,9 @@ module Network.AWS.Types
 
     -- * Services
     , AWSService      (..)
-    , Service'        (..)
+    , Service        (..)
     -- ** Endpoints
-    , Endpoint'       (..)
+    , Endpoint       (..)
     , Host            (..)
     , endpoint
 
@@ -177,7 +177,7 @@ class (AWSSigner (Sg a), AWSServiceError (Er a)) => AWSService a where
     type Sg a :: *
     type Er a :: *
 
-    service :: Service' a
+    service :: Service a
 
 -- | Specify how a data type can be de/serialised.
 class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
@@ -224,7 +224,7 @@ instance ToText (Signed a v) where
 
 class AWSSigner v where
     signed :: v ~ Sg (Sv a)
-           => Service' (Sv a)
+           => Service (Sv a)
            -> AuthEnv
            -> Region
            -> Request a
@@ -234,7 +234,7 @@ class AWSSigner v where
 
 class AWSPresigner v where
     presigned :: v ~ Sg (Sv a)
-              => Service' (Sv a)
+              => Service (Sv a)
               -> AuthEnv
               -> Region
               -> Request a
@@ -308,17 +308,17 @@ instance ToByteString Host where
     toBS (Host h) = h
 
 -- | The scope for a service's endpoint.
-data Endpoint'
+data Endpoint
     = Global
     | Regional
     | Custom ByteString
 
-instance IsString Endpoint' where
+instance IsString Endpoint where
     fromString = Custom . fromString
 
--- | Determine the full host address for a 'Service'' within the given 'Region'.
-endpoint :: Service' a -> Region -> Host
-endpoint Service'{..} reg =
+-- | Determine the full host address for a 'Service within the given 'Region'.
+endpoint :: Service a -> Region -> Host
+endpoint Service{..} reg =
     let suf = ".amazonaws.com"
      in Host $ case _svcEndpoint of
             Global   -> _svcPrefix <> suf
@@ -326,8 +326,8 @@ endpoint Service'{..} reg =
             Custom x -> x
 
 -- | Attributes specific to an AWS service.
-data Service' a = Service'
-    { _svcEndpoint :: !Endpoint'
+data Service a = Service
+    { _svcEndpoint :: !Endpoint
     , _svcPrefix   :: ByteString
     , _svcVersion  :: ByteString
     , _svcTarget   :: Maybe ByteString

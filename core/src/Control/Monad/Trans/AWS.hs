@@ -1,3 +1,4 @@
+{-# LANGUAGE ConstraintKinds            #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
@@ -24,6 +25,8 @@ module Control.Monad.Trans.AWS
     (
     -- * Transformer
       AWST
+    -- ** Aliases
+    , MonadAWS
     , AWS
 
     -- * Run
@@ -95,6 +98,17 @@ import           Network.AWS.Types               hiding (debug)
 
 -- | A convenient alias for 'AWST' 'IO'.
 type AWS = AWST IO
+
+-- | Provides an alias for shortening type signatures if preferred.
+--
+-- Note: requires the @ConstraintKinds@ extension.
+type MonadAWS m =
+    ( MonadBaseControl IO m -- ^ async
+    , MonadCatch m          -- ^ send/sendCatch
+    , MonadResource m       -- ^ send/sendCatch
+    , MonadError Error m    -- ^ send
+    , MonadReader Env m     -- ^ *
+    )
 
 -- | The transformer. This satisfies all of the constraints that the functions
 -- in this module require, such as providing 'MonadResource' instances,

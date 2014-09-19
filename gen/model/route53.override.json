@@ -19,8 +19,12 @@
         "rename": {
             "ResourceRecordSetFailover": "Failover"
         },
-        "unprefixed": [
-            "Failover"
-        ]
+        "prefixed": {
+            "Failover": "",
+            "ChangeAction": "",
+            "ChangeStatus": "",
+            "HealthCheckType": "",
+            "TagResourceType": ""
+        }
     }
 }

@@ -64,9 +64,9 @@
                 "KeyMaterial"
             ]
         },
-        "unprefixed": [
-            "InstanceType"
-        ]
+        "prefixed": {
+            "InstanceType": ""
+        }
     },
     "field_overrides": {
         "ignored": [

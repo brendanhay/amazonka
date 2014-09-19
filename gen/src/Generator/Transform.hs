@@ -34,7 +34,6 @@ import           Data.String
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Text.Util
-import           Debug.Trace
 import           Generator.AST
 import           Text.EDE.Filters
 
@@ -491,9 +490,7 @@ enumPairs svc@Service{..} n =
   where
     trans = first (mappend (reserve n) . rules) . join (,)
 
-    reserve x
-        | x `elem` (svc^.tUnprefixed) = ""
-        | otherwise                     = x
+    reserve x = fromMaybe x $ Map.lookup (CI.mk x) (svc^.tPrefixed)
 
     rules x =
         let y  = Text.replace ":" ""

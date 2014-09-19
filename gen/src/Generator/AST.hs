@@ -419,11 +419,11 @@ cabal :: Version -> Maybe Text -> Maybe Doc -> Text -> Doc -> Cabal
 cabal v ms md s d = Cabal v (fromMaybe (s <> " SDK") ms) (fromMaybe d md)
 
 data TypeOverride = TypeOverride
-    { _tRequired   :: HashMap (CI Text) [CI Text]
-    , _tExisting   :: HashMap (CI Text) Text
-    , _tRename     :: HashMap (CI Text) Text
-    , _tUnprefixed :: [Text]
-    , _tFieldType  :: HashMap (CI Text) (HashMap (CI Text) Text)
+    { _tRequired  :: HashMap (CI Text) [CI Text]
+    , _tExisting  :: HashMap (CI Text) Text
+    , _tRename    :: HashMap (CI Text) Text
+    , _tPrefixed  :: HashMap (CI Text) Text
+    , _tFieldType :: HashMap (CI Text) (HashMap (CI Text) Text)
     } deriving (Show, Generic)
 
 instance Default TypeOverride where

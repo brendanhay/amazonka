@@ -535,22 +535,22 @@ xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
 
 data ChangeAction
-    = ChangeActionCreate -- ^ CREATE
-    | ChangeActionDelete -- ^ DELETE
-    | ChangeActionUpsert -- ^ UPSERT
+    = Create -- ^ CREATE
+    | Delete -- ^ DELETE
+    | Upsert -- ^ UPSERT
       deriving (Eq, Show, Generic)
 
 instance Hashable ChangeAction
 
 instance FromText ChangeAction where
-    parser = match "CREATE" ChangeActionCreate
-         <|> match "DELETE" ChangeActionDelete
-         <|> match "UPSERT" ChangeActionUpsert
+    parser = match "CREATE" Create
+         <|> match "DELETE" Delete
+         <|> match "UPSERT" Upsert
 
 instance ToText ChangeAction where
-    toText ChangeActionCreate = "CREATE"
-    toText ChangeActionDelete = "DELETE"
-    toText ChangeActionUpsert = "UPSERT"
+    toText Create = "CREATE"
+    toText Delete = "DELETE"
+    toText Upsert = "UPSERT"
 
 instance ToByteString ChangeAction
 
@@ -566,19 +566,19 @@ instance ToQuery ChangeAction where
       toQuery = toQuery . toBS
 
 data ChangeStatus
-    = ChangeStatusInsync -- ^ INSYNC
-    | ChangeStatusPending -- ^ PENDING
+    = Insync -- ^ INSYNC
+    | Pending -- ^ PENDING
       deriving (Eq, Show, Generic)
 
 instance Hashable ChangeStatus
 
 instance FromText ChangeStatus where
-    parser = match "INSYNC" ChangeStatusInsync
-         <|> match "PENDING" ChangeStatusPending
+    parser = match "INSYNC" Insync
+         <|> match "PENDING" Pending
 
 instance ToText ChangeStatus where
-    toText ChangeStatusInsync = "INSYNC"
-    toText ChangeStatusPending = "PENDING"
+    toText Insync = "INSYNC"
+    toText Pending = "PENDING"
 
 instance ToByteString ChangeStatus
 
@@ -618,28 +618,28 @@ instance ToQuery Failover where
       toQuery = toQuery . toBS
 
 data HealthCheckType
-    = HealthCheckTypeHttp -- ^ HTTP
-    | HealthCheckTypeHttpStrMatch -- ^ HTTP_STR_MATCH
-    | HealthCheckTypeHttps -- ^ HTTPS
-    | HealthCheckTypeHttpsStrMatch -- ^ HTTPS_STR_MATCH
-    | HealthCheckTypeTcp -- ^ TCP
+    = Http -- ^ HTTP
+    | HttpStrMatch -- ^ HTTP_STR_MATCH
+    | Https -- ^ HTTPS
+    | HttpsStrMatch -- ^ HTTPS_STR_MATCH
+    | Tcp -- ^ TCP
       deriving (Eq, Show, Generic)
 
 instance Hashable HealthCheckType
 
 instance FromText HealthCheckType where
-    parser = match "HTTP" HealthCheckTypeHttp
-         <|> match "HTTP_STR_MATCH" HealthCheckTypeHttpStrMatch
-         <|> match "HTTPS" HealthCheckTypeHttps
-         <|> match "HTTPS_STR_MATCH" HealthCheckTypeHttpsStrMatch
-         <|> match "TCP" HealthCheckTypeTcp
+    parser = match "HTTP" Http
+         <|> match "HTTP_STR_MATCH" HttpStrMatch
+         <|> match "HTTPS" Https
+         <|> match "HTTPS_STR_MATCH" HttpsStrMatch
+         <|> match "TCP" Tcp
 
 instance ToText HealthCheckType where
-    toText HealthCheckTypeHttp = "HTTP"
-    toText HealthCheckTypeHttpStrMatch = "HTTP_STR_MATCH"
-    toText HealthCheckTypeHttps = "HTTPS"
-    toText HealthCheckTypeHttpsStrMatch = "HTTPS_STR_MATCH"
-    toText HealthCheckTypeTcp = "TCP"
+    toText Http = "HTTP"
+    toText HttpStrMatch = "HTTP_STR_MATCH"
+    toText Https = "HTTPS"
+    toText HttpsStrMatch = "HTTPS_STR_MATCH"
+    toText Tcp = "TCP"
 
 instance ToByteString HealthCheckType
 
@@ -655,16 +655,16 @@ instance ToQuery HealthCheckType where
       toQuery = toQuery . toBS
 
 data TagResourceType
-    = TagResourceTypeHealthcheck -- ^ healthcheck
+    = Healthcheck -- ^ healthcheck
       deriving (Eq, Show, Generic)
 
 instance Hashable TagResourceType
 
 instance FromText TagResourceType where
-    parser = match "healthcheck" TagResourceTypeHealthcheck
+    parser = match "healthcheck" Healthcheck
 
 instance ToText TagResourceType where
-    toText TagResourceTypeHealthcheck = "healthcheck"
+    toText Healthcheck = "healthcheck"
 
 instance ToByteString TagResourceType
 

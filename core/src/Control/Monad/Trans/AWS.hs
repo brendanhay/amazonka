@@ -55,6 +55,7 @@ module Control.Monad.Trans.AWS
     -- * Requests
     -- ** Synchronous
     , send
+    , send_
     , sendCatch
     -- ** Paginated
     , paginate
@@ -225,6 +226,17 @@ send :: ( MonadCatch m
      => a
      -> m (Rs a)
 send = sendCatch >=> hoistEither
+
+-- | A variant of 'send' which discards any successful response.
+send_ :: ( MonadCatch m
+         , MonadResource m
+         , MonadReader Env m
+         , MonadError Error m
+         , AWSRequest a
+         )
+      => a
+      -> m ()
+send_ = void . send
 
 -- | Send a data type which is an instance of 'AWSRequest', returning either the
 -- associated 'Rs' response type in the success case, or the related service's

@@ -36,6 +36,7 @@ module Network.AWS.DataPipeline.Types
     , _PipelineDeletedException
     , _PipelineNotFoundException
     , _TaskNotFoundException
+
     -- * OperatorType
     , OperatorType (..)
 
@@ -125,7 +126,7 @@ instance AWSService DataPipeline where
     type Sg DataPipeline = V4
     type Er DataPipeline = DataPipelineError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "datapipeline"
         , _svcVersion  = "2012-10-29"

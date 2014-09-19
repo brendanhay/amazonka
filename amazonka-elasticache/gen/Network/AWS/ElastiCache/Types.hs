@@ -371,7 +371,7 @@ instance AWSService ElastiCache where
     type Sg ElastiCache = V4
     type Er ElastiCache = ElastiCacheError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "elasticache"
         , _svcVersion  = "2014-07-15"

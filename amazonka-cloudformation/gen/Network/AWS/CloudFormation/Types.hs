@@ -177,7 +177,7 @@ instance AWSService CloudFormation where
     type Sg CloudFormation = V4
     type Er CloudFormation = CloudFormationError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "cloudformation"
         , _svcVersion  = "2010-05-15"

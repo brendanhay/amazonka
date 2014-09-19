@@ -45,6 +45,7 @@ module Network.AWS.SWF.Types
     , _TypeDeprecatedFault
     , _UnknownResourceFault
     , _WorkflowExecutionAlreadyStartedFault
+
     -- * ActivityTaskTimeoutType
     , ActivityTaskTimeoutType (..)
 
@@ -787,7 +788,7 @@ instance AWSService SWF where
     type Sg SWF = V4
     type Er SWF = SWFError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "swf"
         , _svcVersion  = "2012-01-25"

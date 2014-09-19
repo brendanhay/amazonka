@@ -70,7 +70,7 @@ data UpdateStack = UpdateStack
     , _usConfigurationManager :: Maybe StackConfigurationManager
     , _usChefConfiguration :: Maybe ChefConfiguration
     , _usUseCustomCookbooks :: Maybe Bool
-    , _usCustomCookbooksSource :: Maybe Source
+    , _usCustomCookbooksSource :: Maybe Source'
     , _usDefaultSshKeyName :: Maybe Text
     , _usDefaultRootDeviceType :: Maybe RootDeviceType
     , _usUseOpsworksSecurityGroups :: Maybe Bool
@@ -107,7 +107,7 @@ data UpdateStack = UpdateStack
 --
 -- * @UseCustomCookbooks ::@ @Maybe Bool@
 --
--- * @CustomCookbooksSource ::@ @Maybe Source@
+-- * @CustomCookbooksSource ::@ @Maybe Source'@
 --
 -- * @DefaultSshKeyName ::@ @Maybe Text@
 --
@@ -233,7 +233,7 @@ usUseCustomCookbooks =
 -- | Contains the information required to retrieve an app or cookbook from a
 -- repository. For more information, see Creating Apps or Custom Recipes and
 -- Cookbooks.
-usCustomCookbooksSource :: Lens' UpdateStack (Maybe Source)
+usCustomCookbooksSource :: Lens' UpdateStack (Maybe Source')
 usCustomCookbooksSource =
     lens _usCustomCookbooksSource
          (\s a -> s { _usCustomCookbooksSource = a })

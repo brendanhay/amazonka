@@ -114,7 +114,7 @@ instance AWSService SimpleDB where
     type Sg SimpleDB = V2
     type Er SimpleDB = SimpleDBError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "sdb"
         , _svcVersion  = "2009-04-15"

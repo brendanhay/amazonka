@@ -42,6 +42,7 @@ module Network.AWS.DynamoDB.Types
     , _ProvisionedThroughputExceededException
     , _ResourceInUseException
     , _ResourceNotFoundException
+
     -- * AttributeAction
     , AttributeAction (..)
 
@@ -256,7 +257,7 @@ instance AWSService DynamoDB where
     type Sg DynamoDB = V4
     type Er DynamoDB = DynamoDBError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "dynamodb"
         , _svcVersion  = "2012-08-10"

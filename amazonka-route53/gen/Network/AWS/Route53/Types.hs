@@ -202,7 +202,7 @@ instance AWSService Route53 where
     type Sg Route53 = V3
     type Er Route53 = Route53Error
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "route53"
         , _svcVersion  = "2013-04-01"

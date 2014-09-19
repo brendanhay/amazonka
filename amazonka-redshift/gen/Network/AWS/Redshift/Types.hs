@@ -429,7 +429,7 @@ instance AWSService Redshift where
     type Sg Redshift = V4
     type Er Redshift = RedshiftError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "redshift"
         , _svcVersion  = "2012-12-01"

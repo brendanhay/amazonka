@@ -95,7 +95,7 @@ instance AWSService SNS where
     type Sg SNS = V4
     type Er SNS = SNSError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "sns"
         , _svcVersion  = "2010-03-31"

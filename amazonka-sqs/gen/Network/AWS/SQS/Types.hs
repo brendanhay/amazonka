@@ -134,7 +134,7 @@ instance AWSService SQS where
     type Sg SQS = V4
     type Er SQS = SQSError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "sqs"
         , _svcVersion  = "2012-11-05"

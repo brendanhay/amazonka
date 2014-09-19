@@ -288,7 +288,7 @@ instance AWSService ElasticBeanstalk where
     type Sg ElasticBeanstalk = V4
     type Er ElasticBeanstalk = ElasticBeanstalkError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "elasticbeanstalk"
         , _svcVersion  = "2010-12-01"

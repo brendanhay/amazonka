@@ -79,7 +79,7 @@ data CloneStack = CloneStack
     , _csChefConfiguration :: Maybe ChefConfiguration
     , _csUseCustomCookbooks :: Maybe Bool
     , _csUseOpsworksSecurityGroups :: Maybe Bool
-    , _csCustomCookbooksSource :: Maybe Source
+    , _csCustomCookbooksSource :: Maybe Source'
     , _csDefaultSshKeyName :: Maybe Text
     , _csClonePermissions :: Maybe Bool
     , _csCloneAppIds :: [Text]
@@ -123,7 +123,7 @@ data CloneStack = CloneStack
 --
 -- * @UseOpsworksSecurityGroups ::@ @Maybe Bool@
 --
--- * @CustomCookbooksSource ::@ @Maybe Source@
+-- * @CustomCookbooksSource ::@ @Maybe Source'@
 --
 -- * @DefaultSshKeyName ::@ @Maybe Text@
 --
@@ -302,7 +302,7 @@ csUseOpsworksSecurityGroups =
 -- | Contains the information required to retrieve an app or cookbook from a
 -- repository. For more information, see Creating Apps or Custom Recipes and
 -- Cookbooks.
-csCustomCookbooksSource :: Lens' CloneStack (Maybe Source)
+csCustomCookbooksSource :: Lens' CloneStack (Maybe Source')
 csCustomCookbooksSource =
     lens _csCustomCookbooksSource
          (\s a -> s { _csCustomCookbooksSource = a })

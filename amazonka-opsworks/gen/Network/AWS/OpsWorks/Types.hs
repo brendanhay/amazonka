@@ -33,6 +33,7 @@ module Network.AWS.OpsWorks.Types
     , _OpsWorksService
     , _ResourceNotFoundException
     , _ValidationException
+
     -- * AppAttributesKeys
     , AppAttributesKeys (..)
 
@@ -309,9 +310,9 @@ module Network.AWS.OpsWorks.Types
     , seMessage
     , seCreatedAt
 
-    -- * Source
-    , Source
-    , source
+    -- * Source'
+    , Source'
+    , source'
     , sType
     , sUrl
     , sUsername
@@ -432,7 +433,7 @@ instance AWSService OpsWorks where
     type Sg OpsWorks = V4
     type Er OpsWorks = OpsWorksError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "opsworks"
         , _svcVersion  = "2013-02-18"
@@ -979,7 +980,7 @@ data App = App
     , _aDescription :: Maybe Text
     , _aDataSources :: [DataSource]
     , _aType :: Maybe AppType
-    , _aAppSource :: Maybe Source
+    , _aAppSource :: Maybe Source'
     , _aDomains :: [Text]
     , _aEnableSsl :: Maybe Bool
     , _aSslConfiguration :: Maybe SslConfiguration
@@ -1009,7 +1010,7 @@ data App = App
 --
 -- * @Type ::@ @Maybe AppType@
 --
--- * @AppSource ::@ @Maybe Source@
+-- * @AppSource ::@ @Maybe Source'@
 --
 -- * @Domains ::@ @[Text]@
 --
@@ -1067,7 +1068,7 @@ aType :: Lens' App (Maybe AppType)
 aType = lens _aType (\s a -> s { _aType = a })
 
 -- | A Source object that describes the app repository.
-aAppSource :: Lens' App (Maybe Source)
+aAppSource :: Lens' App (Maybe Source')
 aAppSource = lens _aAppSource (\s a -> s { _aAppSource = a })
 
 -- | The app vhost settings with multiple domains separated by commas. For
@@ -2808,7 +2809,7 @@ instance FromJSON ServiceError
 -- | Contains the information required to retrieve an app or cookbook from a
 -- repository. For more information, see Creating Apps or Custom Recipes and
 -- Cookbooks.
-data Source = Source
+data Source' = Source'
     { _sType :: Maybe SourceType
     , _sUrl :: Maybe Text
     , _sUsername :: Maybe Text
@@ -2818,7 +2819,7 @@ data Source = Source
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Source' data type to populate a request.
+-- a valid 'Source'' data type to populate a request.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2834,8 +2835,8 @@ data Source = Source
 --
 -- * @Revision ::@ @Maybe Text@
 --
-source :: Source
-source = Source
+source' :: Source'
+source' = Source'
     { _sType = Nothing
     , _sUrl = Nothing
     , _sUsername = Nothing
@@ -2845,40 +2846,40 @@ source = Source
     }
 
 -- | The repository type.
-sType :: Lens' Source (Maybe SourceType)
+sType :: Lens' Source' (Maybe SourceType)
 sType = lens _sType (\s a -> s { _sType = a })
 
 -- | The source URL.
-sUrl :: Lens' Source (Maybe Text)
+sUrl :: Lens' Source' (Maybe Text)
 sUrl = lens _sUrl (\s a -> s { _sUrl = a })
 
 -- | This parameter depends on the repository type. For Amazon S3 bundles, set
 -- Username to the appropriate IAM access key ID. For HTTP bundles, Git
 -- repositories, and Subversion repositories, set Username to the user name.
-sUsername :: Lens' Source (Maybe Text)
+sUsername :: Lens' Source' (Maybe Text)
 sUsername = lens _sUsername (\s a -> s { _sUsername = a })
 
 -- | This parameter depends on the repository type. For Amazon S3 bundles, set
 -- Password to the appropriate IAM secret access key. For HTTP bundles and
 -- Subversion repositories, set Password to the password. For more information
 -- on how to safely handle IAM credentials, see .
-sPassword :: Lens' Source (Maybe Text)
+sPassword :: Lens' Source' (Maybe Text)
 sPassword = lens _sPassword (\s a -> s { _sPassword = a })
 
 -- | The repository's SSH key.
-sSshKey :: Lens' Source (Maybe Text)
+sSshKey :: Lens' Source' (Maybe Text)
 sSshKey = lens _sSshKey (\s a -> s { _sSshKey = a })
 
 -- | The application's version. AWS OpsWorks enables you to easily deploy new
 -- versions of an application. One of the simplest approaches is to have
 -- branches or revisions in your repository that represent different versions
 -- that can potentially be deployed.
-sRevision :: Lens' Source (Maybe Text)
+sRevision :: Lens' Source' (Maybe Text)
 sRevision = lens _sRevision (\s a -> s { _sRevision = a })
 
-instance FromJSON Source
+instance FromJSON Source'
 
-instance ToJSON Source
+instance ToJSON Source'
 
 -- | An SslConfiguration object with the SSL configuration.
 data SslConfiguration = SslConfiguration
@@ -2943,7 +2944,7 @@ data Stack = Stack
     , _srChefConfiguration :: Maybe ChefConfiguration
     , _srUseCustomCookbooks :: Maybe Bool
     , _srUseOpsworksSecurityGroups :: Maybe Bool
-    , _srCustomCookbooksSource :: Maybe Source
+    , _srCustomCookbooksSource :: Maybe Source'
     , _srDefaultSshKeyName :: Maybe Text
     , _srCreatedAt :: Maybe Text
     , _srDefaultRootDeviceType :: Maybe RootDeviceType
@@ -2991,7 +2992,7 @@ data Stack = Stack
 --
 -- * @UseOpsworksSecurityGroups ::@ @Maybe Bool@
 --
--- * @CustomCookbooksSource ::@ @Maybe Source@
+-- * @CustomCookbooksSource ::@ @Maybe Source'@
 --
 -- * @DefaultSshKeyName ::@ @Maybe Text@
 --
@@ -3117,7 +3118,7 @@ srUseOpsworksSecurityGroups =
 -- | Contains the information required to retrieve an app or cookbook from a
 -- repository. For more information, see Creating Apps or Custom Recipes and
 -- Cookbooks.
-srCustomCookbooksSource :: Lens' Stack (Maybe Source)
+srCustomCookbooksSource :: Lens' Stack (Maybe Source')
 srCustomCookbooksSource =
     lens _srCustomCookbooksSource
          (\s a -> s { _srCustomCookbooksSource = a })

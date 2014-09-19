@@ -76,7 +76,7 @@ instance AWSService ImportExport where
     type Sg ImportExport = V2
     type Er ImportExport = ImportExportError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "importexport"
         , _svcVersion  = "2010-06-01"

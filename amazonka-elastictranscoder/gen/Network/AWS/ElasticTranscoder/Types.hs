@@ -39,6 +39,7 @@ module Network.AWS.ElasticTranscoder.Types
     , _ResourceInUseException
     , _ResourceNotFoundException
     , _ValidationException
+
     -- * AudioCodecOptions
     , AudioCodecOptions
     , audioCodecOptions
@@ -284,7 +285,7 @@ instance AWSService ElasticTranscoder where
     type Sg ElasticTranscoder = V4
     type Er ElasticTranscoder = ElasticTranscoderError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "elastictranscoder"
         , _svcVersion  = "2012-09-25"

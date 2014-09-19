@@ -461,7 +461,7 @@ instance AWSService CloudFront where
     type Sg CloudFront = V4
     type Er CloudFront = CloudFrontError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "cloudfront"
         , _svcVersion  = "2014-05-31"
@@ -565,7 +565,7 @@ data CloudFrontError
       -- specify the HTTPS protocol in your request, or omit the
       -- RequiredProtocols element from your distribution configuration.
     | InvalidRequiredProtocol
-        { _irpMessage :: Maybe Text
+        { _irp1Message :: Maybe Text
         }
     | InvalidResponseCode
         { _ircMessage :: Maybe Text

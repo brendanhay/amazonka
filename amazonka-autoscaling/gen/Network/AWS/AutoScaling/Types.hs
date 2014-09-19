@@ -269,7 +269,7 @@ instance AWSService AutoScaling where
     type Sg AutoScaling = V4
     type Er AutoScaling = AutoScalingError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "autoscaling"
         , _svcVersion  = "2011-01-01"

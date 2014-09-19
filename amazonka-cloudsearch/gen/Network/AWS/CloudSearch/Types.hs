@@ -306,7 +306,7 @@ instance AWSService CloudSearch where
     type Sg CloudSearch = V4
     type Er CloudSearch = CloudSearchError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "cloudsearch"
         , _svcVersion  = "2013-01-01"

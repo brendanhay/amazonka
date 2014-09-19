@@ -44,6 +44,7 @@ module Network.AWS.CognitoIdentity.Types
     , _ResourceConflictException
     , _ResourceNotFoundException
     , _TooManyRequestsException
+
     -- * IdentityDescription
     , IdentityDescription
     , identityDescription
@@ -68,7 +69,7 @@ instance AWSService CognitoIdentity where
     type Sg CognitoIdentity = V4
     type Er CognitoIdentity = CognitoIdentityError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "cognito-identity"
         , _svcVersion  = "2014-06-30"

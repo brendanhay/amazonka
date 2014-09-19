@@ -45,6 +45,7 @@ module Network.AWS.Support.Types
     , _SupportClient
     , _SupportSerializer
     , _SupportService
+
     -- * TrustedAdvisorCategorySpecificSummary
     , TrustedAdvisorCategorySpecificSummary
     , trustedAdvisorCategorySpecificSummary
@@ -183,7 +184,7 @@ instance AWSService Support where
     type Sg Support = V4
     type Er Support = SupportError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "support"
         , _svcVersion  = "2013-04-15"

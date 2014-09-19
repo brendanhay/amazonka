@@ -1382,7 +1382,7 @@ instance AWSService EC2 where
     type Sg EC2 = V4
     type Er EC2 = EC2Error
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "ec2"
         , _svcVersion  = "2014-06-15"

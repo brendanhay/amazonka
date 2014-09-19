@@ -60,7 +60,7 @@ data CreateApp = CreateApp
     , _caDescription :: Maybe Text
     , _caDataSources :: [DataSource]
     , _caType :: AppType
-    , _caAppSource :: Maybe Source
+    , _caAppSource :: Maybe Source'
     , _caDomains :: [Text]
     , _caEnableSsl :: Maybe Bool
     , _caSslConfiguration :: Maybe SslConfiguration
@@ -84,7 +84,7 @@ data CreateApp = CreateApp
 --
 -- * @Type ::@ @AppType@
 --
--- * @AppSource ::@ @Maybe Source@
+-- * @AppSource ::@ @Maybe Source'@
 --
 -- * @Domains ::@ @[Text]@
 --
@@ -140,7 +140,7 @@ caType :: Lens' CreateApp AppType
 caType = lens _caType (\s a -> s { _caType = a })
 
 -- | A Source object that specifies the app repository.
-caAppSource :: Lens' CreateApp (Maybe Source)
+caAppSource :: Lens' CreateApp (Maybe Source')
 caAppSource = lens _caAppSource (\s a -> s { _caAppSource = a })
 
 -- | The app virtual host settings, with multiple domains separated by commas.

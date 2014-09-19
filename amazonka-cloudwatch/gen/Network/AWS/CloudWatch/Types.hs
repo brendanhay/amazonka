@@ -157,7 +157,7 @@ instance AWSService CloudWatch where
     type Sg CloudWatch = V4
     type Er CloudWatch = CloudWatchError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "monitoring"
         , _svcVersion  = "2010-08-01"

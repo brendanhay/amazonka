@@ -75,7 +75,7 @@ data CreateStack = CreateStack
     , _cs1ChefConfiguration :: Maybe ChefConfiguration
     , _cs1UseCustomCookbooks :: Maybe Bool
     , _cs1UseOpsworksSecurityGroups :: Maybe Bool
-    , _cs1CustomCookbooksSource :: Maybe Source
+    , _cs1CustomCookbooksSource :: Maybe Source'
     , _cs1DefaultSshKeyName :: Maybe Text
     , _cs1DefaultRootDeviceType :: Maybe RootDeviceType
     } deriving (Show, Generic)
@@ -115,7 +115,7 @@ data CreateStack = CreateStack
 --
 -- * @UseOpsworksSecurityGroups ::@ @Maybe Bool@
 --
--- * @CustomCookbooksSource ::@ @Maybe Source@
+-- * @CustomCookbooksSource ::@ @Maybe Source'@
 --
 -- * @DefaultSshKeyName ::@ @Maybe Text@
 --
@@ -282,7 +282,7 @@ cs1UseOpsworksSecurityGroups =
 -- | Contains the information required to retrieve an app or cookbook from a
 -- repository. For more information, see Creating Apps or Custom Recipes and
 -- Cookbooks.
-cs1CustomCookbooksSource :: Lens' CreateStack (Maybe Source)
+cs1CustomCookbooksSource :: Lens' CreateStack (Maybe Source')
 cs1CustomCookbooksSource =
     lens _cs1CustomCookbooksSource
          (\s a -> s { _cs1CustomCookbooksSource = a })

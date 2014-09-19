@@ -238,7 +238,7 @@ instance AWSService ELB where
     type Sg ELB = V4
     type Er ELB = ELBError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "elasticloadbalancing"
         , _svcVersion  = "2012-06-01"

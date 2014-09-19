@@ -468,7 +468,7 @@ instance AWSService RDS where
     type Sg RDS = V4
     type Er RDS = RDSError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "rds"
         , _svcVersion  = "2013-09-09"

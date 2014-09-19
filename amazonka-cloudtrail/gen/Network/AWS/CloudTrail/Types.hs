@@ -42,6 +42,7 @@ module Network.AWS.CloudTrail.Types
     , _S3BucketDoesNotExistException
     , _TrailAlreadyExistsException
     , _TrailNotFoundException
+
     -- * Trail
     , Trail
     , trail
@@ -63,7 +64,7 @@ instance AWSService CloudTrail where
     type Sg CloudTrail = V4
     type Er CloudTrail = CloudTrailError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "cloudtrail"
         , _svcVersion  = "2013-11-01"

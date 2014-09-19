@@ -421,7 +421,7 @@ instance AWSService S3 where
     type Sg S3 = V4
     type Er S3 = S3Error
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "s3"
         , _svcVersion  = "2006-03-01"

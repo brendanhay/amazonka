@@ -37,6 +37,7 @@ module Network.AWS.Kinesis.Types
     , _ProvisionedThroughputExceededException
     , _ResourceInUseException
     , _ResourceNotFoundException
+
     -- * ShardIteratorType
     , ShardIteratorType (..)
 
@@ -92,7 +93,7 @@ instance AWSService Kinesis where
     type Sg Kinesis = V4
     type Er Kinesis = KinesisError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "kinesis"
         , _svcVersion  = "2013-12-02"

@@ -55,7 +55,7 @@ data UpdateApp = UpdateApp
     , _uaDescription :: Maybe Text
     , _uaDataSources :: [DataSource]
     , _uaType :: Maybe AppType
-    , _uaAppSource :: Maybe Source
+    , _uaAppSource :: Maybe Source'
     , _uaDomains :: [Text]
     , _uaEnableSsl :: Maybe Bool
     , _uaSslConfiguration :: Maybe SslConfiguration
@@ -77,7 +77,7 @@ data UpdateApp = UpdateApp
 --
 -- * @Type ::@ @Maybe AppType@
 --
--- * @AppSource ::@ @Maybe Source@
+-- * @AppSource ::@ @Maybe Source'@
 --
 -- * @Domains ::@ @[Text]@
 --
@@ -123,7 +123,7 @@ uaType :: Lens' UpdateApp (Maybe AppType)
 uaType = lens _uaType (\s a -> s { _uaType = a })
 
 -- | A Source object that specifies the app repository.
-uaAppSource :: Lens' UpdateApp (Maybe Source)
+uaAppSource :: Lens' UpdateApp (Maybe Source')
 uaAppSource = lens _uaAppSource (\s a -> s { _uaAppSource = a })
 
 -- | The app's virtual host settings, with multiple domains separated by commas.

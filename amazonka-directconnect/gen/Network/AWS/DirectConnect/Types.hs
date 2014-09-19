@@ -35,6 +35,7 @@ module Network.AWS.DirectConnect.Types
     , _DirectConnectSerializer
     , _DirectConnectServerException
     , _DirectConnectService
+
     -- * ConnectionState
     , ConnectionState (..)
 
@@ -158,7 +159,7 @@ instance AWSService DirectConnect where
     type Sg DirectConnect = V4
     type Er DirectConnect = DirectConnectError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "directconnect"
         , _svcVersion  = "2012-10-25"

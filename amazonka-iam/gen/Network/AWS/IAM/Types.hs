@@ -203,7 +203,7 @@ instance AWSService IAM where
     type Sg IAM = V4
     type Er IAM = IAMError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "iam"
         , _svcVersion  = "2010-05-08"
@@ -244,7 +244,7 @@ data IAMError
       -- | The request was rejected because the same certificate is
       -- associated to another user under the account.
     | DuplicateCertificateException
-        { _dceMessage :: Maybe Text
+        { _dce1Message :: Maybe Text
         }
       -- | The request was rejected because it attempted to create a
       -- resource that already exists.

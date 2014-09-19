@@ -73,7 +73,7 @@ instance AWSService STS where
     type Sg STS = V4
     type Er STS = STSError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "sts"
         , _svcVersion  = "2011-06-15"

@@ -34,6 +34,7 @@ module Network.AWS.Route53Domains.Types
     , _Route53DomainsService
     , _TLDRulesViolation
     , _UnsupportedTLD
+
     -- * ContactType
     , ContactType (..)
 
@@ -110,7 +111,7 @@ instance AWSService Route53Domains where
     type Sg Route53Domains = V4
     type Er Route53Domains = Route53DomainsError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "route53domains"
         , _svcVersion  = "2014-05-15"

@@ -37,6 +37,7 @@ module Network.AWS.CloudWatchLogs.Types
     , _ResourceAlreadyExistsException
     , _ResourceNotFoundException
     , _ServiceUnavailableException
+
     -- * InputLogEvent
     , InputLogEvent
     , inputLogEvent
@@ -106,7 +107,7 @@ instance AWSService CloudWatchLogs where
     type Sg CloudWatchLogs = V4
     type Er CloudWatchLogs = CloudWatchLogsError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "logs"
         , _svcVersion  = "2014-03-28"

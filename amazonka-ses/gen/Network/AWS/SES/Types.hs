@@ -120,7 +120,7 @@ instance AWSService SES where
     type Sg SES = V4
     type Er SES = SESError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "email"
         , _svcVersion  = "2010-12-01"

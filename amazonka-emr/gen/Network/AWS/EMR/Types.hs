@@ -35,6 +35,7 @@ module Network.AWS.EMR.Types
     , _InternalServerError
     , _InternalServerException
     , _InvalidRequestException
+
     -- * ActionOnFailure
     , ActionOnFailure (..)
 
@@ -426,7 +427,7 @@ instance AWSService EMR where
     type Sg EMR = V4
     type Er EMR = EMRError
 
-    service = Service'
+    service = Service
         { _svcEndpoint = Regional
         , _svcPrefix   = "elasticmapreduce"
         , _svcVersion  = "2009-03-31"
@@ -448,7 +449,7 @@ data EMRError
       -- | This exception occurs when there is an internal failure in the
       -- EMR service.
     | InternalServerException
-        { _iseMessage :: Maybe Text
+        { _ise1Message :: Maybe Text
         }
       -- | This exception occurs when there is something wrong with user
       -- input.

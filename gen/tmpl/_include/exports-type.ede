@@ -28,8 +28,8 @@ module {{ scope.ns.types }}
 {% else %}
     -- ** XML
     , xmlOptions
-
 {% endcase %}
+
 {% for data in scope.types %}
     -- * {{ data.value.name }}
   {% case data.value.ctor %}

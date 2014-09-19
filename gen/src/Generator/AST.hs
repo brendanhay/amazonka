@@ -319,6 +319,9 @@ data Error = Error
     , _erCtors  :: HashMap Text Type'
     } deriving (Eq, Show, Generic)
 
+instance Default Error where
+    def = Error "" [] mempty
+
 data Python
     = Empty
     | Keyed  Text

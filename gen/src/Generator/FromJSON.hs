@@ -153,7 +153,6 @@ instance FromJSON Service where
         a   <- o .: "service_abbreviation"
         rv  <- o .: "api_version"
         t   <- o .: "type"
-        ops <- o .: "operations"
         d   <- o .: "documentation"
 
         cbl <- fromMaybe (cabal cabalVersion Nothing Nothing)
@@ -169,7 +168,7 @@ instance FromJSON Service where
             <*> pure (version rv)
             <*> pure rv
             <*> pure typ
-            <*> pure (serviceError a ops)
+            <*> pure def
             <*> o .:? "result_wrapped" .!= False
             <*> o .:  "signature_version"
             <*> pure d
@@ -180,7 +179,7 @@ instance FromJSON Service where
             <*> o .:! "checksum_format"
             <*> o .:! "json_version"
             <*> o .:? "target_prefix"
-            <*> pure ops
+            <*> o .:  "operations"
             <*> pure def
             <*> pure (cbl n d)
             <*> o .:! "static"

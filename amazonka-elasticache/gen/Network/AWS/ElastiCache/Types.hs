@@ -200,9 +200,9 @@ module Network.AWS.ElastiCache.Types
     , ecsgEC2SecurityGroupName
     , ecsgEC2SecurityGroupOwnerId
 
-    -- * Endpoint
-    , Endpoint
-    , endpoint
+    -- * Endpoint'
+    , Endpoint'
+    , endpoint'
     , eAddress
     , ePort
 
@@ -1035,7 +1035,7 @@ instance ToQuery ReplicationGroupPendingModifiedValues where
 -- | Contains all of the attributes of a specific cache cluster.
 data CacheCluster = CacheCluster
     { _ccCacheClusterId :: Maybe Text
-    , _ccConfigurationEndpoint :: Maybe Endpoint
+    , _ccConfigurationEndpoint :: Maybe Endpoint'
     , _ccClientDownloadLandingPage :: Maybe Text
     , _ccCacheNodeType :: Maybe Text
     , _ccEngine :: Maybe Text
@@ -1068,7 +1068,7 @@ data CacheCluster = CacheCluster
 --
 -- * @CacheClusterId ::@ @Maybe Text@
 --
--- * @ConfigurationEndpoint ::@ @Maybe Endpoint@
+-- * @ConfigurationEndpoint ::@ @Maybe Endpoint'@
 --
 -- * @ClientDownloadLandingPage ::@ @Maybe Text@
 --
@@ -1144,7 +1144,7 @@ ccCacheClusterId =
 
 -- | Represents the information required for client programs to connect to a
 -- cache node.
-ccConfigurationEndpoint :: Lens' CacheCluster (Maybe Endpoint)
+ccConfigurationEndpoint :: Lens' CacheCluster (Maybe Endpoint')
 ccConfigurationEndpoint =
     lens _ccConfigurationEndpoint
          (\s a -> s { _ccConfigurationEndpoint = a })
@@ -1346,7 +1346,7 @@ data CacheNode = CacheNode
     { _cnCacheNodeId :: Maybe Text
     , _cnCacheNodeStatus :: Maybe Text
     , _cnCacheNodeCreateTime :: Maybe ISO8601
-    , _cnEndpoint :: Maybe Endpoint
+    , _cnEndpoint :: Maybe Endpoint'
     , _cnParameterGroupStatus :: Maybe Text
     , _cnSourceCacheNodeId :: Maybe Text
     , _cnCustomerAvailabilityZone :: Maybe Text
@@ -1363,7 +1363,7 @@ data CacheNode = CacheNode
 --
 -- * @CacheNodeCreateTime ::@ @Maybe ISO8601@
 --
--- * @Endpoint ::@ @Maybe Endpoint@
+-- * @Endpoint ::@ @Maybe Endpoint'@
 --
 -- * @ParameterGroupStatus ::@ @Maybe Text@
 --
@@ -1399,7 +1399,7 @@ cnCacheNodeCreateTime =
     lens _cnCacheNodeCreateTime (\s a -> s { _cnCacheNodeCreateTime = a })
 
 -- | The hostname and IP address for connecting to this cache node.
-cnEndpoint :: Lens' CacheNode (Maybe Endpoint)
+cnEndpoint :: Lens' CacheNode (Maybe Endpoint')
 cnEndpoint = lens _cnEndpoint (\s a -> s { _cnEndpoint = a })
 
 -- | The status of the parameter group applied to this cache node.
@@ -1869,13 +1869,13 @@ instance ToQuery EC2SecurityGroup where
 
 -- | Represents the information required for client programs to connect to a
 -- cache node.
-data Endpoint = Endpoint
+data Endpoint' = Endpoint'
     { _eAddress :: Maybe Text
     , _ePort :: Maybe Integer
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
--- a valid 'Endpoint' data type to populate a request.
+-- a valid 'Endpoint'' data type to populate a request.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1883,25 +1883,25 @@ data Endpoint = Endpoint
 --
 -- * @Port ::@ @Maybe Integer@
 --
-endpoint :: Endpoint
-endpoint = Endpoint
+endpoint' :: Endpoint'
+endpoint' = Endpoint'
     { _eAddress = Nothing
     , _ePort = Nothing
     }
 
 -- | The DNS hostname of the cache node.
-eAddress :: Lens' Endpoint (Maybe Text)
+eAddress :: Lens' Endpoint' (Maybe Text)
 eAddress = lens _eAddress (\s a -> s { _eAddress = a })
 
 -- | The port number that the cache engine is listening on.
-ePort :: Lens' Endpoint (Maybe Integer)
+ePort :: Lens' Endpoint' (Maybe Integer)
 ePort = lens _ePort (\s a -> s { _ePort = a })
 
-instance FromXML Endpoint where
+instance FromXML Endpoint' where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "Endpoint"
 
-instance ToQuery Endpoint where
+instance ToQuery Endpoint' where
     toQuery = genericQuery def
 
 -- | Represents the output of a DescribeEngineDefaultParameters operation.
@@ -2024,7 +2024,7 @@ instance FromXML Event where
 data NodeGroup = NodeGroup
     { _ngNodeGroupId :: Maybe Text
     , _ngStatus :: Maybe Text
-    , _ngPrimaryEndpoint :: Maybe Endpoint
+    , _ngPrimaryEndpoint :: Maybe Endpoint'
     , _ngNodeGroupMembers :: [NodeGroupMember]
     } deriving (Show, Generic)
 
@@ -2037,7 +2037,7 @@ data NodeGroup = NodeGroup
 --
 -- * @Status ::@ @Maybe Text@
 --
--- * @PrimaryEndpoint ::@ @Maybe Endpoint@
+-- * @PrimaryEndpoint ::@ @Maybe Endpoint'@
 --
 -- * @NodeGroupMembers ::@ @[NodeGroupMember]@
 --
@@ -2060,7 +2060,7 @@ ngStatus = lens _ngStatus (\s a -> s { _ngStatus = a })
 
 -- | Represents the information required for client programs to connect to a
 -- cache node.
-ngPrimaryEndpoint :: Lens' NodeGroup (Maybe Endpoint)
+ngPrimaryEndpoint :: Lens' NodeGroup (Maybe Endpoint')
 ngPrimaryEndpoint =
     lens _ngPrimaryEndpoint (\s a -> s { _ngPrimaryEndpoint = a })
 
@@ -2080,7 +2080,7 @@ instance ToQuery NodeGroup where
 data NodeGroupMember = NodeGroupMember
     { _ngmCacheClusterId :: Maybe Text
     , _ngmCacheNodeId :: Maybe Text
-    , _ngmReadEndpoint :: Maybe Endpoint
+    , _ngmReadEndpoint :: Maybe Endpoint'
     , _ngmPreferredAvailabilityZone :: Maybe Text
     , _ngmCurrentRole :: Maybe Text
     } deriving (Show, Generic)
@@ -2094,7 +2094,7 @@ data NodeGroupMember = NodeGroupMember
 --
 -- * @CacheNodeId ::@ @Maybe Text@
 --
--- * @ReadEndpoint ::@ @Maybe Endpoint@
+-- * @ReadEndpoint ::@ @Maybe Endpoint'@
 --
 -- * @PreferredAvailabilityZone ::@ @Maybe Text@
 --
@@ -2121,7 +2121,7 @@ ngmCacheNodeId = lens _ngmCacheNodeId (\s a -> s { _ngmCacheNodeId = a })
 
 -- | Represents the information required for client programs to connect to a
 -- cache node.
-ngmReadEndpoint :: Lens' NodeGroupMember (Maybe Endpoint)
+ngmReadEndpoint :: Lens' NodeGroupMember (Maybe Endpoint')
 ngmReadEndpoint = lens _ngmReadEndpoint (\s a -> s { _ngmReadEndpoint = a })
 
 -- | The name of the Availability Zone in which the node is located.

@@ -517,8 +517,7 @@ serviceError svc@Service{..} =
          , except "Service"    "String"
          ]
 
-    es = let x = nub (concatMap _opErrors _svcOperations)
-          in trace (show $ map (Text.unpack . view cmnName) x) x
+    es = nub (concatMap _opErrors _svcOperations)
 
     custom s = shapeType True svc s & anCtor.~CError
 

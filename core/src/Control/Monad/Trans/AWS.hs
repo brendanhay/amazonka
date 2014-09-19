@@ -55,7 +55,7 @@ module Control.Monad.Trans.AWS
     , hoistEither
     , throwAWSError
     , verify
-    , verify'
+    , verifyWith
 
     -- * Requests
     -- ** Synchronous
@@ -205,23 +205,23 @@ throwAWSError = throwError . awsError
 
 verify :: (AWSError e, MonadError Error m)
        => Prism' e a
-       -> (a -> Bool)
        -> e
        -> m ()
-verify p f e = either (const err) g (matching p e)
+verify p e
+    | isn't p e = throwAWSError e
+    | otherwise = return ()
+
+verifyWith :: (AWSError e, MonadError Error m)
+           => Prism' e a
+           -> (a -> Bool)
+           -> e
+           -> m ()
+verifyWith p f e = either (const err) g (matching p e)
   where
     g x | f x       = return ()
         | otherwise = err
 
     err = throwAWSError e
-
-verify' :: (AWSError e, MonadError Error m)
-        => Prism' e a
-        -> e
-        -> m ()
-verify' p e
-    | isn't p e = throwAWSError e
-    | otherwise = return ()
 
 -- | Pass the current environment to a function.
 scoped :: MonadReader Env m => (Env -> m a) -> m a

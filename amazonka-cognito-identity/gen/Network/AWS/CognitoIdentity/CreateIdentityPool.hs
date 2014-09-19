@@ -74,8 +74,8 @@ data CreateIdentityPool = CreateIdentityPool
 -- * @SupportedLoginProviders ::@ @Map Text Text@
 --
 createIdentityPool :: Text -- ^ 'cipIdentityPoolName'
-                     -> Bool -- ^ 'cipAllowUnauthenticatedIdentities'
-                     -> CreateIdentityPool
+                   -> Bool -- ^ 'cipAllowUnauthenticatedIdentities'
+                   -> CreateIdentityPool
 createIdentityPool p1 p2 = CreateIdentityPool
     { _cipIdentityPoolName = p1
     , _cipAllowUnauthenticatedIdentities = p2
@@ -131,9 +131,9 @@ data CreateIdentityPoolResponse = CreateIdentityPoolResponse
 -- * @SupportedLoginProviders ::@ @Map Text Text@
 --
 createIdentityPoolResponse :: Text -- ^ 'ciprIdentityPoolId'
-                             -> Text -- ^ 'ciprIdentityPoolName'
-                             -> Bool -- ^ 'ciprAllowUnauthenticatedIdentities'
-                             -> CreateIdentityPoolResponse
+                           -> Text -- ^ 'ciprIdentityPoolName'
+                           -> Bool -- ^ 'ciprAllowUnauthenticatedIdentities'
+                           -> CreateIdentityPoolResponse
 createIdentityPoolResponse p1 p2 p3 = CreateIdentityPoolResponse
     { _ciprIdentityPoolId = p1
     , _ciprIdentityPoolName = p2

@@ -64,8 +64,8 @@ data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscrip
 -- * @SourceIdentifier ::@ @Text@
 --
 removeSourceIdentifierFromSubscription :: Text -- ^ 'rsifsSubscriptionName'
-                                         -> Text -- ^ 'rsifsSourceIdentifier'
-                                         -> RemoveSourceIdentifierFromSubscription
+                                       -> Text -- ^ 'rsifsSourceIdentifier'
+                                       -> RemoveSourceIdentifierFromSubscription
 removeSourceIdentifierFromSubscription p1 p2 = RemoveSourceIdentifierFromSubscription
     { _rsifsSubscriptionName = p1
     , _rsifsSourceIdentifier = p2

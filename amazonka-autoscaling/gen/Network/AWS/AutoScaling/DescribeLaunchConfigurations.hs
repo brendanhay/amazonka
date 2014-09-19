@@ -110,7 +110,7 @@ data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
 -- * @NextToken ::@ @Maybe Text@
 --
 describeLaunchConfigurationsResponse :: [LaunchConfiguration] -- ^ 'dlcrLaunchConfigurations'
-                                       -> DescribeLaunchConfigurationsResponse
+                                     -> DescribeLaunchConfigurationsResponse
 describeLaunchConfigurationsResponse p1 = DescribeLaunchConfigurationsResponse
     { _dlcrLaunchConfigurations = p1
     , _dlcrNextToken = Nothing

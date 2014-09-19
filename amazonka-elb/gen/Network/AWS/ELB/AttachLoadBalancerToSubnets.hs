@@ -64,8 +64,8 @@ data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets
 -- * @Subnets ::@ @[Text]@
 --
 attachLoadBalancerToSubnets :: Text -- ^ 'albtsLoadBalancerName'
-                              -> [Text] -- ^ 'albtsSubnets'
-                              -> AttachLoadBalancerToSubnets
+                            -> [Text] -- ^ 'albtsSubnets'
+                            -> AttachLoadBalancerToSubnets
 attachLoadBalancerToSubnets p1 p2 = AttachLoadBalancerToSubnets
     { _albtsLoadBalancerName = p1
     , _albtsSubnets = p2

@@ -77,9 +77,9 @@ data ImportVolume = ImportVolume
 -- * @Volume ::@ @VolumeDetail@
 --
 importVolume :: Text -- ^ 'ivAvailabilityZone'
-               -> DiskImageDetail -- ^ 'ivImage'
-               -> VolumeDetail -- ^ 'ivVolume'
-               -> ImportVolume
+             -> DiskImageDetail -- ^ 'ivImage'
+             -> VolumeDetail -- ^ 'ivVolume'
+             -> ImportVolume
 importVolume p1 p2 p4 = ImportVolume
     { _ivAvailabilityZone = p1
     , _ivImage = p2

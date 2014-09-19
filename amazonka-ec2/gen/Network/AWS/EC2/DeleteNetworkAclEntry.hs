@@ -65,9 +65,9 @@ data DeleteNetworkAclEntry = DeleteNetworkAclEntry
 -- * @Egress ::@ @Bool@
 --
 deleteNetworkAclEntry :: Text -- ^ 'dnaeNetworkAclId'
-                        -> Integer -- ^ 'dnaeRuleNumber'
-                        -> Bool -- ^ 'dnaeEgress'
-                        -> DeleteNetworkAclEntry
+                      -> Integer -- ^ 'dnaeRuleNumber'
+                      -> Bool -- ^ 'dnaeEgress'
+                      -> DeleteNetworkAclEntry
 deleteNetworkAclEntry p1 p2 p3 = DeleteNetworkAclEntry
     { _dnaeNetworkAclId = p1
     , _dnaeRuleNumber = p2

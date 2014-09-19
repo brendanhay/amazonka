@@ -84,8 +84,8 @@ data DescribeObjects = DescribeObjects
 -- * @Marker ::@ @Maybe Text@
 --
 describeObjects :: Text -- ^ 'doPipelineId'
-                  -> [Text] -- ^ 'doObjectIds'
-                  -> DescribeObjects
+                -> [Text] -- ^ 'doObjectIds'
+                -> DescribeObjects
 describeObjects p1 p2 = DescribeObjects
     { _doPipelineId = p1
     , _doObjectIds = p2
@@ -146,8 +146,8 @@ data DescribeObjectsResponse = DescribeObjectsResponse
 -- * @HasMoreResults ::@ @Bool@
 --
 describeObjectsResponse :: [PipelineObject] -- ^ 'dorPipelineObjects'
-                          -> Bool -- ^ 'dorHasMoreResults'
-                          -> DescribeObjectsResponse
+                        -> Bool -- ^ 'dorHasMoreResults'
+                        -> DescribeObjectsResponse
 describeObjectsResponse p1 p3 = DescribeObjectsResponse
     { _dorPipelineObjects = p1
     , _dorMarker = Nothing

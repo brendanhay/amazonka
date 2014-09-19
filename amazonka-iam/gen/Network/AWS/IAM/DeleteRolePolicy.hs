@@ -56,8 +56,8 @@ data DeleteRolePolicy = DeleteRolePolicy
 -- * @PolicyName ::@ @Text@
 --
 deleteRolePolicy :: Text -- ^ 'drpRoleName'
-                   -> Text -- ^ 'drpPolicyName'
-                   -> DeleteRolePolicy
+                 -> Text -- ^ 'drpPolicyName'
+                 -> DeleteRolePolicy
 deleteRolePolicy p1 p2 = DeleteRolePolicy
     { _drpRoleName = p1
     , _drpPolicyName = p2

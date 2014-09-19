@@ -73,10 +73,10 @@ data CreateOptionGroup = CreateOptionGroup
 -- * @Tags ::@ @[Tag]@
 --
 createOptionGroup :: Text -- ^ 'cogOptionGroupName'
-                    -> Text -- ^ 'cogEngineName'
-                    -> Text -- ^ 'cogMajorEngineVersion'
-                    -> Text -- ^ 'cogOptionGroupDescription'
-                    -> CreateOptionGroup
+                  -> Text -- ^ 'cogEngineName'
+                  -> Text -- ^ 'cogMajorEngineVersion'
+                  -> Text -- ^ 'cogOptionGroupDescription'
+                  -> CreateOptionGroup
 createOptionGroup p1 p2 p3 p4 = CreateOptionGroup
     { _cogOptionGroupName = p1
     , _cogEngineName = p2

@@ -63,7 +63,7 @@ newtype DeletePipeline = DeletePipeline
 -- * @PipelineId ::@ @Text@
 --
 deletePipeline :: Text -- ^ 'dpPipelineId'
-                 -> DeletePipeline
+               -> DeletePipeline
 deletePipeline p1 = DeletePipeline
     { _dpPipelineId = p1
     }

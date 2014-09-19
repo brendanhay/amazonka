@@ -50,7 +50,7 @@ newtype DeleteBucketWebsite = DeleteBucketWebsite
 -- * @Bucket ::@ @BucketName@
 --
 deleteBucketWebsite :: BucketName -- ^ 'dbwBucket'
-                      -> DeleteBucketWebsite
+                    -> DeleteBucketWebsite
 deleteBucketWebsite p1 = DeleteBucketWebsite
     { _dbwBucket = p1
     }

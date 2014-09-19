@@ -66,8 +66,8 @@ data DeleteObjects = DeleteObjects
 -- * @MFA ::@ @Maybe Text@
 --
 deleteObjects :: BucketName -- ^ 'do1Bucket'
-                -> Delete -- ^ 'do1Delete'
-                -> DeleteObjects
+              -> Delete -- ^ 'do1Delete'
+              -> DeleteObjects
 deleteObjects p1 p2 = DeleteObjects
     { _do1Bucket = p1
     , _do1Delete = p2

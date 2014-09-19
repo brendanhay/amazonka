@@ -72,7 +72,7 @@ data DeleteReplicationGroup = DeleteReplicationGroup
 -- * @FinalSnapshotIdentifier ::@ @Maybe Text@
 --
 deleteReplicationGroup :: Text -- ^ 'drgReplicationGroupId'
-                         -> DeleteReplicationGroup
+                       -> DeleteReplicationGroup
 deleteReplicationGroup p1 = DeleteReplicationGroup
     { _drgReplicationGroupId = p1
     , _drgRetainPrimaryCluster = Nothing

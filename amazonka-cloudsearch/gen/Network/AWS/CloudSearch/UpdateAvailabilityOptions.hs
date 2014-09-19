@@ -63,8 +63,8 @@ data UpdateAvailabilityOptions = UpdateAvailabilityOptions
 -- * @MultiAZ ::@ @Bool@
 --
 updateAvailabilityOptions :: Text -- ^ 'uaoDomainName'
-                            -> Bool -- ^ 'uaoMultiAZ'
-                            -> UpdateAvailabilityOptions
+                          -> Bool -- ^ 'uaoMultiAZ'
+                          -> UpdateAvailabilityOptions
 updateAvailabilityOptions p1 p2 = UpdateAvailabilityOptions
     { _uaoDomainName = p1
     , _uaoMultiAZ = p2

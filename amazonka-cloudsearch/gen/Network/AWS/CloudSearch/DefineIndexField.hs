@@ -65,8 +65,8 @@ data DefineIndexField = DefineIndexField
 -- * @IndexField ::@ @IndexField@
 --
 defineIndexField :: Text -- ^ 'difDomainName'
-                   -> IndexField -- ^ 'difIndexField'
-                   -> DefineIndexField
+                 -> IndexField -- ^ 'difIndexField'
+                 -> DefineIndexField
 defineIndexField p1 p2 = DefineIndexField
     { _difDomainName = p1
     , _difIndexField = p2
@@ -102,7 +102,7 @@ newtype DefineIndexFieldResponse = DefineIndexFieldResponse
 -- * @IndexField ::@ @IndexFieldStatus@
 --
 defineIndexFieldResponse :: IndexFieldStatus -- ^ 'difrIndexField'
-                           -> DefineIndexFieldResponse
+                         -> DefineIndexFieldResponse
 defineIndexFieldResponse p1 = DefineIndexFieldResponse
     { _difrIndexField = p1
     }

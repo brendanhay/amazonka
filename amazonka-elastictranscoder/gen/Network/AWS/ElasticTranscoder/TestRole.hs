@@ -92,10 +92,10 @@ data TestRole = TestRole
 -- * @Topics ::@ @[Text]@
 --
 testRole :: Text -- ^ 'trRole'
-           -> Text -- ^ 'trInputBucket'
-           -> Text -- ^ 'trOutputBucket'
-           -> [Text] -- ^ 'trTopics'
-           -> TestRole
+         -> Text -- ^ 'trInputBucket'
+         -> Text -- ^ 'trOutputBucket'
+         -> [Text] -- ^ 'trTopics'
+         -> TestRole
 testRole p1 p2 p3 p4 = TestRole
     { _trRole = p1
     , _trInputBucket = p2

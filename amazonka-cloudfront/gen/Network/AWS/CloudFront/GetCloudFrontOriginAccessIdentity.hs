@@ -54,7 +54,7 @@ newtype GetCloudFrontOriginAccessIdentity = GetCloudFrontOriginAccessIdentity
 -- * @Id ::@ @Text@
 --
 getCloudFrontOriginAccessIdentity :: Text -- ^ 'gcfoaiId'
-                                    -> GetCloudFrontOriginAccessIdentity
+                                  -> GetCloudFrontOriginAccessIdentity
 getCloudFrontOriginAccessIdentity p1 = GetCloudFrontOriginAccessIdentity
     { _gcfoaiId = p1
     }

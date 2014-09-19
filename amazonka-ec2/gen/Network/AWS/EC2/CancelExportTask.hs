@@ -56,7 +56,7 @@ newtype CancelExportTask = CancelExportTask
 -- * @ExportTaskId ::@ @Text@
 --
 cancelExportTask :: Text -- ^ 'cetExportTaskId'
-                   -> CancelExportTask
+                 -> CancelExportTask
 cancelExportTask p1 = CancelExportTask
     { _cetExportTaskId = p1
     }

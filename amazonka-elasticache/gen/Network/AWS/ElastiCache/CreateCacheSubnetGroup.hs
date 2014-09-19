@@ -69,9 +69,9 @@ data CreateCacheSubnetGroup = CreateCacheSubnetGroup
 -- * @SubnetIds ::@ @[Text]@
 --
 createCacheSubnetGroup :: Text -- ^ 'ccsg1CacheSubnetGroupName'
-                         -> Text -- ^ 'ccsg1CacheSubnetGroupDescription'
-                         -> [Text] -- ^ 'ccsg1SubnetIds'
-                         -> CreateCacheSubnetGroup
+                       -> Text -- ^ 'ccsg1CacheSubnetGroupDescription'
+                       -> [Text] -- ^ 'ccsg1SubnetIds'
+                       -> CreateCacheSubnetGroup
 createCacheSubnetGroup p1 p2 p3 = CreateCacheSubnetGroup
     { _ccsg1CacheSubnetGroupName = p1
     , _ccsg1CacheSubnetGroupDescription = p2

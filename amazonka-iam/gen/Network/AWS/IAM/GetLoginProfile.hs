@@ -55,7 +55,7 @@ newtype GetLoginProfile = GetLoginProfile
 -- * @UserName ::@ @Text@
 --
 getLoginProfile :: Text -- ^ 'glpUserName'
-                  -> GetLoginProfile
+                -> GetLoginProfile
 getLoginProfile p1 = GetLoginProfile
     { _glpUserName = p1
     }
@@ -83,7 +83,7 @@ newtype GetLoginProfileResponse = GetLoginProfileResponse
 -- * @LoginProfile ::@ @LoginProfile@
 --
 getLoginProfileResponse :: LoginProfile -- ^ 'glprLoginProfile'
-                          -> GetLoginProfileResponse
+                        -> GetLoginProfileResponse
 getLoginProfileResponse p1 = GetLoginProfileResponse
     { _glprLoginProfile = p1
     }

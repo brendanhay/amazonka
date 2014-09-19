@@ -126,8 +126,8 @@ data CreatePreset = CreatePreset
 -- * @Thumbnails ::@ @Maybe Thumbnails@
 --
 createPreset :: Text -- ^ 'cp1Name'
-               -> Text -- ^ 'cp1Container'
-               -> CreatePreset
+             -> Text -- ^ 'cp1Container'
+             -> CreatePreset
 createPreset p1 p3 = CreatePreset
     { _cp1Name = p1
     , _cp1Description = Nothing

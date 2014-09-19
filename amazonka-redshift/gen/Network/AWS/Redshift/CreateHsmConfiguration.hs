@@ -79,12 +79,12 @@ data CreateHsmConfiguration = CreateHsmConfiguration
 -- * @HsmServerPublicCertificate ::@ @Text@
 --
 createHsmConfiguration :: Text -- ^ 'chcHsmConfigurationIdentifier'
-                         -> Text -- ^ 'chcDescription'
-                         -> Text -- ^ 'chcHsmIpAddress'
-                         -> Text -- ^ 'chcHsmPartitionName'
-                         -> Text -- ^ 'chcHsmPartitionPassword'
-                         -> Text -- ^ 'chcHsmServerPublicCertificate'
-                         -> CreateHsmConfiguration
+                       -> Text -- ^ 'chcDescription'
+                       -> Text -- ^ 'chcHsmIpAddress'
+                       -> Text -- ^ 'chcHsmPartitionName'
+                       -> Text -- ^ 'chcHsmPartitionPassword'
+                       -> Text -- ^ 'chcHsmServerPublicCertificate'
+                       -> CreateHsmConfiguration
 createHsmConfiguration p1 p2 p3 p4 p5 p6 = CreateHsmConfiguration
     { _chcHsmConfigurationIdentifier = p1
     , _chcDescription = p2

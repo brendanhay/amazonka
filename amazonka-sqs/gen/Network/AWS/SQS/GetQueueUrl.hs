@@ -67,7 +67,7 @@ data GetQueueUrl = GetQueueUrl
 -- * @QueueOwnerAWSAccountId ::@ @Maybe Text@
 --
 getQueueUrl :: Text -- ^ 'gquQueueName'
-              -> GetQueueUrl
+            -> GetQueueUrl
 getQueueUrl p1 = GetQueueUrl
     { _gquQueueName = p1
     , _gquQueueOwnerAWSAccountId = Nothing

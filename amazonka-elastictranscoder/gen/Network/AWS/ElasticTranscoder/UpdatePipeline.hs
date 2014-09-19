@@ -80,7 +80,7 @@ data UpdatePipeline = UpdatePipeline
 -- * @ThumbnailConfig ::@ @Maybe PipelineOutputConfig@
 --
 updatePipeline :: Text -- ^ 'upId'
-                 -> UpdatePipeline
+               -> UpdatePipeline
 updatePipeline p1 = UpdatePipeline
     { _upId = p1
     , _upName = Nothing
@@ -225,7 +225,7 @@ newtype UpdatePipelineResponse = UpdatePipelineResponse
 -- * @Pipeline ::@ @Pipeline@
 --
 updatePipelineResponse :: Pipeline -- ^ 'uprPipeline'
-                         -> UpdatePipelineResponse
+                       -> UpdatePipelineResponse
 updatePipelineResponse p1 = UpdatePipelineResponse
     { _uprPipeline = p1
     }

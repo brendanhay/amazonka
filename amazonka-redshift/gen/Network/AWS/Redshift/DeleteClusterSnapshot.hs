@@ -71,7 +71,7 @@ data DeleteClusterSnapshot = DeleteClusterSnapshot
 -- * @SnapshotClusterIdentifier ::@ @Maybe Text@
 --
 deleteClusterSnapshot :: Text -- ^ 'dcsSnapshotIdentifier'
-                        -> DeleteClusterSnapshot
+                      -> DeleteClusterSnapshot
 deleteClusterSnapshot p1 = DeleteClusterSnapshot
     { _dcsSnapshotIdentifier = p1
     , _dcsSnapshotClusterIdentifier = Nothing

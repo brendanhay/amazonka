@@ -57,7 +57,7 @@ newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes
 -- * @LoadBalancerName ::@ @Text@
 --
 describeLoadBalancerAttributes :: Text -- ^ 'dlbaLoadBalancerName'
-                                 -> DescribeLoadBalancerAttributes
+                               -> DescribeLoadBalancerAttributes
 describeLoadBalancerAttributes p1 = DescribeLoadBalancerAttributes
     { _dlbaLoadBalancerName = p1
     }

@@ -70,7 +70,7 @@ newtype GetSubscriptionAttributes = GetSubscriptionAttributes
 -- * @SubscriptionArn ::@ @Text@
 --
 getSubscriptionAttributes :: Text -- ^ 'gsaSubscriptionArn'
-                            -> GetSubscriptionAttributes
+                          -> GetSubscriptionAttributes
 getSubscriptionAttributes p1 = GetSubscriptionAttributes
     { _gsaSubscriptionArn = p1
     }

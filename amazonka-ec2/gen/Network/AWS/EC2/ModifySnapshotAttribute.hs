@@ -96,7 +96,7 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute
 -- * @CreateVolumePermission ::@ @Maybe CreateVolumePermissionModifications@
 --
 modifySnapshotAttribute :: Text -- ^ 'msaSnapshotId'
-                          -> ModifySnapshotAttribute
+                        -> ModifySnapshotAttribute
 modifySnapshotAttribute p1 = ModifySnapshotAttribute
     { _msaSnapshotId = p1
     , _msaAttribute = Nothing

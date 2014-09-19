@@ -128,8 +128,8 @@ data CreateJob = CreateJob
 -- * @Playlists ::@ @[CreateJobPlaylist]@
 --
 createJob :: Text -- ^ 'cj1PipelineId'
-            -> JobInput -- ^ 'cj1Input'
-            -> CreateJob
+          -> JobInput -- ^ 'cj1Input'
+          -> CreateJob
 createJob p1 p2 = CreateJob
     { _cj1PipelineId = p1
     , _cj1Input = p2

@@ -54,7 +54,7 @@ newtype DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks
 -- * @Language ::@ @Text@
 --
 describeTrustedAdvisorChecks :: Text -- ^ 'dtacLanguage'
-                               -> DescribeTrustedAdvisorChecks
+                             -> DescribeTrustedAdvisorChecks
 describeTrustedAdvisorChecks p1 = DescribeTrustedAdvisorChecks
     { _dtacLanguage = p1
     }
@@ -89,7 +89,7 @@ newtype DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksRespo
 -- * @Checks ::@ @[TrustedAdvisorCheckDescription]@
 --
 describeTrustedAdvisorChecksResponse :: [TrustedAdvisorCheckDescription] -- ^ 'dtacr1Checks'
-                                       -> DescribeTrustedAdvisorChecksResponse
+                                     -> DescribeTrustedAdvisorChecksResponse
 describeTrustedAdvisorChecksResponse p1 = DescribeTrustedAdvisorChecksResponse
     { _dtacr1Checks = p1
     }

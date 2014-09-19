@@ -61,8 +61,8 @@ data DefineAnalysisScheme = DefineAnalysisScheme
 -- * @AnalysisScheme ::@ @AnalysisScheme@
 --
 defineAnalysisScheme :: Text -- ^ 'dasDomainName'
-                       -> AnalysisScheme -- ^ 'dasAnalysisScheme'
-                       -> DefineAnalysisScheme
+                     -> AnalysisScheme -- ^ 'dasAnalysisScheme'
+                     -> DefineAnalysisScheme
 defineAnalysisScheme p1 p2 = DefineAnalysisScheme
     { _dasDomainName = p1
     , _dasAnalysisScheme = p2
@@ -102,7 +102,7 @@ newtype DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse
 -- * @AnalysisScheme ::@ @AnalysisSchemeStatus@
 --
 defineAnalysisSchemeResponse :: AnalysisSchemeStatus -- ^ 'dasrAnalysisScheme'
-                               -> DefineAnalysisSchemeResponse
+                             -> DefineAnalysisSchemeResponse
 defineAnalysisSchemeResponse p1 = DefineAnalysisSchemeResponse
     { _dasrAnalysisScheme = p1
     }

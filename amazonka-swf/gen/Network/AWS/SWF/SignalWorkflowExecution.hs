@@ -97,9 +97,9 @@ data SignalWorkflowExecution = SignalWorkflowExecution
 -- * @Input ::@ @Maybe Text@
 --
 signalWorkflowExecution :: Text -- ^ 'sweDomain'
-                          -> Text -- ^ 'sweWorkflowId'
-                          -> Text -- ^ 'sweSignalName'
-                          -> SignalWorkflowExecution
+                        -> Text -- ^ 'sweWorkflowId'
+                        -> Text -- ^ 'sweSignalName'
+                        -> SignalWorkflowExecution
 signalWorkflowExecution p1 p2 p4 = SignalWorkflowExecution
     { _sweDomain = p1
     , _sweWorkflowId = p2

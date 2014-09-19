@@ -54,7 +54,7 @@ newtype DisassociateElasticIp = DisassociateElasticIp
 -- * @ElasticIp ::@ @Text@
 --
 disassociateElasticIp :: Text -- ^ 'dei2ElasticIp'
-                        -> DisassociateElasticIp
+                      -> DisassociateElasticIp
 disassociateElasticIp p1 = DisassociateElasticIp
     { _dei2ElasticIp = p1
     }

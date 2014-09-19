@@ -73,8 +73,8 @@ data CreateRole = CreateRole
 -- * @AssumeRolePolicyDocument ::@ @Text@
 --
 createRole :: Text -- ^ 'crRoleName'
-             -> Text -- ^ 'crAssumeRolePolicyDocument'
-             -> CreateRole
+           -> Text -- ^ 'crAssumeRolePolicyDocument'
+           -> CreateRole
 createRole p2 p3 = CreateRole
     { _crPath = Nothing
     , _crRoleName = p2
@@ -115,7 +115,7 @@ newtype CreateRoleResponse = CreateRoleResponse
 -- * @Role ::@ @Role@
 --
 createRoleResponse :: Role -- ^ 'crrRole'
-                     -> CreateRoleResponse
+                   -> CreateRoleResponse
 createRoleResponse p1 = CreateRoleResponse
     { _crrRole = p1
     }

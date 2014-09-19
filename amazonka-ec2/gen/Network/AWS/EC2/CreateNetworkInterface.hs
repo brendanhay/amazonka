@@ -169,7 +169,7 @@ data CreateNetworkInterface = CreateNetworkInterface
 -- * @SecondaryPrivateIpAddressCount ::@ @Maybe Integer@
 --
 createNetworkInterface :: Text -- ^ 'cniSubnetId'
-                         -> CreateNetworkInterface
+                       -> CreateNetworkInterface
 createNetworkInterface p1 = CreateNetworkInterface
     { _cniSubnetId = p1
     , _cniDescription = Nothing

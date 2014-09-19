@@ -78,7 +78,7 @@ data StartInstances = StartInstances
 -- * @AdditionalInfo ::@ @Maybe Text@
 --
 startInstances :: [Text] -- ^ 'siInstanceIds'
-                 -> StartInstances
+               -> StartInstances
 startInstances p1 = StartInstances
     { _siInstanceIds = p1
     , _siAdditionalInfo = Nothing

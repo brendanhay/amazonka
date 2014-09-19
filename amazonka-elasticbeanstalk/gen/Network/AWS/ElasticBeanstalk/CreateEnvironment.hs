@@ -114,8 +114,8 @@ data CreateEnvironment = CreateEnvironment
 -- * @OptionsToRemove ::@ @[OptionSpecification]@
 --
 createEnvironment :: Text -- ^ 'ceApplicationName'
-                    -> Text -- ^ 'ceEnvironmentName'
-                    -> CreateEnvironment
+                  -> Text -- ^ 'ceEnvironmentName'
+                  -> CreateEnvironment
 createEnvironment p1 p2 = CreateEnvironment
     { _ceApplicationName = p1
     , _ceEnvironmentName = p2

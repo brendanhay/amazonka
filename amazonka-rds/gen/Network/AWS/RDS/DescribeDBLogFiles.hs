@@ -85,7 +85,7 @@ data DescribeDBLogFiles = DescribeDBLogFiles
 -- * @Marker ::@ @Maybe Text@
 --
 describeDBLogFiles :: Text -- ^ 'ddblfDBInstanceIdentifier'
-                     -> DescribeDBLogFiles
+                   -> DescribeDBLogFiles
 describeDBLogFiles p1 = DescribeDBLogFiles
     { _ddblfDBInstanceIdentifier = p1
     , _ddblfFilenameContains = Nothing

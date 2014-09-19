@@ -104,8 +104,8 @@ data TerminateWorkflowExecution = TerminateWorkflowExecution
 -- * @ChildPolicy ::@ @Maybe ChildPolicy@
 --
 terminateWorkflowExecution :: Text -- ^ 'tweDomain'
-                             -> Text -- ^ 'tweWorkflowId'
-                             -> TerminateWorkflowExecution
+                           -> Text -- ^ 'tweWorkflowId'
+                           -> TerminateWorkflowExecution
 terminateWorkflowExecution p1 p2 = TerminateWorkflowExecution
     { _tweDomain = p1
     , _tweWorkflowId = p2

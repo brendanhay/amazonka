@@ -64,9 +64,9 @@ data SetAlarmState = SetAlarmState
 -- * @StateReasonData ::@ @Maybe Text@
 --
 setAlarmState :: Text -- ^ 'sasAlarmName'
-                -> StateValue -- ^ 'sasStateValue'
-                -> Text -- ^ 'sasStateReason'
-                -> SetAlarmState
+              -> StateValue -- ^ 'sasStateValue'
+              -> Text -- ^ 'sasStateReason'
+              -> SetAlarmState
 setAlarmState p1 p2 p3 = SetAlarmState
     { _sasAlarmName = p1
     , _sasStateValue = p2

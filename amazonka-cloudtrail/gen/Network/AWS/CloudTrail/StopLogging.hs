@@ -54,7 +54,7 @@ newtype StopLogging = StopLogging
 -- * @Name ::@ @Text@
 --
 stopLogging :: Text -- ^ 'sl1Name'
-              -> StopLogging
+            -> StopLogging
 stopLogging p1 = StopLogging
     { _sl1Name = p1
     }

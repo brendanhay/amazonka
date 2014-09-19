@@ -133,7 +133,7 @@ data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse
 -- * @NextToken ::@ @Maybe Text@
 --
 describeScalingActivitiesResponse :: [Activity] -- ^ 'dsarActivities'
-                                    -> DescribeScalingActivitiesResponse
+                                  -> DescribeScalingActivitiesResponse
 describeScalingActivitiesResponse p1 = DescribeScalingActivitiesResponse
     { _dsarActivities = p1
     , _dsarNextToken = Nothing

@@ -52,7 +52,7 @@ newtype DisableAlarmActions = DisableAlarmActions
 -- * @AlarmNames ::@ @[Text]@
 --
 disableAlarmActions :: [Text] -- ^ 'daaAlarmNames'
-                      -> DisableAlarmActions
+                    -> DisableAlarmActions
 disableAlarmActions p1 = DisableAlarmActions
     { _daaAlarmNames = p1
     }

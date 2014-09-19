@@ -77,8 +77,8 @@ data CreateHostedZone = CreateHostedZone
 -- * @HostedZoneConfig ::@ @Maybe HostedZoneConfig@
 --
 createHostedZone :: Text -- ^ 'chzName'
-                   -> Text -- ^ 'chzCallerReference'
-                   -> CreateHostedZone
+                 -> Text -- ^ 'chzCallerReference'
+                 -> CreateHostedZone
 createHostedZone p1 p2 = CreateHostedZone
     { _chzName = p1
     , _chzCallerReference = p2
@@ -147,10 +147,10 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse
 -- * @Location ::@ @Text@
 --
 createHostedZoneResponse :: HostedZone -- ^ 'chzrHostedZone'
-                           -> ChangeInfo -- ^ 'chzrChangeInfo'
-                           -> DelegationSet -- ^ 'chzrDelegationSet'
-                           -> Text -- ^ 'chzrLocation'
-                           -> CreateHostedZoneResponse
+                         -> ChangeInfo -- ^ 'chzrChangeInfo'
+                         -> DelegationSet -- ^ 'chzrDelegationSet'
+                         -> Text -- ^ 'chzrLocation'
+                         -> CreateHostedZoneResponse
 createHostedZoneResponse p1 p2 p3 p4 = CreateHostedZoneResponse
     { _chzrHostedZone = p1
     , _chzrChangeInfo = p2

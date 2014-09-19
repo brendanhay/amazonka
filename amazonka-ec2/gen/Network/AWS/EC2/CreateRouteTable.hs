@@ -60,7 +60,7 @@ newtype CreateRouteTable = CreateRouteTable
 -- * @VpcId ::@ @Text@
 --
 createRouteTable :: Text -- ^ 'crtVpcId'
-                   -> CreateRouteTable
+                 -> CreateRouteTable
 createRouteTable p1 = CreateRouteTable
     { _crtVpcId = p1
     }

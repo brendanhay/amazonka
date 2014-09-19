@@ -74,7 +74,7 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
 -- * @Attachment ::@ @Maybe NetworkInterfaceAttachmentChanges@
 --
 modifyNetworkInterfaceAttribute :: Text -- ^ 'mniaNetworkInterfaceId'
-                                  -> ModifyNetworkInterfaceAttribute
+                                -> ModifyNetworkInterfaceAttribute
 modifyNetworkInterfaceAttribute p1 = ModifyNetworkInterfaceAttribute
     { _mniaNetworkInterfaceId = p1
     , _mniaDescription = Nothing

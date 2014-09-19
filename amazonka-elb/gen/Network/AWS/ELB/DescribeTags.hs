@@ -56,7 +56,7 @@ newtype DescribeTags = DescribeTags
 -- * @LoadBalancerNames ::@ @List1 Text@
 --
 describeTags :: List1 Text -- ^ 'dtLoadBalancerNames'
-               -> DescribeTags
+             -> DescribeTags
 describeTags p1 = DescribeTags
     { _dtLoadBalancerNames = p1
     }

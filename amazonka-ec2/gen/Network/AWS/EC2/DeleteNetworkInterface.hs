@@ -57,7 +57,7 @@ newtype DeleteNetworkInterface = DeleteNetworkInterface
 -- * @NetworkInterfaceId ::@ @Text@
 --
 deleteNetworkInterface :: Text -- ^ 'dniNetworkInterfaceId'
-                         -> DeleteNetworkInterface
+                       -> DeleteNetworkInterface
 deleteNetworkInterface p1 = DeleteNetworkInterface
     { _dniNetworkInterfaceId = p1
     }

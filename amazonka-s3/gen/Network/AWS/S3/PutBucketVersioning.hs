@@ -63,8 +63,8 @@ data PutBucketVersioning = PutBucketVersioning
 -- * @VersioningConfiguration ::@ @VersioningConfiguration@
 --
 putBucketVersioning :: BucketName -- ^ 'pbvBucket'
-                      -> VersioningConfiguration -- ^ 'pbvVersioningConfiguration'
-                      -> PutBucketVersioning
+                    -> VersioningConfiguration -- ^ 'pbvVersioningConfiguration'
+                    -> PutBucketVersioning
 putBucketVersioning p1 p4 = PutBucketVersioning
     { _pbvBucket = p1
     , _pbvContentMD5 = Nothing

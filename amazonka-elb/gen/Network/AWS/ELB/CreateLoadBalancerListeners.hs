@@ -67,8 +67,8 @@ data CreateLoadBalancerListeners = CreateLoadBalancerListeners
 -- * @Listeners ::@ @[Listener]@
 --
 createLoadBalancerListeners :: Text -- ^ 'clblLoadBalancerName'
-                              -> [Listener] -- ^ 'clblListeners'
-                              -> CreateLoadBalancerListeners
+                            -> [Listener] -- ^ 'clblListeners'
+                            -> CreateLoadBalancerListeners
 createLoadBalancerListeners p1 p2 = CreateLoadBalancerListeners
     { _clblLoadBalancerName = p1
     , _clblListeners = p2

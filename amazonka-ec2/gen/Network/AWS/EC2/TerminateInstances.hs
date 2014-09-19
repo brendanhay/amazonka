@@ -76,7 +76,7 @@ newtype TerminateInstances = TerminateInstances
 -- * @InstanceIds ::@ @[Text]@
 --
 terminateInstances :: [Text] -- ^ 'tiInstanceIds'
-                     -> TerminateInstances
+                   -> TerminateInstances
 terminateInstances p1 = TerminateInstances
     { _tiInstanceIds = p1
     }

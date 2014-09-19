@@ -75,7 +75,7 @@ newtype DescribePipelines = DescribePipelines
 -- * @PipelineIds ::@ @[Text]@
 --
 describePipelines :: [Text] -- ^ 'dp1PipelineIds'
-                    -> DescribePipelines
+                  -> DescribePipelines
 describePipelines p1 = DescribePipelines
     { _dp1PipelineIds = p1
     }
@@ -109,7 +109,7 @@ newtype DescribePipelinesResponse = DescribePipelinesResponse
 -- * @PipelineDescriptionList ::@ @[PipelineDescription]@
 --
 describePipelinesResponse :: [PipelineDescription] -- ^ 'dprPipelineDescriptionList'
-                            -> DescribePipelinesResponse
+                          -> DescribePipelinesResponse
 describePipelinesResponse p1 = DescribePipelinesResponse
     { _dprPipelineDescriptionList = p1
     }

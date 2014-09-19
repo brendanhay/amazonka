@@ -129,8 +129,8 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime
 -- * @Tags ::@ @[Tag]@
 --
 restoreDBInstanceToPointInTime :: Text -- ^ 'rdbitpitSourceDBInstanceIdentifier'
-                                 -> Text -- ^ 'rdbitpitTargetDBInstanceIdentifier'
-                                 -> RestoreDBInstanceToPointInTime
+                               -> Text -- ^ 'rdbitpitTargetDBInstanceIdentifier'
+                               -> RestoreDBInstanceToPointInTime
 restoreDBInstanceToPointInTime p1 p2 = RestoreDBInstanceToPointInTime
     { _rdbitpitSourceDBInstanceIdentifier = p1
     , _rdbitpitTargetDBInstanceIdentifier = p2

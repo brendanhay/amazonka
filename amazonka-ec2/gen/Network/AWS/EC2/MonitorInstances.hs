@@ -65,7 +65,7 @@ newtype MonitorInstances = MonitorInstances
 -- * @InstanceIds ::@ @[Text]@
 --
 monitorInstances :: [Text] -- ^ 'miInstanceIds'
-                   -> MonitorInstances
+                 -> MonitorInstances
 monitorInstances p1 = MonitorInstances
     { _miInstanceIds = p1
     }

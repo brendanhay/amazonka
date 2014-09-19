@@ -53,7 +53,7 @@ newtype BuildSuggesters = BuildSuggesters
 -- * @DomainName ::@ @Text@
 --
 buildSuggesters :: Text -- ^ 'bsDomainName'
-                  -> BuildSuggesters
+                -> BuildSuggesters
 buildSuggesters p1 = BuildSuggesters
     { _bsDomainName = p1
     }

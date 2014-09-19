@@ -62,7 +62,7 @@ data UpdateApplication = UpdateApplication
 -- * @Description ::@ @Maybe Text@
 --
 updateApplication :: Text -- ^ 'uaApplicationName'
-                    -> UpdateApplication
+                  -> UpdateApplication
 updateApplication p1 = UpdateApplication
     { _uaApplicationName = p1
     , _uaDescription = Nothing

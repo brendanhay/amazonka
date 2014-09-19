@@ -75,8 +75,8 @@ data DeleteChapCredentials = DeleteChapCredentials
 -- * @InitiatorName ::@ @Text@
 --
 deleteChapCredentials :: Text -- ^ 'dccTargetARN'
-                        -> Text -- ^ 'dccInitiatorName'
-                        -> DeleteChapCredentials
+                      -> Text -- ^ 'dccInitiatorName'
+                      -> DeleteChapCredentials
 deleteChapCredentials p1 p2 = DeleteChapCredentials
     { _dccTargetARN = p1
     , _dccInitiatorName = p2

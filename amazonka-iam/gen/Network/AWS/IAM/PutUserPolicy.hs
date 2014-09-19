@@ -69,9 +69,9 @@ data PutUserPolicy = PutUserPolicy
 -- * @PolicyDocument ::@ @Text@
 --
 putUserPolicy :: Text -- ^ 'pupUserName'
-                -> Text -- ^ 'pupPolicyName'
-                -> Text -- ^ 'pupPolicyDocument'
-                -> PutUserPolicy
+              -> Text -- ^ 'pupPolicyName'
+              -> Text -- ^ 'pupPolicyDocument'
+              -> PutUserPolicy
 putUserPolicy p1 p2 p3 = PutUserPolicy
     { _pupUserName = p1
     , _pupPolicyName = p2

@@ -85,7 +85,7 @@ newtype CreateKeyPair = CreateKeyPair
 -- * @KeyName ::@ @Text@
 --
 createKeyPair :: Text -- ^ 'ckpKeyName'
-                -> CreateKeyPair
+              -> CreateKeyPair
 createKeyPair p1 = CreateKeyPair
     { _ckpKeyName = p1
     }
@@ -117,9 +117,9 @@ data CreateKeyPairResponse = CreateKeyPairResponse
 -- * @KeyMaterial ::@ @Text@
 --
 createKeyPairResponse :: Text -- ^ 'ckprKeyName'
-                        -> Text -- ^ 'ckprKeyFingerprint'
-                        -> Text -- ^ 'ckprKeyMaterial'
-                        -> CreateKeyPairResponse
+                      -> Text -- ^ 'ckprKeyFingerprint'
+                      -> Text -- ^ 'ckprKeyMaterial'
+                      -> CreateKeyPairResponse
 createKeyPairResponse p1 p2 p3 = CreateKeyPairResponse
     { _ckprKeyName = p1
     , _ckprKeyFingerprint = p2

@@ -62,8 +62,8 @@ data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
 -- * @PrivateIpAddresses ::@ @[Text]@
 --
 unassignPrivateIpAddresses :: Text -- ^ 'upiaNetworkInterfaceId'
-                             -> [Text] -- ^ 'upiaPrivateIpAddresses'
-                             -> UnassignPrivateIpAddresses
+                           -> [Text] -- ^ 'upiaPrivateIpAddresses'
+                           -> UnassignPrivateIpAddresses
 unassignPrivateIpAddresses p1 p2 = UnassignPrivateIpAddresses
     { _upiaNetworkInterfaceId = p1
     , _upiaPrivateIpAddresses = p2

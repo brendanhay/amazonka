@@ -58,7 +58,7 @@ data PutBucketCors = PutBucketCors
 -- * @ContentMD5 ::@ @Maybe Text@
 --
 putBucketCors :: BucketName -- ^ 'pbcBucket'
-                -> PutBucketCors
+              -> PutBucketCors
 putBucketCors p1 = PutBucketCors
     { _pbcBucket = p1
     , _pbcCORSConfiguration = Nothing

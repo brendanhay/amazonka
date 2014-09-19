@@ -52,7 +52,7 @@ newtype GetBucketCors = GetBucketCors
 -- * @Bucket ::@ @BucketName@
 --
 getBucketCors :: BucketName -- ^ 'gbcBucket'
-                -> GetBucketCors
+              -> GetBucketCors
 getBucketCors p1 = GetBucketCors
     { _gbcBucket = p1
     }

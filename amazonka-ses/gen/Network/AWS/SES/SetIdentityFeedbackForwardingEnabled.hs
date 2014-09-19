@@ -69,8 +69,8 @@ data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled
 -- * @ForwardingEnabled ::@ @Bool@
 --
 setIdentityFeedbackForwardingEnabled :: Text -- ^ 'siffeIdentity'
-                                       -> Bool -- ^ 'siffeForwardingEnabled'
-                                       -> SetIdentityFeedbackForwardingEnabled
+                                     -> Bool -- ^ 'siffeForwardingEnabled'
+                                     -> SetIdentityFeedbackForwardingEnabled
 setIdentityFeedbackForwardingEnabled p1 p2 = SetIdentityFeedbackForwardingEnabled
     { _siffeIdentity = p1
     , _siffeForwardingEnabled = p2

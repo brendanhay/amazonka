@@ -63,7 +63,7 @@ newtype DeleteConnection = DeleteConnection
 -- * @ConnectionId ::@ @Text@
 --
 deleteConnection :: Text -- ^ 'dcConnectionId'
-                   -> DeleteConnection
+                 -> DeleteConnection
 deleteConnection p1 = DeleteConnection
     { _dcConnectionId = p1
     }

@@ -82,7 +82,7 @@ data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit
 -- * @AverageDownloadRateLimitInBitsPerSec ::@ @Maybe Integer@
 --
 updateBandwidthRateLimit :: Text -- ^ 'ubrlGatewayARN'
-                           -> UpdateBandwidthRateLimit
+                         -> UpdateBandwidthRateLimit
 updateBandwidthRateLimit p1 = UpdateBandwidthRateLimit
     { _ubrlGatewayARN = p1
     , _ubrlAverageUploadRateLimitInBitsPerSec = Nothing

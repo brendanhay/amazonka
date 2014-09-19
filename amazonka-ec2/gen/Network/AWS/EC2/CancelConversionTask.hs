@@ -63,7 +63,7 @@ data CancelConversionTask = CancelConversionTask
 -- * @ReasonMessage ::@ @Maybe Text@
 --
 cancelConversionTask :: Text -- ^ 'cctConversionTaskId'
-                       -> CancelConversionTask
+                     -> CancelConversionTask
 cancelConversionTask p1 = CancelConversionTask
     { _cctConversionTaskId = p1
     , _cctReasonMessage = Nothing

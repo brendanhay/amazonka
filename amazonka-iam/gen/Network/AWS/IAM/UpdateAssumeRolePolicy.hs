@@ -58,8 +58,8 @@ data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy
 -- * @PolicyDocument ::@ @Text@
 --
 updateAssumeRolePolicy :: Text -- ^ 'uarpRoleName'
-                         -> Text -- ^ 'uarpPolicyDocument'
-                         -> UpdateAssumeRolePolicy
+                       -> Text -- ^ 'uarpPolicyDocument'
+                       -> UpdateAssumeRolePolicy
 updateAssumeRolePolicy p1 p2 = UpdateAssumeRolePolicy
     { _uarpRoleName = p1
     , _uarpPolicyDocument = p2

@@ -118,8 +118,8 @@ data ListStreamsResponse = ListStreamsResponse
 -- * @HasMoreStreams ::@ @Bool@
 --
 listStreamsResponse :: [Text] -- ^ 'lsrStreamNames'
-                      -> Bool -- ^ 'lsrHasMoreStreams'
-                      -> ListStreamsResponse
+                    -> Bool -- ^ 'lsrHasMoreStreams'
+                    -> ListStreamsResponse
 listStreamsResponse p1 p2 = ListStreamsResponse
     { _lsrStreamNames = p1
     , _lsrHasMoreStreams = p2

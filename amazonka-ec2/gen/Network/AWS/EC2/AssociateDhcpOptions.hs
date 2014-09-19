@@ -76,8 +76,8 @@ data AssociateDhcpOptions = AssociateDhcpOptions
 -- * @VpcId ::@ @Text@
 --
 associateDhcpOptions :: Text -- ^ 'adoDhcpOptionsId'
-                       -> Text -- ^ 'adoVpcId'
-                       -> AssociateDhcpOptions
+                     -> Text -- ^ 'adoVpcId'
+                     -> AssociateDhcpOptions
 associateDhcpOptions p1 p2 = AssociateDhcpOptions
     { _adoDhcpOptionsId = p1
     , _adoVpcId = p2

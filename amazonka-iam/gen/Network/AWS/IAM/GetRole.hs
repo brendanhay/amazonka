@@ -63,7 +63,7 @@ newtype GetRole = GetRole
 -- * @RoleName ::@ @Text@
 --
 getRole :: Text -- ^ 'grRoleName'
-          -> GetRole
+        -> GetRole
 getRole p1 = GetRole
     { _grRoleName = p1
     }
@@ -90,7 +90,7 @@ newtype GetRoleResponse = GetRoleResponse
 -- * @Role ::@ @Role@
 --
 getRoleResponse :: Role -- ^ 'grrRole'
-                  -> GetRoleResponse
+                -> GetRoleResponse
 getRoleResponse p1 = GetRoleResponse
     { _grrRole = p1
     }

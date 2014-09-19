@@ -68,7 +68,7 @@ newtype ReadJob = ReadJob
 -- * @Id ::@ @Text@
 --
 readJob :: Text -- ^ 'rjId'
-          -> ReadJob
+        -> ReadJob
 readJob p1 = ReadJob
     { _rjId = p1
     }

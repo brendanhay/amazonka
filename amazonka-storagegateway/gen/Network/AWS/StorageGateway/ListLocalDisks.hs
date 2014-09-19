@@ -73,7 +73,7 @@ newtype ListLocalDisks = ListLocalDisks
 -- * @GatewayARN ::@ @Text@
 --
 listLocalDisks :: Text -- ^ 'lldGatewayARN'
-                 -> ListLocalDisks
+               -> ListLocalDisks
 listLocalDisks p1 = ListLocalDisks
     { _lldGatewayARN = p1
     }

@@ -58,8 +58,8 @@ data PutBucketNotification = PutBucketNotification
 -- * @NotificationConfiguration ::@ @NotificationConfiguration@
 --
 putBucketNotification :: BucketName -- ^ 'pbnBucket'
-                        -> NotificationConfiguration -- ^ 'pbnNotificationConfiguration'
-                        -> PutBucketNotification
+                      -> NotificationConfiguration -- ^ 'pbnNotificationConfiguration'
+                      -> PutBucketNotification
 putBucketNotification p1 p3 = PutBucketNotification
     { _pbnBucket = p1
     , _pbnContentMD5 = Nothing

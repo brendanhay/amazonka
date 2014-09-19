@@ -103,7 +103,7 @@ data GetQueueAttributes = GetQueueAttributes
 -- * @AttributeNames ::@ @[QueueAttributeName]@
 --
 getQueueAttributes :: Text -- ^ 'gqaQueueUrl'
-                     -> GetQueueAttributes
+                   -> GetQueueAttributes
 getQueueAttributes p1 = GetQueueAttributes
     { _gqaQueueUrl = p1
     , _gqaAttributeNames = mempty

@@ -74,8 +74,8 @@ data SetIdentityDkimEnabled = SetIdentityDkimEnabled
 -- * @DkimEnabled ::@ @Bool@
 --
 setIdentityDkimEnabled :: Text -- ^ 'sideIdentity'
-                         -> Bool -- ^ 'sideDkimEnabled'
-                         -> SetIdentityDkimEnabled
+                       -> Bool -- ^ 'sideDkimEnabled'
+                       -> SetIdentityDkimEnabled
 setIdentityDkimEnabled p1 p2 = SetIdentityDkimEnabled
     { _sideIdentity = p1
     , _sideDkimEnabled = p2

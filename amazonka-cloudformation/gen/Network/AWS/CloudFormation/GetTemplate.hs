@@ -61,7 +61,7 @@ newtype GetTemplate = GetTemplate
 -- * @StackName ::@ @Text@
 --
 getTemplate :: Text -- ^ 'gtStackName'
-              -> GetTemplate
+            -> GetTemplate
 getTemplate p1 = GetTemplate
     { _gtStackName = p1
     }

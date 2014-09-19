@@ -62,9 +62,9 @@ data PutNotificationConfiguration = PutNotificationConfiguration
 -- * @NotificationTypes ::@ @[Text]@
 --
 putNotificationConfiguration :: Text -- ^ 'pncAutoScalingGroupName'
-                               -> Text -- ^ 'pncTopicARN'
-                               -> [Text] -- ^ 'pncNotificationTypes'
-                               -> PutNotificationConfiguration
+                             -> Text -- ^ 'pncTopicARN'
+                             -> [Text] -- ^ 'pncNotificationTypes'
+                             -> PutNotificationConfiguration
 putNotificationConfiguration p1 p2 p3 = PutNotificationConfiguration
     { _pncAutoScalingGroupName = p1
     , _pncTopicARN = p2

@@ -123,8 +123,8 @@ data ListGroupsResponse = ListGroupsResponse
 -- * @Marker ::@ @Maybe Text@
 --
 listGroupsResponse :: [Group] -- ^ 'lgrGroups'
-                     -> Bool -- ^ 'lgrIsTruncated'
-                     -> ListGroupsResponse
+                   -> Bool -- ^ 'lgrIsTruncated'
+                   -> ListGroupsResponse
 listGroupsResponse p1 p2 = ListGroupsResponse
     { _lgrGroups = p1
     , _lgrIsTruncated = p2

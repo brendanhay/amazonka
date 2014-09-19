@@ -69,7 +69,7 @@ newtype GetPasswordData = GetPasswordData
 -- * @InstanceId ::@ @Text@
 --
 getPasswordData :: Text -- ^ 'gpdInstanceId'
-                  -> GetPasswordData
+                -> GetPasswordData
 getPasswordData p1 = GetPasswordData
     { _gpdInstanceId = p1
     }

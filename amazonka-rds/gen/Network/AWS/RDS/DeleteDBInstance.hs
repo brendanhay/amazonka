@@ -77,7 +77,7 @@ data DeleteDBInstance = DeleteDBInstance
 -- * @FinalDBSnapshotIdentifier ::@ @Maybe Text@
 --
 deleteDBInstance :: Text -- ^ 'ddbiDBInstanceIdentifier'
-                   -> DeleteDBInstance
+                 -> DeleteDBInstance
 deleteDBInstance p1 = DeleteDBInstance
     { _ddbiDBInstanceIdentifier = p1
     , _ddbiSkipFinalSnapshot = Nothing

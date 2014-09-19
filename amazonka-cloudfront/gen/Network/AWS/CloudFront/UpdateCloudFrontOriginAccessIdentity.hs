@@ -62,8 +62,8 @@ data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity
 -- * @IfMatch ::@ @Maybe Text@
 --
 updateCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -- ^ 'ucfoaiCloudFrontOriginAccessIdentityConfig'
-                                       -> Text -- ^ 'ucfoaiId'
-                                       -> UpdateCloudFrontOriginAccessIdentity
+                                     -> Text -- ^ 'ucfoaiId'
+                                     -> UpdateCloudFrontOriginAccessIdentity
 updateCloudFrontOriginAccessIdentity p1 p2 = UpdateCloudFrontOriginAccessIdentity
     { _ucfoaiCloudFrontOriginAccessIdentityConfig = p1
     , _ucfoaiId = p2

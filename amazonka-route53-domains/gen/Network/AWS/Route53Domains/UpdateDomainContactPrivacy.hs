@@ -86,7 +86,7 @@ data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy
 -- * @TechPrivacy ::@ @Maybe Bool@
 --
 updateDomainContactPrivacy :: Text -- ^ 'udcpDomainName'
-                             -> UpdateDomainContactPrivacy
+                           -> UpdateDomainContactPrivacy
 updateDomainContactPrivacy p1 = UpdateDomainContactPrivacy
     { _udcpDomainName = p1
     , _udcpAdminPrivacy = Nothing
@@ -147,7 +147,7 @@ newtype UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse
 -- * @OperationId ::@ @Text@
 --
 updateDomainContactPrivacyResponse :: Text -- ^ 'udcprOperationId'
-                                     -> UpdateDomainContactPrivacyResponse
+                                   -> UpdateDomainContactPrivacyResponse
 updateDomainContactPrivacyResponse p1 = UpdateDomainContactPrivacyResponse
     { _udcprOperationId = p1
     }

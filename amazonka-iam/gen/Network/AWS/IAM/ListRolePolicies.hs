@@ -67,7 +67,7 @@ data ListRolePolicies = ListRolePolicies
 -- * @MaxItems ::@ @Maybe Integer@
 --
 listRolePolicies :: Text -- ^ 'lrpRoleName'
-                   -> ListRolePolicies
+                 -> ListRolePolicies
 listRolePolicies p1 = ListRolePolicies
     { _lrpRoleName = p1
     , _lrpMarker = Nothing
@@ -118,8 +118,8 @@ data ListRolePoliciesResponse = ListRolePoliciesResponse
 -- * @Marker ::@ @Maybe Text@
 --
 listRolePoliciesResponse :: [Text] -- ^ 'lrprPolicyNames'
-                           -> Bool -- ^ 'lrprIsTruncated'
-                           -> ListRolePoliciesResponse
+                         -> Bool -- ^ 'lrprIsTruncated'
+                         -> ListRolePoliciesResponse
 listRolePoliciesResponse p1 p2 = ListRolePoliciesResponse
     { _lrprPolicyNames = p1
     , _lrprIsTruncated = p2

@@ -75,7 +75,7 @@ newtype DescribeGatewayInformation = DescribeGatewayInformation
 -- * @GatewayARN ::@ @Text@
 --
 describeGatewayInformation :: Text -- ^ 'dgiGatewayARN'
-                             -> DescribeGatewayInformation
+                           -> DescribeGatewayInformation
 describeGatewayInformation p1 = DescribeGatewayInformation
     { _dgiGatewayARN = p1
     }

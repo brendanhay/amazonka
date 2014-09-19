@@ -55,7 +55,7 @@ data DeleteScheduledAction = DeleteScheduledAction
 -- * @ScheduledActionName ::@ @Text@
 --
 deleteScheduledAction :: Text -- ^ 'dsaScheduledActionName'
-                        -> DeleteScheduledAction
+                      -> DeleteScheduledAction
 deleteScheduledAction p2 = DeleteScheduledAction
     { _dsaAutoScalingGroupName = Nothing
     , _dsaScheduledActionName = p2

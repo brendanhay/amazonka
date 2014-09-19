@@ -96,11 +96,11 @@ data UploadPart = UploadPart
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
 uploadPart :: RqBody -- ^ 'upBody'
-             -> BucketName -- ^ 'upBucket'
-             -> ObjectKey -- ^ 'upKey'
-             -> Integer -- ^ 'upPartNumber'
-             -> Text -- ^ 'upUploadId'
-             -> UploadPart
+           -> BucketName -- ^ 'upBucket'
+           -> ObjectKey -- ^ 'upKey'
+           -> Integer -- ^ 'upPartNumber'
+           -> Text -- ^ 'upUploadId'
+           -> UploadPart
 uploadPart p1 p2 p5 p6 p7 = UploadPart
     { _upBody = p1
     , _upBucket = p2

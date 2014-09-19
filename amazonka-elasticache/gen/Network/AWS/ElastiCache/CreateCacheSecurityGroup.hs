@@ -67,8 +67,8 @@ data CreateCacheSecurityGroup = CreateCacheSecurityGroup
 -- * @Description ::@ @Text@
 --
 createCacheSecurityGroup :: Text -- ^ 'ccsgCacheSecurityGroupName'
-                           -> Text -- ^ 'ccsgDescription'
-                           -> CreateCacheSecurityGroup
+                         -> Text -- ^ 'ccsgDescription'
+                         -> CreateCacheSecurityGroup
 createCacheSecurityGroup p1 p2 = CreateCacheSecurityGroup
     { _ccsgCacheSecurityGroupName = p1
     , _ccsgDescription = p2

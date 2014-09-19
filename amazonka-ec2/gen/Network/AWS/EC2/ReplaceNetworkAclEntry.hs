@@ -89,12 +89,12 @@ data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
 -- * @PortRange ::@ @Maybe PortRange@
 --
 replaceNetworkAclEntry :: Text -- ^ 'rnaeNetworkAclId'
-                         -> Integer -- ^ 'rnaeRuleNumber'
-                         -> Text -- ^ 'rnaeProtocol'
-                         -> RuleAction -- ^ 'rnaeRuleAction'
-                         -> Bool -- ^ 'rnaeEgress'
-                         -> Text -- ^ 'rnaeCidrBlock'
-                         -> ReplaceNetworkAclEntry
+                       -> Integer -- ^ 'rnaeRuleNumber'
+                       -> Text -- ^ 'rnaeProtocol'
+                       -> RuleAction -- ^ 'rnaeRuleAction'
+                       -> Bool -- ^ 'rnaeEgress'
+                       -> Text -- ^ 'rnaeCidrBlock'
+                       -> ReplaceNetworkAclEntry
 replaceNetworkAclEntry p1 p2 p3 p4 p5 p6 = ReplaceNetworkAclEntry
     { _rnaeNetworkAclId = p1
     , _rnaeRuleNumber = p2

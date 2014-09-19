@@ -65,7 +65,7 @@ newtype UnmonitorInstances = UnmonitorInstances
 -- * @InstanceIds ::@ @[Text]@
 --
 unmonitorInstances :: [Text] -- ^ 'uiInstanceIds'
-                     -> UnmonitorInstances
+                   -> UnmonitorInstances
 unmonitorInstances p1 = UnmonitorInstances
     { _uiInstanceIds = p1
     }

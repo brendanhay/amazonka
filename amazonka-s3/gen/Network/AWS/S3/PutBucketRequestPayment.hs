@@ -61,8 +61,8 @@ data PutBucketRequestPayment = PutBucketRequestPayment
 -- * @RequestPaymentConfiguration ::@ @RequestPaymentConfiguration@
 --
 putBucketRequestPayment :: BucketName -- ^ 'pbrpBucket'
-                          -> RequestPaymentConfiguration -- ^ 'pbrpRequestPaymentConfiguration'
-                          -> PutBucketRequestPayment
+                        -> RequestPaymentConfiguration -- ^ 'pbrpRequestPaymentConfiguration'
+                        -> PutBucketRequestPayment
 putBucketRequestPayment p1 p3 = PutBucketRequestPayment
     { _pbrpBucket = p1
     , _pbrpContentMD5 = Nothing

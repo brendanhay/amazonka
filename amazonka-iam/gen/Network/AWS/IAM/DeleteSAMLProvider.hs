@@ -55,7 +55,7 @@ newtype DeleteSAMLProvider = DeleteSAMLProvider
 -- * @SAMLProviderArn ::@ @Text@
 --
 deleteSAMLProvider :: Text -- ^ 'dsamlpSAMLProviderArn'
-                     -> DeleteSAMLProvider
+                   -> DeleteSAMLProvider
 deleteSAMLProvider p1 = DeleteSAMLProvider
     { _dsamlpSAMLProviderArn = p1
     }

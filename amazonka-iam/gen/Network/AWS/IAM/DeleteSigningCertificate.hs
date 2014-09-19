@@ -60,7 +60,7 @@ data DeleteSigningCertificate = DeleteSigningCertificate
 -- * @CertificateId ::@ @Text@
 --
 deleteSigningCertificate :: Text -- ^ 'dsc1CertificateId'
-                           -> DeleteSigningCertificate
+                         -> DeleteSigningCertificate
 deleteSigningCertificate p2 = DeleteSigningCertificate
     { _dsc1UserName = Nothing
     , _dsc1CertificateId = p2

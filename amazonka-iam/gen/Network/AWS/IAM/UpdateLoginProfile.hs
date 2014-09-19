@@ -59,7 +59,7 @@ data UpdateLoginProfile = UpdateLoginProfile
 -- * @PasswordResetRequired ::@ @Maybe Bool@
 --
 updateLoginProfile :: Text -- ^ 'ulpUserName'
-                     -> UpdateLoginProfile
+                   -> UpdateLoginProfile
 updateLoginProfile p1 = UpdateLoginProfile
     { _ulpUserName = p1
     , _ulpPassword = Nothing

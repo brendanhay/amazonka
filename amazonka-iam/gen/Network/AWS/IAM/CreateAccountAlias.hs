@@ -53,7 +53,7 @@ newtype CreateAccountAlias = CreateAccountAlias
 -- * @AccountAlias ::@ @Text@
 --
 createAccountAlias :: Text -- ^ 'caaAccountAlias'
-                     -> CreateAccountAlias
+                   -> CreateAccountAlias
 createAccountAlias p1 = CreateAccountAlias
     { _caaAccountAlias = p1
     }

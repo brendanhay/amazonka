@@ -67,8 +67,8 @@ data CreateClusterSnapshot = CreateClusterSnapshot
 -- * @ClusterIdentifier ::@ @Text@
 --
 createClusterSnapshot :: Text -- ^ 'ccs1SnapshotIdentifier'
-                        -> Text -- ^ 'ccs1ClusterIdentifier'
-                        -> CreateClusterSnapshot
+                      -> Text -- ^ 'ccs1ClusterIdentifier'
+                      -> CreateClusterSnapshot
 createClusterSnapshot p1 p2 = CreateClusterSnapshot
     { _ccs1SnapshotIdentifier = p1
     , _ccs1ClusterIdentifier = p2

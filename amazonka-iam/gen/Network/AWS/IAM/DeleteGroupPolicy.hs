@@ -55,8 +55,8 @@ data DeleteGroupPolicy = DeleteGroupPolicy
 -- * @PolicyName ::@ @Text@
 --
 deleteGroupPolicy :: Text -- ^ 'dgpGroupName'
-                    -> Text -- ^ 'dgpPolicyName'
-                    -> DeleteGroupPolicy
+                  -> Text -- ^ 'dgpPolicyName'
+                  -> DeleteGroupPolicy
 deleteGroupPolicy p1 p2 = DeleteGroupPolicy
     { _dgpGroupName = p1
     , _dgpPolicyName = p2

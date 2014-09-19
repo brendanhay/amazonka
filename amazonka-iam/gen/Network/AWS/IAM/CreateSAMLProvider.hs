@@ -73,8 +73,8 @@ data CreateSAMLProvider = CreateSAMLProvider
 -- * @Name ::@ @Text@
 --
 createSAMLProvider :: Text -- ^ 'csamlpSAMLMetadataDocument'
-                     -> Text -- ^ 'csamlpName'
-                     -> CreateSAMLProvider
+                   -> Text -- ^ 'csamlpName'
+                   -> CreateSAMLProvider
 createSAMLProvider p1 p2 = CreateSAMLProvider
     { _csamlpSAMLMetadataDocument = p1
     , _csamlpName = p2

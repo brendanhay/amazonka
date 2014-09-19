@@ -74,7 +74,7 @@ data ResetDBParameterGroup = ResetDBParameterGroup
 -- * @Parameters ::@ @[Parameter]@
 --
 resetDBParameterGroup :: Text -- ^ 'rdbpgDBParameterGroupName'
-                        -> ResetDBParameterGroup
+                      -> ResetDBParameterGroup
 resetDBParameterGroup p1 = ResetDBParameterGroup
     { _rdbpgDBParameterGroupName = p1
     , _rdbpgResetAllParameters = Nothing

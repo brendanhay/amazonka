@@ -55,8 +55,8 @@ data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy
 -- * @PolicyName ::@ @Text@
 --
 deleteLoadBalancerPolicy :: Text -- ^ 'dlbpLoadBalancerName'
-                           -> Text -- ^ 'dlbpPolicyName'
-                           -> DeleteLoadBalancerPolicy
+                         -> Text -- ^ 'dlbpPolicyName'
+                         -> DeleteLoadBalancerPolicy
 deleteLoadBalancerPolicy p1 p2 = DeleteLoadBalancerPolicy
     { _dlbpLoadBalancerName = p1
     , _dlbpPolicyName = p2

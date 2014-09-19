@@ -56,7 +56,7 @@ newtype CreateDomain = CreateDomain
 -- * @DomainName ::@ @Text@
 --
 createDomain :: Text -- ^ 'cdDomainName'
-               -> CreateDomain
+             -> CreateDomain
 createDomain p1 = CreateDomain
     { _cdDomainName = p1
     }

@@ -62,7 +62,7 @@ newtype DeleteEndpoint = DeleteEndpoint
 -- * @EndpointArn ::@ @Text@
 --
 deleteEndpoint :: Text -- ^ 'deEndpointArn'
-                 -> DeleteEndpoint
+               -> DeleteEndpoint
 deleteEndpoint p1 = DeleteEndpoint
     { _deEndpointArn = p1
     }

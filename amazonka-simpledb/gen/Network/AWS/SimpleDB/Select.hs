@@ -68,7 +68,7 @@ data Select = Select
 -- * @ConsistentRead ::@ @Maybe Bool@
 --
 select :: Text -- ^ 'sSelectExpression'
-         -> Select
+       -> Select
 select p1 = Select
     { _sSelectExpression = p1
     , _sNextToken = Nothing

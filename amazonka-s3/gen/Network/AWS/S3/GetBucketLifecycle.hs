@@ -52,7 +52,7 @@ newtype GetBucketLifecycle = GetBucketLifecycle
 -- * @Bucket ::@ @BucketName@
 --
 getBucketLifecycle :: BucketName -- ^ 'gblBucket'
-                     -> GetBucketLifecycle
+                   -> GetBucketLifecycle
 getBucketLifecycle p1 = GetBucketLifecycle
     { _gblBucket = p1
     }

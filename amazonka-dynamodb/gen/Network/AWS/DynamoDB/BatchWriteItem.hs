@@ -110,7 +110,7 @@ data BatchWriteItem = BatchWriteItem
 -- * @ReturnItemCollectionMetrics ::@ @Maybe ReturnItemCollectionMetrics@
 --
 batchWriteItem :: Map Text (List1 WriteRequest) -- ^ 'bwiRequestItems'
-                 -> BatchWriteItem
+               -> BatchWriteItem
 batchWriteItem p1 = BatchWriteItem
     { _bwiRequestItems = p1
     , _bwiReturnConsumedCapacity = Nothing

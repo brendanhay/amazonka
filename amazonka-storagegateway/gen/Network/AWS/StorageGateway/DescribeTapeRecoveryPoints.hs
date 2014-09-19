@@ -60,7 +60,7 @@ data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints
 -- * @Limit ::@ @Maybe Integer@
 --
 describeTapeRecoveryPoints :: Text -- ^ 'dtrpGatewayARN'
-                             -> DescribeTapeRecoveryPoints
+                           -> DescribeTapeRecoveryPoints
 describeTapeRecoveryPoints p1 = DescribeTapeRecoveryPoints
     { _dtrpGatewayARN = p1
     , _dtrpMarker = Nothing

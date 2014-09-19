@@ -63,8 +63,8 @@ data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration
 -- * @EnvironmentName ::@ @Text@
 --
 deleteEnvironmentConfiguration :: Text -- ^ 'decApplicationName'
-                                 -> Text -- ^ 'decEnvironmentName'
-                                 -> DeleteEnvironmentConfiguration
+                               -> Text -- ^ 'decEnvironmentName'
+                               -> DeleteEnvironmentConfiguration
 deleteEnvironmentConfiguration p1 p2 = DeleteEnvironmentConfiguration
     { _decApplicationName = p1
     , _decEnvironmentName = p2

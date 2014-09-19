@@ -78,7 +78,7 @@ newtype DescribeDomain = DescribeDomain
 -- * @Name ::@ @Text@
 --
 describeDomain :: Text -- ^ 'dd1Name'
-                 -> DescribeDomain
+               -> DescribeDomain
 describeDomain p1 = DescribeDomain
     { _dd1Name = p1
     }
@@ -113,8 +113,8 @@ data DescribeDomainResponse = DescribeDomainResponse
 -- * @Configuration ::@ @DomainConfiguration@
 --
 describeDomainResponse :: DomainInfo -- ^ 'ddrDomainInfo'
-                         -> DomainConfiguration -- ^ 'ddrConfiguration'
-                         -> DescribeDomainResponse
+                       -> DomainConfiguration -- ^ 'ddrConfiguration'
+                       -> DescribeDomainResponse
 describeDomainResponse p1 p2 = DescribeDomainResponse
     { _ddrDomainInfo = p1
     , _ddrConfiguration = p2

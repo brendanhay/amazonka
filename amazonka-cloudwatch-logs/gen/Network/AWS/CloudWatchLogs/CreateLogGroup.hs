@@ -62,7 +62,7 @@ newtype CreateLogGroup = CreateLogGroup
 -- * @LogGroupName ::@ @Text@
 --
 createLogGroup :: Text -- ^ 'clgLogGroupName'
-                 -> CreateLogGroup
+               -> CreateLogGroup
 createLogGroup p1 = CreateLogGroup
     { _clgLogGroupName = p1
     }

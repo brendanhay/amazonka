@@ -59,7 +59,7 @@ newtype DomainMetadata = DomainMetadata
 -- * @DomainName ::@ @Text@
 --
 domainMetadata :: Text -- ^ 'dmDomainName'
-                 -> DomainMetadata
+               -> DomainMetadata
 domainMetadata p1 = DomainMetadata
     { _dmDomainName = p1
     }

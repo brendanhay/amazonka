@@ -60,7 +60,7 @@ data UpdateRdsDbInstance = UpdateRdsDbInstance
 -- * @DbPassword ::@ @Maybe Text@
 --
 updateRdsDbInstance :: Text -- ^ 'urdiRdsDbInstanceArn'
-                      -> UpdateRdsDbInstance
+                    -> UpdateRdsDbInstance
 updateRdsDbInstance p1 = UpdateRdsDbInstance
     { _urdiRdsDbInstanceArn = p1
     , _urdiDbUser = Nothing

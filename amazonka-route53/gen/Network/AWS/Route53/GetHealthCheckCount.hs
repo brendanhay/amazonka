@@ -74,7 +74,7 @@ newtype GetHealthCheckCountResponse = GetHealthCheckCountResponse
 -- * @HealthCheckCount ::@ @Integer@
 --
 getHealthCheckCountResponse :: Integer -- ^ 'ghccrHealthCheckCount'
-                              -> GetHealthCheckCountResponse
+                            -> GetHealthCheckCountResponse
 getHealthCheckCountResponse p1 = GetHealthCheckCountResponse
     { _ghccrHealthCheckCount = p1
     }

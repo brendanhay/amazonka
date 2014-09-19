@@ -134,11 +134,11 @@ data RegisterDomain = RegisterDomain
 -- * @PrivacyProtectTechContact ::@ @Maybe Bool@
 --
 registerDomain :: Text -- ^ 'rdDomainName'
-                 -> Integer -- ^ 'rdDurationInYears'
-                 -> ContactDetail -- ^ 'rdAdminContact'
-                 -> ContactDetail -- ^ 'rdRegistrantContact'
-                 -> ContactDetail -- ^ 'rdTechContact'
-                 -> RegisterDomain
+               -> Integer -- ^ 'rdDurationInYears'
+               -> ContactDetail -- ^ 'rdAdminContact'
+               -> ContactDetail -- ^ 'rdRegistrantContact'
+               -> ContactDetail -- ^ 'rdTechContact'
+               -> RegisterDomain
 registerDomain p1 p3 p5 p6 p7 = RegisterDomain
     { _rdDomainName = p1
     , _rdIdnLangCode = Nothing
@@ -249,7 +249,7 @@ newtype RegisterDomainResponse = RegisterDomainResponse
 -- * @OperationId ::@ @Text@
 --
 registerDomainResponse :: Text -- ^ 'rdrOperationId'
-                         -> RegisterDomainResponse
+                       -> RegisterDomainResponse
 registerDomainResponse p1 = RegisterDomainResponse
     { _rdrOperationId = p1
     }

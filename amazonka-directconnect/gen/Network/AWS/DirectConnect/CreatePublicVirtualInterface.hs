@@ -73,8 +73,8 @@ data CreatePublicVirtualInterface = CreatePublicVirtualInterface
 -- * @NewPublicVirtualInterface ::@ @NewPublicVirtualInterface@
 --
 createPublicVirtualInterface :: Text -- ^ 'cpvi3ConnectionId'
-                               -> NewPublicVirtualInterface -- ^ 'cpvi3NewPublicVirtualInterface'
-                               -> CreatePublicVirtualInterface
+                             -> NewPublicVirtualInterface -- ^ 'cpvi3NewPublicVirtualInterface'
+                             -> CreatePublicVirtualInterface
 createPublicVirtualInterface p1 p2 = CreatePublicVirtualInterface
     { _cpvi3ConnectionId = p1
     , _cpvi3NewPublicVirtualInterface = p2

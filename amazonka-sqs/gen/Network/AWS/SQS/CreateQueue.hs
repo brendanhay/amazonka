@@ -79,7 +79,7 @@ data CreateQueue = CreateQueue
 -- * @Attributes ::@ @Map QueueAttributeName Text@
 --
 createQueue :: Text -- ^ 'cqQueueName'
-              -> CreateQueue
+            -> CreateQueue
 createQueue p1 = CreateQueue
     { _cqQueueName = p1
     , _cqAttributes = mempty

@@ -64,7 +64,7 @@ newtype GetInstanceProfile = GetInstanceProfile
 -- * @InstanceProfileName ::@ @Text@
 --
 getInstanceProfile :: Text -- ^ 'gipInstanceProfileName'
-                     -> GetInstanceProfile
+                   -> GetInstanceProfile
 getInstanceProfile p1 = GetInstanceProfile
     { _gipInstanceProfileName = p1
     }
@@ -93,7 +93,7 @@ newtype GetInstanceProfileResponse = GetInstanceProfileResponse
 -- * @InstanceProfile ::@ @InstanceProfile@
 --
 getInstanceProfileResponse :: InstanceProfile -- ^ 'giprInstanceProfile'
-                             -> GetInstanceProfileResponse
+                           -> GetInstanceProfileResponse
 getInstanceProfileResponse p1 = GetInstanceProfileResponse
     { _giprInstanceProfile = p1
     }

@@ -103,7 +103,7 @@ data ListJobsByPipeline = ListJobsByPipeline
 -- * @PageToken ::@ @Maybe Text@
 --
 listJobsByPipeline :: Text -- ^ 'ljbpPipelineId'
-                     -> ListJobsByPipeline
+                   -> ListJobsByPipeline
 listJobsByPipeline p1 = ListJobsByPipeline
     { _ljbpPipelineId = p1
     , _ljbpAscending = Nothing

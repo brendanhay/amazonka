@@ -129,8 +129,8 @@ data ListRolesResponse = ListRolesResponse
 -- * @Marker ::@ @Maybe Text@
 --
 listRolesResponse :: [Role] -- ^ 'lrrRoles'
-                    -> Bool -- ^ 'lrrIsTruncated'
-                    -> ListRolesResponse
+                  -> Bool -- ^ 'lrrIsTruncated'
+                  -> ListRolesResponse
 listRolesResponse p1 p2 = ListRolesResponse
     { _lrrRoles = p1
     , _lrrIsTruncated = p2

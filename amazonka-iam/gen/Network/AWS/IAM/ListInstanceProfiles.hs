@@ -126,8 +126,8 @@ data ListInstanceProfilesResponse = ListInstanceProfilesResponse
 -- * @Marker ::@ @Maybe Text@
 --
 listInstanceProfilesResponse :: [InstanceProfile] -- ^ 'liprInstanceProfiles'
-                               -> Bool -- ^ 'liprIsTruncated'
-                               -> ListInstanceProfilesResponse
+                             -> Bool -- ^ 'liprIsTruncated'
+                             -> ListInstanceProfilesResponse
 listInstanceProfilesResponse p1 p2 = ListInstanceProfilesResponse
     { _liprInstanceProfiles = p1
     , _liprIsTruncated = p2

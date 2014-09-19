@@ -52,7 +52,7 @@ newtype DeleteVirtualInterface = DeleteVirtualInterface
 -- * @VirtualInterfaceId ::@ @Text@
 --
 deleteVirtualInterface :: Text -- ^ 'dviVirtualInterfaceId'
-                         -> DeleteVirtualInterface
+                       -> DeleteVirtualInterface
 deleteVirtualInterface p1 = DeleteVirtualInterface
     { _dviVirtualInterfaceId = p1
     }

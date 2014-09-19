@@ -101,7 +101,7 @@ data RequestSpotInstances = RequestSpotInstances
 -- * @LaunchSpecification ::@ @Maybe LaunchSpecification@
 --
 requestSpotInstances :: Text -- ^ 'rsiSpotPrice'
-                       -> RequestSpotInstances
+                     -> RequestSpotInstances
 requestSpotInstances p1 = RequestSpotInstances
     { _rsiSpotPrice = p1
     , _rsiInstanceCount = Nothing

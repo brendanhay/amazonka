@@ -56,7 +56,7 @@ newtype DeregisterImage = DeregisterImage
 -- * @ImageId ::@ @Text@
 --
 deregisterImage :: Text -- ^ 'diImageId'
-                  -> DeregisterImage
+                -> DeregisterImage
 deregisterImage p1 = DeregisterImage
     { _diImageId = p1
     }

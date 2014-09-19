@@ -144,12 +144,12 @@ data TransferDomain = TransferDomain
 -- * @PrivacyProtectTechContact ::@ @Maybe Bool@
 --
 transferDomain :: Text -- ^ 'tdDomainName'
-                 -> Integer -- ^ 'tdDurationInYears'
-                 -> [Nameserver] -- ^ 'tdNameservers'
-                 -> ContactDetail -- ^ 'tdAdminContact'
-                 -> ContactDetail -- ^ 'tdRegistrantContact'
-                 -> ContactDetail -- ^ 'tdTechContact'
-                 -> TransferDomain
+               -> Integer -- ^ 'tdDurationInYears'
+               -> [Nameserver] -- ^ 'tdNameservers'
+               -> ContactDetail -- ^ 'tdAdminContact'
+               -> ContactDetail -- ^ 'tdRegistrantContact'
+               -> ContactDetail -- ^ 'tdTechContact'
+               -> TransferDomain
 transferDomain p1 p3 p4 p7 p8 p9 = TransferDomain
     { _tdDomainName = p1
     , _tdIdnLangCode = Nothing
@@ -272,7 +272,7 @@ newtype TransferDomainResponse = TransferDomainResponse
 -- * @OperationId ::@ @Text@
 --
 transferDomainResponse :: Text -- ^ 'tdrOperationId'
-                         -> TransferDomainResponse
+                       -> TransferDomainResponse
 transferDomainResponse p1 = TransferDomainResponse
     { _tdrOperationId = p1
     }

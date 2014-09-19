@@ -104,7 +104,7 @@ data SendRawEmail = SendRawEmail
 -- * @RawMessage ::@ @RawMessage@
 --
 sendRawEmail :: RawMessage -- ^ 'sreRawMessage'
-               -> SendRawEmail
+             -> SendRawEmail
 sendRawEmail p3 = SendRawEmail
     { _sreSource = Nothing
     , _sreDestinations = mempty
@@ -156,7 +156,7 @@ newtype SendRawEmailResponse = SendRawEmailResponse
 -- * @MessageId ::@ @Text@
 --
 sendRawEmailResponse :: Text -- ^ 'srerMessageId'
-                       -> SendRawEmailResponse
+                     -> SendRawEmailResponse
 sendRawEmailResponse p1 = SendRawEmailResponse
     { _srerMessageId = p1
     }

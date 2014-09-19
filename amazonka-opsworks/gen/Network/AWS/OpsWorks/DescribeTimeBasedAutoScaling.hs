@@ -56,7 +56,7 @@ newtype DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling
 -- * @InstanceIds ::@ @[Text]@
 --
 describeTimeBasedAutoScaling :: [Text] -- ^ 'dtbasInstanceIds'
-                               -> DescribeTimeBasedAutoScaling
+                             -> DescribeTimeBasedAutoScaling
 describeTimeBasedAutoScaling p1 = DescribeTimeBasedAutoScaling
     { _dtbasInstanceIds = p1
     }

@@ -56,8 +56,8 @@ data CopySnapshot = CopySnapshot
 -- * @TargetSnapshotName ::@ @Text@
 --
 copySnapshot :: Text -- ^ 'csSourceSnapshotName'
-               -> Text -- ^ 'csTargetSnapshotName'
-               -> CopySnapshot
+             -> Text -- ^ 'csTargetSnapshotName'
+             -> CopySnapshot
 copySnapshot p1 p2 = CopySnapshot
     { _csSourceSnapshotName = p1
     , _csTargetSnapshotName = p2

@@ -55,7 +55,7 @@ data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
 -- * @IfMatch ::@ @Maybe Text@
 --
 deleteCloudFrontOriginAccessIdentity :: Text -- ^ 'dcfoaiId'
-                                       -> DeleteCloudFrontOriginAccessIdentity
+                                     -> DeleteCloudFrontOriginAccessIdentity
 deleteCloudFrontOriginAccessIdentity p1 = DeleteCloudFrontOriginAccessIdentity
     { _dcfoaiId = p1
     , _dcfoaiIfMatch = Nothing

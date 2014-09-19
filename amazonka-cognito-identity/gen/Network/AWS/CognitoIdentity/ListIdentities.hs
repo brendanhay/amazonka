@@ -69,8 +69,8 @@ data ListIdentities = ListIdentities
 -- * @NextToken ::@ @Maybe Text@
 --
 listIdentities :: Text -- ^ 'liIdentityPoolId'
-                 -> Integer -- ^ 'liMaxResults'
-                 -> ListIdentities
+               -> Integer -- ^ 'liMaxResults'
+               -> ListIdentities
 listIdentities p1 p2 = ListIdentities
     { _liIdentityPoolId = p1
     , _liMaxResults = p2

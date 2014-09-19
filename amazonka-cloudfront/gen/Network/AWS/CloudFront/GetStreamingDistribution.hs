@@ -54,7 +54,7 @@ newtype GetStreamingDistribution = GetStreamingDistribution
 -- * @Id ::@ @Text@
 --
 getStreamingDistribution :: Text -- ^ 'gsdId'
-                           -> GetStreamingDistribution
+                         -> GetStreamingDistribution
 getStreamingDistribution p1 = GetStreamingDistribution
     { _gsdId = p1
     }

@@ -77,7 +77,7 @@ newtype DescribeCache = DescribeCache
 -- * @GatewayARN ::@ @Text@
 --
 describeCache :: Text -- ^ 'dcGatewayARN'
-                -> DescribeCache
+              -> DescribeCache
 describeCache p1 = DescribeCache
     { _dcGatewayARN = p1
     }

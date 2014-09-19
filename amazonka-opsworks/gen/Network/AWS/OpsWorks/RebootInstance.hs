@@ -53,7 +53,7 @@ newtype RebootInstance = RebootInstance
 -- * @InstanceId ::@ @Text@
 --
 rebootInstance :: Text -- ^ 'riInstanceId'
-                 -> RebootInstance
+               -> RebootInstance
 rebootInstance p1 = RebootInstance
     { _riInstanceId = p1
     }

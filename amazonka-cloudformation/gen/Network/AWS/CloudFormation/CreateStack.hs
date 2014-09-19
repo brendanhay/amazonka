@@ -107,7 +107,7 @@ data CreateStack = CreateStack
 -- * @Tags ::@ @[Tag]@
 --
 createStack :: Text -- ^ 'csStackName'
-              -> CreateStack
+            -> CreateStack
 createStack p1 = CreateStack
     { _csStackName = p1
     , _csTemplateBody = Nothing

@@ -74,7 +74,7 @@ newtype GetOperationDetail = GetOperationDetail
 -- * @OperationId ::@ @Text@
 --
 getOperationDetail :: Text -- ^ 'godOperationId'
-                     -> GetOperationDetail
+                   -> GetOperationDetail
 getOperationDetail p1 = GetOperationDetail
     { _godOperationId = p1
     }

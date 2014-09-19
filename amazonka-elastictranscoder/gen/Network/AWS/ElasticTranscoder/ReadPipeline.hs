@@ -69,7 +69,7 @@ newtype ReadPipeline = ReadPipeline
 -- * @Id ::@ @Text@
 --
 readPipeline :: Text -- ^ 'rpId'
-               -> ReadPipeline
+             -> ReadPipeline
 readPipeline p1 = ReadPipeline
     { _rpId = p1
     }

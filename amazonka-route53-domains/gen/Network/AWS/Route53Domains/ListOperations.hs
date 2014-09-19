@@ -120,7 +120,7 @@ data ListOperationsResponse = ListOperationsResponse
 -- * @NextPageMarker ::@ @Maybe Text@
 --
 listOperationsResponse :: [OperationSummary] -- ^ 'lorOperations'
-                         -> ListOperationsResponse
+                       -> ListOperationsResponse
 listOperationsResponse p1 = ListOperationsResponse
     { _lorOperations = p1
     , _lorNextPageMarker = Nothing

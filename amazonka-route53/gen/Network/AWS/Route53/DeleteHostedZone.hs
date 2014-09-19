@@ -51,7 +51,7 @@ import Network.AWS.Types (Region)
 
 -- | A complex type containing the response information for the delete request.
 newtype DeleteHostedZone = DeleteHostedZone
-    { _dhzId :: Text
+    { _dhzId :: ResourceId
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -59,17 +59,17 @@ newtype DeleteHostedZone = DeleteHostedZone
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @Text@
+-- * @Id ::@ @ResourceId@
 --
-deleteHostedZone :: Text -- ^ 'dhzId'
-                   -> DeleteHostedZone
+deleteHostedZone :: ResourceId -- ^ 'dhzId'
+                 -> DeleteHostedZone
 deleteHostedZone p1 = DeleteHostedZone
     { _dhzId = p1
     }
 
 -- | The ID of the request. Include this ID in a call to GetChange to track when
 -- the change has propagated to all Route 53 DNS servers.
-dhzId :: Lens' DeleteHostedZone Text
+dhzId :: Lens' DeleteHostedZone ResourceId
 dhzId = lens _dhzId (\s a -> s { _dhzId = a })
 
 instance ToPath DeleteHostedZone
@@ -97,7 +97,7 @@ newtype DeleteHostedZoneResponse = DeleteHostedZoneResponse
 -- * @ChangeInfo ::@ @ChangeInfo@
 --
 deleteHostedZoneResponse :: ChangeInfo -- ^ 'dhzrChangeInfo'
-                           -> DeleteHostedZoneResponse
+                         -> DeleteHostedZoneResponse
 deleteHostedZoneResponse p1 = DeleteHostedZoneResponse
     { _dhzrChangeInfo = p1
     }

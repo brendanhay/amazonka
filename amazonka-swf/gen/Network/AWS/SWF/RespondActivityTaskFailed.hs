@@ -89,7 +89,7 @@ data RespondActivityTaskFailed = RespondActivityTaskFailed
 -- * @Details ::@ @Maybe Text@
 --
 respondActivityTaskFailed :: Text -- ^ 'ratfTaskToken'
-                            -> RespondActivityTaskFailed
+                          -> RespondActivityTaskFailed
 respondActivityTaskFailed p1 = RespondActivityTaskFailed
     { _ratfTaskToken = p1
     , _ratfReason = Nothing

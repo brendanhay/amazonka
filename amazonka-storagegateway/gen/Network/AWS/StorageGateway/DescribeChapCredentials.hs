@@ -69,7 +69,7 @@ newtype DescribeChapCredentials = DescribeChapCredentials
 -- * @TargetARN ::@ @Text@
 --
 describeChapCredentials :: Text -- ^ 'dcc1TargetARN'
-                          -> DescribeChapCredentials
+                        -> DescribeChapCredentials
 describeChapCredentials p1 = DescribeChapCredentials
     { _dcc1TargetARN = p1
     }

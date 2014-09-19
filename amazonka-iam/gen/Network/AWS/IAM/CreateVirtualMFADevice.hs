@@ -69,7 +69,7 @@ data CreateVirtualMFADevice = CreateVirtualMFADevice
 -- * @VirtualMFADeviceName ::@ @Text@
 --
 createVirtualMFADevice :: Text -- ^ 'cvmfadVirtualMFADeviceName'
-                         -> CreateVirtualMFADevice
+                       -> CreateVirtualMFADevice
 createVirtualMFADevice p2 = CreateVirtualMFADevice
     { _cvmfadPath = Nothing
     , _cvmfadVirtualMFADeviceName = p2
@@ -107,7 +107,7 @@ newtype CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse
 -- * @VirtualMFADevice ::@ @VirtualMFADevice@
 --
 createVirtualMFADeviceResponse :: VirtualMFADevice -- ^ 'cvmfadrVirtualMFADevice'
-                                 -> CreateVirtualMFADeviceResponse
+                               -> CreateVirtualMFADeviceResponse
 createVirtualMFADeviceResponse p1 = CreateVirtualMFADeviceResponse
     { _cvmfadrVirtualMFADevice = p1
     }

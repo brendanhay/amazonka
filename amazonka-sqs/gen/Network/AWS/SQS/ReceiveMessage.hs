@@ -108,7 +108,7 @@ data ReceiveMessage = ReceiveMessage
 -- * @WaitTimeSeconds ::@ @Maybe Integer@
 --
 receiveMessage :: Text -- ^ 'rmQueueUrl'
-                 -> ReceiveMessage
+               -> ReceiveMessage
 receiveMessage p1 = ReceiveMessage
     { _rmQueueUrl = p1
     , _rmAttributeNames = mempty

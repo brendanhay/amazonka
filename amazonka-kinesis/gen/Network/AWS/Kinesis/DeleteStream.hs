@@ -70,7 +70,7 @@ newtype DeleteStream = DeleteStream
 -- * @StreamName ::@ @Text@
 --
 deleteStream :: Text -- ^ 'dsStreamName'
-               -> DeleteStream
+             -> DeleteStream
 deleteStream p1 = DeleteStream
     { _dsStreamName = p1
     }

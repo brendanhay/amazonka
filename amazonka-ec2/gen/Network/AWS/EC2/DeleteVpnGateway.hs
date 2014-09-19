@@ -58,7 +58,7 @@ newtype DeleteVpnGateway = DeleteVpnGateway
 -- * @VpnGatewayId ::@ @Text@
 --
 deleteVpnGateway :: Text -- ^ 'dvgVpnGatewayId'
-                   -> DeleteVpnGateway
+                 -> DeleteVpnGateway
 deleteVpnGateway p1 = DeleteVpnGateway
     { _dvgVpnGatewayId = p1
     }

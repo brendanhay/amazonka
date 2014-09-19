@@ -76,8 +76,8 @@ data AddWorkingStorage = AddWorkingStorage
 -- * @DiskIds ::@ @[Text]@
 --
 addWorkingStorage :: Text -- ^ 'awsGatewayARN'
-                    -> [Text] -- ^ 'awsDiskIds'
-                    -> AddWorkingStorage
+                  -> [Text] -- ^ 'awsDiskIds'
+                  -> AddWorkingStorage
 addWorkingStorage p1 p2 = AddWorkingStorage
     { _awsGatewayARN = p1
     , _awsDiskIds = p2

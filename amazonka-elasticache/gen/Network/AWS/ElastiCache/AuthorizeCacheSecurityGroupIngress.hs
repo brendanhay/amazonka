@@ -71,9 +71,9 @@ data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress
 -- * @EC2SecurityGroupOwnerId ::@ @Text@
 --
 authorizeCacheSecurityGroupIngress :: Text -- ^ 'acsgiCacheSecurityGroupName'
-                                     -> Text -- ^ 'acsgiEC2SecurityGroupName'
-                                     -> Text -- ^ 'acsgiEC2SecurityGroupOwnerId'
-                                     -> AuthorizeCacheSecurityGroupIngress
+                                   -> Text -- ^ 'acsgiEC2SecurityGroupName'
+                                   -> Text -- ^ 'acsgiEC2SecurityGroupOwnerId'
+                                   -> AuthorizeCacheSecurityGroupIngress
 authorizeCacheSecurityGroupIngress p1 p2 p3 = AuthorizeCacheSecurityGroupIngress
     { _acsgiCacheSecurityGroupName = p1
     , _acsgiEC2SecurityGroupName = p2

@@ -59,7 +59,7 @@ newtype DeleteVpc = DeleteVpc
 -- * @VpcId ::@ @Text@
 --
 deleteVpc :: Text -- ^ 'dv1VpcId'
-            -> DeleteVpc
+          -> DeleteVpc
 deleteVpc p1 = DeleteVpc
     { _dv1VpcId = p1
     }

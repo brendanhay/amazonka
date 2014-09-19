@@ -66,7 +66,7 @@ newtype DeleteTable = DeleteTable
 -- * @TableName ::@ @Text@
 --
 deleteTable :: Text -- ^ 'dtTableName'
-              -> DeleteTable
+            -> DeleteTable
 deleteTable p1 = DeleteTable
     { _dtTableName = p1
     }

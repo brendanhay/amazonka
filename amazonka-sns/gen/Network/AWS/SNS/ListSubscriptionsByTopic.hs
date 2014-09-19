@@ -78,7 +78,7 @@ data ListSubscriptionsByTopic = ListSubscriptionsByTopic
 -- * @NextToken ::@ @Maybe Text@
 --
 listSubscriptionsByTopic :: Text -- ^ 'lsbtTopicArn'
-                           -> ListSubscriptionsByTopic
+                         -> ListSubscriptionsByTopic
 listSubscriptionsByTopic p1 = ListSubscriptionsByTopic
     { _lsbtTopicArn = p1
     , _lsbtNextToken = Nothing

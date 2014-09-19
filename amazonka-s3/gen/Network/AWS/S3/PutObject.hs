@@ -145,9 +145,9 @@ data PutObject = PutObject
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
 putObject :: ObjectKey -- ^ 'poKey'
-            -> RqBody -- ^ 'poBody'
-            -> BucketName -- ^ 'poBucket'
-            -> PutObject
+          -> RqBody -- ^ 'poBody'
+          -> BucketName -- ^ 'poBucket'
+          -> PutObject
 putObject p16 p2 p3 = PutObject
     { _poACL = Nothing
     , _poBody = p2

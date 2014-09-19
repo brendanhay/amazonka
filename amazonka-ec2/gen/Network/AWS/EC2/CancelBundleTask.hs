@@ -65,7 +65,7 @@ newtype CancelBundleTask = CancelBundleTask
 -- * @BundleId ::@ @Text@
 --
 cancelBundleTask :: Text -- ^ 'cbtBundleId'
-                   -> CancelBundleTask
+                 -> CancelBundleTask
 cancelBundleTask p1 = CancelBundleTask
     { _cbtBundleId = p1
     }

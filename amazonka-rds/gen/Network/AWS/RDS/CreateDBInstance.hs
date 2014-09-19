@@ -159,12 +159,12 @@ data CreateDBInstance = CreateDBInstance
 -- * @Tags ::@ @[Tag]@
 --
 createDBInstance :: Text -- ^ 'cdbiDBInstanceIdentifier'
-                   -> Integer -- ^ 'cdbiAllocatedStorage'
-                   -> Text -- ^ 'cdbiDBInstanceClass'
-                   -> Text -- ^ 'cdbiEngine'
-                   -> Text -- ^ 'cdbiMasterUsername'
-                   -> Text -- ^ 'cdbiMasterUserPassword'
-                   -> CreateDBInstance
+                 -> Integer -- ^ 'cdbiAllocatedStorage'
+                 -> Text -- ^ 'cdbiDBInstanceClass'
+                 -> Text -- ^ 'cdbiEngine'
+                 -> Text -- ^ 'cdbiMasterUsername'
+                 -> Text -- ^ 'cdbiMasterUserPassword'
+                 -> CreateDBInstance
 createDBInstance p2 p3 p4 p5 p6 p7 = CreateDBInstance
     { _cdbiDBName = Nothing
     , _cdbiDBInstanceIdentifier = p2

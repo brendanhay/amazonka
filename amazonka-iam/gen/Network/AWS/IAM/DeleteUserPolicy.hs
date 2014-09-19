@@ -56,8 +56,8 @@ data DeleteUserPolicy = DeleteUserPolicy
 -- * @PolicyName ::@ @Text@
 --
 deleteUserPolicy :: Text -- ^ 'dupUserName'
-                   -> Text -- ^ 'dupPolicyName'
-                   -> DeleteUserPolicy
+                 -> Text -- ^ 'dupPolicyName'
+                 -> DeleteUserPolicy
 deleteUserPolicy p1 p2 = DeleteUserPolicy
     { _dupUserName = p1
     , _dupPolicyName = p2

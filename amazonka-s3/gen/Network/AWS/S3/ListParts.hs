@@ -78,9 +78,9 @@ data ListParts = ListParts
 -- * @UploadId ::@ @Text@
 --
 listParts :: BucketName -- ^ 'lpBucket'
-            -> ObjectKey -- ^ 'lpKey'
-            -> Text -- ^ 'lpUploadId'
-            -> ListParts
+          -> ObjectKey -- ^ 'lpKey'
+          -> Text -- ^ 'lpUploadId'
+          -> ListParts
 listParts p1 p2 p5 = ListParts
     { _lpBucket = p1
     , _lpKey = p2
@@ -161,7 +161,7 @@ data ListPartsResponse = ListPartsResponse
 -- * @StorageClass ::@ @Maybe StorageClass@
 --
 listPartsResponse :: Bool -- ^ 'lprIsTruncated'
-                    -> ListPartsResponse
+                  -> ListPartsResponse
 listPartsResponse p7 = ListPartsResponse
     { _lprBucket = Nothing
     , _lprKey = Nothing

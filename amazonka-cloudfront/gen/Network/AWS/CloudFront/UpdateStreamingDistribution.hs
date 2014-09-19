@@ -62,8 +62,8 @@ data UpdateStreamingDistribution = UpdateStreamingDistribution
 -- * @IfMatch ::@ @Maybe Text@
 --
 updateStreamingDistribution :: StreamingDistributionConfig -- ^ 'usdStreamingDistributionConfig'
-                              -> Text -- ^ 'usdId'
-                              -> UpdateStreamingDistribution
+                            -> Text -- ^ 'usdId'
+                            -> UpdateStreamingDistribution
 updateStreamingDistribution p1 p2 = UpdateStreamingDistribution
     { _usdStreamingDistributionConfig = p1
     , _usdId = p2

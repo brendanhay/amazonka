@@ -72,9 +72,9 @@ data CreateDBSubnetGroup = CreateDBSubnetGroup
 -- * @Tags ::@ @[Tag]@
 --
 createDBSubnetGroup :: Text -- ^ 'cdbsg1DBSubnetGroupName'
-                      -> Text -- ^ 'cdbsg1DBSubnetGroupDescription'
-                      -> [Text] -- ^ 'cdbsg1SubnetIds'
-                      -> CreateDBSubnetGroup
+                    -> Text -- ^ 'cdbsg1DBSubnetGroupDescription'
+                    -> [Text] -- ^ 'cdbsg1SubnetIds'
+                    -> CreateDBSubnetGroup
 createDBSubnetGroup p1 p2 p3 = CreateDBSubnetGroup
     { _cdbsg1DBSubnetGroupName = p1
     , _cdbsg1DBSubnetGroupDescription = p2

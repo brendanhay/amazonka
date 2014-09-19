@@ -79,9 +79,9 @@ data UpdateIdentityPool = UpdateIdentityPool
 -- * @SupportedLoginProviders ::@ @Map Text Text@
 --
 updateIdentityPool :: Text -- ^ 'uipIdentityPoolId'
-                     -> Text -- ^ 'uipIdentityPoolName'
-                     -> Bool -- ^ 'uipAllowUnauthenticatedIdentities'
-                     -> UpdateIdentityPool
+                   -> Text -- ^ 'uipIdentityPoolName'
+                   -> Bool -- ^ 'uipAllowUnauthenticatedIdentities'
+                   -> UpdateIdentityPool
 updateIdentityPool p1 p2 p3 = UpdateIdentityPool
     { _uipIdentityPoolId = p1
     , _uipIdentityPoolName = p2
@@ -143,9 +143,9 @@ data UpdateIdentityPoolResponse = UpdateIdentityPoolResponse
 -- * @SupportedLoginProviders ::@ @Map Text Text@
 --
 updateIdentityPoolResponse :: Text -- ^ 'uiprIdentityPoolId'
-                             -> Text -- ^ 'uiprIdentityPoolName'
-                             -> Bool -- ^ 'uiprAllowUnauthenticatedIdentities'
-                             -> UpdateIdentityPoolResponse
+                           -> Text -- ^ 'uiprIdentityPoolName'
+                           -> Bool -- ^ 'uiprAllowUnauthenticatedIdentities'
+                           -> UpdateIdentityPoolResponse
 updateIdentityPoolResponse p1 p2 p3 = UpdateIdentityPoolResponse
     { _uiprIdentityPoolId = p1
     , _uiprIdentityPoolName = p2

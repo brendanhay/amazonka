@@ -87,8 +87,8 @@ data PutObjectAcl = PutObjectAcl
 -- * @Key ::@ @ObjectKey@
 --
 putObjectAcl :: ObjectKey -- ^ 'poaKey'
-               -> BucketName -- ^ 'poaBucket'
-               -> PutObjectAcl
+             -> BucketName -- ^ 'poaBucket'
+             -> PutObjectAcl
 putObjectAcl p10 p3 = PutObjectAcl
     { _poaACL = Nothing
     , _poaAccessControlPolicy = Nothing

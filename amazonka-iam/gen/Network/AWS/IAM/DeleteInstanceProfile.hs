@@ -57,7 +57,7 @@ newtype DeleteInstanceProfile = DeleteInstanceProfile
 -- * @InstanceProfileName ::@ @Text@
 --
 deleteInstanceProfile :: Text -- ^ 'dipInstanceProfileName'
-                        -> DeleteInstanceProfile
+                      -> DeleteInstanceProfile
 deleteInstanceProfile p1 = DeleteInstanceProfile
     { _dipInstanceProfileName = p1
     }

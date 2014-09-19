@@ -80,8 +80,8 @@ data DeleteMessage = DeleteMessage
 -- * @ReceiptHandle ::@ @Text@
 --
 deleteMessage :: Text -- ^ 'dmQueueUrl'
-                -> Text -- ^ 'dmReceiptHandle'
-                -> DeleteMessage
+              -> Text -- ^ 'dmReceiptHandle'
+              -> DeleteMessage
 deleteMessage p1 p2 = DeleteMessage
     { _dmQueueUrl = p1
     , _dmReceiptHandle = p2

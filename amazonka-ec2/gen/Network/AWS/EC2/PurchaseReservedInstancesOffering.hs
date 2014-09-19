@@ -80,8 +80,8 @@ data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
 -- * @LimitPrice ::@ @Maybe ReservedInstanceLimitPrice@
 --
 purchaseReservedInstancesOffering :: Text -- ^ 'prioReservedInstancesOfferingId'
-                                    -> Integer -- ^ 'prioInstanceCount'
-                                    -> PurchaseReservedInstancesOffering
+                                  -> Integer -- ^ 'prioInstanceCount'
+                                  -> PurchaseReservedInstancesOffering
 purchaseReservedInstancesOffering p1 p2 = PurchaseReservedInstancesOffering
     { _prioReservedInstancesOfferingId = p1
     , _prioInstanceCount = p2

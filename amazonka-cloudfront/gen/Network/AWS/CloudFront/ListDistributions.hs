@@ -99,7 +99,7 @@ newtype ListDistributionsResponse = ListDistributionsResponse
 -- * @DistributionList ::@ @DistributionList@
 --
 listDistributionsResponse :: DistributionList -- ^ 'ldrDistributionList'
-                            -> ListDistributionsResponse
+                          -> ListDistributionsResponse
 listDistributionsResponse p1 = ListDistributionsResponse
     { _ldrDistributionList = p1
     }

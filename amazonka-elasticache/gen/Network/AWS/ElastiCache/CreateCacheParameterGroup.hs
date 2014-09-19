@@ -70,9 +70,9 @@ data CreateCacheParameterGroup = CreateCacheParameterGroup
 -- * @Description ::@ @Text@
 --
 createCacheParameterGroup :: Text -- ^ 'ccpgCacheParameterGroupName'
-                            -> Text -- ^ 'ccpgCacheParameterGroupFamily'
-                            -> Text -- ^ 'ccpgDescription'
-                            -> CreateCacheParameterGroup
+                          -> Text -- ^ 'ccpgCacheParameterGroupFamily'
+                          -> Text -- ^ 'ccpgDescription'
+                          -> CreateCacheParameterGroup
 createCacheParameterGroup p1 p2 p3 = CreateCacheParameterGroup
     { _ccpgCacheParameterGroupName = p1
     , _ccpgCacheParameterGroupFamily = p2

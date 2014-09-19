@@ -122,7 +122,7 @@ data GetFederationToken = GetFederationToken
 -- * @DurationSeconds ::@ @Maybe Integer@
 --
 getFederationToken :: Text -- ^ 'gftName'
-                     -> GetFederationToken
+                   -> GetFederationToken
 getFederationToken p1 = GetFederationToken
     { _gftName = p1
     , _gftPolicy = Nothing

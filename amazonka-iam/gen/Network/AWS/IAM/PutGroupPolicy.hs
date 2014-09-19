@@ -69,9 +69,9 @@ data PutGroupPolicy = PutGroupPolicy
 -- * @PolicyDocument ::@ @Text@
 --
 putGroupPolicy :: Text -- ^ 'pgpGroupName'
-                 -> Text -- ^ 'pgpPolicyName'
-                 -> Text -- ^ 'pgpPolicyDocument'
-                 -> PutGroupPolicy
+               -> Text -- ^ 'pgpPolicyName'
+               -> Text -- ^ 'pgpPolicyDocument'
+               -> PutGroupPolicy
 putGroupPolicy p1 p2 p3 = PutGroupPolicy
     { _pgpGroupName = p1
     , _pgpPolicyName = p2

@@ -124,8 +124,8 @@ data ListUsersResponse = ListUsersResponse
 -- * @Marker ::@ @Maybe Text@
 --
 listUsersResponse :: [User] -- ^ 'lurUsers'
-                    -> Bool -- ^ 'lurIsTruncated'
-                    -> ListUsersResponse
+                  -> Bool -- ^ 'lurIsTruncated'
+                  -> ListUsersResponse
 listUsersResponse p1 p2 = ListUsersResponse
     { _lurUsers = p1
     , _lurIsTruncated = p2

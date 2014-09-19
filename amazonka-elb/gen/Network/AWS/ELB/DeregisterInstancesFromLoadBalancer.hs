@@ -67,8 +67,8 @@ data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer
 -- * @Instances ::@ @[Instance]@
 --
 deregisterInstancesFromLoadBalancer :: Text -- ^ 'diflbLoadBalancerName'
-                                      -> [Instance] -- ^ 'diflbInstances'
-                                      -> DeregisterInstancesFromLoadBalancer
+                                    -> [Instance] -- ^ 'diflbInstances'
+                                    -> DeregisterInstancesFromLoadBalancer
 deregisterInstancesFromLoadBalancer p1 p2 = DeregisterInstancesFromLoadBalancer
     { _diflbLoadBalancerName = p1
     , _diflbInstances = p2

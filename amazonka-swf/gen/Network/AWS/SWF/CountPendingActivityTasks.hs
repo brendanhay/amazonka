@@ -84,8 +84,8 @@ data CountPendingActivityTasks = CountPendingActivityTasks
 -- * @TaskList ::@ @TaskList@
 --
 countPendingActivityTasks :: Text -- ^ 'cpatDomain'
-                            -> TaskList -- ^ 'cpatTaskList'
-                            -> CountPendingActivityTasks
+                          -> TaskList -- ^ 'cpatTaskList'
+                          -> CountPendingActivityTasks
 countPendingActivityTasks p1 p2 = CountPendingActivityTasks
     { _cpatDomain = p1
     , _cpatTaskList = p2
@@ -125,7 +125,7 @@ data CountPendingActivityTasksResponse = CountPendingActivityTasksResponse
 -- * @Truncated ::@ @Maybe Bool@
 --
 countPendingActivityTasksResponse :: Integer -- ^ 'cpatrCount'
-                                    -> CountPendingActivityTasksResponse
+                                  -> CountPendingActivityTasksResponse
 countPendingActivityTasksResponse p1 = CountPendingActivityTasksResponse
     { _cpatrCount = p1
     , _cpatrTruncated = Nothing

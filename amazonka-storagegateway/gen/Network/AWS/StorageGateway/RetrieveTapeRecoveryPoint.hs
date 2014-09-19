@@ -54,8 +54,8 @@ data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint
 -- * @GatewayARN ::@ @Text@
 --
 retrieveTapeRecoveryPoint :: Text -- ^ 'rtrpTapeARN'
-                            -> Text -- ^ 'rtrpGatewayARN'
-                            -> RetrieveTapeRecoveryPoint
+                          -> Text -- ^ 'rtrpGatewayARN'
+                          -> RetrieveTapeRecoveryPoint
 retrieveTapeRecoveryPoint p1 p2 = RetrieveTapeRecoveryPoint
     { _rtrpTapeARN = p1
     , _rtrpGatewayARN = p2

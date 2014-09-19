@@ -56,7 +56,7 @@ newtype DeleteNetworkAcl = DeleteNetworkAcl
 -- * @NetworkAclId ::@ @Text@
 --
 deleteNetworkAcl :: Text -- ^ 'dnaNetworkAclId'
-                   -> DeleteNetworkAcl
+                 -> DeleteNetworkAcl
 deleteNetworkAcl p1 = DeleteNetworkAcl
     { _dnaNetworkAclId = p1
     }

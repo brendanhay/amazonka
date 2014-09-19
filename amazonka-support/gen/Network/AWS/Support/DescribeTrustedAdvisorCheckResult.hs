@@ -63,7 +63,7 @@ data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult
 -- * @Language ::@ @Maybe Text@
 --
 describeTrustedAdvisorCheckResult :: Text -- ^ 'dtacrCheckId'
-                                    -> DescribeTrustedAdvisorCheckResult
+                                  -> DescribeTrustedAdvisorCheckResult
 describeTrustedAdvisorCheckResult p1 = DescribeTrustedAdvisorCheckResult
     { _dtacrCheckId = p1
     , _dtacrLanguage = Nothing

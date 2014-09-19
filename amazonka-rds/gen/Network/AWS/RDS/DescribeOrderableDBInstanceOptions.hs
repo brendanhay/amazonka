@@ -89,7 +89,7 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions
 -- * @Marker ::@ @Maybe Text@
 --
 describeOrderableDBInstanceOptions :: Text -- ^ 'dodbioEngine'
-                                     -> DescribeOrderableDBInstanceOptions
+                                   -> DescribeOrderableDBInstanceOptions
 describeOrderableDBInstanceOptions p1 = DescribeOrderableDBInstanceOptions
     { _dodbioEngine = p1
     , _dodbioEngineVersion = Nothing

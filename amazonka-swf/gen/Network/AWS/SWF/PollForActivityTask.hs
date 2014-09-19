@@ -105,8 +105,8 @@ data PollForActivityTask = PollForActivityTask
 -- * @Identity ::@ @Maybe Text@
 --
 pollForActivityTask :: Text -- ^ 'pfatDomain'
-                      -> TaskList -- ^ 'pfatTaskList'
-                      -> PollForActivityTask
+                    -> TaskList -- ^ 'pfatTaskList'
+                    -> PollForActivityTask
 pollForActivityTask p1 p2 = PollForActivityTask
     { _pfatDomain = p1
     , _pfatTaskList = p2
@@ -169,11 +169,11 @@ data PollForActivityTaskResponse = PollForActivityTaskResponse
 -- * @Input ::@ @Maybe Text@
 --
 pollForActivityTaskResponse :: Text -- ^ 'pfatrTaskToken'
-                              -> Text -- ^ 'pfatrActivityId'
-                              -> Integer -- ^ 'pfatrStartedEventId'
-                              -> WorkflowExecution -- ^ 'pfatrWorkflowExecution'
-                              -> ActivityType -- ^ 'pfatrActivityType'
-                              -> PollForActivityTaskResponse
+                            -> Text -- ^ 'pfatrActivityId'
+                            -> Integer -- ^ 'pfatrStartedEventId'
+                            -> WorkflowExecution -- ^ 'pfatrWorkflowExecution'
+                            -> ActivityType -- ^ 'pfatrActivityType'
+                            -> PollForActivityTaskResponse
 pollForActivityTaskResponse p1 p2 p3 p4 p5 = PollForActivityTaskResponse
     { _pfatrTaskToken = p1
     , _pfatrActivityId = p2

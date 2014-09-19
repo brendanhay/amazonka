@@ -90,7 +90,7 @@ data DescribeLogStreams = DescribeLogStreams
 -- * @Limit ::@ @Maybe Integer@
 --
 describeLogStreams :: Text -- ^ 'dls1LogGroupName'
-                     -> DescribeLogStreams
+                   -> DescribeLogStreams
 describeLogStreams p1 = DescribeLogStreams
     { _dls1LogGroupName = p1
     , _dls1LogStreamNamePrefix = Nothing

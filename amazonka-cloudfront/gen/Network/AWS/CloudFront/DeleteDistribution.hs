@@ -55,7 +55,7 @@ data DeleteDistribution = DeleteDistribution
 -- * @IfMatch ::@ @Maybe Text@
 --
 deleteDistribution :: Text -- ^ 'ddId'
-                     -> DeleteDistribution
+                   -> DeleteDistribution
 deleteDistribution p1 = DeleteDistribution
     { _ddId = p1
     , _ddIfMatch = Nothing

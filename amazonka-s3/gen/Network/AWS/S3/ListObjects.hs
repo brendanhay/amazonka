@@ -86,7 +86,7 @@ data ListObjects = ListObjects
 -- * @Prefix ::@ @Maybe Text@
 --
 listObjects :: BucketName -- ^ 'loBucket'
-              -> ListObjects
+            -> ListObjects
 listObjects p1 = ListObjects
     { _loBucket = p1
     , _loDelimiter = Nothing
@@ -171,8 +171,8 @@ data ListObjectsResponse = ListObjectsResponse
 -- * @EncodingType ::@ @Maybe EncodingType@
 --
 listObjectsResponse :: Bool -- ^ 'lorIsTruncated'
-                      -> BucketName -- ^ 'lorName'
-                      -> ListObjectsResponse
+                    -> BucketName -- ^ 'lorName'
+                    -> ListObjectsResponse
 listObjectsResponse p1 p5 = ListObjectsResponse
     { _lorIsTruncated = p1
     , _lorMarker = Nothing

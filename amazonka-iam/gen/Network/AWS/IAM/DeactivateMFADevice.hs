@@ -56,8 +56,8 @@ data DeactivateMFADevice = DeactivateMFADevice
 -- * @SerialNumber ::@ @Text@
 --
 deactivateMFADevice :: Text -- ^ 'dmfadUserName'
-                      -> Text -- ^ 'dmfadSerialNumber'
-                      -> DeactivateMFADevice
+                    -> Text -- ^ 'dmfadSerialNumber'
+                    -> DeactivateMFADevice
 deactivateMFADevice p1 p2 = DeactivateMFADevice
     { _dmfadUserName = p1
     , _dmfadSerialNumber = p2

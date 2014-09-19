@@ -71,7 +71,7 @@ newtype DeleteSnapshotSchedule = DeleteSnapshotSchedule
 -- * @VolumeARN ::@ @Text@
 --
 deleteSnapshotSchedule :: Text -- ^ 'dssVolumeARN'
-                         -> DeleteSnapshotSchedule
+                       -> DeleteSnapshotSchedule
 deleteSnapshotSchedule p1 = DeleteSnapshotSchedule
     { _dssVolumeARN = p1
     }

@@ -102,8 +102,8 @@ data GetLogEvents = GetLogEvents
 -- * @StartFromHead ::@ @Maybe Bool@
 --
 getLogEvents :: Text -- ^ 'gleLogGroupName'
-               -> Text -- ^ 'gleLogStreamName'
-               -> GetLogEvents
+             -> Text -- ^ 'gleLogStreamName'
+             -> GetLogEvents
 getLogEvents p1 p2 = GetLogEvents
     { _gleLogGroupName = p1
     , _gleLogStreamName = p2

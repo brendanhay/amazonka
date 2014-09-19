@@ -91,7 +91,7 @@ data ListObjectVersions = ListObjectVersions
 -- * @VersionIdMarker ::@ @Maybe Text@
 --
 listObjectVersions :: BucketName -- ^ 'lovBucket'
-                     -> ListObjectVersions
+                   -> ListObjectVersions
 listObjectVersions p1 = ListObjectVersions
     { _lovBucket = p1
     , _lovDelimiter = Nothing
@@ -191,7 +191,7 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse
 -- * @EncodingType ::@ @Maybe EncodingType@
 --
 listObjectVersionsResponse :: Bool -- ^ 'lovrIsTruncated'
-                             -> ListObjectVersionsResponse
+                           -> ListObjectVersionsResponse
 listObjectVersionsResponse p1 = ListObjectVersionsResponse
     { _lovrIsTruncated = p1
     , _lovrKeyMarker = Nothing

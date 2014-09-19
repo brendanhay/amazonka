@@ -72,7 +72,7 @@ newtype StartGateway = StartGateway
 -- * @GatewayARN ::@ @Text@
 --
 startGateway :: Text -- ^ 'sg1GatewayARN'
-               -> StartGateway
+             -> StartGateway
 startGateway p1 = StartGateway
     { _sg1GatewayARN = p1
     }

@@ -72,7 +72,7 @@ data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering
 -- * @NodeCount ::@ @Maybe Integer@
 --
 purchaseReservedNodeOffering :: Text -- ^ 'prnoReservedNodeOfferingId'
-                               -> PurchaseReservedNodeOffering
+                             -> PurchaseReservedNodeOffering
 purchaseReservedNodeOffering p1 = PurchaseReservedNodeOffering
     { _prnoReservedNodeOfferingId = p1
     , _prnoNodeCount = Nothing

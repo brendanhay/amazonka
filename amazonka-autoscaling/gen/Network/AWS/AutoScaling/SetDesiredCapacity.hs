@@ -62,8 +62,8 @@ data SetDesiredCapacity = SetDesiredCapacity
 -- * @HonorCooldown ::@ @Maybe Bool@
 --
 setDesiredCapacity :: Text -- ^ 'sdcAutoScalingGroupName'
-                     -> Integer -- ^ 'sdcDesiredCapacity'
-                     -> SetDesiredCapacity
+                   -> Integer -- ^ 'sdcDesiredCapacity'
+                   -> SetDesiredCapacity
 setDesiredCapacity p1 p2 = SetDesiredCapacity
     { _sdcAutoScalingGroupName = p1
     , _sdcDesiredCapacity = p2

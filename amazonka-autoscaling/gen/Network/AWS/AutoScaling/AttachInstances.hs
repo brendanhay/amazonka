@@ -56,8 +56,8 @@ data AttachInstances = AttachInstances
 -- * @AutoScalingGroupName ::@ @Text@
 --
 attachInstances :: List1 Text -- ^ 'aiInstanceIds'
-                  -> Text -- ^ 'aiAutoScalingGroupName'
-                  -> AttachInstances
+                -> Text -- ^ 'aiAutoScalingGroupName'
+                -> AttachInstances
 attachInstances p1 p2 = AttachInstances
     { _aiInstanceIds = p1
     , _aiAutoScalingGroupName = p2

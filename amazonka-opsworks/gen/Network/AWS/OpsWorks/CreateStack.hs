@@ -122,10 +122,10 @@ data CreateStack = CreateStack
 -- * @DefaultRootDeviceType ::@ @Maybe RootDeviceType@
 --
 createStack :: Text -- ^ 'cs1Name'
-              -> Text -- ^ 'cs1Region'
-              -> Text -- ^ 'cs1ServiceRoleArn'
-              -> Text -- ^ 'cs1DefaultInstanceProfileArn'
-              -> CreateStack
+            -> Text -- ^ 'cs1Region'
+            -> Text -- ^ 'cs1ServiceRoleArn'
+            -> Text -- ^ 'cs1DefaultInstanceProfileArn'
+            -> CreateStack
 createStack p1 p2 p5 p6 = CreateStack
     { _cs1Name = p1
     , _cs1Region = p2

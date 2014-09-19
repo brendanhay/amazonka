@@ -54,7 +54,7 @@ newtype DeregisterVolume = DeregisterVolume
 -- * @VolumeId ::@ @Text@
 --
 deregisterVolume :: Text -- ^ 'dvVolumeId'
-                   -> DeregisterVolume
+                 -> DeregisterVolume
 deregisterVolume p1 = DeregisterVolume
     { _dvVolumeId = p1
     }

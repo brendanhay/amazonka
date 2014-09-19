@@ -1146,7 +1146,7 @@ newtype PlacementType = PlacementType
 -- * @AvailabilityZone ::@ @Text@
 --
 placementType :: Text -- ^ 'ptAvailabilityZone'
-                -> PlacementType
+              -> PlacementType
 placementType p1 = PlacementType
     { _ptAvailabilityZone = p1
     }
@@ -1236,8 +1236,8 @@ data BootstrapActionConfig = BootstrapActionConfig
 -- * @ScriptBootstrapAction ::@ @ScriptBootstrapActionConfig@
 --
 bootstrapActionConfig :: Text -- ^ 'bacName'
-                        -> ScriptBootstrapActionConfig -- ^ 'bacScriptBootstrapAction'
-                        -> BootstrapActionConfig
+                      -> ScriptBootstrapActionConfig -- ^ 'bacScriptBootstrapAction'
+                      -> BootstrapActionConfig
 bootstrapActionConfig p1 p2 = BootstrapActionConfig
     { _bacName = p1
     , _bacScriptBootstrapAction = p2
@@ -1682,7 +1682,7 @@ data HadoopJarStepConfig = HadoopJarStepConfig
 -- * @Args ::@ @[Text]@
 --
 hadoopJarStepConfig :: Text -- ^ 'hjscJar'
-                      -> HadoopJarStepConfig
+                    -> HadoopJarStepConfig
 hadoopJarStepConfig p2 = HadoopJarStepConfig
     { _hjscProperties = mempty
     , _hjscJar = p2
@@ -1968,9 +1968,9 @@ data InstanceGroupConfig = InstanceGroupConfig
 -- * @InstanceCount ::@ @Integer@
 --
 instanceGroupConfig :: InstanceRoleType -- ^ 'igcInstanceRole'
-                      -> Text -- ^ 'igcInstanceType'
-                      -> Integer -- ^ 'igcInstanceCount'
-                      -> InstanceGroupConfig
+                    -> Text -- ^ 'igcInstanceType'
+                    -> Integer -- ^ 'igcInstanceCount'
+                    -> InstanceGroupConfig
 instanceGroupConfig p3 p5 p6 = InstanceGroupConfig
     { _igcName = Nothing
     , _igcMarket = Nothing
@@ -2060,13 +2060,13 @@ data InstanceGroupDetail = InstanceGroupDetail
 -- * @EndDateTime ::@ @Maybe POSIX@
 --
 instanceGroupDetail :: POSIX -- ^ 'igdCreationDateTime'
-                      -> MarketType -- ^ 'igdMarket'
-                      -> InstanceRoleType -- ^ 'igdInstanceRole'
-                      -> Text -- ^ 'igdInstanceType'
-                      -> Integer -- ^ 'igdInstanceRequestCount'
-                      -> Integer -- ^ 'igdInstanceRunningCount'
-                      -> InstanceGroupState -- ^ 'igdState'
-                      -> InstanceGroupDetail
+                    -> MarketType -- ^ 'igdMarket'
+                    -> InstanceRoleType -- ^ 'igdInstanceRole'
+                    -> Text -- ^ 'igdInstanceType'
+                    -> Integer -- ^ 'igdInstanceRequestCount'
+                    -> Integer -- ^ 'igdInstanceRunningCount'
+                    -> InstanceGroupState -- ^ 'igdState'
+                    -> InstanceGroupDetail
 instanceGroupDetail p11 p3 p4 p6 p7 p8 p9 = InstanceGroupDetail
     { _igdInstanceGroupId = Nothing
     , _igdName = Nothing
@@ -2175,7 +2175,7 @@ data InstanceGroupModifyConfig = InstanceGroupModifyConfig
 -- * @EC2InstanceIdsToTerminate ::@ @[Text]@
 --
 instanceGroupModifyConfig :: Text -- ^ 'igmcInstanceGroupId'
-                            -> InstanceGroupModifyConfig
+                          -> InstanceGroupModifyConfig
 instanceGroupModifyConfig p1 = InstanceGroupModifyConfig
     { _igmcInstanceGroupId = p1
     , _igmcInstanceCount = Nothing
@@ -2486,10 +2486,10 @@ data JobFlowDetail = JobFlowDetail
 -- * @ServiceRole ::@ @Maybe Text@
 --
 jobFlowDetail :: Text -- ^ 'jfdJobFlowId'
-                -> Text -- ^ 'jfdName'
-                -> JobFlowExecutionStatusDetail -- ^ 'jfdExecutionStatusDetail'
-                -> JobFlowInstancesDetail -- ^ 'jfdInstances'
-                -> JobFlowDetail
+              -> Text -- ^ 'jfdName'
+              -> JobFlowExecutionStatusDetail -- ^ 'jfdExecutionStatusDetail'
+              -> JobFlowInstancesDetail -- ^ 'jfdInstances'
+              -> JobFlowDetail
 jobFlowDetail p1 p2 p5 p6 = JobFlowDetail
     { _jfdJobFlowId = p1
     , _jfdName = p2
@@ -2600,8 +2600,8 @@ data JobFlowExecutionStatusDetail = JobFlowExecutionStatusDetail
 -- * @LastStateChangeReason ::@ @Maybe Text@
 --
 jobFlowExecutionStatusDetail :: JobFlowExecutionState -- ^ 'jfesdState'
-                               -> POSIX -- ^ 'jfesdCreationDateTime'
-                               -> JobFlowExecutionStatusDetail
+                             -> POSIX -- ^ 'jfesdCreationDateTime'
+                             -> JobFlowExecutionStatusDetail
 jobFlowExecutionStatusDetail p1 p2 = JobFlowExecutionStatusDetail
     { _jfesdState = p1
     , _jfesdCreationDateTime = p2
@@ -2812,9 +2812,9 @@ data JobFlowInstancesDetail = JobFlowInstancesDetail
 -- * @HadoopVersion ::@ @Maybe Text@
 --
 jobFlowInstancesDetail :: Text -- ^ 'jfidMasterInstanceType'
-                         -> Text -- ^ 'jfidSlaveInstanceType'
-                         -> Integer -- ^ 'jfidInstanceCount'
-                         -> JobFlowInstancesDetail
+                       -> Text -- ^ 'jfidSlaveInstanceType'
+                       -> Integer -- ^ 'jfidInstanceCount'
+                       -> JobFlowInstancesDetail
 jobFlowInstancesDetail p1 p4 p5 = JobFlowInstancesDetail
     { _jfidMasterInstanceType = p1
     , _jfidMasterPublicDnsName = Nothing
@@ -2962,7 +2962,7 @@ data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig
 -- * @Args ::@ @[Text]@
 --
 scriptBootstrapActionConfig :: Text -- ^ 'sbacPath'
-                              -> ScriptBootstrapActionConfig
+                            -> ScriptBootstrapActionConfig
 scriptBootstrapActionConfig p1 = ScriptBootstrapActionConfig
     { _sbacPath = p1
     , _sbacArgs = mempty
@@ -3060,8 +3060,8 @@ data StepConfig = StepConfig
 -- * @HadoopJarStep ::@ @HadoopJarStepConfig@
 --
 stepConfig :: Text -- ^ 'scName'
-             -> HadoopJarStepConfig -- ^ 'scHadoopJarStep'
-             -> StepConfig
+           -> HadoopJarStepConfig -- ^ 'scHadoopJarStep'
+           -> StepConfig
 stepConfig p1 p3 = StepConfig
     { _scName = p1
     , _scActionOnFailure = Nothing
@@ -3101,8 +3101,8 @@ data StepDetail = StepDetail
 -- * @ExecutionStatusDetail ::@ @StepExecutionStatusDetail@
 --
 stepDetail :: StepConfig -- ^ 'sdStepConfig'
-             -> StepExecutionStatusDetail -- ^ 'sdExecutionStatusDetail'
-             -> StepDetail
+           -> StepExecutionStatusDetail -- ^ 'sdExecutionStatusDetail'
+           -> StepDetail
 stepDetail p1 p2 = StepDetail
     { _sdStepConfig = p1
     , _sdExecutionStatusDetail = p2
@@ -3147,8 +3147,8 @@ data StepExecutionStatusDetail = StepExecutionStatusDetail
 -- * @LastStateChangeReason ::@ @Maybe Text@
 --
 stepExecutionStatusDetail :: StepExecutionState -- ^ 'sesdState'
-                            -> POSIX -- ^ 'sesdCreationDateTime'
-                            -> StepExecutionStatusDetail
+                          -> POSIX -- ^ 'sesdCreationDateTime'
+                          -> StepExecutionStatusDetail
 stepExecutionStatusDetail p1 p2 = StepExecutionStatusDetail
     { _sesdState = p1
     , _sesdCreationDateTime = p2

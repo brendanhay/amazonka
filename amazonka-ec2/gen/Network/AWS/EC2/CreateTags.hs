@@ -65,8 +65,8 @@ data CreateTags = CreateTags
 -- * @Tags ::@ @[Tag]@
 --
 createTags :: [Text] -- ^ 'ctResources'
-             -> [Tag] -- ^ 'ctTags'
-             -> CreateTags
+           -> [Tag] -- ^ 'ctTags'
+           -> CreateTags
 createTags p1 p2 = CreateTags
     { _ctResources = p1
     , _ctTags = p2

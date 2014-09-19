@@ -108,7 +108,7 @@ newtype GetDomainDetail = GetDomainDetail
 -- * @DomainName ::@ @Text@
 --
 getDomainDetail :: Text -- ^ 'gddDomainName'
-                  -> GetDomainDetail
+                -> GetDomainDetail
 getDomainDetail p1 = GetDomainDetail
     { _gddDomainName = p1
     }
@@ -203,11 +203,11 @@ data GetDomainDetailResponse = GetDomainDetailResponse
 -- * @StatusList ::@ @[Text]@
 --
 getDomainDetailResponse :: Text -- ^ 'gddrDomainName'
-                          -> [Nameserver] -- ^ 'gddrNameservers'
-                          -> ContactDetail -- ^ 'gddrAdminContact'
-                          -> ContactDetail -- ^ 'gddrRegistrantContact'
-                          -> ContactDetail -- ^ 'gddrTechContact'
-                          -> GetDomainDetailResponse
+                        -> [Nameserver] -- ^ 'gddrNameservers'
+                        -> ContactDetail -- ^ 'gddrAdminContact'
+                        -> ContactDetail -- ^ 'gddrRegistrantContact'
+                        -> ContactDetail -- ^ 'gddrTechContact'
+                        -> GetDomainDetailResponse
 getDomainDetailResponse p1 p2 p4 p5 p6 = GetDomainDetailResponse
     { _gddrDomainName = p1
     , _gddrNameservers = p2

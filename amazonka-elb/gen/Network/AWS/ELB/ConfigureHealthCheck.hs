@@ -63,8 +63,8 @@ data ConfigureHealthCheck = ConfigureHealthCheck
 -- * @HealthCheck ::@ @HealthCheck@
 --
 configureHealthCheck :: Text -- ^ 'chcLoadBalancerName'
-                       -> HealthCheck -- ^ 'chcHealthCheck'
-                       -> ConfigureHealthCheck
+                     -> HealthCheck -- ^ 'chcHealthCheck'
+                     -> ConfigureHealthCheck
 configureHealthCheck p1 p2 = ConfigureHealthCheck
     { _chcLoadBalancerName = p1
     , _chcHealthCheck = p2

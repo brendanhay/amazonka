@@ -87,9 +87,9 @@ data PutLogEvents = PutLogEvents
 -- * @SequenceToken ::@ @Maybe Text@
 --
 putLogEvents :: Text -- ^ 'pleLogGroupName'
-               -> Text -- ^ 'pleLogStreamName'
-               -> List1 InputLogEvent -- ^ 'pleLogEvents'
-               -> PutLogEvents
+             -> Text -- ^ 'pleLogStreamName'
+             -> List1 InputLogEvent -- ^ 'pleLogEvents'
+             -> PutLogEvents
 putLogEvents p1 p2 p3 = PutLogEvents
     { _pleLogGroupName = p1
     , _pleLogStreamName = p2

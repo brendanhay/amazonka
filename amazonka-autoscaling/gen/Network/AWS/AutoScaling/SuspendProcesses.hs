@@ -60,7 +60,7 @@ data SuspendProcesses = SuspendProcesses
 -- * @ScalingProcesses ::@ @[Text]@
 --
 suspendProcesses :: Text -- ^ 'sp1AutoScalingGroupName'
-                   -> SuspendProcesses
+                 -> SuspendProcesses
 suspendProcesses p1 = SuspendProcesses
     { _sp1AutoScalingGroupName = p1
     , _sp1ScalingProcesses = mempty

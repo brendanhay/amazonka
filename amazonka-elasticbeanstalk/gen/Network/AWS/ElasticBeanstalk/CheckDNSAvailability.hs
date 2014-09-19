@@ -57,7 +57,7 @@ newtype CheckDNSAvailability = CheckDNSAvailability
 -- * @CNAMEPrefix ::@ @Text@
 --
 checkDNSAvailability :: Text -- ^ 'cdnsaCNAMEPrefix'
-                       -> CheckDNSAvailability
+                     -> CheckDNSAvailability
 checkDNSAvailability p1 = CheckDNSAvailability
     { _cdnsaCNAMEPrefix = p1
     }

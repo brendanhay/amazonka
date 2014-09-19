@@ -104,8 +104,8 @@ data ListPipelinesResponse = ListPipelinesResponse
 -- * @HasMoreResults ::@ @Bool@
 --
 listPipelinesResponse :: [PipelineIdName] -- ^ 'lprPipelineIdList'
-                        -> Bool -- ^ 'lprHasMoreResults'
-                        -> ListPipelinesResponse
+                      -> Bool -- ^ 'lprHasMoreResults'
+                      -> ListPipelinesResponse
 listPipelinesResponse p1 p3 = ListPipelinesResponse
     { _lprPipelineIdList = p1
     , _lprMarker = Nothing

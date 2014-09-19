@@ -67,7 +67,7 @@ newtype DescribeTable = DescribeTable
 -- * @TableName ::@ @Text@
 --
 describeTable :: Text -- ^ 'dt1TableName'
-                -> DescribeTable
+              -> DescribeTable
 describeTable p1 = DescribeTable
     { _dt1TableName = p1
     }

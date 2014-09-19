@@ -70,7 +70,7 @@ data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling
 -- * @DownScaling ::@ @Maybe AutoScalingThresholds@
 --
 setLoadBasedAutoScaling :: Text -- ^ 'slbasLayerId'
-                          -> SetLoadBasedAutoScaling
+                        -> SetLoadBasedAutoScaling
 setLoadBasedAutoScaling p1 = SetLoadBasedAutoScaling
     { _slbasLayerId = p1
     , _slbasEnable = Nothing

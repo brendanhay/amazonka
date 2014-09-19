@@ -13,7 +13,8 @@
         },
         "existing": {
             "ResourceRecordSetRegion": "Region",
-            "RRType": "RecordType"
+            "RRType": "RecordType",
+            "ResourceId": "ResourceId"
         },
         "rename": {
             "ResourceRecordSetFailover": "Failover"

@@ -80,7 +80,7 @@ data DescribeVolumeAttribute = DescribeVolumeAttribute
 -- * @Attribute ::@ @Maybe VolumeAttributeName@
 --
 describeVolumeAttribute :: Text -- ^ 'dvaVolumeId'
-                          -> DescribeVolumeAttribute
+                        -> DescribeVolumeAttribute
 describeVolumeAttribute p1 = DescribeVolumeAttribute
     { _dvaVolumeId = p1
     , _dvaAttribute = Nothing

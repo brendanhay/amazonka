@@ -134,8 +134,8 @@ data CloneStack = CloneStack
 -- * @DefaultRootDeviceType ::@ @Maybe RootDeviceType@
 --
 cloneStack :: Text -- ^ 'csSourceStackId'
-             -> Text -- ^ 'csServiceRoleArn'
-             -> CloneStack
+           -> Text -- ^ 'csServiceRoleArn'
+           -> CloneStack
 cloneStack p1 p6 = CloneStack
     { _csSourceStackId = p1
     , _csName = Nothing

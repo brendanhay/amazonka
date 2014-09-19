@@ -338,8 +338,8 @@ data HashKeyRange = HashKeyRange
 -- * @EndingHashKey ::@ @Text@
 --
 hashKeyRange :: Text -- ^ 'hkrStartingHashKey'
-               -> Text -- ^ 'hkrEndingHashKey'
-               -> HashKeyRange
+             -> Text -- ^ 'hkrEndingHashKey'
+             -> HashKeyRange
 hashKeyRange p1 p2 = HashKeyRange
     { _hkrStartingHashKey = p1
     , _hkrEndingHashKey = p2
@@ -382,9 +382,9 @@ data Record = Record
 -- * @PartitionKey ::@ @Text@
 --
 record :: Text -- ^ 'rSequenceNumber'
-         -> Base64 -- ^ 'rData'
-         -> Text -- ^ 'rPartitionKey'
-         -> Record
+       -> Base64 -- ^ 'rData'
+       -> Text -- ^ 'rPartitionKey'
+       -> Record
 record p1 p2 p3 = Record
     { _rSequenceNumber = p1
     , _rData = p2
@@ -424,7 +424,7 @@ data SequenceNumberRange = SequenceNumberRange
 -- * @EndingSequenceNumber ::@ @Maybe Text@
 --
 sequenceNumberRange :: Text -- ^ 'snrStartingSequenceNumber'
-                      -> SequenceNumberRange
+                    -> SequenceNumberRange
 sequenceNumberRange p1 = SequenceNumberRange
     { _snrStartingSequenceNumber = p1
     , _snrEndingSequenceNumber = Nothing
@@ -475,9 +475,9 @@ data Shard = Shard
 -- * @SequenceNumberRange ::@ @SequenceNumberRange@
 --
 shard :: Text -- ^ 'sShardId'
-        -> HashKeyRange -- ^ 'sHashKeyRange'
-        -> SequenceNumberRange -- ^ 'sSequenceNumberRange'
-        -> Shard
+      -> HashKeyRange -- ^ 'sHashKeyRange'
+      -> SequenceNumberRange -- ^ 'sSequenceNumberRange'
+      -> Shard
 shard p1 p4 p5 = Shard
     { _sShardId = p1
     , _sParentShardId = Nothing
@@ -541,11 +541,11 @@ data StreamDescription = StreamDescription
 -- * @HasMoreShards ::@ @Bool@
 --
 streamDescription :: Text -- ^ 'sdStreamName'
-                    -> Text -- ^ 'sdStreamARN'
-                    -> StreamStatus -- ^ 'sdStreamStatus'
-                    -> [Shard] -- ^ 'sdShards'
-                    -> Bool -- ^ 'sdHasMoreShards'
-                    -> StreamDescription
+                  -> Text -- ^ 'sdStreamARN'
+                  -> StreamStatus -- ^ 'sdStreamStatus'
+                  -> [Shard] -- ^ 'sdShards'
+                  -> Bool -- ^ 'sdHasMoreShards'
+                  -> StreamDescription
 streamDescription p1 p2 p3 p4 p5 = StreamDescription
     { _sdStreamName = p1
     , _sdStreamARN = p2
@@ -603,7 +603,7 @@ data Tag = Tag
 -- * @Value ::@ @Maybe Text@
 --
 tag :: Text -- ^ 'tKey'
-      -> Tag
+    -> Tag
 tag p1 = Tag
     { _tKey = p1
     , _tValue = Nothing

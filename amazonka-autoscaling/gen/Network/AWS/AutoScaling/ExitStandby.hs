@@ -64,7 +64,7 @@ data ExitStandby = ExitStandby
 -- * @AutoScalingGroupName ::@ @Text@
 --
 exitStandby :: Text -- ^ 'es1AutoScalingGroupName'
-              -> ExitStandby
+            -> ExitStandby
 exitStandby p2 = ExitStandby
     { _es1InstanceIds = mempty
     , _es1AutoScalingGroupName = p2

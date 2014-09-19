@@ -111,9 +111,9 @@ data RegisterWorkflowType = RegisterWorkflowType
 -- * @DefaultChildPolicy ::@ @Maybe ChildPolicy@
 --
 registerWorkflowType :: Text -- ^ 'rwtDomain'
-                       -> Text -- ^ 'rwtName'
-                       -> Text -- ^ 'rwtVersion'
-                       -> RegisterWorkflowType
+                     -> Text -- ^ 'rwtName'
+                     -> Text -- ^ 'rwtVersion'
+                     -> RegisterWorkflowType
 registerWorkflowType p1 p2 p3 = RegisterWorkflowType
     { _rwtDomain = p1
     , _rwtName = p2

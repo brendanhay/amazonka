@@ -53,7 +53,7 @@ newtype DeleteIdentityPool = DeleteIdentityPool
 -- * @IdentityPoolId ::@ @Text@
 --
 deleteIdentityPool :: Text -- ^ 'dipIdentityPoolId'
-                     -> DeleteIdentityPool
+                   -> DeleteIdentityPool
 deleteIdentityPool p1 = DeleteIdentityPool
     { _dipIdentityPoolId = p1
     }

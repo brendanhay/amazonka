@@ -60,7 +60,7 @@ newtype DisassociateRouteTable = DisassociateRouteTable
 -- * @AssociationId ::@ @Text@
 --
 disassociateRouteTable :: Text -- ^ 'drt2AssociationId'
-                         -> DisassociateRouteTable
+                       -> DisassociateRouteTable
 disassociateRouteTable p1 = DisassociateRouteTable
     { _drt2AssociationId = p1
     }

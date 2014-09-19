@@ -71,9 +71,9 @@ data EvaluateExpression = EvaluateExpression
 -- * @Expression ::@ @Text@
 --
 evaluateExpression :: Text -- ^ 'eePipelineId'
-                     -> Text -- ^ 'eeObjectId'
-                     -> Text -- ^ 'eeExpression'
-                     -> EvaluateExpression
+                   -> Text -- ^ 'eeObjectId'
+                   -> Text -- ^ 'eeExpression'
+                   -> EvaluateExpression
 evaluateExpression p1 p2 p3 = EvaluateExpression
     { _eePipelineId = p1
     , _eeObjectId = p2
@@ -115,7 +115,7 @@ newtype EvaluateExpressionResponse = EvaluateExpressionResponse
 -- * @EvaluatedExpression ::@ @Text@
 --
 evaluateExpressionResponse :: Text -- ^ 'eerEvaluatedExpression'
-                             -> EvaluateExpressionResponse
+                           -> EvaluateExpressionResponse
 evaluateExpressionResponse p1 = EvaluateExpressionResponse
     { _eerEvaluatedExpression = p1
     }

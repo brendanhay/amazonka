@@ -82,8 +82,8 @@ data RegisterDomain = RegisterDomain
 -- * @WorkflowExecutionRetentionPeriodInDays ::@ @Text@
 --
 registerDomain :: Text -- ^ 'rdName'
-                 -> Text -- ^ 'rdWorkflowExecutionRetentionPeriodInDays'
-                 -> RegisterDomain
+               -> Text -- ^ 'rdWorkflowExecutionRetentionPeriodInDays'
+               -> RegisterDomain
 registerDomain p1 p3 = RegisterDomain
     { _rdName = p1
     , _rdDescription = Nothing

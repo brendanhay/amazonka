@@ -82,8 +82,8 @@ data CreateSubnet = CreateSubnet
 -- * @AvailabilityZone ::@ @Maybe Text@
 --
 createSubnet :: Text -- ^ 'cs2VpcId'
-               -> Text -- ^ 'cs2CidrBlock'
-               -> CreateSubnet
+             -> Text -- ^ 'cs2CidrBlock'
+             -> CreateSubnet
 createSubnet p1 p2 = CreateSubnet
     { _cs2VpcId = p1
     , _cs2CidrBlock = p2

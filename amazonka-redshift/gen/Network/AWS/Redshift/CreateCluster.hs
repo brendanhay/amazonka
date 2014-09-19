@@ -163,10 +163,10 @@ data CreateCluster = CreateCluster
 -- * @ElasticIp ::@ @Maybe Text@
 --
 createCluster :: Text -- ^ 'ccClusterIdentifier'
-                -> Text -- ^ 'ccNodeType'
-                -> Text -- ^ 'ccMasterUsername'
-                -> Text -- ^ 'ccMasterUserPassword'
-                -> CreateCluster
+              -> Text -- ^ 'ccNodeType'
+              -> Text -- ^ 'ccMasterUsername'
+              -> Text -- ^ 'ccMasterUserPassword'
+              -> CreateCluster
 createCluster p2 p4 p5 p6 = CreateCluster
     { _ccDBName = Nothing
     , _ccClusterIdentifier = p2

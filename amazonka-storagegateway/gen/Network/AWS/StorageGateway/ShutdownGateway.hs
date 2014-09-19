@@ -78,7 +78,7 @@ newtype ShutdownGateway = ShutdownGateway
 -- * @GatewayARN ::@ @Text@
 --
 shutdownGateway :: Text -- ^ 'sgGatewayARN'
-                  -> ShutdownGateway
+                -> ShutdownGateway
 shutdownGateway p1 = ShutdownGateway
     { _sgGatewayARN = p1
     }

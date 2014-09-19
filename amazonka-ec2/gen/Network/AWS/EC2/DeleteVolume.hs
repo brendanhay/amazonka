@@ -58,7 +58,7 @@ newtype DeleteVolume = DeleteVolume
 -- * @VolumeId ::@ @Text@
 --
 deleteVolume :: Text -- ^ 'dvVolumeId'
-               -> DeleteVolume
+             -> DeleteVolume
 deleteVolume p1 = DeleteVolume
     { _dvVolumeId = p1
     }

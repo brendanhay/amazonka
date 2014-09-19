@@ -68,8 +68,8 @@ data UpdateSigningCertificate = UpdateSigningCertificate
 -- * @Status ::@ @StatusType@
 --
 updateSigningCertificate :: Text -- ^ 'usc1CertificateId'
-                           -> StatusType -- ^ 'usc1Status'
-                           -> UpdateSigningCertificate
+                         -> StatusType -- ^ 'usc1Status'
+                         -> UpdateSigningCertificate
 updateSigningCertificate p2 p3 = UpdateSigningCertificate
     { _usc1UserName = Nothing
     , _usc1CertificateId = p2

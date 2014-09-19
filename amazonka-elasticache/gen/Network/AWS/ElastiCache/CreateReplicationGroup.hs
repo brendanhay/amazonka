@@ -74,9 +74,9 @@ data CreateReplicationGroup = CreateReplicationGroup
 -- * @ReplicationGroupDescription ::@ @Text@
 --
 createReplicationGroup :: Text -- ^ 'crgReplicationGroupId'
-                         -> Text -- ^ 'crgPrimaryClusterId'
-                         -> Text -- ^ 'crgReplicationGroupDescription'
-                         -> CreateReplicationGroup
+                       -> Text -- ^ 'crgPrimaryClusterId'
+                       -> Text -- ^ 'crgReplicationGroupDescription'
+                       -> CreateReplicationGroup
 createReplicationGroup p1 p2 p3 = CreateReplicationGroup
     { _crgReplicationGroupId = p1
     , _crgPrimaryClusterId = p2

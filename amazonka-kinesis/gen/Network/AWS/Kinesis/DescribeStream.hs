@@ -100,7 +100,7 @@ data DescribeStream = DescribeStream
 -- * @ExclusiveStartShardId ::@ @Maybe Text@
 --
 describeStream :: Text -- ^ 'ds1StreamName'
-                 -> DescribeStream
+               -> DescribeStream
 describeStream p1 = DescribeStream
     { _ds1StreamName = p1
     , _ds1Limit = Nothing
@@ -144,7 +144,7 @@ newtype DescribeStreamResponse = DescribeStreamResponse
 -- * @StreamDescription ::@ @StreamDescription@
 --
 describeStreamResponse :: StreamDescription -- ^ 'dsrStreamDescription'
-                         -> DescribeStreamResponse
+                       -> DescribeStreamResponse
 describeStreamResponse p1 = DescribeStreamResponse
     { _dsrStreamDescription = p1
     }

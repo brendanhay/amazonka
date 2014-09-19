@@ -102,7 +102,7 @@ data ListDomains = ListDomains
 -- * @ReverseOrder ::@ @Maybe Bool@
 --
 listDomains :: RegistrationStatus -- ^ 'ldRegistrationStatus'
-              -> ListDomains
+            -> ListDomains
 listDomains p2 = ListDomains
     { _ldNextPageToken = Nothing
     , _ldRegistrationStatus = p2
@@ -163,7 +163,7 @@ data ListDomainsResponse = ListDomainsResponse
 -- * @NextPageToken ::@ @Maybe Text@
 --
 listDomainsResponse :: [DomainInfo] -- ^ 'ldrDomainInfos'
-                      -> ListDomainsResponse
+                    -> ListDomainsResponse
 listDomainsResponse p1 = ListDomainsResponse
     { _ldrDomainInfos = p1
     , _ldrNextPageToken = Nothing

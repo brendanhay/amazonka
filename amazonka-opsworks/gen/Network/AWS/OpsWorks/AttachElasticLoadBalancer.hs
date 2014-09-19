@@ -60,8 +60,8 @@ data AttachElasticLoadBalancer = AttachElasticLoadBalancer
 -- * @LayerId ::@ @Text@
 --
 attachElasticLoadBalancer :: Text -- ^ 'aelbElasticLoadBalancerName'
-                            -> Text -- ^ 'aelbLayerId'
-                            -> AttachElasticLoadBalancer
+                          -> Text -- ^ 'aelbLayerId'
+                          -> AttachElasticLoadBalancer
 attachElasticLoadBalancer p1 p2 = AttachElasticLoadBalancer
     { _aelbElasticLoadBalancerName = p1
     , _aelbLayerId = p2

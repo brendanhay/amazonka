@@ -93,9 +93,9 @@ data ChangeMessageVisibility = ChangeMessageVisibility
 -- * @VisibilityTimeout ::@ @Integer@
 --
 changeMessageVisibility :: Text -- ^ 'cmvQueueUrl'
-                          -> Text -- ^ 'cmvReceiptHandle'
-                          -> Integer -- ^ 'cmvVisibilityTimeout'
-                          -> ChangeMessageVisibility
+                        -> Text -- ^ 'cmvReceiptHandle'
+                        -> Integer -- ^ 'cmvVisibilityTimeout'
+                        -> ChangeMessageVisibility
 changeMessageVisibility p1 p2 p3 = ChangeMessageVisibility
     { _cmvQueueUrl = p1
     , _cmvReceiptHandle = p2

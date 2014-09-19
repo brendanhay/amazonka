@@ -60,8 +60,8 @@ data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface
 -- * @VirtualGatewayId ::@ @Text@
 --
 confirmPrivateVirtualInterface :: Text -- ^ 'cpviVirtualInterfaceId'
-                                 -> Text -- ^ 'cpviVirtualGatewayId'
-                                 -> ConfirmPrivateVirtualInterface
+                               -> Text -- ^ 'cpviVirtualGatewayId'
+                               -> ConfirmPrivateVirtualInterface
 confirmPrivateVirtualInterface p1 p2 = ConfirmPrivateVirtualInterface
     { _cpviVirtualInterfaceId = p1
     , _cpviVirtualGatewayId = p2

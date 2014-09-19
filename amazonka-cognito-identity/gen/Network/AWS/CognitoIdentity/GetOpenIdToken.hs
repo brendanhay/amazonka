@@ -65,7 +65,7 @@ data GetOpenIdToken = GetOpenIdToken
 -- * @Logins ::@ @Map Text Text@
 --
 getOpenIdToken :: Text -- ^ 'goitIdentityId'
-                 -> GetOpenIdToken
+               -> GetOpenIdToken
 getOpenIdToken p1 = GetOpenIdToken
     { _goitIdentityId = p1
     , _goitLogins = mempty

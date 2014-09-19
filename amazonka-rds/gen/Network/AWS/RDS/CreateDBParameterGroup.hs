@@ -78,9 +78,9 @@ data CreateDBParameterGroup = CreateDBParameterGroup
 -- * @Tags ::@ @[Tag]@
 --
 createDBParameterGroup :: Text -- ^ 'cdbpgDBParameterGroupName'
-                         -> Text -- ^ 'cdbpgDBParameterGroupFamily'
-                         -> Text -- ^ 'cdbpgDescription'
-                         -> CreateDBParameterGroup
+                       -> Text -- ^ 'cdbpgDBParameterGroupFamily'
+                       -> Text -- ^ 'cdbpgDescription'
+                       -> CreateDBParameterGroup
 createDBParameterGroup p1 p2 p3 = CreateDBParameterGroup
     { _cdbpgDBParameterGroupName = p1
     , _cdbpgDBParameterGroupFamily = p2

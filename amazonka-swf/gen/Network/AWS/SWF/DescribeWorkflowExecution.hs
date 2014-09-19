@@ -95,8 +95,8 @@ data DescribeWorkflowExecution = DescribeWorkflowExecution
 -- * @Execution ::@ @WorkflowExecution@
 --
 describeWorkflowExecution :: Text -- ^ 'dweDomain'
-                            -> WorkflowExecution -- ^ 'dweExecution'
-                            -> DescribeWorkflowExecution
+                          -> WorkflowExecution -- ^ 'dweExecution'
+                          -> DescribeWorkflowExecution
 describeWorkflowExecution p1 p2 = DescribeWorkflowExecution
     { _dweDomain = p1
     , _dweExecution = p2
@@ -145,9 +145,9 @@ data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse
 -- * @LatestExecutionContext ::@ @Maybe Text@
 --
 describeWorkflowExecutionResponse :: WorkflowExecutionInfo -- ^ 'dwerExecutionInfo'
-                                    -> WorkflowExecutionConfiguration -- ^ 'dwerExecutionConfiguration'
-                                    -> WorkflowExecutionOpenCounts -- ^ 'dwerOpenCounts'
-                                    -> DescribeWorkflowExecutionResponse
+                                  -> WorkflowExecutionConfiguration -- ^ 'dwerExecutionConfiguration'
+                                  -> WorkflowExecutionOpenCounts -- ^ 'dwerOpenCounts'
+                                  -> DescribeWorkflowExecutionResponse
 describeWorkflowExecutionResponse p1 p2 p3 = DescribeWorkflowExecutionResponse
     { _dwerExecutionInfo = p1
     , _dwerExecutionConfiguration = p2

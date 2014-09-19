@@ -56,7 +56,7 @@ newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling
 -- * @LayerIds ::@ @[Text]@
 --
 describeLoadBasedAutoScaling :: [Text] -- ^ 'dlbasLayerIds'
-                               -> DescribeLoadBasedAutoScaling
+                             -> DescribeLoadBasedAutoScaling
 describeLoadBasedAutoScaling p1 = DescribeLoadBasedAutoScaling
     { _dlbasLayerIds = p1
     }

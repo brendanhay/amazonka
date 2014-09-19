@@ -72,7 +72,7 @@ data CheckDomainAvailability = CheckDomainAvailability
 -- * @IdnLangCode ::@ @Maybe Text@
 --
 checkDomainAvailability :: Text -- ^ 'cdaDomainName'
-                          -> CheckDomainAvailability
+                        -> CheckDomainAvailability
 checkDomainAvailability p1 = CheckDomainAvailability
     { _cdaDomainName = p1
     , _cdaIdnLangCode = Nothing
@@ -112,7 +112,7 @@ newtype CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse
 -- * @Availability ::@ @DomainAvailability@
 --
 checkDomainAvailabilityResponse :: DomainAvailability -- ^ 'cdarAvailability'
-                                  -> CheckDomainAvailabilityResponse
+                                -> CheckDomainAvailabilityResponse
 checkDomainAvailabilityResponse p1 = CheckDomainAvailabilityResponse
     { _cdarAvailability = p1
     }

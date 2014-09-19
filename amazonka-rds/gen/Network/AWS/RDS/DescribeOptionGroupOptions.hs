@@ -68,7 +68,7 @@ data DescribeOptionGroupOptions = DescribeOptionGroupOptions
 -- * @Marker ::@ @Maybe Text@
 --
 describeOptionGroupOptions :: Text -- ^ 'dogoEngineName'
-                             -> DescribeOptionGroupOptions
+                           -> DescribeOptionGroupOptions
 describeOptionGroupOptions p1 = DescribeOptionGroupOptions
     { _dogoEngineName = p1
     , _dogoMajorEngineVersion = Nothing

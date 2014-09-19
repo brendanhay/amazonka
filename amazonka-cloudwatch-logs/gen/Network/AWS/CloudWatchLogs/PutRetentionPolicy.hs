@@ -65,8 +65,8 @@ data PutRetentionPolicy = PutRetentionPolicy
 -- * @RetentionInDays ::@ @Integer@
 --
 putRetentionPolicy :: Text -- ^ 'prpLogGroupName'
-                     -> Integer -- ^ 'prpRetentionInDays'
-                     -> PutRetentionPolicy
+                   -> Integer -- ^ 'prpRetentionInDays'
+                   -> PutRetentionPolicy
 putRetentionPolicy p1 p2 = PutRetentionPolicy
     { _prpLogGroupName = p1
     , _prpRetentionInDays = p2

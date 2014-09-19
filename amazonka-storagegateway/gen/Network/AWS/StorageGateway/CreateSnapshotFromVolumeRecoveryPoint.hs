@@ -89,8 +89,8 @@ data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoi
 -- * @SnapshotDescription ::@ @Text@
 --
 createSnapshotFromVolumeRecoveryPoint :: Text -- ^ 'csfvrpVolumeARN'
-                                        -> Text -- ^ 'csfvrpSnapshotDescription'
-                                        -> CreateSnapshotFromVolumeRecoveryPoint
+                                      -> Text -- ^ 'csfvrpSnapshotDescription'
+                                      -> CreateSnapshotFromVolumeRecoveryPoint
 createSnapshotFromVolumeRecoveryPoint p1 p2 = CreateSnapshotFromVolumeRecoveryPoint
     { _csfvrpVolumeARN = p1
     , _csfvrpSnapshotDescription = p2

@@ -91,7 +91,7 @@ newtype CreateDhcpOptions = CreateDhcpOptions
 -- * @DhcpConfigurations ::@ @[DhcpConfiguration]@
 --
 createDhcpOptions :: [DhcpConfiguration] -- ^ 'cdoDhcpConfigurations'
-                    -> CreateDhcpOptions
+                  -> CreateDhcpOptions
 createDhcpOptions p1 = CreateDhcpOptions
     { _cdoDhcpConfigurations = p1
     }

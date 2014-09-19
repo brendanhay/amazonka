@@ -63,8 +63,8 @@ data AddTags = AddTags
 -- * @Tags ::@ @List1 Tag@
 --
 addTags :: [Text] -- ^ 'atLoadBalancerNames'
-          -> List1 Tag -- ^ 'atTags'
-          -> AddTags
+        -> List1 Tag -- ^ 'atTags'
+        -> AddTags
 addTags p1 p2 = AddTags
     { _atLoadBalancerNames = p1
     , _atTags = p2

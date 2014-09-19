@@ -61,8 +61,8 @@ data EnableSnapshotCopy = EnableSnapshotCopy
 -- * @RetentionPeriod ::@ @Maybe Integer@
 --
 enableSnapshotCopy :: Text -- ^ 'escClusterIdentifier'
-                     -> Text -- ^ 'escDestinationRegion'
-                     -> EnableSnapshotCopy
+                   -> Text -- ^ 'escDestinationRegion'
+                   -> EnableSnapshotCopy
 enableSnapshotCopy p1 p2 = EnableSnapshotCopy
     { _escClusterIdentifier = p1
     , _escDestinationRegion = p2

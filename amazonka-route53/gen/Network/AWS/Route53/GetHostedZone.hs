@@ -46,7 +46,7 @@ import Network.AWS.Types (Region)
 
 -- | The input for a GetHostedZone request.
 newtype GetHostedZone = GetHostedZone
-    { _ghzId :: Text
+    { _ghzId :: ResourceId
     } deriving (Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -54,17 +54,17 @@ newtype GetHostedZone = GetHostedZone
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @Text@
+-- * @Id ::@ @ResourceId@
 --
-getHostedZone :: Text -- ^ 'ghzId'
-                -> GetHostedZone
+getHostedZone :: ResourceId -- ^ 'ghzId'
+              -> GetHostedZone
 getHostedZone p1 = GetHostedZone
     { _ghzId = p1
     }
 
 -- | The ID of the hosted zone for which you want to get a list of the name
 -- servers in the delegation set.
-ghzId :: Lens' GetHostedZone Text
+ghzId :: Lens' GetHostedZone ResourceId
 ghzId = lens _ghzId (\s a -> s { _ghzId = a })
 
 instance ToPath GetHostedZone
@@ -95,8 +95,8 @@ data GetHostedZoneResponse = GetHostedZoneResponse
 -- * @DelegationSet ::@ @DelegationSet@
 --
 getHostedZoneResponse :: HostedZone -- ^ 'ghzrHostedZone'
-                        -> DelegationSet -- ^ 'ghzrDelegationSet'
-                        -> GetHostedZoneResponse
+                      -> DelegationSet -- ^ 'ghzrDelegationSet'
+                      -> GetHostedZoneResponse
 getHostedZoneResponse p1 p2 = GetHostedZoneResponse
     { _ghzrHostedZone = p1
     , _ghzrDelegationSet = p2

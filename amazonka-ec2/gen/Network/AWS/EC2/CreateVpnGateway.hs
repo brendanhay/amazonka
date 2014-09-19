@@ -69,7 +69,7 @@ data CreateVpnGateway = CreateVpnGateway
 -- * @AvailabilityZone ::@ @Maybe Text@
 --
 createVpnGateway :: GatewayType -- ^ 'cvgType'
-                   -> CreateVpnGateway
+                 -> CreateVpnGateway
 createVpnGateway p1 = CreateVpnGateway
     { _cvgType = p1
     , _cvgAvailabilityZone = Nothing

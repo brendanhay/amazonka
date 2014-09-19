@@ -66,8 +66,8 @@ data DetachVpnGateway = DetachVpnGateway
 -- * @VpcId ::@ @Text@
 --
 detachVpnGateway :: Text -- ^ 'dvg2VpnGatewayId'
-                   -> Text -- ^ 'dvg2VpcId'
-                   -> DetachVpnGateway
+                 -> Text -- ^ 'dvg2VpcId'
+                 -> DetachVpnGateway
 detachVpnGateway p1 p2 = DetachVpnGateway
     { _dvg2VpnGatewayId = p1
     , _dvg2VpcId = p2

@@ -85,9 +85,9 @@ data CreateCustomerGateway = CreateCustomerGateway
 -- * @BgpAsn ::@ @Integer@
 --
 createCustomerGateway :: GatewayType -- ^ 'ccgType'
-                        -> Text -- ^ 'ccgPublicIp'
-                        -> Integer -- ^ 'ccgBgpAsn'
-                        -> CreateCustomerGateway
+                      -> Text -- ^ 'ccgPublicIp'
+                      -> Integer -- ^ 'ccgBgpAsn'
+                      -> CreateCustomerGateway
 createCustomerGateway p1 p2 p3 = CreateCustomerGateway
     { _ccgType = p1
     , _ccgPublicIp = p2

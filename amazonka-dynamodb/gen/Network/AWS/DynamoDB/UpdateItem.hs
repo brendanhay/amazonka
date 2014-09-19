@@ -91,8 +91,8 @@ data UpdateItem = UpdateItem
 -- * @ReturnItemCollectionMetrics ::@ @Maybe ReturnItemCollectionMetrics@
 --
 updateItem :: Text -- ^ 'uiTableName'
-             -> Map Text AttributeValue -- ^ 'uiKey'
-             -> UpdateItem
+           -> Map Text AttributeValue -- ^ 'uiKey'
+           -> UpdateItem
 updateItem p1 p2 = UpdateItem
     { _uiTableName = p1
     , _uiKey = p2

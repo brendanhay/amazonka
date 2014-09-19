@@ -67,8 +67,8 @@ data UpdateApplicationVersion = UpdateApplicationVersion
 -- * @Description ::@ @Maybe Text@
 --
 updateApplicationVersion :: Text -- ^ 'uavApplicationName'
-                           -> Text -- ^ 'uavVersionLabel'
-                           -> UpdateApplicationVersion
+                         -> Text -- ^ 'uavVersionLabel'
+                         -> UpdateApplicationVersion
 updateApplicationVersion p1 p2 = UpdateApplicationVersion
     { _uavApplicationName = p1
     , _uavVersionLabel = p2

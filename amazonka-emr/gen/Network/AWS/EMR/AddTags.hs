@@ -63,8 +63,8 @@ data AddTags = AddTags
 -- * @Tags ::@ @[Tag]@
 --
 addTags :: Text -- ^ 'atResourceId'
-          -> [Tag] -- ^ 'atTags'
-          -> AddTags
+        -> [Tag] -- ^ 'atTags'
+        -> AddTags
 addTags p1 p2 = AddTags
     { _atResourceId = p1
     , _atTags = p2

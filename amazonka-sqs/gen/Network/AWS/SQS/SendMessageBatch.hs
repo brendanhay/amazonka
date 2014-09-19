@@ -93,8 +93,8 @@ data SendMessageBatch = SendMessageBatch
 -- * @Entries ::@ @[SendMessageBatchRequestEntry]@
 --
 sendMessageBatch :: Text -- ^ 'smbQueueUrl'
-                   -> [SendMessageBatchRequestEntry] -- ^ 'smbEntries'
-                   -> SendMessageBatch
+                 -> [SendMessageBatchRequestEntry] -- ^ 'smbEntries'
+                 -> SendMessageBatch
 sendMessageBatch p1 p2 = SendMessageBatch
     { _smbQueueUrl = p1
     , _smbEntries = p2
@@ -131,8 +131,8 @@ data SendMessageBatchResponse = SendMessageBatchResponse
 -- * @Failed ::@ @[BatchResultErrorEntry]@
 --
 sendMessageBatchResponse :: [SendMessageBatchResultEntry] -- ^ 'smbrSuccessful'
-                           -> [BatchResultErrorEntry] -- ^ 'smbrFailed'
-                           -> SendMessageBatchResponse
+                         -> [BatchResultErrorEntry] -- ^ 'smbrFailed'
+                         -> SendMessageBatchResponse
 sendMessageBatchResponse p1 p2 = SendMessageBatchResponse
     { _smbrSuccessful = p1
     , _smbrFailed = p2

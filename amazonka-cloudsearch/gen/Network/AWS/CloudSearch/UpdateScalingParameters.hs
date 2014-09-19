@@ -64,8 +64,8 @@ data UpdateScalingParameters = UpdateScalingParameters
 -- * @ScalingParameters ::@ @ScalingParameters@
 --
 updateScalingParameters :: Text -- ^ 'uspDomainName'
-                          -> ScalingParameters -- ^ 'uspScalingParameters'
-                          -> UpdateScalingParameters
+                        -> ScalingParameters -- ^ 'uspScalingParameters'
+                        -> UpdateScalingParameters
 updateScalingParameters p1 p2 = UpdateScalingParameters
     { _uspDomainName = p1
     , _uspScalingParameters = p2
@@ -103,7 +103,7 @@ newtype UpdateScalingParametersResponse = UpdateScalingParametersResponse
 -- * @ScalingParameters ::@ @ScalingParametersStatus@
 --
 updateScalingParametersResponse :: ScalingParametersStatus -- ^ 'usprScalingParameters'
-                                  -> UpdateScalingParametersResponse
+                                -> UpdateScalingParametersResponse
 updateScalingParametersResponse p1 = UpdateScalingParametersResponse
     { _usprScalingParameters = p1
     }

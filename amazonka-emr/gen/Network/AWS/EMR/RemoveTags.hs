@@ -69,8 +69,8 @@ data RemoveTags = RemoveTags
 -- * @TagKeys ::@ @[Text]@
 --
 removeTags :: Text -- ^ 'rtResourceId'
-             -> [Text] -- ^ 'rtTagKeys'
-             -> RemoveTags
+           -> [Text] -- ^ 'rtTagKeys'
+           -> RemoveTags
 removeTags p1 p2 = RemoveTags
     { _rtResourceId = p1
     , _rtTagKeys = p2

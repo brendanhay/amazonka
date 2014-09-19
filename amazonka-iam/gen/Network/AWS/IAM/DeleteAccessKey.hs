@@ -59,7 +59,7 @@ data DeleteAccessKey = DeleteAccessKey
 -- * @AccessKeyId ::@ @Text@
 --
 deleteAccessKey :: Text -- ^ 'dakAccessKeyId'
-                  -> DeleteAccessKey
+                -> DeleteAccessKey
 deleteAccessKey p2 = DeleteAccessKey
     { _dakUserName = Nothing
     , _dakAccessKeyId = p2

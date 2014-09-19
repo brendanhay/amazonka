@@ -57,7 +57,7 @@ newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup
 -- * @CacheParameterGroupName ::@ @Text@
 --
 deleteCacheParameterGroup :: Text -- ^ 'dcpgCacheParameterGroupName'
-                            -> DeleteCacheParameterGroup
+                          -> DeleteCacheParameterGroup
 deleteCacheParameterGroup p1 = DeleteCacheParameterGroup
     { _dcpgCacheParameterGroupName = p1
     }

@@ -63,7 +63,7 @@ data DescribeAvailabilityOptions = DescribeAvailabilityOptions
 -- * @Deployed ::@ @Maybe Bool@
 --
 describeAvailabilityOptions :: Text -- ^ 'dao2DomainName'
-                              -> DescribeAvailabilityOptions
+                            -> DescribeAvailabilityOptions
 describeAvailabilityOptions p1 = DescribeAvailabilityOptions
     { _dao2DomainName = p1
     , _dao2Deployed = Nothing

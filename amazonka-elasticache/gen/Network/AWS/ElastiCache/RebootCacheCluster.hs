@@ -72,8 +72,8 @@ data RebootCacheCluster = RebootCacheCluster
 -- * @CacheNodeIdsToReboot ::@ @[Text]@
 --
 rebootCacheCluster :: Text -- ^ 'rccCacheClusterId'
-                     -> [Text] -- ^ 'rccCacheNodeIdsToReboot'
-                     -> RebootCacheCluster
+                   -> [Text] -- ^ 'rccCacheNodeIdsToReboot'
+                   -> RebootCacheCluster
 rebootCacheCluster p1 p2 = RebootCacheCluster
     { _rccCacheClusterId = p1
     , _rccCacheNodeIdsToReboot = p2

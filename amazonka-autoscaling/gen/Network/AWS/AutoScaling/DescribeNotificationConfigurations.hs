@@ -103,7 +103,7 @@ data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurat
 -- * @NextToken ::@ @Maybe Text@
 --
 describeNotificationConfigurationsResponse :: [NotificationConfiguration] -- ^ 'dncrNotificationConfigurations'
-                                             -> DescribeNotificationConfigurationsResponse
+                                           -> DescribeNotificationConfigurationsResponse
 describeNotificationConfigurationsResponse p1 = DescribeNotificationConfigurationsResponse
     { _dncrNotificationConfigurations = p1
     , _dncrNextToken = Nothing

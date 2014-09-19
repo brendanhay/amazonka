@@ -375,7 +375,7 @@ data Field = Field
 -- * @RefValue ::@ @Maybe Text@
 --
 field :: Text -- ^ 'fKey'
-        -> Field
+      -> Field
 field p1 = Field
     { _fKey = p1
     , _fStringValue = Nothing
@@ -511,9 +511,9 @@ data PipelineDescription = PipelineDescription
 -- * @Description ::@ @Maybe Text@
 --
 pipelineDescription :: Text -- ^ 'pdPipelineId'
-                      -> Text -- ^ 'pdName'
-                      -> [Field] -- ^ 'pdFields'
-                      -> PipelineDescription
+                    -> Text -- ^ 'pdName'
+                    -> [Field] -- ^ 'pdFields'
+                    -> PipelineDescription
 pipelineDescription p1 p2 p3 = PipelineDescription
     { _pdPipelineId = p1
     , _pdName = p2
@@ -597,9 +597,9 @@ data PipelineObject = PipelineObject
 -- * @Fields ::@ @[Field]@
 --
 pipelineObject :: Text -- ^ 'poId'
-                 -> Text -- ^ 'poName'
-                 -> [Field] -- ^ 'poFields'
-                 -> PipelineObject
+               -> Text -- ^ 'poName'
+               -> [Field] -- ^ 'poFields'
+               -> PipelineObject
 pipelineObject p1 p2 p3 = PipelineObject
     { _poId = p1
     , _poName = p2

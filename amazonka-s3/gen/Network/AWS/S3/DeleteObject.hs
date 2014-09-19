@@ -67,8 +67,8 @@ data DeleteObject = DeleteObject
 -- * @VersionId ::@ @Maybe ObjectVersionId@
 --
 deleteObject :: BucketName -- ^ 'doBucket'
-               -> ObjectKey -- ^ 'doKey'
-               -> DeleteObject
+             -> ObjectKey -- ^ 'doKey'
+             -> DeleteObject
 deleteObject p1 p2 = DeleteObject
     { _doBucket = p1
     , _doKey = p2

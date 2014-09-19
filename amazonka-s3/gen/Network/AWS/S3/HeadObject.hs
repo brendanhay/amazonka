@@ -113,8 +113,8 @@ data HeadObject = HeadObject
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
 headObject :: BucketName -- ^ 'hoBucket'
-             -> ObjectKey -- ^ 'hoKey'
-             -> HeadObject
+           -> ObjectKey -- ^ 'hoKey'
+           -> HeadObject
 headObject p1 p6 = HeadObject
     { _hoBucket = p1
     , _hoIfMatch = Nothing

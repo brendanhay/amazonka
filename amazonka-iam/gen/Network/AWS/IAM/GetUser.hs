@@ -85,7 +85,7 @@ newtype GetUserResponse = GetUserResponse
 -- * @User ::@ @User@
 --
 getUserResponse :: User -- ^ 'gurUser'
-                  -> GetUserResponse
+                -> GetUserResponse
 getUserResponse p1 = GetUserResponse
     { _gurUser = p1
     }

@@ -55,8 +55,8 @@ data DeleteLifecycleHook = DeleteLifecycleHook
 -- * @AutoScalingGroupName ::@ @Text@
 --
 deleteLifecycleHook :: Text -- ^ 'dlhLifecycleHookName'
-                      -> Text -- ^ 'dlhAutoScalingGroupName'
-                      -> DeleteLifecycleHook
+                    -> Text -- ^ 'dlhAutoScalingGroupName'
+                    -> DeleteLifecycleHook
 deleteLifecycleHook p1 p2 = DeleteLifecycleHook
     { _dlhLifecycleHookName = p1
     , _dlhAutoScalingGroupName = p2

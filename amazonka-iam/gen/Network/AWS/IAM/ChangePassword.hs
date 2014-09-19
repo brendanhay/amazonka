@@ -58,8 +58,8 @@ data ChangePassword = ChangePassword
 -- * @NewPassword ::@ @Text@
 --
 changePassword :: Text -- ^ 'cpOldPassword'
-                 -> Text -- ^ 'cpNewPassword'
-                 -> ChangePassword
+               -> Text -- ^ 'cpNewPassword'
+               -> ChangePassword
 changePassword p1 p2 = ChangePassword
     { _cpOldPassword = p1
     , _cpNewPassword = p2

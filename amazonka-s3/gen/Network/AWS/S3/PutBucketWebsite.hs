@@ -58,8 +58,8 @@ data PutBucketWebsite = PutBucketWebsite
 -- * @WebsiteConfiguration ::@ @WebsiteConfiguration@
 --
 putBucketWebsite :: BucketName -- ^ 'pbwBucket'
-                   -> WebsiteConfiguration -- ^ 'pbwWebsiteConfiguration'
-                   -> PutBucketWebsite
+                 -> WebsiteConfiguration -- ^ 'pbwWebsiteConfiguration'
+                 -> PutBucketWebsite
 putBucketWebsite p1 p3 = PutBucketWebsite
     { _pbwBucket = p1
     , _pbwContentMD5 = Nothing

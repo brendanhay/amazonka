@@ -64,10 +64,10 @@ data RegisterRdsDbInstance = RegisterRdsDbInstance
 -- * @DbPassword ::@ @Text@
 --
 registerRdsDbInstance :: Text -- ^ 'rrdiStackId'
-                        -> Text -- ^ 'rrdiRdsDbInstanceArn'
-                        -> Text -- ^ 'rrdiDbUser'
-                        -> Text -- ^ 'rrdiDbPassword'
-                        -> RegisterRdsDbInstance
+                      -> Text -- ^ 'rrdiRdsDbInstanceArn'
+                      -> Text -- ^ 'rrdiDbUser'
+                      -> Text -- ^ 'rrdiDbPassword'
+                      -> RegisterRdsDbInstance
 registerRdsDbInstance p1 p2 p3 p4 = RegisterRdsDbInstance
     { _rrdiStackId = p1
     , _rrdiRdsDbInstanceArn = p2

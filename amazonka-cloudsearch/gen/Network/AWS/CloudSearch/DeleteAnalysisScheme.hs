@@ -59,8 +59,8 @@ data DeleteAnalysisScheme = DeleteAnalysisScheme
 -- * @AnalysisSchemeName ::@ @Text@
 --
 deleteAnalysisScheme :: Text -- ^ 'das1DomainName'
-                       -> Text -- ^ 'das1AnalysisSchemeName'
-                       -> DeleteAnalysisScheme
+                     -> Text -- ^ 'das1AnalysisSchemeName'
+                     -> DeleteAnalysisScheme
 deleteAnalysisScheme p1 p2 = DeleteAnalysisScheme
     { _das1DomainName = p1
     , _das1AnalysisSchemeName = p2
@@ -97,7 +97,7 @@ newtype DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse
 -- * @AnalysisScheme ::@ @AnalysisSchemeStatus@
 --
 deleteAnalysisSchemeResponse :: AnalysisSchemeStatus -- ^ 'dasrrAnalysisScheme'
-                               -> DeleteAnalysisSchemeResponse
+                             -> DeleteAnalysisSchemeResponse
 deleteAnalysisSchemeResponse p1 = DeleteAnalysisSchemeResponse
     { _dasrrAnalysisScheme = p1
     }

@@ -787,8 +787,8 @@ data AccessPoliciesStatus = AccessPoliciesStatus
 -- * @Status ::@ @OptionStatus@
 --
 accessPoliciesStatus :: Text -- ^ 'apsOptions'
-                       -> OptionStatus -- ^ 'apsStatus'
-                       -> AccessPoliciesStatus
+                     -> OptionStatus -- ^ 'apsStatus'
+                     -> AccessPoliciesStatus
 accessPoliciesStatus p1 p2 = AccessPoliciesStatus
     { _apsOptions = p1
     , _apsStatus = p2
@@ -904,8 +904,8 @@ data AnalysisScheme = AnalysisScheme
 -- * @AnalysisOptions ::@ @Maybe AnalysisOptions@
 --
 analysisScheme :: Text -- ^ 'asAnalysisSchemeName'
-                 -> AnalysisSchemeLanguage -- ^ 'asAnalysisSchemeLanguage'
-                 -> AnalysisScheme
+               -> AnalysisSchemeLanguage -- ^ 'asAnalysisSchemeLanguage'
+               -> AnalysisScheme
 analysisScheme p1 p2 = AnalysisScheme
     { _asAnalysisSchemeName = p1
     , _asAnalysisSchemeLanguage = p2
@@ -957,8 +957,8 @@ data AnalysisSchemeStatus = AnalysisSchemeStatus
 -- * @Status ::@ @OptionStatus@
 --
 analysisSchemeStatus :: AnalysisScheme -- ^ 'assOptions'
-                       -> OptionStatus -- ^ 'assStatus'
-                       -> AnalysisSchemeStatus
+                     -> OptionStatus -- ^ 'assStatus'
+                     -> AnalysisSchemeStatus
 analysisSchemeStatus p1 p2 = AnalysisSchemeStatus
     { _assOptions = p1
     , _assStatus = p2
@@ -999,8 +999,8 @@ data AvailabilityOptionsStatus = AvailabilityOptionsStatus
 -- * @Status ::@ @OptionStatus@
 --
 availabilityOptionsStatus :: Bool -- ^ 'aosOptions'
-                            -> OptionStatus -- ^ 'aosStatus'
-                            -> AvailabilityOptionsStatus
+                          -> OptionStatus -- ^ 'aosStatus'
+                          -> AvailabilityOptionsStatus
 availabilityOptionsStatus p1 p2 = AvailabilityOptionsStatus
     { _aosOptions = p1
     , _aosStatus = p2
@@ -1180,7 +1180,7 @@ data DocumentSuggesterOptions = DocumentSuggesterOptions
 -- * @SortExpression ::@ @Maybe Text@
 --
 documentSuggesterOptions :: Text -- ^ 'dsoSourceField'
-                           -> DocumentSuggesterOptions
+                         -> DocumentSuggesterOptions
 documentSuggesterOptions p1 = DocumentSuggesterOptions
     { _dsoSourceField = p1
     , _dsoFuzzyMatching = Nothing
@@ -1262,9 +1262,9 @@ data DomainStatus = DomainStatus
 -- * @SearchInstanceCount ::@ @Maybe Integer@
 --
 domainStatus :: Text -- ^ 'dsDomainId'
-               -> Text -- ^ 'dsDomainName'
-               -> Bool -- ^ 'dsRequiresIndexDocuments'
-               -> DomainStatus
+             -> Text -- ^ 'dsDomainName'
+             -> Bool -- ^ 'dsRequiresIndexDocuments'
+             -> DomainStatus
 domainStatus p1 p2 p8 = DomainStatus
     { _dsDomainId = p1
     , _dsDomainName = p2
@@ -1504,8 +1504,8 @@ data Expression = Expression
 -- * @ExpressionValue ::@ @Text@
 --
 expression :: Text -- ^ 'eExpressionName'
-             -> Text -- ^ 'eExpressionValue'
-             -> Expression
+           -> Text -- ^ 'eExpressionValue'
+           -> Expression
 expression p1 p2 = Expression
     { _eExpressionName = p1
     , _eExpressionValue = p2
@@ -1552,8 +1552,8 @@ data ExpressionStatus = ExpressionStatus
 -- * @Status ::@ @OptionStatus@
 --
 expressionStatus :: Expression -- ^ 'esOptions'
-                   -> OptionStatus -- ^ 'esStatus'
-                   -> ExpressionStatus
+                 -> OptionStatus -- ^ 'esStatus'
+                 -> ExpressionStatus
 expressionStatus p1 p2 = ExpressionStatus
     { _esOptions = p1
     , _esStatus = p2
@@ -1621,8 +1621,8 @@ data IndexField = IndexField
 -- * @DateArrayOptions ::@ @Maybe DateArrayOptions@
 --
 indexField :: Text -- ^ 'ifIndexFieldName'
-             -> IndexFieldType -- ^ 'ifIndexFieldType'
-             -> IndexField
+           -> IndexFieldType -- ^ 'ifIndexFieldType'
+           -> IndexField
 indexField p1 p2 = IndexField
     { _ifIndexFieldName = p1
     , _ifIndexFieldType = p2
@@ -1751,8 +1751,8 @@ data IndexFieldStatus = IndexFieldStatus
 -- * @Status ::@ @OptionStatus@
 --
 indexFieldStatus :: IndexField -- ^ 'ifsOptions'
-                   -> OptionStatus -- ^ 'ifsStatus'
-                   -> IndexFieldStatus
+                 -> OptionStatus -- ^ 'ifsStatus'
+                 -> IndexFieldStatus
 indexFieldStatus p1 p2 = IndexFieldStatus
     { _ifsOptions = p1
     , _ifsStatus = p2
@@ -2142,9 +2142,9 @@ data OptionStatus = OptionStatus
 -- * @PendingDeletion ::@ @Maybe Bool@
 --
 optionStatus :: ISO8601 -- ^ 'osCreationDate'
-               -> ISO8601 -- ^ 'osUpdateDate'
-               -> OptionState -- ^ 'osState'
-               -> OptionStatus
+             -> ISO8601 -- ^ 'osUpdateDate'
+             -> OptionState -- ^ 'osState'
+             -> OptionStatus
 optionStatus p1 p2 p4 = OptionStatus
     { _osCreationDate = p1
     , _osUpdateDate = p2
@@ -2259,8 +2259,8 @@ data ScalingParametersStatus = ScalingParametersStatus
 -- * @Status ::@ @OptionStatus@
 --
 scalingParametersStatus :: ScalingParameters -- ^ 'spsOptions'
-                          -> OptionStatus -- ^ 'spsStatus'
-                          -> ScalingParametersStatus
+                        -> OptionStatus -- ^ 'spsStatus'
+                        -> ScalingParametersStatus
 scalingParametersStatus p1 p2 = ScalingParametersStatus
     { _spsOptions = p1
     , _spsStatus = p2
@@ -2298,8 +2298,8 @@ data Suggester = Suggester
 -- * @DocumentSuggesterOptions ::@ @DocumentSuggesterOptions@
 --
 suggester :: Text -- ^ 'sSuggesterName'
-            -> DocumentSuggesterOptions -- ^ 'sDocumentSuggesterOptions'
-            -> Suggester
+          -> DocumentSuggesterOptions -- ^ 'sDocumentSuggesterOptions'
+          -> Suggester
 suggester p1 p2 = Suggester
     { _sSuggesterName = p1
     , _sDocumentSuggesterOptions = p2
@@ -2344,8 +2344,8 @@ data SuggesterStatus = SuggesterStatus
 -- * @Status ::@ @OptionStatus@
 --
 suggesterStatus :: Suggester -- ^ 'ssOptions'
-                  -> OptionStatus -- ^ 'ssStatus'
-                  -> SuggesterStatus
+                -> OptionStatus -- ^ 'ssStatus'
+                -> SuggesterStatus
 suggesterStatus p1 p2 = SuggesterStatus
     { _ssOptions = p1
     , _ssStatus = p2

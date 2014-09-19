@@ -62,7 +62,7 @@ newtype DeletePreset = DeletePreset
 -- * @Id ::@ @Text@
 --
 deletePreset :: Text -- ^ 'dp1Id'
-               -> DeletePreset
+             -> DeletePreset
 deletePreset p1 = DeletePreset
     { _dp1Id = p1
     }

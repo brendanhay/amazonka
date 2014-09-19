@@ -94,8 +94,8 @@ data AddJobFlowSteps = AddJobFlowSteps
 -- * @Steps ::@ @[StepConfig]@
 --
 addJobFlowSteps :: Text -- ^ 'ajfsJobFlowId'
-                  -> [StepConfig] -- ^ 'ajfsSteps'
-                  -> AddJobFlowSteps
+                -> [StepConfig] -- ^ 'ajfsSteps'
+                -> AddJobFlowSteps
 addJobFlowSteps p1 p2 = AddJobFlowSteps
     { _ajfsJobFlowId = p1
     , _ajfsSteps = p2

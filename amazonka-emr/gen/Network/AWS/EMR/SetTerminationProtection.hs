@@ -82,8 +82,8 @@ data SetTerminationProtection = SetTerminationProtection
 -- * @TerminationProtected ::@ @Bool@
 --
 setTerminationProtection :: [Text] -- ^ 'stpJobFlowIds'
-                           -> Bool -- ^ 'stpTerminationProtected'
-                           -> SetTerminationProtection
+                         -> Bool -- ^ 'stpTerminationProtected'
+                         -> SetTerminationProtection
 setTerminationProtection p1 p2 = SetTerminationProtection
     { _stpJobFlowIds = p1
     , _stpTerminationProtected = p2

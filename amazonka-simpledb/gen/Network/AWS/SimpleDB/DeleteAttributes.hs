@@ -70,8 +70,8 @@ data DeleteAttributes = DeleteAttributes
 -- * @Expected ::@ @Maybe UpdateCondition@
 --
 deleteAttributes :: Text -- ^ 'daDomainName'
-                   -> Text -- ^ 'daItemName'
-                   -> DeleteAttributes
+                 -> Text -- ^ 'daItemName'
+                 -> DeleteAttributes
 deleteAttributes p1 p2 = DeleteAttributes
     { _daDomainName = p1
     , _daItemName = p2

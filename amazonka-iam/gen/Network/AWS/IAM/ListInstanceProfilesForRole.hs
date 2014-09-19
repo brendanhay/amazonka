@@ -74,7 +74,7 @@ data ListInstanceProfilesForRole = ListInstanceProfilesForRole
 -- * @MaxItems ::@ @Maybe Integer@
 --
 listInstanceProfilesForRole :: Text -- ^ 'lipfrRoleName'
-                              -> ListInstanceProfilesForRole
+                            -> ListInstanceProfilesForRole
 listInstanceProfilesForRole p1 = ListInstanceProfilesForRole
     { _lipfrRoleName = p1
     , _lipfrMarker = Nothing
@@ -125,8 +125,8 @@ data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
 -- * @Marker ::@ @Maybe Text@
 --
 listInstanceProfilesForRoleResponse :: [InstanceProfile] -- ^ 'lipfrrInstanceProfiles'
-                                      -> Bool -- ^ 'lipfrrIsTruncated'
-                                      -> ListInstanceProfilesForRoleResponse
+                                    -> Bool -- ^ 'lipfrrIsTruncated'
+                                    -> ListInstanceProfilesForRoleResponse
 listInstanceProfilesForRoleResponse p1 p2 = ListInstanceProfilesForRoleResponse
     { _lipfrrInstanceProfiles = p1
     , _lipfrrIsTruncated = p2

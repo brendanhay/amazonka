@@ -50,7 +50,7 @@ newtype DeleteTapeArchive = DeleteTapeArchive
 -- * @TapeARN ::@ @Text@
 --
 deleteTapeArchive :: Text -- ^ 'dtaTapeARN'
-                    -> DeleteTapeArchive
+                  -> DeleteTapeArchive
 deleteTapeArchive p1 = DeleteTapeArchive
     { _dtaTapeARN = p1
     }

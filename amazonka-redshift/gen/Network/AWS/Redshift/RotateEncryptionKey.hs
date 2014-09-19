@@ -52,7 +52,7 @@ newtype RotateEncryptionKey = RotateEncryptionKey
 -- * @ClusterIdentifier ::@ @Text@
 --
 rotateEncryptionKey :: Text -- ^ 'rekClusterIdentifier'
-                      -> RotateEncryptionKey
+                    -> RotateEncryptionKey
 rotateEncryptionKey p1 = RotateEncryptionKey
     { _rekClusterIdentifier = p1
     }

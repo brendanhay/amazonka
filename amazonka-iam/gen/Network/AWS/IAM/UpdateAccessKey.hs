@@ -67,8 +67,8 @@ data UpdateAccessKey = UpdateAccessKey
 -- * @Status ::@ @StatusType@
 --
 updateAccessKey :: Text -- ^ 'uakAccessKeyId'
-                  -> StatusType -- ^ 'uakStatus'
-                  -> UpdateAccessKey
+                -> StatusType -- ^ 'uakStatus'
+                -> UpdateAccessKey
 updateAccessKey p2 p3 = UpdateAccessKey
     { _uakUserName = Nothing
     , _uakAccessKeyId = p2

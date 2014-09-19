@@ -64,8 +64,8 @@ data DescribeSnapshotAttribute = DescribeSnapshotAttribute
 -- * @Attribute ::@ @SnapshotAttributeName@
 --
 describeSnapshotAttribute :: Text -- ^ 'dsaSnapshotId'
-                            -> SnapshotAttributeName -- ^ 'dsaAttribute'
-                            -> DescribeSnapshotAttribute
+                          -> SnapshotAttributeName -- ^ 'dsaAttribute'
+                          -> DescribeSnapshotAttribute
 describeSnapshotAttribute p1 p2 = DescribeSnapshotAttribute
     { _dsaSnapshotId = p1
     , _dsaAttribute = p2

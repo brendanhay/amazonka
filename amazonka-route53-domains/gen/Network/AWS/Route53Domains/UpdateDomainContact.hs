@@ -97,7 +97,7 @@ data UpdateDomainContact = UpdateDomainContact
 -- * @TechContact ::@ @Maybe ContactDetail@
 --
 updateDomainContact :: Text -- ^ 'udcDomainName'
-                      -> UpdateDomainContact
+                    -> UpdateDomainContact
 updateDomainContact p1 = UpdateDomainContact
     { _udcDomainName = p1
     , _udcAdminContact = Nothing
@@ -157,7 +157,7 @@ newtype UpdateDomainContactResponse = UpdateDomainContactResponse
 -- * @OperationId ::@ @Text@
 --
 updateDomainContactResponse :: Text -- ^ 'udcrOperationId'
-                              -> UpdateDomainContactResponse
+                            -> UpdateDomainContactResponse
 updateDomainContactResponse p1 = UpdateDomainContactResponse
     { _udcrOperationId = p1
     }

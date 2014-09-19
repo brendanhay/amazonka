@@ -59,7 +59,7 @@ data AssociateElasticIp = AssociateElasticIp
 -- * @InstanceId ::@ @Maybe Text@
 --
 associateElasticIp :: Text -- ^ 'aeiElasticIp'
-                     -> AssociateElasticIp
+                   -> AssociateElasticIp
 associateElasticIp p1 = AssociateElasticIp
     { _aeiElasticIp = p1
     , _aeiInstanceId = Nothing

@@ -79,11 +79,11 @@ data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect
 -- * @Vlan ::@ @Integer@
 --
 allocateConnectionOnInterconnect :: Text -- ^ 'acoiBandwidth'
-                                   -> Text -- ^ 'acoiConnectionName'
-                                   -> Text -- ^ 'acoiOwnerAccount'
-                                   -> Text -- ^ 'acoiInterconnectId'
-                                   -> Integer -- ^ 'acoiVlan'
-                                   -> AllocateConnectionOnInterconnect
+                                 -> Text -- ^ 'acoiConnectionName'
+                                 -> Text -- ^ 'acoiOwnerAccount'
+                                 -> Text -- ^ 'acoiInterconnectId'
+                                 -> Integer -- ^ 'acoiVlan'
+                                 -> AllocateConnectionOnInterconnect
 allocateConnectionOnInterconnect p1 p2 p3 p4 p5 = AllocateConnectionOnInterconnect
     { _acoiBandwidth = p1
     , _acoiConnectionName = p2

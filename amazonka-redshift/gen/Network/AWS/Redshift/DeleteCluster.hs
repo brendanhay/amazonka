@@ -77,7 +77,7 @@ data DeleteCluster = DeleteCluster
 -- * @FinalClusterSnapshotIdentifier ::@ @Maybe Text@
 --
 deleteCluster :: Text -- ^ 'dcClusterIdentifier'
-                -> DeleteCluster
+              -> DeleteCluster
 deleteCluster p1 = DeleteCluster
     { _dcClusterIdentifier = p1
     , _dcSkipFinalClusterSnapshot = Nothing

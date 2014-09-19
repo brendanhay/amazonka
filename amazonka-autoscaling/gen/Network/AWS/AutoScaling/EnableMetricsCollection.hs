@@ -61,8 +61,8 @@ data EnableMetricsCollection = EnableMetricsCollection
 -- * @Granularity ::@ @Text@
 --
 enableMetricsCollection :: Text -- ^ 'emcAutoScalingGroupName'
-                          -> Text -- ^ 'emcGranularity'
-                          -> EnableMetricsCollection
+                        -> Text -- ^ 'emcGranularity'
+                        -> EnableMetricsCollection
 enableMetricsCollection p1 p3 = EnableMetricsCollection
     { _emcAutoScalingGroupName = p1
     , _emcMetrics = mempty

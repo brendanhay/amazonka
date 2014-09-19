@@ -56,7 +56,7 @@ newtype EnableVolumeIO = EnableVolumeIO
 -- * @VolumeId ::@ @Text@
 --
 enableVolumeIO :: Text -- ^ 'evioVolumeId'
-                 -> EnableVolumeIO
+               -> EnableVolumeIO
 enableVolumeIO p1 = EnableVolumeIO
     { _evioVolumeId = p1
     }

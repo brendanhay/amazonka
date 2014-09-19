@@ -71,10 +71,10 @@ data CompleteLifecycleAction = CompleteLifecycleAction
 -- * @LifecycleActionResult ::@ @Text@
 --
 completeLifecycleAction :: Text -- ^ 'claLifecycleHookName'
-                          -> Text -- ^ 'claAutoScalingGroupName'
-                          -> Text -- ^ 'claLifecycleActionToken'
-                          -> Text -- ^ 'claLifecycleActionResult'
-                          -> CompleteLifecycleAction
+                        -> Text -- ^ 'claAutoScalingGroupName'
+                        -> Text -- ^ 'claLifecycleActionToken'
+                        -> Text -- ^ 'claLifecycleActionResult'
+                        -> CompleteLifecycleAction
 completeLifecycleAction p1 p2 p3 p4 = CompleteLifecycleAction
     { _claLifecycleHookName = p1
     , _claAutoScalingGroupName = p2

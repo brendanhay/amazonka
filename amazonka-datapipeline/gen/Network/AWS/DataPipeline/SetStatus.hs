@@ -68,9 +68,9 @@ data SetStatus = SetStatus
 -- * @Status ::@ @Text@
 --
 setStatus :: Text -- ^ 'ssPipelineId'
-            -> [Text] -- ^ 'ssObjectIds'
-            -> Text -- ^ 'ssStatus'
-            -> SetStatus
+          -> [Text] -- ^ 'ssObjectIds'
+          -> Text -- ^ 'ssStatus'
+          -> SetStatus
 setStatus p1 p2 p3 = SetStatus
     { _ssPipelineId = p1
     , _ssObjectIds = p2

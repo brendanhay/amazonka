@@ -52,7 +52,7 @@ newtype StopStack = StopStack
 -- * @StackId ::@ @Text@
 --
 stopStack :: Text -- ^ 'ss2StackId'
-            -> StopStack
+          -> StopStack
 stopStack p1 = StopStack
     { _ss2StackId = p1
     }

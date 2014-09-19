@@ -81,10 +81,10 @@ data PutScalingPolicy = PutScalingPolicy
 -- * @MinAdjustmentStep ::@ @Maybe Integer@
 --
 putScalingPolicy :: Text -- ^ 'pspAutoScalingGroupName'
-                   -> Text -- ^ 'pspPolicyName'
-                   -> Integer -- ^ 'pspScalingAdjustment'
-                   -> Text -- ^ 'pspAdjustmentType'
-                   -> PutScalingPolicy
+                 -> Text -- ^ 'pspPolicyName'
+                 -> Integer -- ^ 'pspScalingAdjustment'
+                 -> Text -- ^ 'pspAdjustmentType'
+                 -> PutScalingPolicy
 putScalingPolicy p1 p2 p3 p4 = PutScalingPolicy
     { _pspAutoScalingGroupName = p1
     , _pspPolicyName = p2

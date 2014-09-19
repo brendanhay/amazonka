@@ -57,7 +57,7 @@ data UpdateElasticIp = UpdateElasticIp
 -- * @Name ::@ @Maybe Text@
 --
 updateElasticIp :: Text -- ^ 'ueiElasticIp'
-                  -> UpdateElasticIp
+                -> UpdateElasticIp
 updateElasticIp p1 = UpdateElasticIp
     { _ueiElasticIp = p1
     , _ueiName = Nothing

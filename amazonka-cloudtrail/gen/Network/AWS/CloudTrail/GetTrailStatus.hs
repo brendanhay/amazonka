@@ -60,7 +60,7 @@ newtype GetTrailStatus = GetTrailStatus
 -- * @Name ::@ @Text@
 --
 getTrailStatus :: Text -- ^ 'gtsName'
-                 -> GetTrailStatus
+               -> GetTrailStatus
 getTrailStatus p1 = GetTrailStatus
     { _gtsName = p1
     }

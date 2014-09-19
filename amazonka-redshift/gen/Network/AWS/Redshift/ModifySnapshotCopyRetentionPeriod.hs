@@ -57,8 +57,8 @@ data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod
 -- * @RetentionPeriod ::@ @Integer@
 --
 modifySnapshotCopyRetentionPeriod :: Text -- ^ 'mscrpClusterIdentifier'
-                                    -> Integer -- ^ 'mscrpRetentionPeriod'
-                                    -> ModifySnapshotCopyRetentionPeriod
+                                  -> Integer -- ^ 'mscrpRetentionPeriod'
+                                  -> ModifySnapshotCopyRetentionPeriod
 modifySnapshotCopyRetentionPeriod p1 p2 = ModifySnapshotCopyRetentionPeriod
     { _mscrpClusterIdentifier = p1
     , _mscrpRetentionPeriod = p2

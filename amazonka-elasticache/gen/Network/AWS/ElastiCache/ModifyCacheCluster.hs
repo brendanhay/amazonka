@@ -121,7 +121,7 @@ data ModifyCacheCluster = ModifyCacheCluster
 -- * @NewAvailabilityZones ::@ @[Text]@
 --
 modifyCacheCluster :: Text -- ^ 'mccCacheClusterId'
-                     -> ModifyCacheCluster
+                   -> ModifyCacheCluster
 modifyCacheCluster p1 = ModifyCacheCluster
     { _mccCacheClusterId = p1
     , _mccNumCacheNodes = Nothing

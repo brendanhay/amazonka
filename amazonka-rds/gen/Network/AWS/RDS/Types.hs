@@ -2851,7 +2851,7 @@ data OptionConfiguration = OptionConfiguration
 -- * @OptionSettings ::@ @[OptionSetting]@
 --
 optionConfiguration :: Text -- ^ 'ocOptionName'
-                      -> OptionConfiguration
+                    -> OptionConfiguration
 optionConfiguration p1 = OptionConfiguration
     { _ocOptionName = p1
     , _ocPort = Nothing

@@ -90,10 +90,10 @@ data ActivateGateway = ActivateGateway
 -- * @GatewayType ::@ @Maybe Text@
 --
 activateGateway :: Text -- ^ 'agActivationKey'
-                  -> Text -- ^ 'agGatewayName'
-                  -> Text -- ^ 'agGatewayTimezone'
-                  -> Text -- ^ 'agGatewayRegion'
-                  -> ActivateGateway
+                -> Text -- ^ 'agGatewayName'
+                -> Text -- ^ 'agGatewayTimezone'
+                -> Text -- ^ 'agGatewayRegion'
+                -> ActivateGateway
 activateGateway p1 p2 p3 p4 = ActivateGateway
     { _agActivationKey = p1
     , _agGatewayName = p2

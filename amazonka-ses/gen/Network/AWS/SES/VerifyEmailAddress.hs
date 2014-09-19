@@ -63,7 +63,7 @@ newtype VerifyEmailAddress = VerifyEmailAddress
 -- * @EmailAddress ::@ @Text@
 --
 verifyEmailAddress :: Text -- ^ 'veaEmailAddress'
-                     -> VerifyEmailAddress
+                   -> VerifyEmailAddress
 verifyEmailAddress p1 = VerifyEmailAddress
     { _veaEmailAddress = p1
     }

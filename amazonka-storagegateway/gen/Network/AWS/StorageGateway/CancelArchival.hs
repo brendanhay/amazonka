@@ -54,8 +54,8 @@ data CancelArchival = CancelArchival
 -- * @TapeARN ::@ @Text@
 --
 cancelArchival :: Text -- ^ 'caGatewayARN'
-                 -> Text -- ^ 'caTapeARN'
-                 -> CancelArchival
+               -> Text -- ^ 'caTapeARN'
+               -> CancelArchival
 cancelArchival p1 p2 = CancelArchival
     { _caGatewayARN = p1
     , _caTapeARN = p2

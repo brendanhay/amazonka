@@ -53,7 +53,7 @@ newtype StartInstance = StartInstance
 -- * @InstanceId ::@ @Text@
 --
 startInstance :: Text -- ^ 'siInstanceId'
-                -> StartInstance
+              -> StartInstance
 startInstance p1 = StartInstance
     { _siInstanceId = p1
     }

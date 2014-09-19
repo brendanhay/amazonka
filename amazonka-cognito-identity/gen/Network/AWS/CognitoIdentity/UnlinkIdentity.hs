@@ -60,9 +60,9 @@ data UnlinkIdentity = UnlinkIdentity
 -- * @LoginsToRemove ::@ @[Text]@
 --
 unlinkIdentity :: Text -- ^ 'uiIdentityId'
-                 -> Map Text Text -- ^ 'uiLogins'
-                 -> [Text] -- ^ 'uiLoginsToRemove'
-                 -> UnlinkIdentity
+               -> Map Text Text -- ^ 'uiLogins'
+               -> [Text] -- ^ 'uiLoginsToRemove'
+               -> UnlinkIdentity
 unlinkIdentity p1 p2 p3 = UnlinkIdentity
     { _uiIdentityId = p1
     , _uiLogins = p2

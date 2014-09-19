@@ -68,7 +68,7 @@ data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup
 -- * @SubnetIds ::@ @[Text]@
 --
 modifyCacheSubnetGroup :: Text -- ^ 'mcsgCacheSubnetGroupName'
-                         -> ModifyCacheSubnetGroup
+                       -> ModifyCacheSubnetGroup
 modifyCacheSubnetGroup p1 = ModifyCacheSubnetGroup
     { _mcsgCacheSubnetGroupName = p1
     , _mcsgCacheSubnetGroupDescription = Nothing

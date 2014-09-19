@@ -55,7 +55,7 @@ newtype DeleteKeyPair = DeleteKeyPair
 -- * @KeyName ::@ @Text@
 --
 deleteKeyPair :: Text -- ^ 'dkpKeyName'
-                -> DeleteKeyPair
+              -> DeleteKeyPair
 deleteKeyPair p1 = DeleteKeyPair
     { _dkpKeyName = p1
     }

@@ -75,8 +75,8 @@ data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy
 -- * @CookieExpirationPeriod ::@ @Maybe Integer@
 --
 createLBCookieStickinessPolicy :: Text -- ^ 'clbcspLoadBalancerName'
-                                 -> Text -- ^ 'clbcspPolicyName'
-                                 -> CreateLBCookieStickinessPolicy
+                               -> Text -- ^ 'clbcspPolicyName'
+                               -> CreateLBCookieStickinessPolicy
 createLBCookieStickinessPolicy p1 p2 = CreateLBCookieStickinessPolicy
     { _clbcspLoadBalancerName = p1
     , _clbcspPolicyName = p2

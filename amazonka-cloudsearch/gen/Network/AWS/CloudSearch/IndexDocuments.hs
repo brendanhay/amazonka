@@ -55,7 +55,7 @@ newtype IndexDocuments = IndexDocuments
 -- * @DomainName ::@ @Text@
 --
 indexDocuments :: Text -- ^ 'idDomainName'
-                 -> IndexDocuments
+               -> IndexDocuments
 indexDocuments p1 = IndexDocuments
     { _idDomainName = p1
     }

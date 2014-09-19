@@ -142,8 +142,8 @@ data CreateMultipartUpload = CreateMultipartUpload
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
 createMultipartUpload :: ObjectKey -- ^ 'cmu2Key'
-                        -> BucketName -- ^ 'cmu2Bucket'
-                        -> CreateMultipartUpload
+                      -> BucketName -- ^ 'cmu2Bucket'
+                      -> CreateMultipartUpload
 createMultipartUpload p13 p2 = CreateMultipartUpload
     { _cmu2ACL = Nothing
     , _cmu2Bucket = p2

@@ -60,8 +60,8 @@ data PutBucketLogging = PutBucketLogging
 -- * @ContentMD5 ::@ @Maybe Text@
 --
 putBucketLogging :: BucketName -- ^ 'pbl1Bucket'
-                   -> BucketLoggingStatus -- ^ 'pbl1BucketLoggingStatus'
-                   -> PutBucketLogging
+                 -> BucketLoggingStatus -- ^ 'pbl1BucketLoggingStatus'
+                 -> PutBucketLogging
 putBucketLogging p1 p2 = PutBucketLogging
     { _pbl1Bucket = p1
     , _pbl1BucketLoggingStatus = p2

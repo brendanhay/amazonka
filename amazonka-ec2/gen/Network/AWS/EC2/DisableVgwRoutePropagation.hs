@@ -63,8 +63,8 @@ data DisableVgwRoutePropagation = DisableVgwRoutePropagation
 -- * @GatewayId ::@ @Text@
 --
 disableVgwRoutePropagation :: Text -- ^ 'dvrpRouteTableId'
-                             -> Text -- ^ 'dvrpGatewayId'
-                             -> DisableVgwRoutePropagation
+                           -> Text -- ^ 'dvrpGatewayId'
+                           -> DisableVgwRoutePropagation
 disableVgwRoutePropagation p1 p2 = DisableVgwRoutePropagation
     { _dvrpRouteTableId = p1
     , _dvrpGatewayId = p2

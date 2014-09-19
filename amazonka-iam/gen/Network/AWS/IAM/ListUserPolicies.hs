@@ -66,7 +66,7 @@ data ListUserPolicies = ListUserPolicies
 -- * @MaxItems ::@ @Maybe Integer@
 --
 listUserPolicies :: Text -- ^ 'lupUserName'
-                   -> ListUserPolicies
+                 -> ListUserPolicies
 listUserPolicies p1 = ListUserPolicies
     { _lupUserName = p1
     , _lupMarker = Nothing
@@ -115,8 +115,8 @@ data ListUserPoliciesResponse = ListUserPoliciesResponse
 -- * @Marker ::@ @Maybe Text@
 --
 listUserPoliciesResponse :: [Text] -- ^ 'luprPolicyNames'
-                           -> Bool -- ^ 'luprIsTruncated'
-                           -> ListUserPoliciesResponse
+                         -> Bool -- ^ 'luprIsTruncated'
+                         -> ListUserPoliciesResponse
 listUserPoliciesResponse p1 p2 = ListUserPoliciesResponse
     { _luprPolicyNames = p1
     , _luprIsTruncated = p2

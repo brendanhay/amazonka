@@ -69,8 +69,8 @@ data EnterStandby = EnterStandby
 -- * @ShouldDecrementDesiredCapacity ::@ @Bool@
 --
 enterStandby :: Text -- ^ 'esAutoScalingGroupName'
-               -> Bool -- ^ 'esShouldDecrementDesiredCapacity'
-               -> EnterStandby
+             -> Bool -- ^ 'esShouldDecrementDesiredCapacity'
+             -> EnterStandby
 enterStandby p2 p3 = EnterStandby
     { _esInstanceIds = mempty
     , _esAutoScalingGroupName = p2

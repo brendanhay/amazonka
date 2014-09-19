@@ -92,8 +92,8 @@ data ListActivityTypes = ListActivityTypes
 -- * @ReverseOrder ::@ @Maybe Bool@
 --
 listActivityTypes :: Text -- ^ 'latDomain'
-                    -> RegistrationStatus -- ^ 'latRegistrationStatus'
-                    -> ListActivityTypes
+                  -> RegistrationStatus -- ^ 'latRegistrationStatus'
+                  -> ListActivityTypes
 listActivityTypes p1 p3 = ListActivityTypes
     { _latDomain = p1
     , _latName = Nothing
@@ -164,7 +164,7 @@ data ListActivityTypesResponse = ListActivityTypesResponse
 -- * @NextPageToken ::@ @Maybe Text@
 --
 listActivityTypesResponse :: [ActivityTypeInfo] -- ^ 'latrTypeInfos'
-                            -> ListActivityTypesResponse
+                          -> ListActivityTypesResponse
 listActivityTypesResponse p1 = ListActivityTypesResponse
     { _latrTypeInfos = p1
     , _latrNextPageToken = Nothing

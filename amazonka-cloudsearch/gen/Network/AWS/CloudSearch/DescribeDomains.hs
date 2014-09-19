@@ -87,7 +87,7 @@ newtype DescribeDomainsResponse = DescribeDomainsResponse
 -- * @DomainStatusList ::@ @[DomainStatus]@
 --
 describeDomainsResponse :: [DomainStatus] -- ^ 'ddrrDomainStatusList'
-                          -> DescribeDomainsResponse
+                        -> DescribeDomainsResponse
 describeDomainsResponse p1 = DescribeDomainsResponse
     { _ddrrDomainStatusList = p1
     }

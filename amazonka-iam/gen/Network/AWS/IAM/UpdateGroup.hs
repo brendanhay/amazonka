@@ -70,7 +70,7 @@ data UpdateGroup = UpdateGroup
 -- * @NewGroupName ::@ @Maybe Text@
 --
 updateGroup :: Text -- ^ 'ugGroupName'
-              -> UpdateGroup
+            -> UpdateGroup
 updateGroup p1 = UpdateGroup
     { _ugGroupName = p1
     , _ugNewPath = Nothing

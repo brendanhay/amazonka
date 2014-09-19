@@ -67,7 +67,7 @@ newtype CreateTopic = CreateTopic
 -- * @Name ::@ @Text@
 --
 createTopic :: Text -- ^ 'ctName'
-              -> CreateTopic
+            -> CreateTopic
 createTopic p1 = CreateTopic
     { _ctName = p1
     }

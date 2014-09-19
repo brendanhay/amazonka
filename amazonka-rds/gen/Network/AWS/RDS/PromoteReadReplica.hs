@@ -69,7 +69,7 @@ data PromoteReadReplica = PromoteReadReplica
 -- * @PreferredBackupWindow ::@ @Maybe Text@
 --
 promoteReadReplica :: Text -- ^ 'prrDBInstanceIdentifier'
-                     -> PromoteReadReplica
+                   -> PromoteReadReplica
 promoteReadReplica p1 = PromoteReadReplica
     { _prrDBInstanceIdentifier = p1
     , _prrBackupRetentionPeriod = Nothing

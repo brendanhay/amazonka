@@ -66,8 +66,8 @@ data DescribeStackResource = DescribeStackResource
 -- * @LogicalResourceId ::@ @Text@
 --
 describeStackResource :: Text -- ^ 'dsrStackName'
-                        -> Text -- ^ 'dsrLogicalResourceId'
-                        -> DescribeStackResource
+                      -> Text -- ^ 'dsrLogicalResourceId'
+                      -> DescribeStackResource
 describeStackResource p1 p2 = DescribeStackResource
     { _dsrStackName = p1
     , _dsrLogicalResourceId = p2

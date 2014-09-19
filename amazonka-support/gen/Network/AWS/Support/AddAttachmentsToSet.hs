@@ -64,7 +64,7 @@ data AddAttachmentsToSet = AddAttachmentsToSet
 -- * @Attachments ::@ @[Attachment]@
 --
 addAttachmentsToSet :: [Attachment] -- ^ 'aatsAttachments'
-                      -> AddAttachmentsToSet
+                    -> AddAttachmentsToSet
 addAttachmentsToSet p2 = AddAttachmentsToSet
     { _aatsAttachmentSetId = Nothing
     , _aatsAttachments = p2

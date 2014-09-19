@@ -51,7 +51,7 @@ newtype HeadBucket = HeadBucket
 -- * @Bucket ::@ @BucketName@
 --
 headBucket :: BucketName -- ^ 'hbBucket'
-             -> HeadBucket
+           -> HeadBucket
 headBucket p1 = HeadBucket
     { _hbBucket = p1
     }

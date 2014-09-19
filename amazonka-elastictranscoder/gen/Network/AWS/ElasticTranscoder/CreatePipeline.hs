@@ -110,9 +110,9 @@ data CreatePipeline = CreatePipeline
 -- * @ThumbnailConfig ::@ @Maybe PipelineOutputConfig@
 --
 createPipeline :: Text -- ^ 'cpName'
-                 -> Text -- ^ 'cpInputBucket'
-                 -> Text -- ^ 'cpRole'
-                 -> CreatePipeline
+               -> Text -- ^ 'cpInputBucket'
+               -> Text -- ^ 'cpRole'
+               -> CreatePipeline
 createPipeline p1 p2 p4 = CreatePipeline
     { _cpName = p1
     , _cpInputBucket = p2

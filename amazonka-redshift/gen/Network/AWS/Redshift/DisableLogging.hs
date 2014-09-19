@@ -58,7 +58,7 @@ newtype DisableLogging = DisableLogging
 -- * @ClusterIdentifier ::@ @Text@
 --
 disableLogging :: Text -- ^ 'dlClusterIdentifier'
-                 -> DisableLogging
+               -> DisableLogging
 disableLogging p1 = DisableLogging
     { _dlClusterIdentifier = p1
     }

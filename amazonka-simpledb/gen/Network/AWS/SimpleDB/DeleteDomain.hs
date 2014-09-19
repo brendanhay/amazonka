@@ -53,7 +53,7 @@ newtype DeleteDomain = DeleteDomain
 -- * @DomainName ::@ @Text@
 --
 deleteDomain :: Text -- ^ 'ddDomainName'
-               -> DeleteDomain
+             -> DeleteDomain
 deleteDomain p1 = DeleteDomain
     { _ddDomainName = p1
     }

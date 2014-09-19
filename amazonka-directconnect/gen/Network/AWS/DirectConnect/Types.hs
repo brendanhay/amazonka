@@ -669,10 +669,10 @@ data NewPrivateVirtualInterface = NewPrivateVirtualInterface
 -- * @VirtualGatewayId ::@ @Text@
 --
 newPrivateVirtualInterface :: Text -- ^ 'npviVirtualInterfaceName'
-                             -> Integer -- ^ 'npviVlan'
-                             -> Integer -- ^ 'npviAsn'
-                             -> Text -- ^ 'npviVirtualGatewayId'
-                             -> NewPrivateVirtualInterface
+                           -> Integer -- ^ 'npviVlan'
+                           -> Integer -- ^ 'npviAsn'
+                           -> Text -- ^ 'npviVirtualGatewayId'
+                           -> NewPrivateVirtualInterface
 newPrivateVirtualInterface p1 p2 p3 p7 = NewPrivateVirtualInterface
     { _npviVirtualInterfaceName = p1
     , _npviVlan = p2
@@ -750,9 +750,9 @@ data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation
 -- * @CustomerAddress ::@ @Maybe Text@
 --
 newPrivateVirtualInterfaceAllocation :: Text -- ^ 'npviaVirtualInterfaceName'
-                                       -> Integer -- ^ 'npviaVlan'
-                                       -> Integer -- ^ 'npviaAsn'
-                                       -> NewPrivateVirtualInterfaceAllocation
+                                     -> Integer -- ^ 'npviaVlan'
+                                     -> Integer -- ^ 'npviaAsn'
+                                     -> NewPrivateVirtualInterfaceAllocation
 newPrivateVirtualInterfaceAllocation p1 p2 p3 = NewPrivateVirtualInterfaceAllocation
     { _npviaVirtualInterfaceName = p1
     , _npviaVlan = p2
@@ -826,12 +826,12 @@ data NewPublicVirtualInterface = NewPublicVirtualInterface
 -- * @RouteFilterPrefixes ::@ @[RouteFilterPrefix]@
 --
 newPublicVirtualInterface :: Text -- ^ 'npvi1VirtualInterfaceName'
-                            -> Integer -- ^ 'npvi1Vlan'
-                            -> Integer -- ^ 'npvi1Asn'
-                            -> Text -- ^ 'npvi1AmazonAddress'
-                            -> Text -- ^ 'npvi1CustomerAddress'
-                            -> [RouteFilterPrefix] -- ^ 'npvi1RouteFilterPrefixes'
-                            -> NewPublicVirtualInterface
+                          -> Integer -- ^ 'npvi1Vlan'
+                          -> Integer -- ^ 'npvi1Asn'
+                          -> Text -- ^ 'npvi1AmazonAddress'
+                          -> Text -- ^ 'npvi1CustomerAddress'
+                          -> [RouteFilterPrefix] -- ^ 'npvi1RouteFilterPrefixes'
+                          -> NewPublicVirtualInterface
 newPublicVirtualInterface p1 p2 p3 p5 p6 p7 = NewPublicVirtualInterface
     { _npvi1VirtualInterfaceName = p1
     , _npvi1Vlan = p2
@@ -913,12 +913,12 @@ data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation
 -- * @RouteFilterPrefixes ::@ @[RouteFilterPrefix]@
 --
 newPublicVirtualInterfaceAllocation :: Text -- ^ 'npvia1VirtualInterfaceName'
-                                      -> Integer -- ^ 'npvia1Vlan'
-                                      -> Integer -- ^ 'npvia1Asn'
-                                      -> Text -- ^ 'npvia1AmazonAddress'
-                                      -> Text -- ^ 'npvia1CustomerAddress'
-                                      -> [RouteFilterPrefix] -- ^ 'npvia1RouteFilterPrefixes'
-                                      -> NewPublicVirtualInterfaceAllocation
+                                    -> Integer -- ^ 'npvia1Vlan'
+                                    -> Integer -- ^ 'npvia1Asn'
+                                    -> Text -- ^ 'npvia1AmazonAddress'
+                                    -> Text -- ^ 'npvia1CustomerAddress'
+                                    -> [RouteFilterPrefix] -- ^ 'npvia1RouteFilterPrefixes'
+                                    -> NewPublicVirtualInterfaceAllocation
 newPublicVirtualInterfaceAllocation p1 p2 p3 p5 p6 p7 = NewPublicVirtualInterfaceAllocation
     { _npvia1VirtualInterfaceName = p1
     , _npvia1Vlan = p2

@@ -55,7 +55,7 @@ newtype DeleteDBSecurityGroup = DeleteDBSecurityGroup
 -- * @DBSecurityGroupName ::@ @Text@
 --
 deleteDBSecurityGroup :: Text -- ^ 'ddbsgDBSecurityGroupName'
-                        -> DeleteDBSecurityGroup
+                      -> DeleteDBSecurityGroup
 deleteDBSecurityGroup p1 = DeleteDBSecurityGroup
     { _ddbsgDBSecurityGroupName = p1
     }

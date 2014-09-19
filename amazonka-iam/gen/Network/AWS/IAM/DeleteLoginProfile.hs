@@ -56,7 +56,7 @@ newtype DeleteLoginProfile = DeleteLoginProfile
 -- * @UserName ::@ @Text@
 --
 deleteLoginProfile :: Text -- ^ 'dlpUserName'
-                     -> DeleteLoginProfile
+                   -> DeleteLoginProfile
 deleteLoginProfile p1 = DeleteLoginProfile
     { _dlpUserName = p1
     }

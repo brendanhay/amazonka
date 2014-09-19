@@ -63,8 +63,8 @@ data DeleteApplicationVersion = DeleteApplicationVersion
 -- * @DeleteSourceBundle ::@ @Maybe Bool@
 --
 deleteApplicationVersion :: Text -- ^ 'davApplicationName'
-                           -> Text -- ^ 'davVersionLabel'
-                           -> DeleteApplicationVersion
+                         -> Text -- ^ 'davVersionLabel'
+                         -> DeleteApplicationVersion
 deleteApplicationVersion p1 p2 = DeleteApplicationVersion
     { _davApplicationName = p1
     , _davVersionLabel = p2

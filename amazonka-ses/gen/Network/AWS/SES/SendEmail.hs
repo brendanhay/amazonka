@@ -97,9 +97,9 @@ data SendEmail = SendEmail
 -- * @ReturnPath ::@ @Maybe Text@
 --
 sendEmail :: Text -- ^ 'seSource'
-            -> Destination -- ^ 'seDestination'
-            -> Message -- ^ 'seMessage'
-            -> SendEmail
+          -> Destination -- ^ 'seDestination'
+          -> Message -- ^ 'seMessage'
+          -> SendEmail
 sendEmail p1 p2 p3 = SendEmail
     { _seSource = p1
     , _seDestination = p2
@@ -157,7 +157,7 @@ newtype SendEmailResponse = SendEmailResponse
 -- * @MessageId ::@ @Text@
 --
 sendEmailResponse :: Text -- ^ 'serMessageId'
-                    -> SendEmailResponse
+                  -> SendEmailResponse
 sendEmailResponse p1 = SendEmailResponse
     { _serMessageId = p1
     }

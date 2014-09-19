@@ -111,9 +111,9 @@ data CreateInstance = CreateInstance
 -- * @EbsOptimized ::@ @Maybe Bool@
 --
 createInstance :: Text -- ^ 'ciStackId'
-                 -> [Text] -- ^ 'ciLayerIds'
-                 -> Text -- ^ 'ciInstanceType'
-                 -> CreateInstance
+               -> [Text] -- ^ 'ciLayerIds'
+               -> Text -- ^ 'ciInstanceType'
+               -> CreateInstance
 createInstance p1 p2 p3 = CreateInstance
     { _ciStackId = p1
     , _ciLayerIds = p2

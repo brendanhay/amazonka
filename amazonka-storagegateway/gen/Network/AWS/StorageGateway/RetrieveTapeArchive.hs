@@ -54,8 +54,8 @@ data RetrieveTapeArchive = RetrieveTapeArchive
 -- * @GatewayARN ::@ @Text@
 --
 retrieveTapeArchive :: Text -- ^ 'rtaTapeARN'
-                      -> Text -- ^ 'rtaGatewayARN'
-                      -> RetrieveTapeArchive
+                    -> Text -- ^ 'rtaGatewayARN'
+                    -> RetrieveTapeArchive
 retrieveTapeArchive p1 p2 = RetrieveTapeArchive
     { _rtaTapeARN = p1
     , _rtaGatewayARN = p2

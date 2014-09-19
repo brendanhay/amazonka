@@ -78,7 +78,7 @@ newtype DeprecateDomain = DeprecateDomain
 -- * @Name ::@ @Text@
 --
 deprecateDomain :: Text -- ^ 'ddName'
-                  -> DeprecateDomain
+                -> DeprecateDomain
 deprecateDomain p1 = DeprecateDomain
     { _ddName = p1
     }

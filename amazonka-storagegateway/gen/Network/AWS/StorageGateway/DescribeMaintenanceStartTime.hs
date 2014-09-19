@@ -71,7 +71,7 @@ newtype DescribeMaintenanceStartTime = DescribeMaintenanceStartTime
 -- * @GatewayARN ::@ @Text@
 --
 describeMaintenanceStartTime :: Text -- ^ 'dmstGatewayARN'
-                               -> DescribeMaintenanceStartTime
+                             -> DescribeMaintenanceStartTime
 describeMaintenanceStartTime p1 = DescribeMaintenanceStartTime
     { _dmstGatewayARN = p1
     }

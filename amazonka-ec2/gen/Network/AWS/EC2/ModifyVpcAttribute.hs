@@ -61,7 +61,7 @@ data ModifyVpcAttribute = ModifyVpcAttribute
 -- * @EnableDnsHostnames ::@ @Maybe AttributeBooleanValue@
 --
 modifyVpcAttribute :: Text -- ^ 'mva1VpcId'
-                     -> ModifyVpcAttribute
+                   -> ModifyVpcAttribute
 modifyVpcAttribute p1 = ModifyVpcAttribute
     { _mva1VpcId = p1
     , _mva1EnableDnsSupport = Nothing

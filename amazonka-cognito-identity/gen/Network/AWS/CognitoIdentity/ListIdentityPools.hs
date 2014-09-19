@@ -63,7 +63,7 @@ data ListIdentityPools = ListIdentityPools
 -- * @NextToken ::@ @Maybe Text@
 --
 listIdentityPools :: Integer -- ^ 'lipMaxResults'
-                    -> ListIdentityPools
+                  -> ListIdentityPools
 listIdentityPools p1 = ListIdentityPools
     { _lipMaxResults = p1
     , _lipNextToken = Nothing

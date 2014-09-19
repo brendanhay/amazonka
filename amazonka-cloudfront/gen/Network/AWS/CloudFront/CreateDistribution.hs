@@ -55,7 +55,7 @@ newtype CreateDistribution = CreateDistribution
 -- * @DistributionConfig ::@ @DistributionConfig@
 --
 createDistribution :: DistributionConfig -- ^ 'cdDistributionConfig'
-                     -> CreateDistribution
+                   -> CreateDistribution
 createDistribution p1 = CreateDistribution
     { _cdDistributionConfig = p1
     }

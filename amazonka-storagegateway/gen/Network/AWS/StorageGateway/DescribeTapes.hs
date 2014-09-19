@@ -63,7 +63,7 @@ data DescribeTapes = DescribeTapes
 -- * @Limit ::@ @Maybe Integer@
 --
 describeTapes :: Text -- ^ 'dt1GatewayARN'
-                -> DescribeTapes
+              -> DescribeTapes
 describeTapes p1 = DescribeTapes
     { _dt1GatewayARN = p1
     , _dt1TapeARNs = mempty

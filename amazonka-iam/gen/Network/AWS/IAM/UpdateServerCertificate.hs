@@ -68,7 +68,7 @@ data UpdateServerCertificate = UpdateServerCertificate
 -- * @NewServerCertificateName ::@ @Maybe Text@
 --
 updateServerCertificate :: Text -- ^ 'uscServerCertificateName'
-                          -> UpdateServerCertificate
+                        -> UpdateServerCertificate
 updateServerCertificate p1 = UpdateServerCertificate
     { _uscServerCertificateName = p1
     , _uscNewPath = Nothing

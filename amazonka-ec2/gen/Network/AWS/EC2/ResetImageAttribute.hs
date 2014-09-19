@@ -60,8 +60,8 @@ data ResetImageAttribute = ResetImageAttribute
 -- * @Attribute ::@ @ResetImageAttributeName@
 --
 resetImageAttribute :: Text -- ^ 'riaImageId'
-                      -> ResetImageAttributeName -- ^ 'riaAttribute'
-                      -> ResetImageAttribute
+                    -> ResetImageAttributeName -- ^ 'riaAttribute'
+                    -> ResetImageAttribute
 resetImageAttribute p1 p2 = ResetImageAttribute
     { _riaImageId = p1
     , _riaAttribute = p2

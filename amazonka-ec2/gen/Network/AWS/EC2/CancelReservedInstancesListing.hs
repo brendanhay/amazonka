@@ -62,7 +62,7 @@ newtype CancelReservedInstancesListing = CancelReservedInstancesListing
 -- * @ReservedInstancesListingId ::@ @Text@
 --
 cancelReservedInstancesListing :: Text -- ^ 'crilReservedInstancesListingId'
-                                 -> CancelReservedInstancesListing
+                               -> CancelReservedInstancesListing
 cancelReservedInstancesListing p1 = CancelReservedInstancesListing
     { _crilReservedInstancesListingId = p1
     }

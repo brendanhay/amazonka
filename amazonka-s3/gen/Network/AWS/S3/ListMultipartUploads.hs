@@ -86,7 +86,7 @@ data ListMultipartUploads = ListMultipartUploads
 -- * @UploadIdMarker ::@ @Maybe Text@
 --
 listMultipartUploads :: BucketName -- ^ 'lmuBucket'
-                       -> ListMultipartUploads
+                     -> ListMultipartUploads
 listMultipartUploads p1 = ListMultipartUploads
     { _lmuBucket = p1
     , _lmuDelimiter = Nothing
@@ -188,7 +188,7 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse
 -- * @EncodingType ::@ @Maybe EncodingType@
 --
 listMultipartUploadsResponse :: Bool -- ^ 'lmurIsTruncated'
-                               -> ListMultipartUploadsResponse
+                             -> ListMultipartUploadsResponse
 listMultipartUploadsResponse p8 = ListMultipartUploadsResponse
     { _lmurBucket = Nothing
     , _lmurKeyMarker = Nothing

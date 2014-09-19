@@ -62,8 +62,8 @@ data RemovePermission = RemovePermission
 -- * @Label ::@ @Text@
 --
 removePermission :: Text -- ^ 'rpQueueUrl'
-                   -> Text -- ^ 'rpLabel'
-                   -> RemovePermission
+                 -> Text -- ^ 'rpLabel'
+                 -> RemovePermission
 removePermission p1 p2 = RemovePermission
     { _rpQueueUrl = p1
     , _rpLabel = p2

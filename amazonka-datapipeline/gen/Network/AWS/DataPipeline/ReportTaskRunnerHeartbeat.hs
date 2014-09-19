@@ -72,7 +72,7 @@ data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat
 -- * @Hostname ::@ @Maybe Text@
 --
 reportTaskRunnerHeartbeat :: Text -- ^ 'rtrhTaskrunnerId'
-                            -> ReportTaskRunnerHeartbeat
+                          -> ReportTaskRunnerHeartbeat
 reportTaskRunnerHeartbeat p1 = ReportTaskRunnerHeartbeat
     { _rtrhTaskrunnerId = p1
     , _rtrhWorkerGroup = Nothing
@@ -124,7 +124,7 @@ newtype ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse
 -- * @Terminate ::@ @Bool@
 --
 reportTaskRunnerHeartbeatResponse :: Bool -- ^ 'rtrhrTerminate'
-                                    -> ReportTaskRunnerHeartbeatResponse
+                                  -> ReportTaskRunnerHeartbeatResponse
 reportTaskRunnerHeartbeatResponse p1 = ReportTaskRunnerHeartbeatResponse
     { _rtrhrTerminate = p1
     }

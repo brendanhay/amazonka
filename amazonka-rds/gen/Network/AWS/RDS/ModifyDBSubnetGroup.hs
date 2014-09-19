@@ -69,8 +69,8 @@ data ModifyDBSubnetGroup = ModifyDBSubnetGroup
 -- * @SubnetIds ::@ @[Text]@
 --
 modifyDBSubnetGroup :: Text -- ^ 'mdbsgDBSubnetGroupName'
-                      -> [Text] -- ^ 'mdbsgSubnetIds'
-                      -> ModifyDBSubnetGroup
+                    -> [Text] -- ^ 'mdbsgSubnetIds'
+                    -> ModifyDBSubnetGroup
 modifyDBSubnetGroup p1 p3 = ModifyDBSubnetGroup
     { _mdbsgDBSubnetGroupName = p1
     , _mdbsgDBSubnetGroupDescription = Nothing

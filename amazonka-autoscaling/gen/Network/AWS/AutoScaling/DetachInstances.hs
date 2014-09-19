@@ -70,8 +70,8 @@ data DetachInstances = DetachInstances
 -- * @ShouldDecrementDesiredCapacity ::@ @Bool@
 --
 detachInstances :: Text -- ^ 'diAutoScalingGroupName'
-                  -> Bool -- ^ 'diShouldDecrementDesiredCapacity'
-                  -> DetachInstances
+                -> Bool -- ^ 'diShouldDecrementDesiredCapacity'
+                -> DetachInstances
 detachInstances p2 p3 = DetachInstances
     { _diInstanceIds = mempty
     , _diAutoScalingGroupName = p2

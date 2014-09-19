@@ -53,7 +53,7 @@ newtype DeleteAccountAlias = DeleteAccountAlias
 -- * @AccountAlias ::@ @Text@
 --
 deleteAccountAlias :: Text -- ^ 'daaAccountAlias'
-                     -> DeleteAccountAlias
+                   -> DeleteAccountAlias
 deleteAccountAlias p1 = DeleteAccountAlias
     { _daaAccountAlias = p1
     }

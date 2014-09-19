@@ -93,7 +93,7 @@ newtype CreateAccessKeyResponse = CreateAccessKeyResponse
 -- * @AccessKey ::@ @AccessKey@
 --
 createAccessKeyResponse :: AccessKey -- ^ 'cakrAccessKey'
-                          -> CreateAccessKeyResponse
+                        -> CreateAccessKeyResponse
 createAccessKeyResponse p1 = CreateAccessKeyResponse
     { _cakrAccessKey = p1
     }

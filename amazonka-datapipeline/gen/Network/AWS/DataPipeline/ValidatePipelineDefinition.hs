@@ -95,8 +95,8 @@ data ValidatePipelineDefinition = ValidatePipelineDefinition
 -- * @PipelineObjects ::@ @[PipelineObject]@
 --
 validatePipelineDefinition :: Text -- ^ 'vpdPipelineId'
-                             -> [PipelineObject] -- ^ 'vpdPipelineObjects'
-                             -> ValidatePipelineDefinition
+                           -> [PipelineObject] -- ^ 'vpdPipelineObjects'
+                           -> ValidatePipelineDefinition
 validatePipelineDefinition p1 p2 = ValidatePipelineDefinition
     { _vpdPipelineId = p1
     , _vpdPipelineObjects = p2
@@ -141,7 +141,7 @@ data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse
 -- * @Errored ::@ @Bool@
 --
 validatePipelineDefinitionResponse :: Bool -- ^ 'vpdrErrored'
-                                     -> ValidatePipelineDefinitionResponse
+                                   -> ValidatePipelineDefinitionResponse
 validatePipelineDefinitionResponse p3 = ValidatePipelineDefinitionResponse
     { _vpdrValidationErrors = mempty
     , _vpdrValidationWarnings = mempty

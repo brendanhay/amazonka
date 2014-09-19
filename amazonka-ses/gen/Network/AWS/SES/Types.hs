@@ -284,7 +284,7 @@ newtype RawMessage = RawMessage
 -- * @Data ::@ @ByteString@
 --
 rawMessage :: ByteString -- ^ 'rmData'
-             -> RawMessage
+           -> RawMessage
 rawMessage p1 = RawMessage
     { _rmData = p1
     }
@@ -352,7 +352,7 @@ data Content = Content
 -- * @Charset ::@ @Maybe Text@
 --
 content :: Text -- ^ 'cData'
-          -> Content
+        -> Content
 content p1 = Content
     { _cData = p1
     , _cCharset = Nothing
@@ -431,8 +431,8 @@ data IdentityDkimAttributes = IdentityDkimAttributes
 -- * @DkimTokens ::@ @[Text]@
 --
 identityDkimAttributes :: Bool -- ^ 'idaDkimEnabled'
-                         -> VerificationStatus -- ^ 'idaDkimVerificationStatus'
-                         -> IdentityDkimAttributes
+                       -> VerificationStatus -- ^ 'idaDkimVerificationStatus'
+                       -> IdentityDkimAttributes
 identityDkimAttributes p1 p2 = IdentityDkimAttributes
     { _idaDkimEnabled = p1
     , _idaDkimVerificationStatus = p2
@@ -496,10 +496,10 @@ data IdentityNotificationAttributes = IdentityNotificationAttributes
 -- * @ForwardingEnabled ::@ @Bool@
 --
 identityNotificationAttributes :: Text -- ^ 'inaBounceTopic'
-                                 -> Text -- ^ 'inaComplaintTopic'
-                                 -> Text -- ^ 'inaDeliveryTopic'
-                                 -> Bool -- ^ 'inaForwardingEnabled'
-                                 -> IdentityNotificationAttributes
+                               -> Text -- ^ 'inaComplaintTopic'
+                               -> Text -- ^ 'inaDeliveryTopic'
+                               -> Bool -- ^ 'inaForwardingEnabled'
+                               -> IdentityNotificationAttributes
 identityNotificationAttributes p1 p2 p3 p4 = IdentityNotificationAttributes
     { _inaBounceTopic = p1
     , _inaComplaintTopic = p2
@@ -556,7 +556,7 @@ data IdentityVerificationAttributes = IdentityVerificationAttributes
 -- * @VerificationToken ::@ @Maybe Text@
 --
 identityVerificationAttributes :: VerificationStatus -- ^ 'ivaVerificationStatus'
-                                 -> IdentityVerificationAttributes
+                               -> IdentityVerificationAttributes
 identityVerificationAttributes p1 = IdentityVerificationAttributes
     { _ivaVerificationStatus = p1
     , _ivaVerificationToken = Nothing
@@ -594,8 +594,8 @@ data Message = Message
 -- * @Body ::@ @Body@
 --
 message :: Content -- ^ 'mSubject'
-          -> Body -- ^ 'mBody'
-          -> Message
+        -> Body -- ^ 'mBody'
+        -> Message
 message p1 p2 = Message
     { _mSubject = p1
     , _mBody = p2

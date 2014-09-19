@@ -66,7 +66,7 @@ data ModifyVolumeAttribute = ModifyVolumeAttribute
 -- * @AutoEnableIO ::@ @Maybe AttributeBooleanValue@
 --
 modifyVolumeAttribute :: Text -- ^ 'mvaVolumeId'
-                        -> ModifyVolumeAttribute
+                      -> ModifyVolumeAttribute
 modifyVolumeAttribute p1 = ModifyVolumeAttribute
     { _mvaVolumeId = p1
     , _mvaAutoEnableIO = Nothing

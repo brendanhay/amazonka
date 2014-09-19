@@ -52,7 +52,7 @@ newtype DeregisterRdsDbInstance = DeregisterRdsDbInstance
 -- * @RdsDbInstanceArn ::@ @Text@
 --
 deregisterRdsDbInstance :: Text -- ^ 'drdiRdsDbInstanceArn'
-                          -> DeregisterRdsDbInstance
+                        -> DeregisterRdsDbInstance
 deregisterRdsDbInstance p1 = DeregisterRdsDbInstance
     { _drdiRdsDbInstanceArn = p1
     }

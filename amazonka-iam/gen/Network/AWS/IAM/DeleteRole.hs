@@ -55,7 +55,7 @@ newtype DeleteRole = DeleteRole
 -- * @RoleName ::@ @Text@
 --
 deleteRole :: Text -- ^ 'drRoleName'
-             -> DeleteRole
+           -> DeleteRole
 deleteRole p1 = DeleteRole
     { _drRoleName = p1
     }

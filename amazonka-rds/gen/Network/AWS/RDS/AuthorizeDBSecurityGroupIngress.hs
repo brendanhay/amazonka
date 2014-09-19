@@ -85,7 +85,7 @@ data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress
 -- * @EC2SecurityGroupOwnerId ::@ @Maybe Text@
 --
 authorizeDBSecurityGroupIngress :: Text -- ^ 'adbsgiDBSecurityGroupName'
-                                  -> AuthorizeDBSecurityGroupIngress
+                                -> AuthorizeDBSecurityGroupIngress
 authorizeDBSecurityGroupIngress p1 = AuthorizeDBSecurityGroupIngress
     { _adbsgiDBSecurityGroupName = p1
     , _adbsgiCIDRIP = Nothing

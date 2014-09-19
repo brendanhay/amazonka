@@ -87,7 +87,7 @@ data UpdateHealthCheck = UpdateHealthCheck
 -- * @FailureThreshold ::@ @Maybe Integer@
 --
 updateHealthCheck :: Text -- ^ 'uhcHealthCheckId'
-                    -> UpdateHealthCheck
+                  -> UpdateHealthCheck
 updateHealthCheck p1 = UpdateHealthCheck
     { _uhcHealthCheckId = p1
     , _uhcHealthCheckVersion = Nothing
@@ -179,7 +179,7 @@ newtype UpdateHealthCheckResponse = UpdateHealthCheckResponse
 -- * @HealthCheck ::@ @HealthCheck@
 --
 updateHealthCheckResponse :: HealthCheck -- ^ 'uhcrHealthCheck'
-                            -> UpdateHealthCheckResponse
+                          -> UpdateHealthCheckResponse
 updateHealthCheckResponse p1 = UpdateHealthCheckResponse
     { _uhcrHealthCheck = p1
     }

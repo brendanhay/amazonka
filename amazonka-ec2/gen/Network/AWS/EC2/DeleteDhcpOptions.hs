@@ -58,7 +58,7 @@ newtype DeleteDhcpOptions = DeleteDhcpOptions
 -- * @DhcpOptionsId ::@ @Text@
 --
 deleteDhcpOptions :: Text -- ^ 'ddoDhcpOptionsId'
-                    -> DeleteDhcpOptions
+                  -> DeleteDhcpOptions
 deleteDhcpOptions p1 = DeleteDhcpOptions
     { _ddoDhcpOptionsId = p1
     }

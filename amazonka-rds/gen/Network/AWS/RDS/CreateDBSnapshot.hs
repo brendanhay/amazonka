@@ -67,8 +67,8 @@ data CreateDBSnapshot = CreateDBSnapshot
 -- * @Tags ::@ @[Tag]@
 --
 createDBSnapshot :: Text -- ^ 'cdbs1DBSnapshotIdentifier'
-                   -> Text -- ^ 'cdbs1DBInstanceIdentifier'
-                   -> CreateDBSnapshot
+                 -> Text -- ^ 'cdbs1DBInstanceIdentifier'
+                 -> CreateDBSnapshot
 createDBSnapshot p1 p2 = CreateDBSnapshot
     { _cdbs1DBSnapshotIdentifier = p1
     , _cdbs1DBInstanceIdentifier = p2

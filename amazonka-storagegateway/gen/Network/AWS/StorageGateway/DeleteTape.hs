@@ -54,8 +54,8 @@ data DeleteTape = DeleteTape
 -- * @TapeARN ::@ @Text@
 --
 deleteTape :: Text -- ^ 'dtGatewayARN'
-             -> Text -- ^ 'dtTapeARN'
-             -> DeleteTape
+           -> Text -- ^ 'dtTapeARN'
+           -> DeleteTape
 deleteTape p1 p2 = DeleteTape
     { _dtGatewayARN = p1
     , _dtTapeARN = p2

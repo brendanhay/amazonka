@@ -80,8 +80,8 @@ data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer
 -- * @Instances ::@ @[Instance]@
 --
 registerInstancesWithLoadBalancer :: Text -- ^ 'riwlbLoadBalancerName'
-                                    -> [Instance] -- ^ 'riwlbInstances'
-                                    -> RegisterInstancesWithLoadBalancer
+                                  -> [Instance] -- ^ 'riwlbInstances'
+                                  -> RegisterInstancesWithLoadBalancer
 registerInstancesWithLoadBalancer p1 p2 = RegisterInstancesWithLoadBalancer
     { _riwlbLoadBalancerName = p1
     , _riwlbInstances = p2

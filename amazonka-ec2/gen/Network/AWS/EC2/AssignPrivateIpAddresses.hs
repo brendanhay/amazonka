@@ -87,7 +87,7 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses
 -- * @AllowReassignment ::@ @Maybe Bool@
 --
 assignPrivateIpAddresses :: Text -- ^ 'apiaNetworkInterfaceId'
-                           -> AssignPrivateIpAddresses
+                         -> AssignPrivateIpAddresses
 assignPrivateIpAddresses p1 = AssignPrivateIpAddresses
     { _apiaNetworkInterfaceId = p1
     , _apiaPrivateIpAddresses = mempty

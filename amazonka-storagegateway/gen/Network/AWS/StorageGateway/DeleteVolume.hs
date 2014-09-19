@@ -75,7 +75,7 @@ newtype DeleteVolume = DeleteVolume
 -- * @VolumeARN ::@ @Text@
 --
 deleteVolume :: Text -- ^ 'dvVolumeARN'
-               -> DeleteVolume
+             -> DeleteVolume
 deleteVolume p1 = DeleteVolume
     { _dvVolumeARN = p1
     }

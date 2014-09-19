@@ -64,8 +64,8 @@ data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer
 -- * @SecurityGroups ::@ @[Text]@
 --
 applySecurityGroupsToLoadBalancer :: Text -- ^ 'asgtlbLoadBalancerName'
-                                    -> [Text] -- ^ 'asgtlbSecurityGroups'
-                                    -> ApplySecurityGroupsToLoadBalancer
+                                  -> [Text] -- ^ 'asgtlbSecurityGroups'
+                                  -> ApplySecurityGroupsToLoadBalancer
 applySecurityGroupsToLoadBalancer p1 p2 = ApplySecurityGroupsToLoadBalancer
     { _asgtlbLoadBalancerName = p1
     , _asgtlbSecurityGroups = p2

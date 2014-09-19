@@ -84,8 +84,8 @@ data ImportKeyPair = ImportKeyPair
 -- * @PublicKeyMaterial ::@ @ByteString@
 --
 importKeyPair :: Text -- ^ 'ikpKeyName'
-                -> ByteString -- ^ 'ikpPublicKeyMaterial'
-                -> ImportKeyPair
+              -> ByteString -- ^ 'ikpPublicKeyMaterial'
+              -> ImportKeyPair
 importKeyPair p1 p2 = ImportKeyPair
     { _ikpKeyName = p1
     , _ikpPublicKeyMaterial = p2

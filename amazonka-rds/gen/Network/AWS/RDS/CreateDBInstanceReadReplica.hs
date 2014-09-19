@@ -104,8 +104,8 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica
 -- * @DBSubnetGroupName ::@ @Maybe Text@
 --
 createDBInstanceReadReplica :: Text -- ^ 'cdbirrDBInstanceIdentifier'
-                              -> Text -- ^ 'cdbirrSourceDBInstanceIdentifier'
-                              -> CreateDBInstanceReadReplica
+                            -> Text -- ^ 'cdbirrSourceDBInstanceIdentifier'
+                            -> CreateDBInstanceReadReplica
 createDBInstanceReadReplica p1 p2 = CreateDBInstanceReadReplica
     { _cdbirrDBInstanceIdentifier = p1
     , _cdbirrSourceDBInstanceIdentifier = p2

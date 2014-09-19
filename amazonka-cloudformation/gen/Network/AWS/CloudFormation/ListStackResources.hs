@@ -74,7 +74,7 @@ data ListStackResources = ListStackResources
 -- * @NextToken ::@ @Maybe Text@
 --
 listStackResources :: Text -- ^ 'lsrStackName'
-                     -> ListStackResources
+                   -> ListStackResources
 listStackResources p1 = ListStackResources
     { _lsrStackName = p1
     , _lsrNextToken = Nothing

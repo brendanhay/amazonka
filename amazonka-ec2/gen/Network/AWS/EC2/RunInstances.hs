@@ -204,9 +204,9 @@ data RunInstances = RunInstances
 -- * @EbsOptimized ::@ @Maybe Bool@
 --
 runInstances :: Text -- ^ 'ri3ImageId'
-               -> Integer -- ^ 'ri3MinCount'
-               -> Integer -- ^ 'ri3MaxCount'
-               -> RunInstances
+             -> Integer -- ^ 'ri3MinCount'
+             -> Integer -- ^ 'ri3MaxCount'
+             -> RunInstances
 runInstances p1 p2 p3 = RunInstances
     { _ri3ImageId = p1
     , _ri3MinCount = p2

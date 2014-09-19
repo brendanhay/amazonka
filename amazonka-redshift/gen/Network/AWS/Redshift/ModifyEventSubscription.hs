@@ -76,7 +76,7 @@ data ModifyEventSubscription = ModifyEventSubscription
 -- * @Enabled ::@ @Maybe Bool@
 --
 modifyEventSubscription :: Text -- ^ 'mesSubscriptionName'
-                          -> ModifyEventSubscription
+                        -> ModifyEventSubscription
 modifyEventSubscription p1 = ModifyEventSubscription
     { _mesSubscriptionName = p1
     , _mesSnsTopicArn = Nothing

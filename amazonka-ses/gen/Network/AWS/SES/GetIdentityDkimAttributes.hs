@@ -81,7 +81,7 @@ newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes
 -- * @Identities ::@ @[Text]@
 --
 getIdentityDkimAttributes :: [Text] -- ^ 'gidaIdentities'
-                            -> GetIdentityDkimAttributes
+                          -> GetIdentityDkimAttributes
 getIdentityDkimAttributes p1 = GetIdentityDkimAttributes
     { _gidaIdentities = p1
     }
@@ -109,7 +109,7 @@ newtype GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
 -- * @DkimAttributes ::@ @Map Text IdentityDkimAttributes@
 --
 getIdentityDkimAttributesResponse :: Map Text IdentityDkimAttributes -- ^ 'gidarDkimAttributes'
-                                    -> GetIdentityDkimAttributesResponse
+                                  -> GetIdentityDkimAttributesResponse
 getIdentityDkimAttributesResponse p1 = GetIdentityDkimAttributesResponse
     { _gidarDkimAttributes = p1
     }

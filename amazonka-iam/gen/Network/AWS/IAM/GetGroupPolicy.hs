@@ -63,8 +63,8 @@ data GetGroupPolicy = GetGroupPolicy
 -- * @PolicyName ::@ @Text@
 --
 getGroupPolicy :: Text -- ^ 'ggpGroupName'
-                 -> Text -- ^ 'ggpPolicyName'
-                 -> GetGroupPolicy
+               -> Text -- ^ 'ggpPolicyName'
+               -> GetGroupPolicy
 getGroupPolicy p1 p2 = GetGroupPolicy
     { _ggpGroupName = p1
     , _ggpPolicyName = p2
@@ -103,9 +103,9 @@ data GetGroupPolicyResponse = GetGroupPolicyResponse
 -- * @PolicyDocument ::@ @Text@
 --
 getGroupPolicyResponse :: Text -- ^ 'ggprGroupName'
-                         -> Text -- ^ 'ggprPolicyName'
-                         -> Text -- ^ 'ggprPolicyDocument'
-                         -> GetGroupPolicyResponse
+                       -> Text -- ^ 'ggprPolicyName'
+                       -> Text -- ^ 'ggprPolicyDocument'
+                       -> GetGroupPolicyResponse
 getGroupPolicyResponse p1 p2 p3 = GetGroupPolicyResponse
     { _ggprGroupName = p1
     , _ggprPolicyName = p2

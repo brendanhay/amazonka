@@ -60,7 +60,7 @@ newtype GetStackPolicy = GetStackPolicy
 -- * @StackName ::@ @Text@
 --
 getStackPolicy :: Text -- ^ 'gspStackName'
-                 -> GetStackPolicy
+               -> GetStackPolicy
 getStackPolicy p1 = GetStackPolicy
     { _gspStackName = p1
     }

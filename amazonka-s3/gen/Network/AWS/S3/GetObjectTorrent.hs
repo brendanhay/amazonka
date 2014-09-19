@@ -56,8 +56,8 @@ data GetObjectTorrent = GetObjectTorrent
 -- * @Key ::@ @ObjectKey@
 --
 getObjectTorrent :: BucketName -- ^ 'gotBucket'
-                   -> ObjectKey -- ^ 'gotKey'
-                   -> GetObjectTorrent
+                 -> ObjectKey -- ^ 'gotKey'
+                 -> GetObjectTorrent
 getObjectTorrent p1 p2 = GetObjectTorrent
     { _gotBucket = p1
     , _gotKey = p2
@@ -91,7 +91,7 @@ newtype GetObjectTorrentResponse = GetObjectTorrentResponse
 -- * @Body ::@ @RsBody@
 --
 getObjectTorrentResponse :: RsBody -- ^ 'gotrBody'
-                           -> GetObjectTorrentResponse
+                         -> GetObjectTorrentResponse
 getObjectTorrentResponse p1 = GetObjectTorrentResponse
     { _gotrBody = p1
     }

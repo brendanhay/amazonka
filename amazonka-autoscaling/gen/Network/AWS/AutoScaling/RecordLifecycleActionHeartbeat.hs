@@ -68,9 +68,9 @@ data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat
 -- * @LifecycleActionToken ::@ @Text@
 --
 recordLifecycleActionHeartbeat :: Text -- ^ 'rlahLifecycleHookName'
-                                 -> Text -- ^ 'rlahAutoScalingGroupName'
-                                 -> Text -- ^ 'rlahLifecycleActionToken'
-                                 -> RecordLifecycleActionHeartbeat
+                               -> Text -- ^ 'rlahAutoScalingGroupName'
+                               -> Text -- ^ 'rlahLifecycleActionToken'
+                               -> RecordLifecycleActionHeartbeat
 recordLifecycleActionHeartbeat p1 p2 p3 = RecordLifecycleActionHeartbeat
     { _rlahLifecycleHookName = p1
     , _rlahAutoScalingGroupName = p2

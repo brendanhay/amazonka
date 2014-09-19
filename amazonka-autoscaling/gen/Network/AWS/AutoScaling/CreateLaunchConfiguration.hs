@@ -119,7 +119,7 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration
 -- * @PlacementTenancy ::@ @Maybe Text@
 --
 createLaunchConfiguration :: Text -- ^ 'clcLaunchConfigurationName'
-                            -> CreateLaunchConfiguration
+                          -> CreateLaunchConfiguration
 createLaunchConfiguration p1 = CreateLaunchConfiguration
     { _clcLaunchConfigurationName = p1
     , _clcImageId = Nothing

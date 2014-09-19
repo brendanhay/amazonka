@@ -81,9 +81,9 @@ data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface
 -- * @NewPrivateVirtualInterfaceAllocation ::@ @NewPrivateVirtualInterfaceAllocation@
 --
 allocatePrivateVirtualInterface :: Text -- ^ 'apviConnectionId'
-                                  -> Text -- ^ 'apviOwnerAccount'
-                                  -> NewPrivateVirtualInterfaceAllocation -- ^ 'apviNewPrivateVirtualInterfaceAllocation'
-                                  -> AllocatePrivateVirtualInterface
+                                -> Text -- ^ 'apviOwnerAccount'
+                                -> NewPrivateVirtualInterfaceAllocation -- ^ 'apviNewPrivateVirtualInterfaceAllocation'
+                                -> AllocatePrivateVirtualInterface
 allocatePrivateVirtualInterface p1 p2 p3 = AllocatePrivateVirtualInterface
     { _apviConnectionId = p1
     , _apviOwnerAccount = p2

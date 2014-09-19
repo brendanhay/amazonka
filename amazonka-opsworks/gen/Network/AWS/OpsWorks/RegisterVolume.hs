@@ -61,7 +61,7 @@ data RegisterVolume = RegisterVolume
 -- * @StackId ::@ @Text@
 --
 registerVolume :: Text -- ^ 'rvStackId'
-                 -> RegisterVolume
+               -> RegisterVolume
 registerVolume p2 = RegisterVolume
     { _rvEc2VolumeId = Nothing
     , _rvStackId = p2

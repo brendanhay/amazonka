@@ -121,7 +121,7 @@ data Query = Query
 -- * @ReturnConsumedCapacity ::@ @Maybe ReturnConsumedCapacity@
 --
 query :: Text -- ^ 'qTableName'
-        -> Query
+      -> Query
 query p1 = Query
     { _qTableName = p1
     , _qIndexName = Nothing

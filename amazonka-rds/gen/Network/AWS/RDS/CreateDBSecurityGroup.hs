@@ -67,8 +67,8 @@ data CreateDBSecurityGroup = CreateDBSecurityGroup
 -- * @Tags ::@ @[Tag]@
 --
 createDBSecurityGroup :: Text -- ^ 'cdbsgDBSecurityGroupName'
-                        -> Text -- ^ 'cdbsgDBSecurityGroupDescription'
-                        -> CreateDBSecurityGroup
+                      -> Text -- ^ 'cdbsgDBSecurityGroupDescription'
+                      -> CreateDBSecurityGroup
 createDBSecurityGroup p1 p2 = CreateDBSecurityGroup
     { _cdbsgDBSecurityGroupName = p1
     , _cdbsgDBSecurityGroupDescription = p2

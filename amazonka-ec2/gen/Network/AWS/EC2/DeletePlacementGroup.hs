@@ -58,7 +58,7 @@ newtype DeletePlacementGroup = DeletePlacementGroup
 -- * @GroupName ::@ @Text@
 --
 deletePlacementGroup :: Text -- ^ 'dpgGroupName'
-                       -> DeletePlacementGroup
+                     -> DeletePlacementGroup
 deletePlacementGroup p1 = DeletePlacementGroup
     { _dpgGroupName = p1
     }

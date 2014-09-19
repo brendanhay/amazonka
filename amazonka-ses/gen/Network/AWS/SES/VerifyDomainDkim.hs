@@ -74,7 +74,7 @@ newtype VerifyDomainDkim = VerifyDomainDkim
 -- * @Domain ::@ @Text@
 --
 verifyDomainDkim :: Text -- ^ 'vddDomain'
-                   -> VerifyDomainDkim
+                 -> VerifyDomainDkim
 verifyDomainDkim p1 = VerifyDomainDkim
     { _vddDomain = p1
     }
@@ -102,7 +102,7 @@ newtype VerifyDomainDkimResponse = VerifyDomainDkimResponse
 -- * @DkimTokens ::@ @[Text]@
 --
 verifyDomainDkimResponse :: [Text] -- ^ 'vddrDkimTokens'
-                           -> VerifyDomainDkimResponse
+                         -> VerifyDomainDkimResponse
 verifyDomainDkimResponse p1 = VerifyDomainDkimResponse
     { _vddrDkimTokens = p1
     }

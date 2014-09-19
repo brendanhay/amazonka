@@ -82,10 +82,10 @@ data AddPermission = AddPermission
 -- * @Actions ::@ @[Text]@
 --
 addPermission :: Text -- ^ 'apQueueUrl'
-                -> Text -- ^ 'apLabel'
-                -> [Text] -- ^ 'apAWSAccountIds'
-                -> [Text] -- ^ 'apActions'
-                -> AddPermission
+              -> Text -- ^ 'apLabel'
+              -> [Text] -- ^ 'apAWSAccountIds'
+              -> [Text] -- ^ 'apActions'
+              -> AddPermission
 addPermission p1 p2 p3 p4 = AddPermission
     { _apQueueUrl = p1
     , _apLabel = p2

@@ -458,7 +458,7 @@ newtype ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchRe
 -- * @Id ::@ @Text@
 --
 changeMessageVisibilityBatchResultEntry :: Text -- ^ 'cmvbrerId'
-                                          -> ChangeMessageVisibilityBatchResultEntry
+                                        -> ChangeMessageVisibilityBatchResultEntry
 changeMessageVisibilityBatchResultEntry p1 = ChangeMessageVisibilityBatchResultEntry
     { _cmvbrerId = p1
     }
@@ -488,7 +488,7 @@ newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry
 -- * @Id ::@ @Text@
 --
 deleteMessageBatchResultEntry :: Text -- ^ 'dmbrerId'
-                                -> DeleteMessageBatchResultEntry
+                              -> DeleteMessageBatchResultEntry
 deleteMessageBatchResultEntry p1 = DeleteMessageBatchResultEntry
     { _dmbrerId = p1
     }
@@ -527,9 +527,9 @@ data BatchResultErrorEntry = BatchResultErrorEntry
 -- * @Message ::@ @Maybe Text@
 --
 batchResultErrorEntry :: Text -- ^ 'breeId'
-                        -> Bool -- ^ 'breeSenderFault'
-                        -> Text -- ^ 'breeCode'
-                        -> BatchResultErrorEntry
+                      -> Bool -- ^ 'breeSenderFault'
+                      -> Text -- ^ 'breeCode'
+                      -> BatchResultErrorEntry
 batchResultErrorEntry p1 p2 p3 = BatchResultErrorEntry
     { _breeId = p1
     , _breeSenderFault = p2
@@ -584,8 +584,8 @@ data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequ
 -- * @VisibilityTimeout ::@ @Maybe Integer@
 --
 changeMessageVisibilityBatchRequestEntry :: Text -- ^ 'cmvbreId'
-                                           -> Text -- ^ 'cmvbreReceiptHandle'
-                                           -> ChangeMessageVisibilityBatchRequestEntry
+                                         -> Text -- ^ 'cmvbreReceiptHandle'
+                                         -> ChangeMessageVisibilityBatchRequestEntry
 changeMessageVisibilityBatchRequestEntry p1 p2 = ChangeMessageVisibilityBatchRequestEntry
     { _cmvbreId = p1
     , _cmvbreReceiptHandle = p2
@@ -628,8 +628,8 @@ data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry
 -- * @ReceiptHandle ::@ @Text@
 --
 deleteMessageBatchRequestEntry :: Text -- ^ 'dmbreId'
-                                 -> Text -- ^ 'dmbreReceiptHandle'
-                                 -> DeleteMessageBatchRequestEntry
+                               -> Text -- ^ 'dmbreReceiptHandle'
+                               -> DeleteMessageBatchRequestEntry
 deleteMessageBatchRequestEntry p1 p2 = DeleteMessageBatchRequestEntry
     { _dmbreId = p1
     , _dmbreReceiptHandle = p2
@@ -770,7 +770,7 @@ data MessageAttributeValue = MessageAttributeValue
 -- * @DataType ::@ @Text@
 --
 messageAttributeValue :: Text -- ^ 'mavDataType'
-                        -> MessageAttributeValue
+                      -> MessageAttributeValue
 messageAttributeValue p5 = MessageAttributeValue
     { _mavStringValue = Nothing
     , _mavBinaryValue = Nothing
@@ -834,8 +834,8 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry
 -- * @MessageAttributes ::@ @Map Text MessageAttributeValue@
 --
 sendMessageBatchRequestEntry :: Text -- ^ 'smbreId'
-                               -> Text -- ^ 'smbreMessageBody'
-                               -> SendMessageBatchRequestEntry
+                             -> Text -- ^ 'smbreMessageBody'
+                             -> SendMessageBatchRequestEntry
 sendMessageBatchRequestEntry p1 p2 = SendMessageBatchRequestEntry
     { _smbreId = p1
     , _smbreMessageBody = p2
@@ -894,9 +894,9 @@ data SendMessageBatchResultEntry = SendMessageBatchResultEntry
 -- * @MD5OfMessageAttributes ::@ @Maybe Text@
 --
 sendMessageBatchResultEntry :: Text -- ^ 'smbrerId'
-                              -> Text -- ^ 'smbrerMessageId'
-                              -> Text -- ^ 'smbrerMD5OfMessageBody'
-                              -> SendMessageBatchResultEntry
+                            -> Text -- ^ 'smbrerMessageId'
+                            -> Text -- ^ 'smbrerMD5OfMessageBody'
+                            -> SendMessageBatchResultEntry
 sendMessageBatchResultEntry p1 p2 p3 = SendMessageBatchResultEntry
     { _smbrerId = p1
     , _smbrerMessageId = p2

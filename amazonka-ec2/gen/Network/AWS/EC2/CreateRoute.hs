@@ -96,8 +96,8 @@ data CreateRoute = CreateRoute
 -- * @VpcPeeringConnectionId ::@ @Maybe Text@
 --
 createRoute :: Text -- ^ 'crRouteTableId'
-              -> Text -- ^ 'crDestinationCidrBlock'
-              -> CreateRoute
+            -> Text -- ^ 'crDestinationCidrBlock'
+            -> CreateRoute
 createRoute p1 p2 = CreateRoute
     { _crRouteTableId = p1
     , _crDestinationCidrBlock = p2

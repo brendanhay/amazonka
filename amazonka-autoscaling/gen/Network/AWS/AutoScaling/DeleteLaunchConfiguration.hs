@@ -55,7 +55,7 @@ newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration
 -- * @LaunchConfigurationName ::@ @Text@
 --
 deleteLaunchConfiguration :: Text -- ^ 'dlcLaunchConfigurationName'
-                            -> DeleteLaunchConfiguration
+                          -> DeleteLaunchConfiguration
 deleteLaunchConfiguration p1 = DeleteLaunchConfiguration
     { _dlcLaunchConfigurationName = p1
     }

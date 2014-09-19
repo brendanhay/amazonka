@@ -99,9 +99,9 @@ data CreateApp = CreateApp
 -- * @Environment ::@ @[EnvironmentVariable]@
 --
 createApp :: Text -- ^ 'caStackId'
-            -> Text -- ^ 'caName'
-            -> AppType -- ^ 'caType'
-            -> CreateApp
+          -> Text -- ^ 'caName'
+          -> AppType -- ^ 'caType'
+          -> CreateApp
 createApp p1 p3 p6 = CreateApp
     { _caStackId = p1
     , _caShortname = Nothing

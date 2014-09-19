@@ -50,7 +50,7 @@ newtype DeleteTags = DeleteTags
 -- * @Tags ::@ @[Tag]@
 --
 deleteTags :: [Tag] -- ^ 'dtTags'
-             -> DeleteTags
+           -> DeleteTags
 deleteTags p1 = DeleteTags
     { _dtTags = p1
     }

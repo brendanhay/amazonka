@@ -58,8 +58,8 @@ data RemoveTags = RemoveTags
 -- * @Tags ::@ @List1 TagKeyOnly@
 --
 removeTags :: [Text] -- ^ 'rtLoadBalancerNames'
-             -> List1 TagKeyOnly -- ^ 'rtTags'
-             -> RemoveTags
+           -> List1 TagKeyOnly -- ^ 'rtTags'
+           -> RemoveTags
 removeTags p1 p2 = RemoveTags
     { _rtLoadBalancerNames = p1
     , _rtTags = p2

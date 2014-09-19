@@ -74,9 +74,9 @@ data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackend
 -- * @PolicyNames ::@ @[Text]@
 --
 setLoadBalancerPoliciesForBackendServer :: Text -- ^ 'slbpfbsLoadBalancerName'
-                                          -> Integer -- ^ 'slbpfbsInstancePort'
-                                          -> [Text] -- ^ 'slbpfbsPolicyNames'
-                                          -> SetLoadBalancerPoliciesForBackendServer
+                                        -> Integer -- ^ 'slbpfbsInstancePort'
+                                        -> [Text] -- ^ 'slbpfbsPolicyNames'
+                                        -> SetLoadBalancerPoliciesForBackendServer
 setLoadBalancerPoliciesForBackendServer p1 p2 p3 = SetLoadBalancerPoliciesForBackendServer
     { _slbpfbsLoadBalancerName = p1
     , _slbpfbsInstancePort = p2

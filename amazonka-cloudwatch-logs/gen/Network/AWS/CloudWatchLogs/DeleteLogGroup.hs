@@ -59,7 +59,7 @@ newtype DeleteLogGroup = DeleteLogGroup
 -- * @LogGroupName ::@ @Text@
 --
 deleteLogGroup :: Text -- ^ 'dlgLogGroupName'
-                 -> DeleteLogGroup
+               -> DeleteLogGroup
 deleteLogGroup p1 = DeleteLogGroup
     { _dlgLogGroupName = p1
     }

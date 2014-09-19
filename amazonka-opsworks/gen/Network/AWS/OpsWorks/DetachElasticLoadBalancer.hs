@@ -57,8 +57,8 @@ data DetachElasticLoadBalancer = DetachElasticLoadBalancer
 -- * @LayerId ::@ @Text@
 --
 detachElasticLoadBalancer :: Text -- ^ 'delb1ElasticLoadBalancerName'
-                            -> Text -- ^ 'delb1LayerId'
-                            -> DetachElasticLoadBalancer
+                          -> Text -- ^ 'delb1LayerId'
+                          -> DetachElasticLoadBalancer
 detachElasticLoadBalancer p1 p2 = DetachElasticLoadBalancer
     { _delb1ElasticLoadBalancerName = p1
     , _delb1LayerId = p2

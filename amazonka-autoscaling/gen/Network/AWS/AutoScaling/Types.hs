@@ -701,7 +701,7 @@ newtype ProcessType = ProcessType
 -- * @ProcessName ::@ @Text@
 --
 processType :: Text -- ^ 'ptProcessName'
-              -> ProcessType
+            -> ProcessType
 processType p1 = ProcessType
     { _ptProcessName = p1
     }
@@ -760,11 +760,11 @@ data Activity = Activity
 -- * @Details ::@ @Maybe Text@
 --
 activity :: Text -- ^ 'arActivityId'
-           -> Text -- ^ 'arAutoScalingGroupName'
-           -> Text -- ^ 'arCause'
-           -> ISO8601 -- ^ 'arStartTime'
-           -> ScalingActivityStatusCode -- ^ 'arStatusCode'
-           -> Activity
+         -> Text -- ^ 'arAutoScalingGroupName'
+         -> Text -- ^ 'arCause'
+         -> ISO8601 -- ^ 'arStartTime'
+         -> ScalingActivityStatusCode -- ^ 'arStatusCode'
+         -> Activity
 activity p1 p2 p4 p5 p7 = Activity
     { _arActivityId = p1
     , _arAutoScalingGroupName = p2
@@ -933,15 +933,15 @@ data AutoScalingGroup = AutoScalingGroup
 -- * @TerminationPolicies ::@ @[Text]@
 --
 autoScalingGroup :: Text -- ^ 'asgAutoScalingGroupName'
-                   -> Text -- ^ 'asgHealthCheckType'
-                   -> ISO8601 -- ^ 'asgCreatedTime'
-                   -> Text -- ^ 'asgLaunchConfigurationName'
-                   -> Integer -- ^ 'asgMinSize'
-                   -> Integer -- ^ 'asgMaxSize'
-                   -> Integer -- ^ 'asgDesiredCapacity'
-                   -> Integer -- ^ 'asgDefaultCooldown'
-                   -> List1 Text -- ^ 'asgAvailabilityZones'
-                   -> AutoScalingGroup
+                 -> Text -- ^ 'asgHealthCheckType'
+                 -> ISO8601 -- ^ 'asgCreatedTime'
+                 -> Text -- ^ 'asgLaunchConfigurationName'
+                 -> Integer -- ^ 'asgMinSize'
+                 -> Integer -- ^ 'asgMaxSize'
+                 -> Integer -- ^ 'asgDesiredCapacity'
+                 -> Integer -- ^ 'asgDefaultCooldown'
+                 -> List1 Text -- ^ 'asgAvailabilityZones'
+                 -> AutoScalingGroup
 autoScalingGroup p1 p10 p13 p3 p4 p5 p6 p7 p8 = AutoScalingGroup
     { _asgAutoScalingGroupName = p1
     , _asgAutoScalingGroupARN = Nothing
@@ -1106,12 +1106,12 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails
 -- * @LaunchConfigurationName ::@ @Text@
 --
 autoScalingInstanceDetails :: Text -- ^ 'asidInstanceId'
-                             -> Text -- ^ 'asidAutoScalingGroupName'
-                             -> Text -- ^ 'asidAvailabilityZone'
-                             -> Text -- ^ 'asidLifecycleState'
-                             -> Text -- ^ 'asidHealthStatus'
-                             -> Text -- ^ 'asidLaunchConfigurationName'
-                             -> AutoScalingInstanceDetails
+                           -> Text -- ^ 'asidAutoScalingGroupName'
+                           -> Text -- ^ 'asidAvailabilityZone'
+                           -> Text -- ^ 'asidLifecycleState'
+                           -> Text -- ^ 'asidHealthStatus'
+                           -> Text -- ^ 'asidLaunchConfigurationName'
+                           -> AutoScalingInstanceDetails
 autoScalingInstanceDetails p1 p2 p3 p4 p5 p6 = AutoScalingInstanceDetails
     { _asidInstanceId = p1
     , _asidAutoScalingGroupName = p2
@@ -1181,7 +1181,7 @@ data BlockDeviceMapping = BlockDeviceMapping
 -- * @NoDevice ::@ @Maybe Bool@
 --
 blockDeviceMapping :: Text -- ^ 'bdmDeviceName'
-                     -> BlockDeviceMapping
+                   -> BlockDeviceMapping
 blockDeviceMapping p2 = BlockDeviceMapping
     { _bdmVirtualName = Nothing
     , _bdmDeviceName = p2
@@ -1333,7 +1333,7 @@ data Filter = Filter
 -- * @Values ::@ @[Text]@
 --
 filter' :: Text -- ^ 'fName'
-         -> Filter
+       -> Filter
 filter' p1 = Filter
     { _fName = p1
     , _fValues = mempty
@@ -1376,11 +1376,11 @@ data Instance = Instance
 -- * @LaunchConfigurationName ::@ @Text@
 --
 instance' :: Text -- ^ 'iInstanceId'
-           -> Text -- ^ 'iAvailabilityZone'
-           -> LifecycleState -- ^ 'iLifecycleState'
-           -> Text -- ^ 'iHealthStatus'
-           -> Text -- ^ 'iLaunchConfigurationName'
-           -> Instance
+         -> Text -- ^ 'iAvailabilityZone'
+         -> LifecycleState -- ^ 'iLifecycleState'
+         -> Text -- ^ 'iHealthStatus'
+         -> Text -- ^ 'iLaunchConfigurationName'
+         -> Instance
 instance' p1 p2 p3 p4 p5 = Instance
     { _iInstanceId = p1
     , _iAvailabilityZone = p2
@@ -1484,10 +1484,10 @@ data LaunchConfiguration = LaunchConfiguration
 -- * @PlacementTenancy ::@ @Maybe Text@
 --
 launchConfiguration :: Text -- ^ 'lcLaunchConfigurationName'
-                      -> ISO8601 -- ^ 'lcCreatedTime'
-                      -> Text -- ^ 'lcImageId'
-                      -> Text -- ^ 'lcInstanceType'
-                      -> LaunchConfiguration
+                    -> ISO8601 -- ^ 'lcCreatedTime'
+                    -> Text -- ^ 'lcImageId'
+                    -> Text -- ^ 'lcInstanceType'
+                    -> LaunchConfiguration
 launchConfiguration p1 p14 p3 p7 = LaunchConfiguration
     { _lcLaunchConfigurationName = p1
     , _lcLaunchConfigurationARN = Nothing
@@ -2038,11 +2038,11 @@ data Tag = Tag
 -- * @PropagateAtLaunch ::@ @Bool@
 --
 tag :: Text -- ^ 'tResourceId'
-      -> Text -- ^ 'tResourceType'
-      -> Text -- ^ 'tKey'
-      -> Text -- ^ 'tValue'
-      -> Bool -- ^ 'tPropagateAtLaunch'
-      -> Tag
+    -> Text -- ^ 'tResourceType'
+    -> Text -- ^ 'tKey'
+    -> Text -- ^ 'tValue'
+    -> Bool -- ^ 'tPropagateAtLaunch'
+    -> Tag
 tag p1 p2 p3 p4 p5 = Tag
     { _tResourceId = p1
     , _tResourceType = p2
@@ -2104,11 +2104,11 @@ data TagDescription = TagDescription
 -- * @PropagateAtLaunch ::@ @Bool@
 --
 tagDescription :: Text -- ^ 'tdResourceId'
-                 -> Text -- ^ 'tdResourceType'
-                 -> Text -- ^ 'tdKey'
-                 -> Text -- ^ 'tdValue'
-                 -> Bool -- ^ 'tdPropagateAtLaunch'
-                 -> TagDescription
+               -> Text -- ^ 'tdResourceType'
+               -> Text -- ^ 'tdKey'
+               -> Text -- ^ 'tdValue'
+               -> Bool -- ^ 'tdPropagateAtLaunch'
+               -> TagDescription
 tagDescription p1 p2 p3 p4 p5 = TagDescription
     { _tdResourceId = p1
     , _tdResourceType = p2

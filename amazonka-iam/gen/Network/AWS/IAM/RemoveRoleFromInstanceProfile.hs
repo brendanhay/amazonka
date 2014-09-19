@@ -62,8 +62,8 @@ data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile
 -- * @RoleName ::@ @Text@
 --
 removeRoleFromInstanceProfile :: Text -- ^ 'rrfipInstanceProfileName'
-                                -> Text -- ^ 'rrfipRoleName'
-                                -> RemoveRoleFromInstanceProfile
+                              -> Text -- ^ 'rrfipRoleName'
+                              -> RemoveRoleFromInstanceProfile
 removeRoleFromInstanceProfile p1 p2 = RemoveRoleFromInstanceProfile
     { _rrfipInstanceProfileName = p1
     , _rrfipRoleName = p2

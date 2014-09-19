@@ -712,10 +712,10 @@ data AccessKey = AccessKey
 -- * @CreateDate ::@ @Maybe ISO8601@
 --
 accessKey :: Text -- ^ 'akUserName'
-            -> Text -- ^ 'akAccessKeyId'
-            -> StatusType -- ^ 'akStatus'
-            -> Text -- ^ 'akSecretAccessKey'
-            -> AccessKey
+          -> Text -- ^ 'akAccessKeyId'
+          -> StatusType -- ^ 'akStatus'
+          -> Text -- ^ 'akSecretAccessKey'
+          -> AccessKey
 accessKey p1 p2 p3 p4 = AccessKey
     { _akUserName = p1
     , _akAccessKeyId = p2
@@ -833,11 +833,11 @@ data Group = Group
 -- * @CreateDate ::@ @ISO8601@
 --
 group :: Text -- ^ 'gPath'
-        -> Text -- ^ 'gGroupName'
-        -> Text -- ^ 'gGroupId'
-        -> Text -- ^ 'gArn'
-        -> ISO8601 -- ^ 'gCreateDate'
-        -> Group
+      -> Text -- ^ 'gGroupName'
+      -> Text -- ^ 'gGroupId'
+      -> Text -- ^ 'gArn'
+      -> ISO8601 -- ^ 'gCreateDate'
+      -> Group
 group p1 p2 p3 p4 p5 = Group
     { _gPath = p1
     , _gGroupName = p2
@@ -905,12 +905,12 @@ data InstanceProfile = InstanceProfile
 -- * @Roles ::@ @[Role]@
 --
 instanceProfile :: Text -- ^ 'ipPath'
-                  -> Text -- ^ 'ipInstanceProfileName'
-                  -> Text -- ^ 'ipInstanceProfileId'
-                  -> Text -- ^ 'ipArn'
-                  -> ISO8601 -- ^ 'ipCreateDate'
-                  -> [Role] -- ^ 'ipRoles'
-                  -> InstanceProfile
+                -> Text -- ^ 'ipInstanceProfileName'
+                -> Text -- ^ 'ipInstanceProfileId'
+                -> Text -- ^ 'ipArn'
+                -> ISO8601 -- ^ 'ipCreateDate'
+                -> [Role] -- ^ 'ipRoles'
+                -> InstanceProfile
 instanceProfile p1 p2 p3 p4 p5 p6 = InstanceProfile
     { _ipPath = p1
     , _ipInstanceProfileName = p2
@@ -977,8 +977,8 @@ data LoginProfile = LoginProfile
 -- * @PasswordResetRequired ::@ @Maybe Bool@
 --
 loginProfile :: Text -- ^ 'lpUserName'
-               -> ISO8601 -- ^ 'lpCreateDate'
-               -> LoginProfile
+             -> ISO8601 -- ^ 'lpCreateDate'
+             -> LoginProfile
 loginProfile p1 p2 = LoginProfile
     { _lpUserName = p1
     , _lpCreateDate = p2
@@ -1028,9 +1028,9 @@ data MFADevice = MFADevice
 -- * @EnableDate ::@ @ISO8601@
 --
 mFADevice :: Text -- ^ 'mfadUserName'
-            -> Text -- ^ 'mfadSerialNumber'
-            -> ISO8601 -- ^ 'mfadEnableDate'
-            -> MFADevice
+          -> Text -- ^ 'mfadSerialNumber'
+          -> ISO8601 -- ^ 'mfadEnableDate'
+          -> MFADevice
 mFADevice p1 p2 p3 = MFADevice
     { _mfadUserName = p1
     , _mfadSerialNumber = p2
@@ -1204,11 +1204,11 @@ data Role = Role
 -- * @AssumeRolePolicyDocument ::@ @Maybe Text@
 --
 role :: Text -- ^ 'rPath'
-       -> Text -- ^ 'rRoleName'
-       -> Text -- ^ 'rRoleId'
-       -> Text -- ^ 'rArn'
-       -> ISO8601 -- ^ 'rCreateDate'
-       -> Role
+     -> Text -- ^ 'rRoleName'
+     -> Text -- ^ 'rRoleId'
+     -> Text -- ^ 'rArn'
+     -> ISO8601 -- ^ 'rCreateDate'
+     -> Role
 role p1 p2 p3 p4 p5 = Role
     { _rPath = p1
     , _rRoleName = p2
@@ -1325,8 +1325,8 @@ data ServerCertificate = ServerCertificate
 -- * @CertificateChain ::@ @Maybe Text@
 --
 serverCertificate :: ServerCertificateMetadata -- ^ 'scServerCertificateMetadata'
-                    -> Text -- ^ 'scCertificateBody'
-                    -> ServerCertificate
+                  -> Text -- ^ 'scCertificateBody'
+                  -> ServerCertificate
 serverCertificate p1 p2 = ServerCertificate
     { _scServerCertificateMetadata = p1
     , _scCertificateBody = p2
@@ -1386,10 +1386,10 @@ data ServerCertificateMetadata = ServerCertificateMetadata
 -- * @Expiration ::@ @Maybe ISO8601@
 --
 serverCertificateMetadata :: Text -- ^ 'scmPath'
-                            -> Text -- ^ 'scmServerCertificateName'
-                            -> Text -- ^ 'scmServerCertificateId'
-                            -> Text -- ^ 'scmArn'
-                            -> ServerCertificateMetadata
+                          -> Text -- ^ 'scmServerCertificateName'
+                          -> Text -- ^ 'scmServerCertificateId'
+                          -> Text -- ^ 'scmArn'
+                          -> ServerCertificateMetadata
 serverCertificateMetadata p1 p2 p3 p4 = ServerCertificateMetadata
     { _scmPath = p1
     , _scmServerCertificateName = p2
@@ -1465,10 +1465,10 @@ data SigningCertificate = SigningCertificate
 -- * @UploadDate ::@ @Maybe ISO8601@
 --
 signingCertificate :: Text -- ^ 'scrUserName'
-                     -> Text -- ^ 'scrCertificateId'
-                     -> Text -- ^ 'scrCertificateBody'
-                     -> StatusType -- ^ 'scrStatus'
-                     -> SigningCertificate
+                   -> Text -- ^ 'scrCertificateId'
+                   -> Text -- ^ 'scrCertificateBody'
+                   -> StatusType -- ^ 'scrStatus'
+                   -> SigningCertificate
 signingCertificate p1 p2 p3 p4 = SigningCertificate
     { _scrUserName = p1
     , _scrCertificateId = p2
@@ -1529,11 +1529,11 @@ data User = User
 -- * @CreateDate ::@ @ISO8601@
 --
 user :: Text -- ^ 'uPath'
-       -> Text -- ^ 'uUserName'
-       -> Text -- ^ 'uUserId'
-       -> Text -- ^ 'uArn'
-       -> ISO8601 -- ^ 'uCreateDate'
-       -> User
+     -> Text -- ^ 'uUserName'
+     -> Text -- ^ 'uUserId'
+     -> Text -- ^ 'uArn'
+     -> ISO8601 -- ^ 'uCreateDate'
+     -> User
 user p1 p2 p3 p4 p5 = User
     { _uPath = p1
     , _uUserName = p2
@@ -1601,7 +1601,7 @@ data VirtualMFADevice = VirtualMFADevice
 -- * @EnableDate ::@ @Maybe ISO8601@
 --
 virtualMFADevice :: Text -- ^ 'vmfadSerialNumber'
-                   -> VirtualMFADevice
+                 -> VirtualMFADevice
 virtualMFADevice p1 = VirtualMFADevice
     { _vmfadSerialNumber = p1
     , _vmfadBase32StringSeed = Nothing

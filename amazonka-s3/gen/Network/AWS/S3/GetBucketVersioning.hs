@@ -53,7 +53,7 @@ newtype GetBucketVersioning = GetBucketVersioning
 -- * @Bucket ::@ @BucketName@
 --
 getBucketVersioning :: BucketName -- ^ 'gbvBucket'
-                      -> GetBucketVersioning
+                    -> GetBucketVersioning
 getBucketVersioning p1 = GetBucketVersioning
     { _gbvBucket = p1
     }

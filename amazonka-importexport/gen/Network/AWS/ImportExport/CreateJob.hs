@@ -73,9 +73,9 @@ data CreateJob = CreateJob
 -- * @ValidateOnly ::@ @Bool@
 --
 createJob :: JobType -- ^ 'cj1JobType'
-            -> Text -- ^ 'cj1Manifest'
-            -> Bool -- ^ 'cj1ValidateOnly'
-            -> CreateJob
+          -> Text -- ^ 'cj1Manifest'
+          -> Bool -- ^ 'cj1ValidateOnly'
+          -> CreateJob
 createJob p1 p2 p4 = CreateJob
     { _cj1JobType = p1
     , _cj1Manifest = p2

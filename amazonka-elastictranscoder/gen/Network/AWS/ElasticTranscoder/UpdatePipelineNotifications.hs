@@ -76,8 +76,8 @@ data UpdatePipelineNotifications = UpdatePipelineNotifications
 -- * @Notifications ::@ @Notifications@
 --
 updatePipelineNotifications :: Text -- ^ 'upnId'
-                              -> Notifications -- ^ 'upnNotifications'
-                              -> UpdatePipelineNotifications
+                            -> Notifications -- ^ 'upnNotifications'
+                            -> UpdatePipelineNotifications
 updatePipelineNotifications p1 p2 = UpdatePipelineNotifications
     { _upnId = p1
     , _upnNotifications = p2

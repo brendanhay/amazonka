@@ -115,9 +115,9 @@ data RegisterActivityType = RegisterActivityType
 -- * @DefaultTaskScheduleToCloseTimeout ::@ @Maybe Text@
 --
 registerActivityType :: Text -- ^ 'ratDomain'
-                       -> Text -- ^ 'ratName'
-                       -> Text -- ^ 'ratVersion'
-                       -> RegisterActivityType
+                     -> Text -- ^ 'ratName'
+                     -> Text -- ^ 'ratVersion'
+                     -> RegisterActivityType
 registerActivityType p1 p2 p3 = RegisterActivityType
     { _ratDomain = p1
     , _ratName = p2

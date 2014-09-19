@@ -54,7 +54,7 @@ newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect
 -- * @InterconnectId ::@ @Text@
 --
 describeConnectionsOnInterconnect :: Text -- ^ 'dcoiInterconnectId'
-                                    -> DescribeConnectionsOnInterconnect
+                                  -> DescribeConnectionsOnInterconnect
 describeConnectionsOnInterconnect p1 = DescribeConnectionsOnInterconnect
     { _dcoiInterconnectId = p1
     }

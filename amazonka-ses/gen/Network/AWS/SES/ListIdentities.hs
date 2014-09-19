@@ -113,7 +113,7 @@ data ListIdentitiesResponse = ListIdentitiesResponse
 -- * @NextToken ::@ @Maybe Text@
 --
 listIdentitiesResponse :: [Text] -- ^ 'lirIdentities'
-                         -> ListIdentitiesResponse
+                       -> ListIdentitiesResponse
 listIdentitiesResponse p1 = ListIdentitiesResponse
     { _lirIdentities = p1
     , _lirNextToken = Nothing

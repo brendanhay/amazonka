@@ -92,7 +92,7 @@ data UpdateApp = UpdateApp
 -- * @Environment ::@ @[EnvironmentVariable]@
 --
 updateApp :: Text -- ^ 'uaAppId'
-            -> UpdateApp
+          -> UpdateApp
 updateApp p1 = UpdateApp
     { _uaAppId = p1
     , _uaName = Nothing

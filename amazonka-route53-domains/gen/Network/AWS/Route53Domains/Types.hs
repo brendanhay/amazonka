@@ -1651,7 +1651,7 @@ data DomainSummary = DomainSummary
 -- * @Expiry ::@ @Maybe ISO8601@
 --
 domainSummary :: Text -- ^ 'dsDomainName'
-                -> DomainSummary
+              -> DomainSummary
 domainSummary p1 = DomainSummary
     { _dsDomainName = p1
     , _dsAutoRenew = Nothing
@@ -1696,8 +1696,8 @@ data ExtraParam = ExtraParam
 -- * @Value ::@ @Text@
 --
 extraParam :: ExtraParamName -- ^ 'epName'
-             -> Text -- ^ 'epValue'
-             -> ExtraParam
+           -> Text -- ^ 'epValue'
+           -> ExtraParam
 extraParam p1 p2 = ExtraParam
     { _epName = p1
     , _epValue = p2
@@ -1738,7 +1738,7 @@ data Nameserver = Nameserver
 -- * @GlueIps ::@ @[Text]@
 --
 nameserver :: Text -- ^ 'nName'
-             -> Nameserver
+           -> Nameserver
 nameserver p1 = Nameserver
     { _nName = p1
     , _nGlueIps = mempty
@@ -1787,10 +1787,10 @@ data OperationSummary = OperationSummary
 -- * @SubmittedDate ::@ @ISO8601@
 --
 operationSummary :: Text -- ^ 'osOperationId'
-                   -> OperationStatus -- ^ 'osStatus'
-                   -> OperationType -- ^ 'osType'
-                   -> ISO8601 -- ^ 'osSubmittedDate'
-                   -> OperationSummary
+                 -> OperationStatus -- ^ 'osStatus'
+                 -> OperationType -- ^ 'osType'
+                 -> ISO8601 -- ^ 'osSubmittedDate'
+                 -> OperationSummary
 operationSummary p1 p2 p3 p4 = OperationSummary
     { _osOperationId = p1
     , _osStatus = p2

@@ -61,8 +61,8 @@ data RegisterElasticIp = RegisterElasticIp
 -- * @StackId ::@ @Text@
 --
 registerElasticIp :: Text -- ^ 'reiElasticIp'
-                    -> Text -- ^ 'reiStackId'
-                    -> RegisterElasticIp
+                  -> Text -- ^ 'reiStackId'
+                  -> RegisterElasticIp
 registerElasticIp p1 p2 = RegisterElasticIp
     { _reiElasticIp = p1
     , _reiStackId = p2

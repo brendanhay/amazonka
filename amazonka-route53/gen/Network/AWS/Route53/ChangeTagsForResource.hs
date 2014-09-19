@@ -63,8 +63,8 @@ data ChangeTagsForResource = ChangeTagsForResource
 -- * @RemoveTagKeys ::@ @Maybe (List1 Text)@
 --
 changeTagsForResource :: TagResourceType -- ^ 'ctfrResourceType'
-                        -> Text -- ^ 'ctfrResourceId'
-                        -> ChangeTagsForResource
+                      -> Text -- ^ 'ctfrResourceId'
+                      -> ChangeTagsForResource
 changeTagsForResource p1 p2 = ChangeTagsForResource
     { _ctfrResourceType = p1
     , _ctfrResourceId = p2

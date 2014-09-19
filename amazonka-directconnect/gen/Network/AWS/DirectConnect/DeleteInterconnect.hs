@@ -52,7 +52,7 @@ newtype DeleteInterconnect = DeleteInterconnect
 -- * @InterconnectId ::@ @Text@
 --
 deleteInterconnect :: Text -- ^ 'diInterconnectId'
-                     -> DeleteInterconnect
+                   -> DeleteInterconnect
 deleteInterconnect p1 = DeleteInterconnect
     { _diInterconnectId = p1
     }

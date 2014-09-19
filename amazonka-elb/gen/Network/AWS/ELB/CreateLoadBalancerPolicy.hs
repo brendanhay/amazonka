@@ -70,9 +70,9 @@ data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy
 -- * @PolicyAttributes ::@ @[PolicyAttribute]@
 --
 createLoadBalancerPolicy :: Text -- ^ 'clbpLoadBalancerName'
-                           -> Text -- ^ 'clbpPolicyName'
-                           -> Text -- ^ 'clbpPolicyTypeName'
-                           -> CreateLoadBalancerPolicy
+                         -> Text -- ^ 'clbpPolicyName'
+                         -> Text -- ^ 'clbpPolicyTypeName'
+                         -> CreateLoadBalancerPolicy
 createLoadBalancerPolicy p1 p2 p3 = CreateLoadBalancerPolicy
     { _clbpLoadBalancerName = p1
     , _clbpPolicyName = p2

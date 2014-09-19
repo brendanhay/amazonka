@@ -71,8 +71,8 @@ data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit
 -- * @BandwidthType ::@ @Text@
 --
 deleteBandwidthRateLimit :: Text -- ^ 'dbrlGatewayARN'
-                           -> Text -- ^ 'dbrlBandwidthType'
-                           -> DeleteBandwidthRateLimit
+                         -> Text -- ^ 'dbrlBandwidthType'
+                         -> DeleteBandwidthRateLimit
 deleteBandwidthRateLimit p1 p2 = DeleteBandwidthRateLimit
     { _dbrlGatewayARN = p1
     , _dbrlBandwidthType = p2

@@ -65,8 +65,8 @@ data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
 -- * @DestinationCidrBlock ::@ @Text@
 --
 deleteVpnConnectionRoute :: Text -- ^ 'dvcrVpnConnectionId'
-                           -> Text -- ^ 'dvcrDestinationCidrBlock'
-                           -> DeleteVpnConnectionRoute
+                         -> Text -- ^ 'dvcrDestinationCidrBlock'
+                         -> DeleteVpnConnectionRoute
 deleteVpnConnectionRoute p1 p2 = DeleteVpnConnectionRoute
     { _dvcrVpnConnectionId = p1
     , _dvcrDestinationCidrBlock = p2

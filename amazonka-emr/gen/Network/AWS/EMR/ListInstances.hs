@@ -69,7 +69,7 @@ data ListInstances = ListInstances
 -- * @Marker ::@ @Maybe Text@
 --
 listInstances :: Text -- ^ 'liClusterId'
-                -> ListInstances
+              -> ListInstances
 listInstances p1 = ListInstances
     { _liClusterId = p1
     , _liInstanceGroupId = Nothing

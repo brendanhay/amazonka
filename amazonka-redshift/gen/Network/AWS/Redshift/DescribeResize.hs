@@ -76,7 +76,7 @@ newtype DescribeResize = DescribeResize
 -- * @ClusterIdentifier ::@ @Text@
 --
 describeResize :: Text -- ^ 'drClusterIdentifier'
-                 -> DescribeResize
+               -> DescribeResize
 describeResize p1 = DescribeResize
     { _drClusterIdentifier = p1
     }

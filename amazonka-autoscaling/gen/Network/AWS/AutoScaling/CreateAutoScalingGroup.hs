@@ -117,9 +117,9 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup
 -- * @Tags ::@ @[Tag]@
 --
 createAutoScalingGroup :: Text -- ^ 'casgAutoScalingGroupName'
-                         -> Integer -- ^ 'casgMinSize'
-                         -> Integer -- ^ 'casgMaxSize'
-                         -> CreateAutoScalingGroup
+                       -> Integer -- ^ 'casgMinSize'
+                       -> Integer -- ^ 'casgMaxSize'
+                       -> CreateAutoScalingGroup
 createAutoScalingGroup p1 p4 p5 = CreateAutoScalingGroup
     { _casgAutoScalingGroupName = p1
     , _casgLaunchConfigurationName = Nothing

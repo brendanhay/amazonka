@@ -91,7 +91,7 @@ data CreateInstanceExportTask = CreateInstanceExportTask
 -- * @ExportToS3Task ::@ @Maybe ExportToS3TaskSpecification@
 --
 createInstanceExportTask :: Text -- ^ 'cietInstanceId'
-                           -> CreateInstanceExportTask
+                         -> CreateInstanceExportTask
 createInstanceExportTask p2 = CreateInstanceExportTask
     { _cietDescription = Nothing
     , _cietInstanceId = p2

@@ -64,8 +64,8 @@ data CreateLoginProfile = CreateLoginProfile
 -- * @PasswordResetRequired ::@ @Maybe Bool@
 --
 createLoginProfile :: Text -- ^ 'clpUserName'
-                     -> Text -- ^ 'clpPassword'
-                     -> CreateLoginProfile
+                   -> Text -- ^ 'clpPassword'
+                   -> CreateLoginProfile
 createLoginProfile p1 p2 = CreateLoginProfile
     { _clpUserName = p1
     , _clpPassword = p2
@@ -106,7 +106,7 @@ newtype CreateLoginProfileResponse = CreateLoginProfileResponse
 -- * @LoginProfile ::@ @LoginProfile@
 --
 createLoginProfileResponse :: LoginProfile -- ^ 'clprLoginProfile'
-                             -> CreateLoginProfileResponse
+                           -> CreateLoginProfileResponse
 createLoginProfileResponse p1 = CreateLoginProfileResponse
     { _clprLoginProfile = p1
     }

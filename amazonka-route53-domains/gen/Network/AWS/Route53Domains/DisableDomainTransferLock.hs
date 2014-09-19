@@ -71,7 +71,7 @@ newtype DisableDomainTransferLock = DisableDomainTransferLock
 -- * @DomainName ::@ @Text@
 --
 disableDomainTransferLock :: Text -- ^ 'ddtlDomainName'
-                            -> DisableDomainTransferLock
+                          -> DisableDomainTransferLock
 disableDomainTransferLock p1 = DisableDomainTransferLock
     { _ddtlDomainName = p1
     }
@@ -106,7 +106,7 @@ newtype DisableDomainTransferLockResponse = DisableDomainTransferLockResponse
 -- * @OperationId ::@ @Text@
 --
 disableDomainTransferLockResponse :: Text -- ^ 'ddtlrOperationId'
-                                    -> DisableDomainTransferLockResponse
+                                  -> DisableDomainTransferLockResponse
 disableDomainTransferLockResponse p1 = DisableDomainTransferLockResponse
     { _ddtlrOperationId = p1
     }

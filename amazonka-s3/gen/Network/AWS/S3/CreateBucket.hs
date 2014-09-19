@@ -84,7 +84,7 @@ data CreateBucket = CreateBucket
 -- * @GrantWriteACP ::@ @Maybe Text@
 --
 createBucket :: BucketName -- ^ 'cbBucket'
-               -> CreateBucket
+             -> CreateBucket
 createBucket p2 = CreateBucket
     { _cbACL = Nothing
     , _cbBucket = p2

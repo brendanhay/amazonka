@@ -61,7 +61,7 @@ data ListInvalidations = ListInvalidations
 -- * @MaxItems ::@ @Maybe Text@
 --
 listInvalidations :: Text -- ^ 'liDistributionId'
-                    -> ListInvalidations
+                  -> ListInvalidations
 listInvalidations p1 = ListInvalidations
     { _liDistributionId = p1
     , _liMarker = Nothing
@@ -112,7 +112,7 @@ newtype ListInvalidationsResponse = ListInvalidationsResponse
 -- * @InvalidationList ::@ @InvalidationList@
 --
 listInvalidationsResponse :: InvalidationList -- ^ 'lirInvalidationList'
-                            -> ListInvalidationsResponse
+                          -> ListInvalidationsResponse
 listInvalidationsResponse p1 = ListInvalidationsResponse
     { _lirInvalidationList = p1
     }

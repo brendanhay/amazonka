@@ -123,8 +123,8 @@ data UpdateConfigurationTemplate = UpdateConfigurationTemplate
 -- * @OptionsToRemove ::@ @[OptionSpecification]@
 --
 updateConfigurationTemplate :: Text -- ^ 'uctApplicationName'
-                              -> Text -- ^ 'uctTemplateName'
-                              -> UpdateConfigurationTemplate
+                            -> Text -- ^ 'uctTemplateName'
+                            -> UpdateConfigurationTemplate
 updateConfigurationTemplate p1 p2 = UpdateConfigurationTemplate
     { _uctApplicationName = p1
     , _uctTemplateName = p2

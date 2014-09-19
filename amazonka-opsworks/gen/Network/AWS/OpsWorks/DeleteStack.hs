@@ -53,7 +53,7 @@ newtype DeleteStack = DeleteStack
 -- * @StackId ::@ @Text@
 --
 deleteStack :: Text -- ^ 'ds1StackId'
-              -> DeleteStack
+            -> DeleteStack
 deleteStack p1 = DeleteStack
     { _ds1StackId = p1
     }

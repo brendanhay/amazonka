@@ -56,7 +56,7 @@ newtype GetHostnameSuggestion = GetHostnameSuggestion
 -- * @LayerId ::@ @Text@
 --
 getHostnameSuggestion :: Text -- ^ 'ghsLayerId'
-                        -> GetHostnameSuggestion
+                      -> GetHostnameSuggestion
 getHostnameSuggestion p1 = GetHostnameSuggestion
     { _ghsLayerId = p1
     }

@@ -87,7 +87,7 @@ newtype GetConsoleOutput = GetConsoleOutput
 -- * @InstanceId ::@ @Text@
 --
 getConsoleOutput :: Text -- ^ 'gcoInstanceId'
-                   -> GetConsoleOutput
+                 -> GetConsoleOutput
 getConsoleOutput p1 = GetConsoleOutput
     { _gcoInstanceId = p1
     }

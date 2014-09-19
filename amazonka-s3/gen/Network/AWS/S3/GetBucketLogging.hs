@@ -53,7 +53,7 @@ newtype GetBucketLogging = GetBucketLogging
 -- * @Bucket ::@ @BucketName@
 --
 getBucketLogging :: BucketName -- ^ 'gbl2Bucket'
-                   -> GetBucketLogging
+                 -> GetBucketLogging
 getBucketLogging p1 = GetBucketLogging
     { _gbl2Bucket = p1
     }

@@ -54,8 +54,8 @@ data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners
 -- * @LoadBalancerPorts ::@ @[Integer]@
 --
 deleteLoadBalancerListeners :: Text -- ^ 'dlblLoadBalancerName'
-                              -> [Integer] -- ^ 'dlblLoadBalancerPorts'
-                              -> DeleteLoadBalancerListeners
+                            -> [Integer] -- ^ 'dlblLoadBalancerPorts'
+                            -> DeleteLoadBalancerListeners
 deleteLoadBalancerListeners p1 p2 = DeleteLoadBalancerListeners
     { _dlblLoadBalancerName = p1
     , _dlblLoadBalancerPorts = p2

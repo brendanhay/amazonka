@@ -116,11 +116,11 @@ data UploadPartCopy = UploadPartCopy
 -- * @CopySourceSSECustomerKeyMD5 ::@ @Maybe Text@
 --
 uploadPartCopy :: BucketName -- ^ 'upcBucket'
-                 -> Text -- ^ 'upcUploadId'
-                 -> Text -- ^ 'upcCopySource'
-                 -> ObjectKey -- ^ 'upcKey'
-                 -> Integer -- ^ 'upcPartNumber'
-                 -> UploadPartCopy
+               -> Text -- ^ 'upcUploadId'
+               -> Text -- ^ 'upcCopySource'
+               -> ObjectKey -- ^ 'upcKey'
+               -> Integer -- ^ 'upcPartNumber'
+               -> UploadPartCopy
 uploadPartCopy p1 p10 p2 p8 p9 = UploadPartCopy
     { _upcBucket = p1
     , _upcCopySource = p2

@@ -74,8 +74,8 @@ data ValidateConfigurationSettings = ValidateConfigurationSettings
 -- * @OptionSettings ::@ @[ConfigurationOptionSetting]@
 --
 validateConfigurationSettings :: Text -- ^ 'vcsApplicationName'
-                                -> [ConfigurationOptionSetting] -- ^ 'vcsOptionSettings'
-                                -> ValidateConfigurationSettings
+                              -> [ConfigurationOptionSetting] -- ^ 'vcsOptionSettings'
+                              -> ValidateConfigurationSettings
 validateConfigurationSettings p1 p4 = ValidateConfigurationSettings
     { _vcsApplicationName = p1
     , _vcsTemplateName = Nothing

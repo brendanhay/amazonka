@@ -59,7 +59,7 @@ newtype CreateHsmClientCertificate = CreateHsmClientCertificate
 -- * @HsmClientCertificateIdentifier ::@ @Text@
 --
 createHsmClientCertificate :: Text -- ^ 'chccHsmClientCertificateIdentifier'
-                             -> CreateHsmClientCertificate
+                           -> CreateHsmClientCertificate
 createHsmClientCertificate p1 = CreateHsmClientCertificate
     { _chccHsmClientCertificateIdentifier = p1
     }

@@ -66,8 +66,8 @@ data AddTagsToStream = AddTagsToStream
 -- * @Tags ::@ @Map Text Text@
 --
 addTagsToStream :: Text -- ^ 'attsStreamName'
-                  -> Map Text Text -- ^ 'attsTags'
-                  -> AddTagsToStream
+                -> Map Text Text -- ^ 'attsTags'
+                -> AddTagsToStream
 addTagsToStream p1 p2 = AddTagsToStream
     { _attsStreamName = p1
     , _attsTags = p2

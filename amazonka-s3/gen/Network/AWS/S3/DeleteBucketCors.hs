@@ -50,7 +50,7 @@ newtype DeleteBucketCors = DeleteBucketCors
 -- * @Bucket ::@ @BucketName@
 --
 deleteBucketCors :: BucketName -- ^ 'dbcBucket'
-                   -> DeleteBucketCors
+                 -> DeleteBucketCors
 deleteBucketCors p1 = DeleteBucketCors
     { _dbcBucket = p1
     }

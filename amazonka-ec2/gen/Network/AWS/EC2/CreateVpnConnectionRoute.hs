@@ -68,8 +68,8 @@ data CreateVpnConnectionRoute = CreateVpnConnectionRoute
 -- * @DestinationCidrBlock ::@ @Text@
 --
 createVpnConnectionRoute :: Text -- ^ 'cvcr1VpnConnectionId'
-                           -> Text -- ^ 'cvcr1DestinationCidrBlock'
-                           -> CreateVpnConnectionRoute
+                         -> Text -- ^ 'cvcr1DestinationCidrBlock'
+                         -> CreateVpnConnectionRoute
 createVpnConnectionRoute p1 p2 = CreateVpnConnectionRoute
     { _cvcr1VpnConnectionId = p1
     , _cvcr1DestinationCidrBlock = p2

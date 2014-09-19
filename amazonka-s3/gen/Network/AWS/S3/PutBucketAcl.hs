@@ -82,7 +82,7 @@ data PutBucketAcl = PutBucketAcl
 -- * @GrantWriteACP ::@ @Maybe Text@
 --
 putBucketAcl :: BucketName -- ^ 'pbaBucket'
-               -> PutBucketAcl
+             -> PutBucketAcl
 putBucketAcl p3 = PutBucketAcl
     { _pbaACL = Nothing
     , _pbaAccessControlPolicy = Nothing

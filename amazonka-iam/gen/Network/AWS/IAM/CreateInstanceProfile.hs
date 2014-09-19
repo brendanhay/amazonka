@@ -63,7 +63,7 @@ data CreateInstanceProfile = CreateInstanceProfile
 -- * @Path ::@ @Maybe Text@
 --
 createInstanceProfile :: Text -- ^ 'cipInstanceProfileName'
-                        -> CreateInstanceProfile
+                      -> CreateInstanceProfile
 createInstanceProfile p1 = CreateInstanceProfile
     { _cipInstanceProfileName = p1
     , _cipPath = Nothing
@@ -99,7 +99,7 @@ newtype CreateInstanceProfileResponse = CreateInstanceProfileResponse
 -- * @InstanceProfile ::@ @InstanceProfile@
 --
 createInstanceProfileResponse :: InstanceProfile -- ^ 'ciprInstanceProfile'
-                                -> CreateInstanceProfileResponse
+                              -> CreateInstanceProfileResponse
 createInstanceProfileResponse p1 = CreateInstanceProfileResponse
     { _ciprInstanceProfile = p1
     }

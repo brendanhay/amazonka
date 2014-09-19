@@ -87,7 +87,7 @@ data UpdateTable = UpdateTable
 -- * @GlobalSecondaryIndexUpdates ::@ @[GlobalSecondaryIndexUpdate]@
 --
 updateTable :: Text -- ^ 'utTableName'
-              -> UpdateTable
+            -> UpdateTable
 updateTable p1 = UpdateTable
     { _utTableName = p1
     , _utProvisionedThroughput = Nothing

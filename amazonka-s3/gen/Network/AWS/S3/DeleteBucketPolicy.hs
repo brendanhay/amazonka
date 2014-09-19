@@ -50,7 +50,7 @@ newtype DeleteBucketPolicy = DeleteBucketPolicy
 -- * @Bucket ::@ @BucketName@
 --
 deleteBucketPolicy :: BucketName -- ^ 'dbpBucket'
-                     -> DeleteBucketPolicy
+                   -> DeleteBucketPolicy
 deleteBucketPolicy p1 = DeleteBucketPolicy
     { _dbpBucket = p1
     }

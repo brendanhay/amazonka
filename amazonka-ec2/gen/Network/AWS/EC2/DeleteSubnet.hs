@@ -55,7 +55,7 @@ newtype DeleteSubnet = DeleteSubnet
 -- * @SubnetId ::@ @Text@
 --
 deleteSubnet :: Text -- ^ 'ds1SubnetId'
-               -> DeleteSubnet
+             -> DeleteSubnet
 deleteSubnet p1 = DeleteSubnet
     { _ds1SubnetId = p1
     }

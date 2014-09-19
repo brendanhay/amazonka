@@ -66,10 +66,10 @@ data EnableMFADevice = EnableMFADevice
 -- * @AuthenticationCode2 ::@ @Text@
 --
 enableMFADevice :: Text -- ^ 'emfadUserName'
-                  -> Text -- ^ 'emfadSerialNumber'
-                  -> Text -- ^ 'emfadAuthenticationCode1'
-                  -> Text -- ^ 'emfadAuthenticationCode2'
-                  -> EnableMFADevice
+                -> Text -- ^ 'emfadSerialNumber'
+                -> Text -- ^ 'emfadAuthenticationCode1'
+                -> Text -- ^ 'emfadAuthenticationCode2'
+                -> EnableMFADevice
 enableMFADevice p1 p2 p3 p4 = EnableMFADevice
     { _emfadUserName = p1
     , _emfadSerialNumber = p2

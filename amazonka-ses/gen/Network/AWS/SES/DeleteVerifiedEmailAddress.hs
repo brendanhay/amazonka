@@ -62,7 +62,7 @@ newtype DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress
 -- * @EmailAddress ::@ @Text@
 --
 deleteVerifiedEmailAddress :: Text -- ^ 'dveaEmailAddress'
-                             -> DeleteVerifiedEmailAddress
+                           -> DeleteVerifiedEmailAddress
 deleteVerifiedEmailAddress p1 = DeleteVerifiedEmailAddress
     { _dveaEmailAddress = p1
     }

@@ -80,8 +80,8 @@ data CopyImage = CopyImage
 -- * @ClientToken ::@ @Maybe Text@
 --
 copyImage :: Text -- ^ 'ciSourceRegion'
-            -> Text -- ^ 'ciSourceImageId'
-            -> CopyImage
+          -> Text -- ^ 'ciSourceImageId'
+          -> CopyImage
 copyImage p1 p2 = CopyImage
     { _ciSourceRegion = p1
     , _ciSourceImageId = p2

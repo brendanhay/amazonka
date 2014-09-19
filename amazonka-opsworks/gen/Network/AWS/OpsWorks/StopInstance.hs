@@ -56,7 +56,7 @@ newtype StopInstance = StopInstance
 -- * @InstanceId ::@ @Text@
 --
 stopInstance :: Text -- ^ 'si1InstanceId'
-               -> StopInstance
+             -> StopInstance
 stopInstance p1 = StopInstance
     { _si1InstanceId = p1
     }

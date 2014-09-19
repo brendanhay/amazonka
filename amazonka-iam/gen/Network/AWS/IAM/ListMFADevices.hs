@@ -115,8 +115,8 @@ data ListMFADevicesResponse = ListMFADevicesResponse
 -- * @Marker ::@ @Maybe Text@
 --
 listMFADevicesResponse :: [MFADevice] -- ^ 'lmfadrMFADevices'
-                         -> Bool -- ^ 'lmfadrIsTruncated'
-                         -> ListMFADevicesResponse
+                       -> Bool -- ^ 'lmfadrIsTruncated'
+                       -> ListMFADevicesResponse
 listMFADevicesResponse p1 p2 = ListMFADevicesResponse
     { _lmfadrMFADevices = p1
     , _lmfadrIsTruncated = p2

@@ -93,9 +93,9 @@ data MergeShards = MergeShards
 -- * @AdjacentShardToMerge ::@ @Text@
 --
 mergeShards :: Text -- ^ 'msStreamName'
-              -> Text -- ^ 'msShardToMerge'
-              -> Text -- ^ 'msAdjacentShardToMerge'
-              -> MergeShards
+            -> Text -- ^ 'msShardToMerge'
+            -> Text -- ^ 'msAdjacentShardToMerge'
+            -> MergeShards
 mergeShards p1 p2 p3 = MergeShards
     { _msStreamName = p1
     , _msShardToMerge = p2

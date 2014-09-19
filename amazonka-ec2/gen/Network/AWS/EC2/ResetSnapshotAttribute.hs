@@ -63,8 +63,8 @@ data ResetSnapshotAttribute = ResetSnapshotAttribute
 -- * @Attribute ::@ @SnapshotAttributeName@
 --
 resetSnapshotAttribute :: Text -- ^ 'rsaSnapshotId'
-                         -> SnapshotAttributeName -- ^ 'rsaAttribute'
-                         -> ResetSnapshotAttribute
+                       -> SnapshotAttributeName -- ^ 'rsaAttribute'
+                       -> ResetSnapshotAttribute
 resetSnapshotAttribute p1 p2 = ResetSnapshotAttribute
     { _rsaSnapshotId = p1
     , _rsaAttribute = p2

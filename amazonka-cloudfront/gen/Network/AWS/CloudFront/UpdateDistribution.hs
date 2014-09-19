@@ -62,8 +62,8 @@ data UpdateDistribution = UpdateDistribution
 -- * @IfMatch ::@ @Maybe Text@
 --
 updateDistribution :: DistributionConfig -- ^ 'udDistributionConfig'
-                     -> Text -- ^ 'udId'
-                     -> UpdateDistribution
+                   -> Text -- ^ 'udId'
+                   -> UpdateDistribution
 updateDistribution p1 p2 = UpdateDistribution
     { _udDistributionConfig = p1
     , _udId = p2

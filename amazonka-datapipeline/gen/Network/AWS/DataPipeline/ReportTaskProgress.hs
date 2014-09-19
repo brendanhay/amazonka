@@ -72,7 +72,7 @@ newtype ReportTaskProgress = ReportTaskProgress
 -- * @TaskId ::@ @Text@
 --
 reportTaskProgress :: Text -- ^ 'rtpTaskId'
-                     -> ReportTaskProgress
+                   -> ReportTaskProgress
 reportTaskProgress p1 = ReportTaskProgress
     { _rtpTaskId = p1
     }
@@ -106,7 +106,7 @@ newtype ReportTaskProgressResponse = ReportTaskProgressResponse
 -- * @Canceled ::@ @Bool@
 --
 reportTaskProgressResponse :: Bool -- ^ 'rtprCanceled'
-                             -> ReportTaskProgressResponse
+                           -> ReportTaskProgressResponse
 reportTaskProgressResponse p1 = ReportTaskProgressResponse
     { _rtprCanceled = p1
     }

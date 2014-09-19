@@ -62,8 +62,8 @@ data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup
 -- * @SubnetIds ::@ @[Text]@
 --
 modifyClusterSubnetGroup :: Text -- ^ 'mcsgClusterSubnetGroupName'
-                           -> [Text] -- ^ 'mcsgSubnetIds'
-                           -> ModifyClusterSubnetGroup
+                         -> [Text] -- ^ 'mcsgSubnetIds'
+                         -> ModifyClusterSubnetGroup
 modifyClusterSubnetGroup p1 p3 = ModifyClusterSubnetGroup
     { _mcsgClusterSubnetGroupName = p1
     , _mcsgDescription = Nothing

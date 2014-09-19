@@ -74,7 +74,7 @@ newtype DescribeBandwidthRateLimit = DescribeBandwidthRateLimit
 -- * @GatewayARN ::@ @Text@
 --
 describeBandwidthRateLimit :: Text -- ^ 'dbrl1GatewayARN'
-                             -> DescribeBandwidthRateLimit
+                           -> DescribeBandwidthRateLimit
 describeBandwidthRateLimit p1 = DescribeBandwidthRateLimit
     { _dbrl1GatewayARN = p1
     }

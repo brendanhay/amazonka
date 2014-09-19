@@ -59,8 +59,8 @@ data DeleteIndexField = DeleteIndexField
 -- * @IndexFieldName ::@ @Text@
 --
 deleteIndexField :: Text -- ^ 'dif1DomainName'
-                   -> Text -- ^ 'dif1IndexFieldName'
-                   -> DeleteIndexField
+                 -> Text -- ^ 'dif1IndexFieldName'
+                 -> DeleteIndexField
 deleteIndexField p1 p2 = DeleteIndexField
     { _dif1DomainName = p1
     , _dif1IndexFieldName = p2
@@ -97,7 +97,7 @@ newtype DeleteIndexFieldResponse = DeleteIndexFieldResponse
 -- * @IndexField ::@ @IndexFieldStatus@
 --
 deleteIndexFieldResponse :: IndexFieldStatus -- ^ 'difrrIndexField'
-                           -> DeleteIndexFieldResponse
+                         -> DeleteIndexFieldResponse
 deleteIndexFieldResponse p1 = DeleteIndexFieldResponse
     { _difrrIndexField = p1
     }

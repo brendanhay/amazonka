@@ -65,8 +65,8 @@ data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription
 -- * @SourceIdentifier ::@ @Text@
 --
 addSourceIdentifierToSubscription :: Text -- ^ 'asitsSubscriptionName'
-                                    -> Text -- ^ 'asitsSourceIdentifier'
-                                    -> AddSourceIdentifierToSubscription
+                                  -> Text -- ^ 'asitsSourceIdentifier'
+                                  -> AddSourceIdentifierToSubscription
 addSourceIdentifierToSubscription p1 p2 = AddSourceIdentifierToSubscription
     { _asitsSubscriptionName = p1
     , _asitsSourceIdentifier = p2

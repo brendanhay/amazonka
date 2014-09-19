@@ -60,8 +60,8 @@ data DeleteRoute = DeleteRoute
 -- * @DestinationCidrBlock ::@ @Text@
 --
 deleteRoute :: Text -- ^ 'drRouteTableId'
-              -> Text -- ^ 'drDestinationCidrBlock'
-              -> DeleteRoute
+            -> Text -- ^ 'drDestinationCidrBlock'
+            -> DeleteRoute
 deleteRoute p1 p2 = DeleteRoute
     { _drRouteTableId = p1
     , _drDestinationCidrBlock = p2

@@ -86,9 +86,9 @@ data PutAttributes = PutAttributes
 -- * @Expected ::@ @Maybe UpdateCondition@
 --
 putAttributes :: Text -- ^ 'paDomainName'
-                -> Text -- ^ 'paItemName'
-                -> [ReplaceableAttribute] -- ^ 'paAttributes'
-                -> PutAttributes
+              -> Text -- ^ 'paItemName'
+              -> [ReplaceableAttribute] -- ^ 'paAttributes'
+              -> PutAttributes
 putAttributes p1 p2 p3 = PutAttributes
     { _paDomainName = p1
     , _paItemName = p2

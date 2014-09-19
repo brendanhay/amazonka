@@ -97,8 +97,8 @@ data DescribeInstanceAttribute = DescribeInstanceAttribute
 -- * @Attribute ::@ @InstanceAttributeName@
 --
 describeInstanceAttribute :: Text -- ^ 'dia1InstanceId'
-                            -> InstanceAttributeName -- ^ 'dia1Attribute'
-                            -> DescribeInstanceAttribute
+                          -> InstanceAttributeName -- ^ 'dia1Attribute'
+                          -> DescribeInstanceAttribute
 describeInstanceAttribute p1 p2 = DescribeInstanceAttribute
     { _dia1InstanceId = p1
     , _dia1Attribute = p2

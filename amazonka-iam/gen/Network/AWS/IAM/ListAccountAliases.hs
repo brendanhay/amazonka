@@ -106,8 +106,8 @@ data ListAccountAliasesResponse = ListAccountAliasesResponse
 -- * @Marker ::@ @Maybe Text@
 --
 listAccountAliasesResponse :: [Text] -- ^ 'laarAccountAliases'
-                             -> Bool -- ^ 'laarIsTruncated'
-                             -> ListAccountAliasesResponse
+                           -> Bool -- ^ 'laarIsTruncated'
+                           -> ListAccountAliasesResponse
 listAccountAliasesResponse p1 p2 = ListAccountAliasesResponse
     { _laarAccountAliases = p1
     , _laarIsTruncated = p2

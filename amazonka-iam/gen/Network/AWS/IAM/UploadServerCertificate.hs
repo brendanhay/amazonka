@@ -109,9 +109,9 @@ data UploadServerCertificate = UploadServerCertificate
 -- * @CertificateChain ::@ @Maybe Text@
 --
 uploadServerCertificate :: Text -- ^ 'usc2ServerCertificateName'
-                          -> Text -- ^ 'usc2CertificateBody'
-                          -> Text -- ^ 'usc2PrivateKey'
-                          -> UploadServerCertificate
+                        -> Text -- ^ 'usc2CertificateBody'
+                        -> Text -- ^ 'usc2PrivateKey'
+                        -> UploadServerCertificate
 uploadServerCertificate p2 p3 p4 = UploadServerCertificate
     { _usc2Path = Nothing
     , _usc2ServerCertificateName = p2

@@ -85,8 +85,8 @@ data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes
 -- * @LoadBalancerAttributes ::@ @LoadBalancerAttributes@
 --
 modifyLoadBalancerAttributes :: Text -- ^ 'mlbaLoadBalancerName'
-                               -> LoadBalancerAttributes -- ^ 'mlbaLoadBalancerAttributes'
-                               -> ModifyLoadBalancerAttributes
+                             -> LoadBalancerAttributes -- ^ 'mlbaLoadBalancerAttributes'
+                             -> ModifyLoadBalancerAttributes
 modifyLoadBalancerAttributes p1 p2 = ModifyLoadBalancerAttributes
     { _mlbaLoadBalancerName = p1
     , _mlbaLoadBalancerAttributes = p2

@@ -73,7 +73,7 @@ data DescribeDBParameters = DescribeDBParameters
 -- * @Marker ::@ @Maybe Text@
 --
 describeDBParameters :: Text -- ^ 'ddbpDBParameterGroupName'
-                       -> DescribeDBParameters
+                     -> DescribeDBParameters
 describeDBParameters p1 = DescribeDBParameters
     { _ddbpDBParameterGroupName = p1
     , _ddbpSource = Nothing

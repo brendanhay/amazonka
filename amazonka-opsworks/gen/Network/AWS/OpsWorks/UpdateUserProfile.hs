@@ -64,7 +64,7 @@ data UpdateUserProfile = UpdateUserProfile
 -- * @AllowSelfManagement ::@ @Maybe Bool@
 --
 updateUserProfile :: Text -- ^ 'uupIamUserArn'
-                    -> UpdateUserProfile
+                  -> UpdateUserProfile
 updateUserProfile p1 = UpdateUserProfile
     { _uupIamUserArn = p1
     , _uupSshUsername = Nothing

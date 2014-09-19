@@ -100,7 +100,7 @@ data UploadSigningCertificate = UploadSigningCertificate
 -- * @CertificateBody ::@ @Text@
 --
 uploadSigningCertificate :: Text -- ^ 'usc3CertificateBody'
-                           -> UploadSigningCertificate
+                         -> UploadSigningCertificate
 uploadSigningCertificate p2 = UploadSigningCertificate
     { _usc3UserName = Nothing
     , _usc3CertificateBody = p2
@@ -134,7 +134,7 @@ newtype UploadSigningCertificateResponse = UploadSigningCertificateResponse
 -- * @Certificate ::@ @SigningCertificate@
 --
 uploadSigningCertificateResponse :: SigningCertificate -- ^ 'uscrrCertificate'
-                                   -> UploadSigningCertificateResponse
+                                 -> UploadSigningCertificateResponse
 uploadSigningCertificateResponse p1 = UploadSigningCertificateResponse
     { _uscrrCertificate = p1
     }

@@ -63,8 +63,8 @@ data DeleteMetricFilter = DeleteMetricFilter
 -- * @FilterName ::@ @Text@
 --
 deleteMetricFilter :: Text -- ^ 'dmfLogGroupName'
-                     -> Text -- ^ 'dmfFilterName'
-                     -> DeleteMetricFilter
+                   -> Text -- ^ 'dmfFilterName'
+                   -> DeleteMetricFilter
 deleteMetricFilter p1 p2 = DeleteMetricFilter
     { _dmfLogGroupName = p1
     , _dmfFilterName = p2

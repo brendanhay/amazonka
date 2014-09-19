@@ -58,8 +58,8 @@ data AddRoleToInstanceProfile = AddRoleToInstanceProfile
 -- * @RoleName ::@ @Text@
 --
 addRoleToInstanceProfile :: Text -- ^ 'artipInstanceProfileName'
-                           -> Text -- ^ 'artipRoleName'
-                           -> AddRoleToInstanceProfile
+                         -> Text -- ^ 'artipRoleName'
+                         -> AddRoleToInstanceProfile
 addRoleToInstanceProfile p1 p2 = AddRoleToInstanceProfile
     { _artipInstanceProfileName = p1
     , _artipRoleName = p2

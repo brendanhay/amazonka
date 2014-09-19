@@ -54,7 +54,7 @@ newtype DeleteLayer = DeleteLayer
 -- * @LayerId ::@ @Text@
 --
 deleteLayer :: Text -- ^ 'dlLayerId'
-              -> DeleteLayer
+            -> DeleteLayer
 deleteLayer p1 = DeleteLayer
     { _dlLayerId = p1
     }

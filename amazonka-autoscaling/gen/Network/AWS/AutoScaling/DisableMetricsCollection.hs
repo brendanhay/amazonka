@@ -55,7 +55,7 @@ data DisableMetricsCollection = DisableMetricsCollection
 -- * @Metrics ::@ @[Text]@
 --
 disableMetricsCollection :: Text -- ^ 'dmcAutoScalingGroupName'
-                           -> DisableMetricsCollection
+                         -> DisableMetricsCollection
 disableMetricsCollection p1 = DisableMetricsCollection
     { _dmcAutoScalingGroupName = p1
     , _dmcMetrics = mempty

@@ -78,8 +78,8 @@ data SetTaskStatus = SetTaskStatus
 -- * @ErrorStackTrace ::@ @Maybe Text@
 --
 setTaskStatus :: Text -- ^ 'stsTaskId'
-                -> TaskStatus -- ^ 'stsTaskStatus'
-                -> SetTaskStatus
+              -> TaskStatus -- ^ 'stsTaskStatus'
+              -> SetTaskStatus
 setTaskStatus p1 p2 = SetTaskStatus
     { _stsTaskId = p1
     , _stsTaskStatus = p2

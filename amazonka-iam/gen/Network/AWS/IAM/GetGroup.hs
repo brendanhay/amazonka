@@ -71,7 +71,7 @@ data GetGroup = GetGroup
 -- * @MaxItems ::@ @Maybe Integer@
 --
 getGroup :: Text -- ^ 'ggGroupName'
-           -> GetGroup
+         -> GetGroup
 getGroup p1 = GetGroup
     { _ggGroupName = p1
     , _ggMarker = Nothing
@@ -122,9 +122,9 @@ data GetGroupResponse = GetGroupResponse
 -- * @Marker ::@ @Maybe Text@
 --
 getGroupResponse :: Group -- ^ 'ggrGroup'
-                   -> [User] -- ^ 'ggrUsers'
-                   -> Bool -- ^ 'ggrIsTruncated'
-                   -> GetGroupResponse
+                 -> [User] -- ^ 'ggrUsers'
+                 -> Bool -- ^ 'ggrIsTruncated'
+                 -> GetGroupResponse
 getGroupResponse p1 p2 p3 = GetGroupResponse
     { _ggrGroup = p1
     , _ggrUsers = p2

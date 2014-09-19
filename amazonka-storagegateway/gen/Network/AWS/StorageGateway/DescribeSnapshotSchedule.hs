@@ -73,7 +73,7 @@ newtype DescribeSnapshotSchedule = DescribeSnapshotSchedule
 -- * @VolumeARN ::@ @Text@
 --
 describeSnapshotSchedule :: Text -- ^ 'dss1VolumeARN'
-                           -> DescribeSnapshotSchedule
+                         -> DescribeSnapshotSchedule
 describeSnapshotSchedule p1 = DescribeSnapshotSchedule
     { _dss1VolumeARN = p1
     }

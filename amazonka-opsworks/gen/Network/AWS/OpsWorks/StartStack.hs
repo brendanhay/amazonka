@@ -52,7 +52,7 @@ newtype StartStack = StartStack
 -- * @StackId ::@ @Text@
 --
 startStack :: Text -- ^ 'ss1StackId'
-             -> StartStack
+           -> StartStack
 startStack p1 = StartStack
     { _ss1StackId = p1
     }

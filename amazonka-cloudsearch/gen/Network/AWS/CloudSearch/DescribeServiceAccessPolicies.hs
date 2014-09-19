@@ -64,7 +64,7 @@ data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies
 -- * @Deployed ::@ @Maybe Bool@
 --
 describeServiceAccessPolicies :: Text -- ^ 'dsapDomainName'
-                                -> DescribeServiceAccessPolicies
+                              -> DescribeServiceAccessPolicies
 describeServiceAccessPolicies p1 = DescribeServiceAccessPolicies
     { _dsapDomainName = p1
     , _dsapDeployed = Nothing
@@ -97,7 +97,7 @@ newtype DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesRes
 -- * @AccessPolicies ::@ @AccessPoliciesStatus@
 --
 describeServiceAccessPoliciesResponse :: AccessPoliciesStatus -- ^ 'dsaprAccessPolicies'
-                                        -> DescribeServiceAccessPoliciesResponse
+                                      -> DescribeServiceAccessPoliciesResponse
 describeServiceAccessPoliciesResponse p1 = DescribeServiceAccessPoliciesResponse
     { _dsaprAccessPolicies = p1
     }

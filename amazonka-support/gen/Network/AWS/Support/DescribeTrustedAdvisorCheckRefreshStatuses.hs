@@ -53,7 +53,7 @@ newtype DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheck
 -- * @CheckIds ::@ @[Text]@
 --
 describeTrustedAdvisorCheckRefreshStatuses :: [Text] -- ^ 'dtacrsCheckIds'
-                                             -> DescribeTrustedAdvisorCheckRefreshStatuses
+                                           -> DescribeTrustedAdvisorCheckRefreshStatuses
 describeTrustedAdvisorCheckRefreshStatuses p1 = DescribeTrustedAdvisorCheckRefreshStatuses
     { _dtacrsCheckIds = p1
     }
@@ -86,7 +86,7 @@ newtype DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvi
 -- * @Statuses ::@ @[TrustedAdvisorCheckRefreshStatus]@
 --
 describeTrustedAdvisorCheckRefreshStatusesResponse :: [TrustedAdvisorCheckRefreshStatus] -- ^ 'dtacrsrStatuses'
-                                                     -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
+                                                   -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
 describeTrustedAdvisorCheckRefreshStatusesResponse p1 = DescribeTrustedAdvisorCheckRefreshStatusesResponse
     { _dtacrsrStatuses = p1
     }

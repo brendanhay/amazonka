@@ -438,10 +438,10 @@ data Job = Job
 -- * @JobType ::@ @JobType@
 --
 job :: Text -- ^ 'jJobId'
-      -> ISO8601 -- ^ 'jCreationDate'
-      -> Bool -- ^ 'jIsCanceled'
-      -> JobType -- ^ 'jJobType'
-      -> Job
+    -> ISO8601 -- ^ 'jCreationDate'
+    -> Bool -- ^ 'jIsCanceled'
+    -> JobType -- ^ 'jJobType'
+    -> Job
 job p1 p2 p3 p4 = Job
     { _jJobId = p1
     , _jCreationDate = p2

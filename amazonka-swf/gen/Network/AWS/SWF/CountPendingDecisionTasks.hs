@@ -84,8 +84,8 @@ data CountPendingDecisionTasks = CountPendingDecisionTasks
 -- * @TaskList ::@ @TaskList@
 --
 countPendingDecisionTasks :: Text -- ^ 'cpdtDomain'
-                            -> TaskList -- ^ 'cpdtTaskList'
-                            -> CountPendingDecisionTasks
+                          -> TaskList -- ^ 'cpdtTaskList'
+                          -> CountPendingDecisionTasks
 countPendingDecisionTasks p1 p2 = CountPendingDecisionTasks
     { _cpdtDomain = p1
     , _cpdtTaskList = p2
@@ -125,7 +125,7 @@ data CountPendingDecisionTasksResponse = CountPendingDecisionTasksResponse
 -- * @Truncated ::@ @Maybe Bool@
 --
 countPendingDecisionTasksResponse :: Integer -- ^ 'cpdtrCount'
-                                    -> CountPendingDecisionTasksResponse
+                                  -> CountPendingDecisionTasksResponse
 countPendingDecisionTasksResponse p1 = CountPendingDecisionTasksResponse
     { _cpdtrCount = p1
     , _cpdtrTruncated = Nothing

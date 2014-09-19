@@ -80,7 +80,7 @@ data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters
 -- * @Marker ::@ @Maybe Text@
 --
 describeDefaultClusterParameters :: Text -- ^ 'ddcpParameterGroupFamily'
-                                   -> DescribeDefaultClusterParameters
+                                 -> DescribeDefaultClusterParameters
 describeDefaultClusterParameters p1 = DescribeDefaultClusterParameters
     { _ddcpParameterGroupFamily = p1
     , _ddcpMaxRecords = Nothing
@@ -127,7 +127,7 @@ newtype DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParamet
 -- * @DefaultClusterParameters ::@ @DefaultClusterParameters@
 --
 describeDefaultClusterParametersResponse :: DefaultClusterParameters -- ^ 'ddcprDefaultClusterParameters'
-                                           -> DescribeDefaultClusterParametersResponse
+                                         -> DescribeDefaultClusterParametersResponse
 describeDefaultClusterParametersResponse p1 = DescribeDefaultClusterParametersResponse
     { _ddcprDefaultClusterParameters = p1
     }

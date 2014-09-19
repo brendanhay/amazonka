@@ -70,8 +70,8 @@ data ResetCacheParameterGroup = ResetCacheParameterGroup
 -- * @ParameterNameValues ::@ @[ParameterNameValue]@
 --
 resetCacheParameterGroup :: Text -- ^ 'rcpgCacheParameterGroupName'
-                           -> [ParameterNameValue] -- ^ 'rcpgParameterNameValues'
-                           -> ResetCacheParameterGroup
+                         -> [ParameterNameValue] -- ^ 'rcpgParameterNameValues'
+                         -> ResetCacheParameterGroup
 resetCacheParameterGroup p1 p3 = ResetCacheParameterGroup
     { _rcpgCacheParameterGroupName = p1
     , _rcpgResetAllParameters = Nothing

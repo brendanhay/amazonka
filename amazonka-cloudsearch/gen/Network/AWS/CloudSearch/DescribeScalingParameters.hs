@@ -56,7 +56,7 @@ newtype DescribeScalingParameters = DescribeScalingParameters
 -- * @DomainName ::@ @Text@
 --
 describeScalingParameters :: Text -- ^ 'dspDomainName'
-                            -> DescribeScalingParameters
+                          -> DescribeScalingParameters
 describeScalingParameters p1 = DescribeScalingParameters
     { _dspDomainName = p1
     }
@@ -87,7 +87,7 @@ newtype DescribeScalingParametersResponse = DescribeScalingParametersResponse
 -- * @ScalingParameters ::@ @ScalingParametersStatus@
 --
 describeScalingParametersResponse :: ScalingParametersStatus -- ^ 'dsprScalingParameters'
-                                    -> DescribeScalingParametersResponse
+                                  -> DescribeScalingParametersResponse
 describeScalingParametersResponse p1 = DescribeScalingParametersResponse
     { _dsprScalingParameters = p1
     }

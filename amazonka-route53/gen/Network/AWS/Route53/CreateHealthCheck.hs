@@ -63,8 +63,8 @@ data CreateHealthCheck = CreateHealthCheck
 -- * @HealthCheckConfig ::@ @HealthCheckConfig@
 --
 createHealthCheck :: Text -- ^ 'chcCallerReference'
-                    -> HealthCheckConfig -- ^ 'chcHealthCheckConfig'
-                    -> CreateHealthCheck
+                  -> HealthCheckConfig -- ^ 'chcHealthCheckConfig'
+                  -> CreateHealthCheck
 createHealthCheck p1 p2 = CreateHealthCheck
     { _chcCallerReference = p1
     , _chcHealthCheckConfig = p2
@@ -115,8 +115,8 @@ data CreateHealthCheckResponse = CreateHealthCheckResponse
 -- * @Location ::@ @Text@
 --
 createHealthCheckResponse :: HealthCheck -- ^ 'chcrHealthCheck'
-                            -> Text -- ^ 'chcrLocation'
-                            -> CreateHealthCheckResponse
+                          -> Text -- ^ 'chcrLocation'
+                          -> CreateHealthCheckResponse
 createHealthCheckResponse p1 p2 = CreateHealthCheckResponse
     { _chcrHealthCheck = p1
     , _chcrLocation = p2

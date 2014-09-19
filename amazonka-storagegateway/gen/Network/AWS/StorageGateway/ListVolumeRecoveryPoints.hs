@@ -76,7 +76,7 @@ newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints
 -- * @GatewayARN ::@ @Text@
 --
 listVolumeRecoveryPoints :: Text -- ^ 'lvrpGatewayARN'
-                           -> ListVolumeRecoveryPoints
+                         -> ListVolumeRecoveryPoints
 listVolumeRecoveryPoints p1 = ListVolumeRecoveryPoints
     { _lvrpGatewayARN = p1
     }

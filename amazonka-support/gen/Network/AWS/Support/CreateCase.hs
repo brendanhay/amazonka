@@ -108,8 +108,8 @@ data CreateCase = CreateCase
 -- * @AttachmentSetId ::@ @Maybe Text@
 --
 createCase :: Text -- ^ 'ccSubject'
-             -> Text -- ^ 'ccCommunicationBody'
-             -> CreateCase
+           -> Text -- ^ 'ccCommunicationBody'
+           -> CreateCase
 createCase p1 p5 = CreateCase
     { _ccSubject = p1
     , _ccServiceCode = Nothing

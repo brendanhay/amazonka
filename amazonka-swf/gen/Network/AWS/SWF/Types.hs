@@ -2015,7 +2015,7 @@ newtype CancelTimerDecisionAttributes = CancelTimerDecisionAttributes
 -- * @TimerId ::@ @Text@
 --
 cancelTimerDecisionAttributes :: Text -- ^ 'ctdaTimerId'
-                                -> CancelTimerDecisionAttributes
+                              -> CancelTimerDecisionAttributes
 cancelTimerDecisionAttributes p1 = CancelTimerDecisionAttributes
     { _ctdaTimerId = p1
     }
@@ -2070,7 +2070,7 @@ newtype CloseStatusFilter = CloseStatusFilter
 -- * @Status ::@ @CloseStatus@
 --
 closeStatusFilter :: CloseStatus -- ^ 'csfStatus'
-                    -> CloseStatusFilter
+                  -> CloseStatusFilter
 closeStatusFilter p1 = CloseStatusFilter
     { _csfStatus = p1
     }
@@ -2125,7 +2125,7 @@ newtype DomainConfiguration = DomainConfiguration
 -- * @WorkflowExecutionRetentionPeriodInDays ::@ @Text@
 --
 domainConfiguration :: Text -- ^ 'dcWorkflowExecutionRetentionPeriodInDays'
-                      -> DomainConfiguration
+                    -> DomainConfiguration
 domainConfiguration p1 = DomainConfiguration
     { _dcWorkflowExecutionRetentionPeriodInDays = p1
     }
@@ -2152,7 +2152,7 @@ newtype RequestCancelActivityTaskDecisionAttributes = RequestCancelActivityTaskD
 -- * @ActivityId ::@ @Text@
 --
 requestCancelActivityTaskDecisionAttributes :: Text -- ^ 'rcatdaActivityId'
-                                              -> RequestCancelActivityTaskDecisionAttributes
+                                            -> RequestCancelActivityTaskDecisionAttributes
 requestCancelActivityTaskDecisionAttributes p1 = RequestCancelActivityTaskDecisionAttributes
     { _rcatdaActivityId = p1
     }
@@ -2181,7 +2181,7 @@ newtype TagFilter = TagFilter
 -- * @Tag ::@ @Text@
 --
 tagFilter :: Text -- ^ 'tfTag'
-            -> TagFilter
+          -> TagFilter
 tagFilter p1 = TagFilter
     { _tfTag = p1
     }
@@ -2206,7 +2206,7 @@ newtype TaskList = TaskList
 -- * @Name ::@ @Text@
 --
 taskList :: Text -- ^ 'tlName'
-           -> TaskList
+         -> TaskList
 taskList p1 = TaskList
     { _tlName = p1
     }
@@ -2235,7 +2235,7 @@ newtype WorkflowExecutionFilter = WorkflowExecutionFilter
 -- * @WorkflowId ::@ @Text@
 --
 workflowExecutionFilter :: Text -- ^ 'wefWorkflowId'
-                          -> WorkflowExecutionFilter
+                        -> WorkflowExecutionFilter
 workflowExecutionFilter p1 = WorkflowExecutionFilter
     { _wefWorkflowId = p1
     }
@@ -2264,8 +2264,8 @@ data ActivityTaskCancelRequestedEventAttributes = ActivityTaskCancelRequestedEve
 -- * @ActivityId ::@ @Text@
 --
 activityTaskCancelRequestedEventAttributes :: Integer -- ^ 'atcreaDecisionTaskCompletedEventId'
-                                             -> Text -- ^ 'atcreaActivityId'
-                                             -> ActivityTaskCancelRequestedEventAttributes
+                                           -> Text -- ^ 'atcreaActivityId'
+                                           -> ActivityTaskCancelRequestedEventAttributes
 activityTaskCancelRequestedEventAttributes p1 p2 = ActivityTaskCancelRequestedEventAttributes
     { _atcreaDecisionTaskCompletedEventId = p1
     , _atcreaActivityId = p2
@@ -2313,8 +2313,8 @@ data ActivityTaskCanceledEventAttributes = ActivityTaskCanceledEventAttributes
 -- * @LatestCancelRequestedEventId ::@ @Maybe Integer@
 --
 activityTaskCanceledEventAttributes :: Integer -- ^ 'atcea1ScheduledEventId'
-                                      -> Integer -- ^ 'atcea1StartedEventId'
-                                      -> ActivityTaskCanceledEventAttributes
+                                    -> Integer -- ^ 'atcea1StartedEventId'
+                                    -> ActivityTaskCanceledEventAttributes
 activityTaskCanceledEventAttributes p2 p3 = ActivityTaskCanceledEventAttributes
     { _atcea1Details = Nothing
     , _atcea1ScheduledEventId = p2
@@ -2374,8 +2374,8 @@ data ActivityTaskCompletedEventAttributes = ActivityTaskCompletedEventAttributes
 -- * @StartedEventId ::@ @Integer@
 --
 activityTaskCompletedEventAttributes :: Integer -- ^ 'atceaScheduledEventId'
-                                       -> Integer -- ^ 'atceaStartedEventId'
-                                       -> ActivityTaskCompletedEventAttributes
+                                     -> Integer -- ^ 'atceaStartedEventId'
+                                     -> ActivityTaskCompletedEventAttributes
 activityTaskCompletedEventAttributes p2 p3 = ActivityTaskCompletedEventAttributes
     { _atceaResult = Nothing
     , _atceaScheduledEventId = p2
@@ -2428,8 +2428,8 @@ data ActivityTaskFailedEventAttributes = ActivityTaskFailedEventAttributes
 -- * @StartedEventId ::@ @Integer@
 --
 activityTaskFailedEventAttributes :: Integer -- ^ 'atfeaScheduledEventId'
-                                    -> Integer -- ^ 'atfeaStartedEventId'
-                                    -> ActivityTaskFailedEventAttributes
+                                  -> Integer -- ^ 'atfeaStartedEventId'
+                                  -> ActivityTaskFailedEventAttributes
 activityTaskFailedEventAttributes p3 p4 = ActivityTaskFailedEventAttributes
     { _atfeaReason = Nothing
     , _atfeaDetails = Nothing
@@ -2505,10 +2505,10 @@ data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes
 -- * @HeartbeatTimeout ::@ @Maybe Text@
 --
 activityTaskScheduledEventAttributes :: ActivityType -- ^ 'atseaActivityType'
-                                       -> Text -- ^ 'atseaActivityId'
-                                       -> TaskList -- ^ 'atseaTaskList'
-                                       -> Integer -- ^ 'atseaDecisionTaskCompletedEventId'
-                                       -> ActivityTaskScheduledEventAttributes
+                                     -> Text -- ^ 'atseaActivityId'
+                                     -> TaskList -- ^ 'atseaTaskList'
+                                     -> Integer -- ^ 'atseaDecisionTaskCompletedEventId'
+                                     -> ActivityTaskScheduledEventAttributes
 activityTaskScheduledEventAttributes p1 p2 p8 p9 = ActivityTaskScheduledEventAttributes
     { _atseaActivityType = p1
     , _atseaActivityId = p2
@@ -2603,7 +2603,7 @@ data ActivityTaskStartedEventAttributes = ActivityTaskStartedEventAttributes
 -- * @ScheduledEventId ::@ @Integer@
 --
 activityTaskStartedEventAttributes :: Integer -- ^ 'atsea1ScheduledEventId'
-                                     -> ActivityTaskStartedEventAttributes
+                                   -> ActivityTaskStartedEventAttributes
 activityTaskStartedEventAttributes p2 = ActivityTaskStartedEventAttributes
     { _atsea1Identity = Nothing
     , _atsea1ScheduledEventId = p2
@@ -2649,9 +2649,9 @@ data ActivityTaskTimedOutEventAttributes = ActivityTaskTimedOutEventAttributes
 -- * @Details ::@ @Maybe Text@
 --
 activityTaskTimedOutEventAttributes :: ActivityTaskTimeoutType -- ^ 'attoeaTimeoutType'
-                                      -> Integer -- ^ 'attoeaScheduledEventId'
-                                      -> Integer -- ^ 'attoeaStartedEventId'
-                                      -> ActivityTaskTimedOutEventAttributes
+                                    -> Integer -- ^ 'attoeaScheduledEventId'
+                                    -> Integer -- ^ 'attoeaStartedEventId'
+                                    -> ActivityTaskTimedOutEventAttributes
 activityTaskTimedOutEventAttributes p1 p2 p3 = ActivityTaskTimedOutEventAttributes
     { _attoeaTimeoutType = p1
     , _attoeaScheduledEventId = p2
@@ -2703,8 +2703,8 @@ data ActivityType = ActivityType
 -- * @Version ::@ @Text@
 --
 activityType :: Text -- ^ 'atName'
-               -> Text -- ^ 'atVersion'
-               -> ActivityType
+             -> Text -- ^ 'atVersion'
+             -> ActivityType
 activityType p1 p2 = ActivityType
     { _atName = p1
     , _atVersion = p2
@@ -2853,9 +2853,9 @@ data ActivityTypeInfo = ActivityTypeInfo
 -- * @DeprecationDate ::@ @Maybe POSIX@
 --
 activityTypeInfo :: ActivityType -- ^ 'atiActivityType'
-                   -> RegistrationStatus -- ^ 'atiStatus'
-                   -> POSIX -- ^ 'atiCreationDate'
-                   -> ActivityTypeInfo
+                 -> RegistrationStatus -- ^ 'atiStatus'
+                 -> POSIX -- ^ 'atiCreationDate'
+                 -> ActivityTypeInfo
 activityTypeInfo p1 p2 p4 = ActivityTypeInfo
     { _atiActivityType = p1
     , _atiStatus = p2
@@ -2909,9 +2909,9 @@ data CancelTimerFailedEventAttributes = CancelTimerFailedEventAttributes
 -- * @DecisionTaskCompletedEventId ::@ @Integer@
 --
 cancelTimerFailedEventAttributes :: Text -- ^ 'ctfeaTimerId'
-                                   -> CancelTimerFailedCause -- ^ 'ctfeaCause'
-                                   -> Integer -- ^ 'ctfeaDecisionTaskCompletedEventId'
-                                   -> CancelTimerFailedEventAttributes
+                                 -> CancelTimerFailedCause -- ^ 'ctfeaCause'
+                                 -> Integer -- ^ 'ctfeaDecisionTaskCompletedEventId'
+                                 -> CancelTimerFailedEventAttributes
 cancelTimerFailedEventAttributes p1 p2 p3 = CancelTimerFailedEventAttributes
     { _ctfeaTimerId = p1
     , _ctfeaCause = p2
@@ -2961,8 +2961,8 @@ data CancelWorkflowExecutionFailedEventAttributes = CancelWorkflowExecutionFaile
 -- * @DecisionTaskCompletedEventId ::@ @Integer@
 --
 cancelWorkflowExecutionFailedEventAttributes :: CancelWorkflowExecutionFailedCause -- ^ 'cwefea1Cause'
-                                               -> Integer -- ^ 'cwefea1DecisionTaskCompletedEventId'
-                                               -> CancelWorkflowExecutionFailedEventAttributes
+                                             -> Integer -- ^ 'cwefea1DecisionTaskCompletedEventId'
+                                             -> CancelWorkflowExecutionFailedEventAttributes
 cancelWorkflowExecutionFailedEventAttributes p1 p2 = CancelWorkflowExecutionFailedEventAttributes
     { _cwefea1Cause = p1
     , _cwefea1DecisionTaskCompletedEventId = p2
@@ -3016,10 +3016,10 @@ data ChildWorkflowExecutionCanceledEventAttributes = ChildWorkflowExecutionCance
 -- * @StartedEventId ::@ @Integer@
 --
 childWorkflowExecutionCanceledEventAttributes :: WorkflowExecution -- ^ 'cwecea1WorkflowExecution'
-                                                -> WorkflowType -- ^ 'cwecea1WorkflowType'
-                                                -> Integer -- ^ 'cwecea1InitiatedEventId'
-                                                -> Integer -- ^ 'cwecea1StartedEventId'
-                                                -> ChildWorkflowExecutionCanceledEventAttributes
+                                              -> WorkflowType -- ^ 'cwecea1WorkflowType'
+                                              -> Integer -- ^ 'cwecea1InitiatedEventId'
+                                              -> Integer -- ^ 'cwecea1StartedEventId'
+                                              -> ChildWorkflowExecutionCanceledEventAttributes
 childWorkflowExecutionCanceledEventAttributes p1 p2 p4 p5 = ChildWorkflowExecutionCanceledEventAttributes
     { _cwecea1WorkflowExecution = p1
     , _cwecea1WorkflowType = p2
@@ -3091,10 +3091,10 @@ data ChildWorkflowExecutionCompletedEventAttributes = ChildWorkflowExecutionComp
 -- * @StartedEventId ::@ @Integer@
 --
 childWorkflowExecutionCompletedEventAttributes :: WorkflowExecution -- ^ 'cweceaWorkflowExecution'
-                                                 -> WorkflowType -- ^ 'cweceaWorkflowType'
-                                                 -> Integer -- ^ 'cweceaInitiatedEventId'
-                                                 -> Integer -- ^ 'cweceaStartedEventId'
-                                                 -> ChildWorkflowExecutionCompletedEventAttributes
+                                               -> WorkflowType -- ^ 'cweceaWorkflowType'
+                                               -> Integer -- ^ 'cweceaInitiatedEventId'
+                                               -> Integer -- ^ 'cweceaStartedEventId'
+                                               -> ChildWorkflowExecutionCompletedEventAttributes
 childWorkflowExecutionCompletedEventAttributes p1 p2 p4 p5 = ChildWorkflowExecutionCompletedEventAttributes
     { _cweceaWorkflowExecution = p1
     , _cweceaWorkflowType = p2
@@ -3168,10 +3168,10 @@ data ChildWorkflowExecutionFailedEventAttributes = ChildWorkflowExecutionFailedE
 -- * @StartedEventId ::@ @Integer@
 --
 childWorkflowExecutionFailedEventAttributes :: WorkflowExecution -- ^ 'cwefea2WorkflowExecution'
-                                              -> WorkflowType -- ^ 'cwefea2WorkflowType'
-                                              -> Integer -- ^ 'cwefea2InitiatedEventId'
-                                              -> Integer -- ^ 'cwefea2StartedEventId'
-                                              -> ChildWorkflowExecutionFailedEventAttributes
+                                            -> WorkflowType -- ^ 'cwefea2WorkflowType'
+                                            -> Integer -- ^ 'cwefea2InitiatedEventId'
+                                            -> Integer -- ^ 'cwefea2StartedEventId'
+                                            -> ChildWorkflowExecutionFailedEventAttributes
 childWorkflowExecutionFailedEventAttributes p1 p2 p5 p6 = ChildWorkflowExecutionFailedEventAttributes
     { _cwefea2WorkflowExecution = p1
     , _cwefea2WorkflowType = p2
@@ -3242,9 +3242,9 @@ data ChildWorkflowExecutionStartedEventAttributes = ChildWorkflowExecutionStarte
 -- * @InitiatedEventId ::@ @Integer@
 --
 childWorkflowExecutionStartedEventAttributes :: WorkflowExecution -- ^ 'cweseaWorkflowExecution'
-                                               -> WorkflowType -- ^ 'cweseaWorkflowType'
-                                               -> Integer -- ^ 'cweseaInitiatedEventId'
-                                               -> ChildWorkflowExecutionStartedEventAttributes
+                                             -> WorkflowType -- ^ 'cweseaWorkflowType'
+                                             -> Integer -- ^ 'cweseaInitiatedEventId'
+                                             -> ChildWorkflowExecutionStartedEventAttributes
 childWorkflowExecutionStartedEventAttributes p1 p2 p3 = ChildWorkflowExecutionStartedEventAttributes
     { _cweseaWorkflowExecution = p1
     , _cweseaWorkflowType = p2
@@ -3298,10 +3298,10 @@ data ChildWorkflowExecutionTerminatedEventAttributes = ChildWorkflowExecutionTer
 -- * @StartedEventId ::@ @Integer@
 --
 childWorkflowExecutionTerminatedEventAttributes :: WorkflowExecution -- ^ 'cweteaWorkflowExecution'
-                                                  -> WorkflowType -- ^ 'cweteaWorkflowType'
-                                                  -> Integer -- ^ 'cweteaInitiatedEventId'
-                                                  -> Integer -- ^ 'cweteaStartedEventId'
-                                                  -> ChildWorkflowExecutionTerminatedEventAttributes
+                                                -> WorkflowType -- ^ 'cweteaWorkflowType'
+                                                -> Integer -- ^ 'cweteaInitiatedEventId'
+                                                -> Integer -- ^ 'cweteaStartedEventId'
+                                                -> ChildWorkflowExecutionTerminatedEventAttributes
 childWorkflowExecutionTerminatedEventAttributes p1 p2 p3 p4 = ChildWorkflowExecutionTerminatedEventAttributes
     { _cweteaWorkflowExecution = p1
     , _cweteaWorkflowType = p2
@@ -3367,11 +3367,11 @@ data ChildWorkflowExecutionTimedOutEventAttributes = ChildWorkflowExecutionTimed
 -- * @StartedEventId ::@ @Integer@
 --
 childWorkflowExecutionTimedOutEventAttributes :: WorkflowExecution -- ^ 'cwetoeaWorkflowExecution'
-                                                -> WorkflowType -- ^ 'cwetoeaWorkflowType'
-                                                -> WorkflowExecutionTimeoutType -- ^ 'cwetoeaTimeoutType'
-                                                -> Integer -- ^ 'cwetoeaInitiatedEventId'
-                                                -> Integer -- ^ 'cwetoeaStartedEventId'
-                                                -> ChildWorkflowExecutionTimedOutEventAttributes
+                                              -> WorkflowType -- ^ 'cwetoeaWorkflowType'
+                                              -> WorkflowExecutionTimeoutType -- ^ 'cwetoeaTimeoutType'
+                                              -> Integer -- ^ 'cwetoeaInitiatedEventId'
+                                              -> Integer -- ^ 'cwetoeaStartedEventId'
+                                              -> ChildWorkflowExecutionTimedOutEventAttributes
 childWorkflowExecutionTimedOutEventAttributes p1 p2 p3 p4 p5 = ChildWorkflowExecutionTimedOutEventAttributes
     { _cwetoeaWorkflowExecution = p1
     , _cwetoeaWorkflowType = p2
@@ -3436,8 +3436,8 @@ data CompleteWorkflowExecutionFailedEventAttributes = CompleteWorkflowExecutionF
 -- * @DecisionTaskCompletedEventId ::@ @Integer@
 --
 completeWorkflowExecutionFailedEventAttributes :: CompleteWorkflowExecutionFailedCause -- ^ 'cwefeaCause'
-                                                 -> Integer -- ^ 'cwefeaDecisionTaskCompletedEventId'
-                                                 -> CompleteWorkflowExecutionFailedEventAttributes
+                                               -> Integer -- ^ 'cwefeaDecisionTaskCompletedEventId'
+                                               -> CompleteWorkflowExecutionFailedEventAttributes
 completeWorkflowExecutionFailedEventAttributes p1 p2 = CompleteWorkflowExecutionFailedEventAttributes
     { _cwefeaCause = p1
     , _cwefeaDecisionTaskCompletedEventId = p2
@@ -3595,8 +3595,8 @@ data ContinueAsNewWorkflowExecutionFailedEventAttributes = ContinueAsNewWorkflow
 -- * @DecisionTaskCompletedEventId ::@ @Integer@
 --
 continueAsNewWorkflowExecutionFailedEventAttributes :: ContinueAsNewWorkflowExecutionFailedCause -- ^ 'canwefeaCause'
-                                                      -> Integer -- ^ 'canwefeaDecisionTaskCompletedEventId'
-                                                      -> ContinueAsNewWorkflowExecutionFailedEventAttributes
+                                                    -> Integer -- ^ 'canwefeaDecisionTaskCompletedEventId'
+                                                    -> ContinueAsNewWorkflowExecutionFailedEventAttributes
 continueAsNewWorkflowExecutionFailedEventAttributes p1 p2 = ContinueAsNewWorkflowExecutionFailedEventAttributes
     { _canwefeaCause = p1
     , _canwefeaDecisionTaskCompletedEventId = p2
@@ -3773,7 +3773,7 @@ data Decision = Decision
 -- * @StartChildWorkflowExecutionDecisionAttributes ::@ @Maybe StartChildWorkflowExecutionDecisionAttributes@
 --
 decision :: DecisionType -- ^ 'dDecisionType'
-           -> Decision
+         -> Decision
 decision p1 = Decision
     { _dDecisionType = p1
     , _dScheduleActivityTaskDecisionAttributes = Nothing
@@ -3901,8 +3901,8 @@ data DecisionTaskCompletedEventAttributes = DecisionTaskCompletedEventAttributes
 -- * @StartedEventId ::@ @Integer@
 --
 decisionTaskCompletedEventAttributes :: Integer -- ^ 'dtceaScheduledEventId'
-                                       -> Integer -- ^ 'dtceaStartedEventId'
-                                       -> DecisionTaskCompletedEventAttributes
+                                     -> Integer -- ^ 'dtceaStartedEventId'
+                                     -> DecisionTaskCompletedEventAttributes
 decisionTaskCompletedEventAttributes p2 p3 = DecisionTaskCompletedEventAttributes
     { _dtceaExecutionContext = Nothing
     , _dtceaScheduledEventId = p2
@@ -3950,7 +3950,7 @@ data DecisionTaskScheduledEventAttributes = DecisionTaskScheduledEventAttributes
 -- * @StartToCloseTimeout ::@ @Maybe Text@
 --
 decisionTaskScheduledEventAttributes :: TaskList -- ^ 'dtseaTaskList'
-                                       -> DecisionTaskScheduledEventAttributes
+                                     -> DecisionTaskScheduledEventAttributes
 decisionTaskScheduledEventAttributes p1 = DecisionTaskScheduledEventAttributes
     { _dtseaTaskList = p1
     , _dtseaStartToCloseTimeout = Nothing
@@ -3992,7 +3992,7 @@ data DecisionTaskStartedEventAttributes = DecisionTaskStartedEventAttributes
 -- * @ScheduledEventId ::@ @Integer@
 --
 decisionTaskStartedEventAttributes :: Integer -- ^ 'dtsea1ScheduledEventId'
-                                     -> DecisionTaskStartedEventAttributes
+                                   -> DecisionTaskStartedEventAttributes
 decisionTaskStartedEventAttributes p2 = DecisionTaskStartedEventAttributes
     { _dtsea1Identity = Nothing
     , _dtsea1ScheduledEventId = p2
@@ -4035,9 +4035,9 @@ data DecisionTaskTimedOutEventAttributes = DecisionTaskTimedOutEventAttributes
 -- * @StartedEventId ::@ @Integer@
 --
 decisionTaskTimedOutEventAttributes :: DecisionTaskTimeoutType -- ^ 'dttoeaTimeoutType'
-                                      -> Integer -- ^ 'dttoeaScheduledEventId'
-                                      -> Integer -- ^ 'dttoeaStartedEventId'
-                                      -> DecisionTaskTimedOutEventAttributes
+                                    -> Integer -- ^ 'dttoeaScheduledEventId'
+                                    -> Integer -- ^ 'dttoeaStartedEventId'
+                                    -> DecisionTaskTimedOutEventAttributes
 decisionTaskTimedOutEventAttributes p1 p2 p3 = DecisionTaskTimedOutEventAttributes
     { _dttoeaTimeoutType = p1
     , _dttoeaScheduledEventId = p2
@@ -4090,8 +4090,8 @@ data DomainInfo = DomainInfo
 -- * @Description ::@ @Maybe Text@
 --
 domainInfo :: Text -- ^ 'diName'
-             -> RegistrationStatus -- ^ 'diStatus'
-             -> DomainInfo
+           -> RegistrationStatus -- ^ 'diStatus'
+           -> DomainInfo
 domainInfo p1 p2 = DomainInfo
     { _diName = p1
     , _diStatus = p2
@@ -4134,7 +4134,7 @@ data ExecutionTimeFilter = ExecutionTimeFilter
 -- * @LatestDate ::@ @Maybe POSIX@
 --
 executionTimeFilter :: POSIX -- ^ 'etfOldestDate'
-                      -> ExecutionTimeFilter
+                    -> ExecutionTimeFilter
 executionTimeFilter p1 = ExecutionTimeFilter
     { _etfOldestDate = p1
     , _etfLatestDate = Nothing
@@ -4168,8 +4168,8 @@ data ExternalWorkflowExecutionCancelRequestedEventAttributes = ExternalWorkflowE
 -- * @InitiatedEventId ::@ @Integer@
 --
 externalWorkflowExecutionCancelRequestedEventAttributes :: WorkflowExecution -- ^ 'ewecreaWorkflowExecution'
-                                                          -> Integer -- ^ 'ewecreaInitiatedEventId'
-                                                          -> ExternalWorkflowExecutionCancelRequestedEventAttributes
+                                                        -> Integer -- ^ 'ewecreaInitiatedEventId'
+                                                        -> ExternalWorkflowExecutionCancelRequestedEventAttributes
 externalWorkflowExecutionCancelRequestedEventAttributes p1 p2 = ExternalWorkflowExecutionCancelRequestedEventAttributes
     { _ewecreaWorkflowExecution = p1
     , _ewecreaInitiatedEventId = p2
@@ -4214,8 +4214,8 @@ data ExternalWorkflowExecutionSignaledEventAttributes = ExternalWorkflowExecutio
 -- * @InitiatedEventId ::@ @Integer@
 --
 externalWorkflowExecutionSignaledEventAttributes :: WorkflowExecution -- ^ 'eweseaWorkflowExecution'
-                                                   -> Integer -- ^ 'eweseaInitiatedEventId'
-                                                   -> ExternalWorkflowExecutionSignaledEventAttributes
+                                                 -> Integer -- ^ 'eweseaInitiatedEventId'
+                                                 -> ExternalWorkflowExecutionSignaledEventAttributes
 externalWorkflowExecutionSignaledEventAttributes p1 p2 = ExternalWorkflowExecutionSignaledEventAttributes
     { _eweseaWorkflowExecution = p1
     , _eweseaInitiatedEventId = p2
@@ -4291,8 +4291,8 @@ data FailWorkflowExecutionFailedEventAttributes = FailWorkflowExecutionFailedEve
 -- * @DecisionTaskCompletedEventId ::@ @Integer@
 --
 failWorkflowExecutionFailedEventAttributes :: FailWorkflowExecutionFailedCause -- ^ 'fwefeaCause'
-                                             -> Integer -- ^ 'fwefeaDecisionTaskCompletedEventId'
-                                             -> FailWorkflowExecutionFailedEventAttributes
+                                           -> Integer -- ^ 'fwefeaDecisionTaskCompletedEventId'
+                                           -> FailWorkflowExecutionFailedEventAttributes
 failWorkflowExecutionFailedEventAttributes p1 p2 = FailWorkflowExecutionFailedEventAttributes
     { _fwefeaCause = p1
     , _fwefeaDecisionTaskCompletedEventId = p2
@@ -4551,9 +4551,9 @@ data HistoryEvent = HistoryEvent
 -- * @StartChildWorkflowExecutionFailedEventAttributes ::@ @Maybe StartChildWorkflowExecutionFailedEventAttributes@
 --
 historyEvent :: POSIX -- ^ 'heEventTimestamp'
-               -> EventType -- ^ 'heEventType'
-               -> Integer -- ^ 'heEventId'
-               -> HistoryEvent
+             -> EventType -- ^ 'heEventType'
+             -> Integer -- ^ 'heEventId'
+             -> HistoryEvent
 historyEvent p1 p2 p3 = HistoryEvent
     { _heEventTimestamp = p1
     , _heEventType = p2
@@ -5015,8 +5015,8 @@ data MarkerRecordedEventAttributes = MarkerRecordedEventAttributes
 -- * @DecisionTaskCompletedEventId ::@ @Integer@
 --
 markerRecordedEventAttributes :: Text -- ^ 'mreaMarkerName'
-                                -> Integer -- ^ 'mreaDecisionTaskCompletedEventId'
-                                -> MarkerRecordedEventAttributes
+                              -> Integer -- ^ 'mreaDecisionTaskCompletedEventId'
+                              -> MarkerRecordedEventAttributes
 markerRecordedEventAttributes p1 p3 = MarkerRecordedEventAttributes
     { _mreaMarkerName = p1
     , _mreaDetails = Nothing
@@ -5061,7 +5061,7 @@ data RecordMarkerDecisionAttributes = RecordMarkerDecisionAttributes
 -- * @Details ::@ @Maybe Text@
 --
 recordMarkerDecisionAttributes :: Text -- ^ 'rmdaMarkerName'
-                                 -> RecordMarkerDecisionAttributes
+                               -> RecordMarkerDecisionAttributes
 recordMarkerDecisionAttributes p1 = RecordMarkerDecisionAttributes
     { _rmdaMarkerName = p1
     , _rmdaDetails = Nothing
@@ -5100,9 +5100,9 @@ data RecordMarkerFailedEventAttributes = RecordMarkerFailedEventAttributes
 -- * @DecisionTaskCompletedEventId ::@ @Integer@
 --
 recordMarkerFailedEventAttributes :: Text -- ^ 'rmfeaMarkerName'
-                                    -> RecordMarkerFailedCause -- ^ 'rmfeaCause'
-                                    -> Integer -- ^ 'rmfeaDecisionTaskCompletedEventId'
-                                    -> RecordMarkerFailedEventAttributes
+                                  -> RecordMarkerFailedCause -- ^ 'rmfeaCause'
+                                  -> Integer -- ^ 'rmfeaDecisionTaskCompletedEventId'
+                                  -> RecordMarkerFailedEventAttributes
 recordMarkerFailedEventAttributes p1 p2 p3 = RecordMarkerFailedEventAttributes
     { _rmfeaMarkerName = p1
     , _rmfeaCause = p2
@@ -5155,9 +5155,9 @@ data RequestCancelActivityTaskFailedEventAttributes = RequestCancelActivityTaskF
 -- * @DecisionTaskCompletedEventId ::@ @Integer@
 --
 requestCancelActivityTaskFailedEventAttributes :: Text -- ^ 'rcatfeaActivityId'
-                                                 -> RequestCancelActivityTaskFailedCause -- ^ 'rcatfeaCause'
-                                                 -> Integer -- ^ 'rcatfeaDecisionTaskCompletedEventId'
-                                                 -> RequestCancelActivityTaskFailedEventAttributes
+                                               -> RequestCancelActivityTaskFailedCause -- ^ 'rcatfeaCause'
+                                               -> Integer -- ^ 'rcatfeaDecisionTaskCompletedEventId'
+                                               -> RequestCancelActivityTaskFailedEventAttributes
 requestCancelActivityTaskFailedEventAttributes p1 p2 p3 = RequestCancelActivityTaskFailedEventAttributes
     { _rcatfeaActivityId = p1
     , _rcatfeaCause = p2
@@ -5211,7 +5211,7 @@ data RequestCancelExternalWorkflowExecutionDecisionAttributes = RequestCancelExt
 -- * @Control ::@ @Maybe Text@
 --
 requestCancelExternalWorkflowExecutionDecisionAttributes :: Text -- ^ 'rcewedaWorkflowId'
-                                                           -> RequestCancelExternalWorkflowExecutionDecisionAttributes
+                                                         -> RequestCancelExternalWorkflowExecutionDecisionAttributes
 requestCancelExternalWorkflowExecutionDecisionAttributes p1 = RequestCancelExternalWorkflowExecutionDecisionAttributes
     { _rcewedaWorkflowId = p1
     , _rcewedaRunId = Nothing
@@ -5267,10 +5267,10 @@ data RequestCancelExternalWorkflowExecutionFailedEventAttributes = RequestCancel
 -- * @Control ::@ @Maybe Text@
 --
 requestCancelExternalWorkflowExecutionFailedEventAttributes :: Text -- ^ 'rcewefeaWorkflowId'
-                                                              -> RequestCancelExternalWorkflowExecutionFailedCause -- ^ 'rcewefeaCause'
-                                                              -> Integer -- ^ 'rcewefeaInitiatedEventId'
-                                                              -> Integer -- ^ 'rcewefeaDecisionTaskCompletedEventId'
-                                                              -> RequestCancelExternalWorkflowExecutionFailedEventAttributes
+                                                            -> RequestCancelExternalWorkflowExecutionFailedCause -- ^ 'rcewefeaCause'
+                                                            -> Integer -- ^ 'rcewefeaInitiatedEventId'
+                                                            -> Integer -- ^ 'rcewefeaDecisionTaskCompletedEventId'
+                                                            -> RequestCancelExternalWorkflowExecutionFailedEventAttributes
 requestCancelExternalWorkflowExecutionFailedEventAttributes p1 p3 p4 p5 = RequestCancelExternalWorkflowExecutionFailedEventAttributes
     { _rcewefeaWorkflowId = p1
     , _rcewefeaRunId = Nothing
@@ -5348,8 +5348,8 @@ data RequestCancelExternalWorkflowExecutionInitiatedEventAttributes = RequestCan
 -- * @Control ::@ @Maybe Text@
 --
 requestCancelExternalWorkflowExecutionInitiatedEventAttributes :: Text -- ^ 'rceweieaWorkflowId'
-                                                                 -> Integer -- ^ 'rceweieaDecisionTaskCompletedEventId'
-                                                                 -> RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
+                                                               -> Integer -- ^ 'rceweieaDecisionTaskCompletedEventId'
+                                                               -> RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
 requestCancelExternalWorkflowExecutionInitiatedEventAttributes p1 p3 = RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
     { _rceweieaWorkflowId = p1
     , _rceweieaRunId = Nothing
@@ -5422,8 +5422,8 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
 -- * @HeartbeatTimeout ::@ @Maybe Text@
 --
 scheduleActivityTaskDecisionAttributes :: ActivityType -- ^ 'satdaActivityType'
-                                         -> Text -- ^ 'satdaActivityId'
-                                         -> ScheduleActivityTaskDecisionAttributes
+                                       -> Text -- ^ 'satdaActivityId'
+                                       -> ScheduleActivityTaskDecisionAttributes
 scheduleActivityTaskDecisionAttributes p1 p2 = ScheduleActivityTaskDecisionAttributes
     { _satdaActivityType = p1
     , _satdaActivityId = p2
@@ -5552,10 +5552,10 @@ data ScheduleActivityTaskFailedEventAttributes = ScheduleActivityTaskFailedEvent
 -- * @DecisionTaskCompletedEventId ::@ @Integer@
 --
 scheduleActivityTaskFailedEventAttributes :: ActivityType -- ^ 'satfeaActivityType'
-                                            -> Text -- ^ 'satfeaActivityId'
-                                            -> ScheduleActivityTaskFailedCause -- ^ 'satfeaCause'
-                                            -> Integer -- ^ 'satfeaDecisionTaskCompletedEventId'
-                                            -> ScheduleActivityTaskFailedEventAttributes
+                                          -> Text -- ^ 'satfeaActivityId'
+                                          -> ScheduleActivityTaskFailedCause -- ^ 'satfeaCause'
+                                          -> Integer -- ^ 'satfeaDecisionTaskCompletedEventId'
+                                          -> ScheduleActivityTaskFailedEventAttributes
 scheduleActivityTaskFailedEventAttributes p1 p2 p3 p4 = ScheduleActivityTaskFailedEventAttributes
     { _satfeaActivityType = p1
     , _satfeaActivityId = p2
@@ -5621,8 +5621,8 @@ data SignalExternalWorkflowExecutionDecisionAttributes = SignalExternalWorkflowE
 -- * @Control ::@ @Maybe Text@
 --
 signalExternalWorkflowExecutionDecisionAttributes :: Text -- ^ 'sewedaWorkflowId'
-                                                    -> Text -- ^ 'sewedaSignalName'
-                                                    -> SignalExternalWorkflowExecutionDecisionAttributes
+                                                  -> Text -- ^ 'sewedaSignalName'
+                                                  -> SignalExternalWorkflowExecutionDecisionAttributes
 signalExternalWorkflowExecutionDecisionAttributes p1 p3 = SignalExternalWorkflowExecutionDecisionAttributes
     { _sewedaWorkflowId = p1
     , _sewedaRunId = Nothing
@@ -5691,10 +5691,10 @@ data SignalExternalWorkflowExecutionFailedEventAttributes = SignalExternalWorkfl
 -- * @Control ::@ @Maybe Text@
 --
 signalExternalWorkflowExecutionFailedEventAttributes :: Text -- ^ 'sewefeaWorkflowId'
-                                                       -> SignalExternalWorkflowExecutionFailedCause -- ^ 'sewefeaCause'
-                                                       -> Integer -- ^ 'sewefeaInitiatedEventId'
-                                                       -> Integer -- ^ 'sewefeaDecisionTaskCompletedEventId'
-                                                       -> SignalExternalWorkflowExecutionFailedEventAttributes
+                                                     -> SignalExternalWorkflowExecutionFailedCause -- ^ 'sewefeaCause'
+                                                     -> Integer -- ^ 'sewefeaInitiatedEventId'
+                                                     -> Integer -- ^ 'sewefeaDecisionTaskCompletedEventId'
+                                                     -> SignalExternalWorkflowExecutionFailedEventAttributes
 signalExternalWorkflowExecutionFailedEventAttributes p1 p3 p4 p5 = SignalExternalWorkflowExecutionFailedEventAttributes
     { _sewefeaWorkflowId = p1
     , _sewefeaRunId = Nothing
@@ -5778,9 +5778,9 @@ data SignalExternalWorkflowExecutionInitiatedEventAttributes = SignalExternalWor
 -- * @Control ::@ @Maybe Text@
 --
 signalExternalWorkflowExecutionInitiatedEventAttributes :: Text -- ^ 'seweieaWorkflowId'
-                                                          -> Text -- ^ 'seweieaSignalName'
-                                                          -> Integer -- ^ 'seweieaDecisionTaskCompletedEventId'
-                                                          -> SignalExternalWorkflowExecutionInitiatedEventAttributes
+                                                        -> Text -- ^ 'seweieaSignalName'
+                                                        -> Integer -- ^ 'seweieaDecisionTaskCompletedEventId'
+                                                        -> SignalExternalWorkflowExecutionInitiatedEventAttributes
 signalExternalWorkflowExecutionInitiatedEventAttributes p1 p3 p5 = SignalExternalWorkflowExecutionInitiatedEventAttributes
     { _seweieaWorkflowId = p1
     , _seweieaRunId = Nothing
@@ -5864,8 +5864,8 @@ data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecution
 -- * @TagList ::@ @[Text]@
 --
 startChildWorkflowExecutionDecisionAttributes :: WorkflowType -- ^ 'scwedaWorkflowType'
-                                                -> Text -- ^ 'scwedaWorkflowId'
-                                                -> StartChildWorkflowExecutionDecisionAttributes
+                                              -> Text -- ^ 'scwedaWorkflowId'
+                                              -> StartChildWorkflowExecutionDecisionAttributes
 startChildWorkflowExecutionDecisionAttributes p1 p2 = StartChildWorkflowExecutionDecisionAttributes
     { _scwedaWorkflowType = p1
     , _scwedaWorkflowId = p2
@@ -6003,11 +6003,11 @@ data StartChildWorkflowExecutionFailedEventAttributes = StartChildWorkflowExecut
 -- * @Control ::@ @Maybe Text@
 --
 startChildWorkflowExecutionFailedEventAttributes :: WorkflowType -- ^ 'scwefeaWorkflowType'
-                                                   -> StartChildWorkflowExecutionFailedCause -- ^ 'scwefeaCause'
-                                                   -> Text -- ^ 'scwefeaWorkflowId'
-                                                   -> Integer -- ^ 'scwefeaInitiatedEventId'
-                                                   -> Integer -- ^ 'scwefeaDecisionTaskCompletedEventId'
-                                                   -> StartChildWorkflowExecutionFailedEventAttributes
+                                                 -> StartChildWorkflowExecutionFailedCause -- ^ 'scwefeaCause'
+                                                 -> Text -- ^ 'scwefeaWorkflowId'
+                                                 -> Integer -- ^ 'scwefeaInitiatedEventId'
+                                                 -> Integer -- ^ 'scwefeaDecisionTaskCompletedEventId'
+                                                 -> StartChildWorkflowExecutionFailedEventAttributes
 startChildWorkflowExecutionFailedEventAttributes p1 p2 p3 p4 p5 = StartChildWorkflowExecutionFailedEventAttributes
     { _scwefeaWorkflowType = p1
     , _scwefeaCause = p2
@@ -6103,11 +6103,11 @@ data StartChildWorkflowExecutionInitiatedEventAttributes = StartChildWorkflowExe
 -- * @TagList ::@ @[Text]@
 --
 startChildWorkflowExecutionInitiatedEventAttributes :: Text -- ^ 'scweieaWorkflowId'
-                                                      -> WorkflowType -- ^ 'scweieaWorkflowType'
-                                                      -> TaskList -- ^ 'scweieaTaskList'
-                                                      -> Integer -- ^ 'scweieaDecisionTaskCompletedEventId'
-                                                      -> ChildPolicy -- ^ 'scweieaChildPolicy'
-                                                      -> StartChildWorkflowExecutionInitiatedEventAttributes
+                                                    -> WorkflowType -- ^ 'scweieaWorkflowType'
+                                                    -> TaskList -- ^ 'scweieaTaskList'
+                                                    -> Integer -- ^ 'scweieaDecisionTaskCompletedEventId'
+                                                    -> ChildPolicy -- ^ 'scweieaChildPolicy'
+                                                    -> StartChildWorkflowExecutionInitiatedEventAttributes
 startChildWorkflowExecutionInitiatedEventAttributes p1 p2 p6 p7 p8 = StartChildWorkflowExecutionInitiatedEventAttributes
     { _scweieaWorkflowId = p1
     , _scweieaWorkflowType = p2
@@ -6214,8 +6214,8 @@ data StartTimerDecisionAttributes = StartTimerDecisionAttributes
 -- * @StartToFireTimeout ::@ @Text@
 --
 startTimerDecisionAttributes :: Text -- ^ 'stdaTimerId'
-                               -> Text -- ^ 'stdaStartToFireTimeout'
-                               -> StartTimerDecisionAttributes
+                             -> Text -- ^ 'stdaStartToFireTimeout'
+                             -> StartTimerDecisionAttributes
 startTimerDecisionAttributes p1 p3 = StartTimerDecisionAttributes
     { _stdaTimerId = p1
     , _stdaControl = Nothing
@@ -6267,9 +6267,9 @@ data StartTimerFailedEventAttributes = StartTimerFailedEventAttributes
 -- * @DecisionTaskCompletedEventId ::@ @Integer@
 --
 startTimerFailedEventAttributes :: Text -- ^ 'stfeaTimerId'
-                                  -> StartTimerFailedCause -- ^ 'stfeaCause'
-                                  -> Integer -- ^ 'stfeaDecisionTaskCompletedEventId'
-                                  -> StartTimerFailedEventAttributes
+                                -> StartTimerFailedCause -- ^ 'stfeaCause'
+                                -> Integer -- ^ 'stfeaDecisionTaskCompletedEventId'
+                                -> StartTimerFailedEventAttributes
 startTimerFailedEventAttributes p1 p2 p3 = StartTimerFailedEventAttributes
     { _stfeaTimerId = p1
     , _stfeaCause = p2
@@ -6321,9 +6321,9 @@ data TimerCanceledEventAttributes = TimerCanceledEventAttributes
 -- * @DecisionTaskCompletedEventId ::@ @Integer@
 --
 timerCanceledEventAttributes :: Text -- ^ 'tceaTimerId'
-                               -> Integer -- ^ 'tceaStartedEventId'
-                               -> Integer -- ^ 'tceaDecisionTaskCompletedEventId'
-                               -> TimerCanceledEventAttributes
+                             -> Integer -- ^ 'tceaStartedEventId'
+                             -> Integer -- ^ 'tceaDecisionTaskCompletedEventId'
+                             -> TimerCanceledEventAttributes
 timerCanceledEventAttributes p1 p2 p3 = TimerCanceledEventAttributes
     { _tceaTimerId = p1
     , _tceaStartedEventId = p2
@@ -6371,8 +6371,8 @@ data TimerFiredEventAttributes = TimerFiredEventAttributes
 -- * @StartedEventId ::@ @Integer@
 --
 timerFiredEventAttributes :: Text -- ^ 'tfeaTimerId'
-                            -> Integer -- ^ 'tfeaStartedEventId'
-                            -> TimerFiredEventAttributes
+                          -> Integer -- ^ 'tfeaStartedEventId'
+                          -> TimerFiredEventAttributes
 timerFiredEventAttributes p1 p2 = TimerFiredEventAttributes
     { _tfeaTimerId = p1
     , _tfeaStartedEventId = p2
@@ -6416,9 +6416,9 @@ data TimerStartedEventAttributes = TimerStartedEventAttributes
 -- * @DecisionTaskCompletedEventId ::@ @Integer@
 --
 timerStartedEventAttributes :: Text -- ^ 'tseaTimerId'
-                              -> Text -- ^ 'tseaStartToFireTimeout'
-                              -> Integer -- ^ 'tseaDecisionTaskCompletedEventId'
-                              -> TimerStartedEventAttributes
+                            -> Text -- ^ 'tseaStartToFireTimeout'
+                            -> Integer -- ^ 'tseaDecisionTaskCompletedEventId'
+                            -> TimerStartedEventAttributes
 timerStartedEventAttributes p1 p3 p4 = TimerStartedEventAttributes
     { _tseaTimerId = p1
     , _tseaControl = Nothing
@@ -6471,8 +6471,8 @@ data WorkflowExecution = WorkflowExecution
 -- * @RunId ::@ @Text@
 --
 workflowExecution :: Text -- ^ 'weWorkflowId'
-                    -> Text -- ^ 'weRunId'
-                    -> WorkflowExecution
+                  -> Text -- ^ 'weRunId'
+                  -> WorkflowExecution
 workflowExecution p1 p2 = WorkflowExecution
     { _weWorkflowId = p1
     , _weRunId = p2
@@ -6563,7 +6563,7 @@ data WorkflowExecutionCanceledEventAttributes = WorkflowExecutionCanceledEventAt
 -- * @DecisionTaskCompletedEventId ::@ @Integer@
 --
 workflowExecutionCanceledEventAttributes :: Integer -- ^ 'wecea1DecisionTaskCompletedEventId'
-                                           -> WorkflowExecutionCanceledEventAttributes
+                                         -> WorkflowExecutionCanceledEventAttributes
 workflowExecutionCanceledEventAttributes p2 = WorkflowExecutionCanceledEventAttributes
     { _wecea1Details = Nothing
     , _wecea1DecisionTaskCompletedEventId = p2
@@ -6604,7 +6604,7 @@ data WorkflowExecutionCompletedEventAttributes = WorkflowExecutionCompletedEvent
 -- * @DecisionTaskCompletedEventId ::@ @Integer@
 --
 workflowExecutionCompletedEventAttributes :: Integer -- ^ 'weceaDecisionTaskCompletedEventId'
-                                            -> WorkflowExecutionCompletedEventAttributes
+                                          -> WorkflowExecutionCompletedEventAttributes
 workflowExecutionCompletedEventAttributes p2 = WorkflowExecutionCompletedEventAttributes
     { _weceaResult = Nothing
     , _weceaDecisionTaskCompletedEventId = p2
@@ -6653,10 +6653,10 @@ data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration
 -- * @ChildPolicy ::@ @ChildPolicy@
 --
 workflowExecutionConfiguration :: Text -- ^ 'wecTaskStartToCloseTimeout'
-                                 -> Text -- ^ 'wecExecutionStartToCloseTimeout'
-                                 -> TaskList -- ^ 'wecTaskList'
-                                 -> ChildPolicy -- ^ 'wecChildPolicy'
-                                 -> WorkflowExecutionConfiguration
+                               -> Text -- ^ 'wecExecutionStartToCloseTimeout'
+                               -> TaskList -- ^ 'wecTaskList'
+                               -> ChildPolicy -- ^ 'wecChildPolicy'
+                               -> WorkflowExecutionConfiguration
 workflowExecutionConfiguration p1 p2 p3 p4 = WorkflowExecutionConfiguration
     { _wecTaskStartToCloseTimeout = p1
     , _wecExecutionStartToCloseTimeout = p2
@@ -6740,11 +6740,11 @@ data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinued
 -- * @WorkflowType ::@ @WorkflowType@
 --
 workflowExecutionContinuedAsNewEventAttributes :: Integer -- ^ 'wecaneaDecisionTaskCompletedEventId'
-                                                 -> Text -- ^ 'wecaneaNewExecutionRunId'
-                                                 -> TaskList -- ^ 'wecaneaTaskList'
-                                                 -> ChildPolicy -- ^ 'wecaneaChildPolicy'
-                                                 -> WorkflowType -- ^ 'wecaneaWorkflowType'
-                                                 -> WorkflowExecutionContinuedAsNewEventAttributes
+                                               -> Text -- ^ 'wecaneaNewExecutionRunId'
+                                               -> TaskList -- ^ 'wecaneaTaskList'
+                                               -> ChildPolicy -- ^ 'wecaneaChildPolicy'
+                                               -> WorkflowType -- ^ 'wecaneaWorkflowType'
+                                               -> WorkflowExecutionContinuedAsNewEventAttributes
 workflowExecutionContinuedAsNewEventAttributes p2 p3 p5 p7 p9 = WorkflowExecutionContinuedAsNewEventAttributes
     { _wecaneaInput = Nothing
     , _wecaneaDecisionTaskCompletedEventId = p2
@@ -6845,7 +6845,7 @@ data WorkflowExecutionFailedEventAttributes = WorkflowExecutionFailedEventAttrib
 -- * @DecisionTaskCompletedEventId ::@ @Integer@
 --
 workflowExecutionFailedEventAttributes :: Integer -- ^ 'wefeaDecisionTaskCompletedEventId'
-                                         -> WorkflowExecutionFailedEventAttributes
+                                       -> WorkflowExecutionFailedEventAttributes
 workflowExecutionFailedEventAttributes p3 = WorkflowExecutionFailedEventAttributes
     { _wefeaReason = Nothing
     , _wefeaDetails = Nothing
@@ -6913,10 +6913,10 @@ data WorkflowExecutionInfo = WorkflowExecutionInfo
 -- * @CancelRequested ::@ @Maybe Bool@
 --
 workflowExecutionInfo :: WorkflowExecution -- ^ 'weiExecution'
-                        -> WorkflowType -- ^ 'weiWorkflowType'
-                        -> POSIX -- ^ 'weiStartTimestamp'
-                        -> ExecutionStatus -- ^ 'weiExecutionStatus'
-                        -> WorkflowExecutionInfo
+                      -> WorkflowType -- ^ 'weiWorkflowType'
+                      -> POSIX -- ^ 'weiStartTimestamp'
+                      -> ExecutionStatus -- ^ 'weiExecutionStatus'
+                      -> WorkflowExecutionInfo
 workflowExecutionInfo p1 p2 p3 p5 = WorkflowExecutionInfo
     { _weiExecution = p1
     , _weiWorkflowType = p2
@@ -7009,10 +7009,10 @@ data WorkflowExecutionOpenCounts = WorkflowExecutionOpenCounts
 -- * @OpenChildWorkflowExecutions ::@ @Integer@
 --
 workflowExecutionOpenCounts :: Integer -- ^ 'weocOpenActivityTasks'
-                              -> Integer -- ^ 'weocOpenDecisionTasks'
-                              -> Integer -- ^ 'weocOpenTimers'
-                              -> Integer -- ^ 'weocOpenChildWorkflowExecutions'
-                              -> WorkflowExecutionOpenCounts
+                            -> Integer -- ^ 'weocOpenDecisionTasks'
+                            -> Integer -- ^ 'weocOpenTimers'
+                            -> Integer -- ^ 'weocOpenChildWorkflowExecutions'
+                            -> WorkflowExecutionOpenCounts
 workflowExecutionOpenCounts p1 p2 p3 p4 = WorkflowExecutionOpenCounts
     { _weocOpenActivityTasks = p1
     , _weocOpenDecisionTasks = p2
@@ -7068,7 +7068,7 @@ data WorkflowExecutionSignaledEventAttributes = WorkflowExecutionSignaledEventAt
 -- * @ExternalInitiatedEventId ::@ @Maybe Integer@
 --
 workflowExecutionSignaledEventAttributes :: Text -- ^ 'wesea1SignalName'
-                                           -> WorkflowExecutionSignaledEventAttributes
+                                         -> WorkflowExecutionSignaledEventAttributes
 workflowExecutionSignaledEventAttributes p1 = WorkflowExecutionSignaledEventAttributes
     { _wesea1SignalName = p1
     , _wesea1Input = Nothing
@@ -7152,9 +7152,9 @@ data WorkflowExecutionStartedEventAttributes = WorkflowExecutionStartedEventAttr
 -- * @ParentInitiatedEventId ::@ @Maybe Integer@
 --
 workflowExecutionStartedEventAttributes :: ChildPolicy -- ^ 'weseaChildPolicy'
-                                          -> TaskList -- ^ 'weseaTaskList'
-                                          -> WorkflowType -- ^ 'weseaWorkflowType'
-                                          -> WorkflowExecutionStartedEventAttributes
+                                        -> TaskList -- ^ 'weseaTaskList'
+                                        -> WorkflowType -- ^ 'weseaWorkflowType'
+                                        -> WorkflowExecutionStartedEventAttributes
 workflowExecutionStartedEventAttributes p4 p5 p6 = WorkflowExecutionStartedEventAttributes
     { _weseaInput = Nothing
     , _weseaExecutionStartToCloseTimeout = Nothing
@@ -7272,7 +7272,7 @@ data WorkflowExecutionTerminatedEventAttributes = WorkflowExecutionTerminatedEve
 -- * @Cause ::@ @Maybe WorkflowExecutionTerminatedCause@
 --
 workflowExecutionTerminatedEventAttributes :: ChildPolicy -- ^ 'weteaChildPolicy'
-                                             -> WorkflowExecutionTerminatedEventAttributes
+                                           -> WorkflowExecutionTerminatedEventAttributes
 workflowExecutionTerminatedEventAttributes p3 = WorkflowExecutionTerminatedEventAttributes
     { _weteaReason = Nothing
     , _weteaDetails = Nothing
@@ -7329,8 +7329,8 @@ data WorkflowExecutionTimedOutEventAttributes = WorkflowExecutionTimedOutEventAt
 -- * @ChildPolicy ::@ @ChildPolicy@
 --
 workflowExecutionTimedOutEventAttributes :: WorkflowExecutionTimeoutType -- ^ 'wetoeaTimeoutType'
-                                           -> ChildPolicy -- ^ 'wetoeaChildPolicy'
-                                           -> WorkflowExecutionTimedOutEventAttributes
+                                         -> ChildPolicy -- ^ 'wetoeaChildPolicy'
+                                         -> WorkflowExecutionTimedOutEventAttributes
 workflowExecutionTimedOutEventAttributes p1 p2 = WorkflowExecutionTimedOutEventAttributes
     { _wetoeaTimeoutType = p1
     , _wetoeaChildPolicy = p2
@@ -7373,8 +7373,8 @@ data WorkflowType = WorkflowType
 -- * @Version ::@ @Text@
 --
 workflowType :: Text -- ^ 'wtName'
-               -> Text -- ^ 'wtVersion'
-               -> WorkflowType
+             -> Text -- ^ 'wtVersion'
+             -> WorkflowType
 workflowType p1 p2 = WorkflowType
     { _wtName = p1
     , _wtVersion = p2
@@ -7497,7 +7497,7 @@ data WorkflowTypeFilter = WorkflowTypeFilter
 -- * @Version ::@ @Maybe Text@
 --
 workflowTypeFilter :: Text -- ^ 'wtfName'
-                     -> WorkflowTypeFilter
+                   -> WorkflowTypeFilter
 workflowTypeFilter p1 = WorkflowTypeFilter
     { _wtfName = p1
     , _wtfVersion = Nothing
@@ -7547,9 +7547,9 @@ data WorkflowTypeInfo = WorkflowTypeInfo
 -- * @DeprecationDate ::@ @Maybe POSIX@
 --
 workflowTypeInfo :: WorkflowType -- ^ 'wtiWorkflowType'
-                   -> RegistrationStatus -- ^ 'wtiStatus'
-                   -> POSIX -- ^ 'wtiCreationDate'
-                   -> WorkflowTypeInfo
+                 -> RegistrationStatus -- ^ 'wtiStatus'
+                 -> POSIX -- ^ 'wtiCreationDate'
+                 -> WorkflowTypeInfo
 workflowTypeInfo p1 p2 p4 = WorkflowTypeInfo
     { _wtiWorkflowType = p1
     , _wtiStatus = p2

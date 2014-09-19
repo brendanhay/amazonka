@@ -58,7 +58,7 @@ newtype GetSAMLProvider = GetSAMLProvider
 -- * @SAMLProviderArn ::@ @Text@
 --
 getSAMLProvider :: Text -- ^ 'gsamlpSAMLProviderArn'
-                  -> GetSAMLProvider
+                -> GetSAMLProvider
 getSAMLProvider p1 = GetSAMLProvider
     { _gsamlpSAMLProviderArn = p1
     }

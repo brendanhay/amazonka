@@ -50,7 +50,7 @@ newtype DeleteBucketTagging = DeleteBucketTagging
 -- * @Bucket ::@ @BucketName@
 --
 deleteBucketTagging :: BucketName -- ^ 'dbtBucket'
-                      -> DeleteBucketTagging
+                    -> DeleteBucketTagging
 deleteBucketTagging p1 = DeleteBucketTagging
     { _dbtBucket = p1
     }

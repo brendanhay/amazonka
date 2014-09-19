@@ -70,8 +70,8 @@ data ModifyClusterParameterGroup = ModifyClusterParameterGroup
 -- * @Parameters ::@ @[Parameter]@
 --
 modifyClusterParameterGroup :: Text -- ^ 'mcpgParameterGroupName'
-                              -> [Parameter] -- ^ 'mcpgParameters'
-                              -> ModifyClusterParameterGroup
+                            -> [Parameter] -- ^ 'mcpgParameters'
+                            -> ModifyClusterParameterGroup
 modifyClusterParameterGroup p1 p2 = ModifyClusterParameterGroup
     { _mcpgParameterGroupName = p1
     , _mcpgParameters = p2

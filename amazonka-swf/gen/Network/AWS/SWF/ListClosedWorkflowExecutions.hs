@@ -138,7 +138,7 @@ data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions
 -- * @ReverseOrder ::@ @Maybe Bool@
 --
 listClosedWorkflowExecutions :: Text -- ^ 'lcweDomain'
-                               -> ListClosedWorkflowExecutions
+                             -> ListClosedWorkflowExecutions
 listClosedWorkflowExecutions p1 = ListClosedWorkflowExecutions
     { _lcweDomain = p1
     , _lcweStartTimeFilter = Nothing
@@ -255,7 +255,7 @@ data ListClosedWorkflowExecutionsResponse = ListClosedWorkflowExecutionsResponse
 -- * @NextPageToken ::@ @Maybe Text@
 --
 listClosedWorkflowExecutionsResponse :: [WorkflowExecutionInfo] -- ^ 'lcwerExecutionInfos'
-                                       -> ListClosedWorkflowExecutionsResponse
+                                     -> ListClosedWorkflowExecutionsResponse
 listClosedWorkflowExecutionsResponse p1 = ListClosedWorkflowExecutionsResponse
     { _lcwerExecutionInfos = p1
     , _lcwerNextPageToken = Nothing

@@ -76,9 +76,9 @@ data CreateClusterParameterGroup = CreateClusterParameterGroup
 -- * @Description ::@ @Text@
 --
 createClusterParameterGroup :: Text -- ^ 'ccpgParameterGroupName'
-                              -> Text -- ^ 'ccpgParameterGroupFamily'
-                              -> Text -- ^ 'ccpgDescription'
-                              -> CreateClusterParameterGroup
+                            -> Text -- ^ 'ccpgParameterGroupFamily'
+                            -> Text -- ^ 'ccpgDescription'
+                            -> CreateClusterParameterGroup
 createClusterParameterGroup p1 p2 p3 = CreateClusterParameterGroup
     { _ccpgParameterGroupName = p1
     , _ccpgParameterGroupFamily = p2

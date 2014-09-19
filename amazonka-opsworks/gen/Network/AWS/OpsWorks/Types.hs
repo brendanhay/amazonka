@@ -1550,7 +1550,7 @@ data DeploymentCommand = DeploymentCommand
 -- * @Args ::@ @Map Text [Text]@
 --
 deploymentCommand :: DeploymentCommandName -- ^ 'dcName'
-                    -> DeploymentCommand
+                  -> DeploymentCommand
 deploymentCommand p1 = DeploymentCommand
     { _dcName = p1
     , _dcArgs = mempty
@@ -1757,8 +1757,8 @@ data EnvironmentVariable = EnvironmentVariable
 -- * @Secure ::@ @Maybe Bool@
 --
 environmentVariable :: Text -- ^ 'evKey'
-                      -> Text -- ^ 'evValue'
-                      -> EnvironmentVariable
+                    -> Text -- ^ 'evValue'
+                    -> EnvironmentVariable
 environmentVariable p1 p2 = EnvironmentVariable
     { _evKey = p1
     , _evValue = p2
@@ -3015,8 +3015,8 @@ data SslConfiguration = SslConfiguration
 -- * @Chain ::@ @Maybe Text@
 --
 sslConfiguration :: Text -- ^ 'scCertificate'
-                   -> Text -- ^ 'scPrivateKey'
-                   -> SslConfiguration
+                 -> Text -- ^ 'scPrivateKey'
+                 -> SslConfiguration
 sslConfiguration p1 p2 = SslConfiguration
     { _scCertificate = p1
     , _scPrivateKey = p2
@@ -3610,9 +3610,9 @@ data VolumeConfiguration = VolumeConfiguration
 -- * @Iops ::@ @Maybe Integer@
 --
 volumeConfiguration :: Text -- ^ 'vcMountPoint'
-                      -> Integer -- ^ 'vcNumberOfDisks'
-                      -> Integer -- ^ 'vcSize'
-                      -> VolumeConfiguration
+                    -> Integer -- ^ 'vcNumberOfDisks'
+                    -> Integer -- ^ 'vcSize'
+                    -> VolumeConfiguration
 volumeConfiguration p1 p3 p4 = VolumeConfiguration
     { _vcMountPoint = p1
     , _vcRaidLevel = Nothing

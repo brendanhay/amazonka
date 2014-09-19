@@ -63,7 +63,7 @@ data SetStackPolicy = SetStackPolicy
 -- * @StackPolicyURL ::@ @Maybe Text@
 --
 setStackPolicy :: Text -- ^ 'sspStackName'
-                 -> SetStackPolicy
+               -> SetStackPolicy
 setStackPolicy p1 = SetStackPolicy
     { _sspStackName = p1
     , _sspStackPolicyBody = Nothing

@@ -101,11 +101,11 @@ data CreateCachediSCSIVolume = CreateCachediSCSIVolume
 -- * @ClientToken ::@ @Text@
 --
 createCachediSCSIVolume :: Text -- ^ 'ccscsivGatewayARN'
-                          -> Integer -- ^ 'ccscsivVolumeSizeInBytes'
-                          -> Text -- ^ 'ccscsivTargetName'
-                          -> Text -- ^ 'ccscsivNetworkInterfaceId'
-                          -> Text -- ^ 'ccscsivClientToken'
-                          -> CreateCachediSCSIVolume
+                        -> Integer -- ^ 'ccscsivVolumeSizeInBytes'
+                        -> Text -- ^ 'ccscsivTargetName'
+                        -> Text -- ^ 'ccscsivNetworkInterfaceId'
+                        -> Text -- ^ 'ccscsivClientToken'
+                        -> CreateCachediSCSIVolume
 createCachediSCSIVolume p1 p2 p4 p5 p6 = CreateCachediSCSIVolume
     { _ccscsivGatewayARN = p1
     , _ccscsivVolumeSizeInBytes = p2

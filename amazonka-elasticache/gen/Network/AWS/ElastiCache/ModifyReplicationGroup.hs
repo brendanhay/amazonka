@@ -121,7 +121,7 @@ data ModifyReplicationGroup = ModifyReplicationGroup
 -- * @SnapshottingClusterId ::@ @Maybe Text@
 --
 modifyReplicationGroup :: Text -- ^ 'mrgReplicationGroupId'
-                         -> ModifyReplicationGroup
+                       -> ModifyReplicationGroup
 modifyReplicationGroup p1 = ModifyReplicationGroup
     { _mrgReplicationGroupId = p1
     , _mrgReplicationGroupDescription = Nothing

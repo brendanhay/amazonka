@@ -93,6 +93,9 @@ parseModel Model{..} = do
 instance FromJSON (CI Text) where
     parseJSON = withText "case-insensitive" (return . CI.mk)
 
+instance FromJSON a => FromJSON (HashMap (CI Text) a) where
+    parseJSON = fmap (Map.fromList . map (first CI.mk) . Map.toList) . parseJSON
+
 instance FromJSON Abbrev where
     parseJSON = withText "abbrev" (return . Abbrev)
 
@@ -141,11 +144,13 @@ instance FromJSON TypeOverride where
         <*> o .:? "existing"   .!= mempty
         <*> o .:? "rename"     .!= mempty
         <*> o .:? "unprefixed" .!= mempty
+        <*> o .:? "type"       .!= mempty
 
 instance FromJSON FieldOverride where
     parseJSON = withObject "field_overrides" $ \o -> FieldOverride
         <$> o .:? "required" .!= mempty
         <*> o .:? "ignored"  .!= mempty
+        <*> o .:? "type"     .!= mempty
 
 instance FromJSON Service where
     parseJSON = withObject "service" $ \o -> do

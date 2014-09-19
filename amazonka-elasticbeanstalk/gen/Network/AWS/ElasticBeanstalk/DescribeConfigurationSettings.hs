@@ -111,7 +111,7 @@ data DescribeConfigurationSettings = DescribeConfigurationSettings
 -- * @EnvironmentName ::@ @Maybe Text@
 --
 describeConfigurationSettings :: Text -- ^ 'dcsApplicationName'
-                                -> DescribeConfigurationSettings
+                              -> DescribeConfigurationSettings
 describeConfigurationSettings p1 = DescribeConfigurationSettings
     { _dcsApplicationName = p1
     , _dcsTemplateName = Nothing

@@ -56,7 +56,7 @@ newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup
 -- * @CacheSecurityGroupName ::@ @Text@
 --
 deleteCacheSecurityGroup :: Text -- ^ 'dcsgCacheSecurityGroupName'
-                           -> DeleteCacheSecurityGroup
+                         -> DeleteCacheSecurityGroup
 deleteCacheSecurityGroup p1 = DeleteCacheSecurityGroup
     { _dcsgCacheSecurityGroupName = p1
     }

@@ -105,11 +105,11 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume
 -- * @NetworkInterfaceId ::@ @Text@
 --
 createStorediSCSIVolume :: Text -- ^ 'csscsivGatewayARN'
-                          -> Text -- ^ 'csscsivDiskId'
-                          -> Bool -- ^ 'csscsivPreserveExistingData'
-                          -> Text -- ^ 'csscsivTargetName'
-                          -> Text -- ^ 'csscsivNetworkInterfaceId'
-                          -> CreateStorediSCSIVolume
+                        -> Text -- ^ 'csscsivDiskId'
+                        -> Bool -- ^ 'csscsivPreserveExistingData'
+                        -> Text -- ^ 'csscsivTargetName'
+                        -> Text -- ^ 'csscsivNetworkInterfaceId'
+                        -> CreateStorediSCSIVolume
 createStorediSCSIVolume p1 p2 p4 p5 p6 = CreateStorediSCSIVolume
     { _csscsivGatewayARN = p1
     , _csscsivDiskId = p2

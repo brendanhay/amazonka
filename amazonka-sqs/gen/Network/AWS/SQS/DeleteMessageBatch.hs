@@ -76,8 +76,8 @@ data DeleteMessageBatch = DeleteMessageBatch
 -- * @Entries ::@ @[DeleteMessageBatchRequestEntry]@
 --
 deleteMessageBatch :: Text -- ^ 'dmbQueueUrl'
-                     -> [DeleteMessageBatchRequestEntry] -- ^ 'dmbEntries'
-                     -> DeleteMessageBatch
+                   -> [DeleteMessageBatchRequestEntry] -- ^ 'dmbEntries'
+                   -> DeleteMessageBatch
 deleteMessageBatch p1 p2 = DeleteMessageBatch
     { _dmbQueueUrl = p1
     , _dmbEntries = p2
@@ -114,8 +114,8 @@ data DeleteMessageBatchResponse = DeleteMessageBatchResponse
 -- * @Failed ::@ @[BatchResultErrorEntry]@
 --
 deleteMessageBatchResponse :: [DeleteMessageBatchResultEntry] -- ^ 'dmbrSuccessful'
-                             -> [BatchResultErrorEntry] -- ^ 'dmbrFailed'
-                             -> DeleteMessageBatchResponse
+                           -> [BatchResultErrorEntry] -- ^ 'dmbrFailed'
+                           -> DeleteMessageBatchResponse
 deleteMessageBatchResponse p1 p2 = DeleteMessageBatchResponse
     { _dmbrSuccessful = p1
     , _dmbrFailed = p2

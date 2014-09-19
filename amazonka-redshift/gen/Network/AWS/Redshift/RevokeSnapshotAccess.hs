@@ -64,8 +64,8 @@ data RevokeSnapshotAccess = RevokeSnapshotAccess
 -- * @AccountWithRestoreAccess ::@ @Text@
 --
 revokeSnapshotAccess :: Text -- ^ 'rsaSnapshotIdentifier'
-                       -> Text -- ^ 'rsaAccountWithRestoreAccess'
-                       -> RevokeSnapshotAccess
+                     -> Text -- ^ 'rsaAccountWithRestoreAccess'
+                     -> RevokeSnapshotAccess
 revokeSnapshotAccess p1 p3 = RevokeSnapshotAccess
     { _rsaSnapshotIdentifier = p1
     , _rsaSnapshotClusterIdentifier = Nothing

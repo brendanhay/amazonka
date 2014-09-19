@@ -123,7 +123,7 @@ data ListDomainsResponse = ListDomainsResponse
 -- * @NextPageMarker ::@ @Maybe Text@
 --
 listDomainsResponse :: [DomainSummary] -- ^ 'ldrDomains'
-                      -> ListDomainsResponse
+                    -> ListDomainsResponse
 listDomainsResponse p1 = ListDomainsResponse
     { _ldrDomains = p1
     , _ldrNextPageMarker = Nothing

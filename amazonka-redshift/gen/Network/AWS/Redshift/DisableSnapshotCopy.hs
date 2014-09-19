@@ -53,7 +53,7 @@ newtype DisableSnapshotCopy = DisableSnapshotCopy
 -- * @ClusterIdentifier ::@ @Text@
 --
 disableSnapshotCopy :: Text -- ^ 'dscClusterIdentifier'
-                      -> DisableSnapshotCopy
+                    -> DisableSnapshotCopy
 disableSnapshotCopy p1 = DisableSnapshotCopy
     { _dscClusterIdentifier = p1
     }

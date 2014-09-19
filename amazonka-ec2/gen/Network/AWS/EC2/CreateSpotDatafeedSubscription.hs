@@ -69,7 +69,7 @@ data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
 -- * @Prefix ::@ @Maybe Text@
 --
 createSpotDatafeedSubscription :: Text -- ^ 'csdsBucket'
-                                 -> CreateSpotDatafeedSubscription
+                               -> CreateSpotDatafeedSubscription
 createSpotDatafeedSubscription p1 = CreateSpotDatafeedSubscription
     { _csdsBucket = p1
     , _csdsPrefix = Nothing

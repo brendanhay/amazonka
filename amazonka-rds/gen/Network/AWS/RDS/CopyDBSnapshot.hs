@@ -68,8 +68,8 @@ data CopyDBSnapshot = CopyDBSnapshot
 -- * @Tags ::@ @[Tag]@
 --
 copyDBSnapshot :: Text -- ^ 'cdbsSourceDBSnapshotIdentifier'
-                 -> Text -- ^ 'cdbsTargetDBSnapshotIdentifier'
-                 -> CopyDBSnapshot
+               -> Text -- ^ 'cdbsTargetDBSnapshotIdentifier'
+               -> CopyDBSnapshot
 copyDBSnapshot p1 p2 = CopyDBSnapshot
     { _cdbsSourceDBSnapshotIdentifier = p1
     , _cdbsTargetDBSnapshotIdentifier = p2

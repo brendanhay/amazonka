@@ -54,8 +54,8 @@ data CancelRetrieval = CancelRetrieval
 -- * @TapeARN ::@ @Text@
 --
 cancelRetrieval :: Text -- ^ 'crGatewayARN'
-                  -> Text -- ^ 'crTapeARN'
-                  -> CancelRetrieval
+                -> Text -- ^ 'crTapeARN'
+                -> CancelRetrieval
 cancelRetrieval p1 p2 = CancelRetrieval
     { _crGatewayARN = p1
     , _crTapeARN = p2

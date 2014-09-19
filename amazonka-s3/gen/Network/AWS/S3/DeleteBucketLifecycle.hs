@@ -50,7 +50,7 @@ newtype DeleteBucketLifecycle = DeleteBucketLifecycle
 -- * @Bucket ::@ @BucketName@
 --
 deleteBucketLifecycle :: BucketName -- ^ 'dblBucket'
-                        -> DeleteBucketLifecycle
+                      -> DeleteBucketLifecycle
 deleteBucketLifecycle p1 = DeleteBucketLifecycle
     { _dblBucket = p1
     }

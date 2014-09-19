@@ -66,7 +66,7 @@ newtype Unsubscribe = Unsubscribe
 -- * @SubscriptionArn ::@ @Text@
 --
 unsubscribe :: Text -- ^ 'uSubscriptionArn'
-              -> Unsubscribe
+            -> Unsubscribe
 unsubscribe p1 = Unsubscribe
     { _uSubscriptionArn = p1
     }

@@ -76,7 +76,7 @@ newtype DeleteGateway = DeleteGateway
 -- * @GatewayARN ::@ @Text@
 --
 deleteGateway :: Text -- ^ 'dgGatewayARN'
-                -> DeleteGateway
+              -> DeleteGateway
 deleteGateway p1 = DeleteGateway
     { _dgGatewayARN = p1
     }

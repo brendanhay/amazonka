@@ -854,11 +854,11 @@ data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription
 -- * @Metadata ::@ @[Text]@
 --
 trustedAdvisorCheckDescription :: Text -- ^ 'tacdId'
-                                 -> Text -- ^ 'tacdName'
-                                 -> Text -- ^ 'tacdDescription'
-                                 -> Text -- ^ 'tacdCategory'
-                                 -> [Text] -- ^ 'tacdMetadata'
-                                 -> TrustedAdvisorCheckDescription
+                               -> Text -- ^ 'tacdName'
+                               -> Text -- ^ 'tacdDescription'
+                               -> Text -- ^ 'tacdCategory'
+                               -> [Text] -- ^ 'tacdMetadata'
+                               -> TrustedAdvisorCheckDescription
 trustedAdvisorCheckDescription p1 p2 p3 p4 p5 = TrustedAdvisorCheckDescription
     { _tacdId = p1
     , _tacdName = p2
@@ -916,9 +916,9 @@ data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus
 -- * @MillisUntilNextRefreshable ::@ @Integer@
 --
 trustedAdvisorCheckRefreshStatus :: Text -- ^ 'tacrsCheckId'
-                                   -> Text -- ^ 'tacrsStatus'
-                                   -> Integer -- ^ 'tacrsMillisUntilNextRefreshable'
-                                   -> TrustedAdvisorCheckRefreshStatus
+                                 -> Text -- ^ 'tacrsStatus'
+                                 -> Integer -- ^ 'tacrsMillisUntilNextRefreshable'
+                                 -> TrustedAdvisorCheckRefreshStatus
 trustedAdvisorCheckRefreshStatus p1 p2 p3 = TrustedAdvisorCheckRefreshStatus
     { _tacrsCheckId = p1
     , _tacrsStatus = p2
@@ -974,12 +974,12 @@ data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult
 -- * @FlaggedResources ::@ @[TrustedAdvisorResourceDetail]@
 --
 trustedAdvisorCheckResult :: Text -- ^ 'tacrCheckId'
-                            -> Text -- ^ 'tacrTimestamp'
-                            -> Text -- ^ 'tacrStatus'
-                            -> TrustedAdvisorResourcesSummary -- ^ 'tacrResourcesSummary'
-                            -> TrustedAdvisorCategorySpecificSummary -- ^ 'tacrCategorySpecificSummary'
-                            -> [TrustedAdvisorResourceDetail] -- ^ 'tacrFlaggedResources'
-                            -> TrustedAdvisorCheckResult
+                          -> Text -- ^ 'tacrTimestamp'
+                          -> Text -- ^ 'tacrStatus'
+                          -> TrustedAdvisorResourcesSummary -- ^ 'tacrResourcesSummary'
+                          -> TrustedAdvisorCategorySpecificSummary -- ^ 'tacrCategorySpecificSummary'
+                          -> [TrustedAdvisorResourceDetail] -- ^ 'tacrFlaggedResources'
+                          -> TrustedAdvisorCheckResult
 trustedAdvisorCheckResult p1 p2 p3 p4 p5 p6 = TrustedAdvisorCheckResult
     { _tacrCheckId = p1
     , _tacrTimestamp = p2
@@ -1054,11 +1054,11 @@ data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary
 -- * @CategorySpecificSummary ::@ @TrustedAdvisorCategorySpecificSummary@
 --
 trustedAdvisorCheckSummary :: Text -- ^ 'tacsCheckId'
-                             -> Text -- ^ 'tacsTimestamp'
-                             -> Text -- ^ 'tacsStatus'
-                             -> TrustedAdvisorResourcesSummary -- ^ 'tacsResourcesSummary'
-                             -> TrustedAdvisorCategorySpecificSummary -- ^ 'tacsCategorySpecificSummary'
-                             -> TrustedAdvisorCheckSummary
+                           -> Text -- ^ 'tacsTimestamp'
+                           -> Text -- ^ 'tacsStatus'
+                           -> TrustedAdvisorResourcesSummary -- ^ 'tacsResourcesSummary'
+                           -> TrustedAdvisorCategorySpecificSummary -- ^ 'tacsCategorySpecificSummary'
+                           -> TrustedAdvisorCheckSummary
 trustedAdvisorCheckSummary p1 p2 p3 p5 p6 = TrustedAdvisorCheckSummary
     { _tacsCheckId = p1
     , _tacsTimestamp = p2
@@ -1119,8 +1119,8 @@ data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary
 -- * @EstimatedPercentMonthlySavings ::@ @Double@
 --
 trustedAdvisorCostOptimizingSummary :: Double -- ^ 'tacosEstimatedMonthlySavings'
-                                      -> Double -- ^ 'tacosEstimatedPercentMonthlySavings'
-                                      -> TrustedAdvisorCostOptimizingSummary
+                                    -> Double -- ^ 'tacosEstimatedPercentMonthlySavings'
+                                    -> TrustedAdvisorCostOptimizingSummary
 trustedAdvisorCostOptimizingSummary p1 p2 = TrustedAdvisorCostOptimizingSummary
     { _tacosEstimatedMonthlySavings = p1
     , _tacosEstimatedPercentMonthlySavings = p2
@@ -1173,10 +1173,10 @@ data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail
 -- * @Metadata ::@ @[Text]@
 --
 trustedAdvisorResourceDetail :: Text -- ^ 'tardStatus'
-                               -> Text -- ^ 'tardRegion'
-                               -> Text -- ^ 'tardResourceId'
-                               -> [Text] -- ^ 'tardMetadata'
-                               -> TrustedAdvisorResourceDetail
+                             -> Text -- ^ 'tardRegion'
+                             -> Text -- ^ 'tardResourceId'
+                             -> [Text] -- ^ 'tardMetadata'
+                             -> TrustedAdvisorResourceDetail
 trustedAdvisorResourceDetail p1 p2 p3 p5 = TrustedAdvisorResourceDetail
     { _tardStatus = p1
     , _tardRegion = p2
@@ -1237,10 +1237,10 @@ data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary
 -- * @ResourcesSuppressed ::@ @Integer@
 --
 trustedAdvisorResourcesSummary :: Integer -- ^ 'tarsResourcesProcessed'
-                                 -> Integer -- ^ 'tarsResourcesFlagged'
-                                 -> Integer -- ^ 'tarsResourcesIgnored'
-                                 -> Integer -- ^ 'tarsResourcesSuppressed'
-                                 -> TrustedAdvisorResourcesSummary
+                               -> Integer -- ^ 'tarsResourcesFlagged'
+                               -> Integer -- ^ 'tarsResourcesIgnored'
+                               -> Integer -- ^ 'tarsResourcesSuppressed'
+                               -> TrustedAdvisorResourcesSummary
 trustedAdvisorResourcesSummary p1 p2 p3 p4 = TrustedAdvisorResourcesSummary
     { _tarsResourcesProcessed = p1
     , _tarsResourcesFlagged = p2

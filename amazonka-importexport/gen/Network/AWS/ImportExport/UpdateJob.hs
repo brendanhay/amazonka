@@ -69,10 +69,10 @@ data UpdateJob = UpdateJob
 -- * @ValidateOnly ::@ @Bool@
 --
 updateJob :: Text -- ^ 'ujJobId'
-            -> Text -- ^ 'ujManifest'
-            -> JobType -- ^ 'ujJobType'
-            -> Bool -- ^ 'ujValidateOnly'
-            -> UpdateJob
+          -> Text -- ^ 'ujManifest'
+          -> JobType -- ^ 'ujJobType'
+          -> Bool -- ^ 'ujValidateOnly'
+          -> UpdateJob
 updateJob p1 p2 p3 p4 = UpdateJob
     { _ujJobId = p1
     , _ujManifest = p2

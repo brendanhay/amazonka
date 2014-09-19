@@ -65,7 +65,7 @@ newtype DeleteQueue = DeleteQueue
 -- * @QueueUrl ::@ @Text@
 --
 deleteQueue :: Text -- ^ 'dqQueueUrl'
-              -> DeleteQueue
+            -> DeleteQueue
 deleteQueue p1 = DeleteQueue
     { _dqQueueUrl = p1
     }

@@ -97,7 +97,7 @@ data CreateSnapshot = CreateSnapshot
 -- * @Description ::@ @Maybe Text@
 --
 createSnapshot :: Text -- ^ 'cs1VolumeId'
-                 -> CreateSnapshot
+               -> CreateSnapshot
 createSnapshot p1 = CreateSnapshot
     { _cs1VolumeId = p1
     , _cs1Description = Nothing

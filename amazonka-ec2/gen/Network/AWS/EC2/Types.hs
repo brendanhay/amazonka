@@ -3506,7 +3506,7 @@ newtype IpRange = IpRange
 -- * @CidrIp ::@ @Text@
 --
 ipRange :: Text -- ^ 'irCidrIp'
-          -> IpRange
+        -> IpRange
 ipRange p1 = IpRange
     { _irCidrIp = p1
     }
@@ -3621,7 +3621,7 @@ newtype RunInstancesMonitoringEnabled = RunInstancesMonitoringEnabled
 -- * @Enabled ::@ @Bool@
 --
 runInstancesMonitoringEnabled :: Bool -- ^ 'rimeEnabled'
-                                -> RunInstancesMonitoringEnabled
+                              -> RunInstancesMonitoringEnabled
 runInstancesMonitoringEnabled p1 = RunInstancesMonitoringEnabled
     { _rimeEnabled = p1
     }
@@ -3675,7 +3675,7 @@ newtype VolumeDetail = VolumeDetail
 -- * @Size ::@ @Integer@
 --
 volumeDetail :: Integer -- ^ 'vdSize'
-               -> VolumeDetail
+             -> VolumeDetail
 volumeDetail p1 = VolumeDetail
     { _vdSize = p1
     }
@@ -3951,7 +3951,7 @@ data BlockDeviceMapping = BlockDeviceMapping
 -- * @NoDevice ::@ @Maybe Text@
 --
 blockDeviceMapping :: Text -- ^ 'bdmDeviceName'
-                     -> BlockDeviceMapping
+                   -> BlockDeviceMapping
 blockDeviceMapping p2 = BlockDeviceMapping
     { _bdmVirtualName = Nothing
     , _bdmDeviceName = p2
@@ -4177,8 +4177,8 @@ data ConversionTask = ConversionTask
 -- * @Tags ::@ @[Tag]@
 --
 conversionTask :: Text -- ^ 'ctrConversionTaskId'
-                 -> ConversionTaskState -- ^ 'ctrState'
-                 -> ConversionTask
+               -> ConversionTaskState -- ^ 'ctrState'
+               -> ConversionTask
 conversionTask p1 p5 = ConversionTask
     { _ctrConversionTaskId = p1
     , _ctrExpirationTime = Nothing
@@ -4513,9 +4513,9 @@ data DiskImageDescription = DiskImageDescription
 -- * @Checksum ::@ @Maybe Text@
 --
 diskImageDescription :: DiskImageFormat -- ^ 'didFormat'
-                       -> Integer -- ^ 'didSize'
-                       -> Text -- ^ 'didImportManifestUrl'
-                       -> DiskImageDescription
+                     -> Integer -- ^ 'didSize'
+                     -> Text -- ^ 'didImportManifestUrl'
+                     -> DiskImageDescription
 diskImageDescription p1 p2 p3 = DiskImageDescription
     { _didFormat = p1
     , _didSize = p2
@@ -4569,9 +4569,9 @@ data DiskImageDetail = DiskImageDetail
 -- * @ImportManifestUrl ::@ @Text@
 --
 diskImageDetail :: DiskImageFormat -- ^ 'did1Format'
-                  -> Integer -- ^ 'did1Bytes'
-                  -> Text -- ^ 'did1ImportManifestUrl'
-                  -> DiskImageDetail
+                -> Integer -- ^ 'did1Bytes'
+                -> Text -- ^ 'did1ImportManifestUrl'
+                -> DiskImageDetail
 diskImageDetail p1 p2 p3 = DiskImageDetail
     { _did1Format = p1
     , _did1Bytes = p2
@@ -4618,7 +4618,7 @@ data DiskImageVolumeDescription = DiskImageVolumeDescription
 -- * @Id ::@ @Text@
 --
 diskImageVolumeDescription :: Text -- ^ 'divdId'
-                             -> DiskImageVolumeDescription
+                           -> DiskImageVolumeDescription
 diskImageVolumeDescription p2 = DiskImageVolumeDescription
     { _divdSize = Nothing
     , _divdId = p2
@@ -5009,7 +5009,7 @@ data Filter = Filter
 -- * @Values ::@ @[Text]@
 --
 filter' :: Text -- ^ 'fName'
-         -> Filter
+       -> Filter
 filter' p1 = Filter
     { _fName = p1
     , _fValues = mempty
@@ -5249,17 +5249,17 @@ data Image = Image
 -- * @Hypervisor ::@ @HypervisorType@
 --
 image :: Text -- ^ 'iImageId'
-        -> Text -- ^ 'iName'
-        -> DeviceType -- ^ 'iRootDeviceType'
-        -> Text -- ^ 'iImageLocation'
-        -> VirtualizationType -- ^ 'iVirtualizationType'
-        -> HypervisorType -- ^ 'iHypervisor'
-        -> ImageState -- ^ 'iState'
-        -> Text -- ^ 'iOwnerId'
-        -> Bool -- ^ 'iPublic'
-        -> ArchitectureValues -- ^ 'iArchitecture'
-        -> ImageTypeValues -- ^ 'iImageType'
-        -> Image
+      -> Text -- ^ 'iName'
+      -> DeviceType -- ^ 'iRootDeviceType'
+      -> Text -- ^ 'iImageLocation'
+      -> VirtualizationType -- ^ 'iVirtualizationType'
+      -> HypervisorType -- ^ 'iHypervisor'
+      -> ImageState -- ^ 'iState'
+      -> Text -- ^ 'iOwnerId'
+      -> Bool -- ^ 'iPublic'
+      -> ArchitectureValues -- ^ 'iArchitecture'
+      -> ImageTypeValues -- ^ 'iImageType'
+      -> Image
 image p1 p15 p17 p2 p20 p22 p3 p4 p5 p7 p8 = Image
     { _iImageId = p1
     , _iImageLocation = p2
@@ -5517,7 +5517,7 @@ data ImportInstanceTaskDetails = ImportInstanceTaskDetails
 -- * @Description ::@ @Maybe Text@
 --
 importInstanceTaskDetails :: [ImportInstanceVolumeDetailItem] -- ^ 'iitdVolumes'
-                            -> ImportInstanceTaskDetails
+                          -> ImportInstanceTaskDetails
 importInstanceTaskDetails p1 = ImportInstanceTaskDetails
     { _iitdVolumes = p1
     , _iitdInstanceId = Nothing
@@ -5579,11 +5579,11 @@ data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem
 -- * @Description ::@ @Maybe Text@
 --
 importInstanceVolumeDetailItem :: Integer -- ^ 'iivdiBytesConverted'
-                                 -> Text -- ^ 'iivdiAvailabilityZone'
-                                 -> DiskImageDescription -- ^ 'iivdiImage'
-                                 -> DiskImageVolumeDescription -- ^ 'iivdiVolume'
-                                 -> Text -- ^ 'iivdiStatus'
-                                 -> ImportInstanceVolumeDetailItem
+                               -> Text -- ^ 'iivdiAvailabilityZone'
+                               -> DiskImageDescription -- ^ 'iivdiImage'
+                               -> DiskImageVolumeDescription -- ^ 'iivdiVolume'
+                               -> Text -- ^ 'iivdiStatus'
+                               -> ImportInstanceVolumeDetailItem
 importInstanceVolumeDetailItem p1 p2 p3 p4 p5 = ImportInstanceVolumeDetailItem
     { _iivdiBytesConverted = p1
     , _iivdiAvailabilityZone = p2
@@ -5659,10 +5659,10 @@ data ImportVolumeTaskDetails = ImportVolumeTaskDetails
 -- * @Volume ::@ @DiskImageVolumeDescription@
 --
 importVolumeTaskDetails :: Integer -- ^ 'ivtdBytesConverted'
-                          -> Text -- ^ 'ivtdAvailabilityZone'
-                          -> DiskImageDescription -- ^ 'ivtdImage'
-                          -> DiskImageVolumeDescription -- ^ 'ivtdVolume'
-                          -> ImportVolumeTaskDetails
+                        -> Text -- ^ 'ivtdAvailabilityZone'
+                        -> DiskImageDescription -- ^ 'ivtdImage'
+                        -> DiskImageVolumeDescription -- ^ 'ivtdVolume'
+                        -> ImportVolumeTaskDetails
 importVolumeTaskDetails p1 p2 p4 p5 = ImportVolumeTaskDetails
     { _ivtdBytesConverted = p1
     , _ivtdAvailabilityZone = p2
@@ -6675,8 +6675,8 @@ data InstanceState = InstanceState
 -- * @Name ::@ @InstanceStateName@
 --
 instanceState :: Integer -- ^ 'is1Code'
-                -> InstanceStateName -- ^ 'is1Name'
-                -> InstanceState
+              -> InstanceStateName -- ^ 'is1Name'
+              -> InstanceState
 instanceState p1 p2 = InstanceState
     { _is1Code = p1
     , _is1Name = p2
@@ -6976,7 +6976,7 @@ data InternetGateway = InternetGateway
 -- * @Tags ::@ @[Tag]@
 --
 internetGateway :: Text -- ^ 'igInternetGatewayId'
-                  -> InternetGateway
+                -> InternetGateway
 internetGateway p1 = InternetGateway
     { _igInternetGatewayId = p1
     , _igAttachments = mempty
@@ -7016,8 +7016,8 @@ data InternetGatewayAttachment = InternetGatewayAttachment
 -- * @State ::@ @AttachmentStatus@
 --
 internetGatewayAttachment :: Text -- ^ 'igaVpcId'
-                            -> AttachmentStatus -- ^ 'igaState'
-                            -> InternetGatewayAttachment
+                          -> AttachmentStatus -- ^ 'igaState'
+                          -> InternetGatewayAttachment
 internetGatewayAttachment p1 p2 = InternetGatewayAttachment
     { _igaVpcId = p1
     , _igaState = p2
@@ -7063,9 +7063,9 @@ data IpPermission = IpPermission
 -- * @IpRanges ::@ @[IpRange]@
 --
 ipPermission :: Text -- ^ 'ipIpProtocol'
-               -> Integer -- ^ 'ipFromPort'
-               -> Integer -- ^ 'ipToPort'
-               -> IpPermission
+             -> Integer -- ^ 'ipFromPort'
+             -> Integer -- ^ 'ipToPort'
+             -> IpPermission
 ipPermission p1 p2 p3 = IpPermission
     { _ipIpProtocol = p1
     , _ipFromPort = p2
@@ -8249,7 +8249,7 @@ data PrivateIpAddressSpecification = PrivateIpAddressSpecification
 -- * @Primary ::@ @Maybe Bool@
 --
 privateIpAddressSpecification :: Text -- ^ 'piasPrivateIpAddress'
-                                -> PrivateIpAddressSpecification
+                              -> PrivateIpAddressSpecification
 privateIpAddressSpecification p1 = PrivateIpAddressSpecification
     { _piasPrivateIpAddress = p1
     , _piasPrimary = Nothing
@@ -9396,10 +9396,10 @@ data SecurityGroup = SecurityGroup
 -- * @Tags ::@ @[Tag]@
 --
 securityGroup :: Text -- ^ 'sgOwnerId'
-                -> Text -- ^ 'sgGroupName'
-                -> Text -- ^ 'sgGroupId'
-                -> Text -- ^ 'sgDescription'
-                -> SecurityGroup
+              -> Text -- ^ 'sgGroupName'
+              -> Text -- ^ 'sgGroupId'
+              -> Text -- ^ 'sgDescription'
+              -> SecurityGroup
 securityGroup p1 p2 p3 p4 = SecurityGroup
     { _sgOwnerId = p1
     , _sgGroupName = p2
@@ -10127,8 +10127,8 @@ data Tag = Tag
 -- * @Value ::@ @Text@
 --
 tag :: Text -- ^ 'tKey'
-      -> Text -- ^ 'tValue'
-      -> Tag
+    -> Text -- ^ 'tValue'
+    -> Tag
 tag p1 p2 = Tag
     { _tKey = p1
     , _tValue = p2
@@ -10176,10 +10176,10 @@ data TagDescription = TagDescription
 -- * @Value ::@ @Text@
 --
 tagDescription :: Text -- ^ 'tdResourceId'
-                 -> ResourceType -- ^ 'tdResourceType'
-                 -> Text -- ^ 'tdKey'
-                 -> Text -- ^ 'tdValue'
-                 -> TagDescription
+               -> ResourceType -- ^ 'tdResourceType'
+               -> Text -- ^ 'tdKey'
+               -> Text -- ^ 'tdValue'
+               -> TagDescription
 tagDescription p1 p2 p3 p4 = TagDescription
     { _tdResourceId = p1
     , _tdResourceType = p2

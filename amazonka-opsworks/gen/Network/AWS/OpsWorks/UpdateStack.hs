@@ -116,7 +116,7 @@ data UpdateStack = UpdateStack
 -- * @UseOpsworksSecurityGroups ::@ @Maybe Bool@
 --
 updateStack :: Text -- ^ 'usStackId'
-              -> UpdateStack
+            -> UpdateStack
 updateStack p1 = UpdateStack
     { _usStackId = p1
     , _usName = Nothing

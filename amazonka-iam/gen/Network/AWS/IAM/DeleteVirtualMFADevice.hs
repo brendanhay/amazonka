@@ -55,7 +55,7 @@ newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice
 -- * @SerialNumber ::@ @Text@
 --
 deleteVirtualMFADevice :: Text -- ^ 'dvmfadSerialNumber'
-                         -> DeleteVirtualMFADevice
+                       -> DeleteVirtualMFADevice
 deleteVirtualMFADevice p1 = DeleteVirtualMFADevice
     { _dvmfadSerialNumber = p1
     }

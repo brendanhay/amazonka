@@ -50,7 +50,7 @@ newtype DeleteHsmConfiguration = DeleteHsmConfiguration
 -- * @HsmConfigurationIdentifier ::@ @Text@
 --
 deleteHsmConfiguration :: Text -- ^ 'dhcHsmConfigurationIdentifier'
-                         -> DeleteHsmConfiguration
+                       -> DeleteHsmConfiguration
 deleteHsmConfiguration p1 = DeleteHsmConfiguration
     { _dhcHsmConfigurationIdentifier = p1
     }

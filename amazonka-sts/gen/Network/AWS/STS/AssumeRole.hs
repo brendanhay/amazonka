@@ -144,8 +144,8 @@ data AssumeRole = AssumeRole
 -- * @TokenCode ::@ @Maybe Text@
 --
 assumeRole :: Text -- ^ 'arRoleArn'
-             -> Text -- ^ 'arRoleSessionName'
-             -> AssumeRole
+           -> Text -- ^ 'arRoleSessionName'
+           -> AssumeRole
 assumeRole p1 p2 = AssumeRole
     { _arRoleArn = p1
     , _arRoleSessionName = p2

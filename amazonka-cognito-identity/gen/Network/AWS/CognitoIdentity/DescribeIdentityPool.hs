@@ -64,7 +64,7 @@ newtype DescribeIdentityPool = DescribeIdentityPool
 -- * @IdentityPoolId ::@ @Text@
 --
 describeIdentityPool :: Text -- ^ 'dip1IdentityPoolId'
-                       -> DescribeIdentityPool
+                     -> DescribeIdentityPool
 describeIdentityPool p1 = DescribeIdentityPool
     { _dip1IdentityPoolId = p1
     }
@@ -106,9 +106,9 @@ data DescribeIdentityPoolResponse = DescribeIdentityPoolResponse
 -- * @SupportedLoginProviders ::@ @Map Text Text@
 --
 describeIdentityPoolResponse :: Text -- ^ 'diprIdentityPoolId'
-                               -> Text -- ^ 'diprIdentityPoolName'
-                               -> Bool -- ^ 'diprAllowUnauthenticatedIdentities'
-                               -> DescribeIdentityPoolResponse
+                             -> Text -- ^ 'diprIdentityPoolName'
+                             -> Bool -- ^ 'diprAllowUnauthenticatedIdentities'
+                             -> DescribeIdentityPoolResponse
 describeIdentityPoolResponse p1 p2 p3 = DescribeIdentityPoolResponse
     { _diprIdentityPoolId = p1
     , _diprIdentityPoolName = p2

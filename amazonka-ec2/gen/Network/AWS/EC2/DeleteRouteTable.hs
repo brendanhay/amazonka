@@ -56,7 +56,7 @@ newtype DeleteRouteTable = DeleteRouteTable
 -- * @RouteTableId ::@ @Text@
 --
 deleteRouteTable :: Text -- ^ 'drtRouteTableId'
-                   -> DeleteRouteTable
+                 -> DeleteRouteTable
 deleteRouteTable p1 = DeleteRouteTable
     { _drtRouteTableId = p1
     }

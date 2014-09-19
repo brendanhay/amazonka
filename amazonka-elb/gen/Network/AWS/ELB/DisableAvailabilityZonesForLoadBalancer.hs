@@ -70,8 +70,8 @@ data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBa
 -- * @AvailabilityZones ::@ @[Text]@
 --
 disableAvailabilityZonesForLoadBalancer :: Text -- ^ 'dazflbLoadBalancerName'
-                                          -> [Text] -- ^ 'dazflbAvailabilityZones'
-                                          -> DisableAvailabilityZonesForLoadBalancer
+                                        -> [Text] -- ^ 'dazflbAvailabilityZones'
+                                        -> DisableAvailabilityZonesForLoadBalancer
 disableAvailabilityZonesForLoadBalancer p1 p2 = DisableAvailabilityZonesForLoadBalancer
     { _dazflbLoadBalancerName = p1
     , _dazflbAvailabilityZones = p2

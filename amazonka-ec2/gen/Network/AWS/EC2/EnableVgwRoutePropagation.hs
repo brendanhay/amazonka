@@ -61,8 +61,8 @@ data EnableVgwRoutePropagation = EnableVgwRoutePropagation
 -- * @GatewayId ::@ @Text@
 --
 enableVgwRoutePropagation :: Text -- ^ 'evrpRouteTableId'
-                            -> Text -- ^ 'evrpGatewayId'
-                            -> EnableVgwRoutePropagation
+                          -> Text -- ^ 'evrpGatewayId'
+                          -> EnableVgwRoutePropagation
 enableVgwRoutePropagation p1 p2 = EnableVgwRoutePropagation
     { _evrpRouteTableId = p1
     , _evrpGatewayId = p2

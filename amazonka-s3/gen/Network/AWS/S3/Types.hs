@@ -1187,7 +1187,7 @@ newtype ErrorDocument = ErrorDocument
 -- * @Key ::@ @ObjectKey@
 --
 errorDocument :: ObjectKey -- ^ 'edKey'
-                -> ErrorDocument
+              -> ErrorDocument
 errorDocument p1 = ErrorDocument
     { _edKey = p1
     }
@@ -1216,7 +1216,7 @@ newtype IndexDocument = IndexDocument
 -- * @Suffix ::@ @Text@
 --
 indexDocument :: Text -- ^ 'idSuffix'
-                -> IndexDocument
+              -> IndexDocument
 indexDocument p1 = IndexDocument
     { _idSuffix = p1
     }
@@ -1249,7 +1249,7 @@ newtype LifecycleConfiguration = LifecycleConfiguration
 -- * @Rules ::@ @[Rule]@
 --
 lifecycleConfiguration :: [Rule] -- ^ 'lcRules'
-                         -> LifecycleConfiguration
+                       -> LifecycleConfiguration
 lifecycleConfiguration p1 = LifecycleConfiguration
     { _lcRules = p1
     }
@@ -1310,7 +1310,7 @@ newtype NotificationConfiguration = NotificationConfiguration
 -- * @TopicConfiguration ::@ @TopicConfiguration@
 --
 notificationConfiguration :: TopicConfiguration -- ^ 'ncTopicConfiguration'
-                            -> NotificationConfiguration
+                          -> NotificationConfiguration
 notificationConfiguration p1 = NotificationConfiguration
     { _ncTopicConfiguration = p1
     }
@@ -1335,7 +1335,7 @@ newtype RequestPaymentConfiguration = RequestPaymentConfiguration
 -- * @Payer ::@ @Payer@
 --
 requestPaymentConfiguration :: Payer -- ^ 'rpcPayer'
-                              -> RequestPaymentConfiguration
+                            -> RequestPaymentConfiguration
 requestPaymentConfiguration p1 = RequestPaymentConfiguration
     { _rpcPayer = p1
     }
@@ -1360,7 +1360,7 @@ newtype RestoreRequest = RestoreRequest
 -- * @Days ::@ @Integer@
 --
 restoreRequest :: Integer -- ^ 'rr1Days'
-                 -> RestoreRequest
+               -> RestoreRequest
 restoreRequest p1 = RestoreRequest
     { _rr1Days = p1
     }
@@ -1385,7 +1385,7 @@ newtype Tagging = Tagging
 -- * @TagSet ::@ @[Tag]@
 --
 tagging :: [Tag] -- ^ 't1TagSet'
-          -> Tagging
+        -> Tagging
 tagging p1 = Tagging
     { _t1TagSet = p1
     }
@@ -1704,7 +1704,7 @@ data Delete = Delete
 -- * @Quiet ::@ @Maybe Bool@
 --
 delete :: [ObjectIdentifier] -- ^ 'dObjects'
-         -> Delete
+       -> Delete
 delete p1 = Delete
     { _dObjects = p1
     , _dQuiet = Nothing
@@ -1937,7 +1937,7 @@ data Grantee = Grantee
 -- * @URI ::@ @Maybe Text@
 --
 grantee :: Type -- ^ 'g1Type'
-          -> Grantee
+        -> Grantee
 grantee p4 = Grantee
     { _g1DisplayName = Nothing
     , _g1EmailAddress = Nothing
@@ -2240,12 +2240,12 @@ data Object = Object
 -- * @Owner ::@ @Owner@
 --
 object :: ObjectKey -- ^ 'orKey'
-         -> RFC822 -- ^ 'orLastModified'
-         -> ETag -- ^ 'orETag'
-         -> Integer -- ^ 'orSize'
-         -> ObjectStorageClass -- ^ 'orStorageClass'
-         -> Owner -- ^ 'orOwner'
-         -> Object
+       -> RFC822 -- ^ 'orLastModified'
+       -> ETag -- ^ 'orETag'
+       -> Integer -- ^ 'orSize'
+       -> ObjectStorageClass -- ^ 'orStorageClass'
+       -> Owner -- ^ 'orOwner'
+       -> Object
 object p1 p2 p3 p4 p5 p6 = Object
     { _orKey = p1
     , _orLastModified = p2
@@ -2293,7 +2293,7 @@ data ObjectIdentifier = ObjectIdentifier
 -- * @VersionId ::@ @Maybe ObjectVersionId@
 --
 objectIdentifier :: ObjectKey -- ^ 'oiKey'
-                   -> ObjectIdentifier
+                 -> ObjectIdentifier
 objectIdentifier p1 = ObjectIdentifier
     { _oiKey = p1
     , _oiVersionId = Nothing
@@ -2568,7 +2568,7 @@ data RedirectAllRequestsTo = RedirectAllRequestsTo
 -- * @Protocol ::@ @Maybe Protocol@
 --
 redirectAllRequestsTo :: Text -- ^ 'rartHostName'
-                        -> RedirectAllRequestsTo
+                      -> RedirectAllRequestsTo
 redirectAllRequestsTo p1 = RedirectAllRequestsTo
     { _rartHostName = p1
     , _rartProtocol = Nothing
@@ -2606,7 +2606,7 @@ data RoutingRule = RoutingRule
 -- * @Redirect ::@ @Redirect@
 --
 routingRule :: Redirect -- ^ 'rrRedirect'
-              -> RoutingRule
+            -> RoutingRule
 routingRule p2 = RoutingRule
     { _rrCondition = Nothing
     , _rrRedirect = p2
@@ -2664,8 +2664,8 @@ data Rule = Rule
 -- * @NoncurrentVersionExpiration ::@ @Maybe NoncurrentVersionExpiration@
 --
 rule :: Text -- ^ 'rPrefix'
-       -> Switch ExpirationStatus -- ^ 'rStatus'
-       -> Rule
+     -> Switch ExpirationStatus -- ^ 'rStatus'
+     -> Rule
 rule p3 p4 = Rule
     { _rExpiration = Nothing
     , _rID = Nothing
@@ -2739,8 +2739,8 @@ data Tag = Tag
 -- * @Value ::@ @Text@
 --
 tag :: ObjectKey -- ^ 'trKey'
-      -> Text -- ^ 'trValue'
-      -> Tag
+    -> Text -- ^ 'trValue'
+    -> Tag
 tag p1 p2 = Tag
     { _trKey = p1
     , _trValue = p2

@@ -58,7 +58,7 @@ newtype DeleteVpnConnection = DeleteVpnConnection
 -- * @VpnConnectionId ::@ @Text@
 --
 deleteVpnConnection :: Text -- ^ 'dvcVpnConnectionId'
-                      -> DeleteVpnConnection
+                    -> DeleteVpnConnection
 deleteVpnConnection p1 = DeleteVpnConnection
     { _dvcVpnConnectionId = p1
     }

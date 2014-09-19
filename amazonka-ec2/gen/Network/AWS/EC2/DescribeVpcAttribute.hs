@@ -78,7 +78,7 @@ data DescribeVpcAttribute = DescribeVpcAttribute
 -- * @Attribute ::@ @Maybe VpcAttributeName@
 --
 describeVpcAttribute :: Text -- ^ 'dva1VpcId'
-                       -> DescribeVpcAttribute
+                     -> DescribeVpcAttribute
 describeVpcAttribute p1 = DescribeVpcAttribute
     { _dva1VpcId = p1
     , _dva1Attribute = Nothing

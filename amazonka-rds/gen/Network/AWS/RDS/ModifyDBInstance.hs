@@ -130,7 +130,7 @@ data ModifyDBInstance = ModifyDBInstance
 -- * @NewDBInstanceIdentifier ::@ @Maybe Text@
 --
 modifyDBInstance :: Text -- ^ 'mdbiDBInstanceIdentifier'
-                   -> ModifyDBInstance
+                 -> ModifyDBInstance
 modifyDBInstance p1 = ModifyDBInstance
     { _mdbiDBInstanceIdentifier = p1
     , _mdbiAllocatedStorage = Nothing

@@ -695,7 +695,7 @@ newtype DelegationSet = DelegationSet
 -- * @NameServers ::@ @List1 Text@
 --
 delegationSet :: List1 Text -- ^ 'dsNameServers'
-                -> DelegationSet
+              -> DelegationSet
 delegationSet p1 = DelegationSet
     { _dsNameServers = p1
     }
@@ -755,7 +755,7 @@ newtype ResourceRecord = ResourceRecord
 -- * @Value ::@ @Text@
 --
 resourceRecord :: Text -- ^ 'rrValue'
-                 -> ResourceRecord
+               -> ResourceRecord
 resourceRecord p1 = ResourceRecord
     { _rrValue = p1
     }
@@ -775,7 +775,7 @@ instance ToXML ResourceRecord where
 -- | Alias resource record sets only: Information about the AWS resource to
 -- which you are redirecting traffic.
 data AliasTarget = AliasTarget
-    { _atHostedZoneId :: Text
+    { _atHostedZoneId :: ResourceId
     , _atDNSName :: Text
     , _atEvaluateTargetHealth :: !Bool
     } deriving (Show, Generic)
@@ -785,16 +785,16 @@ data AliasTarget = AliasTarget
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HostedZoneId ::@ @Text@
+-- * @HostedZoneId ::@ @ResourceId@
 --
 -- * @DNSName ::@ @Text@
 --
 -- * @EvaluateTargetHealth ::@ @Bool@
 --
-aliasTarget :: Text -- ^ 'atHostedZoneId'
-              -> Text -- ^ 'atDNSName'
-              -> Bool -- ^ 'atEvaluateTargetHealth'
-              -> AliasTarget
+aliasTarget :: ResourceId -- ^ 'atHostedZoneId'
+            -> Text -- ^ 'atDNSName'
+            -> Bool -- ^ 'atEvaluateTargetHealth'
+            -> AliasTarget
 aliasTarget p1 p2 p3 = AliasTarget
     { _atHostedZoneId = p1
     , _atDNSName = p2
@@ -804,7 +804,7 @@ aliasTarget p1 p2 p3 = AliasTarget
 -- | Alias resource record sets only: The value of the hosted zone ID for the
 -- AWS resource. For more information and an example, see Creating Alias
 -- Resource Record Sets in the Amazon Route 53 Developer Guide.
-atHostedZoneId :: Lens' AliasTarget Text
+atHostedZoneId :: Lens' AliasTarget ResourceId
 atHostedZoneId = lens _atHostedZoneId (\s a -> s { _atHostedZoneId = a })
 
 -- | Alias resource record sets only: The external DNS name associated with the
@@ -847,8 +847,8 @@ data Change = Change
 -- * @ResourceRecordSet ::@ @ResourceRecordSet@
 --
 change :: ChangeAction -- ^ 'cAction'
-         -> ResourceRecordSet -- ^ 'cResourceRecordSet'
-         -> Change
+       -> ResourceRecordSet -- ^ 'cResourceRecordSet'
+       -> Change
 change p1 p2 = Change
     { _cAction = p1
     , _cResourceRecordSet = p2
@@ -883,7 +883,7 @@ data ChangeBatch = ChangeBatch
 -- * @Changes ::@ @List1 Change@
 --
 changeBatch :: List1 Change -- ^ 'cbChanges'
-              -> ChangeBatch
+            -> ChangeBatch
 changeBatch p2 = ChangeBatch
     { _cbComment = Nothing
     , _cbChanges = p2
@@ -906,7 +906,7 @@ instance ToXML ChangeBatch where
 -- zone. This element contains an ID that you use when performing a GetChange
 -- action to get detailed information about the change.
 data ChangeInfo = ChangeInfo
-    { _ciId :: Text
+    { _ciId :: ResourceId
     , _ciStatus :: ChangeStatus
     , _ciSubmittedAt :: ISO8601
     , _ciComment :: Maybe Text
@@ -920,7 +920,7 @@ data ChangeInfo = ChangeInfo
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @Text@
+-- * @Id ::@ @ResourceId@
 --
 -- * @Status ::@ @ChangeStatus@
 --
@@ -928,10 +928,10 @@ data ChangeInfo = ChangeInfo
 --
 -- * @Comment ::@ @Maybe Text@
 --
-changeInfo :: Text -- ^ 'ciId'
-             -> ChangeStatus -- ^ 'ciStatus'
-             -> ISO8601 -- ^ 'ciSubmittedAt'
-             -> ChangeInfo
+changeInfo :: ResourceId -- ^ 'ciId'
+           -> ChangeStatus -- ^ 'ciStatus'
+           -> ISO8601 -- ^ 'ciSubmittedAt'
+           -> ChangeInfo
 changeInfo p1 p2 p3 = ChangeInfo
     { _ciId = p1
     , _ciStatus = p2
@@ -941,7 +941,7 @@ changeInfo p1 p2 p3 = ChangeInfo
 
 -- | The ID of the request. Use this ID to track when the change has completed
 -- across all Amazon Route 53 DNS servers.
-ciId :: Lens' ChangeInfo Text
+ciId :: Lens' ChangeInfo ResourceId
 ciId = lens _ciId (\s a -> s { _ciId = a })
 
 -- | The current state of the request. PENDING indicates that this request has
@@ -1132,10 +1132,10 @@ data HealthCheck = HealthCheck
 -- * @HealthCheckVersion ::@ @Integer@
 --
 healthCheck :: Text -- ^ 'hcId'
-              -> Text -- ^ 'hcCallerReference'
-              -> HealthCheckConfig -- ^ 'hcHealthCheckConfig'
-              -> Integer -- ^ 'hcHealthCheckVersion'
-              -> HealthCheck
+            -> Text -- ^ 'hcCallerReference'
+            -> HealthCheckConfig -- ^ 'hcHealthCheckConfig'
+            -> Integer -- ^ 'hcHealthCheckVersion'
+            -> HealthCheck
 healthCheck p1 p2 p3 p4 = HealthCheck
     { _hcId = p1
     , _hcCallerReference = p2
@@ -1202,7 +1202,7 @@ data HealthCheckConfig = HealthCheckConfig
 -- * @FailureThreshold ::@ @Maybe Integer@
 --
 healthCheckConfig :: HealthCheckType -- ^ 'hccType'
-                    -> HealthCheckConfig
+                  -> HealthCheckConfig
 healthCheckConfig p3 = HealthCheckConfig
     { _hccIPAddress = Nothing
     , _hccPort = Nothing
@@ -1274,7 +1274,7 @@ instance ToXML HealthCheckConfig where
 
 -- | A complex type that contains identifying information about the hosted zone.
 data HostedZone = HostedZone
-    { _hzId :: Text
+    { _hzId :: ResourceId
     , _hzName :: Text
     , _hzCallerReference :: Text
     , _hzConfig :: Maybe HostedZoneConfig
@@ -1289,7 +1289,7 @@ data HostedZone = HostedZone
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @Text@
+-- * @Id ::@ @ResourceId@
 --
 -- * @Name ::@ @Text@
 --
@@ -1299,10 +1299,10 @@ data HostedZone = HostedZone
 --
 -- * @ResourceRecordSetCount ::@ @Maybe Integer@
 --
-hostedZone :: Text -- ^ 'hzId'
-             -> Text -- ^ 'hzName'
-             -> Text -- ^ 'hzCallerReference'
-             -> HostedZone
+hostedZone :: ResourceId -- ^ 'hzId'
+           -> Text -- ^ 'hzName'
+           -> Text -- ^ 'hzCallerReference'
+           -> HostedZone
 hostedZone p1 p2 p3 = HostedZone
     { _hzId = p1
     , _hzName = p2
@@ -1312,7 +1312,7 @@ hostedZone p1 p2 p3 = HostedZone
     }
 
 -- | The ID of the specified hosted zone.
-hzId :: Lens' HostedZone Text
+hzId :: Lens' HostedZone ResourceId
 hzId = lens _hzId (\s a -> s { _hzId = a })
 
 -- | The name of the domain. This must be a fully-specified domain, for example,
@@ -1388,9 +1388,9 @@ data ResourceRecordSet = ResourceRecordSet
 -- * @HealthCheckId ::@ @Maybe Text@
 --
 resourceRecordSet :: Text -- ^ 'rrsName'
-                    -> RecordType -- ^ 'rrsType'
-                    -> List1 ResourceRecord -- ^ 'rrsResourceRecords'
-                    -> ResourceRecordSet
+                  -> RecordType -- ^ 'rrsType'
+                  -> List1 ResourceRecord -- ^ 'rrsResourceRecords'
+                  -> ResourceRecordSet
 resourceRecordSet p1 p2 p9 = ResourceRecordSet
     { _rrsName = p1
     , _rrsType = p2

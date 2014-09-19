@@ -72,7 +72,7 @@ data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering
 -- * @Tags ::@ @[Tag]@
 --
 purchaseReservedDBInstancesOffering :: Text -- ^ 'prdbioReservedDBInstancesOfferingId'
-                                      -> PurchaseReservedDBInstancesOffering
+                                    -> PurchaseReservedDBInstancesOffering
 purchaseReservedDBInstancesOffering p1 = PurchaseReservedDBInstancesOffering
     { _prdbioReservedDBInstancesOfferingId = p1
     , _prdbioReservedDBInstanceId = Nothing

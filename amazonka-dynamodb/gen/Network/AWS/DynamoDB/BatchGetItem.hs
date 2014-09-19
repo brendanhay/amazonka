@@ -93,7 +93,7 @@ data BatchGetItem = BatchGetItem
 -- * @ReturnConsumedCapacity ::@ @Maybe ReturnConsumedCapacity@
 --
 batchGetItem :: Map Text KeysAndAttributes -- ^ 'bgiRequestItems'
-               -> BatchGetItem
+             -> BatchGetItem
 batchGetItem p1 = BatchGetItem
     { _bgiRequestItems = p1
     , _bgiReturnConsumedCapacity = Nothing

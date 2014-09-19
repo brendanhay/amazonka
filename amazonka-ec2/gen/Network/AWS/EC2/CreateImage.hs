@@ -80,8 +80,8 @@ data CreateImage = CreateImage
 -- * @BlockDeviceMappings ::@ @[BlockDeviceMapping]@
 --
 createImage :: Text -- ^ 'ci1InstanceId'
-              -> Text -- ^ 'ci1Name'
-              -> CreateImage
+            -> Text -- ^ 'ci1Name'
+            -> CreateImage
 createImage p1 p2 = CreateImage
     { _ci1InstanceId = p1
     , _ci1Name = p2

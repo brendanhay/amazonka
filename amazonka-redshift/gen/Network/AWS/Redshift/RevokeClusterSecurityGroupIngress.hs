@@ -76,7 +76,7 @@ data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress
 -- * @EC2SecurityGroupOwnerId ::@ @Maybe Text@
 --
 revokeClusterSecurityGroupIngress :: Text -- ^ 'rcsgiClusterSecurityGroupName'
-                                    -> RevokeClusterSecurityGroupIngress
+                                  -> RevokeClusterSecurityGroupIngress
 revokeClusterSecurityGroupIngress p1 = RevokeClusterSecurityGroupIngress
     { _rcsgiClusterSecurityGroupName = p1
     , _rcsgiCIDRIP = Nothing

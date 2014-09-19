@@ -50,7 +50,7 @@ newtype DeleteTrail = DeleteTrail
 -- * @Name ::@ @Text@
 --
 deleteTrail :: Text -- ^ 'dtName'
-              -> DeleteTrail
+            -> DeleteTrail
 deleteTrail p1 = DeleteTrail
     { _dtName = p1
     }

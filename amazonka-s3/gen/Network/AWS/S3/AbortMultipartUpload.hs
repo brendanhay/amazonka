@@ -60,9 +60,9 @@ data AbortMultipartUpload = AbortMultipartUpload
 -- * @UploadId ::@ @Text@
 --
 abortMultipartUpload :: BucketName -- ^ 'amuBucket'
-                       -> ObjectKey -- ^ 'amuKey'
-                       -> Text -- ^ 'amuUploadId'
-                       -> AbortMultipartUpload
+                     -> ObjectKey -- ^ 'amuKey'
+                     -> Text -- ^ 'amuUploadId'
+                     -> AbortMultipartUpload
 abortMultipartUpload p1 p2 p3 = AbortMultipartUpload
     { _amuBucket = p1
     , _amuKey = p2

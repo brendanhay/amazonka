@@ -59,7 +59,7 @@ data AssignVolume = AssignVolume
 -- * @InstanceId ::@ @Maybe Text@
 --
 assignVolume :: Text -- ^ 'avVolumeId'
-               -> AssignVolume
+             -> AssignVolume
 assignVolume p1 = AssignVolume
     { _avVolumeId = p1
     , _avInstanceId = Nothing

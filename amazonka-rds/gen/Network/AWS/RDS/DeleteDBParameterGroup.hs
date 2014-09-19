@@ -57,7 +57,7 @@ newtype DeleteDBParameterGroup = DeleteDBParameterGroup
 -- * @DBParameterGroupName ::@ @Text@
 --
 deleteDBParameterGroup :: Text -- ^ 'ddbpgDBParameterGroupName'
-                         -> DeleteDBParameterGroup
+                       -> DeleteDBParameterGroup
 deleteDBParameterGroup p1 = DeleteDBParameterGroup
     { _ddbpgDBParameterGroupName = p1
     }

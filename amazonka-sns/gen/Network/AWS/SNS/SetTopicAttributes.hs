@@ -84,8 +84,8 @@ data SetTopicAttributes = SetTopicAttributes
 -- * @AttributeValue ::@ @Maybe Text@
 --
 setTopicAttributes :: Text -- ^ 'staTopicArn'
-                     -> Text -- ^ 'staAttributeName'
-                     -> SetTopicAttributes
+                   -> Text -- ^ 'staAttributeName'
+                   -> SetTopicAttributes
 setTopicAttributes p1 p2 = SetTopicAttributes
     { _staTopicArn = p1
     , _staAttributeName = p2

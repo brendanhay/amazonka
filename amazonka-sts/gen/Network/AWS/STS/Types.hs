@@ -283,8 +283,8 @@ data AssumedRoleUser = AssumedRoleUser
 -- * @Arn ::@ @Text@
 --
 assumedRoleUser :: Text -- ^ 'aruAssumedRoleId'
-                  -> Text -- ^ 'aruArn'
-                  -> AssumedRoleUser
+                -> Text -- ^ 'aruArn'
+                -> AssumedRoleUser
 assumedRoleUser p1 p2 = AssumedRoleUser
     { _aruAssumedRoleId = p1
     , _aruArn = p2
@@ -333,10 +333,10 @@ data Credentials = Credentials
 -- * @Expiration ::@ @ISO8601@
 --
 credentials :: Text -- ^ 'cAccessKeyId'
-              -> Text -- ^ 'cSecretAccessKey'
-              -> Text -- ^ 'cSessionToken'
-              -> ISO8601 -- ^ 'cExpiration'
-              -> Credentials
+            -> Text -- ^ 'cSecretAccessKey'
+            -> Text -- ^ 'cSessionToken'
+            -> ISO8601 -- ^ 'cExpiration'
+            -> Credentials
 credentials p1 p2 p3 p4 = Credentials
     { _cAccessKeyId = p1
     , _cSecretAccessKey = p2
@@ -388,8 +388,8 @@ data FederatedUser = FederatedUser
 -- * @Arn ::@ @Text@
 --
 federatedUser :: Text -- ^ 'fuFederatedUserId'
-                -> Text -- ^ 'fuArn'
-                -> FederatedUser
+              -> Text -- ^ 'fuArn'
+              -> FederatedUser
 federatedUser p1 p2 = FederatedUser
     { _fuFederatedUserId = p1
     , _fuArn = p2

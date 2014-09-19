@@ -55,7 +55,7 @@ newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface
 -- * @VirtualInterfaceId ::@ @Text@
 --
 confirmPublicVirtualInterface :: Text -- ^ 'cpvi1VirtualInterfaceId'
-                                -> ConfirmPublicVirtualInterface
+                              -> ConfirmPublicVirtualInterface
 confirmPublicVirtualInterface p1 = ConfirmPublicVirtualInterface
     { _cpvi1VirtualInterfaceId = p1
     }

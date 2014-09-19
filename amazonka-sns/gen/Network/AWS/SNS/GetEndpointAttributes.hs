@@ -73,7 +73,7 @@ newtype GetEndpointAttributes = GetEndpointAttributes
 -- * @EndpointArn ::@ @Text@
 --
 getEndpointAttributes :: Text -- ^ 'geaEndpointArn'
-                        -> GetEndpointAttributes
+                      -> GetEndpointAttributes
 getEndpointAttributes p1 = GetEndpointAttributes
     { _geaEndpointArn = p1
     }

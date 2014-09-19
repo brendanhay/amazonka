@@ -89,7 +89,7 @@ data RespondActivityTaskCompleted = RespondActivityTaskCompleted
 -- * @Result ::@ @Maybe Text@
 --
 respondActivityTaskCompleted :: Text -- ^ 'ratc1TaskToken'
-                               -> RespondActivityTaskCompleted
+                             -> RespondActivityTaskCompleted
 respondActivityTaskCompleted p1 = RespondActivityTaskCompleted
     { _ratc1TaskToken = p1
     , _ratc1Result = Nothing

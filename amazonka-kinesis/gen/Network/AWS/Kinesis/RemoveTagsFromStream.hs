@@ -64,8 +64,8 @@ data RemoveTagsFromStream = RemoveTagsFromStream
 -- * @TagKeys ::@ @List1 Text@
 --
 removeTagsFromStream :: Text -- ^ 'rtfsStreamName'
-                       -> List1 Text -- ^ 'rtfsTagKeys'
-                       -> RemoveTagsFromStream
+                     -> List1 Text -- ^ 'rtfsTagKeys'
+                     -> RemoveTagsFromStream
 removeTagsFromStream p1 p2 = RemoveTagsFromStream
     { _rtfsStreamName = p1
     , _rtfsTagKeys = p2

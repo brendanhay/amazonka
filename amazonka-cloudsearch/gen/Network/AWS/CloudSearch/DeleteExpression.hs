@@ -59,8 +59,8 @@ data DeleteExpression = DeleteExpression
 -- * @ExpressionName ::@ @Text@
 --
 deleteExpression :: Text -- ^ 'de1DomainName'
-                   -> Text -- ^ 'de1ExpressionName'
-                   -> DeleteExpression
+                 -> Text -- ^ 'de1ExpressionName'
+                 -> DeleteExpression
 deleteExpression p1 p2 = DeleteExpression
     { _de1DomainName = p1
     , _de1ExpressionName = p2
@@ -97,7 +97,7 @@ newtype DeleteExpressionResponse = DeleteExpressionResponse
 -- * @Expression ::@ @ExpressionStatus@
 --
 deleteExpressionResponse :: ExpressionStatus -- ^ 'derrExpression'
-                           -> DeleteExpressionResponse
+                         -> DeleteExpressionResponse
 deleteExpressionResponse p1 = DeleteExpressionResponse
     { _derrExpression = p1
     }

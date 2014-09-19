@@ -67,9 +67,9 @@ data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertifica
 -- * @SSLCertificateId ::@ @Text@
 --
 setLoadBalancerListenerSSLCertificate :: Text -- ^ 'slblsslcLoadBalancerName'
-                                        -> Integer -- ^ 'slblsslcLoadBalancerPort'
-                                        -> Text -- ^ 'slblsslcSSLCertificateId'
-                                        -> SetLoadBalancerListenerSSLCertificate
+                                      -> Integer -- ^ 'slblsslcLoadBalancerPort'
+                                      -> Text -- ^ 'slblsslcSSLCertificateId'
+                                      -> SetLoadBalancerListenerSSLCertificate
 setLoadBalancerListenerSSLCertificate p1 p2 p3 = SetLoadBalancerListenerSSLCertificate
     { _slblsslcLoadBalancerName = p1
     , _slblsslcLoadBalancerPort = p2

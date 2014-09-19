@@ -70,7 +70,7 @@ data AddCommunicationToCase = AddCommunicationToCase
 -- * @AttachmentSetId ::@ @Maybe Text@
 --
 addCommunicationToCase :: Text -- ^ 'actcCommunicationBody'
-                         -> AddCommunicationToCase
+                       -> AddCommunicationToCase
 addCommunicationToCase p2 = AddCommunicationToCase
     { _actcCaseId = Nothing
     , _actcCommunicationBody = p2

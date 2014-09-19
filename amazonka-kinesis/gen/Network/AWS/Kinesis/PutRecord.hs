@@ -104,9 +104,9 @@ data PutRecord = PutRecord
 -- * @SequenceNumberForOrdering ::@ @Maybe Text@
 --
 putRecord :: Text -- ^ 'prStreamName'
-            -> Base64 -- ^ 'prData'
-            -> Text -- ^ 'prPartitionKey'
-            -> PutRecord
+          -> Base64 -- ^ 'prData'
+          -> Text -- ^ 'prPartitionKey'
+          -> PutRecord
 putRecord p1 p2 p3 = PutRecord
     { _prStreamName = p1
     , _prData = p2
@@ -179,8 +179,8 @@ data PutRecordResponse = PutRecordResponse
 -- * @SequenceNumber ::@ @Text@
 --
 putRecordResponse :: Text -- ^ 'prrShardId'
-                    -> Text -- ^ 'prrSequenceNumber'
-                    -> PutRecordResponse
+                  -> Text -- ^ 'prrSequenceNumber'
+                  -> PutRecordResponse
 putRecordResponse p1 p2 = PutRecordResponse
     { _prrShardId = p1
     , _prrSequenceNumber = p2

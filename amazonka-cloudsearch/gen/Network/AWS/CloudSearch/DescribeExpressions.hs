@@ -69,7 +69,7 @@ data DescribeExpressions = DescribeExpressions
 -- * @Deployed ::@ @Maybe Bool@
 --
 describeExpressions :: Text -- ^ 'de2DomainName'
-                      -> DescribeExpressions
+                    -> DescribeExpressions
 describeExpressions p1 = DescribeExpressions
     { _de2DomainName = p1
     , _de2ExpressionNames = mempty
@@ -110,7 +110,7 @@ newtype DescribeExpressionsResponse = DescribeExpressionsResponse
 -- * @Expressions ::@ @[ExpressionStatus]@
 --
 describeExpressionsResponse :: [ExpressionStatus] -- ^ 'der1Expressions'
-                              -> DescribeExpressionsResponse
+                            -> DescribeExpressionsResponse
 describeExpressionsResponse p1 = DescribeExpressionsResponse
     { _der1Expressions = p1
     }

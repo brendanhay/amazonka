@@ -62,8 +62,8 @@ data DetachInternetGateway = DetachInternetGateway
 -- * @VpcId ::@ @Text@
 --
 detachInternetGateway :: Text -- ^ 'dig2InternetGatewayId'
-                        -> Text -- ^ 'dig2VpcId'
-                        -> DetachInternetGateway
+                      -> Text -- ^ 'dig2VpcId'
+                      -> DetachInternetGateway
 detachInternetGateway p1 p2 = DetachInternetGateway
     { _dig2InternetGatewayId = p1
     , _dig2VpcId = p2

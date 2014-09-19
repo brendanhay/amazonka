@@ -77,8 +77,8 @@ data DownloadDBLogFilePortion = DownloadDBLogFilePortion
 -- * @NumberOfLines ::@ @Maybe Integer@
 --
 downloadDBLogFilePortion :: Text -- ^ 'ddblfpDBInstanceIdentifier'
-                           -> Text -- ^ 'ddblfpLogFileName'
-                           -> DownloadDBLogFilePortion
+                         -> Text -- ^ 'ddblfpLogFileName'
+                         -> DownloadDBLogFilePortion
 downloadDBLogFilePortion p1 p2 = DownloadDBLogFilePortion
     { _ddblfpDBInstanceIdentifier = p1
     , _ddblfpLogFileName = p2
@@ -135,8 +135,8 @@ data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse
 -- * @Marker ::@ @Maybe Text@
 --
 downloadDBLogFilePortionResponse :: Bool -- ^ 'ddblfprAdditionalDataPending'
-                                   -> ByteString -- ^ 'ddblfprLogFileData'
-                                   -> DownloadDBLogFilePortionResponse
+                                 -> ByteString -- ^ 'ddblfprLogFileData'
+                                 -> DownloadDBLogFilePortionResponse
 downloadDBLogFilePortionResponse p1 p2 = DownloadDBLogFilePortionResponse
     { _ddblfprAdditionalDataPending = p1
     , _ddblfprLogFileData = p2

@@ -81,10 +81,10 @@ data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime
 -- * @DayOfWeek ::@ @Integer@
 --
 updateMaintenanceStartTime :: Text -- ^ 'umstGatewayARN'
-                             -> Integer -- ^ 'umstHourOfDay'
-                             -> Integer -- ^ 'umstMinuteOfHour'
-                             -> Integer -- ^ 'umstDayOfWeek'
-                             -> UpdateMaintenanceStartTime
+                           -> Integer -- ^ 'umstHourOfDay'
+                           -> Integer -- ^ 'umstMinuteOfHour'
+                           -> Integer -- ^ 'umstDayOfWeek'
+                           -> UpdateMaintenanceStartTime
 updateMaintenanceStartTime p1 p2 p3 p4 = UpdateMaintenanceStartTime
     { _umstGatewayARN = p1
     , _umstHourOfDay = p2
@@ -138,7 +138,7 @@ newtype UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse
 -- * @GatewayARN ::@ @Text@
 --
 updateMaintenanceStartTimeResponse :: Text -- ^ 'umstrGatewayARN'
-                                     -> UpdateMaintenanceStartTimeResponse
+                                   -> UpdateMaintenanceStartTimeResponse
 updateMaintenanceStartTimeResponse p1 = UpdateMaintenanceStartTimeResponse
     { _umstrGatewayARN = p1
     }

@@ -67,7 +67,7 @@ data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo
 -- * @InfoType ::@ @EnvironmentInfoType@
 --
 retrieveEnvironmentInfo :: EnvironmentInfoType -- ^ 'rei1InfoType'
-                          -> RetrieveEnvironmentInfo
+                        -> RetrieveEnvironmentInfo
 retrieveEnvironmentInfo p3 = RetrieveEnvironmentInfo
     { _rei1EnvironmentId = Nothing
     , _rei1EnvironmentName = Nothing

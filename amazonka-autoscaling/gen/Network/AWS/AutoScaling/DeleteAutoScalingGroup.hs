@@ -60,7 +60,7 @@ data DeleteAutoScalingGroup = DeleteAutoScalingGroup
 -- * @ForceDelete ::@ @Maybe Bool@
 --
 deleteAutoScalingGroup :: Text -- ^ 'dasgAutoScalingGroupName'
-                         -> DeleteAutoScalingGroup
+                       -> DeleteAutoScalingGroup
 deleteAutoScalingGroup p1 = DeleteAutoScalingGroup
     { _dasgAutoScalingGroupName = p1
     , _dasgForceDelete = Nothing

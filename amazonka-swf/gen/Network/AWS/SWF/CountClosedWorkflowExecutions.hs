@@ -107,7 +107,7 @@ data CountClosedWorkflowExecutions = CountClosedWorkflowExecutions
 -- * @CloseStatusFilter ::@ @Maybe CloseStatusFilter@
 --
 countClosedWorkflowExecutions :: Text -- ^ 'ccweDomain'
-                                -> CountClosedWorkflowExecutions
+                              -> CountClosedWorkflowExecutions
 countClosedWorkflowExecutions p1 = CountClosedWorkflowExecutions
     { _ccweDomain = p1
     , _ccweStartTimeFilter = Nothing
@@ -191,7 +191,7 @@ data CountClosedWorkflowExecutionsResponse = CountClosedWorkflowExecutionsRespon
 -- * @Truncated ::@ @Maybe Bool@
 --
 countClosedWorkflowExecutionsResponse :: Integer -- ^ 'ccwerCount'
-                                        -> CountClosedWorkflowExecutionsResponse
+                                      -> CountClosedWorkflowExecutionsResponse
 countClosedWorkflowExecutionsResponse p1 = CountClosedWorkflowExecutionsResponse
     { _ccwerCount = p1
     , _ccwerTruncated = Nothing

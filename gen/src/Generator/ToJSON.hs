@@ -171,7 +171,7 @@ instance ToJSON Type' where
     toJSON t@Type{..} = Object (x <> y <> z)
       where
         Object x = object
-            [ "smart_pad"  .= Text.replicate (Text.length name + 2) " "
+            [ "smart_pad"  .= Text.replicate (Text.length name) " "
             , "smart_ctor" .= smartCtor name
             , "fields"     .= _typFields
             , "payload"    .= _typPayload

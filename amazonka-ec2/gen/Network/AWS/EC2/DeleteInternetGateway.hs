@@ -57,7 +57,7 @@ newtype DeleteInternetGateway = DeleteInternetGateway
 -- * @InternetGatewayId ::@ @Text@
 --
 deleteInternetGateway :: Text -- ^ 'digInternetGatewayId'
-                        -> DeleteInternetGateway
+                      -> DeleteInternetGateway
 deleteInternetGateway p1 = DeleteInternetGateway
     { _digInternetGatewayId = p1
     }

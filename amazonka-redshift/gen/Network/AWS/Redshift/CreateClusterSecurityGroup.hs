@@ -66,8 +66,8 @@ data CreateClusterSecurityGroup = CreateClusterSecurityGroup
 -- * @Description ::@ @Text@
 --
 createClusterSecurityGroup :: Text -- ^ 'ccsgClusterSecurityGroupName'
-                             -> Text -- ^ 'ccsgDescription'
-                             -> CreateClusterSecurityGroup
+                           -> Text -- ^ 'ccsgDescription'
+                           -> CreateClusterSecurityGroup
 createClusterSecurityGroup p1 p2 = CreateClusterSecurityGroup
     { _ccsgClusterSecurityGroupName = p1
     , _ccsgDescription = p2

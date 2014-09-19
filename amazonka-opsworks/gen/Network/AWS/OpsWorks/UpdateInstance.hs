@@ -92,7 +92,7 @@ data UpdateInstance = UpdateInstance
 -- * @EbsOptimized ::@ @Maybe Bool@
 --
 updateInstance :: Text -- ^ 'uiInstanceId'
-                 -> UpdateInstance
+               -> UpdateInstance
 updateInstance p1 = UpdateInstance
     { _uiInstanceId = p1
     , _uiLayerIds = mempty

@@ -56,7 +56,7 @@ newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup
 -- * @ClusterSubnetGroupName ::@ @Text@
 --
 deleteClusterSubnetGroup :: Text -- ^ 'dcsg1ClusterSubnetGroupName'
-                           -> DeleteClusterSubnetGroup
+                         -> DeleteClusterSubnetGroup
 deleteClusterSubnetGroup p1 = DeleteClusterSubnetGroup
     { _dcsg1ClusterSubnetGroupName = p1
     }

@@ -69,7 +69,7 @@ newtype EnableDomainTransferLock = EnableDomainTransferLock
 -- * @DomainName ::@ @Text@
 --
 enableDomainTransferLock :: Text -- ^ 'edtlDomainName'
-                           -> EnableDomainTransferLock
+                         -> EnableDomainTransferLock
 enableDomainTransferLock p1 = EnableDomainTransferLock
     { _edtlDomainName = p1
     }
@@ -104,7 +104,7 @@ newtype EnableDomainTransferLockResponse = EnableDomainTransferLockResponse
 -- * @OperationId ::@ @Text@
 --
 enableDomainTransferLockResponse :: Text -- ^ 'edtlrOperationId'
-                                   -> EnableDomainTransferLockResponse
+                                 -> EnableDomainTransferLockResponse
 enableDomainTransferLockResponse p1 = EnableDomainTransferLockResponse
     { _edtlrOperationId = p1
     }

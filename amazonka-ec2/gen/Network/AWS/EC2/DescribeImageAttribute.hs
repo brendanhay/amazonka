@@ -72,8 +72,8 @@ data DescribeImageAttribute = DescribeImageAttribute
 -- * @Attribute ::@ @ImageAttributeName@
 --
 describeImageAttribute :: Text -- ^ 'diaImageId'
-                         -> ImageAttributeName -- ^ 'diaAttribute'
-                         -> DescribeImageAttribute
+                       -> ImageAttributeName -- ^ 'diaAttribute'
+                       -> DescribeImageAttribute
 describeImageAttribute p1 p2 = DescribeImageAttribute
     { _diaImageId = p1
     , _diaAttribute = p2

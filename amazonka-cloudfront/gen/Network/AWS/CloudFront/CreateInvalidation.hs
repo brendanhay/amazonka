@@ -58,8 +58,8 @@ data CreateInvalidation = CreateInvalidation
 -- * @InvalidationBatch ::@ @InvalidationBatch@
 --
 createInvalidation :: Text -- ^ 'ciDistributionId'
-                     -> InvalidationBatch -- ^ 'ciInvalidationBatch'
-                     -> CreateInvalidation
+                   -> InvalidationBatch -- ^ 'ciInvalidationBatch'
+                   -> CreateInvalidation
 createInvalidation p1 p2 = CreateInvalidation
     { _ciDistributionId = p1
     , _ciInvalidationBatch = p2

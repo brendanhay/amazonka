@@ -65,9 +65,9 @@ data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener
 -- * @PolicyNames ::@ @[Text]@
 --
 setLoadBalancerPoliciesOfListener :: Text -- ^ 'slbpolLoadBalancerName'
-                                    -> Integer -- ^ 'slbpolLoadBalancerPort'
-                                    -> [Text] -- ^ 'slbpolPolicyNames'
-                                    -> SetLoadBalancerPoliciesOfListener
+                                  -> Integer -- ^ 'slbpolLoadBalancerPort'
+                                  -> [Text] -- ^ 'slbpolPolicyNames'
+                                  -> SetLoadBalancerPoliciesOfListener
 setLoadBalancerPoliciesOfListener p1 p2 p3 = SetLoadBalancerPoliciesOfListener
     { _slbpolLoadBalancerName = p1
     , _slbpolLoadBalancerPort = p2

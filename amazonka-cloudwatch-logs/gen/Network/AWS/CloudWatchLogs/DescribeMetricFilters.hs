@@ -83,7 +83,7 @@ data DescribeMetricFilters = DescribeMetricFilters
 -- * @Limit ::@ @Maybe Integer@
 --
 describeMetricFilters :: Text -- ^ 'dmf1LogGroupName'
-                        -> DescribeMetricFilters
+                      -> DescribeMetricFilters
 describeMetricFilters p1 = DescribeMetricFilters
     { _dmf1LogGroupName = p1
     , _dmf1FilterNamePrefix = Nothing

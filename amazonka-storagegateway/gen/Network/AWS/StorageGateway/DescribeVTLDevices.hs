@@ -64,7 +64,7 @@ data DescribeVTLDevices = DescribeVTLDevices
 -- * @Limit ::@ @Maybe Integer@
 --
 describeVTLDevices :: Text -- ^ 'dvtldGatewayARN'
-                     -> DescribeVTLDevices
+                   -> DescribeVTLDevices
 describeVTLDevices p1 = DescribeVTLDevices
     { _dvtldGatewayARN = p1
     , _dvtldVTLDeviceARNs = mempty

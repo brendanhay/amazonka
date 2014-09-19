@@ -70,8 +70,8 @@ data GetAttributes = GetAttributes
 -- * @ConsistentRead ::@ @Maybe Bool@
 --
 getAttributes :: Text -- ^ 'gaDomainName'
-                -> Text -- ^ 'gaItemName'
-                -> GetAttributes
+              -> Text -- ^ 'gaItemName'
+              -> GetAttributes
 getAttributes p1 p2 = GetAttributes
     { _gaDomainName = p1
     , _gaItemName = p2

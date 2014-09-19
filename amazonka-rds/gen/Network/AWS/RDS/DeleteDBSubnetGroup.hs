@@ -55,7 +55,7 @@ newtype DeleteDBSubnetGroup = DeleteDBSubnetGroup
 -- * @DBSubnetGroupName ::@ @Text@
 --
 deleteDBSubnetGroup :: Text -- ^ 'ddbsg1DBSubnetGroupName'
-                      -> DeleteDBSubnetGroup
+                    -> DeleteDBSubnetGroup
 deleteDBSubnetGroup p1 = DeleteDBSubnetGroup
     { _ddbsg1DBSubnetGroupName = p1
     }

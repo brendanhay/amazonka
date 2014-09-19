@@ -143,8 +143,8 @@ data RunJobFlow = RunJobFlow
 -- * @Tags ::@ @[Tag]@
 --
 runJobFlow :: Text -- ^ 'rjfName'
-             -> JobFlowInstancesConfig -- ^ 'rjfInstances'
-             -> RunJobFlow
+           -> JobFlowInstancesConfig -- ^ 'rjfInstances'
+           -> RunJobFlow
 runJobFlow p1 p5 = RunJobFlow
     { _rjfName = p1
     , _rjfLogUri = Nothing

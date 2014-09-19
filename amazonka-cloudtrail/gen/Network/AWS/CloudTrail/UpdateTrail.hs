@@ -76,7 +76,7 @@ data UpdateTrail = UpdateTrail
 -- * @IncludeGlobalServiceEvents ::@ @Maybe Bool@
 --
 updateTrail :: Text -- ^ 'utName'
-              -> UpdateTrail
+            -> UpdateTrail
 updateTrail p1 = UpdateTrail
     { _utName = p1
     , _utS3BucketName = Nothing

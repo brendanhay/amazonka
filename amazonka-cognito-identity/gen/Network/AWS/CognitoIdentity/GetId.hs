@@ -65,8 +65,8 @@ data GetId = GetId
 -- * @Logins ::@ @Map Text Text@
 --
 getId :: Text -- ^ 'giAccountId'
-        -> Text -- ^ 'giIdentityPoolId'
-        -> GetId
+      -> Text -- ^ 'giIdentityPoolId'
+      -> GetId
 getId p1 p2 = GetId
     { _giAccountId = p1
     , _giIdentityPoolId = p2

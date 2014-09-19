@@ -63,8 +63,8 @@ data CreatePlacementGroup = CreatePlacementGroup
 -- * @Strategy ::@ @PlacementStrategy@
 --
 createPlacementGroup :: Text -- ^ 'cpgGroupName'
-                       -> PlacementStrategy -- ^ 'cpgStrategy'
-                       -> CreatePlacementGroup
+                     -> PlacementStrategy -- ^ 'cpgStrategy'
+                     -> CreatePlacementGroup
 createPlacementGroup p1 p2 = CreatePlacementGroup
     { _cpgGroupName = p1
     , _cpgStrategy = p2

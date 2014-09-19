@@ -78,7 +78,7 @@ data ImportInstance = ImportInstance
 -- * @Platform ::@ @PlatformValues@
 --
 importInstance :: PlatformValues -- ^ 'iiPlatform'
-                 -> ImportInstance
+               -> ImportInstance
 importInstance p4 = ImportInstance
     { _iiDescription = Nothing
     , _iiLaunchSpecification = Nothing

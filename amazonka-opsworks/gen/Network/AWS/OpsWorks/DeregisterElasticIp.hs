@@ -54,7 +54,7 @@ newtype DeregisterElasticIp = DeregisterElasticIp
 -- * @ElasticIp ::@ @Text@
 --
 deregisterElasticIp :: Text -- ^ 'deiElasticIp'
-                      -> DeregisterElasticIp
+                    -> DeregisterElasticIp
 deregisterElasticIp p1 = DeregisterElasticIp
     { _deiElasticIp = p1
     }

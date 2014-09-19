@@ -704,8 +704,8 @@ data Dimension = Dimension
 -- * @Value ::@ @Text@
 --
 dimension :: Text -- ^ 'dName'
-            -> Text -- ^ 'dValue'
-            -> Dimension
+          -> Text -- ^ 'dValue'
+          -> Dimension
 dimension p1 p2 = Dimension
     { _dName = p1
     , _dValue = p2
@@ -742,7 +742,7 @@ data DimensionFilter = DimensionFilter
 -- * @Value ::@ @Maybe Text@
 --
 dimensionFilter :: Text -- ^ 'dfName'
-                  -> DimensionFilter
+                -> DimensionFilter
 dimensionFilter p1 = DimensionFilter
     { _dfName = p1
     , _dfValue = Nothing
@@ -1048,7 +1048,7 @@ data MetricDatum = MetricDatum
 -- * @Unit ::@ @Maybe StandardUnit@
 --
 metricDatum :: Text -- ^ 'mdMetricName'
-              -> MetricDatum
+            -> MetricDatum
 metricDatum p1 = MetricDatum
     { _mdMetricName = p1
     , _mdDimensions = mempty
@@ -1113,10 +1113,10 @@ data StatisticSet = StatisticSet
 -- * @Maximum ::@ @Double@
 --
 statisticSet :: Double -- ^ 'ssSampleCount'
-               -> Double -- ^ 'ssSum'
-               -> Double -- ^ 'ssMinimum'
-               -> Double -- ^ 'ssMaximum'
-               -> StatisticSet
+             -> Double -- ^ 'ssSum'
+             -> Double -- ^ 'ssMinimum'
+             -> Double -- ^ 'ssMaximum'
+             -> StatisticSet
 statisticSet p1 p2 p3 p4 = StatisticSet
     { _ssSampleCount = p1
     , _ssSum = p2

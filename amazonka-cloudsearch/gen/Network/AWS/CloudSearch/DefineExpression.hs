@@ -61,8 +61,8 @@ data DefineExpression = DefineExpression
 -- * @Expression ::@ @Expression@
 --
 defineExpression :: Text -- ^ 'deDomainName'
-                   -> Expression -- ^ 'deExpression'
-                   -> DefineExpression
+                 -> Expression -- ^ 'deExpression'
+                 -> DefineExpression
 defineExpression p1 p2 = DefineExpression
     { _deDomainName = p1
     , _deExpression = p2
@@ -99,7 +99,7 @@ newtype DefineExpressionResponse = DefineExpressionResponse
 -- * @Expression ::@ @ExpressionStatus@
 --
 defineExpressionResponse :: ExpressionStatus -- ^ 'derExpression'
-                           -> DefineExpressionResponse
+                         -> DefineExpressionResponse
 defineExpressionResponse p1 = DefineExpressionResponse
     { _derExpression = p1
     }

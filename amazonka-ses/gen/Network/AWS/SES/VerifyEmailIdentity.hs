@@ -61,7 +61,7 @@ newtype VerifyEmailIdentity = VerifyEmailIdentity
 -- * @EmailAddress ::@ @Text@
 --
 verifyEmailIdentity :: Text -- ^ 'veiEmailAddress'
-                      -> VerifyEmailIdentity
+                    -> VerifyEmailIdentity
 verifyEmailIdentity p1 = VerifyEmailIdentity
     { _veiEmailAddress = p1
     }

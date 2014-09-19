@@ -62,7 +62,7 @@ data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
 -- * @SourceDestCheck ::@ @Maybe Text@
 --
 resetNetworkInterfaceAttribute :: Text -- ^ 'rniaNetworkInterfaceId'
-                                 -> ResetNetworkInterfaceAttribute
+                               -> ResetNetworkInterfaceAttribute
 resetNetworkInterfaceAttribute p1 = ResetNetworkInterfaceAttribute
     { _rniaNetworkInterfaceId = p1
     , _rniaSourceDestCheck = Nothing

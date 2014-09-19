@@ -67,8 +67,8 @@ data CreateLogStream = CreateLogStream
 -- * @LogStreamName ::@ @Text@
 --
 createLogStream :: Text -- ^ 'clsLogGroupName'
-                  -> Text -- ^ 'clsLogStreamName'
-                  -> CreateLogStream
+                -> Text -- ^ 'clsLogStreamName'
+                -> CreateLogStream
 createLogStream p1 p2 = CreateLogStream
     { _clsLogGroupName = p1
     , _clsLogStreamName = p2

@@ -73,7 +73,7 @@ data ResetClusterParameterGroup = ResetClusterParameterGroup
 -- * @Parameters ::@ @[Parameter]@
 --
 resetClusterParameterGroup :: Text -- ^ 'rcpgParameterGroupName'
-                             -> ResetClusterParameterGroup
+                           -> ResetClusterParameterGroup
 resetClusterParameterGroup p1 = ResetClusterParameterGroup
     { _rcpgParameterGroupName = p1
     , _rcpgResetAllParameters = Nothing

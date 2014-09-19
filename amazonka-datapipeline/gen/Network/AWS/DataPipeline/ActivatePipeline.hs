@@ -61,7 +61,7 @@ newtype ActivatePipeline = ActivatePipeline
 -- * @PipelineId ::@ @Text@
 --
 activatePipeline :: Text -- ^ 'apPipelineId'
-                   -> ActivatePipeline
+                 -> ActivatePipeline
 activatePipeline p1 = ActivatePipeline
     { _apPipelineId = p1
     }

@@ -129,7 +129,7 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
 -- * @SriovNetSupport ::@ @Maybe AttributeValue@
 --
 modifyInstanceAttribute :: Text -- ^ 'mia1InstanceId'
-                          -> ModifyInstanceAttribute
+                        -> ModifyInstanceAttribute
 modifyInstanceAttribute p1 = ModifyInstanceAttribute
     { _mia1InstanceId = p1
     , _mia1Attribute = Nothing

@@ -73,8 +73,8 @@ data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface
 -- * @NewPrivateVirtualInterface ::@ @NewPrivateVirtualInterface@
 --
 createPrivateVirtualInterface :: Text -- ^ 'cpvi2ConnectionId'
-                                -> NewPrivateVirtualInterface -- ^ 'cpvi2NewPrivateVirtualInterface'
-                                -> CreatePrivateVirtualInterface
+                              -> NewPrivateVirtualInterface -- ^ 'cpvi2NewPrivateVirtualInterface'
+                              -> CreatePrivateVirtualInterface
 createPrivateVirtualInterface p1 p2 = CreatePrivateVirtualInterface
     { _cpvi2ConnectionId = p1
     , _cpvi2NewPrivateVirtualInterface = p2

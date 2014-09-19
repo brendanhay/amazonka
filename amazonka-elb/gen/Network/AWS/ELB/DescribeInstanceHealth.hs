@@ -79,7 +79,7 @@ data DescribeInstanceHealth = DescribeInstanceHealth
 -- * @Instances ::@ @[Instance]@
 --
 describeInstanceHealth :: Text -- ^ 'dihLoadBalancerName'
-                         -> DescribeInstanceHealth
+                       -> DescribeInstanceHealth
 describeInstanceHealth p1 = DescribeInstanceHealth
     { _dihLoadBalancerName = p1
     , _dihInstances = mempty

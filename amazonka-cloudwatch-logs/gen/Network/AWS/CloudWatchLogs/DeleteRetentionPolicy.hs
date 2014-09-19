@@ -59,7 +59,7 @@ newtype DeleteRetentionPolicy = DeleteRetentionPolicy
 -- * @LogGroupName ::@ @Text@
 --
 deleteRetentionPolicy :: Text -- ^ 'drpLogGroupName'
-                        -> DeleteRetentionPolicy
+                      -> DeleteRetentionPolicy
 deleteRetentionPolicy p1 = DeleteRetentionPolicy
     { _drpLogGroupName = p1
     }

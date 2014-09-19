@@ -104,7 +104,7 @@ data UpdateLayer = UpdateLayer
 -- * @UseEbsOptimizedInstances ::@ @Maybe Bool@
 --
 updateLayer :: Text -- ^ 'ulLayerId'
-              -> UpdateLayer
+            -> UpdateLayer
 updateLayer p1 = UpdateLayer
     { _ulLayerId = p1
     , _ulName = Nothing

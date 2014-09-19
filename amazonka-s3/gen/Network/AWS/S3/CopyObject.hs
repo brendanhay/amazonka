@@ -173,9 +173,9 @@ data CopyObject = CopyObject
 -- * @CopySourceSSECustomerKeyMD5 ::@ @Maybe Text@
 --
 copyObject :: ObjectKey -- ^ 'coKey'
-             -> BucketName -- ^ 'coBucket'
-             -> Text -- ^ 'coCopySource'
-             -> CopyObject
+           -> BucketName -- ^ 'coBucket'
+           -> Text -- ^ 'coCopySource'
+           -> CopyObject
 copyObject p18 p2 p8 = CopyObject
     { _coACL = Nothing
     , _coBucket = p2

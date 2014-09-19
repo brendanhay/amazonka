@@ -60,7 +60,7 @@ data DetachNetworkInterface = DetachNetworkInterface
 -- * @Force ::@ @Maybe Bool@
 --
 detachNetworkInterface :: Text -- ^ 'dni2AttachmentId'
-                         -> DetachNetworkInterface
+                       -> DetachNetworkInterface
 detachNetworkInterface p1 = DetachNetworkInterface
     { _dni2AttachmentId = p1
     , _dni2Force = Nothing

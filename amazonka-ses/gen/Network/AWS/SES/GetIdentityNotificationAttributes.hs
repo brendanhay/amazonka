@@ -70,7 +70,7 @@ newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes
 -- * @Identities ::@ @[Text]@
 --
 getIdentityNotificationAttributes :: [Text] -- ^ 'ginaIdentities'
-                                    -> GetIdentityNotificationAttributes
+                                  -> GetIdentityNotificationAttributes
 getIdentityNotificationAttributes p1 = GetIdentityNotificationAttributes
     { _ginaIdentities = p1
     }
@@ -100,7 +100,7 @@ newtype GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttri
 -- * @NotificationAttributes ::@ @Map Text IdentityNotificationAttributes@
 --
 getIdentityNotificationAttributesResponse :: Map Text IdentityNotificationAttributes -- ^ 'ginarNotificationAttributes'
-                                            -> GetIdentityNotificationAttributesResponse
+                                          -> GetIdentityNotificationAttributesResponse
 getIdentityNotificationAttributesResponse p1 = GetIdentityNotificationAttributesResponse
     { _ginarNotificationAttributes = p1
     }

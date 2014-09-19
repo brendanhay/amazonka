@@ -88,8 +88,8 @@ data CreateStream = CreateStream
 -- * @ShardCount ::@ @Integer@
 --
 createStream :: Text -- ^ 'csStreamName'
-               -> Integer -- ^ 'csShardCount'
-               -> CreateStream
+             -> Integer -- ^ 'csShardCount'
+             -> CreateStream
 createStream p1 p2 = CreateStream
     { _csStreamName = p1
     , _csShardCount = p2

@@ -82,7 +82,7 @@ import Network.AWS.Types (Region)
 
 -- | The input for a ListResourceRecordSets request.
 data ListResourceRecordSets = ListResourceRecordSets
-    { _lrrsHostedZoneId :: Text
+    { _lrrsHostedZoneId :: ResourceId
     , _lrrsStartRecordName :: Maybe Text
     , _lrrsStartRecordType :: Maybe RecordType
     , _lrrsStartRecordIdentifier :: Maybe Text
@@ -94,7 +94,7 @@ data ListResourceRecordSets = ListResourceRecordSets
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HostedZoneId ::@ @Text@
+-- * @HostedZoneId ::@ @ResourceId@
 --
 -- * @StartRecordName ::@ @Maybe Text@
 --
@@ -104,8 +104,8 @@ data ListResourceRecordSets = ListResourceRecordSets
 --
 -- * @MaxItems ::@ @Maybe Text@
 --
-listResourceRecordSets :: Text -- ^ 'lrrsHostedZoneId'
-                         -> ListResourceRecordSets
+listResourceRecordSets :: ResourceId -- ^ 'lrrsHostedZoneId'
+                       -> ListResourceRecordSets
 listResourceRecordSets p1 = ListResourceRecordSets
     { _lrrsHostedZoneId = p1
     , _lrrsStartRecordName = Nothing
@@ -116,7 +116,7 @@ listResourceRecordSets p1 = ListResourceRecordSets
 
 -- | The ID of the hosted zone that contains the resource record sets that you
 -- want to get.
-lrrsHostedZoneId :: Lens' ListResourceRecordSets Text
+lrrsHostedZoneId :: Lens' ListResourceRecordSets ResourceId
 lrrsHostedZoneId =
     lens _lrrsHostedZoneId (\s a -> s { _lrrsHostedZoneId = a })
 
@@ -191,9 +191,9 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
 -- * @MaxItems ::@ @Text@
 --
 listResourceRecordSetsResponse :: [ResourceRecordSet] -- ^ 'lrrsrResourceRecordSets'
-                                 -> Bool -- ^ 'lrrsrIsTruncated'
-                                 -> Text -- ^ 'lrrsrMaxItems'
-                                 -> ListResourceRecordSetsResponse
+                               -> Bool -- ^ 'lrrsrIsTruncated'
+                               -> Text -- ^ 'lrrsrMaxItems'
+                               -> ListResourceRecordSetsResponse
 listResourceRecordSetsResponse p1 p2 p6 = ListResourceRecordSetsResponse
     { _lrrsrResourceRecordSets = p1
     , _lrrsrIsTruncated = p2

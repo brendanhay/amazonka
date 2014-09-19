@@ -53,7 +53,7 @@ newtype ListTagsForResource = ListTagsForResource
 -- * @ResourceName ::@ @Text@
 --
 listTagsForResource :: Text -- ^ 'ltfrResourceName'
-                      -> ListTagsForResource
+                    -> ListTagsForResource
 listTagsForResource p1 = ListTagsForResource
     { _ltfrResourceName = p1
     }

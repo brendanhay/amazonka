@@ -84,7 +84,7 @@ data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress
 -- * @EC2SecurityGroupOwnerId ::@ @Maybe Text@
 --
 authorizeClusterSecurityGroupIngress :: Text -- ^ 'acsgiClusterSecurityGroupName'
-                                       -> AuthorizeClusterSecurityGroupIngress
+                                     -> AuthorizeClusterSecurityGroupIngress
 authorizeClusterSecurityGroupIngress p1 = AuthorizeClusterSecurityGroupIngress
     { _acsgiClusterSecurityGroupName = p1
     , _acsgiCIDRIP = Nothing

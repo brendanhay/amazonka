@@ -57,8 +57,8 @@ data ListTagsForResource = ListTagsForResource
 -- * @ResourceId ::@ @Text@
 --
 listTagsForResource :: TagResourceType -- ^ 'ltfrResourceType'
-                      -> Text -- ^ 'ltfrResourceId'
-                      -> ListTagsForResource
+                    -> Text -- ^ 'ltfrResourceId'
+                    -> ListTagsForResource
 listTagsForResource p1 p2 = ListTagsForResource
     { _ltfrResourceType = p1
     , _ltfrResourceId = p2
@@ -99,7 +99,7 @@ newtype ListTagsForResourceResponse = ListTagsForResourceResponse
 -- * @ResourceTagSet ::@ @ResourceTagSet@
 --
 listTagsForResourceResponse :: ResourceTagSet -- ^ 'ltfrrResourceTagSet'
-                              -> ListTagsForResourceResponse
+                            -> ListTagsForResourceResponse
 listTagsForResourceResponse p1 = ListTagsForResourceResponse
     { _ltfrrResourceTagSet = p1
     }

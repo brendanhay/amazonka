@@ -54,7 +54,7 @@ newtype DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummar
 -- * @CheckIds ::@ @[Text]@
 --
 describeTrustedAdvisorCheckSummaries :: [Text] -- ^ 'dtacsCheckIds'
-                                       -> DescribeTrustedAdvisorCheckSummaries
+                                     -> DescribeTrustedAdvisorCheckSummaries
 describeTrustedAdvisorCheckSummaries p1 = DescribeTrustedAdvisorCheckSummaries
     { _dtacsCheckIds = p1
     }
@@ -87,7 +87,7 @@ newtype DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorChe
 -- * @Summaries ::@ @[TrustedAdvisorCheckSummary]@
 --
 describeTrustedAdvisorCheckSummariesResponse :: [TrustedAdvisorCheckSummary] -- ^ 'dtacsrSummaries'
-                                               -> DescribeTrustedAdvisorCheckSummariesResponse
+                                             -> DescribeTrustedAdvisorCheckSummariesResponse
 describeTrustedAdvisorCheckSummariesResponse p1 = DescribeTrustedAdvisorCheckSummariesResponse
     { _dtacsrSummaries = p1
     }

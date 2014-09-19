@@ -133,8 +133,8 @@ data CreateConfigurationTemplate = CreateConfigurationTemplate
 -- * @OptionSettings ::@ @[ConfigurationOptionSetting]@
 --
 createConfigurationTemplate :: Text -- ^ 'cctApplicationName'
-                              -> Text -- ^ 'cctTemplateName'
-                              -> CreateConfigurationTemplate
+                            -> Text -- ^ 'cctTemplateName'
+                            -> CreateConfigurationTemplate
 createConfigurationTemplate p1 p2 = CreateConfigurationTemplate
     { _cctApplicationName = p1
     , _cctTemplateName = p2

@@ -52,7 +52,7 @@ newtype DeleteGroup = DeleteGroup
 -- * @GroupName ::@ @Text@
 --
 deleteGroup :: Text -- ^ 'dgGroupName'
-              -> DeleteGroup
+            -> DeleteGroup
 deleteGroup p1 = DeleteGroup
     { _dgGroupName = p1
     }

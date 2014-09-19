@@ -59,7 +59,7 @@ newtype DeleteDBSnapshot = DeleteDBSnapshot
 -- * @DBSnapshotIdentifier ::@ @Text@
 --
 deleteDBSnapshot :: Text -- ^ 'ddbsDBSnapshotIdentifier'
-                   -> DeleteDBSnapshot
+                 -> DeleteDBSnapshot
 deleteDBSnapshot p1 = DeleteDBSnapshot
     { _ddbsDBSnapshotIdentifier = p1
     }

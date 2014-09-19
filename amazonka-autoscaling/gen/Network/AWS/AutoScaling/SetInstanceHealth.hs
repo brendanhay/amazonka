@@ -59,8 +59,8 @@ data SetInstanceHealth = SetInstanceHealth
 -- * @ShouldRespectGracePeriod ::@ @Maybe Bool@
 --
 setInstanceHealth :: Text -- ^ 'sihInstanceId'
-                    -> Text -- ^ 'sihHealthStatus'
-                    -> SetInstanceHealth
+                  -> Text -- ^ 'sihHealthStatus'
+                  -> SetInstanceHealth
 setInstanceHealth p1 p2 = SetInstanceHealth
     { _sihInstanceId = p1
     , _sihHealthStatus = p2

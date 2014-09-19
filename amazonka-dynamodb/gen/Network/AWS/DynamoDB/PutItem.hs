@@ -97,8 +97,8 @@ data PutItem = PutItem
 -- * @ConditionalOperator ::@ @Maybe ConditionalOperator@
 --
 putItem :: Text -- ^ 'piTableName'
-          -> Map Text AttributeValue -- ^ 'piItem'
-          -> PutItem
+        -> Map Text AttributeValue -- ^ 'piItem'
+        -> PutItem
 putItem p1 p2 = PutItem
     { _piTableName = p1
     , _piItem = p2

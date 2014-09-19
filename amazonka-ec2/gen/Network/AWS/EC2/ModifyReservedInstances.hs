@@ -71,8 +71,8 @@ data ModifyReservedInstances = ModifyReservedInstances
 -- * @TargetConfigurations ::@ @[ReservedInstancesConfiguration]@
 --
 modifyReservedInstances :: [Text] -- ^ 'mriReservedInstancesIds'
-                          -> [ReservedInstancesConfiguration] -- ^ 'mriTargetConfigurations'
-                          -> ModifyReservedInstances
+                        -> [ReservedInstancesConfiguration] -- ^ 'mriTargetConfigurations'
+                        -> ModifyReservedInstances
 modifyReservedInstances p2 p3 = ModifyReservedInstances
     { _mriClientToken = Nothing
     , _mriReservedInstancesIds = p2

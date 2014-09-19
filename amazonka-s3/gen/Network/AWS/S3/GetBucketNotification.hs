@@ -52,7 +52,7 @@ newtype GetBucketNotification = GetBucketNotification
 -- * @Bucket ::@ @BucketName@
 --
 getBucketNotification :: BucketName -- ^ 'gbnBucket'
-                        -> GetBucketNotification
+                      -> GetBucketNotification
 getBucketNotification p1 = GetBucketNotification
     { _gbnBucket = p1
     }

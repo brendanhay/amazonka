@@ -88,7 +88,7 @@ data ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplication
 -- * @NextToken ::@ @Maybe Text@
 --
 listEndpointsByPlatformApplication :: Text -- ^ 'lebpaPlatformApplicationArn'
-                                     -> ListEndpointsByPlatformApplication
+                                   -> ListEndpointsByPlatformApplication
 listEndpointsByPlatformApplication p1 = ListEndpointsByPlatformApplication
     { _lebpaPlatformApplicationArn = p1
     , _lebpaNextToken = Nothing

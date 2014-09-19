@@ -65,7 +65,7 @@ data CreateUserProfile = CreateUserProfile
 -- * @AllowSelfManagement ::@ @Maybe Bool@
 --
 createUserProfile :: Text -- ^ 'cupIamUserArn'
-                    -> CreateUserProfile
+                  -> CreateUserProfile
 createUserProfile p1 = CreateUserProfile
     { _cupIamUserArn = p1
     , _cupSshUsername = Nothing

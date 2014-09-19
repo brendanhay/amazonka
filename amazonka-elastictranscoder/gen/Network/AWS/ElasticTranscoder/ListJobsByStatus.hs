@@ -105,7 +105,7 @@ data ListJobsByStatus = ListJobsByStatus
 -- * @PageToken ::@ @Maybe Text@
 --
 listJobsByStatus :: Text -- ^ 'ljbsStatus'
-                   -> ListJobsByStatus
+                 -> ListJobsByStatus
 listJobsByStatus p1 = ListJobsByStatus
     { _ljbsStatus = p1
     , _ljbsAscending = Nothing

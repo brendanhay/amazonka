@@ -59,8 +59,8 @@ data DeleteSuggester = DeleteSuggester
 -- * @SuggesterName ::@ @Text@
 --
 deleteSuggester :: Text -- ^ 'ds2DomainName'
-                  -> Text -- ^ 'ds2SuggesterName'
-                  -> DeleteSuggester
+                -> Text -- ^ 'ds2SuggesterName'
+                -> DeleteSuggester
 deleteSuggester p1 p2 = DeleteSuggester
     { _ds2DomainName = p1
     , _ds2SuggesterName = p2
@@ -97,7 +97,7 @@ newtype DeleteSuggesterResponse = DeleteSuggesterResponse
 -- * @Suggester ::@ @SuggesterStatus@
 --
 deleteSuggesterResponse :: SuggesterStatus -- ^ 'dsrrSuggester'
-                          -> DeleteSuggesterResponse
+                        -> DeleteSuggesterResponse
 deleteSuggesterResponse p1 = DeleteSuggesterResponse
     { _dsrrSuggester = p1
     }

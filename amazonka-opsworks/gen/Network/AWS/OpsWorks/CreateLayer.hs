@@ -116,10 +116,10 @@ data CreateLayer = CreateLayer
 -- * @UseEbsOptimizedInstances ::@ @Maybe Bool@
 --
 createLayer :: Text -- ^ 'clStackId'
-              -> LayerType -- ^ 'clType'
-              -> Text -- ^ 'clName'
-              -> Text -- ^ 'clShortname'
-              -> CreateLayer
+            -> LayerType -- ^ 'clType'
+            -> Text -- ^ 'clName'
+            -> Text -- ^ 'clShortname'
+            -> CreateLayer
 createLayer p1 p2 p3 p4 = CreateLayer
     { _clStackId = p1
     , _clType = p2

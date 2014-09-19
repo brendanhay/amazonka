@@ -50,7 +50,7 @@ newtype StartLogging = StartLogging
 -- * @Name ::@ @Text@
 --
 startLogging :: Text -- ^ 'slName'
-               -> StartLogging
+             -> StartLogging
 startLogging p1 = StartLogging
     { _slName = p1
     }

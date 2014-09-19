@@ -99,7 +99,7 @@ data PollForTask = PollForTask
 -- * @InstanceIdentity ::@ @Maybe InstanceIdentity@
 --
 pollForTask :: Text -- ^ 'pftWorkerGroup'
-              -> PollForTask
+            -> PollForTask
 pollForTask p1 = PollForTask
     { _pftWorkerGroup = p1
     , _pftHostname = Nothing

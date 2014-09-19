@@ -100,7 +100,7 @@ data RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeat
 -- * @Details ::@ @Maybe Text@
 --
 recordActivityTaskHeartbeat :: Text -- ^ 'rathTaskToken'
-                              -> RecordActivityTaskHeartbeat
+                            -> RecordActivityTaskHeartbeat
 recordActivityTaskHeartbeat p1 = RecordActivityTaskHeartbeat
     { _rathTaskToken = p1
     , _rathDetails = Nothing
@@ -140,7 +140,7 @@ newtype RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatRespons
 -- * @CancelRequested ::@ @Bool@
 --
 recordActivityTaskHeartbeatResponse :: Bool -- ^ 'rathrCancelRequested'
-                                      -> RecordActivityTaskHeartbeatResponse
+                                    -> RecordActivityTaskHeartbeatResponse
 recordActivityTaskHeartbeatResponse p1 = RecordActivityTaskHeartbeatResponse
     { _rathrCancelRequested = p1
     }

@@ -72,7 +72,7 @@ data ListTagsForStream = ListTagsForStream
 -- * @Limit ::@ @Maybe Integer@
 --
 listTagsForStream :: Text -- ^ 'ltfsStreamName'
-                    -> ListTagsForStream
+                  -> ListTagsForStream
 listTagsForStream p1 = ListTagsForStream
     { _ltfsStreamName = p1
     , _ltfsExclusiveStartTagKey = Nothing
@@ -123,8 +123,8 @@ data ListTagsForStreamResponse = ListTagsForStreamResponse
 -- * @HasMoreTags ::@ @Bool@
 --
 listTagsForStreamResponse :: [Tag] -- ^ 'ltfsrTags'
-                            -> Bool -- ^ 'ltfsrHasMoreTags'
-                            -> ListTagsForStreamResponse
+                          -> Bool -- ^ 'ltfsrHasMoreTags'
+                          -> ListTagsForStreamResponse
 listTagsForStreamResponse p1 p2 = ListTagsForStreamResponse
     { _ltfsrTags = p1
     , _ltfsrHasMoreTags = p2

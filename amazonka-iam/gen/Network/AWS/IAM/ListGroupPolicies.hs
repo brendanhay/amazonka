@@ -65,7 +65,7 @@ data ListGroupPolicies = ListGroupPolicies
 -- * @MaxItems ::@ @Maybe Integer@
 --
 listGroupPolicies :: Text -- ^ 'lgpGroupName'
-                    -> ListGroupPolicies
+                  -> ListGroupPolicies
 listGroupPolicies p1 = ListGroupPolicies
     { _lgpGroupName = p1
     , _lgpMarker = Nothing
@@ -114,8 +114,8 @@ data ListGroupPoliciesResponse = ListGroupPoliciesResponse
 -- * @Marker ::@ @Maybe Text@
 --
 listGroupPoliciesResponse :: [Text] -- ^ 'lgprPolicyNames'
-                            -> Bool -- ^ 'lgprIsTruncated'
-                            -> ListGroupPoliciesResponse
+                          -> Bool -- ^ 'lgprIsTruncated'
+                          -> ListGroupPoliciesResponse
 listGroupPoliciesResponse p1 p2 = ListGroupPoliciesResponse
     { _lgprPolicyNames = p1
     , _lgprIsTruncated = p2

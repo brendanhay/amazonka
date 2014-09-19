@@ -58,7 +58,7 @@ newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues
 -- * @QueueUrl ::@ @Text@
 --
 listDeadLetterSourceQueues :: Text -- ^ 'ldlsqQueueUrl'
-                             -> ListDeadLetterSourceQueues
+                           -> ListDeadLetterSourceQueues
 listDeadLetterSourceQueues p1 = ListDeadLetterSourceQueues
     { _ldlsqQueueUrl = p1
     }
@@ -85,7 +85,7 @@ newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
 -- * @QueueUrls ::@ @[Text]@
 --
 listDeadLetterSourceQueuesResponse :: [Text] -- ^ 'ldlsqrQueueUrls'
-                                     -> ListDeadLetterSourceQueuesResponse
+                                   -> ListDeadLetterSourceQueuesResponse
 listDeadLetterSourceQueuesResponse p1 = ListDeadLetterSourceQueuesResponse
     { _ldlsqrQueueUrls = p1
     }

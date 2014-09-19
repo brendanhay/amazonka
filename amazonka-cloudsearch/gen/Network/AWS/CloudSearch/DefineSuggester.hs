@@ -62,8 +62,8 @@ data DefineSuggester = DefineSuggester
 -- * @Suggester ::@ @Suggester@
 --
 defineSuggester :: Text -- ^ 'ds1DomainName'
-                  -> Suggester -- ^ 'ds1Suggester'
-                  -> DefineSuggester
+                -> Suggester -- ^ 'ds1Suggester'
+                -> DefineSuggester
 defineSuggester p1 p2 = DefineSuggester
     { _ds1DomainName = p1
     , _ds1Suggester = p2
@@ -102,7 +102,7 @@ newtype DefineSuggesterResponse = DefineSuggesterResponse
 -- * @Suggester ::@ @SuggesterStatus@
 --
 defineSuggesterResponse :: SuggesterStatus -- ^ 'dsrSuggester'
-                          -> DefineSuggesterResponse
+                        -> DefineSuggesterResponse
 defineSuggesterResponse p1 = DefineSuggesterResponse
     { _dsrSuggester = p1
     }

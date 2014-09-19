@@ -55,7 +55,7 @@ newtype DescribeAttachment = DescribeAttachment
 -- * @AttachmentId ::@ @Text@
 --
 describeAttachment :: Text -- ^ 'daAttachmentId'
-                     -> DescribeAttachment
+                   -> DescribeAttachment
 describeAttachment p1 = DescribeAttachment
     { _daAttachmentId = p1
     }

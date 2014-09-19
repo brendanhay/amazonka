@@ -90,8 +90,8 @@ data DescribeWorkflowType = DescribeWorkflowType
 -- * @WorkflowType ::@ @WorkflowType@
 --
 describeWorkflowType :: Text -- ^ 'dwt1Domain'
-                       -> WorkflowType -- ^ 'dwt1WorkflowType'
-                       -> DescribeWorkflowType
+                     -> WorkflowType -- ^ 'dwt1WorkflowType'
+                     -> DescribeWorkflowType
 describeWorkflowType p1 p2 = DescribeWorkflowType
     { _dwt1Domain = p1
     , _dwt1WorkflowType = p2
@@ -132,8 +132,8 @@ data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse
 -- * @Configuration ::@ @WorkflowTypeConfiguration@
 --
 describeWorkflowTypeResponse :: WorkflowTypeInfo -- ^ 'dwtrTypeInfo'
-                               -> WorkflowTypeConfiguration -- ^ 'dwtrConfiguration'
-                               -> DescribeWorkflowTypeResponse
+                             -> WorkflowTypeConfiguration -- ^ 'dwtrConfiguration'
+                             -> DescribeWorkflowTypeResponse
 describeWorkflowTypeResponse p1 p2 = DescribeWorkflowTypeResponse
     { _dwtrTypeInfo = p1
     , _dwtrConfiguration = p2

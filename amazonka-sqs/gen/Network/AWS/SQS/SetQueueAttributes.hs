@@ -87,8 +87,8 @@ data SetQueueAttributes = SetQueueAttributes
 -- * @Attributes ::@ @Map QueueAttributeName Text@
 --
 setQueueAttributes :: Text -- ^ 'sqaQueueUrl'
-                     -> Map QueueAttributeName Text -- ^ 'sqaAttributes'
-                     -> SetQueueAttributes
+                   -> Map QueueAttributeName Text -- ^ 'sqaAttributes'
+                   -> SetQueueAttributes
 setQueueAttributes p1 p2 = SetQueueAttributes
     { _sqaQueueUrl = p1
     , _sqaAttributes = p2

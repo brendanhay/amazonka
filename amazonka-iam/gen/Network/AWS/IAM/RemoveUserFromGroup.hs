@@ -55,8 +55,8 @@ data RemoveUserFromGroup = RemoveUserFromGroup
 -- * @UserName ::@ @Text@
 --
 removeUserFromGroup :: Text -- ^ 'rufgGroupName'
-                      -> Text -- ^ 'rufgUserName'
-                      -> RemoveUserFromGroup
+                    -> Text -- ^ 'rufgUserName'
+                    -> RemoveUserFromGroup
 removeUserFromGroup p1 p2 = RemoveUserFromGroup
     { _rufgGroupName = p1
     , _rufgUserName = p2

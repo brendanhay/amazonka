@@ -100,9 +100,9 @@ data SplitShard = SplitShard
 -- * @NewStartingHashKey ::@ @Text@
 --
 splitShard :: Text -- ^ 'ssStreamName'
-             -> Text -- ^ 'ssShardToSplit'
-             -> Text -- ^ 'ssNewStartingHashKey'
-             -> SplitShard
+           -> Text -- ^ 'ssShardToSplit'
+           -> Text -- ^ 'ssNewStartingHashKey'
+           -> SplitShard
 splitShard p1 p2 p3 = SplitShard
     { _ssStreamName = p1
     , _ssShardToSplit = p2

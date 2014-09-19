@@ -62,7 +62,7 @@ newtype VerifyDomainIdentity = VerifyDomainIdentity
 -- * @Domain ::@ @Text@
 --
 verifyDomainIdentity :: Text -- ^ 'vdiDomain'
-                       -> VerifyDomainIdentity
+                     -> VerifyDomainIdentity
 verifyDomainIdentity p1 = VerifyDomainIdentity
     { _vdiDomain = p1
     }
@@ -89,7 +89,7 @@ newtype VerifyDomainIdentityResponse = VerifyDomainIdentityResponse
 -- * @VerificationToken ::@ @Text@
 --
 verifyDomainIdentityResponse :: Text -- ^ 'vdirVerificationToken'
-                               -> VerifyDomainIdentityResponse
+                             -> VerifyDomainIdentityResponse
 verifyDomainIdentityResponse p1 = VerifyDomainIdentityResponse
     { _vdirVerificationToken = p1
     }

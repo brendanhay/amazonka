@@ -71,8 +71,8 @@ data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes
 -- * @Attributes ::@ @Map Text Text@
 --
 setPlatformApplicationAttributes :: Text -- ^ 'spaaPlatformApplicationArn'
-                                   -> Map Text Text -- ^ 'spaaAttributes'
-                                   -> SetPlatformApplicationAttributes
+                                 -> Map Text Text -- ^ 'spaaAttributes'
+                                 -> SetPlatformApplicationAttributes
 setPlatformApplicationAttributes p1 p2 = SetPlatformApplicationAttributes
     { _spaaPlatformApplicationArn = p1
     , _spaaAttributes = p2

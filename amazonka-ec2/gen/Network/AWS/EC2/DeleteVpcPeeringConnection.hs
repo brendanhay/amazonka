@@ -62,7 +62,7 @@ newtype DeleteVpcPeeringConnection = DeleteVpcPeeringConnection
 -- * @VpcPeeringConnectionId ::@ @Text@
 --
 deleteVpcPeeringConnection :: Text -- ^ 'dvpcVpcPeeringConnectionId'
-                             -> DeleteVpcPeeringConnection
+                           -> DeleteVpcPeeringConnection
 deleteVpcPeeringConnection p1 = DeleteVpcPeeringConnection
     { _dvpcVpcPeeringConnectionId = p1
     }

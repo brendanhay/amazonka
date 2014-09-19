@@ -58,7 +58,7 @@ data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling
 -- * @AutoScalingSchedule ::@ @Maybe WeeklyAutoScalingSchedule@
 --
 setTimeBasedAutoScaling :: Text -- ^ 'stbasInstanceId'
-                          -> SetTimeBasedAutoScaling
+                        -> SetTimeBasedAutoScaling
 setTimeBasedAutoScaling p1 = SetTimeBasedAutoScaling
     { _stbasInstanceId = p1
     , _stbasAutoScalingSchedule = Nothing

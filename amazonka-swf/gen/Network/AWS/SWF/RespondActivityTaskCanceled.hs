@@ -88,7 +88,7 @@ data RespondActivityTaskCanceled = RespondActivityTaskCanceled
 -- * @Details ::@ @Maybe Text@
 --
 respondActivityTaskCanceled :: Text -- ^ 'ratcTaskToken'
-                              -> RespondActivityTaskCanceled
+                            -> RespondActivityTaskCanceled
 respondActivityTaskCanceled p1 = RespondActivityTaskCanceled
     { _ratcTaskToken = p1
     , _ratcDetails = Nothing

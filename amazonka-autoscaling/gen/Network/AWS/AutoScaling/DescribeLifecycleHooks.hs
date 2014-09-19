@@ -56,7 +56,7 @@ data DescribeLifecycleHooks = DescribeLifecycleHooks
 -- * @LifecycleHookNames ::@ @[Text]@
 --
 describeLifecycleHooks :: Text -- ^ 'dlh1AutoScalingGroupName'
-                         -> DescribeLifecycleHooks
+                       -> DescribeLifecycleHooks
 describeLifecycleHooks p1 = DescribeLifecycleHooks
     { _dlh1AutoScalingGroupName = p1
     , _dlh1LifecycleHookNames = mempty

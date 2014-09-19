@@ -54,7 +54,7 @@ data DeletePolicy = DeletePolicy
 -- * @PolicyName ::@ @Text@
 --
 deletePolicy :: Text -- ^ 'dpPolicyName'
-               -> DeletePolicy
+             -> DeletePolicy
 deletePolicy p2 = DeletePolicy
     { _dpAutoScalingGroupName = Nothing
     , _dpPolicyName = p2

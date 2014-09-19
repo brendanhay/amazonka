@@ -91,7 +91,7 @@ data RespondDecisionTaskCompleted = RespondDecisionTaskCompleted
 -- * @ExecutionContext ::@ @Maybe Text@
 --
 respondDecisionTaskCompleted :: Text -- ^ 'rdtcTaskToken'
-                               -> RespondDecisionTaskCompleted
+                             -> RespondDecisionTaskCompleted
 respondDecisionTaskCompleted p1 = RespondDecisionTaskCompleted
     { _rdtcTaskToken = p1
     , _rdtcDecisions = mempty

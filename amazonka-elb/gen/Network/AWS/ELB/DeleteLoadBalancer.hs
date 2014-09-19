@@ -58,7 +58,7 @@ newtype DeleteLoadBalancer = DeleteLoadBalancer
 -- * @LoadBalancerName ::@ @Text@
 --
 deleteLoadBalancer :: Text -- ^ 'dlbLoadBalancerName'
-                     -> DeleteLoadBalancer
+                   -> DeleteLoadBalancer
 deleteLoadBalancer p1 = DeleteLoadBalancer
     { _dlbLoadBalancerName = p1
     }

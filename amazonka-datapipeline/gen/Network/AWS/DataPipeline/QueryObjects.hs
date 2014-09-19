@@ -84,8 +84,8 @@ data QueryObjects = QueryObjects
 -- * @Limit ::@ @Maybe Integer@
 --
 queryObjects :: Text -- ^ 'qoPipelineId'
-               -> Text -- ^ 'qoSphere'
-               -> QueryObjects
+             -> Text -- ^ 'qoSphere'
+             -> QueryObjects
 queryObjects p1 p3 = QueryObjects
     { _qoPipelineId = p1
     , _qoQuery = Nothing
@@ -151,7 +151,7 @@ data QueryObjectsResponse = QueryObjectsResponse
 -- * @HasMoreResults ::@ @Bool@
 --
 queryObjectsResponse :: Bool -- ^ 'qorHasMoreResults'
-                       -> QueryObjectsResponse
+                     -> QueryObjectsResponse
 queryObjectsResponse p3 = QueryObjectsResponse
     { _qorIds = mempty
     , _qorMarker = Nothing

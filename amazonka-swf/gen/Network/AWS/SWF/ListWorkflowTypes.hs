@@ -100,8 +100,8 @@ data ListWorkflowTypes = ListWorkflowTypes
 -- * @ReverseOrder ::@ @Maybe Bool@
 --
 listWorkflowTypes :: Text -- ^ 'lwtDomain'
-                    -> RegistrationStatus -- ^ 'lwtRegistrationStatus'
-                    -> ListWorkflowTypes
+                  -> RegistrationStatus -- ^ 'lwtRegistrationStatus'
+                  -> ListWorkflowTypes
 listWorkflowTypes p1 p3 = ListWorkflowTypes
     { _lwtDomain = p1
     , _lwtName = Nothing
@@ -172,7 +172,7 @@ data ListWorkflowTypesResponse = ListWorkflowTypesResponse
 -- * @NextPageToken ::@ @Maybe Text@
 --
 listWorkflowTypesResponse :: [WorkflowTypeInfo] -- ^ 'lwtrTypeInfos'
-                            -> ListWorkflowTypesResponse
+                          -> ListWorkflowTypesResponse
 listWorkflowTypesResponse p1 = ListWorkflowTypesResponse
     { _lwtrTypeInfos = p1
     , _lwtrNextPageToken = Nothing

@@ -66,8 +66,8 @@ data AttachVpnGateway = AttachVpnGateway
 -- * @VpcId ::@ @Text@
 --
 attachVpnGateway :: Text -- ^ 'avgVpnGatewayId'
-                   -> Text -- ^ 'avgVpcId'
-                   -> AttachVpnGateway
+                 -> Text -- ^ 'avgVpcId'
+                 -> AttachVpnGateway
 attachVpnGateway p1 p2 = AttachVpnGateway
     { _avgVpnGatewayId = p1
     , _avgVpcId = p2

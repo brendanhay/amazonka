@@ -78,8 +78,8 @@ data CreateDeployment = CreateDeployment
 -- * @CustomJson ::@ @Maybe Text@
 --
 createDeployment :: Text -- ^ 'cdStackId'
-                   -> DeploymentCommand -- ^ 'cdCommand'
-                   -> CreateDeployment
+                 -> DeploymentCommand -- ^ 'cdCommand'
+                 -> CreateDeployment
 createDeployment p1 p4 = CreateDeployment
     { _cdStackId = p1
     , _cdAppId = Nothing

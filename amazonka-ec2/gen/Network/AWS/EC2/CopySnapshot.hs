@@ -82,8 +82,8 @@ data CopySnapshot = CopySnapshot
 -- * @PresignedUrl ::@ @Maybe Text@
 --
 copySnapshot :: Text -- ^ 'csSourceRegion'
-               -> Text -- ^ 'csSourceSnapshotId'
-               -> CopySnapshot
+             -> Text -- ^ 'csSourceSnapshotId'
+             -> CopySnapshot
 copySnapshot p1 p2 = CopySnapshot
     { _csSourceRegion = p1
     , _csSourceSnapshotId = p2

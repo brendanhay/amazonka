@@ -55,8 +55,8 @@ data RemoveTagsFromResource = RemoveTagsFromResource
 -- * @TagKeys ::@ @[Text]@
 --
 removeTagsFromResource :: Text -- ^ 'rtfrResourceName'
-                         -> [Text] -- ^ 'rtfrTagKeys'
-                         -> RemoveTagsFromResource
+                       -> [Text] -- ^ 'rtfrTagKeys'
+                       -> RemoveTagsFromResource
 removeTagsFromResource p1 p2 = RemoveTagsFromResource
     { _rtfrResourceName = p1
     , _rtfrTagKeys = p2

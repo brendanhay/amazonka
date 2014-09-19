@@ -72,7 +72,7 @@ data ModifyOptionGroup = ModifyOptionGroup
 -- * @ApplyImmediately ::@ @Maybe Bool@
 --
 modifyOptionGroup :: Text -- ^ 'mogOptionGroupName'
-                    -> ModifyOptionGroup
+                  -> ModifyOptionGroup
 modifyOptionGroup p1 = ModifyOptionGroup
     { _mogOptionGroupName = p1
     , _mogOptionsToInclude = mempty

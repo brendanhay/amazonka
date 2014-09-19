@@ -131,7 +131,7 @@ data RegisterImage = RegisterImage
 -- * @SriovNetSupport ::@ @Maybe Text@
 --
 registerImage :: Text -- ^ 'ri2Name'
-                -> RegisterImage
+              -> RegisterImage
 registerImage p2 = RegisterImage
     { _ri2ImageLocation = Nothing
     , _ri2Name = p2

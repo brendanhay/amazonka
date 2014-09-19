@@ -55,7 +55,7 @@ data DeleteStreamingDistribution = DeleteStreamingDistribution
 -- * @IfMatch ::@ @Maybe Text@
 --
 deleteStreamingDistribution :: Text -- ^ 'dsdId'
-                              -> DeleteStreamingDistribution
+                            -> DeleteStreamingDistribution
 deleteStreamingDistribution p1 = DeleteStreamingDistribution
     { _dsdId = p1
     , _dsdIfMatch = Nothing

@@ -56,7 +56,7 @@ newtype DeleteStack = DeleteStack
 -- * @StackName ::@ @Text@
 --
 deleteStack :: Text -- ^ 'dsStackName'
-              -> DeleteStack
+            -> DeleteStack
 deleteStack p1 = DeleteStack
     { _dsStackName = p1
     }

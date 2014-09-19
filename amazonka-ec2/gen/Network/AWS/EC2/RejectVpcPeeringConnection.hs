@@ -61,7 +61,7 @@ newtype RejectVpcPeeringConnection = RejectVpcPeeringConnection
 -- * @VpcPeeringConnectionId ::@ @Text@
 --
 rejectVpcPeeringConnection :: Text -- ^ 'rvpcVpcPeeringConnectionId'
-                             -> RejectVpcPeeringConnection
+                           -> RejectVpcPeeringConnection
 rejectVpcPeeringConnection p1 = RejectVpcPeeringConnection
     { _rvpcVpcPeeringConnectionId = p1
     }

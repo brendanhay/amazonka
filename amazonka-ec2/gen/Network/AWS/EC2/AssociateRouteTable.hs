@@ -69,8 +69,8 @@ data AssociateRouteTable = AssociateRouteTable
 -- * @RouteTableId ::@ @Text@
 --
 associateRouteTable :: Text -- ^ 'artSubnetId'
-                      -> Text -- ^ 'artRouteTableId'
-                      -> AssociateRouteTable
+                    -> Text -- ^ 'artRouteTableId'
+                    -> AssociateRouteTable
 associateRouteTable p1 p2 = AssociateRouteTable
     { _artSubnetId = p1
     , _artRouteTableId = p2

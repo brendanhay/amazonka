@@ -60,7 +60,7 @@ newtype DeleteClusterSecurityGroup = DeleteClusterSecurityGroup
 -- * @ClusterSecurityGroupName ::@ @Text@
 --
 deleteClusterSecurityGroup :: Text -- ^ 'dcsgClusterSecurityGroupName'
-                             -> DeleteClusterSecurityGroup
+                           -> DeleteClusterSecurityGroup
 deleteClusterSecurityGroup p1 = DeleteClusterSecurityGroup
     { _dcsgClusterSecurityGroupName = p1
     }

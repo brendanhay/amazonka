@@ -73,7 +73,7 @@ data DescribeStackEvents = DescribeStackEvents
 -- * @NextToken ::@ @Maybe Text@
 --
 describeStackEvents :: Text -- ^ 'dseStackName'
-                      -> DescribeStackEvents
+                    -> DescribeStackEvents
 describeStackEvents p1 = DescribeStackEvents
     { _dseStackName = p1
     , _dseNextToken = Nothing

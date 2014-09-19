@@ -557,7 +557,7 @@ newtype ConnectionSettings = ConnectionSettings
 -- * @IdleTimeout ::@ @Integer@
 --
 connectionSettings :: Integer -- ^ 'csIdleTimeout'
-                     -> ConnectionSettings
+                   -> ConnectionSettings
 connectionSettings p1 = ConnectionSettings
     { _csIdleTimeout = p1
     }
@@ -591,7 +591,7 @@ newtype CrossZoneLoadBalancing = CrossZoneLoadBalancing
 -- * @Enabled ::@ @Bool@
 --
 crossZoneLoadBalancing :: Bool -- ^ 'czlbEnabled'
-                         -> CrossZoneLoadBalancing
+                       -> CrossZoneLoadBalancing
 crossZoneLoadBalancing p1 = CrossZoneLoadBalancing
     { _czlbEnabled = p1
     }
@@ -685,7 +685,7 @@ data AccessLog = AccessLog
 -- * @S3BucketPrefix ::@ @Maybe Text@
 --
 accessLog :: Bool -- ^ 'alEnabled'
-            -> AccessLog
+          -> AccessLog
 accessLog p1 = AccessLog
     { _alEnabled = p1
     , _alS3BucketName = Nothing
@@ -813,7 +813,7 @@ data ConnectionDraining = ConnectionDraining
 -- * @Timeout ::@ @Maybe Integer@
 --
 connectionDraining :: Bool -- ^ 'cdEnabled'
-                     -> ConnectionDraining
+                   -> ConnectionDraining
 connectionDraining p1 = ConnectionDraining
     { _cdEnabled = p1
     , _cdTimeout = Nothing
@@ -861,11 +861,11 @@ data HealthCheck = HealthCheck
 -- * @HealthyThreshold ::@ @Integer@
 --
 healthCheck :: Text -- ^ 'hcTarget'
-              -> Integer -- ^ 'hcInterval'
-              -> Integer -- ^ 'hcTimeout'
-              -> Integer -- ^ 'hcUnhealthyThreshold'
-              -> Integer -- ^ 'hcHealthyThreshold'
-              -> HealthCheck
+            -> Integer -- ^ 'hcInterval'
+            -> Integer -- ^ 'hcTimeout'
+            -> Integer -- ^ 'hcUnhealthyThreshold'
+            -> Integer -- ^ 'hcHealthyThreshold'
+            -> HealthCheck
 healthCheck p1 p2 p3 p4 p5 = HealthCheck
     { _hcTarget = p1
     , _hcInterval = p2
@@ -1040,9 +1040,9 @@ data Listener = Listener
 -- * @SSLCertificateId ::@ @Maybe Text@
 --
 listener :: Text -- ^ 'lProtocol'
-           -> Integer -- ^ 'lLoadBalancerPort'
-           -> Integer -- ^ 'lInstancePort'
-           -> Listener
+         -> Integer -- ^ 'lLoadBalancerPort'
+         -> Integer -- ^ 'lInstancePort'
+         -> Listener
 listener p1 p2 p4 = Listener
     { _lProtocol = p1
     , _lLoadBalancerPort = p2
@@ -1722,7 +1722,7 @@ data Tag = Tag
 -- * @Value ::@ @Maybe Text@
 --
 tag :: Text -- ^ 'tKey'
-      -> Tag
+    -> Tag
 tag p1 = Tag
     { _tKey = p1
     , _tValue = Nothing

@@ -74,8 +74,8 @@ data UpdatePipelineStatus = UpdatePipelineStatus
 -- * @Status ::@ @Text@
 --
 updatePipelineStatus :: Text -- ^ 'upsId'
-                       -> Text -- ^ 'upsStatus'
-                       -> UpdatePipelineStatus
+                     -> Text -- ^ 'upsStatus'
+                     -> UpdatePipelineStatus
 updatePipelineStatus p1 p2 = UpdatePipelineStatus
     { _upsId = p1
     , _upsStatus = p2

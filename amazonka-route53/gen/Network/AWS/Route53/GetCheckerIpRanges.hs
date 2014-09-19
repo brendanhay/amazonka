@@ -75,7 +75,7 @@ newtype GetCheckerIpRangesResponse = GetCheckerIpRangesResponse
 -- * @CheckerIpRanges ::@ @[Text]@
 --
 getCheckerIpRangesResponse :: [Text] -- ^ 'gcirrCheckerIpRanges'
-                             -> GetCheckerIpRangesResponse
+                           -> GetCheckerIpRangesResponse
 getCheckerIpRangesResponse p1 = GetCheckerIpRangesResponse
     { _gcirrCheckerIpRanges = p1
     }

@@ -910,7 +910,7 @@ newtype DeleteRequest = DeleteRequest
 -- * @Key ::@ @Map Text AttributeValue@
 --
 deleteRequest :: Map Text AttributeValue -- ^ 'drKey'
-                -> DeleteRequest
+              -> DeleteRequest
 deleteRequest p1 = DeleteRequest
     { _drKey = p1
     }
@@ -963,7 +963,7 @@ newtype PutRequest = PutRequest
 -- * @Item ::@ @Map Text AttributeValue@
 --
 putRequest :: Map Text AttributeValue -- ^ 'prItem'
-             -> PutRequest
+           -> PutRequest
 putRequest p1 = PutRequest
     { _prItem = p1
     }
@@ -998,8 +998,8 @@ data AttributeDefinition = AttributeDefinition
 -- * @AttributeType ::@ @ScalarAttributeType@
 --
 attributeDefinition :: Text -- ^ 'adAttributeName'
-                      -> ScalarAttributeType -- ^ 'adAttributeType'
-                      -> AttributeDefinition
+                    -> ScalarAttributeType -- ^ 'adAttributeType'
+                    -> AttributeDefinition
 attributeDefinition p1 p2 = AttributeDefinition
     { _adAttributeName = p1
     , _adAttributeType = p2
@@ -1184,7 +1184,7 @@ data Condition = Condition
 -- * @ComparisonOperator ::@ @ComparisonOperator@
 --
 condition :: ComparisonOperator -- ^ 'c1ComparisonOperator'
-            -> Condition
+          -> Condition
 condition p2 = Condition
     { _c1AttributeValueList = mempty
     , _c1ComparisonOperator = p2
@@ -1436,10 +1436,10 @@ data GlobalSecondaryIndex = GlobalSecondaryIndex
 -- * @ProvisionedThroughput ::@ @ProvisionedThroughput@
 --
 globalSecondaryIndex :: Text -- ^ 'gsiIndexName'
-                       -> List1 KeySchemaElement -- ^ 'gsiKeySchema'
-                       -> Projection -- ^ 'gsiProjection'
-                       -> ProvisionedThroughput -- ^ 'gsiProvisionedThroughput'
-                       -> GlobalSecondaryIndex
+                     -> List1 KeySchemaElement -- ^ 'gsiKeySchema'
+                     -> Projection -- ^ 'gsiProjection'
+                     -> ProvisionedThroughput -- ^ 'gsiProvisionedThroughput'
+                     -> GlobalSecondaryIndex
 globalSecondaryIndex p1 p2 p3 p4 = GlobalSecondaryIndex
     { _gsiIndexName = p1
     , _gsiKeySchema = p2
@@ -1628,8 +1628,8 @@ data KeySchemaElement = KeySchemaElement
 -- * @KeyType ::@ @KeyType@
 --
 keySchemaElement :: Text -- ^ 'kseAttributeName'
-                   -> KeyType -- ^ 'kseKeyType'
-                   -> KeySchemaElement
+                 -> KeyType -- ^ 'kseKeyType'
+                 -> KeySchemaElement
 keySchemaElement p1 p2 = KeySchemaElement
     { _kseAttributeName = p1
     , _kseKeyType = p2
@@ -1669,7 +1669,7 @@ data KeysAndAttributes = KeysAndAttributes
 -- * @ConsistentRead ::@ @Maybe Bool@
 --
 keysAndAttributes :: List1 (Map Text AttributeValue) -- ^ 'kaaKeys'
-                    -> KeysAndAttributes
+                  -> KeysAndAttributes
 keysAndAttributes p1 = KeysAndAttributes
     { _kaaKeys = p1
     , _kaaAttributesToGet = Nothing
@@ -1717,9 +1717,9 @@ data LocalSecondaryIndex = LocalSecondaryIndex
 -- * @Projection ::@ @Projection@
 --
 localSecondaryIndex :: Text -- ^ 'lsiIndexName'
-                      -> List1 KeySchemaElement -- ^ 'lsiKeySchema'
-                      -> Projection -- ^ 'lsiProjection'
-                      -> LocalSecondaryIndex
+                    -> List1 KeySchemaElement -- ^ 'lsiKeySchema'
+                    -> Projection -- ^ 'lsiProjection'
+                    -> LocalSecondaryIndex
 localSecondaryIndex p1 p2 p3 = LocalSecondaryIndex
     { _lsiIndexName = p1
     , _lsiKeySchema = p2
@@ -1873,8 +1873,8 @@ data ProvisionedThroughput = ProvisionedThroughput
 -- * @WriteCapacityUnits ::@ @Integer@
 --
 provisionedThroughput :: Integer -- ^ 'ptReadCapacityUnits'
-                        -> Integer -- ^ 'ptWriteCapacityUnits'
-                        -> ProvisionedThroughput
+                      -> Integer -- ^ 'ptWriteCapacityUnits'
+                      -> ProvisionedThroughput
 provisionedThroughput p1 p2 = ProvisionedThroughput
     { _ptReadCapacityUnits = p1
     , _ptWriteCapacityUnits = p2
@@ -2168,8 +2168,8 @@ data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction
 -- * @ProvisionedThroughput ::@ @ProvisionedThroughput@
 --
 updateGlobalSecondaryIndexAction :: Text -- ^ 'ugsiaIndexName'
-                                   -> ProvisionedThroughput -- ^ 'ugsiaProvisionedThroughput'
-                                   -> UpdateGlobalSecondaryIndexAction
+                                 -> ProvisionedThroughput -- ^ 'ugsiaProvisionedThroughput'
+                                 -> UpdateGlobalSecondaryIndexAction
 updateGlobalSecondaryIndexAction p1 p2 = UpdateGlobalSecondaryIndexAction
     { _ugsiaIndexName = p1
     , _ugsiaProvisionedThroughput = p2

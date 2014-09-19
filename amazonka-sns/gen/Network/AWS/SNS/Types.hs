@@ -376,7 +376,7 @@ data MessageAttributeValue = MessageAttributeValue
 -- * @BinaryValue ::@ @Maybe ByteString@
 --
 messageAttributeValue :: Text -- ^ 'mavDataType'
-                        -> MessageAttributeValue
+                      -> MessageAttributeValue
 messageAttributeValue p1 = MessageAttributeValue
     { _mavDataType = p1
     , _mavStringValue = Nothing

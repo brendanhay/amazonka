@@ -114,9 +114,9 @@ data CreateVpnConnection = CreateVpnConnection
 -- * @Options ::@ @Maybe VpnConnectionOptionsSpecification@
 --
 createVpnConnection :: Text -- ^ 'cvcType'
-                      -> Text -- ^ 'cvcCustomerGatewayId'
-                      -> Text -- ^ 'cvcVpnGatewayId'
-                      -> CreateVpnConnection
+                    -> Text -- ^ 'cvcCustomerGatewayId'
+                    -> Text -- ^ 'cvcVpnGatewayId'
+                    -> CreateVpnConnection
 createVpnConnection p1 p2 p3 = CreateVpnConnection
     { _cvcType = p1
     , _cvcCustomerGatewayId = p2

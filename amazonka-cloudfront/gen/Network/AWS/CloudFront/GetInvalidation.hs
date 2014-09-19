@@ -57,8 +57,8 @@ data GetInvalidation = GetInvalidation
 -- * @Id ::@ @Text@
 --
 getInvalidation :: Text -- ^ 'giDistributionId'
-                  -> Text -- ^ 'giId'
-                  -> GetInvalidation
+                -> Text -- ^ 'giId'
+                -> GetInvalidation
 getInvalidation p1 p2 = GetInvalidation
     { _giDistributionId = p1
     , _giId = p2

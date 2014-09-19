@@ -136,8 +136,8 @@ data ListSigningCertificatesResponse = ListSigningCertificatesResponse
 -- * @Marker ::@ @Maybe Text@
 --
 listSigningCertificatesResponse :: [SigningCertificate] -- ^ 'lscrrCertificates'
-                                  -> Bool -- ^ 'lscrrIsTruncated'
-                                  -> ListSigningCertificatesResponse
+                                -> Bool -- ^ 'lscrrIsTruncated'
+                                -> ListSigningCertificatesResponse
 listSigningCertificatesResponse p1 p2 = ListSigningCertificatesResponse
     { _lscrrCertificates = p1
     , _lscrrIsTruncated = p2

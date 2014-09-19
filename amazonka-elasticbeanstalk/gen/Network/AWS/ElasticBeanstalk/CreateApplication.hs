@@ -64,7 +64,7 @@ data CreateApplication = CreateApplication
 -- * @Description ::@ @Maybe Text@
 --
 createApplication :: Text -- ^ 'caApplicationName'
-                    -> CreateApplication
+                  -> CreateApplication
 createApplication p1 = CreateApplication
     { _caApplicationName = p1
     , _caDescription = Nothing

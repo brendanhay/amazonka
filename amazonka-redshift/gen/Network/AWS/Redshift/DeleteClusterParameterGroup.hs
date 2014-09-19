@@ -58,7 +58,7 @@ newtype DeleteClusterParameterGroup = DeleteClusterParameterGroup
 -- * @ParameterGroupName ::@ @Text@
 --
 deleteClusterParameterGroup :: Text -- ^ 'dcpgParameterGroupName'
-                              -> DeleteClusterParameterGroup
+                            -> DeleteClusterParameterGroup
 deleteClusterParameterGroup p1 = DeleteClusterParameterGroup
     { _dcpgParameterGroupName = p1
     }

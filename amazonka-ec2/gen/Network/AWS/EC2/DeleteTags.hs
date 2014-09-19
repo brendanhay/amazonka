@@ -75,7 +75,7 @@ data DeleteTags = DeleteTags
 -- * @Tags ::@ @[Tag]@
 --
 deleteTags :: [Text] -- ^ 'dtResources'
-             -> DeleteTags
+           -> DeleteTags
 deleteTags p1 = DeleteTags
     { _dtResources = p1
     , _dtTags = mempty

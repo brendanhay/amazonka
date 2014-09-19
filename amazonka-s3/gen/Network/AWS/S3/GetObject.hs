@@ -136,8 +136,8 @@ data GetObject = GetObject
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
 getObject :: BucketName -- ^ 'goBucket'
-            -> ObjectKey -- ^ 'goKey'
-            -> GetObject
+          -> ObjectKey -- ^ 'goKey'
+          -> GetObject
 getObject p1 p6 = GetObject
     { _goBucket = p1
     , _goIfMatch = Nothing
@@ -343,7 +343,7 @@ data GetObjectResponse = GetObjectResponse
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
 getObjectResponse :: RsBody -- ^ 'gorBody'
-                    -> GetObjectResponse
+                  -> GetObjectResponse
 getObjectResponse p1 = GetObjectResponse
     { _gorBody = p1
     , _gorDeleteMarker = Nothing

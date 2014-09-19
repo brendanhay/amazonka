@@ -118,8 +118,8 @@ data ListOpenWorkflowExecutions = ListOpenWorkflowExecutions
 -- * @ExecutionFilter ::@ @Maybe WorkflowExecutionFilter@
 --
 listOpenWorkflowExecutions :: Text -- ^ 'loweDomain'
-                             -> ExecutionTimeFilter -- ^ 'loweStartTimeFilter'
-                             -> ListOpenWorkflowExecutions
+                           -> ExecutionTimeFilter -- ^ 'loweStartTimeFilter'
+                           -> ListOpenWorkflowExecutions
 listOpenWorkflowExecutions p1 p2 = ListOpenWorkflowExecutions
     { _loweDomain = p1
     , _loweStartTimeFilter = p2
@@ -210,7 +210,7 @@ data ListOpenWorkflowExecutionsResponse = ListOpenWorkflowExecutionsResponse
 -- * @NextPageToken ::@ @Maybe Text@
 --
 listOpenWorkflowExecutionsResponse :: [WorkflowExecutionInfo] -- ^ 'lowerExecutionInfos'
-                                     -> ListOpenWorkflowExecutionsResponse
+                                   -> ListOpenWorkflowExecutionsResponse
 listOpenWorkflowExecutionsResponse p1 = ListOpenWorkflowExecutionsResponse
     { _lowerExecutionInfos = p1
     , _lowerNextPageToken = Nothing

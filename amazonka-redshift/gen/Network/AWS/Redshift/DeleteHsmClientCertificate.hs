@@ -50,7 +50,7 @@ newtype DeleteHsmClientCertificate = DeleteHsmClientCertificate
 -- * @HsmClientCertificateIdentifier ::@ @Text@
 --
 deleteHsmClientCertificate :: Text -- ^ 'dhccHsmClientCertificateIdentifier'
-                             -> DeleteHsmClientCertificate
+                           -> DeleteHsmClientCertificate
 deleteHsmClientCertificate p1 = DeleteHsmClientCertificate
     { _dhccHsmClientCertificateIdentifier = p1
     }

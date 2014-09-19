@@ -73,9 +73,9 @@ data CreateClusterSubnetGroup = CreateClusterSubnetGroup
 -- * @SubnetIds ::@ @[Text]@
 --
 createClusterSubnetGroup :: Text -- ^ 'ccsg1ClusterSubnetGroupName'
-                           -> Text -- ^ 'ccsg1Description'
-                           -> [Text] -- ^ 'ccsg1SubnetIds'
-                           -> CreateClusterSubnetGroup
+                         -> Text -- ^ 'ccsg1Description'
+                         -> [Text] -- ^ 'ccsg1SubnetIds'
+                         -> CreateClusterSubnetGroup
 createClusterSubnetGroup p1 p2 p3 = CreateClusterSubnetGroup
     { _ccsg1ClusterSubnetGroupName = p1
     , _ccsg1Description = p2

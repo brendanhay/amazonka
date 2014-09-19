@@ -61,7 +61,7 @@ data UpdateVolume = UpdateVolume
 -- * @MountPoint ::@ @Maybe Text@
 --
 updateVolume :: Text -- ^ 'uv1VolumeId'
-               -> UpdateVolume
+             -> UpdateVolume
 updateVolume p1 = UpdateVolume
     { _uv1VolumeId = p1
     , _uv1Name = Nothing

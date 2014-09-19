@@ -275,8 +275,8 @@ data InputLogEvent = InputLogEvent
 -- * @Message ::@ @Text@
 --
 inputLogEvent :: Integer -- ^ 'ileTimestamp'
-                -> Text -- ^ 'ileMessage'
-                -> InputLogEvent
+              -> Text -- ^ 'ileMessage'
+              -> InputLogEvent
 inputLogEvent p1 p2 = InputLogEvent
     { _ileTimestamp = p1
     , _ileMessage = p2
@@ -559,9 +559,9 @@ data MetricTransformation = MetricTransformation
 -- * @MetricValue ::@ @Text@
 --
 metricTransformation :: Text -- ^ 'mtMetricName'
-                       -> Text -- ^ 'mtMetricNamespace'
-                       -> Text -- ^ 'mtMetricValue'
-                       -> MetricTransformation
+                     -> Text -- ^ 'mtMetricNamespace'
+                     -> Text -- ^ 'mtMetricValue'
+                     -> MetricTransformation
 metricTransformation p1 p2 p3 = MetricTransformation
     { _mtMetricName = p1
     , _mtMetricNamespace = p2

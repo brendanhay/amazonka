@@ -50,7 +50,7 @@ newtype DeleteAlarms = DeleteAlarms
 -- * @AlarmNames ::@ @[Text]@
 --
 deleteAlarms :: [Text] -- ^ 'daAlarmNames'
-               -> DeleteAlarms
+             -> DeleteAlarms
 deleteAlarms p1 = DeleteAlarms
     { _daAlarmNames = p1
     }

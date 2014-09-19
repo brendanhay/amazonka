@@ -107,7 +107,7 @@ data UpdateStack = UpdateStack
 -- * @NotificationARNs ::@ @[Text]@
 --
 updateStack :: Text -- ^ 'usStackName'
-              -> UpdateStack
+            -> UpdateStack
 updateStack p1 = UpdateStack
     { _usStackName = p1
     , _usTemplateBody = Nothing

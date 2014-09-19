@@ -51,7 +51,7 @@ newtype DeleteOptionGroup = DeleteOptionGroup
 -- * @OptionGroupName ::@ @Text@
 --
 deleteOptionGroup :: Text -- ^ 'dogOptionGroupName'
-                    -> DeleteOptionGroup
+                  -> DeleteOptionGroup
 deleteOptionGroup p1 = DeleteOptionGroup
     { _dogOptionGroupName = p1
     }

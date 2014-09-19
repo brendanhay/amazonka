@@ -100,7 +100,7 @@ newtype ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAcces
 -- * @CloudFrontOriginAccessIdentityList ::@ @CloudFrontOriginAccessIdentityList@
 --
 listCloudFrontOriginAccessIdentitiesResponse :: CloudFrontOriginAccessIdentityList -- ^ 'lcfoairCloudFrontOriginAccessIdentityList'
-                                               -> ListCloudFrontOriginAccessIdentitiesResponse
+                                             -> ListCloudFrontOriginAccessIdentitiesResponse
 listCloudFrontOriginAccessIdentitiesResponse p1 = ListCloudFrontOriginAccessIdentitiesResponse
     { _lcfoairCloudFrontOriginAccessIdentityList = p1
     }

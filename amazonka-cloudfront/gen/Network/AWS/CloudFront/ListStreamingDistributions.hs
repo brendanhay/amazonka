@@ -100,7 +100,7 @@ newtype ListStreamingDistributionsResponse = ListStreamingDistributionsResponse
 -- * @StreamingDistributionList ::@ @StreamingDistributionList@
 --
 listStreamingDistributionsResponse :: StreamingDistributionList -- ^ 'lsdrStreamingDistributionList'
-                                     -> ListStreamingDistributionsResponse
+                                   -> ListStreamingDistributionsResponse
 listStreamingDistributionsResponse p1 = ListStreamingDistributionsResponse
     { _lsdrStreamingDistributionList = p1
     }

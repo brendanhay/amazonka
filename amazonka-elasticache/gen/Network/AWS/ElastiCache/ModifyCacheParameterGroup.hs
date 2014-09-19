@@ -66,8 +66,8 @@ data ModifyCacheParameterGroup = ModifyCacheParameterGroup
 -- * @ParameterNameValues ::@ @[ParameterNameValue]@
 --
 modifyCacheParameterGroup :: Text -- ^ 'mcpgCacheParameterGroupName'
-                            -> [ParameterNameValue] -- ^ 'mcpgParameterNameValues'
-                            -> ModifyCacheParameterGroup
+                          -> [ParameterNameValue] -- ^ 'mcpgParameterNameValues'
+                          -> ModifyCacheParameterGroup
 modifyCacheParameterGroup p1 p2 = ModifyCacheParameterGroup
     { _mcpgCacheParameterGroupName = p1
     , _mcpgParameterNameValues = p2

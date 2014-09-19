@@ -72,8 +72,8 @@ data DescribeAlarmsForMetric = DescribeAlarmsForMetric
 -- * @Unit ::@ @Maybe StandardUnit@
 --
 describeAlarmsForMetric :: Text -- ^ 'dafmMetricName'
-                          -> Text -- ^ 'dafmNamespace'
-                          -> DescribeAlarmsForMetric
+                        -> Text -- ^ 'dafmNamespace'
+                        -> DescribeAlarmsForMetric
 describeAlarmsForMetric p1 p2 = DescribeAlarmsForMetric
     { _dafmMetricName = p1
     , _dafmNamespace = p2

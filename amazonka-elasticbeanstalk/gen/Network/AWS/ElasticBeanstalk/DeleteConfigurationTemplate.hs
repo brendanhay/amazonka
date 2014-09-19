@@ -60,8 +60,8 @@ data DeleteConfigurationTemplate = DeleteConfigurationTemplate
 -- * @TemplateName ::@ @Text@
 --
 deleteConfigurationTemplate :: Text -- ^ 'dctApplicationName'
-                              -> Text -- ^ 'dctTemplateName'
-                              -> DeleteConfigurationTemplate
+                            -> Text -- ^ 'dctTemplateName'
+                            -> DeleteConfigurationTemplate
 deleteConfigurationTemplate p1 p2 = DeleteConfigurationTemplate
     { _dctApplicationName = p1
     , _dctTemplateName = p2

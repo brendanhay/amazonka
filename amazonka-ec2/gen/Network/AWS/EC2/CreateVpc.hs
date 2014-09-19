@@ -84,7 +84,7 @@ data CreateVpc = CreateVpc
 -- * @InstanceTenancy ::@ @Maybe Tenancy@
 --
 createVpc :: Text -- ^ 'cv1CidrBlock'
-            -> CreateVpc
+          -> CreateVpc
 createVpc p1 = CreateVpc
     { _cv1CidrBlock = p1
     , _cv1InstanceTenancy = Nothing

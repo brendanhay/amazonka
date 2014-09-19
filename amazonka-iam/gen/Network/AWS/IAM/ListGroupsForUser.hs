@@ -66,7 +66,7 @@ data ListGroupsForUser = ListGroupsForUser
 -- * @MaxItems ::@ @Maybe Integer@
 --
 listGroupsForUser :: Text -- ^ 'lgfuUserName'
-                    -> ListGroupsForUser
+                  -> ListGroupsForUser
 listGroupsForUser p1 = ListGroupsForUser
     { _lgfuUserName = p1
     , _lgfuMarker = Nothing
@@ -115,8 +115,8 @@ data ListGroupsForUserResponse = ListGroupsForUserResponse
 -- * @Marker ::@ @Maybe Text@
 --
 listGroupsForUserResponse :: [Group] -- ^ 'lgfurGroups'
-                            -> Bool -- ^ 'lgfurIsTruncated'
-                            -> ListGroupsForUserResponse
+                          -> Bool -- ^ 'lgfurIsTruncated'
+                          -> ListGroupsForUserResponse
 listGroupsForUserResponse p1 p2 = ListGroupsForUserResponse
     { _lgfurGroups = p1
     , _lgfurIsTruncated = p2

@@ -90,9 +90,9 @@ data CreatePlatformApplication = CreatePlatformApplication
 -- * @Attributes ::@ @Map Text Text@
 --
 createPlatformApplication :: Text -- ^ 'cpaName'
-                            -> Text -- ^ 'cpaPlatform'
-                            -> Map Text Text -- ^ 'cpaAttributes'
-                            -> CreatePlatformApplication
+                          -> Text -- ^ 'cpaPlatform'
+                          -> Map Text Text -- ^ 'cpaAttributes'
+                          -> CreatePlatformApplication
 createPlatformApplication p1 p2 p3 = CreatePlatformApplication
     { _cpaName = p1
     , _cpaPlatform = p2

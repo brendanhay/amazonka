@@ -76,10 +76,10 @@ data AddPermission = AddPermission
 -- * @ActionName ::@ @[Text]@
 --
 addPermission :: Text -- ^ 'apTopicArn'
-                -> Text -- ^ 'apLabel'
-                -> [Text] -- ^ 'apAWSAccountId'
-                -> [Text] -- ^ 'apActionName'
-                -> AddPermission
+              -> Text -- ^ 'apLabel'
+              -> [Text] -- ^ 'apAWSAccountId'
+              -> [Text] -- ^ 'apActionName'
+              -> AddPermission
 addPermission p1 p2 p3 p4 = AddPermission
     { _apTopicArn = p1
     , _apLabel = p2

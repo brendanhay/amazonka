@@ -87,8 +87,8 @@ data BatchPutAttributes = BatchPutAttributes
 -- * @Items ::@ @[ReplaceableItem]@
 --
 batchPutAttributes :: Text -- ^ 'bpaDomainName'
-                     -> [ReplaceableItem] -- ^ 'bpaItems'
-                     -> BatchPutAttributes
+                   -> [ReplaceableItem] -- ^ 'bpaItems'
+                   -> BatchPutAttributes
 batchPutAttributes p1 p2 = BatchPutAttributes
     { _bpaDomainName = p1
     , _bpaItems = p2

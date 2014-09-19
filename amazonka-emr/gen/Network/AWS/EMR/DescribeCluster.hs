@@ -54,7 +54,7 @@ newtype DescribeCluster = DescribeCluster
 -- * @ClusterId ::@ @Text@
 --
 describeCluster :: Text -- ^ 'dcClusterId'
-                  -> DescribeCluster
+                -> DescribeCluster
 describeCluster p1 = DescribeCluster
     { _dcClusterId = p1
     }

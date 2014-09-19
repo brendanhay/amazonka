@@ -80,8 +80,8 @@ data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch
 -- * @Entries ::@ @[ChangeMessageVisibilityBatchRequestEntry]@
 --
 changeMessageVisibilityBatch :: Text -- ^ 'cmvbQueueUrl'
-                               -> [ChangeMessageVisibilityBatchRequestEntry] -- ^ 'cmvbEntries'
-                               -> ChangeMessageVisibilityBatch
+                             -> [ChangeMessageVisibilityBatchRequestEntry] -- ^ 'cmvbEntries'
+                             -> ChangeMessageVisibilityBatch
 changeMessageVisibilityBatch p1 p2 = ChangeMessageVisibilityBatch
     { _cmvbQueueUrl = p1
     , _cmvbEntries = p2
@@ -119,8 +119,8 @@ data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
 -- * @Failed ::@ @[BatchResultErrorEntry]@
 --
 changeMessageVisibilityBatchResponse :: [ChangeMessageVisibilityBatchResultEntry] -- ^ 'cmvbrSuccessful'
-                                       -> [BatchResultErrorEntry] -- ^ 'cmvbrFailed'
-                                       -> ChangeMessageVisibilityBatchResponse
+                                     -> [BatchResultErrorEntry] -- ^ 'cmvbrFailed'
+                                     -> ChangeMessageVisibilityBatchResponse
 changeMessageVisibilityBatchResponse p1 p2 = ChangeMessageVisibilityBatchResponse
     { _cmvbrSuccessful = p1
     , _cmvbrFailed = p2

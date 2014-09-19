@@ -118,8 +118,8 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot
 -- * @Tags ::@ @[Tag]@
 --
 restoreDBInstanceFromDBSnapshot :: Text -- ^ 'rdbifdbsDBInstanceIdentifier'
-                                  -> Text -- ^ 'rdbifdbsDBSnapshotIdentifier'
-                                  -> RestoreDBInstanceFromDBSnapshot
+                                -> Text -- ^ 'rdbifdbsDBSnapshotIdentifier'
+                                -> RestoreDBInstanceFromDBSnapshot
 restoreDBInstanceFromDBSnapshot p1 p2 = RestoreDBInstanceFromDBSnapshot
     { _rdbifdbsDBInstanceIdentifier = p1
     , _rdbifdbsDBSnapshotIdentifier = p2

@@ -68,7 +68,7 @@ newtype CancelSpotInstanceRequests = CancelSpotInstanceRequests
 -- * @SpotInstanceRequestIds ::@ @[Text]@
 --
 cancelSpotInstanceRequests :: [Text] -- ^ 'csirSpotInstanceRequestIds'
-                             -> CancelSpotInstanceRequests
+                           -> CancelSpotInstanceRequests
 cancelSpotInstanceRequests p1 = CancelSpotInstanceRequests
     { _csirSpotInstanceRequestIds = p1
     }

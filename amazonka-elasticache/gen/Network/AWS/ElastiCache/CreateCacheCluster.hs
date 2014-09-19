@@ -148,7 +148,7 @@ data CreateCacheCluster = CreateCacheCluster
 -- * @SnapshotWindow ::@ @Maybe Text@
 --
 createCacheCluster :: Text -- ^ 'cccCacheClusterId'
-                     -> CreateCacheCluster
+                   -> CreateCacheCluster
 createCacheCluster p1 = CreateCacheCluster
     { _cccCacheClusterId = p1
     , _cccReplicationGroupId = Nothing

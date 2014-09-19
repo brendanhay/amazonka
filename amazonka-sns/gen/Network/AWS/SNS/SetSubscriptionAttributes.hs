@@ -77,8 +77,8 @@ data SetSubscriptionAttributes = SetSubscriptionAttributes
 -- * @AttributeValue ::@ @Maybe Text@
 --
 setSubscriptionAttributes :: Text -- ^ 'ssaSubscriptionArn'
-                            -> Text -- ^ 'ssaAttributeName'
-                            -> SetSubscriptionAttributes
+                          -> Text -- ^ 'ssaAttributeName'
+                          -> SetSubscriptionAttributes
 setSubscriptionAttributes p1 p2 = SetSubscriptionAttributes
     { _ssaSubscriptionArn = p1
     , _ssaAttributeName = p2

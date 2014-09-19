@@ -70,7 +70,7 @@ data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
 -- * @Attribute ::@ @Maybe NetworkInterfaceAttribute@
 --
 describeNetworkInterfaceAttribute :: Text -- ^ 'dniaNetworkInterfaceId'
-                                    -> DescribeNetworkInterfaceAttribute
+                                  -> DescribeNetworkInterfaceAttribute
 describeNetworkInterfaceAttribute p1 = DescribeNetworkInterfaceAttribute
     { _dniaNetworkInterfaceId = p1
     , _dniaAttribute = Nothing

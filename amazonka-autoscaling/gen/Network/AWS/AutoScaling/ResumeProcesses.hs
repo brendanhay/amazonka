@@ -55,7 +55,7 @@ data ResumeProcesses = ResumeProcesses
 -- * @ScalingProcesses ::@ @[Text]@
 --
 resumeProcesses :: Text -- ^ 'rpAutoScalingGroupName'
-                  -> ResumeProcesses
+                -> ResumeProcesses
 resumeProcesses p1 = ResumeProcesses
     { _rpAutoScalingGroupName = p1
     , _rpScalingProcesses = mempty

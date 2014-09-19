@@ -87,9 +87,9 @@ data UpdateSnapshotSchedule = UpdateSnapshotSchedule
 -- * @Description ::@ @Maybe Text@
 --
 updateSnapshotSchedule :: Text -- ^ 'ussVolumeARN'
-                         -> Integer -- ^ 'ussStartAt'
-                         -> Integer -- ^ 'ussRecurrenceInHours'
-                         -> UpdateSnapshotSchedule
+                       -> Integer -- ^ 'ussStartAt'
+                       -> Integer -- ^ 'ussRecurrenceInHours'
+                       -> UpdateSnapshotSchedule
 updateSnapshotSchedule p1 p2 p3 = UpdateSnapshotSchedule
     { _ussVolumeARN = p1
     , _ussStartAt = p2

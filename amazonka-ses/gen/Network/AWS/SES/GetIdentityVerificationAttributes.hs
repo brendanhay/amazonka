@@ -67,7 +67,7 @@ newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes
 -- * @Identities ::@ @[Text]@
 --
 getIdentityVerificationAttributes :: [Text] -- ^ 'givaIdentities'
-                                    -> GetIdentityVerificationAttributes
+                                  -> GetIdentityVerificationAttributes
 getIdentityVerificationAttributes p1 = GetIdentityVerificationAttributes
     { _givaIdentities = p1
     }
@@ -94,7 +94,7 @@ newtype GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttri
 -- * @VerificationAttributes ::@ @Map Text IdentityVerificationAttributes@
 --
 getIdentityVerificationAttributesResponse :: Map Text IdentityVerificationAttributes -- ^ 'givarVerificationAttributes'
-                                            -> GetIdentityVerificationAttributesResponse
+                                          -> GetIdentityVerificationAttributesResponse
 getIdentityVerificationAttributesResponse p1 = GetIdentityVerificationAttributesResponse
     { _givarVerificationAttributes = p1
     }

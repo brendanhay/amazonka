@@ -68,7 +68,7 @@ data UpdateUser = UpdateUser
 -- * @NewUserName ::@ @Maybe Text@
 --
 updateUser :: Text -- ^ 'uuUserName'
-             -> UpdateUser
+           -> UpdateUser
 updateUser p1 = UpdateUser
     { _uuUserName = p1
     , _uuNewPath = Nothing

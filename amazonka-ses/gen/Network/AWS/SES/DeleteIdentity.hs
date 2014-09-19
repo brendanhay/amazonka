@@ -61,7 +61,7 @@ newtype DeleteIdentity = DeleteIdentity
 -- * @Identity ::@ @Text@
 --
 deleteIdentity :: Text -- ^ 'diIdentity'
-                 -> DeleteIdentity
+               -> DeleteIdentity
 deleteIdentity p1 = DeleteIdentity
     { _diIdentity = p1
     }

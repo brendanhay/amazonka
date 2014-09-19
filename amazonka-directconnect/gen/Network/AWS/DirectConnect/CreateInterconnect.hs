@@ -77,9 +77,9 @@ data CreateInterconnect = CreateInterconnect
 -- * @Location ::@ @Text@
 --
 createInterconnect :: Text -- ^ 'ciInterconnectName'
-                     -> Text -- ^ 'ciBandwidth'
-                     -> Text -- ^ 'ciLocation'
-                     -> CreateInterconnect
+                   -> Text -- ^ 'ciBandwidth'
+                   -> Text -- ^ 'ciLocation'
+                   -> CreateInterconnect
 createInterconnect p1 p2 p3 = CreateInterconnect
     { _ciInterconnectName = p1
     , _ciBandwidth = p2

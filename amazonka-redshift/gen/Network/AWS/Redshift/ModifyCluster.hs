@@ -131,7 +131,7 @@ data ModifyCluster = ModifyCluster
 -- * @NewClusterIdentifier ::@ @Maybe Text@
 --
 modifyCluster :: Text -- ^ 'mcClusterIdentifier'
-                -> ModifyCluster
+              -> ModifyCluster
 modifyCluster p1 = ModifyCluster
     { _mcClusterIdentifier = p1
     , _mcClusterType = Nothing

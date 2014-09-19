@@ -79,8 +79,8 @@ data CreateApplicationVersion = CreateApplicationVersion
 -- * @AutoCreateApplication ::@ @Maybe Bool@
 --
 createApplicationVersion :: Text -- ^ 'cavApplicationName'
-                           -> Text -- ^ 'cavVersionLabel'
-                           -> CreateApplicationVersion
+                         -> Text -- ^ 'cavVersionLabel'
+                         -> CreateApplicationVersion
 createApplicationVersion p1 p2 = CreateApplicationVersion
     { _cavApplicationName = p1
     , _cavVersionLabel = p2

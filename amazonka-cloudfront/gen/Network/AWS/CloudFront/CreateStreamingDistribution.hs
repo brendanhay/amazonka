@@ -55,7 +55,7 @@ newtype CreateStreamingDistribution = CreateStreamingDistribution
 -- * @StreamingDistributionConfig ::@ @StreamingDistributionConfig@
 --
 createStreamingDistribution :: StreamingDistributionConfig -- ^ 'csdStreamingDistributionConfig'
-                              -> CreateStreamingDistribution
+                            -> CreateStreamingDistribution
 createStreamingDistribution p1 = CreateStreamingDistribution
     { _csdStreamingDistributionConfig = p1
     }

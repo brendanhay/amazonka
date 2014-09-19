@@ -59,8 +59,8 @@ data PutBucketPolicy = PutBucketPolicy
 -- * @Policy ::@ @Text@
 --
 putBucketPolicy :: BucketName -- ^ 'pbpBucket'
-                  -> Text -- ^ 'pbpPolicy'
-                  -> PutBucketPolicy
+                -> Text -- ^ 'pbpPolicy'
+                -> PutBucketPolicy
 putBucketPolicy p1 p3 = PutBucketPolicy
     { _pbpBucket = p1
     , _pbpContentMD5 = Nothing

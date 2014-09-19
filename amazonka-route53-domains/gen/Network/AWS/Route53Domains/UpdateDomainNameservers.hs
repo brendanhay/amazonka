@@ -76,8 +76,8 @@ data UpdateDomainNameservers = UpdateDomainNameservers
 -- * @Nameservers ::@ @[Nameserver]@
 --
 updateDomainNameservers :: Text -- ^ 'udnDomainName'
-                          -> [Nameserver] -- ^ 'udnNameservers'
-                          -> UpdateDomainNameservers
+                        -> [Nameserver] -- ^ 'udnNameservers'
+                        -> UpdateDomainNameservers
 updateDomainNameservers p1 p2 = UpdateDomainNameservers
     { _udnDomainName = p1
     , _udnNameservers = p2
@@ -118,7 +118,7 @@ newtype UpdateDomainNameserversResponse = UpdateDomainNameserversResponse
 -- * @OperationId ::@ @Text@
 --
 updateDomainNameserversResponse :: Text -- ^ 'udnrOperationId'
-                                  -> UpdateDomainNameserversResponse
+                                -> UpdateDomainNameserversResponse
 updateDomainNameserversResponse p1 = UpdateDomainNameserversResponse
     { _udnrOperationId = p1
     }

@@ -57,7 +57,7 @@ newtype DeleteCustomerGateway = DeleteCustomerGateway
 -- * @CustomerGatewayId ::@ @Text@
 --
 deleteCustomerGateway :: Text -- ^ 'dcgCustomerGatewayId'
-                        -> DeleteCustomerGateway
+                      -> DeleteCustomerGateway
 deleteCustomerGateway p1 = DeleteCustomerGateway
     { _dcgCustomerGatewayId = p1
     }

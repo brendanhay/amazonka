@@ -64,8 +64,8 @@ data GetRolePolicy = GetRolePolicy
 -- * @PolicyName ::@ @Text@
 --
 getRolePolicy :: Text -- ^ 'grpRoleName'
-                -> Text -- ^ 'grpPolicyName'
-                -> GetRolePolicy
+              -> Text -- ^ 'grpPolicyName'
+              -> GetRolePolicy
 getRolePolicy p1 p2 = GetRolePolicy
     { _grpRoleName = p1
     , _grpPolicyName = p2
@@ -103,9 +103,9 @@ data GetRolePolicyResponse = GetRolePolicyResponse
 -- * @PolicyDocument ::@ @Text@
 --
 getRolePolicyResponse :: Text -- ^ 'grprRoleName'
-                        -> Text -- ^ 'grprPolicyName'
-                        -> Text -- ^ 'grprPolicyDocument'
-                        -> GetRolePolicyResponse
+                      -> Text -- ^ 'grprPolicyName'
+                      -> Text -- ^ 'grprPolicyDocument'
+                      -> GetRolePolicyResponse
 getRolePolicyResponse p1 p2 p3 = GetRolePolicyResponse
     { _grprRoleName = p1
     , _grprPolicyName = p2

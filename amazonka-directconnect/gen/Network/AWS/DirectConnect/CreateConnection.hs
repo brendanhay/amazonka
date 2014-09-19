@@ -76,9 +76,9 @@ data CreateConnection = CreateConnection
 -- * @ConnectionName ::@ @Text@
 --
 createConnection :: Text -- ^ 'cc1Location'
-                   -> Text -- ^ 'cc1Bandwidth'
-                   -> Text -- ^ 'cc1ConnectionName'
-                   -> CreateConnection
+                 -> Text -- ^ 'cc1Bandwidth'
+                 -> Text -- ^ 'cc1ConnectionName'
+                 -> CreateConnection
 createConnection p1 p2 p3 = CreateConnection
     { _cc1Location = p1
     , _cc1Bandwidth = p2

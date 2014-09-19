@@ -104,7 +104,7 @@ data CreateVolume = CreateVolume
 -- * @Encrypted ::@ @Maybe Bool@
 --
 createVolume :: Text -- ^ 'cvAvailabilityZone'
-               -> CreateVolume
+             -> CreateVolume
 createVolume p3 = CreateVolume
     { _cvSize = Nothing
     , _cvSnapshotId = Nothing

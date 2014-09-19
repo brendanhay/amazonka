@@ -123,7 +123,7 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup
 -- * @TerminationPolicies ::@ @[Text]@
 --
 updateAutoScalingGroup :: Text -- ^ 'uasgAutoScalingGroupName'
-                         -> UpdateAutoScalingGroup
+                       -> UpdateAutoScalingGroup
 updateAutoScalingGroup p1 = UpdateAutoScalingGroup
     { _uasgAutoScalingGroupName = p1
     , _uasgLaunchConfigurationName = Nothing

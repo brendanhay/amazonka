@@ -87,7 +87,7 @@ data StopInstances = StopInstances
 -- * @Force ::@ @Maybe Bool@
 --
 stopInstances :: [Text] -- ^ 'si1InstanceIds'
-                -> StopInstances
+              -> StopInstances
 stopInstances p1 = StopInstances
     { _si1InstanceIds = p1
     , _si1Force = Nothing

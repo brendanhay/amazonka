@@ -54,8 +54,8 @@ data DeleteNotificationConfiguration = DeleteNotificationConfiguration
 -- * @TopicARN ::@ @Text@
 --
 deleteNotificationConfiguration :: Text -- ^ 'dncAutoScalingGroupName'
-                                  -> Text -- ^ 'dncTopicARN'
-                                  -> DeleteNotificationConfiguration
+                                -> Text -- ^ 'dncTopicARN'
+                                -> DeleteNotificationConfiguration
 deleteNotificationConfiguration p1 p2 = DeleteNotificationConfiguration
     { _dncAutoScalingGroupName = p1
     , _dncTopicARN = p2

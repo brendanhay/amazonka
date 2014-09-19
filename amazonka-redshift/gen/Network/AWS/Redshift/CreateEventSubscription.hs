@@ -95,8 +95,8 @@ data CreateEventSubscription = CreateEventSubscription
 -- * @Enabled ::@ @Maybe Bool@
 --
 createEventSubscription :: Text -- ^ 'cesSubscriptionName'
-                          -> Text -- ^ 'cesSnsTopicArn'
-                          -> CreateEventSubscription
+                        -> Text -- ^ 'cesSnsTopicArn'
+                        -> CreateEventSubscription
 createEventSubscription p1 p2 = CreateEventSubscription
     { _cesSubscriptionName = p1
     , _cesSnsTopicArn = p2

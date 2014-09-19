@@ -60,8 +60,8 @@ data AddUploadBuffer = AddUploadBuffer
 -- * @DiskIds ::@ @[Text]@
 --
 addUploadBuffer :: Text -- ^ 'aubGatewayARN'
-                  -> [Text] -- ^ 'aubDiskIds'
-                  -> AddUploadBuffer
+                -> [Text] -- ^ 'aubDiskIds'
+                -> AddUploadBuffer
 addUploadBuffer p1 p2 = AddUploadBuffer
     { _aubGatewayARN = p1
     , _aubDiskIds = p2

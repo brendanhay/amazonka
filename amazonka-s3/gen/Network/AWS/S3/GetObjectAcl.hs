@@ -61,8 +61,8 @@ data GetObjectAcl = GetObjectAcl
 -- * @VersionId ::@ @Maybe ObjectVersionId@
 --
 getObjectAcl :: BucketName -- ^ 'goaBucket'
-               -> ObjectKey -- ^ 'goaKey'
-               -> GetObjectAcl
+             -> ObjectKey -- ^ 'goaKey'
+             -> GetObjectAcl
 getObjectAcl p1 p2 = GetObjectAcl
     { _goaBucket = p1
     , _goaKey = p2

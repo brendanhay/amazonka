@@ -431,8 +431,8 @@ data Attribute = Attribute
 -- * @AlternateValueEncoding ::@ @Maybe Text@
 --
 attribute :: Text -- ^ 'aName'
-            -> Text -- ^ 'aValue'
-            -> Attribute
+          -> Text -- ^ 'aValue'
+          -> Attribute
 attribute p1 p3 = Attribute
     { _aName = p1
     , _aAlternateNameEncoding = Nothing
@@ -481,7 +481,7 @@ data DeletableItem = DeletableItem
 -- * @Attributes ::@ @[Attribute]@
 --
 deletableItem :: Text -- ^ 'diName'
-                -> DeletableItem
+              -> DeletableItem
 deletableItem p1 = DeletableItem
     { _diName = p1
     , _diAttributes = mempty
@@ -518,8 +518,8 @@ data Item = Item
 -- * @Attributes ::@ @[Attribute]@
 --
 item :: Text -- ^ 'iName'
-       -> [Attribute] -- ^ 'iAttributes'
-       -> Item
+     -> [Attribute] -- ^ 'iAttributes'
+     -> Item
 item p1 p3 = Item
     { _iName = p1
     , _iAlternateNameEncoding = Nothing
@@ -562,8 +562,8 @@ data ReplaceableAttribute = ReplaceableAttribute
 -- * @Replace ::@ @Maybe Bool@
 --
 replaceableAttribute :: Text -- ^ 'raName'
-                       -> Text -- ^ 'raValue'
-                       -> ReplaceableAttribute
+                     -> Text -- ^ 'raValue'
+                     -> ReplaceableAttribute
 replaceableAttribute p1 p2 = ReplaceableAttribute
     { _raName = p1
     , _raValue = p2
@@ -606,8 +606,8 @@ data ReplaceableItem = ReplaceableItem
 -- * @Attributes ::@ @[ReplaceableAttribute]@
 --
 replaceableItem :: Text -- ^ 'riName'
-                  -> [ReplaceableAttribute] -- ^ 'riAttributes'
-                  -> ReplaceableItem
+                -> [ReplaceableAttribute] -- ^ 'riAttributes'
+                -> ReplaceableItem
 replaceableItem p1 p2 = ReplaceableItem
     { _riName = p1
     , _riAttributes = p2

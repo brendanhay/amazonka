@@ -96,9 +96,9 @@ data AttachVolume = AttachVolume
 -- * @Device ::@ @Text@
 --
 attachVolume :: Text -- ^ 'avVolumeId'
-               -> Text -- ^ 'avInstanceId'
-               -> Text -- ^ 'avDevice'
-               -> AttachVolume
+             -> Text -- ^ 'avInstanceId'
+             -> Text -- ^ 'avDevice'
+             -> AttachVolume
 attachVolume p1 p2 p3 = AttachVolume
     { _avVolumeId = p1
     , _avInstanceId = p2

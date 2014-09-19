@@ -141,8 +141,8 @@ data CreateLoadBalancer = CreateLoadBalancer
 -- * @Tags ::@ @Maybe (List1 Tag)@
 --
 createLoadBalancer :: Text -- ^ 'clbLoadBalancerName'
-                     -> [Listener] -- ^ 'clbListeners'
-                     -> CreateLoadBalancer
+                   -> [Listener] -- ^ 'clbListeners'
+                   -> CreateLoadBalancer
 createLoadBalancer p1 p2 = CreateLoadBalancer
     { _clbLoadBalancerName = p1
     , _clbListeners = p2

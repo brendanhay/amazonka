@@ -113,7 +113,7 @@ data Scan = Scan
 -- * @Segment ::@ @Maybe Integer@
 --
 scan :: Text -- ^ 'sTableName'
-       -> Scan
+     -> Scan
 scan p1 = Scan
     { _sTableName = p1
     , _sAttributesToGet = Nothing

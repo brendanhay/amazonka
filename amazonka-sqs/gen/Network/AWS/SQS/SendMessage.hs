@@ -91,8 +91,8 @@ data SendMessage = SendMessage
 -- * @MessageAttributes ::@ @Map Text MessageAttributeValue@
 --
 sendMessage :: Text -- ^ 'smQueueUrl'
-              -> Text -- ^ 'smMessageBody'
-              -> SendMessage
+            -> Text -- ^ 'smMessageBody'
+            -> SendMessage
 sendMessage p1 p2 = SendMessage
     { _smQueueUrl = p1
     , _smMessageBody = p2

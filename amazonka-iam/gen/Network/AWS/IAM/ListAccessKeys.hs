@@ -122,8 +122,8 @@ data ListAccessKeysResponse = ListAccessKeysResponse
 -- * @Marker ::@ @Maybe Text@
 --
 listAccessKeysResponse :: [AccessKeyMetadata] -- ^ 'lakrAccessKeyMetadata'
-                         -> Bool -- ^ 'lakrIsTruncated'
-                         -> ListAccessKeysResponse
+                       -> Bool -- ^ 'lakrIsTruncated'
+                       -> ListAccessKeysResponse
 listAccessKeysResponse p1 p2 = ListAccessKeysResponse
     { _lakrAccessKeyMetadata = p1
     , _lakrIsTruncated = p2

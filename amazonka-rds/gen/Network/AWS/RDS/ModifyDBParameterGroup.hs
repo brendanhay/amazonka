@@ -73,8 +73,8 @@ data ModifyDBParameterGroup = ModifyDBParameterGroup
 -- * @Parameters ::@ @[Parameter]@
 --
 modifyDBParameterGroup :: Text -- ^ 'mdbpgDBParameterGroupName'
-                         -> [Parameter] -- ^ 'mdbpgParameters'
-                         -> ModifyDBParameterGroup
+                       -> [Parameter] -- ^ 'mdbpgParameters'
+                       -> ModifyDBParameterGroup
 modifyDBParameterGroup p1 p2 = ModifyDBParameterGroup
     { _mdbpgDBParameterGroupName = p1
     , _mdbpgParameters = p2

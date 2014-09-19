@@ -55,8 +55,8 @@ data AddUserToGroup = AddUserToGroup
 -- * @UserName ::@ @Text@
 --
 addUserToGroup :: Text -- ^ 'autgGroupName'
-                 -> Text -- ^ 'autgUserName'
-                 -> AddUserToGroup
+               -> Text -- ^ 'autgUserName'
+               -> AddUserToGroup
 addUserToGroup p1 p2 = AddUserToGroup
     { _autgGroupName = p1
     , _autgUserName = p2

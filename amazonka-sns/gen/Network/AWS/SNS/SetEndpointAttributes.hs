@@ -70,8 +70,8 @@ data SetEndpointAttributes = SetEndpointAttributes
 -- * @Attributes ::@ @Map Text Text@
 --
 setEndpointAttributes :: Text -- ^ 'seaEndpointArn'
-                        -> Map Text Text -- ^ 'seaAttributes'
-                        -> SetEndpointAttributes
+                      -> Map Text Text -- ^ 'seaAttributes'
+                      -> SetEndpointAttributes
 setEndpointAttributes p1 p2 = SetEndpointAttributes
     { _seaEndpointArn = p1
     , _seaAttributes = p2

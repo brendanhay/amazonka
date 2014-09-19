@@ -87,7 +87,7 @@ data DetachVolume = DetachVolume
 -- * @Force ::@ @Maybe Bool@
 --
 detachVolume :: Text -- ^ 'dv4VolumeId'
-               -> DetachVolume
+             -> DetachVolume
 detachVolume p1 = DetachVolume
     { _dv4VolumeId = p1
     , _dv4InstanceId = Nothing

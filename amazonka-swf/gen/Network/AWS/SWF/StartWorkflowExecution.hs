@@ -122,9 +122,9 @@ data StartWorkflowExecution = StartWorkflowExecution
 -- * @ChildPolicy ::@ @Maybe ChildPolicy@
 --
 startWorkflowExecution :: Text -- ^ 'swe1Domain'
-                         -> Text -- ^ 'swe1WorkflowId'
-                         -> WorkflowType -- ^ 'swe1WorkflowType'
-                         -> StartWorkflowExecution
+                       -> Text -- ^ 'swe1WorkflowId'
+                       -> WorkflowType -- ^ 'swe1WorkflowType'
+                       -> StartWorkflowExecution
 startWorkflowExecution p1 p2 p3 = StartWorkflowExecution
     { _swe1Domain = p1
     , _swe1WorkflowId = p2

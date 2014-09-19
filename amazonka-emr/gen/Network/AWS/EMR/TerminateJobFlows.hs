@@ -71,7 +71,7 @@ newtype TerminateJobFlows = TerminateJobFlows
 -- * @JobFlowIds ::@ @[Text]@
 --
 terminateJobFlows :: [Text] -- ^ 'tjfJobFlowIds'
-                    -> TerminateJobFlows
+                  -> TerminateJobFlows
 terminateJobFlows p1 = TerminateJobFlows
     { _tjfJobFlowIds = p1
     }

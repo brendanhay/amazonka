@@ -90,7 +90,7 @@ data DescribeClusterParameters = DescribeClusterParameters
 -- * @Marker ::@ @Maybe Text@
 --
 describeClusterParameters :: Text -- ^ 'dcpParameterGroupName'
-                            -> DescribeClusterParameters
+                          -> DescribeClusterParameters
 describeClusterParameters p1 = DescribeClusterParameters
     { _dcpParameterGroupName = p1
     , _dcpSource = Nothing

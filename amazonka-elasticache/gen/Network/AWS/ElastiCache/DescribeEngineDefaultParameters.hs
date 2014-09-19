@@ -72,7 +72,7 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
 -- * @Marker ::@ @Maybe Text@
 --
 describeEngineDefaultParameters :: Text -- ^ 'dedpCacheParameterGroupFamily'
-                                  -> DescribeEngineDefaultParameters
+                                -> DescribeEngineDefaultParameters
 describeEngineDefaultParameters p1 = DescribeEngineDefaultParameters
     { _dedpCacheParameterGroupFamily = p1
     , _dedpMaxRecords = Nothing
@@ -117,7 +117,7 @@ newtype DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParameter
 -- * @EngineDefaults ::@ @EngineDefaults@
 --
 describeEngineDefaultParametersResponse :: EngineDefaults -- ^ 'dedprEngineDefaults'
-                                          -> DescribeEngineDefaultParametersResponse
+                                        -> DescribeEngineDefaultParametersResponse
 describeEngineDefaultParametersResponse p1 = DescribeEngineDefaultParametersResponse
     { _dedprEngineDefaults = p1
     }

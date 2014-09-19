@@ -100,7 +100,7 @@ data ListJobsResponse = ListJobsResponse
 -- * @IsTruncated ::@ @Bool@
 --
 listJobsResponse :: Bool -- ^ 'ljrIsTruncated'
-                   -> ListJobsResponse
+                 -> ListJobsResponse
 listJobsResponse p2 = ListJobsResponse
     { _ljrJobs = mempty
     , _ljrIsTruncated = p2

@@ -57,7 +57,7 @@ newtype CancelUpdateStack = CancelUpdateStack
 -- * @StackName ::@ @Text@
 --
 cancelUpdateStack :: Text -- ^ 'cusStackName'
-                    -> CancelUpdateStack
+                  -> CancelUpdateStack
 cancelUpdateStack p1 = CancelUpdateStack
     { _cusStackName = p1
     }

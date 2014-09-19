@@ -95,8 +95,8 @@ data PutLifecycleHook = PutLifecycleHook
 -- * @DefaultResult ::@ @Maybe Text@
 --
 putLifecycleHook :: Text -- ^ 'plhLifecycleHookName'
-                   -> Text -- ^ 'plhAutoScalingGroupName'
-                   -> PutLifecycleHook
+                 -> Text -- ^ 'plhAutoScalingGroupName'
+                 -> PutLifecycleHook
 putLifecycleHook p1 p2 = PutLifecycleHook
     { _plhLifecycleHookName = p1
     , _plhAutoScalingGroupName = p2

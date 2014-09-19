@@ -67,7 +67,7 @@ data DeleteCacheCluster = DeleteCacheCluster
 -- * @FinalSnapshotIdentifier ::@ @Maybe Text@
 --
 deleteCacheCluster :: Text -- ^ 'dccCacheClusterId'
-                     -> DeleteCacheCluster
+                   -> DeleteCacheCluster
 deleteCacheCluster p1 = DeleteCacheCluster
     { _dccCacheClusterId = p1
     , _dccFinalSnapshotIdentifier = Nothing

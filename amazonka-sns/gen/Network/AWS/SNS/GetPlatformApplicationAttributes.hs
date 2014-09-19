@@ -70,7 +70,7 @@ newtype GetPlatformApplicationAttributes = GetPlatformApplicationAttributes
 -- * @PlatformApplicationArn ::@ @Text@
 --
 getPlatformApplicationAttributes :: Text -- ^ 'gpaaPlatformApplicationArn'
-                                   -> GetPlatformApplicationAttributes
+                                 -> GetPlatformApplicationAttributes
 getPlatformApplicationAttributes p1 = GetPlatformApplicationAttributes
     { _gpaaPlatformApplicationArn = p1
     }

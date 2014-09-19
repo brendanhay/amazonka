@@ -60,8 +60,8 @@ data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies
 -- * @AccessPolicies ::@ @Text@
 --
 updateServiceAccessPolicies :: Text -- ^ 'usapDomainName'
-                              -> Text -- ^ 'usapAccessPolicies'
-                              -> UpdateServiceAccessPolicies
+                            -> Text -- ^ 'usapAccessPolicies'
+                            -> UpdateServiceAccessPolicies
 updateServiceAccessPolicies p1 p2 = UpdateServiceAccessPolicies
     { _usapDomainName = p1
     , _usapAccessPolicies = p2
@@ -99,7 +99,7 @@ newtype UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesRespons
 -- * @AccessPolicies ::@ @AccessPoliciesStatus@
 --
 updateServiceAccessPoliciesResponse :: AccessPoliciesStatus -- ^ 'usaprAccessPolicies'
-                                      -> UpdateServiceAccessPoliciesResponse
+                                    -> UpdateServiceAccessPoliciesResponse
 updateServiceAccessPoliciesResponse p1 = UpdateServiceAccessPoliciesResponse
     { _usaprAccessPolicies = p1
     }

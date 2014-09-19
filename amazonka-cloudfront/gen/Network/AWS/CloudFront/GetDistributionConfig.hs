@@ -54,7 +54,7 @@ newtype GetDistributionConfig = GetDistributionConfig
 -- * @Id ::@ @Text@
 --
 getDistributionConfig :: Text -- ^ 'gdcId'
-                        -> GetDistributionConfig
+                      -> GetDistributionConfig
 getDistributionConfig p1 = GetDistributionConfig
     { _gdcId = p1
     }

@@ -130,10 +130,10 @@ data ListHostedZonesResponse = ListHostedZonesResponse
 -- * @MaxItems ::@ @Text@
 --
 listHostedZonesResponse :: [HostedZone] -- ^ 'lhzrHostedZones'
-                          -> Text -- ^ 'lhzrMarker'
-                          -> Bool -- ^ 'lhzrIsTruncated'
-                          -> Text -- ^ 'lhzrMaxItems'
-                          -> ListHostedZonesResponse
+                        -> Text -- ^ 'lhzrMarker'
+                        -> Bool -- ^ 'lhzrIsTruncated'
+                        -> Text -- ^ 'lhzrMaxItems'
+                        -> ListHostedZonesResponse
 listHostedZonesResponse p1 p2 p3 p5 = ListHostedZonesResponse
     { _lhzrHostedZones = p1
     , _lhzrMarker = p2

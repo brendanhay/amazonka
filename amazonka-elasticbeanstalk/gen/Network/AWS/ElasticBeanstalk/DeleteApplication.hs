@@ -60,7 +60,7 @@ data DeleteApplication = DeleteApplication
 -- * @TerminateEnvByForce ::@ @Maybe Bool@
 --
 deleteApplication :: Text -- ^ 'daApplicationName'
-                    -> DeleteApplication
+                  -> DeleteApplication
 deleteApplication p1 = DeleteApplication
     { _daApplicationName = p1
     , _daTerminateEnvByForce = Nothing

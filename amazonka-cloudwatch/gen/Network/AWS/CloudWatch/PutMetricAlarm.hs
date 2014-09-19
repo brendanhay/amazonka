@@ -111,14 +111,14 @@ data PutMetricAlarm = PutMetricAlarm
 -- * @ComparisonOperator ::@ @ComparisonOperator@
 --
 putMetricAlarm :: Text -- ^ 'pmaAlarmName'
-                 -> Integer -- ^ 'pmaPeriod'
-                 -> Integer -- ^ 'pmaEvaluationPeriods'
-                 -> Double -- ^ 'pmaThreshold'
-                 -> ComparisonOperator -- ^ 'pmaComparisonOperator'
-                 -> Text -- ^ 'pmaMetricName'
-                 -> Text -- ^ 'pmaNamespace'
-                 -> Statistic -- ^ 'pmaStatistic'
-                 -> PutMetricAlarm
+               -> Integer -- ^ 'pmaPeriod'
+               -> Integer -- ^ 'pmaEvaluationPeriods'
+               -> Double -- ^ 'pmaThreshold'
+               -> ComparisonOperator -- ^ 'pmaComparisonOperator'
+               -> Text -- ^ 'pmaMetricName'
+               -> Text -- ^ 'pmaNamespace'
+               -> Statistic -- ^ 'pmaStatistic'
+               -> PutMetricAlarm
 putMetricAlarm p1 p11 p13 p14 p15 p7 p8 p9 = PutMetricAlarm
     { _pmaAlarmName = p1
     , _pmaAlarmDescription = Nothing

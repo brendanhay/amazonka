@@ -75,9 +75,9 @@ data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy
 -- * @CookieName ::@ @Text@
 --
 createAppCookieStickinessPolicy :: Text -- ^ 'cacspLoadBalancerName'
-                                  -> Text -- ^ 'cacspPolicyName'
-                                  -> Text -- ^ 'cacspCookieName'
-                                  -> CreateAppCookieStickinessPolicy
+                                -> Text -- ^ 'cacspPolicyName'
+                                -> Text -- ^ 'cacspCookieName'
+                                -> CreateAppCookieStickinessPolicy
 createAppCookieStickinessPolicy p1 p2 p3 = CreateAppCookieStickinessPolicy
     { _cacspLoadBalancerName = p1
     , _cacspPolicyName = p2

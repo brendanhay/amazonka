@@ -67,7 +67,7 @@ newtype RebootCluster = RebootCluster
 -- * @ClusterIdentifier ::@ @Text@
 --
 rebootCluster :: Text -- ^ 'rc1ClusterIdentifier'
-                -> RebootCluster
+              -> RebootCluster
 rebootCluster p1 = RebootCluster
     { _rc1ClusterIdentifier = p1
     }

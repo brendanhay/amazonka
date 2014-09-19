@@ -89,9 +89,9 @@ data UpdateChapCredentials = UpdateChapCredentials
 -- * @SecretToAuthenticateTarget ::@ @Maybe Text@
 --
 updateChapCredentials :: Text -- ^ 'uccTargetARN'
-                        -> Text -- ^ 'uccSecretToAuthenticateInitiator'
-                        -> Text -- ^ 'uccInitiatorName'
-                        -> UpdateChapCredentials
+                      -> Text -- ^ 'uccSecretToAuthenticateInitiator'
+                      -> Text -- ^ 'uccInitiatorName'
+                      -> UpdateChapCredentials
 updateChapCredentials p1 p2 p3 = UpdateChapCredentials
     { _uccTargetARN = p1
     , _uccSecretToAuthenticateInitiator = p2

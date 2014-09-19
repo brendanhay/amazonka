@@ -66,7 +66,7 @@ newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode
 -- * @DomainName ::@ @Text@
 --
 retrieveDomainAuthCode :: Text -- ^ 'rdacDomainName'
-                         -> RetrieveDomainAuthCode
+                       -> RetrieveDomainAuthCode
 retrieveDomainAuthCode p1 = RetrieveDomainAuthCode
     { _rdacDomainName = p1
     }
@@ -101,7 +101,7 @@ newtype RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse
 -- * @AuthCode ::@ @Text@
 --
 retrieveDomainAuthCodeResponse :: Text -- ^ 'rdacrAuthCode'
-                                 -> RetrieveDomainAuthCodeResponse
+                               -> RetrieveDomainAuthCodeResponse
 retrieveDomainAuthCodeResponse p1 = RetrieveDomainAuthCodeResponse
     { _rdacrAuthCode = p1
     }

@@ -67,8 +67,8 @@ data ConfirmProductInstance = ConfirmProductInstance
 -- * @InstanceId ::@ @Text@
 --
 confirmProductInstance :: Text -- ^ 'cpiProductCode'
-                         -> Text -- ^ 'cpiInstanceId'
-                         -> ConfirmProductInstance
+                       -> Text -- ^ 'cpiInstanceId'
+                       -> ConfirmProductInstance
 confirmProductInstance p1 p2 = ConfirmProductInstance
     { _cpiProductCode = p1
     , _cpiInstanceId = p2

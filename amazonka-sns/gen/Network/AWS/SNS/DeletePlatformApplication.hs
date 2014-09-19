@@ -64,7 +64,7 @@ newtype DeletePlatformApplication = DeletePlatformApplication
 -- * @PlatformApplicationArn ::@ @Text@
 --
 deletePlatformApplication :: Text -- ^ 'dpaPlatformApplicationArn'
-                            -> DeletePlatformApplication
+                          -> DeletePlatformApplication
 deletePlatformApplication p1 = DeletePlatformApplication
     { _dpaPlatformApplicationArn = p1
     }

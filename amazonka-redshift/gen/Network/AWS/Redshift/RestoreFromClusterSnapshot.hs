@@ -135,8 +135,8 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
 -- * @AutomatedSnapshotRetentionPeriod ::@ @Maybe Integer@
 --
 restoreFromClusterSnapshot :: Text -- ^ 'rfcsClusterIdentifier'
-                             -> Text -- ^ 'rfcsSnapshotIdentifier'
-                             -> RestoreFromClusterSnapshot
+                           -> Text -- ^ 'rfcsSnapshotIdentifier'
+                           -> RestoreFromClusterSnapshot
 restoreFromClusterSnapshot p1 p2 = RestoreFromClusterSnapshot
     { _rfcsClusterIdentifier = p1
     , _rfcsSnapshotIdentifier = p2

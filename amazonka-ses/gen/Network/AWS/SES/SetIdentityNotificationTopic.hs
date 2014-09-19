@@ -76,8 +76,8 @@ data SetIdentityNotificationTopic = SetIdentityNotificationTopic
 -- * @SnsTopic ::@ @Maybe Text@
 --
 setIdentityNotificationTopic :: Text -- ^ 'sintIdentity'
-                               -> NotificationType -- ^ 'sintNotificationType'
-                               -> SetIdentityNotificationTopic
+                             -> NotificationType -- ^ 'sintNotificationType'
+                             -> SetIdentityNotificationTopic
 setIdentityNotificationTopic p1 p2 = SetIdentityNotificationTopic
     { _sintIdentity = p1
     , _sintNotificationType = p2

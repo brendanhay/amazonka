@@ -63,8 +63,8 @@ data PutMetricData = PutMetricData
 -- * @MetricData ::@ @[MetricDatum]@
 --
 putMetricData :: Text -- ^ 'pmdNamespace'
-                -> [MetricDatum] -- ^ 'pmdMetricData'
-                -> PutMetricData
+              -> [MetricDatum] -- ^ 'pmdMetricData'
+              -> PutMetricData
 putMetricData p1 p2 = PutMetricData
     { _pmdNamespace = p1
     , _pmdMetricData = p2

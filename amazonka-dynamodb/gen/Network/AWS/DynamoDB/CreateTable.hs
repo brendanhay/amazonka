@@ -98,10 +98,10 @@ data CreateTable = CreateTable
 -- * @ProvisionedThroughput ::@ @ProvisionedThroughput@
 --
 createTable :: [AttributeDefinition] -- ^ 'ctAttributeDefinitions'
-              -> Text -- ^ 'ctTableName'
-              -> List1 KeySchemaElement -- ^ 'ctKeySchema'
-              -> ProvisionedThroughput -- ^ 'ctProvisionedThroughput'
-              -> CreateTable
+            -> Text -- ^ 'ctTableName'
+            -> List1 KeySchemaElement -- ^ 'ctKeySchema'
+            -> ProvisionedThroughput -- ^ 'ctProvisionedThroughput'
+            -> CreateTable
 createTable p1 p2 p3 p6 = CreateTable
     { _ctAttributeDefinitions = p1
     , _ctTableName = p2

@@ -69,8 +69,8 @@ data CreatePipeline = CreatePipeline
 -- * @Description ::@ @Maybe Text@
 --
 createPipeline :: Text -- ^ 'cpName'
-                 -> Text -- ^ 'cpUniqueId'
-                 -> CreatePipeline
+               -> Text -- ^ 'cpUniqueId'
+               -> CreatePipeline
 createPipeline p1 p2 = CreatePipeline
     { _cpName = p1
     , _cpUniqueId = p2
@@ -125,7 +125,7 @@ newtype CreatePipelineResponse = CreatePipelineResponse
 -- * @PipelineId ::@ @Text@
 --
 createPipelineResponse :: Text -- ^ 'cprPipelineId'
-                         -> CreatePipelineResponse
+                       -> CreatePipelineResponse
 createPipelineResponse p1 = CreatePipelineResponse
     { _cprPipelineId = p1
     }

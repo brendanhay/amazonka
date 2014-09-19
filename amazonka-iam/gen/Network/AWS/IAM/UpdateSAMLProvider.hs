@@ -62,8 +62,8 @@ data UpdateSAMLProvider = UpdateSAMLProvider
 -- * @SAMLProviderArn ::@ @Text@
 --
 updateSAMLProvider :: Text -- ^ 'usamlpSAMLMetadataDocument'
-                     -> Text -- ^ 'usamlpSAMLProviderArn'
-                     -> UpdateSAMLProvider
+                   -> Text -- ^ 'usamlpSAMLProviderArn'
+                   -> UpdateSAMLProvider
 updateSAMLProvider p1 p2 = UpdateSAMLProvider
     { _usamlpSAMLMetadataDocument = p1
     , _usamlpSAMLProviderArn = p2

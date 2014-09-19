@@ -65,8 +65,8 @@ data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets
 -- * @Subnets ::@ @[Text]@
 --
 detachLoadBalancerFromSubnets :: Text -- ^ 'dlbfsLoadBalancerName'
-                                -> [Text] -- ^ 'dlbfsSubnets'
-                                -> DetachLoadBalancerFromSubnets
+                              -> [Text] -- ^ 'dlbfsSubnets'
+                              -> DetachLoadBalancerFromSubnets
 detachLoadBalancerFromSubnets p1 p2 = DetachLoadBalancerFromSubnets
     { _dlbfsLoadBalancerName = p1
     , _dlbfsSubnets = p2

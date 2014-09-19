@@ -67,9 +67,9 @@ data AttachNetworkInterface = AttachNetworkInterface
 -- * @DeviceIndex ::@ @Integer@
 --
 attachNetworkInterface :: Text -- ^ 'aniNetworkInterfaceId'
-                         -> Text -- ^ 'aniInstanceId'
-                         -> Integer -- ^ 'aniDeviceIndex'
-                         -> AttachNetworkInterface
+                       -> Text -- ^ 'aniInstanceId'
+                       -> Integer -- ^ 'aniDeviceIndex'
+                       -> AttachNetworkInterface
 attachNetworkInterface p1 p2 p3 = AttachNetworkInterface
     { _aniNetworkInterfaceId = p1
     , _aniInstanceId = p2

@@ -55,7 +55,7 @@ newtype GetHealthCheck = GetHealthCheck
 -- * @HealthCheckId ::@ @Text@
 --
 getHealthCheck :: Text -- ^ 'ghcHealthCheckId'
-                 -> GetHealthCheck
+               -> GetHealthCheck
 getHealthCheck p1 = GetHealthCheck
     { _ghcHealthCheckId = p1
     }
@@ -90,7 +90,7 @@ newtype GetHealthCheckResponse = GetHealthCheckResponse
 -- * @HealthCheck ::@ @HealthCheck@
 --
 getHealthCheckResponse :: HealthCheck -- ^ 'ghcrHealthCheck'
-                         -> GetHealthCheckResponse
+                       -> GetHealthCheckResponse
 getHealthCheckResponse p1 = GetHealthCheckResponse
     { _ghcrHealthCheck = p1
     }

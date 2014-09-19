@@ -81,8 +81,8 @@ data BundleInstance = BundleInstance
 -- * @Storage ::@ @Storage@
 --
 bundleInstance :: Text -- ^ 'biInstanceId'
-                 -> Storage -- ^ 'biStorage'
-                 -> BundleInstance
+               -> Storage -- ^ 'biStorage'
+               -> BundleInstance
 bundleInstance p1 p2 = BundleInstance
     { _biInstanceId = p1
     , _biStorage = p2

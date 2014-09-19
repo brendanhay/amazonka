@@ -57,7 +57,7 @@ data ListBootstrapActions = ListBootstrapActions
 -- * @Marker ::@ @Maybe Text@
 --
 listBootstrapActions :: Text -- ^ 'lbaClusterId'
-                       -> ListBootstrapActions
+                     -> ListBootstrapActions
 listBootstrapActions p1 = ListBootstrapActions
     { _lbaClusterId = p1
     , _lbaMarker = Nothing

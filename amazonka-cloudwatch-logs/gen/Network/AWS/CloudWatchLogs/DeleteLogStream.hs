@@ -63,8 +63,8 @@ data DeleteLogStream = DeleteLogStream
 -- * @LogStreamName ::@ @Text@
 --
 deleteLogStream :: Text -- ^ 'dlsLogGroupName'
-                  -> Text -- ^ 'dlsLogStreamName'
-                  -> DeleteLogStream
+                -> Text -- ^ 'dlsLogStreamName'
+                -> DeleteLogStream
 deleteLogStream p1 p2 = DeleteLogStream
     { _dlsLogGroupName = p1
     , _dlsLogStreamName = p2

@@ -66,8 +66,8 @@ data EnableLogging = EnableLogging
 -- * @S3KeyPrefix ::@ @Maybe Text@
 --
 enableLogging :: Text -- ^ 'elClusterIdentifier'
-                -> Text -- ^ 'elBucketName'
-                -> EnableLogging
+              -> Text -- ^ 'elBucketName'
+              -> EnableLogging
 enableLogging p1 p2 = EnableLogging
     { _elClusterIdentifier = p1
     , _elBucketName = p2

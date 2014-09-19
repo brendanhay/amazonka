@@ -53,7 +53,7 @@ newtype GetBucketAcl = GetBucketAcl
 -- * @Bucket ::@ @BucketName@
 --
 getBucketAcl :: BucketName -- ^ 'gbaBucket'
-               -> GetBucketAcl
+             -> GetBucketAcl
 getBucketAcl p1 = GetBucketAcl
     { _gbaBucket = p1
     }

@@ -58,8 +58,8 @@ data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup
 -- * @ShouldDecrementDesiredCapacity ::@ @Bool@
 --
 terminateInstanceInAutoScalingGroup :: Text -- ^ 'tiiasgInstanceId'
-                                      -> Bool -- ^ 'tiiasgShouldDecrementDesiredCapacity'
-                                      -> TerminateInstanceInAutoScalingGroup
+                                    -> Bool -- ^ 'tiiasgShouldDecrementDesiredCapacity'
+                                    -> TerminateInstanceInAutoScalingGroup
 terminateInstanceInAutoScalingGroup p1 p2 = TerminateInstanceInAutoScalingGroup
     { _tiiasgInstanceId = p1
     , _tiiasgShouldDecrementDesiredCapacity = p2

@@ -69,9 +69,9 @@ data PutRolePolicy = PutRolePolicy
 -- * @PolicyDocument ::@ @Text@
 --
 putRolePolicy :: Text -- ^ 'prpRoleName'
-                -> Text -- ^ 'prpPolicyName'
-                -> Text -- ^ 'prpPolicyDocument'
-                -> PutRolePolicy
+              -> Text -- ^ 'prpPolicyName'
+              -> Text -- ^ 'prpPolicyDocument'
+              -> PutRolePolicy
 putRolePolicy p1 p2 p3 = PutRolePolicy
     { _prpRoleName = p1
     , _prpPolicyName = p2

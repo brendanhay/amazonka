@@ -49,7 +49,7 @@ newtype EnableAlarmActions = EnableAlarmActions
 -- * @AlarmNames ::@ @[Text]@
 --
 enableAlarmActions :: [Text] -- ^ 'eaaAlarmNames'
-                     -> EnableAlarmActions
+                   -> EnableAlarmActions
 enableAlarmActions p1 = EnableAlarmActions
     { _eaaAlarmNames = p1
     }

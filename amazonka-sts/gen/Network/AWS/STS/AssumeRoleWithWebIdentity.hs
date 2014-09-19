@@ -137,9 +137,9 @@ data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity
 -- * @DurationSeconds ::@ @Maybe Integer@
 --
 assumeRoleWithWebIdentity :: Text -- ^ 'arwwiRoleArn'
-                            -> Text -- ^ 'arwwiRoleSessionName'
-                            -> Text -- ^ 'arwwiWebIdentityToken'
-                            -> AssumeRoleWithWebIdentity
+                          -> Text -- ^ 'arwwiRoleSessionName'
+                          -> Text -- ^ 'arwwiWebIdentityToken'
+                          -> AssumeRoleWithWebIdentity
 assumeRoleWithWebIdentity p1 p2 p3 = AssumeRoleWithWebIdentity
     { _arwwiRoleArn = p1
     , _arwwiRoleSessionName = p2

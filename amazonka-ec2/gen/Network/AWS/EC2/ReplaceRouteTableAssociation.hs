@@ -68,8 +68,8 @@ data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
 -- * @RouteTableId ::@ @Text@
 --
 replaceRouteTableAssociation :: Text -- ^ 'rrtaAssociationId'
-                               -> Text -- ^ 'rrtaRouteTableId'
-                               -> ReplaceRouteTableAssociation
+                             -> Text -- ^ 'rrtaRouteTableId'
+                             -> ReplaceRouteTableAssociation
 replaceRouteTableAssociation p1 p2 = ReplaceRouteTableAssociation
     { _rrtaAssociationId = p1
     , _rrtaRouteTableId = p2

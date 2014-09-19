@@ -64,7 +64,7 @@ newtype CancelJob = CancelJob
 -- * @Id ::@ @Text@
 --
 cancelJob :: Text -- ^ 'cjId'
-            -> CancelJob
+          -> CancelJob
 cancelJob p1 = CancelJob
     { _cjId = p1
     }

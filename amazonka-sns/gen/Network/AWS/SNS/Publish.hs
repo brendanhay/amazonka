@@ -111,7 +111,7 @@ data Publish = Publish
 -- * @MessageAttributes ::@ @Map Text MessageAttributeValue@
 --
 publish :: Text -- ^ 'pMessage'
-          -> Publish
+        -> Publish
 publish p3 = Publish
     { _pTopicArn = Nothing
     , _pTargetArn = Nothing

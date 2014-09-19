@@ -129,10 +129,10 @@ data ListHealthChecksResponse = ListHealthChecksResponse
 -- * @MaxItems ::@ @Text@
 --
 listHealthChecksResponse :: [HealthCheck] -- ^ 'lhcrHealthChecks'
-                           -> Text -- ^ 'lhcrMarker'
-                           -> Bool -- ^ 'lhcrIsTruncated'
-                           -> Text -- ^ 'lhcrMaxItems'
-                           -> ListHealthChecksResponse
+                         -> Text -- ^ 'lhcrMarker'
+                         -> Bool -- ^ 'lhcrIsTruncated'
+                         -> Text -- ^ 'lhcrMaxItems'
+                         -> ListHealthChecksResponse
 listHealthChecksResponse p1 p2 p3 p5 = ListHealthChecksResponse
     { _lhcrHealthChecks = p1
     , _lhcrMarker = p2

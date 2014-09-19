@@ -52,7 +52,7 @@ newtype GetBucketTagging = GetBucketTagging
 -- * @Bucket ::@ @BucketName@
 --
 getBucketTagging :: BucketName -- ^ 'gbtBucket'
-                   -> GetBucketTagging
+                 -> GetBucketTagging
 getBucketTagging p1 = GetBucketTagging
     { _gbtBucket = p1
     }
@@ -82,7 +82,7 @@ newtype GetBucketTaggingResponse = GetBucketTaggingResponse
 -- * @TagSet ::@ @[Tag]@
 --
 getBucketTaggingResponse :: [Tag] -- ^ 'gbtrTagSet'
-                           -> GetBucketTaggingResponse
+                         -> GetBucketTaggingResponse
 getBucketTaggingResponse p1 = GetBucketTaggingResponse
     { _gbtrTagSet = p1
     }

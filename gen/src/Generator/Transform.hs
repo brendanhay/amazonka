@@ -34,6 +34,7 @@ import           Data.String
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Text.Util
+import           Debug.Trace
 import           Generator.AST
 import           Text.EDE.Filters
 
@@ -276,7 +277,7 @@ shapeType rq svc@Service{..} s = Type
     hs  = filter ((== LHeader) . view cmnLocation) fs
     fs  = map (requireField overrides . upd) (fields rq svc shape)
 
-    overrides = fromMaybe [] $ Map.lookup name (svc^.tRequired)
+    overrides = fromMaybe [] $ Map.lookup (CI.mk name) (svc^.tRequired)
 
     upd f | f^.cmnLocation == LBody
           , f^.cmnStreaming = f & cmnRequired.~True & fldAnn.anRequired.~True
@@ -351,7 +352,7 @@ isBody :: HasCommon a => a -> Bool
 isBody s = s^.cmnLocation == LBody && s^.cmnStreaming
 
 existingType :: HasCommon a => Service -> a -> Maybe Text
-existingType svc x = Map.lookup (x^.cmnName) (svc^.tExisting)
+existingType svc x = Map.lookup (CI.mk (x^.cmnName)) (svc^.tExisting)
 
 renameCommon :: HasCommon a => Service -> a -> a
 renameCommon svc c = c &
@@ -363,7 +364,7 @@ renameCommon svc c = c &
 renameName :: Service -> Text -> Maybe Text
 renameName svc x
     | x `elem` core = Just (x `Text.snoc` '\'')
-    | otherwise     = Map.lookup x (svc^.tRename)
+    | otherwise     = Map.lookup (CI.mk x) (svc^.tRename)
   where
     core =
         [ "Source"
@@ -447,7 +448,7 @@ serviceTypes svc@Service{..} = map override
         | otherwise       = t & typFields %~ map (requireField candidates)
       where
         candidates = fromMaybe [] $
-            Map.lookup (t^.cmnName) (svc^.tRequired)
+            Map.lookup (CI.mk (t^.cmnName)) (svc^.tRequired)
 
     exclude :: (a, Shape) -> Maybe (a, Shape)
     exclude x = maybe (Just x) (const Nothing) (existingType svc (snd x))

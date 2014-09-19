@@ -62,7 +62,7 @@ newtype DeleteTopic = DeleteTopic
 -- * @TopicArn ::@ @Text@
 --
 deleteTopic :: Text -- ^ 'dtTopicArn'
-              -> DeleteTopic
+            -> DeleteTopic
 deleteTopic p1 = DeleteTopic
     { _dtTopicArn = p1
     }

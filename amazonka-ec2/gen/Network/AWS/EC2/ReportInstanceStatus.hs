@@ -82,9 +82,9 @@ data ReportInstanceStatus = ReportInstanceStatus
 -- * @Description ::@ @Maybe Text@
 --
 reportInstanceStatus :: [Text] -- ^ 'risInstances'
-                       -> ReportStatusType -- ^ 'risStatus'
-                       -> [ReportInstanceReasonCodes] -- ^ 'risReasonCodes'
-                       -> ReportInstanceStatus
+                     -> ReportStatusType -- ^ 'risStatus'
+                     -> [ReportInstanceReasonCodes] -- ^ 'risReasonCodes'
+                     -> ReportInstanceStatus
 reportInstanceStatus p1 p2 p5 = ReportInstanceStatus
     { _risInstances = p1
     , _risStatus = p2

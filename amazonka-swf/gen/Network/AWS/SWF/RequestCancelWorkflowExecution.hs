@@ -90,8 +90,8 @@ data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution
 -- * @RunId ::@ @Maybe Text@
 --
 requestCancelWorkflowExecution :: Text -- ^ 'rcweDomain'
-                                 -> Text -- ^ 'rcweWorkflowId'
-                                 -> RequestCancelWorkflowExecution
+                               -> Text -- ^ 'rcweWorkflowId'
+                               -> RequestCancelWorkflowExecution
 requestCancelWorkflowExecution p1 p2 = RequestCancelWorkflowExecution
     { _rcweDomain = p1
     , _rcweWorkflowId = p2

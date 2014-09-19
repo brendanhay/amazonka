@@ -1385,7 +1385,7 @@ newtype Restrictions = Restrictions
 -- * @GeoRestriction ::@ @GeoRestriction@
 --
 restrictions :: GeoRestriction -- ^ 'rGeoRestriction'
-               -> Restrictions
+             -> Restrictions
 restrictions p1 = Restrictions
     { _rGeoRestriction = p1
     }
@@ -1421,7 +1421,7 @@ newtype S3OriginConfig = S3OriginConfig
 -- * @OriginAccessIdentity ::@ @Text@
 --
 s3OriginConfig :: Text -- ^ 'socOriginAccessIdentity'
-                 -> S3OriginConfig
+               -> S3OriginConfig
 s3OriginConfig p1 = S3OriginConfig
     { _socOriginAccessIdentity = p1
     }
@@ -1479,8 +1479,8 @@ data ActiveTrustedSigners = ActiveTrustedSigners
 -- * @Items ::@ @[Signer]@
 --
 activeTrustedSigners :: Bool -- ^ 'atsEnabled'
-                       -> Integer -- ^ 'atsQuantity'
-                       -> ActiveTrustedSigners
+                     -> Integer -- ^ 'atsQuantity'
+                     -> ActiveTrustedSigners
 activeTrustedSigners p1 p2 = ActiveTrustedSigners
     { _atsEnabled = p1
     , _atsQuantity = p2
@@ -1525,7 +1525,7 @@ data Aliases = Aliases
 -- * @Items ::@ @[Text]@
 --
 aliases :: Integer -- ^ 'aQuantity'
-          -> Aliases
+        -> Aliases
 aliases p1 = Aliases
     { _aQuantity = p1
     , _aItems = mempty
@@ -1571,7 +1571,7 @@ data AllowedMethods = AllowedMethods
 -- * @Items ::@ @[Method]@
 --
 allowedMethods :: Integer -- ^ 'amQuantity'
-                 -> AllowedMethods
+               -> AllowedMethods
 allowedMethods p1 = AllowedMethods
     { _amQuantity = p1
     , _amItems = mempty
@@ -1644,12 +1644,12 @@ data CacheBehavior = CacheBehavior
 -- * @SmoothStreaming ::@ @Maybe Bool@
 --
 cacheBehavior :: Text -- ^ 'cb1PathPattern'
-                -> Text -- ^ 'cb1TargetOriginId'
-                -> ForwardedValues -- ^ 'cb1ForwardedValues'
-                -> TrustedSigners -- ^ 'cb1TrustedSigners'
-                -> ViewerProtocolPolicy -- ^ 'cb1ViewerProtocolPolicy'
-                -> Integer -- ^ 'cb1MinTTL'
-                -> CacheBehavior
+              -> Text -- ^ 'cb1TargetOriginId'
+              -> ForwardedValues -- ^ 'cb1ForwardedValues'
+              -> TrustedSigners -- ^ 'cb1TrustedSigners'
+              -> ViewerProtocolPolicy -- ^ 'cb1ViewerProtocolPolicy'
+              -> Integer -- ^ 'cb1MinTTL'
+              -> CacheBehavior
 cacheBehavior p1 p2 p3 p4 p5 p6 = CacheBehavior
     { _cb1PathPattern = p1
     , _cb1TargetOriginId = p2
@@ -1763,7 +1763,7 @@ data CacheBehaviors = CacheBehaviors
 -- * @Items ::@ @[CacheBehavior]@
 --
 cacheBehaviors :: Integer -- ^ 'cbQuantity'
-                 -> CacheBehaviors
+               -> CacheBehaviors
 cacheBehaviors p1 = CacheBehaviors
     { _cbQuantity = p1
     , _cbItems = mempty
@@ -1808,8 +1808,8 @@ data CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentity
 -- * @CloudFrontOriginAccessIdentityConfig ::@ @Maybe CloudFrontOriginAccessIdentityConfig@
 --
 cloudFrontOriginAccessIdentity :: Text -- ^ 'cfoaiId'
-                                 -> Text -- ^ 'cfoaiS3CanonicalUserId'
-                                 -> CloudFrontOriginAccessIdentity
+                               -> Text -- ^ 'cfoaiS3CanonicalUserId'
+                               -> CloudFrontOriginAccessIdentity
 cloudFrontOriginAccessIdentity p1 p2 = CloudFrontOriginAccessIdentity
     { _cfoaiId = p1
     , _cfoaiS3CanonicalUserId = p2
@@ -1853,8 +1853,8 @@ data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig
 -- * @Comment ::@ @Text@
 --
 cloudFrontOriginAccessIdentityConfig :: Text -- ^ 'cfoaicCallerReference'
-                                       -> Text -- ^ 'cfoaicComment'
-                                       -> CloudFrontOriginAccessIdentityConfig
+                                     -> Text -- ^ 'cfoaicComment'
+                                     -> CloudFrontOriginAccessIdentityConfig
 cloudFrontOriginAccessIdentityConfig p1 p2 = CloudFrontOriginAccessIdentityConfig
     { _cfoaicCallerReference = p1
     , _cfoaicComment = p2
@@ -1919,10 +1919,10 @@ data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList
 -- * @Items ::@ @[CloudFrontOriginAccessIdentitySummary]@
 --
 cloudFrontOriginAccessIdentityList :: Text -- ^ 'cfoailMarker'
-                                     -> Integer -- ^ 'cfoailMaxItems'
-                                     -> Bool -- ^ 'cfoailIsTruncated'
-                                     -> Integer -- ^ 'cfoailQuantity'
-                                     -> CloudFrontOriginAccessIdentityList
+                                   -> Integer -- ^ 'cfoailMaxItems'
+                                   -> Bool -- ^ 'cfoailIsTruncated'
+                                   -> Integer -- ^ 'cfoailQuantity'
+                                   -> CloudFrontOriginAccessIdentityList
 cloudFrontOriginAccessIdentityList p1 p3 p4 p5 = CloudFrontOriginAccessIdentityList
     { _cfoailMarker = p1
     , _cfoailNextMarker = Nothing
@@ -1992,9 +1992,9 @@ data CloudFrontOriginAccessIdentitySummary = CloudFrontOriginAccessIdentitySumma
 -- * @Comment ::@ @Text@
 --
 cloudFrontOriginAccessIdentitySummary :: Text -- ^ 'cfoaisId'
-                                        -> Text -- ^ 'cfoaisS3CanonicalUserId'
-                                        -> Text -- ^ 'cfoaisComment'
-                                        -> CloudFrontOriginAccessIdentitySummary
+                                      -> Text -- ^ 'cfoaisS3CanonicalUserId'
+                                      -> Text -- ^ 'cfoaisComment'
+                                      -> CloudFrontOriginAccessIdentitySummary
 cloudFrontOriginAccessIdentitySummary p1 p2 p3 = CloudFrontOriginAccessIdentitySummary
     { _cfoaisId = p1
     , _cfoaisS3CanonicalUserId = p2
@@ -2040,7 +2040,7 @@ data CookieNames = CookieNames
 -- * @Items ::@ @[Text]@
 --
 cookieNames :: Integer -- ^ 'cnQuantity'
-              -> CookieNames
+            -> CookieNames
 cookieNames p1 = CookieNames
     { _cnQuantity = p1
     , _cnItems = mempty
@@ -2079,7 +2079,7 @@ data CookiePreference = CookiePreference
 -- * @WhitelistedNames ::@ @Maybe CookieNames@
 --
 cookiePreference :: ItemSelection -- ^ 'cpForward'
-                   -> CookiePreference
+                 -> CookiePreference
 cookiePreference p1 = CookiePreference
     { _cpForward = p1
     , _cpWhitelistedNames = Nothing
@@ -2139,7 +2139,7 @@ data CustomErrorResponse = CustomErrorResponse
 -- * @ErrorCachingMinTTL ::@ @Maybe Integer@
 --
 customErrorResponse :: Integer -- ^ 'cer1ErrorCode'
-                      -> CustomErrorResponse
+                    -> CustomErrorResponse
 customErrorResponse p1 = CustomErrorResponse
     { _cer1ErrorCode = p1
     , _cer1ResponsePagePath = Nothing
@@ -2200,7 +2200,7 @@ data CustomErrorResponses = CustomErrorResponses
 -- * @Items ::@ @[CustomErrorResponse]@
 --
 customErrorResponses :: Integer -- ^ 'cerQuantity'
-                       -> CustomErrorResponses
+                     -> CustomErrorResponses
 customErrorResponses p1 = CustomErrorResponses
     { _cerQuantity = p1
     , _cerItems = mempty
@@ -2243,9 +2243,9 @@ data CustomOriginConfig = CustomOriginConfig
 -- * @OriginProtocolPolicy ::@ @OriginProtocolPolicy@
 --
 customOriginConfig :: Integer -- ^ 'cocHTTPPort'
-                     -> Integer -- ^ 'cocHTTPSPort'
-                     -> OriginProtocolPolicy -- ^ 'cocOriginProtocolPolicy'
-                     -> CustomOriginConfig
+                   -> Integer -- ^ 'cocHTTPSPort'
+                   -> OriginProtocolPolicy -- ^ 'cocOriginProtocolPolicy'
+                   -> CustomOriginConfig
 customOriginConfig p1 p2 p3 = CustomOriginConfig
     { _cocHTTPPort = p1
     , _cocHTTPSPort = p2
@@ -2308,11 +2308,11 @@ data DefaultCacheBehavior = DefaultCacheBehavior
 -- * @SmoothStreaming ::@ @Maybe Bool@
 --
 defaultCacheBehavior :: Text -- ^ 'dcbTargetOriginId'
-                       -> ForwardedValues -- ^ 'dcbForwardedValues'
-                       -> TrustedSigners -- ^ 'dcbTrustedSigners'
-                       -> ViewerProtocolPolicy -- ^ 'dcbViewerProtocolPolicy'
-                       -> Integer -- ^ 'dcbMinTTL'
-                       -> DefaultCacheBehavior
+                     -> ForwardedValues -- ^ 'dcbForwardedValues'
+                     -> TrustedSigners -- ^ 'dcbTrustedSigners'
+                     -> ViewerProtocolPolicy -- ^ 'dcbViewerProtocolPolicy'
+                     -> Integer -- ^ 'dcbMinTTL'
+                     -> DefaultCacheBehavior
 defaultCacheBehavior p1 p2 p3 p4 p5 = DefaultCacheBehavior
     { _dcbTargetOriginId = p1
     , _dcbForwardedValues = p2
@@ -2433,13 +2433,13 @@ data Distribution = Distribution
 -- * @DistributionConfig ::@ @DistributionConfig@
 --
 distribution :: Text -- ^ 'dId'
-               -> Text -- ^ 'dStatus'
-               -> ISO8601 -- ^ 'dLastModifiedTime'
-               -> Integer -- ^ 'dInProgressInvalidationBatches'
-               -> Text -- ^ 'dDomainName'
-               -> ActiveTrustedSigners -- ^ 'dActiveTrustedSigners'
-               -> DistributionConfig -- ^ 'dDistributionConfig'
-               -> Distribution
+             -> Text -- ^ 'dStatus'
+             -> ISO8601 -- ^ 'dLastModifiedTime'
+             -> Integer -- ^ 'dInProgressInvalidationBatches'
+             -> Text -- ^ 'dDomainName'
+             -> ActiveTrustedSigners -- ^ 'dActiveTrustedSigners'
+             -> DistributionConfig -- ^ 'dDistributionConfig'
+             -> Distribution
 distribution p1 p2 p3 p4 p5 p6 p7 = Distribution
     { _dId = p1
     , _dStatus = p2
@@ -2546,16 +2546,16 @@ data DistributionConfig = DistributionConfig
 -- * @Restrictions ::@ @Maybe Restrictions@
 --
 distributionConfig :: Text -- ^ 'dcCallerReference'
-                     -> PriceClass -- ^ 'dcPriceClass'
-                     -> Bool -- ^ 'dcEnabled'
-                     -> Aliases -- ^ 'dcAliases'
-                     -> Text -- ^ 'dcDefaultRootObject'
-                     -> Origins -- ^ 'dcOrigins'
-                     -> DefaultCacheBehavior -- ^ 'dcDefaultCacheBehavior'
-                     -> CacheBehaviors -- ^ 'dcCacheBehaviors'
-                     -> Text -- ^ 'dcComment'
-                     -> LoggingConfig -- ^ 'dcLogging'
-                     -> DistributionConfig
+                   -> PriceClass -- ^ 'dcPriceClass'
+                   -> Bool -- ^ 'dcEnabled'
+                   -> Aliases -- ^ 'dcAliases'
+                   -> Text -- ^ 'dcDefaultRootObject'
+                   -> Origins -- ^ 'dcOrigins'
+                   -> DefaultCacheBehavior -- ^ 'dcDefaultCacheBehavior'
+                   -> CacheBehaviors -- ^ 'dcCacheBehaviors'
+                   -> Text -- ^ 'dcComment'
+                   -> LoggingConfig -- ^ 'dcLogging'
+                   -> DistributionConfig
 distributionConfig p1 p10 p11 p2 p3 p4 p5 p6 p8 p9 = DistributionConfig
     { _dcCallerReference = p1
     , _dcAliases = p2
@@ -2697,10 +2697,10 @@ data DistributionList = DistributionList
 -- * @Items ::@ @[DistributionSummary]@
 --
 distributionList :: Text -- ^ 'dlMarker'
-                   -> Integer -- ^ 'dlMaxItems'
-                   -> Bool -- ^ 'dlIsTruncated'
-                   -> Integer -- ^ 'dlQuantity'
-                   -> DistributionList
+                 -> Integer -- ^ 'dlMaxItems'
+                 -> Bool -- ^ 'dlIsTruncated'
+                 -> Integer -- ^ 'dlQuantity'
+                 -> DistributionList
 distributionList p1 p3 p4 p5 = DistributionList
     { _dlMarker = p1
     , _dlNextMarker = Nothing
@@ -2799,20 +2799,20 @@ data DistributionSummary = DistributionSummary
 -- * @Restrictions ::@ @Restrictions@
 --
 distributionSummary :: Text -- ^ 'dsId'
-                      -> Text -- ^ 'dsComment'
-                      -> PriceClass -- ^ 'dsPriceClass'
-                      -> Bool -- ^ 'dsEnabled'
-                      -> ViewerCertificate -- ^ 'dsViewerCertificate'
-                      -> Restrictions -- ^ 'dsRestrictions'
-                      -> Text -- ^ 'dsStatus'
-                      -> ISO8601 -- ^ 'dsLastModifiedTime'
-                      -> Text -- ^ 'dsDomainName'
-                      -> Aliases -- ^ 'dsAliases'
-                      -> Origins -- ^ 'dsOrigins'
-                      -> DefaultCacheBehavior -- ^ 'dsDefaultCacheBehavior'
-                      -> CacheBehaviors -- ^ 'dsCacheBehaviors'
-                      -> CustomErrorResponses -- ^ 'dsCustomErrorResponses'
-                      -> DistributionSummary
+                    -> Text -- ^ 'dsComment'
+                    -> PriceClass -- ^ 'dsPriceClass'
+                    -> Bool -- ^ 'dsEnabled'
+                    -> ViewerCertificate -- ^ 'dsViewerCertificate'
+                    -> Restrictions -- ^ 'dsRestrictions'
+                    -> Text -- ^ 'dsStatus'
+                    -> ISO8601 -- ^ 'dsLastModifiedTime'
+                    -> Text -- ^ 'dsDomainName'
+                    -> Aliases -- ^ 'dsAliases'
+                    -> Origins -- ^ 'dsOrigins'
+                    -> DefaultCacheBehavior -- ^ 'dsDefaultCacheBehavior'
+                    -> CacheBehaviors -- ^ 'dsCacheBehaviors'
+                    -> CustomErrorResponses -- ^ 'dsCustomErrorResponses'
+                    -> DistributionSummary
 distributionSummary p1 p10 p11 p12 p13 p14 p2 p3 p4 p5 p6 p7 p8 p9 = DistributionSummary
     { _dsId = p1
     , _dsStatus = p2
@@ -2925,8 +2925,8 @@ data ForwardedValues = ForwardedValues
 -- * @Headers ::@ @Maybe Headers@
 --
 forwardedValues :: Bool -- ^ 'fvQueryString'
-                  -> CookiePreference -- ^ 'fvCookies'
-                  -> ForwardedValues
+                -> CookiePreference -- ^ 'fvCookies'
+                -> ForwardedValues
 forwardedValues p1 p2 = ForwardedValues
     { _fvQueryString = p1
     , _fvCookies = p2
@@ -2980,8 +2980,8 @@ data GeoRestriction = GeoRestriction
 -- * @Items ::@ @[Text]@
 --
 geoRestriction :: GeoRestrictionType -- ^ 'grRestrictionType'
-                 -> Integer -- ^ 'grQuantity'
-                 -> GeoRestriction
+               -> Integer -- ^ 'grQuantity'
+               -> GeoRestriction
 geoRestriction p1 p2 = GeoRestriction
     { _grRestrictionType = p1
     , _grQuantity = p2
@@ -3042,7 +3042,7 @@ data Headers = Headers
 -- * @Items ::@ @[Text]@
 --
 headers :: Integer -- ^ 'hQuantity'
-          -> Headers
+        -> Headers
 headers p1 = Headers
     { _hQuantity = p1
     , _hItems = mempty
@@ -3097,10 +3097,10 @@ data Invalidation = Invalidation
 -- * @InvalidationBatch ::@ @InvalidationBatch@
 --
 invalidation :: Text -- ^ 'iId'
-               -> Text -- ^ 'iStatus'
-               -> ISO8601 -- ^ 'iCreateTime'
-               -> InvalidationBatch -- ^ 'iInvalidationBatch'
-               -> Invalidation
+             -> Text -- ^ 'iStatus'
+             -> ISO8601 -- ^ 'iCreateTime'
+             -> InvalidationBatch -- ^ 'iInvalidationBatch'
+             -> Invalidation
 invalidation p1 p2 p3 p4 = Invalidation
     { _iId = p1
     , _iStatus = p2
@@ -3146,8 +3146,8 @@ data InvalidationBatch = InvalidationBatch
 -- * @CallerReference ::@ @Text@
 --
 invalidationBatch :: Paths -- ^ 'ibPaths'
-                    -> Text -- ^ 'ibCallerReference'
-                    -> InvalidationBatch
+                  -> Text -- ^ 'ibCallerReference'
+                  -> InvalidationBatch
 invalidationBatch p1 p2 = InvalidationBatch
     { _ibPaths = p1
     , _ibCallerReference = p2
@@ -3215,10 +3215,10 @@ data InvalidationList = InvalidationList
 -- * @Items ::@ @[InvalidationSummary]@
 --
 invalidationList :: Text -- ^ 'ilMarker'
-                   -> Integer -- ^ 'ilMaxItems'
-                   -> Bool -- ^ 'ilIsTruncated'
-                   -> Integer -- ^ 'ilQuantity'
-                   -> InvalidationList
+                 -> Integer -- ^ 'ilMaxItems'
+                 -> Bool -- ^ 'ilIsTruncated'
+                 -> Integer -- ^ 'ilQuantity'
+                 -> InvalidationList
 invalidationList p1 p3 p4 p5 = InvalidationList
     { _ilMarker = p1
     , _ilNextMarker = Nothing
@@ -3285,9 +3285,9 @@ data InvalidationSummary = InvalidationSummary
 -- * @Status ::@ @Text@
 --
 invalidationSummary :: Text -- ^ 'isId'
-                      -> ISO8601 -- ^ 'isCreateTime'
-                      -> Text -- ^ 'isStatus'
-                      -> InvalidationSummary
+                    -> ISO8601 -- ^ 'isCreateTime'
+                    -> Text -- ^ 'isStatus'
+                    -> InvalidationSummary
 invalidationSummary p1 p2 p3 = InvalidationSummary
     { _isId = p1
     , _isCreateTime = p2
@@ -3326,7 +3326,7 @@ data KeyPairIds = KeyPairIds
 -- * @Items ::@ @[Text]@
 --
 keyPairIds :: Integer -- ^ 'kpiQuantity'
-             -> KeyPairIds
+           -> KeyPairIds
 keyPairIds p1 = KeyPairIds
     { _kpiQuantity = p1
     , _kpiItems = mempty
@@ -3372,10 +3372,10 @@ data LoggingConfig = LoggingConfig
 -- * @Prefix ::@ @Text@
 --
 loggingConfig :: Bool -- ^ 'lcEnabled'
-                -> Bool -- ^ 'lcIncludeCookies'
-                -> Text -- ^ 'lcBucket'
-                -> Text -- ^ 'lcPrefix'
-                -> LoggingConfig
+              -> Bool -- ^ 'lcIncludeCookies'
+              -> Text -- ^ 'lcBucket'
+              -> Text -- ^ 'lcPrefix'
+              -> LoggingConfig
 loggingConfig p1 p2 p3 p4 = LoggingConfig
     { _lcEnabled = p1
     , _lcIncludeCookies = p2
@@ -3446,8 +3446,8 @@ data Origin = Origin
 -- * @CustomOriginConfig ::@ @Maybe CustomOriginConfig@
 --
 origin :: Text -- ^ 'o1Id'
-         -> Text -- ^ 'o1DomainName'
-         -> Origin
+       -> Text -- ^ 'o1DomainName'
+       -> Origin
 origin p1 p2 = Origin
     { _o1Id = p1
     , _o1DomainName = p2
@@ -3507,7 +3507,7 @@ data Origins = Origins
 -- * @Items ::@ @Maybe (List1 Origin)@
 --
 origins :: Integer -- ^ 'oQuantity'
-          -> Origins
+        -> Origins
 origins p1 = Origins
     { _oQuantity = p1
     , _oItems = Nothing
@@ -3551,7 +3551,7 @@ data Paths = Paths
 -- * @Items ::@ @[Text]@
 --
 paths :: Integer -- ^ 'pQuantity'
-        -> Paths
+      -> Paths
 paths p1 = Paths
     { _pQuantity = p1
     , _pItems = mempty
@@ -3591,8 +3591,8 @@ data S3Origin = S3Origin
 -- * @OriginAccessIdentity ::@ @Text@
 --
 s3Origin :: Text -- ^ 'soDomainName'
-           -> Text -- ^ 'soOriginAccessIdentity'
-           -> S3Origin
+         -> Text -- ^ 'soOriginAccessIdentity'
+         -> S3Origin
 s3Origin p1 p2 = S3Origin
     { _soDomainName = p1
     , _soOriginAccessIdentity = p2
@@ -3689,11 +3689,11 @@ data StreamingDistribution = StreamingDistribution
 -- * @StreamingDistributionConfig ::@ @StreamingDistributionConfig@
 --
 streamingDistribution :: Text -- ^ 'sdId'
-                        -> Text -- ^ 'sdStatus'
-                        -> Text -- ^ 'sdDomainName'
-                        -> ActiveTrustedSigners -- ^ 'sdActiveTrustedSigners'
-                        -> StreamingDistributionConfig -- ^ 'sdStreamingDistributionConfig'
-                        -> StreamingDistribution
+                      -> Text -- ^ 'sdStatus'
+                      -> Text -- ^ 'sdDomainName'
+                      -> ActiveTrustedSigners -- ^ 'sdActiveTrustedSigners'
+                      -> StreamingDistributionConfig -- ^ 'sdStreamingDistributionConfig'
+                      -> StreamingDistribution
 streamingDistribution p1 p2 p4 p5 p6 = StreamingDistribution
     { _sdId = p1
     , _sdStatus = p2
@@ -3780,14 +3780,14 @@ data StreamingDistributionConfig = StreamingDistributionConfig
 -- * @Enabled ::@ @Bool@
 --
 streamingDistributionConfig :: Text -- ^ 'sdcCallerReference'
-                              -> S3Origin -- ^ 'sdcS3Origin'
-                              -> Aliases -- ^ 'sdcAliases'
-                              -> Text -- ^ 'sdcComment'
-                              -> StreamingLoggingConfig -- ^ 'sdcLogging'
-                              -> TrustedSigners -- ^ 'sdcTrustedSigners'
-                              -> PriceClass -- ^ 'sdcPriceClass'
-                              -> Bool -- ^ 'sdcEnabled'
-                              -> StreamingDistributionConfig
+                            -> S3Origin -- ^ 'sdcS3Origin'
+                            -> Aliases -- ^ 'sdcAliases'
+                            -> Text -- ^ 'sdcComment'
+                            -> StreamingLoggingConfig -- ^ 'sdcLogging'
+                            -> TrustedSigners -- ^ 'sdcTrustedSigners'
+                            -> PriceClass -- ^ 'sdcPriceClass'
+                            -> Bool -- ^ 'sdcEnabled'
+                            -> StreamingDistributionConfig
 streamingDistributionConfig p1 p2 p3 p4 p5 p6 p7 p8 = StreamingDistributionConfig
     { _sdcCallerReference = p1
     , _sdcS3Origin = p2
@@ -3898,10 +3898,10 @@ data StreamingDistributionList = StreamingDistributionList
 -- * @Items ::@ @[StreamingDistributionSummary]@
 --
 streamingDistributionList :: Text -- ^ 'sdlMarker'
-                            -> Integer -- ^ 'sdlMaxItems'
-                            -> Bool -- ^ 'sdlIsTruncated'
-                            -> Integer -- ^ 'sdlQuantity'
-                            -> StreamingDistributionList
+                          -> Integer -- ^ 'sdlMaxItems'
+                          -> Bool -- ^ 'sdlIsTruncated'
+                          -> Integer -- ^ 'sdlQuantity'
+                          -> StreamingDistributionList
 streamingDistributionList p1 p3 p4 p5 = StreamingDistributionList
     { _sdlMarker = p1
     , _sdlNextMarker = Nothing
@@ -3990,16 +3990,16 @@ data StreamingDistributionSummary = StreamingDistributionSummary
 -- * @Enabled ::@ @Bool@
 --
 streamingDistributionSummary :: Text -- ^ 'sdsId'
-                               -> Bool -- ^ 'sdsEnabled'
-                               -> Text -- ^ 'sdsStatus'
-                               -> ISO8601 -- ^ 'sdsLastModifiedTime'
-                               -> Text -- ^ 'sdsDomainName'
-                               -> S3Origin -- ^ 'sdsS3Origin'
-                               -> Aliases -- ^ 'sdsAliases'
-                               -> TrustedSigners -- ^ 'sdsTrustedSigners'
-                               -> Text -- ^ 'sdsComment'
-                               -> PriceClass -- ^ 'sdsPriceClass'
-                               -> StreamingDistributionSummary
+                             -> Bool -- ^ 'sdsEnabled'
+                             -> Text -- ^ 'sdsStatus'
+                             -> ISO8601 -- ^ 'sdsLastModifiedTime'
+                             -> Text -- ^ 'sdsDomainName'
+                             -> S3Origin -- ^ 'sdsS3Origin'
+                             -> Aliases -- ^ 'sdsAliases'
+                             -> TrustedSigners -- ^ 'sdsTrustedSigners'
+                             -> Text -- ^ 'sdsComment'
+                             -> PriceClass -- ^ 'sdsPriceClass'
+                             -> StreamingDistributionSummary
 streamingDistributionSummary p1 p10 p2 p3 p4 p5 p6 p7 p8 p9 = StreamingDistributionSummary
     { _sdsId = p1
     , _sdsStatus = p2
@@ -4095,9 +4095,9 @@ data StreamingLoggingConfig = StreamingLoggingConfig
 -- * @Prefix ::@ @Text@
 --
 streamingLoggingConfig :: Bool -- ^ 'slcEnabled'
-                         -> Text -- ^ 'slcBucket'
-                         -> Text -- ^ 'slcPrefix'
-                         -> StreamingLoggingConfig
+                       -> Text -- ^ 'slcBucket'
+                       -> Text -- ^ 'slcPrefix'
+                       -> StreamingLoggingConfig
 streamingLoggingConfig p1 p2 p3 = StreamingLoggingConfig
     { _slcEnabled = p1
     , _slcBucket = p2
@@ -4163,8 +4163,8 @@ data TrustedSigners = TrustedSigners
 -- * @Items ::@ @[Text]@
 --
 trustedSigners :: Bool -- ^ 'tsEnabled'
-                 -> Integer -- ^ 'tsQuantity'
-                 -> TrustedSigners
+               -> Integer -- ^ 'tsQuantity'
+               -> TrustedSigners
 trustedSigners p1 p2 = TrustedSigners
     { _tsEnabled = p1
     , _tsQuantity = p2

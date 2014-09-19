@@ -59,7 +59,7 @@ newtype DeleteHealthCheck = DeleteHealthCheck
 -- * @HealthCheckId ::@ @Text@
 --
 deleteHealthCheck :: Text -- ^ 'dhcHealthCheckId'
-                    -> DeleteHealthCheck
+                  -> DeleteHealthCheck
 deleteHealthCheck p1 = DeleteHealthCheck
     { _dhcHealthCheckId = p1
     }

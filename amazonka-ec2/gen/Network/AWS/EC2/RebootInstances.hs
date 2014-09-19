@@ -62,7 +62,7 @@ newtype RebootInstances = RebootInstances
 -- * @InstanceIds ::@ @[Text]@
 --
 rebootInstances :: [Text] -- ^ 'ri1InstanceIds'
-                  -> RebootInstances
+                -> RebootInstances
 rebootInstances p1 = RebootInstances
     { _ri1InstanceIds = p1
     }

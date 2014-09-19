@@ -110,9 +110,9 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML
 -- * @DurationSeconds ::@ @Maybe Integer@
 --
 assumeRoleWithSAML :: Text -- ^ 'arwsamlRoleArn'
-                     -> Text -- ^ 'arwsamlPrincipalArn'
-                     -> Text -- ^ 'arwsamlSAMLAssertion'
-                     -> AssumeRoleWithSAML
+                   -> Text -- ^ 'arwsamlPrincipalArn'
+                   -> Text -- ^ 'arwsamlSAMLAssertion'
+                   -> AssumeRoleWithSAML
 assumeRoleWithSAML p1 p2 p3 = AssumeRoleWithSAML
     { _arwsamlRoleArn = p1
     , _arwsamlPrincipalArn = p2

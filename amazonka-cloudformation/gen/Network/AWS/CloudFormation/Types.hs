@@ -570,9 +570,9 @@ data Stack = Stack
 -- * @Tags ::@ @[Tag]@
 --
 stack :: Text -- ^ 'sStackName'
-        -> ISO8601 -- ^ 'sCreationTime'
-        -> StackStatus -- ^ 'sStackStatus'
-        -> Stack
+      -> ISO8601 -- ^ 'sCreationTime'
+      -> StackStatus -- ^ 'sStackStatus'
+      -> Stack
 stack p2 p5 p7 = Stack
     { _sStackId = Nothing
     , _sStackName = p2
@@ -700,10 +700,10 @@ data StackEvent = StackEvent
 -- * @ResourceProperties ::@ @Maybe Text@
 --
 stackEvent :: Text -- ^ 'seStackId'
-             -> Text -- ^ 'seEventId'
-             -> Text -- ^ 'seStackName'
-             -> ISO8601 -- ^ 'seTimestamp'
-             -> StackEvent
+           -> Text -- ^ 'seEventId'
+           -> Text -- ^ 'seStackName'
+           -> ISO8601 -- ^ 'seTimestamp'
+           -> StackEvent
 stackEvent p1 p2 p3 p7 = StackEvent
     { _seStackId = p1
     , _seEventId = p2
@@ -808,10 +808,10 @@ data StackResource = StackResource
 -- * @Description ::@ @Maybe Text@
 --
 stackResource :: Text -- ^ 'srLogicalResourceId'
-                -> Text -- ^ 'srResourceType'
-                -> ISO8601 -- ^ 'srTimestamp'
-                -> ResourceStatus -- ^ 'srResourceStatus'
-                -> StackResource
+              -> Text -- ^ 'srResourceType'
+              -> ISO8601 -- ^ 'srTimestamp'
+              -> ResourceStatus -- ^ 'srResourceStatus'
+              -> StackResource
 stackResource p3 p5 p6 p7 = StackResource
     { _srStackName = Nothing
     , _srStackId = Nothing
@@ -914,10 +914,10 @@ data StackResourceDetail = StackResourceDetail
 -- * @Metadata ::@ @Maybe Text@
 --
 stackResourceDetail :: Text -- ^ 'srdLogicalResourceId'
-                      -> Text -- ^ 'srdResourceType'
-                      -> ISO8601 -- ^ 'srdLastUpdatedTimestamp'
-                      -> ResourceStatus -- ^ 'srdResourceStatus'
-                      -> StackResourceDetail
+                    -> Text -- ^ 'srdResourceType'
+                    -> ISO8601 -- ^ 'srdLastUpdatedTimestamp'
+                    -> ResourceStatus -- ^ 'srdResourceStatus'
+                    -> StackResourceDetail
 stackResourceDetail p3 p5 p6 p7 = StackResourceDetail
     { _srdStackName = Nothing
     , _srdStackId = Nothing
@@ -1017,10 +1017,10 @@ data StackResourceSummary = StackResourceSummary
 -- * @ResourceStatusReason ::@ @Maybe Text@
 --
 stackResourceSummary :: Text -- ^ 'srsLogicalResourceId'
-                       -> Text -- ^ 'srsResourceType'
-                       -> ISO8601 -- ^ 'srsLastUpdatedTimestamp'
-                       -> ResourceStatus -- ^ 'srsResourceStatus'
-                       -> StackResourceSummary
+                     -> Text -- ^ 'srsResourceType'
+                     -> ISO8601 -- ^ 'srsLastUpdatedTimestamp'
+                     -> ResourceStatus -- ^ 'srsResourceStatus'
+                     -> StackResourceSummary
 stackResourceSummary p1 p3 p4 p5 = StackResourceSummary
     { _srsLogicalResourceId = p1
     , _srsPhysicalResourceId = Nothing
@@ -1104,9 +1104,9 @@ data StackSummary = StackSummary
 -- * @StackStatusReason ::@ @Maybe Text@
 --
 stackSummary :: Text -- ^ 'ssStackName'
-               -> ISO8601 -- ^ 'ssCreationTime'
-               -> StackStatus -- ^ 'ssStackStatus'
-               -> StackSummary
+             -> ISO8601 -- ^ 'ssCreationTime'
+             -> StackStatus -- ^ 'ssStackStatus'
+             -> StackSummary
 stackSummary p2 p4 p7 = StackSummary
     { _ssStackId = Nothing
     , _ssStackName = p2

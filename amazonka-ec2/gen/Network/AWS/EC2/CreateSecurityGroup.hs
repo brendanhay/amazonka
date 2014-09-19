@@ -94,8 +94,8 @@ data CreateSecurityGroup = CreateSecurityGroup
 -- * @VpcId ::@ @Maybe Text@
 --
 createSecurityGroup :: Text -- ^ 'csgGroupName'
-                      -> Text -- ^ 'csgDescription'
-                      -> CreateSecurityGroup
+                    -> Text -- ^ 'csgDescription'
+                    -> CreateSecurityGroup
 createSecurityGroup p1 p2 = CreateSecurityGroup
     { _csgGroupName = p1
     , _csgDescription = p2

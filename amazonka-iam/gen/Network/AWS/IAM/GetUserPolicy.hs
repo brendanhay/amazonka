@@ -63,8 +63,8 @@ data GetUserPolicy = GetUserPolicy
 -- * @PolicyName ::@ @Text@
 --
 getUserPolicy :: Text -- ^ 'gupUserName'
-                -> Text -- ^ 'gupPolicyName'
-                -> GetUserPolicy
+              -> Text -- ^ 'gupPolicyName'
+              -> GetUserPolicy
 getUserPolicy p1 p2 = GetUserPolicy
     { _gupUserName = p1
     , _gupPolicyName = p2
@@ -102,9 +102,9 @@ data GetUserPolicyResponse = GetUserPolicyResponse
 -- * @PolicyDocument ::@ @Text@
 --
 getUserPolicyResponse :: Text -- ^ 'guprUserName'
-                        -> Text -- ^ 'guprPolicyName'
-                        -> Text -- ^ 'guprPolicyDocument'
-                        -> GetUserPolicyResponse
+                      -> Text -- ^ 'guprPolicyName'
+                      -> Text -- ^ 'guprPolicyDocument'
+                      -> GetUserPolicyResponse
 getUserPolicyResponse p1 p2 p3 = GetUserPolicyResponse
     { _guprUserName = p1
     , _guprPolicyName = p2

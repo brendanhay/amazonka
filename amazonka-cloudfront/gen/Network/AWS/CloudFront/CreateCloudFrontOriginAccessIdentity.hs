@@ -55,7 +55,7 @@ newtype CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdent
 -- * @CloudFrontOriginAccessIdentityConfig ::@ @CloudFrontOriginAccessIdentityConfig@
 --
 createCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -- ^ 'ccfoaiCloudFrontOriginAccessIdentityConfig'
-                                       -> CreateCloudFrontOriginAccessIdentity
+                                     -> CreateCloudFrontOriginAccessIdentity
 createCloudFrontOriginAccessIdentity p1 = CreateCloudFrontOriginAccessIdentity
     { _ccfoaiCloudFrontOriginAccessIdentityConfig = p1
     }

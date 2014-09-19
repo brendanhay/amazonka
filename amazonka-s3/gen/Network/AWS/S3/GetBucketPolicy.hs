@@ -52,7 +52,7 @@ newtype GetBucketPolicy = GetBucketPolicy
 -- * @Bucket ::@ @BucketName@
 --
 getBucketPolicy :: BucketName -- ^ 'gbpBucket'
-                  -> GetBucketPolicy
+                -> GetBucketPolicy
 getBucketPolicy p1 = GetBucketPolicy
     { _gbpBucket = p1
     }

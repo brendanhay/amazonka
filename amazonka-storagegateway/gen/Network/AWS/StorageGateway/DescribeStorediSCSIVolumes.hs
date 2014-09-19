@@ -75,7 +75,7 @@ newtype DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes
 -- * @VolumeARNs ::@ @[Text]@
 --
 describeStorediSCSIVolumes :: [Text] -- ^ 'dsscsivVolumeARNs'
-                             -> DescribeStorediSCSIVolumes
+                           -> DescribeStorediSCSIVolumes
 describeStorediSCSIVolumes p1 = DescribeStorediSCSIVolumes
     { _dsscsivVolumeARNs = p1
     }

@@ -106,9 +106,9 @@ data GetShardIterator = GetShardIterator
 -- * @StartingSequenceNumber ::@ @Maybe Text@
 --
 getShardIterator :: Text -- ^ 'gsiStreamName'
-                   -> Text -- ^ 'gsiShardId'
-                   -> ShardIteratorType -- ^ 'gsiShardIteratorType'
-                   -> GetShardIterator
+                 -> Text -- ^ 'gsiShardId'
+                 -> ShardIteratorType -- ^ 'gsiShardIteratorType'
+                 -> GetShardIterator
 getShardIterator p1 p2 p3 = GetShardIterator
     { _gsiStreamName = p1
     , _gsiShardId = p2

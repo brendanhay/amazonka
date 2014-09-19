@@ -69,8 +69,8 @@ data SetPermission = SetPermission
 -- * @Level ::@ @Maybe Text@
 --
 setPermission :: Text -- ^ 'spStackId'
-                -> Text -- ^ 'spIamUserArn'
-                -> SetPermission
+              -> Text -- ^ 'spIamUserArn'
+              -> SetPermission
 setPermission p1 p2 = SetPermission
     { _spStackId = p1
     , _spIamUserArn = p2

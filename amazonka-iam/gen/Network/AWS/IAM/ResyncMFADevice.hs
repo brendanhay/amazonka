@@ -64,10 +64,10 @@ data ResyncMFADevice = ResyncMFADevice
 -- * @AuthenticationCode2 ::@ @Text@
 --
 resyncMFADevice :: Text -- ^ 'rmfadUserName'
-                  -> Text -- ^ 'rmfadSerialNumber'
-                  -> Text -- ^ 'rmfadAuthenticationCode1'
-                  -> Text -- ^ 'rmfadAuthenticationCode2'
-                  -> ResyncMFADevice
+                -> Text -- ^ 'rmfadSerialNumber'
+                -> Text -- ^ 'rmfadAuthenticationCode1'
+                -> Text -- ^ 'rmfadAuthenticationCode2'
+                -> ResyncMFADevice
 resyncMFADevice p1 p2 p3 p4 = ResyncMFADevice
     { _rmfadUserName = p1
     , _rmfadSerialNumber = p2

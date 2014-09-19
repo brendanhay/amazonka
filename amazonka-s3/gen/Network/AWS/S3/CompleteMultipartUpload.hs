@@ -70,9 +70,9 @@ data CompleteMultipartUpload = CompleteMultipartUpload
 -- * @UploadId ::@ @Text@
 --
 completeMultipartUpload :: BucketName -- ^ 'cmuBucket'
-                          -> ObjectKey -- ^ 'cmuKey'
-                          -> Text -- ^ 'cmuUploadId'
-                          -> CompleteMultipartUpload
+                        -> ObjectKey -- ^ 'cmuKey'
+                        -> Text -- ^ 'cmuUploadId'
+                        -> CompleteMultipartUpload
 completeMultipartUpload p1 p2 p4 = CompleteMultipartUpload
     { _cmuBucket = p1
     , _cmuKey = p2

@@ -84,8 +84,8 @@ data GetItem = GetItem
 -- * @ReturnConsumedCapacity ::@ @Maybe ReturnConsumedCapacity@
 --
 getItem :: Text -- ^ 'giTableName'
-          -> Map Text AttributeValue -- ^ 'giKey'
-          -> GetItem
+        -> Map Text AttributeValue -- ^ 'giKey'
+        -> GetItem
 getItem p1 p2 = GetItem
     { _giTableName = p1
     , _giKey = p2

@@ -58,8 +58,8 @@ data AddTagsToResource = AddTagsToResource
 -- * @Tags ::@ @[Tag]@
 --
 addTagsToResource :: Text -- ^ 'attrResourceName'
-                    -> [Tag] -- ^ 'attrTags'
-                    -> AddTagsToResource
+                  -> [Tag] -- ^ 'attrTags'
+                  -> AddTagsToResource
 addTagsToResource p1 p2 = AddTagsToResource
     { _attrResourceName = p1
     , _attrTags = p2

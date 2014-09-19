@@ -58,8 +58,8 @@ data PutBucketTagging = PutBucketTagging
 -- * @Tagging ::@ @Tagging@
 --
 putBucketTagging :: BucketName -- ^ 'pbtBucket'
-                   -> Tagging -- ^ 'pbtTagging'
-                   -> PutBucketTagging
+                 -> Tagging -- ^ 'pbtTagging'
+                 -> PutBucketTagging
 putBucketTagging p1 p3 = PutBucketTagging
     { _pbtBucket = p1
     , _pbtContentMD5 = Nothing

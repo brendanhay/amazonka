@@ -99,12 +99,12 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry
 -- * @PortRange ::@ @Maybe PortRange@
 --
 createNetworkAclEntry :: Text -- ^ 'cnaeNetworkAclId'
-                        -> Integer -- ^ 'cnaeRuleNumber'
-                        -> Text -- ^ 'cnaeProtocol'
-                        -> RuleAction -- ^ 'cnaeRuleAction'
-                        -> Bool -- ^ 'cnaeEgress'
-                        -> Text -- ^ 'cnaeCidrBlock'
-                        -> CreateNetworkAclEntry
+                      -> Integer -- ^ 'cnaeRuleNumber'
+                      -> Text -- ^ 'cnaeProtocol'
+                      -> RuleAction -- ^ 'cnaeRuleAction'
+                      -> Bool -- ^ 'cnaeEgress'
+                      -> Text -- ^ 'cnaeCidrBlock'
+                      -> CreateNetworkAclEntry
 createNetworkAclEntry p1 p2 p3 p4 p5 p6 = CreateNetworkAclEntry
     { _cnaeNetworkAclId = p1
     , _cnaeRuleNumber = p2

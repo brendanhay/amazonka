@@ -95,8 +95,8 @@ data DeleteItem = DeleteItem
 -- * @ReturnItemCollectionMetrics ::@ @Maybe ReturnItemCollectionMetrics@
 --
 deleteItem :: Text -- ^ 'diTableName'
-             -> Map Text AttributeValue -- ^ 'diKey'
-             -> DeleteItem
+           -> Map Text AttributeValue -- ^ 'diKey'
+           -> DeleteItem
 deleteItem p1 p2 = DeleteItem
     { _diTableName = p1
     , _diKey = p2

@@ -58,7 +58,7 @@ newtype RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck
 -- * @CheckId ::@ @Text@
 --
 refreshTrustedAdvisorCheck :: Text -- ^ 'rtacCheckId'
-                             -> RefreshTrustedAdvisorCheck
+                           -> RefreshTrustedAdvisorCheck
 refreshTrustedAdvisorCheck p1 = RefreshTrustedAdvisorCheck
     { _rtacCheckId = p1
     }
@@ -90,7 +90,7 @@ newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse
 -- * @Status ::@ @TrustedAdvisorCheckRefreshStatus@
 --
 refreshTrustedAdvisorCheckResponse :: TrustedAdvisorCheckRefreshStatus -- ^ 'rtacrStatus'
-                                     -> RefreshTrustedAdvisorCheckResponse
+                                   -> RefreshTrustedAdvisorCheckResponse
 refreshTrustedAdvisorCheckResponse p1 = RefreshTrustedAdvisorCheckResponse
     { _rtacrStatus = p1
     }

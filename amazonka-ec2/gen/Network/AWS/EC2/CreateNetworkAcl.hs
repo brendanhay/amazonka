@@ -63,7 +63,7 @@ newtype CreateNetworkAcl = CreateNetworkAcl
 -- * @VpcId ::@ @Text@
 --
 createNetworkAcl :: Text -- ^ 'cnaVpcId'
-                   -> CreateNetworkAcl
+                 -> CreateNetworkAcl
 createNetworkAcl p1 = CreateNetworkAcl
     { _cnaVpcId = p1
     }

@@ -74,8 +74,8 @@ data SetVisibleToAllUsers = SetVisibleToAllUsers
 -- * @VisibleToAllUsers ::@ @Bool@
 --
 setVisibleToAllUsers :: [Text] -- ^ 'svtauJobFlowIds'
-                       -> Bool -- ^ 'svtauVisibleToAllUsers'
-                       -> SetVisibleToAllUsers
+                     -> Bool -- ^ 'svtauVisibleToAllUsers'
+                     -> SetVisibleToAllUsers
 setVisibleToAllUsers p1 p2 = SetVisibleToAllUsers
     { _svtauJobFlowIds = p1
     , _svtauVisibleToAllUsers = p2

@@ -222,8 +222,8 @@ data TestMetricFilter = TestMetricFilter
 -- * @LogEventMessages ::@ @List1 Text@
 --
 testMetricFilter :: Text -- ^ 'tmfFilterPattern'
-                   -> List1 Text -- ^ 'tmfLogEventMessages'
-                   -> TestMetricFilter
+                 -> List1 Text -- ^ 'tmfLogEventMessages'
+                 -> TestMetricFilter
 testMetricFilter p1 p2 = TestMetricFilter
     { _tmfFilterPattern = p1
     , _tmfLogEventMessages = p2

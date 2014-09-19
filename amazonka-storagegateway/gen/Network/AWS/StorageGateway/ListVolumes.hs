@@ -89,7 +89,7 @@ data ListVolumes = ListVolumes
 -- * @Limit ::@ @Maybe Integer@
 --
 listVolumes :: Text -- ^ 'lvGatewayARN'
-              -> ListVolumes
+            -> ListVolumes
 listVolumes p1 = ListVolumes
     { _lvGatewayARN = p1
     , _lvMarker = Nothing

@@ -66,8 +66,8 @@ data ResetInstanceAttribute = ResetInstanceAttribute
 -- * @Attribute ::@ @InstanceAttributeName@
 --
 resetInstanceAttribute :: Text -- ^ 'ria1InstanceId'
-                         -> InstanceAttributeName -- ^ 'ria1Attribute'
-                         -> ResetInstanceAttribute
+                       -> InstanceAttributeName -- ^ 'ria1Attribute'
+                       -> ResetInstanceAttribute
 resetInstanceAttribute p1 p2 = ResetInstanceAttribute
     { _ria1InstanceId = p1
     , _ria1Attribute = p2

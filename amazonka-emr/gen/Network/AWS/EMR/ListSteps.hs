@@ -61,7 +61,7 @@ data ListSteps = ListSteps
 -- * @Marker ::@ @Maybe Text@
 --
 listSteps :: Text -- ^ 'lsClusterId'
-            -> ListSteps
+          -> ListSteps
 listSteps p1 = ListSteps
     { _lsClusterId = p1
     , _lsStepStates = mempty

@@ -83,8 +83,8 @@ data DeprecateActivityType = DeprecateActivityType
 -- * @ActivityType ::@ @ActivityType@
 --
 deprecateActivityType :: Text -- ^ 'datDomain'
-                        -> ActivityType -- ^ 'datActivityType'
-                        -> DeprecateActivityType
+                      -> ActivityType -- ^ 'datActivityType'
+                      -> DeprecateActivityType
 deprecateActivityType p1 p2 = DeprecateActivityType
     { _datDomain = p1
     , _datActivityType = p2

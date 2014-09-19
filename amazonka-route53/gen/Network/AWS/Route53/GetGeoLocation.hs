@@ -115,7 +115,7 @@ newtype GetGeoLocationResponse = GetGeoLocationResponse
 -- * @GeoLocationDetails ::@ @GeoLocationDetails@
 --
 getGeoLocationResponse :: GeoLocationDetails -- ^ 'gglrGeoLocationDetails'
-                         -> GetGeoLocationResponse
+                       -> GetGeoLocationResponse
 getGeoLocationResponse p1 = GetGeoLocationResponse
     { _gglrGeoLocationDetails = p1
     }

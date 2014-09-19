@@ -99,8 +99,8 @@ data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions
 -- * @ExecutionFilter ::@ @Maybe WorkflowExecutionFilter@
 --
 countOpenWorkflowExecutions :: Text -- ^ 'coweDomain'
-                              -> ExecutionTimeFilter -- ^ 'coweStartTimeFilter'
-                              -> CountOpenWorkflowExecutions
+                            -> ExecutionTimeFilter -- ^ 'coweStartTimeFilter'
+                            -> CountOpenWorkflowExecutions
 countOpenWorkflowExecutions p1 p2 = CountOpenWorkflowExecutions
     { _coweDomain = p1
     , _coweStartTimeFilter = p2
@@ -165,7 +165,7 @@ data CountOpenWorkflowExecutionsResponse = CountOpenWorkflowExecutionsResponse
 -- * @Truncated ::@ @Maybe Bool@
 --
 countOpenWorkflowExecutionsResponse :: Integer -- ^ 'cowerCount'
-                                      -> CountOpenWorkflowExecutionsResponse
+                                    -> CountOpenWorkflowExecutionsResponse
 countOpenWorkflowExecutionsResponse p1 = CountOpenWorkflowExecutionsResponse
     { _cowerCount = p1
     , _cowerTruncated = Nothing

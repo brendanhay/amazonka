@@ -54,7 +54,7 @@ newtype GetDistribution = GetDistribution
 -- * @Id ::@ @Text@
 --
 getDistribution :: Text -- ^ 'gdId'
-                  -> GetDistribution
+                -> GetDistribution
 getDistribution p1 = GetDistribution
     { _gdId = p1
     }

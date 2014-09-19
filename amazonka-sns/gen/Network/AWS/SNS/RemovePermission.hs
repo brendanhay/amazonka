@@ -65,8 +65,8 @@ data RemovePermission = RemovePermission
 -- * @Label ::@ @Text@
 --
 removePermission :: Text -- ^ 'rpTopicArn'
-                   -> Text -- ^ 'rpLabel'
-                   -> RemovePermission
+                 -> Text -- ^ 'rpLabel'
+                 -> RemovePermission
 removePermission p1 p2 = RemovePermission
     { _rpTopicArn = p1
     , _rpLabel = p2

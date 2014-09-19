@@ -97,7 +97,7 @@ data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress
 -- * @IpPermissions ::@ @[IpPermission]@
 --
 revokeSecurityGroupEgress :: Text -- ^ 'rsgeGroupId'
-                            -> RevokeSecurityGroupEgress
+                          -> RevokeSecurityGroupEgress
 revokeSecurityGroupEgress p1 = RevokeSecurityGroupEgress
     { _rsgeGroupId = p1
     , _rsgeSourceSecurityGroupName = Nothing

@@ -66,8 +66,8 @@ data RestoreObject = RestoreObject
 -- * @RestoreRequest ::@ @Maybe RestoreRequest@
 --
 restoreObject :: BucketName -- ^ 'roBucket'
-                -> ObjectKey -- ^ 'roKey'
-                -> RestoreObject
+              -> ObjectKey -- ^ 'roKey'
+              -> RestoreObject
 restoreObject p1 p2 = RestoreObject
     { _roBucket = p1
     , _roKey = p2

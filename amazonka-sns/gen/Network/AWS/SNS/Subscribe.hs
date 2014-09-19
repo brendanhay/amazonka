@@ -75,8 +75,8 @@ data Subscribe = Subscribe
 -- * @Endpoint ::@ @Maybe Text@
 --
 subscribe :: Text -- ^ 's1TopicArn'
-            -> Text -- ^ 's1Protocol'
-            -> Subscribe
+          -> Text -- ^ 's1Protocol'
+          -> Subscribe
 subscribe p1 p2 = Subscribe
     { _s1TopicArn = p1
     , _s1Protocol = p2

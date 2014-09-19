@@ -73,7 +73,7 @@ data UpdateGatewayInformation = UpdateGatewayInformation
 -- * @GatewayTimezone ::@ @Maybe Text@
 --
 updateGatewayInformation :: Text -- ^ 'ugiGatewayARN'
-                           -> UpdateGatewayInformation
+                         -> UpdateGatewayInformation
 updateGatewayInformation p1 = UpdateGatewayInformation
     { _ugiGatewayARN = p1
     , _ugiGatewayName = Nothing

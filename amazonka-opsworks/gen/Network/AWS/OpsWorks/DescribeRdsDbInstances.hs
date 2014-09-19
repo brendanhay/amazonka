@@ -58,7 +58,7 @@ data DescribeRdsDbInstances = DescribeRdsDbInstances
 -- * @RdsDbInstanceArns ::@ @[Text]@
 --
 describeRdsDbInstances :: Text -- ^ 'drdi1StackId'
-                         -> DescribeRdsDbInstances
+                       -> DescribeRdsDbInstances
 describeRdsDbInstances p1 = DescribeRdsDbInstances
     { _drdi1StackId = p1
     , _drdi1RdsDbInstanceArns = mempty

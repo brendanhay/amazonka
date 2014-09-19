@@ -52,7 +52,7 @@ newtype DeleteBucket = DeleteBucket
 -- * @Bucket ::@ @BucketName@
 --
 deleteBucket :: BucketName -- ^ 'dbBucket'
-               -> DeleteBucket
+             -> DeleteBucket
 deleteBucket p1 = DeleteBucket
     { _dbBucket = p1
     }

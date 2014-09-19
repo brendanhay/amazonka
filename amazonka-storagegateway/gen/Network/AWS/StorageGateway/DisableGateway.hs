@@ -50,7 +50,7 @@ newtype DisableGateway = DisableGateway
 -- * @GatewayARN ::@ @Text@
 --
 disableGateway :: Text -- ^ 'dg1GatewayARN'
-                 -> DisableGateway
+               -> DisableGateway
 disableGateway p1 = DisableGateway
     { _dg1GatewayARN = p1
     }

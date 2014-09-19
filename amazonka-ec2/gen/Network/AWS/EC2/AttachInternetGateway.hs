@@ -63,8 +63,8 @@ data AttachInternetGateway = AttachInternetGateway
 -- * @VpcId ::@ @Text@
 --
 attachInternetGateway :: Text -- ^ 'aigInternetGatewayId'
-                        -> Text -- ^ 'aigVpcId'
-                        -> AttachInternetGateway
+                      -> Text -- ^ 'aigVpcId'
+                      -> AttachInternetGateway
 attachInternetGateway p1 p2 = AttachInternetGateway
     { _aigInternetGatewayId = p1
     , _aigVpcId = p2

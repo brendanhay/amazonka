@@ -58,7 +58,7 @@ newtype DescribeLoggingStatus = DescribeLoggingStatus
 -- * @ClusterIdentifier ::@ @Text@
 --
 describeLoggingStatus :: Text -- ^ 'dlsClusterIdentifier'
-                        -> DescribeLoggingStatus
+                      -> DescribeLoggingStatus
 describeLoggingStatus p1 = DescribeLoggingStatus
     { _dlsClusterIdentifier = p1
     }

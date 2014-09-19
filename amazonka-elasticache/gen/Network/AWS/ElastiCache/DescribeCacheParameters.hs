@@ -77,7 +77,7 @@ data DescribeCacheParameters = DescribeCacheParameters
 -- * @Marker ::@ @Maybe Text@
 --
 describeCacheParameters :: Text -- ^ 'dcpCacheParameterGroupName'
-                          -> DescribeCacheParameters
+                        -> DescribeCacheParameters
 describeCacheParameters p1 = DescribeCacheParameters
     { _dcpCacheParameterGroupName = p1
     , _dcpSource = Nothing

@@ -54,7 +54,7 @@ newtype UnassignVolume = UnassignVolume
 -- * @VolumeId ::@ @Text@
 --
 unassignVolume :: Text -- ^ 'uvVolumeId'
-                 -> UnassignVolume
+               -> UnassignVolume
 unassignVolume p1 = UnassignVolume
     { _uvVolumeId = p1
     }

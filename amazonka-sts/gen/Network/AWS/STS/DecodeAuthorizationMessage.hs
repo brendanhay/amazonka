@@ -82,7 +82,7 @@ newtype DecodeAuthorizationMessage = DecodeAuthorizationMessage
 -- * @EncodedMessage ::@ @Text@
 --
 decodeAuthorizationMessage :: Text -- ^ 'damEncodedMessage'
-                             -> DecodeAuthorizationMessage
+                           -> DecodeAuthorizationMessage
 decodeAuthorizationMessage p1 = DecodeAuthorizationMessage
     { _damEncodedMessage = p1
     }

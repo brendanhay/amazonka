@@ -66,11 +66,11 @@ data CreateTapes = CreateTapes
 -- * @TapeBarcodePrefix ::@ @Text@
 --
 createTapes :: Text -- ^ 'ctGatewayARN'
-              -> Integer -- ^ 'ctTapeSizeInBytes'
-              -> Text -- ^ 'ctClientToken'
-              -> Integer -- ^ 'ctNumTapesToCreate'
-              -> Text -- ^ 'ctTapeBarcodePrefix'
-              -> CreateTapes
+            -> Integer -- ^ 'ctTapeSizeInBytes'
+            -> Text -- ^ 'ctClientToken'
+            -> Integer -- ^ 'ctNumTapesToCreate'
+            -> Text -- ^ 'ctTapeBarcodePrefix'
+            -> CreateTapes
 createTapes p1 p2 p3 p4 p5 = CreateTapes
     { _ctGatewayARN = p1
     , _ctTapeSizeInBytes = p2

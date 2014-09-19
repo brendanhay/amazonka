@@ -69,9 +69,9 @@ data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress
 -- * @EC2SecurityGroupOwnerId ::@ @Text@
 --
 revokeCacheSecurityGroupIngress :: Text -- ^ 'rcsgiCacheSecurityGroupName'
-                                  -> Text -- ^ 'rcsgiEC2SecurityGroupName'
-                                  -> Text -- ^ 'rcsgiEC2SecurityGroupOwnerId'
-                                  -> RevokeCacheSecurityGroupIngress
+                                -> Text -- ^ 'rcsgiEC2SecurityGroupName'
+                                -> Text -- ^ 'rcsgiEC2SecurityGroupOwnerId'
+                                -> RevokeCacheSecurityGroupIngress
 revokeCacheSecurityGroupIngress p1 p2 p3 = RevokeCacheSecurityGroupIngress
     { _rcsgiCacheSecurityGroupName = p1
     , _rcsgiEC2SecurityGroupName = p2

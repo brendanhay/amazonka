@@ -55,7 +55,7 @@ newtype DeleteCacheSubnetGroup = DeleteCacheSubnetGroup
 -- * @CacheSubnetGroupName ::@ @Text@
 --
 deleteCacheSubnetGroup :: Text -- ^ 'dcsg1CacheSubnetGroupName'
-                         -> DeleteCacheSubnetGroup
+                       -> DeleteCacheSubnetGroup
 deleteCacheSubnetGroup p1 = DeleteCacheSubnetGroup
     { _dcsg1CacheSubnetGroupName = p1
     }

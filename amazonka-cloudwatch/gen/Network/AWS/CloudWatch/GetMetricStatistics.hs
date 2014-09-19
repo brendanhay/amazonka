@@ -97,12 +97,12 @@ data GetMetricStatistics = GetMetricStatistics
 -- * @Unit ::@ @Maybe StandardUnit@
 --
 getMetricStatistics :: Text -- ^ 'gmsNamespace'
-                      -> Text -- ^ 'gmsMetricName'
-                      -> ISO8601 -- ^ 'gmsStartTime'
-                      -> ISO8601 -- ^ 'gmsEndTime'
-                      -> Integer -- ^ 'gmsPeriod'
-                      -> List1 Statistic -- ^ 'gmsStatistics'
-                      -> GetMetricStatistics
+                    -> Text -- ^ 'gmsMetricName'
+                    -> ISO8601 -- ^ 'gmsStartTime'
+                    -> ISO8601 -- ^ 'gmsEndTime'
+                    -> Integer -- ^ 'gmsPeriod'
+                    -> List1 Statistic -- ^ 'gmsStatistics'
+                    -> GetMetricStatistics
 getMetricStatistics p1 p2 p4 p5 p6 p7 = GetMetricStatistics
     { _gmsNamespace = p1
     , _gmsMetricName = p2

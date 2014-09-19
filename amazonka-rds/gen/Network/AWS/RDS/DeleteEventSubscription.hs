@@ -59,7 +59,7 @@ newtype DeleteEventSubscription = DeleteEventSubscription
 -- * @SubscriptionName ::@ @Text@
 --
 deleteEventSubscription :: Text -- ^ 'desSubscriptionName'
-                          -> DeleteEventSubscription
+                        -> DeleteEventSubscription
 deleteEventSubscription p1 = DeleteEventSubscription
     { _desSubscriptionName = p1
     }

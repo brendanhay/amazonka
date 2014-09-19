@@ -55,7 +55,7 @@ newtype GetBucketWebsite = GetBucketWebsite
 -- * @Bucket ::@ @BucketName@
 --
 getBucketWebsite :: BucketName -- ^ 'gbwBucket'
-                   -> GetBucketWebsite
+                 -> GetBucketWebsite
 getBucketWebsite p1 = GetBucketWebsite
     { _gbwBucket = p1
     }

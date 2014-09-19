@@ -52,7 +52,7 @@ newtype GetBucketRequestPayment = GetBucketRequestPayment
 -- * @Bucket ::@ @BucketName@
 --
 getBucketRequestPayment :: BucketName -- ^ 'gbrpBucket'
-                          -> GetBucketRequestPayment
+                        -> GetBucketRequestPayment
 getBucketRequestPayment p1 = GetBucketRequestPayment
     { _gbrpBucket = p1
     }

@@ -97,8 +97,8 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
 -- * @DesiredCapacity ::@ @Maybe Integer@
 --
 putScheduledUpdateGroupAction :: Text -- ^ 'psugaAutoScalingGroupName'
-                                -> Text -- ^ 'psugaScheduledActionName'
-                                -> PutScheduledUpdateGroupAction
+                              -> Text -- ^ 'psugaScheduledActionName'
+                              -> PutScheduledUpdateGroupAction
 putScheduledUpdateGroupAction p1 p2 = PutScheduledUpdateGroupAction
     { _psugaAutoScalingGroupName = p1
     , _psugaScheduledActionName = p2

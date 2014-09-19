@@ -69,7 +69,7 @@ data DescribeIndexFields = DescribeIndexFields
 -- * @Deployed ::@ @Maybe Bool@
 --
 describeIndexFields :: Text -- ^ 'dif2DomainName'
-                      -> DescribeIndexFields
+                    -> DescribeIndexFields
 describeIndexFields p1 = DescribeIndexFields
     { _dif2DomainName = p1
     , _dif2FieldNames = mempty
@@ -109,7 +109,7 @@ newtype DescribeIndexFieldsResponse = DescribeIndexFieldsResponse
 -- * @IndexFields ::@ @[IndexFieldStatus]@
 --
 describeIndexFieldsResponse :: [IndexFieldStatus] -- ^ 'difr1IndexFields'
-                              -> DescribeIndexFieldsResponse
+                            -> DescribeIndexFieldsResponse
 describeIndexFieldsResponse p1 = DescribeIndexFieldsResponse
     { _difr1IndexFields = p1
     }

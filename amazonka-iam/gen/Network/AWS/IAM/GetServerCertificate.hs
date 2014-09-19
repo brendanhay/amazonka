@@ -72,7 +72,7 @@ newtype GetServerCertificate = GetServerCertificate
 -- * @ServerCertificateName ::@ @Text@
 --
 getServerCertificate :: Text -- ^ 'gscServerCertificateName'
-                       -> GetServerCertificate
+                     -> GetServerCertificate
 getServerCertificate p1 = GetServerCertificate
     { _gscServerCertificateName = p1
     }
@@ -102,7 +102,7 @@ newtype GetServerCertificateResponse = GetServerCertificateResponse
 -- * @ServerCertificate ::@ @ServerCertificate@
 --
 getServerCertificateResponse :: ServerCertificate -- ^ 'gscrServerCertificate'
-                               -> GetServerCertificateResponse
+                             -> GetServerCertificateResponse
 getServerCertificateResponse p1 = GetServerCertificateResponse
     { _gscrServerCertificate = p1
     }

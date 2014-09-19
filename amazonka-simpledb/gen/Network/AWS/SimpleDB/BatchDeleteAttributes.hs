@@ -68,8 +68,8 @@ data BatchDeleteAttributes = BatchDeleteAttributes
 -- * @Items ::@ @[DeletableItem]@
 --
 batchDeleteAttributes :: Text -- ^ 'bdaDomainName'
-                        -> [DeletableItem] -- ^ 'bdaItems'
-                        -> BatchDeleteAttributes
+                      -> [DeletableItem] -- ^ 'bdaItems'
+                      -> BatchDeleteAttributes
 batchDeleteAttributes p1 p2 = BatchDeleteAttributes
     { _bdaDomainName = p1
     , _bdaItems = p2

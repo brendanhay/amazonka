@@ -74,8 +74,8 @@ data AddCache = AddCache
 -- * @DiskIds ::@ @[Text]@
 --
 addCache :: Text -- ^ 'acGatewayARN'
-           -> [Text] -- ^ 'acDiskIds'
-           -> AddCache
+         -> [Text] -- ^ 'acDiskIds'
+         -> AddCache
 addCache p1 p2 = AddCache
     { _acGatewayARN = p1
     , _acDiskIds = p2

@@ -83,7 +83,7 @@ data ModifyImageAttribute = ModifyImageAttribute
 -- * @Description ::@ @Maybe AttributeValue@
 --
 modifyImageAttribute :: Text -- ^ 'miaImageId'
-                       -> ModifyImageAttribute
+                     -> ModifyImageAttribute
 modifyImageAttribute p1 = ModifyImageAttribute
     { _miaImageId = p1
     , _miaAttribute = Nothing

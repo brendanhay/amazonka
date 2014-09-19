@@ -59,7 +59,7 @@ data PutBucketLifecycle = PutBucketLifecycle
 -- * @LifecycleConfiguration ::@ @Maybe LifecycleConfiguration@
 --
 putBucketLifecycle :: BucketName -- ^ 'pblBucket'
-                     -> PutBucketLifecycle
+                   -> PutBucketLifecycle
 putBucketLifecycle p1 = PutBucketLifecycle
     { _pblBucket = p1
     , _pblContentMD5 = Nothing

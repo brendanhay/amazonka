@@ -106,8 +106,8 @@ data PutPipelineDefinition = PutPipelineDefinition
 -- * @PipelineObjects ::@ @[PipelineObject]@
 --
 putPipelineDefinition :: Text -- ^ 'ppdPipelineId'
-                        -> [PipelineObject] -- ^ 'ppdPipelineObjects'
-                        -> PutPipelineDefinition
+                      -> [PipelineObject] -- ^ 'ppdPipelineObjects'
+                      -> PutPipelineDefinition
 putPipelineDefinition p1 p2 = PutPipelineDefinition
     { _ppdPipelineId = p1
     , _ppdPipelineObjects = p2
@@ -152,7 +152,7 @@ data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse
 -- * @Errored ::@ @Bool@
 --
 putPipelineDefinitionResponse :: Bool -- ^ 'ppdrErrored'
-                                -> PutPipelineDefinitionResponse
+                              -> PutPipelineDefinitionResponse
 putPipelineDefinitionResponse p3 = PutPipelineDefinitionResponse
     { _ppdrValidationErrors = mempty
     , _ppdrValidationWarnings = mempty

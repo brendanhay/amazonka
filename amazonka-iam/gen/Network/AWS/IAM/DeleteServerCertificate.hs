@@ -59,7 +59,7 @@ newtype DeleteServerCertificate = DeleteServerCertificate
 -- * @ServerCertificateName ::@ @Text@
 --
 deleteServerCertificate :: Text -- ^ 'dscServerCertificateName'
-                          -> DeleteServerCertificate
+                        -> DeleteServerCertificate
 deleteServerCertificate p1 = DeleteServerCertificate
     { _dscServerCertificateName = p1
     }

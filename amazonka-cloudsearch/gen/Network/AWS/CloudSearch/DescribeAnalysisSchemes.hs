@@ -70,7 +70,7 @@ data DescribeAnalysisSchemes = DescribeAnalysisSchemes
 -- * @Deployed ::@ @Maybe Bool@
 --
 describeAnalysisSchemes :: Text -- ^ 'das2DomainName'
-                          -> DescribeAnalysisSchemes
+                        -> DescribeAnalysisSchemes
 describeAnalysisSchemes p1 = DescribeAnalysisSchemes
     { _das2DomainName = p1
     , _das2AnalysisSchemeNames = mempty
@@ -111,7 +111,7 @@ newtype DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
 -- * @AnalysisSchemes ::@ @[AnalysisSchemeStatus]@
 --
 describeAnalysisSchemesResponse :: [AnalysisSchemeStatus] -- ^ 'dasr1AnalysisSchemes'
-                                  -> DescribeAnalysisSchemesResponse
+                                -> DescribeAnalysisSchemesResponse
 describeAnalysisSchemesResponse p1 = DescribeAnalysisSchemesResponse
     { _dasr1AnalysisSchemes = p1
     }

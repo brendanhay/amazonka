@@ -81,8 +81,8 @@ data ReplaceRoute = ReplaceRoute
 -- * @VpcPeeringConnectionId ::@ @Maybe Text@
 --
 replaceRoute :: Text -- ^ 'rr1RouteTableId'
-               -> Text -- ^ 'rr1DestinationCidrBlock'
-               -> ReplaceRoute
+             -> Text -- ^ 'rr1DestinationCidrBlock'
+             -> ReplaceRoute
 replaceRoute p1 p2 = ReplaceRoute
     { _rr1RouteTableId = p1
     , _rr1DestinationCidrBlock = p2

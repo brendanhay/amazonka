@@ -75,7 +75,7 @@ data DescribeCommunications = DescribeCommunications
 -- * @MaxResults ::@ @Maybe Integer@
 --
 describeCommunications :: Text -- ^ 'dc1CaseId'
-                         -> DescribeCommunications
+                       -> DescribeCommunications
 describeCommunications p1 = DescribeCommunications
     { _dc1CaseId = p1
     , _dc1BeforeTime = Nothing

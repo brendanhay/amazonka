@@ -76,7 +76,7 @@ newtype UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow
 -- * @GatewayARN ::@ @Text@
 --
 updateGatewaySoftwareNow :: Text -- ^ 'ugsnGatewayARN'
-                           -> UpdateGatewaySoftwareNow
+                         -> UpdateGatewaySoftwareNow
 updateGatewaySoftwareNow p1 = UpdateGatewaySoftwareNow
     { _ugsnGatewayARN = p1
     }

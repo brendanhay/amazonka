@@ -55,7 +55,7 @@ newtype ConfirmConnection = ConfirmConnection
 -- * @ConnectionId ::@ @Text@
 --
 confirmConnection :: Text -- ^ 'ccConnectionId'
-                    -> ConfirmConnection
+                  -> ConfirmConnection
 confirmConnection p1 = ConfirmConnection
     { _ccConnectionId = p1
     }

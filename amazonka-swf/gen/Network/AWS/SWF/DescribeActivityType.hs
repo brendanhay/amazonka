@@ -91,8 +91,8 @@ data DescribeActivityType = DescribeActivityType
 -- * @ActivityType ::@ @ActivityType@
 --
 describeActivityType :: Text -- ^ 'dat1Domain'
-                       -> ActivityType -- ^ 'dat1ActivityType'
-                       -> DescribeActivityType
+                     -> ActivityType -- ^ 'dat1ActivityType'
+                     -> DescribeActivityType
 describeActivityType p1 p2 = DescribeActivityType
     { _dat1Domain = p1
     , _dat1ActivityType = p2
@@ -133,8 +133,8 @@ data DescribeActivityTypeResponse = DescribeActivityTypeResponse
 -- * @Configuration ::@ @ActivityTypeConfiguration@
 --
 describeActivityTypeResponse :: ActivityTypeInfo -- ^ 'datrTypeInfo'
-                               -> ActivityTypeConfiguration -- ^ 'datrConfiguration'
-                               -> DescribeActivityTypeResponse
+                             -> ActivityTypeConfiguration -- ^ 'datrConfiguration'
+                             -> DescribeActivityTypeResponse
 describeActivityTypeResponse p1 p2 = DescribeActivityTypeResponse
     { _datrTypeInfo = p1
     , _datrConfiguration = p2

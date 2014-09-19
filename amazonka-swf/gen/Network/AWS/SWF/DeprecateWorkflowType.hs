@@ -84,8 +84,8 @@ data DeprecateWorkflowType = DeprecateWorkflowType
 -- * @WorkflowType ::@ @WorkflowType@
 --
 deprecateWorkflowType :: Text -- ^ 'dwtDomain'
-                        -> WorkflowType -- ^ 'dwtWorkflowType'
-                        -> DeprecateWorkflowType
+                      -> WorkflowType -- ^ 'dwtWorkflowType'
+                      -> DeprecateWorkflowType
 deprecateWorkflowType p1 p2 = DeprecateWorkflowType
     { _dwtDomain = p1
     , _dwtWorkflowType = p2

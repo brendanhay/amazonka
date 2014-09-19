@@ -64,8 +64,8 @@ data CreateSnapshot = CreateSnapshot
 -- * @SnapshotName ::@ @Text@
 --
 createSnapshot :: Text -- ^ 'cs1CacheClusterId'
-                 -> Text -- ^ 'cs1SnapshotName'
-                 -> CreateSnapshot
+               -> Text -- ^ 'cs1SnapshotName'
+               -> CreateSnapshot
 createSnapshot p1 p2 = CreateSnapshot
     { _cs1CacheClusterId = p1
     , _cs1SnapshotName = p2

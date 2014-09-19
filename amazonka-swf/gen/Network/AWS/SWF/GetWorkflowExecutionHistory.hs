@@ -134,8 +134,8 @@ data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory
 -- * @ReverseOrder ::@ @Maybe Bool@
 --
 getWorkflowExecutionHistory :: Text -- ^ 'gwehDomain'
-                              -> WorkflowExecution -- ^ 'gwehExecution'
-                              -> GetWorkflowExecutionHistory
+                            -> WorkflowExecution -- ^ 'gwehExecution'
+                            -> GetWorkflowExecutionHistory
 getWorkflowExecutionHistory p1 p2 = GetWorkflowExecutionHistory
     { _gwehDomain = p1
     , _gwehExecution = p2
@@ -205,7 +205,7 @@ data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse
 -- * @NextPageToken ::@ @Maybe Text@
 --
 getWorkflowExecutionHistoryResponse :: [HistoryEvent] -- ^ 'gwehrEvents'
-                                      -> GetWorkflowExecutionHistoryResponse
+                                    -> GetWorkflowExecutionHistoryResponse
 getWorkflowExecutionHistoryResponse p1 = GetWorkflowExecutionHistoryResponse
     { _gwehrEvents = p1
     , _gwehrNextPageToken = Nothing

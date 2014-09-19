@@ -93,7 +93,7 @@ data GetRecords = GetRecords
 -- * @Limit ::@ @Maybe Integer@
 --
 getRecords :: Text -- ^ 'grShardIterator'
-             -> GetRecords
+           -> GetRecords
 getRecords p1 = GetRecords
     { _grShardIterator = p1
     , _grLimit = Nothing
@@ -137,7 +137,7 @@ data GetRecordsResponse = GetRecordsResponse
 -- * @NextShardIterator ::@ @Maybe Text@
 --
 getRecordsResponse :: [Record] -- ^ 'grrRecords'
-                     -> GetRecordsResponse
+                   -> GetRecordsResponse
 getRecordsResponse p1 = GetRecordsResponse
     { _grrRecords = p1
     , _grrNextShardIterator = Nothing

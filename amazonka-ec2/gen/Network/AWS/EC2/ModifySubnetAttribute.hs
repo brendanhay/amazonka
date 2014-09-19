@@ -58,7 +58,7 @@ data ModifySubnetAttribute = ModifySubnetAttribute
 -- * @MapPublicIpOnLaunch ::@ @Maybe AttributeBooleanValue@
 --
 modifySubnetAttribute :: Text -- ^ 'msa1SubnetId'
-                        -> ModifySubnetAttribute
+                      -> ModifySubnetAttribute
 modifySubnetAttribute p1 = ModifySubnetAttribute
     { _msa1SubnetId = p1
     , _msa1MapPublicIpOnLaunch = Nothing

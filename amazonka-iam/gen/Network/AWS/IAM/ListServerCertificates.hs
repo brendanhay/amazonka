@@ -126,8 +126,8 @@ data ListServerCertificatesResponse = ListServerCertificatesResponse
 -- * @Marker ::@ @Maybe Text@
 --
 listServerCertificatesResponse :: [ServerCertificateMetadata] -- ^ 'lscrServerCertificateMetadataList'
-                                 -> Bool -- ^ 'lscrIsTruncated'
-                                 -> ListServerCertificatesResponse
+                               -> Bool -- ^ 'lscrIsTruncated'
+                               -> ListServerCertificatesResponse
 listServerCertificatesResponse p1 p2 = ListServerCertificatesResponse
     { _lscrServerCertificateMetadataList = p1
     , _lscrIsTruncated = p2

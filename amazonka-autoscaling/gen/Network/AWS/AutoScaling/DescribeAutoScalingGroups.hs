@@ -114,7 +114,7 @@ data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
 -- * @NextToken ::@ @Maybe Text@
 --
 describeAutoScalingGroupsResponse :: [AutoScalingGroup] -- ^ 'dasgrAutoScalingGroups'
-                                    -> DescribeAutoScalingGroupsResponse
+                                  -> DescribeAutoScalingGroupsResponse
 describeAutoScalingGroupsResponse p1 = DescribeAutoScalingGroupsResponse
     { _dasgrAutoScalingGroups = p1
     , _dasgrNextToken = Nothing

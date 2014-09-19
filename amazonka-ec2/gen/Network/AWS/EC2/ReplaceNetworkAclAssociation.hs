@@ -69,8 +69,8 @@ data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
 -- * @NetworkAclId ::@ @Text@
 --
 replaceNetworkAclAssociation :: Text -- ^ 'rnaaAssociationId'
-                               -> Text -- ^ 'rnaaNetworkAclId'
-                               -> ReplaceNetworkAclAssociation
+                             -> Text -- ^ 'rnaaNetworkAclId'
+                             -> ReplaceNetworkAclAssociation
 replaceNetworkAclAssociation p1 p2 = ReplaceNetworkAclAssociation
     { _rnaaAssociationId = p1
     , _rnaaNetworkAclId = p2

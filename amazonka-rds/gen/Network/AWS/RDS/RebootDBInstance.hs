@@ -78,7 +78,7 @@ data RebootDBInstance = RebootDBInstance
 -- * @ForceFailover ::@ @Maybe Bool@
 --
 rebootDBInstance :: Text -- ^ 'rdbi1DBInstanceIdentifier'
-                   -> RebootDBInstance
+                 -> RebootDBInstance
 rebootDBInstance p1 = RebootDBInstance
     { _rdbi1DBInstanceIdentifier = p1
     , _rdbi1ForceFailover = Nothing

@@ -78,8 +78,8 @@ data ConfirmSubscription = ConfirmSubscription
 -- * @AuthenticateOnUnsubscribe ::@ @Maybe Text@
 --
 confirmSubscription :: Text -- ^ 'csTopicArn'
-                      -> Text -- ^ 'csToken'
-                      -> ConfirmSubscription
+                    -> Text -- ^ 'csToken'
+                    -> ConfirmSubscription
 confirmSubscription p1 p2 = ConfirmSubscription
     { _csTopicArn = p1
     , _csToken = p2

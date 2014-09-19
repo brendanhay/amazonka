@@ -69,7 +69,7 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering
 -- * @CacheNodeCount ::@ @Maybe Integer@
 --
 purchaseReservedCacheNodesOffering :: Text -- ^ 'prcnoReservedCacheNodesOfferingId'
-                                     -> PurchaseReservedCacheNodesOffering
+                                   -> PurchaseReservedCacheNodesOffering
 purchaseReservedCacheNodesOffering p1 = PurchaseReservedCacheNodesOffering
     { _prcnoReservedCacheNodesOfferingId = p1
     , _prcnoReservedCacheNodeId = Nothing

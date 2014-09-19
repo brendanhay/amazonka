@@ -146,9 +146,9 @@ data ListGeoLocationsResponse = ListGeoLocationsResponse
 -- * @MaxItems ::@ @Text@
 --
 listGeoLocationsResponse :: [GeoLocationDetails] -- ^ 'lglrGeoLocationDetailsList'
-                           -> Bool -- ^ 'lglrIsTruncated'
-                           -> Text -- ^ 'lglrMaxItems'
-                           -> ListGeoLocationsResponse
+                         -> Bool -- ^ 'lglrIsTruncated'
+                         -> Text -- ^ 'lglrMaxItems'
+                         -> ListGeoLocationsResponse
 listGeoLocationsResponse p1 p2 p6 = ListGeoLocationsResponse
     { _lglrGeoLocationDetailsList = p1
     , _lglrIsTruncated = p2

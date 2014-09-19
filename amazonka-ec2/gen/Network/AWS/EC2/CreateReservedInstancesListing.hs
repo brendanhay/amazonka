@@ -84,10 +84,10 @@ data CreateReservedInstancesListing = CreateReservedInstancesListing
 -- * @ClientToken ::@ @Text@
 --
 createReservedInstancesListing :: Text -- ^ 'cril1ReservedInstancesId'
-                                 -> Integer -- ^ 'cril1InstanceCount'
-                                 -> [PriceScheduleSpecification] -- ^ 'cril1PriceSchedules'
-                                 -> Text -- ^ 'cril1ClientToken'
-                                 -> CreateReservedInstancesListing
+                               -> Integer -- ^ 'cril1InstanceCount'
+                               -> [PriceScheduleSpecification] -- ^ 'cril1PriceSchedules'
+                               -> Text -- ^ 'cril1ClientToken'
+                               -> CreateReservedInstancesListing
 createReservedInstancesListing p1 p2 p3 p4 = CreateReservedInstancesListing
     { _cril1ReservedInstancesId = p1
     , _cril1InstanceCount = p2

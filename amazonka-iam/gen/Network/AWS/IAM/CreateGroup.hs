@@ -59,7 +59,7 @@ data CreateGroup = CreateGroup
 -- * @GroupName ::@ @Text@
 --
 createGroup :: Text -- ^ 'cgGroupName'
-              -> CreateGroup
+            -> CreateGroup
 createGroup p2 = CreateGroup
     { _cgPath = Nothing
     , _cgGroupName = p2
@@ -93,7 +93,7 @@ newtype CreateGroupResponse = CreateGroupResponse
 -- * @Group ::@ @Group@
 --
 createGroupResponse :: Group -- ^ 'cgrGroup'
-                      -> CreateGroupResponse
+                    -> CreateGroupResponse
 createGroupResponse p1 = CreateGroupResponse
     { _cgrGroup = p1
     }

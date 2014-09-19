@@ -62,8 +62,8 @@ data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess
 -- * @AccountWithRestoreAccess ::@ @Text@
 --
 authorizeSnapshotAccess :: Text -- ^ 'asaSnapshotIdentifier'
-                          -> Text -- ^ 'asaAccountWithRestoreAccess'
-                          -> AuthorizeSnapshotAccess
+                        -> Text -- ^ 'asaAccountWithRestoreAccess'
+                        -> AuthorizeSnapshotAccess
 authorizeSnapshotAccess p1 p3 = AuthorizeSnapshotAccess
     { _asaSnapshotIdentifier = p1
     , _asaSnapshotClusterIdentifier = Nothing

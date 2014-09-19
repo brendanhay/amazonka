@@ -52,7 +52,7 @@ newtype DeleteApp = DeleteApp
 -- * @AppId ::@ @Text@
 --
 deleteApp :: Text -- ^ 'daAppId'
-            -> DeleteApp
+          -> DeleteApp
 deleteApp p1 = DeleteApp
     { _daAppId = p1
     }

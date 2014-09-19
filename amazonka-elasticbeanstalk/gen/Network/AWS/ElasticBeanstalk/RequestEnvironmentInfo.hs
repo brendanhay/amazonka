@@ -68,7 +68,7 @@ data RequestEnvironmentInfo = RequestEnvironmentInfo
 -- * @InfoType ::@ @EnvironmentInfoType@
 --
 requestEnvironmentInfo :: EnvironmentInfoType -- ^ 'reiInfoType'
-                         -> RequestEnvironmentInfo
+                       -> RequestEnvironmentInfo
 requestEnvironmentInfo p3 = RequestEnvironmentInfo
     { _reiEnvironmentId = Nothing
     , _reiEnvironmentName = Nothing

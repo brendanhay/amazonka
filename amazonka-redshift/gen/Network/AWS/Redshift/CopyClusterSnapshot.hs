@@ -78,8 +78,8 @@ data CopyClusterSnapshot = CopyClusterSnapshot
 -- * @TargetSnapshotIdentifier ::@ @Text@
 --
 copyClusterSnapshot :: Text -- ^ 'ccsSourceSnapshotIdentifier'
-                      -> Text -- ^ 'ccsTargetSnapshotIdentifier'
-                      -> CopyClusterSnapshot
+                    -> Text -- ^ 'ccsTargetSnapshotIdentifier'
+                    -> CopyClusterSnapshot
 copyClusterSnapshot p1 p3 = CopyClusterSnapshot
     { _ccsSourceSnapshotIdentifier = p1
     , _ccsSourceSnapshotClusterIdentifier = Nothing

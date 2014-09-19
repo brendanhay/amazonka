@@ -74,7 +74,7 @@ data GetPipelineDefinition = GetPipelineDefinition
 -- * @Version ::@ @Maybe Text@
 --
 getPipelineDefinition :: Text -- ^ 'gpdPipelineId'
-                        -> GetPipelineDefinition
+                      -> GetPipelineDefinition
 getPipelineDefinition p1 = GetPipelineDefinition
     { _gpdPipelineId = p1
     , _gpdVersion = Nothing

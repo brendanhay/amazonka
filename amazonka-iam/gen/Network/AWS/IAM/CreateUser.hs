@@ -61,7 +61,7 @@ data CreateUser = CreateUser
 -- * @UserName ::@ @Text@
 --
 createUser :: Text -- ^ 'cuUserName'
-             -> CreateUser
+           -> CreateUser
 createUser p2 = CreateUser
     { _cuPath = Nothing
     , _cuUserName = p2

@@ -52,7 +52,7 @@ newtype GetBucketLocation = GetBucketLocation
 -- * @Bucket ::@ @BucketName@
 --
 getBucketLocation :: BucketName -- ^ 'gbl1Bucket'
-                    -> GetBucketLocation
+                  -> GetBucketLocation
 getBucketLocation p1 = GetBucketLocation
     { _gbl1Bucket = p1
     }

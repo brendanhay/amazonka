@@ -70,7 +70,7 @@ newtype GetStatus = GetStatus
 -- * @JobId ::@ @Text@
 --
 getStatus :: Text -- ^ 'gsJobId'
-            -> GetStatus
+          -> GetStatus
 getStatus p1 = GetStatus
     { _gsJobId = p1
     }

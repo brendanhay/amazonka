@@ -75,7 +75,7 @@ newtype DescribeWorkingStorage = DescribeWorkingStorage
 -- * @GatewayARN ::@ @Text@
 --
 describeWorkingStorage :: Text -- ^ 'dwsGatewayARN'
-                         -> DescribeWorkingStorage
+                       -> DescribeWorkingStorage
 describeWorkingStorage p1 = DescribeWorkingStorage
     { _dwsGatewayARN = p1
     }

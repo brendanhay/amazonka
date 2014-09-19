@@ -67,7 +67,7 @@ newtype GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
 -- * @PasswordPolicy ::@ @PasswordPolicy@
 --
 getAccountPasswordPolicyResponse :: PasswordPolicy -- ^ 'gapprPasswordPolicy'
-                                   -> GetAccountPasswordPolicyResponse
+                                 -> GetAccountPasswordPolicyResponse
 getAccountPasswordPolicyResponse p1 = GetAccountPasswordPolicyResponse
     { _gapprPasswordPolicy = p1
     }

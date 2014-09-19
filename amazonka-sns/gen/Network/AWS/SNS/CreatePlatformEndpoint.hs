@@ -92,8 +92,8 @@ data CreatePlatformEndpoint = CreatePlatformEndpoint
 -- * @Attributes ::@ @Map Text Text@
 --
 createPlatformEndpoint :: Text -- ^ 'cpePlatformApplicationArn'
-                         -> Text -- ^ 'cpeToken'
-                         -> CreatePlatformEndpoint
+                       -> Text -- ^ 'cpeToken'
+                       -> CreatePlatformEndpoint
 createPlatformEndpoint p1 p2 = CreatePlatformEndpoint
     { _cpePlatformApplicationArn = p1
     , _cpeToken = p2

@@ -62,7 +62,7 @@ data DeleteInstance = DeleteInstance
 -- * @DeleteVolumes ::@ @Maybe Bool@
 --
 deleteInstance :: Text -- ^ 'diInstanceId'
-                 -> DeleteInstance
+               -> DeleteInstance
 deleteInstance p1 = DeleteInstance
     { _diInstanceId = p1
     , _diDeleteElasticIp = Nothing

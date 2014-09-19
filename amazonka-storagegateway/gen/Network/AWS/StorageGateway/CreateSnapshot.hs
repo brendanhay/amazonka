@@ -85,8 +85,8 @@ data CreateSnapshot = CreateSnapshot
 -- * @SnapshotDescription ::@ @Text@
 --
 createSnapshot :: Text -- ^ 'csVolumeARN'
-                 -> Text -- ^ 'csSnapshotDescription'
-                 -> CreateSnapshot
+               -> Text -- ^ 'csSnapshotDescription'
+               -> CreateSnapshot
 createSnapshot p1 p2 = CreateSnapshot
     { _csVolumeARN = p1
     , _csSnapshotDescription = p2

@@ -78,7 +78,7 @@ newtype ReadPreset = ReadPreset
 -- * @Id ::@ @Text@
 --
 readPreset :: Text -- ^ 'rp1Id'
-             -> ReadPreset
+           -> ReadPreset
 readPreset p1 = ReadPreset
     { _rp1Id = p1
     }

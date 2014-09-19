@@ -57,7 +57,7 @@ data ListInstanceGroups = ListInstanceGroups
 -- * @Marker ::@ @Maybe Text@
 --
 listInstanceGroups :: Text -- ^ 'ligClusterId'
-                     -> ListInstanceGroups
+                   -> ListInstanceGroups
 listInstanceGroups p1 = ListInstanceGroups
     { _ligClusterId = p1
     , _ligMarker = Nothing

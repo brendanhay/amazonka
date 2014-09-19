@@ -51,7 +51,7 @@ newtype DeleteUserProfile = DeleteUserProfile
 -- * @IamUserArn ::@ @Text@
 --
 deleteUserProfile :: Text -- ^ 'dupIamUserArn'
-                    -> DeleteUserProfile
+                  -> DeleteUserProfile
 deleteUserProfile p1 = DeleteUserProfile
     { _dupIamUserArn = p1
     }

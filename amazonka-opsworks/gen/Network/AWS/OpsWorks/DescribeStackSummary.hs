@@ -56,7 +56,7 @@ newtype DescribeStackSummary = DescribeStackSummary
 -- * @StackId ::@ @Text@
 --
 describeStackSummary :: Text -- ^ 'dssStackId'
-                       -> DescribeStackSummary
+                     -> DescribeStackSummary
 describeStackSummary p1 = DescribeStackSummary
     { _dssStackId = p1
     }

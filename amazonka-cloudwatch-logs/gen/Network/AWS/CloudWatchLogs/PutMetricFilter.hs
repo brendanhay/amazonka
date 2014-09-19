@@ -77,10 +77,10 @@ data PutMetricFilter = PutMetricFilter
 -- * @MetricTransformations ::@ @List1 MetricTransformation@
 --
 putMetricFilter :: Text -- ^ 'pmfLogGroupName'
-                  -> Text -- ^ 'pmfFilterName'
-                  -> Text -- ^ 'pmfFilterPattern'
-                  -> List1 MetricTransformation -- ^ 'pmfMetricTransformations'
-                  -> PutMetricFilter
+                -> Text -- ^ 'pmfFilterName'
+                -> Text -- ^ 'pmfFilterPattern'
+                -> List1 MetricTransformation -- ^ 'pmfMetricTransformations'
+                -> PutMetricFilter
 putMetricFilter p1 p2 p3 p4 = PutMetricFilter
     { _pmfLogGroupName = p1
     , _pmfFilterName = p2

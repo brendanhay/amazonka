@@ -60,7 +60,7 @@ newtype CreateOrUpdateTags = CreateOrUpdateTags
 -- * @Tags ::@ @[Tag]@
 --
 createOrUpdateTags :: [Tag] -- ^ 'coutTags'
-                     -> CreateOrUpdateTags
+                   -> CreateOrUpdateTags
 createOrUpdateTags p1 = CreateOrUpdateTags
     { _coutTags = p1
     }

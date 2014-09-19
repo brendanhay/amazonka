@@ -70,7 +70,7 @@ data DescribeSuggesters = DescribeSuggesters
 -- * @Deployed ::@ @Maybe Bool@
 --
 describeSuggesters :: Text -- ^ 'ds3DomainName'
-                     -> DescribeSuggesters
+                   -> DescribeSuggesters
 describeSuggesters p1 = DescribeSuggesters
     { _ds3DomainName = p1
     , _ds3SuggesterNames = mempty
@@ -109,7 +109,7 @@ newtype DescribeSuggestersResponse = DescribeSuggestersResponse
 -- * @Suggesters ::@ @[SuggesterStatus]@
 --
 describeSuggestersResponse :: [SuggesterStatus] -- ^ 'dsr1Suggesters'
-                             -> DescribeSuggestersResponse
+                           -> DescribeSuggestersResponse
 describeSuggestersResponse p1 = DescribeSuggestersResponse
     { _dsr1Suggesters = p1
     }

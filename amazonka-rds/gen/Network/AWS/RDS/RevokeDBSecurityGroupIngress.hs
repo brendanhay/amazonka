@@ -77,7 +77,7 @@ data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress
 -- * @EC2SecurityGroupOwnerId ::@ @Maybe Text@
 --
 revokeDBSecurityGroupIngress :: Text -- ^ 'rdbsgiDBSecurityGroupName'
-                               -> RevokeDBSecurityGroupIngress
+                             -> RevokeDBSecurityGroupIngress
 revokeDBSecurityGroupIngress p1 = RevokeDBSecurityGroupIngress
     { _rdbsgiDBSecurityGroupName = p1
     , _rdbsgiCIDRIP = Nothing

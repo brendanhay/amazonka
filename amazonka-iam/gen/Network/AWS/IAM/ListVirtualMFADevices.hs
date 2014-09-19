@@ -128,8 +128,8 @@ data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
 -- * @Marker ::@ @Maybe Text@
 --
 listVirtualMFADevicesResponse :: [VirtualMFADevice] -- ^ 'lvmfadrVirtualMFADevices'
-                                -> Bool -- ^ 'lvmfadrIsTruncated'
-                                -> ListVirtualMFADevicesResponse
+                              -> Bool -- ^ 'lvmfadrIsTruncated'
+                              -> ListVirtualMFADevicesResponse
 listVirtualMFADevicesResponse p1 p2 = ListVirtualMFADevicesResponse
     { _lvmfadrVirtualMFADevices = p1
     , _lvmfadrIsTruncated = p2

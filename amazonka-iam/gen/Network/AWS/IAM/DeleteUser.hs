@@ -52,7 +52,7 @@ newtype DeleteUser = DeleteUser
 -- * @UserName ::@ @Text@
 --
 deleteUser :: Text -- ^ 'duUserName'
-             -> DeleteUser
+           -> DeleteUser
 deleteUser p1 = DeleteUser
     { _duUserName = p1
     }

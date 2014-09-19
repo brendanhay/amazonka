@@ -77,7 +77,7 @@ newtype GetTopicAttributes = GetTopicAttributes
 -- * @TopicArn ::@ @Text@
 --
 getTopicAttributes :: Text -- ^ 'gtaTopicArn'
-                     -> GetTopicAttributes
+                   -> GetTopicAttributes
 getTopicAttributes p1 = GetTopicAttributes
     { _gtaTopicArn = p1
     }

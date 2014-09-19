@@ -57,7 +57,7 @@ data ExecutePolicy = ExecutePolicy
 -- * @HonorCooldown ::@ @Maybe Bool@
 --
 executePolicy :: Text -- ^ 'epPolicyName'
-                -> ExecutePolicy
+              -> ExecutePolicy
 executePolicy p2 = ExecutePolicy
     { _epAutoScalingGroupName = Nothing
     , _epPolicyName = p2

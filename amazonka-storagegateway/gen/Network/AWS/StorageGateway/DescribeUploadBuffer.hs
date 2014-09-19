@@ -75,7 +75,7 @@ newtype DescribeUploadBuffer = DescribeUploadBuffer
 -- * @GatewayARN ::@ @Text@
 --
 describeUploadBuffer :: Text -- ^ 'dubGatewayARN'
-                       -> DescribeUploadBuffer
+                     -> DescribeUploadBuffer
 describeUploadBuffer p1 = DescribeUploadBuffer
     { _dubGatewayARN = p1
     }

@@ -139,8 +139,8 @@ data PollForDecisionTask = PollForDecisionTask
 -- * @ReverseOrder ::@ @Maybe Bool@
 --
 pollForDecisionTask :: Text -- ^ 'pfdtDomain'
-                      -> TaskList -- ^ 'pfdtTaskList'
-                      -> PollForDecisionTask
+                    -> TaskList -- ^ 'pfdtTaskList'
+                    -> PollForDecisionTask
 pollForDecisionTask p1 p2 = PollForDecisionTask
     { _pfdtDomain = p1
     , _pfdtTaskList = p2
@@ -239,11 +239,11 @@ data PollForDecisionTaskResponse = PollForDecisionTaskResponse
 -- * @PreviousStartedEventId ::@ @Maybe Integer@
 --
 pollForDecisionTaskResponse :: Text -- ^ 'pfdtrTaskToken'
-                              -> Integer -- ^ 'pfdtrStartedEventId'
-                              -> WorkflowExecution -- ^ 'pfdtrWorkflowExecution'
-                              -> WorkflowType -- ^ 'pfdtrWorkflowType'
-                              -> [HistoryEvent] -- ^ 'pfdtrEvents'
-                              -> PollForDecisionTaskResponse
+                            -> Integer -- ^ 'pfdtrStartedEventId'
+                            -> WorkflowExecution -- ^ 'pfdtrWorkflowExecution'
+                            -> WorkflowType -- ^ 'pfdtrWorkflowType'
+                            -> [HistoryEvent] -- ^ 'pfdtrEvents'
+                            -> PollForDecisionTaskResponse
 pollForDecisionTaskResponse p1 p2 p3 p4 p5 = PollForDecisionTaskResponse
     { _pfdtrTaskToken = p1
     , _pfdtrStartedEventId = p2

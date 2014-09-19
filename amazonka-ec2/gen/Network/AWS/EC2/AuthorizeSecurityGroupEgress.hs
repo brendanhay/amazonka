@@ -113,7 +113,7 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
 -- * @IpPermissions ::@ @[IpPermission]@
 --
 authorizeSecurityGroupEgress :: Text -- ^ 'asgeGroupId'
-                               -> AuthorizeSecurityGroupEgress
+                             -> AuthorizeSecurityGroupEgress
 authorizeSecurityGroupEgress p1 = AuthorizeSecurityGroupEgress
     { _asgeGroupId = p1
     , _asgeSourceSecurityGroupName = Nothing

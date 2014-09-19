@@ -64,7 +64,7 @@ newtype DeleteSnapshot = DeleteSnapshot
 -- * @SnapshotId ::@ @Text@
 --
 deleteSnapshot :: Text -- ^ 'dsSnapshotId'
-                 -> DeleteSnapshot
+               -> DeleteSnapshot
 deleteSnapshot p1 = DeleteSnapshot
     { _dsSnapshotId = p1
     }

@@ -73,8 +73,8 @@ data CreateTrail = CreateTrail
 -- * @IncludeGlobalServiceEvents ::@ @Maybe Bool@
 --
 createTrail :: Text -- ^ 'ctName'
-              -> Text -- ^ 'ctS3BucketName'
-              -> CreateTrail
+            -> Text -- ^ 'ctS3BucketName'
+            -> CreateTrail
 createTrail p1 p2 = CreateTrail
     { _ctName = p1
     , _ctS3BucketName = p2

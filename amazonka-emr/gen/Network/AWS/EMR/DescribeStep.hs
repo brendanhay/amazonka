@@ -56,8 +56,8 @@ data DescribeStep = DescribeStep
 -- * @StepId ::@ @Text@
 --
 describeStep :: Text -- ^ 'dsClusterId'
-               -> Text -- ^ 'dsStepId'
-               -> DescribeStep
+             -> Text -- ^ 'dsStepId'
+             -> DescribeStep
 describeStep p1 p2 = DescribeStep
     { _dsClusterId = p1
     , _dsStepId = p2

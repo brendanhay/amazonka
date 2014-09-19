@@ -75,8 +75,8 @@ data AddInstanceGroups = AddInstanceGroups
 -- * @JobFlowId ::@ @Text@
 --
 addInstanceGroups :: [InstanceGroupConfig] -- ^ 'aigInstanceGroups'
-                    -> Text -- ^ 'aigJobFlowId'
-                    -> AddInstanceGroups
+                  -> Text -- ^ 'aigJobFlowId'
+                  -> AddInstanceGroups
 addInstanceGroups p1 p2 = AddInstanceGroups
     { _aigInstanceGroups = p1
     , _aigJobFlowId = p2

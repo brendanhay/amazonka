@@ -58,7 +58,7 @@ import Network.AWS.Prelude
 -- attributes for a list of identities.
 newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes
     { _givaIdentities :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetIdentityVerificationAttributes' request.
@@ -83,7 +83,7 @@ instance ToQuery GetIdentityVerificationAttributes where
 -- | Represents the verification attributes for a list of identities.
 newtype GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse
     { _givarVerificationAttributes :: Map Text IdentityVerificationAttributes
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetIdentityVerificationAttributesResponse' response.

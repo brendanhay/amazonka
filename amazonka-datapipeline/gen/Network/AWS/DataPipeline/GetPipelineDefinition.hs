@@ -103,7 +103,7 @@ instance ToJSON GetPipelineDefinition
 -- | Contains the output from the GetPipelineDefinition action.
 newtype GetPipelineDefinitionResponse = GetPipelineDefinitionResponse
     { _gpdrPipelineObjects :: [PipelineObject]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetPipelineDefinitionResponse' response.

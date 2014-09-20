@@ -97,7 +97,7 @@ instance ToJSON DescribeDeployments
 -- | Contains the response to a DescribeDeployments request.
 newtype DescribeDeploymentsResponse = DescribeDeploymentsResponse
     { _ddrDeployments :: [Deployment]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDeploymentsResponse' response.

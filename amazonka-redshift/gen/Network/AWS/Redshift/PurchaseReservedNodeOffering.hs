@@ -94,7 +94,7 @@ instance ToQuery PurchaseReservedNodeOffering where
 
 newtype PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
     { _prnorReservedNode :: Maybe ReservedNode
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PurchaseReservedNodeOfferingResponse' response.

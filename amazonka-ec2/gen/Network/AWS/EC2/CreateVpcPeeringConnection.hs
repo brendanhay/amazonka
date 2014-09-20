@@ -116,7 +116,7 @@ instance ToQuery CreateVpcPeeringConnection where
 
 newtype CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
     { _cvpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVpcPeeringConnectionResponse' response.

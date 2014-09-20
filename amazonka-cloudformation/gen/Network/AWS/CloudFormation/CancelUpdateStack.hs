@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 -- | The input for CancelUpdateStack action.
 newtype CancelUpdateStack = CancelUpdateStack
     { _cusStackName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelUpdateStack' request.

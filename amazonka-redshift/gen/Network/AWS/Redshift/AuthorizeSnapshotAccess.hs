@@ -96,7 +96,7 @@ instance ToQuery AuthorizeSnapshotAccess where
 
 newtype AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse
     { _asarSnapshot :: Maybe Snapshot
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AuthorizeSnapshotAccessResponse' response.

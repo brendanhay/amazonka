@@ -1483,7 +1483,7 @@ instance ToQuery SourceType where
 -- | Describes an AWS customer account authorized to restore a snapshot.
 newtype AccountWithRestoreAccess = AccountWithRestoreAccess
     { _awraAccountId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AccountWithRestoreAccess' data type to populate a request.
@@ -1511,7 +1511,7 @@ instance ToQuery AccountWithRestoreAccess where
 -- | Describes an availability zone.
 newtype AvailabilityZone = AvailabilityZone
     { _azName :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AvailabilityZone' data type to populate a request.

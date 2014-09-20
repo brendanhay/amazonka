@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 -- list of identities for the AWS Account.
 newtype DeleteIdentity = DeleteIdentity
     { _diIdentity :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteIdentity' request.

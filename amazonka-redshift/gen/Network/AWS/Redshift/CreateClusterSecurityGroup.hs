@@ -93,7 +93,7 @@ instance ToQuery CreateClusterSecurityGroup where
 
 newtype CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse
     { _ccsgrClusterSecurityGroup :: Maybe ClusterSecurityGroup
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateClusterSecurityGroupResponse' response.

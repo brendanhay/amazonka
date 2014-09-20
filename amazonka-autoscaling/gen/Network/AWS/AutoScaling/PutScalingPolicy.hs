@@ -143,7 +143,7 @@ instance ToQuery PutScalingPolicy where
 -- | The PolicyARNType data type.
 newtype PutScalingPolicyResponse = PutScalingPolicyResponse
     { _psprPolicyARN :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutScalingPolicyResponse' response.

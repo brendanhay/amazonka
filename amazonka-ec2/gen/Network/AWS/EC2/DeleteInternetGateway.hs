@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 
 newtype DeleteInternetGateway = DeleteInternetGateway
     { _digInternetGatewayId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteInternetGateway' request.

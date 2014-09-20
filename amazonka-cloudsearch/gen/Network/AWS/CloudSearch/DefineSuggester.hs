@@ -91,7 +91,7 @@ instance ToQuery DefineSuggester where
 -- newly-configured suggester.
 newtype DefineSuggesterResponse = DefineSuggesterResponse
     { _dsrSuggester :: SuggesterStatus
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DefineSuggesterResponse' response.

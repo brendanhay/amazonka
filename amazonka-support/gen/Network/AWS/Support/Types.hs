@@ -375,7 +375,7 @@ _SupportService = prism
 -- Optimizing is the only category that is currently supported.
 newtype TrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary
     { _tacssCostOptimizing :: Maybe TrustedAdvisorCostOptimizingSummary
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TrustedAdvisorCategorySpecificSummary' data type to populate a request.

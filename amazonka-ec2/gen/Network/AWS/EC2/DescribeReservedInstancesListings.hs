@@ -100,7 +100,7 @@ instance ToQuery DescribeReservedInstancesListings where
 
 newtype DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
     { _drilrReservedInstancesListings :: [ReservedInstancesListing]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedInstancesListingsResponse' response.

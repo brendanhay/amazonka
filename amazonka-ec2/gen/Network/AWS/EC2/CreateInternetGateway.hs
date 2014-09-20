@@ -55,7 +55,7 @@ instance ToQuery CreateInternetGateway where
 
 newtype CreateInternetGatewayResponse = CreateInternetGatewayResponse
     { _cigrInternetGateway :: Maybe InternetGateway
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateInternetGatewayResponse' response.

@@ -101,7 +101,7 @@ instance ToQuery RetrieveEnvironmentInfo where
 -- | Result message containing a description of the requested environment info.
 newtype RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
     { _reirEnvironmentInfo :: [EnvironmentInfoDescription]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RetrieveEnvironmentInfoResponse' response.

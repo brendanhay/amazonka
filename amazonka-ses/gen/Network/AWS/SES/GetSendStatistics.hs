@@ -64,7 +64,7 @@ instance ToQuery GetSendStatistics where
 -- previous two weeks of sending activity.
 newtype GetSendStatisticsResponse = GetSendStatisticsResponse
     { _gssrSendDataPoints :: [SendDataPoint]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetSendStatisticsResponse' response.

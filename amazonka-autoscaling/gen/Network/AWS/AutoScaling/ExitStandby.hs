@@ -89,7 +89,7 @@ instance ToQuery ExitStandby where
 -- | The output of the ExitStandby action.
 newtype ExitStandbyResponse = ExitStandbyResponse
     { _esrrActivities :: [Activity]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ExitStandbyResponse' response.

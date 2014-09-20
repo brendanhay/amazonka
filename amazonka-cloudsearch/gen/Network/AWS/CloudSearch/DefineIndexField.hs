@@ -91,7 +91,7 @@ instance ToQuery DefineIndexField where
 -- newly-configured index field.
 newtype DefineIndexFieldResponse = DefineIndexFieldResponse
     { _difrIndexField :: IndexFieldStatus
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DefineIndexFieldResponse' response.

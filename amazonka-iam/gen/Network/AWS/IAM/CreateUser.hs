@@ -84,7 +84,7 @@ instance ToQuery CreateUser where
 -- | Contains the result of a successful invocation of the CreateUser action.
 newtype CreateUserResponse = CreateUserResponse
     { _curUser :: Maybe User
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateUserResponse' response.

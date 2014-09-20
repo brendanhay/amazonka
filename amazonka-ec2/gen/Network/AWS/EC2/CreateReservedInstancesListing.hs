@@ -128,7 +128,7 @@ instance ToQuery CreateReservedInstancesListing where
 
 newtype CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse
     { _crilrrReservedInstancesListings :: [ReservedInstancesListing]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateReservedInstancesListingResponse' response.

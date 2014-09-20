@@ -117,7 +117,7 @@ instance ToQuery DescribeVolumes where
 
 newtype DescribeVolumesResponse = DescribeVolumesResponse
     { _dvrVolumes :: [Volume]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVolumesResponse' response.

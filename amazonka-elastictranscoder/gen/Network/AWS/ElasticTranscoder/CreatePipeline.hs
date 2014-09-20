@@ -275,7 +275,7 @@ instance ToJSON CreatePipeline
 -- specified in the request.
 newtype CreatePipelineResponse = CreatePipelineResponse
     { _cprPipeline :: Maybe Pipeline
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePipelineResponse' response.

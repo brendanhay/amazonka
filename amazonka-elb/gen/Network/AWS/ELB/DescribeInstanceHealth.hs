@@ -101,7 +101,7 @@ instance ToQuery DescribeInstanceHealth where
 -- | The output for the DescribeInstanceHealth action.
 newtype DescribeInstanceHealthResponse = DescribeInstanceHealthResponse
     { _dihrInstanceStates :: [InstanceState]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInstanceHealthResponse' response.

@@ -110,7 +110,7 @@ instance ToJSON CreateTapes
 
 newtype CreateTapesResponse = CreateTapesResponse
     { _ctrTapeARNs :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateTapesResponse' response.

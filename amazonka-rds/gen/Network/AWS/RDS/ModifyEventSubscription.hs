@@ -127,7 +127,7 @@ instance ToQuery ModifyEventSubscription where
 
 newtype ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse
     { _mesrEventSubscription :: Maybe EventSubscription
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyEventSubscriptionResponse' response.

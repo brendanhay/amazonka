@@ -118,7 +118,7 @@ instance ToQuery DeleteCluster where
 
 newtype DeleteClusterResponse = DeleteClusterResponse
     { _dcrCluster :: Maybe Cluster
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteClusterResponse' response.

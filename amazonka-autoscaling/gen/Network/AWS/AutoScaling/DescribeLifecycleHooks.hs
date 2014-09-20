@@ -80,7 +80,7 @@ instance ToQuery DescribeLifecycleHooks where
 -- | The output of the DescribeLifecycleHooks action.
 newtype DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse
     { _dlhrrLifecycleHooks :: [LifecycleHook]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLifecycleHooksResponse' response.

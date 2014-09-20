@@ -148,7 +148,7 @@ instance ToQuery DescribeConfigurationSettings where
 -- environment.
 newtype DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse
     { _dcsrConfigurationSettings :: [ConfigurationSettingsDescription]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeConfigurationSettingsResponse' response.

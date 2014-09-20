@@ -113,7 +113,7 @@ instance ToQuery PromoteReadReplica where
 
 newtype PromoteReadReplicaResponse = PromoteReadReplicaResponse
     { _prrrDBInstance :: Maybe DBInstance
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PromoteReadReplicaResponse' response.

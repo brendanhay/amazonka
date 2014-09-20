@@ -147,7 +147,7 @@ instance ToQuery DescribeSpotInstanceRequests where
 
 newtype DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
     { _dsirrSpotInstanceRequests :: [SpotInstanceRequest]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSpotInstanceRequestsResponse' response.

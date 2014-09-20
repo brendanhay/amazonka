@@ -98,7 +98,7 @@ instance ToQuery DescribeSuggesters where
 -- | The result of a DescribeSuggesters request.
 newtype DescribeSuggestersResponse = DescribeSuggestersResponse
     { _dsr1Suggesters :: [SuggesterStatus]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSuggestersResponse' response.

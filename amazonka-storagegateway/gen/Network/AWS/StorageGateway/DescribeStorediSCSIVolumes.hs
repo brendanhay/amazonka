@@ -66,7 +66,7 @@ import Network.AWS.Request.JSON
 -- DescribeStorediSCSIVolumesInput$VolumeARNs.
 newtype DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes
     { _dsscsivVolumeARNs :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStorediSCSIVolumes' request.
@@ -98,7 +98,7 @@ instance ToJSON DescribeStorediSCSIVolumes
 
 newtype DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse
     { _dsscsivrStorediSCSIVolumes :: [StorediSCSIVolumeInformation]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStorediSCSIVolumesResponse' response.

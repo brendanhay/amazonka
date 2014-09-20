@@ -86,7 +86,7 @@ instance ToQuery DescribeAvailabilityOptions where
 -- not the Multi-AZ option is enabled for the domain specified in the request.
 newtype DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
     { _daorrAvailabilityOptions :: Maybe AvailabilityOptionsStatus
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAvailabilityOptionsResponse' response.

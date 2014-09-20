@@ -407,7 +407,7 @@ instance ToQuery CreateDBInstance where
 
 newtype CreateDBInstanceResponse = CreateDBInstanceResponse
     { _cdbirDBInstance :: Maybe DBInstance
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBInstanceResponse' response.

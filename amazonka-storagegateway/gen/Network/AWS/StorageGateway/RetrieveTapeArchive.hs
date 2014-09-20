@@ -80,7 +80,7 @@ instance ToJSON RetrieveTapeArchive
 
 newtype RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse
     { _rtarTapeARN :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RetrieveTapeArchiveResponse' response.

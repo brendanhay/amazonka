@@ -89,7 +89,7 @@ import Network.AWS.Prelude
 
 newtype DescribeAccountAttributes = DescribeAccountAttributes
     { _daaAttributeNames :: [AccountAttributeName]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAccountAttributes' request.
@@ -113,7 +113,7 @@ instance ToQuery DescribeAccountAttributes where
 
 newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
     { _daarAccountAttributes :: [AccountAttribute]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAccountAttributesResponse' response.

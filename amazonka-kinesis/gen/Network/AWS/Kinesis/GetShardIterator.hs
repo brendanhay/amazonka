@@ -156,7 +156,7 @@ instance ToJSON GetShardIterator
 -- | Represents the output for GetShardIterator.
 newtype GetShardIteratorResponse = GetShardIteratorResponse
     { _gsirShardIterator :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetShardIteratorResponse' response.

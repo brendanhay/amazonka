@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 
 newtype DeleteDomain = DeleteDomain
     { _ddDomainName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteDomain' request.

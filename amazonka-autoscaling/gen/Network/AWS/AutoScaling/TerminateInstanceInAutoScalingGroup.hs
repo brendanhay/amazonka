@@ -84,7 +84,7 @@ instance ToQuery TerminateInstanceInAutoScalingGroup where
 -- | The output for the TerminateInstanceInAutoScalingGroup action.
 newtype TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse
     { _tiiasgrActivity :: Maybe Activity
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TerminateInstanceInAutoScalingGroupResponse' response.

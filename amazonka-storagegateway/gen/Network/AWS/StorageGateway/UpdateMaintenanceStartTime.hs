@@ -127,7 +127,7 @@ instance ToJSON UpdateMaintenanceStartTime
 -- updated.
 newtype UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse
     { _umstrGatewayARN :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateMaintenanceStartTimeResponse' response.

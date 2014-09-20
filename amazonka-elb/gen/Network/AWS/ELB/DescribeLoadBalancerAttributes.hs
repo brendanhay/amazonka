@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 -- | The input for the DescribeLoadBalancerAttributes action.
 newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes
     { _dlbaLoadBalancerName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLoadBalancerAttributes' request.
@@ -75,7 +75,7 @@ instance ToQuery DescribeLoadBalancerAttributes where
 -- DescribeLoadBalancerAttributesResult.
 newtype DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse
     { _dlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLoadBalancerAttributesResponse' response.

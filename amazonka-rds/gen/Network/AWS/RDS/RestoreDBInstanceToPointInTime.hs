@@ -290,7 +290,7 @@ instance ToQuery RestoreDBInstanceToPointInTime where
 
 newtype RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse
     { _rdbitpitrDBInstance :: Maybe DBInstance
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RestoreDBInstanceToPointInTimeResponse' response.

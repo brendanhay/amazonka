@@ -41,7 +41,7 @@ import Network.AWS.Request.JSON
 
 newtype DeleteTapeArchive = DeleteTapeArchive
     { _dtaTapeARN :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteTapeArchive' request.
@@ -69,7 +69,7 @@ instance ToJSON DeleteTapeArchive
 
 newtype DeleteTapeArchiveResponse = DeleteTapeArchiveResponse
     { _dtarTapeARN :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteTapeArchiveResponse' response.

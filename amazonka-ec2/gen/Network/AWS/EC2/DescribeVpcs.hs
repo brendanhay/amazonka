@@ -104,7 +104,7 @@ instance ToQuery DescribeVpcs where
 
 newtype DescribeVpcsResponse = DescribeVpcsResponse
     { _dvrrVpcs :: [Vpc]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVpcsResponse' response.

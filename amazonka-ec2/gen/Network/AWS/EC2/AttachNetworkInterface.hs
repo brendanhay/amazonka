@@ -95,7 +95,7 @@ instance ToQuery AttachNetworkInterface where
 
 newtype AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
     { _anirAttachmentId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachNetworkInterfaceResponse' response.

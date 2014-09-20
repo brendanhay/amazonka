@@ -86,7 +86,7 @@ instance ToJSON DescribeLayers
 -- | Contains the response to a DescribeLayers request.
 newtype DescribeLayersResponse = DescribeLayersResponse
     { _dlrLayers :: [Layer]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLayersResponse' response.

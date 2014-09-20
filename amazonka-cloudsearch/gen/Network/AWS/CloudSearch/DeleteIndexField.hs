@@ -86,7 +86,7 @@ instance ToQuery DeleteIndexField where
 -- | The result of a DeleteIndexField request.
 newtype DeleteIndexFieldResponse = DeleteIndexFieldResponse
     { _difrrIndexField :: IndexFieldStatus
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteIndexFieldResponse' response.

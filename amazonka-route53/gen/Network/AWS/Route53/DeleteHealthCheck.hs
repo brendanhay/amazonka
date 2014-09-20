@@ -50,7 +50,7 @@ import Network.AWS.Types (Region)
 -- | A complex type containing the request information for delete health check.
 newtype DeleteHealthCheck = DeleteHealthCheck
     { _dhcHealthCheckId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteHealthCheck' request.

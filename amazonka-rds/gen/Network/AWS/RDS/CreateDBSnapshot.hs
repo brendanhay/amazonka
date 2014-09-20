@@ -103,7 +103,7 @@ instance ToQuery CreateDBSnapshot where
 
 newtype CreateDBSnapshotResponse = CreateDBSnapshotResponse
     { _cdbsrrDBSnapshot :: Maybe DBSnapshot
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBSnapshotResponse' response.

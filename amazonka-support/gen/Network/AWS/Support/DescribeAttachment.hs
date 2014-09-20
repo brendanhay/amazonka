@@ -46,7 +46,7 @@ import Network.AWS.Request.JSON
 
 newtype DescribeAttachment = DescribeAttachment
     { _daAttachmentId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAttachment' request.
@@ -78,7 +78,7 @@ instance ToJSON DescribeAttachment
 -- DescribeAttachment operation.
 newtype DescribeAttachmentResponse = DescribeAttachmentResponse
     { _darAttachment :: Maybe Attachment
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAttachmentResponse' response.

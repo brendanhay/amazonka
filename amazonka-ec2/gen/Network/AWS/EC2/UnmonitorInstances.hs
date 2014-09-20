@@ -56,7 +56,7 @@ import Network.AWS.Prelude
 
 newtype UnmonitorInstances = UnmonitorInstances
     { _uiInstanceIds :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UnmonitorInstances' request.
@@ -80,7 +80,7 @@ instance ToQuery UnmonitorInstances where
 
 newtype UnmonitorInstancesResponse = UnmonitorInstancesResponse
     { _uirInstanceMonitorings :: [InstanceMonitoring]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UnmonitorInstancesResponse' response.

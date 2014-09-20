@@ -183,7 +183,7 @@ instance ToJSON CreateCase
 -- CreateCase operation.
 newtype CreateCaseResponse = CreateCaseResponse
     { _ccrCaseId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCaseResponse' response.

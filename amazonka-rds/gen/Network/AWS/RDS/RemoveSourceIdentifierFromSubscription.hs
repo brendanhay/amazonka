@@ -89,7 +89,7 @@ instance ToQuery RemoveSourceIdentifierFromSubscription where
 
 newtype RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse
     { _rsifsrEventSubscription :: Maybe EventSubscription
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveSourceIdentifierFromSubscriptionResponse' response.

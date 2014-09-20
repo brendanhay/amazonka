@@ -99,7 +99,7 @@ instance ToQuery DescribeExpressions where
 -- configured for the domain specified in the request.
 newtype DescribeExpressionsResponse = DescribeExpressionsResponse
     { _der1Expressions :: [ExpressionStatus]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeExpressionsResponse' response.

@@ -91,7 +91,7 @@ instance ToQuery ApplySecurityGroupsToLoadBalancer where
 -- | The out for the ApplySecurityGroupsToLoadBalancer action.
 newtype ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse
     { _asgtlbrSecurityGroups :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ApplySecurityGroupsToLoadBalancerResponse' response.

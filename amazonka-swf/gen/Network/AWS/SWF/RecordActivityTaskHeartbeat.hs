@@ -129,7 +129,7 @@ instance ToJSON RecordActivityTaskHeartbeat
 -- | Status information about an activity task.
 newtype RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse
     { _rathrCancelRequested :: Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RecordActivityTaskHeartbeatResponse' response.

@@ -97,7 +97,7 @@ instance ToJSON DescribeInstances
 -- | Contains the response to a DescribeInstances request.
 newtype DescribeInstancesResponse = DescribeInstancesResponse
     { _dirInstances :: [Instance]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInstancesResponse' response.

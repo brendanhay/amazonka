@@ -101,7 +101,7 @@ instance ToQuery CreateDBSecurityGroup where
 
 newtype CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse
     { _cdbsgrDBSecurityGroup :: Maybe DBSecurityGroup
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBSecurityGroupResponse' response.

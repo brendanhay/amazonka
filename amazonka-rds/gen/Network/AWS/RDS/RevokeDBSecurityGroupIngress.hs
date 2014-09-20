@@ -132,7 +132,7 @@ instance ToQuery RevokeDBSecurityGroupIngress where
 
 newtype RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse
     { _rdbsgirDBSecurityGroup :: Maybe DBSecurityGroup
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RevokeDBSecurityGroupIngressResponse' response.

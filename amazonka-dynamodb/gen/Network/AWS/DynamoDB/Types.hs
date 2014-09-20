@@ -876,7 +876,7 @@ instance FromJSON TableStatus
 -- | The amount of throughput consumed on the table affected by the operation.
 newtype Capacity = Capacity
     { _cCapacityUnits :: Maybe Double
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Capacity' data type to populate a request.
@@ -901,7 +901,7 @@ instance ToJSON Capacity
 -- | A request to perform a DeleteItem operation.
 newtype DeleteRequest = DeleteRequest
     { _drKey :: Map Text AttributeValue
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DeleteRequest' data type to populate a request.
@@ -930,7 +930,7 @@ instance ToJSON DeleteRequest
 -- secondary index.
 newtype GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate
     { _gsiuUpdate :: Maybe UpdateGlobalSecondaryIndexAction
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'GlobalSecondaryIndexUpdate' data type to populate a request.
@@ -954,7 +954,7 @@ instance ToJSON GlobalSecondaryIndexUpdate
 -- | A request to perform a PutItem operation.
 newtype PutRequest = PutRequest
     { _prItem :: Map Text AttributeValue
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PutRequest' data type to populate a request.

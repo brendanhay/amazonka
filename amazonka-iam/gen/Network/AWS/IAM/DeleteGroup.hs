@@ -43,7 +43,7 @@ import Network.AWS.Prelude
 
 newtype DeleteGroup = DeleteGroup
     { _dgGroupName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteGroup' request.

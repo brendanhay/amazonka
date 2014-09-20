@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 
 newtype DeleteVolume = DeleteVolume
     { _dvVolumeId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVolume' request.

@@ -72,7 +72,7 @@ import Network.AWS.Prelude
 -- DNS.
 newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes
     { _gidaIdentities :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetIdentityDkimAttributes' request.
@@ -98,7 +98,7 @@ instance ToQuery GetIdentityDkimAttributes where
 -- | Represents a list of all the DKIM attributes for the specified identity.
 newtype GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
     { _gidarDkimAttributes :: Map Text IdentityDkimAttributes
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetIdentityDkimAttributesResponse' response.

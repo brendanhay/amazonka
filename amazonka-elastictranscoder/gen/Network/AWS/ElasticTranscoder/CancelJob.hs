@@ -55,7 +55,7 @@ import Network.AWS.Request.JSON
 -- | The CancelJobRequest structure.
 newtype CancelJob = CancelJob
     { _cjId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelJob' request.

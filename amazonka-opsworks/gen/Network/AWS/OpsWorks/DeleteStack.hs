@@ -44,7 +44,7 @@ import Network.AWS.Request.JSON
 
 newtype DeleteStack = DeleteStack
     { _ds1StackId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteStack' request.

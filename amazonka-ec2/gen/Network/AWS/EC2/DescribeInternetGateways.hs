@@ -91,7 +91,7 @@ instance ToQuery DescribeInternetGateways where
 
 newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
     { _digrInternetGateways :: [InternetGateway]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInternetGatewaysResponse' response.

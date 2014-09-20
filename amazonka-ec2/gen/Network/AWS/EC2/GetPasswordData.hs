@@ -60,7 +60,7 @@ import Network.AWS.Prelude
 
 newtype GetPasswordData = GetPasswordData
     { _gpdInstanceId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetPasswordData' request.

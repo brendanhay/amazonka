@@ -334,7 +334,7 @@ instance ToJSON TaskStatus
 -- components, instances, and attempts.
 newtype Query = Query
     { _qSelectors :: [Selector]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Query' data type to populate a request.

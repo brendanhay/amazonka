@@ -191,7 +191,7 @@ instance ToQuery DescribeNetworkInterfaces where
 
 newtype DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
     { _dnirNetworkInterfaces :: [NetworkInterface]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeNetworkInterfacesResponse' response.

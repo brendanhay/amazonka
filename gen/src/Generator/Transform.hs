@@ -280,7 +280,7 @@ shapeType rq svc@Service{..} s = Type
 
     upd f | f^.cmnLocation == LBody
           , f^.cmnStreaming = f & cmnRequired.~True & fldAnn.anRequired.~True
-          | otherwise         = f
+          | otherwise       = f
 
     shape = ignoreFields (svc^.fIgnored) s
     name  = s^.cmnName

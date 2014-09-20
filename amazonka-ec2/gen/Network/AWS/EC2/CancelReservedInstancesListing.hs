@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 
 newtype CancelReservedInstancesListing = CancelReservedInstancesListing
     { _crilReservedInstancesListingId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelReservedInstancesListing' request.
@@ -79,7 +79,7 @@ instance ToQuery CancelReservedInstancesListing where
 
 newtype CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
     { _crilrReservedInstancesListings :: [ReservedInstancesListing]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelReservedInstancesListingResponse' response.

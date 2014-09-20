@@ -121,7 +121,7 @@ instance ToQuery CreateDBParameterGroup where
 
 newtype CreateDBParameterGroupResponse = CreateDBParameterGroupResponse
     { _cdbpgrDBParameterGroup :: Maybe DBParameterGroup
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBParameterGroupResponse' response.

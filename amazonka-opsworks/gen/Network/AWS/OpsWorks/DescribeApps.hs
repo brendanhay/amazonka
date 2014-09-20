@@ -87,7 +87,7 @@ instance ToJSON DescribeApps
 -- | Contains the response to a DescribeApps request.
 newtype DescribeAppsResponse = DescribeAppsResponse
     { _darApps :: [App]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAppsResponse' response.

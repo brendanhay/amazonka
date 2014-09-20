@@ -113,7 +113,7 @@ instance ToQuery DescribeVpnGateways where
 
 newtype DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
     { _dvgrVpnGateways :: [VpnGateway]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVpnGatewaysResponse' response.

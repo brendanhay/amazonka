@@ -87,7 +87,7 @@ instance ToXML GetInvalidation where
 -- | The returned result of the corresponding request.
 newtype GetInvalidationResponse = GetInvalidationResponse
     { _girInvalidation :: Maybe Invalidation
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetInvalidationResponse' response.

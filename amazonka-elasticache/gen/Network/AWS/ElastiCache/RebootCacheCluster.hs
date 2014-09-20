@@ -99,7 +99,7 @@ instance ToQuery RebootCacheCluster where
 
 newtype RebootCacheClusterResponse = RebootCacheClusterResponse
     { _rccrCacheCluster :: Maybe CacheCluster
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RebootCacheClusterResponse' response.

@@ -108,7 +108,7 @@ instance ToQuery DescribeNetworkAcls where
 
 newtype DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
     { _dnarNetworkAcls :: [NetworkAcl]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeNetworkAclsResponse' response.

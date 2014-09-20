@@ -977,7 +977,7 @@ instance ToQuery SourceType where
 -- | The Availability Zone associated with the subnet.
 newtype AvailabilityZone = AvailabilityZone
     { _azName :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AvailabilityZone' data type to populate a request.
@@ -1006,7 +1006,7 @@ instance ToQuery AvailabilityZone where
 -- immediately or during the next maintenance window.
 newtype ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues
     { _rgpmvPrimaryClusterId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReplicationGroupPendingModifiedValues' data type to populate a request.

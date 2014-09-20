@@ -55,7 +55,7 @@ import Network.AWS.Prelude
 
 newtype GetInstanceProfile = GetInstanceProfile
     { _gipInstanceProfileName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetInstanceProfile' request.
@@ -82,7 +82,7 @@ instance ToQuery GetInstanceProfile where
 -- action.
 newtype GetInstanceProfileResponse = GetInstanceProfileResponse
     { _giprInstanceProfile :: InstanceProfile
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetInstanceProfileResponse' response.

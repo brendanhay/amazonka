@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 -- | Input structure for the CancelJob operation.
 newtype CancelJob = CancelJob
     { _cjJobId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelJob' request.
@@ -69,7 +69,7 @@ instance ToQuery CancelJob where
 -- | Output structure for the CancelJob operation.
 newtype CancelJobResponse = CancelJobResponse
     { _cjrSuccess :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelJobResponse' response.

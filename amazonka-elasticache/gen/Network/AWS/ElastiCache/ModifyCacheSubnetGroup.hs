@@ -99,7 +99,7 @@ instance ToQuery ModifyCacheSubnetGroup where
 
 newtype ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse
     { _mcsgrCacheSubnetGroup :: Maybe CacheSubnetGroup
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyCacheSubnetGroupResponse' response.

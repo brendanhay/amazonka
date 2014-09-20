@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 -- | 
 newtype CreateOrUpdateTags = CreateOrUpdateTags
     { _coutTags :: [Tag]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateOrUpdateTags' request.

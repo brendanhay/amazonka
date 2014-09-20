@@ -100,7 +100,7 @@ instance ToJSON DeleteBandwidthRateLimit
 -- information was deleted.
 newtype DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse
     { _dbrlrGatewayARN :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBandwidthRateLimitResponse' response.

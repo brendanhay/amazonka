@@ -56,7 +56,7 @@ import Network.AWS.Prelude
 
 newtype CancelBundleTask = CancelBundleTask
     { _cbtBundleId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelBundleTask' request.
@@ -80,7 +80,7 @@ instance ToQuery CancelBundleTask where
 
 newtype CancelBundleTaskResponse = CancelBundleTaskResponse
     { _cbtrBundleTask :: Maybe BundleTask
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelBundleTaskResponse' response.

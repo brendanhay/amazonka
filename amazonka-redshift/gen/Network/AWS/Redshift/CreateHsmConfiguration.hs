@@ -133,7 +133,7 @@ instance ToQuery CreateHsmConfiguration where
 
 newtype CreateHsmConfigurationResponse = CreateHsmConfigurationResponse
     { _chcrHsmConfiguration :: Maybe HsmConfiguration
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateHsmConfigurationResponse' response.

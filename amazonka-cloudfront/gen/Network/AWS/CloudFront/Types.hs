@@ -1376,7 +1376,7 @@ instance ToQuery ViewerProtocolPolicy where
 -- distribution of your content.
 newtype Restrictions = Restrictions
     { _rGeoRestriction :: GeoRestriction
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Restrictions' data type to populate a request.
@@ -1412,7 +1412,7 @@ instance ToXML Restrictions where
 -- origin is a custom origin, use the CustomOriginConfig element instead.
 newtype S3OriginConfig = S3OriginConfig
     { _socOriginAccessIdentity :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'S3OriginConfig' data type to populate a request.

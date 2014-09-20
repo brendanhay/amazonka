@@ -93,7 +93,7 @@ instance ToQuery UpdateSAMLProvider where
 -- action.
 newtype UpdateSAMLProviderResponse = UpdateSAMLProviderResponse
     { _usamlprSAMLProviderArn :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateSAMLProviderResponse' response.

@@ -88,7 +88,7 @@ instance ToXML ListDistributions where
 -- | The returned result of the corresponding request.
 newtype ListDistributionsResponse = ListDistributionsResponse
     { _ldrDistributionList :: DistributionList
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDistributionsResponse' response.

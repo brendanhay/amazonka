@@ -398,7 +398,7 @@ instance ToQuery ModifyDBInstance where
 
 newtype ModifyDBInstanceResponse = ModifyDBInstanceResponse
     { _mdbirDBInstance :: Maybe DBInstance
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyDBInstanceResponse' response.

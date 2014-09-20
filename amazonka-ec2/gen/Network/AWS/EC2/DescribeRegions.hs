@@ -84,7 +84,7 @@ instance ToQuery DescribeRegions where
 
 newtype DescribeRegionsResponse = DescribeRegionsResponse
     { _drrRegions :: [Region]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeRegionsResponse' response.

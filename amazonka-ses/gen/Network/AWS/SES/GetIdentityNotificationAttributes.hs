@@ -61,7 +61,7 @@ import Network.AWS.Prelude
 -- address or domain names).
 newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes
     { _ginaIdentities :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetIdentityNotificationAttributes' request.
@@ -89,7 +89,7 @@ instance ToQuery GetIdentityNotificationAttributes where
 -- bounce and complaint notifications.
 newtype GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse
     { _ginarNotificationAttributes :: Map Text IdentityNotificationAttributes
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetIdentityNotificationAttributesResponse' response.

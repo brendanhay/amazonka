@@ -50,7 +50,7 @@ instance ToQuery DescribeLifecycleHookTypes where
 
 newtype DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
     { _dlhtrLifecycleHookTypes :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLifecycleHookTypesResponse' response.

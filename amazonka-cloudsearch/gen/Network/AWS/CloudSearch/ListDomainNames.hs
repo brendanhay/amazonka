@@ -52,7 +52,7 @@ instance ToQuery ListDomainNames where
 -- owned by an account.
 newtype ListDomainNamesResponse = ListDomainNamesResponse
     { _ldnrDomainNames :: Map Text Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDomainNamesResponse' response.

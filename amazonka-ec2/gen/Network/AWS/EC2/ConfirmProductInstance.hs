@@ -88,7 +88,7 @@ instance ToQuery ConfirmProductInstance where
 
 newtype ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
     { _cpirOwnerId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ConfirmProductInstanceResponse' response.

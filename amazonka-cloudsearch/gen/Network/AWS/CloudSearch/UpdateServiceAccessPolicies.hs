@@ -88,7 +88,7 @@ instance ToQuery UpdateServiceAccessPolicies where
 -- access policies.
 newtype UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse
     { _usaprAccessPolicies :: AccessPoliciesStatus
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateServiceAccessPoliciesResponse' response.

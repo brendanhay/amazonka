@@ -91,7 +91,7 @@ instance ToQuery DefineAnalysisScheme where
 -- newly-configured analysis scheme.
 newtype DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse
     { _dasrAnalysisScheme :: AnalysisSchemeStatus
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DefineAnalysisSchemeResponse' response.

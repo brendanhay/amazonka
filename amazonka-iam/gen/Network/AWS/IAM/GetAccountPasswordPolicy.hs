@@ -56,7 +56,7 @@ instance ToQuery GetAccountPasswordPolicy where
 -- GetAccountPasswordPolicy action.
 newtype GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
     { _gapprPasswordPolicy :: PasswordPolicy
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetAccountPasswordPolicyResponse' response.

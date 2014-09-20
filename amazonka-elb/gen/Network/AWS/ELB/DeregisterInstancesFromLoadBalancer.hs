@@ -90,7 +90,7 @@ instance ToQuery DeregisterInstancesFromLoadBalancer where
 -- | The output for the DeregisterInstancesFromLoadBalancer action.
 newtype DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse
     { _diflbrInstances :: [Instance]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeregisterInstancesFromLoadBalancerResponse' response.

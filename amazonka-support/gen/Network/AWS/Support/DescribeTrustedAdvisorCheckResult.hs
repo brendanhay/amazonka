@@ -92,7 +92,7 @@ instance ToJSON DescribeTrustedAdvisorCheckResult
 -- DescribeTrustedAdvisorCheckResult operation.
 newtype DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse
     { _dtacrrResult :: Maybe TrustedAdvisorCheckResult
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTrustedAdvisorCheckResultResponse' response.

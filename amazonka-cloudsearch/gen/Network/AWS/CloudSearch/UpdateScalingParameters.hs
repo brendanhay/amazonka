@@ -92,7 +92,7 @@ instance ToQuery UpdateScalingParameters where
 -- newly-configured scaling parameters.
 newtype UpdateScalingParametersResponse = UpdateScalingParametersResponse
     { _usprScalingParameters :: ScalingParametersStatus
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateScalingParametersResponse' response.

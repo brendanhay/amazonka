@@ -45,7 +45,7 @@ import Network.AWS.Types (Region)
 -- | The request to get a distribution configuration.
 newtype GetDistributionConfig = GetDistributionConfig
     { _gdcId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetDistributionConfig' request.

@@ -89,7 +89,7 @@ instance ToQuery DetachLoadBalancerFromSubnets where
 -- | The output for the DetachLoadBalancerFromSubnets action.
 newtype DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse
     { _dlbfsrSubnets :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DetachLoadBalancerFromSubnetsResponse' response.

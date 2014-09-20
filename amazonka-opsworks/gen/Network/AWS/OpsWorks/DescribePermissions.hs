@@ -84,7 +84,7 @@ instance ToJSON DescribePermissions
 -- | Contains the response to a DescribePermissions request.
 newtype DescribePermissionsResponse = DescribePermissionsResponse
     { _dprPermissions :: [Permission]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribePermissionsResponse' response.

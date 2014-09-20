@@ -88,7 +88,7 @@ instance ToQuery DefineExpression where
 -- newly-configured expression.
 newtype DefineExpressionResponse = DefineExpressionResponse
     { _derExpression :: ExpressionStatus
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DefineExpressionResponse' response.

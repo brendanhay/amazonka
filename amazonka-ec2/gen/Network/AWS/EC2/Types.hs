@@ -3383,7 +3383,7 @@ instance ToQuery VpnStaticRouteSource where
 -- | Describes a value of an account attribute.
 newtype AccountAttributeValue = AccountAttributeValue
     { _aavAttributeValue :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AccountAttributeValue' data type to populate a request.
@@ -3413,7 +3413,7 @@ instance ToQuery AccountAttributeValue where
 -- EC2 console, CLI, or API; otherwise, you can.
 newtype AttributeBooleanValue = AttributeBooleanValue
     { _abvValue :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AttributeBooleanValue' data type to populate a request.
@@ -3441,7 +3441,7 @@ instance ToQuery AttributeBooleanValue where
 -- | The kernel ID.
 newtype AttributeValue = AttributeValue
     { _av1Value :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AttributeValue' data type to populate a request.
@@ -3469,7 +3469,7 @@ instance ToQuery AttributeValue where
 -- | Describes a message about an Availability Zone.
 newtype AvailabilityZoneMessage = AvailabilityZoneMessage
     { _azmMessage :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AvailabilityZoneMessage' data type to populate a request.
@@ -3497,7 +3497,7 @@ instance ToQuery AvailabilityZoneMessage where
 -- | Describes an IP range.
 newtype IpRange = IpRange
     { _irCidrIp :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IpRange' data type to populate a request.
@@ -3527,7 +3527,7 @@ instance ToQuery IpRange where
 -- | The monitoring information for the instance.
 newtype Monitoring = Monitoring
     { _mState :: Maybe MonitoringState
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Monitoring' data type to populate a request.
@@ -3555,7 +3555,7 @@ instance ToQuery Monitoring where
 -- | Describes a virtual private gateway propagating route.
 newtype PropagatingVgw = PropagatingVgw
     { _pvGatewayId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PropagatingVgw' data type to populate a request.
@@ -3583,7 +3583,7 @@ instance ToQuery PropagatingVgw where
 -- | Describes the ID of a Reserved Instance.
 newtype ReservedInstancesId = ReservedInstancesId
     { _riiReservedInstancesId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReservedInstancesId' data type to populate a request.
@@ -3612,7 +3612,7 @@ instance ToQuery ReservedInstancesId where
 -- | The monitoring for the instance.
 newtype RunInstancesMonitoringEnabled = RunInstancesMonitoringEnabled
     { _rimeEnabled :: Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RunInstancesMonitoringEnabled' data type to populate a request.
@@ -3639,7 +3639,7 @@ instance ToQuery RunInstancesMonitoringEnabled where
 -- specify a bucket that belongs to someone else, Amazon EC2 returns an error.
 newtype Storage = Storage
     { _sS3 :: Maybe S3Storage
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Storage' data type to populate a request.
@@ -3666,7 +3666,7 @@ instance ToQuery Storage where
 
 newtype VolumeDetail = VolumeDetail
     { _vdSize :: Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VolumeDetail' data type to populate a request.
@@ -3695,7 +3695,7 @@ instance ToQuery VolumeDetail where
 -- | The VPN connection options.
 newtype VpnConnectionOptions = VpnConnectionOptions
     { _vcoStaticRoutesOnly :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VpnConnectionOptions' data type to populate a request.
@@ -3727,7 +3727,7 @@ instance ToQuery VpnConnectionOptions where
 -- specify true. Default: false.
 newtype VpnConnectionOptionsSpecification = VpnConnectionOptionsSpecification
     { _vcosStaticRoutesOnly :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VpnConnectionOptionsSpecification' data type to populate a request.

@@ -54,7 +54,7 @@ import Network.AWS.Prelude
 
 newtype GetRole = GetRole
     { _grRoleName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetRole' request.
@@ -79,7 +79,7 @@ instance ToQuery GetRole where
 -- | Contains the result of a successful invocation of the GetRole action.
 newtype GetRoleResponse = GetRoleResponse
     { _grrRole :: Role
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetRoleResponse' response.

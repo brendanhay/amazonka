@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 -- | Represents the input of a DeleteSnapshotMessage operation.
 newtype DeleteSnapshot = DeleteSnapshot
     { _dsSnapshotName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSnapshot' request.
@@ -76,7 +76,7 @@ instance ToQuery DeleteSnapshot where
 
 newtype DeleteSnapshotResponse = DeleteSnapshotResponse
     { _dsrSnapshot :: Maybe Snapshot
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSnapshotResponse' response.

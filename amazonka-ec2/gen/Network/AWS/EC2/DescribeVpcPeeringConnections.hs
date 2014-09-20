@@ -128,7 +128,7 @@ instance ToQuery DescribeVpcPeeringConnections where
 
 newtype DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse
     { _dvpcrrVpcPeeringConnections :: [VpcPeeringConnection]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVpcPeeringConnectionsResponse' response.

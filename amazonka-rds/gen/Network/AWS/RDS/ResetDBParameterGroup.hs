@@ -115,7 +115,7 @@ instance ToQuery ResetDBParameterGroup where
 -- ModifyDBParameterGroup or ResetDBParameterGroup action.
 newtype ResetDBParameterGroupResponse = ResetDBParameterGroupResponse
     { _rdbpgrDBParameterGroupName :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetDBParameterGroupResponse' response.

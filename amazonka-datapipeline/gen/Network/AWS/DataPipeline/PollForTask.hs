@@ -141,7 +141,7 @@ instance ToJSON PollForTask
 -- | Contains the output from the PollForTask action.
 newtype PollForTaskResponse = PollForTaskResponse
     { _pftrTaskObject :: Maybe TaskObject
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PollForTaskResponse' response.

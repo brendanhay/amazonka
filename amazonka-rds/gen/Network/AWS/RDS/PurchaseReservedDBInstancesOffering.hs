@@ -109,7 +109,7 @@ instance ToQuery PurchaseReservedDBInstancesOffering where
 
 newtype PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse
     { _prdbiorReservedDBInstance :: Maybe ReservedDBInstance
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PurchaseReservedDBInstancesOfferingResponse' response.

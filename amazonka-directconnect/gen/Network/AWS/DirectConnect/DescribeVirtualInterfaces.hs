@@ -92,7 +92,7 @@ instance ToJSON DescribeVirtualInterfaces
 -- | A structure containing a list of virtual interfaces.
 newtype DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse
     { _dvirrVirtualInterfaces :: [VirtualInterface]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVirtualInterfacesResponse' response.

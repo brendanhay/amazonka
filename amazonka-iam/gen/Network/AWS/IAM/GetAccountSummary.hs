@@ -60,7 +60,7 @@ instance ToQuery GetAccountSummary where
 -- action.
 newtype GetAccountSummaryResponse = GetAccountSummaryResponse
     { _gasrSummaryMap :: Map SummaryKeyType Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetAccountSummaryResponse' response.

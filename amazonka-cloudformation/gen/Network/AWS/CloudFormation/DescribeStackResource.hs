@@ -93,7 +93,7 @@ instance ToQuery DescribeStackResource where
 -- | The output for a DescribeStackResource action.
 newtype DescribeStackResourceResponse = DescribeStackResourceResponse
     { _dsrrStackResourceDetail :: Maybe StackResourceDetail
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStackResourceResponse' response.

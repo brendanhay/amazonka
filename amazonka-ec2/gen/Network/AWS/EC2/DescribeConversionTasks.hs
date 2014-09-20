@@ -82,7 +82,7 @@ instance ToQuery DescribeConversionTasks where
 
 newtype DescribeConversionTasksResponse = DescribeConversionTasksResponse
     { _dctrConversionTasks :: [ConversionTask]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeConversionTasksResponse' response.

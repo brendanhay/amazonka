@@ -111,7 +111,7 @@ instance ToQuery CreateSubnet where
 
 newtype CreateSubnetResponse = CreateSubnetResponse
     { _csr1Subnet :: Maybe Subnet
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSubnetResponse' response.

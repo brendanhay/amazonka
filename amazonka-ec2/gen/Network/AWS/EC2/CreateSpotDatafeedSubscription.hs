@@ -90,7 +90,7 @@ instance ToQuery CreateSpotDatafeedSubscription where
 
 newtype CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
     { _csdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSpotDatafeedSubscriptionResponse' response.

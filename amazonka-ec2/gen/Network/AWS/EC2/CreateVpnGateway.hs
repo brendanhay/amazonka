@@ -90,7 +90,7 @@ instance ToQuery CreateVpnGateway where
 
 newtype CreateVpnGatewayResponse = CreateVpnGatewayResponse
     { _cvgrVpnGateway :: Maybe VpnGateway
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVpnGatewayResponse' response.

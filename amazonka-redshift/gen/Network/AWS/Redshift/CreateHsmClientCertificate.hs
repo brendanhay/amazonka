@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 -- | 
 newtype CreateHsmClientCertificate = CreateHsmClientCertificate
     { _chccHsmClientCertificateIdentifier :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateHsmClientCertificate' request.
@@ -77,7 +77,7 @@ instance ToQuery CreateHsmClientCertificate where
 
 newtype CreateHsmClientCertificateResponse = CreateHsmClientCertificateResponse
     { _chccrHsmClientCertificate :: Maybe HsmClientCertificate
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateHsmClientCertificateResponse' response.

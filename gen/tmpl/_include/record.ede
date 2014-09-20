@@ -10,11 +10,6 @@ newtype {{ scope.name }} = {{ scope.name }}
     {% else %}
     , {{ field.value.prefixed }} :: {{ field.value.type }}
     {% endif %}
-    {% if field.last %}
-    } deriving (Show, Generic)
-    {% endif %}
-  {% else %}
-    deriving (Eq, Show, Generic)
   {% endfor %}
 {% else %}
 data {{ scope.name }} = {{ scope.name }}
@@ -24,14 +19,14 @@ data {{ scope.name }} = {{ scope.name }}
     {% else %}
     , {{ field.value.prefixed }} :: {{ field.value.strict }}
     {% endif %}
-    {% if field.last %}
-      {% if scope.equality %}
-    } deriving (Eq, Show, Generic)
-      {% else %}
-    } deriving (Show, Generic)
-      {% endif %}
-    {% endif %}
-  {% else %}
-    deriving (Eq, Show, Generic)
   {% endfor %}
 {% endcase %}
+{% if scope.fields | listLength == 0 %}
+    deriving (Eq, Show, Generic)
+{% else %}
+  {% if scope.equality %}
+    } deriving (Eq, Show, Generic)
+  {% else %}
+    } deriving (Show, Generic)
+  {% endif %}
+{% endif %}

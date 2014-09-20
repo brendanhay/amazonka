@@ -214,7 +214,7 @@ instance ToJSON UpdatePipeline
 -- specified in the request.
 newtype UpdatePipelineResponse = UpdatePipelineResponse
     { _uprPipeline :: Pipeline
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdatePipelineResponse' response.

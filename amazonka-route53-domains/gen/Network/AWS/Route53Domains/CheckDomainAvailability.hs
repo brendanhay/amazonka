@@ -101,7 +101,7 @@ instance ToJSON CheckDomainAvailability
 -- | The CheckDomainAvailability response includes the following elements.
 newtype CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse
     { _cdarAvailability :: DomainAvailability
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CheckDomainAvailabilityResponse' response.

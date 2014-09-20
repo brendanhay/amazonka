@@ -89,7 +89,7 @@ instance ToXML ListStreamingDistributions where
 -- | The returned result of the corresponding request.
 newtype ListStreamingDistributionsResponse = ListStreamingDistributionsResponse
     { _lsdrStreamingDistributionList :: StreamingDistributionList
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListStreamingDistributionsResponse' response.

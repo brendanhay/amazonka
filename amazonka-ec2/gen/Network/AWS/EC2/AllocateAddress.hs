@@ -64,7 +64,7 @@ import Network.AWS.Prelude
 
 newtype AllocateAddress = AllocateAddress
     { _aaDomain :: Maybe DomainType
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AllocateAddress' request.

@@ -103,7 +103,7 @@ instance ToJSON UpdatePipelineStatus
 -- values that you specified in the request.
 newtype UpdatePipelineStatusResponse = UpdatePipelineStatusResponse
     { _upsrPipeline :: Maybe Pipeline
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdatePipelineStatusResponse' response.

@@ -361,7 +361,7 @@ instance ToQuery CreateCacheCluster where
 
 newtype CreateCacheClusterResponse = CreateCacheClusterResponse
     { _cccrCacheCluster :: Maybe CacheCluster
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCacheClusterResponse' response.

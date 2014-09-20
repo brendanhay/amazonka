@@ -103,7 +103,7 @@ instance ToQuery DetachInstances where
 -- | The output of the DetachInstances action.
 newtype DetachInstancesResponse = DetachInstancesResponse
     { _dirActivities :: [Activity]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DetachInstancesResponse' response.

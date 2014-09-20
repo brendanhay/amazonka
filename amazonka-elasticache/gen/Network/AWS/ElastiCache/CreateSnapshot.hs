@@ -87,7 +87,7 @@ instance ToQuery CreateSnapshot where
 
 newtype CreateSnapshotResponse = CreateSnapshotResponse
     { _csrrSnapshot :: Maybe Snapshot
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSnapshotResponse' response.

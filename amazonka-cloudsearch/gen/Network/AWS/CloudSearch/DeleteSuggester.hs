@@ -86,7 +86,7 @@ instance ToQuery DeleteSuggester where
 -- suggester.
 newtype DeleteSuggesterResponse = DeleteSuggesterResponse
     { _dsrrSuggester :: SuggesterStatus
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSuggesterResponse' response.

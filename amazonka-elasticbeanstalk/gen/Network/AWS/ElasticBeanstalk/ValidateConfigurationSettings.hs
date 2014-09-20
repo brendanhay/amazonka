@@ -112,7 +112,7 @@ instance ToQuery ValidateConfigurationSettings where
 -- | Provides a list of validation messages.
 newtype ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
     { _vcsrMessages :: [ValidationMessage]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ValidateConfigurationSettingsResponse' response.

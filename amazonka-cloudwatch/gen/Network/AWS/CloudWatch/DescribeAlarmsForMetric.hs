@@ -114,7 +114,7 @@ instance ToQuery DescribeAlarmsForMetric where
 -- | The output for the DescribeAlarmsForMetric action.
 newtype DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
     { _dafmrMetricAlarms :: [MetricAlarm]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAlarmsForMetricResponse' response.

@@ -122,7 +122,7 @@ instance ToJSON AddJobFlowSteps
 -- | The output for the AddJobFlowSteps operation.
 newtype AddJobFlowStepsResponse = AddJobFlowStepsResponse
     { _ajfsrStepIds :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddJobFlowStepsResponse' response.

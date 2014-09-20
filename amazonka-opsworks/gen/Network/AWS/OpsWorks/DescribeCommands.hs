@@ -97,7 +97,7 @@ instance ToJSON DescribeCommands
 -- | Contains the response to a DescribeCommands request.
 newtype DescribeCommandsResponse = DescribeCommandsResponse
     { _dcrCommands :: [Command]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCommandsResponse' response.

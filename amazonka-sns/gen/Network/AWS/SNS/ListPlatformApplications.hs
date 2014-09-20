@@ -74,7 +74,7 @@ import Network.AWS.Prelude
 -- | Input for ListPlatformApplications action.
 newtype ListPlatformApplications = ListPlatformApplications
     { _lpaNextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListPlatformApplications' request.

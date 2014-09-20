@@ -44,7 +44,7 @@ import Network.AWS.Request.JSON
 -- | Returns information about the trail.
 newtype DescribeTrails = DescribeTrails
     { _dt1TrailNameList :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTrails' request.
@@ -75,7 +75,7 @@ instance ToJSON DescribeTrails
 -- an error.
 newtype DescribeTrailsResponse = DescribeTrailsResponse
     { _dtrrTrailList :: [Trail]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTrailsResponse' response.

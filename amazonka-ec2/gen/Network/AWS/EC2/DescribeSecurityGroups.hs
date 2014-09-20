@@ -119,7 +119,7 @@ instance ToQuery DescribeSecurityGroups where
 
 newtype DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
     { _dsgrSecurityGroups :: [SecurityGroup]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSecurityGroupsResponse' response.

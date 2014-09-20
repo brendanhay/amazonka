@@ -79,7 +79,7 @@ instance ToQuery CopySnapshot where
 
 newtype CopySnapshotResponse = CopySnapshotResponse
     { _csrSnapshot :: Maybe Snapshot
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopySnapshotResponse' response.

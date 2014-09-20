@@ -99,7 +99,7 @@ instance ToQuery DescribeLoadBalancerPolicies where
 -- | The output for the DescribeLoadBalancerPolicies action.
 newtype DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
     { _dlbprrPolicyDescriptions :: [PolicyDescription]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLoadBalancerPoliciesResponse' response.

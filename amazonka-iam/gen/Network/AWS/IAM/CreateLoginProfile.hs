@@ -95,7 +95,7 @@ instance ToQuery CreateLoginProfile where
 -- action.
 newtype CreateLoginProfileResponse = CreateLoginProfileResponse
     { _clprLoginProfile :: LoginProfile
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLoginProfileResponse' response.

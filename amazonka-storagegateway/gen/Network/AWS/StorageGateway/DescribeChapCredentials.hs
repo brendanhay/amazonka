@@ -60,7 +60,7 @@ import Network.AWS.Request.JSON
 -- target.
 newtype DescribeChapCredentials = DescribeChapCredentials
     { _dcc1TargetARN :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeChapCredentials' request.
@@ -92,7 +92,7 @@ instance ToJSON DescribeChapCredentials
 -- | A JSON object containing a .
 newtype DescribeChapCredentialsResponse = DescribeChapCredentialsResponse
     { _dccrrChapCredentials :: [ChapInfo]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeChapCredentialsResponse' response.

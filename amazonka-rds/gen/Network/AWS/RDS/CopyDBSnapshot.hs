@@ -108,7 +108,7 @@ instance ToQuery CopyDBSnapshot where
 
 newtype CopyDBSnapshotResponse = CopyDBSnapshotResponse
     { _cdbsrDBSnapshot :: Maybe DBSnapshot
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopyDBSnapshotResponse' response.

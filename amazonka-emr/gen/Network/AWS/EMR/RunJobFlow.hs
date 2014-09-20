@@ -261,7 +261,7 @@ instance ToJSON RunJobFlow
 -- | The result of the RunJobFlow operation.
 newtype RunJobFlowResponse = RunJobFlowResponse
     { _rjfrJobFlowId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RunJobFlowResponse' response.

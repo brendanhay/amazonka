@@ -44,7 +44,7 @@ import Network.AWS.Request.JSON
 -- | Container for the parameters to the DescribeConnections operation.
 newtype DescribeConnections = DescribeConnections
     { _dc1ConnectionId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeConnections' request.
@@ -73,7 +73,7 @@ instance ToJSON DescribeConnections
 -- | A structure containing a list of connections.
 newtype DescribeConnectionsResponse = DescribeConnectionsResponse
     { _dcrrConnections :: [Connection]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeConnectionsResponse' response.

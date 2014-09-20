@@ -100,7 +100,7 @@ instance ToQuery DescribeAnalysisSchemes where
 -- schemes configured for the domain specified in the request.
 newtype DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
     { _dasr1AnalysisSchemes :: [AnalysisSchemeStatus]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAnalysisSchemesResponse' response.

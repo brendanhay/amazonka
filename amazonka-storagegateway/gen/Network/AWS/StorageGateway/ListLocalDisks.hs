@@ -64,7 +64,7 @@ import Network.AWS.Request.JSON
 -- | A JSON object containing the of the gateway.
 newtype ListLocalDisks = ListLocalDisks
     { _lldGatewayARN :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListLocalDisks' request.

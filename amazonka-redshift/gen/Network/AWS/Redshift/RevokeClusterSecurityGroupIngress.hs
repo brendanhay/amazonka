@@ -120,7 +120,7 @@ instance ToQuery RevokeClusterSecurityGroupIngress where
 
 newtype RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse
     { _rcsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RevokeClusterSecurityGroupIngressResponse' response.

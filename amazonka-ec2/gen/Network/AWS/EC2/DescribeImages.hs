@@ -156,7 +156,7 @@ instance ToQuery DescribeImages where
 
 newtype DescribeImagesResponse = DescribeImagesResponse
     { _dirImages :: [Image]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeImagesResponse' response.

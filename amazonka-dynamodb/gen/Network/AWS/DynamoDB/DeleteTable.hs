@@ -57,7 +57,7 @@ import Network.AWS.Request.JSON
 -- | Represents the input of a DeleteTable operation.
 newtype DeleteTable = DeleteTable
     { _dtTableName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteTable' request.
@@ -87,7 +87,7 @@ instance ToJSON DeleteTable
 -- | Represents the output of a DeleteTable operation.
 newtype DeleteTableResponse = DeleteTableResponse
     { _dtrTableDescription :: Maybe TableDescription
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteTableResponse' response.

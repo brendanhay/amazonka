@@ -60,7 +60,7 @@ import Network.AWS.Request.JSON
 -- | The ReadPipelineRequest structure.
 newtype ReadPipeline = ReadPipeline
     { _rpId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReadPipeline' request.
@@ -90,7 +90,7 @@ instance ToJSON ReadPipeline
 -- | The ReadPipelineResponse structure.
 newtype ReadPipelineResponse = ReadPipelineResponse
     { _rprPipeline :: Maybe Pipeline
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReadPipelineResponse' response.

@@ -263,7 +263,7 @@ instance ToQuery RestoreDBInstanceFromDBSnapshot where
 
 newtype RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse
     { _rdbifdbsrDBInstance :: Maybe DBInstance
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RestoreDBInstanceFromDBSnapshotResponse' response.

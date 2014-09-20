@@ -99,7 +99,7 @@ instance ToJSON GetId
 -- | Returned in the response to a GetId request.
 newtype GetIdResponse = GetIdResponse
     { _girIdentityId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetIdResponse' response.

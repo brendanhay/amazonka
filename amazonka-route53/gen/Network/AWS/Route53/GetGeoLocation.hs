@@ -104,7 +104,7 @@ instance ToXML GetGeoLocation where
 -- | A complex type containing information about the specified geo location.
 newtype GetGeoLocationResponse = GetGeoLocationResponse
     { _gglrGeoLocationDetails :: GeoLocationDetails
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetGeoLocationResponse' response.

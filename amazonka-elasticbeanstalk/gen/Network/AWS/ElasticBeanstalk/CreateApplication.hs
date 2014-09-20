@@ -88,7 +88,7 @@ instance ToQuery CreateApplication where
 -- | Result message containing a single description of an application.
 newtype CreateApplicationResponse = CreateApplicationResponse
     { _carApplication :: Maybe ApplicationDescription
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateApplicationResponse' response.

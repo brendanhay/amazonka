@@ -60,7 +60,7 @@ import Network.AWS.Request.JSON
 -- | The EnableDomainTransferLock request includes the following element.
 newtype EnableDomainTransferLock = EnableDomainTransferLock
     { _edtlDomainName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableDomainTransferLock' request.
@@ -93,7 +93,7 @@ instance ToJSON EnableDomainTransferLock
 -- | The EnableDomainTransferLock response includes the following elements.
 newtype EnableDomainTransferLockResponse = EnableDomainTransferLockResponse
     { _edtlrOperationId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableDomainTransferLockResponse' response.

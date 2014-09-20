@@ -57,7 +57,7 @@ import Network.AWS.Prelude
 -- | Input for Unsubscribe action.
 newtype Unsubscribe = Unsubscribe
     { _uSubscriptionArn :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'Unsubscribe' request.

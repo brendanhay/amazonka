@@ -102,7 +102,7 @@ instance ToQuery CreateCacheSubnetGroup where
 
 newtype CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse
     { _ccsgrrCacheSubnetGroup :: Maybe CacheSubnetGroup
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCacheSubnetGroupResponse' response.

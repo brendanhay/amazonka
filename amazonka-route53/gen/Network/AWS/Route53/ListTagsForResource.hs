@@ -88,7 +88,7 @@ instance ToXML ListTagsForResource where
 -- | A complex type containing tags for the specified resource.
 newtype ListTagsForResourceResponse = ListTagsForResourceResponse
     { _ltfrrResourceTagSet :: ResourceTagSet
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListTagsForResourceResponse' response.

@@ -344,7 +344,7 @@ instance ToJSON CloneStack
 -- | Contains the response to a CloneStack request.
 newtype CloneStackResponse = CloneStackResponse
     { _csrStackId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CloneStackResponse' response.

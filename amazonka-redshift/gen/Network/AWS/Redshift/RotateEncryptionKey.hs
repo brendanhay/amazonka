@@ -43,7 +43,7 @@ import Network.AWS.Prelude
 -- | 
 newtype RotateEncryptionKey = RotateEncryptionKey
     { _rekClusterIdentifier :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RotateEncryptionKey' request.
@@ -70,7 +70,7 @@ instance ToQuery RotateEncryptionKey where
 
 newtype RotateEncryptionKeyResponse = RotateEncryptionKeyResponse
     { _rekrCluster :: Maybe Cluster
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RotateEncryptionKeyResponse' response.

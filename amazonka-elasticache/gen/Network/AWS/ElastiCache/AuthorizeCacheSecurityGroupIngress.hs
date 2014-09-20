@@ -107,7 +107,7 @@ instance ToQuery AuthorizeCacheSecurityGroupIngress where
 
 newtype AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse
     { _acsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AuthorizeCacheSecurityGroupIngressResponse' response.

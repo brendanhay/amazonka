@@ -54,7 +54,7 @@ instance ToQuery DescribeAdjustmentTypes where
 -- | The output of the DescribeAdjustmentTypes action.
 newtype DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
     { _datrAdjustmentTypes :: [AdjustmentType]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAdjustmentTypesResponse' response.

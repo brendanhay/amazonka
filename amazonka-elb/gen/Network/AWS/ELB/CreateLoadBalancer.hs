@@ -206,7 +206,7 @@ instance ToQuery CreateLoadBalancer where
 -- | The output for the CreateLoadBalancer action.
 newtype CreateLoadBalancerResponse = CreateLoadBalancerResponse
     { _clbrDNSName :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLoadBalancerResponse' response.

@@ -187,7 +187,7 @@ instance ToJSON CreateJob
 -- | The CreateJobResponse structure.
 newtype CreateJobResponse = CreateJobResponse
     { _cjrrJob :: Maybe Job
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateJobResponse' response.

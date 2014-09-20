@@ -1057,7 +1057,7 @@ instance ToQuery Type where
 
 newtype BucketLoggingStatus = BucketLoggingStatus
     { _blsLoggingEnabled :: Maybe LoggingEnabled
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'BucketLoggingStatus' data type to populate a request.
@@ -1081,7 +1081,7 @@ instance ToXML BucketLoggingStatus where
 
 newtype CORSConfiguration = CORSConfiguration
     { _corscCORSRules :: [CORSRule]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CORSConfiguration' data type to populate a request.
@@ -1104,7 +1104,7 @@ instance ToXML CORSConfiguration where
 
 newtype CommonPrefix = CommonPrefix
     { _cprPrefix :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CommonPrefix' data type.
@@ -1130,7 +1130,7 @@ instance FromXML CommonPrefix where
 
 newtype CompletedMultipartUpload = CompletedMultipartUpload
     { _cmu1Parts :: [CompletedPart]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CompletedMultipartUpload' data type to populate a request.
@@ -1153,7 +1153,7 @@ instance ToXML CompletedMultipartUpload where
 
 newtype CreateBucketConfiguration = CreateBucketConfiguration
     { _cbcLocationConstraint :: Maybe Region
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CreateBucketConfiguration' data type to populate a request.
@@ -1178,7 +1178,7 @@ instance ToXML CreateBucketConfiguration where
 
 newtype ErrorDocument = ErrorDocument
     { _edKey :: ObjectKey
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ErrorDocument' data type to populate a request.
@@ -1207,7 +1207,7 @@ instance ToXML ErrorDocument where
 
 newtype IndexDocument = IndexDocument
     { _idSuffix :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IndexDocument' data type to populate a request.
@@ -1240,7 +1240,7 @@ instance ToXML IndexDocument where
 
 newtype LifecycleConfiguration = LifecycleConfiguration
     { _lcRules :: [Rule]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LifecycleConfiguration' data type to populate a request.
@@ -1269,7 +1269,7 @@ instance ToXML LifecycleConfiguration where
 -- specific period in the object's lifetime.
 newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration
     { _nveNoncurrentDays :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NoncurrentVersionExpiration' data type to populate a request.
@@ -1301,7 +1301,7 @@ instance ToXML NoncurrentVersionExpiration where
 
 newtype NotificationConfiguration = NotificationConfiguration
     { _ncTopicConfiguration :: TopicConfiguration
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NotificationConfiguration' data type to populate a request.
@@ -1326,7 +1326,7 @@ instance ToXML NotificationConfiguration where
 
 newtype RequestPaymentConfiguration = RequestPaymentConfiguration
     { _rpcPayer :: Payer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RequestPaymentConfiguration' data type to populate a request.
@@ -1351,7 +1351,7 @@ instance ToXML RequestPaymentConfiguration where
 
 newtype RestoreRequest = RestoreRequest
     { _rr1Days :: Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RestoreRequest' data type to populate a request.
@@ -1376,7 +1376,7 @@ instance ToXML RestoreRequest where
 
 newtype Tagging = Tagging
     { _t1TagSet :: [Tag]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tagging' data type to populate a request.

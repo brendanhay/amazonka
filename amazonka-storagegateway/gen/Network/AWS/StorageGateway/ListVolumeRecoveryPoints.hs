@@ -67,7 +67,7 @@ import Network.AWS.Request.JSON
 
 newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints
     { _lvrpGatewayARN :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListVolumeRecoveryPoints' request.

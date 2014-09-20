@@ -91,7 +91,7 @@ instance ToQuery ModifyClusterSubnetGroup where
 
 newtype ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse
     { _mcsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyClusterSubnetGroupResponse' response.

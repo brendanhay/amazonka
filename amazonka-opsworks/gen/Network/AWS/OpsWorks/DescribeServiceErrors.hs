@@ -97,7 +97,7 @@ instance ToJSON DescribeServiceErrors
 -- | Contains the response to a DescribeServiceErrors request.
 newtype DescribeServiceErrorsResponse = DescribeServiceErrorsResponse
     { _dserServiceErrors :: [ServiceError]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeServiceErrorsResponse' response.

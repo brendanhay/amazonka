@@ -80,7 +80,7 @@ instance ToJSON CancelArchival
 
 newtype CancelArchivalResponse = CancelArchivalResponse
     { _carTapeARN :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelArchivalResponse' response.

@@ -55,7 +55,7 @@ import Network.AWS.Request.JSON
 -- | The DeletePipelineRequest structure.
 newtype DeletePipeline = DeletePipeline
     { _dpId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeletePipeline' request.

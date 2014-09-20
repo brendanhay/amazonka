@@ -46,7 +46,7 @@ import Network.AWS.Types (Region)
 -- | The request to create a new origin access identity.
 newtype CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentity
     { _ccfoaiCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCloudFrontOriginAccessIdentity' request.

@@ -59,7 +59,7 @@ import Network.AWS.Request.JSON
 -- | The ReadJobRequest structure.
 newtype ReadJob = ReadJob
     { _rjId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReadJob' request.
@@ -89,7 +89,7 @@ instance ToJSON ReadJob
 -- | The ReadJobResponse structure.
 newtype ReadJobResponse = ReadJobResponse
     { _rjrJob :: Maybe Job
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReadJobResponse' response.

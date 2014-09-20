@@ -96,7 +96,7 @@ instance ToJSON DescribeRaidArrays
 -- | Contains the response to a DescribeRaidArrays request.
 newtype DescribeRaidArraysResponse = DescribeRaidArraysResponse
     { _drarRaidArrays :: [RaidArray]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeRaidArraysResponse' response.

@@ -89,7 +89,7 @@ instance ToXML ListCloudFrontOriginAccessIdentities where
 -- | The returned result of the corresponding request.
 newtype ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse
     { _lcfoairCloudFrontOriginAccessIdentityList :: CloudFrontOriginAccessIdentityList
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListCloudFrontOriginAccessIdentitiesResponse' response.

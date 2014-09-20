@@ -101,7 +101,7 @@ instance ToXML ListInvalidations where
 -- | The returned result of the corresponding request.
 newtype ListInvalidationsResponse = ListInvalidationsResponse
     { _lirInvalidationList :: InvalidationList
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListInvalidationsResponse' response.

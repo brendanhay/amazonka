@@ -290,7 +290,7 @@ xmlOptions = Tagged def
 -- topic's attributes, use GetTopicAttributes.
 newtype Topic = Topic
     { _tTopicArn :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Topic' data type.

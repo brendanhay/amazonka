@@ -217,7 +217,7 @@ instance ToQuery CreateStack where
 -- | The output for a CreateStack action.
 newtype CreateStackResponse = CreateStackResponse
     { _csrStackId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStackResponse' response.

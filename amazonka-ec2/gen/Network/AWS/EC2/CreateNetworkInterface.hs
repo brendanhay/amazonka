@@ -220,7 +220,7 @@ instance ToQuery CreateNetworkInterface where
 
 newtype CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
     { _cnirNetworkInterface :: Maybe NetworkInterface
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateNetworkInterfaceResponse' response.

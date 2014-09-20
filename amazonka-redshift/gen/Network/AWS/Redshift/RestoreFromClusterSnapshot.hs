@@ -293,7 +293,7 @@ instance ToQuery RestoreFromClusterSnapshot where
 
 newtype RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse
     { _rfcsrCluster :: Maybe Cluster
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RestoreFromClusterSnapshotResponse' response.

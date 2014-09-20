@@ -95,7 +95,7 @@ instance ToQuery CreateClusterSnapshot where
 
 newtype CreateClusterSnapshotResponse = CreateClusterSnapshotResponse
     { _ccsrrSnapshot :: Maybe Snapshot
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateClusterSnapshotResponse' response.

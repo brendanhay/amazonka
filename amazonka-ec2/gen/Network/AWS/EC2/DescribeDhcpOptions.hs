@@ -110,7 +110,7 @@ instance ToQuery DescribeDhcpOptions where
 
 newtype DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
     { _ddorDhcpOptions :: [DhcpOptions]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDhcpOptionsResponse' response.

@@ -87,7 +87,7 @@ instance ToQuery AttachVpnGateway where
 
 newtype AttachVpnGatewayResponse = AttachVpnGatewayResponse
     { _avgrVpcAttachment :: Maybe VpcAttachment
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachVpnGatewayResponse' response.

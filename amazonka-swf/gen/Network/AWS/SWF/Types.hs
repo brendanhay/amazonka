@@ -2006,7 +2006,7 @@ instance ToJSON WorkflowExecutionTimeoutType
 -- decision types.
 newtype CancelTimerDecisionAttributes = CancelTimerDecisionAttributes
     { _ctdaTimerId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CancelTimerDecisionAttributes' data type to populate a request.
@@ -2033,7 +2033,7 @@ instance ToJSON CancelTimerDecisionAttributes
 -- other decision types.
 newtype CancelWorkflowExecutionDecisionAttributes = CancelWorkflowExecutionDecisionAttributes
     { _cweda1Details :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CancelWorkflowExecutionDecisionAttributes' data type to populate a request.
@@ -2061,7 +2061,7 @@ instance ToJSON CancelWorkflowExecutionDecisionAttributes
 -- mutually exclusive. You can specify at most one of these in a request.
 newtype CloseStatusFilter = CloseStatusFilter
     { _csfStatus :: CloseStatus
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CloseStatusFilter' data type to populate a request.
@@ -2087,7 +2087,7 @@ instance ToJSON CloseStatusFilter
 -- for other decision types.
 newtype CompleteWorkflowExecutionDecisionAttributes = CompleteWorkflowExecutionDecisionAttributes
     { _cwedaResult :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CompleteWorkflowExecutionDecisionAttributes' data type to populate a request.
@@ -2113,7 +2113,7 @@ instance ToJSON CompleteWorkflowExecutionDecisionAttributes
 -- | Contains the configuration settings of a domain.
 newtype DomainConfiguration = DomainConfiguration
     { _dcWorkflowExecutionRetentionPeriodInDays :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DomainConfiguration' data type.
@@ -2143,7 +2143,7 @@ instance FromJSON DomainConfiguration
 -- for other decision types.
 newtype RequestCancelActivityTaskDecisionAttributes = RequestCancelActivityTaskDecisionAttributes
     { _rcatdaActivityId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RequestCancelActivityTaskDecisionAttributes' data type to populate a request.
@@ -2172,7 +2172,7 @@ instance ToJSON RequestCancelActivityTaskDecisionAttributes
 -- mutually exclusive. You can specify at most one of these in a request.
 newtype TagFilter = TagFilter
     { _tfTag :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TagFilter' data type to populate a request.
@@ -2197,7 +2197,7 @@ instance ToJSON TagFilter
 -- | The name of the task list.
 newtype TaskList = TaskList
     { _tlName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TaskList' data type to populate a request.
@@ -2226,7 +2226,7 @@ instance ToJSON TaskList
 -- request.
 newtype WorkflowExecutionFilter = WorkflowExecutionFilter
     { _wefWorkflowId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionFilter' data type to populate a request.

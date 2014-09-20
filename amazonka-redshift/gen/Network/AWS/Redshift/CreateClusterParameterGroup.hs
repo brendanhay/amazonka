@@ -117,7 +117,7 @@ instance ToQuery CreateClusterParameterGroup where
 
 newtype CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse
     { _ccpgrClusterParameterGroup :: Maybe ClusterParameterGroup
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateClusterParameterGroupResponse' response.

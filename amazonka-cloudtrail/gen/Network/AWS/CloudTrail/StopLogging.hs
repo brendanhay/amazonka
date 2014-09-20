@@ -45,7 +45,7 @@ import Network.AWS.Request.JSON
 -- specified account.
 newtype StopLogging = StopLogging
     { _sl1Name :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StopLogging' request.

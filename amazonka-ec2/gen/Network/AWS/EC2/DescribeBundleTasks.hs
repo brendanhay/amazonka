@@ -97,7 +97,7 @@ instance ToQuery DescribeBundleTasks where
 
 newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse
     { _dbtrBundleTasks :: [BundleTask]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeBundleTasksResponse' response.

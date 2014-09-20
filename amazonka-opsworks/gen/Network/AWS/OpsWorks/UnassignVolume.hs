@@ -45,7 +45,7 @@ import Network.AWS.Request.JSON
 
 newtype UnassignVolume = UnassignVolume
     { _uvVolumeId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UnassignVolume' request.

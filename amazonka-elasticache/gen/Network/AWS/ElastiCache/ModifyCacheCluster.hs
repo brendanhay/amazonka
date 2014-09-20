@@ -332,7 +332,7 @@ instance ToQuery ModifyCacheCluster where
 
 newtype ModifyCacheClusterResponse = ModifyCacheClusterResponse
     { _mccrCacheCluster :: Maybe CacheCluster
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyCacheClusterResponse' response.

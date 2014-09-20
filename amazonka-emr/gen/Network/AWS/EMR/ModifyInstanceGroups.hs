@@ -60,7 +60,7 @@ import Network.AWS.Request.JSON
 -- | Change the size of some instance groups.
 newtype ModifyInstanceGroups = ModifyInstanceGroups
     { _migInstanceGroups :: [InstanceGroupModifyConfig]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyInstanceGroups' request.

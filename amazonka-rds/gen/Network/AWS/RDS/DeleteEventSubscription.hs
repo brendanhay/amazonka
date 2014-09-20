@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 -- | 
 newtype DeleteEventSubscription = DeleteEventSubscription
     { _desSubscriptionName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteEventSubscription' request.
@@ -75,7 +75,7 @@ instance ToQuery DeleteEventSubscription where
 
 newtype DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
     { _desrEventSubscription :: Maybe EventSubscription
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteEventSubscriptionResponse' response.

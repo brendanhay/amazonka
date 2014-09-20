@@ -109,7 +109,7 @@ instance ToQuery ImportInstance where
 
 newtype ImportInstanceResponse = ImportInstanceResponse
     { _iirConversionTask :: Maybe ConversionTask
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ImportInstanceResponse' response.

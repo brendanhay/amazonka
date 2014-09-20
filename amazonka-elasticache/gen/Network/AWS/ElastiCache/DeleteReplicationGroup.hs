@@ -108,7 +108,7 @@ instance ToQuery DeleteReplicationGroup where
 
 newtype DeleteReplicationGroupResponse = DeleteReplicationGroupResponse
     { _drgrReplicationGroup :: Maybe ReplicationGroup
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteReplicationGroupResponse' response.

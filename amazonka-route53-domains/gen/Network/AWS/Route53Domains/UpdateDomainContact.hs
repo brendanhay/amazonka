@@ -146,7 +146,7 @@ instance ToJSON UpdateDomainContact
 -- | The UpdateDomainContact response includes the following element.
 newtype UpdateDomainContactResponse = UpdateDomainContactResponse
     { _udcrOperationId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateDomainContactResponse' response.

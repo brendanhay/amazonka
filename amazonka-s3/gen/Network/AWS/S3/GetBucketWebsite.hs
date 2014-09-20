@@ -46,7 +46,7 @@ import Network.AWS.Types (Region)
 
 newtype GetBucketWebsite = GetBucketWebsite
     { _gbwBucket :: BucketName
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketWebsite' request.

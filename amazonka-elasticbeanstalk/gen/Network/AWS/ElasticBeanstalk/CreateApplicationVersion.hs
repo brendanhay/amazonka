@@ -137,7 +137,7 @@ instance ToQuery CreateApplicationVersion where
 -- | Result message wrapping a single description of an application version.
 newtype CreateApplicationVersionResponse = CreateApplicationVersionResponse
     { _cavrApplicationVersion :: Maybe ApplicationVersionDescription
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateApplicationVersionResponse' response.

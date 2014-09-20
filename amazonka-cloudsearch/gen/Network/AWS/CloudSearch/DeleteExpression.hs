@@ -86,7 +86,7 @@ instance ToQuery DeleteExpression where
 -- deleted.
 newtype DeleteExpressionResponse = DeleteExpressionResponse
     { _derrExpression :: ExpressionStatus
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteExpressionResponse' response.

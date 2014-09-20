@@ -49,7 +49,7 @@ import Network.AWS.Request.JSON
 
 newtype RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck
     { _rtacCheckId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RefreshTrustedAdvisorCheck' request.
@@ -79,7 +79,7 @@ instance ToJSON RefreshTrustedAdvisorCheck
 -- | The current refresh status of a Trusted Advisor check.
 newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse
     { _rtacrStatus :: TrustedAdvisorCheckRefreshStatus
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RefreshTrustedAdvisorCheckResponse' response.

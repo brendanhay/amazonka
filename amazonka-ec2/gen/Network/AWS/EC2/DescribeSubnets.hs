@@ -124,7 +124,7 @@ instance ToQuery DescribeSubnets where
 
 newtype DescribeSubnetsResponse = DescribeSubnetsResponse
     { _dsrrSubnets :: [Subnet]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSubnetsResponse' response.

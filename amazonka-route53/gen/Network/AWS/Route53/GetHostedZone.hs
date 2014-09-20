@@ -48,7 +48,7 @@ import Network.AWS.Types (Region)
 -- | The input for a GetHostedZone request.
 newtype GetHostedZone = GetHostedZone
     { _ghzId :: ResourceId
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetHostedZone' request.

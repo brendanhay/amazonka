@@ -137,7 +137,7 @@ instance ToQuery GetSessionToken where
 -- including temporary AWS credentials that can be used to make AWS requests.
 newtype GetSessionTokenResponse = GetSessionTokenResponse
     { _gstrCredentials :: Maybe Credentials
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetSessionTokenResponse' response.

@@ -126,7 +126,7 @@ instance ToJSON UpdateTable
 -- | Represents the output of an UpdateTable operation.
 newtype UpdateTableResponse = UpdateTableResponse
     { _utrTableDescription :: Maybe TableDescription
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateTableResponse' response.

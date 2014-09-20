@@ -159,7 +159,7 @@ instance ToQuery UploadServerCertificate where
 -- UploadServerCertificate action.
 newtype UploadServerCertificateResponse = UploadServerCertificateResponse
     { _uscrServerCertificateMetadata :: Maybe ServerCertificateMetadata
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UploadServerCertificateResponse' response.

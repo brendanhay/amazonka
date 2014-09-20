@@ -136,7 +136,7 @@ instance ToQuery AuthorizeDBSecurityGroupIngress where
 
 newtype AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse
     { _adbsgirDBSecurityGroup :: Maybe DBSecurityGroup
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AuthorizeDBSecurityGroupIngressResponse' response.

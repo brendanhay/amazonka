@@ -149,7 +149,7 @@ instance ToQuery CreateVpnConnection where
 
 newtype CreateVpnConnectionResponse = CreateVpnConnectionResponse
     { _cvcrVpnConnection :: Maybe VpnConnection
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVpnConnectionResponse' response.

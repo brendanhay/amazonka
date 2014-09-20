@@ -64,7 +64,7 @@ instance ToXML GetCheckerIpRanges where
 -- | A complex type that contains the CheckerIpRanges element.
 newtype GetCheckerIpRangesResponse = GetCheckerIpRangesResponse
     { _gcirrCheckerIpRanges :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetCheckerIpRangesResponse' response.

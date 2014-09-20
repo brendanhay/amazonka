@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 -- list of verified email addresses.
 newtype DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress
     { _dveaEmailAddress :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVerifiedEmailAddress' request.

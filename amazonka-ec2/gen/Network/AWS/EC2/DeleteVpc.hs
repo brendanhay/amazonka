@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 
 newtype DeleteVpc = DeleteVpc
     { _dv1VpcId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVpc' request.

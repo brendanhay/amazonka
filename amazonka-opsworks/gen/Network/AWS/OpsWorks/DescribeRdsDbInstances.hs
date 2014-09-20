@@ -86,7 +86,7 @@ instance ToJSON DescribeRdsDbInstances
 -- | Contains the response to a DescribeRdsDbInstances request.
 newtype DescribeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse
     { _drdirRdsDbInstances :: [RdsDbInstance]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeRdsDbInstancesResponse' response.

@@ -98,7 +98,7 @@ instance ToQuery DescribeIndexFields where
 -- configured for the domain specified in the request.
 newtype DescribeIndexFieldsResponse = DescribeIndexFieldsResponse
     { _difr1IndexFields :: [IndexFieldStatus]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeIndexFieldsResponse' response.

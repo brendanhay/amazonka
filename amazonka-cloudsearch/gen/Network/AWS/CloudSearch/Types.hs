@@ -740,7 +740,7 @@ instance ToQuery SuggesterFuzzyMatching where
 -- | The service endpoint for updating documents in a search domain.
 newtype ServiceEndpoint = ServiceEndpoint
     { _seEndpoint :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ServiceEndpoint' data type to populate a request.

@@ -212,7 +212,7 @@ instance ToQuery CreateDBInstanceReadReplica where
 
 newtype CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse
     { _cdbirrrDBInstance :: Maybe DBInstance
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBInstanceReadReplicaResponse' response.

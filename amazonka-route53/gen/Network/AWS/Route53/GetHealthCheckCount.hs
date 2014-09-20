@@ -63,7 +63,7 @@ instance ToXML GetHealthCheckCount where
 -- current AWS account.
 newtype GetHealthCheckCountResponse = GetHealthCheckCountResponse
     { _ghccrHealthCheckCount :: Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetHealthCheckCountResponse' response.

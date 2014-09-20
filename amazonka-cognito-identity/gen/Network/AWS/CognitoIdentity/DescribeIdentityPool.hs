@@ -55,7 +55,7 @@ import Network.AWS.Request.JSON
 -- | Input to the DescribeIdentityPool action.
 newtype DescribeIdentityPool = DescribeIdentityPool
     { _dip1IdentityPoolId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeIdentityPool' request.

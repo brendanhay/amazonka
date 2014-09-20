@@ -60,7 +60,7 @@ instance ToJSON DescribeVirtualGateways
 -- | A structure containing a list of virtual private gateways.
 newtype DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse
     { _dvgrVirtualGateways :: [VirtualGateway]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVirtualGatewaysResponse' response.

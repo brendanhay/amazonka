@@ -69,7 +69,7 @@ import Network.AWS.Request.JSON
 -- | A JSON object containing the of the gateway to shut down.
 newtype ShutdownGateway = ShutdownGateway
     { _sgGatewayARN :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ShutdownGateway' request.
@@ -100,7 +100,7 @@ instance ToJSON ShutdownGateway
 -- | A JSON object containing the of the gateway that was shut down.
 newtype ShutdownGatewayResponse = ShutdownGatewayResponse
     { _sgrGatewayARN :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ShutdownGatewayResponse' response.

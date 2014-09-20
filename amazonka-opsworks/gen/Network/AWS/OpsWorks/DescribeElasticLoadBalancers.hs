@@ -86,7 +86,7 @@ instance ToJSON DescribeElasticLoadBalancers
 -- | Contains the response to a DescribeElasticLoadBalancers request.
 newtype DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse
     { _delbrElasticLoadBalancers :: [ElasticLoadBalancer]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeElasticLoadBalancersResponse' response.

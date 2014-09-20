@@ -58,7 +58,7 @@ import Network.AWS.Request.JSON
 -- | Represents the input of a DescribeTable operation.
 newtype DescribeTable = DescribeTable
     { _dt1TableName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTable' request.
@@ -88,7 +88,7 @@ instance ToJSON DescribeTable
 -- | Represents the output of a DescribeTable operation.
 newtype DescribeTableResponse = DescribeTableResponse
     { _dtrrTable :: Maybe TableDescription
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTableResponse' response.

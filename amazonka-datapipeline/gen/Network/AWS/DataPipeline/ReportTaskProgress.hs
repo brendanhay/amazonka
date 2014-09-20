@@ -63,7 +63,7 @@ import Network.AWS.Request.JSON
 -- | The input for the ReportTaskProgress action.
 newtype ReportTaskProgress = ReportTaskProgress
     { _rtpTaskId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReportTaskProgress' request.
@@ -95,7 +95,7 @@ instance ToJSON ReportTaskProgress
 -- | Contains the output from the ReportTaskProgress action.
 newtype ReportTaskProgressResponse = ReportTaskProgressResponse
     { _rtprCanceled :: Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReportTaskProgressResponse' response.

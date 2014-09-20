@@ -275,7 +275,7 @@ instance ToQuery VerificationStatus where
 -- Developer Guide. Content must be base64-encoded, if MIME requires it.
 newtype RawMessage = RawMessage
     { _rmData :: ByteString
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RawMessage' data type to populate a request.

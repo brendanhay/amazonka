@@ -97,7 +97,7 @@ instance ToQuery DisableAvailabilityZonesForLoadBalancer where
 -- | The output for the DisableAvailabilityZonesForLoadBalancer action.
 newtype DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse
     { _dazflbrAvailabilityZones :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisableAvailabilityZonesForLoadBalancerResponse' response.

@@ -100,7 +100,7 @@ instance ToJSON DescribeElasticIps
 -- | Contains the response to a DescribeElasticIps request.
 newtype DescribeElasticIpsResponse = DescribeElasticIpsResponse
     { _deirElasticIps :: [ElasticIp]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeElasticIpsResponse' response.

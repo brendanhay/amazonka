@@ -686,7 +686,7 @@ instance ToQuery ValidationSeverity where
 -- | Describes an Auto Scaling launch configuration.
 newtype AutoScalingGroup = AutoScalingGroup
     { _asgName :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AutoScalingGroup' data type.
@@ -714,7 +714,7 @@ instance FromXML AutoScalingGroup where
 -- | The description of the AWS resources used by this environment.
 newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription
     { _erdLoadBalancer :: Maybe LoadBalancerDescription
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EnvironmentResourcesDescription' data type to populate a request.
@@ -742,7 +742,7 @@ instance ToQuery EnvironmentResourcesDescription where
 -- | The description of an Amazon EC2 instance.
 newtype Instance = Instance
     { _iId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Instance' data type.
@@ -770,7 +770,7 @@ instance FromXML Instance where
 -- | Describes an Auto Scaling launch configuration.
 newtype LaunchConfiguration = LaunchConfiguration
     { _lcName :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LaunchConfiguration' data type.
@@ -798,7 +798,7 @@ instance FromXML LaunchConfiguration where
 -- | Describes a LoadBalancer.
 newtype LoadBalancer = LoadBalancer
     { _lbName :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LoadBalancer' data type.
@@ -826,7 +826,7 @@ instance FromXML LoadBalancer where
 -- | Describes a trigger.
 newtype Trigger = Trigger
     { _trName :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Trigger' data type.

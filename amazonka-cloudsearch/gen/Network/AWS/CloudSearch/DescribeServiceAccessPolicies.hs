@@ -86,7 +86,7 @@ instance ToQuery DescribeServiceAccessPolicies where
 -- | The result of a DescribeServiceAccessPolicies request.
 newtype DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse
     { _dsaprAccessPolicies :: AccessPoliciesStatus
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeServiceAccessPoliciesResponse' response.

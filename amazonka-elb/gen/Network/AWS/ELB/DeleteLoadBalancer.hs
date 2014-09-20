@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 -- | The input for the DeleteLoadBalancer action.
 newtype DeleteLoadBalancer = DeleteLoadBalancer
     { _dlbLoadBalancerName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLoadBalancer' request.

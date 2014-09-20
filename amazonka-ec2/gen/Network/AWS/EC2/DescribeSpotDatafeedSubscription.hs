@@ -55,7 +55,7 @@ instance ToQuery DescribeSpotDatafeedSubscription where
 
 newtype DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
     { _dsdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSpotDatafeedSubscriptionResponse' response.

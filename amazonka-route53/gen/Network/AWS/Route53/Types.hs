@@ -683,7 +683,7 @@ instance ToQuery TagResourceType where
 -- | A complex type that contains name server information.
 newtype DelegationSet = DelegationSet
     { _dsNameServers :: List1 Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DelegationSet' data type.
@@ -714,7 +714,7 @@ instance FromXML DelegationSet where
 -- | A complex type that contains an optional comment about your hosted zone.
 newtype HostedZoneConfig = HostedZoneConfig
     { _hzcComment :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HostedZoneConfig' data type to populate a request.
@@ -746,7 +746,7 @@ instance ToXML HostedZoneConfig where
 -- resource record set.
 newtype ResourceRecord = ResourceRecord
     { _rrValue :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ResourceRecord' data type to populate a request.

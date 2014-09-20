@@ -62,7 +62,7 @@ import Network.AWS.Request.JSON
 -- | A JSON object containing the of the gateway.
 newtype DescribeMaintenanceStartTime = DescribeMaintenanceStartTime
     { _dmstGatewayARN :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeMaintenanceStartTime' request.

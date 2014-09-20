@@ -47,7 +47,7 @@ import Network.AWS.Request.JSON
 
 newtype StopInstance = StopInstance
     { _si1InstanceId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StopInstance' request.

@@ -84,7 +84,7 @@ instance ToQuery DescribeKeyPairs where
 
 newtype DescribeKeyPairsResponse = DescribeKeyPairsResponse
     { _dkprKeyPairs :: [KeyPairInfo]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeKeyPairsResponse' response.

@@ -58,7 +58,7 @@ import Network.AWS.Prelude
 -- | Input for CreateTopic action.
 newtype CreateTopic = CreateTopic
     { _ctName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateTopic' request.
@@ -85,7 +85,7 @@ instance ToQuery CreateTopic where
 -- | Response from CreateTopic action.
 newtype CreateTopicResponse = CreateTopicResponse
     { _ctrTopicArn :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateTopicResponse' response.

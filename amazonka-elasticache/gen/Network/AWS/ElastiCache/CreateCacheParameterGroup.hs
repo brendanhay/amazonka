@@ -102,7 +102,7 @@ instance ToQuery CreateCacheParameterGroup where
 
 newtype CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse
     { _ccpgrCacheParameterGroup :: Maybe CacheParameterGroup
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCacheParameterGroupResponse' response.

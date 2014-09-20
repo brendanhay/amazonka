@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 
 newtype DeregisterImage = DeregisterImage
     { _diImageId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeregisterImage' request.

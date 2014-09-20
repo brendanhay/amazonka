@@ -182,7 +182,7 @@ instance ToQuery RequestSpotInstances where
 
 newtype RequestSpotInstancesResponse = RequestSpotInstancesResponse
     { _rsirSpotInstanceRequests :: [SpotInstanceRequest]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RequestSpotInstancesResponse' response.

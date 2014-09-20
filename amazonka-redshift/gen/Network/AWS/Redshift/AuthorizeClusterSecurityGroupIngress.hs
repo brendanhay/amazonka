@@ -122,7 +122,7 @@ instance ToQuery AuthorizeClusterSecurityGroupIngress where
 
 newtype AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse
     { _acsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AuthorizeClusterSecurityGroupIngressResponse' response.

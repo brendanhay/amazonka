@@ -46,7 +46,7 @@ import Network.AWS.Types (Region)
 -- | The request to create a new streaming distribution.
 newtype CreateStreamingDistribution = CreateStreamingDistribution
     { _csdStreamingDistributionConfig :: StreamingDistributionConfig
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStreamingDistribution' request.

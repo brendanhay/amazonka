@@ -107,7 +107,7 @@ instance ToXML ChangeResourceRecordSets where
 -- | A complex type containing the response for the request.
 newtype ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
     { _crrsrChangeInfo :: ChangeInfo
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ChangeResourceRecordSetsResponse' response.

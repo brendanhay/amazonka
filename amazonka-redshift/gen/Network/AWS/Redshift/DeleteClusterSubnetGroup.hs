@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 
 newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup
     { _dcsg1ClusterSubnetGroupName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteClusterSubnetGroup' request.

@@ -89,7 +89,7 @@ instance ToQuery AttachLoadBalancerToSubnets where
 -- | The output for the AttachLoadBalancerToSubnets action.
 newtype AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
     { _albtsrSubnets :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachLoadBalancerToSubnetsResponse' response.

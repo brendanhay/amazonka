@@ -91,7 +91,7 @@ instance ToQuery DescribeEnvironmentResources where
 -- | Result message containing a list of environment resource descriptions.
 newtype DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
     { _derrEnvironmentResources :: Maybe EnvironmentResourceDescription
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEnvironmentResourcesResponse' response.

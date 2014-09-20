@@ -107,7 +107,7 @@ instance ToQuery ModifyDBParameterGroup where
 -- ModifyDBParameterGroup or ResetDBParameterGroup action.
 newtype ModifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
     { _mdbpgrDBParameterGroupName :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyDBParameterGroupResponse' response.

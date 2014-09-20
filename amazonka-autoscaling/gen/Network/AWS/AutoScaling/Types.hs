@@ -511,7 +511,7 @@ instance ToQuery ScalingActivityStatusCode where
 -- absolute number or a percentage of the current capacity.
 newtype AdjustmentType = AdjustmentType
     { _atAdjustmentType :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AdjustmentType' data type.
@@ -547,7 +547,7 @@ instance FromXML AdjustmentType where
 -- Amazon CloudWatch Developer Guide.
 newtype InstanceMonitoring = InstanceMonitoring
     { _imEnabled :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceMonitoring' data type to populate a request.
@@ -575,7 +575,7 @@ instance ToQuery InstanceMonitoring where
 -- | The MetricCollectionType data type.
 newtype MetricCollectionType = MetricCollectionType
     { _mctMetric :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'MetricCollectionType' data type.
@@ -603,7 +603,7 @@ instance FromXML MetricCollectionType where
 -- | The MetricGranularityType data type.
 newtype MetricGranularityType = MetricGranularityType
     { _mgtGranularity :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'MetricGranularityType' data type.
@@ -689,7 +689,7 @@ instance FromXML MetricGranularityType where
 -- expected.
 newtype ProcessType = ProcessType
     { _ptProcessName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ProcessType' data type.

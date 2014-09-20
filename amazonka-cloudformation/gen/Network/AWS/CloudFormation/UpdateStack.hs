@@ -219,7 +219,7 @@ instance ToQuery UpdateStack where
 -- | The output for a UpdateStack action.
 newtype UpdateStackResponse = UpdateStackResponse
     { _usrStackId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateStackResponse' response.

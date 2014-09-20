@@ -68,7 +68,7 @@ import Network.AWS.Prelude
 -- | Input for GetTopicAttributes action.
 newtype GetTopicAttributes = GetTopicAttributes
     { _gtaTopicArn :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetTopicAttributes' request.
@@ -93,7 +93,7 @@ instance ToQuery GetTopicAttributes where
 -- | Response for GetTopicAttributes action.
 newtype GetTopicAttributesResponse = GetTopicAttributesResponse
     { _gtarAttributes :: Map Text Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetTopicAttributesResponse' response.

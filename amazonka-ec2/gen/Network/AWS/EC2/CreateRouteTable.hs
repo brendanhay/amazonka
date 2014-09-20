@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 
 newtype CreateRouteTable = CreateRouteTable
     { _crtVpcId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateRouteTable' request.
@@ -75,7 +75,7 @@ instance ToQuery CreateRouteTable where
 
 newtype CreateRouteTableResponse = CreateRouteTableResponse
     { _crtrRouteTable :: Maybe RouteTable
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateRouteTableResponse' response.

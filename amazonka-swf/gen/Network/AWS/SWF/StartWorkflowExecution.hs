@@ -245,7 +245,7 @@ instance ToJSON StartWorkflowExecution
 -- | Specifies the runId of a workflow execution.
 newtype StartWorkflowExecutionResponse = StartWorkflowExecutionResponse
     { _swerRunId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StartWorkflowExecutionResponse' response.

@@ -63,7 +63,7 @@ import Network.AWS.Prelude
 
 newtype GetServerCertificate = GetServerCertificate
     { _gscServerCertificateName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetServerCertificate' request.
@@ -91,7 +91,7 @@ instance ToQuery GetServerCertificate where
 -- action.
 newtype GetServerCertificateResponse = GetServerCertificateResponse
     { _gscrServerCertificate :: ServerCertificate
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetServerCertificateResponse' response.

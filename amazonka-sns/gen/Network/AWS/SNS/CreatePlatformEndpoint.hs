@@ -133,7 +133,7 @@ instance ToQuery CreatePlatformEndpoint where
 -- | Response from CreateEndpoint action.
 newtype CreatePlatformEndpointResponse = CreatePlatformEndpointResponse
     { _cperEndpointArn :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePlatformEndpointResponse' response.

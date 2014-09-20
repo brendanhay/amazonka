@@ -92,7 +92,7 @@ instance ToJSON ConfirmPrivateVirtualInterface
 -- | The response received when ConfirmPrivateVirtualInterface is called.
 newtype ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse
     { _cpvirVirtualInterfaceState :: Maybe VirtualInterfaceState
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ConfirmPrivateVirtualInterfaceResponse' response.

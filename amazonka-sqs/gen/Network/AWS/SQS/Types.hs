@@ -400,7 +400,7 @@ data QueueAttributeName
     | QueueAttributeNameReceiveMessageWaitTimeSeconds -- ^ ReceiveMessageWaitTimeSeconds
     | QueueAttributeNameRedrivePolicy -- ^ RedrivePolicy
     | QueueAttributeNameVisibilityTimeout -- ^ VisibilityTimeout
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable QueueAttributeName
 

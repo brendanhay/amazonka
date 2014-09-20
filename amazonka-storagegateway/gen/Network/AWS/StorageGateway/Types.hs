@@ -326,7 +326,7 @@ data ErrorCode
     | ErrorCodeVolumeInUse -- ^ VolumeInUse
     | ErrorCodeVolumeNotFound -- ^ VolumeNotFound
     | ErrorCodeVolumeNotReady -- ^ VolumeNotReady
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ErrorCode
 

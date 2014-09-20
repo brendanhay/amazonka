@@ -253,7 +253,7 @@ data ConnectionState
     | ConnectionStatePending -- ^ pending
     | ConnectionStateRejected -- ^ rejected
     | ConnectionStateRequested -- ^ requested
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ConnectionState
 
@@ -304,7 +304,7 @@ data InterconnectState
     | InterconnectStateDown -- ^ down
     | InterconnectStatePending -- ^ pending
     | InterconnectStateRequested -- ^ requested
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable InterconnectState
 
@@ -350,7 +350,7 @@ data VirtualInterfaceState
     | VirtualInterfaceStatePending -- ^ pending
     | VirtualInterfaceStateRejected -- ^ rejected
     | VirtualInterfaceStateVerifying -- ^ verifying
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable VirtualInterfaceState
 

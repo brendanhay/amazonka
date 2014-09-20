@@ -489,7 +489,7 @@ data ConfigurationDeploymentStatus
     = ConfigurationDeploymentStatusDeployed -- ^ deployed
     | ConfigurationDeploymentStatusFailed -- ^ failed
     | ConfigurationDeploymentStatusPending -- ^ pending
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ConfigurationDeploymentStatus
 
@@ -515,7 +515,7 @@ instance ToQuery ConfigurationDeploymentStatus where
 data ConfigurationOptionValueType
     = ConfigurationOptionValueTypeList -- ^ List
     | ConfigurationOptionValueTypeScalar -- ^ Scalar
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ConfigurationOptionValueType
 
@@ -541,7 +541,7 @@ data EnvironmentHealth
     | EnvironmentHealthGrey -- ^ Grey
     | EnvironmentHealthRed -- ^ Red
     | EnvironmentHealthYellow -- ^ Yellow
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable EnvironmentHealth
 
@@ -569,7 +569,7 @@ instance ToQuery EnvironmentHealth where
 data EnvironmentInfoType
     = EnvironmentInfoTypeBundle -- ^ bundle
     | EnvironmentInfoTypeTail -- ^ tail
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable EnvironmentInfoType
 
@@ -596,7 +596,7 @@ data EnvironmentStatus
     | EnvironmentStatusTerminated -- ^ Terminated
     | EnvironmentStatusTerminating -- ^ Terminating
     | EnvironmentStatusUpdating -- ^ Updating
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable EnvironmentStatus
 
@@ -630,7 +630,7 @@ data EventSeverity
     | EventSeverityInfo -- ^ INFO
     | EventSeverityTrace -- ^ TRACE
     | EventSeverityWarn -- ^ WARN
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable EventSeverity
 
@@ -662,7 +662,7 @@ instance ToQuery EventSeverity where
 data ValidationSeverity
     = ValidationSeverityError -- ^ error
     | ValidationSeverityWarning -- ^ warning
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ValidationSeverity
 

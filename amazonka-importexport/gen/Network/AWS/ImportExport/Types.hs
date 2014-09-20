@@ -393,7 +393,7 @@ xmlOptions = Tagged def
 data JobType
     = JobTypeExport -- ^ Export
     | JobTypeImport -- ^ Import
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable JobType
 

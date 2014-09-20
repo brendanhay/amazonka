@@ -1455,7 +1455,7 @@ data SourceType
     | SourceTypeClusterParameterGroup -- ^ cluster-parameter-group
     | SourceTypeClusterSecurityGroup -- ^ cluster-security-group
     | SourceTypeClusterSnapshot -- ^ cluster-snapshot
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable SourceType
 

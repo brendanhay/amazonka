@@ -334,7 +334,7 @@ data ComparisonOperator
     | ComparisonOperatorGreaterThanThreshold -- ^ GreaterThanThreshold
     | ComparisonOperatorLessThanOrEqualToThreshold -- ^ LessThanOrEqualToThreshold
     | ComparisonOperatorLessThanThreshold -- ^ LessThanThreshold
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ComparisonOperator
 
@@ -363,7 +363,7 @@ data HistoryItemType
     = HistoryItemTypeAction -- ^ Action
     | HistoryItemTypeConfigurationUpdate -- ^ ConfigurationUpdate
     | HistoryItemTypeStateUpdate -- ^ StateUpdate
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable HistoryItemType
 
@@ -414,7 +414,7 @@ data StandardUnit
     | StandardUnitTerabitsSecond -- ^ Terabits/Second
     | StandardUnitTerabytes -- ^ Terabytes
     | StandardUnitTerabytesSecond -- ^ Terabytes/Second
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable StandardUnit
 
@@ -489,7 +489,7 @@ data StateValue
     = StateValueAlarm -- ^ ALARM
     | StateValueInsufficientData -- ^ INSUFFICIENT_DATA
     | StateValueOk -- ^ OK
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable StateValue
 
@@ -518,7 +518,7 @@ data Statistic
     | StatisticMinimum -- ^ Minimum
     | StatisticSampleCount -- ^ SampleCount
     | StatisticSum -- ^ Sum
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable Statistic
 

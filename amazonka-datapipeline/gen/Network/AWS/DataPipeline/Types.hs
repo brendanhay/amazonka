@@ -262,7 +262,7 @@ data OperatorType
     | OperatorTypeGe -- ^ GE
     | OperatorTypeLe -- ^ LE
     | OperatorTypeRefEq -- ^ REF_EQ
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable OperatorType
 
@@ -301,7 +301,7 @@ data TaskStatus
     = TaskStatusFailed -- ^ FAILED
     | TaskStatusFalse -- ^ FALSE
     | TaskStatusFinished -- ^ FINISHED
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable TaskStatus
 

@@ -530,7 +530,7 @@ data AppAttributesKeys
     = AppAttributesKeysAutoBundleOnDeploy -- ^ AutoBundleOnDeploy
     | AppAttributesKeysDocumentRoot -- ^ DocumentRoot
     | AppAttributesKeysRailsEnv -- ^ RailsEnv
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable AppAttributesKeys
 
@@ -566,7 +566,7 @@ data AppType
     | AppTypePhp -- ^ php
     | AppTypeRails -- ^ rails
     | AppTypeStatic -- ^ static
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable AppType
 
@@ -607,7 +607,7 @@ instance ToJSON AppType
 data Architecture
     = ArchitectureI386 -- ^ i386
     | ArchitectureX8664 -- ^ x86_64
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable Architecture
 
@@ -636,7 +636,7 @@ instance ToJSON Architecture
 data AutoScalingType
     = AutoScalingTypeLoad -- ^ load
     | AutoScalingTypeTimer -- ^ timer
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable AutoScalingType
 
@@ -673,7 +673,7 @@ data DeploymentCommandName
     | DeploymentCommandNameUndeploy -- ^ undeploy
     | DeploymentCommandNameUpdateCustomCookbooks -- ^ update_custom_cookbooks
     | DeploymentCommandNameUpdateDependencies -- ^ update_dependencies
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable DeploymentCommandName
 
@@ -748,7 +748,7 @@ data LayerAttributesKeys
     | LayerAttributesKeysRailsStack -- ^ RailsStack
     | LayerAttributesKeysRubyVersion -- ^ RubyVersion
     | LayerAttributesKeysRubygemsVersion -- ^ RubygemsVersion
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable LayerAttributesKeys
 
@@ -851,7 +851,7 @@ data LayerType
     | LayerTypePhpApp -- ^ php-app
     | LayerTypeRailsApp -- ^ rails-app
     | LayerTypeWeb -- ^ web
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable LayerType
 
@@ -904,7 +904,7 @@ instance ToJSON LayerType
 data RootDeviceType
     = RootDeviceTypeEbs -- ^ ebs
     | RootDeviceTypeInstanceStore -- ^ instance-store
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable RootDeviceType
 
@@ -935,7 +935,7 @@ data SourceType
     | SourceTypeGit -- ^ git
     | SourceTypeS3 -- ^ s3
     | SourceTypeSvn -- ^ svn
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable SourceType
 
@@ -969,7 +969,7 @@ instance ToJSON SourceType
 
 data StackAttributesKeys
     = StackAttributesKeysColor -- ^ Color
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable StackAttributesKeys
 
@@ -995,7 +995,7 @@ instance ToJSON StackAttributesKeys
 data VirtualizationType
     = VirtualizationTypeHvm -- ^ hvm
     | VirtualizationTypeParavirtual -- ^ paravirtual
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable VirtualizationType
 

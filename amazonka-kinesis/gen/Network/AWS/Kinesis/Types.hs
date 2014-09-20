@@ -257,7 +257,7 @@ data ShardIteratorType
     | ShardIteratorTypeAtSequenceNumber -- ^ AT_SEQUENCE_NUMBER
     | ShardIteratorTypeLatest -- ^ LATEST
     | ShardIteratorTypeTrimHorizon -- ^ TRIM_HORIZON
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ShardIteratorType
 
@@ -292,7 +292,7 @@ data StreamStatus
     | StreamStatusCreating -- ^ CREATING
     | StreamStatusDeleting -- ^ DELETING
     | StreamStatusUpdating -- ^ UPDATING
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable StreamStatus
 

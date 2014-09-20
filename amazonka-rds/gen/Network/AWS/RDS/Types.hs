@@ -1229,7 +1229,7 @@ xmlOptions = Tagged def
 data ApplyMethod
     = ApplyMethodImmediate -- ^ immediate
     | ApplyMethodPendingReboot -- ^ pending-reboot
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ApplyMethod
 
@@ -1255,7 +1255,7 @@ data SourceType
     | SourceTypeDbParameterGroup -- ^ db-parameter-group
     | SourceTypeDbSecurityGroup -- ^ db-security-group
     | SourceTypeDbSnapshot -- ^ db-snapshot
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable SourceType
 

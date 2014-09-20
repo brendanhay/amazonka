@@ -262,7 +262,7 @@ data ContactType
     | ContactTypePerson -- ^ PERSON
     | ContactTypePublicBody -- ^ PUBLIC_BODY
     | ContactTypeReseller -- ^ RESELLER
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ContactType
 
@@ -527,7 +527,7 @@ data CountryCode
     | CountryCodeZa -- ^ ZA
     | CountryCodeZm -- ^ ZM
     | CountryCodeZw -- ^ ZW
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable CountryCode
 
@@ -1242,7 +1242,7 @@ data DomainAvailability
     | DomainAvailabilityUnavailable -- ^ UNAVAILABLE
     | DomainAvailabilityUnavailablePremium -- ^ UNAVAILABLE_PREMIUM
     | DomainAvailabilityUnavailableRestricted -- ^ UNAVAILABLE_RESTRICTED
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable DomainAvailability
 
@@ -1299,7 +1299,7 @@ data ExtraParamName
     | ExtraParamNameSeIdNumber -- ^ SE_ID_NUMBER
     | ExtraParamNameSgIdNumber -- ^ SG_ID_NUMBER
     | ExtraParamNameVatNumber -- ^ VAT_NUMBER
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ExtraParamName
 
@@ -1376,7 +1376,7 @@ data OperationStatus
     | OperationStatusInProgress -- ^ IN_PROGRESS
     | OperationStatusSubmitted -- ^ SUBMITTED
     | OperationStatusSuccessful -- ^ SUCCESSFUL
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable OperationStatus
 
@@ -1419,7 +1419,7 @@ data OperationType
     | OperationTypeTransferInDomain -- ^ TRANSFER_IN_DOMAIN
     | OperationTypeUpdateDomainContact -- ^ UPDATE_DOMAIN_CONTACT
     | OperationTypeUpdateNameserver -- ^ UPDATE_NAMESERVER
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable OperationType
 

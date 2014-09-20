@@ -992,7 +992,7 @@ data ActivityTaskTimeoutType
     | ActivityTaskTimeoutTypeScheduleToClose -- ^ SCHEDULE_TO_CLOSE
     | ActivityTaskTimeoutTypeScheduleToStart -- ^ SCHEDULE_TO_START
     | ActivityTaskTimeoutTypeStartToClose -- ^ START_TO_CLOSE
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ActivityTaskTimeoutType
 
@@ -1027,7 +1027,7 @@ instance ToJSON ActivityTaskTimeoutType
 data CancelTimerFailedCause
     = CancelTimerFailedCauseOperationNotPermitted -- ^ OPERATION_NOT_PERMITTED
     | CancelTimerFailedCauseTimerIdUnknown -- ^ TIMER_ID_UNKNOWN
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable CancelTimerFailedCause
 
@@ -1056,7 +1056,7 @@ instance ToJSON CancelTimerFailedCause
 data CancelWorkflowExecutionFailedCause
     = CancelWorkflowExecutionFailedCauseOperationNotPermitted -- ^ OPERATION_NOT_PERMITTED
     | CancelWorkflowExecutionFailedCauseUnhandledDecision -- ^ UNHANDLED_DECISION
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable CancelWorkflowExecutionFailedCause
 
@@ -1086,7 +1086,7 @@ data ChildPolicy
     = ChildPolicyAbandon -- ^ ABANDON
     | ChildPolicyRequestCancel -- ^ REQUEST_CANCEL
     | ChildPolicyTerminate -- ^ TERMINATE
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ChildPolicy
 
@@ -1122,7 +1122,7 @@ data CloseStatus
     | CloseStatusFailed -- ^ FAILED
     | CloseStatusTerminated -- ^ TERMINATED
     | CloseStatusTimedOut -- ^ TIMED_OUT
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable CloseStatus
 
@@ -1163,7 +1163,7 @@ instance ToJSON CloseStatus
 data CompleteWorkflowExecutionFailedCause
     = CompleteWorkflowExecutionFailedCauseOperationNotPermitted -- ^ OPERATION_NOT_PERMITTED
     | CompleteWorkflowExecutionFailedCauseUnhandledDecision -- ^ UNHANDLED_DECISION
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable CompleteWorkflowExecutionFailedCause
 
@@ -1198,7 +1198,7 @@ data ContinueAsNewWorkflowExecutionFailedCause
     | ContinueAsNewWorkflowExecutionFailedCauseUnhandledDecision -- ^ UNHANDLED_DECISION
     | ContinueAsNewWorkflowExecutionFailedCauseWorkflowTypeDeprecated -- ^ WORKFLOW_TYPE_DEPRECATED
     | ContinueAsNewWorkflowExecutionFailedCauseWorkflowTypeDoesNotExist -- ^ WORKFLOW_TYPE_DOES_NOT_EXIST
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ContinueAsNewWorkflowExecutionFailedCause
 
@@ -1244,7 +1244,7 @@ instance ToJSON ContinueAsNewWorkflowExecutionFailedCause
 
 data DecisionTaskTimeoutType
     = DecisionTaskTimeoutTypeStartToClose -- ^ START_TO_CLOSE
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable DecisionTaskTimeoutType
 
@@ -1280,7 +1280,7 @@ data DecisionType
     | DecisionTypeSignalExternalWorkflowExecution -- ^ SignalExternalWorkflowExecution
     | DecisionTypeStartChildWorkflowExecution -- ^ StartChildWorkflowExecution
     | DecisionTypeStartTimer -- ^ StartTimer
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable DecisionType
 
@@ -1384,7 +1384,7 @@ data EventType
     | EventTypeWorkflowExecutionStarted -- ^ WorkflowExecutionStarted
     | EventTypeWorkflowExecutionTerminated -- ^ WorkflowExecutionTerminated
     | EventTypeWorkflowExecutionTimedOut -- ^ WorkflowExecutionTimedOut
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable EventType
 
@@ -1548,7 +1548,7 @@ instance ToJSON EventType
 data ExecutionStatus
     = ExecutionStatusClosed -- ^ CLOSED
     | ExecutionStatusOpen -- ^ OPEN
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ExecutionStatus
 
@@ -1577,7 +1577,7 @@ instance ToJSON ExecutionStatus
 data FailWorkflowExecutionFailedCause
     = FailWorkflowExecutionFailedCauseOperationNotPermitted -- ^ OPERATION_NOT_PERMITTED
     | FailWorkflowExecutionFailedCauseUnhandledDecision -- ^ UNHANDLED_DECISION
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable FailWorkflowExecutionFailedCause
 
@@ -1605,7 +1605,7 @@ instance ToJSON FailWorkflowExecutionFailedCause
 
 data RecordMarkerFailedCause
     = RecordMarkerFailedCauseOperationNotPermitted -- ^ OPERATION_NOT_PERMITTED
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable RecordMarkerFailedCause
 
@@ -1631,7 +1631,7 @@ instance ToJSON RecordMarkerFailedCause
 data RegistrationStatus
     = RegistrationStatusDeprecated -- ^ DEPRECATED
     | RegistrationStatusRegistered -- ^ REGISTERED
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable RegistrationStatus
 
@@ -1660,7 +1660,7 @@ instance ToJSON RegistrationStatus
 data RequestCancelActivityTaskFailedCause
     = RequestCancelActivityTaskFailedCauseActivityIdUnknown -- ^ ACTIVITY_ID_UNKNOWN
     | RequestCancelActivityTaskFailedCauseOperationNotPermitted -- ^ OPERATION_NOT_PERMITTED
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable RequestCancelActivityTaskFailedCause
 
@@ -1690,7 +1690,7 @@ data RequestCancelExternalWorkflowExecutionFailedCause
     = RequestCancelExternalWorkflowExecutionFailedCauseOperationNotPermitted -- ^ OPERATION_NOT_PERMITTED
     | RequestCancelExternalWorkflowExecutionFailedCauseRequestCancelExternalWorkflowExecutionRateExceeded -- ^ REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED
     | RequestCancelExternalWorkflowExecutionFailedCauseUnknownExternalWorkflowExecution -- ^ UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable RequestCancelExternalWorkflowExecutionFailedCause
 
@@ -1731,7 +1731,7 @@ data ScheduleActivityTaskFailedCause
     | ScheduleActivityTaskFailedCauseDefaultTaskListUndefined -- ^ DEFAULT_TASK_LIST_UNDEFINED
     | ScheduleActivityTaskFailedCauseOpenActivitiesLimitExceeded -- ^ OPEN_ACTIVITIES_LIMIT_EXCEEDED
     | ScheduleActivityTaskFailedCauseOperationNotPermitted -- ^ OPERATION_NOT_PERMITTED
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ScheduleActivityTaskFailedCause
 
@@ -1788,7 +1788,7 @@ data SignalExternalWorkflowExecutionFailedCause
     = SignalExternalWorkflowExecutionFailedCauseOperationNotPermitted -- ^ OPERATION_NOT_PERMITTED
     | SignalExternalWorkflowExecutionFailedCauseSignalExternalWorkflowExecutionRateExceeded -- ^ SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED
     | SignalExternalWorkflowExecutionFailedCauseUnknownExternalWorkflowExecution -- ^ UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable SignalExternalWorkflowExecutionFailedCause
 
@@ -1829,7 +1829,7 @@ data StartChildWorkflowExecutionFailedCause
     | StartChildWorkflowExecutionFailedCauseWorkflowAlreadyRunning -- ^ WORKFLOW_ALREADY_RUNNING
     | StartChildWorkflowExecutionFailedCauseWorkflowTypeDeprecated -- ^ WORKFLOW_TYPE_DEPRECATED
     | StartChildWorkflowExecutionFailedCauseWorkflowTypeDoesNotExist -- ^ WORKFLOW_TYPE_DOES_NOT_EXIST
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable StartChildWorkflowExecutionFailedCause
 
@@ -1887,7 +1887,7 @@ data StartTimerFailedCause
     | StartTimerFailedCauseOperationNotPermitted -- ^ OPERATION_NOT_PERMITTED
     | StartTimerFailedCauseTimerCreationRateExceeded -- ^ TIMER_CREATION_RATE_EXCEEDED
     | StartTimerFailedCauseTimerIdAlreadyInUse -- ^ TIMER_ID_ALREADY_IN_USE
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable StartTimerFailedCause
 
@@ -1921,7 +1921,7 @@ instance ToJSON StartTimerFailedCause
 
 data WorkflowExecutionCancelRequestedCause
     = WorkflowExecutionCancelRequestedCauseChildPolicyApplied -- ^ CHILD_POLICY_APPLIED
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable WorkflowExecutionCancelRequestedCause
 
@@ -1948,7 +1948,7 @@ data WorkflowExecutionTerminatedCause
     = WorkflowExecutionTerminatedCauseChildPolicyApplied -- ^ CHILD_POLICY_APPLIED
     | WorkflowExecutionTerminatedCauseEventLimitExceeded -- ^ EVENT_LIMIT_EXCEEDED
     | WorkflowExecutionTerminatedCauseOperatorInitiated -- ^ OPERATOR_INITIATED
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable WorkflowExecutionTerminatedCause
 
@@ -1979,7 +1979,7 @@ instance ToJSON WorkflowExecutionTerminatedCause
 
 data WorkflowExecutionTimeoutType
     = WorkflowExecutionTimeoutTypeStartToClose -- ^ START_TO_CLOSE
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable WorkflowExecutionTimeoutType
 

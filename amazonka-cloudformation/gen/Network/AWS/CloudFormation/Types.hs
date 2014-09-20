@@ -273,7 +273,7 @@ xmlOptions = Tagged def
 
 data Capability
     = CapabilityCapabilityIam -- ^ CAPABILITY_IAM
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable Capability
 
@@ -296,7 +296,7 @@ data OnFailure
     = OnFailureDelete -- ^ DELETE
     | OnFailureDoNothing -- ^ DO_NOTHING
     | OnFailureRollback -- ^ ROLLBACK
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable OnFailure
 
@@ -325,7 +325,7 @@ data ResourceStatus
     | ResourceStatusUpdateComplete -- ^ UPDATE_COMPLETE
     | ResourceStatusUpdateFailed -- ^ UPDATE_FAILED
     | ResourceStatusUpdateInProgress -- ^ UPDATE_IN_PROGRESS
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ResourceStatus
 
@@ -377,7 +377,7 @@ data StackStatus
     | StackStatusUpdateRollbackCompleteCleanupInProgress -- ^ UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS
     | StackStatusUpdateRollbackFailed -- ^ UPDATE_ROLLBACK_FAILED
     | StackStatusUpdateRollbackInProgress -- ^ UPDATE_ROLLBACK_IN_PROGRESS
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable StackStatus
 

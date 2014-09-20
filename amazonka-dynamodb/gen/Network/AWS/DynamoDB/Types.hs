@@ -445,7 +445,7 @@ data AttributeAction
     = AttributeActionAdd -- ^ ADD
     | AttributeActionDelete -- ^ DELETE
     | AttributeActionPut -- ^ PUT
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable AttributeAction
 
@@ -488,7 +488,7 @@ data ComparisonOperator
     | ComparisonOperatorNotContains -- ^ NOT_CONTAINS
     | ComparisonOperatorNotNull -- ^ NOT_NULL
     | ComparisonOperatorNull -- ^ NULL
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ComparisonOperator
 
@@ -550,7 +550,7 @@ instance ToJSON ComparisonOperator
 data ConditionalOperator
     = ConditionalOperatorAnd -- ^ AND
     | ConditionalOperatorOr -- ^ OR
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ConditionalOperator
 
@@ -579,7 +579,7 @@ data IndexStatus
     | IndexStatusCreating -- ^ CREATING
     | IndexStatusDeleting -- ^ DELETING
     | IndexStatusUpdating -- ^ UPDATING
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable IndexStatus
 
@@ -614,7 +614,7 @@ instance ToJSON IndexStatus
 data KeyType
     = KeyTypeHash -- ^ HASH
     | KeyTypeRange -- ^ RANGE
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable KeyType
 
@@ -644,7 +644,7 @@ data ProjectionType
     = ProjectionTypeAll -- ^ ALL
     | ProjectionTypeInclude -- ^ INCLUDE
     | ProjectionTypeKeysOnly -- ^ KEYS_ONLY
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ProjectionType
 
@@ -677,7 +677,7 @@ data ReturnConsumedCapacity
     = ReturnConsumedCapacityIndexes -- ^ INDEXES
     | ReturnConsumedCapacityNone -- ^ NONE
     | ReturnConsumedCapacityTotal -- ^ TOTAL
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ReturnConsumedCapacity
 
@@ -707,7 +707,7 @@ instance ToJSON ReturnConsumedCapacity
 data ReturnItemCollectionMetrics
     = ReturnItemCollectionMetricsNone -- ^ NONE
     | ReturnItemCollectionMetricsSize -- ^ SIZE
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ReturnItemCollectionMetrics
 
@@ -737,7 +737,7 @@ data ReturnValue
     | ReturnValueNone -- ^ NONE
     | ReturnValueUpdatedNew -- ^ UPDATED_NEW
     | ReturnValueUpdatedOld -- ^ UPDATED_OLD
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ReturnValue
 
@@ -774,7 +774,7 @@ data ScalarAttributeType
     = ScalarAttributeTypeB -- ^ B
     | ScalarAttributeTypeN -- ^ N
     | ScalarAttributeTypeS -- ^ S
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ScalarAttributeType
 
@@ -808,7 +808,7 @@ data Select
     | SelectAllProjectedAttributes -- ^ ALL_PROJECTED_ATTRIBUTES
     | SelectCount -- ^ COUNT
     | SelectSpecificAttributes -- ^ SPECIFIC_ATTRIBUTES
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable Select
 
@@ -843,7 +843,7 @@ data TableStatus
     | TableStatusCreating -- ^ CREATING
     | TableStatusDeleting -- ^ DELETING
     | TableStatusUpdating -- ^ UPDATING
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable TableStatus
 

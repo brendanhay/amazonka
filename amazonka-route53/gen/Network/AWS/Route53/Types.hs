@@ -539,7 +539,7 @@ data ChangeAction
     = Create -- ^ CREATE
     | Delete -- ^ DELETE
     | Upsert -- ^ UPSERT
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ChangeAction
 
@@ -569,7 +569,7 @@ instance ToQuery ChangeAction where
 data ChangeStatus
     = Insync -- ^ INSYNC
     | Pending -- ^ PENDING
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ChangeStatus
 
@@ -593,7 +593,7 @@ instance ToQuery ChangeStatus where
 data Failover
     = Primary -- ^ PRIMARY
     | Secondary -- ^ SECONDARY
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable Failover
 
@@ -624,7 +624,7 @@ data HealthCheckType
     | Https -- ^ HTTPS
     | HttpsStrMatch -- ^ HTTPS_STR_MATCH
     | Tcp -- ^ TCP
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable HealthCheckType
 
@@ -657,7 +657,7 @@ instance ToQuery HealthCheckType where
 
 data TagResourceType
     = Healthcheck -- ^ healthcheck
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable TagResourceType
 

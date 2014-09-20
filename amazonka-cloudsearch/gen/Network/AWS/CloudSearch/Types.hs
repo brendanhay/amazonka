@@ -451,7 +451,7 @@ data AlgorithmicStemming
     | AlgorithmicStemmingLight -- ^ light
     | AlgorithmicStemmingMinimal -- ^ minimal
     | AlgorithmicStemmingNone -- ^ none
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable AlgorithmicStemming
 
@@ -512,7 +512,7 @@ data AnalysisSchemeLanguage
     | AnalysisSchemeLanguageTr -- ^ tr
     | AnalysisSchemeLanguageZhHans -- ^ zh-Hans
     | AnalysisSchemeLanguageZhHant -- ^ zh-Hant
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable AnalysisSchemeLanguage
 
@@ -611,7 +611,7 @@ data IndexFieldType
     | IndexFieldTypeLiteralArray -- ^ literal-array
     | IndexFieldTypeText -- ^ text
     | IndexFieldTypeTextArray -- ^ text-array
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable IndexFieldType
 
@@ -655,7 +655,7 @@ data OptionState
     | OptionStateFailedToValidate -- ^ FailedToValidate
     | OptionStateProcessing -- ^ Processing
     | OptionStateRequiresIndexDocuments -- ^ RequiresIndexDocuments
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable OptionState
 
@@ -685,7 +685,7 @@ data PartitionInstanceType
     | PartitionInstanceTypeSearchM1Small -- ^ search.m1.small
     | PartitionInstanceTypeSearchM22Xlarge -- ^ search.m2.2xlarge
     | PartitionInstanceTypeSearchM2Xlarge -- ^ search.m2.xlarge
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable PartitionInstanceType
 
@@ -714,7 +714,7 @@ data SuggesterFuzzyMatching
     = SuggesterFuzzyMatchingHigh -- ^ high
     | SuggesterFuzzyMatchingLow -- ^ low
     | SuggesterFuzzyMatchingNone -- ^ none
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable SuggesterFuzzyMatching
 

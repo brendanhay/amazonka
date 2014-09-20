@@ -416,7 +416,7 @@ data LifecycleState
     | LifecycleStateTerminating -- ^ Terminating
     | LifecycleStateTerminatingProceed -- ^ Terminating:Proceed
     | LifecycleStateTerminatingWait -- ^ Terminating:Wait
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable LifecycleState
 
@@ -470,7 +470,7 @@ data ScalingActivityStatusCode
     | ScalingActivityStatusCodeWaitingForInstanceId -- ^ WaitingForInstanceId
     | ScalingActivityStatusCodeWaitingForSpotInstanceId -- ^ WaitingForSpotInstanceId
     | ScalingActivityStatusCodeWaitingForSpotInstanceRequestId -- ^ WaitingForSpotInstanceRequestId
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ScalingActivityStatusCode
 

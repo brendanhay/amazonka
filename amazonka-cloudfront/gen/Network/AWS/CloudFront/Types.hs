@@ -1153,7 +1153,7 @@ data GeoRestrictionType
     = GeoRestrictionTypeBlacklist -- ^ blacklist
     | GeoRestrictionTypeNone -- ^ none
     | GeoRestrictionTypeWhitelist -- ^ whitelist
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable GeoRestrictionType
 
@@ -1184,7 +1184,7 @@ data ItemSelection
     = ItemSelectionAll -- ^ all
     | ItemSelectionNone -- ^ none
     | ItemSelectionWhitelist -- ^ whitelist
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ItemSelection
 
@@ -1219,7 +1219,7 @@ data Method
     | MethodPatch -- ^ PATCH
     | MethodPost -- ^ POST
     | MethodPut -- ^ PUT
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable Method
 
@@ -1257,7 +1257,7 @@ instance ToQuery Method where
 data OriginProtocolPolicy
     = OriginProtocolPolicyHttpOnly -- ^ http-only
     | OriginProtocolPolicyMatchViewer -- ^ match-viewer
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable OriginProtocolPolicy
 
@@ -1286,7 +1286,7 @@ data PriceClass
     = PriceClassPriceclass100 -- ^ PriceClass_100
     | PriceClassPriceclass200 -- ^ PriceClass_200
     | PriceClassPriceclassAll -- ^ PriceClass_All
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable PriceClass
 
@@ -1316,7 +1316,7 @@ instance ToQuery PriceClass where
 data SSLSupportMethod
     = SSLSupportMethodSniOnly -- ^ sni-only
     | SSLSupportMethodVip -- ^ vip
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable SSLSupportMethod
 
@@ -1345,7 +1345,7 @@ data ViewerProtocolPolicy
     = ViewerProtocolPolicyAllowAll -- ^ allow-all
     | ViewerProtocolPolicyHttpsOnly -- ^ https-only
     | ViewerProtocolPolicyRedirectToHttps -- ^ redirect-to-https
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ViewerProtocolPolicy
 

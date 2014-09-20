@@ -530,7 +530,7 @@ data ActionOnFailure
     | ActionOnFailureContinue -- ^ CONTINUE
     | ActionOnFailureTerminateCluster -- ^ TERMINATE_CLUSTER
     | ActionOnFailureTerminateJobFlow -- ^ TERMINATE_JOB_FLOW
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ActionOnFailure
 
@@ -570,7 +570,7 @@ data ClusterState
     | ClusterStateTerminatedWithErrors -- ^ TERMINATED_WITH_ERRORS
     | ClusterStateTerminating -- ^ TERMINATING
     | ClusterStateWaiting -- ^ WAITING
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ClusterState
 
@@ -619,7 +619,7 @@ data ClusterStateChangeReasonCode
     | ClusterStateChangeReasonCodeStepFailure -- ^ STEP_FAILURE
     | ClusterStateChangeReasonCodeUserRequest -- ^ USER_REQUEST
     | ClusterStateChangeReasonCodeValidationError -- ^ VALIDATION_ERROR
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ClusterStateChangeReasonCode
 
@@ -671,7 +671,7 @@ data InstanceGroupState
     | InstanceGroupStateSuspended -- ^ SUSPENDED
     | InstanceGroupStateTerminated -- ^ TERMINATED
     | InstanceGroupStateTerminating -- ^ TERMINATING
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable InstanceGroupState
 
@@ -726,7 +726,7 @@ data InstanceGroupStateChangeReasonCode
     | InstanceGroupStateChangeReasonCodeInstanceFailure -- ^ INSTANCE_FAILURE
     | InstanceGroupStateChangeReasonCodeInternalError -- ^ INTERNAL_ERROR
     | InstanceGroupStateChangeReasonCodeValidationError -- ^ VALIDATION_ERROR
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable InstanceGroupStateChangeReasonCode
 
@@ -762,7 +762,7 @@ data InstanceGroupType
     = InstanceGroupTypeCore -- ^ CORE
     | InstanceGroupTypeMaster -- ^ MASTER
     | InstanceGroupTypeTask -- ^ TASK
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable InstanceGroupType
 
@@ -795,7 +795,7 @@ data InstanceRoleType
     = InstanceRoleTypeCore -- ^ CORE
     | InstanceRoleTypeMaster -- ^ MASTER
     | InstanceRoleTypeTask -- ^ TASK
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable InstanceRoleType
 
@@ -830,7 +830,7 @@ data InstanceState
     | InstanceStateProvisioning -- ^ PROVISIONING
     | InstanceStateRunning -- ^ RUNNING
     | InstanceStateTerminated -- ^ TERMINATED
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable InstanceState
 
@@ -871,7 +871,7 @@ data InstanceStateChangeReasonCode
     | InstanceStateChangeReasonCodeInstanceFailure -- ^ INSTANCE_FAILURE
     | InstanceStateChangeReasonCodeInternalError -- ^ INTERNAL_ERROR
     | InstanceStateChangeReasonCodeValidationError -- ^ VALIDATION_ERROR
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable InstanceStateChangeReasonCode
 
@@ -915,7 +915,7 @@ data JobFlowExecutionState
     | JobFlowExecutionStateStarting -- ^ STARTING
     | JobFlowExecutionStateTerminated -- ^ TERMINATED
     | JobFlowExecutionStateWaiting -- ^ WAITING
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable JobFlowExecutionState
 
@@ -962,7 +962,7 @@ instance ToJSON JobFlowExecutionState
 data MarketType
     = MarketTypeOnDemand -- ^ ON_DEMAND
     | MarketTypeSpot -- ^ SPOT
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable MarketType
 
@@ -996,7 +996,7 @@ data StepExecutionState
     | StepExecutionStateInterrupted -- ^ INTERRUPTED
     | StepExecutionStatePending -- ^ PENDING
     | StepExecutionStateRunning -- ^ RUNNING
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable StepExecutionState
 
@@ -1044,7 +1044,7 @@ data StepState
     | StepStateInterrupted -- ^ INTERRUPTED
     | StepStatePending -- ^ PENDING
     | StepStateRunning -- ^ RUNNING
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable StepState
 
@@ -1084,7 +1084,7 @@ instance ToJSON StepState
 
 data StepStateChangeReasonCode
     = StepStateChangeReasonCodeNone -- ^ NONE
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable StepStateChangeReasonCode
 

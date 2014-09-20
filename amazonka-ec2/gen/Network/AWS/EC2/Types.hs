@@ -1441,7 +1441,7 @@ xmlOptions = Tagged def
 data AccountAttributeName
     = AccountAttributeNameDefaultVpc -- ^ default-vpc
     | AccountAttributeNameSupportedPlatforms -- ^ supported-platforms
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable AccountAttributeName
 
@@ -1461,7 +1461,7 @@ instance ToQuery AccountAttributeName where
 data ArchitectureValues
     = ArchitectureValuesI386 -- ^ i386
     | ArchitectureValuesX8664 -- ^ x86_64
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ArchitectureValues
 
@@ -1487,7 +1487,7 @@ data AttachmentStatus
     | AttachmentStatusAttaching -- ^ attaching
     | AttachmentStatusDetached -- ^ detached
     | AttachmentStatusDetaching -- ^ detaching
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable AttachmentStatus
 
@@ -1514,7 +1514,7 @@ instance ToQuery AttachmentStatus where
 
 data AvailabilityZoneState
     = AvailabilityZoneStateAvailable -- ^ available
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable AvailabilityZoneState
 
@@ -1541,7 +1541,7 @@ data BundleTaskState
     | BundleTaskStatePending -- ^ pending
     | BundleTaskStateStoring -- ^ storing
     | BundleTaskStateWaitingForShutdown -- ^ waiting-for-shutdown
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable BundleTaskState
 
@@ -1578,7 +1578,7 @@ data CancelSpotInstanceRequestState
     | CancelSpotInstanceRequestStateClosed -- ^ closed
     | CancelSpotInstanceRequestStateCompleted -- ^ completed
     | CancelSpotInstanceRequestStateOpen -- ^ open
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable CancelSpotInstanceRequestState
 
@@ -1607,7 +1607,7 @@ instance ToQuery CancelSpotInstanceRequestState where
 
 data ContainerFormat
     = ContainerFormatOva -- ^ ova
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ContainerFormat
 
@@ -1631,7 +1631,7 @@ data ConversionTaskState
     | ConversionTaskStateCancelled -- ^ cancelled
     | ConversionTaskStateCancelling -- ^ cancelling
     | ConversionTaskStateCompleted -- ^ completed
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ConversionTaskState
 
@@ -1658,7 +1658,7 @@ instance ToQuery ConversionTaskState where
 
 data CurrencyCodeValues
     = CurrencyCodeValuesUsd -- ^ USD
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable CurrencyCodeValues
 
@@ -1680,7 +1680,7 @@ instance ToQuery CurrencyCodeValues where
 data DatafeedSubscriptionState
     = DatafeedSubscriptionStateActive -- ^ Active
     | DatafeedSubscriptionStateInactive -- ^ Inactive
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable DatafeedSubscriptionState
 
@@ -1701,7 +1701,7 @@ instance FromXML DatafeedSubscriptionState where
 data DeviceType
     = DeviceTypeEbs -- ^ ebs
     | DeviceTypeInstanceStore -- ^ instance-store
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable DeviceType
 
@@ -1726,7 +1726,7 @@ data DiskImageFormat
     = DiskImageFormatRaw -- ^ RAW
     | DiskImageFormatVhd -- ^ VHD
     | DiskImageFormatVmdk -- ^ VMDK
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable DiskImageFormat
 
@@ -1752,7 +1752,7 @@ instance ToQuery DiskImageFormat where
 data DomainType
     = DomainTypeStandard -- ^ standard
     | DomainTypeVpc -- ^ vpc
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable DomainType
 
@@ -1779,7 +1779,7 @@ data EventCode
     | EventCodeInstanceStop -- ^ instance-stop
     | EventCodeSystemMaintenance -- ^ system-maintenance
     | EventCodeSystemReboot -- ^ system-reboot
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable EventCode
 
@@ -1810,7 +1810,7 @@ data ExportEnvironment
     = ExportEnvironmentCitrix -- ^ citrix
     | ExportEnvironmentMicrosoft -- ^ microsoft
     | ExportEnvironmentVmware -- ^ vmware
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ExportEnvironment
 
@@ -1838,7 +1838,7 @@ data ExportTaskState
     | ExportTaskStateCancelled -- ^ cancelled
     | ExportTaskStateCancelling -- ^ cancelling
     | ExportTaskStateCompleted -- ^ completed
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ExportTaskState
 
@@ -1865,7 +1865,7 @@ instance ToQuery ExportTaskState where
 
 data GatewayType
     = GatewayTypeIpsec1 -- ^ ipsec.1
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable GatewayType
 
@@ -1887,7 +1887,7 @@ instance ToQuery GatewayType where
 data HypervisorType
     = HypervisorTypeOvm -- ^ ovm
     | HypervisorTypeXen -- ^ xen
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable HypervisorType
 
@@ -1915,7 +1915,7 @@ data ImageAttributeName
     | ImageAttributeNameLaunchPermission -- ^ launchPermission
     | ImageAttributeNameProductCodes -- ^ productCodes
     | ImageAttributeNameRamdisk -- ^ ramdisk
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ImageAttributeName
 
@@ -1943,7 +1943,7 @@ instance ToQuery ImageAttributeName where
 data ImageState
     = ImageStateAvailable -- ^ available
     | ImageStateDeregistered -- ^ deregistered
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ImageState
 
@@ -1968,7 +1968,7 @@ data ImageTypeValues
     = ImageTypeValuesKernel -- ^ kernel
     | ImageTypeValuesMachine -- ^ machine
     | ImageTypeValuesRamdisk -- ^ ramdisk
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ImageTypeValues
 
@@ -2005,7 +2005,7 @@ data InstanceAttributeName
     | InstanceAttributeNameSourceDestCheck -- ^ sourceDestCheck
     | InstanceAttributeNameSriovNetSupport -- ^ sriovNetSupport
     | InstanceAttributeNameUserData -- ^ userData
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable InstanceAttributeName
 
@@ -2046,7 +2046,7 @@ instance ToQuery InstanceAttributeName where
 
 data InstanceLifecycleType
     = InstanceLifecycleTypeSpot -- ^ spot
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable InstanceLifecycleType
 
@@ -2072,7 +2072,7 @@ data InstanceStateName
     | InstanceStateNameStopped -- ^ stopped
     | InstanceStateNameStopping -- ^ stopping
     | InstanceStateNameTerminated -- ^ terminated
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable InstanceStateName
 
@@ -2140,7 +2140,7 @@ data InstanceType
     | T2Medium -- ^ t2.medium
     | T2Micro -- ^ t2.micro
     | T2Small -- ^ t2.small
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable InstanceType
 
@@ -2238,7 +2238,7 @@ data ListingState
     | ListingStateCancelled -- ^ cancelled
     | ListingStatePending -- ^ pending
     | ListingStateSold -- ^ sold
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ListingState
 
@@ -2268,7 +2268,7 @@ data ListingStatus
     | ListingStatusCancelled -- ^ cancelled
     | ListingStatusClosed -- ^ closed
     | ListingStatusPending -- ^ pending
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ListingStatus
 
@@ -2297,7 +2297,7 @@ data MonitoringState
     = MonitoringStateDisabled -- ^ disabled
     | MonitoringStateEnabled -- ^ enabled
     | MonitoringStatePending -- ^ pending
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable MonitoringState
 
@@ -2325,7 +2325,7 @@ data NetworkInterfaceAttribute
     | NetworkInterfaceAttributeDescription -- ^ description
     | NetworkInterfaceAttributeGroupSet -- ^ groupSet
     | NetworkInterfaceAttributeSourceDestCheck -- ^ sourceDestCheck
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable NetworkInterfaceAttribute
 
@@ -2351,7 +2351,7 @@ data NetworkInterfaceStatus
     | NetworkInterfaceStatusAvailable -- ^ available
     | NetworkInterfaceStatusDetaching -- ^ detaching
     | NetworkInterfaceStatusInUse -- ^ in-use
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable NetworkInterfaceStatus
 
@@ -2380,7 +2380,7 @@ data OfferingTypeValues
     = OfferingTypeValuesHeavyUtilization -- ^ Heavy Utilization
     | OfferingTypeValuesLightUtilization -- ^ Light Utilization
     | OfferingTypeValuesMediumUtilization -- ^ Medium Utilization
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable OfferingTypeValues
 
@@ -2405,7 +2405,7 @@ instance ToQuery OfferingTypeValues where
 
 data PermissionGroup
     = PermissionGroupAll -- ^ all
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable PermissionGroup
 
@@ -2429,7 +2429,7 @@ data PlacementGroupState
     | PlacementGroupStateDeleted -- ^ deleted
     | PlacementGroupStateDeleting -- ^ deleting
     | PlacementGroupStatePending -- ^ pending
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable PlacementGroupState
 
@@ -2456,7 +2456,7 @@ instance ToQuery PlacementGroupState where
 
 data PlacementStrategy
     = PlacementStrategyCluster -- ^ cluster
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable PlacementStrategy
 
@@ -2477,7 +2477,7 @@ instance ToQuery PlacementStrategy where
 
 data PlatformValues
     = PlatformValuesWindows -- ^ Windows
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable PlatformValues
 
@@ -2499,7 +2499,7 @@ instance ToQuery PlatformValues where
 data ProductCodeValues
     = ProductCodeValuesDevpay -- ^ devpay
     | ProductCodeValuesMarketplace -- ^ marketplace
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ProductCodeValues
 
@@ -2525,7 +2525,7 @@ data RIProductDescription
     | RIProductDescriptionLinuxUnixAmazonVpc -- ^ Linux/UNIX (Amazon VPC)
     | RIProductDescriptionWindows -- ^ Windows
     | RIProductDescriptionWindowsAmazonVpc -- ^ Windows (Amazon VPC)
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable RIProductDescription
 
@@ -2552,7 +2552,7 @@ instance ToQuery RIProductDescription where
 
 data RecurringChargeFrequency
     = RecurringChargeFrequencyHourly -- ^ Hourly
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable RecurringChargeFrequency
 
@@ -2581,7 +2581,7 @@ data ReportInstanceReasonCodes
     | ReportInstanceReasonCodesPerformanceNetwork -- ^ performance-network
     | ReportInstanceReasonCodesPerformanceOther -- ^ performance-other
     | ReportInstanceReasonCodesUnresponsive -- ^ unresponsive
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ReportInstanceReasonCodes
 
@@ -2615,7 +2615,7 @@ instance ToQuery ReportInstanceReasonCodes where
 data ReportStatusType
     = ReportStatusTypeImpaired -- ^ impaired
     | ReportStatusTypeOk -- ^ ok
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ReportStatusType
 
@@ -2637,7 +2637,7 @@ data ReservedInstanceState
     | ReservedInstanceStatePaymentFailed -- ^ payment-failed
     | ReservedInstanceStatePaymentPending -- ^ payment-pending
     | ReservedInstanceStateRetired -- ^ retired
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ReservedInstanceState
 
@@ -2664,7 +2664,7 @@ instance ToQuery ReservedInstanceState where
 
 data ResetImageAttributeName
     = ResetImageAttributeNameLaunchPermission -- ^ launchPermission
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ResetImageAttributeName
 
@@ -2697,7 +2697,7 @@ data ResourceType
     | ResourceTypeVpc -- ^ vpc
     | ResourceTypeVpnConnection -- ^ vpn-connection
     | ResourceTypeVpnGateway -- ^ vpn-gateway
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ResourceType
 
@@ -2752,7 +2752,7 @@ data RouteOrigin
     = RouteOriginCreateRoute -- ^ CreateRoute
     | RouteOriginCreateRouteTable -- ^ CreateRouteTable
     | RouteOriginEnableVgwRoutePropagation -- ^ EnableVgwRoutePropagation
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable RouteOrigin
 
@@ -2778,7 +2778,7 @@ instance ToQuery RouteOrigin where
 data RouteState
     = RouteStateActive -- ^ active
     | RouteStateBlackhole -- ^ blackhole
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable RouteState
 
@@ -2802,7 +2802,7 @@ instance ToQuery RouteState where
 data RuleAction
     = RuleActionAllow -- ^ allow
     | RuleActionDeny -- ^ deny
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable RuleAction
 
@@ -2826,7 +2826,7 @@ instance ToQuery RuleAction where
 data ShutdownBehavior
     = ShutdownBehaviorStop -- ^ stop
     | ShutdownBehaviorTerminate -- ^ terminate
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ShutdownBehavior
 
@@ -2846,7 +2846,7 @@ instance ToQuery ShutdownBehavior where
 data SnapshotAttributeName
     = SnapshotAttributeNameCreateVolumePermission -- ^ createVolumePermission
     | SnapshotAttributeNameProductCodes -- ^ productCodes
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable SnapshotAttributeName
 
@@ -2867,7 +2867,7 @@ data SnapshotState
     = SnapshotStateCompleted -- ^ completed
     | SnapshotStateError -- ^ error
     | SnapshotStatePending -- ^ pending
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable SnapshotState
 
@@ -2896,7 +2896,7 @@ data SpotInstanceState
     | SpotInstanceStateClosed -- ^ closed
     | SpotInstanceStateFailed -- ^ failed
     | SpotInstanceStateOpen -- ^ open
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable SpotInstanceState
 
@@ -2926,7 +2926,7 @@ instance ToQuery SpotInstanceState where
 data SpotInstanceType
     = SpotInstanceTypeOneTime -- ^ one-time
     | SpotInstanceTypePersistent -- ^ persistent
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable SpotInstanceType
 
@@ -2949,7 +2949,7 @@ instance ToQuery SpotInstanceType where
 
 data StatusName
     = StatusNameReachability -- ^ reachability
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable StatusName
 
@@ -2972,7 +2972,7 @@ data StatusType
     = StatusTypeFailed -- ^ failed
     | StatusTypeInsufficientData -- ^ insufficient-data
     | StatusTypePassed -- ^ passed
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable StatusType
 
@@ -2998,7 +2998,7 @@ instance ToQuery StatusType where
 data SubnetState
     = SubnetStateAvailable -- ^ available
     | SubnetStatePending -- ^ pending
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable SubnetState
 
@@ -3024,7 +3024,7 @@ data SummaryStatus
     | SummaryStatusInsufficientData -- ^ insufficient-data
     | SummaryStatusNotApplicable -- ^ not-applicable
     | SummaryStatusOk -- ^ ok
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable SummaryStatus
 
@@ -3052,7 +3052,7 @@ instance ToQuery SummaryStatus where
 data TelemetryStatus
     = TelemetryStatusDown -- ^ DOWN
     | TelemetryStatusUp -- ^ UP
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable TelemetryStatus
 
@@ -3076,7 +3076,7 @@ instance ToQuery TelemetryStatus where
 data Tenancy
     = TenancyDedicated -- ^ dedicated
     | TenancyDefault -- ^ default
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable Tenancy
 
@@ -3100,7 +3100,7 @@ instance ToQuery Tenancy where
 data VirtualizationType
     = VirtualizationTypeHvm -- ^ hvm
     | VirtualizationTypeParavirtual -- ^ paravirtual
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable VirtualizationType
 
@@ -3126,7 +3126,7 @@ data VolumeAttachmentState
     | VolumeAttachmentStateAttaching -- ^ attaching
     | VolumeAttachmentStateDetached -- ^ detached
     | VolumeAttachmentStateDetaching -- ^ detaching
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable VolumeAttachmentState
 
@@ -3154,7 +3154,7 @@ instance ToQuery VolumeAttachmentState where
 data VolumeAttributeName
     = VolumeAttributeNameAutoEnableIO -- ^ autoEnableIO
     | VolumeAttributeNameProductCodes -- ^ productCodes
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable VolumeAttributeName
 
@@ -3178,7 +3178,7 @@ data VolumeState
     | VolumeStateDeleting -- ^ deleting
     | VolumeStateError -- ^ error
     | VolumeStateInUse -- ^ in-use
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable VolumeState
 
@@ -3211,7 +3211,7 @@ data VolumeStatusInfoStatus
     = VolumeStatusInfoStatusImpaired -- ^ impaired
     | VolumeStatusInfoStatusInsufficientData -- ^ insufficient-data
     | VolumeStatusInfoStatusOk -- ^ ok
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable VolumeStatusInfoStatus
 
@@ -3237,7 +3237,7 @@ instance ToQuery VolumeStatusInfoStatus where
 data VolumeStatusName
     = VolumeStatusNameIoEnabled -- ^ io-enabled
     | VolumeStatusNameIoPerformance -- ^ io-performance
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable VolumeStatusName
 
@@ -3262,7 +3262,7 @@ data VolumeType
     = VolumeTypeGp2 -- ^ gp2
     | VolumeTypeIo1 -- ^ io1
     | VolumeTypeStandard -- ^ standard
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable VolumeType
 
@@ -3288,7 +3288,7 @@ instance ToQuery VolumeType where
 data VpcAttributeName
     = VpcAttributeNameEnableDnsHostnames -- ^ enableDnsHostnames
     | VpcAttributeNameEnableDnsSupport -- ^ enableDnsSupport
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable VpcAttributeName
 
@@ -3308,7 +3308,7 @@ instance ToQuery VpcAttributeName where
 data VpcState
     = VpcStateAvailable -- ^ available
     | VpcStatePending -- ^ pending
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable VpcState
 
@@ -3334,7 +3334,7 @@ data VpnState
     | VpnStateDeleted -- ^ deleted
     | VpnStateDeleting -- ^ deleting
     | VpnStatePending -- ^ pending
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable VpnState
 
@@ -3361,7 +3361,7 @@ instance ToQuery VpnState where
 
 data VpnStaticRouteSource
     = VpnStaticRouteSourceStatic -- ^ Static
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable VpnStaticRouteSource
 

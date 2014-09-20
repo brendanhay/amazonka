@@ -631,7 +631,7 @@ data BucketCannedACL
     | BucketCannedACLPrivate -- ^ private
     | BucketCannedACLPublicRead -- ^ public-read
     | BucketCannedACLPublicReadWrite -- ^ public-read-write
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable BucketCannedACL
 
@@ -660,7 +660,7 @@ data BucketLogsPermission
     = BucketLogsPermissionFullControl -- ^ FULL_CONTROL
     | BucketLogsPermissionRead -- ^ READ
     | BucketLogsPermissionWrite -- ^ WRITE
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable BucketLogsPermission
 
@@ -689,7 +689,7 @@ instance ToQuery BucketLogsPermission where
 
 data EncodingType
     = EncodingTypeUrl -- ^ url
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable EncodingType
 
@@ -714,7 +714,7 @@ instance ToQuery EncodingType where
 
 data Event
     = EventS3ReducedRedundancyLostObject -- ^ s3:ReducedRedundancyLostObject
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable Event
 
@@ -740,7 +740,7 @@ instance ToQuery Event where
 data MetadataDirective
     = MetadataDirectiveCopy -- ^ COPY
     | MetadataDirectiveReplace -- ^ REPLACE
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable MetadataDirective
 
@@ -768,7 +768,7 @@ data ObjectCannedACL
     | ObjectCannedACLPrivate -- ^ private
     | ObjectCannedACLPublicRead -- ^ public-read
     | ObjectCannedACLPublicReadWrite -- ^ public-read-write
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ObjectCannedACL
 
@@ -801,7 +801,7 @@ data ObjectStorageClass
     = ObjectStorageClassGlacier -- ^ GLACIER
     | ObjectStorageClassReducedRedundancy -- ^ REDUCED_REDUNDANCY
     | ObjectStorageClassStandard -- ^ STANDARD
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ObjectStorageClass
 
@@ -830,7 +830,7 @@ instance ToQuery ObjectStorageClass where
 
 data ObjectVersionStorageClass
     = ObjectVersionStorageClassStandard -- ^ STANDARD
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ObjectVersionStorageClass
 
@@ -856,7 +856,7 @@ instance ToQuery ObjectVersionStorageClass where
 data Payer
     = PayerBucketOwner -- ^ BucketOwner
     | PayerRequester -- ^ Requester
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable Payer
 
@@ -887,7 +887,7 @@ data Permission
     | PermissionReadAcp -- ^ READ_ACP
     | PermissionWrite -- ^ WRITE
     | PermissionWriteAcp -- ^ WRITE_ACP
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable Permission
 
@@ -921,7 +921,7 @@ instance ToQuery Permission where
 data Protocol
     = ProtocolHttp -- ^ http
     | ProtocolHttps -- ^ https
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable Protocol
 
@@ -948,7 +948,7 @@ instance ToQuery Protocol where
 
 data ServerSideEncryption
     = ServerSideEncryptionAES256 -- ^ AES256
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ServerSideEncryption
 
@@ -974,7 +974,7 @@ instance ToQuery ServerSideEncryption where
 data StorageClass
     = StorageClassReducedRedundancy -- ^ REDUCED_REDUNDANCY
     | StorageClassStandard -- ^ STANDARD
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable StorageClass
 
@@ -1001,7 +1001,7 @@ instance ToQuery StorageClass where
 
 data TransitionStorageClass
     = TransitionStorageClassGlacier -- ^ GLACIER
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable TransitionStorageClass
 
@@ -1028,7 +1028,7 @@ data Type
     = TypeAmazonCustomerByEmail -- ^ AmazonCustomerByEmail
     | TypeCanonicalUser -- ^ CanonicalUser
     | TypeGroup -- ^ Group
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable Type
 

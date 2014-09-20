@@ -194,7 +194,7 @@ xmlOptions = Tagged def
 data IdentityType
     = IdentityTypeDomain -- ^ Domain
     | IdentityTypeEmailAddress -- ^ EmailAddress
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable IdentityType
 
@@ -215,7 +215,7 @@ data NotificationType
     = NotificationTypeBounce -- ^ Bounce
     | NotificationTypeComplaint -- ^ Complaint
     | NotificationTypeDelivery -- ^ Delivery
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable NotificationType
 
@@ -240,7 +240,7 @@ data VerificationStatus
     | VerificationStatusPending -- ^ Pending
     | VerificationStatusSuccess -- ^ Success
     | VerificationStatusTemporaryFailure -- ^ TemporaryFailure
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable VerificationStatus
 

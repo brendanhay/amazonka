@@ -949,7 +949,7 @@ data SourceType
     | SourceTypeCacheParameterGroup -- ^ cache-parameter-group
     | SourceTypeCacheSecurityGroup -- ^ cache-security-group
     | SourceTypeCacheSubnetGroup -- ^ cache-subnet-group
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable SourceType
 

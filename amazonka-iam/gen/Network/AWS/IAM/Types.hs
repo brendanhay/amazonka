@@ -543,7 +543,7 @@ data AssignmentStatusType
     = AssignmentStatusTypeAny -- ^ Any
     | AssignmentStatusTypeAssigned -- ^ Assigned
     | AssignmentStatusTypeUnassigned -- ^ Unassigned
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable AssignmentStatusType
 
@@ -564,7 +564,7 @@ instance ToQuery AssignmentStatusType where
 
 data ReportFormatType
     = ReportFormatTypeTextCsv -- ^ text/csv
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ReportFormatType
 
@@ -584,7 +584,7 @@ data ReportStateType
     = ReportStateTypeComplete -- ^ COMPLETE
     | ReportStateTypeInprogress -- ^ INPROGRESS
     | ReportStateTypeStarted -- ^ STARTED
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable ReportStateType
 
@@ -607,7 +607,7 @@ instance FromXML ReportStateType where
 data StatusType
     = StatusTypeActive -- ^ Active
     | StatusTypeInactive -- ^ Inactive
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable StatusType
 
@@ -643,7 +643,7 @@ data SummaryKeyType
     | SummaryKeyTypeUserPolicySizeQuota -- ^ UserPolicySizeQuota
     | SummaryKeyTypeUsers -- ^ Users
     | SummaryKeyTypeUsersQuota -- ^ UsersQuota
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable SummaryKeyType
 

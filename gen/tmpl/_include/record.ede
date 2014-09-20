@@ -25,10 +25,10 @@ data {{ scope.name }} = {{ scope.name }}
     , {{ field.value.prefixed }} :: {{ field.value.strict }}
     {% endif %}
     {% if field.last %}
-      {% if field.value.payload %}
-    } deriving (Show, Generic)
-      {% else %}
+      {% if scope.equality %}
     } deriving (Eq, Show, Generic)
+      {% else %}
+    } deriving (Show, Generic)
       {% endif %}
     {% endif %}
   {% else %}

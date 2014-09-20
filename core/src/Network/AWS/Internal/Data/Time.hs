@@ -58,7 +58,7 @@ data Time :: Format -> * where
 deriving instance Show (Time a)
 deriving instance Eq   (Time a)
 
-instance Ord (Time (a  :: Format)) where
+instance Ord (Time (a :: Format)) where
     compare = compare `on` ts
       where
         ts (Time         t) = (t, defaultTimeLocale)

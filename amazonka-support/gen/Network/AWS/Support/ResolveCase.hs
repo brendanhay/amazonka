@@ -44,7 +44,7 @@ import Network.AWS.Request.JSON
 
 newtype ResolveCase = ResolveCase
     { _rcCaseId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResolveCase' request.
@@ -76,7 +76,7 @@ instance ToJSON ResolveCase
 data ResolveCaseResponse = ResolveCaseResponse
     { _rcrInitialCaseStatus :: Maybe Text
     , _rcrFinalCaseStatus :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResolveCaseResponse' response.

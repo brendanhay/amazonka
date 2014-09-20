@@ -62,7 +62,7 @@ data DescribeClusterParameterGroups = DescribeClusterParameterGroups
     { _dcpg1ParameterGroupName :: Maybe Text
     , _dcpg1MaxRecords :: Maybe Integer
     , _dcpg1Marker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusterParameterGroups' request.
@@ -114,7 +114,7 @@ instance ToQuery DescribeClusterParameterGroups where
 data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse
     { _dcpgrMarker :: Maybe Text
     , _dcpgrParameterGroups :: [ClusterParameterGroup]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusterParameterGroupsResponse' response.

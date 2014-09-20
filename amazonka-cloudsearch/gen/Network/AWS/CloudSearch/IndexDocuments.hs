@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 -- name of the domain you want to re-index.
 newtype IndexDocuments = IndexDocuments
     { _idDomainName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'IndexDocuments' request.
@@ -75,7 +75,7 @@ instance ToQuery IndexDocuments where
 -- indexing operation, including the fields being indexed.
 newtype IndexDocumentsResponse = IndexDocumentsResponse
     { _idrFieldNames :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'IndexDocumentsResponse' response.

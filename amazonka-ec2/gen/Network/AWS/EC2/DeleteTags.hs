@@ -64,7 +64,7 @@ import Network.AWS.Prelude
 data DeleteTags = DeleteTags
     { _dtResources :: [Text]
     , _dtTags :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteTags' request.
@@ -98,7 +98,7 @@ instance ToQuery DeleteTags where
     toQuery = genericQuery def
 
 data DeleteTagsResponse = DeleteTagsResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteTagsResponse' response.

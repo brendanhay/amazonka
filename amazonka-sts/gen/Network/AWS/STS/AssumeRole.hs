@@ -123,7 +123,7 @@ data AssumeRole = AssumeRole
     , _arExternalId :: Maybe Text
     , _arSerialNumber :: Maybe Text
     , _arTokenCode :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssumeRole' request.
@@ -223,7 +223,7 @@ data AssumeRoleResponse = AssumeRoleResponse
     { _arrCredentials :: Maybe Credentials
     , _arrAssumedRoleUser :: Maybe AssumedRoleUser
     , _arrPackedPolicySize :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssumeRoleResponse' response.

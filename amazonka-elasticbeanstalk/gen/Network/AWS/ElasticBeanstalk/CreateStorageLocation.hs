@@ -42,7 +42,7 @@ import Network.AWS.ElasticBeanstalk.Types
 import Network.AWS.Prelude
 
 data CreateStorageLocation = CreateStorageLocation
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStorageLocation' request.
@@ -55,7 +55,7 @@ instance ToQuery CreateStorageLocation where
 -- | Results of a CreateStorageLocationResult call.
 newtype CreateStorageLocationResponse = CreateStorageLocationResponse
     { _cslrS3Bucket :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStorageLocationResponse' response.

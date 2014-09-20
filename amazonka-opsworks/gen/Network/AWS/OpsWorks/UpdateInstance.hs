@@ -63,7 +63,7 @@ data UpdateInstance = UpdateInstance
     , _uiArchitecture :: Maybe Architecture
     , _uiInstallUpdatesOnBoot :: Maybe Bool
     , _uiEbsOptimized :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateInstance' request.
@@ -184,7 +184,7 @@ instance ToHeaders UpdateInstance
 instance ToJSON UpdateInstance
 
 data UpdateInstanceResponse = UpdateInstanceResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateInstanceResponse' response.

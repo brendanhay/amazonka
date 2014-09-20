@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 -- | 
 newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration
     { _dlcLaunchConfigurationName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLaunchConfiguration' request.
@@ -71,7 +71,7 @@ instance ToQuery DeleteLaunchConfiguration where
     toQuery = genericQuery def
 
 data DeleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLaunchConfigurationResponse' response.

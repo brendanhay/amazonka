@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 data AddTagsToResource = AddTagsToResource
     { _attrResourceName :: Text
     , _attrTags :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddTagsToResource' request.
@@ -81,7 +81,7 @@ instance ToQuery AddTagsToResource where
     toQuery = genericQuery def
 
 data AddTagsToResourceResponse = AddTagsToResourceResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddTagsToResourceResponse' response.

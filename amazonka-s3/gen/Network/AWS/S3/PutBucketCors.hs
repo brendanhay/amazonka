@@ -45,7 +45,7 @@ data PutBucketCors = PutBucketCors
     { _pbcBucket :: BucketName
     , _pbcCORSConfiguration :: Maybe CORSConfiguration
     , _pbcContentMD5 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketCors' request.
@@ -89,7 +89,7 @@ instance ToBody PutBucketCors where
     toBody = toBody . encodeXML . _pbcCORSConfiguration
 
 data PutBucketCorsResponse = PutBucketCorsResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketCorsResponse' response.

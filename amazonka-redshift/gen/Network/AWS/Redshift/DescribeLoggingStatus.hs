@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 -- | 
 newtype DescribeLoggingStatus = DescribeLoggingStatus
     { _dlsClusterIdentifier :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLoggingStatus' request.
@@ -81,7 +81,7 @@ data DescribeLoggingStatusResponse = DescribeLoggingStatusResponse
     , _dlsrLastSuccessfulDeliveryTime :: Maybe ISO8601
     , _dlsrLastFailureTime :: Maybe ISO8601
     , _dlsrLastFailureMessage :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLoggingStatusResponse' response.

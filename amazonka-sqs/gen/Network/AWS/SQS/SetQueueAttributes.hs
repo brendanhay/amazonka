@@ -76,7 +76,7 @@ import Network.AWS.Prelude
 data SetQueueAttributes = SetQueueAttributes
     { _sqaQueueUrl :: Text
     , _sqaAttributes :: Map QueueAttributeName Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetQueueAttributes' request.
@@ -130,7 +130,7 @@ instance ToQuery SetQueueAttributes where
     toQuery = genericQuery def
 
 data SetQueueAttributesResponse = SetQueueAttributesResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetQueueAttributesResponse' response.

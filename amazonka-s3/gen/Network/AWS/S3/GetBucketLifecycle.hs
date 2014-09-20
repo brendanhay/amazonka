@@ -43,7 +43,7 @@ import Network.AWS.Types (Region)
 
 newtype GetBucketLifecycle = GetBucketLifecycle
     { _gblBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketLifecycle' request.
@@ -71,7 +71,7 @@ instance ToBody GetBucketLifecycle
 
 newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse
     { _gblrRules :: [Rule]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketLifecycleResponse' response.

@@ -72,7 +72,7 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots
     , _dcs1MaxRecords :: Maybe Integer
     , _dcs1Marker :: Maybe Text
     , _dcs1OwnerAccount :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusterSnapshots' request.
@@ -170,7 +170,7 @@ instance ToQuery DescribeClusterSnapshots where
 data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
     { _dcsrrMarker :: Maybe Text
     , _dcsrrSnapshots :: [Snapshot]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusterSnapshotsResponse' response.

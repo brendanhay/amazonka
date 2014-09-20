@@ -50,7 +50,7 @@ import Network.AWS.Request.JSON
 
 newtype DeleteRetentionPolicy = DeleteRetentionPolicy
     { _drpLogGroupName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteRetentionPolicy' request.
@@ -77,7 +77,7 @@ instance ToHeaders DeleteRetentionPolicy
 instance ToJSON DeleteRetentionPolicy
 
 data DeleteRetentionPolicyResponse = DeleteRetentionPolicyResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteRetentionPolicyResponse' response.

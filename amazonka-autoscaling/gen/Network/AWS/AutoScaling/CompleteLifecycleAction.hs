@@ -56,7 +56,7 @@ data CompleteLifecycleAction = CompleteLifecycleAction
     , _claAutoScalingGroupName :: Text
     , _claLifecycleActionToken :: Text
     , _claLifecycleActionResult :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CompleteLifecycleAction' request.
@@ -114,7 +114,7 @@ instance ToQuery CompleteLifecycleAction where
 
 -- | The output of the CompleteLifecycleAction.
 data CompleteLifecycleActionResponse = CompleteLifecycleActionResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CompleteLifecycleActionResponse' response.

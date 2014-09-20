@@ -740,7 +740,7 @@ instance ToQuery SuggesterFuzzyMatching where
 -- | The service endpoint for updating documents in a search domain.
 newtype ServiceEndpoint = ServiceEndpoint
     { _seEndpoint :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ServiceEndpoint' data type to populate a request.
@@ -773,7 +773,7 @@ instance ToQuery ServiceEndpoint where
 data AccessPoliciesStatus = AccessPoliciesStatus
     { _apsOptions :: Text
     , _apsStatus :: OptionStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AccessPoliciesStatus' data type.
@@ -816,7 +816,7 @@ data AnalysisOptions = AnalysisOptions
     , _aoStopwords :: Maybe Text
     , _aoStemmingDictionary :: Maybe Text
     , _aoAlgorithmicStemming :: Maybe AlgorithmicStemming
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AnalysisOptions' data type to populate a request.
@@ -891,7 +891,7 @@ data AnalysisScheme = AnalysisScheme
     { _asAnalysisSchemeName :: Text
     , _asAnalysisSchemeLanguage :: AnalysisSchemeLanguage
     , _asAnalysisOptions :: Maybe AnalysisOptions
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AnalysisScheme' data type to populate a request.
@@ -943,7 +943,7 @@ instance ToQuery AnalysisScheme where
 data AnalysisSchemeStatus = AnalysisSchemeStatus
     { _assOptions :: AnalysisScheme
     , _assStatus :: OptionStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AnalysisSchemeStatus' data type.
@@ -985,7 +985,7 @@ instance FromXML AnalysisSchemeStatus where
 data AvailabilityOptionsStatus = AvailabilityOptionsStatus
     { _aosOptions :: !Bool
     , _aosStatus :: OptionStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AvailabilityOptionsStatus' data type.
@@ -1028,7 +1028,7 @@ data DateArrayOptions = DateArrayOptions
     , _dao1FacetEnabled :: Maybe Bool
     , _dao1SearchEnabled :: Maybe Bool
     , _dao1ReturnEnabled :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DateArrayOptions' data type to populate a request.
@@ -1097,7 +1097,7 @@ data DateOptions = DateOptions
     , _do1SearchEnabled :: Maybe Bool
     , _do1ReturnEnabled :: Maybe Bool
     , _do1SortEnabled :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DateOptions' data type to populate a request.
@@ -1167,7 +1167,7 @@ data DocumentSuggesterOptions = DocumentSuggesterOptions
     { _dsoSourceField :: Text
     , _dsoFuzzyMatching :: Maybe SuggesterFuzzyMatching
     , _dsoSortExpression :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DocumentSuggesterOptions' data type to populate a request.
@@ -1228,7 +1228,7 @@ data DomainStatus = DomainStatus
     , _dsSearchInstanceType :: Maybe Text
     , _dsSearchPartitionCount :: Maybe Integer
     , _dsSearchInstanceCount :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DomainStatus' data type.
@@ -1361,7 +1361,7 @@ data DoubleArrayOptions = DoubleArrayOptions
     , _daoFacetEnabled :: Maybe Bool
     , _daoSearchEnabled :: Maybe Bool
     , _daoReturnEnabled :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DoubleArrayOptions' data type to populate a request.
@@ -1426,7 +1426,7 @@ data DoubleOptions = DoubleOptions
     , _doSearchEnabled :: Maybe Bool
     , _doReturnEnabled :: Maybe Bool
     , _doSortEnabled :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DoubleOptions' data type to populate a request.
@@ -1493,7 +1493,7 @@ instance ToQuery DoubleOptions where
 data Expression = Expression
     { _eExpressionName :: Text
     , _eExpressionValue :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Expression' data type to populate a request.
@@ -1538,7 +1538,7 @@ instance ToQuery Expression where
 data ExpressionStatus = ExpressionStatus
     { _esOptions :: Expression
     , _esStatus :: OptionStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ExpressionStatus' data type.
@@ -1588,7 +1588,7 @@ data IndexField = IndexField
     , _ifLiteralArrayOptions :: Maybe LiteralArrayOptions
     , _ifTextArrayOptions :: Maybe TextArrayOptions
     , _ifDateArrayOptions :: Maybe DateArrayOptions
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IndexField' data type to populate a request.
@@ -1737,7 +1737,7 @@ instance ToQuery IndexField where
 data IndexFieldStatus = IndexFieldStatus
     { _ifsOptions :: IndexField
     , _ifsStatus :: OptionStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IndexFieldStatus' data type.
@@ -1781,7 +1781,7 @@ data IntArrayOptions = IntArrayOptions
     , _iaoFacetEnabled :: Maybe Bool
     , _iaoSearchEnabled :: Maybe Bool
     , _iaoReturnEnabled :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IntArrayOptions' data type to populate a request.
@@ -1845,7 +1845,7 @@ data IntOptions = IntOptions
     , _ioSearchEnabled :: Maybe Bool
     , _ioReturnEnabled :: Maybe Bool
     , _ioSortEnabled :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IntOptions' data type to populate a request.
@@ -1917,7 +1917,7 @@ data LatLonOptions = LatLonOptions
     , _lloSearchEnabled :: Maybe Bool
     , _lloReturnEnabled :: Maybe Bool
     , _lloSortEnabled :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LatLonOptions' data type to populate a request.
@@ -1991,7 +1991,7 @@ data LiteralArrayOptions = LiteralArrayOptions
     , _laoFacetEnabled :: Maybe Bool
     , _laoSearchEnabled :: Maybe Bool
     , _laoReturnEnabled :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LiteralArrayOptions' data type to populate a request.
@@ -2055,7 +2055,7 @@ data LiteralOptions = LiteralOptions
     , _loSearchEnabled :: Maybe Bool
     , _loReturnEnabled :: Maybe Bool
     , _loSortEnabled :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LiteralOptions' data type to populate a request.
@@ -2125,7 +2125,7 @@ data OptionStatus = OptionStatus
     , _osUpdateVersion :: Maybe Integer
     , _osState :: OptionState
     , _osPendingDeletion :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'OptionStatus' data type to populate a request.
@@ -2195,7 +2195,7 @@ data ScalingParameters = ScalingParameters
     { _spDesiredInstanceType :: Maybe PartitionInstanceType
     , _spDesiredReplicationCount :: Maybe Integer
     , _spDesiredPartitionCount :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ScalingParameters' data type to populate a request.
@@ -2245,7 +2245,7 @@ instance ToQuery ScalingParameters where
 data ScalingParametersStatus = ScalingParametersStatus
     { _spsOptions :: ScalingParameters
     , _spsStatus :: OptionStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ScalingParametersStatus' data type.
@@ -2287,7 +2287,7 @@ instance FromXML ScalingParametersStatus where
 data Suggester = Suggester
     { _sSuggesterName :: Text
     , _sDocumentSuggesterOptions :: DocumentSuggesterOptions
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Suggester' data type to populate a request.
@@ -2330,7 +2330,7 @@ instance ToQuery Suggester where
 data SuggesterStatus = SuggesterStatus
     { _ssOptions :: Suggester
     , _ssStatus :: OptionStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SuggesterStatus' data type.
@@ -2376,7 +2376,7 @@ data TextArrayOptions = TextArrayOptions
     , _taoReturnEnabled :: Maybe Bool
     , _taoHighlightEnabled :: Maybe Bool
     , _taoAnalysisScheme :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TextArrayOptions' data type to populate a request.
@@ -2442,7 +2442,7 @@ data TextOptions = TextOptions
     , _toSortEnabled :: Maybe Bool
     , _toHighlightEnabled :: Maybe Bool
     , _toAnalysisScheme :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TextOptions' data type to populate a request.

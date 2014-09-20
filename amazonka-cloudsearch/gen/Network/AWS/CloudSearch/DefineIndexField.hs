@@ -54,7 +54,7 @@ import Network.AWS.Prelude
 data DefineIndexField = DefineIndexField
     { _difDomainName :: Text
     , _difIndexField :: IndexField
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DefineIndexField' request.
@@ -91,7 +91,7 @@ instance ToQuery DefineIndexField where
 -- newly-configured index field.
 newtype DefineIndexFieldResponse = DefineIndexFieldResponse
     { _difrIndexField :: IndexFieldStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DefineIndexFieldResponse' response.

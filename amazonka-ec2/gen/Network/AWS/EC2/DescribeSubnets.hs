@@ -76,7 +76,7 @@ import Network.AWS.Prelude
 data DescribeSubnets = DescribeSubnets
     { _ds3SubnetIds :: [Text]
     , _ds3Filters :: [Filter]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSubnets' request.
@@ -124,7 +124,7 @@ instance ToQuery DescribeSubnets where
 
 newtype DescribeSubnetsResponse = DescribeSubnetsResponse
     { _dsrrSubnets :: [Subnet]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSubnetsResponse' response.

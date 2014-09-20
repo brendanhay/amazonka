@@ -60,7 +60,7 @@ data CreateHsmConfiguration = CreateHsmConfiguration
     , _chcHsmPartitionName :: Text
     , _chcHsmPartitionPassword :: Text
     , _chcHsmServerPublicCertificate :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateHsmConfiguration' request.
@@ -133,7 +133,7 @@ instance ToQuery CreateHsmConfiguration where
 
 newtype CreateHsmConfigurationResponse = CreateHsmConfigurationResponse
     { _chcrHsmConfiguration :: Maybe HsmConfiguration
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateHsmConfigurationResponse' response.

@@ -43,7 +43,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSpotDatafeedSubscription' request.
@@ -55,7 +55,7 @@ instance ToQuery DescribeSpotDatafeedSubscription where
 
 newtype DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
     { _dsdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSpotDatafeedSubscriptionResponse' response.

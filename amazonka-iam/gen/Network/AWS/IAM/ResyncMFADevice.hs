@@ -49,7 +49,7 @@ data ResyncMFADevice = ResyncMFADevice
     , _rmfadSerialNumber :: Text
     , _rmfadAuthenticationCode1 :: Text
     , _rmfadAuthenticationCode2 :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResyncMFADevice' request.
@@ -101,7 +101,7 @@ instance ToQuery ResyncMFADevice where
     toQuery = genericQuery def
 
 data ResyncMFADeviceResponse = ResyncMFADeviceResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResyncMFADeviceResponse' response.

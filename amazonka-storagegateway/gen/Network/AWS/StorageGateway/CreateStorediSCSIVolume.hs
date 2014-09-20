@@ -86,7 +86,7 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume
     , _csscsivPreserveExistingData :: !Bool
     , _csscsivTargetName :: Text
     , _csscsivNetworkInterfaceId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStorediSCSIVolume' request.
@@ -179,7 +179,7 @@ data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse
     { _csscsivrVolumeARN :: Maybe Text
     , _csscsivrVolumeSizeInBytes :: Maybe Integer
     , _csscsivrTargetARN :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStorediSCSIVolumeResponse' response.

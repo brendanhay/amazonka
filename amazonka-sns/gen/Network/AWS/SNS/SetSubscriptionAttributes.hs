@@ -64,7 +64,7 @@ data SetSubscriptionAttributes = SetSubscriptionAttributes
     { _ssaSubscriptionArn :: Text
     , _ssaAttributeName :: Text
     , _ssaAttributeValue :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetSubscriptionAttributes' request.
@@ -107,7 +107,7 @@ instance ToQuery SetSubscriptionAttributes where
     toQuery = genericQuery def
 
 data SetSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetSubscriptionAttributesResponse' response.

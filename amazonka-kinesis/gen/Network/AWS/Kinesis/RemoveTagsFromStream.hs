@@ -53,7 +53,7 @@ import Network.AWS.Request.JSON
 data RemoveTagsFromStream = RemoveTagsFromStream
     { _rtfsStreamName :: Text
     , _rtfsTagKeys :: List1 Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveTagsFromStream' request.
@@ -89,7 +89,7 @@ instance ToHeaders RemoveTagsFromStream
 instance ToJSON RemoveTagsFromStream
 
 data RemoveTagsFromStreamResponse = RemoveTagsFromStreamResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveTagsFromStreamResponse' response.

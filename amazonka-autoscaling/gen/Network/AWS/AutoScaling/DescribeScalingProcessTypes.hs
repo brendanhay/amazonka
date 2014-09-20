@@ -43,7 +43,7 @@ import Network.AWS.AutoScaling.Types
 import Network.AWS.Prelude
 
 data DescribeScalingProcessTypes = DescribeScalingProcessTypes
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeScalingProcessTypes' request.
@@ -56,7 +56,7 @@ instance ToQuery DescribeScalingProcessTypes where
 -- | The output of the DescribeScalingProcessTypes action.
 newtype DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
     { _dsptrProcesses :: [ProcessType]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeScalingProcessTypesResponse' response.

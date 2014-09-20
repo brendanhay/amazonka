@@ -67,7 +67,7 @@ import Network.AWS.Prelude
 
 newtype TerminateInstances = TerminateInstances
     { _tiInstanceIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TerminateInstances' request.
@@ -91,7 +91,7 @@ instance ToQuery TerminateInstances where
 
 newtype TerminateInstancesResponse = TerminateInstancesResponse
     { _tirTerminatingInstances :: [InstanceStateChange]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TerminateInstancesResponse' response.

@@ -46,7 +46,7 @@ data UpdateLoginProfile = UpdateLoginProfile
     { _ulpUserName :: Text
     , _ulpPassword :: Maybe Text
     , _ulpPasswordResetRequired :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateLoginProfile' request.
@@ -85,7 +85,7 @@ instance ToQuery UpdateLoginProfile where
     toQuery = genericQuery def
 
 data UpdateLoginProfileResponse = UpdateLoginProfileResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateLoginProfileResponse' response.

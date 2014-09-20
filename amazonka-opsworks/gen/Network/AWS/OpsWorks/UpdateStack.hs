@@ -75,7 +75,7 @@ data UpdateStack = UpdateStack
     , _usDefaultSshKeyName :: Maybe Text
     , _usDefaultRootDeviceType :: Maybe RootDeviceType
     , _usUseOpsworksSecurityGroups :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateStack' request.
@@ -284,7 +284,7 @@ instance ToHeaders UpdateStack
 instance ToJSON UpdateStack
 
 data UpdateStackResponse = UpdateStackResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateStackResponse' response.

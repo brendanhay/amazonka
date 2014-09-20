@@ -48,7 +48,7 @@ import Network.AWS.Request.JSON
 data DescribeApps = DescribeApps
     { _da1StackId :: Maybe Text
     , _da1AppIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeApps' request.
@@ -87,7 +87,7 @@ instance ToJSON DescribeApps
 -- | Contains the response to a DescribeApps request.
 newtype DescribeAppsResponse = DescribeAppsResponse
     { _darApps :: [App]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAppsResponse' response.

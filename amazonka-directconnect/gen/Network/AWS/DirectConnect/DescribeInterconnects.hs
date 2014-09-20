@@ -45,7 +45,7 @@ import Network.AWS.Request.JSON
 -- | Container for the parameters to the DescribeInterconnects operation.
 newtype DescribeInterconnects = DescribeInterconnects
     { _di1InterconnectId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInterconnects' request.
@@ -75,7 +75,7 @@ instance ToJSON DescribeInterconnects
 -- | A structure containing a list of interconnects.
 newtype DescribeInterconnectsResponse = DescribeInterconnectsResponse
     { _dirrInterconnects :: [Interconnect]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInterconnectsResponse' response.

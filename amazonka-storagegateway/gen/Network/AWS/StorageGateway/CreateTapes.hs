@@ -49,7 +49,7 @@ data CreateTapes = CreateTapes
     , _ctClientToken :: Text
     , _ctNumTapesToCreate :: !Integer
     , _ctTapeBarcodePrefix :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateTapes' request.
@@ -110,7 +110,7 @@ instance ToJSON CreateTapes
 
 newtype CreateTapesResponse = CreateTapesResponse
     { _ctrTapeARNs :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateTapesResponse' response.

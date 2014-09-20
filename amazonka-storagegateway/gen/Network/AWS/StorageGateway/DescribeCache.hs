@@ -68,7 +68,7 @@ import Network.AWS.Request.JSON
 
 newtype DescribeCache = DescribeCache
     { _dcGatewayARN :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCache' request.
@@ -104,7 +104,7 @@ data DescribeCacheResponse = DescribeCacheResponse
     , _dcrCacheDirtyPercentage :: Maybe Double
     , _dcrCacheHitPercentage :: Maybe Double
     , _dcrCacheMissPercentage :: Maybe Double
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCacheResponse' response.

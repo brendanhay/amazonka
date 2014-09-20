@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 data DeleteScheduledAction = DeleteScheduledAction
     { _dsaAutoScalingGroupName :: Maybe Text
     , _dsaScheduledActionName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteScheduledAction' request.
@@ -77,7 +77,7 @@ instance ToQuery DeleteScheduledAction where
     toQuery = genericQuery def
 
 data DeleteScheduledActionResponse = DeleteScheduledActionResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteScheduledActionResponse' response.

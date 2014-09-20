@@ -56,7 +56,7 @@ data PromoteReadReplica = PromoteReadReplica
     { _prrDBInstanceIdentifier :: Text
     , _prrBackupRetentionPeriod :: Maybe Integer
     , _prrPreferredBackupWindow :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PromoteReadReplica' request.
@@ -113,7 +113,7 @@ instance ToQuery PromoteReadReplica where
 
 newtype PromoteReadReplicaResponse = PromoteReadReplicaResponse
     { _prrrDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PromoteReadReplicaResponse' response.

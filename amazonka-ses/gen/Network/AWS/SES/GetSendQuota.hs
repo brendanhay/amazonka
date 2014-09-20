@@ -49,7 +49,7 @@ import Network.AWS.SES.Types
 import Network.AWS.Prelude
 
 data GetSendQuota = GetSendQuota
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetSendQuota' request.
@@ -65,7 +65,7 @@ data GetSendQuotaResponse = GetSendQuotaResponse
     { _gsqrMax24HourSend :: Maybe Double
     , _gsqrMaxSendRate :: Maybe Double
     , _gsqrSentLast24Hours :: Maybe Double
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetSendQuotaResponse' response.

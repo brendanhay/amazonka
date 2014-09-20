@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 data DeleteExpression = DeleteExpression
     { _de1DomainName :: Text
     , _de1ExpressionName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteExpression' request.
@@ -86,7 +86,7 @@ instance ToQuery DeleteExpression where
 -- deleted.
 newtype DeleteExpressionResponse = DeleteExpressionResponse
     { _derrExpression :: ExpressionStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteExpressionResponse' response.

@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 data DescribeInternetGateways = DescribeInternetGateways
     { _dig1InternetGatewayIds :: [Text]
     , _dig1Filters :: [Filter]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInternetGateways' request.
@@ -91,7 +91,7 @@ instance ToQuery DescribeInternetGateways where
 
 newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
     { _digrInternetGateways :: [InternetGateway]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInternetGatewaysResponse' response.

@@ -40,7 +40,7 @@ import Network.AWS.Prelude
 
 newtype EnableAlarmActions = EnableAlarmActions
     { _eaaAlarmNames :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableAlarmActions' request.
@@ -63,7 +63,7 @@ instance ToQuery EnableAlarmActions where
     toQuery = genericQuery def
 
 data EnableAlarmActionsResponse = EnableAlarmActionsResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableAlarmActionsResponse' response.

@@ -61,7 +61,7 @@ data DescribeReservedInstances = DescribeReservedInstances
     { _driReservedInstancesIds :: [Text]
     , _driFilters :: [Filter]
     , _driOfferingType :: Maybe OfferingTypeValues
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedInstances' request.
@@ -121,7 +121,7 @@ instance ToQuery DescribeReservedInstances where
 
 newtype DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
     { _drirReservedInstances :: [ReservedInstances]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedInstancesResponse' response.

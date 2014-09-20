@@ -41,7 +41,7 @@ import Network.AWS.Types (Region)
 
 newtype DeleteBucketWebsite = DeleteBucketWebsite
     { _dbwBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBucketWebsite' request.
@@ -68,7 +68,7 @@ instance ToHeaders DeleteBucketWebsite
 instance ToBody DeleteBucketWebsite
 
 data DeleteBucketWebsiteResponse = DeleteBucketWebsiteResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBucketWebsiteResponse' response.

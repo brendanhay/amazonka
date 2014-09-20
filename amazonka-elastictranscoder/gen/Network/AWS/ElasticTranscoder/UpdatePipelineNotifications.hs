@@ -65,7 +65,7 @@ import Network.AWS.Request.JSON
 data UpdatePipelineNotifications = UpdatePipelineNotifications
     { _upnId :: Text
     , _upnNotifications :: Notifications
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdatePipelineNotifications' request.
@@ -119,7 +119,7 @@ instance ToJSON UpdatePipelineNotifications
 -- | The UpdatePipelineNotificationsResponse structure.
 newtype UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse
     { _upnrPipeline :: Maybe Pipeline
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdatePipelineNotificationsResponse' response.

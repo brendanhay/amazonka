@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscription
     { _rsifsSubscriptionName :: Text
     , _rsifsSourceIdentifier :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveSourceIdentifierFromSubscription' request.
@@ -89,7 +89,7 @@ instance ToQuery RemoveSourceIdentifierFromSubscription where
 
 newtype RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse
     { _rsifsrEventSubscription :: Maybe EventSubscription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveSourceIdentifierFromSubscriptionResponse' response.

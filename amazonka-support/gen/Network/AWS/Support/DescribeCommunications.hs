@@ -58,7 +58,7 @@ data DescribeCommunications = DescribeCommunications
     , _dc1AfterTime :: Maybe Text
     , _dc1NextToken :: Maybe Text
     , _dc1MaxResults :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCommunications' request.
@@ -121,7 +121,7 @@ instance ToJSON DescribeCommunications
 data DescribeCommunicationsResponse = DescribeCommunicationsResponse
     { _dcrrCommunications :: [Communication]
     , _dcrrNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCommunicationsResponse' response.

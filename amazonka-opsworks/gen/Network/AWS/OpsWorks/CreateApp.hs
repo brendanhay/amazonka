@@ -68,7 +68,7 @@ data CreateApp = CreateApp
     , _caSslConfiguration :: Maybe SslConfiguration
     , _caAttributes :: Map AppAttributesKeys Text
     , _caEnvironment :: [EnvironmentVariable]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateApp' request.
@@ -188,7 +188,7 @@ instance ToJSON CreateApp
 -- | Contains the response to a CreateApp request.
 newtype CreateAppResponse = CreateAppResponse
     { _carAppId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateAppResponse' response.

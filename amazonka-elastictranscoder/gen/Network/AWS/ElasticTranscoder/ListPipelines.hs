@@ -86,7 +86,7 @@ import Network.AWS.Request.JSON
 data ListPipelines = ListPipelines
     { _lpAscending :: Maybe Text
     , _lpPageToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListPipelines' request.
@@ -127,7 +127,7 @@ instance ToJSON ListPipelines
 data ListPipelinesResponse = ListPipelinesResponse
     { _lprPipelines :: [Pipeline]
     , _lprNextPageToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListPipelinesResponse' response.

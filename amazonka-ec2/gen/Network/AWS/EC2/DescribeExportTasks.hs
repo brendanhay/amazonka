@@ -61,7 +61,7 @@ import Network.AWS.Prelude
 
 newtype DescribeExportTasks = DescribeExportTasks
     { _detExportTaskIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeExportTasks' request.
@@ -85,7 +85,7 @@ instance ToQuery DescribeExportTasks where
 
 newtype DescribeExportTasksResponse = DescribeExportTasksResponse
     { _detrExportTasks :: [ExportTask]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeExportTasksResponse' response.

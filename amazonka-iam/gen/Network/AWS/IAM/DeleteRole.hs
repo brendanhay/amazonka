@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 
 newtype DeleteRole = DeleteRole
     { _drRoleName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteRole' request.
@@ -69,7 +69,7 @@ instance ToQuery DeleteRole where
     toQuery = genericQuery def
 
 data DeleteRoleResponse = DeleteRoleResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteRoleResponse' response.

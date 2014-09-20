@@ -59,7 +59,7 @@ import Network.AWS.Prelude
 data DescribeBundleTasks = DescribeBundleTasks
     { _dbtBundleIds :: [Text]
     , _dbtFilters :: [Filter]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeBundleTasks' request.
@@ -97,7 +97,7 @@ instance ToQuery DescribeBundleTasks where
 
 newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse
     { _dbtrBundleTasks :: [BundleTask]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeBundleTasksResponse' response.

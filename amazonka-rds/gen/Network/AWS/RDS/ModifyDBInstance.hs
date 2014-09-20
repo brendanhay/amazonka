@@ -87,7 +87,7 @@ data ModifyDBInstance = ModifyDBInstance
     , _mdbiIops :: Maybe Integer
     , _mdbiOptionGroupName :: Maybe Text
     , _mdbiNewDBInstanceIdentifier :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyDBInstance' request.
@@ -398,7 +398,7 @@ instance ToQuery ModifyDBInstance where
 
 newtype ModifyDBInstanceResponse = ModifyDBInstanceResponse
     { _mdbirDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyDBInstanceResponse' response.

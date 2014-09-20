@@ -69,7 +69,7 @@ data CreateSubnet = CreateSubnet
     { _cs2VpcId :: Text
     , _cs2CidrBlock :: Text
     , _cs2AvailabilityZone :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSubnet' request.
@@ -111,7 +111,7 @@ instance ToQuery CreateSubnet where
 
 newtype CreateSubnetResponse = CreateSubnetResponse
     { _csr1Subnet :: Maybe Subnet
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSubnetResponse' response.

@@ -55,7 +55,7 @@ import Network.AWS.Prelude
 data DescribePlacementGroups = DescribePlacementGroups
     { _dpg1GroupNames :: [Text]
     , _dpg1Filters :: [Filter]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribePlacementGroups' request.
@@ -88,7 +88,7 @@ instance ToQuery DescribePlacementGroups where
 
 newtype DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
     { _dpgrPlacementGroups :: [PlacementGroup]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribePlacementGroupsResponse' response.

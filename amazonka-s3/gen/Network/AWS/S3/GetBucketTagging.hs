@@ -43,7 +43,7 @@ import Network.AWS.Types (Region)
 
 newtype GetBucketTagging = GetBucketTagging
     { _gbtBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketTagging' request.
@@ -71,7 +71,7 @@ instance ToBody GetBucketTagging
 
 newtype GetBucketTaggingResponse = GetBucketTaggingResponse
     { _gbtrTagSet :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketTaggingResponse' response.

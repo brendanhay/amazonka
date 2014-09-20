@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 data DeleteIndexField = DeleteIndexField
     { _dif1DomainName :: Text
     , _dif1IndexFieldName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteIndexField' request.
@@ -86,7 +86,7 @@ instance ToQuery DeleteIndexField where
 -- | The result of a DeleteIndexField request.
 newtype DeleteIndexFieldResponse = DeleteIndexFieldResponse
     { _difrrIndexField :: IndexFieldStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteIndexFieldResponse' response.

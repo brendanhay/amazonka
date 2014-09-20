@@ -66,7 +66,7 @@ data DescribeSecurityGroups = DescribeSecurityGroups
     { _dsg1GroupNames :: [Text]
     , _dsg1GroupIds :: [Text]
     , _dsg1Filters :: [Filter]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSecurityGroups' request.
@@ -119,7 +119,7 @@ instance ToQuery DescribeSecurityGroups where
 
 newtype DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
     { _dsgrSecurityGroups :: [SecurityGroup]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSecurityGroupsResponse' response.

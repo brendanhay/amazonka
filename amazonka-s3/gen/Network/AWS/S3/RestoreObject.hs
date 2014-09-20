@@ -51,7 +51,7 @@ data RestoreObject = RestoreObject
     , _roKey :: ObjectKey
     , _roVersionId :: Maybe ObjectVersionId
     , _roRestoreRequest :: Maybe RestoreRequest
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RestoreObject' request.
@@ -99,7 +99,7 @@ instance ToBody RestoreObject where
     toBody = toBody . encodeXML . _roRestoreRequest
 
 data RestoreObjectResponse = RestoreObjectResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RestoreObjectResponse' response.

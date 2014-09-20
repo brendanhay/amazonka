@@ -81,7 +81,7 @@ data ListWorkflowTypes = ListWorkflowTypes
     , _lwtNextPageToken :: Maybe Text
     , _lwtMaximumPageSize :: Maybe Integer
     , _lwtReverseOrder :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListWorkflowTypes' request.
@@ -159,7 +159,7 @@ instance ToJSON ListWorkflowTypes
 data ListWorkflowTypesResponse = ListWorkflowTypesResponse
     { _lwtrTypeInfos :: [WorkflowTypeInfo]
     , _lwtrNextPageToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListWorkflowTypesResponse' response.

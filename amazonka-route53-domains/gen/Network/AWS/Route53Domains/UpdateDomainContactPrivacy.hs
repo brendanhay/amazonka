@@ -71,7 +71,7 @@ data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy
     , _udcpAdminPrivacy :: Maybe Bool
     , _udcpRegistrantPrivacy :: Maybe Bool
     , _udcpTechPrivacy :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateDomainContactPrivacy' request.
@@ -136,7 +136,7 @@ instance ToJSON UpdateDomainContactPrivacy
 -- | The UpdateDomainContactPrivacy response includes the following element.
 newtype UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse
     { _udcprOperationId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateDomainContactPrivacyResponse' response.

@@ -64,7 +64,7 @@ import Network.AWS.Request.JSON
 -- volume.
 newtype DescribeSnapshotSchedule = DescribeSnapshotSchedule
     { _dss1VolumeARN :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSnapshotSchedule' request.
@@ -98,7 +98,7 @@ data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse
     , _dssrrRecurrenceInHours :: Maybe Integer
     , _dssrrDescription :: Maybe Text
     , _dssrrTimezone :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSnapshotScheduleResponse' response.

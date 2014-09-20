@@ -48,7 +48,7 @@ data ChangeTagsForResource = ChangeTagsForResource
     , _ctfrResourceId :: Text
     , _ctfrAddTags :: Maybe (List1 Tag)
     , _ctfrRemoveTagKeys :: Maybe (List1 Text)
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ChangeTagsForResource' request.
@@ -105,7 +105,7 @@ instance ToXML ChangeTagsForResource where
 
 -- | Empty response for the request.
 data ChangeTagsForResourceResponse = ChangeTagsForResourceResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ChangeTagsForResourceResponse' response.

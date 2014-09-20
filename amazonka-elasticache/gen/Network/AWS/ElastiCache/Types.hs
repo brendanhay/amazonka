@@ -977,7 +977,7 @@ instance ToQuery SourceType where
 -- | The Availability Zone associated with the subnet.
 newtype AvailabilityZone = AvailabilityZone
     { _azName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AvailabilityZone' data type to populate a request.
@@ -1006,7 +1006,7 @@ instance ToQuery AvailabilityZone where
 -- immediately or during the next maintenance window.
 newtype ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues
     { _rgpmvPrimaryClusterId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReplicationGroupPendingModifiedValues' data type to populate a request.
@@ -1057,7 +1057,7 @@ data CacheCluster = CacheCluster
     , _ccReplicationGroupId :: Maybe Text
     , _ccSnapshotRetentionLimit :: Maybe Integer
     , _ccSnapshotWindow :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CacheCluster' data type.
@@ -1279,7 +1279,7 @@ data CacheEngineVersion = CacheEngineVersion
     , _cevCacheParameterGroupFamily :: Maybe Text
     , _cevCacheEngineDescription :: Maybe Text
     , _cevCacheEngineVersionDescription :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CacheEngineVersion' data type.
@@ -1351,7 +1351,7 @@ data CacheNode = CacheNode
     , _cnParameterGroupStatus :: Maybe Text
     , _cnSourceCacheNodeId :: Maybe Text
     , _cnCustomerAvailabilityZone :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CacheNode' data type to populate a request.
@@ -1440,7 +1440,7 @@ data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter
     , _cntspIsModifiable :: Maybe Bool
     , _cntspMinimumEngineVersion :: Maybe Text
     , _cntspCacheNodeTypeSpecificValues :: [CacheNodeTypeSpecificValue]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CacheNodeTypeSpecificParameter' data type.
@@ -1529,7 +1529,7 @@ instance FromXML CacheNodeTypeSpecificParameter where
 data CacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue
     { _cntsvCacheNodeType :: Maybe Text
     , _cntsvValue :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CacheNodeTypeSpecificValue' data type to populate a request.
@@ -1567,7 +1567,7 @@ data CacheParameterGroup = CacheParameterGroup
     { _cpgCacheParameterGroupName :: Maybe Text
     , _cpgCacheParameterGroupFamily :: Maybe Text
     , _cpgDescription :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CacheParameterGroup' data type.
@@ -1616,7 +1616,7 @@ data CacheParameterGroupStatus = CacheParameterGroupStatus
     { _cpgsCacheParameterGroupName :: Maybe Text
     , _cpgsParameterApplyStatus :: Maybe Text
     , _cpgsCacheNodeIdsToReboot :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CacheParameterGroupStatus' data type to populate a request.
@@ -1671,7 +1671,7 @@ data CacheSecurityGroup = CacheSecurityGroup
     , _csgCacheSecurityGroupName :: Maybe Text
     , _csgDescription :: Maybe Text
     , _csgEC2SecurityGroups :: [EC2SecurityGroup]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CacheSecurityGroup' data type.
@@ -1726,7 +1726,7 @@ instance FromXML CacheSecurityGroup where
 data CacheSecurityGroupMembership = CacheSecurityGroupMembership
     { _csgmCacheSecurityGroupName :: Maybe Text
     , _csgmStatus :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CacheSecurityGroupMembership' data type to populate a request.
@@ -1769,7 +1769,7 @@ data CacheSubnetGroup = CacheSubnetGroup
     , _csgrCacheSubnetGroupDescription :: Maybe Text
     , _csgrVpcId :: Maybe Text
     , _csgrSubnets :: [Subnet]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CacheSubnetGroup' data type.
@@ -1825,7 +1825,7 @@ data EC2SecurityGroup = EC2SecurityGroup
     { _ecsgStatus :: Maybe Text
     , _ecsgEC2SecurityGroupName :: Maybe Text
     , _ecsgEC2SecurityGroupOwnerId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EC2SecurityGroup' data type to populate a request.
@@ -1873,7 +1873,7 @@ instance ToQuery EC2SecurityGroup where
 data Endpoint' = Endpoint'
     { _eAddress :: Maybe Text
     , _ePort :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Endpoint'' data type to populate a request.
@@ -1911,7 +1911,7 @@ data EngineDefaults = EngineDefaults
     , _edMarker :: Maybe Text
     , _edParameters :: [Parameter]
     , _edCacheNodeTypeSpecificParameters :: [CacheNodeTypeSpecificParameter]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EngineDefaults' data type.
@@ -1971,7 +1971,7 @@ data Event = Event
     , _erSourceType :: Maybe SourceType
     , _erMessage :: Maybe Text
     , _erDate :: Maybe ISO8601
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Event' data type.
@@ -2027,7 +2027,7 @@ data NodeGroup = NodeGroup
     , _ngStatus :: Maybe Text
     , _ngPrimaryEndpoint :: Maybe Endpoint'
     , _ngNodeGroupMembers :: [NodeGroupMember]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NodeGroup' data type to populate a request.
@@ -2084,7 +2084,7 @@ data NodeGroupMember = NodeGroupMember
     , _ngmReadEndpoint :: Maybe Endpoint'
     , _ngmPreferredAvailabilityZone :: Maybe Text
     , _ngmCurrentRole :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NodeGroupMember' data type to populate a request.
@@ -2148,7 +2148,7 @@ data NodeSnapshot = NodeSnapshot
     , _nsCacheSize :: Maybe Text
     , _nsCacheNodeCreateTime :: Maybe ISO8601
     , _nsSnapshotCreateTime :: Maybe ISO8601
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NodeSnapshot' data type to populate a request.
@@ -2204,7 +2204,7 @@ instance ToQuery NodeSnapshot where
 data NotificationConfiguration = NotificationConfiguration
     { _ncTopicArn :: Maybe Text
     , _ncTopicStatus :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NotificationConfiguration' data type to populate a request.
@@ -2247,7 +2247,7 @@ data Parameter = Parameter
     , _pAllowedValues :: Maybe Text
     , _pIsModifiable :: Maybe Bool
     , _pMinimumEngineVersion :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Parameter' data type.
@@ -2329,7 +2329,7 @@ instance FromXML Parameter where
 data ParameterNameValue = ParameterNameValue
     { _pnvParameterName :: Maybe Text
     , _pnvParameterValue :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ParameterNameValue' data type to populate a request.
@@ -2365,7 +2365,7 @@ data PendingModifiedValues = PendingModifiedValues
     { _pmvNumCacheNodes :: Maybe Integer
     , _pmvCacheNodeIdsToRemove :: [Text]
     , _pmvEngineVersion :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PendingModifiedValues' data type to populate a request.
@@ -2414,7 +2414,7 @@ instance ToQuery PendingModifiedValues where
 data RecurringCharge = RecurringCharge
     { _rcRecurringChargeAmount :: Maybe Double
     , _rcRecurringChargeFrequency :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RecurringCharge' data type to populate a request.
@@ -2459,7 +2459,7 @@ data ReplicationGroup = ReplicationGroup
     , _rgMemberClusters :: [Text]
     , _rgNodeGroups :: [NodeGroup]
     , _rgSnapshottingClusterId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReplicationGroup' data type.
@@ -2550,7 +2550,7 @@ data ReservedCacheNode = ReservedCacheNode
     , _rcnOfferingType :: Maybe Text
     , _rcnState :: Maybe Text
     , _rcnRecurringCharges :: [RecurringCharge]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReservedCacheNode' data type.
@@ -2669,7 +2669,7 @@ data ReservedCacheNodesOffering = ReservedCacheNodesOffering
     , _rcnoProductDescription :: Maybe Text
     , _rcnoOfferingType :: Maybe Text
     , _rcnoRecurringCharges :: [RecurringCharge]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReservedCacheNodesOffering' data type.
@@ -2753,7 +2753,7 @@ instance FromXML ReservedCacheNodesOffering where
 data SecurityGroupMembership = SecurityGroupMembership
     { _sgmSecurityGroupId :: Maybe Text
     , _sgmStatus :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SecurityGroupMembership' data type to populate a request.
@@ -2811,7 +2811,7 @@ data Snapshot = Snapshot
     , _sSnapshotRetentionLimit :: Maybe Integer
     , _sSnapshotWindow :: Maybe Text
     , _sNodeSnapshots :: [NodeSnapshot]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Snapshot' data type.
@@ -3007,7 +3007,7 @@ instance FromXML Snapshot where
 data Subnet = Subnet
     { _srSubnetIdentifier :: Maybe Text
     , _srSubnetAvailabilityZone :: Maybe AvailabilityZone
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Subnet' data type to populate a request.

@@ -61,7 +61,7 @@ data ResetDBParameterGroup = ResetDBParameterGroup
     { _rdbpgDBParameterGroupName :: Text
     , _rdbpgResetAllParameters :: Maybe Bool
     , _rdbpgParameters :: [Parameter]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetDBParameterGroup' request.
@@ -115,7 +115,7 @@ instance ToQuery ResetDBParameterGroup where
 -- ModifyDBParameterGroup or ResetDBParameterGroup action.
 newtype ResetDBParameterGroupResponse = ResetDBParameterGroupResponse
     { _rdbpgrDBParameterGroupName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetDBParameterGroupResponse' response.

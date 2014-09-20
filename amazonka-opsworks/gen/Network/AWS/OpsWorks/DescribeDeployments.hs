@@ -50,7 +50,7 @@ data DescribeDeployments = DescribeDeployments
     { _ddStackId :: Maybe Text
     , _ddAppId :: Maybe Text
     , _ddDeploymentIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDeployments' request.
@@ -97,7 +97,7 @@ instance ToJSON DescribeDeployments
 -- | Contains the response to a DescribeDeployments request.
 newtype DescribeDeploymentsResponse = DescribeDeploymentsResponse
     { _ddrDeployments :: [Deployment]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDeploymentsResponse' response.

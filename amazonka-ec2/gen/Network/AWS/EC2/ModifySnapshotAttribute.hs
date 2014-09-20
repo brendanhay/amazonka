@@ -77,7 +77,7 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute
     , _msaUserIds :: [Text]
     , _msaGroupNames :: [Text]
     , _msaCreateVolumePermission :: Maybe CreateVolumePermissionModifications
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifySnapshotAttribute' request.
@@ -138,7 +138,7 @@ instance ToQuery ModifySnapshotAttribute where
     toQuery = genericQuery def
 
 data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifySnapshotAttributeResponse' response.

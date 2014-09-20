@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 
 newtype DeleteVpc = DeleteVpc
     { _dv1VpcId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVpc' request.
@@ -73,7 +73,7 @@ instance ToQuery DeleteVpc where
     toQuery = genericQuery def
 
 data DeleteVpcResponse = DeleteVpcResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVpcResponse' response.

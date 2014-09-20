@@ -61,7 +61,7 @@ data CreateIdentityPool = CreateIdentityPool
     { _cipIdentityPoolName :: Text
     , _cipAllowUnauthenticatedIdentities :: !Bool
     , _cipSupportedLoginProviders :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateIdentityPool' request.
@@ -114,7 +114,7 @@ data CreateIdentityPoolResponse = CreateIdentityPoolResponse
     , _ciprIdentityPoolName :: Text
     , _ciprAllowUnauthenticatedIdentities :: !Bool
     , _ciprSupportedLoginProviders :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateIdentityPoolResponse' response.

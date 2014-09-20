@@ -88,7 +88,7 @@ data ListResourceRecordSets = ListResourceRecordSets
     , _lrrsStartRecordType :: Maybe RecordType
     , _lrrsStartRecordIdentifier :: Maybe Text
     , _lrrsMaxItems :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListResourceRecordSets' request.
@@ -170,7 +170,7 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
     , _lrrsrNextRecordType :: Maybe RecordType
     , _lrrsrNextRecordIdentifier :: Maybe Text
     , _lrrsrMaxItems :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListResourceRecordSetsResponse' response.

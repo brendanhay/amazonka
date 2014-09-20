@@ -65,7 +65,7 @@ import Network.AWS.Request.JSON
 -- | A JSON object containing the of the gateway.
 newtype DescribeBandwidthRateLimit = DescribeBandwidthRateLimit
     { _dbrl1GatewayARN :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeBandwidthRateLimit' request.
@@ -98,7 +98,7 @@ data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse
     { _dbrlrrGatewayARN :: Maybe Text
     , _dbrlrrAverageUploadRateLimitInBitsPerSec :: Maybe Integer
     , _dbrlrrAverageDownloadRateLimitInBitsPerSec :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeBandwidthRateLimitResponse' response.

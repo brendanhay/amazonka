@@ -47,7 +47,7 @@ data AbortMultipartUpload = AbortMultipartUpload
     { _amuBucket :: BucketName
     , _amuKey :: ObjectKey
     , _amuUploadId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AbortMultipartUpload' request.
@@ -88,7 +88,7 @@ instance ToHeaders AbortMultipartUpload
 instance ToBody AbortMultipartUpload
 
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AbortMultipartUploadResponse' response.

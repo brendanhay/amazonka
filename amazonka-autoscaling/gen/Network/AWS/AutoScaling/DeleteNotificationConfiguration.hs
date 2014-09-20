@@ -43,7 +43,7 @@ import Network.AWS.Prelude
 data DeleteNotificationConfiguration = DeleteNotificationConfiguration
     { _dncAutoScalingGroupName :: Text
     , _dncTopicARN :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteNotificationConfiguration' request.
@@ -77,7 +77,7 @@ instance ToQuery DeleteNotificationConfiguration where
     toQuery = genericQuery def
 
 data DeleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteNotificationConfigurationResponse' response.

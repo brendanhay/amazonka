@@ -86,7 +86,7 @@ data PollForTask = PollForTask
     { _pftWorkerGroup :: Text
     , _pftHostname :: Maybe Text
     , _pftInstanceIdentity :: Maybe InstanceIdentity
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PollForTask' request.
@@ -141,7 +141,7 @@ instance ToJSON PollForTask
 -- | Contains the output from the PollForTask action.
 newtype PollForTaskResponse = PollForTaskResponse
     { _pftrTaskObject :: Maybe TaskObject
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PollForTaskResponse' response.

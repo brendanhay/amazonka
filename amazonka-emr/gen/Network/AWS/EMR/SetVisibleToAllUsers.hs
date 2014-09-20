@@ -63,7 +63,7 @@ import Network.AWS.Request.JSON
 data SetVisibleToAllUsers = SetVisibleToAllUsers
     { _svtauJobFlowIds :: [Text]
     , _svtauVisibleToAllUsers :: !Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetVisibleToAllUsers' request.
@@ -104,7 +104,7 @@ instance ToHeaders SetVisibleToAllUsers
 instance ToJSON SetVisibleToAllUsers
 
 data SetVisibleToAllUsersResponse = SetVisibleToAllUsersResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetVisibleToAllUsersResponse' response.

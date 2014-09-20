@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 data RemovePermission = RemovePermission
     { _rpQueueUrl :: Text
     , _rpLabel :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemovePermission' request.
@@ -83,7 +83,7 @@ instance ToQuery RemovePermission where
     toQuery = genericQuery def
 
 data RemovePermissionResponse = RemovePermissionResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemovePermissionResponse' response.

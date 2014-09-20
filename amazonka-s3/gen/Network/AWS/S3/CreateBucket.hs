@@ -61,7 +61,7 @@ data CreateBucket = CreateBucket
     , _cbGrantReadACP :: Maybe Text
     , _cbGrantWrite :: Maybe Text
     , _cbGrantWriteACP :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateBucket' request.
@@ -150,7 +150,7 @@ instance ToBody CreateBucket where
 
 newtype CreateBucketResponse = CreateBucketResponse
     { _cbrLocation :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateBucketResponse' response.

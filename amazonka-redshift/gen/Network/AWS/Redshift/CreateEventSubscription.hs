@@ -74,7 +74,7 @@ data CreateEventSubscription = CreateEventSubscription
     , _cesEventCategories :: [Text]
     , _cesSeverity :: Maybe Text
     , _cesEnabled :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateEventSubscription' request.
@@ -162,7 +162,7 @@ instance ToQuery CreateEventSubscription where
 
 newtype CreateEventSubscriptionResponse = CreateEventSubscriptionResponse
     { _cesrEventSubscription :: Maybe EventSubscription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateEventSubscriptionResponse' response.

@@ -63,7 +63,7 @@ data ReportInstanceStatus = ReportInstanceStatus
     , _risEndTime :: Maybe ISO8601
     , _risReasonCodes :: [ReportInstanceReasonCodes]
     , _risDescription :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReportInstanceStatus' request.
@@ -134,7 +134,7 @@ instance ToQuery ReportInstanceStatus where
     toQuery = genericQuery def
 
 data ReportInstanceStatusResponse = ReportInstanceStatusResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReportInstanceStatusResponse' response.

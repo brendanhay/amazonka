@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 data CancelConversionTask = CancelConversionTask
     { _cctConversionTaskId :: Text
     , _cctReasonMessage :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelConversionTask' request.
@@ -84,7 +84,7 @@ instance ToQuery CancelConversionTask where
     toQuery = genericQuery def
 
 data CancelConversionTaskResponse = CancelConversionTaskResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelConversionTaskResponse' response.

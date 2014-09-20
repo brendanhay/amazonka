@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 
 newtype ListQueues = ListQueues
     { _lqQueueNamePrefix :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListQueues' request.
@@ -78,7 +78,7 @@ instance ToQuery ListQueues where
 -- | A list of your queues.
 newtype ListQueuesResponse = ListQueuesResponse
     { _lqrQueueUrls :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListQueuesResponse' response.

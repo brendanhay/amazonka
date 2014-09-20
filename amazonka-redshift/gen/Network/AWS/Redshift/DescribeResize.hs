@@ -67,7 +67,7 @@ import Network.AWS.Prelude
 -- | 
 newtype DescribeResize = DescribeResize
     { _drClusterIdentifier :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeResize' request.
@@ -106,7 +106,7 @@ data DescribeResizeResponse = DescribeResizeResponse
     , _drrProgressInMegaBytes :: Maybe Integer
     , _drrElapsedTimeInSeconds :: Maybe Integer
     , _drrEstimatedTimeToCompletionInSeconds :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeResizeResponse' response.

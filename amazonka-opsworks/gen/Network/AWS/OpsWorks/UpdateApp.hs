@@ -63,7 +63,7 @@ data UpdateApp = UpdateApp
     , _uaSslConfiguration :: Maybe SslConfiguration
     , _uaAttributes :: Map AppAttributesKeys Text
     , _uaEnvironment :: [EnvironmentVariable]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateApp' request.
@@ -169,7 +169,7 @@ instance ToHeaders UpdateApp
 instance ToJSON UpdateApp
 
 data UpdateAppResponse = UpdateAppResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateAppResponse' response.

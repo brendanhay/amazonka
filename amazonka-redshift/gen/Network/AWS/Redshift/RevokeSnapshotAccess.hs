@@ -51,7 +51,7 @@ data RevokeSnapshotAccess = RevokeSnapshotAccess
     { _rsaSnapshotIdentifier :: Text
     , _rsaSnapshotClusterIdentifier :: Maybe Text
     , _rsaAccountWithRestoreAccess :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RevokeSnapshotAccess' request.
@@ -98,7 +98,7 @@ instance ToQuery RevokeSnapshotAccess where
 
 newtype RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse
     { _rsarSnapshot :: Maybe Snapshot
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RevokeSnapshotAccessResponse' response.

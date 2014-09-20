@@ -98,7 +98,7 @@ data DescribeConfigurationSettings = DescribeConfigurationSettings
     { _dcsApplicationName :: Text
     , _dcsTemplateName :: Maybe Text
     , _dcsEnvironmentName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeConfigurationSettings' request.
@@ -148,7 +148,7 @@ instance ToQuery DescribeConfigurationSettings where
 -- environment.
 newtype DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse
     { _dcsrConfigurationSettings :: [ConfigurationSettingsDescription]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeConfigurationSettingsResponse' response.

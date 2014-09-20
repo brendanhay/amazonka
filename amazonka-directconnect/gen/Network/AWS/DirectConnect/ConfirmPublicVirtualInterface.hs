@@ -46,7 +46,7 @@ import Network.AWS.Request.JSON
 -- operation.
 newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface
     { _cpvi1VirtualInterfaceId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ConfirmPublicVirtualInterface' request.
@@ -78,7 +78,7 @@ instance ToJSON ConfirmPublicVirtualInterface
 -- | The response received when ConfirmPublicVirtualInterface is called.
 newtype ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse
     { _cpvirrVirtualInterfaceState :: Maybe VirtualInterfaceState
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ConfirmPublicVirtualInterfaceResponse' response.

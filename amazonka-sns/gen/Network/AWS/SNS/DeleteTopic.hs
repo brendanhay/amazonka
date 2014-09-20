@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 
 newtype DeleteTopic = DeleteTopic
     { _dtTopicArn :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteTopic' request.
@@ -87,7 +87,7 @@ instance ToQuery DeleteTopic where
     toQuery = genericQuery def
 
 data DeleteTopicResponse = DeleteTopicResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteTopicResponse' response.

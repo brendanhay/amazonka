@@ -76,7 +76,7 @@ data PutItem = PutItem
     , _piReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
     , _piReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
     , _piConditionalOperator :: Maybe ConditionalOperator
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutItem' request.
@@ -196,7 +196,7 @@ data PutItemResponse = PutItemResponse
     { _pirAttributes :: Map Text AttributeValue
     , _pirConsumedCapacity :: Maybe ConsumedCapacity
     , _pirItemCollectionMetrics :: Maybe ItemCollectionMetrics
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutItemResponse' response.

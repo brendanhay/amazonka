@@ -46,7 +46,7 @@ data SetInstanceHealth = SetInstanceHealth
     { _sihInstanceId :: Text
     , _sihHealthStatus :: Text
     , _sihShouldRespectGracePeriod :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetInstanceHealth' request.
@@ -93,7 +93,7 @@ instance ToQuery SetInstanceHealth where
     toQuery = genericQuery def
 
 data SetInstanceHealthResponse = SetInstanceHealthResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetInstanceHealthResponse' response.

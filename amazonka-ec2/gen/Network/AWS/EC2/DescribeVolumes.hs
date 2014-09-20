@@ -65,7 +65,7 @@ import Network.AWS.Prelude
 data DescribeVolumes = DescribeVolumes
     { _dv2VolumeIds :: [Text]
     , _dv2Filters :: [Filter]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVolumes' request.
@@ -117,7 +117,7 @@ instance ToQuery DescribeVolumes where
 
 newtype DescribeVolumesResponse = DescribeVolumesResponse
     { _dvrVolumes :: [Volume]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVolumesResponse' response.

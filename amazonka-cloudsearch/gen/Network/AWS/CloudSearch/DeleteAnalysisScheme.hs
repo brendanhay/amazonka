@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 data DeleteAnalysisScheme = DeleteAnalysisScheme
     { _das1DomainName :: Text
     , _das1AnalysisSchemeName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAnalysisScheme' request.
@@ -86,7 +86,7 @@ instance ToQuery DeleteAnalysisScheme where
 -- deleted analysis scheme.
 newtype DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse
     { _dasrrAnalysisScheme :: AnalysisSchemeStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAnalysisSchemeResponse' response.

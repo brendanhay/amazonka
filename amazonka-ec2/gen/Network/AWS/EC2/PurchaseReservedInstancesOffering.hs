@@ -67,7 +67,7 @@ data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
     { _prioReservedInstancesOfferingId :: Text
     , _prioInstanceCount :: !Integer
     , _prioLimitPrice :: Maybe ReservedInstanceLimitPrice
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PurchaseReservedInstancesOffering' request.
@@ -111,7 +111,7 @@ instance ToQuery PurchaseReservedInstancesOffering where
 
 newtype PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
     { _priorReservedInstancesId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PurchaseReservedInstancesOfferingResponse' response.

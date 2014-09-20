@@ -43,7 +43,7 @@ import Network.AWS.Request.JSON
 
 newtype DeleteApp = DeleteApp
     { _daAppId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteApp' request.
@@ -71,7 +71,7 @@ instance ToHeaders DeleteApp
 instance ToJSON DeleteApp
 
 data DeleteAppResponse = DeleteAppResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAppResponse' response.

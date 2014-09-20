@@ -43,7 +43,7 @@ import Network.AWS.Types (Region)
 
 newtype GetBucketLocation = GetBucketLocation
     { _gbl1Bucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketLocation' request.
@@ -71,7 +71,7 @@ instance ToBody GetBucketLocation
 
 newtype GetBucketLocationResponse = GetBucketLocationResponse
     { _gblrrLocationConstraint :: Maybe Region
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketLocationResponse' response.

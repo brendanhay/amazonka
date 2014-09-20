@@ -95,7 +95,7 @@ data ListOpenWorkflowExecutions = ListOpenWorkflowExecutions
     , _loweMaximumPageSize :: Maybe Integer
     , _loweReverseOrder :: Maybe Bool
     , _loweExecutionFilter :: Maybe WorkflowExecutionFilter
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListOpenWorkflowExecutions' request.
@@ -197,7 +197,7 @@ instance ToJSON ListOpenWorkflowExecutions
 data ListOpenWorkflowExecutionsResponse = ListOpenWorkflowExecutionsResponse
     { _lowerExecutionInfos :: [WorkflowExecutionInfo]
     , _lowerNextPageToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListOpenWorkflowExecutionsResponse' response.

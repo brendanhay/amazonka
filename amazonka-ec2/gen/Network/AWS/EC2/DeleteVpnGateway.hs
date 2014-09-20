@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 
 newtype DeleteVpnGateway = DeleteVpnGateway
     { _dvgVpnGatewayId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVpnGateway' request.
@@ -72,7 +72,7 @@ instance ToQuery DeleteVpnGateway where
     toQuery = genericQuery def
 
 data DeleteVpnGatewayResponse = DeleteVpnGatewayResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVpnGatewayResponse' response.

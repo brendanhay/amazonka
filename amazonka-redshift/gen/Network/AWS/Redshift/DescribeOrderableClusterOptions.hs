@@ -66,7 +66,7 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions
     , _docoNodeType :: Maybe Text
     , _docoMaxRecords :: Maybe Integer
     , _docoMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeOrderableClusterOptions' request.
@@ -126,7 +126,7 @@ instance ToQuery DescribeOrderableClusterOptions where
 data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse
     { _docorOrderableClusterOptions :: [OrderableClusterOption]
     , _docorMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeOrderableClusterOptionsResponse' response.

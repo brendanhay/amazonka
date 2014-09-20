@@ -76,7 +76,7 @@ import Network.AWS.Prelude
 data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections
     { _dvpc1VpcPeeringConnectionIds :: [Text]
     , _dvpc1Filters :: [Filter]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVpcPeeringConnections' request.
@@ -128,7 +128,7 @@ instance ToQuery DescribeVpcPeeringConnections where
 
 newtype DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse
     { _dvpcrrVpcPeeringConnections :: [VpcPeeringConnection]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVpcPeeringConnectionsResponse' response.

@@ -54,7 +54,7 @@ data AttachNetworkInterface = AttachNetworkInterface
     { _aniNetworkInterfaceId :: Text
     , _aniInstanceId :: Text
     , _aniDeviceIndex :: !Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachNetworkInterface' request.
@@ -95,7 +95,7 @@ instance ToQuery AttachNetworkInterface where
 
 newtype AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
     { _anirAttachmentId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachNetworkInterfaceResponse' response.

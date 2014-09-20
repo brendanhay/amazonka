@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies
     { _dsapDomainName :: Text
     , _dsapDeployed :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeServiceAccessPolicies' request.
@@ -86,7 +86,7 @@ instance ToQuery DescribeServiceAccessPolicies where
 -- | The result of a DescribeServiceAccessPolicies request.
 newtype DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse
     { _dsaprAccessPolicies :: AccessPoliciesStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeServiceAccessPoliciesResponse' response.

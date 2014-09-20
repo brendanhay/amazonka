@@ -81,7 +81,7 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot
     , _rdbifdbsIops :: Maybe Integer
     , _rdbifdbsOptionGroupName :: Maybe Text
     , _rdbifdbsTags :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RestoreDBInstanceFromDBSnapshot' request.
@@ -263,7 +263,7 @@ instance ToQuery RestoreDBInstanceFromDBSnapshot where
 
 newtype RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse
     { _rdbifdbsrDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RestoreDBInstanceFromDBSnapshotResponse' response.

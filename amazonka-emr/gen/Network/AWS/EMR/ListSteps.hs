@@ -48,7 +48,7 @@ data ListSteps = ListSteps
     { _lsClusterId :: Text
     , _lsStepStates :: [StepState]
     , _lsMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListSteps' request.
@@ -93,7 +93,7 @@ instance ToJSON ListSteps
 data ListStepsResponse = ListStepsResponse
     { _lsrSteps :: [StepSummary]
     , _lsrMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListStepsResponse' response.

@@ -62,7 +62,7 @@ data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy
     { _cacspLoadBalancerName :: Text
     , _cacspPolicyName :: Text
     , _cacspCookieName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateAppCookieStickinessPolicy' request.
@@ -104,7 +104,7 @@ instance ToQuery CreateAppCookieStickinessPolicy where
 
 -- | The output for the CreateAppCookieStickinessPolicy action.
 data CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateAppCookieStickinessPolicyResponse' response.

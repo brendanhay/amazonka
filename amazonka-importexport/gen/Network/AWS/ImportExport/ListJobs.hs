@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 data ListJobs = ListJobs
     { _ljMaxJobs :: Maybe Integer
     , _ljMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListJobs' request.
@@ -87,7 +87,7 @@ instance ToQuery ListJobs where
 data ListJobsResponse = ListJobsResponse
     { _ljrJobs :: [Job]
     , _ljrIsTruncated :: !Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListJobsResponse' response.

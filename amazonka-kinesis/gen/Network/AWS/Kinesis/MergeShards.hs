@@ -80,7 +80,7 @@ data MergeShards = MergeShards
     { _msStreamName :: Text
     , _msShardToMerge :: Text
     , _msAdjacentShardToMerge :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'MergeShards' request.
@@ -125,7 +125,7 @@ instance ToHeaders MergeShards
 instance ToJSON MergeShards
 
 data MergeShardsResponse = MergeShardsResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'MergeShardsResponse' response.

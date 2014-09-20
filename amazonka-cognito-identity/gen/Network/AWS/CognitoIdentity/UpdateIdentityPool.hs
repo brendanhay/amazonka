@@ -64,7 +64,7 @@ data UpdateIdentityPool = UpdateIdentityPool
     , _uipIdentityPoolName :: Text
     , _uipAllowUnauthenticatedIdentities :: !Bool
     , _uipSupportedLoginProviders :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateIdentityPool' request.
@@ -126,7 +126,7 @@ data UpdateIdentityPoolResponse = UpdateIdentityPoolResponse
     , _uiprIdentityPoolName :: Text
     , _uiprAllowUnauthenticatedIdentities :: !Bool
     , _uiprSupportedLoginProviders :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateIdentityPoolResponse' response.

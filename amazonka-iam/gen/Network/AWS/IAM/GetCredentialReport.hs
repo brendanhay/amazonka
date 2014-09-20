@@ -44,7 +44,7 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data GetCredentialReport = GetCredentialReport
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetCredentialReport' request.
@@ -60,7 +60,7 @@ data GetCredentialReportResponse = GetCredentialReportResponse
     { _gcrrrContent :: Maybe ByteString
     , _gcrrrReportFormat :: Maybe ReportFormatType
     , _gcrrrGeneratedTime :: Maybe ISO8601
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetCredentialReportResponse' response.

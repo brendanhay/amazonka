@@ -50,7 +50,7 @@ data SetStackPolicy = SetStackPolicy
     { _sspStackName :: Text
     , _sspStackPolicyBody :: Maybe Text
     , _sspStackPolicyURL :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetStackPolicy' request.
@@ -95,7 +95,7 @@ instance ToQuery SetStackPolicy where
     toQuery = genericQuery def
 
 data SetStackPolicyResponse = SetStackPolicyResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetStackPolicyResponse' response.

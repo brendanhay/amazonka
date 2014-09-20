@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 data ConfigureHealthCheck = ConfigureHealthCheck
     { _chcLoadBalancerName :: Text
     , _chcHealthCheck :: HealthCheck
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ConfigureHealthCheck' request.
@@ -88,7 +88,7 @@ instance ToQuery ConfigureHealthCheck where
 -- | The output for the ConfigureHealthCheck action.
 newtype ConfigureHealthCheckResponse = ConfigureHealthCheckResponse
     { _chcrHealthCheck :: Maybe HealthCheck
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ConfigureHealthCheckResponse' response.

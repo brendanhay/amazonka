@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 
 newtype GetUser = GetUser
     { _guUserName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetUser' request.
@@ -74,7 +74,7 @@ instance ToQuery GetUser where
 -- | Contains the result of a successful invocation of the GetUser action.
 newtype GetUserResponse = GetUserResponse
     { _gurUser :: User
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetUserResponse' response.

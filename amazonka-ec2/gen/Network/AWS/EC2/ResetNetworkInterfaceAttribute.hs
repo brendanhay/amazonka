@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
     { _rniaNetworkInterfaceId :: Text
     , _rniaSourceDestCheck :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetNetworkInterfaceAttribute' request.
@@ -85,7 +85,7 @@ instance ToQuery ResetNetworkInterfaceAttribute where
     toQuery = genericQuery def
 
 data ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetNetworkInterfaceAttributeResponse' response.

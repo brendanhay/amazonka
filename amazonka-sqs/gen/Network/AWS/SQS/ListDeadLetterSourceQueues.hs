@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 
 newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues
     { _ldlsqQueueUrl :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDeadLetterSourceQueues' request.
@@ -74,7 +74,7 @@ instance ToQuery ListDeadLetterSourceQueues where
 -- | A list of your dead letter source queues.
 newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
     { _ldlsqrQueueUrls :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDeadLetterSourceQueuesResponse' response.

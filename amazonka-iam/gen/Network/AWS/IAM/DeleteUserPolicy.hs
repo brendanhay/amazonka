@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 data DeleteUserPolicy = DeleteUserPolicy
     { _dupUserName :: Text
     , _dupPolicyName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteUserPolicy' request.
@@ -76,7 +76,7 @@ instance ToQuery DeleteUserPolicy where
     toQuery = genericQuery def
 
 data DeleteUserPolicyResponse = DeleteUserPolicyResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteUserPolicyResponse' response.

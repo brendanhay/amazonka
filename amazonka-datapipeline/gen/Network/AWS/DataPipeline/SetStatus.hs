@@ -55,7 +55,7 @@ data SetStatus = SetStatus
     { _ssPipelineId :: Text
     , _ssObjectIds :: [Text]
     , _ssStatus :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetStatus' request.
@@ -102,7 +102,7 @@ instance ToHeaders SetStatus
 instance ToJSON SetStatus
 
 data SetStatusResponse = SetStatusResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetStatusResponse' response.

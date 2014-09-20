@@ -57,7 +57,7 @@ import Network.AWS.Prelude
 
 newtype CreateAccessKey = CreateAccessKey
     { _cakUserName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateAccessKey' request.
@@ -82,7 +82,7 @@ instance ToQuery CreateAccessKey where
 -- action.
 newtype CreateAccessKeyResponse = CreateAccessKeyResponse
     { _cakrAccessKey :: AccessKey
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateAccessKeyResponse' response.

@@ -67,7 +67,7 @@ data DescribeEvents = DescribeEvents
     , _deDuration :: Maybe Integer
     , _deMaxRecords :: Maybe Integer
     , _deMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEvents' request.
@@ -146,7 +146,7 @@ instance ToQuery DescribeEvents where
 data DescribeEventsResponse = DescribeEventsResponse
     { _derMarker :: Maybe Text
     , _derEvents :: [Event]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEventsResponse' response.

@@ -81,7 +81,7 @@ data CreateSecurityGroup = CreateSecurityGroup
     { _csgGroupName :: Text
     , _csgDescription :: Text
     , _csgVpcId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSecurityGroup' request.
@@ -122,7 +122,7 @@ instance ToQuery CreateSecurityGroup where
 
 newtype CreateSecurityGroupResponse = CreateSecurityGroupResponse
     { _csgrGroupId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSecurityGroupResponse' response.

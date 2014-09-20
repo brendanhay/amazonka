@@ -73,7 +73,7 @@ import Network.AWS.Prelude
 
 newtype DecodeAuthorizationMessage = DecodeAuthorizationMessage
     { _damEncodedMessage :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DecodeAuthorizationMessage' request.
@@ -101,7 +101,7 @@ instance ToQuery DecodeAuthorizationMessage where
 -- an AWS request.
 newtype DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
     { _damrDecodedMessage :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DecodeAuthorizationMessageResponse' response.

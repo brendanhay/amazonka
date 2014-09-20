@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 -- | Represents the input of a DeleteCacheParameterGroup operation.
 newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup
     { _dcpgCacheParameterGroupName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCacheParameterGroup' request.
@@ -74,7 +74,7 @@ instance ToQuery DeleteCacheParameterGroup where
     toQuery = genericQuery def
 
 data DeleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCacheParameterGroupResponse' response.

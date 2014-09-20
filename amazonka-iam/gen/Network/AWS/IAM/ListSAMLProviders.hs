@@ -45,7 +45,7 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data ListSAMLProviders = ListSAMLProviders
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListSAMLProviders' request.
@@ -59,7 +59,7 @@ instance ToQuery ListSAMLProviders where
 -- action.
 newtype ListSAMLProvidersResponse = ListSAMLProvidersResponse
     { _lsamlprSAMLProviderList :: [SAMLProviderListEntry]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListSAMLProvidersResponse' response.

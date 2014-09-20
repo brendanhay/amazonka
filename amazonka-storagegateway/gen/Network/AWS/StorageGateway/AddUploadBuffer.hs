@@ -49,7 +49,7 @@ import Network.AWS.Request.JSON
 data AddUploadBuffer = AddUploadBuffer
     { _aubGatewayARN :: Text
     , _aubDiskIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddUploadBuffer' request.
@@ -86,7 +86,7 @@ instance ToJSON AddUploadBuffer
 
 newtype AddUploadBufferResponse = AddUploadBufferResponse
     { _aubrGatewayARN :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddUploadBufferResponse' response.

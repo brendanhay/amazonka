@@ -85,7 +85,7 @@ data DescribeAddresses = DescribeAddresses
     { _daPublicIps :: [Text]
     , _daFilters :: [Filter]
     , _daAllocationIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAddresses' request.
@@ -132,7 +132,7 @@ instance ToQuery DescribeAddresses where
 
 newtype DescribeAddressesResponse = DescribeAddressesResponse
     { _darAddresses :: [Address]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAddressesResponse' response.

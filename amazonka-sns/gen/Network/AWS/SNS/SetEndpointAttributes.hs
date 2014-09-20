@@ -59,7 +59,7 @@ import Network.AWS.Prelude
 data SetEndpointAttributes = SetEndpointAttributes
     { _seaEndpointArn :: Text
     , _seaAttributes :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetEndpointAttributes' request.
@@ -99,7 +99,7 @@ instance ToQuery SetEndpointAttributes where
     toQuery = genericQuery def
 
 data SetEndpointAttributesResponse = SetEndpointAttributesResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetEndpointAttributesResponse' response.

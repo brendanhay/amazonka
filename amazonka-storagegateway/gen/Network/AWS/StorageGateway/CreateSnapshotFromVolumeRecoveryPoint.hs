@@ -78,7 +78,7 @@ import Network.AWS.Request.JSON
 data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoint
     { _csfvrpVolumeARN :: Text
     , _csfvrpSnapshotDescription :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSnapshotFromVolumeRecoveryPoint' request.
@@ -117,7 +117,7 @@ data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRec
     { _csfvrprSnapshotId :: Maybe Text
     , _csfvrprVolumeARN :: Maybe Text
     , _csfvrprVolumeRecoveryPointTime :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSnapshotFromVolumeRecoveryPointResponse' response.

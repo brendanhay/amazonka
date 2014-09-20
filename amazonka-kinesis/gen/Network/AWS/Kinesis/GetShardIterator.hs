@@ -91,7 +91,7 @@ data GetShardIterator = GetShardIterator
     , _gsiShardId :: Text
     , _gsiShardIteratorType :: ShardIteratorType
     , _gsiStartingSequenceNumber :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetShardIterator' request.
@@ -156,7 +156,7 @@ instance ToJSON GetShardIterator
 -- | Represents the output for GetShardIterator.
 newtype GetShardIteratorResponse = GetShardIteratorResponse
     { _gsirShardIterator :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetShardIteratorResponse' response.

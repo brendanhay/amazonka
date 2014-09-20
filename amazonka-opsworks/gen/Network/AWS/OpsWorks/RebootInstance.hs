@@ -44,7 +44,7 @@ import Network.AWS.Request.JSON
 
 newtype RebootInstance = RebootInstance
     { _riInstanceId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RebootInstance' request.
@@ -72,7 +72,7 @@ instance ToHeaders RebootInstance
 instance ToJSON RebootInstance
 
 data RebootInstanceResponse = RebootInstanceResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RebootInstanceResponse' response.

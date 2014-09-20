@@ -54,7 +54,7 @@ data ListGeoLocations = ListGeoLocations
     , _lglStartCountryCode :: Maybe Text
     , _lglStartSubdivisionCode :: Maybe Text
     , _lglMaxItems :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListGeoLocations' request.
@@ -125,7 +125,7 @@ data ListGeoLocationsResponse = ListGeoLocationsResponse
     , _lglrNextCountryCode :: Maybe Text
     , _lglrNextSubdivisionCode :: Maybe Text
     , _lglrMaxItems :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListGeoLocationsResponse' response.

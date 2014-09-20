@@ -72,7 +72,7 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses
     , _apiaPrivateIpAddresses :: [Text]
     , _apiaSecondaryPrivateIpAddressCount :: Maybe Integer
     , _apiaAllowReassignment :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssignPrivateIpAddresses' request.
@@ -125,7 +125,7 @@ instance ToQuery AssignPrivateIpAddresses where
     toQuery = genericQuery def
 
 data AssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssignPrivateIpAddressesResponse' response.

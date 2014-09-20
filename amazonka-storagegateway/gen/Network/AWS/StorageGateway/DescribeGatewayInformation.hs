@@ -66,7 +66,7 @@ import Network.AWS.Request.JSON
 -- | A JSON object containing the of the gateway.
 newtype DescribeGatewayInformation = DescribeGatewayInformation
     { _dgiGatewayARN :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeGatewayInformation' request.
@@ -103,7 +103,7 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse
     , _dgirGatewayNetworkInterfaces :: [NetworkInterface]
     , _dgirGatewayType :: Maybe Text
     , _dgirNextUpdateAvailabilityDate :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeGatewayInformationResponse' response.

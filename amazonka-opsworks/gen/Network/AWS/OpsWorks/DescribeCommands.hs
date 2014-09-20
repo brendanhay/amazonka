@@ -50,7 +50,7 @@ data DescribeCommands = DescribeCommands
     { _dc1DeploymentId :: Maybe Text
     , _dc1InstanceId :: Maybe Text
     , _dc1CommandIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCommands' request.
@@ -97,7 +97,7 @@ instance ToJSON DescribeCommands
 -- | Contains the response to a DescribeCommands request.
 newtype DescribeCommandsResponse = DescribeCommandsResponse
     { _dcrCommands :: [Command]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCommandsResponse' response.

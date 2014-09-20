@@ -92,7 +92,7 @@ data UploadServerCertificate = UploadServerCertificate
     , _usc2CertificateBody :: Text
     , _usc2PrivateKey :: Text
     , _usc2CertificateChain :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UploadServerCertificate' request.
@@ -159,7 +159,7 @@ instance ToQuery UploadServerCertificate where
 -- UploadServerCertificate action.
 newtype UploadServerCertificateResponse = UploadServerCertificateResponse
     { _uscrServerCertificateMetadata :: Maybe ServerCertificateMetadata
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UploadServerCertificateResponse' response.

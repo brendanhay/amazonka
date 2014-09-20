@@ -52,7 +52,7 @@ import Network.AWS.Request.JSON
 data ListIdentityPools = ListIdentityPools
     { _lipMaxResults :: !Integer
     , _lipNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListIdentityPools' request.
@@ -90,7 +90,7 @@ instance ToJSON ListIdentityPools
 data ListIdentityPoolsResponse = ListIdentityPoolsResponse
     { _liprIdentityPools :: [IdentityPoolShortDescription]
     , _liprNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListIdentityPoolsResponse' response.

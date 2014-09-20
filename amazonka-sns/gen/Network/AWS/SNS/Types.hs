@@ -290,7 +290,7 @@ xmlOptions = Tagged def
 -- topic's attributes, use GetTopicAttributes.
 newtype Topic = Topic
     { _tTopicArn :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Topic' data type.
@@ -319,7 +319,7 @@ instance FromXML Topic where
 data Endpoint' = Endpoint'
     { _eEndpointArn :: Maybe Text
     , _eAttributes :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Endpoint'' data type.
@@ -363,7 +363,7 @@ data MessageAttributeValue = MessageAttributeValue
     { _mavDataType :: Text
     , _mavStringValue :: Maybe Text
     , _mavBinaryValue :: Maybe ByteString
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'MessageAttributeValue' data type to populate a request.
@@ -406,7 +406,7 @@ instance ToQuery MessageAttributeValue where
 data PlatformApplication = PlatformApplication
     { _paPlatformApplicationArn :: Maybe Text
     , _paAttributes :: Map Text Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PlatformApplication' data type.
@@ -447,7 +447,7 @@ data Subscription = Subscription
     , _sProtocol :: Maybe Text
     , _sEndpoint :: Maybe Text
     , _sTopicArn :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Subscription' data type.

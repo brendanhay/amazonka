@@ -49,7 +49,7 @@ data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup
     { _mcsgClusterSubnetGroupName :: Text
     , _mcsgDescription :: Maybe Text
     , _mcsgSubnetIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyClusterSubnetGroup' request.
@@ -91,7 +91,7 @@ instance ToQuery ModifyClusterSubnetGroup where
 
 newtype ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse
     { _mcsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyClusterSubnetGroupResponse' response.

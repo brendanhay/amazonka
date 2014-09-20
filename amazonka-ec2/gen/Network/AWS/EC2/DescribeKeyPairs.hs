@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 data DescribeKeyPairs = DescribeKeyPairs
     { _dkp1KeyNames :: [Text]
     , _dkp1Filters :: [Filter]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeKeyPairs' request.
@@ -84,7 +84,7 @@ instance ToQuery DescribeKeyPairs where
 
 newtype DescribeKeyPairsResponse = DescribeKeyPairsResponse
     { _dkprKeyPairs :: [KeyPairInfo]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeKeyPairsResponse' response.

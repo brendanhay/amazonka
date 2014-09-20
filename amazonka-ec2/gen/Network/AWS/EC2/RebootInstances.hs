@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 
 newtype RebootInstances = RebootInstances
     { _ri1InstanceIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RebootInstances' request.
@@ -76,7 +76,7 @@ instance ToQuery RebootInstances where
     toQuery = genericQuery def
 
 data RebootInstancesResponse = RebootInstancesResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RebootInstancesResponse' response.

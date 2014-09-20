@@ -47,7 +47,7 @@ import Network.AWS.Request.JSON
 data DescribeRdsDbInstances = DescribeRdsDbInstances
     { _drdi1StackId :: Text
     , _drdi1RdsDbInstanceArns :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeRdsDbInstances' request.
@@ -86,7 +86,7 @@ instance ToJSON DescribeRdsDbInstances
 -- | Contains the response to a DescribeRdsDbInstances request.
 newtype DescribeRdsDbInstancesResponse = DescribeRdsDbInstancesResponse
     { _drdirRdsDbInstances :: [RdsDbInstance]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeRdsDbInstancesResponse' response.

@@ -44,7 +44,7 @@ data ExecutePolicy = ExecutePolicy
     { _epAutoScalingGroupName :: Maybe Text
     , _epPolicyName :: Text
     , _epHonorCooldown :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ExecutePolicy' request.
@@ -87,7 +87,7 @@ instance ToQuery ExecutePolicy where
     toQuery = genericQuery def
 
 data ExecutePolicyResponse = ExecutePolicyResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ExecutePolicyResponse' response.

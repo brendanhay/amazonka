@@ -42,7 +42,7 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data GetAccountPasswordPolicy = GetAccountPasswordPolicy
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetAccountPasswordPolicy' request.
@@ -56,7 +56,7 @@ instance ToQuery GetAccountPasswordPolicy where
 -- GetAccountPasswordPolicy action.
 newtype GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
     { _gapprPasswordPolicy :: PasswordPolicy
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetAccountPasswordPolicyResponse' response.

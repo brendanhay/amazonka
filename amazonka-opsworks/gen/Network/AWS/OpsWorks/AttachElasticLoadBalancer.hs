@@ -49,7 +49,7 @@ import Network.AWS.Request.JSON
 data AttachElasticLoadBalancer = AttachElasticLoadBalancer
     { _aelbElasticLoadBalancerName :: Text
     , _aelbLayerId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachElasticLoadBalancer' request.
@@ -88,7 +88,7 @@ instance ToHeaders AttachElasticLoadBalancer
 instance ToJSON AttachElasticLoadBalancer
 
 data AttachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachElasticLoadBalancerResponse' response.

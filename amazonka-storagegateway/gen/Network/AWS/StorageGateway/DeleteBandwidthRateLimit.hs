@@ -60,7 +60,7 @@ import Network.AWS.Request.JSON
 data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit
     { _dbrlGatewayARN :: Text
     , _dbrlBandwidthType :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBandwidthRateLimit' request.
@@ -100,7 +100,7 @@ instance ToJSON DeleteBandwidthRateLimit
 -- information was deleted.
 newtype DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse
     { _dbrlrGatewayARN :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBandwidthRateLimitResponse' response.

@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 data CopySnapshot = CopySnapshot
     { _csSourceSnapshotName :: Text
     , _csTargetSnapshotName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopySnapshot' request.
@@ -79,7 +79,7 @@ instance ToQuery CopySnapshot where
 
 newtype CopySnapshotResponse = CopySnapshotResponse
     { _csrSnapshot :: Maybe Snapshot
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopySnapshotResponse' response.

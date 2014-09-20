@@ -56,7 +56,7 @@ import Network.AWS.Prelude
 
 newtype ListTopics = ListTopics
     { _ltNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListTopics' request.
@@ -81,7 +81,7 @@ instance ToQuery ListTopics where
 data ListTopicsResponse = ListTopicsResponse
     { _ltrTopics :: [Topic]
     , _ltrNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListTopicsResponse' response.

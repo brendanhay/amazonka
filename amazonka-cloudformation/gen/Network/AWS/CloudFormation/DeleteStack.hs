@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 -- | The input for DeleteStack action.
 newtype DeleteStack = DeleteStack
     { _dsStackName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteStack' request.
@@ -70,7 +70,7 @@ instance ToQuery DeleteStack where
     toQuery = genericQuery def
 
 data DeleteStackResponse = DeleteStackResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteStackResponse' response.

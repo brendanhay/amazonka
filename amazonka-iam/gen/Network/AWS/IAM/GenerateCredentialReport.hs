@@ -43,7 +43,7 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data GenerateCredentialReport = GenerateCredentialReport
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GenerateCredentialReport' request.
@@ -58,7 +58,7 @@ instance ToQuery GenerateCredentialReport where
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse
     { _gcrrState :: Maybe ReportStateType
     , _gcrrDescription :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GenerateCredentialReportResponse' response.

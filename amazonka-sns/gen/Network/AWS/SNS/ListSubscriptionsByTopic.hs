@@ -67,7 +67,7 @@ import Network.AWS.Prelude
 data ListSubscriptionsByTopic = ListSubscriptionsByTopic
     { _lsbtTopicArn :: Text
     , _lsbtNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListSubscriptionsByTopic' request.
@@ -100,7 +100,7 @@ instance ToQuery ListSubscriptionsByTopic where
 data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
     { _lsbtrSubscriptions :: [Subscription]
     , _lsbtrNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListSubscriptionsByTopicResponse' response.

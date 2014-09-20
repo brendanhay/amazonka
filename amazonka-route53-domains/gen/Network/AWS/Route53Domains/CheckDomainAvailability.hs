@@ -61,7 +61,7 @@ import Network.AWS.Request.JSON
 data CheckDomainAvailability = CheckDomainAvailability
     { _cdaDomainName :: Text
     , _cdaIdnLangCode :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CheckDomainAvailability' request.
@@ -101,7 +101,7 @@ instance ToJSON CheckDomainAvailability
 -- | The CheckDomainAvailability response includes the following elements.
 newtype CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse
     { _cdarAvailability :: DomainAvailability
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CheckDomainAvailabilityResponse' response.

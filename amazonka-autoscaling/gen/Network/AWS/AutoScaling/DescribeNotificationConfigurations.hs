@@ -48,7 +48,7 @@ data DescribeNotificationConfigurations = DescribeNotificationConfigurations
     { _dnc1AutoScalingGroupNames :: [Text]
     , _dnc1NextToken :: Maybe Text
     , _dnc1MaxRecords :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeNotificationConfigurations' request.
@@ -90,7 +90,7 @@ instance ToQuery DescribeNotificationConfigurations where
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse
     { _dncrNotificationConfigurations :: [NotificationConfiguration]
     , _dncrNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeNotificationConfigurationsResponse' response.

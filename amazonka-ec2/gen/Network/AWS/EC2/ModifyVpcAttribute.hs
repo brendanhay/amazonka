@@ -48,7 +48,7 @@ data ModifyVpcAttribute = ModifyVpcAttribute
     { _mva1VpcId :: Text
     , _mva1EnableDnsSupport :: Maybe AttributeBooleanValue
     , _mva1EnableDnsHostnames :: Maybe AttributeBooleanValue
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyVpcAttribute' request.
@@ -95,7 +95,7 @@ instance ToQuery ModifyVpcAttribute where
     toQuery = genericQuery def
 
 data ModifyVpcAttributeResponse = ModifyVpcAttributeResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyVpcAttributeResponse' response.

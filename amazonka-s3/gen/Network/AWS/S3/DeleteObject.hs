@@ -52,7 +52,7 @@ data DeleteObject = DeleteObject
     , _doKey :: ObjectKey
     , _doMFA :: Maybe Text
     , _doVersionId :: Maybe ObjectVersionId
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteObject' request.
@@ -106,7 +106,7 @@ instance ToBody DeleteObject
 data DeleteObjectResponse = DeleteObjectResponse
     { _dorDeleteMarker :: Maybe Bool
     , _dorVersionId :: Maybe ObjectVersionId
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteObjectResponse' response.

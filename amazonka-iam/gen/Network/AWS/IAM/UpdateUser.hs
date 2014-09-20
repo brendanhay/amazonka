@@ -55,7 +55,7 @@ data UpdateUser = UpdateUser
     { _uuUserName :: Text
     , _uuNewPath :: Maybe Text
     , _uuNewUserName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateUser' request.
@@ -95,7 +95,7 @@ instance ToQuery UpdateUser where
     toQuery = genericQuery def
 
 data UpdateUserResponse = UpdateUserResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateUserResponse' response.

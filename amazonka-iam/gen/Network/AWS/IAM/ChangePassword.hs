@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 data ChangePassword = ChangePassword
     { _cpOldPassword :: Text
     , _cpNewPassword :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ChangePassword' request.
@@ -79,7 +79,7 @@ instance ToQuery ChangePassword where
     toQuery = genericQuery def
 
 data ChangePasswordResponse = ChangePasswordResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ChangePasswordResponse' response.

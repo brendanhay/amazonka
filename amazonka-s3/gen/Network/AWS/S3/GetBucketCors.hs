@@ -43,7 +43,7 @@ import Network.AWS.Types (Region)
 
 newtype GetBucketCors = GetBucketCors
     { _gbcBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketCors' request.
@@ -71,7 +71,7 @@ instance ToBody GetBucketCors
 
 newtype GetBucketCorsResponse = GetBucketCorsResponse
     { _gbcrCORSRules :: [CORSRule]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketCorsResponse' response.

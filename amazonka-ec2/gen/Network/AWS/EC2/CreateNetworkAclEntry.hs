@@ -76,7 +76,7 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry
     , _cnaeCidrBlock :: Text
     , _cnaeIcmpTypeCode :: Maybe IcmpTypeCode
     , _cnaePortRange :: Maybe PortRange
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateNetworkAclEntry' request.
@@ -158,7 +158,7 @@ instance ToQuery CreateNetworkAclEntry where
     toQuery = genericQuery def
 
 data CreateNetworkAclEntryResponse = CreateNetworkAclEntryResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateNetworkAclEntryResponse' response.

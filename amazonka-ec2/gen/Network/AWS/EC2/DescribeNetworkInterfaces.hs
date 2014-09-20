@@ -106,7 +106,7 @@ import Network.AWS.Prelude
 data DescribeNetworkInterfaces = DescribeNetworkInterfaces
     { _dni1NetworkInterfaceIds :: [Text]
     , _dni1Filters :: [Filter]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeNetworkInterfaces' request.
@@ -191,7 +191,7 @@ instance ToQuery DescribeNetworkInterfaces where
 
 newtype DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
     { _dnirNetworkInterfaces :: [NetworkInterface]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeNetworkInterfacesResponse' response.

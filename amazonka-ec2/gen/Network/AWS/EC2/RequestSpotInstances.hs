@@ -78,7 +78,7 @@ data RequestSpotInstances = RequestSpotInstances
     , _rsiLaunchGroup :: Maybe Text
     , _rsiAvailabilityZoneGroup :: Maybe Text
     , _rsiLaunchSpecification :: Maybe LaunchSpecification
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RequestSpotInstances' request.
@@ -182,7 +182,7 @@ instance ToQuery RequestSpotInstances where
 
 newtype RequestSpotInstancesResponse = RequestSpotInstancesResponse
     { _rsirSpotInstanceRequests :: [SpotInstanceRequest]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RequestSpotInstancesResponse' response.

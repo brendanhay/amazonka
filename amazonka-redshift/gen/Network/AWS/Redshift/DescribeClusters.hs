@@ -61,7 +61,7 @@ data DescribeClusters = DescribeClusters
     { _dc1ClusterIdentifier :: Maybe Text
     , _dc1MaxRecords :: Maybe Integer
     , _dc1Marker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusters' request.
@@ -113,7 +113,7 @@ instance ToQuery DescribeClusters where
 data DescribeClustersResponse = DescribeClustersResponse
     { _dcrrMarker :: Maybe Text
     , _dcrrClusters :: [Cluster]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClustersResponse' response.

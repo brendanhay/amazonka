@@ -47,7 +47,7 @@ import Network.AWS.Request.JSON
 
 newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling
     { _dlbasLayerIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLoadBasedAutoScaling' request.
@@ -77,7 +77,7 @@ instance ToJSON DescribeLoadBasedAutoScaling
 -- | Contains the response to a DescribeLoadBasedAutoScaling request.
 newtype DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse
     { _dlbasrLoadBasedAutoScalingConfigurations :: [LoadBasedAutoScalingConfiguration]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLoadBasedAutoScalingResponse' response.

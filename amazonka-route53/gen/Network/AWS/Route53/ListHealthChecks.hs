@@ -66,7 +66,7 @@ import Network.AWS.Types (Region)
 data ListHealthChecks = ListHealthChecks
     { _lhcMarker :: Maybe Text
     , _lhcMaxItems :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListHealthChecks' request.
@@ -110,7 +110,7 @@ data ListHealthChecksResponse = ListHealthChecksResponse
     , _lhcrIsTruncated :: !Bool
     , _lhcrNextMarker :: Maybe Text
     , _lhcrMaxItems :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListHealthChecksResponse' response.

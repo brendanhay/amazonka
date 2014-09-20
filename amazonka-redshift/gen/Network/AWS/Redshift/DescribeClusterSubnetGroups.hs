@@ -58,7 +58,7 @@ data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups
     { _dcsg3ClusterSubnetGroupName :: Maybe Text
     , _dcsg3MaxRecords :: Maybe Integer
     , _dcsg3Marker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusterSubnetGroups' request.
@@ -108,7 +108,7 @@ instance ToQuery DescribeClusterSubnetGroups where
 data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
     { _dcsgrrMarker :: Maybe Text
     , _dcsgrrClusterSubnetGroups :: [ClusterSubnetGroup]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusterSubnetGroupsResponse' response.

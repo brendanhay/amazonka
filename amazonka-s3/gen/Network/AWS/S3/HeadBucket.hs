@@ -42,7 +42,7 @@ import Network.AWS.Types (Region)
 
 newtype HeadBucket = HeadBucket
     { _hbBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'HeadBucket' request.
@@ -69,7 +69,7 @@ instance ToHeaders HeadBucket
 instance ToBody HeadBucket
 
 data HeadBucketResponse = HeadBucketResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'HeadBucketResponse' response.

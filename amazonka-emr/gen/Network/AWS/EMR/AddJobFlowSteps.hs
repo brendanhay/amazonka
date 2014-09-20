@@ -83,7 +83,7 @@ import Network.AWS.Request.JSON
 data AddJobFlowSteps = AddJobFlowSteps
     { _ajfsJobFlowId :: Text
     , _ajfsSteps :: [StepConfig]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddJobFlowSteps' request.
@@ -122,7 +122,7 @@ instance ToJSON AddJobFlowSteps
 -- | The output for the AddJobFlowSteps operation.
 newtype AddJobFlowStepsResponse = AddJobFlowStepsResponse
     { _ajfsrStepIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddJobFlowStepsResponse' response.

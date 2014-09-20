@@ -52,7 +52,7 @@ import Network.AWS.Request.JSON
 data DeleteLogStream = DeleteLogStream
     { _dlsLogGroupName :: Text
     , _dlsLogStreamName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLogStream' request.
@@ -87,7 +87,7 @@ instance ToHeaders DeleteLogStream
 instance ToJSON DeleteLogStream
 
 data DeleteLogStreamResponse = DeleteLogStreamResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLogStreamResponse' response.

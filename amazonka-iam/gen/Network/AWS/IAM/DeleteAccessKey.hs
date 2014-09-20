@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 data DeleteAccessKey = DeleteAccessKey
     { _dakUserName :: Maybe Text
     , _dakAccessKeyId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAccessKey' request.
@@ -79,7 +79,7 @@ instance ToQuery DeleteAccessKey where
     toQuery = genericQuery def
 
 data DeleteAccessKeyResponse = DeleteAccessKeyResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAccessKeyResponse' response.

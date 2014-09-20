@@ -334,7 +334,7 @@ instance ToJSON TaskStatus
 -- components, instances, and attempts.
 newtype Query = Query
     { _qSelectors :: [Selector]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Query' data type to populate a request.
@@ -362,7 +362,7 @@ data Field = Field
     { _fKey :: Text
     , _fStringValue :: Maybe Text
     , _fRefValue :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Field' data type to populate a request.
@@ -409,7 +409,7 @@ instance ToJSON Field
 data InstanceIdentity = InstanceIdentity
     { _iiDocument :: Maybe Text
     , _iiSignature :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceIdentity' data type to populate a request.
@@ -444,7 +444,7 @@ instance ToJSON InstanceIdentity
 data Operator = Operator
     { _oType :: Maybe OperatorType
     , _oValues :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Operator' data type to populate a request.
@@ -493,7 +493,7 @@ data PipelineDescription = PipelineDescription
     , _pdName :: Text
     , _pdFields :: [Field]
     , _pdDescription :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PipelineDescription' data type.
@@ -546,7 +546,7 @@ instance FromJSON PipelineDescription
 data PipelineIdName = PipelineIdName
     { _pinId :: Maybe Text
     , _pinName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PipelineIdName' data type.
@@ -584,7 +584,7 @@ data PipelineObject = PipelineObject
     { _poId :: Text
     , _poName :: Text
     , _poFields :: [Field]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PipelineObject' data type to populate a request.
@@ -628,7 +628,7 @@ instance ToJSON PipelineObject
 data Selector = Selector
     { _sFieldName :: Maybe Text
     , _sOperator :: Maybe Operator
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Selector' data type to populate a request.
@@ -670,7 +670,7 @@ data TaskObject = TaskObject
     , _toPipelineId :: Maybe Text
     , _toAttemptId :: Maybe Text
     , _toObjects :: Map Text PipelineObject
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TaskObject' data type.
@@ -724,7 +724,7 @@ instance FromJSON TaskObject
 data ValidationError = ValidationError
     { _veId :: Maybe Text
     , _veErrors :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ValidationError' data type.
@@ -761,7 +761,7 @@ instance FromJSON ValidationError
 data ValidationWarning = ValidationWarning
     { _vwId :: Maybe Text
     , _vwWarnings :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ValidationWarning' data type.

@@ -63,7 +63,7 @@ data CopyImage = CopyImage
     , _ciName :: Maybe Text
     , _ciDescription :: Maybe Text
     , _ciClientToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopyImage' request.
@@ -118,7 +118,7 @@ instance ToQuery CopyImage where
 
 newtype CopyImageResponse = CopyImageResponse
     { _cirImageId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopyImageResponse' response.

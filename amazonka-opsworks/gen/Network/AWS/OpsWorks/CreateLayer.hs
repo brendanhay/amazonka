@@ -79,7 +79,7 @@ data CreateLayer = CreateLayer
     , _clCustomRecipes :: Maybe Recipes
     , _clInstallUpdatesOnBoot :: Maybe Bool
     , _clUseEbsOptimizedInstances :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLayer' request.
@@ -242,7 +242,7 @@ instance ToJSON CreateLayer
 -- | Contains the response to a CreateLayer request.
 newtype CreateLayerResponse = CreateLayerResponse
     { _clrLayerId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLayerResponse' response.

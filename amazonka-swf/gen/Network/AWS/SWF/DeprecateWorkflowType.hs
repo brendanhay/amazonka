@@ -73,7 +73,7 @@ import Network.AWS.Request.JSON
 data DeprecateWorkflowType = DeprecateWorkflowType
     { _dwtDomain :: Text
     , _dwtWorkflowType :: WorkflowType
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeprecateWorkflowType' request.
@@ -109,7 +109,7 @@ instance ToHeaders DeprecateWorkflowType
 instance ToJSON DeprecateWorkflowType
 
 data DeprecateWorkflowTypeResponse = DeprecateWorkflowTypeResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeprecateWorkflowTypeResponse' response.

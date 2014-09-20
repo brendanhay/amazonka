@@ -64,7 +64,7 @@ data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
     , _drdbioMultiAZ :: Maybe Bool
     , _drdbioMaxRecords :: Maybe Integer
     , _drdbioMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedDBInstancesOfferings' request.
@@ -160,7 +160,7 @@ instance ToQuery DescribeReservedDBInstancesOfferings where
 data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse
     { _drdbiorMarker :: Maybe Text
     , _drdbiorReservedDBInstancesOfferings :: [ReservedDBInstancesOffering]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedDBInstancesOfferingsResponse' response.

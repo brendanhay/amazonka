@@ -51,7 +51,7 @@ import Network.AWS.Request.JSON
 -- | The name of a trail about which you want the current status.
 newtype GetTrailStatus = GetTrailStatus
     { _gtsName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetTrailStatus' request.
@@ -88,7 +88,7 @@ data GetTrailStatusResponse = GetTrailStatusResponse
     , _gtsrLatestNotificationTime :: Maybe ISO8601
     , _gtsrStartLoggingTime :: Maybe ISO8601
     , _gtsrStopLoggingTime :: Maybe ISO8601
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetTrailStatusResponse' response.

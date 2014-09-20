@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 data ResumeProcesses = ResumeProcesses
     { _rpAutoScalingGroupName :: Text
     , _rpScalingProcesses :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResumeProcesses' request.
@@ -79,7 +79,7 @@ instance ToQuery ResumeProcesses where
     toQuery = genericQuery def
 
 data ResumeProcessesResponse = ResumeProcessesResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResumeProcessesResponse' response.

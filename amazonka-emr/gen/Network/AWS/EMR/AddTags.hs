@@ -52,7 +52,7 @@ import Network.AWS.Request.JSON
 data AddTags = AddTags
     { _atResourceId :: Text
     , _atTags :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddTags' request.
@@ -93,7 +93,7 @@ instance ToJSON AddTags
 
 -- | This output indicates the result of adding tags to a resource.
 data AddTagsResponse = AddTagsResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddTagsResponse' response.

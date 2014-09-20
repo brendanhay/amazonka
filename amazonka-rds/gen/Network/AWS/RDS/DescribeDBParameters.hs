@@ -58,7 +58,7 @@ data DescribeDBParameters = DescribeDBParameters
     , _ddbpSource :: Maybe Text
     , _ddbpMaxRecords :: Maybe Integer
     , _ddbpMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBParameters' request.
@@ -116,7 +116,7 @@ instance ToQuery DescribeDBParameters where
 data DescribeDBParametersResponse = DescribeDBParametersResponse
     { _ddbprParameters :: [Parameter]
     , _ddbprMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBParametersResponse' response.

@@ -50,7 +50,7 @@ data DescribeHsmConfigurations = DescribeHsmConfigurations
     { _dhc1HsmConfigurationIdentifier :: Maybe Text
     , _dhc1MaxRecords :: Maybe Integer
     , _dhc1Marker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeHsmConfigurations' request.
@@ -102,7 +102,7 @@ instance ToQuery DescribeHsmConfigurations where
 data DescribeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
     { _dhcrMarker :: Maybe Text
     , _dhcrHsmConfigurations :: [HsmConfiguration]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeHsmConfigurationsResponse' response.

@@ -90,7 +90,7 @@ data RegisterActivityType = RegisterActivityType
     , _ratDefaultTaskList :: Maybe TaskList
     , _ratDefaultTaskScheduleToStartTimeout :: Maybe Text
     , _ratDefaultTaskScheduleToCloseTimeout :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterActivityType' request.
@@ -221,7 +221,7 @@ instance ToHeaders RegisterActivityType
 instance ToJSON RegisterActivityType
 
 data RegisterActivityTypeResponse = RegisterActivityTypeResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterActivityTypeResponse' response.

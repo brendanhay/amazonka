@@ -49,7 +49,7 @@ import Network.AWS.SES.Types
 import Network.AWS.Prelude
 
 data GetSendStatistics = GetSendStatistics
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetSendStatistics' request.
@@ -64,7 +64,7 @@ instance ToQuery GetSendStatistics where
 -- previous two weeks of sending activity.
 newtype GetSendStatisticsResponse = GetSendStatisticsResponse
     { _gssrSendDataPoints :: [SendDataPoint]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetSendStatisticsResponse' response.

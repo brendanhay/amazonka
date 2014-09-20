@@ -59,7 +59,7 @@ import Network.AWS.Prelude
 data ModifyClusterParameterGroup = ModifyClusterParameterGroup
     { _mcpgParameterGroupName :: Text
     , _mcpgParameters :: [Parameter]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyClusterParameterGroup' request.
@@ -101,7 +101,7 @@ instance ToQuery ModifyClusterParameterGroup where
 data ModifyClusterParameterGroupResponse = ModifyClusterParameterGroupResponse
     { _mcpgrParameterGroupName :: Maybe Text
     , _mcpgrParameterGroupStatus :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyClusterParameterGroupResponse' response.

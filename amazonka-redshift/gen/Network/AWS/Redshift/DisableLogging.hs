@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 -- | 
 newtype DisableLogging = DisableLogging
     { _dlClusterIdentifier :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisableLogging' request.
@@ -81,7 +81,7 @@ data DisableLoggingResponse = DisableLoggingResponse
     , _dlrLastSuccessfulDeliveryTime :: Maybe ISO8601
     , _dlrLastFailureTime :: Maybe ISO8601
     , _dlrLastFailureMessage :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisableLoggingResponse' response.

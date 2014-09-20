@@ -94,7 +94,7 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
     , _rfcsVpcSecurityGroupIds :: [Text]
     , _rfcsPreferredMaintenanceWindow :: Maybe Text
     , _rfcsAutomatedSnapshotRetentionPeriod :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RestoreFromClusterSnapshot' request.
@@ -293,7 +293,7 @@ instance ToQuery RestoreFromClusterSnapshot where
 
 newtype RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse
     { _rfcsrCluster :: Maybe Cluster
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RestoreFromClusterSnapshotResponse' response.

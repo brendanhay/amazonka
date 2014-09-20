@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 -- Specifies the name of the domain you want to describe.
 newtype DescribeScalingParameters = DescribeScalingParameters
     { _dspDomainName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeScalingParameters' request.
@@ -76,7 +76,7 @@ instance ToQuery DescribeScalingParameters where
 -- parameters configured for the domain specified in the request.
 newtype DescribeScalingParametersResponse = DescribeScalingParametersResponse
     { _dsprScalingParameters :: ScalingParametersStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeScalingParametersResponse' response.

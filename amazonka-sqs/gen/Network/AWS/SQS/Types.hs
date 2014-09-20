@@ -446,7 +446,7 @@ instance ToQuery QueueAttributeName where
 -- | Encloses the id of an entry in ChangeMessageVisibilityBatch.
 newtype ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchResultEntry
     { _cmvbrerId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChangeMessageVisibilityBatchResultEntry' data type.
@@ -476,7 +476,7 @@ instance FromXML ChangeMessageVisibilityBatchResultEntry where
 -- | Encloses the id an entry in DeleteMessageBatch.
 newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry
     { _dmbrerId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DeleteMessageBatchResultEntry' data type.
@@ -509,7 +509,7 @@ data BatchResultErrorEntry = BatchResultErrorEntry
     , _breeSenderFault :: !Bool
     , _breeCode :: Text
     , _breeMessage :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'BatchResultErrorEntry' data type.
@@ -571,7 +571,7 @@ data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequ
     { _cmvbreId :: Text
     , _cmvbreReceiptHandle :: Text
     , _cmvbreVisibilityTimeout :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChangeMessageVisibilityBatchRequestEntry' data type to populate a request.
@@ -617,7 +617,7 @@ instance ToQuery ChangeMessageVisibilityBatchRequestEntry where
 data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry
     { _dmbreId :: Text
     , _dmbreReceiptHandle :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DeleteMessageBatchRequestEntry' data type to populate a request.
@@ -659,7 +659,7 @@ data Message = Message
     , _mAttributes :: Map QueueAttributeName Text
     , _mMD5OfMessageAttributes :: Maybe Text
     , _mMessageAttributes :: Map Text MessageAttributeValue
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Message' data type.
@@ -753,7 +753,7 @@ data MessageAttributeValue = MessageAttributeValue
     , _mavStringListValues :: [Text]
     , _mavBinaryListValues :: [ByteString]
     , _mavDataType :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'MessageAttributeValue' data type to populate a request.
@@ -819,7 +819,7 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry
     , _smbreMessageBody :: Text
     , _smbreDelaySeconds :: Maybe Integer
     , _smbreMessageAttributes :: Map Text MessageAttributeValue
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SendMessageBatchRequestEntry' data type to populate a request.
@@ -876,7 +876,7 @@ data SendMessageBatchResultEntry = SendMessageBatchResultEntry
     , _smbrerMessageId :: Text
     , _smbrerMD5OfMessageBody :: Text
     , _smbrerMD5OfMessageAttributes :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SendMessageBatchResultEntry' data type.

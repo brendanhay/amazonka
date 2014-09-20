@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 
 newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice
     { _dvmfadSerialNumber :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVirtualMFADevice' request.
@@ -71,7 +71,7 @@ instance ToQuery DeleteVirtualMFADevice where
     toQuery = genericQuery def
 
 data DeleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVirtualMFADeviceResponse' response.

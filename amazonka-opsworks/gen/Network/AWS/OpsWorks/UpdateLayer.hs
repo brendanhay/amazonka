@@ -69,7 +69,7 @@ data UpdateLayer = UpdateLayer
     , _ulCustomRecipes :: Maybe Recipes
     , _ulInstallUpdatesOnBoot :: Maybe Bool
     , _ulUseEbsOptimizedInstances :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateLayer' request.
@@ -214,7 +214,7 @@ instance ToHeaders UpdateLayer
 instance ToJSON UpdateLayer
 
 data UpdateLayerResponse = UpdateLayerResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateLayerResponse' response.

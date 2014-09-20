@@ -85,7 +85,7 @@ data TerminateWorkflowExecution = TerminateWorkflowExecution
     , _tweReason :: Maybe Text
     , _tweDetails :: Maybe Text
     , _tweChildPolicy :: Maybe ChildPolicy
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TerminateWorkflowExecution' request.
@@ -161,7 +161,7 @@ instance ToHeaders TerminateWorkflowExecution
 instance ToJSON TerminateWorkflowExecution
 
 data TerminateWorkflowExecutionResponse = TerminateWorkflowExecutionResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TerminateWorkflowExecutionResponse' response.

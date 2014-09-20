@@ -45,7 +45,7 @@ import Network.AWS.Request.JSON
 
 newtype DeleteLayer = DeleteLayer
     { _dlLayerId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLayer' request.
@@ -73,7 +73,7 @@ instance ToHeaders DeleteLayer
 instance ToJSON DeleteLayer
 
 data DeleteLayerResponse = DeleteLayerResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLayerResponse' response.

@@ -89,7 +89,7 @@ data ReceiveMessage = ReceiveMessage
     , _rmMaxNumberOfMessages :: Maybe Integer
     , _rmVisibilityTimeout :: Maybe Integer
     , _rmWaitTimeSeconds :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReceiveMessage' request.
@@ -176,7 +176,7 @@ instance ToQuery ReceiveMessage where
 -- | A list of received messages.
 newtype ReceiveMessageResponse = ReceiveMessageResponse
     { _rmrMessages :: [Message]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReceiveMessageResponse' response.

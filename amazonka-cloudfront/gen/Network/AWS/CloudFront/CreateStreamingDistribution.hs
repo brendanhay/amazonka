@@ -46,7 +46,7 @@ import Network.AWS.Types (Region)
 -- | The request to create a new streaming distribution.
 newtype CreateStreamingDistribution = CreateStreamingDistribution
     { _csdStreamingDistributionConfig :: StreamingDistributionConfig
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStreamingDistribution' request.
@@ -82,7 +82,7 @@ data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse
     { _csdrStreamingDistribution :: Maybe StreamingDistribution
     , _csdrLocation :: Maybe Text
     , _csdrETag :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStreamingDistributionResponse' response.

@@ -66,7 +66,7 @@ data DescribeDBLogFiles = DescribeDBLogFiles
     , _ddblfFileSize :: Maybe Integer
     , _ddblfMaxRecords :: Maybe Integer
     , _ddblfMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBLogFiles' request.
@@ -141,7 +141,7 @@ instance ToQuery DescribeDBLogFiles where
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse
     { _ddblfrDescribeDBLogFiles :: [DescribeDBLogFilesDetails]
     , _ddblfrMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBLogFilesResponse' response.

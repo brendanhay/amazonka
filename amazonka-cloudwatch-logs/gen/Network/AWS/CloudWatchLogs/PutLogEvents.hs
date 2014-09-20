@@ -72,7 +72,7 @@ data PutLogEvents = PutLogEvents
     , _pleLogStreamName :: Text
     , _pleLogEvents :: List1 InputLogEvent
     , _pleSequenceToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutLogEvents' request.
@@ -125,7 +125,7 @@ instance ToJSON PutLogEvents
 
 newtype PutLogEventsResponse = PutLogEventsResponse
     { _plerNextSequenceToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutLogEventsResponse' response.

@@ -65,7 +65,7 @@ import Network.AWS.Prelude
 data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
     { _dsirSpotInstanceRequestIds :: [Text]
     , _dsirFilters :: [Filter]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSpotInstanceRequests' request.
@@ -147,7 +147,7 @@ instance ToQuery DescribeSpotInstanceRequests where
 
 newtype DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
     { _dsirrSpotInstanceRequests :: [SpotInstanceRequest]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSpotInstanceRequestsResponse' response.

@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 data DeleteRoute = DeleteRoute
     { _drRouteTableId :: Text
     , _drDestinationCidrBlock :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteRoute' request.
@@ -82,7 +82,7 @@ instance ToQuery DeleteRoute where
     toQuery = genericQuery def
 
 data DeleteRouteResponse = DeleteRouteResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteRouteResponse' response.

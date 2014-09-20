@@ -57,7 +57,7 @@ import Network.AWS.Prelude
 data DeleteSecurityGroup = DeleteSecurityGroup
     { _dsgGroupName :: Maybe Text
     , _dsgGroupId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSecurityGroup' request.
@@ -86,7 +86,7 @@ instance ToQuery DeleteSecurityGroup where
     toQuery = genericQuery def
 
 data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSecurityGroupResponse' response.

@@ -74,7 +74,7 @@ data UpdateTable = UpdateTable
     { _utTableName :: Text
     , _utProvisionedThroughput :: Maybe ProvisionedThroughput
     , _utGlobalSecondaryIndexUpdates :: [GlobalSecondaryIndexUpdate]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateTable' request.
@@ -126,7 +126,7 @@ instance ToJSON UpdateTable
 -- | Represents the output of an UpdateTable operation.
 newtype UpdateTableResponse = UpdateTableResponse
     { _utrTableDescription :: Maybe TableDescription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateTableResponse' response.

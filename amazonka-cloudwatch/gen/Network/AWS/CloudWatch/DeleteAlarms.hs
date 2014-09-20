@@ -41,7 +41,7 @@ import Network.AWS.Prelude
 
 newtype DeleteAlarms = DeleteAlarms
     { _daAlarmNames :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAlarms' request.
@@ -64,7 +64,7 @@ instance ToQuery DeleteAlarms where
     toQuery = genericQuery def
 
 data DeleteAlarmsResponse = DeleteAlarmsResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAlarmsResponse' response.

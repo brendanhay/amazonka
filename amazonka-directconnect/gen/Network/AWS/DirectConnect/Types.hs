@@ -395,7 +395,7 @@ instance ToJSON VirtualInterfaceState
 -- Gateway Protocol (BGP) over a public virtual interface.
 newtype RouteFilterPrefix = RouteFilterPrefix
     { _rfpCidr :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RouteFilterPrefix' data type to populate a request.
@@ -430,7 +430,7 @@ data Connection = Connection
     , _cBandwidth :: Maybe Text
     , _cVlan :: Maybe Integer
     , _cPartnerName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Connection' data type.
@@ -536,7 +536,7 @@ data Interconnect = Interconnect
     , _iRegion :: Maybe Text
     , _iLocation :: Maybe Text
     , _iBandwidth :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Interconnect' data type.
@@ -607,7 +607,7 @@ instance FromJSON Interconnect
 data Location = Location
     { _lLocationCode :: Maybe Text
     , _lLocationName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Location' data type.
@@ -648,7 +648,7 @@ data NewPrivateVirtualInterface = NewPrivateVirtualInterface
     , _npviAmazonAddress :: Maybe Text
     , _npviCustomerAddress :: Maybe Text
     , _npviVirtualGatewayId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NewPrivateVirtualInterface' data type to populate a request.
@@ -731,7 +731,7 @@ data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation
     , _npviaAuthKey :: Maybe Text
     , _npviaAmazonAddress :: Maybe Text
     , _npviaCustomerAddress :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NewPrivateVirtualInterfaceAllocation' data type to populate a request.
@@ -805,7 +805,7 @@ data NewPublicVirtualInterface = NewPublicVirtualInterface
     , _npvi1AmazonAddress :: Text
     , _npvi1CustomerAddress :: Text
     , _npvi1RouteFilterPrefixes :: [RouteFilterPrefix]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NewPublicVirtualInterface' data type to populate a request.
@@ -892,7 +892,7 @@ data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation
     , _npvia1AmazonAddress :: Text
     , _npvia1CustomerAddress :: Text
     , _npvia1RouteFilterPrefixes :: [RouteFilterPrefix]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NewPublicVirtualInterfaceAllocation' data type to populate a request.
@@ -976,7 +976,7 @@ instance ToJSON NewPublicVirtualInterfaceAllocation
 data VirtualGateway = VirtualGateway
     { _vgVirtualGatewayId :: Maybe Text
     , _vgVirtualGatewayState :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VirtualGateway' data type.
@@ -1031,7 +1031,7 @@ data VirtualInterface = VirtualInterface
     , _viCustomerRouterConfig :: Maybe Text
     , _viVirtualGatewayId :: Maybe Text
     , _viRouteFilterPrefixes :: [RouteFilterPrefix]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VirtualInterface' data type.

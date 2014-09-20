@@ -43,7 +43,7 @@ import Network.AWS.ElasticBeanstalk.Types
 import Network.AWS.Prelude
 
 data ListAvailableSolutionStacks = ListAvailableSolutionStacks
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListAvailableSolutionStacks' request.
@@ -57,7 +57,7 @@ instance ToQuery ListAvailableSolutionStacks where
 data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse
     { _lassrSolutionStacks :: [Text]
     , _lassrSolutionStackDetails :: [SolutionStackDescription]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListAvailableSolutionStacksResponse' response.

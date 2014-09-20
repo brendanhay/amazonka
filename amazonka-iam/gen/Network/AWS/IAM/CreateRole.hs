@@ -60,7 +60,7 @@ data CreateRole = CreateRole
     { _crPath :: Maybe Text
     , _crRoleName :: Text
     , _crAssumeRolePolicyDocument :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateRole' request.
@@ -104,7 +104,7 @@ instance ToQuery CreateRole where
 -- | Contains the result of a successful invocation of the CreateRole action.
 newtype CreateRoleResponse = CreateRoleResponse
     { _crrRole :: Role
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateRoleResponse' response.

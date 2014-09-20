@@ -48,7 +48,7 @@ import Network.AWS.Request.JSON
 data DescribeLayers = DescribeLayers
     { _dl1StackId :: Maybe Text
     , _dl1LayerIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLayers' request.
@@ -86,7 +86,7 @@ instance ToJSON DescribeLayers
 -- | Contains the response to a DescribeLayers request.
 newtype DescribeLayersResponse = DescribeLayersResponse
     { _dlrLayers :: [Layer]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLayersResponse' response.

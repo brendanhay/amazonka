@@ -87,7 +87,7 @@ data SplitShard = SplitShard
     { _ssStreamName :: Text
     , _ssShardToSplit :: Text
     , _ssNewStartingHashKey :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SplitShard' request.
@@ -138,7 +138,7 @@ instance ToHeaders SplitShard
 instance ToJSON SplitShard
 
 data SplitShardResponse = SplitShardResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SplitShardResponse' response.

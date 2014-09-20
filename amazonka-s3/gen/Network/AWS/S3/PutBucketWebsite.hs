@@ -45,7 +45,7 @@ data PutBucketWebsite = PutBucketWebsite
     { _pbwBucket :: BucketName
     , _pbwContentMD5 :: Maybe Text
     , _pbwWebsiteConfiguration :: WebsiteConfiguration
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketWebsite' request.
@@ -91,7 +91,7 @@ instance ToBody PutBucketWebsite where
     toBody = toBody . encodeXML . _pbwWebsiteConfiguration
 
 data PutBucketWebsiteResponse = PutBucketWebsiteResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketWebsiteResponse' response.

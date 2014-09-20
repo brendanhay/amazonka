@@ -62,7 +62,7 @@ data ReplaceRoute = ReplaceRoute
     , _rr1InstanceId :: Maybe Text
     , _rr1NetworkInterfaceId :: Maybe Text
     , _rr1VpcPeeringConnectionId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReplaceRoute' request.
@@ -127,7 +127,7 @@ instance ToQuery ReplaceRoute where
     toQuery = genericQuery def
 
 data ReplaceRouteResponse = ReplaceRouteResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReplaceRouteResponse' response.

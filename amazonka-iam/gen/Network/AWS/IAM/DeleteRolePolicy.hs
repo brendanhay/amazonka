@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 data DeleteRolePolicy = DeleteRolePolicy
     { _drpRoleName :: Text
     , _drpPolicyName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteRolePolicy' request.
@@ -76,7 +76,7 @@ instance ToQuery DeleteRolePolicy where
     toQuery = genericQuery def
 
 data DeleteRolePolicyResponse = DeleteRolePolicyResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteRolePolicyResponse' response.

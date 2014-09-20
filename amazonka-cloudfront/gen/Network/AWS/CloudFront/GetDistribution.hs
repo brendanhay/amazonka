@@ -45,7 +45,7 @@ import Network.AWS.Types (Region)
 -- | The request to get a distribution's information.
 newtype GetDistribution = GetDistribution
     { _gdId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetDistribution' request.
@@ -78,7 +78,7 @@ instance ToXML GetDistribution where
 data GetDistributionResponse = GetDistributionResponse
     { _gdrDistribution :: Maybe Distribution
     , _gdrETag :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetDistributionResponse' response.

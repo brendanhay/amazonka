@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 data DisableMetricsCollection = DisableMetricsCollection
     { _dmcAutoScalingGroupName :: Text
     , _dmcMetrics :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisableMetricsCollection' request.
@@ -80,7 +80,7 @@ instance ToQuery DisableMetricsCollection where
     toQuery = genericQuery def
 
 data DisableMetricsCollectionResponse = DisableMetricsCollectionResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisableMetricsCollectionResponse' response.

@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 data RebuildEnvironment = RebuildEnvironment
     { _reEnvironmentId :: Maybe Text
     , _reEnvironmentName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RebuildEnvironment' request.
@@ -82,7 +82,7 @@ instance ToQuery RebuildEnvironment where
     toQuery = genericQuery def
 
 data RebuildEnvironmentResponse = RebuildEnvironmentResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RebuildEnvironmentResponse' response.

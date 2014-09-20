@@ -63,7 +63,7 @@ data ImportInstance = ImportInstance
     , _iiLaunchSpecification :: Maybe ImportInstanceLaunchSpecification
     , _iiDiskImages :: [DiskImage]
     , _iiPlatform :: PlatformValues
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ImportInstance' request.
@@ -109,7 +109,7 @@ instance ToQuery ImportInstance where
 
 newtype ImportInstanceResponse = ImportInstanceResponse
     { _iirConversionTask :: Maybe ConversionTask
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ImportInstanceResponse' response.

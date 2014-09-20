@@ -28,6 +28,7 @@ module Network.AWS.Internal.Data.Time
     , POSIX
     ) where
 
+import Data.Function (on)
 import           Control.Applicative
 import           Data.Aeson
 import           Data.Attoparsec.Text        (Parser)
@@ -56,6 +57,12 @@ data Time :: Format -> * where
 
 deriving instance Show (Time a)
 deriving instance Eq   (Time a)
+
+instance Ord (Time (a  :: Format)) where
+    compare = compare `on` ts
+      where
+        ts (Time         t) = (t, defaultTimeLocale)
+        ts (LocaleTime l t) = (t, l)
 
 type RFC822    = Time RFC822Format
 type ISO8601   = Time ISO8601Format

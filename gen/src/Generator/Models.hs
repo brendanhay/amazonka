@@ -20,15 +20,13 @@ import Control.Applicative
 import Control.Error
 import Data.List
 import Data.Ord
-import Generator.Log
 import System.Directory
 import System.FilePath
 
 data Model = Model
-    { modPath    :: FilePath
-    , modVersion :: String
-    , modGlobal  :: FilePath
-    , modLocal   :: Maybe FilePath
+    { modPath     :: FilePath
+    , modVersion  :: String
+    , modOverride :: FilePath
     } deriving (Show, Eq)
 
 instance Ord Model where
@@ -44,19 +42,16 @@ models o xs = concat . fmap (take 1 . sortBy (flip compare)) <$> mapM model xs
 
 fromPath :: FilePath -> FilePath -> String -> Script Model
 fromPath o d f = do
-    (p, g, l) <- scriptIO $ (,,)
+    (p, g) <- scriptIO $ (,)
         <$> check file
-        <*> check global
-        <*> check local
+        <*> check override
 
     Model file
         <$> (dropExtension <$> must p)
         <*> must g
-        <*> may  l
   where
-    file   = d </> f
-    global = o </> takeBaseName d <.> ".override.json"
-    local  = o </> takeBaseName d </> replaceExtension f ".override.json"
+    file     = d </> f
+    override = o </> takeBaseName d <.> ".override.json"
 
     check p = (p,) <$> doesFileExist p
 
@@ -64,10 +59,4 @@ fromPath o d f = do
     must (p, e) =
         bool (left $ "Unable to locate: " ++ p)
              (right p)
-             e
-
-    may :: (FilePath, Bool) -> Script (Maybe FilePath)
-    may (p, e) =
-        bool (say "Missing Override" p >> right Nothing)
-             (right (Just p))
              e

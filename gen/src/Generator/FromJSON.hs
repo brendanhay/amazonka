@@ -50,24 +50,18 @@ import           Generator.Transform
 import           Network.HTTP.Types.Method
 import           Text.EDE.Filters
 
--- FIXME: considering the pervasive-ness/requirements of having overrides
--- maybe it should error if they don't exist, just global?
-
 -- FIXME: what is 'signing_name' in the ses json model?
 
 parseModel :: Model -> Script Service
 parseModel Model{..} = do
-    (s, g, l) <- (,,)
-        <$> load "Service"  (Just modPath)
-        <*> load "Override" (Just modGlobal)
-        <*> load "Override" modLocal
+    (s, g) <- (,)
+        <$> load "Service"  modPath
+        <*> load "Override" modOverride
 
-    -- First merge local, then global overrides.
-    parse' . Object $ (l `unionObject` g) `unionObject` s
+    parse' . Object $ g `unionObject` s
   where
-    load :: Text -> Maybe FilePath -> Script Object
-    load _ Nothing  = return mempty
-    load n (Just f) = do
+    load :: Text -> FilePath -> Script Object
+    load n f = do
         say ("Parse " <> n) f
         eitherDecode <$>
             scriptIO (LBS.readFile f) >>= hoistEither

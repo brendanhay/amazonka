@@ -114,7 +114,7 @@ instance ToQuery ListEndpointsByPlatformApplication where
 data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse
     { _lebparEndpoints :: [Endpoint']
     , _lebparNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListEndpointsByPlatformApplicationResponse' response.

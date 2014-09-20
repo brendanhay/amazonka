@@ -1273,7 +1273,7 @@ data Cluster = Cluster
     , _cApplications :: [Application]
     , _cTags :: [Tag]
     , _cServiceRole :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Cluster' data type.

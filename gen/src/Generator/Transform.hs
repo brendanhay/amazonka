@@ -271,7 +271,7 @@ shapeType rq svc@Service{..} s = defaultType shape
     & typPayload  .~ bdy
     & typFields   .~ fs
     & typHeaders  .~ hs
-    & typDeriving .~ catMaybes [equality, ordered] <> defaultDeriving
+    & typDeriving .~ derivingOf shape <> defaultDeriving
   where
     bdy = listToMaybe $ filter ((== LBody) . view cmnLocation) fs
     hs  = filter ((== LHeader) . view cmnLocation) fs
@@ -286,13 +286,18 @@ shapeType rq svc@Service{..} s = defaultType shape
     shape = ignoreFields (svc^.fIgnored) s
     name  = s^.cmnName
 
-    equality
-        | not (any (view cmnStreaming) fs) = Just "Eq"
-        | otherwise = Nothing
+derivingOf :: Shape -> [Text]
+derivingOf s
+    | eq', ord' s = ["Eq", "Ord"]
+    | eq'         = ["Eq"]
+    | otherwise   = []
+  where
+    eq'  = not (any (view cmnStreaming . snd) (shapesOf s))
+    ord' = all (valid . snd) . shapesOf
 
-    ordered
-        | isJust equality, all (isn't _SMap . snd) (shapesOf s) = Just "Ord"
-        | otherwise = Nothing
+    valid (SList l) = ord' (l^.lstItem)
+    valid (SMap  _) = False
+    valid _         = True
 
 annOf :: Bool -> Service -> Shape -> Ann
 annOf rq svc s =

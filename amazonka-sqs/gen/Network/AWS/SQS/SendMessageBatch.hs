@@ -82,7 +82,7 @@ import Network.AWS.Prelude
 data SendMessageBatch = SendMessageBatch
     { _smbQueueUrl :: Text
     , _smbEntries :: [SendMessageBatchRequestEntry]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SendMessageBatch' request.

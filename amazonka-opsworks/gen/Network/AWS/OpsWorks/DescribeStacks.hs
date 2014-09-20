@@ -76,7 +76,7 @@ instance ToJSON DescribeStacks
 -- | Contains the response to a DescribeStacks request.
 newtype DescribeStacksResponse = DescribeStacksResponse
     { _dsrStacks :: [Stack]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStacksResponse' response.

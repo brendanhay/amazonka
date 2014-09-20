@@ -18,7 +18,7 @@ import GHC.Generics
 import Network.AWS.Prelude
 
 newtype BucketName = BucketName Text
-    deriving (Eq, Show, Generic, IsString)
+    deriving (Eq, Ord, Show, Generic, IsString)
 
 instance FromText     BucketName where parser = BucketName <$> takeText
 instance ToText       BucketName where toText (BucketName b) = b
@@ -28,7 +28,7 @@ instance ToXML        BucketName
 instance ToQuery      BucketName where toQuery = toQuery . toBS
 
 newtype ObjectKey = ObjectKey Text
-    deriving (Eq, Show, Generic, IsString)
+    deriving (Eq, Ord, Show, Generic, IsString)
 
 instance FromText     ObjectKey where parser = ObjectKey <$> takeText
 instance ToText       ObjectKey where toText (ObjectKey k) = k
@@ -38,7 +38,7 @@ instance ToXML        ObjectKey
 instance ToQuery      ObjectKey where toQuery = toQuery . toBS
 
 newtype ObjectVersionId = ObjectVersionId Text
-    deriving (Eq, Show, Generic, IsString)
+    deriving (Eq, Ord, Show, Generic, IsString)
 
 instance FromText     ObjectVersionId where parser = ObjectVersionId <$> takeText
 instance ToText       ObjectVersionId where toText (ObjectVersionId v) = v
@@ -48,7 +48,7 @@ instance ToXML        ObjectVersionId
 instance ToQuery      ObjectVersionId where toQuery = toQuery . toBS
 
 newtype ETag = ETag Text
-    deriving (Eq, Show, Generic, IsString)
+    deriving (Eq, Ord, Show, Generic, IsString)
 
 instance FromText     ETag where parser = ETag <$> takeText
 instance ToText       ETag where toText (ETag t) = t

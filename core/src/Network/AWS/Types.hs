@@ -418,18 +418,18 @@ instance ToText Zone where
 
 -- | A service action.
 newtype Action = Action Text
-    deriving (Eq, Show, IsString)
+    deriving (Eq, Ord, Show, IsString)
 
 instance ToQuery Action where
     toQuery (Action a) = toQuery ("Action" :: ByteString, a)
 
 -- | A switch which can be either 'Enabled' or 'Disabled'.
 data Switch a = Enabled | Disabled
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Base64 encoded binary date.
 newtype Base64 = Base64 ByteString
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 base64 :: ByteString -> Base64
 base64 = Base64 . Base64.encode

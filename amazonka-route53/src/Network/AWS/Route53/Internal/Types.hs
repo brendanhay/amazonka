@@ -18,7 +18,7 @@ import GHC.Generics
 import Network.AWS.Prelude
 
 newtype ResourceId = ResourceId Text
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 instance FromText     ResourceId where parser = ResourceId <$> takeText
 instance ToText       ResourceId where toText (ResourceId t) = t
@@ -29,7 +29,7 @@ instance ToQuery      ResourceId where toQuery = toQuery . toBS
 instance IsString     ResourceId where fromString = ResourceId . fromString
 
 data RecordType = A | AAAA | CNAME | MX | NS | PTR | SOA | SPF | SRV | TXT
-    deriving (Eq, Read, Show, Ord, Generic)
+    deriving (Eq, Ord, Read, Show, Generic)
 
 instance FromText RecordType where
     parser = match "A"     A

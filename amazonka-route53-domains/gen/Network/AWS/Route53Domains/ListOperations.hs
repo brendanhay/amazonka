@@ -64,7 +64,7 @@ import Network.AWS.Request.JSON
 data ListOperations = ListOperations
     { _loMarker :: Maybe Text
     , _loMaxItems :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListOperations' request.
@@ -107,7 +107,7 @@ instance ToJSON ListOperations
 data ListOperationsResponse = ListOperationsResponse
     { _lorOperations :: [OperationSummary]
     , _lorNextPageMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListOperationsResponse' response.

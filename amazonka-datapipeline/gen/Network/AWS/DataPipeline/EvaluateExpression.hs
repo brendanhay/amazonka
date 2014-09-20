@@ -58,7 +58,7 @@ data EvaluateExpression = EvaluateExpression
     { _eePipelineId :: Text
     , _eeObjectId :: Text
     , _eeExpression :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EvaluateExpression' request.
@@ -104,7 +104,7 @@ instance ToJSON EvaluateExpression
 -- | Contains the output from the EvaluateExpression action.
 newtype EvaluateExpressionResponse = EvaluateExpressionResponse
     { _eerEvaluatedExpression :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EvaluateExpressionResponse' response.

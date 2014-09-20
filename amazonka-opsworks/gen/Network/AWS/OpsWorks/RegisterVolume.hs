@@ -50,7 +50,7 @@ import Network.AWS.Request.JSON
 data RegisterVolume = RegisterVolume
     { _rvEc2VolumeId :: Maybe Text
     , _rvStackId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterVolume' request.
@@ -87,7 +87,7 @@ instance ToJSON RegisterVolume
 -- | Contains the response to a RegisterVolume request.
 newtype RegisterVolumeResponse = RegisterVolumeResponse
     { _rvrVolumeId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterVolumeResponse' response.

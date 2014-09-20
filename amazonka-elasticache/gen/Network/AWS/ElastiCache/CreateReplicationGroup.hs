@@ -61,7 +61,7 @@ data CreateReplicationGroup = CreateReplicationGroup
     { _crgReplicationGroupId :: Text
     , _crgPrimaryClusterId :: Text
     , _crgReplicationGroupDescription :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateReplicationGroup' request.
@@ -110,7 +110,7 @@ instance ToQuery CreateReplicationGroup where
 
 newtype CreateReplicationGroupResponse = CreateReplicationGroupResponse
     { _crgrReplicationGroup :: Maybe ReplicationGroup
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateReplicationGroupResponse' response.

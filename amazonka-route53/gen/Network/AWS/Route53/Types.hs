@@ -683,7 +683,7 @@ instance ToQuery TagResourceType where
 -- | A complex type that contains name server information.
 newtype DelegationSet = DelegationSet
     { _dsNameServers :: List1 Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DelegationSet' data type.
@@ -714,7 +714,7 @@ instance FromXML DelegationSet where
 -- | A complex type that contains an optional comment about your hosted zone.
 newtype HostedZoneConfig = HostedZoneConfig
     { _hzcComment :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HostedZoneConfig' data type to populate a request.
@@ -746,7 +746,7 @@ instance ToXML HostedZoneConfig where
 -- resource record set.
 newtype ResourceRecord = ResourceRecord
     { _rrValue :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ResourceRecord' data type to populate a request.
@@ -779,7 +779,7 @@ data AliasTarget = AliasTarget
     { _atHostedZoneId :: ResourceId
     , _atDNSName :: Text
     , _atEvaluateTargetHealth :: !Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AliasTarget' data type to populate a request.
@@ -836,7 +836,7 @@ instance ToXML AliasTarget where
 data Change = Change
     { _cAction :: ChangeAction
     , _cResourceRecordSet :: ResourceRecordSet
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Change' data type to populate a request.
@@ -872,7 +872,7 @@ instance ToXML Change where
 data ChangeBatch = ChangeBatch
     { _cbComment :: Maybe Text
     , _cbChanges :: List1 Change
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChangeBatch' data type to populate a request.
@@ -911,7 +911,7 @@ data ChangeInfo = ChangeInfo
     , _ciStatus :: ChangeStatus
     , _ciSubmittedAt :: ISO8601
     , _ciComment :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChangeInfo' data type.
@@ -976,7 +976,7 @@ data GeoLocation = GeoLocation
     { _glContinentCode :: Maybe Text
     , _glCountryCode :: Maybe Text
     , _glSubdivisionCode :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'GeoLocation' data type to populate a request.
@@ -1035,7 +1035,7 @@ data GeoLocationDetails = GeoLocationDetails
     , _gldCountryName :: Maybe Text
     , _gldSubdivisionCode :: Maybe Text
     , _gldSubdivisionName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'GeoLocationDetails' data type.
@@ -1114,7 +1114,7 @@ data HealthCheck = HealthCheck
     , _hcCallerReference :: Text
     , _hcHealthCheckConfig :: HealthCheckConfig
     , _hcHealthCheckVersion :: !Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HealthCheck' data type.
@@ -1179,7 +1179,7 @@ data HealthCheckConfig = HealthCheckConfig
     , _hccSearchString :: Maybe Text
     , _hccRequestInterval :: Maybe Integer
     , _hccFailureThreshold :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HealthCheckConfig' data type to populate a request.
@@ -1280,7 +1280,7 @@ data HostedZone = HostedZone
     , _hzCallerReference :: Text
     , _hzConfig :: Maybe HostedZoneConfig
     , _hzResourceRecordSetCount :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HostedZone' data type.
@@ -1359,7 +1359,7 @@ data ResourceRecordSet = ResourceRecordSet
     , _rrsResourceRecords :: List1 ResourceRecord
     , _rrsAliasTarget :: Maybe AliasTarget
     , _rrsHealthCheckId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ResourceRecordSet' data type to populate a request.
@@ -1492,7 +1492,7 @@ data ResourceTagSet = ResourceTagSet
     { _rtsResourceType :: Maybe TagResourceType
     , _rtsResourceId :: Maybe Text
     , _rtsTags :: Maybe (List1 Tag)
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ResourceTagSet' data type.
@@ -1536,7 +1536,7 @@ instance FromXML ResourceTagSet where
 data Tag = Tag
     { _tKey :: Maybe Text
     , _tValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type to populate a request.

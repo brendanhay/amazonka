@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 
 newtype DeleteAccountAlias = DeleteAccountAlias
     { _daaAccountAlias :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAccountAlias' request.
@@ -67,7 +67,7 @@ instance ToQuery DeleteAccountAlias where
     toQuery = genericQuery def
 
 data DeleteAccountAliasResponse = DeleteAccountAliasResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAccountAliasResponse' response.

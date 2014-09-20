@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
     { _upiaNetworkInterfaceId :: Text
     , _upiaPrivateIpAddresses :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UnassignPrivateIpAddresses' request.
@@ -86,7 +86,7 @@ instance ToQuery UnassignPrivateIpAddresses where
     toQuery = genericQuery def
 
 data UnassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UnassignPrivateIpAddressesResponse' response.

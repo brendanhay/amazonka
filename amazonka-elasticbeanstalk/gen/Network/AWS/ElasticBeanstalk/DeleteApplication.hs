@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 data DeleteApplication = DeleteApplication
     { _daApplicationName :: Text
     , _daTerminateEnvByForce :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteApplication' request.
@@ -82,7 +82,7 @@ instance ToQuery DeleteApplication where
     toQuery = genericQuery def
 
 data DeleteApplicationResponse = DeleteApplicationResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteApplicationResponse' response.

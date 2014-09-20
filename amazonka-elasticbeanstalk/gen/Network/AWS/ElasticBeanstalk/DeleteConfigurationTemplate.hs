@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 data DeleteConfigurationTemplate = DeleteConfigurationTemplate
     { _dctApplicationName :: Text
     , _dctTemplateName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteConfigurationTemplate' request.
@@ -81,7 +81,7 @@ instance ToQuery DeleteConfigurationTemplate where
     toQuery = genericQuery def
 
 data DeleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteConfigurationTemplateResponse' response.

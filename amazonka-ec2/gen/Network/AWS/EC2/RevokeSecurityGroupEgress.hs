@@ -74,7 +74,7 @@ data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress
     , _rsgeToPort :: Maybe Integer
     , _rsgeCidrIp :: Maybe Text
     , _rsgeIpPermissions :: [IpPermission]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RevokeSecurityGroupEgress' request.
@@ -158,7 +158,7 @@ instance ToQuery RevokeSecurityGroupEgress where
     toQuery = genericQuery def
 
 data RevokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RevokeSecurityGroupEgressResponse' response.

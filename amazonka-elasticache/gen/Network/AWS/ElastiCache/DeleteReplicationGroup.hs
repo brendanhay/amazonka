@@ -59,7 +59,7 @@ data DeleteReplicationGroup = DeleteReplicationGroup
     { _drgReplicationGroupId :: Text
     , _drgRetainPrimaryCluster :: Maybe Bool
     , _drgFinalSnapshotIdentifier :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteReplicationGroup' request.
@@ -108,7 +108,7 @@ instance ToQuery DeleteReplicationGroup where
 
 newtype DeleteReplicationGroupResponse = DeleteReplicationGroupResponse
     { _drgrReplicationGroup :: Maybe ReplicationGroup
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteReplicationGroupResponse' response.

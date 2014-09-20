@@ -56,7 +56,7 @@ import Network.AWS.Prelude
 data DeleteCacheCluster = DeleteCacheCluster
     { _dccCacheClusterId :: Text
     , _dccFinalSnapshotIdentifier :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCacheCluster' request.
@@ -92,7 +92,7 @@ instance ToQuery DeleteCacheCluster where
 
 newtype DeleteCacheClusterResponse = DeleteCacheClusterResponse
     { _dccrCacheCluster :: Maybe CacheCluster
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCacheClusterResponse' response.

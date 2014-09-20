@@ -63,7 +63,7 @@ data SetIdentityNotificationTopic = SetIdentityNotificationTopic
     { _sintIdentity :: Text
     , _sintNotificationType :: NotificationType
     , _sintSnsTopic :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetIdentityNotificationTopic' request.
@@ -108,7 +108,7 @@ instance ToQuery SetIdentityNotificationTopic where
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.
 data SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetIdentityNotificationTopicResponse' response.

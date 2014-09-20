@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 data DefineAnalysisScheme = DefineAnalysisScheme
     { _dasDomainName :: Text
     , _dasAnalysisScheme :: AnalysisScheme
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DefineAnalysisScheme' request.
@@ -91,7 +91,7 @@ instance ToQuery DefineAnalysisScheme where
 -- newly-configured analysis scheme.
 newtype DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse
     { _dasrAnalysisScheme :: AnalysisSchemeStatus
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DefineAnalysisSchemeResponse' response.

@@ -59,7 +59,7 @@ data ListUsers = ListUsers
     { _luPathPrefix :: Maybe Text
     , _luMarker :: Maybe Text
     , _luMaxItems :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListUsers' request.
@@ -109,7 +109,7 @@ data ListUsersResponse = ListUsersResponse
     { _lurUsers :: [User]
     , _lurIsTruncated :: !Bool
     , _lurMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListUsersResponse' response.

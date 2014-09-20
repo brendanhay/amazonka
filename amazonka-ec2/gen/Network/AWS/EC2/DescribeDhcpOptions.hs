@@ -68,7 +68,7 @@ import Network.AWS.Prelude
 data DescribeDhcpOptions = DescribeDhcpOptions
     { _ddo1DhcpOptionsIds :: [Text]
     , _ddo1Filters :: [Filter]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDhcpOptions' request.
@@ -110,7 +110,7 @@ instance ToQuery DescribeDhcpOptions where
 
 newtype DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
     { _ddorDhcpOptions :: [DhcpOptions]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDhcpOptionsResponse' response.

@@ -63,7 +63,7 @@ data CreateDBParameterGroup = CreateDBParameterGroup
     , _cdbpgDBParameterGroupFamily :: Text
     , _cdbpgDescription :: Text
     , _cdbpgTags :: [Tag]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBParameterGroup' request.
@@ -121,7 +121,7 @@ instance ToQuery CreateDBParameterGroup where
 
 newtype CreateDBParameterGroupResponse = CreateDBParameterGroupResponse
     { _cdbpgrDBParameterGroup :: Maybe DBParameterGroup
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBParameterGroupResponse' response.

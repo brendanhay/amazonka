@@ -82,7 +82,7 @@ import Network.AWS.Request.JSON
 data BatchGetItem = BatchGetItem
     { _bgiRequestItems :: Map Text KeysAndAttributes
     , _bgiReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'BatchGetItem' request.
@@ -134,7 +134,7 @@ data BatchGetItemResponse = BatchGetItemResponse
     { _bgirResponses :: Map Text [Map Text AttributeValue]
     , _bgirUnprocessedKeys :: Map Text KeysAndAttributes
     , _bgirConsumedCapacity :: [ConsumedCapacity]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'BatchGetItemResponse' response.

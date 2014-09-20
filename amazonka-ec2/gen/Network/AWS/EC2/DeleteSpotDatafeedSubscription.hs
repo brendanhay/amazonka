@@ -44,7 +44,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSpotDatafeedSubscription' request.
@@ -55,7 +55,7 @@ instance ToQuery DeleteSpotDatafeedSubscription where
     toQuery = genericQuery def
 
 data DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSpotDatafeedSubscriptionResponse' response.

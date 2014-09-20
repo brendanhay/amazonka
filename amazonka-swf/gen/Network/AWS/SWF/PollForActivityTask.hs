@@ -92,7 +92,7 @@ data PollForActivityTask = PollForActivityTask
     { _pfatDomain :: Text
     , _pfatTaskList :: TaskList
     , _pfatIdentity :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PollForActivityTask' request.
@@ -148,7 +148,7 @@ data PollForActivityTaskResponse = PollForActivityTaskResponse
     , _pfatrWorkflowExecution :: WorkflowExecution
     , _pfatrActivityType :: ActivityType
     , _pfatrInput :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PollForActivityTaskResponse' response.

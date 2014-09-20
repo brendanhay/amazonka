@@ -1037,7 +1037,7 @@ data App = App
     , _aAttributes :: Map AppAttributesKeys Text
     , _aCreatedAt :: Maybe Text
     , _aEnvironment :: [EnvironmentVariable]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'App' data type.
@@ -1166,7 +1166,7 @@ data AutoScalingThresholds = AutoScalingThresholds
     , _astCpuThreshold :: Maybe Double
     , _astMemoryThreshold :: Maybe Double
     , _astLoadThreshold :: Maybe Double
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AutoScalingThresholds' data type to populate a request.
@@ -1243,7 +1243,7 @@ instance ToJSON AutoScalingThresholds
 data ChefConfiguration = ChefConfiguration
     { _ccManageBerkshelf :: Maybe Bool
     , _ccBerkshelfVersion :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChefConfiguration' data type to populate a request.
@@ -1286,7 +1286,7 @@ data Command = Command
     , _cExitCode :: Maybe Integer
     , _cLogUrl :: Maybe Text
     , _cType :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Command' data type.
@@ -1379,7 +1379,7 @@ data DataSource = DataSource
     { _dsType :: Maybe Text
     , _dsArn :: Maybe Text
     , _dsDatabaseName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DataSource' data type to populate a request.
@@ -1430,7 +1430,7 @@ data Deployment = Deployment
     , _dStatus :: Maybe Text
     , _dCustomJson :: Maybe Text
     , _dInstanceIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Deployment' data type.
@@ -1539,7 +1539,7 @@ instance FromJSON Deployment
 data DeploymentCommand = DeploymentCommand
     { _dcName :: DeploymentCommandName
     , _dcArgs :: Map Text [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DeploymentCommand' data type to populate a request.
@@ -1593,7 +1593,7 @@ data ElasticIp = ElasticIp
     , _eiDomain :: Maybe Text
     , _eiRegion :: Maybe Text
     , _eiInstanceId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ElasticIp' data type.
@@ -1655,7 +1655,7 @@ data ElasticLoadBalancer = ElasticLoadBalancer
     , _elbAvailabilityZones :: [Text]
     , _elbSubnetIds :: [Text]
     , _elbEc2InstanceIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ElasticLoadBalancer' data type.
@@ -1744,7 +1744,7 @@ data EnvironmentVariable = EnvironmentVariable
     { _evKey :: Text
     , _evValue :: Text
     , _evSecure :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EnvironmentVariable' data type to populate a request.
@@ -1822,7 +1822,7 @@ data Instance = Instance
     , _iRootDeviceVolumeId :: Maybe Text
     , _iInstallUpdatesOnBoot :: Maybe Bool
     , _iEbsOptimized :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Instance' data type.
@@ -2093,7 +2093,7 @@ data InstancesCount = InstancesCount
     , _icStopping :: Maybe Integer
     , _icTerminated :: Maybe Integer
     , _icTerminating :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstancesCount' data type.
@@ -2229,7 +2229,7 @@ data Layer = Layer
     , _lCreatedAt :: Maybe Text
     , _lInstallUpdatesOnBoot :: Maybe Bool
     , _lUseEbsOptimizedInstances :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Layer' data type.
@@ -2419,7 +2419,7 @@ data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration
     , _lbascEnable :: Maybe Bool
     , _lbascUpScaling :: Maybe AutoScalingThresholds
     , _lbascDownScaling :: Maybe AutoScalingThresholds
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LoadBasedAutoScalingConfiguration' data type.
@@ -2475,7 +2475,7 @@ data Permission = Permission
     , _pAllowSsh :: Maybe Bool
     , _pAllowSudo :: Maybe Bool
     , _pLevel :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Permission' data type.
@@ -2544,7 +2544,7 @@ data RaidArray = RaidArray
     , _raStackId :: Maybe Text
     , _raVolumeType :: Maybe Text
     , _raIops :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RaidArray' data type.
@@ -2664,7 +2664,7 @@ data RdsDbInstance = RdsDbInstance
     , _rdiEngine :: Maybe Text
     , _rdiStackId :: Maybe Text
     , _rdiMissingOnRds :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RdsDbInstance' data type.
@@ -2755,7 +2755,7 @@ data Recipes = Recipes
     , _rDeploy :: [Text]
     , _rUndeploy :: [Text]
     , _rShutdown :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Recipes' data type to populate a request.
@@ -2811,7 +2811,7 @@ data SelfUserProfile = SelfUserProfile
     , _supName :: Maybe Text
     , _supSshUsername :: Maybe Text
     , _supSshPublicKey :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SelfUserProfile' data type.
@@ -2863,7 +2863,7 @@ data ServiceError = ServiceError
     , _seType :: Maybe Text
     , _seMessage :: Maybe Text
     , _seCreatedAt :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ServiceError' data type.
@@ -2932,7 +2932,7 @@ data Source' = Source'
     , _sPassword :: Maybe Text
     , _sSshKey :: Maybe Text
     , _sRevision :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Source'' data type to populate a request.
@@ -3002,7 +3002,7 @@ data SslConfiguration = SslConfiguration
     { _scCertificate :: Text
     , _scPrivateKey :: Text
     , _scChain :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SslConfiguration' data type to populate a request.
@@ -3064,7 +3064,7 @@ data Stack = Stack
     , _srDefaultSshKeyName :: Maybe Text
     , _srCreatedAt :: Maybe Text
     , _srDefaultRootDeviceType :: Maybe RootDeviceType
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Stack' data type.
@@ -3265,7 +3265,7 @@ instance FromJSON Stack
 data StackConfigurationManager = StackConfigurationManager
     { _scmName :: Maybe Text
     , _scmVersion :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StackConfigurationManager' data type to populate a request.
@@ -3303,7 +3303,7 @@ data StackSummary = StackSummary
     , _ssLayersCount :: Maybe Integer
     , _ssAppsCount :: Maybe Integer
     , _ssInstancesCount :: Maybe InstancesCount
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StackSummary' data type.
@@ -3366,7 +3366,7 @@ instance FromJSON StackSummary
 data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration
     { _tbascInstanceId :: Maybe Text
     , _tbascAutoScalingSchedule :: Maybe WeeklyAutoScalingSchedule
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TimeBasedAutoScalingConfiguration' data type.
@@ -3405,7 +3405,7 @@ data UserProfile = UserProfile
     , _upSshUsername :: Maybe Text
     , _upSshPublicKey :: Maybe Text
     , _upAllowSelfManagement :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'UserProfile' data type.
@@ -3473,7 +3473,7 @@ data Volume = Volume
     , _vAvailabilityZone :: Maybe Text
     , _vVolumeType :: Maybe Text
     , _vIops :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Volume' data type.
@@ -3591,7 +3591,7 @@ data VolumeConfiguration = VolumeConfiguration
     , _vcSize :: !Integer
     , _vcVolumeType :: Maybe Text
     , _vcIops :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VolumeConfiguration' data type to populate a request.
@@ -3660,7 +3660,7 @@ data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule
     , _wassFriday :: Map Text Text
     , _wassSaturday :: Map Text Text
     , _wassSunday :: Map Text Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WeeklyAutoScalingSchedule' data type to populate a request.

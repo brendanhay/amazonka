@@ -55,7 +55,7 @@ data Select = Select
     { _sSelectExpression :: Text
     , _sNextToken :: Maybe Text
     , _sConsistentRead :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'Select' request.
@@ -99,7 +99,7 @@ instance ToQuery Select where
 data SelectResponse = SelectResponse
     { _srItems :: [Item]
     , _srNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SelectResponse' response.

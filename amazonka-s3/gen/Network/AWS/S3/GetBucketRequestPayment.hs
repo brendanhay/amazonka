@@ -43,7 +43,7 @@ import Network.AWS.Types (Region)
 
 newtype GetBucketRequestPayment = GetBucketRequestPayment
     { _gbrpBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketRequestPayment' request.
@@ -71,7 +71,7 @@ instance ToBody GetBucketRequestPayment
 
 newtype GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
     { _gbrprPayer :: Maybe Payer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketRequestPaymentResponse' response.

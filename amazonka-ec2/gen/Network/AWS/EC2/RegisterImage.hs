@@ -104,7 +104,7 @@ data RegisterImage = RegisterImage
     , _ri2BlockDeviceMappings :: [BlockDeviceMapping]
     , _ri2VirtualizationType :: Maybe VirtualizationType
     , _ri2SriovNetSupport :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterImage' request.
@@ -203,7 +203,7 @@ instance ToQuery RegisterImage where
 
 newtype RegisterImageResponse = RegisterImageResponse
     { _rirImageId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterImageResponse' response.

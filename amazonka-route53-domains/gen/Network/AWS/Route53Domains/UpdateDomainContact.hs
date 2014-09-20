@@ -82,7 +82,7 @@ data UpdateDomainContact = UpdateDomainContact
     , _udcAdminContact :: Maybe ContactDetail
     , _udcRegistrantContact :: Maybe ContactDetail
     , _udcTechContact :: Maybe ContactDetail
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateDomainContact' request.
@@ -146,7 +146,7 @@ instance ToJSON UpdateDomainContact
 -- | The UpdateDomainContact response includes the following element.
 newtype UpdateDomainContactResponse = UpdateDomainContactResponse
     { _udcrOperationId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateDomainContactResponse' response.

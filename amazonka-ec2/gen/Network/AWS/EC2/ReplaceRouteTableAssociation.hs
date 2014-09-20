@@ -57,7 +57,7 @@ import Network.AWS.Prelude
 data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
     { _rrtaAssociationId :: Text
     , _rrtaRouteTableId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReplaceRouteTableAssociation' request.
@@ -91,7 +91,7 @@ instance ToQuery ReplaceRouteTableAssociation where
 
 newtype ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
     { _rrtarNewAssociationId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReplaceRouteTableAssociationResponse' response.

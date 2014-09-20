@@ -54,7 +54,7 @@ import Network.AWS.Prelude
 data CreateTags = CreateTags
     { _ctResources :: [Text]
     , _ctTags :: [Tag]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateTags' request.
@@ -87,7 +87,7 @@ instance ToQuery CreateTags where
     toQuery = genericQuery def
 
 data CreateTagsResponse = CreateTagsResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateTagsResponse' response.

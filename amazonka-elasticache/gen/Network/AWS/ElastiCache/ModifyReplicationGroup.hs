@@ -84,7 +84,7 @@ data ModifyReplicationGroup = ModifyReplicationGroup
     , _mrgSnapshotRetentionLimit :: Maybe Integer
     , _mrgSnapshotWindow :: Maybe Text
     , _mrgSnapshottingClusterId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyReplicationGroup' request.
@@ -267,7 +267,7 @@ instance ToQuery ModifyReplicationGroup where
 
 newtype ModifyReplicationGroupResponse = ModifyReplicationGroupResponse
     { _mrgrReplicationGroup :: Maybe ReplicationGroup
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyReplicationGroupResponse' response.

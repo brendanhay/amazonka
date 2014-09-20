@@ -55,7 +55,7 @@ data GetAttributes = GetAttributes
     , _gaItemName :: Text
     , _gaAttributeNames :: [Text]
     , _gaConsistentRead :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetAttributes' request.
@@ -106,7 +106,7 @@ instance ToQuery GetAttributes where
 
 newtype GetAttributesResponse = GetAttributesResponse
     { _garAttributes :: [Attribute]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetAttributesResponse' response.

@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 
 newtype EnableVolumeIO = EnableVolumeIO
     { _evioVolumeId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableVolumeIO' request.
@@ -70,7 +70,7 @@ instance ToQuery EnableVolumeIO where
     toQuery = genericQuery def
 
 data EnableVolumeIOResponse = EnableVolumeIOResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableVolumeIOResponse' response.

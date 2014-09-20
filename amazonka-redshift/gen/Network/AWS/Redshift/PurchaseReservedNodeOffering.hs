@@ -61,7 +61,7 @@ import Network.AWS.Prelude
 data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering
     { _prnoReservedNodeOfferingId :: Text
     , _prnoNodeCount :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PurchaseReservedNodeOffering' request.
@@ -94,7 +94,7 @@ instance ToQuery PurchaseReservedNodeOffering where
 
 newtype PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
     { _prnorReservedNode :: Maybe ReservedNode
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PurchaseReservedNodeOfferingResponse' response.

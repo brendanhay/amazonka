@@ -55,7 +55,7 @@ import Network.AWS.Prelude
 -- | Input for DeletePlatformApplication action.
 newtype DeletePlatformApplication = DeletePlatformApplication
     { _dpaPlatformApplicationArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeletePlatformApplication' request.
@@ -80,7 +80,7 @@ instance ToQuery DeletePlatformApplication where
     toQuery = genericQuery def
 
 data DeletePlatformApplicationResponse = DeletePlatformApplicationResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeletePlatformApplicationResponse' response.

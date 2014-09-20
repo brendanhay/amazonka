@@ -48,7 +48,7 @@ data GetGeoLocation = GetGeoLocation
     { _gglContinentCode :: Maybe Text
     , _gglCountryCode :: Maybe Text
     , _gglSubdivisionCode :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetGeoLocation' request.
@@ -104,7 +104,7 @@ instance ToXML GetGeoLocation where
 -- | A complex type containing information about the specified geo location.
 newtype GetGeoLocationResponse = GetGeoLocationResponse
     { _gglrGeoLocationDetails :: GeoLocationDetails
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetGeoLocationResponse' response.

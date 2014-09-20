@@ -83,7 +83,7 @@ data AttachVolume = AttachVolume
     { _avVolumeId :: Text
     , _avInstanceId :: Text
     , _avDevice :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachVolume' request.
@@ -129,7 +129,7 @@ data AttachVolumeResponse = AttachVolumeResponse
     , _avrState :: Maybe VolumeAttachmentState
     , _avrAttachTime :: Maybe ISO8601
     , _avrDeleteOnTermination :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachVolumeResponse' response.

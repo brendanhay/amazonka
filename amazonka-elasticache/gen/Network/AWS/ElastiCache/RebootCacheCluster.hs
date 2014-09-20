@@ -61,7 +61,7 @@ import Network.AWS.Prelude
 data RebootCacheCluster = RebootCacheCluster
     { _rccCacheClusterId :: Text
     , _rccCacheNodeIdsToReboot :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RebootCacheCluster' request.
@@ -99,7 +99,7 @@ instance ToQuery RebootCacheCluster where
 
 newtype RebootCacheClusterResponse = RebootCacheClusterResponse
     { _rccrCacheCluster :: Maybe CacheCluster
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RebootCacheClusterResponse' response.

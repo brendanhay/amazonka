@@ -43,7 +43,7 @@ import Network.AWS.Types (Region)
 
 newtype GetBucketPolicy = GetBucketPolicy
     { _gbpBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketPolicy' request.
@@ -71,7 +71,7 @@ instance ToBody GetBucketPolicy
 
 newtype GetBucketPolicyResponse = GetBucketPolicyResponse
     { _gbprPolicy :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketPolicyResponse' response.

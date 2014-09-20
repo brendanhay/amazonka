@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod
     { _mscrpClusterIdentifier :: Text
     , _mscrpRetentionPeriod :: !Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifySnapshotCopyRetentionPeriod' request.
@@ -88,7 +88,7 @@ instance ToQuery ModifySnapshotCopyRetentionPeriod where
 
 newtype ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse
     { _mscrprCluster :: Maybe Cluster
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifySnapshotCopyRetentionPeriodResponse' response.

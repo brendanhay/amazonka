@@ -56,7 +56,7 @@ import Network.AWS.Prelude
 data GetQueueUrl = GetQueueUrl
     { _gquQueueName :: Text
     , _gquQueueOwnerAWSAccountId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetQueueUrl' request.
@@ -91,7 +91,7 @@ instance ToQuery GetQueueUrl where
 -- | For more information, see Responses in the Amazon SQS Developer Guide.
 newtype GetQueueUrlResponse = GetQueueUrlResponse
     { _gqurQueueUrl :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetQueueUrlResponse' response.

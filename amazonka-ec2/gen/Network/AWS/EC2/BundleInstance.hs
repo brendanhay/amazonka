@@ -70,7 +70,7 @@ import Network.AWS.Prelude
 data BundleInstance = BundleInstance
     { _biInstanceId :: Text
     , _biStorage :: Storage
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'BundleInstance' request.
@@ -104,7 +104,7 @@ instance ToQuery BundleInstance where
 
 newtype BundleInstanceResponse = BundleInstanceResponse
     { _birBundleTask :: Maybe BundleTask
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'BundleInstanceResponse' response.

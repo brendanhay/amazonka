@@ -70,7 +70,7 @@ data ListObjectVersions = ListObjectVersions
     , _lovMaxKeys :: Maybe Integer
     , _lovPrefix :: Maybe Text
     , _lovVersionIdMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListObjectVersions' request.
@@ -158,7 +158,7 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse
     , _lovrMaxKeys :: Maybe Integer
     , _lovrCommonPrefixes :: [CommonPrefix]
     , _lovrEncodingType :: Maybe EncodingType
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListObjectVersionsResponse' response.

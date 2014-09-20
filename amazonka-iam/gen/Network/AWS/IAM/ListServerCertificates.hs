@@ -61,7 +61,7 @@ data ListServerCertificates = ListServerCertificates
     { _lscPathPrefix :: Maybe Text
     , _lscMarker :: Maybe Text
     , _lscMaxItems :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListServerCertificates' request.
@@ -111,7 +111,7 @@ data ListServerCertificatesResponse = ListServerCertificatesResponse
     { _lscrServerCertificateMetadataList :: [ServerCertificateMetadata]
     , _lscrIsTruncated :: !Bool
     , _lscrMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListServerCertificatesResponse' response.

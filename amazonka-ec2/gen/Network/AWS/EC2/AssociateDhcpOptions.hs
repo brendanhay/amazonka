@@ -65,7 +65,7 @@ import Network.AWS.Prelude
 data AssociateDhcpOptions = AssociateDhcpOptions
     { _adoDhcpOptionsId :: Text
     , _adoVpcId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssociateDhcpOptions' request.
@@ -98,7 +98,7 @@ instance ToQuery AssociateDhcpOptions where
     toQuery = genericQuery def
 
 data AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssociateDhcpOptionsResponse' response.

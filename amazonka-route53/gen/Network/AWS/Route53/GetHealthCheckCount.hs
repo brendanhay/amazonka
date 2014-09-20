@@ -42,7 +42,7 @@ import Network.AWS.Types (Region)
 -- | To retrieve a count of all your health checks, send a GET request to the
 -- 2013-04-01/healthcheckcount resource.
 data GetHealthCheckCount = GetHealthCheckCount
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetHealthCheckCount' request.
@@ -63,7 +63,7 @@ instance ToXML GetHealthCheckCount where
 -- current AWS account.
 newtype GetHealthCheckCountResponse = GetHealthCheckCountResponse
     { _ghccrHealthCheckCount :: Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetHealthCheckCountResponse' response.

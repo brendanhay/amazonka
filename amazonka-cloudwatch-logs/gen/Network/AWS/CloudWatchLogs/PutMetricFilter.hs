@@ -62,7 +62,7 @@ data PutMetricFilter = PutMetricFilter
     , _pmfFilterName :: Text
     , _pmfFilterPattern :: Text
     , _pmfMetricTransformations :: List1 MetricTransformation
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutMetricFilter' request.
@@ -114,7 +114,7 @@ instance ToHeaders PutMetricFilter
 instance ToJSON PutMetricFilter
 
 data PutMetricFilterResponse = PutMetricFilterResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutMetricFilterResponse' response.

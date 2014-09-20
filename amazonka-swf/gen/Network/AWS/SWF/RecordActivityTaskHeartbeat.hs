@@ -89,7 +89,7 @@ import Network.AWS.Request.JSON
 data RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeat
     { _rathTaskToken :: Text
     , _rathDetails :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RecordActivityTaskHeartbeat' request.
@@ -129,7 +129,7 @@ instance ToJSON RecordActivityTaskHeartbeat
 -- | Status information about an activity task.
 newtype RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse
     { _rathrCancelRequested :: Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RecordActivityTaskHeartbeatResponse' response.

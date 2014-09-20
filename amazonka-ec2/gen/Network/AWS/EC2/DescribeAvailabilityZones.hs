@@ -70,7 +70,7 @@ import Network.AWS.Prelude
 data DescribeAvailabilityZones = DescribeAvailabilityZones
     { _dazZoneNames :: [Text]
     , _dazFilters :: [Filter]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAvailabilityZones' request.
@@ -104,7 +104,7 @@ instance ToQuery DescribeAvailabilityZones where
 
 newtype DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
     { _dazrAvailabilityZones :: [AvailabilityZone]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAvailabilityZonesResponse' response.

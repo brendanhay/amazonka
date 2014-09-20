@@ -77,7 +77,7 @@ data CreatePlatformEndpoint = CreatePlatformEndpoint
     , _cpeToken :: Text
     , _cpeCustomUserData :: Maybe Text
     , _cpeAttributes :: Map Text Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePlatformEndpoint' request.
@@ -133,7 +133,7 @@ instance ToQuery CreatePlatformEndpoint where
 -- | Response from CreateEndpoint action.
 newtype CreatePlatformEndpointResponse = CreatePlatformEndpointResponse
     { _cperEndpointArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePlatformEndpointResponse' response.

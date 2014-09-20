@@ -65,7 +65,7 @@ import Network.AWS.Request.JSON
 -- | The GetOperationDetail request includes the following element.
 newtype GetOperationDetail = GetOperationDetail
     { _godOperationId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetOperationDetail' request.
@@ -102,7 +102,7 @@ data GetOperationDetailResponse = GetOperationDetailResponse
     , _godrDomainName :: Maybe Text
     , _godrType :: Maybe OperationType
     , _godrSubmittedDate :: Maybe ISO8601
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetOperationDetailResponse' response.

@@ -74,7 +74,7 @@ data UpdateChapCredentials = UpdateChapCredentials
     , _uccSecretToAuthenticateInitiator :: Text
     , _uccInitiatorName :: Text
     , _uccSecretToAuthenticateTarget :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateChapCredentials' request.
@@ -137,7 +137,7 @@ instance ToJSON UpdateChapCredentials
 data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse
     { _uccrTargetARN :: Maybe Text
     , _uccrInitiatorName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateChapCredentialsResponse' response.

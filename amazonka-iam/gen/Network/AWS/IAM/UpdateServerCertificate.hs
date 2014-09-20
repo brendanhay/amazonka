@@ -55,7 +55,7 @@ data UpdateServerCertificate = UpdateServerCertificate
     { _uscServerCertificateName :: Text
     , _uscNewPath :: Maybe Text
     , _uscNewServerCertificateName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateServerCertificate' request.
@@ -98,7 +98,7 @@ instance ToQuery UpdateServerCertificate where
     toQuery = genericQuery def
 
 data UpdateServerCertificateResponse = UpdateServerCertificateResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateServerCertificateResponse' response.

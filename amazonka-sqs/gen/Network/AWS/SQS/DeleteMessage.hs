@@ -69,7 +69,7 @@ import Network.AWS.Prelude
 data DeleteMessage = DeleteMessage
     { _dmQueueUrl :: Text
     , _dmReceiptHandle :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteMessage' request.
@@ -100,7 +100,7 @@ instance ToQuery DeleteMessage where
     toQuery = genericQuery def
 
 data DeleteMessageResponse = DeleteMessageResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteMessageResponse' response.

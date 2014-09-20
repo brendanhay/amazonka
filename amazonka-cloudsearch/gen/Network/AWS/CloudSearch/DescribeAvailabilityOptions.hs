@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 data DescribeAvailabilityOptions = DescribeAvailabilityOptions
     { _dao2DomainName :: Text
     , _dao2Deployed :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAvailabilityOptions' request.
@@ -86,7 +86,7 @@ instance ToQuery DescribeAvailabilityOptions where
 -- not the Multi-AZ option is enabled for the domain specified in the request.
 newtype DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
     { _daorrAvailabilityOptions :: Maybe AvailabilityOptionsStatus
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAvailabilityOptionsResponse' response.

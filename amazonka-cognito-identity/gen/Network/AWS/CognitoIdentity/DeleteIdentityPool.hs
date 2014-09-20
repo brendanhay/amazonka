@@ -44,7 +44,7 @@ import Network.AWS.Request.JSON
 -- | Input to the DeleteIdentityPool action.
 newtype DeleteIdentityPool = DeleteIdentityPool
     { _dipIdentityPoolId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteIdentityPool' request.
@@ -73,7 +73,7 @@ instance ToHeaders DeleteIdentityPool
 instance ToJSON DeleteIdentityPool
 
 data DeleteIdentityPoolResponse = DeleteIdentityPoolResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteIdentityPoolResponse' response.

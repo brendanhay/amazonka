@@ -92,7 +92,7 @@ data Publish = Publish
     , _pSubject :: Maybe Text
     , _pMessageStructure :: Maybe Text
     , _pMessageAttributes :: Map Text MessageAttributeValue
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'Publish' request.
@@ -187,7 +187,7 @@ instance ToQuery Publish where
 -- | Response for Publish action.
 newtype PublishResponse = PublishResponse
     { _prMessageId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PublishResponse' response.

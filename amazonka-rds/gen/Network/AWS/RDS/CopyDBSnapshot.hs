@@ -55,7 +55,7 @@ data CopyDBSnapshot = CopyDBSnapshot
     { _cdbsSourceDBSnapshotIdentifier :: Text
     , _cdbsTargetDBSnapshotIdentifier :: Text
     , _cdbsTags :: [Tag]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopyDBSnapshot' request.
@@ -108,7 +108,7 @@ instance ToQuery CopyDBSnapshot where
 
 newtype CopyDBSnapshotResponse = CopyDBSnapshotResponse
     { _cdbsrDBSnapshot :: Maybe DBSnapshot
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopyDBSnapshotResponse' response.

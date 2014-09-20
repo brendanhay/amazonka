@@ -74,7 +74,7 @@ data ListSigningCertificates = ListSigningCertificates
     { _lsc1UserName :: Maybe Text
     , _lsc1Marker :: Maybe Text
     , _lsc1MaxItems :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListSigningCertificates' request.
@@ -121,7 +121,7 @@ data ListSigningCertificatesResponse = ListSigningCertificatesResponse
     { _lscrrCertificates :: [SigningCertificate]
     , _lscrrIsTruncated :: !Bool
     , _lscrrMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListSigningCertificatesResponse' response.

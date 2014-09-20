@@ -50,7 +50,7 @@ import Network.AWS.Request.JSON
 
 newtype DeleteLogGroup = DeleteLogGroup
     { _dlgLogGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLogGroup' request.
@@ -77,7 +77,7 @@ instance ToHeaders DeleteLogGroup
 instance ToJSON DeleteLogGroup
 
 data DeleteLogGroupResponse = DeleteLogGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLogGroupResponse' response.

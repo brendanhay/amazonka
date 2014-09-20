@@ -41,7 +41,7 @@ import Network.AWS.Types (Region)
 
 newtype DeleteBucketTagging = DeleteBucketTagging
     { _dbtBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBucketTagging' request.
@@ -68,7 +68,7 @@ instance ToHeaders DeleteBucketTagging
 instance ToBody DeleteBucketTagging
 
 data DeleteBucketTaggingResponse = DeleteBucketTaggingResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBucketTaggingResponse' response.

@@ -375,7 +375,7 @@ _SupportService = prism
 -- Optimizing is the only category that is currently supported.
 newtype TrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary
     { _tacssCostOptimizing :: Maybe TrustedAdvisorCostOptimizingSummary
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TrustedAdvisorCategorySpecificSummary' data type to populate a request.
@@ -404,7 +404,7 @@ instance ToJSON TrustedAdvisorCategorySpecificSummary
 data Attachment = Attachment
     { _aFileName :: Maybe Text
     , _aData :: Maybe Base64
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Attachment' data type to populate a request.
@@ -438,7 +438,7 @@ instance ToJSON Attachment
 data AttachmentDetails = AttachmentDetails
     { _adAttachmentId :: Maybe Text
     , _adFileName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AttachmentDetails' data type to populate a request.
@@ -501,7 +501,7 @@ data CaseDetails = CaseDetails
     , _cdRecentCommunications :: Maybe RecentCaseCommunications
     , _cdCcEmailAddresses :: [Text]
     , _cdLanguage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CaseDetails' data type.
@@ -617,7 +617,7 @@ instance FromJSON CaseDetails
 data Category = Category
     { _c1Code :: Maybe Text
     , _c1Name :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Category' data type to populate a request.
@@ -655,7 +655,7 @@ data Communication = Communication
     , _cSubmittedBy :: Maybe Text
     , _cTimeCreated :: Maybe Text
     , _cAttachmentSet :: [AttachmentDetails]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Communication' data type to populate a request.
@@ -713,7 +713,7 @@ instance ToJSON Communication
 data RecentCaseCommunications = RecentCaseCommunications
     { _rccCommunications :: [Communication]
     , _rccNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RecentCaseCommunications' data type to populate a request.
@@ -749,7 +749,7 @@ data Service' = Service'
     { _sCode :: Maybe Text
     , _sName :: Maybe Text
     , _sCategories :: [Category]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Service'' data type.
@@ -796,7 +796,7 @@ instance FromJSON Service'
 data SeverityLevel = SeverityLevel
     { _slCode :: Maybe Text
     , _slName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SeverityLevel' data type.
@@ -834,7 +834,7 @@ data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription
     , _tacdDescription :: Text
     , _tacdCategory :: Text
     , _tacdMetadata :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TrustedAdvisorCheckDescription' data type.
@@ -900,7 +900,7 @@ data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus
     { _tacrsCheckId :: Text
     , _tacrsStatus :: Text
     , _tacrsMillisUntilNextRefreshable :: !Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TrustedAdvisorCheckRefreshStatus' data type.
@@ -952,7 +952,7 @@ data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult
     , _tacrResourcesSummary :: TrustedAdvisorResourcesSummary
     , _tacrCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
     , _tacrFlaggedResources :: [TrustedAdvisorResourceDetail]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TrustedAdvisorCheckResult' data type.
@@ -1032,7 +1032,7 @@ data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary
     , _tacsHasFlaggedResources :: Maybe Bool
     , _tacsResourcesSummary :: TrustedAdvisorResourcesSummary
     , _tacsCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TrustedAdvisorCheckSummary' data type.
@@ -1108,7 +1108,7 @@ instance FromJSON TrustedAdvisorCheckSummary
 data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary
     { _tacosEstimatedMonthlySavings :: !Double
     , _tacosEstimatedPercentMonthlySavings :: !Double
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TrustedAdvisorCostOptimizingSummary' data type to populate a request.
@@ -1153,7 +1153,7 @@ data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail
     , _tardResourceId :: Text
     , _tardIsSuppressed :: Maybe Bool
     , _tardMetadata :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TrustedAdvisorResourceDetail' data type.
@@ -1222,7 +1222,7 @@ data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary
     , _tarsResourcesFlagged :: !Integer
     , _tarsResourcesIgnored :: !Integer
     , _tarsResourcesSuppressed :: !Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TrustedAdvisorResourcesSummary' data type to populate a request.

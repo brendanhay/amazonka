@@ -60,7 +60,7 @@ data ResetClusterParameterGroup = ResetClusterParameterGroup
     { _rcpgParameterGroupName :: Text
     , _rcpgResetAllParameters :: Maybe Bool
     , _rcpgParameters :: [Parameter]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetClusterParameterGroup' request.
@@ -107,7 +107,7 @@ instance ToQuery ResetClusterParameterGroup where
 data ResetClusterParameterGroupResponse = ResetClusterParameterGroupResponse
     { _rcpgrParameterGroupName :: Maybe Text
     , _rcpgrParameterGroupStatus :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetClusterParameterGroupResponse' response.

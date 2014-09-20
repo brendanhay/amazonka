@@ -89,7 +89,7 @@ data CreatePipeline = CreatePipeline
     , _cpNotifications :: Maybe Notifications
     , _cpContentConfig :: Maybe PipelineOutputConfig
     , _cpThumbnailConfig :: Maybe PipelineOutputConfig
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePipeline' request.
@@ -275,7 +275,7 @@ instance ToJSON CreatePipeline
 -- specified in the request.
 newtype CreatePipelineResponse = CreatePipelineResponse
     { _cprPipeline :: Maybe Pipeline
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePipelineResponse' response.

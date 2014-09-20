@@ -64,7 +64,7 @@ data DeleteCluster = DeleteCluster
     { _dcClusterIdentifier :: Text
     , _dcSkipFinalClusterSnapshot :: Maybe Bool
     , _dcFinalClusterSnapshotIdentifier :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCluster' request.
@@ -118,7 +118,7 @@ instance ToQuery DeleteCluster where
 
 newtype DeleteClusterResponse = DeleteClusterResponse
     { _dcrCluster :: Maybe Cluster
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteClusterResponse' response.

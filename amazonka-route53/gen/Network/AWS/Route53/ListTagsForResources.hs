@@ -46,7 +46,7 @@ import Network.AWS.Types (Region)
 data ListTagsForResources = ListTagsForResources
     { _ltfr1ResourceType :: TagResourceType
     , _ltfr1ResourceIds :: List1 Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListTagsForResources' request.
@@ -90,7 +90,7 @@ instance ToXML ListTagsForResources where
 -- | A complex type containing tags for the specified resources.
 newtype ListTagsForResourcesResponse = ListTagsForResourcesResponse
     { _ltfrrrResourceTagSets :: [ResourceTagSet]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListTagsForResourcesResponse' response.

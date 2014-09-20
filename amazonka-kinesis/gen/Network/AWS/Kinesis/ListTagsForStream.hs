@@ -59,7 +59,7 @@ data ListTagsForStream = ListTagsForStream
     { _ltfsStreamName :: Text
     , _ltfsExclusiveStartTagKey :: Maybe Text
     , _ltfsLimit :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListTagsForStream' request.
@@ -110,7 +110,7 @@ instance ToJSON ListTagsForStream
 data ListTagsForStreamResponse = ListTagsForStreamResponse
     { _ltfsrTags :: [Tag]
     , _ltfsrHasMoreTags :: !Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListTagsForStreamResponse' response.

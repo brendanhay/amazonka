@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 data DefineExpression = DefineExpression
     { _deDomainName :: Text
     , _deExpression :: Expression
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DefineExpression' request.
@@ -88,7 +88,7 @@ instance ToQuery DefineExpression where
 -- newly-configured expression.
 newtype DefineExpressionResponse = DefineExpressionResponse
     { _derExpression :: ExpressionStatus
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DefineExpressionResponse' response.

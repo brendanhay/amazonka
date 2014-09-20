@@ -41,7 +41,7 @@ import Network.AWS.Prelude
 -- | 
 newtype DeleteHsmConfiguration = DeleteHsmConfiguration
     { _dhcHsmConfigurationIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteHsmConfiguration' request.
@@ -66,7 +66,7 @@ instance ToQuery DeleteHsmConfiguration where
     toQuery = genericQuery def
 
 data DeleteHsmConfigurationResponse = DeleteHsmConfigurationResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteHsmConfigurationResponse' response.

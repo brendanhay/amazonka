@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 
 newtype DeleteNetworkAcl = DeleteNetworkAcl
     { _dnaNetworkAclId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteNetworkAcl' request.
@@ -70,7 +70,7 @@ instance ToQuery DeleteNetworkAcl where
     toQuery = genericQuery def
 
 data DeleteNetworkAclResponse = DeleteNetworkAclResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteNetworkAclResponse' response.

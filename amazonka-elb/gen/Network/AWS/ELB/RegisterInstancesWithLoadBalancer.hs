@@ -69,7 +69,7 @@ import Network.AWS.Prelude
 data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer
     { _riwlbLoadBalancerName :: Text
     , _riwlbInstances :: [Instance]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterInstancesWithLoadBalancer' request.
@@ -104,7 +104,7 @@ instance ToQuery RegisterInstancesWithLoadBalancer where
 -- | The output for the RegisterInstancesWithLoadBalancer action.
 newtype RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse
     { _riwlbrInstances :: [Instance]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterInstancesWithLoadBalancerResponse' response.

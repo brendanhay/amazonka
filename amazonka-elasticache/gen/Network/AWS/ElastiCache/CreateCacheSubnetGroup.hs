@@ -56,7 +56,7 @@ data CreateCacheSubnetGroup = CreateCacheSubnetGroup
     { _ccsg1CacheSubnetGroupName :: Text
     , _ccsg1CacheSubnetGroupDescription :: Text
     , _ccsg1SubnetIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCacheSubnetGroup' request.
@@ -102,7 +102,7 @@ instance ToQuery CreateCacheSubnetGroup where
 
 newtype CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse
     { _ccsgrrCacheSubnetGroup :: Maybe CacheSubnetGroup
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCacheSubnetGroupResponse' response.

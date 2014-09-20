@@ -80,7 +80,7 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration
     , _clcEbsOptimized :: Maybe Bool
     , _clcAssociatePublicIpAddress :: Maybe Bool
     , _clcPlacementTenancy :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLaunchConfiguration' request.
@@ -287,7 +287,7 @@ instance ToQuery CreateLaunchConfiguration where
     toQuery = genericQuery def
 
 data CreateLaunchConfigurationResponse = CreateLaunchConfigurationResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLaunchConfigurationResponse' response.

@@ -61,7 +61,7 @@ data AddPermission = AddPermission
     , _apLabel :: Text
     , _apAWSAccountId :: [Text]
     , _apActionName :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddPermission' request.
@@ -111,7 +111,7 @@ instance ToQuery AddPermission where
     toQuery = genericQuery def
 
 data AddPermissionResponse = AddPermissionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddPermissionResponse' response.

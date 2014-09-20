@@ -94,7 +94,7 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
     , _mia1Groups :: [Text]
     , _mia1EbsOptimized :: Maybe AttributeBooleanValue
     , _mia1SriovNetSupport :: Maybe AttributeValue
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyInstanceAttribute' request.
@@ -243,7 +243,7 @@ instance ToQuery ModifyInstanceAttribute where
     toQuery = genericQuery def
 
 data ModifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyInstanceAttributeResponse' response.

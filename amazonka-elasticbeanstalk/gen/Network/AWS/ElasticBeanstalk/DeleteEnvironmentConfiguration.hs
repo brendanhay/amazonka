@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration
     { _decApplicationName :: Text
     , _decEnvironmentName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteEnvironmentConfiguration' request.
@@ -85,7 +85,7 @@ instance ToQuery DeleteEnvironmentConfiguration where
     toQuery = genericQuery def
 
 data DeleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteEnvironmentConfigurationResponse' response.

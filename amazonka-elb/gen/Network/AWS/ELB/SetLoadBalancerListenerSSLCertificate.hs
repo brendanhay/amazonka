@@ -54,7 +54,7 @@ data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertifica
     { _slblsslcLoadBalancerName :: Text
     , _slblsslcLoadBalancerPort :: !Integer
     , _slblsslcSSLCertificateId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetLoadBalancerListenerSSLCertificate' request.
@@ -102,7 +102,7 @@ instance ToQuery SetLoadBalancerListenerSSLCertificate where
 
 -- | The output for the SetLoadBalancerListenerSSLCertificate action.
 data SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetLoadBalancerListenerSSLCertificateResponse' response.

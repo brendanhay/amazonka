@@ -52,7 +52,7 @@ import Network.AWS.Request.JSON
 -- | The input of the ActivatePipeline action.
 newtype ActivatePipeline = ActivatePipeline
     { _apPipelineId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ActivatePipeline' request.
@@ -81,7 +81,7 @@ instance ToJSON ActivatePipeline
 
 -- | Contains the output from the ActivatePipeline action.
 data ActivatePipelineResponse = ActivatePipelineResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ActivatePipelineResponse' response.

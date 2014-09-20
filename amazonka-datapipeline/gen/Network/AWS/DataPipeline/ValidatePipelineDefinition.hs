@@ -84,7 +84,7 @@ import Network.AWS.Request.JSON
 data ValidatePipelineDefinition = ValidatePipelineDefinition
     { _vpdPipelineId :: Text
     , _vpdPipelineObjects :: [PipelineObject]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ValidatePipelineDefinition' request.
@@ -126,7 +126,7 @@ data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse
     { _vpdrValidationErrors :: [ValidationError]
     , _vpdrValidationWarnings :: [ValidationWarning]
     , _vpdrErrored :: !Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ValidatePipelineDefinitionResponse' response.

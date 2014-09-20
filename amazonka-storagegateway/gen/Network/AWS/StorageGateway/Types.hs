@@ -538,7 +538,7 @@ data CachediSCSIVolumeInformation = CachediSCSIVolumeInformation
     , _cscsiviVolumeProgress :: Maybe Double
     , _cscsiviSourceSnapshotId :: Maybe Text
     , _cscsiviVolumeiSCSIAttributes :: Maybe VolumeiSCSIAttributes
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CachediSCSIVolumeInformation' data type.
@@ -620,7 +620,7 @@ data ChapInfo = ChapInfo
     , _ciSecretToAuthenticateInitiator :: Maybe Text
     , _ciInitiatorName :: Maybe Text
     , _ciSecretToAuthenticateTarget :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChapInfo' data type.
@@ -676,7 +676,7 @@ data DeviceiSCSIAttributes = DeviceiSCSIAttributes
     , _dscsiaNetworkInterfaceId :: Maybe Text
     , _dscsiaNetworkInterfacePort :: Maybe Integer
     , _dscsiaChapEnabled :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DeviceiSCSIAttributes' data type to populate a request.
@@ -727,7 +727,7 @@ data DiskInformation = DiskInformation
     , _diDiskSizeInBytes :: Maybe Integer
     , _diDiskAllocationType :: Maybe Text
     , _diDiskAllocationResource :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DiskInformation' data type.
@@ -788,7 +788,7 @@ instance FromJSON DiskInformation
 data Error' = Error'
     { _sgeErrorCode :: Maybe ErrorCode
     , _sgeErrorDetails :: Map Text Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Error'' data type to populate a request.
@@ -820,7 +820,7 @@ instance ToJSON Error'
 data GatewayInformation = GatewayInformation
     { _giGatewayARN :: Maybe Text
     , _giGatewayType :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'GatewayInformation' data type.
@@ -855,7 +855,7 @@ data NetworkInterface = NetworkInterface
     { _niIpv4Address :: Maybe Text
     , _niMacAddress :: Maybe Text
     , _niIpv6Address :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NetworkInterface' data type.
@@ -905,7 +905,7 @@ data StorediSCSIVolumeInformation = StorediSCSIVolumeInformation
     , _sscsiviSourceSnapshotId :: Maybe Text
     , _sscsiviPreservedExistingData :: Maybe Bool
     , _sscsiviVolumeiSCSIAttributes :: Maybe VolumeiSCSIAttributes
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StorediSCSIVolumeInformation' data type.
@@ -1002,7 +1002,7 @@ data Tape = Tape
     , _tTapeStatus :: Maybe Text
     , _tVTLDevice :: Maybe Text
     , _tProgress :: Maybe Double
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tape' data type.
@@ -1062,7 +1062,7 @@ data TapeArchive = TapeArchive
     , _taCompletionTime :: Maybe ISO8601
     , _taRetrievedTo :: Maybe Text
     , _taTapeStatus :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TapeArchive' data type.
@@ -1122,7 +1122,7 @@ data TapeRecoveryPointInfo = TapeRecoveryPointInfo
     { _trpiTapeARN :: Maybe Text
     , _trpiTapeRecoveryPointTime :: Maybe ISO8601
     , _trpiTapeSizeInBytes :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TapeRecoveryPointInfo' data type.
@@ -1162,7 +1162,7 @@ instance FromJSON TapeRecoveryPointInfo
 data VTLDevice = VTLDevice
     { _vtldVTLDeviceARN :: Maybe Text
     , _vtldDeviceiSCSIAttributes :: Maybe DeviceiSCSIAttributes
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VTLDevice' data type.
@@ -1196,7 +1196,7 @@ instance FromJSON VTLDevice
 data VolumeInformation = VolumeInformation
     { _viVolumeARN :: Maybe Text
     , _viVolumeType :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VolumeInformation' data type.
@@ -1229,7 +1229,7 @@ data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo
     , _vrpiVolumeSizeInBytes :: Maybe Integer
     , _vrpiVolumeUsageInBytes :: Maybe Integer
     , _vrpiVolumeRecoveryPointTime :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VolumeRecoveryPointInfo' data type.
@@ -1280,7 +1280,7 @@ data VolumeiSCSIAttributes = VolumeiSCSIAttributes
     , _vscsiaNetworkInterfacePort :: Maybe Integer
     , _vscsiaLunNumber :: Maybe Integer
     , _vscsiaChapEnabled :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VolumeiSCSIAttributes' data type to populate a request.

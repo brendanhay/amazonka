@@ -55,7 +55,7 @@ import Network.AWS.Prelude
 data ModifyVolumeAttribute = ModifyVolumeAttribute
     { _mvaVolumeId :: Text
     , _mvaAutoEnableIO :: Maybe AttributeBooleanValue
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyVolumeAttribute' request.
@@ -85,7 +85,7 @@ instance ToQuery ModifyVolumeAttribute where
     toQuery = genericQuery def
 
 data ModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyVolumeAttributeResponse' response.

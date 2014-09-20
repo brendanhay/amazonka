@@ -45,7 +45,7 @@ import Network.AWS.Request.JSON
 -- | This input determines which cluster to describe.
 newtype DescribeCluster = DescribeCluster
     { _dcClusterId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCluster' request.
@@ -75,7 +75,7 @@ instance ToJSON DescribeCluster
 -- | This output contains the description of the cluster.
 newtype DescribeClusterResponse = DescribeClusterResponse
     { _dcrCluster :: Maybe Cluster
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusterResponse' response.

@@ -55,7 +55,7 @@ data ModifyEventSubscription = ModifyEventSubscription
     , _mesEventCategories :: [Text]
     , _mesSeverity :: Maybe Text
     , _mesEnabled :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyEventSubscription' request.
@@ -138,7 +138,7 @@ instance ToQuery ModifyEventSubscription where
 
 newtype ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse
     { _mesrEventSubscription :: Maybe EventSubscription
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyEventSubscriptionResponse' response.

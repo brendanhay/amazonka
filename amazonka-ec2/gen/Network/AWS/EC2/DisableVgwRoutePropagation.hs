@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 data DisableVgwRoutePropagation = DisableVgwRoutePropagation
     { _dvrpRouteTableId :: Text
     , _dvrpGatewayId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisableVgwRoutePropagation' request.
@@ -84,7 +84,7 @@ instance ToQuery DisableVgwRoutePropagation where
     toQuery = genericQuery def
 
 data DisableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisableVgwRoutePropagationResponse' response.

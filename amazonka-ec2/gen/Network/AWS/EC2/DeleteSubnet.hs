@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 
 newtype DeleteSubnet = DeleteSubnet
     { _ds1SubnetId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSubnet' request.
@@ -69,7 +69,7 @@ instance ToQuery DeleteSubnet where
     toQuery = genericQuery def
 
 data DeleteSubnetResponse = DeleteSubnetResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSubnetResponse' response.

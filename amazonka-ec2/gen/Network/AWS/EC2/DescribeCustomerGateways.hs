@@ -65,7 +65,7 @@ import Network.AWS.Prelude
 data DescribeCustomerGateways = DescribeCustomerGateways
     { _dcg1CustomerGatewayIds :: [Text]
     , _dcg1Filters :: [Filter]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCustomerGateways' request.
@@ -111,7 +111,7 @@ instance ToQuery DescribeCustomerGateways where
 
 newtype DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
     { _dcgrCustomerGateways :: [CustomerGateway]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCustomerGatewaysResponse' response.

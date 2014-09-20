@@ -73,7 +73,7 @@ import Network.AWS.Request.JSON
 data CountPendingDecisionTasks = CountPendingDecisionTasks
     { _cpdtDomain :: Text
     , _cpdtTaskList :: TaskList
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CountPendingDecisionTasks' request.
@@ -112,7 +112,7 @@ instance ToJSON CountPendingDecisionTasks
 data CountPendingDecisionTasksResponse = CountPendingDecisionTasksResponse
     { _cpdtrCount :: !Integer
     , _cpdtrTruncated :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CountPendingDecisionTasksResponse' response.

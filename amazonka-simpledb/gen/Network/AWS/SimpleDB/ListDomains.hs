@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 data ListDomains = ListDomains
     { _ldMaxNumberOfDomains :: Maybe Integer
     , _ldNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDomains' request.
@@ -84,7 +84,7 @@ instance ToQuery ListDomains where
 data ListDomainsResponse = ListDomainsResponse
     { _ldrDomainNames :: [Text]
     , _ldrNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDomainsResponse' response.

@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile
     { _rrfipInstanceProfileName :: Text
     , _rrfipRoleName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveRoleFromInstanceProfile' request.
@@ -84,7 +84,7 @@ instance ToQuery RemoveRoleFromInstanceProfile where
     toQuery = genericQuery def
 
 data RemoveRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveRoleFromInstanceProfileResponse' response.

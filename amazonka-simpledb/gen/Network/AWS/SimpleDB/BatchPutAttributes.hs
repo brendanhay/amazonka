@@ -76,7 +76,7 @@ import Network.AWS.Prelude
 data BatchPutAttributes = BatchPutAttributes
     { _bpaDomainName :: Text
     , _bpaItems :: [ReplaceableItem]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'BatchPutAttributes' request.
@@ -107,7 +107,7 @@ instance ToQuery BatchPutAttributes where
     toQuery = genericQuery def
 
 data BatchPutAttributesResponse = BatchPutAttributesResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'BatchPutAttributesResponse' response.

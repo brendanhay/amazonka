@@ -47,7 +47,7 @@ import Network.AWS.Request.JSON
 data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling
     { _stbasInstanceId :: Text
     , _stbasAutoScalingSchedule :: Maybe WeeklyAutoScalingSchedule
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetTimeBasedAutoScaling' request.
@@ -84,7 +84,7 @@ instance ToHeaders SetTimeBasedAutoScaling
 instance ToJSON SetTimeBasedAutoScaling
 
 data SetTimeBasedAutoScalingResponse = SetTimeBasedAutoScalingResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetTimeBasedAutoScalingResponse' response.

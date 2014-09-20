@@ -48,7 +48,7 @@ data GetObjectAcl = GetObjectAcl
     { _goaBucket :: BucketName
     , _goaKey :: ObjectKey
     , _goaVersionId :: Maybe ObjectVersionId
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetObjectAcl' request.
@@ -91,7 +91,7 @@ instance ToBody GetObjectAcl
 data GetObjectAclResponse = GetObjectAclResponse
     { _goarOwner :: Maybe Owner
     , _goarGrants :: [Grant]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetObjectAclResponse' response.

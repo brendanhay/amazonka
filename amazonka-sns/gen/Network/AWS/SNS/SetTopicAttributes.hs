@@ -71,7 +71,7 @@ data SetTopicAttributes = SetTopicAttributes
     { _staTopicArn :: Text
     , _staAttributeName :: Text
     , _staAttributeValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetTopicAttributes' request.
@@ -113,7 +113,7 @@ instance ToQuery SetTopicAttributes where
     toQuery = genericQuery def
 
 data SetTopicAttributesResponse = SetTopicAttributesResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetTopicAttributesResponse' response.

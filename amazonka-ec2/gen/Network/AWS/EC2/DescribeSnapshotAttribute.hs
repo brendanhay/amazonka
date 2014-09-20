@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 data DescribeSnapshotAttribute = DescribeSnapshotAttribute
     { _dsaSnapshotId :: Text
     , _dsaAttribute :: SnapshotAttributeName
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSnapshotAttribute' request.
@@ -87,7 +87,7 @@ data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
     { _dsarSnapshotId :: Maybe Text
     , _dsarCreateVolumePermissions :: [CreateVolumePermission]
     , _dsarProductCodes :: [ProductCode]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSnapshotAttributeResponse' response.

@@ -68,7 +68,7 @@ import Network.AWS.Prelude
 data CreateQueue = CreateQueue
     { _cqQueueName :: Text
     , _cqAttributes :: Map QueueAttributeName Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateQueue' request.
@@ -120,7 +120,7 @@ instance ToQuery CreateQueue where
 -- | Returns the QueueUrl element of the created queue.
 newtype CreateQueueResponse = CreateQueueResponse
     { _cqrQueueUrl :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateQueueResponse' response.

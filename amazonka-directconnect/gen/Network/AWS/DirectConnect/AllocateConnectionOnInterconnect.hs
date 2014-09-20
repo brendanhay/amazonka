@@ -62,7 +62,7 @@ data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect
     , _acoiOwnerAccount :: Text
     , _acoiInterconnectId :: Text
     , _acoiVlan :: !Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AllocateConnectionOnInterconnect' request.
@@ -140,7 +140,7 @@ data AllocateConnectionOnInterconnectResponse = AllocateConnectionOnInterconnect
     , _acoirBandwidth :: Maybe Text
     , _acoirVlan :: Maybe Integer
     , _acoirPartnerName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AllocateConnectionOnInterconnectResponse' response.

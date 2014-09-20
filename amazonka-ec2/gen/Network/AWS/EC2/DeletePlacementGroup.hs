@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 
 newtype DeletePlacementGroup = DeletePlacementGroup
     { _dpgGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeletePlacementGroup' request.
@@ -72,7 +72,7 @@ instance ToQuery DeletePlacementGroup where
     toQuery = genericQuery def
 
 data DeletePlacementGroupResponse = DeletePlacementGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeletePlacementGroupResponse' response.

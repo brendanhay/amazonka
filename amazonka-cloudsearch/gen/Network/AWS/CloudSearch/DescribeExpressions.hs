@@ -56,7 +56,7 @@ data DescribeExpressions = DescribeExpressions
     { _de2DomainName :: Text
     , _de2ExpressionNames :: [Text]
     , _de2Deployed :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeExpressions' request.
@@ -99,7 +99,7 @@ instance ToQuery DescribeExpressions where
 -- configured for the domain specified in the request.
 newtype DescribeExpressionsResponse = DescribeExpressionsResponse
     { _der1Expressions :: [ExpressionStatus]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeExpressionsResponse' response.

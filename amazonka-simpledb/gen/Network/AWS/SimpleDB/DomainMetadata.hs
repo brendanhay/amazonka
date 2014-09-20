@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 
 newtype DomainMetadata = DomainMetadata
     { _dmDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DomainMetadata' request.
@@ -80,7 +80,7 @@ data DomainMetadataResponse = DomainMetadataResponse
     , _dmrAttributeValueCount :: Maybe Integer
     , _dmrAttributeValuesSizeBytes :: Maybe Integer
     , _dmrTimestamp :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DomainMetadataResponse' response.

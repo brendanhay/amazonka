@@ -58,7 +58,7 @@ data GetGroup = GetGroup
     { _ggGroupName :: Text
     , _ggMarker :: Maybe Text
     , _ggMaxItems :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetGroup' request.
@@ -105,7 +105,7 @@ data GetGroupResponse = GetGroupResponse
     , _ggrUsers :: [User]
     , _ggrIsTruncated :: !Bool
     , _ggrMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetGroupResponse' response.

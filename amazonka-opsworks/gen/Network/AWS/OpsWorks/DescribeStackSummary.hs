@@ -47,7 +47,7 @@ import Network.AWS.Request.JSON
 
 newtype DescribeStackSummary = DescribeStackSummary
     { _dssStackId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStackSummary' request.
@@ -77,7 +77,7 @@ instance ToJSON DescribeStackSummary
 -- | Contains the response to a DescribeStackSummary request.
 newtype DescribeStackSummaryResponse = DescribeStackSummaryResponse
     { _dssrStackSummary :: Maybe StackSummary
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStackSummaryResponse' response.

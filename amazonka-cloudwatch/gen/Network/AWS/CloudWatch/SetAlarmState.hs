@@ -49,7 +49,7 @@ data SetAlarmState = SetAlarmState
     , _sasStateValue :: StateValue
     , _sasStateReason :: Text
     , _sasStateReasonData :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetAlarmState' request.
@@ -99,7 +99,7 @@ instance ToQuery SetAlarmState where
     toQuery = genericQuery def
 
 data SetAlarmStateResponse = SetAlarmStateResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetAlarmStateResponse' response.

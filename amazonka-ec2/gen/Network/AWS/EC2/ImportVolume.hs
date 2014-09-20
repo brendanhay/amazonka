@@ -62,7 +62,7 @@ data ImportVolume = ImportVolume
     , _ivImage :: DiskImageDetail
     , _ivDescription :: Maybe Text
     , _ivVolume :: VolumeDetail
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ImportVolume' request.
@@ -110,7 +110,7 @@ instance ToQuery ImportVolume where
 
 newtype ImportVolumeResponse = ImportVolumeResponse
     { _ivrConversionTask :: Maybe ConversionTask
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ImportVolumeResponse' response.

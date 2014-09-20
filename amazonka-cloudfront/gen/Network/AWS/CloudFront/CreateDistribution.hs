@@ -46,7 +46,7 @@ import Network.AWS.Types (Region)
 -- | The request to create a new distribution.
 newtype CreateDistribution = CreateDistribution
     { _cdDistributionConfig :: DistributionConfig
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDistribution' request.
@@ -81,7 +81,7 @@ data CreateDistributionResponse = CreateDistributionResponse
     { _cdrDistribution :: Maybe Distribution
     , _cdrLocation :: Maybe Text
     , _cdrETag :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDistributionResponse' response.

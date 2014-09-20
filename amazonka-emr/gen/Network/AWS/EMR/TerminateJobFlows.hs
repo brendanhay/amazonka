@@ -62,7 +62,7 @@ import Network.AWS.Request.JSON
 -- | Input to the TerminateJobFlows operation.
 newtype TerminateJobFlows = TerminateJobFlows
     { _tjfJobFlowIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TerminateJobFlows' request.
@@ -90,7 +90,7 @@ instance ToHeaders TerminateJobFlows
 instance ToJSON TerminateJobFlows
 
 data TerminateJobFlowsResponse = TerminateJobFlowsResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TerminateJobFlowsResponse' response.

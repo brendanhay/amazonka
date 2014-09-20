@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies
     { _usapDomainName :: Text
     , _usapAccessPolicies :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateServiceAccessPolicies' request.
@@ -88,7 +88,7 @@ instance ToQuery UpdateServiceAccessPolicies where
 -- access policies.
 newtype UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse
     { _usaprAccessPolicies :: AccessPoliciesStatus
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateServiceAccessPoliciesResponse' response.

@@ -52,7 +52,7 @@ data DescribeVolumes = DescribeVolumes
     , _dv1StackId :: Maybe Text
     , _dv1RaidArrayId :: Maybe Text
     , _dv1VolumeIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVolumes' request.
@@ -106,7 +106,7 @@ instance ToJSON DescribeVolumes
 -- | Contains the response to a DescribeVolumes request.
 newtype DescribeVolumesResponse = DescribeVolumesResponse
     { _dvrVolumes :: [Volume]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVolumesResponse' response.

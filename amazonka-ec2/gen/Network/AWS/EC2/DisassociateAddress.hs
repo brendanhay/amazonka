@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 data DisassociateAddress = DisassociateAddress
     { _da1PublicIp :: Maybe Text
     , _da1AssociationId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisassociateAddress' request.
@@ -82,7 +82,7 @@ instance ToQuery DisassociateAddress where
     toQuery = genericQuery def
 
 data DisassociateAddressResponse = DisassociateAddressResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisassociateAddressResponse' response.

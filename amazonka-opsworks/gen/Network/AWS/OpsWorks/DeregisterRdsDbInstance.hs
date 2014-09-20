@@ -43,7 +43,7 @@ import Network.AWS.Request.JSON
 
 newtype DeregisterRdsDbInstance = DeregisterRdsDbInstance
     { _drdiRdsDbInstanceArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeregisterRdsDbInstance' request.
@@ -72,7 +72,7 @@ instance ToHeaders DeregisterRdsDbInstance
 instance ToJSON DeregisterRdsDbInstance
 
 data DeregisterRdsDbInstanceResponse = DeregisterRdsDbInstanceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeregisterRdsDbInstanceResponse' response.

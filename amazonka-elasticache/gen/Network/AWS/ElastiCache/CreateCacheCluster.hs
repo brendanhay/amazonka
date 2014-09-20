@@ -99,7 +99,7 @@ data CreateCacheCluster = CreateCacheCluster
     , _cccAutoMinorVersionUpgrade :: Maybe Bool
     , _cccSnapshotRetentionLimit :: Maybe Integer
     , _cccSnapshotWindow :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCacheCluster' request.
@@ -361,7 +361,7 @@ instance ToQuery CreateCacheCluster where
 
 newtype CreateCacheClusterResponse = CreateCacheClusterResponse
     { _cccrCacheCluster :: Maybe CacheCluster
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCacheClusterResponse' response.

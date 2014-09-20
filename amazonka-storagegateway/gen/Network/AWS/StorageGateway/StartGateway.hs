@@ -63,7 +63,7 @@ import Network.AWS.Request.JSON
 -- | A JSON object containing the of the gateway to start.
 newtype StartGateway = StartGateway
     { _sg1GatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StartGateway' request.
@@ -94,7 +94,7 @@ instance ToJSON StartGateway
 -- | A JSON object containing the of the gateway that was restarted.
 newtype StartGatewayResponse = StartGatewayResponse
     { _sgrrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StartGatewayResponse' response.

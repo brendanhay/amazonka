@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 data RestartAppServer = RestartAppServer
     { _rasEnvironmentId :: Maybe Text
     , _rasEnvironmentName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RestartAppServer' request.
@@ -82,7 +82,7 @@ instance ToQuery RestartAppServer where
     toQuery = genericQuery def
 
 data RestartAppServerResponse = RestartAppServerResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RestartAppServerResponse' response.

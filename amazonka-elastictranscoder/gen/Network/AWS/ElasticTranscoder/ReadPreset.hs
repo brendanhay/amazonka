@@ -69,7 +69,7 @@ import Network.AWS.Request.JSON
 -- | The ReadPresetRequest structure.
 newtype ReadPreset = ReadPreset
     { _rp1Id :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReadPreset' request.
@@ -100,7 +100,7 @@ instance ToJSON ReadPreset
 -- | The ReadPresetResponse structure.
 newtype ReadPresetResponse = ReadPresetResponse
     { _rprrPreset :: Maybe Preset
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReadPresetResponse' response.

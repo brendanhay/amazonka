@@ -61,7 +61,7 @@ data DescribeLoadBalancers = DescribeLoadBalancers
     { _dlb1LoadBalancerNames :: [Text]
     , _dlb1Marker :: Maybe Text
     , _dlb1PageSize :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLoadBalancers' request.
@@ -103,7 +103,7 @@ instance ToQuery DescribeLoadBalancers where
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse
     { _dlbrrLoadBalancerDescriptions :: [LoadBalancerDescription]
     , _dlbrrNextMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLoadBalancersResponse' response.

@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 -- | The input for CancelUpdateStack action.
 newtype CancelUpdateStack = CancelUpdateStack
     { _cusStackName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelUpdateStack' request.
@@ -71,7 +71,7 @@ instance ToQuery CancelUpdateStack where
     toQuery = genericQuery def
 
 data CancelUpdateStackResponse = CancelUpdateStackResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelUpdateStackResponse' response.

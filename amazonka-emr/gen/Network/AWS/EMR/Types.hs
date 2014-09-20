@@ -1110,7 +1110,7 @@ instance ToJSON StepStateChangeReasonCode
 -- | Reports the configuration of a bootstrap action in a job flow.
 newtype BootstrapActionDetail = BootstrapActionDetail
     { _badBootstrapActionConfig :: Maybe BootstrapActionConfig
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'BootstrapActionDetail' data type to populate a request.
@@ -1137,7 +1137,7 @@ instance ToJSON BootstrapActionDetail
 -- | The Amazon EC2 Availability Zone for the job flow.
 newtype PlacementType = PlacementType
     { _ptAvailabilityZone :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PlacementType' data type to populate a request.
@@ -1176,7 +1176,7 @@ data Application = Application
     , _aVersion :: Maybe Text
     , _aArgs :: [Text]
     , _aAdditionalInfo :: Map Text Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Application' data type.
@@ -1225,7 +1225,7 @@ instance FromJSON Application
 data BootstrapActionConfig = BootstrapActionConfig
     { _bacName :: Text
     , _bacScriptBootstrapAction :: ScriptBootstrapActionConfig
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'BootstrapActionConfig' data type to populate a request.
@@ -1273,7 +1273,7 @@ data Cluster = Cluster
     , _cApplications :: [Application]
     , _cTags :: [Tag]
     , _cServiceRole :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Cluster' data type.
@@ -1401,7 +1401,7 @@ instance FromJSON Cluster
 data ClusterStateChangeReason = ClusterStateChangeReason
     { _cscrCode :: Maybe ClusterStateChangeReasonCode
     , _cscrMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ClusterStateChangeReason' data type to populate a request.
@@ -1435,7 +1435,7 @@ data ClusterStatus = ClusterStatus
     { _csState :: Maybe ClusterState
     , _csStateChangeReason :: Maybe ClusterStateChangeReason
     , _csTimeline :: Maybe ClusterTimeline
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ClusterStatus' data type to populate a request.
@@ -1478,7 +1478,7 @@ data ClusterSummary = ClusterSummary
     { _csrId :: Maybe Text
     , _csrName :: Maybe Text
     , _csrStatus :: Maybe ClusterStatus
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ClusterSummary' data type.
@@ -1521,7 +1521,7 @@ data ClusterTimeline = ClusterTimeline
     { _ctCreationDateTime :: Maybe POSIX
     , _ctReadyDateTime :: Maybe POSIX
     , _ctEndDateTime :: Maybe POSIX
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ClusterTimeline' data type to populate a request.
@@ -1563,7 +1563,7 @@ data Command = Command
     { _crName :: Maybe Text
     , _crScriptPath :: Maybe Text
     , _crArgs :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Command' data type.
@@ -1608,7 +1608,7 @@ data Ec2InstanceAttributes = Ec2InstanceAttributes
     , _eiaEc2SubnetId :: Maybe Text
     , _eiaEc2AvailabilityZone :: Maybe Text
     , _eiaIamInstanceProfile :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Ec2InstanceAttributes' data type.
@@ -1667,7 +1667,7 @@ data HadoopJarStepConfig = HadoopJarStepConfig
     , _hjscJar :: Text
     , _hjscMainClass :: Maybe Text
     , _hjscArgs :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HadoopJarStepConfig' data type to populate a request.
@@ -1720,7 +1720,7 @@ data HadoopStepConfig = HadoopStepConfig
     , _hscProperties :: Map Text Text
     , _hscMainClass :: Maybe Text
     , _hscArgs :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HadoopStepConfig' data type.
@@ -1776,7 +1776,7 @@ data Instance = Instance
     , _iPrivateDnsName :: Maybe Text
     , _iPrivateIpAddress :: Maybe Text
     , _iStatus :: Maybe InstanceStatus
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Instance' data type.
@@ -1856,7 +1856,7 @@ data InstanceGroup = InstanceGroup
     , _igRequestedInstanceCount :: Maybe Integer
     , _igRunningInstanceCount :: Maybe Integer
     , _igStatus :: Maybe InstanceGroupStatus
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceGroup' data type.
@@ -1949,7 +1949,7 @@ data InstanceGroupConfig = InstanceGroupConfig
     , _igcBidPrice :: Maybe Text
     , _igcInstanceType :: Text
     , _igcInstanceCount :: !Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceGroupConfig' data type to populate a request.
@@ -2025,7 +2025,7 @@ data InstanceGroupDetail = InstanceGroupDetail
     , _igdStartDateTime :: Maybe POSIX
     , _igdReadyDateTime :: Maybe POSIX
     , _igdEndDateTime :: Maybe POSIX
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceGroupDetail' data type to populate a request.
@@ -2162,7 +2162,7 @@ data InstanceGroupModifyConfig = InstanceGroupModifyConfig
     { _igmcInstanceGroupId :: Text
     , _igmcInstanceCount :: Maybe Integer
     , _igmcEC2InstanceIdsToTerminate :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceGroupModifyConfig' data type to populate a request.
@@ -2207,7 +2207,7 @@ instance ToJSON InstanceGroupModifyConfig
 data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason
     { _igscrCode :: Maybe InstanceGroupStateChangeReasonCode
     , _igscrMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceGroupStateChangeReason' data type to populate a request.
@@ -2241,7 +2241,7 @@ data InstanceGroupStatus = InstanceGroupStatus
     { _igsState :: Maybe InstanceGroupState
     , _igsStateChangeReason :: Maybe InstanceGroupStateChangeReason
     , _igsTimeline :: Maybe InstanceGroupTimeline
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceGroupStatus' data type to populate a request.
@@ -2283,7 +2283,7 @@ data InstanceGroupTimeline = InstanceGroupTimeline
     { _igtCreationDateTime :: Maybe POSIX
     , _igtReadyDateTime :: Maybe POSIX
     , _igtEndDateTime :: Maybe POSIX
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceGroupTimeline' data type to populate a request.
@@ -2325,7 +2325,7 @@ instance ToJSON InstanceGroupTimeline
 data InstanceStateChangeReason = InstanceStateChangeReason
     { _iscrCode :: Maybe InstanceStateChangeReasonCode
     , _iscrMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceStateChangeReason' data type to populate a request.
@@ -2359,7 +2359,7 @@ data InstanceStatus = InstanceStatus
     { _isState :: Maybe InstanceState
     , _isStateChangeReason :: Maybe InstanceStateChangeReason
     , _isTimeline :: Maybe InstanceTimeline
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceStatus' data type to populate a request.
@@ -2401,7 +2401,7 @@ data InstanceTimeline = InstanceTimeline
     { _itCreationDateTime :: Maybe POSIX
     , _itReadyDateTime :: Maybe POSIX
     , _itEndDateTime :: Maybe POSIX
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceTimeline' data type to populate a request.
@@ -2452,7 +2452,7 @@ data JobFlowDetail = JobFlowDetail
     , _jfdVisibleToAllUsers :: Maybe Bool
     , _jfdJobFlowRole :: Maybe Text
     , _jfdServiceRole :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'JobFlowDetail' data type.
@@ -2581,7 +2581,7 @@ data JobFlowExecutionStatusDetail = JobFlowExecutionStatusDetail
     , _jfesdReadyDateTime :: Maybe POSIX
     , _jfesdEndDateTime :: Maybe POSIX
     , _jfesdLastStateChangeReason :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'JobFlowExecutionStatusDetail' data type to populate a request.
@@ -2660,7 +2660,7 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig
     , _jficTerminationProtected :: Maybe Bool
     , _jficHadoopVersion :: Maybe Text
     , _jficEc2SubnetId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'JobFlowInstancesConfig' data type to populate a request.
@@ -2779,7 +2779,7 @@ data JobFlowInstancesDetail = JobFlowInstancesDetail
     , _jfidKeepJobFlowAliveWhenNoSteps :: Maybe Bool
     , _jfidTerminationProtected :: Maybe Bool
     , _jfidHadoopVersion :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'JobFlowInstancesDetail' data type to populate a request.
@@ -2918,7 +2918,7 @@ instance ToJSON JobFlowInstancesDetail
 data KeyValue = KeyValue
     { _kvKey :: Maybe Text
     , _kvValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'KeyValue' data type to populate a request.
@@ -2951,7 +2951,7 @@ instance ToJSON KeyValue
 data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig
     { _sbacPath :: Text
     , _sbacArgs :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ScriptBootstrapActionConfig' data type to populate a request.
@@ -2989,7 +2989,7 @@ data Step = Step
     , _sConfig :: Maybe HadoopStepConfig
     , _sActionOnFailure :: Maybe ActionOnFailure
     , _sStatus :: Maybe StepStatus
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Step' data type.
@@ -3047,7 +3047,7 @@ data StepConfig = StepConfig
     { _scName :: Text
     , _scActionOnFailure :: Maybe ActionOnFailure
     , _scHadoopJarStep :: HadoopJarStepConfig
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StepConfig' data type to populate a request.
@@ -3090,7 +3090,7 @@ instance ToJSON StepConfig
 data StepDetail = StepDetail
     { _sdStepConfig :: StepConfig
     , _sdExecutionStatusDetail :: StepExecutionStatusDetail
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StepDetail' data type to populate a request.
@@ -3130,7 +3130,7 @@ data StepExecutionStatusDetail = StepExecutionStatusDetail
     , _sesdStartDateTime :: Maybe POSIX
     , _sesdEndDateTime :: Maybe POSIX
     , _sesdLastStateChangeReason :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StepExecutionStatusDetail' data type to populate a request.
@@ -3190,7 +3190,7 @@ instance ToJSON StepExecutionStatusDetail
 data StepStateChangeReason = StepStateChangeReason
     { _sscrCode :: Maybe StepStateChangeReasonCode
     , _sscrMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StepStateChangeReason' data type to populate a request.
@@ -3224,7 +3224,7 @@ data StepStatus = StepStatus
     { _ssState :: Maybe StepState
     , _ssStateChangeReason :: Maybe StepStateChangeReason
     , _ssTimeline :: Maybe StepTimeline
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StepStatus' data type to populate a request.
@@ -3266,7 +3266,7 @@ data StepSummary = StepSummary
     { _ssrId :: Maybe Text
     , _ssrName :: Maybe Text
     , _ssrStatus :: Maybe StepStatus
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StepSummary' data type.
@@ -3308,7 +3308,7 @@ data StepTimeline = StepTimeline
     { _stCreationDateTime :: Maybe POSIX
     , _stStartDateTime :: Maybe POSIX
     , _stEndDateTime :: Maybe POSIX
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StepTimeline' data type to populate a request.
@@ -3351,7 +3351,7 @@ instance ToJSON StepTimeline
 data SupportedProductConfig = SupportedProductConfig
     { _spcName :: Maybe Text
     , _spcArgs :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SupportedProductConfig' data type to populate a request.
@@ -3385,7 +3385,7 @@ instance ToJSON SupportedProductConfig
 data Tag = Tag
     { _tKey :: Maybe Text
     , _tValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type to populate a request.

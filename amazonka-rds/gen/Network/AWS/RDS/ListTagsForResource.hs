@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 -- | 
 newtype ListTagsForResource = ListTagsForResource
     { _ltfrResourceName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListTagsForResource' request.
@@ -72,7 +72,7 @@ instance ToQuery ListTagsForResource where
 -- | 
 newtype ListTagsForResourceResponse = ListTagsForResourceResponse
     { _ltfrrTagList :: [Tag]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListTagsForResourceResponse' response.

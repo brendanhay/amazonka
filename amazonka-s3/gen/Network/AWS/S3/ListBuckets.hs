@@ -45,7 +45,7 @@ import Network.AWS.Types (Region)
 type GetService = ListBuckets
 
 data ListBuckets = ListBuckets
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListBuckets' request.
@@ -63,7 +63,7 @@ instance ToBody ListBuckets
 data ListBucketsResponse = ListBucketsResponse
     { _lbrBuckets :: [Bucket]
     , _lbrOwner :: Maybe Owner
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListBucketsResponse' response.

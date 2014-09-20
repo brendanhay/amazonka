@@ -49,7 +49,7 @@ data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess
     { _asaSnapshotIdentifier :: Text
     , _asaSnapshotClusterIdentifier :: Maybe Text
     , _asaAccountWithRestoreAccess :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AuthorizeSnapshotAccess' request.
@@ -96,7 +96,7 @@ instance ToQuery AuthorizeSnapshotAccess where
 
 newtype AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse
     { _asarSnapshot :: Maybe Snapshot
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AuthorizeSnapshotAccessResponse' response.

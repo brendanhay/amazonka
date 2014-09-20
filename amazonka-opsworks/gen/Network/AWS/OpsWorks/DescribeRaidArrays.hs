@@ -50,7 +50,7 @@ data DescribeRaidArrays = DescribeRaidArrays
     { _draInstanceId :: Maybe Text
     , _draStackId :: Maybe Text
     , _draRaidArrayIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeRaidArrays' request.
@@ -96,7 +96,7 @@ instance ToJSON DescribeRaidArrays
 -- | Contains the response to a DescribeRaidArrays request.
 newtype DescribeRaidArraysResponse = DescribeRaidArraysResponse
     { _drarRaidArrays :: [RaidArray]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeRaidArraysResponse' response.

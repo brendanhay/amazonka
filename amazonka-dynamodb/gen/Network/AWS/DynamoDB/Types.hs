@@ -876,7 +876,7 @@ instance FromJSON TableStatus
 -- | The amount of throughput consumed on the table affected by the operation.
 newtype Capacity = Capacity
     { _cCapacityUnits :: Maybe Double
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Capacity' data type to populate a request.
@@ -901,7 +901,7 @@ instance ToJSON Capacity
 -- | A request to perform a DeleteItem operation.
 newtype DeleteRequest = DeleteRequest
     { _drKey :: Map Text AttributeValue
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DeleteRequest' data type to populate a request.
@@ -930,7 +930,7 @@ instance ToJSON DeleteRequest
 -- secondary index.
 newtype GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate
     { _gsiuUpdate :: Maybe UpdateGlobalSecondaryIndexAction
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'GlobalSecondaryIndexUpdate' data type to populate a request.
@@ -954,7 +954,7 @@ instance ToJSON GlobalSecondaryIndexUpdate
 -- | A request to perform a PutItem operation.
 newtype PutRequest = PutRequest
     { _prItem :: Map Text AttributeValue
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PutRequest' data type to populate a request.
@@ -987,7 +987,7 @@ instance ToJSON PutRequest
 data AttributeDefinition = AttributeDefinition
     { _adAttributeName :: Text
     , _adAttributeType :: ScalarAttributeType
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AttributeDefinition' data type to populate a request.
@@ -1027,7 +1027,7 @@ data AttributeValue = AttributeValue
     , _avSS :: [Text]
     , _avNS :: [Text]
     , _avBS :: [Base64]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AttributeValue' data type to populate a request.
@@ -1095,7 +1095,7 @@ instance ToJSON AttributeValue
 data AttributeValueUpdate = AttributeValueUpdate
     { _avuValue :: Maybe AttributeValue
     , _avuAction :: Maybe AttributeAction
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AttributeValueUpdate' data type to populate a request.
@@ -1173,7 +1173,7 @@ instance ToJSON AttributeValueUpdate
 data Condition = Condition
     { _c1AttributeValueList :: [AttributeValue]
     , _c1ComparisonOperator :: ComparisonOperator
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Condition' data type to populate a request.
@@ -1290,7 +1290,7 @@ data ConsumedCapacity = ConsumedCapacity
     , _ccTable :: Maybe Capacity
     , _ccLocalSecondaryIndexes :: Map Text Capacity
     , _ccGlobalSecondaryIndexes :: Map Text Capacity
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ConsumedCapacity' data type.
@@ -1356,7 +1356,7 @@ data ExpectedAttributeValue = ExpectedAttributeValue
     , _eavExists :: Maybe Bool
     , _eavComparisonOperator :: Maybe ComparisonOperator
     , _eavAttributeValueList :: [AttributeValue]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ExpectedAttributeValue' data type to populate a request.
@@ -1421,7 +1421,7 @@ data GlobalSecondaryIndex = GlobalSecondaryIndex
     , _gsiKeySchema :: List1 KeySchemaElement
     , _gsiProjection :: Projection
     , _gsiProvisionedThroughput :: ProvisionedThroughput
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'GlobalSecondaryIndex' data type to populate a request.
@@ -1484,7 +1484,7 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
     , _gsidProvisionedThroughput :: Maybe ProvisionedThroughputDescription
     , _gsidIndexSizeBytes :: Maybe Integer
     , _gsidItemCount :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'GlobalSecondaryIndexDescription' data type.
@@ -1572,7 +1572,7 @@ instance FromJSON GlobalSecondaryIndexDescription
 data ItemCollectionMetrics = ItemCollectionMetrics
     { _icmItemCollectionKey :: Map Text AttributeValue
     , _icmSizeEstimateRangeGB :: [Double]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ItemCollectionMetrics' data type to populate a request.
@@ -1617,7 +1617,7 @@ instance ToJSON ItemCollectionMetrics
 data KeySchemaElement = KeySchemaElement
     { _kseAttributeName :: Text
     , _kseKeyType :: KeyType
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'KeySchemaElement' data type to populate a request.
@@ -1656,7 +1656,7 @@ data KeysAndAttributes = KeysAndAttributes
     { _kaaKeys :: List1 (Map Text AttributeValue)
     , _kaaAttributesToGet :: Maybe (List1 Text)
     , _kaaConsistentRead :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'KeysAndAttributes' data type to populate a request.
@@ -1704,7 +1704,7 @@ data LocalSecondaryIndex = LocalSecondaryIndex
     { _lsiIndexName :: Text
     , _lsiKeySchema :: List1 KeySchemaElement
     , _lsiProjection :: Projection
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LocalSecondaryIndex' data type to populate a request.
@@ -1752,7 +1752,7 @@ data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription
     , _lsidProjection :: Maybe Projection
     , _lsidIndexSizeBytes :: Maybe Integer
     , _lsidItemCount :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LocalSecondaryIndexDescription' data type.
@@ -1817,7 +1817,7 @@ instance FromJSON LocalSecondaryIndexDescription
 data Projection = Projection
     { _pProjectionType :: Maybe ProjectionType
     , _pNonKeyAttributes :: Maybe (List1 Text)
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Projection' data type to populate a request.
@@ -1862,7 +1862,7 @@ instance ToJSON Projection
 data ProvisionedThroughput = ProvisionedThroughput
     { _ptReadCapacityUnits :: !Integer
     , _ptWriteCapacityUnits :: !Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ProvisionedThroughput' data type to populate a request.
@@ -1908,7 +1908,7 @@ data ProvisionedThroughputDescription = ProvisionedThroughputDescription
     , _ptdNumberOfDecreasesToday :: Maybe Integer
     , _ptdReadCapacityUnits :: Maybe Integer
     , _ptdWriteCapacityUnits :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ProvisionedThroughputDescription' data type to populate a request.
@@ -1987,7 +1987,7 @@ data TableDescription = TableDescription
     , _tdItemCount :: Maybe Integer
     , _tdLocalSecondaryIndexes :: [LocalSecondaryIndexDescription]
     , _tdGlobalSecondaryIndexes :: [GlobalSecondaryIndexDescription]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TableDescription' data type.
@@ -2157,7 +2157,7 @@ instance FromJSON TableDescription
 data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction
     { _ugsiaIndexName :: Text
     , _ugsiaProvisionedThroughput :: ProvisionedThroughput
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'UpdateGlobalSecondaryIndexAction' data type to populate a request.
@@ -2200,7 +2200,7 @@ instance ToJSON UpdateGlobalSecondaryIndexAction
 data WriteRequest = WriteRequest
     { _wrPutRequest :: Maybe PutRequest
     , _wrDeleteRequest :: Maybe DeleteRequest
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WriteRequest' data type to populate a request.

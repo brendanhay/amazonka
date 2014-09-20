@@ -62,7 +62,7 @@ data PutScalingPolicy = PutScalingPolicy
     , _pspAdjustmentType :: Text
     , _pspCooldown :: Maybe Integer
     , _pspMinAdjustmentStep :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutScalingPolicy' request.
@@ -143,7 +143,7 @@ instance ToQuery PutScalingPolicy where
 -- | The PolicyARNType data type.
 newtype PutScalingPolicyResponse = PutScalingPolicyResponse
     { _psprPolicyARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutScalingPolicyResponse' response.

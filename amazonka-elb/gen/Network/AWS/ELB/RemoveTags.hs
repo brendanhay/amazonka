@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 data RemoveTags = RemoveTags
     { _rtLoadBalancerNames :: [Text]
     , _rtTags :: List1 TagKeyOnly
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveTags' request.
@@ -81,7 +81,7 @@ instance ToQuery RemoveTags where
 
 -- | The output for the RemoveTags action.
 data RemoveTagsResponse = RemoveTagsResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveTagsResponse' response.

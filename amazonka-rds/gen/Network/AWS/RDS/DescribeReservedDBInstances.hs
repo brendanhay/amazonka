@@ -68,7 +68,7 @@ data DescribeReservedDBInstances = DescribeReservedDBInstances
     , _drdbiMultiAZ :: Maybe Bool
     , _drdbiMaxRecords :: Maybe Integer
     , _drdbiMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedDBInstances' request.
@@ -172,7 +172,7 @@ instance ToQuery DescribeReservedDBInstances where
 data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse
     { _drdbirMarker :: Maybe Text
     , _drdbirReservedDBInstances :: [ReservedDBInstance]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedDBInstancesResponse' response.

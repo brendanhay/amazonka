@@ -69,7 +69,7 @@ import Network.AWS.Prelude
 data DescribeVolumeAttribute = DescribeVolumeAttribute
     { _dvaVolumeId :: Text
     , _dvaAttribute :: Maybe VolumeAttributeName
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVolumeAttribute' request.
@@ -102,7 +102,7 @@ data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
     { _dvarVolumeId :: Maybe Text
     , _dvarAutoEnableIO :: Maybe AttributeBooleanValue
     , _dvarProductCodes :: [ProductCode]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVolumeAttributeResponse' response.

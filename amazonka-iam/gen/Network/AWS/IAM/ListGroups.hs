@@ -60,7 +60,7 @@ data ListGroups = ListGroups
     { _lgPathPrefix :: Maybe Text
     , _lgMarker :: Maybe Text
     , _lgMaxItems :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListGroups' request.
@@ -108,7 +108,7 @@ data ListGroupsResponse = ListGroupsResponse
     { _lgrGroups :: [Group]
     , _lgrIsTruncated :: !Bool
     , _lgrMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListGroupsResponse' response.

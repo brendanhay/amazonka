@@ -46,7 +46,7 @@ data PutBucketLifecycle = PutBucketLifecycle
     { _pblBucket :: BucketName
     , _pblContentMD5 :: Maybe Text
     , _pblLifecycleConfiguration :: Maybe LifecycleConfiguration
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketLifecycle' request.
@@ -91,7 +91,7 @@ instance ToBody PutBucketLifecycle where
     toBody = toBody . encodeXML . _pblLifecycleConfiguration
 
 data PutBucketLifecycleResponse = PutBucketLifecycleResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketLifecycleResponse' response.

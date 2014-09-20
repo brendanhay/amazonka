@@ -71,7 +71,7 @@ data PutAttributes = PutAttributes
     , _paItemName :: Text
     , _paAttributes :: [ReplaceableAttribute]
     , _paExpected :: Maybe UpdateCondition
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutAttributes' request.
@@ -119,7 +119,7 @@ instance ToQuery PutAttributes where
     toQuery = genericQuery def
 
 data PutAttributesResponse = PutAttributesResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutAttributesResponse' response.

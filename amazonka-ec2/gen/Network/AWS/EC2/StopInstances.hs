@@ -76,7 +76,7 @@ import Network.AWS.Prelude
 data StopInstances = StopInstances
     { _si1InstanceIds :: [Text]
     , _si1Force :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StopInstances' request.
@@ -110,7 +110,7 @@ instance ToQuery StopInstances where
 
 newtype StopInstancesResponse = StopInstancesResponse
     { _sir1StoppingInstances :: [InstanceStateChange]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StopInstancesResponse' response.

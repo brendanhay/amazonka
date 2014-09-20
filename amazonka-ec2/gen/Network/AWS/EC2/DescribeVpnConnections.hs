@@ -70,7 +70,7 @@ import Network.AWS.Prelude
 data DescribeVpnConnections = DescribeVpnConnections
     { _dvc1VpnConnectionIds :: [Text]
     , _dvc1Filters :: [Filter]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVpnConnections' request.
@@ -121,7 +121,7 @@ instance ToQuery DescribeVpnConnections where
 
 newtype DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
     { _dvcrrVpnConnections :: [VpnConnection]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVpnConnectionsResponse' response.

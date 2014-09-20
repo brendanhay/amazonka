@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 
 newtype DeleteSAMLProvider = DeleteSAMLProvider
     { _dsamlpSAMLProviderArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSAMLProvider' request.
@@ -70,7 +70,7 @@ instance ToQuery DeleteSAMLProvider where
     toQuery = genericQuery def
 
 data DeleteSAMLProviderResponse = DeleteSAMLProviderResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSAMLProviderResponse' response.

@@ -686,7 +686,7 @@ instance ToQuery ValidationSeverity where
 -- | Describes an Auto Scaling launch configuration.
 newtype AutoScalingGroup = AutoScalingGroup
     { _asgName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AutoScalingGroup' data type.
@@ -714,7 +714,7 @@ instance FromXML AutoScalingGroup where
 -- | The description of the AWS resources used by this environment.
 newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription
     { _erdLoadBalancer :: Maybe LoadBalancerDescription
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EnvironmentResourcesDescription' data type to populate a request.
@@ -742,7 +742,7 @@ instance ToQuery EnvironmentResourcesDescription where
 -- | The description of an Amazon EC2 instance.
 newtype Instance = Instance
     { _iId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Instance' data type.
@@ -770,7 +770,7 @@ instance FromXML Instance where
 -- | Describes an Auto Scaling launch configuration.
 newtype LaunchConfiguration = LaunchConfiguration
     { _lcName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LaunchConfiguration' data type.
@@ -798,7 +798,7 @@ instance FromXML LaunchConfiguration where
 -- | Describes a LoadBalancer.
 newtype LoadBalancer = LoadBalancer
     { _lbName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LoadBalancer' data type.
@@ -826,7 +826,7 @@ instance FromXML LoadBalancer where
 -- | Describes a trigger.
 newtype Trigger = Trigger
     { _trName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Trigger' data type.
@@ -859,7 +859,7 @@ data ApplicationDescription = ApplicationDescription
     , _adDateUpdated :: Maybe ISO8601
     , _adVersions :: [Text]
     , _adConfigurationTemplates :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ApplicationDescription' data type.
@@ -930,7 +930,7 @@ data ApplicationVersionDescription = ApplicationVersionDescription
     , _avdSourceBundle :: Maybe S3Location
     , _avdDateCreated :: Maybe ISO8601
     , _avdDateUpdated :: Maybe ISO8601
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ApplicationVersionDescription' data type.
@@ -1004,7 +1004,7 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription
     , _codMaxValue :: Maybe Integer
     , _codMaxLength :: Maybe Integer
     , _codRegex :: Maybe OptionRestrictionRegex
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ConfigurationOptionDescription' data type.
@@ -1143,7 +1143,7 @@ data ConfigurationOptionSetting = ConfigurationOptionSetting
     { _cosNamespace :: Maybe Text
     , _cosOptionName :: Maybe Text
     , _cosValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ConfigurationOptionSetting' data type to populate a request.
@@ -1193,7 +1193,7 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription
     , _csdDateCreated :: Maybe ISO8601
     , _csdDateUpdated :: Maybe ISO8601
     , _csdOptionSettings :: [ConfigurationOptionSetting]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ConfigurationSettingsDescription' data type.
@@ -1310,7 +1310,7 @@ data EnvironmentDescription = EnvironmentDescription
     , _edHealth :: Maybe EnvironmentHealth
     , _edResources :: Maybe EnvironmentResourcesDescription
     , _edTier :: Maybe EnvironmentTier
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EnvironmentDescription' data type.
@@ -1461,7 +1461,7 @@ data EnvironmentInfoDescription = EnvironmentInfoDescription
     , _eidEc2InstanceId :: Maybe Text
     , _eidSampleTimestamp :: Maybe ISO8601
     , _eidMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EnvironmentInfoDescription' data type.
@@ -1518,7 +1518,7 @@ data EnvironmentResourceDescription = EnvironmentResourceDescription
     , _erdrLoadBalancers :: [LoadBalancer]
     , _erdrTriggers :: [Trigger]
     , _erdrQueues :: [Queue]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EnvironmentResourceDescription' data type.
@@ -1595,7 +1595,7 @@ data EnvironmentTier = EnvironmentTier
     { _etName :: Maybe Text
     , _etType :: Maybe Text
     , _etVersion :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EnvironmentTier' data type to populate a request.
@@ -1644,7 +1644,7 @@ data EventDescription = EventDescription
     , _edrEnvironmentName :: Maybe Text
     , _edrRequestId :: Maybe Text
     , _edrSeverity :: Maybe EventSeverity
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EventDescription' data type.
@@ -1724,7 +1724,7 @@ instance FromXML EventDescription where
 data Listener = Listener
     { _lProtocol :: Maybe Text
     , _lPort :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Listener' data type to populate a request.
@@ -1761,7 +1761,7 @@ data LoadBalancerDescription = LoadBalancerDescription
     { _lbdLoadBalancerName :: Maybe Text
     , _lbdDomain :: Maybe Text
     , _lbdListeners :: [Listener]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LoadBalancerDescription' data type to populate a request.
@@ -1806,7 +1806,7 @@ instance ToQuery LoadBalancerDescription where
 data OptionRestrictionRegex = OptionRestrictionRegex
     { _orrPattern :: Maybe Text
     , _orrLabel :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'OptionRestrictionRegex' data type to populate a request.
@@ -1843,7 +1843,7 @@ instance ToQuery OptionRestrictionRegex where
 data OptionSpecification = OptionSpecification
     { _osNamespace :: Maybe Text
     , _osOptionName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'OptionSpecification' data type to populate a request.
@@ -1875,7 +1875,7 @@ instance ToQuery OptionSpecification where
 data Queue = Queue
     { _qName :: Maybe Text
     , _qURL :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Queue' data type.
@@ -1918,7 +1918,7 @@ instance FromXML Queue where
 data S3Location = S3Location
     { _slS3Bucket :: Maybe Text
     , _slS3Key :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'S3Location' data type to populate a request.
@@ -1954,7 +1954,7 @@ instance ToQuery S3Location where
 data SolutionStackDescription = SolutionStackDescription
     { _ssdSolutionStackName :: Maybe Text
     , _ssdPermittedFileTypes :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SolutionStackDescription' data type.
@@ -2000,7 +2000,7 @@ instance FromXML SolutionStackDescription where
 data SourceConfiguration = SourceConfiguration
     { _scApplicationName :: Maybe Text
     , _scTemplateName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SourceConfiguration' data type to populate a request.
@@ -2033,7 +2033,7 @@ instance ToQuery SourceConfiguration where
 data Tag = Tag
     { _tKey :: Maybe Text
     , _tValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type to populate a request.
@@ -2067,7 +2067,7 @@ data ValidationMessage = ValidationMessage
     , _vmSeverity :: Maybe ValidationSeverity
     , _vmNamespace :: Maybe Text
     , _vmOptionName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ValidationMessage' data type.

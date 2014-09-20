@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 data DeactivateMFADevice = DeactivateMFADevice
     { _dmfadUserName :: Text
     , _dmfadSerialNumber :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeactivateMFADevice' request.
@@ -78,7 +78,7 @@ instance ToQuery DeactivateMFADevice where
     toQuery = genericQuery def
 
 data DeactivateMFADeviceResponse = DeactivateMFADeviceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeactivateMFADeviceResponse' response.

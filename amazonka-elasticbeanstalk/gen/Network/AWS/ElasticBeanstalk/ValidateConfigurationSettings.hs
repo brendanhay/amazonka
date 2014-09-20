@@ -59,7 +59,7 @@ data ValidateConfigurationSettings = ValidateConfigurationSettings
     , _vcsTemplateName :: Maybe Text
     , _vcsEnvironmentName :: Maybe Text
     , _vcsOptionSettings :: [ConfigurationOptionSetting]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ValidateConfigurationSettings' request.
@@ -112,7 +112,7 @@ instance ToQuery ValidateConfigurationSettings where
 -- | Provides a list of validation messages.
 newtype ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
     { _vcsrMessages :: [ValidationMessage]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ValidateConfigurationSettingsResponse' response.

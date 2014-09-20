@@ -60,7 +60,7 @@ import Network.AWS.Prelude
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes
     { _spaaPlatformApplicationArn :: Text
     , _spaaAttributes :: Map Text Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetPlatformApplicationAttributes' request.
@@ -107,7 +107,7 @@ instance ToQuery SetPlatformApplicationAttributes where
     toQuery = genericQuery def
 
 data SetPlatformApplicationAttributesResponse = SetPlatformApplicationAttributesResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetPlatformApplicationAttributesResponse' response.

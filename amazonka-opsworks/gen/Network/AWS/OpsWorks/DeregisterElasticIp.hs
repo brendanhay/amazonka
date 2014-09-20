@@ -45,7 +45,7 @@ import Network.AWS.Request.JSON
 
 newtype DeregisterElasticIp = DeregisterElasticIp
     { _deiElasticIp :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeregisterElasticIp' request.
@@ -73,7 +73,7 @@ instance ToHeaders DeregisterElasticIp
 instance ToJSON DeregisterElasticIp
 
 data DeregisterElasticIpResponse = DeregisterElasticIpResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeregisterElasticIpResponse' response.

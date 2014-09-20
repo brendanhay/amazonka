@@ -80,7 +80,7 @@ import Network.AWS.Request.JSON
 data DescribeActivityType = DescribeActivityType
     { _dat1Domain :: Text
     , _dat1ActivityType :: ActivityType
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeActivityType' request.
@@ -120,7 +120,7 @@ instance ToJSON DescribeActivityType
 data DescribeActivityTypeResponse = DescribeActivityTypeResponse
     { _datrTypeInfo :: ActivityTypeInfo
     , _datrConfiguration :: ActivityTypeConfiguration
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeActivityTypeResponse' response.

@@ -56,7 +56,7 @@ data DescribeAlarmHistory = DescribeAlarmHistory
     , _dahEndDate :: Maybe ISO8601
     , _dahMaxRecords :: Maybe Integer
     , _dahNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAlarmHistory' request.
@@ -118,7 +118,7 @@ instance ToQuery DescribeAlarmHistory where
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
     { _dahrAlarmHistoryItems :: [AlarmHistoryItem]
     , _dahrNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAlarmHistoryResponse' response.

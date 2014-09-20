@@ -57,7 +57,7 @@ data DescribeSuggesters = DescribeSuggesters
     { _ds3DomainName :: Text
     , _ds3SuggesterNames :: [Text]
     , _ds3Deployed :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSuggesters' request.
@@ -98,7 +98,7 @@ instance ToQuery DescribeSuggesters where
 -- | The result of a DescribeSuggesters request.
 newtype DescribeSuggestersResponse = DescribeSuggestersResponse
     { _dsr1Suggesters :: [SuggesterStatus]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSuggestersResponse' response.

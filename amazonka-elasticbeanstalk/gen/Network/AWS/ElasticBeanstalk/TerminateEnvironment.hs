@@ -68,7 +68,7 @@ data TerminateEnvironment = TerminateEnvironment
     { _teEnvironmentId :: Maybe Text
     , _teEnvironmentName :: Maybe Text
     , _teTerminateResources :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TerminateEnvironment' request.
@@ -135,7 +135,7 @@ data TerminateEnvironmentResponse = TerminateEnvironmentResponse
     , _terHealth :: Maybe EnvironmentHealth
     , _terResources :: Maybe EnvironmentResourcesDescription
     , _terTier :: Maybe EnvironmentTier
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TerminateEnvironmentResponse' response.

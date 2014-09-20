@@ -80,7 +80,7 @@ data GetSessionToken = GetSessionToken
     { _gstDurationSeconds :: Maybe Integer
     , _gstSerialNumber :: Maybe Text
     , _gstTokenCode :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetSessionToken' request.
@@ -137,7 +137,7 @@ instance ToQuery GetSessionToken where
 -- including temporary AWS credentials that can be used to make AWS requests.
 newtype GetSessionTokenResponse = GetSessionTokenResponse
     { _gstrCredentials :: Maybe Credentials
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetSessionTokenResponse' response.

@@ -38,7 +38,7 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAccountPasswordPolicy' request.
@@ -49,7 +49,7 @@ instance ToQuery DeleteAccountPasswordPolicy where
     toQuery = genericQuery def
 
 data DeleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAccountPasswordPolicyResponse' response.

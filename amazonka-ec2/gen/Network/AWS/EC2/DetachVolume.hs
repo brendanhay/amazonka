@@ -72,7 +72,7 @@ data DetachVolume = DetachVolume
     , _dv4InstanceId :: Maybe Text
     , _dv4Device :: Maybe Text
     , _dv4Force :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DetachVolume' request.
@@ -128,7 +128,7 @@ data DetachVolumeResponse = DetachVolumeResponse
     , _dvr1State :: Maybe VolumeAttachmentState
     , _dvr1AttachTime :: Maybe ISO8601
     , _dvr1DeleteOnTermination :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DetachVolumeResponse' response.

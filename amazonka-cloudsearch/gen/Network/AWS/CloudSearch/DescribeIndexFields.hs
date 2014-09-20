@@ -56,7 +56,7 @@ data DescribeIndexFields = DescribeIndexFields
     { _dif2DomainName :: Text
     , _dif2FieldNames :: [Text]
     , _dif2Deployed :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeIndexFields' request.
@@ -98,7 +98,7 @@ instance ToQuery DescribeIndexFields where
 -- configured for the domain specified in the request.
 newtype DescribeIndexFieldsResponse = DescribeIndexFieldsResponse
     { _difr1IndexFields :: [IndexFieldStatus]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeIndexFieldsResponse' response.

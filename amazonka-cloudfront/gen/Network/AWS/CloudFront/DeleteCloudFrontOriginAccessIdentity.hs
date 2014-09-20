@@ -44,7 +44,7 @@ import Network.AWS.Types (Region)
 data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
     { _dcfoaiId :: Text
     , _dcfoaiIfMatch :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCloudFrontOriginAccessIdentity' request.
@@ -85,7 +85,7 @@ instance ToXML DeleteCloudFrontOriginAccessIdentity where
     toXMLRoot    = toRoot "DeleteCloudFrontOriginAccessIdentityRequest"
 
 data DeleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdentityResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCloudFrontOriginAccessIdentityResponse' response.

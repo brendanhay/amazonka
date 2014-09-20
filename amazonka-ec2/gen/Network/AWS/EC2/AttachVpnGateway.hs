@@ -55,7 +55,7 @@ import Network.AWS.Prelude
 data AttachVpnGateway = AttachVpnGateway
     { _avgVpnGatewayId :: Text
     , _avgVpcId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachVpnGateway' request.
@@ -87,7 +87,7 @@ instance ToQuery AttachVpnGateway where
 
 newtype AttachVpnGatewayResponse = AttachVpnGatewayResponse
     { _avgrVpcAttachment :: Maybe VpcAttachment
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachVpnGatewayResponse' response.

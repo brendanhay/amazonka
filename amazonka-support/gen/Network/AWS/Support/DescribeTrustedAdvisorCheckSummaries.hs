@@ -45,7 +45,7 @@ import Network.AWS.Request.JSON
 
 newtype DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries
     { _dtacsCheckIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTrustedAdvisorCheckSummaries' request.
@@ -76,7 +76,7 @@ instance ToJSON DescribeTrustedAdvisorCheckSummaries
 -- DescribeTrustedAdvisorCheckSummaries operation.
 newtype DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse
     { _dtacsrSummaries :: [TrustedAdvisorCheckSummary]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTrustedAdvisorCheckSummariesResponse' response.

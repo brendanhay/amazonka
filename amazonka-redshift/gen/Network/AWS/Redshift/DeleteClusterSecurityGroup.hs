@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 -- | 
 newtype DeleteClusterSecurityGroup = DeleteClusterSecurityGroup
     { _dcsgClusterSecurityGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteClusterSecurityGroup' request.
@@ -76,7 +76,7 @@ instance ToQuery DeleteClusterSecurityGroup where
     toQuery = genericQuery def
 
 data DeleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteClusterSecurityGroupResponse' response.

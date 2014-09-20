@@ -62,7 +62,7 @@ import Network.AWS.Request.JSON
 data CreatePublicVirtualInterface = CreatePublicVirtualInterface
     { _cpvi3ConnectionId :: Text
     , _cpvi3NewPublicVirtualInterface :: NewPublicVirtualInterface
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePublicVirtualInterface' request.
@@ -119,7 +119,7 @@ data CreatePublicVirtualInterfaceResponse = CreatePublicVirtualInterfaceResponse
     , _cpvir1rCustomerRouterConfig :: Maybe Text
     , _cpvir1rVirtualGatewayId :: Maybe Text
     , _cpvir1rRouteFilterPrefixes :: [RouteFilterPrefix]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePublicVirtualInterfaceResponse' response.

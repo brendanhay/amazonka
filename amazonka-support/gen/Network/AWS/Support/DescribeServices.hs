@@ -53,7 +53,7 @@ import Network.AWS.Request.JSON
 data DescribeServices = DescribeServices
     { _dsServiceCodeList :: [Text]
     , _dsLanguage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeServices' request.
@@ -92,7 +92,7 @@ instance ToJSON DescribeServices
 -- | The list of AWS services returned by the DescribeServices operation.
 newtype DescribeServicesResponse = DescribeServicesResponse
     { _dsrServices :: [Service']
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeServicesResponse' response.

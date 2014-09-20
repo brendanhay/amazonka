@@ -82,7 +82,7 @@ data ModifyCacheCluster = ModifyCacheCluster
     , _mccSnapshotWindow :: Maybe Text
     , _mccAZMode :: Maybe Text
     , _mccNewAvailabilityZones :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyCacheCluster' request.
@@ -332,7 +332,7 @@ instance ToQuery ModifyCacheCluster where
 
 newtype ModifyCacheClusterResponse = ModifyCacheClusterResponse
     { _mccrCacheCluster :: Maybe CacheCluster
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyCacheClusterResponse' response.

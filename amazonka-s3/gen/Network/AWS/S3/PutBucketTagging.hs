@@ -45,7 +45,7 @@ data PutBucketTagging = PutBucketTagging
     { _pbtBucket :: BucketName
     , _pbtContentMD5 :: Maybe Text
     , _pbtTagging :: Tagging
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketTagging' request.
@@ -89,7 +89,7 @@ instance ToBody PutBucketTagging where
     toBody = toBody . encodeXML . _pbtTagging
 
 data PutBucketTaggingResponse = PutBucketTaggingResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketTaggingResponse' response.

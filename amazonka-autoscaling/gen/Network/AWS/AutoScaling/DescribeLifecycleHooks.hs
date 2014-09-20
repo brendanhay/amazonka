@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 data DescribeLifecycleHooks = DescribeLifecycleHooks
     { _dlh1AutoScalingGroupName :: Text
     , _dlh1LifecycleHookNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLifecycleHooks' request.
@@ -80,7 +80,7 @@ instance ToQuery DescribeLifecycleHooks where
 -- | The output of the DescribeLifecycleHooks action.
 newtype DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse
     { _dlhrrLifecycleHooks :: [LifecycleHook]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLifecycleHooksResponse' response.

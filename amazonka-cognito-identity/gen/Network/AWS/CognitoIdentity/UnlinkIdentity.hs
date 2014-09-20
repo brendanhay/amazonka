@@ -47,7 +47,7 @@ data UnlinkIdentity = UnlinkIdentity
     { _uiIdentityId :: Text
     , _uiLogins :: Map Text Text
     , _uiLoginsToRemove :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UnlinkIdentity' request.
@@ -93,7 +93,7 @@ instance ToHeaders UnlinkIdentity
 instance ToJSON UnlinkIdentity
 
 data UnlinkIdentityResponse = UnlinkIdentityResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UnlinkIdentityResponse' response.

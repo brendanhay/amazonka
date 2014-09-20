@@ -55,7 +55,7 @@ data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy
     , _clbpPolicyName :: Text
     , _clbpPolicyTypeName :: Text
     , _clbpPolicyAttributes :: [PolicyAttribute]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLoadBalancerPolicy' request.
@@ -108,7 +108,7 @@ instance ToQuery CreateLoadBalancerPolicy where
 
 -- | The output for the CreateLoadBalancerPolicy action.
 data CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLoadBalancerPolicyResponse' response.

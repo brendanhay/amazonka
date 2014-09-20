@@ -54,7 +54,7 @@ import Network.AWS.Prelude
 data DescribeRouteTables = DescribeRouteTables
     { _drt1RouteTableIds :: [Text]
     , _drt1Filters :: [Filter]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeRouteTables' request.
@@ -109,7 +109,7 @@ instance ToQuery DescribeRouteTables where
 
 newtype DescribeRouteTablesResponse = DescribeRouteTablesResponse
     { _drtrRouteTables :: [RouteTable]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeRouteTablesResponse' response.

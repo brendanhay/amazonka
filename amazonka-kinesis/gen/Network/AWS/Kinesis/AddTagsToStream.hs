@@ -55,7 +55,7 @@ import Network.AWS.Request.JSON
 data AddTagsToStream = AddTagsToStream
     { _attsStreamName :: Text
     , _attsTags :: Map Text Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddTagsToStream' request.
@@ -91,7 +91,7 @@ instance ToHeaders AddTagsToStream
 instance ToJSON AddTagsToStream
 
 data AddTagsToStreamResponse = AddTagsToStreamResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddTagsToStreamResponse' response.

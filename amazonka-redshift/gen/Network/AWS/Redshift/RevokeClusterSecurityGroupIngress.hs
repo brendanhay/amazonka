@@ -61,7 +61,7 @@ data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress
     , _rcsgiCIDRIP :: Maybe Text
     , _rcsgiEC2SecurityGroupName :: Maybe Text
     , _rcsgiEC2SecurityGroupOwnerId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RevokeClusterSecurityGroupIngress' request.
@@ -120,7 +120,7 @@ instance ToQuery RevokeClusterSecurityGroupIngress where
 
 newtype RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse
     { _rcsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RevokeClusterSecurityGroupIngressResponse' response.

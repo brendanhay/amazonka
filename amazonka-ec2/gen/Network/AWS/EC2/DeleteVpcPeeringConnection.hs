@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 
 newtype DeleteVpcPeeringConnection = DeleteVpcPeeringConnection
     { _dvpcVpcPeeringConnectionId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVpcPeeringConnection' request.
@@ -79,7 +79,7 @@ instance ToQuery DeleteVpcPeeringConnection where
 
 newtype DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
     { _dvpcrReturn :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVpcPeeringConnectionResponse' response.

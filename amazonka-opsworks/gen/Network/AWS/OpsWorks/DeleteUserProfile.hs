@@ -42,7 +42,7 @@ import Network.AWS.Request.JSON
 
 newtype DeleteUserProfile = DeleteUserProfile
     { _dupIamUserArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteUserProfile' request.
@@ -70,7 +70,7 @@ instance ToHeaders DeleteUserProfile
 instance ToJSON DeleteUserProfile
 
 data DeleteUserProfileResponse = DeleteUserProfileResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteUserProfileResponse' response.

@@ -50,7 +50,7 @@ import Network.AWS.SES.Types
 import Network.AWS.Prelude
 
 data ListVerifiedEmailAddresses = ListVerifiedEmailAddresses
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListVerifiedEmailAddresses' request.
@@ -63,7 +63,7 @@ instance ToQuery ListVerifiedEmailAddresses where
 -- | Represents a list of all the email addresses verified for the current user.
 newtype ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
     { _lvearVerifiedEmailAddresses :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListVerifiedEmailAddressesResponse' response.

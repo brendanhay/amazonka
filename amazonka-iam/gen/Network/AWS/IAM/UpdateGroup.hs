@@ -57,7 +57,7 @@ data UpdateGroup = UpdateGroup
     { _ugGroupName :: Text
     , _ugNewPath :: Maybe Text
     , _ugNewGroupName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateGroup' request.
@@ -95,7 +95,7 @@ instance ToQuery UpdateGroup where
     toQuery = genericQuery def
 
 data UpdateGroupResponse = UpdateGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateGroupResponse' response.

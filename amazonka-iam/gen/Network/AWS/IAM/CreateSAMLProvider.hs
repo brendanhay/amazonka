@@ -62,7 +62,7 @@ import Network.AWS.Prelude
 data CreateSAMLProvider = CreateSAMLProvider
     { _csamlpSAMLMetadataDocument :: Text
     , _csamlpName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSAMLProvider' request.
@@ -105,7 +105,7 @@ instance ToQuery CreateSAMLProvider where
 -- action.
 newtype CreateSAMLProviderResponse = CreateSAMLProviderResponse
     { _csamlprSAMLProviderArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSAMLProviderResponse' response.

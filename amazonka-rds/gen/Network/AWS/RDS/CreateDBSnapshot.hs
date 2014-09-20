@@ -54,7 +54,7 @@ data CreateDBSnapshot = CreateDBSnapshot
     { _cdbs1DBSnapshotIdentifier :: Text
     , _cdbs1DBInstanceIdentifier :: Text
     , _cdbs1Tags :: [Tag]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBSnapshot' request.
@@ -103,7 +103,7 @@ instance ToQuery CreateDBSnapshot where
 
 newtype CreateDBSnapshotResponse = CreateDBSnapshotResponse
     { _cdbsrrDBSnapshot :: Maybe DBSnapshot
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBSnapshotResponse' response.

@@ -90,7 +90,7 @@ data Query = Query
     , _qScanIndexForward :: Maybe Bool
     , _qExclusiveStartKey :: Map Text AttributeValue
     , _qReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'Query' request.
@@ -334,7 +334,7 @@ data QueryResponse = QueryResponse
     , _qrScannedCount :: Maybe Integer
     , _qrLastEvaluatedKey :: Map Text AttributeValue
     , _qrConsumedCapacity :: Maybe ConsumedCapacity
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'QueryResponse' response.

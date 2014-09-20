@@ -120,7 +120,7 @@ data CreateLoadBalancer = CreateLoadBalancer
     , _clbSecurityGroups :: [Text]
     , _clbScheme :: Maybe Text
     , _clbTags :: Maybe (List1 Tag)
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLoadBalancer' request.
@@ -206,7 +206,7 @@ instance ToQuery CreateLoadBalancer where
 -- | The output for the CreateLoadBalancer action.
 newtype CreateLoadBalancerResponse = CreateLoadBalancerResponse
     { _clbrDNSName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLoadBalancerResponse' response.

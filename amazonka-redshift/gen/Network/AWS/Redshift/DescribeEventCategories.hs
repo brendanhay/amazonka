@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 -- | 
 newtype DescribeEventCategories = DescribeEventCategories
     { _decSourceType :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEventCategories' request.
@@ -71,7 +71,7 @@ instance ToQuery DescribeEventCategories where
 -- | 
 newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
     { _decrEventCategoriesMapList :: [EventCategoriesMap]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEventCategoriesResponse' response.

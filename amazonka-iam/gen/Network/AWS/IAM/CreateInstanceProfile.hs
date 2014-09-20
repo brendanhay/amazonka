@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 data CreateInstanceProfile = CreateInstanceProfile
     { _cipInstanceProfileName :: Text
     , _cipPath :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateInstanceProfile' request.
@@ -88,7 +88,7 @@ instance ToQuery CreateInstanceProfile where
 -- action.
 newtype CreateInstanceProfileResponse = CreateInstanceProfileResponse
     { _ciprInstanceProfile :: InstanceProfile
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateInstanceProfileResponse' response.

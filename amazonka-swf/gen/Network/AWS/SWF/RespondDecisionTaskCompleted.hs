@@ -78,7 +78,7 @@ data RespondDecisionTaskCompleted = RespondDecisionTaskCompleted
     { _rdtcTaskToken :: Text
     , _rdtcDecisions :: [Decision]
     , _rdtcExecutionContext :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RespondDecisionTaskCompleted' request.
@@ -125,7 +125,7 @@ instance ToHeaders RespondDecisionTaskCompleted
 instance ToJSON RespondDecisionTaskCompleted
 
 data RespondDecisionTaskCompletedResponse = RespondDecisionTaskCompletedResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RespondDecisionTaskCompletedResponse' response.

@@ -48,7 +48,7 @@ data EnableMetricsCollection = EnableMetricsCollection
     { _emcAutoScalingGroupName :: Text
     , _emcMetrics :: [Text]
     , _emcGranularity :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableMetricsCollection' request.
@@ -94,7 +94,7 @@ instance ToQuery EnableMetricsCollection where
     toQuery = genericQuery def
 
 data EnableMetricsCollectionResponse = EnableMetricsCollectionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableMetricsCollectionResponse' response.

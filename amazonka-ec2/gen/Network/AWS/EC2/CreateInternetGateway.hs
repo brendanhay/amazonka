@@ -43,7 +43,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data CreateInternetGateway = CreateInternetGateway
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateInternetGateway' request.
@@ -55,7 +55,7 @@ instance ToQuery CreateInternetGateway where
 
 newtype CreateInternetGatewayResponse = CreateInternetGatewayResponse
     { _cigrInternetGateway :: Maybe InternetGateway
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateInternetGatewayResponse' response.

@@ -43,7 +43,7 @@ import Network.AWS.Request.JSON
 
 newtype UpdateMyUserProfile = UpdateMyUserProfile
     { _umupSshPublicKey :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateMyUserProfile' request.
@@ -71,7 +71,7 @@ instance ToHeaders UpdateMyUserProfile
 instance ToJSON UpdateMyUserProfile
 
 data UpdateMyUserProfileResponse = UpdateMyUserProfileResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateMyUserProfileResponse' response.

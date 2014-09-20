@@ -46,7 +46,7 @@ import Network.AWS.Request.JSON
 data DetachElasticLoadBalancer = DetachElasticLoadBalancer
     { _delb1ElasticLoadBalancerName :: Text
     , _delb1LayerId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DetachElasticLoadBalancer' request.
@@ -85,7 +85,7 @@ instance ToHeaders DetachElasticLoadBalancer
 instance ToJSON DetachElasticLoadBalancer
 
 data DetachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DetachElasticLoadBalancerResponse' response.

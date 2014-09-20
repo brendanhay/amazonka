@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 data SuspendProcesses = SuspendProcesses
     { _sp1AutoScalingGroupName :: Text
     , _sp1ScalingProcesses :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SuspendProcesses' request.
@@ -85,7 +85,7 @@ instance ToQuery SuspendProcesses where
     toQuery = genericQuery def
 
 data SuspendProcessesResponse = SuspendProcessesResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SuspendProcessesResponse' response.

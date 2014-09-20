@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 data CreateGroup = CreateGroup
     { _cgPath :: Maybe Text
     , _cgGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateGroup' request.
@@ -82,7 +82,7 @@ instance ToQuery CreateGroup where
 -- | Contains the result of a successful invocation of the CreateGroup action.
 newtype CreateGroupResponse = CreateGroupResponse
     { _cgrGroup :: Group
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateGroupResponse' response.

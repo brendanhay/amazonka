@@ -69,7 +69,7 @@ import Network.AWS.Request.JSON
 
 newtype DeprecateDomain = DeprecateDomain
     { _ddName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeprecateDomain' request.
@@ -97,7 +97,7 @@ instance ToHeaders DeprecateDomain
 instance ToJSON DeprecateDomain
 
 data DeprecateDomainResponse = DeprecateDomainResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeprecateDomainResponse' response.

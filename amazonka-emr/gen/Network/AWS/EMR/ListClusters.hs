@@ -55,7 +55,7 @@ data ListClusters = ListClusters
     , _lcCreatedBefore :: Maybe POSIX
     , _lcClusterStates :: [ClusterState]
     , _lcMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListClusters' request.
@@ -107,7 +107,7 @@ instance ToJSON ListClusters
 data ListClustersResponse = ListClustersResponse
     { _lcrClusters :: [ClusterSummary]
     , _lcrMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListClustersResponse' response.

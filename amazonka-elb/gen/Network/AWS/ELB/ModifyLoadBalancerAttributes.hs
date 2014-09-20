@@ -74,7 +74,7 @@ import Network.AWS.Prelude
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes
     { _mlbaLoadBalancerName :: Text
     , _mlbaLoadBalancerAttributes :: LoadBalancerAttributes
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyLoadBalancerAttributes' request.
@@ -111,7 +111,7 @@ instance ToQuery ModifyLoadBalancerAttributes where
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
     { _mlbarLoadBalancerName :: Maybe Text
     , _mlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyLoadBalancerAttributesResponse' response.

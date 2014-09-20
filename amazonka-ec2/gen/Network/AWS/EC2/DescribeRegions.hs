@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 data DescribeRegions = DescribeRegions
     { _dr1RegionNames :: [Text]
     , _dr1Filters :: [Filter]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeRegions' request.
@@ -84,7 +84,7 @@ instance ToQuery DescribeRegions where
 
 newtype DescribeRegionsResponse = DescribeRegionsResponse
     { _drrRegions :: [Region]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeRegionsResponse' response.

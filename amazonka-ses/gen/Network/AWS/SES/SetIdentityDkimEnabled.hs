@@ -63,7 +63,7 @@ import Network.AWS.Prelude
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled
     { _sideIdentity :: Text
     , _sideDkimEnabled :: !Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetIdentityDkimEnabled' request.
@@ -97,7 +97,7 @@ instance ToQuery SetIdentityDkimEnabled where
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.
 data SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetIdentityDkimEnabledResponse' response.

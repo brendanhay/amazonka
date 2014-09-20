@@ -49,7 +49,7 @@ data DescribeServiceErrors = DescribeServiceErrors
     { _dseStackId :: Maybe Text
     , _dseInstanceId :: Maybe Text
     , _dseServiceErrorIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeServiceErrors' request.
@@ -97,7 +97,7 @@ instance ToJSON DescribeServiceErrors
 -- | Contains the response to a DescribeServiceErrors request.
 newtype DescribeServiceErrorsResponse = DescribeServiceErrorsResponse
     { _dserServiceErrors :: [ServiceError]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeServiceErrorsResponse' response.

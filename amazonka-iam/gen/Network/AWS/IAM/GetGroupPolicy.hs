@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 data GetGroupPolicy = GetGroupPolicy
     { _ggpGroupName :: Text
     , _ggpPolicyName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetGroupPolicy' request.
@@ -88,7 +88,7 @@ data GetGroupPolicyResponse = GetGroupPolicyResponse
     { _ggprGroupName :: Text
     , _ggprPolicyName :: Text
     , _ggprPolicyDocument :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetGroupPolicyResponse' response.

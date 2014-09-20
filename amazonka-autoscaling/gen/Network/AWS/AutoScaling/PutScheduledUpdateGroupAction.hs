@@ -72,7 +72,7 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
     , _psugaMinSize :: Maybe Integer
     , _psugaMaxSize :: Maybe Integer
     , _psugaDesiredCapacity :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutScheduledUpdateGroupAction' request.
@@ -167,7 +167,7 @@ instance ToQuery PutScheduledUpdateGroupAction where
     toQuery = genericQuery def
 
 data PutScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutScheduledUpdateGroupActionResponse' response.

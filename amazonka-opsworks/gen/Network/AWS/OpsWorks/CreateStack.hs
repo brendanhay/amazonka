@@ -79,7 +79,7 @@ data CreateStack = CreateStack
     , _cs1CustomCookbooksSource :: Maybe Source'
     , _cs1DefaultSshKeyName :: Maybe Text
     , _cs1DefaultRootDeviceType :: Maybe RootDeviceType
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStack' request.
@@ -315,7 +315,7 @@ instance ToJSON CreateStack
 -- | Contains the response to a CreateStack request.
 newtype CreateStackResponse = CreateStackResponse
     { _csrrStackId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStackResponse' response.

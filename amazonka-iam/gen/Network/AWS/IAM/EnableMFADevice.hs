@@ -51,7 +51,7 @@ data EnableMFADevice = EnableMFADevice
     , _emfadSerialNumber :: Text
     , _emfadAuthenticationCode1 :: Text
     , _emfadAuthenticationCode2 :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableMFADevice' request.
@@ -104,7 +104,7 @@ instance ToQuery EnableMFADevice where
     toQuery = genericQuery def
 
 data EnableMFADeviceResponse = EnableMFADeviceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableMFADeviceResponse' response.

@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 
 newtype DeleteVpnConnection = DeleteVpnConnection
     { _dvcVpnConnectionId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVpnConnection' request.
@@ -73,7 +73,7 @@ instance ToQuery DeleteVpnConnection where
     toQuery = genericQuery def
 
 data DeleteVpnConnectionResponse = DeleteVpnConnectionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVpnConnectionResponse' response.

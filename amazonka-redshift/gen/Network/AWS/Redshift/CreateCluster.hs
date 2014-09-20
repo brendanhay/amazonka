@@ -112,7 +112,7 @@ data CreateCluster = CreateCluster
     , _ccHsmClientCertificateIdentifier :: Maybe Text
     , _ccHsmConfigurationIdentifier :: Maybe Text
     , _ccElasticIp :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCluster' request.
@@ -385,7 +385,7 @@ instance ToQuery CreateCluster where
 
 newtype CreateClusterResponse = CreateClusterResponse
     { _ccrCluster :: Maybe Cluster
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateClusterResponse' response.

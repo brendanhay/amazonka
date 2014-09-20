@@ -41,7 +41,7 @@ import Network.AWS.Types (Region)
 
 newtype DeleteBucketPolicy = DeleteBucketPolicy
     { _dbpBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBucketPolicy' request.
@@ -68,7 +68,7 @@ instance ToHeaders DeleteBucketPolicy
 instance ToBody DeleteBucketPolicy
 
 data DeleteBucketPolicyResponse = DeleteBucketPolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBucketPolicyResponse' response.

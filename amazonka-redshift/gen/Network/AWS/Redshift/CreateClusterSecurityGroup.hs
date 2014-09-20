@@ -55,7 +55,7 @@ import Network.AWS.Prelude
 data CreateClusterSecurityGroup = CreateClusterSecurityGroup
     { _ccsgClusterSecurityGroupName :: Text
     , _ccsgDescription :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateClusterSecurityGroup' request.
@@ -93,7 +93,7 @@ instance ToQuery CreateClusterSecurityGroup where
 
 newtype CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse
     { _ccsgrClusterSecurityGroup :: Maybe ClusterSecurityGroup
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateClusterSecurityGroupResponse' response.

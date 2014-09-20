@@ -67,7 +67,7 @@ import Network.AWS.Request.JSON
 data ListPresets = ListPresets
     { _lp1Ascending :: Maybe Text
     , _lp1PageToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListPresets' request.
@@ -108,7 +108,7 @@ instance ToJSON ListPresets
 data ListPresetsResponse = ListPresetsResponse
     { _lprrPresets :: [Preset]
     , _lprrNextPageToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListPresetsResponse' response.

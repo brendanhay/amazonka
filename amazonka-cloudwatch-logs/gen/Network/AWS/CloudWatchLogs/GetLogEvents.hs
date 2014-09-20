@@ -81,7 +81,7 @@ data GetLogEvents = GetLogEvents
     , _gleNextToken :: Maybe Text
     , _gleLimit :: Maybe Integer
     , _gleStartFromHead :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetLogEvents' request.
@@ -160,7 +160,7 @@ data GetLogEventsResponse = GetLogEventsResponse
     { _glerEvents :: [OutputLogEvent]
     , _glerNextForwardToken :: Maybe Text
     , _glerNextBackwardToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetLogEventsResponse' response.

@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 data DefineSuggester = DefineSuggester
     { _ds1DomainName :: Text
     , _ds1Suggester :: Suggester
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DefineSuggester' request.
@@ -91,7 +91,7 @@ instance ToQuery DefineSuggester where
 -- newly-configured suggester.
 newtype DefineSuggesterResponse = DefineSuggesterResponse
     { _dsrSuggester :: SuggesterStatus
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DefineSuggesterResponse' response.

@@ -74,7 +74,7 @@ data CreateInstance = CreateInstance
     , _ciRootDeviceType :: Maybe RootDeviceType
     , _ciInstallUpdatesOnBoot :: Maybe Bool
     , _ciEbsOptimized :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateInstance' request.
@@ -235,7 +235,7 @@ instance ToJSON CreateInstance
 -- | Contains the response to a CreateInstance request.
 newtype CreateInstanceResponse = CreateInstanceResponse
     { _cirInstanceId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateInstanceResponse' response.

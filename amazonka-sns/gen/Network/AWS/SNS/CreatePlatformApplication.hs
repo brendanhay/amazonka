@@ -77,7 +77,7 @@ data CreatePlatformApplication = CreatePlatformApplication
     { _cpaName :: Text
     , _cpaPlatform :: Text
     , _cpaAttributes :: Map Text Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePlatformApplication' request.
@@ -122,7 +122,7 @@ instance ToQuery CreatePlatformApplication where
 -- | Response from CreatePlatformApplication action.
 newtype CreatePlatformApplicationResponse = CreatePlatformApplicationResponse
     { _cparPlatformApplicationArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePlatformApplicationResponse' response.

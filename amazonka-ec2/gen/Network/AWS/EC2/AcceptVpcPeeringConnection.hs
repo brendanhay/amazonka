@@ -62,7 +62,7 @@ import Network.AWS.Prelude
 
 newtype AcceptVpcPeeringConnection = AcceptVpcPeeringConnection
     { _avpcVpcPeeringConnectionId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AcceptVpcPeeringConnection' request.
@@ -87,7 +87,7 @@ instance ToQuery AcceptVpcPeeringConnection where
 
 newtype AcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
     { _avpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AcceptVpcPeeringConnectionResponse' response.

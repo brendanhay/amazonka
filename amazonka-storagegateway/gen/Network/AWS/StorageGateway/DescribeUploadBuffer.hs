@@ -66,7 +66,7 @@ import Network.AWS.Request.JSON
 
 newtype DescribeUploadBuffer = DescribeUploadBuffer
     { _dubGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeUploadBuffer' request.
@@ -99,7 +99,7 @@ data DescribeUploadBufferResponse = DescribeUploadBufferResponse
     , _dubrDiskIds :: [Text]
     , _dubrUploadBufferUsedInBytes :: Maybe Integer
     , _dubrUploadBufferAllocatedInBytes :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeUploadBufferResponse' response.

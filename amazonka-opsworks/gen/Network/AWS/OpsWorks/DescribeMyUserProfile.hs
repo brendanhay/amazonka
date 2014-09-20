@@ -41,7 +41,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DescribeMyUserProfile = DescribeMyUserProfile
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeMyUserProfile' request.
@@ -59,7 +59,7 @@ instance ToJSON DescribeMyUserProfile
 -- | Contains the response to a DescribeMyUserProfile request.
 newtype DescribeMyUserProfileResponse = DescribeMyUserProfileResponse
     { _dmuprUserProfile :: Maybe SelfUserProfile
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeMyUserProfileResponse' response.

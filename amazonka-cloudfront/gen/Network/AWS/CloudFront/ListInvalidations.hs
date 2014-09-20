@@ -48,7 +48,7 @@ data ListInvalidations = ListInvalidations
     { _liDistributionId :: Text
     , _liMarker :: Maybe Text
     , _liMaxItems :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListInvalidations' request.
@@ -101,7 +101,7 @@ instance ToXML ListInvalidations where
 -- | The returned result of the corresponding request.
 newtype ListInvalidationsResponse = ListInvalidationsResponse
     { _lirInvalidationList :: InvalidationList
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListInvalidationsResponse' response.

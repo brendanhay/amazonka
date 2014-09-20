@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 -- | The input for the DescribeTags action.
 newtype DescribeTags = DescribeTags
     { _dtLoadBalancerNames :: List1 Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTags' request.
@@ -73,7 +73,7 @@ instance ToQuery DescribeTags where
 -- | The output for the DescribeTags action.
 newtype DescribeTagsResponse = DescribeTagsResponse
     { _dtrTagDescriptions :: [TagDescription]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTagsResponse' response.

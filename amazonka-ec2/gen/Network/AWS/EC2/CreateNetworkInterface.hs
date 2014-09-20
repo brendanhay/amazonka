@@ -150,7 +150,7 @@ data CreateNetworkInterface = CreateNetworkInterface
     , _cniGroups :: [Text]
     , _cniPrivateIpAddresses :: [PrivateIpAddressSpecification]
     , _cniSecondaryPrivateIpAddressCount :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateNetworkInterface' request.
@@ -220,7 +220,7 @@ instance ToQuery CreateNetworkInterface where
 
 newtype CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
     { _cnirNetworkInterface :: Maybe NetworkInterface
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateNetworkInterfaceResponse' response.

@@ -99,7 +99,7 @@ data CreateVpnConnection = CreateVpnConnection
     , _cvcCustomerGatewayId :: Text
     , _cvcVpnGatewayId :: Text
     , _cvcOptions :: Maybe VpnConnectionOptionsSpecification
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVpnConnection' request.
@@ -149,7 +149,7 @@ instance ToQuery CreateVpnConnection where
 
 newtype CreateVpnConnectionResponse = CreateVpnConnectionResponse
     { _cvcrVpnConnection :: Maybe VpnConnection
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVpnConnectionResponse' response.

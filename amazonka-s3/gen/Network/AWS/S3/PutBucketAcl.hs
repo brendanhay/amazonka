@@ -57,7 +57,7 @@ data PutBucketAcl = PutBucketAcl
     , _pbaGrantReadACP :: Maybe Text
     , _pbaGrantWrite :: Maybe Text
     , _pbaGrantWriteACP :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketAcl' request.
@@ -152,7 +152,7 @@ instance ToBody PutBucketAcl where
     toBody = toBody . encodeXML . _pbaAccessControlPolicy
 
 data PutBucketAclResponse = PutBucketAclResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketAclResponse' response.

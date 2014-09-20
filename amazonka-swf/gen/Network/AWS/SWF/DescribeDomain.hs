@@ -69,7 +69,7 @@ import Network.AWS.Request.JSON
 
 newtype DescribeDomain = DescribeDomain
     { _dd1Name :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDomain' request.
@@ -100,7 +100,7 @@ instance ToJSON DescribeDomain
 data DescribeDomainResponse = DescribeDomainResponse
     { _ddrDomainInfo :: DomainInfo
     , _ddrConfiguration :: DomainConfiguration
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDomainResponse' response.

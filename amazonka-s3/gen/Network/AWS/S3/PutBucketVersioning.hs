@@ -48,7 +48,7 @@ data PutBucketVersioning = PutBucketVersioning
     , _pbvContentMD5 :: Maybe Text
     , _pbvMFA :: Maybe Text
     , _pbvVersioningConfiguration :: VersioningConfiguration
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketVersioning' request.
@@ -103,7 +103,7 @@ instance ToBody PutBucketVersioning where
     toBody = toBody . encodeXML . _pbvVersioningConfiguration
 
 data PutBucketVersioningResponse = PutBucketVersioningResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketVersioningResponse' response.

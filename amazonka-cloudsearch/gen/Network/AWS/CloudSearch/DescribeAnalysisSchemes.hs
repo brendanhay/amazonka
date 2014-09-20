@@ -57,7 +57,7 @@ data DescribeAnalysisSchemes = DescribeAnalysisSchemes
     { _das2DomainName :: Text
     , _das2AnalysisSchemeNames :: [Text]
     , _das2Deployed :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAnalysisSchemes' request.
@@ -100,7 +100,7 @@ instance ToQuery DescribeAnalysisSchemes where
 -- schemes configured for the domain specified in the request.
 newtype DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
     { _dasr1AnalysisSchemes :: [AnalysisSchemeStatus]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAnalysisSchemesResponse' response.

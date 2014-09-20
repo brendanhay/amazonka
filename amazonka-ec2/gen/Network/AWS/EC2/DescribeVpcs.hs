@@ -61,7 +61,7 @@ import Network.AWS.Prelude
 data DescribeVpcs = DescribeVpcs
     { _dv3VpcIds :: [Text]
     , _dv3Filters :: [Filter]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVpcs' request.
@@ -104,7 +104,7 @@ instance ToQuery DescribeVpcs where
 
 newtype DescribeVpcsResponse = DescribeVpcsResponse
     { _dvrrVpcs :: [Vpc]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVpcsResponse' response.

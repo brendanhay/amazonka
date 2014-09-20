@@ -53,7 +53,7 @@ data DeleteObjects = DeleteObjects
     { _do1Bucket :: BucketName
     , _do1Delete :: Delete
     , _do1MFA :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteObjects' request.
@@ -101,7 +101,7 @@ instance ToBody DeleteObjects where
 data DeleteObjectsResponse = DeleteObjectsResponse
     { _dorrDeleted :: [DeletedObject]
     , _dorrErrors :: [Error]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteObjectsResponse' response.

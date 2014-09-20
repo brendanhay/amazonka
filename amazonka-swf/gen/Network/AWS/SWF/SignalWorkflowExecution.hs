@@ -80,7 +80,7 @@ data SignalWorkflowExecution = SignalWorkflowExecution
     , _sweRunId :: Maybe Text
     , _sweSignalName :: Text
     , _sweInput :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SignalWorkflowExecution' request.
@@ -140,7 +140,7 @@ instance ToHeaders SignalWorkflowExecution
 instance ToJSON SignalWorkflowExecution
 
 data SignalWorkflowExecutionResponse = SignalWorkflowExecutionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SignalWorkflowExecutionResponse' response.

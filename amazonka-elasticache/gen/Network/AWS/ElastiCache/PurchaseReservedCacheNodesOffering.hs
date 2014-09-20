@@ -56,7 +56,7 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering
     { _prcnoReservedCacheNodesOfferingId :: Text
     , _prcnoReservedCacheNodeId :: Maybe Text
     , _prcnoCacheNodeCount :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PurchaseReservedCacheNodesOffering' request.
@@ -101,7 +101,7 @@ instance ToQuery PurchaseReservedCacheNodesOffering where
 
 newtype PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse
     { _prcnorReservedCacheNode :: Maybe ReservedCacheNode
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PurchaseReservedCacheNodesOfferingResponse' response.

@@ -82,7 +82,7 @@ data CreateCachediSCSIVolume = CreateCachediSCSIVolume
     , _ccscsivTargetName :: Text
     , _ccscsivNetworkInterfaceId :: Text
     , _ccscsivClientToken :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCachediSCSIVolume' request.
@@ -155,7 +155,7 @@ instance ToJSON CreateCachediSCSIVolume
 data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse
     { _ccscsivrVolumeARN :: Maybe Text
     , _ccscsivrTargetARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCachediSCSIVolumeResponse' response.

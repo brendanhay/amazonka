@@ -65,7 +65,7 @@ import Network.AWS.Request.JSON
 data UpdateDomainNameservers = UpdateDomainNameservers
     { _udnDomainName :: Text
     , _udnNameservers :: [Nameserver]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateDomainNameservers' request.
@@ -107,7 +107,7 @@ instance ToJSON UpdateDomainNameservers
 -- | The UpdateDomainNameservers response includes the following element.
 newtype UpdateDomainNameserversResponse = UpdateDomainNameserversResponse
     { _udnrOperationId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateDomainNameserversResponse' response.

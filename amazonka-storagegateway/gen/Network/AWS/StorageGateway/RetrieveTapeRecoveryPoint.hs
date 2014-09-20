@@ -43,7 +43,7 @@ import Network.AWS.Request.JSON
 data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint
     { _rtrpTapeARN :: Text
     , _rtrpGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RetrieveTapeRecoveryPoint' request.
@@ -80,7 +80,7 @@ instance ToJSON RetrieveTapeRecoveryPoint
 
 newtype RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse
     { _rtrprTapeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RetrieveTapeRecoveryPointResponse' response.

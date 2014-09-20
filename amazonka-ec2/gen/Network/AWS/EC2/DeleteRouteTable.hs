@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 
 newtype DeleteRouteTable = DeleteRouteTable
     { _drtRouteTableId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteRouteTable' request.
@@ -70,7 +70,7 @@ instance ToQuery DeleteRouteTable where
     toQuery = genericQuery def
 
 data DeleteRouteTableResponse = DeleteRouteTableResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteRouteTableResponse' response.

@@ -64,7 +64,7 @@ data CreateInterconnect = CreateInterconnect
     { _ciInterconnectName :: Text
     , _ciBandwidth :: Text
     , _ciLocation :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateInterconnect' request.
@@ -127,7 +127,7 @@ data CreateInterconnectResponse = CreateInterconnectResponse
     , _cirRegion :: Maybe Text
     , _cirLocation :: Maybe Text
     , _cirBandwidth :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateInterconnectResponse' response.

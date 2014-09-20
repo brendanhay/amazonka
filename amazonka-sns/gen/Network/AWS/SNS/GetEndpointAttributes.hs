@@ -64,7 +64,7 @@ import Network.AWS.Prelude
 -- | Input for GetEndpointAttributes action.
 newtype GetEndpointAttributes = GetEndpointAttributes
     { _geaEndpointArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetEndpointAttributes' request.
@@ -89,7 +89,7 @@ instance ToQuery GetEndpointAttributes where
 -- | Response from GetEndpointAttributes of the EndpointArn.
 newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
     { _gearAttributes :: Map Text Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetEndpointAttributesResponse' response.

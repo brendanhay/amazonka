@@ -64,7 +64,7 @@ data DescribeDBSnapshots = DescribeDBSnapshots
     , _ddbs1SnapshotType :: Maybe Text
     , _ddbs1MaxRecords :: Maybe Integer
     , _ddbs1Marker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBSnapshots' request.
@@ -139,7 +139,7 @@ instance ToQuery DescribeDBSnapshots where
 data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse
     { _ddbsrrMarker :: Maybe Text
     , _ddbsrrDBSnapshots :: [DBSnapshot]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBSnapshotsResponse' response.

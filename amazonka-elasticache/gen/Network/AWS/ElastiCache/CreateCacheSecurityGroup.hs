@@ -56,7 +56,7 @@ import Network.AWS.Prelude
 data CreateCacheSecurityGroup = CreateCacheSecurityGroup
     { _ccsgCacheSecurityGroupName :: Text
     , _ccsgDescription :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCacheSecurityGroup' request.
@@ -92,7 +92,7 @@ instance ToQuery CreateCacheSecurityGroup where
 
 newtype CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse
     { _ccsgrCacheSecurityGroup :: Maybe CacheSecurityGroup
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCacheSecurityGroupResponse' response.

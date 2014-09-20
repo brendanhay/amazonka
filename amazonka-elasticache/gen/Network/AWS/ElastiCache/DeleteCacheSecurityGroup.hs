@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 -- | Represents the input of a DeleteCacheSecurityGroup operation.
 newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup
     { _dcsgCacheSecurityGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCacheSecurityGroup' request.
@@ -73,7 +73,7 @@ instance ToQuery DeleteCacheSecurityGroup where
     toQuery = genericQuery def
 
 data DeleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCacheSecurityGroupResponse' response.

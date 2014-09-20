@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 data CreateUser = CreateUser
     { _cuPath :: Maybe Text
     , _cuUserName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateUser' request.
@@ -84,7 +84,7 @@ instance ToQuery CreateUser where
 -- | Contains the result of a successful invocation of the CreateUser action.
 newtype CreateUserResponse = CreateUserResponse
     { _curUser :: Maybe User
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateUserResponse' response.

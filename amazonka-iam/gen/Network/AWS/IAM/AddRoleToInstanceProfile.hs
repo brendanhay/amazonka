@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 data AddRoleToInstanceProfile = AddRoleToInstanceProfile
     { _artipInstanceProfileName :: Text
     , _artipRoleName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddRoleToInstanceProfile' request.
@@ -80,7 +80,7 @@ instance ToQuery AddRoleToInstanceProfile where
     toQuery = genericQuery def
 
 data AddRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddRoleToInstanceProfileResponse' response.

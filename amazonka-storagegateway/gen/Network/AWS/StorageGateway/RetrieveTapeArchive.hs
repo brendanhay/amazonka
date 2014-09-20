@@ -43,7 +43,7 @@ import Network.AWS.Request.JSON
 data RetrieveTapeArchive = RetrieveTapeArchive
     { _rtaTapeARN :: Text
     , _rtaGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RetrieveTapeArchive' request.
@@ -80,7 +80,7 @@ instance ToJSON RetrieveTapeArchive
 
 newtype RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse
     { _rtarTapeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RetrieveTapeArchiveResponse' response.

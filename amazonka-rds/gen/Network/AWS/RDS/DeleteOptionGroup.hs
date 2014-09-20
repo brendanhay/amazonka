@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 -- | 
 newtype DeleteOptionGroup = DeleteOptionGroup
     { _dogOptionGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteOptionGroup' request.
@@ -67,7 +67,7 @@ instance ToQuery DeleteOptionGroup where
     toQuery = genericQuery def
 
 data DeleteOptionGroupResponse = DeleteOptionGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteOptionGroupResponse' response.

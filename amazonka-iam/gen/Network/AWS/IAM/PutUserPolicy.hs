@@ -56,7 +56,7 @@ data PutUserPolicy = PutUserPolicy
     { _pupUserName :: Text
     , _pupPolicyName :: Text
     , _pupPolicyDocument :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutUserPolicy' request.
@@ -96,7 +96,7 @@ instance ToQuery PutUserPolicy where
     toQuery = genericQuery def
 
 data PutUserPolicyResponse = PutUserPolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutUserPolicyResponse' response.

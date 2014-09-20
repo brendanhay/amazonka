@@ -73,7 +73,7 @@ import Network.AWS.Prelude
 data CreateVpc = CreateVpc
     { _cv1CidrBlock :: Text
     , _cv1InstanceTenancy :: Maybe Tenancy
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVpc' request.
@@ -110,7 +110,7 @@ instance ToQuery CreateVpc where
 
 newtype CreateVpcResponse = CreateVpcResponse
     { _cvrrVpc :: Maybe Vpc
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVpcResponse' response.

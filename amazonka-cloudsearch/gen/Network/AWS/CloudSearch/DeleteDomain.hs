@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 -- name of the domain you want to delete.
 newtype DeleteDomain = DeleteDomain
     { _ddDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteDomain' request.
@@ -73,7 +73,7 @@ instance ToQuery DeleteDomain where
 -- deleted.
 newtype DeleteDomainResponse = DeleteDomainResponse
     { _ddrDomainStatus :: Maybe DomainStatus
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteDomainResponse' response.

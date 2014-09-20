@@ -56,7 +56,7 @@ data PutRolePolicy = PutRolePolicy
     { _prpRoleName :: Text
     , _prpPolicyName :: Text
     , _prpPolicyDocument :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutRolePolicy' request.
@@ -96,7 +96,7 @@ instance ToQuery PutRolePolicy where
     toQuery = genericQuery def
 
 data PutRolePolicyResponse = PutRolePolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutRolePolicyResponse' response.

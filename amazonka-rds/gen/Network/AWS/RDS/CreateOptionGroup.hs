@@ -56,7 +56,7 @@ data CreateOptionGroup = CreateOptionGroup
     , _cogMajorEngineVersion :: Text
     , _cogOptionGroupDescription :: Text
     , _cogTags :: [Tag]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateOptionGroup' request.
@@ -120,7 +120,7 @@ instance ToQuery CreateOptionGroup where
 
 newtype CreateOptionGroupResponse = CreateOptionGroupResponse
     { _cogrOptionGroup :: Maybe OptionGroup
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateOptionGroupResponse' response.

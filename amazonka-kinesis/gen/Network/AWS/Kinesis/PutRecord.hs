@@ -87,7 +87,7 @@ data PutRecord = PutRecord
     , _prPartitionKey :: Text
     , _prExplicitHashKey :: Maybe Text
     , _prSequenceNumberForOrdering :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutRecord' request.
@@ -166,7 +166,7 @@ instance ToJSON PutRecord
 data PutRecordResponse = PutRecordResponse
     { _prrShardId :: Text
     , _prrSequenceNumber :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutRecordResponse' response.

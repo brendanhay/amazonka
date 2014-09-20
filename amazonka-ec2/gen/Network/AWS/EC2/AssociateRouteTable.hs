@@ -58,7 +58,7 @@ import Network.AWS.Prelude
 data AssociateRouteTable = AssociateRouteTable
     { _artSubnetId :: Text
     , _artRouteTableId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssociateRouteTable' request.
@@ -90,7 +90,7 @@ instance ToQuery AssociateRouteTable where
 
 newtype AssociateRouteTableResponse = AssociateRouteTableResponse
     { _artrAssociationId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssociateRouteTableResponse' response.

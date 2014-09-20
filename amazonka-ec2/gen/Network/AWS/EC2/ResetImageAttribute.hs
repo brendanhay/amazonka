@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 data ResetImageAttribute = ResetImageAttribute
     { _riaImageId :: Text
     , _riaAttribute :: ResetImageAttributeName
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetImageAttribute' request.
@@ -81,7 +81,7 @@ instance ToQuery ResetImageAttribute where
     toQuery = genericQuery def
 
 data ResetImageAttributeResponse = ResetImageAttributeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetImageAttributeResponse' response.

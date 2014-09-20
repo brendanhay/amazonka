@@ -56,7 +56,7 @@ data ListIdentities = ListIdentities
     { _liIdentityPoolId :: Text
     , _liMaxResults :: !Integer
     , _liNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListIdentities' request.
@@ -104,7 +104,7 @@ data ListIdentitiesResponse = ListIdentitiesResponse
     { _lirIdentityPoolId :: Maybe Text
     , _lirIdentities :: [IdentityDescription]
     , _lirNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListIdentitiesResponse' response.

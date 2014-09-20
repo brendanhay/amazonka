@@ -41,7 +41,7 @@ import Network.AWS.Types (Region)
 
 newtype DeleteBucketCors = DeleteBucketCors
     { _dbcBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBucketCors' request.
@@ -68,7 +68,7 @@ instance ToHeaders DeleteBucketCors
 instance ToBody DeleteBucketCors
 
 data DeleteBucketCorsResponse = DeleteBucketCorsResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBucketCorsResponse' response.

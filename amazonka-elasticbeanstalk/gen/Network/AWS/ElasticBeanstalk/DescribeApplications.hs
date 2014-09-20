@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 -- | This documentation target is not reported in the API reference.
 newtype DescribeApplications = DescribeApplications
     { _da1ApplicationNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeApplications' request.
@@ -73,7 +73,7 @@ instance ToQuery DescribeApplications where
 -- | Result message containing a list of application descriptions.
 newtype DescribeApplicationsResponse = DescribeApplicationsResponse
     { _darApplications :: [ApplicationDescription]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeApplicationsResponse' response.

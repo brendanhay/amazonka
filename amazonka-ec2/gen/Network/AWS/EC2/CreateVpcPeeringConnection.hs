@@ -78,7 +78,7 @@ data CreateVpcPeeringConnection = CreateVpcPeeringConnection
     { _cvpcVpcId :: Maybe Text
     , _cvpcPeerVpcId :: Maybe Text
     , _cvpcPeerOwnerId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVpcPeeringConnection' request.
@@ -116,7 +116,7 @@ instance ToQuery CreateVpcPeeringConnection where
 
 newtype CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
     { _cvpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVpcPeeringConnectionResponse' response.

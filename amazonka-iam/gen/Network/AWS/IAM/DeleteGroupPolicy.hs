@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 data DeleteGroupPolicy = DeleteGroupPolicy
     { _dgpGroupName :: Text
     , _dgpPolicyName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteGroupPolicy' request.
@@ -75,7 +75,7 @@ instance ToQuery DeleteGroupPolicy where
     toQuery = genericQuery def
 
 data DeleteGroupPolicyResponse = DeleteGroupPolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteGroupPolicyResponse' response.

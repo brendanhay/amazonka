@@ -49,7 +49,7 @@ data SetDesiredCapacity = SetDesiredCapacity
     { _sdcAutoScalingGroupName :: Text
     , _sdcDesiredCapacity :: !Integer
     , _sdcHonorCooldown :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetDesiredCapacity' request.
@@ -95,7 +95,7 @@ instance ToQuery SetDesiredCapacity where
     toQuery = genericQuery def
 
 data SetDesiredCapacityResponse = SetDesiredCapacityResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetDesiredCapacityResponse' response.

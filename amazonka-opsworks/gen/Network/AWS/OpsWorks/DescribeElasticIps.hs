@@ -50,7 +50,7 @@ data DescribeElasticIps = DescribeElasticIps
     { _dei1InstanceId :: Maybe Text
     , _dei1StackId :: Maybe Text
     , _dei1Ips :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeElasticIps' request.
@@ -100,7 +100,7 @@ instance ToJSON DescribeElasticIps
 -- | Contains the response to a DescribeElasticIps request.
 newtype DescribeElasticIpsResponse = DescribeElasticIpsResponse
     { _deirElasticIps :: [ElasticIp]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeElasticIpsResponse' response.

@@ -53,7 +53,7 @@ data DescribeAlarmsForMetric = DescribeAlarmsForMetric
     , _dafmDimensions :: [Dimension]
     , _dafmPeriod :: Maybe Integer
     , _dafmUnit :: Maybe StandardUnit
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAlarmsForMetric' request.
@@ -114,7 +114,7 @@ instance ToQuery DescribeAlarmsForMetric where
 -- | The output for the DescribeAlarmsForMetric action.
 newtype DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
     { _dafmrMetricAlarms :: [MetricAlarm]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAlarmsForMetricResponse' response.

@@ -76,7 +76,7 @@ data RespondActivityTaskFailed = RespondActivityTaskFailed
     { _ratfTaskToken :: Text
     , _ratfReason :: Maybe Text
     , _ratfDetails :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RespondActivityTaskFailed' request.
@@ -121,7 +121,7 @@ instance ToHeaders RespondActivityTaskFailed
 instance ToJSON RespondActivityTaskFailed
 
 data RespondActivityTaskFailedResponse = RespondActivityTaskFailedResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RespondActivityTaskFailedResponse' response.

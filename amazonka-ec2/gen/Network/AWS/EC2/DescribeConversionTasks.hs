@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 data DescribeConversionTasks = DescribeConversionTasks
     { _dctFilters :: [Filter]
     , _dctConversionTaskIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeConversionTasks' request.
@@ -82,7 +82,7 @@ instance ToQuery DescribeConversionTasks where
 
 newtype DescribeConversionTasksResponse = DescribeConversionTasksResponse
     { _dctrConversionTasks :: [ConversionTask]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeConversionTasksResponse' response.

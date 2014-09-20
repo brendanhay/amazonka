@@ -49,7 +49,7 @@ data DeleteInstance = DeleteInstance
     { _diInstanceId :: Text
     , _diDeleteElasticIp :: Maybe Bool
     , _diDeleteVolumes :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteInstance' request.
@@ -92,7 +92,7 @@ instance ToHeaders DeleteInstance
 instance ToJSON DeleteInstance
 
 data DeleteInstanceResponse = DeleteInstanceResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteInstanceResponse' response.

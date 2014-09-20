@@ -66,7 +66,7 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy
     , _uappMaxPasswordAge :: Maybe Integer
     , _uappPasswordReusePrevention :: Maybe Integer
     , _uappHardExpiry :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateAccountPasswordPolicy' request.
@@ -169,7 +169,7 @@ instance ToQuery UpdateAccountPasswordPolicy where
     toQuery = genericQuery def
 
 data UpdateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateAccountPasswordPolicyResponse' response.

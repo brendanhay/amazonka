@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 data AttachInternetGateway = AttachInternetGateway
     { _aigInternetGatewayId :: Text
     , _aigVpcId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachInternetGateway' request.
@@ -84,7 +84,7 @@ instance ToQuery AttachInternetGateway where
     toQuery = genericQuery def
 
 data AttachInternetGatewayResponse = AttachInternetGatewayResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachInternetGatewayResponse' response.

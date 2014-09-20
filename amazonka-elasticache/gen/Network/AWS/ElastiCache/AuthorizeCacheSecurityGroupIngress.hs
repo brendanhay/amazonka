@@ -58,7 +58,7 @@ data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress
     { _acsgiCacheSecurityGroupName :: Text
     , _acsgiEC2SecurityGroupName :: Text
     , _acsgiEC2SecurityGroupOwnerId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AuthorizeCacheSecurityGroupIngress' request.
@@ -107,7 +107,7 @@ instance ToQuery AuthorizeCacheSecurityGroupIngress where
 
 newtype AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse
     { _acsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AuthorizeCacheSecurityGroupIngressResponse' response.

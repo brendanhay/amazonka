@@ -76,7 +76,7 @@ data DescribeImages = DescribeImages
     , _di1Owners :: [Text]
     , _di1ExecutableUsers :: [Text]
     , _di1Filters :: [Filter]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeImages' request.
@@ -156,7 +156,7 @@ instance ToQuery DescribeImages where
 
 newtype DescribeImagesResponse = DescribeImagesResponse
     { _dirImages :: [Image]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeImagesResponse' response.

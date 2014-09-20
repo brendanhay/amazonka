@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 data UpdateScalingParameters = UpdateScalingParameters
     { _uspDomainName :: Text
     , _uspScalingParameters :: ScalingParameters
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateScalingParameters' request.
@@ -92,7 +92,7 @@ instance ToQuery UpdateScalingParameters where
 -- newly-configured scaling parameters.
 newtype UpdateScalingParametersResponse = UpdateScalingParametersResponse
     { _usprScalingParameters :: ScalingParametersStatus
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateScalingParametersResponse' response.

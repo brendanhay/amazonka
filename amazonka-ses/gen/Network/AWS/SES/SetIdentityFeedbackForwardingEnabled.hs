@@ -58,7 +58,7 @@ import Network.AWS.Prelude
 data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled
     { _siffeIdentity :: Text
     , _siffeForwardingEnabled :: !Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetIdentityFeedbackForwardingEnabled' request.
@@ -99,7 +99,7 @@ instance ToQuery SetIdentityFeedbackForwardingEnabled where
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.
 data SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetIdentityFeedbackForwardingEnabledResponse' response.

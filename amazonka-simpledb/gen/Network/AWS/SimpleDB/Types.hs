@@ -416,7 +416,7 @@ data Attribute = Attribute
     , _aAlternateNameEncoding :: Maybe Text
     , _aValue :: Text
     , _aAlternateValueEncoding :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Attribute' data type to populate a request.
@@ -470,7 +470,7 @@ instance ToQuery Attribute where
 data DeletableItem = DeletableItem
     { _diName :: Text
     , _diAttributes :: [Attribute]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DeletableItem' data type to populate a request.
@@ -502,7 +502,7 @@ data Item = Item
     { _iName :: Text
     , _iAlternateNameEncoding :: Maybe Text
     , _iAttributes :: [Attribute]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Item' data type.
@@ -549,7 +549,7 @@ data ReplaceableAttribute = ReplaceableAttribute
     { _raName :: Text
     , _raValue :: Text
     , _raReplace :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReplaceableAttribute' data type to populate a request.
@@ -595,7 +595,7 @@ instance ToQuery ReplaceableAttribute where
 data ReplaceableItem = ReplaceableItem
     { _riName :: Text
     , _riAttributes :: [ReplaceableAttribute]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReplaceableItem' data type to populate a request.
@@ -632,7 +632,7 @@ data UpdateCondition = UpdateCondition
     { _ucName :: Maybe Text
     , _ucValue :: Maybe Text
     , _ucExists :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'UpdateCondition' data type to populate a request.

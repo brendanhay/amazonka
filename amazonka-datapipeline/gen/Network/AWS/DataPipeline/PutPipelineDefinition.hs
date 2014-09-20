@@ -95,7 +95,7 @@ import Network.AWS.Request.JSON
 data PutPipelineDefinition = PutPipelineDefinition
     { _ppdPipelineId :: Text
     , _ppdPipelineObjects :: [PipelineObject]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutPipelineDefinition' request.
@@ -137,7 +137,7 @@ data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse
     { _ppdrValidationErrors :: [ValidationError]
     , _ppdrValidationWarnings :: [ValidationWarning]
     , _ppdrErrored :: !Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutPipelineDefinitionResponse' response.

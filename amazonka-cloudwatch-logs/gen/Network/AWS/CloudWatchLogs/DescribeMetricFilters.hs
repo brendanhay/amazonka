@@ -68,7 +68,7 @@ data DescribeMetricFilters = DescribeMetricFilters
     , _dmf1FilterNamePrefix :: Maybe Text
     , _dmf1NextToken :: Maybe Text
     , _dmf1Limit :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeMetricFilters' request.
@@ -123,7 +123,7 @@ instance ToJSON DescribeMetricFilters
 data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse
     { _dmfrMetricFilters :: [MetricFilter]
     , _dmfrNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeMetricFiltersResponse' response.

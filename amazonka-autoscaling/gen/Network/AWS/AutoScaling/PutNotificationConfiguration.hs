@@ -49,7 +49,7 @@ data PutNotificationConfiguration = PutNotificationConfiguration
     { _pncAutoScalingGroupName :: Text
     , _pncTopicARN :: Text
     , _pncNotificationTypes :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutNotificationConfiguration' request.
@@ -94,7 +94,7 @@ instance ToQuery PutNotificationConfiguration where
     toQuery = genericQuery def
 
 data PutNotificationConfigurationResponse = PutNotificationConfigurationResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutNotificationConfigurationResponse' response.

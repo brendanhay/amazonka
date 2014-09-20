@@ -59,7 +59,7 @@ data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat
     { _rtrhTaskrunnerId :: Text
     , _rtrhWorkerGroup :: Maybe Text
     , _rtrhHostname :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReportTaskRunnerHeartbeat' request.
@@ -113,7 +113,7 @@ instance ToJSON ReportTaskRunnerHeartbeat
 -- | Contains the output from the ReportTaskRunnerHeartbeat action.
 newtype ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse
     { _rtrhrTerminate :: Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReportTaskRunnerHeartbeatResponse' response.

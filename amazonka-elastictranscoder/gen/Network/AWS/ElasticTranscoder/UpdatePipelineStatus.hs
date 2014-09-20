@@ -63,7 +63,7 @@ import Network.AWS.Request.JSON
 data UpdatePipelineStatus = UpdatePipelineStatus
     { _upsId :: Text
     , _upsStatus :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdatePipelineStatus' request.
@@ -103,7 +103,7 @@ instance ToJSON UpdatePipelineStatus
 -- values that you specified in the request.
 newtype UpdatePipelineStatusResponse = UpdatePipelineStatusResponse
     { _upsrPipeline :: Maybe Pipeline
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdatePipelineStatusResponse' response.

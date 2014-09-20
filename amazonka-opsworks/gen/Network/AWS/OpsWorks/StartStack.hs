@@ -43,7 +43,7 @@ import Network.AWS.Request.JSON
 
 newtype StartStack = StartStack
     { _ss1StackId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StartStack' request.
@@ -71,7 +71,7 @@ instance ToHeaders StartStack
 instance ToJSON StartStack
 
 data StartStackResponse = StartStackResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StartStackResponse' response.

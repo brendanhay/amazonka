@@ -55,7 +55,7 @@ data DescribeScheduledActions = DescribeScheduledActions
     , _dsa2EndTime :: Maybe ISO8601
     , _dsa2NextToken :: Maybe Text
     , _dsa2MaxRecords :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeScheduledActions' request.
@@ -128,7 +128,7 @@ instance ToQuery DescribeScheduledActions where
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse
     { _dsarrScheduledUpdateGroupActions :: [ScheduledUpdateGroupAction]
     , _dsarrNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeScheduledActionsResponse' response.

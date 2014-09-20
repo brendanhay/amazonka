@@ -65,7 +65,7 @@ data ConfirmSubscription = ConfirmSubscription
     { _csTopicArn :: Text
     , _csToken :: Text
     , _csAuthenticateOnUnsubscribe :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ConfirmSubscription' request.
@@ -110,7 +110,7 @@ instance ToQuery ConfirmSubscription where
 -- | Response for ConfirmSubscriptions action.
 newtype ConfirmSubscriptionResponse = ConfirmSubscriptionResponse
     { _csrSubscriptionArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ConfirmSubscriptionResponse' response.

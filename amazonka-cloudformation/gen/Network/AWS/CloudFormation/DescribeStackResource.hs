@@ -55,7 +55,7 @@ import Network.AWS.Prelude
 data DescribeStackResource = DescribeStackResource
     { _dsrStackName :: Text
     , _dsrLogicalResourceId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStackResource' request.
@@ -93,7 +93,7 @@ instance ToQuery DescribeStackResource where
 -- | The output for a DescribeStackResource action.
 newtype DescribeStackResourceResponse = DescribeStackResourceResponse
     { _dsrrStackResourceDetail :: Maybe StackResourceDetail
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStackResourceResponse' response.

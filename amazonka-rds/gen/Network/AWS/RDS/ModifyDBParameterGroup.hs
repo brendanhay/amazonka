@@ -62,7 +62,7 @@ import Network.AWS.Prelude
 data ModifyDBParameterGroup = ModifyDBParameterGroup
     { _mdbpgDBParameterGroupName :: Text
     , _mdbpgParameters :: [Parameter]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyDBParameterGroup' request.
@@ -107,7 +107,7 @@ instance ToQuery ModifyDBParameterGroup where
 -- ModifyDBParameterGroup or ResetDBParameterGroup action.
 newtype ModifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
     { _mdbpgrDBParameterGroupName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyDBParameterGroupResponse' response.

@@ -47,7 +47,7 @@ import Network.AWS.AutoScaling.Types
 import Network.AWS.Prelude
 
 data DescribeAccountLimits = DescribeAccountLimits
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAccountLimits' request.
@@ -61,7 +61,7 @@ instance ToQuery DescribeAccountLimits where
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse
     { _dalrMaxNumberOfAutoScalingGroups :: Maybe Integer
     , _dalrMaxNumberOfLaunchConfigurations :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAccountLimitsResponse' response.

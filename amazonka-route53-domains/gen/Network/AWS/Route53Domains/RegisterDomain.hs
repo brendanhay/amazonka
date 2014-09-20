@@ -107,7 +107,7 @@ data RegisterDomain = RegisterDomain
     , _rdPrivacyProtectAdminContact :: Maybe Bool
     , _rdPrivacyProtectRegistrantContact :: Maybe Bool
     , _rdPrivacyProtectTechContact :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterDomain' request.
@@ -238,7 +238,7 @@ instance ToJSON RegisterDomain
 -- | The RegisterDomain response includes the following element.
 newtype RegisterDomainResponse = RegisterDomainResponse
     { _rdrOperationId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterDomainResponse' response.

@@ -63,7 +63,7 @@ data CreateImage = CreateImage
     , _ci1Description :: Maybe Text
     , _ci1NoReboot :: Maybe Bool
     , _ci1BlockDeviceMappings :: [BlockDeviceMapping]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateImage' request.
@@ -122,7 +122,7 @@ instance ToQuery CreateImage where
 
 newtype CreateImageResponse = CreateImageResponse
     { _cirrImageId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateImageResponse' response.

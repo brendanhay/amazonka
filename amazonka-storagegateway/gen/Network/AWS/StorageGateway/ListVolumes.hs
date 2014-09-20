@@ -76,7 +76,7 @@ data ListVolumes = ListVolumes
     { _lvGatewayARN :: Text
     , _lvMarker :: Maybe Text
     , _lvLimit :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListVolumes' request.
@@ -125,7 +125,7 @@ data ListVolumesResponse = ListVolumesResponse
     { _lvrGatewayARN :: Maybe Text
     , _lvrMarker :: Maybe Text
     , _lvrVolumeInfos :: [VolumeInformation]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListVolumesResponse' response.

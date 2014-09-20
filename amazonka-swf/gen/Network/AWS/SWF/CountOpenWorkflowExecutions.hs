@@ -82,7 +82,7 @@ data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions
     , _coweTypeFilter :: Maybe WorkflowTypeFilter
     , _coweTagFilter :: Maybe TagFilter
     , _coweExecutionFilter :: Maybe WorkflowExecutionFilter
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CountOpenWorkflowExecutions' request.
@@ -152,7 +152,7 @@ instance ToJSON CountOpenWorkflowExecutions
 data CountOpenWorkflowExecutionsResponse = CountOpenWorkflowExecutionsResponse
     { _cowerCount :: !Integer
     , _cowerTruncated :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CountOpenWorkflowExecutionsResponse' response.

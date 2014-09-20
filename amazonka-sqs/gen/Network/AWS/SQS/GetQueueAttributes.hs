@@ -92,7 +92,7 @@ import Network.AWS.Prelude
 data GetQueueAttributes = GetQueueAttributes
     { _gqaQueueUrl :: Text
     , _gqaAttributeNames :: [QueueAttributeName]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetQueueAttributes' request.
@@ -125,7 +125,7 @@ instance ToQuery GetQueueAttributes where
 -- | A list of returned queue attributes.
 newtype GetQueueAttributesResponse = GetQueueAttributesResponse
     { _gqarAttributes :: Map QueueAttributeName Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetQueueAttributesResponse' response.

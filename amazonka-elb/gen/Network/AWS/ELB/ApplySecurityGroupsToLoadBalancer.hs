@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer
     { _asgtlbLoadBalancerName :: Text
     , _asgtlbSecurityGroups :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ApplySecurityGroupsToLoadBalancer' request.
@@ -91,7 +91,7 @@ instance ToQuery ApplySecurityGroupsToLoadBalancer where
 -- | The out for the ApplySecurityGroupsToLoadBalancer action.
 newtype ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse
     { _asgtlbrSecurityGroups :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ApplySecurityGroupsToLoadBalancerResponse' response.

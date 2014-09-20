@@ -55,7 +55,7 @@ data RequestEnvironmentInfo = RequestEnvironmentInfo
     { _reiEnvironmentId :: Maybe Text
     , _reiEnvironmentName :: Maybe Text
     , _reiInfoType :: EnvironmentInfoType
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RequestEnvironmentInfo' request.
@@ -102,7 +102,7 @@ instance ToQuery RequestEnvironmentInfo where
     toQuery = genericQuery def
 
 data RequestEnvironmentInfoResponse = RequestEnvironmentInfoResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RequestEnvironmentInfoResponse' response.

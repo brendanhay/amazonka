@@ -59,7 +59,7 @@ import Network.AWS.Prelude
 
 newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
     { _dlbptPolicyTypeNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLoadBalancerPolicyTypes' request.
@@ -86,7 +86,7 @@ instance ToQuery DescribeLoadBalancerPolicyTypes where
 -- | The output for the DescribeLoadBalancerPolicyTypes action.
 newtype DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse
     { _dlbptrPolicyTypeDescriptions :: [PolicyTypeDescription]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLoadBalancerPolicyTypesResponse' response.

@@ -54,7 +54,7 @@ import Network.AWS.Request.JSON
 data DescribeVirtualInterfaces = DescribeVirtualInterfaces
     { _dvi1ConnectionId :: Maybe Text
     , _dvi1VirtualInterfaceId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVirtualInterfaces' request.
@@ -92,7 +92,7 @@ instance ToJSON DescribeVirtualInterfaces
 -- | A structure containing a list of virtual interfaces.
 newtype DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse
     { _dvirrVirtualInterfaces :: [VirtualInterface]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVirtualInterfacesResponse' response.

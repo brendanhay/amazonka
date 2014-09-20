@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 -- list of verified email addresses.
 newtype DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress
     { _dveaEmailAddress :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVerifiedEmailAddress' request.
@@ -77,7 +77,7 @@ instance ToQuery DeleteVerifiedEmailAddress where
     toQuery = genericQuery def
 
 data DeleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteVerifiedEmailAddressResponse' response.

@@ -50,7 +50,7 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions
     { _des1SubscriptionName :: Maybe Text
     , _des1MaxRecords :: Maybe Integer
     , _des1Marker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEventSubscriptions' request.
@@ -100,7 +100,7 @@ instance ToQuery DescribeEventSubscriptions where
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
     { _desrMarker :: Maybe Text
     , _desrEventSubscriptionsList :: [EventSubscription]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEventSubscriptionsResponse' response.

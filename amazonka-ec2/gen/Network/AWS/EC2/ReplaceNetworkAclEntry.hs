@@ -66,7 +66,7 @@ data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
     , _rnaeCidrBlock :: Text
     , _rnaeIcmpTypeCode :: Maybe IcmpTypeCode
     , _rnaePortRange :: Maybe PortRange
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReplaceNetworkAclEntry' request.
@@ -146,7 +146,7 @@ instance ToQuery ReplaceNetworkAclEntry where
     toQuery = genericQuery def
 
 data ReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReplaceNetworkAclEntryResponse' response.

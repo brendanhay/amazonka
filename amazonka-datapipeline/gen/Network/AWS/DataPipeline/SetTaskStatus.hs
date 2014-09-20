@@ -61,7 +61,7 @@ data SetTaskStatus = SetTaskStatus
     , _stsErrorId :: Maybe Text
     , _stsErrorMessage :: Maybe Text
     , _stsErrorStackTrace :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetTaskStatus' request.
@@ -131,7 +131,7 @@ instance ToJSON SetTaskStatus
 
 -- | The output from the SetTaskStatus action.
 data SetTaskStatusResponse = SetTaskStatusResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetTaskStatusResponse' response.

@@ -56,7 +56,7 @@ import Network.AWS.Prelude
 data CreateClusterSnapshot = CreateClusterSnapshot
     { _ccs1SnapshotIdentifier :: Text
     , _ccs1ClusterIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateClusterSnapshot' request.
@@ -95,7 +95,7 @@ instance ToQuery CreateClusterSnapshot where
 
 newtype CreateClusterSnapshotResponse = CreateClusterSnapshotResponse
     { _ccsrrSnapshot :: Maybe Snapshot
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateClusterSnapshotResponse' response.

@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 data DeleteLifecycleHook = DeleteLifecycleHook
     { _dlhLifecycleHookName :: Text
     , _dlhAutoScalingGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLifecycleHook' request.
@@ -79,7 +79,7 @@ instance ToQuery DeleteLifecycleHook where
 
 -- | The output of the DeleteLifecycleHook action.
 data DeleteLifecycleHookResponse = DeleteLifecycleHookResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLifecycleHookResponse' response.

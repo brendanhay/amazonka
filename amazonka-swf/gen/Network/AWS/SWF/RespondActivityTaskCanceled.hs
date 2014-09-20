@@ -77,7 +77,7 @@ import Network.AWS.Request.JSON
 data RespondActivityTaskCanceled = RespondActivityTaskCanceled
     { _ratcTaskToken :: Text
     , _ratcDetails :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RespondActivityTaskCanceled' request.
@@ -115,7 +115,7 @@ instance ToHeaders RespondActivityTaskCanceled
 instance ToJSON RespondActivityTaskCanceled
 
 data RespondActivityTaskCanceledResponse = RespondActivityTaskCanceledResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RespondActivityTaskCanceledResponse' response.

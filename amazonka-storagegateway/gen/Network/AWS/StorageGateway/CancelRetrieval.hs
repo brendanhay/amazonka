@@ -43,7 +43,7 @@ import Network.AWS.Request.JSON
 data CancelRetrieval = CancelRetrieval
     { _crGatewayARN :: Text
     , _crTapeARN :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelRetrieval' request.
@@ -80,7 +80,7 @@ instance ToJSON CancelRetrieval
 
 newtype CancelRetrievalResponse = CancelRetrievalResponse
     { _crrTapeARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelRetrievalResponse' response.

@@ -38,7 +38,7 @@ import Network.AWS.CloudSearch.Types
 import Network.AWS.Prelude
 
 data ListDomainNames = ListDomainNames
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDomainNames' request.
@@ -52,7 +52,7 @@ instance ToQuery ListDomainNames where
 -- owned by an account.
 newtype ListDomainNamesResponse = ListDomainNamesResponse
     { _ldnrDomainNames :: Map Text Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDomainNamesResponse' response.

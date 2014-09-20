@@ -61,7 +61,7 @@ import Network.AWS.Prelude
 data DescribeImageAttribute = DescribeImageAttribute
     { _diaImageId :: Text
     , _diaAttribute :: ImageAttributeName
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeImageAttribute' request.
@@ -101,7 +101,7 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse
     , _diarDescription :: Maybe AttributeValue
     , _diarSriovNetSupport :: Maybe AttributeValue
     , _diarBlockDeviceMappings :: [BlockDeviceMapping]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeImageAttributeResponse' response.

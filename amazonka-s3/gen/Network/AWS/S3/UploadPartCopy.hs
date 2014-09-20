@@ -77,7 +77,7 @@ data UploadPartCopy = UploadPartCopy
     , _upcCopySourceSSECustomerAlgorithm :: Maybe Text
     , _upcCopySourceSSECustomerKey :: Maybe Text
     , _upcCopySourceSSECustomerKeyMD5 :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UploadPartCopy' request.
@@ -269,7 +269,7 @@ data UploadPartCopyResponse = UploadPartCopyResponse
     , _upcrServerSideEncryption :: Maybe ServerSideEncryption
     , _upcrSSECustomerAlgorithm :: Maybe Text
     , _upcrSSECustomerKeyMD5 :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UploadPartCopyResponse' response.

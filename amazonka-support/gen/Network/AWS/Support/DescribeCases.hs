@@ -66,7 +66,7 @@ data DescribeCases = DescribeCases
     , _dcMaxResults :: Maybe Integer
     , _dcLanguage :: Maybe Text
     , _dcIncludeCommunications :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCases' request.
@@ -163,7 +163,7 @@ instance ToJSON DescribeCases
 data DescribeCasesResponse = DescribeCasesResponse
     { _dcrCases :: [CaseDetails]
     , _dcrNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCasesResponse' response.

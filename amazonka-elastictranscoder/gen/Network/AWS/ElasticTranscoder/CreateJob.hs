@@ -109,7 +109,7 @@ data CreateJob = CreateJob
     , _cj1Outputs :: [CreateJobOutput]
     , _cj1OutputKeyPrefix :: Maybe Text
     , _cj1Playlists :: [CreateJobPlaylist]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateJob' request.
@@ -187,7 +187,7 @@ instance ToJSON CreateJob
 -- | The CreateJobResponse structure.
 newtype CreateJobResponse = CreateJobResponse
     { _cjrrJob :: Maybe Job
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateJobResponse' response.

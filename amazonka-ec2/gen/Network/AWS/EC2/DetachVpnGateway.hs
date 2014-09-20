@@ -55,7 +55,7 @@ import Network.AWS.Prelude
 data DetachVpnGateway = DetachVpnGateway
     { _dvg2VpnGatewayId :: Text
     , _dvg2VpcId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DetachVpnGateway' request.
@@ -87,7 +87,7 @@ instance ToQuery DetachVpnGateway where
     toQuery = genericQuery def
 
 data DetachVpnGatewayResponse = DetachVpnGatewayResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DetachVpnGatewayResponse' response.

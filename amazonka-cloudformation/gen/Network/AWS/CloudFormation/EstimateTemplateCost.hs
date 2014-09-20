@@ -56,7 +56,7 @@ data EstimateTemplateCost = EstimateTemplateCost
     { _etcTemplateBody :: Maybe Text
     , _etcTemplateURL :: Maybe Text
     , _etcParameters :: [Parameter]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EstimateTemplateCost' request.
@@ -101,7 +101,7 @@ instance ToQuery EstimateTemplateCost where
 -- | The output for a EstimateTemplateCost action.
 newtype EstimateTemplateCostResponse = EstimateTemplateCostResponse
     { _etcrUrl :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EstimateTemplateCostResponse' response.

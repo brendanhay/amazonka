@@ -67,7 +67,7 @@ import Network.AWS.Prelude
 data StartInstances = StartInstances
     { _siInstanceIds :: [Text]
     , _siAdditionalInfo :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StartInstances' request.
@@ -99,7 +99,7 @@ instance ToQuery StartInstances where
 
 newtype StartInstancesResponse = StartInstancesResponse
     { _sirrStartingInstances :: [InstanceStateChange]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StartInstancesResponse' response.

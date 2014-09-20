@@ -73,7 +73,7 @@ data ActivateGateway = ActivateGateway
     , _agGatewayTimezone :: Text
     , _agGatewayRegion :: Text
     , _agGatewayType :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ActivateGateway' request.
@@ -156,7 +156,7 @@ instance ToJSON ActivateGateway
 -- operations as well as resource-based authorization.
 newtype ActivateGatewayResponse = ActivateGatewayResponse
     { _agrGatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ActivateGatewayResponse' response.

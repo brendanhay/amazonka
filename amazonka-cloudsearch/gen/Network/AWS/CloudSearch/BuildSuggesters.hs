@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 -- name of the domain you want to update.
 newtype BuildSuggesters = BuildSuggesters
     { _bsDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'BuildSuggesters' request.
@@ -73,7 +73,7 @@ instance ToQuery BuildSuggesters where
 -- for suggestions.
 newtype BuildSuggestersResponse = BuildSuggestersResponse
     { _bsrFieldNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'BuildSuggestersResponse' response.

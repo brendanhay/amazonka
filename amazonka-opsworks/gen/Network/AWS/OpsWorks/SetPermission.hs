@@ -52,7 +52,7 @@ data SetPermission = SetPermission
     , _spAllowSsh :: Maybe Bool
     , _spAllowSudo :: Maybe Bool
     , _spLevel :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetPermission' request.
@@ -112,7 +112,7 @@ instance ToHeaders SetPermission
 instance ToJSON SetPermission
 
 data SetPermissionResponse = SetPermissionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetPermissionResponse' response.

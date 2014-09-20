@@ -56,7 +56,7 @@ import Network.AWS.Prelude
 data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancer
     { _eazflbLoadBalancerName :: Text
     , _eazflbAvailabilityZones :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableAvailabilityZonesForLoadBalancer' request.
@@ -93,7 +93,7 @@ instance ToQuery EnableAvailabilityZonesForLoadBalancer where
 -- | The output for the EnableAvailabilityZonesForLoadBalancer action.
 newtype EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse
     { _eazflbrAvailabilityZones :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableAvailabilityZonesForLoadBalancerResponse' response.

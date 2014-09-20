@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 -- | 
 newtype DeleteDBSnapshot = DeleteDBSnapshot
     { _ddbsDBSnapshotIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteDBSnapshot' request.
@@ -77,7 +77,7 @@ instance ToQuery DeleteDBSnapshot where
 
 newtype DeleteDBSnapshotResponse = DeleteDBSnapshotResponse
     { _ddbsrDBSnapshot :: Maybe DBSnapshot
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteDBSnapshotResponse' response.

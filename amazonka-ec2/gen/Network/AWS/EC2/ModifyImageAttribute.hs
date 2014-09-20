@@ -58,7 +58,7 @@ data ModifyImageAttribute = ModifyImageAttribute
     , _miaValue :: Maybe Text
     , _miaLaunchPermission :: Maybe LaunchPermissionModifications
     , _miaDescription :: Maybe AttributeValue
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyImageAttribute' request.
@@ -143,7 +143,7 @@ instance ToQuery ModifyImageAttribute where
     toQuery = genericQuery def
 
 data ModifyImageAttributeResponse = ModifyImageAttributeResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyImageAttributeResponse' response.

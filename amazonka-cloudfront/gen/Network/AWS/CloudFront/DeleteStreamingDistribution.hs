@@ -44,7 +44,7 @@ import Network.AWS.Types (Region)
 data DeleteStreamingDistribution = DeleteStreamingDistribution
     { _dsdId :: Text
     , _dsdIfMatch :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteStreamingDistribution' request.
@@ -85,7 +85,7 @@ instance ToXML DeleteStreamingDistribution where
     toXMLRoot    = toRoot "DeleteStreamingDistributionRequest"
 
 data DeleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteStreamingDistributionResponse' response.

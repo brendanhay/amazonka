@@ -72,7 +72,7 @@ data PutLifecycleHook = PutLifecycleHook
     , _plhNotificationMetadata :: Maybe Text
     , _plhHeartbeatTimeout :: Maybe Integer
     , _plhDefaultResult :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutLifecycleHook' request.
@@ -185,7 +185,7 @@ instance ToQuery PutLifecycleHook where
 
 -- | The output of the PutLifecycleHook action.
 data PutLifecycleHookResponse = PutLifecycleHookResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutLifecycleHookResponse' response.

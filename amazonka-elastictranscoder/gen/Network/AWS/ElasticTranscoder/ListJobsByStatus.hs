@@ -92,7 +92,7 @@ data ListJobsByStatus = ListJobsByStatus
     { _ljbsStatus :: Text
     , _ljbsAscending :: Maybe Text
     , _ljbsPageToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListJobsByStatus' request.
@@ -143,7 +143,7 @@ instance ToJSON ListJobsByStatus
 data ListJobsByStatusResponse = ListJobsByStatusResponse
     { _ljbsrJobs :: [Job]
     , _ljbsrNextPageToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListJobsByStatusResponse' response.

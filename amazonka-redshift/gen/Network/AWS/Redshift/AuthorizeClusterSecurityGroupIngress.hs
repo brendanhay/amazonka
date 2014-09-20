@@ -69,7 +69,7 @@ data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress
     , _acsgiCIDRIP :: Maybe Text
     , _acsgiEC2SecurityGroupName :: Maybe Text
     , _acsgiEC2SecurityGroupOwnerId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AuthorizeClusterSecurityGroupIngress' request.
@@ -122,7 +122,7 @@ instance ToQuery AuthorizeClusterSecurityGroupIngress where
 
 newtype AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse
     { _acsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AuthorizeClusterSecurityGroupIngressResponse' response.

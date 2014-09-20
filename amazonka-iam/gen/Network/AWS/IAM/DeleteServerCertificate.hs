@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 
 newtype DeleteServerCertificate = DeleteServerCertificate
     { _dscServerCertificateName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteServerCertificate' request.
@@ -75,7 +75,7 @@ instance ToQuery DeleteServerCertificate where
     toQuery = genericQuery def
 
 data DeleteServerCertificateResponse = DeleteServerCertificateResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteServerCertificateResponse' response.

@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 -- | 
 newtype DeleteClusterParameterGroup = DeleteClusterParameterGroup
     { _dcpgParameterGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteClusterParameterGroup' request.
@@ -75,7 +75,7 @@ instance ToQuery DeleteClusterParameterGroup where
     toQuery = genericQuery def
 
 data DeleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteClusterParameterGroupResponse' response.

@@ -54,7 +54,7 @@ import Network.AWS.Request.JSON
 -- | Container for the parameters to the DeleteConnection operation.
 newtype DeleteConnection = DeleteConnection
     { _dcConnectionId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteConnection' request.
@@ -93,7 +93,7 @@ data DeleteConnectionResponse = DeleteConnectionResponse
     , _dcrBandwidth :: Maybe Text
     , _dcrVlan :: Maybe Integer
     , _dcrPartnerName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteConnectionResponse' response.

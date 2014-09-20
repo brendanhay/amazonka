@@ -47,7 +47,7 @@ import Network.AWS.Request.JSON
 
 newtype GetHostnameSuggestion = GetHostnameSuggestion
     { _ghsLayerId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetHostnameSuggestion' request.
@@ -78,7 +78,7 @@ instance ToJSON GetHostnameSuggestion
 data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse
     { _ghsrLayerId :: Maybe Text
     , _ghsrHostname :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetHostnameSuggestionResponse' response.

@@ -62,7 +62,7 @@ data Subscribe = Subscribe
     { _s1TopicArn :: Text
     , _s1Protocol :: Text
     , _s1Endpoint :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'Subscribe' request.
@@ -116,7 +116,7 @@ instance ToQuery Subscribe where
 -- | Response for Subscribe action.
 newtype SubscribeResponse = SubscribeResponse
     { _srSubscriptionArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SubscribeResponse' response.

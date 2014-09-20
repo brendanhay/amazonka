@@ -82,7 +82,7 @@ import Network.AWS.Prelude
 
 newtype CreateDhcpOptions = CreateDhcpOptions
     { _cdoDhcpConfigurations :: [DhcpConfiguration]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDhcpOptions' request.
@@ -107,7 +107,7 @@ instance ToQuery CreateDhcpOptions where
 
 newtype CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
     { _cdorDhcpOptions :: Maybe DhcpOptions
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDhcpOptionsResponse' response.

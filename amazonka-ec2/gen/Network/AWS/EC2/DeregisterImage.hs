@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 
 newtype DeregisterImage = DeregisterImage
     { _diImageId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeregisterImage' request.
@@ -70,7 +70,7 @@ instance ToQuery DeregisterImage where
     toQuery = genericQuery def
 
 data DeregisterImageResponse = DeregisterImageResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeregisterImageResponse' response.

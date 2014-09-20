@@ -60,7 +60,7 @@ import Network.AWS.Prelude
 data DeleteClusterSnapshot = DeleteClusterSnapshot
     { _dcsSnapshotIdentifier :: Text
     , _dcsSnapshotClusterIdentifier :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteClusterSnapshot' request.
@@ -98,7 +98,7 @@ instance ToQuery DeleteClusterSnapshot where
 
 newtype DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse
     { _dcsrSnapshot :: Maybe Snapshot
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteClusterSnapshotResponse' response.

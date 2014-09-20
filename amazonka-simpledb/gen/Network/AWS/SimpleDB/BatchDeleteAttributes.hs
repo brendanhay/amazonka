@@ -57,7 +57,7 @@ import Network.AWS.Prelude
 data BatchDeleteAttributes = BatchDeleteAttributes
     { _bdaDomainName :: Text
     , _bdaItems :: [DeletableItem]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'BatchDeleteAttributes' request.
@@ -88,7 +88,7 @@ instance ToQuery BatchDeleteAttributes where
     toQuery = genericQuery def
 
 data BatchDeleteAttributesResponse = BatchDeleteAttributesResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'BatchDeleteAttributesResponse' response.

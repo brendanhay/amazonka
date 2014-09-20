@@ -54,7 +54,7 @@ data ListInstances = ListInstances
     , _liInstanceGroupId :: Maybe Text
     , _liInstanceGroupTypes :: [InstanceGroupType]
     , _liMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListInstances' request.
@@ -108,7 +108,7 @@ instance ToJSON ListInstances
 data ListInstancesResponse = ListInstancesResponse
     { _lirInstances :: [Instance]
     , _lirMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListInstancesResponse' response.

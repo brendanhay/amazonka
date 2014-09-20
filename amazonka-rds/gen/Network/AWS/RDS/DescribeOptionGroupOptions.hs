@@ -53,7 +53,7 @@ data DescribeOptionGroupOptions = DescribeOptionGroupOptions
     , _dogoMajorEngineVersion :: Maybe Text
     , _dogoMaxRecords :: Maybe Integer
     , _dogoMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeOptionGroupOptions' request.
@@ -108,7 +108,7 @@ instance ToQuery DescribeOptionGroupOptions where
 data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse
     { _dogorOptionGroupOptions :: [OptionGroupOption]
     , _dogorMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeOptionGroupOptionsResponse' response.

@@ -80,7 +80,7 @@ data ChangeMessageVisibility = ChangeMessageVisibility
     { _cmvQueueUrl :: Text
     , _cmvReceiptHandle :: Text
     , _cmvVisibilityTimeout :: !Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ChangeMessageVisibility' request.
@@ -123,7 +123,7 @@ instance ToQuery ChangeMessageVisibility where
     toQuery = genericQuery def
 
 data ChangeMessageVisibilityResponse = ChangeMessageVisibilityResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ChangeMessageVisibilityResponse' response.

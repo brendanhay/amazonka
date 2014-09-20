@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 -- | The input for the DeleteLoadBalancer action.
 newtype DeleteLoadBalancer = DeleteLoadBalancer
     { _dlbLoadBalancerName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLoadBalancer' request.
@@ -74,7 +74,7 @@ instance ToQuery DeleteLoadBalancer where
 
 -- | The output for the DeleteLoadBalancer action.
 data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLoadBalancerResponse' response.

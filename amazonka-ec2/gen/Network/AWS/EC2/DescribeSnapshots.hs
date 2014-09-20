@@ -86,7 +86,7 @@ data DescribeSnapshots = DescribeSnapshots
     , _ds2OwnerIds :: [Text]
     , _ds2RestorableByUserIds :: [Text]
     , _ds2Filters :: [Filter]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSnapshots' request.
@@ -149,7 +149,7 @@ instance ToQuery DescribeSnapshots where
 
 newtype DescribeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrSnapshots :: [Snapshot]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSnapshotsResponse' response.

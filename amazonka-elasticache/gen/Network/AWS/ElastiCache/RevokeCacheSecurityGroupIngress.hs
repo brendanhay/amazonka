@@ -56,7 +56,7 @@ data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress
     { _rcsgiCacheSecurityGroupName :: Text
     , _rcsgiEC2SecurityGroupName :: Text
     , _rcsgiEC2SecurityGroupOwnerId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RevokeCacheSecurityGroupIngress' request.
@@ -104,7 +104,7 @@ instance ToQuery RevokeCacheSecurityGroupIngress where
 
 newtype RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse
     { _rcsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RevokeCacheSecurityGroupIngressResponse' response.

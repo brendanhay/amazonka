@@ -79,7 +79,7 @@ data CreateTable = CreateTable
     , _ctLocalSecondaryIndexes :: [LocalSecondaryIndex]
     , _ctGlobalSecondaryIndexes :: [GlobalSecondaryIndex]
     , _ctProvisionedThroughput :: ProvisionedThroughput
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateTable' request.
@@ -206,7 +206,7 @@ instance ToJSON CreateTable
 -- | Represents the output of a CreateTable operation.
 newtype CreateTableResponse = CreateTableResponse
     { _ctrTableDescription :: Maybe TableDescription
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateTableResponse' response.

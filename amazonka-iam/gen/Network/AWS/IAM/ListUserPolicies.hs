@@ -53,7 +53,7 @@ data ListUserPolicies = ListUserPolicies
     { _lupUserName :: Text
     , _lupMarker :: Maybe Text
     , _lupMaxItems :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListUserPolicies' request.
@@ -100,7 +100,7 @@ data ListUserPoliciesResponse = ListUserPoliciesResponse
     { _luprPolicyNames :: [Text]
     , _luprIsTruncated :: !Bool
     , _luprMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListUserPoliciesResponse' response.

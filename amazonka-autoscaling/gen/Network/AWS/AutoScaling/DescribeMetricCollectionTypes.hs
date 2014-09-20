@@ -47,7 +47,7 @@ import Network.AWS.AutoScaling.Types
 import Network.AWS.Prelude
 
 data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeMetricCollectionTypes' request.
@@ -61,7 +61,7 @@ instance ToQuery DescribeMetricCollectionTypes where
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
     { _dmctrMetrics :: [MetricCollectionType]
     , _dmctrGranularities :: [MetricGranularityType]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeMetricCollectionTypesResponse' response.

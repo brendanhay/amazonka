@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 data DeleteSigningCertificate = DeleteSigningCertificate
     { _dsc1UserName :: Maybe Text
     , _dsc1CertificateId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSigningCertificate' request.
@@ -80,7 +80,7 @@ instance ToQuery DeleteSigningCertificate where
     toQuery = genericQuery def
 
 data DeleteSigningCertificateResponse = DeleteSigningCertificateResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSigningCertificateResponse' response.

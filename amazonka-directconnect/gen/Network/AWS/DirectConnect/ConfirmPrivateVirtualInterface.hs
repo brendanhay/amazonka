@@ -49,7 +49,7 @@ import Network.AWS.Request.JSON
 data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface
     { _cpviVirtualInterfaceId :: Text
     , _cpviVirtualGatewayId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ConfirmPrivateVirtualInterface' request.
@@ -92,7 +92,7 @@ instance ToJSON ConfirmPrivateVirtualInterface
 -- | The response received when ConfirmPrivateVirtualInterface is called.
 newtype ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse
     { _cpvirVirtualInterfaceState :: Maybe VirtualInterfaceState
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ConfirmPrivateVirtualInterfaceResponse' response.

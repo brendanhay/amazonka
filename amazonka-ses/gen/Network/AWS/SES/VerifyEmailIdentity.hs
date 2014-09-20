@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 -- verification.
 newtype VerifyEmailIdentity = VerifyEmailIdentity
     { _veiEmailAddress :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'VerifyEmailIdentity' request.
@@ -77,7 +77,7 @@ instance ToQuery VerifyEmailIdentity where
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.
 data VerifyEmailIdentityResponse = VerifyEmailIdentityResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'VerifyEmailIdentityResponse' response.

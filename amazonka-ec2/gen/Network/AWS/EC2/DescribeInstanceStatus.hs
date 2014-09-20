@@ -116,7 +116,7 @@ data DescribeInstanceStatus = DescribeInstanceStatus
     , _disNextToken :: Maybe Text
     , _disMaxResults :: Maybe Integer
     , _disIncludeAllInstances :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInstanceStatus' request.
@@ -190,7 +190,7 @@ instance ToQuery DescribeInstanceStatus where
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
     { _disrInstanceStatuses :: [InstanceStatus]
     , _disrNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInstanceStatusResponse' response.

@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 -- domains, specify the names of the domains you want to describe.
 newtype DescribeDomains = DescribeDomains
     { _dd1DomainNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDomains' request.
@@ -76,7 +76,7 @@ instance ToQuery DescribeDomains where
 -- specified in the request or all domains owned by the account.
 newtype DescribeDomainsResponse = DescribeDomainsResponse
     { _ddrrDomainStatusList :: [DomainStatus]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDomainsResponse' response.

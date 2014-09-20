@@ -78,7 +78,7 @@ import Network.AWS.Request.JSON
 data RespondActivityTaskCompleted = RespondActivityTaskCompleted
     { _ratc1TaskToken :: Text
     , _ratc1Result :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RespondActivityTaskCompleted' request.
@@ -117,7 +117,7 @@ instance ToHeaders RespondActivityTaskCompleted
 instance ToJSON RespondActivityTaskCompleted
 
 data RespondActivityTaskCompletedResponse = RespondActivityTaskCompletedResponse
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RespondActivityTaskCompletedResponse' response.

@@ -54,7 +54,7 @@ data UpdateJob = UpdateJob
     , _ujManifest :: Text
     , _ujJobType :: JobType
     , _ujValidateOnly :: !Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateJob' request.
@@ -105,7 +105,7 @@ instance ToQuery UpdateJob where
 data UpdateJobResponse = UpdateJobResponse
     { _ujrSuccess :: Maybe Bool
     , _ujrWarningMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateJobResponse' response.

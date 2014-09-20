@@ -55,7 +55,7 @@ data AddCommunicationToCase = AddCommunicationToCase
     , _actcCommunicationBody :: Text
     , _actcCcEmailAddresses :: [Text]
     , _actcAttachmentSetId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddCommunicationToCase' request.
@@ -113,7 +113,7 @@ instance ToJSON AddCommunicationToCase
 -- | The result of the AddCommunicationToCase operation.
 newtype AddCommunicationToCaseResponse = AddCommunicationToCaseResponse
     { _actcrResult :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddCommunicationToCaseResponse' response.

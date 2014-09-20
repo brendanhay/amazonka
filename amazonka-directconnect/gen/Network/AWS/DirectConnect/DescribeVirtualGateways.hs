@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 
 data DescribeVirtualGateways = DescribeVirtualGateways
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVirtualGateways' request.
@@ -60,7 +60,7 @@ instance ToJSON DescribeVirtualGateways
 -- | A structure containing a list of virtual private gateways.
 newtype DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse
     { _dvgrVirtualGateways :: [VirtualGateway]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVirtualGatewaysResponse' response.

@@ -82,7 +82,7 @@ import Network.AWS.Request.JSON
 data GetRecords = GetRecords
     { _grShardIterator :: Text
     , _grLimit :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetRecords' request.
@@ -124,7 +124,7 @@ instance ToJSON GetRecords
 data GetRecordsResponse = GetRecordsResponse
     { _grrRecords :: [Record]
     , _grrNextShardIterator :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetRecordsResponse' response.

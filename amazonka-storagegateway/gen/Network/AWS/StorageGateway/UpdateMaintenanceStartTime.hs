@@ -66,7 +66,7 @@ data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime
     , _umstHourOfDay :: !Integer
     , _umstMinuteOfHour :: !Integer
     , _umstDayOfWeek :: !Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateMaintenanceStartTime' request.
@@ -127,7 +127,7 @@ instance ToJSON UpdateMaintenanceStartTime
 -- updated.
 newtype UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse
     { _umstrGatewayARN :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateMaintenanceStartTimeResponse' response.

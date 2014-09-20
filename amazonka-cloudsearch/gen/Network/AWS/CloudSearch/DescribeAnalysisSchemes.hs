@@ -56,7 +56,7 @@ data DescribeAnalysisSchemes = DescribeAnalysisSchemes
     { _das2DomainName :: Text
     , _das2AnalysisSchemeNames :: [Text]
     , _das2Deployed :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAnalysisSchemes' request.

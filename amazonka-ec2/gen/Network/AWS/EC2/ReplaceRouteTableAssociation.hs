@@ -56,7 +56,7 @@ import Network.AWS.Prelude
 data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
     { _rrtaAssociationId :: Text
     , _rrtaRouteTableId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReplaceRouteTableAssociation' request.

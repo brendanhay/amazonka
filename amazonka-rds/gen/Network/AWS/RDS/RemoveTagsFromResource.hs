@@ -43,7 +43,7 @@ import Network.AWS.Prelude
 data RemoveTagsFromResource = RemoveTagsFromResource
     { _rtfrResourceName :: Text
     , _rtfrTagKeys :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveTagsFromResource' request.

@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 data RemoveTags = RemoveTags
     { _rtLoadBalancerNames :: [Text]
     , _rtTags :: List1 TagKeyOnly
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveTags' request.

@@ -210,7 +210,7 @@ import Network.AWS.Request.JSON
 data TestMetricFilter = TestMetricFilter
     { _tmfFilterPattern :: Text
     , _tmfLogEventMessages :: List1 Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TestMetricFilter' request.

@@ -82,7 +82,7 @@ import Network.AWS.Request.JSON
 data AddJobFlowSteps = AddJobFlowSteps
     { _ajfsJobFlowId :: Text
     , _ajfsSteps :: [StepConfig]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddJobFlowSteps' request.

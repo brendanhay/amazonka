@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 data DetachInternetGateway = DetachInternetGateway
     { _dig2InternetGatewayId :: Text
     , _dig2VpcId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DetachInternetGateway' request.

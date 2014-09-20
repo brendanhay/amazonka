@@ -65,7 +65,7 @@ data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
     , _rnaeCidrBlock :: Text
     , _rnaeIcmpTypeCode :: Maybe IcmpTypeCode
     , _rnaePortRange :: Maybe PortRange
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReplaceNetworkAclEntry' request.

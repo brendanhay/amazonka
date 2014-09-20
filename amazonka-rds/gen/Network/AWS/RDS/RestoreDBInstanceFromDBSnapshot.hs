@@ -80,7 +80,7 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot
     , _rdbifdbsIops :: Maybe Integer
     , _rdbifdbsOptionGroupName :: Maybe Text
     , _rdbifdbsTags :: [Tag]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RestoreDBInstanceFromDBSnapshot' request.

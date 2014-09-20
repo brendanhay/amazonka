@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 data DeleteSigningCertificate = DeleteSigningCertificate
     { _dsc1UserName :: Maybe Text
     , _dsc1CertificateId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSigningCertificate' request.

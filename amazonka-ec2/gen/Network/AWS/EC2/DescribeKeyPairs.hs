@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 data DescribeKeyPairs = DescribeKeyPairs
     { _dkp1KeyNames :: [Text]
     , _dkp1Filters :: [Filter]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeKeyPairs' request.

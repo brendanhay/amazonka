@@ -47,7 +47,7 @@ data ModifyVpcAttribute = ModifyVpcAttribute
     { _mva1VpcId :: Text
     , _mva1EnableDnsSupport :: Maybe AttributeBooleanValue
     , _mva1EnableDnsHostnames :: Maybe AttributeBooleanValue
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyVpcAttribute' request.

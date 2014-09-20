@@ -97,7 +97,7 @@ data DescribeConfigurationSettings = DescribeConfigurationSettings
     { _dcsApplicationName :: Text
     , _dcsTemplateName :: Maybe Text
     , _dcsEnvironmentName :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeConfigurationSettings' request.

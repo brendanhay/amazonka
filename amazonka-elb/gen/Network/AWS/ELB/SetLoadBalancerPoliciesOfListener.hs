@@ -51,7 +51,7 @@ data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener
     { _slbpolLoadBalancerName :: Text
     , _slbpolLoadBalancerPort :: !Integer
     , _slbpolPolicyNames :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetLoadBalancerPoliciesOfListener' request.

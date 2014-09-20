@@ -47,7 +47,7 @@ import Network.AWS.Request.JSON
 data DescribeApps = DescribeApps
     { _da1StackId :: Maybe Text
     , _da1AppIds :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeApps' request.

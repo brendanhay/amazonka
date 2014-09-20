@@ -88,7 +88,7 @@ data ListPipelinesResponse = ListPipelinesResponse
     { _lprPipelineIdList :: [PipelineIdName]
     , _lprMarker :: Maybe Text
     , _lprHasMoreResults :: !Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListPipelinesResponse' response.

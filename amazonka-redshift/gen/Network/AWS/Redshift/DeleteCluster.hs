@@ -63,7 +63,7 @@ data DeleteCluster = DeleteCluster
     { _dcClusterIdentifier :: Text
     , _dcSkipFinalClusterSnapshot :: Maybe Bool
     , _dcFinalClusterSnapshotIdentifier :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCluster' request.

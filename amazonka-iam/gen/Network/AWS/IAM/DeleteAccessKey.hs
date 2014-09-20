@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 data DeleteAccessKey = DeleteAccessKey
     { _dakUserName :: Maybe Text
     , _dakAccessKeyId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAccessKey' request.

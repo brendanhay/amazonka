@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
     { _upiaNetworkInterfaceId :: Text
     , _upiaPrivateIpAddresses :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UnassignPrivateIpAddresses' request.

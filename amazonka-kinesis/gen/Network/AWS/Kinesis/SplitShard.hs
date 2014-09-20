@@ -86,7 +86,7 @@ data SplitShard = SplitShard
     { _ssStreamName :: Text
     , _ssShardToSplit :: Text
     , _ssNewStartingHashKey :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SplitShard' request.

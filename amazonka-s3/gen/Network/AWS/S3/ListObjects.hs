@@ -66,7 +66,7 @@ data ListObjects = ListObjects
     , _loMarker :: Maybe Text
     , _loMaxKeys :: Maybe Integer
     , _loPrefix :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListObjects' request.
@@ -143,7 +143,7 @@ data ListObjectsResponse = ListObjectsResponse
     , _lorMaxKeys :: Maybe Integer
     , _lorCommonPrefixes :: [CommonPrefix]
     , _lorEncodingType :: Maybe EncodingType
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListObjectsResponse' response.

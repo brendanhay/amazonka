@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 data DeleteUserPolicy = DeleteUserPolicy
     { _dupUserName :: Text
     , _dupPolicyName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteUserPolicy' request.

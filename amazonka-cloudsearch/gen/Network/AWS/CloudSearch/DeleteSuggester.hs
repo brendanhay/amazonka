@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 data DeleteSuggester = DeleteSuggester
     { _ds2DomainName :: Text
     , _ds2SuggesterName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSuggester' request.

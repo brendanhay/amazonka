@@ -64,7 +64,7 @@ import Network.AWS.Request.JSON
 data UpdateDomainNameservers = UpdateDomainNameservers
     { _udnDomainName :: Text
     , _udnNameservers :: [Nameserver]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateDomainNameservers' request.

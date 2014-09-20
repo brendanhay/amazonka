@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 data CreateApplication = CreateApplication
     { _caApplicationName :: Text
     , _caDescription :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateApplication' request.

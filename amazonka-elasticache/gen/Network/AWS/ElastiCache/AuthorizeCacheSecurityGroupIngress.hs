@@ -57,7 +57,7 @@ data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress
     { _acsgiCacheSecurityGroupName :: Text
     , _acsgiEC2SecurityGroupName :: Text
     , _acsgiEC2SecurityGroupOwnerId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AuthorizeCacheSecurityGroupIngress' request.

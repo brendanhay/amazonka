@@ -58,7 +58,7 @@ import Network.AWS.Prelude
 data ReleaseAddress = ReleaseAddress
     { _raPublicIp :: Maybe Text
     , _raAllocationId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReleaseAddress' request.

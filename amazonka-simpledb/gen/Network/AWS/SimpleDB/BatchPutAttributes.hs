@@ -75,7 +75,7 @@ import Network.AWS.Prelude
 data BatchPutAttributes = BatchPutAttributes
     { _bpaDomainName :: Text
     , _bpaItems :: [ReplaceableItem]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'BatchPutAttributes' request.

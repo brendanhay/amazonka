@@ -75,7 +75,7 @@ data SendMessage = SendMessage
     , _smMessageBody :: Text
     , _smDelaySeconds :: Maybe Integer
     , _smMessageAttributes :: Map Text MessageAttributeValue
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SendMessage' request.
@@ -130,7 +130,7 @@ data SendMessageResponse = SendMessageResponse
     { _smrMD5OfMessageBody :: Maybe Text
     , _smrMD5OfMessageAttributes :: Maybe Text
     , _smrMessageId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SendMessageResponse' response.

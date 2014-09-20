@@ -54,7 +54,7 @@ import Network.AWS.Prelude
 data ResetInstanceAttribute = ResetInstanceAttribute
     { _ria1InstanceId :: Text
     , _ria1Attribute :: InstanceAttributeName
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetInstanceAttribute' request.

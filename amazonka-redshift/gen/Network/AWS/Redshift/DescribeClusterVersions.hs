@@ -58,7 +58,7 @@ data DescribeClusterVersions = DescribeClusterVersions
     , _dcvClusterParameterGroupFamily :: Maybe Text
     , _dcvMaxRecords :: Maybe Integer
     , _dcvMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusterVersions' request.
@@ -119,7 +119,7 @@ instance ToQuery DescribeClusterVersions where
 data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse
     { _dcvrMarker :: Maybe Text
     , _dcvrClusterVersions :: [ClusterVersion]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusterVersionsResponse' response.

@@ -55,7 +55,7 @@ data DescribeIndexFields = DescribeIndexFields
     { _dif2DomainName :: Text
     , _dif2FieldNames :: [Text]
     , _dif2Deployed :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeIndexFields' request.

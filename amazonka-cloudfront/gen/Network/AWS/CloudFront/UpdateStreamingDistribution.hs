@@ -48,7 +48,7 @@ data UpdateStreamingDistribution = UpdateStreamingDistribution
     { _usdStreamingDistributionConfig :: StreamingDistributionConfig
     , _usdId :: Text
     , _usdIfMatch :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateStreamingDistribution' request.
@@ -102,7 +102,7 @@ instance ToXML UpdateStreamingDistribution where
 data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse
     { _usdrStreamingDistribution :: Maybe StreamingDistribution
     , _usdrETag :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateStreamingDistributionResponse' response.

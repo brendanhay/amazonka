@@ -66,7 +66,7 @@ import Network.AWS.Prelude
 data DescribeVpcAttribute = DescribeVpcAttribute
     { _dva1VpcId :: Text
     , _dva1Attribute :: Maybe VpcAttributeName
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVpcAttribute' request.
@@ -99,7 +99,7 @@ data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
     { _dvarrVpcId :: Maybe Text
     , _dvarrEnableDnsSupport :: Maybe AttributeBooleanValue
     , _dvarrEnableDnsHostnames :: Maybe AttributeBooleanValue
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVpcAttributeResponse' response.

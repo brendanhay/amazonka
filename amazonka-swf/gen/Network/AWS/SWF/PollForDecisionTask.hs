@@ -119,7 +119,7 @@ data PollForDecisionTask = PollForDecisionTask
     , _pfdtNextPageToken :: Maybe Text
     , _pfdtMaximumPageSize :: Maybe Integer
     , _pfdtReverseOrder :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PollForDecisionTask' request.
@@ -215,7 +215,7 @@ data PollForDecisionTaskResponse = PollForDecisionTaskResponse
     , _pfdtrEvents :: [HistoryEvent]
     , _pfdtrNextPageToken :: Maybe Text
     , _pfdtrPreviousStartedEventId :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PollForDecisionTaskResponse' response.

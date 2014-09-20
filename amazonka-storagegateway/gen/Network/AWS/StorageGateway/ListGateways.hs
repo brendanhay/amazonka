@@ -67,7 +67,7 @@ import Network.AWS.Request.JSON
 data ListGateways = ListGateways
     { _lgMarker :: Maybe Text
     , _lgLimit :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListGateways' request.
@@ -105,7 +105,7 @@ instance ToJSON ListGateways
 data ListGatewaysResponse = ListGatewaysResponse
     { _lgrGateways :: [GatewayInformation]
     , _lgrMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListGatewaysResponse' response.

@@ -60,7 +60,7 @@ data ListInstanceProfilesForRole = ListInstanceProfilesForRole
     { _lipfrRoleName :: Text
     , _lipfrMarker :: Maybe Text
     , _lipfrMaxItems :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListInstanceProfilesForRole' request.
@@ -109,7 +109,7 @@ data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
     { _lipfrrInstanceProfiles :: [InstanceProfile]
     , _lipfrrIsTruncated :: !Bool
     , _lipfrrMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListInstanceProfilesForRoleResponse' response.

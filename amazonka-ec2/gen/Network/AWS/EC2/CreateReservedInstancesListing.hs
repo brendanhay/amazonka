@@ -68,7 +68,7 @@ data CreateReservedInstancesListing = CreateReservedInstancesListing
     , _cril1InstanceCount :: !Integer
     , _cril1PriceSchedules :: [PriceScheduleSpecification]
     , _cril1ClientToken :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateReservedInstancesListing' request.

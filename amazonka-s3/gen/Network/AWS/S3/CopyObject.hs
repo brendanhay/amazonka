@@ -107,7 +107,7 @@ data CopyObject = CopyObject
     , _coCopySourceSSECustomerAlgorithm :: Maybe Text
     , _coCopySourceSSECustomerKey :: Maybe Text
     , _coCopySourceSSECustomerKeyMD5 :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopyObject' request.
@@ -409,7 +409,7 @@ data CopyObjectResponse = CopyObjectResponse
     , _corServerSideEncryption :: Maybe ServerSideEncryption
     , _corSSECustomerAlgorithm :: Maybe Text
     , _corSSECustomerKeyMD5 :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopyObjectResponse' response.

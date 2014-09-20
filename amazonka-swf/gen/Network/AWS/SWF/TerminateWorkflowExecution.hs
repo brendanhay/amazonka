@@ -84,7 +84,7 @@ data TerminateWorkflowExecution = TerminateWorkflowExecution
     , _tweReason :: Maybe Text
     , _tweDetails :: Maybe Text
     , _tweChildPolicy :: Maybe ChildPolicy
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TerminateWorkflowExecution' request.

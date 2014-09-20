@@ -55,7 +55,7 @@ data PutGroupPolicy = PutGroupPolicy
     { _pgpGroupName :: Text
     , _pgpPolicyName :: Text
     , _pgpPolicyDocument :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutGroupPolicy' request.

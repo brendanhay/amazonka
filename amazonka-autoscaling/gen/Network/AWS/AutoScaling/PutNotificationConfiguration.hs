@@ -48,7 +48,7 @@ data PutNotificationConfiguration = PutNotificationConfiguration
     { _pncAutoScalingGroupName :: Text
     , _pncTopicARN :: Text
     , _pncNotificationTypes :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutNotificationConfiguration' request.

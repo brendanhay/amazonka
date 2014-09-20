@@ -89,7 +89,7 @@ data ListJobsByPipeline = ListJobsByPipeline
     { _ljbpPipelineId :: Text
     , _ljbpAscending :: Maybe Text
     , _ljbpPageToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListJobsByPipeline' request.
@@ -138,7 +138,7 @@ instance ToJSON ListJobsByPipeline
 data ListJobsByPipelineResponse = ListJobsByPipelineResponse
     { _ljbprJobs :: [Job]
     , _ljbprNextPageToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListJobsByPipelineResponse' response.

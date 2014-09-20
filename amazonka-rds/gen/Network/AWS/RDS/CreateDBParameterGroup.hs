@@ -62,7 +62,7 @@ data CreateDBParameterGroup = CreateDBParameterGroup
     , _cdbpgDBParameterGroupFamily :: Text
     , _cdbpgDescription :: Text
     , _cdbpgTags :: [Tag]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBParameterGroup' request.

@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy
     { _uarpRoleName :: Text
     , _uarpPolicyDocument :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateAssumeRolePolicy' request.

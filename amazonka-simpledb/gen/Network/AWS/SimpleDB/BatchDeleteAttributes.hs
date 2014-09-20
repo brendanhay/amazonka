@@ -56,7 +56,7 @@ import Network.AWS.Prelude
 data BatchDeleteAttributes = BatchDeleteAttributes
     { _bdaDomainName :: Text
     , _bdaItems :: [DeletableItem]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'BatchDeleteAttributes' request.

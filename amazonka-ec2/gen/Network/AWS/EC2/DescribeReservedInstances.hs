@@ -60,7 +60,7 @@ data DescribeReservedInstances = DescribeReservedInstances
     { _driReservedInstancesIds :: [Text]
     , _driFilters :: [Filter]
     , _driOfferingType :: Maybe OfferingTypeValues
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedInstances' request.

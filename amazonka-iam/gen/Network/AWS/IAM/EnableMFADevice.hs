@@ -50,7 +50,7 @@ data EnableMFADevice = EnableMFADevice
     , _emfadSerialNumber :: Text
     , _emfadAuthenticationCode1 :: Text
     , _emfadAuthenticationCode2 :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableMFADevice' request.

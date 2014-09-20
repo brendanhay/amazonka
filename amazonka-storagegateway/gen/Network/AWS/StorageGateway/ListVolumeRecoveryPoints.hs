@@ -97,7 +97,7 @@ instance ToJSON ListVolumeRecoveryPoints
 data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse
     { _lvrprGatewayARN :: Maybe Text
     , _lvrprVolumeRecoveryPointInfos :: [VolumeRecoveryPointInfo]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListVolumeRecoveryPointsResponse' response.

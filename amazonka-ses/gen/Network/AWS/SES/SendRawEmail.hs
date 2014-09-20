@@ -90,7 +90,7 @@ data SendRawEmail = SendRawEmail
     { _sreSource :: Maybe Text
     , _sreDestinations :: [Text]
     , _sreRawMessage :: RawMessage
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SendRawEmail' request.

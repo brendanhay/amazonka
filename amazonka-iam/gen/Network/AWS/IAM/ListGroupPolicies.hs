@@ -51,7 +51,7 @@ data ListGroupPolicies = ListGroupPolicies
     { _lgpGroupName :: Text
     , _lgpMarker :: Maybe Text
     , _lgpMaxItems :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListGroupPolicies' request.
@@ -98,7 +98,7 @@ data ListGroupPoliciesResponse = ListGroupPoliciesResponse
     { _lgprPolicyNames :: [Text]
     , _lgprIsTruncated :: !Bool
     , _lgprMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListGroupPoliciesResponse' response.

@@ -54,7 +54,7 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
     { _drimReservedInstancesModificationIds :: [Text]
     , _drimNextToken :: Maybe Text
     , _drimFilters :: [Filter]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedInstancesModifications' request.
@@ -112,7 +112,7 @@ instance ToQuery DescribeReservedInstancesModifications where
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse
     { _drimrReservedInstancesModifications :: [ReservedInstancesModification]
     , _drimrNextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedInstancesModificationsResponse' response.

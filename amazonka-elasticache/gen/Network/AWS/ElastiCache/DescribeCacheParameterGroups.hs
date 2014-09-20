@@ -57,7 +57,7 @@ data DescribeCacheParameterGroups = DescribeCacheParameterGroups
     { _dcpg1CacheParameterGroupName :: Maybe Text
     , _dcpg1MaxRecords :: Maybe Integer
     , _dcpg1Marker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCacheParameterGroups' request.
@@ -104,7 +104,7 @@ instance ToQuery DescribeCacheParameterGroups where
 data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
     { _dcpgrMarker :: Maybe Text
     , _dcpgrCacheParameterGroups :: [CacheParameterGroup]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCacheParameterGroupsResponse' response.

@@ -61,7 +61,7 @@ data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy
     { _clbcspLoadBalancerName :: Text
     , _clbcspPolicyName :: Text
     , _clbcspCookieExpirationPeriod :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLBCookieStickinessPolicy' request.

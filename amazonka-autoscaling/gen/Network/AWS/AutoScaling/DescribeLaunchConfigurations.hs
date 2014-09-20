@@ -55,7 +55,7 @@ data DescribeLaunchConfigurations = DescribeLaunchConfigurations
     { _dlc1LaunchConfigurationNames :: [Text]
     , _dlc1NextToken :: Maybe Text
     , _dlc1MaxRecords :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLaunchConfigurations' request.
@@ -96,7 +96,7 @@ instance ToQuery DescribeLaunchConfigurations where
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
     { _dlcrLaunchConfigurations :: [LaunchConfiguration]
     , _dlcrNextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLaunchConfigurationsResponse' response.

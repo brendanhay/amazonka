@@ -83,7 +83,7 @@ data ModifyReplicationGroup = ModifyReplicationGroup
     , _mrgSnapshotRetentionLimit :: Maybe Integer
     , _mrgSnapshotWindow :: Maybe Text
     , _mrgSnapshottingClusterId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyReplicationGroup' request.

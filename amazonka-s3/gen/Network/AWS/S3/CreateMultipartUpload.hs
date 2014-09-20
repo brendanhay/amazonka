@@ -94,7 +94,7 @@ data CreateMultipartUpload = CreateMultipartUpload
     , _cmu2SSECustomerAlgorithm :: Maybe Text
     , _cmu2SSECustomerKey :: Maybe Text
     , _cmu2SSECustomerKeyMD5 :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateMultipartUpload' request.
@@ -307,7 +307,7 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse
     , _cmurrServerSideEncryption :: Maybe ServerSideEncryption
     , _cmurrSSECustomerAlgorithm :: Maybe Text
     , _cmurrSSECustomerKeyMD5 :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateMultipartUploadResponse' response.

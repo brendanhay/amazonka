@@ -778,7 +778,7 @@ data AliasTarget = AliasTarget
     { _atHostedZoneId :: ResourceId
     , _atDNSName :: Text
     , _atEvaluateTargetHealth :: !Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AliasTarget' data type to populate a request.
@@ -835,7 +835,7 @@ instance ToXML AliasTarget where
 data Change = Change
     { _cAction :: ChangeAction
     , _cResourceRecordSet :: ResourceRecordSet
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Change' data type to populate a request.
@@ -871,7 +871,7 @@ instance ToXML Change where
 data ChangeBatch = ChangeBatch
     { _cbComment :: Maybe Text
     , _cbChanges :: List1 Change
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChangeBatch' data type to populate a request.
@@ -910,7 +910,7 @@ data ChangeInfo = ChangeInfo
     , _ciStatus :: ChangeStatus
     , _ciSubmittedAt :: ISO8601
     , _ciComment :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChangeInfo' data type.
@@ -975,7 +975,7 @@ data GeoLocation = GeoLocation
     { _glContinentCode :: Maybe Text
     , _glCountryCode :: Maybe Text
     , _glSubdivisionCode :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'GeoLocation' data type to populate a request.
@@ -1034,7 +1034,7 @@ data GeoLocationDetails = GeoLocationDetails
     , _gldCountryName :: Maybe Text
     , _gldSubdivisionCode :: Maybe Text
     , _gldSubdivisionName :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'GeoLocationDetails' data type.
@@ -1113,7 +1113,7 @@ data HealthCheck = HealthCheck
     , _hcCallerReference :: Text
     , _hcHealthCheckConfig :: HealthCheckConfig
     , _hcHealthCheckVersion :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HealthCheck' data type.
@@ -1178,7 +1178,7 @@ data HealthCheckConfig = HealthCheckConfig
     , _hccSearchString :: Maybe Text
     , _hccRequestInterval :: Maybe Integer
     , _hccFailureThreshold :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HealthCheckConfig' data type to populate a request.
@@ -1279,7 +1279,7 @@ data HostedZone = HostedZone
     , _hzCallerReference :: Text
     , _hzConfig :: Maybe HostedZoneConfig
     , _hzResourceRecordSetCount :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HostedZone' data type.
@@ -1358,7 +1358,7 @@ data ResourceRecordSet = ResourceRecordSet
     , _rrsResourceRecords :: List1 ResourceRecord
     , _rrsAliasTarget :: Maybe AliasTarget
     , _rrsHealthCheckId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ResourceRecordSet' data type to populate a request.
@@ -1491,7 +1491,7 @@ data ResourceTagSet = ResourceTagSet
     { _rtsResourceType :: Maybe TagResourceType
     , _rtsResourceId :: Maybe Text
     , _rtsTags :: Maybe (List1 Tag)
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ResourceTagSet' data type.
@@ -1535,7 +1535,7 @@ instance FromXML ResourceTagSet where
 data Tag = Tag
     { _tKey :: Maybe Text
     , _tValue :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type to populate a request.

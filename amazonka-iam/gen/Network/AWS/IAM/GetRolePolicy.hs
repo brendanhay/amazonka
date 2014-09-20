@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 data GetRolePolicy = GetRolePolicy
     { _grpRoleName :: Text
     , _grpPolicyName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetRolePolicy' request.
@@ -87,7 +87,7 @@ data GetRolePolicyResponse = GetRolePolicyResponse
     { _grprRoleName :: Text
     , _grprPolicyName :: Text
     , _grprPolicyDocument :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetRolePolicyResponse' response.

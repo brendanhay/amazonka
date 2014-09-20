@@ -91,7 +91,7 @@ data DescribeVolumeStatus = DescribeVolumeStatus
     , _dvsFilters :: [Filter]
     , _dvsNextToken :: Maybe Text
     , _dvsMaxResults :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVolumeStatus' request.
@@ -151,7 +151,7 @@ instance ToQuery DescribeVolumeStatus where
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
     { _dvsrVolumeStatuses :: [VolumeStatusItem]
     , _dvsrNextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVolumeStatusResponse' response.

@@ -57,7 +57,7 @@ instance ToQuery GenerateCredentialReport where
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse
     { _gcrrState :: Maybe ReportStateType
     , _gcrrDescription :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GenerateCredentialReportResponse' response.

@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 data DescribeAvailabilityOptions = DescribeAvailabilityOptions
     { _dao2DomainName :: Text
     , _dao2Deployed :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAvailabilityOptions' request.

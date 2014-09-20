@@ -1566,7 +1566,7 @@ data Cluster = Cluster
     , _cClusterNodes :: [ClusterNode]
     , _cElasticIpStatus :: Maybe ElasticIpStatus
     , _cClusterRevisionNumber :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Cluster' data type.
@@ -1833,7 +1833,7 @@ data ClusterNode = ClusterNode
     { _cnNodeRole :: Maybe Text
     , _cnPrivateIPAddress :: Maybe Text
     , _cnPublicIPAddress :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ClusterNode' data type to populate a request.
@@ -1879,7 +1879,7 @@ data ClusterParameterGroup = ClusterParameterGroup
     { _cpgParameterGroupName :: Maybe Text
     , _cpgParameterGroupFamily :: Maybe Text
     , _cpgDescription :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ClusterParameterGroup' data type.
@@ -1926,7 +1926,7 @@ instance FromXML ClusterParameterGroup where
 data ClusterParameterGroupStatus = ClusterParameterGroupStatus
     { _cpgsParameterGroupName :: Maybe Text
     , _cpgsParameterApplyStatus :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ClusterParameterGroupStatus' data type to populate a request.
@@ -1967,7 +1967,7 @@ data ClusterSecurityGroup = ClusterSecurityGroup
     , _csgDescription :: Maybe Text
     , _csgEC2SecurityGroups :: [EC2SecurityGroup]
     , _csgIPRanges :: [IPRange]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ClusterSecurityGroup' data type.
@@ -2022,7 +2022,7 @@ instance FromXML ClusterSecurityGroup where
 data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership
     { _csgmClusterSecurityGroupName :: Maybe Text
     , _csgmStatus :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ClusterSecurityGroupMembership' data type to populate a request.
@@ -2061,7 +2061,7 @@ instance ToQuery ClusterSecurityGroupMembership where
 data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus
     { _cscsDestinationRegion :: Maybe Text
     , _cscsRetentionPeriod :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ClusterSnapshotCopyStatus' data type to populate a request.
@@ -2104,7 +2104,7 @@ data ClusterSubnetGroup = ClusterSubnetGroup
     , _csgrVpcId :: Maybe Text
     , _csgrSubnetGroupStatus :: Maybe Text
     , _csgrSubnets :: [Subnet]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ClusterSubnetGroup' data type.
@@ -2167,7 +2167,7 @@ data ClusterVersion = ClusterVersion
     { _cvClusterVersion :: Maybe Text
     , _cvClusterParameterGroupFamily :: Maybe Text
     , _cvDescription :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ClusterVersion' data type.
@@ -2214,7 +2214,7 @@ data DefaultClusterParameters = DefaultClusterParameters
     { _dcp1ParameterGroupFamily :: Maybe Text
     , _dcp1Marker :: Maybe Text
     , _dcp1Parameters :: [Parameter]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DefaultClusterParameters' data type.
@@ -2265,7 +2265,7 @@ data EC2SecurityGroup = EC2SecurityGroup
     { _ecsgStatus :: Maybe Text
     , _ecsgEC2SecurityGroupName :: Maybe Text
     , _ecsgEC2SecurityGroupOwnerId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EC2SecurityGroup' data type to populate a request.
@@ -2313,7 +2313,7 @@ instance ToQuery EC2SecurityGroup where
 data ElasticIpStatus = ElasticIpStatus
     { _eisElasticIp :: Maybe Text
     , _eisStatus :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ElasticIpStatus' data type to populate a request.
@@ -2349,7 +2349,7 @@ instance ToQuery ElasticIpStatus where
 data Endpoint' = Endpoint'
     { _eAddress :: Maybe Text
     , _ePort :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Endpoint'' data type to populate a request.
@@ -2390,7 +2390,7 @@ data Event = Event
     , _erSeverity :: Maybe Text
     , _erDate :: Maybe ISO8601
     , _erEventId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Event' data type.
@@ -2462,7 +2462,7 @@ instance FromXML Event where
 data EventCategoriesMap = EventCategoriesMap
     { _ecmSourceType :: Maybe Text
     , _ecmEvents :: [EventInfoMap]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EventCategoriesMap' data type.
@@ -2500,7 +2500,7 @@ data EventInfoMap = EventInfoMap
     , _eimEventCategories :: [Text]
     , _eimEventDescription :: Maybe Text
     , _eimSeverity :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EventInfoMap' data type to populate a request.
@@ -2559,7 +2559,7 @@ data EventSubscription = EventSubscription
     , _esEventCategoriesList :: [Text]
     , _esSeverity :: Maybe Text
     , _esEnabled :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EventSubscription' data type.
@@ -2671,7 +2671,7 @@ instance FromXML EventSubscription where
 data HsmClientCertificate = HsmClientCertificate
     { _hccHsmClientCertificateIdentifier :: Maybe Text
     , _hccHsmClientCertificatePublicKey :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HsmClientCertificate' data type.
@@ -2716,7 +2716,7 @@ data HsmConfiguration = HsmConfiguration
     , _hcDescription :: Maybe Text
     , _hcHsmIpAddress :: Maybe Text
     , _hcHsmPartitionName :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HsmConfiguration' data type.
@@ -2773,7 +2773,7 @@ data HsmStatus = HsmStatus
     { _hsHsmClientCertificateIdentifier :: Maybe Text
     , _hsHsmConfigurationIdentifier :: Maybe Text
     , _hsStatus :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HsmStatus' data type to populate a request.
@@ -2824,7 +2824,7 @@ instance ToQuery HsmStatus where
 data IPRange = IPRange
     { _iprStatus :: Maybe Text
     , _iprCIDRIP :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IPRange' data type to populate a request.
@@ -2862,7 +2862,7 @@ data OrderableClusterOption = OrderableClusterOption
     , _ocoClusterType :: Maybe Text
     , _ocoNodeType :: Maybe Text
     , _ocoAvailabilityZones :: [AvailabilityZone]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'OrderableClusterOption' data type.
@@ -2920,7 +2920,7 @@ data Parameter = Parameter
     , _pAllowedValues :: Maybe Text
     , _pIsModifiable :: Maybe Bool
     , _pMinimumEngineVersion :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Parameter' data type to populate a request.
@@ -3006,7 +3006,7 @@ data PendingModifiedValues = PendingModifiedValues
     , _pmvClusterVersion :: Maybe Text
     , _pmvAutomatedSnapshotRetentionPeriod :: Maybe Integer
     , _pmvClusterIdentifier :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PendingModifiedValues' data type to populate a request.
@@ -3085,7 +3085,7 @@ instance ToQuery PendingModifiedValues where
 data RecurringCharge = RecurringCharge
     { _rcRecurringChargeAmount :: Maybe Double
     , _rcRecurringChargeFrequency :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RecurringCharge' data type to populate a request.
@@ -3136,7 +3136,7 @@ data ReservedNode = ReservedNode
     , _rnState :: Maybe Text
     , _rnOfferingType :: Maybe Text
     , _rnRecurringCharges :: [RecurringCharge]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReservedNode' data type.
@@ -3258,7 +3258,7 @@ data ReservedNodeOffering = ReservedNodeOffering
     , _rnoCurrencyCode :: Maybe Text
     , _rnoOfferingType :: Maybe Text
     , _rnoRecurringCharges :: [RecurringCharge]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReservedNodeOffering' data type.
@@ -3349,7 +3349,7 @@ data RestoreStatus = RestoreStatus
     , _rsProgressInMegaBytes :: Maybe Integer
     , _rsElapsedTimeInSeconds :: Maybe Integer
     , _rsEstimatedTimeToCompletionInSeconds :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RestoreStatus' data type to populate a request.
@@ -3448,7 +3448,7 @@ data Snapshot = Snapshot
     , _sEstimatedSecondsToCompletion :: Maybe Integer
     , _sElapsedTimeInSeconds :: Maybe Integer
     , _sSourceRegion :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Snapshot' data type.
@@ -3683,7 +3683,7 @@ data Subnet = Subnet
     { _srSubnetIdentifier :: Maybe Text
     , _srSubnetAvailabilityZone :: Maybe AvailabilityZone
     , _srSubnetStatus :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Subnet' data type to populate a request.
@@ -3729,7 +3729,7 @@ instance ToQuery Subnet where
 data VpcSecurityGroupMembership = VpcSecurityGroupMembership
     { _vsgmVpcSecurityGroupId :: Maybe Text
     , _vsgmStatus :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VpcSecurityGroupMembership' data type to populate a request.

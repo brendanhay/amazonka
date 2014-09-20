@@ -63,7 +63,7 @@ data CreateHostedZone = CreateHostedZone
     { _chzName :: Text
     , _chzCallerReference :: Text
     , _chzHostedZoneConfig :: Maybe HostedZoneConfig
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateHostedZone' request.
@@ -129,7 +129,7 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse
     , _chzrChangeInfo :: ChangeInfo
     , _chzrDelegationSet :: DelegationSet
     , _chzrLocation :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateHostedZoneResponse' response.

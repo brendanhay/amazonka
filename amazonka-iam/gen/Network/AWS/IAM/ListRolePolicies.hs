@@ -53,7 +53,7 @@ data ListRolePolicies = ListRolePolicies
     { _lrpRoleName :: Text
     , _lrpMarker :: Maybe Text
     , _lrpMaxItems :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListRolePolicies' request.
@@ -102,7 +102,7 @@ data ListRolePoliciesResponse = ListRolePoliciesResponse
     { _lrprPolicyNames :: [Text]
     , _lrprIsTruncated :: !Bool
     , _lrprMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListRolePoliciesResponse' response.

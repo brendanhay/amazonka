@@ -47,7 +47,7 @@ data PutBucketVersioning = PutBucketVersioning
     , _pbvContentMD5 :: Maybe Text
     , _pbvMFA :: Maybe Text
     , _pbvVersioningConfiguration :: VersioningConfiguration
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketVersioning' request.

@@ -45,7 +45,7 @@ import Network.AWS.Types (Region)
 data ListTagsForResources = ListTagsForResources
     { _ltfr1ResourceType :: TagResourceType
     , _ltfr1ResourceIds :: List1 Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListTagsForResources' request.

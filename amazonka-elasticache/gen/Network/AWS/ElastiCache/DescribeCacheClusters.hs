@@ -74,7 +74,7 @@ data DescribeCacheClusters = DescribeCacheClusters
     , _dcc1MaxRecords :: Maybe Integer
     , _dcc1Marker :: Maybe Text
     , _dcc1ShowCacheNodeInfo :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCacheClusters' request.
@@ -131,7 +131,7 @@ instance ToQuery DescribeCacheClusters where
 data DescribeCacheClustersResponse = DescribeCacheClustersResponse
     { _dccrrMarker :: Maybe Text
     , _dccrrCacheClusters :: [CacheCluster]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCacheClustersResponse' response.

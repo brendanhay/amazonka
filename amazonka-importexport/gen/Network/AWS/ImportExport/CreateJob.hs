@@ -57,7 +57,7 @@ data CreateJob = CreateJob
     , _cj1Manifest :: Text
     , _cj1ManifestAddendum :: Maybe Text
     , _cj1ValidateOnly :: !Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateJob' request.
@@ -112,7 +112,7 @@ data CreateJobResponse = CreateJobResponse
     , _cjrrSignature :: Maybe Text
     , _cjrrSignatureFileContents :: Maybe Text
     , _cjrrWarningMessage :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateJobResponse' response.

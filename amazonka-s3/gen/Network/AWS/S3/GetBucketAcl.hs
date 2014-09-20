@@ -72,7 +72,7 @@ instance ToBody GetBucketAcl
 data GetBucketAclResponse = GetBucketAclResponse
     { _gbarOwner :: Maybe Owner
     , _gbarGrants :: [Grant]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketAclResponse' response.

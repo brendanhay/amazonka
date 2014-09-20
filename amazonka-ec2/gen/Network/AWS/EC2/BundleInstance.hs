@@ -69,7 +69,7 @@ import Network.AWS.Prelude
 data BundleInstance = BundleInstance
     { _biInstanceId :: Text
     , _biStorage :: Storage
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'BundleInstance' request.

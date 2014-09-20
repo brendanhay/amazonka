@@ -87,7 +87,7 @@ data GetTrailStatusResponse = GetTrailStatusResponse
     , _gtsrLatestNotificationTime :: Maybe ISO8601
     , _gtsrStartLoggingTime :: Maybe ISO8601
     , _gtsrStopLoggingTime :: Maybe ISO8601
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetTrailStatusResponse' response.

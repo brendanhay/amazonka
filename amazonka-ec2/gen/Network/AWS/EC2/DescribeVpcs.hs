@@ -60,7 +60,7 @@ import Network.AWS.Prelude
 data DescribeVpcs = DescribeVpcs
     { _dv3VpcIds :: [Text]
     , _dv3Filters :: [Filter]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVpcs' request.

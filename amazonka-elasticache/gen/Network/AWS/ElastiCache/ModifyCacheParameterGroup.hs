@@ -54,7 +54,7 @@ import Network.AWS.Prelude
 data ModifyCacheParameterGroup = ModifyCacheParameterGroup
     { _mcpgCacheParameterGroupName :: Text
     , _mcpgParameterNameValues :: [ParameterNameValue]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyCacheParameterGroup' request.

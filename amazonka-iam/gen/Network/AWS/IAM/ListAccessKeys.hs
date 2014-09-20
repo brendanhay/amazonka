@@ -59,7 +59,7 @@ data ListAccessKeys = ListAccessKeys
     { _lakUserName :: Maybe Text
     , _lakMarker :: Maybe Text
     , _lakMaxItems :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListAccessKeys' request.
@@ -106,7 +106,7 @@ data ListAccessKeysResponse = ListAccessKeysResponse
     { _lakrAccessKeyMetadata :: [AccessKeyMetadata]
     , _lakrIsTruncated :: !Bool
     , _lakrMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListAccessKeysResponse' response.

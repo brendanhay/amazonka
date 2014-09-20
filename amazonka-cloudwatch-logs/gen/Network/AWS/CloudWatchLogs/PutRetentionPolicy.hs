@@ -53,7 +53,7 @@ import Network.AWS.Request.JSON
 data PutRetentionPolicy = PutRetentionPolicy
     { _prpLogGroupName :: Text
     , _prpRetentionInDays :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutRetentionPolicy' request.

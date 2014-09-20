@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 data AttachInstances = AttachInstances
     { _aiInstanceIds :: List1 Text
     , _aiAutoScalingGroupName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachInstances' request.

@@ -91,7 +91,7 @@ data PutObject = PutObject
     , _poSSECustomerAlgorithm :: Maybe Text
     , _poSSECustomerKey :: Maybe Text
     , _poSSECustomerKeyMD5 :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutObject' request.
@@ -322,7 +322,7 @@ data PutObjectResponse = PutObjectResponse
     , _porVersionId :: Maybe ObjectVersionId
     , _porSSECustomerAlgorithm :: Maybe Text
     , _porSSECustomerKeyMD5 :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutObjectResponse' response.

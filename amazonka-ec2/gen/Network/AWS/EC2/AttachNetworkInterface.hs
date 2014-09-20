@@ -53,7 +53,7 @@ data AttachNetworkInterface = AttachNetworkInterface
     { _aniNetworkInterfaceId :: Text
     , _aniInstanceId :: Text
     , _aniDeviceIndex :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachNetworkInterface' request.

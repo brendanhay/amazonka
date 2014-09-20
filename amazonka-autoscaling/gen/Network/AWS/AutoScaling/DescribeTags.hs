@@ -56,7 +56,7 @@ data DescribeTags = DescribeTags
     { _dt1Filters :: [Filter]
     , _dt1NextToken :: Maybe Text
     , _dt1MaxRecords :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTags' request.
@@ -98,7 +98,7 @@ instance ToQuery DescribeTags where
 data DescribeTagsResponse = DescribeTagsResponse
     { _dtrTags :: [TagDescription]
     , _dtrNextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTagsResponse' response.

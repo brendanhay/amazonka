@@ -47,7 +47,7 @@ data EnableMetricsCollection = EnableMetricsCollection
     { _emcAutoScalingGroupName :: Text
     , _emcMetrics :: [Text]
     , _emcGranularity :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableMetricsCollection' request.

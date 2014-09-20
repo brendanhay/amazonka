@@ -47,7 +47,7 @@ import Network.AWS.Request.JSON
 data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers
     { _delbStackId :: Maybe Text
     , _delbLayerIds :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeElasticLoadBalancers' request.

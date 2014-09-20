@@ -94,7 +94,7 @@ instance ToJSON ListLocalDisks
 data ListLocalDisksResponse = ListLocalDisksResponse
     { _lldrGatewayARN :: Maybe Text
     , _lldrDisks :: [DiskInformation]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListLocalDisksResponse' response.

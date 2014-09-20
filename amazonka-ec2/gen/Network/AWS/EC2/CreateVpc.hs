@@ -72,7 +72,7 @@ import Network.AWS.Prelude
 data CreateVpc = CreateVpc
     { _cv1CidrBlock :: Text
     , _cv1InstanceTenancy :: Maybe Tenancy
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVpc' request.

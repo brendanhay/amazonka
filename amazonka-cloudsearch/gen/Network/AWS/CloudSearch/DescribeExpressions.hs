@@ -55,7 +55,7 @@ data DescribeExpressions = DescribeExpressions
     { _de2DomainName :: Text
     , _de2ExpressionNames :: [Text]
     , _de2Deployed :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeExpressions' request.

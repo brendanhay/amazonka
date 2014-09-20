@@ -73,7 +73,7 @@ data GetMetricStatistics = GetMetricStatistics
     , _gmsPeriod :: !Integer
     , _gmsStatistics :: List1 Statistic
     , _gmsUnit :: Maybe StandardUnit
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetMetricStatistics' request.
@@ -161,7 +161,7 @@ instance ToQuery GetMetricStatistics where
 data GetMetricStatisticsResponse = GetMetricStatisticsResponse
     { _gmsrLabel :: Maybe Text
     , _gmsrDatapoints :: [Datapoint]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetMetricStatisticsResponse' response.

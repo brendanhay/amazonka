@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 data DisassociateAddress = DisassociateAddress
     { _da1PublicIp :: Maybe Text
     , _da1AssociationId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisassociateAddress' request.

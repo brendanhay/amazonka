@@ -86,7 +86,7 @@ data ListDomains = ListDomains
     , _ldRegistrationStatus :: RegistrationStatus
     , _ldMaximumPageSize :: Maybe Integer
     , _ldReverseOrder :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDomains' request.
@@ -149,7 +149,7 @@ instance ToJSON ListDomains
 data ListDomainsResponse = ListDomainsResponse
     { _ldrDomainInfos :: [DomainInfo]
     , _ldrNextPageToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDomainsResponse' response.

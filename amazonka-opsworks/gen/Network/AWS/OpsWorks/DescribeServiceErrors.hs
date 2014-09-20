@@ -48,7 +48,7 @@ data DescribeServiceErrors = DescribeServiceErrors
     { _dseStackId :: Maybe Text
     , _dseInstanceId :: Maybe Text
     , _dseServiceErrorIds :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeServiceErrors' request.

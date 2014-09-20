@@ -62,7 +62,7 @@ data CreateImage = CreateImage
     , _ci1Description :: Maybe Text
     , _ci1NoReboot :: Maybe Bool
     , _ci1BlockDeviceMappings :: [BlockDeviceMapping]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateImage' request.

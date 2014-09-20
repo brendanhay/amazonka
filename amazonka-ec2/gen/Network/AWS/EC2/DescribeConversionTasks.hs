@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 data DescribeConversionTasks = DescribeConversionTasks
     { _dctFilters :: [Filter]
     , _dctConversionTaskIds :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeConversionTasks' request.

@@ -68,7 +68,7 @@ data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit
     { _ubrlGatewayARN :: Text
     , _ubrlAverageUploadRateLimitInBitsPerSec :: Maybe Integer
     , _ubrlAverageDownloadRateLimitInBitsPerSec :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateBandwidthRateLimit' request.

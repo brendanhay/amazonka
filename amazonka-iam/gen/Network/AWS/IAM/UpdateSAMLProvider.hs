@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 data UpdateSAMLProvider = UpdateSAMLProvider
     { _usamlpSAMLMetadataDocument :: Text
     , _usamlpSAMLProviderArn :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateSAMLProvider' request.

@@ -66,7 +66,7 @@ data QueryObjects = QueryObjects
     , _qoSphere :: Text
     , _qoMarker :: Maybe Text
     , _qoLimit :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'QueryObjects' request.
@@ -135,7 +135,7 @@ data QueryObjectsResponse = QueryObjectsResponse
     { _qorIds :: [Text]
     , _qorMarker :: Maybe Text
     , _qorHasMoreResults :: !Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'QueryObjectsResponse' response.

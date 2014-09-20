@@ -51,7 +51,7 @@ data DescribeVolumes = DescribeVolumes
     , _dv1StackId :: Maybe Text
     , _dv1RaidArrayId :: Maybe Text
     , _dv1VolumeIds :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVolumes' request.

@@ -76,7 +76,7 @@ data CreatePlatformApplication = CreatePlatformApplication
     { _cpaName :: Text
     , _cpaPlatform :: Text
     , _cpaAttributes :: Map Text Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePlatformApplication' request.

@@ -419,7 +419,7 @@ data Job = Job
     , _jCreationDate :: ISO8601
     , _jIsCanceled :: Bool
     , _jJobType :: JobType
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Job' data type.

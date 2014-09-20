@@ -554,7 +554,7 @@ data AlarmHistoryItem = AlarmHistoryItem
     , _ahiHistoryItemType :: Maybe HistoryItemType
     , _ahiHistorySummary :: Maybe Text
     , _ahiHistoryData :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AlarmHistoryItem' data type.
@@ -619,7 +619,7 @@ data Datapoint = Datapoint
     , _drMinimum :: Maybe Double
     , _drMaximum :: Maybe Double
     , _drUnit :: Maybe StandardUnit
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Datapoint' data type.
@@ -692,7 +692,7 @@ instance FromXML Datapoint where
 data Dimension = Dimension
     { _dName :: Text
     , _dValue :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Dimension' data type to populate a request.
@@ -730,7 +730,7 @@ instance ToQuery Dimension where
 data DimensionFilter = DimensionFilter
     { _dfName :: Text
     , _dfValue :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DimensionFilter' data type to populate a request.
@@ -767,7 +767,7 @@ data Metric = Metric
     { _mNamespace :: Maybe Text
     , _mMetricName :: Maybe Text
     , _mDimensions :: [Dimension]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Metric' data type.
@@ -830,7 +830,7 @@ data MetricAlarm = MetricAlarm
     , _maEvaluationPeriods :: Maybe Integer
     , _maThreshold :: Maybe Double
     , _maComparisonOperator :: Maybe ComparisonOperator
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'MetricAlarm' data type.
@@ -1028,7 +1028,7 @@ data MetricDatum = MetricDatum
     , _mdValue :: Maybe Double
     , _mdStatisticValues :: Maybe StatisticSet
     , _mdUnit :: Maybe StandardUnit
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'MetricDatum' data type to populate a request.
@@ -1097,7 +1097,7 @@ data StatisticSet = StatisticSet
     , _ssSum :: !Double
     , _ssMinimum :: !Double
     , _ssMaximum :: !Double
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StatisticSet' data type to populate a request.

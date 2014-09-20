@@ -78,7 +78,7 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse
     { _gsamlprSAMLMetadataDocument :: Maybe Text
     , _gsamlprCreateDate :: Maybe ISO8601
     , _gsamlprValidUntil :: Maybe ISO8601
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetSAMLProviderResponse' response.

@@ -62,7 +62,7 @@ data UpdateApp = UpdateApp
     , _uaSslConfiguration :: Maybe SslConfiguration
     , _uaAttributes :: Map AppAttributesKeys Text
     , _uaEnvironment :: [EnvironmentVariable]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateApp' request.

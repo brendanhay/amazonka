@@ -53,7 +53,7 @@ data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo
     { _rei1EnvironmentId :: Maybe Text
     , _rei1EnvironmentName :: Maybe Text
     , _rei1InfoType :: EnvironmentInfoType
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RetrieveEnvironmentInfo' request.

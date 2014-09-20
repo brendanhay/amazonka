@@ -64,7 +64,7 @@ data GetSendQuotaResponse = GetSendQuotaResponse
     { _gsqrMax24HourSend :: Maybe Double
     , _gsqrMaxSendRate :: Maybe Double
     , _gsqrSentLast24Hours :: Maybe Double
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetSendQuotaResponse' response.

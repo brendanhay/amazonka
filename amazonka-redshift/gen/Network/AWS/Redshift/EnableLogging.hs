@@ -52,7 +52,7 @@ data EnableLogging = EnableLogging
     { _elClusterIdentifier :: Text
     , _elBucketName :: Text
     , _elS3KeyPrefix :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableLogging' request.
@@ -104,7 +104,7 @@ data EnableLoggingResponse = EnableLoggingResponse
     , _elrLastSuccessfulDeliveryTime :: Maybe ISO8601
     , _elrLastFailureTime :: Maybe ISO8601
     , _elrLastFailureMessage :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableLoggingResponse' response.

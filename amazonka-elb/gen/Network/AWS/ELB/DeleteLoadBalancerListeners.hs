@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners
     { _dlblLoadBalancerName :: Text
     , _dlblLoadBalancerPorts :: [Integer]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLoadBalancerListeners' request.

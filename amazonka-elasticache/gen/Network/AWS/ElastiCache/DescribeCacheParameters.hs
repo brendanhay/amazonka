@@ -61,7 +61,7 @@ data DescribeCacheParameters = DescribeCacheParameters
     , _dcpSource :: Maybe Text
     , _dcpMaxRecords :: Maybe Integer
     , _dcpMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCacheParameters' request.
@@ -118,7 +118,7 @@ data DescribeCacheParametersResponse = DescribeCacheParametersResponse
     { _dcprMarker :: Maybe Text
     , _dcprParameters :: [Parameter]
     , _dcprCacheNodeTypeSpecificParameters :: [CacheNodeTypeSpecificParameter]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCacheParametersResponse' response.

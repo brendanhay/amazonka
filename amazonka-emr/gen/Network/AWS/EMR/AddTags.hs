@@ -51,7 +51,7 @@ import Network.AWS.Request.JSON
 data AddTags = AddTags
     { _atResourceId :: Text
     , _atTags :: [Tag]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddTags' request.

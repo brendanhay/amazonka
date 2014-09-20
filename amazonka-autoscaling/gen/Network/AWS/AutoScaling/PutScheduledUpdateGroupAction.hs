@@ -71,7 +71,7 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
     , _psugaMinSize :: Maybe Integer
     , _psugaMaxSize :: Maybe Integer
     , _psugaDesiredCapacity :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutScheduledUpdateGroupAction' request.

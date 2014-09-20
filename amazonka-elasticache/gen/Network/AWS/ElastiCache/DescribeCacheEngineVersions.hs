@@ -60,7 +60,7 @@ data DescribeCacheEngineVersions = DescribeCacheEngineVersions
     , _dcevMaxRecords :: Maybe Integer
     , _dcevMarker :: Maybe Text
     , _dcevDefaultOnly :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCacheEngineVersions' request.
@@ -132,7 +132,7 @@ instance ToQuery DescribeCacheEngineVersions where
 data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse
     { _dcevrMarker :: Maybe Text
     , _dcevrCacheEngineVersions :: [CacheEngineVersion]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCacheEngineVersionsResponse' response.

@@ -62,7 +62,7 @@ import Network.AWS.Prelude
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled
     { _sideIdentity :: Text
     , _sideDkimEnabled :: !Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetIdentityDkimEnabled' request.

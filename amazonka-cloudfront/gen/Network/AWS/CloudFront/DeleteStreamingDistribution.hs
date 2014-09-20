@@ -43,7 +43,7 @@ import Network.AWS.Types (Region)
 data DeleteStreamingDistribution = DeleteStreamingDistribution
     { _dsdId :: Text
     , _dsdIfMatch :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteStreamingDistribution' request.

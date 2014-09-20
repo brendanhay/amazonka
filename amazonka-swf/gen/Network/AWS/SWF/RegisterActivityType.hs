@@ -89,7 +89,7 @@ data RegisterActivityType = RegisterActivityType
     , _ratDefaultTaskList :: Maybe TaskList
     , _ratDefaultTaskScheduleToStartTimeout :: Maybe Text
     , _ratDefaultTaskScheduleToCloseTimeout :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterActivityType' request.

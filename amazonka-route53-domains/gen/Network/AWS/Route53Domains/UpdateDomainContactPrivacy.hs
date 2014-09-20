@@ -70,7 +70,7 @@ data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy
     , _udcpAdminPrivacy :: Maybe Bool
     , _udcpRegistrantPrivacy :: Maybe Bool
     , _udcpTechPrivacy :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateDomainContactPrivacy' request.

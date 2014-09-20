@@ -77,7 +77,7 @@ data RequestSpotInstances = RequestSpotInstances
     , _rsiLaunchGroup :: Maybe Text
     , _rsiAvailabilityZoneGroup :: Maybe Text
     , _rsiLaunchSpecification :: Maybe LaunchSpecification
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RequestSpotInstances' request.

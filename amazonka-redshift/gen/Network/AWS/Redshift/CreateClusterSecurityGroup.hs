@@ -54,7 +54,7 @@ import Network.AWS.Prelude
 data CreateClusterSecurityGroup = CreateClusterSecurityGroup
     { _ccsgClusterSecurityGroupName :: Text
     , _ccsgDescription :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateClusterSecurityGroup' request.

@@ -100,7 +100,7 @@ data GetStatusResponse = GetStatusResponse
     , _gsrSignatureFileContents :: Maybe Text
     , _gsrCurrentManifest :: Maybe Text
     , _gsrCreationDate :: Maybe ISO8601
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetStatusResponse' response.

@@ -48,7 +48,7 @@ data UpdateUserProfile = UpdateUserProfile
     , _uupSshUsername :: Maybe Text
     , _uupSshPublicKey :: Maybe Text
     , _uupAllowSelfManagement :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateUserProfile' request.

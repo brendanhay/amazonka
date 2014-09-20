@@ -57,7 +57,7 @@ import Network.AWS.Prelude
 data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
     { _rnaaAssociationId :: Text
     , _rnaaNetworkAclId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReplaceNetworkAclAssociation' request.

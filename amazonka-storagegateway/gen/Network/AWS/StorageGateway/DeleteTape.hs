@@ -42,7 +42,7 @@ import Network.AWS.Request.JSON
 data DeleteTape = DeleteTape
     { _dtGatewayARN :: Text
     , _dtTapeARN :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteTape' request.

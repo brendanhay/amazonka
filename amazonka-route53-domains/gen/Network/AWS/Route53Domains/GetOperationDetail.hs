@@ -101,7 +101,7 @@ data GetOperationDetailResponse = GetOperationDetailResponse
     , _godrDomainName :: Maybe Text
     , _godrType :: Maybe OperationType
     , _godrSubmittedDate :: Maybe ISO8601
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetOperationDetailResponse' response.

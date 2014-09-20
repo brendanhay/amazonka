@@ -47,7 +47,7 @@ data ChangeTagsForResource = ChangeTagsForResource
     , _ctfrResourceId :: Text
     , _ctfrAddTags :: Maybe (List1 Tag)
     , _ctfrRemoveTagKeys :: Maybe (List1 Text)
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ChangeTagsForResource' request.

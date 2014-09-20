@@ -74,7 +74,7 @@ data DescribeClusterParameters = DescribeClusterParameters
     , _dcpSource :: Maybe Text
     , _dcpMaxRecords :: Maybe Integer
     , _dcpMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusterParameters' request.
@@ -134,7 +134,7 @@ instance ToQuery DescribeClusterParameters where
 data DescribeClusterParametersResponse = DescribeClusterParametersResponse
     { _dcprParameters :: [Parameter]
     , _dcprMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusterParametersResponse' response.

@@ -56,7 +56,7 @@ import Network.AWS.Prelude
 data CreateVpnConnectionRoute = CreateVpnConnectionRoute
     { _cvcr1VpnConnectionId :: Text
     , _cvcr1DestinationCidrBlock :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVpnConnectionRoute' request.

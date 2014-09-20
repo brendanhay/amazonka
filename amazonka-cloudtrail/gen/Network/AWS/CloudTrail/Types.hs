@@ -254,7 +254,7 @@ data Trail = Trail
     , _tS3KeyPrefix :: Maybe Text
     , _tSnsTopicName :: Maybe Text
     , _tIncludeGlobalServiceEvents :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Trail' data type.

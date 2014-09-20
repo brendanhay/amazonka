@@ -56,7 +56,7 @@ data DescribeDBInstances = DescribeDBInstances
     { _ddbi1DBInstanceIdentifier :: Maybe Text
     , _ddbi1MaxRecords :: Maybe Integer
     , _ddbi1Marker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBInstances' request.
@@ -107,7 +107,7 @@ instance ToQuery DescribeDBInstances where
 data DescribeDBInstancesResponse = DescribeDBInstancesResponse
     { _ddbirrMarker :: Maybe Text
     , _ddbirrDBInstances :: [DBInstance]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBInstancesResponse' response.

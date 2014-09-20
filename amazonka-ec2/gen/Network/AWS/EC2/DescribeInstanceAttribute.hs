@@ -85,7 +85,7 @@ import Network.AWS.Prelude
 data DescribeInstanceAttribute = DescribeInstanceAttribute
     { _dia1InstanceId :: Text
     , _dia1Attribute :: InstanceAttributeName
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInstanceAttribute' request.
@@ -129,7 +129,7 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
     , _diarrEbsOptimized :: Maybe AttributeBooleanValue
     , _diarrSriovNetSupport :: Maybe AttributeValue
     , _diarrSourceDestCheck :: Maybe AttributeBooleanValue
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInstanceAttributeResponse' response.

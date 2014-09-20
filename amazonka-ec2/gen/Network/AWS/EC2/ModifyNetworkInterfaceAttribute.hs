@@ -56,7 +56,7 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
     , _mniaSourceDestCheck :: Maybe AttributeBooleanValue
     , _mniaGroups :: [Text]
     , _mniaAttachment :: Maybe NetworkInterfaceAttachmentChanges
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyNetworkInterfaceAttribute' request.

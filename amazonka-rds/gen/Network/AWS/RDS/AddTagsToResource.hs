@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 data AddTagsToResource = AddTagsToResource
     { _attrResourceName :: Text
     , _attrTags :: [Tag]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddTagsToResource' request.

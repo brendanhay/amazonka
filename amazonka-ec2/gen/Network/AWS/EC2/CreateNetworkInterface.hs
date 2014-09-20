@@ -149,7 +149,7 @@ data CreateNetworkInterface = CreateNetworkInterface
     , _cniGroups :: [Text]
     , _cniPrivateIpAddresses :: [PrivateIpAddressSpecification]
     , _cniSecondaryPrivateIpAddressCount :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateNetworkInterface' request.

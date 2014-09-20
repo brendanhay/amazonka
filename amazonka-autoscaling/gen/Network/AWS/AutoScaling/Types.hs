@@ -729,7 +729,7 @@ data Activity = Activity
     , _arStatusMessage :: Maybe Text
     , _arProgress :: Maybe Integer
     , _arDetails :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Activity' data type.
@@ -828,7 +828,7 @@ instance FromXML Activity where
 data Alarm = Alarm
     { _aAlarmName :: Maybe Text
     , _aAlarmARN :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Alarm' data type to populate a request.
@@ -882,7 +882,7 @@ data AutoScalingGroup = AutoScalingGroup
     , _asgStatus :: Maybe Text
     , _asgTags :: [TagDescription]
     , _asgTerminationPolicies :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AutoScalingGroup' data type.
@@ -1083,7 +1083,7 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails
     , _asidLifecycleState :: Text
     , _asidHealthStatus :: Text
     , _asidLaunchConfigurationName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AutoScalingInstanceDetails' data type.
@@ -1165,7 +1165,7 @@ data BlockDeviceMapping = BlockDeviceMapping
     , _bdmDeviceName :: Text
     , _bdmEbs :: Maybe Ebs
     , _bdmNoDevice :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'BlockDeviceMapping' data type to populate a request.
@@ -1221,7 +1221,7 @@ data Ebs = Ebs
     , _eVolumeType :: Maybe Text
     , _eDeleteOnTermination :: Maybe Bool
     , _eIops :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Ebs' data type to populate a request.
@@ -1285,7 +1285,7 @@ instance ToQuery Ebs where
 data EnabledMetric = EnabledMetric
     { _emMetric :: Maybe Text
     , _emGranularity :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EnabledMetric' data type to populate a request.
@@ -1321,7 +1321,7 @@ instance ToQuery EnabledMetric where
 data Filter = Filter
     { _fName :: Text
     , _fValues :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Filter' data type to populate a request.
@@ -1358,7 +1358,7 @@ data Instance = Instance
     , _iLifecycleState :: LifecycleState
     , _iHealthStatus :: Text
     , _iLaunchConfigurationName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Instance' data type to populate a request.
@@ -1439,7 +1439,7 @@ data LaunchConfiguration = LaunchConfiguration
     , _lcEbsOptimized :: Maybe Bool
     , _lcAssociatePublicIpAddress :: Maybe Bool
     , _lcPlacementTenancy :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LaunchConfiguration' data type.
@@ -1617,7 +1617,7 @@ data LifecycleHook = LifecycleHook
     , _lhHeartbeatTimeout :: Maybe Integer
     , _lhGlobalTimeout :: Maybe Integer
     , _lhDefaultResult :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LifecycleHook' data type.
@@ -1726,7 +1726,7 @@ data NotificationConfiguration = NotificationConfiguration
     { _ncAutoScalingGroupName :: Maybe Text
     , _ncTopicARN :: Maybe Text
     , _ncNotificationType :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NotificationConfiguration' data type.
@@ -1778,7 +1778,7 @@ data ScalingPolicy = ScalingPolicy
     , _sprPolicyARN :: Maybe Text
     , _sprAlarms :: [Alarm]
     , _sprMinAdjustmentStep :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ScalingPolicy' data type.
@@ -1876,7 +1876,7 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction
     , _sugaMinSize :: Maybe Integer
     , _sugaMaxSize :: Maybe Integer
     , _sugaDesiredCapacity :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ScheduledUpdateGroupAction' data type.
@@ -1980,7 +1980,7 @@ instance FromXML ScheduledUpdateGroupAction where
 data SuspendedProcess = SuspendedProcess
     { _spProcessName :: Maybe Text
     , _spSuspensionReason :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SuspendedProcess' data type to populate a request.
@@ -2020,7 +2020,7 @@ data Tag = Tag
     , _tKey :: Text
     , _tValue :: Text
     , _tPropagateAtLaunch :: Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type to populate a request.
@@ -2086,7 +2086,7 @@ data TagDescription = TagDescription
     , _tdKey :: Text
     , _tdValue :: Text
     , _tdPropagateAtLaunch :: Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TagDescription' data type to populate a request.

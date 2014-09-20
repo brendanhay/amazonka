@@ -85,7 +85,7 @@ data PollForTask = PollForTask
     { _pftWorkerGroup :: Text
     , _pftHostname :: Maybe Text
     , _pftInstanceIdentity :: Maybe InstanceIdentity
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PollForTask' request.

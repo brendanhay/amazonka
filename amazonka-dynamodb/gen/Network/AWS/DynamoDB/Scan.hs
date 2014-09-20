@@ -85,7 +85,7 @@ data Scan = Scan
     , _sReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
     , _sTotalSegments :: Maybe Integer
     , _sSegment :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'Scan' request.
@@ -313,7 +313,7 @@ data ScanResponse = ScanResponse
     , _srScannedCount :: Maybe Integer
     , _srLastEvaluatedKey :: Map Text AttributeValue
     , _srConsumedCapacity :: Maybe ConsumedCapacity
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ScanResponse' response.

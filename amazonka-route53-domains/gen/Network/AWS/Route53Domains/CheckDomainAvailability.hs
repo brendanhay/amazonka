@@ -60,7 +60,7 @@ import Network.AWS.Request.JSON
 data CheckDomainAvailability = CheckDomainAvailability
     { _cdaDomainName :: Text
     , _cdaIdnLangCode :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CheckDomainAvailability' request.

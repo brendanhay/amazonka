@@ -55,7 +55,7 @@ data CreateOptionGroup = CreateOptionGroup
     , _cogMajorEngineVersion :: Text
     , _cogOptionGroupDescription :: Text
     , _cogTags :: [Tag]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateOptionGroup' request.

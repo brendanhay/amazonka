@@ -57,7 +57,7 @@ import Network.AWS.Prelude
 data CreateVirtualMFADevice = CreateVirtualMFADevice
     { _cvmfadPath :: Maybe Text
     , _cvmfadVirtualMFADeviceName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVirtualMFADevice' request.

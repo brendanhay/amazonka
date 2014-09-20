@@ -64,7 +64,7 @@ data ListMultipartUploads = ListMultipartUploads
     , _lmuMaxUploads :: Maybe Integer
     , _lmuPrefix :: Maybe Text
     , _lmuUploadIdMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListMultipartUploads' request.
@@ -156,7 +156,7 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse
     , _lmurUploads :: [MultipartUpload]
     , _lmurCommonPrefixes :: [CommonPrefix]
     , _lmurEncodingType :: Maybe EncodingType
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListMultipartUploadsResponse' response.

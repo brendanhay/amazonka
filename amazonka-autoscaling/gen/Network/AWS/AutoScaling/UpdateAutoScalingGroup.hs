@@ -91,7 +91,7 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup
     , _uasgPlacementGroup :: Maybe Text
     , _uasgVPCZoneIdentifier :: Maybe Text
     , _uasgTerminationPolicies :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateAutoScalingGroup' request.

@@ -78,7 +78,7 @@ data CreateTable = CreateTable
     , _ctLocalSecondaryIndexes :: [LocalSecondaryIndex]
     , _ctGlobalSecondaryIndexes :: [GlobalSecondaryIndex]
     , _ctProvisionedThroughput :: ProvisionedThroughput
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateTable' request.

@@ -45,7 +45,7 @@ import Network.AWS.Request.JSON
 data ListBootstrapActions = ListBootstrapActions
     { _lbaClusterId :: Text
     , _lbaMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListBootstrapActions' request.
@@ -83,7 +83,7 @@ instance ToJSON ListBootstrapActions
 data ListBootstrapActionsResponse = ListBootstrapActionsResponse
     { _lbarBootstrapActions :: [Command]
     , _lbarMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListBootstrapActionsResponse' response.

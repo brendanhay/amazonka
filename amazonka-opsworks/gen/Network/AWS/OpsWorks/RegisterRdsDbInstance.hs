@@ -48,7 +48,7 @@ data RegisterRdsDbInstance = RegisterRdsDbInstance
     , _rrdiRdsDbInstanceArn :: Text
     , _rrdiDbUser :: Text
     , _rrdiDbPassword :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterRdsDbInstance' request.

@@ -77,7 +77,7 @@ instance ToXML GetStreamingDistribution where
 data GetStreamingDistributionResponse = GetStreamingDistributionResponse
     { _gsdrStreamingDistribution :: Maybe StreamingDistribution
     , _gsdrETag :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetStreamingDistributionResponse' response.

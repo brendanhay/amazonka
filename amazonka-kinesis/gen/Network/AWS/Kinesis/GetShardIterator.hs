@@ -90,7 +90,7 @@ data GetShardIterator = GetShardIterator
     , _gsiShardId :: Text
     , _gsiShardIteratorType :: ShardIteratorType
     , _gsiStartingSequenceNumber :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetShardIterator' request.

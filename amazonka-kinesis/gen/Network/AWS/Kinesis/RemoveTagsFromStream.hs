@@ -52,7 +52,7 @@ import Network.AWS.Request.JSON
 data RemoveTagsFromStream = RemoveTagsFromStream
     { _rtfsStreamName :: Text
     , _rtfsTagKeys :: List1 Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveTagsFromStream' request.

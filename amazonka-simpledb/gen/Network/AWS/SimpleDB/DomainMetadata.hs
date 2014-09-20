@@ -79,7 +79,7 @@ data DomainMetadataResponse = DomainMetadataResponse
     , _dmrAttributeValueCount :: Maybe Integer
     , _dmrAttributeValuesSizeBytes :: Maybe Integer
     , _dmrTimestamp :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DomainMetadataResponse' response.

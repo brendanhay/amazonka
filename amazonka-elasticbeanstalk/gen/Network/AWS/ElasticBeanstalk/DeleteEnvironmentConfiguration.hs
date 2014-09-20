@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration
     { _decApplicationName :: Text
     , _decEnvironmentName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteEnvironmentConfiguration' request.

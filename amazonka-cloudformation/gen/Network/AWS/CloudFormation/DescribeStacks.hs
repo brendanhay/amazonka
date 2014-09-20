@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 data DescribeStacks = DescribeStacks
     { _ds1StackName :: Maybe Text
     , _ds1NextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStacks' request.
@@ -89,7 +89,7 @@ instance ToQuery DescribeStacks where
 data DescribeStacksResponse = DescribeStacksResponse
     { _dsr1rStacks :: [Stack]
     , _dsr1rNextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStacksResponse' response.

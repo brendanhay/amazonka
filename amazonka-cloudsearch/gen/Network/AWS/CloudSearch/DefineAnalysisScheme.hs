@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 data DefineAnalysisScheme = DefineAnalysisScheme
     { _dasDomainName :: Text
     , _dasAnalysisScheme :: AnalysisScheme
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DefineAnalysisScheme' request.

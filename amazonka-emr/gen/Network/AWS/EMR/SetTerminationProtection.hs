@@ -70,7 +70,7 @@ import Network.AWS.Request.JSON
 data SetTerminationProtection = SetTerminationProtection
     { _stpJobFlowIds :: [Text]
     , _stpTerminationProtected :: !Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetTerminationProtection' request.

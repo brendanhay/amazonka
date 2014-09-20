@@ -63,7 +63,7 @@ data UpdateHealthCheck = UpdateHealthCheck
     , _uhcFullyQualifiedDomainName :: Maybe Text
     , _uhcSearchString :: Maybe Text
     , _uhcFailureThreshold :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateHealthCheck' request.

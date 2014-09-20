@@ -89,7 +89,7 @@ data AllocateAddressResponse = AllocateAddressResponse
     { _aarPublicIp :: Maybe Text
     , _aarDomain :: Maybe DomainType
     , _aarAllocationId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AllocateAddressResponse' response.

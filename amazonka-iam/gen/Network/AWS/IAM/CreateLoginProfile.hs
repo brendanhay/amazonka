@@ -50,7 +50,7 @@ data CreateLoginProfile = CreateLoginProfile
     { _clpUserName :: Text
     , _clpPassword :: Text
     , _clpPasswordResetRequired :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLoginProfile' request.

@@ -88,7 +88,7 @@ data CreatePipeline = CreatePipeline
     , _cpNotifications :: Maybe Notifications
     , _cpContentConfig :: Maybe PipelineOutputConfig
     , _cpThumbnailConfig :: Maybe PipelineOutputConfig
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePipeline' request.

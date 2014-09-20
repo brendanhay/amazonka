@@ -89,7 +89,7 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
     , _asgeToPort :: Maybe Integer
     , _asgeCidrIp :: Maybe Text
     , _asgeIpPermissions :: [IpPermission]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AuthorizeSecurityGroupEgress' request.

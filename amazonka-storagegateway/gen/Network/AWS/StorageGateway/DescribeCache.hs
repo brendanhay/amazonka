@@ -103,7 +103,7 @@ data DescribeCacheResponse = DescribeCacheResponse
     , _dcrCacheDirtyPercentage :: Maybe Double
     , _dcrCacheHitPercentage :: Maybe Double
     , _dcrCacheMissPercentage :: Maybe Double
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCacheResponse' response.

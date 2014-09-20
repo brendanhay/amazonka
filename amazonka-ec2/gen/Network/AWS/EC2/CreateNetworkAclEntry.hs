@@ -75,7 +75,7 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry
     , _cnaeCidrBlock :: Text
     , _cnaeIcmpTypeCode :: Maybe IcmpTypeCode
     , _cnaePortRange :: Maybe PortRange
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateNetworkAclEntry' request.

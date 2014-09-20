@@ -97,7 +97,7 @@ data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse
     { _dbrlrrGatewayARN :: Maybe Text
     , _dbrlrrAverageUploadRateLimitInBitsPerSec :: Maybe Integer
     , _dbrlrrAverageDownloadRateLimitInBitsPerSec :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeBandwidthRateLimitResponse' response.

@@ -61,7 +61,7 @@ import Network.AWS.Prelude
 data CreateSAMLProvider = CreateSAMLProvider
     { _csamlpSAMLMetadataDocument :: Text
     , _csamlpName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSAMLProvider' request.

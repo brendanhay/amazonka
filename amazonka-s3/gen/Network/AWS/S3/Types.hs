@@ -1400,7 +1400,7 @@ instance ToXML Tagging where
 data AccessControlPolicy = AccessControlPolicy
     { _acpGrants :: [Grant]
     , _acpOwner :: Maybe Owner
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AccessControlPolicy' data type to populate a request.
@@ -1431,7 +1431,7 @@ instance ToXML AccessControlPolicy where
 data Bucket = Bucket
     { _bName :: Maybe BucketName
     , _bCreationDate :: Maybe RFC822
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Bucket' data type.
@@ -1469,7 +1469,7 @@ data CORSRule = CORSRule
     , _corsrAllowedOrigins :: [Text]
     , _corsrExposeHeaders :: [Text]
     , _corsrMaxAgeSeconds :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CORSRule' data type to populate a request.
@@ -1536,7 +1536,7 @@ instance ToXML CORSRule where
 data CompletedPart = CompletedPart
     { _cpETag :: Maybe ETag
     , _cpPartNumber :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CompletedPart' data type to populate a request.
@@ -1573,7 +1573,7 @@ instance ToXML CompletedPart where
 data Condition = Condition
     { _cHttpErrorCodeReturnedEquals :: Maybe Text
     , _cKeyPrefixEquals :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Condition' data type to populate a request.
@@ -1622,7 +1622,7 @@ instance ToXML Condition where
 data CopyObjectResult = CopyObjectResult
     { _corrETag :: Maybe ETag
     , _corrLastModified :: Maybe RFC822
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CopyObjectResult' data type.
@@ -1656,7 +1656,7 @@ instance FromXML CopyObjectResult where
 data CopyPartResult = CopyPartResult
     { _cprrETag :: Maybe ETag
     , _cprrLastModified :: Maybe RFC822
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CopyPartResult' data type.
@@ -1692,7 +1692,7 @@ instance FromXML CopyPartResult where
 data Delete = Delete
     { _dObjects :: [ObjectIdentifier]
     , _dQuiet :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Delete' data type to populate a request.
@@ -1728,7 +1728,7 @@ data DeleteMarkerEntry = DeleteMarkerEntry
     , _dmeVersionId :: Maybe ObjectVersionId
     , _dmeIsLatest :: Maybe Bool
     , _dmeLastModified :: Maybe RFC822
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DeleteMarkerEntry' data type.
@@ -1786,7 +1786,7 @@ data DeletedObject = DeletedObject
     , _do1rVersionId :: Maybe ObjectVersionId
     , _do1rDeleteMarker :: Maybe Bool
     , _do1rDeleteMarkerVersionId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DeletedObject' data type.
@@ -1836,7 +1836,7 @@ data Error = Error
     , _eVersionId :: Maybe ObjectVersionId
     , _eCode :: Maybe Text
     , _eMessage :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Error' data type.
@@ -1881,7 +1881,7 @@ instance FromXML Error where
 data Grant = Grant
     { _gGrantee :: Maybe Grantee
     , _gPermission :: Maybe Permission
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Grant' data type to populate a request.
@@ -1919,7 +1919,7 @@ data Grantee = Grantee
     , _g1ID :: Maybe Text
     , _g1Type :: Type
     , _g1URI :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Grantee' data type to populate a request.
@@ -1978,7 +1978,7 @@ instance ToXML Grantee where
 data Initiator = Initiator
     { _iID :: Maybe Text
     , _iDisplayName :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Initiator' data type to populate a request.
@@ -2015,7 +2015,7 @@ instance ToXML Initiator where
 data LifecycleExpiration = LifecycleExpiration
     { _leDate :: Maybe RFC822
     , _leDays :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LifecycleExpiration' data type to populate a request.
@@ -2054,7 +2054,7 @@ data LoggingEnabled = LoggingEnabled
     { _lerTargetBucket :: Maybe Text
     , _lerTargetGrants :: [TargetGrant]
     , _lerTargetPrefix :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LoggingEnabled' data type to populate a request.
@@ -2106,7 +2106,7 @@ data MultipartUpload = MultipartUpload
     , _muStorageClass :: Maybe StorageClass
     , _muOwner :: Maybe Owner
     , _muInitiator :: Maybe Initiator
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'MultipartUpload' data type.
@@ -2173,7 +2173,7 @@ instance FromXML MultipartUpload where
 data NoncurrentVersionTransition = NoncurrentVersionTransition
     { _nvtNoncurrentDays :: Maybe Integer
     , _nvtStorageClass :: Maybe TransitionStorageClass
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NoncurrentVersionTransition' data type to populate a request.
@@ -2217,7 +2217,7 @@ data Object = Object
     , _orSize :: Integer
     , _orStorageClass :: ObjectStorageClass
     , _orOwner :: Owner
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Object' data type.
@@ -2281,7 +2281,7 @@ instance FromXML Object where
 data ObjectIdentifier = ObjectIdentifier
     { _oiKey :: ObjectKey
     , _oiVersionId :: Maybe ObjectVersionId
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ObjectIdentifier' data type to populate a request.
@@ -2320,7 +2320,7 @@ data ObjectVersion = ObjectVersion
     , _ovIsLatest :: Maybe Bool
     , _ovLastModified :: Maybe RFC822
     , _ovOwner :: Maybe Owner
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ObjectVersion' data type.
@@ -2396,7 +2396,7 @@ instance FromXML ObjectVersion where
 data Owner = Owner
     { _oDisplayName :: Maybe Text
     , _oID :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Owner' data type to populate a request.
@@ -2432,7 +2432,7 @@ data Part = Part
     , _pLastModified :: Maybe RFC822
     , _pETag :: Maybe ETag
     , _pSize :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Part' data type.
@@ -2487,7 +2487,7 @@ data Redirect = Redirect
     , _r1Protocol :: Maybe Protocol
     , _r1ReplaceKeyPrefixWith :: Maybe Text
     , _r1ReplaceKeyWith :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Redirect' data type to populate a request.
@@ -2556,7 +2556,7 @@ instance ToXML Redirect where
 data RedirectAllRequestsTo = RedirectAllRequestsTo
     { _rartHostName :: Text
     , _rartProtocol :: Maybe Protocol
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RedirectAllRequestsTo' data type to populate a request.
@@ -2594,7 +2594,7 @@ instance ToXML RedirectAllRequestsTo where
 data RoutingRule = RoutingRule
     { _rrCondition :: Maybe Condition
     , _rrRedirect :: Redirect
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RoutingRule' data type to populate a request.
@@ -2642,7 +2642,7 @@ data Rule = Rule
     , _rTransition :: Maybe Transition
     , _rNoncurrentVersionTransition :: Maybe NoncurrentVersionTransition
     , _rNoncurrentVersionExpiration :: Maybe NoncurrentVersionExpiration
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Rule' data type to populate a request.
@@ -2727,7 +2727,7 @@ instance ToXML Rule where
 data Tag = Tag
     { _trKey :: ObjectKey
     , _trValue :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type to populate a request.
@@ -2765,7 +2765,7 @@ instance ToXML Tag where
 data TargetGrant = TargetGrant
     { _tgGrantee :: Maybe Grantee
     , _tgPermission :: Maybe BucketLogsPermission
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TargetGrant' data type to populate a request.
@@ -2800,7 +2800,7 @@ instance ToXML TargetGrant where
 data TopicConfiguration = TopicConfiguration
     { _tcEvent :: Maybe Event
     , _tcTopic :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TopicConfiguration' data type to populate a request.
@@ -2838,7 +2838,7 @@ data Transition = Transition
     { _tDate :: Maybe RFC822
     , _tDays :: Maybe Integer
     , _tStorageClass :: Maybe TransitionStorageClass
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Transition' data type to populate a request.
@@ -2883,7 +2883,7 @@ instance ToXML Transition where
 data VersioningConfiguration = VersioningConfiguration
     { _vcStatus :: Maybe (Switch BucketVersioningStatus)
     , _vcMfaDelete :: Maybe (Switch MFADelete)
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VersioningConfiguration' data type to populate a request.
@@ -2920,7 +2920,7 @@ data WebsiteConfiguration = WebsiteConfiguration
     , _wcIndexDocument :: Maybe IndexDocument
     , _wcRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
     , _wcRoutingRules :: [RoutingRule]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WebsiteConfiguration' data type to populate a request.

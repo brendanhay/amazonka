@@ -84,7 +84,7 @@ data CloneStack = CloneStack
     , _csClonePermissions :: Maybe Bool
     , _csCloneAppIds :: [Text]
     , _csDefaultRootDeviceType :: Maybe RootDeviceType
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CloneStack' request.

@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 data DefineExpression = DefineExpression
     { _deDomainName :: Text
     , _deExpression :: Expression
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DefineExpression' request.

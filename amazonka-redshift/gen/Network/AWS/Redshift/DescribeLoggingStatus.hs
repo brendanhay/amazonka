@@ -80,7 +80,7 @@ data DescribeLoggingStatusResponse = DescribeLoggingStatusResponse
     , _dlsrLastSuccessfulDeliveryTime :: Maybe ISO8601
     , _dlsrLastFailureTime :: Maybe ISO8601
     , _dlsrLastFailureMessage :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLoggingStatusResponse' response.

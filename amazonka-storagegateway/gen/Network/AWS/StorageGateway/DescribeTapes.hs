@@ -47,7 +47,7 @@ data DescribeTapes = DescribeTapes
     , _dt1TapeARNs :: [Text]
     , _dt1Marker :: Maybe Text
     , _dt1Limit :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTapes' request.
@@ -96,7 +96,7 @@ instance ToJSON DescribeTapes
 data DescribeTapesResponse = DescribeTapesResponse
     { _dtrrTapes :: [Tape]
     , _dtrrMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTapesResponse' response.

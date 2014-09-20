@@ -103,7 +103,7 @@ data RegisterImage = RegisterImage
     , _ri2BlockDeviceMappings :: [BlockDeviceMapping]
     , _ri2VirtualizationType :: Maybe VirtualizationType
     , _ri2SriovNetSupport :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterImage' request.

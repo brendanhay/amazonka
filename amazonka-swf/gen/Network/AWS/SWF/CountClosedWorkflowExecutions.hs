@@ -85,7 +85,7 @@ data CountClosedWorkflowExecutions = CountClosedWorkflowExecutions
     , _ccweTypeFilter :: Maybe WorkflowTypeFilter
     , _ccweTagFilter :: Maybe TagFilter
     , _ccweCloseStatusFilter :: Maybe CloseStatusFilter
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CountClosedWorkflowExecutions' request.
@@ -177,7 +177,7 @@ instance ToJSON CountClosedWorkflowExecutions
 data CountClosedWorkflowExecutionsResponse = CountClosedWorkflowExecutionsResponse
     { _ccwerCount :: !Integer
     , _ccwerTruncated :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CountClosedWorkflowExecutionsResponse' response.

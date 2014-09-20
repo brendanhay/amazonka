@@ -152,7 +152,7 @@ data RunInstances = RunInstances
     , _ri3NetworkInterfaces :: [InstanceNetworkInterfaceSpecification]
     , _ri3IamInstanceProfile :: Maybe IamInstanceProfileSpecification
     , _ri3EbsOptimized :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RunInstances' request.
@@ -381,7 +381,7 @@ data RunInstancesResponse = RunInstancesResponse
     , _rirrRequesterId :: Maybe Text
     , _rirrGroups :: [GroupIdentifier]
     , _rirrInstances :: [Instance]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RunInstancesResponse' response.

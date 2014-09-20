@@ -98,7 +98,7 @@ data DescribeUploadBufferResponse = DescribeUploadBufferResponse
     , _dubrDiskIds :: [Text]
     , _dubrUploadBufferUsedInBytes :: Maybe Integer
     , _dubrUploadBufferAllocatedInBytes :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeUploadBufferResponse' response.

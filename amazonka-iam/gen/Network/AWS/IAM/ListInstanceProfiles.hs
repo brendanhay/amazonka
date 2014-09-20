@@ -58,7 +58,7 @@ data ListInstanceProfiles = ListInstanceProfiles
     { _lipPathPrefix :: Maybe Text
     , _lipMarker :: Maybe Text
     , _lipMaxItems :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListInstanceProfiles' request.
@@ -110,7 +110,7 @@ data ListInstanceProfilesResponse = ListInstanceProfilesResponse
     { _liprInstanceProfiles :: [InstanceProfile]
     , _liprIsTruncated :: !Bool
     , _liprMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListInstanceProfilesResponse' response.

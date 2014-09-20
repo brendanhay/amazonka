@@ -54,7 +54,7 @@ data CompleteMultipartUpload = CompleteMultipartUpload
     , _cmuKey :: ObjectKey
     , _cmuMultipartUpload :: Maybe CompletedMultipartUpload
     , _cmuUploadId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CompleteMultipartUpload' request.
@@ -110,7 +110,7 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
     , _cmurETag :: Maybe ETag
     , _cmurServerSideEncryption :: Maybe ServerSideEncryption
     , _cmurVersionId :: Maybe ObjectVersionId
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CompleteMultipartUploadResponse' response.

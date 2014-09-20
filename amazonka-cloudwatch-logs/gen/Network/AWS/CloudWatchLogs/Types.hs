@@ -263,7 +263,7 @@ _ServiceUnavailableException = prism
 data InputLogEvent = InputLogEvent
     { _ileTimestamp :: !Integer
     , _ileMessage :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InputLogEvent' data type to populate a request.
@@ -299,7 +299,7 @@ data LogGroup = LogGroup
     , _lgMetricFilterCount :: Maybe Integer
     , _lgArn :: Maybe Text
     , _lgStoredBytes :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LogGroup' data type.
@@ -369,7 +369,7 @@ data LogStream = LogStream
     , _lsUploadSequenceToken :: Maybe Text
     , _lsArn :: Maybe Text
     , _lsStoredBytes :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LogStream' data type.
@@ -456,7 +456,7 @@ data MetricFilter = MetricFilter
     , _mfFilterPattern :: Maybe Text
     , _mfMetricTransformations :: Maybe (List1 MetricTransformation)
     , _mfCreationTime :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'MetricFilter' data type.
@@ -505,7 +505,7 @@ data MetricFilterMatchRecord = MetricFilterMatchRecord
     { _mfmrEventNumber :: Maybe Integer
     , _mfmrEventMessage :: Maybe Text
     , _mfmrExtractedValues :: Map Text Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'MetricFilterMatchRecord' data type.
@@ -545,7 +545,7 @@ data MetricTransformation = MetricTransformation
     { _mtMetricName :: Text
     , _mtMetricNamespace :: Text
     , _mtMetricValue :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'MetricTransformation' data type to populate a request.
@@ -586,7 +586,7 @@ data OutputLogEvent = OutputLogEvent
     { _oleTimestamp :: Maybe Integer
     , _oleMessage :: Maybe Text
     , _oleIngestionTime :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'OutputLogEvent' data type.

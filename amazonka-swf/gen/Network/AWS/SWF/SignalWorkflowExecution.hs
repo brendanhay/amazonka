@@ -79,7 +79,7 @@ data SignalWorkflowExecution = SignalWorkflowExecution
     , _sweRunId :: Maybe Text
     , _sweSignalName :: Text
     , _sweInput :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SignalWorkflowExecution' request.

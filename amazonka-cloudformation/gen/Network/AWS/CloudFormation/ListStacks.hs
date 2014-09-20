@@ -61,7 +61,7 @@ import Network.AWS.Prelude
 data ListStacks = ListStacks
     { _lsNextToken :: Maybe Text
     , _lsStackStatusFilter :: [StackStatus]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListStacks' request.
@@ -97,7 +97,7 @@ instance ToQuery ListStacks where
 data ListStacksResponse = ListStacksResponse
     { _lsr1StackSummaries :: [StackSummary]
     , _lsr1NextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListStacksResponse' response.

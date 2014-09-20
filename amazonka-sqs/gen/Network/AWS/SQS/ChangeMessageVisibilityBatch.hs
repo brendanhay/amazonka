@@ -68,7 +68,7 @@ import Network.AWS.Prelude
 data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch
     { _cmvbQueueUrl :: Text
     , _cmvbEntries :: [ChangeMessageVisibilityBatchRequestEntry]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ChangeMessageVisibilityBatch' request.
@@ -105,7 +105,7 @@ instance ToQuery ChangeMessageVisibilityBatch where
 data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
     { _cmvbrSuccessful :: [ChangeMessageVisibilityBatchResultEntry]
     , _cmvbrFailed :: [BatchResultErrorEntry]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ChangeMessageVisibilityBatchResponse' response.

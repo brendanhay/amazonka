@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets
     { _dlbfsLoadBalancerName :: Text
     , _dlbfsSubnets :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DetachLoadBalancerFromSubnets' request.

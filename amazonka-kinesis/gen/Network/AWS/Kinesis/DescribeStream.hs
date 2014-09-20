@@ -86,7 +86,7 @@ data DescribeStream = DescribeStream
     { _ds1StreamName :: Text
     , _ds1Limit :: Maybe Integer
     , _ds1ExclusiveStartShardId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStream' request.

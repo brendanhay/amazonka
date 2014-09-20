@@ -79,7 +79,7 @@ data SendEmail = SendEmail
     , _seMessage :: Message
     , _seReplyToAddresses :: [Text]
     , _seReturnPath :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SendEmail' request.

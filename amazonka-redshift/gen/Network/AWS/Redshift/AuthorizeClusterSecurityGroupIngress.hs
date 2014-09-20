@@ -68,7 +68,7 @@ data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress
     , _acsgiCIDRIP :: Maybe Text
     , _acsgiEC2SecurityGroupName :: Maybe Text
     , _acsgiEC2SecurityGroupOwnerId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AuthorizeClusterSecurityGroupIngress' request.

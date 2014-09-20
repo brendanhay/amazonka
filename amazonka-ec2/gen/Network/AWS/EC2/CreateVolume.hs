@@ -84,7 +84,7 @@ data CreateVolume = CreateVolume
     , _cvVolumeType :: Maybe VolumeType
     , _cvIops :: Maybe Integer
     , _cvEncrypted :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVolume' request.
@@ -162,7 +162,7 @@ data CreateVolumeResponse = CreateVolumeResponse
     , _cvrVolumeType :: Maybe VolumeType
     , _cvrIops :: Maybe Integer
     , _cvrEncrypted :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVolumeResponse' response.

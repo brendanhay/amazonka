@@ -105,7 +105,7 @@ data DescribeResizeResponse = DescribeResizeResponse
     , _drrProgressInMegaBytes :: Maybe Integer
     , _drrElapsedTimeInSeconds :: Maybe Integer
     , _drrEstimatedTimeToCompletionInSeconds :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeResizeResponse' response.

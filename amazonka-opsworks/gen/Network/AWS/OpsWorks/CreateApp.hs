@@ -67,7 +67,7 @@ data CreateApp = CreateApp
     , _caSslConfiguration :: Maybe SslConfiguration
     , _caAttributes :: Map AppAttributesKeys Text
     , _caEnvironment :: [EnvironmentVariable]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateApp' request.

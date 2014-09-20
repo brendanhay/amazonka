@@ -46,7 +46,7 @@ data UnlinkIdentity = UnlinkIdentity
     { _uiIdentityId :: Text
     , _uiLogins :: Map Text Text
     , _uiLoginsToRemove :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UnlinkIdentity' request.

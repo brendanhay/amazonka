@@ -73,7 +73,7 @@ data UpdateTable = UpdateTable
     { _utTableName :: Text
     , _utProvisionedThroughput :: Maybe ProvisionedThroughput
     , _utGlobalSecondaryIndexUpdates :: [GlobalSecondaryIndexUpdate]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateTable' request.

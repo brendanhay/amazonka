@@ -79,7 +79,7 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup
     , _casgVPCZoneIdentifier :: Maybe Text
     , _casgTerminationPolicies :: [Text]
     , _casgTags :: [Tag]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateAutoScalingGroup' request.

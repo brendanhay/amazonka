@@ -43,7 +43,7 @@ import Network.AWS.Prelude
 data ResumeProcesses = ResumeProcesses
     { _rpAutoScalingGroupName :: Text
     , _rpScalingProcesses :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResumeProcesses' request.

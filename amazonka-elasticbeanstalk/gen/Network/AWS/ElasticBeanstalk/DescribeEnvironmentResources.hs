@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 data DescribeEnvironmentResources = DescribeEnvironmentResources
     { _derEnvironmentId :: Maybe Text
     , _derEnvironmentName :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEnvironmentResources' request.

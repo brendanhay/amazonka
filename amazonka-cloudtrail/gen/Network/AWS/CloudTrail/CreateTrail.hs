@@ -55,7 +55,7 @@ data CreateTrail = CreateTrail
     , _ctS3KeyPrefix :: Maybe Text
     , _ctSnsTopicName :: Maybe Text
     , _ctIncludeGlobalServiceEvents :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateTrail' request.
@@ -125,7 +125,7 @@ data CreateTrailResponse = CreateTrailResponse
     , _ctrS3KeyPrefix :: Maybe Text
     , _ctrSnsTopicName :: Maybe Text
     , _ctrIncludeGlobalServiceEvents :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateTrailResponse' response.

@@ -99,7 +99,7 @@ instance ToJSON DescribeDomain
 data DescribeDomainResponse = DescribeDomainResponse
     { _ddrDomainInfo :: DomainInfo
     , _ddrConfiguration :: DomainConfiguration
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDomainResponse' response.

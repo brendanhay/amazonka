@@ -58,7 +58,7 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups
     { _dcsg2ClusterSecurityGroupName :: Maybe Text
     , _dcsg2MaxRecords :: Maybe Integer
     , _dcsg2Marker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusterSecurityGroups' request.
@@ -111,7 +111,7 @@ instance ToQuery DescribeClusterSecurityGroups where
 data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse
     { _dcsgrMarker :: Maybe Text
     , _dcsgrClusterSecurityGroups :: [ClusterSecurityGroup]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusterSecurityGroupsResponse' response.

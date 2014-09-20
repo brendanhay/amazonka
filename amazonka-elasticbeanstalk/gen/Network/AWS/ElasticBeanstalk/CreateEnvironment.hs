@@ -84,7 +84,7 @@ data CreateEnvironment = CreateEnvironment
     , _ceSolutionStackName :: Maybe Text
     , _ceOptionSettings :: [ConfigurationOptionSetting]
     , _ceOptionsToRemove :: [OptionSpecification]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateEnvironment' request.
@@ -230,7 +230,7 @@ data CreateEnvironmentResponse = CreateEnvironmentResponse
     , _cerHealth :: Maybe EnvironmentHealth
     , _cerResources :: Maybe EnvironmentResourcesDescription
     , _cerTier :: Maybe EnvironmentTier
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateEnvironmentResponse' response.

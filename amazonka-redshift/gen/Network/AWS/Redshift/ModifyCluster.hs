@@ -93,7 +93,7 @@ data ModifyCluster = ModifyCluster
     , _mcHsmClientCertificateIdentifier :: Maybe Text
     , _mcHsmConfigurationIdentifier :: Maybe Text
     , _mcNewClusterIdentifier :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyCluster' request.

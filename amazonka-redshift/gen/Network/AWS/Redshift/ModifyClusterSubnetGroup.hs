@@ -48,7 +48,7 @@ data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup
     { _mcsgClusterSubnetGroupName :: Text
     , _mcsgDescription :: Maybe Text
     , _mcsgSubnetIds :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyClusterSubnetGroup' request.

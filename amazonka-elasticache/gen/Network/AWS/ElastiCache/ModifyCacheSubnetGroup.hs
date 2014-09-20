@@ -54,7 +54,7 @@ data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup
     { _mcsgCacheSubnetGroupName :: Text
     , _mcsgCacheSubnetGroupDescription :: Maybe Text
     , _mcsgSubnetIds :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyCacheSubnetGroup' request.

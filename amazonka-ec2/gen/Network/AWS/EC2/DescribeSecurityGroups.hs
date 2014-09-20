@@ -65,7 +65,7 @@ data DescribeSecurityGroups = DescribeSecurityGroups
     { _dsg1GroupNames :: [Text]
     , _dsg1GroupIds :: [Text]
     , _dsg1Filters :: [Filter]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSecurityGroups' request.

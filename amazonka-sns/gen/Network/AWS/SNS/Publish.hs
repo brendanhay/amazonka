@@ -91,7 +91,7 @@ data Publish = Publish
     , _pSubject :: Maybe Text
     , _pMessageStructure :: Maybe Text
     , _pMessageAttributes :: Map Text MessageAttributeValue
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'Publish' request.

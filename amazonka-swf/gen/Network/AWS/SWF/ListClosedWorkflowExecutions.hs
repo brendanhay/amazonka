@@ -110,7 +110,7 @@ data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions
     , _lcweNextPageToken :: Maybe Text
     , _lcweMaximumPageSize :: Maybe Integer
     , _lcweReverseOrder :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListClosedWorkflowExecutions' request.
@@ -241,7 +241,7 @@ instance ToJSON ListClosedWorkflowExecutions
 data ListClosedWorkflowExecutionsResponse = ListClosedWorkflowExecutionsResponse
     { _lcwerExecutionInfos :: [WorkflowExecutionInfo]
     , _lcwerNextPageToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListClosedWorkflowExecutionsResponse' response.

@@ -45,7 +45,7 @@ data DescribeTapeArchives = DescribeTapeArchives
     { _dta1TapeARNs :: [Text]
     , _dta1Marker :: Maybe Text
     , _dta1Limit :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTapeArchives' request.
@@ -85,7 +85,7 @@ instance ToJSON DescribeTapeArchives
 data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse
     { _dtarrTapeArchives :: [TapeArchive]
     , _dtarrMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTapeArchivesResponse' response.

@@ -53,7 +53,7 @@ data ListMFADevices = ListMFADevices
     { _lmfadUserName :: Maybe Text
     , _lmfadMarker :: Maybe Text
     , _lmfadMaxItems :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListMFADevices' request.
@@ -99,7 +99,7 @@ data ListMFADevicesResponse = ListMFADevicesResponse
     { _lmfadrMFADevices :: [MFADevice]
     , _lmfadrIsTruncated :: !Bool
     , _lmfadrMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListMFADevicesResponse' response.

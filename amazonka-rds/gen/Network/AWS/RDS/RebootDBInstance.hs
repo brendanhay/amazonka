@@ -66,7 +66,7 @@ import Network.AWS.Prelude
 data RebootDBInstance = RebootDBInstance
     { _rdbi1DBInstanceIdentifier :: Text
     , _rdbi1ForceFailover :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RebootDBInstance' request.

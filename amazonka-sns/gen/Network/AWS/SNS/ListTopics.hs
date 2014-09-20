@@ -80,7 +80,7 @@ instance ToQuery ListTopics where
 data ListTopicsResponse = ListTopicsResponse
     { _ltrTopics :: [Topic]
     , _ltrNextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListTopicsResponse' response.

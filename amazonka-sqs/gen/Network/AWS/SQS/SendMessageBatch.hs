@@ -81,7 +81,7 @@ import Network.AWS.Prelude
 data SendMessageBatch = SendMessageBatch
     { _smbQueueUrl :: Text
     , _smbEntries :: [SendMessageBatchRequestEntry]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SendMessageBatch' request.
@@ -117,7 +117,7 @@ instance ToQuery SendMessageBatch where
 data SendMessageBatchResponse = SendMessageBatchResponse
     { _smbrSuccessful :: [SendMessageBatchResultEntry]
     , _smbrFailed :: [BatchResultErrorEntry]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SendMessageBatchResponse' response.

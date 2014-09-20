@@ -51,7 +51,7 @@ import Network.AWS.Request.JSON
 data DeleteMetricFilter = DeleteMetricFilter
     { _dmfLogGroupName :: Text
     , _dmfFilterName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteMetricFilter' request.

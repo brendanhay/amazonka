@@ -45,7 +45,7 @@ data SetInstanceHealth = SetInstanceHealth
     { _sihInstanceId :: Text
     , _sihHealthStatus :: Text
     , _sihShouldRespectGracePeriod :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetInstanceHealth' request.

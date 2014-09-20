@@ -55,7 +55,7 @@ import Network.AWS.Prelude
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer
     { _diflbLoadBalancerName :: Text
     , _diflbInstances :: [Instance]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeregisterInstancesFromLoadBalancer' request.

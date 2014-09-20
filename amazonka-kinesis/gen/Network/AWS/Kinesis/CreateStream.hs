@@ -76,7 +76,7 @@ import Network.AWS.Request.JSON
 data CreateStream = CreateStream
     { _csStreamName :: Text
     , _csShardCount :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStream' request.

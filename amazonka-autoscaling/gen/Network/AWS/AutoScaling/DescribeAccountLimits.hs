@@ -60,7 +60,7 @@ instance ToQuery DescribeAccountLimits where
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse
     { _dalrMaxNumberOfAutoScalingGroups :: Maybe Integer
     , _dalrMaxNumberOfLaunchConfigurations :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAccountLimitsResponse' response.

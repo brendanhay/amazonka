@@ -91,7 +91,7 @@ data UploadServerCertificate = UploadServerCertificate
     , _usc2CertificateBody :: Text
     , _usc2PrivateKey :: Text
     , _usc2CertificateChain :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UploadServerCertificate' request.

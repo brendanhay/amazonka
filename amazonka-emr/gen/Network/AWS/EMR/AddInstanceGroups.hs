@@ -63,7 +63,7 @@ import Network.AWS.Request.JSON
 data AddInstanceGroups = AddInstanceGroups
     { _aigInstanceGroups :: [InstanceGroupConfig]
     , _aigJobFlowId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddInstanceGroups' request.
@@ -103,7 +103,7 @@ instance ToJSON AddInstanceGroups
 data AddInstanceGroupsResponse = AddInstanceGroupsResponse
     { _aigrJobFlowId :: Maybe Text
     , _aigrInstanceGroupIds :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddInstanceGroupsResponse' response.

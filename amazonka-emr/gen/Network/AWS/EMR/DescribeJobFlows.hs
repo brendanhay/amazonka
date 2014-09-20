@@ -102,7 +102,7 @@ data DescribeJobFlows = DescribeJobFlows
     , _djfCreatedBefore :: Maybe POSIX
     , _djfJobFlowIds :: [Text]
     , _djfJobFlowStates :: [JobFlowExecutionState]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeJobFlows' request.

@@ -56,7 +56,7 @@ data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering
     , _prdbioReservedDBInstanceId :: Maybe Text
     , _prdbioDBInstanceCount :: Maybe Integer
     , _prdbioTags :: [Tag]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PurchaseReservedDBInstancesOffering' request.

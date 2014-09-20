@@ -326,7 +326,7 @@ instance FromJSON StreamStatus
 data HashKeyRange = HashKeyRange
     { _hkrStartingHashKey :: Text
     , _hkrEndingHashKey :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HashKeyRange' data type to populate a request.
@@ -365,7 +365,7 @@ data Record = Record
     { _rSequenceNumber :: Text
     , _rData :: Base64
     , _rPartitionKey :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Record' data type.
@@ -412,7 +412,7 @@ instance FromJSON Record
 data SequenceNumberRange = SequenceNumberRange
     { _snrStartingSequenceNumber :: Text
     , _snrEndingSequenceNumber :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SequenceNumberRange' data type to populate a request.
@@ -454,7 +454,7 @@ data Shard = Shard
     , _sAdjacentParentShardId :: Maybe Text
     , _sHashKeyRange :: HashKeyRange
     , _sSequenceNumberRange :: SequenceNumberRange
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Shard' data type.
@@ -520,7 +520,7 @@ data StreamDescription = StreamDescription
     , _sdStreamStatus :: StreamStatus
     , _sdShards :: [Shard]
     , _sdHasMoreShards :: !Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StreamDescription' data type.
@@ -588,7 +588,7 @@ instance FromJSON StreamDescription
 data Tag = Tag
     { _tKey :: Text
     , _tValue :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type.

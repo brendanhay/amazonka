@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 data DeleteAnalysisScheme = DeleteAnalysisScheme
     { _das1DomainName :: Text
     , _das1AnalysisSchemeName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAnalysisScheme' request.

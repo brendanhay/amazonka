@@ -92,7 +92,7 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML
     , _arwsamlSAMLAssertion :: Text
     , _arwsamlPolicy :: Maybe Text
     , _arwsamlDurationSeconds :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssumeRoleWithSAML' request.
@@ -176,7 +176,7 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse
     , _arwsamlrIssuer :: Maybe Text
     , _arwsamlrAudience :: Maybe Text
     , _arwsamlrNameQualifier :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssumeRoleWithSAMLResponse' response.

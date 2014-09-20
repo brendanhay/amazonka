@@ -76,7 +76,7 @@ data TestRole = TestRole
     , _trInputBucket :: Text
     , _trOutputBucket :: Text
     , _trTopics :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TestRole' request.
@@ -135,7 +135,7 @@ instance ToJSON TestRole
 data TestRoleResponse = TestRoleResponse
     { _trrSuccess :: Maybe Text
     , _trrMessages :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TestRoleResponse' response.

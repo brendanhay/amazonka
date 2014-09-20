@@ -81,7 +81,7 @@ data ModifyCacheCluster = ModifyCacheCluster
     , _mccSnapshotWindow :: Maybe Text
     , _mccAZMode :: Maybe Text
     , _mccNewAvailabilityZones :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyCacheCluster' request.

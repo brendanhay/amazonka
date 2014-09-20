@@ -72,7 +72,7 @@ import Network.AWS.Prelude
 data ImportKeyPair = ImportKeyPair
     { _ikpKeyName :: Text
     , _ikpPublicKeyMaterial :: ByteString
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ImportKeyPair' request.
@@ -107,7 +107,7 @@ instance ToQuery ImportKeyPair where
 data ImportKeyPairResponse = ImportKeyPairResponse
     { _ikprKeyName :: Maybe Text
     , _ikprKeyFingerprint :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ImportKeyPairResponse' response.

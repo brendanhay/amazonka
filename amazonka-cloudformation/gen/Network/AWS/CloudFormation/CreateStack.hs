@@ -75,7 +75,7 @@ data CreateStack = CreateStack
     , _csStackPolicyBody :: Maybe Text
     , _csStackPolicyURL :: Maybe Text
     , _csTags :: [Tag]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStack' request.

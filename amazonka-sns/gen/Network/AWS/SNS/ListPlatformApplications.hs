@@ -100,7 +100,7 @@ instance ToQuery ListPlatformApplications where
 data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse
     { _lparPlatformApplications :: [PlatformApplication]
     , _lparNextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListPlatformApplicationsResponse' response.

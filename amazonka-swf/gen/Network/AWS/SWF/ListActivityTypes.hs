@@ -72,7 +72,7 @@ data ListActivityTypes = ListActivityTypes
     , _latNextPageToken :: Maybe Text
     , _latMaximumPageSize :: Maybe Integer
     , _latReverseOrder :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListActivityTypes' request.
@@ -150,7 +150,7 @@ instance ToJSON ListActivityTypes
 data ListActivityTypesResponse = ListActivityTypesResponse
     { _latrTypeInfos :: [ActivityTypeInfo]
     , _latrNextPageToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListActivityTypesResponse' response.

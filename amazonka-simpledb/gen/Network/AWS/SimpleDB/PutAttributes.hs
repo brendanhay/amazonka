@@ -70,7 +70,7 @@ data PutAttributes = PutAttributes
     , _paItemName :: Text
     , _paAttributes :: [ReplaceableAttribute]
     , _paExpected :: Maybe UpdateCondition
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutAttributes' request.

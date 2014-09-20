@@ -44,7 +44,7 @@ import Network.AWS.Request.JSON
 data DescribeStep = DescribeStep
     { _dsClusterId :: Text
     , _dsStepId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStep' request.

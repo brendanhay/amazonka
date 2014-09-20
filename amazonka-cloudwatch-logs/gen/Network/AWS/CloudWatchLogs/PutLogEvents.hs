@@ -71,7 +71,7 @@ data PutLogEvents = PutLogEvents
     , _pleLogStreamName :: Text
     , _pleLogEvents :: List1 InputLogEvent
     , _pleSequenceToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutLogEvents' request.

@@ -46,7 +46,7 @@ import Network.AWS.Request.JSON
 data DescribeRdsDbInstances = DescribeRdsDbInstances
     { _drdi1StackId :: Text
     , _drdi1RdsDbInstanceArns :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeRdsDbInstances' request.

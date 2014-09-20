@@ -111,7 +111,7 @@ data CreateCluster = CreateCluster
     , _ccHsmClientCertificateIdentifier :: Maybe Text
     , _ccHsmConfigurationIdentifier :: Maybe Text
     , _ccElasticIp :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCluster' request.

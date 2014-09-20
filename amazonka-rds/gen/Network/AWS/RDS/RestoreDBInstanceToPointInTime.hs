@@ -87,7 +87,7 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime
     , _rdbitpitIops :: Maybe Integer
     , _rdbitpitOptionGroupName :: Maybe Text
     , _rdbitpitTags :: [Tag]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RestoreDBInstanceToPointInTime' request.

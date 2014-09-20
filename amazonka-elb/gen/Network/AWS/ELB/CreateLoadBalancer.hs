@@ -119,7 +119,7 @@ data CreateLoadBalancer = CreateLoadBalancer
     , _clbSecurityGroups :: [Text]
     , _clbScheme :: Maybe Text
     , _clbTags :: Maybe (List1 Tag)
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLoadBalancer' request.

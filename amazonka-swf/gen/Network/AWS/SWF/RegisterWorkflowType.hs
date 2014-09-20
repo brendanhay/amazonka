@@ -87,7 +87,7 @@ data RegisterWorkflowType = RegisterWorkflowType
     , _rwtDefaultExecutionStartToCloseTimeout :: Maybe Text
     , _rwtDefaultTaskList :: Maybe TaskList
     , _rwtDefaultChildPolicy :: Maybe ChildPolicy
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterWorkflowType' request.

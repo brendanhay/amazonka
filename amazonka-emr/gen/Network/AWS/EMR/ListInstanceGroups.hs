@@ -45,7 +45,7 @@ import Network.AWS.Request.JSON
 data ListInstanceGroups = ListInstanceGroups
     { _ligClusterId :: Text
     , _ligMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListInstanceGroups' request.
@@ -83,7 +83,7 @@ instance ToJSON ListInstanceGroups
 data ListInstanceGroupsResponse = ListInstanceGroupsResponse
     { _ligrInstanceGroups :: [InstanceGroup]
     , _ligrMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListInstanceGroupsResponse' response.

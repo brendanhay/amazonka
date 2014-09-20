@@ -43,7 +43,7 @@ import Network.AWS.Prelude
 data DisableMetricsCollection = DisableMetricsCollection
     { _dmcAutoScalingGroupName :: Text
     , _dmcMetrics :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisableMetricsCollection' request.

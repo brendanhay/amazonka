@@ -64,7 +64,7 @@ import Network.AWS.Prelude
 data AssociateDhcpOptions = AssociateDhcpOptions
     { _adoDhcpOptionsId :: Text
     , _adoVpcId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssociateDhcpOptions' request.

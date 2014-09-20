@@ -54,7 +54,7 @@ data DescribeAlarms = DescribeAlarms
     , _da1ActionPrefix :: Maybe Text
     , _da1MaxRecords :: Maybe Integer
     , _da1NextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAlarms' request.
@@ -117,7 +117,7 @@ instance ToQuery DescribeAlarms where
 data DescribeAlarmsResponse = DescribeAlarmsResponse
     { _darMetricAlarms :: [MetricAlarm]
     , _darNextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAlarmsResponse' response.

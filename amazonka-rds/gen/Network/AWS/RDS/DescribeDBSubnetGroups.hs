@@ -57,7 +57,7 @@ data DescribeDBSubnetGroups = DescribeDBSubnetGroups
     { _ddbsg3DBSubnetGroupName :: Maybe Text
     , _ddbsg3MaxRecords :: Maybe Integer
     , _ddbsg3Marker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBSubnetGroups' request.
@@ -105,7 +105,7 @@ instance ToQuery DescribeDBSubnetGroups where
 data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
     { _ddbsgrrMarker :: Maybe Text
     , _ddbsgrrDBSubnetGroups :: [DBSubnetGroup]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBSubnetGroupsResponse' response.

@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 data ModifySubnetAttribute = ModifySubnetAttribute
     { _msa1SubnetId :: Text
     , _msa1MapPublicIpOnLaunch :: Maybe AttributeBooleanValue
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifySubnetAttribute' request.

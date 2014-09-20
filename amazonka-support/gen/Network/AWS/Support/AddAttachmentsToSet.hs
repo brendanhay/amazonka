@@ -52,7 +52,7 @@ import Network.AWS.Request.JSON
 data AddAttachmentsToSet = AddAttachmentsToSet
     { _aatsAttachmentSetId :: Maybe Text
     , _aatsAttachments :: [Attachment]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddAttachmentsToSet' request.
@@ -96,7 +96,7 @@ instance ToJSON AddAttachmentsToSet
 data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse
     { _aatsrAttachmentSetId :: Maybe Text
     , _aatsrExpiryTime :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddAttachmentsToSetResponse' response.

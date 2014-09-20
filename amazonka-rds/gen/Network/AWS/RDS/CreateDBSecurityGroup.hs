@@ -53,7 +53,7 @@ data CreateDBSecurityGroup = CreateDBSecurityGroup
     { _cdbsgDBSecurityGroupName :: Text
     , _cdbsgDBSecurityGroupDescription :: Text
     , _cdbsgTags :: [Tag]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBSecurityGroup' request.

@@ -75,7 +75,7 @@ data DescribeImages = DescribeImages
     , _di1Owners :: [Text]
     , _di1ExecutableUsers :: [Text]
     , _di1Filters :: [Filter]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeImages' request.

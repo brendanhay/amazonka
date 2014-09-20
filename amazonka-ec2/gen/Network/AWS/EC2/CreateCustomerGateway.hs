@@ -71,7 +71,7 @@ data CreateCustomerGateway = CreateCustomerGateway
     { _ccgType :: GatewayType
     , _ccgPublicIp :: Text
     , _ccgBgpAsn :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCustomerGateway' request.

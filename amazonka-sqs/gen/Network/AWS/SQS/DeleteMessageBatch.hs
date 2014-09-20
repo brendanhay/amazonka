@@ -64,7 +64,7 @@ import Network.AWS.Prelude
 data DeleteMessageBatch = DeleteMessageBatch
     { _dmbQueueUrl :: Text
     , _dmbEntries :: [DeleteMessageBatchRequestEntry]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteMessageBatch' request.
@@ -100,7 +100,7 @@ instance ToQuery DeleteMessageBatch where
 data DeleteMessageBatchResponse = DeleteMessageBatchResponse
     { _dmbrSuccessful :: [DeleteMessageBatchResultEntry]
     , _dmbrFailed :: [BatchResultErrorEntry]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteMessageBatchResponse' response.

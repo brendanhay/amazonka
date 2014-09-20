@@ -62,7 +62,7 @@ data UpdateInstance = UpdateInstance
     , _uiArchitecture :: Maybe Architecture
     , _uiInstallUpdatesOnBoot :: Maybe Bool
     , _uiEbsOptimized :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateInstance' request.

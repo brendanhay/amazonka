@@ -66,7 +66,7 @@ data DescribeScalingActivities = DescribeScalingActivities
     , _dsa1AutoScalingGroupName :: Maybe Text
     , _dsa1MaxRecords :: Maybe Integer
     , _dsa1NextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeScalingActivities' request.
@@ -119,7 +119,7 @@ instance ToQuery DescribeScalingActivities where
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse
     { _dsarActivities :: [Activity]
     , _dsarNextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeScalingActivitiesResponse' response.

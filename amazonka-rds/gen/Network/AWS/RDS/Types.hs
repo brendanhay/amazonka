@@ -1284,7 +1284,7 @@ instance ToQuery SourceType where
 data AvailabilityZone = AvailabilityZone
     { _azName :: Maybe Text
     , _azProvisionedIopsCapable :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AvailabilityZone' data type to populate a request.
@@ -1323,7 +1323,7 @@ instance ToQuery AvailabilityZone where
 data CharacterSet = CharacterSet
     { _csCharacterSetName :: Maybe Text
     , _csCharacterSetDescription :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CharacterSet' data type to populate a request.
@@ -1368,7 +1368,7 @@ data DBEngineVersion = DBEngineVersion
     , _dbevDBEngineVersionDescription :: Maybe Text
     , _dbevDefaultCharacterSet :: Maybe CharacterSet
     , _dbevSupportedCharacterSets :: [CharacterSet]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DBEngineVersion' data type.
@@ -1483,7 +1483,7 @@ data DBInstance = DBInstance
     , _dbiSecondaryAvailabilityZone :: Maybe Text
     , _dbiPubliclyAccessible :: Maybe Bool
     , _dbiStatusInfos :: [DBInstanceStatusInfo]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DBInstance' data type.
@@ -1793,7 +1793,7 @@ data DBInstanceStatusInfo = DBInstanceStatusInfo
     , _dbisiNormal :: Maybe Bool
     , _dbisiStatus :: Maybe Text
     , _dbisiMessage :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DBInstanceStatusInfo' data type to populate a request.
@@ -1850,7 +1850,7 @@ data DBParameterGroup = DBParameterGroup
     { _dbpgDBParameterGroupName :: Maybe Text
     , _dbpgDBParameterGroupFamily :: Maybe Text
     , _dbpgDescription :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DBParameterGroup' data type.
@@ -1901,7 +1901,7 @@ instance FromXML DBParameterGroup where
 data DBParameterGroupStatus = DBParameterGroupStatus
     { _dbpgsDBParameterGroupName :: Maybe Text
     , _dbpgsParameterApplyStatus :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DBParameterGroupStatus' data type to populate a request.
@@ -1948,7 +1948,7 @@ data DBSecurityGroup = DBSecurityGroup
     , _dbsgVpcId :: Maybe Text
     , _dbsgEC2SecurityGroups :: [EC2SecurityGroup]
     , _dbsgIPRanges :: [IPRange]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DBSecurityGroup' data type.
@@ -2019,7 +2019,7 @@ instance FromXML DBSecurityGroup where
 data DBSecurityGroupMembership = DBSecurityGroupMembership
     { _dbsgmDBSecurityGroupName :: Maybe Text
     , _dbsgmStatus :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DBSecurityGroupMembership' data type to populate a request.
@@ -2075,7 +2075,7 @@ data DBSnapshot = DBSnapshot
     , _dbsOptionGroupName :: Maybe Text
     , _dbsPercentProgress :: Maybe Integer
     , _dbsSourceRegion :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DBSnapshot' data type.
@@ -2243,7 +2243,7 @@ data DBSubnetGroup = DBSubnetGroup
     , _dbsgrVpcId :: Maybe Text
     , _dbsgrSubnetGroupStatus :: Maybe Text
     , _dbsgrSubnets :: [Subnet]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DBSubnetGroup' data type to populate a request.
@@ -2305,7 +2305,7 @@ data DescribeDBLogFilesDetails = DescribeDBLogFilesDetails
     { _ddblfdLogFileName :: Maybe Text
     , _ddblfdLastWritten :: Maybe Integer
     , _ddblfdSize :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DescribeDBLogFilesDetails' data type.
@@ -2354,7 +2354,7 @@ data EC2SecurityGroup = EC2SecurityGroup
     , _ecsgEC2SecurityGroupName :: Maybe Text
     , _ecsgEC2SecurityGroupId :: Maybe Text
     , _ecsgEC2SecurityGroupOwnerId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EC2SecurityGroup' data type to populate a request.
@@ -2411,7 +2411,7 @@ instance ToQuery EC2SecurityGroup where
 data Endpoint' = Endpoint'
     { _eAddress :: Maybe Text
     , _ePort :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Endpoint'' data type to populate a request.
@@ -2449,7 +2449,7 @@ data EngineDefaults = EngineDefaults
     { _edDBParameterGroupFamily :: Maybe Text
     , _edMarker :: Maybe Text
     , _edParameters :: [Parameter]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EngineDefaults' data type.
@@ -2500,7 +2500,7 @@ data Event = Event
     , _erMessage :: Maybe Text
     , _erEventCategories :: [Text]
     , _erDate :: Maybe ISO8601
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Event' data type.
@@ -2560,7 +2560,7 @@ instance FromXML Event where
 data EventCategoriesMap = EventCategoriesMap
     { _ecmSourceType :: Maybe Text
     , _ecmEventCategories :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EventCategoriesMap' data type.
@@ -2605,7 +2605,7 @@ data EventSubscription = EventSubscription
     , _esSourceIdsList :: [Text]
     , _esEventCategoriesList :: [Text]
     , _esEnabled :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EventSubscription' data type.
@@ -2702,7 +2702,7 @@ instance FromXML EventSubscription where
 data IPRange = IPRange
     { _iprStatus :: Maybe Text
     , _iprCIDRIP :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IPRange' data type to populate a request.
@@ -2745,7 +2745,7 @@ data Option = Option
     , _oOptionSettings :: [OptionSetting]
     , _oDBSecurityGroupMemberships :: [DBSecurityGroupMembership]
     , _oVpcSecurityGroupMemberships :: [VpcSecurityGroupMembership]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Option' data type to populate a request.
@@ -2833,7 +2833,7 @@ data OptionConfiguration = OptionConfiguration
     , _ocDBSecurityGroupMemberships :: [Text]
     , _ocVpcSecurityGroupMemberships :: [Text]
     , _ocOptionSettings :: [OptionSetting]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'OptionConfiguration' data type to populate a request.
@@ -2897,7 +2897,7 @@ data OptionGroup = OptionGroup
     , _ogOptions :: [Option]
     , _ogAllowsVpcAndNonVpcInstanceMemberships :: Maybe Bool
     , _ogVpcId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'OptionGroup' data type.
@@ -2980,7 +2980,7 @@ instance FromXML OptionGroup where
 data OptionGroupMembership = OptionGroupMembership
     { _ogmOptionGroupName :: Maybe Text
     , _ogmStatus :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'OptionGroupMembership' data type to populate a request.
@@ -3027,7 +3027,7 @@ data OptionGroupOption = OptionGroupOption
     , _ogoPersistent :: Maybe Bool
     , _ogoPermanent :: Maybe Bool
     , _ogoOptionGroupOptionSettings :: [OptionGroupOptionSetting]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'OptionGroupOption' data type.
@@ -3144,7 +3144,7 @@ data OptionGroupOptionSetting = OptionGroupOptionSetting
     , _ogosApplyType :: Maybe Text
     , _ogosAllowedValues :: Maybe Text
     , _ogosIsModifiable :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'OptionGroupOptionSetting' data type to populate a request.
@@ -3223,7 +3223,7 @@ data OptionSetting = OptionSetting
     , _osAllowedValues :: Maybe Text
     , _osIsModifiable :: Maybe Bool
     , _osIsCollection :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'OptionSetting' data type to populate a request.
@@ -3317,7 +3317,7 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption
     , _odbioMultiAZCapable :: Maybe Bool
     , _odbioReadReplicaCapable :: Maybe Bool
     , _odbioVpc :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'OrderableDBInstanceOption' data type.
@@ -3413,7 +3413,7 @@ data Parameter = Parameter
     , _pIsModifiable :: Maybe Bool
     , _pMinimumEngineVersion :: Maybe Text
     , _pApplyMethod :: Maybe ApplyMethod
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Parameter' data type to populate a request.
@@ -3517,7 +3517,7 @@ data PendingModifiedValues = PendingModifiedValues
     , _pmvEngineVersion :: Maybe Text
     , _pmvIops :: Maybe Integer
     , _pmvDBInstanceIdentifier :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PendingModifiedValues' data type to populate a request.
@@ -3619,7 +3619,7 @@ instance ToQuery PendingModifiedValues where
 data RecurringCharge = RecurringCharge
     { _rcRecurringChargeAmount :: Maybe Double
     , _rcRecurringChargeFrequency :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RecurringCharge' data type to populate a request.
@@ -3673,7 +3673,7 @@ data ReservedDBInstance = ReservedDBInstance
     , _rdbiMultiAZ :: Maybe Bool
     , _rdbiState :: Maybe Text
     , _rdbiRecurringCharges :: [RecurringCharge]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReservedDBInstance' data type.
@@ -3812,7 +3812,7 @@ data ReservedDBInstancesOffering = ReservedDBInstancesOffering
     , _rdbioOfferingType :: Maybe Text
     , _rdbioMultiAZ :: Maybe Bool
     , _rdbioRecurringCharges :: [RecurringCharge]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReservedDBInstancesOffering' data type.
@@ -3914,7 +3914,7 @@ data Subnet = Subnet
     { _sSubnetIdentifier :: Maybe Text
     , _sSubnetAvailabilityZone :: Maybe AvailabilityZone
     , _sSubnetStatus :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Subnet' data type to populate a request.
@@ -3961,7 +3961,7 @@ instance ToQuery Subnet where
 data Tag = Tag
     { _tKey :: Maybe Text
     , _tValue :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type to populate a request.
@@ -4006,7 +4006,7 @@ instance ToQuery Tag where
 data VpcSecurityGroupMembership = VpcSecurityGroupMembership
     { _vsgmVpcSecurityGroupId :: Maybe Text
     , _vsgmStatus :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VpcSecurityGroupMembership' data type to populate a request.

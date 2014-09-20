@@ -66,7 +66,7 @@ data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
     { _prioReservedInstancesOfferingId :: Text
     , _prioInstanceCount :: !Integer
     , _prioLimitPrice :: Maybe ReservedInstanceLimitPrice
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PurchaseReservedInstancesOffering' request.

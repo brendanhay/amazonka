@@ -46,7 +46,7 @@ import Network.AWS.Types (Region)
 data CreateInvalidation = CreateInvalidation
     { _ciDistributionId :: Text
     , _ciInvalidationBatch :: InvalidationBatch
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateInvalidation' request.
@@ -89,7 +89,7 @@ instance ToXML CreateInvalidation where
 data CreateInvalidationResponse = CreateInvalidationResponse
     { _cirLocation :: Maybe Text
     , _cirInvalidation :: Maybe Invalidation
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateInvalidationResponse' response.

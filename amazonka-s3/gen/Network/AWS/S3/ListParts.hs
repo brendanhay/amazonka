@@ -60,7 +60,7 @@ data ListParts = ListParts
     , _lpMaxParts :: Maybe Integer
     , _lpPartNumberMarker :: Maybe Integer
     , _lpUploadId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListParts' request.
@@ -129,7 +129,7 @@ data ListPartsResponse = ListPartsResponse
     , _lprInitiator :: Maybe Initiator
     , _lprOwner :: Maybe Owner
     , _lprStorageClass :: Maybe StorageClass
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListPartsResponse' response.

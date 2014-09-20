@@ -76,7 +76,7 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse
     , _gbwrIndexDocument :: Maybe IndexDocument
     , _gbwrErrorDocument :: Maybe ErrorDocument
     , _gbwrRoutingRules :: [RoutingRule]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketWebsiteResponse' response.

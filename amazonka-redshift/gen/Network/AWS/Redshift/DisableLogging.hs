@@ -80,7 +80,7 @@ data DisableLoggingResponse = DisableLoggingResponse
     , _dlrLastSuccessfulDeliveryTime :: Maybe ISO8601
     , _dlrLastFailureTime :: Maybe ISO8601
     , _dlrLastFailureMessage :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisableLoggingResponse' response.

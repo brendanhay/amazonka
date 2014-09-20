@@ -78,7 +78,7 @@ data CreateStack = CreateStack
     , _cs1CustomCookbooksSource :: Maybe Source'
     , _cs1DefaultSshKeyName :: Maybe Text
     , _cs1DefaultRootDeviceType :: Maybe RootDeviceType
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStack' request.

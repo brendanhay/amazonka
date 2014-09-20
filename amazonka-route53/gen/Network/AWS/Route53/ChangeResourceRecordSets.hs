@@ -64,7 +64,7 @@ import Network.AWS.Types (Region)
 data ChangeResourceRecordSets = ChangeResourceRecordSets
     { _crrsHostedZoneId :: ResourceId
     , _crrsChangeBatch :: ChangeBatch
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ChangeResourceRecordSets' request.

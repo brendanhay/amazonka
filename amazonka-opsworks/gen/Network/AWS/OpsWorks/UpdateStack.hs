@@ -74,7 +74,7 @@ data UpdateStack = UpdateStack
     , _usDefaultSshKeyName :: Maybe Text
     , _usDefaultRootDeviceType :: Maybe RootDeviceType
     , _usUseOpsworksSecurityGroups :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateStack' request.

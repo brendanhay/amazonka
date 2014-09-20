@@ -54,7 +54,7 @@ import Network.AWS.Prelude
 data DetachVpnGateway = DetachVpnGateway
     { _dvg2VpnGatewayId :: Text
     , _dvg2VpcId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DetachVpnGateway' request.

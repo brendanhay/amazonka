@@ -67,7 +67,7 @@ data UpdateItem = UpdateItem
     , _uiReturnValues :: Maybe ReturnValue
     , _uiReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
     , _uiReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateItem' request.
@@ -247,7 +247,7 @@ data UpdateItemResponse = UpdateItemResponse
     { _uirAttributes :: Map Text AttributeValue
     , _uirConsumedCapacity :: Maybe ConsumedCapacity
     , _uirItemCollectionMetrics :: Maybe ItemCollectionMetrics
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateItemResponse' response.

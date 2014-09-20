@@ -96,7 +96,7 @@ data StartWorkflowExecution = StartWorkflowExecution
     , _swe1TagList :: [Text]
     , _swe1TaskStartToCloseTimeout :: Maybe Text
     , _swe1ChildPolicy :: Maybe ChildPolicy
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StartWorkflowExecution' request.

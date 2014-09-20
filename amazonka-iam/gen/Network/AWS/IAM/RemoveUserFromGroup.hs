@@ -43,7 +43,7 @@ import Network.AWS.Prelude
 data RemoveUserFromGroup = RemoveUserFromGroup
     { _rufgGroupName :: Text
     , _rufgUserName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveUserFromGroup' request.

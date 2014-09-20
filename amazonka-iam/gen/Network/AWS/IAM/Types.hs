@@ -691,7 +691,7 @@ data AccessKey = AccessKey
     , _akStatus :: StatusType
     , _akSecretAccessKey :: Text
     , _akCreateDate :: Maybe ISO8601
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AccessKey' data type.
@@ -758,7 +758,7 @@ data AccessKeyMetadata = AccessKeyMetadata
     , _akmAccessKeyId :: Maybe Text
     , _akmStatus :: Maybe StatusType
     , _akmCreateDate :: Maybe ISO8601
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AccessKeyMetadata' data type.
@@ -812,7 +812,7 @@ data Group = Group
     , _gGroupId :: Text
     , _gArn :: Text
     , _gCreateDate :: ISO8601
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Group' data type.
@@ -882,7 +882,7 @@ data InstanceProfile = InstanceProfile
     , _ipArn :: Text
     , _ipCreateDate :: ISO8601
     , _ipRoles :: [Role]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceProfile' data type.
@@ -960,7 +960,7 @@ data LoginProfile = LoginProfile
     { _lpUserName :: Text
     , _lpCreateDate :: ISO8601
     , _lpPasswordResetRequired :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LoginProfile' data type.
@@ -1011,7 +1011,7 @@ data MFADevice = MFADevice
     { _mfadUserName :: Text
     , _mfadSerialNumber :: Text
     , _mfadEnableDate :: ISO8601
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'MFADevice' data type.
@@ -1069,7 +1069,7 @@ data PasswordPolicy = PasswordPolicy
     , _ppMaxPasswordAge :: Maybe Integer
     , _ppPasswordReusePrevention :: Maybe Integer
     , _ppHardExpiry :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PasswordPolicy' data type.
@@ -1184,7 +1184,7 @@ data Role = Role
     , _rArn :: Text
     , _rCreateDate :: ISO8601
     , _rAssumeRolePolicyDocument :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Role' data type to populate a request.
@@ -1262,7 +1262,7 @@ data SAMLProviderListEntry = SAMLProviderListEntry
     { _samlpleArn :: Maybe Text
     , _samlpleValidUntil :: Maybe ISO8601
     , _samlpleCreateDate :: Maybe ISO8601
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SAMLProviderListEntry' data type.
@@ -1308,7 +1308,7 @@ data ServerCertificate = ServerCertificate
     { _scServerCertificateMetadata :: ServerCertificateMetadata
     , _scCertificateBody :: Text
     , _scCertificateChain :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ServerCertificate' data type.
@@ -1363,7 +1363,7 @@ data ServerCertificateMetadata = ServerCertificateMetadata
     , _scmArn :: Text
     , _scmUploadDate :: Maybe ISO8601
     , _scmExpiration :: Maybe ISO8601
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ServerCertificateMetadata' data type.
@@ -1444,7 +1444,7 @@ data SigningCertificate = SigningCertificate
     , _scrCertificateBody :: Text
     , _scrStatus :: StatusType
     , _scrUploadDate :: Maybe ISO8601
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SigningCertificate' data type.
@@ -1511,7 +1511,7 @@ data User = User
     , _uUserId :: Text
     , _uArn :: Text
     , _uCreateDate :: ISO8601
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'User' data type to populate a request.
@@ -1580,7 +1580,7 @@ data VirtualMFADevice = VirtualMFADevice
     , _vmfadQRCodePNG :: Maybe ByteString
     , _vmfadUser :: Maybe User
     , _vmfadEnableDate :: Maybe ISO8601
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VirtualMFADevice' data type.

@@ -1462,7 +1462,7 @@ data ActiveTrustedSigners = ActiveTrustedSigners
     { _atsEnabled :: !Bool
     , _atsQuantity :: !Integer
     , _atsItems :: [Signer]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ActiveTrustedSigners' data type.
@@ -1513,7 +1513,7 @@ instance FromXML ActiveTrustedSigners where
 data Aliases = Aliases
     { _aQuantity :: !Integer
     , _aItems :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Aliases' data type to populate a request.
@@ -1559,7 +1559,7 @@ instance ToXML Aliases where
 data AllowedMethods = AllowedMethods
     { _amQuantity :: !Integer
     , _amItems :: [Method]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AllowedMethods' data type to populate a request.
@@ -1620,7 +1620,7 @@ data CacheBehavior = CacheBehavior
     , _cb1MinTTL :: !Integer
     , _cb1AllowedMethods :: Maybe AllowedMethods
     , _cb1SmoothStreaming :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CacheBehavior' data type to populate a request.
@@ -1751,7 +1751,7 @@ instance ToXML CacheBehavior where
 data CacheBehaviors = CacheBehaviors
     { _cbQuantity :: !Integer
     , _cbItems :: [CacheBehavior]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CacheBehaviors' data type to populate a request.
@@ -1791,7 +1791,7 @@ data CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentity
     { _cfoaiId :: Text
     , _cfoaiS3CanonicalUserId :: Text
     , _cfoaiCloudFrontOriginAccessIdentityConfig :: Maybe CloudFrontOriginAccessIdentityConfig
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CloudFrontOriginAccessIdentity' data type.
@@ -1841,7 +1841,7 @@ instance FromXML CloudFrontOriginAccessIdentity where
 data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig
     { _cfoaicCallerReference :: Text
     , _cfoaicComment :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CloudFrontOriginAccessIdentityConfig' data type to populate a request.
@@ -1896,7 +1896,7 @@ data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList
     , _cfoailIsTruncated :: !Bool
     , _cfoailQuantity :: !Integer
     , _cfoailItems :: [CloudFrontOriginAccessIdentitySummary]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CloudFrontOriginAccessIdentityList' data type.
@@ -1975,7 +1975,7 @@ data CloudFrontOriginAccessIdentitySummary = CloudFrontOriginAccessIdentitySumma
     { _cfoaisId :: Text
     , _cfoaisS3CanonicalUserId :: Text
     , _cfoaisComment :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CloudFrontOriginAccessIdentitySummary' data type.
@@ -2028,7 +2028,7 @@ instance FromXML CloudFrontOriginAccessIdentitySummary where
 data CookieNames = CookieNames
     { _cnQuantity :: !Integer
     , _cnItems :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CookieNames' data type to populate a request.
@@ -2067,7 +2067,7 @@ instance ToXML CookieNames where
 data CookiePreference = CookiePreference
     { _cpForward :: ItemSelection
     , _cpWhitelistedNames :: Maybe CookieNames
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CookiePreference' data type to populate a request.
@@ -2123,7 +2123,7 @@ data CustomErrorResponse = CustomErrorResponse
     , _cer1ResponsePagePath :: Maybe Text
     , _cer1ResponseCode :: Maybe Text
     , _cer1ErrorCachingMinTTL :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CustomErrorResponse' data type to populate a request.
@@ -2188,7 +2188,7 @@ instance ToXML CustomErrorResponse where
 data CustomErrorResponses = CustomErrorResponses
     { _cerQuantity :: !Integer
     , _cerItems :: [CustomErrorResponse]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CustomErrorResponses' data type to populate a request.
@@ -2229,7 +2229,7 @@ data CustomOriginConfig = CustomOriginConfig
     { _cocHTTPPort :: !Integer
     , _cocHTTPSPort :: !Integer
     , _cocOriginProtocolPolicy :: OriginProtocolPolicy
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CustomOriginConfig' data type to populate a request.
@@ -2286,7 +2286,7 @@ data DefaultCacheBehavior = DefaultCacheBehavior
     , _dcbMinTTL :: !Integer
     , _dcbAllowedMethods :: Maybe AllowedMethods
     , _dcbSmoothStreaming :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DefaultCacheBehavior' data type to populate a request.
@@ -2408,7 +2408,7 @@ data Distribution = Distribution
     , _dDomainName :: Text
     , _dActiveTrustedSigners :: ActiveTrustedSigners
     , _dDistributionConfig :: DistributionConfig
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Distribution' data type.
@@ -2512,7 +2512,7 @@ data DistributionConfig = DistributionConfig
     , _dcEnabled :: !Bool
     , _dcViewerCertificate :: Maybe ViewerCertificate
     , _dcRestrictions :: Maybe Restrictions
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DistributionConfig' data type to populate a request.
@@ -2674,7 +2674,7 @@ data DistributionList = DistributionList
     , _dlIsTruncated :: !Bool
     , _dlQuantity :: !Integer
     , _dlItems :: [DistributionSummary]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DistributionList' data type.
@@ -2760,7 +2760,7 @@ data DistributionSummary = DistributionSummary
     , _dsEnabled :: !Bool
     , _dsViewerCertificate :: ViewerCertificate
     , _dsRestrictions :: Restrictions
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DistributionSummary' data type.
@@ -2911,7 +2911,7 @@ data ForwardedValues = ForwardedValues
     { _fvQueryString :: !Bool
     , _fvCookies :: CookiePreference
     , _fvHeaders :: Maybe Headers
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ForwardedValues' data type to populate a request.
@@ -2966,7 +2966,7 @@ data GeoRestriction = GeoRestriction
     { _grRestrictionType :: GeoRestrictionType
     , _grQuantity :: !Integer
     , _grItems :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'GeoRestriction' data type to populate a request.
@@ -3030,7 +3030,7 @@ instance ToXML GeoRestriction where
 data Headers = Headers
     { _hQuantity :: !Integer
     , _hItems :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Headers' data type to populate a request.
@@ -3078,7 +3078,7 @@ data Invalidation = Invalidation
     , _iStatus :: Text
     , _iCreateTime :: ISO8601
     , _iInvalidationBatch :: InvalidationBatch
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Invalidation' data type.
@@ -3134,7 +3134,7 @@ instance FromXML Invalidation where
 data InvalidationBatch = InvalidationBatch
     { _ibPaths :: Paths
     , _ibCallerReference :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InvalidationBatch' data type to populate a request.
@@ -3192,7 +3192,7 @@ data InvalidationList = InvalidationList
     , _ilIsTruncated :: !Bool
     , _ilQuantity :: !Integer
     , _ilItems :: [InvalidationSummary]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InvalidationList' data type.
@@ -3268,7 +3268,7 @@ data InvalidationSummary = InvalidationSummary
     { _isId :: Text
     , _isCreateTime :: ISO8601
     , _isStatus :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InvalidationSummary' data type.
@@ -3314,7 +3314,7 @@ instance FromXML InvalidationSummary where
 data KeyPairIds = KeyPairIds
     { _kpiQuantity :: !Integer
     , _kpiItems :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'KeyPairIds' data type to populate a request.
@@ -3356,7 +3356,7 @@ data LoggingConfig = LoggingConfig
     , _lcIncludeCookies :: !Bool
     , _lcBucket :: Text
     , _lcPrefix :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LoggingConfig' data type to populate a request.
@@ -3430,7 +3430,7 @@ data Origin = Origin
     , _o1DomainName :: Text
     , _o1S3OriginConfig :: Maybe S3OriginConfig
     , _o1CustomOriginConfig :: Maybe CustomOriginConfig
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Origin' data type to populate a request.
@@ -3495,7 +3495,7 @@ instance ToXML Origin where
 data Origins = Origins
     { _oQuantity :: !Integer
     , _oItems :: Maybe (List1 Origin)
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Origins' data type to populate a request.
@@ -3539,7 +3539,7 @@ instance ToXML Origins where
 data Paths = Paths
     { _pQuantity :: !Integer
     , _pItems :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Paths' data type to populate a request.
@@ -3579,7 +3579,7 @@ instance ToXML Paths where
 data S3Origin = S3Origin
     { _soDomainName :: Text
     , _soOriginAccessIdentity :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'S3Origin' data type to populate a request.
@@ -3621,7 +3621,7 @@ instance ToXML S3Origin where
 data Signer = Signer
     { _sAwsAccountNumber :: Maybe Text
     , _sKeyPairIds :: Maybe KeyPairIds
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Signer' data type.
@@ -3666,7 +3666,7 @@ data StreamingDistribution = StreamingDistribution
     , _sdDomainName :: Text
     , _sdActiveTrustedSigners :: ActiveTrustedSigners
     , _sdStreamingDistributionConfig :: StreamingDistributionConfig
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StreamingDistribution' data type.
@@ -3756,7 +3756,7 @@ data StreamingDistributionConfig = StreamingDistributionConfig
     , _sdcTrustedSigners :: TrustedSigners
     , _sdcPriceClass :: PriceClass
     , _sdcEnabled :: !Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StreamingDistributionConfig' data type to populate a request.
@@ -3875,7 +3875,7 @@ data StreamingDistributionList = StreamingDistributionList
     , _sdlIsTruncated :: !Bool
     , _sdlQuantity :: !Integer
     , _sdlItems :: [StreamingDistributionSummary]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StreamingDistributionList' data type.
@@ -3959,7 +3959,7 @@ data StreamingDistributionSummary = StreamingDistributionSummary
     , _sdsComment :: Text
     , _sdsPriceClass :: PriceClass
     , _sdsEnabled :: !Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StreamingDistributionSummary' data type.
@@ -4081,7 +4081,7 @@ data StreamingLoggingConfig = StreamingLoggingConfig
     { _slcEnabled :: !Bool
     , _slcBucket :: Text
     , _slcPrefix :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StreamingLoggingConfig' data type to populate a request.
@@ -4149,7 +4149,7 @@ data TrustedSigners = TrustedSigners
     { _tsEnabled :: !Bool
     , _tsQuantity :: !Integer
     , _tsItems :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TrustedSigners' data type to populate a request.
@@ -4199,7 +4199,7 @@ data ViewerCertificate = ViewerCertificate
     { _vcIAMCertificateId :: Maybe Text
     , _vcCloudFrontDefaultCertificate :: Maybe Bool
     , _vcSSLSupportMethod :: Maybe SSLSupportMethod
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ViewerCertificate' data type to populate a request.

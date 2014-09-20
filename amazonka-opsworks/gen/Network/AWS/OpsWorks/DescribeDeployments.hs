@@ -49,7 +49,7 @@ data DescribeDeployments = DescribeDeployments
     { _ddStackId :: Maybe Text
     , _ddAppId :: Maybe Text
     , _ddDeploymentIds :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDeployments' request.

@@ -56,7 +56,7 @@ data DescribeSuggesters = DescribeSuggesters
     { _ds3DomainName :: Text
     , _ds3SuggesterNames :: [Text]
     , _ds3Deployed :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSuggesters' request.

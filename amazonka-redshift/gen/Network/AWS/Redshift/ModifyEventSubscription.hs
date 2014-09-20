@@ -54,7 +54,7 @@ data ModifyEventSubscription = ModifyEventSubscription
     , _mesEventCategories :: [Text]
     , _mesSeverity :: Maybe Text
     , _mesEnabled :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyEventSubscription' request.

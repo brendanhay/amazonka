@@ -111,7 +111,7 @@ data CreateConfigurationTemplate = CreateConfigurationTemplate
     , _cctEnvironmentId :: Maybe Text
     , _cctDescription :: Maybe Text
     , _cctOptionSettings :: [ConfigurationOptionSetting]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateConfigurationTemplate' request.
@@ -216,7 +216,7 @@ data CreateConfigurationTemplateResponse = CreateConfigurationTemplateResponse
     , _cctrDateCreated :: Maybe ISO8601
     , _cctrDateUpdated :: Maybe ISO8601
     , _cctrOptionSettings :: [ConfigurationOptionSetting]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateConfigurationTemplateResponse' response.

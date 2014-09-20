@@ -66,7 +66,7 @@ data GetItem = GetItem
     , _giAttributesToGet :: Maybe (List1 Text)
     , _giConsistentRead :: Maybe Bool
     , _giReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetItem' request.
@@ -137,7 +137,7 @@ instance ToJSON GetItem
 data GetItemResponse = GetItemResponse
     { _girItem :: Map Text AttributeValue
     , _girConsumedCapacity :: Maybe ConsumedCapacity
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetItemResponse' response.

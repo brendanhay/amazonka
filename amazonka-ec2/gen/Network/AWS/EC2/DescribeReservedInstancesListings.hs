@@ -55,7 +55,7 @@ data DescribeReservedInstancesListings = DescribeReservedInstancesListings
     { _drilReservedInstancesId :: Maybe Text
     , _drilReservedInstancesListingId :: Maybe Text
     , _drilFilters :: [Filter]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedInstancesListings' request.

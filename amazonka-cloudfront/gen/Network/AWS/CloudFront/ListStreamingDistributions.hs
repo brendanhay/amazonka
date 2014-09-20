@@ -45,7 +45,7 @@ import Network.AWS.Types (Region)
 data ListStreamingDistributions = ListStreamingDistributions
     { _lsdMarker :: Maybe Text
     , _lsdMaxItems :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListStreamingDistributions' request.

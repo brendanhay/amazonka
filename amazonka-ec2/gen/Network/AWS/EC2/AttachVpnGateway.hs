@@ -54,7 +54,7 @@ import Network.AWS.Prelude
 data AttachVpnGateway = AttachVpnGateway
     { _avgVpnGatewayId :: Text
     , _avgVpcId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachVpnGateway' request.

@@ -66,7 +66,7 @@ import Network.AWS.Types (Region)
 data ListHostedZones = ListHostedZones
     { _lhzMarker :: Maybe Text
     , _lhzMaxItems :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListHostedZones' request.
@@ -110,7 +110,7 @@ data ListHostedZonesResponse = ListHostedZonesResponse
     , _lhzrIsTruncated :: !Bool
     , _lhzrNextMarker :: Maybe Text
     , _lhzrMaxItems :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListHostedZonesResponse' response.

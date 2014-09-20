@@ -43,7 +43,7 @@ import Network.AWS.Prelude
 data DeleteScheduledAction = DeleteScheduledAction
     { _dsaAutoScalingGroupName :: Maybe Text
     , _dsaScheduledActionName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteScheduledAction' request.

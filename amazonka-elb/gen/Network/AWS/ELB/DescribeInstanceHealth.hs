@@ -67,7 +67,7 @@ import Network.AWS.Prelude
 data DescribeInstanceHealth = DescribeInstanceHealth
     { _dihLoadBalancerName :: Text
     , _dihInstances :: [Instance]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInstanceHealth' request.

@@ -67,7 +67,7 @@ import Network.AWS.Prelude
 data CreateQueue = CreateQueue
     { _cqQueueName :: Text
     , _cqAttributes :: Map QueueAttributeName Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateQueue' request.

@@ -54,7 +54,7 @@ data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups
     { _dcsg2CacheSecurityGroupName :: Maybe Text
     , _dcsg2MaxRecords :: Maybe Integer
     , _dcsg2Marker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCacheSecurityGroups' request.
@@ -101,7 +101,7 @@ instance ToQuery DescribeCacheSecurityGroups where
 data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
     { _dcsgrMarker :: Maybe Text
     , _dcsgrCacheSecurityGroups :: [CacheSecurityGroup]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCacheSecurityGroupsResponse' response.

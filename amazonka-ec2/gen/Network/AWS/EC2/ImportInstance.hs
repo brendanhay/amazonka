@@ -62,7 +62,7 @@ data ImportInstance = ImportInstance
     , _iiLaunchSpecification :: Maybe ImportInstanceLaunchSpecification
     , _iiDiskImages :: [DiskImage]
     , _iiPlatform :: PlatformValues
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ImportInstance' request.

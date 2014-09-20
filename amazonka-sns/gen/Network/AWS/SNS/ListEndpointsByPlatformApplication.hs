@@ -76,7 +76,7 @@ import Network.AWS.Prelude
 data ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplication
     { _lebpaPlatformApplicationArn :: Text
     , _lebpaNextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListEndpointsByPlatformApplication' request.
@@ -113,7 +113,7 @@ instance ToQuery ListEndpointsByPlatformApplication where
 data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse
     { _lebparEndpoints :: [Endpoint']
     , _lebparNextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListEndpointsByPlatformApplicationResponse' response.

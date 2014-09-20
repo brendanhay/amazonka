@@ -72,7 +72,7 @@ import Network.AWS.Request.JSON
 data CountPendingActivityTasks = CountPendingActivityTasks
     { _cpatDomain :: Text
     , _cpatTaskList :: TaskList
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CountPendingActivityTasks' request.
@@ -111,7 +111,7 @@ instance ToJSON CountPendingActivityTasks
 data CountPendingActivityTasksResponse = CountPendingActivityTasksResponse
     { _cpatrCount :: !Integer
     , _cpatrTruncated :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CountPendingActivityTasksResponse' response.

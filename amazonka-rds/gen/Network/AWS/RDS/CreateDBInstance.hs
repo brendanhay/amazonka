@@ -101,7 +101,7 @@ data CreateDBInstance = CreateDBInstance
     , _cdbiCharacterSetName :: Maybe Text
     , _cdbiPubliclyAccessible :: Maybe Bool
     , _cdbiTags :: [Tag]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBInstance' request.

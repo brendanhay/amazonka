@@ -88,7 +88,7 @@ data DescribeIdentityPoolResponse = DescribeIdentityPoolResponse
     , _diprIdentityPoolName :: Text
     , _diprAllowUnauthenticatedIdentities :: !Bool
     , _diprSupportedLoginProviders :: Map Text Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeIdentityPoolResponse' response.

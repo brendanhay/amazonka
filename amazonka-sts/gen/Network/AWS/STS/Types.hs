@@ -268,7 +268,7 @@ xmlOptions = Tagged def
 data AssumedRoleUser = AssumedRoleUser
     { _aruAssumedRoleId :: Text
     , _aruArn :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AssumedRoleUser' data type.
@@ -314,7 +314,7 @@ data Credentials = Credentials
     , _cSecretAccessKey :: Text
     , _cSessionToken :: Text
     , _cExpiration :: ISO8601
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Credentials' data type.
@@ -373,7 +373,7 @@ instance FromXML Credentials where
 data FederatedUser = FederatedUser
     { _fuFederatedUserId :: Text
     , _fuArn :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'FederatedUser' data type.

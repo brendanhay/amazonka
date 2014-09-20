@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 data CreatePlacementGroup = CreatePlacementGroup
     { _cpgGroupName :: Text
     , _cpgStrategy :: PlacementStrategy
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePlacementGroup' request.

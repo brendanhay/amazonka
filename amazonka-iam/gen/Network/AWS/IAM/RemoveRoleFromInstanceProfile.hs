@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile
     { _rrfipInstanceProfileName :: Text
     , _rrfipRoleName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveRoleFromInstanceProfile' request.

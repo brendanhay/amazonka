@@ -48,7 +48,7 @@ data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess
     { _asaSnapshotIdentifier :: Text
     , _asaSnapshotClusterIdentifier :: Maybe Text
     , _asaAccountWithRestoreAccess :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AuthorizeSnapshotAccess' request.

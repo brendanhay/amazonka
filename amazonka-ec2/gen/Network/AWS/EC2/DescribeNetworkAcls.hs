@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 data DescribeNetworkAcls = DescribeNetworkAcls
     { _dna1NetworkAclIds :: [Text]
     , _dna1Filters :: [Filter]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeNetworkAcls' request.

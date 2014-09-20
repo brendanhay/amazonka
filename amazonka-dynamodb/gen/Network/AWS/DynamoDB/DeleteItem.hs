@@ -73,7 +73,7 @@ data DeleteItem = DeleteItem
     , _diReturnValues :: Maybe ReturnValue
     , _diReturnConsumedCapacity :: Maybe ReturnConsumedCapacity
     , _diReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteItem' request.
@@ -187,7 +187,7 @@ data DeleteItemResponse = DeleteItemResponse
     { _dirAttributes :: Map Text AttributeValue
     , _dirConsumedCapacity :: Maybe ConsumedCapacity
     , _dirItemCollectionMetrics :: Maybe ItemCollectionMetrics
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteItemResponse' response.

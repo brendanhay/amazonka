@@ -54,7 +54,7 @@ data UpdateUser = UpdateUser
     { _uuUserName :: Text
     , _uuNewPath :: Maybe Text
     , _uuNewUserName :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateUser' request.

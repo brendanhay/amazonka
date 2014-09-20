@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 data ChangePassword = ChangePassword
     { _cpOldPassword :: Text
     , _cpNewPassword :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ChangePassword' request.

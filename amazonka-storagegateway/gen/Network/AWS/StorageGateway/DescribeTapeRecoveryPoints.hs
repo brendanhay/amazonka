@@ -46,7 +46,7 @@ data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints
     { _dtrpGatewayARN :: Text
     , _dtrpMarker :: Maybe Text
     , _dtrpLimit :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTapeRecoveryPoints' request.
@@ -90,7 +90,7 @@ data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse
     { _dtrprGatewayARN :: Maybe Text
     , _dtrprTapeRecoveryPointInfos :: [TapeRecoveryPointInfo]
     , _dtrprMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTapeRecoveryPointsResponse' response.

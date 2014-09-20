@@ -71,7 +71,7 @@ data PutLifecycleHook = PutLifecycleHook
     , _plhNotificationMetadata :: Maybe Text
     , _plhHeartbeatTimeout :: Maybe Integer
     , _plhDefaultResult :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutLifecycleHook' request.

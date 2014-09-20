@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 data GetUserPolicy = GetUserPolicy
     { _gupUserName :: Text
     , _gupPolicyName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetUserPolicy' request.
@@ -86,7 +86,7 @@ data GetUserPolicyResponse = GetUserPolicyResponse
     { _guprUserName :: Text
     , _guprPolicyName :: Text
     , _guprPolicyDocument :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetUserPolicyResponse' response.

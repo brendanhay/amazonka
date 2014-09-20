@@ -43,7 +43,7 @@ import Network.AWS.Prelude
 data AddUserToGroup = AddUserToGroup
     { _autgGroupName :: Text
     , _autgUserName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddUserToGroup' request.

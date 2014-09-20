@@ -48,7 +48,7 @@ data ResyncMFADevice = ResyncMFADevice
     , _rmfadSerialNumber :: Text
     , _rmfadAuthenticationCode1 :: Text
     , _rmfadAuthenticationCode2 :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResyncMFADevice' request.

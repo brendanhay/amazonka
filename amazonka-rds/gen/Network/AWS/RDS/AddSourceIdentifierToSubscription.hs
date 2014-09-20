@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription
     { _asitsSubscriptionName :: Text
     , _asitsSourceIdentifier :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddSourceIdentifierToSubscription' request.

@@ -2252,7 +2252,7 @@ instance ToJSON WorkflowExecutionFilter
 data ActivityTaskCancelRequestedEventAttributes = ActivityTaskCancelRequestedEventAttributes
     { _atcreaDecisionTaskCompletedEventId :: !Integer
     , _atcreaActivityId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ActivityTaskCancelRequestedEventAttributes' data type to populate a request.
@@ -2297,7 +2297,7 @@ data ActivityTaskCanceledEventAttributes = ActivityTaskCanceledEventAttributes
     , _atcea1ScheduledEventId :: !Integer
     , _atcea1StartedEventId :: !Integer
     , _atcea1LatestCancelRequestedEventId :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ActivityTaskCanceledEventAttributes' data type to populate a request.
@@ -2360,7 +2360,7 @@ data ActivityTaskCompletedEventAttributes = ActivityTaskCompletedEventAttributes
     { _atceaResult :: Maybe Text
     , _atceaScheduledEventId :: !Integer
     , _atceaStartedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ActivityTaskCompletedEventAttributes' data type to populate a request.
@@ -2412,7 +2412,7 @@ data ActivityTaskFailedEventAttributes = ActivityTaskFailedEventAttributes
     , _atfeaDetails :: Maybe Text
     , _atfeaScheduledEventId :: !Integer
     , _atfeaStartedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ActivityTaskFailedEventAttributes' data type to populate a request.
@@ -2477,7 +2477,7 @@ data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes
     , _atseaTaskList :: TaskList
     , _atseaDecisionTaskCompletedEventId :: !Integer
     , _atseaHeartbeatTimeout :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ActivityTaskScheduledEventAttributes' data type to populate a request.
@@ -2591,7 +2591,7 @@ instance ToJSON ActivityTaskScheduledEventAttributes
 data ActivityTaskStartedEventAttributes = ActivityTaskStartedEventAttributes
     { _atsea1Identity :: Maybe Text
     , _atsea1ScheduledEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ActivityTaskStartedEventAttributes' data type to populate a request.
@@ -2633,7 +2633,7 @@ data ActivityTaskTimedOutEventAttributes = ActivityTaskTimedOutEventAttributes
     , _attoeaScheduledEventId :: !Integer
     , _attoeaStartedEventId :: !Integer
     , _attoeaDetails :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ActivityTaskTimedOutEventAttributes' data type to populate a request.
@@ -2691,7 +2691,7 @@ instance ToJSON ActivityTaskTimedOutEventAttributes
 data ActivityType = ActivityType
     { _atName :: Text
     , _atVersion :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ActivityType' data type to populate a request.
@@ -2731,7 +2731,7 @@ data ActivityTypeConfiguration = ActivityTypeConfiguration
     , _atcDefaultTaskList :: Maybe TaskList
     , _atcDefaultTaskScheduleToStartTimeout :: Maybe Text
     , _atcDefaultTaskScheduleToCloseTimeout :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ActivityTypeConfiguration' data type.
@@ -2832,7 +2832,7 @@ data ActivityTypeInfo = ActivityTypeInfo
     , _atiDescription :: Maybe Text
     , _atiCreationDate :: POSIX
     , _atiDeprecationDate :: Maybe POSIX
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ActivityTypeInfo' data type.
@@ -2895,7 +2895,7 @@ data CancelTimerFailedEventAttributes = CancelTimerFailedEventAttributes
     { _ctfeaTimerId :: Text
     , _ctfeaCause :: CancelTimerFailedCause
     , _ctfeaDecisionTaskCompletedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CancelTimerFailedEventAttributes' data type to populate a request.
@@ -2949,7 +2949,7 @@ instance ToJSON CancelTimerFailedEventAttributes
 data CancelWorkflowExecutionFailedEventAttributes = CancelWorkflowExecutionFailedEventAttributes
     { _cwefea1Cause :: CancelWorkflowExecutionFailedCause
     , _cwefea1DecisionTaskCompletedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CancelWorkflowExecutionFailedEventAttributes' data type to populate a request.
@@ -2998,7 +2998,7 @@ data ChildWorkflowExecutionCanceledEventAttributes = ChildWorkflowExecutionCance
     , _cwecea1Details :: Maybe Text
     , _cwecea1InitiatedEventId :: !Integer
     , _cwecea1StartedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChildWorkflowExecutionCanceledEventAttributes' data type to populate a request.
@@ -3073,7 +3073,7 @@ data ChildWorkflowExecutionCompletedEventAttributes = ChildWorkflowExecutionComp
     , _cweceaResult :: Maybe Text
     , _cweceaInitiatedEventId :: !Integer
     , _cweceaStartedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChildWorkflowExecutionCompletedEventAttributes' data type to populate a request.
@@ -3148,7 +3148,7 @@ data ChildWorkflowExecutionFailedEventAttributes = ChildWorkflowExecutionFailedE
     , _cwefea2Details :: Maybe Text
     , _cwefea2InitiatedEventId :: !Integer
     , _cwefea2StartedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChildWorkflowExecutionFailedEventAttributes' data type to populate a request.
@@ -3228,7 +3228,7 @@ data ChildWorkflowExecutionStartedEventAttributes = ChildWorkflowExecutionStarte
     { _cweseaWorkflowExecution :: WorkflowExecution
     , _cweseaWorkflowType :: WorkflowType
     , _cweseaInitiatedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChildWorkflowExecutionStartedEventAttributes' data type to populate a request.
@@ -3282,7 +3282,7 @@ data ChildWorkflowExecutionTerminatedEventAttributes = ChildWorkflowExecutionTer
     , _cweteaWorkflowType :: WorkflowType
     , _cweteaInitiatedEventId :: !Integer
     , _cweteaStartedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChildWorkflowExecutionTerminatedEventAttributes' data type to populate a request.
@@ -3349,7 +3349,7 @@ data ChildWorkflowExecutionTimedOutEventAttributes = ChildWorkflowExecutionTimed
     , _cwetoeaTimeoutType :: WorkflowExecutionTimeoutType
     , _cwetoeaInitiatedEventId :: !Integer
     , _cwetoeaStartedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ChildWorkflowExecutionTimedOutEventAttributes' data type to populate a request.
@@ -3424,7 +3424,7 @@ instance ToJSON ChildWorkflowExecutionTimedOutEventAttributes
 data CompleteWorkflowExecutionFailedEventAttributes = CompleteWorkflowExecutionFailedEventAttributes
     { _cwefeaCause :: CompleteWorkflowExecutionFailedCause
     , _cwefeaDecisionTaskCompletedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CompleteWorkflowExecutionFailedEventAttributes' data type to populate a request.
@@ -3474,7 +3474,7 @@ data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExe
     , _canwedaChildPolicy :: Maybe ChildPolicy
     , _canwedaTagList :: [Text]
     , _canwedaWorkflowTypeVersion :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ContinueAsNewWorkflowExecutionDecisionAttributes' data type to populate a request.
@@ -3583,7 +3583,7 @@ instance ToJSON ContinueAsNewWorkflowExecutionDecisionAttributes
 data ContinueAsNewWorkflowExecutionFailedEventAttributes = ContinueAsNewWorkflowExecutionFailedEventAttributes
     { _canwefeaCause :: ContinueAsNewWorkflowExecutionFailedCause
     , _canwefeaDecisionTaskCompletedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ContinueAsNewWorkflowExecutionFailedEventAttributes' data type to populate a request.
@@ -3739,7 +3739,7 @@ data Decision = Decision
     , _dSignalExternalWorkflowExecutionDecisionAttributes :: Maybe SignalExternalWorkflowExecutionDecisionAttributes
     , _dRequestCancelExternalWorkflowExecutionDecisionAttributes :: Maybe RequestCancelExternalWorkflowExecutionDecisionAttributes
     , _dStartChildWorkflowExecutionDecisionAttributes :: Maybe StartChildWorkflowExecutionDecisionAttributes
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Decision' data type to populate a request.
@@ -3887,7 +3887,7 @@ data DecisionTaskCompletedEventAttributes = DecisionTaskCompletedEventAttributes
     { _dtceaExecutionContext :: Maybe Text
     , _dtceaScheduledEventId :: !Integer
     , _dtceaStartedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DecisionTaskCompletedEventAttributes' data type to populate a request.
@@ -3938,7 +3938,7 @@ instance ToJSON DecisionTaskCompletedEventAttributes
 data DecisionTaskScheduledEventAttributes = DecisionTaskScheduledEventAttributes
     { _dtseaTaskList :: TaskList
     , _dtseaStartToCloseTimeout :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DecisionTaskScheduledEventAttributes' data type to populate a request.
@@ -3980,7 +3980,7 @@ instance ToJSON DecisionTaskScheduledEventAttributes
 data DecisionTaskStartedEventAttributes = DecisionTaskStartedEventAttributes
     { _dtsea1Identity :: Maybe Text
     , _dtsea1ScheduledEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DecisionTaskStartedEventAttributes' data type to populate a request.
@@ -4021,7 +4021,7 @@ data DecisionTaskTimedOutEventAttributes = DecisionTaskTimedOutEventAttributes
     { _dttoeaTimeoutType :: DecisionTaskTimeoutType
     , _dttoeaScheduledEventId :: !Integer
     , _dttoeaStartedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DecisionTaskTimedOutEventAttributes' data type to populate a request.
@@ -4073,7 +4073,7 @@ data DomainInfo = DomainInfo
     { _diName :: Text
     , _diStatus :: RegistrationStatus
     , _diDescription :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DomainInfo' data type.
@@ -4122,7 +4122,7 @@ instance FromJSON DomainInfo
 data ExecutionTimeFilter = ExecutionTimeFilter
     { _etfOldestDate :: POSIX
     , _etfLatestDate :: Maybe POSIX
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ExecutionTimeFilter' data type to populate a request.
@@ -4156,7 +4156,7 @@ instance ToJSON ExecutionTimeFilter
 data ExternalWorkflowExecutionCancelRequestedEventAttributes = ExternalWorkflowExecutionCancelRequestedEventAttributes
     { _ewecreaWorkflowExecution :: WorkflowExecution
     , _ewecreaInitiatedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ExternalWorkflowExecutionCancelRequestedEventAttributes' data type to populate a request.
@@ -4202,7 +4202,7 @@ instance ToJSON ExternalWorkflowExecutionCancelRequestedEventAttributes
 data ExternalWorkflowExecutionSignaledEventAttributes = ExternalWorkflowExecutionSignaledEventAttributes
     { _eweseaWorkflowExecution :: WorkflowExecution
     , _eweseaInitiatedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ExternalWorkflowExecutionSignaledEventAttributes' data type to populate a request.
@@ -4244,7 +4244,7 @@ instance ToJSON ExternalWorkflowExecutionSignaledEventAttributes
 data FailWorkflowExecutionDecisionAttributes = FailWorkflowExecutionDecisionAttributes
     { _fwedaReason :: Maybe Text
     , _fwedaDetails :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'FailWorkflowExecutionDecisionAttributes' data type to populate a request.
@@ -4279,7 +4279,7 @@ instance ToJSON FailWorkflowExecutionDecisionAttributes
 data FailWorkflowExecutionFailedEventAttributes = FailWorkflowExecutionFailedEventAttributes
     { _fwefeaCause :: FailWorkflowExecutionFailedCause
     , _fwefeaDecisionTaskCompletedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'FailWorkflowExecutionFailedEventAttributes' data type to populate a request.
@@ -4440,7 +4440,7 @@ data HistoryEvent = HistoryEvent
     , _heStartTimerFailedEventAttributes :: Maybe StartTimerFailedEventAttributes
     , _heCancelTimerFailedEventAttributes :: Maybe CancelTimerFailedEventAttributes
     , _heStartChildWorkflowExecutionFailedEventAttributes :: Maybe StartChildWorkflowExecutionFailedEventAttributes
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HistoryEvent' data type.
@@ -5001,7 +5001,7 @@ data MarkerRecordedEventAttributes = MarkerRecordedEventAttributes
     { _mreaMarkerName :: Text
     , _mreaDetails :: Maybe Text
     , _mreaDecisionTaskCompletedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'MarkerRecordedEventAttributes' data type to populate a request.
@@ -5049,7 +5049,7 @@ instance ToJSON MarkerRecordedEventAttributes
 data RecordMarkerDecisionAttributes = RecordMarkerDecisionAttributes
     { _rmdaMarkerName :: Text
     , _rmdaDetails :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RecordMarkerDecisionAttributes' data type to populate a request.
@@ -5086,7 +5086,7 @@ data RecordMarkerFailedEventAttributes = RecordMarkerFailedEventAttributes
     { _rmfeaMarkerName :: Text
     , _rmfeaCause :: RecordMarkerFailedCause
     , _rmfeaDecisionTaskCompletedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RecordMarkerFailedEventAttributes' data type to populate a request.
@@ -5141,7 +5141,7 @@ data RequestCancelActivityTaskFailedEventAttributes = RequestCancelActivityTaskF
     { _rcatfeaActivityId :: Text
     , _rcatfeaCause :: RequestCancelActivityTaskFailedCause
     , _rcatfeaDecisionTaskCompletedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RequestCancelActivityTaskFailedEventAttributes' data type to populate a request.
@@ -5197,7 +5197,7 @@ data RequestCancelExternalWorkflowExecutionDecisionAttributes = RequestCancelExt
     { _rcewedaWorkflowId :: Text
     , _rcewedaRunId :: Maybe Text
     , _rcewedaControl :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RequestCancelExternalWorkflowExecutionDecisionAttributes' data type to populate a request.
@@ -5247,7 +5247,7 @@ data RequestCancelExternalWorkflowExecutionFailedEventAttributes = RequestCancel
     , _rcewefeaInitiatedEventId :: !Integer
     , _rcewefeaDecisionTaskCompletedEventId :: !Integer
     , _rcewefeaControl :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RequestCancelExternalWorkflowExecutionFailedEventAttributes' data type to populate a request.
@@ -5332,7 +5332,7 @@ data RequestCancelExternalWorkflowExecutionInitiatedEventAttributes = RequestCan
     , _rceweieaRunId :: Maybe Text
     , _rceweieaDecisionTaskCompletedEventId :: !Integer
     , _rceweieaControl :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RequestCancelExternalWorkflowExecutionInitiatedEventAttributes' data type to populate a request.
@@ -5396,7 +5396,7 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
     , _satdaScheduleToStartTimeout :: Maybe Text
     , _satdaStartToCloseTimeout :: Maybe Text
     , _satdaHeartbeatTimeout :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ScheduleActivityTaskDecisionAttributes' data type to populate a request.
@@ -5536,7 +5536,7 @@ data ScheduleActivityTaskFailedEventAttributes = ScheduleActivityTaskFailedEvent
     , _satfeaActivityId :: Text
     , _satfeaCause :: ScheduleActivityTaskFailedCause
     , _satfeaDecisionTaskCompletedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ScheduleActivityTaskFailedEventAttributes' data type to populate a request.
@@ -5603,7 +5603,7 @@ data SignalExternalWorkflowExecutionDecisionAttributes = SignalExternalWorkflowE
     , _sewedaSignalName :: Text
     , _sewedaInput :: Maybe Text
     , _sewedaControl :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SignalExternalWorkflowExecutionDecisionAttributes' data type to populate a request.
@@ -5671,7 +5671,7 @@ data SignalExternalWorkflowExecutionFailedEventAttributes = SignalExternalWorkfl
     , _sewefeaInitiatedEventId :: !Integer
     , _sewefeaDecisionTaskCompletedEventId :: !Integer
     , _sewefeaControl :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SignalExternalWorkflowExecutionFailedEventAttributes' data type to populate a request.
@@ -5758,7 +5758,7 @@ data SignalExternalWorkflowExecutionInitiatedEventAttributes = SignalExternalWor
     , _seweieaInput :: Maybe Text
     , _seweieaDecisionTaskCompletedEventId :: !Integer
     , _seweieaControl :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SignalExternalWorkflowExecutionInitiatedEventAttributes' data type to populate a request.
@@ -5838,7 +5838,7 @@ data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecution
     , _scwedaTaskStartToCloseTimeout :: Maybe Text
     , _scwedaChildPolicy :: Maybe ChildPolicy
     , _scwedaTagList :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StartChildWorkflowExecutionDecisionAttributes' data type to populate a request.
@@ -5983,7 +5983,7 @@ data StartChildWorkflowExecutionFailedEventAttributes = StartChildWorkflowExecut
     , _scwefeaInitiatedEventId :: !Integer
     , _scwefeaDecisionTaskCompletedEventId :: !Integer
     , _scwefeaControl :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StartChildWorkflowExecutionFailedEventAttributes' data type to populate a request.
@@ -6075,7 +6075,7 @@ data StartChildWorkflowExecutionInitiatedEventAttributes = StartChildWorkflowExe
     , _scweieaChildPolicy :: ChildPolicy
     , _scweieaTaskStartToCloseTimeout :: Maybe Text
     , _scweieaTagList :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StartChildWorkflowExecutionInitiatedEventAttributes' data type to populate a request.
@@ -6200,7 +6200,7 @@ data StartTimerDecisionAttributes = StartTimerDecisionAttributes
     { _stdaTimerId :: Text
     , _stdaControl :: Maybe Text
     , _stdaStartToFireTimeout :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StartTimerDecisionAttributes' data type to populate a request.
@@ -6253,7 +6253,7 @@ data StartTimerFailedEventAttributes = StartTimerFailedEventAttributes
     { _stfeaTimerId :: Text
     , _stfeaCause :: StartTimerFailedCause
     , _stfeaDecisionTaskCompletedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StartTimerFailedEventAttributes' data type to populate a request.
@@ -6307,7 +6307,7 @@ data TimerCanceledEventAttributes = TimerCanceledEventAttributes
     { _tceaTimerId :: Text
     , _tceaStartedEventId :: !Integer
     , _tceaDecisionTaskCompletedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TimerCanceledEventAttributes' data type to populate a request.
@@ -6359,7 +6359,7 @@ instance ToJSON TimerCanceledEventAttributes
 data TimerFiredEventAttributes = TimerFiredEventAttributes
     { _tfeaTimerId :: Text
     , _tfeaStartedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TimerFiredEventAttributes' data type to populate a request.
@@ -6400,7 +6400,7 @@ data TimerStartedEventAttributes = TimerStartedEventAttributes
     , _tseaControl :: Maybe Text
     , _tseaStartToFireTimeout :: Text
     , _tseaDecisionTaskCompletedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TimerStartedEventAttributes' data type to populate a request.
@@ -6459,7 +6459,7 @@ instance ToJSON TimerStartedEventAttributes
 data WorkflowExecution = WorkflowExecution
     { _weWorkflowId :: Text
     , _weRunId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecution' data type to populate a request.
@@ -6497,7 +6497,7 @@ data WorkflowExecutionCancelRequestedEventAttributes = WorkflowExecutionCancelRe
     { _wecreaExternalWorkflowExecution :: Maybe WorkflowExecution
     , _wecreaExternalInitiatedEventId :: Maybe Integer
     , _wecreaCause :: Maybe WorkflowExecutionCancelRequestedCause
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionCancelRequestedEventAttributes' data type to populate a request.
@@ -6551,7 +6551,7 @@ instance ToJSON WorkflowExecutionCancelRequestedEventAttributes
 data WorkflowExecutionCanceledEventAttributes = WorkflowExecutionCanceledEventAttributes
     { _wecea1Details :: Maybe Text
     , _wecea1DecisionTaskCompletedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionCanceledEventAttributes' data type to populate a request.
@@ -6592,7 +6592,7 @@ instance ToJSON WorkflowExecutionCanceledEventAttributes
 data WorkflowExecutionCompletedEventAttributes = WorkflowExecutionCompletedEventAttributes
     { _weceaResult :: Maybe Text
     , _weceaDecisionTaskCompletedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionCompletedEventAttributes' data type to populate a request.
@@ -6634,7 +6634,7 @@ data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration
     , _wecExecutionStartToCloseTimeout :: Text
     , _wecTaskList :: TaskList
     , _wecChildPolicy :: ChildPolicy
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionConfiguration' data type.
@@ -6714,7 +6714,7 @@ data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinued
     , _wecaneaChildPolicy :: ChildPolicy
     , _wecaneaTagList :: [Text]
     , _wecaneaWorkflowType :: WorkflowType
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionContinuedAsNewEventAttributes' data type to populate a request.
@@ -6831,7 +6831,7 @@ data WorkflowExecutionFailedEventAttributes = WorkflowExecutionFailedEventAttrib
     { _wefeaReason :: Maybe Text
     , _wefeaDetails :: Maybe Text
     , _wefeaDecisionTaskCompletedEventId :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionFailedEventAttributes' data type to populate a request.
@@ -6884,7 +6884,7 @@ data WorkflowExecutionInfo = WorkflowExecutionInfo
     , _weiParent :: Maybe WorkflowExecution
     , _weiTagList :: [Text]
     , _weiCancelRequested :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionInfo' data type.
@@ -6990,7 +6990,7 @@ data WorkflowExecutionOpenCounts = WorkflowExecutionOpenCounts
     , _weocOpenDecisionTasks :: !Integer
     , _weocOpenTimers :: !Integer
     , _weocOpenChildWorkflowExecutions :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionOpenCounts' data type.
@@ -7052,7 +7052,7 @@ data WorkflowExecutionSignaledEventAttributes = WorkflowExecutionSignaledEventAt
     , _wesea1Input :: Maybe Text
     , _wesea1ExternalWorkflowExecution :: Maybe WorkflowExecution
     , _wesea1ExternalInitiatedEventId :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionSignaledEventAttributes' data type to populate a request.
@@ -7124,7 +7124,7 @@ data WorkflowExecutionStartedEventAttributes = WorkflowExecutionStartedEventAttr
     , _weseaContinuedExecutionRunId :: Maybe Text
     , _weseaParentWorkflowExecution :: Maybe WorkflowExecution
     , _weseaParentInitiatedEventId :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionStartedEventAttributes' data type to populate a request.
@@ -7256,7 +7256,7 @@ data WorkflowExecutionTerminatedEventAttributes = WorkflowExecutionTerminatedEve
     , _weteaDetails :: Maybe Text
     , _weteaChildPolicy :: ChildPolicy
     , _weteaCause :: Maybe WorkflowExecutionTerminatedCause
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionTerminatedEventAttributes' data type to populate a request.
@@ -7317,7 +7317,7 @@ instance ToJSON WorkflowExecutionTerminatedEventAttributes
 data WorkflowExecutionTimedOutEventAttributes = WorkflowExecutionTimedOutEventAttributes
     { _wetoeaTimeoutType :: WorkflowExecutionTimeoutType
     , _wetoeaChildPolicy :: ChildPolicy
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowExecutionTimedOutEventAttributes' data type to populate a request.
@@ -7361,7 +7361,7 @@ instance ToJSON WorkflowExecutionTimedOutEventAttributes
 data WorkflowType = WorkflowType
     { _wtName :: Text
     , _wtVersion :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowType' data type to populate a request.
@@ -7401,7 +7401,7 @@ data WorkflowTypeConfiguration = WorkflowTypeConfiguration
     , _wtcDefaultExecutionStartToCloseTimeout :: Maybe Text
     , _wtcDefaultTaskList :: Maybe TaskList
     , _wtcDefaultChildPolicy :: Maybe ChildPolicy
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowTypeConfiguration' data type.
@@ -7485,7 +7485,7 @@ instance FromJSON WorkflowTypeConfiguration
 data WorkflowTypeFilter = WorkflowTypeFilter
     { _wtfName :: Text
     , _wtfVersion :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowTypeFilter' data type to populate a request.
@@ -7526,7 +7526,7 @@ data WorkflowTypeInfo = WorkflowTypeInfo
     , _wtiDescription :: Maybe Text
     , _wtiCreationDate :: POSIX
     , _wtiDeprecationDate :: Maybe POSIX
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WorkflowTypeInfo' data type.

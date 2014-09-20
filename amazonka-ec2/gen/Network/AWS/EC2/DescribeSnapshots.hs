@@ -85,7 +85,7 @@ data DescribeSnapshots = DescribeSnapshots
     , _ds2OwnerIds :: [Text]
     , _ds2RestorableByUserIds :: [Text]
     , _ds2Filters :: [Filter]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSnapshots' request.

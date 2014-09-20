@@ -304,7 +304,7 @@ instance ToQuery RawMessage where
 data Body = Body
     { _bText :: Maybe Content
     , _bHtml :: Maybe Content
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Body' data type to populate a request.
@@ -340,7 +340,7 @@ instance ToQuery Body where
 data Content = Content
     { _cData :: Text
     , _cCharset :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Content' data type to populate a request.
@@ -374,7 +374,7 @@ data Destination = Destination
     { _dToAddresses :: [Text]
     , _dCcAddresses :: [Text]
     , _dBccAddresses :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Destination' data type to populate a request.
@@ -414,7 +414,7 @@ data IdentityDkimAttributes = IdentityDkimAttributes
     { _idaDkimEnabled :: !Bool
     , _idaDkimVerificationStatus :: VerificationStatus
     , _idaDkimTokens :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IdentityDkimAttributes' data type.
@@ -477,7 +477,7 @@ data IdentityNotificationAttributes = IdentityNotificationAttributes
     , _inaComplaintTopic :: Text
     , _inaDeliveryTopic :: Text
     , _inaForwardingEnabled :: !Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IdentityNotificationAttributes' data type.
@@ -541,7 +541,7 @@ instance FromXML IdentityNotificationAttributes where
 data IdentityVerificationAttributes = IdentityVerificationAttributes
     { _ivaVerificationStatus :: VerificationStatus
     , _ivaVerificationToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IdentityVerificationAttributes' data type.
@@ -582,7 +582,7 @@ instance FromXML IdentityVerificationAttributes where
 data Message = Message
     { _mSubject :: Content
     , _mBody :: Body
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Message' data type to populate a request.
@@ -621,7 +621,7 @@ data SendDataPoint = SendDataPoint
     , _sdpBounces :: Maybe Integer
     , _sdpComplaints :: Maybe Integer
     , _sdpRejects :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SendDataPoint' data type.

@@ -154,7 +154,7 @@ data DescribeInstances = DescribeInstances
     , _di2Filters :: [Filter]
     , _di2NextToken :: Maybe Text
     , _di2MaxResults :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInstances' request.
@@ -323,7 +323,7 @@ instance ToQuery DescribeInstances where
 data DescribeInstancesResponse = DescribeInstancesResponse
     { _dirrReservations :: [Reservation]
     , _dirrNextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInstancesResponse' response.

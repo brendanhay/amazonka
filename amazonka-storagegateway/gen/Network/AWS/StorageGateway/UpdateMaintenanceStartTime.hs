@@ -65,7 +65,7 @@ data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime
     , _umstHourOfDay :: !Integer
     , _umstMinuteOfHour :: !Integer
     , _umstDayOfWeek :: !Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateMaintenanceStartTime' request.

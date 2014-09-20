@@ -53,7 +53,7 @@ import Network.AWS.Request.JSON
 data GetOpenIdToken = GetOpenIdToken
     { _goitIdentityId :: Text
     , _goitLogins :: Map Text Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetOpenIdToken' request.
@@ -92,7 +92,7 @@ instance ToJSON GetOpenIdToken
 data GetOpenIdTokenResponse = GetOpenIdTokenResponse
     { _goitrIdentityId :: Maybe Text
     , _goitrToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetOpenIdTokenResponse' response.

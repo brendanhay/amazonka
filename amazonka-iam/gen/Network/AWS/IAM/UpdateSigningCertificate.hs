@@ -54,7 +54,7 @@ data UpdateSigningCertificate = UpdateSigningCertificate
     { _usc1UserName :: Maybe Text
     , _usc1CertificateId :: Text
     , _usc1Status :: StatusType
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateSigningCertificate' request.

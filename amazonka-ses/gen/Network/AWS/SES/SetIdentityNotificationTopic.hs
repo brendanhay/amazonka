@@ -62,7 +62,7 @@ data SetIdentityNotificationTopic = SetIdentityNotificationTopic
     { _sintIdentity :: Text
     , _sintNotificationType :: NotificationType
     , _sintSnsTopic :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetIdentityNotificationTopic' request.

@@ -50,7 +50,7 @@ data RestoreObject = RestoreObject
     , _roKey :: ObjectKey
     , _roVersionId :: Maybe ObjectVersionId
     , _roRestoreRequest :: Maybe RestoreRequest
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RestoreObject' request.

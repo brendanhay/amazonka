@@ -54,7 +54,7 @@ data AddCommunicationToCase = AddCommunicationToCase
     , _actcCommunicationBody :: Text
     , _actcCcEmailAddresses :: [Text]
     , _actcAttachmentSetId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddCommunicationToCase' request.

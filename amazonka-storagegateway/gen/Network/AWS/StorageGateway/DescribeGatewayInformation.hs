@@ -102,7 +102,7 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse
     , _dgirGatewayNetworkInterfaces :: [NetworkInterface]
     , _dgirGatewayType :: Maybe Text
     , _dgirNextUpdateAvailabilityDate :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeGatewayInformationResponse' response.

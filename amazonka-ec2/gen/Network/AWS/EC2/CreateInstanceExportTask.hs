@@ -75,7 +75,7 @@ data CreateInstanceExportTask = CreateInstanceExportTask
     , _cietInstanceId :: Text
     , _cietTargetEnvironment :: Maybe ExportEnvironment
     , _cietExportToS3Task :: Maybe ExportToS3TaskSpecification
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateInstanceExportTask' request.

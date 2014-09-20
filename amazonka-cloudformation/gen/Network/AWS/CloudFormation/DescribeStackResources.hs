@@ -68,7 +68,7 @@ data DescribeStackResources = DescribeStackResources
     { _dsr1StackName :: Maybe Text
     , _dsr1LogicalResourceId :: Maybe Text
     , _dsr1PhysicalResourceId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStackResources' request.

@@ -55,7 +55,7 @@ data DescribeDBParameterGroups = DescribeDBParameterGroups
     { _ddbpg1DBParameterGroupName :: Maybe Text
     , _ddbpg1MaxRecords :: Maybe Integer
     , _ddbpg1Marker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBParameterGroups' request.
@@ -106,7 +106,7 @@ instance ToQuery DescribeDBParameterGroups where
 data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse
     { _ddbpgrMarker :: Maybe Text
     , _ddbpgrDBParameterGroups :: [DBParameterGroup]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBParameterGroupsResponse' response.

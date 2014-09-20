@@ -62,7 +62,7 @@ data CreateConnection = CreateConnection
     { _cc1Location :: Text
     , _cc1Bandwidth :: Text
     , _cc1ConnectionName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateConnection' request.
@@ -118,7 +118,7 @@ data CreateConnectionResponse = CreateConnectionResponse
     , _ccrrBandwidth :: Maybe Text
     , _ccrrVlan :: Maybe Integer
     , _ccrrPartnerName :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateConnectionResponse' response.

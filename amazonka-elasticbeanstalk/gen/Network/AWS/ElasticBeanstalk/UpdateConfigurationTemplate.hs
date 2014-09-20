@@ -105,7 +105,7 @@ data UpdateConfigurationTemplate = UpdateConfigurationTemplate
     , _uctDescription :: Maybe Text
     , _uctOptionSettings :: [ConfigurationOptionSetting]
     , _uctOptionsToRemove :: [OptionSpecification]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateConfigurationTemplate' request.
@@ -176,7 +176,7 @@ data UpdateConfigurationTemplateResponse = UpdateConfigurationTemplateResponse
     , _uctrDateCreated :: Maybe ISO8601
     , _uctrDateUpdated :: Maybe ISO8601
     , _uctrOptionSettings :: [ConfigurationOptionSetting]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateConfigurationTemplateResponse' response.

@@ -55,7 +55,7 @@ data EstimateTemplateCost = EstimateTemplateCost
     { _etcTemplateBody :: Maybe Text
     , _etcTemplateURL :: Maybe Text
     , _etcParameters :: [Parameter]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EstimateTemplateCost' request.

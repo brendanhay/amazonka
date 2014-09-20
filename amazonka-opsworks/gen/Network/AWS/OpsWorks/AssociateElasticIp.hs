@@ -47,7 +47,7 @@ import Network.AWS.Request.JSON
 data AssociateElasticIp = AssociateElasticIp
     { _aeiElasticIp :: Text
     , _aeiInstanceId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssociateElasticIp' request.

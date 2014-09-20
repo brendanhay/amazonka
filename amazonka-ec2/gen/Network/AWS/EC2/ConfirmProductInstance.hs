@@ -55,7 +55,7 @@ import Network.AWS.Prelude
 data ConfirmProductInstance = ConfirmProductInstance
     { _cpiProductCode :: Text
     , _cpiInstanceId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ConfirmProductInstance' request.

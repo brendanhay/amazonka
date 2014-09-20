@@ -71,7 +71,7 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses
     , _apiaPrivateIpAddresses :: [Text]
     , _apiaSecondaryPrivateIpAddressCount :: Maybe Integer
     , _apiaAllowReassignment :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssignPrivateIpAddresses' request.

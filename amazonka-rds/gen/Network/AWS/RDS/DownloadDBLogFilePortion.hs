@@ -61,7 +61,7 @@ data DownloadDBLogFilePortion = DownloadDBLogFilePortion
     , _ddblfpLogFileName :: Text
     , _ddblfpMarker :: Maybe Text
     , _ddblfpNumberOfLines :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DownloadDBLogFilePortion' request.
@@ -119,7 +119,7 @@ data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse
     { _ddblfprAdditionalDataPending :: !Bool
     , _ddblfprLogFileData :: ByteString
     , _ddblfprMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DownloadDBLogFilePortionResponse' response.

@@ -48,7 +48,7 @@ import Network.AWS.Request.JSON
 data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface
     { _cpviVirtualInterfaceId :: Text
     , _cpviVirtualGatewayId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ConfirmPrivateVirtualInterface' request.

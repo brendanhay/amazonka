@@ -65,7 +65,7 @@ import Network.AWS.Request.JSON
 data ListStreams = ListStreams
     { _lsLimit :: Maybe Integer
     , _lsExclusiveStartStreamName :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListStreams' request.
@@ -104,7 +104,7 @@ instance ToJSON ListStreams
 data ListStreamsResponse = ListStreamsResponse
     { _lsrStreamNames :: [Text]
     , _lsrHasMoreStreams :: !Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListStreamsResponse' response.

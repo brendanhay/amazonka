@@ -44,7 +44,7 @@ data PutBucketWebsite = PutBucketWebsite
     { _pbwBucket :: BucketName
     , _pbwContentMD5 :: Maybe Text
     , _pbwWebsiteConfiguration :: WebsiteConfiguration
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketWebsite' request.

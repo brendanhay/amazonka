@@ -57,7 +57,7 @@ data ModifyReservedInstances = ModifyReservedInstances
     { _mriClientToken :: Maybe Text
     , _mriReservedInstancesIds :: [Text]
     , _mriTargetConfigurations :: [ReservedInstancesConfiguration]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyReservedInstances' request.

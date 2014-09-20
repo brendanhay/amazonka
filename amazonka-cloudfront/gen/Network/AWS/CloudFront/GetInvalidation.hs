@@ -45,7 +45,7 @@ import Network.AWS.Types (Region)
 data GetInvalidation = GetInvalidation
     { _giDistributionId :: Text
     , _giId :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetInvalidation' request.

@@ -88,7 +88,7 @@ data UpdateEnvironment = UpdateEnvironment
     , _ueTemplateName :: Maybe Text
     , _ueOptionSettings :: [ConfigurationOptionSetting]
     , _ueOptionsToRemove :: [OptionSpecification]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateEnvironment' request.
@@ -197,7 +197,7 @@ data UpdateEnvironmentResponse = UpdateEnvironmentResponse
     , _uerHealth :: Maybe EnvironmentHealth
     , _uerResources :: Maybe EnvironmentResourcesDescription
     , _uerTier :: Maybe EnvironmentTier
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateEnvironmentResponse' response.

@@ -83,7 +83,7 @@ data HeadObject = HeadObject
     , _hoSSECustomerAlgorithm :: Maybe Text
     , _hoSSECustomerKey :: Maybe Text
     , _hoSSECustomerKeyMD5 :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'HeadObject' request.
@@ -228,7 +228,7 @@ data HeadObjectResponse = HeadObjectResponse
     , _horMetadata :: Map Text Text
     , _horSSECustomerAlgorithm :: Maybe Text
     , _horSSECustomerKeyMD5 :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'HeadObjectResponse' response.

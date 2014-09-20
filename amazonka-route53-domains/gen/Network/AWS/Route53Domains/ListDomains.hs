@@ -64,7 +64,7 @@ import Network.AWS.Request.JSON
 data ListDomains = ListDomains
     { _ldMarker :: Maybe Text
     , _ldMaxItems :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDomains' request.
@@ -109,7 +109,7 @@ instance ToJSON ListDomains
 data ListDomainsResponse = ListDomainsResponse
     { _ldrDomains :: [DomainSummary]
     , _ldrNextPageMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDomainsResponse' response.

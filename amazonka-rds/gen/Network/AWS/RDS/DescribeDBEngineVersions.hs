@@ -82,7 +82,7 @@ data DescribeDBEngineVersions = DescribeDBEngineVersions
     , _ddbevMarker :: Maybe Text
     , _ddbevDefaultOnly :: Maybe Bool
     , _ddbevListSupportedCharacterSets :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBEngineVersions' request.
@@ -166,7 +166,7 @@ instance ToQuery DescribeDBEngineVersions where
 data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
     { _ddbevrMarker :: Maybe Text
     , _ddbevrDBEngineVersions :: [DBEngineVersion]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBEngineVersionsResponse' response.

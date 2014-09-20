@@ -93,7 +93,7 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
     , _rfcsVpcSecurityGroupIds :: [Text]
     , _rfcsPreferredMaintenanceWindow :: Maybe Text
     , _rfcsAutomatedSnapshotRetentionPeriod :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RestoreFromClusterSnapshot' request.

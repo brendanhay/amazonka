@@ -67,7 +67,7 @@ import Network.AWS.Prelude
 data DescribeDhcpOptions = DescribeDhcpOptions
     { _ddo1DhcpOptionsIds :: [Text]
     , _ddo1Filters :: [Filter]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDhcpOptions' request.

@@ -61,7 +61,7 @@ data ImportVolume = ImportVolume
     , _ivImage :: DiskImageDetail
     , _ivDescription :: Maybe Text
     , _ivVolume :: VolumeDetail
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ImportVolume' request.

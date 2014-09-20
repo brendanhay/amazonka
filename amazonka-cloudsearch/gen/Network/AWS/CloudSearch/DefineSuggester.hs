@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 data DefineSuggester = DefineSuggester
     { _ds1DomainName :: Text
     , _ds1Suggester :: Suggester
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DefineSuggester' request.

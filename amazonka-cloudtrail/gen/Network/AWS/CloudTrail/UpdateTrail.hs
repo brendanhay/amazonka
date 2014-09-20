@@ -58,7 +58,7 @@ data UpdateTrail = UpdateTrail
     , _utS3KeyPrefix :: Maybe Text
     , _utSnsTopicName :: Maybe Text
     , _utIncludeGlobalServiceEvents :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateTrail' request.
@@ -127,7 +127,7 @@ data UpdateTrailResponse = UpdateTrailResponse
     , _utrS3KeyPrefix :: Maybe Text
     , _utrSnsTopicName :: Maybe Text
     , _utrIncludeGlobalServiceEvents :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateTrailResponse' response.

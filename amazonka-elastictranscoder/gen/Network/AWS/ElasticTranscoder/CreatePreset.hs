@@ -106,7 +106,7 @@ data CreatePreset = CreatePreset
     , _cp1Video :: Maybe VideoParameters
     , _cp1Audio :: Maybe AudioParameters
     , _cp1Thumbnails :: Maybe Thumbnails
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePreset' request.
@@ -176,7 +176,7 @@ instance ToJSON CreatePreset
 data CreatePresetResponse = CreatePresetResponse
     { _cprrPreset :: Maybe Preset
     , _cprrWarning :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePresetResponse' response.

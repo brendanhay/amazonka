@@ -47,7 +47,7 @@ data UpdateVolume = UpdateVolume
     { _uv1VolumeId :: Text
     , _uv1Name :: Maybe Text
     , _uv1MountPoint :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateVolume' request.

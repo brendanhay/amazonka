@@ -66,7 +66,7 @@ data DescribeLogGroups = DescribeLogGroups
     { _dlg1LogGroupNamePrefix :: Maybe Text
     , _dlg1NextToken :: Maybe Text
     , _dlg1Limit :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLogGroups' request.
@@ -112,7 +112,7 @@ instance ToJSON DescribeLogGroups
 data DescribeLogGroupsResponse = DescribeLogGroupsResponse
     { _dlgrLogGroups :: [LogGroup]
     , _dlgrNextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLogGroupsResponse' response.

@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 data DeleteExpression = DeleteExpression
     { _de1DomainName :: Text
     , _de1ExpressionName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteExpression' request.

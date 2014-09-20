@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 data AddTags = AddTags
     { _atLoadBalancerNames :: [Text]
     , _atTags :: List1 Tag
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddTags' request.

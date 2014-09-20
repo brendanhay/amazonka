@@ -61,7 +61,7 @@ data DescribePolicies = DescribePolicies
     , _dp1PolicyNames :: [Text]
     , _dp1NextToken :: Maybe Text
     , _dp1MaxRecords :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribePolicies' request.
@@ -114,7 +114,7 @@ instance ToQuery DescribePolicies where
 data DescribePoliciesResponse = DescribePoliciesResponse
     { _dprScalingPolicies :: [ScalingPolicy]
     , _dprNextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribePoliciesResponse' response.

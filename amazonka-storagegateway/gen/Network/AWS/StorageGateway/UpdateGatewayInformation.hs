@@ -59,7 +59,7 @@ data UpdateGatewayInformation = UpdateGatewayInformation
     { _ugiGatewayARN :: Text
     , _ugiGatewayName :: Maybe Text
     , _ugiGatewayTimezone :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateGatewayInformation' request.

@@ -88,7 +88,7 @@ import Network.AWS.Prelude
 data UploadSigningCertificate = UploadSigningCertificate
     { _usc3UserName :: Maybe Text
     , _usc3CertificateBody :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UploadSigningCertificate' request.

@@ -73,7 +73,7 @@ data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress
     , _rsgeToPort :: Maybe Integer
     , _rsgeCidrIp :: Maybe Text
     , _rsgeIpPermissions :: [IpPermission]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RevokeSecurityGroupEgress' request.

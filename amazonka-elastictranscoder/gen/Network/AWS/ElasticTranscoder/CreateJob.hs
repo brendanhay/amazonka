@@ -108,7 +108,7 @@ data CreateJob = CreateJob
     , _cj1Outputs :: [CreateJobOutput]
     , _cj1OutputKeyPrefix :: Maybe Text
     , _cj1Playlists :: [CreateJobPlaylist]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateJob' request.

@@ -49,7 +49,7 @@ data DeleteApplicationVersion = DeleteApplicationVersion
     { _davApplicationName :: Text
     , _davVersionLabel :: Text
     , _davDeleteSourceBundle :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteApplicationVersion' request.

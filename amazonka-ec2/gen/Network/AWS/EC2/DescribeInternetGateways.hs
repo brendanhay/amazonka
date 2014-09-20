@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 data DescribeInternetGateways = DescribeInternetGateways
     { _dig1InternetGatewayIds :: [Text]
     , _dig1Filters :: [Filter]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInternetGateways' request.

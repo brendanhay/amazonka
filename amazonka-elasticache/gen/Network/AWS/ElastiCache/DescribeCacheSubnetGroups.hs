@@ -55,7 +55,7 @@ data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups
     { _dcsg3CacheSubnetGroupName :: Maybe Text
     , _dcsg3MaxRecords :: Maybe Integer
     , _dcsg3Marker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCacheSubnetGroups' request.
@@ -102,7 +102,7 @@ instance ToQuery DescribeCacheSubnetGroups where
 data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
     { _dcsgrrMarker :: Maybe Text
     , _dcsgrrCacheSubnetGroups :: [CacheSubnetGroup]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeCacheSubnetGroupsResponse' response.

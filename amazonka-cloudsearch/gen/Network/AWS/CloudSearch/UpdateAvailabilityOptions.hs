@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 data UpdateAvailabilityOptions = UpdateAvailabilityOptions
     { _uaoDomainName :: Text
     , _uaoMultiAZ :: !Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateAvailabilityOptions' request.

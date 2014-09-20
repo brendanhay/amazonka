@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 data DeleteIndexField = DeleteIndexField
     { _dif1DomainName :: Text
     , _dif1IndexFieldName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteIndexField' request.

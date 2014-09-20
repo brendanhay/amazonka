@@ -62,7 +62,7 @@ instance ToBody ListBuckets
 data ListBucketsResponse = ListBucketsResponse
     { _lbrBuckets :: [Bucket]
     , _lbrOwner :: Maybe Owner
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListBucketsResponse' response.

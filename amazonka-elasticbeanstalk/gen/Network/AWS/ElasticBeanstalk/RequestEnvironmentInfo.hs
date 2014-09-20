@@ -54,7 +54,7 @@ data RequestEnvironmentInfo = RequestEnvironmentInfo
     { _reiEnvironmentId :: Maybe Text
     , _reiEnvironmentName :: Maybe Text
     , _reiInfoType :: EnvironmentInfoType
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RequestEnvironmentInfo' request.

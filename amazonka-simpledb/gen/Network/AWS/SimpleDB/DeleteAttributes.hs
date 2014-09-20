@@ -54,7 +54,7 @@ data DeleteAttributes = DeleteAttributes
     , _daItemName :: Text
     , _daAttributes :: [Attribute]
     , _daExpected :: Maybe UpdateCondition
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAttributes' request.

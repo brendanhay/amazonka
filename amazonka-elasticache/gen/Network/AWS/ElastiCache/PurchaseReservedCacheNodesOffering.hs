@@ -55,7 +55,7 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering
     { _prcnoReservedCacheNodesOfferingId :: Text
     , _prcnoReservedCacheNodeId :: Maybe Text
     , _prcnoCacheNodeCount :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PurchaseReservedCacheNodesOffering' request.

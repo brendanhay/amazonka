@@ -54,7 +54,7 @@ data GetAttributes = GetAttributes
     , _gaItemName :: Text
     , _gaAttributeNames :: [Text]
     , _gaConsistentRead :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetAttributes' request.

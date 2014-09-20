@@ -48,7 +48,7 @@ data CreateTapes = CreateTapes
     , _ctClientToken :: Text
     , _ctNumTapesToCreate :: !Integer
     , _ctTapeBarcodePrefix :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateTapes' request.

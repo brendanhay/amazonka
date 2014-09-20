@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 data DescribeApplicationVersions = DescribeApplicationVersions
     { _dav1ApplicationName :: Maybe Text
     , _dav1VersionLabels :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeApplicationVersions' request.

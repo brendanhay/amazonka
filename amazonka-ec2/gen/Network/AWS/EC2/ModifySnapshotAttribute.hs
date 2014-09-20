@@ -76,7 +76,7 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute
     , _msaUserIds :: [Text]
     , _msaGroupNames :: [Text]
     , _msaCreateVolumePermission :: Maybe CreateVolumePermissionModifications
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifySnapshotAttribute' request.

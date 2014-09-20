@@ -61,7 +61,7 @@ data ReplaceRoute = ReplaceRoute
     , _rr1InstanceId :: Maybe Text
     , _rr1NetworkInterfaceId :: Maybe Text
     , _rr1VpcPeeringConnectionId :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReplaceRoute' request.

@@ -59,7 +59,7 @@ data DescribeAutoScalingGroups = DescribeAutoScalingGroups
     { _dasg1AutoScalingGroupNames :: [Text]
     , _dasg1NextToken :: Maybe Text
     , _dasg1MaxRecords :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAutoScalingGroups' request.
@@ -100,7 +100,7 @@ instance ToQuery DescribeAutoScalingGroups where
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
     { _dasgrAutoScalingGroups :: [AutoScalingGroup]
     , _dasgrNextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAutoScalingGroupsResponse' response.

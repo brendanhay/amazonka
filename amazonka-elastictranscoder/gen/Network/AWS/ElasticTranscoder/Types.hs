@@ -507,7 +507,7 @@ data Artwork = Artwork
     , _aSizingPolicy :: Maybe Text
     , _aPaddingPolicy :: Maybe Text
     , _aAlbumArtFormat :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Artwork' data type to populate a request.
@@ -603,7 +603,7 @@ data AudioParameters = AudioParameters
     , _apBitRate :: Maybe Text
     , _apChannels :: Maybe Text
     , _apCodecOptions :: Maybe AudioCodecOptions
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AudioParameters' data type to populate a request.
@@ -667,7 +667,7 @@ instance ToJSON AudioParameters
 data CaptionFormat = CaptionFormat
     { _cfFormat :: Maybe Text
     , _cfPattern :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CaptionFormat' data type to populate a request.
@@ -719,7 +719,7 @@ data CaptionSource = CaptionSource
     , _csLanguage :: Maybe Text
     , _csTimeOffset :: Maybe Text
     , _csLabel :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CaptionSource' data type to populate a request.
@@ -802,7 +802,7 @@ data Captions = Captions
     { _c1MergePolicy :: Maybe Text
     , _c1CaptionSources :: [CaptionSource]
     , _c1CaptionFormats :: [CaptionFormat]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Captions' data type to populate a request.
@@ -865,7 +865,7 @@ data CreateJobOutput = CreateJobOutput
     , _cjoAlbumArt :: Maybe JobAlbumArt
     , _cjoComposition :: [Clip]
     , _cjoCaptions :: Maybe Captions
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CreateJobOutput' data type to populate a request.
@@ -1013,7 +1013,7 @@ data CreateJobPlaylist = CreateJobPlaylist
     { _cjpName :: Maybe Text
     , _cjpFormat :: Maybe Text
     , _cjpOutputKeys :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CreateJobPlaylist' data type to populate a request.
@@ -1067,7 +1067,7 @@ data Job = Job
     , _jOutputKeyPrefix :: Maybe Text
     , _jPlaylists :: [Playlist]
     , _jStatus :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Job' data type.
@@ -1177,7 +1177,7 @@ instance FromJSON Job
 data JobAlbumArt = JobAlbumArt
     { _jaaMergePolicy :: Maybe Text
     , _jaaArtwork :: [Artwork]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'JobAlbumArt' data type to populate a request.
@@ -1223,7 +1223,7 @@ data JobInput = JobInput
     , _jiAspectRatio :: Maybe Text
     , _jiInterlaced :: Maybe Text
     , _jiContainer :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'JobInput' data type to populate a request.
@@ -1325,7 +1325,7 @@ data JobOutput = JobOutput
     , _joAlbumArt :: Maybe JobAlbumArt
     , _joComposition :: [Clip]
     , _joCaptions :: Maybe Captions
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'JobOutput' data type to populate a request.
@@ -1544,7 +1544,7 @@ instance ToJSON JobOutput
 data JobWatermark = JobWatermark
     { _jwPresetWatermarkId :: Maybe Text
     , _jwInputKey :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'JobWatermark' data type to populate a request.
@@ -1605,7 +1605,7 @@ data Notifications = Notifications
     , _nCompleted :: Maybe Text
     , _nWarning :: Maybe Text
     , _nError :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Notifications' data type to populate a request.
@@ -1657,7 +1657,7 @@ data Permission = Permission
     { _p1GranteeType :: Maybe Text
     , _p1Grantee :: Maybe Text
     , _p1Access :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Permission' data type to populate a request.
@@ -1723,7 +1723,7 @@ data Pipeline = Pipeline
     , _prNotifications :: Maybe Notifications
     , _prContentConfig :: Maybe PipelineOutputConfig
     , _prThumbnailConfig :: Maybe PipelineOutputConfig
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Pipeline' data type.
@@ -1920,7 +1920,7 @@ data PipelineOutputConfig = PipelineOutputConfig
     { _pocBucket :: Maybe Text
     , _pocStorageClass :: Maybe Text
     , _pocPermissions :: [Permission]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PipelineOutputConfig' data type to populate a request.
@@ -1990,7 +1990,7 @@ data Playlist = Playlist
     , _pOutputKeys :: [Text]
     , _pStatus :: Maybe Text
     , _pStatusDetail :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Playlist' data type to populate a request.
@@ -2060,7 +2060,7 @@ data Preset = Preset
     , _p1rVideo :: Maybe VideoParameters
     , _p1rThumbnails :: Maybe Thumbnails
     , _p1rType :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Preset' data type.
@@ -2168,7 +2168,7 @@ data PresetWatermark = PresetWatermark
     , _pwVerticalOffset :: Maybe Text
     , _pwOpacity :: Maybe Text
     , _pwTarget :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PresetWatermark' data type to populate a request.
@@ -2341,7 +2341,7 @@ data Thumbnails = Thumbnails
     , _tMaxHeight :: Maybe Text
     , _tSizingPolicy :: Maybe Text
     , _tPaddingPolicy :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Thumbnails' data type to populate a request.
@@ -2457,7 +2457,7 @@ instance ToJSON Thumbnails
 data TimeSpan = TimeSpan
     { _tsStartTime :: Maybe Text
     , _tsDuration :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TimeSpan' data type to populate a request.
@@ -2511,7 +2511,7 @@ data VideoParameters = VideoParameters
     , _vpSizingPolicy :: Maybe Text
     , _vpPaddingPolicy :: Maybe Text
     , _vpWatermarks :: [PresetWatermark]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VideoParameters' data type to populate a request.

@@ -81,7 +81,7 @@ data AssociateAddress = AssociateAddress
     , _aa1NetworkInterfaceId :: Maybe Text
     , _aa1PrivateIpAddress :: Maybe Text
     , _aa1AllowReassociation :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssociateAddress' request.

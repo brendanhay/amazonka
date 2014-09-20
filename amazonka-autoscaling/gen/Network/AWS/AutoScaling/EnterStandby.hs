@@ -55,7 +55,7 @@ data EnterStandby = EnterStandby
     { _esInstanceIds :: [Text]
     , _esAutoScalingGroupName :: Text
     , _esShouldDecrementDesiredCapacity :: !Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnterStandby' request.

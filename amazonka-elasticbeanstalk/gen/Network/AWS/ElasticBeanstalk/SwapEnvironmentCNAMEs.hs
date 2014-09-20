@@ -49,7 +49,7 @@ data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs
     , _secnameSourceEnvironmentName :: Maybe Text
     , _secnameDestinationEnvironmentId :: Maybe Text
     , _secnameDestinationEnvironmentName :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SwapEnvironmentCNAMEs' request.

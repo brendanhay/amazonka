@@ -116,7 +116,7 @@ data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory
     , _gwehNextPageToken :: Maybe Text
     , _gwehMaximumPageSize :: Maybe Integer
     , _gwehReverseOrder :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetWorkflowExecutionHistory' request.
@@ -191,7 +191,7 @@ instance ToJSON GetWorkflowExecutionHistory
 data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse
     { _gwehrEvents :: [HistoryEvent]
     , _gwehrNextPageToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetWorkflowExecutionHistoryResponse' response.

@@ -54,7 +54,7 @@ import Network.AWS.Prelude
 data DescribePlacementGroups = DescribePlacementGroups
     { _dpg1GroupNames :: [Text]
     , _dpg1Filters :: [Filter]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribePlacementGroups' request.

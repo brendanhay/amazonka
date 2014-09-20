@@ -81,7 +81,7 @@ data UpdateDomainContact = UpdateDomainContact
     , _udcAdminContact :: Maybe ContactDetail
     , _udcRegistrantContact :: Maybe ContactDetail
     , _udcTechContact :: Maybe ContactDetail
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateDomainContact' request.

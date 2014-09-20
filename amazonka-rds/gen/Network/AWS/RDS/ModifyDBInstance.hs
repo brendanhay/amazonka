@@ -86,7 +86,7 @@ data ModifyDBInstance = ModifyDBInstance
     , _mdbiIops :: Maybe Integer
     , _mdbiOptionGroupName :: Maybe Text
     , _mdbiNewDBInstanceIdentifier :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyDBInstance' request.

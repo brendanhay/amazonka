@@ -52,7 +52,7 @@ data DescribeAlarmsForMetric = DescribeAlarmsForMetric
     , _dafmDimensions :: [Dimension]
     , _dafmPeriod :: Maybe Integer
     , _dafmUnit :: Maybe StandardUnit
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAlarmsForMetric' request.

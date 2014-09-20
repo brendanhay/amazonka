@@ -1478,7 +1478,7 @@ data ContactDetail = ContactDetail
     , _cdEmail :: Maybe Text
     , _cdFax :: Maybe Text
     , _cdExtraParams :: [ExtraParam]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ContactDetail' data type to populate a request.
@@ -1632,7 +1632,7 @@ data DomainSummary = DomainSummary
     , _dsAutoRenew :: Maybe Bool
     , _dsTransferLock :: Maybe Bool
     , _dsExpiry :: Maybe ISO8601
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DomainSummary' data type.
@@ -1684,7 +1684,7 @@ instance FromJSON DomainSummary
 data ExtraParam = ExtraParam
     { _epName :: ExtraParamName
     , _epValue :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ExtraParam' data type to populate a request.
@@ -1726,7 +1726,7 @@ instance ToJSON ExtraParam
 data Nameserver = Nameserver
     { _nName :: Text
     , _nGlueIps :: [Text]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Nameserver' data type to populate a request.
@@ -1768,7 +1768,7 @@ data OperationSummary = OperationSummary
     , _osStatus :: OperationStatus
     , _osType :: OperationType
     , _osSubmittedDate :: ISO8601
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'OperationSummary' data type.

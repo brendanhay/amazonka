@@ -65,7 +65,7 @@ data DescribeReservedCacheNodes = DescribeReservedCacheNodes
     , _drcnOfferingType :: Maybe Text
     , _drcnMaxRecords :: Maybe Integer
     , _drcnMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedCacheNodes' request.
@@ -160,7 +160,7 @@ instance ToQuery DescribeReservedCacheNodes where
 data DescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse
     { _drcnrMarker :: Maybe Text
     , _drcnrReservedCacheNodes :: [ReservedCacheNode]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedCacheNodesResponse' response.

@@ -64,7 +64,7 @@ data CopyClusterSnapshot = CopyClusterSnapshot
     { _ccsSourceSnapshotIdentifier :: Text
     , _ccsSourceSnapshotClusterIdentifier :: Maybe Text
     , _ccsTargetSnapshotIdentifier :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopyClusterSnapshot' request.

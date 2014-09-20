@@ -68,7 +68,7 @@ data CreateSubnet = CreateSubnet
     { _cs2VpcId :: Text
     , _cs2CidrBlock :: Text
     , _cs2AvailabilityZone :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSubnet' request.

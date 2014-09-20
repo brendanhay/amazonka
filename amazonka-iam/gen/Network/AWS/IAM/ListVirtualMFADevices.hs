@@ -61,7 +61,7 @@ data ListVirtualMFADevices = ListVirtualMFADevices
     { _lvmfadAssignmentStatus :: Maybe AssignmentStatusType
     , _lvmfadMarker :: Maybe Text
     , _lvmfadMaxItems :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListVirtualMFADevices' request.
@@ -112,7 +112,7 @@ data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
     { _lvmfadrVirtualMFADevices :: [VirtualMFADevice]
     , _lvmfadrIsTruncated :: !Bool
     , _lvmfadrMarker :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListVirtualMFADevicesResponse' response.

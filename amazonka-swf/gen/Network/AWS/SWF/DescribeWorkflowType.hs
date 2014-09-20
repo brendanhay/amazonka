@@ -78,7 +78,7 @@ import Network.AWS.Request.JSON
 data DescribeWorkflowType = DescribeWorkflowType
     { _dwt1Domain :: Text
     , _dwt1WorkflowType :: WorkflowType
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeWorkflowType' request.
@@ -118,7 +118,7 @@ instance ToJSON DescribeWorkflowType
 data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse
     { _dwtrTypeInfo :: WorkflowTypeInfo
     , _dwtrConfiguration :: WorkflowTypeConfiguration
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeWorkflowTypeResponse' response.

@@ -72,7 +72,7 @@ instance ToBody GetBucketVersioning
 data GetBucketVersioningResponse = GetBucketVersioningResponse
     { _gbvrStatus :: Maybe (Switch BucketVersioningStatus)
     , _gbvrMfaDelete :: Maybe (Switch MFADeleteStatus)
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketVersioningResponse' response.

@@ -55,7 +55,7 @@ data PutUserPolicy = PutUserPolicy
     { _pupUserName :: Text
     , _pupPolicyName :: Text
     , _pupPolicyDocument :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutUserPolicy' request.

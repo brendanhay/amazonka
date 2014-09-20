@@ -430,7 +430,7 @@ data Output = Output
     { _oOutputKey :: Maybe Text
     , _oOutputValue :: Maybe Text
     , _oDescription :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Output' data type to populate a request.
@@ -474,7 +474,7 @@ data Parameter = Parameter
     { _pParameterKey :: Maybe Text
     , _pParameterValue :: Maybe Text
     , _pUsePreviousValue :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Parameter' data type to populate a request.
@@ -531,7 +531,7 @@ data Stack = Stack
     , _sCapabilities :: [Capability]
     , _sOutputs :: [Output]
     , _sTags :: [Tag]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Stack' data type.
@@ -669,7 +669,7 @@ data StackEvent = StackEvent
     , _seResourceStatus :: Maybe ResourceStatus
     , _seResourceStatusReason :: Maybe Text
     , _seResourceProperties :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StackEvent' data type.
@@ -779,7 +779,7 @@ data StackResource = StackResource
     , _srResourceStatus :: ResourceStatus
     , _srResourceStatusReason :: Maybe Text
     , _srDescription :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StackResource' data type.
@@ -883,7 +883,7 @@ data StackResourceDetail = StackResourceDetail
     , _srdResourceStatusReason :: Maybe Text
     , _srdDescription :: Maybe Text
     , _srdMetadata :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StackResourceDetail' data type.
@@ -994,7 +994,7 @@ data StackResourceSummary = StackResourceSummary
     , _srsLastUpdatedTimestamp :: ISO8601
     , _srsResourceStatus :: ResourceStatus
     , _srsResourceStatusReason :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StackResourceSummary' data type.
@@ -1077,7 +1077,7 @@ data StackSummary = StackSummary
     , _ssDeletionTime :: Maybe ISO8601
     , _ssStackStatus :: StackStatus
     , _ssStackStatusReason :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StackSummary' data type.
@@ -1164,7 +1164,7 @@ instance FromXML StackSummary where
 data Tag = Tag
     { _tKey :: Maybe Text
     , _tValue :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type to populate a request.
@@ -1205,7 +1205,7 @@ data TemplateParameter = TemplateParameter
     , _tpDefaultValue :: Maybe Text
     , _tpNoEcho :: Maybe Bool
     , _tpDescription :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TemplateParameter' data type.

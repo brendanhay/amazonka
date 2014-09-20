@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 data UpdateApplication = UpdateApplication
     { _uaApplicationName :: Text
     , _uaDescription :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateApplication' request.

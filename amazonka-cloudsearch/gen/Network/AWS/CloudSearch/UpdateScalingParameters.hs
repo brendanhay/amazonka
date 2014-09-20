@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 data UpdateScalingParameters = UpdateScalingParameters
     { _uspDomainName :: Text
     , _uspScalingParameters :: ScalingParameters
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateScalingParameters' request.

@@ -48,7 +48,7 @@ data DeleteInstance = DeleteInstance
     { _diInstanceId :: Text
     , _diDeleteElasticIp :: Maybe Bool
     , _diDeleteVolumes :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteInstance' request.

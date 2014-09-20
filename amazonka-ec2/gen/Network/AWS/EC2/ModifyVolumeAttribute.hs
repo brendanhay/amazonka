@@ -54,7 +54,7 @@ import Network.AWS.Prelude
 data ModifyVolumeAttribute = ModifyVolumeAttribute
     { _mvaVolumeId :: Text
     , _mvaAutoEnableIO :: Maybe AttributeBooleanValue
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyVolumeAttribute' request.

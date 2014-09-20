@@ -74,7 +74,7 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica
     , _cdbirrPubliclyAccessible :: Maybe Bool
     , _cdbirrTags :: [Tag]
     , _cdbirrDBSubnetGroupName :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBInstanceReadReplica' request.

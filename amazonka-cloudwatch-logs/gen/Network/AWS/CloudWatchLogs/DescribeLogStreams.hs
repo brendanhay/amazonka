@@ -74,7 +74,7 @@ data DescribeLogStreams = DescribeLogStreams
     , _dls1LogStreamNamePrefix :: Maybe Text
     , _dls1NextToken :: Maybe Text
     , _dls1Limit :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLogStreams' request.
@@ -129,7 +129,7 @@ instance ToJSON DescribeLogStreams
 data DescribeLogStreamsResponse = DescribeLogStreamsResponse
     { _dlsrLogStreams :: [LogStream]
     , _dlsrNextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLogStreamsResponse' response.

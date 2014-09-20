@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 data CreateSnapshot = CreateSnapshot
     { _cs1CacheClusterId :: Text
     , _cs1SnapshotName :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSnapshot' request.

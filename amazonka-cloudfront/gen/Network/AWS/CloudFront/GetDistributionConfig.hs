@@ -77,7 +77,7 @@ instance ToXML GetDistributionConfig where
 data GetDistributionConfigResponse = GetDistributionConfigResponse
     { _gdcrDistributionConfig :: Maybe DistributionConfig
     , _gdcrETag :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetDistributionConfigResponse' response.

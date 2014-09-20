@@ -109,7 +109,7 @@ data RunJobFlow = RunJobFlow
     , _rjfJobFlowRole :: Maybe Text
     , _rjfServiceRole :: Maybe Text
     , _rjfTags :: [Tag]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RunJobFlow' request.

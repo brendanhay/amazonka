@@ -56,7 +56,7 @@ data DescribeAutoScalingInstances = DescribeAutoScalingInstances
     { _dasiInstanceIds :: [Text]
     , _dasiMaxRecords :: Maybe Integer
     , _dasiNextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAutoScalingInstances' request.
@@ -100,7 +100,7 @@ instance ToQuery DescribeAutoScalingInstances where
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
     { _dasirAutoScalingInstances :: [AutoScalingInstanceDetails]
     , _dasirNextToken :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAutoScalingInstancesResponse' response.

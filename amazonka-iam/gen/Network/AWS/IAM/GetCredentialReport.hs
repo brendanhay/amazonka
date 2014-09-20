@@ -59,7 +59,7 @@ data GetCredentialReportResponse = GetCredentialReportResponse
     { _gcrrrContent :: Maybe ByteString
     , _gcrrrReportFormat :: Maybe ReportFormatType
     , _gcrrrGeneratedTime :: Maybe ISO8601
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetCredentialReportResponse' response.

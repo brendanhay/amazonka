@@ -71,7 +71,7 @@ import Network.AWS.Request.JSON
 data DeprecateActivityType = DeprecateActivityType
     { _datDomain :: Text
     , _datActivityType :: ActivityType
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeprecateActivityType' request.

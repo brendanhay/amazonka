@@ -80,7 +80,7 @@ data CreateDistributionResponse = CreateDistributionResponse
     { _cdrDistribution :: Maybe Distribution
     , _cdrLocation :: Maybe Text
     , _cdrETag :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDistributionResponse' response.

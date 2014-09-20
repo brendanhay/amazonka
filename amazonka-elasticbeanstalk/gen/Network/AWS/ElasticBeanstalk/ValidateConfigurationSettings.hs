@@ -58,7 +58,7 @@ data ValidateConfigurationSettings = ValidateConfigurationSettings
     , _vcsTemplateName :: Maybe Text
     , _vcsEnvironmentName :: Maybe Text
     , _vcsOptionSettings :: [ConfigurationOptionSetting]
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ValidateConfigurationSettings' request.

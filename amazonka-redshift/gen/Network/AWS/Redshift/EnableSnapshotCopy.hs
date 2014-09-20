@@ -47,7 +47,7 @@ data EnableSnapshotCopy = EnableSnapshotCopy
     { _escClusterIdentifier :: Text
     , _escDestinationRegion :: Text
     , _escRetentionPeriod :: Maybe Integer
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableSnapshotCopy' request.

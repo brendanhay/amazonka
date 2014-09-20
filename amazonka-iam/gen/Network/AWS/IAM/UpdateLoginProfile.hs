@@ -45,7 +45,7 @@ data UpdateLoginProfile = UpdateLoginProfile
     { _ulpUserName :: Text
     , _ulpPassword :: Maybe Text
     , _ulpPasswordResetRequired :: Maybe Bool
-    } deriving (Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateLoginProfile' request.

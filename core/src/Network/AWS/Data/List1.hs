@@ -16,8 +16,12 @@
 module Network.AWS.Data.List1
     ( List1
     , list1
+    , head
+    , length
     , (<|)
+    , map
     , toList
+    , fromList
     , toNonEmpty
     ) where
 
@@ -32,6 +36,7 @@ import           Data.Traversable
 import qualified Data.Vector                     as Vector
 import           Network.AWS.Internal.Data.Query
 import           Network.AWS.Internal.Data.XML
+import           Prelude                         hiding (map)
 
 newtype List1 a = List1 { toNonEmpty :: NonEmpty a }
     deriving
@@ -52,11 +57,24 @@ list1 a = List1 . (:|) a
 
 infixr 5 <|
 
+head :: List1 a -> a
+head = NonEmpty.head . toNonEmpty
+
+length :: List1 a -> Int
+length = NonEmpty.length . toNonEmpty
+
 (<|) :: a -> List1 a -> List1 a
 (<|) x = List1 . (NonEmpty.<|) x . toNonEmpty
 
+map :: (a -> b) -> List1 a -> List1 b
+map f = List1 . NonEmpty.map f . toNonEmpty
+
 toList :: List1 a -> [a]
 toList = NonEmpty.toList . toNonEmpty
+
+fromList :: [a] -> Maybe (List1 a)
+fromList []     = Nothing
+fromList (x:xs) = Just (list1 x xs)
 
 instance ToQuery a => ToQuery (List1 a) where
     toQuery = toQuery . toList

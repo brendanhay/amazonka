@@ -125,7 +125,6 @@ newtype AWST m a = AWST
         , Alternative
         , Monad
         , MonadIO
-        , MonadFix
         , MonadPlus
         , MonadThrow
         , MonadCatch

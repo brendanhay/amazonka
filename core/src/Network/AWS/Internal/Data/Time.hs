@@ -28,14 +28,14 @@ module Network.AWS.Internal.Data.Time
     , POSIX
     ) where
 
-import Data.Function (on)
 import           Control.Applicative
 import           Data.Aeson
-import           Data.Attoparsec.Text        (Parser)
-import qualified Data.Attoparsec.Text        as AText
-import qualified Data.ByteString.Char8       as BS
+import           Data.Attoparsec.Text                 (Parser)
+import qualified Data.Attoparsec.Text                 as AText
+import qualified Data.ByteString.Char8                as BS
+import           Data.Function                        (on)
 import           Data.Tagged
-import qualified Data.Text                   as Text
+import qualified Data.Text                            as Text
 import           Data.Time
 import           Data.Time.Clock.POSIX
 import           Network.AWS.Internal.Data.ByteString

@@ -28,7 +28,7 @@ data {{ data.value.name }}
     | {{ branch.key }} -- ^ {{ branch.value }}
       {% endif %}
     {% endfor %}
-      deriving (Eq, Show, Generic)
+      deriving (Eq, Ord, Show, Generic)
 
 instance Hashable {{ data.value.name }}
 

@@ -22,10 +22,10 @@ data {{ scope.name }} = {{ scope.name }}
   {% endfor %}
 {% endcase %}
 {% if scope.fields | listLength == 0 %}
-    deriving (Eq, Ord, Show, Generic)
+    deriving (Eq, Show, Generic)
 {% else %}
   {% if scope.equality %}
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
   {% else %}
     } deriving (Show, Generic)
   {% endif %}

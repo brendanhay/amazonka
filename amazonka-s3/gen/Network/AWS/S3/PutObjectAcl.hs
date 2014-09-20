@@ -60,7 +60,7 @@ data PutObjectAcl = PutObjectAcl
     , _poaGrantWrite :: Maybe Text
     , _poaGrantWriteACP :: Maybe Text
     , _poaKey :: ObjectKey
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutObjectAcl' request.
@@ -162,7 +162,7 @@ instance ToBody PutObjectAcl where
     toBody = toBody . encodeXML . _poaAccessControlPolicy
 
 data PutObjectAclResponse = PutObjectAclResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutObjectAclResponse' response.

@@ -53,7 +53,7 @@ data ListGroupsForUser = ListGroupsForUser
     { _lgfuUserName :: Text
     , _lgfuMarker :: Maybe Text
     , _lgfuMaxItems :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListGroupsForUser' request.
@@ -100,7 +100,7 @@ data ListGroupsForUserResponse = ListGroupsForUserResponse
     { _lgfurGroups :: [Group]
     , _lgfurIsTruncated :: !Bool
     , _lgfurMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListGroupsForUserResponse' response.

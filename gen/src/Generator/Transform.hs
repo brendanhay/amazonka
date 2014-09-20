@@ -249,10 +249,8 @@ serviceNamespaces :: Service -> [NS]
 serviceNamespaces s = sort $ (s^.svcNs.nsTypes)
     : map _opNamespace (_svcOperations s)
 
-fields :: Bool -> Service -> Shape -> [Field]
-fields rq svc s = case s of
-    SStruct Struct{..} -> map f _sctFields
-    _                  -> []
+fieldsOf :: Bool -> Service -> Shape -> [Field]
+fieldsOf rq svc s = map f (shapesOf s)
   where
     f :: (Text, Shape) -> Field
     f (k, v) =
@@ -260,21 +258,24 @@ fields rq svc s = case s of
             x = if p k then v & cmnRequired.~True else v
          in Field (annOf rq svc x) k (prefixed s k) (x^.common)
 
+shapesOf :: Shape -> [(Text, Shape)]
+shapesOf (SStruct Struct{..}) = _sctFields
+shapesOf _                    = []
+
 prefixed :: HasCommon a => a -> Text -> Text
 prefixed p = accessor . mappend (p^.cmnPrefix) . upperFirst
 
 shapeType :: Bool -> Service -> Shape -> Type'
-shapeType rq svc@Service{..} s = Type
-    { _typShape    = shape
-    , _typAnn      = annOf rq svc shape
-    , _typPayload  = bdy
-    , _typFields   = fs
-    , _typHeaders  = hs
-    }
+shapeType rq svc@Service{..} s = defaultType shape
+    & typAnn      .~ annOf rq svc shape
+    & typPayload  .~ bdy
+    & typFields   .~ fs
+    & typHeaders  .~ hs
+    & typDeriving .~ catMaybes [equality, ordered] <> defaultDeriving
   where
     bdy = listToMaybe $ filter ((== LBody) . view cmnLocation) fs
     hs  = filter ((== LHeader) . view cmnLocation) fs
-    fs  = map (requireField overrides . upd) (fields rq svc shape)
+    fs  = map (requireField overrides . upd) (fieldsOf rq svc shape)
 
     overrides = fromMaybe [] $ Map.lookup (CI.mk name) (svc^.tRequired)
 
@@ -284,6 +285,14 @@ shapeType rq svc@Service{..} s = Type
 
     shape = ignoreFields (svc^.fIgnored) s
     name  = s^.cmnName
+
+    equality
+        | not (any (view cmnStreaming) fs) = Just "Eq"
+        | otherwise = Nothing
+
+    ordered
+        | isJust equality, all (isn't _SMap . snd) (shapesOf s) = Just "Ord"
+        | otherwise = Nothing
 
 annOf :: Bool -> Service -> Shape -> Ann
 annOf rq svc s =

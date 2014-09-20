@@ -46,7 +46,7 @@ import Network.AWS.Types (Region)
 -- | The request to create a new origin access identity.
 newtype CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentity
     { _ccfoaiCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCloudFrontOriginAccessIdentity' request.
@@ -82,7 +82,7 @@ data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccess
     { _ccfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
     , _ccfoairLocation :: Maybe Text
     , _ccfoairETag :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCloudFrontOriginAccessIdentityResponse' response.

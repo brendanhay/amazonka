@@ -47,7 +47,7 @@ import Network.AWS.Request.JSON
 
 newtype StopInstance = StopInstance
     { _si1InstanceId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StopInstance' request.
@@ -75,7 +75,7 @@ instance ToHeaders StopInstance
 instance ToJSON StopInstance
 
 data StopInstanceResponse = StopInstanceResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StopInstanceResponse' response.

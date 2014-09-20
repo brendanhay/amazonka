@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 data AddTags = AddTags
     { _atLoadBalancerNames :: [Text]
     , _atTags :: List1 Tag
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddTags' request.
@@ -86,7 +86,7 @@ instance ToQuery AddTags where
 
 -- | The output for the AddTags action.
 data AddTagsResponse = AddTagsResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddTagsResponse' response.

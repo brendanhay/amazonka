@@ -38,7 +38,7 @@ import Network.AWS.AutoScaling.Types
 import Network.AWS.Prelude
 
 data DescribeLifecycleHookTypes = DescribeLifecycleHookTypes
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLifecycleHookTypes' request.
@@ -50,7 +50,7 @@ instance ToQuery DescribeLifecycleHookTypes where
 
 newtype DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
     { _dlhtrLifecycleHookTypes :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeLifecycleHookTypesResponse' response.

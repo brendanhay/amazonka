@@ -49,7 +49,7 @@ data DescribeVTLDevices = DescribeVTLDevices
     , _dvtldVTLDeviceARNs :: [Text]
     , _dvtldMarker :: Maybe Text
     , _dvtldLimit :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVTLDevices' request.
@@ -100,7 +100,7 @@ data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse
     { _dvtldrGatewayARN :: Maybe Text
     , _dvtldrVTLDevices :: [VTLDevice]
     , _dvtldrMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeVTLDevicesResponse' response.

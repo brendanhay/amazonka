@@ -66,7 +66,7 @@ import Network.AWS.Request.JSON
 -- | The input to the DescribePipelines action.
 newtype DescribePipelines = DescribePipelines
     { _dp1PipelineIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribePipelines' request.
@@ -98,7 +98,7 @@ instance ToJSON DescribePipelines
 -- | Contains the output from the DescribePipelines action.
 newtype DescribePipelinesResponse = DescribePipelinesResponse
     { _dprPipelineDescriptionList :: [PipelineDescription]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribePipelinesResponse' response.

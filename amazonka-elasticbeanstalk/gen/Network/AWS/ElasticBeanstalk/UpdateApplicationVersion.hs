@@ -54,7 +54,7 @@ data UpdateApplicationVersion = UpdateApplicationVersion
     { _uavApplicationName :: Text
     , _uavVersionLabel :: Text
     , _uavDescription :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateApplicationVersion' request.
@@ -98,7 +98,7 @@ instance ToQuery UpdateApplicationVersion where
 -- | Result message wrapping a single description of an application version.
 newtype UpdateApplicationVersionResponse = UpdateApplicationVersionResponse
     { _uavrApplicationVersion :: Maybe ApplicationVersionDescription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateApplicationVersionResponse' response.

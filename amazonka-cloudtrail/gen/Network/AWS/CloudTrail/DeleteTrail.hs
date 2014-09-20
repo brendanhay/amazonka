@@ -41,7 +41,7 @@ import Network.AWS.Request.JSON
 -- | The request that specifies the name of a trail to delete.
 newtype DeleteTrail = DeleteTrail
     { _dtName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteTrail' request.
@@ -71,7 +71,7 @@ instance ToJSON DeleteTrail
 -- | Returns the objects or data listed below if successful. Otherwise, returns
 -- an error.
 data DeleteTrailResponse = DeleteTrailResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteTrailResponse' response.

@@ -44,7 +44,7 @@ import Network.AWS.Request.JSON
 
 newtype DescribeSeverityLevels = DescribeSeverityLevels
     { _dslLanguage :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSeverityLevels' request.
@@ -76,7 +76,7 @@ instance ToJSON DescribeSeverityLevels
 -- operation.
 newtype DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse
     { _dslrSeverityLevels :: [SeverityLevel]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSeverityLevelsResponse' response.

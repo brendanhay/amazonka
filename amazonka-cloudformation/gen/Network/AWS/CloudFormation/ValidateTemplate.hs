@@ -56,7 +56,7 @@ import Network.AWS.Prelude
 data ValidateTemplate = ValidateTemplate
     { _vtTemplateBody :: Maybe Text
     , _vtTemplateURL :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ValidateTemplate' request.
@@ -97,7 +97,7 @@ data ValidateTemplateResponse = ValidateTemplateResponse
     , _vtrDescription :: Maybe Text
     , _vtrCapabilities :: [Capability]
     , _vtrCapabilitiesReason :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ValidateTemplateResponse' response.

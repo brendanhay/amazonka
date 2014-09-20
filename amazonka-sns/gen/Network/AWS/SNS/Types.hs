@@ -290,7 +290,7 @@ xmlOptions = Tagged def
 -- topic's attributes, use GetTopicAttributes.
 newtype Topic = Topic
     { _tTopicArn :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Topic' data type.
@@ -363,7 +363,7 @@ data MessageAttributeValue = MessageAttributeValue
     { _mavDataType :: Text
     , _mavStringValue :: Maybe Text
     , _mavBinaryValue :: Maybe ByteString
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'MessageAttributeValue' data type to populate a request.
@@ -447,7 +447,7 @@ data Subscription = Subscription
     , _sProtocol :: Maybe Text
     , _sEndpoint :: Maybe Text
     , _sTopicArn :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Subscription' data type.

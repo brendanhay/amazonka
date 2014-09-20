@@ -95,7 +95,7 @@ data GetObject = GetObject
     , _goSSECustomerAlgorithm :: Maybe Text
     , _goSSECustomerKey :: Maybe Text
     , _goSSECustomerKeyMD5 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetObject' request.

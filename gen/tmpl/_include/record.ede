@@ -21,12 +21,8 @@ data {{ scope.name }} = {{ scope.name }}
     {% endif %}
   {% endfor %}
 {% endcase %}
-{% if scope.fields | listLength == 0 %}
-    deriving (Eq, Show, Generic)
+{% if scope.fields | listLength > 0 %}
+    } deriving ({{ scope.deriving }})
 {% else %}
-  {% if scope.equality %}
-    } deriving (Eq, Show, Generic)
-  {% else %}
-    } deriving (Show, Generic)
-  {% endif %}
+    deriving ({{ scope.deriving }})
 {% endif %}

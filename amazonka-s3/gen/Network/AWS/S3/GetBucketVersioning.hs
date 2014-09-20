@@ -44,7 +44,7 @@ import Network.AWS.Types (Region)
 
 newtype GetBucketVersioning = GetBucketVersioning
     { _gbvBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketVersioning' request.
@@ -73,7 +73,7 @@ instance ToBody GetBucketVersioning
 data GetBucketVersioningResponse = GetBucketVersioningResponse
     { _gbvrStatus :: Maybe (Switch BucketVersioningStatus)
     , _gbvrMfaDelete :: Maybe (Switch MFADeleteStatus)
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketVersioningResponse' response.

@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 
 newtype GetLoginProfile = GetLoginProfile
     { _glpUserName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetLoginProfile' request.
@@ -72,7 +72,7 @@ instance ToQuery GetLoginProfile where
 -- action.
 newtype GetLoginProfileResponse = GetLoginProfileResponse
     { _glprLoginProfile :: LoginProfile
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetLoginProfileResponse' response.

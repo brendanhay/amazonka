@@ -46,7 +46,7 @@ import Network.AWS.Types (Region)
 data GetInvalidation = GetInvalidation
     { _giDistributionId :: Text
     , _giId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetInvalidation' request.
@@ -87,7 +87,7 @@ instance ToXML GetInvalidation where
 -- | The returned result of the corresponding request.
 newtype GetInvalidationResponse = GetInvalidationResponse
     { _girInvalidation :: Maybe Invalidation
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetInvalidationResponse' response.

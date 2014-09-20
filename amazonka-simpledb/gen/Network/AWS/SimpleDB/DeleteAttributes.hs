@@ -55,7 +55,7 @@ data DeleteAttributes = DeleteAttributes
     , _daItemName :: Text
     , _daAttributes :: [Attribute]
     , _daExpected :: Maybe UpdateCondition
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAttributes' request.
@@ -104,7 +104,7 @@ instance ToQuery DeleteAttributes where
     toQuery = genericQuery def
 
 data DeleteAttributesResponse = DeleteAttributesResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAttributesResponse' response.

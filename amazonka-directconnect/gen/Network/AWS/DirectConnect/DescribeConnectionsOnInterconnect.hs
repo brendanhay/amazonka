@@ -45,7 +45,7 @@ import Network.AWS.Request.JSON
 -- operation.
 newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect
     { _dcoiInterconnectId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeConnectionsOnInterconnect' request.
@@ -77,7 +77,7 @@ instance ToJSON DescribeConnectionsOnInterconnect
 -- | A structure containing a list of connections.
 newtype DescribeConnectionsOnInterconnectResponse = DescribeConnectionsOnInterconnectResponse
     { _dcoirConnections :: [Connection]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeConnectionsOnInterconnectResponse' response.

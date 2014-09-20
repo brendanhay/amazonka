@@ -57,7 +57,7 @@ data DescribeDBSecurityGroups = DescribeDBSecurityGroups
     { _ddbsg2DBSecurityGroupName :: Maybe Text
     , _ddbsg2MaxRecords :: Maybe Integer
     , _ddbsg2Marker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBSecurityGroups' request.
@@ -106,7 +106,7 @@ instance ToQuery DescribeDBSecurityGroups where
 data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse
     { _ddbsgrMarker :: Maybe Text
     , _ddbsgrDBSecurityGroups :: [DBSecurityGroup]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDBSecurityGroupsResponse' response.

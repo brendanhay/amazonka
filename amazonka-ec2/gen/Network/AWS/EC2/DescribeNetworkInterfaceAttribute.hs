@@ -59,7 +59,7 @@ import Network.AWS.Prelude
 data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
     { _dniaNetworkInterfaceId :: Text
     , _dniaAttribute :: Maybe NetworkInterfaceAttribute
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeNetworkInterfaceAttribute' request.
@@ -95,7 +95,7 @@ data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttribu
     , _dniarSourceDestCheck :: Maybe AttributeBooleanValue
     , _dniarGroups :: [GroupIdentifier]
     , _dniarAttachment :: Maybe NetworkInterfaceAttachment
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeNetworkInterfaceAttributeResponse' response.

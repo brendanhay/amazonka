@@ -49,7 +49,7 @@ data UpdateUserProfile = UpdateUserProfile
     , _uupSshUsername :: Maybe Text
     , _uupSshPublicKey :: Maybe Text
     , _uupAllowSelfManagement :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateUserProfile' request.
@@ -104,7 +104,7 @@ instance ToHeaders UpdateUserProfile
 instance ToJSON UpdateUserProfile
 
 data UpdateUserProfileResponse = UpdateUserProfileResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateUserProfileResponse' response.

@@ -68,7 +68,7 @@ data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface
     { _apviConnectionId :: Text
     , _apviOwnerAccount :: Text
     , _apviNewPrivateVirtualInterfaceAllocation :: NewPrivateVirtualInterfaceAllocation
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AllocatePrivateVirtualInterface' request.
@@ -136,7 +136,7 @@ data AllocatePrivateVirtualInterfaceResponse = AllocatePrivateVirtualInterfaceRe
     , _apvirCustomerRouterConfig :: Maybe Text
     , _apvirVirtualGatewayId :: Maybe Text
     , _apvirRouteFilterPrefixes :: [RouteFilterPrefix]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AllocatePrivateVirtualInterfaceResponse' response.

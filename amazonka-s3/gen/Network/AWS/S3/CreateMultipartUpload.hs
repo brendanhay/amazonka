@@ -308,7 +308,7 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse
     , _cmurrServerSideEncryption :: Maybe ServerSideEncryption
     , _cmurrSSECustomerAlgorithm :: Maybe Text
     , _cmurrSSECustomerKeyMD5 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateMultipartUploadResponse' response.

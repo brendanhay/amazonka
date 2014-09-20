@@ -41,7 +41,7 @@ import Network.AWS.Types (Region)
 
 newtype DeleteBucketLifecycle = DeleteBucketLifecycle
     { _dblBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBucketLifecycle' request.
@@ -68,7 +68,7 @@ instance ToHeaders DeleteBucketLifecycle
 instance ToBody DeleteBucketLifecycle
 
 data DeleteBucketLifecycleResponse = DeleteBucketLifecycleResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteBucketLifecycleResponse' response.

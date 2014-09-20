@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 
 newtype DeleteLoginProfile = DeleteLoginProfile
     { _dlpUserName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLoginProfile' request.
@@ -70,7 +70,7 @@ instance ToQuery DeleteLoginProfile where
     toQuery = genericQuery def
 
 data DeleteLoginProfileResponse = DeleteLoginProfileResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteLoginProfileResponse' response.

@@ -43,7 +43,7 @@ import Network.AWS.Request.JSON
 
 newtype StopStack = StopStack
     { _ss2StackId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StopStack' request.
@@ -71,7 +71,7 @@ instance ToHeaders StopStack
 instance ToJSON StopStack
 
 data StopStackResponse = StopStackResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StopStackResponse' response.

@@ -38,7 +38,7 @@ import Network.AWS.CloudSearch.Types
 import Network.AWS.Prelude
 
 data ListDomainNames = ListDomainNames
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDomainNames' request.

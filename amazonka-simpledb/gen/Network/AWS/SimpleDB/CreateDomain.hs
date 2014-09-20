@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 
 newtype CreateDomain = CreateDomain
     { _cdDomainName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDomain' request.
@@ -72,7 +72,7 @@ instance ToQuery CreateDomain where
     toQuery = genericQuery def
 
 data CreateDomainResponse = CreateDomainResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDomainResponse' response.

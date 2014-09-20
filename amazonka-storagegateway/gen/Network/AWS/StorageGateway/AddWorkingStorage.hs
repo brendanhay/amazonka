@@ -65,7 +65,7 @@ import Network.AWS.Request.JSON
 data AddWorkingStorage = AddWorkingStorage
     { _awsGatewayARN :: Text
     , _awsDiskIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddWorkingStorage' request.
@@ -107,7 +107,7 @@ instance ToJSON AddWorkingStorage
 -- configured.
 newtype AddWorkingStorageResponse = AddWorkingStorageResponse
     { _awsrGatewayARN :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddWorkingStorageResponse' response.

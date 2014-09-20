@@ -93,7 +93,7 @@ instance ToJSON GetOpenIdToken
 data GetOpenIdTokenResponse = GetOpenIdTokenResponse
     { _goitrIdentityId :: Maybe Text
     , _goitrToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetOpenIdTokenResponse' response.

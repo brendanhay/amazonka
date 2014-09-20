@@ -65,7 +65,7 @@ import Network.AWS.Prelude
 -- a domain.
 newtype VerifyDomainDkim = VerifyDomainDkim
     { _vddDomain :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'VerifyDomainDkim' request.
@@ -91,7 +91,7 @@ instance ToQuery VerifyDomainDkim where
 -- to complete DKIM setup.
 newtype VerifyDomainDkimResponse = VerifyDomainDkimResponse
     { _vddrDkimTokens :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'VerifyDomainDkimResponse' response.

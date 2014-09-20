@@ -50,7 +50,7 @@ data CreateUserProfile = CreateUserProfile
     , _cupSshUsername :: Maybe Text
     , _cupSshPublicKey :: Maybe Text
     , _cupAllowSelfManagement :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateUserProfile' request.
@@ -107,7 +107,7 @@ instance ToJSON CreateUserProfile
 -- | Contains the response to a CreateUserProfile request.
 newtype CreateUserProfileResponse = CreateUserProfileResponse
     { _cuprIamUserArn :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateUserProfileResponse' response.

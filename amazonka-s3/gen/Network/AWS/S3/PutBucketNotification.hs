@@ -45,7 +45,7 @@ data PutBucketNotification = PutBucketNotification
     { _pbnBucket :: BucketName
     , _pbnContentMD5 :: Maybe Text
     , _pbnNotificationConfiguration :: NotificationConfiguration
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketNotification' request.
@@ -91,7 +91,7 @@ instance ToBody PutBucketNotification where
     toBody = toBody . encodeXML . _pbnNotificationConfiguration
 
 data PutBucketNotificationResponse = PutBucketNotificationResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketNotificationResponse' response.

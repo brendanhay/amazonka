@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 
 newtype RejectVpcPeeringConnection = RejectVpcPeeringConnection
     { _rvpcVpcPeeringConnectionId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RejectVpcPeeringConnection' request.
@@ -78,7 +78,7 @@ instance ToQuery RejectVpcPeeringConnection where
 
 newtype RejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
     { _rvpcrReturn :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RejectVpcPeeringConnectionResponse' response.

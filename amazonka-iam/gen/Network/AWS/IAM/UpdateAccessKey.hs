@@ -54,7 +54,7 @@ data UpdateAccessKey = UpdateAccessKey
     { _uakUserName :: Maybe Text
     , _uakAccessKeyId :: Text
     , _uakStatus :: StatusType
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateAccessKey' request.
@@ -94,7 +94,7 @@ instance ToQuery UpdateAccessKey where
     toQuery = genericQuery def
 
 data UpdateAccessKeyResponse = UpdateAccessKeyResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateAccessKeyResponse' response.

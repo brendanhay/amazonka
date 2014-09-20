@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 -- name for the new search domain.
 newtype CreateDomain = CreateDomain
     { _cdDomainName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDomain' request.
@@ -73,7 +73,7 @@ instance ToQuery CreateDomain where
 -- domain.
 newtype CreateDomainResponse = CreateDomainResponse
     { _cdrDomainStatus :: Maybe DomainStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDomainResponse' response.

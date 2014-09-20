@@ -50,7 +50,7 @@ data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs
     , _secnameSourceEnvironmentName :: Maybe Text
     , _secnameDestinationEnvironmentId :: Maybe Text
     , _secnameDestinationEnvironmentName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SwapEnvironmentCNAMEs' request.
@@ -113,7 +113,7 @@ instance ToQuery SwapEnvironmentCNAMEs where
     toQuery = genericQuery def
 
 data SwapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SwapEnvironmentCNAMEsResponse' response.

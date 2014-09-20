@@ -56,7 +56,7 @@ data PutGroupPolicy = PutGroupPolicy
     { _pgpGroupName :: Text
     , _pgpPolicyName :: Text
     , _pgpPolicyDocument :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutGroupPolicy' request.
@@ -96,7 +96,7 @@ instance ToQuery PutGroupPolicy where
     toQuery = genericQuery def
 
 data PutGroupPolicyResponse = PutGroupPolicyResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutGroupPolicyResponse' response.

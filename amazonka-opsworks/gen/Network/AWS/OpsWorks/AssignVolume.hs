@@ -48,7 +48,7 @@ import Network.AWS.Request.JSON
 data AssignVolume = AssignVolume
     { _avVolumeId :: Text
     , _avInstanceId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssignVolume' request.
@@ -83,7 +83,7 @@ instance ToHeaders AssignVolume
 instance ToJSON AssignVolume
 
 data AssignVolumeResponse = AssignVolumeResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssignVolumeResponse' response.

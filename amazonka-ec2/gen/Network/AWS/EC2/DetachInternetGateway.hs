@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 data DetachInternetGateway = DetachInternetGateway
     { _dig2InternetGatewayId :: Text
     , _dig2VpcId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DetachInternetGateway' request.
@@ -83,7 +83,7 @@ instance ToQuery DetachInternetGateway where
     toQuery = genericQuery def
 
 data DetachInternetGatewayResponse = DetachInternetGatewayResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DetachInternetGatewayResponse' response.

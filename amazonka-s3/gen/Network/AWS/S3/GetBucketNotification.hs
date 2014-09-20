@@ -43,7 +43,7 @@ import Network.AWS.Types (Region)
 
 newtype GetBucketNotification = GetBucketNotification
     { _gbnBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketNotification' request.
@@ -71,7 +71,7 @@ instance ToBody GetBucketNotification
 
 newtype GetBucketNotificationResponse = GetBucketNotificationResponse
     { _gbnrTopicConfiguration :: Maybe TopicConfiguration
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketNotificationResponse' response.

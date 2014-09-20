@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 data ResetSnapshotAttribute = ResetSnapshotAttribute
     { _rsaSnapshotId :: Text
     , _rsaAttribute :: SnapshotAttributeName
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetSnapshotAttribute' request.
@@ -84,7 +84,7 @@ instance ToQuery ResetSnapshotAttribute where
     toQuery = genericQuery def
 
 data ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetSnapshotAttributeResponse' response.

@@ -131,7 +131,7 @@ data SendMessageResponse = SendMessageResponse
     { _smrMD5OfMessageBody :: Maybe Text
     , _smrMD5OfMessageAttributes :: Maybe Text
     , _smrMessageId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SendMessageResponse' response.

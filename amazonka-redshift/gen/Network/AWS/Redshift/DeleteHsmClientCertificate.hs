@@ -41,7 +41,7 @@ import Network.AWS.Prelude
 -- | 
 newtype DeleteHsmClientCertificate = DeleteHsmClientCertificate
     { _dhccHsmClientCertificateIdentifier :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteHsmClientCertificate' request.
@@ -66,7 +66,7 @@ instance ToQuery DeleteHsmClientCertificate where
     toQuery = genericQuery def
 
 data DeleteHsmClientCertificateResponse = DeleteHsmClientCertificateResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteHsmClientCertificateResponse' response.

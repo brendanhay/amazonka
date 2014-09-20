@@ -97,7 +97,7 @@ data StartWorkflowExecution = StartWorkflowExecution
     , _swe1TagList :: [Text]
     , _swe1TaskStartToCloseTimeout :: Maybe Text
     , _swe1ChildPolicy :: Maybe ChildPolicy
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StartWorkflowExecution' request.
@@ -245,7 +245,7 @@ instance ToJSON StartWorkflowExecution
 -- | Specifies the runId of a workflow execution.
 newtype StartWorkflowExecutionResponse = StartWorkflowExecutionResponse
     { _swerRunId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'StartWorkflowExecutionResponse' response.

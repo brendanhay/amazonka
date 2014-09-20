@@ -80,7 +80,7 @@ data SendEmail = SendEmail
     , _seMessage :: Message
     , _seReplyToAddresses :: [Text]
     , _seReturnPath :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SendEmail' request.
@@ -146,7 +146,7 @@ instance ToQuery SendEmail where
 -- request.
 newtype SendEmailResponse = SendEmailResponse
     { _serMessageId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SendEmailResponse' response.

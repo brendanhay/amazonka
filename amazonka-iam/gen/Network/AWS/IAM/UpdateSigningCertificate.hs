@@ -55,7 +55,7 @@ data UpdateSigningCertificate = UpdateSigningCertificate
     { _usc1UserName :: Maybe Text
     , _usc1CertificateId :: Text
     , _usc1Status :: StatusType
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateSigningCertificate' request.
@@ -96,7 +96,7 @@ instance ToQuery UpdateSigningCertificate where
     toQuery = genericQuery def
 
 data UpdateSigningCertificateResponse = UpdateSigningCertificateResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateSigningCertificateResponse' response.

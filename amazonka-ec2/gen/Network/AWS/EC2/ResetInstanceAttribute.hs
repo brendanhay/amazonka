@@ -55,7 +55,7 @@ import Network.AWS.Prelude
 data ResetInstanceAttribute = ResetInstanceAttribute
     { _ria1InstanceId :: Text
     , _ria1Attribute :: InstanceAttributeName
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetInstanceAttribute' request.
@@ -86,7 +86,7 @@ instance ToQuery ResetInstanceAttribute where
     toQuery = genericQuery def
 
 data ResetInstanceAttributeResponse = ResetInstanceAttributeResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetInstanceAttributeResponse' response.

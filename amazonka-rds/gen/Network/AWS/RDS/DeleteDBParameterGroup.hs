@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 -- | 
 newtype DeleteDBParameterGroup = DeleteDBParameterGroup
     { _ddbpgDBParameterGroupName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteDBParameterGroup' request.
@@ -75,7 +75,7 @@ instance ToQuery DeleteDBParameterGroup where
     toQuery = genericQuery def
 
 data DeleteDBParameterGroupResponse = DeleteDBParameterGroupResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteDBParameterGroupResponse' response.

@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 data ExitStandby = ExitStandby
     { _es1InstanceIds :: [Text]
     , _es1AutoScalingGroupName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ExitStandby' request.
@@ -89,7 +89,7 @@ instance ToQuery ExitStandby where
 -- | The output of the ExitStandby action.
 newtype ExitStandbyResponse = ExitStandbyResponse
     { _esrrActivities :: [Activity]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ExitStandbyResponse' response.

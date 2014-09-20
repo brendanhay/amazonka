@@ -72,7 +72,7 @@ import Network.AWS.Prelude
 -- DNS.
 newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes
     { _gidaIdentities :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetIdentityDkimAttributes' request.

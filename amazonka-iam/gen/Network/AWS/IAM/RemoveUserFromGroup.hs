@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 data RemoveUserFromGroup = RemoveUserFromGroup
     { _rufgGroupName :: Text
     , _rufgUserName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveUserFromGroup' request.
@@ -75,7 +75,7 @@ instance ToQuery RemoveUserFromGroup where
     toQuery = genericQuery def
 
 data RemoveUserFromGroupResponse = RemoveUserFromGroupResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveUserFromGroupResponse' response.

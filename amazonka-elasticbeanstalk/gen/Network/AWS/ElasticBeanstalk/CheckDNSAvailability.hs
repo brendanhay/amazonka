@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 -- | Results message indicating whether a CNAME is available.
 newtype CheckDNSAvailability = CheckDNSAvailability
     { _cdnsaCNAMEPrefix :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CheckDNSAvailability' request.
@@ -75,7 +75,7 @@ instance ToQuery CheckDNSAvailability where
 data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse
     { _cdnsarAvailable :: Maybe Bool
     , _cdnsarFullyQualifiedCNAME :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CheckDNSAvailabilityResponse' response.

@@ -94,7 +94,7 @@ data ModifyCluster = ModifyCluster
     , _mcHsmClientCertificateIdentifier :: Maybe Text
     , _mcHsmConfigurationIdentifier :: Maybe Text
     , _mcNewClusterIdentifier :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyCluster' request.
@@ -305,7 +305,7 @@ instance ToQuery ModifyCluster where
 
 newtype ModifyClusterResponse = ModifyClusterResponse
     { _mcrCluster :: Maybe Cluster
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyClusterResponse' response.

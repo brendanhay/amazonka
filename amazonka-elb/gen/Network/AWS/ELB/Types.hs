@@ -548,7 +548,7 @@ xmlOptions = Tagged def
 -- duration. For more information, see Configure Idle Connection Timeout.
 newtype ConnectionSettings = ConnectionSettings
     { _csIdleTimeout :: Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ConnectionSettings' data type to populate a request.
@@ -582,7 +582,7 @@ instance ToQuery ConnectionSettings where
 -- Balancing.
 newtype CrossZoneLoadBalancing = CrossZoneLoadBalancing
     { _czlbEnabled :: Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CrossZoneLoadBalancing' data type to populate a request.
@@ -612,7 +612,7 @@ instance ToQuery CrossZoneLoadBalancing where
 -- | The Instance data type.
 newtype Instance = Instance
     { _iInstanceId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Instance' data type to populate a request.
@@ -640,7 +640,7 @@ instance ToQuery Instance where
 -- | The key of a tag to be removed.
 newtype TagKeyOnly = TagKeyOnly
     { _tkoKey :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TagKeyOnly' data type to populate a request.
@@ -670,7 +670,7 @@ data AccessLog = AccessLog
     , _alS3BucketName :: Maybe Text
     , _alEmitInterval :: Maybe Integer
     , _alS3BucketPrefix :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AccessLog' data type to populate a request.
@@ -725,7 +725,7 @@ instance ToQuery AccessLog where
 data AppCookieStickinessPolicy = AppCookieStickinessPolicy
     { _acspPolicyName :: Maybe Text
     , _acspCookieName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AppCookieStickinessPolicy' data type to populate a request.
@@ -763,7 +763,7 @@ instance ToQuery AppCookieStickinessPolicy where
 data BackendServerDescription = BackendServerDescription
     { _bsdInstancePort :: Maybe Integer
     , _bsdPolicyNames :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'BackendServerDescription' data type to populate a request.
@@ -802,7 +802,7 @@ instance ToQuery BackendServerDescription where
 data ConnectionDraining = ConnectionDraining
     { _cdEnabled :: !Bool
     , _cdTimeout :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ConnectionDraining' data type to populate a request.
@@ -844,7 +844,7 @@ data HealthCheck = HealthCheck
     , _hcTimeout :: !Integer
     , _hcUnhealthyThreshold :: !Integer
     , _hcHealthyThreshold :: !Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'HealthCheck' data type to populate a request.
@@ -926,7 +926,7 @@ data InstanceState = InstanceState
     , _isState :: Maybe Text
     , _isReasonCode :: Maybe Text
     , _isDescription :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceState' data type.
@@ -979,7 +979,7 @@ instance FromXML InstanceState where
 data LBCookieStickinessPolicy = LBCookieStickinessPolicy
     { _lbcspPolicyName :: Maybe Text
     , _lbcspCookieExpirationPeriod :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LBCookieStickinessPolicy' data type to populate a request.
@@ -1023,7 +1023,7 @@ data Listener = Listener
     , _lInstanceProtocol :: Maybe Text
     , _lInstancePort :: !Integer
     , _lSSLCertificateId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Listener' data type to populate a request.
@@ -1101,7 +1101,7 @@ instance ToQuery Listener where
 data ListenerDescription = ListenerDescription
     { _ldListener :: Maybe Listener
     , _ldPolicyNames :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ListenerDescription' data type to populate a request.
@@ -1140,7 +1140,7 @@ data LoadBalancerAttributes = LoadBalancerAttributes
     , _lbaAccessLog :: Maybe AccessLog
     , _lbaConnectionDraining :: Maybe ConnectionDraining
     , _lbaConnectionSettings :: Maybe ConnectionSettings
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LoadBalancerAttributes' data type to populate a request.
@@ -1222,7 +1222,7 @@ data LoadBalancerDescription = LoadBalancerDescription
     , _lbdSecurityGroups :: [Text]
     , _lbdCreatedTime :: Maybe ISO8601
     , _lbdScheme :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LoadBalancerDescription' data type.
@@ -1384,7 +1384,7 @@ data Policies = Policies
     { _pAppCookieStickinessPolicies :: [AppCookieStickinessPolicy]
     , _pLBCookieStickinessPolicies :: [LBCookieStickinessPolicy]
     , _pOtherPolicies :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Policies' data type to populate a request.
@@ -1434,7 +1434,7 @@ instance ToQuery Policies where
 data PolicyAttribute = PolicyAttribute
     { _paAttributeName :: Maybe Text
     , _paAttributeValue :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PolicyAttribute' data type to populate a request.
@@ -1468,7 +1468,7 @@ instance ToQuery PolicyAttribute where
 data PolicyAttributeDescription = PolicyAttributeDescription
     { _padAttributeName :: Maybe Text
     , _padAttributeValue :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PolicyAttributeDescription' data type to populate a request.
@@ -1510,7 +1510,7 @@ data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription
     , _patdDescription :: Maybe Text
     , _patdDefaultValue :: Maybe Text
     , _patdCardinality :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PolicyAttributeTypeDescription' data type to populate a request.
@@ -1574,7 +1574,7 @@ data PolicyDescription = PolicyDescription
     { _pdPolicyName :: Maybe Text
     , _pdPolicyTypeName :: Maybe Text
     , _pdPolicyAttributeDescriptions :: [PolicyAttributeDescription]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PolicyDescription' data type.
@@ -1621,7 +1621,7 @@ data PolicyTypeDescription = PolicyTypeDescription
     { _ptdPolicyTypeName :: Maybe Text
     , _ptdDescription :: Maybe Text
     , _ptdPolicyAttributeTypeDescriptions :: [PolicyAttributeTypeDescription]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PolicyTypeDescription' data type.
@@ -1671,7 +1671,7 @@ instance FromXML PolicyTypeDescription where
 data SourceSecurityGroup = SourceSecurityGroup
     { _ssgOwnerAlias :: Maybe Text
     , _ssgGroupName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SourceSecurityGroup' data type to populate a request.
@@ -1711,7 +1711,7 @@ instance ToQuery SourceSecurityGroup where
 data Tag = Tag
     { _tKey :: Text
     , _tValue :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type to populate a request.
@@ -1748,7 +1748,7 @@ instance ToQuery Tag where
 data TagDescription = TagDescription
     { _tdLoadBalancerName :: Maybe Text
     , _tdTags :: Maybe (List1 Tag)
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TagDescription' data type.

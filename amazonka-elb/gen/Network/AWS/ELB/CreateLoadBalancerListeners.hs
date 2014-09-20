@@ -56,7 +56,7 @@ import Network.AWS.Prelude
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners
     { _clblLoadBalancerName :: Text
     , _clblListeners :: [Listener]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLoadBalancerListeners' request.
@@ -90,7 +90,7 @@ instance ToQuery CreateLoadBalancerListeners where
 
 -- | The output for the CreateLoadBalancerListeners action.
 data CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLoadBalancerListenersResponse' response.

@@ -57,7 +57,7 @@ data CreateDBSubnetGroup = CreateDBSubnetGroup
     , _cdbsg1DBSubnetGroupDescription :: Text
     , _cdbsg1SubnetIds :: [Text]
     , _cdbsg1Tags :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBSubnetGroup' request.
@@ -110,7 +110,7 @@ instance ToQuery CreateDBSubnetGroup where
 
 newtype CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse
     { _cdbsgrrDBSubnetGroup :: Maybe DBSubnetGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBSubnetGroupResponse' response.

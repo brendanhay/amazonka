@@ -61,7 +61,7 @@ data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackend
     { _slbpfbsLoadBalancerName :: Text
     , _slbpfbsInstancePort :: !Integer
     , _slbpfbsPolicyNames :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetLoadBalancerPoliciesForBackendServer' request.
@@ -107,7 +107,7 @@ instance ToQuery SetLoadBalancerPoliciesForBackendServer where
 
 -- | The output for the SetLoadBalancerPoliciesForBackendServer action.
 data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetLoadBalancerPoliciesForBackendServerResponse' response.

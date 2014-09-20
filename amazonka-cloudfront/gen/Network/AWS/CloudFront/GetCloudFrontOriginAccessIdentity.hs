@@ -45,7 +45,7 @@ import Network.AWS.Types (Region)
 -- | The request to get an origin access identity's information.
 newtype GetCloudFrontOriginAccessIdentity = GetCloudFrontOriginAccessIdentity
     { _gcfoaiId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetCloudFrontOriginAccessIdentity' request.
@@ -78,7 +78,7 @@ instance ToXML GetCloudFrontOriginAccessIdentity where
 data GetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdentityResponse
     { _gcfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
     , _gcfoairETag :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetCloudFrontOriginAccessIdentityResponse' response.

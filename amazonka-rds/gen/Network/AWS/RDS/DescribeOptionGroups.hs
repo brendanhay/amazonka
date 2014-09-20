@@ -58,7 +58,7 @@ data DescribeOptionGroups = DescribeOptionGroups
     , _dog1MaxRecords :: Maybe Integer
     , _dog1EngineName :: Maybe Text
     , _dog1MajorEngineVersion :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeOptionGroups' request.
@@ -122,7 +122,7 @@ instance ToQuery DescribeOptionGroups where
 data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse
     { _dogrOptionGroupsList :: [OptionGroup]
     , _dogrMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeOptionGroupsResponse' response.

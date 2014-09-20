@@ -89,7 +89,7 @@ import Network.AWS.Prelude
 data UploadSigningCertificate = UploadSigningCertificate
     { _usc3UserName :: Maybe Text
     , _usc3CertificateBody :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UploadSigningCertificate' request.
@@ -123,7 +123,7 @@ instance ToQuery UploadSigningCertificate where
 -- UploadSigningCertificate action.
 newtype UploadSigningCertificateResponse = UploadSigningCertificateResponse
     { _uscrrCertificate :: SigningCertificate
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UploadSigningCertificateResponse' response.

@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 
 newtype DeleteCustomerGateway = DeleteCustomerGateway
     { _dcgCustomerGatewayId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCustomerGateway' request.
@@ -72,7 +72,7 @@ instance ToQuery DeleteCustomerGateway where
     toQuery = genericQuery def
 
 data DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCustomerGatewayResponse' response.

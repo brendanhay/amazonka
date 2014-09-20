@@ -82,7 +82,7 @@ data AssociateAddress = AssociateAddress
     , _aa1NetworkInterfaceId :: Maybe Text
     , _aa1PrivateIpAddress :: Maybe Text
     , _aa1AllowReassociation :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssociateAddress' request.
@@ -150,7 +150,7 @@ instance ToQuery AssociateAddress where
 
 newtype AssociateAddressResponse = AssociateAddressResponse
     { _aarrAssociationId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AssociateAddressResponse' response.

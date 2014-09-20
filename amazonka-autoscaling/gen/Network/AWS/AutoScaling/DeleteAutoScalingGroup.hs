@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 data DeleteAutoScalingGroup = DeleteAutoScalingGroup
     { _dasgAutoScalingGroupName :: Text
     , _dasgForceDelete :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAutoScalingGroup' request.
@@ -84,7 +84,7 @@ instance ToQuery DeleteAutoScalingGroup where
     toQuery = genericQuery def
 
 data DeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteAutoScalingGroupResponse' response.

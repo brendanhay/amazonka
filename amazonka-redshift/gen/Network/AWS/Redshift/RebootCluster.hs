@@ -58,7 +58,7 @@ import Network.AWS.Prelude
 -- | 
 newtype RebootCluster = RebootCluster
     { _rc1ClusterIdentifier :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RebootCluster' request.
@@ -83,7 +83,7 @@ instance ToQuery RebootCluster where
 
 newtype RebootClusterResponse = RebootClusterResponse
     { _rcrCluster :: Maybe Cluster
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RebootClusterResponse' response.

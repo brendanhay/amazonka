@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 data AddUserToGroup = AddUserToGroup
     { _autgGroupName :: Text
     , _autgUserName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddUserToGroup' request.
@@ -75,7 +75,7 @@ instance ToQuery AddUserToGroup where
     toQuery = genericQuery def
 
 data AddUserToGroupResponse = AddUserToGroupResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddUserToGroupResponse' response.

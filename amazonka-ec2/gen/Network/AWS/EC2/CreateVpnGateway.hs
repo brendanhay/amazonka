@@ -58,7 +58,7 @@ import Network.AWS.Prelude
 data CreateVpnGateway = CreateVpnGateway
     { _cvgType :: GatewayType
     , _cvgAvailabilityZone :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVpnGateway' request.
@@ -90,7 +90,7 @@ instance ToQuery CreateVpnGateway where
 
 newtype CreateVpnGatewayResponse = CreateVpnGatewayResponse
     { _cvgrVpnGateway :: Maybe VpnGateway
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateVpnGatewayResponse' response.

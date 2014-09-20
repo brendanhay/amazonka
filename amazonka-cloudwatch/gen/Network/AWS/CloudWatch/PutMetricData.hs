@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 data PutMetricData = PutMetricData
     { _pmdNamespace :: Text
     , _pmdMetricData :: [MetricDatum]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutMetricData' request.
@@ -83,7 +83,7 @@ instance ToQuery PutMetricData where
     toQuery = genericQuery def
 
 data PutMetricDataResponse = PutMetricDataResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutMetricDataResponse' response.

@@ -61,7 +61,7 @@ import Network.AWS.Prelude
 -- | Input for GetPlatformApplicationAttributes action.
 newtype GetPlatformApplicationAttributes = GetPlatformApplicationAttributes
     { _gpaaPlatformApplicationArn :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetPlatformApplicationAttributes' request.

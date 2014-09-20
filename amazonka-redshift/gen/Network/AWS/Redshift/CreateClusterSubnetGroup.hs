@@ -60,7 +60,7 @@ data CreateClusterSubnetGroup = CreateClusterSubnetGroup
     { _ccsg1ClusterSubnetGroupName :: Text
     , _ccsg1Description :: Text
     , _ccsg1SubnetIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateClusterSubnetGroup' request.
@@ -107,7 +107,7 @@ instance ToQuery CreateClusterSubnetGroup where
 
 newtype CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse
     { _ccsgrrClusterSubnetGroup :: Maybe ClusterSubnetGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateClusterSubnetGroupResponse' response.

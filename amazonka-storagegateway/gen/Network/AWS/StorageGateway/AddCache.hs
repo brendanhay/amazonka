@@ -63,7 +63,7 @@ import Network.AWS.Request.JSON
 data AddCache = AddCache
     { _acGatewayARN :: Text
     , _acDiskIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddCache' request.
@@ -100,7 +100,7 @@ instance ToJSON AddCache
 
 newtype AddCacheResponse = AddCacheResponse
     { _acrGatewayARN :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AddCacheResponse' response.

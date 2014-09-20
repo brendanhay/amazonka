@@ -59,7 +59,7 @@ import Network.AWS.Prelude
 data ReleaseAddress = ReleaseAddress
     { _raPublicIp :: Maybe Text
     , _raAllocationId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReleaseAddress' request.
@@ -88,7 +88,7 @@ instance ToQuery ReleaseAddress where
     toQuery = genericQuery def
 
 data ReleaseAddressResponse = ReleaseAddressResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReleaseAddressResponse' response.

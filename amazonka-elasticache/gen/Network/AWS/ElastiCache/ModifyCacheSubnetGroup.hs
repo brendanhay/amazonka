@@ -55,7 +55,7 @@ data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup
     { _mcsgCacheSubnetGroupName :: Text
     , _mcsgCacheSubnetGroupDescription :: Maybe Text
     , _mcsgSubnetIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyCacheSubnetGroup' request.
@@ -99,7 +99,7 @@ instance ToQuery ModifyCacheSubnetGroup where
 
 newtype ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse
     { _mcsgrCacheSubnetGroup :: Maybe CacheSubnetGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyCacheSubnetGroupResponse' response.

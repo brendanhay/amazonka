@@ -45,7 +45,7 @@ import Network.AWS.Types (Region)
 -- | The request to get a streaming distribution's information.
 newtype GetStreamingDistribution = GetStreamingDistribution
     { _gsdId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetStreamingDistribution' request.
@@ -78,7 +78,7 @@ instance ToXML GetStreamingDistribution where
 data GetStreamingDistributionResponse = GetStreamingDistributionResponse
     { _gsdrStreamingDistribution :: Maybe StreamingDistribution
     , _gsdrETag :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetStreamingDistributionResponse' response.

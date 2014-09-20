@@ -49,7 +49,7 @@ data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity
     { _ucfoaiCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
     , _ucfoaiId :: Text
     , _ucfoaiIfMatch :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateCloudFrontOriginAccessIdentity' request.
@@ -103,7 +103,7 @@ instance ToXML UpdateCloudFrontOriginAccessIdentity where
 data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse
     { _ucfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
     , _ucfoairETag :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateCloudFrontOriginAccessIdentityResponse' response.

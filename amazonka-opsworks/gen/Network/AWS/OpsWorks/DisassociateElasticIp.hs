@@ -45,7 +45,7 @@ import Network.AWS.Request.JSON
 
 newtype DisassociateElasticIp = DisassociateElasticIp
     { _dei2ElasticIp :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisassociateElasticIp' request.
@@ -73,7 +73,7 @@ instance ToHeaders DisassociateElasticIp
 instance ToJSON DisassociateElasticIp
 
 data DisassociateElasticIpResponse = DisassociateElasticIpResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisassociateElasticIpResponse' response.

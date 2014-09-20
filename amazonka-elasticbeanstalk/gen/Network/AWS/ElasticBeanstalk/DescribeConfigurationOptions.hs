@@ -126,7 +126,7 @@ data DescribeConfigurationOptions = DescribeConfigurationOptions
     , _dcoEnvironmentName :: Maybe Text
     , _dcoSolutionStackName :: Maybe Text
     , _dcoOptions :: [OptionSpecification]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeConfigurationOptions' request.
@@ -187,7 +187,7 @@ instance ToQuery DescribeConfigurationOptions where
 data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
     { _dcorSolutionStackName :: Maybe Text
     , _dcorOptions :: [ConfigurationOptionDescription]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeConfigurationOptionsResponse' response.

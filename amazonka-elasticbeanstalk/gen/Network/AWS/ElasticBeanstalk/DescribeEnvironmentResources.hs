@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 data DescribeEnvironmentResources = DescribeEnvironmentResources
     { _derEnvironmentId :: Maybe Text
     , _derEnvironmentName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEnvironmentResources' request.
@@ -91,7 +91,7 @@ instance ToQuery DescribeEnvironmentResources where
 -- | Result message containing a list of environment resource descriptions.
 newtype DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
     { _derrEnvironmentResources :: Maybe EnvironmentResourceDescription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEnvironmentResourcesResponse' response.

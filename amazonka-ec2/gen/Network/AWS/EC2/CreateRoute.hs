@@ -77,7 +77,7 @@ data CreateRoute = CreateRoute
     , _crInstanceId :: Maybe Text
     , _crNetworkInterfaceId :: Maybe Text
     , _crVpcPeeringConnectionId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateRoute' request.
@@ -142,7 +142,7 @@ instance ToQuery CreateRoute where
     toQuery = genericQuery def
 
 data CreateRouteResponse = CreateRouteResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateRouteResponse' response.

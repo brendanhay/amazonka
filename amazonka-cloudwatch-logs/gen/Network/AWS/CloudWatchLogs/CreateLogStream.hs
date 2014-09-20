@@ -56,7 +56,7 @@ import Network.AWS.Request.JSON
 data CreateLogStream = CreateLogStream
     { _clsLogGroupName :: Text
     , _clsLogStreamName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLogStream' request.
@@ -91,7 +91,7 @@ instance ToHeaders CreateLogStream
 instance ToJSON CreateLogStream
 
 data CreateLogStreamResponse = CreateLogStreamResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateLogStreamResponse' response.

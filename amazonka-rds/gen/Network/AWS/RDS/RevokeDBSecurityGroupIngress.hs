@@ -60,7 +60,7 @@ data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress
     , _rdbsgiEC2SecurityGroupName :: Maybe Text
     , _rdbsgiEC2SecurityGroupId :: Maybe Text
     , _rdbsgiEC2SecurityGroupOwnerId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RevokeDBSecurityGroupIngress' request.
@@ -132,7 +132,7 @@ instance ToQuery RevokeDBSecurityGroupIngress where
 
 newtype RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse
     { _rdbsgirDBSecurityGroup :: Maybe DBSecurityGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RevokeDBSecurityGroupIngressResponse' response.

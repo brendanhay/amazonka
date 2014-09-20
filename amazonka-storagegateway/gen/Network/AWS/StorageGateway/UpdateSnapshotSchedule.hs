@@ -72,7 +72,7 @@ data UpdateSnapshotSchedule = UpdateSnapshotSchedule
     , _ussStartAt :: !Integer
     , _ussRecurrenceInHours :: !Integer
     , _ussDescription :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateSnapshotSchedule' request.
@@ -130,7 +130,7 @@ instance ToJSON UpdateSnapshotSchedule
 -- | A JSON object containing the of the updated storage volume.
 newtype UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse
     { _ussrVolumeARN :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateSnapshotScheduleResponse' response.

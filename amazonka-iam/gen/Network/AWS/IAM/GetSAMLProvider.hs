@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 
 newtype GetSAMLProvider = GetSAMLProvider
     { _gsamlpSAMLProviderArn :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetSAMLProvider' request.
@@ -79,7 +79,7 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse
     { _gsamlprSAMLMetadataDocument :: Maybe Text
     , _gsamlprCreateDate :: Maybe ISO8601
     , _gsamlprValidUntil :: Maybe ISO8601
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetSAMLProviderResponse' response.

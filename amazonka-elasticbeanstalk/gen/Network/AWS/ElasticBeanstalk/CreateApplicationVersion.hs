@@ -62,7 +62,7 @@ data CreateApplicationVersion = CreateApplicationVersion
     , _cavDescription :: Maybe Text
     , _cavSourceBundle :: Maybe S3Location
     , _cavAutoCreateApplication :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateApplicationVersion' request.
@@ -137,7 +137,7 @@ instance ToQuery CreateApplicationVersion where
 -- | Result message wrapping a single description of an application version.
 newtype CreateApplicationVersionResponse = CreateApplicationVersionResponse
     { _cavrApplicationVersion :: Maybe ApplicationVersionDescription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateApplicationVersionResponse' response.

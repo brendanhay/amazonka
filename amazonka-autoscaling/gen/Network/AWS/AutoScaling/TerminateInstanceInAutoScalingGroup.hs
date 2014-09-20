@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup
     { _tiiasgInstanceId :: Text
     , _tiiasgShouldDecrementDesiredCapacity :: !Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TerminateInstanceInAutoScalingGroup' request.
@@ -84,7 +84,7 @@ instance ToQuery TerminateInstanceInAutoScalingGroup where
 -- | The output for the TerminateInstanceInAutoScalingGroup action.
 newtype TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse
     { _tiiasgrActivity :: Maybe Activity
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TerminateInstanceInAutoScalingGroupResponse' response.

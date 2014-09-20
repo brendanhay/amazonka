@@ -47,7 +47,7 @@ data UpdateRdsDbInstance = UpdateRdsDbInstance
     { _urdiRdsDbInstanceArn :: Text
     , _urdiDbUser :: Maybe Text
     , _urdiDbPassword :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateRdsDbInstance' request.
@@ -90,7 +90,7 @@ instance ToHeaders UpdateRdsDbInstance
 instance ToJSON UpdateRdsDbInstance
 
 data UpdateRdsDbInstanceResponse = UpdateRdsDbInstanceResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateRdsDbInstanceResponse' response.

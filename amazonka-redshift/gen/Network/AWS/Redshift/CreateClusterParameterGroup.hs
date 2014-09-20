@@ -63,7 +63,7 @@ data CreateClusterParameterGroup = CreateClusterParameterGroup
     { _ccpgParameterGroupName :: Text
     , _ccpgParameterGroupFamily :: Text
     , _ccpgDescription :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateClusterParameterGroup' request.
@@ -117,7 +117,7 @@ instance ToQuery CreateClusterParameterGroup where
 
 newtype CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse
     { _ccpgrClusterParameterGroup :: Maybe ClusterParameterGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateClusterParameterGroupResponse' response.

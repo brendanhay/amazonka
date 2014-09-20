@@ -74,7 +74,7 @@ import Network.AWS.Request.JSON
 data CreateSnapshot = CreateSnapshot
     { _csVolumeARN :: Text
     , _csSnapshotDescription :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSnapshot' request.
@@ -117,7 +117,7 @@ instance ToJSON CreateSnapshot
 data CreateSnapshotResponse = CreateSnapshotResponse
     { _csrVolumeARN :: Maybe Text
     , _csrSnapshotId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSnapshotResponse' response.

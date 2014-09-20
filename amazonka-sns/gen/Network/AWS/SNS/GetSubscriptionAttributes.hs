@@ -61,7 +61,7 @@ import Network.AWS.Prelude
 -- | Input for GetSubscriptionAttributes.
 newtype GetSubscriptionAttributes = GetSubscriptionAttributes
     { _gsaSubscriptionArn :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetSubscriptionAttributes' request.

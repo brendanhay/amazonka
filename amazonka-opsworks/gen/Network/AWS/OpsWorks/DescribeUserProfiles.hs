@@ -44,7 +44,7 @@ import Network.AWS.Request.JSON
 
 newtype DescribeUserProfiles = DescribeUserProfiles
     { _dup1IamUserArns :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeUserProfiles' request.
@@ -73,7 +73,7 @@ instance ToJSON DescribeUserProfiles
 -- | Contains the response to a DescribeUserProfiles request.
 newtype DescribeUserProfilesResponse = DescribeUserProfilesResponse
     { _duprUserProfiles :: [UserProfile]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeUserProfilesResponse' response.

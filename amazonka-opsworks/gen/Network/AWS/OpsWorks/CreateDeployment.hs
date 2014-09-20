@@ -59,7 +59,7 @@ data CreateDeployment = CreateDeployment
     , _cdCommand :: DeploymentCommand
     , _cdComment :: Maybe Text
     , _cdCustomJson :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDeployment' request.
@@ -131,7 +131,7 @@ instance ToJSON CreateDeployment
 -- | Contains the response to a CreateDeployment request.
 newtype CreateDeploymentResponse = CreateDeploymentResponse
     { _cdrDeploymentId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDeploymentResponse' response.

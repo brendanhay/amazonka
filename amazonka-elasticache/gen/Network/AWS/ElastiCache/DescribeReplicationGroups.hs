@@ -59,7 +59,7 @@ data DescribeReplicationGroups = DescribeReplicationGroups
     { _drg1ReplicationGroupId :: Maybe Text
     , _drg1MaxRecords :: Maybe Integer
     , _drg1Marker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReplicationGroups' request.
@@ -107,7 +107,7 @@ instance ToQuery DescribeReplicationGroups where
 data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse
     { _drgrrMarker :: Maybe Text
     , _drgrrReplicationGroups :: [ReplicationGroup]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReplicationGroupsResponse' response.

@@ -64,7 +64,7 @@ data ListRoles = ListRoles
     { _lrPathPrefix :: Maybe Text
     , _lrMarker :: Maybe Text
     , _lrMaxItems :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListRoles' request.
@@ -114,7 +114,7 @@ data ListRolesResponse = ListRolesResponse
     { _lrrRoles :: [Role]
     , _lrrIsTruncated :: !Bool
     , _lrrMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListRolesResponse' response.

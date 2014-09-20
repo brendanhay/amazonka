@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 
 newtype DeleteNetworkInterface = DeleteNetworkInterface
     { _dniNetworkInterfaceId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteNetworkInterface' request.
@@ -72,7 +72,7 @@ instance ToQuery DeleteNetworkInterface where
     toQuery = genericQuery def
 
 data DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteNetworkInterfaceResponse' response.

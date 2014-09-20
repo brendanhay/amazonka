@@ -67,7 +67,7 @@ data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters
     { _ddcpParameterGroupFamily :: Text
     , _ddcpMaxRecords :: Maybe Integer
     , _ddcpMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDefaultClusterParameters' request.
@@ -116,7 +116,7 @@ instance ToQuery DescribeDefaultClusterParameters where
 
 newtype DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse
     { _ddcprDefaultClusterParameters :: DefaultClusterParameters
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeDefaultClusterParametersResponse' response.

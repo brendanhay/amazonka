@@ -46,7 +46,7 @@ import Network.AWS.Request.JSON
 -- | Container for the parameters to the ConfirmConnection operation.
 newtype ConfirmConnection = ConfirmConnection
     { _ccConnectionId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ConfirmConnection' request.
@@ -76,7 +76,7 @@ instance ToJSON ConfirmConnection
 -- | The response received when ConfirmConnection is called.
 newtype ConfirmConnectionResponse = ConfirmConnectionResponse
     { _ccrConnectionState :: Maybe ConnectionState
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ConfirmConnectionResponse' response.

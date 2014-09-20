@@ -50,7 +50,7 @@ data DescribeInstances = DescribeInstances
     { _di1StackId :: Maybe Text
     , _di1LayerId :: Maybe Text
     , _di1InstanceIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInstances' request.
@@ -97,7 +97,7 @@ instance ToJSON DescribeInstances
 -- | Contains the response to a DescribeInstances request.
 newtype DescribeInstancesResponse = DescribeInstancesResponse
     { _dirInstances :: [Instance]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeInstancesResponse' response.

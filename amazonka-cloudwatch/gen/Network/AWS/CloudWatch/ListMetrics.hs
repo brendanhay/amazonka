@@ -55,7 +55,7 @@ data ListMetrics = ListMetrics
     , _lmMetricName :: Maybe Text
     , _lmDimensions :: [DimensionFilter]
     , _lmNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListMetrics' request.
@@ -102,7 +102,7 @@ instance ToQuery ListMetrics where
 data ListMetricsResponse = ListMetricsResponse
     { _lmrMetrics :: [Metric]
     , _lmrNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListMetricsResponse' response.

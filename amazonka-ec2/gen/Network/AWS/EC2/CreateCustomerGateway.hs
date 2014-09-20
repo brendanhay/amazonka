@@ -72,7 +72,7 @@ data CreateCustomerGateway = CreateCustomerGateway
     { _ccgType :: GatewayType
     , _ccgPublicIp :: Text
     , _ccgBgpAsn :: !Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCustomerGateway' request.
@@ -114,7 +114,7 @@ instance ToQuery CreateCustomerGateway where
 
 newtype CreateCustomerGatewayResponse = CreateCustomerGatewayResponse
     { _ccgrCustomerGateway :: Maybe CustomerGateway
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCustomerGatewayResponse' response.

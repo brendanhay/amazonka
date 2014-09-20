@@ -46,7 +46,7 @@ import Network.AWS.Types (Region)
 data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
     { _lcfoaiMarker :: Maybe Text
     , _lcfoaiMaxItems :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListCloudFrontOriginAccessIdentities' request.
@@ -89,7 +89,7 @@ instance ToXML ListCloudFrontOriginAccessIdentities where
 -- | The returned result of the corresponding request.
 newtype ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse
     { _lcfoairCloudFrontOriginAccessIdentityList :: CloudFrontOriginAccessIdentityList
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListCloudFrontOriginAccessIdentitiesResponse' response.

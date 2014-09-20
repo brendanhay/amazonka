@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 
 newtype CancelExportTask = CancelExportTask
     { _cetExportTaskId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelExportTask' request.
@@ -71,7 +71,7 @@ instance ToQuery CancelExportTask where
     toQuery = genericQuery def
 
 data CancelExportTaskResponse = CancelExportTaskResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelExportTaskResponse' response.

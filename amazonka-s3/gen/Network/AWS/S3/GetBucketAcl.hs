@@ -44,7 +44,7 @@ import Network.AWS.Types (Region)
 
 newtype GetBucketAcl = GetBucketAcl
     { _gbaBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketAcl' request.
@@ -73,7 +73,7 @@ instance ToBody GetBucketAcl
 data GetBucketAclResponse = GetBucketAclResponse
     { _gbarOwner :: Maybe Owner
     , _gbarGrants :: [Grant]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketAclResponse' response.

@@ -103,7 +103,7 @@ data DescribeJobFlows = DescribeJobFlows
     , _djfCreatedBefore :: Maybe POSIX
     , _djfJobFlowIds :: [Text]
     , _djfJobFlowStates :: [JobFlowExecutionState]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeJobFlows' request.
@@ -155,7 +155,7 @@ instance ToJSON DescribeJobFlows
 -- | The output for the DescribeJobFlows operation.
 newtype DescribeJobFlowsResponse = DescribeJobFlowsResponse
     { _djfrJobFlows :: [JobFlowDetail]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeJobFlowsResponse' response.

@@ -56,7 +56,7 @@ import Network.AWS.Prelude
 
 newtype DeleteQueue = DeleteQueue
     { _dqQueueUrl :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteQueue' request.
@@ -79,7 +79,7 @@ instance ToQuery DeleteQueue where
     toQuery = genericQuery def
 
 data DeleteQueueResponse = DeleteQueueResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteQueueResponse' response.

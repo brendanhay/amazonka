@@ -59,7 +59,7 @@ data DescribeReservedNodes = DescribeReservedNodes
     { _drnReservedNodeId :: Maybe Text
     , _drnMaxRecords :: Maybe Integer
     , _drnMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedNodes' request.
@@ -108,7 +108,7 @@ instance ToQuery DescribeReservedNodes where
 data DescribeReservedNodesResponse = DescribeReservedNodesResponse
     { _drnrMarker :: Maybe Text
     , _drnrReservedNodes :: [ReservedNode]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedNodesResponse' response.

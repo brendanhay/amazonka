@@ -46,7 +46,7 @@ import Network.AWS.IAM.Types
 import Network.AWS.Prelude
 
 data GetAccountSummary = GetAccountSummary
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetAccountSummary' request.

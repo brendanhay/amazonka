@@ -47,7 +47,7 @@ data PutBucketLogging = PutBucketLogging
     { _pbl1Bucket :: BucketName
     , _pbl1BucketLoggingStatus :: BucketLoggingStatus
     , _pbl1ContentMD5 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketLogging' request.
@@ -93,7 +93,7 @@ instance ToBody PutBucketLogging where
     toBody = toBody . encodeXML . _pbl1BucketLoggingStatus
 
 data PutBucketLoggingResponse = PutBucketLoggingResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketLoggingResponse' response.

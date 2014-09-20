@@ -113,7 +113,7 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     , _drioMinDuration :: Maybe Integer
     , _drioMaxDuration :: Maybe Integer
     , _drioMaxInstanceCount :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedInstancesOfferings' request.
@@ -247,7 +247,7 @@ instance ToQuery DescribeReservedInstancesOfferings where
 data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
     { _driorReservedInstancesOfferings :: [ReservedInstancesOffering]
     , _driorNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedInstancesOfferingsResponse' response.

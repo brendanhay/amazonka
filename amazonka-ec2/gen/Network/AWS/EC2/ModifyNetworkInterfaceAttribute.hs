@@ -57,7 +57,7 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
     , _mniaSourceDestCheck :: Maybe AttributeBooleanValue
     , _mniaGroups :: [Text]
     , _mniaAttachment :: Maybe NetworkInterfaceAttachmentChanges
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyNetworkInterfaceAttribute' request.
@@ -116,7 +116,7 @@ instance ToQuery ModifyNetworkInterfaceAttribute where
     toQuery = genericQuery def
 
 data ModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyNetworkInterfaceAttributeResponse' response.

@@ -49,7 +49,7 @@ data RegisterRdsDbInstance = RegisterRdsDbInstance
     , _rrdiRdsDbInstanceArn :: Text
     , _rrdiDbUser :: Text
     , _rrdiDbPassword :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterRdsDbInstance' request.
@@ -102,7 +102,7 @@ instance ToHeaders RegisterRdsDbInstance
 instance ToJSON RegisterRdsDbInstance
 
 data RegisterRdsDbInstanceResponse = RegisterRdsDbInstanceResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterRdsDbInstanceResponse' response.

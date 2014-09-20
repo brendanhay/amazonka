@@ -80,7 +80,7 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup
     , _casgVPCZoneIdentifier :: Maybe Text
     , _casgTerminationPolicies :: [Text]
     , _casgTags :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateAutoScalingGroup' request.
@@ -264,7 +264,7 @@ instance ToQuery CreateAutoScalingGroup where
     toQuery = genericQuery def
 
 data CreateAutoScalingGroupResponse = CreateAutoScalingGroupResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateAutoScalingGroupResponse' response.

@@ -185,7 +185,7 @@ data UploadPartResponse = UploadPartResponse
     , _uprETag :: Maybe ETag
     , _uprSSECustomerAlgorithm :: Maybe Text
     , _uprSSECustomerKeyMD5 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UploadPartResponse' response.

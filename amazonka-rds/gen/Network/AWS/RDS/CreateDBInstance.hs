@@ -102,7 +102,7 @@ data CreateDBInstance = CreateDBInstance
     , _cdbiCharacterSetName :: Maybe Text
     , _cdbiPubliclyAccessible :: Maybe Bool
     , _cdbiTags :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBInstance' request.
@@ -407,7 +407,7 @@ instance ToQuery CreateDBInstance where
 
 newtype CreateDBInstanceResponse = CreateDBInstanceResponse
     { _cdbirDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBInstanceResponse' response.

@@ -62,7 +62,7 @@ import Network.AWS.Request.JSON
 
 newtype DeleteSnapshotSchedule = DeleteSnapshotSchedule
     { _dssVolumeARN :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSnapshotSchedule' request.
@@ -90,7 +90,7 @@ instance ToJSON DeleteSnapshotSchedule
 
 newtype DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse
     { _dssrVolumeARN :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSnapshotScheduleResponse' response.

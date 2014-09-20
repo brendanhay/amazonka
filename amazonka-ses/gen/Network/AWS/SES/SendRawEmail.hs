@@ -91,7 +91,7 @@ data SendRawEmail = SendRawEmail
     { _sreSource :: Maybe Text
     , _sreDestinations :: [Text]
     , _sreRawMessage :: RawMessage
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SendRawEmail' request.
@@ -145,7 +145,7 @@ instance ToQuery SendRawEmail where
 -- request.
 newtype SendRawEmailResponse = SendRawEmailResponse
     { _srerMessageId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SendRawEmailResponse' response.

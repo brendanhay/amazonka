@@ -53,7 +53,7 @@ import Network.AWS.Request.JSON
 -- | The DeletePresetRequest structure.
 newtype DeletePreset = DeletePreset
     { _dp1Id :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeletePreset' request.
@@ -83,7 +83,7 @@ instance ToJSON DeletePreset
 
 -- | The DeletePresetResponse structure.
 data DeletePresetResponse = DeletePresetResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeletePresetResponse' response.

@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 data EnableVgwRoutePropagation = EnableVgwRoutePropagation
     { _evrpRouteTableId :: Text
     , _evrpGatewayId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableVgwRoutePropagation' request.
@@ -82,7 +82,7 @@ instance ToQuery EnableVgwRoutePropagation where
     toQuery = genericQuery def
 
 data EnableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'EnableVgwRoutePropagationResponse' response.

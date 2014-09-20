@@ -92,7 +92,7 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup
     , _uasgPlacementGroup :: Maybe Text
     , _uasgVPCZoneIdentifier :: Maybe Text
     , _uasgTerminationPolicies :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateAutoScalingGroup' request.
@@ -224,7 +224,7 @@ instance ToQuery UpdateAutoScalingGroup where
     toQuery = genericQuery def
 
 data UpdateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateAutoScalingGroupResponse' response.

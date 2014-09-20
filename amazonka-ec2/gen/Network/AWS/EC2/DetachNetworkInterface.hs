@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 data DetachNetworkInterface = DetachNetworkInterface
     { _dni2AttachmentId :: Text
     , _dni2Force :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DetachNetworkInterface' request.
@@ -80,7 +80,7 @@ instance ToQuery DetachNetworkInterface where
     toQuery = genericQuery def
 
 data DetachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DetachNetworkInterfaceResponse' response.

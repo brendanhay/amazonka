@@ -211,7 +211,7 @@ import Network.AWS.Request.JSON
 data TestMetricFilter = TestMetricFilter
     { _tmfFilterPattern :: Text
     , _tmfLogEventMessages :: List1 Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TestMetricFilter' request.
@@ -248,7 +248,7 @@ instance ToJSON TestMetricFilter
 
 newtype TestMetricFilterResponse = TestMetricFilterResponse
     { _tmfrMatches :: [MetricFilterMatchRecord]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TestMetricFilterResponse' response.

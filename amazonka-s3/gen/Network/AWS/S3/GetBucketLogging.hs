@@ -44,7 +44,7 @@ import Network.AWS.Types (Region)
 
 newtype GetBucketLogging = GetBucketLogging
     { _gbl2Bucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketLogging' request.
@@ -72,7 +72,7 @@ instance ToBody GetBucketLogging
 
 newtype GetBucketLoggingResponse = GetBucketLoggingResponse
     { _gblr1LoggingEnabled :: Maybe LoggingEnabled
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetBucketLoggingResponse' response.

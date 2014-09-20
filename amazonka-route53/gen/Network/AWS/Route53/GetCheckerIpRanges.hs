@@ -44,7 +44,7 @@ import Network.AWS.Types (Region)
 
 -- | Empty request.
 data GetCheckerIpRanges = GetCheckerIpRanges
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetCheckerIpRanges' request.
@@ -64,7 +64,7 @@ instance ToXML GetCheckerIpRanges where
 -- | A complex type that contains the CheckerIpRanges element.
 newtype GetCheckerIpRangesResponse = GetCheckerIpRangesResponse
     { _gcirrCheckerIpRanges :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetCheckerIpRangesResponse' response.

@@ -46,7 +46,7 @@ import Network.AWS.Types (Region)
 data ListDistributions = ListDistributions
     { _ldMarker :: Maybe Text
     , _ldMaxItems :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDistributions' request.
@@ -88,7 +88,7 @@ instance ToXML ListDistributions where
 -- | The returned result of the corresponding request.
 newtype ListDistributionsResponse = ListDistributionsResponse
     { _ldrDistributionList :: DistributionList
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListDistributionsResponse' response.

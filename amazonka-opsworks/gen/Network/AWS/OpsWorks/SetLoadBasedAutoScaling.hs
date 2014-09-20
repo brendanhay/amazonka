@@ -55,7 +55,7 @@ data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling
     , _slbasEnable :: Maybe Bool
     , _slbasUpScaling :: Maybe AutoScalingThresholds
     , _slbasDownScaling :: Maybe AutoScalingThresholds
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetLoadBasedAutoScaling' request.
@@ -109,7 +109,7 @@ instance ToHeaders SetLoadBasedAutoScaling
 instance ToJSON SetLoadBasedAutoScaling
 
 data SetLoadBasedAutoScalingResponse = SetLoadBasedAutoScalingResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetLoadBasedAutoScalingResponse' response.

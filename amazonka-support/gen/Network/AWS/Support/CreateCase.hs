@@ -83,7 +83,7 @@ data CreateCase = CreateCase
     , _ccLanguage :: Maybe Text
     , _ccIssueType :: Maybe Text
     , _ccAttachmentSetId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCase' request.
@@ -183,7 +183,7 @@ instance ToJSON CreateCase
 -- CreateCase operation.
 newtype CreateCaseResponse = CreateCaseResponse
     { _ccrCaseId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateCaseResponse' response.

@@ -41,7 +41,7 @@ import Network.AWS.AutoScaling.Types
 import Network.AWS.Prelude
 
 data DescribeAdjustmentTypes = DescribeAdjustmentTypes
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAdjustmentTypes' request.
@@ -54,7 +54,7 @@ instance ToQuery DescribeAdjustmentTypes where
 -- | The output of the DescribeAdjustmentTypes action.
 newtype DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
     { _datrAdjustmentTypes :: [AdjustmentType]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeAdjustmentTypesResponse' response.

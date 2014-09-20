@@ -110,7 +110,7 @@ data RunJobFlow = RunJobFlow
     , _rjfJobFlowRole :: Maybe Text
     , _rjfServiceRole :: Maybe Text
     , _rjfTags :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RunJobFlow' request.
@@ -261,7 +261,7 @@ instance ToJSON RunJobFlow
 -- | The result of the RunJobFlow operation.
 newtype RunJobFlowResponse = RunJobFlowResponse
     { _rjfrJobFlowId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RunJobFlowResponse' response.

@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy
     { _uarpRoleName :: Text
     , _uarpPolicyDocument :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateAssumeRolePolicy' request.
@@ -79,7 +79,7 @@ instance ToQuery UpdateAssumeRolePolicy where
     toQuery = genericQuery def
 
 data UpdateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateAssumeRolePolicyResponse' response.

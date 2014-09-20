@@ -65,7 +65,7 @@ data CopyClusterSnapshot = CopyClusterSnapshot
     { _ccsSourceSnapshotIdentifier :: Text
     , _ccsSourceSnapshotClusterIdentifier :: Maybe Text
     , _ccsTargetSnapshotIdentifier :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopyClusterSnapshot' request.
@@ -118,7 +118,7 @@ instance ToQuery CopyClusterSnapshot where
 
 newtype CopyClusterSnapshotResponse = CopyClusterSnapshotResponse
     { _ccsrSnapshot :: Maybe Snapshot
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopyClusterSnapshotResponse' response.

@@ -61,7 +61,7 @@ import Network.AWS.Prelude
 -- address or domain names).
 newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes
     { _ginaIdentities :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetIdentityNotificationAttributes' request.

@@ -45,7 +45,7 @@ import Network.AWS.Request.JSON
 
 newtype DeregisterVolume = DeregisterVolume
     { _dvVolumeId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeregisterVolume' request.
@@ -73,7 +73,7 @@ instance ToHeaders DeregisterVolume
 instance ToJSON DeregisterVolume
 
 data DeregisterVolumeResponse = DeregisterVolumeResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeregisterVolumeResponse' response.

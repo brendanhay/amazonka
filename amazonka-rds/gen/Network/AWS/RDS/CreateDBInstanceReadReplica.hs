@@ -75,7 +75,7 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica
     , _cdbirrPubliclyAccessible :: Maybe Bool
     , _cdbirrTags :: [Tag]
     , _cdbirrDBSubnetGroupName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBInstanceReadReplica' request.
@@ -212,7 +212,7 @@ instance ToQuery CreateDBInstanceReadReplica where
 
 newtype CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse
     { _cdbirrrDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBInstanceReadReplicaResponse' response.

@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 
 newtype DisassociateRouteTable = DisassociateRouteTable
     { _drt2AssociationId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisassociateRouteTable' request.
@@ -76,7 +76,7 @@ instance ToQuery DisassociateRouteTable where
     toQuery = genericQuery def
 
 data DisassociateRouteTableResponse = DisassociateRouteTableResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DisassociateRouteTableResponse' response.

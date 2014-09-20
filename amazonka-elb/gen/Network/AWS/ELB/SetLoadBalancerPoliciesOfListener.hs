@@ -52,7 +52,7 @@ data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener
     { _slbpolLoadBalancerName :: Text
     , _slbpolLoadBalancerPort :: !Integer
     , _slbpolPolicyNames :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetLoadBalancerPoliciesOfListener' request.
@@ -96,7 +96,7 @@ instance ToQuery SetLoadBalancerPoliciesOfListener where
 
 -- | The output for the SetLoadBalancerPoliciesOfListener action.
 data SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'SetLoadBalancerPoliciesOfListenerResponse' response.

@@ -3383,7 +3383,7 @@ instance ToQuery VpnStaticRouteSource where
 -- | Describes a value of an account attribute.
 newtype AccountAttributeValue = AccountAttributeValue
     { _aavAttributeValue :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AccountAttributeValue' data type to populate a request.
@@ -3413,7 +3413,7 @@ instance ToQuery AccountAttributeValue where
 -- EC2 console, CLI, or API; otherwise, you can.
 newtype AttributeBooleanValue = AttributeBooleanValue
     { _abvValue :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AttributeBooleanValue' data type to populate a request.
@@ -3441,7 +3441,7 @@ instance ToQuery AttributeBooleanValue where
 -- | The kernel ID.
 newtype AttributeValue = AttributeValue
     { _av1Value :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AttributeValue' data type to populate a request.
@@ -3469,7 +3469,7 @@ instance ToQuery AttributeValue where
 -- | Describes a message about an Availability Zone.
 newtype AvailabilityZoneMessage = AvailabilityZoneMessage
     { _azmMessage :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AvailabilityZoneMessage' data type to populate a request.
@@ -3497,7 +3497,7 @@ instance ToQuery AvailabilityZoneMessage where
 -- | Describes an IP range.
 newtype IpRange = IpRange
     { _irCidrIp :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IpRange' data type to populate a request.
@@ -3527,7 +3527,7 @@ instance ToQuery IpRange where
 -- | The monitoring information for the instance.
 newtype Monitoring = Monitoring
     { _mState :: Maybe MonitoringState
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Monitoring' data type to populate a request.
@@ -3555,7 +3555,7 @@ instance ToQuery Monitoring where
 -- | Describes a virtual private gateway propagating route.
 newtype PropagatingVgw = PropagatingVgw
     { _pvGatewayId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PropagatingVgw' data type to populate a request.
@@ -3583,7 +3583,7 @@ instance ToQuery PropagatingVgw where
 -- | Describes the ID of a Reserved Instance.
 newtype ReservedInstancesId = ReservedInstancesId
     { _riiReservedInstancesId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReservedInstancesId' data type to populate a request.
@@ -3612,7 +3612,7 @@ instance ToQuery ReservedInstancesId where
 -- | The monitoring for the instance.
 newtype RunInstancesMonitoringEnabled = RunInstancesMonitoringEnabled
     { _rimeEnabled :: Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RunInstancesMonitoringEnabled' data type to populate a request.
@@ -3639,7 +3639,7 @@ instance ToQuery RunInstancesMonitoringEnabled where
 -- specify a bucket that belongs to someone else, Amazon EC2 returns an error.
 newtype Storage = Storage
     { _sS3 :: Maybe S3Storage
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Storage' data type to populate a request.
@@ -3666,7 +3666,7 @@ instance ToQuery Storage where
 
 newtype VolumeDetail = VolumeDetail
     { _vdSize :: Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VolumeDetail' data type to populate a request.
@@ -3695,7 +3695,7 @@ instance ToQuery VolumeDetail where
 -- | The VPN connection options.
 newtype VpnConnectionOptions = VpnConnectionOptions
     { _vcoStaticRoutesOnly :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VpnConnectionOptions' data type to populate a request.
@@ -3727,7 +3727,7 @@ instance ToQuery VpnConnectionOptions where
 -- specify true. Default: false.
 newtype VpnConnectionOptionsSpecification = VpnConnectionOptionsSpecification
     { _vcosStaticRoutesOnly :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VpnConnectionOptionsSpecification' data type to populate a request.
@@ -3754,7 +3754,7 @@ instance ToQuery VpnConnectionOptionsSpecification where
 data AccountAttribute = AccountAttribute
     { _aa1rAttributeName :: Maybe Text
     , _aa1rAttributeValues :: [AccountAttributeValue]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AccountAttribute' data type.
@@ -3798,7 +3798,7 @@ data Address = Address
     , _aNetworkInterfaceId :: Maybe Text
     , _aNetworkInterfaceOwnerId :: Maybe Text
     , _aPrivateIpAddress :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Address' data type.
@@ -3884,7 +3884,7 @@ data AvailabilityZone = AvailabilityZone
     , _azState :: Maybe AvailabilityZoneState
     , _azRegionName :: Maybe Text
     , _azMessages :: [AvailabilityZoneMessage]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'AvailabilityZone' data type.
@@ -3936,7 +3936,7 @@ data BlockDeviceMapping = BlockDeviceMapping
     , _bdmDeviceName :: Text
     , _bdmEbs :: Maybe EbsBlockDevice
     , _bdmNoDevice :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'BlockDeviceMapping' data type to populate a request.
@@ -3995,7 +3995,7 @@ data BundleTask = BundleTask
     , _btStorage :: Maybe Storage
     , _btProgress :: Maybe Text
     , _btBundleTaskError :: Maybe BundleTaskError
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'BundleTask' data type.
@@ -4074,7 +4074,7 @@ instance FromXML BundleTask where
 data BundleTaskError = BundleTaskError
     { _bteCode :: Maybe Text
     , _bteMessage :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'BundleTaskError' data type to populate a request.
@@ -4110,7 +4110,7 @@ instance ToQuery BundleTaskError where
 data CancelledSpotInstanceRequest = CancelledSpotInstanceRequest
     { _csir1SpotInstanceRequestId :: Maybe Text
     , _csir1State :: Maybe CancelSpotInstanceRequestState
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CancelledSpotInstanceRequest' data type.
@@ -4153,7 +4153,7 @@ data ConversionTask = ConversionTask
     , _ctrState :: ConversionTaskState
     , _ctrStatusMessage :: Maybe Text
     , _ctrTags :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ConversionTask' data type.
@@ -4232,7 +4232,7 @@ instance FromXML ConversionTask where
 data CreateVolumePermission = CreateVolumePermission
     { _cvpUserId :: Maybe Text
     , _cvpGroup :: Maybe PermissionGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CreateVolumePermission' data type to populate a request.
@@ -4270,7 +4270,7 @@ instance ToQuery CreateVolumePermission where
 data CreateVolumePermissionModifications = CreateVolumePermissionModifications
     { _cvpmAdd :: [CreateVolumePermission]
     , _cvpmRemove :: [CreateVolumePermission]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CreateVolumePermissionModifications' data type to populate a request.
@@ -4308,7 +4308,7 @@ data CustomerGateway = CustomerGateway
     , _cgIpAddress :: Maybe Text
     , _cgBgpAsn :: Maybe Text
     , _cgTags :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'CustomerGateway' data type.
@@ -4375,7 +4375,7 @@ instance FromXML CustomerGateway where
 data DhcpConfiguration = DhcpConfiguration
     { _dcKey :: Maybe Text
     , _dcValues :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DhcpConfiguration' data type to populate a request.
@@ -4412,7 +4412,7 @@ data DhcpOptions = DhcpOptions
     { _doDhcpOptionsId :: Maybe Text
     , _doDhcpConfigurations :: [DhcpConfiguration]
     , _doTags :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DhcpOptions' data type.
@@ -4457,7 +4457,7 @@ data DiskImage = DiskImage
     { _di3Image :: Maybe DiskImageDetail
     , _di3Description :: Maybe Text
     , _di3Volume :: Maybe VolumeDetail
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DiskImage' data type to populate a request.
@@ -4498,7 +4498,7 @@ data DiskImageDescription = DiskImageDescription
     , _didSize :: !Integer
     , _didImportManifestUrl :: Text
     , _didChecksum :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DiskImageDescription' data type to populate a request.
@@ -4556,7 +4556,7 @@ data DiskImageDetail = DiskImageDetail
     { _did1Format :: DiskImageFormat
     , _did1Bytes :: !Integer
     , _did1ImportManifestUrl :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DiskImageDetail' data type to populate a request.
@@ -4607,7 +4607,7 @@ instance ToQuery DiskImageDetail where
 data DiskImageVolumeDescription = DiskImageVolumeDescription
     { _divdSize :: Maybe Integer
     , _divdId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'DiskImageVolumeDescription' data type to populate a request.
@@ -4649,7 +4649,7 @@ data EbsBlockDevice = EbsBlockDevice
     , _ebdVolumeType :: Maybe VolumeType
     , _ebdIops :: Maybe Integer
     , _ebdEncrypted :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EbsBlockDevice' data type to populate a request.
@@ -4732,7 +4732,7 @@ data EbsInstanceBlockDevice = EbsInstanceBlockDevice
     , _eibdStatus :: Maybe AttachmentStatus
     , _eibdAttachTime :: Maybe ISO8601
     , _eibdDeleteOnTermination :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EbsInstanceBlockDevice' data type to populate a request.
@@ -4785,7 +4785,7 @@ instance ToQuery EbsInstanceBlockDevice where
 data EbsInstanceBlockDeviceSpecification = EbsInstanceBlockDeviceSpecification
     { _eibdsVolumeId :: Maybe Text
     , _eibdsDeleteOnTermination :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'EbsInstanceBlockDeviceSpecification' data type to populate a request.
@@ -4826,7 +4826,7 @@ data ExportTask = ExportTask
     , _etStatusMessage :: Maybe Text
     , _etInstanceExportDetails :: Maybe InstanceExportDetails
     , _etExportToS3Task :: Maybe ExportToS3Task
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ExportTask' data type.
@@ -4894,7 +4894,7 @@ data ExportToS3Task = ExportToS3Task
     , _etstContainerFormat :: Maybe ContainerFormat
     , _etstS3Bucket :: Maybe Text
     , _etstS3Key :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ExportToS3Task' data type to populate a request.
@@ -4950,7 +4950,7 @@ data ExportToS3TaskSpecification = ExportToS3TaskSpecification
     , _etstsContainerFormat :: Maybe ContainerFormat
     , _etstsS3Bucket :: Maybe Text
     , _etstsS3Prefix :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ExportToS3TaskSpecification' data type to populate a request.
@@ -4998,7 +4998,7 @@ instance ToQuery ExportToS3TaskSpecification where
 data Filter = Filter
     { _fName :: Text
     , _fValues :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Filter' data type to populate a request.
@@ -5031,7 +5031,7 @@ instance ToQuery Filter where
 data GroupIdentifier = GroupIdentifier
     { _giGroupName :: Maybe Text
     , _giGroupId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'GroupIdentifier' data type to populate a request.
@@ -5067,7 +5067,7 @@ instance ToQuery GroupIdentifier where
 data IamInstanceProfile = IamInstanceProfile
     { _iipArn :: Maybe Text
     , _iipId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IamInstanceProfile' data type to populate a request.
@@ -5103,7 +5103,7 @@ instance ToQuery IamInstanceProfile where
 data IamInstanceProfileSpecification = IamInstanceProfileSpecification
     { _iipsArn :: Maybe Text
     , _iipsName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IamInstanceProfileSpecification' data type to populate a request.
@@ -5139,7 +5139,7 @@ instance ToQuery IamInstanceProfileSpecification where
 data IcmpTypeCode = IcmpTypeCode
     { _itcType :: Maybe Integer
     , _itcCode :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IcmpTypeCode' data type to populate a request.
@@ -5195,7 +5195,7 @@ data Image = Image
     , _iVirtualizationType :: VirtualizationType
     , _iTags :: [Tag]
     , _iHypervisor :: HypervisorType
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Image' data type.
@@ -5401,7 +5401,7 @@ data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification
     , _iilsSubnetId :: Maybe Text
     , _iilsInstanceInitiatedShutdownBehavior :: Maybe ShutdownBehavior
     , _iilsPrivateIpAddress :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ImportInstanceLaunchSpecification' data type to populate a request.
@@ -5502,7 +5502,7 @@ data ImportInstanceTaskDetails = ImportInstanceTaskDetails
     , _iitdInstanceId :: Maybe Text
     , _iitdPlatform :: Maybe PlatformValues
     , _iitdDescription :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ImportInstanceTaskDetails' data type to populate a request.
@@ -5558,7 +5558,7 @@ data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem
     , _iivdiStatus :: Text
     , _iivdiStatusMessage :: Maybe Text
     , _iivdiDescription :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ImportInstanceVolumeDetailItem' data type to populate a request.
@@ -5642,7 +5642,7 @@ data ImportVolumeTaskDetails = ImportVolumeTaskDetails
     , _ivtdDescription :: Maybe Text
     , _ivtdImage :: DiskImageDescription
     , _ivtdVolume :: DiskImageVolumeDescription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ImportVolumeTaskDetails' data type to populate a request.
@@ -5740,7 +5740,7 @@ data Instance = Instance
     , _i1IamInstanceProfile :: Maybe IamInstanceProfile
     , _i1EbsOptimized :: Maybe Bool
     , _i1SriovNetSupport :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Instance' data type to populate a request.
@@ -6055,7 +6055,7 @@ instance ToQuery Instance where
 data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping
     { _ibdmDeviceName :: Maybe Text
     , _ibdmEbs :: Maybe EbsInstanceBlockDevice
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceBlockDeviceMapping' data type to populate a request.
@@ -6094,7 +6094,7 @@ data InstanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecifi
     , _ibdmsEbs :: Maybe EbsInstanceBlockDeviceSpecification
     , _ibdmsVirtualName :: Maybe Text
     , _ibdmsNoDevice :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceBlockDeviceMappingSpecification' data type to populate a request.
@@ -6142,7 +6142,7 @@ instance ToQuery InstanceBlockDeviceMappingSpecification where
 data InstanceCount = InstanceCount
     { _icState :: Maybe ListingState
     , _icInstanceCount :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceCount' data type to populate a request.
@@ -6178,7 +6178,7 @@ instance ToQuery InstanceCount where
 data InstanceExportDetails = InstanceExportDetails
     { _iedInstanceId :: Maybe Text
     , _iedTargetEnvironment :: Maybe ExportEnvironment
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceExportDetails' data type to populate a request.
@@ -6215,7 +6215,7 @@ instance ToQuery InstanceExportDetails where
 data InstanceMonitoring = InstanceMonitoring
     { _imInstanceId :: Maybe Text
     , _imMonitoring :: Maybe Monitoring
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceMonitoring' data type.
@@ -6262,7 +6262,7 @@ data InstanceNetworkInterface = InstanceNetworkInterface
     , _iniAttachment :: Maybe InstanceNetworkInterfaceAttachment
     , _iniAssociation :: Maybe InstanceNetworkInterfaceAssociation
     , _iniPrivateIpAddresses :: [InstancePrivateIpAddress]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceNetworkInterface' data type to populate a request.
@@ -6384,7 +6384,7 @@ data InstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation
     { _inia1PublicIp :: Maybe Text
     , _inia1PublicDnsName :: Maybe Text
     , _inia1IpOwnerId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceNetworkInterfaceAssociation' data type to populate a request.
@@ -6431,7 +6431,7 @@ data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment
     , _iniaStatus :: Maybe AttachmentStatus
     , _iniaAttachTime :: Maybe ISO8601
     , _iniaDeleteOnTermination :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceNetworkInterfaceAttachment' data type to populate a request.
@@ -6501,7 +6501,7 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
     , _inisPrivateIpAddresses :: [PrivateIpAddressSpecification]
     , _inisSecondaryPrivateIpAddressCount :: Maybe Integer
     , _inisAssociatePublicIpAddress :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceNetworkInterfaceSpecification' data type to populate a request.
@@ -6609,7 +6609,7 @@ data InstancePrivateIpAddress = InstancePrivateIpAddress
     , _ipiaPrivateDnsName :: Maybe Text
     , _ipiaPrimary :: Maybe Bool
     , _ipiaAssociation :: Maybe InstanceNetworkInterfaceAssociation
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstancePrivateIpAddress' data type to populate a request.
@@ -6664,7 +6664,7 @@ instance ToQuery InstancePrivateIpAddress where
 data InstanceState = InstanceState
     { _is1Code :: Integer
     , _is1Name :: InstanceStateName
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceState' data type to populate a request.
@@ -6705,7 +6705,7 @@ data InstanceStateChange = InstanceStateChange
     { _iscInstanceId :: Maybe Text
     , _iscCurrentState :: Maybe InstanceState
     , _iscPreviousState :: Maybe InstanceState
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceStateChange' data type.
@@ -6753,7 +6753,7 @@ data InstanceStatus = InstanceStatus
     , _isInstanceState :: Maybe InstanceState
     , _isSystemStatus :: Maybe InstanceStatusSummary
     , _isInstanceStatus :: Maybe InstanceStatusSummary
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceStatus' data type.
@@ -6824,7 +6824,7 @@ data InstanceStatusDetails = InstanceStatusDetails
     { _isdName :: Maybe StatusName
     , _isdStatus :: Maybe StatusType
     , _isdImpairedSince :: Maybe ISO8601
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceStatusDetails' data type to populate a request.
@@ -6871,7 +6871,7 @@ data InstanceStatusEvent = InstanceStatusEvent
     , _iseDescription :: Maybe Text
     , _iseNotBefore :: Maybe ISO8601
     , _iseNotAfter :: Maybe ISO8601
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceStatusEvent' data type to populate a request.
@@ -6923,7 +6923,7 @@ instance ToQuery InstanceStatusEvent where
 data InstanceStatusSummary = InstanceStatusSummary
     { _issStatus :: Maybe SummaryStatus
     , _issDetails :: [InstanceStatusDetails]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InstanceStatusSummary' data type to populate a request.
@@ -6960,7 +6960,7 @@ data InternetGateway = InternetGateway
     { _igInternetGatewayId :: Text
     , _igAttachments :: [InternetGatewayAttachment]
     , _igTags :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InternetGateway' data type.
@@ -7005,7 +7005,7 @@ instance FromXML InternetGateway where
 data InternetGatewayAttachment = InternetGatewayAttachment
     { _igaVpcId :: Text
     , _igaState :: AttachmentStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'InternetGatewayAttachment' data type to populate a request.
@@ -7046,7 +7046,7 @@ data IpPermission = IpPermission
     , _ipToPort :: Integer
     , _ipUserIdGroupPairs :: [UserIdGroupPair]
     , _ipIpRanges :: [IpRange]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'IpPermission' data type to populate a request.
@@ -7112,7 +7112,7 @@ instance ToQuery IpPermission where
 data KeyPairInfo = KeyPairInfo
     { _kpiKeyName :: Maybe Text
     , _kpiKeyFingerprint :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'KeyPairInfo' data type.
@@ -7152,7 +7152,7 @@ instance FromXML KeyPairInfo where
 data LaunchPermission = LaunchPermission
     { _lpUserId :: Maybe Text
     , _lpGroup :: Maybe PermissionGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LaunchPermission' data type to populate a request.
@@ -7188,7 +7188,7 @@ instance ToQuery LaunchPermission where
 data LaunchPermissionModifications = LaunchPermissionModifications
     { _lpmAdd :: [LaunchPermission]
     , _lpmRemove :: [LaunchPermission]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LaunchPermissionModifications' data type to populate a request.
@@ -7234,7 +7234,7 @@ data LaunchSpecification = LaunchSpecification
     , _lsNetworkInterfaces :: [InstanceNetworkInterfaceSpecification]
     , _lsIamInstanceProfile :: Maybe IamInstanceProfileSpecification
     , _lsEbsOptimized :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'LaunchSpecification' data type to populate a request.
@@ -7375,7 +7375,7 @@ data NetworkAcl = NetworkAcl
     , _naEntries :: [NetworkAclEntry]
     , _naAssociations :: [NetworkAclAssociation]
     , _naTags :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NetworkAcl' data type.
@@ -7440,7 +7440,7 @@ data NetworkAclAssociation = NetworkAclAssociation
     { _naaNetworkAclAssociationId :: Maybe Text
     , _naaNetworkAclId :: Maybe Text
     , _naaSubnetId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NetworkAclAssociation' data type to populate a request.
@@ -7490,7 +7490,7 @@ data NetworkAclEntry = NetworkAclEntry
     , _naeCidrBlock :: Maybe Text
     , _naeIcmpTypeCode :: Maybe IcmpTypeCode
     , _naePortRange :: Maybe PortRange
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NetworkAclEntry' data type to populate a request.
@@ -7579,7 +7579,7 @@ data NetworkInterface = NetworkInterface
     , _niAssociation :: Maybe NetworkInterfaceAssociation
     , _niTagSet :: [Tag]
     , _niPrivateIpAddresses :: [NetworkInterfacePrivateIpAddress]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NetworkInterface' data type.
@@ -7740,7 +7740,7 @@ data NetworkInterfaceAssociation = NetworkInterfaceAssociation
     , _niarIpOwnerId :: Maybe Text
     , _niarAllocationId :: Maybe Text
     , _niarAssociationId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NetworkInterfaceAssociation' data type to populate a request.
@@ -7805,7 +7805,7 @@ data NetworkInterfaceAttachment = NetworkInterfaceAttachment
     , _niaStatus :: Maybe AttachmentStatus
     , _niaAttachTime :: Maybe ISO8601
     , _niaDeleteOnTermination :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NetworkInterfaceAttachment' data type to populate a request.
@@ -7879,7 +7879,7 @@ instance ToQuery NetworkInterfaceAttachment where
 data NetworkInterfaceAttachmentChanges = NetworkInterfaceAttachmentChanges
     { _niacAttachmentId :: Maybe Text
     , _niacDeleteOnTermination :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NetworkInterfaceAttachmentChanges' data type to populate a request.
@@ -7917,7 +7917,7 @@ data NetworkInterfacePrivateIpAddress = NetworkInterfacePrivateIpAddress
     , _nipiaPrivateDnsName :: Maybe Text
     , _nipiaPrimary :: Maybe Bool
     , _nipiaAssociation :: Maybe NetworkInterfaceAssociation
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'NetworkInterfacePrivateIpAddress' data type to populate a request.
@@ -7973,7 +7973,7 @@ data Placement = Placement
     { _pAvailabilityZone :: Maybe Text
     , _pGroupName :: Maybe Text
     , _pTenancy :: Maybe Tenancy
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Placement' data type to populate a request.
@@ -8020,7 +8020,7 @@ data PlacementGroup = PlacementGroup
     { _pgGroupName :: Maybe Text
     , _pgStrategy :: Maybe PlacementStrategy
     , _pgState :: Maybe PlacementGroupState
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PlacementGroup' data type.
@@ -8063,7 +8063,7 @@ instance FromXML PlacementGroup where
 data PortRange = PortRange
     { _prFrom :: Maybe Integer
     , _prTo :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PortRange' data type to populate a request.
@@ -8101,7 +8101,7 @@ data PriceSchedule = PriceSchedule
     , _psPrice :: Maybe Double
     , _psCurrencyCode :: Maybe CurrencyCodeValues
     , _psActive :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PriceSchedule' data type to populate a request.
@@ -8161,7 +8161,7 @@ data PriceScheduleSpecification = PriceScheduleSpecification
     { _pssTerm :: Maybe Integer
     , _pssPrice :: Maybe Double
     , _pssCurrencyCode :: Maybe CurrencyCodeValues
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PriceScheduleSpecification' data type to populate a request.
@@ -8202,7 +8202,7 @@ instance ToQuery PriceScheduleSpecification where
 data PricingDetail = PricingDetail
     { _pdPrice :: Maybe Double
     , _pdCount :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PricingDetail' data type to populate a request.
@@ -8238,7 +8238,7 @@ instance ToQuery PricingDetail where
 data PrivateIpAddressSpecification = PrivateIpAddressSpecification
     { _piasPrivateIpAddress :: Text
     , _piasPrimary :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'PrivateIpAddressSpecification' data type to populate a request.
@@ -8276,7 +8276,7 @@ instance ToQuery PrivateIpAddressSpecification where
 data ProductCode = ProductCode
     { _pcProductCodeId :: Maybe Text
     , _pcProductCodeType :: Maybe ProductCodeValues
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ProductCode' data type to populate a request.
@@ -8313,7 +8313,7 @@ instance ToQuery ProductCode where
 data RecurringCharge = RecurringCharge
     { _rcFrequency :: Maybe RecurringChargeFrequency
     , _rcAmount :: Maybe Double
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RecurringCharge' data type to populate a request.
@@ -8349,7 +8349,7 @@ instance ToQuery RecurringCharge where
 data Region = Region
     { _r1RegionName :: Maybe Text
     , _r1Endpoint :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Region' data type.
@@ -8388,7 +8388,7 @@ data Reservation = Reservation
     , _rrRequesterId :: Maybe Text
     , _rrGroups :: [GroupIdentifier]
     , _rrInstances :: [Instance]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Reservation' data type.
@@ -8448,7 +8448,7 @@ instance FromXML Reservation where
 data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice
     { _rilpAmount :: Maybe Double
     , _rilpCurrencyCode :: Maybe CurrencyCodeValues
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReservedInstanceLimitPrice' data type to populate a request.
@@ -8497,7 +8497,7 @@ data ReservedInstances = ReservedInstances
     , _riCurrencyCode :: Maybe CurrencyCodeValues
     , _riOfferingType :: Maybe OfferingTypeValues
     , _riRecurringCharges :: [RecurringCharge]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReservedInstances' data type.
@@ -8640,7 +8640,7 @@ data ReservedInstancesConfiguration = ReservedInstancesConfiguration
     , _ricPlatform :: Maybe Text
     , _ricInstanceCount :: Maybe Integer
     , _ricInstanceType :: Maybe InstanceType
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReservedInstancesConfiguration' data type to populate a request.
@@ -8701,7 +8701,7 @@ data ReservedInstancesListing = ReservedInstancesListing
     , _rilPriceSchedules :: [PriceSchedule]
     , _rilTags :: [Tag]
     , _rilClientToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReservedInstancesListing' data type.
@@ -8807,7 +8807,7 @@ data ReservedInstancesModification = ReservedInstancesModification
     , _rimStatus :: Maybe Text
     , _rimStatusMessage :: Maybe Text
     , _rimClientToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReservedInstancesModification' data type.
@@ -8900,7 +8900,7 @@ instance FromXML ReservedInstancesModification where
 data ReservedInstancesModificationResult = ReservedInstancesModificationResult
     { _rimrReservedInstancesId :: Maybe Text
     , _rimrTargetConfiguration :: Maybe ReservedInstancesConfiguration
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReservedInstancesModificationResult' data type to populate a request.
@@ -8954,7 +8954,7 @@ data ReservedInstancesOffering = ReservedInstancesOffering
     , _rioRecurringCharges :: [RecurringCharge]
     , _rioMarketplace :: Maybe Bool
     , _rioPricingDetails :: [PricingDetail]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'ReservedInstancesOffering' data type.
@@ -9084,7 +9084,7 @@ data Route = Route
     , _rVpcPeeringConnectionId :: Maybe Text
     , _rState :: Maybe RouteState
     , _rOrigin :: Maybe RouteOrigin
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Route' data type to populate a request.
@@ -9177,7 +9177,7 @@ data RouteTable = RouteTable
     , _rtAssociations :: [RouteTableAssociation]
     , _rtTags :: [Tag]
     , _rtPropagatingVgws :: [PropagatingVgw]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RouteTable' data type.
@@ -9244,7 +9244,7 @@ data RouteTableAssociation = RouteTableAssociation
     , _rtaRouteTableId :: Maybe Text
     , _rtaSubnetId :: Maybe Text
     , _rtaMain :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'RouteTableAssociation' data type to populate a request.
@@ -9299,7 +9299,7 @@ data S3Storage = S3Storage
     , _ssAWSAccessKeyId :: Maybe Text
     , _ssUploadPolicy :: Maybe ByteString
     , _ssUploadPolicySignature :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'S3Storage' data type to populate a request.
@@ -9370,7 +9370,7 @@ data SecurityGroup = SecurityGroup
     , _sgIpPermissionsEgress :: [IpPermission]
     , _sgVpcId :: Maybe Text
     , _sgTags :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SecurityGroup' data type.
@@ -9462,7 +9462,7 @@ data Snapshot = Snapshot
     , _s1OwnerAlias :: Maybe Text
     , _s1Tags :: [Tag]
     , _s1Encrypted :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Snapshot' data type.
@@ -9565,7 +9565,7 @@ data SpotDatafeedSubscription = SpotDatafeedSubscription
     , _sdsPrefix :: Maybe Text
     , _sdsState :: Maybe DatafeedSubscriptionState
     , _sdsFault :: Maybe SpotInstanceStateFault
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SpotDatafeedSubscription' data type.
@@ -9636,7 +9636,7 @@ data SpotInstanceRequest = SpotInstanceRequest
     , _sirProductDescription :: Maybe RIProductDescription
     , _sirTags :: [Tag]
     , _sirLaunchedAvailabilityZone :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SpotInstanceRequest' data type.
@@ -9793,7 +9793,7 @@ instance FromXML SpotInstanceRequest where
 data SpotInstanceStateFault = SpotInstanceStateFault
     { _sisfCode :: Maybe Text
     , _sisfMessage :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SpotInstanceStateFault' data type to populate a request.
@@ -9830,7 +9830,7 @@ data SpotInstanceStatus = SpotInstanceStatus
     { _sisCode :: Maybe Text
     , _sisUpdateTime :: Maybe ISO8601
     , _sisMessage :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SpotInstanceStatus' data type to populate a request.
@@ -9873,7 +9873,7 @@ instance ToQuery SpotInstanceStatus where
 data SpotPlacement = SpotPlacement
     { _spAvailabilityZone :: Maybe Text
     , _spGroupName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SpotPlacement' data type to populate a request.
@@ -9913,7 +9913,7 @@ data SpotPrice = SpotPrice
     , _sprSpotPrice :: Maybe Text
     , _sprTimestamp :: Maybe ISO8601
     , _sprAvailabilityZone :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'SpotPrice' data type.
@@ -9972,7 +9972,7 @@ instance FromXML SpotPrice where
 data StateReason = StateReason
     { _sr1Code :: Maybe Text
     , _sr1Message :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'StateReason' data type to populate a request.
@@ -10025,7 +10025,7 @@ data Subnet = Subnet
     , _srDefaultForAz :: Maybe Bool
     , _srMapPublicIpOnLaunch :: Maybe Bool
     , _srTags :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Subnet' data type.
@@ -10116,7 +10116,7 @@ instance FromXML Subnet where
 data Tag = Tag
     { _tKey :: Text
     , _tValue :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Tag' data type to populate a request.
@@ -10158,7 +10158,7 @@ data TagDescription = TagDescription
     , _tdResourceType :: ResourceType
     , _tdKey :: Text
     , _tdValue :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TagDescription' data type.
@@ -10213,7 +10213,7 @@ data UserIdGroupPair = UserIdGroupPair
     { _uigpUserId :: Maybe Text
     , _uigpGroupName :: Maybe Text
     , _uigpGroupId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'UserIdGroupPair' data type to populate a request.
@@ -10259,7 +10259,7 @@ data VgwTelemetry = VgwTelemetry
     , _vtLastStatusChange :: Maybe ISO8601
     , _vtStatusMessage :: Maybe Text
     , _vtAcceptedRouteCount :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VgwTelemetry' data type to populate a request.
@@ -10329,7 +10329,7 @@ data Volume = Volume
     , _vrVolumeType :: Maybe VolumeType
     , _vrIops :: Maybe Integer
     , _vrEncrypted :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Volume' data type.
@@ -10444,7 +10444,7 @@ data VolumeAttachment = VolumeAttachment
     , _varState :: Maybe VolumeAttachmentState
     , _varAttachTime :: Maybe ISO8601
     , _varDeleteOnTermination :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VolumeAttachment' data type to populate a request.
@@ -10511,7 +10511,7 @@ data VolumeStatusAction = VolumeStatusAction
     , _vsaDescription :: Maybe Text
     , _vsaEventType :: Maybe Text
     , _vsaEventId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VolumeStatusAction' data type to populate a request.
@@ -10561,7 +10561,7 @@ instance ToQuery VolumeStatusAction where
 data VolumeStatusDetails = VolumeStatusDetails
     { _vsdName :: Maybe VolumeStatusName
     , _vsdStatus :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VolumeStatusDetails' data type to populate a request.
@@ -10600,7 +10600,7 @@ data VolumeStatusEvent = VolumeStatusEvent
     , _vseNotBefore :: Maybe ISO8601
     , _vseNotAfter :: Maybe ISO8601
     , _vseEventId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VolumeStatusEvent' data type to populate a request.
@@ -10657,7 +10657,7 @@ instance ToQuery VolumeStatusEvent where
 data VolumeStatusInfo = VolumeStatusInfo
     { _vsi1Status :: Maybe VolumeStatusInfoStatus
     , _vsi1Details :: [VolumeStatusDetails]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VolumeStatusInfo' data type to populate a request.
@@ -10696,7 +10696,7 @@ data VolumeStatusItem = VolumeStatusItem
     , _vsiVolumeStatus :: Maybe VolumeStatusInfo
     , _vsiEvents :: [VolumeStatusEvent]
     , _vsiActions :: [VolumeStatusAction]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VolumeStatusItem' data type.
@@ -10759,7 +10759,7 @@ data Vpc = Vpc
     , _vTags :: [Tag]
     , _vInstanceTenancy :: Maybe Tenancy
     , _vIsDefault :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Vpc' data type.
@@ -10832,7 +10832,7 @@ instance FromXML Vpc where
 data VpcAttachment = VpcAttachment
     { _vaVpcId :: Maybe Text
     , _vaState :: Maybe AttachmentStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VpcAttachment' data type to populate a request.
@@ -10872,7 +10872,7 @@ data VpcPeeringConnection = VpcPeeringConnection
     , _vpcStatus :: Maybe VpcPeeringConnectionStateReason
     , _vpcTags :: [Tag]
     , _vpcVpcPeeringConnectionId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VpcPeeringConnection' data type.
@@ -10941,7 +10941,7 @@ instance FromXML VpcPeeringConnection where
 data VpcPeeringConnectionStateReason = VpcPeeringConnectionStateReason
     { _vpcsrCode :: Maybe Text
     , _vpcsrMessage :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VpcPeeringConnectionStateReason' data type to populate a request.
@@ -10978,7 +10978,7 @@ data VpcPeeringConnectionVpcInfo = VpcPeeringConnectionVpcInfo
     { _vpcviCidrBlock :: Maybe Text
     , _vpcviOwnerId :: Maybe Text
     , _vpcviVpcId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VpcPeeringConnectionVpcInfo' data type to populate a request.
@@ -11029,7 +11029,7 @@ data VpnConnection = VpnConnection
     , _vcVgwTelemetry :: [VgwTelemetry]
     , _vcOptions :: Maybe VpnConnectionOptions
     , _vcRoutes :: [VpnStaticRoute]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VpnConnection' data type.
@@ -11134,7 +11134,7 @@ data VpnGateway = VpnGateway
     , _vgAvailabilityZone :: Maybe Text
     , _vgVpcAttachments :: [VpcAttachment]
     , _vgTags :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VpnGateway' data type.
@@ -11201,7 +11201,7 @@ data VpnStaticRoute = VpnStaticRoute
     { _vsrDestinationCidrBlock :: Maybe Text
     , _vsrSource :: Maybe VpnStaticRouteSource
     , _vsrState :: Maybe VpnState
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'VpnStaticRoute' data type to populate a request.

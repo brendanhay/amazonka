@@ -69,7 +69,7 @@ data DescribeStackResources = DescribeStackResources
     { _dsr1StackName :: Maybe Text
     , _dsr1LogicalResourceId :: Maybe Text
     , _dsr1PhysicalResourceId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStackResources' request.
@@ -121,7 +121,7 @@ instance ToQuery DescribeStackResources where
 -- | The output for a DescribeStackResources action.
 newtype DescribeStackResourcesResponse = DescribeStackResourcesResponse
     { _dsrrrStackResources :: [StackResource]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStackResourcesResponse' response.

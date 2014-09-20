@@ -54,7 +54,7 @@ data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo
     { _rei1EnvironmentId :: Maybe Text
     , _rei1EnvironmentName :: Maybe Text
     , _rei1InfoType :: EnvironmentInfoType
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RetrieveEnvironmentInfo' request.
@@ -101,7 +101,7 @@ instance ToQuery RetrieveEnvironmentInfo where
 -- | Result message containing a description of the requested environment info.
 newtype RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
     { _reirEnvironmentInfo :: [EnvironmentInfoDescription]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RetrieveEnvironmentInfoResponse' response.

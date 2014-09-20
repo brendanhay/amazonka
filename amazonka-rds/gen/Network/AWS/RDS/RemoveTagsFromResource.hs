@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 data RemoveTagsFromResource = RemoveTagsFromResource
     { _rtfrResourceName :: Text
     , _rtfrTagKeys :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveTagsFromResource' request.
@@ -78,7 +78,7 @@ instance ToQuery RemoveTagsFromResource where
     toQuery = genericQuery def
 
 data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveTagsFromResourceResponse' response.

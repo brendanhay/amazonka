@@ -74,7 +74,7 @@ data PutMetricAlarm = PutMetricAlarm
     , _pmaEvaluationPeriods :: !Integer
     , _pmaThreshold :: !Double
     , _pmaComparisonOperator :: ComparisonOperator
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutMetricAlarm' request.
@@ -221,7 +221,7 @@ instance ToQuery PutMetricAlarm where
     toQuery = genericQuery def
 
 data PutMetricAlarmResponse = PutMetricAlarmResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutMetricAlarmResponse' response.

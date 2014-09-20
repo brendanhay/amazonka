@@ -88,7 +88,7 @@ data RegisterWorkflowType = RegisterWorkflowType
     , _rwtDefaultExecutionStartToCloseTimeout :: Maybe Text
     , _rwtDefaultTaskList :: Maybe TaskList
     , _rwtDefaultChildPolicy :: Maybe ChildPolicy
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterWorkflowType' request.
@@ -208,7 +208,7 @@ instance ToHeaders RegisterWorkflowType
 instance ToJSON RegisterWorkflowType
 
 data RegisterWorkflowTypeResponse = RegisterWorkflowTypeResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterWorkflowTypeResponse' response.

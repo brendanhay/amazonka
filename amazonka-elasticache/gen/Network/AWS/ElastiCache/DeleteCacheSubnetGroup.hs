@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 -- | Represents the input of a DeleteCacheSubnetGroup operation.
 newtype DeleteCacheSubnetGroup = DeleteCacheSubnetGroup
     { _dcsg1CacheSubnetGroupName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCacheSubnetGroup' request.
@@ -72,7 +72,7 @@ instance ToQuery DeleteCacheSubnetGroup where
     toQuery = genericQuery def
 
 data DeleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteCacheSubnetGroupResponse' response.

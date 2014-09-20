@@ -52,7 +52,7 @@ import Network.AWS.Types (Region)
 data CreateHealthCheck = CreateHealthCheck
     { _chcCallerReference :: Text
     , _chcHealthCheckConfig :: HealthCheckConfig
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateHealthCheck' request.
@@ -102,7 +102,7 @@ instance ToXML CreateHealthCheck where
 data CreateHealthCheckResponse = CreateHealthCheckResponse
     { _chcrHealthCheck :: HealthCheck
     , _chcrLocation :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateHealthCheckResponse' response.

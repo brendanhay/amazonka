@@ -56,7 +56,7 @@ data DescribeReservedInstancesListings = DescribeReservedInstancesListings
     { _drilReservedInstancesId :: Maybe Text
     , _drilReservedInstancesListingId :: Maybe Text
     , _drilFilters :: [Filter]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedInstancesListings' request.
@@ -100,7 +100,7 @@ instance ToQuery DescribeReservedInstancesListings where
 
 newtype DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
     { _drilrReservedInstancesListings :: [ReservedInstancesListing]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeReservedInstancesListingsResponse' response.

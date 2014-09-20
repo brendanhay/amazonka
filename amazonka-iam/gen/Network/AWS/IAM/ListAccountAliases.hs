@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 data ListAccountAliases = ListAccountAliases
     { _laaMarker :: Maybe Text
     , _laaMaxItems :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListAccountAliases' request.
@@ -91,7 +91,7 @@ data ListAccountAliasesResponse = ListAccountAliasesResponse
     { _laarAccountAliases :: [Text]
     , _laarIsTruncated :: !Bool
     , _laarMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListAccountAliasesResponse' response.

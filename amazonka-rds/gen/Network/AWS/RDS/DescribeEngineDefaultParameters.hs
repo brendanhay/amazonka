@@ -60,7 +60,7 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
     { _dedpDBParameterGroupFamily :: Text
     , _dedpMaxRecords :: Maybe Integer
     , _dedpMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEngineDefaultParameters' request.
@@ -106,7 +106,7 @@ instance ToQuery DescribeEngineDefaultParameters where
 
 newtype DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
     { _dedprEngineDefaults :: EngineDefaults
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEngineDefaultParametersResponse' response.

@@ -50,7 +50,7 @@ data DeleteApplicationVersion = DeleteApplicationVersion
     { _davApplicationName :: Text
     , _davVersionLabel :: Text
     , _davDeleteSourceBundle :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteApplicationVersion' request.
@@ -93,7 +93,7 @@ instance ToQuery DeleteApplicationVersion where
     toQuery = genericQuery def
 
 data DeleteApplicationVersionResponse = DeleteApplicationVersionResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteApplicationVersionResponse' response.

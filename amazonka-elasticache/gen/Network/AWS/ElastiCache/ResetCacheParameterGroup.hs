@@ -57,7 +57,7 @@ data ResetCacheParameterGroup = ResetCacheParameterGroup
     { _rcpgCacheParameterGroupName :: Text
     , _rcpgResetAllParameters :: Maybe Bool
     , _rcpgParameterNameValues :: [ParameterNameValue]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetCacheParameterGroup' request.
@@ -106,7 +106,7 @@ instance ToQuery ResetCacheParameterGroup where
 -- ModifyCacheParameterGroup ResetCacheParameterGroup.
 newtype ResetCacheParameterGroupResponse = ResetCacheParameterGroupResponse
     { _rcpgrCacheParameterGroupName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ResetCacheParameterGroupResponse' response.

@@ -69,7 +69,7 @@ data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit
     { _ubrlGatewayARN :: Text
     , _ubrlAverageUploadRateLimitInBitsPerSec :: Maybe Integer
     , _ubrlAverageDownloadRateLimitInBitsPerSec :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateBandwidthRateLimit' request.
@@ -119,7 +119,7 @@ instance ToJSON UpdateBandwidthRateLimit
 -- updated.
 newtype UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse
     { _ubrlrGatewayARN :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateBandwidthRateLimitResponse' response.

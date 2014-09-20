@@ -122,7 +122,7 @@ instance ToQuery CreatePlatformApplication where
 -- | Response from CreatePlatformApplication action.
 newtype CreatePlatformApplicationResponse = CreatePlatformApplicationResponse
     { _cparPlatformApplicationArn :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreatePlatformApplicationResponse' response.

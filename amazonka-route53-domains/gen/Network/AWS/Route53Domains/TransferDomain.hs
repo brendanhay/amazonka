@@ -113,7 +113,7 @@ data TransferDomain = TransferDomain
     , _tdPrivacyProtectAdminContact :: Maybe Bool
     , _tdPrivacyProtectRegistrantContact :: Maybe Bool
     , _tdPrivacyProtectTechContact :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TransferDomain' request.
@@ -261,7 +261,7 @@ instance ToJSON TransferDomain
 -- | The TranserDomain response includes the following element.
 newtype TransferDomainResponse = TransferDomainResponse
     { _tdrOperationId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'TransferDomainResponse' response.

@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets
     { _albtsLoadBalancerName :: Text
     , _albtsSubnets :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachLoadBalancerToSubnets' request.
@@ -89,7 +89,7 @@ instance ToQuery AttachLoadBalancerToSubnets where
 -- | The output for the AttachLoadBalancerToSubnets action.
 newtype AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
     { _albtsrSubnets :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AttachLoadBalancerToSubnetsResponse' response.

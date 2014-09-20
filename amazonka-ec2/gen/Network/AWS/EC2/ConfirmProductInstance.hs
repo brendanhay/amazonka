@@ -56,7 +56,7 @@ import Network.AWS.Prelude
 data ConfirmProductInstance = ConfirmProductInstance
     { _cpiProductCode :: Text
     , _cpiInstanceId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ConfirmProductInstance' request.
@@ -88,7 +88,7 @@ instance ToQuery ConfirmProductInstance where
 
 newtype ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
     { _cpirOwnerId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ConfirmProductInstanceResponse' response.

@@ -65,7 +65,7 @@ import Network.AWS.Types (Region)
 data ChangeResourceRecordSets = ChangeResourceRecordSets
     { _crrsHostedZoneId :: ResourceId
     , _crrsChangeBatch :: ChangeBatch
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ChangeResourceRecordSets' request.
@@ -107,7 +107,7 @@ instance ToXML ChangeResourceRecordSets where
 -- | A complex type containing the response for the request.
 newtype ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
     { _crrsrChangeInfo :: ChangeInfo
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ChangeResourceRecordSetsResponse' response.

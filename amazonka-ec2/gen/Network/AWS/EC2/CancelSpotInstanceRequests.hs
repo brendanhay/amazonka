@@ -59,7 +59,7 @@ import Network.AWS.Prelude
 
 newtype CancelSpotInstanceRequests = CancelSpotInstanceRequests
     { _csirSpotInstanceRequestIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelSpotInstanceRequests' request.
@@ -85,7 +85,7 @@ instance ToQuery CancelSpotInstanceRequests where
 
 newtype CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
     { _csirrCancelledSpotInstanceRequests :: [CancelledSpotInstanceRequest]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CancelSpotInstanceRequestsResponse' response.

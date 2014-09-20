@@ -46,7 +46,7 @@ import Network.AWS.Types (Region)
 -- check.
 newtype GetHealthCheck = GetHealthCheck
     { _ghcHealthCheckId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetHealthCheck' request.
@@ -79,7 +79,7 @@ instance ToXML GetHealthCheck where
 -- | A complex type containing information about the specified health check.
 newtype GetHealthCheckResponse = GetHealthCheckResponse
     { _ghcrHealthCheck :: HealthCheck
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetHealthCheckResponse' response.

@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 -- | 
 newtype CreateOrUpdateTags = CreateOrUpdateTags
     { _coutTags :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateOrUpdateTags' request.
@@ -87,7 +87,7 @@ instance ToQuery CreateOrUpdateTags where
     toQuery = genericQuery def
 
 data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateOrUpdateTagsResponse' response.

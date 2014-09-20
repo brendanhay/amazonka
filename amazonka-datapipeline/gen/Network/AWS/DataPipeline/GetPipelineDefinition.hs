@@ -63,7 +63,7 @@ import Network.AWS.Request.JSON
 data GetPipelineDefinition = GetPipelineDefinition
     { _gpdPipelineId :: Text
     , _gpdVersion :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetPipelineDefinition' request.
@@ -103,7 +103,7 @@ instance ToJSON GetPipelineDefinition
 -- | Contains the output from the GetPipelineDefinition action.
 newtype GetPipelineDefinitionResponse = GetPipelineDefinitionResponse
     { _gpdrPipelineObjects :: [PipelineObject]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetPipelineDefinitionResponse' response.

@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 
 newtype DeleteDomain = DeleteDomain
     { _ddDomainName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteDomain' request.
@@ -67,7 +67,7 @@ instance ToQuery DeleteDomain where
     toQuery = genericQuery def
 
 data DeleteDomainResponse = DeleteDomainResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteDomainResponse' response.

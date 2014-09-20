@@ -291,6 +291,7 @@ instance Ord Field where
 data Type' = Type
     { _typShape    :: Shape
     , _typAnn      :: !Ann
+    , _typDeriving :: [Text]
     , _typPayload  :: Maybe Field
     , _typFields   :: [Field]
     , _typHeaders  :: [Field]
@@ -306,12 +307,19 @@ makeClassy ''Type'
 
 defaultType :: Shape -> Type'
 defaultType s = Type
-    { _typShape   = s
-    , _typAnn     = def
-    , _typPayload = Nothing
-    , _typFields  = []
-    , _typHeaders = []
+    { _typShape    = s
+    , _typAnn      = def
+    , _typDeriving = defaultDeriving
+    , _typPayload  = Nothing
+    , _typFields   = []
+    , _typHeaders  = []
     }
+
+defaultDeriving :: [Text]
+defaultDeriving =
+    [ "Show"
+    , "Generic"
+    ]
 
 data Error = Error
     { _erName   :: Text
@@ -519,6 +527,8 @@ defaultService a = Service
     , _svcTypeOverride       = def
     , _svcFieldOverride      = def
     }
+
+makePrisms ''Shape
 
 makeLenses ''Request
 makeLenses ''Field

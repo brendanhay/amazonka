@@ -46,7 +46,7 @@ import Network.AWS.Request.JSON
 data UpdateElasticIp = UpdateElasticIp
     { _ueiElasticIp :: Text
     , _ueiName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateElasticIp' request.
@@ -81,7 +81,7 @@ instance ToHeaders UpdateElasticIp
 instance ToJSON UpdateElasticIp
 
 data UpdateElasticIpResponse = UpdateElasticIpResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateElasticIpResponse' response.

@@ -54,7 +54,7 @@ import Network.AWS.Prelude
 
 newtype CreateNetworkAcl = CreateNetworkAcl
     { _cnaVpcId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateNetworkAcl' request.
@@ -78,7 +78,7 @@ instance ToQuery CreateNetworkAcl where
 
 newtype CreateNetworkAclResponse = CreateNetworkAclResponse
     { _cnarNetworkAcl :: Maybe NetworkAcl
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateNetworkAclResponse' response.

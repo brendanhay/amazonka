@@ -56,7 +56,7 @@ data ModifyDBSubnetGroup = ModifyDBSubnetGroup
     { _mdbsgDBSubnetGroupName :: Text
     , _mdbsgDBSubnetGroupDescription :: Maybe Text
     , _mdbsgSubnetIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyDBSubnetGroup' request.
@@ -100,7 +100,7 @@ instance ToQuery ModifyDBSubnetGroup where
 
 newtype ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse
     { _mdbsgrDBSubnetGroup :: Maybe DBSubnetGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifyDBSubnetGroupResponse' response.

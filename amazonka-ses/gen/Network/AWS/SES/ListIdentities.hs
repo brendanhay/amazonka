@@ -59,7 +59,7 @@ data ListIdentities = ListIdentities
     { _liIdentityType :: Maybe IdentityType
     , _liNextToken :: Maybe Text
     , _liMaxItems :: Maybe Integer
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListIdentities' request.
@@ -100,7 +100,7 @@ instance ToQuery ListIdentities where
 data ListIdentitiesResponse = ListIdentitiesResponse
     { _lirIdentities :: [Text]
     , _lirNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListIdentitiesResponse' response.

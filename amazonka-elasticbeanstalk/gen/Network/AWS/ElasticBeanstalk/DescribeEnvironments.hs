@@ -60,7 +60,7 @@ data DescribeEnvironments = DescribeEnvironments
     , _deEnvironmentNames :: [Text]
     , _deIncludeDeleted :: Maybe Bool
     , _deIncludedDeletedBackTo :: Maybe ISO8601
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEnvironments' request.
@@ -132,7 +132,7 @@ instance ToQuery DescribeEnvironments where
 -- | Result message containing a list of environment descriptions.
 newtype DescribeEnvironmentsResponse = DescribeEnvironmentsResponse
     { _der1Environments :: [EnvironmentDescription]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeEnvironmentsResponse' response.

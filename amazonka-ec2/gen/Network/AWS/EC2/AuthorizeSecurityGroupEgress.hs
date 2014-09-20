@@ -90,7 +90,7 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
     , _asgeToPort :: Maybe Integer
     , _asgeCidrIp :: Maybe Text
     , _asgeIpPermissions :: [IpPermission]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AuthorizeSecurityGroupEgress' request.
@@ -174,7 +174,7 @@ instance ToQuery AuthorizeSecurityGroupEgress where
     toQuery = genericQuery def
 
 data AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'AuthorizeSecurityGroupEgressResponse' response.

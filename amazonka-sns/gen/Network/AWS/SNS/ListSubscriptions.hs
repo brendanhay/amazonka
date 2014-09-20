@@ -63,7 +63,7 @@ import Network.AWS.Prelude
 -- | Input for ListSubscriptions action.
 newtype ListSubscriptions = ListSubscriptions
     { _lsNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListSubscriptions' request.
@@ -88,7 +88,7 @@ instance ToQuery ListSubscriptions where
 data ListSubscriptionsResponse = ListSubscriptionsResponse
     { _lsrSubscriptions :: [Subscription]
     , _lsrNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListSubscriptionsResponse' response.

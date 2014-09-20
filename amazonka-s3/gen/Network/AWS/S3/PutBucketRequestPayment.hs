@@ -48,7 +48,7 @@ data PutBucketRequestPayment = PutBucketRequestPayment
     { _pbrpBucket :: BucketName
     , _pbrpContentMD5 :: Maybe Text
     , _pbrpRequestPaymentConfiguration :: RequestPaymentConfiguration
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketRequestPayment' request.
@@ -94,7 +94,7 @@ instance ToBody PutBucketRequestPayment where
     toBody = toBody . encodeXML . _pbrpRequestPaymentConfiguration
 
 data PutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'PutBucketRequestPaymentResponse' response.

@@ -54,7 +54,7 @@ import Network.AWS.Prelude
 -- verification.
 newtype VerifyEmailAddress = VerifyEmailAddress
     { _veaEmailAddress :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'VerifyEmailAddress' request.
@@ -77,7 +77,7 @@ instance ToQuery VerifyEmailAddress where
     toQuery = genericQuery def
 
 data VerifyEmailAddressResponse = VerifyEmailAddressResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'VerifyEmailAddressResponse' response.

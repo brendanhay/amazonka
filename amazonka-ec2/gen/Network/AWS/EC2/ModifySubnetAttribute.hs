@@ -47,7 +47,7 @@ import Network.AWS.Prelude
 data ModifySubnetAttribute = ModifySubnetAttribute
     { _msa1SubnetId :: Text
     , _msa1MapPublicIpOnLaunch :: Maybe AttributeBooleanValue
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifySubnetAttribute' request.
@@ -79,7 +79,7 @@ instance ToQuery ModifySubnetAttribute where
     toQuery = genericQuery def
 
 data ModifySubnetAttributeResponse = ModifySubnetAttributeResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ModifySubnetAttributeResponse' response.

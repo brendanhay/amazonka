@@ -58,7 +58,7 @@ import Network.AWS.Prelude
 data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
     { _csdsBucket :: Text
     , _csdsPrefix :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSpotDatafeedSubscription' request.
@@ -90,7 +90,7 @@ instance ToQuery CreateSpotDatafeedSubscription where
 
 newtype CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
     { _csdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateSpotDatafeedSubscriptionResponse' response.

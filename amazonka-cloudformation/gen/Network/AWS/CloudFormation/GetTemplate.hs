@@ -52,7 +52,7 @@ import Network.AWS.Prelude
 -- | The input for a GetTemplate action.
 newtype GetTemplate = GetTemplate
     { _gtStackName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetTemplate' request.
@@ -80,7 +80,7 @@ instance ToQuery GetTemplate where
 -- | The output for GetTemplate action.
 newtype GetTemplateResponse = GetTemplateResponse
     { _gtrTemplateBody :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetTemplateResponse' response.

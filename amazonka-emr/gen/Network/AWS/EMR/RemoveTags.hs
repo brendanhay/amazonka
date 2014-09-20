@@ -58,7 +58,7 @@ import Network.AWS.Request.JSON
 data RemoveTags = RemoveTags
     { _rtResourceId :: Text
     , _rtTagKeys :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveTags' request.
@@ -96,7 +96,7 @@ instance ToJSON RemoveTags
 
 -- | This output indicates the result of removing tags from a resource.
 data RemoveTagsResponse = RemoveTagsResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RemoveTagsResponse' response.

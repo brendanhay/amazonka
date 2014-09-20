@@ -43,7 +43,7 @@ import Network.AWS.Prelude
 data DeletePolicy = DeletePolicy
     { _dpAutoScalingGroupName :: Maybe Text
     , _dpPolicyName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeletePolicy' request.
@@ -74,7 +74,7 @@ instance ToQuery DeletePolicy where
     toQuery = genericQuery def
 
 data DeletePolicyResponse = DeletePolicyResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeletePolicyResponse' response.

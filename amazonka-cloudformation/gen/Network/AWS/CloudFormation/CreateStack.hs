@@ -76,7 +76,7 @@ data CreateStack = CreateStack
     , _csStackPolicyBody :: Maybe Text
     , _csStackPolicyURL :: Maybe Text
     , _csTags :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStack' request.
@@ -217,7 +217,7 @@ instance ToQuery CreateStack where
 -- | The output for a CreateStack action.
 newtype CreateStackResponse = CreateStackResponse
     { _csrStackId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateStackResponse' response.

@@ -65,7 +65,7 @@ data CopySnapshot = CopySnapshot
     , _csDescription :: Maybe Text
     , _csDestinationRegion :: Maybe Text
     , _csPresignedUrl :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopySnapshot' request.
@@ -132,7 +132,7 @@ instance ToQuery CopySnapshot where
 
 newtype CopySnapshotResponse = CopySnapshotResponse
     { _csrSnapshotId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopySnapshotResponse' response.

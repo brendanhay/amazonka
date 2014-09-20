@@ -56,7 +56,7 @@ import Network.AWS.Prelude
 
 newtype MonitorInstances = MonitorInstances
     { _miInstanceIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'MonitorInstances' request.
@@ -80,7 +80,7 @@ instance ToQuery MonitorInstances where
 
 newtype MonitorInstancesResponse = MonitorInstancesResponse
     { _mirInstanceMonitorings :: [InstanceMonitoring]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'MonitorInstancesResponse' response.

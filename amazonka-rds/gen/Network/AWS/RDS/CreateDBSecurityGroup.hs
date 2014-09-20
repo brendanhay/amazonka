@@ -54,7 +54,7 @@ data CreateDBSecurityGroup = CreateDBSecurityGroup
     { _cdbsgDBSecurityGroupName :: Text
     , _cdbsgDBSecurityGroupDescription :: Text
     , _cdbsgTags :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBSecurityGroup' request.
@@ -101,7 +101,7 @@ instance ToQuery CreateDBSecurityGroup where
 
 newtype CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse
     { _cdbsgrDBSecurityGroup :: Maybe DBSecurityGroup
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CreateDBSecurityGroupResponse' response.

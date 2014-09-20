@@ -58,7 +58,7 @@ import Network.AWS.Prelude
 data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
     { _rnaaAssociationId :: Text
     , _rnaaNetworkAclId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReplaceNetworkAclAssociation' request.
@@ -93,7 +93,7 @@ instance ToQuery ReplaceNetworkAclAssociation where
 
 newtype ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
     { _rnaarNewAssociationId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReplaceNetworkAclAssociationResponse' response.

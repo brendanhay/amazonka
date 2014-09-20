@@ -69,7 +69,7 @@ data RegisterDomain = RegisterDomain
     { _rdName :: Text
     , _rdDescription :: Maybe Text
     , _rdWorkflowExecutionRetentionPeriodInDays :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterDomain' request.
@@ -123,7 +123,7 @@ instance ToHeaders RegisterDomain
 instance ToJSON RegisterDomain
 
 data RegisterDomainResponse = RegisterDomainResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'RegisterDomainResponse' response.

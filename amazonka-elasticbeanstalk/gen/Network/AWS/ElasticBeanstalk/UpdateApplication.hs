@@ -51,7 +51,7 @@ import Network.AWS.Prelude
 data UpdateApplication = UpdateApplication
     { _uaApplicationName :: Text
     , _uaDescription :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateApplication' request.
@@ -86,7 +86,7 @@ instance ToQuery UpdateApplication where
 -- | Result message containing a single description of an application.
 newtype UpdateApplicationResponse = UpdateApplicationResponse
     { _uarApplication :: Maybe ApplicationDescription
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateApplicationResponse' response.

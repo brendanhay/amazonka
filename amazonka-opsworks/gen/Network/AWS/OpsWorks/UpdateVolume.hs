@@ -48,7 +48,7 @@ data UpdateVolume = UpdateVolume
     { _uv1VolumeId :: Text
     , _uv1Name :: Maybe Text
     , _uv1MountPoint :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateVolume' request.
@@ -90,7 +90,7 @@ instance ToHeaders UpdateVolume
 instance ToJSON UpdateVolume
 
 data UpdateVolumeResponse = UpdateVolumeResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateVolumeResponse' response.

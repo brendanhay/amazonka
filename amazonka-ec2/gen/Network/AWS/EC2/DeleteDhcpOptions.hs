@@ -49,7 +49,7 @@ import Network.AWS.Prelude
 
 newtype DeleteDhcpOptions = DeleteDhcpOptions
     { _ddoDhcpOptionsId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteDhcpOptions' request.
@@ -73,7 +73,7 @@ instance ToQuery DeleteDhcpOptions where
     toQuery = genericQuery def
 
 data DeleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
-    deriving (Eq, Show, Generic)
+    deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteDhcpOptionsResponse' response.

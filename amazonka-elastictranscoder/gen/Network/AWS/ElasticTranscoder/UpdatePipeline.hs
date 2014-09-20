@@ -59,7 +59,7 @@ data UpdatePipeline = UpdatePipeline
     , _upNotifications :: Maybe Notifications
     , _upContentConfig :: Maybe PipelineOutputConfig
     , _upThumbnailConfig :: Maybe PipelineOutputConfig
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdatePipeline' request.
@@ -214,7 +214,7 @@ instance ToJSON UpdatePipeline
 -- specified in the request.
 newtype UpdatePipelineResponse = UpdatePipelineResponse
     { _uprPipeline :: Pipeline
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdatePipelineResponse' response.

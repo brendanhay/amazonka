@@ -48,7 +48,7 @@ import Network.AWS.Prelude
 data DeleteSuggester = DeleteSuggester
     { _ds2DomainName :: Text
     , _ds2SuggesterName :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSuggester' request.
@@ -86,7 +86,7 @@ instance ToQuery DeleteSuggester where
 -- suggester.
 newtype DeleteSuggesterResponse = DeleteSuggesterResponse
     { _dsrrSuggester :: SuggesterStatus
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DeleteSuggesterResponse' response.

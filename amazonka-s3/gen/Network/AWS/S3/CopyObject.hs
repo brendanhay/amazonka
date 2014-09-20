@@ -410,7 +410,7 @@ data CopyObjectResponse = CopyObjectResponse
     , _corServerSideEncryption :: Maybe ServerSideEncryption
     , _corSSECustomerAlgorithm :: Maybe Text
     , _corSSECustomerKeyMD5 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'CopyObjectResponse' response.

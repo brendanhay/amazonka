@@ -20,7 +20,7 @@
 module Generator.ToJSON where
 
 import           Control.Arrow              ((&&&))
-import           Control.Lens               ((^.), view)
+import           Control.Lens               ((^.))
 import           Data.Aeson
 import           Data.Aeson.Types
 import           Data.CaseInsensitive       (CI)
@@ -178,7 +178,7 @@ instance ToJSON Type' where
             , "params"     .= object params
             , "exhaustive" .= (length params == length _typFields)
             , "headers"    .= _typHeaders
-            , "equality"   .= not (any (view cmnStreaming) _typFields)
+            , "deriving"   .= Text.intercalate ", " _typDeriving
             ]
 
         Object y = toJSON (t^.typAnn)

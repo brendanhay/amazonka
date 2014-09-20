@@ -82,7 +82,7 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory
     , _dsphAvailabilityZone :: Maybe Text
     , _dsphMaxResults :: Maybe Integer
     , _dsphNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSpotPriceHistory' request.
@@ -167,7 +167,7 @@ instance ToQuery DescribeSpotPriceHistory where
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
     { _dsphrSpotPriceHistory :: [SpotPrice]
     , _dsphrNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeSpotPriceHistoryResponse' response.

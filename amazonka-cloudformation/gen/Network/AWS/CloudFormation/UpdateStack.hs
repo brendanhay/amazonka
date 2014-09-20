@@ -78,7 +78,7 @@ data UpdateStack = UpdateStack
     , _usStackPolicyBody :: Maybe Text
     , _usStackPolicyURL :: Maybe Text
     , _usNotificationARNs :: [Text]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateStack' request.
@@ -219,7 +219,7 @@ instance ToQuery UpdateStack where
 -- | The output for a UpdateStack action.
 newtype UpdateStackResponse = UpdateStackResponse
     { _usrStackId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UpdateStackResponse' response.

@@ -342,10 +342,10 @@ derivingOf = sort . foldl' (flip delete) defaultDeriving . go
   where
     go x = nub . neq . nord $ concatMap (go . snd) (shapesOf x)
       where
-        neq  = add (x^.cmnStreaming) DEq
-        nord = add (not (isn't _SMap x)) DOrd
+        neq  = add (x^.cmnStreaming) [DEq, DOrd]
+        nord = add (not (isn't _SMap x)) [DOrd]
 
-        add True  = (:)
+        add True  = mappend
         add False = const id
 
 typeOf :: Ann -> (Text, Text)

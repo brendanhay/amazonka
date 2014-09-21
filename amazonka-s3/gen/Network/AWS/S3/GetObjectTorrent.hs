@@ -80,7 +80,7 @@ instance ToBody GetObjectTorrent
 
 newtype GetObjectTorrentResponse = GetObjectTorrentResponse
     { _gotrBody :: RsBody
-    } deriving (Show, Generic)
+    } deriving (Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'GetObjectTorrentResponse' response.

@@ -100,7 +100,7 @@ instance ToJSON ReadPreset
 -- | The ReadPresetResponse structure.
 newtype ReadPresetResponse = ReadPresetResponse
     { _rprrPreset :: Maybe Preset
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ReadPresetResponse' response.

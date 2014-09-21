@@ -75,7 +75,7 @@ instance ToJSON DescribeCluster
 -- | This output contains the description of the cluster.
 newtype DescribeClusterResponse = DescribeClusterResponse
     { _dcrCluster :: Maybe Cluster
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeClusterResponse' response.

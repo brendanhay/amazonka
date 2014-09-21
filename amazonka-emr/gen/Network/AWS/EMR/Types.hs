@@ -2989,7 +2989,7 @@ data Step = Step
     , _sConfig :: Maybe HadoopStepConfig
     , _sActionOnFailure :: Maybe ActionOnFailure
     , _sStatus :: Maybe StepStatus
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Step' data type.

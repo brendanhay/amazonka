@@ -83,7 +83,7 @@ instance ToJSON DescribeStep
 -- | This output contains the description of the cluster step.
 newtype DescribeStepResponse = DescribeStepResponse
     { _dsrStep :: Maybe Step
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeStepResponse' response.

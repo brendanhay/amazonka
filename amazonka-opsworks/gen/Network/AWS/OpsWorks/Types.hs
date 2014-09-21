@@ -1430,7 +1430,7 @@ data Deployment = Deployment
     , _dStatus :: Maybe Text
     , _dCustomJson :: Maybe Text
     , _dInstanceIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Deployment' data type.
@@ -3366,7 +3366,7 @@ instance FromJSON StackSummary
 data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration
     { _tbascInstanceId :: Maybe Text
     , _tbascAutoScalingSchedule :: Maybe WeeklyAutoScalingSchedule
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'TimeBasedAutoScalingConfiguration' data type.

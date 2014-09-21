@@ -69,7 +69,7 @@ data UploadPart = UploadPart
     , _upSSECustomerAlgorithm :: Maybe Text
     , _upSSECustomerKey :: Maybe Text
     , _upSSECustomerKeyMD5 :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'UploadPart' request.

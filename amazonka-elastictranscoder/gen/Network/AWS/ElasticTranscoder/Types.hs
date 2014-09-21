@@ -2061,7 +2061,7 @@ data Preset = Preset
     , _p1rVideo :: Maybe VideoParameters
     , _p1rThumbnails :: Maybe Thumbnails
     , _p1rType :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'Preset' data type.

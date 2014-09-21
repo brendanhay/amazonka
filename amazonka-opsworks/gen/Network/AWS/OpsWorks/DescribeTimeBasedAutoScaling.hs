@@ -78,7 +78,7 @@ instance ToJSON DescribeTimeBasedAutoScaling
 -- | Contains the response to a DescribeTimeBasedAutoScaling request.
 newtype DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse
     { _dtbasrTimeBasedAutoScalingConfigurations :: [TimeBasedAutoScalingConfiguration]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'DescribeTimeBasedAutoScalingResponse' response.

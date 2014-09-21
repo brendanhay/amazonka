@@ -1656,7 +1656,7 @@ data KeysAndAttributes = KeysAndAttributes
     { _kaaKeys :: List1 (Map Text AttributeValue)
     , _kaaAttributesToGet :: Maybe (List1 Text)
     , _kaaConsistentRead :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'KeysAndAttributes' data type to populate a request.
@@ -2200,7 +2200,7 @@ instance ToJSON UpdateGlobalSecondaryIndexAction
 data WriteRequest = WriteRequest
     { _wrPutRequest :: Maybe PutRequest
     , _wrDeleteRequest :: Maybe DeleteRequest
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
 -- a valid 'WriteRequest' data type to populate a request.

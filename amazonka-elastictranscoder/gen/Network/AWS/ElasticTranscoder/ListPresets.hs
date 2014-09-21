@@ -108,7 +108,7 @@ instance ToJSON ListPresets
 data ListPresetsResponse = ListPresetsResponse
     { _lprrPresets :: [Preset]
     , _lprrNextPageToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
 -- a valid 'ListPresetsResponse' response.

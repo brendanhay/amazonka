@@ -236,7 +236,7 @@ instance Default Primitive where
 data Shape
     = SStruct Struct
     | SList   List
-    | SMap    Map
+    | SMap   Map
     | SSum    Sum
     | SPrim   Prim
       deriving (Eq, Show, Generic)
@@ -265,6 +265,13 @@ data Ctor
 instance Default Ctor where
     def = CData
 
+data Derive
+    = DEq
+    | DOrd
+    | DShow
+    | DGeneric
+      deriving (Eq, Ord, Show)
+
 data Ann = Ann
     { _anRaw'     :: !Text
     , _anCtor     :: !Ctor
@@ -273,29 +280,31 @@ data Ann = Ann
     , _anDefault  :: !Bool
     , _anRequired :: !Bool
     , _anStrict   :: !Bool
+    , _anDeriving :: [Derive]
     } deriving (Eq, Show, Generic)
 
 instance Default Ann where
-    def = Ann "Default" def False False False False False
+    def = Ann "Default" def False False False False False defaultDeriving
+
+defaultDeriving :: [Derive]
+defaultDeriving = [DEq, DOrd, DShow, DGeneric]
 
 data Field = Field
-    { _fldAnn      :: !Ann
-    , _fldName     :: Text
+    { _fldName     :: Text
     , _fldPrefixed :: Text
-    , _fldCommon   :: Common
+    , _fldType     :: Type'
     } deriving (Eq, Show)
 
 instance Ord Field where
-    compare = compare `on` _fldCommon
+    compare = compare `on` _fldType
 
 data Type' = Type
     { _typShape    :: Shape
     , _typAnn      :: !Ann
-    , _typDeriving :: [Text]
     , _typPayload  :: Maybe Field
     , _typFields   :: [Field]
     , _typHeaders  :: [Field]
-    } deriving (Show, Generic)
+    } deriving (Show)
 
 instance Eq Type' where
     (==) = (==) `on` view cmnName
@@ -309,17 +318,10 @@ defaultType :: Shape -> Type'
 defaultType s = Type
     { _typShape    = s
     , _typAnn      = def
-    , _typDeriving = defaultDeriving
     , _typPayload  = Nothing
     , _typFields   = []
     , _typHeaders  = []
     }
-
-defaultDeriving :: [Text]
-defaultDeriving =
-    [ "Show"
-    , "Generic"
-    ]
 
 data Error = Error
     { _erName   :: Text
@@ -552,7 +554,7 @@ makeClassy ''TypeOverride
 makeClassy ''FieldOverride
 
 instance HasAnn Field where
-    ann = fldAnn
+    ann = fldType . ann
 
 instance HasAnn Type' where
     ann = typAnn
@@ -587,7 +589,7 @@ instance HasCommon Prim where
     common f x = (\y -> x { _prmCommon = y }) <$> f (_prmCommon x)
 
 instance HasCommon Field where
-    common = fldCommon
+    common = fldType . common
 
 instance HasCommon Type' where
     common = typShape . common

@@ -27,6 +27,7 @@ import           Data.CaseInsensitive       (CI)
 import qualified Data.CaseInsensitive       as CI
 import           Data.Foldable              (foldl')
 import qualified Data.HashMap.Strict        as Map
+import           Data.List                  (sort, nub, intercalate)
 import           Data.Monoid                hiding (Sum)
 import           Data.String.CaseConversion
 import           Data.Text                  (Text)
@@ -152,6 +153,9 @@ instance ToJSON Shape where
 instance ToJSON Primitive where
     toJSON = toCtor (drop 1)
 
+instance ToJSON [Derive] where
+    toJSON = toJSON . intercalate ", " . map (drop 1 . show) . sort . nub
+
 instance ToJSON Ann where
     toJSON a = Object (x <> y)
       where
@@ -160,12 +164,27 @@ instance ToJSON Ann where
             , "type"    .= typ
             , "strict"  .= if _anStrict a then "!" <> wtyp else typ
             ]
+
         Object y = toField (recase Camel Under . drop 3) a
 
         (wtyp, typ) = typeOf a
 
 instance ToJSON Ctor where
     toJSON = toJSON . lowered . drop 1 . show
+
+instance ToJSON Field where
+    toJSON f = Object (x <> y <> z)
+      where
+        Object x = object
+            [ "length"   .= (Text.length prefix + 1)
+            , "prefixed" .= prefix
+            , "lens"     .= lowerFirst (f^.fldName)
+            ]
+
+        Object y = toJSON (f^.ann)
+        Object z = toJSON (f^.common)
+
+        prefix = accessor (f^.fldPrefixed)
 
 instance ToJSON Type' where
     toJSON t@Type{..} = Object (x <> y <> z)
@@ -176,9 +195,7 @@ instance ToJSON Type' where
             , "fields"     .= _typFields
             , "payload"    .= _typPayload
             , "params"     .= object params
-            , "exhaustive" .= (length params == length _typFields)
             , "headers"    .= _typHeaders
-            , "deriving"   .= Text.intercalate ", " _typDeriving
             ]
 
         Object y = toJSON (t^.typAnn)
@@ -191,20 +208,6 @@ instance ToJSON Type' where
         param xs (i :: Int, f)
             | f^.cmnRequired = (Text.pack $ show i, toJSON f) : xs
             | otherwise        = xs
-
-instance ToJSON Field where
-    toJSON f = Object (x <> y <> z)
-      where
-        Object x = object
-            [ "length"   .= (Text.length prefix + 1)
-            , "prefixed" .= prefix
-            , "lens"     .= lowerFirst (f^.cmnName)
-            ]
-
-        Object y = toJSON (f^.fldAnn)
-        Object z = toJSON (_fldCommon f)
-
-        prefix = accessor (_fldPrefixed f)
 
 instance ToJSON StdMethod where
     toJSON = toJSON . Text.toLower . Text.decodeUtf8 . renderStdMethod

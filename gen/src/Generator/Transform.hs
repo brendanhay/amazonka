@@ -230,7 +230,7 @@ pagination svc o p = case p of
     indexed x y =
         let t = getType x
             f = getField y (_typFields t)
-          in Text.init . Text.tail . fst . typeOf $ _fldAnn f
+          in Text.init . Text.tail . fst . typeOf $ f^.ann
 
     applied x y =
         let t = getType x
@@ -256,11 +256,14 @@ fieldsOf rq svc s = map f (shapesOf s)
     f (k, v) =
         let p = (`elem` (svc^.fRequired)) . CI.mk
             x = if p k then v & cmnRequired.~True else v
-         in Field (annOf rq svc x) k (prefixed s k) (x^.common)
+         in Field k (prefixed s k) (shapeType rq svc x)
 
 shapesOf :: Shape -> [(Text, Shape)]
-shapesOf (SStruct Struct{..}) = _sctFields
-shapesOf _                    = []
+shapesOf s = case s of
+    SStruct Struct{..} -> _sctFields
+    SMap    Map{..}    -> [(_mapKey^.cmnName, _mapKey), (_mapValue^.cmnName, _mapValue)]
+    SList   List{..}   -> [(_lstItem^.cmnName, _lstItem)]
+    _                  -> []
 
 prefixed :: HasCommon a => a -> Text -> Text
 prefixed p = accessor . mappend (p^.cmnPrefix) . upperFirst
@@ -271,7 +274,6 @@ shapeType rq svc@Service{..} s = defaultType shape
     & typPayload  .~ bdy
     & typFields   .~ fs
     & typHeaders  .~ hs
-    & typDeriving .~ derivingOf shape <> defaultDeriving
   where
     bdy = listToMaybe $ filter ((== LBody) . view cmnLocation) fs
     hs  = filter ((== LHeader) . view cmnLocation) fs
@@ -280,33 +282,23 @@ shapeType rq svc@Service{..} s = defaultType shape
     overrides = fromMaybe [] $ Map.lookup (CI.mk name) (svc^.tRequired)
 
     upd f | f^.cmnLocation == LBody
-          , f^.cmnStreaming = f & cmnRequired.~True & fldAnn.anRequired.~True
+          , f^.cmnStreaming = f & cmnRequired.~True & anRequired.~True
           | otherwise       = f
 
     shape = ignoreFields (svc^.fIgnored) s
     name  = s^.cmnName
 
-derivingOf :: Shape -> [Text]
-derivingOf s
-    | eq', ord' s = ["Eq", "Ord"]
-    | eq'         = ["Eq"]
-    | otherwise   = []
-  where
-    eq'  = not (any (view cmnStreaming . snd) (shapesOf s))
-    ord' = all (valid . snd) . shapesOf
-
-    valid (SList l) = ord' (l^.lstItem)
-    valid (SMap  _) = False
-    valid _         = True
-
 annOf :: Bool -> Service -> Shape -> Ann
-annOf rq svc s =
-    Ann isRaw (ctorOf s) isWrapped monoid' default' req strict'
+annOf rq svc s = def
+    & anRaw'     .~ isRaw
+    & anCtor     .~ ctorOf s
+    & anWrap     .~ isWrapped
+    & anMonoid   .~ isMonoid s
+    & anDefault  .~ isDefault s
+    & anRequired .~ req
+    & anStrict   .~ (isStrict s && s^.cmnRequired)
+    & anDeriving .~ derivingOf s
   where
-    monoid'  = isMonoid s
-    default' = isDefault s
-    strict'  = isStrict s && (s^.cmnRequired)
-
     (isRaw, isWrapped) = case s of
         _ | Just x <- renameName svc (s^.cmnName) -> (x, False)
         _ | Just x <- existingType svc s          -> (x, False)
@@ -344,6 +336,17 @@ annOf rq svc s =
     name = s^.cmnName
     req  = body || s^.cmnRequired
     body = isBody s
+
+derivingOf :: Shape -> [Derive]
+derivingOf = sort . foldl' (flip delete) defaultDeriving . go
+  where
+    go x = nub . neq . nord $ concatMap (go . snd) (shapesOf x)
+      where
+        neq  = add (x^.cmnStreaming) DEq
+        nord = add (not (isn't _SMap x)) DOrd
+
+        add True  = (:)
+        add False = const id
 
 typeOf :: Ann -> (Text, Text)
 typeOf Ann{..}
@@ -474,14 +477,16 @@ serviceTypes svc@Service{..} = map override
          in Map.insert n z m
 
     opfields o =
-           descend (_opRequest  o^.typShape)
-        ++ descend (_opResponse o^.typShape)
-        ++ concatMap descend (_opErrors o)
+           descend svc (_opRequest  o^.typShape)
+        ++ descend svc (_opResponse o^.typShape)
+        ++ concatMap (descend svc) (_opErrors o)
 
-    descend (SStruct Struct{..}) = concatMap (uncurry flat) _sctFields
-    descend _                    = []
-
-    flat p s@SStruct {}         = (p, s) : descend s
+descend :: Service -> Shape -> [(Text, Shape)]
+descend svc s' = case s' of
+    SStruct Struct{..} -> concatMap (uncurry flat) _sctFields
+    _                  -> []
+  where
+    flat p s@SStruct {}         = (p, s) : descend svc s
     flat _ s@(SList  List {..}) = flat (s^.cmnName) _lstItem
     flat _ s@(SMap   Map  {..}) = flat (s^.cmnName) _mapKey ++ flat (s^.cmnName) _mapValue
     flat p (SSum     x)         = [(p, SSum $ switch x)]
@@ -552,7 +557,7 @@ serviceError svc@Service{..} =
 requireField :: [CI Text] -> Field -> Field
 requireField cs f
     | CI.mk (_fldName f) `notElem` cs = f
-    | otherwise = f & cmnRequired.~True & fldAnn.anRequired.~True
+    | otherwise = f & cmnRequired.~True & anRequired.~True
 
 ignoreFields :: [CI Text] -> Shape -> Shape
 ignoreFields cs (SStruct s) =

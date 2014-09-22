@@ -34,6 +34,7 @@ import           Data.String
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Text.Util
+import           Debug.Trace
 import           Generator.AST
 import           Text.EDE.Filters
 
@@ -90,10 +91,10 @@ transform = map eval . sort . nub
   where
     eval x =
         let os  = evalState (mapM (operation x) (x^.svcOperations)) mempty
-            y   = x & svcOperations.~os
-            z   = y & svcTypes.~serviceTypes y
-            p o = o & opPagination%~fmap (pagination z o)
-         in z & svcOperations%~map p & svcError.~serviceError z
+            y   = x & svcOperations .~ os
+            z   = y & svcTypes      .~ serviceTypes y
+            p o = o & opPagination  %~ fmap (pagination z o)
+         in z & svcOperations %~ map p & svcError .~ serviceError z
 
 current :: [Service] -> [Service]
 current = mapMaybe latest . groupBy identical
@@ -119,7 +120,7 @@ operation svc@Service{..} o = do
     es <- traverse (uniquify svc) (y^.opErrors)
 
     let z = y & opRequest.typShape   .~ rq
-              & opRequest.rqType     .~ shapeType True svc rq
+              & opRequest.rqType     .~ shapeType "operation:" True svc rq
               & opRequest.rqHttp     %~ http rq
               & opResponse.typShape  .~ rs
               & opResponse           %~ response svc
@@ -133,7 +134,7 @@ operationNS svc o = svc^.svcNs.nsRoot <> NS [o^.opName]
 response :: Service -> Response -> Response
 response svc@Service{..} rs = rs' & rsStyle.~style _svcType rs'
   where
-    rs' = rs & rsType.~shapeType False svc (rs^.typShape)
+    rs' = rs & rsType.~shapeType "response:" False svc (rs^.typShape)
 
 uniquify :: Service -> Shape -> State (HashMap Text Text) Shape
 uniquify svc (renameCommon svc -> s')
@@ -217,8 +218,8 @@ pagination svc o p = case p of
     rq = o^.opRequest.typShape
     rs = o^.opResponse.typShape
 
-    types = shapeType True svc rq
-          : shapeType False svc rs
+    types = shapeType "pagination:" True svc rq
+          : shapeType "pagination:" False svc rs
           : _svcTypes svc
 
     labeled _ Empty        = Empty
@@ -249,14 +250,39 @@ serviceNamespaces :: Service -> [NS]
 serviceNamespaces s = sort $ (s^.svcNs.nsTypes)
     : map _opNamespace (_svcOperations s)
 
-fieldsOf :: Bool -> Service -> Shape -> [Field]
-fieldsOf rq svc s = map f (shapesOf s)
+shapeType :: Text -> Bool -> Service -> Shape -> Type'
+shapeType frm rq svc@Service{..} s = defaultType shape
+    & typAnn      .~ annOf rq svc shape
+    & typPayload  .~ bdy
+    & typFields   .~ fs
+    & typHeaders  .~ hs
+  where
+    bdy = listToMaybe $ filter ((== LBody) . view cmnLocation) fs
+    hs  = filter ((== LHeader) . view cmnLocation) fs
+    fs  = map (requireField overrides . upd) (fieldsOf frm rq svc shape)
+
+    overrides = fromMaybe [] $ Map.lookup (CI.mk name) (svc^.tRequired)
+
+    upd f | f^.cmnLocation == LBody
+          , f^.cmnStreaming = f & cmnRequired.~True & anRequired.~True
+          | otherwise       = f
+
+    shape = ignoreFields (svc^.fIgnored) s
+    name  = s^.cmnName
+
+fieldsOf :: Text -> Bool -> Service -> Shape -> [Field]
+fieldsOf frm rq svc s = map f (shapesOf s)
   where
     f :: (Text, Shape) -> Field
-    f (k, v) =
-        let p = (`elem` (svc^.fRequired)) . CI.mk
-            x = if p k then v & cmnRequired.~True else v
-         in Field k (prefixed s k) (shapeType rq svc x)
+    f (k, v) = Field k p (shapeType ("fieldsOf: " <> frm) rq svc val)
+      where
+        val | CI.mk k `elem` (svc^.fRequired) = v & cmnRequired.~True
+            | otherwise = v
+
+        p = prefixed s (fromMaybe k (prefix v))
+
+        prefix (SList x) = x^.lstItem.cmnXmlName
+        prefix x         = x^.cmnXmlName
 
 shapesOf :: Shape -> [(Text, Shape)]
 shapesOf s = case s of
@@ -267,26 +293,6 @@ shapesOf s = case s of
 
 prefixed :: HasCommon a => a -> Text -> Text
 prefixed p = accessor . mappend (p^.cmnPrefix) . upperFirst
-
-shapeType :: Bool -> Service -> Shape -> Type'
-shapeType rq svc@Service{..} s = defaultType shape
-    & typAnn      .~ annOf rq svc shape
-    & typPayload  .~ bdy
-    & typFields   .~ fs
-    & typHeaders  .~ hs
-  where
-    bdy = listToMaybe $ filter ((== LBody) . view cmnLocation) fs
-    hs  = filter ((== LHeader) . view cmnLocation) fs
-    fs  = map (requireField overrides . upd) (fieldsOf rq svc shape)
-
-    overrides = fromMaybe [] $ Map.lookup (CI.mk name) (svc^.tRequired)
-
-    upd f | f^.cmnLocation == LBody
-          , f^.cmnStreaming = f & cmnRequired.~True & anRequired.~True
-          | otherwise       = f
-
-    shape = ignoreFields (svc^.fIgnored) s
-    name  = s^.cmnName
 
 annOf :: Bool -> Service -> Shape -> Ann
 annOf rq svc s = def
@@ -451,14 +457,15 @@ setDirection d s =
     dir = cmnDirection.~d
 
 serviceTypes :: Service -> [Type']
-serviceTypes svc@Service{..} = map override
-    . sort
+serviceTypes svc@Service{..} = sort
     . Map.elems
-    . (`execState` mempty)
-    . mapM (uniq . shapeType True svc . snd)
-    . mapMaybe exclude
-    $ concatMap opfields _svcOperations
+    . types
+    $ execState (shapes _svcOperations) mempty
   where
+    types :: HashMap Text Shape -> HashMap Text Type'
+    types = Map.map (override . shapeType "serviceTypes:" True svc)
+
+    override :: Type' -> Type'
     override t
         | null candidates = t
         | otherwise       = t & typFields %~ map (requireField candidates)
@@ -466,31 +473,37 @@ serviceTypes svc@Service{..} = map override
         candidates = fromMaybe [] $
             Map.lookup (CI.mk (t^.cmnName)) (svc^.tRequired)
 
-    exclude :: (a, Shape) -> Maybe (a, Shape)
-    exclude x = maybe (Just x) (const Nothing) (existingType svc (snd x))
+    shapes :: [Operation] -> State (HashMap Text Shape) ()
+    shapes = mapM_ mergeCommon . mapMaybe exclude . concatMap accessors
 
-    uniq :: Type' -> State (HashMap Text Type') ()
-    uniq x = modify $ \m ->
-        let n = x^.cmnName
-            y = Map.lookup n m
-            z = maybe x (cmnDirection <>~ (x^.cmnDirection)) y
-         in Map.insert n z m
+    exclude :: Shape -> Maybe Shape
+    exclude x = maybe (Just x) (const Nothing) (existingType svc x)
 
-    opfields o =
+    accessors :: Operation -> [Shape]
+    accessors o =
            descend svc (_opRequest  o^.typShape)
         ++ descend svc (_opResponse o^.typShape)
         ++ concatMap (descend svc) (_opErrors o)
 
-descend :: Service -> Shape -> [(Text, Shape)]
+mergeCommon :: HasCommon a => a -> State (HashMap Text a) ()
+mergeCommon x = modify (Map.insertWith merge (x^.cmnName) x)
+  where
+    merge b a = b
+        & cmnXmlName       %~ (<|> a^.cmnXmlName)
+        & cmnLocationName  %~ (<|> a^.cmnLocationName)
+        & cmnDocumentation %~ (<|> a^.cmnDocumentation)
+        & cmnDirection    <>~ (a^.cmnDirection)
+
+descend :: Service -> Shape -> [Shape]
 descend svc s' = case s' of
-    SStruct Struct{..} -> concatMap (uncurry flat) _sctFields
+    SStruct Struct{..} -> concatMap (flat . snd) _sctFields
     _                  -> []
   where
-    flat p s@SStruct {}         = (p, s) : descend svc s
-    flat _ s@(SList  List {..}) = flat (s^.cmnName) _lstItem
-    flat _ s@(SMap   Map  {..}) = flat (s^.cmnName) _mapKey ++ flat (s^.cmnName) _mapValue
-    flat p (SSum     x)         = [(p, SSum $ switch x)]
-    flat _ _                    = []
+    flat s@SStruct {}     = s : descend svc s
+    flat (SList List{..}) = flat _lstItem
+    flat (SMap Map{..})   = flat _mapKey ++ flat _mapValue
+    flat (SSum x)         = [SSum (switch x)]
+    flat _                = []
 
     switch s@Sum{..}
         | (s^.cmnName) `elem` switches = s { _sumValues = ss }
@@ -535,7 +548,7 @@ serviceError svc@Service{..} =
   where
     ts = Map.fromList
          $ map (bimap (view cmnName) custom . join (,)) cs
-        ++ map (bimap (view cmnName) (shapeType True svc) . join (,)) es
+        ++ map (bimap (view cmnName) (shapeType "serviceError:" True svc) . join (,)) es
 
     cs = [ except "Serializer" "String"
          , except "Client"     "HttpException"
@@ -544,7 +557,7 @@ serviceError svc@Service{..} =
 
     es = nub (concatMap _opErrors _svcOperations)
 
-    custom s = shapeType True svc s & anCtor.~CError
+    custom s = shapeType "custom:" True svc s & anCtor.~CError
 
     except k v = SStruct (Struct [(v, field)] ctor)
       where

@@ -221,7 +221,7 @@ instance FromJSON Common where
     parseJSON = withObject "common" $ \o -> do
         n <- name o
         Common n (casedChars n)
-            <$> o .:? "xmlname"       .!= n
+            <$> o .:? "xmlname"
             <*> o .:! "location"
             <*> o .:? "location_name"
             <*> o .:? "required"      .!= False
@@ -243,8 +243,7 @@ instance FromJSON Shape where
         f c o "structure" = do
             Obj xs <- o .:? "members"      .!= mempty
             ys     <- o .:? "member_order" .!= map fst xs :: Parser [Text]
-
-            xs' <- traverse (\(k, v) -> (k,) <$> parseJSON v) xs
+            xs'    <- traverse (\(k, v) -> (k,) <$> parseJSON v) xs
 
             let g y x | x == defName = y
                       | otherwise    = x

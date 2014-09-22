@@ -162,7 +162,7 @@ instance Monoid Direction where
 data Common = Common
     { _cmnName          :: Text
     , _cmnPrefix        :: Text
-    , _cmnXmlName       :: Text
+    , _cmnXmlName       :: Maybe Text
     , _cmnLocation      :: Location
     , _cmnLocationName  :: Maybe Text
     , _cmnRequired      :: Bool
@@ -181,7 +181,7 @@ instance Ord Common where
         <> comparing _cmnName a b
 
 instance Default Common where
-    def = Common defName "" defName def Nothing False Nothing False def
+    def = Common defName "" Nothing def Nothing False Nothing False def
 
 makeClassy ''Common
 

@@ -46,7 +46,7 @@ module Network.AWS.ElastiCache.DescribeCacheEngineVersions
     , describeCacheEngineVersionsResponse
     -- ** Response lenses
     , dcevrMarker
-    , dcevrCacheEngineVersions
+    , dcevrCacheEngineVersion
     ) where
 
 import Network.AWS.Request.Query
@@ -132,7 +132,7 @@ instance ToQuery DescribeCacheEngineVersions where
 -- | Represents the output of a DescribeCacheEngineVersions operation.
 data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse
     { _dcevrMarker :: Maybe Text
-    , _dcevrCacheEngineVersions :: [CacheEngineVersion]
+    , _dcevrCacheEngineVersion :: [CacheEngineVersion]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -144,12 +144,12 @@ data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @CacheEngineVersions ::@ @[CacheEngineVersion]@
+-- * @CacheEngineVersion ::@ @[CacheEngineVersion]@
 --
 describeCacheEngineVersionsResponse :: DescribeCacheEngineVersionsResponse
 describeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse
     { _dcevrMarker = Nothing
-    , _dcevrCacheEngineVersions = mempty
+    , _dcevrCacheEngineVersion = mempty
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
@@ -158,10 +158,10 @@ dcevrMarker = lens _dcevrMarker (\s a -> s { _dcevrMarker = a })
 
 -- | A list of cache engine version details. Each element in the list contains
 -- detailed information about once cache engine version.
-dcevrCacheEngineVersions :: Lens' DescribeCacheEngineVersionsResponse [CacheEngineVersion]
-dcevrCacheEngineVersions =
-    lens _dcevrCacheEngineVersions
-         (\s a -> s { _dcevrCacheEngineVersions = a })
+dcevrCacheEngineVersion :: Lens' DescribeCacheEngineVersionsResponse [CacheEngineVersion]
+dcevrCacheEngineVersion =
+    lens _dcevrCacheEngineVersion
+         (\s a -> s { _dcevrCacheEngineVersion = a })
 
 instance FromXML DescribeCacheEngineVersionsResponse where
     fromXMLOptions = xmlOptions

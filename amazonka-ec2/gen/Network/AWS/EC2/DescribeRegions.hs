@@ -34,15 +34,15 @@ module Network.AWS.EC2.DescribeRegions
     -- ** Request constructor
     , describeRegions
     -- ** Request lenses
-    , dr1RegionNames
-    , dr1Filters
+    , dr1RegionName
+    , dr1Filter
 
     -- * Response
     , DescribeRegionsResponse
     -- ** Response constructor
     , describeRegionsResponse
     -- ** Response lenses
-    , drrRegions
+    , drrItem
     ) where
 
 import Network.AWS.Request.Query
@@ -50,8 +50,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeRegions = DescribeRegions
-    { _dr1RegionNames :: [Text]
-    , _dr1Filters :: [Filter]
+    { _dr1RegionName :: [Text]
+    , _dr1Filter :: [Filter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -59,31 +59,31 @@ data DescribeRegions = DescribeRegions
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @RegionNames ::@ @[Text]@
+-- * @RegionName ::@ @[Text]@
 --
--- * @Filters ::@ @[Filter]@
+-- * @Filter ::@ @[Filter]@
 --
 describeRegions :: DescribeRegions
 describeRegions = DescribeRegions
-    { _dr1RegionNames = mempty
-    , _dr1Filters = mempty
+    { _dr1RegionName = mempty
+    , _dr1Filter = mempty
     }
 
 -- | The names of one or more regions.
-dr1RegionNames :: Lens' DescribeRegions [Text]
-dr1RegionNames = lens _dr1RegionNames (\s a -> s { _dr1RegionNames = a })
+dr1RegionName :: Lens' DescribeRegions [Text]
+dr1RegionName = lens _dr1RegionName (\s a -> s { _dr1RegionName = a })
 
 -- | One or more filters. endpoint - The endpoint of the region (for example,
 -- ec2.us-east-1.amazonaws.com). region-name - The name of the region (for
 -- example, us-east-1).
-dr1Filters :: Lens' DescribeRegions [Filter]
-dr1Filters = lens _dr1Filters (\s a -> s { _dr1Filters = a })
+dr1Filter :: Lens' DescribeRegions [Filter]
+dr1Filter = lens _dr1Filter (\s a -> s { _dr1Filter = a })
 
 instance ToQuery DescribeRegions where
     toQuery = genericQuery def
 
 newtype DescribeRegionsResponse = DescribeRegionsResponse
-    { _drrRegions :: [Region]
+    { _drrItem :: [Region]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -93,16 +93,16 @@ newtype DescribeRegionsResponse = DescribeRegionsResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Regions ::@ @[Region]@
+-- * @Item ::@ @[Region]@
 --
 describeRegionsResponse :: DescribeRegionsResponse
 describeRegionsResponse = DescribeRegionsResponse
-    { _drrRegions = mempty
+    { _drrItem = mempty
     }
 
 -- | Information about one or more regions.
-drrRegions :: Lens' DescribeRegionsResponse [Region]
-drrRegions = lens _drrRegions (\s a -> s { _drrRegions = a })
+drrItem :: Lens' DescribeRegionsResponse [Region]
+drrItem = lens _drrItem (\s a -> s { _drrItem = a })
 
 instance FromXML DescribeRegionsResponse where
     fromXMLOptions = xmlOptions

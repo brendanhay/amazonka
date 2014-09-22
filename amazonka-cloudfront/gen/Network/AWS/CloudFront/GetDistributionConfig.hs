@@ -72,7 +72,7 @@ instance ToHeaders GetDistributionConfig
 
 instance ToXML GetDistributionConfig where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetDistributionConfigRequest"
+    toXMLRoot    = toRoot "GetDistributionConfig"
 
 -- | The returned result of the corresponding request.
 data GetDistributionConfigResponse = GetDistributionConfigResponse

@@ -895,7 +895,8 @@ tacdMetadata = lens _tacdMetadata (\s a -> s { _tacdMetadata = a })
 
 instance FromJSON TrustedAdvisorCheckDescription
 
--- | The refresh status of a Trusted Advisor check.
+-- | The current refresh status for a check, including the amount of time until
+-- the check is eligible for refresh.
 data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus
     { _tacrsCheckId :: Text
     , _tacrsStatus :: Text

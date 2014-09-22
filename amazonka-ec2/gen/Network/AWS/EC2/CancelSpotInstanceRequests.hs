@@ -43,14 +43,14 @@ module Network.AWS.EC2.CancelSpotInstanceRequests
     -- ** Request constructor
     , cancelSpotInstanceRequests
     -- ** Request lenses
-    , csirSpotInstanceRequestIds
+    , csirSpotInstanceRequestId
 
     -- * Response
     , CancelSpotInstanceRequestsResponse
     -- ** Response constructor
     , cancelSpotInstanceRequestsResponse
     -- ** Response lenses
-    , csirrCancelledSpotInstanceRequests
+    , csirrItem
     ) where
 
 import Network.AWS.Request.Query
@@ -58,7 +58,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype CancelSpotInstanceRequests = CancelSpotInstanceRequests
-    { _csirSpotInstanceRequestIds :: [Text]
+    { _csirSpotInstanceRequestId :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -66,25 +66,25 @@ newtype CancelSpotInstanceRequests = CancelSpotInstanceRequests
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SpotInstanceRequestIds ::@ @[Text]@
+-- * @SpotInstanceRequestId ::@ @[Text]@
 --
-cancelSpotInstanceRequests :: [Text] -- ^ 'csirSpotInstanceRequestIds'
+cancelSpotInstanceRequests :: [Text] -- ^ 'csirSpotInstanceRequestId'
                            -> CancelSpotInstanceRequests
 cancelSpotInstanceRequests p1 = CancelSpotInstanceRequests
-    { _csirSpotInstanceRequestIds = p1
+    { _csirSpotInstanceRequestId = p1
     }
 
 -- | One or more Spot Instance request IDs.
-csirSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests [Text]
-csirSpotInstanceRequestIds =
-    lens _csirSpotInstanceRequestIds
-         (\s a -> s { _csirSpotInstanceRequestIds = a })
+csirSpotInstanceRequestId :: Lens' CancelSpotInstanceRequests [Text]
+csirSpotInstanceRequestId =
+    lens _csirSpotInstanceRequestId
+         (\s a -> s { _csirSpotInstanceRequestId = a })
 
 instance ToQuery CancelSpotInstanceRequests where
     toQuery = genericQuery def
 
 newtype CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
-    { _csirrCancelledSpotInstanceRequests :: [CancelledSpotInstanceRequest]
+    { _csirrItem :: [CancelledSpotInstanceRequest]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -94,18 +94,16 @@ newtype CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CancelledSpotInstanceRequests ::@ @[CancelledSpotInstanceRequest]@
+-- * @Item ::@ @[CancelledSpotInstanceRequest]@
 --
 cancelSpotInstanceRequestsResponse :: CancelSpotInstanceRequestsResponse
 cancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
-    { _csirrCancelledSpotInstanceRequests = mempty
+    { _csirrItem = mempty
     }
 
 -- | One or more Spot Instance requests.
-csirrCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [CancelledSpotInstanceRequest]
-csirrCancelledSpotInstanceRequests =
-    lens _csirrCancelledSpotInstanceRequests
-         (\s a -> s { _csirrCancelledSpotInstanceRequests = a })
+csirrItem :: Lens' CancelSpotInstanceRequestsResponse [CancelledSpotInstanceRequest]
+csirrItem = lens _csirrItem (\s a -> s { _csirrItem = a })
 
 instance FromXML CancelSpotInstanceRequestsResponse where
     fromXMLOptions = xmlOptions

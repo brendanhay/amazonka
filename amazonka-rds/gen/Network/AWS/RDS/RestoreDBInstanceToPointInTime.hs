@@ -55,7 +55,7 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     , rdbitpitEngine
     , rdbitpitIops
     , rdbitpitOptionGroupName
-    , rdbitpitTags
+    , rdbitpitTag
 
     -- * Response
     , RestoreDBInstanceToPointInTimeResponse
@@ -87,7 +87,7 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime
     , _rdbitpitEngine :: Maybe Text
     , _rdbitpitIops :: Maybe Integer
     , _rdbitpitOptionGroupName :: Maybe Text
-    , _rdbitpitTags :: [Tag]
+    , _rdbitpitTag :: [Tag]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -127,7 +127,7 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime
 --
 -- * @OptionGroupName ::@ @Maybe Text@
 --
--- * @Tags ::@ @[Tag]@
+-- * @Tag ::@ @[Tag]@
 --
 restoreDBInstanceToPointInTime :: Text -- ^ 'rdbitpitSourceDBInstanceIdentifier'
                                -> Text -- ^ 'rdbitpitTargetDBInstanceIdentifier'
@@ -149,7 +149,7 @@ restoreDBInstanceToPointInTime p1 p2 = RestoreDBInstanceToPointInTime
     , _rdbitpitEngine = Nothing
     , _rdbitpitIops = Nothing
     , _rdbitpitOptionGroupName = Nothing
-    , _rdbitpitTags = mempty
+    , _rdbitpitTag = mempty
     }
 
 -- | The identifier of the source DB instance from which to restore.
@@ -282,8 +282,8 @@ rdbitpitOptionGroupName =
          (\s a -> s { _rdbitpitOptionGroupName = a })
 
 -- | A list of tags.
-rdbitpitTags :: Lens' RestoreDBInstanceToPointInTime [Tag]
-rdbitpitTags = lens _rdbitpitTags (\s a -> s { _rdbitpitTags = a })
+rdbitpitTag :: Lens' RestoreDBInstanceToPointInTime [Tag]
+rdbitpitTag = lens _rdbitpitTag (\s a -> s { _rdbitpitTag = a })
 
 instance ToQuery RestoreDBInstanceToPointInTime where
     toQuery = genericQuery def

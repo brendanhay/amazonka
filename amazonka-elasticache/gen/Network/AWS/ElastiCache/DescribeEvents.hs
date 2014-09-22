@@ -51,7 +51,7 @@ module Network.AWS.ElastiCache.DescribeEvents
     , describeEventsResponse
     -- ** Response lenses
     , derMarker
-    , derEvents
+    , derEvent
     ) where
 
 import Network.AWS.Request.Query
@@ -145,7 +145,7 @@ instance ToQuery DescribeEvents where
 -- | Represents the output of a DescribeEvents operation.
 data DescribeEventsResponse = DescribeEventsResponse
     { _derMarker :: Maybe Text
-    , _derEvents :: [Event]
+    , _derEvent :: [Event]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -157,12 +157,12 @@ data DescribeEventsResponse = DescribeEventsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @Events ::@ @[Event]@
+-- * @Event ::@ @[Event]@
 --
 describeEventsResponse :: DescribeEventsResponse
 describeEventsResponse = DescribeEventsResponse
     { _derMarker = Nothing
-    , _derEvents = mempty
+    , _derEvent = mempty
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
@@ -171,8 +171,8 @@ derMarker = lens _derMarker (\s a -> s { _derMarker = a })
 
 -- | A list of events. Each element in the list contains detailed information
 -- about one event.
-derEvents :: Lens' DescribeEventsResponse [Event]
-derEvents = lens _derEvents (\s a -> s { _derEvents = a })
+derEvent :: Lens' DescribeEventsResponse [Event]
+derEvent = lens _derEvent (\s a -> s { _derEvent = a })
 
 instance FromXML DescribeEventsResponse where
     fromXMLOptions = xmlOptions

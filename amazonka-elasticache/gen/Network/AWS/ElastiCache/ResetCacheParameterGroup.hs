@@ -38,7 +38,7 @@ module Network.AWS.ElastiCache.ResetCacheParameterGroup
     -- ** Request lenses
     , rcpgCacheParameterGroupName
     , rcpgResetAllParameters
-    , rcpgParameterNameValues
+    , rcpgParameterNameValue
 
     -- * Response
     , ResetCacheParameterGroupResponse
@@ -56,7 +56,7 @@ import Network.AWS.Prelude
 data ResetCacheParameterGroup = ResetCacheParameterGroup
     { _rcpgCacheParameterGroupName :: Text
     , _rcpgResetAllParameters :: Maybe Bool
-    , _rcpgParameterNameValues :: [ParameterNameValue]
+    , _rcpgParameterNameValue :: [ParameterNameValue]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -68,15 +68,15 @@ data ResetCacheParameterGroup = ResetCacheParameterGroup
 --
 -- * @ResetAllParameters ::@ @Maybe Bool@
 --
--- * @ParameterNameValues ::@ @[ParameterNameValue]@
+-- * @ParameterNameValue ::@ @[ParameterNameValue]@
 --
 resetCacheParameterGroup :: Text -- ^ 'rcpgCacheParameterGroupName'
-                         -> [ParameterNameValue] -- ^ 'rcpgParameterNameValues'
+                         -> [ParameterNameValue] -- ^ 'rcpgParameterNameValue'
                          -> ResetCacheParameterGroup
 resetCacheParameterGroup p1 p3 = ResetCacheParameterGroup
     { _rcpgCacheParameterGroupName = p1
     , _rcpgResetAllParameters = Nothing
-    , _rcpgParameterNameValues = p3
+    , _rcpgParameterNameValue = p3
     }
 
 -- | The name of the cache parameter group to reset.
@@ -94,10 +94,9 @@ rcpgResetAllParameters =
 
 -- | An array of parameter names to be reset. If you are not resetting the
 -- entire cache parameter group, you must specify at least one parameter name.
-rcpgParameterNameValues :: Lens' ResetCacheParameterGroup [ParameterNameValue]
-rcpgParameterNameValues =
-    lens _rcpgParameterNameValues
-         (\s a -> s { _rcpgParameterNameValues = a })
+rcpgParameterNameValue :: Lens' ResetCacheParameterGroup [ParameterNameValue]
+rcpgParameterNameValue =
+    lens _rcpgParameterNameValue (\s a -> s { _rcpgParameterNameValue = a })
 
 instance ToQuery ResetCacheParameterGroup where
     toQuery = genericQuery def

@@ -336,8 +336,9 @@ bHtml = lens _bHtml (\s a -> s { _bHtml = a })
 instance ToQuery Body where
     toQuery = genericQuery def
 
--- | The subject of the message: A short summary of the content, which will
--- appear in the recipient's inbox.
+-- | The content of the message, in HTML format. Use this for email clients that
+-- can process HTML. You can include clickable links, formatted text, and much
+-- more in an HTML message.
 data Content = Content
     { _cData :: Text
     , _cCharset :: Maybe Text

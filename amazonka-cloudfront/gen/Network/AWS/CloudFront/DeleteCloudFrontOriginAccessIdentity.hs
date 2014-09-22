@@ -82,7 +82,7 @@ instance ToHeaders DeleteCloudFrontOriginAccessIdentity where
 
 instance ToXML DeleteCloudFrontOriginAccessIdentity where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteCloudFrontOriginAccessIdentityRequest"
+    toXMLRoot    = toRoot "DeleteCloudFrontOriginAccessIdentity"
 
 data DeleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdentityResponse
     deriving (Eq, Ord, Show, Generic)

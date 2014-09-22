@@ -66,7 +66,7 @@ module Network.AWS.EC2.CreateDhcpOptions
     -- ** Request constructor
     , createDhcpOptions
     -- ** Request lenses
-    , cdoDhcpConfigurations
+    , cdoDhcpConfiguration
 
     -- * Response
     , CreateDhcpOptionsResponse
@@ -81,7 +81,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype CreateDhcpOptions = CreateDhcpOptions
-    { _cdoDhcpConfigurations :: [DhcpConfiguration]
+    { _cdoDhcpConfiguration :: [DhcpConfiguration]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -89,18 +89,18 @@ newtype CreateDhcpOptions = CreateDhcpOptions
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DhcpConfigurations ::@ @[DhcpConfiguration]@
+-- * @DhcpConfiguration ::@ @[DhcpConfiguration]@
 --
-createDhcpOptions :: [DhcpConfiguration] -- ^ 'cdoDhcpConfigurations'
+createDhcpOptions :: [DhcpConfiguration] -- ^ 'cdoDhcpConfiguration'
                   -> CreateDhcpOptions
 createDhcpOptions p1 = CreateDhcpOptions
-    { _cdoDhcpConfigurations = p1
+    { _cdoDhcpConfiguration = p1
     }
 
 -- | A DHCP configuration option.
-cdoDhcpConfigurations :: Lens' CreateDhcpOptions [DhcpConfiguration]
-cdoDhcpConfigurations =
-    lens _cdoDhcpConfigurations (\s a -> s { _cdoDhcpConfigurations = a })
+cdoDhcpConfiguration :: Lens' CreateDhcpOptions [DhcpConfiguration]
+cdoDhcpConfiguration =
+    lens _cdoDhcpConfiguration (\s a -> s { _cdoDhcpConfiguration = a })
 
 instance ToQuery CreateDhcpOptions where
     toQuery = genericQuery def

@@ -82,7 +82,7 @@ instance ToHeaders DeleteStreamingDistribution where
 
 instance ToXML DeleteStreamingDistribution where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteStreamingDistributionRequest"
+    toXMLRoot    = toRoot "DeleteStreamingDistribution"
 
 data DeleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
     deriving (Eq, Ord, Show, Generic)

@@ -73,14 +73,14 @@ module Network.AWS.EC2.DescribeAccountAttributes
     -- ** Request constructor
     , describeAccountAttributes
     -- ** Request lenses
-    , daaAttributeNames
+    , daaAttributeName
 
     -- * Response
     , DescribeAccountAttributesResponse
     -- ** Response constructor
     , describeAccountAttributesResponse
     -- ** Response lenses
-    , daarAccountAttributes
+    , daarItem
     ) where
 
 import Network.AWS.Request.Query
@@ -88,7 +88,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype DescribeAccountAttributes = DescribeAccountAttributes
-    { _daaAttributeNames :: [AccountAttributeName]
+    { _daaAttributeName :: [AccountAttributeName]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -96,23 +96,23 @@ newtype DescribeAccountAttributes = DescribeAccountAttributes
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AttributeNames ::@ @[AccountAttributeName]@
+-- * @AttributeName ::@ @[AccountAttributeName]@
 --
 describeAccountAttributes :: DescribeAccountAttributes
 describeAccountAttributes = DescribeAccountAttributes
-    { _daaAttributeNames = mempty
+    { _daaAttributeName = mempty
     }
 
 -- | One or more account attribute names.
-daaAttributeNames :: Lens' DescribeAccountAttributes [AccountAttributeName]
-daaAttributeNames =
-    lens _daaAttributeNames (\s a -> s { _daaAttributeNames = a })
+daaAttributeName :: Lens' DescribeAccountAttributes [AccountAttributeName]
+daaAttributeName =
+    lens _daaAttributeName (\s a -> s { _daaAttributeName = a })
 
 instance ToQuery DescribeAccountAttributes where
     toQuery = genericQuery def
 
 newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
-    { _daarAccountAttributes :: [AccountAttribute]
+    { _daarItem :: [AccountAttribute]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -122,17 +122,16 @@ newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @AccountAttributes ::@ @[AccountAttribute]@
+-- * @Item ::@ @[AccountAttribute]@
 --
 describeAccountAttributesResponse :: DescribeAccountAttributesResponse
 describeAccountAttributesResponse = DescribeAccountAttributesResponse
-    { _daarAccountAttributes = mempty
+    { _daarItem = mempty
     }
 
 -- | Information about one or more account attributes.
-daarAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
-daarAccountAttributes =
-    lens _daarAccountAttributes (\s a -> s { _daarAccountAttributes = a })
+daarItem :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
+daarItem = lens _daarItem (\s a -> s { _daarItem = a })
 
 instance FromXML DescribeAccountAttributesResponse where
     fromXMLOptions = xmlOptions

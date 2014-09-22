@@ -47,15 +47,15 @@ module Network.AWS.EC2.DescribeVolumes
     -- ** Request constructor
     , describeVolumes
     -- ** Request lenses
-    , dv2VolumeIds
-    , dv2Filters
+    , dv2VolumeId
+    , dv2Filter
 
     -- * Response
     , DescribeVolumesResponse
     -- ** Response constructor
     , describeVolumesResponse
     -- ** Response lenses
-    , dvrVolumes
+    , dvrItem
     ) where
 
 import Network.AWS.Request.Query
@@ -63,8 +63,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeVolumes = DescribeVolumes
-    { _dv2VolumeIds :: [Text]
-    , _dv2Filters :: [Filter]
+    { _dv2VolumeId :: [Text]
+    , _dv2Filter :: [Filter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -72,19 +72,19 @@ data DescribeVolumes = DescribeVolumes
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VolumeIds ::@ @[Text]@
+-- * @VolumeId ::@ @[Text]@
 --
--- * @Filters ::@ @[Filter]@
+-- * @Filter ::@ @[Filter]@
 --
 describeVolumes :: DescribeVolumes
 describeVolumes = DescribeVolumes
-    { _dv2VolumeIds = mempty
-    , _dv2Filters = mempty
+    { _dv2VolumeId = mempty
+    , _dv2Filter = mempty
     }
 
 -- | One or more volume IDs.
-dv2VolumeIds :: Lens' DescribeVolumes [Text]
-dv2VolumeIds = lens _dv2VolumeIds (\s a -> s { _dv2VolumeIds = a })
+dv2VolumeId :: Lens' DescribeVolumes [Text]
+dv2VolumeId = lens _dv2VolumeId (\s a -> s { _dv2VolumeId = a })
 
 -- | One or more filters. attachment.attach-time - The time stamp when the
 -- attachment initiated. attachment.delete-on-termination - Whether the volume
@@ -109,14 +109,14 @@ dv2VolumeIds = lens _dv2VolumeIds (\s a -> s { _dv2VolumeIds = a })
 -- volume ID. volume-type - The Amazon EBS volume type. This can be gp2 for
 -- General Purpose (SSD) volumes, io1 for Provisioned IOPS (SSD) volumes, or
 -- standard for Magnetic volumes.
-dv2Filters :: Lens' DescribeVolumes [Filter]
-dv2Filters = lens _dv2Filters (\s a -> s { _dv2Filters = a })
+dv2Filter :: Lens' DescribeVolumes [Filter]
+dv2Filter = lens _dv2Filter (\s a -> s { _dv2Filter = a })
 
 instance ToQuery DescribeVolumes where
     toQuery = genericQuery def
 
 newtype DescribeVolumesResponse = DescribeVolumesResponse
-    { _dvrVolumes :: [Volume]
+    { _dvrItem :: [Volume]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -126,16 +126,16 @@ newtype DescribeVolumesResponse = DescribeVolumesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Volumes ::@ @[Volume]@
+-- * @Item ::@ @[Volume]@
 --
 describeVolumesResponse :: DescribeVolumesResponse
 describeVolumesResponse = DescribeVolumesResponse
-    { _dvrVolumes = mempty
+    { _dvrItem = mempty
     }
 
 -- | 
-dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
-dvrVolumes = lens _dvrVolumes (\s a -> s { _dvrVolumes = a })
+dvrItem :: Lens' DescribeVolumesResponse [Volume]
+dvrItem = lens _dvrItem (\s a -> s { _dvrItem = a })
 
 instance FromXML DescribeVolumesResponse where
     fromXMLOptions = xmlOptions

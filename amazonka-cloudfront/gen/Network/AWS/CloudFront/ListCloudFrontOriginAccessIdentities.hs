@@ -84,7 +84,7 @@ instance ToHeaders ListCloudFrontOriginAccessIdentities
 
 instance ToXML ListCloudFrontOriginAccessIdentities where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListCloudFrontOriginAccessIdentitiesRequest"
+    toXMLRoot    = toRoot "ListCloudFrontOriginAccessIdentities"
 
 -- | The returned result of the corresponding request.
 newtype ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse

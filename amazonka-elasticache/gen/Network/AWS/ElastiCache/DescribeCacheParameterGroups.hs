@@ -46,7 +46,7 @@ module Network.AWS.ElastiCache.DescribeCacheParameterGroups
     , describeCacheParameterGroupsResponse
     -- ** Response lenses
     , dcpgrMarker
-    , dcpgrCacheParameterGroups
+    , dcpgrCacheParameterGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -104,7 +104,7 @@ instance ToQuery DescribeCacheParameterGroups where
 -- | Represents the output of a DescribeCacheParameterGroups operation.
 data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
     { _dcpgrMarker :: Maybe Text
-    , _dcpgrCacheParameterGroups :: [CacheParameterGroup]
+    , _dcpgrCacheParameterGroup :: [CacheParameterGroup]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -116,12 +116,12 @@ data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @CacheParameterGroups ::@ @[CacheParameterGroup]@
+-- * @CacheParameterGroup ::@ @[CacheParameterGroup]@
 --
 describeCacheParameterGroupsResponse :: DescribeCacheParameterGroupsResponse
 describeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
     { _dcpgrMarker = Nothing
-    , _dcpgrCacheParameterGroups = mempty
+    , _dcpgrCacheParameterGroup = mempty
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
@@ -130,10 +130,10 @@ dcpgrMarker = lens _dcpgrMarker (\s a -> s { _dcpgrMarker = a })
 
 -- | A list of cache parameter groups. Each element in the list contains
 -- detailed information about one cache parameter group.
-dcpgrCacheParameterGroups :: Lens' DescribeCacheParameterGroupsResponse [CacheParameterGroup]
-dcpgrCacheParameterGroups =
-    lens _dcpgrCacheParameterGroups
-         (\s a -> s { _dcpgrCacheParameterGroups = a })
+dcpgrCacheParameterGroup :: Lens' DescribeCacheParameterGroupsResponse [CacheParameterGroup]
+dcpgrCacheParameterGroup =
+    lens _dcpgrCacheParameterGroup
+         (\s a -> s { _dcpgrCacheParameterGroup = a })
 
 instance FromXML DescribeCacheParameterGroupsResponse where
     fromXMLOptions = xmlOptions

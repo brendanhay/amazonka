@@ -64,15 +64,15 @@ module Network.AWS.SQS.SendMessageBatch
     , sendMessageBatch
     -- ** Request lenses
     , smbQueueUrl
-    , smbEntries
+    , smbSendMessageBatchRequestEntry
 
     -- * Response
     , SendMessageBatchResponse
     -- ** Response constructor
     , sendMessageBatchResponse
     -- ** Response lenses
-    , smbrSuccessful
-    , smbrFailed
+    , smbrSendMessageBatchResultEntry
+    , smbrBatchResultErrorEntry
     ) where
 
 import Network.AWS.Request.Query
@@ -81,7 +81,7 @@ import Network.AWS.Prelude
 
 data SendMessageBatch = SendMessageBatch
     { _smbQueueUrl :: Text
-    , _smbEntries :: [SendMessageBatchRequestEntry]
+    , _smbSendMessageBatchRequestEntry :: [SendMessageBatchRequestEntry]
     } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -91,14 +91,14 @@ data SendMessageBatch = SendMessageBatch
 --
 -- * @QueueUrl ::@ @Text@
 --
--- * @Entries ::@ @[SendMessageBatchRequestEntry]@
+-- * @SendMessageBatchRequestEntry ::@ @[SendMessageBatchRequestEntry]@
 --
 sendMessageBatch :: Text -- ^ 'smbQueueUrl'
-                 -> [SendMessageBatchRequestEntry] -- ^ 'smbEntries'
+                 -> [SendMessageBatchRequestEntry] -- ^ 'smbSendMessageBatchRequestEntry'
                  -> SendMessageBatch
 sendMessageBatch p1 p2 = SendMessageBatch
     { _smbQueueUrl = p1
-    , _smbEntries = p2
+    , _smbSendMessageBatchRequestEntry = p2
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
@@ -106,8 +106,10 @@ smbQueueUrl :: Lens' SendMessageBatch Text
 smbQueueUrl = lens _smbQueueUrl (\s a -> s { _smbQueueUrl = a })
 
 -- | A list of SendMessageBatchRequestEntry items.
-smbEntries :: Lens' SendMessageBatch [SendMessageBatchRequestEntry]
-smbEntries = lens _smbEntries (\s a -> s { _smbEntries = a })
+smbSendMessageBatchRequestEntry :: Lens' SendMessageBatch [SendMessageBatchRequestEntry]
+smbSendMessageBatchRequestEntry =
+    lens _smbSendMessageBatchRequestEntry
+         (\s a -> s { _smbSendMessageBatchRequestEntry = a })
 
 instance ToQuery SendMessageBatch where
     toQuery = genericQuery def
@@ -116,8 +118,8 @@ instance ToQuery SendMessageBatch where
 -- SendMessageBatchResultEntry tag if the message succeeds or a
 -- BatchResultErrorEntry tag if the message fails.
 data SendMessageBatchResponse = SendMessageBatchResponse
-    { _smbrSuccessful :: [SendMessageBatchResultEntry]
-    , _smbrFailed :: [BatchResultErrorEntry]
+    { _smbrSendMessageBatchResultEntry :: [SendMessageBatchResultEntry]
+    , _smbrBatchResultErrorEntry :: [BatchResultErrorEntry]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -127,26 +129,30 @@ data SendMessageBatchResponse = SendMessageBatchResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Successful ::@ @[SendMessageBatchResultEntry]@
+-- * @SendMessageBatchResultEntry ::@ @[SendMessageBatchResultEntry]@
 --
--- * @Failed ::@ @[BatchResultErrorEntry]@
+-- * @BatchResultErrorEntry ::@ @[BatchResultErrorEntry]@
 --
-sendMessageBatchResponse :: [SendMessageBatchResultEntry] -- ^ 'smbrSuccessful'
-                         -> [BatchResultErrorEntry] -- ^ 'smbrFailed'
+sendMessageBatchResponse :: [SendMessageBatchResultEntry] -- ^ 'smbrSendMessageBatchResultEntry'
+                         -> [BatchResultErrorEntry] -- ^ 'smbrBatchResultErrorEntry'
                          -> SendMessageBatchResponse
 sendMessageBatchResponse p1 p2 = SendMessageBatchResponse
-    { _smbrSuccessful = p1
-    , _smbrFailed = p2
+    { _smbrSendMessageBatchResultEntry = p1
+    , _smbrBatchResultErrorEntry = p2
     }
 
 -- | A list of SendMessageBatchResultEntry items.
-smbrSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
-smbrSuccessful = lens _smbrSuccessful (\s a -> s { _smbrSuccessful = a })
+smbrSendMessageBatchResultEntry :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
+smbrSendMessageBatchResultEntry =
+    lens _smbrSendMessageBatchResultEntry
+         (\s a -> s { _smbrSendMessageBatchResultEntry = a })
 
 -- | A list of BatchResultErrorEntry items with the error detail about each
 -- message that could not be enqueued.
-smbrFailed :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
-smbrFailed = lens _smbrFailed (\s a -> s { _smbrFailed = a })
+smbrBatchResultErrorEntry :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
+smbrBatchResultErrorEntry =
+    lens _smbrBatchResultErrorEntry
+         (\s a -> s { _smbrBatchResultErrorEntry = a })
 
 instance FromXML SendMessageBatchResponse where
     fromXMLOptions = xmlOptions

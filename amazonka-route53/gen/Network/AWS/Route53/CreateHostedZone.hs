@@ -122,7 +122,7 @@ instance ToHeaders CreateHostedZone
 
 instance ToXML CreateHostedZone where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateHostedZoneRequest"
+    toXMLRoot    = toRoot "CreateHostedZone"
 
 -- | A complex type containing the response information for the new hosted zone.
 data CreateHostedZoneResponse = CreateHostedZoneResponse

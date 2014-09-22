@@ -37,7 +37,7 @@ module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     , modifyCacheParameterGroup
     -- ** Request lenses
     , mcpgCacheParameterGroupName
-    , mcpgParameterNameValues
+    , mcpgParameterNameValue
 
     -- * Response
     , ModifyCacheParameterGroupResponse
@@ -54,7 +54,7 @@ import Network.AWS.Prelude
 -- | Represents the input of a ModifyCacheParameterGroup operation.
 data ModifyCacheParameterGroup = ModifyCacheParameterGroup
     { _mcpgCacheParameterGroupName :: Text
-    , _mcpgParameterNameValues :: [ParameterNameValue]
+    , _mcpgParameterNameValue :: [ParameterNameValue]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -64,14 +64,14 @@ data ModifyCacheParameterGroup = ModifyCacheParameterGroup
 --
 -- * @CacheParameterGroupName ::@ @Text@
 --
--- * @ParameterNameValues ::@ @[ParameterNameValue]@
+-- * @ParameterNameValue ::@ @[ParameterNameValue]@
 --
 modifyCacheParameterGroup :: Text -- ^ 'mcpgCacheParameterGroupName'
-                          -> [ParameterNameValue] -- ^ 'mcpgParameterNameValues'
+                          -> [ParameterNameValue] -- ^ 'mcpgParameterNameValue'
                           -> ModifyCacheParameterGroup
 modifyCacheParameterGroup p1 p2 = ModifyCacheParameterGroup
     { _mcpgCacheParameterGroupName = p1
-    , _mcpgParameterNameValues = p2
+    , _mcpgParameterNameValue = p2
     }
 
 -- | The name of the cache parameter group to modify.
@@ -83,10 +83,9 @@ mcpgCacheParameterGroupName =
 -- | An array of parameter names and values for the parameter update. You must
 -- supply at least one parameter name and value; subsequent arguments are
 -- optional. A maximum of 20 parameters may be modified per request.
-mcpgParameterNameValues :: Lens' ModifyCacheParameterGroup [ParameterNameValue]
-mcpgParameterNameValues =
-    lens _mcpgParameterNameValues
-         (\s a -> s { _mcpgParameterNameValues = a })
+mcpgParameterNameValue :: Lens' ModifyCacheParameterGroup [ParameterNameValue]
+mcpgParameterNameValue =
+    lens _mcpgParameterNameValue (\s a -> s { _mcpgParameterNameValue = a })
 
 instance ToQuery ModifyCacheParameterGroup where
     toQuery = genericQuery def

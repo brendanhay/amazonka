@@ -45,14 +45,14 @@ module Network.AWS.EC2.DescribeExportTasks
     -- ** Request constructor
     , describeExportTasks
     -- ** Request lenses
-    , detExportTaskIds
+    , detExportTaskId
 
     -- * Response
     , DescribeExportTasksResponse
     -- ** Response constructor
     , describeExportTasksResponse
     -- ** Response lenses
-    , detrExportTasks
+    , detrItem
     ) where
 
 import Network.AWS.Request.Query
@@ -60,7 +60,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype DescribeExportTasks = DescribeExportTasks
-    { _detExportTaskIds :: [Text]
+    { _detExportTaskId :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -68,23 +68,22 @@ newtype DescribeExportTasks = DescribeExportTasks
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ExportTaskIds ::@ @[Text]@
+-- * @ExportTaskId ::@ @[Text]@
 --
 describeExportTasks :: DescribeExportTasks
 describeExportTasks = DescribeExportTasks
-    { _detExportTaskIds = mempty
+    { _detExportTaskId = mempty
     }
 
 -- | One or more export task IDs.
-detExportTaskIds :: Lens' DescribeExportTasks [Text]
-detExportTaskIds =
-    lens _detExportTaskIds (\s a -> s { _detExportTaskIds = a })
+detExportTaskId :: Lens' DescribeExportTasks [Text]
+detExportTaskId = lens _detExportTaskId (\s a -> s { _detExportTaskId = a })
 
 instance ToQuery DescribeExportTasks where
     toQuery = genericQuery def
 
 newtype DescribeExportTasksResponse = DescribeExportTasksResponse
-    { _detrExportTasks :: [ExportTask]
+    { _detrItem :: [ExportTask]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -94,16 +93,16 @@ newtype DescribeExportTasksResponse = DescribeExportTasksResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ExportTasks ::@ @[ExportTask]@
+-- * @Item ::@ @[ExportTask]@
 --
 describeExportTasksResponse :: DescribeExportTasksResponse
 describeExportTasksResponse = DescribeExportTasksResponse
-    { _detrExportTasks = mempty
+    { _detrItem = mempty
     }
 
 -- | 
-detrExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
-detrExportTasks = lens _detrExportTasks (\s a -> s { _detrExportTasks = a })
+detrItem :: Lens' DescribeExportTasksResponse [ExportTask]
+detrItem = lens _detrItem (\s a -> s { _detrItem = a })
 
 instance FromXML DescribeExportTasksResponse where
     fromXMLOptions = xmlOptions

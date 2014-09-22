@@ -47,7 +47,7 @@ module Network.AWS.EC2.CancelBundleTask
     -- ** Response constructor
     , cancelBundleTaskResponse
     -- ** Response lenses
-    , cbtrBundleTask
+    , cbtrBundleInstanceTask
     ) where
 
 import Network.AWS.Request.Query
@@ -79,7 +79,7 @@ instance ToQuery CancelBundleTask where
     toQuery = genericQuery def
 
 newtype CancelBundleTaskResponse = CancelBundleTaskResponse
-    { _cbtrBundleTask :: Maybe BundleTask
+    { _cbtrBundleInstanceTask :: Maybe BundleTask
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -89,16 +89,17 @@ newtype CancelBundleTaskResponse = CancelBundleTaskResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @BundleTask ::@ @Maybe BundleTask@
+-- * @BundleInstanceTask ::@ @Maybe BundleTask@
 --
 cancelBundleTaskResponse :: CancelBundleTaskResponse
 cancelBundleTaskResponse = CancelBundleTaskResponse
-    { _cbtrBundleTask = Nothing
+    { _cbtrBundleInstanceTask = Nothing
     }
 
 -- | The bundle task.
-cbtrBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
-cbtrBundleTask = lens _cbtrBundleTask (\s a -> s { _cbtrBundleTask = a })
+cbtrBundleInstanceTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
+cbtrBundleInstanceTask =
+    lens _cbtrBundleInstanceTask (\s a -> s { _cbtrBundleInstanceTask = a })
 
 instance FromXML CancelBundleTaskResponse where
     fromXMLOptions = xmlOptions

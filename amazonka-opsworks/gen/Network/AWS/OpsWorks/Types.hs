@@ -1156,9 +1156,9 @@ aEnvironment = lens _aEnvironment (\s a -> s { _aEnvironment = a })
 
 instance FromJSON App
 
--- | A LoadBasedAutoscalingInstruction object that describes the upscaling
--- configuration, which defines how and when AWS OpsWorks increases the number
--- of instances.
+-- | An AutoScalingThresholds object with the downscaling threshold
+-- configuration. If the load falls below these thresholds for a specified
+-- amount of time, AWS OpsWorks stops a specified number of instances.
 data AutoScalingThresholds = AutoScalingThresholds
     { _astInstanceCount :: Maybe Integer
     , _astThresholdsWaitTime :: Maybe Integer
@@ -2748,7 +2748,16 @@ rdiMissingOnRds = lens _rdiMissingOnRds (\s a -> s { _rdiMissingOnRds = a })
 
 instance FromJSON RdsDbInstance
 
--- | A LayerCustomRecipes object that specifies the layer custom recipes.
+-- | AWS OpsWorks supports five lifecycle events, setup, configuration, deploy,
+-- undeploy, and shutdown. For each layer, AWS OpsWorks runs a set of standard
+-- recipes for each event. In addition, you can provide custom recipes for any
+-- or all layers and events. AWS OpsWorks runs custom event recipes after the
+-- standard recipes. LayerCustomRecipes specifies the custom recipes for a
+-- particular layer to be run in response to each of the five events. To
+-- specify a recipe, use the cookbook's directory name in the repository
+-- followed by two colons and the recipe name, which is the recipe's file name
+-- without the .rb extension. For example: phpapp2::dbsetup specifies the
+-- dbsetup.rb recipe in the repository's phpapp2 folder.
 data Recipes = Recipes
     { _rSetup :: [Text]
     , _rConfigure :: [Text]

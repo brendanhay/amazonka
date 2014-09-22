@@ -2194,7 +2194,16 @@ tfTag = lens _tfTag (\s a -> s { _tfTag = a })
 
 instance ToJSON TagFilter
 
--- | The name of the task list.
+-- | The task list to use for the decision tasks generated for this workflow
+-- execution. This overrides the defaultTaskList specified when registering
+-- the workflow type. A task list for this workflow execution must be
+-- specified either as a default for the workflow type or through this
+-- parameter. If neither this parameter is set nor a default task list was
+-- specified at registration time then a fault will be returned. The specified
+-- string must not start or end with whitespace. It must not contain a :
+-- (colon), / (slash), | (vertical bar), or any control characters
+-- (\u0000-\u001f | \u007f - \u009f). Also, it must not contain the literal
+-- string &quot;arn&quot;.
 newtype TaskList = TaskList
     { _tlName :: Text
     } deriving (Eq, Ord, Show, Generic)
@@ -2220,10 +2229,10 @@ instance FromJSON TaskList
 
 instance ToJSON TaskList
 
--- | If specified, only workflow executions matching the WorkflowId in the
--- filter are counted. closeStatusFilter, executionFilter, typeFilter and
--- tagFilter are mutually exclusive. You can specify at most one of these in a
--- request.
+-- | If specified, only workflow executions matching the workflow id specified
+-- in the filter are returned. closeStatusFilter, executionFilter, typeFilter
+-- and tagFilter are mutually exclusive. You can specify at most one of these
+-- in a request.
 newtype WorkflowExecutionFilter = WorkflowExecutionFilter
     { _wefWorkflowId :: Text
     } deriving (Eq, Ord, Show, Generic)
@@ -2688,7 +2697,8 @@ instance FromJSON ActivityTaskTimedOutEventAttributes
 
 instance ToJSON ActivityTaskTimedOutEventAttributes
 
--- | The activity type to deprecate.
+-- | The activity type provided in the ScheduleActivityTask decision that
+-- failed.
 data ActivityType = ActivityType
     { _atName :: Text
     , _atVersion :: Text
@@ -4117,9 +4127,12 @@ diDescription = lens _diDescription (\s a -> s { _diDescription = a })
 
 instance FromJSON DomainInfo
 
--- | If specified, only workflow executions that meet the start time criteria of
--- the filter are counted. startTimeFilter and closeTimeFilter are mutually
--- exclusive. You must specify one of these in a request but not both.
+-- | If specified, the workflow executions are included in the returned results
+-- based on whether their start times are within the range specified by this
+-- filter. Also, if this parameter is specified, the returned results are
+-- ordered by their start times. startTimeFilter and closeTimeFilter are
+-- mutually exclusive. You must specify one of these in a request but not
+-- both.
 data ExecutionTimeFilter = ExecutionTimeFilter
     { _etfOldestDate :: POSIX
     , _etfLatestDate :: Maybe POSIX
@@ -6456,7 +6469,8 @@ instance FromJSON TimerStartedEventAttributes
 
 instance ToJSON TimerStartedEventAttributes
 
--- | The workflow execution to describe.
+-- | The source workflow execution that started this workflow execution. The
+-- member is not set if the workflow execution was not started by a workflow.
 data WorkflowExecution = WorkflowExecution
     { _weWorkflowId :: Text
     , _weRunId :: Text
@@ -6874,7 +6888,8 @@ instance FromJSON WorkflowExecutionFailedEventAttributes
 
 instance ToJSON WorkflowExecutionFailedEventAttributes
 
--- | Information about the workflow execution.
+-- | Contains information about a workflow execution. DescribeWorkflowExecution.
+-- -->.
 data WorkflowExecutionInfo = WorkflowExecutionInfo
     { _weiExecution :: WorkflowExecution
     , _weiWorkflowType :: WorkflowType
@@ -7358,7 +7373,8 @@ instance FromJSON WorkflowExecutionTimedOutEventAttributes
 
 instance ToJSON WorkflowExecutionTimedOutEventAttributes
 
--- | The workflow type to deprecate.
+-- | The workflow type provided in the StartChildWorkflowExecution Decision that
+-- failed.
 data WorkflowType = WorkflowType
     { _wtName :: Text
     , _wtVersion :: Text
@@ -7480,9 +7496,9 @@ wtcDefaultChildPolicy =
 
 instance FromJSON WorkflowTypeConfiguration
 
--- | If specified, indicates the type of the workflow executions to be counted.
--- closeStatusFilter, executionFilter, typeFilter and tagFilter are mutually
--- exclusive. You can specify at most one of these in a request.
+-- | If specified, only executions of the type specified in the filter are
+-- returned. closeStatusFilter, executionFilter, typeFilter and tagFilter are
+-- mutually exclusive. You can specify at most one of these in a request.
 data WorkflowTypeFilter = WorkflowTypeFilter
     { _wtfName :: Text
     , _wtfVersion :: Maybe Text

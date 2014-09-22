@@ -164,12 +164,12 @@ module Network.AWS.S3.Types
     -- * Tagging
     , Tagging
     , tagging
-    , t1TagSet
+    , t1Tag
 
     -- * AccessControlPolicy
     , AccessControlPolicy
     , accessControlPolicy
-    , acpGrants
+    , acpGrant
     , acpOwner
 
     -- * Bucket
@@ -254,7 +254,7 @@ module Network.AWS.S3.Types
     , g1DisplayName
     , g1EmailAddress
     , g1ID
-    , g1Type
+    , g1Xsi:type
     , g1URI
 
     -- * Initiator
@@ -272,9 +272,9 @@ module Network.AWS.S3.Types
     -- * LoggingEnabled
     , LoggingEnabled
     , loggingEnabled
-    , lerTargetBucket
-    , lerTargetGrants
-    , lerTargetPrefix
+    , le1TargetBucket
+    , le1Grant
+    , le1TargetPrefix
 
     -- * MultipartUpload
     , MultipartUpload
@@ -369,8 +369,8 @@ module Network.AWS.S3.Types
     -- * Tag
     , Tag
     , tag
-    , trKey
-    , trValue
+    , t2Key
+    , t2Value
 
     -- * TargetGrant
     , TargetGrant
@@ -403,7 +403,7 @@ module Network.AWS.S3.Types
     , wcErrorDocument
     , wcIndexDocument
     , wcRedirectAllRequestsTo
-    , wcRoutingRules
+    , wcRoutingRule
 
     -- * Common
     , module Network.AWS.S3.Internal.Types
@@ -1375,7 +1375,7 @@ instance ToXML RestoreRequest where
     toXMLRoot    = toRoot "RestoreRequest"
 
 newtype Tagging = Tagging
-    { _t1TagSet :: [Tag]
+    { _t1Tag :: [Tag]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1383,23 +1383,23 @@ newtype Tagging = Tagging
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TagSet ::@ @[Tag]@
+-- * @Tag ::@ @[Tag]@
 --
-tagging :: [Tag] -- ^ 't1TagSet'
+tagging :: [Tag] -- ^ 't1Tag'
         -> Tagging
 tagging p1 = Tagging
-    { _t1TagSet = p1
+    { _t1Tag = p1
     }
 
-t1TagSet :: Lens' Tagging [Tag]
-t1TagSet = lens _t1TagSet (\s a -> s { _t1TagSet = a })
+t1Tag :: Lens' Tagging [Tag]
+t1Tag = lens _t1Tag (\s a -> s { _t1Tag = a })
 
 instance ToXML Tagging where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Tagging"
 
 data AccessControlPolicy = AccessControlPolicy
-    { _acpGrants :: [Grant]
+    { _acpGrant :: [Grant]
     , _acpOwner :: Maybe Owner
     } deriving (Eq, Ord, Show, Generic)
 
@@ -1408,19 +1408,19 @@ data AccessControlPolicy = AccessControlPolicy
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Grants ::@ @[Grant]@
+-- * @Grant ::@ @[Grant]@
 --
 -- * @Owner ::@ @Maybe Owner@
 --
 accessControlPolicy :: AccessControlPolicy
 accessControlPolicy = AccessControlPolicy
-    { _acpGrants = mempty
+    { _acpGrant = mempty
     , _acpOwner = Nothing
     }
 
 -- | A list of grants.
-acpGrants :: Lens' AccessControlPolicy [Grant]
-acpGrants = lens _acpGrants (\s a -> s { _acpGrants = a })
+acpGrant :: Lens' AccessControlPolicy [Grant]
+acpGrant = lens _acpGrant (\s a -> s { _acpGrant = a })
 
 acpOwner :: Lens' AccessControlPolicy (Maybe Owner)
 acpOwner = lens _acpOwner (\s a -> s { _acpOwner = a })
@@ -1918,7 +1918,7 @@ data Grantee = Grantee
     { _g1DisplayName :: Maybe Text
     , _g1EmailAddress :: Maybe Text
     , _g1ID :: Maybe Text
-    , _g1Type :: Type
+    , _g1Xsi:type :: Type
     , _g1URI :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -1933,17 +1933,17 @@ data Grantee = Grantee
 --
 -- * @ID ::@ @Maybe Text@
 --
--- * @Type ::@ @Type@
+-- * @Xsi:type ::@ @Type@
 --
 -- * @URI ::@ @Maybe Text@
 --
-grantee :: Type -- ^ 'g1Type'
+grantee :: Type -- ^ 'g1Xsi:type'
         -> Grantee
 grantee p4 = Grantee
     { _g1DisplayName = Nothing
     , _g1EmailAddress = Nothing
     , _g1ID = Nothing
-    , _g1Type = p4
+    , _g1Xsi:type = p4
     , _g1URI = Nothing
     }
 
@@ -1960,8 +1960,8 @@ g1ID :: Lens' Grantee (Maybe Text)
 g1ID = lens _g1ID (\s a -> s { _g1ID = a })
 
 -- | Type of grantee.
-g1Type :: Lens' Grantee Type
-g1Type = lens _g1Type (\s a -> s { _g1Type = a })
+g1Xsi:type :: Lens' Grantee Type
+g1Xsi:type = lens _g1Xsi:type (\s a -> s { _g1Xsi:type = a })
 
 -- | URI of the grantee group.
 g1URI :: Lens' Grantee (Maybe Text)
@@ -2052,9 +2052,9 @@ instance ToXML LifecycleExpiration where
     toXMLRoot    = toRoot "LifecycleExpiration"
 
 data LoggingEnabled = LoggingEnabled
-    { _lerTargetBucket :: Maybe Text
-    , _lerTargetGrants :: [TargetGrant]
-    , _lerTargetPrefix :: Maybe Text
+    { _le1TargetBucket :: Maybe Text
+    , _le1Grant :: [TargetGrant]
+    , _le1TargetPrefix :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2064,15 +2064,15 @@ data LoggingEnabled = LoggingEnabled
 --
 -- * @TargetBucket ::@ @Maybe Text@
 --
--- * @TargetGrants ::@ @[TargetGrant]@
+-- * @Grant ::@ @[TargetGrant]@
 --
 -- * @TargetPrefix ::@ @Maybe Text@
 --
 loggingEnabled :: LoggingEnabled
 loggingEnabled = LoggingEnabled
-    { _lerTargetBucket = Nothing
-    , _lerTargetGrants = mempty
-    , _lerTargetPrefix = Nothing
+    { _le1TargetBucket = Nothing
+    , _le1Grant = mempty
+    , _le1TargetPrefix = Nothing
     }
 
 -- | Specifies the bucket where you want Amazon S3 to store server access logs.
@@ -2081,16 +2081,16 @@ loggingEnabled = LoggingEnabled
 -- to deliver their logs to the same target bucket. In this case you should
 -- choose a different TargetPrefix for each source bucket so that the
 -- delivered log files can be distinguished by key.
-lerTargetBucket :: Lens' LoggingEnabled (Maybe Text)
-lerTargetBucket = lens _lerTargetBucket (\s a -> s { _lerTargetBucket = a })
+le1TargetBucket :: Lens' LoggingEnabled (Maybe Text)
+le1TargetBucket = lens _le1TargetBucket (\s a -> s { _le1TargetBucket = a })
 
-lerTargetGrants :: Lens' LoggingEnabled [TargetGrant]
-lerTargetGrants = lens _lerTargetGrants (\s a -> s { _lerTargetGrants = a })
+le1Grant :: Lens' LoggingEnabled [TargetGrant]
+le1Grant = lens _le1Grant (\s a -> s { _le1Grant = a })
 
 -- | This element lets you specify a prefix for the keys that the log files will
 -- be stored under.
-lerTargetPrefix :: Lens' LoggingEnabled (Maybe Text)
-lerTargetPrefix = lens _lerTargetPrefix (\s a -> s { _lerTargetPrefix = a })
+le1TargetPrefix :: Lens' LoggingEnabled (Maybe Text)
+le1TargetPrefix = lens _le1TargetPrefix (\s a -> s { _le1TargetPrefix = a })
 
 instance FromXML LoggingEnabled where
     fromXMLOptions = xmlOptions
@@ -2726,8 +2726,8 @@ instance ToXML Rule where
     toXMLRoot    = toRoot "Rule"
 
 data Tag = Tag
-    { _trKey :: ObjectKey
-    , _trValue :: Text
+    { _t2Key :: ObjectKey
+    , _t2Value :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2739,21 +2739,21 @@ data Tag = Tag
 --
 -- * @Value ::@ @Text@
 --
-tag :: ObjectKey -- ^ 'trKey'
-    -> Text -- ^ 'trValue'
+tag :: ObjectKey -- ^ 't2Key'
+    -> Text -- ^ 't2Value'
     -> Tag
 tag p1 p2 = Tag
-    { _trKey = p1
-    , _trValue = p2
+    { _t2Key = p1
+    , _t2Value = p2
     }
 
 -- | Name of the tag.
-trKey :: Lens' Tag ObjectKey
-trKey = lens _trKey (\s a -> s { _trKey = a })
+t2Key :: Lens' Tag ObjectKey
+t2Key = lens _t2Key (\s a -> s { _t2Key = a })
 
 -- | Value of the tag.
-trValue :: Lens' Tag Text
-trValue = lens _trValue (\s a -> s { _trValue = a })
+t2Value :: Lens' Tag Text
+t2Value = lens _t2Value (\s a -> s { _t2Value = a })
 
 instance FromXML Tag where
     fromXMLOptions = xmlOptions
@@ -2920,7 +2920,7 @@ data WebsiteConfiguration = WebsiteConfiguration
     { _wcErrorDocument :: Maybe ErrorDocument
     , _wcIndexDocument :: Maybe IndexDocument
     , _wcRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
-    , _wcRoutingRules :: [RoutingRule]
+    , _wcRoutingRule :: [RoutingRule]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2934,14 +2934,14 @@ data WebsiteConfiguration = WebsiteConfiguration
 --
 -- * @RedirectAllRequestsTo ::@ @Maybe RedirectAllRequestsTo@
 --
--- * @RoutingRules ::@ @[RoutingRule]@
+-- * @RoutingRule ::@ @[RoutingRule]@
 --
 websiteConfiguration :: WebsiteConfiguration
 websiteConfiguration = WebsiteConfiguration
     { _wcErrorDocument = Nothing
     , _wcIndexDocument = Nothing
     , _wcRedirectAllRequestsTo = Nothing
-    , _wcRoutingRules = mempty
+    , _wcRoutingRule = mempty
     }
 
 wcErrorDocument :: Lens' WebsiteConfiguration (Maybe ErrorDocument)
@@ -2955,8 +2955,8 @@ wcRedirectAllRequestsTo =
     lens _wcRedirectAllRequestsTo
          (\s a -> s { _wcRedirectAllRequestsTo = a })
 
-wcRoutingRules :: Lens' WebsiteConfiguration [RoutingRule]
-wcRoutingRules = lens _wcRoutingRules (\s a -> s { _wcRoutingRules = a })
+wcRoutingRule :: Lens' WebsiteConfiguration [RoutingRule]
+wcRoutingRule = lens _wcRoutingRule (\s a -> s { _wcRoutingRule = a })
 
 instance ToXML WebsiteConfiguration where
     toXMLOptions = xmlOptions

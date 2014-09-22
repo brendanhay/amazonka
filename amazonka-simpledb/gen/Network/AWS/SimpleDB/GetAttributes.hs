@@ -35,7 +35,7 @@ module Network.AWS.SimpleDB.GetAttributes
     -- ** Request lenses
     , gaDomainName
     , gaItemName
-    , gaAttributeNames
+    , gaAttributeName
     , gaConsistentRead
 
     -- * Response
@@ -43,7 +43,7 @@ module Network.AWS.SimpleDB.GetAttributes
     -- ** Response constructor
     , getAttributesResponse
     -- ** Response lenses
-    , garAttributes
+    , garAttribute
     ) where
 
 import Network.AWS.Request.Query
@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 data GetAttributes = GetAttributes
     { _gaDomainName :: Text
     , _gaItemName :: Text
-    , _gaAttributeNames :: [Text]
+    , _gaAttributeName :: [Text]
     , _gaConsistentRead :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
@@ -66,7 +66,7 @@ data GetAttributes = GetAttributes
 --
 -- * @ItemName ::@ @Text@
 --
--- * @AttributeNames ::@ @[Text]@
+-- * @AttributeName ::@ @[Text]@
 --
 -- * @ConsistentRead ::@ @Maybe Bool@
 --
@@ -76,7 +76,7 @@ getAttributes :: Text -- ^ 'gaDomainName'
 getAttributes p1 p2 = GetAttributes
     { _gaDomainName = p1
     , _gaItemName = p2
-    , _gaAttributeNames = mempty
+    , _gaAttributeName = mempty
     , _gaConsistentRead = Nothing
     }
 
@@ -89,9 +89,8 @@ gaItemName :: Lens' GetAttributes Text
 gaItemName = lens _gaItemName (\s a -> s { _gaItemName = a })
 
 -- | The names of the attributes.
-gaAttributeNames :: Lens' GetAttributes [Text]
-gaAttributeNames =
-    lens _gaAttributeNames (\s a -> s { _gaAttributeNames = a })
+gaAttributeName :: Lens' GetAttributes [Text]
+gaAttributeName = lens _gaAttributeName (\s a -> s { _gaAttributeName = a })
 
 -- | Determines whether or not strong consistency should be enforced when data
 -- is read from SimpleDB. If true, any data previously written to SimpleDB
@@ -105,7 +104,7 @@ instance ToQuery GetAttributes where
     toQuery = genericQuery def
 
 newtype GetAttributesResponse = GetAttributesResponse
-    { _garAttributes :: [Attribute]
+    { _garAttribute :: [Attribute]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -115,16 +114,16 @@ newtype GetAttributesResponse = GetAttributesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Attributes ::@ @[Attribute]@
+-- * @Attribute ::@ @[Attribute]@
 --
 getAttributesResponse :: GetAttributesResponse
 getAttributesResponse = GetAttributesResponse
-    { _garAttributes = mempty
+    { _garAttribute = mempty
     }
 
 -- | The list of attributes returned by the operation.
-garAttributes :: Lens' GetAttributesResponse [Attribute]
-garAttributes = lens _garAttributes (\s a -> s { _garAttributes = a })
+garAttribute :: Lens' GetAttributesResponse [Attribute]
+garAttribute = lens _garAttribute (\s a -> s { _garAttribute = a })
 
 instance FromXML GetAttributesResponse where
     fromXMLOptions = xmlOptions

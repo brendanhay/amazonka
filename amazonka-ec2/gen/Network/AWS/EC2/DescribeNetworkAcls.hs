@@ -36,15 +36,15 @@ module Network.AWS.EC2.DescribeNetworkAcls
     -- ** Request constructor
     , describeNetworkAcls
     -- ** Request lenses
-    , dna1NetworkAclIds
-    , dna1Filters
+    , dna1NetworkAclId
+    , dna1Filter
 
     -- * Response
     , DescribeNetworkAclsResponse
     -- ** Response constructor
     , describeNetworkAclsResponse
     -- ** Response lenses
-    , dnarNetworkAcls
+    , dnarItem
     ) where
 
 import Network.AWS.Request.Query
@@ -52,8 +52,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeNetworkAcls = DescribeNetworkAcls
-    { _dna1NetworkAclIds :: [Text]
-    , _dna1Filters :: [Filter]
+    { _dna1NetworkAclId :: [Text]
+    , _dna1Filter :: [Filter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -61,20 +61,20 @@ data DescribeNetworkAcls = DescribeNetworkAcls
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @NetworkAclIds ::@ @[Text]@
+-- * @NetworkAclId ::@ @[Text]@
 --
--- * @Filters ::@ @[Filter]@
+-- * @Filter ::@ @[Filter]@
 --
 describeNetworkAcls :: DescribeNetworkAcls
 describeNetworkAcls = DescribeNetworkAcls
-    { _dna1NetworkAclIds = mempty
-    , _dna1Filters = mempty
+    { _dna1NetworkAclId = mempty
+    , _dna1Filter = mempty
     }
 
 -- | One or more network ACL IDs. Default: Describes all your network ACLs.
-dna1NetworkAclIds :: Lens' DescribeNetworkAcls [Text]
-dna1NetworkAclIds =
-    lens _dna1NetworkAclIds (\s a -> s { _dna1NetworkAclIds = a })
+dna1NetworkAclId :: Lens' DescribeNetworkAcls [Text]
+dna1NetworkAclId =
+    lens _dna1NetworkAclId (\s a -> s { _dna1NetworkAclId = a })
 
 -- | One or more filters. association.association-id - The ID of an association
 -- ID for the ACL. association.network-acl-id - The ID of the network ACL
@@ -100,14 +100,14 @@ dna1NetworkAclIds =
 -- filter. tag-value - The value of a tag assigned to the resource. This
 -- filter is independent of the tag-key filter. vpc-id - The ID of the VPC for
 -- the network ACL.
-dna1Filters :: Lens' DescribeNetworkAcls [Filter]
-dna1Filters = lens _dna1Filters (\s a -> s { _dna1Filters = a })
+dna1Filter :: Lens' DescribeNetworkAcls [Filter]
+dna1Filter = lens _dna1Filter (\s a -> s { _dna1Filter = a })
 
 instance ToQuery DescribeNetworkAcls where
     toQuery = genericQuery def
 
 newtype DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
-    { _dnarNetworkAcls :: [NetworkAcl]
+    { _dnarItem :: [NetworkAcl]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -117,16 +117,16 @@ newtype DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @NetworkAcls ::@ @[NetworkAcl]@
+-- * @Item ::@ @[NetworkAcl]@
 --
 describeNetworkAclsResponse :: DescribeNetworkAclsResponse
 describeNetworkAclsResponse = DescribeNetworkAclsResponse
-    { _dnarNetworkAcls = mempty
+    { _dnarItem = mempty
     }
 
 -- | Information about one or more network ACLs.
-dnarNetworkAcls :: Lens' DescribeNetworkAclsResponse [NetworkAcl]
-dnarNetworkAcls = lens _dnarNetworkAcls (\s a -> s { _dnarNetworkAcls = a })
+dnarItem :: Lens' DescribeNetworkAclsResponse [NetworkAcl]
+dnarItem = lens _dnarItem (\s a -> s { _dnarItem = a })
 
 instance FromXML DescribeNetworkAclsResponse where
     fromXMLOptions = xmlOptions

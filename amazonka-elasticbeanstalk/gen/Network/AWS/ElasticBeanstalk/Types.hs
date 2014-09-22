@@ -1590,7 +1590,9 @@ instance FromXML EnvironmentResourceDescription where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EnvironmentResourceDescription"
 
--- | This specifies the tier to use for creating this environment.
+-- | This specifies the tier to use to update the environment. Condition: You
+-- can only update the tier version for an environment. If you change the name
+-- of the type, AWS Elastic Beanstalk returns InvalidParameterValue error.
 data EnvironmentTier = EnvironmentTier
     { _etName :: Maybe Text
     , _etType :: Maybe Text

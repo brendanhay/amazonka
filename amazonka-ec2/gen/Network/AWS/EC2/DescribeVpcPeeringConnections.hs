@@ -58,15 +58,15 @@ module Network.AWS.EC2.DescribeVpcPeeringConnections
     -- ** Request constructor
     , describeVpcPeeringConnections
     -- ** Request lenses
-    , dvpc1VpcPeeringConnectionIds
-    , dvpc1Filters
+    , dvpc1VpcPeeringConnectionId
+    , dvpc1Filter
 
     -- * Response
     , DescribeVpcPeeringConnectionsResponse
     -- ** Response constructor
     , describeVpcPeeringConnectionsResponse
     -- ** Response lenses
-    , dvpcrrVpcPeeringConnections
+    , dvpcrrItem
     ) where
 
 import Network.AWS.Request.Query
@@ -74,8 +74,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections
-    { _dvpc1VpcPeeringConnectionIds :: [Text]
-    , _dvpc1Filters :: [Filter]
+    { _dvpc1VpcPeeringConnectionId :: [Text]
+    , _dvpc1Filter :: [Filter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -83,22 +83,22 @@ data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VpcPeeringConnectionIds ::@ @[Text]@
+-- * @VpcPeeringConnectionId ::@ @[Text]@
 --
--- * @Filters ::@ @[Filter]@
+-- * @Filter ::@ @[Filter]@
 --
 describeVpcPeeringConnections :: DescribeVpcPeeringConnections
 describeVpcPeeringConnections = DescribeVpcPeeringConnections
-    { _dvpc1VpcPeeringConnectionIds = mempty
-    , _dvpc1Filters = mempty
+    { _dvpc1VpcPeeringConnectionId = mempty
+    , _dvpc1Filter = mempty
     }
 
 -- | One or more VPC peering connection IDs. Default: Describes all your VPC
 -- peering connections.
-dvpc1VpcPeeringConnectionIds :: Lens' DescribeVpcPeeringConnections [Text]
-dvpc1VpcPeeringConnectionIds =
-    lens _dvpc1VpcPeeringConnectionIds
-         (\s a -> s { _dvpc1VpcPeeringConnectionIds = a })
+dvpc1VpcPeeringConnectionId :: Lens' DescribeVpcPeeringConnections [Text]
+dvpc1VpcPeeringConnectionId =
+    lens _dvpc1VpcPeeringConnectionId
+         (\s a -> s { _dvpc1VpcPeeringConnectionId = a })
 
 -- | One or more filters. accepter-vpc-info.cidr-block - The CIDR block of the
 -- peer VPC. accepter-vpc-info.owner-id - The AWS account ID of the owner of
@@ -120,14 +120,14 @@ dvpc1VpcPeeringConnectionIds =
 -- where Purpose is X, see the tag:key=value filter. tag-value - The value of
 -- a tag assigned to the resource. This filter is independent of the tag-key
 -- filter. vpc-peering-connection-id - The ID of the VPC peering connection.
-dvpc1Filters :: Lens' DescribeVpcPeeringConnections [Filter]
-dvpc1Filters = lens _dvpc1Filters (\s a -> s { _dvpc1Filters = a })
+dvpc1Filter :: Lens' DescribeVpcPeeringConnections [Filter]
+dvpc1Filter = lens _dvpc1Filter (\s a -> s { _dvpc1Filter = a })
 
 instance ToQuery DescribeVpcPeeringConnections where
     toQuery = genericQuery def
 
 newtype DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse
-    { _dvpcrrVpcPeeringConnections :: [VpcPeeringConnection]
+    { _dvpcrrItem :: [VpcPeeringConnection]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -137,18 +137,16 @@ newtype DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsRes
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VpcPeeringConnections ::@ @[VpcPeeringConnection]@
+-- * @Item ::@ @[VpcPeeringConnection]@
 --
 describeVpcPeeringConnectionsResponse :: DescribeVpcPeeringConnectionsResponse
 describeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse
-    { _dvpcrrVpcPeeringConnections = mempty
+    { _dvpcrrItem = mempty
     }
 
 -- | Information about the VPC peering connections.
-dvpcrrVpcPeeringConnections :: Lens' DescribeVpcPeeringConnectionsResponse [VpcPeeringConnection]
-dvpcrrVpcPeeringConnections =
-    lens _dvpcrrVpcPeeringConnections
-         (\s a -> s { _dvpcrrVpcPeeringConnections = a })
+dvpcrrItem :: Lens' DescribeVpcPeeringConnectionsResponse [VpcPeeringConnection]
+dvpcrrItem = lens _dvpcrrItem (\s a -> s { _dvpcrrItem = a })
 
 instance FromXML DescribeVpcPeeringConnectionsResponse where
     fromXMLOptions = xmlOptions

@@ -59,7 +59,7 @@ instance ToHeaders GetCheckerIpRanges
 
 instance ToXML GetCheckerIpRanges where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetCheckerIpRangesRequest"
+    toXMLRoot    = toRoot "GetCheckerIpRanges"
 
 -- | A complex type that contains the CheckerIpRanges element.
 newtype GetCheckerIpRangesResponse = GetCheckerIpRangesResponse

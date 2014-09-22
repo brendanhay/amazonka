@@ -61,7 +61,7 @@ module Network.AWS.SQS.SetQueueAttributes
     , setQueueAttributes
     -- ** Request lenses
     , sqaQueueUrl
-    , sqaAttributes
+    , sqaAttribute
 
     -- * Response
     , SetQueueAttributesResponse
@@ -75,7 +75,7 @@ import Network.AWS.Prelude
 
 data SetQueueAttributes = SetQueueAttributes
     { _sqaQueueUrl :: Text
-    , _sqaAttributes :: Map QueueAttributeName Text
+    , _sqaAttribute :: Map QueueAttributeName Text
     } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -85,14 +85,14 @@ data SetQueueAttributes = SetQueueAttributes
 --
 -- * @QueueUrl ::@ @Text@
 --
--- * @Attributes ::@ @Map QueueAttributeName Text@
+-- * @Attribute ::@ @Map QueueAttributeName Text@
 --
 setQueueAttributes :: Text -- ^ 'sqaQueueUrl'
-                   -> Map QueueAttributeName Text -- ^ 'sqaAttributes'
+                   -> Map QueueAttributeName Text -- ^ 'sqaAttribute'
                    -> SetQueueAttributes
 setQueueAttributes p1 p2 = SetQueueAttributes
     { _sqaQueueUrl = p1
-    , _sqaAttributes = p2
+    , _sqaAttribute = p2
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
@@ -123,8 +123,8 @@ sqaQueueUrl = lens _sqaQueueUrl (\s a -> s { _sqaQueueUrl = a })
 -- parameters for dead letter queue functionality of the source queue. For
 -- more information about RedrivePolicy and dead letter queues, see Using
 -- Amazon SQS Dead Letter Queues in the Amazon SQS Developer Guide.
-sqaAttributes :: Lens' SetQueueAttributes (Map QueueAttributeName Text)
-sqaAttributes = lens _sqaAttributes (\s a -> s { _sqaAttributes = a })
+sqaAttribute :: Lens' SetQueueAttributes (Map QueueAttributeName Text)
+sqaAttribute = lens _sqaAttribute (\s a -> s { _sqaAttribute = a })
 
 instance ToQuery SetQueueAttributes where
     toQuery = genericQuery def

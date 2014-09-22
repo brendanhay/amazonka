@@ -76,7 +76,7 @@ instance ToHeaders GetHostedZone
 
 instance ToXML GetHostedZone where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetHostedZoneRequest"
+    toXMLRoot    = toRoot "GetHostedZone"
 
 -- | A complex type containing information about the specified hosted zone.
 data GetHostedZoneResponse = GetHostedZoneResponse

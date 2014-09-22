@@ -62,7 +62,7 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
     , describeCacheClustersResponse
     -- ** Response lenses
     , dccrrMarker
-    , dccrrCacheClusters
+    , dccrrCacheCluster
     ) where
 
 import Network.AWS.Request.Query
@@ -131,7 +131,7 @@ instance ToQuery DescribeCacheClusters where
 -- | Represents the output of a DescribeCacheClusters operation.
 data DescribeCacheClustersResponse = DescribeCacheClustersResponse
     { _dccrrMarker :: Maybe Text
-    , _dccrrCacheClusters :: [CacheCluster]
+    , _dccrrCacheCluster :: [CacheCluster]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -143,12 +143,12 @@ data DescribeCacheClustersResponse = DescribeCacheClustersResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @CacheClusters ::@ @[CacheCluster]@
+-- * @CacheCluster ::@ @[CacheCluster]@
 --
 describeCacheClustersResponse :: DescribeCacheClustersResponse
 describeCacheClustersResponse = DescribeCacheClustersResponse
     { _dccrrMarker = Nothing
-    , _dccrrCacheClusters = mempty
+    , _dccrrCacheCluster = mempty
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
@@ -157,9 +157,9 @@ dccrrMarker = lens _dccrrMarker (\s a -> s { _dccrrMarker = a })
 
 -- | A list of cache clusters. Each item in the list contains detailed
 -- information about one cache cluster.
-dccrrCacheClusters :: Lens' DescribeCacheClustersResponse [CacheCluster]
-dccrrCacheClusters =
-    lens _dccrrCacheClusters (\s a -> s { _dccrrCacheClusters = a })
+dccrrCacheCluster :: Lens' DescribeCacheClustersResponse [CacheCluster]
+dccrrCacheCluster =
+    lens _dccrrCacheCluster (\s a -> s { _dccrrCacheCluster = a })
 
 instance FromXML DescribeCacheClustersResponse where
     fromXMLOptions = xmlOptions

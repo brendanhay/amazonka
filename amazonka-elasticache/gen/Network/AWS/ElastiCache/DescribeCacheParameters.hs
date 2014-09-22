@@ -48,8 +48,8 @@ module Network.AWS.ElastiCache.DescribeCacheParameters
     , describeCacheParametersResponse
     -- ** Response lenses
     , dcprMarker
-    , dcprParameters
-    , dcprCacheNodeTypeSpecificParameters
+    , dcprParameter
+    , dcprCacheNodeTypeSpecificParameter
     ) where
 
 import Network.AWS.Request.Query
@@ -117,8 +117,8 @@ instance ToQuery DescribeCacheParameters where
 -- | Represents the output of a DescribeCacheParameters operation.
 data DescribeCacheParametersResponse = DescribeCacheParametersResponse
     { _dcprMarker :: Maybe Text
-    , _dcprParameters :: [Parameter]
-    , _dcprCacheNodeTypeSpecificParameters :: [CacheNodeTypeSpecificParameter]
+    , _dcprParameter :: [Parameter]
+    , _dcprCacheNodeTypeSpecificParameter :: [CacheNodeTypeSpecificParameter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -130,15 +130,15 @@ data DescribeCacheParametersResponse = DescribeCacheParametersResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @Parameters ::@ @[Parameter]@
+-- * @Parameter ::@ @[Parameter]@
 --
--- * @CacheNodeTypeSpecificParameters ::@ @[CacheNodeTypeSpecificParameter]@
+-- * @CacheNodeTypeSpecificParameter ::@ @[CacheNodeTypeSpecificParameter]@
 --
 describeCacheParametersResponse :: DescribeCacheParametersResponse
 describeCacheParametersResponse = DescribeCacheParametersResponse
     { _dcprMarker = Nothing
-    , _dcprParameters = mempty
-    , _dcprCacheNodeTypeSpecificParameters = mempty
+    , _dcprParameter = mempty
+    , _dcprCacheNodeTypeSpecificParameter = mempty
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
@@ -146,15 +146,15 @@ dcprMarker :: Lens' DescribeCacheParametersResponse (Maybe Text)
 dcprMarker = lens _dcprMarker (\s a -> s { _dcprMarker = a })
 
 -- | A list of Parameter instances.
-dcprParameters :: Lens' DescribeCacheParametersResponse [Parameter]
-dcprParameters = lens _dcprParameters (\s a -> s { _dcprParameters = a })
+dcprParameter :: Lens' DescribeCacheParametersResponse [Parameter]
+dcprParameter = lens _dcprParameter (\s a -> s { _dcprParameter = a })
 
 -- | A list of parameters specific to a particular cache node type. Each element
 -- in the list contains detailed information about one parameter.
-dcprCacheNodeTypeSpecificParameters :: Lens' DescribeCacheParametersResponse [CacheNodeTypeSpecificParameter]
-dcprCacheNodeTypeSpecificParameters =
-    lens _dcprCacheNodeTypeSpecificParameters
-         (\s a -> s { _dcprCacheNodeTypeSpecificParameters = a })
+dcprCacheNodeTypeSpecificParameter :: Lens' DescribeCacheParametersResponse [CacheNodeTypeSpecificParameter]
+dcprCacheNodeTypeSpecificParameter =
+    lens _dcprCacheNodeTypeSpecificParameter
+         (\s a -> s { _dcprCacheNodeTypeSpecificParameter = a })
 
 instance FromXML DescribeCacheParametersResponse where
     fromXMLOptions = xmlOptions

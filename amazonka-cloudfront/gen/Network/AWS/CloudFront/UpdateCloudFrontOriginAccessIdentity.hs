@@ -97,7 +97,7 @@ instance ToHeaders UpdateCloudFrontOriginAccessIdentity where
 
 instance ToXML UpdateCloudFrontOriginAccessIdentity where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "UpdateCloudFrontOriginAccessIdentityRequest"
+    toXMLRoot    = toRoot "UpdateCloudFrontOriginAccessIdentity"
 
 -- | The returned result of the corresponding request.
 data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse

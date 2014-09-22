@@ -83,7 +83,7 @@ instance ToHeaders ListTagsForResource
 
 instance ToXML ListTagsForResource where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListTagsForResourceRequest"
+    toXMLRoot    = toRoot "ListTagsForResource"
 
 -- | A complex type containing tags for the specified resource.
 newtype ListTagsForResourceResponse = ListTagsForResourceResponse

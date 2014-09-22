@@ -54,7 +54,7 @@ module Network.AWS.EC2.CreateNetworkAclEntry
     , cnaeRuleAction
     , cnaeEgress
     , cnaeCidrBlock
-    , cnaeIcmpTypeCode
+    , cnaeIcmp
     , cnaePortRange
 
     -- * Response
@@ -74,7 +74,7 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry
     , _cnaeRuleAction :: RuleAction
     , _cnaeEgress :: !Bool
     , _cnaeCidrBlock :: Text
-    , _cnaeIcmpTypeCode :: Maybe IcmpTypeCode
+    , _cnaeIcmp :: Maybe IcmpTypeCode
     , _cnaePortRange :: Maybe PortRange
     } deriving (Eq, Ord, Show, Generic)
 
@@ -95,7 +95,7 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry
 --
 -- * @CidrBlock ::@ @Text@
 --
--- * @IcmpTypeCode ::@ @Maybe IcmpTypeCode@
+-- * @Icmp ::@ @Maybe IcmpTypeCode@
 --
 -- * @PortRange ::@ @Maybe PortRange@
 --
@@ -113,7 +113,7 @@ createNetworkAclEntry p1 p2 p3 p4 p5 p6 = CreateNetworkAclEntry
     , _cnaeRuleAction = p4
     , _cnaeEgress = p5
     , _cnaeCidrBlock = p6
-    , _cnaeIcmpTypeCode = Nothing
+    , _cnaeIcmp = Nothing
     , _cnaePortRange = Nothing
     }
 
@@ -146,9 +146,8 @@ cnaeCidrBlock :: Lens' CreateNetworkAclEntry Text
 cnaeCidrBlock = lens _cnaeCidrBlock (\s a -> s { _cnaeCidrBlock = a })
 
 -- | ICMP protocol: The ICMP type and code.
-cnaeIcmpTypeCode :: Lens' CreateNetworkAclEntry (Maybe IcmpTypeCode)
-cnaeIcmpTypeCode =
-    lens _cnaeIcmpTypeCode (\s a -> s { _cnaeIcmpTypeCode = a })
+cnaeIcmp :: Lens' CreateNetworkAclEntry (Maybe IcmpTypeCode)
+cnaeIcmp = lens _cnaeIcmp (\s a -> s { _cnaeIcmp = a })
 
 -- | TCP or UDP protocols: The range of ports the rule applies to.
 cnaePortRange :: Lens' CreateNetworkAclEntry (Maybe PortRange)

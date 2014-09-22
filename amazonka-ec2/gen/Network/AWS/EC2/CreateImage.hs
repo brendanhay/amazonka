@@ -43,7 +43,7 @@ module Network.AWS.EC2.CreateImage
     , ci1Name
     , ci1Description
     , ci1NoReboot
-    , ci1BlockDeviceMappings
+    , ci1BlockDeviceMapping
 
     -- * Response
     , CreateImageResponse
@@ -62,7 +62,7 @@ data CreateImage = CreateImage
     , _ci1Name :: Text
     , _ci1Description :: Maybe Text
     , _ci1NoReboot :: Maybe Bool
-    , _ci1BlockDeviceMappings :: [BlockDeviceMapping]
+    , _ci1BlockDeviceMapping :: [BlockDeviceMapping]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -78,7 +78,7 @@ data CreateImage = CreateImage
 --
 -- * @NoReboot ::@ @Maybe Bool@
 --
--- * @BlockDeviceMappings ::@ @[BlockDeviceMapping]@
+-- * @BlockDeviceMapping ::@ @[BlockDeviceMapping]@
 --
 createImage :: Text -- ^ 'ci1InstanceId'
             -> Text -- ^ 'ci1Name'
@@ -88,7 +88,7 @@ createImage p1 p2 = CreateImage
     , _ci1Name = p2
     , _ci1Description = Nothing
     , _ci1NoReboot = Nothing
-    , _ci1BlockDeviceMappings = mempty
+    , _ci1BlockDeviceMapping = mempty
     }
 
 -- | The ID of the instance.
@@ -113,9 +113,9 @@ ci1NoReboot :: Lens' CreateImage (Maybe Bool)
 ci1NoReboot = lens _ci1NoReboot (\s a -> s { _ci1NoReboot = a })
 
 -- | Information about one or more block device mappings.
-ci1BlockDeviceMappings :: Lens' CreateImage [BlockDeviceMapping]
-ci1BlockDeviceMappings =
-    lens _ci1BlockDeviceMappings (\s a -> s { _ci1BlockDeviceMappings = a })
+ci1BlockDeviceMapping :: Lens' CreateImage [BlockDeviceMapping]
+ci1BlockDeviceMapping =
+    lens _ci1BlockDeviceMapping (\s a -> s { _ci1BlockDeviceMapping = a })
 
 instance ToQuery CreateImage where
     toQuery = genericQuery def

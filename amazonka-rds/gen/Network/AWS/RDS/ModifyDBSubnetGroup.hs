@@ -37,7 +37,7 @@ module Network.AWS.RDS.ModifyDBSubnetGroup
     -- ** Request lenses
     , mdbsgDBSubnetGroupName
     , mdbsgDBSubnetGroupDescription
-    , mdbsgSubnetIds
+    , mdbsgSubnetIdentifier
 
     -- * Response
     , ModifyDBSubnetGroupResponse
@@ -55,7 +55,7 @@ import Network.AWS.Prelude
 data ModifyDBSubnetGroup = ModifyDBSubnetGroup
     { _mdbsgDBSubnetGroupName :: Text
     , _mdbsgDBSubnetGroupDescription :: Maybe Text
-    , _mdbsgSubnetIds :: [Text]
+    , _mdbsgSubnetIdentifier :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -67,15 +67,15 @@ data ModifyDBSubnetGroup = ModifyDBSubnetGroup
 --
 -- * @DBSubnetGroupDescription ::@ @Maybe Text@
 --
--- * @SubnetIds ::@ @[Text]@
+-- * @SubnetIdentifier ::@ @[Text]@
 --
 modifyDBSubnetGroup :: Text -- ^ 'mdbsgDBSubnetGroupName'
-                    -> [Text] -- ^ 'mdbsgSubnetIds'
+                    -> [Text] -- ^ 'mdbsgSubnetIdentifier'
                     -> ModifyDBSubnetGroup
 modifyDBSubnetGroup p1 p3 = ModifyDBSubnetGroup
     { _mdbsgDBSubnetGroupName = p1
     , _mdbsgDBSubnetGroupDescription = Nothing
-    , _mdbsgSubnetIds = p3
+    , _mdbsgSubnetIdentifier = p3
     }
 
 -- | The name for the DB subnet group. This value is stored as a lowercase
@@ -92,8 +92,9 @@ mdbsgDBSubnetGroupDescription =
          (\s a -> s { _mdbsgDBSubnetGroupDescription = a })
 
 -- | The EC2 subnet IDs for the DB subnet group.
-mdbsgSubnetIds :: Lens' ModifyDBSubnetGroup [Text]
-mdbsgSubnetIds = lens _mdbsgSubnetIds (\s a -> s { _mdbsgSubnetIds = a })
+mdbsgSubnetIdentifier :: Lens' ModifyDBSubnetGroup [Text]
+mdbsgSubnetIdentifier =
+    lens _mdbsgSubnetIdentifier (\s a -> s { _mdbsgSubnetIdentifier = a })
 
 instance ToQuery ModifyDBSubnetGroup where
     toQuery = genericQuery def

@@ -50,7 +50,7 @@ module Network.AWS.RDS.DescribeReservedDBInstances
     , describeReservedDBInstancesResponse
     -- ** Response lenses
     , drdbirMarker
-    , drdbirReservedDBInstances
+    , drdbirReservedDBInstance
     ) where
 
 import Network.AWS.Request.Query
@@ -171,7 +171,7 @@ instance ToQuery DescribeReservedDBInstances where
 -- DescribeReservedDBInstances action.
 data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse
     { _drdbirMarker :: Maybe Text
-    , _drdbirReservedDBInstances :: [ReservedDBInstance]
+    , _drdbirReservedDBInstance :: [ReservedDBInstance]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -183,12 +183,12 @@ data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @ReservedDBInstances ::@ @[ReservedDBInstance]@
+-- * @ReservedDBInstance ::@ @[ReservedDBInstance]@
 --
 describeReservedDBInstancesResponse :: DescribeReservedDBInstancesResponse
 describeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse
     { _drdbirMarker = Nothing
-    , _drdbirReservedDBInstances = mempty
+    , _drdbirReservedDBInstance = mempty
     }
 
 -- | An optional pagination token provided by a previous request. If this
@@ -198,10 +198,10 @@ drdbirMarker :: Lens' DescribeReservedDBInstancesResponse (Maybe Text)
 drdbirMarker = lens _drdbirMarker (\s a -> s { _drdbirMarker = a })
 
 -- | A list of reserved DB instances.
-drdbirReservedDBInstances :: Lens' DescribeReservedDBInstancesResponse [ReservedDBInstance]
-drdbirReservedDBInstances =
-    lens _drdbirReservedDBInstances
-         (\s a -> s { _drdbirReservedDBInstances = a })
+drdbirReservedDBInstance :: Lens' DescribeReservedDBInstancesResponse [ReservedDBInstance]
+drdbirReservedDBInstance =
+    lens _drdbirReservedDBInstance
+         (\s a -> s { _drdbirReservedDBInstance = a })
 
 instance FromXML DescribeReservedDBInstancesResponse where
     fromXMLOptions = xmlOptions

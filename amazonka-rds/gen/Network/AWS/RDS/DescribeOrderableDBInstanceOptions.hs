@@ -51,7 +51,7 @@ module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     -- ** Response constructor
     , describeOrderableDBInstanceOptionsResponse
     -- ** Response lenses
-    , dodbiorOrderableDBInstanceOptions
+    , dodbiorOrderableDBInstanceOption
     , dodbiorMarker
     ) where
 
@@ -149,7 +149,7 @@ instance ToQuery DescribeOrderableDBInstanceOptions where
 -- | Contains the result of a successful invocation of the
 -- DescribeOrderableDBInstanceOptions action.
 data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse
-    { _dodbiorOrderableDBInstanceOptions :: [OrderableDBInstanceOption]
+    { _dodbiorOrderableDBInstanceOption :: [OrderableDBInstanceOption]
     , _dodbiorMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -160,22 +160,22 @@ data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOpt
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @OrderableDBInstanceOptions ::@ @[OrderableDBInstanceOption]@
+-- * @OrderableDBInstanceOption ::@ @[OrderableDBInstanceOption]@
 --
 -- * @Marker ::@ @Maybe Text@
 --
 describeOrderableDBInstanceOptionsResponse :: DescribeOrderableDBInstanceOptionsResponse
 describeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse
-    { _dodbiorOrderableDBInstanceOptions = mempty
+    { _dodbiorOrderableDBInstanceOption = mempty
     , _dodbiorMarker = Nothing
     }
 
 -- | An OrderableDBInstanceOption structure containing information about
 -- orderable options for the DB instance.
-dodbiorOrderableDBInstanceOptions :: Lens' DescribeOrderableDBInstanceOptionsResponse [OrderableDBInstanceOption]
-dodbiorOrderableDBInstanceOptions =
-    lens _dodbiorOrderableDBInstanceOptions
-         (\s a -> s { _dodbiorOrderableDBInstanceOptions = a })
+dodbiorOrderableDBInstanceOption :: Lens' DescribeOrderableDBInstanceOptionsResponse [OrderableDBInstanceOption]
+dodbiorOrderableDBInstanceOption =
+    lens _dodbiorOrderableDBInstanceOption
+         (\s a -> s { _dodbiorOrderableDBInstanceOption = a })
 
 -- | An optional pagination token provided by a previous
 -- OrderableDBInstanceOptions request. If this parameter is specified, the

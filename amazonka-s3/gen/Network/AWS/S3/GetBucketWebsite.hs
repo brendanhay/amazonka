@@ -36,7 +36,7 @@ module Network.AWS.S3.GetBucketWebsite
     , gbwrRedirectAllRequestsTo
     , gbwrIndexDocument
     , gbwrErrorDocument
-    , gbwrRoutingRules
+    , gbwrRoutingRule
     ) where
 
 import Network.AWS.Request.RestS3
@@ -76,7 +76,7 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse
     { _gbwrRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
     , _gbwrIndexDocument :: Maybe IndexDocument
     , _gbwrErrorDocument :: Maybe ErrorDocument
-    , _gbwrRoutingRules :: [RoutingRule]
+    , _gbwrRoutingRule :: [RoutingRule]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -92,14 +92,14 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse
 --
 -- * @ErrorDocument ::@ @Maybe ErrorDocument@
 --
--- * @RoutingRules ::@ @[RoutingRule]@
+-- * @RoutingRule ::@ @[RoutingRule]@
 --
 getBucketWebsiteResponse :: GetBucketWebsiteResponse
 getBucketWebsiteResponse = GetBucketWebsiteResponse
     { _gbwrRedirectAllRequestsTo = Nothing
     , _gbwrIndexDocument = Nothing
     , _gbwrErrorDocument = Nothing
-    , _gbwrRoutingRules = mempty
+    , _gbwrRoutingRule = mempty
     }
 
 gbwrRedirectAllRequestsTo :: Lens' GetBucketWebsiteResponse (Maybe RedirectAllRequestsTo)
@@ -115,9 +115,8 @@ gbwrErrorDocument :: Lens' GetBucketWebsiteResponse (Maybe ErrorDocument)
 gbwrErrorDocument =
     lens _gbwrErrorDocument (\s a -> s { _gbwrErrorDocument = a })
 
-gbwrRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
-gbwrRoutingRules =
-    lens _gbwrRoutingRules (\s a -> s { _gbwrRoutingRules = a })
+gbwrRoutingRule :: Lens' GetBucketWebsiteResponse [RoutingRule]
+gbwrRoutingRule = lens _gbwrRoutingRule (\s a -> s { _gbwrRoutingRule = a })
 
 instance FromXML GetBucketWebsiteResponse where
     fromXMLOptions = xmlOptions

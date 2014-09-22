@@ -72,7 +72,7 @@ instance ToHeaders GetDistribution
 
 instance ToXML GetDistribution where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetDistributionRequest"
+    toXMLRoot    = toRoot "GetDistribution"
 
 -- | The returned result of the corresponding request.
 data GetDistributionResponse = GetDistributionResponse

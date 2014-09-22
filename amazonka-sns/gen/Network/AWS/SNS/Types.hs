@@ -349,7 +349,7 @@ eAttributes = lens _eAttributes (\s a -> s { _eAttributes = a })
 
 instance FromXML Endpoint' where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Endpoint"
+    fromXMLRoot    = fromRoot "Endpoint'"
 
 -- | The user-specified message attribute value. For string data types, the
 -- value attribute has the same restrictions on the content as the message

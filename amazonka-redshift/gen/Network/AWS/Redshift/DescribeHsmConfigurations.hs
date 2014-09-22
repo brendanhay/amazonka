@@ -38,7 +38,7 @@ module Network.AWS.Redshift.DescribeHsmConfigurations
     , describeHsmConfigurationsResponse
     -- ** Response lenses
     , dhcrMarker
-    , dhcrHsmConfigurations
+    , dhcrHsmConfiguration
     ) where
 
 import Network.AWS.Request.Query
@@ -101,7 +101,7 @@ instance ToQuery DescribeHsmConfigurations where
 -- | 
 data DescribeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
     { _dhcrMarker :: Maybe Text
-    , _dhcrHsmConfigurations :: [HsmConfiguration]
+    , _dhcrHsmConfiguration :: [HsmConfiguration]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -113,12 +113,12 @@ data DescribeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @HsmConfigurations ::@ @[HsmConfiguration]@
+-- * @HsmConfiguration ::@ @[HsmConfiguration]@
 --
 describeHsmConfigurationsResponse :: DescribeHsmConfigurationsResponse
 describeHsmConfigurationsResponse = DescribeHsmConfigurationsResponse
     { _dhcrMarker = Nothing
-    , _dhcrHsmConfigurations = mempty
+    , _dhcrHsmConfiguration = mempty
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -130,9 +130,9 @@ dhcrMarker :: Lens' DescribeHsmConfigurationsResponse (Maybe Text)
 dhcrMarker = lens _dhcrMarker (\s a -> s { _dhcrMarker = a })
 
 -- | A list of Amazon Redshift HSM configurations.
-dhcrHsmConfigurations :: Lens' DescribeHsmConfigurationsResponse [HsmConfiguration]
-dhcrHsmConfigurations =
-    lens _dhcrHsmConfigurations (\s a -> s { _dhcrHsmConfigurations = a })
+dhcrHsmConfiguration :: Lens' DescribeHsmConfigurationsResponse [HsmConfiguration]
+dhcrHsmConfiguration =
+    lens _dhcrHsmConfiguration (\s a -> s { _dhcrHsmConfiguration = a })
 
 instance FromXML DescribeHsmConfigurationsResponse where
     fromXMLOptions = xmlOptions

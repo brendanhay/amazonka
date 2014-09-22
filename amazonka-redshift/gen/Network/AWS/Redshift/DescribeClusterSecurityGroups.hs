@@ -47,7 +47,7 @@ module Network.AWS.Redshift.DescribeClusterSecurityGroups
     , describeClusterSecurityGroupsResponse
     -- ** Response lenses
     , dcsgrMarker
-    , dcsgrClusterSecurityGroups
+    , dcsgrClusterSecurityGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -111,7 +111,7 @@ instance ToQuery DescribeClusterSecurityGroups where
 -- | Contains the output from the DescribeClusterSecurityGroups action.
 data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse
     { _dcsgrMarker :: Maybe Text
-    , _dcsgrClusterSecurityGroups :: [ClusterSecurityGroup]
+    , _dcsgrClusterSecurityGroup :: [ClusterSecurityGroup]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -123,12 +123,12 @@ data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsRespon
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @ClusterSecurityGroups ::@ @[ClusterSecurityGroup]@
+-- * @ClusterSecurityGroup ::@ @[ClusterSecurityGroup]@
 --
 describeClusterSecurityGroupsResponse :: DescribeClusterSecurityGroupsResponse
 describeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse
     { _dcsgrMarker = Nothing
-    , _dcsgrClusterSecurityGroups = mempty
+    , _dcsgrClusterSecurityGroup = mempty
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -140,10 +140,10 @@ dcsgrMarker :: Lens' DescribeClusterSecurityGroupsResponse (Maybe Text)
 dcsgrMarker = lens _dcsgrMarker (\s a -> s { _dcsgrMarker = a })
 
 -- | A list of ClusterSecurityGroup instances.
-dcsgrClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
-dcsgrClusterSecurityGroups =
-    lens _dcsgrClusterSecurityGroups
-         (\s a -> s { _dcsgrClusterSecurityGroups = a })
+dcsgrClusterSecurityGroup :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
+dcsgrClusterSecurityGroup =
+    lens _dcsgrClusterSecurityGroup
+         (\s a -> s { _dcsgrClusterSecurityGroup = a })
 
 instance FromXML DescribeClusterSecurityGroupsResponse where
     fromXMLOptions = xmlOptions

@@ -38,7 +38,7 @@ module Network.AWS.Redshift.DescribeHsmClientCertificates
     , describeHsmClientCertificatesResponse
     -- ** Response lenses
     , dhccrMarker
-    , dhccrHsmClientCertificates
+    , dhccrHsmClientCertificate
     ) where
 
 import Network.AWS.Request.Query
@@ -101,7 +101,7 @@ instance ToQuery DescribeHsmClientCertificates where
 -- | 
 data DescribeHsmClientCertificatesResponse = DescribeHsmClientCertificatesResponse
     { _dhccrMarker :: Maybe Text
-    , _dhccrHsmClientCertificates :: [HsmClientCertificate]
+    , _dhccrHsmClientCertificate :: [HsmClientCertificate]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -113,12 +113,12 @@ data DescribeHsmClientCertificatesResponse = DescribeHsmClientCertificatesRespon
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @HsmClientCertificates ::@ @[HsmClientCertificate]@
+-- * @HsmClientCertificate ::@ @[HsmClientCertificate]@
 --
 describeHsmClientCertificatesResponse :: DescribeHsmClientCertificatesResponse
 describeHsmClientCertificatesResponse = DescribeHsmClientCertificatesResponse
     { _dhccrMarker = Nothing
-    , _dhccrHsmClientCertificates = mempty
+    , _dhccrHsmClientCertificate = mempty
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -132,10 +132,10 @@ dhccrMarker = lens _dhccrMarker (\s a -> s { _dhccrMarker = a })
 -- | A list of the identifiers for one or more HSM client certificates used by
 -- Amazon Redshift clusters to store and retrieve database encryption keys in
 -- an HSM.
-dhccrHsmClientCertificates :: Lens' DescribeHsmClientCertificatesResponse [HsmClientCertificate]
-dhccrHsmClientCertificates =
-    lens _dhccrHsmClientCertificates
-         (\s a -> s { _dhccrHsmClientCertificates = a })
+dhccrHsmClientCertificate :: Lens' DescribeHsmClientCertificatesResponse [HsmClientCertificate]
+dhccrHsmClientCertificate =
+    lens _dhccrHsmClientCertificate
+         (\s a -> s { _dhccrHsmClientCertificate = a })
 
 instance FromXML DescribeHsmClientCertificatesResponse where
     fromXMLOptions = xmlOptions

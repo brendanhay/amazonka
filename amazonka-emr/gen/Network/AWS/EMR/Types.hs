@@ -1430,7 +1430,7 @@ instance FromJSON ClusterStateChangeReason
 
 instance ToJSON ClusterStateChangeReason
 
--- | The current status details about the cluster.
+-- | The details about the current status of the cluster.
 data ClusterStatus = ClusterStatus
     { _csState :: Maybe ClusterState
     , _csStateChangeReason :: Maybe ClusterStateChangeReason

@@ -1460,10 +1460,10 @@ instance FromJSON OperationType
 
 instance ToJSON OperationType
 
--- | Provides details about the domain administrative contact. Type: Complex
--- Children: FirstName, MiddleName, LastName, ContactType, OrganizationName,
--- AddressLine1, AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber,
--- Email, Fax, ExtraParams.
+-- | Provides detailed contact information. Type: Complex Children: FirstName,
+-- MiddleName, LastName, ContactType, OrganizationName, AddressLine1,
+-- AddressLine2, City, State, CountryCode, ZipCode, PhoneNumber, Email, Fax,
+-- ExtraParams Required: Yes.
 data ContactDetail = ContactDetail
     { _cdFirstName :: Maybe Text
     , _cdLastName :: Maybe Text

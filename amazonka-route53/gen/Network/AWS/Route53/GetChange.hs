@@ -77,7 +77,7 @@ instance ToHeaders GetChange
 
 instance ToXML GetChange where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetChangeRequest"
+    toXMLRoot    = toRoot "GetChange"
 
 -- | A complex type that contains the ChangeInfo element.
 newtype GetChangeResponse = GetChangeResponse

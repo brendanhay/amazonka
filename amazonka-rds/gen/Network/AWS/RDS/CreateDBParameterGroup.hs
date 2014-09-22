@@ -43,7 +43,7 @@ module Network.AWS.RDS.CreateDBParameterGroup
     , cdbpgDBParameterGroupName
     , cdbpgDBParameterGroupFamily
     , cdbpgDescription
-    , cdbpgTags
+    , cdbpgTag
 
     -- * Response
     , CreateDBParameterGroupResponse
@@ -62,7 +62,7 @@ data CreateDBParameterGroup = CreateDBParameterGroup
     { _cdbpgDBParameterGroupName :: Text
     , _cdbpgDBParameterGroupFamily :: Text
     , _cdbpgDescription :: Text
-    , _cdbpgTags :: [Tag]
+    , _cdbpgTag :: [Tag]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -76,7 +76,7 @@ data CreateDBParameterGroup = CreateDBParameterGroup
 --
 -- * @Description ::@ @Text@
 --
--- * @Tags ::@ @[Tag]@
+-- * @Tag ::@ @[Tag]@
 --
 createDBParameterGroup :: Text -- ^ 'cdbpgDBParameterGroupName'
                        -> Text -- ^ 'cdbpgDBParameterGroupFamily'
@@ -86,7 +86,7 @@ createDBParameterGroup p1 p2 p3 = CreateDBParameterGroup
     { _cdbpgDBParameterGroupName = p1
     , _cdbpgDBParameterGroupFamily = p2
     , _cdbpgDescription = p3
-    , _cdbpgTags = mempty
+    , _cdbpgTag = mempty
     }
 
 -- | The name of the DB parameter group. Constraints: Must be 1 to 255
@@ -113,8 +113,8 @@ cdbpgDescription =
     lens _cdbpgDescription (\s a -> s { _cdbpgDescription = a })
 
 -- | A list of tags.
-cdbpgTags :: Lens' CreateDBParameterGroup [Tag]
-cdbpgTags = lens _cdbpgTags (\s a -> s { _cdbpgTags = a })
+cdbpgTag :: Lens' CreateDBParameterGroup [Tag]
+cdbpgTag = lens _cdbpgTag (\s a -> s { _cdbpgTag = a })
 
 instance ToQuery CreateDBParameterGroup where
     toQuery = genericQuery def

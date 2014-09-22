@@ -73,7 +73,7 @@ module Network.AWS.Route53.Types
     -- * DelegationSet
     , DelegationSet
     , delegationSet
-    , dsNameServers
+    , dsNameServer
 
     -- * HostedZoneConfig
     , HostedZoneConfig
@@ -102,7 +102,7 @@ module Network.AWS.Route53.Types
     , ChangeBatch
     , changeBatch
     , cbComment
-    , cbChanges
+    , cbChange
 
     -- * ChangeInfo
     , ChangeInfo
@@ -169,7 +169,7 @@ module Network.AWS.Route53.Types
     , rrsGeoLocation
     , rrsFailover
     , rrsTTL
-    , rrsResourceRecords
+    , rrsResourceRecord
     , rrsAliasTarget
     , rrsHealthCheckId
 
@@ -178,7 +178,7 @@ module Network.AWS.Route53.Types
     , resourceTagSet
     , rtsResourceType
     , rtsResourceId
-    , rtsTags
+    , rtsTag
 
     -- * Tag
     , Tag
@@ -262,7 +262,7 @@ data Route53Error
       -- error message indicates one error in the change batch. For more
       -- information, see Example InvalidChangeBatch Errors.
     | InvalidChangeBatch
-        { _icbMessages :: [Text]
+        { _icbMessage :: [Text]
         }
       -- | This error indicates that the specified domain name is not valid.
     | InvalidDomainName
@@ -609,11 +609,11 @@ instance ToByteString Failover
 
 instance FromXML Failover where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResourceRecordSetFailover"
+    fromXMLRoot    = fromRoot "Failover"
 
 instance ToXML Failover where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ResourceRecordSetFailover"
+    toXMLRoot    = toRoot "Failover"
 
 instance ToQuery Failover where
       toQuery = toQuery . toBS
@@ -680,9 +680,10 @@ instance ToXML TagResourceType where
 instance ToQuery TagResourceType where
       toQuery = toQuery . toBS
 
--- | A complex type that contains name server information.
+-- | A complex type that contains information about the name servers for the
+-- specified hosted zone.
 newtype DelegationSet = DelegationSet
-    { _dsNameServers :: List1 Text
+    { _dsNameServer :: List1 Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -693,19 +694,19 @@ newtype DelegationSet = DelegationSet
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @NameServers ::@ @List1 Text@
+-- * @NameServer ::@ @List1 Text@
 --
-delegationSet :: List1 Text -- ^ 'dsNameServers'
+delegationSet :: List1 Text -- ^ 'dsNameServer'
               -> DelegationSet
 delegationSet p1 = DelegationSet
-    { _dsNameServers = p1
+    { _dsNameServer = p1
     }
 
 -- | A complex type that contains the authoritative name servers for the hosted
 -- zone. Use the method provided by your domain registrar to add an NS record
 -- to your domain for each NameServer that is assigned to your hosted zone.
-dsNameServers :: Lens' DelegationSet (List1 Text)
-dsNameServers = lens _dsNameServers (\s a -> s { _dsNameServers = a })
+dsNameServer :: Lens' DelegationSet (List1 Text)
+dsNameServer = lens _dsNameServer (\s a -> s { _dsNameServer = a })
 
 instance FromXML DelegationSet where
     fromXMLOptions = xmlOptions
@@ -871,7 +872,7 @@ instance ToXML Change where
 -- | A complex type that contains an optional comment and the Changes element.
 data ChangeBatch = ChangeBatch
     { _cbComment :: Maybe Text
-    , _cbChanges :: List1 Change
+    , _cbChange :: List1 Change
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -881,13 +882,13 @@ data ChangeBatch = ChangeBatch
 --
 -- * @Comment ::@ @Maybe Text@
 --
--- * @Changes ::@ @List1 Change@
+-- * @Change ::@ @List1 Change@
 --
-changeBatch :: List1 Change -- ^ 'cbChanges'
+changeBatch :: List1 Change -- ^ 'cbChange'
             -> ChangeBatch
 changeBatch p2 = ChangeBatch
     { _cbComment = Nothing
-    , _cbChanges = p2
+    , _cbChange = p2
     }
 
 -- | Optional: Any comments you want to include about a change batch request.
@@ -896,8 +897,8 @@ cbComment = lens _cbComment (\s a -> s { _cbComment = a })
 
 -- | A complex type that contains one Change element for each resource record
 -- set that you want to create or delete.
-cbChanges :: Lens' ChangeBatch (List1 Change)
-cbChanges = lens _cbChanges (\s a -> s { _cbChanges = a })
+cbChange :: Lens' ChangeBatch (List1 Change)
+cbChange = lens _cbChange (\s a -> s { _cbChange = a })
 
 instance ToXML ChangeBatch where
     toXMLOptions = xmlOptions
@@ -1107,7 +1108,7 @@ instance FromXML GeoLocationDetails where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GeoLocationDetails"
 
--- | A complex type that contains identifying information about the health
+-- | A complex type that contains the information about the specified health
 -- check.
 data HealthCheck = HealthCheck
     { _hcId :: Text
@@ -1169,7 +1170,7 @@ instance FromXML HealthCheck where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "HealthCheck"
 
--- | A complex type that contains health check configuration.
+-- | A complex type that contains the health check configuration.
 data HealthCheckConfig = HealthCheckConfig
     { _hccIPAddress :: Maybe Text
     , _hccPort :: Maybe Integer
@@ -1273,7 +1274,8 @@ instance ToXML HealthCheckConfig where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "HealthCheckConfig"
 
--- | A complex type that contains identifying information about the hosted zone.
+-- | A complex type that contains the information about the specified hosted
+-- zone.
 data HostedZone = HostedZone
     { _hzId :: ResourceId
     , _hzName :: Text
@@ -1346,7 +1348,8 @@ instance FromXML HostedZone where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "HostedZone"
 
--- | Information about the resource record set to create or delete.
+-- | A complex type that contains information about the current resource record
+-- set.
 data ResourceRecordSet = ResourceRecordSet
     { _rrsName :: Text
     , _rrsType :: RecordType
@@ -1356,7 +1359,7 @@ data ResourceRecordSet = ResourceRecordSet
     , _rrsGeoLocation :: Maybe GeoLocation
     , _rrsFailover :: Maybe Failover
     , _rrsTTL :: Maybe Integer
-    , _rrsResourceRecords :: List1 ResourceRecord
+    , _rrsResourceRecord :: List1 ResourceRecord
     , _rrsAliasTarget :: Maybe AliasTarget
     , _rrsHealthCheckId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -1382,7 +1385,7 @@ data ResourceRecordSet = ResourceRecordSet
 --
 -- * @TTL ::@ @Maybe Integer@
 --
--- * @ResourceRecords ::@ @List1 ResourceRecord@
+-- * @ResourceRecord ::@ @List1 ResourceRecord@
 --
 -- * @AliasTarget ::@ @Maybe AliasTarget@
 --
@@ -1390,7 +1393,7 @@ data ResourceRecordSet = ResourceRecordSet
 --
 resourceRecordSet :: Text -- ^ 'rrsName'
                   -> RecordType -- ^ 'rrsType'
-                  -> List1 ResourceRecord -- ^ 'rrsResourceRecords'
+                  -> List1 ResourceRecord -- ^ 'rrsResourceRecord'
                   -> ResourceRecordSet
 resourceRecordSet p1 p2 p9 = ResourceRecordSet
     { _rrsName = p1
@@ -1401,7 +1404,7 @@ resourceRecordSet p1 p2 p9 = ResourceRecordSet
     , _rrsGeoLocation = Nothing
     , _rrsFailover = Nothing
     , _rrsTTL = Nothing
-    , _rrsResourceRecords = p9
+    , _rrsResourceRecord = p9
     , _rrsAliasTarget = Nothing
     , _rrsHealthCheckId = Nothing
     }
@@ -1463,9 +1466,9 @@ rrsTTL = lens _rrsTTL (\s a -> s { _rrsTTL = a })
 
 -- | A complex type that contains the resource records for the current resource
 -- record set.
-rrsResourceRecords :: Lens' ResourceRecordSet (List1 ResourceRecord)
-rrsResourceRecords =
-    lens _rrsResourceRecords (\s a -> s { _rrsResourceRecords = a })
+rrsResourceRecord :: Lens' ResourceRecordSet (List1 ResourceRecord)
+rrsResourceRecord =
+    lens _rrsResourceRecord (\s a -> s { _rrsResourceRecord = a })
 
 -- | Alias resource record sets only: Information about the AWS resource to
 -- which you are redirecting traffic.
@@ -1491,7 +1494,7 @@ instance ToXML ResourceRecordSet where
 data ResourceTagSet = ResourceTagSet
     { _rtsResourceType :: Maybe TagResourceType
     , _rtsResourceId :: Maybe Text
-    , _rtsTags :: Maybe (List1 Tag)
+    , _rtsTag :: Maybe (List1 Tag)
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1506,13 +1509,13 @@ data ResourceTagSet = ResourceTagSet
 --
 -- * @ResourceId ::@ @Maybe Text@
 --
--- * @Tags ::@ @Maybe (List1 Tag)@
+-- * @Tag ::@ @Maybe (List1 Tag)@
 --
 resourceTagSet :: ResourceTagSet
 resourceTagSet = ResourceTagSet
     { _rtsResourceType = Nothing
     , _rtsResourceId = Nothing
-    , _rtsTags = Nothing
+    , _rtsTag = Nothing
     }
 
 -- | The type of the resource. The resource type for health checks is
@@ -1525,8 +1528,8 @@ rtsResourceId :: Lens' ResourceTagSet (Maybe Text)
 rtsResourceId = lens _rtsResourceId (\s a -> s { _rtsResourceId = a })
 
 -- | The tags associated with the specified resource.
-rtsTags :: Lens' ResourceTagSet (Maybe (List1 Tag))
-rtsTags = lens _rtsTags (\s a -> s { _rtsTags = a })
+rtsTag :: Lens' ResourceTagSet (Maybe (List1 Tag))
+rtsTag = lens _rtsTag (\s a -> s { _rtsTag = a })
 
 instance FromXML ResourceTagSet where
     fromXMLOptions = xmlOptions

@@ -74,7 +74,7 @@ instance ToHeaders GetHealthCheck
 
 instance ToXML GetHealthCheck where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetHealthCheckRequest"
+    toXMLRoot    = toRoot "GetHealthCheck"
 
 -- | A complex type containing information about the specified health check.
 newtype GetHealthCheckResponse = GetHealthCheckResponse

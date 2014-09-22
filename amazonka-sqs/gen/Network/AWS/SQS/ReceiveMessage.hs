@@ -64,8 +64,8 @@ module Network.AWS.SQS.ReceiveMessage
     , receiveMessage
     -- ** Request lenses
     , rmQueueUrl
-    , rmAttributeNames
-    , rmMessageAttributeNames
+    , rmAttributeName
+    , rmMessageAttributeName
     , rmMaxNumberOfMessages
     , rmVisibilityTimeout
     , rmWaitTimeSeconds
@@ -75,7 +75,7 @@ module Network.AWS.SQS.ReceiveMessage
     -- ** Response constructor
     , receiveMessageResponse
     -- ** Response lenses
-    , rmrMessages
+    , rmrMessage
     ) where
 
 import Network.AWS.Request.Query
@@ -84,8 +84,8 @@ import Network.AWS.Prelude
 
 data ReceiveMessage = ReceiveMessage
     { _rmQueueUrl :: Text
-    , _rmAttributeNames :: [QueueAttributeName]
-    , _rmMessageAttributeNames :: [Text]
+    , _rmAttributeName :: [QueueAttributeName]
+    , _rmMessageAttributeName :: [Text]
     , _rmMaxNumberOfMessages :: Maybe Integer
     , _rmVisibilityTimeout :: Maybe Integer
     , _rmWaitTimeSeconds :: Maybe Integer
@@ -98,9 +98,9 @@ data ReceiveMessage = ReceiveMessage
 --
 -- * @QueueUrl ::@ @Text@
 --
--- * @AttributeNames ::@ @[QueueAttributeName]@
+-- * @AttributeName ::@ @[QueueAttributeName]@
 --
--- * @MessageAttributeNames ::@ @[Text]@
+-- * @MessageAttributeName ::@ @[Text]@
 --
 -- * @MaxNumberOfMessages ::@ @Maybe Integer@
 --
@@ -112,8 +112,8 @@ receiveMessage :: Text -- ^ 'rmQueueUrl'
                -> ReceiveMessage
 receiveMessage p1 = ReceiveMessage
     { _rmQueueUrl = p1
-    , _rmAttributeNames = mempty
-    , _rmMessageAttributeNames = mempty
+    , _rmAttributeName = mempty
+    , _rmMessageAttributeName = mempty
     , _rmMaxNumberOfMessages = Nothing
     , _rmVisibilityTimeout = Nothing
     , _rmWaitTimeSeconds = Nothing
@@ -132,9 +132,8 @@ rmQueueUrl = lens _rmQueueUrl (\s a -> s { _rmQueueUrl = a })
 -- account number (or the IP address, if anonymous access is allowed) of the
 -- sender. SentTimestamp - returns the time when the message was sent (epoch
 -- time in milliseconds).
-rmAttributeNames :: Lens' ReceiveMessage [QueueAttributeName]
-rmAttributeNames =
-    lens _rmAttributeNames (\s a -> s { _rmAttributeNames = a })
+rmAttributeName :: Lens' ReceiveMessage [QueueAttributeName]
+rmAttributeName = lens _rmAttributeName (\s a -> s { _rmAttributeName = a })
 
 -- | The message attribute Name can contain the following characters: A-Z, a-z,
 -- 0-9, underscore(_), hyphen(-), and period (.). The message attribute name
@@ -144,10 +143,9 @@ rmAttributeNames =
 -- be up to 256 characters long. Attribute names cannot start with "AWS." or
 -- "Amazon." because these prefixes are reserved for use by Amazon Web
 -- Services.
-rmMessageAttributeNames :: Lens' ReceiveMessage [Text]
-rmMessageAttributeNames =
-    lens _rmMessageAttributeNames
-         (\s a -> s { _rmMessageAttributeNames = a })
+rmMessageAttributeName :: Lens' ReceiveMessage [Text]
+rmMessageAttributeName =
+    lens _rmMessageAttributeName (\s a -> s { _rmMessageAttributeName = a })
 
 -- | The maximum number of messages to return. Amazon SQS never returns more
 -- messages than this value but may return fewer. Values can be from 1 to 10.
@@ -175,7 +173,7 @@ instance ToQuery ReceiveMessage where
 
 -- | A list of received messages.
 newtype ReceiveMessageResponse = ReceiveMessageResponse
-    { _rmrMessages :: [Message]
+    { _rmrMessage :: [Message]
     } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -185,16 +183,16 @@ newtype ReceiveMessageResponse = ReceiveMessageResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Messages ::@ @[Message]@
+-- * @Message ::@ @[Message]@
 --
 receiveMessageResponse :: ReceiveMessageResponse
 receiveMessageResponse = ReceiveMessageResponse
-    { _rmrMessages = mempty
+    { _rmrMessage = mempty
     }
 
 -- | A list of messages.
-rmrMessages :: Lens' ReceiveMessageResponse [Message]
-rmrMessages = lens _rmrMessages (\s a -> s { _rmrMessages = a })
+rmrMessage :: Lens' ReceiveMessageResponse [Message]
+rmrMessage = lens _rmrMessage (\s a -> s { _rmrMessage = a })
 
 instance FromXML ReceiveMessageResponse where
     fromXMLOptions = xmlOptions

@@ -65,16 +65,16 @@ module Network.AWS.EC2.DescribeAddresses
     -- ** Request constructor
     , describeAddresses
     -- ** Request lenses
-    , daPublicIps
-    , daFilters
-    , daAllocationIds
+    , daPublicIp
+    , daFilter
+    , daAllocationId
 
     -- * Response
     , DescribeAddressesResponse
     -- ** Response constructor
     , describeAddressesResponse
     -- ** Response lenses
-    , darAddresses
+    , darItem
     ) where
 
 import Network.AWS.Request.Query
@@ -82,9 +82,9 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeAddresses = DescribeAddresses
-    { _daPublicIps :: [Text]
-    , _daFilters :: [Filter]
-    , _daAllocationIds :: [Text]
+    { _daPublicIp :: [Text]
+    , _daFilter :: [Filter]
+    , _daAllocationId :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -92,23 +92,23 @@ data DescribeAddresses = DescribeAddresses
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @PublicIps ::@ @[Text]@
+-- * @PublicIp ::@ @[Text]@
 --
--- * @Filters ::@ @[Filter]@
+-- * @Filter ::@ @[Filter]@
 --
--- * @AllocationIds ::@ @[Text]@
+-- * @AllocationId ::@ @[Text]@
 --
 describeAddresses :: DescribeAddresses
 describeAddresses = DescribeAddresses
-    { _daPublicIps = mempty
-    , _daFilters = mempty
-    , _daAllocationIds = mempty
+    { _daPublicIp = mempty
+    , _daFilter = mempty
+    , _daAllocationId = mempty
     }
 
 -- | [EC2-Classic] One or more Elastic IP addresses. Default: Describes all your
 -- Elastic IP addresses.
-daPublicIps :: Lens' DescribeAddresses [Text]
-daPublicIps = lens _daPublicIps (\s a -> s { _daPublicIps = a })
+daPublicIp :: Lens' DescribeAddresses [Text]
+daPublicIp = lens _daPublicIp (\s a -> s { _daPublicIp = a })
 
 -- | One or more filters. allocation-id - [EC2-VPC] The allocation ID for the
 -- address. association-id - [EC2-VPC] The association ID for the address.
@@ -119,19 +119,19 @@ daPublicIps = lens _daPublicIps (\s a -> s { _daPublicIps = a })
 -- network-interface-owner-id - The AWS account ID of the owner.
 -- private-ip-address - [EC2-VPC] The private IP address associated with the
 -- Elastic IP address. public-ip - The Elastic IP address.
-daFilters :: Lens' DescribeAddresses [Filter]
-daFilters = lens _daFilters (\s a -> s { _daFilters = a })
+daFilter :: Lens' DescribeAddresses [Filter]
+daFilter = lens _daFilter (\s a -> s { _daFilter = a })
 
 -- | [EC2-VPC] One or more allocation IDs. Default: Describes all your Elastic
 -- IP addresses.
-daAllocationIds :: Lens' DescribeAddresses [Text]
-daAllocationIds = lens _daAllocationIds (\s a -> s { _daAllocationIds = a })
+daAllocationId :: Lens' DescribeAddresses [Text]
+daAllocationId = lens _daAllocationId (\s a -> s { _daAllocationId = a })
 
 instance ToQuery DescribeAddresses where
     toQuery = genericQuery def
 
 newtype DescribeAddressesResponse = DescribeAddressesResponse
-    { _darAddresses :: [Address]
+    { _darItem :: [Address]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -141,16 +141,16 @@ newtype DescribeAddressesResponse = DescribeAddressesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Addresses ::@ @[Address]@
+-- * @Item ::@ @[Address]@
 --
 describeAddressesResponse :: DescribeAddressesResponse
 describeAddressesResponse = DescribeAddressesResponse
-    { _darAddresses = mempty
+    { _darItem = mempty
     }
 
 -- | Information about one or more Elastic IP addresses.
-darAddresses :: Lens' DescribeAddressesResponse [Address]
-darAddresses = lens _darAddresses (\s a -> s { _darAddresses = a })
+darItem :: Lens' DescribeAddressesResponse [Address]
+darItem = lens _darItem (\s a -> s { _darItem = a })
 
 instance FromXML DescribeAddressesResponse where
     fromXMLOptions = xmlOptions

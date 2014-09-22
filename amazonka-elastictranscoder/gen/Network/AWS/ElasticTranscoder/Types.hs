@@ -597,7 +597,8 @@ instance FromJSON Artwork
 
 instance ToJSON Artwork
 
--- | A section of the request body that specifies the audio parameters.
+-- | A section of the response body that provides information about the audio
+-- preset values.
 data AudioParameters = AudioParameters
     { _apCodec :: Maybe Text
     , _apSampleRate :: Maybe Text
@@ -1215,8 +1216,8 @@ instance FromJSON JobAlbumArt
 
 instance ToJSON JobAlbumArt
 
--- | A section of the request body that provides information about the file that
--- is being transcoded.
+-- | A section of the request or response body that provides information about
+-- the file that is being transcoded.
 data JobInput = JobInput
     { _jiKey :: Maybe Text
     , _jiFrameRate :: Maybe Text
@@ -2049,8 +2050,12 @@ instance FromJSON Playlist
 
 instance ToJSON Playlist
 
--- | A section of the response body that provides information about the preset
--- that is created.
+-- | Presets are templates that contain most of the settings for transcoding
+-- media files from one format to another. Elastic Transcoder includes some
+-- default presets for common formats, for example, several iPod and iPhone
+-- versions. You can also create your own presets for formats that aren't
+-- included among the default presets. You specify which preset you want to
+-- use when you create a job.
 data Preset = Preset
     { _p1rId :: Maybe Text
     , _p1rArn :: Maybe Text
@@ -2331,8 +2336,8 @@ instance FromJSON PresetWatermark
 
 instance ToJSON PresetWatermark
 
--- | A section of the request body that specifies the thumbnail parameters, if
--- any.
+-- | A section of the response body that provides information about the
+-- thumbnail preset values, if any.
 data Thumbnails = Thumbnails
     { _tFormat :: Maybe Text
     , _tInterval :: Maybe Text
@@ -2495,7 +2500,8 @@ instance FromJSON TimeSpan
 
 instance ToJSON TimeSpan
 
--- | A section of the request body that specifies the video parameters.
+-- | A section of the response body that provides information about the video
+-- preset values.
 data VideoParameters = VideoParameters
     { _vpCodec :: Maybe Text
     , _vpCodecOptions :: Map Text Text

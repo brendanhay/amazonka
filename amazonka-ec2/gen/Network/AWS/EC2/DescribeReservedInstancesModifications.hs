@@ -34,16 +34,16 @@ module Network.AWS.EC2.DescribeReservedInstancesModifications
     -- ** Request constructor
     , describeReservedInstancesModifications
     -- ** Request lenses
-    , drimReservedInstancesModificationIds
+    , drimReservedInstancesModificationId
     , drimNextToken
-    , drimFilters
+    , drimFilter
 
     -- * Response
     , DescribeReservedInstancesModificationsResponse
     -- ** Response constructor
     , describeReservedInstancesModificationsResponse
     -- ** Response lenses
-    , drimrReservedInstancesModifications
+    , drimrItem
     , drimrNextToken
     ) where
 
@@ -52,9 +52,9 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications
-    { _drimReservedInstancesModificationIds :: [Text]
+    { _drimReservedInstancesModificationId :: [Text]
     , _drimNextToken :: Maybe Text
-    , _drimFilters :: [Filter]
+    , _drimFilter :: [Filter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -62,24 +62,24 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ReservedInstancesModificationIds ::@ @[Text]@
+-- * @ReservedInstancesModificationId ::@ @[Text]@
 --
 -- * @NextToken ::@ @Maybe Text@
 --
--- * @Filters ::@ @[Filter]@
+-- * @Filter ::@ @[Filter]@
 --
 describeReservedInstancesModifications :: DescribeReservedInstancesModifications
 describeReservedInstancesModifications = DescribeReservedInstancesModifications
-    { _drimReservedInstancesModificationIds = mempty
+    { _drimReservedInstancesModificationId = mempty
     , _drimNextToken = Nothing
-    , _drimFilters = mempty
+    , _drimFilter = mempty
     }
 
 -- | IDs for the submitted modification request.
-drimReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModifications [Text]
-drimReservedInstancesModificationIds =
-    lens _drimReservedInstancesModificationIds
-         (\s a -> s { _drimReservedInstancesModificationIds = a })
+drimReservedInstancesModificationId :: Lens' DescribeReservedInstancesModifications [Text]
+drimReservedInstancesModificationId =
+    lens _drimReservedInstancesModificationId
+         (\s a -> s { _drimReservedInstancesModificationId = a })
 
 -- | The token for the next page of data.
 drimNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
@@ -104,14 +104,14 @@ drimNextToken = lens _drimNextToken (\s a -> s { _drimNextToken = a })
 -- (processing | fulfilled | failed). status-message - The reason for the
 -- status. update-date - The time when the modification request was last
 -- updated.
-drimFilters :: Lens' DescribeReservedInstancesModifications [Filter]
-drimFilters = lens _drimFilters (\s a -> s { _drimFilters = a })
+drimFilter :: Lens' DescribeReservedInstancesModifications [Filter]
+drimFilter = lens _drimFilter (\s a -> s { _drimFilter = a })
 
 instance ToQuery DescribeReservedInstancesModifications where
     toQuery = genericQuery def
 
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse
-    { _drimrReservedInstancesModifications :: [ReservedInstancesModification]
+    { _drimrItem :: [ReservedInstancesModification]
     , _drimrNextToken :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -122,21 +122,19 @@ data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesM
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ReservedInstancesModifications ::@ @[ReservedInstancesModification]@
+-- * @Item ::@ @[ReservedInstancesModification]@
 --
 -- * @NextToken ::@ @Maybe Text@
 --
 describeReservedInstancesModificationsResponse :: DescribeReservedInstancesModificationsResponse
 describeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse
-    { _drimrReservedInstancesModifications = mempty
+    { _drimrItem = mempty
     , _drimrNextToken = Nothing
     }
 
 -- | The Reserved Instance modification information.
-drimrReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse [ReservedInstancesModification]
-drimrReservedInstancesModifications =
-    lens _drimrReservedInstancesModifications
-         (\s a -> s { _drimrReservedInstancesModifications = a })
+drimrItem :: Lens' DescribeReservedInstancesModificationsResponse [ReservedInstancesModification]
+drimrItem = lens _drimrItem (\s a -> s { _drimrItem = a })
 
 -- | The token for the next page of data.
 drimrNextToken :: Lens' DescribeReservedInstancesModificationsResponse (Maybe Text)

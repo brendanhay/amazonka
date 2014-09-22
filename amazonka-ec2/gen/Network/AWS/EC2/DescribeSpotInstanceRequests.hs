@@ -47,15 +47,15 @@ module Network.AWS.EC2.DescribeSpotInstanceRequests
     -- ** Request constructor
     , describeSpotInstanceRequests
     -- ** Request lenses
-    , dsirSpotInstanceRequestIds
-    , dsirFilters
+    , dsirSpotInstanceRequestId
+    , dsirFilter
 
     -- * Response
     , DescribeSpotInstanceRequestsResponse
     -- ** Response constructor
     , describeSpotInstanceRequestsResponse
     -- ** Response lenses
-    , dsirrSpotInstanceRequests
+    , dsirrItem
     ) where
 
 import Network.AWS.Request.Query
@@ -63,8 +63,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
-    { _dsirSpotInstanceRequestIds :: [Text]
-    , _dsirFilters :: [Filter]
+    { _dsirSpotInstanceRequestId :: [Text]
+    , _dsirFilter :: [Filter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -72,21 +72,21 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SpotInstanceRequestIds ::@ @[Text]@
+-- * @SpotInstanceRequestId ::@ @[Text]@
 --
--- * @Filters ::@ @[Filter]@
+-- * @Filter ::@ @[Filter]@
 --
 describeSpotInstanceRequests :: DescribeSpotInstanceRequests
 describeSpotInstanceRequests = DescribeSpotInstanceRequests
-    { _dsirSpotInstanceRequestIds = mempty
-    , _dsirFilters = mempty
+    { _dsirSpotInstanceRequestId = mempty
+    , _dsirFilter = mempty
     }
 
 -- | One or more Spot Instance request IDs.
-dsirSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests [Text]
-dsirSpotInstanceRequestIds =
-    lens _dsirSpotInstanceRequestIds
-         (\s a -> s { _dsirSpotInstanceRequestIds = a })
+dsirSpotInstanceRequestId :: Lens' DescribeSpotInstanceRequests [Text]
+dsirSpotInstanceRequestId =
+    lens _dsirSpotInstanceRequestId
+         (\s a -> s { _dsirSpotInstanceRequestId = a })
 
 -- | One or more filters. availability-zone-group - The Availability Zone group.
 -- create-time - The time stamp when the Spot Instance request was created.
@@ -139,14 +139,14 @@ dsirSpotInstanceRequestIds =
 -- launched-availability-zone - The Availability Zone in which the bid is
 -- launched. valid-from - The start date of the request. valid-until - The end
 -- date of the request.
-dsirFilters :: Lens' DescribeSpotInstanceRequests [Filter]
-dsirFilters = lens _dsirFilters (\s a -> s { _dsirFilters = a })
+dsirFilter :: Lens' DescribeSpotInstanceRequests [Filter]
+dsirFilter = lens _dsirFilter (\s a -> s { _dsirFilter = a })
 
 instance ToQuery DescribeSpotInstanceRequests where
     toQuery = genericQuery def
 
 newtype DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
-    { _dsirrSpotInstanceRequests :: [SpotInstanceRequest]
+    { _dsirrItem :: [SpotInstanceRequest]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -156,18 +156,16 @@ newtype DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsRespo
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SpotInstanceRequests ::@ @[SpotInstanceRequest]@
+-- * @Item ::@ @[SpotInstanceRequest]@
 --
 describeSpotInstanceRequestsResponse :: DescribeSpotInstanceRequestsResponse
 describeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
-    { _dsirrSpotInstanceRequests = mempty
+    { _dsirrItem = mempty
     }
 
 -- | One or more Spot Instance requests.
-dsirrSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse [SpotInstanceRequest]
-dsirrSpotInstanceRequests =
-    lens _dsirrSpotInstanceRequests
-         (\s a -> s { _dsirrSpotInstanceRequests = a })
+dsirrItem :: Lens' DescribeSpotInstanceRequestsResponse [SpotInstanceRequest]
+dsirrItem = lens _dsirrItem (\s a -> s { _dsirrItem = a })
 
 instance FromXML DescribeSpotInstanceRequestsResponse where
     fromXMLOptions = xmlOptions

@@ -50,7 +50,7 @@ module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     , rdbifdbsEngine
     , rdbifdbsIops
     , rdbifdbsOptionGroupName
-    , rdbifdbsTags
+    , rdbifdbsTag
 
     -- * Response
     , RestoreDBInstanceFromDBSnapshotResponse
@@ -80,7 +80,7 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot
     , _rdbifdbsEngine :: Maybe Text
     , _rdbifdbsIops :: Maybe Integer
     , _rdbifdbsOptionGroupName :: Maybe Text
-    , _rdbifdbsTags :: [Tag]
+    , _rdbifdbsTag :: [Tag]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -116,7 +116,7 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot
 --
 -- * @OptionGroupName ::@ @Maybe Text@
 --
--- * @Tags ::@ @[Tag]@
+-- * @Tag ::@ @[Tag]@
 --
 restoreDBInstanceFromDBSnapshot :: Text -- ^ 'rdbifdbsDBInstanceIdentifier'
                                 -> Text -- ^ 'rdbifdbsDBSnapshotIdentifier'
@@ -136,7 +136,7 @@ restoreDBInstanceFromDBSnapshot p1 p2 = RestoreDBInstanceFromDBSnapshot
     , _rdbifdbsEngine = Nothing
     , _rdbifdbsIops = Nothing
     , _rdbifdbsOptionGroupName = Nothing
-    , _rdbifdbsTags = mempty
+    , _rdbifdbsTag = mempty
     }
 
 -- | The identifier for the DB snapshot to restore from. Constraints: Must
@@ -255,8 +255,8 @@ rdbifdbsOptionGroupName =
          (\s a -> s { _rdbifdbsOptionGroupName = a })
 
 -- | A list of tags.
-rdbifdbsTags :: Lens' RestoreDBInstanceFromDBSnapshot [Tag]
-rdbifdbsTags = lens _rdbifdbsTags (\s a -> s { _rdbifdbsTags = a })
+rdbifdbsTag :: Lens' RestoreDBInstanceFromDBSnapshot [Tag]
+rdbifdbsTag = lens _rdbifdbsTag (\s a -> s { _rdbifdbsTag = a })
 
 instance ToQuery RestoreDBInstanceFromDBSnapshot where
     toQuery = genericQuery def

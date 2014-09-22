@@ -26,14 +26,14 @@ module Network.AWS.Route53.ListTagsForResources
     , listTagsForResources
     -- ** Request lenses
     , ltfr1ResourceType
-    , ltfr1ResourceIds
+    , ltfr1ResourceId
 
     -- * Response
     , ListTagsForResourcesResponse
     -- ** Response constructor
     , listTagsForResourcesResponse
     -- ** Response lenses
-    , ltfrrrResourceTagSets
+    , ltfrrrResourceTagSet
     ) where
 
 import Network.AWS.Request.RestXML
@@ -45,7 +45,7 @@ import Network.AWS.Types (Region)
 -- tags that are associated with up to 10 specified resources.
 data ListTagsForResources = ListTagsForResources
     { _ltfr1ResourceType :: TagResourceType
-    , _ltfr1ResourceIds :: List1 Text
+    , _ltfr1ResourceId :: List1 Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -55,14 +55,14 @@ data ListTagsForResources = ListTagsForResources
 --
 -- * @ResourceType ::@ @TagResourceType@
 --
--- * @ResourceIds ::@ @List1 Text@
+-- * @ResourceId ::@ @List1 Text@
 --
 listTagsForResources :: TagResourceType -- ^ 'ltfr1ResourceType'
-                     -> List1 Text -- ^ 'ltfr1ResourceIds'
+                     -> List1 Text -- ^ 'ltfr1ResourceId'
                      -> ListTagsForResources
 listTagsForResources p1 p2 = ListTagsForResources
     { _ltfr1ResourceType = p1
-    , _ltfr1ResourceIds = p2
+    , _ltfr1ResourceId = p2
     }
 
 -- | The type of the resources. The resource type for health checks is
@@ -73,9 +73,8 @@ ltfr1ResourceType =
 
 -- | A complex type that contains the ResourceId element for each resource for
 -- which you want to get a list of tags.
-ltfr1ResourceIds :: Lens' ListTagsForResources (List1 Text)
-ltfr1ResourceIds =
-    lens _ltfr1ResourceIds (\s a -> s { _ltfr1ResourceIds = a })
+ltfr1ResourceId :: Lens' ListTagsForResources (List1 Text)
+ltfr1ResourceId = lens _ltfr1ResourceId (\s a -> s { _ltfr1ResourceId = a })
 
 instance ToPath ListTagsForResources
 
@@ -85,11 +84,11 @@ instance ToHeaders ListTagsForResources
 
 instance ToXML ListTagsForResources where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListTagsForResourcesRequest"
+    toXMLRoot    = toRoot "ListTagsForResources"
 
 -- | A complex type containing tags for the specified resources.
 newtype ListTagsForResourcesResponse = ListTagsForResourcesResponse
-    { _ltfrrrResourceTagSets :: [ResourceTagSet]
+    { _ltfrrrResourceTagSet :: [ResourceTagSet]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -99,19 +98,19 @@ newtype ListTagsForResourcesResponse = ListTagsForResourcesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ResourceTagSets ::@ @[ResourceTagSet]@
+-- * @ResourceTagSet ::@ @[ResourceTagSet]@
 --
-listTagsForResourcesResponse :: [ResourceTagSet] -- ^ 'ltfrrrResourceTagSets'
+listTagsForResourcesResponse :: [ResourceTagSet] -- ^ 'ltfrrrResourceTagSet'
                              -> ListTagsForResourcesResponse
 listTagsForResourcesResponse p1 = ListTagsForResourcesResponse
-    { _ltfrrrResourceTagSets = p1
+    { _ltfrrrResourceTagSet = p1
     }
 
 -- | A list of ResourceTagSets containing tags associated with the specified
 -- resources.
-ltfrrrResourceTagSets :: Lens' ListTagsForResourcesResponse [ResourceTagSet]
-ltfrrrResourceTagSets =
-    lens _ltfrrrResourceTagSets (\s a -> s { _ltfrrrResourceTagSets = a })
+ltfrrrResourceTagSet :: Lens' ListTagsForResourcesResponse [ResourceTagSet]
+ltfrrrResourceTagSet =
+    lens _ltfrrrResourceTagSet (\s a -> s { _ltfrrrResourceTagSet = a })
 
 instance FromXML ListTagsForResourcesResponse where
     fromXMLOptions = xmlOptions

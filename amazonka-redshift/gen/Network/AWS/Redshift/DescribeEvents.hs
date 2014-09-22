@@ -52,7 +52,7 @@ module Network.AWS.Redshift.DescribeEvents
     , describeEventsResponse
     -- ** Response lenses
     , derMarker
-    , derEvents
+    , derEvent
     ) where
 
 import Network.AWS.Request.Query
@@ -165,7 +165,7 @@ instance ToQuery DescribeEvents where
 -- | Contains the output from the DescribeEvents action.
 data DescribeEventsResponse = DescribeEventsResponse
     { _derMarker :: Maybe Text
-    , _derEvents :: [Event]
+    , _derEvent :: [Event]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -177,12 +177,12 @@ data DescribeEventsResponse = DescribeEventsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @Events ::@ @[Event]@
+-- * @Event ::@ @[Event]@
 --
 describeEventsResponse :: DescribeEventsResponse
 describeEventsResponse = DescribeEventsResponse
     { _derMarker = Nothing
-    , _derEvents = mempty
+    , _derEvent = mempty
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -194,8 +194,8 @@ derMarker :: Lens' DescribeEventsResponse (Maybe Text)
 derMarker = lens _derMarker (\s a -> s { _derMarker = a })
 
 -- | A list of Event instances.
-derEvents :: Lens' DescribeEventsResponse [Event]
-derEvents = lens _derEvents (\s a -> s { _derEvents = a })
+derEvent :: Lens' DescribeEventsResponse [Event]
+derEvent = lens _derEvent (\s a -> s { _derEvent = a })
 
 instance FromXML DescribeEventsResponse where
     fromXMLOptions = xmlOptions

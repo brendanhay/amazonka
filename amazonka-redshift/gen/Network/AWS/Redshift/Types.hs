@@ -132,9 +132,9 @@ module Network.AWS.Redshift.Types
     , cEndpoint
     , cClusterCreateTime
     , cAutomatedSnapshotRetentionPeriod
-    , cClusterSecurityGroups
-    , cVpcSecurityGroups
-    , cClusterParameterGroups
+    , cClusterSecurityGroup
+    , cVpcSecurityGroup
+    , cClusterParameterGroup
     , cClusterSubnetGroupName
     , cVpcId
     , cAvailabilityZone
@@ -178,8 +178,8 @@ module Network.AWS.Redshift.Types
     , clusterSecurityGroup
     , csgClusterSecurityGroupName
     , csgDescription
-    , csgEC2SecurityGroups
-    , csgIPRanges
+    , csgEC2SecurityGroup
+    , csgIPRange
 
     -- * ClusterSecurityGroupMembership
     , ClusterSecurityGroupMembership
@@ -200,7 +200,7 @@ module Network.AWS.Redshift.Types
     , csgrDescription
     , csgrVpcId
     , csgrSubnetGroupStatus
-    , csgrSubnets
+    , csgrSubnet
 
     -- * ClusterVersion
     , ClusterVersion
@@ -214,7 +214,7 @@ module Network.AWS.Redshift.Types
     , defaultClusterParameters
     , dcp1ParameterGroupFamily
     , dcp1Marker
-    , dcp1Parameters
+    , dcp1Parameter
 
     -- * EC2SecurityGroup
     , EC2SecurityGroup
@@ -241,7 +241,7 @@ module Network.AWS.Redshift.Types
     , erSourceIdentifier
     , erSourceType
     , erMessage
-    , erEventCategories
+    , erEventCategory
     , erSeverity
     , erDate
     , erEventId
@@ -250,13 +250,13 @@ module Network.AWS.Redshift.Types
     , EventCategoriesMap
     , eventCategoriesMap
     , ecmSourceType
-    , ecmEvents
+    , ecmEventInfoMap
 
     -- * EventInfoMap
     , EventInfoMap
     , eventInfoMap
     , eimEventId
-    , eimEventCategories
+    , eimEventCategory
     , eimEventDescription
     , eimSeverity
 
@@ -269,8 +269,8 @@ module Network.AWS.Redshift.Types
     , esStatus
     , esSubscriptionCreationTime
     , esSourceType
-    , esSourceIdsList
-    , esEventCategoriesList
+    , esSourceId
+    , esEventCategory
     , esSeverity
     , esEnabled
 
@@ -307,7 +307,7 @@ module Network.AWS.Redshift.Types
     , ocoClusterVersion
     , ocoClusterType
     , ocoNodeType
-    , ocoAvailabilityZones
+    , ocoAvailabilityZone
 
     -- * Parameter
     , Parameter
@@ -352,7 +352,7 @@ module Network.AWS.Redshift.Types
     , rnNodeCount
     , rnState
     , rnOfferingType
-    , rnRecurringCharges
+    , rnRecurringCharge
 
     -- * ReservedNodeOffering
     , ReservedNodeOffering
@@ -364,7 +364,7 @@ module Network.AWS.Redshift.Types
     , rnoUsagePrice
     , rnoCurrencyCode
     , rnoOfferingType
-    , rnoRecurringCharges
+    , rnoRecurringCharge
 
     -- * RestoreStatus
     , RestoreStatus
@@ -395,7 +395,7 @@ module Network.AWS.Redshift.Types
     , sVpcId
     , sEncrypted
     , sEncryptedWithHSM
-    , sAccountsWithRestoreAccess
+    , sAccountWithRestoreAccess
     , sOwnerAccount
     , sTotalBackupSizeInMegaBytes
     , sActualIncrementalBackupSizeInMegaBytes
@@ -1547,9 +1547,9 @@ data Cluster = Cluster
     , _cEndpoint :: Maybe Endpoint'
     , _cClusterCreateTime :: Maybe ISO8601
     , _cAutomatedSnapshotRetentionPeriod :: Maybe Integer
-    , _cClusterSecurityGroups :: [ClusterSecurityGroupMembership]
-    , _cVpcSecurityGroups :: [VpcSecurityGroupMembership]
-    , _cClusterParameterGroups :: [ClusterParameterGroupStatus]
+    , _cClusterSecurityGroup :: [ClusterSecurityGroupMembership]
+    , _cVpcSecurityGroup :: [VpcSecurityGroupMembership]
+    , _cClusterParameterGroup :: [ClusterParameterGroupStatus]
     , _cClusterSubnetGroupName :: Maybe Text
     , _cVpcId :: Maybe Text
     , _cAvailabilityZone :: Maybe Text
@@ -1595,11 +1595,11 @@ data Cluster = Cluster
 --
 -- * @AutomatedSnapshotRetentionPeriod ::@ @Maybe Integer@
 --
--- * @ClusterSecurityGroups ::@ @[ClusterSecurityGroupMembership]@
+-- * @ClusterSecurityGroup ::@ @[ClusterSecurityGroupMembership]@
 --
--- * @VpcSecurityGroups ::@ @[VpcSecurityGroupMembership]@
+-- * @VpcSecurityGroup ::@ @[VpcSecurityGroupMembership]@
 --
--- * @ClusterParameterGroups ::@ @[ClusterParameterGroupStatus]@
+-- * @ClusterParameterGroup ::@ @[ClusterParameterGroupStatus]@
 --
 -- * @ClusterSubnetGroupName ::@ @Maybe Text@
 --
@@ -1646,9 +1646,9 @@ cluster = Cluster
     , _cEndpoint = Nothing
     , _cClusterCreateTime = Nothing
     , _cAutomatedSnapshotRetentionPeriod = Nothing
-    , _cClusterSecurityGroups = mempty
-    , _cVpcSecurityGroups = mempty
-    , _cClusterParameterGroups = mempty
+    , _cClusterSecurityGroup = mempty
+    , _cVpcSecurityGroup = mempty
+    , _cClusterParameterGroup = mempty
     , _cClusterSubnetGroupName = Nothing
     , _cVpcId = Nothing
     , _cAvailabilityZone = Nothing
@@ -1719,22 +1719,21 @@ cAutomatedSnapshotRetentionPeriod =
 -- Cluster security groups are used when the cluster is not created in a VPC.
 -- Clusters that are created in a VPC use VPC security groups, which are
 -- listed by the VpcSecurityGroups parameter.
-cClusterSecurityGroups :: Lens' Cluster [ClusterSecurityGroupMembership]
-cClusterSecurityGroups =
-    lens _cClusterSecurityGroups (\s a -> s { _cClusterSecurityGroups = a })
+cClusterSecurityGroup :: Lens' Cluster [ClusterSecurityGroupMembership]
+cClusterSecurityGroup =
+    lens _cClusterSecurityGroup (\s a -> s { _cClusterSecurityGroup = a })
 
 -- | A list of Virtual Private Cloud (VPC) security groups that are associated
 -- with the cluster. This parameter is returned only if the cluster is in a
 -- VPC.
-cVpcSecurityGroups :: Lens' Cluster [VpcSecurityGroupMembership]
-cVpcSecurityGroups =
-    lens _cVpcSecurityGroups (\s a -> s { _cVpcSecurityGroups = a })
+cVpcSecurityGroup :: Lens' Cluster [VpcSecurityGroupMembership]
+cVpcSecurityGroup =
+    lens _cVpcSecurityGroup (\s a -> s { _cVpcSecurityGroup = a })
 
 -- | The list of cluster parameter groups that are associated with this cluster.
-cClusterParameterGroups :: Lens' Cluster [ClusterParameterGroupStatus]
-cClusterParameterGroups =
-    lens _cClusterParameterGroups
-         (\s a -> s { _cClusterParameterGroups = a })
+cClusterParameterGroup :: Lens' Cluster [ClusterParameterGroupStatus]
+cClusterParameterGroup =
+    lens _cClusterParameterGroup (\s a -> s { _cClusterParameterGroup = a })
 
 -- | The name of the subnet group that is associated with the cluster. This
 -- parameter is valid only when the cluster is in a VPC.
@@ -1966,8 +1965,8 @@ instance ToQuery ClusterParameterGroupStatus where
 data ClusterSecurityGroup = ClusterSecurityGroup
     { _csgClusterSecurityGroupName :: Maybe Text
     , _csgDescription :: Maybe Text
-    , _csgEC2SecurityGroups :: [EC2SecurityGroup]
-    , _csgIPRanges :: [IPRange]
+    , _csgEC2SecurityGroup :: [EC2SecurityGroup]
+    , _csgIPRange :: [IPRange]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1982,16 +1981,16 @@ data ClusterSecurityGroup = ClusterSecurityGroup
 --
 -- * @Description ::@ @Maybe Text@
 --
--- * @EC2SecurityGroups ::@ @[EC2SecurityGroup]@
+-- * @EC2SecurityGroup ::@ @[EC2SecurityGroup]@
 --
--- * @IPRanges ::@ @[IPRange]@
+-- * @IPRange ::@ @[IPRange]@
 --
 clusterSecurityGroup :: ClusterSecurityGroup
 clusterSecurityGroup = ClusterSecurityGroup
     { _csgClusterSecurityGroupName = Nothing
     , _csgDescription = Nothing
-    , _csgEC2SecurityGroups = mempty
-    , _csgIPRanges = mempty
+    , _csgEC2SecurityGroup = mempty
+    , _csgIPRange = mempty
     }
 
 -- | The name of the cluster security group to which the operation was applied.
@@ -2006,14 +2005,14 @@ csgDescription = lens _csgDescription (\s a -> s { _csgDescription = a })
 
 -- | A list of EC2 security groups that are permitted to access clusters
 -- associated with this cluster security group.
-csgEC2SecurityGroups :: Lens' ClusterSecurityGroup [EC2SecurityGroup]
-csgEC2SecurityGroups =
-    lens _csgEC2SecurityGroups (\s a -> s { _csgEC2SecurityGroups = a })
+csgEC2SecurityGroup :: Lens' ClusterSecurityGroup [EC2SecurityGroup]
+csgEC2SecurityGroup =
+    lens _csgEC2SecurityGroup (\s a -> s { _csgEC2SecurityGroup = a })
 
 -- | A list of IP ranges (CIDR blocks) that are permitted to access clusters
 -- associated with this cluster security group.
-csgIPRanges :: Lens' ClusterSecurityGroup [IPRange]
-csgIPRanges = lens _csgIPRanges (\s a -> s { _csgIPRanges = a })
+csgIPRange :: Lens' ClusterSecurityGroup [IPRange]
+csgIPRange = lens _csgIPRange (\s a -> s { _csgIPRange = a })
 
 instance FromXML ClusterSecurityGroup where
     fromXMLOptions = xmlOptions
@@ -2104,7 +2103,7 @@ data ClusterSubnetGroup = ClusterSubnetGroup
     , _csgrDescription :: Maybe Text
     , _csgrVpcId :: Maybe Text
     , _csgrSubnetGroupStatus :: Maybe Text
-    , _csgrSubnets :: [Subnet]
+    , _csgrSubnet :: [Subnet]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2123,7 +2122,7 @@ data ClusterSubnetGroup = ClusterSubnetGroup
 --
 -- * @SubnetGroupStatus ::@ @Maybe Text@
 --
--- * @Subnets ::@ @[Subnet]@
+-- * @Subnet ::@ @[Subnet]@
 --
 clusterSubnetGroup :: ClusterSubnetGroup
 clusterSubnetGroup = ClusterSubnetGroup
@@ -2131,7 +2130,7 @@ clusterSubnetGroup = ClusterSubnetGroup
     , _csgrDescription = Nothing
     , _csgrVpcId = Nothing
     , _csgrSubnetGroupStatus = Nothing
-    , _csgrSubnets = mempty
+    , _csgrSubnet = mempty
     }
 
 -- | The name of the cluster subnet group.
@@ -2155,8 +2154,8 @@ csgrSubnetGroupStatus =
     lens _csgrSubnetGroupStatus (\s a -> s { _csgrSubnetGroupStatus = a })
 
 -- | A list of the VPC Subnet elements.
-csgrSubnets :: Lens' ClusterSubnetGroup [Subnet]
-csgrSubnets = lens _csgrSubnets (\s a -> s { _csgrSubnets = a })
+csgrSubnet :: Lens' ClusterSubnetGroup [Subnet]
+csgrSubnet = lens _csgrSubnet (\s a -> s { _csgrSubnet = a })
 
 instance FromXML ClusterSubnetGroup where
     fromXMLOptions = xmlOptions
@@ -2214,7 +2213,7 @@ instance FromXML ClusterVersion where
 data DefaultClusterParameters = DefaultClusterParameters
     { _dcp1ParameterGroupFamily :: Maybe Text
     , _dcp1Marker :: Maybe Text
-    , _dcp1Parameters :: [Parameter]
+    , _dcp1Parameter :: [Parameter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2229,13 +2228,13 @@ data DefaultClusterParameters = DefaultClusterParameters
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @Parameters ::@ @[Parameter]@
+-- * @Parameter ::@ @[Parameter]@
 --
 defaultClusterParameters :: DefaultClusterParameters
 defaultClusterParameters = DefaultClusterParameters
     { _dcp1ParameterGroupFamily = Nothing
     , _dcp1Marker = Nothing
-    , _dcp1Parameters = mempty
+    , _dcp1Parameter = mempty
     }
 
 -- | The name of the cluster parameter group family to which the engine default
@@ -2254,8 +2253,8 @@ dcp1Marker :: Lens' DefaultClusterParameters (Maybe Text)
 dcp1Marker = lens _dcp1Marker (\s a -> s { _dcp1Marker = a })
 
 -- | The list of cluster default parameters.
-dcp1Parameters :: Lens' DefaultClusterParameters [Parameter]
-dcp1Parameters = lens _dcp1Parameters (\s a -> s { _dcp1Parameters = a })
+dcp1Parameter :: Lens' DefaultClusterParameters [Parameter]
+dcp1Parameter = lens _dcp1Parameter (\s a -> s { _dcp1Parameter = a })
 
 instance FromXML DefaultClusterParameters where
     fromXMLOptions = xmlOptions
@@ -2377,7 +2376,7 @@ ePort = lens _ePort (\s a -> s { _ePort = a })
 
 instance FromXML Endpoint' where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "Endpoint"
+    fromXMLRoot    = fromRoot "Endpoint'"
 
 instance ToQuery Endpoint' where
     toQuery = genericQuery def
@@ -2387,7 +2386,7 @@ data Event = Event
     { _erSourceIdentifier :: Maybe Text
     , _erSourceType :: Maybe SourceType
     , _erMessage :: Maybe Text
-    , _erEventCategories :: [Text]
+    , _erEventCategory :: [Text]
     , _erSeverity :: Maybe Text
     , _erDate :: Maybe ISO8601
     , _erEventId :: Maybe Text
@@ -2407,7 +2406,7 @@ data Event = Event
 --
 -- * @Message ::@ @Maybe Text@
 --
--- * @EventCategories ::@ @[Text]@
+-- * @EventCategory ::@ @[Text]@
 --
 -- * @Severity ::@ @Maybe Text@
 --
@@ -2420,7 +2419,7 @@ event = Event
     { _erSourceIdentifier = Nothing
     , _erSourceType = Nothing
     , _erMessage = Nothing
-    , _erEventCategories = mempty
+    , _erEventCategory = mempty
     , _erSeverity = Nothing
     , _erDate = Nothing
     , _erEventId = Nothing
@@ -2440,9 +2439,8 @@ erMessage :: Lens' Event (Maybe Text)
 erMessage = lens _erMessage (\s a -> s { _erMessage = a })
 
 -- | A list of the event categories.
-erEventCategories :: Lens' Event [Text]
-erEventCategories =
-    lens _erEventCategories (\s a -> s { _erEventCategories = a })
+erEventCategory :: Lens' Event [Text]
+erEventCategory = lens _erEventCategory (\s a -> s { _erEventCategory = a })
 
 -- | The severity of the event. Values: ERROR, INFO.
 erSeverity :: Lens' Event (Maybe Text)
@@ -2462,7 +2460,7 @@ instance FromXML Event where
 
 data EventCategoriesMap = EventCategoriesMap
     { _ecmSourceType :: Maybe Text
-    , _ecmEvents :: [EventInfoMap]
+    , _ecmEventInfoMap :: [EventInfoMap]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2475,12 +2473,12 @@ data EventCategoriesMap = EventCategoriesMap
 --
 -- * @SourceType ::@ @Maybe Text@
 --
--- * @Events ::@ @[EventInfoMap]@
+-- * @EventInfoMap ::@ @[EventInfoMap]@
 --
 eventCategoriesMap :: EventCategoriesMap
 eventCategoriesMap = EventCategoriesMap
     { _ecmSourceType = Nothing
-    , _ecmEvents = mempty
+    , _ecmEventInfoMap = mempty
     }
 
 -- | The Amazon Redshift source type, such as cluster or cluster-snapshot, that
@@ -2489,8 +2487,8 @@ ecmSourceType :: Lens' EventCategoriesMap (Maybe Text)
 ecmSourceType = lens _ecmSourceType (\s a -> s { _ecmSourceType = a })
 
 -- | The events in the event category.
-ecmEvents :: Lens' EventCategoriesMap [EventInfoMap]
-ecmEvents = lens _ecmEvents (\s a -> s { _ecmEvents = a })
+ecmEventInfoMap :: Lens' EventCategoriesMap [EventInfoMap]
+ecmEventInfoMap = lens _ecmEventInfoMap (\s a -> s { _ecmEventInfoMap = a })
 
 instance FromXML EventCategoriesMap where
     fromXMLOptions = xmlOptions
@@ -2498,7 +2496,7 @@ instance FromXML EventCategoriesMap where
 
 data EventInfoMap = EventInfoMap
     { _eimEventId :: Maybe Text
-    , _eimEventCategories :: [Text]
+    , _eimEventCategory :: [Text]
     , _eimEventDescription :: Maybe Text
     , _eimSeverity :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -2510,7 +2508,7 @@ data EventInfoMap = EventInfoMap
 --
 -- * @EventId ::@ @Maybe Text@
 --
--- * @EventCategories ::@ @[Text]@
+-- * @EventCategory ::@ @[Text]@
 --
 -- * @EventDescription ::@ @Maybe Text@
 --
@@ -2519,7 +2517,7 @@ data EventInfoMap = EventInfoMap
 eventInfoMap :: EventInfoMap
 eventInfoMap = EventInfoMap
     { _eimEventId = Nothing
-    , _eimEventCategories = mempty
+    , _eimEventCategory = mempty
     , _eimEventDescription = Nothing
     , _eimSeverity = Nothing
     }
@@ -2529,9 +2527,9 @@ eimEventId :: Lens' EventInfoMap (Maybe Text)
 eimEventId = lens _eimEventId (\s a -> s { _eimEventId = a })
 
 -- | The category of an Amazon Redshift event.
-eimEventCategories :: Lens' EventInfoMap [Text]
-eimEventCategories =
-    lens _eimEventCategories (\s a -> s { _eimEventCategories = a })
+eimEventCategory :: Lens' EventInfoMap [Text]
+eimEventCategory =
+    lens _eimEventCategory (\s a -> s { _eimEventCategory = a })
 
 -- | The description of an Amazon Redshift event.
 eimEventDescription :: Lens' EventInfoMap (Maybe Text)
@@ -2556,8 +2554,8 @@ data EventSubscription = EventSubscription
     , _esStatus :: Maybe Text
     , _esSubscriptionCreationTime :: Maybe ISO8601
     , _esSourceType :: Maybe Text
-    , _esSourceIdsList :: [Text]
-    , _esEventCategoriesList :: [Text]
+    , _esSourceId :: [Text]
+    , _esEventCategory :: [Text]
     , _esSeverity :: Maybe Text
     , _esEnabled :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
@@ -2582,9 +2580,9 @@ data EventSubscription = EventSubscription
 --
 -- * @SourceType ::@ @Maybe Text@
 --
--- * @SourceIdsList ::@ @[Text]@
+-- * @SourceId ::@ @[Text]@
 --
--- * @EventCategoriesList ::@ @[Text]@
+-- * @EventCategory ::@ @[Text]@
 --
 -- * @Severity ::@ @Maybe Text@
 --
@@ -2598,8 +2596,8 @@ eventSubscription = EventSubscription
     , _esStatus = Nothing
     , _esSubscriptionCreationTime = Nothing
     , _esSourceType = Nothing
-    , _esSourceIdsList = mempty
-    , _esEventCategoriesList = mempty
+    , _esSourceId = mempty
+    , _esEventCategory = mempty
     , _esSeverity = Nothing
     , _esEnabled = Nothing
     }
@@ -2642,15 +2640,14 @@ esSourceType = lens _esSourceType (\s a -> s { _esSourceType = a })
 
 -- | A list of the sources that publish events to the Amazon Redshift event
 -- notification subscription.
-esSourceIdsList :: Lens' EventSubscription [Text]
-esSourceIdsList = lens _esSourceIdsList (\s a -> s { _esSourceIdsList = a })
+esSourceId :: Lens' EventSubscription [Text]
+esSourceId = lens _esSourceId (\s a -> s { _esSourceId = a })
 
 -- | The list of Amazon Redshift event categories specified in the event
 -- notification subscription. Values: Configuration, Management, Monitoring,
 -- Security.
-esEventCategoriesList :: Lens' EventSubscription [Text]
-esEventCategoriesList =
-    lens _esEventCategoriesList (\s a -> s { _esEventCategoriesList = a })
+esEventCategory :: Lens' EventSubscription [Text]
+esEventCategory = lens _esEventCategory (\s a -> s { _esEventCategory = a })
 
 -- | The event severity specified in the Amazon Redshift event notification
 -- subscription. Values: ERROR, INFO.
@@ -2862,7 +2859,7 @@ data OrderableClusterOption = OrderableClusterOption
     { _ocoClusterVersion :: Maybe Text
     , _ocoClusterType :: Maybe Text
     , _ocoNodeType :: Maybe Text
-    , _ocoAvailabilityZones :: [AvailabilityZone]
+    , _ocoAvailabilityZone :: [AvailabilityZone]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2879,14 +2876,14 @@ data OrderableClusterOption = OrderableClusterOption
 --
 -- * @NodeType ::@ @Maybe Text@
 --
--- * @AvailabilityZones ::@ @[AvailabilityZone]@
+-- * @AvailabilityZone ::@ @[AvailabilityZone]@
 --
 orderableClusterOption :: OrderableClusterOption
 orderableClusterOption = OrderableClusterOption
     { _ocoClusterVersion = Nothing
     , _ocoClusterType = Nothing
     , _ocoNodeType = Nothing
-    , _ocoAvailabilityZones = mempty
+    , _ocoAvailabilityZone = mempty
     }
 
 -- | The version of the orderable cluster.
@@ -2903,9 +2900,9 @@ ocoNodeType :: Lens' OrderableClusterOption (Maybe Text)
 ocoNodeType = lens _ocoNodeType (\s a -> s { _ocoNodeType = a })
 
 -- | A list of availability zones for the orderable cluster.
-ocoAvailabilityZones :: Lens' OrderableClusterOption [AvailabilityZone]
-ocoAvailabilityZones =
-    lens _ocoAvailabilityZones (\s a -> s { _ocoAvailabilityZones = a })
+ocoAvailabilityZone :: Lens' OrderableClusterOption [AvailabilityZone]
+ocoAvailabilityZone =
+    lens _ocoAvailabilityZone (\s a -> s { _ocoAvailabilityZone = a })
 
 instance FromXML OrderableClusterOption where
     fromXMLOptions = xmlOptions
@@ -3136,7 +3133,7 @@ data ReservedNode = ReservedNode
     , _rnNodeCount :: Maybe Integer
     , _rnState :: Maybe Text
     , _rnOfferingType :: Maybe Text
-    , _rnRecurringCharges :: [RecurringCharge]
+    , _rnRecurringCharge :: [RecurringCharge]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3169,7 +3166,7 @@ data ReservedNode = ReservedNode
 --
 -- * @OfferingType ::@ @Maybe Text@
 --
--- * @RecurringCharges ::@ @[RecurringCharge]@
+-- * @RecurringCharge ::@ @[RecurringCharge]@
 --
 reservedNode :: ReservedNode
 reservedNode = ReservedNode
@@ -3184,7 +3181,7 @@ reservedNode = ReservedNode
     , _rnNodeCount = Nothing
     , _rnState = Nothing
     , _rnOfferingType = Nothing
-    , _rnRecurringCharges = mempty
+    , _rnRecurringCharge = mempty
     }
 
 -- | The unique identifier for the reservation.
@@ -3241,9 +3238,9 @@ rnOfferingType :: Lens' ReservedNode (Maybe Text)
 rnOfferingType = lens _rnOfferingType (\s a -> s { _rnOfferingType = a })
 
 -- | The recurring charges for the reserved node.
-rnRecurringCharges :: Lens' ReservedNode [RecurringCharge]
-rnRecurringCharges =
-    lens _rnRecurringCharges (\s a -> s { _rnRecurringCharges = a })
+rnRecurringCharge :: Lens' ReservedNode [RecurringCharge]
+rnRecurringCharge =
+    lens _rnRecurringCharge (\s a -> s { _rnRecurringCharge = a })
 
 instance FromXML ReservedNode where
     fromXMLOptions = xmlOptions
@@ -3258,7 +3255,7 @@ data ReservedNodeOffering = ReservedNodeOffering
     , _rnoUsagePrice :: Maybe Double
     , _rnoCurrencyCode :: Maybe Text
     , _rnoOfferingType :: Maybe Text
-    , _rnoRecurringCharges :: [RecurringCharge]
+    , _rnoRecurringCharge :: [RecurringCharge]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3283,7 +3280,7 @@ data ReservedNodeOffering = ReservedNodeOffering
 --
 -- * @OfferingType ::@ @Maybe Text@
 --
--- * @RecurringCharges ::@ @[RecurringCharge]@
+-- * @RecurringCharge ::@ @[RecurringCharge]@
 --
 reservedNodeOffering :: ReservedNodeOffering
 reservedNodeOffering = ReservedNodeOffering
@@ -3294,7 +3291,7 @@ reservedNodeOffering = ReservedNodeOffering
     , _rnoUsagePrice = Nothing
     , _rnoCurrencyCode = Nothing
     , _rnoOfferingType = Nothing
-    , _rnoRecurringCharges = mempty
+    , _rnoRecurringCharge = mempty
     }
 
 -- | The offering identifier.
@@ -3333,9 +3330,9 @@ rnoOfferingType = lens _rnoOfferingType (\s a -> s { _rnoOfferingType = a })
 -- | The charge to your account regardless of whether you are creating any
 -- clusters using the node offering. Recurring charges are only in effect for
 -- heavy-utilization reserved nodes.
-rnoRecurringCharges :: Lens' ReservedNodeOffering [RecurringCharge]
-rnoRecurringCharges =
-    lens _rnoRecurringCharges (\s a -> s { _rnoRecurringCharges = a })
+rnoRecurringCharge :: Lens' ReservedNodeOffering [RecurringCharge]
+rnoRecurringCharge =
+    lens _rnoRecurringCharge (\s a -> s { _rnoRecurringCharge = a })
 
 instance FromXML ReservedNodeOffering where
     fromXMLOptions = xmlOptions
@@ -3440,7 +3437,7 @@ data Snapshot = Snapshot
     , _sVpcId :: Maybe Text
     , _sEncrypted :: Maybe Bool
     , _sEncryptedWithHSM :: Maybe Bool
-    , _sAccountsWithRestoreAccess :: [AccountWithRestoreAccess]
+    , _sAccountWithRestoreAccess :: [AccountWithRestoreAccess]
     , _sOwnerAccount :: Maybe Text
     , _sTotalBackupSizeInMegaBytes :: Maybe Double
     , _sActualIncrementalBackupSizeInMegaBytes :: Maybe Double
@@ -3491,7 +3488,7 @@ data Snapshot = Snapshot
 --
 -- * @EncryptedWithHSM ::@ @Maybe Bool@
 --
--- * @AccountsWithRestoreAccess ::@ @[AccountWithRestoreAccess]@
+-- * @AccountWithRestoreAccess ::@ @[AccountWithRestoreAccess]@
 --
 -- * @OwnerAccount ::@ @Maybe Text@
 --
@@ -3527,7 +3524,7 @@ snapshot = Snapshot
     , _sVpcId = Nothing
     , _sEncrypted = Nothing
     , _sEncryptedWithHSM = Nothing
-    , _sAccountsWithRestoreAccess = mempty
+    , _sAccountWithRestoreAccess = mempty
     , _sOwnerAccount = Nothing
     , _sTotalBackupSizeInMegaBytes = Nothing
     , _sActualIncrementalBackupSizeInMegaBytes = Nothing
@@ -3621,10 +3618,10 @@ sEncryptedWithHSM =
 -- | A list of the AWS customer accounts authorized to restore the snapshot.
 -- Returns null if no accounts are authorized. Visible only to the snapshot
 -- owner.
-sAccountsWithRestoreAccess :: Lens' Snapshot [AccountWithRestoreAccess]
-sAccountsWithRestoreAccess =
-    lens _sAccountsWithRestoreAccess
-         (\s a -> s { _sAccountsWithRestoreAccess = a })
+sAccountWithRestoreAccess :: Lens' Snapshot [AccountWithRestoreAccess]
+sAccountWithRestoreAccess =
+    lens _sAccountWithRestoreAccess
+         (\s a -> s { _sAccountWithRestoreAccess = a })
 
 -- | For manual snapshots, the AWS customer account used to create or copy the
 -- snapshot. For automatic snapshots, the owner of the cluster. The owner can

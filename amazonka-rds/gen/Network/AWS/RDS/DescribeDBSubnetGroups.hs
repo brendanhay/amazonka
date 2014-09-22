@@ -46,7 +46,7 @@ module Network.AWS.RDS.DescribeDBSubnetGroups
     , describeDBSubnetGroupsResponse
     -- ** Response lenses
     , ddbsgrrMarker
-    , ddbsgrrDBSubnetGroups
+    , ddbsgrrDBSubnetGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -105,7 +105,7 @@ instance ToQuery DescribeDBSubnetGroups where
 -- DescribeDBSubnetGroups action.
 data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
     { _ddbsgrrMarker :: Maybe Text
-    , _ddbsgrrDBSubnetGroups :: [DBSubnetGroup]
+    , _ddbsgrrDBSubnetGroup :: [DBSubnetGroup]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -117,12 +117,12 @@ data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @DBSubnetGroups ::@ @[DBSubnetGroup]@
+-- * @DBSubnetGroup ::@ @[DBSubnetGroup]@
 --
 describeDBSubnetGroupsResponse :: DescribeDBSubnetGroupsResponse
 describeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
     { _ddbsgrrMarker = Nothing
-    , _ddbsgrrDBSubnetGroups = mempty
+    , _ddbsgrrDBSubnetGroup = mempty
     }
 
 -- | An optional pagination token provided by a previous request. If this
@@ -132,9 +132,9 @@ ddbsgrrMarker :: Lens' DescribeDBSubnetGroupsResponse (Maybe Text)
 ddbsgrrMarker = lens _ddbsgrrMarker (\s a -> s { _ddbsgrrMarker = a })
 
 -- | A list of DBSubnetGroup instances.
-ddbsgrrDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse [DBSubnetGroup]
-ddbsgrrDBSubnetGroups =
-    lens _ddbsgrrDBSubnetGroups (\s a -> s { _ddbsgrrDBSubnetGroups = a })
+ddbsgrrDBSubnetGroup :: Lens' DescribeDBSubnetGroupsResponse [DBSubnetGroup]
+ddbsgrrDBSubnetGroup =
+    lens _ddbsgrrDBSubnetGroup (\s a -> s { _ddbsgrrDBSubnetGroup = a })
 
 instance FromXML DescribeDBSubnetGroupsResponse where
     fromXMLOptions = xmlOptions

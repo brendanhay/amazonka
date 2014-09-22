@@ -36,15 +36,15 @@ module Network.AWS.EC2.DescribeRouteTables
     -- ** Request constructor
     , describeRouteTables
     -- ** Request lenses
-    , drt1RouteTableIds
-    , drt1Filters
+    , drt1RouteTableId
+    , drt1Filter
 
     -- * Response
     , DescribeRouteTablesResponse
     -- ** Response constructor
     , describeRouteTablesResponse
     -- ** Response lenses
-    , drtrRouteTables
+    , drtrItem
     ) where
 
 import Network.AWS.Request.Query
@@ -52,8 +52,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeRouteTables = DescribeRouteTables
-    { _drt1RouteTableIds :: [Text]
-    , _drt1Filters :: [Filter]
+    { _drt1RouteTableId :: [Text]
+    , _drt1Filter :: [Filter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -61,20 +61,20 @@ data DescribeRouteTables = DescribeRouteTables
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @RouteTableIds ::@ @[Text]@
+-- * @RouteTableId ::@ @[Text]@
 --
--- * @Filters ::@ @[Filter]@
+-- * @Filter ::@ @[Filter]@
 --
 describeRouteTables :: DescribeRouteTables
 describeRouteTables = DescribeRouteTables
-    { _drt1RouteTableIds = mempty
-    , _drt1Filters = mempty
+    { _drt1RouteTableId = mempty
+    , _drt1Filter = mempty
     }
 
 -- | One or more route table IDs. Default: Describes all your route tables.
-drt1RouteTableIds :: Lens' DescribeRouteTables [Text]
-drt1RouteTableIds =
-    lens _drt1RouteTableIds (\s a -> s { _drt1RouteTableIds = a })
+drt1RouteTableId :: Lens' DescribeRouteTables [Text]
+drt1RouteTableId =
+    lens _drt1RouteTableId (\s a -> s { _drt1RouteTableId = a })
 
 -- | One or more filters. association.route-table-association-id - The ID of an
 -- association ID for the route table. association.route-table-id - The ID of
@@ -101,14 +101,14 @@ drt1RouteTableIds =
 -- where Purpose is X, see the tag:key=value filter. tag-value - The value of
 -- a tag assigned to the resource. This filter is independent of the tag-key
 -- filter. vpc-id - The ID of the VPC for the route table.
-drt1Filters :: Lens' DescribeRouteTables [Filter]
-drt1Filters = lens _drt1Filters (\s a -> s { _drt1Filters = a })
+drt1Filter :: Lens' DescribeRouteTables [Filter]
+drt1Filter = lens _drt1Filter (\s a -> s { _drt1Filter = a })
 
 instance ToQuery DescribeRouteTables where
     toQuery = genericQuery def
 
 newtype DescribeRouteTablesResponse = DescribeRouteTablesResponse
-    { _drtrRouteTables :: [RouteTable]
+    { _drtrItem :: [RouteTable]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -118,16 +118,16 @@ newtype DescribeRouteTablesResponse = DescribeRouteTablesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @RouteTables ::@ @[RouteTable]@
+-- * @Item ::@ @[RouteTable]@
 --
 describeRouteTablesResponse :: DescribeRouteTablesResponse
 describeRouteTablesResponse = DescribeRouteTablesResponse
-    { _drtrRouteTables = mempty
+    { _drtrItem = mempty
     }
 
 -- | Information about one or more route tables.
-drtrRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
-drtrRouteTables = lens _drtrRouteTables (\s a -> s { _drtrRouteTables = a })
+drtrItem :: Lens' DescribeRouteTablesResponse [RouteTable]
+drtrItem = lens _drtrItem (\s a -> s { _drtrItem = a })
 
 instance FromXML DescribeRouteTablesResponse where
     fromXMLOptions = xmlOptions

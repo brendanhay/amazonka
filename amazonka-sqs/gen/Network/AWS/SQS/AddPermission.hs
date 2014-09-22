@@ -49,8 +49,8 @@ module Network.AWS.SQS.AddPermission
     -- ** Request lenses
     , apQueueUrl
     , apLabel
-    , apAWSAccountIds
-    , apActions
+    , apAWSAccountId
+    , apActionName
 
     -- * Response
     , AddPermissionResponse
@@ -65,8 +65,8 @@ import Network.AWS.Prelude
 data AddPermission = AddPermission
     { _apQueueUrl :: Text
     , _apLabel :: Text
-    , _apAWSAccountIds :: [Text]
-    , _apActions :: [Text]
+    , _apAWSAccountId :: [Text]
+    , _apActionName :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -78,20 +78,20 @@ data AddPermission = AddPermission
 --
 -- * @Label ::@ @Text@
 --
--- * @AWSAccountIds ::@ @[Text]@
+-- * @AWSAccountId ::@ @[Text]@
 --
--- * @Actions ::@ @[Text]@
+-- * @ActionName ::@ @[Text]@
 --
 addPermission :: Text -- ^ 'apQueueUrl'
               -> Text -- ^ 'apLabel'
-              -> [Text] -- ^ 'apAWSAccountIds'
-              -> [Text] -- ^ 'apActions'
+              -> [Text] -- ^ 'apAWSAccountId'
+              -> [Text] -- ^ 'apActionName'
               -> AddPermission
 addPermission p1 p2 p3 p4 = AddPermission
     { _apQueueUrl = p1
     , _apLabel = p2
-    , _apAWSAccountIds = p3
-    , _apActions = p4
+    , _apAWSAccountId = p3
+    , _apActionName = p4
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
@@ -108,8 +108,8 @@ apLabel = lens _apLabel (\s a -> s { _apLabel = a })
 -- principal must have an AWS account, but does not need to be signed up for
 -- Amazon SQS. For information about locating the AWS account identification,
 -- see Your AWS Identifiers in the Amazon SQS Developer Guide.
-apAWSAccountIds :: Lens' AddPermission [Text]
-apAWSAccountIds = lens _apAWSAccountIds (\s a -> s { _apAWSAccountIds = a })
+apAWSAccountId :: Lens' AddPermission [Text]
+apAWSAccountId = lens _apAWSAccountId (\s a -> s { _apAWSAccountId = a })
 
 -- | The action the client wants to allow for the specified principal. The
 -- following are valid values: * | SendMessage | ReceiveMessage |
@@ -119,8 +119,8 @@ apAWSAccountIds = lens _apAWSAccountIds (\s a -> s { _apAWSAccountIds = a })
 -- ChangeMessageVisibility for the ActionName.n also grants permissions for
 -- the corresponding batch versions of those actions: SendMessageBatch,
 -- DeleteMessageBatch, and ChangeMessageVisibilityBatch.
-apActions :: Lens' AddPermission [Text]
-apActions = lens _apActions (\s a -> s { _apActions = a })
+apActionName :: Lens' AddPermission [Text]
+apActionName = lens _apActionName (\s a -> s { _apActionName = a })
 
 instance ToQuery AddPermission where
     toQuery = genericQuery def

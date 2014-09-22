@@ -68,7 +68,7 @@ module Network.AWS.Route53.ListResourceRecordSets
     -- ** Response constructor
     , listResourceRecordSetsResponse
     -- ** Response lenses
-    , lrrsrResourceRecordSets
+    , lrrsrResourceRecordSet
     , lrrsrIsTruncated
     , lrrsrNextRecordName
     , lrrsrNextRecordType
@@ -159,12 +159,12 @@ instance ToHeaders ListResourceRecordSets
 
 instance ToXML ListResourceRecordSets where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListResourceRecordSetsRequest"
+    toXMLRoot    = toRoot "ListResourceRecordSets"
 
 -- | A complex type that contains information about the resource record sets
 -- that are returned by the request and information about the response.
 data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
-    { _lrrsrResourceRecordSets :: [ResourceRecordSet]
+    { _lrrsrResourceRecordSet :: [ResourceRecordSet]
     , _lrrsrIsTruncated :: !Bool
     , _lrrsrNextRecordName :: Maybe Text
     , _lrrsrNextRecordType :: Maybe RecordType
@@ -179,7 +179,7 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ResourceRecordSets ::@ @[ResourceRecordSet]@
+-- * @ResourceRecordSet ::@ @[ResourceRecordSet]@
 --
 -- * @IsTruncated ::@ @Bool@
 --
@@ -191,12 +191,12 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
 --
 -- * @MaxItems ::@ @Text@
 --
-listResourceRecordSetsResponse :: [ResourceRecordSet] -- ^ 'lrrsrResourceRecordSets'
+listResourceRecordSetsResponse :: [ResourceRecordSet] -- ^ 'lrrsrResourceRecordSet'
                                -> Bool -- ^ 'lrrsrIsTruncated'
                                -> Text -- ^ 'lrrsrMaxItems'
                                -> ListResourceRecordSetsResponse
 listResourceRecordSetsResponse p1 p2 p6 = ListResourceRecordSetsResponse
-    { _lrrsrResourceRecordSets = p1
+    { _lrrsrResourceRecordSet = p1
     , _lrrsrIsTruncated = p2
     , _lrrsrNextRecordName = Nothing
     , _lrrsrNextRecordType = Nothing
@@ -206,10 +206,9 @@ listResourceRecordSetsResponse p1 p2 p6 = ListResourceRecordSetsResponse
 
 -- | A complex type that contains information about the resource record sets
 -- that are returned by the request.
-lrrsrResourceRecordSets :: Lens' ListResourceRecordSetsResponse [ResourceRecordSet]
-lrrsrResourceRecordSets =
-    lens _lrrsrResourceRecordSets
-         (\s a -> s { _lrrsrResourceRecordSets = a })
+lrrsrResourceRecordSet :: Lens' ListResourceRecordSetsResponse [ResourceRecordSet]
+lrrsrResourceRecordSet =
+    lens _lrrsrResourceRecordSet (\s a -> s { _lrrsrResourceRecordSet = a })
 
 -- | A flag that indicates whether there are more resource record sets to be
 -- listed. If your results were truncated, you can make a follow-up request

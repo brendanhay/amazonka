@@ -47,7 +47,7 @@ module Network.AWS.Redshift.DescribeClusterVersions
     , describeClusterVersionsResponse
     -- ** Response lenses
     , dcvrMarker
-    , dcvrClusterVersions
+    , dcvrClusterVersion
     ) where
 
 import Network.AWS.Request.Query
@@ -119,7 +119,7 @@ instance ToQuery DescribeClusterVersions where
 -- | Contains the output from the DescribeClusterVersions action.
 data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse
     { _dcvrMarker :: Maybe Text
-    , _dcvrClusterVersions :: [ClusterVersion]
+    , _dcvrClusterVersion :: [ClusterVersion]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -131,12 +131,12 @@ data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @ClusterVersions ::@ @[ClusterVersion]@
+-- * @ClusterVersion ::@ @[ClusterVersion]@
 --
 describeClusterVersionsResponse :: DescribeClusterVersionsResponse
 describeClusterVersionsResponse = DescribeClusterVersionsResponse
     { _dcvrMarker = Nothing
-    , _dcvrClusterVersions = mempty
+    , _dcvrClusterVersion = mempty
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -148,9 +148,9 @@ dcvrMarker :: Lens' DescribeClusterVersionsResponse (Maybe Text)
 dcvrMarker = lens _dcvrMarker (\s a -> s { _dcvrMarker = a })
 
 -- | A list of Version elements.
-dcvrClusterVersions :: Lens' DescribeClusterVersionsResponse [ClusterVersion]
-dcvrClusterVersions =
-    lens _dcvrClusterVersions (\s a -> s { _dcvrClusterVersions = a })
+dcvrClusterVersion :: Lens' DescribeClusterVersionsResponse [ClusterVersion]
+dcvrClusterVersion =
+    lens _dcvrClusterVersion (\s a -> s { _dcvrClusterVersion = a })
 
 instance FromXML DescribeClusterVersionsResponse where
     fromXMLOptions = xmlOptions

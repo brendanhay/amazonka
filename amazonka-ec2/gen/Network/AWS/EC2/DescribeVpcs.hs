@@ -43,15 +43,15 @@ module Network.AWS.EC2.DescribeVpcs
     -- ** Request constructor
     , describeVpcs
     -- ** Request lenses
-    , dv3VpcIds
-    , dv3Filters
+    , dv3VpcId
+    , dv3Filter
 
     -- * Response
     , DescribeVpcsResponse
     -- ** Response constructor
     , describeVpcsResponse
     -- ** Response lenses
-    , dvrrVpcs
+    , dvrrItem
     ) where
 
 import Network.AWS.Request.Query
@@ -59,8 +59,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeVpcs = DescribeVpcs
-    { _dv3VpcIds :: [Text]
-    , _dv3Filters :: [Filter]
+    { _dv3VpcId :: [Text]
+    , _dv3Filter :: [Filter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -68,19 +68,19 @@ data DescribeVpcs = DescribeVpcs
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VpcIds ::@ @[Text]@
+-- * @VpcId ::@ @[Text]@
 --
--- * @Filters ::@ @[Filter]@
+-- * @Filter ::@ @[Filter]@
 --
 describeVpcs :: DescribeVpcs
 describeVpcs = DescribeVpcs
-    { _dv3VpcIds = mempty
-    , _dv3Filters = mempty
+    { _dv3VpcId = mempty
+    , _dv3Filter = mempty
     }
 
 -- | One or more VPC IDs. Default: Describes all your VPCs.
-dv3VpcIds :: Lens' DescribeVpcs [Text]
-dv3VpcIds = lens _dv3VpcIds (\s a -> s { _dv3VpcIds = a })
+dv3VpcId :: Lens' DescribeVpcs [Text]
+dv3VpcId = lens _dv3VpcId (\s a -> s { _dv3VpcId = a })
 
 -- | One or more filters. cidr - The CIDR block of the VPC. The CIDR block you
 -- specify must exactly match the VPC's CIDR block for information to be
@@ -96,14 +96,14 @@ dv3VpcIds = lens _dv3VpcIds (\s a -> s { _dv3VpcIds = a })
 -- X, see the tag:key=value filter. tag-value - The value of a tag assigned to
 -- the resource. This filter is independent of the tag-key filter. vpc-id -
 -- The ID of the VPC.
-dv3Filters :: Lens' DescribeVpcs [Filter]
-dv3Filters = lens _dv3Filters (\s a -> s { _dv3Filters = a })
+dv3Filter :: Lens' DescribeVpcs [Filter]
+dv3Filter = lens _dv3Filter (\s a -> s { _dv3Filter = a })
 
 instance ToQuery DescribeVpcs where
     toQuery = genericQuery def
 
 newtype DescribeVpcsResponse = DescribeVpcsResponse
-    { _dvrrVpcs :: [Vpc]
+    { _dvrrItem :: [Vpc]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -113,16 +113,16 @@ newtype DescribeVpcsResponse = DescribeVpcsResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Vpcs ::@ @[Vpc]@
+-- * @Item ::@ @[Vpc]@
 --
 describeVpcsResponse :: DescribeVpcsResponse
 describeVpcsResponse = DescribeVpcsResponse
-    { _dvrrVpcs = mempty
+    { _dvrrItem = mempty
     }
 
 -- | Information about one or more VPCs.
-dvrrVpcs :: Lens' DescribeVpcsResponse [Vpc]
-dvrrVpcs = lens _dvrrVpcs (\s a -> s { _dvrrVpcs = a })
+dvrrItem :: Lens' DescribeVpcsResponse [Vpc]
+dvrrItem = lens _dvrrItem (\s a -> s { _dvrrItem = a })
 
 instance FromXML DescribeVpcsResponse where
     fromXMLOptions = xmlOptions

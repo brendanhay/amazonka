@@ -45,7 +45,7 @@ module Network.AWS.RDS.DescribeDBParameters
     -- ** Response constructor
     , describeDBParametersResponse
     -- ** Response lenses
-    , ddbprParameters
+    , ddbprParameter
     , ddbprMarker
     ) where
 
@@ -114,7 +114,7 @@ instance ToQuery DescribeDBParameters where
 -- | Contains the result of a successful invocation of the DescribeDBParameters
 -- action.
 data DescribeDBParametersResponse = DescribeDBParametersResponse
-    { _ddbprParameters :: [Parameter]
+    { _ddbprParameter :: [Parameter]
     , _ddbprMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -125,19 +125,19 @@ data DescribeDBParametersResponse = DescribeDBParametersResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Parameters ::@ @[Parameter]@
+-- * @Parameter ::@ @[Parameter]@
 --
 -- * @Marker ::@ @Maybe Text@
 --
 describeDBParametersResponse :: DescribeDBParametersResponse
 describeDBParametersResponse = DescribeDBParametersResponse
-    { _ddbprParameters = mempty
+    { _ddbprParameter = mempty
     , _ddbprMarker = Nothing
     }
 
 -- | A list of Parameter values.
-ddbprParameters :: Lens' DescribeDBParametersResponse [Parameter]
-ddbprParameters = lens _ddbprParameters (\s a -> s { _ddbprParameters = a })
+ddbprParameter :: Lens' DescribeDBParametersResponse [Parameter]
+ddbprParameter = lens _ddbprParameter (\s a -> s { _ddbprParameter = a })
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

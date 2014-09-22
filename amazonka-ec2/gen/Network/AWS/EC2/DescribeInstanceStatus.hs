@@ -91,8 +91,8 @@ module Network.AWS.EC2.DescribeInstanceStatus
     -- ** Request constructor
     , describeInstanceStatus
     -- ** Request lenses
-    , disInstanceIds
-    , disFilters
+    , disInstanceId
+    , disFilter
     , disNextToken
     , disMaxResults
     , disIncludeAllInstances
@@ -102,7 +102,7 @@ module Network.AWS.EC2.DescribeInstanceStatus
     -- ** Response constructor
     , describeInstanceStatusResponse
     -- ** Response lenses
-    , disrInstanceStatuses
+    , disrItem
     , disrNextToken
     ) where
 
@@ -111,8 +111,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeInstanceStatus = DescribeInstanceStatus
-    { _disInstanceIds :: [Text]
-    , _disFilters :: [Filter]
+    { _disInstanceId :: [Text]
+    , _disFilter :: [Filter]
     , _disNextToken :: Maybe Text
     , _disMaxResults :: Maybe Integer
     , _disIncludeAllInstances :: Maybe Bool
@@ -123,9 +123,9 @@ data DescribeInstanceStatus = DescribeInstanceStatus
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceIds ::@ @[Text]@
+-- * @InstanceId ::@ @[Text]@
 --
--- * @Filters ::@ @[Filter]@
+-- * @Filter ::@ @[Filter]@
 --
 -- * @NextToken ::@ @Maybe Text@
 --
@@ -135,8 +135,8 @@ data DescribeInstanceStatus = DescribeInstanceStatus
 --
 describeInstanceStatus :: DescribeInstanceStatus
 describeInstanceStatus = DescribeInstanceStatus
-    { _disInstanceIds = mempty
-    , _disFilters = mempty
+    { _disInstanceId = mempty
+    , _disFilter = mempty
     , _disNextToken = Nothing
     , _disMaxResults = Nothing
     , _disIncludeAllInstances = Nothing
@@ -144,8 +144,8 @@ describeInstanceStatus = DescribeInstanceStatus
 
 -- | One or more instance IDs. Default: Describes all your instances.
 -- Constraints: Maximum 100 explicitly specified instance IDs.
-disInstanceIds :: Lens' DescribeInstanceStatus [Text]
-disInstanceIds = lens _disInstanceIds (\s a -> s { _disInstanceIds = a })
+disInstanceId :: Lens' DescribeInstanceStatus [Text]
+disInstanceId = lens _disInstanceId (\s a -> s { _disInstanceId = a })
 
 -- | One or more filters. availability-zone - The Availability Zone of the
 -- instance. event.code - The code identifying the type of event
@@ -167,8 +167,8 @@ disInstanceIds = lens _disInstanceIds (\s a -> s { _disInstanceIds = a })
 -- reachability (passed | failed | initializing | insufficient-data).
 -- system-status.status - The system status of the instance (ok | impaired |
 -- initializing | insufficient-data | not-applicable).
-disFilters :: Lens' DescribeInstanceStatus [Filter]
-disFilters = lens _disFilters (\s a -> s { _disFilters = a })
+disFilter :: Lens' DescribeInstanceStatus [Filter]
+disFilter = lens _disFilter (\s a -> s { _disFilter = a })
 
 -- | The next paginated set of results to return.
 disNextToken :: Lens' DescribeInstanceStatus (Maybe Text)
@@ -188,7 +188,7 @@ instance ToQuery DescribeInstanceStatus where
     toQuery = genericQuery def
 
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
-    { _disrInstanceStatuses :: [InstanceStatus]
+    { _disrItem :: [InstanceStatus]
     , _disrNextToken :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -199,20 +199,19 @@ data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceStatuses ::@ @[InstanceStatus]@
+-- * @Item ::@ @[InstanceStatus]@
 --
 -- * @NextToken ::@ @Maybe Text@
 --
 describeInstanceStatusResponse :: DescribeInstanceStatusResponse
 describeInstanceStatusResponse = DescribeInstanceStatusResponse
-    { _disrInstanceStatuses = mempty
+    { _disrItem = mempty
     , _disrNextToken = Nothing
     }
 
 -- | One or more instance status descriptions.
-disrInstanceStatuses :: Lens' DescribeInstanceStatusResponse [InstanceStatus]
-disrInstanceStatuses =
-    lens _disrInstanceStatuses (\s a -> s { _disrInstanceStatuses = a })
+disrItem :: Lens' DescribeInstanceStatusResponse [InstanceStatus]
+disrItem = lens _disrItem (\s a -> s { _disrItem = a })
 
 -- | The next paginated set of results to return.
 disrNextToken :: Lens' DescribeInstanceStatusResponse (Maybe Text)

@@ -836,8 +836,8 @@ instance FromXML ConnectionDraining where
 instance ToQuery ConnectionDraining where
     toQuery = genericQuery def
 
--- | A structure containing the configuration information for the new
--- healthcheck.
+-- | Specifies information regarding the various health probes conducted on the
+-- load balancer.
 data HealthCheck = HealthCheck
     { _hcTarget :: Text
     , _hcInterval :: !Integer
@@ -1134,7 +1134,7 @@ instance FromXML ListenerDescription where
 instance ToQuery ListenerDescription where
     toQuery = genericQuery def
 
--- | The load balancer attributes structure.
+-- | The LoadBalancerAttributes data type.
 data LoadBalancerAttributes = LoadBalancerAttributes
     { _lbaCrossZoneLoadBalancing :: Maybe CrossZoneLoadBalancing
     , _lbaAccessLog :: Maybe AccessLog

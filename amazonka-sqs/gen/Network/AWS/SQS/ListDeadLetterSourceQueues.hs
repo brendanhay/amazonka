@@ -40,7 +40,7 @@ module Network.AWS.SQS.ListDeadLetterSourceQueues
     -- ** Response constructor
     , listDeadLetterSourceQueuesResponse
     -- ** Response lenses
-    , ldlsqrQueueUrls
+    , ldlsqrQueueUrl
     ) where
 
 import Network.AWS.Request.Query
@@ -73,7 +73,7 @@ instance ToQuery ListDeadLetterSourceQueues where
 
 -- | A list of your dead letter source queues.
 newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
-    { _ldlsqrQueueUrls :: [Text]
+    { _ldlsqrQueueUrl :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -83,18 +83,18 @@ newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @QueueUrls ::@ @[Text]@
+-- * @QueueUrl ::@ @[Text]@
 --
-listDeadLetterSourceQueuesResponse :: [Text] -- ^ 'ldlsqrQueueUrls'
+listDeadLetterSourceQueuesResponse :: [Text] -- ^ 'ldlsqrQueueUrl'
                                    -> ListDeadLetterSourceQueuesResponse
 listDeadLetterSourceQueuesResponse p1 = ListDeadLetterSourceQueuesResponse
-    { _ldlsqrQueueUrls = p1
+    { _ldlsqrQueueUrl = p1
     }
 
 -- | A list of source queue URLs that have the RedrivePolicy queue attribute
 -- configured with a dead letter queue.
-ldlsqrQueueUrls :: Lens' ListDeadLetterSourceQueuesResponse [Text]
-ldlsqrQueueUrls = lens _ldlsqrQueueUrls (\s a -> s { _ldlsqrQueueUrls = a })
+ldlsqrQueueUrl :: Lens' ListDeadLetterSourceQueuesResponse [Text]
+ldlsqrQueueUrl = lens _ldlsqrQueueUrl (\s a -> s { _ldlsqrQueueUrl = a })
 
 instance FromXML ListDeadLetterSourceQueuesResponse where
     fromXMLOptions = xmlOptions

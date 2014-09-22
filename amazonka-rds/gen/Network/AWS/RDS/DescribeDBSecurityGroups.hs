@@ -45,7 +45,7 @@ module Network.AWS.RDS.DescribeDBSecurityGroups
     , describeDBSecurityGroupsResponse
     -- ** Response lenses
     , ddbsgrMarker
-    , ddbsgrDBSecurityGroups
+    , ddbsgrDBSecurityGroup
     ) where
 
 import Network.AWS.Request.Query
@@ -105,7 +105,7 @@ instance ToQuery DescribeDBSecurityGroups where
 -- DescribeDBSecurityGroups action.
 data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse
     { _ddbsgrMarker :: Maybe Text
-    , _ddbsgrDBSecurityGroups :: [DBSecurityGroup]
+    , _ddbsgrDBSecurityGroup :: [DBSecurityGroup]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -117,12 +117,12 @@ data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @DBSecurityGroups ::@ @[DBSecurityGroup]@
+-- * @DBSecurityGroup ::@ @[DBSecurityGroup]@
 --
 describeDBSecurityGroupsResponse :: DescribeDBSecurityGroupsResponse
 describeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse
     { _ddbsgrMarker = Nothing
-    , _ddbsgrDBSecurityGroups = mempty
+    , _ddbsgrDBSecurityGroup = mempty
     }
 
 -- | An optional pagination token provided by a previous request. If this
@@ -132,9 +132,9 @@ ddbsgrMarker :: Lens' DescribeDBSecurityGroupsResponse (Maybe Text)
 ddbsgrMarker = lens _ddbsgrMarker (\s a -> s { _ddbsgrMarker = a })
 
 -- | A list of DBSecurityGroup instances.
-ddbsgrDBSecurityGroups :: Lens' DescribeDBSecurityGroupsResponse [DBSecurityGroup]
-ddbsgrDBSecurityGroups =
-    lens _ddbsgrDBSecurityGroups (\s a -> s { _ddbsgrDBSecurityGroups = a })
+ddbsgrDBSecurityGroup :: Lens' DescribeDBSecurityGroupsResponse [DBSecurityGroup]
+ddbsgrDBSecurityGroup =
+    lens _ddbsgrDBSecurityGroup (\s a -> s { _ddbsgrDBSecurityGroup = a })
 
 instance FromXML DescribeDBSecurityGroupsResponse where
     fromXMLOptions = xmlOptions

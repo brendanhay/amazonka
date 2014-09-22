@@ -96,7 +96,7 @@ instance ToHeaders ListInvalidations
 
 instance ToXML ListInvalidations where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListInvalidationsRequest"
+    toXMLRoot    = toRoot "ListInvalidations"
 
 -- | The returned result of the corresponding request.
 newtype ListInvalidationsResponse = ListInvalidationsResponse

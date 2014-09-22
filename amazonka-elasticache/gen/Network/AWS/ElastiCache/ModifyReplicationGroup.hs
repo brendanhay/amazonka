@@ -41,8 +41,8 @@ module Network.AWS.ElastiCache.ModifyReplicationGroup
     -- ** Request lenses
     , mrgReplicationGroupId
     , mrgReplicationGroupDescription
-    , mrgCacheSecurityGroupNames
-    , mrgSecurityGroupIds
+    , mrgCacheSecurityGroupName
+    , mrgSecurityGroupId
     , mrgPreferredMaintenanceWindow
     , mrgNotificationTopicArn
     , mrgCacheParameterGroupName
@@ -71,8 +71,8 @@ import Network.AWS.Prelude
 data ModifyReplicationGroup = ModifyReplicationGroup
     { _mrgReplicationGroupId :: Text
     , _mrgReplicationGroupDescription :: Maybe Text
-    , _mrgCacheSecurityGroupNames :: [Text]
-    , _mrgSecurityGroupIds :: [Text]
+    , _mrgCacheSecurityGroupName :: [Text]
+    , _mrgSecurityGroupId :: [Text]
     , _mrgPreferredMaintenanceWindow :: Maybe Text
     , _mrgNotificationTopicArn :: Maybe Text
     , _mrgCacheParameterGroupName :: Maybe Text
@@ -95,9 +95,9 @@ data ModifyReplicationGroup = ModifyReplicationGroup
 --
 -- * @ReplicationGroupDescription ::@ @Maybe Text@
 --
--- * @CacheSecurityGroupNames ::@ @[Text]@
+-- * @CacheSecurityGroupName ::@ @[Text]@
 --
--- * @SecurityGroupIds ::@ @[Text]@
+-- * @SecurityGroupId ::@ @[Text]@
 --
 -- * @PreferredMaintenanceWindow ::@ @Maybe Text@
 --
@@ -126,8 +126,8 @@ modifyReplicationGroup :: Text -- ^ 'mrgReplicationGroupId'
 modifyReplicationGroup p1 = ModifyReplicationGroup
     { _mrgReplicationGroupId = p1
     , _mrgReplicationGroupDescription = Nothing
-    , _mrgCacheSecurityGroupNames = mempty
-    , _mrgSecurityGroupIds = mempty
+    , _mrgCacheSecurityGroupName = mempty
+    , _mrgSecurityGroupId = mempty
     , _mrgPreferredMaintenanceWindow = Nothing
     , _mrgNotificationTopicArn = Nothing
     , _mrgCacheParameterGroupName = Nothing
@@ -158,17 +158,17 @@ mrgReplicationGroupDescription =
 -- containing cache clusters running outside of an Amazon Virtual Private
 -- Cloud (VPC). Constraints: Must contain no more than 255 alphanumeric
 -- characters. Must not be "Default".
-mrgCacheSecurityGroupNames :: Lens' ModifyReplicationGroup [Text]
-mrgCacheSecurityGroupNames =
-    lens _mrgCacheSecurityGroupNames
-         (\s a -> s { _mrgCacheSecurityGroupNames = a })
+mrgCacheSecurityGroupName :: Lens' ModifyReplicationGroup [Text]
+mrgCacheSecurityGroupName =
+    lens _mrgCacheSecurityGroupName
+         (\s a -> s { _mrgCacheSecurityGroupName = a })
 
 -- | Specifies the VPC Security Groups associated with the cache clusters in the
 -- replication group. This parameter can be used only with replication groups
 -- containing cache clusters running in an Amazon Virtual Private Cloud (VPC).
-mrgSecurityGroupIds :: Lens' ModifyReplicationGroup [Text]
-mrgSecurityGroupIds =
-    lens _mrgSecurityGroupIds (\s a -> s { _mrgSecurityGroupIds = a })
+mrgSecurityGroupId :: Lens' ModifyReplicationGroup [Text]
+mrgSecurityGroupId =
+    lens _mrgSecurityGroupId (\s a -> s { _mrgSecurityGroupId = a })
 
 -- | The weekly time range (in UTC) during which replication group system
 -- maintenance can occur. Note that system maintenance may result in an

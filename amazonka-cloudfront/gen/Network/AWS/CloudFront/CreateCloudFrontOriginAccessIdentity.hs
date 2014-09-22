@@ -75,7 +75,7 @@ instance ToHeaders CreateCloudFrontOriginAccessIdentity
 
 instance ToXML CreateCloudFrontOriginAccessIdentity where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateCloudFrontOriginAccessIdentityRequest"
+    toXMLRoot    = toRoot "CreateCloudFrontOriginAccessIdentity"
 
 -- | The returned result of the corresponding request.
 data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccessIdentityResponse

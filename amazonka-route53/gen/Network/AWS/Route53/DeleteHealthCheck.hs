@@ -78,7 +78,7 @@ instance ToHeaders DeleteHealthCheck
 
 instance ToXML DeleteHealthCheck where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteHealthCheckRequest"
+    toXMLRoot    = toRoot "DeleteHealthCheck"
 
 -- | Empty response for the request.
 data DeleteHealthCheckResponse = DeleteHealthCheckResponse

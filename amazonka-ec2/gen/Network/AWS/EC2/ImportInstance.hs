@@ -43,7 +43,7 @@ module Network.AWS.EC2.ImportInstance
     -- ** Request lenses
     , iiDescription
     , iiLaunchSpecification
-    , iiDiskImages
+    , iiDiskImage
     , iiPlatform
 
     -- * Response
@@ -61,7 +61,7 @@ import Network.AWS.Prelude
 data ImportInstance = ImportInstance
     { _iiDescription :: Maybe Text
     , _iiLaunchSpecification :: Maybe ImportInstanceLaunchSpecification
-    , _iiDiskImages :: [DiskImage]
+    , _iiDiskImage :: [DiskImage]
     , _iiPlatform :: PlatformValues
     } deriving (Eq, Ord, Show, Generic)
 
@@ -74,7 +74,7 @@ data ImportInstance = ImportInstance
 --
 -- * @LaunchSpecification ::@ @Maybe ImportInstanceLaunchSpecification@
 --
--- * @DiskImages ::@ @[DiskImage]@
+-- * @DiskImage ::@ @[DiskImage]@
 --
 -- * @Platform ::@ @PlatformValues@
 --
@@ -83,7 +83,7 @@ importInstance :: PlatformValues -- ^ 'iiPlatform'
 importInstance p4 = ImportInstance
     { _iiDescription = Nothing
     , _iiLaunchSpecification = Nothing
-    , _iiDiskImages = mempty
+    , _iiDiskImage = mempty
     , _iiPlatform = p4
     }
 
@@ -97,8 +97,8 @@ iiLaunchSpecification =
     lens _iiLaunchSpecification (\s a -> s { _iiLaunchSpecification = a })
 
 -- | 
-iiDiskImages :: Lens' ImportInstance [DiskImage]
-iiDiskImages = lens _iiDiskImages (\s a -> s { _iiDiskImages = a })
+iiDiskImage :: Lens' ImportInstance [DiskImage]
+iiDiskImage = lens _iiDiskImage (\s a -> s { _iiDiskImage = a })
 
 -- | The instance operating system.
 iiPlatform :: Lens' ImportInstance PlatformValues

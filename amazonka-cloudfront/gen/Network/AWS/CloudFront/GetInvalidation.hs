@@ -82,7 +82,7 @@ instance ToHeaders GetInvalidation
 
 instance ToXML GetInvalidation where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetInvalidationRequest"
+    toXMLRoot    = toRoot "GetInvalidation"
 
 -- | The returned result of the corresponding request.
 newtype GetInvalidationResponse = GetInvalidationResponse

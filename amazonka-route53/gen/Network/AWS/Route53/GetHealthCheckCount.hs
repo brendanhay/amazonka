@@ -57,7 +57,7 @@ instance ToHeaders GetHealthCheckCount
 
 instance ToXML GetHealthCheckCount where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetHealthCheckCountRequest"
+    toXMLRoot    = toRoot "GetHealthCheckCount"
 
 -- | A complex type that contains the count of health checks associated with the
 -- current AWS account.

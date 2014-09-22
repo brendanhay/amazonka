@@ -47,7 +47,7 @@ module Network.AWS.Redshift.DescribeReservedNodes
     , describeReservedNodesResponse
     -- ** Response lenses
     , drnrMarker
-    , drnrReservedNodes
+    , drnrReservedNode
     ) where
 
 import Network.AWS.Request.Query
@@ -107,7 +107,7 @@ instance ToQuery DescribeReservedNodes where
 -- | Contains the output from the DescribeReservedNodes action.
 data DescribeReservedNodesResponse = DescribeReservedNodesResponse
     { _drnrMarker :: Maybe Text
-    , _drnrReservedNodes :: [ReservedNode]
+    , _drnrReservedNode :: [ReservedNode]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -119,12 +119,12 @@ data DescribeReservedNodesResponse = DescribeReservedNodesResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @ReservedNodes ::@ @[ReservedNode]@
+-- * @ReservedNode ::@ @[ReservedNode]@
 --
 describeReservedNodesResponse :: DescribeReservedNodesResponse
 describeReservedNodesResponse = DescribeReservedNodesResponse
     { _drnrMarker = Nothing
-    , _drnrReservedNodes = mempty
+    , _drnrReservedNode = mempty
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -136,9 +136,9 @@ drnrMarker :: Lens' DescribeReservedNodesResponse (Maybe Text)
 drnrMarker = lens _drnrMarker (\s a -> s { _drnrMarker = a })
 
 -- | The list of reserved nodes.
-drnrReservedNodes :: Lens' DescribeReservedNodesResponse [ReservedNode]
-drnrReservedNodes =
-    lens _drnrReservedNodes (\s a -> s { _drnrReservedNodes = a })
+drnrReservedNode :: Lens' DescribeReservedNodesResponse [ReservedNode]
+drnrReservedNode =
+    lens _drnrReservedNode (\s a -> s { _drnrReservedNode = a })
 
 instance FromXML DescribeReservedNodesResponse where
     fromXMLOptions = xmlOptions

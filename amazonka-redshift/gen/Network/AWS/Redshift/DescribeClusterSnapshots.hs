@@ -55,7 +55,7 @@ module Network.AWS.Redshift.DescribeClusterSnapshots
     , describeClusterSnapshotsResponse
     -- ** Response lenses
     , dcsrrMarker
-    , dcsrrSnapshots
+    , dcsrrSnapshot
     ) where
 
 import Network.AWS.Request.Query
@@ -169,7 +169,7 @@ instance ToQuery DescribeClusterSnapshots where
 -- | Contains the output from the DescribeClusterSnapshots action.
 data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
     { _dcsrrMarker :: Maybe Text
-    , _dcsrrSnapshots :: [Snapshot]
+    , _dcsrrSnapshot :: [Snapshot]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -181,12 +181,12 @@ data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @Snapshots ::@ @[Snapshot]@
+-- * @Snapshot ::@ @[Snapshot]@
 --
 describeClusterSnapshotsResponse :: DescribeClusterSnapshotsResponse
 describeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
     { _dcsrrMarker = Nothing
-    , _dcsrrSnapshots = mempty
+    , _dcsrrSnapshot = mempty
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -198,8 +198,8 @@ dcsrrMarker :: Lens' DescribeClusterSnapshotsResponse (Maybe Text)
 dcsrrMarker = lens _dcsrrMarker (\s a -> s { _dcsrrMarker = a })
 
 -- | A list of Snapshot instances.
-dcsrrSnapshots :: Lens' DescribeClusterSnapshotsResponse [Snapshot]
-dcsrrSnapshots = lens _dcsrrSnapshots (\s a -> s { _dcsrrSnapshots = a })
+dcsrrSnapshot :: Lens' DescribeClusterSnapshotsResponse [Snapshot]
+dcsrrSnapshot = lens _dcsrrSnapshot (\s a -> s { _dcsrrSnapshot = a })
 
 instance FromXML DescribeClusterSnapshotsResponse where
     fromXMLOptions = xmlOptions

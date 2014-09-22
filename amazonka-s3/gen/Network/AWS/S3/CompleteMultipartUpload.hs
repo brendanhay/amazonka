@@ -28,7 +28,7 @@ module Network.AWS.S3.CompleteMultipartUpload
     -- ** Request lenses
     , cmuBucket
     , cmuKey
-    , cmuMultipartUpload
+    , cmuCompleteMultipartUpload
     , cmuUploadId
 
     -- * Response
@@ -53,7 +53,7 @@ import Network.AWS.Types (Region)
 data CompleteMultipartUpload = CompleteMultipartUpload
     { _cmuBucket :: BucketName
     , _cmuKey :: ObjectKey
-    , _cmuMultipartUpload :: Maybe CompletedMultipartUpload
+    , _cmuCompleteMultipartUpload :: Maybe CompletedMultipartUpload
     , _cmuUploadId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -66,7 +66,7 @@ data CompleteMultipartUpload = CompleteMultipartUpload
 --
 -- * @Key ::@ @ObjectKey@
 --
--- * @MultipartUpload ::@ @Maybe CompletedMultipartUpload@
+-- * @CompleteMultipartUpload ::@ @Maybe CompletedMultipartUpload@
 --
 -- * @UploadId ::@ @Text@
 --
@@ -77,7 +77,7 @@ completeMultipartUpload :: BucketName -- ^ 'cmuBucket'
 completeMultipartUpload p1 p2 p4 = CompleteMultipartUpload
     { _cmuBucket = p1
     , _cmuKey = p2
-    , _cmuMultipartUpload = Nothing
+    , _cmuCompleteMultipartUpload = Nothing
     , _cmuUploadId = p4
     }
 
@@ -87,9 +87,10 @@ cmuBucket = lens _cmuBucket (\s a -> s { _cmuBucket = a })
 cmuKey :: Lens' CompleteMultipartUpload ObjectKey
 cmuKey = lens _cmuKey (\s a -> s { _cmuKey = a })
 
-cmuMultipartUpload :: Lens' CompleteMultipartUpload (Maybe CompletedMultipartUpload)
-cmuMultipartUpload =
-    lens _cmuMultipartUpload (\s a -> s { _cmuMultipartUpload = a })
+cmuCompleteMultipartUpload :: Lens' CompleteMultipartUpload (Maybe CompletedMultipartUpload)
+cmuCompleteMultipartUpload =
+    lens _cmuCompleteMultipartUpload
+         (\s a -> s { _cmuCompleteMultipartUpload = a })
 
 cmuUploadId :: Lens' CompleteMultipartUpload Text
 cmuUploadId = lens _cmuUploadId (\s a -> s { _cmuUploadId = a })
@@ -101,7 +102,7 @@ instance ToQuery CompleteMultipartUpload
 instance ToHeaders CompleteMultipartUpload
 
 instance ToBody CompleteMultipartUpload where
-    toBody = toBody . encodeXML . _cmuMultipartUpload
+    toBody = toBody . encodeXML . _cmuCompleteMultipartUpload
 
 data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
     { _cmurLocation :: Maybe Text

@@ -45,7 +45,7 @@ module Network.AWS.EC2.AttachVpnGateway
     -- ** Response constructor
     , attachVpnGatewayResponse
     -- ** Response lenses
-    , avgrVpcAttachment
+    , avgrAttachment
     ) where
 
 import Network.AWS.Request.Query
@@ -86,7 +86,7 @@ instance ToQuery AttachVpnGateway where
     toQuery = genericQuery def
 
 newtype AttachVpnGatewayResponse = AttachVpnGatewayResponse
-    { _avgrVpcAttachment :: Maybe VpcAttachment
+    { _avgrAttachment :: Maybe VpcAttachment
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -96,17 +96,16 @@ newtype AttachVpnGatewayResponse = AttachVpnGatewayResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VpcAttachment ::@ @Maybe VpcAttachment@
+-- * @Attachment ::@ @Maybe VpcAttachment@
 --
 attachVpnGatewayResponse :: AttachVpnGatewayResponse
 attachVpnGatewayResponse = AttachVpnGatewayResponse
-    { _avgrVpcAttachment = Nothing
+    { _avgrAttachment = Nothing
     }
 
 -- | Information about the attachment.
-avgrVpcAttachment :: Lens' AttachVpnGatewayResponse (Maybe VpcAttachment)
-avgrVpcAttachment =
-    lens _avgrVpcAttachment (\s a -> s { _avgrVpcAttachment = a })
+avgrAttachment :: Lens' AttachVpnGatewayResponse (Maybe VpcAttachment)
+avgrAttachment = lens _avgrAttachment (\s a -> s { _avgrAttachment = a })
 
 instance FromXML AttachVpnGatewayResponse where
     fromXMLOptions = xmlOptions

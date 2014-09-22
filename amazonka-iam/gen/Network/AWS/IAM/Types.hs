@@ -806,7 +806,9 @@ instance FromXML AccessKeyMetadata where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AccessKeyMetadata"
 
--- | Information about the group.
+-- | The Group data type contains information about a group. This data type is
+-- used as a response element in the following actions: CreateGroup GetGroup
+-- ListGroups.
 data Group = Group
     { _gPath :: Text
     , _gGroupName :: Text
@@ -875,7 +877,10 @@ instance FromXML Group where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "Group"
 
--- | Information about the instance profile.
+-- | The InstanceProfile data type contains information about an instance
+-- profile. This data type is used as a response element in the following
+-- actions: CreateInstanceProfile GetInstanceProfile ListInstanceProfiles
+-- ListInstanceProfilesForRole.
 data InstanceProfile = InstanceProfile
     { _ipPath :: Text
     , _ipInstanceProfileName :: Text
@@ -956,7 +961,7 @@ instance FromXML InstanceProfile where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "InstanceProfile"
 
--- | The user name and password create date.
+-- | User name and password create date for the user.
 data LoginProfile = LoginProfile
     { _lpUserName :: Text
     , _lpCreateDate :: ISO8601
@@ -1355,8 +1360,10 @@ instance FromXML ServerCertificate where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ServerCertificate"
 
--- | The meta information of the server certificate, such as its name, path, ID,
--- and ARN.
+-- | ServerCertificateMetadata contains information about a server certificate
+-- without its certificate body, certificate chain, and private key. This data
+-- type is used as a response element in the action UploadServerCertificate
+-- and ListServerCertificates.
 data ServerCertificateMetadata = ServerCertificateMetadata
     { _scmPath :: Text
     , _scmServerCertificateName :: Text
@@ -1505,7 +1512,9 @@ instance FromXML SigningCertificate where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SigningCertificate"
 
--- | Information about the user.
+-- | The User data type contains information about a user. This data type is
+-- used as a response element in the following actions: CreateUser GetUser
+-- ListUsers.
 data User = User
     { _uPath :: Text
     , _uUserName :: Text
@@ -1574,7 +1583,8 @@ instance FromXML User where
 instance ToQuery User where
     toQuery = genericQuery def
 
--- | A newly created virtual MFA device.
+-- | The VirtualMFADevice data type contains information about a virtual MFA
+-- device.
 data VirtualMFADevice = VirtualMFADevice
     { _vmfadSerialNumber :: Text
     , _vmfadBase32StringSeed :: Maybe ByteString

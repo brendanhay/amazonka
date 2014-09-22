@@ -84,7 +84,7 @@ instance ToHeaders CreateInvalidation
 
 instance ToXML CreateInvalidation where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CreateInvalidationRequest"
+    toXMLRoot    = toRoot "CreateInvalidation"
 
 -- | The returned result of the corresponding request.
 data CreateInvalidationResponse = CreateInvalidationResponse

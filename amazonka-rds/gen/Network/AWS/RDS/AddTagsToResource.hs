@@ -31,7 +31,7 @@ module Network.AWS.RDS.AddTagsToResource
     , addTagsToResource
     -- ** Request lenses
     , attrResourceName
-    , attrTags
+    , attrTag
 
     -- * Response
     , AddTagsToResourceResponse
@@ -46,7 +46,7 @@ import Network.AWS.Prelude
 -- | 
 data AddTagsToResource = AddTagsToResource
     { _attrResourceName :: Text
-    , _attrTags :: [Tag]
+    , _attrTag :: [Tag]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -56,14 +56,14 @@ data AddTagsToResource = AddTagsToResource
 --
 -- * @ResourceName ::@ @Text@
 --
--- * @Tags ::@ @[Tag]@
+-- * @Tag ::@ @[Tag]@
 --
 addTagsToResource :: Text -- ^ 'attrResourceName'
-                  -> [Tag] -- ^ 'attrTags'
+                  -> [Tag] -- ^ 'attrTag'
                   -> AddTagsToResource
 addTagsToResource p1 p2 = AddTagsToResource
     { _attrResourceName = p1
-    , _attrTags = p2
+    , _attrTag = p2
     }
 
 -- | The Amazon RDS resource the tags will be added to. This value is an Amazon
@@ -74,8 +74,8 @@ attrResourceName =
     lens _attrResourceName (\s a -> s { _attrResourceName = a })
 
 -- | The tags to be assigned to the Amazon RDS resource.
-attrTags :: Lens' AddTagsToResource [Tag]
-attrTags = lens _attrTags (\s a -> s { _attrTags = a })
+attrTag :: Lens' AddTagsToResource [Tag]
+attrTag = lens _attrTag (\s a -> s { _attrTag = a })
 
 instance ToQuery AddTagsToResource where
     toQuery = genericQuery def

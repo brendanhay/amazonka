@@ -27,8 +27,8 @@ module Network.AWS.Route53.ChangeTagsForResource
     -- ** Request lenses
     , ctfrResourceType
     , ctfrResourceId
-    , ctfrAddTags
-    , ctfrRemoveTagKeys
+    , ctfrTag
+    , ctfrKey
 
     -- * Response
     , ChangeTagsForResourceResponse
@@ -46,8 +46,8 @@ import Network.AWS.Types (Region)
 data ChangeTagsForResource = ChangeTagsForResource
     { _ctfrResourceType :: TagResourceType
     , _ctfrResourceId :: Text
-    , _ctfrAddTags :: Maybe (List1 Tag)
-    , _ctfrRemoveTagKeys :: Maybe (List1 Text)
+    , _ctfrTag :: Maybe (List1 Tag)
+    , _ctfrKey :: Maybe (List1 Text)
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -59,9 +59,9 @@ data ChangeTagsForResource = ChangeTagsForResource
 --
 -- * @ResourceId ::@ @Text@
 --
--- * @AddTags ::@ @Maybe (List1 Tag)@
+-- * @Tag ::@ @Maybe (List1 Tag)@
 --
--- * @RemoveTagKeys ::@ @Maybe (List1 Text)@
+-- * @Key ::@ @Maybe (List1 Text)@
 --
 changeTagsForResource :: TagResourceType -- ^ 'ctfrResourceType'
                       -> Text -- ^ 'ctfrResourceId'
@@ -69,8 +69,8 @@ changeTagsForResource :: TagResourceType -- ^ 'ctfrResourceType'
 changeTagsForResource p1 p2 = ChangeTagsForResource
     { _ctfrResourceType = p1
     , _ctfrResourceId = p2
-    , _ctfrAddTags = Nothing
-    , _ctfrRemoveTagKeys = Nothing
+    , _ctfrTag = Nothing
+    , _ctfrKey = Nothing
     }
 
 -- | The type of the resource. The resource type for health checks is
@@ -85,13 +85,12 @@ ctfrResourceId = lens _ctfrResourceId (\s a -> s { _ctfrResourceId = a })
 
 -- | A complex type that contains a list of Tag elements. Each Tag element
 -- identifies a tag that you want to add or update for the specified resource.
-ctfrAddTags :: Lens' ChangeTagsForResource (Maybe (List1 Tag))
-ctfrAddTags = lens _ctfrAddTags (\s a -> s { _ctfrAddTags = a })
+ctfrTag :: Lens' ChangeTagsForResource (Maybe (List1 Tag))
+ctfrTag = lens _ctfrTag (\s a -> s { _ctfrTag = a })
 
 -- | A list of Tag keys that you want to remove from the specified resource.
-ctfrRemoveTagKeys :: Lens' ChangeTagsForResource (Maybe (List1 Text))
-ctfrRemoveTagKeys =
-    lens _ctfrRemoveTagKeys (\s a -> s { _ctfrRemoveTagKeys = a })
+ctfrKey :: Lens' ChangeTagsForResource (Maybe (List1 Text))
+ctfrKey = lens _ctfrKey (\s a -> s { _ctfrKey = a })
 
 instance ToPath ChangeTagsForResource
 
@@ -101,7 +100,7 @@ instance ToHeaders ChangeTagsForResource
 
 instance ToXML ChangeTagsForResource where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ChangeTagsForResourceRequest"
+    toXMLRoot    = toRoot "ChangeTagsForResource"
 
 -- | Empty response for the request.
 data ChangeTagsForResourceResponse = ChangeTagsForResourceResponse

@@ -72,7 +72,7 @@ instance ToHeaders GetCloudFrontOriginAccessIdentity
 
 instance ToXML GetCloudFrontOriginAccessIdentity where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetCloudFrontOriginAccessIdentityRequest"
+    toXMLRoot    = toRoot "GetCloudFrontOriginAccessIdentity"
 
 -- | The returned result of the corresponding request.
 data GetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdentityResponse

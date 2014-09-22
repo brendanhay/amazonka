@@ -132,8 +132,8 @@ module Network.AWS.EC2.DescribeInstances
     -- ** Request constructor
     , describeInstances
     -- ** Request lenses
-    , di2InstanceIds
-    , di2Filters
+    , di2InstanceId
+    , di2Filter
     , di2NextToken
     , di2MaxResults
 
@@ -142,7 +142,7 @@ module Network.AWS.EC2.DescribeInstances
     -- ** Response constructor
     , describeInstancesResponse
     -- ** Response lenses
-    , dirrReservations
+    , dirrItem
     , dirrNextToken
     ) where
 
@@ -151,8 +151,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeInstances = DescribeInstances
-    { _di2InstanceIds :: [Text]
-    , _di2Filters :: [Filter]
+    { _di2InstanceId :: [Text]
+    , _di2Filter :: [Filter]
     , _di2NextToken :: Maybe Text
     , _di2MaxResults :: Maybe Integer
     } deriving (Eq, Ord, Show, Generic)
@@ -162,9 +162,9 @@ data DescribeInstances = DescribeInstances
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceIds ::@ @[Text]@
+-- * @InstanceId ::@ @[Text]@
 --
--- * @Filters ::@ @[Filter]@
+-- * @Filter ::@ @[Filter]@
 --
 -- * @NextToken ::@ @Maybe Text@
 --
@@ -172,15 +172,15 @@ data DescribeInstances = DescribeInstances
 --
 describeInstances :: DescribeInstances
 describeInstances = DescribeInstances
-    { _di2InstanceIds = mempty
-    , _di2Filters = mempty
+    { _di2InstanceId = mempty
+    , _di2Filter = mempty
     , _di2NextToken = Nothing
     , _di2MaxResults = Nothing
     }
 
 -- | One or more instance IDs. Default: Describes all your instances.
-di2InstanceIds :: Lens' DescribeInstances [Text]
-di2InstanceIds = lens _di2InstanceIds (\s a -> s { _di2InstanceIds = a })
+di2InstanceId :: Lens' DescribeInstances [Text]
+di2InstanceId = lens _di2InstanceId (\s a -> s { _di2InstanceId = a })
 
 -- | One or more filters. architecture - The instance architecture (i386 |
 -- x86_64). availability-zone - The Availability Zone of the instance.
@@ -304,8 +304,8 @@ di2InstanceIds = lens _di2InstanceIds (\s a -> s { _di2InstanceIds = a })
 -- The allocation ID returned when you allocated the Elastic IP address for
 -- your network interface. association.association-id - The association ID
 -- returned when the network interface was associated with an IP address.
-di2Filters :: Lens' DescribeInstances [Filter]
-di2Filters = lens _di2Filters (\s a -> s { _di2Filters = a })
+di2Filter :: Lens' DescribeInstances [Filter]
+di2Filter = lens _di2Filter (\s a -> s { _di2Filter = a })
 
 -- | The token for the next set of items to return. (You received this token
 -- from a prior call.).
@@ -322,7 +322,7 @@ instance ToQuery DescribeInstances where
     toQuery = genericQuery def
 
 data DescribeInstancesResponse = DescribeInstancesResponse
-    { _dirrReservations :: [Reservation]
+    { _dirrItem :: [Reservation]
     , _dirrNextToken :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -333,20 +333,19 @@ data DescribeInstancesResponse = DescribeInstancesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Reservations ::@ @[Reservation]@
+-- * @Item ::@ @[Reservation]@
 --
 -- * @NextToken ::@ @Maybe Text@
 --
 describeInstancesResponse :: DescribeInstancesResponse
 describeInstancesResponse = DescribeInstancesResponse
-    { _dirrReservations = mempty
+    { _dirrItem = mempty
     , _dirrNextToken = Nothing
     }
 
 -- | One or more reservations.
-dirrReservations :: Lens' DescribeInstancesResponse [Reservation]
-dirrReservations =
-    lens _dirrReservations (\s a -> s { _dirrReservations = a })
+dirrItem :: Lens' DescribeInstancesResponse [Reservation]
+dirrItem = lens _dirrItem (\s a -> s { _dirrItem = a })
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.

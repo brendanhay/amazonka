@@ -29,8 +29,8 @@ module Network.AWS.Redshift.ModifyEventSubscription
     , mesSubscriptionName
     , mesSnsTopicArn
     , mesSourceType
-    , mesSourceIds
-    , mesEventCategories
+    , mesSourceId
+    , mesEventCategory
     , mesSeverity
     , mesEnabled
 
@@ -51,8 +51,8 @@ data ModifyEventSubscription = ModifyEventSubscription
     { _mesSubscriptionName :: Text
     , _mesSnsTopicArn :: Maybe Text
     , _mesSourceType :: Maybe Text
-    , _mesSourceIds :: [Text]
-    , _mesEventCategories :: [Text]
+    , _mesSourceId :: [Text]
+    , _mesEventCategory :: [Text]
     , _mesSeverity :: Maybe Text
     , _mesEnabled :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
@@ -68,9 +68,9 @@ data ModifyEventSubscription = ModifyEventSubscription
 --
 -- * @SourceType ::@ @Maybe Text@
 --
--- * @SourceIds ::@ @[Text]@
+-- * @SourceId ::@ @[Text]@
 --
--- * @EventCategories ::@ @[Text]@
+-- * @EventCategory ::@ @[Text]@
 --
 -- * @Severity ::@ @Maybe Text@
 --
@@ -82,8 +82,8 @@ modifyEventSubscription p1 = ModifyEventSubscription
     { _mesSubscriptionName = p1
     , _mesSnsTopicArn = Nothing
     , _mesSourceType = Nothing
-    , _mesSourceIds = mempty
-    , _mesEventCategories = mempty
+    , _mesSourceId = mempty
+    , _mesEventCategory = mempty
     , _mesSeverity = Nothing
     , _mesEnabled = Nothing
     }
@@ -113,15 +113,15 @@ mesSourceType = lens _mesSourceType (\s a -> s { _mesSourceType = a })
 -- specified objects. If not specified, then events are returned for all
 -- objects within the source type specified. Example: my-cluster-1,
 -- my-cluster-2 Example: my-snapshot-20131010.
-mesSourceIds :: Lens' ModifyEventSubscription [Text]
-mesSourceIds = lens _mesSourceIds (\s a -> s { _mesSourceIds = a })
+mesSourceId :: Lens' ModifyEventSubscription [Text]
+mesSourceId = lens _mesSourceId (\s a -> s { _mesSourceId = a })
 
 -- | Specifies the Amazon Redshift event categories to be published by the event
 -- notification subscription. Values: Configuration, Management, Monitoring,
 -- Security.
-mesEventCategories :: Lens' ModifyEventSubscription [Text]
-mesEventCategories =
-    lens _mesEventCategories (\s a -> s { _mesEventCategories = a })
+mesEventCategory :: Lens' ModifyEventSubscription [Text]
+mesEventCategory =
+    lens _mesEventCategory (\s a -> s { _mesEventCategory = a })
 
 -- | Specifies the Amazon Redshift event severity to be published by the event
 -- notification subscription. Values: ERROR, INFO.

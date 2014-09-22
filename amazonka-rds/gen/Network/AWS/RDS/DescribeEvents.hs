@@ -45,7 +45,7 @@ module Network.AWS.RDS.DescribeEvents
     , deStartTime
     , deEndTime
     , deDuration
-    , deEventCategories
+    , deEventCategory
     , deMaxRecords
     , deMarker
 
@@ -55,7 +55,7 @@ module Network.AWS.RDS.DescribeEvents
     , describeEventsResponse
     -- ** Response lenses
     , derMarker
-    , derEvents
+    , derEvent
     ) where
 
 import Network.AWS.Request.Query
@@ -69,7 +69,7 @@ data DescribeEvents = DescribeEvents
     , _deStartTime :: Maybe ISO8601
     , _deEndTime :: Maybe ISO8601
     , _deDuration :: Maybe Integer
-    , _deEventCategories :: [Text]
+    , _deEventCategory :: [Text]
     , _deMaxRecords :: Maybe Integer
     , _deMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -89,7 +89,7 @@ data DescribeEvents = DescribeEvents
 --
 -- * @Duration ::@ @Maybe Integer@
 --
--- * @EventCategories ::@ @[Text]@
+-- * @EventCategory ::@ @[Text]@
 --
 -- * @MaxRecords ::@ @Maybe Integer@
 --
@@ -102,7 +102,7 @@ describeEvents = DescribeEvents
     , _deStartTime = Nothing
     , _deEndTime = Nothing
     , _deDuration = Nothing
-    , _deEventCategories = mempty
+    , _deEventCategory = mempty
     , _deMaxRecords = Nothing
     , _deMarker = Nothing
     }
@@ -142,9 +142,8 @@ deDuration = lens _deDuration (\s a -> s { _deDuration = a })
 
 -- | A list of event categories that trigger notifications for a event
 -- notification subscription.
-deEventCategories :: Lens' DescribeEvents [Text]
-deEventCategories =
-    lens _deEventCategories (\s a -> s { _deEventCategories = a })
+deEventCategory :: Lens' DescribeEvents [Text]
+deEventCategory = lens _deEventCategory (\s a -> s { _deEventCategory = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
@@ -166,7 +165,7 @@ instance ToQuery DescribeEvents where
 -- action.
 data DescribeEventsResponse = DescribeEventsResponse
     { _derMarker :: Maybe Text
-    , _derEvents :: [Event]
+    , _derEvent :: [Event]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -178,12 +177,12 @@ data DescribeEventsResponse = DescribeEventsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @Events ::@ @[Event]@
+-- * @Event ::@ @[Event]@
 --
 describeEventsResponse :: DescribeEventsResponse
 describeEventsResponse = DescribeEventsResponse
     { _derMarker = Nothing
-    , _derEvents = mempty
+    , _derEvent = mempty
     }
 
 -- | An optional pagination token provided by a previous Events request. If this
@@ -193,8 +192,8 @@ derMarker :: Lens' DescribeEventsResponse (Maybe Text)
 derMarker = lens _derMarker (\s a -> s { _derMarker = a })
 
 -- | A list of Event instances.
-derEvents :: Lens' DescribeEventsResponse [Event]
-derEvents = lens _derEvents (\s a -> s { _derEvents = a })
+derEvent :: Lens' DescribeEventsResponse [Event]
+derEvent = lens _derEvent (\s a -> s { _derEvent = a })
 
 instance FromXML DescribeEventsResponse where
     fromXMLOptions = xmlOptions

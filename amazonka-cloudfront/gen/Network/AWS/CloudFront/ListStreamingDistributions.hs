@@ -84,7 +84,7 @@ instance ToHeaders ListStreamingDistributions
 
 instance ToXML ListStreamingDistributions where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ListStreamingDistributionsRequest"
+    toXMLRoot    = toRoot "ListStreamingDistributions"
 
 -- | The returned result of the corresponding request.
 newtype ListStreamingDistributionsResponse = ListStreamingDistributionsResponse

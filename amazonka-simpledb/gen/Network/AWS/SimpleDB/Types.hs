@@ -73,15 +73,15 @@ module Network.AWS.SimpleDB.Types
     -- * DeletableItem
     , DeletableItem
     , deletableItem
-    , diName
-    , diAttributes
+    , diItemName
+    , diAttribute
 
     -- * Item
     , Item
     , item
     , iName
     , iAlternateNameEncoding
-    , iAttributes
+    , iAttribute
 
     -- * ReplaceableAttribute
     , ReplaceableAttribute
@@ -93,8 +93,8 @@ module Network.AWS.SimpleDB.Types
     -- * ReplaceableItem
     , ReplaceableItem
     , replaceableItem
-    , riName
-    , riAttributes
+    , riItemName
+    , riAttribute
 
     -- * UpdateCondition
     , UpdateCondition
@@ -468,8 +468,8 @@ instance ToQuery Attribute where
     toQuery = genericQuery def
 
 data DeletableItem = DeletableItem
-    { _diName :: Text
-    , _diAttributes :: [Attribute]
+    { _diItemName :: Text
+    , _diAttribute :: [Attribute]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -477,22 +477,22 @@ data DeletableItem = DeletableItem
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Name ::@ @Text@
+-- * @ItemName ::@ @Text@
 --
--- * @Attributes ::@ @[Attribute]@
+-- * @Attribute ::@ @[Attribute]@
 --
-deletableItem :: Text -- ^ 'diName'
+deletableItem :: Text -- ^ 'diItemName'
               -> DeletableItem
 deletableItem p1 = DeletableItem
-    { _diName = p1
-    , _diAttributes = mempty
+    { _diItemName = p1
+    , _diAttribute = mempty
     }
 
-diName :: Lens' DeletableItem Text
-diName = lens _diName (\s a -> s { _diName = a })
+diItemName :: Lens' DeletableItem Text
+diItemName = lens _diItemName (\s a -> s { _diItemName = a })
 
-diAttributes :: Lens' DeletableItem [Attribute]
-diAttributes = lens _diAttributes (\s a -> s { _diAttributes = a })
+diAttribute :: Lens' DeletableItem [Attribute]
+diAttribute = lens _diAttribute (\s a -> s { _diAttribute = a })
 
 instance ToQuery DeletableItem where
     toQuery = genericQuery def
@@ -501,7 +501,7 @@ instance ToQuery DeletableItem where
 data Item = Item
     { _iName :: Text
     , _iAlternateNameEncoding :: Maybe Text
-    , _iAttributes :: [Attribute]
+    , _iAttribute :: [Attribute]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -516,15 +516,15 @@ data Item = Item
 --
 -- * @AlternateNameEncoding ::@ @Maybe Text@
 --
--- * @Attributes ::@ @[Attribute]@
+-- * @Attribute ::@ @[Attribute]@
 --
 item :: Text -- ^ 'iName'
-     -> [Attribute] -- ^ 'iAttributes'
+     -> [Attribute] -- ^ 'iAttribute'
      -> Item
 item p1 p3 = Item
     { _iName = p1
     , _iAlternateNameEncoding = Nothing
-    , _iAttributes = p3
+    , _iAttribute = p3
     }
 
 -- | The name of the item.
@@ -537,8 +537,8 @@ iAlternateNameEncoding =
     lens _iAlternateNameEncoding (\s a -> s { _iAlternateNameEncoding = a })
 
 -- | A list of attributes.
-iAttributes :: Lens' Item [Attribute]
-iAttributes = lens _iAttributes (\s a -> s { _iAttributes = a })
+iAttribute :: Lens' Item [Attribute]
+iAttribute = lens _iAttribute (\s a -> s { _iAttribute = a })
 
 instance FromXML Item where
     fromXMLOptions = xmlOptions
@@ -593,8 +593,8 @@ instance ToQuery ReplaceableAttribute where
 
 -- | 
 data ReplaceableItem = ReplaceableItem
-    { _riName :: Text
-    , _riAttributes :: [ReplaceableAttribute]
+    { _riItemName :: Text
+    , _riAttribute :: [ReplaceableAttribute]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -602,25 +602,25 @@ data ReplaceableItem = ReplaceableItem
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Name ::@ @Text@
+-- * @ItemName ::@ @Text@
 --
--- * @Attributes ::@ @[ReplaceableAttribute]@
+-- * @Attribute ::@ @[ReplaceableAttribute]@
 --
-replaceableItem :: Text -- ^ 'riName'
-                -> [ReplaceableAttribute] -- ^ 'riAttributes'
+replaceableItem :: Text -- ^ 'riItemName'
+                -> [ReplaceableAttribute] -- ^ 'riAttribute'
                 -> ReplaceableItem
 replaceableItem p1 p2 = ReplaceableItem
-    { _riName = p1
-    , _riAttributes = p2
+    { _riItemName = p1
+    , _riAttribute = p2
     }
 
 -- | The name of the replaceable item.
-riName :: Lens' ReplaceableItem Text
-riName = lens _riName (\s a -> s { _riName = a })
+riItemName :: Lens' ReplaceableItem Text
+riItemName = lens _riItemName (\s a -> s { _riItemName = a })
 
 -- | The list of attributes for a replaceable item.
-riAttributes :: Lens' ReplaceableItem [ReplaceableAttribute]
-riAttributes = lens _riAttributes (\s a -> s { _riAttributes = a })
+riAttribute :: Lens' ReplaceableItem [ReplaceableAttribute]
+riAttribute = lens _riAttribute (\s a -> s { _riAttribute = a })
 
 instance ToQuery ReplaceableItem where
     toQuery = genericQuery def

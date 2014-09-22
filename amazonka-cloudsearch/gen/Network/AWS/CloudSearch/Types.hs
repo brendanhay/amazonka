@@ -737,7 +737,7 @@ instance FromXML SuggesterFuzzyMatching where
 instance ToQuery SuggesterFuzzyMatching where
     toQuery = genericQuery def
 
--- | The service endpoint for updating documents in a search domain.
+-- | The service endpoint for requesting search results from a search domain.
 newtype ServiceEndpoint = ServiceEndpoint
     { _seEndpoint :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -1573,7 +1573,8 @@ instance FromXML ExpressionStatus where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ExpressionStatus"
 
--- | The index field and field options you want to configure.
+-- | Configuration information for a field in the index, including its name,
+-- type, and options. The supported options depend on the IndexFieldType.
 data IndexField = IndexField
     { _ifIndexFieldName :: Text
     , _ifIndexFieldType :: IndexFieldType

@@ -102,7 +102,7 @@ instance ToHeaders ChangeResourceRecordSets
 
 instance ToXML ChangeResourceRecordSets where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ChangeResourceRecordSetsRequest"
+    toXMLRoot    = toRoot "ChangeResourceRecordSets"
 
 -- | A complex type containing the response for the request.
 newtype ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse

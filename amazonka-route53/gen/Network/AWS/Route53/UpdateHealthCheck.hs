@@ -164,7 +164,7 @@ instance ToHeaders UpdateHealthCheck
 
 instance ToXML UpdateHealthCheck where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "UpdateHealthCheckRequest"
+    toXMLRoot    = toRoot "UpdateHealthCheck"
 
 newtype UpdateHealthCheckResponse = UpdateHealthCheckResponse
     { _uhcrHealthCheck :: HealthCheck

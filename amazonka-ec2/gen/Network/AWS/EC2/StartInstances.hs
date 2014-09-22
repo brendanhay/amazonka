@@ -49,7 +49,7 @@ module Network.AWS.EC2.StartInstances
     -- ** Request constructor
     , startInstances
     -- ** Request lenses
-    , siInstanceIds
+    , siInstanceId
     , siAdditionalInfo
 
     -- * Response
@@ -57,7 +57,7 @@ module Network.AWS.EC2.StartInstances
     -- ** Response constructor
     , startInstancesResponse
     -- ** Response lenses
-    , sirrStartingInstances
+    , sirrItem
     ) where
 
 import Network.AWS.Request.Query
@@ -65,7 +65,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data StartInstances = StartInstances
-    { _siInstanceIds :: [Text]
+    { _siInstanceId :: [Text]
     , _siAdditionalInfo :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -74,20 +74,20 @@ data StartInstances = StartInstances
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceIds ::@ @[Text]@
+-- * @InstanceId ::@ @[Text]@
 --
 -- * @AdditionalInfo ::@ @Maybe Text@
 --
-startInstances :: [Text] -- ^ 'siInstanceIds'
+startInstances :: [Text] -- ^ 'siInstanceId'
                -> StartInstances
 startInstances p1 = StartInstances
-    { _siInstanceIds = p1
+    { _siInstanceId = p1
     , _siAdditionalInfo = Nothing
     }
 
 -- | One or more instance IDs.
-siInstanceIds :: Lens' StartInstances [Text]
-siInstanceIds = lens _siInstanceIds (\s a -> s { _siInstanceIds = a })
+siInstanceId :: Lens' StartInstances [Text]
+siInstanceId = lens _siInstanceId (\s a -> s { _siInstanceId = a })
 
 -- | Reserved.
 siAdditionalInfo :: Lens' StartInstances (Maybe Text)
@@ -98,7 +98,7 @@ instance ToQuery StartInstances where
     toQuery = genericQuery def
 
 newtype StartInstancesResponse = StartInstancesResponse
-    { _sirrStartingInstances :: [InstanceStateChange]
+    { _sirrItem :: [InstanceStateChange]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -108,17 +108,16 @@ newtype StartInstancesResponse = StartInstancesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @StartingInstances ::@ @[InstanceStateChange]@
+-- * @Item ::@ @[InstanceStateChange]@
 --
 startInstancesResponse :: StartInstancesResponse
 startInstancesResponse = StartInstancesResponse
-    { _sirrStartingInstances = mempty
+    { _sirrItem = mempty
     }
 
 -- | Information about one or more started instances.
-sirrStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
-sirrStartingInstances =
-    lens _sirrStartingInstances (\s a -> s { _sirrStartingInstances = a })
+sirrItem :: Lens' StartInstancesResponse [InstanceStateChange]
+sirrItem = lens _sirrItem (\s a -> s { _sirrItem = a })
 
 instance FromXML StartInstancesResponse where
     fromXMLOptions = xmlOptions

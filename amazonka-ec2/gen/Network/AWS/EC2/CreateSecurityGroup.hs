@@ -62,7 +62,7 @@ module Network.AWS.EC2.CreateSecurityGroup
     , createSecurityGroup
     -- ** Request lenses
     , csgGroupName
-    , csgDescription
+    , csgGroupDescription
     , csgVpcId
 
     -- * Response
@@ -79,7 +79,7 @@ import Network.AWS.Prelude
 
 data CreateSecurityGroup = CreateSecurityGroup
     { _csgGroupName :: Text
-    , _csgDescription :: Text
+    , _csgGroupDescription :: Text
     , _csgVpcId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -90,16 +90,16 @@ data CreateSecurityGroup = CreateSecurityGroup
 --
 -- * @GroupName ::@ @Text@
 --
--- * @Description ::@ @Text@
+-- * @GroupDescription ::@ @Text@
 --
 -- * @VpcId ::@ @Maybe Text@
 --
 createSecurityGroup :: Text -- ^ 'csgGroupName'
-                    -> Text -- ^ 'csgDescription'
+                    -> Text -- ^ 'csgGroupDescription'
                     -> CreateSecurityGroup
 createSecurityGroup p1 p2 = CreateSecurityGroup
     { _csgGroupName = p1
-    , _csgDescription = p2
+    , _csgGroupDescription = p2
     , _csgVpcId = Nothing
     }
 
@@ -110,8 +110,9 @@ csgGroupName :: Lens' CreateSecurityGroup Text
 csgGroupName = lens _csgGroupName (\s a -> s { _csgGroupName = a })
 
 -- | A description for the security group. This is informational only.
-csgDescription :: Lens' CreateSecurityGroup Text
-csgDescription = lens _csgDescription (\s a -> s { _csgDescription = a })
+csgGroupDescription :: Lens' CreateSecurityGroup Text
+csgGroupDescription =
+    lens _csgGroupDescription (\s a -> s { _csgGroupDescription = a })
 
 -- | [EC2-VPC] The ID of the VPC.
 csgVpcId :: Lens' CreateSecurityGroup (Maybe Text)

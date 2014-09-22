@@ -33,7 +33,7 @@ module Network.AWS.S3.GetBucketTagging
     -- ** Response constructor
     , getBucketTaggingResponse
     -- ** Response lenses
-    , gbtrTagSet
+    , gbtrTag
     ) where
 
 import Network.AWS.Request.RestS3
@@ -70,7 +70,7 @@ instance ToHeaders GetBucketTagging
 instance ToBody GetBucketTagging
 
 newtype GetBucketTaggingResponse = GetBucketTaggingResponse
-    { _gbtrTagSet :: [Tag]
+    { _gbtrTag :: [Tag]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -80,16 +80,16 @@ newtype GetBucketTaggingResponse = GetBucketTaggingResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @TagSet ::@ @[Tag]@
+-- * @Tag ::@ @[Tag]@
 --
-getBucketTaggingResponse :: [Tag] -- ^ 'gbtrTagSet'
+getBucketTaggingResponse :: [Tag] -- ^ 'gbtrTag'
                          -> GetBucketTaggingResponse
 getBucketTaggingResponse p1 = GetBucketTaggingResponse
-    { _gbtrTagSet = p1
+    { _gbtrTag = p1
     }
 
-gbtrTagSet :: Lens' GetBucketTaggingResponse [Tag]
-gbtrTagSet = lens _gbtrTagSet (\s a -> s { _gbtrTagSet = a })
+gbtrTag :: Lens' GetBucketTaggingResponse [Tag]
+gbtrTag = lens _gbtrTag (\s a -> s { _gbtrTag = a })
 
 instance FromXML GetBucketTaggingResponse where
     fromXMLOptions = xmlOptions

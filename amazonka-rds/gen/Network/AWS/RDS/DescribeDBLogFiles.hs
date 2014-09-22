@@ -50,7 +50,7 @@ module Network.AWS.RDS.DescribeDBLogFiles
     -- ** Response constructor
     , describeDBLogFilesResponse
     -- ** Response lenses
-    , ddblfrDescribeDBLogFiles
+    , ddblfrDescribeDBLogFilesDetails
     , ddblfrMarker
     ) where
 
@@ -139,7 +139,7 @@ instance ToQuery DescribeDBLogFiles where
 
 -- | The response from a call to DescribeDBLogFiles.
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse
-    { _ddblfrDescribeDBLogFiles :: [DescribeDBLogFilesDetails]
+    { _ddblfrDescribeDBLogFilesDetails :: [DescribeDBLogFilesDetails]
     , _ddblfrMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -150,21 +150,21 @@ data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DescribeDBLogFiles ::@ @[DescribeDBLogFilesDetails]@
+-- * @DescribeDBLogFilesDetails ::@ @[DescribeDBLogFilesDetails]@
 --
 -- * @Marker ::@ @Maybe Text@
 --
 describeDBLogFilesResponse :: DescribeDBLogFilesResponse
 describeDBLogFilesResponse = DescribeDBLogFilesResponse
-    { _ddblfrDescribeDBLogFiles = mempty
+    { _ddblfrDescribeDBLogFilesDetails = mempty
     , _ddblfrMarker = Nothing
     }
 
 -- | The DB log files returned.
-ddblfrDescribeDBLogFiles :: Lens' DescribeDBLogFilesResponse [DescribeDBLogFilesDetails]
-ddblfrDescribeDBLogFiles =
-    lens _ddblfrDescribeDBLogFiles
-         (\s a -> s { _ddblfrDescribeDBLogFiles = a })
+ddblfrDescribeDBLogFilesDetails :: Lens' DescribeDBLogFilesResponse [DescribeDBLogFilesDetails]
+ddblfrDescribeDBLogFilesDetails =
+    lens _ddblfrDescribeDBLogFilesDetails
+         (\s a -> s { _ddblfrDescribeDBLogFilesDetails = a })
 
 -- | An optional paging token.
 ddblfrMarker :: Lens' DescribeDBLogFilesResponse (Maybe Text)

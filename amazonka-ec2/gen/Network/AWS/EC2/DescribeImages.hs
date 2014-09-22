@@ -54,17 +54,17 @@ module Network.AWS.EC2.DescribeImages
     -- ** Request constructor
     , describeImages
     -- ** Request lenses
-    , di1ImageIds
-    , di1Owners
-    , di1ExecutableUsers
-    , di1Filters
+    , di1ImageId
+    , di1Owner
+    , di1ExecutableBy
+    , di1Filter
 
     -- * Response
     , DescribeImagesResponse
     -- ** Response constructor
     , describeImagesResponse
     -- ** Response lenses
-    , dirImages
+    , dirItem
     ) where
 
 import Network.AWS.Request.Query
@@ -72,10 +72,10 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeImages = DescribeImages
-    { _di1ImageIds :: [Text]
-    , _di1Owners :: [Text]
-    , _di1ExecutableUsers :: [Text]
-    , _di1Filters :: [Filter]
+    { _di1ImageId :: [Text]
+    , _di1Owner :: [Text]
+    , _di1ExecutableBy :: [Text]
+    , _di1Filter :: [Filter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -83,37 +83,36 @@ data DescribeImages = DescribeImages
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ImageIds ::@ @[Text]@
+-- * @ImageId ::@ @[Text]@
 --
--- * @Owners ::@ @[Text]@
+-- * @Owner ::@ @[Text]@
 --
--- * @ExecutableUsers ::@ @[Text]@
+-- * @ExecutableBy ::@ @[Text]@
 --
--- * @Filters ::@ @[Filter]@
+-- * @Filter ::@ @[Filter]@
 --
 describeImages :: DescribeImages
 describeImages = DescribeImages
-    { _di1ImageIds = mempty
-    , _di1Owners = mempty
-    , _di1ExecutableUsers = mempty
-    , _di1Filters = mempty
+    { _di1ImageId = mempty
+    , _di1Owner = mempty
+    , _di1ExecutableBy = mempty
+    , _di1Filter = mempty
     }
 
 -- | One or more image IDs. Default: Describes all images available to you.
-di1ImageIds :: Lens' DescribeImages [Text]
-di1ImageIds = lens _di1ImageIds (\s a -> s { _di1ImageIds = a })
+di1ImageId :: Lens' DescribeImages [Text]
+di1ImageId = lens _di1ImageId (\s a -> s { _di1ImageId = a })
 
 -- | Filters the images by the owner. Specify an AWS account ID, amazon (owner
 -- is Amazon), aws-marketplace (owner is AWS Marketplace), self (owner is the
 -- sender of the request), or all (all owners).
-di1Owners :: Lens' DescribeImages [Text]
-di1Owners = lens _di1Owners (\s a -> s { _di1Owners = a })
+di1Owner :: Lens' DescribeImages [Text]
+di1Owner = lens _di1Owner (\s a -> s { _di1Owner = a })
 
 -- | Scopes the images by users with explicit launch permissions. Specify an AWS
 -- account ID, self (the sender of the request), or all (public AMIs).
-di1ExecutableUsers :: Lens' DescribeImages [Text]
-di1ExecutableUsers =
-    lens _di1ExecutableUsers (\s a -> s { _di1ExecutableUsers = a })
+di1ExecutableBy :: Lens' DescribeImages [Text]
+di1ExecutableBy = lens _di1ExecutableBy (\s a -> s { _di1ExecutableBy = a })
 
 -- | One or more filters. architecture - The image architecture (i386 | x86_64).
 -- block-device-mapping.delete-on-termination - A Boolean value that indicates
@@ -148,14 +147,14 @@ di1ExecutableUsers =
 -- filter. tag-value - The value of a tag assigned to the resource. This
 -- filter is independent of the tag-key filter. virtualization-type - The
 -- virtualization type (paravirtual | hvm).
-di1Filters :: Lens' DescribeImages [Filter]
-di1Filters = lens _di1Filters (\s a -> s { _di1Filters = a })
+di1Filter :: Lens' DescribeImages [Filter]
+di1Filter = lens _di1Filter (\s a -> s { _di1Filter = a })
 
 instance ToQuery DescribeImages where
     toQuery = genericQuery def
 
 newtype DescribeImagesResponse = DescribeImagesResponse
-    { _dirImages :: [Image]
+    { _dirItem :: [Image]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -165,16 +164,16 @@ newtype DescribeImagesResponse = DescribeImagesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Images ::@ @[Image]@
+-- * @Item ::@ @[Image]@
 --
 describeImagesResponse :: DescribeImagesResponse
 describeImagesResponse = DescribeImagesResponse
-    { _dirImages = mempty
+    { _dirItem = mempty
     }
 
 -- | Information about one or more images.
-dirImages :: Lens' DescribeImagesResponse [Image]
-dirImages = lens _dirImages (\s a -> s { _dirImages = a })
+dirItem :: Lens' DescribeImagesResponse [Image]
+dirItem = lens _dirItem (\s a -> s { _dirItem = a })
 
 instance FromXML DescribeImagesResponse where
     fromXMLOptions = xmlOptions

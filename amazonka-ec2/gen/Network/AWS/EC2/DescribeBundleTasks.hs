@@ -41,15 +41,15 @@ module Network.AWS.EC2.DescribeBundleTasks
     -- ** Request constructor
     , describeBundleTasks
     -- ** Request lenses
-    , dbtBundleIds
-    , dbtFilters
+    , dbtBundleId
+    , dbtFilter
 
     -- * Response
     , DescribeBundleTasksResponse
     -- ** Response constructor
     , describeBundleTasksResponse
     -- ** Response lenses
-    , dbtrBundleTasks
+    , dbtrItem
     ) where
 
 import Network.AWS.Request.Query
@@ -57,8 +57,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeBundleTasks = DescribeBundleTasks
-    { _dbtBundleIds :: [Text]
-    , _dbtFilters :: [Filter]
+    { _dbtBundleId :: [Text]
+    , _dbtFilter :: [Filter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -66,19 +66,19 @@ data DescribeBundleTasks = DescribeBundleTasks
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @BundleIds ::@ @[Text]@
+-- * @BundleId ::@ @[Text]@
 --
--- * @Filters ::@ @[Filter]@
+-- * @Filter ::@ @[Filter]@
 --
 describeBundleTasks :: DescribeBundleTasks
 describeBundleTasks = DescribeBundleTasks
-    { _dbtBundleIds = mempty
-    , _dbtFilters = mempty
+    { _dbtBundleId = mempty
+    , _dbtFilter = mempty
     }
 
 -- | One or more bundle task IDs. Default: Describes all your bundle tasks.
-dbtBundleIds :: Lens' DescribeBundleTasks [Text]
-dbtBundleIds = lens _dbtBundleIds (\s a -> s { _dbtBundleIds = a })
+dbtBundleId :: Lens' DescribeBundleTasks [Text]
+dbtBundleId = lens _dbtBundleId (\s a -> s { _dbtBundleId = a })
 
 -- | One or more filters. bundle-id - The ID of the bundle task. error-code - If
 -- the task failed, the error code returned. error-message - If the task
@@ -89,14 +89,14 @@ dbtBundleIds = lens _dbtBundleIds (\s a -> s { _dbtBundleIds = a })
 -- example, 2013-09-15T17:15:20.000Z). state - The state of the task (pending
 -- | waiting-for-shutdown | bundling | storing | cancelling | complete |
 -- failed). update-time - The time of the most recent update for the task.
-dbtFilters :: Lens' DescribeBundleTasks [Filter]
-dbtFilters = lens _dbtFilters (\s a -> s { _dbtFilters = a })
+dbtFilter :: Lens' DescribeBundleTasks [Filter]
+dbtFilter = lens _dbtFilter (\s a -> s { _dbtFilter = a })
 
 instance ToQuery DescribeBundleTasks where
     toQuery = genericQuery def
 
 newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse
-    { _dbtrBundleTasks :: [BundleTask]
+    { _dbtrItem :: [BundleTask]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -106,16 +106,16 @@ newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @BundleTasks ::@ @[BundleTask]@
+-- * @Item ::@ @[BundleTask]@
 --
 describeBundleTasksResponse :: DescribeBundleTasksResponse
 describeBundleTasksResponse = DescribeBundleTasksResponse
-    { _dbtrBundleTasks = mempty
+    { _dbtrItem = mempty
     }
 
 -- | Information about one or more bundle tasks.
-dbtrBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
-dbtrBundleTasks = lens _dbtrBundleTasks (\s a -> s { _dbtrBundleTasks = a })
+dbtrItem :: Lens' DescribeBundleTasksResponse [BundleTask]
+dbtrItem = lens _dbtrItem (\s a -> s { _dbtrItem = a })
 
 instance FromXML DescribeBundleTasksResponse where
     fromXMLOptions = xmlOptions

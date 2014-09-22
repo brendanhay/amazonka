@@ -42,7 +42,7 @@ module Network.AWS.RDS.ModifyEventSubscription
     , mesSubscriptionName
     , mesSnsTopicArn
     , mesSourceType
-    , mesEventCategories
+    , mesEventCategory
     , mesEnabled
 
     -- * Response
@@ -62,7 +62,7 @@ data ModifyEventSubscription = ModifyEventSubscription
     { _mesSubscriptionName :: Text
     , _mesSnsTopicArn :: Maybe Text
     , _mesSourceType :: Maybe Text
-    , _mesEventCategories :: [Text]
+    , _mesEventCategory :: [Text]
     , _mesEnabled :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
@@ -77,7 +77,7 @@ data ModifyEventSubscription = ModifyEventSubscription
 --
 -- * @SourceType ::@ @Maybe Text@
 --
--- * @EventCategories ::@ @[Text]@
+-- * @EventCategory ::@ @[Text]@
 --
 -- * @Enabled ::@ @Maybe Bool@
 --
@@ -87,7 +87,7 @@ modifyEventSubscription p1 = ModifyEventSubscription
     { _mesSubscriptionName = p1
     , _mesSnsTopicArn = Nothing
     , _mesSourceType = Nothing
-    , _mesEventCategories = mempty
+    , _mesEventCategory = mempty
     , _mesEnabled = Nothing
     }
 
@@ -114,9 +114,9 @@ mesSourceType = lens _mesSourceType (\s a -> s { _mesSourceType = a })
 -- You can see a list of the categories for a given SourceType in the Events
 -- topic in the Amazon RDS User Guide or by using the DescribeEventCategories
 -- action.
-mesEventCategories :: Lens' ModifyEventSubscription [Text]
-mesEventCategories =
-    lens _mesEventCategories (\s a -> s { _mesEventCategories = a })
+mesEventCategory :: Lens' ModifyEventSubscription [Text]
+mesEventCategory =
+    lens _mesEventCategory (\s a -> s { _mesEventCategory = a })
 
 -- | A Boolean value; set to true to activate the subscription.
 mesEnabled :: Lens' ModifyEventSubscription (Maybe Bool)

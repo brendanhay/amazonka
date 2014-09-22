@@ -96,7 +96,7 @@ instance ToHeaders UpdateDistribution where
 
 instance ToXML UpdateDistribution where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "UpdateDistributionRequest"
+    toXMLRoot    = toRoot "UpdateDistribution"
 
 -- | The returned result of the corresponding request.
 data UpdateDistributionResponse = UpdateDistributionResponse

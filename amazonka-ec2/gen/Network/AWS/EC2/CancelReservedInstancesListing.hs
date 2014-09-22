@@ -44,7 +44,7 @@ module Network.AWS.EC2.CancelReservedInstancesListing
     -- ** Response constructor
     , cancelReservedInstancesListingResponse
     -- ** Response lenses
-    , crilrReservedInstancesListings
+    , crilrItem
     ) where
 
 import Network.AWS.Request.Query
@@ -78,7 +78,7 @@ instance ToQuery CancelReservedInstancesListing where
     toQuery = genericQuery def
 
 newtype CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
-    { _crilrReservedInstancesListings :: [ReservedInstancesListing]
+    { _crilrItem :: [ReservedInstancesListing]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -88,18 +88,16 @@ newtype CancelReservedInstancesListingResponse = CancelReservedInstancesListingR
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ReservedInstancesListings ::@ @[ReservedInstancesListing]@
+-- * @Item ::@ @[ReservedInstancesListing]@
 --
 cancelReservedInstancesListingResponse :: CancelReservedInstancesListingResponse
 cancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
-    { _crilrReservedInstancesListings = mempty
+    { _crilrItem = mempty
     }
 
 -- | The Reserved Instance listing.
-crilrReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
-crilrReservedInstancesListings =
-    lens _crilrReservedInstancesListings
-         (\s a -> s { _crilrReservedInstancesListings = a })
+crilrItem :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
+crilrItem = lens _crilrItem (\s a -> s { _crilrItem = a })
 
 instance FromXML CancelReservedInstancesListingResponse where
     fromXMLOptions = xmlOptions

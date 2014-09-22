@@ -36,7 +36,7 @@ module Network.AWS.S3.GetObjectAcl
     , getObjectAclResponse
     -- ** Response lenses
     , goarOwner
-    , goarGrants
+    , goarGrant
     ) where
 
 import Network.AWS.Request.RestS3
@@ -90,7 +90,7 @@ instance ToBody GetObjectAcl
 
 data GetObjectAclResponse = GetObjectAclResponse
     { _goarOwner :: Maybe Owner
-    , _goarGrants :: [Grant]
+    , _goarGrant :: [Grant]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -102,20 +102,20 @@ data GetObjectAclResponse = GetObjectAclResponse
 --
 -- * @Owner ::@ @Maybe Owner@
 --
--- * @Grants ::@ @[Grant]@
+-- * @Grant ::@ @[Grant]@
 --
 getObjectAclResponse :: GetObjectAclResponse
 getObjectAclResponse = GetObjectAclResponse
     { _goarOwner = Nothing
-    , _goarGrants = mempty
+    , _goarGrant = mempty
     }
 
 goarOwner :: Lens' GetObjectAclResponse (Maybe Owner)
 goarOwner = lens _goarOwner (\s a -> s { _goarOwner = a })
 
 -- | A list of grants.
-goarGrants :: Lens' GetObjectAclResponse [Grant]
-goarGrants = lens _goarGrants (\s a -> s { _goarGrants = a })
+goarGrant :: Lens' GetObjectAclResponse [Grant]
+goarGrant = lens _goarGrant (\s a -> s { _goarGrant = a })
 
 instance FromXML GetObjectAclResponse where
     fromXMLOptions = xmlOptions

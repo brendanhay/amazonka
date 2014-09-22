@@ -99,7 +99,7 @@ instance ToHeaders GetGeoLocation
 
 instance ToXML GetGeoLocation where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetGeoLocationRequest"
+    toXMLRoot    = toRoot "GetGeoLocation"
 
 -- | A complex type containing information about the specified geo location.
 newtype GetGeoLocationResponse = GetGeoLocationResponse

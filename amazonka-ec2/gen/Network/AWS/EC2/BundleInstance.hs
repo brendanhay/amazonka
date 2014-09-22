@@ -60,7 +60,7 @@ module Network.AWS.EC2.BundleInstance
     -- ** Response constructor
     , bundleInstanceResponse
     -- ** Response lenses
-    , birBundleTask
+    , birBundleInstanceTask
     ) where
 
 import Network.AWS.Request.Query
@@ -103,7 +103,7 @@ instance ToQuery BundleInstance where
     toQuery = genericQuery def
 
 newtype BundleInstanceResponse = BundleInstanceResponse
-    { _birBundleTask :: Maybe BundleTask
+    { _birBundleInstanceTask :: Maybe BundleTask
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -113,16 +113,17 @@ newtype BundleInstanceResponse = BundleInstanceResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @BundleTask ::@ @Maybe BundleTask@
+-- * @BundleInstanceTask ::@ @Maybe BundleTask@
 --
 bundleInstanceResponse :: BundleInstanceResponse
 bundleInstanceResponse = BundleInstanceResponse
-    { _birBundleTask = Nothing
+    { _birBundleInstanceTask = Nothing
     }
 
 -- | Information about the bundle task.
-birBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
-birBundleTask = lens _birBundleTask (\s a -> s { _birBundleTask = a })
+birBundleInstanceTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
+birBundleInstanceTask =
+    lens _birBundleInstanceTask (\s a -> s { _birBundleInstanceTask = a })
 
 instance FromXML BundleInstanceResponse where
     fromXMLOptions = xmlOptions

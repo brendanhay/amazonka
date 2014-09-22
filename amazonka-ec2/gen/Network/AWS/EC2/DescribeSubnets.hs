@@ -58,15 +58,15 @@ module Network.AWS.EC2.DescribeSubnets
     -- ** Request constructor
     , describeSubnets
     -- ** Request lenses
-    , ds3SubnetIds
-    , ds3Filters
+    , ds3SubnetId
+    , ds3Filter
 
     -- * Response
     , DescribeSubnetsResponse
     -- ** Response constructor
     , describeSubnetsResponse
     -- ** Response lenses
-    , dsrrSubnets
+    , dsrrItem
     ) where
 
 import Network.AWS.Request.Query
@@ -74,8 +74,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeSubnets = DescribeSubnets
-    { _ds3SubnetIds :: [Text]
-    , _ds3Filters :: [Filter]
+    { _ds3SubnetId :: [Text]
+    , _ds3Filter :: [Filter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -83,19 +83,19 @@ data DescribeSubnets = DescribeSubnets
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SubnetIds ::@ @[Text]@
+-- * @SubnetId ::@ @[Text]@
 --
--- * @Filters ::@ @[Filter]@
+-- * @Filter ::@ @[Filter]@
 --
 describeSubnets :: DescribeSubnets
 describeSubnets = DescribeSubnets
-    { _ds3SubnetIds = mempty
-    , _ds3Filters = mempty
+    { _ds3SubnetId = mempty
+    , _ds3Filter = mempty
     }
 
 -- | One or more subnet IDs. Default: Describes all your subnets.
-ds3SubnetIds :: Lens' DescribeSubnets [Text]
-ds3SubnetIds = lens _ds3SubnetIds (\s a -> s { _ds3SubnetIds = a })
+ds3SubnetId :: Lens' DescribeSubnets [Text]
+ds3SubnetId = lens _ds3SubnetId (\s a -> s { _ds3SubnetId = a })
 
 -- | One or more filters. availabilityZone - The Availability Zone for the
 -- subnet. You can also use availability-zone as the filter name.
@@ -116,14 +116,14 @@ ds3SubnetIds = lens _ds3SubnetIds (\s a -> s { _ds3SubnetIds = a })
 -- filter. tag-value - The value of a tag assigned to the resource. This
 -- filter is independent of the tag-key filter. vpc-id - The ID of the VPC for
 -- the subnet.
-ds3Filters :: Lens' DescribeSubnets [Filter]
-ds3Filters = lens _ds3Filters (\s a -> s { _ds3Filters = a })
+ds3Filter :: Lens' DescribeSubnets [Filter]
+ds3Filter = lens _ds3Filter (\s a -> s { _ds3Filter = a })
 
 instance ToQuery DescribeSubnets where
     toQuery = genericQuery def
 
 newtype DescribeSubnetsResponse = DescribeSubnetsResponse
-    { _dsrrSubnets :: [Subnet]
+    { _dsrrItem :: [Subnet]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -133,16 +133,16 @@ newtype DescribeSubnetsResponse = DescribeSubnetsResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Subnets ::@ @[Subnet]@
+-- * @Item ::@ @[Subnet]@
 --
 describeSubnetsResponse :: DescribeSubnetsResponse
 describeSubnetsResponse = DescribeSubnetsResponse
-    { _dsrrSubnets = mempty
+    { _dsrrItem = mempty
     }
 
 -- | Information about one or more subnets.
-dsrrSubnets :: Lens' DescribeSubnetsResponse [Subnet]
-dsrrSubnets = lens _dsrrSubnets (\s a -> s { _dsrrSubnets = a })
+dsrrItem :: Lens' DescribeSubnetsResponse [Subnet]
+dsrrItem = lens _dsrrItem (\s a -> s { _dsrrItem = a })
 
 instance FromXML DescribeSubnetsResponse where
     fromXMLOptions = xmlOptions

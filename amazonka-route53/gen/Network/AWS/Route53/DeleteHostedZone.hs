@@ -81,7 +81,7 @@ instance ToHeaders DeleteHostedZone
 
 instance ToXML DeleteHostedZone where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DeleteHostedZoneRequest"
+    toXMLRoot    = toRoot "DeleteHostedZone"
 
 -- | A complex type containing the response information for the request.
 newtype DeleteHostedZoneResponse = DeleteHostedZoneResponse

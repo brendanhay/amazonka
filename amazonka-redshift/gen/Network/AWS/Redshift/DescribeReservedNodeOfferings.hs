@@ -53,7 +53,7 @@ module Network.AWS.Redshift.DescribeReservedNodeOfferings
     , describeReservedNodeOfferingsResponse
     -- ** Response lenses
     , drnorMarker
-    , drnorReservedNodeOfferings
+    , drnorReservedNodeOffering
     ) where
 
 import Network.AWS.Request.Query
@@ -114,7 +114,7 @@ instance ToQuery DescribeReservedNodeOfferings where
 -- | Contains the output from the DescribeReservedNodeOfferings action.
 data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse
     { _drnorMarker :: Maybe Text
-    , _drnorReservedNodeOfferings :: [ReservedNodeOffering]
+    , _drnorReservedNodeOffering :: [ReservedNodeOffering]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -126,12 +126,12 @@ data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsRespon
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @ReservedNodeOfferings ::@ @[ReservedNodeOffering]@
+-- * @ReservedNodeOffering ::@ @[ReservedNodeOffering]@
 --
 describeReservedNodeOfferingsResponse :: DescribeReservedNodeOfferingsResponse
 describeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse
     { _drnorMarker = Nothing
-    , _drnorReservedNodeOfferings = mempty
+    , _drnorReservedNodeOffering = mempty
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -143,10 +143,10 @@ drnorMarker :: Lens' DescribeReservedNodeOfferingsResponse (Maybe Text)
 drnorMarker = lens _drnorMarker (\s a -> s { _drnorMarker = a })
 
 -- | A list of reserved node offerings.
-drnorReservedNodeOfferings :: Lens' DescribeReservedNodeOfferingsResponse [ReservedNodeOffering]
-drnorReservedNodeOfferings =
-    lens _drnorReservedNodeOfferings
-         (\s a -> s { _drnorReservedNodeOfferings = a })
+drnorReservedNodeOffering :: Lens' DescribeReservedNodeOfferingsResponse [ReservedNodeOffering]
+drnorReservedNodeOffering =
+    lens _drnorReservedNodeOffering
+         (\s a -> s { _drnorReservedNodeOffering = a })
 
 instance FromXML DescribeReservedNodeOfferingsResponse where
     fromXMLOptions = xmlOptions

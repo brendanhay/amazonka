@@ -72,7 +72,7 @@ instance ToHeaders GetStreamingDistributionConfig
 
 instance ToXML GetStreamingDistributionConfig where
     toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "GetStreamingDistributionConfigRequest"
+    toXMLRoot    = toRoot "GetStreamingDistributionConfig"
 
 -- | The returned result of the corresponding request.
 data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse

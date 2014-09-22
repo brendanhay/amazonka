@@ -67,9 +67,6 @@ module Network.AWS.Route53.Types
     -- * HealthCheckType
     , HealthCheckType (..)
 
-    -- * ResourceRecordSetRegion
-    , ResourceRecordSetRegion (..)
-
     -- * TagResourceType
     , TagResourceType (..)
 
@@ -656,55 +653,6 @@ instance ToXML HealthCheckType where
     toXMLRoot    = toRoot "HealthCheckType"
 
 instance ToQuery HealthCheckType where
-      toQuery = toQuery . toBS
-
-data ResourceRecordSetRegion
-    = ResourceRecordSetRegionApNortheast1 -- ^ ap-northeast-1
-    | ResourceRecordSetRegionApSoutheast1 -- ^ ap-southeast-1
-    | ResourceRecordSetRegionApSoutheast2 -- ^ ap-southeast-2
-    | ResourceRecordSetRegionCnNorth1 -- ^ cn-north-1
-    | ResourceRecordSetRegionEuWest1 -- ^ eu-west-1
-    | ResourceRecordSetRegionSaEast1 -- ^ sa-east-1
-    | ResourceRecordSetRegionUsEast1 -- ^ us-east-1
-    | ResourceRecordSetRegionUsWest1 -- ^ us-west-1
-    | ResourceRecordSetRegionUsWest2 -- ^ us-west-2
-      deriving (Eq, Ord, Show, Generic)
-
-instance Hashable ResourceRecordSetRegion
-
-instance FromText ResourceRecordSetRegion where
-    parser = match "ap-northeast-1" ResourceRecordSetRegionApNortheast1
-         <|> match "ap-southeast-1" ResourceRecordSetRegionApSoutheast1
-         <|> match "ap-southeast-2" ResourceRecordSetRegionApSoutheast2
-         <|> match "cn-north-1" ResourceRecordSetRegionCnNorth1
-         <|> match "eu-west-1" ResourceRecordSetRegionEuWest1
-         <|> match "sa-east-1" ResourceRecordSetRegionSaEast1
-         <|> match "us-east-1" ResourceRecordSetRegionUsEast1
-         <|> match "us-west-1" ResourceRecordSetRegionUsWest1
-         <|> match "us-west-2" ResourceRecordSetRegionUsWest2
-
-instance ToText ResourceRecordSetRegion where
-    toText ResourceRecordSetRegionApNortheast1 = "ap-northeast-1"
-    toText ResourceRecordSetRegionApSoutheast1 = "ap-southeast-1"
-    toText ResourceRecordSetRegionApSoutheast2 = "ap-southeast-2"
-    toText ResourceRecordSetRegionCnNorth1 = "cn-north-1"
-    toText ResourceRecordSetRegionEuWest1 = "eu-west-1"
-    toText ResourceRecordSetRegionSaEast1 = "sa-east-1"
-    toText ResourceRecordSetRegionUsEast1 = "us-east-1"
-    toText ResourceRecordSetRegionUsWest1 = "us-west-1"
-    toText ResourceRecordSetRegionUsWest2 = "us-west-2"
-
-instance ToByteString ResourceRecordSetRegion
-
-instance FromXML ResourceRecordSetRegion where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResourceRecordSetRegion"
-
-instance ToXML ResourceRecordSetRegion where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ResourceRecordSetRegion"
-
-instance ToQuery ResourceRecordSetRegion where
       toQuery = toQuery . toBS
 
 data TagResourceType
@@ -1405,7 +1353,7 @@ data ResourceRecordSet = ResourceRecordSet
     , _rrsType :: RecordType
     , _rrsSetIdentifier :: Maybe Text
     , _rrsWeight :: Maybe Integer
-    , _rrsRegion :: Maybe ResourceRecordSetRegion
+    , _rrsRegion :: Maybe Region
     , _rrsGeoLocation :: Maybe GeoLocation
     , _rrsFailover :: Maybe Failover
     , _rrsTTL :: Maybe Integer
@@ -1427,7 +1375,7 @@ data ResourceRecordSet = ResourceRecordSet
 --
 -- * @Weight ::@ @Maybe Integer@
 --
--- * @Region ::@ @Maybe ResourceRecordSetRegion@
+-- * @Region ::@ @Maybe Region@
 --
 -- * @GeoLocation ::@ @Maybe GeoLocation@
 --
@@ -1484,7 +1432,7 @@ rrsWeight = lens _rrsWeight (\s a -> s { _rrsWeight = a })
 -- | Latency-based resource record sets only: Among resource record sets that
 -- have the same combination of DNS name and type, a value that specifies the
 -- AWS region for the current resource record set.
-rrsRegion :: Lens' ResourceRecordSet (Maybe ResourceRecordSetRegion)
+rrsRegion :: Lens' ResourceRecordSet (Maybe Region)
 rrsRegion = lens _rrsRegion (\s a -> s { _rrsRegion = a })
 
 -- | Geo location resource record sets only: Among resource record sets that

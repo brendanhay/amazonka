@@ -12,7 +12,7 @@
             ]
         },
         "ResourceRecordSetRegion": {
-            "eixsts": "Region"
+            "exists": "Region"
         },
         "RRType": {
             "exists": "RecordType"

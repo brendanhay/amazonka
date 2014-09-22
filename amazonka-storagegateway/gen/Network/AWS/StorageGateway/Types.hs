@@ -76,6 +76,12 @@ module Network.AWS.StorageGateway.Types
     , diDiskAllocationType
     , diDiskAllocationResource
 
+    -- * Error'
+    , Error'
+    , error'
+    , sgeErrorCode
+    , sgeErrorDetails
+
     -- * GatewayInformation
     , GatewayInformation
     , gatewayInformation
@@ -88,12 +94,6 @@ module Network.AWS.StorageGateway.Types
     , niIpv4Address
     , niMacAddress
     , niIpv6Address
-
-    -- * StorageGatewayError
-    , StorageGatewayError
-    , storageGatewayError
-    , sgeErrorCode
-    , sgeErrorDetails
 
     -- * StorediSCSIVolumeInformation
     , StorediSCSIVolumeInformation
@@ -194,14 +194,14 @@ data StorageGatewayError
       -- error and message fields for more information.
     = InternalServerError
         { _iseMessage :: Maybe Text
-        , _iseError :: Maybe StorageGatewayError
+        , _iseError :: Maybe Error'
         }
       -- | An exception occured because an invalid gateway request was
       -- issued to the service. See the error and message fields for more
       -- information.
     | InvalidGatewayRequestException
         { _igreMessage :: Maybe Text
-        , _igreError :: Maybe StorageGatewayError
+        , _igreError :: Maybe Error'
         }
     | StorageGatewayClient HttpException
     | StorageGatewaySerializer String
@@ -222,7 +222,7 @@ instance Exception StorageGatewayError
 -- message fields for more information.
 --
 -- See: 'InternalServerError'
-_InternalServerError :: Prism' StorageGatewayError (Maybe Text, Maybe StorageGatewayError)
+_InternalServerError :: Prism' StorageGatewayError (Maybe Text, Maybe Error')
 _InternalServerError = prism
     (\(p1, p2) -> InternalServerError p1 p2)
     (\case
@@ -233,7 +233,7 @@ _InternalServerError = prism
 -- service. See the error and message fields for more information.
 --
 -- See: 'InvalidGatewayRequestException'
-_InvalidGatewayRequestException :: Prism' StorageGatewayError (Maybe Text, Maybe StorageGatewayError)
+_InvalidGatewayRequestException :: Prism' StorageGatewayError (Maybe Text, Maybe Error')
 _InvalidGatewayRequestException = prism
     (\(p1, p2) -> InvalidGatewayRequestException p1 p2)
     (\case
@@ -783,6 +783,40 @@ diDiskAllocationResource =
 
 instance FromJSON DiskInformation
 
+-- | A StorageGatewayError that provides more detail about the cause of the
+-- error.
+data Error' = Error'
+    { _sgeErrorCode :: Maybe ErrorCode
+    , _sgeErrorDetails :: Map Text Text
+    } deriving (Eq, Show, Generic)
+
+-- | Smart constructor for the minimum required fields to construct
+-- a valid 'Error'' data type to populate a request.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * @ErrorCode ::@ @Maybe ErrorCode@
+--
+-- * @ErrorDetails ::@ @Map Text Text@
+--
+error' :: Error'
+error' = Error'
+    { _sgeErrorCode = Nothing
+    , _sgeErrorDetails = mempty
+    }
+
+-- | Additional information about the error.
+sgeErrorCode :: Lens' Error' (Maybe ErrorCode)
+sgeErrorCode = lens _sgeErrorCode (\s a -> s { _sgeErrorCode = a })
+
+-- | Human-readable text that provides detail about the error that occured.
+sgeErrorDetails :: Lens' Error' (Map Text Text)
+sgeErrorDetails = lens _sgeErrorDetails (\s a -> s { _sgeErrorDetails = a })
+
+instance FromJSON Error'
+
+instance ToJSON Error'
+
 data GatewayInformation = GatewayInformation
     { _giGatewayARN :: Maybe Text
     , _giGatewayType :: Maybe Text
@@ -859,40 +893,6 @@ niIpv6Address :: Lens' NetworkInterface (Maybe Text)
 niIpv6Address = lens _niIpv6Address (\s a -> s { _niIpv6Address = a })
 
 instance FromJSON NetworkInterface
-
--- | A StorageGatewayError that provides more detail about the cause of the
--- error.
-data StorageGatewayError = StorageGatewayError
-    { _sgeErrorCode :: Maybe ErrorCode
-    , _sgeErrorDetails :: Map Text Text
-    } deriving (Eq, Show, Generic)
-
--- | Smart constructor for the minimum required fields to construct
--- a valid 'StorageGatewayError' data type to populate a request.
---
--- The fields accessible through corresponding lenses are:
---
--- * @ErrorCode ::@ @Maybe ErrorCode@
---
--- * @ErrorDetails ::@ @Map Text Text@
---
-storageGatewayError :: StorageGatewayError
-storageGatewayError = StorageGatewayError
-    { _sgeErrorCode = Nothing
-    , _sgeErrorDetails = mempty
-    }
-
--- | Additional information about the error.
-sgeErrorCode :: Lens' StorageGatewayError (Maybe ErrorCode)
-sgeErrorCode = lens _sgeErrorCode (\s a -> s { _sgeErrorCode = a })
-
--- | Human-readable text that provides detail about the error that occured.
-sgeErrorDetails :: Lens' StorageGatewayError (Map Text Text)
-sgeErrorDetails = lens _sgeErrorDetails (\s a -> s { _sgeErrorDetails = a })
-
-instance FromJSON StorageGatewayError
-
-instance ToJSON StorageGatewayError
 
 data StorediSCSIVolumeInformation = StorediSCSIVolumeInformation
     { _sscsiviVolumeARN :: Maybe Text

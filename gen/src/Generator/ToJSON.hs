@@ -28,6 +28,7 @@ import qualified Data.CaseInsensitive       as CI
 import           Data.Foldable              (foldl')
 import qualified Data.HashMap.Strict        as Map
 import           Data.List                  (sort, nub, intercalate)
+import           Data.Maybe
 import           Data.Monoid                hiding (Sum)
 import           Data.String.CaseConversion
 import           Data.Text                  (Text)
@@ -124,7 +125,10 @@ instance ToJSON Direction where
             DBoth     -> (True, True)
 
 instance ToJSON Common where
-    toJSON = toField (recase Camel Under . drop 4)
+    toJSON c = Object (x <> y)
+      where
+        Object x = object ["xml_name" .= fromMaybe (c^.cmnName) (c^.cmnXmlName)]
+        Object y = toField (recase Camel Under . drop 4) c
 
 instance ToJSON Struct
 instance ToJSON List

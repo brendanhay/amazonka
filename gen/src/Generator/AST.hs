@@ -81,6 +81,18 @@ documentation x  = Doc (Just x)
 instance Default Doc where
     def = Doc Nothing
 
+instance Monoid Doc where
+    mempty = Doc Nothing
+
+    -- FIXME: How to select which documentation to use?
+    mappend (Doc a) (Doc b) = Doc $
+        case (a, b) of
+            (Just x, Just y)
+                | Text.length x > Text.length y -> Just x
+                | otherwise                     -> Just y
+            (Nothing, _) -> b
+            (_, Nothing) -> a
+
 data Time
     = RFC822
     | ISO8601

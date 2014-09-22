@@ -274,15 +274,18 @@ fieldsOf :: Text -> Bool -> Service -> Shape -> [Field]
 fieldsOf frm rq svc s = map f (shapesOf s)
   where
     f :: (Text, Shape) -> Field
-    f (k, v) = Field k p (shapeType ("fieldsOf: " <> frm) rq svc val)
+    f (k, v) = Field k key (shapeType ("fieldsOf: " <> frm) rq svc val)
       where
         val | CI.mk k `elem` (svc^.fRequired) = v & cmnRequired.~True
             | otherwise = v
 
-        p = prefixed s (fromMaybe k (prefix v))
+        key = prefixed s . name $
+            case v of
+                SList x -> x^.lstItem.cmnXmlName
+                _       -> v^.cmnXmlName
 
-        prefix (SList x) = x^.lstItem.cmnXmlName
-        prefix x         = x^.cmnXmlName
+        name (Just n) | not (Text.null n) = n
+        name _                            = k
 
 shapesOf :: Shape -> [(Text, Shape)]
 shapesOf s = case s of
@@ -489,10 +492,15 @@ mergeCommon :: HasCommon a => a -> State (HashMap Text a) ()
 mergeCommon x = modify (Map.insertWith merge (x^.cmnName) x)
   where
     merge b a = b
-        & cmnXmlName       %~ (<|> a^.cmnXmlName)
-        & cmnLocationName  %~ (<|> a^.cmnLocationName)
-        & cmnDocumentation %~ (<|> a^.cmnDocumentation)
-        & cmnDirection    <>~ (a^.cmnDirection)
+        & cmnXmlName       %~  xml (a^.cmnXmlName)
+        & cmnLocationName  %~  (<|> a^.cmnLocationName)
+        & cmnDocumentation <>~ (a^.cmnDocumentation)
+        & cmnDirection     <>~ (a^.cmnDirection)
+
+    xml (Just "") b         = b
+    xml a         (Just "") = a
+    xml Nothing   b         = b
+    xml a         _         = a
 
 descend :: Service -> Shape -> [Shape]
 descend svc s' = case s' of

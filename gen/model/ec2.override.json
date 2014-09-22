@@ -19,7 +19,10 @@
                 "IpProtocol",
                 "FromPort",
                 "ToPort"
-            ]
+            ],
+            "rename": {
+                "UserIdGroupPairs": "Groups"
+            }
         },
         "InternetGateway": {
             "require": [

@@ -13,19 +13,23 @@
             }
         }
     },
-    "type_overrides": {
-        "required": {
-            "Filter": [
+    "overrides": {
+        "Filter" {
+            "require": [
                 "Name"
-            ],
-            "Tag": [
+            ]
+        },
+        "Tag": {
+            "require": [
                 "ResourceId",
                 "ResourceType",
                 "Key",
                 "PropagateAtLaunch",
                 "Value"
-            ],
-            "TagDescription": [
+            ]
+        },
+        "TagDescription": {
+            "require": [
                 "ResourceId",
                 "ResourceType",
                 "Key",

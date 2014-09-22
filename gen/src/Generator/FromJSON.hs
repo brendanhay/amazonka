@@ -20,7 +20,7 @@ module Generator.FromJSON where
 
 import           Control.Applicative
 import           Control.Error
-import           Control.Lens               ((&), (%~), (.~))
+import           Control.Lens               ((&), (%~), (.~), (^.))
 import           Control.Monad
 import qualified Data.Attoparsec.Text       as AText
 import           Data.Bifunctor
@@ -41,7 +41,7 @@ import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
 import qualified Data.Text.Unsafe           as Text
 import           Data.Text.Util
-import           Data.Traversable           (traverse)
+import           Data.Traversable           (traverse, for)
 import           GHC.Generics
 import           Generator.AST
 import           Generator.Log
@@ -132,19 +132,15 @@ instance FromJSON (Text -> Doc -> Cabal) where
 instance FromJSON Library where
     parseJSON = fmap library . parseJSON
 
-instance FromJSON TypeOverride where
-    parseJSON = withObject "type_overrides" $ \o -> TypeOverride
-        <$> o .:? "required" .!= mempty
-        <*> o .:? "existing" .!= mempty
-        <*> o .:? "rename"   .!= mempty
-        <*> o .:? "prefixed" .!= mempty
-        <*> o .:? "type"     .!= mempty
-
-instance FromJSON FieldOverride where
-    parseJSON = withObject "field_overrides" $ \o -> FieldOverride
-        <$> o .:? "required" .!= mempty
-        <*> o .:? "ignored"  .!= mempty
-        <*> o .:? "type"     .!= mempty
+instance FromJSON Override where
+    parseJSON = withObject "override" $ \o -> Override
+        <$> o .:? "name"
+        <*> o .:? "type"
+        <*> o .:? "prefix"
+        <*> o .:? "require" .!= mempty
+        <*> o .:? "ignore"  .!= mempty
+        <*> o .:? "field"   .!= mempty
+        <*> o .:? "rename"  .!= mempty
 
 instance FromJSON Service where
     parseJSON = withObject "service" $ \o -> do
@@ -182,8 +178,21 @@ instance FromJSON Service where
             <*> pure def
             <*> pure (cbl n d)
             <*> o .:! "static"
-            <*> o .:! "type_overrides"
-            <*> o .:! "field_overrides"
+            <*> overrides o
+      where
+        overrides o = do
+            m  <- o .:? "overrides" .!= mempty
+            g  <- maybe (return def) parseJSON (Map.lookup "*" m)
+            os <- for (Map.toList m) $ \(k, v) -> do
+                l <- parseJSON v
+                return (k, g `merge` l)
+            return $! Map.fromList os
+
+        merge g l = l
+            & oRequire %~ (nub . mappend (g^.oRequire))
+            & oIgnore  %~ (nub . mappend (g^.oIgnore))
+            & oPrefix  %~ (`mappend` (g^.oPrefix))
+            & oType    %~ (`mappend` (g^.oType))
 
 instance FromJSON [Operation] where
     parseJSON = withObject "operations" $

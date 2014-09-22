@@ -77,10 +77,7 @@ instance ToJSON Library where
 instance ToJSON Cabal where
     toJSON = toField (recase Camel Under . drop 4)
 
-instance ToJSON TypeOverride where
-    toJSON = const Null
-
-instance ToJSON FieldOverride where
+instance ToJSON (HashMap (CI Text) Override) where
     toJSON = const Null
 
 instance ToJSON Namespaces where

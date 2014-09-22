@@ -440,25 +440,42 @@ data Cabal = Cabal
 cabal :: Version -> Maybe Text -> Maybe Doc -> Text -> Doc -> Cabal
 cabal v ms md s d = Cabal v (fromMaybe (s <> " SDK") ms) (fromMaybe d md)
 
-data TypeOverride = TypeOverride
-    { _tRequired  :: HashMap (CI Text) [CI Text]
-    , _tExisting  :: HashMap (CI Text) Text
-    , _tRename    :: HashMap (CI Text) Text
-    , _tPrefixed  :: HashMap (CI Text) Text
-    , _tFieldType :: HashMap (CI Text) (HashMap (CI Text) Text)
+data Override = Override
+    { _oName    :: Maybe Text             -- ^ Rename type
+    , _oType    :: Maybe Text             -- ^ Existing type that supplants this type
+    , _oPrefix  :: Maybe Text             -- ^ Sum constructor prefix
+    , _oRequire :: [CI Text]              -- ^ Required fields
+    , _oIgnore  :: [CI Text]              -- ^ Ignored fields
+    , _oField   :: HashMap (CI Text) Text -- ^ Field types
+    , _oRename  :: HashMap (CI Text) Text -- ^ Rename fields
     } deriving (Show, Generic)
 
-instance Default TypeOverride where
-    def = TypeOverride mempty mempty mempty mempty mempty
+instance Default Override where
+    def = Override Nothing Nothing Nothing [] [] mempty mempty
 
-data FieldOverride = FieldOverride
-    { _fRequired :: [CI Text]
-    , _fIgnored  :: [CI Text]
-    , _fType     :: HashMap (CI Text) Text
-    } deriving (Show, Generic)
-
-instance Default FieldOverride where
-    def = FieldOverride mempty mempty mempty
+-- "overrides": {
+--     "*": {
+--         "name": "NewName",
+--         "type": "ExistingType",
+--         "prefix":  "",
+--         "require": [
+--             "Field1"
+--         ],
+--         "ignore": [
+--             "Field1"
+--         ],
+--         "field": {
+--             "Field1": "NewType"
+--         },
+--         "rename": {
+--             "Field1": "Field2"
+--         }
+--     },
+--     "CreateKeyPairResponse": {
+--         "require": [
+--         ]
+--     }
+-- }
 
 data Namespaces = Namespaces
     { _nsRoot    :: !NS
@@ -498,8 +515,7 @@ data Service = Service
     , _svcTypes          :: [Type']
     , _svcCabal          :: Cabal
     , _svcStatic         :: [NS]
-    , _svcTypeOverride   :: TypeOverride
-    , _svcFieldOverride  :: FieldOverride
+    , _svcOverrides      :: HashMap (CI Text) Override
     } deriving (Show, Generic)
 
 instance Eq Service where
@@ -516,30 +532,29 @@ instance Ord Service where
 
 defaultService :: Abbrev -> Service
 defaultService a = Service
-    { _svcName               = a
-    , _svcLibrary            = library a
-    , _svcFullName           = unAbbrev a
-    , _svcNs                 = namespacesFromAbbrev a def
-    , _svcVersion            = Version mempty
-    , _svcRawVersion         = mempty
-    , _svcType               = def
-    , _svcError              = Error (unAbbrev a) mempty mempty
-    , _svcWrapped            = False
-    , _svcSignature          = def
-    , _svcDocumentation      = def
-    , _svcEndpointPrefix     = mempty
-    , _svcGlobalEndpoint     = def
-    , _svcXmlNamespace       = def
-    , _svcTimestamp          = def
-    , _svcChecksum           = def
-    , _svcJsonVersion        = def
-    , _svcTargetPrefix       = def
-    , _svcOperations         = mempty
-    , _svcTypes              = mempty
-    , _svcCabal              = Cabal cabalVersion (unAbbrev a) def
-    , _svcStatic             = mempty
-    , _svcTypeOverride       = def
-    , _svcFieldOverride      = def
+    { _svcName           = a
+    , _svcLibrary        = library a
+    , _svcFullName       = unAbbrev a
+    , _svcNs             = namespacesFromAbbrev a def
+    , _svcVersion        = Version mempty
+    , _svcRawVersion     = mempty
+    , _svcType           = def
+    , _svcError          = Error (unAbbrev a) mempty mempty
+    , _svcWrapped        = False
+    , _svcSignature      = def
+    , _svcDocumentation  = def
+    , _svcEndpointPrefix = mempty
+    , _svcGlobalEndpoint = def
+    , _svcXmlNamespace   = def
+    , _svcTimestamp      = def
+    , _svcChecksum       = def
+    , _svcJsonVersion    = def
+    , _svcTargetPrefix   = def
+    , _svcOperations     = mempty
+    , _svcTypes          = mempty
+    , _svcCabal          = Cabal cabalVersion (unAbbrev a) def
+    , _svcStatic         = mempty
+    , _svcOverrides      = mempty
     }
 
 makePrisms ''Shape
@@ -560,22 +575,15 @@ makeLenses ''Map
 makeLenses ''Sum
 makeLenses ''Prim
 makeLenses ''QueryPart
+makeLenses ''Override
 
 makeClassy ''Ann
-makeClassy ''TypeOverride
-makeClassy ''FieldOverride
 
 instance HasAnn Field where
     ann = fldType . ann
 
 instance HasAnn Type' where
     ann = typAnn
-
-instance HasTypeOverride Service where
-    typeOverride = svcTypeOverride
-
-instance HasFieldOverride Service where
-    fieldOverride = svcFieldOverride
 
 instance HasCommon Shape where
     common f x = case x of

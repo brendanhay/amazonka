@@ -14,7 +14,7 @@
         }
     },
     "overrides": {
-        "Filter" {
+        "Filter": {
             "require": [
                 "Name"
             ]

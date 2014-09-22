@@ -5,12 +5,19 @@
     "static": [
         "Network.AWS.S3.Internal.Types"
     ],
-    "type_overrides": {
-        "required": {
-            "ListObjectsResponse": [
+    "overrides": {
+        "*": {
+            "require": [
+                "IsTruncated"
+            ]
+        },
+        "ListObjectsResponse": {
+            "require": [
                 "Name"
-            ],
-            "Object": [
+            ]
+        },
+        "Object": {
+            "require": [
                 "ETag",
                 "Size",
                 "Owner",
@@ -19,18 +26,23 @@
                 "LastModified"
             ]
         },
-        "existing": {
-            "BucketLocationConstraint": "Region",
-            "BucketName": "BucketName",
-            "ObjectKey": "ObjectKey",
-            "ObjectVersionId": "ObjectVersionId",
-            "ETag": "ETag",
-            "Delimiter": "Char"
+        "BucketLocationConstraint": {
+            "exists": "Region"
+        },
+        "BucketName": {
+            "exists": "BucketName"
+        },
+        "ObjectKey": {
+            "exists": "ObjectKey"
+        },
+        "ObjectVersionId": {
+            "exists": "ObjectVersionId"
+        },
+        "ETag": {
+            "exists": "ETag"
+        },
+        "Delimiter": {
+            "exists": "Char"
         }
-    },
-    "field_overrides": {
-        "required": [
-            "IsTruncated"
-        ]
     }
 }

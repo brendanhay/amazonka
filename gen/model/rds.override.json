@@ -16,9 +16,9 @@
             }
         }
     },
-    "type_overrides": {
-        "required": {
-            "DescribeEngineDefaultParametersResponse": [
+    "overrides": {
+        "DescribeEngineDefaultParametersResponse": {
+            "require": [
                 "EngineDefaults"
             ]
         }

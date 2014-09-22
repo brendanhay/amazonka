@@ -380,7 +380,7 @@ isBody s = s^.cmnLocation == LBody && s^.cmnStreaming
 
 existingType :: HasCommon a => Service -> a -> Maybe Text
 existingType svc x = Map.lookup (CI.mk (x^.cmnName)) (svc^.svcOverrides)
-    >>= view oType
+    >>= view oExists
 
 renameCommon :: HasCommon a => Service -> a -> a
 renameCommon svc c = c &

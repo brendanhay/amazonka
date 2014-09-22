@@ -442,11 +442,11 @@ cabal v ms md s d = Cabal v (fromMaybe (s <> " SDK") ms) (fromMaybe d md)
 
 data Override = Override
     { _oName    :: Maybe Text             -- ^ Rename type
-    , _oType    :: Maybe Text             -- ^ Existing type that supplants this type
+    , _oExists  :: Maybe Text             -- ^ Existing type that supplants this type
     , _oPrefix  :: Maybe Text             -- ^ Sum constructor prefix
     , _oRequire :: [CI Text]              -- ^ Required fields
     , _oIgnore  :: [CI Text]              -- ^ Ignored fields
-    , _oField   :: HashMap (CI Text) Text -- ^ Field types
+    , _oType    :: HashMap (CI Text) Text -- ^ Field types
     , _oRename  :: HashMap (CI Text) Text -- ^ Rename fields
     } deriving (Show, Generic)
 

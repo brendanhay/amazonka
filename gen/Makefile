@@ -53,7 +53,7 @@ JSON := \
  logs \
  cognito-identity
 
-MODELS ?= ec2 # $(RESTS3) $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
+MODELS ?= $(RESTS3) $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
 
 .PHONY: gen
 

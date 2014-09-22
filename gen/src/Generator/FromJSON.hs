@@ -20,7 +20,7 @@ module Generator.FromJSON where
 
 import           Control.Applicative
 import           Control.Error
-import           Control.Lens               ((&), (%~), (.~), (^.))
+import           Control.Lens               ((&), (%~), (.~))
 import           Control.Monad
 import qualified Data.Attoparsec.Text       as AText
 import           Data.Bifunctor
@@ -41,7 +41,7 @@ import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
 import qualified Data.Text.Unsafe           as Text
 import           Data.Text.Util
-import           Data.Traversable           (traverse, for)
+import           Data.Traversable           (traverse)
 import           GHC.Generics
 import           Generator.AST
 import           Generator.Log
@@ -178,21 +178,7 @@ instance FromJSON Service where
             <*> pure def
             <*> pure (cbl n d)
             <*> o .:! "static"
-            <*> overrides o
-      where
-        overrides o = do
-            m  <- o .:? "overrides" .!= mempty
-            g  <- maybe (return def) parseJSON (Map.lookup "*" m)
-            os <- for (Map.toList m) $ \(k, v) -> do
-                l <- parseJSON v
-                return (k, g `merge` l)
-            return $! Map.fromList os
-
-        merge g l = l
-            & oRequire %~ (nub . mappend (g^.oRequire))
-            & oIgnore  %~ (nub . mappend (g^.oIgnore))
-            & oPrefix  %~ (`mappend` (g^.oPrefix))
-            & oType    %~ (`mappend` (g^.oType))
+            <*> o .:? "overrides" .!= mempty
 
 instance FromJSON [Operation] where
     parseJSON = withObject "operations" $

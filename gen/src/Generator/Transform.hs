@@ -136,7 +136,7 @@ response svc@Service{..} rs = rs' & rsStyle.~style _svcType rs'
     rs' = rs & rsType.~shapeType False svc (rs^.typShape)
 
 uniquify :: Service -> Shape -> State (HashMap Text Text) Shape
-uniquify svc (renameCommon svc -> s')
+uniquify svc (renameCommon svc -> ignoreFields svc -> s')
     | "Unknown" <- s'^.cmnName         = return s'
     | Just _    <- existingType svc s' = return s'
     | otherwise = case s' of
@@ -250,15 +250,15 @@ serviceNamespaces s = sort $ (s^.svcNs.nsTypes)
     : map _opNamespace (_svcOperations s)
 
 shapeType :: Bool -> Service -> Shape -> Type'
-shapeType rq svc@Service{..} s = defaultType shape
-    & typAnn      .~ annOf rq svc shape
+shapeType rq svc@Service{..} s = defaultType s
+    & typAnn      .~ annOf rq svc s
     & typPayload  .~ bdy
     & typFields   .~ fs
     & typHeaders  .~ hs
   where
     bdy = listToMaybe $ filter ((== LBody) . view cmnLocation) fs
     hs  = filter ((== LHeader) . view cmnLocation) fs
-    fs  = map (requireField os . upd) (fieldsOf rq svc shape)
+    fs  = map (requireField os . upd) (fieldsOf rq svc s)
 
     os  = overrides oRequire
 
@@ -266,15 +266,25 @@ shapeType rq svc@Service{..} s = defaultType shape
           , f^.cmnStreaming = f & cmnRequired.~True & anRequired.~True
           | otherwise       = f
 
-    shape = ignoreFields (overrides oIgnore) s
-
     overrides = overridesOf svc name
 
     name = s^.cmnName
 
+anyOverride :: CI Text
+anyOverride = "*"
+
 overridesOf :: Service -> Text -> Getting a Override a -> a
-overridesOf svc k l = view l $
-    Map.lookupDefault def (CI.mk k) (svc^.svcOverrides)
+overridesOf svc k f = view f (locate (CI.mk k) `merge` locate anyOverride)
+  where
+    locate x = Map.lookupDefault def x os
+
+    os = svc^.svcOverrides
+
+    merge x y = x
+        & oRequire %~ (nub . mappend (y^.oRequire))
+        & oIgnore  %~ (nub . mappend (y^.oIgnore))
+        & oPrefix  %~ (`mappend` (y^.oPrefix))
+        & oType    %~ (`mappend` (y^.oType))
 
 fieldsOf :: Bool -> Service -> Shape -> [Field]
 fieldsOf rq svc s = map f (shapesOf s)
@@ -417,15 +427,14 @@ switches =
     ]
 
 ctorOf :: Shape -> Ctor
-ctorOf s =
-    case s of
-        SStruct Struct{..}
-            | length _sctFields == 1     -> CNewtype
-            | null _sctFields            -> CNullary
-        SSum{}
-            | (s^.cmnName) `elem` switches -> CSwitch
-            | otherwise                      -> CSum
-        _                                    -> CData
+ctorOf s =  case s of
+    SStruct Struct{..}
+        | length _sctFields == 1       -> CNewtype
+        | null _sctFields              -> CNullary
+    SSum{}
+        | (s^.cmnName) `elem` switches -> CSwitch
+        | otherwise                    -> CSum
+    _                                  -> CData
 
 isDefault :: Shape -> Bool
 isDefault s =
@@ -494,9 +503,9 @@ mergeCommon :: HasCommon a => a -> State (HashMap Text a) ()
 mergeCommon x = modify (Map.insertWith merge (x^.cmnName) x)
   where
     merge b a = b
-        & cmnXmlName       %~  (<|> a^.cmnXmlName)
-        & cmnLocationName  %~  (<|> a^.cmnLocationName)
-        & cmnDocumentation <>~ (a^.cmnDocumentation)
+        -- & cmnXmlName       %~  (<|> a^.cmnXmlName)
+        -- & cmnLocationName  %~  (<|> a^.cmnLocationName)
+        -- & cmnDocumentation <>~ (a^.cmnDocumentation)
         & cmnDirection     <>~ (a^.cmnDirection)
 
 descend :: Service -> Shape -> [Shape]
@@ -577,7 +586,9 @@ requireField cs f
     | CI.mk (_fldName f) `notElem` cs = f
     | otherwise = f & cmnRequired.~True & anRequired.~True
 
-ignoreFields :: [CI Text] -> Shape -> Shape
-ignoreFields cs (SStruct s) =
+ignoreFields :: Service -> Shape -> Shape
+ignoreFields svc (SStruct s) =
     SStruct (s & sctFields %~ filter (\(k, _) -> CI.mk k `notElem` cs))
-ignoreFields _ s = s
+  where
+    cs = overridesOf svc (s^.cmnName) oIgnore
+ignoreFields _   s = s

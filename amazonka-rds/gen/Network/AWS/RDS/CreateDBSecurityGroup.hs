@@ -35,7 +35,7 @@ module Network.AWS.RDS.CreateDBSecurityGroup
     -- ** Request lenses
     , cdbsgDBSecurityGroupName
     , cdbsgDBSecurityGroupDescription
-    , cdbsgTag
+    , cdbsgTags
 
     -- * Response
     , CreateDBSecurityGroupResponse
@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 data CreateDBSecurityGroup = CreateDBSecurityGroup
     { _cdbsgDBSecurityGroupName :: Text
     , _cdbsgDBSecurityGroupDescription :: Text
-    , _cdbsgTag :: [Tag]
+    , _cdbsgTags :: [Tag]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -65,7 +65,7 @@ data CreateDBSecurityGroup = CreateDBSecurityGroup
 --
 -- * @DBSecurityGroupDescription ::@ @Text@
 --
--- * @Tag ::@ @[Tag]@
+-- * @Tags ::@ @[Tag]@
 --
 createDBSecurityGroup :: Text -- ^ 'cdbsgDBSecurityGroupName'
                       -> Text -- ^ 'cdbsgDBSecurityGroupDescription'
@@ -73,7 +73,7 @@ createDBSecurityGroup :: Text -- ^ 'cdbsgDBSecurityGroupName'
 createDBSecurityGroup p1 p2 = CreateDBSecurityGroup
     { _cdbsgDBSecurityGroupName = p1
     , _cdbsgDBSecurityGroupDescription = p2
-    , _cdbsgTag = mempty
+    , _cdbsgTags = mempty
     }
 
 -- | The name for the DB security group. This value is stored as a lowercase
@@ -93,8 +93,8 @@ cdbsgDBSecurityGroupDescription =
          (\s a -> s { _cdbsgDBSecurityGroupDescription = a })
 
 -- | A list of tags.
-cdbsgTag :: Lens' CreateDBSecurityGroup [Tag]
-cdbsgTag = lens _cdbsgTag (\s a -> s { _cdbsgTag = a })
+cdbsgTags :: Lens' CreateDBSecurityGroup [Tag]
+cdbsgTags = lens _cdbsgTags (\s a -> s { _cdbsgTags = a })
 
 instance ToQuery CreateDBSecurityGroup where
     toQuery = genericQuery def

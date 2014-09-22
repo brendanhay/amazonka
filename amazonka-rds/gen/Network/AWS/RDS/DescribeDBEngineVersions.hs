@@ -68,7 +68,7 @@ module Network.AWS.RDS.DescribeDBEngineVersions
     , describeDBEngineVersionsResponse
     -- ** Response lenses
     , ddbevrMarker
-    , ddbevrDBEngineVersion
+    , ddbevrDBEngineVersions
     ) where
 
 import Network.AWS.Request.Query
@@ -166,7 +166,7 @@ instance ToQuery DescribeDBEngineVersions where
 -- DescribeDBEngineVersions action.
 data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
     { _ddbevrMarker :: Maybe Text
-    , _ddbevrDBEngineVersion :: [DBEngineVersion]
+    , _ddbevrDBEngineVersions :: [DBEngineVersion]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -178,12 +178,12 @@ data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @DBEngineVersion ::@ @[DBEngineVersion]@
+-- * @DBEngineVersions ::@ @[DBEngineVersion]@
 --
 describeDBEngineVersionsResponse :: DescribeDBEngineVersionsResponse
 describeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
     { _ddbevrMarker = Nothing
-    , _ddbevrDBEngineVersion = mempty
+    , _ddbevrDBEngineVersions = mempty
     }
 
 -- | An optional pagination token provided by a previous request. If this
@@ -193,9 +193,9 @@ ddbevrMarker :: Lens' DescribeDBEngineVersionsResponse (Maybe Text)
 ddbevrMarker = lens _ddbevrMarker (\s a -> s { _ddbevrMarker = a })
 
 -- | A list of DBEngineVersion elements.
-ddbevrDBEngineVersion :: Lens' DescribeDBEngineVersionsResponse [DBEngineVersion]
-ddbevrDBEngineVersion =
-    lens _ddbevrDBEngineVersion (\s a -> s { _ddbevrDBEngineVersion = a })
+ddbevrDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse [DBEngineVersion]
+ddbevrDBEngineVersions =
+    lens _ddbevrDBEngineVersions (\s a -> s { _ddbevrDBEngineVersions = a })
 
 instance FromXML DescribeDBEngineVersionsResponse where
     fromXMLOptions = xmlOptions

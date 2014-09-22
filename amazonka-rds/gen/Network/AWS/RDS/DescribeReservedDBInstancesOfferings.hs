@@ -47,7 +47,7 @@ module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     , describeReservedDBInstancesOfferingsResponse
     -- ** Response lenses
     , drdbiorMarker
-    , drdbiorReservedDBInstancesOffering
+    , drdbiorReservedDBInstancesOfferings
     ) where
 
 import Network.AWS.Request.Query
@@ -159,7 +159,7 @@ instance ToQuery DescribeReservedDBInstancesOfferings where
 -- DescribeReservedDBInstancesOfferings action.
 data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse
     { _drdbiorMarker :: Maybe Text
-    , _drdbiorReservedDBInstancesOffering :: [ReservedDBInstancesOffering]
+    , _drdbiorReservedDBInstancesOfferings :: [ReservedDBInstancesOffering]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -171,12 +171,12 @@ data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesO
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @ReservedDBInstancesOffering ::@ @[ReservedDBInstancesOffering]@
+-- * @ReservedDBInstancesOfferings ::@ @[ReservedDBInstancesOffering]@
 --
 describeReservedDBInstancesOfferingsResponse :: DescribeReservedDBInstancesOfferingsResponse
 describeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse
     { _drdbiorMarker = Nothing
-    , _drdbiorReservedDBInstancesOffering = mempty
+    , _drdbiorReservedDBInstancesOfferings = mempty
     }
 
 -- | An optional pagination token provided by a previous request. If this
@@ -186,10 +186,10 @@ drdbiorMarker :: Lens' DescribeReservedDBInstancesOfferingsResponse (Maybe Text)
 drdbiorMarker = lens _drdbiorMarker (\s a -> s { _drdbiorMarker = a })
 
 -- | A list of reserved DB instance offerings.
-drdbiorReservedDBInstancesOffering :: Lens' DescribeReservedDBInstancesOfferingsResponse [ReservedDBInstancesOffering]
-drdbiorReservedDBInstancesOffering =
-    lens _drdbiorReservedDBInstancesOffering
-         (\s a -> s { _drdbiorReservedDBInstancesOffering = a })
+drdbiorReservedDBInstancesOfferings :: Lens' DescribeReservedDBInstancesOfferingsResponse [ReservedDBInstancesOffering]
+drdbiorReservedDBInstancesOfferings =
+    lens _drdbiorReservedDBInstancesOfferings
+         (\s a -> s { _drdbiorReservedDBInstancesOfferings = a })
 
 instance FromXML DescribeReservedDBInstancesOfferingsResponse where
     fromXMLOptions = xmlOptions

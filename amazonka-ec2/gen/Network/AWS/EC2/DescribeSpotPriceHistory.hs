@@ -53,9 +53,9 @@ module Network.AWS.EC2.DescribeSpotPriceHistory
     -- ** Request lenses
     , dsphStartTime
     , dsphEndTime
-    , dsphInstanceType
-    , dsphProductDescription
-    , dsphFilter
+    , dsphInstanceTypes
+    , dsphProductDescriptions
+    , dsphFilters
     , dsphAvailabilityZone
     , dsphMaxResults
     , dsphNextToken
@@ -65,7 +65,7 @@ module Network.AWS.EC2.DescribeSpotPriceHistory
     -- ** Response constructor
     , describeSpotPriceHistoryResponse
     -- ** Response lenses
-    , dsphrItem
+    , dsphrSpotPriceHistory
     , dsphrNextToken
     ) where
 
@@ -76,9 +76,9 @@ import Network.AWS.Prelude
 data DescribeSpotPriceHistory = DescribeSpotPriceHistory
     { _dsphStartTime :: Maybe ISO8601
     , _dsphEndTime :: Maybe ISO8601
-    , _dsphInstanceType :: [InstanceType]
-    , _dsphProductDescription :: [Text]
-    , _dsphFilter :: [Filter]
+    , _dsphInstanceTypes :: [InstanceType]
+    , _dsphProductDescriptions :: [Text]
+    , _dsphFilters :: [Filter]
     , _dsphAvailabilityZone :: Maybe Text
     , _dsphMaxResults :: Maybe Integer
     , _dsphNextToken :: Maybe Text
@@ -93,11 +93,11 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory
 --
 -- * @EndTime ::@ @Maybe ISO8601@
 --
--- * @InstanceType ::@ @[InstanceType]@
+-- * @InstanceTypes ::@ @[InstanceType]@
 --
--- * @ProductDescription ::@ @[Text]@
+-- * @ProductDescriptions ::@ @[Text]@
 --
--- * @Filter ::@ @[Filter]@
+-- * @Filters ::@ @[Filter]@
 --
 -- * @AvailabilityZone ::@ @Maybe Text@
 --
@@ -109,9 +109,9 @@ describeSpotPriceHistory :: DescribeSpotPriceHistory
 describeSpotPriceHistory = DescribeSpotPriceHistory
     { _dsphStartTime = Nothing
     , _dsphEndTime = Nothing
-    , _dsphInstanceType = mempty
-    , _dsphProductDescription = mempty
-    , _dsphFilter = mempty
+    , _dsphInstanceTypes = mempty
+    , _dsphProductDescriptions = mempty
+    , _dsphFilters = mempty
     , _dsphAvailabilityZone = Nothing
     , _dsphMaxResults = Nothing
     , _dsphNextToken = Nothing
@@ -126,14 +126,15 @@ dsphEndTime :: Lens' DescribeSpotPriceHistory (Maybe ISO8601)
 dsphEndTime = lens _dsphEndTime (\s a -> s { _dsphEndTime = a })
 
 -- | One or more instance types.
-dsphInstanceType :: Lens' DescribeSpotPriceHistory [InstanceType]
-dsphInstanceType =
-    lens _dsphInstanceType (\s a -> s { _dsphInstanceType = a })
+dsphInstanceTypes :: Lens' DescribeSpotPriceHistory [InstanceType]
+dsphInstanceTypes =
+    lens _dsphInstanceTypes (\s a -> s { _dsphInstanceTypes = a })
 
 -- | One or more basic product descriptions.
-dsphProductDescription :: Lens' DescribeSpotPriceHistory [Text]
-dsphProductDescription =
-    lens _dsphProductDescription (\s a -> s { _dsphProductDescription = a })
+dsphProductDescriptions :: Lens' DescribeSpotPriceHistory [Text]
+dsphProductDescriptions =
+    lens _dsphProductDescriptions
+         (\s a -> s { _dsphProductDescriptions = a })
 
 -- | One or more filters. availability-zone - The Availability Zone for which
 -- prices should be returned. instance-type - The type of instance (for
@@ -144,8 +145,8 @@ dsphProductDescription =
 -- than comparison is not supported). timestamp - The timestamp of the Spot
 -- Price history (for example, 2010-08-16T05:06:11.000Z). You can use
 -- wildcards (* and ?). Greater than or less than comparison is not supported.
-dsphFilter :: Lens' DescribeSpotPriceHistory [Filter]
-dsphFilter = lens _dsphFilter (\s a -> s { _dsphFilter = a })
+dsphFilters :: Lens' DescribeSpotPriceHistory [Filter]
+dsphFilters = lens _dsphFilters (\s a -> s { _dsphFilters = a })
 
 -- | The Availability Zone.
 dsphAvailabilityZone :: Lens' DescribeSpotPriceHistory (Maybe Text)
@@ -164,7 +165,7 @@ instance ToQuery DescribeSpotPriceHistory where
     toQuery = genericQuery def
 
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
-    { _dsphrItem :: [SpotPrice]
+    { _dsphrSpotPriceHistory :: [SpotPrice]
     , _dsphrNextToken :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -175,19 +176,20 @@ data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Item ::@ @[SpotPrice]@
+-- * @SpotPriceHistory ::@ @[SpotPrice]@
 --
 -- * @NextToken ::@ @Maybe Text@
 --
 describeSpotPriceHistoryResponse :: DescribeSpotPriceHistoryResponse
 describeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
-    { _dsphrItem = mempty
+    { _dsphrSpotPriceHistory = mempty
     , _dsphrNextToken = Nothing
     }
 
 -- | The historical Spot Prices.
-dsphrItem :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
-dsphrItem = lens _dsphrItem (\s a -> s { _dsphrItem = a })
+dsphrSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
+dsphrSpotPriceHistory =
+    lens _dsphrSpotPriceHistory (\s a -> s { _dsphrSpotPriceHistory = a })
 
 -- | The string marking the next set of results. This is empty if there are no
 -- more results.

@@ -37,7 +37,7 @@ module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     , prdbioReservedDBInstancesOfferingId
     , prdbioReservedDBInstanceId
     , prdbioDBInstanceCount
-    , prdbioTag
+    , prdbioTags
 
     -- * Response
     , PurchaseReservedDBInstancesOfferingResponse
@@ -56,7 +56,7 @@ data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering
     { _prdbioReservedDBInstancesOfferingId :: Text
     , _prdbioReservedDBInstanceId :: Maybe Text
     , _prdbioDBInstanceCount :: Maybe Integer
-    , _prdbioTag :: [Tag]
+    , _prdbioTags :: [Tag]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -70,7 +70,7 @@ data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering
 --
 -- * @DBInstanceCount ::@ @Maybe Integer@
 --
--- * @Tag ::@ @[Tag]@
+-- * @Tags ::@ @[Tag]@
 --
 purchaseReservedDBInstancesOffering :: Text -- ^ 'prdbioReservedDBInstancesOfferingId'
                                     -> PurchaseReservedDBInstancesOffering
@@ -78,7 +78,7 @@ purchaseReservedDBInstancesOffering p1 = PurchaseReservedDBInstancesOffering
     { _prdbioReservedDBInstancesOfferingId = p1
     , _prdbioReservedDBInstanceId = Nothing
     , _prdbioDBInstanceCount = Nothing
-    , _prdbioTag = mempty
+    , _prdbioTags = mempty
     }
 
 -- | The ID of the Reserved DB instance offering to purchase. Example:
@@ -101,8 +101,8 @@ prdbioDBInstanceCount =
     lens _prdbioDBInstanceCount (\s a -> s { _prdbioDBInstanceCount = a })
 
 -- | A list of tags.
-prdbioTag :: Lens' PurchaseReservedDBInstancesOffering [Tag]
-prdbioTag = lens _prdbioTag (\s a -> s { _prdbioTag = a })
+prdbioTags :: Lens' PurchaseReservedDBInstancesOffering [Tag]
+prdbioTags = lens _prdbioTags (\s a -> s { _prdbioTags = a })
 
 instance ToQuery PurchaseReservedDBInstancesOffering where
     toQuery = genericQuery def

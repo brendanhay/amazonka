@@ -1534,8 +1534,7 @@ dInstanceIds = lens _dInstanceIds (\s a -> s { _dInstanceIds = a })
 
 instance FromJSON Deployment
 
--- | A DeploymentCommand object that specifies the deployment command and any
--- associated arguments.
+-- | Used to specify a deployment operation.
 data DeploymentCommand = DeploymentCommand
     { _dcName :: DeploymentCommandName
     , _dcArgs :: Map Text [Text]
@@ -2748,16 +2747,7 @@ rdiMissingOnRds = lens _rdiMissingOnRds (\s a -> s { _rdiMissingOnRds = a })
 
 instance FromJSON RdsDbInstance
 
--- | AWS OpsWorks supports five lifecycle events, setup, configuration, deploy,
--- undeploy, and shutdown. For each layer, AWS OpsWorks runs a set of standard
--- recipes for each event. In addition, you can provide custom recipes for any
--- or all layers and events. AWS OpsWorks runs custom event recipes after the
--- standard recipes. LayerCustomRecipes specifies the custom recipes for a
--- particular layer to be run in response to each of the five events. To
--- specify a recipe, use the cookbook's directory name in the repository
--- followed by two colons and the recipe name, which is the recipe's file name
--- without the .rb extension. For example: phpapp2::dbsetup specifies the
--- dbsetup.rb recipe in the repository's phpapp2 folder.
+-- | A LayerCustomRecipes object that specifies the layer's custom recipes.
 data Recipes = Recipes
     { _rSetup :: [Text]
     , _rConfigure :: [Text]
@@ -3660,7 +3650,7 @@ instance FromJSON VolumeConfiguration
 
 instance ToJSON VolumeConfiguration
 
--- | A WeeklyAutoScalingSchedule object with the instance schedule.
+-- | An AutoScalingSchedule with the instance schedule.
 data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule
     { _wassMonday :: Map Text Text
     , _wassTuesday :: Map Text Text

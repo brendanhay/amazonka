@@ -538,13 +538,8 @@ instance FromXML AdjustmentType where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AdjustmentType"
 
--- | Enables detailed monitoring if it is disabled. Detailed monitoring is
--- enabled by default. When detailed monitoring is enabled, Amazon Cloudwatch
--- will generate metrics every minute and your account will be charged a fee.
--- When you disable detailed monitoring, by specifying False, Cloudwatch will
--- generate metrics every 5 minutes. For more information, see Monitor Your
--- Auto Scaling Instances. For information about Amazon CloudWatch, see the
--- Amazon CloudWatch Developer Guide.
+-- | Controls whether instances in this group are launched with detailed
+-- monitoring or not.
 newtype InstanceMonitoring = InstanceMonitoring
     { _imEnabled :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
@@ -715,10 +710,7 @@ instance FromXML ProcessType where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ProcessType"
 
--- | A scaling Activity is a long-running process that represents a change to
--- your AutoScalingGroup, such as changing the size of the group. It can also
--- be a process to replace an instance, or a process to perform any other
--- long-running operations supported by the API.
+-- | A scaling Activity.
 data Activity = Activity
     { _arActivityId :: Text
     , _arAutoScalingGroupName :: Text

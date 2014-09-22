@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype GetBucketNotification = GetBucketNotification
-    { _gbnBucket :: BucketName
+    { _gbnBucket :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -50,15 +50,15 @@ newtype GetBucketNotification = GetBucketNotification
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
-getBucketNotification :: BucketName -- ^ 'gbnBucket'
+getBucketNotification :: Text -- ^ 'gbnBucket'
                       -> GetBucketNotification
 getBucketNotification p1 = GetBucketNotification
     { _gbnBucket = p1
     }
 
-gbnBucket :: Lens' GetBucketNotification BucketName
+gbnBucket :: Lens' GetBucketNotification Text
 gbnBucket = lens _gbnBucket (\s a -> s { _gbnBucket = a })
 
 instance ToPath GetBucketNotification

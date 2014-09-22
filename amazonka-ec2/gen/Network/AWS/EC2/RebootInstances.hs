@@ -39,7 +39,7 @@ module Network.AWS.EC2.RebootInstances
     -- ** Request constructor
     , rebootInstances
     -- ** Request lenses
-    , ri1InstanceId
+    , ri1InstanceIds
 
     -- * Response
     , RebootInstancesResponse
@@ -52,7 +52,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype RebootInstances = RebootInstances
-    { _ri1InstanceId :: [Text]
+    { _ri1InstanceIds :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -60,17 +60,17 @@ newtype RebootInstances = RebootInstances
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceId ::@ @[Text]@
+-- * @InstanceIds ::@ @[Text]@
 --
-rebootInstances :: [Text] -- ^ 'ri1InstanceId'
+rebootInstances :: [Text] -- ^ 'ri1InstanceIds'
                 -> RebootInstances
 rebootInstances p1 = RebootInstances
-    { _ri1InstanceId = p1
+    { _ri1InstanceIds = p1
     }
 
 -- | One or more instance IDs.
-ri1InstanceId :: Lens' RebootInstances [Text]
-ri1InstanceId = lens _ri1InstanceId (\s a -> s { _ri1InstanceId = a })
+ri1InstanceIds :: Lens' RebootInstances [Text]
+ri1InstanceIds = lens _ri1InstanceIds (\s a -> s { _ri1InstanceIds = a })
 
 instance ToQuery RebootInstances where
     toQuery = genericQuery def

@@ -36,7 +36,7 @@ module Network.AWS.S3.GetBucketWebsite
     , gbwrRedirectAllRequestsTo
     , gbwrIndexDocument
     , gbwrErrorDocument
-    , gbwrRoutingRule
+    , gbwrRoutingRules
     ) where
 
 import Network.AWS.Request.RestS3
@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype GetBucketWebsite = GetBucketWebsite
-    { _gbwBucket :: BucketName
+    { _gbwBucket :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -53,15 +53,15 @@ newtype GetBucketWebsite = GetBucketWebsite
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
-getBucketWebsite :: BucketName -- ^ 'gbwBucket'
+getBucketWebsite :: Text -- ^ 'gbwBucket'
                  -> GetBucketWebsite
 getBucketWebsite p1 = GetBucketWebsite
     { _gbwBucket = p1
     }
 
-gbwBucket :: Lens' GetBucketWebsite BucketName
+gbwBucket :: Lens' GetBucketWebsite Text
 gbwBucket = lens _gbwBucket (\s a -> s { _gbwBucket = a })
 
 instance ToPath GetBucketWebsite
@@ -76,7 +76,7 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse
     { _gbwrRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
     , _gbwrIndexDocument :: Maybe IndexDocument
     , _gbwrErrorDocument :: Maybe ErrorDocument
-    , _gbwrRoutingRule :: [RoutingRule]
+    , _gbwrRoutingRules :: [RoutingRule]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -92,14 +92,14 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse
 --
 -- * @ErrorDocument ::@ @Maybe ErrorDocument@
 --
--- * @RoutingRule ::@ @[RoutingRule]@
+-- * @RoutingRules ::@ @[RoutingRule]@
 --
 getBucketWebsiteResponse :: GetBucketWebsiteResponse
 getBucketWebsiteResponse = GetBucketWebsiteResponse
     { _gbwrRedirectAllRequestsTo = Nothing
     , _gbwrIndexDocument = Nothing
     , _gbwrErrorDocument = Nothing
-    , _gbwrRoutingRule = mempty
+    , _gbwrRoutingRules = mempty
     }
 
 gbwrRedirectAllRequestsTo :: Lens' GetBucketWebsiteResponse (Maybe RedirectAllRequestsTo)
@@ -115,8 +115,9 @@ gbwrErrorDocument :: Lens' GetBucketWebsiteResponse (Maybe ErrorDocument)
 gbwrErrorDocument =
     lens _gbwrErrorDocument (\s a -> s { _gbwrErrorDocument = a })
 
-gbwrRoutingRule :: Lens' GetBucketWebsiteResponse [RoutingRule]
-gbwrRoutingRule = lens _gbwrRoutingRule (\s a -> s { _gbwrRoutingRule = a })
+gbwrRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
+gbwrRoutingRules =
+    lens _gbwrRoutingRules (\s a -> s { _gbwrRoutingRules = a })
 
 instance FromXML GetBucketWebsiteResponse where
     fromXMLOptions = xmlOptions

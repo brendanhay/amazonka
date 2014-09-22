@@ -61,7 +61,7 @@ module Network.AWS.SimpleDB.BatchPutAttributes
     , batchPutAttributes
     -- ** Request lenses
     , bpaDomainName
-    , bpaItem
+    , bpaItems
 
     -- * Response
     , BatchPutAttributesResponse
@@ -75,7 +75,7 @@ import Network.AWS.Prelude
 
 data BatchPutAttributes = BatchPutAttributes
     { _bpaDomainName :: Text
-    , _bpaItem :: [ReplaceableItem]
+    , _bpaItems :: [ReplaceableItem]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -85,14 +85,14 @@ data BatchPutAttributes = BatchPutAttributes
 --
 -- * @DomainName ::@ @Text@
 --
--- * @Item ::@ @[ReplaceableItem]@
+-- * @Items ::@ @[ReplaceableItem]@
 --
 batchPutAttributes :: Text -- ^ 'bpaDomainName'
-                   -> [ReplaceableItem] -- ^ 'bpaItem'
+                   -> [ReplaceableItem] -- ^ 'bpaItems'
                    -> BatchPutAttributes
 batchPutAttributes p1 p2 = BatchPutAttributes
     { _bpaDomainName = p1
-    , _bpaItem = p2
+    , _bpaItems = p2
     }
 
 -- | The name of the domain in which the attributes are being stored.
@@ -100,8 +100,8 @@ bpaDomainName :: Lens' BatchPutAttributes Text
 bpaDomainName = lens _bpaDomainName (\s a -> s { _bpaDomainName = a })
 
 -- | A list of items on which to perform the operation.
-bpaItem :: Lens' BatchPutAttributes [ReplaceableItem]
-bpaItem = lens _bpaItem (\s a -> s { _bpaItem = a })
+bpaItems :: Lens' BatchPutAttributes [ReplaceableItem]
+bpaItems = lens _bpaItems (\s a -> s { _bpaItems = a })
 
 instance ToQuery BatchPutAttributes where
     toQuery = genericQuery def

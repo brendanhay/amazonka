@@ -36,7 +36,7 @@ module Network.AWS.S3.GetObjectAcl
     , getObjectAclResponse
     -- ** Response lenses
     , goarOwner
-    , goarGrant
+    , goarGrants
     ) where
 
 import Network.AWS.Request.RestS3
@@ -45,9 +45,9 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data GetObjectAcl = GetObjectAcl
-    { _goaBucket :: BucketName
-    , _goaKey :: ObjectKey
-    , _goaVersionId :: Maybe ObjectVersionId
+    { _goaBucket :: Text
+    , _goaKey :: Text
+    , _goaVersionId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -55,14 +55,14 @@ data GetObjectAcl = GetObjectAcl
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
--- * @Key ::@ @ObjectKey@
+-- * @Key ::@ @Text@
 --
--- * @VersionId ::@ @Maybe ObjectVersionId@
+-- * @VersionId ::@ @Maybe Text@
 --
-getObjectAcl :: BucketName -- ^ 'goaBucket'
-             -> ObjectKey -- ^ 'goaKey'
+getObjectAcl :: Text -- ^ 'goaBucket'
+             -> Text -- ^ 'goaKey'
              -> GetObjectAcl
 getObjectAcl p1 p2 = GetObjectAcl
     { _goaBucket = p1
@@ -70,14 +70,14 @@ getObjectAcl p1 p2 = GetObjectAcl
     , _goaVersionId = Nothing
     }
 
-goaBucket :: Lens' GetObjectAcl BucketName
+goaBucket :: Lens' GetObjectAcl Text
 goaBucket = lens _goaBucket (\s a -> s { _goaBucket = a })
 
-goaKey :: Lens' GetObjectAcl ObjectKey
+goaKey :: Lens' GetObjectAcl Text
 goaKey = lens _goaKey (\s a -> s { _goaKey = a })
 
 -- | VersionId used to reference a specific version of the object.
-goaVersionId :: Lens' GetObjectAcl (Maybe ObjectVersionId)
+goaVersionId :: Lens' GetObjectAcl (Maybe Text)
 goaVersionId = lens _goaVersionId (\s a -> s { _goaVersionId = a })
 
 instance ToPath GetObjectAcl
@@ -90,7 +90,7 @@ instance ToBody GetObjectAcl
 
 data GetObjectAclResponse = GetObjectAclResponse
     { _goarOwner :: Maybe Owner
-    , _goarGrant :: [Grant]
+    , _goarGrants :: [Grant]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -102,20 +102,20 @@ data GetObjectAclResponse = GetObjectAclResponse
 --
 -- * @Owner ::@ @Maybe Owner@
 --
--- * @Grant ::@ @[Grant]@
+-- * @Grants ::@ @[Grant]@
 --
 getObjectAclResponse :: GetObjectAclResponse
 getObjectAclResponse = GetObjectAclResponse
     { _goarOwner = Nothing
-    , _goarGrant = mempty
+    , _goarGrants = mempty
     }
 
 goarOwner :: Lens' GetObjectAclResponse (Maybe Owner)
 goarOwner = lens _goarOwner (\s a -> s { _goarOwner = a })
 
 -- | A list of grants.
-goarGrant :: Lens' GetObjectAclResponse [Grant]
-goarGrant = lens _goarGrant (\s a -> s { _goarGrant = a })
+goarGrants :: Lens' GetObjectAclResponse [Grant]
+goarGrants = lens _goarGrants (\s a -> s { _goarGrants = a })
 
 instance FromXML GetObjectAclResponse where
     fromXMLOptions = xmlOptions

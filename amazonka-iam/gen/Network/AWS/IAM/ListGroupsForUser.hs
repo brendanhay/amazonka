@@ -98,7 +98,7 @@ instance ToQuery ListGroupsForUser where
 -- action.
 data ListGroupsForUserResponse = ListGroupsForUserResponse
     { _lgfurGroups :: [Group]
-    , _lgfurIsTruncated :: !Bool
+    , _lgfurIsTruncated :: Bool
     , _lgfurMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 

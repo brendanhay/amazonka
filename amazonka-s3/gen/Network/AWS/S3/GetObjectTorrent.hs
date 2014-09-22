@@ -43,8 +43,8 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data GetObjectTorrent = GetObjectTorrent
-    { _gotBucket :: BucketName
-    , _gotKey :: ObjectKey
+    { _gotBucket :: Text
+    , _gotKey :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -52,22 +52,22 @@ data GetObjectTorrent = GetObjectTorrent
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
--- * @Key ::@ @ObjectKey@
+-- * @Key ::@ @Text@
 --
-getObjectTorrent :: BucketName -- ^ 'gotBucket'
-                 -> ObjectKey -- ^ 'gotKey'
+getObjectTorrent :: Text -- ^ 'gotBucket'
+                 -> Text -- ^ 'gotKey'
                  -> GetObjectTorrent
 getObjectTorrent p1 p2 = GetObjectTorrent
     { _gotBucket = p1
     , _gotKey = p2
     }
 
-gotBucket :: Lens' GetObjectTorrent BucketName
+gotBucket :: Lens' GetObjectTorrent Text
 gotBucket = lens _gotBucket (\s a -> s { _gotBucket = a })
 
-gotKey :: Lens' GetObjectTorrent ObjectKey
+gotKey :: Lens' GetObjectTorrent Text
 gotKey = lens _gotKey (\s a -> s { _gotKey = a })
 
 instance ToPath GetObjectTorrent

@@ -59,8 +59,8 @@ module Network.AWS.Redshift.CreateCluster
     , ccNodeType
     , ccMasterUsername
     , ccMasterUserPassword
-    , ccClusterSecurityGroupName
-    , ccVpcSecurityGroupId
+    , ccClusterSecurityGroups
+    , ccVpcSecurityGroupIds
     , ccClusterSubnetGroupName
     , ccAvailabilityZone
     , ccPreferredMaintenanceWindow
@@ -96,8 +96,8 @@ data CreateCluster = CreateCluster
     , _ccNodeType :: Text
     , _ccMasterUsername :: Text
     , _ccMasterUserPassword :: Text
-    , _ccClusterSecurityGroupName :: [Text]
-    , _ccVpcSecurityGroupId :: [Text]
+    , _ccClusterSecurityGroups :: [Text]
+    , _ccVpcSecurityGroupIds :: [Text]
     , _ccClusterSubnetGroupName :: Maybe Text
     , _ccAvailabilityZone :: Maybe Text
     , _ccPreferredMaintenanceWindow :: Maybe Text
@@ -131,9 +131,9 @@ data CreateCluster = CreateCluster
 --
 -- * @MasterUserPassword ::@ @Text@
 --
--- * @ClusterSecurityGroupName ::@ @[Text]@
+-- * @ClusterSecurityGroups ::@ @[Text]@
 --
--- * @VpcSecurityGroupId ::@ @[Text]@
+-- * @VpcSecurityGroupIds ::@ @[Text]@
 --
 -- * @ClusterSubnetGroupName ::@ @Maybe Text@
 --
@@ -175,8 +175,8 @@ createCluster p2 p4 p5 p6 = CreateCluster
     , _ccNodeType = p4
     , _ccMasterUsername = p5
     , _ccMasterUserPassword = p6
-    , _ccClusterSecurityGroupName = mempty
-    , _ccVpcSecurityGroupId = mempty
+    , _ccClusterSecurityGroups = mempty
+    , _ccVpcSecurityGroupIds = mempty
     , _ccClusterSubnetGroupName = Nothing
     , _ccAvailabilityZone = Nothing
     , _ccPreferredMaintenanceWindow = Nothing
@@ -249,17 +249,17 @@ ccMasterUserPassword =
 
 -- | A list of security groups to be associated with this cluster. Default: The
 -- default cluster security group for Amazon Redshift.
-ccClusterSecurityGroupName :: Lens' CreateCluster [Text]
-ccClusterSecurityGroupName =
-    lens _ccClusterSecurityGroupName
-         (\s a -> s { _ccClusterSecurityGroupName = a })
+ccClusterSecurityGroups :: Lens' CreateCluster [Text]
+ccClusterSecurityGroups =
+    lens _ccClusterSecurityGroups
+         (\s a -> s { _ccClusterSecurityGroups = a })
 
 -- | A list of Virtual Private Cloud (VPC) security groups to be associated with
 -- the cluster. Default: The default VPC security group is associated with the
 -- cluster.
-ccVpcSecurityGroupId :: Lens' CreateCluster [Text]
-ccVpcSecurityGroupId =
-    lens _ccVpcSecurityGroupId (\s a -> s { _ccVpcSecurityGroupId = a })
+ccVpcSecurityGroupIds :: Lens' CreateCluster [Text]
+ccVpcSecurityGroupIds =
+    lens _ccVpcSecurityGroupIds (\s a -> s { _ccVpcSecurityGroupIds = a })
 
 -- | The name of a cluster subnet group to be associated with this cluster. If
 -- this parameter is not provided the resulting cluster will be deployed

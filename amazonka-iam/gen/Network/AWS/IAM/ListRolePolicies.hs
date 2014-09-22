@@ -101,7 +101,7 @@ instance ToQuery ListRolePolicies where
 -- action.
 data ListRolePoliciesResponse = ListRolePoliciesResponse
     { _lrprPolicyNames :: [Text]
-    , _lrprIsTruncated :: !Bool
+    , _lrprIsTruncated :: Bool
     , _lrprMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 

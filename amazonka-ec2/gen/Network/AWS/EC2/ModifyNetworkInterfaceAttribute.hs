@@ -38,7 +38,7 @@ module Network.AWS.EC2.ModifyNetworkInterfaceAttribute
     , mniaNetworkInterfaceId
     , mniaDescription
     , mniaSourceDestCheck
-    , mniaSecurityGroupId
+    , mniaGroups
     , mniaAttachment
 
     -- * Response
@@ -55,7 +55,7 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
     { _mniaNetworkInterfaceId :: Text
     , _mniaDescription :: Maybe AttributeValue
     , _mniaSourceDestCheck :: Maybe AttributeBooleanValue
-    , _mniaSecurityGroupId :: [Text]
+    , _mniaGroups :: [Text]
     , _mniaAttachment :: Maybe NetworkInterfaceAttachmentChanges
     } deriving (Eq, Ord, Show, Generic)
 
@@ -70,7 +70,7 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
 --
 -- * @SourceDestCheck ::@ @Maybe AttributeBooleanValue@
 --
--- * @SecurityGroupId ::@ @[Text]@
+-- * @Groups ::@ @[Text]@
 --
 -- * @Attachment ::@ @Maybe NetworkInterfaceAttachmentChanges@
 --
@@ -80,7 +80,7 @@ modifyNetworkInterfaceAttribute p1 = ModifyNetworkInterfaceAttribute
     { _mniaNetworkInterfaceId = p1
     , _mniaDescription = Nothing
     , _mniaSourceDestCheck = Nothing
-    , _mniaSecurityGroupId = mempty
+    , _mniaGroups = mempty
     , _mniaAttachment = Nothing
     }
 
@@ -105,9 +105,8 @@ mniaSourceDestCheck =
 -- groups you specify replaces the current set. You must specify at least one
 -- group, even if it's just the default security group in the VPC. You must
 -- specify the ID of the security group, not the name.
-mniaSecurityGroupId :: Lens' ModifyNetworkInterfaceAttribute [Text]
-mniaSecurityGroupId =
-    lens _mniaSecurityGroupId (\s a -> s { _mniaSecurityGroupId = a })
+mniaGroups :: Lens' ModifyNetworkInterfaceAttribute [Text]
+mniaGroups = lens _mniaGroups (\s a -> s { _mniaGroups = a })
 
 -- | The ID of the interface attachment.
 mniaAttachment :: Lens' ModifyNetworkInterfaceAttribute (Maybe NetworkInterfaceAttachmentChanges)

@@ -34,7 +34,7 @@ module Network.AWS.S3.GetBucketAcl
     , getBucketAclResponse
     -- ** Response lenses
     , gbarOwner
-    , gbarGrant
+    , gbarGrants
     ) where
 
 import Network.AWS.Request.RestS3
@@ -43,7 +43,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype GetBucketAcl = GetBucketAcl
-    { _gbaBucket :: BucketName
+    { _gbaBucket :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -51,15 +51,15 @@ newtype GetBucketAcl = GetBucketAcl
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
-getBucketAcl :: BucketName -- ^ 'gbaBucket'
+getBucketAcl :: Text -- ^ 'gbaBucket'
              -> GetBucketAcl
 getBucketAcl p1 = GetBucketAcl
     { _gbaBucket = p1
     }
 
-gbaBucket :: Lens' GetBucketAcl BucketName
+gbaBucket :: Lens' GetBucketAcl Text
 gbaBucket = lens _gbaBucket (\s a -> s { _gbaBucket = a })
 
 instance ToPath GetBucketAcl
@@ -72,7 +72,7 @@ instance ToBody GetBucketAcl
 
 data GetBucketAclResponse = GetBucketAclResponse
     { _gbarOwner :: Maybe Owner
-    , _gbarGrant :: [Grant]
+    , _gbarGrants :: [Grant]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -84,20 +84,20 @@ data GetBucketAclResponse = GetBucketAclResponse
 --
 -- * @Owner ::@ @Maybe Owner@
 --
--- * @Grant ::@ @[Grant]@
+-- * @Grants ::@ @[Grant]@
 --
 getBucketAclResponse :: GetBucketAclResponse
 getBucketAclResponse = GetBucketAclResponse
     { _gbarOwner = Nothing
-    , _gbarGrant = mempty
+    , _gbarGrants = mempty
     }
 
 gbarOwner :: Lens' GetBucketAclResponse (Maybe Owner)
 gbarOwner = lens _gbarOwner (\s a -> s { _gbarOwner = a })
 
 -- | A list of grants.
-gbarGrant :: Lens' GetBucketAclResponse [Grant]
-gbarGrant = lens _gbarGrant (\s a -> s { _gbarGrant = a })
+gbarGrants :: Lens' GetBucketAclResponse [Grant]
+gbarGrants = lens _gbarGrants (\s a -> s { _gbarGrants = a })
 
 instance FromXML GetBucketAclResponse where
     fromXMLOptions = xmlOptions

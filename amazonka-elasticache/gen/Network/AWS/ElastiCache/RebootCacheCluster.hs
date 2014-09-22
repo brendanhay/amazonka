@@ -43,7 +43,7 @@ module Network.AWS.ElastiCache.RebootCacheCluster
     , rebootCacheCluster
     -- ** Request lenses
     , rccCacheClusterId
-    , rccCacheNodeId
+    , rccCacheNodeIdsToReboot
 
     -- * Response
     , RebootCacheClusterResponse
@@ -60,7 +60,7 @@ import Network.AWS.Prelude
 -- | Represents the input of a RebootCacheCluster operation.
 data RebootCacheCluster = RebootCacheCluster
     { _rccCacheClusterId :: Text
-    , _rccCacheNodeId :: [Text]
+    , _rccCacheNodeIdsToReboot :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -70,14 +70,14 @@ data RebootCacheCluster = RebootCacheCluster
 --
 -- * @CacheClusterId ::@ @Text@
 --
--- * @CacheNodeId ::@ @[Text]@
+-- * @CacheNodeIdsToReboot ::@ @[Text]@
 --
 rebootCacheCluster :: Text -- ^ 'rccCacheClusterId'
-                   -> [Text] -- ^ 'rccCacheNodeId'
+                   -> [Text] -- ^ 'rccCacheNodeIdsToReboot'
                    -> RebootCacheCluster
 rebootCacheCluster p1 p2 = RebootCacheCluster
     { _rccCacheClusterId = p1
-    , _rccCacheNodeId = p2
+    , _rccCacheNodeIdsToReboot = p2
     }
 
 -- | The cache cluster identifier. This parameter is stored as a lowercase
@@ -89,8 +89,10 @@ rccCacheClusterId =
 -- | A list of cache node IDs to reboot. A node ID is a numeric identifier
 -- (0001, 0002, etc.). To reboot an entire cache cluster, specify all of the
 -- cache node IDs.
-rccCacheNodeId :: Lens' RebootCacheCluster [Text]
-rccCacheNodeId = lens _rccCacheNodeId (\s a -> s { _rccCacheNodeId = a })
+rccCacheNodeIdsToReboot :: Lens' RebootCacheCluster [Text]
+rccCacheNodeIdsToReboot =
+    lens _rccCacheNodeIdsToReboot
+         (\s a -> s { _rccCacheNodeIdsToReboot = a })
 
 instance ToQuery RebootCacheCluster where
     toQuery = genericQuery def

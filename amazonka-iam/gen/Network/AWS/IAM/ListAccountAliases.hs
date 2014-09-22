@@ -89,7 +89,7 @@ instance ToQuery ListAccountAliases where
 -- action.
 data ListAccountAliasesResponse = ListAccountAliasesResponse
     { _laarAccountAliases :: [Text]
-    , _laarIsTruncated :: !Bool
+    , _laarIsTruncated :: Bool
     , _laarMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 

@@ -37,9 +37,9 @@ module Network.AWS.ElastiCache.ModifyCacheCluster
     -- ** Request lenses
     , mccCacheClusterId
     , mccNumCacheNodes
-    , mccCacheNodeId
-    , mccCacheSecurityGroupName
-    , mccSecurityGroupId
+    , mccCacheNodeIdsToRemove
+    , mccCacheSecurityGroupNames
+    , mccSecurityGroupIds
     , mccPreferredMaintenanceWindow
     , mccNotificationTopicArn
     , mccCacheParameterGroupName
@@ -50,7 +50,7 @@ module Network.AWS.ElastiCache.ModifyCacheCluster
     , mccSnapshotRetentionLimit
     , mccSnapshotWindow
     , mccAZMode
-    , mccPreferredAvailabilityZone
+    , mccNewAvailabilityZones
 
     -- * Response
     , ModifyCacheClusterResponse
@@ -68,9 +68,9 @@ import Network.AWS.Prelude
 data ModifyCacheCluster = ModifyCacheCluster
     { _mccCacheClusterId :: Text
     , _mccNumCacheNodes :: Maybe Integer
-    , _mccCacheNodeId :: [Text]
-    , _mccCacheSecurityGroupName :: [Text]
-    , _mccSecurityGroupId :: [Text]
+    , _mccCacheNodeIdsToRemove :: [Text]
+    , _mccCacheSecurityGroupNames :: [Text]
+    , _mccSecurityGroupIds :: [Text]
     , _mccPreferredMaintenanceWindow :: Maybe Text
     , _mccNotificationTopicArn :: Maybe Text
     , _mccCacheParameterGroupName :: Maybe Text
@@ -81,7 +81,7 @@ data ModifyCacheCluster = ModifyCacheCluster
     , _mccSnapshotRetentionLimit :: Maybe Integer
     , _mccSnapshotWindow :: Maybe Text
     , _mccAZMode :: Maybe Text
-    , _mccPreferredAvailabilityZone :: [Text]
+    , _mccNewAvailabilityZones :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -93,11 +93,11 @@ data ModifyCacheCluster = ModifyCacheCluster
 --
 -- * @NumCacheNodes ::@ @Maybe Integer@
 --
--- * @CacheNodeId ::@ @[Text]@
+-- * @CacheNodeIdsToRemove ::@ @[Text]@
 --
--- * @CacheSecurityGroupName ::@ @[Text]@
+-- * @CacheSecurityGroupNames ::@ @[Text]@
 --
--- * @SecurityGroupId ::@ @[Text]@
+-- * @SecurityGroupIds ::@ @[Text]@
 --
 -- * @PreferredMaintenanceWindow ::@ @Maybe Text@
 --
@@ -119,16 +119,16 @@ data ModifyCacheCluster = ModifyCacheCluster
 --
 -- * @AZMode ::@ @Maybe Text@
 --
--- * @PreferredAvailabilityZone ::@ @[Text]@
+-- * @NewAvailabilityZones ::@ @[Text]@
 --
 modifyCacheCluster :: Text -- ^ 'mccCacheClusterId'
                    -> ModifyCacheCluster
 modifyCacheCluster p1 = ModifyCacheCluster
     { _mccCacheClusterId = p1
     , _mccNumCacheNodes = Nothing
-    , _mccCacheNodeId = mempty
-    , _mccCacheSecurityGroupName = mempty
-    , _mccSecurityGroupId = mempty
+    , _mccCacheNodeIdsToRemove = mempty
+    , _mccCacheSecurityGroupNames = mempty
+    , _mccSecurityGroupIds = mempty
     , _mccPreferredMaintenanceWindow = Nothing
     , _mccNotificationTopicArn = Nothing
     , _mccCacheParameterGroupName = Nothing
@@ -139,7 +139,7 @@ modifyCacheCluster p1 = ModifyCacheCluster
     , _mccSnapshotRetentionLimit = Nothing
     , _mccSnapshotWindow = Nothing
     , _mccAZMode = Nothing
-    , _mccPreferredAvailabilityZone = mempty
+    , _mccNewAvailabilityZones = mempty
     }
 
 -- | The cache cluster identifier. This value is stored as a lowercase string.
@@ -187,25 +187,27 @@ mccNumCacheNodes =
 -- have 3 active cache nodes, 7 pending cache nodes, and the number of cache
 -- nodes in this ModifyCacheCluser call is 5, you must list 2 (7 - 5) cache
 -- node IDs to remove.
-mccCacheNodeId :: Lens' ModifyCacheCluster [Text]
-mccCacheNodeId = lens _mccCacheNodeId (\s a -> s { _mccCacheNodeId = a })
+mccCacheNodeIdsToRemove :: Lens' ModifyCacheCluster [Text]
+mccCacheNodeIdsToRemove =
+    lens _mccCacheNodeIdsToRemove
+         (\s a -> s { _mccCacheNodeIdsToRemove = a })
 
 -- | A list of cache security group names to authorize on this cache cluster.
 -- This change is asynchronously applied as soon as possible. This parameter
 -- can be used only with clusters that are created outside of an Amazon
 -- Virtual Private Cloud (VPC). Constraints: Must contain no more than 255
 -- alphanumeric characters. Must not be "Default".
-mccCacheSecurityGroupName :: Lens' ModifyCacheCluster [Text]
-mccCacheSecurityGroupName =
-    lens _mccCacheSecurityGroupName
-         (\s a -> s { _mccCacheSecurityGroupName = a })
+mccCacheSecurityGroupNames :: Lens' ModifyCacheCluster [Text]
+mccCacheSecurityGroupNames =
+    lens _mccCacheSecurityGroupNames
+         (\s a -> s { _mccCacheSecurityGroupNames = a })
 
 -- | Specifies the VPC Security Groups associated with the cache cluster. This
 -- parameter can be used only with clusters that are created in an Amazon
 -- Virtual Private Cloud (VPC).
-mccSecurityGroupId :: Lens' ModifyCacheCluster [Text]
-mccSecurityGroupId =
-    lens _mccSecurityGroupId (\s a -> s { _mccSecurityGroupId = a })
+mccSecurityGroupIds :: Lens' ModifyCacheCluster [Text]
+mccSecurityGroupIds =
+    lens _mccSecurityGroupIds (\s a -> s { _mccSecurityGroupIds = a })
 
 -- | The weekly time range (in UTC) during which system maintenance can occur.
 -- Note that system maintenance may result in an outage. This change is made
@@ -320,10 +322,10 @@ mccAZMode = lens _mccAZMode (\s a -> s { _mccAZMode = a })
 -- Considerations for Memcached. Example:
 -- NewAvailabilityZones.member.1=us-east-1a&amp;NewAvailabilityZones.member.2=us-east-1b&amp;NewAvailabilityZones.member.3=us-east-1d.
 -- 
-mccPreferredAvailabilityZone :: Lens' ModifyCacheCluster [Text]
-mccPreferredAvailabilityZone =
-    lens _mccPreferredAvailabilityZone
-         (\s a -> s { _mccPreferredAvailabilityZone = a })
+mccNewAvailabilityZones :: Lens' ModifyCacheCluster [Text]
+mccNewAvailabilityZones =
+    lens _mccNewAvailabilityZones
+         (\s a -> s { _mccNewAvailabilityZones = a })
 
 instance ToQuery ModifyCacheCluster where
     toQuery = genericQuery def

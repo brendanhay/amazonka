@@ -94,17 +94,17 @@ module Network.AWS.SQS.Types
     , mReceiptHandle
     , mMD5OfBody
     , mBody
-    , mAttribute
+    , mAttributes
     , mMD5OfMessageAttributes
-    , mMessageAttribute
+    , mMessageAttributes
 
     -- * MessageAttributeValue
     , MessageAttributeValue
     , messageAttributeValue
     , mavStringValue
     , mavBinaryValue
-    , mavStringListValue
-    , mavBinaryListValue
+    , mavStringListValues
+    , mavBinaryListValues
     , mavDataType
 
     -- * SendMessageBatchRequestEntry
@@ -113,7 +113,7 @@ module Network.AWS.SQS.Types
     , smbreId
     , smbreMessageBody
     , smbreDelaySeconds
-    , smbreMessageAttribute
+    , smbreMessageAttributes
 
     -- * SendMessageBatchResultEntry
     , SendMessageBatchResultEntry
@@ -656,9 +656,9 @@ data Message = Message
     , _mReceiptHandle :: Maybe Text
     , _mMD5OfBody :: Maybe Text
     , _mBody :: Maybe Text
-    , _mAttribute :: Map QueueAttributeName Text
+    , _mAttributes :: Map QueueAttributeName Text
     , _mMD5OfMessageAttributes :: Maybe Text
-    , _mMessageAttribute :: Map Text MessageAttributeValue
+    , _mMessageAttributes :: Map Text MessageAttributeValue
     } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -677,11 +677,11 @@ data Message = Message
 --
 -- * @Body ::@ @Maybe Text@
 --
--- * @Attribute ::@ @Map QueueAttributeName Text@
+-- * @Attributes ::@ @Map QueueAttributeName Text@
 --
 -- * @MD5OfMessageAttributes ::@ @Maybe Text@
 --
--- * @MessageAttribute ::@ @Map Text MessageAttributeValue@
+-- * @MessageAttributes ::@ @Map Text MessageAttributeValue@
 --
 message :: Message
 message = Message
@@ -689,9 +689,9 @@ message = Message
     , _mReceiptHandle = Nothing
     , _mMD5OfBody = Nothing
     , _mBody = Nothing
-    , _mAttribute = mempty
+    , _mAttributes = mempty
     , _mMD5OfMessageAttributes = Nothing
-    , _mMessageAttribute = mempty
+    , _mMessageAttributes = mempty
     }
 
 -- | A unique identifier for the message. Message IDs are considered unique
@@ -718,8 +718,8 @@ mBody = lens _mBody (\s a -> s { _mBody = a })
 -- ApproximateFirstReceiveTimestamp. SentTimestamp and
 -- ApproximateFirstReceiveTimestamp are each returned as an integer
 -- representing the epoch time in milliseconds.
-mAttribute :: Lens' Message (Map QueueAttributeName Text)
-mAttribute = lens _mAttribute (\s a -> s { _mAttribute = a })
+mAttributes :: Lens' Message (Map QueueAttributeName Text)
+mAttributes = lens _mAttributes (\s a -> s { _mAttributes = a })
 
 -- | An MD5 digest of the non-URL-encoded message attribute string. This can be
 -- used to verify that Amazon SQS received the message correctly. Amazon SQS
@@ -732,9 +732,9 @@ mMD5OfMessageAttributes =
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see Message Attribute Items.
-mMessageAttribute :: Lens' Message (Map Text MessageAttributeValue)
-mMessageAttribute =
-    lens _mMessageAttribute (\s a -> s { _mMessageAttribute = a })
+mMessageAttributes :: Lens' Message (Map Text MessageAttributeValue)
+mMessageAttributes =
+    lens _mMessageAttributes (\s a -> s { _mMessageAttributes = a })
 
 instance FromXML Message where
     fromXMLOptions = xmlOptions
@@ -750,8 +750,8 @@ instance FromXML Message where
 data MessageAttributeValue = MessageAttributeValue
     { _mavStringValue :: Maybe Text
     , _mavBinaryValue :: Maybe ByteString
-    , _mavStringListValue :: [Text]
-    , _mavBinaryListValue :: [ByteString]
+    , _mavStringListValues :: [Text]
+    , _mavBinaryListValues :: [ByteString]
     , _mavDataType :: Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -764,9 +764,9 @@ data MessageAttributeValue = MessageAttributeValue
 --
 -- * @BinaryValue ::@ @Maybe ByteString@
 --
--- * @StringListValue ::@ @[Text]@
+-- * @StringListValues ::@ @[Text]@
 --
--- * @BinaryListValue ::@ @[ByteString]@
+-- * @BinaryListValues ::@ @[ByteString]@
 --
 -- * @DataType ::@ @Text@
 --
@@ -775,8 +775,8 @@ messageAttributeValue :: Text -- ^ 'mavDataType'
 messageAttributeValue p5 = MessageAttributeValue
     { _mavStringValue = Nothing
     , _mavBinaryValue = Nothing
-    , _mavStringListValue = mempty
-    , _mavBinaryListValue = mempty
+    , _mavStringListValues = mempty
+    , _mavBinaryListValues = mempty
     , _mavDataType = p5
     }
 
@@ -791,14 +791,14 @@ mavBinaryValue :: Lens' MessageAttributeValue (Maybe ByteString)
 mavBinaryValue = lens _mavBinaryValue (\s a -> s { _mavBinaryValue = a })
 
 -- | Not implemented. Reserved for future use.
-mavStringListValue :: Lens' MessageAttributeValue [Text]
-mavStringListValue =
-    lens _mavStringListValue (\s a -> s { _mavStringListValue = a })
+mavStringListValues :: Lens' MessageAttributeValue [Text]
+mavStringListValues =
+    lens _mavStringListValues (\s a -> s { _mavStringListValues = a })
 
 -- | Not implemented. Reserved for future use.
-mavBinaryListValue :: Lens' MessageAttributeValue [ByteString]
-mavBinaryListValue =
-    lens _mavBinaryListValue (\s a -> s { _mavBinaryListValue = a })
+mavBinaryListValues :: Lens' MessageAttributeValue [ByteString]
+mavBinaryListValues =
+    lens _mavBinaryListValues (\s a -> s { _mavBinaryListValues = a })
 
 -- | Amazon SQS supports the following logical data types: String, Number, and
 -- Binary. In addition, you can append your own custom labels. For more
@@ -818,7 +818,7 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry
     { _smbreId :: Text
     , _smbreMessageBody :: Text
     , _smbreDelaySeconds :: Maybe Integer
-    , _smbreMessageAttribute :: Map Text MessageAttributeValue
+    , _smbreMessageAttributes :: Map Text MessageAttributeValue
     } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -832,7 +832,7 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry
 --
 -- * @DelaySeconds ::@ @Maybe Integer@
 --
--- * @MessageAttribute ::@ @Map Text MessageAttributeValue@
+-- * @MessageAttributes ::@ @Map Text MessageAttributeValue@
 --
 sendMessageBatchRequestEntry :: Text -- ^ 'smbreId'
                              -> Text -- ^ 'smbreMessageBody'
@@ -841,7 +841,7 @@ sendMessageBatchRequestEntry p1 p2 = SendMessageBatchRequestEntry
     { _smbreId = p1
     , _smbreMessageBody = p2
     , _smbreDelaySeconds = Nothing
-    , _smbreMessageAttribute = mempty
+    , _smbreMessageAttributes = mempty
     }
 
 -- | An identifier for the message in this batch. This is used to communicate
@@ -862,9 +862,9 @@ smbreDelaySeconds =
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see Message Attribute Items.
-smbreMessageAttribute :: Lens' SendMessageBatchRequestEntry (Map Text MessageAttributeValue)
-smbreMessageAttribute =
-    lens _smbreMessageAttribute (\s a -> s { _smbreMessageAttribute = a })
+smbreMessageAttributes :: Lens' SendMessageBatchRequestEntry (Map Text MessageAttributeValue)
+smbreMessageAttributes =
+    lens _smbreMessageAttributes (\s a -> s { _smbreMessageAttributes = a })
 
 instance ToQuery SendMessageBatchRequestEntry where
     toQuery = genericQuery def

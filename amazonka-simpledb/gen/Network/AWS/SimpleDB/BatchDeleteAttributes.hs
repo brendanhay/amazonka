@@ -42,7 +42,7 @@ module Network.AWS.SimpleDB.BatchDeleteAttributes
     , batchDeleteAttributes
     -- ** Request lenses
     , bdaDomainName
-    , bdaItem
+    , bdaItems
 
     -- * Response
     , BatchDeleteAttributesResponse
@@ -56,7 +56,7 @@ import Network.AWS.Prelude
 
 data BatchDeleteAttributes = BatchDeleteAttributes
     { _bdaDomainName :: Text
-    , _bdaItem :: [DeletableItem]
+    , _bdaItems :: [DeletableItem]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -66,14 +66,14 @@ data BatchDeleteAttributes = BatchDeleteAttributes
 --
 -- * @DomainName ::@ @Text@
 --
--- * @Item ::@ @[DeletableItem]@
+-- * @Items ::@ @[DeletableItem]@
 --
 batchDeleteAttributes :: Text -- ^ 'bdaDomainName'
-                      -> [DeletableItem] -- ^ 'bdaItem'
+                      -> [DeletableItem] -- ^ 'bdaItems'
                       -> BatchDeleteAttributes
 batchDeleteAttributes p1 p2 = BatchDeleteAttributes
     { _bdaDomainName = p1
-    , _bdaItem = p2
+    , _bdaItems = p2
     }
 
 -- | The name of the domain in which the attributes are being deleted.
@@ -81,8 +81,8 @@ bdaDomainName :: Lens' BatchDeleteAttributes Text
 bdaDomainName = lens _bdaDomainName (\s a -> s { _bdaDomainName = a })
 
 -- | A list of items on which to perform the operation.
-bdaItem :: Lens' BatchDeleteAttributes [DeletableItem]
-bdaItem = lens _bdaItem (\s a -> s { _bdaItem = a })
+bdaItems :: Lens' BatchDeleteAttributes [DeletableItem]
+bdaItems = lens _bdaItems (\s a -> s { _bdaItems = a })
 
 instance ToQuery BatchDeleteAttributes where
     toQuery = genericQuery def

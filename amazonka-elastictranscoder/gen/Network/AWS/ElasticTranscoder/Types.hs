@@ -1057,8 +1057,7 @@ cjpOutputKeys = lens _cjpOutputKeys (\s a -> s { _cjpOutputKeys = a })
 
 instance ToJSON CreateJobPlaylist
 
--- | A section of the response body that provides information about the job that
--- is created.
+-- | A section of the response body that provides information about the job.
 data Job = Job
     { _jId :: Maybe Text
     , _jArn :: Maybe Text
@@ -1172,10 +1171,7 @@ jStatus = lens _jStatus (\s a -> s { _jStatus = a })
 
 instance FromJSON Job
 
--- | Information about the album art that you want Elastic Transcoder to add to
--- the file during transcoding. You can specify up to twenty album artworks
--- for each output. Settings for each artwork must be defined in the job for
--- the current output.
+-- | The album art to be associated with the output file, if any.
 data JobAlbumArt = JobAlbumArt
     { _jaaMergePolicy :: Maybe Text
     , _jaaArtwork :: [Artwork]
@@ -1305,12 +1301,10 @@ instance FromJSON JobInput
 
 instance ToJSON JobInput
 
--- | If you specified one output for a job, information about that output. If
--- you specified multiple outputs for a job, the Output object lists
--- information about the first output. This duplicates the information that is
--- listed for the first output in the Outputs object. Outputs recommended
--- instead. A section of the request or response body that provides
--- information about the transcoded (target) file.
+-- | Outputs recommended instead.If you specified one output for a job,
+-- information about that output. If you specified multiple outputs for a job,
+-- the Output object lists information about the first output. This duplicates
+-- the information that is listed for the first output in the Outputs object.
 data JobOutput = JobOutput
     { _joId :: Maybe Text
     , _joKey :: Maybe Text
@@ -1587,21 +1581,14 @@ instance ToJSON JobWatermark
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic that you want to
 -- notify to report job status. To receive notifications, you must also
--- subscribe to the new topic in the Amazon SNS console. Progressing: The
--- topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic
--- that you want to notify when Elastic Transcoder has started to process a
--- job in this pipeline. This is the ARN that Amazon SNS returned when you
--- created the topic. For more information, see Create a Topic in the Amazon
--- Simple Notification Service Developer Guide. Completed: The topic ARN for
--- the Amazon SNS topic that you want to notify when Elastic Transcoder has
--- finished processing a job in this pipeline. This is the ARN that Amazon SNS
--- returned when you created the topic. Warning: The topic ARN for the Amazon
--- SNS topic that you want to notify when Elastic Transcoder encounters a
--- warning condition while processing a job in this pipeline. This is the ARN
--- that Amazon SNS returned when you created the topic. Error: The topic ARN
--- for the Amazon SNS topic that you want to notify when Elastic Transcoder
--- encounters an error condition while processing a job in this pipeline. This
--- is the ARN that Amazon SNS returned when you created the topic.
+-- subscribe to the new topic in the Amazon SNS console. Progressing
+-- (optional): The Amazon Simple Notification Service (Amazon SNS) topic that
+-- you want to notify when Elastic Transcoder has started to process the job.
+-- Completed (optional): The Amazon SNS topic that you want to notify when
+-- Elastic Transcoder has finished processing the job. Warning (optional): The
+-- Amazon SNS topic that you want to notify when Elastic Transcoder encounters
+-- a warning condition. Error (optional): The Amazon SNS topic that you want
+-- to notify when Elastic Transcoder encounters an error condition.
 data Notifications = Notifications
     { _nProgressing :: Maybe Text
     , _nCompleted :: Maybe Text
@@ -1712,8 +1699,8 @@ instance FromJSON Permission
 
 instance ToJSON Permission
 
--- | A section of the response body that provides information about the pipeline
--- that is created.
+-- | A section of the response body that provides information about the
+-- pipeline.
 data Pipeline = Pipeline
     { _prId :: Maybe Text
     , _prArn :: Maybe Text
@@ -1877,47 +1864,30 @@ prThumbnailConfig =
 
 instance FromJSON Pipeline
 
--- | The optional ContentConfig object specifies information about the Amazon S3
--- bucket in which you want Elastic Transcoder to save transcoded files and
--- playlists: which bucket to use, which users you want to have access to the
--- files, the type of access you want users to have, and the storage class
--- that you want to assign to the files. If you specify values for
--- ContentConfig, you must also specify values for ThumbnailConfig. If you
--- specify values for ContentConfig and ThumbnailConfig, omit the OutputBucket
--- object. Bucket: The Amazon S3 bucket in which you want Elastic Transcoder
--- to save transcoded files and playlists. Permissions (Optional): The
--- Permissions object specifies which users you want to have access to
--- transcoded files and the type of access you want them to have. You can
--- grant permissions to a maximum of 30 users and/or predefined Amazon S3
--- groups. Grantee Type: Specify the type of value that appears in the Grantee
--- object: Canonical: The value in the Grantee object is either the canonical
--- user ID for an AWS account or an origin access identity for an Amazon
--- CloudFront distribution. For more information about canonical user IDs, see
--- Access Control List (ACL) Overview in the Amazon Simple Storage Service
--- Developer Guide. For more information about using CloudFront origin access
--- identities to require that users use CloudFront URLs instead of Amazon S3
--- URLs, see Using an Origin Access Identity to Restrict Access to Your Amazon
--- S3 Content. A canonical user ID is not the same as an AWS account number.
--- Email: The value in the Grantee object is the registered email address of
--- an AWS account. Group: The value in the Grantee object is one of the
--- following predefined Amazon S3 groups: AllUsers, AuthenticatedUsers, or
--- LogDelivery. Grantee: The AWS user or group that you want to have access to
--- transcoded files and playlists. To identify the user or group, you can
--- specify the canonical user ID for an AWS account, an origin access identity
--- for a CloudFront distribution, the registered email address of an AWS
--- account, or a predefined Amazon S3 group Access: The permission that you
--- want to give to the AWS user that you specified in Grantee. Permissions are
--- granted on the files that Elastic Transcoder adds to the bucket, including
--- playlists and video files. Valid values include: READ: The grantee can read
--- the objects and metadata for objects that Elastic Transcoder adds to the
--- Amazon S3 bucket. READ_ACP: The grantee can read the object ACL for objects
--- that Elastic Transcoder adds to the Amazon S3 bucket. WRITE_ACP: The
--- grantee can write the ACL for the objects that Elastic Transcoder adds to
--- the Amazon S3 bucket. FULL_CONTROL: The grantee has READ, READ_ACP, and
--- WRITE_ACP permissions for the objects that Elastic Transcoder adds to the
--- Amazon S3 bucket. StorageClass: The Amazon S3 storage class, Standard or
--- ReducedRedundancy, that you want Elastic Transcoder to assign to the video
--- files and playlists that it stores in your Amazon S3 bucket.
+-- | Information about the Amazon S3 bucket in which you want Elastic Transcoder
+-- to save thumbnail files. Either you specify both ContentConfig and
+-- ThumbnailConfig, or you specify OutputBucket. Bucket: The Amazon S3 bucket
+-- in which you want Elastic Transcoder to save thumbnail files. Permissions:
+-- A list of the users and/or predefined Amazon S3 groups you want to have
+-- access to thumbnail files, and the type of access that you want them to
+-- have. GranteeType: The type of value that appears in the Grantee object:
+-- Canonical: Either the canonical user ID for an AWS account or an origin
+-- access identity for an Amazon CloudFront distribution. A canonical user ID
+-- is not the same as an AWS account number. Email: The registered email
+-- address of an AWS account. Group: One of the following predefined Amazon S3
+-- groups: AllUsers, AuthenticatedUsers, or LogDelivery. Grantee: The AWS user
+-- or group that you want to have access to thumbnail files. Access: The
+-- permission that you want to give to the AWS user that is listed in Grantee.
+-- Valid values include: READ: The grantee can read the thumbnails and
+-- metadata for thumbnails that Elastic Transcoder adds to the Amazon S3
+-- bucket. READ_ACP: The grantee can read the object ACL for thumbnails that
+-- Elastic Transcoder adds to the Amazon S3 bucket. WRITE_ACP: The grantee can
+-- write the ACL for the thumbnails that Elastic Transcoder adds to the Amazon
+-- S3 bucket. FULL_CONTROL: The grantee has READ, READ_ACP, and WRITE_ACP
+-- permissions for the thumbnails that Elastic Transcoder adds to the Amazon
+-- S3 bucket. StorageClass: The Amazon S3 storage class, Standard or
+-- ReducedRedundancy, that you want Elastic Transcoder to assign to the
+-- thumbnails that it stores in your Amazon S3 bucket.
 data PipelineOutputConfig = PipelineOutputConfig
     { _pocBucket :: Maybe Text
     , _pocStorageClass :: Maybe Text
@@ -2050,12 +2020,7 @@ instance FromJSON Playlist
 
 instance ToJSON Playlist
 
--- | Presets are templates that contain most of the settings for transcoding
--- media files from one format to another. Elastic Transcoder includes some
--- default presets for common formats, for example, several iPod and iPhone
--- versions. You can also create your own presets for formats that aren't
--- included among the default presets. You specify which preset you want to
--- use when you create a job.
+-- | A section of the response body that provides information about the preset.
 data Preset = Preset
     { _p1rId :: Maybe Text
     , _p1rArn :: Maybe Text

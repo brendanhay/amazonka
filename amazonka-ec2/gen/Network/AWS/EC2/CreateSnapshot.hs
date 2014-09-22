@@ -69,7 +69,7 @@ module Network.AWS.EC2.CreateSnapshot
     -- ** Response lenses
     , csrrSnapshotId
     , csrrVolumeId
-    , csrrStatus
+    , csrrState
     , csrrStartTime
     , csrrProgress
     , csrrOwnerId
@@ -118,7 +118,7 @@ instance ToQuery CreateSnapshot where
 data CreateSnapshotResponse = CreateSnapshotResponse
     { _csrrSnapshotId :: Maybe Text
     , _csrrVolumeId :: Maybe Text
-    , _csrrStatus :: Maybe SnapshotState
+    , _csrrState :: Maybe SnapshotState
     , _csrrStartTime :: Maybe ISO8601
     , _csrrProgress :: Maybe Text
     , _csrrOwnerId :: Maybe Text
@@ -139,7 +139,7 @@ data CreateSnapshotResponse = CreateSnapshotResponse
 --
 -- * @VolumeId ::@ @Maybe Text@
 --
--- * @Status ::@ @Maybe SnapshotState@
+-- * @State ::@ @Maybe SnapshotState@
 --
 -- * @StartTime ::@ @Maybe ISO8601@
 --
@@ -159,7 +159,7 @@ createSnapshotResponse :: CreateSnapshotResponse
 createSnapshotResponse = CreateSnapshotResponse
     { _csrrSnapshotId = Nothing
     , _csrrVolumeId = Nothing
-    , _csrrStatus = Nothing
+    , _csrrState = Nothing
     , _csrrStartTime = Nothing
     , _csrrProgress = Nothing
     , _csrrOwnerId = Nothing
@@ -178,8 +178,8 @@ csrrVolumeId :: Lens' CreateSnapshotResponse (Maybe Text)
 csrrVolumeId = lens _csrrVolumeId (\s a -> s { _csrrVolumeId = a })
 
 -- | The snapshot state.
-csrrStatus :: Lens' CreateSnapshotResponse (Maybe SnapshotState)
-csrrStatus = lens _csrrStatus (\s a -> s { _csrrStatus = a })
+csrrState :: Lens' CreateSnapshotResponse (Maybe SnapshotState)
+csrrState = lens _csrrState (\s a -> s { _csrrState = a })
 
 -- | The time stamp when the snapshot was initiated.
 csrrStartTime :: Lens' CreateSnapshotResponse (Maybe ISO8601)

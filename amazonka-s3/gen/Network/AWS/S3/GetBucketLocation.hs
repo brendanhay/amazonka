@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype GetBucketLocation = GetBucketLocation
-    { _gbl1Bucket :: BucketName
+    { _gbl1Bucket :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -50,15 +50,15 @@ newtype GetBucketLocation = GetBucketLocation
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
-getBucketLocation :: BucketName -- ^ 'gbl1Bucket'
+getBucketLocation :: Text -- ^ 'gbl1Bucket'
                   -> GetBucketLocation
 getBucketLocation p1 = GetBucketLocation
     { _gbl1Bucket = p1
     }
 
-gbl1Bucket :: Lens' GetBucketLocation BucketName
+gbl1Bucket :: Lens' GetBucketLocation Text
 gbl1Bucket = lens _gbl1Bucket (\s a -> s { _gbl1Bucket = a })
 
 instance ToPath GetBucketLocation
@@ -70,7 +70,7 @@ instance ToHeaders GetBucketLocation
 instance ToBody GetBucketLocation
 
 newtype GetBucketLocationResponse = GetBucketLocationResponse
-    { _gblrrLocationConstraint :: Maybe Region
+    { _gblrrLocationConstraint :: Maybe BucketLocationConstraint
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -80,14 +80,14 @@ newtype GetBucketLocationResponse = GetBucketLocationResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LocationConstraint ::@ @Maybe Region@
+-- * @LocationConstraint ::@ @Maybe BucketLocationConstraint@
 --
 getBucketLocationResponse :: GetBucketLocationResponse
 getBucketLocationResponse = GetBucketLocationResponse
     { _gblrrLocationConstraint = Nothing
     }
 
-gblrrLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Region)
+gblrrLocationConstraint :: Lens' GetBucketLocationResponse (Maybe BucketLocationConstraint)
 gblrrLocationConstraint =
     lens _gblrrLocationConstraint
          (\s a -> s { _gblrrLocationConstraint = a })

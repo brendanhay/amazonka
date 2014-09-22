@@ -48,8 +48,8 @@ module Network.AWS.Redshift.CreateEventSubscription
     , cesSubscriptionName
     , cesSnsTopicArn
     , cesSourceType
-    , cesSourceId
-    , cesEventCategory
+    , cesSourceIds
+    , cesEventCategories
     , cesSeverity
     , cesEnabled
 
@@ -70,8 +70,8 @@ data CreateEventSubscription = CreateEventSubscription
     { _cesSubscriptionName :: Text
     , _cesSnsTopicArn :: Text
     , _cesSourceType :: Maybe Text
-    , _cesSourceId :: [Text]
-    , _cesEventCategory :: [Text]
+    , _cesSourceIds :: [Text]
+    , _cesEventCategories :: [Text]
     , _cesSeverity :: Maybe Text
     , _cesEnabled :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
@@ -87,9 +87,9 @@ data CreateEventSubscription = CreateEventSubscription
 --
 -- * @SourceType ::@ @Maybe Text@
 --
--- * @SourceId ::@ @[Text]@
+-- * @SourceIds ::@ @[Text]@
 --
--- * @EventCategory ::@ @[Text]@
+-- * @EventCategories ::@ @[Text]@
 --
 -- * @Severity ::@ @Maybe Text@
 --
@@ -102,8 +102,8 @@ createEventSubscription p1 p2 = CreateEventSubscription
     { _cesSubscriptionName = p1
     , _cesSnsTopicArn = p2
     , _cesSourceType = Nothing
-    , _cesSourceId = mempty
-    , _cesEventCategory = mempty
+    , _cesSourceIds = mempty
+    , _cesEventCategories = mempty
     , _cesSeverity = Nothing
     , _cesEnabled = Nothing
     }
@@ -137,15 +137,15 @@ cesSourceType = lens _cesSourceType (\s a -> s { _cesSourceType = a })
 -- specified objects. If not specified, then events are returned for all
 -- objects within the source type specified. Example: my-cluster-1,
 -- my-cluster-2 Example: my-snapshot-20131010.
-cesSourceId :: Lens' CreateEventSubscription [Text]
-cesSourceId = lens _cesSourceId (\s a -> s { _cesSourceId = a })
+cesSourceIds :: Lens' CreateEventSubscription [Text]
+cesSourceIds = lens _cesSourceIds (\s a -> s { _cesSourceIds = a })
 
 -- | Specifies the Amazon Redshift event categories to be published by the event
 -- notification subscription. Values: Configuration, Management, Monitoring,
 -- Security.
-cesEventCategory :: Lens' CreateEventSubscription [Text]
-cesEventCategory =
-    lens _cesEventCategory (\s a -> s { _cesEventCategory = a })
+cesEventCategories :: Lens' CreateEventSubscription [Text]
+cesEventCategories =
+    lens _cesEventCategories (\s a -> s { _cesEventCategories = a })
 
 -- | Specifies the Amazon Redshift event severity to be published by the event
 -- notification subscription. Values: ERROR, INFO.

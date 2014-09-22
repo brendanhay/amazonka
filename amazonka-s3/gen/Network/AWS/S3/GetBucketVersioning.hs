@@ -43,7 +43,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype GetBucketVersioning = GetBucketVersioning
-    { _gbvBucket :: BucketName
+    { _gbvBucket :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -51,15 +51,15 @@ newtype GetBucketVersioning = GetBucketVersioning
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
-getBucketVersioning :: BucketName -- ^ 'gbvBucket'
+getBucketVersioning :: Text -- ^ 'gbvBucket'
                     -> GetBucketVersioning
 getBucketVersioning p1 = GetBucketVersioning
     { _gbvBucket = p1
     }
 
-gbvBucket :: Lens' GetBucketVersioning BucketName
+gbvBucket :: Lens' GetBucketVersioning Text
 gbvBucket = lens _gbvBucket (\s a -> s { _gbvBucket = a })
 
 instance ToPath GetBucketVersioning

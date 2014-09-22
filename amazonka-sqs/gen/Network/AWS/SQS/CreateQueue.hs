@@ -51,7 +51,7 @@ module Network.AWS.SQS.CreateQueue
     , createQueue
     -- ** Request lenses
     , cqQueueName
-    , cqAttribute
+    , cqAttributes
 
     -- * Response
     , CreateQueueResponse
@@ -67,7 +67,7 @@ import Network.AWS.Prelude
 
 data CreateQueue = CreateQueue
     { _cqQueueName :: Text
-    , _cqAttribute :: Map QueueAttributeName Text
+    , _cqAttributes :: Map QueueAttributeName Text
     } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -77,13 +77,13 @@ data CreateQueue = CreateQueue
 --
 -- * @QueueName ::@ @Text@
 --
--- * @Attribute ::@ @Map QueueAttributeName Text@
+-- * @Attributes ::@ @Map QueueAttributeName Text@
 --
 createQueue :: Text -- ^ 'cqQueueName'
             -> CreateQueue
 createQueue p1 = CreateQueue
     { _cqQueueName = p1
-    , _cqAttribute = mempty
+    , _cqAttributes = mempty
     }
 
 -- | The name for the queue to be created.
@@ -111,8 +111,8 @@ cqQueueName = lens _cqQueueName (\s a -> s { _cqQueueName = a })
 -- for the queue. An integer from 0 to 43200 (12 hours). The default for this
 -- attribute is 30. For more information about visibility timeout, see
 -- Visibility Timeout in the Amazon SQS Developer Guide.
-cqAttribute :: Lens' CreateQueue (Map QueueAttributeName Text)
-cqAttribute = lens _cqAttribute (\s a -> s { _cqAttribute = a })
+cqAttributes :: Lens' CreateQueue (Map QueueAttributeName Text)
+cqAttributes = lens _cqAttributes (\s a -> s { _cqAttributes = a })
 
 instance ToQuery CreateQueue where
     toQuery = genericQuery def

@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype GetBucketLifecycle = GetBucketLifecycle
-    { _gblBucket :: BucketName
+    { _gblBucket :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -50,15 +50,15 @@ newtype GetBucketLifecycle = GetBucketLifecycle
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
-getBucketLifecycle :: BucketName -- ^ 'gblBucket'
+getBucketLifecycle :: Text -- ^ 'gblBucket'
                    -> GetBucketLifecycle
 getBucketLifecycle p1 = GetBucketLifecycle
     { _gblBucket = p1
     }
 
-gblBucket :: Lens' GetBucketLifecycle BucketName
+gblBucket :: Lens' GetBucketLifecycle Text
 gblBucket = lens _gblBucket (\s a -> s { _gblBucket = a })
 
 instance ToPath GetBucketLifecycle

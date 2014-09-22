@@ -47,7 +47,7 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
     , describeReservedCacheNodesOfferingsResponse
     -- ** Response lenses
     , drcnorMarker
-    , drcnorReservedCacheNodesOffering
+    , drcnorReservedCacheNodesOfferings
     ) where
 
 import Network.AWS.Request.Query
@@ -149,7 +149,7 @@ instance ToQuery DescribeReservedCacheNodesOfferings where
 -- | Represents the output of a DescribeReservedCacheNodesOfferings operation.
 data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOfferingsResponse
     { _drcnorMarker :: Maybe Text
-    , _drcnorReservedCacheNodesOffering :: [ReservedCacheNodesOffering]
+    , _drcnorReservedCacheNodesOfferings :: [ReservedCacheNodesOffering]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -161,12 +161,12 @@ data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOff
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @ReservedCacheNodesOffering ::@ @[ReservedCacheNodesOffering]@
+-- * @ReservedCacheNodesOfferings ::@ @[ReservedCacheNodesOffering]@
 --
 describeReservedCacheNodesOfferingsResponse :: DescribeReservedCacheNodesOfferingsResponse
 describeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOfferingsResponse
     { _drcnorMarker = Nothing
-    , _drcnorReservedCacheNodesOffering = mempty
+    , _drcnorReservedCacheNodesOfferings = mempty
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
@@ -175,10 +175,10 @@ drcnorMarker = lens _drcnorMarker (\s a -> s { _drcnorMarker = a })
 
 -- | A list of reserved cache node offerings. Each element in the list contains
 -- detailed information about one offering.
-drcnorReservedCacheNodesOffering :: Lens' DescribeReservedCacheNodesOfferingsResponse [ReservedCacheNodesOffering]
-drcnorReservedCacheNodesOffering =
-    lens _drcnorReservedCacheNodesOffering
-         (\s a -> s { _drcnorReservedCacheNodesOffering = a })
+drcnorReservedCacheNodesOfferings :: Lens' DescribeReservedCacheNodesOfferingsResponse [ReservedCacheNodesOffering]
+drcnorReservedCacheNodesOfferings =
+    lens _drcnorReservedCacheNodesOfferings
+         (\s a -> s { _drcnorReservedCacheNodesOfferings = a })
 
 instance FromXML DescribeReservedCacheNodesOfferingsResponse where
     fromXMLOptions = xmlOptions

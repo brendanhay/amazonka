@@ -39,8 +39,8 @@ module Network.AWS.EC2.ModifyReservedInstances
     , modifyReservedInstances
     -- ** Request lenses
     , mriClientToken
-    , mriReservedInstancesId
-    , mriReservedInstancesConfigurationSetItemType
+    , mriReservedInstancesIds
+    , mriTargetConfigurations
 
     -- * Response
     , ModifyReservedInstancesResponse
@@ -56,8 +56,8 @@ import Network.AWS.Prelude
 
 data ModifyReservedInstances = ModifyReservedInstances
     { _mriClientToken :: Maybe Text
-    , _mriReservedInstancesId :: [Text]
-    , _mriReservedInstancesConfigurationSetItemType :: [ReservedInstancesConfiguration]
+    , _mriReservedInstancesIds :: [Text]
+    , _mriTargetConfigurations :: [ReservedInstancesConfiguration]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -67,17 +67,17 @@ data ModifyReservedInstances = ModifyReservedInstances
 --
 -- * @ClientToken ::@ @Maybe Text@
 --
--- * @ReservedInstancesId ::@ @[Text]@
+-- * @ReservedInstancesIds ::@ @[Text]@
 --
--- * @ReservedInstancesConfigurationSetItemType ::@ @[ReservedInstancesConfiguration]@
+-- * @TargetConfigurations ::@ @[ReservedInstancesConfiguration]@
 --
-modifyReservedInstances :: [Text] -- ^ 'mriReservedInstancesId'
-                        -> [ReservedInstancesConfiguration] -- ^ 'mriReservedInstancesConfigurationSetItemType'
+modifyReservedInstances :: [Text] -- ^ 'mriReservedInstancesIds'
+                        -> [ReservedInstancesConfiguration] -- ^ 'mriTargetConfigurations'
                         -> ModifyReservedInstances
 modifyReservedInstances p2 p3 = ModifyReservedInstances
     { _mriClientToken = Nothing
-    , _mriReservedInstancesId = p2
-    , _mriReservedInstancesConfigurationSetItemType = p3
+    , _mriReservedInstancesIds = p2
+    , _mriTargetConfigurations = p3
     }
 
 -- | A unique, case-sensitive token you provide to ensure idempotency of your
@@ -86,15 +86,16 @@ mriClientToken :: Lens' ModifyReservedInstances (Maybe Text)
 mriClientToken = lens _mriClientToken (\s a -> s { _mriClientToken = a })
 
 -- | The IDs of the Reserved Instances to modify.
-mriReservedInstancesId :: Lens' ModifyReservedInstances [Text]
-mriReservedInstancesId =
-    lens _mriReservedInstancesId (\s a -> s { _mriReservedInstancesId = a })
+mriReservedInstancesIds :: Lens' ModifyReservedInstances [Text]
+mriReservedInstancesIds =
+    lens _mriReservedInstancesIds
+         (\s a -> s { _mriReservedInstancesIds = a })
 
 -- | The configuration settings for the Reserved Instances to modify.
-mriReservedInstancesConfigurationSetItemType :: Lens' ModifyReservedInstances [ReservedInstancesConfiguration]
-mriReservedInstancesConfigurationSetItemType =
-    lens _mriReservedInstancesConfigurationSetItemType
-         (\s a -> s { _mriReservedInstancesConfigurationSetItemType = a })
+mriTargetConfigurations :: Lens' ModifyReservedInstances [ReservedInstancesConfiguration]
+mriTargetConfigurations =
+    lens _mriTargetConfigurations
+         (\s a -> s { _mriTargetConfigurations = a })
 
 instance ToQuery ModifyReservedInstances where
     toQuery = genericQuery def

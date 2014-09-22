@@ -308,8 +308,7 @@ instance FromXML AssumedRoleUser where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AssumedRoleUser"
 
--- | The temporary security credentials, which include an access key ID, a
--- secret access key, and a security (or session) token.
+-- | The session credentials for API authentication.
 data Credentials = Credentials
     { _cAccessKeyId :: Text
     , _cSecretAccessKey :: Text

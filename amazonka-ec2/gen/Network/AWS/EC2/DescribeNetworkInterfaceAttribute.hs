@@ -48,7 +48,7 @@ module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
     , dniarNetworkInterfaceId
     , dniarDescription
     , dniarSourceDestCheck
-    , dniarItem
+    , dniarGroups
     , dniarAttachment
     ) where
 
@@ -93,7 +93,7 @@ data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttribu
     { _dniarNetworkInterfaceId :: Maybe Text
     , _dniarDescription :: Maybe AttributeValue
     , _dniarSourceDestCheck :: Maybe AttributeBooleanValue
-    , _dniarItem :: [GroupIdentifier]
+    , _dniarGroups :: [GroupIdentifier]
     , _dniarAttachment :: Maybe NetworkInterfaceAttachment
     } deriving (Eq, Ord, Show, Generic)
 
@@ -110,7 +110,7 @@ data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttribu
 --
 -- * @SourceDestCheck ::@ @Maybe AttributeBooleanValue@
 --
--- * @Item ::@ @[GroupIdentifier]@
+-- * @Groups ::@ @[GroupIdentifier]@
 --
 -- * @Attachment ::@ @Maybe NetworkInterfaceAttachment@
 --
@@ -119,7 +119,7 @@ describeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeRes
     { _dniarNetworkInterfaceId = Nothing
     , _dniarDescription = Nothing
     , _dniarSourceDestCheck = Nothing
-    , _dniarItem = mempty
+    , _dniarGroups = mempty
     , _dniarAttachment = Nothing
     }
 
@@ -140,8 +140,8 @@ dniarSourceDestCheck =
     lens _dniarSourceDestCheck (\s a -> s { _dniarSourceDestCheck = a })
 
 -- | The security groups associated with the network interface.
-dniarItem :: Lens' DescribeNetworkInterfaceAttributeResponse [GroupIdentifier]
-dniarItem = lens _dniarItem (\s a -> s { _dniarItem = a })
+dniarGroups :: Lens' DescribeNetworkInterfaceAttributeResponse [GroupIdentifier]
+dniarGroups = lens _dniarGroups (\s a -> s { _dniarGroups = a })
 
 -- | The attachment (if any) of the network interface.
 dniarAttachment :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe NetworkInterfaceAttachment)

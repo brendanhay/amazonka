@@ -45,7 +45,7 @@ module Network.AWS.EC2.DescribeReservedInstancesListings
     -- ** Response constructor
     , describeReservedInstancesListingsResponse
     -- ** Response lenses
-    , drilrItem
+    , drilrReservedInstancesListings
     ) where
 
 import Network.AWS.Request.Query
@@ -99,7 +99,7 @@ instance ToQuery DescribeReservedInstancesListings where
     toQuery = genericQuery def
 
 newtype DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
-    { _drilrItem :: [ReservedInstancesListing]
+    { _drilrReservedInstancesListings :: [ReservedInstancesListing]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -109,16 +109,18 @@ newtype DescribeReservedInstancesListingsResponse = DescribeReservedInstancesLis
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Item ::@ @[ReservedInstancesListing]@
+-- * @ReservedInstancesListings ::@ @[ReservedInstancesListing]@
 --
 describeReservedInstancesListingsResponse :: DescribeReservedInstancesListingsResponse
 describeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
-    { _drilrItem = mempty
+    { _drilrReservedInstancesListings = mempty
     }
 
 -- | Information about the Reserved Instance listing.
-drilrItem :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
-drilrItem = lens _drilrItem (\s a -> s { _drilrItem = a })
+drilrReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
+drilrReservedInstancesListings =
+    lens _drilrReservedInstancesListings
+         (\s a -> s { _drilrReservedInstancesListings = a })
 
 instance FromXML DescribeReservedInstancesListingsResponse where
     fromXMLOptions = xmlOptions

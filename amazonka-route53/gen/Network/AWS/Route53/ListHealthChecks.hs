@@ -42,7 +42,7 @@ module Network.AWS.Route53.ListHealthChecks
     -- ** Response constructor
     , listHealthChecksResponse
     -- ** Response lenses
-    , lhcrHealthCheck
+    , lhcrHealthChecks
     , lhcrMarker
     , lhcrIsTruncated
     , lhcrNextMarker
@@ -105,7 +105,7 @@ instance ToXML ListHealthChecks where
 
 -- | A complex type that contains the response for the request.
 data ListHealthChecksResponse = ListHealthChecksResponse
-    { _lhcrHealthCheck :: [HealthCheck]
+    { _lhcrHealthChecks :: [HealthCheck]
     , _lhcrMarker :: Text
     , _lhcrIsTruncated :: !Bool
     , _lhcrNextMarker :: Maybe Text
@@ -119,7 +119,7 @@ data ListHealthChecksResponse = ListHealthChecksResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HealthCheck ::@ @[HealthCheck]@
+-- * @HealthChecks ::@ @[HealthCheck]@
 --
 -- * @Marker ::@ @Text@
 --
@@ -129,13 +129,13 @@ data ListHealthChecksResponse = ListHealthChecksResponse
 --
 -- * @MaxItems ::@ @Text@
 --
-listHealthChecksResponse :: [HealthCheck] -- ^ 'lhcrHealthCheck'
+listHealthChecksResponse :: [HealthCheck] -- ^ 'lhcrHealthChecks'
                          -> Text -- ^ 'lhcrMarker'
                          -> Bool -- ^ 'lhcrIsTruncated'
                          -> Text -- ^ 'lhcrMaxItems'
                          -> ListHealthChecksResponse
 listHealthChecksResponse p1 p2 p3 p5 = ListHealthChecksResponse
-    { _lhcrHealthCheck = p1
+    { _lhcrHealthChecks = p1
     , _lhcrMarker = p2
     , _lhcrIsTruncated = p3
     , _lhcrNextMarker = Nothing
@@ -144,8 +144,9 @@ listHealthChecksResponse p1 p2 p3 p5 = ListHealthChecksResponse
 
 -- | A complex type that contains information about the health checks associated
 -- with the current AWS account.
-lhcrHealthCheck :: Lens' ListHealthChecksResponse [HealthCheck]
-lhcrHealthCheck = lens _lhcrHealthCheck (\s a -> s { _lhcrHealthCheck = a })
+lhcrHealthChecks :: Lens' ListHealthChecksResponse [HealthCheck]
+lhcrHealthChecks =
+    lens _lhcrHealthChecks (\s a -> s { _lhcrHealthChecks = a })
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of NextMarker from the last response in the

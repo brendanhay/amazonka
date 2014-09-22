@@ -52,15 +52,15 @@ module Network.AWS.EC2.DescribeAvailabilityZones
     -- ** Request constructor
     , describeAvailabilityZones
     -- ** Request lenses
-    , dazZoneName
-    , dazFilter
+    , dazZoneNames
+    , dazFilters
 
     -- * Response
     , DescribeAvailabilityZonesResponse
     -- ** Response constructor
     , describeAvailabilityZonesResponse
     -- ** Response lenses
-    , dazrItem
+    , dazrAvailabilityZones
     ) where
 
 import Network.AWS.Request.Query
@@ -68,8 +68,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeAvailabilityZones = DescribeAvailabilityZones
-    { _dazZoneName :: [Text]
-    , _dazFilter :: [Filter]
+    { _dazZoneNames :: [Text]
+    , _dazFilters :: [Filter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -77,33 +77,33 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ZoneName ::@ @[Text]@
+-- * @ZoneNames ::@ @[Text]@
 --
--- * @Filter ::@ @[Filter]@
+-- * @Filters ::@ @[Filter]@
 --
 describeAvailabilityZones :: DescribeAvailabilityZones
 describeAvailabilityZones = DescribeAvailabilityZones
-    { _dazZoneName = mempty
-    , _dazFilter = mempty
+    { _dazZoneNames = mempty
+    , _dazFilters = mempty
     }
 
 -- | The names of one or more Availability Zones.
-dazZoneName :: Lens' DescribeAvailabilityZones [Text]
-dazZoneName = lens _dazZoneName (\s a -> s { _dazZoneName = a })
+dazZoneNames :: Lens' DescribeAvailabilityZones [Text]
+dazZoneNames = lens _dazZoneNames (\s a -> s { _dazZoneNames = a })
 
 -- | One or more filters. message - Information about the Availability Zone.
 -- region-name - The name of the region for the Availability Zone (for
 -- example, us-east-1). state - The state of the Availability Zone (available
 -- | impaired | unavailable). zone-name - The name of the Availability Zone
 -- (for example, us-east-1a).
-dazFilter :: Lens' DescribeAvailabilityZones [Filter]
-dazFilter = lens _dazFilter (\s a -> s { _dazFilter = a })
+dazFilters :: Lens' DescribeAvailabilityZones [Filter]
+dazFilters = lens _dazFilters (\s a -> s { _dazFilters = a })
 
 instance ToQuery DescribeAvailabilityZones where
     toQuery = genericQuery def
 
 newtype DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
-    { _dazrItem :: [AvailabilityZone]
+    { _dazrAvailabilityZones :: [AvailabilityZone]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -113,16 +113,17 @@ newtype DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Item ::@ @[AvailabilityZone]@
+-- * @AvailabilityZones ::@ @[AvailabilityZone]@
 --
 describeAvailabilityZonesResponse :: DescribeAvailabilityZonesResponse
 describeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
-    { _dazrItem = mempty
+    { _dazrAvailabilityZones = mempty
     }
 
 -- | Information about one or more Availability Zones.
-dazrItem :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]
-dazrItem = lens _dazrItem (\s a -> s { _dazrItem = a })
+dazrAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]
+dazrAvailabilityZones =
+    lens _dazrAvailabilityZones (\s a -> s { _dazrAvailabilityZones = a })
 
 instance FromXML DescribeAvailabilityZonesResponse where
     fromXMLOptions = xmlOptions

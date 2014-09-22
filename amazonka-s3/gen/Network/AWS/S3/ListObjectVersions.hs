@@ -63,8 +63,8 @@ import Network.AWS.Types (Region)
 type GetBucketObjectVersions = ListObjectVersions
 
 data ListObjectVersions = ListObjectVersions
-    { _lovBucket :: BucketName
-    , _lovDelimiter :: Maybe Char
+    { _lovBucket :: Text
+    , _lovDelimiter :: Maybe Text
     , _lovEncodingType :: Maybe EncodingType
     , _lovKeyMarker :: Maybe Text
     , _lovMaxKeys :: Maybe Integer
@@ -77,9 +77,9 @@ data ListObjectVersions = ListObjectVersions
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
--- * @Delimiter ::@ @Maybe Char@
+-- * @Delimiter ::@ @Maybe Text@
 --
 -- * @EncodingType ::@ @Maybe EncodingType@
 --
@@ -91,7 +91,7 @@ data ListObjectVersions = ListObjectVersions
 --
 -- * @VersionIdMarker ::@ @Maybe Text@
 --
-listObjectVersions :: BucketName -- ^ 'lovBucket'
+listObjectVersions :: Text -- ^ 'lovBucket'
                    -> ListObjectVersions
 listObjectVersions p1 = ListObjectVersions
     { _lovBucket = p1
@@ -103,11 +103,11 @@ listObjectVersions p1 = ListObjectVersions
     , _lovVersionIdMarker = Nothing
     }
 
-lovBucket :: Lens' ListObjectVersions BucketName
+lovBucket :: Lens' ListObjectVersions Text
 lovBucket = lens _lovBucket (\s a -> s { _lovBucket = a })
 
 -- | A delimiter is a character you use to group keys.
-lovDelimiter :: Lens' ListObjectVersions (Maybe Char)
+lovDelimiter :: Lens' ListObjectVersions (Maybe Text)
 lovDelimiter = lens _lovDelimiter (\s a -> s { _lovDelimiter = a })
 
 -- | Requests Amazon S3 to encode the object keys in the response and specifies
@@ -146,14 +146,14 @@ instance ToHeaders ListObjectVersions
 instance ToBody ListObjectVersions
 
 data ListObjectVersionsResponse = ListObjectVersionsResponse
-    { _lovrIsTruncated :: !Bool
+    { _lovrIsTruncated :: Bool
     , _lovrKeyMarker :: Maybe Text
     , _lovrVersionIdMarker :: Maybe Text
     , _lovrNextKeyMarker :: Maybe Text
     , _lovrNextVersionIdMarker :: Maybe Text
     , _lovrVersions :: [ObjectVersion]
     , _lovrDeleteMarkers :: [DeleteMarkerEntry]
-    , _lovrName :: Maybe BucketName
+    , _lovrName :: Maybe Text
     , _lovrPrefix :: Maybe Text
     , _lovrMaxKeys :: Maybe Integer
     , _lovrCommonPrefixes :: [CommonPrefix]
@@ -181,7 +181,7 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse
 --
 -- * @DeleteMarkers ::@ @[DeleteMarkerEntry]@
 --
--- * @Name ::@ @Maybe BucketName@
+-- * @Name ::@ @Maybe Text@
 --
 -- * @Prefix ::@ @Maybe Text@
 --
@@ -244,7 +244,7 @@ lovrDeleteMarkers :: Lens' ListObjectVersionsResponse [DeleteMarkerEntry]
 lovrDeleteMarkers =
     lens _lovrDeleteMarkers (\s a -> s { _lovrDeleteMarkers = a })
 
-lovrName :: Lens' ListObjectVersionsResponse (Maybe BucketName)
+lovrName :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovrName = lens _lovrName (\s a -> s { _lovrName = a })
 
 lovrPrefix :: Lens' ListObjectVersionsResponse (Maybe Text)

@@ -78,12 +78,12 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data GetObject = GetObject
-    { _goBucket :: BucketName
+    { _goBucket :: Text
     , _goIfMatch :: Maybe Text
     , _goIfModifiedSince :: Maybe RFC822
     , _goIfNoneMatch :: Maybe Text
     , _goIfUnmodifiedSince :: Maybe RFC822
-    , _goKey :: ObjectKey
+    , _goKey :: Text
     , _goRange :: Maybe Text
     , _goResponseCacheControl :: Maybe Text
     , _goResponseContentDisposition :: Maybe Text
@@ -91,7 +91,7 @@ data GetObject = GetObject
     , _goResponseContentLanguage :: Maybe Text
     , _goResponseContentType :: Maybe Text
     , _goResponseExpires :: Maybe RFC822
-    , _goVersionId :: Maybe ObjectVersionId
+    , _goVersionId :: Maybe Text
     , _goSSECustomerAlgorithm :: Maybe Text
     , _goSSECustomerKey :: Maybe Text
     , _goSSECustomerKeyMD5 :: Maybe Text
@@ -102,7 +102,7 @@ data GetObject = GetObject
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
 -- * @IfMatch ::@ @Maybe Text@
 --
@@ -112,7 +112,7 @@ data GetObject = GetObject
 --
 -- * @IfUnmodifiedSince ::@ @Maybe RFC822@
 --
--- * @Key ::@ @ObjectKey@
+-- * @Key ::@ @Text@
 --
 -- * @Range ::@ @Maybe Text@
 --
@@ -128,7 +128,7 @@ data GetObject = GetObject
 --
 -- * @ResponseExpires ::@ @Maybe RFC822@
 --
--- * @VersionId ::@ @Maybe ObjectVersionId@
+-- * @VersionId ::@ @Maybe Text@
 --
 -- * @SSECustomerAlgorithm ::@ @Maybe Text@
 --
@@ -136,8 +136,8 @@ data GetObject = GetObject
 --
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
-getObject :: BucketName -- ^ 'goBucket'
-          -> ObjectKey -- ^ 'goKey'
+getObject :: Text -- ^ 'goBucket'
+          -> Text -- ^ 'goKey'
           -> GetObject
 getObject p1 p6 = GetObject
     { _goBucket = p1
@@ -159,7 +159,7 @@ getObject p1 p6 = GetObject
     , _goSSECustomerKeyMD5 = Nothing
     }
 
-goBucket :: Lens' GetObject BucketName
+goBucket :: Lens' GetObject Text
 goBucket = lens _goBucket (\s a -> s { _goBucket = a })
 
 -- | Return the object only if its entity tag (ETag) is the same as the one
@@ -184,7 +184,7 @@ goIfUnmodifiedSince :: Lens' GetObject (Maybe RFC822)
 goIfUnmodifiedSince =
     lens _goIfUnmodifiedSince (\s a -> s { _goIfUnmodifiedSince = a })
 
-goKey :: Lens' GetObject ObjectKey
+goKey :: Lens' GetObject Text
 goKey = lens _goKey (\s a -> s { _goKey = a })
 
 -- | Downloads the specified range bytes of an object. For more information
@@ -227,7 +227,7 @@ goResponseExpires =
     lens _goResponseExpires (\s a -> s { _goResponseExpires = a })
 
 -- | VersionId used to reference a specific version of the object.
-goVersionId :: Lens' GetObject (Maybe ObjectVersionId)
+goVersionId :: Lens' GetObject (Maybe Text)
 goVersionId = lens _goVersionId (\s a -> s { _goVersionId = a })
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
@@ -278,9 +278,9 @@ data GetObjectResponse = GetObjectResponse
     , _gorRestore :: Maybe Text
     , _gorLastModified :: Maybe RFC822
     , _gorContentLength :: Maybe Integer
-    , _gorETag :: Maybe ETag
+    , _gorETag :: Maybe Text
     , _gorMissingMeta :: Maybe Integer
-    , _gorVersionId :: Maybe ObjectVersionId
+    , _gorVersionId :: Maybe Text
     , _gorCacheControl :: Maybe Text
     , _gorContentDisposition :: Maybe Text
     , _gorContentEncoding :: Maybe Text
@@ -315,11 +315,11 @@ data GetObjectResponse = GetObjectResponse
 --
 -- * @ContentLength ::@ @Maybe Integer@
 --
--- * @ETag ::@ @Maybe ETag@
+-- * @ETag ::@ @Maybe Text@
 --
 -- * @MissingMeta ::@ @Maybe Integer@
 --
--- * @VersionId ::@ @Maybe ObjectVersionId@
+-- * @VersionId ::@ @Maybe Text@
 --
 -- * @CacheControl ::@ @Maybe Text@
 --
@@ -405,7 +405,7 @@ gorContentLength =
 
 -- | An ETag is an opaque identifier assigned by a web server to a specific
 -- version of a resource found at a URL.
-gorETag :: Lens' GetObjectResponse (Maybe ETag)
+gorETag :: Lens' GetObjectResponse (Maybe Text)
 gorETag = lens _gorETag (\s a -> s { _gorETag = a })
 
 -- | This is set to the number of metadata entries not returned in x-amz-meta
@@ -416,7 +416,7 @@ gorMissingMeta :: Lens' GetObjectResponse (Maybe Integer)
 gorMissingMeta = lens _gorMissingMeta (\s a -> s { _gorMissingMeta = a })
 
 -- | Version of the object.
-gorVersionId :: Lens' GetObjectResponse (Maybe ObjectVersionId)
+gorVersionId :: Lens' GetObjectResponse (Maybe Text)
 gorVersionId = lens _gorVersionId (\s a -> s { _gorVersionId = a })
 
 -- | Specifies caching behavior along the request/reply chain.

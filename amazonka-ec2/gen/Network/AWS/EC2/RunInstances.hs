@@ -95,14 +95,14 @@ module Network.AWS.EC2.RunInstances
     , ri3MinCount
     , ri3MaxCount
     , ri3KeyName
-    , ri3SecurityGroup
-    , ri3SecurityGroupId
+    , ri3SecurityGroups
+    , ri3SecurityGroupIds
     , ri3UserData
     , ri3InstanceType
     , ri3Placement
     , ri3KernelId
     , ri3RamdiskId
-    , ri3BlockDeviceMapping
+    , ri3BlockDeviceMappings
     , ri3Monitoring
     , ri3SubnetId
     , ri3DisableApiTermination
@@ -110,7 +110,7 @@ module Network.AWS.EC2.RunInstances
     , ri3PrivateIpAddress
     , ri3ClientToken
     , ri3AdditionalInfo
-    , ri3NetworkInterface
+    , ri3NetworkInterfaces
     , ri3IamInstanceProfile
     , ri3EbsOptimized
 
@@ -122,8 +122,8 @@ module Network.AWS.EC2.RunInstances
     , rirrReservationId
     , rirrOwnerId
     , rirrRequesterId
-    , rirrItem
-    , rirrItem
+    , rirrGroups
+    , rirrInstances
     ) where
 
 import Network.AWS.Request.Query
@@ -135,14 +135,14 @@ data RunInstances = RunInstances
     , _ri3MinCount :: !Integer
     , _ri3MaxCount :: !Integer
     , _ri3KeyName :: Maybe Text
-    , _ri3SecurityGroup :: [Text]
-    , _ri3SecurityGroupId :: [Text]
+    , _ri3SecurityGroups :: [Text]
+    , _ri3SecurityGroupIds :: [Text]
     , _ri3UserData :: Maybe ByteString
     , _ri3InstanceType :: Maybe InstanceType
     , _ri3Placement :: Maybe Placement
     , _ri3KernelId :: Maybe Text
     , _ri3RamdiskId :: Maybe Text
-    , _ri3BlockDeviceMapping :: [BlockDeviceMapping]
+    , _ri3BlockDeviceMappings :: [BlockDeviceMapping]
     , _ri3Monitoring :: Maybe RunInstancesMonitoringEnabled
     , _ri3SubnetId :: Maybe Text
     , _ri3DisableApiTermination :: Maybe Bool
@@ -150,7 +150,7 @@ data RunInstances = RunInstances
     , _ri3PrivateIpAddress :: Maybe Text
     , _ri3ClientToken :: Maybe Text
     , _ri3AdditionalInfo :: Maybe Text
-    , _ri3NetworkInterface :: [InstanceNetworkInterfaceSpecification]
+    , _ri3NetworkInterfaces :: [InstanceNetworkInterfaceSpecification]
     , _ri3IamInstanceProfile :: Maybe IamInstanceProfileSpecification
     , _ri3EbsOptimized :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
@@ -168,9 +168,9 @@ data RunInstances = RunInstances
 --
 -- * @KeyName ::@ @Maybe Text@
 --
--- * @SecurityGroup ::@ @[Text]@
+-- * @SecurityGroups ::@ @[Text]@
 --
--- * @SecurityGroupId ::@ @[Text]@
+-- * @SecurityGroupIds ::@ @[Text]@
 --
 -- * @UserData ::@ @Maybe ByteString@
 --
@@ -182,7 +182,7 @@ data RunInstances = RunInstances
 --
 -- * @RamdiskId ::@ @Maybe Text@
 --
--- * @BlockDeviceMapping ::@ @[BlockDeviceMapping]@
+-- * @BlockDeviceMappings ::@ @[BlockDeviceMapping]@
 --
 -- * @Monitoring ::@ @Maybe RunInstancesMonitoringEnabled@
 --
@@ -198,7 +198,7 @@ data RunInstances = RunInstances
 --
 -- * @AdditionalInfo ::@ @Maybe Text@
 --
--- * @NetworkInterface ::@ @[InstanceNetworkInterfaceSpecification]@
+-- * @NetworkInterfaces ::@ @[InstanceNetworkInterfaceSpecification]@
 --
 -- * @IamInstanceProfile ::@ @Maybe IamInstanceProfileSpecification@
 --
@@ -213,14 +213,14 @@ runInstances p1 p2 p3 = RunInstances
     , _ri3MinCount = p2
     , _ri3MaxCount = p3
     , _ri3KeyName = Nothing
-    , _ri3SecurityGroup = mempty
-    , _ri3SecurityGroupId = mempty
+    , _ri3SecurityGroups = mempty
+    , _ri3SecurityGroupIds = mempty
     , _ri3UserData = Nothing
     , _ri3InstanceType = Nothing
     , _ri3Placement = Nothing
     , _ri3KernelId = Nothing
     , _ri3RamdiskId = Nothing
-    , _ri3BlockDeviceMapping = mempty
+    , _ri3BlockDeviceMappings = mempty
     , _ri3Monitoring = Nothing
     , _ri3SubnetId = Nothing
     , _ri3DisableApiTermination = Nothing
@@ -228,7 +228,7 @@ runInstances p1 p2 p3 = RunInstances
     , _ri3PrivateIpAddress = Nothing
     , _ri3ClientToken = Nothing
     , _ri3AdditionalInfo = Nothing
-    , _ri3NetworkInterface = mempty
+    , _ri3NetworkInterfaces = mempty
     , _ri3IamInstanceProfile = Nothing
     , _ri3EbsOptimized = Nothing
     }
@@ -265,15 +265,15 @@ ri3KeyName = lens _ri3KeyName (\s a -> s { _ri3KeyName = a })
 -- | [EC2-Classic, default VPC] One or more security group names. For a
 -- nondefault VPC, you must use security group IDs instead. Default: Amazon
 -- EC2 uses the default security group.
-ri3SecurityGroup :: Lens' RunInstances [Text]
-ri3SecurityGroup =
-    lens _ri3SecurityGroup (\s a -> s { _ri3SecurityGroup = a })
+ri3SecurityGroups :: Lens' RunInstances [Text]
+ri3SecurityGroups =
+    lens _ri3SecurityGroups (\s a -> s { _ri3SecurityGroups = a })
 
 -- | One or more security group IDs. You can create a security group using
 -- CreateSecurityGroup. Default: Amazon EC2 uses the default security group.
-ri3SecurityGroupId :: Lens' RunInstances [Text]
-ri3SecurityGroupId =
-    lens _ri3SecurityGroupId (\s a -> s { _ri3SecurityGroupId = a })
+ri3SecurityGroupIds :: Lens' RunInstances [Text]
+ri3SecurityGroupIds =
+    lens _ri3SecurityGroupIds (\s a -> s { _ri3SecurityGroupIds = a })
 
 -- | The user data for the instances. You can specify the user data as a string,
 -- or if the user data contents are in a file, you can use file://filename.
@@ -300,9 +300,9 @@ ri3RamdiskId :: Lens' RunInstances (Maybe Text)
 ri3RamdiskId = lens _ri3RamdiskId (\s a -> s { _ri3RamdiskId = a })
 
 -- | The block device mapping.
-ri3BlockDeviceMapping :: Lens' RunInstances [BlockDeviceMapping]
-ri3BlockDeviceMapping =
-    lens _ri3BlockDeviceMapping (\s a -> s { _ri3BlockDeviceMapping = a })
+ri3BlockDeviceMappings :: Lens' RunInstances [BlockDeviceMapping]
+ri3BlockDeviceMappings =
+    lens _ri3BlockDeviceMappings (\s a -> s { _ri3BlockDeviceMappings = a })
 
 -- | The monitoring for the instance.
 ri3Monitoring :: Lens' RunInstances (Maybe RunInstancesMonitoringEnabled)
@@ -355,9 +355,9 @@ ri3AdditionalInfo =
     lens _ri3AdditionalInfo (\s a -> s { _ri3AdditionalInfo = a })
 
 -- | One or more network interfaces.
-ri3NetworkInterface :: Lens' RunInstances [InstanceNetworkInterfaceSpecification]
-ri3NetworkInterface =
-    lens _ri3NetworkInterface (\s a -> s { _ri3NetworkInterface = a })
+ri3NetworkInterfaces :: Lens' RunInstances [InstanceNetworkInterfaceSpecification]
+ri3NetworkInterfaces =
+    lens _ri3NetworkInterfaces (\s a -> s { _ri3NetworkInterfaces = a })
 
 -- | The IAM instance profile.
 ri3IamInstanceProfile :: Lens' RunInstances (Maybe IamInstanceProfileSpecification)
@@ -380,8 +380,8 @@ data RunInstancesResponse = RunInstancesResponse
     { _rirrReservationId :: Maybe Text
     , _rirrOwnerId :: Maybe Text
     , _rirrRequesterId :: Maybe Text
-    , _rirrItem :: [GroupIdentifier]
-    , _rirrItem :: [Instance]
+    , _rirrGroups :: [GroupIdentifier]
+    , _rirrInstances :: [Instance]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -397,17 +397,17 @@ data RunInstancesResponse = RunInstancesResponse
 --
 -- * @RequesterId ::@ @Maybe Text@
 --
--- * @Item ::@ @[GroupIdentifier]@
+-- * @Groups ::@ @[GroupIdentifier]@
 --
--- * @Item ::@ @[Instance]@
+-- * @Instances ::@ @[Instance]@
 --
 runInstancesResponse :: RunInstancesResponse
 runInstancesResponse = RunInstancesResponse
     { _rirrReservationId = Nothing
     , _rirrOwnerId = Nothing
     , _rirrRequesterId = Nothing
-    , _rirrItem = mempty
-    , _rirrItem = mempty
+    , _rirrGroups = mempty
+    , _rirrInstances = mempty
     }
 
 -- | The ID of the reservation.
@@ -425,12 +425,12 @@ rirrRequesterId :: Lens' RunInstancesResponse (Maybe Text)
 rirrRequesterId = lens _rirrRequesterId (\s a -> s { _rirrRequesterId = a })
 
 -- | One or more security groups.
-rirrItem :: Lens' RunInstancesResponse [GroupIdentifier]
-rirrItem = lens _rirrItem (\s a -> s { _rirrItem = a })
+rirrGroups :: Lens' RunInstancesResponse [GroupIdentifier]
+rirrGroups = lens _rirrGroups (\s a -> s { _rirrGroups = a })
 
 -- | One or more instances.
-rirrItem :: Lens' RunInstancesResponse [Instance]
-rirrItem = lens _rirrItem (\s a -> s { _rirrItem = a })
+rirrInstances :: Lens' RunInstancesResponse [Instance]
+rirrInstances = lens _rirrInstances (\s a -> s { _rirrInstances = a })
 
 instance FromXML RunInstancesResponse where
     fromXMLOptions = xmlOptions

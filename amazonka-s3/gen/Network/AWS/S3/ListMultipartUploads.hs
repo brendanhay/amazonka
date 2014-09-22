@@ -58,8 +58,8 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data ListMultipartUploads = ListMultipartUploads
-    { _lmuBucket :: BucketName
-    , _lmuDelimiter :: Maybe Char
+    { _lmuBucket :: Text
+    , _lmuDelimiter :: Maybe Text
     , _lmuEncodingType :: Maybe EncodingType
     , _lmuKeyMarker :: Maybe Text
     , _lmuMaxUploads :: Maybe Integer
@@ -72,9 +72,9 @@ data ListMultipartUploads = ListMultipartUploads
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
--- * @Delimiter ::@ @Maybe Char@
+-- * @Delimiter ::@ @Maybe Text@
 --
 -- * @EncodingType ::@ @Maybe EncodingType@
 --
@@ -86,7 +86,7 @@ data ListMultipartUploads = ListMultipartUploads
 --
 -- * @UploadIdMarker ::@ @Maybe Text@
 --
-listMultipartUploads :: BucketName -- ^ 'lmuBucket'
+listMultipartUploads :: Text -- ^ 'lmuBucket'
                      -> ListMultipartUploads
 listMultipartUploads p1 = ListMultipartUploads
     { _lmuBucket = p1
@@ -98,11 +98,11 @@ listMultipartUploads p1 = ListMultipartUploads
     , _lmuUploadIdMarker = Nothing
     }
 
-lmuBucket :: Lens' ListMultipartUploads BucketName
+lmuBucket :: Lens' ListMultipartUploads Text
 lmuBucket = lens _lmuBucket (\s a -> s { _lmuBucket = a })
 
 -- | Character you use to group keys.
-lmuDelimiter :: Lens' ListMultipartUploads (Maybe Char)
+lmuDelimiter :: Lens' ListMultipartUploads (Maybe Text)
 lmuDelimiter = lens _lmuDelimiter (\s a -> s { _lmuDelimiter = a })
 
 -- | Requests Amazon S3 to encode the object keys in the response and specifies
@@ -146,14 +146,14 @@ instance ToHeaders ListMultipartUploads
 instance ToBody ListMultipartUploads
 
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse
-    { _lmurBucket :: Maybe BucketName
+    { _lmurBucket :: Maybe Text
     , _lmurKeyMarker :: Maybe Text
     , _lmurUploadIdMarker :: Maybe Text
     , _lmurNextKeyMarker :: Maybe Text
     , _lmurPrefix :: Maybe Text
     , _lmurNextUploadIdMarker :: Maybe Text
     , _lmurMaxUploads :: Maybe Integer
-    , _lmurIsTruncated :: !Bool
+    , _lmurIsTruncated :: Bool
     , _lmurUploads :: [MultipartUpload]
     , _lmurCommonPrefixes :: [CommonPrefix]
     , _lmurEncodingType :: Maybe EncodingType
@@ -166,7 +166,7 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @Maybe BucketName@
+-- * @Bucket ::@ @Maybe Text@
 --
 -- * @KeyMarker ::@ @Maybe Text@
 --
@@ -205,7 +205,7 @@ listMultipartUploadsResponse p8 = ListMultipartUploadsResponse
     }
 
 -- | Name of the bucket to which the multipart upload was initiated.
-lmurBucket :: Lens' ListMultipartUploadsResponse (Maybe BucketName)
+lmurBucket :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmurBucket = lens _lmurBucket (\s a -> s { _lmurBucket = a })
 
 -- | The key at or after which the listing began.

@@ -2056,9 +2056,10 @@ instance FromJSON CancelWorkflowExecutionDecisionAttributes
 instance ToJSON CancelWorkflowExecutionDecisionAttributes
 
 -- | If specified, only workflow executions that match this close status are
--- counted. This filter has an affect only if executionStatus is specified as
--- CLOSED. closeStatusFilter, executionFilter, typeFilter and tagFilter are
--- mutually exclusive. You can specify at most one of these in a request.
+-- listed. For example, if TERMINATED is specified, then only TERMINATED
+-- workflow executions are listed. closeStatusFilter, executionFilter,
+-- typeFilter and tagFilter are mutually exclusive. You can specify at most
+-- one of these in a request.
 newtype CloseStatusFilter = CloseStatusFilter
     { _csfStatus :: CloseStatus
     } deriving (Eq, Ord, Show, Generic)
@@ -2167,9 +2168,9 @@ instance FromJSON RequestCancelActivityTaskDecisionAttributes
 
 instance ToJSON RequestCancelActivityTaskDecisionAttributes
 
--- | If specified, only executions that have a tag that matches the filter are
--- counted. closeStatusFilter, executionFilter, typeFilter and tagFilter are
--- mutually exclusive. You can specify at most one of these in a request.
+-- | If specified, only executions that have the matching tag are listed.
+-- executionFilter, typeFilter and tagFilter are mutually exclusive. You can
+-- specify at most one of these in a request.
 newtype TagFilter = TagFilter
     { _tfTag :: Text
     } deriving (Eq, Ord, Show, Generic)
@@ -2230,9 +2231,8 @@ instance FromJSON TaskList
 instance ToJSON TaskList
 
 -- | If specified, only workflow executions matching the workflow id specified
--- in the filter are returned. closeStatusFilter, executionFilter, typeFilter
--- and tagFilter are mutually exclusive. You can specify at most one of these
--- in a request.
+-- in the filter are returned. executionFilter, typeFilter and tagFilter are
+-- mutually exclusive. You can specify at most one of these in a request.
 newtype WorkflowExecutionFilter = WorkflowExecutionFilter
     { _wefWorkflowId :: Text
     } deriving (Eq, Ord, Show, Generic)
@@ -2697,8 +2697,7 @@ instance FromJSON ActivityTaskTimedOutEventAttributes
 
 instance ToJSON ActivityTaskTimedOutEventAttributes
 
--- | The activity type provided in the ScheduleActivityTask decision that
--- failed.
+-- | The type of the activity task to schedule. This field is required.
 data ActivityType = ActivityType
     { _atName :: Text
     , _atVersion :: Text
@@ -2831,12 +2830,7 @@ atcDefaultTaskScheduleToCloseTimeout =
 
 instance FromJSON ActivityTypeConfiguration
 
--- | General information about the activity type. The status of activity type
--- (returned in the ActivityTypeInfo structure) can be one of the following.
--- REGISTERED: The type is registered and available. Workers supporting this
--- type should be running. DEPRECATED: The type was deprecated using
--- DeprecateActivityType, but is still in use. You should keep workers
--- supporting this type running. You cannot create new tasks of this type.
+-- | Detailed information about an activity type.
 data ActivityTypeInfo = ActivityTypeInfo
     { _atiActivityType :: ActivityType
     , _atiStatus :: RegistrationStatus
@@ -4127,12 +4121,8 @@ diDescription = lens _diDescription (\s a -> s { _diDescription = a })
 
 instance FromJSON DomainInfo
 
--- | If specified, the workflow executions are included in the returned results
--- based on whether their start times are within the range specified by this
--- filter. Also, if this parameter is specified, the returned results are
--- ordered by their start times. startTimeFilter and closeTimeFilter are
--- mutually exclusive. You must specify one of these in a request but not
--- both.
+-- | Workflow executions are included in the returned results based on whether
+-- their start times are within the range specified by this filter.
 data ExecutionTimeFilter = ExecutionTimeFilter
     { _etfOldestDate :: POSIX
     , _etfLatestDate :: Maybe POSIX
@@ -6469,8 +6459,8 @@ instance FromJSON TimerStartedEventAttributes
 
 instance ToJSON TimerStartedEventAttributes
 
--- | The source workflow execution that started this workflow execution. The
--- member is not set if the workflow execution was not started by a workflow.
+-- | The external workflow execution to which the cancellation request was
+-- delivered.
 data WorkflowExecution = WorkflowExecution
     { _weWorkflowId :: Text
     , _weRunId :: Text
@@ -7373,8 +7363,7 @@ instance FromJSON WorkflowExecutionTimedOutEventAttributes
 
 instance ToJSON WorkflowExecutionTimedOutEventAttributes
 
--- | The workflow type provided in the StartChildWorkflowExecution Decision that
--- failed.
+-- | The type of the workflow to start.
 data WorkflowType = WorkflowType
     { _wtName :: Text
     , _wtVersion :: Text
@@ -7497,8 +7486,8 @@ wtcDefaultChildPolicy =
 instance FromJSON WorkflowTypeConfiguration
 
 -- | If specified, only executions of the type specified in the filter are
--- returned. closeStatusFilter, executionFilter, typeFilter and tagFilter are
--- mutually exclusive. You can specify at most one of these in a request.
+-- returned. executionFilter, typeFilter and tagFilter are mutually exclusive.
+-- You can specify at most one of these in a request.
 data WorkflowTypeFilter = WorkflowTypeFilter
     { _wtfName :: Text
     , _wtfVersion :: Maybe Text
@@ -7530,13 +7519,7 @@ wtfVersion = lens _wtfVersion (\s a -> s { _wtfVersion = a })
 
 instance ToJSON WorkflowTypeFilter
 
--- | General information about the workflow type. The status of the workflow
--- type (returned in the WorkflowTypeInfo structure) can be one of the
--- following. REGISTERED: The type is registered and available. Workers
--- supporting this type should be running. DEPRECATED: The type was deprecated
--- using DeprecateWorkflowType, but is still in use. You should keep workers
--- supporting this type running. You cannot create new workflow executions of
--- this type.
+-- | Contains information about a workflow type.
 data WorkflowTypeInfo = WorkflowTypeInfo
     { _wtiWorkflowType :: WorkflowType
     , _wtiStatus :: RegistrationStatus

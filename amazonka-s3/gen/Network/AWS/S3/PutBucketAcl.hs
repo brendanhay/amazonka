@@ -50,7 +50,7 @@ import Network.AWS.Types (Region)
 data PutBucketAcl = PutBucketAcl
     { _pbaACL :: Maybe BucketCannedACL
     , _pbaAccessControlPolicy :: Maybe AccessControlPolicy
-    , _pbaBucket :: BucketName
+    , _pbaBucket :: Text
     , _pbaContentMD5 :: Maybe Text
     , _pbaGrantFullControl :: Maybe Text
     , _pbaGrantRead :: Maybe Text
@@ -68,7 +68,7 @@ data PutBucketAcl = PutBucketAcl
 --
 -- * @AccessControlPolicy ::@ @Maybe AccessControlPolicy@
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
 -- * @ContentMD5 ::@ @Maybe Text@
 --
@@ -82,7 +82,7 @@ data PutBucketAcl = PutBucketAcl
 --
 -- * @GrantWriteACP ::@ @Maybe Text@
 --
-putBucketAcl :: BucketName -- ^ 'pbaBucket'
+putBucketAcl :: Text -- ^ 'pbaBucket'
              -> PutBucketAcl
 putBucketAcl p3 = PutBucketAcl
     { _pbaACL = Nothing
@@ -104,7 +104,7 @@ pbaAccessControlPolicy :: Lens' PutBucketAcl (Maybe AccessControlPolicy)
 pbaAccessControlPolicy =
     lens _pbaAccessControlPolicy (\s a -> s { _pbaAccessControlPolicy = a })
 
-pbaBucket :: Lens' PutBucketAcl BucketName
+pbaBucket :: Lens' PutBucketAcl Text
 pbaBucket = lens _pbaBucket (\s a -> s { _pbaBucket = a })
 
 pbaContentMD5 :: Lens' PutBucketAcl (Maybe Text)

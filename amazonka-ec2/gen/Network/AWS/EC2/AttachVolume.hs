@@ -70,7 +70,7 @@ module Network.AWS.EC2.AttachVolume
     , avrVolumeId
     , avrInstanceId
     , avrDevice
-    , avrStatus
+    , avrState
     , avrAttachTime
     , avrDeleteOnTermination
     ) where
@@ -126,7 +126,7 @@ data AttachVolumeResponse = AttachVolumeResponse
     { _avrVolumeId :: Maybe Text
     , _avrInstanceId :: Maybe Text
     , _avrDevice :: Maybe Text
-    , _avrStatus :: Maybe VolumeAttachmentState
+    , _avrState :: Maybe VolumeAttachmentState
     , _avrAttachTime :: Maybe ISO8601
     , _avrDeleteOnTermination :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
@@ -144,7 +144,7 @@ data AttachVolumeResponse = AttachVolumeResponse
 --
 -- * @Device ::@ @Maybe Text@
 --
--- * @Status ::@ @Maybe VolumeAttachmentState@
+-- * @State ::@ @Maybe VolumeAttachmentState@
 --
 -- * @AttachTime ::@ @Maybe ISO8601@
 --
@@ -155,7 +155,7 @@ attachVolumeResponse = AttachVolumeResponse
     { _avrVolumeId = Nothing
     , _avrInstanceId = Nothing
     , _avrDevice = Nothing
-    , _avrStatus = Nothing
+    , _avrState = Nothing
     , _avrAttachTime = Nothing
     , _avrDeleteOnTermination = Nothing
     }
@@ -173,8 +173,8 @@ avrDevice :: Lens' AttachVolumeResponse (Maybe Text)
 avrDevice = lens _avrDevice (\s a -> s { _avrDevice = a })
 
 -- | The attachment state of the volume.
-avrStatus :: Lens' AttachVolumeResponse (Maybe VolumeAttachmentState)
-avrStatus = lens _avrStatus (\s a -> s { _avrStatus = a })
+avrState :: Lens' AttachVolumeResponse (Maybe VolumeAttachmentState)
+avrState = lens _avrState (\s a -> s { _avrState = a })
 
 -- | The time stamp when the attachment initiated.
 avrAttachTime :: Lens' AttachVolumeResponse (Maybe ISO8601)

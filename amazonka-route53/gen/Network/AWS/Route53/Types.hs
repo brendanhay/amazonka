@@ -67,13 +67,19 @@ module Network.AWS.Route53.Types
     -- * HealthCheckType
     , HealthCheckType (..)
 
+    -- * RRType
+    , RRType (..)
+
+    -- * ResourceRecordSetRegion
+    , ResourceRecordSetRegion (..)
+
     -- * TagResourceType
     , TagResourceType (..)
 
     -- * DelegationSet
     , DelegationSet
     , delegationSet
-    , dsNameServer
+    , dsNameServers
 
     -- * HostedZoneConfig
     , HostedZoneConfig
@@ -102,7 +108,7 @@ module Network.AWS.Route53.Types
     , ChangeBatch
     , changeBatch
     , cbComment
-    , cbChange
+    , cbChanges
 
     -- * ChangeInfo
     , ChangeInfo
@@ -169,7 +175,7 @@ module Network.AWS.Route53.Types
     , rrsGeoLocation
     , rrsFailover
     , rrsTTL
-    , rrsResourceRecord
+    , rrsResourceRecords
     , rrsAliasTarget
     , rrsHealthCheckId
 
@@ -178,7 +184,7 @@ module Network.AWS.Route53.Types
     , resourceTagSet
     , rtsResourceType
     , rtsResourceId
-    , rtsTag
+    , rtsTags
 
     -- * Tag
     , Tag
@@ -262,7 +268,7 @@ data Route53Error
       -- error message indicates one error in the change batch. For more
       -- information, see Example InvalidChangeBatch Errors.
     | InvalidChangeBatch
-        { _icbMessage :: [Text]
+        { _icbMessages :: [Text]
         }
       -- | This error indicates that the specified domain name is not valid.
     | InvalidDomainName
@@ -591,19 +597,19 @@ instance ToQuery ChangeStatus where
       toQuery = toQuery . toBS
 
 data Failover
-    = Primary -- ^ PRIMARY
-    | Secondary -- ^ SECONDARY
+    = FailoverPrimary -- ^ PRIMARY
+    | FailoverSecondary -- ^ SECONDARY
       deriving (Eq, Ord, Show, Generic)
 
 instance Hashable Failover
 
 instance FromText Failover where
-    parser = match "PRIMARY" Primary
-         <|> match "SECONDARY" Secondary
+    parser = match "PRIMARY" FailoverPrimary
+         <|> match "SECONDARY" FailoverSecondary
 
 instance ToText Failover where
-    toText Primary = "PRIMARY"
-    toText Secondary = "SECONDARY"
+    toText FailoverPrimary = "PRIMARY"
+    toText FailoverSecondary = "SECONDARY"
 
 instance ToByteString Failover
 
@@ -655,6 +661,107 @@ instance ToXML HealthCheckType where
 instance ToQuery HealthCheckType where
       toQuery = toQuery . toBS
 
+data RRType
+    = RRTypeA -- ^ A
+    | RRTypeAaaa -- ^ AAAA
+    | RRTypeCname -- ^ CNAME
+    | RRTypeMx -- ^ MX
+    | RRTypeNs -- ^ NS
+    | RRTypePtr -- ^ PTR
+    | RRTypeSoa -- ^ SOA
+    | RRTypeSpf -- ^ SPF
+    | RRTypeSrv -- ^ SRV
+    | RRTypeTxt -- ^ TXT
+      deriving (Eq, Ord, Show, Generic)
+
+instance Hashable RRType
+
+instance FromText RRType where
+    parser = match "A" RRTypeA
+         <|> match "AAAA" RRTypeAaaa
+         <|> match "CNAME" RRTypeCname
+         <|> match "MX" RRTypeMx
+         <|> match "NS" RRTypeNs
+         <|> match "PTR" RRTypePtr
+         <|> match "SOA" RRTypeSoa
+         <|> match "SPF" RRTypeSpf
+         <|> match "SRV" RRTypeSrv
+         <|> match "TXT" RRTypeTxt
+
+instance ToText RRType where
+    toText RRTypeA = "A"
+    toText RRTypeAaaa = "AAAA"
+    toText RRTypeCname = "CNAME"
+    toText RRTypeMx = "MX"
+    toText RRTypeNs = "NS"
+    toText RRTypePtr = "PTR"
+    toText RRTypeSoa = "SOA"
+    toText RRTypeSpf = "SPF"
+    toText RRTypeSrv = "SRV"
+    toText RRTypeTxt = "TXT"
+
+instance ToByteString RRType
+
+instance FromXML RRType where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RRType"
+
+instance ToXML RRType where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "RRType"
+
+instance ToQuery RRType where
+      toQuery = toQuery . toBS
+
+data ResourceRecordSetRegion
+    = ResourceRecordSetRegionApNortheast1 -- ^ ap-northeast-1
+    | ResourceRecordSetRegionApSoutheast1 -- ^ ap-southeast-1
+    | ResourceRecordSetRegionApSoutheast2 -- ^ ap-southeast-2
+    | ResourceRecordSetRegionCnNorth1 -- ^ cn-north-1
+    | ResourceRecordSetRegionEuWest1 -- ^ eu-west-1
+    | ResourceRecordSetRegionSaEast1 -- ^ sa-east-1
+    | ResourceRecordSetRegionUsEast1 -- ^ us-east-1
+    | ResourceRecordSetRegionUsWest1 -- ^ us-west-1
+    | ResourceRecordSetRegionUsWest2 -- ^ us-west-2
+      deriving (Eq, Ord, Show, Generic)
+
+instance Hashable ResourceRecordSetRegion
+
+instance FromText ResourceRecordSetRegion where
+    parser = match "ap-northeast-1" ResourceRecordSetRegionApNortheast1
+         <|> match "ap-southeast-1" ResourceRecordSetRegionApSoutheast1
+         <|> match "ap-southeast-2" ResourceRecordSetRegionApSoutheast2
+         <|> match "cn-north-1" ResourceRecordSetRegionCnNorth1
+         <|> match "eu-west-1" ResourceRecordSetRegionEuWest1
+         <|> match "sa-east-1" ResourceRecordSetRegionSaEast1
+         <|> match "us-east-1" ResourceRecordSetRegionUsEast1
+         <|> match "us-west-1" ResourceRecordSetRegionUsWest1
+         <|> match "us-west-2" ResourceRecordSetRegionUsWest2
+
+instance ToText ResourceRecordSetRegion where
+    toText ResourceRecordSetRegionApNortheast1 = "ap-northeast-1"
+    toText ResourceRecordSetRegionApSoutheast1 = "ap-southeast-1"
+    toText ResourceRecordSetRegionApSoutheast2 = "ap-southeast-2"
+    toText ResourceRecordSetRegionCnNorth1 = "cn-north-1"
+    toText ResourceRecordSetRegionEuWest1 = "eu-west-1"
+    toText ResourceRecordSetRegionSaEast1 = "sa-east-1"
+    toText ResourceRecordSetRegionUsEast1 = "us-east-1"
+    toText ResourceRecordSetRegionUsWest1 = "us-west-1"
+    toText ResourceRecordSetRegionUsWest2 = "us-west-2"
+
+instance ToByteString ResourceRecordSetRegion
+
+instance FromXML ResourceRecordSetRegion where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ResourceRecordSetRegion"
+
+instance ToXML ResourceRecordSetRegion where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "ResourceRecordSetRegion"
+
+instance ToQuery ResourceRecordSetRegion where
+      toQuery = toQuery . toBS
+
 data TagResourceType
     = Healthcheck -- ^ healthcheck
       deriving (Eq, Ord, Show, Generic)
@@ -683,7 +790,7 @@ instance ToQuery TagResourceType where
 -- | A complex type that contains information about the name servers for the
 -- specified hosted zone.
 newtype DelegationSet = DelegationSet
-    { _dsNameServer :: List1 Text
+    { _dsNameServers :: List1 Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -694,25 +801,25 @@ newtype DelegationSet = DelegationSet
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @NameServer ::@ @List1 Text@
+-- * @NameServers ::@ @List1 Text@
 --
-delegationSet :: List1 Text -- ^ 'dsNameServer'
+delegationSet :: List1 Text -- ^ 'dsNameServers'
               -> DelegationSet
 delegationSet p1 = DelegationSet
-    { _dsNameServer = p1
+    { _dsNameServers = p1
     }
 
 -- | A complex type that contains the authoritative name servers for the hosted
 -- zone. Use the method provided by your domain registrar to add an NS record
 -- to your domain for each NameServer that is assigned to your hosted zone.
-dsNameServer :: Lens' DelegationSet (List1 Text)
-dsNameServer = lens _dsNameServer (\s a -> s { _dsNameServer = a })
+dsNameServers :: Lens' DelegationSet (List1 Text)
+dsNameServers = lens _dsNameServers (\s a -> s { _dsNameServers = a })
 
 instance FromXML DelegationSet where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DelegationSet"
 
--- | A complex type that contains an optional comment about your hosted zone.
+-- | A complex type that contains the Comment element.
 newtype HostedZoneConfig = HostedZoneConfig
     { _hzcComment :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -777,7 +884,7 @@ instance ToXML ResourceRecord where
 -- | Alias resource record sets only: Information about the AWS resource to
 -- which you are redirecting traffic.
 data AliasTarget = AliasTarget
-    { _atHostedZoneId :: ResourceId
+    { _atHostedZoneId :: Text
     , _atDNSName :: Text
     , _atEvaluateTargetHealth :: !Bool
     } deriving (Eq, Ord, Show, Generic)
@@ -787,13 +894,13 @@ data AliasTarget = AliasTarget
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HostedZoneId ::@ @ResourceId@
+-- * @HostedZoneId ::@ @Text@
 --
 -- * @DNSName ::@ @Text@
 --
 -- * @EvaluateTargetHealth ::@ @Bool@
 --
-aliasTarget :: ResourceId -- ^ 'atHostedZoneId'
+aliasTarget :: Text -- ^ 'atHostedZoneId'
             -> Text -- ^ 'atDNSName'
             -> Bool -- ^ 'atEvaluateTargetHealth'
             -> AliasTarget
@@ -806,7 +913,7 @@ aliasTarget p1 p2 p3 = AliasTarget
 -- | Alias resource record sets only: The value of the hosted zone ID for the
 -- AWS resource. For more information and an example, see Creating Alias
 -- Resource Record Sets in the Amazon Route 53 Developer Guide.
-atHostedZoneId :: Lens' AliasTarget ResourceId
+atHostedZoneId :: Lens' AliasTarget Text
 atHostedZoneId = lens _atHostedZoneId (\s a -> s { _atHostedZoneId = a })
 
 -- | Alias resource record sets only: The external DNS name associated with the
@@ -872,7 +979,7 @@ instance ToXML Change where
 -- | A complex type that contains an optional comment and the Changes element.
 data ChangeBatch = ChangeBatch
     { _cbComment :: Maybe Text
-    , _cbChange :: List1 Change
+    , _cbChanges :: List1 Change
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -882,13 +989,13 @@ data ChangeBatch = ChangeBatch
 --
 -- * @Comment ::@ @Maybe Text@
 --
--- * @Change ::@ @List1 Change@
+-- * @Changes ::@ @List1 Change@
 --
-changeBatch :: List1 Change -- ^ 'cbChange'
+changeBatch :: List1 Change -- ^ 'cbChanges'
             -> ChangeBatch
 changeBatch p2 = ChangeBatch
     { _cbComment = Nothing
-    , _cbChange = p2
+    , _cbChanges = p2
     }
 
 -- | Optional: Any comments you want to include about a change batch request.
@@ -897,18 +1004,18 @@ cbComment = lens _cbComment (\s a -> s { _cbComment = a })
 
 -- | A complex type that contains one Change element for each resource record
 -- set that you want to create or delete.
-cbChange :: Lens' ChangeBatch (List1 Change)
-cbChange = lens _cbChange (\s a -> s { _cbChange = a })
+cbChanges :: Lens' ChangeBatch (List1 Change)
+cbChanges = lens _cbChanges (\s a -> s { _cbChanges = a })
 
 instance ToXML ChangeBatch where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ChangeBatch"
 
--- | A complex type that contains information about changes made to your hosted
--- zone. This element contains an ID that you use when performing a GetChange
--- action to get detailed information about the change.
+-- | A complex type that contains information about the specified change batch,
+-- including the change batch ID, the status of the change, and the date and
+-- time of the request.
 data ChangeInfo = ChangeInfo
-    { _ciId :: ResourceId
+    { _ciId :: Text
     , _ciStatus :: ChangeStatus
     , _ciSubmittedAt :: ISO8601
     , _ciComment :: Maybe Text
@@ -922,7 +1029,7 @@ data ChangeInfo = ChangeInfo
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @ResourceId@
+-- * @Id ::@ @Text@
 --
 -- * @Status ::@ @ChangeStatus@
 --
@@ -930,7 +1037,7 @@ data ChangeInfo = ChangeInfo
 --
 -- * @Comment ::@ @Maybe Text@
 --
-changeInfo :: ResourceId -- ^ 'ciId'
+changeInfo :: Text -- ^ 'ciId'
            -> ChangeStatus -- ^ 'ciStatus'
            -> ISO8601 -- ^ 'ciSubmittedAt'
            -> ChangeInfo
@@ -943,7 +1050,7 @@ changeInfo p1 p2 p3 = ChangeInfo
 
 -- | The ID of the request. Use this ID to track when the change has completed
 -- across all Amazon Route 53 DNS servers.
-ciId :: Lens' ChangeInfo ResourceId
+ciId :: Lens' ChangeInfo Text
 ciId = lens _ciId (\s a -> s { _ciId = a })
 
 -- | The current state of the request. PENDING indicates that this request has
@@ -1027,8 +1134,7 @@ instance ToXML GeoLocation where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GeoLocation"
 
--- | A complex type that contains the information about the specified geo
--- location.
+-- | A complex type that contains information about a GeoLocation.
 data GeoLocationDetails = GeoLocationDetails
     { _gldContinentCode :: Maybe Text
     , _gldContinentName :: Maybe Text
@@ -1108,7 +1214,7 @@ instance FromXML GeoLocationDetails where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GeoLocationDetails"
 
--- | A complex type that contains the information about the specified health
+-- | A complex type that contains identifying information about the health
 -- check.
 data HealthCheck = HealthCheck
     { _hcId :: Text
@@ -1274,10 +1380,9 @@ instance ToXML HealthCheckConfig where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "HealthCheckConfig"
 
--- | A complex type that contains the information about the specified hosted
--- zone.
+-- | A complex type that contain information about the specified hosted zone.
 data HostedZone = HostedZone
-    { _hzId :: ResourceId
+    { _hzId :: Text
     , _hzName :: Text
     , _hzCallerReference :: Text
     , _hzConfig :: Maybe HostedZoneConfig
@@ -1292,7 +1397,7 @@ data HostedZone = HostedZone
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @ResourceId@
+-- * @Id ::@ @Text@
 --
 -- * @Name ::@ @Text@
 --
@@ -1302,7 +1407,7 @@ data HostedZone = HostedZone
 --
 -- * @ResourceRecordSetCount ::@ @Maybe Integer@
 --
-hostedZone :: ResourceId -- ^ 'hzId'
+hostedZone :: Text -- ^ 'hzId'
            -> Text -- ^ 'hzName'
            -> Text -- ^ 'hzCallerReference'
            -> HostedZone
@@ -1315,7 +1420,7 @@ hostedZone p1 p2 p3 = HostedZone
     }
 
 -- | The ID of the specified hosted zone.
-hzId :: Lens' HostedZone ResourceId
+hzId :: Lens' HostedZone Text
 hzId = lens _hzId (\s a -> s { _hzId = a })
 
 -- | The name of the domain. This must be a fully-specified domain, for example,
@@ -1352,14 +1457,14 @@ instance FromXML HostedZone where
 -- set.
 data ResourceRecordSet = ResourceRecordSet
     { _rrsName :: Text
-    , _rrsType :: RecordType
+    , _rrsType :: RRType
     , _rrsSetIdentifier :: Maybe Text
     , _rrsWeight :: Maybe Integer
-    , _rrsRegion :: Maybe Region
+    , _rrsRegion :: Maybe ResourceRecordSetRegion
     , _rrsGeoLocation :: Maybe GeoLocation
     , _rrsFailover :: Maybe Failover
     , _rrsTTL :: Maybe Integer
-    , _rrsResourceRecord :: List1 ResourceRecord
+    , _rrsResourceRecords :: List1 ResourceRecord
     , _rrsAliasTarget :: Maybe AliasTarget
     , _rrsHealthCheckId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -1371,13 +1476,13 @@ data ResourceRecordSet = ResourceRecordSet
 --
 -- * @Name ::@ @Text@
 --
--- * @Type ::@ @RecordType@
+-- * @Type ::@ @RRType@
 --
 -- * @SetIdentifier ::@ @Maybe Text@
 --
 -- * @Weight ::@ @Maybe Integer@
 --
--- * @Region ::@ @Maybe Region@
+-- * @Region ::@ @Maybe ResourceRecordSetRegion@
 --
 -- * @GeoLocation ::@ @Maybe GeoLocation@
 --
@@ -1385,15 +1490,15 @@ data ResourceRecordSet = ResourceRecordSet
 --
 -- * @TTL ::@ @Maybe Integer@
 --
--- * @ResourceRecord ::@ @List1 ResourceRecord@
+-- * @ResourceRecords ::@ @List1 ResourceRecord@
 --
 -- * @AliasTarget ::@ @Maybe AliasTarget@
 --
 -- * @HealthCheckId ::@ @Maybe Text@
 --
 resourceRecordSet :: Text -- ^ 'rrsName'
-                  -> RecordType -- ^ 'rrsType'
-                  -> List1 ResourceRecord -- ^ 'rrsResourceRecord'
+                  -> RRType -- ^ 'rrsType'
+                  -> List1 ResourceRecord -- ^ 'rrsResourceRecords'
                   -> ResourceRecordSet
 resourceRecordSet p1 p2 p9 = ResourceRecordSet
     { _rrsName = p1
@@ -1404,7 +1509,7 @@ resourceRecordSet p1 p2 p9 = ResourceRecordSet
     , _rrsGeoLocation = Nothing
     , _rrsFailover = Nothing
     , _rrsTTL = Nothing
-    , _rrsResourceRecord = p9
+    , _rrsResourceRecords = p9
     , _rrsAliasTarget = Nothing
     , _rrsHealthCheckId = Nothing
     }
@@ -1414,7 +1519,7 @@ rrsName :: Lens' ResourceRecordSet Text
 rrsName = lens _rrsName (\s a -> s { _rrsName = a })
 
 -- | The type of the current resource record set.
-rrsType :: Lens' ResourceRecordSet RecordType
+rrsType :: Lens' ResourceRecordSet RRType
 rrsType = lens _rrsType (\s a -> s { _rrsType = a })
 
 -- | Weighted, Latency, Geo, and Failover resource record sets only: An
@@ -1434,7 +1539,7 @@ rrsWeight = lens _rrsWeight (\s a -> s { _rrsWeight = a })
 -- | Latency-based resource record sets only: Among resource record sets that
 -- have the same combination of DNS name and type, a value that specifies the
 -- AWS region for the current resource record set.
-rrsRegion :: Lens' ResourceRecordSet (Maybe Region)
+rrsRegion :: Lens' ResourceRecordSet (Maybe ResourceRecordSetRegion)
 rrsRegion = lens _rrsRegion (\s a -> s { _rrsRegion = a })
 
 -- | Geo location resource record sets only: Among resource record sets that
@@ -1466,9 +1571,9 @@ rrsTTL = lens _rrsTTL (\s a -> s { _rrsTTL = a })
 
 -- | A complex type that contains the resource records for the current resource
 -- record set.
-rrsResourceRecord :: Lens' ResourceRecordSet (List1 ResourceRecord)
-rrsResourceRecord =
-    lens _rrsResourceRecord (\s a -> s { _rrsResourceRecord = a })
+rrsResourceRecords :: Lens' ResourceRecordSet (List1 ResourceRecord)
+rrsResourceRecords =
+    lens _rrsResourceRecords (\s a -> s { _rrsResourceRecords = a })
 
 -- | Alias resource record sets only: Information about the AWS resource to
 -- which you are redirecting traffic.
@@ -1490,11 +1595,11 @@ instance ToXML ResourceRecordSet where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ResourceRecordSet"
 
--- | A ResourceTagSet containing tags associated with the specified resource.
+-- | A complex type containing a resource and its associated tags.
 data ResourceTagSet = ResourceTagSet
     { _rtsResourceType :: Maybe TagResourceType
     , _rtsResourceId :: Maybe Text
-    , _rtsTag :: Maybe (List1 Tag)
+    , _rtsTags :: Maybe (List1 Tag)
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1509,13 +1614,13 @@ data ResourceTagSet = ResourceTagSet
 --
 -- * @ResourceId ::@ @Maybe Text@
 --
--- * @Tag ::@ @Maybe (List1 Tag)@
+-- * @Tags ::@ @Maybe (List1 Tag)@
 --
 resourceTagSet :: ResourceTagSet
 resourceTagSet = ResourceTagSet
     { _rtsResourceType = Nothing
     , _rtsResourceId = Nothing
-    , _rtsTag = Nothing
+    , _rtsTags = Nothing
     }
 
 -- | The type of the resource. The resource type for health checks is
@@ -1528,8 +1633,8 @@ rtsResourceId :: Lens' ResourceTagSet (Maybe Text)
 rtsResourceId = lens _rtsResourceId (\s a -> s { _rtsResourceId = a })
 
 -- | The tags associated with the specified resource.
-rtsTag :: Lens' ResourceTagSet (Maybe (List1 Tag))
-rtsTag = lens _rtsTag (\s a -> s { _rtsTag = a })
+rtsTags :: Lens' ResourceTagSet (Maybe (List1 Tag))
+rtsTags = lens _rtsTags (\s a -> s { _rtsTags = a })
 
 instance FromXML ResourceTagSet where
     fromXMLOptions = xmlOptions

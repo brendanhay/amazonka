@@ -35,7 +35,7 @@ module Network.AWS.RDS.ModifyOptionGroup
     , modifyOptionGroup
     -- ** Request lenses
     , mogOptionGroupName
-    , mogOptionConfiguration
+    , mogOptionsToInclude
     , mogOptionsToRemove
     , mogApplyImmediately
 
@@ -54,7 +54,7 @@ import Network.AWS.Prelude
 -- | 
 data ModifyOptionGroup = ModifyOptionGroup
     { _mogOptionGroupName :: Text
-    , _mogOptionConfiguration :: [OptionConfiguration]
+    , _mogOptionsToInclude :: [OptionConfiguration]
     , _mogOptionsToRemove :: [Text]
     , _mogApplyImmediately :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
@@ -66,7 +66,7 @@ data ModifyOptionGroup = ModifyOptionGroup
 --
 -- * @OptionGroupName ::@ @Text@
 --
--- * @OptionConfiguration ::@ @[OptionConfiguration]@
+-- * @OptionsToInclude ::@ @[OptionConfiguration]@
 --
 -- * @OptionsToRemove ::@ @[Text]@
 --
@@ -76,7 +76,7 @@ modifyOptionGroup :: Text -- ^ 'mogOptionGroupName'
                   -> ModifyOptionGroup
 modifyOptionGroup p1 = ModifyOptionGroup
     { _mogOptionGroupName = p1
-    , _mogOptionConfiguration = mempty
+    , _mogOptionsToInclude = mempty
     , _mogOptionsToRemove = mempty
     , _mogApplyImmediately = Nothing
     }
@@ -92,9 +92,9 @@ mogOptionGroupName =
 
 -- | Options in this list are added to the option group or, if already present,
 -- the specified configuration is used to update the existing configuration.
-mogOptionConfiguration :: Lens' ModifyOptionGroup [OptionConfiguration]
-mogOptionConfiguration =
-    lens _mogOptionConfiguration (\s a -> s { _mogOptionConfiguration = a })
+mogOptionsToInclude :: Lens' ModifyOptionGroup [OptionConfiguration]
+mogOptionsToInclude =
+    lens _mogOptionsToInclude (\s a -> s { _mogOptionsToInclude = a })
 
 -- | Options in this list are removed from the option group.
 mogOptionsToRemove :: Lens' ModifyOptionGroup [Text]

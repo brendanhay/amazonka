@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype GetBucketPolicy = GetBucketPolicy
-    { _gbpBucket :: BucketName
+    { _gbpBucket :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -50,15 +50,15 @@ newtype GetBucketPolicy = GetBucketPolicy
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
-getBucketPolicy :: BucketName -- ^ 'gbpBucket'
+getBucketPolicy :: Text -- ^ 'gbpBucket'
                 -> GetBucketPolicy
 getBucketPolicy p1 = GetBucketPolicy
     { _gbpBucket = p1
     }
 
-gbpBucket :: Lens' GetBucketPolicy BucketName
+gbpBucket :: Lens' GetBucketPolicy Text
 gbpBucket = lens _gbpBucket (\s a -> s { _gbpBucket = a })
 
 instance ToPath GetBucketPolicy

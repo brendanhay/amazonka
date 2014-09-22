@@ -35,7 +35,7 @@ module Network.AWS.RDS.CreateDBSnapshot
     -- ** Request lenses
     , cdbs1DBSnapshotIdentifier
     , cdbs1DBInstanceIdentifier
-    , cdbs1Tag
+    , cdbs1Tags
 
     -- * Response
     , CreateDBSnapshotResponse
@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 data CreateDBSnapshot = CreateDBSnapshot
     { _cdbs1DBSnapshotIdentifier :: Text
     , _cdbs1DBInstanceIdentifier :: Text
-    , _cdbs1Tag :: [Tag]
+    , _cdbs1Tags :: [Tag]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -65,7 +65,7 @@ data CreateDBSnapshot = CreateDBSnapshot
 --
 -- * @DBInstanceIdentifier ::@ @Text@
 --
--- * @Tag ::@ @[Tag]@
+-- * @Tags ::@ @[Tag]@
 --
 createDBSnapshot :: Text -- ^ 'cdbs1DBSnapshotIdentifier'
                  -> Text -- ^ 'cdbs1DBInstanceIdentifier'
@@ -73,7 +73,7 @@ createDBSnapshot :: Text -- ^ 'cdbs1DBSnapshotIdentifier'
 createDBSnapshot p1 p2 = CreateDBSnapshot
     { _cdbs1DBSnapshotIdentifier = p1
     , _cdbs1DBInstanceIdentifier = p2
-    , _cdbs1Tag = mempty
+    , _cdbs1Tags = mempty
     }
 
 -- | The identifier for the DB snapshot. Constraints: Cannot be null, empty, or
@@ -95,8 +95,8 @@ cdbs1DBInstanceIdentifier =
          (\s a -> s { _cdbs1DBInstanceIdentifier = a })
 
 -- | A list of tags.
-cdbs1Tag :: Lens' CreateDBSnapshot [Tag]
-cdbs1Tag = lens _cdbs1Tag (\s a -> s { _cdbs1Tag = a })
+cdbs1Tags :: Lens' CreateDBSnapshot [Tag]
+cdbs1Tags = lens _cdbs1Tags (\s a -> s { _cdbs1Tags = a })
 
 instance ToQuery CreateDBSnapshot where
     toQuery = genericQuery def

@@ -127,7 +127,7 @@ module Network.AWS.EC2.CreateNetworkInterface
     , cniSubnetId
     , cniDescription
     , cniPrivateIpAddress
-    , cniSecurityGroupId
+    , cniGroups
     , cniPrivateIpAddresses
     , cniSecondaryPrivateIpAddressCount
 
@@ -147,7 +147,7 @@ data CreateNetworkInterface = CreateNetworkInterface
     { _cniSubnetId :: Text
     , _cniDescription :: Maybe Text
     , _cniPrivateIpAddress :: Maybe Text
-    , _cniSecurityGroupId :: [Text]
+    , _cniGroups :: [Text]
     , _cniPrivateIpAddresses :: [PrivateIpAddressSpecification]
     , _cniSecondaryPrivateIpAddressCount :: Maybe Integer
     } deriving (Eq, Ord, Show, Generic)
@@ -163,7 +163,7 @@ data CreateNetworkInterface = CreateNetworkInterface
 --
 -- * @PrivateIpAddress ::@ @Maybe Text@
 --
--- * @SecurityGroupId ::@ @[Text]@
+-- * @Groups ::@ @[Text]@
 --
 -- * @PrivateIpAddresses ::@ @[PrivateIpAddressSpecification]@
 --
@@ -175,7 +175,7 @@ createNetworkInterface p1 = CreateNetworkInterface
     { _cniSubnetId = p1
     , _cniDescription = Nothing
     , _cniPrivateIpAddress = Nothing
-    , _cniSecurityGroupId = mempty
+    , _cniGroups = mempty
     , _cniPrivateIpAddresses = mempty
     , _cniSecondaryPrivateIpAddressCount = Nothing
     }
@@ -196,9 +196,8 @@ cniPrivateIpAddress =
     lens _cniPrivateIpAddress (\s a -> s { _cniPrivateIpAddress = a })
 
 -- | The IDs of one or more security groups.
-cniSecurityGroupId :: Lens' CreateNetworkInterface [Text]
-cniSecurityGroupId =
-    lens _cniSecurityGroupId (\s a -> s { _cniSecurityGroupId = a })
+cniGroups :: Lens' CreateNetworkInterface [Text]
+cniGroups = lens _cniGroups (\s a -> s { _cniGroups = a })
 
 -- | One or more private IP addresses.
 cniPrivateIpAddresses :: Lens' CreateNetworkInterface [PrivateIpAddressSpecification]

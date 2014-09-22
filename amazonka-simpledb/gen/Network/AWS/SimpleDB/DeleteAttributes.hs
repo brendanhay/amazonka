@@ -37,7 +37,7 @@ module Network.AWS.SimpleDB.DeleteAttributes
     -- ** Request lenses
     , daDomainName
     , daItemName
-    , daAttribute
+    , daAttributes
     , daExpected
 
     -- * Response
@@ -53,7 +53,7 @@ import Network.AWS.Prelude
 data DeleteAttributes = DeleteAttributes
     { _daDomainName :: Text
     , _daItemName :: Text
-    , _daAttribute :: [Attribute]
+    , _daAttributes :: [Attribute]
     , _daExpected :: Maybe UpdateCondition
     } deriving (Eq, Ord, Show, Generic)
 
@@ -66,7 +66,7 @@ data DeleteAttributes = DeleteAttributes
 --
 -- * @ItemName ::@ @Text@
 --
--- * @Attribute ::@ @[Attribute]@
+-- * @Attributes ::@ @[Attribute]@
 --
 -- * @Expected ::@ @Maybe UpdateCondition@
 --
@@ -76,7 +76,7 @@ deleteAttributes :: Text -- ^ 'daDomainName'
 deleteAttributes p1 p2 = DeleteAttributes
     { _daDomainName = p1
     , _daItemName = p2
-    , _daAttribute = mempty
+    , _daAttributes = mempty
     , _daExpected = Nothing
     }
 
@@ -91,8 +91,8 @@ daItemName = lens _daItemName (\s a -> s { _daItemName = a })
 
 -- | A list of Attributes. Similar to columns on a spreadsheet, attributes
 -- represent categories of data that can be assigned to items.
-daAttribute :: Lens' DeleteAttributes [Attribute]
-daAttribute = lens _daAttribute (\s a -> s { _daAttribute = a })
+daAttributes :: Lens' DeleteAttributes [Attribute]
+daAttributes = lens _daAttributes (\s a -> s { _daAttributes = a })
 
 -- | The update condition which, if specified, determines whether the specified
 -- attributes will be deleted or not. The update condition must be satisfied

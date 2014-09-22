@@ -39,11 +39,11 @@ module Network.AWS.EC2.ReportInstanceStatus
     -- ** Request constructor
     , reportInstanceStatus
     -- ** Request lenses
-    , risInstanceId
+    , risInstances
     , risStatus
     , risStartTime
     , risEndTime
-    , risReasonCode
+    , risReasonCodes
     , risDescription
 
     -- * Response
@@ -57,11 +57,11 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data ReportInstanceStatus = ReportInstanceStatus
-    { _risInstanceId :: [Text]
+    { _risInstances :: [Text]
     , _risStatus :: ReportStatusType
     , _risStartTime :: Maybe ISO8601
     , _risEndTime :: Maybe ISO8601
-    , _risReasonCode :: [ReportInstanceReasonCodes]
+    , _risReasonCodes :: [ReportInstanceReasonCodes]
     , _risDescription :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -70,7 +70,7 @@ data ReportInstanceStatus = ReportInstanceStatus
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceId ::@ @[Text]@
+-- * @Instances ::@ @[Text]@
 --
 -- * @Status ::@ @ReportStatusType@
 --
@@ -78,26 +78,26 @@ data ReportInstanceStatus = ReportInstanceStatus
 --
 -- * @EndTime ::@ @Maybe ISO8601@
 --
--- * @ReasonCode ::@ @[ReportInstanceReasonCodes]@
+-- * @ReasonCodes ::@ @[ReportInstanceReasonCodes]@
 --
 -- * @Description ::@ @Maybe Text@
 --
-reportInstanceStatus :: [Text] -- ^ 'risInstanceId'
+reportInstanceStatus :: [Text] -- ^ 'risInstances'
                      -> ReportStatusType -- ^ 'risStatus'
-                     -> [ReportInstanceReasonCodes] -- ^ 'risReasonCode'
+                     -> [ReportInstanceReasonCodes] -- ^ 'risReasonCodes'
                      -> ReportInstanceStatus
 reportInstanceStatus p1 p2 p5 = ReportInstanceStatus
-    { _risInstanceId = p1
+    { _risInstances = p1
     , _risStatus = p2
     , _risStartTime = Nothing
     , _risEndTime = Nothing
-    , _risReasonCode = p5
+    , _risReasonCodes = p5
     , _risDescription = Nothing
     }
 
 -- | One or more instances.
-risInstanceId :: Lens' ReportInstanceStatus [Text]
-risInstanceId = lens _risInstanceId (\s a -> s { _risInstanceId = a })
+risInstances :: Lens' ReportInstanceStatus [Text]
+risInstances = lens _risInstances (\s a -> s { _risInstances = a })
 
 -- | The status of all instances listed.
 risStatus :: Lens' ReportInstanceStatus ReportStatusType
@@ -123,8 +123,8 @@ risEndTime = lens _risEndTime (\s a -> s { _risEndTime = a })
 -- which I believe are related to an EBS volume. performance-other: My
 -- instance is experiencing performance problems. other: [explain using the
 -- description parameter].
-risReasonCode :: Lens' ReportInstanceStatus [ReportInstanceReasonCodes]
-risReasonCode = lens _risReasonCode (\s a -> s { _risReasonCode = a })
+risReasonCodes :: Lens' ReportInstanceStatus [ReportInstanceReasonCodes]
+risReasonCodes = lens _risReasonCodes (\s a -> s { _risReasonCodes = a })
 
 -- | Descriptive text about the health state of your instance.
 risDescription :: Lens' ReportInstanceStatus (Maybe Text)

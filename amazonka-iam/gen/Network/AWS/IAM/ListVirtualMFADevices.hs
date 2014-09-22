@@ -111,7 +111,7 @@ instance ToQuery ListVirtualMFADevices where
 -- action.
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
     { _lvmfadrVirtualMFADevices :: [VirtualMFADevice]
-    , _lvmfadrIsTruncated :: !Bool
+    , _lvmfadrIsTruncated :: Bool
     , _lvmfadrMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 

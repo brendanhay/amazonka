@@ -72,11 +72,11 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
     -- ** Request constructor
     , describeReservedInstancesOfferings
     -- ** Request lenses
-    , drioReservedInstancesOfferingId
+    , drioReservedInstancesOfferingIds
     , drioInstanceType
     , drioAvailabilityZone
     , drioProductDescription
-    , drioFilter
+    , drioFilters
     , drioInstanceTenancy
     , drioOfferingType
     , drioNextToken
@@ -91,7 +91,7 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
     -- ** Response constructor
     , describeReservedInstancesOfferingsResponse
     -- ** Response lenses
-    , driorItem
+    , driorReservedInstancesOfferings
     , driorNextToken
     ) where
 
@@ -100,11 +100,11 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
-    { _drioReservedInstancesOfferingId :: [Text]
+    { _drioReservedInstancesOfferingIds :: [Text]
     , _drioInstanceType :: Maybe InstanceType
     , _drioAvailabilityZone :: Maybe Text
     , _drioProductDescription :: Maybe RIProductDescription
-    , _drioFilter :: [Filter]
+    , _drioFilters :: [Filter]
     , _drioInstanceTenancy :: Maybe Tenancy
     , _drioOfferingType :: Maybe OfferingTypeValues
     , _drioNextToken :: Maybe Text
@@ -120,7 +120,7 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ReservedInstancesOfferingId ::@ @[Text]@
+-- * @ReservedInstancesOfferingIds ::@ @[Text]@
 --
 -- * @InstanceType ::@ @Maybe InstanceType@
 --
@@ -128,7 +128,7 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
 --
 -- * @ProductDescription ::@ @Maybe RIProductDescription@
 --
--- * @Filter ::@ @[Filter]@
+-- * @Filters ::@ @[Filter]@
 --
 -- * @InstanceTenancy ::@ @Maybe Tenancy@
 --
@@ -148,11 +148,11 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
 --
 describeReservedInstancesOfferings :: DescribeReservedInstancesOfferings
 describeReservedInstancesOfferings = DescribeReservedInstancesOfferings
-    { _drioReservedInstancesOfferingId = mempty
+    { _drioReservedInstancesOfferingIds = mempty
     , _drioInstanceType = Nothing
     , _drioAvailabilityZone = Nothing
     , _drioProductDescription = Nothing
-    , _drioFilter = mempty
+    , _drioFilters = mempty
     , _drioInstanceTenancy = Nothing
     , _drioOfferingType = Nothing
     , _drioNextToken = Nothing
@@ -164,10 +164,10 @@ describeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     }
 
 -- | One or more Reserved Instances offering IDs.
-drioReservedInstancesOfferingId :: Lens' DescribeReservedInstancesOfferings [Text]
-drioReservedInstancesOfferingId =
-    lens _drioReservedInstancesOfferingId
-         (\s a -> s { _drioReservedInstancesOfferingId = a })
+drioReservedInstancesOfferingIds :: Lens' DescribeReservedInstancesOfferings [Text]
+drioReservedInstancesOfferingIds =
+    lens _drioReservedInstancesOfferingIds
+         (\s a -> s { _drioReservedInstancesOfferingIds = a })
 
 -- | The instance type on which the Reserved Instance can be used. For more
 -- information, see Instance Types in the Amazon Elastic Compute Cloud User
@@ -200,8 +200,8 @@ drioProductDescription =
 -- reserved-instances-offering-id - The Reserved Instances offering ID.
 -- usage-price - The usage price of the Reserved Instance, per hour (for
 -- example, 0.84).
-drioFilter :: Lens' DescribeReservedInstancesOfferings [Filter]
-drioFilter = lens _drioFilter (\s a -> s { _drioFilter = a })
+drioFilters :: Lens' DescribeReservedInstancesOfferings [Filter]
+drioFilters = lens _drioFilters (\s a -> s { _drioFilters = a })
 
 -- | The tenancy of the Reserved Instance offering. A Reserved Instance with
 -- dedicated tenancy runs on single-tenant hardware and can only be launched
@@ -245,7 +245,7 @@ instance ToQuery DescribeReservedInstancesOfferings where
     toQuery = genericQuery def
 
 data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
-    { _driorItem :: [ReservedInstancesOffering]
+    { _driorReservedInstancesOfferings :: [ReservedInstancesOffering]
     , _driorNextToken :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -256,19 +256,21 @@ data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOffer
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Item ::@ @[ReservedInstancesOffering]@
+-- * @ReservedInstancesOfferings ::@ @[ReservedInstancesOffering]@
 --
 -- * @NextToken ::@ @Maybe Text@
 --
 describeReservedInstancesOfferingsResponse :: DescribeReservedInstancesOfferingsResponse
 describeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
-    { _driorItem = mempty
+    { _driorReservedInstancesOfferings = mempty
     , _driorNextToken = Nothing
     }
 
 -- | A list of Reserved Instances offerings.
-driorItem :: Lens' DescribeReservedInstancesOfferingsResponse [ReservedInstancesOffering]
-driorItem = lens _driorItem (\s a -> s { _driorItem = a })
+driorReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResponse [ReservedInstancesOffering]
+driorReservedInstancesOfferings =
+    lens _driorReservedInstancesOfferings
+         (\s a -> s { _driorReservedInstancesOfferings = a })
 
 -- | The next paginated set of results to return.
 driorNextToken :: Lens' DescribeReservedInstancesOfferingsResponse (Maybe Text)

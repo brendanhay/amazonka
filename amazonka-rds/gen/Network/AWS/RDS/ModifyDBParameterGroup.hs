@@ -44,7 +44,7 @@ module Network.AWS.RDS.ModifyDBParameterGroup
     , modifyDBParameterGroup
     -- ** Request lenses
     , mdbpgDBParameterGroupName
-    , mdbpgParameter
+    , mdbpgParameters
 
     -- * Response
     , ModifyDBParameterGroupResponse
@@ -61,7 +61,7 @@ import Network.AWS.Prelude
 -- | 
 data ModifyDBParameterGroup = ModifyDBParameterGroup
     { _mdbpgDBParameterGroupName :: Text
-    , _mdbpgParameter :: [Parameter]
+    , _mdbpgParameters :: [Parameter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -71,14 +71,14 @@ data ModifyDBParameterGroup = ModifyDBParameterGroup
 --
 -- * @DBParameterGroupName ::@ @Text@
 --
--- * @Parameter ::@ @[Parameter]@
+-- * @Parameters ::@ @[Parameter]@
 --
 modifyDBParameterGroup :: Text -- ^ 'mdbpgDBParameterGroupName'
-                       -> [Parameter] -- ^ 'mdbpgParameter'
+                       -> [Parameter] -- ^ 'mdbpgParameters'
                        -> ModifyDBParameterGroup
 modifyDBParameterGroup p1 p2 = ModifyDBParameterGroup
     { _mdbpgDBParameterGroupName = p1
-    , _mdbpgParameter = p2
+    , _mdbpgParameters = p2
     }
 
 -- | The name of the DB parameter group. Constraints: Must be the name of an
@@ -97,8 +97,8 @@ mdbpgDBParameterGroupName =
 -- immediate | pending-reboot You can use the immediate value with dynamic
 -- parameters only. You can use the pending-reboot value for both dynamic and
 -- static parameters, and changes are applied when DB instance reboots.
-mdbpgParameter :: Lens' ModifyDBParameterGroup [Parameter]
-mdbpgParameter = lens _mdbpgParameter (\s a -> s { _mdbpgParameter = a })
+mdbpgParameters :: Lens' ModifyDBParameterGroup [Parameter]
+mdbpgParameters = lens _mdbpgParameters (\s a -> s { _mdbpgParameters = a })
 
 instance ToQuery ModifyDBParameterGroup where
     toQuery = genericQuery def

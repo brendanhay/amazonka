@@ -35,7 +35,7 @@ module Network.AWS.RDS.CreateOptionGroup
     , cogEngineName
     , cogMajorEngineVersion
     , cogOptionGroupDescription
-    , cogTag
+    , cogTags
 
     -- * Response
     , CreateOptionGroupResponse
@@ -55,7 +55,7 @@ data CreateOptionGroup = CreateOptionGroup
     , _cogEngineName :: Text
     , _cogMajorEngineVersion :: Text
     , _cogOptionGroupDescription :: Text
-    , _cogTag :: [Tag]
+    , _cogTags :: [Tag]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -71,7 +71,7 @@ data CreateOptionGroup = CreateOptionGroup
 --
 -- * @OptionGroupDescription ::@ @Text@
 --
--- * @Tag ::@ @[Tag]@
+-- * @Tags ::@ @[Tag]@
 --
 createOptionGroup :: Text -- ^ 'cogOptionGroupName'
                   -> Text -- ^ 'cogEngineName'
@@ -83,7 +83,7 @@ createOptionGroup p1 p2 p3 p4 = CreateOptionGroup
     , _cogEngineName = p2
     , _cogMajorEngineVersion = p3
     , _cogOptionGroupDescription = p4
-    , _cogTag = mempty
+    , _cogTags = mempty
     }
 
 -- | Specifies the name of the option group to be created. Constraints: Must be
@@ -112,8 +112,8 @@ cogOptionGroupDescription =
          (\s a -> s { _cogOptionGroupDescription = a })
 
 -- | A list of tags.
-cogTag :: Lens' CreateOptionGroup [Tag]
-cogTag = lens _cogTag (\s a -> s { _cogTag = a })
+cogTags :: Lens' CreateOptionGroup [Tag]
+cogTags = lens _cogTags (\s a -> s { _cogTags = a })
 
 instance ToQuery CreateOptionGroup where
     toQuery = genericQuery def

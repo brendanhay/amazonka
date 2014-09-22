@@ -98,7 +98,7 @@ instance ToQuery ListMFADevices where
 -- action.
 data ListMFADevicesResponse = ListMFADevicesResponse
     { _lmfadrMFADevices :: [MFADevice]
-    , _lmfadrIsTruncated :: !Bool
+    , _lmfadrIsTruncated :: Bool
     , _lmfadrMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 

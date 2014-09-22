@@ -44,8 +44,8 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data AbortMultipartUpload = AbortMultipartUpload
-    { _amuBucket :: BucketName
-    , _amuKey :: ObjectKey
+    { _amuBucket :: Text
+    , _amuKey :: Text
     , _amuUploadId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -54,14 +54,14 @@ data AbortMultipartUpload = AbortMultipartUpload
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
--- * @Key ::@ @ObjectKey@
+-- * @Key ::@ @Text@
 --
 -- * @UploadId ::@ @Text@
 --
-abortMultipartUpload :: BucketName -- ^ 'amuBucket'
-                     -> ObjectKey -- ^ 'amuKey'
+abortMultipartUpload :: Text -- ^ 'amuBucket'
+                     -> Text -- ^ 'amuKey'
                      -> Text -- ^ 'amuUploadId'
                      -> AbortMultipartUpload
 abortMultipartUpload p1 p2 p3 = AbortMultipartUpload
@@ -70,10 +70,10 @@ abortMultipartUpload p1 p2 p3 = AbortMultipartUpload
     , _amuUploadId = p3
     }
 
-amuBucket :: Lens' AbortMultipartUpload BucketName
+amuBucket :: Lens' AbortMultipartUpload Text
 amuBucket = lens _amuBucket (\s a -> s { _amuBucket = a })
 
-amuKey :: Lens' AbortMultipartUpload ObjectKey
+amuKey :: Lens' AbortMultipartUpload Text
 amuKey = lens _amuKey (\s a -> s { _amuKey = a })
 
 amuUploadId :: Lens' AbortMultipartUpload Text

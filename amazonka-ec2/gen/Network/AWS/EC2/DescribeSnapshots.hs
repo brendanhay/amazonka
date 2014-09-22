@@ -64,17 +64,17 @@ module Network.AWS.EC2.DescribeSnapshots
     -- ** Request constructor
     , describeSnapshots
     -- ** Request lenses
-    , ds2SnapshotId
-    , ds2Owner
-    , ds2RestorableBy
-    , ds2Filter
+    , ds2SnapshotIds
+    , ds2OwnerIds
+    , ds2RestorableByUserIds
+    , ds2Filters
 
     -- * Response
     , DescribeSnapshotsResponse
     -- ** Response constructor
     , describeSnapshotsResponse
     -- ** Response lenses
-    , dsrItem
+    , dsrSnapshots
     ) where
 
 import Network.AWS.Request.Query
@@ -82,10 +82,10 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeSnapshots = DescribeSnapshots
-    { _ds2SnapshotId :: [Text]
-    , _ds2Owner :: [Text]
-    , _ds2RestorableBy :: [Text]
-    , _ds2Filter :: [Filter]
+    { _ds2SnapshotIds :: [Text]
+    , _ds2OwnerIds :: [Text]
+    , _ds2RestorableByUserIds :: [Text]
+    , _ds2Filters :: [Filter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -93,35 +93,36 @@ data DescribeSnapshots = DescribeSnapshots
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @SnapshotId ::@ @[Text]@
+-- * @SnapshotIds ::@ @[Text]@
 --
--- * @Owner ::@ @[Text]@
+-- * @OwnerIds ::@ @[Text]@
 --
--- * @RestorableBy ::@ @[Text]@
+-- * @RestorableByUserIds ::@ @[Text]@
 --
--- * @Filter ::@ @[Filter]@
+-- * @Filters ::@ @[Filter]@
 --
 describeSnapshots :: DescribeSnapshots
 describeSnapshots = DescribeSnapshots
-    { _ds2SnapshotId = mempty
-    , _ds2Owner = mempty
-    , _ds2RestorableBy = mempty
-    , _ds2Filter = mempty
+    { _ds2SnapshotIds = mempty
+    , _ds2OwnerIds = mempty
+    , _ds2RestorableByUserIds = mempty
+    , _ds2Filters = mempty
     }
 
 -- | One or more snapshot IDs. Default: Describes snapshots for which you have
 -- launch permissions.
-ds2SnapshotId :: Lens' DescribeSnapshots [Text]
-ds2SnapshotId = lens _ds2SnapshotId (\s a -> s { _ds2SnapshotId = a })
+ds2SnapshotIds :: Lens' DescribeSnapshots [Text]
+ds2SnapshotIds = lens _ds2SnapshotIds (\s a -> s { _ds2SnapshotIds = a })
 
 -- | Returns the snapshots owned by the specified owner. Multiple owners can be
 -- specified.
-ds2Owner :: Lens' DescribeSnapshots [Text]
-ds2Owner = lens _ds2Owner (\s a -> s { _ds2Owner = a })
+ds2OwnerIds :: Lens' DescribeSnapshots [Text]
+ds2OwnerIds = lens _ds2OwnerIds (\s a -> s { _ds2OwnerIds = a })
 
 -- | One or more AWS accounts IDs that can create volumes from the snapshot.
-ds2RestorableBy :: Lens' DescribeSnapshots [Text]
-ds2RestorableBy = lens _ds2RestorableBy (\s a -> s { _ds2RestorableBy = a })
+ds2RestorableByUserIds :: Lens' DescribeSnapshots [Text]
+ds2RestorableByUserIds =
+    lens _ds2RestorableByUserIds (\s a -> s { _ds2RestorableByUserIds = a })
 
 -- | One or more filters. description - A description of the snapshot.
 -- owner-alias - The AWS account alias (for example, amazon) that owns the
@@ -140,14 +141,14 @@ ds2RestorableBy = lens _ds2RestorableBy (\s a -> s { _ds2RestorableBy = a })
 -- resource. This filter is independent of the tag-key filter. volume-id - The
 -- ID of the volume the snapshot is for. volume-size - The size of the volume,
 -- in GiB.
-ds2Filter :: Lens' DescribeSnapshots [Filter]
-ds2Filter = lens _ds2Filter (\s a -> s { _ds2Filter = a })
+ds2Filters :: Lens' DescribeSnapshots [Filter]
+ds2Filters = lens _ds2Filters (\s a -> s { _ds2Filters = a })
 
 instance ToQuery DescribeSnapshots where
     toQuery = genericQuery def
 
 newtype DescribeSnapshotsResponse = DescribeSnapshotsResponse
-    { _dsrItem :: [Snapshot]
+    { _dsrSnapshots :: [Snapshot]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -157,16 +158,16 @@ newtype DescribeSnapshotsResponse = DescribeSnapshotsResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Item ::@ @[Snapshot]@
+-- * @Snapshots ::@ @[Snapshot]@
 --
 describeSnapshotsResponse :: DescribeSnapshotsResponse
 describeSnapshotsResponse = DescribeSnapshotsResponse
-    { _dsrItem = mempty
+    { _dsrSnapshots = mempty
     }
 
 -- | 
-dsrItem :: Lens' DescribeSnapshotsResponse [Snapshot]
-dsrItem = lens _dsrItem (\s a -> s { _dsrItem = a })
+dsrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
+dsrSnapshots = lens _dsrSnapshots (\s a -> s { _dsrSnapshots = a })
 
 instance FromXML DescribeSnapshotsResponse where
     fromXMLOptions = xmlOptions

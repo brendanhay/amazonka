@@ -33,15 +33,15 @@ module Network.AWS.EC2.DescribeConversionTasks
     -- ** Request constructor
     , describeConversionTasks
     -- ** Request lenses
-    , dctFilter
-    , dctConversionTaskId
+    , dctFilters
+    , dctConversionTaskIds
 
     -- * Response
     , DescribeConversionTasksResponse
     -- ** Response constructor
     , describeConversionTasksResponse
     -- ** Response lenses
-    , dctrItem
+    , dctrConversionTasks
     ) where
 
 import Network.AWS.Request.Query
@@ -49,8 +49,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeConversionTasks = DescribeConversionTasks
-    { _dctFilter :: [Filter]
-    , _dctConversionTaskId :: [Text]
+    { _dctFilters :: [Filter]
+    , _dctConversionTaskIds :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -58,30 +58,30 @@ data DescribeConversionTasks = DescribeConversionTasks
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Filter ::@ @[Filter]@
+-- * @Filters ::@ @[Filter]@
 --
--- * @ConversionTaskId ::@ @[Text]@
+-- * @ConversionTaskIds ::@ @[Text]@
 --
 describeConversionTasks :: DescribeConversionTasks
 describeConversionTasks = DescribeConversionTasks
-    { _dctFilter = mempty
-    , _dctConversionTaskId = mempty
+    { _dctFilters = mempty
+    , _dctConversionTaskIds = mempty
     }
 
 -- | 
-dctFilter :: Lens' DescribeConversionTasks [Filter]
-dctFilter = lens _dctFilter (\s a -> s { _dctFilter = a })
+dctFilters :: Lens' DescribeConversionTasks [Filter]
+dctFilters = lens _dctFilters (\s a -> s { _dctFilters = a })
 
 -- | One or more conversion task IDs.
-dctConversionTaskId :: Lens' DescribeConversionTasks [Text]
-dctConversionTaskId =
-    lens _dctConversionTaskId (\s a -> s { _dctConversionTaskId = a })
+dctConversionTaskIds :: Lens' DescribeConversionTasks [Text]
+dctConversionTaskIds =
+    lens _dctConversionTaskIds (\s a -> s { _dctConversionTaskIds = a })
 
 instance ToQuery DescribeConversionTasks where
     toQuery = genericQuery def
 
 newtype DescribeConversionTasksResponse = DescribeConversionTasksResponse
-    { _dctrItem :: [ConversionTask]
+    { _dctrConversionTasks :: [ConversionTask]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -91,16 +91,17 @@ newtype DescribeConversionTasksResponse = DescribeConversionTasksResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Item ::@ @[ConversionTask]@
+-- * @ConversionTasks ::@ @[ConversionTask]@
 --
 describeConversionTasksResponse :: DescribeConversionTasksResponse
 describeConversionTasksResponse = DescribeConversionTasksResponse
-    { _dctrItem = mempty
+    { _dctrConversionTasks = mempty
     }
 
 -- | 
-dctrItem :: Lens' DescribeConversionTasksResponse [ConversionTask]
-dctrItem = lens _dctrItem (\s a -> s { _dctrItem = a })
+dctrConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
+dctrConversionTasks =
+    lens _dctrConversionTasks (\s a -> s { _dctrConversionTasks = a })
 
 instance FromXML DescribeConversionTasksResponse where
     fromXMLOptions = xmlOptions

@@ -31,9 +31,9 @@ module Network.AWS.EC2.ModifyImageAttribute
     , miaImageId
     , miaAttribute
     , miaOperationType
-    , miaUserId
-    , miaUserGroup
-    , miaProductCode
+    , miaUserIds
+    , miaUserGroups
+    , miaProductCodes
     , miaValue
     , miaLaunchPermission
     , miaDescription
@@ -52,9 +52,9 @@ data ModifyImageAttribute = ModifyImageAttribute
     { _miaImageId :: Text
     , _miaAttribute :: Maybe Text
     , _miaOperationType :: Maybe Text
-    , _miaUserId :: [Text]
-    , _miaUserGroup :: [Text]
-    , _miaProductCode :: [Text]
+    , _miaUserIds :: [Text]
+    , _miaUserGroups :: [Text]
+    , _miaProductCodes :: [Text]
     , _miaValue :: Maybe Text
     , _miaLaunchPermission :: Maybe LaunchPermissionModifications
     , _miaDescription :: Maybe AttributeValue
@@ -71,11 +71,11 @@ data ModifyImageAttribute = ModifyImageAttribute
 --
 -- * @OperationType ::@ @Maybe Text@
 --
--- * @UserId ::@ @[Text]@
+-- * @UserIds ::@ @[Text]@
 --
--- * @UserGroup ::@ @[Text]@
+-- * @UserGroups ::@ @[Text]@
 --
--- * @ProductCode ::@ @[Text]@
+-- * @ProductCodes ::@ @[Text]@
 --
 -- * @Value ::@ @Maybe Text@
 --
@@ -89,9 +89,9 @@ modifyImageAttribute p1 = ModifyImageAttribute
     { _miaImageId = p1
     , _miaAttribute = Nothing
     , _miaOperationType = Nothing
-    , _miaUserId = mempty
-    , _miaUserGroup = mempty
-    , _miaProductCode = mempty
+    , _miaUserIds = mempty
+    , _miaUserGroups = mempty
+    , _miaProductCodes = mempty
     , _miaValue = Nothing
     , _miaLaunchPermission = Nothing
     , _miaDescription = Nothing
@@ -112,18 +112,18 @@ miaOperationType =
 
 -- | One or more AWS account IDs. This is only valid when modifying the
 -- launchPermission attribute.
-miaUserId :: Lens' ModifyImageAttribute [Text]
-miaUserId = lens _miaUserId (\s a -> s { _miaUserId = a })
+miaUserIds :: Lens' ModifyImageAttribute [Text]
+miaUserIds = lens _miaUserIds (\s a -> s { _miaUserIds = a })
 
 -- | One or more user groups. This is only valid when modifying the
 -- launchPermission attribute.
-miaUserGroup :: Lens' ModifyImageAttribute [Text]
-miaUserGroup = lens _miaUserGroup (\s a -> s { _miaUserGroup = a })
+miaUserGroups :: Lens' ModifyImageAttribute [Text]
+miaUserGroups = lens _miaUserGroups (\s a -> s { _miaUserGroups = a })
 
 -- | One or more product codes. After you add a product code to an AMI, it can't
 -- be removed. This is only valid when modifying the productCodes attribute.
-miaProductCode :: Lens' ModifyImageAttribute [Text]
-miaProductCode = lens _miaProductCode (\s a -> s { _miaProductCode = a })
+miaProductCodes :: Lens' ModifyImageAttribute [Text]
+miaProductCodes = lens _miaProductCodes (\s a -> s { _miaProductCodes = a })
 
 -- | The value of the attribute being modified. This is only valid when
 -- modifying the description attribute.

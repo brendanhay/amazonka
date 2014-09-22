@@ -36,7 +36,7 @@ module Network.AWS.RDS.CopyDBSnapshot
     -- ** Request lenses
     , cdbsSourceDBSnapshotIdentifier
     , cdbsTargetDBSnapshotIdentifier
-    , cdbsTag
+    , cdbsTags
 
     -- * Response
     , CopyDBSnapshotResponse
@@ -54,7 +54,7 @@ import Network.AWS.Prelude
 data CopyDBSnapshot = CopyDBSnapshot
     { _cdbsSourceDBSnapshotIdentifier :: Text
     , _cdbsTargetDBSnapshotIdentifier :: Text
-    , _cdbsTag :: [Tag]
+    , _cdbsTags :: [Tag]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -66,7 +66,7 @@ data CopyDBSnapshot = CopyDBSnapshot
 --
 -- * @TargetDBSnapshotIdentifier ::@ @Text@
 --
--- * @Tag ::@ @[Tag]@
+-- * @Tags ::@ @[Tag]@
 --
 copyDBSnapshot :: Text -- ^ 'cdbsSourceDBSnapshotIdentifier'
                -> Text -- ^ 'cdbsTargetDBSnapshotIdentifier'
@@ -74,7 +74,7 @@ copyDBSnapshot :: Text -- ^ 'cdbsSourceDBSnapshotIdentifier'
 copyDBSnapshot p1 p2 = CopyDBSnapshot
     { _cdbsSourceDBSnapshotIdentifier = p1
     , _cdbsTargetDBSnapshotIdentifier = p2
-    , _cdbsTag = mempty
+    , _cdbsTags = mempty
     }
 
 -- | The identifier for the source DB snapshot. Constraints: Must specify a
@@ -100,8 +100,8 @@ cdbsTargetDBSnapshotIdentifier =
          (\s a -> s { _cdbsTargetDBSnapshotIdentifier = a })
 
 -- | A list of tags.
-cdbsTag :: Lens' CopyDBSnapshot [Tag]
-cdbsTag = lens _cdbsTag (\s a -> s { _cdbsTag = a })
+cdbsTags :: Lens' CopyDBSnapshot [Tag]
+cdbsTags = lens _cdbsTags (\s a -> s { _cdbsTags = a })
 
 instance ToQuery CopyDBSnapshot where
     toQuery = genericQuery def

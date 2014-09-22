@@ -38,8 +38,8 @@ module Network.AWS.EC2.CreateTags
     -- ** Request constructor
     , createTags
     -- ** Request lenses
-    , ctResourceId
-    , ctTag
+    , ctResources
+    , ctTags
 
     -- * Response
     , CreateTagsResponse
@@ -52,8 +52,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data CreateTags = CreateTags
-    { _ctResourceId :: [Text]
-    , _ctTag :: [Tag]
+    { _ctResources :: [Text]
+    , _ctTags :: [Tag]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -61,27 +61,27 @@ data CreateTags = CreateTags
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ResourceId ::@ @[Text]@
+-- * @Resources ::@ @[Text]@
 --
--- * @Tag ::@ @[Tag]@
+-- * @Tags ::@ @[Tag]@
 --
-createTags :: [Text] -- ^ 'ctResourceId'
-           -> [Tag] -- ^ 'ctTag'
+createTags :: [Text] -- ^ 'ctResources'
+           -> [Tag] -- ^ 'ctTags'
            -> CreateTags
 createTags p1 p2 = CreateTags
-    { _ctResourceId = p1
-    , _ctTag = p2
+    { _ctResources = p1
+    , _ctTags = p2
     }
 
 -- | The IDs of one or more resources to tag. For example, ami-1a2b3c4d.
-ctResourceId :: Lens' CreateTags [Text]
-ctResourceId = lens _ctResourceId (\s a -> s { _ctResourceId = a })
+ctResources :: Lens' CreateTags [Text]
+ctResources = lens _ctResources (\s a -> s { _ctResources = a })
 
 -- | One or more tags. The value parameter is required, but if you don't want
 -- the tag to have a value, specify the parameter with no value, and we set
 -- the value to an empty string.
-ctTag :: Lens' CreateTags [Tag]
-ctTag = lens _ctTag (\s a -> s { _ctTag = a })
+ctTags :: Lens' CreateTags [Tag]
+ctTags = lens _ctTags (\s a -> s { _ctTags = a })
 
 instance ToQuery CreateTags where
     toQuery = genericQuery def

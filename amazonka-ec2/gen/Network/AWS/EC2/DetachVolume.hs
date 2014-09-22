@@ -58,7 +58,7 @@ module Network.AWS.EC2.DetachVolume
     , dvr1VolumeId
     , dvr1InstanceId
     , dvr1Device
-    , dvr1Status
+    , dvr1State
     , dvr1AttachTime
     , dvr1DeleteOnTermination
     ) where
@@ -125,7 +125,7 @@ data DetachVolumeResponse = DetachVolumeResponse
     { _dvr1VolumeId :: Maybe Text
     , _dvr1InstanceId :: Maybe Text
     , _dvr1Device :: Maybe Text
-    , _dvr1Status :: Maybe VolumeAttachmentState
+    , _dvr1State :: Maybe VolumeAttachmentState
     , _dvr1AttachTime :: Maybe ISO8601
     , _dvr1DeleteOnTermination :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
@@ -143,7 +143,7 @@ data DetachVolumeResponse = DetachVolumeResponse
 --
 -- * @Device ::@ @Maybe Text@
 --
--- * @Status ::@ @Maybe VolumeAttachmentState@
+-- * @State ::@ @Maybe VolumeAttachmentState@
 --
 -- * @AttachTime ::@ @Maybe ISO8601@
 --
@@ -154,7 +154,7 @@ detachVolumeResponse = DetachVolumeResponse
     { _dvr1VolumeId = Nothing
     , _dvr1InstanceId = Nothing
     , _dvr1Device = Nothing
-    , _dvr1Status = Nothing
+    , _dvr1State = Nothing
     , _dvr1AttachTime = Nothing
     , _dvr1DeleteOnTermination = Nothing
     }
@@ -172,8 +172,8 @@ dvr1Device :: Lens' DetachVolumeResponse (Maybe Text)
 dvr1Device = lens _dvr1Device (\s a -> s { _dvr1Device = a })
 
 -- | The attachment state of the volume.
-dvr1Status :: Lens' DetachVolumeResponse (Maybe VolumeAttachmentState)
-dvr1Status = lens _dvr1Status (\s a -> s { _dvr1Status = a })
+dvr1State :: Lens' DetachVolumeResponse (Maybe VolumeAttachmentState)
+dvr1State = lens _dvr1State (\s a -> s { _dvr1State = a })
 
 -- | The time stamp when the attachment initiated.
 dvr1AttachTime :: Lens' DetachVolumeResponse (Maybe ISO8601)

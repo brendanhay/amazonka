@@ -39,7 +39,7 @@ module Network.AWS.SimpleDB.ListDomains
     -- ** Response constructor
     , listDomainsResponse
     -- ** Response lenses
-    , ldrDomainName
+    , ldrDomainNames
     , ldrNextToken
     ) where
 
@@ -82,7 +82,7 @@ instance ToQuery ListDomains where
     toQuery = genericQuery def
 
 data ListDomainsResponse = ListDomainsResponse
-    { _ldrDomainName :: [Text]
+    { _ldrDomainNames :: [Text]
     , _ldrNextToken :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -93,19 +93,19 @@ data ListDomainsResponse = ListDomainsResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DomainName ::@ @[Text]@
+-- * @DomainNames ::@ @[Text]@
 --
 -- * @NextToken ::@ @Maybe Text@
 --
 listDomainsResponse :: ListDomainsResponse
 listDomainsResponse = ListDomainsResponse
-    { _ldrDomainName = mempty
+    { _ldrDomainNames = mempty
     , _ldrNextToken = Nothing
     }
 
 -- | A list of domain names that match the expression.
-ldrDomainName :: Lens' ListDomainsResponse [Text]
-ldrDomainName = lens _ldrDomainName (\s a -> s { _ldrDomainName = a })
+ldrDomainNames :: Lens' ListDomainsResponse [Text]
+ldrDomainNames = lens _ldrDomainNames (\s a -> s { _ldrDomainNames = a })
 
 -- | An opaque token indicating that there are more domains than the specified
 -- MaxNumberOfDomains still available.

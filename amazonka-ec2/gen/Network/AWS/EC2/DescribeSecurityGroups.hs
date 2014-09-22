@@ -46,16 +46,16 @@ module Network.AWS.EC2.DescribeSecurityGroups
     -- ** Request constructor
     , describeSecurityGroups
     -- ** Request lenses
-    , dsg1GroupName
-    , dsg1GroupId
-    , dsg1Filter
+    , dsg1GroupNames
+    , dsg1GroupIds
+    , dsg1Filters
 
     -- * Response
     , DescribeSecurityGroupsResponse
     -- ** Response constructor
     , describeSecurityGroupsResponse
     -- ** Response lenses
-    , dsgrItem
+    , dsgrSecurityGroups
     ) where
 
 import Network.AWS.Request.Query
@@ -63,9 +63,9 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeSecurityGroups = DescribeSecurityGroups
-    { _dsg1GroupName :: [Text]
-    , _dsg1GroupId :: [Text]
-    , _dsg1Filter :: [Filter]
+    { _dsg1GroupNames :: [Text]
+    , _dsg1GroupIds :: [Text]
+    , _dsg1Filters :: [Filter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -73,28 +73,28 @@ data DescribeSecurityGroups = DescribeSecurityGroups
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GroupName ::@ @[Text]@
+-- * @GroupNames ::@ @[Text]@
 --
--- * @GroupId ::@ @[Text]@
+-- * @GroupIds ::@ @[Text]@
 --
--- * @Filter ::@ @[Filter]@
+-- * @Filters ::@ @[Filter]@
 --
 describeSecurityGroups :: DescribeSecurityGroups
 describeSecurityGroups = DescribeSecurityGroups
-    { _dsg1GroupName = mempty
-    , _dsg1GroupId = mempty
-    , _dsg1Filter = mempty
+    { _dsg1GroupNames = mempty
+    , _dsg1GroupIds = mempty
+    , _dsg1Filters = mempty
     }
 
 -- | [EC2-Classic, default VPC] One or more security group names. Default:
 -- Describes all your security groups.
-dsg1GroupName :: Lens' DescribeSecurityGroups [Text]
-dsg1GroupName = lens _dsg1GroupName (\s a -> s { _dsg1GroupName = a })
+dsg1GroupNames :: Lens' DescribeSecurityGroups [Text]
+dsg1GroupNames = lens _dsg1GroupNames (\s a -> s { _dsg1GroupNames = a })
 
 -- | One or more security group IDs. Default: Describes all your security
 -- groups.
-dsg1GroupId :: Lens' DescribeSecurityGroups [Text]
-dsg1GroupId = lens _dsg1GroupId (\s a -> s { _dsg1GroupId = a })
+dsg1GroupIds :: Lens' DescribeSecurityGroups [Text]
+dsg1GroupIds = lens _dsg1GroupIds (\s a -> s { _dsg1GroupIds = a })
 
 -- | One or more filters. description - The description of the security group.
 -- group-id - The ID of the security group. group-name - The name of the
@@ -111,14 +111,14 @@ dsg1GroupId = lens _dsg1GroupId (\s a -> s { _dsg1GroupId = a })
 -- group. tag-key - The key of a tag assigned to the security group. tag-value
 -- - The value of a tag assigned to the security group. vpc-id - The ID of the
 -- VPC specified when the security group was created.
-dsg1Filter :: Lens' DescribeSecurityGroups [Filter]
-dsg1Filter = lens _dsg1Filter (\s a -> s { _dsg1Filter = a })
+dsg1Filters :: Lens' DescribeSecurityGroups [Filter]
+dsg1Filters = lens _dsg1Filters (\s a -> s { _dsg1Filters = a })
 
 instance ToQuery DescribeSecurityGroups where
     toQuery = genericQuery def
 
 newtype DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
-    { _dsgrItem :: [SecurityGroup]
+    { _dsgrSecurityGroups :: [SecurityGroup]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -128,16 +128,17 @@ newtype DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Item ::@ @[SecurityGroup]@
+-- * @SecurityGroups ::@ @[SecurityGroup]@
 --
 describeSecurityGroupsResponse :: DescribeSecurityGroupsResponse
 describeSecurityGroupsResponse = DescribeSecurityGroupsResponse
-    { _dsgrItem = mempty
+    { _dsgrSecurityGroups = mempty
     }
 
 -- | Information about one or more security groups.
-dsgrItem :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
-dsgrItem = lens _dsgrItem (\s a -> s { _dsgrItem = a })
+dsgrSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
+dsgrSecurityGroups =
+    lens _dsgrSecurityGroups (\s a -> s { _dsgrSecurityGroups = a })
 
 instance FromXML DescribeSecurityGroupsResponse where
     fromXMLOptions = xmlOptions

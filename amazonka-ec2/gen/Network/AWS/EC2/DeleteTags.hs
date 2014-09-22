@@ -48,8 +48,8 @@ module Network.AWS.EC2.DeleteTags
     -- ** Request constructor
     , deleteTags
     -- ** Request lenses
-    , dtResourceId
-    , dtTag
+    , dtResources
+    , dtTags
 
     -- * Response
     , DeleteTagsResponse
@@ -62,8 +62,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DeleteTags = DeleteTags
-    { _dtResourceId :: [Text]
-    , _dtTag :: [Tag]
+    { _dtResources :: [Text]
+    , _dtTags :: [Tag]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -71,28 +71,28 @@ data DeleteTags = DeleteTags
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ResourceId ::@ @[Text]@
+-- * @Resources ::@ @[Text]@
 --
--- * @Tag ::@ @[Tag]@
+-- * @Tags ::@ @[Tag]@
 --
-deleteTags :: [Text] -- ^ 'dtResourceId'
+deleteTags :: [Text] -- ^ 'dtResources'
            -> DeleteTags
 deleteTags p1 = DeleteTags
-    { _dtResourceId = p1
-    , _dtTag = mempty
+    { _dtResources = p1
+    , _dtTags = mempty
     }
 
 -- | The ID of the resource. For example, ami-1a2b3c4d. You can specify more
 -- than one resource ID.
-dtResourceId :: Lens' DeleteTags [Text]
-dtResourceId = lens _dtResourceId (\s a -> s { _dtResourceId = a })
+dtResources :: Lens' DeleteTags [Text]
+dtResources = lens _dtResources (\s a -> s { _dtResources = a })
 
 -- | One or more tags to delete. If you omit the value parameter, we delete the
 -- tag regardless of its value. If you specify this parameter with an empty
 -- string as the value, we delete the key only if its value is an empty
 -- string.
-dtTag :: Lens' DeleteTags [Tag]
-dtTag = lens _dtTag (\s a -> s { _dtTag = a })
+dtTags :: Lens' DeleteTags [Tag]
+dtTags = lens _dtTags (\s a -> s { _dtTags = a })
 
 instance ToQuery DeleteTags where
     toQuery = genericQuery def

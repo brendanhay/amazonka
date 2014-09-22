@@ -44,8 +44,8 @@ module Network.AWS.RDS.CreateDBInstance
     , cdbiEngine
     , cdbiMasterUsername
     , cdbiMasterUserPassword
-    , cdbiDBSecurityGroupName
-    , cdbiVpcSecurityGroupId
+    , cdbiDBSecurityGroups
+    , cdbiVpcSecurityGroupIds
     , cdbiAvailabilityZone
     , cdbiDBSubnetGroupName
     , cdbiPreferredMaintenanceWindow
@@ -61,7 +61,7 @@ module Network.AWS.RDS.CreateDBInstance
     , cdbiOptionGroupName
     , cdbiCharacterSetName
     , cdbiPubliclyAccessible
-    , cdbiTag
+    , cdbiTags
 
     -- * Response
     , CreateDBInstanceResponse
@@ -84,8 +84,8 @@ data CreateDBInstance = CreateDBInstance
     , _cdbiEngine :: Text
     , _cdbiMasterUsername :: Text
     , _cdbiMasterUserPassword :: Text
-    , _cdbiDBSecurityGroupName :: [Text]
-    , _cdbiVpcSecurityGroupId :: [Text]
+    , _cdbiDBSecurityGroups :: [Text]
+    , _cdbiVpcSecurityGroupIds :: [Text]
     , _cdbiAvailabilityZone :: Maybe Text
     , _cdbiDBSubnetGroupName :: Maybe Text
     , _cdbiPreferredMaintenanceWindow :: Maybe Text
@@ -101,7 +101,7 @@ data CreateDBInstance = CreateDBInstance
     , _cdbiOptionGroupName :: Maybe Text
     , _cdbiCharacterSetName :: Maybe Text
     , _cdbiPubliclyAccessible :: Maybe Bool
-    , _cdbiTag :: [Tag]
+    , _cdbiTags :: [Tag]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -123,9 +123,9 @@ data CreateDBInstance = CreateDBInstance
 --
 -- * @MasterUserPassword ::@ @Text@
 --
--- * @DBSecurityGroupName ::@ @[Text]@
+-- * @DBSecurityGroups ::@ @[Text]@
 --
--- * @VpcSecurityGroupId ::@ @[Text]@
+-- * @VpcSecurityGroupIds ::@ @[Text]@
 --
 -- * @AvailabilityZone ::@ @Maybe Text@
 --
@@ -157,7 +157,7 @@ data CreateDBInstance = CreateDBInstance
 --
 -- * @PubliclyAccessible ::@ @Maybe Bool@
 --
--- * @Tag ::@ @[Tag]@
+-- * @Tags ::@ @[Tag]@
 --
 createDBInstance :: Text -- ^ 'cdbiDBInstanceIdentifier'
                  -> Integer -- ^ 'cdbiAllocatedStorage'
@@ -174,8 +174,8 @@ createDBInstance p2 p3 p4 p5 p6 p7 = CreateDBInstance
     , _cdbiEngine = p5
     , _cdbiMasterUsername = p6
     , _cdbiMasterUserPassword = p7
-    , _cdbiDBSecurityGroupName = mempty
-    , _cdbiVpcSecurityGroupId = mempty
+    , _cdbiDBSecurityGroups = mempty
+    , _cdbiVpcSecurityGroupIds = mempty
     , _cdbiAvailabilityZone = Nothing
     , _cdbiDBSubnetGroupName = Nothing
     , _cdbiPreferredMaintenanceWindow = Nothing
@@ -191,7 +191,7 @@ createDBInstance p2 p3 p4 p5 p6 p7 = CreateDBInstance
     , _cdbiOptionGroupName = Nothing
     , _cdbiCharacterSetName = Nothing
     , _cdbiPubliclyAccessible = Nothing
-    , _cdbiTag = mempty
+    , _cdbiTags = mempty
     }
 
 -- | The meaning of this parameter differs according to the database engine you
@@ -260,16 +260,16 @@ cdbiMasterUserPassword =
 
 -- | A list of DB security groups to associate with this DB instance. Default:
 -- The default DB security group for the database engine.
-cdbiDBSecurityGroupName :: Lens' CreateDBInstance [Text]
-cdbiDBSecurityGroupName =
-    lens _cdbiDBSecurityGroupName
-         (\s a -> s { _cdbiDBSecurityGroupName = a })
+cdbiDBSecurityGroups :: Lens' CreateDBInstance [Text]
+cdbiDBSecurityGroups =
+    lens _cdbiDBSecurityGroups (\s a -> s { _cdbiDBSecurityGroups = a })
 
 -- | A list of EC2 VPC security groups to associate with this DB instance.
 -- Default: The default EC2 VPC security group for the DB subnet group's VPC.
-cdbiVpcSecurityGroupId :: Lens' CreateDBInstance [Text]
-cdbiVpcSecurityGroupId =
-    lens _cdbiVpcSecurityGroupId (\s a -> s { _cdbiVpcSecurityGroupId = a })
+cdbiVpcSecurityGroupIds :: Lens' CreateDBInstance [Text]
+cdbiVpcSecurityGroupIds =
+    lens _cdbiVpcSecurityGroupIds
+         (\s a -> s { _cdbiVpcSecurityGroupIds = a })
 
 -- | The EC2 Availability Zone that the database instance will be created in.
 -- Default: A random, system-chosen Availability Zone in the endpoint's
@@ -399,8 +399,8 @@ cdbiPubliclyAccessible =
     lens _cdbiPubliclyAccessible (\s a -> s { _cdbiPubliclyAccessible = a })
 
 -- | A list of tags.
-cdbiTag :: Lens' CreateDBInstance [Tag]
-cdbiTag = lens _cdbiTag (\s a -> s { _cdbiTag = a })
+cdbiTags :: Lens' CreateDBInstance [Tag]
+cdbiTags = lens _cdbiTags (\s a -> s { _cdbiTags = a })
 
 instance ToQuery CreateDBInstance where
     toQuery = genericQuery def

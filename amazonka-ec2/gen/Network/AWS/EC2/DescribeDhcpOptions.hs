@@ -50,15 +50,15 @@ module Network.AWS.EC2.DescribeDhcpOptions
     -- ** Request constructor
     , describeDhcpOptions
     -- ** Request lenses
-    , ddo1DhcpOptionsId
-    , ddo1Filter
+    , ddo1DhcpOptionsIds
+    , ddo1Filters
 
     -- * Response
     , DescribeDhcpOptionsResponse
     -- ** Response constructor
     , describeDhcpOptionsResponse
     -- ** Response lenses
-    , ddorItem
+    , ddorDhcpOptions
     ) where
 
 import Network.AWS.Request.Query
@@ -66,8 +66,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeDhcpOptions = DescribeDhcpOptions
-    { _ddo1DhcpOptionsId :: [Text]
-    , _ddo1Filter :: [Filter]
+    { _ddo1DhcpOptionsIds :: [Text]
+    , _ddo1Filters :: [Filter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -75,21 +75,21 @@ data DescribeDhcpOptions = DescribeDhcpOptions
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @DhcpOptionsId ::@ @[Text]@
+-- * @DhcpOptionsIds ::@ @[Text]@
 --
--- * @Filter ::@ @[Filter]@
+-- * @Filters ::@ @[Filter]@
 --
 describeDhcpOptions :: DescribeDhcpOptions
 describeDhcpOptions = DescribeDhcpOptions
-    { _ddo1DhcpOptionsId = mempty
-    , _ddo1Filter = mempty
+    { _ddo1DhcpOptionsIds = mempty
+    , _ddo1Filters = mempty
     }
 
 -- | The IDs of one or more DHCP options sets. Default: Describes all your DHCP
 -- options sets.
-ddo1DhcpOptionsId :: Lens' DescribeDhcpOptions [Text]
-ddo1DhcpOptionsId =
-    lens _ddo1DhcpOptionsId (\s a -> s { _ddo1DhcpOptionsId = a })
+ddo1DhcpOptionsIds :: Lens' DescribeDhcpOptions [Text]
+ddo1DhcpOptionsIds =
+    lens _ddo1DhcpOptionsIds (\s a -> s { _ddo1DhcpOptionsIds = a })
 
 -- | One or more filters. dhcp-options-id - The ID of a set of DHCP options. key
 -- - The key for one of the options (for example, domain-name). value - The
@@ -102,14 +102,14 @@ ddo1DhcpOptionsId =
 -- is). If you want to list only resources where Purpose is X, see the
 -- tag:key=value filter. tag-value - The value of a tag assigned to the
 -- resource. This filter is independent of the tag-key filter.
-ddo1Filter :: Lens' DescribeDhcpOptions [Filter]
-ddo1Filter = lens _ddo1Filter (\s a -> s { _ddo1Filter = a })
+ddo1Filters :: Lens' DescribeDhcpOptions [Filter]
+ddo1Filters = lens _ddo1Filters (\s a -> s { _ddo1Filters = a })
 
 instance ToQuery DescribeDhcpOptions where
     toQuery = genericQuery def
 
 newtype DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
-    { _ddorItem :: [DhcpOptions]
+    { _ddorDhcpOptions :: [DhcpOptions]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -119,16 +119,16 @@ newtype DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Item ::@ @[DhcpOptions]@
+-- * @DhcpOptions ::@ @[DhcpOptions]@
 --
 describeDhcpOptionsResponse :: DescribeDhcpOptionsResponse
 describeDhcpOptionsResponse = DescribeDhcpOptionsResponse
-    { _ddorItem = mempty
+    { _ddorDhcpOptions = mempty
     }
 
 -- | Information about one or more DHCP options sets.
-ddorItem :: Lens' DescribeDhcpOptionsResponse [DhcpOptions]
-ddorItem = lens _ddorItem (\s a -> s { _ddorItem = a })
+ddorDhcpOptions :: Lens' DescribeDhcpOptionsResponse [DhcpOptions]
+ddorDhcpOptions = lens _ddorDhcpOptions (\s a -> s { _ddorDhcpOptions = a })
 
 instance FromXML DescribeDhcpOptionsResponse where
     fromXMLOptions = xmlOptions

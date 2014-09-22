@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype GetBucketCors = GetBucketCors
-    { _gbcBucket :: BucketName
+    { _gbcBucket :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -50,15 +50,15 @@ newtype GetBucketCors = GetBucketCors
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
-getBucketCors :: BucketName -- ^ 'gbcBucket'
+getBucketCors :: Text -- ^ 'gbcBucket'
               -> GetBucketCors
 getBucketCors p1 = GetBucketCors
     { _gbcBucket = p1
     }
 
-gbcBucket :: Lens' GetBucketCors BucketName
+gbcBucket :: Lens' GetBucketCors Text
 gbcBucket = lens _gbcBucket (\s a -> s { _gbcBucket = a })
 
 instance ToPath GetBucketCors

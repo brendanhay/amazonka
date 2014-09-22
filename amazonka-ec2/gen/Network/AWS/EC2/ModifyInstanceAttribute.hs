@@ -57,7 +57,7 @@ module Network.AWS.EC2.ModifyInstanceAttribute
     , mia1InstanceId
     , mia1Attribute
     , mia1Value
-    , mia1BlockDeviceMapping
+    , mia1BlockDeviceMappings
     , mia1SourceDestCheck
     , mia1DisableApiTermination
     , mia1InstanceType
@@ -65,7 +65,7 @@ module Network.AWS.EC2.ModifyInstanceAttribute
     , mia1Ramdisk
     , mia1UserData
     , mia1InstanceInitiatedShutdownBehavior
-    , mia1GroupId
+    , mia1Groups
     , mia1EbsOptimized
     , mia1SriovNetSupport
 
@@ -83,7 +83,7 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
     { _mia1InstanceId :: Text
     , _mia1Attribute :: Maybe InstanceAttributeName
     , _mia1Value :: Maybe Text
-    , _mia1BlockDeviceMapping :: [InstanceBlockDeviceMappingSpecification]
+    , _mia1BlockDeviceMappings :: [InstanceBlockDeviceMappingSpecification]
     , _mia1SourceDestCheck :: Maybe AttributeBooleanValue
     , _mia1DisableApiTermination :: Maybe AttributeBooleanValue
     , _mia1InstanceType :: Maybe AttributeValue
@@ -91,7 +91,7 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
     , _mia1Ramdisk :: Maybe AttributeValue
     , _mia1UserData :: Maybe AttributeValue
     , _mia1InstanceInitiatedShutdownBehavior :: Maybe AttributeValue
-    , _mia1GroupId :: [Text]
+    , _mia1Groups :: [Text]
     , _mia1EbsOptimized :: Maybe AttributeBooleanValue
     , _mia1SriovNetSupport :: Maybe AttributeValue
     } deriving (Eq, Ord, Show, Generic)
@@ -107,7 +107,7 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
 --
 -- * @Value ::@ @Maybe Text@
 --
--- * @BlockDeviceMapping ::@ @[InstanceBlockDeviceMappingSpecification]@
+-- * @BlockDeviceMappings ::@ @[InstanceBlockDeviceMappingSpecification]@
 --
 -- * @SourceDestCheck ::@ @Maybe AttributeBooleanValue@
 --
@@ -123,7 +123,7 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
 --
 -- * @InstanceInitiatedShutdownBehavior ::@ @Maybe AttributeValue@
 --
--- * @GroupId ::@ @[Text]@
+-- * @Groups ::@ @[Text]@
 --
 -- * @EbsOptimized ::@ @Maybe AttributeBooleanValue@
 --
@@ -135,7 +135,7 @@ modifyInstanceAttribute p1 = ModifyInstanceAttribute
     { _mia1InstanceId = p1
     , _mia1Attribute = Nothing
     , _mia1Value = Nothing
-    , _mia1BlockDeviceMapping = mempty
+    , _mia1BlockDeviceMappings = mempty
     , _mia1SourceDestCheck = Nothing
     , _mia1DisableApiTermination = Nothing
     , _mia1InstanceType = Nothing
@@ -143,7 +143,7 @@ modifyInstanceAttribute p1 = ModifyInstanceAttribute
     , _mia1Ramdisk = Nothing
     , _mia1UserData = Nothing
     , _mia1InstanceInitiatedShutdownBehavior = Nothing
-    , _mia1GroupId = mempty
+    , _mia1Groups = mempty
     , _mia1EbsOptimized = Nothing
     , _mia1SriovNetSupport = Nothing
     }
@@ -168,9 +168,10 @@ mia1Value = lens _mia1Value (\s a -> s { _mia1Value = a })
 -- EBS-backed instance, you must add them when you launch the instance. For
 -- more information, see Updating the Block Device Mapping when Launching an
 -- Instance in the Amazon Elastic Compute Cloud User Guide.
-mia1BlockDeviceMapping :: Lens' ModifyInstanceAttribute [InstanceBlockDeviceMappingSpecification]
-mia1BlockDeviceMapping =
-    lens _mia1BlockDeviceMapping (\s a -> s { _mia1BlockDeviceMapping = a })
+mia1BlockDeviceMappings :: Lens' ModifyInstanceAttribute [InstanceBlockDeviceMappingSpecification]
+mia1BlockDeviceMappings =
+    lens _mia1BlockDeviceMappings
+         (\s a -> s { _mia1BlockDeviceMappings = a })
 
 -- | Specifies whether source/destination checking is enabled. A value of true
 -- means that checking is enabled, and false means checking is disabled. This
@@ -218,8 +219,8 @@ mia1InstanceInitiatedShutdownBehavior =
 -- the VPC. You must specify the security group ID, not the security group
 -- name. For example, if you want the instance to be in sg-1a1a1a1a and
 -- sg-9b9b9b9b, specify GroupId.1=sg-1a1a1a1a and GroupId.2=sg-9b9b9b9b.
-mia1GroupId :: Lens' ModifyInstanceAttribute [Text]
-mia1GroupId = lens _mia1GroupId (\s a -> s { _mia1GroupId = a })
+mia1Groups :: Lens' ModifyInstanceAttribute [Text]
+mia1Groups = lens _mia1Groups (\s a -> s { _mia1Groups = a })
 
 -- | Specifies whether the instance is optimized for EBS I/O. This optimization
 -- provides dedicated throughput to Amazon EBS and an optimized configuration

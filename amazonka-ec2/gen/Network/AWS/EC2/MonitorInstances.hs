@@ -40,14 +40,14 @@ module Network.AWS.EC2.MonitorInstances
     -- ** Request constructor
     , monitorInstances
     -- ** Request lenses
-    , miInstanceId
+    , miInstanceIds
 
     -- * Response
     , MonitorInstancesResponse
     -- ** Response constructor
     , monitorInstancesResponse
     -- ** Response lenses
-    , mirItem
+    , mirInstanceMonitorings
     ) where
 
 import Network.AWS.Request.Query
@@ -55,7 +55,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype MonitorInstances = MonitorInstances
-    { _miInstanceId :: [Text]
+    { _miInstanceIds :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -63,23 +63,23 @@ newtype MonitorInstances = MonitorInstances
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceId ::@ @[Text]@
+-- * @InstanceIds ::@ @[Text]@
 --
-monitorInstances :: [Text] -- ^ 'miInstanceId'
+monitorInstances :: [Text] -- ^ 'miInstanceIds'
                  -> MonitorInstances
 monitorInstances p1 = MonitorInstances
-    { _miInstanceId = p1
+    { _miInstanceIds = p1
     }
 
 -- | One or more instance IDs.
-miInstanceId :: Lens' MonitorInstances [Text]
-miInstanceId = lens _miInstanceId (\s a -> s { _miInstanceId = a })
+miInstanceIds :: Lens' MonitorInstances [Text]
+miInstanceIds = lens _miInstanceIds (\s a -> s { _miInstanceIds = a })
 
 instance ToQuery MonitorInstances where
     toQuery = genericQuery def
 
 newtype MonitorInstancesResponse = MonitorInstancesResponse
-    { _mirItem :: [InstanceMonitoring]
+    { _mirInstanceMonitorings :: [InstanceMonitoring]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -89,16 +89,17 @@ newtype MonitorInstancesResponse = MonitorInstancesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Item ::@ @[InstanceMonitoring]@
+-- * @InstanceMonitorings ::@ @[InstanceMonitoring]@
 --
 monitorInstancesResponse :: MonitorInstancesResponse
 monitorInstancesResponse = MonitorInstancesResponse
-    { _mirItem = mempty
+    { _mirInstanceMonitorings = mempty
     }
 
 -- | Monitoring information for one or more instances.
-mirItem :: Lens' MonitorInstancesResponse [InstanceMonitoring]
-mirItem = lens _mirItem (\s a -> s { _mirItem = a })
+mirInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
+mirInstanceMonitorings =
+    lens _mirInstanceMonitorings (\s a -> s { _mirInstanceMonitorings = a })
 
 instance FromXML MonitorInstancesResponse where
     fromXMLOptions = xmlOptions

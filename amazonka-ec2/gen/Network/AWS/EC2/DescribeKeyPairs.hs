@@ -35,15 +35,15 @@ module Network.AWS.EC2.DescribeKeyPairs
     -- ** Request constructor
     , describeKeyPairs
     -- ** Request lenses
-    , dkp1KeyName
-    , dkp1Filter
+    , dkp1KeyNames
+    , dkp1Filters
 
     -- * Response
     , DescribeKeyPairsResponse
     -- ** Response constructor
     , describeKeyPairsResponse
     -- ** Response lenses
-    , dkprItem
+    , dkprKeyPairs
     ) where
 
 import Network.AWS.Request.Query
@@ -51,8 +51,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeKeyPairs = DescribeKeyPairs
-    { _dkp1KeyName :: [Text]
-    , _dkp1Filter :: [Filter]
+    { _dkp1KeyNames :: [Text]
+    , _dkp1Filters :: [Filter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -60,30 +60,30 @@ data DescribeKeyPairs = DescribeKeyPairs
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @KeyName ::@ @[Text]@
+-- * @KeyNames ::@ @[Text]@
 --
--- * @Filter ::@ @[Filter]@
+-- * @Filters ::@ @[Filter]@
 --
 describeKeyPairs :: DescribeKeyPairs
 describeKeyPairs = DescribeKeyPairs
-    { _dkp1KeyName = mempty
-    , _dkp1Filter = mempty
+    { _dkp1KeyNames = mempty
+    , _dkp1Filters = mempty
     }
 
 -- | One or more key pair names. Default: Describes all your key pairs.
-dkp1KeyName :: Lens' DescribeKeyPairs [Text]
-dkp1KeyName = lens _dkp1KeyName (\s a -> s { _dkp1KeyName = a })
+dkp1KeyNames :: Lens' DescribeKeyPairs [Text]
+dkp1KeyNames = lens _dkp1KeyNames (\s a -> s { _dkp1KeyNames = a })
 
 -- | One or more filters. fingerprint - The fingerprint of the key pair.
 -- key-name - The name of the key pair.
-dkp1Filter :: Lens' DescribeKeyPairs [Filter]
-dkp1Filter = lens _dkp1Filter (\s a -> s { _dkp1Filter = a })
+dkp1Filters :: Lens' DescribeKeyPairs [Filter]
+dkp1Filters = lens _dkp1Filters (\s a -> s { _dkp1Filters = a })
 
 instance ToQuery DescribeKeyPairs where
     toQuery = genericQuery def
 
 newtype DescribeKeyPairsResponse = DescribeKeyPairsResponse
-    { _dkprItem :: [KeyPairInfo]
+    { _dkprKeyPairs :: [KeyPairInfo]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -93,16 +93,16 @@ newtype DescribeKeyPairsResponse = DescribeKeyPairsResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Item ::@ @[KeyPairInfo]@
+-- * @KeyPairs ::@ @[KeyPairInfo]@
 --
 describeKeyPairsResponse :: DescribeKeyPairsResponse
 describeKeyPairsResponse = DescribeKeyPairsResponse
-    { _dkprItem = mempty
+    { _dkprKeyPairs = mempty
     }
 
 -- | Information about one or more key pairs.
-dkprItem :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
-dkprItem = lens _dkprItem (\s a -> s { _dkprItem = a })
+dkprKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
+dkprKeyPairs = lens _dkprKeyPairs (\s a -> s { _dkprKeyPairs = a })
 
 instance FromXML DescribeKeyPairsResponse where
     fromXMLOptions = xmlOptions

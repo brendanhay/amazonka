@@ -45,13 +45,13 @@ module Network.AWS.EC2.DescribeImageAttribute
     , describeImageAttributeResponse
     -- ** Response lenses
     , diarImageId
-    , diarItem
-    , diarItem
-    , diarKernel
-    , diarRamdisk
+    , diarLaunchPermissions
+    , diarProductCodes
+    , diarKernelId
+    , diarRamdiskId
     , diarDescription
     , diarSriovNetSupport
-    , diarItem
+    , diarBlockDeviceMappings
     ) where
 
 import Network.AWS.Request.Query
@@ -94,13 +94,13 @@ instance ToQuery DescribeImageAttribute where
 -- | Information about the image attribute.
 data DescribeImageAttributeResponse = DescribeImageAttributeResponse
     { _diarImageId :: Maybe Text
-    , _diarItem :: [LaunchPermission]
-    , _diarItem :: [ProductCode]
-    , _diarKernel :: Maybe AttributeValue
-    , _diarRamdisk :: Maybe AttributeValue
+    , _diarLaunchPermissions :: [LaunchPermission]
+    , _diarProductCodes :: [ProductCode]
+    , _diarKernelId :: Maybe AttributeValue
+    , _diarRamdiskId :: Maybe AttributeValue
     , _diarDescription :: Maybe AttributeValue
     , _diarSriovNetSupport :: Maybe AttributeValue
-    , _diarItem :: [BlockDeviceMapping]
+    , _diarBlockDeviceMappings :: [BlockDeviceMapping]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -112,30 +112,30 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse
 --
 -- * @ImageId ::@ @Maybe Text@
 --
--- * @Item ::@ @[LaunchPermission]@
+-- * @LaunchPermissions ::@ @[LaunchPermission]@
 --
--- * @Item ::@ @[ProductCode]@
+-- * @ProductCodes ::@ @[ProductCode]@
 --
--- * @Kernel ::@ @Maybe AttributeValue@
+-- * @KernelId ::@ @Maybe AttributeValue@
 --
--- * @Ramdisk ::@ @Maybe AttributeValue@
+-- * @RamdiskId ::@ @Maybe AttributeValue@
 --
 -- * @Description ::@ @Maybe AttributeValue@
 --
 -- * @SriovNetSupport ::@ @Maybe AttributeValue@
 --
--- * @Item ::@ @[BlockDeviceMapping]@
+-- * @BlockDeviceMappings ::@ @[BlockDeviceMapping]@
 --
 describeImageAttributeResponse :: DescribeImageAttributeResponse
 describeImageAttributeResponse = DescribeImageAttributeResponse
     { _diarImageId = Nothing
-    , _diarItem = mempty
-    , _diarItem = mempty
-    , _diarKernel = Nothing
-    , _diarRamdisk = Nothing
+    , _diarLaunchPermissions = mempty
+    , _diarProductCodes = mempty
+    , _diarKernelId = Nothing
+    , _diarRamdiskId = Nothing
     , _diarDescription = Nothing
     , _diarSriovNetSupport = Nothing
-    , _diarItem = mempty
+    , _diarBlockDeviceMappings = mempty
     }
 
 -- | The ID of the AMI.
@@ -143,20 +143,22 @@ diarImageId :: Lens' DescribeImageAttributeResponse (Maybe Text)
 diarImageId = lens _diarImageId (\s a -> s { _diarImageId = a })
 
 -- | One or more launch permissions.
-diarItem :: Lens' DescribeImageAttributeResponse [LaunchPermission]
-diarItem = lens _diarItem (\s a -> s { _diarItem = a })
+diarLaunchPermissions :: Lens' DescribeImageAttributeResponse [LaunchPermission]
+diarLaunchPermissions =
+    lens _diarLaunchPermissions (\s a -> s { _diarLaunchPermissions = a })
 
 -- | One or more product codes.
-diarItem :: Lens' DescribeImageAttributeResponse [ProductCode]
-diarItem = lens _diarItem (\s a -> s { _diarItem = a })
+diarProductCodes :: Lens' DescribeImageAttributeResponse [ProductCode]
+diarProductCodes =
+    lens _diarProductCodes (\s a -> s { _diarProductCodes = a })
 
 -- | The kernel ID.
-diarKernel :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diarKernel = lens _diarKernel (\s a -> s { _diarKernel = a })
+diarKernelId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
+diarKernelId = lens _diarKernelId (\s a -> s { _diarKernelId = a })
 
 -- | The RAM disk ID.
-diarRamdisk :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diarRamdisk = lens _diarRamdisk (\s a -> s { _diarRamdisk = a })
+diarRamdiskId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
+diarRamdiskId = lens _diarRamdiskId (\s a -> s { _diarRamdiskId = a })
 
 -- | A description for the AMI.
 diarDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
@@ -168,8 +170,10 @@ diarSriovNetSupport =
     lens _diarSriovNetSupport (\s a -> s { _diarSriovNetSupport = a })
 
 -- | One or more block device mapping entries.
-diarItem :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
-diarItem = lens _diarItem (\s a -> s { _diarItem = a })
+diarBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
+diarBlockDeviceMappings =
+    lens _diarBlockDeviceMappings
+         (\s a -> s { _diarBlockDeviceMappings = a })
 
 instance FromXML DescribeImageAttributeResponse where
     fromXMLOptions = xmlOptions

@@ -63,7 +63,7 @@ module Network.AWS.EC2.DescribeTags
     -- ** Request constructor
     , describeTags
     -- ** Request lenses
-    , dt1Filter
+    , dt1Filters
     , dt1MaxResults
     , dt1NextToken
 
@@ -72,7 +72,7 @@ module Network.AWS.EC2.DescribeTags
     -- ** Response constructor
     , describeTagsResponse
     -- ** Response lenses
-    , dtrItem
+    , dtrTags
     , dtrNextToken
     ) where
 
@@ -81,7 +81,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeTags = DescribeTags
-    { _dt1Filter :: [Filter]
+    { _dt1Filters :: [Filter]
     , _dt1MaxResults :: Maybe Integer
     , _dt1NextToken :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -91,7 +91,7 @@ data DescribeTags = DescribeTags
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Filter ::@ @[Filter]@
+-- * @Filters ::@ @[Filter]@
 --
 -- * @MaxResults ::@ @Maybe Integer@
 --
@@ -99,7 +99,7 @@ data DescribeTags = DescribeTags
 --
 describeTags :: DescribeTags
 describeTags = DescribeTags
-    { _dt1Filter = mempty
+    { _dt1Filters = mempty
     , _dt1MaxResults = Nothing
     , _dt1NextToken = Nothing
     }
@@ -110,8 +110,8 @@ describeTags = DescribeTags
 -- reserved-instances | route-table | security-group | snapshot |
 -- spot-instances-request | subnet | volume | vpc | vpn-connection |
 -- vpn-gateway). value - The tag value.
-dt1Filter :: Lens' DescribeTags [Filter]
-dt1Filter = lens _dt1Filter (\s a -> s { _dt1Filter = a })
+dt1Filters :: Lens' DescribeTags [Filter]
+dt1Filters = lens _dt1Filters (\s a -> s { _dt1Filters = a })
 
 -- | The maximum number of items to return for this call. The call also returns
 -- a token that you can specify in a subsequent call to get the next set of
@@ -128,7 +128,7 @@ instance ToQuery DescribeTags where
     toQuery = genericQuery def
 
 data DescribeTagsResponse = DescribeTagsResponse
-    { _dtrItem :: [TagDescription]
+    { _dtrTags :: [TagDescription]
     , _dtrNextToken :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -139,19 +139,19 @@ data DescribeTagsResponse = DescribeTagsResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Item ::@ @[TagDescription]@
+-- * @Tags ::@ @[TagDescription]@
 --
 -- * @NextToken ::@ @Maybe Text@
 --
 describeTagsResponse :: DescribeTagsResponse
 describeTagsResponse = DescribeTagsResponse
-    { _dtrItem = mempty
+    { _dtrTags = mempty
     , _dtrNextToken = Nothing
     }
 
 -- | A list of tags.
-dtrItem :: Lens' DescribeTagsResponse [TagDescription]
-dtrItem = lens _dtrItem (\s a -> s { _dtrItem = a })
+dtrTags :: Lens' DescribeTagsResponse [TagDescription]
+dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a })
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.

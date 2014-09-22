@@ -34,7 +34,7 @@ module Network.AWS.RDS.ListTagsForResource
     -- ** Response constructor
     , listTagsForResourceResponse
     -- ** Response lenses
-    , ltfrrTag
+    , ltfrrTagList
     ) where
 
 import Network.AWS.Request.Query
@@ -71,7 +71,7 @@ instance ToQuery ListTagsForResource where
 
 -- | 
 newtype ListTagsForResourceResponse = ListTagsForResourceResponse
-    { _ltfrrTag :: [Tag]
+    { _ltfrrTagList :: [Tag]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -81,16 +81,16 @@ newtype ListTagsForResourceResponse = ListTagsForResourceResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Tag ::@ @[Tag]@
+-- * @TagList ::@ @[Tag]@
 --
 listTagsForResourceResponse :: ListTagsForResourceResponse
 listTagsForResourceResponse = ListTagsForResourceResponse
-    { _ltfrrTag = mempty
+    { _ltfrrTagList = mempty
     }
 
 -- | List of tags returned by the ListTagsForResource operation.
-ltfrrTag :: Lens' ListTagsForResourceResponse [Tag]
-ltfrrTag = lens _ltfrrTag (\s a -> s { _ltfrrTag = a })
+ltfrrTagList :: Lens' ListTagsForResourceResponse [Tag]
+ltfrrTagList = lens _ltfrrTagList (\s a -> s { _ltfrrTagList = a })
 
 instance FromXML ListTagsForResourceResponse where
     fromXMLOptions = xmlOptions

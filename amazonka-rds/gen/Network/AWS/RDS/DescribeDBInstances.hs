@@ -45,7 +45,7 @@ module Network.AWS.RDS.DescribeDBInstances
     , describeDBInstancesResponse
     -- ** Response lenses
     , ddbirrMarker
-    , ddbirrDBInstance
+    , ddbirrDBInstances
     ) where
 
 import Network.AWS.Request.Query
@@ -107,7 +107,7 @@ instance ToQuery DescribeDBInstances where
 -- action.
 data DescribeDBInstancesResponse = DescribeDBInstancesResponse
     { _ddbirrMarker :: Maybe Text
-    , _ddbirrDBInstance :: [DBInstance]
+    , _ddbirrDBInstances :: [DBInstance]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -119,12 +119,12 @@ data DescribeDBInstancesResponse = DescribeDBInstancesResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @DBInstance ::@ @[DBInstance]@
+-- * @DBInstances ::@ @[DBInstance]@
 --
 describeDBInstancesResponse :: DescribeDBInstancesResponse
 describeDBInstancesResponse = DescribeDBInstancesResponse
     { _ddbirrMarker = Nothing
-    , _ddbirrDBInstance = mempty
+    , _ddbirrDBInstances = mempty
     }
 
 -- | An optional pagination token provided by a previous request. If this
@@ -134,9 +134,9 @@ ddbirrMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
 ddbirrMarker = lens _ddbirrMarker (\s a -> s { _ddbirrMarker = a })
 
 -- | A list of DBInstance instances.
-ddbirrDBInstance :: Lens' DescribeDBInstancesResponse [DBInstance]
-ddbirrDBInstance =
-    lens _ddbirrDBInstance (\s a -> s { _ddbirrDBInstance = a })
+ddbirrDBInstances :: Lens' DescribeDBInstancesResponse [DBInstance]
+ddbirrDBInstances =
+    lens _ddbirrDBInstances (\s a -> s { _ddbirrDBInstances = a })
 
 instance FromXML DescribeDBInstancesResponse where
     fromXMLOptions = xmlOptions

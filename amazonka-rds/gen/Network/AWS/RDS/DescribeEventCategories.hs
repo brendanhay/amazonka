@@ -41,7 +41,7 @@ module Network.AWS.RDS.DescribeEventCategories
     -- ** Response constructor
     , describeEventCategoriesResponse
     -- ** Response lenses
-    , decrEventCategoriesMap
+    , decrEventCategoriesMapList
     ) where
 
 import Network.AWS.Request.Query
@@ -75,7 +75,7 @@ instance ToQuery DescribeEventCategories where
 
 -- | Data returned from the DescribeEventCategories action.
 newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
-    { _decrEventCategoriesMap :: [EventCategoriesMap]
+    { _decrEventCategoriesMapList :: [EventCategoriesMap]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -85,17 +85,18 @@ newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @EventCategoriesMap ::@ @[EventCategoriesMap]@
+-- * @EventCategoriesMapList ::@ @[EventCategoriesMap]@
 --
 describeEventCategoriesResponse :: DescribeEventCategoriesResponse
 describeEventCategoriesResponse = DescribeEventCategoriesResponse
-    { _decrEventCategoriesMap = mempty
+    { _decrEventCategoriesMapList = mempty
     }
 
 -- | A list of EventCategoriesMap data types.
-decrEventCategoriesMap :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
-decrEventCategoriesMap =
-    lens _decrEventCategoriesMap (\s a -> s { _decrEventCategoriesMap = a })
+decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
+decrEventCategoriesMapList =
+    lens _decrEventCategoriesMapList
+         (\s a -> s { _decrEventCategoriesMapList = a })
 
 instance FromXML DescribeEventCategoriesResponse where
     fromXMLOptions = xmlOptions

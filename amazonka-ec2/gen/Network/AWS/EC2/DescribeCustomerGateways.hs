@@ -47,15 +47,15 @@ module Network.AWS.EC2.DescribeCustomerGateways
     -- ** Request constructor
     , describeCustomerGateways
     -- ** Request lenses
-    , dcg1CustomerGatewayId
-    , dcg1Filter
+    , dcg1CustomerGatewayIds
+    , dcg1Filters
 
     -- * Response
     , DescribeCustomerGatewaysResponse
     -- ** Response constructor
     , describeCustomerGatewaysResponse
     -- ** Response lenses
-    , dcgrItem
+    , dcgrCustomerGateways
     ) where
 
 import Network.AWS.Request.Query
@@ -63,8 +63,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeCustomerGateways = DescribeCustomerGateways
-    { _dcg1CustomerGatewayId :: [Text]
-    , _dcg1Filter :: [Filter]
+    { _dcg1CustomerGatewayIds :: [Text]
+    , _dcg1Filters :: [Filter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -72,21 +72,21 @@ data DescribeCustomerGateways = DescribeCustomerGateways
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @CustomerGatewayId ::@ @[Text]@
+-- * @CustomerGatewayIds ::@ @[Text]@
 --
--- * @Filter ::@ @[Filter]@
+-- * @Filters ::@ @[Filter]@
 --
 describeCustomerGateways :: DescribeCustomerGateways
 describeCustomerGateways = DescribeCustomerGateways
-    { _dcg1CustomerGatewayId = mempty
-    , _dcg1Filter = mempty
+    { _dcg1CustomerGatewayIds = mempty
+    , _dcg1Filters = mempty
     }
 
 -- | One or more customer gateway IDs. Default: Describes all your customer
 -- gateways.
-dcg1CustomerGatewayId :: Lens' DescribeCustomerGateways [Text]
-dcg1CustomerGatewayId =
-    lens _dcg1CustomerGatewayId (\s a -> s { _dcg1CustomerGatewayId = a })
+dcg1CustomerGatewayIds :: Lens' DescribeCustomerGateways [Text]
+dcg1CustomerGatewayIds =
+    lens _dcg1CustomerGatewayIds (\s a -> s { _dcg1CustomerGatewayIds = a })
 
 -- | One or more filters. bgp-asn - The customer gateway's Border Gateway
 -- Protocol (BGP) Autonomous System Number (ASN). customer-gateway-id - The ID
@@ -103,14 +103,14 @@ dcg1CustomerGatewayId =
 -- you want to list only resources where Purpose is X, see the tag:key=value
 -- filter. tag-value - The value of a tag assigned to the resource. This
 -- filter is independent of the tag-key filter.
-dcg1Filter :: Lens' DescribeCustomerGateways [Filter]
-dcg1Filter = lens _dcg1Filter (\s a -> s { _dcg1Filter = a })
+dcg1Filters :: Lens' DescribeCustomerGateways [Filter]
+dcg1Filters = lens _dcg1Filters (\s a -> s { _dcg1Filters = a })
 
 instance ToQuery DescribeCustomerGateways where
     toQuery = genericQuery def
 
 newtype DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
-    { _dcgrItem :: [CustomerGateway]
+    { _dcgrCustomerGateways :: [CustomerGateway]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -120,16 +120,17 @@ newtype DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Item ::@ @[CustomerGateway]@
+-- * @CustomerGateways ::@ @[CustomerGateway]@
 --
 describeCustomerGatewaysResponse :: DescribeCustomerGatewaysResponse
 describeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
-    { _dcgrItem = mempty
+    { _dcgrCustomerGateways = mempty
     }
 
 -- | Information about one or more customer gateways.
-dcgrItem :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
-dcgrItem = lens _dcgrItem (\s a -> s { _dcgrItem = a })
+dcgrCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
+dcgrCustomerGateways =
+    lens _dcgrCustomerGateways (\s a -> s { _dcgrCustomerGateways = a })
 
 instance FromXML DescribeCustomerGatewaysResponse where
     fromXMLOptions = xmlOptions

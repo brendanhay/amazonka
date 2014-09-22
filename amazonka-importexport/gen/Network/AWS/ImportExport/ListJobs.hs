@@ -86,7 +86,7 @@ instance ToQuery ListJobs where
 -- | Output structure for the ListJobs operation.
 data ListJobsResponse = ListJobsResponse
     { _ljrJobs :: [Job]
-    , _ljrIsTruncated :: !Bool
+    , _ljrIsTruncated :: Bool
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

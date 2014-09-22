@@ -30,15 +30,15 @@ module Network.AWS.EC2.DescribeInternetGateways
     -- ** Request constructor
     , describeInternetGateways
     -- ** Request lenses
-    , dig1InternetGatewayId
-    , dig1Filter
+    , dig1InternetGatewayIds
+    , dig1Filters
 
     -- * Response
     , DescribeInternetGatewaysResponse
     -- ** Response constructor
     , describeInternetGatewaysResponse
     -- ** Response lenses
-    , digrItem
+    , digrInternetGateways
     ) where
 
 import Network.AWS.Request.Query
@@ -46,8 +46,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeInternetGateways = DescribeInternetGateways
-    { _dig1InternetGatewayId :: [Text]
-    , _dig1Filter :: [Filter]
+    { _dig1InternetGatewayIds :: [Text]
+    , _dig1Filters :: [Filter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -55,21 +55,21 @@ data DescribeInternetGateways = DescribeInternetGateways
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InternetGatewayId ::@ @[Text]@
+-- * @InternetGatewayIds ::@ @[Text]@
 --
--- * @Filter ::@ @[Filter]@
+-- * @Filters ::@ @[Filter]@
 --
 describeInternetGateways :: DescribeInternetGateways
 describeInternetGateways = DescribeInternetGateways
-    { _dig1InternetGatewayId = mempty
-    , _dig1Filter = mempty
+    { _dig1InternetGatewayIds = mempty
+    , _dig1Filters = mempty
     }
 
 -- | One or more Internet gateway IDs. Default: Describes all your Internet
 -- gateways.
-dig1InternetGatewayId :: Lens' DescribeInternetGateways [Text]
-dig1InternetGatewayId =
-    lens _dig1InternetGatewayId (\s a -> s { _dig1InternetGatewayId = a })
+dig1InternetGatewayIds :: Lens' DescribeInternetGateways [Text]
+dig1InternetGatewayIds =
+    lens _dig1InternetGatewayIds (\s a -> s { _dig1InternetGatewayIds = a })
 
 -- | One or more filters. attachment.state - The current state of the attachment
 -- between the gateway and the VPC. Present only if a VPC is attached.
@@ -83,14 +83,14 @@ dig1InternetGatewayId =
 -- is). If you want to list only resources where Purpose is X, see the
 -- tag:key=value filter. tag-value - The value of a tag assigned to the
 -- resource. This filter is independent of the tag-key filter.
-dig1Filter :: Lens' DescribeInternetGateways [Filter]
-dig1Filter = lens _dig1Filter (\s a -> s { _dig1Filter = a })
+dig1Filters :: Lens' DescribeInternetGateways [Filter]
+dig1Filters = lens _dig1Filters (\s a -> s { _dig1Filters = a })
 
 instance ToQuery DescribeInternetGateways where
     toQuery = genericQuery def
 
 newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
-    { _digrItem :: [InternetGateway]
+    { _digrInternetGateways :: [InternetGateway]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -100,16 +100,17 @@ newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Item ::@ @[InternetGateway]@
+-- * @InternetGateways ::@ @[InternetGateway]@
 --
 describeInternetGatewaysResponse :: DescribeInternetGatewaysResponse
 describeInternetGatewaysResponse = DescribeInternetGatewaysResponse
-    { _digrItem = mempty
+    { _digrInternetGateways = mempty
     }
 
 -- | Information about one or more Internet gateways.
-digrItem :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
-digrItem = lens _digrItem (\s a -> s { _digrItem = a })
+digrInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
+digrInternetGateways =
+    lens _digrInternetGateways (\s a -> s { _digrInternetGateways = a })
 
 instance FromXML DescribeInternetGatewaysResponse where
     fromXMLOptions = xmlOptions

@@ -119,7 +119,7 @@ instance ToQuery ListSigningCertificates where
 -- ListSigningCertificates action.
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse
     { _lscrrCertificates :: [SigningCertificate]
-    , _lscrrIsTruncated :: !Bool
+    , _lscrrIsTruncated :: Bool
     , _lscrrMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 

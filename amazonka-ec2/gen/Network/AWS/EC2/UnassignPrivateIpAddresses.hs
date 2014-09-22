@@ -36,7 +36,7 @@ module Network.AWS.EC2.UnassignPrivateIpAddresses
     , unassignPrivateIpAddresses
     -- ** Request lenses
     , upiaNetworkInterfaceId
-    , upiaPrivateIpAddress
+    , upiaPrivateIpAddresses
 
     -- * Response
     , UnassignPrivateIpAddressesResponse
@@ -50,7 +50,7 @@ import Network.AWS.Prelude
 
 data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
     { _upiaNetworkInterfaceId :: Text
-    , _upiaPrivateIpAddress :: [Text]
+    , _upiaPrivateIpAddresses :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -60,14 +60,14 @@ data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
 --
 -- * @NetworkInterfaceId ::@ @Text@
 --
--- * @PrivateIpAddress ::@ @[Text]@
+-- * @PrivateIpAddresses ::@ @[Text]@
 --
 unassignPrivateIpAddresses :: Text -- ^ 'upiaNetworkInterfaceId'
-                           -> [Text] -- ^ 'upiaPrivateIpAddress'
+                           -> [Text] -- ^ 'upiaPrivateIpAddresses'
                            -> UnassignPrivateIpAddresses
 unassignPrivateIpAddresses p1 p2 = UnassignPrivateIpAddresses
     { _upiaNetworkInterfaceId = p1
-    , _upiaPrivateIpAddress = p2
+    , _upiaPrivateIpAddresses = p2
     }
 
 -- | The ID of the network interface.
@@ -78,9 +78,9 @@ upiaNetworkInterfaceId =
 -- | The secondary private IP addresses to unassign from the network interface.
 -- You can specify this option multiple times to unassign more than one IP
 -- address.
-upiaPrivateIpAddress :: Lens' UnassignPrivateIpAddresses [Text]
-upiaPrivateIpAddress =
-    lens _upiaPrivateIpAddress (\s a -> s { _upiaPrivateIpAddress = a })
+upiaPrivateIpAddresses :: Lens' UnassignPrivateIpAddresses [Text]
+upiaPrivateIpAddresses =
+    lens _upiaPrivateIpAddresses (\s a -> s { _upiaPrivateIpAddresses = a })
 
 instance ToQuery UnassignPrivateIpAddresses where
     toQuery = genericQuery def

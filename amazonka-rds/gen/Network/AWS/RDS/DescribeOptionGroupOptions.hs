@@ -39,7 +39,7 @@ module Network.AWS.RDS.DescribeOptionGroupOptions
     -- ** Response constructor
     , describeOptionGroupOptionsResponse
     -- ** Response lenses
-    , dogorOptionGroupOption
+    , dogorOptionGroupOptions
     , dogorMarker
     ) where
 
@@ -106,7 +106,7 @@ instance ToQuery DescribeOptionGroupOptions where
 
 -- | 
 data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse
-    { _dogorOptionGroupOption :: [OptionGroupOption]
+    { _dogorOptionGroupOptions :: [OptionGroupOption]
     , _dogorMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -117,20 +117,21 @@ data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @OptionGroupOption ::@ @[OptionGroupOption]@
+-- * @OptionGroupOptions ::@ @[OptionGroupOption]@
 --
 -- * @Marker ::@ @Maybe Text@
 --
 describeOptionGroupOptionsResponse :: DescribeOptionGroupOptionsResponse
 describeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse
-    { _dogorOptionGroupOption = mempty
+    { _dogorOptionGroupOptions = mempty
     , _dogorMarker = Nothing
     }
 
 -- | List of available option group options.
-dogorOptionGroupOption :: Lens' DescribeOptionGroupOptionsResponse [OptionGroupOption]
-dogorOptionGroupOption =
-    lens _dogorOptionGroupOption (\s a -> s { _dogorOptionGroupOption = a })
+dogorOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse [OptionGroupOption]
+dogorOptionGroupOptions =
+    lens _dogorOptionGroupOptions
+         (\s a -> s { _dogorOptionGroupOptions = a })
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

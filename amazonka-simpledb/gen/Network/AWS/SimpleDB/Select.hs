@@ -43,7 +43,7 @@ module Network.AWS.SimpleDB.Select
     -- ** Response constructor
     , selectResponse
     -- ** Response lenses
-    , srItem
+    , srItems
     , srNextToken
     ) where
 
@@ -97,7 +97,7 @@ instance ToQuery Select where
     toQuery = genericQuery def
 
 data SelectResponse = SelectResponse
-    { _srItem :: [Item]
+    { _srItems :: [Item]
     , _srNextToken :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -108,19 +108,19 @@ data SelectResponse = SelectResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Item ::@ @[Item]@
+-- * @Items ::@ @[Item]@
 --
 -- * @NextToken ::@ @Maybe Text@
 --
 selectResponse :: SelectResponse
 selectResponse = SelectResponse
-    { _srItem = mempty
+    { _srItems = mempty
     , _srNextToken = Nothing
     }
 
 -- | A list of items that match the select expression.
-srItem :: Lens' SelectResponse [Item]
-srItem = lens _srItem (\s a -> s { _srItem = a })
+srItems :: Lens' SelectResponse [Item]
+srItems = lens _srItems (\s a -> s { _srItems = a })
 
 -- | An opaque token indicating that more items than MaxNumberOfItems were
 -- matched, the response size exceeded 1 megabyte, or the execution time

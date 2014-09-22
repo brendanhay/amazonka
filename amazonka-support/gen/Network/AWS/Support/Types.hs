@@ -399,8 +399,7 @@ instance FromJSON TrustedAdvisorCategorySpecificSummary
 
 instance ToJSON TrustedAdvisorCategorySpecificSummary
 
--- | An attachment to a case communication. The attachment consists of the file
--- name and the content of the file.
+-- | The attachment content and file name.
 data Attachment = Attachment
     { _aFileName :: Maybe Text
     , _aData :: Maybe Base64

@@ -97,7 +97,7 @@ instance ToQuery ListGroupPolicies where
 -- action.
 data ListGroupPoliciesResponse = ListGroupPoliciesResponse
     { _lgprPolicyNames :: [Text]
-    , _lgprIsTruncated :: !Bool
+    , _lgprIsTruncated :: Bool
     , _lgprMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 

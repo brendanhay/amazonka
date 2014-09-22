@@ -769,7 +769,7 @@ instance FromXML ServiceEndpoint where
 instance ToQuery ServiceEndpoint where
     toQuery = genericQuery def
 
--- | The access rules configured for the domain specified in the request.
+-- | The access rules configured for the domain.
 data AccessPoliciesStatus = AccessPoliciesStatus
     { _apsOptions :: Text
     , _apsStatus :: OptionStatus
@@ -980,8 +980,8 @@ instance FromXML AnalysisSchemeStatus where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AnalysisSchemeStatus"
 
--- | The availability options configured for the domain. Indicates whether
--- Multi-AZ is enabled for the domain.
+-- | The newly-configured availability options. Indicates whether Multi-AZ is
+-- enabled for the domain.
 data AvailabilityOptionsStatus = AvailabilityOptionsStatus
     { _aosOptions :: !Bool
     , _aosStatus :: OptionStatus
@@ -1488,8 +1488,8 @@ instance FromXML DoubleOptions where
 instance ToQuery DoubleOptions where
     toQuery = genericQuery def
 
--- | A named expression that can be evaluated at search time. Can be used for
--- sorting and filtering search results and constructing other expressions.
+-- | The expression that is evaluated for sorting or filtering while processing
+-- a search request.
 data Expression = Expression
     { _eExpressionName :: Text
     , _eExpressionValue :: Text

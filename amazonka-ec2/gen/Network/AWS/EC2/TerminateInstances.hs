@@ -51,14 +51,14 @@ module Network.AWS.EC2.TerminateInstances
     -- ** Request constructor
     , terminateInstances
     -- ** Request lenses
-    , tiInstanceId
+    , tiInstanceIds
 
     -- * Response
     , TerminateInstancesResponse
     -- ** Response constructor
     , terminateInstancesResponse
     -- ** Response lenses
-    , tirItem
+    , tirTerminatingInstances
     ) where
 
 import Network.AWS.Request.Query
@@ -66,7 +66,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 newtype TerminateInstances = TerminateInstances
-    { _tiInstanceId :: [Text]
+    { _tiInstanceIds :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -74,23 +74,23 @@ newtype TerminateInstances = TerminateInstances
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceId ::@ @[Text]@
+-- * @InstanceIds ::@ @[Text]@
 --
-terminateInstances :: [Text] -- ^ 'tiInstanceId'
+terminateInstances :: [Text] -- ^ 'tiInstanceIds'
                    -> TerminateInstances
 terminateInstances p1 = TerminateInstances
-    { _tiInstanceId = p1
+    { _tiInstanceIds = p1
     }
 
 -- | One or more instance IDs.
-tiInstanceId :: Lens' TerminateInstances [Text]
-tiInstanceId = lens _tiInstanceId (\s a -> s { _tiInstanceId = a })
+tiInstanceIds :: Lens' TerminateInstances [Text]
+tiInstanceIds = lens _tiInstanceIds (\s a -> s { _tiInstanceIds = a })
 
 instance ToQuery TerminateInstances where
     toQuery = genericQuery def
 
 newtype TerminateInstancesResponse = TerminateInstancesResponse
-    { _tirItem :: [InstanceStateChange]
+    { _tirTerminatingInstances :: [InstanceStateChange]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -100,16 +100,18 @@ newtype TerminateInstancesResponse = TerminateInstancesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Item ::@ @[InstanceStateChange]@
+-- * @TerminatingInstances ::@ @[InstanceStateChange]@
 --
 terminateInstancesResponse :: TerminateInstancesResponse
 terminateInstancesResponse = TerminateInstancesResponse
-    { _tirItem = mempty
+    { _tirTerminatingInstances = mempty
     }
 
 -- | Information about one or more terminated instances.
-tirItem :: Lens' TerminateInstancesResponse [InstanceStateChange]
-tirItem = lens _tirItem (\s a -> s { _tirItem = a })
+tirTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
+tirTerminatingInstances =
+    lens _tirTerminatingInstances
+         (\s a -> s { _tirTerminatingInstances = a })
 
 instance FromXML TerminateInstancesResponse where
     fromXMLOptions = xmlOptions

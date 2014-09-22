@@ -42,7 +42,7 @@ module Network.AWS.RDS.ResetDBParameterGroup
     -- ** Request lenses
     , rdbpgDBParameterGroupName
     , rdbpgResetAllParameters
-    , rdbpgParameter
+    , rdbpgParameters
 
     -- * Response
     , ResetDBParameterGroupResponse
@@ -60,7 +60,7 @@ import Network.AWS.Prelude
 data ResetDBParameterGroup = ResetDBParameterGroup
     { _rdbpgDBParameterGroupName :: Text
     , _rdbpgResetAllParameters :: Maybe Bool
-    , _rdbpgParameter :: [Parameter]
+    , _rdbpgParameters :: [Parameter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -72,14 +72,14 @@ data ResetDBParameterGroup = ResetDBParameterGroup
 --
 -- * @ResetAllParameters ::@ @Maybe Bool@
 --
--- * @Parameter ::@ @[Parameter]@
+-- * @Parameters ::@ @[Parameter]@
 --
 resetDBParameterGroup :: Text -- ^ 'rdbpgDBParameterGroupName'
                       -> ResetDBParameterGroup
 resetDBParameterGroup p1 = ResetDBParameterGroup
     { _rdbpgDBParameterGroupName = p1
     , _rdbpgResetAllParameters = Nothing
-    , _rdbpgParameter = mempty
+    , _rdbpgParameters = mempty
     }
 
 -- | The name of the DB parameter group. Constraints: Must be 1 to 255
@@ -105,8 +105,8 @@ rdbpgResetAllParameters =
 -- parameters only. You can use the pending-reboot value for both dynamic and
 -- static parameters, and changes are applied when DB instance reboots. Oracle
 -- Valid Values (for Apply method): pending-reboot.
-rdbpgParameter :: Lens' ResetDBParameterGroup [Parameter]
-rdbpgParameter = lens _rdbpgParameter (\s a -> s { _rdbpgParameter = a })
+rdbpgParameters :: Lens' ResetDBParameterGroup [Parameter]
+rdbpgParameters = lens _rdbpgParameters (\s a -> s { _rdbpgParameters = a })
 
 instance ToQuery ResetDBParameterGroup where
     toQuery = genericQuery def

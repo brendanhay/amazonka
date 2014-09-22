@@ -63,7 +63,7 @@ import Network.AWS.Types (Region)
 
 -- | A complex type that contains a change batch.
 data ChangeResourceRecordSets = ChangeResourceRecordSets
-    { _crrsHostedZoneId :: ResourceId
+    { _crrsHostedZoneId :: Text
     , _crrsChangeBatch :: ChangeBatch
     } deriving (Eq, Ord, Show, Generic)
 
@@ -72,11 +72,11 @@ data ChangeResourceRecordSets = ChangeResourceRecordSets
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HostedZoneId ::@ @ResourceId@
+-- * @HostedZoneId ::@ @Text@
 --
 -- * @ChangeBatch ::@ @ChangeBatch@
 --
-changeResourceRecordSets :: ResourceId -- ^ 'crrsHostedZoneId'
+changeResourceRecordSets :: Text -- ^ 'crrsHostedZoneId'
                          -> ChangeBatch -- ^ 'crrsChangeBatch'
                          -> ChangeResourceRecordSets
 changeResourceRecordSets p1 p2 = ChangeResourceRecordSets
@@ -86,7 +86,7 @@ changeResourceRecordSets p1 p2 = ChangeResourceRecordSets
 
 -- | The ID of the hosted zone that contains the resource record sets that you
 -- want to change.
-crrsHostedZoneId :: Lens' ChangeResourceRecordSets ResourceId
+crrsHostedZoneId :: Lens' ChangeResourceRecordSets Text
 crrsHostedZoneId =
     lens _crrsHostedZoneId (\s a -> s { _crrsHostedZoneId = a })
 

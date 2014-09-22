@@ -48,10 +48,10 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data DeleteObject = DeleteObject
-    { _doBucket :: BucketName
-    , _doKey :: ObjectKey
+    { _doBucket :: Text
+    , _doKey :: Text
     , _doMFA :: Maybe Text
-    , _doVersionId :: Maybe ObjectVersionId
+    , _doVersionId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -59,16 +59,16 @@ data DeleteObject = DeleteObject
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
--- * @Key ::@ @ObjectKey@
+-- * @Key ::@ @Text@
 --
 -- * @MFA ::@ @Maybe Text@
 --
--- * @VersionId ::@ @Maybe ObjectVersionId@
+-- * @VersionId ::@ @Maybe Text@
 --
-deleteObject :: BucketName -- ^ 'doBucket'
-             -> ObjectKey -- ^ 'doKey'
+deleteObject :: Text -- ^ 'doBucket'
+             -> Text -- ^ 'doKey'
              -> DeleteObject
 deleteObject p1 p2 = DeleteObject
     { _doBucket = p1
@@ -77,10 +77,10 @@ deleteObject p1 p2 = DeleteObject
     , _doVersionId = Nothing
     }
 
-doBucket :: Lens' DeleteObject BucketName
+doBucket :: Lens' DeleteObject Text
 doBucket = lens _doBucket (\s a -> s { _doBucket = a })
 
-doKey :: Lens' DeleteObject ObjectKey
+doKey :: Lens' DeleteObject Text
 doKey = lens _doKey (\s a -> s { _doKey = a })
 
 -- | The concatenation of the authentication device's serial number, a space,
@@ -89,7 +89,7 @@ doMFA :: Lens' DeleteObject (Maybe Text)
 doMFA = lens _doMFA (\s a -> s { _doMFA = a })
 
 -- | VersionId used to reference a specific version of the object.
-doVersionId :: Lens' DeleteObject (Maybe ObjectVersionId)
+doVersionId :: Lens' DeleteObject (Maybe Text)
 doVersionId = lens _doVersionId (\s a -> s { _doVersionId = a })
 
 instance ToPath DeleteObject
@@ -105,7 +105,7 @@ instance ToBody DeleteObject
 
 data DeleteObjectResponse = DeleteObjectResponse
     { _dorDeleteMarker :: Maybe Bool
-    , _dorVersionId :: Maybe ObjectVersionId
+    , _dorVersionId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -117,7 +117,7 @@ data DeleteObjectResponse = DeleteObjectResponse
 --
 -- * @DeleteMarker ::@ @Maybe Bool@
 --
--- * @VersionId ::@ @Maybe ObjectVersionId@
+-- * @VersionId ::@ @Maybe Text@
 --
 deleteObjectResponse :: DeleteObjectResponse
 deleteObjectResponse = DeleteObjectResponse
@@ -132,7 +132,7 @@ dorDeleteMarker = lens _dorDeleteMarker (\s a -> s { _dorDeleteMarker = a })
 
 -- | Returns the version ID of the delete marker created as a result of the
 -- DELETE operation.
-dorVersionId :: Lens' DeleteObjectResponse (Maybe ObjectVersionId)
+dorVersionId :: Lens' DeleteObjectResponse (Maybe Text)
 dorVersionId = lens _dorVersionId (\s a -> s { _dorVersionId = a })
 
 instance AWSRequest DeleteObject where

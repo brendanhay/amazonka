@@ -109,7 +109,7 @@ instance ToQuery ListInstanceProfiles where
 -- action.
 data ListInstanceProfilesResponse = ListInstanceProfilesResponse
     { _liprInstanceProfiles :: [InstanceProfile]
-    , _liprIsTruncated :: !Bool
+    , _liprIsTruncated :: Bool
     , _liprMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 

@@ -52,7 +52,7 @@ module Network.AWS.Redshift.DescribeOrderableClusterOptions
     -- ** Response constructor
     , describeOrderableClusterOptionsResponse
     -- ** Response lenses
-    , docorOrderableClusterOption
+    , docorOrderableClusterOptions
     , docorMarker
     ) where
 
@@ -124,7 +124,7 @@ instance ToQuery DescribeOrderableClusterOptions where
 
 -- | Contains the output from the DescribeOrderableClusterOptions action.
 data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse
-    { _docorOrderableClusterOption :: [OrderableClusterOption]
+    { _docorOrderableClusterOptions :: [OrderableClusterOption]
     , _docorMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -135,22 +135,22 @@ data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsRe
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @OrderableClusterOption ::@ @[OrderableClusterOption]@
+-- * @OrderableClusterOptions ::@ @[OrderableClusterOption]@
 --
 -- * @Marker ::@ @Maybe Text@
 --
 describeOrderableClusterOptionsResponse :: DescribeOrderableClusterOptionsResponse
 describeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse
-    { _docorOrderableClusterOption = mempty
+    { _docorOrderableClusterOptions = mempty
     , _docorMarker = Nothing
     }
 
 -- | An OrderableClusterOption structure containing information about orderable
 -- options for the Cluster.
-docorOrderableClusterOption :: Lens' DescribeOrderableClusterOptionsResponse [OrderableClusterOption]
-docorOrderableClusterOption =
-    lens _docorOrderableClusterOption
-         (\s a -> s { _docorOrderableClusterOption = a })
+docorOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse [OrderableClusterOption]
+docorOrderableClusterOptions =
+    lens _docorOrderableClusterOptions
+         (\s a -> s { _docorOrderableClusterOptions = a })
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response, you

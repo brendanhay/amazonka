@@ -105,7 +105,7 @@ instance ToQuery ListAccessKeys where
 -- action.
 data ListAccessKeysResponse = ListAccessKeysResponse
     { _lakrAccessKeyMetadata :: [AccessKeyMetadata]
-    , _lakrIsTruncated :: !Bool
+    , _lakrIsTruncated :: Bool
     , _lakrMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 

@@ -53,7 +53,7 @@ module Network.AWS.EC2.AssignPrivateIpAddresses
     , assignPrivateIpAddresses
     -- ** Request lenses
     , apiaNetworkInterfaceId
-    , apiaPrivateIpAddress
+    , apiaPrivateIpAddresses
     , apiaSecondaryPrivateIpAddressCount
     , apiaAllowReassignment
 
@@ -69,7 +69,7 @@ import Network.AWS.Prelude
 
 data AssignPrivateIpAddresses = AssignPrivateIpAddresses
     { _apiaNetworkInterfaceId :: Text
-    , _apiaPrivateIpAddress :: [Text]
+    , _apiaPrivateIpAddresses :: [Text]
     , _apiaSecondaryPrivateIpAddressCount :: Maybe Integer
     , _apiaAllowReassignment :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
@@ -81,7 +81,7 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses
 --
 -- * @NetworkInterfaceId ::@ @Text@
 --
--- * @PrivateIpAddress ::@ @[Text]@
+-- * @PrivateIpAddresses ::@ @[Text]@
 --
 -- * @SecondaryPrivateIpAddressCount ::@ @Maybe Integer@
 --
@@ -91,7 +91,7 @@ assignPrivateIpAddresses :: Text -- ^ 'apiaNetworkInterfaceId'
                          -> AssignPrivateIpAddresses
 assignPrivateIpAddresses p1 = AssignPrivateIpAddresses
     { _apiaNetworkInterfaceId = p1
-    , _apiaPrivateIpAddress = mempty
+    , _apiaPrivateIpAddresses = mempty
     , _apiaSecondaryPrivateIpAddressCount = Nothing
     , _apiaAllowReassignment = Nothing
     }
@@ -104,9 +104,9 @@ apiaNetworkInterfaceId =
 -- | One or more IP addresses to be assigned as a secondary private IP address
 -- to the network interface. If you don't specify an IP address, Amazon EC2
 -- automatically selects an IP address within the subnet range.
-apiaPrivateIpAddress :: Lens' AssignPrivateIpAddresses [Text]
-apiaPrivateIpAddress =
-    lens _apiaPrivateIpAddress (\s a -> s { _apiaPrivateIpAddress = a })
+apiaPrivateIpAddresses :: Lens' AssignPrivateIpAddresses [Text]
+apiaPrivateIpAddresses =
+    lens _apiaPrivateIpAddresses (\s a -> s { _apiaPrivateIpAddresses = a })
 
 -- | The number of secondary IP addresses to assign to the network interface.
 apiaSecondaryPrivateIpAddressCount :: Lens' AssignPrivateIpAddresses (Maybe Integer)

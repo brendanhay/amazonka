@@ -50,7 +50,7 @@ module Network.AWS.RDS.DescribeDBSnapshots
     , describeDBSnapshotsResponse
     -- ** Response lenses
     , ddbsrrMarker
-    , ddbsrrDBSnapshot
+    , ddbsrrDBSnapshots
     ) where
 
 import Network.AWS.Request.Query
@@ -138,7 +138,7 @@ instance ToQuery DescribeDBSnapshots where
 -- action.
 data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse
     { _ddbsrrMarker :: Maybe Text
-    , _ddbsrrDBSnapshot :: [DBSnapshot]
+    , _ddbsrrDBSnapshots :: [DBSnapshot]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -150,12 +150,12 @@ data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @DBSnapshot ::@ @[DBSnapshot]@
+-- * @DBSnapshots ::@ @[DBSnapshot]@
 --
 describeDBSnapshotsResponse :: DescribeDBSnapshotsResponse
 describeDBSnapshotsResponse = DescribeDBSnapshotsResponse
     { _ddbsrrMarker = Nothing
-    , _ddbsrrDBSnapshot = mempty
+    , _ddbsrrDBSnapshots = mempty
     }
 
 -- | An optional pagination token provided by a previous request. If this
@@ -165,9 +165,9 @@ ddbsrrMarker :: Lens' DescribeDBSnapshotsResponse (Maybe Text)
 ddbsrrMarker = lens _ddbsrrMarker (\s a -> s { _ddbsrrMarker = a })
 
 -- | A list of DBSnapshot instances.
-ddbsrrDBSnapshot :: Lens' DescribeDBSnapshotsResponse [DBSnapshot]
-ddbsrrDBSnapshot =
-    lens _ddbsrrDBSnapshot (\s a -> s { _ddbsrrDBSnapshot = a })
+ddbsrrDBSnapshots :: Lens' DescribeDBSnapshotsResponse [DBSnapshot]
+ddbsrrDBSnapshots =
+    lens _ddbsrrDBSnapshots (\s a -> s { _ddbsrrDBSnapshots = a })
 
 instance FromXML DescribeDBSnapshotsResponse where
     fromXMLOptions = xmlOptions

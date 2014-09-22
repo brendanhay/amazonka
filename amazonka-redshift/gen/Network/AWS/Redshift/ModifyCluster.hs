@@ -53,8 +53,8 @@ module Network.AWS.Redshift.ModifyCluster
     , mcClusterType
     , mcNodeType
     , mcNumberOfNodes
-    , mcClusterSecurityGroupName
-    , mcVpcSecurityGroupId
+    , mcClusterSecurityGroups
+    , mcVpcSecurityGroupIds
     , mcMasterUserPassword
     , mcClusterParameterGroupName
     , mcAutomatedSnapshotRetentionPeriod
@@ -83,8 +83,8 @@ data ModifyCluster = ModifyCluster
     , _mcClusterType :: Maybe Text
     , _mcNodeType :: Maybe Text
     , _mcNumberOfNodes :: Maybe Integer
-    , _mcClusterSecurityGroupName :: [Text]
-    , _mcVpcSecurityGroupId :: [Text]
+    , _mcClusterSecurityGroups :: [Text]
+    , _mcVpcSecurityGroupIds :: [Text]
     , _mcMasterUserPassword :: Maybe Text
     , _mcClusterParameterGroupName :: Maybe Text
     , _mcAutomatedSnapshotRetentionPeriod :: Maybe Integer
@@ -109,9 +109,9 @@ data ModifyCluster = ModifyCluster
 --
 -- * @NumberOfNodes ::@ @Maybe Integer@
 --
--- * @ClusterSecurityGroupName ::@ @[Text]@
+-- * @ClusterSecurityGroups ::@ @[Text]@
 --
--- * @VpcSecurityGroupId ::@ @[Text]@
+-- * @VpcSecurityGroupIds ::@ @[Text]@
 --
 -- * @MasterUserPassword ::@ @Maybe Text@
 --
@@ -138,8 +138,8 @@ modifyCluster p1 = ModifyCluster
     , _mcClusterType = Nothing
     , _mcNodeType = Nothing
     , _mcNumberOfNodes = Nothing
-    , _mcClusterSecurityGroupName = mempty
-    , _mcVpcSecurityGroupId = mempty
+    , _mcClusterSecurityGroups = mempty
+    , _mcVpcSecurityGroupIds = mempty
     , _mcMasterUserPassword = Nothing
     , _mcClusterParameterGroupName = Nothing
     , _mcAutomatedSnapshotRetentionPeriod = Nothing
@@ -198,16 +198,16 @@ mcNumberOfNodes = lens _mcNumberOfNodes (\s a -> s { _mcNumberOfNodes = a })
 -- apply, will be revoked from the cluster. Constraints: Must be 1 to 255
 -- alphanumeric characters or hyphens First character must be a letter Cannot
 -- end with a hyphen or contain two consecutive hyphens.
-mcClusterSecurityGroupName :: Lens' ModifyCluster [Text]
-mcClusterSecurityGroupName =
-    lens _mcClusterSecurityGroupName
-         (\s a -> s { _mcClusterSecurityGroupName = a })
+mcClusterSecurityGroups :: Lens' ModifyCluster [Text]
+mcClusterSecurityGroups =
+    lens _mcClusterSecurityGroups
+         (\s a -> s { _mcClusterSecurityGroups = a })
 
 -- | A list of virtual private cloud (VPC) security groups to be associated with
 -- the cluster.
-mcVpcSecurityGroupId :: Lens' ModifyCluster [Text]
-mcVpcSecurityGroupId =
-    lens _mcVpcSecurityGroupId (\s a -> s { _mcVpcSecurityGroupId = a })
+mcVpcSecurityGroupIds :: Lens' ModifyCluster [Text]
+mcVpcSecurityGroupIds =
+    lens _mcVpcSecurityGroupIds (\s a -> s { _mcVpcSecurityGroupIds = a })
 
 -- | The new password for the cluster master user. This change is asynchronously
 -- applied as soon as possible. Between the time of the request and the

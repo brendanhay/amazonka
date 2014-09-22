@@ -68,7 +68,7 @@ module Network.AWS.Route53.ListResourceRecordSets
     -- ** Response constructor
     , listResourceRecordSetsResponse
     -- ** Response lenses
-    , lrrsrResourceRecordSet
+    , lrrsrResourceRecordSets
     , lrrsrIsTruncated
     , lrrsrNextRecordName
     , lrrsrNextRecordType
@@ -83,9 +83,9 @@ import Network.AWS.Types (Region)
 
 -- | The input for a ListResourceRecordSets request.
 data ListResourceRecordSets = ListResourceRecordSets
-    { _lrrsHostedZoneId :: ResourceId
+    { _lrrsHostedZoneId :: Text
     , _lrrsStartRecordName :: Maybe Text
-    , _lrrsStartRecordType :: Maybe RecordType
+    , _lrrsStartRecordType :: Maybe RRType
     , _lrrsStartRecordIdentifier :: Maybe Text
     , _lrrsMaxItems :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -95,17 +95,17 @@ data ListResourceRecordSets = ListResourceRecordSets
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HostedZoneId ::@ @ResourceId@
+-- * @HostedZoneId ::@ @Text@
 --
 -- * @StartRecordName ::@ @Maybe Text@
 --
--- * @StartRecordType ::@ @Maybe RecordType@
+-- * @StartRecordType ::@ @Maybe RRType@
 --
 -- * @StartRecordIdentifier ::@ @Maybe Text@
 --
 -- * @MaxItems ::@ @Maybe Text@
 --
-listResourceRecordSets :: ResourceId -- ^ 'lrrsHostedZoneId'
+listResourceRecordSets :: Text -- ^ 'lrrsHostedZoneId'
                        -> ListResourceRecordSets
 listResourceRecordSets p1 = ListResourceRecordSets
     { _lrrsHostedZoneId = p1
@@ -117,7 +117,7 @@ listResourceRecordSets p1 = ListResourceRecordSets
 
 -- | The ID of the hosted zone that contains the resource record sets that you
 -- want to get.
-lrrsHostedZoneId :: Lens' ListResourceRecordSets ResourceId
+lrrsHostedZoneId :: Lens' ListResourceRecordSets Text
 lrrsHostedZoneId =
     lens _lrrsHostedZoneId (\s a -> s { _lrrsHostedZoneId = a })
 
@@ -133,7 +133,7 @@ lrrsStartRecordName =
 -- Resource Record Sets: A | AAAA | CNAME | TXT Values for Alias Resource
 -- Record Sets: A | AAAA Constraint: Specifying type without specifying name
 -- returns an InvalidInput error.
-lrrsStartRecordType :: Lens' ListResourceRecordSets (Maybe RecordType)
+lrrsStartRecordType :: Lens' ListResourceRecordSets (Maybe RRType)
 lrrsStartRecordType =
     lens _lrrsStartRecordType (\s a -> s { _lrrsStartRecordType = a })
 
@@ -164,10 +164,10 @@ instance ToXML ListResourceRecordSets where
 -- | A complex type that contains information about the resource record sets
 -- that are returned by the request and information about the response.
 data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
-    { _lrrsrResourceRecordSet :: [ResourceRecordSet]
+    { _lrrsrResourceRecordSets :: [ResourceRecordSet]
     , _lrrsrIsTruncated :: !Bool
     , _lrrsrNextRecordName :: Maybe Text
-    , _lrrsrNextRecordType :: Maybe RecordType
+    , _lrrsrNextRecordType :: Maybe RRType
     , _lrrsrNextRecordIdentifier :: Maybe Text
     , _lrrsrMaxItems :: Text
     } deriving (Eq, Ord, Show, Generic)
@@ -179,24 +179,24 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ResourceRecordSet ::@ @[ResourceRecordSet]@
+-- * @ResourceRecordSets ::@ @[ResourceRecordSet]@
 --
 -- * @IsTruncated ::@ @Bool@
 --
 -- * @NextRecordName ::@ @Maybe Text@
 --
--- * @NextRecordType ::@ @Maybe RecordType@
+-- * @NextRecordType ::@ @Maybe RRType@
 --
 -- * @NextRecordIdentifier ::@ @Maybe Text@
 --
 -- * @MaxItems ::@ @Text@
 --
-listResourceRecordSetsResponse :: [ResourceRecordSet] -- ^ 'lrrsrResourceRecordSet'
+listResourceRecordSetsResponse :: [ResourceRecordSet] -- ^ 'lrrsrResourceRecordSets'
                                -> Bool -- ^ 'lrrsrIsTruncated'
                                -> Text -- ^ 'lrrsrMaxItems'
                                -> ListResourceRecordSetsResponse
 listResourceRecordSetsResponse p1 p2 p6 = ListResourceRecordSetsResponse
-    { _lrrsrResourceRecordSet = p1
+    { _lrrsrResourceRecordSets = p1
     , _lrrsrIsTruncated = p2
     , _lrrsrNextRecordName = Nothing
     , _lrrsrNextRecordType = Nothing
@@ -206,9 +206,10 @@ listResourceRecordSetsResponse p1 p2 p6 = ListResourceRecordSetsResponse
 
 -- | A complex type that contains information about the resource record sets
 -- that are returned by the request.
-lrrsrResourceRecordSet :: Lens' ListResourceRecordSetsResponse [ResourceRecordSet]
-lrrsrResourceRecordSet =
-    lens _lrrsrResourceRecordSet (\s a -> s { _lrrsrResourceRecordSet = a })
+lrrsrResourceRecordSets :: Lens' ListResourceRecordSetsResponse [ResourceRecordSet]
+lrrsrResourceRecordSets =
+    lens _lrrsrResourceRecordSets
+         (\s a -> s { _lrrsrResourceRecordSets = a })
 
 -- | A flag that indicates whether there are more resource record sets to be
 -- listed. If your results were truncated, you can make a follow-up request
@@ -229,7 +230,7 @@ lrrsrNextRecordName =
 -- | If the results were truncated, the type of the next record in the list.
 -- This element is present only if ListResourceRecordSetsResponse$IsTruncated
 -- is true.
-lrrsrNextRecordType :: Lens' ListResourceRecordSetsResponse (Maybe RecordType)
+lrrsrNextRecordType :: Lens' ListResourceRecordSetsResponse (Maybe RRType)
 lrrsrNextRecordType =
     lens _lrrsrNextRecordType (\s a -> s { _lrrsrNextRecordType = a })
 

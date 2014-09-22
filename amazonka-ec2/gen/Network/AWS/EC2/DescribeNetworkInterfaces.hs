@@ -88,15 +88,15 @@ module Network.AWS.EC2.DescribeNetworkInterfaces
     -- ** Request constructor
     , describeNetworkInterfaces
     -- ** Request lenses
-    , dni1NetworkInterfaceId
-    , dni1Filter
+    , dni1NetworkInterfaceIds
+    , dni1Filters
 
     -- * Response
     , DescribeNetworkInterfacesResponse
     -- ** Response constructor
     , describeNetworkInterfacesResponse
     -- ** Response lenses
-    , dnirItem
+    , dnirNetworkInterfaces
     ) where
 
 import Network.AWS.Request.Query
@@ -104,8 +104,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeNetworkInterfaces = DescribeNetworkInterfaces
-    { _dni1NetworkInterfaceId :: [Text]
-    , _dni1Filter :: [Filter]
+    { _dni1NetworkInterfaceIds :: [Text]
+    , _dni1Filters :: [Filter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -113,21 +113,22 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @NetworkInterfaceId ::@ @[Text]@
+-- * @NetworkInterfaceIds ::@ @[Text]@
 --
--- * @Filter ::@ @[Filter]@
+-- * @Filters ::@ @[Filter]@
 --
 describeNetworkInterfaces :: DescribeNetworkInterfaces
 describeNetworkInterfaces = DescribeNetworkInterfaces
-    { _dni1NetworkInterfaceId = mempty
-    , _dni1Filter = mempty
+    { _dni1NetworkInterfaceIds = mempty
+    , _dni1Filters = mempty
     }
 
 -- | One or more network interface IDs. Default: Describes all your network
 -- interfaces.
-dni1NetworkInterfaceId :: Lens' DescribeNetworkInterfaces [Text]
-dni1NetworkInterfaceId =
-    lens _dni1NetworkInterfaceId (\s a -> s { _dni1NetworkInterfaceId = a })
+dni1NetworkInterfaceIds :: Lens' DescribeNetworkInterfaces [Text]
+dni1NetworkInterfaceIds =
+    lens _dni1NetworkInterfaceIds
+         (\s a -> s { _dni1NetworkInterfaceIds = a })
 
 -- | One or more filters. addresses.private-ip-address - The private IP
 -- addresses associated with the network interface. addresses.primary -
@@ -182,14 +183,14 @@ dni1NetworkInterfaceId =
 -- where Purpose is X, see the tag:key=value filter. tag-value - The value of
 -- a tag assigned to the resource. This filter is independent of the tag-key
 -- filter. vpc-id - The ID of the VPC for the network interface.
-dni1Filter :: Lens' DescribeNetworkInterfaces [Filter]
-dni1Filter = lens _dni1Filter (\s a -> s { _dni1Filter = a })
+dni1Filters :: Lens' DescribeNetworkInterfaces [Filter]
+dni1Filters = lens _dni1Filters (\s a -> s { _dni1Filters = a })
 
 instance ToQuery DescribeNetworkInterfaces where
     toQuery = genericQuery def
 
 newtype DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
-    { _dnirItem :: [NetworkInterface]
+    { _dnirNetworkInterfaces :: [NetworkInterface]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -199,16 +200,17 @@ newtype DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Item ::@ @[NetworkInterface]@
+-- * @NetworkInterfaces ::@ @[NetworkInterface]@
 --
 describeNetworkInterfacesResponse :: DescribeNetworkInterfacesResponse
 describeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
-    { _dnirItem = mempty
+    { _dnirNetworkInterfaces = mempty
     }
 
 -- | Information about one or more network interfaces.
-dnirItem :: Lens' DescribeNetworkInterfacesResponse [NetworkInterface]
-dnirItem = lens _dnirItem (\s a -> s { _dnirItem = a })
+dnirNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterface]
+dnirNetworkInterfaces =
+    lens _dnirNetworkInterfaces (\s a -> s { _dnirNetworkInterfaces = a })
 
 instance FromXML DescribeNetworkInterfacesResponse where
     fromXMLOptions = xmlOptions

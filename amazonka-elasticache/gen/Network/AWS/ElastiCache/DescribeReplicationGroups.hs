@@ -47,7 +47,7 @@ module Network.AWS.ElastiCache.DescribeReplicationGroups
     , describeReplicationGroupsResponse
     -- ** Response lenses
     , drgrrMarker
-    , drgrrReplicationGroup
+    , drgrrReplicationGroups
     ) where
 
 import Network.AWS.Request.Query
@@ -106,7 +106,7 @@ instance ToQuery DescribeReplicationGroups where
 -- | Represents the output of a DescribeReplicationGroups operation.
 data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse
     { _drgrrMarker :: Maybe Text
-    , _drgrrReplicationGroup :: [ReplicationGroup]
+    , _drgrrReplicationGroups :: [ReplicationGroup]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -118,12 +118,12 @@ data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @ReplicationGroup ::@ @[ReplicationGroup]@
+-- * @ReplicationGroups ::@ @[ReplicationGroup]@
 --
 describeReplicationGroupsResponse :: DescribeReplicationGroupsResponse
 describeReplicationGroupsResponse = DescribeReplicationGroupsResponse
     { _drgrrMarker = Nothing
-    , _drgrrReplicationGroup = mempty
+    , _drgrrReplicationGroups = mempty
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
@@ -132,9 +132,9 @@ drgrrMarker = lens _drgrrMarker (\s a -> s { _drgrrMarker = a })
 
 -- | A list of replication groups. Each item in the list contains detailed
 -- information about one replication group.
-drgrrReplicationGroup :: Lens' DescribeReplicationGroupsResponse [ReplicationGroup]
-drgrrReplicationGroup =
-    lens _drgrrReplicationGroup (\s a -> s { _drgrrReplicationGroup = a })
+drgrrReplicationGroups :: Lens' DescribeReplicationGroupsResponse [ReplicationGroup]
+drgrrReplicationGroups =
+    lens _drgrrReplicationGroups (\s a -> s { _drgrrReplicationGroups = a })
 
 instance FromXML DescribeReplicationGroupsResponse where
     fromXMLOptions = xmlOptions

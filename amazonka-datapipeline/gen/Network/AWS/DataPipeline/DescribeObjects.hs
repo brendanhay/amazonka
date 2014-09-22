@@ -130,7 +130,7 @@ instance ToJSON DescribeObjects
 data DescribeObjectsResponse = DescribeObjectsResponse
     { _dorPipelineObjects :: [PipelineObject]
     , _dorMarker :: Maybe Text
-    , _dorHasMoreResults :: !Bool
+    , _dorHasMoreResults :: Bool
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

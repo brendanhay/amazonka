@@ -33,7 +33,7 @@ module Network.AWS.S3.GetBucketTagging
     -- ** Response constructor
     , getBucketTaggingResponse
     -- ** Response lenses
-    , gbtrTag
+    , gbtrTagSet
     ) where
 
 import Network.AWS.Request.RestS3
@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype GetBucketTagging = GetBucketTagging
-    { _gbtBucket :: BucketName
+    { _gbtBucket :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -50,15 +50,15 @@ newtype GetBucketTagging = GetBucketTagging
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
-getBucketTagging :: BucketName -- ^ 'gbtBucket'
+getBucketTagging :: Text -- ^ 'gbtBucket'
                  -> GetBucketTagging
 getBucketTagging p1 = GetBucketTagging
     { _gbtBucket = p1
     }
 
-gbtBucket :: Lens' GetBucketTagging BucketName
+gbtBucket :: Lens' GetBucketTagging Text
 gbtBucket = lens _gbtBucket (\s a -> s { _gbtBucket = a })
 
 instance ToPath GetBucketTagging
@@ -70,7 +70,7 @@ instance ToHeaders GetBucketTagging
 instance ToBody GetBucketTagging
 
 newtype GetBucketTaggingResponse = GetBucketTaggingResponse
-    { _gbtrTag :: [Tag]
+    { _gbtrTagSet :: [Tag]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -80,16 +80,16 @@ newtype GetBucketTaggingResponse = GetBucketTaggingResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Tag ::@ @[Tag]@
+-- * @TagSet ::@ @[Tag]@
 --
-getBucketTaggingResponse :: [Tag] -- ^ 'gbtrTag'
+getBucketTaggingResponse :: [Tag] -- ^ 'gbtrTagSet'
                          -> GetBucketTaggingResponse
 getBucketTaggingResponse p1 = GetBucketTaggingResponse
-    { _gbtrTag = p1
+    { _gbtrTagSet = p1
     }
 
-gbtrTag :: Lens' GetBucketTaggingResponse [Tag]
-gbtrTag = lens _gbtrTag (\s a -> s { _gbtrTag = a })
+gbtrTagSet :: Lens' GetBucketTaggingResponse [Tag]
+gbtrTagSet = lens _gbtrTagSet (\s a -> s { _gbtrTagSet = a })
 
 instance FromXML GetBucketTaggingResponse where
     fromXMLOptions = xmlOptions

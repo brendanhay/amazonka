@@ -118,7 +118,7 @@ module Network.AWS.RDS.Types
     , dbevDBEngineDescription
     , dbevDBEngineVersionDescription
     , dbevDefaultCharacterSet
-    , dbevCharacterSet
+    , dbevSupportedCharacterSets
 
     -- * DBInstance
     , DBInstance
@@ -134,9 +134,9 @@ module Network.AWS.RDS.Types
     , dbiInstanceCreateTime
     , dbiPreferredBackupWindow
     , dbiBackupRetentionPeriod
-    , dbiDBSecurityGroup
-    , dbiVpcSecurityGroupMembership
-    , dbiDBParameterGroup
+    , dbiDBSecurityGroups
+    , dbiVpcSecurityGroups
+    , dbiDBParameterGroups
     , dbiAvailabilityZone
     , dbiDBSubnetGroup
     , dbiPreferredMaintenanceWindow
@@ -146,14 +146,14 @@ module Network.AWS.RDS.Types
     , dbiEngineVersion
     , dbiAutoMinorVersionUpgrade
     , dbiReadReplicaSourceDBInstanceIdentifier
-    , dbiReadReplicaDBInstanceIdentifier
+    , dbiReadReplicaDBInstanceIdentifiers
     , dbiLicenseModel
     , dbiIops
-    , dbiOptionGroupMembership
+    , dbiOptionGroupMemberships
     , dbiCharacterSetName
     , dbiSecondaryAvailabilityZone
     , dbiPubliclyAccessible
-    , dbiDBInstanceStatusInfo
+    , dbiStatusInfos
 
     -- * DBInstanceStatusInfo
     , DBInstanceStatusInfo
@@ -183,8 +183,8 @@ module Network.AWS.RDS.Types
     , dbsgDBSecurityGroupName
     , dbsgDBSecurityGroupDescription
     , dbsgVpcId
-    , dbsgEC2SecurityGroup
-    , dbsgIPRange
+    , dbsgEC2SecurityGroups
+    , dbsgIPRanges
 
     -- * DBSecurityGroupMembership
     , DBSecurityGroupMembership
@@ -221,7 +221,7 @@ module Network.AWS.RDS.Types
     , dbsgrDBSubnetGroupDescription
     , dbsgrVpcId
     , dbsgrSubnetGroupStatus
-    , dbsgrSubnet
+    , dbsgrSubnets
 
     -- * DescribeDBLogFilesDetails
     , DescribeDBLogFilesDetails
@@ -249,7 +249,7 @@ module Network.AWS.RDS.Types
     , engineDefaults
     , edDBParameterGroupFamily
     , edMarker
-    , edParameter
+    , edParameters
 
     -- * Event
     , Event
@@ -257,14 +257,14 @@ module Network.AWS.RDS.Types
     , erSourceIdentifier
     , erSourceType
     , erMessage
-    , erEventCategory
+    , erEventCategories
     , erDate
 
     -- * EventCategoriesMap
     , EventCategoriesMap
     , eventCategoriesMap
     , ecmSourceType
-    , ecmEventCategory
+    , ecmEventCategories
 
     -- * EventSubscription
     , EventSubscription
@@ -275,8 +275,8 @@ module Network.AWS.RDS.Types
     , esStatus
     , esSubscriptionCreationTime
     , esSourceType
-    , esSourceId
-    , esEventCategory
+    , esSourceIdsList
+    , esEventCategoriesList
     , esEnabled
 
     -- * IPRange
@@ -293,18 +293,18 @@ module Network.AWS.RDS.Types
     , oPersistent
     , oPermanent
     , oPort
-    , oOptionSetting
-    , oDBSecurityGroup
-    , oVpcSecurityGroupMembership
+    , oOptionSettings
+    , oDBSecurityGroupMemberships
+    , oVpcSecurityGroupMemberships
 
     -- * OptionConfiguration
     , OptionConfiguration
     , optionConfiguration
     , ocOptionName
     , ocPort
-    , ocDBSecurityGroupName
-    , ocVpcSecurityGroupId
-    , ocOptionSetting
+    , ocDBSecurityGroupMemberships
+    , ocVpcSecurityGroupMemberships
+    , ocOptionSettings
 
     -- * OptionGroup
     , OptionGroup
@@ -313,7 +313,7 @@ module Network.AWS.RDS.Types
     , ogOptionGroupDescription
     , ogEngineName
     , ogMajorEngineVersion
-    , ogOption
+    , ogOptions
     , ogAllowsVpcAndNonVpcInstanceMemberships
     , ogVpcId
 
@@ -333,10 +333,10 @@ module Network.AWS.RDS.Types
     , ogoMinimumRequiredMinorEngineVersion
     , ogoPortRequired
     , ogoDefaultPort
-    , ogoOptionName
+    , ogoOptionsDependedOn
     , ogoPersistent
     , ogoPermanent
-    , ogoOptionGroupOptionSetting
+    , ogoOptionGroupOptionSettings
 
     -- * OptionGroupOptionSetting
     , OptionGroupOptionSetting
@@ -368,7 +368,7 @@ module Network.AWS.RDS.Types
     , odbioEngineVersion
     , odbioDBInstanceClass
     , odbioLicenseModel
-    , odbioAvailabilityZone
+    , odbioAvailabilityZones
     , odbioMultiAZCapable
     , odbioReadReplicaCapable
     , odbioVpc
@@ -422,7 +422,7 @@ module Network.AWS.RDS.Types
     , rdbiOfferingType
     , rdbiMultiAZ
     , rdbiState
-    , rdbiRecurringCharge
+    , rdbiRecurringCharges
 
     -- * ReservedDBInstancesOffering
     , ReservedDBInstancesOffering
@@ -436,7 +436,7 @@ module Network.AWS.RDS.Types
     , rdbioProductDescription
     , rdbioOfferingType
     , rdbioMultiAZ
-    , rdbioRecurringCharge
+    , rdbioRecurringCharges
 
     -- * Subnet
     , Subnet
@@ -1319,8 +1319,8 @@ instance FromXML AvailabilityZone where
 instance ToQuery AvailabilityZone where
     toQuery = genericQuery def
 
--- | The default character set for new instances of this engine version, if the
--- CharacterSetName parameter of the CreateDBInstance API is not specified.
+-- | This data type is used as a response element in the action
+-- DescribeDBEngineVersions.
 data CharacterSet = CharacterSet
     { _csCharacterSetName :: Maybe Text
     , _csCharacterSetDescription :: Maybe Text
@@ -1368,7 +1368,7 @@ data DBEngineVersion = DBEngineVersion
     , _dbevDBEngineDescription :: Maybe Text
     , _dbevDBEngineVersionDescription :: Maybe Text
     , _dbevDefaultCharacterSet :: Maybe CharacterSet
-    , _dbevCharacterSet :: [CharacterSet]
+    , _dbevSupportedCharacterSets :: [CharacterSet]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1391,7 +1391,7 @@ data DBEngineVersion = DBEngineVersion
 --
 -- * @DefaultCharacterSet ::@ @Maybe CharacterSet@
 --
--- * @CharacterSet ::@ @[CharacterSet]@
+-- * @SupportedCharacterSets ::@ @[CharacterSet]@
 --
 dBEngineVersion :: DBEngineVersion
 dBEngineVersion = DBEngineVersion
@@ -1401,7 +1401,7 @@ dBEngineVersion = DBEngineVersion
     , _dbevDBEngineDescription = Nothing
     , _dbevDBEngineVersionDescription = Nothing
     , _dbevDefaultCharacterSet = Nothing
-    , _dbevCharacterSet = mempty
+    , _dbevSupportedCharacterSets = mempty
     }
 
 -- | The name of the database engine.
@@ -1440,9 +1440,10 @@ dbevDefaultCharacterSet =
 
 -- | A list of the character sets supported by this engine for the
 -- CharacterSetName parameter of the CreateDBInstance API.
-dbevCharacterSet :: Lens' DBEngineVersion [CharacterSet]
-dbevCharacterSet =
-    lens _dbevCharacterSet (\s a -> s { _dbevCharacterSet = a })
+dbevSupportedCharacterSets :: Lens' DBEngineVersion [CharacterSet]
+dbevSupportedCharacterSets =
+    lens _dbevSupportedCharacterSets
+         (\s a -> s { _dbevSupportedCharacterSets = a })
 
 instance FromXML DBEngineVersion where
     fromXMLOptions = xmlOptions
@@ -1463,9 +1464,9 @@ data DBInstance = DBInstance
     , _dbiInstanceCreateTime :: Maybe ISO8601
     , _dbiPreferredBackupWindow :: Maybe Text
     , _dbiBackupRetentionPeriod :: Maybe Integer
-    , _dbiDBSecurityGroup :: [DBSecurityGroupMembership]
-    , _dbiVpcSecurityGroupMembership :: [VpcSecurityGroupMembership]
-    , _dbiDBParameterGroup :: [DBParameterGroupStatus]
+    , _dbiDBSecurityGroups :: [DBSecurityGroupMembership]
+    , _dbiVpcSecurityGroups :: [VpcSecurityGroupMembership]
+    , _dbiDBParameterGroups :: [DBParameterGroupStatus]
     , _dbiAvailabilityZone :: Maybe Text
     , _dbiDBSubnetGroup :: Maybe DBSubnetGroup
     , _dbiPreferredMaintenanceWindow :: Maybe Text
@@ -1475,14 +1476,14 @@ data DBInstance = DBInstance
     , _dbiEngineVersion :: Maybe Text
     , _dbiAutoMinorVersionUpgrade :: Maybe Bool
     , _dbiReadReplicaSourceDBInstanceIdentifier :: Maybe Text
-    , _dbiReadReplicaDBInstanceIdentifier :: [Text]
+    , _dbiReadReplicaDBInstanceIdentifiers :: [Text]
     , _dbiLicenseModel :: Maybe Text
     , _dbiIops :: Maybe Integer
-    , _dbiOptionGroupMembership :: [OptionGroupMembership]
+    , _dbiOptionGroupMemberships :: [OptionGroupMembership]
     , _dbiCharacterSetName :: Maybe Text
     , _dbiSecondaryAvailabilityZone :: Maybe Text
     , _dbiPubliclyAccessible :: Maybe Bool
-    , _dbiDBInstanceStatusInfo :: [DBInstanceStatusInfo]
+    , _dbiStatusInfos :: [DBInstanceStatusInfo]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1515,11 +1516,11 @@ data DBInstance = DBInstance
 --
 -- * @BackupRetentionPeriod ::@ @Maybe Integer@
 --
--- * @DBSecurityGroup ::@ @[DBSecurityGroupMembership]@
+-- * @DBSecurityGroups ::@ @[DBSecurityGroupMembership]@
 --
--- * @VpcSecurityGroupMembership ::@ @[VpcSecurityGroupMembership]@
+-- * @VpcSecurityGroups ::@ @[VpcSecurityGroupMembership]@
 --
--- * @DBParameterGroup ::@ @[DBParameterGroupStatus]@
+-- * @DBParameterGroups ::@ @[DBParameterGroupStatus]@
 --
 -- * @AvailabilityZone ::@ @Maybe Text@
 --
@@ -1539,13 +1540,13 @@ data DBInstance = DBInstance
 --
 -- * @ReadReplicaSourceDBInstanceIdentifier ::@ @Maybe Text@
 --
--- * @ReadReplicaDBInstanceIdentifier ::@ @[Text]@
+-- * @ReadReplicaDBInstanceIdentifiers ::@ @[Text]@
 --
 -- * @LicenseModel ::@ @Maybe Text@
 --
 -- * @Iops ::@ @Maybe Integer@
 --
--- * @OptionGroupMembership ::@ @[OptionGroupMembership]@
+-- * @OptionGroupMemberships ::@ @[OptionGroupMembership]@
 --
 -- * @CharacterSetName ::@ @Maybe Text@
 --
@@ -1553,7 +1554,7 @@ data DBInstance = DBInstance
 --
 -- * @PubliclyAccessible ::@ @Maybe Bool@
 --
--- * @DBInstanceStatusInfo ::@ @[DBInstanceStatusInfo]@
+-- * @StatusInfos ::@ @[DBInstanceStatusInfo]@
 --
 dBInstance :: DBInstance
 dBInstance = DBInstance
@@ -1568,9 +1569,9 @@ dBInstance = DBInstance
     , _dbiInstanceCreateTime = Nothing
     , _dbiPreferredBackupWindow = Nothing
     , _dbiBackupRetentionPeriod = Nothing
-    , _dbiDBSecurityGroup = mempty
-    , _dbiVpcSecurityGroupMembership = mempty
-    , _dbiDBParameterGroup = mempty
+    , _dbiDBSecurityGroups = mempty
+    , _dbiVpcSecurityGroups = mempty
+    , _dbiDBParameterGroups = mempty
     , _dbiAvailabilityZone = Nothing
     , _dbiDBSubnetGroup = Nothing
     , _dbiPreferredMaintenanceWindow = Nothing
@@ -1580,14 +1581,14 @@ dBInstance = DBInstance
     , _dbiEngineVersion = Nothing
     , _dbiAutoMinorVersionUpgrade = Nothing
     , _dbiReadReplicaSourceDBInstanceIdentifier = Nothing
-    , _dbiReadReplicaDBInstanceIdentifier = mempty
+    , _dbiReadReplicaDBInstanceIdentifiers = mempty
     , _dbiLicenseModel = Nothing
     , _dbiIops = Nothing
-    , _dbiOptionGroupMembership = mempty
+    , _dbiOptionGroupMemberships = mempty
     , _dbiCharacterSetName = Nothing
     , _dbiSecondaryAvailabilityZone = Nothing
     , _dbiPubliclyAccessible = Nothing
-    , _dbiDBInstanceStatusInfo = mempty
+    , _dbiStatusInfos = mempty
     }
 
 -- | Contains a user-supplied database identifier. This is the unique key that
@@ -1659,21 +1660,20 @@ dbiBackupRetentionPeriod =
 
 -- | Provides List of DB security group elements containing only
 -- DBSecurityGroup.Name and DBSecurityGroup.Status subelements.
-dbiDBSecurityGroup :: Lens' DBInstance [DBSecurityGroupMembership]
-dbiDBSecurityGroup =
-    lens _dbiDBSecurityGroup (\s a -> s { _dbiDBSecurityGroup = a })
+dbiDBSecurityGroups :: Lens' DBInstance [DBSecurityGroupMembership]
+dbiDBSecurityGroups =
+    lens _dbiDBSecurityGroups (\s a -> s { _dbiDBSecurityGroups = a })
 
 -- | Provides List of VPC security group elements that the DB instance belongs
 -- to.
-dbiVpcSecurityGroupMembership :: Lens' DBInstance [VpcSecurityGroupMembership]
-dbiVpcSecurityGroupMembership =
-    lens _dbiVpcSecurityGroupMembership
-         (\s a -> s { _dbiVpcSecurityGroupMembership = a })
+dbiVpcSecurityGroups :: Lens' DBInstance [VpcSecurityGroupMembership]
+dbiVpcSecurityGroups =
+    lens _dbiVpcSecurityGroups (\s a -> s { _dbiVpcSecurityGroups = a })
 
 -- | Provides the list of DB parameter groups applied to this DB instance.
-dbiDBParameterGroup :: Lens' DBInstance [DBParameterGroupStatus]
-dbiDBParameterGroup =
-    lens _dbiDBParameterGroup (\s a -> s { _dbiDBParameterGroup = a })
+dbiDBParameterGroups :: Lens' DBInstance [DBParameterGroupStatus]
+dbiDBParameterGroups =
+    lens _dbiDBParameterGroups (\s a -> s { _dbiDBParameterGroups = a })
 
 -- | Specifies the name of the Availability Zone the DB instance is located in.
 dbiAvailabilityZone :: Lens' DBInstance (Maybe Text)
@@ -1732,10 +1732,10 @@ dbiReadReplicaSourceDBInstanceIdentifier =
 
 -- | Contains one or more identifiers of the read replicas associated with this
 -- DB instance.
-dbiReadReplicaDBInstanceIdentifier :: Lens' DBInstance [Text]
-dbiReadReplicaDBInstanceIdentifier =
-    lens _dbiReadReplicaDBInstanceIdentifier
-         (\s a -> s { _dbiReadReplicaDBInstanceIdentifier = a })
+dbiReadReplicaDBInstanceIdentifiers :: Lens' DBInstance [Text]
+dbiReadReplicaDBInstanceIdentifiers =
+    lens _dbiReadReplicaDBInstanceIdentifiers
+         (\s a -> s { _dbiReadReplicaDBInstanceIdentifiers = a })
 
 -- | License model information for this DB instance.
 dbiLicenseModel :: Lens' DBInstance (Maybe Text)
@@ -1746,10 +1746,10 @@ dbiIops :: Lens' DBInstance (Maybe Integer)
 dbiIops = lens _dbiIops (\s a -> s { _dbiIops = a })
 
 -- | Provides the list of option group memberships for this DB instance.
-dbiOptionGroupMembership :: Lens' DBInstance [OptionGroupMembership]
-dbiOptionGroupMembership =
-    lens _dbiOptionGroupMembership
-         (\s a -> s { _dbiOptionGroupMembership = a })
+dbiOptionGroupMemberships :: Lens' DBInstance [OptionGroupMembership]
+dbiOptionGroupMemberships =
+    lens _dbiOptionGroupMemberships
+         (\s a -> s { _dbiOptionGroupMemberships = a })
 
 -- | If present, specifies the name of the character set that this instance is
 -- associated with.
@@ -1781,10 +1781,8 @@ dbiPubliclyAccessible =
 
 -- | The status of a read replica. If the instance is not a read replica, this
 -- will be blank.
-dbiDBInstanceStatusInfo :: Lens' DBInstance [DBInstanceStatusInfo]
-dbiDBInstanceStatusInfo =
-    lens _dbiDBInstanceStatusInfo
-         (\s a -> s { _dbiDBInstanceStatusInfo = a })
+dbiStatusInfos :: Lens' DBInstance [DBInstanceStatusInfo]
+dbiStatusInfos = lens _dbiStatusInfos (\s a -> s { _dbiStatusInfos = a })
 
 instance FromXML DBInstance where
     fromXMLOptions = xmlOptions
@@ -1949,8 +1947,8 @@ data DBSecurityGroup = DBSecurityGroup
     , _dbsgDBSecurityGroupName :: Maybe Text
     , _dbsgDBSecurityGroupDescription :: Maybe Text
     , _dbsgVpcId :: Maybe Text
-    , _dbsgEC2SecurityGroup :: [EC2SecurityGroup]
-    , _dbsgIPRange :: [IPRange]
+    , _dbsgEC2SecurityGroups :: [EC2SecurityGroup]
+    , _dbsgIPRanges :: [IPRange]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1969,9 +1967,9 @@ data DBSecurityGroup = DBSecurityGroup
 --
 -- * @VpcId ::@ @Maybe Text@
 --
--- * @EC2SecurityGroup ::@ @[EC2SecurityGroup]@
+-- * @EC2SecurityGroups ::@ @[EC2SecurityGroup]@
 --
--- * @IPRange ::@ @[IPRange]@
+-- * @IPRanges ::@ @[IPRange]@
 --
 dBSecurityGroup :: DBSecurityGroup
 dBSecurityGroup = DBSecurityGroup
@@ -1979,8 +1977,8 @@ dBSecurityGroup = DBSecurityGroup
     , _dbsgDBSecurityGroupName = Nothing
     , _dbsgDBSecurityGroupDescription = Nothing
     , _dbsgVpcId = Nothing
-    , _dbsgEC2SecurityGroup = mempty
-    , _dbsgIPRange = mempty
+    , _dbsgEC2SecurityGroups = mempty
+    , _dbsgIPRanges = mempty
     }
 
 -- | Provides the AWS ID of the owner of a specific DB security group.
@@ -2004,13 +2002,13 @@ dbsgVpcId :: Lens' DBSecurityGroup (Maybe Text)
 dbsgVpcId = lens _dbsgVpcId (\s a -> s { _dbsgVpcId = a })
 
 -- | Contains a list of EC2SecurityGroup elements.
-dbsgEC2SecurityGroup :: Lens' DBSecurityGroup [EC2SecurityGroup]
-dbsgEC2SecurityGroup =
-    lens _dbsgEC2SecurityGroup (\s a -> s { _dbsgEC2SecurityGroup = a })
+dbsgEC2SecurityGroups :: Lens' DBSecurityGroup [EC2SecurityGroup]
+dbsgEC2SecurityGroups =
+    lens _dbsgEC2SecurityGroups (\s a -> s { _dbsgEC2SecurityGroups = a })
 
 -- | Contains a list of IPRange elements.
-dbsgIPRange :: Lens' DBSecurityGroup [IPRange]
-dbsgIPRange = lens _dbsgIPRange (\s a -> s { _dbsgIPRange = a })
+dbsgIPRanges :: Lens' DBSecurityGroup [IPRange]
+dbsgIPRanges = lens _dbsgIPRanges (\s a -> s { _dbsgIPRanges = a })
 
 instance FromXML DBSecurityGroup where
     fromXMLOptions = xmlOptions
@@ -2238,16 +2236,14 @@ instance FromXML DBSnapshot where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DBSnapshot"
 
--- | Contains the result of a successful invocation of the following actions:
--- CreateDBSubnetGroup ModifyDBSubnetGroup DescribeDBSubnetGroups
--- DeleteDBSubnetGroup This data type is used as a response element in the
--- DescribeDBSubnetGroups action.
+-- | Specifies information on the subnet group associated with the DB instance,
+-- including the name, description, and subnets in the subnet group.
 data DBSubnetGroup = DBSubnetGroup
     { _dbsgrDBSubnetGroupName :: Maybe Text
     , _dbsgrDBSubnetGroupDescription :: Maybe Text
     , _dbsgrVpcId :: Maybe Text
     , _dbsgrSubnetGroupStatus :: Maybe Text
-    , _dbsgrSubnet :: [Subnet]
+    , _dbsgrSubnets :: [Subnet]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2263,7 +2259,7 @@ data DBSubnetGroup = DBSubnetGroup
 --
 -- * @SubnetGroupStatus ::@ @Maybe Text@
 --
--- * @Subnet ::@ @[Subnet]@
+-- * @Subnets ::@ @[Subnet]@
 --
 dBSubnetGroup :: DBSubnetGroup
 dBSubnetGroup = DBSubnetGroup
@@ -2271,7 +2267,7 @@ dBSubnetGroup = DBSubnetGroup
     , _dbsgrDBSubnetGroupDescription = Nothing
     , _dbsgrVpcId = Nothing
     , _dbsgrSubnetGroupStatus = Nothing
-    , _dbsgrSubnet = mempty
+    , _dbsgrSubnets = mempty
     }
 
 -- | Specifies the name of the DB subnet group.
@@ -2295,8 +2291,8 @@ dbsgrSubnetGroupStatus =
     lens _dbsgrSubnetGroupStatus (\s a -> s { _dbsgrSubnetGroupStatus = a })
 
 -- | Contains a list of Subnet elements.
-dbsgrSubnet :: Lens' DBSubnetGroup [Subnet]
-dbsgrSubnet = lens _dbsgrSubnet (\s a -> s { _dbsgrSubnet = a })
+dbsgrSubnets :: Lens' DBSubnetGroup [Subnet]
+dbsgrSubnets = lens _dbsgrSubnets (\s a -> s { _dbsgrSubnets = a })
 
 instance FromXML DBSubnetGroup where
     fromXMLOptions = xmlOptions
@@ -2453,7 +2449,7 @@ instance ToQuery Endpoint' where
 data EngineDefaults = EngineDefaults
     { _edDBParameterGroupFamily :: Maybe Text
     , _edMarker :: Maybe Text
-    , _edParameter :: [Parameter]
+    , _edParameters :: [Parameter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2468,13 +2464,13 @@ data EngineDefaults = EngineDefaults
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @Parameter ::@ @[Parameter]@
+-- * @Parameters ::@ @[Parameter]@
 --
 engineDefaults :: EngineDefaults
 engineDefaults = EngineDefaults
     { _edDBParameterGroupFamily = Nothing
     , _edMarker = Nothing
-    , _edParameter = mempty
+    , _edParameters = mempty
     }
 
 -- | Specifies the name of the DB parameter group family which the engine
@@ -2491,8 +2487,8 @@ edMarker :: Lens' EngineDefaults (Maybe Text)
 edMarker = lens _edMarker (\s a -> s { _edMarker = a })
 
 -- | Contains a list of engine default parameters.
-edParameter :: Lens' EngineDefaults [Parameter]
-edParameter = lens _edParameter (\s a -> s { _edParameter = a })
+edParameters :: Lens' EngineDefaults [Parameter]
+edParameters = lens _edParameters (\s a -> s { _edParameters = a })
 
 instance FromXML EngineDefaults where
     fromXMLOptions = xmlOptions
@@ -2503,7 +2499,7 @@ data Event = Event
     { _erSourceIdentifier :: Maybe Text
     , _erSourceType :: Maybe SourceType
     , _erMessage :: Maybe Text
-    , _erEventCategory :: [Text]
+    , _erEventCategories :: [Text]
     , _erDate :: Maybe ISO8601
     } deriving (Eq, Ord, Show, Generic)
 
@@ -2521,7 +2517,7 @@ data Event = Event
 --
 -- * @Message ::@ @Maybe Text@
 --
--- * @EventCategory ::@ @[Text]@
+-- * @EventCategories ::@ @[Text]@
 --
 -- * @Date ::@ @Maybe ISO8601@
 --
@@ -2530,7 +2526,7 @@ event = Event
     { _erSourceIdentifier = Nothing
     , _erSourceType = Nothing
     , _erMessage = Nothing
-    , _erEventCategory = mempty
+    , _erEventCategories = mempty
     , _erDate = Nothing
     }
 
@@ -2548,8 +2544,9 @@ erMessage :: Lens' Event (Maybe Text)
 erMessage = lens _erMessage (\s a -> s { _erMessage = a })
 
 -- | Specifies the category for the event.
-erEventCategory :: Lens' Event [Text]
-erEventCategory = lens _erEventCategory (\s a -> s { _erEventCategory = a })
+erEventCategories :: Lens' Event [Text]
+erEventCategories =
+    lens _erEventCategories (\s a -> s { _erEventCategories = a })
 
 -- | Specifies the date and time of the event.
 erDate :: Lens' Event (Maybe ISO8601)
@@ -2563,7 +2560,7 @@ instance FromXML Event where
 -- DescribeEventCategories action.
 data EventCategoriesMap = EventCategoriesMap
     { _ecmSourceType :: Maybe Text
-    , _ecmEventCategory :: [Text]
+    , _ecmEventCategories :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2576,12 +2573,12 @@ data EventCategoriesMap = EventCategoriesMap
 --
 -- * @SourceType ::@ @Maybe Text@
 --
--- * @EventCategory ::@ @[Text]@
+-- * @EventCategories ::@ @[Text]@
 --
 eventCategoriesMap :: EventCategoriesMap
 eventCategoriesMap = EventCategoriesMap
     { _ecmSourceType = Nothing
-    , _ecmEventCategory = mempty
+    , _ecmEventCategories = mempty
     }
 
 -- | The source type that the returned categories belong to.
@@ -2589,9 +2586,9 @@ ecmSourceType :: Lens' EventCategoriesMap (Maybe Text)
 ecmSourceType = lens _ecmSourceType (\s a -> s { _ecmSourceType = a })
 
 -- | The event categories for the specified source type.
-ecmEventCategory :: Lens' EventCategoriesMap [Text]
-ecmEventCategory =
-    lens _ecmEventCategory (\s a -> s { _ecmEventCategory = a })
+ecmEventCategories :: Lens' EventCategoriesMap [Text]
+ecmEventCategories =
+    lens _ecmEventCategories (\s a -> s { _ecmEventCategories = a })
 
 instance FromXML EventCategoriesMap where
     fromXMLOptions = xmlOptions
@@ -2606,8 +2603,8 @@ data EventSubscription = EventSubscription
     , _esStatus :: Maybe Text
     , _esSubscriptionCreationTime :: Maybe Text
     , _esSourceType :: Maybe Text
-    , _esSourceId :: [Text]
-    , _esEventCategory :: [Text]
+    , _esSourceIdsList :: [Text]
+    , _esEventCategoriesList :: [Text]
     , _esEnabled :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
@@ -2631,9 +2628,9 @@ data EventSubscription = EventSubscription
 --
 -- * @SourceType ::@ @Maybe Text@
 --
--- * @SourceId ::@ @[Text]@
+-- * @SourceIdsList ::@ @[Text]@
 --
--- * @EventCategory ::@ @[Text]@
+-- * @EventCategoriesList ::@ @[Text]@
 --
 -- * @Enabled ::@ @Maybe Bool@
 --
@@ -2645,8 +2642,8 @@ eventSubscription = EventSubscription
     , _esStatus = Nothing
     , _esSubscriptionCreationTime = Nothing
     , _esSourceType = Nothing
-    , _esSourceId = mempty
-    , _esEventCategory = mempty
+    , _esSourceIdsList = mempty
+    , _esEventCategoriesList = mempty
     , _esEnabled = Nothing
     }
 
@@ -2684,12 +2681,13 @@ esSourceType :: Lens' EventSubscription (Maybe Text)
 esSourceType = lens _esSourceType (\s a -> s { _esSourceType = a })
 
 -- | A list of source Ids for the RDS event notification subscription.
-esSourceId :: Lens' EventSubscription [Text]
-esSourceId = lens _esSourceId (\s a -> s { _esSourceId = a })
+esSourceIdsList :: Lens' EventSubscription [Text]
+esSourceIdsList = lens _esSourceIdsList (\s a -> s { _esSourceIdsList = a })
 
 -- | A list of event categories for the RDS event notification subscription.
-esEventCategory :: Lens' EventSubscription [Text]
-esEventCategory = lens _esEventCategory (\s a -> s { _esEventCategory = a })
+esEventCategoriesList :: Lens' EventSubscription [Text]
+esEventCategoriesList =
+    lens _esEventCategoriesList (\s a -> s { _esEventCategoriesList = a })
 
 -- | A Boolean value indicating if the subscription is enabled. True indicates
 -- the subscription is enabled.
@@ -2745,9 +2743,9 @@ data Option = Option
     , _oPersistent :: Maybe Bool
     , _oPermanent :: Maybe Bool
     , _oPort :: Maybe Integer
-    , _oOptionSetting :: [OptionSetting]
-    , _oDBSecurityGroup :: [DBSecurityGroupMembership]
-    , _oVpcSecurityGroupMembership :: [VpcSecurityGroupMembership]
+    , _oOptionSettings :: [OptionSetting]
+    , _oDBSecurityGroupMemberships :: [DBSecurityGroupMembership]
+    , _oVpcSecurityGroupMemberships :: [VpcSecurityGroupMembership]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2765,11 +2763,11 @@ data Option = Option
 --
 -- * @Port ::@ @Maybe Integer@
 --
--- * @OptionSetting ::@ @[OptionSetting]@
+-- * @OptionSettings ::@ @[OptionSetting]@
 --
--- * @DBSecurityGroup ::@ @[DBSecurityGroupMembership]@
+-- * @DBSecurityGroupMemberships ::@ @[DBSecurityGroupMembership]@
 --
--- * @VpcSecurityGroupMembership ::@ @[VpcSecurityGroupMembership]@
+-- * @VpcSecurityGroupMemberships ::@ @[VpcSecurityGroupMembership]@
 --
 option :: Option
 option = Option
@@ -2778,9 +2776,9 @@ option = Option
     , _oPersistent = Nothing
     , _oPermanent = Nothing
     , _oPort = Nothing
-    , _oOptionSetting = mempty
-    , _oDBSecurityGroup = mempty
-    , _oVpcSecurityGroupMembership = mempty
+    , _oOptionSettings = mempty
+    , _oDBSecurityGroupMemberships = mempty
+    , _oVpcSecurityGroupMemberships = mempty
     }
 
 -- | The name of the option.
@@ -2805,21 +2803,22 @@ oPort :: Lens' Option (Maybe Integer)
 oPort = lens _oPort (\s a -> s { _oPort = a })
 
 -- | The option settings for this option.
-oOptionSetting :: Lens' Option [OptionSetting]
-oOptionSetting = lens _oOptionSetting (\s a -> s { _oOptionSetting = a })
+oOptionSettings :: Lens' Option [OptionSetting]
+oOptionSettings = lens _oOptionSettings (\s a -> s { _oOptionSettings = a })
 
 -- | If the option requires access to a port, then this DB security group allows
 -- access to the port.
-oDBSecurityGroup :: Lens' Option [DBSecurityGroupMembership]
-oDBSecurityGroup =
-    lens _oDBSecurityGroup (\s a -> s { _oDBSecurityGroup = a })
+oDBSecurityGroupMemberships :: Lens' Option [DBSecurityGroupMembership]
+oDBSecurityGroupMemberships =
+    lens _oDBSecurityGroupMemberships
+         (\s a -> s { _oDBSecurityGroupMemberships = a })
 
 -- | If the option requires access to a port, then this VPC security group
 -- allows access to the port.
-oVpcSecurityGroupMembership :: Lens' Option [VpcSecurityGroupMembership]
-oVpcSecurityGroupMembership =
-    lens _oVpcSecurityGroupMembership
-         (\s a -> s { _oVpcSecurityGroupMembership = a })
+oVpcSecurityGroupMemberships :: Lens' Option [VpcSecurityGroupMembership]
+oVpcSecurityGroupMemberships =
+    lens _oVpcSecurityGroupMemberships
+         (\s a -> s { _oVpcSecurityGroupMemberships = a })
 
 instance FromXML Option where
     fromXMLOptions = xmlOptions
@@ -2832,9 +2831,9 @@ instance ToQuery Option where
 data OptionConfiguration = OptionConfiguration
     { _ocOptionName :: Text
     , _ocPort :: Maybe Integer
-    , _ocDBSecurityGroupName :: [Text]
-    , _ocVpcSecurityGroupId :: [Text]
-    , _ocOptionSetting :: [OptionSetting]
+    , _ocDBSecurityGroupMemberships :: [Text]
+    , _ocVpcSecurityGroupMemberships :: [Text]
+    , _ocOptionSettings :: [OptionSetting]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2846,20 +2845,20 @@ data OptionConfiguration = OptionConfiguration
 --
 -- * @Port ::@ @Maybe Integer@
 --
--- * @DBSecurityGroupName ::@ @[Text]@
+-- * @DBSecurityGroupMemberships ::@ @[Text]@
 --
--- * @VpcSecurityGroupId ::@ @[Text]@
+-- * @VpcSecurityGroupMemberships ::@ @[Text]@
 --
--- * @OptionSetting ::@ @[OptionSetting]@
+-- * @OptionSettings ::@ @[OptionSetting]@
 --
 optionConfiguration :: Text -- ^ 'ocOptionName'
                     -> OptionConfiguration
 optionConfiguration p1 = OptionConfiguration
     { _ocOptionName = p1
     , _ocPort = Nothing
-    , _ocDBSecurityGroupName = mempty
-    , _ocVpcSecurityGroupId = mempty
-    , _ocOptionSetting = mempty
+    , _ocDBSecurityGroupMemberships = mempty
+    , _ocVpcSecurityGroupMemberships = mempty
+    , _ocOptionSettings = mempty
     }
 
 -- | The configuration of options to include in a group.
@@ -2871,18 +2870,21 @@ ocPort :: Lens' OptionConfiguration (Maybe Integer)
 ocPort = lens _ocPort (\s a -> s { _ocPort = a })
 
 -- | A list of DBSecurityGroupMemebrship name strings used for this option.
-ocDBSecurityGroupName :: Lens' OptionConfiguration [Text]
-ocDBSecurityGroupName =
-    lens _ocDBSecurityGroupName (\s a -> s { _ocDBSecurityGroupName = a })
+ocDBSecurityGroupMemberships :: Lens' OptionConfiguration [Text]
+ocDBSecurityGroupMemberships =
+    lens _ocDBSecurityGroupMemberships
+         (\s a -> s { _ocDBSecurityGroupMemberships = a })
 
 -- | A list of VpcSecurityGroupMemebrship name strings used for this option.
-ocVpcSecurityGroupId :: Lens' OptionConfiguration [Text]
-ocVpcSecurityGroupId =
-    lens _ocVpcSecurityGroupId (\s a -> s { _ocVpcSecurityGroupId = a })
+ocVpcSecurityGroupMemberships :: Lens' OptionConfiguration [Text]
+ocVpcSecurityGroupMemberships =
+    lens _ocVpcSecurityGroupMemberships
+         (\s a -> s { _ocVpcSecurityGroupMemberships = a })
 
 -- | The option settings to include in an option group.
-ocOptionSetting :: Lens' OptionConfiguration [OptionSetting]
-ocOptionSetting = lens _ocOptionSetting (\s a -> s { _ocOptionSetting = a })
+ocOptionSettings :: Lens' OptionConfiguration [OptionSetting]
+ocOptionSettings =
+    lens _ocOptionSettings (\s a -> s { _ocOptionSettings = a })
 
 instance ToQuery OptionConfiguration where
     toQuery = genericQuery def
@@ -2893,7 +2895,7 @@ data OptionGroup = OptionGroup
     , _ogOptionGroupDescription :: Maybe Text
     , _ogEngineName :: Maybe Text
     , _ogMajorEngineVersion :: Maybe Text
-    , _ogOption :: [Option]
+    , _ogOptions :: [Option]
     , _ogAllowsVpcAndNonVpcInstanceMemberships :: Maybe Bool
     , _ogVpcId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -2914,7 +2916,7 @@ data OptionGroup = OptionGroup
 --
 -- * @MajorEngineVersion ::@ @Maybe Text@
 --
--- * @Option ::@ @[Option]@
+-- * @Options ::@ @[Option]@
 --
 -- * @AllowsVpcAndNonVpcInstanceMemberships ::@ @Maybe Bool@
 --
@@ -2926,7 +2928,7 @@ optionGroup = OptionGroup
     , _ogOptionGroupDescription = Nothing
     , _ogEngineName = Nothing
     , _ogMajorEngineVersion = Nothing
-    , _ogOption = mempty
+    , _ogOptions = mempty
     , _ogAllowsVpcAndNonVpcInstanceMemberships = Nothing
     , _ogVpcId = Nothing
     }
@@ -2952,8 +2954,8 @@ ogMajorEngineVersion =
     lens _ogMajorEngineVersion (\s a -> s { _ogMajorEngineVersion = a })
 
 -- | Indicates what options are available in the option group.
-ogOption :: Lens' OptionGroup [Option]
-ogOption = lens _ogOption (\s a -> s { _ogOption = a })
+ogOptions :: Lens' OptionGroup [Option]
+ogOptions = lens _ogOptions (\s a -> s { _ogOptions = a })
 
 -- | Indicates whether this option group can be applied to both VPC and non-VPC
 -- instances. The value 'true' indicates the option group can be applied to
@@ -3022,10 +3024,10 @@ data OptionGroupOption = OptionGroupOption
     , _ogoMinimumRequiredMinorEngineVersion :: Maybe Text
     , _ogoPortRequired :: Maybe Bool
     , _ogoDefaultPort :: Maybe Integer
-    , _ogoOptionName :: [Text]
+    , _ogoOptionsDependedOn :: [Text]
     , _ogoPersistent :: Maybe Bool
     , _ogoPermanent :: Maybe Bool
-    , _ogoOptionGroupOptionSetting :: [OptionGroupOptionSetting]
+    , _ogoOptionGroupOptionSettings :: [OptionGroupOptionSetting]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3050,13 +3052,13 @@ data OptionGroupOption = OptionGroupOption
 --
 -- * @DefaultPort ::@ @Maybe Integer@
 --
--- * @OptionName ::@ @[Text]@
+-- * @OptionsDependedOn ::@ @[Text]@
 --
 -- * @Persistent ::@ @Maybe Bool@
 --
 -- * @Permanent ::@ @Maybe Bool@
 --
--- * @OptionGroupOptionSetting ::@ @[OptionGroupOptionSetting]@
+-- * @OptionGroupOptionSettings ::@ @[OptionGroupOptionSetting]@
 --
 optionGroupOption :: OptionGroupOption
 optionGroupOption = OptionGroupOption
@@ -3067,10 +3069,10 @@ optionGroupOption = OptionGroupOption
     , _ogoMinimumRequiredMinorEngineVersion = Nothing
     , _ogoPortRequired = Nothing
     , _ogoDefaultPort = Nothing
-    , _ogoOptionName = mempty
+    , _ogoOptionsDependedOn = mempty
     , _ogoPersistent = Nothing
     , _ogoPermanent = Nothing
-    , _ogoOptionGroupOptionSetting = mempty
+    , _ogoOptionGroupOptionSettings = mempty
     }
 
 -- | The name of the option.
@@ -3105,8 +3107,9 @@ ogoDefaultPort :: Lens' OptionGroupOption (Maybe Integer)
 ogoDefaultPort = lens _ogoDefaultPort (\s a -> s { _ogoDefaultPort = a })
 
 -- | List of all options that are prerequisites for this option.
-ogoOptionName :: Lens' OptionGroupOption [Text]
-ogoOptionName = lens _ogoOptionName (\s a -> s { _ogoOptionName = a })
+ogoOptionsDependedOn :: Lens' OptionGroupOption [Text]
+ogoOptionsDependedOn =
+    lens _ogoOptionsDependedOn (\s a -> s { _ogoOptionsDependedOn = a })
 
 -- | A persistent option cannot be removed from the option group once the option
 -- group is used, but this option can be removed from the db instance while
@@ -3123,10 +3126,10 @@ ogoPermanent = lens _ogoPermanent (\s a -> s { _ogoPermanent = a })
 
 -- | Specifies the option settings that are available (and the default value)
 -- for each option in an option group.
-ogoOptionGroupOptionSetting :: Lens' OptionGroupOption [OptionGroupOptionSetting]
-ogoOptionGroupOptionSetting =
-    lens _ogoOptionGroupOptionSetting
-         (\s a -> s { _ogoOptionGroupOptionSetting = a })
+ogoOptionGroupOptionSettings :: Lens' OptionGroupOption [OptionGroupOptionSetting]
+ogoOptionGroupOptionSettings =
+    lens _ogoOptionGroupOptionSettings
+         (\s a -> s { _ogoOptionGroupOptionSettings = a })
 
 instance FromXML OptionGroupOption where
     fromXMLOptions = xmlOptions
@@ -3311,7 +3314,7 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption
     , _odbioEngineVersion :: Maybe Text
     , _odbioDBInstanceClass :: Maybe Text
     , _odbioLicenseModel :: Maybe Text
-    , _odbioAvailabilityZone :: [AvailabilityZone]
+    , _odbioAvailabilityZones :: [AvailabilityZone]
     , _odbioMultiAZCapable :: Maybe Bool
     , _odbioReadReplicaCapable :: Maybe Bool
     , _odbioVpc :: Maybe Bool
@@ -3333,7 +3336,7 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption
 --
 -- * @LicenseModel ::@ @Maybe Text@
 --
--- * @AvailabilityZone ::@ @[AvailabilityZone]@
+-- * @AvailabilityZones ::@ @[AvailabilityZone]@
 --
 -- * @MultiAZCapable ::@ @Maybe Bool@
 --
@@ -3347,7 +3350,7 @@ orderableDBInstanceOption = OrderableDBInstanceOption
     , _odbioEngineVersion = Nothing
     , _odbioDBInstanceClass = Nothing
     , _odbioLicenseModel = Nothing
-    , _odbioAvailabilityZone = mempty
+    , _odbioAvailabilityZones = mempty
     , _odbioMultiAZCapable = Nothing
     , _odbioReadReplicaCapable = Nothing
     , _odbioVpc = Nothing
@@ -3373,9 +3376,9 @@ odbioLicenseModel =
     lens _odbioLicenseModel (\s a -> s { _odbioLicenseModel = a })
 
 -- | A list of availability zones for the orderable DB instance.
-odbioAvailabilityZone :: Lens' OrderableDBInstanceOption [AvailabilityZone]
-odbioAvailabilityZone =
-    lens _odbioAvailabilityZone (\s a -> s { _odbioAvailabilityZone = a })
+odbioAvailabilityZones :: Lens' OrderableDBInstanceOption [AvailabilityZone]
+odbioAvailabilityZones =
+    lens _odbioAvailabilityZones (\s a -> s { _odbioAvailabilityZones = a })
 
 -- | Indicates whether this orderable DB instance is multi-AZ capable.
 odbioMultiAZCapable :: Lens' OrderableDBInstanceOption (Maybe Bool)
@@ -3670,7 +3673,7 @@ data ReservedDBInstance = ReservedDBInstance
     , _rdbiOfferingType :: Maybe Text
     , _rdbiMultiAZ :: Maybe Bool
     , _rdbiState :: Maybe Text
-    , _rdbiRecurringCharge :: [RecurringCharge]
+    , _rdbiRecurringCharges :: [RecurringCharge]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3707,7 +3710,7 @@ data ReservedDBInstance = ReservedDBInstance
 --
 -- * @State ::@ @Maybe Text@
 --
--- * @RecurringCharge ::@ @[RecurringCharge]@
+-- * @RecurringCharges ::@ @[RecurringCharge]@
 --
 reservedDBInstance :: ReservedDBInstance
 reservedDBInstance = ReservedDBInstance
@@ -3724,7 +3727,7 @@ reservedDBInstance = ReservedDBInstance
     , _rdbiOfferingType = Nothing
     , _rdbiMultiAZ = Nothing
     , _rdbiState = Nothing
-    , _rdbiRecurringCharge = mempty
+    , _rdbiRecurringCharges = mempty
     }
 
 -- | The unique identifier for the reservation.
@@ -3789,9 +3792,9 @@ rdbiState :: Lens' ReservedDBInstance (Maybe Text)
 rdbiState = lens _rdbiState (\s a -> s { _rdbiState = a })
 
 -- | The recurring price charged to run this reserved DB instance.
-rdbiRecurringCharge :: Lens' ReservedDBInstance [RecurringCharge]
-rdbiRecurringCharge =
-    lens _rdbiRecurringCharge (\s a -> s { _rdbiRecurringCharge = a })
+rdbiRecurringCharges :: Lens' ReservedDBInstance [RecurringCharge]
+rdbiRecurringCharges =
+    lens _rdbiRecurringCharges (\s a -> s { _rdbiRecurringCharges = a })
 
 instance FromXML ReservedDBInstance where
     fromXMLOptions = xmlOptions
@@ -3809,7 +3812,7 @@ data ReservedDBInstancesOffering = ReservedDBInstancesOffering
     , _rdbioProductDescription :: Maybe Text
     , _rdbioOfferingType :: Maybe Text
     , _rdbioMultiAZ :: Maybe Bool
-    , _rdbioRecurringCharge :: [RecurringCharge]
+    , _rdbioRecurringCharges :: [RecurringCharge]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3838,7 +3841,7 @@ data ReservedDBInstancesOffering = ReservedDBInstancesOffering
 --
 -- * @MultiAZ ::@ @Maybe Bool@
 --
--- * @RecurringCharge ::@ @[RecurringCharge]@
+-- * @RecurringCharges ::@ @[RecurringCharge]@
 --
 reservedDBInstancesOffering :: ReservedDBInstancesOffering
 reservedDBInstancesOffering = ReservedDBInstancesOffering
@@ -3851,7 +3854,7 @@ reservedDBInstancesOffering = ReservedDBInstancesOffering
     , _rdbioProductDescription = Nothing
     , _rdbioOfferingType = Nothing
     , _rdbioMultiAZ = Nothing
-    , _rdbioRecurringCharge = mempty
+    , _rdbioRecurringCharges = mempty
     }
 
 -- | The offering identifier.
@@ -3898,9 +3901,9 @@ rdbioMultiAZ :: Lens' ReservedDBInstancesOffering (Maybe Bool)
 rdbioMultiAZ = lens _rdbioMultiAZ (\s a -> s { _rdbioMultiAZ = a })
 
 -- | The recurring price charged to run this reserved DB instance.
-rdbioRecurringCharge :: Lens' ReservedDBInstancesOffering [RecurringCharge]
-rdbioRecurringCharge =
-    lens _rdbioRecurringCharge (\s a -> s { _rdbioRecurringCharge = a })
+rdbioRecurringCharges :: Lens' ReservedDBInstancesOffering [RecurringCharge]
+rdbioRecurringCharges =
+    lens _rdbioRecurringCharges (\s a -> s { _rdbioRecurringCharges = a })
 
 instance FromXML ReservedDBInstancesOffering where
     fromXMLOptions = xmlOptions

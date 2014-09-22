@@ -49,7 +49,7 @@ module Network.AWS.Redshift.DescribeClusters
     , describeClustersResponse
     -- ** Response lenses
     , dcrrMarker
-    , dcrrCluster
+    , dcrrClusters
     ) where
 
 import Network.AWS.Request.Query
@@ -112,7 +112,7 @@ instance ToQuery DescribeClusters where
 -- | Contains the output from the DescribeClusters action.
 data DescribeClustersResponse = DescribeClustersResponse
     { _dcrrMarker :: Maybe Text
-    , _dcrrCluster :: [Cluster]
+    , _dcrrClusters :: [Cluster]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -124,12 +124,12 @@ data DescribeClustersResponse = DescribeClustersResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @Cluster ::@ @[Cluster]@
+-- * @Clusters ::@ @[Cluster]@
 --
 describeClustersResponse :: DescribeClustersResponse
 describeClustersResponse = DescribeClustersResponse
     { _dcrrMarker = Nothing
-    , _dcrrCluster = mempty
+    , _dcrrClusters = mempty
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -141,8 +141,8 @@ dcrrMarker :: Lens' DescribeClustersResponse (Maybe Text)
 dcrrMarker = lens _dcrrMarker (\s a -> s { _dcrrMarker = a })
 
 -- | A list of Cluster objects, where each object describes one cluster.
-dcrrCluster :: Lens' DescribeClustersResponse [Cluster]
-dcrrCluster = lens _dcrrCluster (\s a -> s { _dcrrCluster = a })
+dcrrClusters :: Lens' DescribeClustersResponse [Cluster]
+dcrrClusters = lens _dcrrClusters (\s a -> s { _dcrrClusters = a })
 
 instance FromXML DescribeClustersResponse where
     fromXMLOptions = xmlOptions

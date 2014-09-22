@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data PutBucketCors = PutBucketCors
-    { _pbcBucket :: BucketName
+    { _pbcBucket :: Text
     , _pbcCORSConfiguration :: Maybe CORSConfiguration
     , _pbcContentMD5 :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -52,13 +52,13 @@ data PutBucketCors = PutBucketCors
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
 -- * @CORSConfiguration ::@ @Maybe CORSConfiguration@
 --
 -- * @ContentMD5 ::@ @Maybe Text@
 --
-putBucketCors :: BucketName -- ^ 'pbcBucket'
+putBucketCors :: Text -- ^ 'pbcBucket'
               -> PutBucketCors
 putBucketCors p1 = PutBucketCors
     { _pbcBucket = p1
@@ -66,7 +66,7 @@ putBucketCors p1 = PutBucketCors
     , _pbcContentMD5 = Nothing
     }
 
-pbcBucket :: Lens' PutBucketCors BucketName
+pbcBucket :: Lens' PutBucketCors Text
 pbcBucket = lens _pbcBucket (\s a -> s { _pbcBucket = a })
 
 pbcCORSConfiguration :: Lens' PutBucketCors (Maybe CORSConfiguration)

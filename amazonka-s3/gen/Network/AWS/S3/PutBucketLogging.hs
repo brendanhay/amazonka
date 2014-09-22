@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data PutBucketLogging = PutBucketLogging
-    { _pbl1Bucket :: BucketName
+    { _pbl1Bucket :: Text
     , _pbl1BucketLoggingStatus :: BucketLoggingStatus
     , _pbl1ContentMD5 :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -54,13 +54,13 @@ data PutBucketLogging = PutBucketLogging
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
 -- * @BucketLoggingStatus ::@ @BucketLoggingStatus@
 --
 -- * @ContentMD5 ::@ @Maybe Text@
 --
-putBucketLogging :: BucketName -- ^ 'pbl1Bucket'
+putBucketLogging :: Text -- ^ 'pbl1Bucket'
                  -> BucketLoggingStatus -- ^ 'pbl1BucketLoggingStatus'
                  -> PutBucketLogging
 putBucketLogging p1 p2 = PutBucketLogging
@@ -69,7 +69,7 @@ putBucketLogging p1 p2 = PutBucketLogging
     , _pbl1ContentMD5 = Nothing
     }
 
-pbl1Bucket :: Lens' PutBucketLogging BucketName
+pbl1Bucket :: Lens' PutBucketLogging Text
 pbl1Bucket = lens _pbl1Bucket (\s a -> s { _pbl1Bucket = a })
 
 pbl1BucketLoggingStatus :: Lens' PutBucketLogging BucketLoggingStatus

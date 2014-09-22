@@ -103,7 +103,7 @@ instance ToQuery GetGroup where
 data GetGroupResponse = GetGroupResponse
     { _ggrGroup :: Group
     , _ggrUsers :: [User]
-    , _ggrIsTruncated :: !Bool
+    , _ggrIsTruncated :: Bool
     , _ggrMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 

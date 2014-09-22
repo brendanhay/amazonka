@@ -62,7 +62,7 @@ module Network.AWS.EC2.RequestSpotInstances
     -- ** Response constructor
     , requestSpotInstancesResponse
     -- ** Response lenses
-    , rsirItem
+    , rsirSpotInstanceRequests
     ) where
 
 import Network.AWS.Request.Query
@@ -181,7 +181,7 @@ instance ToQuery RequestSpotInstances where
     toQuery = genericQuery def
 
 newtype RequestSpotInstancesResponse = RequestSpotInstancesResponse
-    { _rsirItem :: [SpotInstanceRequest]
+    { _rsirSpotInstanceRequests :: [SpotInstanceRequest]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -191,16 +191,18 @@ newtype RequestSpotInstancesResponse = RequestSpotInstancesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Item ::@ @[SpotInstanceRequest]@
+-- * @SpotInstanceRequests ::@ @[SpotInstanceRequest]@
 --
 requestSpotInstancesResponse :: RequestSpotInstancesResponse
 requestSpotInstancesResponse = RequestSpotInstancesResponse
-    { _rsirItem = mempty
+    { _rsirSpotInstanceRequests = mempty
     }
 
 -- | Information about the Spot Instance request.
-rsirItem :: Lens' RequestSpotInstancesResponse [SpotInstanceRequest]
-rsirItem = lens _rsirItem (\s a -> s { _rsirItem = a })
+rsirSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceRequest]
+rsirSpotInstanceRequests =
+    lens _rsirSpotInstanceRequests
+         (\s a -> s { _rsirSpotInstanceRequests = a })
 
 instance FromXML RequestSpotInstancesResponse where
     fromXMLOptions = xmlOptions

@@ -48,7 +48,7 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
     , cdbirrIops
     , cdbirrOptionGroupName
     , cdbirrPubliclyAccessible
-    , cdbirrTag
+    , cdbirrTags
     , cdbirrDBSubnetGroupName
 
     -- * Response
@@ -73,7 +73,7 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica
     , _cdbirrIops :: Maybe Integer
     , _cdbirrOptionGroupName :: Maybe Text
     , _cdbirrPubliclyAccessible :: Maybe Bool
-    , _cdbirrTag :: [Tag]
+    , _cdbirrTags :: [Tag]
     , _cdbirrDBSubnetGroupName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -100,7 +100,7 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica
 --
 -- * @PubliclyAccessible ::@ @Maybe Bool@
 --
--- * @Tag ::@ @[Tag]@
+-- * @Tags ::@ @[Tag]@
 --
 -- * @DBSubnetGroupName ::@ @Maybe Text@
 --
@@ -117,7 +117,7 @@ createDBInstanceReadReplica p1 p2 = CreateDBInstanceReadReplica
     , _cdbirrIops = Nothing
     , _cdbirrOptionGroupName = Nothing
     , _cdbirrPubliclyAccessible = Nothing
-    , _cdbirrTag = mempty
+    , _cdbirrTags = mempty
     , _cdbirrDBSubnetGroupName = Nothing
     }
 
@@ -195,8 +195,8 @@ cdbirrPubliclyAccessible =
          (\s a -> s { _cdbirrPubliclyAccessible = a })
 
 -- | A list of tags.
-cdbirrTag :: Lens' CreateDBInstanceReadReplica [Tag]
-cdbirrTag = lens _cdbirrTag (\s a -> s { _cdbirrTag = a })
+cdbirrTags :: Lens' CreateDBInstanceReadReplica [Tag]
+cdbirrTags = lens _cdbirrTags (\s a -> s { _cdbirrTags = a })
 
 -- | A DB Subnet Group to associate with this DB Instance in case of a cross
 -- region read replica. If there is no DB Subnet Group, then it is a non-VPC

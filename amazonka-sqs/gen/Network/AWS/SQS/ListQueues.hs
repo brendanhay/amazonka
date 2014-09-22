@@ -43,7 +43,7 @@ module Network.AWS.SQS.ListQueues
     -- ** Response constructor
     , listQueuesResponse
     -- ** Response lenses
-    , lqrQueueUrl
+    , lqrQueueUrls
     ) where
 
 import Network.AWS.Request.Query
@@ -77,7 +77,7 @@ instance ToQuery ListQueues where
 
 -- | A list of your queues.
 newtype ListQueuesResponse = ListQueuesResponse
-    { _lqrQueueUrl :: [Text]
+    { _lqrQueueUrls :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -87,16 +87,16 @@ newtype ListQueuesResponse = ListQueuesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @QueueUrl ::@ @[Text]@
+-- * @QueueUrls ::@ @[Text]@
 --
 listQueuesResponse :: ListQueuesResponse
 listQueuesResponse = ListQueuesResponse
-    { _lqrQueueUrl = mempty
+    { _lqrQueueUrls = mempty
     }
 
 -- | A list of queue URLs, up to 1000 entries.
-lqrQueueUrl :: Lens' ListQueuesResponse [Text]
-lqrQueueUrl = lens _lqrQueueUrl (\s a -> s { _lqrQueueUrl = a })
+lqrQueueUrls :: Lens' ListQueuesResponse [Text]
+lqrQueueUrls = lens _lqrQueueUrls (\s a -> s { _lqrQueueUrls = a })
 
 instance FromXML ListQueuesResponse where
     fromXMLOptions = xmlOptions

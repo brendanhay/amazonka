@@ -44,7 +44,7 @@ module Network.AWS.RDS.DescribeDBParameterGroups
     , describeDBParameterGroupsResponse
     -- ** Response lenses
     , ddbpgrMarker
-    , ddbpgrDBParameterGroup
+    , ddbpgrDBParameterGroups
     ) where
 
 import Network.AWS.Request.Query
@@ -106,7 +106,7 @@ instance ToQuery DescribeDBParameterGroups where
 -- DescribeDBParameterGroups action.
 data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse
     { _ddbpgrMarker :: Maybe Text
-    , _ddbpgrDBParameterGroup :: [DBParameterGroup]
+    , _ddbpgrDBParameterGroups :: [DBParameterGroup]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -118,12 +118,12 @@ data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @DBParameterGroup ::@ @[DBParameterGroup]@
+-- * @DBParameterGroups ::@ @[DBParameterGroup]@
 --
 describeDBParameterGroupsResponse :: DescribeDBParameterGroupsResponse
 describeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse
     { _ddbpgrMarker = Nothing
-    , _ddbpgrDBParameterGroup = mempty
+    , _ddbpgrDBParameterGroups = mempty
     }
 
 -- | An optional pagination token provided by a previous request. If this
@@ -133,9 +133,10 @@ ddbpgrMarker :: Lens' DescribeDBParameterGroupsResponse (Maybe Text)
 ddbpgrMarker = lens _ddbpgrMarker (\s a -> s { _ddbpgrMarker = a })
 
 -- | A list of DBParameterGroup instances.
-ddbpgrDBParameterGroup :: Lens' DescribeDBParameterGroupsResponse [DBParameterGroup]
-ddbpgrDBParameterGroup =
-    lens _ddbpgrDBParameterGroup (\s a -> s { _ddbpgrDBParameterGroup = a })
+ddbpgrDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse [DBParameterGroup]
+ddbpgrDBParameterGroups =
+    lens _ddbpgrDBParameterGroups
+         (\s a -> s { _ddbpgrDBParameterGroups = a })
 
 instance FromXML DescribeDBParameterGroupsResponse where
     fromXMLOptions = xmlOptions

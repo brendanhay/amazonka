@@ -44,7 +44,7 @@ module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
     , describeCacheSubnetGroupsResponse
     -- ** Response lenses
     , dcsgrrMarker
-    , dcsgrrCacheSubnetGroup
+    , dcsgrrCacheSubnetGroups
     ) where
 
 import Network.AWS.Request.Query
@@ -102,7 +102,7 @@ instance ToQuery DescribeCacheSubnetGroups where
 -- | Represents the output of a DescribeCacheSubnetGroups operation.
 data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
     { _dcsgrrMarker :: Maybe Text
-    , _dcsgrrCacheSubnetGroup :: [CacheSubnetGroup]
+    , _dcsgrrCacheSubnetGroups :: [CacheSubnetGroup]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -114,12 +114,12 @@ data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @CacheSubnetGroup ::@ @[CacheSubnetGroup]@
+-- * @CacheSubnetGroups ::@ @[CacheSubnetGroup]@
 --
 describeCacheSubnetGroupsResponse :: DescribeCacheSubnetGroupsResponse
 describeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
     { _dcsgrrMarker = Nothing
-    , _dcsgrrCacheSubnetGroup = mempty
+    , _dcsgrrCacheSubnetGroups = mempty
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
@@ -128,9 +128,10 @@ dcsgrrMarker = lens _dcsgrrMarker (\s a -> s { _dcsgrrMarker = a })
 
 -- | A list of cache subnet groups. Each element in the list contains detailed
 -- information about one group.
-dcsgrrCacheSubnetGroup :: Lens' DescribeCacheSubnetGroupsResponse [CacheSubnetGroup]
-dcsgrrCacheSubnetGroup =
-    lens _dcsgrrCacheSubnetGroup (\s a -> s { _dcsgrrCacheSubnetGroup = a })
+dcsgrrCacheSubnetGroups :: Lens' DescribeCacheSubnetGroupsResponse [CacheSubnetGroup]
+dcsgrrCacheSubnetGroups =
+    lens _dcsgrrCacheSubnetGroups
+         (\s a -> s { _dcsgrrCacheSubnetGroups = a })
 
 instance FromXML DescribeCacheSubnetGroupsResponse where
     fromXMLOptions = xmlOptions

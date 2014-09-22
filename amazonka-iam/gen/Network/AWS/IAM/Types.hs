@@ -1360,10 +1360,8 @@ instance FromXML ServerCertificate where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ServerCertificate"
 
--- | ServerCertificateMetadata contains information about a server certificate
--- without its certificate body, certificate chain, and private key. This data
--- type is used as a response element in the action UploadServerCertificate
--- and ListServerCertificates.
+-- | The meta information of the uploaded server certificate without its
+-- certificate body, certificate chain, and private key.
 data ServerCertificateMetadata = ServerCertificateMetadata
     { _scmPath :: Text
     , _scmServerCertificateName :: Text
@@ -1443,9 +1441,7 @@ instance FromXML ServerCertificateMetadata where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ServerCertificateMetadata"
 
--- | The SigningCertificate data type contains information about an X.509
--- signing certificate. This data type is used as a response element in the
--- actions UploadSigningCertificate and ListSigningCertificates.
+-- | Information about the certificate.
 data SigningCertificate = SigningCertificate
     { _scrUserName :: Text
     , _scrCertificateId :: Text

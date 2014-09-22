@@ -40,7 +40,7 @@ module Network.AWS.Redshift.ModifyClusterParameterGroup
     , modifyClusterParameterGroup
     -- ** Request lenses
     , mcpgParameterGroupName
-    , mcpgParameter
+    , mcpgParameters
 
     -- * Response
     , ModifyClusterParameterGroupResponse
@@ -58,7 +58,7 @@ import Network.AWS.Prelude
 -- | 
 data ModifyClusterParameterGroup = ModifyClusterParameterGroup
     { _mcpgParameterGroupName :: Text
-    , _mcpgParameter :: [Parameter]
+    , _mcpgParameters :: [Parameter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -68,14 +68,14 @@ data ModifyClusterParameterGroup = ModifyClusterParameterGroup
 --
 -- * @ParameterGroupName ::@ @Text@
 --
--- * @Parameter ::@ @[Parameter]@
+-- * @Parameters ::@ @[Parameter]@
 --
 modifyClusterParameterGroup :: Text -- ^ 'mcpgParameterGroupName'
-                            -> [Parameter] -- ^ 'mcpgParameter'
+                            -> [Parameter] -- ^ 'mcpgParameters'
                             -> ModifyClusterParameterGroup
 modifyClusterParameterGroup p1 p2 = ModifyClusterParameterGroup
     { _mcpgParameterGroupName = p1
-    , _mcpgParameter = p2
+    , _mcpgParameters = p2
     }
 
 -- | The name of the parameter group to be modified.
@@ -89,8 +89,8 @@ mcpgParameterGroupName =
 -- pairs of the parameter are optional. For the workload management (WLM)
 -- configuration, you must supply all the name-value pairs in the
 -- wlm_json_configuration parameter.
-mcpgParameter :: Lens' ModifyClusterParameterGroup [Parameter]
-mcpgParameter = lens _mcpgParameter (\s a -> s { _mcpgParameter = a })
+mcpgParameters :: Lens' ModifyClusterParameterGroup [Parameter]
+mcpgParameters = lens _mcpgParameters (\s a -> s { _mcpgParameters = a })
 
 instance ToQuery ModifyClusterParameterGroup where
     toQuery = genericQuery def

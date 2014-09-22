@@ -44,7 +44,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data PutBucketVersioning = PutBucketVersioning
-    { _pbvBucket :: BucketName
+    { _pbvBucket :: Text
     , _pbvContentMD5 :: Maybe Text
     , _pbvMFA :: Maybe Text
     , _pbvVersioningConfiguration :: VersioningConfiguration
@@ -55,7 +55,7 @@ data PutBucketVersioning = PutBucketVersioning
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
 -- * @ContentMD5 ::@ @Maybe Text@
 --
@@ -63,7 +63,7 @@ data PutBucketVersioning = PutBucketVersioning
 --
 -- * @VersioningConfiguration ::@ @VersioningConfiguration@
 --
-putBucketVersioning :: BucketName -- ^ 'pbvBucket'
+putBucketVersioning :: Text -- ^ 'pbvBucket'
                     -> VersioningConfiguration -- ^ 'pbvVersioningConfiguration'
                     -> PutBucketVersioning
 putBucketVersioning p1 p4 = PutBucketVersioning
@@ -73,7 +73,7 @@ putBucketVersioning p1 p4 = PutBucketVersioning
     , _pbvVersioningConfiguration = p4
     }
 
-pbvBucket :: Lens' PutBucketVersioning BucketName
+pbvBucket :: Lens' PutBucketVersioning Text
 pbvBucket = lens _pbvBucket (\s a -> s { _pbvBucket = a })
 
 pbvContentMD5 :: Lens' PutBucketVersioning (Maybe Text)

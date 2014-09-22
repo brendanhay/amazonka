@@ -36,7 +36,7 @@ module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
     -- ** Request lenses
     , mcsgCacheSubnetGroupName
     , mcsgCacheSubnetGroupDescription
-    , mcsgSubnetIdentifier
+    , mcsgSubnetIds
 
     -- * Response
     , ModifyCacheSubnetGroupResponse
@@ -54,7 +54,7 @@ import Network.AWS.Prelude
 data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup
     { _mcsgCacheSubnetGroupName :: Text
     , _mcsgCacheSubnetGroupDescription :: Maybe Text
-    , _mcsgSubnetIdentifier :: [Text]
+    , _mcsgSubnetIds :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -66,14 +66,14 @@ data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup
 --
 -- * @CacheSubnetGroupDescription ::@ @Maybe Text@
 --
--- * @SubnetIdentifier ::@ @[Text]@
+-- * @SubnetIds ::@ @[Text]@
 --
 modifyCacheSubnetGroup :: Text -- ^ 'mcsgCacheSubnetGroupName'
                        -> ModifyCacheSubnetGroup
 modifyCacheSubnetGroup p1 = ModifyCacheSubnetGroup
     { _mcsgCacheSubnetGroupName = p1
     , _mcsgCacheSubnetGroupDescription = Nothing
-    , _mcsgSubnetIdentifier = mempty
+    , _mcsgSubnetIds = mempty
     }
 
 -- | The name for the cache subnet group. This value is stored as a lowercase
@@ -91,9 +91,8 @@ mcsgCacheSubnetGroupDescription =
          (\s a -> s { _mcsgCacheSubnetGroupDescription = a })
 
 -- | The EC2 subnet IDs for the cache subnet group.
-mcsgSubnetIdentifier :: Lens' ModifyCacheSubnetGroup [Text]
-mcsgSubnetIdentifier =
-    lens _mcsgSubnetIdentifier (\s a -> s { _mcsgSubnetIdentifier = a })
+mcsgSubnetIds :: Lens' ModifyCacheSubnetGroup [Text]
+mcsgSubnetIds = lens _mcsgSubnetIds (\s a -> s { _mcsgSubnetIds = a })
 
 instance ToQuery ModifyCacheSubnetGroup where
     toQuery = genericQuery def

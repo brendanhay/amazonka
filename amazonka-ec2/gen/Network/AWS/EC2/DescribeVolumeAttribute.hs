@@ -59,7 +59,7 @@ module Network.AWS.EC2.DescribeVolumeAttribute
     -- ** Response lenses
     , dvarVolumeId
     , dvarAutoEnableIO
-    , dvarItem
+    , dvarProductCodes
     ) where
 
 import Network.AWS.Request.Query
@@ -101,7 +101,7 @@ instance ToQuery DescribeVolumeAttribute where
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
     { _dvarVolumeId :: Maybe Text
     , _dvarAutoEnableIO :: Maybe AttributeBooleanValue
-    , _dvarItem :: [ProductCode]
+    , _dvarProductCodes :: [ProductCode]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -115,13 +115,13 @@ data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
 --
 -- * @AutoEnableIO ::@ @Maybe AttributeBooleanValue@
 --
--- * @Item ::@ @[ProductCode]@
+-- * @ProductCodes ::@ @[ProductCode]@
 --
 describeVolumeAttributeResponse :: DescribeVolumeAttributeResponse
 describeVolumeAttributeResponse = DescribeVolumeAttributeResponse
     { _dvarVolumeId = Nothing
     , _dvarAutoEnableIO = Nothing
-    , _dvarItem = mempty
+    , _dvarProductCodes = mempty
     }
 
 -- | The ID of the volume.
@@ -134,8 +134,9 @@ dvarAutoEnableIO =
     lens _dvarAutoEnableIO (\s a -> s { _dvarAutoEnableIO = a })
 
 -- | A list of product codes.
-dvarItem :: Lens' DescribeVolumeAttributeResponse [ProductCode]
-dvarItem = lens _dvarItem (\s a -> s { _dvarItem = a })
+dvarProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
+dvarProductCodes =
+    lens _dvarProductCodes (\s a -> s { _dvarProductCodes = a })
 
 instance FromXML DescribeVolumeAttributeResponse where
     fromXMLOptions = xmlOptions

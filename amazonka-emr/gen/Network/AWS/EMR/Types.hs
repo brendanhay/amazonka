@@ -1134,7 +1134,7 @@ instance FromJSON BootstrapActionDetail
 
 instance ToJSON BootstrapActionDetail
 
--- | The Amazon EC2 Availability Zone for the job flow.
+-- | The Availability Zone the job flow will run in.
 newtype PlacementType = PlacementType
     { _ptAvailabilityZone :: Text
     } deriving (Eq, Ord, Show, Generic)
@@ -1221,7 +1221,7 @@ aAdditionalInfo = lens _aAdditionalInfo (\s a -> s { _aAdditionalInfo = a })
 
 instance FromJSON Application
 
--- | A description of the bootstrap action.
+-- | Configuration of a bootstrap action.
 data BootstrapActionConfig = BootstrapActionConfig
     { _bacName :: Text
     , _bacScriptBootstrapAction :: ScriptBootstrapActionConfig

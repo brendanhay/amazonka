@@ -47,9 +47,9 @@ import Network.AWS.Types (Region)
 type PostObjectRestore = RestoreObject
 
 data RestoreObject = RestoreObject
-    { _roBucket :: BucketName
-    , _roKey :: ObjectKey
-    , _roVersionId :: Maybe ObjectVersionId
+    { _roBucket :: Text
+    , _roKey :: Text
+    , _roVersionId :: Maybe Text
     , _roRestoreRequest :: Maybe RestoreRequest
     } deriving (Eq, Ord, Show, Generic)
 
@@ -58,16 +58,16 @@ data RestoreObject = RestoreObject
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
--- * @Key ::@ @ObjectKey@
+-- * @Key ::@ @Text@
 --
--- * @VersionId ::@ @Maybe ObjectVersionId@
+-- * @VersionId ::@ @Maybe Text@
 --
 -- * @RestoreRequest ::@ @Maybe RestoreRequest@
 --
-restoreObject :: BucketName -- ^ 'roBucket'
-              -> ObjectKey -- ^ 'roKey'
+restoreObject :: Text -- ^ 'roBucket'
+              -> Text -- ^ 'roKey'
               -> RestoreObject
 restoreObject p1 p2 = RestoreObject
     { _roBucket = p1
@@ -76,13 +76,13 @@ restoreObject p1 p2 = RestoreObject
     , _roRestoreRequest = Nothing
     }
 
-roBucket :: Lens' RestoreObject BucketName
+roBucket :: Lens' RestoreObject Text
 roBucket = lens _roBucket (\s a -> s { _roBucket = a })
 
-roKey :: Lens' RestoreObject ObjectKey
+roKey :: Lens' RestoreObject Text
 roKey = lens _roKey (\s a -> s { _roKey = a })
 
-roVersionId :: Lens' RestoreObject (Maybe ObjectVersionId)
+roVersionId :: Lens' RestoreObject (Maybe Text)
 roVersionId = lens _roVersionId (\s a -> s { _roVersionId = a })
 
 roRestoreRequest :: Lens' RestoreObject (Maybe RestoreRequest)

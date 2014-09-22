@@ -58,7 +58,7 @@ module Network.AWS.EC2.StopInstances
     -- ** Request constructor
     , stopInstances
     -- ** Request lenses
-    , si1InstanceId
+    , si1InstanceIds
     , si1Force
 
     -- * Response
@@ -66,7 +66,7 @@ module Network.AWS.EC2.StopInstances
     -- ** Response constructor
     , stopInstancesResponse
     -- ** Response lenses
-    , sir1Item
+    , sir1StoppingInstances
     ) where
 
 import Network.AWS.Request.Query
@@ -74,7 +74,7 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data StopInstances = StopInstances
-    { _si1InstanceId :: [Text]
+    { _si1InstanceIds :: [Text]
     , _si1Force :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
@@ -83,20 +83,20 @@ data StopInstances = StopInstances
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @InstanceId ::@ @[Text]@
+-- * @InstanceIds ::@ @[Text]@
 --
 -- * @Force ::@ @Maybe Bool@
 --
-stopInstances :: [Text] -- ^ 'si1InstanceId'
+stopInstances :: [Text] -- ^ 'si1InstanceIds'
               -> StopInstances
 stopInstances p1 = StopInstances
-    { _si1InstanceId = p1
+    { _si1InstanceIds = p1
     , _si1Force = Nothing
     }
 
 -- | One or more instance IDs.
-si1InstanceId :: Lens' StopInstances [Text]
-si1InstanceId = lens _si1InstanceId (\s a -> s { _si1InstanceId = a })
+si1InstanceIds :: Lens' StopInstances [Text]
+si1InstanceIds = lens _si1InstanceIds (\s a -> s { _si1InstanceIds = a })
 
 -- | Forces the instances to stop. The instances do not have an opportunity to
 -- flush file system caches or file system metadata. If you use this option,
@@ -109,7 +109,7 @@ instance ToQuery StopInstances where
     toQuery = genericQuery def
 
 newtype StopInstancesResponse = StopInstancesResponse
-    { _sir1Item :: [InstanceStateChange]
+    { _sir1StoppingInstances :: [InstanceStateChange]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -119,16 +119,17 @@ newtype StopInstancesResponse = StopInstancesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Item ::@ @[InstanceStateChange]@
+-- * @StoppingInstances ::@ @[InstanceStateChange]@
 --
 stopInstancesResponse :: StopInstancesResponse
 stopInstancesResponse = StopInstancesResponse
-    { _sir1Item = mempty
+    { _sir1StoppingInstances = mempty
     }
 
 -- | Information about one or more stopped instances.
-sir1Item :: Lens' StopInstancesResponse [InstanceStateChange]
-sir1Item = lens _sir1Item (\s a -> s { _sir1Item = a })
+sir1StoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
+sir1StoppingInstances =
+    lens _sir1StoppingInstances (\s a -> s { _sir1StoppingInstances = a })
 
 instance FromXML StopInstancesResponse where
     fromXMLOptions = xmlOptions

@@ -106,7 +106,7 @@ instance ToQuery ListGroups where
 -- | Contains the result of a successful invocation of the ListGroups action.
 data ListGroupsResponse = ListGroupsResponse
     { _lgrGroups :: [Group]
-    , _lgrIsTruncated :: !Bool
+    , _lgrIsTruncated :: Bool
     , _lgrMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 

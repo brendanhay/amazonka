@@ -38,7 +38,7 @@ module Network.AWS.Redshift.DescribeEventSubscriptions
     , describeEventSubscriptionsResponse
     -- ** Response lenses
     , desrMarker
-    , desrEventSubscription
+    , desrEventSubscriptionsList
     ) where
 
 import Network.AWS.Request.Query
@@ -99,7 +99,7 @@ instance ToQuery DescribeEventSubscriptions where
 -- | 
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
     { _desrMarker :: Maybe Text
-    , _desrEventSubscription :: [EventSubscription]
+    , _desrEventSubscriptionsList :: [EventSubscription]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -111,12 +111,12 @@ data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @EventSubscription ::@ @[EventSubscription]@
+-- * @EventSubscriptionsList ::@ @[EventSubscription]@
 --
 describeEventSubscriptionsResponse :: DescribeEventSubscriptionsResponse
 describeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
     { _desrMarker = Nothing
-    , _desrEventSubscription = mempty
+    , _desrEventSubscriptionsList = mempty
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -128,9 +128,10 @@ desrMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
 desrMarker = lens _desrMarker (\s a -> s { _desrMarker = a })
 
 -- | A list of event subscriptions.
-desrEventSubscription :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
-desrEventSubscription =
-    lens _desrEventSubscription (\s a -> s { _desrEventSubscription = a })
+desrEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
+desrEventSubscriptionsList =
+    lens _desrEventSubscriptionsList
+         (\s a -> s { _desrEventSubscriptionsList = a })
 
 instance FromXML DescribeEventSubscriptionsResponse where
     fromXMLOptions = xmlOptions

@@ -48,7 +48,7 @@ module Network.AWS.ElastiCache.DescribeSnapshots
     , describeSnapshotsResponse
     -- ** Response lenses
     , dsrrMarker
-    , dsrrSnapshot
+    , dsrrSnapshots
     ) where
 
 import Network.AWS.Request.Query
@@ -127,7 +127,7 @@ instance ToQuery DescribeSnapshots where
 -- | Represents the output of a DescribeSnapshots operation.
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrrMarker :: Maybe Text
-    , _dsrrSnapshot :: [Snapshot]
+    , _dsrrSnapshots :: [Snapshot]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -139,12 +139,12 @@ data DescribeSnapshotsResponse = DescribeSnapshotsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @Snapshot ::@ @[Snapshot]@
+-- * @Snapshots ::@ @[Snapshot]@
 --
 describeSnapshotsResponse :: DescribeSnapshotsResponse
 describeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrrMarker = Nothing
-    , _dsrrSnapshot = mempty
+    , _dsrrSnapshots = mempty
     }
 
 -- | An optional marker returned from a prior request. Use this marker for
@@ -156,8 +156,8 @@ dsrrMarker = lens _dsrrMarker (\s a -> s { _dsrrMarker = a })
 
 -- | A list of snapshots. Each item in the list contains detailed information
 -- about one snapshot.
-dsrrSnapshot :: Lens' DescribeSnapshotsResponse [Snapshot]
-dsrrSnapshot = lens _dsrrSnapshot (\s a -> s { _dsrrSnapshot = a })
+dsrrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
+dsrrSnapshots = lens _dsrrSnapshots (\s a -> s { _dsrrSnapshots = a })
 
 instance FromXML DescribeSnapshotsResponse where
     fromXMLOptions = xmlOptions

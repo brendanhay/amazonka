@@ -77,7 +77,7 @@ module Network.AWS.EC2.RegisterImage
     , ri2KernelId
     , ri2RamdiskId
     , ri2RootDeviceName
-    , ri2BlockDeviceMapping
+    , ri2BlockDeviceMappings
     , ri2VirtualizationType
     , ri2SriovNetSupport
 
@@ -101,7 +101,7 @@ data RegisterImage = RegisterImage
     , _ri2KernelId :: Maybe Text
     , _ri2RamdiskId :: Maybe Text
     , _ri2RootDeviceName :: Maybe Text
-    , _ri2BlockDeviceMapping :: [BlockDeviceMapping]
+    , _ri2BlockDeviceMappings :: [BlockDeviceMapping]
     , _ri2VirtualizationType :: Maybe VirtualizationType
     , _ri2SriovNetSupport :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -125,7 +125,7 @@ data RegisterImage = RegisterImage
 --
 -- * @RootDeviceName ::@ @Maybe Text@
 --
--- * @BlockDeviceMapping ::@ @[BlockDeviceMapping]@
+-- * @BlockDeviceMappings ::@ @[BlockDeviceMapping]@
 --
 -- * @VirtualizationType ::@ @Maybe VirtualizationType@
 --
@@ -141,7 +141,7 @@ registerImage p2 = RegisterImage
     , _ri2KernelId = Nothing
     , _ri2RamdiskId = Nothing
     , _ri2RootDeviceName = Nothing
-    , _ri2BlockDeviceMapping = mempty
+    , _ri2BlockDeviceMappings = mempty
     , _ri2VirtualizationType = Nothing
     , _ri2SriovNetSupport = Nothing
     }
@@ -180,9 +180,9 @@ ri2RootDeviceName =
     lens _ri2RootDeviceName (\s a -> s { _ri2RootDeviceName = a })
 
 -- | One or more block device mapping entries.
-ri2BlockDeviceMapping :: Lens' RegisterImage [BlockDeviceMapping]
-ri2BlockDeviceMapping =
-    lens _ri2BlockDeviceMapping (\s a -> s { _ri2BlockDeviceMapping = a })
+ri2BlockDeviceMappings :: Lens' RegisterImage [BlockDeviceMapping]
+ri2BlockDeviceMappings =
+    lens _ri2BlockDeviceMappings (\s a -> s { _ri2BlockDeviceMappings = a })
 
 -- | The type of virtualization.
 ri2VirtualizationType :: Lens' RegisterImage (Maybe VirtualizationType)

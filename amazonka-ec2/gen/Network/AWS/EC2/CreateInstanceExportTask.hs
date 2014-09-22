@@ -57,7 +57,7 @@ module Network.AWS.EC2.CreateInstanceExportTask
     , cietDescription
     , cietInstanceId
     , cietTargetEnvironment
-    , cietExportToS3
+    , cietExportToS3Task
 
     -- * Response
     , CreateInstanceExportTaskResponse
@@ -75,7 +75,7 @@ data CreateInstanceExportTask = CreateInstanceExportTask
     { _cietDescription :: Maybe Text
     , _cietInstanceId :: Text
     , _cietTargetEnvironment :: Maybe ExportEnvironment
-    , _cietExportToS3 :: Maybe ExportToS3TaskSpecification
+    , _cietExportToS3Task :: Maybe ExportToS3TaskSpecification
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -89,7 +89,7 @@ data CreateInstanceExportTask = CreateInstanceExportTask
 --
 -- * @TargetEnvironment ::@ @Maybe ExportEnvironment@
 --
--- * @ExportToS3 ::@ @Maybe ExportToS3TaskSpecification@
+-- * @ExportToS3Task ::@ @Maybe ExportToS3TaskSpecification@
 --
 createInstanceExportTask :: Text -- ^ 'cietInstanceId'
                          -> CreateInstanceExportTask
@@ -97,7 +97,7 @@ createInstanceExportTask p2 = CreateInstanceExportTask
     { _cietDescription = Nothing
     , _cietInstanceId = p2
     , _cietTargetEnvironment = Nothing
-    , _cietExportToS3 = Nothing
+    , _cietExportToS3Task = Nothing
     }
 
 -- | A description for the conversion task or the resource being exported. The
@@ -115,8 +115,9 @@ cietTargetEnvironment =
     lens _cietTargetEnvironment (\s a -> s { _cietTargetEnvironment = a })
 
 -- | 
-cietExportToS3 :: Lens' CreateInstanceExportTask (Maybe ExportToS3TaskSpecification)
-cietExportToS3 = lens _cietExportToS3 (\s a -> s { _cietExportToS3 = a })
+cietExportToS3Task :: Lens' CreateInstanceExportTask (Maybe ExportToS3TaskSpecification)
+cietExportToS3Task =
+    lens _cietExportToS3Task (\s a -> s { _cietExportToS3Task = a })
 
 instance ToQuery CreateInstanceExportTask where
     toQuery = genericQuery def

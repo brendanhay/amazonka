@@ -50,7 +50,7 @@ module Network.AWS.Redshift.DescribeClusterParameterGroups
     , describeClusterParameterGroupsResponse
     -- ** Response lenses
     , dcpgrMarker
-    , dcpgrClusterParameterGroup
+    , dcpgrParameterGroups
     ) where
 
 import Network.AWS.Request.Query
@@ -113,7 +113,7 @@ instance ToQuery DescribeClusterParameterGroups where
 -- | Contains the output from the DescribeClusterParameterGroups action.
 data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse
     { _dcpgrMarker :: Maybe Text
-    , _dcpgrClusterParameterGroup :: [ClusterParameterGroup]
+    , _dcpgrParameterGroups :: [ClusterParameterGroup]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -125,12 +125,12 @@ data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResp
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @ClusterParameterGroup ::@ @[ClusterParameterGroup]@
+-- * @ParameterGroups ::@ @[ClusterParameterGroup]@
 --
 describeClusterParameterGroupsResponse :: DescribeClusterParameterGroupsResponse
 describeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse
     { _dcpgrMarker = Nothing
-    , _dcpgrClusterParameterGroup = mempty
+    , _dcpgrParameterGroups = mempty
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -143,10 +143,9 @@ dcpgrMarker = lens _dcpgrMarker (\s a -> s { _dcpgrMarker = a })
 
 -- | A list of ClusterParameterGroup instances. Each instance describes one
 -- cluster parameter group.
-dcpgrClusterParameterGroup :: Lens' DescribeClusterParameterGroupsResponse [ClusterParameterGroup]
-dcpgrClusterParameterGroup =
-    lens _dcpgrClusterParameterGroup
-         (\s a -> s { _dcpgrClusterParameterGroup = a })
+dcpgrParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterParameterGroup]
+dcpgrParameterGroups =
+    lens _dcpgrParameterGroups (\s a -> s { _dcpgrParameterGroups = a })
 
 instance FromXML DescribeClusterParameterGroupsResponse where
     fromXMLOptions = xmlOptions

@@ -69,8 +69,8 @@ module Network.AWS.EC2.DescribeVolumeStatus
     -- ** Request constructor
     , describeVolumeStatus
     -- ** Request lenses
-    , dvsVolumeId
-    , dvsFilter
+    , dvsVolumeIds
+    , dvsFilters
     , dvsNextToken
     , dvsMaxResults
 
@@ -79,7 +79,7 @@ module Network.AWS.EC2.DescribeVolumeStatus
     -- ** Response constructor
     , describeVolumeStatusResponse
     -- ** Response lenses
-    , dvsrItem
+    , dvsrVolumeStatuses
     , dvsrNextToken
     ) where
 
@@ -88,8 +88,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeVolumeStatus = DescribeVolumeStatus
-    { _dvsVolumeId :: [Text]
-    , _dvsFilter :: [Filter]
+    { _dvsVolumeIds :: [Text]
+    , _dvsFilters :: [Filter]
     , _dvsNextToken :: Maybe Text
     , _dvsMaxResults :: Maybe Integer
     } deriving (Eq, Ord, Show, Generic)
@@ -99,9 +99,9 @@ data DescribeVolumeStatus = DescribeVolumeStatus
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @VolumeId ::@ @[Text]@
+-- * @VolumeIds ::@ @[Text]@
 --
--- * @Filter ::@ @[Filter]@
+-- * @Filters ::@ @[Filter]@
 --
 -- * @NextToken ::@ @Maybe Text@
 --
@@ -109,15 +109,15 @@ data DescribeVolumeStatus = DescribeVolumeStatus
 --
 describeVolumeStatus :: DescribeVolumeStatus
 describeVolumeStatus = DescribeVolumeStatus
-    { _dvsVolumeId = mempty
-    , _dvsFilter = mempty
+    { _dvsVolumeIds = mempty
+    , _dvsFilters = mempty
     , _dvsNextToken = Nothing
     , _dvsMaxResults = Nothing
     }
 
 -- | One or more volume IDs. Default: Describes all your volumes.
-dvsVolumeId :: Lens' DescribeVolumeStatus [Text]
-dvsVolumeId = lens _dvsVolumeId (\s a -> s { _dvsVolumeId = a })
+dvsVolumeIds :: Lens' DescribeVolumeStatus [Text]
+dvsVolumeIds = lens _dvsVolumeIds (\s a -> s { _dvsVolumeIds = a })
 
 -- | One or more filters. action.code - The action code for the event (for
 -- example, enable-volume-io). action.description - A description of the
@@ -134,8 +134,8 @@ dvsVolumeId = lens _dvsVolumeId (\s a -> s { _dvsVolumeId = a })
 -- io-performance: normal | degraded | severely-degraded | stalled).
 -- volume-status.status - The status of the volume (ok | impaired | warning |
 -- insufficient-data).
-dvsFilter :: Lens' DescribeVolumeStatus [Filter]
-dvsFilter = lens _dvsFilter (\s a -> s { _dvsFilter = a })
+dvsFilters :: Lens' DescribeVolumeStatus [Filter]
+dvsFilters = lens _dvsFilters (\s a -> s { _dvsFilters = a })
 
 -- | The next paginated set of results to return using the pagination token
 -- returned by a previous call.
@@ -150,7 +150,7 @@ instance ToQuery DescribeVolumeStatus where
     toQuery = genericQuery def
 
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
-    { _dvsrItem :: [VolumeStatusItem]
+    { _dvsrVolumeStatuses :: [VolumeStatusItem]
     , _dvsrNextToken :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -161,19 +161,20 @@ data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Item ::@ @[VolumeStatusItem]@
+-- * @VolumeStatuses ::@ @[VolumeStatusItem]@
 --
 -- * @NextToken ::@ @Maybe Text@
 --
 describeVolumeStatusResponse :: DescribeVolumeStatusResponse
 describeVolumeStatusResponse = DescribeVolumeStatusResponse
-    { _dvsrItem = mempty
+    { _dvsrVolumeStatuses = mempty
     , _dvsrNextToken = Nothing
     }
 
 -- | A list of volumes.
-dvsrItem :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
-dvsrItem = lens _dvsrItem (\s a -> s { _dvsrItem = a })
+dvsrVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
+dvsrVolumeStatuses =
+    lens _dvsrVolumeStatuses (\s a -> s { _dvsrVolumeStatuses = a })
 
 -- | The next paginated set of results to return.
 dvsrNextToken :: Lens' DescribeVolumeStatusResponse (Maybe Text)

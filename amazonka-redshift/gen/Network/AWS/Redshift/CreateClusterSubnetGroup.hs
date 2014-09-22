@@ -41,7 +41,7 @@ module Network.AWS.Redshift.CreateClusterSubnetGroup
     -- ** Request lenses
     , ccsg1ClusterSubnetGroupName
     , ccsg1Description
-    , ccsg1SubnetIdentifier
+    , ccsg1SubnetIds
 
     -- * Response
     , CreateClusterSubnetGroupResponse
@@ -59,7 +59,7 @@ import Network.AWS.Prelude
 data CreateClusterSubnetGroup = CreateClusterSubnetGroup
     { _ccsg1ClusterSubnetGroupName :: Text
     , _ccsg1Description :: Text
-    , _ccsg1SubnetIdentifier :: [Text]
+    , _ccsg1SubnetIds :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -71,16 +71,16 @@ data CreateClusterSubnetGroup = CreateClusterSubnetGroup
 --
 -- * @Description ::@ @Text@
 --
--- * @SubnetIdentifier ::@ @[Text]@
+-- * @SubnetIds ::@ @[Text]@
 --
 createClusterSubnetGroup :: Text -- ^ 'ccsg1ClusterSubnetGroupName'
                          -> Text -- ^ 'ccsg1Description'
-                         -> [Text] -- ^ 'ccsg1SubnetIdentifier'
+                         -> [Text] -- ^ 'ccsg1SubnetIds'
                          -> CreateClusterSubnetGroup
 createClusterSubnetGroup p1 p2 p3 = CreateClusterSubnetGroup
     { _ccsg1ClusterSubnetGroupName = p1
     , _ccsg1Description = p2
-    , _ccsg1SubnetIdentifier = p3
+    , _ccsg1SubnetIds = p3
     }
 
 -- | The name for the subnet group. Amazon Redshift stores the value as a
@@ -99,9 +99,8 @@ ccsg1Description =
 
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
 -- single request.
-ccsg1SubnetIdentifier :: Lens' CreateClusterSubnetGroup [Text]
-ccsg1SubnetIdentifier =
-    lens _ccsg1SubnetIdentifier (\s a -> s { _ccsg1SubnetIdentifier = a })
+ccsg1SubnetIds :: Lens' CreateClusterSubnetGroup [Text]
+ccsg1SubnetIds = lens _ccsg1SubnetIds (\s a -> s { _ccsg1SubnetIds = a })
 
 instance ToQuery CreateClusterSubnetGroup where
     toQuery = genericQuery def

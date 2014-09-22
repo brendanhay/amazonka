@@ -46,7 +46,7 @@ module Network.AWS.Redshift.DescribeClusterSubnetGroups
     , describeClusterSubnetGroupsResponse
     -- ** Response lenses
     , dcsgrrMarker
-    , dcsgrrClusterSubnetGroup
+    , dcsgrrClusterSubnetGroups
     ) where
 
 import Network.AWS.Request.Query
@@ -107,7 +107,7 @@ instance ToQuery DescribeClusterSubnetGroups where
 -- | Contains the output from the DescribeClusterSubnetGroups action.
 data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
     { _dcsgrrMarker :: Maybe Text
-    , _dcsgrrClusterSubnetGroup :: [ClusterSubnetGroup]
+    , _dcsgrrClusterSubnetGroups :: [ClusterSubnetGroup]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -119,12 +119,12 @@ data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @ClusterSubnetGroup ::@ @[ClusterSubnetGroup]@
+-- * @ClusterSubnetGroups ::@ @[ClusterSubnetGroup]@
 --
 describeClusterSubnetGroupsResponse :: DescribeClusterSubnetGroupsResponse
 describeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse
     { _dcsgrrMarker = Nothing
-    , _dcsgrrClusterSubnetGroup = mempty
+    , _dcsgrrClusterSubnetGroups = mempty
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -136,10 +136,10 @@ dcsgrrMarker :: Lens' DescribeClusterSubnetGroupsResponse (Maybe Text)
 dcsgrrMarker = lens _dcsgrrMarker (\s a -> s { _dcsgrrMarker = a })
 
 -- | A list of ClusterSubnetGroup instances.
-dcsgrrClusterSubnetGroup :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
-dcsgrrClusterSubnetGroup =
-    lens _dcsgrrClusterSubnetGroup
-         (\s a -> s { _dcsgrrClusterSubnetGroup = a })
+dcsgrrClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
+dcsgrrClusterSubnetGroups =
+    lens _dcsgrrClusterSubnetGroups
+         (\s a -> s { _dcsgrrClusterSubnetGroups = a })
 
 instance FromXML DescribeClusterSubnetGroupsResponse where
     fromXMLOptions = xmlOptions

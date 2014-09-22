@@ -50,13 +50,13 @@ module Network.AWS.ElastiCache.CreateCacheCluster
     , cccEngineVersion
     , cccCacheParameterGroupName
     , cccCacheSubnetGroupName
-    , cccCacheSecurityGroupName
-    , cccSecurityGroupId
-    , cccSnapshotArn
+    , cccCacheSecurityGroupNames
+    , cccSecurityGroupIds
+    , cccSnapshotArns
     , cccSnapshotName
     , cccAZMode
     , cccPreferredAvailabilityZone
-    , cccPreferredAvailabilityZone
+    , cccPreferredAvailabilityZones
     , cccPreferredMaintenanceWindow
     , cccPort
     , cccNotificationTopicArn
@@ -86,13 +86,13 @@ data CreateCacheCluster = CreateCacheCluster
     , _cccEngineVersion :: Maybe Text
     , _cccCacheParameterGroupName :: Maybe Text
     , _cccCacheSubnetGroupName :: Maybe Text
-    , _cccCacheSecurityGroupName :: [Text]
-    , _cccSecurityGroupId :: [Text]
-    , _cccSnapshotArn :: [Text]
+    , _cccCacheSecurityGroupNames :: [Text]
+    , _cccSecurityGroupIds :: [Text]
+    , _cccSnapshotArns :: [Text]
     , _cccSnapshotName :: Maybe Text
     , _cccAZMode :: Maybe Text
     , _cccPreferredAvailabilityZone :: Maybe Text
-    , _cccPreferredAvailabilityZone :: [Text]
+    , _cccPreferredAvailabilityZones :: [Text]
     , _cccPreferredMaintenanceWindow :: Maybe Text
     , _cccPort :: Maybe Integer
     , _cccNotificationTopicArn :: Maybe Text
@@ -122,11 +122,11 @@ data CreateCacheCluster = CreateCacheCluster
 --
 -- * @CacheSubnetGroupName ::@ @Maybe Text@
 --
--- * @CacheSecurityGroupName ::@ @[Text]@
+-- * @CacheSecurityGroupNames ::@ @[Text]@
 --
--- * @SecurityGroupId ::@ @[Text]@
+-- * @SecurityGroupIds ::@ @[Text]@
 --
--- * @SnapshotArn ::@ @[Text]@
+-- * @SnapshotArns ::@ @[Text]@
 --
 -- * @SnapshotName ::@ @Maybe Text@
 --
@@ -134,7 +134,7 @@ data CreateCacheCluster = CreateCacheCluster
 --
 -- * @PreferredAvailabilityZone ::@ @Maybe Text@
 --
--- * @PreferredAvailabilityZone ::@ @[Text]@
+-- * @PreferredAvailabilityZones ::@ @[Text]@
 --
 -- * @PreferredMaintenanceWindow ::@ @Maybe Text@
 --
@@ -159,13 +159,13 @@ createCacheCluster p1 = CreateCacheCluster
     , _cccEngineVersion = Nothing
     , _cccCacheParameterGroupName = Nothing
     , _cccCacheSubnetGroupName = Nothing
-    , _cccCacheSecurityGroupName = mempty
-    , _cccSecurityGroupId = mempty
-    , _cccSnapshotArn = mempty
+    , _cccCacheSecurityGroupNames = mempty
+    , _cccSecurityGroupIds = mempty
+    , _cccSnapshotArns = mempty
     , _cccSnapshotName = Nothing
     , _cccAZMode = Nothing
     , _cccPreferredAvailabilityZone = Nothing
-    , _cccPreferredAvailabilityZone = mempty
+    , _cccPreferredAvailabilityZones = mempty
     , _cccPreferredMaintenanceWindow = Nothing
     , _cccPort = Nothing
     , _cccNotificationTopicArn = Nothing
@@ -245,17 +245,17 @@ cccCacheSubnetGroupName =
 -- | A list of cache security group names to associate with this cache cluster.
 -- Use this parameter only when you are creating a cluster outside of an
 -- Amazon Virtual Private Cloud (VPC).
-cccCacheSecurityGroupName :: Lens' CreateCacheCluster [Text]
-cccCacheSecurityGroupName =
-    lens _cccCacheSecurityGroupName
-         (\s a -> s { _cccCacheSecurityGroupName = a })
+cccCacheSecurityGroupNames :: Lens' CreateCacheCluster [Text]
+cccCacheSecurityGroupNames =
+    lens _cccCacheSecurityGroupNames
+         (\s a -> s { _cccCacheSecurityGroupNames = a })
 
 -- | One or more VPC security groups associated with the cache cluster. Use this
 -- parameter only when you are creating a cluster in an Amazon Virtual Private
 -- Cloud (VPC).
-cccSecurityGroupId :: Lens' CreateCacheCluster [Text]
-cccSecurityGroupId =
-    lens _cccSecurityGroupId (\s a -> s { _cccSecurityGroupId = a })
+cccSecurityGroupIds :: Lens' CreateCacheCluster [Text]
+cccSecurityGroupIds =
+    lens _cccSecurityGroupIds (\s a -> s { _cccSecurityGroupIds = a })
 
 -- | A single-element string list containing an Amazon Resource Name (ARN) that
 -- uniquely identifies a Redis RDB snapshot file stored in Amazon S3. The
@@ -264,8 +264,8 @@ cccSecurityGroupId =
 -- Here is an example of an Amazon S3 ARN:
 -- arn:aws:s3:::my_bucket/snapshot1.rdb Note: This parameter is only valid if
 -- the Engine parameter is redis.
-cccSnapshotArn :: Lens' CreateCacheCluster [Text]
-cccSnapshotArn = lens _cccSnapshotArn (\s a -> s { _cccSnapshotArn = a })
+cccSnapshotArns :: Lens' CreateCacheCluster [Text]
+cccSnapshotArns = lens _cccSnapshotArns (\s a -> s { _cccSnapshotArns = a })
 
 -- | The name of a snapshot from which to restore data into the new cache
 -- cluster. The snapshot's status changes to restoring while the new cache
@@ -305,10 +305,10 @@ cccPreferredAvailabilityZone =
 -- Example: All three Memcached nodes in one Availability Zone:
 -- PreferredAvailabilityZones.member.1=us-east-1a&amp;PreferredAvailabilityZones.member.2=us-east-1a&amp;PreferredAvailabilityZones.member.3=us-east-1a.
 -- 
-cccPreferredAvailabilityZone :: Lens' CreateCacheCluster [Text]
-cccPreferredAvailabilityZone =
-    lens _cccPreferredAvailabilityZone
-         (\s a -> s { _cccPreferredAvailabilityZone = a })
+cccPreferredAvailabilityZones :: Lens' CreateCacheCluster [Text]
+cccPreferredAvailabilityZones =
+    lens _cccPreferredAvailabilityZones
+         (\s a -> s { _cccPreferredAvailabilityZones = a })
 
 -- | The weekly time range (in UTC) during which system maintenance can occur.
 -- Example: sun:05:00-sun:09:00.

@@ -39,8 +39,8 @@ module Network.AWS.RDS.ModifyDBInstance
     , mdbiDBInstanceIdentifier
     , mdbiAllocatedStorage
     , mdbiDBInstanceClass
-    , mdbiDBSecurityGroupName
-    , mdbiVpcSecurityGroupId
+    , mdbiDBSecurityGroups
+    , mdbiVpcSecurityGroupIds
     , mdbiApplyImmediately
     , mdbiMasterUserPassword
     , mdbiDBParameterGroupName
@@ -72,8 +72,8 @@ data ModifyDBInstance = ModifyDBInstance
     { _mdbiDBInstanceIdentifier :: Text
     , _mdbiAllocatedStorage :: Maybe Integer
     , _mdbiDBInstanceClass :: Maybe Text
-    , _mdbiDBSecurityGroupName :: [Text]
-    , _mdbiVpcSecurityGroupId :: [Text]
+    , _mdbiDBSecurityGroups :: [Text]
+    , _mdbiVpcSecurityGroupIds :: [Text]
     , _mdbiApplyImmediately :: Maybe Bool
     , _mdbiMasterUserPassword :: Maybe Text
     , _mdbiDBParameterGroupName :: Maybe Text
@@ -100,9 +100,9 @@ data ModifyDBInstance = ModifyDBInstance
 --
 -- * @DBInstanceClass ::@ @Maybe Text@
 --
--- * @DBSecurityGroupName ::@ @[Text]@
+-- * @DBSecurityGroups ::@ @[Text]@
 --
--- * @VpcSecurityGroupId ::@ @[Text]@
+-- * @VpcSecurityGroupIds ::@ @[Text]@
 --
 -- * @ApplyImmediately ::@ @Maybe Bool@
 --
@@ -136,8 +136,8 @@ modifyDBInstance p1 = ModifyDBInstance
     { _mdbiDBInstanceIdentifier = p1
     , _mdbiAllocatedStorage = Nothing
     , _mdbiDBInstanceClass = Nothing
-    , _mdbiDBSecurityGroupName = mempty
-    , _mdbiVpcSecurityGroupId = mempty
+    , _mdbiDBSecurityGroups = mempty
+    , _mdbiVpcSecurityGroupIds = mempty
     , _mdbiApplyImmediately = Nothing
     , _mdbiMasterUserPassword = Nothing
     , _mdbiDBParameterGroupName = Nothing
@@ -208,18 +208,18 @@ mdbiDBInstanceClass =
 -- asynchronously applied as soon as possible. Constraints: Must be 1 to 255
 -- alphanumeric characters First character must be a letter Cannot end with a
 -- hyphen or contain two consecutive hyphens.
-mdbiDBSecurityGroupName :: Lens' ModifyDBInstance [Text]
-mdbiDBSecurityGroupName =
-    lens _mdbiDBSecurityGroupName
-         (\s a -> s { _mdbiDBSecurityGroupName = a })
+mdbiDBSecurityGroups :: Lens' ModifyDBInstance [Text]
+mdbiDBSecurityGroups =
+    lens _mdbiDBSecurityGroups (\s a -> s { _mdbiDBSecurityGroups = a })
 
 -- | A list of EC2 VPC security groups to authorize on this DB instance. This
 -- change is asynchronously applied as soon as possible. Constraints: Must be
 -- 1 to 255 alphanumeric characters First character must be a letter Cannot
 -- end with a hyphen or contain two consecutive hyphens.
-mdbiVpcSecurityGroupId :: Lens' ModifyDBInstance [Text]
-mdbiVpcSecurityGroupId =
-    lens _mdbiVpcSecurityGroupId (\s a -> s { _mdbiVpcSecurityGroupId = a })
+mdbiVpcSecurityGroupIds :: Lens' ModifyDBInstance [Text]
+mdbiVpcSecurityGroupIds =
+    lens _mdbiVpcSecurityGroupIds
+         (\s a -> s { _mdbiVpcSecurityGroupIds = a })
 
 -- | Specifies whether or not the modifications in this request and any pending
 -- modifications are asynchronously applied as soon as possible, regardless of

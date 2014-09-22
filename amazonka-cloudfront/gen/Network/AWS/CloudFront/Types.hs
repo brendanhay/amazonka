@@ -123,19 +123,19 @@ module Network.AWS.CloudFront.Types
     , activeTrustedSigners
     , atsEnabled
     , atsQuantity
-    , atsSigner
+    , atsItems
 
     -- * Aliases
     , Aliases
     , aliases
     , aQuantity
-    , aCNAME
+    , aItems
 
     -- * AllowedMethods
     , AllowedMethods
     , allowedMethods
     , amQuantity
-    , amMethod
+    , amItems
 
     -- * CacheBehavior
     , CacheBehavior
@@ -153,7 +153,7 @@ module Network.AWS.CloudFront.Types
     , CacheBehaviors
     , cacheBehaviors
     , cbQuantity
-    , cbCacheBehavior
+    , cbItems
 
     -- * CloudFrontOriginAccessIdentity
     , CloudFrontOriginAccessIdentity
@@ -176,7 +176,7 @@ module Network.AWS.CloudFront.Types
     , cfoailMaxItems
     , cfoailIsTruncated
     , cfoailQuantity
-    , cfoailCloudFrontOriginAccessIdentitySummary
+    , cfoailItems
 
     -- * CloudFrontOriginAccessIdentitySummary
     , CloudFrontOriginAccessIdentitySummary
@@ -189,7 +189,7 @@ module Network.AWS.CloudFront.Types
     , CookieNames
     , cookieNames
     , cnQuantity
-    , cnName
+    , cnItems
 
     -- * CookiePreference
     , CookiePreference
@@ -209,7 +209,7 @@ module Network.AWS.CloudFront.Types
     , CustomErrorResponses
     , customErrorResponses
     , cerQuantity
-    , cerCustomErrorResponse
+    , cerItems
 
     -- * CustomOriginConfig
     , CustomOriginConfig
@@ -265,7 +265,7 @@ module Network.AWS.CloudFront.Types
     , dlMaxItems
     , dlIsTruncated
     , dlQuantity
-    , dlDistributionSummary
+    , dlItems
 
     -- * DistributionSummary
     , DistributionSummary
@@ -297,13 +297,13 @@ module Network.AWS.CloudFront.Types
     , geoRestriction
     , grRestrictionType
     , grQuantity
-    , grLocation
+    , grItems
 
     -- * Headers
     , Headers
     , headers
     , hQuantity
-    , hName
+    , hItems
 
     -- * Invalidation
     , Invalidation
@@ -327,7 +327,7 @@ module Network.AWS.CloudFront.Types
     , ilMaxItems
     , ilIsTruncated
     , ilQuantity
-    , ilInvalidationSummary
+    , ilItems
 
     -- * InvalidationSummary
     , InvalidationSummary
@@ -340,7 +340,7 @@ module Network.AWS.CloudFront.Types
     , KeyPairIds
     , keyPairIds
     , kpiQuantity
-    , kpiKeyPairId
+    , kpiItems
 
     -- * LoggingConfig
     , LoggingConfig
@@ -362,13 +362,13 @@ module Network.AWS.CloudFront.Types
     , Origins
     , origins
     , oQuantity
-    , oOrigin
+    , oItems
 
     -- * Paths
     , Paths
     , paths
     , pQuantity
-    , pPath
+    , pItems
 
     -- * S3Origin
     , S3Origin
@@ -412,7 +412,7 @@ module Network.AWS.CloudFront.Types
     , sdlMaxItems
     , sdlIsTruncated
     , sdlQuantity
-    , sdlStreamingDistributionSummary
+    , sdlItems
 
     -- * StreamingDistributionSummary
     , StreamingDistributionSummary
@@ -440,7 +440,7 @@ module Network.AWS.CloudFront.Types
     , trustedSigners
     , tsEnabled
     , tsQuantity
-    , tsAwsAccountNumber
+    , tsItems
 
     -- * ViewerCertificate
     , ViewerCertificate
@@ -1462,7 +1462,7 @@ instance ToXML S3OriginConfig where
 data ActiveTrustedSigners = ActiveTrustedSigners
     { _atsEnabled :: !Bool
     , _atsQuantity :: !Integer
-    , _atsSigner :: [Signer]
+    , _atsItems :: [Signer]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1477,7 +1477,7 @@ data ActiveTrustedSigners = ActiveTrustedSigners
 --
 -- * @Quantity ::@ @Integer@
 --
--- * @Signer ::@ @[Signer]@
+-- * @Items ::@ @[Signer]@
 --
 activeTrustedSigners :: Bool -- ^ 'atsEnabled'
                      -> Integer -- ^ 'atsQuantity'
@@ -1485,7 +1485,7 @@ activeTrustedSigners :: Bool -- ^ 'atsEnabled'
 activeTrustedSigners p1 p2 = ActiveTrustedSigners
     { _atsEnabled = p1
     , _atsQuantity = p2
-    , _atsSigner = mempty
+    , _atsItems = mempty
     }
 
 -- | Each active trusted signer.
@@ -1502,8 +1502,8 @@ atsQuantity = lens _atsQuantity (\s a -> s { _atsQuantity = a })
 -- trusted signer that is specified in the TrustedSigners complex type,
 -- including trusted signers in the default cache behavior and in all of the
 -- other cache behaviors.
-atsSigner :: Lens' ActiveTrustedSigners [Signer]
-atsSigner = lens _atsSigner (\s a -> s { _atsSigner = a })
+atsItems :: Lens' ActiveTrustedSigners [Signer]
+atsItems = lens _atsItems (\s a -> s { _atsItems = a })
 
 instance FromXML ActiveTrustedSigners where
     fromXMLOptions = xmlOptions
@@ -1513,7 +1513,7 @@ instance FromXML ActiveTrustedSigners where
 -- names), if any, for this streaming distribution.
 data Aliases = Aliases
     { _aQuantity :: !Integer
-    , _aCNAME :: [Text]
+    , _aItems :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1523,13 +1523,13 @@ data Aliases = Aliases
 --
 -- * @Quantity ::@ @Integer@
 --
--- * @CNAME ::@ @[Text]@
+-- * @Items ::@ @[Text]@
 --
 aliases :: Integer -- ^ 'aQuantity'
         -> Aliases
 aliases p1 = Aliases
     { _aQuantity = p1
-    , _aCNAME = mempty
+    , _aItems = mempty
     }
 
 -- | The number of CNAMEs, if any, for this distribution.
@@ -1538,8 +1538,8 @@ aQuantity = lens _aQuantity (\s a -> s { _aQuantity = a })
 
 -- | Optional: A complex type that contains CNAME elements, if any, for this
 -- distribution. If Quantity is 0, you can omit Items.
-aCNAME :: Lens' Aliases [Text]
-aCNAME = lens _aCNAME (\s a -> s { _aCNAME = a })
+aItems :: Lens' Aliases [Text]
+aItems = lens _aItems (\s a -> s { _aItems = a })
 
 instance FromXML Aliases where
     fromXMLOptions = xmlOptions
@@ -1559,7 +1559,7 @@ instance ToXML Aliases where
 -- to delete objects from your origin.
 data AllowedMethods = AllowedMethods
     { _amQuantity :: !Integer
-    , _amMethod :: [Method]
+    , _amItems :: [Method]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1569,13 +1569,13 @@ data AllowedMethods = AllowedMethods
 --
 -- * @Quantity ::@ @Integer@
 --
--- * @Method ::@ @[Method]@
+-- * @Items ::@ @[Method]@
 --
 allowedMethods :: Integer -- ^ 'amQuantity'
                -> AllowedMethods
 allowedMethods p1 = AllowedMethods
     { _amQuantity = p1
-    , _amMethod = mempty
+    , _amItems = mempty
     }
 
 -- | The number of HTTP methods that you want CloudFront to forward to your
@@ -1586,8 +1586,8 @@ amQuantity = lens _amQuantity (\s a -> s { _amQuantity = a })
 
 -- | A complex type that contains the HTTP methods that you want CloudFront to
 -- process and forward to your origin.
-amMethod :: Lens' AllowedMethods [Method]
-amMethod = lens _amMethod (\s a -> s { _amMethod = a })
+amItems :: Lens' AllowedMethods [Method]
+amItems = lens _amItems (\s a -> s { _amItems = a })
 
 instance FromXML AllowedMethods where
     fromXMLOptions = xmlOptions
@@ -1751,7 +1751,7 @@ instance ToXML CacheBehavior where
 -- | A complex type that contains zero or more CacheBehavior elements.
 data CacheBehaviors = CacheBehaviors
     { _cbQuantity :: !Integer
-    , _cbCacheBehavior :: [CacheBehavior]
+    , _cbItems :: [CacheBehavior]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1761,13 +1761,13 @@ data CacheBehaviors = CacheBehaviors
 --
 -- * @Quantity ::@ @Integer@
 --
--- * @CacheBehavior ::@ @[CacheBehavior]@
+-- * @Items ::@ @[CacheBehavior]@
 --
 cacheBehaviors :: Integer -- ^ 'cbQuantity'
                -> CacheBehaviors
 cacheBehaviors p1 = CacheBehaviors
     { _cbQuantity = p1
-    , _cbCacheBehavior = mempty
+    , _cbItems = mempty
     }
 
 -- | The number of cache behaviors for this distribution.
@@ -1776,8 +1776,8 @@ cbQuantity = lens _cbQuantity (\s a -> s { _cbQuantity = a })
 
 -- | Optional: A complex type that contains cache behaviors for this
 -- distribution. If Quantity is 0, you can omit Items.
-cbCacheBehavior :: Lens' CacheBehaviors [CacheBehavior]
-cbCacheBehavior = lens _cbCacheBehavior (\s a -> s { _cbCacheBehavior = a })
+cbItems :: Lens' CacheBehaviors [CacheBehavior]
+cbItems = lens _cbItems (\s a -> s { _cbItems = a })
 
 instance FromXML CacheBehaviors where
     fromXMLOptions = xmlOptions
@@ -1838,7 +1838,7 @@ instance FromXML CloudFrontOriginAccessIdentity where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CloudFrontOriginAccessIdentity"
 
--- | The origin access identity's configuration information.
+-- | The current configuration information for the identity.
 data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig
     { _cfoaicCallerReference :: Text
     , _cfoaicComment :: Text
@@ -1896,7 +1896,7 @@ data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList
     , _cfoailMaxItems :: !Integer
     , _cfoailIsTruncated :: !Bool
     , _cfoailQuantity :: !Integer
-    , _cfoailCloudFrontOriginAccessIdentitySummary :: [CloudFrontOriginAccessIdentitySummary]
+    , _cfoailItems :: [CloudFrontOriginAccessIdentitySummary]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1917,7 +1917,7 @@ data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList
 --
 -- * @Quantity ::@ @Integer@
 --
--- * @CloudFrontOriginAccessIdentitySummary ::@ @[CloudFrontOriginAccessIdentitySummary]@
+-- * @Items ::@ @[CloudFrontOriginAccessIdentitySummary]@
 --
 cloudFrontOriginAccessIdentityList :: Text -- ^ 'cfoailMarker'
                                    -> Integer -- ^ 'cfoailMaxItems'
@@ -1930,7 +1930,7 @@ cloudFrontOriginAccessIdentityList p1 p3 p4 p5 = CloudFrontOriginAccessIdentityL
     , _cfoailMaxItems = p3
     , _cfoailIsTruncated = p4
     , _cfoailQuantity = p5
-    , _cfoailCloudFrontOriginAccessIdentitySummary = mempty
+    , _cfoailItems = mempty
     }
 
 -- | The value you provided for the Marker request parameter.
@@ -1964,10 +1964,8 @@ cfoailQuantity = lens _cfoailQuantity (\s a -> s { _cfoailQuantity = a })
 -- | A complex type that contains one CloudFrontOriginAccessIdentitySummary
 -- element for each origin access identity that was created by the current AWS
 -- account.
-cfoailCloudFrontOriginAccessIdentitySummary :: Lens' CloudFrontOriginAccessIdentityList [CloudFrontOriginAccessIdentitySummary]
-cfoailCloudFrontOriginAccessIdentitySummary =
-    lens _cfoailCloudFrontOriginAccessIdentitySummary
-         (\s a -> s { _cfoailCloudFrontOriginAccessIdentitySummary = a })
+cfoailItems :: Lens' CloudFrontOriginAccessIdentityList [CloudFrontOriginAccessIdentitySummary]
+cfoailItems = lens _cfoailItems (\s a -> s { _cfoailItems = a })
 
 instance FromXML CloudFrontOriginAccessIdentityList where
     fromXMLOptions = xmlOptions
@@ -2030,7 +2028,7 @@ instance FromXML CloudFrontOriginAccessIdentitySummary where
 -- cache behavior.
 data CookieNames = CookieNames
     { _cnQuantity :: !Integer
-    , _cnName :: [Text]
+    , _cnItems :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2040,13 +2038,13 @@ data CookieNames = CookieNames
 --
 -- * @Quantity ::@ @Integer@
 --
--- * @Name ::@ @[Text]@
+-- * @Items ::@ @[Text]@
 --
 cookieNames :: Integer -- ^ 'cnQuantity'
             -> CookieNames
 cookieNames p1 = CookieNames
     { _cnQuantity = p1
-    , _cnName = mempty
+    , _cnItems = mempty
     }
 
 -- | The number of whitelisted cookies for this cache behavior.
@@ -2055,8 +2053,8 @@ cnQuantity = lens _cnQuantity (\s a -> s { _cnQuantity = a })
 
 -- | Optional: A complex type that contains whitelisted cookies for this cache
 -- behavior. If Quantity is 0, you can omit Items.
-cnName :: Lens' CookieNames [Text]
-cnName = lens _cnName (\s a -> s { _cnName = a })
+cnItems :: Lens' CookieNames [Text]
+cnItems = lens _cnItems (\s a -> s { _cnItems = a })
 
 instance FromXML CookieNames where
     fromXMLOptions = xmlOptions
@@ -2187,10 +2185,10 @@ instance ToXML CustomErrorResponse where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CustomErrorResponse"
 
--- | A complex type that contains zero or more CustomErrorResponses elements.
+-- | A complex type that contains zero or more CustomErrorResponse elements.
 data CustomErrorResponses = CustomErrorResponses
     { _cerQuantity :: !Integer
-    , _cerCustomErrorResponse :: [CustomErrorResponse]
+    , _cerItems :: [CustomErrorResponse]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2200,13 +2198,13 @@ data CustomErrorResponses = CustomErrorResponses
 --
 -- * @Quantity ::@ @Integer@
 --
--- * @CustomErrorResponse ::@ @[CustomErrorResponse]@
+-- * @Items ::@ @[CustomErrorResponse]@
 --
 customErrorResponses :: Integer -- ^ 'cerQuantity'
                      -> CustomErrorResponses
 customErrorResponses p1 = CustomErrorResponses
     { _cerQuantity = p1
-    , _cerCustomErrorResponse = mempty
+    , _cerItems = mempty
     }
 
 -- | The number of custom error responses for this distribution.
@@ -2215,9 +2213,8 @@ cerQuantity = lens _cerQuantity (\s a -> s { _cerQuantity = a })
 
 -- | Optional: A complex type that contains custom error responses for this
 -- distribution. If Quantity is 0, you can omit Items.
-cerCustomErrorResponse :: Lens' CustomErrorResponses [CustomErrorResponse]
-cerCustomErrorResponse =
-    lens _cerCustomErrorResponse (\s a -> s { _cerCustomErrorResponse = a })
+cerItems :: Lens' CustomErrorResponses [CustomErrorResponse]
+cerItems = lens _cerItems (\s a -> s { _cerItems = a })
 
 instance FromXML CustomErrorResponses where
     fromXMLOptions = xmlOptions
@@ -2677,7 +2674,7 @@ data DistributionList = DistributionList
     , _dlMaxItems :: !Integer
     , _dlIsTruncated :: !Bool
     , _dlQuantity :: !Integer
-    , _dlDistributionSummary :: [DistributionSummary]
+    , _dlItems :: [DistributionSummary]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2698,7 +2695,7 @@ data DistributionList = DistributionList
 --
 -- * @Quantity ::@ @Integer@
 --
--- * @DistributionSummary ::@ @[DistributionSummary]@
+-- * @Items ::@ @[DistributionSummary]@
 --
 distributionList :: Text -- ^ 'dlMarker'
                  -> Integer -- ^ 'dlMaxItems'
@@ -2711,7 +2708,7 @@ distributionList p1 p3 p4 p5 = DistributionList
     , _dlMaxItems = p3
     , _dlIsTruncated = p4
     , _dlQuantity = p5
-    , _dlDistributionSummary = mempty
+    , _dlItems = mempty
     }
 
 -- | The value you provided for the Marker request parameter.
@@ -2741,9 +2738,8 @@ dlQuantity = lens _dlQuantity (\s a -> s { _dlQuantity = a })
 
 -- | A complex type that contains one DistributionSummary element for each
 -- distribution that was created by the current AWS account.
-dlDistributionSummary :: Lens' DistributionList [DistributionSummary]
-dlDistributionSummary =
-    lens _dlDistributionSummary (\s a -> s { _dlDistributionSummary = a })
+dlItems :: Lens' DistributionList [DistributionSummary]
+dlItems = lens _dlItems (\s a -> s { _dlItems = a })
 
 instance FromXML DistributionList where
     fromXMLOptions = xmlOptions
@@ -2970,7 +2966,7 @@ instance ToXML ForwardedValues where
 data GeoRestriction = GeoRestriction
     { _grRestrictionType :: GeoRestrictionType
     , _grQuantity :: !Integer
-    , _grLocation :: [Text]
+    , _grItems :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2982,7 +2978,7 @@ data GeoRestriction = GeoRestriction
 --
 -- * @Quantity ::@ @Integer@
 --
--- * @Location ::@ @[Text]@
+-- * @Items ::@ @[Text]@
 --
 geoRestriction :: GeoRestrictionType -- ^ 'grRestrictionType'
                -> Integer -- ^ 'grQuantity'
@@ -2990,7 +2986,7 @@ geoRestriction :: GeoRestrictionType -- ^ 'grRestrictionType'
 geoRestriction p1 p2 = GeoRestriction
     { _grRestrictionType = p1
     , _grQuantity = p2
-    , _grLocation = mempty
+    , _grItems = mempty
     }
 
 -- | The method that you want to use to restrict distribution of your content by
@@ -3019,8 +3015,8 @@ grQuantity = lens _grQuantity (\s a -> s { _grQuantity = a })
 -- on the International Organization for Standardization website. You can also
 -- refer to the country list in the CloudFront console, which includes both
 -- country names and codes.
-grLocation :: Lens' GeoRestriction [Text]
-grLocation = lens _grLocation (\s a -> s { _grLocation = a })
+grItems :: Lens' GeoRestriction [Text]
+grItems = lens _grItems (\s a -> s { _grItems = a })
 
 instance FromXML GeoRestriction where
     fromXMLOptions = xmlOptions
@@ -3034,7 +3030,7 @@ instance ToXML GeoRestriction where
 -- to vary upon for this cache behavior.
 data Headers = Headers
     { _hQuantity :: !Integer
-    , _hName :: [Text]
+    , _hItems :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3044,13 +3040,13 @@ data Headers = Headers
 --
 -- * @Quantity ::@ @Integer@
 --
--- * @Name ::@ @[Text]@
+-- * @Items ::@ @[Text]@
 --
 headers :: Integer -- ^ 'hQuantity'
         -> Headers
 headers p1 = Headers
     { _hQuantity = p1
-    , _hName = mempty
+    , _hItems = mempty
     }
 
 -- | The number of different headers that you want CloudFront to forward to the
@@ -3066,8 +3062,8 @@ hQuantity = lens _hQuantity (\s a -> s { _hQuantity = a })
 -- | Optional: A complex type that contains a Name element for each header that
 -- you want CloudFront to forward to the origin and to vary on for this cache
 -- behavior. If Quantity is 0, omit Items.
-hName :: Lens' Headers [Text]
-hName = lens _hName (\s a -> s { _hName = a })
+hItems :: Lens' Headers [Text]
+hItems = lens _hItems (\s a -> s { _hItems = a })
 
 instance FromXML Headers where
     fromXMLOptions = xmlOptions
@@ -3196,7 +3192,7 @@ data InvalidationList = InvalidationList
     , _ilMaxItems :: !Integer
     , _ilIsTruncated :: !Bool
     , _ilQuantity :: !Integer
-    , _ilInvalidationSummary :: [InvalidationSummary]
+    , _ilItems :: [InvalidationSummary]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3217,7 +3213,7 @@ data InvalidationList = InvalidationList
 --
 -- * @Quantity ::@ @Integer@
 --
--- * @InvalidationSummary ::@ @[InvalidationSummary]@
+-- * @Items ::@ @[InvalidationSummary]@
 --
 invalidationList :: Text -- ^ 'ilMarker'
                  -> Integer -- ^ 'ilMaxItems'
@@ -3230,7 +3226,7 @@ invalidationList p1 p3 p4 p5 = InvalidationList
     , _ilMaxItems = p3
     , _ilIsTruncated = p4
     , _ilQuantity = p5
-    , _ilInvalidationSummary = mempty
+    , _ilItems = mempty
     }
 
 -- | The value you provided for the Marker request parameter.
@@ -3261,9 +3257,8 @@ ilQuantity = lens _ilQuantity (\s a -> s { _ilQuantity = a })
 
 -- | A complex type that contains one InvalidationSummary element for each
 -- invalidation batch that was created by the current AWS account.
-ilInvalidationSummary :: Lens' InvalidationList [InvalidationSummary]
-ilInvalidationSummary =
-    lens _ilInvalidationSummary (\s a -> s { _ilInvalidationSummary = a })
+ilItems :: Lens' InvalidationList [InvalidationSummary]
+ilItems = lens _ilItems (\s a -> s { _ilItems = a })
 
 instance FromXML InvalidationList where
     fromXMLOptions = xmlOptions
@@ -3319,7 +3314,7 @@ instance FromXML InvalidationSummary where
 -- associated with AwsAccountNumber.
 data KeyPairIds = KeyPairIds
     { _kpiQuantity :: !Integer
-    , _kpiKeyPairId :: [Text]
+    , _kpiItems :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3329,13 +3324,13 @@ data KeyPairIds = KeyPairIds
 --
 -- * @Quantity ::@ @Integer@
 --
--- * @KeyPairId ::@ @[Text]@
+-- * @Items ::@ @[Text]@
 --
 keyPairIds :: Integer -- ^ 'kpiQuantity'
            -> KeyPairIds
 keyPairIds p1 = KeyPairIds
     { _kpiQuantity = p1
-    , _kpiKeyPairId = mempty
+    , _kpiItems = mempty
     }
 
 -- | The number of active CloudFront key pairs for AwsAccountNumber.
@@ -3344,8 +3339,8 @@ kpiQuantity = lens _kpiQuantity (\s a -> s { _kpiQuantity = a })
 
 -- | A complex type that lists the active CloudFront key pairs, if any, that are
 -- associated with AwsAccountNumber.
-kpiKeyPairId :: Lens' KeyPairIds [Text]
-kpiKeyPairId = lens _kpiKeyPairId (\s a -> s { _kpiKeyPairId = a })
+kpiItems :: Lens' KeyPairIds [Text]
+kpiItems = lens _kpiItems (\s a -> s { _kpiItems = a })
 
 instance FromXML KeyPairIds where
     fromXMLOptions = xmlOptions
@@ -3500,7 +3495,7 @@ instance ToXML Origin where
 -- distribution.
 data Origins = Origins
     { _oQuantity :: !Integer
-    , _oOrigin :: Maybe (List1 Origin)
+    , _oItems :: Maybe (List1 Origin)
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3510,13 +3505,13 @@ data Origins = Origins
 --
 -- * @Quantity ::@ @Integer@
 --
--- * @Origin ::@ @Maybe (List1 Origin)@
+-- * @Items ::@ @Maybe (List1 Origin)@
 --
 origins :: Integer -- ^ 'oQuantity'
         -> Origins
 origins p1 = Origins
     { _oQuantity = p1
-    , _oOrigin = Nothing
+    , _oItems = Nothing
     }
 
 -- | The number of origins for this distribution.
@@ -3524,8 +3519,8 @@ oQuantity :: Lens' Origins Integer
 oQuantity = lens _oQuantity (\s a -> s { _oQuantity = a })
 
 -- | A complex type that contains origins for this distribution.
-oOrigin :: Lens' Origins (Maybe (List1 Origin))
-oOrigin = lens _oOrigin (\s a -> s { _oOrigin = a })
+oItems :: Lens' Origins (Maybe (List1 Origin))
+oItems = lens _oItems (\s a -> s { _oItems = a })
 
 instance FromXML Origins where
     fromXMLOptions = xmlOptions
@@ -3544,7 +3539,7 @@ instance ToXML Origins where
 -- invalidate the old version of the updated object.
 data Paths = Paths
     { _pQuantity :: !Integer
-    , _pPath :: [Text]
+    , _pItems :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3554,13 +3549,13 @@ data Paths = Paths
 --
 -- * @Quantity ::@ @Integer@
 --
--- * @Path ::@ @[Text]@
+-- * @Items ::@ @[Text]@
 --
 paths :: Integer -- ^ 'pQuantity'
       -> Paths
 paths p1 = Paths
     { _pQuantity = p1
-    , _pPath = mempty
+    , _pItems = mempty
     }
 
 -- | The number of objects that you want to invalidate.
@@ -3569,8 +3564,8 @@ pQuantity = lens _pQuantity (\s a -> s { _pQuantity = a })
 
 -- | A complex type that contains a list of the objects that you want to
 -- invalidate.
-pPath :: Lens' Paths [Text]
-pPath = lens _pPath (\s a -> s { _pPath = a })
+pItems :: Lens' Paths [Text]
+pItems = lens _pItems (\s a -> s { _pItems = a })
 
 instance FromXML Paths where
     fromXMLOptions = xmlOptions
@@ -3880,7 +3875,7 @@ data StreamingDistributionList = StreamingDistributionList
     , _sdlMaxItems :: !Integer
     , _sdlIsTruncated :: !Bool
     , _sdlQuantity :: !Integer
-    , _sdlStreamingDistributionSummary :: [StreamingDistributionSummary]
+    , _sdlItems :: [StreamingDistributionSummary]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -3901,7 +3896,7 @@ data StreamingDistributionList = StreamingDistributionList
 --
 -- * @Quantity ::@ @Integer@
 --
--- * @StreamingDistributionSummary ::@ @[StreamingDistributionSummary]@
+-- * @Items ::@ @[StreamingDistributionSummary]@
 --
 streamingDistributionList :: Text -- ^ 'sdlMarker'
                           -> Integer -- ^ 'sdlMaxItems'
@@ -3914,7 +3909,7 @@ streamingDistributionList p1 p3 p4 p5 = StreamingDistributionList
     , _sdlMaxItems = p3
     , _sdlIsTruncated = p4
     , _sdlQuantity = p5
-    , _sdlStreamingDistributionSummary = mempty
+    , _sdlItems = mempty
     }
 
 -- | The value you provided for the Marker request parameter.
@@ -3945,10 +3940,8 @@ sdlQuantity = lens _sdlQuantity (\s a -> s { _sdlQuantity = a })
 
 -- | A complex type that contains one StreamingDistributionSummary element for
 -- each distribution that was created by the current AWS account.
-sdlStreamingDistributionSummary :: Lens' StreamingDistributionList [StreamingDistributionSummary]
-sdlStreamingDistributionSummary =
-    lens _sdlStreamingDistributionSummary
-         (\s a -> s { _sdlStreamingDistributionSummary = a })
+sdlItems :: Lens' StreamingDistributionList [StreamingDistributionSummary]
+sdlItems = lens _sdlItems (\s a -> s { _sdlItems = a })
 
 instance FromXML StreamingDistributionList where
     fromXMLOptions = xmlOptions
@@ -4156,7 +4149,7 @@ instance ToXML StreamingLoggingConfig where
 data TrustedSigners = TrustedSigners
     { _tsEnabled :: !Bool
     , _tsQuantity :: !Integer
-    , _tsAwsAccountNumber :: [Text]
+    , _tsItems :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -4168,7 +4161,7 @@ data TrustedSigners = TrustedSigners
 --
 -- * @Quantity ::@ @Integer@
 --
--- * @AwsAccountNumber ::@ @[Text]@
+-- * @Items ::@ @[Text]@
 --
 trustedSigners :: Bool -- ^ 'tsEnabled'
                -> Integer -- ^ 'tsQuantity'
@@ -4176,7 +4169,7 @@ trustedSigners :: Bool -- ^ 'tsEnabled'
 trustedSigners p1 p2 = TrustedSigners
     { _tsEnabled = p1
     , _tsQuantity = p2
-    , _tsAwsAccountNumber = mempty
+    , _tsItems = mempty
     }
 
 -- | Specifies whether you want to require end users to use signed URLs to
@@ -4190,9 +4183,8 @@ tsQuantity = lens _tsQuantity (\s a -> s { _tsQuantity = a })
 
 -- | Optional: A complex type that contains trusted signers for this cache
 -- behavior. If Quantity is 0, you can omit Items.
-tsAwsAccountNumber :: Lens' TrustedSigners [Text]
-tsAwsAccountNumber =
-    lens _tsAwsAccountNumber (\s a -> s { _tsAwsAccountNumber = a })
+tsItems :: Lens' TrustedSigners [Text]
+tsItems = lens _tsItems (\s a -> s { _tsItems = a })
 
 instance FromXML TrustedSigners where
     fromXMLOptions = xmlOptions

@@ -55,7 +55,7 @@ module Network.AWS.SQS.SendMessage
     , smQueueUrl
     , smMessageBody
     , smDelaySeconds
-    , smMessageAttribute
+    , smMessageAttributes
 
     -- * Response
     , SendMessageResponse
@@ -75,7 +75,7 @@ data SendMessage = SendMessage
     { _smQueueUrl :: Text
     , _smMessageBody :: Text
     , _smDelaySeconds :: Maybe Integer
-    , _smMessageAttribute :: Map Text MessageAttributeValue
+    , _smMessageAttributes :: Map Text MessageAttributeValue
     } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -89,7 +89,7 @@ data SendMessage = SendMessage
 --
 -- * @DelaySeconds ::@ @Maybe Integer@
 --
--- * @MessageAttribute ::@ @Map Text MessageAttributeValue@
+-- * @MessageAttributes ::@ @Map Text MessageAttributeValue@
 --
 sendMessage :: Text -- ^ 'smQueueUrl'
             -> Text -- ^ 'smMessageBody'
@@ -98,7 +98,7 @@ sendMessage p1 p2 = SendMessage
     { _smQueueUrl = p1
     , _smMessageBody = p2
     , _smDelaySeconds = Nothing
-    , _smMessageAttribute = mempty
+    , _smMessageAttributes = mempty
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
@@ -119,9 +119,9 @@ smDelaySeconds = lens _smDelaySeconds (\s a -> s { _smDelaySeconds = a })
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see Message Attribute Items.
-smMessageAttribute :: Lens' SendMessage (Map Text MessageAttributeValue)
-smMessageAttribute =
-    lens _smMessageAttribute (\s a -> s { _smMessageAttribute = a })
+smMessageAttributes :: Lens' SendMessage (Map Text MessageAttributeValue)
+smMessageAttributes =
+    lens _smMessageAttributes (\s a -> s { _smMessageAttributes = a })
 
 instance ToQuery SendMessage where
     toQuery = genericQuery def

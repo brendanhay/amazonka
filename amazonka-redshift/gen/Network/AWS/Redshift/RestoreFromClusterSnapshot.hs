@@ -58,8 +58,8 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
     , rfcsHsmConfigurationIdentifier
     , rfcsElasticIp
     , rfcsClusterParameterGroupName
-    , rfcsClusterSecurityGroupName
-    , rfcsVpcSecurityGroupId
+    , rfcsClusterSecurityGroups
+    , rfcsVpcSecurityGroupIds
     , rfcsPreferredMaintenanceWindow
     , rfcsAutomatedSnapshotRetentionPeriod
 
@@ -90,8 +90,8 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
     , _rfcsHsmConfigurationIdentifier :: Maybe Text
     , _rfcsElasticIp :: Maybe Text
     , _rfcsClusterParameterGroupName :: Maybe Text
-    , _rfcsClusterSecurityGroupName :: [Text]
-    , _rfcsVpcSecurityGroupId :: [Text]
+    , _rfcsClusterSecurityGroups :: [Text]
+    , _rfcsVpcSecurityGroupIds :: [Text]
     , _rfcsPreferredMaintenanceWindow :: Maybe Text
     , _rfcsAutomatedSnapshotRetentionPeriod :: Maybe Integer
     } deriving (Eq, Ord, Show, Generic)
@@ -127,9 +127,9 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
 --
 -- * @ClusterParameterGroupName ::@ @Maybe Text@
 --
--- * @ClusterSecurityGroupName ::@ @[Text]@
+-- * @ClusterSecurityGroups ::@ @[Text]@
 --
--- * @VpcSecurityGroupId ::@ @[Text]@
+-- * @VpcSecurityGroupIds ::@ @[Text]@
 --
 -- * @PreferredMaintenanceWindow ::@ @Maybe Text@
 --
@@ -152,8 +152,8 @@ restoreFromClusterSnapshot p1 p2 = RestoreFromClusterSnapshot
     , _rfcsHsmConfigurationIdentifier = Nothing
     , _rfcsElasticIp = Nothing
     , _rfcsClusterParameterGroupName = Nothing
-    , _rfcsClusterSecurityGroupName = mempty
-    , _rfcsVpcSecurityGroupId = mempty
+    , _rfcsClusterSecurityGroups = mempty
+    , _rfcsVpcSecurityGroupIds = mempty
     , _rfcsPreferredMaintenanceWindow = Nothing
     , _rfcsAutomatedSnapshotRetentionPeriod = Nothing
     }
@@ -251,17 +251,18 @@ rfcsClusterParameterGroupName =
 -- | A list of security groups to be associated with this cluster. Default: The
 -- default cluster security group for Amazon Redshift. Cluster security groups
 -- only apply to clusters outside of VPCs.
-rfcsClusterSecurityGroupName :: Lens' RestoreFromClusterSnapshot [Text]
-rfcsClusterSecurityGroupName =
-    lens _rfcsClusterSecurityGroupName
-         (\s a -> s { _rfcsClusterSecurityGroupName = a })
+rfcsClusterSecurityGroups :: Lens' RestoreFromClusterSnapshot [Text]
+rfcsClusterSecurityGroups =
+    lens _rfcsClusterSecurityGroups
+         (\s a -> s { _rfcsClusterSecurityGroups = a })
 
 -- | A list of Virtual Private Cloud (VPC) security groups to be associated with
 -- the cluster. Default: The default VPC security group is associated with the
 -- cluster. VPC security groups only apply to clusters in VPCs.
-rfcsVpcSecurityGroupId :: Lens' RestoreFromClusterSnapshot [Text]
-rfcsVpcSecurityGroupId =
-    lens _rfcsVpcSecurityGroupId (\s a -> s { _rfcsVpcSecurityGroupId = a })
+rfcsVpcSecurityGroupIds :: Lens' RestoreFromClusterSnapshot [Text]
+rfcsVpcSecurityGroupIds =
+    lens _rfcsVpcSecurityGroupIds
+         (\s a -> s { _rfcsVpcSecurityGroupIds = a })
 
 -- | The weekly time range (in UTC) during which automated cluster maintenance
 -- can occur. Format: ddd:hh24:mi-ddd:hh24:mi Default: The value selected for

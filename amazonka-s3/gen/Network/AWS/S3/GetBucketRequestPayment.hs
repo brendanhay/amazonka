@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype GetBucketRequestPayment = GetBucketRequestPayment
-    { _gbrpBucket :: BucketName
+    { _gbrpBucket :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -50,15 +50,15 @@ newtype GetBucketRequestPayment = GetBucketRequestPayment
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
-getBucketRequestPayment :: BucketName -- ^ 'gbrpBucket'
+getBucketRequestPayment :: Text -- ^ 'gbrpBucket'
                         -> GetBucketRequestPayment
 getBucketRequestPayment p1 = GetBucketRequestPayment
     { _gbrpBucket = p1
     }
 
-gbrpBucket :: Lens' GetBucketRequestPayment BucketName
+gbrpBucket :: Lens' GetBucketRequestPayment Text
 gbrpBucket = lens _gbrpBucket (\s a -> s { _gbrpBucket = a })
 
 instance ToPath GetBucketRequestPayment

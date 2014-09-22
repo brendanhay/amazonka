@@ -43,7 +43,7 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     , describeCacheSecurityGroupsResponse
     -- ** Response lenses
     , dcsgrMarker
-    , dcsgrCacheSecurityGroup
+    , dcsgrCacheSecurityGroups
     ) where
 
 import Network.AWS.Request.Query
@@ -101,7 +101,7 @@ instance ToQuery DescribeCacheSecurityGroups where
 -- | Represents the output of a DescribeCacheSecurityGroups operation.
 data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
     { _dcsgrMarker :: Maybe Text
-    , _dcsgrCacheSecurityGroup :: [CacheSecurityGroup]
+    , _dcsgrCacheSecurityGroups :: [CacheSecurityGroup]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -113,12 +113,12 @@ data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @CacheSecurityGroup ::@ @[CacheSecurityGroup]@
+-- * @CacheSecurityGroups ::@ @[CacheSecurityGroup]@
 --
 describeCacheSecurityGroupsResponse :: DescribeCacheSecurityGroupsResponse
 describeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
     { _dcsgrMarker = Nothing
-    , _dcsgrCacheSecurityGroup = mempty
+    , _dcsgrCacheSecurityGroups = mempty
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
@@ -127,10 +127,10 @@ dcsgrMarker = lens _dcsgrMarker (\s a -> s { _dcsgrMarker = a })
 
 -- | A list of cache security groups. Each element in the list contains detailed
 -- information about one group.
-dcsgrCacheSecurityGroup :: Lens' DescribeCacheSecurityGroupsResponse [CacheSecurityGroup]
-dcsgrCacheSecurityGroup =
-    lens _dcsgrCacheSecurityGroup
-         (\s a -> s { _dcsgrCacheSecurityGroup = a })
+dcsgrCacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse [CacheSecurityGroup]
+dcsgrCacheSecurityGroups =
+    lens _dcsgrCacheSecurityGroups
+         (\s a -> s { _dcsgrCacheSecurityGroups = a })
 
 instance FromXML DescribeCacheSecurityGroupsResponse where
     fromXMLOptions = xmlOptions

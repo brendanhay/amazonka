@@ -56,8 +56,8 @@ module Network.AWS.EC2.ModifySnapshotAttribute
     , msaSnapshotId
     , msaAttribute
     , msaOperationType
-    , msaUserId
-    , msaUserGroup
+    , msaUserIds
+    , msaGroupNames
     , msaCreateVolumePermission
 
     -- * Response
@@ -74,8 +74,8 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute
     { _msaSnapshotId :: Text
     , _msaAttribute :: Maybe SnapshotAttributeName
     , _msaOperationType :: Maybe Text
-    , _msaUserId :: [Text]
-    , _msaUserGroup :: [Text]
+    , _msaUserIds :: [Text]
+    , _msaGroupNames :: [Text]
     , _msaCreateVolumePermission :: Maybe CreateVolumePermissionModifications
     } deriving (Eq, Ord, Show, Generic)
 
@@ -90,9 +90,9 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute
 --
 -- * @OperationType ::@ @Maybe Text@
 --
--- * @UserId ::@ @[Text]@
+-- * @UserIds ::@ @[Text]@
 --
--- * @UserGroup ::@ @[Text]@
+-- * @GroupNames ::@ @[Text]@
 --
 -- * @CreateVolumePermission ::@ @Maybe CreateVolumePermissionModifications@
 --
@@ -102,8 +102,8 @@ modifySnapshotAttribute p1 = ModifySnapshotAttribute
     { _msaSnapshotId = p1
     , _msaAttribute = Nothing
     , _msaOperationType = Nothing
-    , _msaUserId = mempty
-    , _msaUserGroup = mempty
+    , _msaUserIds = mempty
+    , _msaGroupNames = mempty
     , _msaCreateVolumePermission = Nothing
     }
 
@@ -121,12 +121,12 @@ msaOperationType =
     lens _msaOperationType (\s a -> s { _msaOperationType = a })
 
 -- | The account ID to modify for the snapshot.
-msaUserId :: Lens' ModifySnapshotAttribute [Text]
-msaUserId = lens _msaUserId (\s a -> s { _msaUserId = a })
+msaUserIds :: Lens' ModifySnapshotAttribute [Text]
+msaUserIds = lens _msaUserIds (\s a -> s { _msaUserIds = a })
 
 -- | The group to modify for the snapshot.
-msaUserGroup :: Lens' ModifySnapshotAttribute [Text]
-msaUserGroup = lens _msaUserGroup (\s a -> s { _msaUserGroup = a })
+msaGroupNames :: Lens' ModifySnapshotAttribute [Text]
+msaGroupNames = lens _msaGroupNames (\s a -> s { _msaGroupNames = a })
 
 -- | A JSON representation of the snapshot attribute modification.
 msaCreateVolumePermission :: Lens' ModifySnapshotAttribute (Maybe CreateVolumePermissionModifications)

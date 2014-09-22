@@ -112,7 +112,7 @@ instance ToQuery ListRoles where
 -- | Contains the result of a successful invocation of the ListRoles action.
 data ListRolesResponse = ListRolesResponse
     { _lrrRoles :: [Role]
-    , _lrrIsTruncated :: !Bool
+    , _lrrIsTruncated :: Bool
     , _lrrMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 

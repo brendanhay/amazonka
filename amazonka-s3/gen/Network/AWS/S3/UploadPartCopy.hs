@@ -61,14 +61,14 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data UploadPartCopy = UploadPartCopy
-    { _upcBucket :: BucketName
+    { _upcBucket :: Text
     , _upcCopySource :: Text
     , _upcCopySourceIfMatch :: Maybe Text
     , _upcCopySourceIfModifiedSince :: Maybe RFC822
     , _upcCopySourceIfNoneMatch :: Maybe Text
     , _upcCopySourceIfUnmodifiedSince :: Maybe RFC822
     , _upcCopySourceRange :: Maybe Text
-    , _upcKey :: ObjectKey
+    , _upcKey :: Text
     , _upcPartNumber :: !Integer
     , _upcUploadId :: Text
     , _upcSSECustomerAlgorithm :: Maybe Text
@@ -84,7 +84,7 @@ data UploadPartCopy = UploadPartCopy
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
 -- * @CopySource ::@ @Text@
 --
@@ -98,7 +98,7 @@ data UploadPartCopy = UploadPartCopy
 --
 -- * @CopySourceRange ::@ @Maybe Text@
 --
--- * @Key ::@ @ObjectKey@
+-- * @Key ::@ @Text@
 --
 -- * @PartNumber ::@ @Integer@
 --
@@ -116,10 +116,10 @@ data UploadPartCopy = UploadPartCopy
 --
 -- * @CopySourceSSECustomerKeyMD5 ::@ @Maybe Text@
 --
-uploadPartCopy :: BucketName -- ^ 'upcBucket'
+uploadPartCopy :: Text -- ^ 'upcBucket'
                -> Text -- ^ 'upcUploadId'
                -> Text -- ^ 'upcCopySource'
-               -> ObjectKey -- ^ 'upcKey'
+               -> Text -- ^ 'upcKey'
                -> Integer -- ^ 'upcPartNumber'
                -> UploadPartCopy
 uploadPartCopy p1 p10 p2 p8 p9 = UploadPartCopy
@@ -141,7 +141,7 @@ uploadPartCopy p1 p10 p2 p8 p9 = UploadPartCopy
     , _upcCopySourceSSECustomerKeyMD5 = Nothing
     }
 
-upcBucket :: Lens' UploadPartCopy BucketName
+upcBucket :: Lens' UploadPartCopy Text
 upcBucket = lens _upcBucket (\s a -> s { _upcBucket = a })
 
 -- | The name of the source bucket and key name of the source object, separated
@@ -182,7 +182,7 @@ upcCopySourceRange :: Lens' UploadPartCopy (Maybe Text)
 upcCopySourceRange =
     lens _upcCopySourceRange (\s a -> s { _upcCopySourceRange = a })
 
-upcKey :: Lens' UploadPartCopy ObjectKey
+upcKey :: Lens' UploadPartCopy Text
 upcKey = lens _upcKey (\s a -> s { _upcKey = a })
 
 -- | Part number of part being copied.

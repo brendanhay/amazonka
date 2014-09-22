@@ -42,8 +42,8 @@ module Network.AWS.EC2.DescribeSnapshotAttribute
     , describeSnapshotAttributeResponse
     -- ** Response lenses
     , dsarSnapshotId
-    , dsarItem
-    , dsarItem
+    , dsarCreateVolumePermissions
+    , dsarProductCodes
     ) where
 
 import Network.AWS.Request.Query
@@ -85,8 +85,8 @@ instance ToQuery DescribeSnapshotAttribute where
 
 data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
     { _dsarSnapshotId :: Maybe Text
-    , _dsarItem :: [CreateVolumePermission]
-    , _dsarItem :: [ProductCode]
+    , _dsarCreateVolumePermissions :: [CreateVolumePermission]
+    , _dsarProductCodes :: [ProductCode]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -98,15 +98,15 @@ data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
 --
 -- * @SnapshotId ::@ @Maybe Text@
 --
--- * @Item ::@ @[CreateVolumePermission]@
+-- * @CreateVolumePermissions ::@ @[CreateVolumePermission]@
 --
--- * @Item ::@ @[ProductCode]@
+-- * @ProductCodes ::@ @[ProductCode]@
 --
 describeSnapshotAttributeResponse :: DescribeSnapshotAttributeResponse
 describeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
     { _dsarSnapshotId = Nothing
-    , _dsarItem = mempty
-    , _dsarItem = mempty
+    , _dsarCreateVolumePermissions = mempty
+    , _dsarProductCodes = mempty
     }
 
 -- | The ID of the Amazon EBS snapshot.
@@ -114,12 +114,15 @@ dsarSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
 dsarSnapshotId = lens _dsarSnapshotId (\s a -> s { _dsarSnapshotId = a })
 
 -- | A list of permissions for creating volumes from the snapshot.
-dsarItem :: Lens' DescribeSnapshotAttributeResponse [CreateVolumePermission]
-dsarItem = lens _dsarItem (\s a -> s { _dsarItem = a })
+dsarCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse [CreateVolumePermission]
+dsarCreateVolumePermissions =
+    lens _dsarCreateVolumePermissions
+         (\s a -> s { _dsarCreateVolumePermissions = a })
 
 -- | A list of product codes.
-dsarItem :: Lens' DescribeSnapshotAttributeResponse [ProductCode]
-dsarItem = lens _dsarItem (\s a -> s { _dsarItem = a })
+dsarProductCodes :: Lens' DescribeSnapshotAttributeResponse [ProductCode]
+dsarProductCodes =
+    lens _dsarProductCodes (\s a -> s { _dsarProductCodes = a })
 
 instance FromXML DescribeSnapshotAttributeResponse where
     fromXMLOptions = xmlOptions

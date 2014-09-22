@@ -40,7 +40,7 @@ module Network.AWS.Redshift.ResetClusterParameterGroup
     -- ** Request lenses
     , rcpgParameterGroupName
     , rcpgResetAllParameters
-    , rcpgParameter
+    , rcpgParameters
 
     -- * Response
     , ResetClusterParameterGroupResponse
@@ -59,7 +59,7 @@ import Network.AWS.Prelude
 data ResetClusterParameterGroup = ResetClusterParameterGroup
     { _rcpgParameterGroupName :: Text
     , _rcpgResetAllParameters :: Maybe Bool
-    , _rcpgParameter :: [Parameter]
+    , _rcpgParameters :: [Parameter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -71,14 +71,14 @@ data ResetClusterParameterGroup = ResetClusterParameterGroup
 --
 -- * @ResetAllParameters ::@ @Maybe Bool@
 --
--- * @Parameter ::@ @[Parameter]@
+-- * @Parameters ::@ @[Parameter]@
 --
 resetClusterParameterGroup :: Text -- ^ 'rcpgParameterGroupName'
                            -> ResetClusterParameterGroup
 resetClusterParameterGroup p1 = ResetClusterParameterGroup
     { _rcpgParameterGroupName = p1
     , _rcpgResetAllParameters = Nothing
-    , _rcpgParameter = mempty
+    , _rcpgParameters = mempty
     }
 
 -- | The name of the cluster parameter group to be reset.
@@ -95,8 +95,8 @@ rcpgResetAllParameters =
 -- | An array of names of parameters to be reset. If ResetAllParameters option
 -- is not used, then at least one parameter name must be supplied.
 -- Constraints: A maximum of 20 parameters can be reset in a single request.
-rcpgParameter :: Lens' ResetClusterParameterGroup [Parameter]
-rcpgParameter = lens _rcpgParameter (\s a -> s { _rcpgParameter = a })
+rcpgParameters :: Lens' ResetClusterParameterGroup [Parameter]
+rcpgParameters = lens _rcpgParameters (\s a -> s { _rcpgParameters = a })
 
 instance ToQuery ResetClusterParameterGroup where
     toQuery = genericQuery def

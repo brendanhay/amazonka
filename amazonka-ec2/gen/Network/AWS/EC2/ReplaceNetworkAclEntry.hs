@@ -44,7 +44,7 @@ module Network.AWS.EC2.ReplaceNetworkAclEntry
     , rnaeRuleAction
     , rnaeEgress
     , rnaeCidrBlock
-    , rnaeIcmp
+    , rnaeIcmpTypeCode
     , rnaePortRange
 
     -- * Response
@@ -64,7 +64,7 @@ data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
     , _rnaeRuleAction :: RuleAction
     , _rnaeEgress :: !Bool
     , _rnaeCidrBlock :: Text
-    , _rnaeIcmp :: Maybe IcmpTypeCode
+    , _rnaeIcmpTypeCode :: Maybe IcmpTypeCode
     , _rnaePortRange :: Maybe PortRange
     } deriving (Eq, Ord, Show, Generic)
 
@@ -85,7 +85,7 @@ data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
 --
 -- * @CidrBlock ::@ @Text@
 --
--- * @Icmp ::@ @Maybe IcmpTypeCode@
+-- * @IcmpTypeCode ::@ @Maybe IcmpTypeCode@
 --
 -- * @PortRange ::@ @Maybe PortRange@
 --
@@ -103,7 +103,7 @@ replaceNetworkAclEntry p1 p2 p3 p4 p5 p6 = ReplaceNetworkAclEntry
     , _rnaeRuleAction = p4
     , _rnaeEgress = p5
     , _rnaeCidrBlock = p6
-    , _rnaeIcmp = Nothing
+    , _rnaeIcmpTypeCode = Nothing
     , _rnaePortRange = Nothing
     }
 
@@ -134,8 +134,9 @@ rnaeCidrBlock :: Lens' ReplaceNetworkAclEntry Text
 rnaeCidrBlock = lens _rnaeCidrBlock (\s a -> s { _rnaeCidrBlock = a })
 
 -- | ICMP protocol: The ICMP type and code.
-rnaeIcmp :: Lens' ReplaceNetworkAclEntry (Maybe IcmpTypeCode)
-rnaeIcmp = lens _rnaeIcmp (\s a -> s { _rnaeIcmp = a })
+rnaeIcmpTypeCode :: Lens' ReplaceNetworkAclEntry (Maybe IcmpTypeCode)
+rnaeIcmpTypeCode =
+    lens _rnaeIcmpTypeCode (\s a -> s { _rnaeIcmpTypeCode = a })
 
 -- | TCP or UDP protocols: The range of ports the rule applies to.
 rnaePortRange :: Lens' ReplaceNetworkAclEntry (Maybe PortRange)

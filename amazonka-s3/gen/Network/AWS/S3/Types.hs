@@ -59,6 +59,9 @@ module Network.AWS.S3.Types
     -- * BucketCannedACL
     , BucketCannedACL (..)
 
+    -- * BucketLocationConstraint
+    , BucketLocationConstraint (..)
+
     -- * BucketLogsPermission
     , BucketLogsPermission (..)
 
@@ -164,12 +167,12 @@ module Network.AWS.S3.Types
     -- * Tagging
     , Tagging
     , tagging
-    , t1Tag
+    , t1TagSet
 
     -- * AccessControlPolicy
     , AccessControlPolicy
     , accessControlPolicy
-    , acpGrant
+    , acpGrants
     , acpOwner
 
     -- * Bucket
@@ -254,7 +257,7 @@ module Network.AWS.S3.Types
     , g1DisplayName
     , g1EmailAddress
     , g1ID
-    , g1Xsi:type
+    , g1Type
     , g1URI
 
     -- * Initiator
@@ -273,7 +276,7 @@ module Network.AWS.S3.Types
     , LoggingEnabled
     , loggingEnabled
     , le1TargetBucket
-    , le1Grant
+    , le1TargetGrants
     , le1TargetPrefix
 
     -- * MultipartUpload
@@ -403,7 +406,7 @@ module Network.AWS.S3.Types
     , wcErrorDocument
     , wcIndexDocument
     , wcRedirectAllRequestsTo
-    , wcRoutingRule
+    , wcRoutingRules
 
     -- * Common
     , module Network.AWS.S3.Internal.Types
@@ -654,6 +657,52 @@ instance ToXML BucketCannedACL where
     toXMLRoot    = toRoot "BucketCannedACL"
 
 instance ToQuery BucketCannedACL where
+      toQuery = toQuery . toBS
+
+data BucketLocationConstraint
+    = BucketLocationConstraintApNortheast1 -- ^ ap-northeast-1
+    | BucketLocationConstraintApSoutheast1 -- ^ ap-southeast-1
+    | BucketLocationConstraintApSoutheast2 -- ^ ap-southeast-2
+    | BucketLocationConstraintEu -- ^ EU
+    | BucketLocationConstraintEuWest1 -- ^ eu-west-1
+    | BucketLocationConstraintSaEast1 -- ^ sa-east-1
+    | BucketLocationConstraintUsWest1 -- ^ us-west-1
+    | BucketLocationConstraintUsWest2 -- ^ us-west-2
+      deriving (Eq, Ord, Show, Generic)
+
+instance Hashable BucketLocationConstraint
+
+instance FromText BucketLocationConstraint where
+    parser = match "ap-northeast-1" BucketLocationConstraintApNortheast1
+         <|> match "ap-southeast-1" BucketLocationConstraintApSoutheast1
+         <|> match "ap-southeast-2" BucketLocationConstraintApSoutheast2
+         <|> match "EU" BucketLocationConstraintEu
+         <|> match "eu-west-1" BucketLocationConstraintEuWest1
+         <|> match "sa-east-1" BucketLocationConstraintSaEast1
+         <|> match "us-west-1" BucketLocationConstraintUsWest1
+         <|> match "us-west-2" BucketLocationConstraintUsWest2
+
+instance ToText BucketLocationConstraint where
+    toText BucketLocationConstraintApNortheast1 = "ap-northeast-1"
+    toText BucketLocationConstraintApSoutheast1 = "ap-southeast-1"
+    toText BucketLocationConstraintApSoutheast2 = "ap-southeast-2"
+    toText BucketLocationConstraintEu = "EU"
+    toText BucketLocationConstraintEuWest1 = "eu-west-1"
+    toText BucketLocationConstraintSaEast1 = "sa-east-1"
+    toText BucketLocationConstraintUsWest1 = "us-west-1"
+    toText BucketLocationConstraintUsWest2 = "us-west-2"
+
+instance ToByteString BucketLocationConstraint
+
+instance FromXML BucketLocationConstraint where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "BucketLocationConstraint"
+
+instance ToXML BucketLocationConstraint where
+    toXMLOptions = xmlOptions
+    toXMLRoot    = toRoot "BucketLocationConstraint"
+
+instance ToQuery BucketLocationConstraint where
       toQuery = toQuery . toBS
 
 data BucketLogsPermission
@@ -1152,7 +1201,7 @@ instance ToXML CompletedMultipartUpload where
     toXMLRoot    = toRoot "CompleteMultipartUpload"
 
 newtype CreateBucketConfiguration = CreateBucketConfiguration
-    { _cbcLocationConstraint :: Maybe Region
+    { _cbcLocationConstraint :: Maybe BucketLocationConstraint
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1160,7 +1209,7 @@ newtype CreateBucketConfiguration = CreateBucketConfiguration
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @LocationConstraint ::@ @Maybe Region@
+-- * @LocationConstraint ::@ @Maybe BucketLocationConstraint@
 --
 createBucketConfiguration :: CreateBucketConfiguration
 createBucketConfiguration = CreateBucketConfiguration
@@ -1168,7 +1217,7 @@ createBucketConfiguration = CreateBucketConfiguration
     }
 
 -- | Specifies the region where the bucket will be created.
-cbcLocationConstraint :: Lens' CreateBucketConfiguration (Maybe Region)
+cbcLocationConstraint :: Lens' CreateBucketConfiguration (Maybe BucketLocationConstraint)
 cbcLocationConstraint =
     lens _cbcLocationConstraint (\s a -> s { _cbcLocationConstraint = a })
 
@@ -1177,7 +1226,7 @@ instance ToXML CreateBucketConfiguration where
     toXMLRoot    = toRoot "CreateBucketConfiguration"
 
 newtype ErrorDocument = ErrorDocument
-    { _edKey :: ObjectKey
+    { _edKey :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1185,16 +1234,16 @@ newtype ErrorDocument = ErrorDocument
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Key ::@ @ObjectKey@
+-- * @Key ::@ @Text@
 --
-errorDocument :: ObjectKey -- ^ 'edKey'
+errorDocument :: Text -- ^ 'edKey'
               -> ErrorDocument
 errorDocument p1 = ErrorDocument
     { _edKey = p1
     }
 
 -- | The object key name to use when a 4XX class error occurs.
-edKey :: Lens' ErrorDocument ObjectKey
+edKey :: Lens' ErrorDocument Text
 edKey = lens _edKey (\s a -> s { _edKey = a })
 
 instance FromXML ErrorDocument where
@@ -1375,7 +1424,7 @@ instance ToXML RestoreRequest where
     toXMLRoot    = toRoot "RestoreRequest"
 
 newtype Tagging = Tagging
-    { _t1Tag :: [Tag]
+    { _t1TagSet :: [Tag]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -1383,23 +1432,23 @@ newtype Tagging = Tagging
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Tag ::@ @[Tag]@
+-- * @TagSet ::@ @[Tag]@
 --
-tagging :: [Tag] -- ^ 't1Tag'
+tagging :: [Tag] -- ^ 't1TagSet'
         -> Tagging
 tagging p1 = Tagging
-    { _t1Tag = p1
+    { _t1TagSet = p1
     }
 
-t1Tag :: Lens' Tagging [Tag]
-t1Tag = lens _t1Tag (\s a -> s { _t1Tag = a })
+t1TagSet :: Lens' Tagging [Tag]
+t1TagSet = lens _t1TagSet (\s a -> s { _t1TagSet = a })
 
 instance ToXML Tagging where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Tagging"
 
 data AccessControlPolicy = AccessControlPolicy
-    { _acpGrant :: [Grant]
+    { _acpGrants :: [Grant]
     , _acpOwner :: Maybe Owner
     } deriving (Eq, Ord, Show, Generic)
 
@@ -1408,19 +1457,19 @@ data AccessControlPolicy = AccessControlPolicy
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Grant ::@ @[Grant]@
+-- * @Grants ::@ @[Grant]@
 --
 -- * @Owner ::@ @Maybe Owner@
 --
 accessControlPolicy :: AccessControlPolicy
 accessControlPolicy = AccessControlPolicy
-    { _acpGrant = mempty
+    { _acpGrants = mempty
     , _acpOwner = Nothing
     }
 
 -- | A list of grants.
-acpGrant :: Lens' AccessControlPolicy [Grant]
-acpGrant = lens _acpGrant (\s a -> s { _acpGrant = a })
+acpGrants :: Lens' AccessControlPolicy [Grant]
+acpGrants = lens _acpGrants (\s a -> s { _acpGrants = a })
 
 acpOwner :: Lens' AccessControlPolicy (Maybe Owner)
 acpOwner = lens _acpOwner (\s a -> s { _acpOwner = a })
@@ -1430,7 +1479,7 @@ instance ToXML AccessControlPolicy where
     toXMLRoot    = toRoot "AccessControlPolicy"
 
 data Bucket = Bucket
-    { _bName :: Maybe BucketName
+    { _bName :: Maybe Text
     , _bCreationDate :: Maybe RFC822
     } deriving (Eq, Ord, Show, Generic)
 
@@ -1442,7 +1491,7 @@ data Bucket = Bucket
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Name ::@ @Maybe BucketName@
+-- * @Name ::@ @Maybe Text@
 --
 -- * @CreationDate ::@ @Maybe RFC822@
 --
@@ -1453,7 +1502,7 @@ bucket = Bucket
     }
 
 -- | The name of the bucket.
-bName :: Lens' Bucket (Maybe BucketName)
+bName :: Lens' Bucket (Maybe Text)
 bName = lens _bName (\s a -> s { _bName = a })
 
 -- | Date the bucket was created.
@@ -1535,7 +1584,7 @@ instance ToXML CORSRule where
     toXMLRoot    = toRoot "CORSRule"
 
 data CompletedPart = CompletedPart
-    { _cpETag :: Maybe ETag
+    { _cpETag :: Maybe Text
     , _cpPartNumber :: Maybe Integer
     } deriving (Eq, Ord, Show, Generic)
 
@@ -1544,7 +1593,7 @@ data CompletedPart = CompletedPart
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ETag ::@ @Maybe ETag@
+-- * @ETag ::@ @Maybe Text@
 --
 -- * @PartNumber ::@ @Maybe Integer@
 --
@@ -1555,7 +1604,7 @@ completedPart = CompletedPart
     }
 
 -- | Entity tag returned when the part was uploaded.
-cpETag :: Lens' CompletedPart (Maybe ETag)
+cpETag :: Lens' CompletedPart (Maybe Text)
 cpETag = lens _cpETag (\s a -> s { _cpETag = a })
 
 -- | Part number that identifies the part.
@@ -1621,7 +1670,7 @@ instance ToXML Condition where
     toXMLRoot    = toRoot "Condition"
 
 data CopyObjectResult = CopyObjectResult
-    { _corrETag :: Maybe ETag
+    { _corrETag :: Maybe Text
     , _corrLastModified :: Maybe RFC822
     } deriving (Eq, Ord, Show, Generic)
 
@@ -1633,7 +1682,7 @@ data CopyObjectResult = CopyObjectResult
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ETag ::@ @Maybe ETag@
+-- * @ETag ::@ @Maybe Text@
 --
 -- * @LastModified ::@ @Maybe RFC822@
 --
@@ -1643,7 +1692,7 @@ copyObjectResult = CopyObjectResult
     , _corrLastModified = Nothing
     }
 
-corrETag :: Lens' CopyObjectResult (Maybe ETag)
+corrETag :: Lens' CopyObjectResult (Maybe Text)
 corrETag = lens _corrETag (\s a -> s { _corrETag = a })
 
 corrLastModified :: Lens' CopyObjectResult (Maybe RFC822)
@@ -1655,7 +1704,7 @@ instance FromXML CopyObjectResult where
     fromXMLRoot    = fromRoot "CopyObjectResult"
 
 data CopyPartResult = CopyPartResult
-    { _cprrETag :: Maybe ETag
+    { _cprrETag :: Maybe Text
     , _cprrLastModified :: Maybe RFC822
     } deriving (Eq, Ord, Show, Generic)
 
@@ -1667,7 +1716,7 @@ data CopyPartResult = CopyPartResult
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ETag ::@ @Maybe ETag@
+-- * @ETag ::@ @Maybe Text@
 --
 -- * @LastModified ::@ @Maybe RFC822@
 --
@@ -1678,7 +1727,7 @@ copyPartResult = CopyPartResult
     }
 
 -- | Entity tag of the object.
-cprrETag :: Lens' CopyPartResult (Maybe ETag)
+cprrETag :: Lens' CopyPartResult (Maybe Text)
 cprrETag = lens _cprrETag (\s a -> s { _cprrETag = a })
 
 -- | Date and time at which the object was uploaded.
@@ -1725,8 +1774,8 @@ instance ToXML Delete where
 
 data DeleteMarkerEntry = DeleteMarkerEntry
     { _dmeOwner :: Maybe Owner
-    , _dmeKey :: Maybe ObjectKey
-    , _dmeVersionId :: Maybe ObjectVersionId
+    , _dmeKey :: Maybe Text
+    , _dmeVersionId :: Maybe Text
     , _dmeIsLatest :: Maybe Bool
     , _dmeLastModified :: Maybe RFC822
     } deriving (Eq, Ord, Show, Generic)
@@ -1741,9 +1790,9 @@ data DeleteMarkerEntry = DeleteMarkerEntry
 --
 -- * @Owner ::@ @Maybe Owner@
 --
--- * @Key ::@ @Maybe ObjectKey@
+-- * @Key ::@ @Maybe Text@
 --
--- * @VersionId ::@ @Maybe ObjectVersionId@
+-- * @VersionId ::@ @Maybe Text@
 --
 -- * @IsLatest ::@ @Maybe Bool@
 --
@@ -1762,11 +1811,11 @@ dmeOwner :: Lens' DeleteMarkerEntry (Maybe Owner)
 dmeOwner = lens _dmeOwner (\s a -> s { _dmeOwner = a })
 
 -- | The object key.
-dmeKey :: Lens' DeleteMarkerEntry (Maybe ObjectKey)
+dmeKey :: Lens' DeleteMarkerEntry (Maybe Text)
 dmeKey = lens _dmeKey (\s a -> s { _dmeKey = a })
 
 -- | Version ID of an object.
-dmeVersionId :: Lens' DeleteMarkerEntry (Maybe ObjectVersionId)
+dmeVersionId :: Lens' DeleteMarkerEntry (Maybe Text)
 dmeVersionId = lens _dmeVersionId (\s a -> s { _dmeVersionId = a })
 
 -- | Specifies whether the object is (true) or is not (false) the latest version
@@ -1783,8 +1832,8 @@ instance FromXML DeleteMarkerEntry where
     fromXMLRoot    = fromRoot "DeleteMarkerEntry"
 
 data DeletedObject = DeletedObject
-    { _do1rKey :: Maybe ObjectKey
-    , _do1rVersionId :: Maybe ObjectVersionId
+    { _do1rKey :: Maybe Text
+    , _do1rVersionId :: Maybe Text
     , _do1rDeleteMarker :: Maybe Bool
     , _do1rDeleteMarkerVersionId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -1797,9 +1846,9 @@ data DeletedObject = DeletedObject
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Key ::@ @Maybe ObjectKey@
+-- * @Key ::@ @Maybe Text@
 --
--- * @VersionId ::@ @Maybe ObjectVersionId@
+-- * @VersionId ::@ @Maybe Text@
 --
 -- * @DeleteMarker ::@ @Maybe Bool@
 --
@@ -1813,10 +1862,10 @@ deletedObject = DeletedObject
     , _do1rDeleteMarkerVersionId = Nothing
     }
 
-do1rKey :: Lens' DeletedObject (Maybe ObjectKey)
+do1rKey :: Lens' DeletedObject (Maybe Text)
 do1rKey = lens _do1rKey (\s a -> s { _do1rKey = a })
 
-do1rVersionId :: Lens' DeletedObject (Maybe ObjectVersionId)
+do1rVersionId :: Lens' DeletedObject (Maybe Text)
 do1rVersionId = lens _do1rVersionId (\s a -> s { _do1rVersionId = a })
 
 do1rDeleteMarker :: Lens' DeletedObject (Maybe Bool)
@@ -1833,8 +1882,8 @@ instance FromXML DeletedObject where
     fromXMLRoot    = fromRoot "DeletedObject"
 
 data Error = Error
-    { _eKey :: Maybe ObjectKey
-    , _eVersionId :: Maybe ObjectVersionId
+    { _eKey :: Maybe Text
+    , _eVersionId :: Maybe Text
     , _eCode :: Maybe Text
     , _eMessage :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -1847,9 +1896,9 @@ data Error = Error
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Key ::@ @Maybe ObjectKey@
+-- * @Key ::@ @Maybe Text@
 --
--- * @VersionId ::@ @Maybe ObjectVersionId@
+-- * @VersionId ::@ @Maybe Text@
 --
 -- * @Code ::@ @Maybe Text@
 --
@@ -1863,10 +1912,10 @@ error' = Error
     , _eMessage = Nothing
     }
 
-eKey :: Lens' Error (Maybe ObjectKey)
+eKey :: Lens' Error (Maybe Text)
 eKey = lens _eKey (\s a -> s { _eKey = a })
 
-eVersionId :: Lens' Error (Maybe ObjectVersionId)
+eVersionId :: Lens' Error (Maybe Text)
 eVersionId = lens _eVersionId (\s a -> s { _eVersionId = a })
 
 eCode :: Lens' Error (Maybe Text)
@@ -1918,7 +1967,7 @@ data Grantee = Grantee
     { _g1DisplayName :: Maybe Text
     , _g1EmailAddress :: Maybe Text
     , _g1ID :: Maybe Text
-    , _g1Xsi:type :: Type
+    , _g1Type :: Type
     , _g1URI :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -1933,17 +1982,17 @@ data Grantee = Grantee
 --
 -- * @ID ::@ @Maybe Text@
 --
--- * @Xsi:type ::@ @Type@
+-- * @Type ::@ @Type@
 --
 -- * @URI ::@ @Maybe Text@
 --
-grantee :: Type -- ^ 'g1Xsi:type'
+grantee :: Type -- ^ 'g1Type'
         -> Grantee
 grantee p4 = Grantee
     { _g1DisplayName = Nothing
     , _g1EmailAddress = Nothing
     , _g1ID = Nothing
-    , _g1Xsi:type = p4
+    , _g1Type = p4
     , _g1URI = Nothing
     }
 
@@ -1960,8 +2009,8 @@ g1ID :: Lens' Grantee (Maybe Text)
 g1ID = lens _g1ID (\s a -> s { _g1ID = a })
 
 -- | Type of grantee.
-g1Xsi:type :: Lens' Grantee Type
-g1Xsi:type = lens _g1Xsi:type (\s a -> s { _g1Xsi:type = a })
+g1Type :: Lens' Grantee Type
+g1Type = lens _g1Type (\s a -> s { _g1Type = a })
 
 -- | URI of the grantee group.
 g1URI :: Lens' Grantee (Maybe Text)
@@ -2053,7 +2102,7 @@ instance ToXML LifecycleExpiration where
 
 data LoggingEnabled = LoggingEnabled
     { _le1TargetBucket :: Maybe Text
-    , _le1Grant :: [TargetGrant]
+    , _le1TargetGrants :: [TargetGrant]
     , _le1TargetPrefix :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -2064,14 +2113,14 @@ data LoggingEnabled = LoggingEnabled
 --
 -- * @TargetBucket ::@ @Maybe Text@
 --
--- * @Grant ::@ @[TargetGrant]@
+-- * @TargetGrants ::@ @[TargetGrant]@
 --
 -- * @TargetPrefix ::@ @Maybe Text@
 --
 loggingEnabled :: LoggingEnabled
 loggingEnabled = LoggingEnabled
     { _le1TargetBucket = Nothing
-    , _le1Grant = mempty
+    , _le1TargetGrants = mempty
     , _le1TargetPrefix = Nothing
     }
 
@@ -2084,8 +2133,8 @@ loggingEnabled = LoggingEnabled
 le1TargetBucket :: Lens' LoggingEnabled (Maybe Text)
 le1TargetBucket = lens _le1TargetBucket (\s a -> s { _le1TargetBucket = a })
 
-le1Grant :: Lens' LoggingEnabled [TargetGrant]
-le1Grant = lens _le1Grant (\s a -> s { _le1Grant = a })
+le1TargetGrants :: Lens' LoggingEnabled [TargetGrant]
+le1TargetGrants = lens _le1TargetGrants (\s a -> s { _le1TargetGrants = a })
 
 -- | This element lets you specify a prefix for the keys that the log files will
 -- be stored under.
@@ -2102,7 +2151,7 @@ instance ToXML LoggingEnabled where
 
 data MultipartUpload = MultipartUpload
     { _muUploadId :: Maybe Text
-    , _muKey :: Maybe ObjectKey
+    , _muKey :: Maybe Text
     , _muInitiated :: Maybe RFC822
     , _muStorageClass :: Maybe StorageClass
     , _muOwner :: Maybe Owner
@@ -2119,7 +2168,7 @@ data MultipartUpload = MultipartUpload
 --
 -- * @UploadId ::@ @Maybe Text@
 --
--- * @Key ::@ @Maybe ObjectKey@
+-- * @Key ::@ @Maybe Text@
 --
 -- * @Initiated ::@ @Maybe RFC822@
 --
@@ -2144,7 +2193,7 @@ muUploadId :: Lens' MultipartUpload (Maybe Text)
 muUploadId = lens _muUploadId (\s a -> s { _muUploadId = a })
 
 -- | Key of the object for which the multipart upload was initiated.
-muKey :: Lens' MultipartUpload (Maybe ObjectKey)
+muKey :: Lens' MultipartUpload (Maybe Text)
 muKey = lens _muKey (\s a -> s { _muKey = a })
 
 -- | Date and time at which the multipart upload was initiated.
@@ -2212,9 +2261,9 @@ instance ToXML NoncurrentVersionTransition where
     toXMLRoot    = toRoot "NoncurrentVersionTransition"
 
 data Object = Object
-    { _orKey :: ObjectKey
+    { _orKey :: Text
     , _orLastModified :: RFC822
-    , _orETag :: ETag
+    , _orETag :: Text
     , _orSize :: Integer
     , _orStorageClass :: ObjectStorageClass
     , _orOwner :: Owner
@@ -2228,11 +2277,11 @@ data Object = Object
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Key ::@ @ObjectKey@
+-- * @Key ::@ @Text@
 --
 -- * @LastModified ::@ @RFC822@
 --
--- * @ETag ::@ @ETag@
+-- * @ETag ::@ @Text@
 --
 -- * @Size ::@ @Integer@
 --
@@ -2240,9 +2289,9 @@ data Object = Object
 --
 -- * @Owner ::@ @Owner@
 --
-object :: ObjectKey -- ^ 'orKey'
+object :: Text -- ^ 'orKey'
        -> RFC822 -- ^ 'orLastModified'
-       -> ETag -- ^ 'orETag'
+       -> Text -- ^ 'orETag'
        -> Integer -- ^ 'orSize'
        -> ObjectStorageClass -- ^ 'orStorageClass'
        -> Owner -- ^ 'orOwner'
@@ -2256,13 +2305,13 @@ object p1 p2 p3 p4 p5 p6 = Object
     , _orOwner = p6
     }
 
-orKey :: Lens' Object ObjectKey
+orKey :: Lens' Object Text
 orKey = lens _orKey (\s a -> s { _orKey = a })
 
 orLastModified :: Lens' Object RFC822
 orLastModified = lens _orLastModified (\s a -> s { _orLastModified = a })
 
-orETag :: Lens' Object ETag
+orETag :: Lens' Object Text
 orETag = lens _orETag (\s a -> s { _orETag = a })
 
 orSize :: Lens' Object Integer
@@ -2280,8 +2329,8 @@ instance FromXML Object where
     fromXMLRoot    = fromRoot "Object"
 
 data ObjectIdentifier = ObjectIdentifier
-    { _oiKey :: ObjectKey
-    , _oiVersionId :: Maybe ObjectVersionId
+    { _oiKey :: Text
+    , _oiVersionId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2289,11 +2338,11 @@ data ObjectIdentifier = ObjectIdentifier
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Key ::@ @ObjectKey@
+-- * @Key ::@ @Text@
 --
--- * @VersionId ::@ @Maybe ObjectVersionId@
+-- * @VersionId ::@ @Maybe Text@
 --
-objectIdentifier :: ObjectKey -- ^ 'oiKey'
+objectIdentifier :: Text -- ^ 'oiKey'
                  -> ObjectIdentifier
 objectIdentifier p1 = ObjectIdentifier
     { _oiKey = p1
@@ -2301,11 +2350,11 @@ objectIdentifier p1 = ObjectIdentifier
     }
 
 -- | Key name of the object to delete.
-oiKey :: Lens' ObjectIdentifier ObjectKey
+oiKey :: Lens' ObjectIdentifier Text
 oiKey = lens _oiKey (\s a -> s { _oiKey = a })
 
 -- | VersionId for the specific version of the object to delete.
-oiVersionId :: Lens' ObjectIdentifier (Maybe ObjectVersionId)
+oiVersionId :: Lens' ObjectIdentifier (Maybe Text)
 oiVersionId = lens _oiVersionId (\s a -> s { _oiVersionId = a })
 
 instance ToXML ObjectIdentifier where
@@ -2313,11 +2362,11 @@ instance ToXML ObjectIdentifier where
     toXMLRoot    = toRoot "ObjectIdentifier"
 
 data ObjectVersion = ObjectVersion
-    { _ovETag :: Maybe ETag
+    { _ovETag :: Maybe Text
     , _ovSize :: Maybe Integer
     , _ovStorageClass :: Maybe ObjectVersionStorageClass
-    , _ovKey :: Maybe ObjectKey
-    , _ovVersionId :: Maybe ObjectVersionId
+    , _ovKey :: Maybe Text
+    , _ovVersionId :: Maybe Text
     , _ovIsLatest :: Maybe Bool
     , _ovLastModified :: Maybe RFC822
     , _ovOwner :: Maybe Owner
@@ -2331,15 +2380,15 @@ data ObjectVersion = ObjectVersion
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ETag ::@ @Maybe ETag@
+-- * @ETag ::@ @Maybe Text@
 --
 -- * @Size ::@ @Maybe Integer@
 --
 -- * @StorageClass ::@ @Maybe ObjectVersionStorageClass@
 --
--- * @Key ::@ @Maybe ObjectKey@
+-- * @Key ::@ @Maybe Text@
 --
--- * @VersionId ::@ @Maybe ObjectVersionId@
+-- * @VersionId ::@ @Maybe Text@
 --
 -- * @IsLatest ::@ @Maybe Bool@
 --
@@ -2359,7 +2408,7 @@ objectVersion = ObjectVersion
     , _ovOwner = Nothing
     }
 
-ovETag :: Lens' ObjectVersion (Maybe ETag)
+ovETag :: Lens' ObjectVersion (Maybe Text)
 ovETag = lens _ovETag (\s a -> s { _ovETag = a })
 
 -- | Size in bytes of the object.
@@ -2371,11 +2420,11 @@ ovStorageClass :: Lens' ObjectVersion (Maybe ObjectVersionStorageClass)
 ovStorageClass = lens _ovStorageClass (\s a -> s { _ovStorageClass = a })
 
 -- | The object key.
-ovKey :: Lens' ObjectVersion (Maybe ObjectKey)
+ovKey :: Lens' ObjectVersion (Maybe Text)
 ovKey = lens _ovKey (\s a -> s { _ovKey = a })
 
 -- | Version ID of an object.
-ovVersionId :: Lens' ObjectVersion (Maybe ObjectVersionId)
+ovVersionId :: Lens' ObjectVersion (Maybe Text)
 ovVersionId = lens _ovVersionId (\s a -> s { _ovVersionId = a })
 
 -- | Specifies whether the object is (true) or is not (false) the latest version
@@ -2431,7 +2480,7 @@ instance ToXML Owner where
 data Part = Part
     { _pPartNumber :: Maybe Integer
     , _pLastModified :: Maybe RFC822
-    , _pETag :: Maybe ETag
+    , _pETag :: Maybe Text
     , _pSize :: Maybe Integer
     } deriving (Eq, Ord, Show, Generic)
 
@@ -2447,7 +2496,7 @@ data Part = Part
 --
 -- * @LastModified ::@ @Maybe RFC822@
 --
--- * @ETag ::@ @Maybe ETag@
+-- * @ETag ::@ @Maybe Text@
 --
 -- * @Size ::@ @Maybe Integer@
 --
@@ -2468,7 +2517,7 @@ pLastModified :: Lens' Part (Maybe RFC822)
 pLastModified = lens _pLastModified (\s a -> s { _pLastModified = a })
 
 -- | Entity tag returned when the part was uploaded.
-pETag :: Lens' Part (Maybe ETag)
+pETag :: Lens' Part (Maybe Text)
 pETag = lens _pETag (\s a -> s { _pETag = a })
 
 -- | Size of the uploaded part data.
@@ -2726,7 +2775,7 @@ instance ToXML Rule where
     toXMLRoot    = toRoot "Rule"
 
 data Tag = Tag
-    { _t2Key :: ObjectKey
+    { _t2Key :: Text
     , _t2Value :: Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -2735,11 +2784,11 @@ data Tag = Tag
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Key ::@ @ObjectKey@
+-- * @Key ::@ @Text@
 --
 -- * @Value ::@ @Text@
 --
-tag :: ObjectKey -- ^ 't2Key'
+tag :: Text -- ^ 't2Key'
     -> Text -- ^ 't2Value'
     -> Tag
 tag p1 p2 = Tag
@@ -2748,7 +2797,7 @@ tag p1 p2 = Tag
     }
 
 -- | Name of the tag.
-t2Key :: Lens' Tag ObjectKey
+t2Key :: Lens' Tag Text
 t2Key = lens _t2Key (\s a -> s { _t2Key = a })
 
 -- | Value of the tag.
@@ -2920,7 +2969,7 @@ data WebsiteConfiguration = WebsiteConfiguration
     { _wcErrorDocument :: Maybe ErrorDocument
     , _wcIndexDocument :: Maybe IndexDocument
     , _wcRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
-    , _wcRoutingRule :: [RoutingRule]
+    , _wcRoutingRules :: [RoutingRule]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required fields to construct
@@ -2934,14 +2983,14 @@ data WebsiteConfiguration = WebsiteConfiguration
 --
 -- * @RedirectAllRequestsTo ::@ @Maybe RedirectAllRequestsTo@
 --
--- * @RoutingRule ::@ @[RoutingRule]@
+-- * @RoutingRules ::@ @[RoutingRule]@
 --
 websiteConfiguration :: WebsiteConfiguration
 websiteConfiguration = WebsiteConfiguration
     { _wcErrorDocument = Nothing
     , _wcIndexDocument = Nothing
     , _wcRedirectAllRequestsTo = Nothing
-    , _wcRoutingRule = mempty
+    , _wcRoutingRules = mempty
     }
 
 wcErrorDocument :: Lens' WebsiteConfiguration (Maybe ErrorDocument)
@@ -2955,8 +3004,8 @@ wcRedirectAllRequestsTo =
     lens _wcRedirectAllRequestsTo
          (\s a -> s { _wcRedirectAllRequestsTo = a })
 
-wcRoutingRule :: Lens' WebsiteConfiguration [RoutingRule]
-wcRoutingRule = lens _wcRoutingRule (\s a -> s { _wcRoutingRule = a })
+wcRoutingRules :: Lens' WebsiteConfiguration [RoutingRule]
+wcRoutingRules = lens _wcRoutingRules (\s a -> s { _wcRoutingRules = a })
 
 instance ToXML WebsiteConfiguration where
     toXMLOptions = xmlOptions

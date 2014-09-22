@@ -49,7 +49,7 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodes
     , describeReservedCacheNodesResponse
     -- ** Response lenses
     , drcnrMarker
-    , drcnrReservedCacheNode
+    , drcnrReservedCacheNodes
     ) where
 
 import Network.AWS.Request.Query
@@ -160,7 +160,7 @@ instance ToQuery DescribeReservedCacheNodes where
 -- | Represents the output of a DescribeReservedCacheNodes operation.
 data DescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse
     { _drcnrMarker :: Maybe Text
-    , _drcnrReservedCacheNode :: [ReservedCacheNode]
+    , _drcnrReservedCacheNodes :: [ReservedCacheNode]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -172,12 +172,12 @@ data DescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @ReservedCacheNode ::@ @[ReservedCacheNode]@
+-- * @ReservedCacheNodes ::@ @[ReservedCacheNode]@
 --
 describeReservedCacheNodesResponse :: DescribeReservedCacheNodesResponse
 describeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse
     { _drcnrMarker = Nothing
-    , _drcnrReservedCacheNode = mempty
+    , _drcnrReservedCacheNodes = mempty
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
@@ -186,9 +186,10 @@ drcnrMarker = lens _drcnrMarker (\s a -> s { _drcnrMarker = a })
 
 -- | A list of reserved cache nodes. Each element in the list contains detailed
 -- information about one node.
-drcnrReservedCacheNode :: Lens' DescribeReservedCacheNodesResponse [ReservedCacheNode]
-drcnrReservedCacheNode =
-    lens _drcnrReservedCacheNode (\s a -> s { _drcnrReservedCacheNode = a })
+drcnrReservedCacheNodes :: Lens' DescribeReservedCacheNodesResponse [ReservedCacheNode]
+drcnrReservedCacheNodes =
+    lens _drcnrReservedCacheNodes
+         (\s a -> s { _drcnrReservedCacheNodes = a })
 
 instance FromXML DescribeReservedCacheNodesResponse where
     fromXMLOptions = xmlOptions

@@ -108,7 +108,7 @@ instance ToQuery ListInstanceProfilesForRole where
 -- ListInstanceProfilesForRole action.
 data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
     { _lipfrrInstanceProfiles :: [InstanceProfile]
-    , _lipfrrIsTruncated :: !Bool
+    , _lipfrrIsTruncated :: Bool
     , _lipfrrMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 

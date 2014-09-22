@@ -43,7 +43,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype GetBucketLogging = GetBucketLogging
-    { _gbl2Bucket :: BucketName
+    { _gbl2Bucket :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -51,15 +51,15 @@ newtype GetBucketLogging = GetBucketLogging
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @BucketName@
+-- * @Bucket ::@ @Text@
 --
-getBucketLogging :: BucketName -- ^ 'gbl2Bucket'
+getBucketLogging :: Text -- ^ 'gbl2Bucket'
                  -> GetBucketLogging
 getBucketLogging p1 = GetBucketLogging
     { _gbl2Bucket = p1
     }
 
-gbl2Bucket :: Lens' GetBucketLogging BucketName
+gbl2Bucket :: Lens' GetBucketLogging Text
 gbl2Bucket = lens _gbl2Bucket (\s a -> s { _gbl2Bucket = a })
 
 instance ToPath GetBucketLogging

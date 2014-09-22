@@ -33,7 +33,7 @@ module Network.AWS.S3.ListBuckets
     -- ** Response constructor
     , listBucketsResponse
     -- ** Response lenses
-    , lbrBucket
+    , lbrBuckets
     , lbrOwner
     ) where
 
@@ -61,7 +61,7 @@ instance ToHeaders ListBuckets
 instance ToBody ListBuckets
 
 data ListBucketsResponse = ListBucketsResponse
-    { _lbrBucket :: [Bucket]
+    { _lbrBuckets :: [Bucket]
     , _lbrOwner :: Maybe Owner
     } deriving (Eq, Ord, Show, Generic)
 
@@ -72,18 +72,18 @@ data ListBucketsResponse = ListBucketsResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @[Bucket]@
+-- * @Buckets ::@ @[Bucket]@
 --
 -- * @Owner ::@ @Maybe Owner@
 --
 listBucketsResponse :: ListBucketsResponse
 listBucketsResponse = ListBucketsResponse
-    { _lbrBucket = mempty
+    { _lbrBuckets = mempty
     , _lbrOwner = Nothing
     }
 
-lbrBucket :: Lens' ListBucketsResponse [Bucket]
-lbrBucket = lens _lbrBucket (\s a -> s { _lbrBucket = a })
+lbrBuckets :: Lens' ListBucketsResponse [Bucket]
+lbrBuckets = lens _lbrBuckets (\s a -> s { _lbrBuckets = a })
 
 lbrOwner :: Lens' ListBucketsResponse (Maybe Owner)
 lbrOwner = lens _lbrOwner (\s a -> s { _lbrOwner = a })

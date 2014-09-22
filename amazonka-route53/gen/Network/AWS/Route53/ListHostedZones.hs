@@ -42,7 +42,7 @@ module Network.AWS.Route53.ListHostedZones
     -- ** Response constructor
     , listHostedZonesResponse
     -- ** Response lenses
-    , lhzrHostedZone
+    , lhzrHostedZones
     , lhzrMarker
     , lhzrIsTruncated
     , lhzrNextMarker
@@ -106,7 +106,7 @@ instance ToXML ListHostedZones where
 
 -- | A complex type that contains the response for the request.
 data ListHostedZonesResponse = ListHostedZonesResponse
-    { _lhzrHostedZone :: [HostedZone]
+    { _lhzrHostedZones :: [HostedZone]
     , _lhzrMarker :: Text
     , _lhzrIsTruncated :: !Bool
     , _lhzrNextMarker :: Maybe Text
@@ -120,7 +120,7 @@ data ListHostedZonesResponse = ListHostedZonesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HostedZone ::@ @[HostedZone]@
+-- * @HostedZones ::@ @[HostedZone]@
 --
 -- * @Marker ::@ @Text@
 --
@@ -130,13 +130,13 @@ data ListHostedZonesResponse = ListHostedZonesResponse
 --
 -- * @MaxItems ::@ @Text@
 --
-listHostedZonesResponse :: [HostedZone] -- ^ 'lhzrHostedZone'
+listHostedZonesResponse :: [HostedZone] -- ^ 'lhzrHostedZones'
                         -> Text -- ^ 'lhzrMarker'
                         -> Bool -- ^ 'lhzrIsTruncated'
                         -> Text -- ^ 'lhzrMaxItems'
                         -> ListHostedZonesResponse
 listHostedZonesResponse p1 p2 p3 p5 = ListHostedZonesResponse
-    { _lhzrHostedZone = p1
+    { _lhzrHostedZones = p1
     , _lhzrMarker = p2
     , _lhzrIsTruncated = p3
     , _lhzrNextMarker = Nothing
@@ -145,8 +145,8 @@ listHostedZonesResponse p1 p2 p3 p5 = ListHostedZonesResponse
 
 -- | A complex type that contains information about the hosted zones associated
 -- with the current AWS account.
-lhzrHostedZone :: Lens' ListHostedZonesResponse [HostedZone]
-lhzrHostedZone = lens _lhzrHostedZone (\s a -> s { _lhzrHostedZone = a })
+lhzrHostedZones :: Lens' ListHostedZonesResponse [HostedZone]
+lhzrHostedZones = lens _lhzrHostedZones (\s a -> s { _lhzrHostedZones = a })
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of NextMarker from the last response in the

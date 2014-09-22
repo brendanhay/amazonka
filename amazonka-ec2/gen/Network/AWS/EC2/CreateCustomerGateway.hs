@@ -53,7 +53,7 @@ module Network.AWS.EC2.CreateCustomerGateway
     , createCustomerGateway
     -- ** Request lenses
     , ccgType
-    , ccgIpAddress
+    , ccgPublicIp
     , ccgBgpAsn
 
     -- * Response
@@ -70,7 +70,7 @@ import Network.AWS.Prelude
 
 data CreateCustomerGateway = CreateCustomerGateway
     { _ccgType :: GatewayType
-    , _ccgIpAddress :: Text
+    , _ccgPublicIp :: Text
     , _ccgBgpAsn :: !Integer
     } deriving (Eq, Ord, Show, Generic)
 
@@ -81,17 +81,17 @@ data CreateCustomerGateway = CreateCustomerGateway
 --
 -- * @Type ::@ @GatewayType@
 --
--- * @IpAddress ::@ @Text@
+-- * @PublicIp ::@ @Text@
 --
 -- * @BgpAsn ::@ @Integer@
 --
 createCustomerGateway :: GatewayType -- ^ 'ccgType'
-                      -> Text -- ^ 'ccgIpAddress'
+                      -> Text -- ^ 'ccgPublicIp'
                       -> Integer -- ^ 'ccgBgpAsn'
                       -> CreateCustomerGateway
 createCustomerGateway p1 p2 p3 = CreateCustomerGateway
     { _ccgType = p1
-    , _ccgIpAddress = p2
+    , _ccgPublicIp = p2
     , _ccgBgpAsn = p3
     }
 
@@ -101,8 +101,8 @@ ccgType = lens _ccgType (\s a -> s { _ccgType = a })
 
 -- | The Internet-routable IP address for the customer gateway's outside
 -- interface. The address must be static.
-ccgIpAddress :: Lens' CreateCustomerGateway Text
-ccgIpAddress = lens _ccgIpAddress (\s a -> s { _ccgIpAddress = a })
+ccgPublicIp :: Lens' CreateCustomerGateway Text
+ccgPublicIp = lens _ccgPublicIp (\s a -> s { _ccgPublicIp = a })
 
 -- | For devices that support BGP, the customer gateway's BGP ASN. Default:
 -- 65000.

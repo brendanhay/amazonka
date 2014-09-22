@@ -64,10 +64,10 @@ module Network.AWS.RDS.CreateEventSubscription
     , cesSubscriptionName
     , cesSnsTopicArn
     , cesSourceType
-    , cesEventCategory
-    , cesSourceId
+    , cesEventCategories
+    , cesSourceIds
     , cesEnabled
-    , cesTag
+    , cesTags
 
     -- * Response
     , CreateEventSubscriptionResponse
@@ -86,10 +86,10 @@ data CreateEventSubscription = CreateEventSubscription
     { _cesSubscriptionName :: Text
     , _cesSnsTopicArn :: Text
     , _cesSourceType :: Maybe Text
-    , _cesEventCategory :: [Text]
-    , _cesSourceId :: [Text]
+    , _cesEventCategories :: [Text]
+    , _cesSourceIds :: [Text]
     , _cesEnabled :: Maybe Bool
-    , _cesTag :: [Tag]
+    , _cesTags :: [Tag]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -103,13 +103,13 @@ data CreateEventSubscription = CreateEventSubscription
 --
 -- * @SourceType ::@ @Maybe Text@
 --
--- * @EventCategory ::@ @[Text]@
+-- * @EventCategories ::@ @[Text]@
 --
--- * @SourceId ::@ @[Text]@
+-- * @SourceIds ::@ @[Text]@
 --
 -- * @Enabled ::@ @Maybe Bool@
 --
--- * @Tag ::@ @[Tag]@
+-- * @Tags ::@ @[Tag]@
 --
 createEventSubscription :: Text -- ^ 'cesSubscriptionName'
                         -> Text -- ^ 'cesSnsTopicArn'
@@ -118,10 +118,10 @@ createEventSubscription p1 p2 = CreateEventSubscription
     { _cesSubscriptionName = p1
     , _cesSnsTopicArn = p2
     , _cesSourceType = Nothing
-    , _cesEventCategory = mempty
-    , _cesSourceId = mempty
+    , _cesEventCategories = mempty
+    , _cesSourceIds = mempty
     , _cesEnabled = Nothing
-    , _cesTag = mempty
+    , _cesTags = mempty
     }
 
 -- | The name of the subscription. Constraints: The name must be less than 255
@@ -148,9 +148,9 @@ cesSourceType = lens _cesSourceType (\s a -> s { _cesSourceType = a })
 -- You can see a list of the categories for a given SourceType in the Events
 -- topic in the Amazon RDS User Guide or by using the DescribeEventCategories
 -- action.
-cesEventCategory :: Lens' CreateEventSubscription [Text]
-cesEventCategory =
-    lens _cesEventCategory (\s a -> s { _cesEventCategory = a })
+cesEventCategories :: Lens' CreateEventSubscription [Text]
+cesEventCategories =
+    lens _cesEventCategories (\s a -> s { _cesEventCategories = a })
 
 -- | The list of identifiers of the event sources for which events will be
 -- returned. If not specified, then all sources are included in the response.
@@ -162,8 +162,8 @@ cesEventCategory =
 -- DBSecurityGroupName must be supplied. If the source type is a DB parameter
 -- group, a DBParameterGroupName must be supplied. If the source type is a DB
 -- snapshot, a DBSnapshotIdentifier must be supplied.
-cesSourceId :: Lens' CreateEventSubscription [Text]
-cesSourceId = lens _cesSourceId (\s a -> s { _cesSourceId = a })
+cesSourceIds :: Lens' CreateEventSubscription [Text]
+cesSourceIds = lens _cesSourceIds (\s a -> s { _cesSourceIds = a })
 
 -- | A Boolean value; set to true to activate the subscription, set to false to
 -- create the subscription but not active it.
@@ -171,8 +171,8 @@ cesEnabled :: Lens' CreateEventSubscription (Maybe Bool)
 cesEnabled = lens _cesEnabled (\s a -> s { _cesEnabled = a })
 
 -- | A list of tags.
-cesTag :: Lens' CreateEventSubscription [Tag]
-cesTag = lens _cesTag (\s a -> s { _cesTag = a })
+cesTags :: Lens' CreateEventSubscription [Tag]
+cesTags = lens _cesTags (\s a -> s { _cesTags = a })
 
 instance ToQuery CreateEventSubscription where
     toQuery = genericQuery def

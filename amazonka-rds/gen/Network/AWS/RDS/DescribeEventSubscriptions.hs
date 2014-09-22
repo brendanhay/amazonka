@@ -47,7 +47,7 @@ module Network.AWS.RDS.DescribeEventSubscriptions
     , describeEventSubscriptionsResponse
     -- ** Response lenses
     , desrrMarker
-    , desrrEventSubscription
+    , desrrEventSubscriptionsList
     ) where
 
 import Network.AWS.Request.Query
@@ -104,7 +104,7 @@ instance ToQuery DescribeEventSubscriptions where
 -- | Data returned by the DescribeEventSubscriptions action.
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
     { _desrrMarker :: Maybe Text
-    , _desrrEventSubscription :: [EventSubscription]
+    , _desrrEventSubscriptionsList :: [EventSubscription]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -116,12 +116,12 @@ data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
 --
 -- * @Marker ::@ @Maybe Text@
 --
--- * @EventSubscription ::@ @[EventSubscription]@
+-- * @EventSubscriptionsList ::@ @[EventSubscription]@
 --
 describeEventSubscriptionsResponse :: DescribeEventSubscriptionsResponse
 describeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
     { _desrrMarker = Nothing
-    , _desrrEventSubscription = mempty
+    , _desrrEventSubscriptionsList = mempty
     }
 
 -- | An optional pagination token provided by a previous
@@ -132,9 +132,10 @@ desrrMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
 desrrMarker = lens _desrrMarker (\s a -> s { _desrrMarker = a })
 
 -- | A list of EventSubscriptions data types.
-desrrEventSubscription :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
-desrrEventSubscription =
-    lens _desrrEventSubscription (\s a -> s { _desrrEventSubscription = a })
+desrrEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
+desrrEventSubscriptionsList =
+    lens _desrrEventSubscriptionsList
+         (\s a -> s { _desrrEventSubscriptionsList = a })
 
 instance FromXML DescribeEventSubscriptionsResponse where
     fromXMLOptions = xmlOptions

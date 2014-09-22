@@ -107,7 +107,7 @@ instance ToQuery ListUsers where
 -- | Contains the result of a successful invocation of the ListUsers action.
 data ListUsersResponse = ListUsersResponse
     { _lurUsers :: [User]
-    , _lurIsTruncated :: !Bool
+    , _lurIsTruncated :: Bool
     , _lurMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 

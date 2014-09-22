@@ -36,8 +36,8 @@ module Network.AWS.RDS.CreateDBSubnetGroup
     -- ** Request lenses
     , cdbsg1DBSubnetGroupName
     , cdbsg1DBSubnetGroupDescription
-    , cdbsg1SubnetIdentifier
-    , cdbsg1Tag
+    , cdbsg1SubnetIds
+    , cdbsg1Tags
 
     -- * Response
     , CreateDBSubnetGroupResponse
@@ -55,8 +55,8 @@ import Network.AWS.Prelude
 data CreateDBSubnetGroup = CreateDBSubnetGroup
     { _cdbsg1DBSubnetGroupName :: Text
     , _cdbsg1DBSubnetGroupDescription :: Text
-    , _cdbsg1SubnetIdentifier :: [Text]
-    , _cdbsg1Tag :: [Tag]
+    , _cdbsg1SubnetIds :: [Text]
+    , _cdbsg1Tags :: [Tag]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -68,19 +68,19 @@ data CreateDBSubnetGroup = CreateDBSubnetGroup
 --
 -- * @DBSubnetGroupDescription ::@ @Text@
 --
--- * @SubnetIdentifier ::@ @[Text]@
+-- * @SubnetIds ::@ @[Text]@
 --
--- * @Tag ::@ @[Tag]@
+-- * @Tags ::@ @[Tag]@
 --
 createDBSubnetGroup :: Text -- ^ 'cdbsg1DBSubnetGroupName'
                     -> Text -- ^ 'cdbsg1DBSubnetGroupDescription'
-                    -> [Text] -- ^ 'cdbsg1SubnetIdentifier'
+                    -> [Text] -- ^ 'cdbsg1SubnetIds'
                     -> CreateDBSubnetGroup
 createDBSubnetGroup p1 p2 p3 = CreateDBSubnetGroup
     { _cdbsg1DBSubnetGroupName = p1
     , _cdbsg1DBSubnetGroupDescription = p2
-    , _cdbsg1SubnetIdentifier = p3
-    , _cdbsg1Tag = mempty
+    , _cdbsg1SubnetIds = p3
+    , _cdbsg1Tags = mempty
     }
 
 -- | The name for the DB subnet group. This value is stored as a lowercase
@@ -98,13 +98,12 @@ cdbsg1DBSubnetGroupDescription =
          (\s a -> s { _cdbsg1DBSubnetGroupDescription = a })
 
 -- | The EC2 Subnet IDs for the DB subnet group.
-cdbsg1SubnetIdentifier :: Lens' CreateDBSubnetGroup [Text]
-cdbsg1SubnetIdentifier =
-    lens _cdbsg1SubnetIdentifier (\s a -> s { _cdbsg1SubnetIdentifier = a })
+cdbsg1SubnetIds :: Lens' CreateDBSubnetGroup [Text]
+cdbsg1SubnetIds = lens _cdbsg1SubnetIds (\s a -> s { _cdbsg1SubnetIds = a })
 
 -- | A list of tags.
-cdbsg1Tag :: Lens' CreateDBSubnetGroup [Tag]
-cdbsg1Tag = lens _cdbsg1Tag (\s a -> s { _cdbsg1Tag = a })
+cdbsg1Tags :: Lens' CreateDBSubnetGroup [Tag]
+cdbsg1Tags = lens _cdbsg1Tags (\s a -> s { _cdbsg1Tags = a })
 
 instance ToQuery CreateDBSubnetGroup where
     toQuery = genericQuery def

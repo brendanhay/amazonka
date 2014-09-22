@@ -41,8 +41,8 @@ module Network.AWS.EC2.DescribeReservedInstances
     -- ** Request constructor
     , describeReservedInstances
     -- ** Request lenses
-    , driReservedInstancesId
-    , driFilter
+    , driReservedInstancesIds
+    , driFilters
     , driOfferingType
 
     -- * Response
@@ -50,7 +50,7 @@ module Network.AWS.EC2.DescribeReservedInstances
     -- ** Response constructor
     , describeReservedInstancesResponse
     -- ** Response lenses
-    , drirItem
+    , drirReservedInstances
     ) where
 
 import Network.AWS.Request.Query
@@ -58,8 +58,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribeReservedInstances = DescribeReservedInstances
-    { _driReservedInstancesId :: [Text]
-    , _driFilter :: [Filter]
+    { _driReservedInstancesIds :: [Text]
+    , _driFilters :: [Filter]
     , _driOfferingType :: Maybe OfferingTypeValues
     } deriving (Eq, Ord, Show, Generic)
 
@@ -68,24 +68,25 @@ data DescribeReservedInstances = DescribeReservedInstances
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @ReservedInstancesId ::@ @[Text]@
+-- * @ReservedInstancesIds ::@ @[Text]@
 --
--- * @Filter ::@ @[Filter]@
+-- * @Filters ::@ @[Filter]@
 --
 -- * @OfferingType ::@ @Maybe OfferingTypeValues@
 --
 describeReservedInstances :: DescribeReservedInstances
 describeReservedInstances = DescribeReservedInstances
-    { _driReservedInstancesId = mempty
-    , _driFilter = mempty
+    { _driReservedInstancesIds = mempty
+    , _driFilters = mempty
     , _driOfferingType = Nothing
     }
 
 -- | One or more Reserved Instance IDs. Default: Describes all your Reserved
 -- Instances, or only those otherwise specified.
-driReservedInstancesId :: Lens' DescribeReservedInstances [Text]
-driReservedInstancesId =
-    lens _driReservedInstancesId (\s a -> s { _driReservedInstancesId = a })
+driReservedInstancesIds :: Lens' DescribeReservedInstances [Text]
+driReservedInstancesIds =
+    lens _driReservedInstancesIds
+         (\s a -> s { _driReservedInstancesIds = a })
 
 -- | One or more filters. availability-zone - The Availability Zone where the
 -- Reserved Instance can be used. duration - The duration of the Reserved
@@ -108,8 +109,8 @@ driReservedInstancesId =
 -- filter. tag-value - The value of a tag assigned to the resource. This
 -- filter is independent of the tag-key filter. usage-price - The usage price
 -- of the Reserved Instance, per hour (for example, 0.84).
-driFilter :: Lens' DescribeReservedInstances [Filter]
-driFilter = lens _driFilter (\s a -> s { _driFilter = a })
+driFilters :: Lens' DescribeReservedInstances [Filter]
+driFilters = lens _driFilters (\s a -> s { _driFilters = a })
 
 -- | The Reserved Instance offering type.
 driOfferingType :: Lens' DescribeReservedInstances (Maybe OfferingTypeValues)
@@ -119,7 +120,7 @@ instance ToQuery DescribeReservedInstances where
     toQuery = genericQuery def
 
 newtype DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
-    { _drirItem :: [ReservedInstances]
+    { _drirReservedInstances :: [ReservedInstances]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -129,16 +130,17 @@ newtype DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Item ::@ @[ReservedInstances]@
+-- * @ReservedInstances ::@ @[ReservedInstances]@
 --
 describeReservedInstancesResponse :: DescribeReservedInstancesResponse
 describeReservedInstancesResponse = DescribeReservedInstancesResponse
-    { _drirItem = mempty
+    { _drirReservedInstances = mempty
     }
 
 -- | A list of Reserved Instances.
-drirItem :: Lens' DescribeReservedInstancesResponse [ReservedInstances]
-drirItem = lens _drirItem (\s a -> s { _drirItem = a })
+drirReservedInstances :: Lens' DescribeReservedInstancesResponse [ReservedInstances]
+drirReservedInstances =
+    lens _drirReservedInstances (\s a -> s { _drirReservedInstances = a })
 
 instance FromXML DescribeReservedInstancesResponse where
     fromXMLOptions = xmlOptions

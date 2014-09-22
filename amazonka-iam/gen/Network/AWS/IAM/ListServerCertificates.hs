@@ -109,7 +109,7 @@ instance ToQuery ListServerCertificates where
 -- ListServerCertificates action.
 data ListServerCertificatesResponse = ListServerCertificatesResponse
     { _lscrServerCertificateMetadataList :: [ServerCertificateMetadata]
-    , _lscrIsTruncated :: !Bool
+    , _lscrIsTruncated :: Bool
     , _lscrMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 

@@ -62,7 +62,7 @@ module Network.AWS.Redshift.DescribeClusterParameters
     -- ** Response constructor
     , describeClusterParametersResponse
     -- ** Response lenses
-    , dcprParameter
+    , dcprParameters
     , dcprMarker
     ) where
 
@@ -133,7 +133,7 @@ instance ToQuery DescribeClusterParameters where
 
 -- | Contains the output from the DescribeClusterParameters action.
 data DescribeClusterParametersResponse = DescribeClusterParametersResponse
-    { _dcprParameter :: [Parameter]
+    { _dcprParameters :: [Parameter]
     , _dcprMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -144,20 +144,20 @@ data DescribeClusterParametersResponse = DescribeClusterParametersResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Parameter ::@ @[Parameter]@
+-- * @Parameters ::@ @[Parameter]@
 --
 -- * @Marker ::@ @Maybe Text@
 --
 describeClusterParametersResponse :: DescribeClusterParametersResponse
 describeClusterParametersResponse = DescribeClusterParametersResponse
-    { _dcprParameter = mempty
+    { _dcprParameters = mempty
     , _dcprMarker = Nothing
     }
 
 -- | A list of Parameter instances. Each instance lists the parameters of one
 -- cluster parameter group.
-dcprParameter :: Lens' DescribeClusterParametersResponse [Parameter]
-dcprParameter = lens _dcprParameter (\s a -> s { _dcprParameter = a })
+dcprParameters :: Lens' DescribeClusterParametersResponse [Parameter]
+dcprParameters = lens _dcprParameters (\s a -> s { _dcprParameters = a })
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response, you

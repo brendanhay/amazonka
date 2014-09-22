@@ -98,7 +98,7 @@ instance ToQuery ListUserPolicies where
 -- action.
 data ListUserPoliciesResponse = ListUserPoliciesResponse
     { _luprPolicyNames :: [Text]
-    , _luprIsTruncated :: !Bool
+    , _luprIsTruncated :: Bool
     , _luprMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 

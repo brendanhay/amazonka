@@ -53,7 +53,7 @@ module Network.AWS.SimpleDB.PutAttributes
     -- ** Request lenses
     , paDomainName
     , paItemName
-    , paAttribute
+    , paAttributes
     , paExpected
 
     -- * Response
@@ -69,7 +69,7 @@ import Network.AWS.Prelude
 data PutAttributes = PutAttributes
     { _paDomainName :: Text
     , _paItemName :: Text
-    , _paAttribute :: [ReplaceableAttribute]
+    , _paAttributes :: [ReplaceableAttribute]
     , _paExpected :: Maybe UpdateCondition
     } deriving (Eq, Ord, Show, Generic)
 
@@ -82,18 +82,18 @@ data PutAttributes = PutAttributes
 --
 -- * @ItemName ::@ @Text@
 --
--- * @Attribute ::@ @[ReplaceableAttribute]@
+-- * @Attributes ::@ @[ReplaceableAttribute]@
 --
 -- * @Expected ::@ @Maybe UpdateCondition@
 --
 putAttributes :: Text -- ^ 'paDomainName'
               -> Text -- ^ 'paItemName'
-              -> [ReplaceableAttribute] -- ^ 'paAttribute'
+              -> [ReplaceableAttribute] -- ^ 'paAttributes'
               -> PutAttributes
 putAttributes p1 p2 p3 = PutAttributes
     { _paDomainName = p1
     , _paItemName = p2
-    , _paAttribute = p3
+    , _paAttributes = p3
     , _paExpected = Nothing
     }
 
@@ -106,8 +106,8 @@ paItemName :: Lens' PutAttributes Text
 paItemName = lens _paItemName (\s a -> s { _paItemName = a })
 
 -- | The list of attributes.
-paAttribute :: Lens' PutAttributes [ReplaceableAttribute]
-paAttribute = lens _paAttribute (\s a -> s { _paAttribute = a })
+paAttributes :: Lens' PutAttributes [ReplaceableAttribute]
+paAttributes = lens _paAttributes (\s a -> s { _paAttributes = a })
 
 -- | The update condition which, if specified, determines whether the specified
 -- attributes will be updated or not. The update condition must be satisfied

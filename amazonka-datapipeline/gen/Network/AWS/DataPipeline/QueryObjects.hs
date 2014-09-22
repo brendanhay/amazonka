@@ -135,7 +135,7 @@ instance ToJSON QueryObjects
 data QueryObjectsResponse = QueryObjectsResponse
     { _qorIds :: [Text]
     , _qorMarker :: Maybe Text
-    , _qorHasMoreResults :: !Bool
+    , _qorHasMoreResults :: Bool
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

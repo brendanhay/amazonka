@@ -1590,9 +1590,7 @@ instance FromXML EnvironmentResourceDescription where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EnvironmentResourceDescription"
 
--- | This specifies the tier to use to update the environment. Condition: You
--- can only update the tier version for an environment. If you change the name
--- of the type, AWS Elastic Beanstalk returns InvalidParameterValue error.
+-- | Describes the current tier of this environment.
 data EnvironmentTier = EnvironmentTier
     { _etName :: Maybe Text
     , _etType :: Maybe Text
@@ -1909,14 +1907,7 @@ instance FromXML Queue where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "Queue"
 
--- | The Amazon S3 bucket and key that identify the location of the source
--- bundle for this version. If data found at the Amazon S3 location exceeds
--- the maximum allowed source bundle size, AWS Elastic Beanstalk returns an
--- InvalidParameterValue error. The maximum size allowed is 512 MB. Default:
--- If not specified, AWS Elastic Beanstalk uses a sample application. If only
--- partially specified (for example, a bucket is provided but not the key) or
--- if no data is found at the Amazon S3 location, AWS Elastic Beanstalk
--- returns an InvalidParameterCombination error.
+-- | The location where the source bundle is located for this version.
 data S3Location = S3Location
     { _slS3Bucket :: Maybe Text
     , _slS3Key :: Maybe Text

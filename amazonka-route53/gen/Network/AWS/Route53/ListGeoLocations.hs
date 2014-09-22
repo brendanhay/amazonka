@@ -35,7 +35,7 @@ module Network.AWS.Route53.ListGeoLocations
     -- ** Response constructor
     , listGeoLocationsResponse
     -- ** Response lenses
-    , lglrGeoLocationDetails
+    , lglrGeoLocationDetailsList
     , lglrIsTruncated
     , lglrNextContinentCode
     , lglrNextCountryCode
@@ -119,7 +119,7 @@ instance ToXML ListGeoLocations where
 -- | A complex type that contains information about the geo locations that are
 -- returned by the request and information about the response.
 data ListGeoLocationsResponse = ListGeoLocationsResponse
-    { _lglrGeoLocationDetails :: [GeoLocationDetails]
+    { _lglrGeoLocationDetailsList :: [GeoLocationDetails]
     , _lglrIsTruncated :: !Bool
     , _lglrNextContinentCode :: Maybe Text
     , _lglrNextCountryCode :: Maybe Text
@@ -134,7 +134,7 @@ data ListGeoLocationsResponse = ListGeoLocationsResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GeoLocationDetails ::@ @[GeoLocationDetails]@
+-- * @GeoLocationDetailsList ::@ @[GeoLocationDetails]@
 --
 -- * @IsTruncated ::@ @Bool@
 --
@@ -146,12 +146,12 @@ data ListGeoLocationsResponse = ListGeoLocationsResponse
 --
 -- * @MaxItems ::@ @Text@
 --
-listGeoLocationsResponse :: [GeoLocationDetails] -- ^ 'lglrGeoLocationDetails'
+listGeoLocationsResponse :: [GeoLocationDetails] -- ^ 'lglrGeoLocationDetailsList'
                          -> Bool -- ^ 'lglrIsTruncated'
                          -> Text -- ^ 'lglrMaxItems'
                          -> ListGeoLocationsResponse
 listGeoLocationsResponse p1 p2 p6 = ListGeoLocationsResponse
-    { _lglrGeoLocationDetails = p1
+    { _lglrGeoLocationDetailsList = p1
     , _lglrIsTruncated = p2
     , _lglrNextContinentCode = Nothing
     , _lglrNextCountryCode = Nothing
@@ -161,9 +161,10 @@ listGeoLocationsResponse p1 p2 p6 = ListGeoLocationsResponse
 
 -- | A complex type that contains information about the geo locations that are
 -- returned by the request.
-lglrGeoLocationDetails :: Lens' ListGeoLocationsResponse [GeoLocationDetails]
-lglrGeoLocationDetails =
-    lens _lglrGeoLocationDetails (\s a -> s { _lglrGeoLocationDetails = a })
+lglrGeoLocationDetailsList :: Lens' ListGeoLocationsResponse [GeoLocationDetails]
+lglrGeoLocationDetailsList =
+    lens _lglrGeoLocationDetailsList
+         (\s a -> s { _lglrGeoLocationDetailsList = a })
 
 -- | A flag that indicates whether there are more geo locations to be listed. If
 -- your results were truncated, you can make a follow-up request for the next

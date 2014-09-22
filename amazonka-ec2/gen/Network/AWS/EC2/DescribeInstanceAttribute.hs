@@ -66,14 +66,14 @@ module Network.AWS.EC2.DescribeInstanceAttribute
     -- ** Response lenses
     , diarrInstanceId
     , diarrInstanceType
-    , diarrKernel
-    , diarrRamdisk
+    , diarrKernelId
+    , diarrRamdiskId
     , diarrUserData
     , diarrDisableApiTermination
     , diarrInstanceInitiatedShutdownBehavior
     , diarrRootDeviceName
-    , diarrItem
-    , diarrItem
+    , diarrBlockDeviceMappings
+    , diarrProductCodes
     , diarrEbsOptimized
     , diarrSriovNetSupport
     , diarrSourceDestCheck
@@ -119,14 +119,14 @@ instance ToQuery DescribeInstanceAttribute where
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
     { _diarrInstanceId :: Maybe Text
     , _diarrInstanceType :: Maybe AttributeValue
-    , _diarrKernel :: Maybe AttributeValue
-    , _diarrRamdisk :: Maybe AttributeValue
+    , _diarrKernelId :: Maybe AttributeValue
+    , _diarrRamdiskId :: Maybe AttributeValue
     , _diarrUserData :: Maybe AttributeValue
     , _diarrDisableApiTermination :: Maybe AttributeBooleanValue
     , _diarrInstanceInitiatedShutdownBehavior :: Maybe AttributeValue
     , _diarrRootDeviceName :: Maybe AttributeValue
-    , _diarrItem :: [InstanceBlockDeviceMapping]
-    , _diarrItem :: [ProductCode]
+    , _diarrBlockDeviceMappings :: [InstanceBlockDeviceMapping]
+    , _diarrProductCodes :: [ProductCode]
     , _diarrEbsOptimized :: Maybe AttributeBooleanValue
     , _diarrSriovNetSupport :: Maybe AttributeValue
     , _diarrSourceDestCheck :: Maybe AttributeBooleanValue
@@ -143,9 +143,9 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
 --
 -- * @InstanceType ::@ @Maybe AttributeValue@
 --
--- * @Kernel ::@ @Maybe AttributeValue@
+-- * @KernelId ::@ @Maybe AttributeValue@
 --
--- * @Ramdisk ::@ @Maybe AttributeValue@
+-- * @RamdiskId ::@ @Maybe AttributeValue@
 --
 -- * @UserData ::@ @Maybe AttributeValue@
 --
@@ -155,9 +155,9 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
 --
 -- * @RootDeviceName ::@ @Maybe AttributeValue@
 --
--- * @Item ::@ @[InstanceBlockDeviceMapping]@
+-- * @BlockDeviceMappings ::@ @[InstanceBlockDeviceMapping]@
 --
--- * @Item ::@ @[ProductCode]@
+-- * @ProductCodes ::@ @[ProductCode]@
 --
 -- * @EbsOptimized ::@ @Maybe AttributeBooleanValue@
 --
@@ -169,14 +169,14 @@ describeInstanceAttributeResponse :: DescribeInstanceAttributeResponse
 describeInstanceAttributeResponse = DescribeInstanceAttributeResponse
     { _diarrInstanceId = Nothing
     , _diarrInstanceType = Nothing
-    , _diarrKernel = Nothing
-    , _diarrRamdisk = Nothing
+    , _diarrKernelId = Nothing
+    , _diarrRamdiskId = Nothing
     , _diarrUserData = Nothing
     , _diarrDisableApiTermination = Nothing
     , _diarrInstanceInitiatedShutdownBehavior = Nothing
     , _diarrRootDeviceName = Nothing
-    , _diarrItem = mempty
-    , _diarrItem = mempty
+    , _diarrBlockDeviceMappings = mempty
+    , _diarrProductCodes = mempty
     , _diarrEbsOptimized = Nothing
     , _diarrSriovNetSupport = Nothing
     , _diarrSourceDestCheck = Nothing
@@ -192,12 +192,12 @@ diarrInstanceType =
     lens _diarrInstanceType (\s a -> s { _diarrInstanceType = a })
 
 -- | The kernel ID.
-diarrKernel :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-diarrKernel = lens _diarrKernel (\s a -> s { _diarrKernel = a })
+diarrKernelId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diarrKernelId = lens _diarrKernelId (\s a -> s { _diarrKernelId = a })
 
 -- | The RAM disk ID.
-diarrRamdisk :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-diarrRamdisk = lens _diarrRamdisk (\s a -> s { _diarrRamdisk = a })
+diarrRamdiskId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diarrRamdiskId = lens _diarrRamdiskId (\s a -> s { _diarrRamdiskId = a })
 
 -- | The Base64-encoded MIME user data.
 diarrUserData :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
@@ -224,12 +224,15 @@ diarrRootDeviceName =
     lens _diarrRootDeviceName (\s a -> s { _diarrRootDeviceName = a })
 
 -- | The block device mapping of the instance.
-diarrItem :: Lens' DescribeInstanceAttributeResponse [InstanceBlockDeviceMapping]
-diarrItem = lens _diarrItem (\s a -> s { _diarrItem = a })
+diarrBlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse [InstanceBlockDeviceMapping]
+diarrBlockDeviceMappings =
+    lens _diarrBlockDeviceMappings
+         (\s a -> s { _diarrBlockDeviceMappings = a })
 
 -- | A list of product codes.
-diarrItem :: Lens' DescribeInstanceAttributeResponse [ProductCode]
-diarrItem = lens _diarrItem (\s a -> s { _diarrItem = a })
+diarrProductCodes :: Lens' DescribeInstanceAttributeResponse [ProductCode]
+diarrProductCodes =
+    lens _diarrProductCodes (\s a -> s { _diarrProductCodes = a })
 
 -- | Indicates whether the instance is optimized for EBS I/O.
 diarrEbsOptimized :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)

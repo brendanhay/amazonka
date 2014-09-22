@@ -75,14 +75,14 @@ module Network.AWS.SQS.GetQueueAttributes
     , getQueueAttributes
     -- ** Request lenses
     , gqaQueueUrl
-    , gqaAttributeName
+    , gqaAttributeNames
 
     -- * Response
     , GetQueueAttributesResponse
     -- ** Response constructor
     , getQueueAttributesResponse
     -- ** Response lenses
-    , gqarAttribute
+    , gqarAttributes
     ) where
 
 import Network.AWS.Request.Query
@@ -91,7 +91,7 @@ import Network.AWS.Prelude
 
 data GetQueueAttributes = GetQueueAttributes
     { _gqaQueueUrl :: Text
-    , _gqaAttributeName :: [QueueAttributeName]
+    , _gqaAttributeNames :: [QueueAttributeName]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -101,13 +101,13 @@ data GetQueueAttributes = GetQueueAttributes
 --
 -- * @QueueUrl ::@ @Text@
 --
--- * @AttributeName ::@ @[QueueAttributeName]@
+-- * @AttributeNames ::@ @[QueueAttributeName]@
 --
 getQueueAttributes :: Text -- ^ 'gqaQueueUrl'
                    -> GetQueueAttributes
 getQueueAttributes p1 = GetQueueAttributes
     { _gqaQueueUrl = p1
-    , _gqaAttributeName = mempty
+    , _gqaAttributeNames = mempty
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
@@ -115,16 +115,16 @@ gqaQueueUrl :: Lens' GetQueueAttributes Text
 gqaQueueUrl = lens _gqaQueueUrl (\s a -> s { _gqaQueueUrl = a })
 
 -- | A list of attributes to retrieve information for.
-gqaAttributeName :: Lens' GetQueueAttributes [QueueAttributeName]
-gqaAttributeName =
-    lens _gqaAttributeName (\s a -> s { _gqaAttributeName = a })
+gqaAttributeNames :: Lens' GetQueueAttributes [QueueAttributeName]
+gqaAttributeNames =
+    lens _gqaAttributeNames (\s a -> s { _gqaAttributeNames = a })
 
 instance ToQuery GetQueueAttributes where
     toQuery = genericQuery def
 
 -- | A list of returned queue attributes.
 newtype GetQueueAttributesResponse = GetQueueAttributesResponse
-    { _gqarAttribute :: Map QueueAttributeName Text
+    { _gqarAttributes :: Map QueueAttributeName Text
     } deriving (Eq, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -134,16 +134,16 @@ newtype GetQueueAttributesResponse = GetQueueAttributesResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Attribute ::@ @Map QueueAttributeName Text@
+-- * @Attributes ::@ @Map QueueAttributeName Text@
 --
 getQueueAttributesResponse :: GetQueueAttributesResponse
 getQueueAttributesResponse = GetQueueAttributesResponse
-    { _gqarAttribute = mempty
+    { _gqarAttributes = mempty
     }
 
 -- | A map of attributes to the respective values.
-gqarAttribute :: Lens' GetQueueAttributesResponse (Map QueueAttributeName Text)
-gqarAttribute = lens _gqarAttribute (\s a -> s { _gqarAttribute = a })
+gqarAttributes :: Lens' GetQueueAttributesResponse (Map QueueAttributeName Text)
+gqarAttributes = lens _gqarAttributes (\s a -> s { _gqarAttributes = a })
 
 instance FromXML GetQueueAttributesResponse where
     fromXMLOptions = xmlOptions

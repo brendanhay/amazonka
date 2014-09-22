@@ -65,10 +65,10 @@ module Network.AWS.EC2.CreateVolume
     , cvrSize
     , cvrSnapshotId
     , cvrAvailabilityZone
-    , cvrStatus
+    , cvrState
     , cvrCreateTime
-    , cvrItem
-    , cvrItem
+    , cvrAttachments
+    , cvrTags
     , cvrVolumeType
     , cvrIops
     , cvrEncrypted
@@ -156,10 +156,10 @@ data CreateVolumeResponse = CreateVolumeResponse
     , _cvrSize :: Maybe Integer
     , _cvrSnapshotId :: Maybe Text
     , _cvrAvailabilityZone :: Maybe Text
-    , _cvrStatus :: Maybe VolumeState
+    , _cvrState :: Maybe VolumeState
     , _cvrCreateTime :: Maybe ISO8601
-    , _cvrItem :: [VolumeAttachment]
-    , _cvrItem :: [Tag]
+    , _cvrAttachments :: [VolumeAttachment]
+    , _cvrTags :: [Tag]
     , _cvrVolumeType :: Maybe VolumeType
     , _cvrIops :: Maybe Integer
     , _cvrEncrypted :: Maybe Bool
@@ -180,13 +180,13 @@ data CreateVolumeResponse = CreateVolumeResponse
 --
 -- * @AvailabilityZone ::@ @Maybe Text@
 --
--- * @Status ::@ @Maybe VolumeState@
+-- * @State ::@ @Maybe VolumeState@
 --
 -- * @CreateTime ::@ @Maybe ISO8601@
 --
--- * @Item ::@ @[VolumeAttachment]@
+-- * @Attachments ::@ @[VolumeAttachment]@
 --
--- * @Item ::@ @[Tag]@
+-- * @Tags ::@ @[Tag]@
 --
 -- * @VolumeType ::@ @Maybe VolumeType@
 --
@@ -200,10 +200,10 @@ createVolumeResponse = CreateVolumeResponse
     , _cvrSize = Nothing
     , _cvrSnapshotId = Nothing
     , _cvrAvailabilityZone = Nothing
-    , _cvrStatus = Nothing
+    , _cvrState = Nothing
     , _cvrCreateTime = Nothing
-    , _cvrItem = mempty
-    , _cvrItem = mempty
+    , _cvrAttachments = mempty
+    , _cvrTags = mempty
     , _cvrVolumeType = Nothing
     , _cvrIops = Nothing
     , _cvrEncrypted = Nothing
@@ -227,20 +227,20 @@ cvrAvailabilityZone =
     lens _cvrAvailabilityZone (\s a -> s { _cvrAvailabilityZone = a })
 
 -- | The volume state.
-cvrStatus :: Lens' CreateVolumeResponse (Maybe VolumeState)
-cvrStatus = lens _cvrStatus (\s a -> s { _cvrStatus = a })
+cvrState :: Lens' CreateVolumeResponse (Maybe VolumeState)
+cvrState = lens _cvrState (\s a -> s { _cvrState = a })
 
 -- | The time stamp when volume creation was initiated.
 cvrCreateTime :: Lens' CreateVolumeResponse (Maybe ISO8601)
 cvrCreateTime = lens _cvrCreateTime (\s a -> s { _cvrCreateTime = a })
 
 -- | 
-cvrItem :: Lens' CreateVolumeResponse [VolumeAttachment]
-cvrItem = lens _cvrItem (\s a -> s { _cvrItem = a })
+cvrAttachments :: Lens' CreateVolumeResponse [VolumeAttachment]
+cvrAttachments = lens _cvrAttachments (\s a -> s { _cvrAttachments = a })
 
 -- | Any tags assigned to the volume.
-cvrItem :: Lens' CreateVolumeResponse [Tag]
-cvrItem = lens _cvrItem (\s a -> s { _cvrItem = a })
+cvrTags :: Lens' CreateVolumeResponse [Tag]
+cvrTags = lens _cvrTags (\s a -> s { _cvrTags = a })
 
 -- | The volume type. This can be gp2 for General Purpose (SSD) volumes, io1 for
 -- Provisioned IOPS (SSD) volumes, or standard for Magnetic volumes.

@@ -37,15 +37,15 @@ module Network.AWS.EC2.DescribePlacementGroups
     -- ** Request constructor
     , describePlacementGroups
     -- ** Request lenses
-    , dpg1GroupName
-    , dpg1Filter
+    , dpg1GroupNames
+    , dpg1Filters
 
     -- * Response
     , DescribePlacementGroupsResponse
     -- ** Response constructor
     , describePlacementGroupsResponse
     -- ** Response lenses
-    , dpgrItem
+    , dpgrPlacementGroups
     ) where
 
 import Network.AWS.Request.Query
@@ -53,8 +53,8 @@ import Network.AWS.EC2.Types
 import Network.AWS.Prelude
 
 data DescribePlacementGroups = DescribePlacementGroups
-    { _dpg1GroupName :: [Text]
-    , _dpg1Filter :: [Filter]
+    { _dpg1GroupNames :: [Text]
+    , _dpg1Filters :: [Filter]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -62,32 +62,32 @@ data DescribePlacementGroups = DescribePlacementGroups
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @GroupName ::@ @[Text]@
+-- * @GroupNames ::@ @[Text]@
 --
--- * @Filter ::@ @[Filter]@
+-- * @Filters ::@ @[Filter]@
 --
 describePlacementGroups :: DescribePlacementGroups
 describePlacementGroups = DescribePlacementGroups
-    { _dpg1GroupName = mempty
-    , _dpg1Filter = mempty
+    { _dpg1GroupNames = mempty
+    , _dpg1Filters = mempty
     }
 
 -- | One or more placement group names. Default: Describes all your placement
 -- groups, or only those otherwise specified.
-dpg1GroupName :: Lens' DescribePlacementGroups [Text]
-dpg1GroupName = lens _dpg1GroupName (\s a -> s { _dpg1GroupName = a })
+dpg1GroupNames :: Lens' DescribePlacementGroups [Text]
+dpg1GroupNames = lens _dpg1GroupNames (\s a -> s { _dpg1GroupNames = a })
 
 -- | One or more filters. group-name - The name of the placement group. state -
 -- The state of the placement group (pending | available | deleting |
 -- deleted). strategy - The strategy of the placement group (cluster).
-dpg1Filter :: Lens' DescribePlacementGroups [Filter]
-dpg1Filter = lens _dpg1Filter (\s a -> s { _dpg1Filter = a })
+dpg1Filters :: Lens' DescribePlacementGroups [Filter]
+dpg1Filters = lens _dpg1Filters (\s a -> s { _dpg1Filters = a })
 
 instance ToQuery DescribePlacementGroups where
     toQuery = genericQuery def
 
 newtype DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
-    { _dpgrItem :: [PlacementGroup]
+    { _dpgrPlacementGroups :: [PlacementGroup]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -97,16 +97,17 @@ newtype DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Item ::@ @[PlacementGroup]@
+-- * @PlacementGroups ::@ @[PlacementGroup]@
 --
 describePlacementGroupsResponse :: DescribePlacementGroupsResponse
 describePlacementGroupsResponse = DescribePlacementGroupsResponse
-    { _dpgrItem = mempty
+    { _dpgrPlacementGroups = mempty
     }
 
 -- | One or more placement groups.
-dpgrItem :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
-dpgrItem = lens _dpgrItem (\s a -> s { _dpgrItem = a })
+dpgrPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
+dpgrPlacementGroups =
+    lens _dpgrPlacementGroups (\s a -> s { _dpgrPlacementGroups = a })
 
 instance FromXML DescribePlacementGroupsResponse where
     fromXMLOptions = xmlOptions

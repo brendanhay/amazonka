@@ -88,7 +88,7 @@ instance ToJSON ListPipelines
 data ListPipelinesResponse = ListPipelinesResponse
     { _lprPipelineIdList :: [PipelineIdName]
     , _lprMarker :: Maybe Text
-    , _lprHasMoreResults :: !Bool
+    , _lprHasMoreResults :: Bool
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct

@@ -135,7 +135,7 @@ instance FromJSON Library where
 instance FromJSON Override where
     parseJSON = withObject "override" $ \o -> Override
         <$> o .:? "name"
-        <*> o .:? "type"
+        <*> o .:? "exists"
         <*> o .:? "prefix"
         <*> o .:? "require" .!= mempty
         <*> o .:? "ignore"  .!= mempty

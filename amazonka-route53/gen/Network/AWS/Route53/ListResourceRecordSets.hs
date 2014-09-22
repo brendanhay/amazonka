@@ -83,9 +83,9 @@ import Network.AWS.Types (Region)
 
 -- | The input for a ListResourceRecordSets request.
 data ListResourceRecordSets = ListResourceRecordSets
-    { _lrrsHostedZoneId :: Text
+    { _lrrsHostedZoneId :: ResourceId
     , _lrrsStartRecordName :: Maybe Text
-    , _lrrsStartRecordType :: Maybe RRType
+    , _lrrsStartRecordType :: Maybe RecordType
     , _lrrsStartRecordIdentifier :: Maybe Text
     , _lrrsMaxItems :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -95,17 +95,17 @@ data ListResourceRecordSets = ListResourceRecordSets
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HostedZoneId ::@ @Text@
+-- * @HostedZoneId ::@ @ResourceId@
 --
 -- * @StartRecordName ::@ @Maybe Text@
 --
--- * @StartRecordType ::@ @Maybe RRType@
+-- * @StartRecordType ::@ @Maybe RecordType@
 --
 -- * @StartRecordIdentifier ::@ @Maybe Text@
 --
 -- * @MaxItems ::@ @Maybe Text@
 --
-listResourceRecordSets :: Text -- ^ 'lrrsHostedZoneId'
+listResourceRecordSets :: ResourceId -- ^ 'lrrsHostedZoneId'
                        -> ListResourceRecordSets
 listResourceRecordSets p1 = ListResourceRecordSets
     { _lrrsHostedZoneId = p1
@@ -117,7 +117,7 @@ listResourceRecordSets p1 = ListResourceRecordSets
 
 -- | The ID of the hosted zone that contains the resource record sets that you
 -- want to get.
-lrrsHostedZoneId :: Lens' ListResourceRecordSets Text
+lrrsHostedZoneId :: Lens' ListResourceRecordSets ResourceId
 lrrsHostedZoneId =
     lens _lrrsHostedZoneId (\s a -> s { _lrrsHostedZoneId = a })
 
@@ -133,7 +133,7 @@ lrrsStartRecordName =
 -- Resource Record Sets: A | AAAA | CNAME | TXT Values for Alias Resource
 -- Record Sets: A | AAAA Constraint: Specifying type without specifying name
 -- returns an InvalidInput error.
-lrrsStartRecordType :: Lens' ListResourceRecordSets (Maybe RRType)
+lrrsStartRecordType :: Lens' ListResourceRecordSets (Maybe RecordType)
 lrrsStartRecordType =
     lens _lrrsStartRecordType (\s a -> s { _lrrsStartRecordType = a })
 
@@ -167,7 +167,7 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
     { _lrrsrResourceRecordSets :: [ResourceRecordSet]
     , _lrrsrIsTruncated :: !Bool
     , _lrrsrNextRecordName :: Maybe Text
-    , _lrrsrNextRecordType :: Maybe RRType
+    , _lrrsrNextRecordType :: Maybe RecordType
     , _lrrsrNextRecordIdentifier :: Maybe Text
     , _lrrsrMaxItems :: Text
     } deriving (Eq, Ord, Show, Generic)
@@ -185,7 +185,7 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
 --
 -- * @NextRecordName ::@ @Maybe Text@
 --
--- * @NextRecordType ::@ @Maybe RRType@
+-- * @NextRecordType ::@ @Maybe RecordType@
 --
 -- * @NextRecordIdentifier ::@ @Maybe Text@
 --
@@ -230,7 +230,7 @@ lrrsrNextRecordName =
 -- | If the results were truncated, the type of the next record in the list.
 -- This element is present only if ListResourceRecordSetsResponse$IsTruncated
 -- is true.
-lrrsrNextRecordType :: Lens' ListResourceRecordSetsResponse (Maybe RRType)
+lrrsrNextRecordType :: Lens' ListResourceRecordSetsResponse (Maybe RecordType)
 lrrsrNextRecordType =
     lens _lrrsrNextRecordType (\s a -> s { _lrrsrNextRecordType = a })
 

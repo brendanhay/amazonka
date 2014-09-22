@@ -67,9 +67,6 @@ module Network.AWS.Route53.Types
     -- * HealthCheckType
     , HealthCheckType (..)
 
-    -- * RRType
-    , RRType (..)
-
     -- * ResourceRecordSetRegion
     , ResourceRecordSetRegion (..)
 
@@ -661,58 +658,6 @@ instance ToXML HealthCheckType where
 instance ToQuery HealthCheckType where
       toQuery = toQuery . toBS
 
-data RRType
-    = RRTypeA -- ^ A
-    | RRTypeAaaa -- ^ AAAA
-    | RRTypeCname -- ^ CNAME
-    | RRTypeMx -- ^ MX
-    | RRTypeNs -- ^ NS
-    | RRTypePtr -- ^ PTR
-    | RRTypeSoa -- ^ SOA
-    | RRTypeSpf -- ^ SPF
-    | RRTypeSrv -- ^ SRV
-    | RRTypeTxt -- ^ TXT
-      deriving (Eq, Ord, Show, Generic)
-
-instance Hashable RRType
-
-instance FromText RRType where
-    parser = match "A" RRTypeA
-         <|> match "AAAA" RRTypeAaaa
-         <|> match "CNAME" RRTypeCname
-         <|> match "MX" RRTypeMx
-         <|> match "NS" RRTypeNs
-         <|> match "PTR" RRTypePtr
-         <|> match "SOA" RRTypeSoa
-         <|> match "SPF" RRTypeSpf
-         <|> match "SRV" RRTypeSrv
-         <|> match "TXT" RRTypeTxt
-
-instance ToText RRType where
-    toText RRTypeA = "A"
-    toText RRTypeAaaa = "AAAA"
-    toText RRTypeCname = "CNAME"
-    toText RRTypeMx = "MX"
-    toText RRTypeNs = "NS"
-    toText RRTypePtr = "PTR"
-    toText RRTypeSoa = "SOA"
-    toText RRTypeSpf = "SPF"
-    toText RRTypeSrv = "SRV"
-    toText RRTypeTxt = "TXT"
-
-instance ToByteString RRType
-
-instance FromXML RRType where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RRType"
-
-instance ToXML RRType where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "RRType"
-
-instance ToQuery RRType where
-      toQuery = toQuery . toBS
-
 data ResourceRecordSetRegion
     = ResourceRecordSetRegionApNortheast1 -- ^ ap-northeast-1
     | ResourceRecordSetRegionApSoutheast1 -- ^ ap-southeast-1
@@ -884,7 +829,7 @@ instance ToXML ResourceRecord where
 -- | Alias resource record sets only: Information about the AWS resource to
 -- which you are redirecting traffic.
 data AliasTarget = AliasTarget
-    { _atHostedZoneId :: Text
+    { _atHostedZoneId :: ResourceId
     , _atDNSName :: Text
     , _atEvaluateTargetHealth :: !Bool
     } deriving (Eq, Ord, Show, Generic)
@@ -894,13 +839,13 @@ data AliasTarget = AliasTarget
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @HostedZoneId ::@ @Text@
+-- * @HostedZoneId ::@ @ResourceId@
 --
 -- * @DNSName ::@ @Text@
 --
 -- * @EvaluateTargetHealth ::@ @Bool@
 --
-aliasTarget :: Text -- ^ 'atHostedZoneId'
+aliasTarget :: ResourceId -- ^ 'atHostedZoneId'
             -> Text -- ^ 'atDNSName'
             -> Bool -- ^ 'atEvaluateTargetHealth'
             -> AliasTarget
@@ -913,7 +858,7 @@ aliasTarget p1 p2 p3 = AliasTarget
 -- | Alias resource record sets only: The value of the hosted zone ID for the
 -- AWS resource. For more information and an example, see Creating Alias
 -- Resource Record Sets in the Amazon Route 53 Developer Guide.
-atHostedZoneId :: Lens' AliasTarget Text
+atHostedZoneId :: Lens' AliasTarget ResourceId
 atHostedZoneId = lens _atHostedZoneId (\s a -> s { _atHostedZoneId = a })
 
 -- | Alias resource record sets only: The external DNS name associated with the
@@ -1015,7 +960,7 @@ instance ToXML ChangeBatch where
 -- including the change batch ID, the status of the change, and the date and
 -- time of the request.
 data ChangeInfo = ChangeInfo
-    { _ciId :: Text
+    { _ciId :: ResourceId
     , _ciStatus :: ChangeStatus
     , _ciSubmittedAt :: ISO8601
     , _ciComment :: Maybe Text
@@ -1029,7 +974,7 @@ data ChangeInfo = ChangeInfo
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @Text@
+-- * @Id ::@ @ResourceId@
 --
 -- * @Status ::@ @ChangeStatus@
 --
@@ -1037,7 +982,7 @@ data ChangeInfo = ChangeInfo
 --
 -- * @Comment ::@ @Maybe Text@
 --
-changeInfo :: Text -- ^ 'ciId'
+changeInfo :: ResourceId -- ^ 'ciId'
            -> ChangeStatus -- ^ 'ciStatus'
            -> ISO8601 -- ^ 'ciSubmittedAt'
            -> ChangeInfo
@@ -1050,7 +995,7 @@ changeInfo p1 p2 p3 = ChangeInfo
 
 -- | The ID of the request. Use this ID to track when the change has completed
 -- across all Amazon Route 53 DNS servers.
-ciId :: Lens' ChangeInfo Text
+ciId :: Lens' ChangeInfo ResourceId
 ciId = lens _ciId (\s a -> s { _ciId = a })
 
 -- | The current state of the request. PENDING indicates that this request has
@@ -1382,7 +1327,7 @@ instance ToXML HealthCheckConfig where
 
 -- | A complex type that contain information about the specified hosted zone.
 data HostedZone = HostedZone
-    { _hzId :: Text
+    { _hzId :: ResourceId
     , _hzName :: Text
     , _hzCallerReference :: Text
     , _hzConfig :: Maybe HostedZoneConfig
@@ -1397,7 +1342,7 @@ data HostedZone = HostedZone
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @Text@
+-- * @Id ::@ @ResourceId@
 --
 -- * @Name ::@ @Text@
 --
@@ -1407,7 +1352,7 @@ data HostedZone = HostedZone
 --
 -- * @ResourceRecordSetCount ::@ @Maybe Integer@
 --
-hostedZone :: Text -- ^ 'hzId'
+hostedZone :: ResourceId -- ^ 'hzId'
            -> Text -- ^ 'hzName'
            -> Text -- ^ 'hzCallerReference'
            -> HostedZone
@@ -1420,7 +1365,7 @@ hostedZone p1 p2 p3 = HostedZone
     }
 
 -- | The ID of the specified hosted zone.
-hzId :: Lens' HostedZone Text
+hzId :: Lens' HostedZone ResourceId
 hzId = lens _hzId (\s a -> s { _hzId = a })
 
 -- | The name of the domain. This must be a fully-specified domain, for example,
@@ -1457,7 +1402,7 @@ instance FromXML HostedZone where
 -- set.
 data ResourceRecordSet = ResourceRecordSet
     { _rrsName :: Text
-    , _rrsType :: RRType
+    , _rrsType :: RecordType
     , _rrsSetIdentifier :: Maybe Text
     , _rrsWeight :: Maybe Integer
     , _rrsRegion :: Maybe ResourceRecordSetRegion
@@ -1476,7 +1421,7 @@ data ResourceRecordSet = ResourceRecordSet
 --
 -- * @Name ::@ @Text@
 --
--- * @Type ::@ @RRType@
+-- * @Type ::@ @RecordType@
 --
 -- * @SetIdentifier ::@ @Maybe Text@
 --
@@ -1497,7 +1442,7 @@ data ResourceRecordSet = ResourceRecordSet
 -- * @HealthCheckId ::@ @Maybe Text@
 --
 resourceRecordSet :: Text -- ^ 'rrsName'
-                  -> RRType -- ^ 'rrsType'
+                  -> RecordType -- ^ 'rrsType'
                   -> List1 ResourceRecord -- ^ 'rrsResourceRecords'
                   -> ResourceRecordSet
 resourceRecordSet p1 p2 p9 = ResourceRecordSet
@@ -1519,7 +1464,7 @@ rrsName :: Lens' ResourceRecordSet Text
 rrsName = lens _rrsName (\s a -> s { _rrsName = a })
 
 -- | The type of the current resource record set.
-rrsType :: Lens' ResourceRecordSet RRType
+rrsType :: Lens' ResourceRecordSet RecordType
 rrsType = lens _rrsType (\s a -> s { _rrsType = a })
 
 -- | Weighted, Latency, Geo, and Failover resource record sets only: An

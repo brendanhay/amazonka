@@ -47,7 +47,7 @@ import Network.AWS.Types (Region)
 
 -- | The input for a GetChange request.
 newtype GetChange = GetChange
-    { _gcId :: Text
+    { _gcId :: ResourceId
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -55,9 +55,9 @@ newtype GetChange = GetChange
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Id ::@ @Text@
+-- * @Id ::@ @ResourceId@
 --
-getChange :: Text -- ^ 'gcId'
+getChange :: ResourceId -- ^ 'gcId'
           -> GetChange
 getChange p1 = GetChange
     { _gcId = p1
@@ -66,7 +66,7 @@ getChange p1 = GetChange
 -- | The ID of the change batch request. The value that you specify here is the
 -- value that ChangeResourceRecordSets returned in the Id element when you
 -- submitted the request.
-gcId :: Lens' GetChange Text
+gcId :: Lens' GetChange ResourceId
 gcId = lens _gcId (\s a -> s { _gcId = a })
 
 instance ToPath GetChange
